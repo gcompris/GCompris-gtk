@@ -47,7 +47,7 @@ static void game_won();
 #define BUTTON_AREA_X2 487
 #define BUTTON_AREA_Y1 380
 
-#define CENTER_LEFT_X 185
+#define CENTER_LEFT_X 200
 #define CENTER_LEFT_Y 430
 #define CENTER_RIGHT_X 600
 #define CENTER_RIGHT_Y CENTER_LEFT_Y
@@ -71,7 +71,7 @@ static void game_won();
 /* ================================================================ */
 static GnomeCanvasGroup *boardRootItem = NULL;
 
-static GnomeCanvasItem *hand_image_item = NULL, *left_text_item = NULL, *right_text_item = NULL;
+static GnomeCanvasItem *hand_image_item = NULL;
 static GnomeCanvasItem *left_highlight_image_item = NULL, *right_highlight_image_item = NULL;
 
 static GnomeCanvasItem *leftright_create_item(GnomeCanvasGroup *parent);
@@ -234,7 +234,7 @@ static void leftright_destroy_all_items() {
 static GnomeCanvasItem *leftright_create_item(GnomeCanvasGroup *parent) {
   GdkPixbuf *highlight_pixmap = NULL;
   GdkPixbuf *hand_pixmap = NULL;
-  char *str = NULL;
+  gchar *str;
   int i;
 
   boardRootItem = GNOME_CANVAS_GROUP(
@@ -244,28 +244,7 @@ static GnomeCanvasItem *leftright_create_item(GnomeCanvasGroup *parent) {
 							    "y", (double) 0,
 							    NULL));
 
-  left_text_item = gnome_canvas_item_new (boardRootItem,
-					  gnome_canvas_text_get_type (),
-					  "text", _("left"),
-					  "font", gcompris_skin_font_board_big,
-					  "x", (double) CENTER_LEFT_X,
-					  "y", (double) CENTER_LEFT_Y,
-					  "anchor", GTK_ANCHOR_CENTER,
-					  "fill_color", TEXT_COLOR,
-					  NULL);
-
-  right_text_item = gnome_canvas_item_new (boardRootItem,
-					   gnome_canvas_text_get_type (),
-					   "text", _("right"),
-					   "font", gcompris_skin_font_board_big,
-					   "x", (double) CENTER_RIGHT_X,
-					   "y", (double) CENTER_RIGHT_Y,
-					   "anchor", GTK_ANCHOR_CENTER,
-					   "fill_color", TEXT_COLOR,
-					   NULL);
-
-  str = g_strdup_printf("%s/%s", gcomprisBoard->boarddir, "highlight_torus.png");
-  highlight_pixmap = gcompris_load_pixmap(str);
+  highlight_pixmap = gcompris_load_pixmap("leftright/leftright-select.png");
 
   left_highlight_image_item = gnome_canvas_item_new (boardRootItem,
 						     gnome_canvas_pixbuf_get_type (),
@@ -289,9 +268,48 @@ static GnomeCanvasItem *leftright_create_item(GnomeCanvasGroup *parent) {
 						      "height_set", TRUE,
 						      NULL);
 
-  g_free(str);
   gnome_canvas_item_hide(right_highlight_image_item);
   gnome_canvas_item_hide(left_highlight_image_item);
+
+  gnome_canvas_item_new (boardRootItem,
+			 gnome_canvas_text_get_type (),
+			 "text", _("left"),
+			 "font", gcompris_skin_font_board_big,
+			 "x", (double) CENTER_LEFT_X + 1.0,
+			 "y", (double) CENTER_LEFT_Y + 1.0,
+			 "anchor", GTK_ANCHOR_CENTER,
+			 "fill_color", "black",
+			 NULL);
+
+  gnome_canvas_item_new (boardRootItem,
+			 gnome_canvas_text_get_type (),
+			 "text", _("left"),
+			 "font", gcompris_skin_font_board_big,
+			 "x", (double) CENTER_LEFT_X,
+			 "y", (double) CENTER_LEFT_Y,
+			 "anchor", GTK_ANCHOR_CENTER,
+			 "fill_color", TEXT_COLOR,
+			 NULL);
+
+  gnome_canvas_item_new (boardRootItem,
+			 gnome_canvas_text_get_type (),
+			 "text", _("right"),
+			 "font", gcompris_skin_font_board_big,
+			 "x", (double) CENTER_RIGHT_X + 1.0,
+			 "y", (double) CENTER_RIGHT_Y + 1.0,
+			 "anchor", GTK_ANCHOR_CENTER,
+			 "fill_color", "black",
+			 NULL);
+
+  gnome_canvas_item_new (boardRootItem,
+			 gnome_canvas_text_get_type (),
+			 "text", _("right"),
+			 "font", gcompris_skin_font_board_big,
+			 "x", (double) CENTER_RIGHT_X,
+			 "y", (double) CENTER_RIGHT_Y,
+			 "anchor", GTK_ANCHOR_CENTER,
+			 "fill_color", TEXT_COLOR,
+			 NULL);
 
   // make sure that next hand is not the same as previous
   do {
