@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-10-19 14:43-0400\n"
+"POT-Creation-Date: 2005-10-23 02:19-0400\n"
 "PO-Revision-Date: 2005-09-06 22:51-0400\n"
 "Last-Translator: Adam Weinberger <adamw@gnome.org>\n"
 "Language-Team: Canadian English <adamw@gnome.org>\n"
@@ -783,25 +783,29 @@ msgstr "Drag and Drop the items to organize the story"
 
 #: boards/chronos.xml.in.h:3
 msgid ""
-"Moon photo is copyright NASA. The space sounds come from Tuxpaint and "
-"Vegastrike which are released under the GPL license. The transportation "
-"images are copyright Franck Doucet. Dates of Transportation are based on "
-"those found in &lt;http://www.wikipedia.org&gt;."
+"Moon photo is copyright NASA.\n"
+"The space sounds come from Tuxpaint and Vegastrike which are released under "
+"the GPL license.\n"
+"The transportation images are copyright Franck Doucet.\n"
+"Dates of Transportation are based on those found in &lt;http://www.wikipedia."
+"org&gt;.\n"
 msgstr ""
-"Moon photo is copyright NASA. The space sounds come from Tuxpaint and "
-"Vegastrike which are released under the GPL license. The transportation "
-"images are copyright Franck Doucet. Dates of Transportation are based on "
-"those found in &lt;http://www.wikipedia.org&gt;."
+"Moon photo is copyright NASA.\n"
+"The space sounds come from Tuxpaint and Vegastrike which are released under "
+"the GPL licence.\n"
+"The transportation images are copyright Franck Doucet.\n"
+"Dates of Transportation are based on those found in &lt;http://www.wikipedia."
+"org&gt;.\n"
 
-#: boards/chronos.xml.in.h:4
+#: boards/chronos.xml.in.h:8
 msgid "Pick from the pictures on the left and put them on the red dots"
 msgstr "Pick from the pictures on the left and put them on the red dots"
 
-#: boards/chronos.xml.in.h:5
+#: boards/chronos.xml.in.h:9
 msgid "Sort the pictures into the order that tells the story"
 msgstr "Sort the pictures into the order that tells the story"
 
-#: boards/chronos.xml.in.h:6
+#: boards/chronos.xml.in.h:10
 msgid "Tell a short story"
 msgstr "Tell a short story"
 
@@ -3147,10 +3151,10 @@ msgstr "Mirror the given item"
 
 #: boards/reversecount.xml.in.h:1
 msgid ""
-"Can move the mouse, can read numbers and subtract numbers up to 10 for the "
+"Can move the mouse, can read numbers and substract numbers up to 10 for the "
 "first level"
 msgstr ""
-"Can move the mouse, can read numbers and subtract numbers up to 10 for the "
+"Can move the mouse, can read numbers and substract numbers up to 10 for the "
 "first level"
 
 #: boards/reversecount.xml.in.h:2
@@ -3606,44 +3610,44 @@ msgid "Set the watch to:"
 msgstr "Set the watch to:"
 
 #: src/boards/colors.c:57
-msgid "Click on the blue toon"
-msgstr "Click on the blue toon"
+msgid "Click on the blue duck"
+msgstr "Click on the blue duck"
 
 #: src/boards/colors.c:58
-msgid "Click on the brown toon"
-msgstr "Click on the brown toon"
+msgid "Click on the brown duck"
+msgstr "Click on the brown duck"
 
 #: src/boards/colors.c:59
-msgid "Click on the green toon"
-msgstr "Click on the green toon"
+msgid "Click on the green duck"
+msgstr "Click on the green duck"
 
 #: src/boards/colors.c:60
-msgid "Click on the grey toon"
-msgstr "Click on the grey toon"
+msgid "Click on the grey duck"
+msgstr "Click on the grey duck"
 
 #: src/boards/colors.c:61
-msgid "Click on the orange toon"
-msgstr "Click on the orange toon"
+msgid "Click on the orange duck"
+msgstr "Click on the orange duck"
 
 #: src/boards/colors.c:62
-msgid "Click on the purple toon"
-msgstr "Click on the purple toon"
+msgid "Click on the purple duck"
+msgstr "Click on the purple duck"
 
 #: src/boards/colors.c:63
-msgid "Click on the red toon"
-msgstr "Click on the red toon"
+msgid "Click on the red duck"
+msgstr "Click on the red duck"
 
 #: src/boards/colors.c:64
-msgid "Click on the yellow toon"
-msgstr "Click on the yellow toon"
+msgid "Click on the yellow duck"
+msgstr "Click on the yellow duck"
 
 #: src/boards/colors.c:65
-msgid "Click on the black toon"
-msgstr "Click on the black toon"
+msgid "Click on the black duck"
+msgstr "Click on the black duck"
 
 #: src/boards/colors.c:66
-msgid "Click on the white toon"
-msgstr "Click on the white toon"
+msgid "Click on the white duck"
+msgstr "Click on the white duck"
 
 #: src/boards/erase.c:158
 msgid "Couldn't get GTK settings"
@@ -3694,17 +3698,17 @@ msgstr "Move the entire stack to the right peg"
 msgid "Learn how to read"
 msgstr "Learn how to read"
 
-#: src/boards/leftright.c:248 src/boards/python/searace.py:429
-#: src/boards/python/searace.py:454 src/boards/python/searace.py:544
-#: src/boards/python/searace.py:856 src/boards/python/searace.py:889
-#: src/boards/python/searace.py:986
+#: src/boards/leftright.c:276 src/boards/leftright.c:286
+#: src/boards/python/searace.py:429 src/boards/python/searace.py:454
+#: src/boards/python/searace.py:544 src/boards/python/searace.py:856
+#: src/boards/python/searace.py:889 src/boards/python/searace.py:986
 msgid "left"
 msgstr "left"
 
-#: src/boards/leftright.c:258 src/boards/python/searace.py:429
-#: src/boards/python/searace.py:454 src/boards/python/searace.py:553
-#: src/boards/python/searace.py:858 src/boards/python/searace.py:891
-#: src/boards/python/searace.py:980
+#: src/boards/leftright.c:296 src/boards/leftright.c:306
+#: src/boards/python/searace.py:429 src/boards/python/searace.py:454
+#: src/boards/python/searace.py:553 src/boards/python/searace.py:858
+#: src/boards/python/searace.py:891 src/boards/python/searace.py:980
 msgid "right"
 msgstr "right"
 
@@ -4236,6 +4240,11 @@ msgstr ""
 "G\n"
 "L\n"
 "E"
+
+#: src/boards/python/guessnumber.py:220
+#, python-format
+msgid "Guess a number between %d and %d"
+msgstr "Guess a number between %d and %d"
 
 #: src/boards/python/guessnumber.py:334 src/boards/python/guessnumber.py:335
 #, python-format
