@@ -46,6 +46,7 @@
 # define WIN32
 #endif
 
+#ifdef WIN32
 /* List of keycodes */
 static gchar *keycode[] =
   {
@@ -58,6 +59,8 @@ static gchar *keycode[] =
     "84175",
     NULL
   };
+#endif
+
 #define KEYCODE_LENGTH 5
 static char current_keycode[KEYCODE_LENGTH];
 static int  current_keycode_index;
@@ -73,6 +76,7 @@ static void quit_cb (GtkWidget *widget, gpointer data);
 static gint board_widget_key_press_callback (GtkWidget   *widget,
 					    GdkEventKey *event,
 					    gpointer     client_data);
+void gcompris_terminate(int  signum);
 
 GcomprisProperties	*properties = NULL;
 static gboolean		 antialiased = FALSE;
@@ -186,11 +190,11 @@ typedef struct
 } XRANDRData; 
 
 static SizeID		 xr_previous_size = -1;
-static XRANDRData	*xrandr;
+static XRANDRData	*xrandr = NULL;
 
-static void xrandr_init ( XRANDRData *data );
-static void xrandr_get_config ( XRANDRData *data );
-gboolean xrandr_set_config( XRANDRData  *grandr );
+static void xrandr_init ( XRANDRData *xrandr );
+static void xrandr_get_config ( XRANDRData *xrandr );
+static void xrandr_set_config( XRANDRData  *xrandr );
 #endif
 
 /****************************************************************************/
@@ -480,11 +484,12 @@ static void init_background()
 
   g_message("Calculated x ratio xratio=%f\n", xratio);
   
+  /* First, Remove the gnome crash dialog because it locks the user when in full screen */
+  signal(SIGSEGV, gcompris_terminate);
+
   /* Background area if ratio above 1 */
   if(properties->fullscreen)
     {
-      /* First, Remove the gnome crash dialog because it locks the user when in full screen */
-      signal(SIGSEGV, SIG_DFL);
 
       /* WARNING : I add 30 here for windows. don't know why it's needed. Doesn't hurt the Linux version */
       gnome_canvas_set_scroll_region (canvas_bg,
@@ -975,6 +980,9 @@ void gcompris_log_handler (const gchar *log_domain,
 static void
 xrandr_init ( XRANDRData *data )
 {
+  if(data==NULL)
+    return;
+
   data->xr_screen_conf = XRRGetScreenInfo (GDK_DISPLAY(), GDK_ROOT_WINDOW());
 
   if (data->xr_screen_conf == NULL)
@@ -989,6 +997,9 @@ xrandr_init ( XRANDRData *data )
 static void
 xrandr_get_config ( XRANDRData *data )
 {
+  if(data==NULL)
+    return;
+
   xrandr_init (data);
 
   data->xr_current_size = XRRConfigCurrentConfiguration (data->xr_screen_conf, 
@@ -1000,12 +1011,15 @@ xrandr_get_config ( XRANDRData *data )
 					  &data->xr_current_rotation);
 }
 
-gboolean
+static void
 xrandr_set_config( XRANDRData  *data )
 {
   Status  status = RRSetConfigFailed;
 
-  if (data->xr_lock_updates) return FALSE;
+  if(data==NULL)
+    return;
+
+  if (data->xr_lock_updates) return;
   
   status = XRRSetScreenConfig (GDK_DISPLAY(), 
 			       data->xr_screen_conf, 
@@ -1017,7 +1031,7 @@ xrandr_set_config( XRANDRData  *data )
   if(status) {
     printf("ERROR: Failed to set back the original resolution XRRSetScreenConfig returned status = %d\n", (int)status);
   }
-  return TRUE;
+  return;
 
 }
 #endif

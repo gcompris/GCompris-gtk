@@ -1,3 +1,11 @@
+2005-10-28  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* src/gcompris/gcompris.c: (init_background), (xrandr_init),
+	(xrandr_get_config), (xrandr_set_config): fixes a crash that happens at quit time
+	with xrandr set but for some reason, the xrandr variable is at NULL.
+	Added signal handler on SIGSEGV to trap gcompris crash and set back the screen
+	resolution.
+
 2005-10-21  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	Completed leftright remake, integrated new highlight
