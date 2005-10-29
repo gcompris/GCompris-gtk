@@ -1,3 +1,11 @@
+2005-10-29  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* boards/chronos.xml.in: added missing xml:space="preserve"
+	* boards/geography/Makefile.am: missing file
+	* boards/geography/board4_0.xml.in: Fixed missing _ for I18N
+	* boards/geography/board4_1.xml.in: Fixed missing _ for I18N
+	* boards/geography/board4_2.xml.in: Fixed Maritania image reference
+
 2005-10-28  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* src/gcompris/gcompris.c: (init_background), (xrandr_init),
