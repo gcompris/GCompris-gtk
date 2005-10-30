@@ -19,6 +19,7 @@
  */
 
 #include "gcompris/gcompris.h"
+#include <time.h>
 
 #define PIECE_SIZE 50
 
@@ -192,7 +193,6 @@ static GnomeCanvasItem *fifteen_create_item(GnomeCanvasGroup *parent)
   GnomeCanvasItem **board;
   GnomeCanvasItem *text;
   char buf[20];
-  GnomeCanvasItem *item = NULL;
   GdkPixbuf *pixmap = NULL;
 
   boardRootItem = GNOME_CANVAS_GROUP(
@@ -427,7 +427,6 @@ piece_event (GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 static void
 scramble (GnomeCanvasItem **board, guint number_of_scrambles)
 {
-  GnomeCanvas *canvas;
   int i;
   int pos, oldpos;
   int dir;

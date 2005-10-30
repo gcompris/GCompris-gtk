@@ -70,6 +70,7 @@ xml_in_files = \
 	menu.xml.in \
 	missing_letter.xml.in \
 	money.xml.in \
+	mosaic.xml.in \
 	money_cents.xml.in \
 	mouse.xml.in \
 	paintings.xml.in \

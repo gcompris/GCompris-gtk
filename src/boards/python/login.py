@@ -29,9 +29,6 @@ from gettext import gettext as _
 
 import math
 
-# Database
-from pysqlite2 import dbapi2 as sqlite
-
 # Background screens
 backgrounds = [
   "images/scenery2_background.png",
@@ -75,10 +72,6 @@ class Gcompris_login:
     # Get the default profile
     self.Prop = gcompris.get_properties()
 
-    # Connect to our database
-    self.con = sqlite.connect(gcompris.get_database())
-    self.cur = self.con.cursor()
-
     # init config to default values
     self.config_dict = self.init_config()
 
@@ -91,9 +84,6 @@ class Gcompris_login:
     self.init_rootitem(self.Prop)
 
     # Get the user list
-    #users = self.get_users(self.con, self.cur,
-    #                       Prop.profile.profile_id)
-
     users = []
     for group_id in self.Prop.profile.group_ids:
       users.extend( gcompris.admin.get_users_from_group(group_id))
@@ -165,9 +155,6 @@ class Gcompris_login:
     # Remove the root item removes all the others inside it
     self.rootitem.destroy()
 
-    # Close the database
-    self.cur.close()
-    self.con.close()
 
   def ok(self):
     print("Gcompris_login ok.")

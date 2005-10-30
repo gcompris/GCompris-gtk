@@ -15,6 +15,7 @@ dist_python_DATA= \
 	hexagon.py \
 	login.py \
 	melody.py \
+	mosaic.py \
 	pythontest.py \
 	redraw.py \
 	searace.py \

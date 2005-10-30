@@ -1,3 +1,21 @@
+2005-10-30  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	- login do no more need pysqlite
+	- user report now use the gcompris login name if available
+	- created a new activity, called mosaic. Not playable yet.
+	
+	* boards/mosaic.xml.in:
+	* src/boards/python/mosaic.py:
+	* boards/Makefile.am:
+	* gcompris.spec.in:
+	* src/boards/fifteen.c: (fifteen_create_item), (scramble): removed warnings
+	* src/boards/python/Makefile.am:
+	* src/boards/python/guessnumber.py:
+	* src/boards/python/login.py:
+	* src/gcompris/log.c: (gcompris_log_end):
+
+	*** RELEASE 7.1.0PRE1 (In GCOMPRIS_7_1 BRANCH) ***
+	
 2005-10-29  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* boards/chronos.xml.in: added missing xml:space="preserve"

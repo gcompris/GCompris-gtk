@@ -34,8 +34,10 @@
 #include <unistd.h>
 #include <stdio.h>
 #include <time.h>
+#include <string.h>
 
 #include <gcompris.h>
+#include "profile.h"
  
 #define KEYLOG_MAX 256
 
@@ -164,8 +166,14 @@ void gcompris_log_end (GcomprisBoard *gcomprisBoard, gchar *status) {
 
   struct tm *tp;
 
+  GcomprisUser *gcomprisUser = gcompris_get_current_user();
+  char *username = g_get_user_name();
+
   if(gcomprisBoard_set != gcomprisBoard)
     return;
+
+  if(gcomprisUser && gcomprisUser->login)
+    username = gcomprisUser->login;
 
   /* and convert it to UTC or local time representation */
   if (USE_UTC)
@@ -187,14 +195,14 @@ void gcompris_log_end (GcomprisBoard *gcomprisBoard, gchar *status) {
   flog = fopen(file,"a");
 
   /* date,computer,user,board,level,sublevel,status, duration,comment */
-  fprintf(flog, "%s;%s;%s;gcompris;%s;%d;%d;%s;%d;%s;%s\n", buf, hostname, g_get_user_name(),
+  fprintf(flog, "%s;%s;%s;gcompris;%s;%d;%d;%s;%d;%s;%s\n", buf, hostname, username,
 	  gcomprisBoard->name, 
 	  gcomprisBoard->level, gcomprisBoard->sublevel,
 	  status,
 	  (guint)duration,
 	  comment_set,
 	  keylog);
-  printf("%s;%s;%s;gcompris;%s;%d;%d;%s;%d;%s;%s\n", buf, hostname, g_get_user_name(), 
+  printf("%s;%s;%s;gcompris;%s;%d;%d;%s;%d;%s;%s\n", buf, hostname, username,
 	 gcomprisBoard->name, 
 	 gcomprisBoard->level, gcomprisBoard->sublevel,
 	 status,
