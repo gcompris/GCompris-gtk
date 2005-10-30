@@ -1,6 +1,6 @@
 /* gcompris - wordsgame.c
  *
- * Time-stamp: <2005/09/26 00:17:42 yves>
+ * Time-stamp: <2005/10/30 21:34:00 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  * 
@@ -21,6 +21,7 @@
 
 #include <errno.h>
 #include <stdio.h>
+#include <string.h>
 
 #include "gcompris/gcompris.h"
 #include "gcompris/gameutil.h"
@@ -233,7 +234,6 @@ static gint key_press(guint keyval, gchar *commit_str, gchar *preedit_str)
     gchar *letter; 
     gint i;
     LettersItem *item;
-    gint str_length;
     gchar *str;
     gunichar unichar_letter;
 
@@ -779,7 +779,7 @@ static gboolean  wordsgame_read_wordfile()
     }
                                                                                                                               
    words=g_ptr_array_new ();
-   while (buf=fgets(g_new(gchar,MAXWORDSLENGTH), MAXWORDSLENGTH, wordsfd)) {
+   while ((buf=fgets(g_new(gchar,MAXWORDSLENGTH), MAXWORDSLENGTH, wordsfd))) {
         assert(g_utf8_validate(buf,-1,NULL));
                                                                                                                               
         //remove \n from end of line

@@ -20,6 +20,7 @@
 #include <ctype.h>
 #include <math.h>
 #include <assert.h>
+#include <string.h>
 
 #include "gcompris/gcompris.h"
 
@@ -63,17 +64,28 @@ static gint board_mode =  NORMAL;
 // List of images to use in the game
 static gchar *imageList[] =
   {
+    "gcompris/animals/bear001.jpg",
+    "gcompris/animals/elephanteauxgc.jpg",
     "gcompris/animals/flamentrosegc.jpg",
     "gcompris/animals/girafegc.jpg",
+    "gcompris/animals/hypogc.jpg",
+    "gcompris/animals/joybear001.jpg",
+    "gcompris/animals/joybear002.jpg",
+    "gcompris/animals/jumentmulassieregc.jpg",
+    "gcompris/animals/malaybear002.jpg",
+    "gcompris/animals/polabear011.jpg",
+    "gcompris/animals/polarbear001.jpg",
+    "gcompris/animals/poolbears001.jpg",
     "gcompris/animals/rhinogc.jpg",
     "gcompris/animals/singegc.jpg",
-    "gcompris/animals/joybear002.jpg",
-    "gcompris/animals/elephanteauxgc.jpg",
-    "gcompris/animals/hypogc.jpg",
-    "gcompris/animals/jumentmulassieregc.jpg",
-    "gcompris/animals/tetegorillegc.jpg"
+    "gcompris/animals/spectbear001.jpg",
+    "gcompris/animals/tetegorillegc.jpg",
+    "gcompris/animals/tiger1_by_Ralf_Schmode.jpg",
+    "gcompris/animals/tigercub003.jpg",
+    "gcompris/animals/tigerdrink001.jpg",
+    "gcompris/animals/tigerplay001.jpg",
   };
-#define NUMBER_OF_IMAGES 9
+#define NUMBER_OF_IMAGES 20
 
 /* Description of this plugin */
 static BoardPlugin menu_bp =
@@ -324,7 +336,6 @@ static void game_won()
 
   if(gcomprisBoard->sublevel>gcomprisBoard->number_of_sublevel) {
     /* Try the next level */
-    int i;
     gcomprisBoard->sublevel=1;
     gcomprisBoard->level++;
     if(gcomprisBoard->level>gcomprisBoard->maxlevel) { // the current board is finished : bail out

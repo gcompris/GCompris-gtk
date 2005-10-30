@@ -17,6 +17,8 @@
  *   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  */
 
+#include <string.h>
+
 #include "gcompris.h"
 
 #ifdef USE_SQLITE
@@ -120,11 +122,7 @@ int gcompris_db_init()
   int rc;
   int nrow;
   int ncolumn;
-  int i,j;
   gchar *request;
-  GDate *gdate;
-  gchar date[10];
-
 
   GcomprisProperties	*properties = gcompris_get_properties();
   
@@ -313,7 +311,6 @@ void gcompris_db_set_date(gchar *date)
   int rc;
   int nrow;
   int ncolumn;
-  gboolean ret_value;
   gchar *request;
 
   request = g_strdup_printf(BOARDS_SET_DATE(date));
@@ -346,7 +343,6 @@ void gcompris_db_set_version(gchar *version)
   int rc;
   int nrow;
   int ncolumn;
-  gboolean ret_value;
   gchar *request;
 
   request = g_strdup_printf(BOARDS_UPDATE_VERSION(version));
@@ -446,7 +442,6 @@ void gcompris_db_board_update(gint *board_id,
   int rc;
   int nrow;
   int ncolumn;
-  int i,j;
   gchar *request;
 
   if (gcompris_db == NULL)
@@ -676,6 +671,7 @@ GList *gcompris_load_menus_db(GList *boards_list)
 
 GList *gcompris_db_read_board_from_section(gchar *section)
 {
+  return NULL;
 }
 
 
@@ -685,7 +681,6 @@ GList *gcompris_db_read_board_from_section(gchar *section)
 GList *gcompris_db_get_board_id(GList *list)
 {
 #ifdef USE_SQLITE
-  int *board_id = g_malloc0(sizeof(int));
   
   GList *board_id_list = list;
 
@@ -738,7 +733,6 @@ void gcompris_db_remove_board(int board_id)
   int rc;
   int nrow;
   int ncolumn;
-  int i;
   gchar *request;
 
   /* get section_id */
@@ -988,8 +982,6 @@ GcomprisProfile *gcompris_db_get_profile()
   int rc;
   int nrow;
   int ncolumn;
-  gchar *request;
-
   int profile_id;
 
   rc = sqlite3_get_table(gcompris_db, 
@@ -1080,10 +1072,7 @@ GcomprisUser *gcompris_get_user_from_id(gint user_id)
   int nrow;
   int ncolumn;
   gchar *request;
-
   int i;
-  GList *users = NULL;
-
   GcomprisUser *user = NULL;
 
   request = g_strdup_printf(USER_FROM_ID(user_id));
@@ -1140,7 +1129,6 @@ GcomprisClass *gcompris_get_class_from_id(gint class_id)
   gchar *request;
 
   int i;
-  GList *users = NULL;
   GcomprisClass *class = NULL;
 
   request = g_strdup_printf(CLASS_FROM_ID(class_id));
@@ -1194,7 +1182,7 @@ GcomprisClass *gcompris_get_class_from_id(gint class_id)
   g_free(request);
 
   if (nrow == 0){
-    g_error("No groups found for class %s: there must be at least one for the whole class with id (%d)", 
+    g_error("No groups found for class id %d: there must be at least one for the whole class with id (%d)", 
 	    class_id, class->wholegroup_id);
     g_free(class);
     class = NULL;
@@ -1589,8 +1577,6 @@ GList *gcompris_get_groups_list()
   int rc;
   int nrow;
   int ncolumn;
-  gchar *request;
-
   int i;
   GcomprisGroup *group = NULL;
 
@@ -1732,8 +1718,6 @@ GList *gcompris_get_users_list()
   int rc;
   int nrow;
   int ncolumn;
-  gchar *request;
-
   int i;
   GcomprisUser *user = NULL;
 
@@ -1782,15 +1766,13 @@ GList *gcompris_get_users_list()
 GList *gcompris_get_classes_list()
 {
 #ifdef USE_SQLITE
-  GList *classes_list;
+  GList *classes_list = NULL;
 
   char *zErrMsg;
   char **result;
   int rc;
   int nrow;
   int ncolumn;
-  gchar *request;
-
   int i;
   GcomprisClass *class = NULL;
 

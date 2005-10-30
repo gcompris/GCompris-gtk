@@ -3,7 +3,7 @@
   <Board 
 	 name="memory_tux"
 	 type="memory" 
-	 section="/boards/memory"
+	 section="/boards/memory_group"
 	 mode="tux" 
 	 difficulty="2"
 	 icon="boardicons/memory_tux.png" 
@@ -13,12 +13,7 @@
  	 <_description>Play to memory against Tux.</_description>
 	<_prerequisite>Mouse manipulation, Brain.</_prerequisite>
 	<_goal>Train your memory and remove all the cards</_goal>
-	<_manual>A set of blank cards is shown. Each pair is
-associated by the same picture in their hidden faces. Click on a
-card to can uncover it and see its hidden picture. However, you
-can only see two hidden pictures at once. You have to remember the
-position of the pictures to associate them. To remove a pair of cards,
-uncover both of them. You play alternatively with Tux, and must take more pairs of cards than him.</_manual>
+	<_manual>A set of blank cards is shown. Each pair is associated by the same picture in their hidden faces. Click on a card to can uncover it and see its hidden picture. However, you can only see two hidden pictures at once. You have to remember the position of the pictures to associate them. To remove a pair of cards, uncover both of them. You play alternatively with Tux, and must take more pairs of cards than him.</_manual>
   </Board>
   <Data directory=""/>
 </GCompris>

@@ -124,7 +124,7 @@ class Gcompris_guessnumber:
     
     # When the bonus is displayed, it call us first with pause(1) and then with pause(0)
     # the game is won
-    if(pause == 0):
+    if(pause == 0 and self.gamewon):
       self.increment_level()
       self.gamewon = 0
 
@@ -182,6 +182,7 @@ class Gcompris_guessnumber:
   
   # Display the board game
   def cleanup_game(self):
+    self.gamewon = False
     if self.movestep_timer != 0:
       gtk.timeout_remove(self.movestep_timer)
       self.movestep_timer = 0
@@ -320,6 +321,7 @@ class Gcompris_guessnumber:
     if str(self.solution) == text:
       self.indicator.set(text="")
       self.indicator_s.set(text="")
+      self.gamewon = True
       gcompris.bonus.display(gcompris.bonus.WIN, gcompris.bonus.TUX)
     else:
       try:

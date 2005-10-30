@@ -39,7 +39,7 @@ class Gcompris_hexagon:
     # These are used to let us restart only after the bonus is displayed.
     # When the bonus is displayed, it call us first with pause(1) and then with pause(0)
     self.board_paused  = 0;
-    self.gamewon       = 0;
+    self.gamewon       = False;
 
 
   def start(self): 
@@ -73,7 +73,7 @@ class Gcompris_hexagon:
     
     # When the bonus is displayed, it call us first with pause(1) and then with pause(0)
     # the game is won
-    if(pause == 0):
+    if(pause == 0 and self.gamewon):
       self.finished()
       self.gamewon = 0
 
@@ -87,6 +87,7 @@ class Gcompris_hexagon:
 
   def cleanup(self):
 
+    self.gamewon       = False;
     # Remove the root item removes all the others inside it
     if self.rootitem != None: 
      self.rootitem.destroy()
@@ -152,6 +153,7 @@ class Gcompris_hexagon:
                              
      if catdistance<0.1:
       self.paint_cat()
+      self.gamewon       = True;
       gcompris.bonus.display(gcompris.bonus.WIN, gcompris.bonus.GNU)
      else:
        color = self.coloring (catdistance/30.0)

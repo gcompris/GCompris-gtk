@@ -49,7 +49,6 @@ static gboolean		 animate_step(void);
 static const int line[] = { 100,180,260,340, 420, 500};
 static gboolean animation_pending;
 static gint animation_count = 0;
-static double step = 0;
 
 static GnomeCanvasGroup *boardRootItem = NULL;
 
@@ -563,7 +562,7 @@ static void reposition_model() {
     return;
 
   g_warning("+++ reposition_model\n");
-  gnome_canvas_item_move(modelRootItem, 0, 0);
+  gnome_canvas_item_move(GNOME_CANVAS_ITEM(modelRootItem), 0, 0);
   for (i=0; i<model_size; i++) {
     item = item_model[i];
     gnome_canvas_item_get_bounds(item, &dx1, &dy1, &dx2, &dy2);
@@ -574,7 +573,8 @@ static void reposition_model() {
 
 /* ==================================== */
 static gboolean animate_step() {
-  int i;
+  double step = 0;
+
   // this defines how the train waits before start
 #define MODEL_PAUSE 30
   //	printf("+++animate_step %d \n",animation_count);
@@ -590,7 +590,7 @@ static gboolean animate_step() {
   if (animation_count < MODEL_PAUSE)
     return TRUE;
 
-  if (animation_count == 160+MODEL_PAUSE) {
+  if (animation_count >= 160+MODEL_PAUSE) {
     if (timer_id) {
       gtk_timeout_remove (timer_id);
       timer_id = 0;
@@ -598,7 +598,7 @@ static gboolean animate_step() {
     animation_pending = FALSE;
     gnome_canvas_item_hide(GNOME_CANVAS_ITEM(modelRootItem));
     /* Move back the model to its 0 position */
-    gnome_canvas_item_set(modelRootItem,
+    gnome_canvas_item_set(GNOME_CANVAS_ITEM(modelRootItem),
 			  "x", 0.0,
 			  NULL);
 
@@ -610,7 +610,7 @@ static gboolean animate_step() {
   step = (double) (animation_count-MODEL_PAUSE) / 50.0;
   step *= step;
 
-  gnome_canvas_item_move(modelRootItem, step, 0.0);
+  gnome_canvas_item_move(GNOME_CANVAS_ITEM(modelRootItem), step, 0.0);
 
   return TRUE;
 }
@@ -618,7 +618,6 @@ static gboolean animate_step() {
 static void animate_model() {
   animation_pending = TRUE;
   animation_count = 0;
-  step = 1.0;
 
   gcompris_play_ogg( "train", NULL );
 
