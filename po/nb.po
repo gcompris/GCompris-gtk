@@ -1,3 +1,5 @@
+# translation of gcompris.30.10.2005.po to Norwegian Bokmål <
+# translation of gcompris.po.30.10.2005.po to Norwegian Bokmål <
 # translation of gcompris.14.9.05.po to Norwegian Bokmål <
 # translation of nb.po.gcompris.cvs.po to Norwegian Bokmål <
 # translation of gcompris.6.5.po to Norwegian Bokmål <
@@ -9,15 +11,16 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: gcompris. 16.10.2005\n"
+"Project-Id-Version: gcompris.30.10.2005\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2005-10-16 20:56+0200\n"
-"PO-Revision-Date: 2005-10-16 21:12+0200\n"
-"Last-Translator: Kjartan Maraas <kmaraas@gnome.org>\n"
+"PO-Revision-Date: 2005-10-30 14:31+0100\n"
+"Last-Translator: Klaus Ade Johnstad <klaus@skolelinux.no>\n"
 "Language-Team: Norwegian Bokmål < <i18n-nb@lister.ping.uio.no>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.9.1\n"
 
 #: ../boards/administration.xml.in.h:1
 msgid ""
@@ -49,7 +52,7 @@ msgid ""
 "administration module here. The ultimate goal is to provide child-specific "
 "reporting for parents and teacher who want to monitor the progress, "
 "strengths and weakenesses of their children."
-msgstr ""
+msgstr "Du kan fininnstille GCompris ved å benytte denne administrasjons modulen. Det endelige målet med denne modulen er å kunne tilby lærere og foreldre muligheten til å følge med på barnets utvikling, styrke og svakheter innefor de forskjellige emnene i GCompris.i"
 
 #: ../boards/administration.xml.in.h:4 ../boards/gnumchmenu.xml.in.h:2
 msgid "Left-Click with the mouse to select an activity"
@@ -358,7 +361,6 @@ msgid "veronese"
 msgstr "mørk gulgrøn"
 
 #: ../boards/algebra_by.xml.in.h:1
-#, fuzzy
 msgid ""
 "A multiplication of two numbers is displayed. At the right of the equals "
 "sign, give the answer, the product. Use the left and right arrows to modify "
@@ -367,8 +369,7 @@ msgid ""
 msgstr ""
 "Et gangestykke med to tall vises. Oppgi produktet på høyre side av "
 "likhetstegnet. Bruk venstre og høyre piltast for å endre produktet og trykk "
-"på Enter for å sjekke ditt svar. Du kan endre på farten i GCompris "
-"konfigurasjonsmenyen."
+"på Enter for å sjekke ditt svar. Hvis du svarer feil, så prøv pånytt."
 
 #: ../boards/algebra_by.xml.in.h:2 ../boards/algebra_minus.xml.in.h:2
 #: ../boards/algebra_plus.xml.in.h:2
@@ -402,17 +403,15 @@ msgstr "Venstreklikk på en aktivitet med musen for å velge den."
 
 #: ../boards/algebra_guesscount.xml.in.h:1 ../boards/erase_clic.xml.in.h:1
 #: ../boards/erase_double_clic.xml.in.h:1
-#, fuzzy
 msgid ""
 "Animal pictures come from the Animal Photography Page of Ralf Schmode "
 "(http://schmode.net/). Ralf has kindly permitted Gcompris to include his "
 "pictures. Thanks a lot, Ralf."
 msgstr ""
-"Dyrebildene er tatt fra Ralf Schmode's side med dyrebilder &lt;http://"
-"schmode.net/&gt;. Ralf har latt GCompris bruke bildene hans. Mange takk Ralf."
+"Dyrebildene er tatt fra Ralf Schmode's side med dyrebilder (http://"
+"schmode.net/). Ralf har latt GCompris bruke bildene hans. Mange takk Ralf."
 
 #: ../boards/algebra_guesscount.xml.in.h:2
-#, fuzzy
 msgid ""
 "At the top of the board area, choose the numbers and arithmetic operators "
 "that give the specified result. You can deselect a number or operator by "
@@ -422,26 +421,22 @@ msgstr ""
 "svaret. Tallene og regneoperasjonene kan fravelges ved å klikke på dem."
 
 #: ../boards/algebra_guesscount.xml.in.h:3
-#, fuzzy
 msgid ""
 "Deploy a strategy to arrange a set of arithmetic operations to match a given "
 "value."
 msgstr ""
 "Lær å bruke en strategi for å arrangere en rekke regneoperasjoner for å "
-"finne et resultat"
+"finne et gitt resultat."
 
 #: ../boards/algebra_guesscount.xml.in.h:4
-#, fuzzy
 msgid "Find the series of correct operations that matches the given answer"
 msgstr "Finn riktige regneoperasjoner for å få resultatet"
 
 #: ../boards/algebra_guesscount.xml.in.h:5
-#, fuzzy
 msgid "The four arithmetic operations. Combine several arithmetic operations."
 msgstr "De fire regneartene. Kombinere forskjellige regneoperasjoner."
 
 #: ../boards/algebra_guesscount.xml.in.h:6
-#, fuzzy
 msgid ""
 "Work out the right combination of numbers and operations to match the given "
 "value"
@@ -450,7 +445,6 @@ msgstr ""
 "resultat."
 
 #: ../boards/algebra_minus.xml.in.h:1
-#, fuzzy
 msgid ""
 "A subtraction problem with two numbers is displayed. At the right of the "
 "equals sign, give the answer, the difference. Use the left and right arrows "
@@ -460,7 +454,7 @@ msgstr ""
 "Et subtraksjonsproblem med to tall blir vist. På høyre side av likhetstegnet "
 "skal du skrive differansen mellom tallene. Bruk piltastene til venstre og "
 "høyre for å endre på svaret, og trykk til slutt på Enter for å rette svare "
-"ditt. Du kan endre på farten i GCompris konfigurasjonsmenyen."
+"ditt. Hvis du svarer feil, så prøv pånytt."
 
 #: ../boards/algebra_minus.xml.in.h:3
 msgid "In a limited time, find the difference between two numbers"
@@ -475,7 +469,6 @@ msgid "Simple subtraction"
 msgstr "Enkel subtraksjon"
 
 #: ../boards/algebra_plus.xml.in.h:1
-#, fuzzy
 msgid ""
 "An addition problem with two numbers is displayed. At the right of the "
 "equals sign, give the answer, the sum. Use the left and right arrows to "
@@ -485,7 +478,7 @@ msgstr ""
 "Et subtraksjonsproblem med to tall blir vist. På høyre side av likhetstegnet "
 "skal du skrive differansen mellom tallene. Bruk piltastene til venstre og "
 "høyre for å endre på svaret, og trykk til slutt på Enter for å rette svare "
-"ditt. Du kan endre på farten i GCompris konfigurasjonsmenyen."
+"ditt. Hvis du svarer feil, så prøv pånytt."
 
 #: ../boards/algebra_plus.xml.in.h:3
 msgid ""
@@ -535,7 +528,6 @@ msgid "Free drawing and animation tool."
 msgstr "Verktøy for frihåndstegning og animasjon."
 
 #: ../boards/anim.xml.in.h:3
-#, fuzzy
 msgid ""
 "In this game, children can draw freely. The goal is to discover how to "
 "create attractive drawings based on basic shapes: rectangles, ellipses and "
@@ -544,15 +536,13 @@ msgid ""
 msgstr ""
 "I dette spillet kan man fritt tegne hva man vil. Målet er å lage fine "
 "tegninger ved hjelp av former, rektangler, ellipser og linjer. For å gjøre "
-"det enda mer spennende så finnes det også et utvalg med bilder."
+"det enda mer spennende så finnes det også et utvalg med bilder som kan brukes."
 
 #: ../boards/anim.xml.in.h:4 ../boards/draw.xml.in.h:4
-#, fuzzy
 msgid "Needs to be capable of moving and clicking the mouse easily"
 msgstr "Må kunne beherske bruk av mus og museknappene enkelt."
 
 #: ../boards/anim.xml.in.h:5
-#, fuzzy
 msgid ""
 "Select a drawing tool on the left, and a color down the bottom. Then click "
 "and drag in the white area to create a new shape. Once you've completed a "
@@ -569,8 +559,8 @@ msgid ""
 msgstr ""
 "Velg et tegneverktøy i menyen til venstre, hvilke farge du vil bruke velger "
 "du nederst på skjermen. Tegn på den hvite bakgrunnen. Når du er fornøyd med "
-"det du har laget, så tar du et bilde av det med 'kamera'-knappen. Så tegner "
-"du litt til og tar en nytt bilde med 'kamera'-knappen. Når du har tatt mange "
+"det du har laget, så tar du et bilde av det med 'kamera'-knappen, du kan også høyre-klikke med musa. "
+"Så tegner du litt til og tar en nytt bilde med 'kamera'-knappen. Når du har tatt mange "
 "bilder, så kan du se på dem som en film ved å trykke på 'film'-knappen. Når "
 "du trykker på 'film'-knappen så vil bildene dine bli vist hurtig i en "
 "evigvarende løkke. Du kan velge hvor mange bilder som skal vises hvert "
@@ -591,7 +581,6 @@ msgid "Drag and Drop the items to make them match"
 msgstr "Dra og plasser bildene som hører sammen."
 
 #: ../boards/babymatch.xml.in.h:2
-#, fuzzy
 msgid ""
 "In the main board area, a set of objects are displayed. In the vertical box "
 "(at the left of the main board) another set of objects are shown, each one "
@@ -610,7 +599,6 @@ msgid "Matching Items"
 msgstr "Like oppføringer"
 
 #: ../boards/babymatch.xml.in.h:4
-#, fuzzy
 msgid "Motor coordination. Conceptual matching."
 msgstr "Finmotorikk. Finne tilhørende gjenstander."
 
@@ -623,7 +611,6 @@ msgid "Complete the puzzle"
 msgstr "Løs puslespillet"
 
 #: ../boards/babyshapes.xml.in.h:2
-#, fuzzy
 msgid ""
 "Complete the puzzle by dragging each piece from the set of pieces on the "
 "left, to the matching space in the puzzle."
@@ -660,7 +647,6 @@ msgid "Make the ball go to Tux"
 msgstr "Kast ballen til Tux"
 
 #: ../boards/ballcatch.xml.in.h:2
-#, fuzzy
 msgid ""
 "Press the two shift keys at the same time, to make the ball go in a straight "
 "line."
@@ -708,7 +694,6 @@ msgid "Mouse-manipulation"
 msgstr "Bruk av mus"
 
 #: ../boards/billard.xml.in.h:4
-#, fuzzy
 msgid ""
 "Point the mouse and click on the ball, to set the speed and direction of the "
 "ball. The closer you click to the centre, the slower the ball moves."
@@ -729,12 +714,11 @@ msgid "Operate a canal lock"
 msgstr "Betjen en kanalsluse"
 
 #: ../boards/canal_lock.xml.in.h:2
-#, fuzzy
 msgid ""
 "Tux is in trouble, and needs to take his boat through a lock.\n"
 "Help Tux and find out how a canal lock works."
 msgstr ""
-"Tux er i trøbbel med skipet sitt. Han må føre det gjennom en kanalsluse. "
+"Tux er i trøbbel med skipet sitt. Han må føre det gjennom en kanalsluse. \n"
 "Hjelp Tux med å forstå hvordan en sluselås fungerer."
 
 #: ../boards/canal_lock.xml.in.h:4
@@ -777,8 +761,7 @@ msgstr "Kronologi"
 
 #: ../boards/chronos.xml.in.h:2
 msgid "Drag and Drop the items to organize the story"
-msgstr ""
-"Dra og plasser bildene i riktig rekkefølge, slik at de forteller en historie"
+msgstr "Dra og plasser bildene i riktig rekkefølge, slik at de forteller en historie"
 
 #: ../boards/chronos.xml.in.h:3
 msgid ""
@@ -850,7 +833,6 @@ msgstr ""
 "Damplokomotiv"
 
 #: ../boards/chronos/board3_0.xml.in.h:4
-#, fuzzy
 msgid ""
 "Place each image in the order and\n"
 "on the date it has been invented.\n"
@@ -860,7 +842,8 @@ msgstr ""
 "Plasser bildene i den rekkefølgen\n"
 "de har blitt oppfunnet, og plasser dem på\n"
 "riktig dato. Hvis du er usikker, så kan du\n"
-"se på http://www.wikipedia.org"
+"lete i wikipedia:\n"
+"&lt;http://www.wikipedia.org&gt;"
 
 #: ../boards/chronos/board3_0.xml.in.h:8 ../boards/chronos/board3_1.xml.in.h:6
 #: ../boards/chronos/board3_2.xml.in.h:5 ../boards/chronos/board3_3.xml.in.h:7
@@ -970,7 +953,6 @@ msgid "Cars"
 msgstr "Biler"
 
 #: ../boards/click_on_letter.xml.in.h:1
-#, fuzzy
 msgid ""
 "A letter is spoken. Click on the matching letter in the main area. You can "
 "listen to the letter again, by clicking on the mouth icon in the bottom box."
@@ -987,12 +969,10 @@ msgid "Letter-name recognition"
 msgstr "Gjenkjenning av bokstavnavn"
 
 #: ../boards/click_on_letter.xml.in.h:4
-#, fuzzy
 msgid "Listen to a letter and click on the right one"
 msgstr "Hør en bokstav bli lest opp og trykk på den bokstaven du hørte"
 
 #: ../boards/click_on_letter.xml.in.h:5
-#, fuzzy
 msgid "Visual letter-recognition. Can move the mouse."
 msgstr "Kjenne igjen bokstaver. Kunne bevege musen."
 
@@ -1001,7 +981,6 @@ msgid "Click On Me"
 msgstr "Prøv å fange meg"
 
 #: ../boards/clickgame.xml.in.h:2
-#, fuzzy
 msgid ""
 "Fish are taken from the Unix utility xfishtank.\n"
 "Images are taken from the National Undersea Research Program (NURP) "
@@ -1020,36 +999,42 @@ msgid ""
 "Location: Unknown (image nur03011)\n"
 "Location: Unknown (image nur03013)"
 msgstr ""
-"Bildene av fiskene er hentet fra Unix programmet xfishtank. Bilder er også "
-"hentet fra National Undersea Research Program (NURP) samlingen på &lt;http://"
-"www.photolib.noaa.gov&gt; Alle bildene tilhører OAR/National Undersea "
-"Research Program (NURP), bortsett fra det første bilde, som tilhører "
-"University of North Carolina i Wilmington. Bildene som er brukt i de "
-"forskjellige nivåene er:Sted: Tropical Atlantic Ocean, Florida Keys (image "
-"nur00523) Photographer: D. Kesling Location: Florida Keys (image nur03006) "
-"Location: Unknown (image nur03505) Location: Unknown (image nur03010) "
-"Location: Unknown (image nur03011) Location: Unknown (image nur03013)"
+"Fiskene er hentet fra Unix programet xfishtank.\n"
+"Bildene er tatt fra National Undersea Research Program (NURP) "
+"Collection\n"
+"på &lt;http://www.photolib.noaa.gov&gt;\n"
+"Alle rettighetene til bildene tilhører OAR/National Undersea Research Program "
+"(NURP),\n"
+"utenom det første bilde, som tilhører University of North "
+"Carolina at Wilmington.\n"
+"Bildene brukt i de forskjellige nivåene er:\n"
+"Sted: Tropical Atlantic Ocean, Florida Keys (bilde nur00523) "
+"Fotograf: D. Kesling\n"
+"Sted: Florida Keys (bilde nur03006)\n"
+"Sted: Ukjent (bilde nur03505)\n"
+"Sted: Ukjent (bilde nur03010)\n"
+"Sted: Ukjent (bilde nur03011)\n"
+"Sted: Ukjent (bilde nur03013)"
 
 #: ../boards/clickgame.xml.in.h:14
-#, fuzzy
 msgid ""
 "Left-Click with the mouse on all the swimming fish\n"
 "before they leave the fishtank"
-msgstr "Klikk på fiskene med venstre museknapp før de svømmer ut av akvariumet"
+msgstr ""
+"Klikk på fiskene med venstre museknapp før de svømmer\n"
+"ut av akvariumet"
 
 #: ../boards/clickgame.xml.in.h:16
 msgid "Motor coordination: moving and clicking the mouse."
 msgstr "Finmotorikk: bruke musen og museknappene."
 
 #: ../boards/clickgame.xml.in.h:18
-#, fuzzy
 msgid "Use the left mouse button to click on the moving fish."
 msgstr ""
 "Klikk med venstre museknapp på de svømmende fiskene før de svømmer ut av "
 "akvariumet."
 
 #: ../boards/clockgame.xml.in.h:1
-#, fuzzy
 msgid ""
 "Distinguish between time-units (hour, minute and second). Set and display "
 "time on a clock."
@@ -1068,7 +1053,7 @@ msgid ""
 "Set the clock to the time given, in the time-units shown (hours:minutes or "
 "hours:minutes:seconds). Click on the different arrows, and move the mouse, "
 "to make the numbers go up or down."
-msgstr ""
+msgstr "Still klokka til oppgitt tid. Klikk på klokkeviserene for å stille dem."
 
 #: ../boards/clockgame.xml.in.h:5
 msgid "The concept of time. Reading the time."
@@ -1087,13 +1072,10 @@ msgid "Colors"
 msgstr "Farger"
 
 #: ../boards/colors.xml.in.h:4
-#, fuzzy
 msgid "Listen to the color and click on the matching toon."
-msgstr ""
-"Hør navnet på en farge bli lest opp og klikk på figuren med den fargen."
+msgstr "Hør navnet på en farge bli lest opp og klikk på figuren med den fargen."
 
 #: ../boards/colors.xml.in.h:5
-#, fuzzy
 msgid ""
 "This board teaches you to recognize different colors. When you hear the name "
 "of the color, click on the toon wearing it."
@@ -1122,11 +1104,10 @@ msgid "Connect 4"
 msgstr "Fire på rad"
 
 #: ../boards/connect4.xml.in.h:4
-#, fuzzy
 msgid ""
 "Create a line of 4 pieces either horizontally (lying down)\n"
 "or vertically (standing up)"
-msgstr "Prøv å få fire på rad, enten vannrett eller loddrett"
+msgstr "Prøv å få fire på rad, enten vannrett (liggende) eller loddrett (stående)"
 
 #: ../boards/connect4.xml.in.h:6
 msgid ""
@@ -1143,27 +1124,22 @@ msgid "Basic counting skills"
 msgstr "Grunnleggende telleferdighet"
 
 #: ../boards/doubleentry.xml.in.h:2
-#, fuzzy
 msgid "Double-entry table"
 msgstr "Tall-/gjenstandtabell"
 
 #: ../boards/doubleentry.xml.in.h:3
-#, fuzzy
 msgid "Drag and Drop each proposed item on its destination"
 msgstr "Dra og plasser gjenstandene i riktig rute."
 
 #: ../boards/doubleentry.xml.in.h:4
-#, fuzzy
 msgid "Drag and Drop the items in the double-entry table"
 msgstr "Dra og plasser gjenstandene i tabellen"
 
 #: ../boards/doubleentry.xml.in.h:5
-#, fuzzy
 msgid ""
 "Move the items on the left to their proper position in the double-entry "
 "table."
-msgstr ""
-"Flytt gjenstandene i det venstre feltet til sin riktige plass i tabellen."
+msgstr "Flytt gjenstandene i det venstre feltet til sin riktige plass i tabellen."
 
 #: ../boards/doubleentry/board3_0.xml.in.h:1
 msgid "Click on an item and listen to its target position"
@@ -1178,7 +1154,6 @@ msgid "A simple vector-drawing tool"
 msgstr "Et enkelt verktøy for vektortegning"
 
 #: ../boards/draw.xml.in.h:3
-#, fuzzy
 msgid ""
 "In this game, children can draw freely. The goal is to discover how to "
 "create attractive drawings based on basic shapes: rectangles, ellipses and "
@@ -1188,7 +1163,6 @@ msgstr ""
 "tegninger ved hjelp av former; rektangler, ellipser og linjer."
 
 #: ../boards/draw.xml.in.h:5
-#, fuzzy
 msgid ""
 "Select a drawing tool on the left, and a color down the bottom, then click "
 "and drag in the white area to create a new shape. To save time, you can "
@@ -1227,15 +1201,14 @@ msgid "Place the items in the best way to count them"
 msgstr "Plasser gjenstandene slik at det er lettest å telle dem"
 
 #: ../boards/erase.xml.in.h:1
-#, fuzzy
 msgid ""
 "Animal pictures are taken from the Animal Photography Page of Ralf Schmode "
 "(&lt;http://schmode.net/&gt;) and from LE BERRE Daniel. These people kindly "
 "gave GCompris the authorization to include their pictures. Thanks a lot, "
 "both of you."
 msgstr ""
-"Dyrebildene er tatt fra Ralf Schmode's side med dyrebilder &lt;http://"
-"schmode.net/&gt; og fra LE BERRE Daniel. De har latt GCompris bruke bildene "
+"Dyrebildene er tatt fra Ralf Schmode's side med dyrebilder (&lt;http://"
+"schmode.net/&gt;) og fra LE BERRE Daniel. De har latt GCompris bruke bildene "
 "dems. Mange takk."
 
 #: ../boards/erase.xml.in.h:2 ../boards/erase_clic.xml.in.h:5
@@ -1254,43 +1227,37 @@ msgstr "Beveg musa slik at bakgrunnen blir skrapt frem"
 
 #: ../boards/erase.xml.in.h:6
 msgid "Move the mouse until all the blocks disappear."
-msgstr ""
-"Beveg musa helt til alle firkantene er borte, og bilde under kommer frem."
+msgstr "Beveg musa helt til alle firkantene er borte, og bilde under kommer frem."
 
 #: ../boards/erase_clic.xml.in.h:2
 msgid "Click the mouse"
 msgstr "Klikk med musen"
 
 #: ../boards/erase_clic.xml.in.h:3
-#, fuzzy
 msgid "Click the mouse on rectangles until all the blocks disappear."
 msgstr "Klikk på rektanglene med musa helt til alle har blitt borte."
 
 #: ../boards/erase_clic.xml.in.h:4
-#, fuzzy
 msgid "Click the mouse to erase the area and discover the background"
 msgstr "Klikk med musa for å skrape frem bakgrunnen"
 
 #: ../boards/erase_double_clic.xml.in.h:2
-#, fuzzy
 msgid "Double-Click the mouse to erase the area and discover the background"
-msgstr "Dobbeltklikk musa slik at bakgrunnen blir skrapt frem"
+msgstr "Dobbeltklikk med musa slik at bakgrunnen blir skrapt frem"
 
 #: ../boards/erase_double_clic.xml.in.h:3
 msgid "Double-click the mouse"
 msgstr "Dobbeltklikk med musen"
 
 #: ../boards/erase_double_clic.xml.in.h:4
-#, fuzzy
 msgid "Double-click the mouse on rectangles until all the blocks disappear."
 msgstr "Dobbeltklikk på rektanglene med musa helt til alle har blitt borte."
 
 #: ../boards/experience.xml.in.h:1
 msgid "Go to experiential activities"
-msgstr "Gå til eksperiment aktiviteter"
+msgstr "Gå til aktiviteter med eksperimenter"
 
 #: ../boards/fifteen.xml.in.h:1
-#, fuzzy
 msgid ""
 "Click on any item that has a free block beside it, and it will be swapped "
 "with the empty block."
@@ -1299,12 +1266,10 @@ msgstr ""
 "bytte plass."
 
 #: ../boards/fifteen.xml.in.h:3
-msgid ""
-"Move each item to make an increasing series: from the smallest to the largest"
-msgstr ""
+msgid "Move each item to make an increasing series: from the smallest to the largest"
+msgstr "Flytt tallene slik at de står i rekkefølge, fra laveste til høyeste."
 
 #: ../boards/fifteen.xml.in.h:4
-#, fuzzy
 msgid "Original code taken from the libgnomecanvas demo"
 msgstr "Den opprinnelige koden er tatt fra demonstrasjonen til libgnomecanvas"
 
@@ -1341,16 +1306,14 @@ msgid "taquin"
 msgstr ""
 
 #: ../boards/followline.xml.in.h:1
-#, fuzzy
 msgid "Control the hose-pipe"
-msgstr "Kontroller dybden til undervannsbåten"
+msgstr "Kontroller vannslangen"
 
 #: ../boards/followline.xml.in.h:2
 msgid "Fine motor coordination"
 msgstr "Finmotorikk"
 
 #: ../boards/followline.xml.in.h:3
-#, fuzzy
 msgid ""
 "Move the mouse over the red part of the hose-pipe. This will move it, "
 "bringing it, part by part, up to the flowers. Be careful, if you move off "
@@ -1385,7 +1348,6 @@ msgid "svg mozilla animation"
 msgstr "svg mozilla tegning"
 
 #: ../boards/geography.xml.in.h:1
-#, fuzzy
 msgid "Drag and Drop the items to redraw the whole map"
 msgstr "Dra og plasser landene slik at kartet blir korrekt."
 
@@ -1896,7 +1858,6 @@ msgid "Keyboard manipulation"
 msgstr "Bruk av tastaturet"
 
 #: ../boards/gletters.xml.in.h:2
-#, fuzzy
 msgid "Letter association between the screen and the keyboard"
 msgstr "Bokstavgjenkjenning og bruk av tastatur"
 
@@ -1916,11 +1877,9 @@ msgstr "Liketalls-tallmumser"
 msgid ""
 "Guide the Number Muncher to the expressions that equal the number at the top "
 "of the screen."
-msgstr ""
-"Hjelp tallmumseren fram til uttrykkene som er like tallet øverst på skjermen."
+msgstr "Hjelp tallmumseren fram til uttrykkene som er like tallet øverst på skjermen."
 
 #: ../boards/gnumch-equality.xml.in.h:3
-#, fuzzy
 msgid "Practice addition, multiplication, division and substraction."
 msgstr "Du skal øve på å legge til, gange, dele og trekke fra."
 
@@ -1975,7 +1934,6 @@ msgid "Inequality Number Munchers"
 msgstr "Ulikhets-tallmumser"
 
 #: ../boards/gnumch-inequality.xml.in.h:3
-#, fuzzy
 msgid "Practice addition, substraction, multiplication and division."
 msgstr "Du skal øve på å legge til, gange, dele og trekke fra."
 
@@ -1983,8 +1941,7 @@ msgstr "Du skal øve på å legge til, gange, dele og trekke fra."
 msgid ""
 "Guide the Number Muncher to all the multiples of the number at the top of "
 "the screen."
-msgstr ""
-"Hjelp tallmumseren fram til alle multipluma av tallet øverst på skjermen."
+msgstr "Hjelp tallmumseren fram til alle multipluma av tallet øverst på skjermen."
 
 #: ../boards/gnumch-multiples.xml.in.h:2
 msgid "Learn about multiples and factors."
@@ -2046,7 +2003,7 @@ msgstr "Gjett et tall"
 
 #: ../boards/guessnumber.xml.in.h:2
 msgid "Tux hide a number and you must guess it"
-msgstr ""
+msgstr "Tux har gjemt et tall, du må gjette hvilket det er"
 
 #: ../boards/hanoi.xml.in.h:1
 msgid "Concept taken from EPI games."
@@ -2090,6 +2047,10 @@ msgid ""
 "the following rules: * only one disc may be moved at a time * no disc may be "
 "placed atop a smaller disc"
 msgstr ""
+"Du må klare å flytte hele stabelen fra den ene pinnen over på den andre pinnen, den helt til høyre. "
+"Følgende regler gjelder; "
+"*du kan kun flytte en skive om gangen "
+"*du kan kun plassere en mindre skive oppå en annen skive."
 
 #: ../boards/hanoi_real.xml.in.h:6
 msgid ""
@@ -2108,7 +2069,6 @@ msgid "Find the strawberry by clicking on the blue fields"
 msgstr "Finn jordbæret ved å trykke på de blå feltene"
 
 #: ../boards/hexagon.xml.in.h:4
-#, fuzzy
 msgid ""
 "Try to find the strawberry under the blue fields. The fields become redder "
 "as you get closer."
@@ -2238,12 +2198,10 @@ msgstr "veske"
 #: ../boards/imagename/board4_0.xml.in.h:1
 #: ../boards/imagename/board5_0.xml.in.h:1
 #: ../boards/imagename/board6_0.xml.in.h:1
-#, fuzzy
 msgid "Drag and Drop each item onto its name"
 msgstr "Dra og plasser bildene dit hvor navnet står"
 
 #: ../boards/imagename.xml.in.h:2
-#, fuzzy
 msgid ""
 "Drag each image from the (vertical) box on the left to its (corresponding) "
 "name on the right. Click the OK button to check your answer."
@@ -2372,9 +2330,8 @@ msgid "racket"
 msgstr "tennisracket"
 
 #: ../boards/login.xml.in.h:1
-msgid ""
-"GCompris identifies each child, so we can provide child-specific reports."
-msgstr ""
+msgid "GCompris identifies each child, so we can provide child-specific reports."
+msgstr "GCompris kjenner igjen brukeren, slik at man kan få en oversikt over hver bruker."
 
 #: ../boards/login.xml.in.h:2
 msgid "GCompris login screen"
@@ -2407,7 +2364,6 @@ msgid "Select or enter your name to log in GCompris"
 msgstr "Velg eller skriv inn navnet ditt for å logge på GCompris"
 
 #: ../boards/leftright.xml.in.h:1
-#, fuzzy
 msgid "Determine if a hand is a right or a left hand"
 msgstr "Avgjøre om en hånd er venstre eller høyre hånd"
 
@@ -2426,7 +2382,6 @@ msgid "None"
 msgstr "Ingen"
 
 #: ../boards/leftright.xml.in.h:5
-#, fuzzy
 msgid ""
 "You can see a hand: is it a left hand or a right hand? Click on the red "
 "button on the left, or the green button on the right."
@@ -2480,7 +2435,6 @@ msgid "Find your way out of the 3D maze"
 msgstr "Finn veien ut av 3D-labyrinten"
 
 #: ../boards/maze3D.xml.in.h:5
-#, fuzzy
 msgid ""
 "Use the keyboard arrows to move Tux up to the door. Use the spacebar to "
 "switch between 2D and 3D modes. 2D mode just gives you an indication of your "
@@ -2495,7 +2449,6 @@ msgid "Find your way out of the invisible maze"
 msgstr "Finn veien ut av den usynlige labyrinten"
 
 #: ../boards/mazeInvisible.xml.in.h:5
-#, fuzzy
 msgid ""
 "Use the keyboard arrows to move Tux up to the door. Use the spacebar to "
 "switch between invisible and visible modes. Visible mode just gives you an "
@@ -2535,7 +2488,6 @@ msgid "Repeat a melody"
 msgstr "Gjenta en melodi"
 
 #: ../boards/memory.xml.in.h:1
-#, fuzzy
 msgid ""
 "A set of blank cards is shown. Each card has a picture on the other side, "
 "and each picture card has a twin exactly the same. Click on a card to see "
@@ -2565,7 +2517,6 @@ msgid "Go to Memory activities"
 msgstr "Gå til aktiviteter for hukommelse"
 
 #: ../boards/memory_tux.xml.in.h:1
-#, fuzzy
 msgid ""
 "A set of blank cards is shown. Each pair is associated by the same picture "
 "in their hidden faces. Click on a card to can uncover it and see its hidden "
@@ -2577,7 +2528,7 @@ msgstr ""
 "Et sett med kort er lagt på bordet. Alle kortene finnes i par. Klikk på et "
 "kort for å se baksiden av det. Du kan kun se baksiden på to kort samtidig. "
 "Du må huske hvor de forskjellige kortene ligger. Målet er å åpne to like "
-"samtidig, da forsvinner dette paret, til slutt skal alle kortene være borte."
+"samtidig, da forsvinner dette paret. Du spiller mot Tux, og må finne flere par enn han for å vinne."
 
 #: ../boards/memory_tux.xml.in.h:2
 msgid "Memory Game with images, against Tux"
@@ -2585,14 +2536,13 @@ msgstr "Hukommelsesspill med bilder, spill mot Tux"
 
 #: ../boards/memory_tux.xml.in.h:3
 msgid "Mouse manipulation, Brain."
-msgstr ""
+msgstr "Bruk av mus. Hukommelse."
 
 #: ../boards/memory_tux.xml.in.h:4
 msgid "Play to memory against Tux."
-msgstr ""
+msgstr "Spill hukommelsesspill mot Tux."
 
 #: ../boards/menu.xml.in.h:1
-#, fuzzy
 msgid ""
 "A simple click on an icon brings you to an activity or a menu of "
 "activities.\n"
@@ -2631,7 +2581,8 @@ msgstr ""
 " Stjernene betyr:\n"
 " 1 stjerne - 2 til 3 år\n"
 " 2 stjerner - 4 til 5 år\n"
-" 3 stjerner - 6 til 7 år"
+" 3 stjerner - 6 til 7 år\n"
+" God natt / ut av døra  - avslutter GCompris"
 
 #: ../boards/menu.xml.in.h:15
 msgid "GCompris Main Menu"
@@ -2827,7 +2778,6 @@ msgid "Can count"
 msgstr "Kunne telle"
 
 #: ../boards/money.xml.in.h:2 ../boards/money_cents.xml.in.h:2
-#, fuzzy
 msgid ""
 "Click on the coins or paper money at the bottom of the screen to pay. If you "
 "want to remove a coin or note, click on it on the upper screen area."
@@ -2857,9 +2807,8 @@ msgid "Practice money usage including cents"
 msgstr "Øv på å bruke penger, inkludert cents."
 
 #: ../boards/mouse.xml.in.h:2
-#, fuzzy
 msgid "Mouse-manipulation boards"
-msgstr "Bruk av mus"
+msgstr "Spillbrett med øving på bruk av mus"
 
 #: ../boards/paintings.xml.in.h:1
 msgid "Assemble the puzzle"
@@ -2878,7 +2827,6 @@ msgstr ""
 "sammen bilde."
 
 #: ../boards/paintings.xml.in.h:4
-#, fuzzy
 msgid "Mouse-manipulation: movement, drag and drop"
 msgstr "Bruk av musen: bevegelse, dra og slipp"
 
@@ -2919,7 +2867,6 @@ msgid "Vincent Van Gogh, Village Street in Auvers - 1890"
 msgstr "Vincent Van Gogh, Village Street in Auvers - 1890"
 
 #: ../boards/paratrooper.xml.in.h:1
-#, fuzzy
 msgid "Help Tux the parachutist land safely"
 msgstr "Hjelp fallskjermhopperen Tux med å lande trygt"
 
@@ -2932,7 +2879,6 @@ msgstr ""
 "Trykk på en annen knapp, eller på Tux for at fallskjermen skal åpne seg."
 
 #: ../boards/paratrooper.xml.in.h:3
-#, fuzzy
 msgid ""
 "In this game, Tux the parachutist needs help to land safely on the fishing "
 "boat. He needs to allow for the wind direction and speed."
@@ -2946,7 +2892,6 @@ msgid "Parachutist"
 msgstr "Fallskjermhopper"
 
 #: ../boards/paratrooper.xml.in.h:5
-#, fuzzy
 msgid "This board is game-oriented. No specific skills are needed to play."
 msgstr ""
 "Dette er en reint spillebrett. Ingen spesielle forutsetninger kreves for å "
@@ -2956,7 +2901,7 @@ msgstr ""
 msgid ""
 "Catch the numbers in increasing order, using the up, down, right and left "
 "arrows on the keyboard to move the helicopter."
-msgstr ""
+msgstr "Fang tallene i økende verdi, bruk opp, ned, venstre og høyre piltast på ditt tastatur for å bevege helikopteret."
 
 #: ../boards/planegame.xml.in.h:2
 msgid "Move the helicopter to catch the clouds in the correct order"
@@ -2987,8 +2932,7 @@ msgid "Test board for the python plugin"
 msgstr "Testbrett for Python plugin"
 
 #: ../boards/pythontest.xml.in.h:5
-msgid ""
-"Thanks to Guido van Rossum and the python team for this powerful language!"
+msgid "Thanks to Guido van Rossum and the python team for this powerful language!"
 msgstr ""
 "Takk til Guido van Rossum og Python laget for dette fantastiske "
 "programmeringsspråket."
@@ -2998,7 +2942,6 @@ msgid "A memory game based on trains"
 msgstr "Et hukommelsespill med tog"
 
 #: ../boards/railroad.xml.in.h:2
-#, fuzzy
 msgid ""
 "A train - a locomotive and carriage(s) - is displayed at the top of the main "
 "area for a few seconds. Rebuild it at the top of the screen by selecting the "
@@ -3008,7 +2951,7 @@ msgstr ""
 "Et tog - et lokomotiv og vogner - vises øverst på skjermen i noen sekunder. "
 "Prøv å gjenskape dette toget fra din hukommelse ved å velge lokomotiv og "
 "vogner fra utvalget nedenfor. Velg ved å trykke på dem, fravelg på samme "
-"måte. "
+"måte. Trykk på hånden nederst for å sjekke om du har gjort det riktig."
 
 #: ../boards/railroad.xml.in.h:3
 msgid "Memory-training"
@@ -3083,7 +3026,6 @@ msgid "Go to the Reading activities"
 msgstr "Gå til leseaktiviteter"
 
 #: ../boards/readingh.xml.in.h:1 ../boards/readingv.xml.in.h:1
-#, fuzzy
 msgid ""
 "A word is shown at the top right of the board. A list of words will appear "
 "and disappear on the left. Does the given word belong to the list?"
@@ -3097,7 +3039,6 @@ msgid "Horizontal reading practice"
 msgstr "Horisontal lesing"
 
 #: ../boards/readingh.xml.in.h:3
-#, fuzzy
 msgid "Read a list of words and work out if a given word is in it"
 msgstr "Les en liste med ord, og avgjør om et bestemt ord var blant dem"
 
@@ -3106,10 +3047,8 @@ msgid "Read training in a limited time"
 msgstr "Lesetrening på begrenset tid"
 
 #: ../boards/readingv.xml.in.h:2
-#, fuzzy
 msgid "Read a vertical list of words and work out if a given word is in it"
-msgstr ""
-"Les en vertikal liste med ord, og avgjør om et bestemt ord var blant dem"
+msgstr "Les en vertikal liste med ord, og avgjør om et bestemt ord var blant dem"
 
 #: ../boards/readingv.xml.in.h:5
 msgid "Vertical-reading practice"
@@ -3120,7 +3059,6 @@ msgid "Copy a drawing from the box on the right into the box on the left."
 msgstr "Kopier tegningen på høyre over i feltet til venstre."
 
 #: ../boards/redraw.xml.in.h:2 ../boards/redraw_symmetrical.xml.in.h:4
-#, fuzzy
 msgid ""
 "First, select the proper tool from the toolbar. Then drag the mouse to "
 "create objects. When you are done, click on the OK button. Errors will be "
@@ -3137,26 +3075,24 @@ msgid "Redraw the given item"
 msgstr "Gjenskap gjenstanden"
 
 #: ../boards/redraw_symmetrical.xml.in.h:1
-#, fuzzy
 msgid ""
 "Copy the mirror image of an object from the box\n"
 "on the right into the box on the left."
 msgstr ""
-"Kopier det speilvendte bilde fra feltet til høyre over i feltet til venstre."
+"Kopier det speilvendte bilde fra feltet til høyre\n"
+"over i feltet til venstre."
 
 #: ../boards/redraw_symmetrical.xml.in.h:3
 msgid ""
 "Copy the mirror image of an object from the box on the right into the box on "
 "the left."
-msgstr ""
-"Kopier det speilvendte bilde fra feltet til høyre over i feltet til venstre."
+msgstr "Kopier det speilvendte bilde fra feltet til høyre over i feltet til venstre."
 
 #: ../boards/redraw_symmetrical.xml.in.h:5
 msgid "Mirror the given item"
 msgstr "Lag et speilbilde"
 
 #: ../boards/reversecount.xml.in.h:1
-#, fuzzy
 msgid ""
 "Can move the mouse, can read numbers and substract numbers up to 10 for the "
 "first level"
@@ -3175,15 +3111,14 @@ msgstr ""
 "ferdig, så trykker på Enter."
 
 #: ../boards/reversecount.xml.in.h:3
-#, fuzzy
 msgid "Practice subtraction with a fun game"
 msgstr "Øv på subtraksjon ved hjelp av at morsomt spill"
 
 #: ../boards/reversecount.xml.in.h:4
 msgid "Tux is hungry. Help him find fish by counting to the correct ice spot."
 msgstr ""
-"Tux er sulten. Hjelp han med å fange fisk ved å stille inn terningen slik at "
-"han hopper ditt hvor fisken er."
+"Tux er sulten. Hjelp han med å fange fisk ved å stille inn \n"
+"terningen slik at han hopper ditt hvor fisken er."
 
 #: ../boards/scales/board1_0.xml.in.h:1 ../boards/scales/board1_1.xml.in.h:1
 #: ../boards/scales/board1_2.xml.in.h:1 ../boards/scales/board1_3.xml.in.h:1
@@ -3207,7 +3142,6 @@ msgid "Mental calculation, arithmetic equality"
 msgstr "Hoderegning."
 
 #: ../boards/scalesboard.xml.in.h:4
-#, fuzzy
 msgid ""
 "The painting is an original painting created by Virginie MOREAU (virginie."
 "moreau@free.fr) in 2001. Its name is 'Spices Seller in Egypt'. It is "
@@ -3226,10 +3160,9 @@ msgstr ""
 
 #: ../boards/searace.xml.in.h:1
 msgid "Direct your boat accurately to win the race."
-msgstr ""
+msgstr "Styr båten din slik at du vinner."
 
 #: ../boards/searace.xml.in.h:2 ../boards/searace1player.xml.in.h:2
-#, fuzzy
 msgid ""
 "In the text entry, enter one command per line, to control your boat. "
 "Commands supported are displayed between the two entry areas. The 'left' and "
@@ -3259,7 +3192,6 @@ msgstr ""
 "vanskelighetsnivå så blir værforholdet mer komplisert."
 
 #: ../boards/searace.xml.in.h:3 ../boards/searace1player.xml.in.h:3
-#, fuzzy
 msgid ""
 "In this activity, you will learn how to enter commands into a computer. Even "
 "if the language is extremely basic, you learn here how to think ahead and "
@@ -3268,7 +3200,7 @@ msgid ""
 msgstr ""
 "I denne aktiviteten skal du lære å gi kommandoer til datamaskinen. Selv om "
 "programmeringsspråket er veldig enkelt, så lærer du allikevel å tenke et "
-"skritt fremover samtidig som lager et program. Denne aktiviteten egner som "
+"skritt fremover samtidig som du lager et program. Denne aktiviteten egner som "
 "for å introduserer programmering."
 
 #: ../boards/searace.xml.in.h:4
@@ -3303,15 +3235,13 @@ msgstr "Tall med terninger"
 msgid ""
 "With the keyboard, type the number corresponding to the number of dots on "
 "the falling dice."
-msgstr ""
-"Skriv med tastaturet det antallet prikker du ser på terningen som faller."
+msgstr "Skriv med tastaturet det antallet prikker du ser på terningen som faller."
 
 #: ../boards/smallnumbers2.xml.in.h:4
 msgid "Numbers with pairs of dice"
 msgstr "Tall med terninger"
 
 #: ../boards/submarine.xml.in.h:1
-#, fuzzy
 msgid ""
 "Click on different active elements : engine, rudders and air tanks, in order "
 "to navigate to the required depth."
@@ -3358,13 +3288,10 @@ msgid "Sudoku, place unique symbols in a square."
 msgstr "Sudoku, plasser unike siffer i firkanter."
 
 #: ../boards/sudoku.xml.in.h:4
-#, fuzzy
-msgid ""
-"Symbols must be unique in a row, in a column, and (if defined) each region."
-msgstr "Plasser figurer og siffer i et spesielt mønster i et rutenett."
+msgid "Symbols must be unique in a row, in a column, and (if defined) each region."
+msgstr "Alle symboler/siffer må være unike i hver rad og i hver kolonne, og i hvert områd."
 
 #: ../boards/sudoku.xml.in.h:5
-#, fuzzy
 msgid ""
 "The aim of the puzzle is to enter a symbol or numeral from 1 through 9 in "
 "each cell of a grid, most frequently a 9x9 grid made up of 3x3 subgrids "
@@ -3373,11 +3300,6 @@ msgid ""
 "instance of each symbol or numeral (Source &lt;http://en.wikipedia.org/wiki/"
 "Sudoku&gt;)."
 msgstr ""
-"Sudoku er et slags kryssord, der du skal plassere figurer eller siffer inne "
-"i et rutenett. Du må passe på at hver figur (eller hvert siffer) bare står "
-"en gong i hver rad og i hver kolonne. På noen brett er òg rutenettet delt "
-"inn mindre områder. Da skal hver figur (eller hvert siffer) bare brukes en "
-"gang i hvert område, samtidig som den vanlige regelen framdeles gjelder."
 
 #: ../boards/superbrain.xml.in.h:1
 msgid ""
@@ -3403,12 +3325,10 @@ msgid "Tux has hidden several items. Find them again in the correct order"
 msgstr "Tux har gjemt flere ting. Finn dem i riktig rekkefølge og riktig farge"
 
 #: ../boards/target.xml.in.h:1
-msgid ""
-"Can move the mouse, can read numbers and count up to 15 for the first level"
+msgid "Can move the mouse, can read numbers and count up to 15 for the first level"
 msgstr "Kunne bruke musen, kunne telle til 15 i det laveste nivået."
 
 #: ../boards/target.xml.in.h:2
-#, fuzzy
 msgid ""
 "Check the wind speed and direction, and then click on the target to launch a "
 "dart. When you all your darts are thrown, a window appears asking you to "
@@ -3417,7 +3337,8 @@ msgid ""
 msgstr ""
 "Ta hensyn til vindens retning og fart før du klikker et sted på målskiven "
 "for å spille. Når du har kastet alle dine piler, så vil et vindu dukke opp "
-"hvor du må skrive inn hvor mange poeng du har fått."
+"hvor du må skrive inn hvor mange poeng du har fått. Bruk tastaturet for å skrive inn "
+"din poengsum, bruk Enter knappen når du er ferdig."
 
 #: ../boards/target.xml.in.h:3
 msgid "Hit the target and count your points"
@@ -3432,16 +3353,16 @@ msgid "Throw darts at a target and count your score."
 msgstr "Kast piler på tavla og regn ut din poengsum."
 
 #: ../boards/traffic.xml.in.h:1
-#, fuzzy
 msgid "A sliding-block puzzle game"
 msgstr "Et spill med blokker"
 
 #: ../boards/traffic.xml.in.h:2
-#, fuzzy
 msgid ""
 "Remove all the red cars from the parking lot\n"
 "through the gate on the right"
-msgstr "Fjern alle de røde bilene ved å få dem ut gjennom luken på høyre side."
+msgstr ""
+"Fjern alle de røde bilene fra parkeringsplassen\n"
+"ved å få dem ut gjennom porten på høyre side."
 
 #: ../boards/watercycle.xml.in.h:1
 msgid ""
@@ -3463,13 +3384,12 @@ msgid "Learn the water cycle"
 msgstr "Lær vannets syklus"
 
 #: ../boards/watercycle.xml.in.h:4
-#, fuzzy
 msgid ""
 "Tux has come back from a long fishing party on his boat.\n"
 "Bring the water system back up so he can take a shower."
 msgstr ""
-"Tux har kommet tilbake fra en lang fisketur. Hjelp han med å starte "
-"vannsystemet slik at han kan ta seg en dusj."
+"Tux har kommet tilbake fra en lang fisketur. Hjelp han med å \n"
+"starte vannsystemet slik at han kan ta seg en dusj."
 
 #: ../boards/wordsgame.xml.in.h:1 ../src/boards/wordsgame.c:112
 msgid "Falling Words"
@@ -3587,25 +3507,24 @@ msgid "abcdefghijklmnopqrstuvwxyz"
 msgstr "abcdefghijklmnopqrstuvwxyz"
 
 #: ../src/boards/click_on_letter.c:270
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Error: this activity requires that you first install\n"
 "the packages assetml-voices-alphabet-%s or %s"
 msgstr ""
 "Feil: Denne aktiviteten krever at du har installert\n"
-"pakken assetml-voices-alphabet-%s"
+"pakken assetml-voices-alphabet-%s eller %s"
 
 #: ../src/boards/click_on_letter.c:277
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Error: this activity requires that you first install\n"
 "the packages assetml-voices-alphabet-%s ! Fallback to english, sorry!"
 msgstr ""
 "Feil: Denne aktiviteten krever at du har installert\n"
-"pakken assetml-voices-alphabet-%s"
+"pakken assetml-voices-alphabet-%s. Bruker istedenfor engelsk som språk."
 
 #: ../src/boards/click_on_letter.c:285
-#, fuzzy
 msgid ""
 "Error: this activity cannot be played with the\n"
 "sound effects disabled.\n"
@@ -3671,12 +3590,12 @@ msgid "Couldn't get GTK settings"
 msgstr "Klarte ikke å finne GTK innstillingene"
 
 #: ../src/boards/erase.c:163
-#, c-format, fuzzy
+#, c-format
 msgid "Double-click default value %d."
 msgstr "Dobbeltklikk standardverdien er %d."
 
 #: ../src/boards/erase.c:168
-#, fuzzy, c-format
+#, c-format
 msgid "Double-click value is now %d."
 msgstr "Dobbeltklikk verdien er nå %d."
 
@@ -3697,12 +3616,10 @@ msgid "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 msgstr "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
 #: ../src/boards/hanoi.c:335 ../src/boards/hanoi.c:346
-#, fuzzy
 msgid ""
 "Build the same tower in the empty area as the one you see on the right-hand "
 "side."
-msgstr ""
-"Gjenskap i det tomme feltet det samme tårnet som du ser i feltet til høyre"
+msgstr "Gjenskap i det tomme feltet det samme tårnet som du ser i feltet til høyre."
 
 #: ../src/boards/hanoi_real.c:76
 msgid "Tower of Hanoi"
@@ -3710,7 +3627,7 @@ msgstr "Tårnet i Hanoi"
 
 #: ../src/boards/hanoi_real.c:277 ../src/boards/hanoi_real.c:288
 msgid "Move the entire stack to the right peg"
-msgstr ""
+msgstr "Flytt hele stabelen over til pinnen på høyre side"
 
 #: ../src/boards/imageid.c:113 ../src/boards/missingletter.c:105
 msgid "Learn how to read"
@@ -3731,17 +3648,14 @@ msgid "right"
 msgstr "høyre"
 
 #: ../src/boards/maze.c:492
-#, fuzzy
 msgid ""
 "Look at your position, then switch back to invisible mode to continue your "
 "moves"
-msgstr "Se på din posisjon og bytt tilbake til usynlig modus for å bevege Tux"
+msgstr "Se på din posisjon og bytt tilbake til usynlig modus for å bevege deg videre"
 
 #: ../src/boards/maze.c:494
-#, fuzzy
-msgid ""
-"Look at your position, then switch back to 3D mode to continue your moves"
-msgstr "Se på din posisjon og bytt tilbake til 3D modus for å bevege Tux"
+msgid "Look at your position, then switch back to 3D mode to continue your moves"
+msgstr "Se på din posisjon og bytt tilbake til 3D modus for å bevege deg videre"
 
 #: ../src/boards/memory.c:172
 msgid "Memory"
@@ -4082,17 +3996,14 @@ msgid "Birth date:"
 msgstr "Fødselsdato:"
 
 #: ../src/boards/python/admin/user_edit.py:159
-msgid ""
-"You need to provide at least a login, firstname and lastname for your users"
-msgstr ""
-"Du må som et minimum oppgi brukernavn, fornavn og etternavn på dine brukere"
+msgid "You need to provide at least a login, firstname and lastname for your users"
+msgstr "Du må som et minimum oppgi brukernavn, fornavn og etternavn på dine brukere"
 
 #: ../src/boards/python/admin/user_edit.py:176
 msgid "There is already a user with this login"
 msgstr "Det finnes allerede en bruker med dette brukernavnet"
 
 #: ../src/boards/python/admin/user_list.py:292
-#, fuzzy
 msgid ""
 "To import a user list from a file, first select a class.\n"
 "FILE FORMAT: Your file must be formatted like this:\n"
@@ -4102,8 +4013,8 @@ msgstr ""
 "Velg først en klasse hvis du vil importere en brukerliste fra en fil.\n"
 "FILFORMAT: Filen må ha dette formatet:\n"
 "brukernavn;Fornavn;Etternavn;Fødselsdato\n"
-"Skilletegnet blir automatisk kjennkjent, og kan være «,», «, », «;» eller "
-"«:»."
+"Skilletegnet blir automatisk kjennkjent, og kan være ',', ';' eller "
+"':'"
 
 #: ../src/boards/python/admin/user_list.py:371
 #, python-format
@@ -4111,6 +4022,8 @@ msgid ""
 "One or more logins are not unique !\n"
 "You need to change them: %s !"
 msgstr ""
+"En eller flere brukernavn er ikke unike.\n"
+"Du må endre dem: %s ."
 
 #: ../src/boards/python/anim.py:59
 msgid "You need the python xml module. Disabling SVG."
@@ -4305,7 +4218,6 @@ msgstr ""
 " Takk til Olivier Samys som har gjort dette mulig."
 
 #: ../src/boards/python/pythontest.py:167
-#, fuzzy
 msgid "This activity is not playable, just a test"
 msgstr "Denne aktiviteten er ikke ferdig ennå, dette er kun en test"
 
@@ -4414,11 +4326,11 @@ msgstr "Venter på at Tuxpaint skal avsluttes"
 
 #: ../src/boards/python/tuxpaint.py:183
 msgid "Inherit fullscreen setting from GCompris"
-msgstr ""
+msgstr "Bruk fullskjerm innstllingen fra GCompris"
 
 #: ../src/boards/python/tuxpaint.py:187
 msgid "Inherit size setting from GCompris (800x600, 640x480)"
-msgstr ""
+msgstr "Bruk skjermstørrelse innstllingen fra GCompris (800x600, 640x480)"
 
 #: ../src/boards/python/tuxpaint.py:191
 msgid "Disable shape rotation"
@@ -4488,7 +4400,6 @@ msgstr "Kunne ikke åpne filen med ord for ditt språk"
 
 #. Enter Edit Mode
 #: ../src/boards/shapegame.c:425
-#, fuzzy
 msgid ""
 "You have entered Edit mode\n"
 "Move the puzzle items;\n"
@@ -4560,7 +4471,7 @@ msgstr "Om GCompris"
 
 #: ../src/gcompris/about.c:124 ../src/gcompris/about.c:133
 msgid "Translators:"
-msgstr "Oversettere:"
+msgstr "Oversetter:"
 
 #: ../src/gcompris/about.c:256
 msgid ""
@@ -4587,8 +4498,7 @@ msgstr "Greit"
 
 #: ../src/gcompris/board.c:173
 msgid "Dynamic module loading is not supported. gcompris cannot load.\n"
-msgstr ""
-"Dynamisk lasting av moduler er ikke støttet. GCompris kan ikke starte.\n"
+msgstr "Dynamisk lasting av moduler er ikke støttet. GCompris kan ikke starte.\n"
 
 #: ../src/gcompris/board_config.c:632
 msgid ""
@@ -4919,7 +4829,6 @@ msgid "Disable XRANDR (No screen resolution change)."
 msgstr "Skru av støtte for XRANDR (Ingen mulighet for å endre oppløsningen)."
 
 #: ../src/gcompris/gcompris.c:136
-#, fuzzy
 msgid ""
 "Run gcompris with local menu (e.g -l /reading will let you play only "
 "activities in the reading directory, -l /boards/connect4 only the connect4 "
@@ -4955,27 +4864,24 @@ msgstr "Les XML-menyer på nytt, og lagre de i databasen"
 
 #: ../src/gcompris/gcompris.c:150
 msgid "Set the profile to use. Use 'gcompris -a' to create profiles"
-msgstr ""
-"Velg hvilken profil som skal brukes. Bruk 'gcompris -a' for å lage en profil"
+msgstr "Velg hvilken profil som skal brukes. Bruk 'gcompris -a' for å lage en profil"
 
 #: ../src/gcompris/gcompris.c:152
 msgid "List all available profiles. Use 'gcompris -a' to create profiles"
-msgstr ""
-"Vis alle tilgjengelige profiler. Bruk 'gcompris -a' for å lage profiler."
+msgstr "Vis alle tilgjengelige profiler. Bruk 'gcompris -a' for å lage profiler."
 
 #: ../src/gcompris/gcompris.c:154
 msgid ""
 "Shared directory location, for profiles and board-configuration data: "
 "[$HOME/.gcompris/shared]"
-msgstr ""
-"Delt mappe-plassering. For profiler og brettoppsett: [$HOME/.gcompris/shared]"
+msgstr "Delt mappe-plassering. For profiler og brettoppsett: [$HOME/.gcompris/shared]"
 
 #: ../src/gcompris/gcompris.c:156
 msgid "The location of user directories: [$HOME/.gcompris/users]"
 msgstr "Brukermappeplassering. [$HOME/.gcompris/users] "
 
 #: ../src/gcompris/gcompris.c:792
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "GCompris is free software released under the GPL License. In order to "
 "support its development, the Windows version provides only %d of the %d "
@@ -4987,15 +4893,6 @@ msgid ""
 "GNU/Linux. Get more information at FSF:\n"
 "<http://www.fsf.org/philosophy>"
 msgstr ""
-"GCompris er fri programvare utgitt med GPL lisensen. For å støtte den videre "
-"utviklingen av GCompris, så inneholder Windows versjonen et begrenset antall "
-"aktiviteter. Du kan mot en liten sum betalt til http://gcompris.net få "
-"tilgang til alle aktivitetene også for Windows versjonen.\n"
-"Linux versjonen har ikke denne begrensningen i antall aktiviteter. Merk deg "
-"at GCompris blir utviklet for bruk i skoler for å fri dem fra grepet til "
-"monopolistiske programvare selskap. Hvis du også synes at vi skal lære "
-"elevene om frihet, så burde du vurdere å bruke GNU/Linux.\n"
-"For mer informasjon se http://www.fsf.org/philosophy"
 
 #: ../src/gcompris/gcompris.c:1083
 #, c-format
@@ -5056,24 +4953,22 @@ msgid "dataset %s is a directory. Trying to read xml "
 msgstr "datasettet %s er en mappe. Prøver å lese xml."
 
 #: ../src/gcompris/images_selector.c:632
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "In ImageSet %s, the pathname for the home directory '%s' is not found. "
 "Skipping the whole ImageSet.\n"
 msgstr ""
-"I bildetsamlingen «%s» er ikke mappen %s tilgjengelig. Hopper over "
-"bildetsamlingen ...\n"
+"I bildetsamlingen %s er ikke mappen '%s' tilgjengelig. Hopper over "
+"bildetsamlingen.\n"
 
 #: ../src/gcompris/images_selector.c:666
 #, c-format
 msgid "In ImageSet %s, an image is not found. Skipping ImageSet...\n"
-msgstr ""
-"I bildetsamlingen «%s» mangler et bilde. Hopper over bildetsamlingen ...\n"
+msgstr "I bildetsamlingen «%s» mangler et bilde. Hopper over bildetsamlingen ...\n"
 
 #: ../src/gcompris/images_selector.c:697
 #, c-format
-msgid ""
-"In ImageSet %s, directory %s is not found. Skipping all the ImageSet...\n"
+msgid "In ImageSet %s, directory %s is not found. Skipping all the ImageSet...\n"
 msgstr ""
 "I bildetsamlingen «%s» er ikke mappen %s tilgjengelig. Hopper over "
 "bildetsamlingen ...\n"
@@ -5105,3 +5000,4 @@ msgstr "Gjenværende tid = %d"
 #, c-format
 msgid "Couldn't parse file %s !"
 msgstr "Kunne ikke finne filen %s !"
+
