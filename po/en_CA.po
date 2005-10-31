@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-10-23 02:19-0400\n"
+"POT-Creation-Date: 2005-10-31 14:17-0500\n"
 "PO-Revision-Date: 2005-09-06 22:51-0400\n"
 "Last-Translator: Adam Weinberger <adamw@gnome.org>\n"
 "Language-Team: Canadian English <adamw@gnome.org>\n"
@@ -783,29 +783,25 @@ msgstr "Drag and Drop the items to organize the story"
 
 #: boards/chronos.xml.in.h:3
 msgid ""
-"Moon photo is copyright NASA.\n"
-"The space sounds come from Tuxpaint and Vegastrike which are released under "
-"the GPL license.\n"
-"The transportation images are copyright Franck Doucet.\n"
-"Dates of Transportation are based on those found in &lt;http://www.wikipedia."
-"org&gt;.\n"
+"Moon photo is copyright NASA. The space sounds come from Tuxpaint and "
+"Vegastrike which are released under the GPL license. The transportation "
+"images are copyright Franck Doucet. Dates of Transportation are based on "
+"those found in &lt;http://www.wikipedia.org&gt;."
 msgstr ""
-"Moon photo is copyright NASA.\n"
-"The space sounds come from Tuxpaint and Vegastrike which are released under "
-"the GPL licence.\n"
-"The transportation images are copyright Franck Doucet.\n"
-"Dates of Transportation are based on those found in &lt;http://www.wikipedia."
-"org&gt;.\n"
+"Moon photo is copyright NASA. The space sounds come from Tuxpaint and "
+"Vegastrike which are released under the GPL license. The transportation "
+"images are copyright Franck Doucet. Dates of Transportation are based on "
+"those found in &lt;http://www.wikipedia.org&gt;."
 
-#: boards/chronos.xml.in.h:8
+#: boards/chronos.xml.in.h:4
 msgid "Pick from the pictures on the left and put them on the red dots"
 msgstr "Pick from the pictures on the left and put them on the red dots"
 
-#: boards/chronos.xml.in.h:9
+#: boards/chronos.xml.in.h:5
 msgid "Sort the pictures into the order that tells the story"
 msgstr "Sort the pictures into the order that tells the story"
 
-#: boards/chronos.xml.in.h:10
+#: boards/chronos.xml.in.h:6
 msgid "Tell a short story"
 msgstr "Tell a short story"
 
@@ -1246,11 +1242,11 @@ msgstr ""
 msgid "Motor-coordination"
 msgstr "Motor-coordination"
 
-#: boards/erase.xml.in.h:4 src/boards/erase.c:83 src/boards/machpuzzle.c:93
+#: boards/erase.xml.in.h:4 src/boards/erase.c:95 src/boards/machpuzzle.c:93
 msgid "Move the mouse"
 msgstr "Move the mouse"
 
-#: boards/erase.xml.in.h:5 src/boards/erase.c:84
+#: boards/erase.xml.in.h:5 src/boards/erase.c:96
 msgid "Move the mouse to erase the area and discover the background"
 msgstr "Move the mouse to erase the area and discover the background"
 
@@ -1686,197 +1682,217 @@ msgstr "Turkey"
 msgid "Ukraine"
 msgstr "Ukraine"
 
-#: boards/geography/board4_0.xml.in.h:1
-msgid "Northern Africa"
-msgstr "Northern Africa"
-
-#: boards/geography/board4_1.xml.in.h:1
-msgid "Southern Africa"
-msgstr "Southern Africa"
-
-#: boards/geography/board4_2.xml.in.h:2
+#: boards/geography/board4_0.xml.in.h:1 boards/geography/board4_2.xml.in.h:2
 msgid "Algeria"
 msgstr "Algeria"
 
-#: boards/geography/board4_2.xml.in.h:3
-msgid "Angola"
-msgstr "Angola"
-
-#: boards/geography/board4_2.xml.in.h:4
+#: boards/geography/board4_0.xml.in.h:2 boards/geography/board4_2.xml.in.h:4
 msgid "Benin"
 msgstr "Benin"
 
-#: boards/geography/board4_2.xml.in.h:5
-msgid "Botswana"
-msgstr "Botswana"
-
-#: boards/geography/board4_2.xml.in.h:6
+#: boards/geography/board4_0.xml.in.h:3 boards/geography/board4_2.xml.in.h:6
 msgid "Burkina Faso"
 msgstr "Burkina Faso"
 
-#: boards/geography/board4_2.xml.in.h:7
-msgid "Burundi"
-msgstr "Burundi"
-
-#: boards/geography/board4_2.xml.in.h:8
+#: boards/geography/board4_0.xml.in.h:4 boards/geography/board4_2.xml.in.h:8
 msgid "Cameroon"
 msgstr "Cameroon"
 
-#: boards/geography/board4_2.xml.in.h:9
+#: boards/geography/board4_0.xml.in.h:5 boards/geography/board4_2.xml.in.h:9
 msgid "Central African Republic"
 msgstr "Central African Republic"
 
-#: boards/geography/board4_2.xml.in.h:10
+#: boards/geography/board4_0.xml.in.h:6 boards/geography/board4_2.xml.in.h:10
 msgid "Chad"
 msgstr "Chad"
 
-#: boards/geography/board4_2.xml.in.h:11
-msgid "Democratic Republic of Congo"
-msgstr "Democratic Republic of Congo"
-
-#: boards/geography/board4_2.xml.in.h:12
+#: boards/geography/board4_0.xml.in.h:7 boards/geography/board4_2.xml.in.h:12
 msgid "Djibouti"
 msgstr "Djibouti"
 
-#: boards/geography/board4_2.xml.in.h:13
+#: boards/geography/board4_0.xml.in.h:8 boards/geography/board4_2.xml.in.h:13
 msgid "Egypt"
 msgstr "Egypt"
 
+#: boards/geography/board4_0.xml.in.h:9 boards/geography/board4_1.xml.in.h:5
 #: boards/geography/board4_2.xml.in.h:14
 msgid "Equatorial Guinea"
 msgstr "Equatorial Guinea"
+
+#: boards/geography/board4_0.xml.in.h:10 boards/geography/board4_2.xml.in.h:16
+msgid "Ethiopia"
+msgstr "Ethiopia"
+
+#: boards/geography/board4_0.xml.in.h:11 boards/geography/board4_1.xml.in.h:6
+#: boards/geography/board4_2.xml.in.h:17
+msgid "Gabon"
+msgstr "Gabon"
+
+#: boards/geography/board4_0.xml.in.h:12 boards/geography/board4_2.xml.in.h:18
+msgid "Gambia"
+msgstr "Gambia"
+
+#: boards/geography/board4_0.xml.in.h:13 boards/geography/board4_2.xml.in.h:19
+msgid "Ghana"
+msgstr "Ghana"
+
+#: boards/geography/board4_0.xml.in.h:14 boards/geography/board4_2.xml.in.h:20
+msgid "Guinea"
+msgstr "Guinea"
+
+#: boards/geography/board4_0.xml.in.h:15 boards/geography/board4_2.xml.in.h:21
+msgid "Guinea Bissau"
+msgstr "Guinea Bissau"
+
+#: boards/geography/board4_0.xml.in.h:16 boards/geography/board4_2.xml.in.h:22
+msgid "Ivory Coast"
+msgstr "Ivory Coast"
+
+#: boards/geography/board4_0.xml.in.h:17 boards/geography/board4_2.xml.in.h:25
+msgid "Liberia"
+msgstr "Liberia"
+
+#: boards/geography/board4_0.xml.in.h:18 boards/geography/board4_2.xml.in.h:26
+msgid "Libya"
+msgstr "Libya"
+
+#: boards/geography/board4_0.xml.in.h:19 boards/geography/board4_2.xml.in.h:29
+msgid "Mali"
+msgstr "Mali"
+
+#: boards/geography/board4_0.xml.in.h:20 boards/geography/board4_2.xml.in.h:30
+msgid "Mauritania"
+msgstr "Mauritania"
+
+#: boards/geography/board4_0.xml.in.h:21
+msgid "Moroco"
+msgstr "Moroco"
+
+#: boards/geography/board4_0.xml.in.h:22 boards/geography/board4_2.xml.in.h:34
+msgid "Niger"
+msgstr "Niger"
+
+#: boards/geography/board4_0.xml.in.h:23 boards/geography/board4_2.xml.in.h:35
+msgid "Nigeria"
+msgstr "Nigeria"
+
+#: boards/geography/board4_0.xml.in.h:24
+msgid "Northern Africa"
+msgstr "Northern Africa"
+
+#: boards/geography/board4_0.xml.in.h:25 boards/geography/board4_1.xml.in.h:14
+#: boards/geography/board4_2.xml.in.h:36
+msgid "Rwanda"
+msgstr "Rwanda"
+
+#: boards/geography/board4_0.xml.in.h:26 boards/geography/board4_2.xml.in.h:37
+msgid "Senegal"
+msgstr "Senegal"
+
+#: boards/geography/board4_0.xml.in.h:27 boards/geography/board4_2.xml.in.h:38
+msgid "Sierra Leone"
+msgstr "Sierra Leone"
+
+#: boards/geography/board4_0.xml.in.h:28 boards/geography/board4_2.xml.in.h:39
+msgid "Somalia"
+msgstr "Somalia"
+
+#: boards/geography/board4_0.xml.in.h:29
+msgid "Sudan"
+msgstr "Sudan"
+
+#: boards/geography/board4_0.xml.in.h:30 boards/geography/board4_2.xml.in.h:43
+msgid "Togo"
+msgstr "Togo"
+
+#: boards/geography/board4_0.xml.in.h:31 boards/geography/board4_2.xml.in.h:44
+msgid "Tunisia"
+msgstr "Tunisia"
+
+#: boards/geography/board4_0.xml.in.h:32 boards/geography/board4_1.xml.in.h:19
+#: boards/geography/board4_2.xml.in.h:45
+msgid "Uganda"
+msgstr "Uganda"
+
+#: boards/geography/board4_0.xml.in.h:33
+msgid "Western Sahara"
+msgstr "Western Sahara"
+
+#: boards/geography/board4_1.xml.in.h:1 boards/geography/board4_2.xml.in.h:3
+msgid "Angola"
+msgstr "Angola"
+
+#: boards/geography/board4_1.xml.in.h:2 boards/geography/board4_2.xml.in.h:5
+msgid "Botswana"
+msgstr "Botswana"
+
+#: boards/geography/board4_1.xml.in.h:3 boards/geography/board4_2.xml.in.h:7
+msgid "Burundi"
+msgstr "Burundi"
+
+#: boards/geography/board4_1.xml.in.h:4 boards/geography/board4_2.xml.in.h:11
+msgid "Democratic Republic of Congo"
+msgstr "Democratic Republic of Congo"
+
+#: boards/geography/board4_1.xml.in.h:7 boards/geography/board4_2.xml.in.h:23
+msgid "Kenya"
+msgstr "Kenya"
+
+#: boards/geography/board4_1.xml.in.h:8 boards/geography/board4_2.xml.in.h:24
+msgid "Lesotho"
+msgstr "Lesotho"
+
+#: boards/geography/board4_1.xml.in.h:9 boards/geography/board4_2.xml.in.h:27
+msgid "Madagascar"
+msgstr "Madagascar"
+
+#: boards/geography/board4_1.xml.in.h:10 boards/geography/board4_2.xml.in.h:28
+msgid "Malawi"
+msgstr "Malawi"
+
+#: boards/geography/board4_1.xml.in.h:11 boards/geography/board4_2.xml.in.h:32
+msgid "Mozambique"
+msgstr "Mozambique"
+
+#: boards/geography/board4_1.xml.in.h:12 boards/geography/board4_2.xml.in.h:33
+msgid "Namibia"
+msgstr "Namibia"
+
+#: boards/geography/board4_1.xml.in.h:13
+msgid "Republic of Congo"
+msgstr "Republic of Congo"
+
+#: boards/geography/board4_1.xml.in.h:15 boards/geography/board4_2.xml.in.h:40
+msgid "South Africa"
+msgstr "South Africa"
+
+#: boards/geography/board4_1.xml.in.h:16
+msgid "Southern Africa"
+msgstr "Southern Africa"
+
+#: boards/geography/board4_1.xml.in.h:17 boards/geography/board4_2.xml.in.h:41
+msgid "Swaziland"
+msgstr "Swaziland"
+
+#: boards/geography/board4_1.xml.in.h:18 boards/geography/board4_2.xml.in.h:42
+msgid "Tanzania"
+msgstr "Tanzania"
+
+#: boards/geography/board4_1.xml.in.h:20 boards/geography/board4_2.xml.in.h:46
+msgid "Zambia"
+msgstr "Zambia"
+
+#: boards/geography/board4_1.xml.in.h:21 boards/geography/board4_2.xml.in.h:47
+msgid "Zimbabwe"
+msgstr "Zimbabwe"
 
 #: boards/geography/board4_2.xml.in.h:15
 msgid "Eritrea"
 msgstr "Eritrea"
 
-#: boards/geography/board4_2.xml.in.h:16
-msgid "Ethiopia"
-msgstr "Ethiopia"
-
-#: boards/geography/board4_2.xml.in.h:17
-msgid "Gabon"
-msgstr "Gabon"
-
-#: boards/geography/board4_2.xml.in.h:18
-msgid "Gambia"
-msgstr "Gambia"
-
-#: boards/geography/board4_2.xml.in.h:19
-msgid "Ghana"
-msgstr "Ghana"
-
-#: boards/geography/board4_2.xml.in.h:20
-msgid "Guinea"
-msgstr "Guinea"
-
-#: boards/geography/board4_2.xml.in.h:21
-msgid "Guinea Bissau"
-msgstr "Guinea Bissau"
-
-#: boards/geography/board4_2.xml.in.h:22
-msgid "Ivory Coast"
-msgstr "Ivory Coast"
-
-#: boards/geography/board4_2.xml.in.h:23
-msgid "Kenya"
-msgstr "Kenya"
-
-#: boards/geography/board4_2.xml.in.h:24
-msgid "Lesotho"
-msgstr "Lesotho"
-
-#: boards/geography/board4_2.xml.in.h:25
-msgid "Liberia"
-msgstr "Liberia"
-
-#: boards/geography/board4_2.xml.in.h:26
-msgid "Libya"
-msgstr "Libya"
-
-#: boards/geography/board4_2.xml.in.h:27
-msgid "Madagascar"
-msgstr "Madagascar"
-
-#: boards/geography/board4_2.xml.in.h:28
-msgid "Malawi"
-msgstr "Malawi"
-
-#: boards/geography/board4_2.xml.in.h:29
-msgid "Mali"
-msgstr "Mali"
-
-#: boards/geography/board4_2.xml.in.h:30
-msgid "Mauritania"
-msgstr "Mauritania"
-
 #: boards/geography/board4_2.xml.in.h:31
 msgid "Morocco"
 msgstr "Morocco"
-
-#: boards/geography/board4_2.xml.in.h:32
-msgid "Mozambique"
-msgstr "Mozambique"
-
-#: boards/geography/board4_2.xml.in.h:33
-msgid "Namibia"
-msgstr "Namibia"
-
-#: boards/geography/board4_2.xml.in.h:34
-msgid "Niger"
-msgstr "Niger"
-
-#: boards/geography/board4_2.xml.in.h:35
-msgid "Nigeria"
-msgstr "Nigeria"
-
-#: boards/geography/board4_2.xml.in.h:36
-msgid "Rwanda"
-msgstr "Rwanda"
-
-#: boards/geography/board4_2.xml.in.h:37
-msgid "Senegal"
-msgstr "Senegal"
-
-#: boards/geography/board4_2.xml.in.h:38
-msgid "Sierra Leone"
-msgstr "Sierra Leone"
-
-#: boards/geography/board4_2.xml.in.h:39
-msgid "Somalia"
-msgstr "Somalia"
-
-#: boards/geography/board4_2.xml.in.h:40
-msgid "South Africa"
-msgstr "South Africa"
-
-#: boards/geography/board4_2.xml.in.h:41
-msgid "Swaziland"
-msgstr "Swaziland"
-
-#: boards/geography/board4_2.xml.in.h:42
-msgid "Tanzania"
-msgstr "Tanzania"
-
-#: boards/geography/board4_2.xml.in.h:43
-msgid "Togo"
-msgstr "Togo"
-
-#: boards/geography/board4_2.xml.in.h:44
-msgid "Tunisia"
-msgstr "Tunisia"
-
-#: boards/geography/board4_2.xml.in.h:45
-msgid "Uganda"
-msgstr "Uganda"
-
-#: boards/geography/board4_2.xml.in.h:46
-msgid "Zambia"
-msgstr "Zambia"
-
-#: boards/geography/board4_2.xml.in.h:47
-msgid "Zimbabwe"
-msgstr "Zimbabwe"
 
 #: boards/geography/board5_0.xml.in.h:1
 msgid "Regions of France"
@@ -2863,6 +2879,10 @@ msgstr ""
 msgid "Practice money usage including cents"
 msgstr "Practise money usage including cents"
 
+#: boards/mosaic.xml.in.h:1
+msgid "Rebuild the mosaic"
+msgstr "Rebuild the mosaic"
+
 #: boards/mouse.xml.in.h:2
 msgid "Mouse-manipulation boards"
 msgstr "Mouse-manipulation boards"
@@ -3416,6 +3436,26 @@ msgstr "Practise addition with a target game"
 msgid "Throw darts at a target and count your score."
 msgstr "Throw darts at a target and count your score."
 
+#: boards/tuxpaint.xml.in.h:1
+msgid "Drawing activity (pixmap)"
+msgstr "Drawing activity (pixmap)"
+
+#: boards/tuxpaint.xml.in.h:2
+msgid "Launch Tuxpaint"
+msgstr "Launch Tuxpaint"
+
+#: boards/tuxpaint.xml.in.h:3
+msgid "Tuxpaint"
+msgstr "Tuxpaint"
+
+#: boards/tuxpaint.xml.in.h:4
+msgid "Use Tuxpaint to draw. When Tuxpaint is finished this board will end."
+msgstr "Use Tuxpaint to draw. When Tuxpaint is finished this board will end."
+
+#: boards/tuxpaint.xml.in.h:5
+msgid "mouse and keyboard manipulation"
+msgstr "mouse and keyboard manipulation"
+
 #: boards/traffic.xml.in.h:1
 msgid "A sliding-block puzzle game"
 msgstr "A sliding-block puzzle game"
@@ -3456,7 +3496,7 @@ msgstr ""
 "Tux has come back from a long fishing party on his boat.\n"
 "Bring the water system back up so he can take a shower."
 
-#: boards/wordsgame.xml.in.h:1 src/boards/wordsgame.c:112
+#: boards/wordsgame.xml.in.h:1 src/boards/wordsgame.c:113
 msgid "Falling Words"
 msgstr "Falling Words"
 
@@ -3468,7 +3508,7 @@ msgstr "Keyboard training"
 msgid "Type the complete word as it falls, before it reachs the ground"
 msgstr "Type the complete word as it falls, before it reaches the ground"
 
-#: boards/wordsgame.xml.in.h:5 src/boards/wordsgame.c:113
+#: boards/wordsgame.xml.in.h:5 src/boards/wordsgame.c:114
 msgid "Type the falling words before they reach the ground"
 msgstr "Type the falling words before they reach the ground"
 
@@ -3492,7 +3532,7 @@ msgstr "Multiple activities for kids"
 #: src/boards/missingletter.c:655 src/boards/read_colors.c:491
 #: src/boards/shapegame.c:1902 src/gcompris/file_selector.c:893
 #: src/gcompris/gameutil.c:186 src/gcompris/gameutil.c:604
-#: src/gcompris/gameutil.c:605 src/gcompris/gcompris.c:634
+#: src/gcompris/gameutil.c:605 src/gcompris/gcompris.c:639
 #: src/gcompris/images_selector.c:767 src/gcompris/skin.c:87
 #: src/gcompris/skin.c:266 src/gcompris/wordlist.c:49
 #, c-format
@@ -3649,21 +3689,21 @@ msgstr "Click on the black duck"
 msgid "Click on the white duck"
 msgstr "Click on the white duck"
 
-#: src/boards/erase.c:158
+#: src/boards/erase.c:170
 msgid "Couldn't get GTK settings"
 msgstr "Could not get GTK settings"
 
-#: src/boards/erase.c:163
+#: src/boards/erase.c:175
 #, c-format
 msgid "Double-click default value %d."
 msgstr "Double-click default value %d."
 
-#: src/boards/erase.c:168
+#: src/boards/erase.c:180
 #, c-format
 msgid "Double-click value is now %d."
 msgstr "Double-click value is now %d."
 
-#: src/boards/erase.c:183 src/boards/erase.c:206 src/boards/erase.c:337
+#: src/boards/erase.c:195 src/boards/erase.c:218 src/boards/erase.c:348
 #, c-format
 msgid "Double click value is now %d."
 msgstr "Double click value is now %d."
@@ -3821,7 +3861,7 @@ msgstr ""
 #. we can add what you want in it.
 #: src/boards/python/admin/board_list.py:632
 #: src/boards/python/admin/board_list.py:650
-#: src/boards/python/admin/wordlist.py:51 src/boards/python/login.py:543
+#: src/boards/python/admin/wordlist.py:51 src/boards/python/login.py:530
 #: src/boards/python/pythontest.py:409 src/boards/python/tuxpaint.py:179
 #, python-format
 msgid ""
@@ -4241,45 +4281,49 @@ msgstr ""
 "L\n"
 "E"
 
-#: src/boards/python/guessnumber.py:220
+#: src/boards/python/guessnumber.py:216
 #, python-format
 msgid "Guess a number between %d and %d"
 msgstr "Guess a number between %d and %d"
 
-#: src/boards/python/guessnumber.py:334 src/boards/python/guessnumber.py:335
+#: src/boards/python/guessnumber.py:331 src/boards/python/guessnumber.py:332
 #, python-format
 msgid "Please enter a number between %d and %d"
 msgstr "Please enter a number between %d and %d"
 
-#: src/boards/python/guessnumber.py:340 src/boards/python/guessnumber.py:341
+#: src/boards/python/guessnumber.py:337 src/boards/python/guessnumber.py:338
 msgid "Out of range"
 msgstr "Out of range"
 
-#: src/boards/python/guessnumber.py:347 src/boards/python/guessnumber.py:348
+#: src/boards/python/guessnumber.py:344 src/boards/python/guessnumber.py:345
 msgid "Too high"
 msgstr "Too high"
 
-#: src/boards/python/guessnumber.py:350 src/boards/python/guessnumber.py:351
+#: src/boards/python/guessnumber.py:347 src/boards/python/guessnumber.py:348
 msgid "Too low"
 msgstr "Too low"
 
-#: src/boards/python/login.py:125
+#: src/boards/python/login.py:115
 msgid "Profile: "
 msgstr "Profile: "
 
-#: src/boards/python/login.py:276 src/boards/python/login.py:285
+#: src/boards/python/login.py:263 src/boards/python/login.py:272
 msgid "Login: "
 msgstr "Login: "
 
 #. toggle box
-#: src/boards/python/login.py:548
+#: src/boards/python/login.py:535
 msgid "Uppercase only text"
 msgstr "Uppercase only text"
 
 #. toggle box
-#: src/boards/python/login.py:558
+#: src/boards/python/login.py:545
 msgid "Enter login to log in"
 msgstr "Enter login to log in"
+
+#: src/boards/python/mosaic.py:211
+msgid "Rebuild the same mosaic on the right area"
+msgstr "Rebuild the same mosaic on the right area"
 
 #: src/boards/python/pythontest.py:149
 msgid ""
@@ -4424,11 +4468,11 @@ msgstr "Show Uppercase text only"
 msgid "Disable stamps"
 msgstr "Disable stamps"
 
-#: src/boards/railroad.c:96
+#: src/boards/railroad.c:95
 msgid "Memory game"
 msgstr "Memory game"
 
-#: src/boards/railroad.c:97
+#: src/boards/railroad.c:96
 msgid "Build a train according to the model"
 msgstr "Build a train according to the model"
 
@@ -4868,47 +4912,47 @@ msgstr ""
 "Exit it and report\n"
 "the problem to the authors."
 
-#: src/gcompris/gcompris.c:116
+#: src/gcompris/gcompris.c:120
 msgid "run gcompris in fullscreen mode."
 msgstr "run gcompris in fullscreen mode."
 
-#: src/gcompris/gcompris.c:118
+#: src/gcompris/gcompris.c:122
 msgid "run gcompris in window mode."
 msgstr "run gcompris in window mode."
 
-#: src/gcompris/gcompris.c:120
+#: src/gcompris/gcompris.c:124
 msgid "run gcompris with sound enabled."
 msgstr "run gcompris with sound enabled."
 
-#: src/gcompris/gcompris.c:122
+#: src/gcompris/gcompris.c:126
 msgid "run gcompris without sound."
 msgstr "run gcompris without sound."
 
-#: src/gcompris/gcompris.c:124
+#: src/gcompris/gcompris.c:128
 msgid "run gcompris with the default gnome cursor."
 msgstr "run gcompris with the default gnome cursor."
 
-#: src/gcompris/gcompris.c:126
+#: src/gcompris/gcompris.c:130
 msgid "display only activities with this difficulty level."
 msgstr "display only activities with this difficulty level."
 
-#: src/gcompris/gcompris.c:128
+#: src/gcompris/gcompris.c:132
 msgid "display debug informations on the console."
 msgstr "display debugging information on the console."
 
-#: src/gcompris/gcompris.c:130
+#: src/gcompris/gcompris.c:134
 msgid "Print the version of "
 msgstr "Print the version of "
 
-#: src/gcompris/gcompris.c:132
+#: src/gcompris/gcompris.c:136
 msgid "Use the antialiased canvas (slower)."
 msgstr "Use the antialiased canvas (slower)."
 
-#: src/gcompris/gcompris.c:134
+#: src/gcompris/gcompris.c:138
 msgid "Disable XRANDR (No screen resolution change)."
 msgstr "Disable XRANDR (No screen resolution change)."
 
-#: src/gcompris/gcompris.c:136
+#: src/gcompris/gcompris.c:140
 msgid ""
 "Run gcompris with local menu (e.g -l /reading will let you play only "
 "activities in the reading directory, -l /boards/connect4 only the connect4 "
@@ -4918,39 +4962,39 @@ msgstr ""
 "activities in the reading directory, -l /boards/connect4 only the connect4 "
 "activity)"
 
-#: src/gcompris/gcompris.c:138
+#: src/gcompris/gcompris.c:142
 msgid "Run GCompris with local activity directory added to menu"
 msgstr "Run GCompris with local activity directory added to menu"
 
-#: src/gcompris/gcompris.c:140
+#: src/gcompris/gcompris.c:144
 msgid "Run GCompris in administration and user-management mode"
 msgstr "Run GCompris in administration and user-management mode"
 
-#: src/gcompris/gcompris.c:142
+#: src/gcompris/gcompris.c:146
 msgid "Use alternate database for profiles"
 msgstr "Use alternate database for profiles"
 
-#: src/gcompris/gcompris.c:144
+#: src/gcompris/gcompris.c:148
 msgid "Use alternate database for logs"
 msgstr "Use alternate database for logs"
 
-#: src/gcompris/gcompris.c:146
+#: src/gcompris/gcompris.c:150
 msgid "Create the alternate database for profiles"
 msgstr "Create the alternate database for profiles"
 
-#: src/gcompris/gcompris.c:148
+#: src/gcompris/gcompris.c:152
 msgid "Re-read XML Menus and store them in the database"
 msgstr "Re-read XML Menus and store them in the database"
 
-#: src/gcompris/gcompris.c:150
+#: src/gcompris/gcompris.c:154
 msgid "Set the profile to use. Use 'gcompris -a' to create profiles"
 msgstr "Set the profile to use. Use 'gcompris -a' to create profiles"
 
-#: src/gcompris/gcompris.c:152
+#: src/gcompris/gcompris.c:156
 msgid "List all available profiles. Use 'gcompris -a' to create profiles"
 msgstr "List all available profiles. Use 'gcompris -a' to create profiles"
 
-#: src/gcompris/gcompris.c:154
+#: src/gcompris/gcompris.c:158
 msgid ""
 "Shared directory location, for profiles and board-configuration data: "
 "[$HOME/.gcompris/shared]"
@@ -4958,11 +5002,11 @@ msgstr ""
 "Shared directory location, for profiles and board-configuration data: "
 "[$HOME/.gcompris/shared]"
 
-#: src/gcompris/gcompris.c:156
+#: src/gcompris/gcompris.c:160
 msgid "The location of user directories: [$HOME/.gcompris/users]"
 msgstr "The location of user directories: [$HOME/.gcompris/users]"
 
-#: src/gcompris/gcompris.c:792
+#: src/gcompris/gcompris.c:797
 #, c-format
 msgid ""
 "GCompris is free software released under the GPL License. In order to "
@@ -4985,7 +5029,7 @@ msgstr ""
 "GNU/Linux. Get more information at FSF:\n"
 "<http://www.fsf.org/philosophy>"
 
-#: src/gcompris/gcompris.c:1083
+#: src/gcompris/gcompris.c:1097
 #, c-format
 msgid ""
 "GCompris\n"
@@ -4999,26 +5043,26 @@ msgstr ""
 "More info at http://gcompris.net\n"
 
 #. check the list of possible values for -l, then exit
-#: src/gcompris/gcompris.c:1151
+#: src/gcompris/gcompris.c:1165
 #, c-format
 msgid "Use -l to access an activity directly.\n"
 msgstr "Use -l to access an activity directly.\n"
 
-#: src/gcompris/gcompris.c:1152
+#: src/gcompris/gcompris.c:1166
 #, c-format
 msgid "List of available activity is :\n"
 msgstr "List of available activity is:\n"
 
-#: src/gcompris/gcompris.c:1295
+#: src/gcompris/gcompris.c:1309
 #, c-format
 msgid "The list of available profiles is:\n"
 msgstr "The list of available profiles is:\n"
 
-#: src/gcompris/gcompris_db.c:239
+#: src/gcompris/gcompris_db.c:237
 msgid "Unaffected"
 msgstr "Unaffected"
 
-#: src/gcompris/gcompris_db.c:240
+#: src/gcompris/gcompris_db.c:238
 msgid "Users without class"
 msgstr "Users without class"
 
