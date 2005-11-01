@@ -121,7 +121,13 @@ class Gcompris_guessnumber:
 
   def pause(self, pause):
     self.board_paused = pause
-    
+
+    # Hack for widget that can't be covered by bonus and/or help
+    if pause:
+       self.entry.hide()
+    else:
+      self.entry.show()
+      
     # When the bonus is displayed, it call us first with pause(1) and then with pause(0)
     # the game is won
     if(pause == 0 and self.gamewon):
@@ -130,7 +136,7 @@ class Gcompris_guessnumber:
 
       self.cleanup_game()
       self.display_game()
-      
+
     return
 
 

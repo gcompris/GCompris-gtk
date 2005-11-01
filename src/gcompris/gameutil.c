@@ -1,6 +1,6 @@
 /* gcompris - gameutil.c
  *
- * Time-stamp: <2005/10/11 22:45:13 yves>
+ * Time-stamp: <2005/10/31 23:19:29 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -451,29 +451,8 @@ gcompris_add_xml_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child, Gcomp
     /* get the description of the board */
     if (!strcmp(xmlnode->name, "description"))
       {
-	int i;
 	description = xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 1);
 	gcomprisBoard->description = reactivate_newline(gettext(description));
-
-	/* WARNING: I used to use the richtext item that handle the clipping but it is not
-	 * stable enough. Here I remove any \n unterered by the translator and insert new newlines
-	 */
-
-	/* Remove newline in description if needed */
-	for(i=0; i<strlen(gcomprisBoard->description); i++) {
-	  if(gcomprisBoard->description[i]=='\n')
-	    gcomprisBoard->description[i]=' ';
-	}
-
-	/* Insert newline in description if needed */
-	i=60;
-	while(i<strlen(gcomprisBoard->description)) {
-	  char *index;
-	  index = strchr(gcomprisBoard->description+i, ' ');
-	  if(index)
-	    *index='\n';
-	  i+=70;
-	}
       }
 
     /* get the help prerequisite help of the board */

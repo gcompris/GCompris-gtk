@@ -1,6 +1,6 @@
 /* gcompris - help.c
  *
- * Time-stamp: <2005/09/28 23:01:51 bruno>
+ * Time-stamp: <2005/10/31 23:00:03 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -468,16 +468,6 @@ static void set_content(gchar *text) {
   gnome_canvas_item_set(item_content, 
 			"text", text,
 			NULL);
-
-  buffer  = gnome_canvas_rich_text_get_buffer(GNOME_CANVAS_RICH_TEXT(item_content));
-  txt_tag = gtk_text_buffer_create_tag(buffer, NULL, 
-				       "foreground", "black",
-				       "font",       "Sans 10",
-				       NULL);
-  gtk_text_buffer_get_end_iter(buffer, &iter_end);
-  gtk_text_buffer_get_start_iter(buffer, &iter_start);
-  gtk_text_buffer_apply_tag(buffer, txt_tag, &iter_start, &iter_end);
-
 
   buffer  = gnome_canvas_rich_text_get_buffer(GNOME_CANVAS_RICH_TEXT(item_content));
   txt_tag = gtk_text_buffer_create_tag(buffer, NULL, 

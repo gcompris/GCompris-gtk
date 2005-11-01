@@ -2143,6 +2143,8 @@ class Gcompris_anim:
 
 
   def unselect(self):
+    if not self.selected:
+      return
     if ((gobject.type_name(self.selected.item_list[0])=="GnomeCanvasText")
         and
         (self.last_commit != None)):

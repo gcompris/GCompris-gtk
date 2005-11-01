@@ -1,6 +1,6 @@
 /* gcompris - menu.c
  *
- * Time-stamp: <2005/10/10 22:56:10 yves>
+ * Time-stamp: <2005/11/01 20:34:29 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -38,12 +38,14 @@
 typedef struct {
   /* Information items (_s are shadow) */
   GnomeCanvasItem *boardname_item;
-  GnomeCanvasItem *description_item;
+  GnomeCanvasRichText *description_item;
   GnomeCanvasItem *author_item;
   GnomeCanvasItem *boardname_item_s;
-  GnomeCanvasItem *description_item_s;
+  GnomeCanvasRichText *description_item_s;
   GnomeCanvasItem *author_item_s;
 } MenuItems;
+
+static MenuItems *menuitems;
 
 static GcomprisBoard *gcomprisBoard = NULL;
 static gboolean board_paused = TRUE;
@@ -59,8 +61,10 @@ static gboolean		 next_spot();
 static void		 create_info_area(GnomeCanvasGroup *parent, MenuItems *menuitems);
 static gint		 item_event(GnomeCanvasItem *item, GdkEvent *event, MenuItems *menuitems);
 static void		 display_board_icon(GcomprisBoard *board, MenuItems *menuitems);
-static gboolean		 read_xml_file(char *fname);
 static void		 free_stuff (GtkObject *obj, gpointer data);
+static void		 set_content(GnomeCanvasRichText *item_content,
+				     GnomeCanvasRichText *item_content_s,
+				     gchar *text);
 
 static double current_x = 0.0;
 static double current_y = 0.0;
@@ -123,7 +127,6 @@ static void menu_start (GcomprisBoard *agcomprisBoard)
 
   if(agcomprisBoard!=NULL)
     {
-      MenuItems		*menuitems;
       GList		*boardlist;	/* List of Board */
 
       gcomprisBoard=agcomprisBoard;
@@ -175,7 +178,16 @@ static void
 menu_end ()
 {
   if(boardRootItem!=NULL)
-    gtk_object_destroy (GTK_OBJECT(boardRootItem));
+    {
+      /* WORKAROUND: There is a bug in the richtex item and we need to remove it first */
+      while (g_idle_remove_by_data (menuitems->description_item));
+      gtk_object_destroy (menuitems->description_item);
+
+      while (g_idle_remove_by_data (menuitems->description_item_s));
+      gtk_object_destroy (menuitems->description_item_s);
+
+      gtk_object_destroy (GTK_OBJECT(boardRootItem));
+    }
 
   boardRootItem=NULL;
 }
@@ -390,16 +402,13 @@ static void menu_create_item(GnomeCanvasGroup *parent, MenuItems *menuitems, Gco
 static gint
 item_event(GnomeCanvasItem *item, GdkEvent *event,  MenuItems *menuitems)
 {
-  GtkTextIter    iter_start, iter_end;
-  GtkTextBuffer *buffer;
-  GtkTextTag    *txt_tag;
   GcomprisBoard *board;
 
   if(board_paused)
     return FALSE;
 
   if(boardRootItem    == NULL)
-    return;
+    return FALSE;
 
   board = g_object_get_data (G_OBJECT (item), "board");
 
@@ -411,10 +420,12 @@ item_event(GnomeCanvasItem *item, GdkEvent *event,  MenuItems *menuitems)
 			       "text", board->title,
 			       NULL);
 
-      if(board->description && G_IS_OBJECT(menuitems->description_item))
-	gnome_canvas_item_set (menuitems->description_item,
-			       "text",  board->description,
-			       NULL);
+      if(board->description 
+	 && G_IS_OBJECT(menuitems->description_item)
+	 && G_IS_OBJECT(menuitems->description_item_s))
+	set_content(menuitems->description_item,
+		    menuitems->description_item_s,
+		    board->description);
 
       if(board->author && G_IS_OBJECT(menuitems->author_item))
 	gnome_canvas_item_set (menuitems->author_item,
@@ -424,11 +435,6 @@ item_event(GnomeCanvasItem *item, GdkEvent *event,  MenuItems *menuitems)
       if(board->title && G_IS_OBJECT(menuitems->boardname_item_s))
 	gnome_canvas_item_set (menuitems->boardname_item_s,
 			       "text", board->title,
-			       NULL);
-
-      if(board->description && G_IS_OBJECT(menuitems->description_item_s))
-	gnome_canvas_item_set (menuitems->description_item_s,
-			       "text",  board->description,
 			       NULL);
 
       if(board->author && G_IS_OBJECT(menuitems->author_item_s))
@@ -442,7 +448,7 @@ item_event(GnomeCanvasItem *item, GdkEvent *event,  MenuItems *menuitems)
 			     "text", " ",
 			     NULL);
 
-      gnome_canvas_item_set (menuitems->description_item,
+      gnome_canvas_item_set (GNOME_CANVAS_ITEM(menuitems->description_item),
 			     "text",  " ",
 			     NULL);
 
@@ -454,7 +460,7 @@ item_event(GnomeCanvasItem *item, GdkEvent *event,  MenuItems *menuitems)
 			     "text", " ",
 			     NULL);
 
-      gnome_canvas_item_set (menuitems->description_item_s,
+      gnome_canvas_item_set (GNOME_CANVAS_ITEM(menuitems->description_item_s),
 			     "text",  " ",
 			     NULL);
 
@@ -478,6 +484,75 @@ item_event(GnomeCanvasItem *item, GdkEvent *event,  MenuItems *menuitems)
   return FALSE;
 }
 
+/* Apply the style to the given RichText item  */
+static void
+set_content(GnomeCanvasRichText *item_content, 
+	    GnomeCanvasRichText *item_content_s,
+	    gchar *text) {
+
+  GtkTextIter    iter_start, iter_end;
+  GtkTextBuffer *buffer;
+  GtkTextTag    *txt_tag;
+  gboolean success; 
+  gchar *color_string;
+  GdkColor *color_s = (GdkColor *)malloc(sizeof(GdkColor));
+  GdkColor *color   = (GdkColor *)malloc(sizeof(GdkColor));
+
+  /*
+   * Set the new text in the 2 items
+   */
+  gnome_canvas_item_set(GNOME_CANVAS_ITEM(item_content),
+			"text", text,
+			NULL);
+
+  gnome_canvas_item_set(GNOME_CANVAS_ITEM(item_content_s),
+			"text", text,
+			NULL);
+
+  /*
+   * Set the shadow
+   */
+
+  color_string = g_strdup_printf("#%x", gcompris_skin_color_shadow >> 8);
+  gdk_color_parse(color_string, color_s);
+  success = gdk_colormap_alloc_color(gdk_colormap_get_system(), 
+				     color_s,
+  				     FALSE, TRUE); 
+
+  buffer  = gnome_canvas_rich_text_get_buffer(GNOME_CANVAS_RICH_TEXT(item_content_s));
+  txt_tag = gtk_text_buffer_create_tag(buffer, NULL, 
+				       "foreground-gdk", color_s,
+				       "font",       gcompris_skin_font_board_medium,
+				       NULL);
+  gtk_text_buffer_get_end_iter(buffer, &iter_end);
+  gtk_text_buffer_get_start_iter(buffer, &iter_start);
+  gtk_text_buffer_apply_tag(buffer, txt_tag, &iter_start, &iter_end);
+
+  g_free(color_string);
+
+  /* 
+   * Set the text
+   */
+  color_string = g_strdup_printf("#%x", gcompris_skin_get_color("menu/text") >> 8);
+  gdk_color_parse(color_string, color);
+  success = gdk_colormap_alloc_color(gdk_colormap_get_system(), 
+				     color,
+  				     FALSE, TRUE); 
+
+  buffer  = gnome_canvas_rich_text_get_buffer(GNOME_CANVAS_RICH_TEXT(item_content));
+  txt_tag = gtk_text_buffer_create_tag(buffer, NULL, 
+				       "foreground-gdk", color,
+				       "font",        gcompris_skin_font_board_medium,
+				       NULL);
+  gtk_text_buffer_get_end_iter(buffer, &iter_end);
+  gtk_text_buffer_get_start_iter(buffer, &iter_start);
+  gtk_text_buffer_apply_tag(buffer, txt_tag, &iter_start, &iter_end);
+
+}
+
+/** \brief create the area in which we display the board title and description
+ *
+ */
 static void create_info_area(GnomeCanvasGroup *parent, MenuItems *menuitems)
 {
   gint x = (double)gcomprisBoard->width/2;
@@ -497,29 +572,6 @@ static void create_info_area(GnomeCanvasGroup *parent, MenuItems *menuitems)
 			   "fill_color_rgba",  gcompris_skin_color_shadow,
 			   NULL);
 
-  menuitems->description_item_s = \
-    gnome_canvas_item_new (parent,
-			   gnome_canvas_text_get_type (),
-			   "text", "",
-			   "font",       gcompris_skin_font_board_medium,
-			   "x", (double) x + 1.0,
-			   "y", (double) y + 28 + 1.0,
-			   "anchor", GTK_ANCHOR_NORTH,
-			   "fill_color_rgba", gcompris_skin_color_shadow,
-			   NULL);
-
-  menuitems->author_item_s = \
-    gnome_canvas_item_new (parent,
-			   gnome_canvas_text_get_type (),
-			   "text", " ",
-			   "font", gcompris_skin_font_board_tiny,
-			   "x", (double) x + 1.0,
-			   "y", (double) y + 90 + 1.0,
-  			   "anchor", GTK_ANCHOR_NORTH,
-  			   "fill_color_rgba", gcompris_skin_color_shadow,
-  			   "justification", GTK_JUSTIFY_CENTER,
-			   NULL);
-
   menuitems->boardname_item = \
     gnome_canvas_item_new (parent,
 			   gnome_canvas_text_get_type (),
@@ -531,15 +583,45 @@ static void create_info_area(GnomeCanvasGroup *parent, MenuItems *menuitems)
 			   "fill_color_rgba",  gcompris_skin_get_color("menu/text"),
 			   NULL);
 
+  menuitems->description_item_s = \
+    GNOME_CANVAS_RICH_TEXT(gnome_canvas_item_new (parent,
+						  gnome_canvas_rich_text_get_type (),
+						  "x", (double) x + 1.0,
+						  "y", (double) y + 28 + 1.0,
+						  "width",  600.0,
+						  "height", 200.0,
+						  "anchor", GTK_ANCHOR_NORTH,
+						  "justification", GTK_JUSTIFY_CENTER,
+						  "grow_height", FALSE,
+						  "cursor_visible", FALSE,
+						  "cursor_blink", FALSE,
+						  "editable", FALSE,
+						  NULL));
   menuitems->description_item = \
+    GNOME_CANVAS_RICH_TEXT(gnome_canvas_item_new (parent,
+						  gnome_canvas_rich_text_get_type (),
+						  "x", (double) x,
+						  "y", (double) y + 28,
+						  "width",  600.0,
+						  "height", 200.0,
+						  "anchor", GTK_ANCHOR_NORTH,
+						  "justification", GTK_JUSTIFY_CENTER,
+						  "grow_height", FALSE,
+						  "cursor_visible", FALSE,
+						  "cursor_blink", FALSE,
+						  "editable", FALSE,
+						  NULL));
+
+  menuitems->author_item_s = \
     gnome_canvas_item_new (parent,
 			   gnome_canvas_text_get_type (),
-			   "text", "",
-			   "font",       gcompris_skin_font_board_medium,
-			   "x", (double) x,
-			   "y", (double) y + 28,
-			   "anchor", GTK_ANCHOR_NORTH,
-			   "fill_color_rgba", gcompris_skin_get_color("menu/text"),
+			   "text", " ",
+			   "font", gcompris_skin_font_board_tiny,
+			   "x", (double) x + 1.0,
+			   "y", (double) y + 90 + 1.0,
+  			   "anchor", GTK_ANCHOR_NORTH,
+  			   "fill_color_rgba", gcompris_skin_color_shadow,
+  			   "justification", GTK_JUSTIFY_CENTER,
 			   NULL);
 
   menuitems->author_item = \

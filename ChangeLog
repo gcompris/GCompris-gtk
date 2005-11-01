@@ -1,3 +1,42 @@
+2005-11-01  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	- Fixes text of board description being badly wrapped
+	  I now use the richtext canvas to display it. We may
+	  loose on reliabilty.
+
+	* boards/canal_lock.xml.in:
+	* boards/clickgame.xml.in:
+	* boards/gnumch-inequality.xml.in:
+	* boards/guessnumber.xml.in:
+	* boards/redraw_symmetrical.xml.in:
+	* boards/traffic.xml.in:
+	* boards/watercycle.xml.in:
+	* src/boards/menu.c: (menu_start), (menu_end), (item_event),
+	(set_content), (create_info_area):
+	* src/boards/python/anim.py: fix for import old animation not working
+	* src/boards/python/guessnumber.py: Fix for widget that appers over bonus and/or help
+	* src/gcompris/gameutil.c: (gcompris_add_xml_to_data):
+	* src/gcompris/help.c: (set_content):
+
+2005-11-01  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	reviewed by: <delete if not using a buddy>
+
+	* boards/canal_lock.xml.in:
+	* boards/clickgame.xml.in:
+	* boards/gnumch-inequality.xml.in:
+	* boards/guessnumber.xml.in:
+	* boards/redraw_symmetrical.xml.in:
+	* boards/traffic.xml.in:
+	* boards/watercycle.xml.in:
+	* po/fr.po:
+	* src/boards/menu.c: (menu_start), (menu_end), (item_event),
+	(set_content), (create_info_area):
+	* src/boards/python/anim.py:
+	* src/boards/python/guessnumber.py:
+	* src/gcompris/gameutil.c: (gcompris_add_xml_to_data):
+	* src/gcompris/help.c: (set_content):
+
 2005-10-31  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	Many bugfixes.
