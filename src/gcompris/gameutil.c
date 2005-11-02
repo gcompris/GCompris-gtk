@@ -1,6 +1,6 @@
 /* gcompris - gameutil.c
  *
- * Time-stamp: <2005/10/31 23:19:29 bruno>
+ * Time-stamp: <2005/11/02 23:36:26 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -1263,7 +1263,7 @@ gchar *gcompris_find_absolute_filename(gchar *filename)
 
     absolute_filename = g_strdup_printf("%s/%s", properties->package_data_dir, filename);
 
-    if (!g_file_test (absolute_filename, G_FILE_TEST_EXISTS)) {
+    if (!g_file_test (absolute_filename, G_FILE_TEST_IS_REGULAR)) {
       GcomprisBoard   *gcomprisBoard = get_current_gcompris_board();
       g_free(absolute_filename);
       if(gcomprisBoard) {
@@ -1276,7 +1276,7 @@ gchar *gcompris_find_absolute_filename(gchar *filename)
     absolute_filename = strdup(filename);
   }
     
-  if (!g_file_test (absolute_filename, G_FILE_TEST_EXISTS)){
+  if (!g_file_test (absolute_filename, G_FILE_TEST_IS_REGULAR)){
     g_free(absolute_filename);
     return NULL;
   }

@@ -1,5 +1,5 @@
 
-xmldir = $(pkgdatadir)/@PACKAGE_DATA_DIR@/paintings
+xmldir = $(pkgdatadir)/@PACKAGE_DATA_DIR@/geography
 
 xml_in_files = \
 	board1_0.xml.in \

@@ -283,7 +283,7 @@ static void* thread_play_ogg (char *file)
     file = tmpstr;
   }
 
-  if ( file )
+  if ( file && g_file_test (file, G_FILE_TEST_EXISTS))
     {
       g_warning("Calling gcompris internal sdlplayer_file(%s)\n", file);
       sdlplayer(file, 128);
