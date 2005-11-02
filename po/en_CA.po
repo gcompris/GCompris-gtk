@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-10-31 14:17-0500\n"
+"POT-Creation-Date: 2005-11-02 10:46-0500\n"
 "PO-Revision-Date: 2005-09-06 22:51-0400\n"
 "Last-Translator: Adam Weinberger <adamw@gnome.org>\n"
 "Language-Team: Canadian English <adamw@gnome.org>\n"
@@ -704,7 +704,7 @@ msgstr "Kick the ball into the goal"
 
 #: boards/billard.xml.in.h:3 boards/chess_computer.xml.in.h:2
 #: boards/chess_movelearn.xml.in.h:3 boards/chess_partyend.xml.in.h:2
-#: boards/clickgame.xml.in.h:17 boards/connect4.xml.in.h:7
+#: boards/clickgame.xml.in.h:16 boards/connect4.xml.in.h:7
 #: boards/erase.xml.in.h:3 boards/erase_clic.xml.in.h:6
 #: boards/erase_double_clic.xml.in.h:6 boards/fifteen.xml.in.h:2
 #: boards/hanoi.xml.in.h:3 boards/memory.xml.in.h:4
@@ -733,13 +733,13 @@ msgstr "Operate a canal lock"
 
 #: boards/canal_lock.xml.in.h:2
 msgid ""
-"Tux is in trouble, and needs to take his boat through a lock.\n"
-"Help Tux and find out how a canal lock works."
+"Tux is in trouble, and needs to take his boat through a lock. Help Tux and "
+"find out how a canal lock works."
 msgstr ""
-"Tux is in trouble, and needs to take his boat through a lock.\n"
-"Help Tux and find out how a canal lock works."
+"Tux is in trouble, and needs to take his boat through a lock. Help Tux and "
+"find out how a canal lock works."
 
-#: boards/canal_lock.xml.in.h:4
+#: boards/canal_lock.xml.in.h:3
 msgid ""
 "You are in charge of the canal lock. Open the gates and the locks in the "
 "right order, so Tux can travel through the gates in both directions."
@@ -1036,17 +1036,17 @@ msgstr ""
 
 #: boards/clickgame.xml.in.h:14
 msgid ""
-"Left-Click with the mouse on all the swimming fish\n"
-"before they leave the fishtank"
+"Left-Click with the mouse on all the swimming fish before they leave the "
+"fishtank"
 msgstr ""
-"Left-Click with the mouse on all the swimming fish\n"
-"before they leave the fishtank"
+"Left-click with the mouse on all the swimming fish before they leave the "
+"fishtank"
 
-#: boards/clickgame.xml.in.h:16
+#: boards/clickgame.xml.in.h:15
 msgid "Motor coordination: moving and clicking the mouse."
 msgstr "Motor coordination: moving and clicking the mouse."
 
-#: boards/clickgame.xml.in.h:18
+#: boards/clickgame.xml.in.h:17
 msgid "Use the left mouse button to click on the moving fish."
 msgstr "Use the left mouse button to click on the moving fish."
 
@@ -3133,7 +3133,7 @@ msgstr "Vertical-reading practice"
 msgid "Copy a drawing from the box on the right into the box on the left."
 msgstr "Copy a drawing from the box on the right into the box on the left."
 
-#: boards/redraw.xml.in.h:2 boards/redraw_symmetrical.xml.in.h:4
+#: boards/redraw.xml.in.h:2 boards/redraw_symmetrical.xml.in.h:2
 msgid ""
 "First, select the proper tool from the toolbar. Then drag the mouse to "
 "create objects. When you are done, click on the OK button. Errors will be "
@@ -3151,21 +3151,13 @@ msgstr "Redraw the given item"
 
 #: boards/redraw_symmetrical.xml.in.h:1
 msgid ""
-"Copy the mirror image of an object from the box\n"
-"on the right into the box on the left."
+"Copy the mirror image of an object from the box on the right into the box on "
+"the left."
 msgstr ""
-"Copy the mirror image of an object from the box\n"
-"on the right into the box on the left."
+"Copy the mirror image of an object from the box on the right into the box on "
+"the left."
 
 #: boards/redraw_symmetrical.xml.in.h:3
-msgid ""
-"Copy the mirror image of an object from the box on the right into the box on "
-"the left."
-msgstr ""
-"Copy the mirror image of an object from the box on the right into the box on "
-"the left."
-
-#: boards/redraw_symmetrical.xml.in.h:5
 msgid "Mirror the given item"
 msgstr "Mirror the given item"
 
@@ -3462,11 +3454,9 @@ msgstr "A sliding-block puzzle game"
 
 #: boards/traffic.xml.in.h:2
 msgid ""
-"Remove all the red cars from the parking lot\n"
-"through the gate on the right"
+"Remove all the red cars from the parking lot through the gate on the right"
 msgstr ""
-"Remove all the red cars from the parking lot\n"
-"through the gate on the right"
+"Remove all the red cars from the parking lot through the gate on the right"
 
 #: boards/watercycle.xml.in.h:1
 msgid ""
@@ -3490,11 +3480,11 @@ msgstr "Learn the water cycle"
 
 #: boards/watercycle.xml.in.h:4
 msgid ""
-"Tux has come back from a long fishing party on his boat.\n"
-"Bring the water system back up so he can take a shower."
+"Tux has come back from a long fishing party on his boat. Bring the water "
+"system back up so he can take a shower."
 msgstr ""
-"Tux has come back from a long fishing party on his boat.\n"
-"Bring the water system back up so he can take a shower."
+"Tux has come back from a long fishing party on his boat. Bring the water "
+"system back up so he can take a shower."
 
 #: boards/wordsgame.xml.in.h:1 src/boards/wordsgame.c:113
 msgid "Falling Words"
@@ -3531,8 +3521,8 @@ msgstr "Multiple activities for kids"
 #: src/boards/advanced_colors.c:533 src/boards/imageid.c:642
 #: src/boards/missingletter.c:655 src/boards/read_colors.c:491
 #: src/boards/shapegame.c:1902 src/gcompris/file_selector.c:893
-#: src/gcompris/gameutil.c:186 src/gcompris/gameutil.c:604
-#: src/gcompris/gameutil.c:605 src/gcompris/gcompris.c:639
+#: src/gcompris/gameutil.c:186 src/gcompris/gameutil.c:583
+#: src/gcompris/gameutil.c:584 src/gcompris/gcompris.c:639
 #: src/gcompris/images_selector.c:767 src/gcompris/skin.c:87
 #: src/gcompris/skin.c:266 src/gcompris/wordlist.c:49
 #, c-format
@@ -3774,11 +3764,11 @@ msgstr "Memory"
 msgid "Find the matching pair"
 msgstr "Find the matching pair"
 
-#: src/boards/menu.c:75
+#: src/boards/menu.c:79
 msgid "Main Menu"
 msgstr "Main Menu"
 
-#: src/boards/menu.c:76
+#: src/boards/menu.c:80
 msgid "Select a Board"
 msgstr "Select a Board"
 
@@ -4148,15 +4138,15 @@ msgstr ""
 "Python XML module not found. SVG is disabled. Install the python XML module "
 "to enable SVG save/restore."
 
-#: src/boards/python/anim.py:2204
+#: src/boards/python/anim.py:2206
 msgid "SVG is disabled. Install python xml module to enable it"
 msgstr "SVG is disabled. Install Python XML module to enable it"
 
-#: src/boards/python/anim.py:2360
+#: src/boards/python/anim.py:2362
 msgid "Warning: the following images cannot be accessed on your system.\n"
 msgstr "Warning: the following images cannot be accessed on your system.\n"
 
-#: src/boards/python/anim.py:2362
+#: src/boards/python/anim.py:2364
 msgid "The corresponding items have been skipped."
 msgstr "The corresponding items have been skipped."
 
@@ -4281,25 +4271,25 @@ msgstr ""
 "L\n"
 "E"
 
-#: src/boards/python/guessnumber.py:216
+#: src/boards/python/guessnumber.py:222
 #, python-format
 msgid "Guess a number between %d and %d"
 msgstr "Guess a number between %d and %d"
 
-#: src/boards/python/guessnumber.py:331 src/boards/python/guessnumber.py:332
+#: src/boards/python/guessnumber.py:337 src/boards/python/guessnumber.py:338
 #, python-format
 msgid "Please enter a number between %d and %d"
 msgstr "Please enter a number between %d and %d"
 
-#: src/boards/python/guessnumber.py:337 src/boards/python/guessnumber.py:338
+#: src/boards/python/guessnumber.py:343 src/boards/python/guessnumber.py:344
 msgid "Out of range"
 msgstr "Out of range"
 
-#: src/boards/python/guessnumber.py:344 src/boards/python/guessnumber.py:345
+#: src/boards/python/guessnumber.py:350 src/boards/python/guessnumber.py:351
 msgid "Too high"
 msgstr "Too high"
 
-#: src/boards/python/guessnumber.py:347 src/boards/python/guessnumber.py:348
+#: src/boards/python/guessnumber.py:353 src/boards/python/guessnumber.py:354
 msgid "Too low"
 msgstr "Too low"
 
@@ -4614,7 +4604,7 @@ msgstr ""
 "Licence"
 
 #: src/gcompris/about.c:341 src/gcompris/about.c:350 src/gcompris/config.c:221
-#: src/gcompris/config.c:230 src/gcompris/gameutil.c:1122
+#: src/gcompris/config.c:230 src/gcompris/gameutil.c:1101
 #: src/gcompris/help.c:362 src/gcompris/help.c:371
 #: src/gcompris/images_selector.c:263
 msgid "OK"
