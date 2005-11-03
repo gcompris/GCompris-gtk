@@ -252,7 +252,7 @@ static void* thread_play_ogg (char *file)
 {
   gchar *tmpstr;
 
-  if (!g_file_test (file, G_FILE_TEST_EXISTS)) {
+  if (!g_file_test (file, G_FILE_TEST_IS_REGULAR)) {
     gchar *relative_filename;
     char   locale[3];
     strncpy( locale, gcompris_get_locale(), 2 );
@@ -283,7 +283,7 @@ static void* thread_play_ogg (char *file)
     file = tmpstr;
   }
 
-  if ( file && g_file_test (file, G_FILE_TEST_EXISTS))
+  if ( file )
     {
       g_warning("Calling gcompris internal sdlplayer_file(%s)\n", file);
       sdlplayer(file, 128);

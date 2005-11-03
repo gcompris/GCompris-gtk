@@ -5,10 +5,10 @@
 	* boards/doubleentry/Makefile.am:
 	* boards/geography/Makefile.am:
 	* boards/geography/board1_0.xml.in:
-	* boards/sounds/fr/geography/europa.ogg:
+	* boards/sounds/fr/geography/europa.ogg: renamed
 	* boards/sounds/fr/geography/europe.ogg:
 	* boards/sounds/fr/geography/gcompris_geography_fr.assetml.in:
-	* boards/sounds/pt/geography/europa.ogg:
+	* boards/sounds/pt/geography/europa.ogg: renamed
 	* boards/sounds/pt/geography/europe.ogg:
 	* boards/sounds/pt/geography/gcompris_geography_pt.assetml.in:
 	* src/gcompris/gameutil.c: (gcompris_find_absolute_filename):
@@ -31,25 +31,6 @@
 	(set_content), (create_info_area):
 	* src/boards/python/anim.py: fix for import old animation not working
 	* src/boards/python/guessnumber.py: Fix for widget that appers over bonus and/or help
-	* src/gcompris/gameutil.c: (gcompris_add_xml_to_data):
-	* src/gcompris/help.c: (set_content):
-
-2005-11-01  Bruno coudoin  <bruno.coudoin@free.fr>
-
-	reviewed by: <delete if not using a buddy>
-
-	* boards/canal_lock.xml.in:
-	* boards/clickgame.xml.in:
-	* boards/gnumch-inequality.xml.in:
-	* boards/guessnumber.xml.in:
-	* boards/redraw_symmetrical.xml.in:
-	* boards/traffic.xml.in:
-	* boards/watercycle.xml.in:
-	* po/fr.po:
-	* src/boards/menu.c: (menu_start), (menu_end), (item_event),
-	(set_content), (create_info_area):
-	* src/boards/python/anim.py:
-	* src/boards/python/guessnumber.py:
 	* src/gcompris/gameutil.c: (gcompris_add_xml_to_data):
 	* src/gcompris/help.c: (set_content):
 
