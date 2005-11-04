@@ -853,7 +853,7 @@ static void quit_cb (GtkWidget *widget, gpointer data)
 void gcompris_terminate(int  signum)
 {
 
-  g_warning("gcompris got the SIGINT signal, starting exit procedure");
+  g_warning("gcompris got the %s signal, starting exit procedure", strsignal(signum));
   gcompris_exit();
   
 }

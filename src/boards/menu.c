@@ -1,6 +1,6 @@
 /* gcompris - menu.c
  *
- * Time-stamp: <2005/11/01 20:34:29 bruno>
+ * Time-stamp: <2005/11/04 14:12:54 yves>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -124,6 +124,7 @@ static void menu_start (GcomprisBoard *agcomprisBoard)
 {
   current_x = 0.0;
   current_y = 0.0;
+  int idx = 0;
 
   if(agcomprisBoard!=NULL)
     {
@@ -134,7 +135,6 @@ static void menu_start (GcomprisBoard *agcomprisBoard)
 
       gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas), 
 			      gcompris_image_to_skin("gcompris-init.jpg"));
-
 
       boardRootItem = GNOME_CANVAS_GROUP(
 					 gnome_canvas_item_new (gnome_canvas_root(gcomprisBoard->canvas),
@@ -166,7 +166,7 @@ static void menu_start (GcomprisBoard *agcomprisBoard)
       gcompris_bar_set(GCOMPRIS_BAR_CONFIG|GCOMPRIS_BAR_ABOUT);
 
       /* FIXME : Workaround for bugged canvas */
-      gnome_canvas_update_now(gcomprisBoard->canvas);
+      //gnome_canvas_update_now(gcomprisBoard->canvas);
 
       menu_pause(FALSE);
 

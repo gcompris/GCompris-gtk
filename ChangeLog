@@ -1,3 +1,11 @@
+2005-11-04  Yves Combe  <yves@ycombe.net>
+
+	Fix signal name presentation in gcompris_terminate.
+	Suppress gnome_canvas_update_now in menu (cause of segfault in fullscreen mode).
+
+	* src/boards/menu.c: (menu_start):
+	* src/gcompris/gcompris.c: (gcompris_terminate):
+
 2005-11-03  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	reviewed by: <delete if not using a buddy>
