@@ -1,3 +1,20 @@
+2005-11-05  Yves Combe  <yves@ycombe.net>
+
+	add gcompris_play_ogg_cb function, to get called when sound is finished. Yet a double free in melody.
+
+	* src/boards/click_on_letter.c: (repeat), (config_stop),
+	(sound_played):
+	* src/boards/py-mod-sound.c: (pyGcomprisSoundCallback),
+	(py_gcompris_play_ogg_cb):
+	* src/boards/python/melody.py:
+	* src/gcompris/gcompris-marshal.list:
+	* src/gcompris/soundutil.c: (initSound), (thread_play_ogg),
+	(gcompris_play_ogg_cb), (gcompris_sound_callback),
+	(gcompris_sound_instance_init),
+	(default_sound_played_signal_handler), (gcompris_sound_class_init),
+	(gcompris_sound_get_type):
+	* src/gcompris/soundutil.h:
+
 2005-11-05  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	Completed the mosaic activity.

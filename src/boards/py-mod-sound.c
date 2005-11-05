@@ -123,6 +123,86 @@ py_gcompris_resume_sound(PyObject* self, PyObject* args)
   return Py_None;
 }
 
+/********************************************/
+/* sound callback                           */
+static GHashTable *py_sound_callbacks=NULL;
+
+void pyGcomprisSoundCallback(gchar *file){
+  PyObject* result;
+  PyObject* py_cb;
+
+  g_warning("python sound callback : %s", file);
+
+  PyGILState_STATE gil;
+
+  g_assert ( py_sound_callbacks != NULL);
+
+  py_cb = g_hash_table_lookup(py_sound_callbacks, file);
+
+  g_hash_table_remove(py_sound_callbacks, file);
+
+  if(py_cb==NULL) return;
+
+  gil = pyg_gil_state_ensure();
+
+  result = PyObject_CallFunction(py_cb, "O", PyString_FromString(file));
+
+  // This callback can be called multiple time ?
+  
+  Py_DECREF(py_cb);
+
+  if(result==NULL){
+    PyErr_Print();
+  } else {
+    Py_DECREF(result);
+  }
+
+  pyg_gil_state_release(gil);
+
+}
+
+
+static PyObject*
+py_gcompris_play_ogg_cb(PyObject* self, PyObject* args)
+{
+  gchar *file;
+  PyObject* pyCallback;
+  
+  /* Parse arguments */
+  if(!PyArg_ParseTuple(args,
+		       "sO:gcompris_play_ogg_cb",
+		       &file,
+		       &pyCallback))
+    return NULL;
+
+  if(!PyCallable_Check(pyCallback))
+    {
+      PyErr_SetString(PyExc_TypeError,
+		      "gcompris_play_ogg_cb second argument must be callable");
+      return NULL;
+    }
+
+  if (!py_sound_callbacks)
+    py_sound_callbacks = g_hash_table_new_full (g_str_hash,
+					    g_str_equal,
+					    g_free,
+					    NULL);
+
+  g_hash_table_replace (py_sound_callbacks,
+			g_strdup(file),
+			pyCallback);
+  Py_INCREF(pyCallback);
+
+  g_warning("py_gcompris_play_ogg_cb %s", file);
+
+  gcompris_play_ogg_cb( file,
+			(GcomprisSoundCallback) pyGcomprisSoundCallback);
+
+  /* Create and return the result */
+  Py_INCREF(Py_None);
+  return Py_None;
+
+}
 
 static PyMethodDef PythonGcomprisSoundModule[] = {
   { "play_ogg_list",  py_gcompris_play_ogg_list, METH_VARARGS, "gcompris_play_ogg_list" },
@@ -131,6 +211,7 @@ static PyMethodDef PythonGcomprisSoundModule[] = {
   { "close",  py_gcompris_close_sound, METH_VARARGS, "gcompris_close_sound" },
   { "pause",  py_gcompris_pause_sound, METH_VARARGS, "gcompris_pause_sound" },
   { "resume",  py_gcompris_resume_sound, METH_VARARGS, "gcompris_resume_sound" },
+  { "play_ogg_cb",  py_gcompris_play_ogg_cb, METH_VARARGS, "gcompris_play_ogg_cb" },
   { NULL, NULL, 0, NULL}
 };
 

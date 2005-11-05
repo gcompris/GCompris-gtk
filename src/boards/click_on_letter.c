@@ -78,6 +78,8 @@ static gchar *right_letter;
 static gchar *alphabet;
 static void quit_board();
 
+static void sound_played(gchar *file);
+
 /* Description of this plugin */
 static BoardPlugin menu_bp =
   {
@@ -215,7 +217,7 @@ static void repeat ()
       str1 = gcompris_get_asset_file("gcompris alphabet", NULL, "audio/x-ogg", right_letter_ogg);
 
       if(str1) {
-	gcompris_play_ogg(str1, NULL);
+	gcompris_play_ogg_cb(str1, sound_played);
       }
 
       g_free(str1);
@@ -587,4 +589,10 @@ config_start(GcomprisBoard *agcomprisBoard,
 static void 
 config_stop()
 {
+}
+
+static void
+sound_played (gchar *file)
+{
+        g_warning ("Sound_played %s\n", file);
 }

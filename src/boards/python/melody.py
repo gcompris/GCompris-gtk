@@ -219,7 +219,7 @@ class Gcompris_melody:
 
     self.bang_item.show()
     
-    gcompris.sound.play_ogg(a['sound'])
+    gcompris.sound.play_ogg_cb(a['sound'], self.sound_played)
     self.timers.pop(0)
 
 
@@ -338,7 +338,7 @@ class Gcompris_melody:
   
   # ---------------- sound is effectively played -----------------------
   def sound_play(self, sound_struct):
-    gcompris.sound.play_ogg(sound_struct['sound'])
+    gcompris.sound.play_ogg_cb(sound_struct['sound'], self.sound_played)
     self.tried(sound_struct)
     return
   
@@ -362,4 +362,10 @@ class Gcompris_melody:
 
     
     return False
-  
+
+  def sound_played(self, file):
+    print "python sound played :", file
+
+
+
+   

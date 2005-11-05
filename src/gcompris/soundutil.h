@@ -33,7 +33,10 @@ typedef enum
   PLAY_AFTER_CURRENT		= 1,
 } SoundPolicy;
 
+typedef void (*GcomprisSoundCallback) (gchar *);
+
 void	 gcompris_play_ogg(char *, ...);
+void	 gcompris_play_ogg_cb(char *, GcomprisSoundCallback);
 void	 gcompris_play_ogg_list( GList* files );
 void	 setSoundPolicy(int);
 int	 getSoundPolicy(void);
@@ -58,5 +61,49 @@ void	 sdlplayer_resume();
 int	 sdlplayer(char *filename, int volume);
 
 gchar *gcompris_alphabet_sound(gchar *chars);
+
+
+/*************************************************************/
+/* GObject to  control sound. code get from maman-file.h     */
+/*************************************************************/
+/*
+ * Potentially, include other headers on which this header depends.
+ */
+#include <glib-object.h>
+
+#define GCOMPRIS_SOUND_TYPE 	  (gcompris_sound_get_type ())
+#define GCOMPRIS_SOUND(obj)		  (G_TYPE_CHECK_INSTANCE_CAST ((obj), GCOMPRIS_SOUND_TYPE, GcomprisSound))
+#define GCOMPRIS_SOUND_CLASS(klass)	  (G_TYPE_CHECK_CLASS_CAST ((klass), GCOMPRIS_SOUND_TYPE, GcomprisSoundClass))
+#define GCOMPRIS_SOUND_IS(obj)	  (G_TYPE_CHECK_INSTANCE_TYPE ((obj),  GCOMPRIS_SOUND_TYPE))
+#define GCOMPRIS_SOUND_IS_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((klass), GCOMPRIS_SOUND_TYPE))
+#define GCOMPRIS_SOUND_GET_CLASS(obj)  (G_TYPE_INSTANCE_GET_CLASS ((obj), GCOMPRIS_SOUND_TYPE, GcomprisSoundClass))
+
+typedef struct _GcomprisSound GcomprisSound;
+typedef struct _GcomprisSoundClass GcomprisSoundClass;
+typedef struct _GcomprisSoundPrivate GcomprisSoundPrivate;
+
+struct _GcomprisSound {
+	GObject parent;
+	/* instance members */
+        GcomprisSoundPrivate *private;
+};
+
+struct _GcomprisSoundClass {
+	GObjectClass parent;
+        
+        guint sound_played_signal_id;
+        void (*sound_played) (GcomprisSound *self, gchar *file);
+};
+
+/* used by MAMAN_TYPE_FILE */
+GType gcompris_sound_get_type (void);
+
+/* API. */
+
+/* empty for now */
+
+
+/* Declaration of GCompris Sound Controller */
+extern GObject *gcompris_sound_controller;
 
 #endif

@@ -56,11 +56,25 @@ static gpointer  scheduler_bgnd (gpointer user_data);
 
 extern int	 ogg123(char * sound);
 
+/* sound control */
+GObject *gcompris_sound_controller = NULL;
+void gcompris_sound_callback(GcomprisSound *ctl, gchar *file, gpointer user_data);
+GHashTable *sound_callbacks = NULL;
+
 /* =====================================================================
  *
  * =====================================================================*/
 void initSound()
 {
+
+  gcompris_sound_controller = g_object_new (GCOMPRIS_SOUND_TYPE, NULL);
+
+  g_signal_connect( gcompris_sound_controller, 
+		    "sound-played",
+		    (GCallback) gcompris_sound_callback,
+		    NULL);
+
+  g_assert( gcompris_sound_controller != NULL );
 
   /* Check to run the init once only */
   if(sound_init == 1) {
@@ -251,6 +265,9 @@ static gpointer scheduler (gpointer user_data)
 static void* thread_play_ogg (char *file)
 {
   gchar *tmpstr;
+  gchar *file_arg = g_strdup(file);
+
+  g_warning(" thread_play_ogg %s \n", file);
 
   if (!g_file_test (file, G_FILE_TEST_IS_REGULAR)) {
     gchar *relative_filename;
@@ -274,6 +291,8 @@ static void* thread_play_ogg (char *file)
 	  tmpstr = gcompris_find_absolute_filename(file);
 	  if (!tmpstr){
 	  g_warning("Can't find sound %s", file);
+	  if (sound_callbacks)
+	    g_hash_table_remove (sound_callbacks, file);
 	  return NULL;
 	  }
 	}
@@ -287,6 +306,11 @@ static void* thread_play_ogg (char *file)
     {
       g_warning("Calling gcompris internal sdlplayer_file(%s)\n", file);
       sdlplayer(file, 128);
+      g_signal_emit (gcompris_sound_controller,
+		     GCOMPRIS_SOUND_GET_CLASS (gcompris_sound_controller)->sound_played_signal_id,
+		     0 /* details */,
+		     file_arg);
+      g_warning("sdlplayer_file(%s) ended.\n", file);
       g_free( file );
     }
   
@@ -313,6 +337,30 @@ char* get_next_sound_to_play( )
 
   return tmpSound;
 }
+
+/* =====================================================================
+ * Play a OGG sound file.
+ * gcompris_play_ogg function to process the sounds.
+ ======================================================================*/
+
+void	 gcompris_play_ogg_cb(gchar *file, GcomprisSoundCallback cb)
+{
+
+  g_assert ( cb != NULL);
+
+  if (!sound_callbacks)
+    sound_callbacks = g_hash_table_new_full (g_str_hash,
+					    g_str_equal,
+					    g_free,
+					    NULL);
+
+  /* i suppose there will not be two call of that function with same sound file before sound is played */
+  g_hash_table_replace (sound_callbacks,
+			g_strdup(file),
+			cb);
+  gcompris_play_ogg(file, NULL);
+}
+
 /* =====================================================================
  * Play a list of OGG sound files. The list must be NULL terminated
  * This function wraps the var args into a GList and call the 
@@ -412,6 +460,96 @@ gchar *gcompris_alphabet_sound(gchar *chars)
 
   return g_strdup_printf("%s.ogg",result);
 }
+
+
+void gcompris_sound_callback(GcomprisSound *ctl, gchar *file, gpointer user_data)
+{
+  GcomprisSoundCallback cb;
+
+  if (!sound_callbacks)
+    return;
+  
+  cb = g_hash_table_lookup (sound_callbacks, file);
+
+  if (cb){
+    g_warning("calling callback for %s", file);
+    cb(file);
+  }
+  else
+    g_warning("%s has no callback", file);
+  g_hash_table_remove(sound_callbacks, file);
+
+}
+
+/*************************************/
+/* GObject control sound             */
+struct _GcomprisSoundPrivate
+{
+};
+
+#include "gcompris-marshal.h"
+
+static void
+gcompris_sound_instance_init (GTypeInstance   *instance,
+                         gpointer         g_class)
+{
+        GcomprisSound *self = (GcomprisSound *)instance;
+        self->private = g_new (GcomprisSoundPrivate, 1);
+}
+
+static void
+default_sound_played_signal_handler (GcomprisSound *obj, gchar *file)
+{
+        /* Here, we trigger the real file write. */
+        g_warning ("sound_played: %s\n", file);
+}
+
+static void
+gcompris_sound_class_init (gpointer g_class,
+                      gpointer g_class_data)
+{
+        GObjectClass *gobject_class = G_OBJECT_CLASS (g_class);
+        GcomprisSoundClass *klass = GCOMPRIS_SOUND_CLASS (g_class);
+
+	klass->sound_played = default_sound_played_signal_handler;
+
+        klass->sound_played_signal_id = 
+                g_signal_new ("sound-played",
+			      G_TYPE_FROM_CLASS (g_class),
+			      G_SIGNAL_RUN_LAST | G_SIGNAL_NO_RECURSE | G_SIGNAL_NO_HOOKS,
+			      G_STRUCT_OFFSET (GcomprisSoundClass, sound_played),
+			      NULL /* accumulator */,
+			      NULL /* accu_data */,
+			      gnome_canvas_marshal_VOID__POINTER,
+			      G_TYPE_NONE /* return_type */,
+			      1     /* n_params */,
+			      G_TYPE_CHAR  /* param_types */);
+
+}
+
+GType gcompris_sound_get_type (void)
+{
+        static GType type = 0;
+        if (type == 0) {
+                static const GTypeInfo info = {
+                        sizeof (GcomprisSoundClass),
+                        NULL,   /* base_init */
+                        NULL,   /* base_finalize */
+                        gcompris_sound_class_init,   /* class_init */
+                        NULL,   /* class_finalize */
+                        NULL,   /* class_data */
+                        sizeof (GcomprisSound),
+                        0,      /* n_preallocs */
+                        gcompris_sound_instance_init    /* instance_init */
+                };
+                type = g_type_register_static (G_TYPE_OBJECT,
+                                               "GcomprisSoundType",
+                                               &info, 0);
+        }
+        return type;
+}
+
+
 
 /* Local Variables: */
 /* mode:c */
