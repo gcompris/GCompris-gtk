@@ -1,5 +1,14 @@
 2005-11-05  Yves Combe  <yves@ycombe.net>
 
+	fix double free.
+	fix melody to wait intro finished before start.
+
+	* src/boards/memory.c:
+	* src/boards/py-mod-sound.c: (pyGcomprisSoundCallback):
+	* src/boards/python/melody.py:
+
+2005-11-05  Yves Combe  <yves@ycombe.net>
+
 	add gcompris_play_ogg_cb function, to get called when sound is finished. Yet a double free in melody.
 
 	* src/boards/click_on_letter.c: (repeat), (config_stop),

@@ -94,12 +94,12 @@ class Gcompris_melody:
     self.gcomprisBoard.maxlevel = 9
 
     # Play an intro sound
-    gcompris.sound.play_ogg("melody/" + self.melodylist[self.theme][0]['theme'] + "/melody")
+    gcompris.sound.play_ogg_cb("melody/" + self.melodylist[self.theme][0]['theme'] + "/melody", self.intro_cb)
     
     gcompris.bar_set(gcompris.BAR_REPEAT|gcompris.BAR_LEVEL)
 
     self.display_current_level()
-    self.pause(0);
+    self.pause(1);
     print("Gcompris_melody start.")
     
   def end(self):
@@ -366,6 +366,8 @@ class Gcompris_melody:
   def sound_played(self, file):
     print "python sound played :", file
 
-
-
+  def intro_cb(self, file):
+    print "intro passed. go play"
+    self.pause(0)
+    self.populate(self.sound_list)	
    

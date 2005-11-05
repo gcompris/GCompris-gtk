@@ -139,7 +139,7 @@ void pyGcomprisSoundCallback(gchar *file){
 
   py_cb = g_hash_table_lookup(py_sound_callbacks, file);
 
-  g_hash_table_remove(py_sound_callbacks, file);
+  //g_hash_table_remove(py_sound_callbacks, file);
 
   if(py_cb==NULL) return;
 

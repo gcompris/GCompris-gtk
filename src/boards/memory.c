@@ -1,6 +1,6 @@
 /* gcompris - memory.c
  *
- * Time-stamp: <2005/10/05 21:22:52 yves>
+ * Time-stamp: <2005/11/05 21:41:01 yves>
  *
  * Copyright (C) 2000 Bruno Coudoin
  * 
@@ -42,7 +42,8 @@ static gint win_id = 0;
 typedef enum
 {
   MODE_NORMAL		= 0,
-  MODE_TUX              = 1
+  MODE_TUX              = 1,
+  MODE_SOUND            = 2
 } Mode;
 static Mode currentMode = MODE_NORMAL;
 
