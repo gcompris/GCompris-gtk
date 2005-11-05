@@ -825,9 +825,12 @@ void gcompris_exit()
   if(properties->fullscreen && !properties->noxrandr)
     {
       /* Need to refresh our config or xrandr api will reject us */
-      xrandr_get_config ( xrandr );
-      xrandr->xr_current_size = (SizeID)xr_previous_size;
-      xrandr_set_config( xrandr );
+      if(xrandr)
+	{
+	  xrandr_get_config ( xrandr );
+	  xrandr->xr_current_size = (SizeID)xr_previous_size;
+	  xrandr_set_config( xrandr );
+	}
     }
 #endif
 

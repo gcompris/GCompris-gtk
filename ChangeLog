@@ -1,3 +1,15 @@
+2005-11-05  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	Completed the mosaic activity.
+	
+	* boards/boardicons/guessnumber.png:
+	* boards/boardicons/mosaic.png:
+	* boards/images/mosaic_bg.png:
+	* boards/mosaic.xml.in:
+	* configure.in:
+	* src/boards/python/mosaic.py:
+	* src/gcompris/gcompris.c: (gcompris_exit): Do not call xrandr if our pointer it's no more there. Strange I hot this case.
+
 2005-11-04  Yves Combe  <yves@ycombe.net>
 
 	Fix signal name presentation in gcompris_terminate.
@@ -8,7 +20,9 @@
 
 2005-11-03  Bruno coudoin  <bruno.coudoin@free.fr>
 
-	reviewed by: <delete if not using a buddy>
+	- fixed audio file detection to not accept a directory as a valid
+	  input.
+	- fixed bad named audio files in geography.
 
 	* boards/doubleentry/Makefile.am:
 	* boards/geography/Makefile.am:
