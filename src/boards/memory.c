@@ -1,6 +1,6 @@
 /* gcompris - memory.c
  *
- * Time-stamp: <2005/11/05 23:48:27 yves>
+ * Time-stamp: <2005/11/07 00:36:18 yves>
  *
  * Copyright (C) 2000 Bruno Coudoin
  * 
@@ -43,9 +43,15 @@ typedef enum
 {
   MODE_NORMAL		= 0,
   MODE_TUX              = 1,
-  MODE_SOUND            = 2
 } Mode;
 static Mode currentMode = MODE_NORMAL;
+
+typedef enum
+{
+  UIMODE_NORMAL		= 0,
+  UIMODE_SOUND            = 1,
+} UiMode;
+static Mode currentUiMode = MODE_NORMAL;
 
 typedef enum
 {
@@ -100,6 +106,8 @@ static gint item_event(GnomeCanvasItem *item, GdkEvent *event, MemoryItem *memor
 static void player_win();
 
 static void display_card(MemoryItem *memoryItem, CardStatus cardStatus);
+
+static void sound_callback(gchar *file);
 
 // Number of images for x and y by level
 static guint levelDescription[] =
@@ -501,23 +509,52 @@ static void start_board (GcomprisBoard *agcomprisBoard)
     {
       gcomprisBoard=agcomprisBoard;
 
-      gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas), "images/scenery_background.png");
-
       gcomprisBoard->level = 1;
       gcomprisBoard->maxlevel = 9;
       gcompris_bar_set(GCOMPRIS_BAR_LEVEL);
 
       /* Default mode */
-      if(!gcomprisBoard->mode)
+      
+      if(!gcomprisBoard->mode){
 	currentMode=MODE_NORMAL;
+	currentUiMode=UIMODE_NORMAL;
+	g_warning("Mode set to images");
+      }
       else {
 	if(g_strcasecmp(gcomprisBoard->mode, "tux")==0){
 	  currentMode=MODE_TUX;
+	  currentUiMode=UIMODE_NORMAL;
 	  g_warning("Mode set to tux");
 	}
-	else
-	  currentMode=MODE_NORMAL;
+	else {
+	  if(g_strcasecmp(gcomprisBoard->mode, "sound")==0){
+	    currentMode=MODE_NORMAL;
+	    currentUiMode=UIMODE_SOUND;
+	    g_warning("Mode set to sound");
+	  } else {
+	    if(g_strcasecmp(gcomprisBoard->mode, "sound_tux")==0){
+	      currentMode=MODE_TUX;
+	      currentUiMode=UIMODE_SOUND;
+	      g_warning("Mode set to sound_tux");
+	    }
+	    else{
+	      currentMode=MODE_NORMAL;
+	      currentUiMode=UIMODE_NORMAL;
+	      g_warning("Fallback mode set to images");
+	    }
+	  }
+	}
       }
+
+      if (currentUiMode == UIMODE_SOUND)
+	gcompris_pause_sound();
+
+
+      if (currentUiMode == UIMODE_SOUND)
+	gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas), "images/gcompris_band.png");
+      else
+	gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas), "images/scenery_background.png");
+
 
       /* TRANSLATORS: Put here the numbers in your language */
       numbers=_("0123456789");
@@ -548,6 +585,9 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 static void
 end_board ()
 {
+
+  if (currentUiMode == UIMODE_SOUND)
+    gcompris_resume_sound();
 
   if(gcomprisBoard!=NULL)
     {
@@ -720,42 +760,47 @@ static void get_image(MemoryItem *memoryItem, guint x, guint y)
 
   memoryArray[x][y] = memoryItem;
 
-  int returned;
-
-  switch(gcomprisBoard->level) {
-
-  case 0:
-  case 1:
-  case 2:
-  case 3:
-  case 4:
-    /* Image mode */
-    get_random_token ( TYPE_IMAGE, &memoryItem->type,  &memoryItem->data);
-    g_assert (memoryItem->type ==  TYPE_IMAGE);
+  if (currentUiMode == UIMODE_SOUND){
+    get_random_token ( TYPE_SOUND, &memoryItem->type,  &memoryItem->data);
+    g_assert (memoryItem->type ==  TYPE_SOUND);
     g_warning("returned token %s", memoryItem->data);
-    break;
+  }
+  else {
+    switch(gcomprisBoard->level) {
 
-  case 5:
-    /* Limited Text mode Numbers only */
-    get_random_token ( TYPE_NUMBER, &memoryItem->type,  &memoryItem->data);
-    g_assert (memoryItem->type ==  TYPE_NUMBER);
-    g_warning("returned token %s", memoryItem->data);
-    break;
-
-  case 6:
-    /* Limited Text mode Numbers + Capitals */
-    get_random_token ( TYPE_NUMBER | TYPE_UPPERCASE, &memoryItem->type,  &memoryItem->data);
-    g_assert((memoryItem->type == TYPE_NUMBER)||(memoryItem->type==TYPE_UPPERCASE));
-    g_warning("returned token %s", memoryItem->data);
-    break;
-    break;
-
-  default:
-    /* Text mode ALL */
-    get_random_token ( TYPE_NUMBER | TYPE_UPPERCASE | TYPE_LOWERCASE, &memoryItem->type,  &memoryItem->data);
-    g_assert (memoryItem->type & ( TYPE_NUMBER | TYPE_UPPERCASE | TYPE_LOWERCASE));
-    g_warning("returned token %s", memoryItem->data);
-    break;
+    case 0:
+    case 1:
+    case 2:
+    case 3:
+    case 4:
+      /* Image mode */
+      get_random_token ( TYPE_IMAGE, &memoryItem->type,  &memoryItem->data);
+      g_assert (memoryItem->type ==  TYPE_IMAGE);
+      g_warning("returned token %s", memoryItem->data);
+      break;
+      
+    case 5:
+      /* Limited Text mode Numbers only */
+      get_random_token ( TYPE_NUMBER, &memoryItem->type,  &memoryItem->data);
+      g_assert (memoryItem->type ==  TYPE_NUMBER);
+      g_warning("returned token %s", memoryItem->data);
+      break;
+      
+    case 6:
+      /* Limited Text mode Numbers + Capitals */
+      get_random_token ( TYPE_NUMBER | TYPE_UPPERCASE, &memoryItem->type,  &memoryItem->data);
+      g_assert((memoryItem->type == TYPE_NUMBER)||(memoryItem->type==TYPE_UPPERCASE));
+      g_warning("returned token %s", memoryItem->data);
+      break;
+      break;
+      
+    default:
+      /* Text mode ALL */
+      get_random_token ( TYPE_NUMBER | TYPE_UPPERCASE | TYPE_LOWERCASE, &memoryItem->type,  &memoryItem->data);
+      g_assert (memoryItem->type & ( TYPE_NUMBER | TYPE_UPPERCASE | TYPE_LOWERCASE));
+      g_warning("returned token %s", memoryItem->data);
+      break;
+    }
   }
 
   // Randomly set the pair
@@ -839,8 +884,12 @@ static void create_item(GnomeCanvasGroup *parent)
 				   "x", (double) (currentMode == MODE_TUX ? BASE_X1_TUX : BASE_X1) + x*width,
 				   "y", (double) BASE_Y1 + y*height,
 				   NULL);
-	  
-	  pixmap = gcompris_load_pixmap("gcompris/misc/backcard.png");
+
+	  if (currentUiMode == UIMODE_SOUND)
+	    pixmap = gcompris_load_pixmap("gcompris/misc/Tux_mute.png");
+	  else
+	    pixmap = gcompris_load_pixmap("gcompris/misc/backcard.png");
+
 	  memoryItem->backcardItem = \
 	    gnome_canvas_item_new (GNOME_CANVAS_GROUP(memoryItem->rootItem),
 				   gnome_canvas_pixbuf_get_type (),
@@ -854,64 +903,83 @@ static void create_item(GnomeCanvasGroup *parent)
 				   NULL);
 	  gdk_pixbuf_unref(pixmap);
 
-	  pixmap = gcompris_load_pixmap("gcompris/misc/emptycard.png");
-	  memoryItem->framecardItem = \
-	    gnome_canvas_item_new (GNOME_CANVAS_GROUP(memoryItem->rootItem),
-				   gnome_canvas_pixbuf_get_type (),
-				   "pixbuf", pixmap, 
-				   "x", (double) 0,
-				   "y", (double) 0,
-				   "width", (double) width*0.9,
-				   "height", (double) height*0.9,
-				   "width_set", TRUE, 
-				   "height_set", TRUE,
-				   NULL);
-	  gnome_canvas_item_hide(memoryItem->framecardItem);
-	  gdk_pixbuf_unref(pixmap);
+	  if (currentUiMode != UIMODE_SOUND){
+	    pixmap = gcompris_load_pixmap("gcompris/misc/emptycard.png");
+	    memoryItem->framecardItem = \
+	      gnome_canvas_item_new (GNOME_CANVAS_GROUP(memoryItem->rootItem),
+				     gnome_canvas_pixbuf_get_type (),
+				     "pixbuf", pixmap, 
+				     "x", (double) 0,
+				     "y", (double) 0,
+				     "width", (double) width*0.9,
+				     "height", (double) height*0.9,
+				     "width_set", TRUE, 
+				     "height_set", TRUE,
+				     NULL);
+	    gnome_canvas_item_hide(memoryItem->framecardItem);
+	    gdk_pixbuf_unref(pixmap);
+	  }
   
 
 	  // Display the image itself while taking care of its size and maximize the ratio
 	  get_image(memoryItem, x, y);
 
-	  if(memoryItem->type == TYPE_IMAGE) {
-	    pixmap = gcompris_load_pixmap(memoryItem->data);
-
-	    yratio=(height2*0.8)/(float)gdk_pixbuf_get_height(pixmap);
-	    xratio=(width2*0.8)/(float)gdk_pixbuf_get_width(pixmap);
-	    yratio=xratio=MIN(xratio, yratio);
-	    card_shadow_w = width*0.07;
-	    card_shadow_h = height*0.07;
-
+	  if (currentUiMode == UIMODE_SOUND){
+	    pixmap = gcompris_load_pixmap("gcompris/misc/Tux_play.png");
 	    memoryItem->frontcardItem =	\
 	      gnome_canvas_item_new (GNOME_CANVAS_GROUP(memoryItem->rootItem),
 				     gnome_canvas_pixbuf_get_type (),
 				     "pixbuf", pixmap, 
-				     "x", (double) ((width*0.9)-
-						    gdk_pixbuf_get_width(pixmap)*xratio*0.8)/2 -
-				     card_shadow_w,
-				     "y", (double) ((height*0.9)-
-						    gdk_pixbuf_get_height(pixmap)*yratio*0.8)/2 -
-				     card_shadow_h,
-				     "width", (double) gdk_pixbuf_get_width(pixmap)*xratio*0.8,
-				     "height", (double) gdk_pixbuf_get_height(pixmap)*yratio*0.8,
+				     "x", (double) 0,
+				     "y", (double) 0,
+				     "width", (double) width*0.9,
+				     "height", (double) height*0.9,
 				     "width_set", TRUE, 
 				     "height_set", TRUE,
 				     NULL);
 	    gdk_pixbuf_unref(pixmap);
-  
-	  } else {
-	    /* It's a letter */
-	    memoryItem->frontcardItem =	 \
-	      gnome_canvas_item_new (GNOME_CANVAS_GROUP(memoryItem->rootItem),
-				     gnome_canvas_text_get_type (),
-				     "text", memoryItem->data,
-				     "font", TEXT_FONT,
-				     "x", (double) (width*0.8)/2,
-				     "y", (double) (height*0.8)/2,
-				     "anchor", GTK_ANCHOR_CENTER,
-				     "fill_color_rgba", 0x99CDFFFF,
-				     NULL);
-
+	  }
+	  else {
+	    if(memoryItem->type == TYPE_IMAGE) {
+	      pixmap = gcompris_load_pixmap(memoryItem->data);
+	      
+	      yratio=(height2*0.8)/(float)gdk_pixbuf_get_height(pixmap);
+	      xratio=(width2*0.8)/(float)gdk_pixbuf_get_width(pixmap);
+	      yratio=xratio=MIN(xratio, yratio);
+	      card_shadow_w = width*0.07;
+	      card_shadow_h = height*0.07;
+	      
+	      memoryItem->frontcardItem =	\
+		gnome_canvas_item_new (GNOME_CANVAS_GROUP(memoryItem->rootItem),
+				       gnome_canvas_pixbuf_get_type (),
+				       "pixbuf", pixmap, 
+				       "x", (double) ((width*0.9)-
+						      gdk_pixbuf_get_width(pixmap)*xratio*0.8)/2 -
+				       card_shadow_w,
+				       "y", (double) ((height*0.9)-
+						      gdk_pixbuf_get_height(pixmap)*yratio*0.8)/2 -
+				       card_shadow_h,
+				       "width", (double) gdk_pixbuf_get_width(pixmap)*xratio*0.8,
+				       "height", (double) gdk_pixbuf_get_height(pixmap)*yratio*0.8,
+				       "width_set", TRUE, 
+				       "height_set", TRUE,
+				       NULL);
+	      gdk_pixbuf_unref(pixmap);
+	      
+	    } else {
+	      /* It's a letter */
+	      memoryItem->frontcardItem =	 \
+		gnome_canvas_item_new (GNOME_CANVAS_GROUP(memoryItem->rootItem),
+				       gnome_canvas_text_get_type (),
+				       "text", memoryItem->data,
+				       "font", TEXT_FONT,
+				       "x", (double) (width*0.8)/2,
+				       "y", (double) (height*0.8)/2,
+				       "anchor", GTK_ANCHOR_CENTER,
+				       "fill_color_rgba", 0x99CDFFFF,
+				       NULL);
+	      
+	    }
 	  }
 
 	  gnome_canvas_item_hide(memoryItem->frontcardItem);
@@ -942,25 +1010,46 @@ static void player_win()
 static void display_card(MemoryItem *memoryItem, CardStatus cardStatus)
 {
 
-  switch (cardStatus)
-    {
-    case ON_FRONT:
-      gnome_canvas_item_hide(memoryItem->backcardItem);
-      gnome_canvas_item_show(memoryItem->framecardItem);
-      gnome_canvas_item_show(memoryItem->frontcardItem);
-      break;
-    case ON_BACK:
-      gnome_canvas_item_show(memoryItem->backcardItem);
-      gnome_canvas_item_hide(memoryItem->framecardItem);
-      gnome_canvas_item_hide(memoryItem->frontcardItem);
-      break;
-    case HIDDEN:
-      gnome_canvas_item_hide(memoryItem->backcardItem);
-      gnome_canvas_item_hide(memoryItem->framecardItem);
-      gnome_canvas_item_hide(memoryItem->frontcardItem);
-      memoryItem->hidden = TRUE;
-      break;
-    }
+  if (currentUiMode == UIMODE_SOUND){
+    switch (cardStatus)
+      {
+      case ON_FRONT:
+	gnome_canvas_item_hide(memoryItem->backcardItem);
+	gnome_canvas_item_show(memoryItem->frontcardItem);
+	gcompris_play_ogg_cb (memoryItem->data, sound_callback);
+	break;
+      case ON_BACK:
+	gnome_canvas_item_show(memoryItem->backcardItem);
+	gnome_canvas_item_hide(memoryItem->frontcardItem);
+	break;
+      case HIDDEN:
+	gnome_canvas_item_hide(memoryItem->backcardItem);
+	gnome_canvas_item_hide(memoryItem->frontcardItem);
+	memoryItem->hidden = TRUE;
+	break;
+      }
+  }
+  else {
+    switch (cardStatus)
+      {
+      case ON_FRONT:
+	gnome_canvas_item_hide(memoryItem->backcardItem);
+	gnome_canvas_item_show(memoryItem->framecardItem);
+	gnome_canvas_item_show(memoryItem->frontcardItem);
+	break;
+      case ON_BACK:
+	gnome_canvas_item_show(memoryItem->backcardItem);
+	gnome_canvas_item_hide(memoryItem->framecardItem);
+	gnome_canvas_item_hide(memoryItem->frontcardItem);
+	break;
+      case HIDDEN:
+	gnome_canvas_item_hide(memoryItem->backcardItem);
+	gnome_canvas_item_hide(memoryItem->framecardItem);
+	gnome_canvas_item_hide(memoryItem->frontcardItem);
+	memoryItem->hidden = TRUE;
+	break;
+      }
+  }
 
 }
 
@@ -997,16 +1086,22 @@ static gint hide_card (GtkWidget *widget, gpointer data)
 
   if(firstCard!=NULL)
     {
+      g_warning("removing first");
       display_card(firstCard, HIDDEN);
+      g_warning("removing first done.");
       firstCard  = NULL;
-      remove_card_from_tux_memory(firstCard);
+      if (currentMode == MODE_TUX)
+	remove_card_from_tux_memory(firstCard);
     }
 
   if(secondCard!=NULL)
     {
+      g_warning("removing second");
       display_card(secondCard, HIDDEN);
+      g_warning("removing second done.");
       secondCard  = NULL;
-      remove_card_from_tux_memory(secondCard);
+      if (currentMode == MODE_TUX)
+	remove_card_from_tux_memory(secondCard);
     }
   win_id = 0;
 
@@ -1257,6 +1352,10 @@ static gint tux_play(){
   return FALSE;
 }
 
+static void sound_callback(gchar *file)
+{
+  g_warning("sound_callback %s", file);
+}
 
 
 /* Local Variables: */
