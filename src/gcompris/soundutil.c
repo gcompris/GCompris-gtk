@@ -348,17 +348,20 @@ void	 gcompris_play_ogg_cb(gchar *file, GcomprisSoundCallback cb)
 
   g_assert ( cb != NULL);
 
+  /* g_intern_string is in 2.10 */
+  const gchar *intern_file = g_quark_to_string( g_quark_from_string(file));
+
   if (!sound_callbacks)
     sound_callbacks = g_hash_table_new_full (g_str_hash,
 					    g_str_equal,
-					    g_free,
+					    NULL,
 					    NULL);
 
   /* i suppose there will not be two call of that function with same sound file before sound is played */
   g_hash_table_replace (sound_callbacks,
-			g_strdup(file),
+			intern_file,
 			cb);
-  gcompris_play_ogg(file, NULL);
+  gcompris_play_ogg(intern_file, NULL);
 }
 
 /* =====================================================================

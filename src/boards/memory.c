@@ -1,6 +1,6 @@
 /* gcompris - memory.c
  *
- * Time-stamp: <2005/11/05 21:41:01 yves>
+ * Time-stamp: <2005/11/05 23:48:27 yves>
  *
  * Copyright (C) 2000 Bruno Coudoin
  * 
@@ -165,6 +165,75 @@ static gchar *imageList[] =
 };
 #define NUMBER_OF_IMAGES 41
 
+// List of images to use in the memory
+static gchar *soundList[] =
+{
+  "sounds/LuneRouge/animaux/LRBark_2_by_Lionel_Allorge.ogg",
+  "sounds/LuneRouge/animaux/LRBark_3_by_Lionel_Allorge.ogg",
+  "sounds/LuneRouge/animaux/LRRain_in_garden_01_by_Lionel_Allorge.ogg",
+  "sounds/LuneRouge/animaux/LRBark_1_by_Lionel_Allorge.ogg",
+  "sounds/LuneRouge/animaux/LRFrogs_in_pond_during_storm_by_Lionel_Allorge.ogg",
+  "sounds/LuneRouge/engins/LRHighway_1_by_Lionel_Allorge.ogg",
+  "sounds/LuneRouge/engins/LRObject_falling_02_by_Lionel_Allorge.ogg",
+  "sounds/LuneRouge/engins/LRStart_and_stop_car_engine_1_by_Lionel_Allorge.ogg",
+  "sounds/LuneRouge/engins/LRExplosion_01_by_Lionel_Allorge.ogg",
+  "sounds/LuneRouge/engins/LRExplosion_02_by_Lionel_Allorge.ogg",
+  "sounds/LuneRouge/engins/LRExplosion_03_by_Lionel_Allorge.ogg",
+  "sounds/LuneRouge/engins/LRChopper_01_by_Lionel_Allorge.ogg",
+  "sounds/LuneRouge/engins/LRChopper_02_by_Lionel_Allorge.ogg",
+  "sounds/LuneRouge/engins/LRChopper_03_by_Lionel_Allorge.ogg",
+  "sounds/LuneRouge/engins/LRThruster_1_by_Lionel_Allorge.ogg",
+  "sounds/LuneRouge/engins/LRTrain_slowing_down_01_by_Lionel_Allorge.ogg",
+  "sounds/LuneRouge/engins/LRTrain_going_slow_01_by_Lionel_Allorge.ogg",
+  "sounds/LuneRouge/engins/LR9mm_one_shot_by_Lionel_Allorge.ogg",
+  "sounds/LuneRouge/engins/LRCars_01_by_Lionel_Allorge.ogg",
+  "sounds/LuneRouge/engins/LRShotgun_3_shots_by_Lionel_Allorge.ogg",
+  "sounds/LuneRouge/engins/LRObject_falling_01_by_Lionel_Allorge.ogg",
+  "sounds/LuneRouge/humain/LRFrench_restaurant_01_by_Lionel_Allorge.ogg",
+  "sounds/LuneRouge/humain/LRFrench_restaurant_02_by_Lionel_Allorge.ogg",
+  "sounds/LuneRouge/humain/LRFrench_restaurant_03_by_Lionel_Allorge.ogg",
+  "sounds/LuneRouge/humain/LRApplauses_1_by_Lionel_Allorge.ogg",
+  "sounds/LuneRouge/humain/LRHeart_beat_01_by_Lionel_Allorge.ogg",
+  "sounds/LuneRouge/maison/LRDoor_Open_1_by_Lionel_Allorge.ogg",
+  "sounds/LuneRouge/maison/LRDoor_Open_2_by_Lionel_Allorge.ogg",
+  "sounds/LuneRouge/maison/LRRing_01_by_Lionel_Allorge.ogg",
+  "sounds/LuneRouge/maison/LRCleaning_a_window_01_par_Lionel_Allorge.ogg",
+  "sounds/LuneRouge/musique/LRBuddhist_gong_02_by_Lionel_Allorge.ogg",
+  "sounds/LuneRouge/musique/LRBuddhist_gong_03_by_Lionel_Allorge.ogg",
+  "sounds/LuneRouge/musique/LRBuddhist_gong_04_by_Lionel_Allorge.ogg",
+  "sounds/LuneRouge/musique/LRBuddhist_gong_05_by_Lionel_Allorge.ogg",
+  "sounds/LuneRouge/musique/LRBuddhist_gong_06_by_Lionel_Allorge.ogg",
+  "sounds/LuneRouge/musique/LRBuddhist_gong_07_by_Lionel_Allorge.ogg",
+  "sounds/LuneRouge/musique/LRBuddhist_gong_08_by_Lionel_Allorge.ogg",
+  "sounds/LuneRouge/musique/LRBuddhist_gong_01_by_Lionel_Allorge.ogg",
+  "sounds/LuneRouge/sf/LRWeird_4_by_Lionel_Allorge.ogg",
+  "sounds/LuneRouge/sf/LRWeird_1_by_Lionel_Allorge.ogg",
+  "sounds/LuneRouge/sf/LRWeird_2_by_Lionel_Allorge.ogg",
+  "sounds/LuneRouge/sf/LRWeird_3_by_Lionel_Allorge.ogg",
+  "sounds/LuneRouge/sf/LRWeird_5_by_Lionel_Allorge.ogg",
+  "sounds/LuneRouge/sf/LRWeird_6_by_Lionel_Allorge.ogg",
+  "sounds/LuneRouge/sf/LRLaser_gun_01_by_Lionel_Allorge.ogg",
+  "sounds/LuneRouge/sf/LRLaser_gun_02_by_Lionel_Allorge.ogg",
+  "sounds/LuneRouge/sf/LRLaser_gun_03_by_Lionel_Allorge.ogg",
+  "sounds/LuneRouge/sf/LRLaser_gun_04_by_Lionel_Allorge.ogg",
+  "sounds/LuneRouge/sf/LRLaser_gun_05_by_Lionel_Allorge.ogg",
+  "sounds/LuneRouge/sf/LRLaser_gun_06_by_Lionel_Allorge.ogg",
+  "sounds/LuneRouge/sf/LRBlast_passing_01_by_Lionel_Allorge.ogg",
+  "sounds/LuneRouge/sf/LRBlast_passing_02_by_Lionel_Allorge.ogg",
+  "sounds/LuneRouge/sf/LRET_phone_home_01_by_Lionel_Allorge.ogg",
+  "sounds/LuneRouge/sf/LRBeast_from_space_01_by_Lionel_Allorge.ogg",
+  "sounds/LuneRouge/usine/LRFactory_noise_02_by_Lionel_Allorge.ogg",
+  "sounds/LuneRouge/usine/LRFactory_noise_03_by_Lionel_Allorge.ogg",
+  "sounds/LuneRouge/usine/LRFactory_noise_04_by_Lionel_Allorge.ogg",
+  "sounds/LuneRouge/usine/LRFactory_noise_05_by_Lionel_Allorge.ogg",
+  "sounds/LuneRouge/usine/LRFactory_noise_06_by_Lionel_Allorge.ogg",
+  "sounds/LuneRouge/usine/LRHits_01_by_Lionel_Allorge.ogg",
+  "sounds/LuneRouge/usine/LRFireballs_01_by_Lionel_Allorge.ogg",
+  "sounds/LuneRouge/usine/LRFactory_noise_01_by_Lionel_Allorge.ogg",
+};
+
+#define NUMBER_OF_SOUNDS 62
+
 /* Description of this plugin */
 static BoardPlugin menu_bp =
 {
@@ -292,6 +361,16 @@ void get_random_token(int token_type, gint *returned_type, gchar **string)
     dat->type =   TYPE_LOWERCASE;
     data = g_list_append(data, dat);
   }
+
+
+  if (token_type & TYPE_SOUND){
+    max_token += NUMBER_OF_SOUNDS;
+    DATUM *dat = g_malloc0(sizeof(DATUM));
+    dat->bound = max_token;
+    dat->type =   TYPE_SOUND;
+    data = g_list_append(data, dat);
+  }
+
   g_assert(max_token >0);
 
   g_warning("token_type %d,  max_token %d", token_type, max_token);
@@ -336,6 +415,9 @@ void get_random_token(int token_type, gint *returned_type, gchar **string)
     case TYPE_LOWERCASE:
       result = g_malloc0(2*sizeof(gunichar));
       g_utf8_strncpy(result, g_utf8_offset_to_pointer (alphabet_lowercase,k),1);
+      break;
+    case TYPE_SOUND:
+      result= g_strdup(soundList[k]);
       break;
     default:
       /* should never append */
