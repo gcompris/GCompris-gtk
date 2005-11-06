@@ -1,5 +1,12 @@
 2005-11-06  Bruno coudoin  <bruno.coudoin@free.fr>
 
+	- Fixed. We not returning NULL upon search failure.
+	  sound was broken.
+
+	* src/gcompris/gameutil.c: (gcompris_find_absolute_filename):
+
+2005-11-06  Bruno coudoin  <bruno.coudoin@free.fr>
+
 	- Improved mosaic background
 	- changed gameutil to search files in 
 	  ~/.gcompris/Plugins/boards if a file is not found in the

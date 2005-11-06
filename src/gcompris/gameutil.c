@@ -1,6 +1,6 @@
 /* gcompris - gameutil.c
  *
- * Time-stamp: <2005/11/05 23:21:52 bruno>
+ * Time-stamp: <2005/11/06 20:18:33 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -1280,21 +1280,22 @@ gchar *gcompris_find_absolute_filename(gchar *filename)
 
   absolute_filename = g_strdup(filename);
   i = 0;
-
-  do
+  
+  while (dir_to_search[i])
     {
       g_free(absolute_filename);
       absolute_filename = g_strdup_printf("%s/%s", dir_to_search[i], filename);
+      printf("testing absolute_filename = %s\n", absolute_filename);
       i++;
-    } while (!g_file_test (absolute_filename, G_FILE_TEST_IS_REGULAR) &&
-	     dir_to_search[i]);
-    
-  if(dir_to_search[i-1] == NULL)
-    {
-      g_free(absolute_filename);
-      return NULL;
+      if(g_file_test (absolute_filename, G_FILE_TEST_IS_REGULAR))
+	goto FOUND;
     }
+    
+  g_free(absolute_filename);
+  return NULL;
 
+ FOUND:
+  printf("returning %s\n", absolute_filename);
   return absolute_filename;
 }
 
