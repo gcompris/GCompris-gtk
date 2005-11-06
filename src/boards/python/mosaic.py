@@ -130,7 +130,6 @@ class Gcompris_mosaic:
     self.cleanup_game()
 
   def ok(self):
-    print("Gcompris_mosaic ok.")
     if(self.target_list == self.user_list):
       self.gamewon = True
       gcompris.bonus.display(gcompris.bonus.WIN, gcompris.bonus.GNU)
@@ -306,7 +305,6 @@ class Gcompris_mosaic:
                   fill_color  = 0xF0F0F0FF
                   fill_letter = " "
                   
-              print "x=%d y=%d" %(x, y)
               item = self.rootitem.add(
                   gnome.canvas.CanvasRect,
                   x1 = orig_x + x * (box_size_x + gap_x),
@@ -406,17 +404,10 @@ class Gcompris_mosaic:
     
     if event.type == gtk.gdk.BUTTON_PRESS:
       if(self.current_index >= 0):
-        print self.current_index
         box_item.set(fill_color_rgba = self.colors[self.current_index])
         text1_item.set(text = self.alphabet[self.current_index])
         text2_item.set(text = self.alphabet[self.current_index])
         self.user_list[box_index] = self.current_index
-
-      print ">>>>>"
-      print self.user_list
-      print "----"
-      print self.target_list
-      print "<<<<<"
 
   # Event when a color square is selected
   def set_color_item_event(self, item, event, data):

@@ -1,6 +1,6 @@
 /* gcompris - properties.c
  *
- * Time-stamp: <2005/10/01 14:03:36 bruno>
+ * Time-stamp: <2005/11/05 23:15:45 bruno>
  *
  * Copyright (C) 2000,2003 Bruno Coudoin
  *
@@ -185,6 +185,9 @@ GcomprisProperties *gcompris_properties_new ()
 
   tmp->users_dir        = g_strconcat(gcompris_user_dir, "/users", NULL);
   create_rootdir( tmp->users_dir );
+
+  tmp->user_data_dir	= g_strconcat(gcompris_user_dir, "/Plugins/boards", NULL);
+  create_rootdir( tmp->user_data_dir );
 
   /* Needs to be set after command line parsing */
   tmp->database          = NULL;

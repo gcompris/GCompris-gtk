@@ -486,6 +486,8 @@ static void init_background()
   
   /* First, Remove the gnome crash dialog because it locks the user when in full screen */
   signal(SIGSEGV, gcompris_terminate);
+  signal(SIGINT, gcompris_terminate);
+
 
   /* Background area if ratio above 1 */
   if(properties->fullscreen)
@@ -816,6 +818,10 @@ void gcompris_end_board()
 
 void gcompris_exit()
 {
+  /* Do not loopback in exit */
+  signal(SIGINT,  NULL);
+  signal(SIGSEGV, NULL);
+
   board_stop();
 
   gcompris_db_exit();
@@ -1057,8 +1063,6 @@ gcompris_init (int argc, char *argv[])
 
   /* To have some real random behaviour */
   srand (time (NULL));
-
-  signal(SIGINT, gcompris_terminate);
 
   /* Default difficulty filter: non specified */
   popt_difficulty_filter = -1;

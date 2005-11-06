@@ -1,3 +1,18 @@
+2005-11-06  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	- Improved mosaic background
+	- changed gameutil to search files in 
+	  ~/.gcompris/Plugins/boards if a file is not found in the
+	  /usr/.../gcompris/boards directory
+	
+	* boards/images/mosaic_bg.png:
+	* src/boards/python/mosaic.py:
+	* src/gcompris/gameutil.c: (gcompris_find_absolute_filename):
+	* src/gcompris/gcompris.c: (init_background), (gcompris_exit),
+	(gcompris_init):
+	* src/gcompris/properties.c: (gcompris_properties_new):
+	* src/gcompris/properties.h:
+
 2005-11-05  Yves Combe  <yves@ycombe.net>
 
 	fix double free.
