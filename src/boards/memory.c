@@ -1,6 +1,6 @@
 /* gcompris - memory.c
  *
- * Time-stamp: <2005/11/07 00:36:18 yves>
+ * Time-stamp: <2005/11/07 09:59:54 yves>
  *
  * Copyright (C) 2000 Bruno Coudoin
  * 
@@ -108,6 +108,8 @@ static void player_win();
 static void display_card(MemoryItem *memoryItem, CardStatus cardStatus);
 
 static void sound_callback(gchar *file);
+static void start_callback(gchar *file);
+static gboolean playing_sound = FALSE;
 
 // Number of images for x and y by level
 static guint levelDescription[] =
@@ -578,6 +580,13 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 
       Paused = FALSE;
 
+      to_tux = FALSE;
+      if (currentUiMode == UIMODE_SOUND){
+	playing_sound = TRUE;
+	gcompris_play_ogg_cb("sounds/LuneRouge/musique/LRBuddhist_gong_05_by_Lionel_Allorge.ogg",start_callback);
+      } else
+	playing_sound = FALSE;
+
       memory_next_level();
     }      
 }
@@ -1016,6 +1025,7 @@ static void display_card(MemoryItem *memoryItem, CardStatus cardStatus)
       case ON_FRONT:
 	gnome_canvas_item_hide(memoryItem->backcardItem);
 	gnome_canvas_item_show(memoryItem->frontcardItem);
+	playing_sound = TRUE;
 	gcompris_play_ogg_cb (memoryItem->data, sound_callback);
 	break;
       case ON_BACK:
@@ -1120,6 +1130,39 @@ static gint hide_card (GtkWidget *widget, gpointer data)
   return (FALSE);
 }
 
+static void check_win()
+{
+
+  gint timeout, timeout_tux;
+
+  if (currentUiMode == UIMODE_SOUND){
+    timeout = 200;
+    timeout_tux = 500;
+  }
+  else {
+    timeout = 1000;
+    timeout_tux = 2000;
+  }
+
+  // Check win
+  if (compare_card((gpointer) firstCard, (gpointer) secondCard) == 0) {
+    gcompris_play_ogg ("gobble", NULL);
+    win_id = g_timeout_add (timeout,
+			    (GSourceFunc) hide_card, NULL);
+    return;
+  }
+  
+  if (currentMode == MODE_TUX){
+		 /* time to tux to play, after a delay */
+    to_tux = TRUE;
+    g_warning("Now tux will play !");
+    tux_id = g_timeout_add (timeout_tux,
+			    (GSourceFunc) tux_play, NULL);
+    return;
+  }
+  
+}
+
 static gint
 item_event(GnomeCanvasItem *item, GdkEvent *event, MemoryItem *memoryItem)
 {
@@ -1141,6 +1184,11 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, MemoryItem *memoryItem)
 	     }
 	   }
 
+	   if (playing_sound){
+	     g_warning("wait a minut, the sound is playing !");
+	     return FALSE;
+	   }
+
 	   if(win_id)
 	     return FALSE;
 
@@ -1152,13 +1200,13 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, MemoryItem *memoryItem)
 	       secondCard = NULL;	       
 	     }
 
-	   display_card(memoryItem, ON_FRONT);
-	   
 	   if(!firstCard)
 	     {
 	       firstCard = memoryItem;
 	       if (currentMode == MODE_TUX)
 		 add_card_in_tux_memory(memoryItem);
+	       display_card(memoryItem, ON_FRONT);
+	       return TRUE;
 	     }
 	   else
 	     {
@@ -1169,21 +1217,12 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, MemoryItem *memoryItem)
 	       secondCard = memoryItem;
 	       if (currentMode == MODE_TUX)
 		 add_card_in_tux_memory(memoryItem);
-
-	       // Check win
-	       if (compare_card((gpointer) firstCard, (gpointer) secondCard) == 0) {
-		 gcompris_play_ogg ("gobble", NULL);
-		 win_id = g_timeout_add (1000,
-					 (GSourceFunc) hide_card, NULL);
+	       display_card(memoryItem, ON_FRONT);
+	       if (currentUiMode == UIMODE_SOUND)
+		 // Check win is called from callback return
 		 return TRUE;
-	       }
-
-	       if (currentMode == MODE_TUX){
-		 /* time to tux to play, after a delay */
-		 to_tux = TRUE;
-		 g_warning("Now tux will play !");
-		 tux_id = g_timeout_add (2000,
-					 (GSourceFunc) tux_play, NULL);
+	       else {
+		 check_win();
 		 return TRUE;
 	       }
 	     
@@ -1287,15 +1326,22 @@ static gint tux_play(){
       g_warning("case 1");
       firstCard = ((WINNING *) winning_pairs->data)->first ;
       display_card(firstCard, ON_FRONT);
-      return TRUE;
+      if (currentUiMode == UIMODE_SOUND)
+	return FALSE;
+      else
+	return TRUE;
     } else {
       g_warning("case 2");
       secondCard = ((WINNING *) winning_pairs->data)->second;
       display_card(secondCard, ON_FRONT);
-      gcompris_play_ogg ("gobble", NULL);
-      win_id = g_timeout_add (1000,
+      if (currentUiMode == UIMODE_SOUND)
+	return FALSE;
+      else {
+	gcompris_play_ogg ("gobble", NULL);
+	win_id = g_timeout_add (1000,
 				(GSourceFunc) hide_card, NULL);
-      return TRUE;
+	return TRUE;
+      }
     }
   }
 
@@ -1332,21 +1378,28 @@ static gint tux_play(){
     add_card_in_tux_memory(firstCard);
     display_card(firstCard, ON_FRONT);
     g_warning("Now tux replay !");
-    return TRUE;
+    if (currentUiMode == UIMODE_SOUND)
+      return FALSE;
+    else
+      return TRUE;
   } else {
     g_warning("case 4");
     secondCard = memoryArray[rx][ry];
     add_card_in_tux_memory(secondCard);
     display_card(secondCard, ON_FRONT);
-    if (compare_card(firstCard, secondCard)==0){
-      gcompris_play_ogg ("gobble", NULL);
-      g_warning("Now tux win !");
-      win_id = g_timeout_add (1000,
-			      (GSourceFunc) hide_card, NULL);
-      return TRUE;
-    } else{
-      to_tux = FALSE;
+    if (currentUiMode == UIMODE_SOUND)
       return FALSE;
+    else {
+      if (compare_card(firstCard, secondCard)==0){
+	gcompris_play_ogg ("gobble", NULL);
+	g_warning("Now tux win !");
+	win_id = g_timeout_add (1000,
+				(GSourceFunc) hide_card, NULL);
+	return TRUE;
+      } else{
+	to_tux = FALSE;
+	return FALSE;
+      }
     }
   }
   return FALSE;
@@ -1354,7 +1407,41 @@ static gint tux_play(){
 
 static void sound_callback(gchar *file)
 {
+  if (! gcomprisBoard)
+    return;
+
   g_warning("sound_callback %s", file);
+
+  playing_sound = FALSE;
+  if (currentMode == MODE_TUX){
+    if (to_tux) {
+      if (firstCard && secondCard){
+	if (compare_card(firstCard, secondCard)==0){
+	  gcompris_play_ogg ("gobble", NULL);
+	  win_id = g_timeout_add (1000,
+				  (GSourceFunc) hide_card, NULL);
+	  tux_id = g_timeout_add (2000,
+				  (GSourceFunc) tux_play, NULL);
+	  return;
+	} else {
+	  to_tux = FALSE;
+	  return;
+	}
+      } else {
+	g_warning("Now tux will replay !");
+	tux_id = g_timeout_add (2000,
+			      (GSourceFunc) tux_play, NULL);
+	return;
+      }
+    }
+  }
+  if (firstCard && secondCard)
+    check_win();
+}
+
+
+static void start_callback(gchar *file){
+  playing_sound = FALSE;
 }
 
 

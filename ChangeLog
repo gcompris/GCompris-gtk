@@ -1,5 +1,12 @@
 2005-11-07  Yves Combe  <yves@ycombe.net>
 
+	memo_sound and memo_sound_tux code finished. We need a function to stop running sound if board is stopped before end. And sound needs yet to be choosen correctly. 
+
+	* src/boards/memory.c: (start_board), (display_card), (check_win),
+	(item_event), (tux_play), (sound_callback), (start_callback):
+
+2005-11-07  Yves Combe  <yves@ycombe.net>
+
 	add autor's name for LuneRouge musics.
 
 	* boards/music/background/COPYRIGHT:
