@@ -1,3 +1,19 @@
+2005-11-08  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* boards/algebramenu.xml.in: Fixed english typos, it's Math not Maths
+	* boards/boardicons/memory_sound.png: created based on Francks artwork
+	* boards/boardicons/memory_sound_tux.png: -
+	* boards/colors_group.xml.in: Fixed english typos, it's Color not Colour
+	* boards/guessnumber.xml.in: Fixed English typos: Tux hide(s) a number 
+	* boards/memory_sound.xml.in: Updated board description, documentation
+	* boards/memory_sound_tux.xml.in: Updated  board description, documentation
+	* po/POTFILES.in: added memory_sound
+	* src/boards/memory.c: (update_scores), (create_item): added a text shadow
+	* src/boards/money.c: (money_next_level): Now the money format is I18N (to Use $£...)
+	* src/gcompris/gameutil.c: (gcompris_find_absolute_filename): removed debug printout
+	* src/gcompris/gcompris.c: (init_background), (gcompris_init): Moved the xrandr fullscreen set at
+	                           the end of the initialisation to avoid flickering.
+
 2005-11-08  Yves Combe  <yves@ycombe.net>
 
 	Change Tux_play with colorized version, better in against computer version.

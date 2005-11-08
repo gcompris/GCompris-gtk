@@ -202,7 +202,6 @@ gboolean is_our_board (GcomprisBoard *gcomprisBoard)
 /* set initial values for the next level */
 static void money_next_level()
 {
-  GnomeCanvasItem *item = NULL;
   GdkPixbuf       *pixmap = NULL;
   guint		   min_price, max_price;
   guint		   number_of_item;
@@ -469,6 +468,7 @@ static void money_next_level()
   for(i=1; i<=number_of_item; i++)
   {
     double object_price;
+    gchar *text;
 
     pixmap = gcompris_load_pixmap(imageList[RAND(0, NUMBER_OF_IMAGES-1)]);
 
@@ -485,7 +485,7 @@ static void money_next_level()
 
     if(currentMode==WITH_CENTS)
       {
-	display_format = "%.2f €";
+	display_format = _("$ %.2f");
 	/* Add random cents */
 	if(gcomprisBoard->level == 1)
 	  {
@@ -498,20 +498,21 @@ static void money_next_level()
       }
     else
       {
-	display_format = "%.0f €";
+	display_format = _("$ %.0f");
       }
 
     price_target += object_price;
+    text = g_strdup_printf(display_format, object_price);
     gnome_canvas_item_new(boardRootItem,
 			  gnome_canvas_text_get_type (),
-			  "text", g_strdup_printf(display_format, object_price),
+			  "text", text,
 			  "font", gcompris_skin_font_board_big,
 			  "x", (double) (i*BOARDWIDTH)/(number_of_item+1),
 			  "y", (double) 180,
 			  "anchor", GTK_ANCHOR_CENTER,
 			  "fill_color", "white",
 			  NULL);
-    
+    g_free(text);
     gdk_pixbuf_unref(pixmap);
   }
 

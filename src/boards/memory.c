@@ -1,6 +1,6 @@
 /* gcompris - memory.c
  *
- * Time-stamp: <2005/11/08 21:34:33 yves>
+ * Time-stamp: <2005/11/09 00:07:02 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  * 
@@ -298,6 +298,8 @@ static GList *passed_token = NULL;
 static GnomeCanvasItem *tux;
 static GnomeCanvasItem *tux_score;
 static GnomeCanvasItem *player_score;
+static GnomeCanvasItem *tux_score_s;
+static GnomeCanvasItem *player_score_s;
 
 static gchar *tux_score_str;
 static gchar *player_score_str;
@@ -628,6 +630,8 @@ static void update_scores()
   player_score_str = g_strdup_printf("%d", player_pairs);
   gnome_canvas_item_set(tux_score, "text", tux_score_str, NULL);
   gnome_canvas_item_set(player_score, "text", player_score_str, NULL);
+  gnome_canvas_item_set(tux_score_s, "text", tux_score_str, NULL);
+  gnome_canvas_item_set(player_score_s, "text", player_score_str, NULL);
 
 }
 
@@ -834,6 +838,24 @@ static void create_item(GnomeCanvasGroup *parent)
 				 "y", (double) 20,
 				 NULL);
     
+    tux_score_s = gnome_canvas_item_new (GNOME_CANVAS_GROUP(parent),
+				       gnome_canvas_text_get_type (),
+				       "font", gcompris_skin_font_board_huge_bold,
+				       "x", (double) 100+1.0,
+				       "y", (double) 200+1.0,
+				       "anchor", GTK_ANCHOR_CENTER,
+				       "fill_color_rgba", 0x101010FF,
+				       NULL);
+
+    player_score_s = gnome_canvas_item_new (GNOME_CANVAS_GROUP(parent),
+					  gnome_canvas_text_get_type (),
+					  "font", gcompris_skin_font_board_huge_bold,
+					  "x", (double) 100+1.0,
+					  "y", (double) BASE_Y2 - 20+1.0,
+					  "anchor", GTK_ANCHOR_CENTER,
+					  "fill_color_rgba", 0x101010FF,
+					  NULL);
+
     tux_score = gnome_canvas_item_new (GNOME_CANVAS_GROUP(parent),
 				       gnome_canvas_text_get_type (),
 				       "font", gcompris_skin_font_board_huge_bold,

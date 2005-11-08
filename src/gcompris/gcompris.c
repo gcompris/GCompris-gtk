@@ -450,7 +450,6 @@ static void init_background()
         if(xrandr->xr_sizes[i].width == BOARDWIDTH &&
 	   xrandr->xr_sizes[i].height == BOARDHEIGHT+BARHEIGHT) {
 	  xrandr->xr_current_size = (SizeID)i;
-	  xrandr_set_config( xrandr );
 	  break;
 	}
       }
@@ -1367,6 +1366,13 @@ gcompris_init (int argc, char *argv[])
     gcompris_play_ogg(str, NULL);
 
   g_free(str);
+
+  /* Set the Fullscreen the last operation */
+#ifdef XRANDR
+  if(properties->fullscreen && !properties->noxrandr) {
+    xrandr_set_config( xrandr );
+  }
+#endif
 
   gtk_main ();
   return 0;
