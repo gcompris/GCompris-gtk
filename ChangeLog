@@ -1,3 +1,14 @@
+2005-11-08  Yves Combe  <yves@ycombe.net>
+
+	add small sounds and apdate memory sound list. Now the two memory sound boards are playable. Needs again to rewritte their xml.in, and maybe find more and sounds than melody's and mine.
+
+	* boards/sounds/memory/LRLaPause_short.ogg:
+	* boards/sounds/memory/plick.ogg:
+	* boards/sounds/memory/tick.ogg:
+	* boards/sounds/memory/tri.ogg:
+	* src/boards/memory.c: (get_random_token), (start_board),
+	(get_image), (hide_card), (add_card_in_tux_memory), (compare_card):
+
 2005-11-07  Yves Combe  <yves@ycombe.net>
 
 	choose and modify sounds for usage in memory.

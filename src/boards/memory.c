@@ -1,6 +1,6 @@
 /* gcompris - memory.c
  *
- * Time-stamp: <2005/11/07 23:26:28 yves>
+ * Time-stamp: <2005/11/08 12:26:46 yves>
  *
  * Copyright (C) 2000 Bruno Coudoin
  * 
@@ -178,38 +178,55 @@ static gchar *imageList[] =
 // List of images to use in the memory
 static gchar *soundList[] =
 {
-   "sounds/LuneRouge/animaux/LRRain_in_garden_01_by_Lionel_Allorge_cut.ogg"
-   "sounds/LuneRouge/animaux/LRBark_1_by_Lionel_Allorge_cut.ogg"
-   "sounds/LuneRouge/animaux/LRBark_3_by_Lionel_Allorge_cut.ogg"
-   "sounds/LuneRouge/animaux/LRFrogs_in_pond_during_storm_by_Lionel_Allorge_cut.ogg"
-   "sounds/LuneRouge/engins/LRObject_falling_02_by_Lionel_Allorge.ogg"
-   "sounds/LuneRouge/engins/LRTrain_slowing_down_01_by_Lionel_Allorge_cut.ogg"
-   "sounds/LuneRouge/engins/LRStart_and_stop_car_engine_1_by_Lionel_Allorge_cut.ogg"
-   "sounds/LuneRouge/engins/LRObject_falling_01_by_Lionel_Allorge.ogg"
-   "sounds/LuneRouge/humain/LRApplauses_1_by_Lionel_Allorge_cut.ogg"
-   "sounds/LuneRouge/humain/LRHeart_beat_01_by_Lionel_Allorge.ogg"
-   "sounds/LuneRouge/maison/LRDoor_Open_2_by_Lionel_Allorge.ogg"
-   "sounds/LuneRouge/maison/LRRing_01_by_Lionel_Allorge.ogg"
-   "sounds/LuneRouge/musique/LRBuddhist_gong_05_by_Lionel_Allorge.ogg"
-   "sounds/LuneRouge/sf/LRWeird_4_by_Lionel_Allorge.ogg"
-   "sounds/LuneRouge/sf/LRWeird_1_by_Lionel_Allorge.ogg"
-   "sounds/LuneRouge/sf/LRWeird_2_by_Lionel_Allorge.ogg"
-   "sounds/LuneRouge/sf/LRWeird_3_by_Lionel_Allorge.ogg"
-   "sounds/LuneRouge/sf/LRWeird_5_by_Lionel_Allorge.ogg"
-   "sounds/LuneRouge/sf/LRWeird_6_by_Lionel_Allorge.ogg"
-   "sounds/LuneRouge/sf/LRET_phone_home_01_by_Lionel_Allorge_cut.ogg"
-   "sounds/LuneRouge/sf/LRBeast_from_space_01_by_Lionel_Allorge_cut.ogg"
-   "sounds/LuneRouge/usine/LRFactory_noise_02_by_Lionel_Allorge.ogg"
-   "sounds/LuneRouge/usine/LRFactory_noise_03_by_Lionel_Allorge.ogg"
-   "sounds/LuneRouge/usine/LRFactory_noise_04_by_Lionel_Allorge.ogg"
-   "sounds/LuneRouge/usine/LRFactory_noise_05_by_Lionel_Allorge.ogg"
-   "sounds/LuneRouge/usine/LRFactory_noise_06_by_Lionel_Allorge.ogg"
-   "sounds/LuneRouge/usine/LRHits_01_by_Lionel_Allorge.ogg"
-   "sounds/LuneRouge/usine/LRFireballs_01_by_Lionel_Allorge.ogg"
-   "sounds/LuneRouge/usine/LRFactory_noise_01_by_Lionel_Allorge.ogg"
+   "sounds/LuneRouge/animaux/LRRain_in_garden_01_by_Lionel_Allorge_cut.ogg",
+   "sounds/LuneRouge/animaux/LRBark_1_by_Lionel_Allorge_cut.ogg",
+   "sounds/LuneRouge/animaux/LRBark_3_by_Lionel_Allorge_cut.ogg",
+   "sounds/LuneRouge/animaux/LRFrogs_in_pond_during_storm_by_Lionel_Allorge_cut.ogg",
+   "sounds/LuneRouge/engins/LRObject_falling_02_by_Lionel_Allorge.ogg",
+   "sounds/LuneRouge/engins/LRTrain_slowing_down_01_by_Lionel_Allorge_cut.ogg",
+   "sounds/LuneRouge/engins/LRStart_and_stop_car_engine_1_by_Lionel_Allorge_cut.ogg",
+   "sounds/LuneRouge/engins/LRObject_falling_01_by_Lionel_Allorge.ogg",
+   "sounds/LuneRouge/humain/LRApplauses_1_by_Lionel_Allorge_cut.ogg",
+   "sounds/LuneRouge/humain/LRHeart_beat_01_by_Lionel_Allorge.ogg",
+   "sounds/LuneRouge/maison/LRDoor_Open_2_by_Lionel_Allorge.ogg",
+   "sounds/LuneRouge/maison/LRRing_01_by_Lionel_Allorge.ogg",
+   "sounds/LuneRouge/musique/LRBuddhist_gong_05_by_Lionel_Allorge.ogg",
+   "sounds/LuneRouge/sf/LRWeird_4_by_Lionel_Allorge.ogg",
+   "sounds/LuneRouge/sf/LRWeird_1_by_Lionel_Allorge.ogg",
+   "sounds/LuneRouge/sf/LRWeird_2_by_Lionel_Allorge.ogg",
+   "sounds/LuneRouge/sf/LRWeird_3_by_Lionel_Allorge.ogg",
+   "sounds/LuneRouge/sf/LRWeird_5_by_Lionel_Allorge.ogg",
+   "sounds/LuneRouge/sf/LRWeird_6_by_Lionel_Allorge.ogg",
+   "sounds/LuneRouge/sf/LRET_phone_home_01_by_Lionel_Allorge_cut.ogg",
+   "sounds/LuneRouge/sf/LRBeast_from_space_01_by_Lionel_Allorge_cut.ogg",
+   "sounds/LuneRouge/usine/LRFactory_noise_02_by_Lionel_Allorge.ogg",
+   "sounds/LuneRouge/usine/LRFactory_noise_03_by_Lionel_Allorge.ogg",
+   "sounds/LuneRouge/usine/LRFactory_noise_04_by_Lionel_Allorge.ogg",
+   "sounds/LuneRouge/usine/LRFactory_noise_05_by_Lionel_Allorge.ogg",
+   "sounds/LuneRouge/usine/LRFactory_noise_06_by_Lionel_Allorge.ogg",
+   "sounds/LuneRouge/usine/LRHits_01_by_Lionel_Allorge.ogg",
+   "sounds/LuneRouge/usine/LRFireballs_01_by_Lionel_Allorge.ogg",
+   "sounds/LuneRouge/usine/LRFactory_noise_01_by_Lionel_Allorge.ogg",
+   "sounds/memory/LRLaPause_short.ogg",
+   "sounds/memory/plick.ogg",
+   "sounds/memory/tick.ogg",
+   "sounds/memory/tri.ogg",
+   "sounds/chronos/space/1.ogg",
+   "sounds/chronos/space/2.ogg",
+   "sounds/chronos/space/2.ogg",
+   "sounds/melody/guitar/melody.ogg",
+   "sounds/melody/guitar/son1.ogg",
+   "sounds/melody/guitar/son2.ogg",
+   "sounds/melody/guitar/son3.ogg",
+   "sounds/melody/guitar/son4.ogg",
+   "sounds/melody/tachos/son1.ogg",
+   "sounds/melody/tachos/son2.ogg",
+   "sounds/melody/tachos/son3.ogg",
+   "sounds/melody/tachos/son4.ogg",
+   "sounds/melody/tachos/melody.ogg"
 };
 
-#define NUMBER_OF_SOUNDS 62
+#define NUMBER_OF_SOUNDS 46
 
 /* Description of this plugin */
 static BoardPlugin menu_bp =
@@ -350,8 +367,6 @@ void get_random_token(int token_type, gint *returned_type, gchar **string)
 
   g_assert(max_token >0);
 
-  g_warning("token_type %d,  max_token %d", token_type, max_token);
-
   i = rand()%max_token;
 
   for (list = data; list != NULL; list = list->next)
@@ -408,8 +423,6 @@ void get_random_token(int token_type, gint *returned_type, gchar **string)
 	 
   passed_token = g_list_append( passed_token, result);
   
-  g_warning("passed_token %d", g_list_length(passed_token));
-
   *returned_type = type;
 
   *string = result;
@@ -487,24 +500,20 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       if(!gcomprisBoard->mode){
 	currentMode=MODE_NORMAL;
 	currentUiMode=UIMODE_NORMAL;
-	g_warning("Mode set to images");
       }
       else {
 	if(g_strcasecmp(gcomprisBoard->mode, "tux")==0){
 	  currentMode=MODE_TUX;
 	  currentUiMode=UIMODE_NORMAL;
-	  g_warning("Mode set to tux");
 	}
 	else {
 	  if(g_strcasecmp(gcomprisBoard->mode, "sound")==0){
 	    currentMode=MODE_NORMAL;
 	    currentUiMode=UIMODE_SOUND;
-	    g_warning("Mode set to sound");
 	  } else {
 	    if(g_strcasecmp(gcomprisBoard->mode, "sound_tux")==0){
 	      currentMode=MODE_TUX;
 	      currentUiMode=UIMODE_SOUND;
-	      g_warning("Mode set to sound_tux");
 	    }
 	    else{
 	      currentMode=MODE_NORMAL;
@@ -739,7 +748,6 @@ static void get_image(MemoryItem *memoryItem, guint x, guint y)
   if (currentUiMode == UIMODE_SOUND){
     get_random_token ( TYPE_SOUND, &memoryItem->type,  &memoryItem->data);
     g_assert (memoryItem->type ==  TYPE_SOUND);
-    g_warning("returned token %s", memoryItem->data);
   }
   else {
     switch(gcomprisBoard->level) {
@@ -752,32 +760,30 @@ static void get_image(MemoryItem *memoryItem, guint x, guint y)
       /* Image mode */
       get_random_token ( TYPE_IMAGE, &memoryItem->type,  &memoryItem->data);
       g_assert (memoryItem->type ==  TYPE_IMAGE);
-      g_warning("returned token %s", memoryItem->data);
       break;
       
     case 5:
       /* Limited Text mode Numbers only */
       get_random_token ( TYPE_NUMBER, &memoryItem->type,  &memoryItem->data);
       g_assert (memoryItem->type ==  TYPE_NUMBER);
-      g_warning("returned token %s", memoryItem->data);
       break;
       
     case 6:
       /* Limited Text mode Numbers + Capitals */
       get_random_token ( TYPE_NUMBER | TYPE_UPPERCASE, &memoryItem->type,  &memoryItem->data);
       g_assert((memoryItem->type == TYPE_NUMBER)||(memoryItem->type==TYPE_UPPERCASE));
-      g_warning("returned token %s", memoryItem->data);
-      break;
       break;
       
     default:
       /* Text mode ALL */
       get_random_token ( TYPE_NUMBER | TYPE_UPPERCASE | TYPE_LOWERCASE, &memoryItem->type,  &memoryItem->data);
       g_assert (memoryItem->type & ( TYPE_NUMBER | TYPE_UPPERCASE | TYPE_LOWERCASE));
-      g_warning("returned token %s", memoryItem->data);
       break;
     }
   }
+
+  g_warning("returned token %s for item x=%d y=%d", memoryItem->data, x, y);
+
 
   // Randomly set the pair
   rx = (int)(numberOfColumn*((double)rand()/RAND_MAX));
@@ -1063,9 +1069,7 @@ static gint hide_card (GtkWidget *widget, gpointer data)
 
   if(firstCard!=NULL)
     {
-      g_warning("removing first");
       display_card(firstCard, HIDDEN);
-      g_warning("removing first done.");
       firstCard  = NULL;
       if (currentMode == MODE_TUX)
 	remove_card_from_tux_memory(firstCard);
@@ -1073,9 +1077,7 @@ static gint hide_card (GtkWidget *widget, gpointer data)
 
   if(secondCard!=NULL)
     {
-      g_warning("removing second");
       display_card(secondCard, HIDDEN);
-      g_warning("removing second done.");
       secondCard  = NULL;
       if (currentMode == MODE_TUX)
 	remove_card_from_tux_memory(secondCard);
@@ -1208,12 +1210,10 @@ void add_card_in_tux_memory(MemoryItem *card)
 {
   MemoryItem *first = NULL;
 
-  g_warning("Adding card %s ", card->data);
+  g_warning("Adding card %s in tux memory ", card->data);
 
-  g_warning("now tux_memory has size %d", g_queue_get_length(tux_memory));
   /* check if card is already in memory */
   remove_card_from_tux_memory(card);
-  g_warning("now tux_memory has size %d", g_queue_get_length(tux_memory));
 
   first = find_card_in_tux_memory(card);
 
@@ -1226,17 +1226,15 @@ void add_card_in_tux_memory(MemoryItem *card)
     g_warning("Now %d winning pairs in tux list! ", g_list_length(winning_pairs));
 
     remove_card_from_tux_memory(first);
-    g_warning("now tux_memory has size %d", g_queue_get_length(tux_memory));
   }
 
-  /* Local Variables: */
   g_queue_push_head(tux_memory, card);
-
-  g_warning("Now tuxmemory size = %d", g_queue_get_length (tux_memory));
 
   if (g_queue_get_length (tux_memory)>tux_memory_size){
     g_queue_pop_tail(tux_memory);
-    g_warning("Removing 1: Now tuxmemory size = %d", g_queue_get_length (tux_memory));
+
+  g_warning("Now tuxmemory size = %d", g_queue_get_length (tux_memory));
+
   }
 }
 
@@ -1245,8 +1243,6 @@ gint compare_card (gconstpointer a,
 {
   MemoryItem *card_a = (MemoryItem *)a;
   MemoryItem *card_b = (MemoryItem *)b;
-
-  //g_warning("comparing %d %d ? %s == %s %d", (int) a, (int) b, ((MemoryItem *)a)->data, ((MemoryItem *)b)->data,  (((MemoryItem *)a)->data == ((MemoryItem *)b)->data) ? 0: -1);
 
   if (((MemoryItem *)a)->data == ((MemoryItem *)b)->data)
     return  0;
