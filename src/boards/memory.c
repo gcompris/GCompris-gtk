@@ -1,6 +1,6 @@
 /* gcompris - memory.c
  *
- * Time-stamp: <2005/11/08 12:26:46 yves>
+ * Time-stamp: <2005/11/08 21:34:33 yves>
  *
  * Copyright (C) 2000 Bruno Coudoin
  * 
@@ -207,7 +207,7 @@ static gchar *soundList[] =
    "sounds/LuneRouge/usine/LRHits_01_by_Lionel_Allorge.ogg",
    "sounds/LuneRouge/usine/LRFireballs_01_by_Lionel_Allorge.ogg",
    "sounds/LuneRouge/usine/LRFactory_noise_01_by_Lionel_Allorge.ogg",
-   "sounds/memory/LRLaPause_short.ogg",
+   "sounds/LuneRouge/LRLaPause_short.ogg",
    "sounds/memory/plick.ogg",
    "sounds/memory/tick.ogg",
    "sounds/memory/tri.ogg",
