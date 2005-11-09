@@ -1,6 +1,6 @@
 /* gcompris - memory.c
  *
- * Time-stamp: <2005/11/09 00:07:02 bruno>
+ * Time-stamp: <2005/11/10 00:39:44 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  * 
@@ -78,13 +78,26 @@ typedef struct {
 static MemoryItem *firstCard = NULL;
 static MemoryItem *secondCard = NULL;
 
-/* Define the page area where memory cards can be displayed */
-#define BASE_X1 50
-#define BASE_Y1 50
-#define BASE_X2 790
-#define BASE_Y2 500
+/* Define the page area where memory cards can be displayed for CARD MODE */
+#define BASE_CARD_X1 50
+#define BASE_CARD_Y1 50
+#define BASE_CARD_X2 790
+#define BASE_CARD_Y2 500
+#define BASE_CARD_X1_TUX 200
 
-#define BASE_X1_TUX 200
+/* Define the page area where memory cards can be displayed for SOUND MODE */
+#define BASE_SOUND_X1 250
+#define BASE_SOUND_Y1 30
+#define BASE_SOUND_X2 600
+#define BASE_SOUND_Y2 200
+#define BASE_SOUND_X1_TUX BASE_SOUND_X1
+
+/* The current page area where memory cards can be displayed */
+gint base_x1;
+gint base_y1;
+gint base_x2;
+gint base_y2;
+gint base_x1_tux;
 
 gint current_x;
 gint current_y;
@@ -102,6 +115,7 @@ static void create_item(GnomeCanvasGroup *parent);
 static void memory_destroy_all_items(void);
 static void memory_next_level(void);
 static gint item_event(GnomeCanvasItem *item, GdkEvent *event, MemoryItem *memoryItem);
+static gint compare_card (gconstpointer a, gconstpointer b);
 
 static void player_win();
 
@@ -128,7 +142,7 @@ static guint levelDescription[] =
 
 static MemoryItem *memoryArray[MAX_MEMORY_WIDTH][MAX_MEMORY_HEIGHT];
 
-// List of images to use in the memory
+/* List of images to use in the memory */
 static gchar *imageList[] =
 {
   "gcompris/misc/apple.png",
@@ -175,7 +189,7 @@ static gchar *imageList[] =
 };
 #define NUMBER_OF_IMAGES 41
 
-// List of images to use in the memory
+/* List of images to use in the memory */
 static gchar *soundList[] =
 {
    "sounds/LuneRouge/animaux/LRRain_in_garden_01_by_Lionel_Allorge_cut.ogg",
@@ -198,7 +212,6 @@ static gchar *soundList[] =
    "sounds/LuneRouge/sf/LRWeird_5_by_Lionel_Allorge.ogg",
    "sounds/LuneRouge/sf/LRWeird_6_by_Lionel_Allorge.ogg",
    "sounds/LuneRouge/sf/LRET_phone_home_01_by_Lionel_Allorge_cut.ogg",
-   "sounds/LuneRouge/sf/LRBeast_from_space_01_by_Lionel_Allorge_cut.ogg",
    "sounds/LuneRouge/usine/LRFactory_noise_02_by_Lionel_Allorge.ogg",
    "sounds/LuneRouge/usine/LRFactory_noise_03_by_Lionel_Allorge.ogg",
    "sounds/LuneRouge/usine/LRFactory_noise_04_by_Lionel_Allorge.ogg",
@@ -300,9 +313,6 @@ static GnomeCanvasItem *tux_score;
 static GnomeCanvasItem *player_score;
 static GnomeCanvasItem *tux_score_s;
 static GnomeCanvasItem *player_score_s;
-
-static gchar *tux_score_str;
-static gchar *player_score_str;
 
 extern int strcmp (char *, char *);
 
@@ -527,13 +537,24 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       }
 
       if (currentUiMode == UIMODE_SOUND)
-	gcompris_pause_sound();
-
-
-      if (currentUiMode == UIMODE_SOUND)
-	gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas), "images/gcompris_band.png");
+	{
+	  gcompris_pause_sound();
+	  gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas), "images/gcompris_band.png");
+	  base_x1 = BASE_SOUND_X1;
+	  base_y1 = BASE_SOUND_Y1;
+	  base_x2 = BASE_SOUND_X2;
+	  base_y2 = BASE_SOUND_Y2;
+	  base_x1_tux = BASE_SOUND_X1_TUX;
+	}
       else
-	gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas), "images/scenery_background.png");
+	{
+	  gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas), "images/scenery_background.png");
+	  base_x1 = BASE_CARD_X1;
+	  base_y1 = BASE_CARD_Y1;
+	  base_x2 = BASE_CARD_X2;
+	  base_y2 = BASE_CARD_Y2;
+	  base_x1_tux = BASE_CARD_X1_TUX;
+	}
 
 
       /* TRANSLATORS: Put here the numbers in your language */
@@ -623,16 +644,19 @@ is_our_board (GcomprisBoard *gcomprisBoard)
 
 static void update_scores()
 {
-  
-  g_free(tux_score_str);
-  g_free(player_score_str);
+  gchar *tux_score_str;
+  gchar *player_score_str;
+
   tux_score_str = g_strdup_printf("%d", tux_pairs);
   player_score_str = g_strdup_printf("%d", player_pairs);
-  gnome_canvas_item_set(tux_score, "text", tux_score_str, NULL);
-  gnome_canvas_item_set(player_score, "text", player_score_str, NULL);
-  gnome_canvas_item_set(tux_score_s, "text", tux_score_str, NULL);
+
+  gnome_canvas_item_set(tux_score,      "text", tux_score_str, NULL);
+  gnome_canvas_item_set(player_score,   "text", player_score_str, NULL);
+  gnome_canvas_item_set(tux_score_s,    "text", tux_score_str, NULL);
   gnome_canvas_item_set(player_score_s, "text", player_score_str, NULL);
 
+  g_free(tux_score_str);
+  g_free(player_score_str);
 }
 
 /* set initial values for the next level */
@@ -732,7 +756,6 @@ static void memory_destroy_all_items()
  */
 static void get_image(MemoryItem *memoryItem, guint x, guint y)
 {
-  guint i;
   guint rx, ry;
 
   memoryItem->hidden = FALSE;
@@ -821,8 +844,8 @@ static void create_item(GnomeCanvasGroup *parent)
   double card_shadow_w, card_shadow_h;
 
   // Calc width and height of one card
-  width  = (BASE_X2-(currentMode == MODE_TUX ? BASE_X1_TUX : BASE_X1))/numberOfColumn;
-  height = (BASE_Y2-BASE_Y1)/numberOfLine;
+  width  = (base_x2-(currentMode == MODE_TUX ? base_x1_tux : base_x1))/numberOfColumn;
+  height = (base_y2-base_y1)/numberOfLine;
 
   /* Remove a little bit of space for the card shadow */
   height2 = height * 0.9;
@@ -851,7 +874,7 @@ static void create_item(GnomeCanvasGroup *parent)
 					  gnome_canvas_text_get_type (),
 					  "font", gcompris_skin_font_board_huge_bold,
 					  "x", (double) 100+1.0,
-					  "y", (double) BASE_Y2 - 20+1.0,
+					  "y", (double) BASE_CARD_Y2 - 20+1.0,
 					  "anchor", GTK_ANCHOR_CENTER,
 					  "fill_color_rgba", 0x101010FF,
 					  NULL);
@@ -869,7 +892,7 @@ static void create_item(GnomeCanvasGroup *parent)
 					  gnome_canvas_text_get_type (),
 					  "font", gcompris_skin_font_board_huge_bold,
 					  "x", (double) 100,
-					  "y", (double) BASE_Y2 - 20,
+					  "y", (double) BASE_CARD_Y2 - 20,
 					  "anchor", GTK_ANCHOR_CENTER,
 					  "fill_color_rgba", 0xFF0F0FFF,
 					  NULL);
@@ -885,8 +908,8 @@ static void create_item(GnomeCanvasGroup *parent)
 	  memoryItem->rootItem = \
 	    gnome_canvas_item_new (parent,
 				   gnome_canvas_group_get_type (),
-				   "x", (double) (currentMode == MODE_TUX ? BASE_X1_TUX : BASE_X1) + x*width,
-				   "y", (double) BASE_Y1 + y*height,
+				   "x", (double) (currentMode == MODE_TUX ? base_x1_tux : base_x1) + x*width,
+				   "y", (double) base_y1 + y*height,
 				   NULL);
 
 	  if (currentUiMode == UIMODE_SOUND)
@@ -1176,7 +1199,7 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, MemoryItem *memoryItem)
 	   }
 
 	   if (playing_sound){
-	     g_warning("wait a minut, the sound is playing !");
+	     g_warning("wait a minute, the sound is playing !");
 	     return FALSE;
 	   }
 
@@ -1260,12 +1283,10 @@ void add_card_in_tux_memory(MemoryItem *card)
   }
 }
 
-gint compare_card (gconstpointer a,
-		   gconstpointer b)
+static gint
+compare_card (gconstpointer a,
+	      gconstpointer b)
 {
-  MemoryItem *card_a = (MemoryItem *)a;
-  MemoryItem *card_b = (MemoryItem *)b;
-
   if (((MemoryItem *)a)->data == ((MemoryItem *)b)->data)
     return  0;
   else
@@ -1276,7 +1297,7 @@ MemoryItem *find_card_in_tux_memory(MemoryItem *card)
 {
   GList *link;
 
-  if (link = g_queue_find_custom(tux_memory, card, compare_card))
+  if ((link = g_queue_find_custom(tux_memory, card, compare_card)) != NULL)
     return link->data;
   else
     return NULL;
