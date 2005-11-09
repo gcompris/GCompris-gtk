@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-11-02 10:46-0500\n"
+"POT-Creation-Date: 2005-11-09 12:39-0500\n"
 "PO-Revision-Date: 2005-09-06 22:51-0400\n"
 "Last-Translator: Adam Weinberger <adamw@gnome.org>\n"
 "Language-Team: Canadian English <adamw@gnome.org>\n"
@@ -513,7 +513,7 @@ msgid "Simple addition. Can recognize written numbers"
 msgstr "Simple addition. Can recognize written numbers"
 
 #: boards/algebramenu.xml.in.h:1
-msgid "Go to Maths activities"
+msgid "Go to Math activities"
 msgstr "Go to Math activities"
 
 #: boards/algorithm.xml.in.h:1
@@ -1105,7 +1105,7 @@ msgstr ""
 "name of the colour, click on the toon wearing it."
 
 #: boards/colors_group.xml.in.h:1
-msgid "Go to Colour activities"
+msgid "Go to Color activities"
 msgstr "Go to Colour activities"
 
 #: boards/computer.xml.in.h:1
@@ -2057,8 +2057,8 @@ msgid "Guess a number"
 msgstr "Guess a number"
 
 #: boards/guessnumber.xml.in.h:2
-msgid "Help Tux escape the cave. Tux hide a number that you must discover."
-msgstr "Help Tux escape the cave. Tux hide a number that you must discover."
+msgid "Help Tux escape the cave. Tux hides a number that you must discover."
+msgstr "Help Tux escape the cave. Tux hides a number that you must discover."
 
 #: boards/guessnumber.xml.in.h:3
 msgid "Numbers from 1 to 1000 for the last level."
@@ -2595,6 +2595,45 @@ msgstr "Train your memory and remove all the cards"
 msgid "Go to Memory activities"
 msgstr "Go to Memory activities"
 
+#: boards/memory_sound.xml.in.h:1 boards/memory_sound_tux.xml.in.h:1
+msgid ""
+"A set of violinist Tux is shown. Each Tux has an associated sound, and each "
+"sound has a twin exactly the same. Click on a Tux to see its hidden sound, "
+"and try to match the twins. You can only activate two Tux at once, so you "
+"need to remember where a sound is, while you listen to its twin. When you "
+"turn over the twins, they both disappear."
+msgstr ""
+"A set of violinist Tux is shown. Each Tux has an associated sound, and each "
+"sound has a twin exactly the same. Click on a Tux to see its hidden sound, "
+"and try to match the twins. You can only activate two Tux at once, so you "
+"need to remember where a sound is, while you listen to its twin. When you "
+"turn over the twins, they both disappear."
+
+#: boards/memory_sound.xml.in.h:2
+msgid "Audio memory game"
+msgstr "Audio memory game"
+
+#: boards/memory_sound.xml.in.h:3
+msgid "Click on Tux the violinist and listen to find the matching sounds"
+msgstr "Click on Tux the violinist and listen to find the matching sounds"
+
+#: boards/memory_sound.xml.in.h:4 boards/memory_sound_tux.xml.in.h:3
+#: boards/memory_tux.xml.in.h:3
+msgid "Mouse manipulation, Brain."
+msgstr "Mouse manipulation, Brain."
+
+#: boards/memory_sound.xml.in.h:5 boards/memory_sound_tux.xml.in.h:5
+msgid "Train your audio memory and remove all the violonists Tux."
+msgstr "Train your audio memory and remove all the violonists Tux."
+
+#: boards/memory_sound_tux.xml.in.h:2
+msgid "Audio memory game against Tux"
+msgstr "Audio memory game against Tux"
+
+#: boards/memory_sound_tux.xml.in.h:4
+msgid "Play the audio memory against Tux"
+msgstr "Play the audio memory against Tux"
+
 #: boards/memory_tux.xml.in.h:1
 msgid ""
 "A set of blank cards is shown. Each pair is associated by the same picture "
@@ -2614,10 +2653,6 @@ msgstr ""
 #: boards/memory_tux.xml.in.h:2
 msgid "Memory Game with images, against Tux"
 msgstr "Memory Game with images, against Tux"
-
-#: boards/memory_tux.xml.in.h:3
-msgid "Mouse manipulation, Brain."
-msgstr "Mouse manipulation, Brain."
 
 #: boards/memory_tux.xml.in.h:4
 msgid "Play to memory against Tux."
@@ -3522,7 +3557,7 @@ msgstr "Multiple activities for kids"
 #: src/boards/missingletter.c:655 src/boards/read_colors.c:491
 #: src/boards/shapegame.c:1902 src/gcompris/file_selector.c:893
 #: src/gcompris/gameutil.c:186 src/gcompris/gameutil.c:583
-#: src/gcompris/gameutil.c:584 src/gcompris/gcompris.c:639
+#: src/gcompris/gameutil.c:584 src/gcompris/gcompris.c:640
 #: src/gcompris/images_selector.c:767 src/gcompris/skin.c:87
 #: src/gcompris/skin.c:266 src/gcompris/wordlist.c:49
 #, c-format
@@ -3595,12 +3630,12 @@ msgstr "Drawn game"
 #. TRANSLATORS: Put here the alphabet in your language
 #. require by all utf8-functions
 #. TRANSLATORS: Put here the alphabet lowercase in your language
-#: src/boards/click_on_letter.c:241 src/boards/click_on_letter.c:258
-#: src/boards/gletters.c:226 src/boards/memory.c:444
+#: src/boards/click_on_letter.c:243 src/boards/click_on_letter.c:260
+#: src/boards/gletters.c:226 src/boards/memory.c:544
 msgid "abcdefghijklmnopqrstuvwxyz"
 msgstr "abcdefghijklmnopqrstuvwxyz"
 
-#: src/boards/click_on_letter.c:270
+#: src/boards/click_on_letter.c:272
 #, c-format
 msgid ""
 "Error: this activity requires that you first install\n"
@@ -3609,7 +3644,7 @@ msgstr ""
 "Error: this activity requires that you first install\n"
 "the packages assetml-voices-alphabet-%s or %s"
 
-#: src/boards/click_on_letter.c:277
+#: src/boards/click_on_letter.c:279
 #, c-format
 msgid ""
 "Error: this activity requires that you first install\n"
@@ -3618,7 +3653,7 @@ msgstr ""
 "Error: this activity requires that you first install\n"
 "the packages assetml-voices-alphabet-%s ! Fallback to english, sorry!"
 
-#: src/boards/click_on_letter.c:285
+#: src/boards/click_on_letter.c:287
 msgid ""
 "Error: this activity cannot be played with the\n"
 "sound effects disabled.\n"
@@ -3699,12 +3734,12 @@ msgid "Double click value is now %d."
 msgstr "Double click value is now %d."
 
 #. TRANSLATORS: Put here the numbers in your language
-#: src/boards/gletters.c:222 src/boards/memory.c:440
+#: src/boards/gletters.c:222 src/boards/memory.c:540
 msgid "0123456789"
 msgstr "0123456789"
 
 #. TRANSLATORS: Put here the alphabet uppercase in your language
-#: src/boards/gletters.c:232 src/boards/memory.c:450
+#: src/boards/gletters.c:232 src/boards/memory.c:550
 msgid "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 msgstr "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
@@ -3756,11 +3791,11 @@ msgid ""
 msgstr ""
 "Look at your position, then switch back to 3D mode to continue your moves"
 
-#: src/boards/memory.c:172
+#: src/boards/memory.c:236
 msgid "Memory"
 msgstr "Memory"
 
-#: src/boards/memory.c:173
+#: src/boards/memory.c:237
 msgid "Find the matching pair"
 msgstr "Find the matching pair"
 
@@ -3771,6 +3806,16 @@ msgstr "Main Menu"
 #: src/boards/menu.c:80
 msgid "Select a Board"
 msgstr "Select a Board"
+
+#: src/boards/money.c:488
+#, c-format
+msgid "$ %.2f"
+msgstr "$ %.2f"
+
+#: src/boards/money.c:501
+#, c-format
+msgid "$ %.0f"
+msgstr "$ %.0f"
 
 #: src/boards/paratrooper.c:102
 msgid "Paratrooper"
@@ -4311,7 +4356,7 @@ msgstr "Uppercase only text"
 msgid "Enter login to log in"
 msgstr "Enter login to log in"
 
-#: src/boards/python/mosaic.py:211
+#: src/boards/python/mosaic.py:238
 msgid "Rebuild the same mosaic on the right area"
 msgstr "Rebuild the same mosaic on the right area"
 
@@ -4996,7 +5041,7 @@ msgstr ""
 msgid "The location of user directories: [$HOME/.gcompris/users]"
 msgstr "The location of user directories: [$HOME/.gcompris/users]"
 
-#: src/gcompris/gcompris.c:797
+#: src/gcompris/gcompris.c:798
 #, c-format
 msgid ""
 "GCompris is free software released under the GPL License. In order to "
@@ -5019,7 +5064,7 @@ msgstr ""
 "GNU/Linux. Get more information at FSF:\n"
 "<http://www.fsf.org/philosophy>"
 
-#: src/gcompris/gcompris.c:1097
+#: src/gcompris/gcompris.c:1103
 #, c-format
 msgid ""
 "GCompris\n"
@@ -5033,17 +5078,17 @@ msgstr ""
 "More info at http://gcompris.net\n"
 
 #. check the list of possible values for -l, then exit
-#: src/gcompris/gcompris.c:1165
+#: src/gcompris/gcompris.c:1171
 #, c-format
 msgid "Use -l to access an activity directly.\n"
 msgstr "Use -l to access an activity directly.\n"
 
-#: src/gcompris/gcompris.c:1166
+#: src/gcompris/gcompris.c:1172
 #, c-format
 msgid "List of available activity is :\n"
 msgstr "List of available activity is:\n"
 
-#: src/gcompris/gcompris.c:1309
+#: src/gcompris/gcompris.c:1315
 #, c-format
 msgid "The list of available profiles is:\n"
 msgstr "The list of available profiles is:\n"
@@ -5098,12 +5143,12 @@ msgid ""
 msgstr ""
 "In ImageSet %s, directory %s is not found. Skipping all the ImageSets...\n"
 
-#: src/gcompris/soundutil.c:172
+#: src/gcompris/soundutil.c:186
 #, c-format
 msgid "Couldn't open music dir: %s"
 msgstr "Couldn't open music dir: %s"
 
-#: src/gcompris/soundutil.c:218
+#: src/gcompris/soundutil.c:232
 #, c-format
 msgid ""
 "The background thread music is stopped now. The files in %s are not ogg "
