@@ -1,6 +1,6 @@
 /* gcompris - images_selector.c
  *
- * Time-stamp: <2005/10/01 14:49:05 bruno>
+ * Time-stamp: <2005/11/11 00:17:31 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -44,7 +44,7 @@ static gint		 item_event_scroll(GnomeCanvasItem *item,
 					   GdkEvent *event,
 					   GnomeCanvas *canvas);
 static gboolean		 read_xml_file(gchar *fname);
-static gboolean                 read_dataset_directory(gchar *dataset_dir);
+static gboolean		 read_dataset_directory(gchar *dataset_dir);
 static void		 display_image(gchar *imagename, GnomeCanvasItem *rootitem);
 static void		 free_stuff (GtkObject *obj, GList *data);
 
@@ -347,6 +347,10 @@ static void display_image(gchar *imagename, GnomeCanvasItem *root_item)
     return;
 
   pixmap = gcompris_load_pixmap(imagename);
+
+  /* Sad, the image is not found */
+  if(!pixmap)
+    return;
 
   iw = IMAGE_WIDTH;
   ih = IMAGE_HEIGHT;
@@ -706,7 +710,7 @@ parseImage (xmlDocPtr doc, xmlNodePtr cur) {
 	continue;
       }
       filename = g_strdup_printf("%s/%s", pathname, onefile);
-      if (!g_file_test ((filename), G_FILE_TEST_EXISTS)){
+      if (!g_file_test ((filename), G_FILE_TEST_IS_REGULAR)){
 	continue;
       }
       imageList = g_list_append (imageList, filename);
@@ -815,7 +819,7 @@ read_dataset_directory(gchar *dataset_dir)
     absolute_fname = g_strdup_printf("%s/%s",dataset_dir,fname);
     printf("Reading dataset file %s\n",absolute_fname);
    
-    if (!g_file_test ((absolute_fname), G_FILE_TEST_EXISTS))
+    if (!g_file_test ((absolute_fname), G_FILE_TEST_IS_REGULAR))
       continue;
 
     /* parse the new file and put the result into newdoc */

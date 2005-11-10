@@ -3359,9 +3359,9 @@ class Outputter:
 def image_selected(image):
   #fles is used because self is not passed through callback
   global fles
-  
+
   pixmap = gcompris.utils.load_pixmap(image)
-  
+
   fles.newitem = None
   fles.newitemgroup = fles.root_anim.add(
     gnome.canvas.CanvasGroup,

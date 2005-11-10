@@ -1,6 +1,6 @@
 /* gcompris - memory.c
  *
- * Time-stamp: <2005/11/10 00:39:44 bruno>
+ * Time-stamp: <2005/11/10 01:15:36 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  * 
@@ -22,6 +22,7 @@
 // FIXME: Cleanup of MemoryItem created struct is not done 
 
 #include <errno.h>
+#include <string.h>
 
 #include "gcompris/gcompris.h"
 
@@ -313,8 +314,6 @@ static GnomeCanvasItem *tux_score;
 static GnomeCanvasItem *player_score;
 static GnomeCanvasItem *tux_score_s;
 static GnomeCanvasItem *player_score_s;
-
-extern int strcmp (char *, char *);
 
 /* set the type of the token returned in string in type_returned */
 void get_random_token(int token_type, gint *returned_type, gchar **string)
@@ -701,11 +700,7 @@ static void memory_destroy_all_items()
   firstCard = NULL;
   secondCard = NULL;
 
-  if(boardRootItem!=NULL)
-      gtk_object_destroy (GTK_OBJECT(boardRootItem));
-
-  boardRootItem=NULL;
-
+  /* Remove timers first */
   if (win_id) {
     g_source_remove (win_id);
   }
@@ -719,6 +714,12 @@ static void memory_destroy_all_items()
     tux_id =0;
     to_tux = FALSE;
   }
+
+  /* Now destroy all items */
+  if(boardRootItem!=NULL)
+      gtk_object_destroy (GTK_OBJECT(boardRootItem));
+
+  boardRootItem=NULL;
 
   // Clear the memoryArray
   for(x=0; x<MAX_MEMORY_WIDTH; x++)
@@ -745,6 +746,7 @@ static void memory_destroy_all_items()
     
     winning_pairs = NULL;
     while (g_queue_pop_head (tux_memory));
+    g_queue_free(tux_memory);
   }
   
 }
@@ -1097,8 +1099,9 @@ static gint hide_card (GtkWidget *widget, gpointer data)
       }
   
     for (list =  to_remove; list != NULL; list=list->next){
-      g_free (list->data);
+      void *data = list->data;
       winning_pairs = g_list_remove (winning_pairs, list->data);
+      g_free (data);
       g_warning("Again %d winning pairs in tux list! ", g_list_length(winning_pairs));
     }
 

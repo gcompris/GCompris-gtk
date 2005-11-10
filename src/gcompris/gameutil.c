@@ -1,6 +1,6 @@
 /* gcompris - gameutil.c
  *
- * Time-stamp: <2005/11/06 20:41:19 bruno>
+ * Time-stamp: <2005/11/10 23:38:56 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -1263,7 +1263,7 @@ gchar *gcompris_find_absolute_filename(gchar *filename)
 
   /* Check it's already an absolute file */
   if(g_path_is_absolute (filename) &&
-     g_file_test (absolute_filename, G_FILE_TEST_IS_REGULAR))
+     g_file_test (filename, G_FILE_TEST_IS_REGULAR))
     return g_strdup(filename);
 
   /*

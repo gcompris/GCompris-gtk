@@ -1,3 +1,14 @@
+2005-11-11  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	
+
+	* src/boards/memory.c: (memory_destroy_all_items), (hide_card): cleanup, tries to solve
+	  double free but it's not this yet.
+	* src/gcompris/gameutil.c: (gcompris_find_absolute_filename):
+	* src/gcompris/images_selector.c: (display_image), (parseImage),
+	(read_dataset_directory): fixed bug where directory was considered as an image to load
+	and caused the bad file dialog to be displayed.
+
 2005-11-10  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	Improved to make the audio version of the memory to being displayed
