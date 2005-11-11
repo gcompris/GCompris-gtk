@@ -1,6 +1,6 @@
 /* gcompris - gcompris.h
  *
- * Time-stamp: <2005/09/28 20:53:47 bruno>
+ * Time-stamp: <2005/11/11 12:50:47 bruno>
  *
  * Copyright (C) 2000,2001,2002 Bruno Coudoin
  *
@@ -140,6 +140,8 @@ void		 gcompris_file_selector_save (GcomprisBoard *gcomprisBoard,
 					      gchar *file_types, /* A Comma separated text explaining the different file types */
 					      FileSelectorCallBack fscb);
 void		 gcompris_file_selector_stop (void);
+
+void		 gcompris_set_fullscreen(gboolean state);
 
 void		 gcompris_exit();
 

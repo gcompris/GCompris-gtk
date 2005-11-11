@@ -1,6 +1,6 @@
 /* gcompris - config.c
  *
- * Time-stamp: <2005/10/10 22:21:34 bruno>
+ * Time-stamp: <2005/11/11 14:12:35 bruno>
  *
  * Copyright (C) 2000-2003 Bruno Coudoin
  *
@@ -714,6 +714,14 @@ item_event_ok(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
       else if(!strcmp((char *)data, "fullscreen"))
 	{
 	  properties->fullscreen = (properties->fullscreen ? 0 : 1);
+
+#ifdef XRANDR
+	  /* Changing screen without xrandr is more complex, it requires to remove the
+	     black border we created manually.
+	  */
+	  if(!properties->noxrandr)
+	    gcompris_set_fullscreen(properties->fullscreen);
+#endif
 	  /* Warning changing the image needs to update pixbuf_ref for the focus usage */
 	  g_object_set_data (G_OBJECT (item), "pixbuf_ref",  
 			     (properties->fullscreen ? pixmap_checked : pixmap_unchecked));

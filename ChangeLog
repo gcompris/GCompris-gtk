@@ -1,5 +1,17 @@
 2005-11-11  Bruno coudoin  <bruno.coudoin@free.fr>
 
+	* docs/website/sommaire.html: added an explanation on languages in GCompris
+	* src/boards/machpuzzle.c: (minigolf_create_item),
+	(create_machine_item), (minigolf_move): fixed compile warning
+	* src/boards/memory.c: (end_board), (memory_destroy_all_items): fixed a crash,
+	 tux_memory was not set to NULL and was reused.
+	* src/gcompris/config.c: (item_event_ok): implemented instant fullscreen.
+	* src/gcompris/gcompris.c: (init_background), (setup_window),
+	(gcompris_set_fullscreen), (gcompris_exit), (gcompris_init): implemented instant fullscreen.
+	* src/gcompris/gcompris.h: implemented instant fullscreen.
+
+2005-11-11  Bruno coudoin  <bruno.coudoin@free.fr>
+
 	
 
 	* src/boards/memory.c: (memory_destroy_all_items), (hide_card): cleanup, tries to solve

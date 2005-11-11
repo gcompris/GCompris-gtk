@@ -1,6 +1,6 @@
 /* gcompris - memory.c
  *
- * Time-stamp: <2005/11/10 01:15:36 bruno>
+ * Time-stamp: <2005/11/11 21:54:28 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  * 
@@ -315,7 +315,7 @@ static GnomeCanvasItem *player_score;
 static GnomeCanvasItem *tux_score_s;
 static GnomeCanvasItem *player_score_s;
 
-/* set the type of the token returned in string in type_returned */
+/* set the type of the token returned in string in returned_type */
 void get_random_token(int token_type, gint *returned_type, gchar **string)
 {
   gchar *result = NULL;
@@ -592,17 +592,15 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 static void
 end_board ()
 {
-
+  printf("end board 1\n");
   if (currentUiMode == UIMODE_SOUND)
     gcompris_resume_sound();
 
+  printf("end board 2\n");
   if(gcomprisBoard!=NULL)
     {
       pause_board(TRUE);
-      if (tux_id)
-	g_source_remove(tux_id);
-      if (win_id)
-	g_source_remove(win_id);
+
       memory_destroy_all_items();
     }
   gcomprisBoard = NULL;
@@ -747,6 +745,7 @@ static void memory_destroy_all_items()
     winning_pairs = NULL;
     while (g_queue_pop_head (tux_memory));
     g_queue_free(tux_memory);
+    tux_memory = NULL;
   }
   
 }

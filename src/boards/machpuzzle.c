@@ -30,7 +30,6 @@ typedef enum {
   MACH_VERT_WALL,
   MACH_HOLE,
   MACH_DIAG_WALL,
-  MACH_BILLARD_BALL,
   MACH_BASKET_BALL,
   MACH_FLYING_BALL,
 } MachItemType;
@@ -234,7 +233,6 @@ static void minigolf_destroy_all_items()
 /* ==================================== */
 static GnomeCanvasItem *minigolf_create_item(GnomeCanvasGroup *parent)
 {
-  int i,j;
 
   boardRootItem = GNOME_CANVAS_GROUP(
 				     gnome_canvas_item_new (gnome_canvas_root(gcomprisBoard->canvas),
@@ -310,6 +308,7 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, MachItem *machItem)
    return FALSE;
 }
 
+#if 0
 static void dump_machItem(MachItem *machItem)
 {
 
@@ -325,15 +324,14 @@ static void dump_machItem(MachItem *machItem)
   printf("          vyo = %f\n", machItem->vyo);
 
 }
+#endif
 
 /* Create a machine item */
 static MachItem *create_machine_item(MachItemType machItemType, double x, double y)
 {
   MachItem		*machItem;
-  GnomeCanvasItem	*item;
   guint			 width;
   guint			 height;
-  guint			 hs = 0;
 
   machItem = g_new (MachItem, 1);
 
@@ -617,7 +615,7 @@ static void minigolf_move(GList *item_list)
 
 	  item_absolute_move(item, machItem->xpos, machItem->ypos);
 	  
-	  if(machItem->ypos>=MIN_Y2-machItem->height-BORDER && (y1 - machItem->ypos)<=0 || collision == TRUE)
+	  if((machItem->ypos>=MIN_Y2-machItem->height-BORDER && (y1 - machItem->ypos)<=0) || collision == TRUE)
 	    {
 	      machItem->vyo   = machItem->vyo * -0.5;
 	      machItem->vxo   = machItem->vxo * 0.5;
@@ -629,7 +627,7 @@ static void minigolf_move(GList *item_list)
 	      //machItem->vxo *= 0.9;
 	    }
 	  
-	  if(y1<=MIN_Y1 && (y1 - machItem->ypos)>=0 || collision == TRUE)
+	  if((y1<=MIN_Y1 && (y1 - machItem->ypos)>=0) || collision == TRUE)
 	    {
 	      machItem->vyo   = machItem->vyo * -0.5;
 	      machItem->vxo   = machItem->vxo * 0.5;
@@ -639,7 +637,7 @@ static void minigolf_move(GList *item_list)
 	    }
 
 	  //	  if(x1<=5 && (x1 - machItem->xpos)>0 || collision == TRUE)
-	  if(x1<=MIN_X1 && machItem->vxo<0 || collision == TRUE)
+	  if((x1<=MIN_X1 && machItem->vxo<0) || collision == TRUE)
 	    {
 	      machItem->vyo   = machItem->vyo * 0.5;
 	      machItem->vxo   = machItem->vxo * -0.5;
@@ -648,7 +646,7 @@ static void minigolf_move(GList *item_list)
 	      machItem->xposo=machItem->xpos;
 	    }
 
-	  if(x2>=MIN_X2 && machItem->vxo>0 || collision == TRUE)
+	  if((x2>=MIN_X2 && machItem->vxo>0) || collision == TRUE)
 	    {
 	      machItem->vyo = 0.5 * machItem->vyo;
 	      machItem->vxo = machItem->vxo * -0.5;
