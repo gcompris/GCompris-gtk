@@ -1,3 +1,9 @@
+2005-11-11  Yves Combe,,,  <yves@ycombe.net>
+
+	fix segfault in memory. g_queue freed by mistake.
+
+	* src/boards/memory.c: (end_board), (memory_destroy_all_items):
+
 2005-11-11  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* docs/website/sommaire.html: added an explanation on languages in GCompris
