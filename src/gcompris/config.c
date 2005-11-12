@@ -1,6 +1,6 @@
 /* gcompris - config.c
  *
- * Time-stamp: <2005/11/11 14:12:35 bruno>
+ * Time-stamp: <2005/11/12 19:00:36 bruno>
  *
  * Copyright (C) 2000-2003 Bruno Coudoin
  *
@@ -435,7 +435,7 @@ void gcompris_config_start ()
 
     /* Should not happen. It the user found the config, there should be a skin */
     if(g_list_length(skinlist) == 0) {
-      g_warning( _("No skin found in %s\n"), PACKAGE_DATA_DIR"/skins");
+      g_warning( "No skin found in %s\n", PACKAGE_DATA_DIR"/skins");
     }
 
     /* Find the current skin index */

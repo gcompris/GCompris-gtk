@@ -46,7 +46,7 @@ GcomprisWordlist     *gcompris_get_wordlist_from_file(gchar *filename)
       g_free(xmlfilename);
       xmlfilename = g_strdup_printf("%s/wordsgame/%s.xml", properties->package_data_dir, filename);
       if(!g_file_test(xmlfilename, G_FILE_TEST_EXISTS)){
-	g_warning(_("Couldn't find file %s !"), xmlfilename);
+	g_warning("Couldn't find file %s !", xmlfilename);
 	g_free(xmlfilename);
 	return NULL;
       }
@@ -58,7 +58,7 @@ GcomprisWordlist     *gcompris_get_wordlist_from_file(gchar *filename)
   g_free(xmlfilename);  
 
   if(!xmldoc){
-    g_warning(_("Couldn't parse file %s !"), xmlfilename);
+    g_warning("Couldn't parse file %s !", xmlfilename);
     return NULL;
   }
 

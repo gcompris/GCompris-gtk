@@ -620,7 +620,7 @@ static void setup_window ()
    * ------------------------
    */
   if (!g_file_test ((GNOME_ICONDIR"/gcompris.png"), G_FILE_TEST_EXISTS)) {
-      g_warning (_("Couldn't find file %s !"), GNOME_ICONDIR"/gcompris.png" );
+      g_warning ("Couldn't find file %s !", GNOME_ICONDIR"/gcompris.png" );
   }
   gcompris_icon_pixbuf = gdk_pixbuf_new_from_file (GNOME_ICONDIR"/gcompris.png", &error);
   if (!gcompris_icon_pixbuf)
@@ -849,8 +849,8 @@ void gcompris_set_fullscreen(gboolean state)
 	}
       xr_previous_size_set = FALSE;
 #endif
-      gdk_window_set_decorations (window->window, 1);
-      gdk_window_set_functions (window->window, 1);
+      gdk_window_set_decorations (window->window, GDK_DECOR_ALL);
+      gdk_window_set_functions (window->window, GDK_FUNC_ALL);
       gtk_widget_set_uposition (window, 0, 0);
       gtk_window_unfullscreen (GTK_WINDOW(window));
     }

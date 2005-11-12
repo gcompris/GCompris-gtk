@@ -1,3 +1,29 @@
+2005-11-12  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	Removed translation on all g_warning().
+	improved erase to try to avoid to remove 2 images in one shot
+	when they are underneath. It's just a little better than before.
+
+	* src/boards/advanced_colors.c: (read_xml_file):
+	* src/boards/erase.c: (start_board), (end_board), (set_level),
+	(game_won), (item_event):
+	* src/boards/imageid.c: (read_xml_file):
+	* src/boards/missingletter.c: (read_xml_file):
+	* src/boards/read_colors.c: (read_xml_file):
+	* src/boards/shapegame.c: (read_xml_file):
+	* src/gcompris/config.c: (gcompris_config_start):
+	* src/gcompris/file_selector.c: (load_mime_type_from_file):
+	* src/gcompris/gameutil.c: (gcompris_load_pixmap),
+	(gcompris_read_xml_file):
+	* src/gcompris/gcompris.c: (setup_window),
+	(gcompris_set_fullscreen):
+	* src/gcompris/images_selector.c: (gcompris_images_selector_start),
+	(parseImage), (read_xml_file):
+	* src/gcompris/skin.c: (gcompris_image_to_skin),
+	(gcompris_skin_xml_load):
+	* src/gcompris/soundutil.c: (scheduler_bgnd):
+	* src/gcompris/wordlist.c: (gcompris_get_wordlist_from_file):
+
 2005-11-12  Yves Combe  <yves@ycombe.net>
 
 	add gtans based board

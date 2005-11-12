@@ -84,7 +84,7 @@ gchar *gcompris_image_to_skin(gchar *pixmapfile)
     return(filename);
   }
 
-  g_warning (_("Couldn't find file %s !"), filename);
+  g_warning ("Couldn't find file %s !", filename);
 
   return(NULL);
 }
@@ -263,7 +263,7 @@ void gcompris_skin_xml_load (gchar* skin)
   /* if the file doesn't exist */
   if(!g_file_test(xmlfilename, G_FILE_TEST_EXISTS))
     {
-      g_warning(_("Couldn't find file %s !"), xmlfilename);
+      g_warning("Couldn't find file %s !", xmlfilename);
       return;
     }
 

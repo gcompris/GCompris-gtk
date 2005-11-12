@@ -82,8 +82,8 @@ static BoardPlugin menu_bp =
   {
     NULL,
     NULL,
-    N_("Read Colors"),
-    N_("Click on the corresponding color"),
+    "Read Colors",
+    "Click on the corresponding color",
     "Pascal Georges pascal.georges1@free.fr>",
     NULL,
     NULL,
@@ -488,10 +488,10 @@ static gboolean read_xml_file(char *fname)
   /* if the file doesn't exist */
   if(!g_file_test(fname, G_FILE_TEST_EXISTS))
     {
-      g_warning(_("Couldn't find file %s !"), fname);
+      g_warning("Couldn't find file %s !", fname);
       return FALSE;
     }
-  g_warning(_("find file %s !"), fname);
+  g_warning("found file %s !", fname);
 
   /* parse the new file and put the result into newdoc */
   doc = xmlParseFile(fname);

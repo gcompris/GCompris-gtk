@@ -183,7 +183,7 @@ static gpointer scheduler_bgnd (gpointer user_data)
   dir = g_dir_open(filename, 0, NULL);
       
   if (!dir) {
-    g_warning (_("Couldn't open music dir: %s"), filename);
+    g_warning ("Couldn't open music dir: %s", filename);
     g_free(filename);
     return NULL;
   }
@@ -229,7 +229,7 @@ static gpointer scheduler_bgnd (gpointer user_data)
 
  exit:
   g_list_free(musiclist);
-  g_warning( _("The background thread music is stopped now. The files in %s are not ogg vorbis OR the sound output failed"), PACKAGE_DATA_DIR "/music/background");
+  g_warning( "The background thread music is stopped now. The files in %s are not ogg vorbis OR the sound output failed", PACKAGE_DATA_DIR "/music/background");
   return NULL;
 }
 /* =====================================================================

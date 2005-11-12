@@ -1,6 +1,6 @@
 /* gcompris - file_selector.c
  *
- * Time-stamp: <2005/10/01 00:19:33 bruno>
+ * Time-stamp: <2005/11/12 19:00:49 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -890,7 +890,7 @@ gboolean load_mime_type_from_file(gchar *fname)
   /* if the file doesn't exist */
   if(!g_file_test ((fname), G_FILE_TEST_EXISTS)) 
     {
-      g_warning(_("Couldn't find file %s !"), fname);
+      g_warning("Couldn't find file %s !", fname);
       return FALSE;
     }
 

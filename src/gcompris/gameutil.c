@@ -1,6 +1,6 @@
 /* gcompris - gameutil.c
  *
- * Time-stamp: <2005/11/10 23:38:56 bruno>
+ * Time-stamp: <2005/11/12 19:01:33 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -183,7 +183,7 @@ GdkPixbuf *gcompris_load_pixmap(char *pixmapfile)
 
   if (!filename) {
     char *str;
-    g_warning (_("Couldn't find file %s !"), pixmapfile);
+    g_warning ("Couldn't find file %s !", pixmapfile);
 
     str = g_strdup_printf("%s\n%s\n%s\n%s", 
 			  _("Couldn't find file"), 
@@ -580,8 +580,8 @@ GcomprisBoard *gcompris_read_xml_file(GcomprisBoard *gcomprisBoard,
 
       if(!g_file_test ((filename), G_FILE_TEST_EXISTS))
 	{
-	  g_warning(_("Couldn't find file %s !"), fname);
-	  g_warning(_("Couldn't find file %s !"), filename);
+	  g_warning("Couldn't find file %s !", fname);
+	  g_warning("Couldn't find file %s !", filename);
 	  g_free(filename);
 	  g_free(gcomprisBoard);
 	  return NULL;

@@ -182,17 +182,17 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 	GtkSettings *DefaultsGtkSettings = gtk_settings_get_default ();
 
 	if (DefaultsGtkSettings == NULL) {
-	  g_warning(_("Couldn't get GTK settings"));
+	  g_warning("Couldn't get GTK settings");
 	} else {
 	  g_object_get(G_OBJECT(DefaultsGtkSettings), 
 		       "gtk-double-click-time", &DefaultDoubleClicDistance, NULL);
 	  
-	  g_warning(_("Double-click default value %d."),DefaultDoubleClicDistance);
+	  g_warning("Double-click default value %d.",DefaultDoubleClicDistance);
 	}
 
 	gdk_display_set_double_click_time( gdk_display_get_default(),
 					   DoubleClicLevel[gcomprisBoard->level-1]);
-	g_warning(_("Double-click value is now %d."),DoubleClicLevel[gcomprisBoard->level-1]);
+	g_warning("Double-click value is now %d.",DoubleClicLevel[gcomprisBoard->level-1]);
       }
 
       current_image = 0;
@@ -210,7 +210,7 @@ static void end_board ()
   if (board_mode == DOUBLECLIC){
     gdk_display_set_double_click_time( gdk_display_get_default(),
 					   DefaultDoubleClicDistance);
-    g_warning(_("Double click value is now %d."),DefaultDoubleClicDistance);
+    g_warning("Double click value is now %d.",DefaultDoubleClicDistance);
   }
   if(gcomprisBoard!=NULL)
     {
@@ -233,7 +233,7 @@ static void set_level (guint level)
   if (board_mode == DOUBLECLIC){
     gdk_display_set_double_click_time( gdk_display_get_default(),
 				       DoubleClicLevel[gcomprisBoard->level-1]);
-    g_warning(_("Double click value is now %d."),DoubleClicLevel[gcomprisBoard->level-1]);
+    g_warning("Double click value is now %d.",DoubleClicLevel[gcomprisBoard->level-1]);
   }
   
 }
@@ -396,7 +396,7 @@ static void game_won()
     if (board_mode == DOUBLECLIC){
       gdk_display_set_double_click_time( gdk_display_get_default(),
 					 DoubleClicLevel[gcomprisBoard->level-1]);
-      g_warning(_("Double click value is now %d."),DoubleClicLevel[gcomprisBoard->level-1]);
+      g_warning("Double click value is now %d.", DoubleClicLevel[gcomprisBoard->level-1]);
     }
 
     gcompris_play_ogg ("bonus", NULL);
@@ -411,7 +411,10 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 
   if(board_paused)
     return FALSE;
-  
+
+  if (event->type == GDK_MOTION_NOTIFY)
+    return;
+
   if (board_mode == NORMAL)
     if (event->type != GDK_ENTER_NOTIFY)
       return FALSE;
@@ -437,8 +440,7 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
   }
     
   gtk_object_destroy(GTK_OBJECT(item));
-  
-    
+
   if(--number_of_item == 0)
     {
       gamewon = TRUE;

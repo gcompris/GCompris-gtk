@@ -1,6 +1,6 @@
 /* gcompris - images_selector.c
  *
- * Time-stamp: <2005/11/11 00:17:31 bruno>
+ * Time-stamp: <2005/11/12 19:03:14 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -290,7 +290,7 @@ void gcompris_images_selector_start (GcomprisBoard *gcomprisBoard, gchar *datase
   /* if the file doesn't exist */
   if(g_file_test ((dataset), G_FILE_TEST_IS_DIR) )
     {
-      g_warning(_("dataset %s is a directory. Trying to read xml "), dataset);
+      g_warning("dataset %s is a directory. Trying to read xml", dataset);
 
       read_dataset_directory(dataset);
     }
@@ -633,7 +633,7 @@ parseImage (xmlDocPtr doc, xmlNodePtr cur) {
     /* replace '~' by home dir */
     pathname = g_strdup_printf("%s%s",g_get_home_dir(), pathname+1);
     if (!g_file_test ((pathname), G_FILE_TEST_IS_DIR)){
-       g_warning(_("In ImageSet %s, the pathname for the home directory '%s' is not found. Skipping the whole ImageSet.\n"), imageSetName, pathname);
+       g_warning("In ImageSet %s, the pathname for the home directory '%s' is not found. Skipping the whole ImageSet.", imageSetName, pathname);
       return;
     }
   }
@@ -667,7 +667,7 @@ parseImage (xmlDocPtr doc, xmlNodePtr cur) {
   
   if(!g_file_test ((absolutepath), G_FILE_TEST_EXISTS) )
     {
-      g_warning(_("In ImageSet %s, an image is not found. Skipping ImageSet...\n"), absolutepath);
+      g_warning("In ImageSet %s, an image is not found. Skipping ImageSet...", absolutepath);
       return;
     }
 
@@ -698,7 +698,7 @@ parseImage (xmlDocPtr doc, xmlNodePtr cur) {
       g_free(pathname);
       pathname = tmpdir;
       if (!g_file_test ((pathname), G_FILE_TEST_IS_DIR)){
-        g_warning(_("In ImageSet %s, directory %s is not found. Skipping all the ImageSet...\n"), absolutepath, pathname);
+        g_warning("In ImageSet %s, directory %s is not found. Skipping all the ImageSet...", absolutepath, pathname);
         return;
       }
     }
@@ -768,7 +768,7 @@ read_xml_file(gchar *fname)
   /* if the file doesn't exist */
   if(!g_file_test ((fname), G_FILE_TEST_EXISTS)) 
     {
-      g_warning(_("Couldn't find file %s !"), fname);
+      g_warning("Couldn't find file %s !", fname);
       return FALSE;
     }
 
