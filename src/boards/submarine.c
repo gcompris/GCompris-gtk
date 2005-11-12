@@ -880,7 +880,7 @@ static gboolean update_timeout() {
   gboolean air_dirty = FALSE;
 
   if(board_paused)
-    return;
+    return FALSE;
 
   /* air in ballasts */
   if (ballast_av_purge_open) {
@@ -952,7 +952,7 @@ static gboolean update_timeout_slow() {
   double delta_assiette;
 
   if(board_paused)
-    return;
+    return FALSE;
  
   /* speed : don't reach instantly the ordered speed */
   if (speed_ordered != submarine_horizontal_speed) {
@@ -1074,7 +1074,7 @@ static gboolean update_timeout_very_slow() {
   /* charging */
 
   if(board_paused)
-    return;
+    return FALSE;
 
   if (air_charging && depth < SURFACE_DEPTH+5.0) {
     air += 100.0*UPDATE_DELAY_VERY_SLOW/1000.0;

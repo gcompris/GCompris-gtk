@@ -84,8 +84,19 @@ static gchar *imageList[] =
     "gcompris/animals/tigercub003.jpg",
     "gcompris/animals/tigerdrink001.jpg",
     "gcompris/animals/tigerplay001.jpg",
+    "gcompris/animals/horses.jpg",
+    "gcompris/animals/squirrel.jpg",
+    "gcompris/animals/sheep_irish.jpg",
+    "gcompris/animals/sheep_irish2.jpg",
+    "gcompris/animals/cow.jpg",
+    "gcompris/animals/maki1.jpg",
+    "gcompris/animals/maki2.jpg",
+    "gcompris/animals/maki3.jpg",
+    "gcompris/animals/maki4.jpg",
+    "gcompris/animals/maki5.jpg",
+    "gcompris/animals/maki6.jpg",
   };
-#define NUMBER_OF_IMAGES 20
+#define NUMBER_OF_IMAGES 31
 
 /* Description of this plugin */
 static BoardPlugin menu_bp =

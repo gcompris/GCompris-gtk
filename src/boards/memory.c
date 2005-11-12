@@ -1,6 +1,6 @@
 /* gcompris - memory.c
  *
- * Time-stamp: <2005/11/11 22:13:45 yves>
+ * Time-stamp: <2005/11/11 22:40:55 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  * 
@@ -592,11 +592,9 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 static void
 end_board ()
 {
-  printf("end board 1\n");
   if (currentUiMode == UIMODE_SOUND)
     gcompris_resume_sound();
 
-  printf("end board 2\n");
   if(gcomprisBoard!=NULL)
     {
       pause_board(TRUE);

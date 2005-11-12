@@ -1,3 +1,34 @@
+2005-11-12  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	- More animals from 2 contributions. They appear in the erase activity.
+	
+	Following images are from Erwan Velu and Anne Nicolas. Taken in Ireland,
+	released under the GPL:
+	horses.jpg squirrel.jpg sheep_irish.jpg sheep_irish2.jpg cow.jpg 
+
+	Following images are from Julien Noel <julien.noel free fr>,
+	released under the GPL:
+	maki*.jpg
+
+	* boards/gcompris/animals/cow.jpg:
+	* boards/gcompris/animals/horses.jpg:
+	* boards/gcompris/animals/maki1.jpg:
+	* boards/gcompris/animals/maki2.jpg:
+	* boards/gcompris/animals/maki3.jpg:
+	* boards/gcompris/animals/maki4.jpg:
+	* boards/gcompris/animals/maki5.jpg:
+	* boards/gcompris/animals/maki6.jpg:
+	* boards/gcompris/animals/readme.txt:
+	* boards/gcompris/animals/sheep_irish.jpg:
+	* boards/gcompris/animals/sheep_irish2.jpg:
+	* boards/gcompris/animals/squirrel.jpg:
+	* docs/website/rubrique.html:
+	* src/boards/erase.c:
+	* src/boards/memory.c: (end_board): removed a printf
+	* src/boards/submarine.c: (update_timeout), (update_timeout_slow),
+	(update_timeout_very_slow): fixed some compile warnings
+	* src/gcompris/gcompris.c: (init_background), (xrandr_set_config): removed a printf.
+
 2005-11-11  Yves Combe,,,  <yves@ycombe.net>
 
 	fix segfault in memory. g_queue freed by mistake.

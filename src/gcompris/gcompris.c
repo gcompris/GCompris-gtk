@@ -430,7 +430,6 @@ static void init_background()
   gint screen_height, screen_width;
   GtkWidget *vbox;
 
-  printf("init_background\n");
 #ifdef XRANDR
   xrandr = g_new0 (XRANDRData, 1);
 #endif
@@ -1068,7 +1067,8 @@ xrandr_set_config( XRANDRData  *data )
 			       CurrentTime);
 
   if(status) {
-    printf("ERROR: Failed to set back the original resolution XRRSetScreenConfig returned status = %d\n", (int)status);
+    g_error("ERROR: Failed to set back the original resolution XRRSetScreenConfig returned status = %d\n",
+	    (int)status);
   }
   return;
 
