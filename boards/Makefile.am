@@ -50,6 +50,7 @@ xml_in_files = \
 	gnumch-primes.xml.in \
 	gnumchmenu.xml.in \
 	gletters.xml.in \
+	gtans.xml.in \
 	guessnumber.xml.in \
 	hanoi.xml.in \
 	hanoi_real.xml.in \

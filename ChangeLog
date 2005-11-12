@@ -1,3 +1,57 @@
+2005-11-12  Yves Combe  <yves@ycombe.net>
+
+	add gtans based board
+
+	* boards/Makefile.am:
+	* boards/gtans.xml.in:
+	* boards/gtans/figures/alpha.figures:
+	* boards/gtans/figures/default.figures:
+	* boards/gtans/figures/misc.figures:
+	* boards/gtans/figures/similar.figures:
+	* boards/gtans/pixmaps/gtans_brightburtwood.xpm:
+	* boards/gtans/pixmaps/gtans_brightwood.xpm:
+	* boards/gtans/pixmaps/gtans_burtwood.xpm:
+	* boards/gtans/pixmaps/gtans_paper.xpm:
+	* boards/gtans/pixmaps/gtans_puzzle.xpm:
+	* boards/gtans/pixmaps/gtans_recessed.xpm:
+	* boards/gtans/pixmaps/gtans_rope.xpm:
+	* boards/gtans/pixmaps/gtans_stones.xpm:
+	* boards/gtans/pixmaps/gtans_volcanic.xpm:
+	* boards/gtans/pixmaps/gtans_wood.xpm:
+	* src/boards/Makefile.am:
+	* src/boards/gtans.c: (start_board), (end_board), (is_our_board),
+	(pause_board), (tanspinsetvalmax), (tanallocname),
+	(tanclampgrandefig), (tanangle), (tantinytabcompare),
+	(tansmall2tiny), (tanmaketinytabnotr), (tantranstinytab),
+	(tanreleaseifrot), (tanplacepiece), (tanplacepiecefloat),
+	(tandistcarsegpnt), (tandistcar), (tancolle), (tandrawpiece),
+	(tandrawfigure), (tandrawfloat), (tandrawbgndgr), (taninitselect),
+	(tandrawselect), (tanredrawgrande), (tanclearreussinr),
+	(tansetreussiactual), (tanredrawpetite), (tanunselect),
+	(tanloadfigstatus), (tansavefigstatus), (tanreadfloat),
+	(tanloadfigtab), (tansetpixmapmode), (tansetcolormode),
+	(tansetdefconfig), (tanremsame), (tanajoute), (tantasse),
+	(tanalign), (tanconseq), (tanconcat), (taninclus),
+	(tansetnewfigurepart1), (tanrecentreout), (tansetnewfigurepart2),
+	(spesavefig), (taninitstart), (tanend), (taninitcbcommun),
+	(taninitcbgr), (taninitcbpe), (tanpntisinpiece), (tanwichisselect):
+	* src/boards/gtans.h:
+	* src/boards/gtans_callbacks.c: (on_wdrawareagrande_expose_event),
+	(on_wdrawareagrande_configure_event),
+	(on_wdrawareagrande_button_press_event),
+	(on_wdrawareagrande_button_release_event),
+	(on_wdrawareagrande_motion_notify_event),
+	(on_wdrawareapetite_configure_event),
+	(on_wdrawareapetite_expose_event):
+	* src/boards/gtans_callbacks.h:
+	* src/boards/gtans_interface.c: (create_mainwindow):
+	* src/boards/gtans_interface.h:
+	* src/boards/gtans_support.c: (lookup_widget),
+	(create_dummy_pixmap), (add_pixmap_directory), (create_pixmap),
+	(check_file_exists):
+	* src/boards/gtans_support.h:
+	* src/boards/memory.c:
+
 2005-11-12  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	Erase.c has been improved in 2 ways:

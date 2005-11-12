@@ -1,6 +1,6 @@
 /* gcompris - memory.c
  *
- * Time-stamp: <2005/11/11 22:40:55 bruno>
+ * Time-stamp: <2005/11/12 17:21:04 yves>
  *
  * Copyright (C) 2000 Bruno Coudoin
  * 
