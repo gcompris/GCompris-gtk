@@ -39,10 +39,11 @@ static void	 game_won(void);
 
 static GnomeCanvasGroup *boardRootItem = NULL;
 
-static GnomeCanvasItem	*erase_create_item();
+static GnomeCanvasItem	*erase_create_item(int layer);
 static void		 erase_destroy_all_items(void);
 static void		 erase_next_level(void);
 static gint		 item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data);
+static void		 shuffle_image_list(char *list[], int size);
 
 static int number_of_item = 0;
 static int number_of_item_x = 0;
@@ -97,6 +98,9 @@ static gchar *imageList[] =
     "gcompris/animals/maki6.jpg",
   };
 #define NUMBER_OF_IMAGES 31
+
+/* Store the image index to use */
+static int current_image;
 
 /* Description of this plugin */
 static BoardPlugin menu_bp =
@@ -191,6 +195,9 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 	g_warning(_("Double-click value is now %d."),DoubleClicLevel[gcomprisBoard->level-1]);
       }
 
+      current_image = 0;
+      shuffle_image_list(imageList, NUMBER_OF_IMAGES);
+
       erase_next_level();
 
       gamewon = FALSE;
@@ -251,9 +258,13 @@ static gboolean is_our_board (GcomprisBoard *gcomprisBoard)
 /* set initial values for the next level */
 static void erase_next_level()
 {
+  int layers = 1;
 
   gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas),
-			  imageList[RAND(0, NUMBER_OF_IMAGES-1)]);
+			  imageList[current_image++]);
+
+  if(current_image>NUMBER_OF_IMAGES)
+    current_image=0;
 
   gcompris_bar_set_level(gcomprisBoard);
 
@@ -269,9 +280,20 @@ static void erase_next_level()
     number_of_item_x = ((gcomprisBoard->level+1)%2+1)*5;
     number_of_item_y = ((gcomprisBoard->level+1)%2+1)*5;
   }  
+
+  /* Select the number of layer depending on the level */
+
+  if (board_mode != DOUBLECLIC){
+    if(gcomprisBoard->level>4)
+      layers = 3;
+    else if(gcomprisBoard->level>2)
+      layers = 2;
+  }
       
   /* Try the next level */
-  erase_create_item(gnome_canvas_root(gcomprisBoard->canvas));}
+  erase_create_item(layers);
+
+}
   
 /* ==================================== */
 /* Destroy all the items */
@@ -288,11 +310,12 @@ static void erase_destroy_all_items()
   boardRootItem = NULL;
 }
 /* ==================================== */
-static GnomeCanvasItem *erase_create_item()
+static GnomeCanvasItem *erase_create_item(int layer)
 {
   int i,j;
   int ix, jy;
   GnomeCanvasItem *item = NULL;
+  GdkPixbuf *pixmap[3];
 
   boardRootItem = GNOME_CANVAS_GROUP(
 				     gnome_canvas_item_new (gnome_canvas_root(gcomprisBoard->canvas),
@@ -303,29 +326,46 @@ static GnomeCanvasItem *erase_create_item()
 
   number_of_item = 0;
 
+  pixmap[0] = gcompris_load_pixmap("images/transparent_square.png");
+  pixmap[1] = gcompris_load_pixmap("images/water_spot.png");
+  pixmap[2] = gcompris_load_pixmap("images/water_drop.png");
+
   for(i=0,ix=0; i<BOARDWIDTH; i+=BOARDWIDTH/number_of_item_x, ix++)
     {
       for(j=0, jy=0; j<BOARDHEIGHT; j+=BOARDHEIGHT/number_of_item_y, jy++)
 	{
+	  int current_layer = layer;
 
 	  if ((board_mode != NORMAL) && ((ix+jy) %2 == 0))
 	    continue;
 
-	  item = gnome_canvas_item_new (boardRootItem,
-					gnome_canvas_rect_get_type (),
-					"x1", (double) i,
-					"y1", (double) j,
-					"x2", (double) i+BOARDWIDTH/number_of_item_x,
-					"y2", (double)  j+BOARDHEIGHT/number_of_item_y,
-					"fill_color_rgba", gcompris_skin_get_color("erase/rectangle in"),
-					"outline_color_rgba", gcompris_skin_get_color("erase/rectangle out"),
-					"width_units", (double)1,
-					NULL);
-	  gtk_object_set_data(GTK_OBJECT(item),"state", GINT_TO_POINTER(0));
-	  gtk_signal_connect(GTK_OBJECT(item), "event", (GtkSignalFunc) item_event, NULL);
-	  number_of_item++;
+	  while(current_layer--)
+	    {
+	      double w = (BOARDWIDTH/number_of_item_x) *  (1.0 - (0.3 * current_layer));
+	      double h = (BOARDHEIGHT/number_of_item_y) * (1.0 - (0.3 * current_layer));
+	      double x = i + ((BOARDWIDTH/number_of_item_x)  - w) / 2;
+	      double y = j + ((BOARDHEIGHT/number_of_item_y) - h) / 2;
+
+	      item = gnome_canvas_item_new (boardRootItem,
+					    gnome_canvas_pixbuf_get_type (),
+					    "pixbuf", pixmap[current_layer],
+					    "x", x,
+					    "y", y,
+					    "width", w,
+					    "height", h,
+					    "width_set", TRUE,
+					    "height_set", TRUE,
+					    "anchor", GTK_ANCHOR_NW,
+					    NULL);
+
+	      gtk_signal_connect(GTK_OBJECT(item), "event", (GtkSignalFunc) item_event, NULL);
+	      number_of_item++;
+	    }
 	}
     }
+
+  for(i=layer-1; i>=0; i--)
+    gdk_pixbuf_unref(pixmap[i]);
 
   return NULL;
 }
@@ -368,7 +408,6 @@ static void game_won()
 static gint
 item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 {
-  guint state;
 
   if(board_paused)
     return FALSE;
@@ -388,48 +427,11 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
       return FALSE;
 
 
-  if (board_mode != DOUBLECLIC){
-    state = (GPOINTER_TO_INT (gtk_object_get_data (GTK_OBJECT (item), "state")));
-    if(gcomprisBoard->level>2)
-      {
-	if(!state)
-	  {
-	    gnome_canvas_item_set(item,
-				  "fill_color_rgba", gcompris_skin_get_color("erase/rectangle in2"),
-				  "outline_color_rgba", gcompris_skin_get_color("erase/rectangle out2"),
-				  NULL);
-	    state++;
-	    gtk_object_set_data(GTK_OBJECT(item),"state", GINT_TO_POINTER(state));
-	    return FALSE;
-	  }
-	
-	if(gcomprisBoard->level>4) {
-	  if(state==1)
-	    {     
-	      state++;
-	      gtk_object_set_data(GTK_OBJECT(item),"state", GINT_TO_POINTER(state));
-	      gnome_canvas_item_set(item, 
-				    "fill_color_rgba", gcompris_skin_get_color("erase/rectangle in3"),
-				    "outline_color_rgba", NULL,
-				    NULL);
-	      return FALSE;
-	    }
-	}
-      }
-  }
-  else {
+  if (board_mode == DOUBLECLIC){
     if (event->type == GDK_BUTTON_PRESS){
-      gnome_canvas_item_set(item,
-			    "fill_color_rgba", gcompris_skin_get_color("erase/rectangle in2"),
-			    "outline_color_rgba", gcompris_skin_get_color("erase/rectangle out2"),
-			    NULL);
       return FALSE;
     }
     if (event->type == GDK_BUTTON_RELEASE){
-      gnome_canvas_item_set(item,
-			    "fill_color_rgba", gcompris_skin_get_color("erase/rectangle in"),
-			    "outline_color_rgba", gcompris_skin_get_color("erase/rectangle out"),
-			    NULL);
       return FALSE;
     }
   }
@@ -445,4 +447,28 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
     }
   
   return FALSE;
+}
+
+/** \brief shuffle_image_list, takes a char* array and it's length.
+ *         it swaps a random number of items in it in order to provide
+ *         the same list but in a random order.
+ *
+ * \param list: the array to shuffle
+ * \param size: the size of the array
+ *
+ */
+void shuffle_image_list(char *list[], int size)
+{
+  int i;
+
+  for(i=0; i<size; i++)
+    {
+      int random1 = RAND(0, size-1);
+      int random2 = RAND(0, size-1);
+      char *olditem;
+
+      olditem = list[random2];
+      list[random2] = list[random1];
+      list[random1] = olditem;
+    }
 }
