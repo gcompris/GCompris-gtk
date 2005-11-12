@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-10-30 18:50+0200\n"
-"PO-Revision-Date: 2005-10-30 18:55+0200\n"
+"POT-Creation-Date: 2005-11-12 07:32+0200\n"
+"PO-Revision-Date: 2005-11-12 07:40+0200\n"
 "Last-Translator: Ilkka Tuohela <hile@iki.fi>\n"
 "Language-Team: Finnish <gnome-fi-laatu@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
@@ -511,7 +511,7 @@ msgid "Simple addition. Can recognize written numbers"
 msgstr "Yksinkertainen yhteenlasku. Osaa tunnistaa kirjoitetut numerot"
 
 #: ../boards/algebramenu.xml.in.h:1
-msgid "Go to Maths activities"
+msgid "Go to Math activities"
 msgstr "Siirry matematiikkatehtäviin"
 
 #: ../boards/algorithm.xml.in.h:1
@@ -703,7 +703,7 @@ msgstr "Potkaise pallo maaliin"
 
 #: ../boards/billard.xml.in.h:3 ../boards/chess_computer.xml.in.h:2
 #: ../boards/chess_movelearn.xml.in.h:3 ../boards/chess_partyend.xml.in.h:2
-#: ../boards/clickgame.xml.in.h:17 ../boards/connect4.xml.in.h:7
+#: ../boards/clickgame.xml.in.h:16 ../boards/connect4.xml.in.h:7
 #: ../boards/erase.xml.in.h:3 ../boards/erase_clic.xml.in.h:6
 #: ../boards/erase_double_clic.xml.in.h:6 ../boards/fifteen.xml.in.h:2
 #: ../boards/hanoi.xml.in.h:3 ../boards/memory.xml.in.h:4
@@ -732,13 +732,13 @@ msgstr "Käytä kanavan sulkua"
 
 #: ../boards/canal_lock.xml.in.h:2
 msgid ""
-"Tux is in trouble, and needs to take his boat through a lock.\n"
-"Help Tux and find out how a canal lock works."
+"Tux is in trouble, and needs to take his boat through a lock. Help Tux and "
+"find out how a canal lock works."
 msgstr ""
-"Tux on vaikeuksissa veneensä kanssa, sillä hänen täytyy mennä sulun\n"
-"läpi. Auta Tuxia ja oivalla miten kanavan sulku toimii."
+"Tux on vaikeuksissa veneensä kanssa, sillä hänen täytyy mennä sulun läpi. "
+"Auta Tuxia ja oivalla miten kanavan sulku toimii."
 
-#: ../boards/canal_lock.xml.in.h:4
+#: ../boards/canal_lock.xml.in.h:3
 msgid ""
 "You are in charge of the canal lock. Open the gates and the locks in the "
 "right order, so Tux can travel through the gates in both directions."
@@ -786,11 +786,11 @@ msgid ""
 "Vegastrike which are released under the GPL license. The transportation "
 "images are copyright Franck Doucet. Dates of Transportation are based on "
 "those found in &lt;http://www.wikipedia.org&gt;."
-msgstr " "
-"Kuun kuvan oikeudet omistaa NASA. Avaruusäänet tulevat Tuxpaintistä "
-"ja Vegastrikesta, jotka on julkaistu GPL-lisenssillä. Ajankohtien kuvien "
-"tekijänoikeudet omistaa Franck Doucet. Ajankohdat perustuvat sivuilta "
-"&lt;http://www.wikipedia.org&gt; löytyviin tietoihin."
+msgstr ""
+" Kuun kuvan oikeudet omistaa NASA. Avaruusäänet tulevat Tuxpaintistä ja "
+"Vegastrikesta, jotka on julkaistu GPL-lisenssillä. Ajankohtien kuvien "
+"tekijänoikeudet omistaa Franck Doucet. Ajankohdat perustuvat sivuilta &lt;"
+"http://www.wikipedia.org&gt; löytyviin tietoihin."
 
 #: ../boards/chronos.xml.in.h:4
 msgid "Pick from the pictures on the left and put them on the red dots"
@@ -1032,17 +1032,16 @@ msgstr ""
 
 #: ../boards/clickgame.xml.in.h:14
 msgid ""
-"Left-Click with the mouse on all the swimming fish\n"
-"before they leave the fishtank"
+"Left-Click with the mouse on all the swimming fish before they leave the "
+"fishtank"
 msgstr ""
-"Napsauta uivia kaloja hiiren vasemmalla näppäimellä\n"
-"ennen kuin ne karkaavat"
+"Napsauta uivia kaloja hiiren vasemmalla näppäimellä ennen kuin ne karkaavat"
 
-#: ../boards/clickgame.xml.in.h:16
+#: ../boards/clickgame.xml.in.h:15
 msgid "Motor coordination: moving and clicking the mouse."
 msgstr "Motorinen koordinaatio: hiiren liike ja napsautus."
 
-#: ../boards/clickgame.xml.in.h:18
+#: ../boards/clickgame.xml.in.h:17
 msgid "Use the left mouse button to click on the moving fish."
 msgstr "Napsauta liikkuvia kaloja hiiren vasemmalla näppäimellä"
 
@@ -1100,7 +1099,7 @@ msgstr ""
 "oikean värinen nukke."
 
 #: ../boards/colors_group.xml.in.h:1
-msgid "Go to Colour activities"
+msgid "Go to Color activities"
 msgstr "Siirry väritehtäviin"
 
 #: ../boards/computer.xml.in.h:1
@@ -1234,12 +1233,12 @@ msgstr ""
 msgid "Motor-coordination"
 msgstr "Motoorinen koordinaatio"
 
-#: ../boards/erase.xml.in.h:4 ../src/boards/erase.c:83
-#: ../src/boards/machpuzzle.c:93
+#: ../boards/erase.xml.in.h:4 ../src/boards/erase.c:95
+#: ../src/boards/machpuzzle.c:92
 msgid "Move the mouse"
 msgstr "Liikuta hiirtä"
 
-#: ../boards/erase.xml.in.h:5 ../src/boards/erase.c:84
+#: ../boards/erase.xml.in.h:5 ../src/boards/erase.c:96
 msgid "Move the mouse to erase the area and discover the background"
 msgstr "Pyyhi aluetta liikuttamalla hiirtä ja näe piilotettu taustakuva"
 
@@ -2094,18 +2093,15 @@ msgid "Guess a number"
 msgstr "Arvaa numero"
 
 #: ../boards/guessnumber.xml.in.h:2
-msgid ""
-"Help Tux escape the cave.\n"
-"Tux hide a number that you must discover."
+msgid "Help Tux escape the cave. Tux hides a number that you must discover."
 msgstr ""
-"Auta Tuxia pääsemään luolasta.\n"
-"Tux piilotti numeron joka sinun täytyy keksiä."
+"Auta Tuxia pääsemään luolasta. Tux on piilottanut numeron, joka sinun täytyy keksiä."
 
-#: ../boards/guessnumber.xml.in.h:4
+#: ../boards/guessnumber.xml.in.h:3
 msgid "Numbers from 1 to 1000 for the last level."
 msgstr "Numerot yhdestä tuhanteen viimeisellä tasolla."
 
-#: ../boards/guessnumber.xml.in.h:5
+#: ../boards/guessnumber.xml.in.h:4
 msgid ""
 "Read the instructions that give you the range of the number to find. Enter a "
 "number in the top right blue entry box. Tux tell you if your number is "
@@ -2641,6 +2637,45 @@ msgstr "Harjoita muistiasi ja poista kaikki kortit pelilaudalta"
 msgid "Go to Memory activities"
 msgstr "Siirry muistitehtäviin"
 
+#: ../boards/memory_sound.xml.in.h:1 ../boards/memory_sound_tux.xml.in.h:1
+msgid ""
+"A set of violinist Tux is shown. Each Tux has an associated sound, and each "
+"sound has a twin exactly the same. Click on a Tux to see its hidden sound, "
+"and try to match the twins. You can only activate two Tux at once, so you "
+"need to remember where a sound is, while you listen to its twin. When you "
+"turn over the twins, they both disappear."
+msgstr ""
+"Ryhmä Tux-viulisteja näytetään. Jokaiseen Tuxiin liittyy ääni, ja jokaisella "
+"on täsmälleen samanlainen kaksonen, jolla on sama ääni. Napsauta Tuxia ja "
+"näet sen piilottaman äänen. Yritä yhdistää kaksoset. Voit aktivoida vain "
+"kaksi Tuxia samaan aikaan, joten joudut muistamaan missä tietty ääni on kun "
+"kuuntelet sen paria. Kun käännät parin näkyviin ne molemmat katoavat."
+
+#: ../boards/memory_sound.xml.in.h:2
+msgid "Audio memory game"
+msgstr "Äänimuistipeli"
+
+#: ../boards/memory_sound.xml.in.h:3
+msgid "Click on Tux the violinist and listen to find the matching sounds"
+msgstr "Napsauta Tux-viulistia ja kuuntele löytääksesi vastaavat äänet"
+
+#: ../boards/memory_sound.xml.in.h:4 ../boards/memory_sound_tux.xml.in.h:3
+#: ../boards/memory_tux.xml.in.h:3
+msgid "Mouse manipulation, Brain."
+msgstr "Hiiren käyttö, aivot."
+
+#: ../boards/memory_sound.xml.in.h:5 ../boards/memory_sound_tux.xml.in.h:5
+msgid "Train your audio memory and remove all the violonists Tux."
+msgstr "Harjoita äänimuistiasi ja poista kaikki Tux-viulistit."
+
+#: ../boards/memory_sound_tux.xml.in.h:2
+msgid "Audio memory game against Tux"
+msgstr "Äänimuistipeli Tuxia vastaan"
+
+#: ../boards/memory_sound_tux.xml.in.h:4
+msgid "Play the audio memory against Tux"
+msgstr "Pelaa äänimuistipelia Tuxia vastaan."
+
 #: ../boards/memory_tux.xml.in.h:1
 msgid ""
 "A set of blank cards is shown. Each pair is associated by the same picture "
@@ -2660,10 +2695,6 @@ msgstr ""
 #: ../boards/memory_tux.xml.in.h:2
 msgid "Memory Game with images, against Tux"
 msgstr "Muistipeli Tuxia vastaan kuvien avulla"
-
-#: ../boards/memory_tux.xml.in.h:3
-msgid "Mouse manipulation, Brain."
-msgstr "Hiiren käyttö, aivot."
 
 #: ../boards/memory_tux.xml.in.h:4
 msgid "Play to memory against Tux."
@@ -3178,7 +3209,7 @@ msgstr "Pystysuoran tekstin lukuharjoittelu"
 msgid "Copy a drawing from the box on the right into the box on the left."
 msgstr "Kopioi piirros oikealla olevasta laatikosta vasempaan laatikkoon."
 
-#: ../boards/redraw.xml.in.h:2 ../boards/redraw_symmetrical.xml.in.h:4
+#: ../boards/redraw.xml.in.h:2 ../boards/redraw_symmetrical.xml.in.h:2
 msgid ""
 "First, select the proper tool from the toolbar. Then drag the mouse to "
 "create objects. When you are done, click on the OK button. Errors will be "
@@ -3197,20 +3228,12 @@ msgstr "Piirrä kopio"
 
 #: ../boards/redraw_symmetrical.xml.in.h:1
 msgid ""
-"Copy the mirror image of an object from the box\n"
-"on the right into the box on the left."
-msgstr ""
-"Kopioi oikealla olevan laatikon sisällön\n"
-"peilikuva vasempaan laatikkoon."
-
-#: ../boards/redraw_symmetrical.xml.in.h:3
-msgid ""
 "Copy the mirror image of an object from the box on the right into the box on "
 "the left."
 msgstr ""
 "Kopioi oikealla olevan laatikon sisällön peilikuva vasempaan laatikkoon."
 
-#: ../boards/redraw_symmetrical.xml.in.h:5
+#: ../boards/redraw_symmetrical.xml.in.h:3
 msgid "Mirror the given item"
 msgstr "Piirrä peilikuva"
 
@@ -3483,17 +3506,35 @@ msgstr "Ynnälaskua tikkapelin avulla"
 msgid "Throw darts at a target and count your score."
 msgstr "Heitä tikka maaliin ja laske saamasi pisteet"
 
+#: ../boards/tuxpaint.xml.in.h:1
+msgid "Drawing activity (pixmap)"
+msgstr "Piirtotehtävä (pistekartta)"
+
+#: ../boards/tuxpaint.xml.in.h:2
+msgid "Launch Tuxpaint"
+msgstr "Käynnistä Tuxpaint"
+
+#: ../boards/tuxpaint.xml.in.h:3
+msgid "Tuxpaint"
+msgstr "Tuxpaint"
+
+#: ../boards/tuxpaint.xml.in.h:4
+msgid "Use Tuxpaint to draw. When Tuxpaint is finished this board will end."
+msgstr "Piirrä Tuxpaintilla. Kun Tuxpaint on suljettu lopetetaan tämä tehtävä."
+
+#: ../boards/tuxpaint.xml.in.h:5
+msgid "mouse and keyboard manipulation"
+msgstr "Hiiren ja näppäimistön käyttö"
+
 #: ../boards/traffic.xml.in.h:1
 msgid "A sliding-block puzzle game"
 msgstr "Palapelin tapainen autopeli"
 
 #: ../boards/traffic.xml.in.h:2
 msgid ""
-"Remove all the red cars from the parking lot\n"
-"through the gate on the right"
+"Remove all the red cars from the parking lot through the gate on the right"
 msgstr ""
-"Poista kaikki punaiset autot parkkipaikalta\n"
-"oikealla olevan rei'än kautta."
+"Poista kaikki punaiset autot parkkipaikalta oikealla olevan portin kautta."
 
 #: ../boards/watercycle.xml.in.h:1
 msgid ""
@@ -3517,13 +3558,13 @@ msgstr "Opettele veden kiertokulkua"
 
 #: ../boards/watercycle.xml.in.h:4
 msgid ""
-"Tux has come back from a long fishing party on his boat.\n"
-"Bring the water system back up so he can take a shower."
+"Tux has come back from a long fishing party on his boat. Bring the water "
+"system back up so he can take a shower."
 msgstr ""
-"Tux tuli takaisin pitkältä kalastusretkeltä veneellään.\n"
-"Korjaa vedenjakelujärjestelmä, jotta Tux pääsee suihkuun."
+"Tux tuli takaisin pitkältä kalastusretkeltä veneellään. Korjaa vesijärjestelmä, "
+"jotta Tux pääsee suihkuun."
 
-#: ../boards/wordsgame.xml.in.h:1 ../src/boards/wordsgame.c:112
+#: ../boards/wordsgame.xml.in.h:1 ../src/boards/wordsgame.c:113
 msgid "Falling Words"
 msgstr "Putoavat sanat"
 
@@ -3535,7 +3576,7 @@ msgstr "Kirjoitusharjoitus"
 msgid "Type the complete word as it falls, before it reachs the ground"
 msgstr "Kirjoita koko putoava sana ennen kuin se osuu maahan"
 
-#: ../boards/wordsgame.xml.in.h:5 ../src/boards/wordsgame.c:113
+#: ../boards/wordsgame.xml.in.h:5 ../src/boards/wordsgame.c:114
 msgid "Type the falling words before they reach the ground"
 msgstr "Kirjoita putoavat sanat ennen kuin ne osuvat maahan"
 
@@ -3558,9 +3599,9 @@ msgstr "Useita tehtäviä lapsille"
 #: ../src/boards/advanced_colors.c:533 ../src/boards/imageid.c:642
 #: ../src/boards/missingletter.c:655 ../src/boards/read_colors.c:491
 #: ../src/boards/shapegame.c:1902 ../src/gcompris/file_selector.c:893
-#: ../src/gcompris/gameutil.c:186 ../src/gcompris/gameutil.c:604
-#: ../src/gcompris/gameutil.c:605 ../src/gcompris/gcompris.c:639
-#: ../src/gcompris/images_selector.c:767 ../src/gcompris/skin.c:87
+#: ../src/gcompris/gameutil.c:186 ../src/gcompris/gameutil.c:583
+#: ../src/gcompris/gameutil.c:584 ../src/gcompris/gcompris.c:624
+#: ../src/gcompris/images_selector.c:771 ../src/gcompris/skin.c:87
 #: ../src/gcompris/skin.c:266 ../src/gcompris/wordlist.c:49
 #, c-format
 msgid "Couldn't find file %s !"
@@ -3633,12 +3674,12 @@ msgstr "Tasapeli"
 #. TRANSLATORS: Put here the alphabet in your language
 #. require by all utf8-functions
 #. TRANSLATORS: Put here the alphabet lowercase in your language
-#: ../src/boards/click_on_letter.c:241 ../src/boards/click_on_letter.c:258
-#: ../src/boards/gletters.c:226 ../src/boards/memory.c:444
+#: ../src/boards/click_on_letter.c:243 ../src/boards/click_on_letter.c:260
+#: ../src/boards/gletters.c:226 ../src/boards/memory.c:564
 msgid "abcdefghijklmnopqrstuvwxyz"
 msgstr "abcdefghijklmnopqrstuvwxyzåäö"
 
-#: ../src/boards/click_on_letter.c:270
+#: ../src/boards/click_on_letter.c:272
 #, c-format
 msgid ""
 "Error: this activity requires that you first install\n"
@@ -3647,7 +3688,7 @@ msgstr ""
 "Virhe: sinun täytyy ensin asentaa paketti \n"
 "assetml-voices-alphabet-%s tai %s ennen kuin voit käyttää tätä osaa"
 
-#: ../src/boards/click_on_letter.c:277
+#: ../src/boards/click_on_letter.c:279
 #, c-format
 msgid ""
 "Error: this activity requires that you first install\n"
@@ -3657,7 +3698,7 @@ msgstr ""
 "assetml-voices-alphabet-%s ennen kuin voit käyttää tätä osaa. Palataan "
 "käyttämään englantia!"
 
-#: ../src/boards/click_on_letter.c:285
+#: ../src/boards/click_on_letter.c:287
 msgid ""
 "Error: this activity cannot be played with the\n"
 "sound effects disabled.\n"
@@ -3717,33 +3758,33 @@ msgstr "Napsauta mustaa ankkaa"
 msgid "Click on the white duck"
 msgstr "Napsauta valkoista ankkaa"
 
-#: ../src/boards/erase.c:158
+#: ../src/boards/erase.c:170
 msgid "Couldn't get GTK settings"
 msgstr "GTK-asetuksia ei voitu ladata"
 
-#: ../src/boards/erase.c:163
+#: ../src/boards/erase.c:175
 #, c-format
 msgid "Double-click default value %d."
 msgstr "Kaksoisnapsautuksen oletusarvo on %d."
 
-#: ../src/boards/erase.c:168
+#: ../src/boards/erase.c:180
 #, c-format
 msgid "Double-click value is now %d."
 msgstr "Kaksoisnapsautuksen arvo on nyt %d."
 
-#: ../src/boards/erase.c:183 ../src/boards/erase.c:206
-#: ../src/boards/erase.c:337
+#: ../src/boards/erase.c:195 ../src/boards/erase.c:218
+#: ../src/boards/erase.c:348
 #, c-format
 msgid "Double click value is now %d."
 msgstr "Kaksoisnapsautuksen arvo on nyt %d."
 
 #. TRANSLATORS: Put here the numbers in your language
-#: ../src/boards/gletters.c:222 ../src/boards/memory.c:440
+#: ../src/boards/gletters.c:222 ../src/boards/memory.c:560
 msgid "0123456789"
 msgstr "0123456789"
 
 #. TRANSLATORS: Put here the alphabet uppercase in your language
-#: ../src/boards/gletters.c:232 ../src/boards/memory.c:450
+#: ../src/boards/gletters.c:232 ../src/boards/memory.c:570
 msgid "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 msgstr "ABCDEFGHIJKLMNOPQRSTUVWXYZÅÄÖ"
 
@@ -3791,21 +3832,31 @@ msgid ""
 msgstr ""
 "Katso sijaintiasi ja vaihda takaisin kolmiulotteiseksi, jotta voit liikkua"
 
-#: ../src/boards/memory.c:172
+#: ../src/boards/memory.c:250
 msgid "Memory"
 msgstr "Memory"
 
-#: ../src/boards/memory.c:173
+#: ../src/boards/memory.c:251
 msgid "Find the matching pair"
 msgstr "Löydä täsmäävä pari"
 
-#: ../src/boards/menu.c:75
+#: ../src/boards/menu.c:79
 msgid "Main Menu"
 msgstr "Päävalikko"
 
-#: ../src/boards/menu.c:76
+#: ../src/boards/menu.c:80
 msgid "Select a Board"
 msgstr "Valitse tehtävä"
+
+#: ../src/boards/money.c:488
+#, c-format
+msgid "$ %.2f"
+msgstr "$ %.2f"
+
+#: ../src/boards/money.c:501
+#, c-format
+msgid "$ %.0f"
+msgstr "$ %.0f"
 
 #: ../src/boards/paratrooper.c:102
 msgid "Paratrooper"
@@ -4176,15 +4227,15 @@ msgstr ""
 "Pythonin XMl-osaa ei löytynyt. SVG on pois käytöstä. Asenna pythonin XML-osa "
 "jos haluat käyttää SVG-tallennusta tai -palautusta."
 
-#: ../src/boards/python/anim.py:2204
+#: ../src/boards/python/anim.py:2206
 msgid "SVG is disabled. Install python xml module to enable it"
 msgstr "SVG ei ole käytössä. Asenna pythonin XML-osa jos haluat käyttää sitä"
 
-#: ../src/boards/python/anim.py:2360
+#: ../src/boards/python/anim.py:2362
 msgid "Warning: the following images cannot be accessed on your system.\n"
 msgstr "Varoitus: seuraavia kuvia ei löydy järjestelmästä.\n"
 
-#: ../src/boards/python/anim.py:2362
+#: ../src/boards/python/anim.py:2364
 msgid "The corresponding items have been skipped."
 msgstr "Niihin liittyvät osat sivuutetaan."
 
@@ -4309,29 +4360,29 @@ msgstr ""
 "L\n"
 "E"
 
-#: ../src/boards/python/guessnumber.py:215
+#: ../src/boards/python/guessnumber.py:222
 #, python-format
 msgid "Guess a number between %d and %d"
 msgstr "Arvaa numero väliltä %d ja %d"
 
-#: ../src/boards/python/guessnumber.py:329
-#: ../src/boards/python/guessnumber.py:330
+#: ../src/boards/python/guessnumber.py:337
+#: ../src/boards/python/guessnumber.py:338
 #, python-format
 msgid "Please enter a number between %d and %d"
 msgstr "Syötä numero väliltä %d ja %d"
 
-#: ../src/boards/python/guessnumber.py:335
-#: ../src/boards/python/guessnumber.py:336
+#: ../src/boards/python/guessnumber.py:343
+#: ../src/boards/python/guessnumber.py:344
 msgid "Out of range"
 msgstr "Rajojen ulkopuolella"
 
-#: ../src/boards/python/guessnumber.py:342
-#: ../src/boards/python/guessnumber.py:343
+#: ../src/boards/python/guessnumber.py:350
+#: ../src/boards/python/guessnumber.py:351
 msgid "Too high"
 msgstr "Liian suuri"
 
-#: ../src/boards/python/guessnumber.py:345
-#: ../src/boards/python/guessnumber.py:346
+#: ../src/boards/python/guessnumber.py:353
+#: ../src/boards/python/guessnumber.py:354
 msgid "Too low"
 msgstr "Liian pieni"
 
@@ -4353,7 +4404,7 @@ msgstr "Näytä vain isoja kirjaimia"
 msgid "Enter login to log in"
 msgstr "Kirjaudu sisään"
 
-#: ../src/boards/python/mosaic.py:211
+#: ../src/boards/python/mosaic.py:238
 msgid "Rebuild the same mosaic on the right area"
 msgstr "Rakenna sama mosaiikki oikealle puolelle"
 
@@ -4499,11 +4550,11 @@ msgstr "Näytä vain isoja kirjaimia"
 msgid "Disable stamps"
 msgstr "Älä käytä leimoja"
 
-#: ../src/boards/railroad.c:96
+#: ../src/boards/railroad.c:95
 msgid "Memory game"
 msgstr "Muistipeli"
 
-#: ../src/boards/railroad.c:97
+#: ../src/boards/railroad.c:96
 msgid "Build a train according to the model"
 msgstr "Tehdäänkö samanlainen juna?"
 
@@ -4652,7 +4703,7 @@ msgstr ""
 
 #: ../src/gcompris/about.c:341 ../src/gcompris/about.c:350
 #: ../src/gcompris/config.c:221 ../src/gcompris/config.c:230
-#: ../src/gcompris/gameutil.c:1122 ../src/gcompris/help.c:362
+#: ../src/gcompris/gameutil.c:1101 ../src/gcompris/help.c:362
 #: ../src/gcompris/help.c:371 ../src/gcompris/images_selector.c:263
 msgid "OK"
 msgstr "OK"
@@ -4913,8 +4964,8 @@ msgstr "Pixmap-hakemistoa %s ei voi avata"
 msgid "No skin found in %s\n"
 msgstr "En löytänyt pohjakuvaa täältä: %s\n"
 
-#: ../src/gcompris/config.c:453 ../src/gcompris/config.c:809
-#: ../src/gcompris/config.c:820
+#: ../src/gcompris/config.c:453 ../src/gcompris/config.c:817
+#: ../src/gcompris/config.c:828
 #, c-format
 msgid "Skin : %s"
 msgstr "Teema: %s"
@@ -5041,7 +5092,7 @@ msgstr ""
 msgid "The location of user directories: [$HOME/.gcompris/users]"
 msgstr "Käyttäjien hakemiston sijainti: [$HOME/.gcompris/users] "
 
-#: ../src/gcompris/gcompris.c:797
+#: ../src/gcompris/gcompris.c:774
 #, c-format
 msgid ""
 "GCompris is free software released under the GPL License. In order to "
@@ -5065,7 +5116,7 @@ msgstr ""
 "Lisää tietoja aiheesta FSF:n sivuilta:\n"
 "http://www.fsf.org/philosophy"
 
-#: ../src/gcompris/gcompris.c:1097
+#: ../src/gcompris/gcompris.c:1138
 #, c-format
 msgid ""
 "GCompris\n"
@@ -5079,26 +5130,26 @@ msgstr ""
 "Lisää tetoja täältä: http://gcompris.net\n"
 
 #. check the list of possible values for -l, then exit
-#: ../src/gcompris/gcompris.c:1165
+#: ../src/gcompris/gcompris.c:1206
 #, c-format
 msgid "Use -l to access an activity directly.\n"
 msgstr "Käytä valitsinta -l saadaksesi tietyn tehtävän suoraan.\n"
 
-#: ../src/gcompris/gcompris.c:1166
+#: ../src/gcompris/gcompris.c:1207
 #, c-format
 msgid "List of available activity is :\n"
 msgstr "Lista mahdollisista tehtävistä:\n"
 
-#: ../src/gcompris/gcompris.c:1309
+#: ../src/gcompris/gcompris.c:1350
 #, c-format
 msgid "The list of available profiles is:\n"
 msgstr "Lista mahdollisista profiileista:\n"
 
-#: ../src/gcompris/gcompris_db.c:239
+#: ../src/gcompris/gcompris_db.c:237
 msgid "Unaffected"
 msgstr "Ei vaikutusta"
 
-#: ../src/gcompris/gcompris_db.c:240
+#: ../src/gcompris/gcompris_db.c:238
 msgid "Users without class"
 msgstr "Luokkaan kuulumattomat käyttäjät"
 
@@ -5123,7 +5174,7 @@ msgstr "Kiitokset"
 msgid "dataset %s is a directory. Trying to read xml "
 msgstr "tietojoukko %s on hakemisto, yritetään lukea xml "
 
-#: ../src/gcompris/images_selector.c:632
+#: ../src/gcompris/images_selector.c:636
 #, c-format
 msgid ""
 "In ImageSet %s, the pathname for the home directory '%s' is not found. "
@@ -5132,24 +5183,24 @@ msgstr ""
 "Kuvajoukossa %s, polkua hakemistoon %s ei löydy. Ohitetaan koko "
 "kuvajoukko...\n"
 
-#: ../src/gcompris/images_selector.c:666
+#: ../src/gcompris/images_selector.c:670
 #, c-format
 msgid "In ImageSet %s, an image is not found. Skipping ImageSet...\n"
 msgstr "Kuvajoukossa %s, kuvaa ei löydy. Ohitetaan...\n"
 
-#: ../src/gcompris/images_selector.c:697
+#: ../src/gcompris/images_selector.c:701
 #, c-format
 msgid ""
 "In ImageSet %s, directory %s is not found. Skipping all the ImageSet...\n"
 msgstr ""
 "Kuvajoukossa %s, hakemistoa %s ei löydy. Ohitetaan koko kuvajoukko...\n"
 
-#: ../src/gcompris/soundutil.c:172
+#: ../src/gcompris/soundutil.c:186
 #, c-format
 msgid "Couldn't open music dir: %s"
 msgstr "Musiikki-hakemistoa %s ei voi avata"
 
-#: ../src/gcompris/soundutil.c:218
+#: ../src/gcompris/soundutil.c:232
 #, c-format
 msgid ""
 "The background thread music is stopped now. The files in %s are not ogg "
@@ -5171,3 +5222,10 @@ msgstr "Aikaa jäljellä = %d"
 #, c-format
 msgid "Couldn't parse file %s !"
 msgstr "Tiedostoa %s ei voitu tulkita!"
+
+#~ msgid ""
+#~ "Copy the mirror image of an object from the box\n"
+#~ "on the right into the box on the left."
+#~ msgstr ""
+#~ "Kopioi oikealla olevan laatikon sisällön\n"
+#~ "peilikuva vasempaan laatikkoon."
