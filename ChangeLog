@@ -1,3 +1,17 @@
+2005-11-13  Yves Combe  <yves@ycombe.net>
+
+	finish code part for gtans board. Now buttons, gtans.xml.in  and look needs improvment.
+
+	* boards/gtans/gtans_outline.png:
+	* boards/gtans/gtans_show.png:
+	* src/boards/gtans.c: (start_board), (end_board), (change_figure),
+	(tansetnewfigurepart1), (taninitstart):
+	* src/boards/gtans.h:
+	* src/boards/gtans_callbacks.c: (on_arrow_clicked),
+	(on_show_clicked), (on_outline_clicked), (on_symetry_clicked):
+	* src/boards/gtans_callbacks.h:
+	* src/boards/gtans_interface.c: (create_mainwindow):
+
 2005-11-12  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	Removed translation on all g_warning().

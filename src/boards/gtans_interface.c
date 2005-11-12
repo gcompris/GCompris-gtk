@@ -4,13 +4,13 @@
 #include "gtans_interface.h"
 #include "gtans_support.h"
 
-#define X_BASE_BIGAREA 50
+#define X_BASE_BIGAREA 300
 #define Y_BASE_BIGAREA 50
 #define WIDTH_BIGAREA 400
 
-#define X_BASE_SMALLAREA 450
+#define X_BASE_SMALLAREA 50
 #define Y_BASE_SMALLAREA 50
-#define WIDTH_SMALLAREA 100
+#define WIDTH_SMALLAREA 200
 
 static int deb = 0;
 
@@ -175,6 +175,111 @@ void create_mainwindow (GnomeCanvasGroup *rootitem)
   gtk_signal_connect (GTK_OBJECT (wdrawareapetite), "expose_event",
                       GTK_SIGNAL_FUNC (on_wdrawareapetite_expose_event),
                       NULL);
+
+
+  /* Gcompris */
+  /* add here buttons */
+
+  GdkPixbuf   *pixmap_l = NULL;
+  GdkPixbuf   *pixmap_r = NULL;
+  GdkPixbuf   *pixmap_show = NULL;
+  GdkPixbuf   *pixmap_outline = NULL;
+  GdkPixbuf   *pixmap_symetry = NULL;
+  GnomeCanvasItem *previous_figure, *next_figure;
+  GnomeCanvasItem *show_figure, *outline_figure, *symetry;
+
+  pixmap_l = gcompris_load_skin_pixmap("button_backward.png");
+
+  pixmap_r = gcompris_load_skin_pixmap("button_forward.png");
+
+  previous_figure = gnome_canvas_item_new (rootitem,
+					   gnome_canvas_pixbuf_get_type (),
+					   "pixbuf", pixmap_l, 
+					   "x", (double) X_BASE_SMALLAREA,
+					   "y", (double) Y_BASE_SMALLAREA + WIDTH_SMALLAREA,
+					   NULL);
+      
+  next_figure = gnome_canvas_item_new (rootitem,
+				       gnome_canvas_pixbuf_get_type (),
+				       "pixbuf", pixmap_r, 
+				       "x", (double) X_BASE_SMALLAREA + WIDTH_SMALLAREA,
+				       "y", (double) Y_BASE_SMALLAREA + WIDTH_SMALLAREA,
+				       "anchor", GTK_ANCHOR_NE,
+				       NULL);
+      
+  gtk_signal_connect(GTK_OBJECT(previous_figure), "event",
+		     (GtkSignalFunc) on_arrow_clicked,
+		     (gpointer) FALSE);
+      
+  gtk_signal_connect(GTK_OBJECT(previous_figure), "event",
+		     (GtkSignalFunc) gcompris_item_event_focus,
+		     NULL);
+      
+  gtk_signal_connect(GTK_OBJECT(next_figure), "event",
+		     (GtkSignalFunc) on_arrow_clicked,
+		     (gpointer) TRUE);
+  
+  gtk_signal_connect(GTK_OBJECT(next_figure), "event",
+		     (GtkSignalFunc) gcompris_item_event_focus,
+		     NULL);
+
+
+  pixmap_show = gcompris_load_pixmap("gtans/gtans_show.png");
+
+  pixmap_outline = gcompris_load_pixmap("gtans/gtans_outline.png");
+  
+  show_figure = gnome_canvas_item_new (rootitem,
+				       gnome_canvas_pixbuf_get_type (),
+				       "pixbuf", pixmap_show, 
+				       "x", (double) X_BASE_SMALLAREA + WIDTH_SMALLAREA/2,
+				       "y", (double) Y_BASE_SMALLAREA + WIDTH_SMALLAREA + 50,
+				       "anchor",  GTK_ANCHOR_N,
+				       NULL);
+      
+  outline_figure = gnome_canvas_item_new (rootitem,
+				       gnome_canvas_pixbuf_get_type (),
+				       "pixbuf", pixmap_outline, 
+				       "x", (double) X_BASE_SMALLAREA + WIDTH_SMALLAREA/2,
+				       "y", (double) Y_BASE_SMALLAREA + WIDTH_SMALLAREA + 100,
+				       "anchor", GTK_ANCHOR_N,
+				       NULL);
+      
+  gtk_signal_connect(GTK_OBJECT(outline_figure), "event",
+		     (GtkSignalFunc) on_outline_clicked,
+		     NULL);
+      
+  gtk_signal_connect(GTK_OBJECT(show_figure), "event",
+		     (GtkSignalFunc) on_show_clicked,
+		     NULL);
+      
+  gtk_signal_connect(GTK_OBJECT(outline_figure), "event",
+		     (GtkSignalFunc) gcompris_item_event_focus,
+		     NULL);
+      
+  gtk_signal_connect(GTK_OBJECT(show_figure), "event",
+		     (GtkSignalFunc) gcompris_item_event_focus,
+		     NULL);
+
+  pixmap_symetry = gcompris_load_skin_pixmap("draw/tool-flip.png");
+
+      
+  symetry = gnome_canvas_item_new (rootitem,
+				   gnome_canvas_pixbuf_get_type (),
+				   "pixbuf", pixmap_symetry, 
+				   "x", (double) X_BASE_SMALLAREA + WIDTH_SMALLAREA/2,
+				   "y", (double) Y_BASE_SMALLAREA + WIDTH_SMALLAREA + 150,
+				   "anchor", GTK_ANCHOR_N,
+				   NULL);
+      
+  gtk_signal_connect(GTK_OBJECT(symetry), "event",
+		     (GtkSignalFunc) on_symetry_clicked,
+		     NULL);
+      
+  gtk_signal_connect(GTK_OBJECT(symetry), "event",
+		     (GtkSignalFunc) gcompris_item_event_focus,
+		     NULL);
+  
+
 }
 
 

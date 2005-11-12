@@ -159,47 +159,23 @@ void
 on_badjust_clicked                     (GtkButton       *button,
                                         gpointer         user_data);
 
-void
-on_bfignr_changed                      (GtkEditable     *editable,
-                                        gpointer         user_data);
+gboolean
+on_arrow_clicked (GnomeCanvasItem *canvasitem,
+		  GdkEvent *event,
+		  gpointer user_data);
 
+gboolean
+on_show_clicked (GnomeCanvasItem *canvasitem,
+		  GdkEvent *event,
+		  gpointer user_data);
 
-void
-on_maccuracy1_activate                 (GtkMenuItem     *menuitem,
-                                        gpointer         user_data);
+gboolean
+on_outline_clicked (GnomeCanvasItem *canvasitem,
+		  GdkEvent *event,
+		  gpointer user_data);
 
-void
-on_maccuracy2_activate                 (GtkMenuItem     *menuitem,
-                                        gpointer         user_data);
+gboolean
+on_symetry_clicked (GnomeCanvasItem *canvasitem,
+		  GdkEvent *event,
+		  gpointer user_data);
 
-void
-on_maccuracy3_activate                 (GtkMenuItem     *menuitem,
-                                        gpointer         user_data);
-
-void
-on_msilbgcol2_activate                 (GtkMenuItem     *menuitem,
-                                        gpointer         user_data);
-
-void
-on_msizinc_activate                    (GtkMenuItem     *menuitem,
-                                        gpointer         user_data);
-
-void
-on_msizdec_activate                    (GtkMenuItem     *menuitem,
-                                        gpointer         user_data);
-
-void
-on_mclrstat_activate                   (GtkMenuItem     *menuitem,
-                                        gpointer         user_data);
-
-void
-on_mclrall_activate                    (GtkMenuItem     *menuitem,
-                                        gpointer         user_data);
-
-void
-on_mrotcont_activate                   (GtkMenuItem     *menuitem,
-                                        gpointer         user_data);
-
-void
-on_mrotstp_activate                    (GtkMenuItem     *menuitem,
-                                        gpointer         user_data);

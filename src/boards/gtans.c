@@ -121,6 +121,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas), "images/gcompris_band.png");
 
       g_warning("taninitstart call.");
+      selectedgrande = FALSE;
       taninitstart();
     }
 }
@@ -143,6 +144,7 @@ static void end_board (void)
   colselwin=NULL;
   filselwin=NULL;
 
+  selectedgrande = FALSE;
 }
 
 static gboolean
@@ -177,6 +179,14 @@ static void pause_board (gboolean pause)
     tansetnewfigurepart1(actual_figure);
     tansetnewfigurepart2();
   }
+}
+
+void change_figure(gboolean next){
+  if (next)
+    tansetnewfigurepart1((actual_figure+1)%figtabsize);
+  else
+    tansetnewfigurepart1((actual_figure + figtabsize -1)%figtabsize);
+  tansetnewfigurepart2();
 }
 
 
@@ -1671,6 +1681,7 @@ void tansetnewfigurepart1(int nrfig){
 
   if ( nrfig>=0 && figtabsize ){
     nrfig %= figtabsize;
+    actual_figure = nrfig;
     figure = figtab+nrfig;
   } else {
     if (nrfig==-1)
@@ -1906,6 +1917,7 @@ void taninitstart(void){
   tanloadfigtab(figfilename);
 
   g_warning("DEBUG_main %d", deb_main ++);
+
 }
 
 

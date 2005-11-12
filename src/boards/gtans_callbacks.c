@@ -283,5 +283,66 @@ on_wdrawareapetite_expose_event        (GtkWidget       *widget,
 }
 
 
+gboolean
+on_arrow_clicked (GnomeCanvasItem *item, GdkEvent *event, gpointer user_data)
+{
+  if ((event->type == GDK_BUTTON_PRESS)  
+      && (event->button.button == 1)) {
+    change_figure((gboolean) user_data);
+    return TRUE;
+  }
+  return FALSE;
+  
+}
+
+
+gboolean
+on_show_clicked (GnomeCanvasItem *canvasitem,
+		  GdkEvent *event,
+		  gpointer user_data)
+{
+  if ((event->type == GDK_BUTTON_PRESS)  
+      && (event->button.button == 1)) {
+  helptanset = (helptanset+1)%PIECENBR;
+  tanredrawpetite();
+  return TRUE;
+  }
+  return FALSE;
+}
+
+gboolean
+on_outline_clicked (GnomeCanvasItem *canvasitem,
+		  GdkEvent *event,
+		  gpointer user_data)
+{
+  if ((event->type == GDK_BUTTON_PRESS)  
+      && (event->button.button == 1)) {
+    if(!helpoutset){
+      helpoutset = TRUE;
+      tanredrawgrande();
+    }
+    return TRUE;
+  }
+  return FALSE;
+}
+
+gboolean
+on_symetry_clicked (GnomeCanvasItem *canvasitem,
+		  GdkEvent *event,
+		  gpointer user_data)
+{
+  if ((event->type == GDK_BUTTON_PRESS)  
+      && (event->button.button == 1)) {
+    if (selectedgrande==TRUE){
+      if (figgrande.piecepos[PIECENBR-1].type==3)
+	figgrande.piecepos[PIECENBR-1].flipped^=1;
+      else
+	figgrande.piecepos[PIECENBR-1].rot=(figgrande.piecepos[PIECENBR-1].rot+TOUR/2)%TOUR;
+      tandrawselect(0,0,0);
+      return TRUE;
+    }
+  }
+  return FALSE;
+}
 
 
