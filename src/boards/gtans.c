@@ -22,6 +22,7 @@
 
 #include <math.h>
 #include <stdio.h>
+#include <string.h>
 
 /* Added by Florian Ernst <florian_ernst@gmx.net> for lines 193 and 194 */
 //#include <string.h>
@@ -1268,13 +1269,19 @@ void tansetcolormode(GdkColor *acolor, int gcnbr){
 void tansetdefconfig (void){
   int i;
 
+  guint backgroung_color_red   = 0xe8<<8;
+  guint backgroung_color_green = 0xe7<<8;
+  guint backgroung_color_blue  = 0xe2<<8;
+
   for (i = PXSTART; i<PXNBR+PXSTART; i++){
     tabpxpixmode[i] = FALSE;
     tanallocname(&tabpxnam[i], "NoConfigFile");
   }
 
-  colortab[GCPETITEFG].red = colortab[GCPETITEFG].green = colortab[GCPETITEFG].blue = 0;
-  colortab[GCPETITEBG].red = colortab[GCPETITEBG].green = colortab[GCPETITEBG].blue = 65535;
+  colortab[GCPETITEFG].red   = colortab[GCPETITEFG].green = colortab[GCPETITEFG].blue = 0;
+  colortab[GCPETITEBG].red   = backgroung_color_red;
+  colortab[GCPETITEBG].green = backgroung_color_green;
+  colortab[GCPETITEBG].blue  = backgroung_color_blue;
 
   colortab[GCPIECENOR].red = colortab[GCPIECENOR].green = 32768;
   colortab[GCPIECENOR].blue = 50000;
@@ -1282,8 +1289,9 @@ void tansetdefconfig (void){
   colortab[GCPIECEHI].red = colortab[GCPIECEHI].green = 40000;
   colortab[GCPIECEHI].blue = 65535;
 
-  colortab[GCPIECEBG].blue = colortab[GCPIECEBG].green = 32768;
-  colortab[GCPIECEBG].red = 65535;
+  colortab[GCPIECEBG].red   = backgroung_color_red;
+  colortab[GCPIECEBG].green = backgroung_color_green;
+  colortab[GCPIECEBG].blue  = backgroung_color_blue;
 
   colortab[GCPIECEHLP].blue = colortab[GCPIECEHLP].green = 0;
   colortab[GCPIECEHLP].red = 65535;
