@@ -47,7 +47,6 @@ class Gcompris_mosaic:
 
     # The current selected color
     self.current_index = None
-    self.previous_color_item = None
     
     # The min and max value that must be found
     self.min = -1
@@ -91,7 +90,7 @@ class Gcompris_mosaic:
     self.gcomprisBoard.sublevel=1
     self.gcomprisBoard.number_of_sublevel=1
 
-    gcompris.bar_set(gcompris.BAR_OK|gcompris.BAR_LEVEL)
+    gcompris.bar_set(gcompris.BAR_LEVEL)
     
     gcompris.bar_set_level(self.gcomprisBoard)
 
@@ -109,12 +108,7 @@ class Gcompris_mosaic:
     self.cleanup_game()
 
   def ok(self):
-    if(self.target_list == self.user_list):
-      self.gamewon = True
-      gcompris.bonus.display(gcompris.bonus.WIN, gcompris.bonus.GNU)
-    else:
-      self.gamewon = False
-      gcompris.bonus.display(gcompris.bonus.LOOSE, gcompris.bonus.GNU)
+    pass
 
   def repeat(self):
     print("Gcompris_mosaic repeat.")
@@ -194,7 +188,6 @@ class Gcompris_mosaic:
   def cleanup_game(self):
       
       self.current_index = None
-      self.previous_color_item = None
       # Remove the root item removes all the others inside it
       self.rootitem.destroy()
 
@@ -273,6 +266,15 @@ class Gcompris_mosaic:
 
       self.display_palette(self.palette_x, self.palette_y, palette)
 
+      # Create the check button to show the selected color
+      self.checked_color_item = self.rootitem.add(
+        gnome.canvas.CanvasPixbuf,
+        pixbuf = gcompris.utils.load_pixmap(gcompris.skin.image_to_skin("button_checked.png")),
+        x = 0,
+        y = 0)
+      
+      self.checked_color_item.hide()
+
   #
   # Display the mosaic itself (colored or not)
   #
@@ -338,14 +340,17 @@ class Gcompris_mosaic:
                                        palette_y * self.palette_item_height,
                                        self.palette_item_width, self.palette_item_height)
 
+            coord_x = orig_x + x * (self.palette_item_width  + gap_x)
+            coord_y = orig_y + y * (self.palette_item_height + gap_y)
             item = self.rootitem.add(
               gnome.canvas.CanvasPixbuf,
               pixbuf = image,
-              x = orig_x + x * (self.palette_item_width  + gap_x),
-              y = orig_y + y * (self.palette_item_height + gap_y))
+              x = coord_x,
+              y = coord_y)
  
             item.connect("event", gcompris.utils.item_event_focus)
-            item.connect("event", self.set_color_item_event, (item, palette_x, palette_y))
+            item.connect("event", self.set_color_item_event, (item, palette_x, palette_y,
+                                                              coord_x, coord_y))
 
               
   # Event when a target square is selected
@@ -353,6 +358,7 @@ class Gcompris_mosaic:
     (index, box_item, palette)  = data
     
     if event.type == gtk.gdk.BUTTON_PRESS:
+      # A color is selected
       if(self.current_index_x >= 0):
 
         image = palette.subpixbuf(self.current_index_x * self.palette_item_width,
@@ -364,20 +370,23 @@ class Gcompris_mosaic:
         self.user_list[index] = (self.current_index_x,
                                  self.current_index_y)
 
+        if(self.target_list == self.user_list):
+          self.gamewon = True
+          gcompris.bonus.display(gcompris.bonus.WIN, gcompris.bonus.GNU)
+
 
 
   # Event when a color square is selected
   def set_color_item_event(self, item, event, data):
     
     if event.type == gtk.gdk.BUTTON_PRESS:
-      (box_item, color_index_x, color_index_y) = data
+      (box_item, color_index_x, color_index_y, coord_x, coord_y) = data
       
       self.current_index_x = color_index_x
       self.current_index_y = color_index_y
 
       index = color_index_y * self.palette_number_of_item_x + color_index_x
       
-      if self.previous_color_item:
-        pass
-
-      self.previous_color_item = box_item
+      self.checked_color_item.set( x = coord_x,
+                                   y = coord_y + self.palette_item_height/3)
+      self.checked_color_item.show()

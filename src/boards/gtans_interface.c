@@ -4,7 +4,7 @@
 #include "gtans_interface.h"
 #include "gtans_support.h"
 
-#define X_BASE_BIGAREA 300
+#define X_BASE_BIGAREA 340
 #define Y_BASE_BIGAREA 50
 #define WIDTH_BIGAREA 400
 
@@ -196,17 +196,18 @@ void create_mainwindow (GnomeCanvasGroup *rootitem)
 					   gnome_canvas_pixbuf_get_type (),
 					   "pixbuf", pixmap_l, 
 					   "x", (double) X_BASE_SMALLAREA,
-					   "y", (double) Y_BASE_SMALLAREA + WIDTH_SMALLAREA,
+					   "y", (double) Y_BASE_SMALLAREA + WIDTH_SMALLAREA + 10,
 					   NULL);
       
   next_figure = gnome_canvas_item_new (rootitem,
 				       gnome_canvas_pixbuf_get_type (),
 				       "pixbuf", pixmap_r, 
 				       "x", (double) X_BASE_SMALLAREA + WIDTH_SMALLAREA,
-				       "y", (double) Y_BASE_SMALLAREA + WIDTH_SMALLAREA,
+				       "y", (double) Y_BASE_SMALLAREA + WIDTH_SMALLAREA + 10,
 				       "anchor", GTK_ANCHOR_NE,
 				       NULL);
-      
+
+
   gtk_signal_connect(GTK_OBJECT(previous_figure), "event",
 		     (GtkSignalFunc) on_arrow_clicked,
 		     (gpointer) FALSE);

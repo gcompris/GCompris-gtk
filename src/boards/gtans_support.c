@@ -115,7 +115,7 @@ create_pixmap                          (GtkWidget       *widget,
 
   if (!found_filename)
     {
-      g_warning (_("Couldn't find pixmap file: %s"), filename);
+      g_warning ("Couldn't find pixmap file: %s", filename);
       return create_dummy_pixmap (widget);
     }
 
@@ -124,7 +124,7 @@ create_pixmap                          (GtkWidget       *widget,
                                                    NULL, found_filename);
   if (gdkpixmap == NULL)
     {
-      g_warning (_("Error loading pixmap file: %s"), found_filename);
+      g_warning ("Error loading pixmap file: %s", found_filename);
       g_free (found_filename);
       return create_dummy_pixmap (widget);
     }

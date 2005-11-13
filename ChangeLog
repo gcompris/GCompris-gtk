@@ -1,3 +1,18 @@
+2005-11-14  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	Improved gtans (a little bit.) 
+	Added the board description, added it for translation.
+	Created a temporary background until we have someting better.
+	
+	* boards/gtans.xml.in:
+	* boards/images/gtans_bg.png:
+	* boards/images/mosaic_palette.png:
+	* po/POTFILES.in:
+	* src/boards/gtans.c: (start_board):
+	* src/boards/gtans_interface.c: (create_mainwindow):
+	* src/boards/gtans_support.c: (create_pixmap):
+	* src/boards/python/mosaic.py: added a checked image over the selected color.
+
 2005-11-13  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	- Graphically enhanced the mosaic activity.

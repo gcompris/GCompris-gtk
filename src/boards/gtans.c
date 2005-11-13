@@ -77,8 +77,8 @@ static BoardPlugin menu_bp =
   {
     NULL,
     NULL,
-    N_("GTans"),
-    N_("Tangram"),
+    "GTans",
+    "Tangram",
     "Bruno Coudoin <bruno.coudoin@free.fr>",
     NULL,
     NULL,
@@ -118,7 +118,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       gcomprisBoard->maxlevel = 1;
       gcompris_bar_set(GCOMPRIS_BAR_LEVEL);
 
-      gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas), "images/gcompris_band.png");
+      gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas), "images/gtans_bg.png");
 
       g_warning("taninitstart call.");
       selectedgrande = FALSE;
