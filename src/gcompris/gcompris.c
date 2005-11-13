@@ -849,7 +849,10 @@ void gcompris_set_fullscreen(gboolean state)
 	}
       xr_previous_size_set = FALSE;
 #endif
+      /* The hide must be done at least for KDE */
+      gtk_widget_hide (window);
       gdk_window_set_decorations (window->window, GDK_DECOR_ALL);
+      gtk_widget_show (window);
       gdk_window_set_functions (window->window, GDK_FUNC_ALL);
       gtk_widget_set_uposition (window, 0, 0);
       gtk_window_unfullscreen (GTK_WINDOW(window));

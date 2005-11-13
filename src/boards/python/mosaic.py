@@ -58,47 +58,26 @@ class Gcompris_mosaic:
     self.board_paused  = 0
     self.gamewon       = 0
 
-    self.orig_x = 40
+    self.orig_x = 35
     self.orig_y = 50
-    self.target_x = gcompris.BOARD_WIDTH/2 + 40
+    self.target_x = gcompris.BOARD_WIDTH/2 + 17
     self.target_y = 50
 
     self.palette_x = 40
     self.palette_y = 330
+
+    # In the palette png, the size of each image
+    self.palette_item_width  = 50
+    self.palette_item_height = 50
+
+    # In the palette png, the number of image in x and y
+    self.palette_number_of_item_x = 8
+    self.palette_number_of_item_y = 3
+
+    # Index of the grey item in the palette
+    self.palette_grey_item_x = 0
+    self.palette_grey_item_y = 3
     
-    self.colors = [
-        0x878686FF,
-        0xc08b8bFF,
-        0xe57979FF,
-        0xfa4242FF,
-        0xeb09ffFF,
-        0xdaa7d6FF,
-        0x1c0cf7FF,
-        0xc6c4eaFF,
-        0x0ffdefFF,
-        0xb3e4e5FF,
-        0x34fd42FF,
-        0xa5e0afFF,
-        0xe8fd05FF,
-        0xe3e086FF,
-        0x878686FF,
-        0xc08b8bFF,
-        0xe57979FF,
-        0xfa4242FF,
-        0xeb09ffFF,
-        0xdaa7d6FF,
-        0x1c0cf7FF,
-        0xc6c4eaFF,
-        0x0ffdefFF,
-        0xb3e4e5FF,
-        0x34fd42FF,
-        0xa5e0afFF,
-        0xe8fd05FF,
-        0xe3e086FF,
-        ]
-
-    self.alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-
     # What the user have to find
     self.target_list = []
 
@@ -108,7 +87,7 @@ class Gcompris_mosaic:
   def start(self):
     
     self.gcomprisBoard.level=1
-    self.gcomprisBoard.maxlevel=5
+    self.gcomprisBoard.maxlevel=6
     self.gcomprisBoard.sublevel=1
     self.gcomprisBoard.number_of_sublevel=1
 
@@ -239,7 +218,7 @@ class Gcompris_mosaic:
       self.rootitem.add(
           gnome.canvas.CanvasText,
           x=gcompris.BOARD_WIDTH/2 + 1.0,
-          y=gcompris.BOARD_HEIGHT - 50 + 1.0,
+          y=gcompris.BOARD_HEIGHT - 30 + 1.0,
           font=gcompris.skin.get_font("gcompris/title"),
           text=(text),
           fill_color="black",
@@ -248,7 +227,7 @@ class Gcompris_mosaic:
       self.rootitem.add(
           gnome.canvas.CanvasText,
           x=gcompris.BOARD_WIDTH/2,
-          y=gcompris.BOARD_HEIGHT - 50,
+          y=gcompris.BOARD_HEIGHT - 30,
           font=gcompris.skin.get_font("gcompris/title"),
           text=(text),
           fill_color="white",
@@ -259,166 +238,146 @@ class Gcompris_mosaic:
 
       self.number_item_x = 4
       self.number_item_y = 2
-      self.number_max_of_colors = 8
+      self.number_max_of_color_x = 8
+      self.number_max_of_color_y = 1
       if(self.gcomprisBoard.level == 2):
-          self.number_item_x = 4
-          self.number_item_y = 3
-          self.number_max_of_colors = 12
+        self.number_item_x = 6
+        self.number_item_y = 2
+        self.number_max_of_color_y = 1
       elif(self.gcomprisBoard.level == 3):
-          self.number_item_x = 5
-          self.number_item_y = 3
-          self.number_max_of_colors = 15
+        self.number_item_x = 6
+        self.number_item_y = 3
+        self.number_max_of_color_y = 2
       elif(self.gcomprisBoard.level == 4):
-          self.number_item_x = 5
-          self.number_item_y = 4
-          self.number_max_of_colors = 28
+        self.number_item_x = 6
+        self.number_item_y = 3
+        self.number_max_of_color_y = 3
       elif(self.gcomprisBoard.level == 5):
-          self.number_item_x = 6
-          self.number_item_y = 4
-          self.number_max_of_colors = 28
+        self.number_item_x = 6
+        self.number_item_y = 4
+        self.number_max_of_color_y = 3
+      elif(self.gcomprisBoard.level == 6):
+        self.number_item_x = 6
+        self.number_item_y = 4
+        self.number_max_of_color_y = 3
 
 
-      self.display_mosaic(self.orig_x, self.orig_y, True)
+      self.current_index_x = -1
+      self.current_index_y = -1
+      
+      palette = gcompris.utils.load_pixmap("images/mosaic_palette.png")
 
-      self.display_mosaic(self.target_x, self.target_y, False)
+      self.display_mosaic(self.orig_x, self.orig_y, True, palette)
 
-      self.display_palette(self.palette_x, self.palette_y)
+      self.display_mosaic(self.target_x, self.target_y, False, palette)
+
+      self.display_palette(self.palette_x, self.palette_y, palette)
 
   #
   # Display the mosaic itself (colored or not)
   #
-  def display_mosaic(self, orig_x, orig_y, colored):
+  def display_mosaic(self, orig_x, orig_y, colored, palette):
           
       gap_x = 10
       gap_y = 10
-      box_size_x = 40
-      box_size_y = 40
 
       i = 0
-      for x in range(0, self.number_item_x):
-          for y in range(0, self.number_item_y):
-              color_index = random.randint(0, (self.number_max_of_colors)-1)
+      for y in range(0, self.number_item_y):
+        for x in range(0, self.number_item_x):
+
+              # Select an image in the palette
+              color_index_x = random.randint(0, (self.number_max_of_color_x-1))
+              color_index_y = random.randint(0, (self.number_max_of_color_y-1))
+              
               if colored:
-                fill_color  = self.colors[color_index]
-                fill_letter = self.alphabet[color_index]
+                image  = palette.subpixbuf(color_index_x * self.palette_item_width,
+                                           color_index_y * self.palette_item_height,
+                                           self.palette_item_width, self.palette_item_height)
               else:
-                  fill_color  = 0xF0F0F0FF
-                  fill_letter = " "
+                image  = palette.subpixbuf(self.palette_grey_item_x * self.palette_item_width,
+                                           self.palette_grey_item_y * self.palette_item_height,
+                                           self.palette_item_width, self.palette_item_height)
                   
               item = self.rootitem.add(
-                  gnome.canvas.CanvasRect,
-                  x1 = orig_x + x * (box_size_x + gap_x),
-                  y1 = orig_y + y * (box_size_y + gap_y),
-                  x2 = orig_x + x * (box_size_x + gap_x) + box_size_x,
-                  y2 = orig_y + y * (box_size_y + gap_y) + box_size_y,
-                  fill_color_rgba=fill_color,
-                  outline_color_rgba=0x000000FF,
-                  width_units=0.0
-                  )
+                gnome.canvas.CanvasPixbuf,
+                pixbuf = image,
+                x = orig_x + x * (self.palette_item_width  + gap_x),
+                y = orig_y + y * (self.palette_item_height + gap_y))
 
-              item2 = self.rootitem.add(
-                  gnome.canvas.CanvasText,
-                  x = orig_x + x * (box_size_x + gap_x) + box_size_x/2 + 0.9,
-                  y = orig_y + y * (box_size_y + gap_y) + box_size_y/2 + 0.9,
-                  text = fill_letter,
-                  fill_color="black",
-                  )
-
-              item3 = self.rootitem.add(
-                  gnome.canvas.CanvasText,
-                  x = orig_x + x * (box_size_x + gap_x) + box_size_x/2,
-                  y = orig_y + y * (box_size_y + gap_y) + box_size_y/2,
-                  text = fill_letter,
-                  fill_color="white",
-                  )
               if not colored:
-                item.connect("event", self.set_focus_item_event,  (i, item, item2, item3))
-                item2.connect("event", self.set_focus_item_event, (i, item, item2, item3))
-                item3.connect("event", self.set_focus_item_event, (i, item, item2, item3))
-                self.user_list.append(-1)
+                item.connect("event", self.set_focus_item_event, (i,
+                                                                  item, palette))
+                self.user_list.append((-1, -1))
               else:
-                self.target_list.append(color_index)
+                self.target_list.append((color_index_x, color_index_y))
 
               i += 1
               
-
+            
 
   #
   # Display the color palette
   #
-  def display_palette(self, orig_x, orig_y):
+  def display_palette(self, orig_x, orig_y, palette):
       
       gap_x = 10
       gap_y = 10
-      box_size_x = 40
-      box_size_y = 40
 
-      x = 0
-      y = 0
-      for i in range(0, self.number_max_of_colors):
-            fill_color  = self.colors[i]
-            fill_letter = self.alphabet[i]
+      number_item_x = 12
+      number_item_y = 2
+
+      for i in range(0, self.number_max_of_color_x * self.number_max_of_color_y):
+
+            x         = i % number_item_x
+            y         = i / number_item_x
+            
+            palette_x = i % self.palette_number_of_item_x
+            palette_y = i / self.palette_number_of_item_x
+            
+            image  = palette.subpixbuf(palette_x * self.palette_item_width,
+                                       palette_y * self.palette_item_height,
+                                       self.palette_item_width, self.palette_item_height)
 
             item = self.rootitem.add(
-              gnome.canvas.CanvasRect,
-              x1 = orig_x + x * (box_size_x + gap_x),
-              y1 = orig_y + y * (box_size_y + gap_y),
-              x2 = orig_x + x * (box_size_x + gap_x) + box_size_x,
-              y2 = orig_y + y * (box_size_y + gap_y) + box_size_y,
-              fill_color_rgba=fill_color,
-              outline_color_rgba=0x000000FF,
-              width_units=0.0
-              )
-            item.connect("event", self.set_color_item_event, (item, i))
+              gnome.canvas.CanvasPixbuf,
+              pixbuf = image,
+              x = orig_x + x * (self.palette_item_width  + gap_x),
+              y = orig_y + y * (self.palette_item_height + gap_y))
+ 
+            item.connect("event", gcompris.utils.item_event_focus)
+            item.connect("event", self.set_color_item_event, (item, palette_x, palette_y))
 
-            item2 = self.rootitem.add(
-              gnome.canvas.CanvasText,
-              x = orig_x + x * (box_size_x + gap_x) + box_size_x/2 + 0.9,
-              y = orig_y + y * (box_size_y + gap_y) + box_size_y/2 + 0.9,
-              text = fill_letter,
-              fill_color="black",
-              )
-            item2.connect("event", self.set_color_item_event, (item, i))
-
-            item2 = self.rootitem.add(
-              gnome.canvas.CanvasText,
-              x = orig_x + x * (box_size_x + gap_x) + box_size_x/2,
-              y = orig_y + y * (box_size_y + gap_y) + box_size_y/2,
-              text = fill_letter,
-              fill_color="white",
-              )
-            item2.connect("event", self.set_color_item_event, (item, i))
-
-            # Move position
-            x += 1
-            if(x>13):
-              x = 0
-              y += 1
               
   # Event when a target square is selected
   def set_focus_item_event(self, item, event, data):
-    box_index  = data[0]
-    box_item   = data[1]
-    text1_item = data[2]
-    text2_item = data[3]
+    (index, box_item, palette)  = data
     
     if event.type == gtk.gdk.BUTTON_PRESS:
-      if(self.current_index >= 0):
-        box_item.set(fill_color_rgba = self.colors[self.current_index])
-        text1_item.set(text = self.alphabet[self.current_index])
-        text2_item.set(text = self.alphabet[self.current_index])
-        self.user_list[box_index] = self.current_index
+      if(self.current_index_x >= 0):
+
+        image = palette.subpixbuf(self.current_index_x * self.palette_item_width,
+                                  self.current_index_y * self.palette_item_height,
+                                  self.palette_item_width, self.palette_item_height)
+        
+        box_item.set(pixbuf = image)
+
+        self.user_list[index] = (self.current_index_x,
+                                 self.current_index_y)
+
+
 
   # Event when a color square is selected
   def set_color_item_event(self, item, event, data):
-    box_item = data[0]
-    color_index = data[1]
     
     if event.type == gtk.gdk.BUTTON_PRESS:
-      self.current_index = color_index
+      (box_item, color_index_x, color_index_y) = data
+      
+      self.current_index_x = color_index_x
+      self.current_index_y = color_index_y
 
+      index = color_index_y * self.palette_number_of_item_x + color_index_x
+      
       if self.previous_color_item:
-        self.previous_color_item.set(width_units = 1.0)
+        pass
 
-      box_item.set(width_units = 5.0)
       self.previous_color_item = box_item
