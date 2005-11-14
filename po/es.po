@@ -1,4 +1,3 @@
-# translation of es.po to 
 # translation of gcompris.HEAD to Spanish
 # Copyright © 2000-2003 the Free Software Foundation, Inc.
 # This file is distributed under the same license as the gcompris package.
@@ -6,14 +5,14 @@
 # Pablo Gonzalo del Campo <pablodc@bigfoot.com>, 2003.
 # Francisco Javier F. Serrador <serrador@cvs.gnome.org>, 2004, 2005.
 # Jaime Iniesta Alemán <capitanplaneta@gmail.com>, 2005.
-# 
-# 
+#
+#
 msgid ""
 msgstr ""
-"Project-Id-Version: es\n"
+"Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-11-13 11:45+0100\n"
-"PO-Revision-Date: 2005-11-13 12:00+0100\n"
+"POT-Creation-Date: 2005-11-14 18:41+0100\n"
+"PO-Revision-Date: 2005-11-14 18:44+0100\n"
 "Last-Translator: Francisco Javier F. Serrador <serrador@cvs.gnome.org>\n"
 "Language-Team: Spanish <traductores@es.gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -726,7 +725,8 @@ msgstr "Mete la bola en la meta"
 #: ../boards/clickgame.xml.in.h:16 ../boards/connect4.xml.in.h:7
 #: ../boards/erase.xml.in.h:3 ../boards/erase_clic.xml.in.h:6
 #: ../boards/erase_double_clic.xml.in.h:6 ../boards/fifteen.xml.in.h:2
-#: ../boards/hanoi.xml.in.h:3 ../boards/memory.xml.in.h:4
+#: ../boards/gtans.xml.in.h:2 ../boards/hanoi.xml.in.h:3
+#: ../boards/memory.xml.in.h:4
 msgid "Mouse-manipulation"
 msgstr "Manipulación del ratón"
 
@@ -754,7 +754,9 @@ msgstr "Opera una esclusa"
 msgid ""
 "Tux is in trouble, and needs to take his boat through a lock. Help Tux and "
 "find out how a canal lock works."
-msgstr "Tux está en problemas, necesita pasar a través de una esclusa.  Ayuda a Tux y comprende como funciona una esclusa."
+msgstr ""
+"Tux está en problemas, necesita pasar a través de una esclusa.  Ayuda a Tux "
+"y comprende como funciona una esclusa."
 
 #: ../boards/canal_lock.xml.in.h:3
 msgid ""
@@ -804,7 +806,12 @@ msgid ""
 "Vegastrike which are released under the GPL license. The transportation "
 "images are copyright Franck Doucet. Dates of Transportation are based on "
 "those found in &lt;http://www.wikipedia.org&gt;."
-msgstr "La foto de la luna tiene copyright de la NASA. Los sonidos del espacio provienen de Tuxpaint y Vegastrike, los cuales están publicados bajo la licencia GPL. Las imágenes del transporte tienen copyright de Franck Doucet. Las Eras del Transporte se basan en las que se pueden encontrar en &lt;http://www.wikipedia.org.&gt;."
+msgstr ""
+"La foto de la luna tiene copyright de la NASA. Los sonidos del espacio "
+"provienen de Tuxpaint y Vegastrike, los cuales están publicados bajo la "
+"licencia GPL. Las imágenes del transporte tienen copyright de Franck Doucet. "
+"Las Eras del Transporte se basan en las que se pueden encontrar en &lt;"
+"http://www.wikipedia.org.&gt;."
 
 #: ../boards/chronos.xml.in.h:4
 msgid "Pick from the pictures on the left and put them on the red dots"
@@ -1048,7 +1055,9 @@ msgstr ""
 msgid ""
 "Left-Click with the mouse on all the swimming fish before they leave the "
 "fishtank"
-msgstr "Pulsa con el botón izquierdo del ratón todos sobre los peces antes que se escapen del acuario"
+msgstr ""
+"Pulsa con el botón izquierdo del ratón todos sobre los peces antes que se "
+"escapen del acuario"
 
 #: ../boards/clickgame.xml.in.h:15
 msgid "Motor coordination: moving and clicking the mouse."
@@ -2117,13 +2126,49 @@ msgid "Left-Click the mouse on an activity to select it."
 msgstr ""
 "Pulsa con el botón izquierdo del ratón en una actividad para seleccionarla."
 
+#: ../boards/gtans.xml.in.h:1
+msgid ""
+"From Wikipedia, the free encyclopedia. Tangram (Chinese: literally \"seven "
+"boards of cunning\") is a Chinese puzzle. While the tangram is often said to "
+"be ancient, its existence has only been verified as far back as 1800. It "
+"consists of 7 pieces, called tans, which fit together to form a square; "
+"taking the square as the unit: * 5 right isosceles triangles o 2 small (legs "
+"of 1) o 1 medium size (legs of square root of 2) o 2 large size (legs of 2) "
+"* 1 square (side of 1) * 1 parallelogram (sides of 1 and square root of 2)"
+msgstr ""
+
+#: ../boards/gtans.xml.in.h:3
+msgid ""
+"Select the tangram to form. Move a piece by dragging it. Right click on it "
+"to create a symetrical item. Select an item and drag around it for the "
+"rotation Once the requested shape is created, it will be recognized by the "
+"computer If you need help, click on the shape button, the border of the "
+"shape will be drawn."
+msgstr ""
+
+#: ../boards/gtans.xml.in.h:4
+msgid "The objective is to form a given shape with seven pieces"
+msgstr "El objetivo es construir una forma con site piezas"
+
+#: ../boards/gtans.xml.in.h:5
+msgid ""
+"The original code has been written by Philippe Banwarth in 1999. It has been "
+"ported to GCompris by Yves Combe in 2005."
+msgstr "El código original ha sido escrito por Phillipe Banwarth en 1999. Se ha portado a GCompris por Yves Combe en 2005."
+
+#: ../boards/gtans.xml.in.h:6
+msgid "The tangram puzzle game"
+msgstr "El juego de puzzle de tangram"
+
 #: ../boards/guessnumber.xml.in.h:1
 msgid "Guess a number"
 msgstr "Adivina un número"
 
 #: ../boards/guessnumber.xml.in.h:2
 msgid "Help Tux escape the cave. Tux hides a number that you must discover."
-msgstr "Ayuda a Tux a que escape de la cueva. Tux esconde un número que debes descubrir."
+msgstr ""
+"Ayuda a Tux a que escape de la cueva. Tux esconde un número que debes "
+"descubrir."
 
 #: ../boards/guessnumber.xml.in.h:3
 msgid "Numbers from 1 to 1000 for the last level."
@@ -2680,7 +2725,13 @@ msgid ""
 "and try to match the twins. You can only activate two Tux at once, so you "
 "need to remember where a sound is, while you listen to its twin. When you "
 "turn over the twins, they both disappear."
-msgstr "Se muestra un conjunto Tux violinistas. Cada Tux tiene un sonido asociado, y cada sonido tiene un gemelo exacto. Pulsa en un Tux para ver su sonido oculto, e intenta emparejar los gemelos. Sólo puedes activar dos Tux cada vez, así que necesitarás recordar donde está cada sonido, mientras que escuchas a su gemelo. Cuando des la vuelta a dos sonidos gemelos, ambos desaparecen."
+msgstr ""
+"Se muestra un conjunto Tux violinistas. Cada Tux tiene un sonido asociado, y "
+"cada sonido tiene un gemelo exacto. Pulsa en un Tux para ver su sonido "
+"oculto, e intenta emparejar los gemelos. Sólo puedes activar dos Tux cada "
+"vez, así que necesitarás recordar donde está cada sonido, mientras que "
+"escuchas a su gemelo. Cuando des la vuelta a dos sonidos gemelos, ambos "
+"desaparecen."
 
 #: ../boards/memory_sound.xml.in.h:2
 msgid "Audio memory game"
@@ -2688,7 +2739,8 @@ msgstr "Juego de memoria de sonidos"
 
 #: ../boards/memory_sound.xml.in.h:3
 msgid "Click on Tux the violinist and listen to find the matching sounds"
-msgstr "Pulsa en Tux el violinista y escucha para encontrar los sonidos coincidentes"
+msgstr ""
+"Pulsa en Tux el violinista y escucha para encontrar los sonidos coincidentes"
 
 #: ../boards/memory_sound.xml.in.h:4 ../boards/memory_sound_tux.xml.in.h:3
 #: ../boards/memory_tux.xml.in.h:3
@@ -3573,7 +3625,8 @@ msgstr "Tuxpaint"
 
 #: ../boards/tuxpaint.xml.in.h:4
 msgid "Use Tuxpaint to draw. When Tuxpaint is finished this board will end."
-msgstr "Use Tuxpaint para dibujar. Cuando Tuxpaint acabe este tablero terminará."
+msgstr ""
+"Use Tuxpaint para dibujar. Cuando Tuxpaint acabe este tablero terminará."
 
 #: ../boards/tuxpaint.xml.in.h:5
 msgid "mouse and keyboard manipulation"
@@ -3586,7 +3639,9 @@ msgstr "Un juego de rompecabezas deslizante"
 #: ../boards/traffic.xml.in.h:2
 msgid ""
 "Remove all the red cars from the parking lot through the gate on the right"
-msgstr "Saca todos los coches rojos del aparcamiento a través del portón de la derecha"
+msgstr ""
+"Saca todos los coches rojos del aparcamiento a través del portón de la "
+"derecha"
 
 #: ../boards/watercycle.xml.in.h:1
 msgid ""
@@ -3611,7 +3666,9 @@ msgstr "Aprender el ciclo del agua"
 msgid ""
 "Tux has come back from a long fishing party on his boat. Bring the water "
 "system back up so he can take a shower."
-msgstr "Tux ha vuelto de una fiesta de pesca en su barco. Reactiva el sistema de aguas para que se pueda duchar."
+msgstr ""
+"Tux ha vuelto de una fiesta de pesca en su barco. Reactiva el sistema de "
+"aguas para que se pueda duchar."
 
 #: ../boards/wordsgame.xml.in.h:1 ../src/boards/wordsgame.c:113
 msgid "Falling Words"
@@ -4420,7 +4477,7 @@ msgstr "Texto sólo en mayúsculas"
 msgid "Enter login to log in"
 msgstr "Introduce tu nombre de usuario para identificarte"
 
-#: ../src/boards/python/mosaic.py:217
+#: ../src/boards/python/mosaic.py:210
 msgid "Rebuild the same mosaic on the right area"
 msgstr "Reconstruye el mismo mosaico en el área de la derecha"
 
