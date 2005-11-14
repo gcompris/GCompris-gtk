@@ -179,3 +179,7 @@ on_symetry_clicked (GnomeCanvasItem *canvasitem,
 		  GdkEvent *event,
 		  gpointer user_data);
 
+gboolean
+on_rotation_clicked (GnomeCanvasItem *canvasitem,
+		     GdkEvent *event,
+		     gpointer user_data);

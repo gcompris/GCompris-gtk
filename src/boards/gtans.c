@@ -111,8 +111,6 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 
   if(agcomprisBoard!=NULL)
     {
-      g_warning("GTans start");
-
       gcomprisBoard=agcomprisBoard;
 
       gcomprisBoard->level = 1;
@@ -121,7 +119,6 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 
       gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas), "images/gtans_bg.png");
 
-      g_warning("taninitstart call.");
       selectedgrande = FALSE;
       taninitstart();
     }
@@ -291,11 +288,8 @@ void tanspinsetvalmax (int val){
     }      
   } else
     {
-      g_warning("tanspinsetvalmax 1");
       tansetnewfigurepart1(0);
-      g_warning("tanspinsetvalmax 2");
       tansetnewfigurepart2();
-      g_warning("tanspinsetvalmax 3");
     }
 
 }
@@ -905,7 +899,6 @@ void taninitselect(int selected, gboolean force){
 
 /********************************/
 void tandrawselect(int dx, int dy, int drot){
-  
   tanpiecepos *selpiece;
   double zoom;
   int dumrot;
@@ -991,8 +984,6 @@ void tansetreussiactual (void){
 /********************************/
 void tanredrawpetite (void){
 
-  int deb = 0;
-  g_warning ("tanredrawpetite %d", deb++);
   GdkRectangle rect={0,0,0,0};
   int wid,hei;
 
@@ -1002,20 +993,16 @@ void tanredrawpetite (void){
 
   wid = widgetpetite->allocation.width;
   hei = widgetpetite->allocation.height;
-  g_warning ("tanredrawpetite %d", deb++);
 
   gdk_draw_rectangle (pixmappetite,
 		      figpetite.reussi ? tabgc[GCPETITECHK] : tabgc[GCPETITEBG],
 		      TRUE,
 		      0, 0, wid, hei);
-  g_warning ("tanredrawpetite %d", deb++);
 
   if (!figtabsize)
     return;
 
   tandrawfloat (pixmappetite, FALSE);
-
-  g_warning ("tanredrawpetite %d", deb++);
 
   if (helptanset<PIECENBR)
     tandrawpiece(widgetpetite,
@@ -1026,13 +1013,9 @@ void tanredrawpetite (void){
 
   /* tandrawfigure(widget, pixmappetite, &figpetite, PIECENBR+1, TAN_PETITEFG); */
 
-  g_warning ("tanredrawpetite %d", deb++);
-  
   rect.width=wid;
   rect.height=hei;
   gtk_widget_draw (widgetpetite, &rect);
-
-  g_warning ("tanredrawpetite %d", deb++);
 
 }
 
@@ -1123,13 +1106,9 @@ gboolean tanloadfigtab (char *name){
 
  lres=0;
 
- g_warning("Opening file %s",name);
- 
  if ( (hand = fopen(name, "r"))!=NULL &&
       fscanf(hand, "gTans v1.0 %d \n", &newfigtabsize)==1 &&
       (newfigtab = (tanfigure *)g_malloc(sizeof(tanfigure)*newfigtabsize))!=NULL ){
-
-   g_warning("Opening file %s success",name);
 
    lres=1;
    figs = newfigtab;
@@ -1812,23 +1791,16 @@ void tanrecentreout(double oldzoom, double newzoom){
 /* change de petite figure */
 void tansetnewfigurepart2(void){
   
-  g_warning("tansetnewfigurepart2 1");
   if (selectedgrande){
     helpoutset=FALSE;
-    g_warning("tansetnewfigurepart2 2");
     tanunselect();
-    g_warning("tansetnewfigurepart2 3");
   }
   else if (helpoutset){       /* pour eviter 2 appels successif a tanredrawgrande */
     helpoutset=FALSE;
-    g_warning("tansetnewfigurepart2 4");
     tanredrawgrande();
-    g_warning("tansetnewfigurepart2 5");
   }
 
-  g_warning("tansetnewfigurepart2 6");
   tanredrawpetite();
-  g_warning("tansetnewfigurepart2 7");
 
   selpossible=TRUE;
 
@@ -1862,8 +1834,6 @@ void spesavefig (void){
  }
 
 }
-
-static int deb_main = 0;
 
 /********************************/
 void taninitstart(void){
@@ -1902,8 +1872,6 @@ void taninitstart(void){
   
   create_mainwindow(boardRootItem);
 
-  g_warning("DEBUG_main %d", deb_main ++);
-
   switch (accuracy){
   case 0:
     accurstr = "maccuracy1";
@@ -1920,11 +1888,7 @@ void taninitstart(void){
   else
     accurstr = "mrotstp";
 
-  g_warning("DEBUG_main %d", deb_main ++);
-
   tanloadfigtab(figfilename);
-
-  g_warning("DEBUG_main %d", deb_main ++);
 
 }
 

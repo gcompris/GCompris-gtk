@@ -12,8 +12,6 @@
 #define Y_BASE_SMALLAREA 50
 #define WIDTH_SMALLAREA 200
 
-static int deb = 0;
-
 void create_mainwindow (GnomeCanvasGroup *rootitem)
 {
   GtkWidget *mainwindow;
@@ -107,11 +105,7 @@ void create_mainwindow (GnomeCanvasGroup *rootitem)
 
   //gtk_container_add (GTK_CONTAINER (aspectframe1), wdrawareagrande);
 
-  g_warning("DEBUG %d",deb++);
-
   gtk_widget_set_events (wdrawareagrande, GDK_EXPOSURE_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_MOTION_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK | GDK_STRUCTURE_MASK);
-
-  g_warning("DEBUG %d",deb++);
 
   /* Gcompris */
   gnome_canvas_item_new      ( rootitem,
@@ -126,18 +120,10 @@ void create_mainwindow (GnomeCanvasGroup *rootitem)
 
   gtk_widget_show (wdrawareagrande);
 
-  g_warning("DEBUG %d",deb++);
-
-
-
-  g_warning("DEBUG %d",deb++);
-
   wdrawareapetite = gtk_drawing_area_new ();
   gtk_widget_set_name (wdrawareapetite, "wdrawareapetite");
 
   gtk_widget_set_events (wdrawareapetite, GDK_EXPOSURE_MASK | GDK_STRUCTURE_MASK);
-
-  g_warning("DEBUG %d",deb++);
 
   /* Gcompris */
   gnome_canvas_item_new      ( rootitem,
@@ -151,8 +137,6 @@ void create_mainwindow (GnomeCanvasGroup *rootitem)
 			       );
 
   gtk_widget_show (wdrawareapetite);
-
-  g_warning("DEBUG %d",deb++);
 
   gtk_signal_connect (GTK_OBJECT (wdrawareagrande), "expose_event",
                       GTK_SIGNAL_FUNC (on_wdrawareagrande_expose_event),
@@ -232,17 +216,17 @@ void create_mainwindow (GnomeCanvasGroup *rootitem)
   show_figure = gnome_canvas_item_new (rootitem,
 				       gnome_canvas_pixbuf_get_type (),
 				       "pixbuf", pixmap_show, 
-				       "x", (double) X_BASE_SMALLAREA + WIDTH_SMALLAREA/2,
-				       "y", (double) Y_BASE_SMALLAREA + WIDTH_SMALLAREA + 50,
-				       "anchor",  GTK_ANCHOR_N,
+				       "x", (double) X_BASE_SMALLAREA,
+				       "y", (double) Y_BASE_SMALLAREA + WIDTH_SMALLAREA + 80,
+				       "anchor",  GTK_ANCHOR_W,
 				       NULL);
       
   outline_figure = gnome_canvas_item_new (rootitem,
 				       gnome_canvas_pixbuf_get_type (),
 				       "pixbuf", pixmap_outline, 
-				       "x", (double) X_BASE_SMALLAREA + WIDTH_SMALLAREA/2,
-				       "y", (double) Y_BASE_SMALLAREA + WIDTH_SMALLAREA + 100,
-				       "anchor", GTK_ANCHOR_N,
+				       "x", (double) X_BASE_SMALLAREA,
+				       "y", (double) Y_BASE_SMALLAREA + WIDTH_SMALLAREA + 130,
+				       "anchor", GTK_ANCHOR_W,
 				       NULL);
       
   gtk_signal_connect(GTK_OBJECT(outline_figure), "event",
@@ -267,8 +251,8 @@ void create_mainwindow (GnomeCanvasGroup *rootitem)
   symetry = gnome_canvas_item_new (rootitem,
 				   gnome_canvas_pixbuf_get_type (),
 				   "pixbuf", pixmap_symetry, 
-				   "x", (double) X_BASE_SMALLAREA + WIDTH_SMALLAREA/2,
-				   "y", (double) Y_BASE_SMALLAREA + WIDTH_SMALLAREA + 150,
+				   "x", (double) X_BASE_SMALLAREA + WIDTH_SMALLAREA - 50,
+				   "y", (double) Y_BASE_SMALLAREA + WIDTH_SMALLAREA + 180,
 				   "anchor", GTK_ANCHOR_N,
 				   NULL);
       
@@ -280,6 +264,95 @@ void create_mainwindow (GnomeCanvasGroup *rootitem)
 		     (GtkSignalFunc) gcompris_item_event_focus,
 		     NULL);
   
+
+  /* buttons de rotations */
+  GdkPixbuf   *right_rot_small = NULL;
+  GdkPixbuf   *right_rot_big = NULL;
+  GdkPixbuf   *left_rot_small = NULL;
+  GdkPixbuf   *left_rot_big = NULL;
+  GnomeCanvasItem *r_rot_s, *r_rot_b, *l_rot_s, *l_rot_b;
+
+  right_rot_small = gcompris_load_skin_pixmap("draw/tool-rotate-cw_on.png");
+  right_rot_big = gcompris_load_skin_pixmap("draw/tool-rotation-cw.png");
+  left_rot_small = gcompris_load_skin_pixmap("draw/tool-rotate-ccw_on.png");
+  left_rot_big = gcompris_load_skin_pixmap("draw/tool-rotation-ccw.png");
+
+  r_rot_s = gnome_canvas_item_new (rootitem,
+				   gnome_canvas_pixbuf_get_type (),
+				   "pixbuf", right_rot_small, 
+				   "x", (double) X_BASE_SMALLAREA + WIDTH_SMALLAREA,
+				   "y", (double) Y_BASE_SMALLAREA + WIDTH_SMALLAREA + 60,
+				   "anchor", GTK_ANCHOR_NE,
+				   NULL);
+      
+
+  l_rot_s = gnome_canvas_item_new (rootitem,
+				   gnome_canvas_pixbuf_get_type (),
+				   "pixbuf", left_rot_small, 
+				   "x", (double) X_BASE_SMALLAREA + WIDTH_SMALLAREA - 100,
+				   "y", (double) Y_BASE_SMALLAREA + WIDTH_SMALLAREA + 60,
+				   "anchor", GTK_ANCHOR_NW,
+				   NULL);
+      
+
+  r_rot_b = gnome_canvas_item_new (rootitem,
+				   gnome_canvas_pixbuf_get_type (),
+				   "pixbuf", right_rot_big, 
+				   "x", (double) X_BASE_SMALLAREA + WIDTH_SMALLAREA,
+				   "y", (double) Y_BASE_SMALLAREA + WIDTH_SMALLAREA + 120,
+				   "anchor", GTK_ANCHOR_NE,
+				   "width",(gdouble) 50,
+				   "height",(gdouble) 50,
+				   "width-set",TRUE,
+				   "height-set",TRUE,
+				   NULL);
+      
+
+  l_rot_b = gnome_canvas_item_new (rootitem,
+				   gnome_canvas_pixbuf_get_type (),
+				   "pixbuf", left_rot_big, 
+				   "x", (double) X_BASE_SMALLAREA + WIDTH_SMALLAREA - 100,
+				   "y", (double) Y_BASE_SMALLAREA + WIDTH_SMALLAREA + 120,
+				   "anchor", GTK_ANCHOR_NW,
+				   "width",(gdouble) 50,
+				   "height",(gdouble) 50,
+				   "width-set",TRUE,
+				   "height-set",TRUE,
+				   NULL);
+      
+
+      
+  gtk_signal_connect(GTK_OBJECT(r_rot_s), "event",
+		     (GtkSignalFunc) on_rotation_clicked,
+		     (gpointer) 0);
+      
+  gtk_signal_connect(GTK_OBJECT(r_rot_s), "event",
+		     (GtkSignalFunc) gcompris_item_event_focus,
+		     NULL);
+      
+  gtk_signal_connect(GTK_OBJECT(l_rot_s), "event",
+		     (GtkSignalFunc) on_rotation_clicked,
+		     (gpointer) 1);
+      
+  gtk_signal_connect(GTK_OBJECT(l_rot_s), "event",
+		     (GtkSignalFunc) gcompris_item_event_focus,
+		     NULL);
+      
+  gtk_signal_connect(GTK_OBJECT(r_rot_b), "event",
+		     (GtkSignalFunc) on_rotation_clicked,
+		     (gpointer) 2);
+      
+  gtk_signal_connect(GTK_OBJECT(r_rot_b), "event",
+		     (GtkSignalFunc) gcompris_item_event_focus,
+		     NULL);
+      
+  gtk_signal_connect(GTK_OBJECT(l_rot_b), "event",
+		     (GtkSignalFunc) on_rotation_clicked,
+		     (gpointer) 3);
+      
+  gtk_signal_connect(GTK_OBJECT(l_rot_b), "event",
+		     (GtkSignalFunc) gcompris_item_event_focus,
+		     NULL);
 
 }
 

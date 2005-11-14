@@ -247,7 +247,6 @@ on_wdrawareapetite_configure_event     (GtkWidget       *widget,
                                         GdkEventConfigure *event,
                                         gpointer         user_data)
 {
-  g_warning("on_wdrawareapetite_configure_event");
   widgetpetite=widget;
   if (!initcbpe)
     taninitcbpe();
@@ -345,4 +344,37 @@ on_symetry_clicked (GnomeCanvasItem *canvasitem,
   return FALSE;
 }
 
+gboolean
+on_rotation_clicked (GnomeCanvasItem *canvasitem,
+		  GdkEvent *event,
+		  gpointer user_data)
+{
+  gint angle;
+
+  if ((event->type == GDK_BUTTON_PRESS)  
+      && (event->button.button == 1)) {
+
+    if (selectedgrande==TRUE){
+      switch ((gint) user_data){
+      case 0:
+	angle = -rotstepnbr;
+	break;
+      case 1:
+	angle = rotstepnbr;
+	break;
+      case 2:
+	angle = -4*rotstepnbr;
+	break;
+      case 3:
+	angle = 4*rotstepnbr;
+	break;
+      }
+      figgrande.piecepos[PIECENBR-1].rot += angle;
+
+      tandrawselect(0,0,0);
+      return TRUE;
+    }
+  }
+  return FALSE;
+}
 

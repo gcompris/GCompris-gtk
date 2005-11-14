@@ -1,3 +1,16 @@
+2005-11-14  Yves Combe,,,  <yves@ycombe.net>
+
+	clean tangram code from debug.
+	add rotation buttons in tangram.
+
+	* src/boards/gtans.c: (start_board), (tanspinsetvalmax),
+	(tandrawselect), (tanredrawpetite), (tanloadfigtab),
+	(tansetnewfigurepart2), (taninitstart):
+	* src/boards/gtans_callbacks.c:
+	(on_wdrawareapetite_configure_event), (on_rotation_clicked):
+	* src/boards/gtans_callbacks.h:
+	* src/boards/gtans_interface.c: (create_mainwindow):
+
 2005-11-14  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	Improved gtans (a little bit.) 
