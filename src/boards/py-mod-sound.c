@@ -143,6 +143,9 @@ void pyGcomprisSoundCallback(gchar *file){
 
   if(py_cb==NULL) return;
 
+  if (!Py_IsInitialized())
+    return;
+
   gil = pyg_gil_state_ensure();
 
   result = PyObject_CallFunction(py_cb, "O", PyString_FromString(file));

@@ -1,6 +1,6 @@
 /* gcompris - memory.c
  *
- * Time-stamp: <2005/11/12 17:21:04 yves>
+ * Time-stamp: <2005/11/14 23:59:48 yves>
  *
  * Copyright (C) 2000 Bruno Coudoin
  * 
@@ -600,9 +600,10 @@ end_board ()
       pause_board(TRUE);
 
       memory_destroy_all_items();
-      g_queue_free(tux_memory);
-      tux_memory = NULL;
-
+      if (currentMode == MODE_TUX){
+	g_queue_free(tux_memory);
+	tux_memory = NULL;
+      }
     }
   gcomprisBoard = NULL;
 }
@@ -683,11 +684,10 @@ static void memory_next_level()
   if (currentMode == MODE_TUX){
 	tux_memory_size = tux_memory_sizes[gcomprisBoard->level];
 	g_warning("tux_memory_size %d", tux_memory_size );
+	tux_pairs = 0;
+	player_pairs = 0;
+	update_scores();
   }
-  tux_pairs = 0;
-  player_pairs = 0;
-
-  update_scores();
 }
 
 
@@ -1448,6 +1448,12 @@ static void sound_callback(gchar *file)
 
 
 static void start_callback(gchar *file){
+  if (!gcomprisBoard)
+    return;
+
+  if (currentUiMode != UIMODE_SOUND)
+    return;
+
   playing_sound = FALSE;
 }
 

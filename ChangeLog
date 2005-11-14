@@ -1,3 +1,12 @@
+2005-11-15  Yves Combe  <yves@ycombe.net>
+
+	Fix segfaults in python callback and memory.
+        Cause is sound finished after board quit.
+
+	* src/boards/memory.c: (end_board), (memory_next_level),
+	(start_callback):
+	* src/boards/py-mod-sound.c: (pyGcomprisSoundCallback):
+
 2005-11-14  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	Created the gtans icon based on an www.openclipart.org design reviewed by
