@@ -178,10 +178,8 @@ void gcompris_timer_pause(gboolean pause)
 
   paused = pause;
 
-  printf("gcompris_timer_pause %d\n", paused);
   if(pause)
     {
-      printf("   gcompris_timer_pause stop the timer\n");
       if (animate_id)
 	gtk_timeout_remove (animate_id);
       animate_id = 0;
