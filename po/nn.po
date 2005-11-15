@@ -1,15 +1,14 @@
 # Translation of nn to Norwegian Nynorsk
-# Translation of nn.po to Norwegian Nynorsk.
 # This file is distributed under the same license as the PACKAGE package.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER.
-# Karl Ove Hufthammer <karl@huftis.org>, 2004, 2005.
 #
+# Karl Ove Hufthammer <karl@huftis.org>, 2004, 2005.
 msgid ""
 msgstr ""
 "Project-Id-Version: nn\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-10-30 21:52+0100\n"
-"PO-Revision-Date: 2005-10-30 22:48+0100\n"
+"POT-Creation-Date: 2005-11-13 11:25+0100\n"
+"PO-Revision-Date: 2005-11-13 12:22+0100\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <i18n-nn@lister.ping.uio.no>\n"
 "MIME-Version: 1.0\n"
@@ -506,7 +505,7 @@ msgid "Simple addition. Can recognize written numbers"
 msgstr "Enkel addisjon. Du må kunna kjenna att skrivne tal."
 
 #: ../boards/algebramenu.xml.in.h:1
-msgid "Go to Maths activities"
+msgid "Go to Math activities"
 msgstr "Matte"
 
 #: ../boards/algorithm.xml.in.h:1
@@ -695,7 +694,7 @@ msgstr "Skyt fotballen i målet."
 
 #: ../boards/billard.xml.in.h:3 ../boards/chess_computer.xml.in.h:2
 #: ../boards/chess_movelearn.xml.in.h:3 ../boards/chess_partyend.xml.in.h:2
-#: ../boards/clickgame.xml.in.h:17 ../boards/connect4.xml.in.h:7
+#: ../boards/clickgame.xml.in.h:16 ../boards/connect4.xml.in.h:7
 #: ../boards/erase.xml.in.h:3 ../boards/erase_clic.xml.in.h:6
 #: ../boards/erase_double_clic.xml.in.h:6 ../boards/fifteen.xml.in.h:2
 #: ../boards/hanoi.xml.in.h:3 ../boards/memory.xml.in.h:4
@@ -724,13 +723,11 @@ msgstr "Kanalsluse"
 
 #: ../boards/canal_lock.xml.in.h:2
 msgid ""
-"Tux is in trouble, and needs to take his boat through a lock.\n"
-"Help Tux and find out how a canal lock works."
-msgstr ""
-"Tux har problem med båten sin, og må gjennom ei kanalsluse.\n"
-"Hjelp han å forstå korleis slusesystemet fungerer."
+"Tux is in trouble, and needs to take his boat through a lock. Help Tux and "
+"find out how a canal lock works."
+msgstr "Tux har problem med båten sin, og må gjennom ei kanalsluse. Hjelp han å forstå korleis slusesystemet fungerer."
 
-#: ../boards/canal_lock.xml.in.h:4
+#: ../boards/canal_lock.xml.in.h:3
 msgid ""
 "You are in charge of the canal lock. Open the gates and the locks in the "
 "right order, so Tux can travel through the gates in both directions."
@@ -1029,15 +1026,15 @@ msgstr ""
 
 #: ../boards/clickgame.xml.in.h:14
 msgid ""
-"Left-Click with the mouse on all the swimming fish\n"
-"before they leave the fishtank"
+"Left-Click with the mouse on all the swimming fish before they leave the "
+"fishtank"
 msgstr "Trykk med musa på alle fiskane før dei sym ut av akvariet."
 
-#: ../boards/clickgame.xml.in.h:16
+#: ../boards/clickgame.xml.in.h:15
 msgid "Motor coordination: moving and clicking the mouse."
 msgstr "Du skal læra å bruka musa, inkludert klikking."
 
-#: ../boards/clickgame.xml.in.h:18
+#: ../boards/clickgame.xml.in.h:17
 msgid "Use the left mouse button to click on the moving fish."
 msgstr "Trykk med venstre museknapp på fiskane som sym rundt."
 
@@ -1093,7 +1090,7 @@ msgstr ""
 "rett farge."
 
 #: ../boards/colors_group.xml.in.h:1
-msgid "Go to Colour activities"
+msgid "Go to Color activities"
 msgstr "Fargar"
 
 #: ../boards/computer.xml.in.h:1
@@ -1226,12 +1223,12 @@ msgstr ""
 msgid "Motor-coordination"
 msgstr "Auge–hand-koordinering."
 
-#: ../boards/erase.xml.in.h:4 ../src/boards/erase.c:83
-#: ../src/boards/machpuzzle.c:93
+#: ../boards/erase.xml.in.h:4 ../src/boards/erase.c:110
+#: ../src/boards/machpuzzle.c:92
 msgid "Move the mouse"
 msgstr "Flytt på musa"
 
-#: ../boards/erase.xml.in.h:5 ../src/boards/erase.c:84
+#: ../boards/erase.xml.in.h:5 ../src/boards/erase.c:111
 msgid "Move the mouse to erase the area and discover the background"
 msgstr "Flytt på musa for å viska vekk området og visa biletet bak."
 
@@ -2077,18 +2074,14 @@ msgid "Guess a number"
 msgstr "Gjett eit tal"
 
 #: ../boards/guessnumber.xml.in.h:2
-msgid ""
-"Help Tux escape the cave.\n"
-"Tux hide a number that you must discover."
-msgstr ""
-"Hjelp Tux å komma seg ut av hola.\n"
-"Tux har gøymd eit tal som du må gjetta."
+msgid "Help Tux escape the cave. Tux hides a number that you must discover."
+msgstr "Hjelp Tux å komma seg ut av hola. Han har gøymd eit tal som du må gjetta."
 
-#: ../boards/guessnumber.xml.in.h:4
+#: ../boards/guessnumber.xml.in.h:3
 msgid "Numbers from 1 to 1000 for the last level."
 msgstr "Tal frå 1 til 1000 for det siste nivået."
 
-#: ../boards/guessnumber.xml.in.h:5
+#: ../boards/guessnumber.xml.in.h:4
 msgid ""
 "Read the instructions that give you the range of the number to find. Enter a "
 "number in the top right blue entry box. Tux tell you if your number is "
@@ -2096,7 +2089,13 @@ msgid ""
 "escape area on the right represents how far you are from the right number. "
 "If Tux is above or under the escape area, it means your number is higher or "
 "under the right number."
-msgstr "Les instruksjonane som fortel deg kva to tal talet ligg mellom. Gjett eit tal, og skriv det inn øvst til høgre. Tux vil så fortelja deg om talet du gjetta er for høgt eller for lågt. Skriv så inn eit nytt nummer. Avstanden mellom Tux og utgangen til høgre viser kor langt vekke du er frå rett tal. Viss Tux er over eller andre utgangen, er talet ditt høgare eller lågare det rette talet."
+msgstr ""
+"Les instruksjonane som fortel deg kva to tal talet ligg mellom. Gjett eit "
+"tal, og skriv det inn øvst til høgre. Tux vil så fortelja deg om talet du "
+"gjetta er for høgt eller for lågt. Skriv så inn eit nytt tal. Avstanden "
+"mellom Tux og utgangen til høgre viser kor langt vekke du er frå rett tal. "
+"Viss Tux er over eller andre utgangen, er talet ditt høgare eller lågare det "
+"rette talet."
 
 #: ../boards/hanoi.xml.in.h:1
 msgid "Concept taken from EPI games."
@@ -2619,6 +2618,40 @@ msgstr "Tren på å hugsa alle korta."
 msgid "Go to Memory activities"
 msgstr "Hukommelse"
 
+#: ../boards/memory_sound.xml.in.h:1 ../boards/memory_sound_tux.xml.in.h:1
+msgid ""
+"A set of violinist Tux is shown. Each Tux has an associated sound, and each "
+"sound has a twin exactly the same. Click on a Tux to see its hidden sound, "
+"and try to match the twins. You can only activate two Tux at once, so you "
+"need to remember where a sound is, while you listen to its twin. When you "
+"turn over the twins, they both disappear."
+msgstr "Ein del Tux-fiolinistar vert vist. Kvar av dei har sin eigen lyd, og nokre av dei er tvillingar, med same lyd. Trykk på ein Tux for å høyra lyden hans, og prøv så å finna tvillingen hans. Du kan berre høyra på to Tux-ar om gongen, så du må hugsa lydane dei spelar. Når du høyrer på to tvillingar samtidig, forsvinn dei."
+
+#: ../boards/memory_sound.xml.in.h:2
+msgid "Audio memory game"
+msgstr "Lydlotto"
+
+#: ../boards/memory_sound.xml.in.h:3
+msgid "Click on Tux the violinist and listen to find the matching sounds"
+msgstr "Finn to Tux-fiolinistar som spelar same lyd."
+
+#: ../boards/memory_sound.xml.in.h:4 ../boards/memory_sound_tux.xml.in.h:3
+#: ../boards/memory_tux.xml.in.h:3
+msgid "Mouse manipulation, Brain."
+msgstr "Du må kunna bruka musa."
+
+#: ../boards/memory_sound.xml.in.h:5 ../boards/memory_sound_tux.xml.in.h:5
+msgid "Train your audio memory and remove all the violonists Tux."
+msgstr "Tren på å hugsa lydar, og fjern alle Tux-fiolinistane."
+
+#: ../boards/memory_sound_tux.xml.in.h:2
+msgid "Audio memory game against Tux"
+msgstr "Lydlotto mot Tux"
+
+#: ../boards/memory_sound_tux.xml.in.h:4
+msgid "Play the audio memory against Tux"
+msgstr "Spel lydlotto mot Tux."
+
 #: ../boards/memory_tux.xml.in.h:1
 msgid ""
 "A set of blank cards is shown. Each pair is associated by the same picture "
@@ -2637,10 +2670,6 @@ msgstr ""
 #: ../boards/memory_tux.xml.in.h:2
 msgid "Memory Game with images, against Tux"
 msgstr "Biletlotto mot Tux"
-
-#: ../boards/memory_tux.xml.in.h:3
-msgid "Mouse manipulation, Brain."
-msgstr "Du må kunna bruka musa."
 
 #: ../boards/memory_tux.xml.in.h:4
 msgid "Play to memory against Tux."
@@ -3162,7 +3191,7 @@ msgstr "Loddrett lesetrening"
 msgid "Copy a drawing from the box on the right into the box on the left."
 msgstr "Kopier teikninga frå feltet til høgre til feltet til venstre."
 
-#: ../boards/redraw.xml.in.h:2 ../boards/redraw_symmetrical.xml.in.h:4
+#: ../boards/redraw.xml.in.h:2 ../boards/redraw_symmetrical.xml.in.h:2
 msgid ""
 "First, select the proper tool from the toolbar. Then drag the mouse to "
 "create objects. When you are done, click on the OK button. Errors will be "
@@ -3180,21 +3209,13 @@ msgstr "Kopier teikning"
 
 #: ../boards/redraw_symmetrical.xml.in.h:1
 msgid ""
-"Copy the mirror image of an object from the box\n"
-"on the right into the box on the left."
-msgstr ""
-"Kopier spegelbiletet av ei teikning frå feltet til høgre til feltet til "
-"venstre."
-
-#: ../boards/redraw_symmetrical.xml.in.h:3
-msgid ""
 "Copy the mirror image of an object from the box on the right into the box on "
 "the left."
 msgstr ""
 "Kopier spegelbiletet av ei teikning frå feltet til høgre til feltet til "
 "venstre."
 
-#: ../boards/redraw_symmetrical.xml.in.h:5
+#: ../boards/redraw_symmetrical.xml.in.h:3
 msgid "Mirror the given item"
 msgstr "Spegelkopier teikninga"
 
@@ -3452,17 +3473,33 @@ msgstr "Øv på å leggja til med eit målspel"
 msgid "Throw darts at a target and count your score."
 msgstr "Skyt piler på målskiva og tel så kor mange poeng du fekk."
 
+#: ../boards/tuxpaint.xml.in.h:1
+msgid "Drawing activity (pixmap)"
+msgstr "Teikneaktivitet (pixmap)"
+
+#: ../boards/tuxpaint.xml.in.h:2
+msgid "Launch Tuxpaint"
+msgstr "Køyr Tux Paint"
+
+#: ../boards/tuxpaint.xml.in.h:3
+msgid "Tuxpaint"
+msgstr "Tux Paint"
+
+#: ../boards/tuxpaint.xml.in.h:4
+msgid "Use Tuxpaint to draw. When Tuxpaint is finished this board will end."
+msgstr "Bruk Tux Paint til å teikna. Når programmet er ferdig vert brettet lukka."
+
+#: ../boards/tuxpaint.xml.in.h:5
+msgid "mouse and keyboard manipulation"
+msgstr "mus- og tastaturbruk"
+
 #: ../boards/traffic.xml.in.h:1
 msgid "A sliding-block puzzle game"
 msgstr "Skyvespel"
 
 #: ../boards/traffic.xml.in.h:2
-msgid ""
-"Remove all the red cars from the parking lot\n"
-"through the gate on the right"
-msgstr ""
-"Køyr den raude bilen (eller alle dei raude bilane)\n"
-"ut frå parkeringsplassen gjennom luka til høgre."
+msgid "Remove all the red cars from the parking lot through the gate on the right"
+msgstr "Køyr den raude bilen (eller alle dei raude bilane) ut frå parkeringsplassen gjennom luka til høgre."
 
 #: ../boards/watercycle.xml.in.h:1
 msgid ""
@@ -3485,13 +3522,11 @@ msgstr "Lær om vasskrinsløpet"
 
 #: ../boards/watercycle.xml.in.h:4
 msgid ""
-"Tux has come back from a long fishing party on his boat.\n"
-"Bring the water system back up so he can take a shower."
-msgstr ""
-"Tux kjem heim etter ein lang båttur, og du må setja i gong\n"
-"vasskrinsløpet, slik at han får teke ein velfortent dusj."
+"Tux has come back from a long fishing party on his boat. Bring the water "
+"system back up so he can take a shower."
+msgstr "Tux kjem heim etter ein lang båttur, og du må setja i gong vasskrinsløpet, slik at han får teke ein velfortent dusj."
 
-#: ../boards/wordsgame.xml.in.h:1 ../src/boards/wordsgame.c:112
+#: ../boards/wordsgame.xml.in.h:1 ../src/boards/wordsgame.c:113
 msgid "Falling Words"
 msgstr "Dalande ord"
 
@@ -3503,7 +3538,7 @@ msgstr "Tastaturtrening."
 msgid "Type the complete word as it falls, before it reachs the ground"
 msgstr "Skriv inn dei dalande orda før dei når bakken."
 
-#: ../boards/wordsgame.xml.in.h:5 ../src/boards/wordsgame.c:113
+#: ../boards/wordsgame.xml.in.h:5 ../src/boards/wordsgame.c:114
 msgid "Type the falling words before they reach the ground"
 msgstr "Skriv inn dei dalande orda før dei når bakken."
 
@@ -3522,24 +3557,6 @@ msgstr "Leik og lær-samlinga GCompris"
 #: ../gcompris.desktop.in.h:3
 msgid "Multiple activities for kids"
 msgstr "Fleire aktivitetar for unga"
-
-#: ../src/boards/advanced_colors.c:533 ../src/boards/imageid.c:642
-#: ../src/boards/missingletter.c:655 ../src/boards/read_colors.c:491
-#: ../src/boards/shapegame.c:1902 ../src/gcompris/file_selector.c:893
-#: ../src/gcompris/gameutil.c:186 ../src/gcompris/gameutil.c:604
-#: ../src/gcompris/gameutil.c:605 ../src/gcompris/gcompris.c:639
-#: ../src/gcompris/images_selector.c:767 ../src/gcompris/skin.c:87
-#: ../src/gcompris/skin.c:266 ../src/gcompris/wordlist.c:49
-#, c-format
-msgid "Couldn't find file %s !"
-msgstr "Fann ikkje fila «%s»."
-
-#: ../src/boards/advanced_colors.c:536 ../src/boards/imageid.c:645
-#: ../src/boards/missingletter.c:658 ../src/boards/read_colors.c:494
-#: ../src/boards/shapegame.c:1905
-#, c-format
-msgid "find file %s !"
-msgstr "Finn fila «%s»."
 
 #: ../src/boards/chess.c:189
 msgid ""
@@ -3601,12 +3618,12 @@ msgstr "Remis"
 #. TRANSLATORS: Put here the alphabet in your language
 #. require by all utf8-functions
 #. TRANSLATORS: Put here the alphabet lowercase in your language
-#: ../src/boards/click_on_letter.c:241 ../src/boards/click_on_letter.c:258
-#: ../src/boards/gletters.c:226 ../src/boards/memory.c:444
+#: ../src/boards/click_on_letter.c:243 ../src/boards/click_on_letter.c:260
+#: ../src/boards/gletters.c:226 ../src/boards/memory.c:564
 msgid "abcdefghijklmnopqrstuvwxyz"
 msgstr "abcdefghijklmnopqrstuvwxyzæøå"
 
-#: ../src/boards/click_on_letter.c:270
+#: ../src/boards/click_on_letter.c:272
 #, c-format
 msgid ""
 "Error: this activity requires that you first install\n"
@@ -3616,7 +3633,7 @@ msgstr ""
 "assetml-voices-alphabet-%s eller %s\n"
 "for å få stemmene på rett språk."
 
-#: ../src/boards/click_on_letter.c:277
+#: ../src/boards/click_on_letter.c:279
 #, c-format
 msgid ""
 "Error: this activity requires that you first install\n"
@@ -3627,7 +3644,7 @@ msgstr ""
 "få stemmene på rett språk. No vert\n"
 "derfor dei engelske stemmene brukt."
 
-#: ../src/boards/click_on_letter.c:285
+#: ../src/boards/click_on_letter.c:287
 msgid ""
 "Error: this activity cannot be played with the\n"
 "sound effects disabled.\n"
@@ -3688,33 +3705,13 @@ msgstr "Trykk på den svarte anda"
 msgid "Click on the white duck"
 msgstr "Trykk på den kvite anda"
 
-#: ../src/boards/erase.c:158
-msgid "Couldn't get GTK settings"
-msgstr "Klarte ikkje henta GTK-innstillingar"
-
-#: ../src/boards/erase.c:163
-#, c-format
-msgid "Double-click default value %d."
-msgstr "Standardverdi for dobbeltklikk: %d."
-
-#: ../src/boards/erase.c:168
-#, c-format
-msgid "Double-click value is now %d."
-msgstr "Verdien for dobbeltklikk er no %d."
-
-#: ../src/boards/erase.c:183 ../src/boards/erase.c:206
-#: ../src/boards/erase.c:337
-#, c-format
-msgid "Double click value is now %d."
-msgstr "Verdien for dobbeltklikk er no %d."
-
 #. TRANSLATORS: Put here the numbers in your language
-#: ../src/boards/gletters.c:222 ../src/boards/memory.c:440
+#: ../src/boards/gletters.c:222 ../src/boards/memory.c:560
 msgid "0123456789"
 msgstr "0123456789"
 
 #. TRANSLATORS: Put here the alphabet uppercase in your language
-#: ../src/boards/gletters.c:232 ../src/boards/memory.c:450
+#: ../src/boards/gletters.c:232 ../src/boards/memory.c:570
 msgid "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 msgstr "ABCDEFGHIJKLMNOPQRSTUVWXYZÆØÅ"
 
@@ -3760,21 +3757,31 @@ msgstr "Sjå kor du er, og byt så tilbake til usynlege veggar for å flytta deg
 msgid "Look at your position, then switch back to 3D mode to continue your moves"
 msgstr "Sjå kor du er, og byt så tilbake til 3D-modus for å flytta deg."
 
-#: ../src/boards/memory.c:172
+#: ../src/boards/memory.c:250
 msgid "Memory"
 msgstr "Biletlotto"
 
-#: ../src/boards/memory.c:173
+#: ../src/boards/memory.c:251
 msgid "Find the matching pair"
 msgstr "Finn tilhøyrande par"
 
-#: ../src/boards/menu.c:75
+#: ../src/boards/menu.c:79
 msgid "Main Menu"
 msgstr "Hovudmeny"
 
-#: ../src/boards/menu.c:76
+#: ../src/boards/menu.c:80
 msgid "Select a Board"
 msgstr "Vel brett"
+
+#: ../src/boards/money.c:488
+#, c-format
+msgid "$ %.2f"
+msgstr "kr %.2f"
+
+#: ../src/boards/money.c:501
+#, c-format
+msgid "$ %.0f"
+msgstr "kr %.0f"
 
 #: ../src/boards/paratrooper.c:102
 msgid "Paratrooper"
@@ -4140,17 +4147,17 @@ msgstr ""
 "Fann ikkje xml-modulen i python. SVG-støtta er ikkje tilgjengeleg. Installer "
 "denne xml-modulen viss du vil opna- eller lagra SVG-animasjonar."
 
-#: ../src/boards/python/anim.py:2204
+#: ../src/boards/python/anim.py:2206
 msgid "SVG is disabled. Install python xml module to enable it"
 msgstr ""
 "SVG-støtta er ikkje tilgjengeleg. Installer xml-modulen i python viss du vil "
 "bruka SVG."
 
-#: ../src/boards/python/anim.py:2360
+#: ../src/boards/python/anim.py:2362
 msgid "Warning: the following images cannot be accessed on your system.\n"
 msgstr "Åtvaring: Desse bileta kan ikkje opnast:\n"
 
-#: ../src/boards/python/anim.py:2362
+#: ../src/boards/python/anim.py:2364
 msgid "The corresponding items have been skipped."
 msgstr "Tilhøyrande element vert ikkje tekne i bruk."
 
@@ -4275,29 +4282,29 @@ msgstr ""
 "E\n"
 "L"
 
-#: ../src/boards/python/guessnumber.py:215
+#: ../src/boards/python/guessnumber.py:222
 #, python-format
 msgid "Guess a number between %d and %d"
 msgstr "Gjett eit tal mellom %d og %d"
 
-#: ../src/boards/python/guessnumber.py:329
-#: ../src/boards/python/guessnumber.py:330
+#: ../src/boards/python/guessnumber.py:337
+#: ../src/boards/python/guessnumber.py:338
 #, python-format
 msgid "Please enter a number between %d and %d"
 msgstr "Skriv inn eit tal mellom %d og %d"
 
-#: ../src/boards/python/guessnumber.py:335
-#: ../src/boards/python/guessnumber.py:336
-msgid "Out of range"
-msgstr "For stort eller for lite"
-
-#: ../src/boards/python/guessnumber.py:342
 #: ../src/boards/python/guessnumber.py:343
+#: ../src/boards/python/guessnumber.py:344
+msgid "Out of range"
+msgstr "Ugyldig tal"
+
+#: ../src/boards/python/guessnumber.py:350
+#: ../src/boards/python/guessnumber.py:351
 msgid "Too high"
 msgstr "For høgt"
 
-#: ../src/boards/python/guessnumber.py:345
-#: ../src/boards/python/guessnumber.py:346
+#: ../src/boards/python/guessnumber.py:353
+#: ../src/boards/python/guessnumber.py:354
 msgid "Too low"
 msgstr "For lågt"
 
@@ -4319,7 +4326,7 @@ msgstr "Berre store bokstavar"
 msgid "Enter login to log in"
 msgstr "Skriv inn brukarnamnet du bruka"
 
-#: ../src/boards/python/mosaic.py:211
+#: ../src/boards/python/mosaic.py:238
 msgid "Rebuild the same mosaic on the right area"
 msgstr "Bygg opp att same mosaikk i området til høgre"
 
@@ -4466,21 +4473,13 @@ msgstr "Vis teksten med berre store bokstavar"
 msgid "Disable stamps"
 msgstr "Slå av stempel"
 
-#: ../src/boards/railroad.c:96
+#: ../src/boards/railroad.c:95
 msgid "Memory game"
 msgstr "Hugsespel"
 
-#: ../src/boards/railroad.c:97
+#: ../src/boards/railroad.c:96
 msgid "Build a train according to the model"
 msgstr "Bygg eit tog som passar til modellen"
-
-#: ../src/boards/read_colors.c:85
-msgid "Read Colors"
-msgstr "Les fargar"
-
-#: ../src/boards/read_colors.c:86
-msgid "Click on the corresponding color"
-msgstr "Trykk på tilhøyrande farge"
 
 #: ../src/boards/reading.c:366
 msgid "Please, check if the word"
@@ -4613,7 +4612,7 @@ msgstr ""
 
 #: ../src/gcompris/about.c:341 ../src/gcompris/about.c:350
 #: ../src/gcompris/config.c:221 ../src/gcompris/config.c:230
-#: ../src/gcompris/gameutil.c:1122 ../src/gcompris/help.c:362
+#: ../src/gcompris/gameutil.c:1101 ../src/gcompris/help.c:362
 #: ../src/gcompris/help.c:371 ../src/gcompris/images_selector.c:263
 msgid "OK"
 msgstr "OK"
@@ -4871,13 +4870,8 @@ msgstr "Lydeffektar"
 msgid "Couldn't open skin dir: %s"
 msgstr "Klarte ikkje opna draktmappa «%s»"
 
-#: ../src/gcompris/config.c:438
-#, c-format
-msgid "No skin found in %s\n"
-msgstr "Fann inga drakt i «%s»\n"
-
-#: ../src/gcompris/config.c:453 ../src/gcompris/config.c:809
-#: ../src/gcompris/config.c:820
+#: ../src/gcompris/config.c:453 ../src/gcompris/config.c:817
+#: ../src/gcompris/config.c:828
 #, c-format
 msgid "Skin : %s"
 msgstr "Drakt: %s"
@@ -5004,7 +4998,7 @@ msgstr ""
 msgid "The location of user directories: [$HOME/.gcompris/users]"
 msgstr "Brukarmappeplassering: [$HOME/.gcompris/users]."
 
-#: ../src/gcompris/gcompris.c:797
+#: ../src/gcompris/gcompris.c:773
 #, c-format
 msgid ""
 "GCompris is free software released under the GPL License. In order to "
@@ -5027,7 +5021,7 @@ msgstr ""
 "meir informasjon på nettsida til FDF, på\n"
 "<http://www.fsf.org/philosophy/>."
 
-#: ../src/gcompris/gcompris.c:1097
+#: ../src/gcompris/gcompris.c:1138
 #, c-format
 msgid ""
 "GCompris\n"
@@ -5041,26 +5035,26 @@ msgstr ""
 "Meir informasjon på http://gcompris.net/\n"
 
 #. check the list of possible values for -l, then exit
-#: ../src/gcompris/gcompris.c:1165
+#: ../src/gcompris/gcompris.c:1206
 #, c-format
 msgid "Use -l to access an activity directly.\n"
 msgstr "Bruk «-l aktivitet» for direkte tilgang til aktiviteten.\n"
 
-#: ../src/gcompris/gcompris.c:1166
+#: ../src/gcompris/gcompris.c:1207
 #, c-format
 msgid "List of available activity is :\n"
 msgstr "Liste over tilgjengeleg aktivitet er:\n"
 
-#: ../src/gcompris/gcompris.c:1309
+#: ../src/gcompris/gcompris.c:1350
 #, c-format
 msgid "The list of available profiles is:\n"
 msgstr "Liste over tilgjengeleg profilar er:\n"
 
-#: ../src/gcompris/gcompris_db.c:239
+#: ../src/gcompris/gcompris_db.c:237
 msgid "Unaffected"
 msgstr "Ikkje påverka"
 
-#: ../src/gcompris/gcompris_db.c:240
+#: ../src/gcompris/gcompris_db.c:238
 msgid "Users without class"
 msgstr "Klasselause brukarar"
 
@@ -5080,46 +5074,6 @@ msgstr "Bruksrettleiing"
 msgid "Credit"
 msgstr "Bidragsytarar"
 
-#: ../src/gcompris/images_selector.c:293
-#, c-format
-msgid "dataset %s is a directory. Trying to read xml "
-msgstr "Datasettet «%s» er ei mappe. Prøver å lesa XML "
-
-#: ../src/gcompris/images_selector.c:632
-#, c-format
-msgid ""
-"In ImageSet %s, the pathname for the home directory '%s' is not found. "
-"Skipping the whole ImageSet.\n"
-msgstr ""
-"I biletsamlinga «%s» er ikkje mappa «%s» tilgjengeleg. Hoppar over "
-"biletsamlinga.\n"
-
-#: ../src/gcompris/images_selector.c:666
-#, c-format
-msgid "In ImageSet %s, an image is not found. Skipping ImageSet...\n"
-msgstr "I biletsamlinga «%s» manglar eit bilete. Hoppar over biletsamlinga.\n"
-
-#: ../src/gcompris/images_selector.c:697
-#, c-format
-msgid "In ImageSet %s, directory %s is not found. Skipping all the ImageSet...\n"
-msgstr ""
-"I biletsamlinga «%s» er ikkje mappa «%s» tilgjengeleg. Hoppar over "
-"biletsamlinga.\n"
-
-#: ../src/gcompris/soundutil.c:172
-#, c-format
-msgid "Couldn't open music dir: %s"
-msgstr "Klarte ikkje opna musikkmappa «%s»"
-
-#: ../src/gcompris/soundutil.c:218
-#, c-format
-msgid ""
-"The background thread music is stopped now. The files in %s are not ogg "
-"vorbis OR the sound output failed"
-msgstr ""
-"Bakgrunnsmusikktråden er stoppa. Musikkfilene i «%s» er anten ikkje i Ogg "
-"Vorbis-format, eller så er det oppstått ein feil med lydeininga."
-
 #: ../src/gcompris/timer.c:237
 msgid "Time Elapsed"
 msgstr "Tid gått"
@@ -5129,10 +5083,72 @@ msgstr "Tid gått"
 msgid "Remaining Time = %d"
 msgstr "Tid igjen: %d"
 
-#: ../src/gcompris/wordlist.c:61
-#, c-format
-msgid "Couldn't parse file %s !"
-msgstr "Klarte ikkje lesa fila «%s»."
+#~ msgid ""
+#~ "Copy the mirror image of an object from the box\n"
+#~ "on the right into the box on the left."
+#~ msgstr ""
+#~ "Kopier spegelbiletet av ei teikning frå feltet til høgre til feltet til "
+#~ "venstre."
+
+#~ msgid "Couldn't find file %s !"
+#~ msgstr "Fann ikkje fila «%s»."
+
+#~ msgid "find file %s !"
+#~ msgstr "Finn fila «%s»."
+
+#~ msgid "Couldn't get GTK settings"
+#~ msgstr "Klarte ikkje henta GTK-innstillingar"
+
+#~ msgid "Double-click default value %d."
+#~ msgstr "Standardverdi for dobbeltklikk: %d."
+
+#~ msgid "Double-click value is now %d."
+#~ msgstr "Verdien for dobbeltklikk er no %d."
+
+#~ msgid "Double click value is now %d."
+#~ msgstr "Verdien for dobbeltklikk er no %d."
+
+#~ msgid "Read Colors"
+#~ msgstr "Les fargar"
+
+#~ msgid "Click on the corresponding color"
+#~ msgstr "Trykk på tilhøyrande farge"
+
+#~ msgid "No skin found in %s\n"
+#~ msgstr "Fann inga drakt i «%s»\n"
+
+#~ msgid "dataset %s is a directory. Trying to read xml "
+#~ msgstr "Datasettet «%s» er ei mappe. Prøver å lesa XML "
+
+#~ msgid ""
+#~ "In ImageSet %s, the pathname for the home directory '%s' is not found. "
+#~ "Skipping the whole ImageSet.\n"
+#~ msgstr ""
+#~ "I biletsamlinga «%s» er ikkje mappa «%s» tilgjengeleg. Hoppar over "
+#~ "biletsamlinga.\n"
+
+#~ msgid "In ImageSet %s, an image is not found. Skipping ImageSet...\n"
+#~ msgstr ""
+#~ "I biletsamlinga «%s» manglar eit bilete. Hoppar over biletsamlinga.\n"
+
+#~ msgid ""
+#~ "In ImageSet %s, directory %s is not found. Skipping all the ImageSet...\n"
+#~ msgstr ""
+#~ "I biletsamlinga «%s» er ikkje mappa «%s» tilgjengeleg. Hoppar over "
+#~ "biletsamlinga.\n"
+
+#~ msgid "Couldn't open music dir: %s"
+#~ msgstr "Klarte ikkje opna musikkmappa «%s»"
+
+#~ msgid ""
+#~ "The background thread music is stopped now. The files in %s are not ogg "
+#~ "vorbis OR the sound output failed"
+#~ msgstr ""
+#~ "Bakgrunnsmusikktråden er stoppa. Musikkfilene i «%s» er anten ikkje i Ogg "
+#~ "Vorbis-format, eller så er det oppstått ein feil med lydeininga."
+
+#~ msgid "Couldn't parse file %s !"
+#~ msgstr "Klarte ikkje lesa fila «%s»."
 
 #~ msgid "Tux hide a number and you must guess it"
 #~ msgstr "Tux har gøymt eit tal, og du må gjetta kva tal det er."
