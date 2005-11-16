@@ -1,3 +1,10 @@
+2005-11-16  Yves Combe  <yves@ycombe.net>
+
+	add uppercase only configuration option in gletter.
+
+	* src/boards/gletters.c: (load_default_charset), (start_board),
+	(key_press), (gletter_config_start):
+
 2005-11-15  Yves Combe  <yves@ycombe.net>
 
 	Fix segfaults in python callback and memory.

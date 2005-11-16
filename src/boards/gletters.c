@@ -1,6 +1,6 @@
 /* gcompris - gletters.c
  *
- * Time-stamp: <2005/10/01 13:56:29 bruno>
+ * Time-stamp: <2005/11/16 23:11:26 yves>
  *
  * Copyright (C) 2000 Bruno Coudoin
  * 
@@ -211,6 +211,8 @@ static void pause_board (gboolean pause)
     }
 }
 
+static gboolean uppercase_only;
+
 int load_default_charset() {
   g_message("in load_default_charset\n");
 
@@ -237,6 +239,7 @@ int load_default_charset() {
   letters_array[1] = g_strdup_printf("%s%s",
 				     alphabet_uppercase,
 				     numbers);
+  if (!uppercase_only){
   letters_array[2] = g_strdup(alphabet_lowercase); 
   letters_array[3] = g_strdup_printf("%s%s",
 				     alphabet_lowercase,
@@ -248,6 +251,20 @@ int load_default_charset() {
 				     alphabet_lowercase, 
 				     alphabet_uppercase,
 				     numbers);
+  } else{
+    g_warning("Uppercase only is set");
+      letters_array[2] = g_strdup(alphabet_uppercase); 
+    letters_array[3] = g_strdup_printf("%s%s",
+				       alphabet_uppercase,
+				       numbers);
+    letters_array[4] = g_strdup_printf("%s%s",
+				       alphabet_uppercase,
+				       numbers);
+    letters_array[5] = g_strdup_printf("%s%s",
+				       alphabet_uppercase,
+				       numbers);
+  }
+    
 
   keyMapSize = 0;
   maxLevel = 6;
@@ -272,6 +289,13 @@ static void start_board (GcomprisBoard *agcomprisBoard)
   GHashTable *config = gcompris_get_board_conf();
 
   gcompris_change_locale(g_hash_table_lookup( config, "locale"));
+
+  gchar *up_init_str = g_hash_table_lookup( config, "uppercase_only");
+
+  if (up_init_str && (strcmp(up_init_str, "True")==0))
+    uppercase_only = TRUE;
+  else
+    uppercase_only = FALSE;
 
   g_hash_table_destroy(config);
 
@@ -384,8 +408,16 @@ static gint key_press(guint keyval, gchar *commit_str, gchar *preedit_str) {
       gcompris_im_reset();
       return TRUE;
     }
-    /* for 2 first level don't care abour uppercase/lowercase */
-    if ((gcomprisBoard->level < 3) && 
+
+    /* if uppercase_only is set we do not care about upper or lower case at all */
+    gint level_uppercase;
+    if (uppercase_only)
+      level_uppercase = 10;
+    else
+      level_uppercase = 3;
+
+    /* for 2 (or all) first level don't care abour uppercase/lowercase */
+    if ((gcomprisBoard->level < level_uppercase) && 
 	(is_falling_letter(g_unichar_toupper(c)))){
       gcompris_im_reset();
       return TRUE;
@@ -769,6 +801,19 @@ gletter_config_start(GcomprisBoard *agcomprisBoard,
   
   gcompris_combo_locales( locale);
 
+  gboolean up_init = FALSE;
+
+  gchar *up_init_str = g_hash_table_lookup( config, "uppercase_only");
+
+  if (up_init_str && (strcmp(up_init_str, "True")==0))
+    up_init = TRUE;
+
+  gcompris_separator();
+ 
+  gcompris_boolean_box(_("Uppercase only text"),
+		       "uppercase_only",
+		       up_init);
+  
 }
 
   
