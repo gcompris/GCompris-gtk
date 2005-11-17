@@ -1,6 +1,6 @@
 /* gcompris - gameutil.c
  *
- * Time-stamp: <2005/11/12 19:01:33 bruno>
+ * Time-stamp: <2005/11/17 11:13:26 yves>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -26,6 +26,7 @@
 /* libxml includes */
 #include <libxml/tree.h>
 #include <libxml/parser.h>
+#include <libxml/parserInternals.h>
 
 #include "gcompris.h"
 
@@ -367,10 +368,21 @@ gchar *reactivate_newline(char *str)
 {
   gchar *newstr;
 
+  xmlParserCtxtPtr ctxt = xmlNewParserCtxt	();
+
   if(str==NULL)
     return NULL;
 
-  newstr = g_strcompress(str);
+
+
+  newstr =  xmlStringDecodeEntities	(ctxt, 
+					 str, 
+					 XML_SUBSTITUTE_REF, 
+					 0, 
+					 0, 
+					 0);
+    
+  xmlFreeParserCtxt		(ctxt);
   
   //g_free(str);
 
@@ -444,14 +456,14 @@ gcompris_add_xml_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child, Gcomp
     /* get the title of the board */
     if (!strcmp(xmlnode->name, "title"))
       {
-	title = xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 1);
+	title = xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 0);
 	gcomprisBoard->title = reactivate_newline(gettext(title));
       }
 
     /* get the description of the board */
     if (!strcmp(xmlnode->name, "description"))
       {
-	description = xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 1);
+	description = xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 0);
 	gcomprisBoard->description = reactivate_newline(gettext(description));
       }
 
@@ -461,7 +473,7 @@ gcompris_add_xml_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child, Gcomp
 	if(gcomprisBoard->prerequisite)
 	  g_free(gcomprisBoard->prerequisite);
 	
-	prerequisite = xmlNodeListGetString(doc,  xmlnode->xmlChildrenNode, 1);
+	prerequisite = xmlNodeListGetString(doc,  xmlnode->xmlChildrenNode, 0);
 	gcomprisBoard->prerequisite = reactivate_newline(gettext(prerequisite));
       }
 
@@ -471,7 +483,7 @@ gcompris_add_xml_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child, Gcomp
 	if(gcomprisBoard->goal)
 	  g_free(gcomprisBoard->goal);
   
-	goal = xmlNodeListGetString(doc,  xmlnode->xmlChildrenNode, 1);
+	goal = xmlNodeListGetString(doc,  xmlnode->xmlChildrenNode, 0);
 	gcomprisBoard->goal = reactivate_newline(gettext(goal));
       }
 
@@ -481,7 +493,7 @@ gcompris_add_xml_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child, Gcomp
 	if(gcomprisBoard->manual)
 	  g_free(gcomprisBoard->manual);
 
-	manual = xmlNodeListGetString(doc,  xmlnode->xmlChildrenNode, 1);
+	manual = xmlNodeListGetString(doc,  xmlnode->xmlChildrenNode, 0);
 	gcomprisBoard->manual = reactivate_newline(gettext(manual));
       }
 
@@ -491,7 +503,7 @@ gcompris_add_xml_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child, Gcomp
 	if(gcomprisBoard->credit)
 	  g_free(gcomprisBoard->credit);
   
-	credit = xmlNodeListGetString(doc,  xmlnode->xmlChildrenNode, 1);
+	credit = xmlNodeListGetString(doc,  xmlnode->xmlChildrenNode, 0);
 	gcomprisBoard->credit = reactivate_newline(gettext(credit));
       }
   }
