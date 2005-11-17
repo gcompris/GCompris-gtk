@@ -80,6 +80,8 @@ static void quit_board();
 
 static void sound_played(gchar *file);
 
+static gboolean uppercase_only;
+
 /* Description of this plugin */
 static BoardPlugin menu_bp =
   {
@@ -134,6 +136,19 @@ static void pause_board (gboolean pause)
  */
 static void start_board (GcomprisBoard *agcomprisBoard)
 {
+  GHashTable *config = gcompris_get_board_conf();
+
+  gcompris_change_locale(g_hash_table_lookup( config, "locale"));
+
+  gchar *up_init_str = g_hash_table_lookup( config, "uppercase_only");
+
+  if (up_init_str && (strcmp(up_init_str, "True")==0))
+    uppercase_only = TRUE;
+  else
+    uppercase_only = FALSE;
+
+  g_hash_table_destroy(config);
+
   sounds_are_fine();
 
   if (agcomprisBoard!=NULL)
@@ -154,6 +169,9 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 
       gamewon = FALSE;
       pause_board(FALSE);
+
+      
+
     }
 
 }
@@ -170,11 +188,8 @@ static void end_board ()
       click_on_letter_destroy_all_items();
       printf("end_board 1\n");
     }
-  printf("end_board 2\n");
   gcompris_reset_locale();
-  printf("end_board 3\n");
   gcomprisBoard = NULL;
-  printf("end_board 4\n");
 }
 
 /* ======================================= */
@@ -355,17 +370,21 @@ static GnomeCanvasItem *click_on_letter_create_item(GnomeCanvasGroup *parent)
    gchar *copy_from=g_utf8_offset_to_pointer(alphabet, numbers[i]);
    gchar *copy_to=g_utf8_offset_to_pointer(alphabet, numbers[i]+1);
    letters[i]=g_strndup(copy_from,copy_to-copy_from);
-   switch (gcomprisBoard->level) {
-	case 1	:
-	case 2  : letters[i]=g_strndup(copy_from,copy_to-copy_from); break;
-	case 3  : letters[i]=g_utf8_strup(copy_from,copy_to-copy_from); break;
-	default : 
-		if ( rand() > (RAND_MAX/2) ) 
-			letters[i]=g_strndup(copy_from,copy_to-copy_from);
-		else 
-			letters[i]=g_utf8_strup(copy_from,copy_to-copy_from);
-	}
 
+   if (uppercase_only)
+     letters[i]=g_utf8_strup(copy_from,copy_to-copy_from);
+   else {
+     switch (gcomprisBoard->level) {
+        case 1	:
+        case 2  : letters[i]=g_strndup(copy_from,copy_to-copy_from); break;
+        case 3  : letters[i]=g_utf8_strup(copy_from,copy_to-copy_from); break;
+	default : 
+	  if ( rand() > (RAND_MAX/2) ) 
+	    letters[i]=g_strndup(copy_from,copy_to-copy_from);
+	  else 
+	    letters[i]=g_utf8_strup(copy_from,copy_to-copy_from);
+     }
+   }
   }
 
   /*  */
@@ -579,6 +598,20 @@ config_start(GcomprisBoard *agcomprisBoard,
   gchar *locale = g_hash_table_lookup( config, "locale");
   
   gcompris_combo_locales( locale);
+
+  gboolean up_init = FALSE;
+
+  gchar *up_init_str = g_hash_table_lookup( config, "uppercase_only");
+
+  if (up_init_str && (strcmp(up_init_str, "True")==0))
+    up_init = TRUE;
+
+  gcompris_separator();
+ 
+  gcompris_boolean_box(_("Uppercase only text"),
+		       "uppercase_only",
+		       up_init);
+
 
 }
 

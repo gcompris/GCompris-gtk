@@ -1,5 +1,12 @@
 2005-11-17  Yves Combe  <yves@ycombe.net>
 
+	add uppercase only configuration option in click_on_letter.
+
+	* src/boards/click_on_letter.c: (start_board), (end_board),
+	(click_on_letter_create_item), (config_start):
+
+2005-11-17  Yves Combe  <yves@ycombe.net>
+
 	Fix xml i18n bug.
 
 	* src/gcompris/gameutil.c: (reactivate_newline),
