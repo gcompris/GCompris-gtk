@@ -295,9 +295,9 @@ foreach my $board (@files) {
   my $board_type;
   read(BOARD, $board_content, 65535);
 
-  $board_section = ($board_content =~ /section=\"([a-zA-Z\/\.]+)\"/)[0];
-  $board_name    = ($board_content =~ /name=\"([a-zA-Z\/\.\:]+)\"/)[0];
-  $board_type    = ($board_content =~ /type=\"([a-zA-Z\/\.\:]+)\"/)[0];
+  $board_section = ($board_content =~ /section=\"([a-zA-Z\/\._]+)\"/)[0];
+  $board_name    = ($board_content =~ /name=\"([a-zA-Z\/\.\:_]+)\"/)[0];
+  $board_type    = ($board_content =~ /type=\"([a-zA-Z\/\.\:_]+)\"/)[0];
 
   if($board_type eq "menu" and $board_name ne "root") {
     print "   This is a menu\n";
@@ -312,6 +312,11 @@ foreach my $board (@files) {
     print "   Section=$board_section\n";
     print "      Type=$board_type\n";
     print "      Name=$board_name\n";
+
+    if($file !~ /($board_name).xml/) {
+      print "ERROR: The board file '$file' does not match it's internal name field ('$board_name')\n";
+      exit 1;
+    }
 
     push(@sections, \@section);
   }

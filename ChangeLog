@@ -1,3 +1,23 @@
+2005-11-18  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	- Fixed board naming for the spip script
+	- Improved gtans big rotation
+	- Improved memory sound background to avoid confusion.
+	- Added Screenshots
+	
+	* boards/algebra_group.xml.in:
+	* boards/algebramenu.xml.in:
+	* boards/colors_group.xml.in:
+	* boards/gnumchmenu.xml.in:
+	* boards/images/transparent_square2.png:
+	* boards/mazeMenu.xml.in:
+	* docs/gcompris2spip.pl:
+	* docs/website/footer.html:
+	* docs/website/meta.html:
+	* src/boards/gtans_interface.c: (create_mainwindow):
+	* src/boards/memory.c: (create_item):
+	* src/boards/money.c: (money_next_level):
+
 2005-11-17  Yves Combe  <yves@ycombe.net>
 
 	add uppercase only configuration option in click_on_letter.

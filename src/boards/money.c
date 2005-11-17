@@ -485,6 +485,7 @@ static void money_next_level()
 
     if(currentMode==WITH_CENTS)
       {
+	/* Set here the way to display money. Change only the money sign, and it's place, always keep %.2f, it will be replaced by 0,34 if decimal is ',' in your locale */
 	display_format = _("$ %.2f");
 	/* Add random cents */
 	if(gcomprisBoard->level == 1)

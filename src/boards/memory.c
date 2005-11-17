@@ -1,6 +1,6 @@
 /* gcompris - memory.c
  *
- * Time-stamp: <2005/11/14 23:59:48 yves>
+ * Time-stamp: <2005/11/18 00:24:23 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  * 
@@ -850,6 +850,18 @@ static void create_item(GnomeCanvasGroup *parent)
   /* Remove a little bit of space for the card shadow */
   height2 = height * 0.9;
   width2  = width  * 0.9;
+
+
+  if (currentUiMode == UIMODE_SOUND) {
+    GdkPixbuf *pixmap =  gcompris_load_pixmap("images/transparent_square2.png");
+    gnome_canvas_item_new (GNOME_CANVAS_GROUP(parent),
+			   gnome_canvas_pixbuf_get_type (),
+			   "pixbuf", pixmap, 
+			   "x", (double) (currentMode == MODE_TUX ? base_x1_tux : base_x1) - 20,
+			   "y", (double) base_y1 - 15,
+			   NULL);
+    gdk_pixbuf_unref(pixmap);
+  }
 
   if (currentMode == MODE_TUX){
     GdkPixbuf *pixmap_tux =  gcompris_load_pixmap("images/tux-teacher.png");

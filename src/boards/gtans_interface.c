@@ -265,21 +265,19 @@ void create_mainwindow (GnomeCanvasGroup *rootitem)
 		     NULL);
   
 
-  /* buttons de rotations */
-  GdkPixbuf   *right_rot_small = NULL;
+  /* rotation buttons */
   GdkPixbuf   *right_rot_big = NULL;
-  GdkPixbuf   *left_rot_small = NULL;
   GdkPixbuf   *left_rot_big = NULL;
-  GnomeCanvasItem *r_rot_s, *r_rot_b, *l_rot_s, *l_rot_b;
+  GnomeCanvasItem *l_rot_s, *r_rot_s,
+    *l_rot_b,  *r_rot_b,
+    *l_rot_b2, *r_rot_b2;
 
-  right_rot_small = gcompris_load_skin_pixmap("draw/tool-rotate-cw_on.png");
-  right_rot_big = gcompris_load_skin_pixmap("draw/tool-rotation-cw.png");
-  left_rot_small = gcompris_load_skin_pixmap("draw/tool-rotate-ccw_on.png");
-  left_rot_big = gcompris_load_skin_pixmap("draw/tool-rotation-ccw.png");
+  right_rot_big   = gcompris_load_skin_pixmap("draw/tool-rotation-cw.png");
+  left_rot_big    = gcompris_load_skin_pixmap("draw/tool-rotation-ccw.png");
 
   r_rot_s = gnome_canvas_item_new (rootitem,
 				   gnome_canvas_pixbuf_get_type (),
-				   "pixbuf", right_rot_small, 
+				   "pixbuf", right_rot_big, 
 				   "x", (double) X_BASE_SMALLAREA + WIDTH_SMALLAREA,
 				   "y", (double) Y_BASE_SMALLAREA + WIDTH_SMALLAREA + 60,
 				   "anchor", GTK_ANCHOR_NE,
@@ -288,7 +286,7 @@ void create_mainwindow (GnomeCanvasGroup *rootitem)
 
   l_rot_s = gnome_canvas_item_new (rootitem,
 				   gnome_canvas_pixbuf_get_type (),
-				   "pixbuf", left_rot_small, 
+				   "pixbuf", left_rot_big, 
 				   "x", (double) X_BASE_SMALLAREA + WIDTH_SMALLAREA - 100,
 				   "y", (double) Y_BASE_SMALLAREA + WIDTH_SMALLAREA + 60,
 				   "anchor", GTK_ANCHOR_NW,
@@ -301,10 +299,6 @@ void create_mainwindow (GnomeCanvasGroup *rootitem)
 				   "x", (double) X_BASE_SMALLAREA + WIDTH_SMALLAREA,
 				   "y", (double) Y_BASE_SMALLAREA + WIDTH_SMALLAREA + 120,
 				   "anchor", GTK_ANCHOR_NE,
-				   "width",(gdouble) 50,
-				   "height",(gdouble) 50,
-				   "width-set",TRUE,
-				   "height-set",TRUE,
 				   NULL);
       
 
@@ -314,12 +308,27 @@ void create_mainwindow (GnomeCanvasGroup *rootitem)
 				   "x", (double) X_BASE_SMALLAREA + WIDTH_SMALLAREA - 100,
 				   "y", (double) Y_BASE_SMALLAREA + WIDTH_SMALLAREA + 120,
 				   "anchor", GTK_ANCHOR_NW,
-				   "width",(gdouble) 50,
-				   "height",(gdouble) 50,
-				   "width-set",TRUE,
-				   "height-set",TRUE,
 				   NULL);
       
+  r_rot_b2 = gnome_canvas_item_new (rootitem,
+				   gnome_canvas_pixbuf_get_type (),
+				   "pixbuf", right_rot_big, 
+				   "x", (double) X_BASE_SMALLAREA + WIDTH_SMALLAREA + 10,
+				   "y", (double) Y_BASE_SMALLAREA + WIDTH_SMALLAREA + 125,
+				   "anchor", GTK_ANCHOR_NE,
+				   NULL);
+      
+
+  l_rot_b2 = gnome_canvas_item_new (rootitem,
+				   gnome_canvas_pixbuf_get_type (),
+				   "pixbuf", left_rot_big, 
+				   "x", (double) X_BASE_SMALLAREA + WIDTH_SMALLAREA - 110,
+				   "y", (double) Y_BASE_SMALLAREA + WIDTH_SMALLAREA + 125,
+				   "anchor", GTK_ANCHOR_NW,
+				   NULL);
+      
+  gdk_pixbuf_unref(right_rot_big);
+  gdk_pixbuf_unref(left_rot_big);
 
       
   gtk_signal_connect(GTK_OBJECT(r_rot_s), "event",
@@ -351,6 +360,22 @@ void create_mainwindow (GnomeCanvasGroup *rootitem)
 		     (gpointer) 3);
       
   gtk_signal_connect(GTK_OBJECT(l_rot_b), "event",
+		     (GtkSignalFunc) gcompris_item_event_focus,
+		     NULL);
+
+  gtk_signal_connect(GTK_OBJECT(r_rot_b2), "event",
+		     (GtkSignalFunc) on_rotation_clicked,
+		     (gpointer) 2);
+      
+  gtk_signal_connect(GTK_OBJECT(r_rot_b2), "event",
+		     (GtkSignalFunc) gcompris_item_event_focus,
+		     NULL);
+      
+  gtk_signal_connect(GTK_OBJECT(l_rot_b2), "event",
+		     (GtkSignalFunc) on_rotation_clicked,
+		     (gpointer) 3);
+      
+  gtk_signal_connect(GTK_OBJECT(l_rot_b2), "event",
 		     (GtkSignalFunc) gcompris_item_event_focus,
 		     NULL);
 
