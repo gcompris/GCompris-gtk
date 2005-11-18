@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-11-09 12:39-0500\n"
+"POT-Creation-Date: 2005-11-17 21:13-0500\n"
 "PO-Revision-Date: 2005-09-06 22:51-0400\n"
 "Last-Translator: Adam Weinberger <adamw@gnome.org>\n"
 "Language-Team: Canadian English <adamw@gnome.org>\n"
@@ -707,7 +707,7 @@ msgstr "Kick the ball into the goal"
 #: boards/clickgame.xml.in.h:16 boards/connect4.xml.in.h:7
 #: boards/erase.xml.in.h:3 boards/erase_clic.xml.in.h:6
 #: boards/erase_double_clic.xml.in.h:6 boards/fifteen.xml.in.h:2
-#: boards/hanoi.xml.in.h:3 boards/memory.xml.in.h:4
+#: boards/gtans.xml.in.h:2 boards/hanoi.xml.in.h:3 boards/memory.xml.in.h:4
 msgid "Mouse-manipulation"
 msgstr "Mouse-manipulation"
 
@@ -1242,11 +1242,11 @@ msgstr ""
 msgid "Motor-coordination"
 msgstr "Motor-coordination"
 
-#: boards/erase.xml.in.h:4 src/boards/erase.c:95 src/boards/machpuzzle.c:93
+#: boards/erase.xml.in.h:4 src/boards/erase.c:110 src/boards/machpuzzle.c:92
 msgid "Move the mouse"
 msgstr "Move the mouse"
 
-#: boards/erase.xml.in.h:5 src/boards/erase.c:96
+#: boards/erase.xml.in.h:5 src/boards/erase.c:111
 msgid "Move the mouse to erase the area and discover the background"
 msgstr "Move the mouse to erase the area and discover the background"
 
@@ -2051,6 +2051,54 @@ msgstr "Go to Number Munchers activities"
 #: boards/gnumchmenu.xml.in.h:2
 msgid "Left-Click the mouse on an activity to select it."
 msgstr "Left-Click the mouse on an activity to select it."
+
+#: boards/gtans.xml.in.h:1
+msgid ""
+"From Wikipedia, the free encyclopedia. Tangram (Chinese: literally \"seven "
+"boards of cunning\") is a Chinese puzzle. While the tangram is often said to "
+"be ancient, its existence has only been verified as far back as 1800. It "
+"consists of 7 pieces, called tans, which fit together to form a square; "
+"taking the square as the unit: * 5 right isosceles triangles o 2 small (legs "
+"of 1) o 1 medium size (legs of square root of 2) o 2 large size (legs of 2) "
+"* 1 square (side of 1) * 1 parallelogram (sides of 1 and square root of 2)"
+msgstr ""
+"From Wikipedia, the free encyclopedia. Tangram (Chinese: literally \"seven "
+"boards of cunning\") is a Chinese puzzle. While the tangram is often said to "
+"be ancient, its existence has only been verified as far back as 1800. It "
+"consists of 7 pieces, called tans, which fit together to form a square; "
+"taking the square as the unit: * 5 right isosceles triangles o 2 small (legs "
+"of 1) o 1 medium size (legs of square root of 2) o 2 large size (legs of 2) "
+"* 1 square (side of 1) * 1 parallelogram (sides of 1 and square root of 2)"
+
+#: boards/gtans.xml.in.h:3
+msgid ""
+"Select the tangram to form. Move a piece by dragging it. Right click on it "
+"to create a symetrical item. Select an item and drag around it for the "
+"rotation Once the requested shape is created, it will be recognized by the "
+"computer If you need help, click on the shape button, the border of the "
+"shape will be drawn."
+msgstr ""
+"Select the tangram to form. Move a piece by dragging it. Right click on it "
+"to create a symetrical item. Select an item and drag around it for the "
+"rotation Once the requested shape is created, it will be recognized by the "
+"computer If you need help, click on the shape button, the border of the "
+"shape will be drawn."
+
+#: boards/gtans.xml.in.h:4
+msgid "The objective is to form a given shape with seven pieces"
+msgstr "The objective is to form a given shape with seven pieces"
+
+#: boards/gtans.xml.in.h:5
+msgid ""
+"The original code has been written by Philippe Banwarth in 1999. It has been "
+"ported to GCompris by Yves Combe in 2005."
+msgstr ""
+"The original code has been written by Philippe Banwarth in 1999. It has been "
+"ported to GCompris by Yves Combe in 2005."
+
+#: boards/gtans.xml.in.h:6
+msgid "The tangram puzzle game"
+msgstr "The tangram puzzle game"
 
 #: boards/guessnumber.xml.in.h:1
 msgid "Guess a number"
@@ -3553,24 +3601,6 @@ msgstr "Educational suite gcompris"
 msgid "Multiple activities for kids"
 msgstr "Multiple activities for kids"
 
-#: src/boards/advanced_colors.c:533 src/boards/imageid.c:642
-#: src/boards/missingletter.c:655 src/boards/read_colors.c:491
-#: src/boards/shapegame.c:1902 src/gcompris/file_selector.c:893
-#: src/gcompris/gameutil.c:186 src/gcompris/gameutil.c:583
-#: src/gcompris/gameutil.c:584 src/gcompris/gcompris.c:640
-#: src/gcompris/images_selector.c:767 src/gcompris/skin.c:87
-#: src/gcompris/skin.c:266 src/gcompris/wordlist.c:49
-#, c-format
-msgid "Couldn't find file %s !"
-msgstr "Couldn't find file %s !"
-
-#: src/boards/advanced_colors.c:536 src/boards/imageid.c:645
-#: src/boards/missingletter.c:658 src/boards/read_colors.c:494
-#: src/boards/shapegame.c:1905
-#, c-format
-msgid "find file %s !"
-msgstr "find file %s !"
-
 #: src/boards/chess.c:189
 msgid ""
 "Error: The external program gnuchess is mandatory\n"
@@ -3630,30 +3660,30 @@ msgstr "Drawn game"
 #. TRANSLATORS: Put here the alphabet in your language
 #. require by all utf8-functions
 #. TRANSLATORS: Put here the alphabet lowercase in your language
-#: src/boards/click_on_letter.c:243 src/boards/click_on_letter.c:260
-#: src/boards/gletters.c:226 src/boards/memory.c:544
+#: src/boards/click_on_letter.c:258 src/boards/click_on_letter.c:275
+#: src/boards/gletters.c:228 src/boards/memory.c:564
 msgid "abcdefghijklmnopqrstuvwxyz"
 msgstr "abcdefghijklmnopqrstuvwxyz"
 
-#: src/boards/click_on_letter.c:272
-#, c-format
-msgid ""
-"Error: this activity requires that you first install\n"
-"the packages assetml-voices-alphabet-%s or %s"
-msgstr ""
-"Error: this activity requires that you first install\n"
-"the packages assetml-voices-alphabet-%s or %s"
-
-#: src/boards/click_on_letter.c:279
-#, c-format
-msgid ""
-"Error: this activity requires that you first install\n"
-"the packages assetml-voices-alphabet-%s ! Fallback to english, sorry!"
-msgstr ""
-"Error: this activity requires that you first install\n"
-"the packages assetml-voices-alphabet-%s ! Fallback to english, sorry!"
-
 #: src/boards/click_on_letter.c:287
+#, c-format
+msgid ""
+"Error: this activity requires that you first install\n"
+"the packages assetml-voices-alphabet-%s or %s"
+msgstr ""
+"Error: this activity requires that you first install\n"
+"the packages assetml-voices-alphabet-%s or %s"
+
+#: src/boards/click_on_letter.c:294
+#, c-format
+msgid ""
+"Error: this activity requires that you first install\n"
+"the packages assetml-voices-alphabet-%s ! Fallback to english, sorry!"
+msgstr ""
+"Error: this activity requires that you first install\n"
+"the packages assetml-voices-alphabet-%s ! Fallback to english, sorry!"
+
+#: src/boards/click_on_letter.c:302
 msgid ""
 "Error: this activity cannot be played with the\n"
 "sound effects disabled.\n"
@@ -3664,6 +3694,12 @@ msgstr ""
 "sound effects disabled.\n"
 "Go to the configuration dialogue to\n"
 "enable the sound"
+
+#. toggle box
+#: src/boards/click_on_letter.c:611 src/boards/gletters.c:813
+#: src/boards/python/login.py:535
+msgid "Uppercase only text"
+msgstr "Uppercase only text"
 
 #: src/boards/clickgame.c:178
 #, c-format
@@ -3714,32 +3750,13 @@ msgstr "Click on the black duck"
 msgid "Click on the white duck"
 msgstr "Click on the white duck"
 
-#: src/boards/erase.c:170
-msgid "Couldn't get GTK settings"
-msgstr "Could not get GTK settings"
-
-#: src/boards/erase.c:175
-#, c-format
-msgid "Double-click default value %d."
-msgstr "Double-click default value %d."
-
-#: src/boards/erase.c:180
-#, c-format
-msgid "Double-click value is now %d."
-msgstr "Double-click value is now %d."
-
-#: src/boards/erase.c:195 src/boards/erase.c:218 src/boards/erase.c:348
-#, c-format
-msgid "Double click value is now %d."
-msgstr "Double click value is now %d."
-
 #. TRANSLATORS: Put here the numbers in your language
-#: src/boards/gletters.c:222 src/boards/memory.c:540
+#: src/boards/gletters.c:224 src/boards/memory.c:560
 msgid "0123456789"
 msgstr "0123456789"
 
 #. TRANSLATORS: Put here the alphabet uppercase in your language
-#: src/boards/gletters.c:232 src/boards/memory.c:550
+#: src/boards/gletters.c:234 src/boards/memory.c:570
 msgid "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 msgstr "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
@@ -3791,11 +3808,11 @@ msgid ""
 msgstr ""
 "Look at your position, then switch back to 3D mode to continue your moves"
 
-#: src/boards/memory.c:236
+#: src/boards/memory.c:250
 msgid "Memory"
 msgstr "Memory"
 
-#: src/boards/memory.c:237
+#: src/boards/memory.c:251
 msgid "Find the matching pair"
 msgstr "Find the matching pair"
 
@@ -3807,12 +3824,13 @@ msgstr "Main Menu"
 msgid "Select a Board"
 msgstr "Select a Board"
 
-#: src/boards/money.c:488
+#. Set here the way to display money. Change only the money sign, and it's place, always keep %.2f, it will be replaced by 0,34 if decimal is ',' in your locale
+#: src/boards/money.c:489
 #, c-format
 msgid "$ %.2f"
 msgstr "$ %.2f"
 
-#: src/boards/money.c:501
+#: src/boards/money.c:502
 #, c-format
 msgid "$ %.0f"
 msgstr "$ %.0f"
@@ -4347,16 +4365,11 @@ msgid "Login: "
 msgstr "Login: "
 
 #. toggle box
-#: src/boards/python/login.py:535
-msgid "Uppercase only text"
-msgstr "Uppercase only text"
-
-#. toggle box
 #: src/boards/python/login.py:545
 msgid "Enter login to log in"
 msgstr "Enter login to log in"
 
-#: src/boards/python/mosaic.py:238
+#: src/boards/python/mosaic.py:210
 msgid "Rebuild the same mosaic on the right area"
 msgstr "Rebuild the same mosaic on the right area"
 
@@ -4511,14 +4524,6 @@ msgstr "Memory game"
 msgid "Build a train according to the model"
 msgstr "Build a train according to the model"
 
-#: src/boards/read_colors.c:85
-msgid "Read Colors"
-msgstr "Read Colours"
-
-#: src/boards/read_colors.c:86
-msgid "Click on the corresponding color"
-msgstr "Click on the corresponding colour"
-
 #: src/boards/reading.c:366
 msgid "Please, check if the word"
 msgstr "Please, check if the word"
@@ -4649,7 +4654,7 @@ msgstr ""
 "Licence"
 
 #: src/gcompris/about.c:341 src/gcompris/about.c:350 src/gcompris/config.c:221
-#: src/gcompris/config.c:230 src/gcompris/gameutil.c:1101
+#: src/gcompris/config.c:230 src/gcompris/gameutil.c:1113
 #: src/gcompris/help.c:362 src/gcompris/help.c:371
 #: src/gcompris/images_selector.c:263
 msgid "OK"
@@ -4908,13 +4913,8 @@ msgstr "Effect"
 msgid "Couldn't open skin dir: %s"
 msgstr "Couldn't open skin dir: %s"
 
-#: src/gcompris/config.c:438
-#, c-format
-msgid "No skin found in %s\n"
-msgstr "No skin found in %s\n"
-
-#: src/gcompris/config.c:453 src/gcompris/config.c:809
-#: src/gcompris/config.c:820
+#: src/gcompris/config.c:453 src/gcompris/config.c:817
+#: src/gcompris/config.c:828
 #, c-format
 msgid "Skin : %s"
 msgstr "Skin : %s"
@@ -4931,15 +4931,15 @@ msgstr "LOAD"
 msgid "SAVE"
 msgstr "SAVE"
 
-#: src/gcompris/gameutil.c:189
+#: src/gcompris/gameutil.c:190
 msgid "Couldn't find file"
 msgstr "Couldn't find file"
 
-#: src/gcompris/gameutil.c:191
+#: src/gcompris/gameutil.c:192
 msgid "This activity is incomplete."
 msgstr "This activity is incomplete."
 
-#: src/gcompris/gameutil.c:192
+#: src/gcompris/gameutil.c:193
 msgid ""
 "Exit it and report\n"
 "the problem to the authors."
@@ -5041,7 +5041,7 @@ msgstr ""
 msgid "The location of user directories: [$HOME/.gcompris/users]"
 msgstr "The location of user directories: [$HOME/.gcompris/users]"
 
-#: src/gcompris/gcompris.c:798
+#: src/gcompris/gcompris.c:773
 #, c-format
 msgid ""
 "GCompris is free software released under the GPL License. In order to "
@@ -5064,7 +5064,7 @@ msgstr ""
 "GNU/Linux. Get more information at FSF:\n"
 "<http://www.fsf.org/philosophy>"
 
-#: src/gcompris/gcompris.c:1103
+#: src/gcompris/gcompris.c:1141
 #, c-format
 msgid ""
 "GCompris\n"
@@ -5078,17 +5078,17 @@ msgstr ""
 "More info at http://gcompris.net\n"
 
 #. check the list of possible values for -l, then exit
-#: src/gcompris/gcompris.c:1171
+#: src/gcompris/gcompris.c:1209
 #, c-format
 msgid "Use -l to access an activity directly.\n"
 msgstr "Use -l to access an activity directly.\n"
 
-#: src/gcompris/gcompris.c:1172
+#: src/gcompris/gcompris.c:1210
 #, c-format
 msgid "List of available activity is :\n"
 msgstr "List of available activity is:\n"
 
-#: src/gcompris/gcompris.c:1315
+#: src/gcompris/gcompris.c:1353
 #, c-format
 msgid "The list of available profiles is:\n"
 msgstr "The list of available profiles is:\n"
@@ -5117,56 +5117,11 @@ msgstr "Manual"
 msgid "Credit"
 msgstr "Credit"
 
-#: src/gcompris/images_selector.c:293
-#, c-format
-msgid "dataset %s is a directory. Trying to read xml "
-msgstr "Dataset %s is a directory. Trying to read XML "
-
-#: src/gcompris/images_selector.c:632
-#, c-format
-msgid ""
-"In ImageSet %s, the pathname for the home directory '%s' is not found. "
-"Skipping the whole ImageSet.\n"
-msgstr ""
-"In ImageSet %s, the pathname for the home directory '%s' is not found. "
-"Skipping the whole ImageSet.\n"
-
-#: src/gcompris/images_selector.c:666
-#, c-format
-msgid "In ImageSet %s, an image is not found. Skipping ImageSet...\n"
-msgstr "In ImageSet %s, an image was not found. Skipping ImageSet...\n"
-
-#: src/gcompris/images_selector.c:697
-#, c-format
-msgid ""
-"In ImageSet %s, directory %s is not found. Skipping all the ImageSet...\n"
-msgstr ""
-"In ImageSet %s, directory %s is not found. Skipping all the ImageSets...\n"
-
-#: src/gcompris/soundutil.c:186
-#, c-format
-msgid "Couldn't open music dir: %s"
-msgstr "Couldn't open music dir: %s"
-
-#: src/gcompris/soundutil.c:232
-#, c-format
-msgid ""
-"The background thread music is stopped now. The files in %s are not ogg "
-"vorbis OR the sound output failed"
-msgstr ""
-"The background thread music is stopped now. The files in %s are not OGG "
-"Vorbis or the sound output failed"
-
-#: src/gcompris/timer.c:237
+#: src/gcompris/timer.c:235
 msgid "Time Elapsed"
 msgstr "Time Elapsed"
 
-#: src/gcompris/timer.c:323
+#: src/gcompris/timer.c:321
 #, c-format
 msgid "Remaining Time = %d"
 msgstr "Remaining Time = %d"
-
-#: src/gcompris/wordlist.c:61
-#, c-format
-msgid "Couldn't parse file %s !"
-msgstr "Couldn't parse file %s !"
