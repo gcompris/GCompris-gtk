@@ -13,8 +13,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: nb\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-11-04 16:04+0100\n"
-"PO-Revision-Date: 2005-11-04 17:03+0100\n"
+"POT-Creation-Date: 2005-11-18 17:24+0100\n"
+"PO-Revision-Date: 2005-11-18 19:54+0100\n"
 "Last-Translator: Klaus Ade Johnstad <klaus@skolelinux.no>\n"
 "Language-Team: Norwegian Bokmål < <i18n-nb@lister.ping.uio.no>\n"
 "MIME-Version: 1.0\n"
@@ -55,7 +55,7 @@ msgid ""
 msgstr ""
 "Du kan fininnstille GCompris ved å benytte denne administrasjons modulen. "
 "Det endelige målet med denne modulen er å kunne tilby lærere og foreldre "
-"muligheten til å følge med på barnets utvikling, styrke og svakheter innefor "
+"muligheten til å følge med på barnets utvikling, styrke og svakheter innenfor "
 "de forskjellige emnene i GCompris.i"
 
 #: ../boards/administration.xml.in.h:4
@@ -499,7 +499,7 @@ msgid "Simple addition. Can recognize written numbers"
 msgstr "Enkel addisjon. Kunne gjenkjenne skrevne tall"
 
 #: ../boards/algebramenu.xml.in.h:1
-msgid "Go to Maths activities"
+msgid "Go to Math activities"
 msgstr "Gå til aktiviteter med matematikk"
 
 #: ../boards/algorithm.xml.in.h:1
@@ -694,7 +694,8 @@ msgstr "Skyt ballen i mål"
 #: ../boards/clickgame.xml.in.h:16 ../boards/connect4.xml.in.h:7
 #: ../boards/erase.xml.in.h:3 ../boards/erase_clic.xml.in.h:6
 #: ../boards/erase_double_clic.xml.in.h:6 ../boards/fifteen.xml.in.h:2
-#: ../boards/hanoi.xml.in.h:3 ../boards/memory.xml.in.h:4
+#: ../boards/gtans.xml.in.h:2 ../boards/hanoi.xml.in.h:3
+#: ../boards/memory.xml.in.h:4
 msgid "Mouse-manipulation"
 msgstr "Bruk av mus"
 
@@ -716,7 +717,7 @@ msgstr "Gå til aktiviteter med brettspill"
 
 #: ../boards/canal_lock.xml.in.h:1
 msgid "Operate a canal lock"
-msgstr "Betjen en kanalsluse"
+msgstr "Betjene en kanalsluse"
 
 #: ../boards/canal_lock.xml.in.h:2
 msgid ""
@@ -875,7 +876,7 @@ msgid ""
 "First helicopter flight"
 msgstr ""
 "1906 Paul Cornu\n"
-"Første helikopteflygning"
+"Første helikopterflygning"
 
 #: ../boards/chronos/board3_2.xml.in.h:2 ../boards/chronos/board3_3.xml.in.h:3
 msgid ""
@@ -1004,7 +1005,7 @@ msgid ""
 "Location: Unknown (image nur03011)\n"
 "Location: Unknown (image nur03013)"
 msgstr ""
-"Fiskene er hentet fra Unix programet xfishtank.\n"
+"Fiskene er hentet fra Unix programmet xfishtank.\n"
 "Bildene er tatt fra National Undersea Research Program (NURP) Collection\n"
 "på &lt;http://www.photolib.noaa.gov&gt;\n"
 "Alle rettighetene til bildene tilhører OAR/National Undersea Research "
@@ -1086,7 +1087,7 @@ msgstr ""
 "å trykke på den riktige figuren."
 
 #: ../boards/colors_group.xml.in.h:1
-msgid "Go to Colour activities"
+msgid "Go to Color activities"
 msgstr "Gå til fargeaktiviteter"
 
 #: ../boards/computer.xml.in.h:1
@@ -1218,12 +1219,12 @@ msgstr ""
 msgid "Motor-coordination"
 msgstr "Motorikk"
 
-#: ../boards/erase.xml.in.h:4 ../src/boards/erase.c:95
-#: ../src/boards/machpuzzle.c:93
+#: ../boards/erase.xml.in.h:4 ../src/boards/erase.c:110
+#: ../src/boards/machpuzzle.c:92
 msgid "Move the mouse"
 msgstr "Beveg musen"
 
-#: ../boards/erase.xml.in.h:5 ../src/boards/erase.c:96
+#: ../boards/erase.xml.in.h:5 ../src/boards/erase.c:111
 msgid "Move the mouse to erase the area and discover the background"
 msgstr "Beveg musa slik at bakgrunnen blir skrapt frem"
 
@@ -1335,11 +1336,11 @@ msgstr "Gå til aktiviteter med moro"
 
 #: ../boards/gcompris/mimetypes/mime_type.xml.in.h:1
 msgid "gcompris animation"
-msgstr "gcompris animasjon"
+msgstr "GCompris animasjon"
 
 #: ../boards/gcompris/mimetypes/mime_type.xml.in.h:2
 msgid "gcompris drawing"
-msgstr "gcompris tegning format"
+msgstr "GCompris tegning format"
 
 #: ../boards/gcompris/mimetypes/mime_type.xml.in.h:3
 msgid "svg drawing"
@@ -1347,7 +1348,7 @@ msgstr "svg tegning format"
 
 #: ../boards/gcompris/mimetypes/mime_type.xml.in.h:4
 msgid "svg mozilla animation"
-msgstr "svg mozilla tegning"
+msgstr "svg Mozilla tegning"
 
 #: ../boards/geography.xml.in.h:1
 msgid "Drag and Drop the items to redraw the whole map"
@@ -2067,12 +2068,46 @@ msgstr "Gå til aktivitet med tallmumsing"
 msgid "Left-Click the mouse on an activity to select it."
 msgstr "Venstreklikk på en aktivitet med musen for å velge den."
 
+#: ../boards/gtans.xml.in.h:1
+msgid ""
+"From Wikipedia, the free encyclopedia. Tangram (Chinese: literally \"seven "
+"boards of cunning\") is a Chinese puzzle. While the tangram is often said to "
+"be ancient, its existence has only been verified as far back as 1800. It "
+"consists of 7 pieces, called tans, which fit together to form a square; "
+"taking the square as the unit: * 5 right isosceles triangles o 2 small (legs "
+"of 1) o 1 medium size (legs of square root of 2) o 2 large size (legs of 2) "
+"* 1 square (side of 1) * 1 parallelogram (sides of 1 and square root of 2)"
+msgstr ""
+
+#: ../boards/gtans.xml.in.h:3
+msgid ""
+"Select the tangram to form. Move a piece by dragging it. Right click on it "
+"to create a symetrical item. Select an item and drag around it for the "
+"rotation Once the requested shape is created, it will be recognized by the "
+"computer If you need help, click on the shape button, the border of the "
+"shape will be drawn."
+msgstr ""
+
+#: ../boards/gtans.xml.in.h:4
+msgid "The objective is to form a given shape with seven pieces"
+msgstr "Målet er å klare å lage en bestemt form ved hjelp av syv biter"
+
+#: ../boards/gtans.xml.in.h:5
+msgid ""
+"The original code has been written by Philippe Banwarth in 1999. It has been "
+"ported to GCompris by Yves Combe in 2005."
+msgstr "Orginalkoden ble skrevet av Philippe Banwarth i 1999. Den har blitt omskrevet for GCompris av Yves Combe i 2005."
+
+#: ../boards/gtans.xml.in.h:6
+msgid "The tangram puzzle game"
+msgstr "Tangram"
+
 #: ../boards/guessnumber.xml.in.h:1
 msgid "Guess a number"
 msgstr "Gjett et tall"
 
 #: ../boards/guessnumber.xml.in.h:2
-msgid "Help Tux escape the cave. Tux hide a number that you must discover."
+msgid "Help Tux escape the cave. Tux hides a number that you must discover."
 msgstr "Hjelp Tux med å komme seg ut av hulen. Tux har gjemt et tall som du må finne."
 
 #: ../boards/guessnumber.xml.in.h:3
@@ -2601,6 +2636,45 @@ msgstr "Tren din hukommelse og fjern alle kortene"
 msgid "Go to Memory activities"
 msgstr "Gå til aktiviteter for hukommelse"
 
+#: ../boards/memory_sound.xml.in.h:1 ../boards/memory_sound_tux.xml.in.h:1
+#, fuzzy
+msgid ""
+"A set of violinist Tux is shown. Each Tux has an associated sound, and each "
+"sound has a twin exactly the same. Click on a Tux to see its hidden sound, "
+"and try to match the twins. You can only activate two Tux at once, so you "
+"need to remember where a sound is, while you listen to its twin. When you "
+"turn over the twins, they both disappear."
+msgstr ""
+"Et sett med kort er lagt på bordet. Alle kortene finnes i par. Klikk på et "
+"kort for å se baksiden av det. Du kan kun se baksiden på to kort samtidig. "
+"Du må huske hvor de forskjellige kortene ligger. Målet er å åpne to like "
+"samtidig, da forsvinner dette paret, til slutt skal alle kortene være borte."
+
+#: ../boards/memory_sound.xml.in.h:2
+msgid "Audio memory game"
+msgstr "Lydhukommelsespill"
+
+#: ../boards/memory_sound.xml.in.h:3
+msgid "Click on Tux the violinist and listen to find the matching sounds"
+msgstr "Klikk på fiolinspilleren Tux, og lytt for å finne den andre som spiller likt."
+
+#: ../boards/memory_sound.xml.in.h:4 ../boards/memory_sound_tux.xml.in.h:3
+#: ../boards/memory_tux.xml.in.h:3
+msgid "Mouse manipulation, Brain."
+msgstr "Bruk av mus. Hukommelse."
+
+#: ../boards/memory_sound.xml.in.h:5 ../boards/memory_sound_tux.xml.in.h:5
+msgid "Train your audio memory and remove all the violonists Tux."
+msgstr "Tren din lydhukommelse og fjern alle fiolinspillerrene."
+
+#: ../boards/memory_sound_tux.xml.in.h:2
+msgid "Audio memory game against Tux"
+msgstr "Spill lydhukommelsesspill mot Tux."
+
+#: ../boards/memory_sound_tux.xml.in.h:4
+msgid "Play the audio memory against Tux"
+msgstr "Spill lydhukommelsesspill mot Tux."
+
 #: ../boards/memory_tux.xml.in.h:1
 msgid ""
 "A set of blank cards is shown. Each pair is associated by the same picture "
@@ -2619,10 +2693,6 @@ msgstr ""
 #: ../boards/memory_tux.xml.in.h:2
 msgid "Memory Game with images, against Tux"
 msgstr "Hukommelsesspill med bilder, spill mot Tux"
-
-#: ../boards/memory_tux.xml.in.h:3
-msgid "Mouse manipulation, Brain."
-msgstr "Bruk av mus. Hukommelse."
 
 #: ../boards/memory_tux.xml.in.h:4
 msgid "Play to memory against Tux."
@@ -2658,7 +2728,7 @@ msgstr ""
 " Hjem - tar deg tilbake til den forrige menyen, eller avslutter GCompris "
 "hvis du befinner deg i åpningsmenyen.n\\  Tommelen - Greit/OK Sjekker om "
 "svaret ditt er riktig.\n"
-" Terning - Viser på hvilket vansklighetsnivå du spiller. Trykk på den for å "
+" Terning - Viser på hvilket vanskelighetsnivå du spiller. Trykk på den for å "
 "endre nivå.\n"
 " Musikk note - gjentar spørsmålet\n"
 " Spørsmålstegn - Hjelp\n"
@@ -2892,6 +2962,10 @@ msgstr ""
 msgid "Practice money usage including cents"
 msgstr "Øv på å bruke penger, inkludert cents."
 
+#: ../boards/mosaic.xml.in.h:1
+msgid "Rebuild the mosaic"
+msgstr "Sett sammen mosaikken"
+
 #: ../boards/mouse.xml.in.h:2
 msgid "Mouse-manipulation boards"
 msgstr "Spillbrett med øving på bruk av mus"
@@ -3005,7 +3079,7 @@ msgstr "Tall i rekkefølge"
 
 #: ../boards/pythontest.xml.in.h:1
 msgid "Add a language-binding to gcompris."
-msgstr "Legg til en språkbinding for gcompris."
+msgstr "Legg til en språkbinding for GCompris."
 
 #: ../boards/pythontest.xml.in.h:2
 msgid "Advanced Python Programmer :)"
@@ -3371,7 +3445,7 @@ msgstr "Sudoku, plasser unike siffer i firkanter."
 msgid "Symbols must be unique in a row, in a column, and (if defined) each region."
 msgstr ""
 "Alle symboler/siffer må være unike i hver rad og i hver kolonne, og i hvert "
-"områd."
+"område."
 
 #: ../boards/sudoku.xml.in.h:5
 msgid ""
@@ -3448,7 +3522,7 @@ msgstr "Tuxpaint"
 
 #: ../boards/tuxpaint.xml.in.h:4
 msgid "Use Tuxpaint to draw. When Tuxpaint is finished this board will end."
-msgstr "Bruk Tuxpaint for å tegne. Når du avslutter Tuxpaint så avsluttes brettet å.ogs"
+msgstr "Bruk Tuxpaint for å tegne. Når du avslutter Tuxpaint så avsluttes brettet også."
 
 #: ../boards/tuxpaint.xml.in.h:5
 msgid "mouse and keyboard manipulation"
@@ -3509,7 +3583,7 @@ msgstr "Skriv inn ordene før de rekker å treffe bakken"
 
 #: ../gcompris-edit.desktop.in.h:1
 msgid "Administration for gcompris"
-msgstr "Administrasjon for gcompris"
+msgstr "Administrasjon for GCompris"
 
 #: ../gcompris.desktop.in.h:1
 msgid "Educational game for ages 2 to 10"
@@ -3522,24 +3596,6 @@ msgstr "Pedagogisk programpakke GCompris"
 #: ../gcompris.desktop.in.h:3
 msgid "Multiple activities for kids"
 msgstr "Flere aktiviteter for barn"
-
-#: ../src/boards/advanced_colors.c:533 ../src/boards/imageid.c:642
-#: ../src/boards/missingletter.c:655 ../src/boards/read_colors.c:491
-#: ../src/boards/shapegame.c:1902 ../src/gcompris/file_selector.c:893
-#: ../src/gcompris/gameutil.c:186 ../src/gcompris/gameutil.c:583
-#: ../src/gcompris/gameutil.c:584 ../src/gcompris/gcompris.c:639
-#: ../src/gcompris/images_selector.c:767 ../src/gcompris/skin.c:87
-#: ../src/gcompris/skin.c:266 ../src/gcompris/wordlist.c:49
-#, c-format
-msgid "Couldn't find file %s !"
-msgstr "Kunne ikke finne filen %s !"
-
-#: ../src/boards/advanced_colors.c:536 ../src/boards/imageid.c:645
-#: ../src/boards/missingletter.c:658 ../src/boards/read_colors.c:494
-#: ../src/boards/shapegame.c:1905
-#, c-format
-msgid "find file %s !"
-msgstr "finn fil %s !"
 
 #: ../src/boards/chess.c:189
 msgid ""
@@ -3601,12 +3657,12 @@ msgstr "Trukket spill"
 #. TRANSLATORS: Put here the alphabet in your language
 #. require by all utf8-functions
 #. TRANSLATORS: Put here the alphabet lowercase in your language
-#: ../src/boards/click_on_letter.c:241 ../src/boards/click_on_letter.c:258
-#: ../src/boards/gletters.c:226 ../src/boards/memory.c:444
+#: ../src/boards/click_on_letter.c:258 ../src/boards/click_on_letter.c:275
+#: ../src/boards/gletters.c:228 ../src/boards/memory.c:564
 msgid "abcdefghijklmnopqrstuvwxyz"
 msgstr "abcdefghijklmnopqrstuvwxyz"
 
-#: ../src/boards/click_on_letter.c:270
+#: ../src/boards/click_on_letter.c:287
 #, c-format
 msgid ""
 "Error: this activity requires that you first install\n"
@@ -3615,7 +3671,7 @@ msgstr ""
 "Feil: Denne aktiviteten krever at du har installert\n"
 "pakken assetml-voices-alphabet-%s eller %s"
 
-#: ../src/boards/click_on_letter.c:277
+#: ../src/boards/click_on_letter.c:294
 #, c-format
 msgid ""
 "Error: this activity requires that you first install\n"
@@ -3624,7 +3680,7 @@ msgstr ""
 "Feil: Denne aktiviteten krever at du har installert\n"
 "pakken assetml-voices-alphabet-%s. Bruker istedenfor engelsk som språk."
 
-#: ../src/boards/click_on_letter.c:285
+#: ../src/boards/click_on_letter.c:302
 msgid ""
 "Error: this activity cannot be played with the\n"
 "sound effects disabled.\n"
@@ -3636,6 +3692,12 @@ msgstr ""
 "Gå inn i konfigurasjonsmenyen og skru på\n"
 "lydeffekter"
 
+#. toggle box
+#: ../src/boards/click_on_letter.c:611 ../src/boards/gletters.c:813
+#: ../src/boards/python/login.py:535
+msgid "Uppercase only text"
+msgstr "Kun tekst med store bokstaver"
+
 #: ../src/boards/clickgame.c:178
 #, c-format
 msgid "Couldn't open dir: %s"
@@ -3646,72 +3708,52 @@ msgid "Set the watch to:"
 msgstr "Still klokken til:"
 
 #: ../src/boards/colors.c:57
-msgid "Click on the blue toon"
-msgstr "Klikk på den blå figuren"
+msgid "Click on the blue duck"
+msgstr "Klikk på den blå anden"
 
 #: ../src/boards/colors.c:58
-msgid "Click on the brown toon"
-msgstr "Klikk på den brune figuren"
+msgid "Click on the brown duck"
+msgstr "Klikk på den brune anden"
 
 #: ../src/boards/colors.c:59
-msgid "Click on the green toon"
-msgstr "Klikk på grønne figuren"
+msgid "Click on the green duck"
+msgstr "Klikk på grønne anden"
 
 #: ../src/boards/colors.c:60
-msgid "Click on the grey toon"
-msgstr "Klikk på den grå figuren"
+msgid "Click on the grey duck"
+msgstr "Klikk på den grå anden"
 
 #: ../src/boards/colors.c:61
-msgid "Click on the orange toon"
-msgstr "Klikk på den oransje figuren"
+msgid "Click on the orange duck"
+msgstr "Klikk på den oransje anden"
 
 #: ../src/boards/colors.c:62
-msgid "Click on the purple toon"
-msgstr "Klikk på den lilla figuren"
+msgid "Click on the purple duck"
+msgstr "Klikk på den lilla anden"
 
 #: ../src/boards/colors.c:63
-msgid "Click on the red toon"
-msgstr "Klikk på den røde figuren"
+msgid "Click on the red duck"
+msgstr "Klikk på den røde anden"
 
 #: ../src/boards/colors.c:64
-msgid "Click on the yellow toon"
-msgstr "Klikk på gule figuren"
+msgid "Click on the yellow duck"
+msgstr "Klikk på gule anden"
 
 #: ../src/boards/colors.c:65
-msgid "Click on the black toon"
-msgstr "Klikk på sorte figuren"
+msgid "Click on the black duck"
+msgstr "Klikk på sorte anden"
 
 #: ../src/boards/colors.c:66
-msgid "Click on the white toon"
-msgstr "Klikk på den hvite figuren"
-
-#: ../src/boards/erase.c:170
-msgid "Couldn't get GTK settings"
-msgstr "Klarte ikke å finne GTK innstillingene"
-
-#: ../src/boards/erase.c:175
-#, c-format
-msgid "Double-click default value %d."
-msgstr "Dobbeltklikk standardverdien er %d."
-
-#: ../src/boards/erase.c:180
-#, c-format
-msgid "Double-click value is now %d."
-msgstr "Dobbeltklikk verdien er nå %d."
-
-#: ../src/boards/erase.c:195 ../src/boards/erase.c:218
-#: ../src/boards/erase.c:348
-#, c-format
-msgid "Double click value is now %d."
-msgstr "Dobbeltklikk verdien er nå %d."
+msgid "Click on the white duck"
+msgstr "Klikk på den hvite anden"
 
 #. TRANSLATORS: Put here the numbers in your language
-#: ../src/boards/gletters.c:222 ../src/boards/memory.c:440
+#: ../src/boards/gletters.c:224 ../src/boards/memory.c:560
 msgid "0123456789"
 msgstr "0123456789"
 
 #. TRANSLATORS: Put here the alphabet uppercase in your language
-#: ../src/boards/gletters.c:232 ../src/boards/memory.c:450
+#: ../src/boards/gletters.c:234 ../src/boards/memory.c:570
 msgid "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 msgstr "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
@@ -3757,11 +3799,11 @@ msgstr "Se på din posisjon og bytt tilbake til usynlig modus for å bevege deg 
 msgid "Look at your position, then switch back to 3D mode to continue your moves"
 msgstr "Se på din posisjon og bytt tilbake til 3D modus for å bevege deg videre"
 
-#: ../src/boards/memory.c:172
+#: ../src/boards/memory.c:250
 msgid "Memory"
 msgstr "Hukommelse"
 
-#: ../src/boards/memory.c:173
+#: ../src/boards/memory.c:251
 msgid "Find the matching pair"
 msgstr "Finn like kort"
 
@@ -3772,6 +3814,17 @@ msgstr "Hovedmeny"
 #: ../src/boards/menu.c:80
 msgid "Select a Board"
 msgstr "Velg et brett"
+
+#. Set here the way to display money. Change only the money sign, and it's place, always keep %.2f, it will be replaced by 0,34 if decimal is ',' in your locale
+#: ../src/boards/money.c:489
+#, c-format
+msgid "$ %.2f"
+msgstr "$ %.2f"
+
+#: ../src/boards/money.c:502
+#, c-format
+msgid "$ %.0f"
+msgstr "$ %.0f"
 
 #: ../src/boards/paratrooper.c:102
 msgid "Paratrooper"
@@ -3865,7 +3918,7 @@ msgstr ""
 #: ../src/boards/python/admin/board_list.py:662
 #: ../src/boards/python/pythontest.py:473
 msgid "Select sound locale"
-msgstr "Vel lydspråk"
+msgstr "Velg lydspråk"
 
 #: ../src/boards/python/admin/class_edit.py:60
 msgid "Editing a Class"
@@ -4126,7 +4179,7 @@ msgstr ""
 
 #: ../src/boards/python/anim.py:59
 msgid "You need the python xml module. Disabling SVG."
-msgstr "Du trenger python xml modulen. Skrur av støtte for SVG."
+msgstr "Du trenger Python xml modulen. Skrur av støtte for SVG."
 
 #. gcompris.utils.dialog(_('Python xml module bot found. SVG is disabled. Install the python xml module to enable SVG Save/restore.'), None)
 #: ../src/boards/python/anim.py:417
@@ -4135,12 +4188,12 @@ msgid ""
 "to enable SVG Save/restore."
 msgstr ""
 "Python xml modulen ble ikke funnet. Støtte for SVG er skrudd av.  For å "
-"kunne lage/gjenopprette i SVG, så må du installere python xml modulen."
+"kunne lage/gjenopprette i SVG, så må du installere Python xml modulen."
 
 #: ../src/boards/python/anim.py:2206
 msgid "SVG is disabled. Install python xml module to enable it"
 msgstr ""
-"Støtte for SVG er skrudd av. Installer python xml modulen for å få støtte "
+"Støtte for SVG er skrudd av. Installer Python xml modulen for å få støtte "
 "for SVG "
 
 #: ../src/boards/python/anim.py:2362
@@ -4182,7 +4235,7 @@ msgid ""
 "but %d is not a multiple of %d."
 msgstr ""
 "Multipler av %d inkluderer %s, \n"
-"men %d er ikke en multipel av %d."
+"men %d er ikke en multippel av %d."
 
 #: ../src/boards/python/gnumch.py:160
 #, python-format
@@ -4307,14 +4360,13 @@ msgid "Login: "
 msgstr "Login: "
 
 #. toggle box
-#: ../src/boards/python/login.py:535
-msgid "Uppercase only text"
-msgstr "Kun tekst med store bokstaver"
-
-#. toggle box
 #: ../src/boards/python/login.py:545
 msgid "Enter login to log in"
 msgstr "Skriv inn brukernavnet du vil loggføre"
+
+#: ../src/boards/python/mosaic.py:210
+msgid "Rebuild the same mosaic on the right area"
+msgstr "Bygg opp mosaikken i feltet på høyre side"
 
 #: ../src/boards/python/pythontest.py:149
 msgid ""
@@ -4441,11 +4493,11 @@ msgstr "Venter på at Tuxpaint skal avsluttes"
 
 #: ../src/boards/python/tuxpaint.py:183
 msgid "Inherit fullscreen setting from GCompris"
-msgstr "Bruk fullskjerm innstllingen fra GCompris"
+msgstr "Bruk fullskjerm innstillingen fra GCompris"
 
 #: ../src/boards/python/tuxpaint.py:187
 msgid "Inherit size setting from GCompris (800x600, 640x480)"
-msgstr "Bruk skjermstørrelse innstllingen fra GCompris (800x600, 640x480)"
+msgstr "Bruk skjermstørrelse innstillingen fra GCompris (800x600, 640x480)"
 
 #: ../src/boards/python/tuxpaint.py:191
 msgid "Disable shape rotation"
@@ -4466,14 +4518,6 @@ msgstr "Hukommelsespill"
 #: ../src/boards/railroad.c:96
 msgid "Build a train according to the model"
 msgstr "Bygg et tog etter modellen"
-
-#: ../src/boards/read_colors.c:85
-msgid "Read Colors"
-msgstr "Les farger"
-
-#: ../src/boards/read_colors.c:86
-msgid "Click on the corresponding color"
-msgstr "Klikk på riktig farge"
 
 #: ../src/boards/reading.c:366
 msgid "Please, check if the word"
@@ -4606,7 +4650,7 @@ msgstr ""
 
 #: ../src/gcompris/about.c:341 ../src/gcompris/about.c:350
 #: ../src/gcompris/config.c:221 ../src/gcompris/config.c:230
-#: ../src/gcompris/gameutil.c:1101 ../src/gcompris/help.c:362
+#: ../src/gcompris/gameutil.c:1113 ../src/gcompris/help.c:362
 #: ../src/gcompris/help.c:371 ../src/gcompris/images_selector.c:263
 msgid "OK"
 msgstr "Greit"
@@ -4864,13 +4908,8 @@ msgstr "Effekter"
 msgid "Couldn't open skin dir: %s"
 msgstr "Kunne ikke åpne katalog for tema: %s"
 
-#: ../src/gcompris/config.c:438
-#, c-format
-msgid "No skin found in %s\n"
-msgstr "Fant ikke noe tema i %s\n"
-
-#: ../src/gcompris/config.c:453 ../src/gcompris/config.c:809
-#: ../src/gcompris/config.c:820
+#: ../src/gcompris/config.c:453 ../src/gcompris/config.c:817
+#: ../src/gcompris/config.c:828
 #, c-format
 msgid "Skin : %s"
 msgstr "Tema : %s"
@@ -4887,15 +4926,15 @@ msgstr "Hent opp"
 msgid "SAVE"
 msgstr "Lagre"
 
-#: ../src/gcompris/gameutil.c:189
+#: ../src/gcompris/gameutil.c:190
 msgid "Couldn't find file"
 msgstr "Kunne ikke finne filen"
 
-#: ../src/gcompris/gameutil.c:191
+#: ../src/gcompris/gameutil.c:192
 msgid "This activity is incomplete."
 msgstr "Denne aktiviteten er ennå ikke ferdig."
 
-#: ../src/gcompris/gameutil.c:192
+#: ../src/gcompris/gameutil.c:193
 msgid ""
 "Exit it and report\n"
 "the problem to the authors."
@@ -4949,17 +4988,17 @@ msgid ""
 "activities in the reading directory, -l /boards/connect4 only the connect4 "
 "activity)"
 msgstr ""
-"Start gcompris med et begrenset utvalg aktiviteter (f.eks vil -l /reading "
+"Start GCompris med et begrenset utvalg aktiviteter (f.eks vil -l /reading "
 "kun bruke brett med leseaktiviteter, -l /boards/connect4 vil kun starte med "
 "4 på rad), -l list vil vise alle mulige menyer og aktiviteter"
 
 #: ../src/gcompris/gcompris.c:142
 msgid "Run GCompris with local activity directory added to menu"
-msgstr "Start gcompris med ekstra lokal aktivitet lagt til"
+msgstr "Start GCompris med ekstra lokal aktivitet lagt til"
 
 #: ../src/gcompris/gcompris.c:144
 msgid "Run GCompris in administration and user-management mode"
-msgstr "Kjør gcompris i administrasjons og brukerhåndterer modus"
+msgstr "Kjør GCompris i administrasjons og brukerhåndterer modus"
 
 #: ../src/gcompris/gcompris.c:146
 msgid "Use alternate database for profiles"
@@ -4995,7 +5034,7 @@ msgstr "Delt mappe-plassering. For profiler og brettoppsett: [$HOME/.gcompris/sh
 msgid "The location of user directories: [$HOME/.gcompris/users]"
 msgstr "Brukermappeplassering. [$HOME/.gcompris/users] "
 
-#: ../src/gcompris/gcompris.c:797
+#: ../src/gcompris/gcompris.c:773
 #, c-format
 msgid ""
 "GCompris is free software released under the GPL License. In order to "
@@ -5009,7 +5048,7 @@ msgid ""
 "<http://www.fsf.org/philosophy>"
 msgstr ""
 
-#: ../src/gcompris/gcompris.c:1097
+#: ../src/gcompris/gcompris.c:1141
 #, c-format
 msgid ""
 "GCompris\n"
@@ -5023,17 +5062,17 @@ msgstr ""
 "Mer informasjon på http://gcompris.net\n"
 
 #. check the list of possible values for -l, then exit
-#: ../src/gcompris/gcompris.c:1165
+#: ../src/gcompris/gcompris.c:1209
 #, c-format
 msgid "Use -l to access an activity directly.\n"
 msgstr "Bruk -l aktivitet for å gå rett til denne aktiviteten.\n"
 
-#: ../src/gcompris/gcompris.c:1166
+#: ../src/gcompris/gcompris.c:1210
 #, c-format
 msgid "List of available activity is :\n"
 msgstr "Liste med tilgjengelige aktiviteter er :\n"
 
-#: ../src/gcompris/gcompris.c:1309
+#: ../src/gcompris/gcompris.c:1353
 #, c-format
 msgid "The list of available profiles is:\n"
 msgstr "Liste med tilgjengelige profiler:\n"
@@ -5062,57 +5101,12 @@ msgstr "Håndbok"
 msgid "Credit"
 msgstr "Bidragsyter"
 
-#: ../src/gcompris/images_selector.c:293
-#, c-format
-msgid "dataset %s is a directory. Trying to read xml "
-msgstr "datasettet %s er en mappe. Prøver å lese xml."
-
-#: ../src/gcompris/images_selector.c:632
-#, c-format
-msgid ""
-"In ImageSet %s, the pathname for the home directory '%s' is not found. "
-"Skipping the whole ImageSet.\n"
-msgstr ""
-"I bildetsamlingen %s er ikke mappen '%s' tilgjengelig. Hopper over "
-"bildetsamlingen.\n"
-
-#: ../src/gcompris/images_selector.c:666
-#, c-format
-msgid "In ImageSet %s, an image is not found. Skipping ImageSet...\n"
-msgstr "I bildetsamlingen «%s» mangler et bilde. Hopper over bildetsamlingen ...\n"
-
-#: ../src/gcompris/images_selector.c:697
-#, c-format
-msgid "In ImageSet %s, directory %s is not found. Skipping all the ImageSet...\n"
-msgstr ""
-"I bildetsamlingen «%s» er ikke mappen %s tilgjengelig. Hopper over "
-"bildetsamlingen ...\n"
-
-#: ../src/gcompris/soundutil.c:172
-#, c-format
-msgid "Couldn't open music dir: %s"
-msgstr "Kunne ikke åpne musikkatalog: %s"
-
-#: ../src/gcompris/soundutil.c:218
-#, c-format
-msgid ""
-"The background thread music is stopped now. The files in %s are not ogg "
-"vorbis OR the sound output failed"
-msgstr ""
-"Bakgrunnsmusikken har stoppet. Enten så er filene i %s ikke ogg vorbis, "
-"eller så har det skjedd noe med lydenheten"
-
-#: ../src/gcompris/timer.c:237
+#: ../src/gcompris/timer.c:235
 msgid "Time Elapsed"
 msgstr "Medgått tid"
 
-#: ../src/gcompris/timer.c:323
+#: ../src/gcompris/timer.c:321
 #, c-format
 msgid "Remaining Time = %d"
 msgstr "Gjenværende tid = %d"
-
-#: ../src/gcompris/wordlist.c:61
-#, c-format
-msgid "Couldn't parse file %s !"
-msgstr "Kunne ikke finne filen %s !"
 
