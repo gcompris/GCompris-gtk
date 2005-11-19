@@ -1,6 +1,6 @@
 /* gcompris - memory.c
  *
- * Time-stamp: <2005/11/18 23:42:57 bruno>
+ * Time-stamp: <2005/11/19 18:43:42 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  * 
@@ -402,7 +402,7 @@ void get_random_token(int token_type, gint *returned_type, gchar **string)
 
 
     type = ((DATUM *)list->data)->type;
-    printf("K=%d\n", k);
+
     switch (type) {
     case TYPE_IMAGE:
       result= g_strdup(imageList[k]);
@@ -427,7 +427,7 @@ void get_random_token(int token_type, gint *returned_type, gchar **string)
       g_error("never !");
       break;
     }
-    printf("   %s\n", result);
+
   } while ((j < max_token ) 
 	   && (passed_token && result && g_list_find_custom(passed_token, result, (GCompareFunc)strcmp)));
 

@@ -118,5 +118,5 @@ prep:
 	@echo "Copy pixmap"
 	mkdir $(GCOMPRIS_INSTALL_DIR)/share/pixmaps
 	cp gcompris.png $(GCOMPRIS_INSTALL_DIR)/share/pixmaps
-	@echo "Create the file gcompris-win-prepack.tar.gz
+	@echo "Create the file gcompris-win-prepack.tar.gz"
 	tar -czf gcompris-win-prepack.tar.gz win32-install-dir nsis
