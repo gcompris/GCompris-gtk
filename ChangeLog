@@ -1,3 +1,15 @@
+2005-11-19  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	- Fixed a crash in memory.c
+	  Replaced fixed length static lenght of array by the dynamic magic macro
+	  G_N_ELEMENTS(array)
+
+	* src/boards/enumerate.c:
+	* src/boards/erase.c:
+	* src/boards/hanoi.c:
+	* src/boards/memory.c: (get_random_token),
+	(memory_destroy_all_items):
+
 2005-11-18  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	- Fixed board naming for the spip script

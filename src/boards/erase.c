@@ -97,7 +97,7 @@ static gchar *imageList[] =
     "gcompris/animals/maki5.jpg",
     "gcompris/animals/maki6.jpg",
   };
-#define NUMBER_OF_IMAGES 31
+#define NUMBER_OF_IMAGES G_N_ELEMENTS(imageList)
 
 /* Store the image index to use */
 static int current_image;

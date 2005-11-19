@@ -1,6 +1,6 @@
 /* gcompris - memory.c
  *
- * Time-stamp: <2005/11/18 00:24:23 bruno>
+ * Time-stamp: <2005/11/18 23:42:57 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  * 
@@ -188,7 +188,7 @@ static gchar *imageList[] =
   "gcompris/misc/windflag4.png",
   "gcompris/misc/windflag5.png",
 };
-#define NUMBER_OF_IMAGES 41
+#define NUMBER_OF_IMAGES G_N_ELEMENTS(imageList)
 
 /* List of images to use in the memory */
 static gchar *soundList[] =
@@ -240,7 +240,7 @@ static gchar *soundList[] =
    "sounds/melody/tachos/melody.ogg"
 };
 
-#define NUMBER_OF_SOUNDS 46
+#define NUMBER_OF_SOUNDS G_N_ELEMENTS(soundList)
 
 /* Description of this plugin */
 static BoardPlugin menu_bp =
@@ -402,7 +402,7 @@ void get_random_token(int token_type, gint *returned_type, gchar **string)
 
 
     type = ((DATUM *)list->data)->type;
-
+    printf("K=%d\n", k);
     switch (type) {
     case TYPE_IMAGE:
       result= g_strdup(imageList[k]);
@@ -427,8 +427,9 @@ void get_random_token(int token_type, gint *returned_type, gchar **string)
       g_error("never !");
       break;
     }
-  }
-  while ((j < max_token ) &&  (g_list_find_custom(passed_token, result, strcmp)));
+    printf("   %s\n", result);
+  } while ((j < max_token ) 
+	   && (passed_token && result && g_list_find_custom(passed_token, result, (GCompareFunc)strcmp)));
 
   g_assert (j < max_token);
 	 
@@ -709,7 +710,6 @@ static void memory_destroy_all_items()
     if (tux_id) {
       g_source_remove (tux_id);
     }
-
     tux_id =0;
     to_tux = FALSE;
   }
@@ -745,6 +745,7 @@ static void memory_destroy_all_items()
     
     winning_pairs = NULL;
     while (g_queue_pop_head (tux_memory));
+    tux_memory = NULL;
   }
   
 }

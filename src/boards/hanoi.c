@@ -89,7 +89,7 @@ static guint colorlist [] =
     0xA000A0FF,
     0xF000F0FF
   };
-#define NUMBER_OF_COLOR 14
+#define NUMBER_OF_COLOR G_N_ELEMENTS(colorlist)
 
 
 /* Description of this plugin */

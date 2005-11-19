@@ -75,7 +75,7 @@ static gchar *imageList[] =
   "gcompris/food/bread_slice.png",
   "gcompris/food/round_cookie.png",
 };
-#define NUMBER_OF_IMAGES 17
+#define NUMBER_OF_IMAGES G_N_ELEMENTS(imageList)
 
 static guint		 answer[NUMBER_OF_IMAGES];
 static guint		 answer_to_find[NUMBER_OF_IMAGES];
