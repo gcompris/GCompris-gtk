@@ -1,6 +1,6 @@
 /* gcompris - memory.c
  *
- * Time-stamp: <2005/11/19 18:43:42 bruno>
+ * Time-stamp: <2005/11/20 00:41:43 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  * 
@@ -196,10 +196,10 @@ static gchar *soundList[] =
    "sounds/LuneRouge/animaux/LRRain_in_garden_01_by_Lionel_Allorge_cut.ogg",
    "sounds/LuneRouge/animaux/LRBark_1_by_Lionel_Allorge_cut.ogg",
    "sounds/LuneRouge/animaux/LRBark_3_by_Lionel_Allorge_cut.ogg",
-   "sounds/LuneRouge/animaux/LRFrogs_in_pond_during_storm_by_Lionel_Allorge_cut.ogg",
+   "sounds/LuneRouge/animaux/LRFrogsInPondDuringStormByLionelAllorgeCut.ogg",
    "sounds/LuneRouge/engins/LRObject_falling_02_by_Lionel_Allorge.ogg",
    "sounds/LuneRouge/engins/LRTrain_slowing_down_01_by_Lionel_Allorge_cut.ogg",
-   "sounds/LuneRouge/engins/LRStart_and_stop_car_engine_1_by_Lionel_Allorge_cut.ogg",
+   "sounds/LuneRouge/engins/LRStartAndStopCarEngine1ByLionelAllorgeCut.ogg",
    "sounds/LuneRouge/engins/LRObject_falling_01_by_Lionel_Allorge.ogg",
    "sounds/LuneRouge/humain/LRApplauses_1_by_Lionel_Allorge_cut.ogg",
    "sounds/LuneRouge/humain/LRHeart_beat_01_by_Lionel_Allorge.ogg",

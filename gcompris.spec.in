@@ -475,7 +475,9 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{prefix}/share/gcompris/boards/sounds
 %{prefix}/share/gcompris/boards/sounds/*.ogg
 %{prefix}/share/gcompris/boards/sounds/melody/*/*.ogg
+%{prefix}/share/gcompris/boards/sounds/memory/*.ogg
 %{prefix}/share/gcompris/boards/sounds/chronos/space/*.ogg
+%{prefix}/share/gcompris/boards/sounds/LuneRouge/*
 %{prefix}/share/gcompris/boards/sounds/HOWTO_ENCODE
 %dir %{prefix}/share/gcompris/python
 %{prefix}/share/gcompris/python/*

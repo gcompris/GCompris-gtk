@@ -111,8 +111,8 @@ libgletters_la_SOURCES = gletters.c
 
 libgtans_la_LDFLAGS = -module -avoid-version
 libgtans_la_LIBADD = $(top_builddir)/src/gcompris/libgcompris-1.la
-libgtans_la_SOURCES = gtans.c gtans_interface.c gtans_support.c gtans_callbacks.c
-
+libgtans_la_SOURCES = gtans.c gtans_interface.c gtans_support.c gtans_callbacks.c \
+	gtans_callbacks.h gtans.h gtans_interface.h gtans_support.h
 
 libplanegame_la_LDFLAGS = -module -avoid-version
 libplanegame_la_LIBADD = $(top_builddir)/src/gcompris/libgcompris-1.la

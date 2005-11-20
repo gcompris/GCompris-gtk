@@ -1,3 +1,24 @@
+
+	*** RELEASE 7.2PRE1 ***
+
+2005-11-20  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	- Shortened some files due to 99 chars limitation in tar files
+	- Fixed spec to include new files
+	
+	* boards/sounds/LuneRouge/animaux/LRFrogsInPondDuringStormByLionelA
+	llorgeCut.ogg:
+	* boards/sounds/LuneRouge/animaux/LRFrogs_in_pond_during_storm_by_L
+	ionel_Allorge_cut.ogg:
+	* boards/sounds/LuneRouge/engins/LRStartAndStopCarEngine1ByLionelAl
+	lorgeCut.ogg:
+	* boards/sounds/LuneRouge/engins/LRStart_and_stop_car_engine_1_by_L
+	ionel_Allorge_cut.ogg:
+	* configure.in:
+	* gcompris.spec.in:
+	* src/boards/Makefile.am:
+	* src/boards/memory.c:
+
 2005-11-20  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* Makefile.mingw: fixed in make prep
