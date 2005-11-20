@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-11-14 18:41+0100\n"
-"PO-Revision-Date: 2005-11-14 18:44+0100\n"
+"POT-Creation-Date: 2005-11-20 19:29+0100\n"
+"PO-Revision-Date: 2005-11-20 19:34+0100\n"
 "Last-Translator: Francisco Javier F. Serrador <serrador@cvs.gnome.org>\n"
 "Language-Team: Spanish <traductores@es.gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -2135,7 +2135,7 @@ msgid ""
 "taking the square as the unit: * 5 right isosceles triangles o 2 small (legs "
 "of 1) o 1 medium size (legs of square root of 2) o 2 large size (legs of 2) "
 "* 1 square (side of 1) * 1 parallelogram (sides of 1 and square root of 2)"
-msgstr ""
+msgstr "De la Wikipedia, la enciclopedia libre. Tangram (Chino: literalmente «siete tableros de astucia») es un puzzle chino. Mientras que tangram a menudo se dice que es antiguo, su existencia se ha verificado sólo hasta 1800. Consiste en 7 piezas, llamadas tans, que casan juntas para formar un cuadrado; tomando el cuadrado como una unidad: * 5 triángulos isósceles o 2 pequeños (de lado largo 1) o 1 de tamaño medio (de lado la raíz cuadrada de 2) o 2 de gran tamaño (lado 2) * 1 cuadrado (lado de 1) * 1 paralelogramo (lados de 1 y raíz cuadarada de 2)"
 
 #: ../boards/gtans.xml.in.h:3
 msgid ""
@@ -2154,7 +2154,9 @@ msgstr "El objetivo es construir una forma con site piezas"
 msgid ""
 "The original code has been written by Philippe Banwarth in 1999. It has been "
 "ported to GCompris by Yves Combe in 2005."
-msgstr "El código original ha sido escrito por Phillipe Banwarth en 1999. Se ha portado a GCompris por Yves Combe en 2005."
+msgstr ""
+"El código original ha sido escrito por Phillipe Banwarth en 1999. Se ha "
+"portado a GCompris por Yves Combe en 2005."
 
 #: ../boards/gtans.xml.in.h:6
 msgid "The tangram puzzle game"
@@ -3763,12 +3765,12 @@ msgstr "Juego para dibujar"
 #. TRANSLATORS: Put here the alphabet in your language
 #. require by all utf8-functions
 #. TRANSLATORS: Put here the alphabet lowercase in your language
-#: ../src/boards/click_on_letter.c:243 ../src/boards/click_on_letter.c:260
-#: ../src/boards/gletters.c:226 ../src/boards/memory.c:564
+#: ../src/boards/click_on_letter.c:258 ../src/boards/click_on_letter.c:275
+#: ../src/boards/gletters.c:228 ../src/boards/memory.c:565
 msgid "abcdefghijklmnopqrstuvwxyz"
 msgstr "abcdefghijklmnñopqrstuvwxyz"
 
-#: ../src/boards/click_on_letter.c:272
+#: ../src/boards/click_on_letter.c:287
 #, c-format
 msgid ""
 "Error: this activity requires that you first install\n"
@@ -3777,7 +3779,7 @@ msgstr ""
 "Error: esta actividad requiere que instale primero\n"
 "el paquete assetml-voices-alphabet-%s o %s"
 
-#: ../src/boards/click_on_letter.c:279
+#: ../src/boards/click_on_letter.c:294
 #, c-format
 msgid ""
 "Error: this activity requires that you first install\n"
@@ -3786,7 +3788,7 @@ msgstr ""
 "Error: esta actividad requiere que instale primero\n"
 "el paquete assetml-voices-alphabet-%s. Volviendo a inglés, lo siento."
 
-#: ../src/boards/click_on_letter.c:287
+#: ../src/boards/click_on_letter.c:302
 msgid ""
 "Error: this activity cannot be played with the\n"
 "sound effects disabled.\n"
@@ -3797,6 +3799,12 @@ msgstr ""
 "de sonido desactivados.\n"
 "Ve al diálogo de configuración para\n"
 "activar el sonido"
+
+#. toggle box
+#: ../src/boards/click_on_letter.c:611 ../src/boards/gletters.c:813
+#: ../src/boards/python/login.py:535
+msgid "Uppercase only text"
+msgstr "Texto sólo en mayúsculas"
 
 #: ../src/boards/clickgame.c:178
 #, c-format
@@ -3848,12 +3856,12 @@ msgid "Click on the white duck"
 msgstr "Pulsa en el pato blanco"
 
 #. TRANSLATORS: Put here the numbers in your language
-#: ../src/boards/gletters.c:222 ../src/boards/memory.c:560
+#: ../src/boards/gletters.c:224 ../src/boards/memory.c:561
 msgid "0123456789"
 msgstr "0123456789"
 
 #. TRANSLATORS: Put here the alphabet uppercase in your language
-#: ../src/boards/gletters.c:232 ../src/boards/memory.c:570
+#: ../src/boards/gletters.c:234 ../src/boards/memory.c:571
 msgid "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 msgstr "ABCDEFGHIJKLMNÑOPQRSTUVWXYZ"
 
@@ -3921,12 +3929,13 @@ msgstr "Menú principal de GCompris"
 msgid "Select a Board"
 msgstr "Selecciona un tablero"
 
-#: ../src/boards/money.c:488
+#. Set here the way to display money. Change only the money sign, and it's place, always keep %.2f, it will be replaced by 0,34 if decimal is ',' in your locale
+#: ../src/boards/money.c:489
 #, c-format
 msgid "$ %.2f"
 msgstr "$ %.2f"
 
-#: ../src/boards/money.c:501
+#: ../src/boards/money.c:502
 #, c-format
 msgid "$ %.0f"
 msgstr "$ %.0f"
@@ -4468,11 +4477,6 @@ msgid "Login: "
 msgstr "Usuario: "
 
 #. toggle box
-#: ../src/boards/python/login.py:535
-msgid "Uppercase only text"
-msgstr "Texto sólo en mayúsculas"
-
-#. toggle box
 #: ../src/boards/python/login.py:545
 msgid "Enter login to log in"
 msgstr "Introduce tu nombre de usuario para identificarte"
@@ -4767,7 +4771,7 @@ msgstr ""
 
 #: ../src/gcompris/about.c:341 ../src/gcompris/about.c:350
 #: ../src/gcompris/config.c:221 ../src/gcompris/config.c:230
-#: ../src/gcompris/gameutil.c:1101 ../src/gcompris/help.c:362
+#: ../src/gcompris/gameutil.c:1113 ../src/gcompris/help.c:362
 #: ../src/gcompris/help.c:371 ../src/gcompris/images_selector.c:263
 msgid "OK"
 msgstr "Aceptar"
@@ -5044,15 +5048,15 @@ msgstr "CARGAR"
 msgid "SAVE"
 msgstr "GUARDAR"
 
-#: ../src/gcompris/gameutil.c:189
+#: ../src/gcompris/gameutil.c:190
 msgid "Couldn't find file"
 msgstr "No se ha podido encontrar el archivo"
 
-#: ../src/gcompris/gameutil.c:191
+#: ../src/gcompris/gameutil.c:192
 msgid "This activity is incomplete."
 msgstr "Esta actividad está incompleta."
 
-#: ../src/gcompris/gameutil.c:192
+#: ../src/gcompris/gameutil.c:193
 msgid ""
 "Exit it and report\n"
 "the problem to the authors."
@@ -5233,11 +5237,11 @@ msgstr "Manual"
 msgid "Credit"
 msgstr "Crédito"
 
-#: ../src/gcompris/timer.c:237
+#: ../src/gcompris/timer.c:235
 msgid "Time Elapsed"
 msgstr "Tiempo transcurrido"
 
-#: ../src/gcompris/timer.c:323
+#: ../src/gcompris/timer.c:321
 #, c-format
 msgid "Remaining Time = %d"
 msgstr "Tiempo restante = %d"
