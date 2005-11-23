@@ -1,5 +1,37 @@
 2005-11-23  Yves Combe  <yves@ycombe.net>
 
+	fix broken menus.
+
+	* boards/advanced_colors.xml.in:
+	* boards/algebra_by.xml.in:
+	* boards/algebra_group.xml.in:
+	* boards/algebra_guesscount.xml.in:
+	* boards/algebra_minus.xml.in:
+	* boards/algebra_plus.xml.in:
+	* boards/colors.xml.in:
+	* boards/doubleentry.xml.in:
+	* boards/enumerate.xml.in:
+	* boards/gnumch-equality.xml.in:
+	* boards/gnumch-factors.xml.in:
+	* boards/gnumch-inequality.xml.in:
+	* boards/gnumch-multiples.xml.in:
+	* boards/gnumch-primes.xml.in:
+	* boards/gnumchmenu.xml.in:
+	* boards/maze.xml.in:
+	* boards/maze2DRelative.xml.in:
+	* boards/maze3D.xml.in:
+	* boards/mazeInvisible.xml.in:
+	* boards/money.xml.in:
+	* boards/money_cents.xml.in:
+	* boards/planegame.xml.in:
+	* boards/read_colors.xml.in:
+	* boards/reversecount.xml.in:
+	* boards/scalesboard.xml.in:
+	* boards/smallnumbers2.xml.in:
+	* boards/target.xml.in:
+
+2005-11-23  Yves Combe  <yves@ycombe.net>
+
 	fix pyhon module crash in sys.argv.
 	fix crash in memory.
 
