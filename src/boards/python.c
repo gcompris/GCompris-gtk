@@ -137,6 +137,9 @@ pythonboard_init (GcomprisBoard *agcomprisBoard){
   /* Initialize the python interpreter */
   Py_Initialize();
 
+  static char *python_args[]={ "" };
+  PySys_SetArgv( 1, python_args);
+
   pythonboard_is_ready = TRUE;
 
   main_module = PyImport_AddModule("__main__"); /* Borrowed reference */

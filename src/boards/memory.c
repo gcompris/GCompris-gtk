@@ -1,6 +1,6 @@
 /* gcompris - memory.c
  *
- * Time-stamp: <2005/11/20 00:41:43 bruno>
+ * Time-stamp: <2005/11/21 15:57:51 yves>
  *
  * Copyright (C) 2000 Bruno Coudoin
  * 
@@ -745,7 +745,7 @@ static void memory_destroy_all_items()
     
     winning_pairs = NULL;
     while (g_queue_pop_head (tux_memory));
-    tux_memory = NULL;
+    //tux_memory = NULL;
   }
   
 }
