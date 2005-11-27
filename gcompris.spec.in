@@ -4,7 +4,7 @@
 %define rel     	%{?CUSTOM_RELEASE} %{!?CUSTOM_RELEASE:%RELEASE}
 %define prefix		/usr
 %define canvaspackage	%(if rpm -q redhat-release &> /dev/null; then echo gdk-pixbuf-gnome; elif rpm -q mandrake-release &> /dev/null; then echo gdk-pixbuf-gnomecanvas; else echo; fi)
-%define canvaslib	%(if rpm -q mandrakelinux-release &> /dev/null; then echo libgnomecanvas2; else echo libgnomecanvas; fi)
+%define canvaslib	%(if rpm -q mandriva-release &> /dev/null; then echo libgnomecanvas2; else echo libgnomecanvas; fi)
 
 Summary: Educational suite for kids 2-10 years old
 Name: 		%name
@@ -19,14 +19,14 @@ Buildrequires: libxml2-devel libgnomeui2-devel libsqlite3_0-devel
 Buildrequires: texinfo 
 # (misc) needed for python support
 Buildrequires: gnome-python python-devel pygtk2.0-devel 
-Requires:	gnome-libs libxml2 gdk-pixbuf %canvaspackage %canvaslib >= 2.3.6
+Requires:	gnome-libs libxml2 gdk-pixbuf %canvaspackage %canvaslib
 Requires:       gnuchess >= 5.02
 Requires:       @REQUIRE_PYTHON@
 Requires:	assetml-flags
 Requires:	libSDL_mixer1.2
 Requires:	libsqlite3_0
 Packager:       Bruno Coudoin <bcoudoin.coudoin@free.fr>
-URL: 		http://ofset.sf.net/gcompris
+URL: 		http://gcompris.net
 
 %description
 GCompris / I Have Understood is an educationnal game for children starting at 2.
@@ -246,6 +246,39 @@ Version: @VERSION_VOICES_FRANCE_REGIONS_FR@
 
 %description -n assetml-voices-france-regions-fr
 Voices of names of the French Regions in French
+
+
+%package -n assetml-voices-alphabet-hu
+Summary:        Alphabet voices in Hungarian
+Group: 		Amusements/Games
+Version: @VERSION_VOICES_ALPHABET_HU@
+
+%description -n assetml-voices-alphabet-hu
+Alphabet voices in Hungarian
+
+%package -n assetml-voices-colors-hu
+Summary:        Colors voices in Hungarian
+Group: 		Amusements/Games
+Version: @VERSION_VOICES_COLORS_HU@
+
+%description -n assetml-voices-colors-hu
+Colors voices in Hungarian
+
+%package -n assetml-voices-geography-hu
+Summary:        Country name voices in Hungarian
+Group: 		Amusements/Games
+Version: @VERSION_VOICES_GEOGRAPHY_HU@
+
+%description -n assetml-voices-geography-hu
+Country name voices in Hungarian
+
+%package -n assetml-voices-misc-hu
+Summary:        Miscelaneous voices in Hungarian
+Group: 		Amusements/Games
+Version: @VERSION_VOICES_MISC_HU@
+
+%description -n assetml-voices-misc-hu
+Miscelaneous voices in Hungarian
 
 
 %package -n assetml-voices-alphabet-it
@@ -603,6 +636,27 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(-, root, root)
 %{prefix}/share/gcompris/boards/sounds/fr/france_region
 %{prefix}/share/@ASSETML_DIR@/gcompris_franceregion_fr.assetml
+
+
+%files -n assetml-voices-alphabet-hu
+%defattr(-, root, root)
+%{prefix}/share/gcompris/boards/sounds/hu/alphabet
+%{prefix}/share/@ASSETML_DIR@/gcompris_alphabet_hu.assetml
+
+%files -n assetml-voices-colors-hu
+%defattr(-, root, root)
+%{prefix}/share/gcompris/boards/sounds/hu/colors
+%{prefix}/share/@ASSETML_DIR@/gcompris_colors_hu.assetml
+
+%files -n assetml-voices-geography-hu
+%defattr(-, root, root)
+%{prefix}/share/gcompris/boards/sounds/hu/geography
+%{prefix}/share/@ASSETML_DIR@/gcompris_geography_hu.assetml
+
+%files -n assetml-voices-misc-hu
+%defattr(-, root, root)
+%{prefix}/share/gcompris/boards/sounds/hu/misc
+%{prefix}/share/@ASSETML_DIR@/gcompris_misc_hu.assetml
 
 
 %files -n assetml-voices-alphabet-it

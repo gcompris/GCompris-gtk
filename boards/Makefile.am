@@ -34,6 +34,7 @@ xml_in_files = \
 	connect4.xml.in \
 	doubleentry.xml.in \
 	draw.xml.in \
+	electric.xml.in \
 	enumerate.xml.in \
 	erase.xml.in \
 	erase_clic.xml.in \
@@ -66,7 +67,7 @@ xml_in_files = \
 	mazeMenu.xml.in \
 	melody.xml.in \
 	memory.xml.in \
- 	memory_group.xml.in \
+	memory_group.xml.in \
 	memory_tux.xml.in \
 	memory_sound.xml.in \
 	memory_sound_tux.xml.in \

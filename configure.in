@@ -258,6 +258,15 @@ if test x$TETEX = xno; then
 fi
 
 
+dnl SQLITE support
+AC_MSG_CHECKING([wether we build with SQLITE (if not profile will be disabled)])
+AC_ARG_ENABLE(sqlite,
+          AC_HELP_STRING(
+          [--disable-sqlite],
+          [Turn off sqlite (will disable profile)]),
+          with_sqlite="$enableval", with_sqlite="yes")
+AC_MSG_RESULT($with_sqlite)
+
 dnl check for python
 AC_ARG_WITH(python,AC_HELP_STRING(
     [--with-python=path],
@@ -285,7 +294,7 @@ AC_ARG_ENABLE(py-build-only,
           [Skip python modules tests. (Useful if you just need build)]),
           py_build_only="$enableval", py_build_only="no")
 
-REQUIRE_PYHTON=""
+REQUIRE_PYTHON=""
 if test x$build_python_plugin = xno; then
   AC_MSG_NOTICE([Python plugin is disabled.])
 else
@@ -307,26 +316,17 @@ dnl  if test x$test_gnomecanvas = xyes ; then
 dnl     AM_CHECK_PYMOD(gnomecanvas,,,AC_MSG_ERROR([*** gnome.canvas or gnomecanvas installed but not visible from python ]))
 dnl   fi
 
-  else
-    AC_MSG_WARN([py-build-only: Skipping python modules dependancies])
-    AC_MSG_WARN([py-build-only: Do not forget to install pygtk, gnome-python an pyxml])
-  fi
-fi
-
-dnl SQLITE support
-AC_MSG_CHECKING([wether we build with SQLITE (if not profile will be disabled)])
-AC_ARG_ENABLE(sqlite,
-          AC_HELP_STRING(
-          [--disable-sqlite],
-          [Turn off sqlite (will disable profile)]),
-          with_sqlite="$enableval", with_sqlite="yes")
-AC_MSG_RESULT($with_sqlite)
-
 if test x$with_sqlite = xyes; then
    PKG_CHECK_MODULES(SQLITE3, sqlite3,, AC_MSG_ERROR([*** SQLITE3 not found!]))
    AC_DEFINE([USE_SQLITE], 1,[SQLITE Database, Profiles are enabled])
    AM_CHECK_PYMOD(pysqlite2,,,AC_MSG_ERROR([*** pysqlite2 missing ]))
    REQUIRE_PYTHON="$REQUIRE_PYTHON python-sqlite2"
+fi
+
+  else
+    AC_MSG_WARN([py-build-only: Skipping python modules dependancies])
+    AC_MSG_WARN([py-build-only: Do not forget to install pygtk, gnome-python, pysqlite2 and pyxml])
+  fi
 fi
 
 AM_CONDITIONAL(USE_SQLITE, test x$with_sqlite = xyes)
@@ -453,6 +453,19 @@ AC_SUBST(VERSION_VOICES_MISC_FR)
 
 VERSION_VOICES_FRANCE_REGIONS_FR=1.0
 AC_SUBST(VERSION_VOICES_FRANCE_REGIONS_FR)
+
+# HU
+VERSION_VOICES_ALPHABET_HU=1.0
+AC_SUBST(VERSION_VOICES_ALPHABET_HU)
+
+VERSION_VOICES_COLORS_HU=1.0
+AC_SUBST(VERSION_VOICES_COLORS_HU)
+
+VERSION_VOICES_GEOGRAPHY_HU=1.0
+AC_SUBST(VERSION_VOICES_GEOGRAPHY_HU)
+
+VERSION_VOICES_MISC_HU=1.0
+AC_SUBST(VERSION_VOICES_MISC_HU)
 
 # IT
 VERSION_VOICES_ALPHABET_IT=1.1
@@ -585,6 +598,11 @@ boards/sounds/fr/colors/Makefile
 boards/sounds/fr/france_region/Makefile
 boards/sounds/fr/geography/Makefile
 boards/sounds/fr/misc/Makefile
+boards/sounds/hu/Makefile
+boards/sounds/hu/alphabet/Makefile
+boards/sounds/hu/colors/Makefile
+boards/sounds/hu/geography/Makefile
+boards/sounds/hu/misc/Makefile
 boards/sounds/it/Makefile
 boards/sounds/it/alphabet/Makefile
 boards/sounds/it/colors/Makefile

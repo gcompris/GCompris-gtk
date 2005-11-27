@@ -28,7 +28,7 @@
 #include "gcompris/gcompris.h"
 
 #define SOUNDLISTFILE PACKAGE
-#define IMG_DATA_SET PACKAGE_DATA_DIR "/dataset/mrpatate.xml"
+#define IMG_DATA_SET PACKAGE_DATA_DIR "/dataset"
 #define FILE_SELECTOR_ROOT "drawings"
 
 /* Represent the drawing area */

@@ -64,6 +64,7 @@ lib_LTLIBRARIES = \
 	libwordsgame.la \
 	libadvanced_colors.la \
 	libread_colors.la \
+	libdraw.la \
 	$(python_plugin)
 
 libdir = $(plugindir)
@@ -76,6 +77,10 @@ INCLUDES = \
 	$(PYGTK_CFLAGS) \
 	$(sqlite_cflags) \
 	$(cairo_cflags)
+
+libdraw_la_LDFLAGS = -module -avoid-version
+libdraw_la_LIBADD = $(top_builddir)/src/gcompris/libgcompris-1.la
+libdraw_la_SOURCES = draw.c
 
 libmenu_la_LDFLAGS = -module -avoid-version
 libmenu_la_LIBADD = $(top_builddir)/src/gcompris/libgcompris-1.la
