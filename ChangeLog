@@ -1,3 +1,19 @@
+2005-11-29  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	Proof of concect for electric activity is almost completed.
+	If /usr/bin/gnucap is installed, create a schematic and click
+	the OK button. The voltage and current value will be displayed
+	on stdout.
+
+	* boards/boardicons/electric.png:
+	* boards/electric.xml.in:
+	* boards/electric/battery.png:
+	* boards/electric/bulb.png:
+	* boards/electric/connect.png:
+	* boards/electric/diod.png:
+	* boards/electric/resistor.png:
+	* src/boards/python/electric.py:
+
 2005-11-27  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	Started the electric activiry. Nothing runs yet.
