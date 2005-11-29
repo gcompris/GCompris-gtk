@@ -622,7 +622,8 @@ static void setup_window ()
   if (!g_file_test ((GNOME_ICONDIR"/gcompris.png"), G_FILE_TEST_EXISTS)) {
       g_warning ("Couldn't find file %s !", GNOME_ICONDIR"/gcompris.png" );
   }
-  gcompris_icon_pixbuf = gdk_pixbuf_new_from_file (GNOME_ICONDIR"/gcompris.png", &error);
+  gcompris_icon_pixbuf = gdk_pixbuf_new_from_file (GNOME_ICONDIR"/gcompris.png",
+						   &error);
   if (!gcompris_icon_pixbuf)
     {
       g_warning ("Failed to load pixbuf file: %s: %s\n",

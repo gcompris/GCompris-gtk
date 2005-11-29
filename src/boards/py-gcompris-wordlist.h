@@ -1,5 +1,5 @@
-#ifndef _PY_GCOMPRIS_PROPERTIES_H_
-#define _PY_GCOMPRIS_PROPERTIES_H_
+#ifndef _PY_GCOMPRIS_WORDLIST_H_
+#define _PY_GCOMPRIS_WORDLIST_H_
 
 #include <Python.h>
 #include "gcompris/gcompris.h"

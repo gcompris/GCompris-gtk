@@ -89,7 +89,8 @@ class Gcompris_electric:
     print gnucap
     f.writelines(gnucap)
     f.close()
-    output = subprocess.Popen(["/usr/bin/gnucap", "-b", filename ], stdout=subprocess.PIPE).communicate()[0]
+    output = subprocess.Popen(["/usr/bin/gnucap", "-b", filename ],
+                              stdout=subprocess.PIPE).communicate()[0]
     print output
     os.remove(filename)
     

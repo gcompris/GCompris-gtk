@@ -1,5 +1,16 @@
 2005-11-29  Bruno coudoin  <bruno.coudoin@free.fr>
 
+	Fix Debian Bug#341280
+	Our automated buildd log filter[1] detected a problem that will cause
+        your package to segfault on architectures where the size of a pointer is
+        greater than the size of an integer, such as ia64.
+	
+	* src/boards/py-gcompris-wordlist.h:
+	* src/boards/python/electric.py:
+	* src/gcompris/gcompris.c: (setup_window):
+
+2005-11-29  Bruno coudoin  <bruno.coudoin@free.fr>
+
 	Proof of concect for electric activity is almost completed.
 	If /usr/bin/gnucap is installed, create a schematic and click
 	the OK button. The voltage and current value will be displayed
