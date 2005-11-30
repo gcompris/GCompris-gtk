@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-11-14 12:14+0200\n"
-"PO-Revision-Date: 2005-11-14 12:14+0200\n"
+"POT-Creation-Date: 2005-11-30 10:22+0200\n"
+"PO-Revision-Date: 2005-11-29 18:40+0200\n"
 "Last-Translator: Yavor Doganov <yavor@doganov.org>\n"
 "Language-Team: Bulgarian <dict@fsa-bg.org>\n"
 "MIME-Version: 1.0\n"
@@ -1093,16 +1093,16 @@ msgid "Colors"
 msgstr "Цветове"
 
 #: ../boards/colors.xml.in.h:4
-msgid "Listen to the color and click on the matching toon."
-msgstr "Чуйте цвета и натиснете плочката."
+msgid "Listen to the color and click on the matching duck."
+msgstr "Чуйте цвета и натиснете съответстващото патенце."
 
 #: ../boards/colors.xml.in.h:5
 msgid ""
 "This board teaches you to recognize different colors. When you hear the name "
-"of the color, click on the toon wearing it."
+"of the color, click on the duck wearing it."
 msgstr ""
-"Тази дъска учи да се разпознават цветове. Изберете произнесения цвят от "
-"набора с оцветени плочки."
+"Тази дъска учи да се разпознават цветове. Като чуете цвета, натиснете "
+"патенцето, което го носи."
 
 #: ../boards/colors_group.xml.in.h:1
 msgid "Go to Color activities"
@@ -3728,12 +3728,12 @@ msgstr "Равна игра"
 #. TRANSLATORS: Put here the alphabet in your language
 #. require by all utf8-functions
 #. TRANSLATORS: Put here the alphabet lowercase in your language
-#: ../src/boards/click_on_letter.c:243 ../src/boards/click_on_letter.c:260
-#: ../src/boards/gletters.c:226 ../src/boards/memory.c:564
+#: ../src/boards/click_on_letter.c:258 ../src/boards/click_on_letter.c:275
+#: ../src/boards/gletters.c:228 ../src/boards/memory.c:565
 msgid "abcdefghijklmnopqrstuvwxyz"
 msgstr "абвгдежзийклмнопрстуфхцчшщъьюя"
 
-#: ../src/boards/click_on_letter.c:272
+#: ../src/boards/click_on_letter.c:287
 #, c-format
 msgid ""
 "Error: this activity requires that you first install\n"
@@ -3742,7 +3742,7 @@ msgstr ""
 "Грешка: Това занимание изисква първо да инсталирате\n"
 "пакетите assetml-voices-alphabet-%s или %s"
 
-#: ../src/boards/click_on_letter.c:279
+#: ../src/boards/click_on_letter.c:294
 #, c-format
 msgid ""
 "Error: this activity requires that you first install\n"
@@ -3751,7 +3751,7 @@ msgstr ""
 "Грешка: Това занимание изисква първо да инсталирате\n"
 "пакета assetml-voices-alphabet-%s! Стартиране на английски, за съжаление."
 
-#: ../src/boards/click_on_letter.c:287
+#: ../src/boards/click_on_letter.c:302
 msgid ""
 "Error: this activity cannot be played with the\n"
 "sound effects disabled.\n"
@@ -3762,6 +3762,12 @@ msgstr ""
 "когато звуковите ефекти са изключени.\n"
 "Отидете в менюто за конфигурация,\n"
 "за да включите звука."
+
+#. toggle box
+#: ../src/boards/click_on_letter.c:611 ../src/boards/gletters.c:813
+#: ../src/boards/python/login.py:535
+msgid "Uppercase only text"
+msgstr "Само текст с главни букви"
 
 #: ../src/boards/clickgame.c:178
 #, c-format
@@ -3813,12 +3819,12 @@ msgid "Click on the white duck"
 msgstr "Натиснете бялата играчка"
 
 #. TRANSLATORS: Put here the numbers in your language
-#: ../src/boards/gletters.c:222 ../src/boards/memory.c:560
+#: ../src/boards/gletters.c:224 ../src/boards/memory.c:561
 msgid "0123456789"
 msgstr "0123456789"
 
 #. TRANSLATORS: Put here the alphabet uppercase in your language
-#: ../src/boards/gletters.c:232 ../src/boards/memory.c:570
+#: ../src/boards/gletters.c:234 ../src/boards/memory.c:571
 msgid "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 msgstr "АБВГДЕЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЬЮЯ"
 
@@ -3885,12 +3891,13 @@ msgstr "Главно меню"
 msgid "Select a Board"
 msgstr "Изберете игра"
 
-#: ../src/boards/money.c:488
+#. Set here the way to display money. Change only the money sign, and it's place, always keep %.2f, it will be replaced by 0,34 if decimal is ',' in your locale
+#: ../src/boards/money.c:489
 #, c-format
 msgid "$ %.2f"
 msgstr "$ %.2f"
 
-#: ../src/boards/money.c:501
+#: ../src/boards/money.c:502
 #, c-format
 msgid "$ %.0f"
 msgstr "$ %.0f"
@@ -4433,11 +4440,6 @@ msgid "Login: "
 msgstr "Потребителски име: "
 
 #. toggle box
-#: ../src/boards/python/login.py:535
-msgid "Uppercase only text"
-msgstr "Само текст с главни букви"
-
-#. toggle box
 #: ../src/boards/python/login.py:545
 msgid "Enter login to log in"
 msgstr "Въведете потребителско име"
@@ -4731,7 +4733,7 @@ msgstr ""
 
 #: ../src/gcompris/about.c:341 ../src/gcompris/about.c:350
 #: ../src/gcompris/config.c:221 ../src/gcompris/config.c:230
-#: ../src/gcompris/gameutil.c:1101 ../src/gcompris/help.c:362
+#: ../src/gcompris/gameutil.c:1113 ../src/gcompris/help.c:362
 #: ../src/gcompris/help.c:371 ../src/gcompris/images_selector.c:263
 msgid "OK"
 msgstr "Да"
@@ -5009,15 +5011,15 @@ msgstr "ЗАРЕЖДАНЕ"
 msgid "SAVE"
 msgstr "ЗАПАЗВАНЕ"
 
-#: ../src/gcompris/gameutil.c:189
+#: ../src/gcompris/gameutil.c:190
 msgid "Couldn't find file"
 msgstr "Не може да бъде намерен файла"
 
-#: ../src/gcompris/gameutil.c:191
+#: ../src/gcompris/gameutil.c:192
 msgid "This activity is incomplete."
 msgstr "Това занимание не е завършено."
 
-#: ../src/gcompris/gameutil.c:192
+#: ../src/gcompris/gameutil.c:193
 msgid ""
 "Exit it and report\n"
 "the problem to the authors."
@@ -5121,7 +5123,7 @@ msgstr ""
 msgid "The location of user directories: [$HOME/.gcompris/users]"
 msgstr "Местоположение на потребителските директории: [$HOME/.gcompris/users]"
 
-#: ../src/gcompris/gcompris.c:773
+#: ../src/gcompris/gcompris.c:774
 #, c-format
 msgid ""
 "GCompris is free software released under the GPL License. In order to "
@@ -5145,7 +5147,7 @@ msgstr ""
 "намерите на страницата на Фондация „Свободен софтуер“:\n"
 "<http://www.fsf.org/philosophy>"
 
-#: ../src/gcompris/gcompris.c:1141
+#: ../src/gcompris/gcompris.c:1142
 #, c-format
 msgid ""
 "GCompris\n"
@@ -5159,17 +5161,17 @@ msgstr ""
 "Повече информация на http://gcompris.net\n"
 
 #. check the list of possible values for -l, then exit
-#: ../src/gcompris/gcompris.c:1209
+#: ../src/gcompris/gcompris.c:1210
 #, c-format
 msgid "Use -l to access an activity directly.\n"
 msgstr "Използвайте „-l“ за директен достъп до заниманието.\n"
 
-#: ../src/gcompris/gcompris.c:1210
+#: ../src/gcompris/gcompris.c:1211
 #, c-format
 msgid "List of available activity is :\n"
 msgstr "Списъкът с наличните занимания е:\n"
 
-#: ../src/gcompris/gcompris.c:1353
+#: ../src/gcompris/gcompris.c:1354
 #, c-format
 msgid "The list of available profiles is:\n"
 msgstr "Списъкът с наличните профили е:\n"
@@ -5198,11 +5200,11 @@ msgstr "Ръководство"
 msgid "Credit"
 msgstr "Заслуги"
 
-#: ../src/gcompris/timer.c:237
+#: ../src/gcompris/timer.c:235
 msgid "Time Elapsed"
 msgstr "Отчетено време"
 
-#: ../src/gcompris/timer.c:323
+#: ../src/gcompris/timer.c:321
 #, c-format
 msgid "Remaining Time = %d"
 msgstr "Оставащо време = %d"
