@@ -9,7 +9,7 @@ dist_python_DATA= \
 	ballcatch.py \
 	bargame.py \
 	connect4.py \
-	electronic.py \
+	electric.py \
 	followline.py \
 	guessnumber.py \
 	gnumch.py \
