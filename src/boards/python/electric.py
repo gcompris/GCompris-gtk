@@ -29,8 +29,13 @@ import gtk.gdk
 import random
 import pango
 
-import subprocess
 import os
+
+try:
+  import subprocess
+except:
+  print "This activity requires python 2.4."
+  pass
 
 from gcompris import gcompris_gettext as _
 
@@ -81,8 +86,12 @@ class Gcompris_electric:
     f = file(filename, "w+")
 
     gnucap = "Title GCompris\n"
+    connected_components = []
     for component in self.components:
-      gnucap += component.to_gnucap()
+      thisgnucap = component.to_gnucap()
+      if thisgnucap != "":
+        connected_components.append(component)
+      gnucap += thisgnucap
 
     gnucap += ".dc\n"
     gnucap += ".end\n"
@@ -91,7 +100,20 @@ class Gcompris_electric:
     f.close()
     output = subprocess.Popen(["/usr/bin/gnucap", "-b", filename ],
                               stdout=subprocess.PIPE).communicate()[0]
+    print "---------------- GNUCAP OUTPUT -----------------------------"
     print output
+    print "------------------------------------------------------------"
+    values = output.splitlines()[11].split()
+    del values[0]
+    print values
+    i = 0
+    for component in connected_components:
+      print values[i]
+      print values[i+1]
+      component.set_voltage_intensity(float(values[i]), float(values[i+1]))
+      i += 2
+      
+      
     os.remove(filename)
     
     
@@ -222,20 +244,20 @@ class Gcompris_electric:
     # Battery
     a = Node("electric/connect.png", "A", 11, -35)
     b = Node("electric/connect.png", "B", 11, 150)
-    battery = Component(self.gcomprisBoard.canvas, self.rootitem,
+    battery2 = Component(self.gcomprisBoard.canvas, self.rootitem,
                         "Vsupply2", "10",
                         "electric/battery.png", [a, b])
 
-    battery.move(170, 200)
-    battery.show()
-    self.components.append(battery)
+    battery2.move(150, 200)
+    battery2.show()
+    self.components.append(battery2)
 
     # Resistor
     a = Node("electric/connect.png", "A", -30, -5)
     b = Node("electric/connect.png", "B", 130, -5)
     resistor = Component(self.gcomprisBoard.canvas, self.rootitem,
                          "R2", "1k",
-                         "electric/resistor.png", [a, b])
+                         "electric/resistor.png", [b, a])
 
     resistor.move(150, 400)
     resistor.show()
@@ -423,13 +445,32 @@ class Component:
         item = node.create(self, node.x, node.y)
         item.connect("event", self.create_wire, node)
 
+      self.item_values = self.comp_rootitem.add(
+        gnome.canvas.CanvasText,
+        x = 0,
+        y = 0,
+        font=gcompris.skin.get_font("gcompris/tiny"),
+        text="",
+        fill_color="red",
+        justification=gtk.JUSTIFY_CENTER
+        )
 
+    def set_voltage_intensity(self, voltage, intensity):
+      self.voltage = voltage
+      self.intensity = intensity
+      self.item_values.set(text="V=%.1f\nI=%.2f"%(voltage,intensity))
+
+      
     def get_rootitem(self):
       return self.comp_rootitem
     
     def move(self, x, y):
       x = x - self.center_x
       y = y - self.center_y
+      
+      self.item_values.set(x = x,
+                           y = y + 50)
+
       self.component_item.set(x = x,
                               y = y)
       

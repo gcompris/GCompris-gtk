@@ -56,6 +56,17 @@ class Gcompris_administration:
 
 
 
+  def pause(self, pause):
+
+    if(self.current_panel != None):
+      if pause:
+        # Stop current panel
+        self.current_panel.stop()
+      else:
+        # Restart the current panel
+        self.current_panel.start(self.panel_area)
+
+
   def start(self):
 
     # Find the list of modules in admin/
