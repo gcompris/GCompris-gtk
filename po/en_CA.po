@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-11-17 21:13-0500\n"
+"POT-Creation-Date: 2005-12-04 01:11-0500\n"
 "PO-Revision-Date: 2005-09-06 22:51-0400\n"
 "Last-Translator: Adam Weinberger <adamw@gnome.org>\n"
 "Language-Team: Canadian English <adamw@gnome.org>\n"
@@ -1093,16 +1093,16 @@ msgid "Colors"
 msgstr "Colours"
 
 #: boards/colors.xml.in.h:4
-msgid "Listen to the color and click on the matching toon."
-msgstr "Listen to the colour and click on the matching toon."
+msgid "Listen to the color and click on the matching duck."
+msgstr "Listen to the colour and click on the matching duck."
 
 #: boards/colors.xml.in.h:5
 msgid ""
 "This board teaches you to recognize different colors. When you hear the name "
-"of the color, click on the toon wearing it."
+"of the color, click on the duck wearing it."
 msgstr ""
-"This board teaches you to recognize different colours. When you hear the "
-"name of the colour, click on the toon wearing it."
+"This board teaches you to recognize different colours. When you hear the name "
+"of the colour, click on the duck wearing it."
 
 #: boards/colors_group.xml.in.h:1
 msgid "Go to Color activities"
@@ -1197,6 +1197,14 @@ msgstr ""
 "Select a drawing tool on the left, and a colour down the bottom, then click "
 "and drag in the white area to create a new shape. To save time, you can "
 "click with the middle mouse button to delete an object."
+
+#: boards/electric.xml.in.h:1
+msgid "Create and simulate electric schema"
+msgstr "Create and simulate electric schema"
+
+#: boards/electric.xml.in.h:2
+msgid "Electric"
+msgstr "Electric"
 
 #: boards/enumerate.xml.in.h:1
 msgid "Basic enumeration"
@@ -3661,7 +3669,7 @@ msgstr "Drawn game"
 #. require by all utf8-functions
 #. TRANSLATORS: Put here the alphabet lowercase in your language
 #: src/boards/click_on_letter.c:258 src/boards/click_on_letter.c:275
-#: src/boards/gletters.c:228 src/boards/memory.c:564
+#: src/boards/gletters.c:228 src/boards/memory.c:565
 msgid "abcdefghijklmnopqrstuvwxyz"
 msgstr "abcdefghijklmnopqrstuvwxyz"
 
@@ -3751,12 +3759,12 @@ msgid "Click on the white duck"
 msgstr "Click on the white duck"
 
 #. TRANSLATORS: Put here the numbers in your language
-#: src/boards/gletters.c:224 src/boards/memory.c:560
+#: src/boards/gletters.c:224 src/boards/memory.c:561
 msgid "0123456789"
 msgstr "0123456789"
 
 #. TRANSLATORS: Put here the alphabet uppercase in your language
-#: src/boards/gletters.c:234 src/boards/memory.c:570
+#: src/boards/gletters.c:234 src/boards/memory.c:571
 msgid "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 msgstr "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
@@ -5041,7 +5049,7 @@ msgstr ""
 msgid "The location of user directories: [$HOME/.gcompris/users]"
 msgstr "The location of user directories: [$HOME/.gcompris/users]"
 
-#: src/gcompris/gcompris.c:773
+#: src/gcompris/gcompris.c:774
 #, c-format
 msgid ""
 "GCompris is free software released under the GPL License. In order to "
@@ -5064,7 +5072,7 @@ msgstr ""
 "GNU/Linux. Get more information at FSF:\n"
 "<http://www.fsf.org/philosophy>"
 
-#: src/gcompris/gcompris.c:1141
+#: src/gcompris/gcompris.c:1142
 #, c-format
 msgid ""
 "GCompris\n"
@@ -5078,17 +5086,17 @@ msgstr ""
 "More info at http://gcompris.net\n"
 
 #. check the list of possible values for -l, then exit
-#: src/gcompris/gcompris.c:1209
+#: src/gcompris/gcompris.c:1210
 #, c-format
 msgid "Use -l to access an activity directly.\n"
 msgstr "Use -l to access an activity directly.\n"
 
-#: src/gcompris/gcompris.c:1210
+#: src/gcompris/gcompris.c:1211
 #, c-format
 msgid "List of available activity is :\n"
 msgstr "List of available activity is:\n"
 
-#: src/gcompris/gcompris.c:1353
+#: src/gcompris/gcompris.c:1354
 #, c-format
 msgid "The list of available profiles is:\n"
 msgstr "The list of available profiles is:\n"
