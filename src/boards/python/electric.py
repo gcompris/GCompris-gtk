@@ -273,7 +273,9 @@ class Gcompris_electric:
 
 # A wire between 2 Nodes
 class Wire:
-    wire_counter = 0
+    counter = 0
+    connection = {}
+    
     def __init__(self, rootitem, source_node, x1, y1, x2, y2):
       self.rootitem = rootitem
       self.source_node = source_node
@@ -289,20 +291,47 @@ class Wire:
         width_units=5.0
         )
       self.wire_item.connect("event", self.delete_wire, self)
-      self.wire_id = Wire.wire_counter
-      Wire.wire_counter += 1
+      self.wire_id = -1
+      self._add_connection(source_node)
+      
+    def _add_connection(self, node):
+      # Is this node already connected
+      if Wire.connection.has_key(node):
+        wire_id = Wire.connection[node].get_wire_id()
+        print "Node already connected to %d" %wire_id
+        if self.wire_id >= 0:
+          # This node was already connected elsewhere, reset it to use our wire_id
+          for node in Wire.connection.keys():
+            if Wire.connection[node].get_wire_id() == wire_id:
+              Wire.connection[node].set_wire_id(self.wire_id)
+        else:
+          self.wire_id = wire_id
+           
+      else:
+        if self.wire_id == -1:
+          self.wire_id = Wire.counter
+          Wire.counter += 1
+          
+        Wire.connection[node] = self
+        
+      print "WIRE_ID = %d" %self.wire_id
 
+    def set_wire_id(self, id):
+      self.wire_id = id
+    
     def get_wire_id(self):
       return self.wire_id
     
     def destroy(self):
       self.wire_item.destroy()
+      self.wire_id = -1
       self.source_node = None
       self.target_node = None
       
     def set_target_node(self, node):
       self.target_node = node
-
+      self._add_connection(node)
+      
     # Move wire. In fact, the attached component are moved and THEY move the wire
     def move_all_wire(self, x, y):
       if(self.source_node and self.target_node):

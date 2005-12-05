@@ -73,6 +73,7 @@ GnomeCanvas *canvas_bg;
  
 //static gint pause_board_cb (GtkWidget *widget, gpointer data);
 static void quit_cb (GtkWidget *widget, gpointer data);
+static void map_cb  (GtkWidget *widget, gpointer data);
 static gint board_widget_key_press_callback (GtkWidget   *widget,
 					    GdkEventKey *event,
 					    gpointer     client_data);
@@ -80,6 +81,7 @@ void gcompris_terminate(int  signum);
 
 GcomprisProperties	*properties = NULL;
 static gboolean		 antialiased = FALSE;
+static gboolean		 is_mapped = FALSE;
 
 /****************************************************************************/
 /* Some constants.  */
@@ -650,6 +652,9 @@ static void setup_window ()
   gtk_signal_connect (GTK_OBJECT (window), "delete_event",
 		      GTK_SIGNAL_FUNC (quit_cb), NULL);
 
+  gtk_signal_connect (GTK_OBJECT (window), "map_event",
+		      GTK_SIGNAL_FUNC (map_cb), NULL);
+
   /* For non anti alias canvas */
   gtk_widget_push_visual (gdk_rgb_get_visual ());
   gtk_widget_push_colormap (gdk_rgb_get_cmap ());
@@ -825,7 +830,8 @@ void gcompris_set_fullscreen(gboolean state)
 	/* Set the Fullscreen now */
 	if(xr_previous_size_set) 
 	  {
-	    xrandr_set_config( xrandr );
+	    if(is_mapped)
+	      xrandr_set_config( xrandr );
 	  }
       }
 #endif
@@ -886,6 +892,21 @@ static void quit_cb (GtkWidget *widget, gpointer data)
 #endif
   gcompris_exit();
 
+}
+
+/*
+ * We want GCompris to be set as fullscreen the later possible
+ *
+ */
+static void map_cb (GtkWidget *widget, gpointer data)
+{
+  if(is_mapped == FALSE)
+    {
+      is_mapped = TRUE;
+      gcompris_set_fullscreen(properties->fullscreen);
+    }
+
+  printf("\nEVENT\n============================================================\n\n");
 }
 
 /* 
