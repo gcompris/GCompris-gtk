@@ -176,7 +176,17 @@ static void pause_board (gboolean pause)
     actual_figure++;
     tansetnewfigurepart1(actual_figure);
     tansetnewfigurepart2();
+  } else {
+    if (pause) {
+      gtk_widget_hide(widgetgrande);
+      gtk_widget_hide(widgetpetite);
+    
+    } else {
+      gtk_widget_show(widgetgrande);
+      gtk_widget_show(widgetpetite);
+    }
   }
+    
 }
 
 void change_figure(gboolean next){
