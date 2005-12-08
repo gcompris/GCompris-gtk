@@ -86,11 +86,8 @@ class Gcompris_electric:
     f = file(filename, "w+")
 
     gnucap = "Title GCompris\n"
-    connected_components = []
     for component in self.components:
       thisgnucap = component.to_gnucap()
-      if thisgnucap != "":
-        connected_components.append(component)
       gnucap += thisgnucap
 
     gnucap += ".dc\n"
@@ -103,16 +100,38 @@ class Gcompris_electric:
     print "---------------- GNUCAP OUTPUT -----------------------------"
     print output
     print "------------------------------------------------------------"
-    values = output.splitlines()[11].split()
-    del values[0]
+
+    for line in output.splitlines():
+      print "==="
+      print line
+      if(line.split() == " 0."):
+        break
+
+    print "===>"
+    print line
+    print "===>"
+    values = []
+    if(line.split()[0] == "0."):
+      print "FOUND 0."
+      values = line.split()
+      del values[0]
+
     print values
     i = 0
-    for component in connected_components:
+
+    # Reset all component values
+    for component in self.components:
+      print "Processing component %d" %(i,)
       print values[i]
       print values[i+1]
-      component.set_voltage_intensity(float(values[i]), float(values[i+1]))
+      try:
+        volt = float(values[i])
+        amp = float(values[i+1])
+        component.set_voltage_intensity(volt, amp)
+      except:
+        component.set_voltage_intensity(0.0, 0.0)
+
       i += 2
-      
       
     os.remove(filename)
     
@@ -273,7 +292,8 @@ class Gcompris_electric:
 
 # A wire between 2 Nodes
 class Wire:
-    counter = 0
+    # Wire ID 0 is a dummy wire, we start at 1
+    counter = 1
     connection = {}
     
     def __init__(self, rootitem, source_node, x1, y1, x2, y2):
@@ -296,16 +316,20 @@ class Wire:
       
     def _add_connection(self, node):
       # Is this node already connected
-      if Wire.connection.has_key(node):
-        wire_id = Wire.connection[node].get_wire_id()
-        print "Node already connected to %d" %wire_id
+      if(node.get_wires()):
+        wire_id = node.get_wires()[0].get_wire_id()
+        print "Node already connected to %d (self.wire_id=%d)" %(wire_id, self.wire_id)
         if self.wire_id >= 0:
           # This node was already connected elsewhere, reset it to use our wire_id
-          for node in Wire.connection.keys():
-            if Wire.connection[node].get_wire_id() == wire_id:
-              Wire.connection[node].set_wire_id(self.wire_id)
+          for wire in node.get_wires():
+            if wire.get_wire_id() != wire_id:
+              wire.set_wire_id(self.wire_id)
         else:
-          self.wire_id = wire_id
+          if wire_id == -1:
+            self.wire_id = Wire.counter
+            Wire.counter += 1
+          else:
+            self.wire_id = wire_id
            
       else:
         if self.wire_id == -1:
@@ -318,6 +342,10 @@ class Wire:
 
     def set_wire_id(self, id):
       self.wire_id = id
+      if(self.target_node):
+        self.target_node.renumber_wire(self, id)
+      if(self.source_node):
+        self.source_node.renumber_wire(self, id)
     
     def get_wire_id(self):
       return self.wire_id
@@ -325,8 +353,12 @@ class Wire:
     def destroy(self):
       self.wire_item.destroy()
       self.wire_id = -1
+      self.source_node.remove_wire(self, None)
+      self.target_node.remove_wire(self, Wire.counter)
+      Wire.counter += 1
       self.source_node = None
       self.target_node = None
+      
       
     def set_target_node(self, node):
       self.target_node = node
@@ -406,9 +438,22 @@ class Node:
     def add_wire(self, wire):
       self.wires.append(wire)
 
-    # Add a wire to this node
-    def remove_wire(self, wire):
-      self.wires.remove(wire)
+    # Remove a wire from this node and reasign all wires
+    # already connected to this node a new given wire number
+    def remove_wire(self, wire, wire_id):
+      try:
+        self.wires.remove(wire)
+        if(wire_id):
+          self.renumber_wire(wire, wire_id)
+      except:
+        pass
+        
+      
+    # Renumber the wires
+    def renumber_wire(self, wire, wire_id):
+      for wire in self.wires:
+        if(wire.get_wire_id() != wire_id):
+          wire.set_wire_id(wire_id)
 
     # Return the list of all wires on this node
     def get_wires(self):
@@ -526,16 +571,16 @@ class Component:
         if(node.get_wires()):
           gnucap += str(node.get_wires()[0].get_wire_id())
           node_count += 1
-        
+        else:
+          # UnConnected nodes are always connected to dummy wire 0
+          gnucap += str(0)
+          
       gnucap += " "
       gnucap += str(self.gnucap_value)
       gnucap += "\n"
       gnucap += ".print dc + v(%s) i(%s)\n" %(self.gnucap_name, self.gnucap_name)
 
-      if(node_count==2):
-        return gnucap
-      else:
-        return ""
+      return gnucap
     
     # Callback event to move the component
     def component_move(self, widget, event, component):
@@ -577,7 +622,7 @@ class Component:
           if(not node_target
              or node.get_component() == node_target.get_component()
              or node_target.has_wire(self.wire)):
-            node.remove_wire(self.wire)
+            node.remove_wire(self.wire, None)
             self.wire.destroy()
           else:
             self.wire.set_target_node(node_target)
