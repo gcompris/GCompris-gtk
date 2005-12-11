@@ -115,7 +115,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 
       gcomprisBoard->level = 1;
       gcomprisBoard->maxlevel = 1;
-      gcompris_bar_set(GCOMPRIS_BAR_LEVEL);
+      gcompris_bar_set(0);
 
       gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas), "images/gtans_bg.png");
 
