@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-11-20 19:29+0100\n"
-"PO-Revision-Date: 2005-11-20 19:34+0100\n"
+"POT-Creation-Date: 2005-12-11 12:55+0100\n"
+"PO-Revision-Date: 2005-12-11 12:58+0100\n"
 "Last-Translator: Francisco Javier F. Serrador <serrador@cvs.gnome.org>\n"
 "Language-Team: Spanish <traductores@es.gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -1111,16 +1111,14 @@ msgid "Colors"
 msgstr "Colores"
 
 #: ../boards/colors.xml.in.h:4
-msgid "Listen to the color and click on the matching toon."
-msgstr "Escucha el color y pulsa en el dibujo que le corresponda"
+msgid "Listen to the color and click on the matching duck."
+msgstr "Escucha el color y pulsa en el pato que corresponda."
 
 #: ../boards/colors.xml.in.h:5
 msgid ""
 "This board teaches you to recognize different colors. When you hear the name "
-"of the color, click on the toon wearing it."
-msgstr ""
-"Este tablero te enseña a reconocer diferentes colores. Cuando escuches el "
-"nombre del color, pulsa en el dibujo que lo lleva."
+"of the color, click on the duck wearing it."
+msgstr "Este tablero te enseña a reconocer diferentes colores. Cuando escuches el nombre del color, pulsa en el pato que lo lleva."
 
 #: ../boards/colors_group.xml.in.h:1
 msgid "Go to Color activities"
@@ -1217,6 +1215,14 @@ msgstr ""
 "después pulsa y arrastra sobre el área blanca para crear una nueva forma. "
 "Para ahorrar tiempo, puedes pulsar con el botón central del ratón para "
 "borrar un objeto."
+
+#: ../boards/electric.xml.in.h:1
+msgid "Create and simulate electric schema"
+msgstr "Crea y simula un esquema eléctrico"
+
+#: ../boards/electric.xml.in.h:2
+msgid "Electric"
+msgstr "Electricidad"
 
 #: ../boards/enumerate.xml.in.h:1
 msgid "Basic enumeration"
@@ -2135,7 +2141,15 @@ msgid ""
 "taking the square as the unit: * 5 right isosceles triangles o 2 small (legs "
 "of 1) o 1 medium size (legs of square root of 2) o 2 large size (legs of 2) "
 "* 1 square (side of 1) * 1 parallelogram (sides of 1 and square root of 2)"
-msgstr "De la Wikipedia, la enciclopedia libre. Tangram (Chino: literalmente «siete tableros de astucia») es un puzzle chino. Mientras que tangram a menudo se dice que es antiguo, su existencia se ha verificado sólo hasta 1800. Consiste en 7 piezas, llamadas tans, que casan juntas para formar un cuadrado; tomando el cuadrado como una unidad: * 5 triángulos isósceles o 2 pequeños (de lado largo 1) o 1 de tamaño medio (de lado la raíz cuadrada de 2) o 2 de gran tamaño (lado 2) * 1 cuadrado (lado de 1) * 1 paralelogramo (lados de 1 y raíz cuadarada de 2)"
+msgstr ""
+"De la Wikipedia, la enciclopedia libre. Tangram (Chino: literalmente «siete "
+"tableros de astucia») es un puzzle chino. Mientras que tangram a menudo se "
+"dice que es antiguo, su existencia se ha verificado sólo hasta 1800. "
+"Consiste en 7 piezas, llamadas tans, que casan juntas para formar un "
+"cuadrado; tomando el cuadrado como una unidad: * 5 triángulos isósceles o 2 "
+"pequeños (de lado largo 1) o 1 de tamaño medio (de lado la raíz cuadrada de "
+"2) o 2 de gran tamaño (lado 2) * 1 cuadrado (lado de 1) * 1 paralelogramo "
+"(lados de 1 y raíz cuadarada de 2)"
 
 #: ../boards/gtans.xml.in.h:3
 msgid ""
@@ -2144,7 +2158,7 @@ msgid ""
 "rotation Once the requested shape is created, it will be recognized by the "
 "computer If you need help, click on the shape button, the border of the "
 "shape will be drawn."
-msgstr ""
+msgstr "Selecciona el tangram para formar. Mueve una pieza arrastrándola. Pulsando con el botón derecho en ella crea un elemento simétrico.  selecciona un elemento y arrastralo para rotarlo una vez que la forma pedida esté creada, será reconocido por la computadora. Si necesita ayuda, pulse en el botón de forma, el borde de la forma se dibujará."
 
 #: ../boards/gtans.xml.in.h:4
 msgid "The objective is to form a given shape with seven pieces"
@@ -5064,47 +5078,47 @@ msgstr ""
 "Salga e infórmenos\n"
 "del problema"
 
-#: ../src/gcompris/gcompris.c:120
+#: ../src/gcompris/gcompris.c:122
 msgid "run gcompris in fullscreen mode."
 msgstr "ejecutar gcompris a pantalla completa"
 
-#: ../src/gcompris/gcompris.c:122
+#: ../src/gcompris/gcompris.c:124
 msgid "run gcompris in window mode."
 msgstr "ejecutar gcompris en una ventana"
 
-#: ../src/gcompris/gcompris.c:124
+#: ../src/gcompris/gcompris.c:126
 msgid "run gcompris with sound enabled."
 msgstr "ejecutar gcompris con el sonido habilitado."
 
-#: ../src/gcompris/gcompris.c:126
+#: ../src/gcompris/gcompris.c:128
 msgid "run gcompris without sound."
 msgstr "ejecutar gcompris sin sonido."
 
-#: ../src/gcompris/gcompris.c:128
+#: ../src/gcompris/gcompris.c:130
 msgid "run gcompris with the default gnome cursor."
 msgstr "ejecutar gcompris con el cursor predeterminado de GNOME."
 
-#: ../src/gcompris/gcompris.c:130
+#: ../src/gcompris/gcompris.c:132
 msgid "display only activities with this difficulty level."
 msgstr "mostrar sólo actividades con este nivel de dificultad."
 
-#: ../src/gcompris/gcompris.c:132
+#: ../src/gcompris/gcompris.c:134
 msgid "display debug informations on the console."
 msgstr "mostrar información de depuración en la consola."
 
-#: ../src/gcompris/gcompris.c:134
+#: ../src/gcompris/gcompris.c:136
 msgid "Print the version of "
 msgstr "Imprime la versión de "
 
-#: ../src/gcompris/gcompris.c:136
+#: ../src/gcompris/gcompris.c:138
 msgid "Use the antialiased canvas (slower)."
 msgstr "Usar el lienzo suavizado (mas lento)."
 
-#: ../src/gcompris/gcompris.c:138
+#: ../src/gcompris/gcompris.c:140
 msgid "Disable XRANDR (No screen resolution change)."
 msgstr "Deshabilitar XRANDR (no hay cambio en la resolución de pantalla)."
 
-#: ../src/gcompris/gcompris.c:140
+#: ../src/gcompris/gcompris.c:142
 msgid ""
 "Run gcompris with local menu (e.g -l /reading will let you play only "
 "activities in the reading directory, -l /boards/connect4 only the connect4 "
@@ -5115,41 +5129,41 @@ msgstr ""
 "sólo la actividad de connect4), -l list muestra la lista de menús y "
 "actividades"
 
-#: ../src/gcompris/gcompris.c:142
+#: ../src/gcompris/gcompris.c:144
 msgid "Run GCompris with local activity directory added to menu"
 msgstr ""
 "Ejecutar gcompris con el directorio de actividades local añadido al menú"
 
-#: ../src/gcompris/gcompris.c:144
+#: ../src/gcompris/gcompris.c:146
 msgid "Run GCompris in administration and user-management mode"
 msgstr "Ejecutar gcompris en modo administración y gestión de usuarios"
 
-#: ../src/gcompris/gcompris.c:146
+#: ../src/gcompris/gcompris.c:148
 msgid "Use alternate database for profiles"
 msgstr "Usa una base de datos alternativa para los perfiles"
 
-#: ../src/gcompris/gcompris.c:148
+#: ../src/gcompris/gcompris.c:150
 msgid "Use alternate database for logs"
 msgstr "Usar base de datos alternativa para los logs"
 
-#: ../src/gcompris/gcompris.c:150
+#: ../src/gcompris/gcompris.c:152
 msgid "Create the alternate database for profiles"
 msgstr "Crea la base de datos alternativa para los perfiles"
 
-#: ../src/gcompris/gcompris.c:152
+#: ../src/gcompris/gcompris.c:154
 msgid "Re-read XML Menus and store them in the database"
 msgstr "Volver a leer los menús XML y almacenarlos en la base de datos"
 
-#: ../src/gcompris/gcompris.c:154
+#: ../src/gcompris/gcompris.c:156
 msgid "Set the profile to use. Use 'gcompris -a' to create profiles"
 msgstr "Establece el perfil a usar. Usa 'gcompris -a' para crear perfiles"
 
-#: ../src/gcompris/gcompris.c:156
+#: ../src/gcompris/gcompris.c:158
 msgid "List all available profiles. Use 'gcompris -a' to create profiles"
 msgstr ""
 "Lista todos los perfiles disponibles. Usa 'gcompris -a' para crear perfiles"
 
-#: ../src/gcompris/gcompris.c:158
+#: ../src/gcompris/gcompris.c:160
 msgid ""
 "Shared directory location, for profiles and board-configuration data: "
 "[$HOME/.gcompris/shared]"
@@ -5157,11 +5171,11 @@ msgstr ""
 "Localización del directorio compartido, para los perfiles y datos de "
 "configuración: [$HOME/.gcompris/shared]"
 
-#: ../src/gcompris/gcompris.c:160
+#: ../src/gcompris/gcompris.c:162
 msgid "The location of user directories: [$HOME/.gcompris/users]"
 msgstr "La localización de los directorios de usuario: [$HOME/.gcompris/users]"
 
-#: ../src/gcompris/gcompris.c:773
+#: ../src/gcompris/gcompris.c:779
 #, c-format
 msgid ""
 "GCompris is free software released under the GPL License. In order to "
@@ -5184,7 +5198,7 @@ msgstr ""
 "usar GNU/Linux. Obtenga más información acerca de esto en la FSF:\n"
 "<http://www.fsf.org/philosophy>"
 
-#: ../src/gcompris/gcompris.c:1141
+#: ../src/gcompris/gcompris.c:1163
 #, c-format
 msgid ""
 "GCompris\n"
@@ -5198,17 +5212,17 @@ msgstr ""
 "Más información en http://gcompris.net\n"
 
 #. check the list of possible values for -l, then exit
-#: ../src/gcompris/gcompris.c:1209
+#: ../src/gcompris/gcompris.c:1231
 #, c-format
 msgid "Use -l to access an activity directly.\n"
 msgstr "Usa -l actividad para acceder directamente a una actividad.\n"
 
-#: ../src/gcompris/gcompris.c:1210
+#: ../src/gcompris/gcompris.c:1232
 #, c-format
 msgid "List of available activity is :\n"
 msgstr "Lista de actividades disponibles es:\n"
 
-#: ../src/gcompris/gcompris.c:1353
+#: ../src/gcompris/gcompris.c:1375
 #, c-format
 msgid "The list of available profiles is:\n"
 msgstr "La lista de perfiles disponibles es:\n"
