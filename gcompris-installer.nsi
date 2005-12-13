@@ -18,7 +18,7 @@ Var STARTUP_RUN_KEY
 ;The name var is set in .onInit
 Name $name
 
-!define GCOMPRIS_VERSION			"7.1"
+!define GCOMPRIS_VERSION			"7.2"
 
 OutFile "gcompris-${GCOMPRIS_VERSION}.exe"
 
@@ -371,15 +371,15 @@ Section Uninstall
     ; Remove Language preference info
     DeleteRegKey HKCU ${GCOMPRIS_REG_KEY} ;${MUI_LANGDLL_REGISTRY_ROOT} ${MUI_LANGDLL_REGISTRY_KEY}
 
-    RMDir /r "$INSTDIR\locale"
-    RMDir /r "$INSTDIR\pixmaps"
-    RMDir /r "$INSTDIR\perlmod"
-    RMDir "$INSTDIR\plugins"
+    RMDir /r "$INSTDIR\etc"
+    RMDir /r "$INSTDIR\GTK"
+    RMDir /r "$INSTDIR\lib"
+    RMDir /r "$INSTDIR\share"
     Delete "$INSTDIR\gcompris.exe"
     Delete "$INSTDIR\${GCOMPRIS_UNINST_EXE}"
 
     ;Try to remove Gcompris install dir .. if empty
-    RMDir "$INSTDIR"
+    RMDir /r "$INSTDIR"
 
     ; Shortcuts..
     RMDir /r "$SMPROGRAMS\Gcompris"

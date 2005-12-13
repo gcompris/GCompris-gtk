@@ -1,3 +1,15 @@
+2005-12-14  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	- Minor fixes for windows version
+	- Fixed configure.in to set SQLITE even if pysqlite is not detected
+
+	* configure.in:
+	* gcompris-installer.nsi:
+	* src/boards/Makefile.mingw:
+	* src/gcompris/board.c: (init_plugins):
+	* src/gcompris/gcompris.c: (setup_window), (map_cb),
+	(gcompris_terminate):
+
 	*** RELEASE 7.2 ***
 
 2005-12-11  Bruno coudoin  <bruno.coudoin@free.fr>

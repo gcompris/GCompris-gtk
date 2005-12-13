@@ -772,8 +772,8 @@ static void setup_window ()
   board_play (board_to_start);
 
 #ifdef WIN32
-#define WIN_ACTIVITY_COUNT   15
-#define TOTAL_ACTIVITY_COUNT 55
+#define WIN_ACTIVITY_COUNT   16
+#define TOTAL_ACTIVITY_COUNT 58
   {
     if(strncmp(properties->key, "thanks_for_your_help", 20)!=0) {
       char *msg = g_strdup_printf(_("GCompris is free software released under the GPL License. In order to support its development, the Windows version provides only %d of the %d activities. You can get the full version for a small fee at\n<http://gcompris.net>\nThe Linux version does not have this restriction. Note that GCompris is being developed to free schools from monopolistic software vendors. If you also believe that we should teach freedom to children, please consider using GNU/Linux. Get more information at FSF:\n<http://www.fsf.org/philosophy>"), WIN_ACTIVITY_COUNT, TOTAL_ACTIVITY_COUNT);
@@ -905,8 +905,7 @@ static void map_cb (GtkWidget *widget, gpointer data)
       is_mapped = TRUE;
       gcompris_set_fullscreen(properties->fullscreen);
     }
-
-  printf("\nEVENT\n============================================================\n\n");
+  g_warning("gcompris window is now mapped");
 }
 
 /* 
@@ -916,7 +915,12 @@ static void map_cb (GtkWidget *widget, gpointer data)
 void gcompris_terminate(int  signum)
 {
 
+#ifndef WIN32	/* Not supported on windows */
   g_warning("gcompris got the %s signal, starting exit procedure", strsignal(signum));
+#else
+  g_warning("gcompris got the %d signal, starting exit procedure", signum);
+#endif
+
   gcompris_exit();
   
 }

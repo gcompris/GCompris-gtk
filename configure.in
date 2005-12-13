@@ -308,24 +308,28 @@ else
     dnl Set this variable for the .spec.in file
     REQUIRE_PYTHON="python gnome-python gnome-python-canvas pygtk2.0"
 
-dnl with gnome-python >= 2.10 gnome.canvas is obsolete. use gnomecanvas 
-dnl gnomecanvas not supported yet in gcompris
-dnl
-dnl   AM_CHECK_PYMOD(gnome.canvas,,test_gnomecanvas="no",test_gnomevanvas="yes")
-dnl  if test x$test_gnomecanvas = xyes ; then
-dnl     AM_CHECK_PYMOD(gnomecanvas,,,AC_MSG_ERROR([*** gnome.canvas or gnomecanvas installed but not visible from python ]))
-dnl   fi
+    dnl with gnome-python >= 2.10 gnome.canvas is obsolete. use gnomecanvas 
+    dnl gnomecanvas not supported yet in gcompris
+    dnl
+    dnl   AM_CHECK_PYMOD(gnome.canvas,,test_gnomecanvas="no",test_gnomevanvas="yes")
+    dnl  if test x$test_gnomecanvas = xyes ; then
+    dnl     AM_CHECK_PYMOD(gnomecanvas,,,AC_MSG_ERROR([*** gnome.canvas or gnomecanvas installed but not visible from python ]))
+    dnl   fi
 
-if test x$with_sqlite = xyes; then
-   PKG_CHECK_MODULES(SQLITE3, sqlite3,, AC_MSG_ERROR([*** SQLITE3 not found!]))
-   AC_DEFINE([USE_SQLITE], 1,[SQLITE Database, Profiles are enabled])
-   AM_CHECK_PYMOD(pysqlite2,,,AC_MSG_ERROR([*** pysqlite2 missing ]))
-   REQUIRE_PYTHON="$REQUIRE_PYTHON python-sqlite2"
-fi
+    if test x$with_sqlite = xyes; then
+	AM_CHECK_PYMOD(pysqlite2,,,AC_MSG_ERROR([*** pysqlite2 missing ]))
+	REQUIRE_PYTHON="$REQUIRE_PYTHON python-sqlite2"
+    fi
+
 
   else
     AC_MSG_WARN([py-build-only: Skipping python modules dependancies])
     AC_MSG_WARN([py-build-only: Do not forget to install pygtk, gnome-python, pysqlite2 and pyxml])
+  fi
+
+  if test x$with_sqlite = xyes; then
+    PKG_CHECK_MODULES(SQLITE3, sqlite3,, AC_MSG_ERROR([*** SQLITE3 not found!]))
+    AC_DEFINE([USE_SQLITE], 1,[SQLITE Database, Profiles are enabled])
   fi
 fi
 
