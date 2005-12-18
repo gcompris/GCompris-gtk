@@ -13,6 +13,7 @@ xml_in_files = \
 	algebramenu.xml.in \
 	algorithm.xml.in \
 	anim.xml.in \
+	awele.xml.in \
 	babymatch.xml.in \
 	babyshapes.xml.in \
 	bargame.xml.in \

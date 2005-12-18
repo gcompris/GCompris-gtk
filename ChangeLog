@@ -1,3 +1,56 @@
+2005-12-18  Yves Combe  <yves@ycombe.net>
+
+	awele board by Frederic Mazzarol. First version. Great!
+	Not yet in POTFILES
+	xml.in not finished
+
+	* boards/Makefile.am:
+	* boards/awele.xml.in:
+	* boards/awele/awele_frame.jpg:
+	* boards/awele/awele_frame.png:
+	* boards/awele/awele_frame_avec_messages.png:
+	* boards/awele/bouton1.png:
+	* boards/awele/bouton1_clic.png:
+	* boards/awele/bouton1_notify.png:
+	* boards/awele/bouton2.png:
+	* boards/awele/bouton2_clic.png:
+	* boards/awele/bouton2_notify.png:
+	* boards/awele/bouton3.png:
+	* boards/awele/bouton3_clic.png:
+	* boards/awele/bouton3_notify.png:
+	* boards/awele/bouton4.png:
+	* boards/awele/bouton4_clic.png:
+	* boards/awele/bouton4_notify.png:
+	* boards/awele/bouton5.png:
+	* boards/awele/bouton5_clic.png:
+	* boards/awele/bouton5_notify.png:
+	* boards/awele/bouton6.png:
+	* boards/awele/bouton6_clic.png:
+	* boards/awele/bouton6_notify.png:
+	* boards/awele/graine1.png:
+	* boards/awele/graine2.png:
+	* boards/awele/graine3.png:
+	* boards/awele/graine4.png:
+	* boards/awele/graine4bis.png:
+	* boards/awele/nv_partie.png:
+	* boards/awele/nv_partie_clic.png:
+	* boards/awele/nv_partie_notify.png:
+	* boards/boardicons/awele.png:
+	* src/boards/Makefile.am:
+	* src/boards/awele.c: (pause_board), (start_board), (end_board),
+	(is_our_board), (awele_next_level), (awele_destroy_all_items),
+	(awele_create_item), (game_won), (initBoardGraphics),
+	(buttonClick), (updateNbBeans), (updateCapturedBeans),
+	(buttonNewGameClick):
+	* src/boards/awele.h:
+	* src/boards/awele_alphaBeta.c: (eval), (think), (alphabeta),
+	(threatenDelta), (moveDelta):
+	* src/boards/awele_utils.c: (isOpponentHungry), (isValidMove),
+	(move), (switch_player), (randplay), (isEndOfGame), (testMove),
+	(create_awale), (awale_equal), (create_tree), (destroy_tree),
+	(destroy_awale):
+	* src/boards/awele_utils.h:
+
 2005-12-14  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	- Minor fixes for windows version

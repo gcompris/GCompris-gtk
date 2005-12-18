@@ -29,6 +29,7 @@ SUBDIRS= $(python_subdir)
 lib_LTLIBRARIES = \
 	libalgebra.la \
 	libalgebra_guesscount.la \
+	libawele.la \
 	libcanal_lock.la \
 	libchess.la \
 	libclick_on_letter.la \
@@ -81,6 +82,10 @@ INCLUDES = \
 libdraw_la_LDFLAGS = -module -avoid-version
 libdraw_la_LIBADD = $(top_builddir)/src/gcompris/libgcompris-1.la
 libdraw_la_SOURCES = draw.c
+
+libawele_la_LDFLAGS = -module -avoid-version
+libawele_la_LIBADD = $(top_builddir)/src/gcompris/libgcompris-1.la
+libawele_la_SOURCES = awele.c awele_alphaBeta.c awele_utils.c
 
 libmenu_la_LDFLAGS = -module -avoid-version
 libmenu_la_LIBADD = $(top_builddir)/src/gcompris/libgcompris-1.la
