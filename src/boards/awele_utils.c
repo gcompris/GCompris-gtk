@@ -1,13 +1,27 @@
+/*
+ * gcompris - awele.c Copyright (C) 2005 Frederic Mazzarol This program is
+ * free software; you can redistribute it and/or modify it under the terms 
+ * of the GNU General Public License as published by the Free Software
+ * Foundation; either version 2 of the License, or (at your option) any
+ * later version.  This program is distributed in the hope that it will
+ * be useful, but WITHOUT ANY WARRANTY; without even the implied warranty
+ * of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * General Public License for more details.  You should have received a
+ * copy of the GNU General Public License along with this program; if not, 
+ * write to the Free Software Foundation, Inc., 59 Temple Place, Suite
+ * 330, Boston, MA 02111-1307 USA 
+ */
+
 #include <stdlib.h>
 #include <string.h>
 #include <awele_utils.h>
 
 /**
 *  Fonction test si famine
-*  Test si le mouvement demandÃ© provoque une \n
-*  famine dans le camp opposÃ©. Met a jour la variable string errorMsg\n
+*  Test si le mouvement demandee provoque une \n
+*  famine dans le camp oppose. Met a jour la variable string errorMsg\n
 *  pour affichage sur le plateau de jeu.
-*  @param aw un pointeur sur la structure awalé sur laquelle faire le test
+*  @param aw un pointeur sur la structure awale sur laquelle faire le test
 *  @param start un entier donnant la premiere case de l'opposant
 *  @param end un entier donnant la derniere case de l'opposant
 *  @return TRUE si ce mouvement ne declenche pas une famine, FALSE sinon
@@ -32,7 +46,7 @@ short int isOpponentHungry(AWALE * aw, short int start, short int end)
 /**
 *  Fonction de test si case non vide
 *  Test si la case choisie n'est pas vide
-*  @param hole entier désignant la case du plateau choisie
+*  @param hole entier designant la case du plateau choisie
 *  @param aw pointeur sur la structure AWALE courante.
 */
 short int isValidMove(short int hole, AWALE * aw)
@@ -49,9 +63,9 @@ short int isValidMove(short int hole, AWALE * aw)
 
 /**
 *  Fonction deplacement des graines
-*  Cette fonction est appelé a chaque déplacement de graines
-*  @param hole la case à partir de laquelle commencer le déplacement
-*  @param un pointeur sur la structure AWALE courante, pour laquelle efetuer le déplacement
+*  Cette fonction est appele a chaque deplacement de graines
+*  @param hole la case a partir de laquelle commencer le deplacement
+*  @param un pointeur sur la structure AWALE courante, pour laquelle efetuer le deplacement
 *  @return TRUE si mouvement valide, le test de famine ne peut etre fait qu'apres deplacement\n
 *  FALSE sinon.
 */
@@ -86,7 +100,7 @@ short int move(short int hole, AWALE * aw)
     }
 
     j--;
-    // Comptage des points et mise a zÃ©ro ou il y a capture
+    // Comptage des points et mise a zero ou il y a capture
     if ((j >= start && j <= end)
 	&& (tempAw.board[j] == 2 || tempAw.board[j] == 3)) {
 	for (i = j; i >= start; i--) {
@@ -115,8 +129,8 @@ short int move(short int hole, AWALE * aw)
 /**
 * Fonction de chgt de joueur
 * Cette fonction permet de renvoyer la valeur de l'opposant
-* @param player un entier représentant le joueur courant
-* @return un entier représentant l'opposant
+* @param player un entier representant le joueur courant
+* @return un entier representant l'opposant
 */
 short int switch_player(short int player)
 {
@@ -124,10 +138,10 @@ short int switch_player(short int player)
 }
 
 /**
-* Fonction coup Aléatoire
-* Cette fonction permet de générer un coup aléatoire
+* Fonction coup Aleatoire
+* Cette fonction permet de generer un coup aleatoire
 * @param a pointeur sur la structure AWALE courante
-* @return un entier représentant le coup a jouer
+* @return un entier representant le coup a jouer
 */
 short int randplay(AWALE * a)
 {
@@ -142,7 +156,7 @@ short int randplay(AWALE * a)
 
 /**
 * Fonction de test si Fin de partie
-* Cette fonction est appelée après chaque mvt\
+* Cette fonction est appelee apres chaque mvt\
 * pour tester si c'est la fin de la partie.
 * @param aw pointeur sur la structure AWALE a evaluer
 * @return GAMEOVER si c'est la fin de la partie, NOT_GAMEOVER sinon
@@ -194,9 +208,9 @@ short int isEndOfGame(AWALE * aw)
 
 /**
 * Fonction de test mouvement pour les coups de la machine
-* Cette fonction est appelée avt chaque mouvement de la machine pour connaitre\n
+* Cette fonction est appelee avt chaque mouvement de la machine pour connaitre\n
 * tous les coups possibles.
-* @param coup un entier représentant le coup a tester
+* @param coup un entier representant le coup a tester
 * @param aw Un pointeur su la structure AWALE courante
 * @return TRUE si le mouvement est possible, FALSE sinon
 */
@@ -221,9 +235,9 @@ short int testMove(short int coup, AWALE * aw)
 /**
 * Fonction de creation d'un awale
 * Cette fonction reserve en memoire l'espace d'un awale\n
-* et renvoi un pointeur sur la zone réservée
+* et renvoi un pointeur sur la zone reservee
 * @param void
-* @return un pointeur sur la zone nouvellement créee contenant la structure awalé
+* @return un pointeur sur la zone nouvellement creee contenant la structure awale
 */
 AWALE *create_awale()
 {
@@ -246,14 +260,14 @@ void awale_equal(AWALE * inp, AWALE * out)
 }
 
 /**
-* Fonction de création d'un noeud de l'arbre
-* Cette fonction est appelée a chaque création d'un noeud de l'arbre\n
+* Fonction de creation d'un noeud de l'arbre
+* Cette fonction est appelee a chaque creation d'un noeud de l'arbre\n
 * Elle initialise une structure de type TREE, contenant un plateau de jeu,\n
-* et les six fils possibles de ce plateau de jeu (representant les coups directement dérivés)
-* @param prof entier représentant la profondeur du noeud a crée
-* @param player représentant le joueur pour lequel le noeud est crée
-* @param aw pointeur sur la structure AWALE mère insérée dans le noeud
-* @return un pointeur sur la structure TREE fraichement crée.
+* et les six fils possibles de ce plateau de jeu (representant les coups directement derives)
+* @param prof entier representant la profondeur du noeud a cree
+* @param player representant le joueur pour lequel le noeud est cree
+* @param aw pointeur sur la structure AWALE mère inseree dans le noeud
+* @return un pointeur sur la structure TREE fraichement cree.
 */
 TREE *create_tree(short int prof, short int player, AWALE * aw)
 {
@@ -276,7 +290,7 @@ TREE *create_tree(short int prof, short int player, AWALE * aw)
 
 /**
 * Fonction de destruction d'un noeud de l'arbre
-* Cette fonction est appelée pour détruire un noeud de l'arbre, et donc libéré l'espace mémoire
+* Cette fonction est appelee pour detruire un noeud de l'arbre, et donc libere l'espace memoire
 * @param t un pointeur de pointeur de structure TREE
 * @return void
 */
@@ -297,7 +311,7 @@ void destroy_tree(TREE ** t)
 
 /**
 *  Fonction de destruction d'un awale.
-*  Cette fonction libère l'espace mémoire pris par le pointeur de pointeur de structure AWALE
+*  Cette fonction libere l'espace memoire pris par le pointeur de pointeur de structure AWALE
 *  @param a Un pointeur de pointeur de structure AWALE
 *  @return void
 */

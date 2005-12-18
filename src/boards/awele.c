@@ -1,5 +1,5 @@
 /*
- * gcompris - awele.c Copyright (C) 2003 Bruno Coudoin This program is
+ * gcompris - awele.c Copyright (C) 2005 Frederic Mazzarol This program is
  * free software; you can redistribute it and/or modify it under the terms 
  * of the GNU General Public License as published by the Free Software
  * Foundation; either version 2 of the License, or (at your option) any
@@ -256,7 +256,7 @@ awele_create_item (GnomeCanvasGroup * parent)
 	}
 
 	/*
-	 * Boucle pour créer et positionner les boutons qui serviront 
+	 * Boucle pour creer et positionner les boutons qui serviront 
 	 * a selectionner la case a jouer
 	 */
 	for (i = 0; i < NBHOLE / 2; i++)
@@ -272,7 +272,7 @@ awele_create_item (GnomeCanvasGroup * parent)
 			gcompris_load_pixmap (xpmFileClic);
 
 		/*
-		 * Ajustement de l'ordonnée x, pour positionner le bouton sur la barre de boutons.
+		 * Ajustement de l'ordonnee x, pour positionner le bouton sur la barre de boutons.
 		 */
 		switch (i)
 		{
@@ -301,8 +301,8 @@ awele_create_item (GnomeCanvasGroup * parent)
 		 * et sauvegarde dans tableau button de type Gnome Canvas Item
 		 * pour attacher les pointeurs de la fonction de rappel buttonClick
 		 * qui servira a detecter quel est l'evenement souris, et en fonction
-		 * declencher la procedure associée. Passage en argument a cette fonction
-		 * du numero de case séléctionné par tableau chaine
+		 * declencher la procedure associee. Passage en argument a cette fonction
+		 * du numero de case selectionne par tableau chaine
 		 */
 		graphsElt->button[i] = gnome_canvas_item_new (boardRootItem,
 							      gnome_canvas_pixbuf_get_type
@@ -345,7 +345,7 @@ awele_create_item (GnomeCanvasGroup * parent)
 	}
 
 	/**
-	*	Affichage initial du nombre de graine capturées par chaque joueur.
+	*	Affichage initial du nombre de graine capturees par chaque joueur.
 	*	Sauvegarde des items d'affichage dans Captures[i], pour mise a jour
 	*	pdt la partie.
 	*/
@@ -393,7 +393,7 @@ awele_create_item (GnomeCanvasGroup * parent)
 
 	graphsElt->msg = gnome_canvas_item_new (boardRootItem,
 						gnome_canvas_text_get_type (),
-						"text", "Sélectionne une case à jouer",
+						"text", "Selectionne une case a jouer",
 						"font", "12x24",
 						"size", 20000,
 						"x", (double) 400,
@@ -463,9 +463,9 @@ game_won ()
 
 /**
 *  Fonction effectuant l'initialisation des graines sur le plateau
-*  Cette fonction est appelée a chaque debut de partie
+*  Cette fonction est appelee a chaque debut de partie
 *  @param data un pointeur de type void, pour passer en argument a la fonction\n
-*  les éléments graphiques à modifier.
+*  les elements graphiques a modifier.
 *  @return void
 */
 void
@@ -510,14 +510,14 @@ initBoardGraphics (GRAPHICS_ELT * graphsElt)
 }
 
 /**
-*  Fonction effectuant la procedure associé a un clic sur pixmap
-*  Cette fonction est appelée quand un clic sur un bouton est effectué.\n
+*  Fonction effectuant la procedure associe a un clic sur pixmap
+*  Cette fonction est appelee quand un clic sur un bouton est effectue.\n
 *  Selon l'event->Type declenchement de procedure differentes, modification de l'aspect des boutons\n
 *  et declenchement d'un mouvement choisi par le joueur, puis lancement du coup de la machine.
-*  @param widget pointeur sur le widget ayant déclenché l'evenement eventDelete
+*  @param widget pointeur sur le widget ayant declenche l'evenement eventDelete
 *  @param event pointeur sur le type d'evenement
 *  @param data un pointeur de type void, pour passer en argument a la fonction\n
-*  les éléments graphiques à modifier.
+*  les elements graphiques a modifier.
 *  @return un entier
 */
 gint
@@ -618,14 +618,14 @@ buttonClick (GtkWidget * item, GdkEvent * event, gpointer data)
 }
 
 /**
-*  Fonction de gestion des graines dessinées sur le plateau
-*  Cette fonction est appelée apres chaque mouvement, \n
-*  pour remettre a jour le nombre de graines dessinées sur le plateau, \n
-*  et diminuer la zone d'allocation ou les pixmap des graines sont stockées.
+*  Fonction de gestion des graines dessinees sur le plateau
+*  Cette fonction est appelee apres chaque mouvement, \n
+*  pour remettre a jour le nombre de graines dessinees sur le plateau, \n
+*  et diminuer la zone d'allocation ou les pixmap des graines sont stockees.
 *  @param nbBeansHole[NBHOLE] Tableau de pointeur sur les gnomeCanvasItem\n
 *  affichant le nombre de graine par case
-*  @param rootGroup Pointeur sur le groupe contenant tous les items insérés dans le canevas
-*  @param ptLink pointeur sur zone memoire ou sont stockées toutes les images des graines du plateau.
+*  @param rootGroup Pointeur sur le groupe contenant tous les items inseres dans le canevas
+*  @param ptLink pointeur sur zone memoire ou sont stockees toutes les images des graines du plateau.
 *  @param alpha entier pour differencier une mise a jour du plateau ou le lancement d'une nouvelle partie.
 *  @return Renvoi du pointeur sur la zone memoire apres redimension (n'a probablement pas changÃ© d'adresse).
 */
@@ -712,7 +712,7 @@ updateNbBeans (GnomeCanvasItem * nbBeansHole[NBHOLE],
 	}
 
 	/**
-	*	Renvoi du pointeur sur la zone memoire retaillée (n'a probablement pas changé d'adresse).
+	*	Renvoi du pointeur sur la zone memoire retaillee (n'a probablement pas change d'adresse).
 	*/
 	return ptBeansHoleLink;
 }
@@ -720,7 +720,7 @@ updateNbBeans (GnomeCanvasItem * nbBeansHole[NBHOLE],
 
 /**
 *  Fonction de gestion de l'affichage des scores
-*  Cette fonction est appelée apres chaque mouvement, \n
+*  Cette fonction est appelee apres chaque mouvement, \n
 *  pour remettre a jour le score des joueurs
 *  @param Captures[2] pointeur sur les gnomeCanvasItem d'affichage des scores
 */
@@ -740,14 +740,14 @@ updateCapturedBeans (GnomeCanvasItem * Captures[2])
 
 
 /**
-*  Fonction effectuant la procedure associé a un clic sur le bouton nouvelle Partie
-*  Cette fonction est appelée quand un clic sur le bouton nouvelle Partie est effectué.\n
+*  Fonction effectuant la procedure associe a un clic sur le bouton nouvelle Partie
+*  Cette fonction est appelee quand un clic sur le bouton nouvelle Partie est effectue.\n
 *  Selon l'event->Type declenchement de procedure differentes, modification de l'aspect des boutons\n
 *  et declenchement de la reinitialisation du plateau de jeu.
-*  @param widget pointeur sur le widget ayant déclenché l'evenement eventDelete
+*  @param widget pointeur sur le widget ayant declenche l'evenement eventDelete
 *  @param event pointeur sur le type d'evenement
 *  @param data un pointeur de type void, pour passer en argument a la fonction\n
-*  les éléments graphiques à modifier.
+*  les elements graphiques a modifier.
 *  @return un entier
 */
 gint

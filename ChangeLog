@@ -1,3 +1,15 @@
+2005-12-18  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	Added file headers assigning correct copyright to Frederic.
+	Added board description from wikipedia.
+
+	* boards/awele.xml.in:
+	* src/boards/awele.c: (awele_create_item), (updateNbBeans):
+	* src/boards/awele.h:
+	* src/boards/awele_alphaBeta.c:
+	* src/boards/awele_utils.c: (move):
+	* src/boards/awele_utils.h:
+
 2005-12-18  Yves Combe  <yves@ycombe.net>
 
 	awele board by Frederic Mazzarol. First version. Great!

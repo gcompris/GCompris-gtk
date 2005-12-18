@@ -1,3 +1,17 @@
+/*
+ * gcompris - awele.c Copyright (C) 2005 Frederic Mazzarol This program is
+ * free software; you can redistribute it and/or modify it under the terms 
+ * of the GNU General Public License as published by the Free Software
+ * Foundation; either version 2 of the License, or (at your option) any
+ * later version.  This program is distributed in the hope that it will
+ * be useful, but WITHOUT ANY WARRANTY; without even the implied warranty
+ * of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * General Public License for more details.  You should have received a
+ * copy of the GNU General Public License along with this program; if not, 
+ * write to the Free Software Foundation, Inc., 59 Temple Place, Suite
+ * 330, Boston, MA 02111-1307 USA 
+ */
+
 #include "awele_utils.h"
 #include <string.h>
 #include <stdlib.h>
@@ -9,10 +23,10 @@ static void alphabeta( TREE * t , short int alpha , short int beta );
 
 /**
 * Fonction d'evaluation d'un plateau
-* La fonction d'evaluation va evaluer la difference du nombre de graines capturées (Facteur preponderant),\n
-* la difference de la mobilité des deux joueurs, la difference des cases menaçantes,\n
+* La fonction d'evaluation va evaluer la difference du nombre de graines capturees (Facteur preponderant),\n
+* la difference de la mobilite des deux joueurs, la difference des cases menacantes,\n
 * et la difference du nombre de graine active de chaque joueur.\n
-* @param AWALE *aw Pointeur sur la structure AWALE a évaluer
+* @param AWALE *aw Pointeur sur la structure AWALE a evaluer
 * @return Une note d'evaluation du plateau.
 */
 int eval (AWALE *aw){
@@ -41,11 +55,11 @@ int eval (AWALE *aw){
 
 /**
 * Fonction de jeu de la machine
-* Cette Fonction est appelée pour faire jouer l'ordinateur, \n
-* la racine de l'arbre est crée, puis passé en argument à la fonction AlphaBeta\n
+* Cette Fonction est appelee pour faire jouer l'ordinateur, \n
+* la racine de l'arbre est cree, puis passe en argument a la fonction AlphaBeta\n
 * La profondeur augmente au fur et mesure de la partie quand le nombre de graines diminue.\n
-* @param aw Un pointeur sur le plateau à partir duquel reflechir
-* @return Le meilleur coup calculé par la machine
+* @param aw Un pointeur sur le plateau a partir duquel reflechir
+* @return Le meilleur coup calcule par la machine
 */
 short int  think( AWALE *a, short int level){
     TREE * t ;
@@ -149,11 +163,11 @@ static void alphabeta( TREE * t , short int alpha , short int beta ){
 	t->note = m ;
 }
 /**
-* Fonction de calcul de la difference du nombre de cases menaçcantes
-* Cette fonction va calculer le nombre de cases menaçantes pour les deux joueurs\n
+* Fonction de calcul de la difference du nombre de cases menacantes
+* Cette fonction va calculer le nombre de cases menacantes pour les deux joueurs\n
 * puis faire la diffrence des deux.
 * @param aw Un pointeur sur le plateau a evaluer
-* @return un entier egal a la difference des cases menaçantes
+* @return un entier egal a la difference des cases menacantes
 */
 short int threatenDelta (AWALE *aw){
 	
@@ -194,7 +208,7 @@ short int threatenDelta (AWALE *aw){
 
 
 /**
-* Fonction de calcul de la difference de la mobilité des deux joueurs
+* Fonction de calcul de la difference de la mobilite des deux joueurs
 * Cette fonction va calculer le nombre de cases non vides pour les deux joueurs\n
 * puis faire la diffrence des deux.
 * @param aw Un pointeur sur le plateau a evaluer
