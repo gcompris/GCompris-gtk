@@ -322,7 +322,8 @@ class Wire:
         if self.wire_id >= 0:
           # This node was already connected elsewhere, reset it to use our wire_id
           for wire in node.get_wires():
-            if wire.get_wire_id() != wire_id:
+            print "   Was connected to %d" %(wire.get_wire_id(),)
+            if wire.get_wire_id() != self.wire_id:
               wire.set_wire_id(self.wire_id)
         else:
           if wire_id == -1:
@@ -398,6 +399,8 @@ class Wire:
       if event.type == gtk.gdk.BUTTON_PRESS:
         if event.button == 1:
           wire.destroy()
+        elif event.button == 3:
+          print "WIRE_ID = %d" %self.wire_id
 
       return False
 
