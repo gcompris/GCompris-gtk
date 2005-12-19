@@ -14,5 +14,6 @@ PKG_NAME="gcompris"
 
 REQUIRED_AUTOMAKE_VERSION=1.6 \
 USE_GNOME2_MACROS=1 \
-BUILD_PATH="$srcdir"\
- . ./gnome2-macros/gnome-autogen.sh
+BUILD_PATH="$srcdir" \
+srcdir="$srcdir" \
+. $srcdir/gnome2-macros/gnome-autogen.sh
