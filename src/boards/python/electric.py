@@ -50,7 +50,8 @@ class Gcompris_electric:
     self.gcomprisBoard.disable_im_context = True
 
     # These are used to let us restart only after the bonus is displayed.
-    # When the bonus is displayed, it call us first with pause(1) and then with pause(0)
+    # When the bonus is displayed, it call us first with pause(1) and then
+    # with pause(0)
     self.board_paused  = 0
     self.gamewon       = 0
 
@@ -159,7 +160,8 @@ class Gcompris_electric:
     else:
       self.entry.show()
       
-    # When the bonus is displayed, it call us first with pause(1) and then with pause(0)
+    # When the bonus is displayed, it call us first with pause(1) and then
+    # with pause(0)
     # the game is won
     if(pause == 0 and self.gamewon):
       self.increment_level()
@@ -228,7 +230,8 @@ class Gcompris_electric:
   def display_game(self):
 
       # Create our rootitem. We put each canvas item in it so at the end we
-      # only have to kill it. The canvas deletes all the items it contains automaticaly.
+      # only have to kill it. The canvas deletes all the items it contains
+      # automaticaly.
       self.rootitem = self.gcomprisBoard.canvas.root().add(
           gnome.canvas.CanvasGroup,
           x=0.0,
@@ -239,52 +242,29 @@ class Gcompris_electric:
   def create_components(self):
 
     # Bulb
-    a = Node("electric/connect.png", "A", -15, 150)
-    b = Node("electric/connect.png", "B", 85, 150)
-    bulb = Component(self.gcomprisBoard.canvas, self.rootitem,
-                     "R1", "1k",
-                     "electric/bulb.png", [a, b])
-
-    bulb.move(400, 200)
-    bulb.show()
-    self.components.append(bulb)
+    self.components.append(Bulb(self.gcomprisBoard.canvas, self.rootitem,
+                                400, 200))
+    self.components.append(Bulb(self.gcomprisBoard.canvas, self.rootitem,
+                                540, 200))
     
-    # Battery
-    a = Node("electric/connect.png", "A", 11, -35)
-    b = Node("electric/connect.png", "B", 11, 150)
-    battery = Component(self.gcomprisBoard.canvas, self.rootitem,
-                        "Vsupply1", "10",
-                        "electric/battery.png", [a, b])
-
-    battery.move(100, 200)
-    battery.show()
-    self.components.append(battery)
-
-    # Battery
-    a = Node("electric/connect.png", "A", 11, -35)
-    b = Node("electric/connect.png", "B", 11, 150)
-    battery2 = Component(self.gcomprisBoard.canvas, self.rootitem,
-                        "Vsupply2", "10",
-                        "electric/battery.png", [a, b])
-
-    battery2.move(150, 200)
-    battery2.show()
-    self.components.append(battery2)
-
+    
     # Resistor
-    a = Node("electric/connect.png", "A", -30, -5)
-    b = Node("electric/connect.png", "B", 130, -5)
-    resistor = Component(self.gcomprisBoard.canvas, self.rootitem,
-                         "R2", "1k",
-                         "electric/resistor.png", [b, a])
+    self.components.append(Resistor(self.gcomprisBoard.canvas, self.rootitem,
+                                    150, 400))
 
-    resistor.move(150, 400)
-    resistor.show()
-    self.components.append(resistor)
+    # Variator
+    self.components.append(Variator(self.gcomprisBoard.canvas, self.rootitem,
+                                    700, 200))
+
+    # Battery
+    self.components.append(Battery(self.gcomprisBoard.canvas, self.rootitem,
+                                   100, 200))
+
+    self.components.append(Battery(self.gcomprisBoard.canvas, self.rootitem,
+                                   160, 200))
 
 
-
-
+  
 # ----------------------------------------------------------------------
 # ----------------------------------------------------------------------
 # ----------------------------------------------------------------------
@@ -295,7 +275,17 @@ class Wire:
     # Wire ID 0 is a dummy wire, we start at 1
     counter = 1
     connection = {}
-    
+    colors = [ 0xFF00FFFFL,
+               0x55001FFFL,
+               0x55005FFFL,
+               0x550099FFL,
+               0x5566FFFFL,
+               0x55FFFFFFL,
+               0x00FFFFFFL,
+               0x55FF00FFL,
+               0x056666FFL,
+               0x660000FFL]
+               
     def __init__(self, rootitem, source_node, x1, y1, x2, y2):
       self.rootitem = rootitem
       self.source_node = source_node
@@ -307,7 +297,7 @@ class Wire:
       self.wire_item = self.rootitem.add(
         gnome.canvas.CanvasLine,
         points=( self.x1, self.y1, self.x2, self.y2),
-        fill_color_rgba = 0xCC1111FFL,
+        fill_color_rgba = Wire.colors[Wire.counter % len(Wire.colors)],
         width_units=5.0
         )
       self.wire_item.connect("event", self.delete_wire, self)
@@ -320,7 +310,8 @@ class Wire:
         wire_id = node.get_wires()[0].get_wire_id()
         print "Node already connected to %d (self.wire_id=%d)" %(wire_id, self.wire_id)
         if self.wire_id >= 0:
-          # This node was already connected elsewhere, reset it to use our wire_id
+          # This node was already connected elsewhere, reset it to use our
+          # wire_id
           for wire in node.get_wires():
             print "   Was connected to %d" %(wire.get_wire_id(),)
             if wire.get_wire_id() != self.wire_id:
@@ -347,6 +338,8 @@ class Wire:
         self.target_node.renumber_wire(self, id)
       if(self.source_node):
         self.source_node.renumber_wire(self, id)
+
+      self.wire_item.set(fill_color_rgba = Wire.colors[Wire.counter % len(Wire.colors)])
     
     def get_wire_id(self):
       return self.wire_id
@@ -355,7 +348,8 @@ class Wire:
       self.wire_item.destroy()
       self.wire_id = -1
       self.source_node.remove_wire(self, None)
-      self.target_node.remove_wire(self, Wire.counter)
+      if self.target_node:
+        self.target_node.remove_wire(self, Wire.counter)
       Wire.counter += 1
       self.source_node = None
       self.target_node = None
@@ -365,7 +359,8 @@ class Wire:
       self.target_node = node
       self._add_connection(node)
       
-    # Move wire. In fact, the attached component are moved and THEY move the wire
+    # Move wire. In fact, the attached component are moved and THEY
+    # move the wire
     def move_all_wire(self, x, y):
       if(self.source_node and self.target_node):
         source_component = self.source_node.get_component()
@@ -462,7 +457,8 @@ class Node:
     def get_wires(self):
       return(self.wires)
 
-    # Has wire, return True if the given wire is already connected to this node
+    # Has wire, return True if the given wire is already connected
+    # to this node
     def has_wire(self, wire):
       try:
         if(self.wires.index(wire)):
@@ -486,13 +482,15 @@ class Node:
 
       
 # nodes is a list of class Node object
-class Component:
+class Component(object):
+    counter = 0
     def __init__(self, canvas, rootitem,
                  gnucap_name, gnucap_value,
                  image, nodes):
       self.canvas = canvas
       self.rootitem = rootitem
-      self.gnucap_name = gnucap_name
+      self.gnucap_name = gnucap_name + str(Component.counter)
+      Component.counter += 1
       self.gnucap_value = gnucap_value
       self.image = image
       self.nodes = nodes
@@ -617,11 +615,12 @@ class Component:
           # Our wire line confuses the get_item_at. Look arround.
           for x in range(-10, 11, 5):
             target_item = self.canvas.get_item_at(event.x + x, event.y)
-            node_target = target_item.get_data('node')
-            if(node_target):
-              break
+            if target_item:
+              node_target = target_item.get_data('node')
+              if(node_target):
+                break
             
-          # Take care not to wire the same component or 2 times the same node
+          # Take care not to wire the same component or 2 times the same          # node
           if(not node_target
              or node.get_component() == node_target.get_component()
              or node_target.has_wire(self.wire)):
@@ -635,4 +634,72 @@ class Component:
 
       return False
 
+# -----------------------------------------------------------------------
+# -----------------------------------------------------------------------
+# -----------------------------------------------------------------------
+#
+# Pre defined components
+# ----------------------
+#
+
+class Resistor(Component):
+  def __init__(self, canvas, rootitem,
+               x, y):
+    super(Resistor, self).__init__(canvas,
+                               rootitem,
+                               "R",
+                               "1k",
+                               "electric/resistor.png",
+                               [Node("electric/connect.png", "A", -30, -5),
+                                Node("electric/connect.png", "B", 130, -5)])
+    self.move(x, y)
+    self.show()
+
+
+class Variator(Component):
+  def __init__(self, canvas, rootitem,
+               x, y):
+    super(Variator, self).__init__(canvas,
+                                   rootitem,
+                                   "R",
+                                   "10k",
+                                   "electric/resistor_v.png",
+                                   [Node("electric/connect.png", "A", -3, -15),
+                                    Node("electric/connect.png", "B", 40, 47),
+                                    Node("electric/connect.png", "C", -3, 110)])
+    self.move(x, y)
+    self.show()
+
+
+class Bulb(Component):
+  def __init__(self, canvas, rootitem,
+               x, y):
+    super(Bulb, self).__init__(canvas,
+                               rootitem,
+                               "R",
+                               "1k",
+                               "electric/bulb.png",
+                               [Node("electric/connect.png", "A", -15, 150),
+                                Node("electric/connect.png", "B", 85, 150)])
+    self.move(x, y)
+    self.show()
+
+  # Change the pixmap depending on the real power in the Bulb
+  def set_voltage_intensity(self, voltage, intensity):
+    super(Bulb, self).set_voltage_intensity(voltage, intensity)
+
     
+class Battery(Component):
+  def __init__(self, canvas, rootitem,
+               x, y):
+    super(Battery, self).__init__(canvas,
+                               rootitem,
+                               "Vsupply",
+                               "10",
+                               "electric/battery.png",
+                               [Node("electric/connect.png", "A", 11, -35),
+                                Node("electric/connect.png", "B", 11, 150)])
+    self.move(x, y)
+    self.show()
+
+
