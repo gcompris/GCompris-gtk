@@ -252,8 +252,8 @@ class Gcompris_electric:
     self.components.append(Resistor(self.gcomprisBoard.canvas, self.rootitem,
                                     150, 400))
 
-    # Variator
-    self.components.append(Variator(self.gcomprisBoard.canvas, self.rootitem,
+    # Rheostat
+    self.components.append(Rheostat(self.gcomprisBoard.canvas, self.rootitem,
                                     700, 200))
 
     # Battery
@@ -275,16 +275,17 @@ class Wire:
     # Wire ID 0 is a dummy wire, we start at 1
     counter = 1
     connection = {}
-    colors = [ 0xFF00FFFFL,
-               0x55001FFFL,
-               0x55005FFFL,
-               0x550099FFL,
-               0x5566FFFFL,
-               0x55FFFFFFL,
-               0x00FFFFFFL,
-               0x55FF00FFL,
-               0x056666FFL,
-               0x660000FFL]
+    colors = [ 0xdfc766FFL,   
+               0xdf9766FFL,   
+               0xdf667dFFL,   
+               0xdf66bcFFL,   
+               0xc466dfFFL,   
+               0x9c66dfFFL,   
+               0xA4FFB3FFL,   
+               0x6666dfFFL,   
+               0x669fdfFFL,   
+               0x66df6cFFL,
+               0x66dfd8FFL ]
                
     def __init__(self, rootitem, source_node, x1, y1, x2, y2):
       self.rootitem = rootitem
@@ -297,7 +298,7 @@ class Wire:
       self.wire_item = self.rootitem.add(
         gnome.canvas.CanvasLine,
         points=( self.x1, self.y1, self.x2, self.y2),
-        fill_color_rgba = Wire.colors[Wire.counter % len(Wire.colors)],
+        fill_color_rgba = 0xFF0000FFL,
         width_units=5.0
         )
       self.wire_item.connect("event", self.delete_wire, self)
@@ -339,7 +340,8 @@ class Wire:
       if(self.source_node):
         self.source_node.renumber_wire(self, id)
 
-      self.wire_item.set(fill_color_rgba = Wire.colors[Wire.counter % len(Wire.colors)])
+      # Colorize the wire
+      self.wire_item.set(fill_color_rgba = Wire.colors[id % len(Wire.colors)])
     
     def get_wire_id(self):
       return self.wire_id
@@ -358,6 +360,9 @@ class Wire:
     def set_target_node(self, node):
       self.target_node = node
       self._add_connection(node)
+      
+      # Colorize the wire
+      self.wire_item.set(fill_color_rgba = Wire.colors[self.wire_id % len(Wire.colors)])
       
     # Move wire. In fact, the attached component are moved and THEY
     # move the wire
@@ -656,17 +661,24 @@ class Resistor(Component):
     self.show()
 
 
-class Variator(Component):
+class Rheostat(Component):
   def __init__(self, canvas, rootitem,
                x, y):
-    super(Variator, self).__init__(canvas,
+    super(Rheostat, self).__init__(canvas,
                                    rootitem,
                                    "R",
                                    "10k",
-                                   "electric/resistor_v.png",
-                                   [Node("electric/connect.png", "A", -3, -15),
-                                    Node("electric/connect.png", "B", 40, 47),
-                                    Node("electric/connect.png", "C", -3, 110)])
+                                   "electric/resistor_track.png",
+                                   [Node("electric/connect.png", "A", 5, -20),
+                                    Node("electric/connect.png", "B", 70, 70),
+                                    Node("electric/connect.png", "C", 5, 160)])
+    pixmap = gcompris.utils.load_pixmap("electric/resistor_wiper.png")
+    self.wiper_item = self.comp_rootitem.add(
+      gnome.canvas.CanvasPixbuf,
+      pixbuf = pixmap,
+      x = x,
+      y = y,
+      )
     self.move(x, y)
     self.show()
 
