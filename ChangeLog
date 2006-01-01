@@ -1,3 +1,41 @@
+2006-01-01  Yves Combe  <yves@ycombe.net>
+
+	new board crane by Marc BRUN.
+	NOT added in potfile yet.
+
+	* boards/Makefile.am:
+	* boards/boardicons/crane.png:
+	* boards/crane.xml.in:
+	* boards/crane/arrow_b.png:
+	* boards/crane/arrow_l.png:
+	* boards/crane/arrow_r.png:
+	* boards/crane/arrow_u.png:
+	* boards/crane/bulb.png:
+	* boards/crane/crane-bg.png:
+	* boards/crane/letter-a.png:
+	* boards/crane/letter-b.png:
+	* boards/crane/letter-c.png:
+	* boards/crane/rectangle1.png:
+	* boards/crane/rectangle2.png:
+	* boards/crane/selected.png:
+	* boards/crane/square1.png:
+	* boards/crane/square2.png:
+	* boards/crane/triangle1.png:
+	* boards/crane/triangle2.png:
+	* boards/crane/tux.png:
+	* boards/crane/water_drop1.png:
+	* boards/crane/water_drop2.png:
+	* boards/crane/water_spot1.png:
+	* boards/crane/water_spot2.png:
+	* po/Makefile.in.in:
+	* src/boards/Makefile.am:
+	* src/boards/crane.c: (pause_board), (start_board), (end_board),
+	(set_level), (is_our_board), (crane_next_level),
+	(crane_destroy_all_items), (crane_create_item), (bonus),
+	(finished), (game_won), (item_event), (arrow_event), (draw_arrow),
+	(draw_redhands), (draw_frame), (place_item), (smooth_move),
+	(is_allowed_move), (get_item_index), (shuffle_list), (select_item):
+
 2005-12-19  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	- Patch by Patrick GOLDBRONN pgoldbronn on free.fr

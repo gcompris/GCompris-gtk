@@ -30,6 +30,7 @@ xml_in_files = \
 	clickgame.xml.in \
 	clockgame.xml.in \
 	colors.xml.in \
+	crane.xml.in \
 	colors_group.xml.in \
 	computer.xml.in \
 	connect4.xml.in \

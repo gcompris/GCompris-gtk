@@ -36,6 +36,7 @@ lib_LTLIBRARIES = \
 	libclickgame.la \
 	libclockgame.la \
 	libcolors.la \
+	libcrane.la \
 	liberase.la \
 	libenumerate.la \
 	libfifteen.la \
@@ -86,6 +87,10 @@ libdraw_la_SOURCES = draw.c
 libawele_la_LDFLAGS = -module -avoid-version
 libawele_la_LIBADD = $(top_builddir)/src/gcompris/libgcompris-1.la
 libawele_la_SOURCES = awele.c awele_alphaBeta.c awele_utils.c
+
+libcrane_la_LDFLAGS = -module -avoid-version
+libcrane_la_LIBADD = $(top_builddir)/src/gcompris/libgcompris-1.la
+libcrane_la_SOURCES = crane.c
 
 libmenu_la_LDFLAGS = -module -avoid-version
 libmenu_la_LIBADD = $(top_builddir)/src/gcompris/libgcompris-1.la
