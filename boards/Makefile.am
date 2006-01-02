@@ -34,6 +34,7 @@ xml_in_files = \
 	colors_group.xml.in \
 	computer.xml.in \
 	connect4.xml.in \
+	crane.xml.in \
 	doubleentry.xml.in \
 	draw.xml.in \
 	electric.xml.in \

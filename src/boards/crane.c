@@ -32,11 +32,11 @@
 #define CRANE_BUTTON_HEIGHT	50
 #define CRANE_BUTTON_SPACE	20	// Space between a pair (left/right or up/down)
 #define CRANE_BUTTON_LEFT_X	200
-#define CRANE_BUTTON_LEFT_Y	72
+#define CRANE_BUTTON_LEFT_Y	87
 #define CRANE_BUTTON_RIGHT_X (CRANE_BUTTON_LEFT_X + CRANE_BUTTON_HEIGHT + CRANE_BUTTON_SPACE)
 #define CRANE_BUTTON_RIGHT_Y CRANE_BUTTON_LEFT_Y
-#define CRANE_BUTTON_UP_X	408
-#define CRANE_BUTTON_UP_Y	200
+#define CRANE_BUTTON_UP_X	374
+#define CRANE_BUTTON_UP_Y	185
 #define CRANE_BUTTON_DOWN_X CRANE_BUTTON_UP_X
 #define CRANE_BUTTON_DOWN_Y (CRANE_BUTTON_UP_Y + CRANE_BUTTON_HEIGHT + CRANE_BUTTON_SPACE)
 
@@ -178,6 +178,9 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 	gcomprisBoard->number_of_sublevel = 1; /* Go to next level after this number of 'play' */
 	gcompris_bar_set(GCOMPRIS_BAR_LEVEL);
 
+	gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas),
+				gcompris_image_to_skin("gcompris-bg.jpg"));
+
 	crane_next_level();
 
 	gamewon = FALSE;
@@ -231,8 +234,6 @@ static gboolean is_our_board (GcomprisBoard *gcomprisBoard) {
 /* set initial values for the next level */
 static void crane_next_level() {
 
-  gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas), "crane/crane-bg.png");
-
   gcompris_bar_set_level(gcomprisBoard);
 
   crane_destroy_all_items();
@@ -262,12 +263,24 @@ static GnomeCanvasItem *crane_create_item()
 {
   int i;
   int nb_element;
+  GdkPixbuf *pixmap;
 
   boardRootItem = GNOME_CANVAS_GROUP(gnome_canvas_item_new (gnome_canvas_root(gcomprisBoard->canvas),
 				     gnome_canvas_group_get_type (),
 				     "x", (double) 0,
 				     "y", (double) 0,
 				     NULL));
+
+
+  pixmap = gcompris_load_pixmap("crane/crane-bg.png");
+  gnome_canvas_item_new (boardRootItem,
+			 gnome_canvas_pixbuf_get_type(),
+			 "pixbuf", pixmap,
+			 "x", 0.0,
+			 "y", 0.0,
+			 "anchor", GTK_ANCHOR_NW,
+			 NULL);
+  gdk_pixbuf_unref(pixmap);
 
   // The four arrows on the crane
   draw_arrow();
@@ -441,16 +454,28 @@ static void draw_arrow() {
   crane_object arrow[4];
 
   arrow[0].pixmap = gcompris_load_pixmap("crane/arrow_b.png");
-  arrow[0].x = CRANE_BUTTON_DOWN_X; arrow[0].y = CRANE_BUTTON_DOWN_Y; arrow[0].w = CRANE_BUTTON_WIDTH; arrow[0].h = CRANE_BUTTON_HEIGHT;
+  arrow[0].x = CRANE_BUTTON_DOWN_X;
+  arrow[0].y = CRANE_BUTTON_DOWN_Y;
+  arrow[0].w = CRANE_BUTTON_WIDTH;
+  arrow[0].h = CRANE_BUTTON_HEIGHT;
   
   arrow[1].pixmap = gcompris_load_pixmap("crane/arrow_u.png");
-  arrow[1].x = CRANE_BUTTON_UP_X; arrow[1].y = CRANE_BUTTON_UP_Y; arrow[1].w = CRANE_BUTTON_WIDTH; arrow[1].h = CRANE_BUTTON_HEIGHT;
+  arrow[1].x = CRANE_BUTTON_UP_X;
+  arrow[1].y = CRANE_BUTTON_UP_Y;
+  arrow[1].w = CRANE_BUTTON_WIDTH;
+  arrow[1].h = CRANE_BUTTON_HEIGHT;
 
   arrow[2].pixmap = gcompris_load_pixmap("crane/arrow_l.png");
-  arrow[2].x = CRANE_BUTTON_LEFT_X; arrow[2].y = CRANE_BUTTON_LEFT_Y; arrow[2].w = CRANE_BUTTON_HEIGHT; arrow[2].h = CRANE_BUTTON_WIDTH;
+  arrow[2].x = CRANE_BUTTON_LEFT_X;
+  arrow[2].y = CRANE_BUTTON_LEFT_Y + 2;
+  arrow[2].w = CRANE_BUTTON_HEIGHT;
+  arrow[2].h = CRANE_BUTTON_WIDTH;
 
   arrow[3].pixmap = gcompris_load_pixmap("crane/arrow_r.png");
-  arrow[3].x = CRANE_BUTTON_RIGHT_X; arrow[3].y = CRANE_BUTTON_RIGHT_Y; arrow[3].w = CRANE_BUTTON_HEIGHT; arrow[3].h = CRANE_BUTTON_WIDTH;
+  arrow[3].x = CRANE_BUTTON_RIGHT_X;
+  arrow[3].y = CRANE_BUTTON_RIGHT_Y - 2;
+  arrow[3].w = CRANE_BUTTON_HEIGHT;
+  arrow[3].h = CRANE_BUTTON_WIDTH;
 
   for (i = 0 ; i < 4 ; i++) {
   	item_arrow = gnome_canvas_item_new (boardRootItem,
@@ -464,8 +489,12 @@ static void draw_arrow() {
 				    "height_set", TRUE,
 				    "anchor", GTK_ANCHOR_NW,
 				    NULL);
-
   	gtk_signal_connect(GTK_OBJECT(item_arrow), "event", (GtkSignalFunc) arrow_event, NULL);
+	gtk_signal_connect(GTK_OBJECT(item_arrow), "event",
+			 (GtkSignalFunc) gcompris_item_event_focus,
+			 NULL);
+	gdk_pixbuf_unref( arrow[i].pixmap);
+
   }
 
 }
@@ -489,6 +518,8 @@ static void draw_redhands() {
 	"height_set", TRUE,
 	"anchor", GTK_ANCHOR_NW,
 	NULL);
+  
+  gdk_pixbuf_unref(pixmap);
 
   gnome_canvas_item_hide(item_redhands);
 
@@ -579,12 +610,8 @@ static void place_item(int x, int y, int active) {
 				    "pixbuf", pixmap[valeur],
 				    "x", (double) (x + 5 + ((i % CRANE_FRAME_COLUMN) * CRANE_FRAME_CELL)),
 				    "y", (double) (y + 5 + (floor(i / CRANE_FRAME_COLUMN) * CRANE_FRAME_CELL)),
-				    "width", (double) CRANE_FRAME_IMAGE_SIZE,
-				    "height", (double) CRANE_FRAME_IMAGE_SIZE,
-				    "width_set", TRUE,
-				    "height_set", TRUE,
-				    "anchor", GTK_ANCHOR_NW,
 				    NULL);
+	gdk_pixbuf_unref( pixmap[valeur]);
 
 	if (active)
   		gtk_signal_connect(GTK_OBJECT(item_image), "event", (GtkSignalFunc) item_event, NULL);

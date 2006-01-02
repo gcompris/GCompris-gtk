@@ -252,6 +252,10 @@ class Gcompris_electric:
     self.components.append(Resistor(self.gcomprisBoard.canvas, self.rootitem,
                                     150, 400))
 
+    # Switch
+    self.components.append(Switch(self.gcomprisBoard.canvas, self.rootitem,
+                                  350, 400))
+
     # Rheostat
     self.components.append(Rheostat(self.gcomprisBoard.canvas, self.rootitem,
                                     700, 200))
@@ -509,14 +513,16 @@ class Component(object):
 
       # Add the component image
       pixmap = gcompris.utils.load_pixmap(self.image)
+      self.x = 0
+      self.y = 0
       self.center_x =  pixmap.get_width()/2
       self.center_y =  pixmap.get_height()/2
       
       self.component_item = self.comp_rootitem.add(
         gnome.canvas.CanvasPixbuf,
         pixbuf = pixmap,
-        x = 0,
-        y = 0,
+        x = self.x,
+        y = self.y,
         )
       self.component_item.connect("event", self.component_move, self)
 
@@ -545,17 +551,17 @@ class Component(object):
       return self.comp_rootitem
     
     def move(self, x, y):
-      x = x - self.center_x
-      y = y - self.center_y
+      self.x =  x - self.center_x
+      self.y =  y - self.center_y
       
-      self.item_values.set(x = x,
-                           y = y + 50)
+      self.item_values.set(x =  self.x,
+                           y =  self.y + 50)
 
-      self.component_item.set(x = x,
-                              y = y)
-      
+      self.component_item.set(x =  self.x,
+                              y =  self.y)
+
       for node in self.nodes:
-        node.move(x, y)
+        node.move( self.x,  self.y)
         
     def show(self):
       self.comp_rootitem.show()
@@ -625,7 +631,7 @@ class Component(object):
               if(node_target):
                 break
             
-          # Take care not to wire the same component or 2 times the same          # node
+          # Take care not to wire the same component or 2 times the same node
           if(not node_target
              or node.get_component() == node_target.get_component()
              or node_target.has_wire(self.wire)):
@@ -660,6 +666,55 @@ class Resistor(Component):
     self.move(x, y)
     self.show()
 
+
+class Switch(Component):
+  def __init__(self, canvas, rootitem,
+               x, y):
+    self.click_ofset_x = 32
+    self.click_ofset_y = -28
+    self.value_on  = "0"
+    self.value_off = "10000k"
+    
+    super(Switch, self).__init__(canvas,
+                                 rootitem,
+                                 "R",
+                                 self.value_off,
+                                 "electric/switch_off.png",
+                                 [Node("electric/connect.png", "A", -30, -10),
+                                  Node("electric/connect.png", "B", 100, -10)])
+    self.move(x, y)
+
+    pixmap = gcompris.utils.load_pixmap("electric/switch_click.png")
+    self.click_item = self.comp_rootitem.add(
+      gnome.canvas.CanvasPixbuf,
+      pixbuf = pixmap,
+      x = self.x + self.click_ofset_x,
+      y = self.y + self.click_ofset_y,
+      )
+    self.click_item.connect("event", self.component_click)
+    self.show()
+
+  # Callback event on the switch
+  def component_click(self, widget, event):
+
+    if event.state & gtk.gdk.BUTTON1_MASK:
+      if(self.gnucap_value == self.value_off):
+        self.gnucap_value = self.value_on
+        pixmap = gcompris.utils.load_pixmap("electric/switch_on.png")
+      else:
+        self.gnucap_value = self.value_off
+        pixmap = gcompris.utils.load_pixmap("electric/switch_off.png")
+        
+      self.component_item.set(pixbuf = pixmap)
+        
+    return False
+
+  # Callback event to move the component
+  def component_move(self, widget, event, component):
+     super(Switch, self).component_move(widget, event, component)
+     self.click_item.set(
+       x = self.x + self.click_ofset_x,
+       y = self.y + self.click_ofset_y)
 
 class Rheostat(Component):
   def __init__(self, canvas, rootitem,

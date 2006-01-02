@@ -1,3 +1,31 @@
+2006-01-02  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	Some code cleanup in crane.c, removed image memory leaks
+	Improved drawings.
+	
+	* boards/Makefile.am:
+	* boards/boardicons/crane.png:
+	* boards/crane/bulb.png:
+	* boards/crane/crane-bg.png:
+	* boards/crane/letter-a.png:
+	* boards/crane/letter-b.png:
+	* boards/crane/letter-c.png:
+	* boards/crane/rectangle1.png:
+	* boards/crane/rectangle2.png:
+	* boards/crane/square1.png:
+	* boards/crane/square2.png:
+	* boards/crane/triangle1.png:
+	* boards/crane/triangle2.png:
+	* boards/crane/tux.png:
+	* boards/crane/water_drop1.png:
+	* boards/crane/water_drop2.png:
+	* boards/crane/water_spot1.png:
+	* boards/crane/water_spot2.png:
+	* po/POTFILES.in:
+	* src/boards/crane.c: (start_board), (crane_next_level),
+	(crane_create_item), (draw_arrow), (draw_redhands), (place_item):
+	* src/boards/python/electric.py:
+
 2006-01-01  Yves Combe  <yves@ycombe.net>
 
 	new board crane by Marc BRUN.
