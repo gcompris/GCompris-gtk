@@ -28,18 +28,17 @@
 // Define
 #define SOUNDLISTFILE PACKAGE
 
-#define CRANE_BUTTON_WIDTH	20
-#define CRANE_BUTTON_HEIGHT	50
-#define CRANE_BUTTON_SPACE	20	// Space between a pair (left/right or up/down)
-#define CRANE_BUTTON_LEFT_X	200
-#define CRANE_BUTTON_LEFT_Y	87
-#define CRANE_BUTTON_RIGHT_X (CRANE_BUTTON_LEFT_X + CRANE_BUTTON_HEIGHT + CRANE_BUTTON_SPACE)
-#define CRANE_BUTTON_RIGHT_Y CRANE_BUTTON_LEFT_Y
-#define CRANE_BUTTON_UP_X	374
-#define CRANE_BUTTON_UP_Y	185
-#define CRANE_BUTTON_DOWN_X CRANE_BUTTON_UP_X
-#define CRANE_BUTTON_DOWN_Y (CRANE_BUTTON_UP_Y + CRANE_BUTTON_HEIGHT + CRANE_BUTTON_SPACE)
+#define CRANE_BUTTON_SPACE	40	// Space between a pair (left/right or up/down)
+#define CRANE_BUTTON_LEFT_X	217
+#define CRANE_BUTTON_LEFT_Y	77
+#define CRANE_BUTTON_RIGHT_X (CRANE_BUTTON_LEFT_X + CRANE_BUTTON_SPACE)
+#define CRANE_BUTTON_RIGHT_Y CRANE_BUTTON_LEFT_Y + 2
+#define CRANE_BUTTON_UP_X	372
+#define CRANE_BUTTON_UP_Y	215
+#define CRANE_BUTTON_DOWN_X CRANE_BUTTON_UP_X + 1
+#define CRANE_BUTTON_DOWN_Y (CRANE_BUTTON_UP_Y + CRANE_BUTTON_SPACE)
 
+#define CRANE_ROPE_Y  CRANE_BUTTON_LEFT_Y + 27
 #define CRANE_FRAME_X 38
 #define CRANE_FRAME_Y 168
 #define CRANE_FRAME_COLUMN 6
@@ -51,10 +50,11 @@
 #define CRANE_FRAME_MODEL_X 460
 #define CRANE_FRAME_MODEL_Y 107
 
-#define RIGHT 0
-#define LEFT 1
-#define UP 2
-#define DOWN 3
+
+#define DOWN  0		/* Warning ordering is important */
+#define UP    1
+#define LEFT  2
+#define RIGHT 3
 
 #define MAX_LEVEL 6	// Don't raise this number except if putting more values in pixmap[] array, in place_item function
 #define NB_ELEMENT (2 * MAX_LEVEL) + 2 
@@ -83,12 +83,14 @@ static gboolean board_paused = TRUE;
 static GnomeCanvasGroup *boardRootItem = NULL;
 static GnomeCanvasItem *selected_item = NULL;
 static GnomeCanvasItem *red_hands = NULL;
+static GnomeCanvasItem *crane_rope_item = NULL;
 static gint timer_id = 0;
 static gint nb_move = 0;
 static gboolean moving = FALSE;
 static move_object my_move;
 static int list_answer[CRANE_FRAME_LINE * CRANE_FRAME_COLUMN];
 static int list_game[CRANE_FRAME_LINE * CRANE_FRAME_COLUMN];
+static GnomeCanvasPoints *crane_rope;
 
 // gcompris functions
 static void	 start_board (GcomprisBoard *agcomprisBoard);
@@ -181,6 +183,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 	gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas),
 				gcompris_image_to_skin("gcompris-bg.jpg"));
 
+	
 	crane_next_level();
 
 	gamewon = FALSE;
@@ -366,7 +369,7 @@ static gint arrow_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data) {
   int success;
   double x,y;
   double dx1, dy1, dx2, dy2;
-  int direction;
+  int direction = GPOINTER_TO_INT(data);
   int i;
   int index, new_index;
 
@@ -392,25 +395,23 @@ static gint arrow_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data) {
 
 	gnome_canvas_item_get_bounds(selected_item, &dx1, &dy1, &dx2, &dy2);
 
-	if (x < CRANE_BUTTON_RIGHT_X) {
-		direction = LEFT;
-		my_move.x = -1;
-		my_move.y = 0;
-	} else if (x < (CRANE_BUTTON_RIGHT_X + CRANE_BUTTON_HEIGHT)) {
-		direction = RIGHT;
-		my_move.x = 1;
-		my_move.y = 0;
-	} else if (y < CRANE_BUTTON_DOWN_Y) {
-		direction = UP;
-		my_move.x = 0;
-		my_move.y = -1;
-	} else if (y < (CRANE_BUTTON_DOWN_Y + CRANE_BUTTON_HEIGHT)) {
-		direction= DOWN;
-		my_move.x = 0;
-		my_move.y = 1;
-	} else {
-		printf("Clic location error : %g %g\n", x, y);
-		return FALSE;
+	switch (direction) {
+	case LEFT:
+	  my_move.x = -1;
+	  my_move.y = 0;
+	  break;
+	case RIGHT:
+	  my_move.x = 1;
+	  my_move.y = 0;
+	  break;
+	case UP:
+	  my_move.x = 0;
+	  my_move.y = -1;
+	  break;
+	case DOWN:
+	  my_move.x = 0;
+	  my_move.y = 1;
+	  break;
 	}
 			       
 	// Check if the move doesn't go out of the frame
@@ -456,26 +457,18 @@ static void draw_arrow() {
   arrow[0].pixmap = gcompris_load_pixmap("crane/arrow_b.png");
   arrow[0].x = CRANE_BUTTON_DOWN_X;
   arrow[0].y = CRANE_BUTTON_DOWN_Y;
-  arrow[0].w = CRANE_BUTTON_WIDTH;
-  arrow[0].h = CRANE_BUTTON_HEIGHT;
   
   arrow[1].pixmap = gcompris_load_pixmap("crane/arrow_u.png");
   arrow[1].x = CRANE_BUTTON_UP_X;
   arrow[1].y = CRANE_BUTTON_UP_Y;
-  arrow[1].w = CRANE_BUTTON_WIDTH;
-  arrow[1].h = CRANE_BUTTON_HEIGHT;
 
   arrow[2].pixmap = gcompris_load_pixmap("crane/arrow_l.png");
   arrow[2].x = CRANE_BUTTON_LEFT_X;
   arrow[2].y = CRANE_BUTTON_LEFT_Y + 2;
-  arrow[2].w = CRANE_BUTTON_HEIGHT;
-  arrow[2].h = CRANE_BUTTON_WIDTH;
 
   arrow[3].pixmap = gcompris_load_pixmap("crane/arrow_r.png");
   arrow[3].x = CRANE_BUTTON_RIGHT_X;
   arrow[3].y = CRANE_BUTTON_RIGHT_Y - 2;
-  arrow[3].w = CRANE_BUTTON_HEIGHT;
-  arrow[3].h = CRANE_BUTTON_WIDTH;
 
   for (i = 0 ; i < 4 ; i++) {
   	item_arrow = gnome_canvas_item_new (boardRootItem,
@@ -483,13 +476,10 @@ static void draw_arrow() {
 				    "pixbuf", arrow[i].pixmap,
 				    "x", arrow[i].x,
 				    "y", arrow[i].y,
-				    "width", arrow[i].w,
-				    "height", arrow[i].h,
-				    "width_set", TRUE,
-				    "height_set", TRUE,
 				    "anchor", GTK_ANCHOR_NW,
 				    NULL);
-  	gtk_signal_connect(GTK_OBJECT(item_arrow), "event", (GtkSignalFunc) arrow_event, NULL);
+  	gtk_signal_connect(GTK_OBJECT(item_arrow), "event",
+			   (GtkSignalFunc) arrow_event, GINT_TO_POINTER(i));
 	gtk_signal_connect(GTK_OBJECT(item_arrow), "event",
 			 (GtkSignalFunc) gcompris_item_event_focus,
 			 NULL);
@@ -502,12 +492,27 @@ static void draw_arrow() {
 // Draw the red hands object which highlight the selected object
 static void draw_redhands() {
 
-  GnomeCanvasItem *item_redhands = NULL;
   GdkPixbuf *pixmap;
+
+  /* Initialize the rope */
+  crane_rope = gnome_canvas_points_new(2);
+
+  crane_rope->coords[0] = 5;
+  crane_rope->coords[1] = CRANE_BUTTON_LEFT_Y;
+  crane_rope->coords[2] = 5;
+  crane_rope->coords[3] = CRANE_BUTTON_LEFT_Y;
+
+  crane_rope_item = gnome_canvas_item_new (boardRootItem,
+					   gnome_canvas_line_get_type(),
+					  "points", crane_rope,
+					  "fill_color", "darkblue",
+					  "width_units", (double) 1,
+					  "width_pixels", (guint) 7,
+					  NULL);
 
   pixmap = gcompris_load_pixmap("crane/selected.png");
 
-  item_redhands = gnome_canvas_item_new (boardRootItem,
+  red_hands = gnome_canvas_item_new (boardRootItem,
 	gnome_canvas_pixbuf_get_type(),
 	"pixbuf", pixmap,
 	"x", (double) 5,
@@ -521,9 +526,8 @@ static void draw_redhands() {
   
   gdk_pixbuf_unref(pixmap);
 
-  gnome_canvas_item_hide(item_redhands);
+  gnome_canvas_item_hide(red_hands);
 
-  red_hands = item_redhands;
 } 
 
 // Draw the drak frame (horizontal and vertical lines) that helps positionning elements
@@ -625,11 +629,22 @@ static void place_item(int x, int y, int active) {
 }
 
 static guint smooth_move(move_object *move) {
+  double dx1, dy1, dx2, dy2;
 
   if (nb_move == 0) {
 	moving = TRUE;
 	nb_move = move->nb;
   }
+
+  gnome_canvas_item_get_bounds(red_hands, &dx1, &dy1, &dx2, &dy2);
+  crane_rope->coords[0] = (dx1 + dx2) / 2;
+  crane_rope->coords[1] = CRANE_ROPE_Y;
+  crane_rope->coords[2] = (dx1 + dx2) / 2;
+  crane_rope->coords[3] = (dy1 + dy2) / 2;
+
+  gnome_canvas_item_set (crane_rope_item,
+			 "points", crane_rope,
+			 NULL);
 
   gnome_canvas_item_move(selected_item, move->x, move->y);
   gnome_canvas_item_move(red_hands, move->x, move->y);
@@ -697,6 +712,15 @@ static void select_item(GnomeCanvasItem *item, int sound) {
 
   gnome_canvas_item_show(red_hands);
  
+  crane_rope->coords[0] = (dx1 + dx2) / 2;
+  crane_rope->coords[1] = CRANE_ROPE_Y;
+  crane_rope->coords[2] = (dx1 + dx2) / 2;
+  crane_rope->coords[3] = (dy1 + dy2) / 2;
+
+  gnome_canvas_item_set (crane_rope_item,
+			 "points", crane_rope,
+			 NULL);
+
   if (sound) gcompris_play_ogg ("gobble", NULL);
 
   selected_item = item;

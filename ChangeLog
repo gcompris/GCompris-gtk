@@ -1,3 +1,37 @@
+2006-01-04  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	Improved crane drawing with new arrow and a rope.
+	Improved electric. It's now playable in free mode with a switch, 
+	resistor, rheostat and bulb. Need more work to make it playable.
+
+	* boards/crane/arrow_b.png:
+	* boards/crane/arrow_l.png:
+	* boards/crane/arrow_r.png:
+	* boards/crane/arrow_u.png:
+	* boards/crane/crane-bg.png:
+	* boards/electric/bulb.png:
+	* boards/electric/bulb1.png:
+	* boards/electric/bulb10.png:
+	* boards/electric/bulb11.png:
+	* boards/electric/bulb12.png:
+	* boards/electric/bulb2.png:
+	* boards/electric/bulb3.png:
+	* boards/electric/bulb4.png:
+	* boards/electric/bulb5.png:
+	* boards/electric/bulb6.png:
+	* boards/electric/bulb7.png:
+	* boards/electric/bulb8.png:
+	* boards/electric/bulb9.png:
+	* boards/electric/resistor_track.png:
+	* boards/electric/resistor_wiper.png:
+	* boards/electric/switch_click.png:
+	* boards/electric/switch_off.png:
+	* boards/electric/switch_on.png:
+	* boards/electric/variable_resistor.svg:
+	* src/boards/crane.c: (start_board), (arrow_event), (draw_arrow),
+	(draw_redhands), (smooth_move), (select_item):
+	* src/boards/python/electric.py:
+
 2006-01-02  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	Some code cleanup in crane.c, removed image memory leaks
