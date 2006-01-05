@@ -122,17 +122,22 @@ class Gcompris_electric:
 
     # Reset all component values
     for component in self.components:
-      print "Processing component %d" %(i,)
-      print values[i]
-      print values[i+1]
-      try:
-        volt = float(values[i])
-        amp = float(values[i+1])
-        component.set_voltage_intensity(volt, amp)
-      except:
-        component.set_voltage_intensity(0.0, 0.0)
+      # Each Component class may have several gnucap component to retrieve
+      # data from
+      done = False
+      while not done:
+        print "Processing component %d" %(i,)
+        print values[i]
+        print values[i+1]
+        try:
+          volt = float(values[i])
+          amp = float(values[i+1])
+          done = component.set_voltage_intensity(volt, amp)
+        except:
+          done = component.set_voltage_intensity(0.0, 0.0)
 
-      i += 2
+        i += 2
+
       
     os.remove(filename)
     
@@ -245,9 +250,12 @@ class Gcompris_electric:
     self.components.append(Bulb(self.gcomprisBoard.canvas, self.rootitem,
                                 400, 200, 0.4))
     self.components.append(Bulb(self.gcomprisBoard.canvas, self.rootitem,
-                                540, 200, 0.2))
+                                540, 200, 0.4))
     
     
+    # Rheostat
+    self.components.append(Rheostat(self.gcomprisBoard.canvas, self.rootitem,
+                                    700, 200, 500))
     # Resistor
     self.components.append(Resistor(self.gcomprisBoard.canvas, self.rootitem,
                                     150, 400))
@@ -263,9 +271,6 @@ class Gcompris_electric:
     self.components.append(Battery(self.gcomprisBoard.canvas, self.rootitem,
                                    160, 200))
 
-    # Rheostat
-    self.components.append(Rheostat(self.gcomprisBoard.canvas, self.rootitem,
-                                    700, 200, 2))
 
 
   
@@ -531,20 +536,27 @@ class Component(object):
         item = node.create(self, node.x, node.y)
         item.connect("event", self.create_wire, node)
 
+      # A text item to display textual values (volt and amp)
+      self.item_values_x = 0
+      self.item_values_y = 0
       self.item_values = self.comp_rootitem.add(
         gnome.canvas.CanvasText,
-        x = 0,
-        y = 0,
+        x = self.item_values_x,
+        y = self.item_values_y,
         font=gcompris.skin.get_font("gcompris/tiny"),
         text="",
-        fill_color="red",
+        fill_color="white",
         justification=gtk.JUSTIFY_CENTER
         )
+      self.component_item.connect("event", self.component_move, self)
 
+    # Return False if we need more value to complete our component
+    # This is usefull in case where one Component is made of several gnucap component
     def set_voltage_intensity(self, voltage, intensity):
       self.voltage = voltage
       self.intensity = intensity
       self.item_values.set(text="V=%.1f\nI=%.2f"%(voltage,intensity))
+      return True
 
       
     def get_rootitem(self):
@@ -554,8 +566,8 @@ class Component(object):
       self.x =  x - self.center_x
       self.y =  y - self.center_y
       
-      self.item_values.set(x =  self.x,
-                           y =  self.y + 50)
+      self.item_values.set(x =  self.item_values_x + self.x,
+                           y =  self.item_values_y + self.y)
 
       self.component_item.set(x =  self.x,
                               y =  self.y)
@@ -665,9 +677,13 @@ class Resistor(Component):
                                "electric/resistor.png",
                                [Node("electric/connect.png", "A", -30, -5),
                                 Node("electric/connect.png", "B", 130, -5)])
+
+    # Overide some values
+    self.item_values_x = 70
+    self.item_values_y = 15
+
     self.move(x, y)
     self.show()
-
 
 # ----------------------------------------
 # SWITCH
@@ -688,6 +704,10 @@ class Switch(Component):
                                  "electric/switch_off.png",
                                  [Node("electric/connect.png", "A", -30, -10),
                                   Node("electric/connect.png", "B", 100, -10)])
+
+    # Overide some values
+    self.item_values.hide()
+    
     self.move(x, y)
 
     pixmap = gcompris.utils.load_pixmap("electric/switch_click.png")
@@ -728,12 +748,13 @@ class Switch(Component):
 #
 class Rheostat(Component):
   def __init__(self, canvas, rootitem,
-               x, y, resitance_k):
+               x, y, resitance):
+    self.gnucap_current_resistor = 1
     self.wiper_ofset_x = 1
     self.wiper_ofset_min_y = 22
     self.wiper_ofset_max_y = 122
     self.wiper_ofset_y = self.wiper_ofset_min_y
-    self.resitance = resitance_k * 1000
+    self.resitance = resitance
     super(Rheostat, self).__init__(canvas,
                                    rootitem,
                                    "R",
@@ -743,8 +764,22 @@ class Rheostat(Component):
                                     Node("electric/connect.png", "B", 70, 70),
                                     Node("electric/connect.png", "C", 5, 160)])
     
-    pixmap = gcompris.utils.load_pixmap("electric/resistor_wiper.png")
+    # Overide some values
+    self.item_values_x = 25
+    self.item_values_y = 70
+    
     self.move(x, y)
+
+    # The wiper wire
+    self.wiper_wire_item = self.rootitem.add(
+      gnome.canvas.CanvasLine,
+      points = (0,0,0,0),
+      fill_color_rgba = 0x5A5A5AFFL,
+      width_units=5.0
+      )
+    self.update_wiper_wire()
+    
+    pixmap = gcompris.utils.load_pixmap("electric/resistor_wiper.png")
     self.wiper_item = self.comp_rootitem.add(
       gnome.canvas.CanvasPixbuf,
       pixbuf = pixmap,
@@ -752,7 +787,15 @@ class Rheostat(Component):
       y = self.y + self.wiper_ofset_y,
       )
     self.wiper_item.connect("event", self.component_click)
+
     self.show()
+    
+  def update_wiper_wire(self):
+    self.wiper_wire_item.set(
+      points = (self.x + self.wiper_ofset_x + 45,
+                self.y + self.wiper_ofset_y + 10,
+                self.x + 85,
+                self.y + 85))
 
   # Callback event on the wiper
   def component_click(self, widget, event):
@@ -769,6 +812,7 @@ class Rheostat(Component):
         self.wiper_item.set(
           y = self.y + self.wiper_ofset_y,
           )
+        self.update_wiper_wire()
     return False
 
   # Callback event to move the component
@@ -777,7 +821,8 @@ class Rheostat(Component):
      self.wiper_item.set(
        x = self.x + self.wiper_ofset_x,
        y = self.y + self.wiper_ofset_y)
-
+     self.update_wiper_wire()
+     
   # Return the gnucap definition for a single resitor of the rheostat
   # node_id1 and node_id2 are the index in the list of nodes
   def to_gnucap_res(self, gnucap_name, node_id1, node_id2, gnucap_value):
@@ -819,6 +864,19 @@ class Rheostat(Component):
 
     return gnucap
     
+  # Return False if we need more value to complete our component
+  # This is usefull in case where one Component is made of several gnucap component
+  def set_voltage_intensity(self, voltage, intensity):
+    if self.gnucap_current_resistor == 1:
+      self.voltage = voltage
+      self.intensity = intensity
+      self.item_values.set(text="V=%.1f\nI=%.2f"%(voltage,intensity))
+
+    self.gnucap_current_resistor += 1
+    if self.gnucap_current_resistor > 3:
+      self.gnucap_current_resistor = 1
+      return True
+    return False
 
 # ----------------------------------------
 # BULB
@@ -834,19 +892,27 @@ class Bulb(Component):
                                "electric/bulb1.png",
                                [Node("electric/connect.png", "A", -15, 215),
                                 Node("electric/connect.png", "B", 85, 215)])
+    # Overide some values
+    self.item_values_x = 90
+    self.item_values_y = 115
+    self.item_values.set(fill_color="red")
+    
     self.move(x, y)
     self.show()
     self.power_max = power_max
 
   # Change the pixmap depending on the real power in the Bulb
+  # Return False if we need more value to complete our component
+  # This is usefull in case where one Component is made of several gnucap component
   def set_voltage_intensity(self, voltage, intensity):
     super(Bulb, self).set_voltage_intensity(voltage, intensity)
 
     power = abs(voltage * intensity)
-    image_index = min((power * 10) /  self.power_max + 1, 11)
+    image_index = min((power * 11) /  self.power_max + 1, 12)
     pixmap = gcompris.utils.load_pixmap("electric/bulb%d.png" %(image_index,))
     print "Power = %f (Max=%f) Image index = %d" %(power, self.power_max, image_index)
     self.component_item.set(pixbuf = pixmap)
+    return True
 
     
 # ----------------------------------------
@@ -863,7 +929,9 @@ class Battery(Component):
                                "electric/battery.png",
                                [Node("electric/connect.png", "A", 11, -35),
                                 Node("electric/connect.png", "B", 11, 150)])
+    # Overide some values
+    self.item_values_x = 30
+    self.item_values_y = 80
+    
     self.move(x, y)
     self.show()
-
-
