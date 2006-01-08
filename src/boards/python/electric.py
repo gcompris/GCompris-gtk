@@ -57,7 +57,9 @@ class Gcompris_electric:
 
     # The list of placed components
     self.components = []
-
+    self.gnucap_timer = 0
+    self.gnucap_timer_interval = 500
+    
   def start(self):
     
     self.gcomprisBoard.level=1
@@ -83,64 +85,7 @@ class Gcompris_electric:
     self.cleanup_game()
 
   def ok(self):
-    filename = "/tmp/gcompris_electric.gnucap.%d" %(os.getpid(),)
-    f = file(filename, "w+")
-
-    gnucap = "Title GCompris\n"
-    for component in self.components:
-      thisgnucap = component.to_gnucap()
-      gnucap += thisgnucap
-
-    gnucap += ".dc\n"
-    gnucap += ".end\n"
-    print gnucap
-    f.writelines(gnucap)
-    f.close()
-    output = subprocess.Popen(["/usr/bin/gnucap", "-b", filename ],
-                              stdout=subprocess.PIPE).communicate()[0]
-    print "---------------- GNUCAP OUTPUT -----------------------------"
-    print output
-    print "------------------------------------------------------------"
-
-    for line in output.splitlines():
-      print "==="
-      print line
-      if(line.split() == " 0."):
-        break
-
-    print "===>"
-    print line
-    print "===>"
-    values = []
-    if(line.split()[0] == "0."):
-      print "FOUND 0."
-      values = line.split()
-      del values[0]
-
-    print values
-    i = 0
-
-    # Reset all component values
-    for component in self.components:
-      # Each Component class may have several gnucap component to retrieve
-      # data from
-      done = False
-      while not done:
-        print "Processing component %d" %(i,)
-        print values[i]
-        print values[i+1]
-        try:
-          volt = float(values[i])
-          amp = float(values[i+1])
-          done = component.set_voltage_intensity(volt, amp)
-        except:
-          done = component.set_voltage_intensity(0.0, 0.0)
-
-        i += 2
-
-      
-    os.remove(filename)
-    
+    self.call_gnucap()
     
   def repeat(self):
     print("Gcompris_electric repeat.")
@@ -224,10 +169,13 @@ class Gcompris_electric:
       
     return 1
   
-  # Display the board game
+  # Cleanup the board game
   def cleanup_game(self):
     self.gamewon = False
-      
+
+    if self.gnucap_timer :
+      gtk.timeout_remove(self.gnucap_timer)
+
     # Remove the root item removes all the others inside it
     self.rootitem.destroy()
 
@@ -246,34 +194,142 @@ class Gcompris_electric:
 
   def create_components(self):
 
-    # Bulb
-    self.components.append(Bulb(self.gcomprisBoard.canvas, self.rootitem,
-                                400, 200, 0.4))
-    self.components.append(Bulb(self.gcomprisBoard.canvas, self.rootitem,
-                                540, 200, 0.4))
+    Bulb(self, 100, 50, 0.1)
+    Bulb(self, 110, 50, 0.1)
+    Bulb(self, 120, 50, 0.1)
+
+    Rheostat(self, 200, 100, 500)
+    Rheostat(self, 210, 100, 500)
     
-    
-    # Rheostat
-    self.components.append(Rheostat(self.gcomprisBoard.canvas, self.rootitem,
-                                    700, 200, 500))
-    # Resistor
-    self.components.append(Resistor(self.gcomprisBoard.canvas, self.rootitem,
-                                    150, 400))
+    Resistor(self, 150, 490)
+    Resistor(self, 150, 500)
+    Resistor(self, 150, 510)
 
-    # Switch
-    self.components.append(Switch(self.gcomprisBoard.canvas, self.rootitem,
-                                  350, 400))
+    Diode(self, 150, 430)
+    Diode(self, 150, 440)
+    Diode(self, 150, 450)
 
-    # Battery
-    self.components.append(Battery(self.gcomprisBoard.canvas, self.rootitem,
-                                   100, 200))
+    Switch(self, 150, 360)
+    Switch(self, 150, 370)
+    Switch(self, 150, 380)
 
-    self.components.append(Battery(self.gcomprisBoard.canvas, self.rootitem,
-                                   160, 200))
+    Battery(self, 20, 290)
+    Battery(self, 25, 290)
+    Battery(self, 30, 290)
+
+
+    Connection(self, 70, 270)
+    Connection(self, 72, 270)
+    Connection(self, 74, 270)
+    Connection(self, 76, 270)
+    Connection(self, 78, 270)
+    Connection(self, 80, 270)
 
 
 
   
+# ----------------------------------------------------------------------
+# ----------------------------------------------------------------------
+# ----------------------------------------------------------------------
+# ----------------------------------------------------------------------
+
+  def run_simulation(self):
+    print "run_simulation"
+    if not self.gnucap_timer:
+      print "run_simulation armed timer"
+      self.gnucap_timer = gtk.timeout_add(self.gnucap_timer_interval, self.ok)
+
+  def call_gnucap(self):
+    filename = "/tmp/gcompris_electric.gnucap.%d" %(os.getpid(),)
+    f = file(filename, "w+")
+
+    gnucap = "Title GCompris\n"
+    for component in self.components:
+      if component.is_connected():
+        thisgnucap = component.to_gnucap("")
+        gnucap += thisgnucap
+
+    gnucap += ".dc\n"
+    gnucap += ".end\n"
+    print gnucap
+    f.writelines(gnucap)
+    f.close()
+    output = subprocess.Popen(["/usr/bin/gnucap", "-b", filename ],
+                              stdout=subprocess.PIPE).communicate()[0]
+    print "---------------- GNUCAP OUTPUT -----------------------------"
+    print output
+    print "------------------------------------------------------------"
+
+    for line in output.splitlines():
+      print "==="
+      print line
+      if(line.split() == " 0."):
+        break
+
+    print "===>"
+    print line
+    print "===>"
+    values = []
+    if(line.split()[0] == "0."):
+      print "FOUND 0."
+      values = line.split()
+      del values[0]
+
+    print values
+    i = 0
+
+    # Set all component values
+    for component in self.components:
+      if not component.is_connected():
+        done = component.set_voltage_intensity(False, 0.0, 0.0)
+      else:
+        # Each Component class may have several gnucap component to retrieve
+        # data from
+        done = False
+        while not done:
+          print "Processing component %d" %(i,)
+          print values[i]
+          print values[i+1]
+          try:
+            volt = self.convert_gnucap_value(values[i])
+            amp = self.convert_gnucap_value(values[i+1])
+            done = component.set_voltage_intensity(True, volt, amp)
+            print "Converted V=%s I=%s" %(volt, amp)
+          except:
+            print "Failed to convert V=%s I=%s" %(values[i], values[i+1])
+            done = component.set_voltage_intensity(False, 0.0, 0.0)
+
+          i += 2
+
+      
+    os.remove(filename)
+    self.gnucap_timer = 0
+    
+  # Convert a gnucap value back in a regular number
+  # Return a float value
+  # Or a ValueError exception
+  def convert_gnucap_value(self, value):
+    unit = 1
+    
+    if value.endswith("u"):
+      unit = 0.000001
+      value = value.replace("u", "")
+
+    if value.endswith("n"):
+      unit = 0.000000001
+      value = value.replace("n", "")
+
+    if value.endswith("p"):
+      unit = 0.000000000001
+      value = value.replace("p", "")
+
+    return (float(value)*unit)
+    
+
+
+
+# ----------------------------------------------------------------------
+# ----------------------------------------------------------------------
 # ----------------------------------------------------------------------
 # ----------------------------------------------------------------------
 # ----------------------------------------------------------------------
@@ -296,8 +352,9 @@ class Wire:
                0x66df6cFFL,
                0x66dfd8FFL ]
                
-    def __init__(self, rootitem, source_node, x1, y1, x2, y2):
-      self.rootitem = rootitem
+    def __init__(self, electric, source_node, x1, y1, x2, y2):
+      self.electric = electric
+      self.rootitem = electric.rootitem
       self.source_node = source_node
       self.target_node = None
       self.x1 = x1
@@ -364,6 +421,7 @@ class Wire:
       Wire.counter += 1
       self.source_node = None
       self.target_node = None
+      self.electric.run_simulation()
       
       
     def set_target_node(self, node):
@@ -414,7 +472,9 @@ class Wire:
       return False
 
 
-
+#------------------------------------------------------------
+# Node
+#
 # x, y are node coordinate relative to the component image
 class Node:
     def __init__(self, image, name, x, y):
@@ -494,22 +554,31 @@ class Node:
                   y + self.y + self.center_y)
 
 
-      
+#------------------------------------------------------------
+# Component
+#
 # nodes is a list of class Node object
 class Component(object):
     counter = 0
-    def __init__(self, canvas, rootitem,
+    def __init__(self, electric,
                  gnucap_name, gnucap_value,
                  image, nodes):
-      self.canvas = canvas
-      self.rootitem = rootitem
-      self.gnucap_name = gnucap_name + str(Component.counter)
+      self.electric = electric
+      self.canvas = electric.gcomprisBoard.canvas
+      self.rootitem = electric.rootitem
+
+      if gnucap_name:
+        self.gnucap_name = gnucap_name + str(Component.counter)
+        self.electric.components.append(self)
+      else:
+        self.gnucap_name = ""
+        
       Component.counter += 1
       self.gnucap_value = gnucap_value
       self.image = image
       self.nodes = nodes
       # Create a group for this component
-      self.comp_rootitem = rootitem.add(
+      self.comp_rootitem = self.rootitem.add(
         gnome.canvas.CanvasGroup,
         x=0.0,
         y=0.0
@@ -552,10 +621,14 @@ class Component(object):
 
     # Return False if we need more value to complete our component
     # This is usefull in case where one Component is made of several gnucap component
-    def set_voltage_intensity(self, voltage, intensity):
+    def set_voltage_intensity(self, valid_value, voltage, intensity):
       self.voltage = voltage
       self.intensity = intensity
-      self.item_values.set(text="V=%.1f\nI=%.2f"%(voltage,intensity))
+      if(valid_value):
+        self.item_values.set(text="V=%.1f\nI=%.2f"%(voltage,intensity))
+        self.item_values.show()
+      else:
+        self.item_values.hide()
       return True
 
       
@@ -585,10 +658,31 @@ class Component(object):
     def get_nodes(self):
       return self.nodes
 
+    # Return True if this component is connected and can provides a gnucap
+    # description
+    #
+    # It assume that if a single node is not connected, the whole
+    # component is not connected
+    def is_connected(self):
+
+      for node in self.nodes:
+        if not node.get_wires():
+          return False
+        
+      return True
+    
     # Return the gnucap definition for this component
-    def to_gnucap(self):
+    # model is optional
+    #
+    def to_gnucap(self, model):
       gnucap = self.gnucap_name
-      
+
+      # No definition, it happens for connection spot
+      # But in this case, it should not be called at all. it's not in the top level
+      # components list.
+      if gnucap == "":
+        return ""
+
       for node in self.nodes:
         gnucap += " "
         if(node.get_wires()):
@@ -600,6 +694,7 @@ class Component(object):
       gnucap += " "
       gnucap += str(self.gnucap_value)
       gnucap += "\n"
+      gnucap += model
       gnucap += ".print dc + v(%s) i(%s)\n" %(self.gnucap_name, self.gnucap_name)
 
       return gnucap
@@ -621,7 +716,7 @@ class Component(object):
           bounds = widget.get_bounds()
           self.pos_x = (bounds[0]+bounds[2])/2
           self.pos_y = (bounds[1]+bounds[3])/2
-          self.wire = Wire(self.rootitem, node,
+          self.wire = Wire(self.electric, node,
                            self.pos_x, self.pos_y, event.x, event.y)
           node.add_wire(self.wire)
           return True
@@ -650,6 +745,7 @@ class Component(object):
           else:
             self.wire.set_target_node(node_target)
             node_target.add_wire(self.wire)
+            self.electric.run_simulation()
             
           return True
 
@@ -668,10 +764,9 @@ class Component(object):
 # 
 #
 class Resistor(Component):
-  def __init__(self, canvas, rootitem,
+  def __init__(self, electric,
                x, y):
-    super(Resistor, self).__init__(canvas,
-                               rootitem,
+    super(Resistor, self).__init__(electric,
                                "R",
                                "1k",
                                "electric/resistor.png",
@@ -686,19 +781,51 @@ class Resistor(Component):
     self.show()
 
 # ----------------------------------------
+# DIODE
+# 
+#
+class Diode(Component):
+  def __init__(self, electric,
+               x, y):
+    super(Diode, self).__init__(electric,
+                                "D",
+                                "ddd 1.",
+                               "electric/diode.png",
+                               [Node("electric/connect.png", "A", -30, -5),
+                                Node("electric/connect.png", "B", 130, -5)])
+
+    # Overide some values
+    self.item_values_x = 70
+    self.item_values_y = 15
+
+    self.move(x, y)
+    self.show()
+
+
+  # Return the gnucap definition for this component
+  # Here we just add the diode model
+  def to_gnucap(self, model):
+    # Our 'ddd' Diode model
+    model = ".model  ddd  d  ( is= 10.f  rs= 0.  n= 1.  tt= 0.  cjo= 1.p  vj= 1.  m= 0.5\n"
+    model += "+ eg= 1.11  xti= 3.  kf= 0.  af= 1.  fc= 0.5  bv= 0.  ibv= 0.001 )\n"
+
+    gnucap = ""
+    gnucap += super(Diode, self).to_gnucap(model)
+    return gnucap
+  
+# ----------------------------------------
 # SWITCH
 # 
 #
 class Switch(Component):
-  def __init__(self, canvas, rootitem,
+  def __init__(self, electric,
                x, y):
     self.click_ofset_x = 32
     self.click_ofset_y = -28
     self.value_on  = "0"
     self.value_off = "10000k"
     
-    super(Switch, self).__init__(canvas,
-                                 rootitem,
+    super(Switch, self).__init__(electric,
                                  "R",
                                  self.value_off,
                                  "electric/switch_off.png",
@@ -722,7 +849,6 @@ class Switch(Component):
 
   # Callback event on the switch
   def component_click(self, widget, event):
-
     if event.state & gtk.gdk.BUTTON1_MASK:
       if(self.gnucap_value == self.value_off):
         self.gnucap_value = self.value_on
@@ -732,6 +858,7 @@ class Switch(Component):
         pixmap = gcompris.utils.load_pixmap("electric/switch_off.png")
         
       self.component_item.set(pixbuf = pixmap)
+      self.electric.run_simulation()
         
     return False
 
@@ -742,12 +869,21 @@ class Switch(Component):
        x = self.x + self.click_ofset_x,
        y = self.y + self.click_ofset_y)
 
+  # Return False if we need more value to complete our component
+  # This is usefull in case where one Component is made of several gnucap component
+  def set_voltage_intensity(self, valid_value, voltage, intensity):
+    self.voltage = voltage
+    self.intensity = intensity
+    # Never show values
+    self.item_values.hide()
+    return True
+
 # ----------------------------------------
 # RHEOSTAT
 # 
 #
 class Rheostat(Component):
-  def __init__(self, canvas, rootitem,
+  def __init__(self, electric,
                x, y, resitance):
     self.gnucap_current_resistor = 1
     self.wiper_ofset_x = 1
@@ -755,8 +891,7 @@ class Rheostat(Component):
     self.wiper_ofset_max_y = 122
     self.wiper_ofset_y = self.wiper_ofset_min_y
     self.resitance = resitance
-    super(Rheostat, self).__init__(canvas,
-                                   rootitem,
+    super(Rheostat, self).__init__(electric,
                                    "R",
                                    self.resitance,
                                    "electric/resistor_track.png",
@@ -813,6 +948,8 @@ class Rheostat(Component):
           y = self.y + self.wiper_ofset_y,
           )
         self.update_wiper_wire()
+        self.electric.run_simulation()
+
     return False
 
   # Callback event to move the component
@@ -823,6 +960,22 @@ class Rheostat(Component):
        y = self.y + self.wiper_ofset_y)
      self.update_wiper_wire()
      
+  # Return True if this component is connected and can provides a gnucap
+  # description
+  #
+  # The rheostat needs at least 2 connected nodes
+  #
+  def is_connected(self):
+    count = 0
+    for node in self.nodes:
+      if node.get_wires():
+        count += 1
+
+    if count:
+      return True
+
+    return False
+    
   # Return the gnucap definition for a single resitor of the rheostat
   # node_id1 and node_id2 are the index in the list of nodes
   def to_gnucap_res(self, gnucap_name, node_id1, node_id2, gnucap_value):
@@ -848,7 +1001,7 @@ class Rheostat(Component):
   # Return the gnucap definition for this component
   # The rheostat is special, it has 3 nodes and creates
   # 3 resistors for gnucap
-  def to_gnucap(self):
+  def to_gnucap(self, model):
     # Main resistor
     gnucap = self.to_gnucap_res(self.gnucap_name + "_1", 0, 2, self.resitance)
 
@@ -865,12 +1018,16 @@ class Rheostat(Component):
     return gnucap
     
   # Return False if we need more value to complete our component
-  # This is usefull in case where one Component is made of several gnucap component
-  def set_voltage_intensity(self, voltage, intensity):
+  # This is usefull in case one Component is made of several gnucap component
+  def set_voltage_intensity(self, valid_value, voltage, intensity):
     if self.gnucap_current_resistor == 1:
       self.voltage = voltage
       self.intensity = intensity
-      self.item_values.set(text="V=%.1f\nI=%.2f"%(voltage,intensity))
+      if(valid_value):
+        self.item_values.set(text="V=%.1f\nI=%.2f"%(voltage,intensity))
+        self.item_values.show()
+      else:
+        self.item_values.show()
 
     self.gnucap_current_resistor += 1
     if self.gnucap_current_resistor > 3:
@@ -883,10 +1040,9 @@ class Rheostat(Component):
 # 
 #
 class Bulb(Component):
-  def __init__(self, canvas, rootitem,
+  def __init__(self, electric,
                x, y, power_max):
-    super(Bulb, self).__init__(canvas,
-                               rootitem,
+    super(Bulb, self).__init__(electric,
                                "R",
                                "1k",
                                "electric/bulb1.png",
@@ -904,8 +1060,8 @@ class Bulb(Component):
   # Change the pixmap depending on the real power in the Bulb
   # Return False if we need more value to complete our component
   # This is usefull in case where one Component is made of several gnucap component
-  def set_voltage_intensity(self, voltage, intensity):
-    super(Bulb, self).set_voltage_intensity(voltage, intensity)
+  def set_voltage_intensity(self, valid_value, voltage, intensity):
+    super(Bulb, self).set_voltage_intensity(valid_value, voltage, intensity)
 
     power = abs(voltage * intensity)
     image_index = min((power * 11) /  self.power_max + 1, 12)
@@ -920,10 +1076,9 @@ class Bulb(Component):
 # 
 #
 class Battery(Component):
-  def __init__(self, canvas, rootitem,
+  def __init__(self, electric,
                x, y):
-    super(Battery, self).__init__(canvas,
-                               rootitem,
+    super(Battery, self).__init__(electric,
                                "Vsupply",
                                "10",
                                "electric/battery.png",
@@ -933,5 +1088,20 @@ class Battery(Component):
     self.item_values_x = 30
     self.item_values_y = 80
     
+    self.move(x, y)
+    self.show()
+
+# ----------------------------------------
+# CONNECTION
+# (a simple spot to connect wire and make a cute scematic)
+#
+class Connection(Component):
+  def __init__(self, electric,
+               x, y):
+    super(Connection, self).__init__(electric,
+                                     "",
+                                     "",
+                                     "electric/connect_spot.png",
+                                     [Node("electric/connect.png", "A", 18, 10)])
     self.move(x, y)
     self.show()
