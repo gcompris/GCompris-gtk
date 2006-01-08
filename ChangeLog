@@ -1,5 +1,19 @@
 2006-01-08  Bruno coudoin  <bruno.coudoin@free.fr>
 
+	Added the component selector. Created icons.
+
+	* boards/electric/battery_icon.png:
+	* boards/electric/bulb_icon.png:
+	* boards/electric/connect_icon.png:
+	* boards/electric/diode.png:
+	* boards/electric/diode_icon.png:
+	* boards/electric/resistor_icon.png:
+	* boards/electric/resistor_track_icon.png:
+	* boards/electric/switch_icon.png:
+	* src/boards/python/electric.py:
+
+2006-01-08  Bruno coudoin  <bruno.coudoin@free.fr>
+
 	Improved electric. Added diode support. Not sure it's correct
 	but it 'does' something and show evidence of the current order
 	Added a little spot to let the user layout wires cleanly.

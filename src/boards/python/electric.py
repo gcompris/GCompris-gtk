@@ -194,37 +194,16 @@ class Gcompris_electric:
 
   def create_components(self):
 
-    Bulb(self, 100, 50, 0.1)
-    Bulb(self, 110, 50, 0.1)
-    Bulb(self, 120, 50, 0.1)
-
-    Rheostat(self, 200, 100, 500)
-    Rheostat(self, 210, 100, 500)
+    # A list of couple (component class, it's value)
+    component_set = ((Battery, 10),
+                     (Connection, None),
+                     (Bulb, 0.11),
+                     (Rheostat, 100),
+                     (Resistor, 1000),
+                     (Diode, None),
+                     (Switch, None))
+    Selector(self, component_set)
     
-    Resistor(self, 150, 490)
-    Resistor(self, 150, 500)
-    Resistor(self, 150, 510)
-
-    Diode(self, 150, 430)
-    Diode(self, 150, 440)
-    Diode(self, 150, 450)
-
-    Switch(self, 150, 360)
-    Switch(self, 150, 370)
-    Switch(self, 150, 380)
-
-    Battery(self, 20, 290)
-    Battery(self, 25, 290)
-    Battery(self, 30, 290)
-
-
-    Connection(self, 70, 270)
-    Connection(self, 72, 270)
-    Connection(self, 74, 270)
-    Connection(self, 76, 270)
-    Connection(self, 78, 270)
-    Connection(self, 80, 270)
-
 
 
   
@@ -288,8 +267,14 @@ class Gcompris_electric:
         done = False
         while not done:
           print "Processing component %d" %(i,)
-          print values[i]
-          print values[i+1]
+          try:
+            print values[i]
+            print values[i+1]
+          except:
+            print "Warning: gnucap parsing mismatch"
+            done = True
+            continue
+            
           try:
             volt = self.convert_gnucap_value(values[i])
             amp = self.convert_gnucap_value(values[i+1])
@@ -764,12 +749,14 @@ class Component(object):
 # 
 #
 class Resistor(Component):
+  image = "electric/resistor.png"
+  icon  = "electric/resistor_icon.png"
   def __init__(self, electric,
-               x, y):
+               x, y, value):
     super(Resistor, self).__init__(electric,
                                "R",
-                               "1k",
-                               "electric/resistor.png",
+                               value,
+                               self.image,
                                [Node("electric/connect.png", "A", -30, -5),
                                 Node("electric/connect.png", "B", 130, -5)])
 
@@ -785,12 +772,14 @@ class Resistor(Component):
 # 
 #
 class Diode(Component):
+  image = "electric/diode.png"
+  icon  = "electric/diode_icon.png"
   def __init__(self, electric,
-               x, y):
+               x, y, dummy):
     super(Diode, self).__init__(electric,
                                 "D",
                                 "ddd 1.",
-                               "electric/diode.png",
+                               self.image,
                                [Node("electric/connect.png", "A", -30, -5),
                                 Node("electric/connect.png", "B", 130, -5)])
 
@@ -818,8 +807,10 @@ class Diode(Component):
 # 
 #
 class Switch(Component):
+  image = "electric/switch_off.png"
+  icon  = "electric/switch_icon.png"
   def __init__(self, electric,
-               x, y):
+               x, y, dummy):
     self.click_ofset_x = 32
     self.click_ofset_y = -28
     self.value_on  = "0"
@@ -828,7 +819,7 @@ class Switch(Component):
     super(Switch, self).__init__(electric,
                                  "R",
                                  self.value_off,
-                                 "electric/switch_off.png",
+                                 self.image,
                                  [Node("electric/connect.png", "A", -30, -10),
                                   Node("electric/connect.png", "B", 100, -10)])
 
@@ -883,6 +874,8 @@ class Switch(Component):
 # 
 #
 class Rheostat(Component):
+  image = "electric/resistor_track.png"
+  icon  = "electric/resistor_track_icon.png"
   def __init__(self, electric,
                x, y, resitance):
     self.gnucap_current_resistor = 1
@@ -894,7 +887,7 @@ class Rheostat(Component):
     super(Rheostat, self).__init__(electric,
                                    "R",
                                    self.resitance,
-                                   "electric/resistor_track.png",
+                                   self.image,
                                    [Node("electric/connect.png", "A", 5, -20),
                                     Node("electric/connect.png", "B", 70, 70),
                                     Node("electric/connect.png", "C", 5, 160)])
@@ -1040,19 +1033,24 @@ class Rheostat(Component):
 # 
 #
 class Bulb(Component):
+  image = "electric/bulb1.png"
+  icon  = "electric/bulb_icon.png"
   def __init__(self, electric,
                x, y, power_max):
+    self.internal_resistor = 1000
     super(Bulb, self).__init__(electric,
                                "R",
-                               "1k",
-                               "electric/bulb1.png",
+                               self.internal_resistor,
+                               self.image,
                                [Node("electric/connect.png", "A", -15, 215),
                                 Node("electric/connect.png", "B", 85, 215)])
     # Overide some values
     self.item_values_x = 90
     self.item_values_y = 115
     self.item_values.set(fill_color="red")
-    
+
+    # Specific Bulb values
+    self.is_blown = False
     self.move(x, y)
     self.show()
     self.power_max = power_max
@@ -1061,6 +1059,11 @@ class Bulb(Component):
   # Return False if we need more value to complete our component
   # This is usefull in case where one Component is made of several gnucap component
   def set_voltage_intensity(self, valid_value, voltage, intensity):
+
+    # If the Bulb is blown, do not update it anymore
+    if self.is_blown:
+      return True
+    
     super(Bulb, self).set_voltage_intensity(valid_value, voltage, intensity)
 
     power = abs(voltage * intensity)
@@ -1068,7 +1071,28 @@ class Bulb(Component):
     pixmap = gcompris.utils.load_pixmap("electric/bulb%d.png" %(image_index,))
     print "Power = %f (Max=%f) Image index = %d" %(power, self.power_max, image_index)
     self.component_item.set(pixbuf = pixmap)
+
+    # If the Bulb is blown, we have to change it's internal
+    # Resistor value to infinite and ask for a circuit recalc
+    if image_index == 12:
+      self.gnucap_value = 100000000
+      self.electric.run_simulation()
+      self.is_blown = True
+      
     return True
+
+  # Callback event to move the component
+  # We override it to repair the Bulb
+  def component_move(self, widget, event, component):
+    # If the Bulb is blown and we get a click repair it
+    if event.state & gtk.gdk.BUTTON1_MASK:
+      if self.is_blown:
+        self.is_blown = False
+        self.gnucap_value = self.internal_resistor
+        self.electric.run_simulation()
+      
+    return super(Bulb, self).component_move(widget, event, component)
+        
 
     
 # ----------------------------------------
@@ -1076,12 +1100,14 @@ class Bulb(Component):
 # 
 #
 class Battery(Component):
+  image = "electric/battery.png"
+  icon  = "electric/battery_icon.png"
   def __init__(self, electric,
-               x, y):
+               x, y, value):
     super(Battery, self).__init__(electric,
                                "Vsupply",
-                               "10",
-                               "electric/battery.png",
+                               value,
+                               self.image,
                                [Node("electric/connect.png", "A", 11, -35),
                                 Node("electric/connect.png", "B", 11, 150)])
     # Overide some values
@@ -1096,12 +1122,88 @@ class Battery(Component):
 # (a simple spot to connect wire and make a cute scematic)
 #
 class Connection(Component):
+  image = "electric/connect_spot.png"
+  icon  = "electric/connect_icon.png"
   def __init__(self, electric,
-               x, y):
+               x, y, dummy):
     super(Connection, self).__init__(electric,
                                      "",
                                      "",
-                                     "electric/connect_spot.png",
+                                     self.image,
                                      [Node("electric/connect.png", "A", 18, 10)])
     self.move(x, y)
     self.show()
+
+# -----------------------------------------------------------------------
+# -----------------------------------------------------------------------
+# -----------------------------------------------------------------------
+#
+# Component selector
+# ------------------
+#
+
+class Selector:
+    def __init__(self, electric, components_class):
+      self.electric = electric
+      self.rootitem = electric.rootitem
+
+      self.rootitem.add(
+        gnome.canvas.CanvasPixbuf,
+        pixbuf = gcompris.utils.load_pixmap(gcompris.skin.image_to_skin("draw/tool-selector.png")),
+        x=5,
+        y=5.0,
+        width=107.0,
+        height=517.0,
+        width_set=True,
+        height_set=True
+        )
+
+      self.x = 15
+      self.y = 10
+
+      index_y = 10
+      gap     = 20
+      self.init_coord = {}
+      self.offset_x = self.offset_y = 0
+      
+      for component_class in components_class:
+        pixmap = gcompris.utils.load_pixmap(component_class[0].icon)
+        item = self.rootitem.add(
+          gnome.canvas.CanvasPixbuf,
+          pixbuf = pixmap,
+          x = self.x,
+          y = self.y + index_y,
+          )
+        # Save the original coord to set it back once dropped
+        self.init_coord[component_class[0]] = (self.x, self.y + index_y)
+        index_y += pixmap.get_height() + gap
+
+        item.connect("event", self.component_click, component_class)
+
+
+    # Callback event on the component
+    def component_click(self, widget, event, component_class):
+
+      if event.type == gtk.gdk.MOTION_NOTIFY:
+        if event.state & gtk.gdk.BUTTON1_MASK:
+          # Save the click to image offset
+          if self.offset_x == 0:
+            bounds = widget.get_bounds()
+            self.offset_x = (event.x - bounds[0])
+            self.offset_y = (event.y - bounds[1])
+
+          widget.set(x = event.x - self.offset_x,
+                     y = event.y - self.offset_y)
+          
+      if event.type == gtk.gdk.BUTTON_RELEASE:
+        if event.button == 1:
+          bounds = widget.get_bounds()
+          component_class[0](self.electric,
+                             event.x - self.offset_x + (bounds[2]-bounds[0])/2,
+                             event.y - self.offset_y + (bounds[3]-bounds[1])/2,
+                             component_class[1])
+          
+          widget.set(x = self.init_coord[component_class[0]][0],
+                     y = self.init_coord[component_class[0]][1])
+
+          self.offset_x = self.offset_y = 0
