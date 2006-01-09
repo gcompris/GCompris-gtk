@@ -49,6 +49,13 @@ class Gcompris_electric:
 
     self.gcomprisBoard.disable_im_context = True
 
+    # Part of UI : tools buttons                               
+    # TOOL SELECTION
+    self.tools = [
+      ["DEL",            "draw/tool-del.png",             "draw/tool-del_on.png",                gcompris.CURSOR_DEL],
+      ["SELECT",         "draw/tool-select.png",          "draw/tool-select_on.png",             gcompris.CURSOR_SELECT]
+      ]
+    
     # These are used to let us restart only after the bonus is displayed.
     # When the bonus is displayed, it call us first with pause(1) and then
     # with pause(0)
@@ -67,7 +74,7 @@ class Gcompris_electric:
     self.gcomprisBoard.sublevel=1
     self.gcomprisBoard.number_of_sublevel=1
 
-    gcompris.bar_set(gcompris.BAR_OK|gcompris.BAR_LEVEL)
+    gcompris.bar_set(0)
     
     gcompris.bar_set_level(self.gcomprisBoard)
 
@@ -80,7 +87,9 @@ class Gcompris_electric:
   def end(self):
 
     gcompris.reset_locale()
-    
+
+    gcompris.set_cursor(gcompris.CURSOR_DEFAULT);
+
     # Remove the root item removes all the others inside it
     self.cleanup_game()
 
@@ -190,7 +199,54 @@ class Gcompris_electric:
           x=0.0,
           y=0.0
           )
+
       self.create_components()
+
+      # Display the tools
+      x = 12
+      y = 10
+      for i in range(0,len(self.tools)):
+
+        item = self.rootitem.add(
+          gnome.canvas.CanvasPixbuf,
+          pixbuf = gcompris.utils.load_pixmap(gcompris.skin.image_to_skin(self.tools[i][1])),
+          x=x,
+          y=y
+          )
+        x += 45
+        item.connect("event", self.tool_item_event, i)
+
+        if(self.tools[i][0]=="SELECT"):
+          self.select_tool = item
+          self.select_tool_number = i
+          # Always select the SELECT item by default
+          self.current_tool = i
+          self.old_tool_item = item
+          self.old_tool_item.set(pixbuf = gcompris.utils.load_pixmap(gcompris.skin.image_to_skin(self.tools[i][2])))
+          gcompris.set_cursor(self.tools[i][3]);
+        
+
+  # Return the textual form of the current selected tool
+  # Return on of self.tools[i][0]
+  def get_current_tools(self):
+      return(self.tools[self.current_tool][0])
+
+    
+  # Event when a tool is selected
+  # Perform instant action or swich the tool selection
+  def tool_item_event(self, item, event, tool):
+
+    if event.type == gtk.gdk.BUTTON_PRESS:
+      if event.button == 1:
+        # Deactivate old button
+        self.old_tool_item.set(pixbuf = gcompris.utils.load_pixmap(gcompris.skin.image_to_skin(self.tools[self.current_tool][1])))
+
+        # Activate new button                         
+        self.current_tool = tool
+        self.old_tool_item = item
+        self.old_tool_item.set(pixbuf = gcompris.utils.load_pixmap(gcompris.skin.image_to_skin(self.tools[self.current_tool][2])))
+        gcompris.set_cursor(self.tools[self.current_tool][3]);
+
 
   def create_components(self):
 
@@ -639,6 +695,21 @@ class Component(object):
     def hide(self):
       self.comp_rootitem.hide()
 
+    def destroy(self):
+      try:
+        # Remove ourself from the list of gnucap aware components
+        self.electric.components.remove(self)
+      except:
+        pass
+      
+      for node in self.nodes:
+        while node.get_wires():
+          wire = node.get_wires()[0]
+          node.remove_wire(wire, None)
+          wire.destroy()
+
+      self.comp_rootitem.destroy()
+        
     # Return the nodes
     def get_nodes(self):
       return self.nodes
@@ -686,16 +757,24 @@ class Component(object):
     
     # Callback event to move the component
     def component_move(self, widget, event, component):
-
-      if event.type == gtk.gdk.MOTION_NOTIFY:
-        if event.state & gtk.gdk.BUTTON1_MASK:
-          component.move(event.x, event.y)
-        
-      return False
+      
+      if event.state & gtk.gdk.BUTTON1_MASK:
+        if event.type == gtk.gdk.MOTION_NOTIFY:
+          if(self.electric.get_current_tools()=="SELECT"):
+            component.move(event.x, event.y)
+            
+        else:
+          if(self.electric.get_current_tools()=="DEL"):
+            self.destroy()
+          
+      return True
 
     # Callback event to create a wire
     def create_wire(self, widget, event, node):
 
+      if(self.electric.get_current_tools()=="DEL"):
+        return True
+      
       if event.type == gtk.gdk.BUTTON_PRESS:
         if event.button == 1:
           bounds = widget.get_bounds()
@@ -856,10 +935,16 @@ class Switch(Component):
   # Callback event to move the component
   def component_move(self, widget, event, component):
      super(Switch, self).component_move(widget, event, component)
+     
+     if(self.electric.get_current_tools()=="DEL"):
+       return True
+     
      self.click_item.set(
        x = self.x + self.click_ofset_x,
        y = self.y + self.click_ofset_y)
 
+     return True
+   
   # Return False if we need more value to complete our component
   # This is usefull in case where one Component is made of several gnucap component
   def set_voltage_intensity(self, valid_value, voltage, intensity):
@@ -899,7 +984,7 @@ class Rheostat(Component):
     self.move(x, y)
 
     # The wiper wire
-    self.wiper_wire_item = self.rootitem.add(
+    self.wiper_wire_item = self.comp_rootitem.add(
       gnome.canvas.CanvasLine,
       points = (0,0,0,0),
       fill_color_rgba = 0x5A5A5AFFL,
@@ -948,11 +1033,17 @@ class Rheostat(Component):
   # Callback event to move the component
   def component_move(self, widget, event, component):
      super(Rheostat, self).component_move(widget, event, component)
+
+     if(self.electric.get_current_tools()=="DEL"):
+       return True
+     
      self.wiper_item.set(
        x = self.x + self.wiper_ofset_x,
        y = self.y + self.wiper_ofset_y)
      self.update_wiper_wire()
-     
+
+     return True
+   
   # Return True if this component is connected and can provides a gnucap
   # description
   #
@@ -1085,7 +1176,7 @@ class Bulb(Component):
   # We override it to repair the Bulb
   def component_move(self, widget, event, component):
     # If the Bulb is blown and we get a click repair it
-    if event.state & gtk.gdk.BUTTON1_MASK:
+    if (event.state & gtk.gdk.BUTTON1_MASK) and self.electric.get_current_tools()=="SELECT":
       if self.is_blown:
         self.is_blown = False
         self.gnucap_value = self.internal_resistor
@@ -1159,7 +1250,7 @@ class Selector:
         )
 
       self.x = 15
-      self.y = 10
+      self.y = 60
 
       index_y = 10
       gap     = 20
@@ -1184,6 +1275,9 @@ class Selector:
     # Callback event on the component
     def component_click(self, widget, event, component_class):
 
+      if(self.electric.get_current_tools()=="DEL"):
+        return True
+      
       if event.type == gtk.gdk.MOTION_NOTIFY:
         if event.state & gtk.gdk.BUTTON1_MASK:
           # Save the click to image offset
@@ -1207,3 +1301,6 @@ class Selector:
                      y = self.init_coord[component_class[0]][1])
 
           self.offset_x = self.offset_y = 0
+
+        return True
+      

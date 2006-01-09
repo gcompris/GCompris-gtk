@@ -1,6 +1,6 @@
 /* gcompris - config.c
  *
- * Time-stamp: <2005/11/12 19:00:36 bruno>
+ * Time-stamp: <2006/01/09 23:59:33 bruno>
  *
  * Copyright (C) 2000-2003 Bruno Coudoin
  *
@@ -109,6 +109,7 @@ static gchar *linguas[] = {
   "vi_VN.UTF-8",	N_("Vietnamese"),
   "wa_BE.UTF-8",	N_("Walloon"),
   "zh_CN.UTF-8",	N_("Chinese (Simplified)"),
+  "zh_TW.UTF-8",        N_("Chinese (Traditional)"),
   NULL, NULL
 };
 
