@@ -224,6 +224,9 @@ class Gcompris_electric:
           self.old_tool_item = item
           self.old_tool_item.set(pixbuf = gcompris.utils.load_pixmap(gcompris.skin.image_to_skin(self.tools[i][2])))
           gcompris.set_cursor(self.tools[i][3]);
+
+        # Add the item in self.tools for later use
+        self.tools[i].append(item)
         
 
   # Return the textual form of the current selected tool
@@ -238,14 +241,22 @@ class Gcompris_electric:
 
     if event.type == gtk.gdk.BUTTON_PRESS:
       if event.button == 1:
-        # Deactivate old button
-        self.old_tool_item.set(pixbuf = gcompris.utils.load_pixmap(gcompris.skin.image_to_skin(self.tools[self.current_tool][1])))
+        self.assign_tool(tool)
+        return True
 
-        # Activate new button                         
-        self.current_tool = tool
-        self.old_tool_item = item
-        self.old_tool_item.set(pixbuf = gcompris.utils.load_pixmap(gcompris.skin.image_to_skin(self.tools[self.current_tool][2])))
-        gcompris.set_cursor(self.tools[self.current_tool][3]);
+    return False
+
+  
+  def assign_tool(self, newtool):
+    # Deactivate old button
+    item = self.tools[self.current_tool][4]
+    item.set(pixbuf = gcompris.utils.load_pixmap(gcompris.skin.image_to_skin(self.tools[self.current_tool][1])))
+
+    # Activate new button                         
+    self.current_tool = newtool
+    item = self.tools[newtool][4]
+    item.set(pixbuf = gcompris.utils.load_pixmap(gcompris.skin.image_to_skin(self.tools[self.current_tool][2])))
+    gcompris.set_cursor(self.tools[self.current_tool][3]);
 
 
   def create_components(self):
@@ -1275,8 +1286,10 @@ class Selector:
     # Callback event on the component
     def component_click(self, widget, event, component_class):
 
-      if(self.electric.get_current_tools()=="DEL"):
-        return True
+      if (event.state & gtk.gdk.BUTTON1_MASK
+          and self.electric.get_current_tools()=="DEL"):
+        # Switch to select mode
+        self.electric.assign_tool(1)
       
       if event.type == gtk.gdk.MOTION_NOTIFY:
         if event.state & gtk.gdk.BUTTON1_MASK:
