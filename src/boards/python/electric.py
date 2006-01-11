@@ -346,9 +346,9 @@ class Gcompris_electric:
             volt = self.convert_gnucap_value(values[i])
             amp = self.convert_gnucap_value(values[i+1])
             done = component.set_voltage_intensity(True, volt, amp)
-            print "Converted V=%s I=%s" %(volt, amp)
+            print "Converted U=%sV I=%sA" %(volt, amp)
           except:
-            print "Failed to convert V=%s I=%s" %(values[i], values[i+1])
+            print "Failed to convert V=%sV I=%sA" %(values[i], values[i+1])
             done = component.set_voltage_intensity(False, 0.0, 0.0)
 
           i += 2
@@ -664,9 +664,9 @@ class Component(object):
         gnome.canvas.CanvasText,
         x = self.item_values_x,
         y = self.item_values_y,
-        font=gcompris.skin.get_font("gcompris/tiny"),
-        text="",
-        fill_color="white",
+        font = "Sans 8",
+        text = "",
+        fill_color = "white",
         justification=gtk.JUSTIFY_CENTER
         )
       self.component_item.connect("event", self.component_move, self)
@@ -677,7 +677,7 @@ class Component(object):
       self.voltage = voltage
       self.intensity = intensity
       if(valid_value):
-        self.item_values.set(text="V=%.1f\nI=%.2f"%(voltage,intensity))
+        self.item_values.set(text="V=%.1fV\nI=%.2fA"%(voltage,intensity))
         self.item_values.show()
       else:
         self.item_values.hide()
@@ -848,11 +848,11 @@ class Resistor(Component):
                                value,
                                self.image,
                                [Node("electric/connect.png", "A", -30, -5),
-                                Node("electric/connect.png", "B", 130, -5)])
+                                Node("electric/connect.png", "B", 92, -5)])
 
     # Overide some values
-    self.item_values_x = 70
-    self.item_values_y = 15
+    self.item_values_x = 50
+    self.item_values_y = 12
 
     self.move(x, y)
     self.show()
@@ -870,12 +870,12 @@ class Diode(Component):
                                 "D",
                                 "ddd 1.",
                                self.image,
-                               [Node("electric/connect.png", "A", -30, -5),
-                                Node("electric/connect.png", "B", 130, -5)])
+                               [Node("electric/connect.png", "A", -30, -9),
+                                Node("electric/connect.png", "B", 95, -9)])
 
     # Overide some values
-    self.item_values_x = 70
-    self.item_values_y = 15
+    self.item_values_x = 50
+    self.item_values_y = 12
 
     self.move(x, y)
     self.show()
@@ -975,18 +975,18 @@ class Rheostat(Component):
   def __init__(self, electric,
                x, y, resitance):
     self.gnucap_current_resistor = 1
-    self.wiper_ofset_x = 1
+    self.wiper_ofset_x = -2
     self.wiper_ofset_min_y = 22
-    self.wiper_ofset_max_y = 122
+    self.wiper_ofset_max_y = 103
     self.wiper_ofset_y = self.wiper_ofset_min_y
     self.resitance = resitance
     super(Rheostat, self).__init__(electric,
                                    "R",
                                    self.resitance,
                                    self.image,
-                                   [Node("electric/connect.png", "A", 5, -20),
-                                    Node("electric/connect.png", "B", 70, 70),
-                                    Node("electric/connect.png", "C", 5, 160)])
+                                   [Node("electric/connect.png", "A", 0, -25),
+                                    Node("electric/connect.png", "B", 50, 50),
+                                    Node("electric/connect.png", "C", 0, 125)])
     
     # Overide some values
     self.item_values_x = 25
@@ -1016,10 +1016,10 @@ class Rheostat(Component):
     
   def update_wiper_wire(self):
     self.wiper_wire_item.set(
-      points = (self.x + self.wiper_ofset_x + 45,
+      points = (self.x + self.wiper_ofset_x + 35,
                 self.y + self.wiper_ofset_y + 10,
-                self.x + 85,
-                self.y + 85))
+                self.x + 55,
+                self.y + 65))
 
   # Callback event on the wiper
   def component_click(self, widget, event):
@@ -1119,7 +1119,7 @@ class Rheostat(Component):
       self.voltage = voltage
       self.intensity = intensity
       if(valid_value):
-        self.item_values.set(text="V=%.1f\nI=%.2f"%(voltage,intensity))
+        self.item_values.set(text="U=%.1fV\nI=%.2fA"%(voltage,intensity))
         self.item_values.show()
       else:
         self.item_values.show()
@@ -1210,11 +1210,11 @@ class Battery(Component):
                                "Vsupply",
                                value,
                                self.image,
-                               [Node("electric/connect.png", "A", 11, -35),
-                                Node("electric/connect.png", "B", 11, 150)])
+                               [Node("electric/connect.png", "A", 6, -35),
+                                Node("electric/connect.png", "B", 6, 120)])
     # Overide some values
-    self.item_values_x = 30
-    self.item_values_y = 80
+    self.item_values_x = 23
+    self.item_values_y = 70
     
     self.move(x, y)
     self.show()
