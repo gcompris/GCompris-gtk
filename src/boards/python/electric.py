@@ -989,9 +989,10 @@ class Rheostat(Component):
                                     Node("electric/connect.png", "C", 0, 125)])
     
     # Overide some values
-    self.item_values_x = 25
+    self.item_values_x = 20
     self.item_values_y = 70
-    
+    self.item_values.set(fill_color="blue")
+
     self.move(x, y)
 
     # The wiper wire
@@ -1144,11 +1145,11 @@ class Bulb(Component):
                                "R",
                                self.internal_resistor,
                                self.image,
-                               [Node("electric/connect.png", "A", -15, 215),
-                                Node("electric/connect.png", "B", 85, 215)])
+                               [Node("electric/connect.png", "A", 0, 170),
+                                Node("electric/connect.png", "B", 85, 170)])
     # Overide some values
-    self.item_values_x = 90
-    self.item_values_y = 115
+    self.item_values_x = 55
+    self.item_values_y = 80
     self.item_values.set(fill_color="red")
 
     # Specific Bulb values
@@ -1169,14 +1170,14 @@ class Bulb(Component):
     super(Bulb, self).set_voltage_intensity(valid_value, voltage, intensity)
 
     power = abs(voltage * intensity)
-    image_index = min((power * 11) /  self.power_max + 1, 12)
+    image_index = min((power * 10) /  self.power_max + 1, 11)
     pixmap = gcompris.utils.load_pixmap("electric/bulb%d.png" %(image_index,))
     print "Power = %f (Max=%f) Image index = %d" %(power, self.power_max, image_index)
     self.component_item.set(pixbuf = pixmap)
 
     # If the Bulb is blown, we have to change it's internal
     # Resistor value to infinite and ask for a circuit recalc
-    if image_index == 12:
+    if image_index == 11:
       self.gnucap_value = 100000000
       self.electric.run_simulation()
       self.is_blown = True
