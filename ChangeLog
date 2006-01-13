@@ -1,3 +1,11 @@
+2006-01-14  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	Implemented a short circuit feedback by changing the battery
+	image to a dead battery (should be improved).
+
+	* boards/electric/battery_dead.png:
+	* src/boards/python/electric.py:
+
 2006-01-13  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	Reviewed crane drawing, the arrow used to control

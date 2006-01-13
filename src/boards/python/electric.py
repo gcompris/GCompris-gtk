@@ -363,17 +363,37 @@ class Gcompris_electric:
   def convert_gnucap_value(self, value):
     unit = 1
     
+    if value.endswith("T"):
+      unit = e12
+      value = value.replace("T", "")
+
+    if value.endswith("G"):
+      unit = 1e9
+      value = value.replace("G", "")
+
+    if value.endswith("Meg"):
+      unit = 1e6
+      value = value.replace("Meg", "")
+
+    if value.endswith("K"):
+      unit = 1e3
+      value = value.replace("K", "")
+
     if value.endswith("u"):
-      unit = 0.000001
+      unit = 1e-6
       value = value.replace("u", "")
 
     if value.endswith("n"):
-      unit = 0.000000001
+      unit = 1e-9
       value = value.replace("n", "")
 
     if value.endswith("p"):
-      unit = 0.000000000001
+      unit = 1e-12
       value = value.replace("p", "")
+
+    if value.endswith("f"):
+      unit = 1e-15
+      value = value.replace("f", "")
 
     return (float(value)*unit)
     
@@ -1219,6 +1239,19 @@ class Battery(Component):
     
     self.move(x, y)
     self.show()
+
+  # Return False if we need more value to complete our component
+  # This is usefull in case where one Component is made of several gnucap component
+  def set_voltage_intensity(self, valid_value, voltage, intensity):
+    super(Battery, self).set_voltage_intensity(valid_value, voltage, intensity)
+
+    if(abs(self.intensity) > 1):
+      # Short circuit case, set the dead battery icon
+      self.component_item.set(pixbuf = gcompris.utils.load_pixmap("electric/battery_dead.png"))
+    else:
+      self.component_item.set(pixbuf = gcompris.utils.load_pixmap("electric/battery.png"))
+      
+    return True
 
 # ----------------------------------------
 # CONNECTION
