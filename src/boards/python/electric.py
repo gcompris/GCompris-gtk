@@ -113,12 +113,6 @@ class Gcompris_electric:
   def pause(self, pause):
     self.board_paused = pause
 
-    # Hack for widget that can't be covered by bonus and/or help
-    if pause:
-       self.entry.hide()
-    else:
-      self.entry.show()
-      
     # When the bonus is displayed, it call us first with pause(1) and then
     # with pause(0)
     # the game is won
@@ -158,6 +152,11 @@ class Gcompris_electric:
   # End of Initialisation
   # ---------------------
   #
+
+  # ------------------------------------------------------------
+  # ------------------------------------------------------------
+  # ------------------------------------------------------------
+  # ------------------------------------------------------------
 
   # Code that increments the sublevel and level
   # And bail out if no more levels are available
@@ -300,8 +299,14 @@ class Gcompris_electric:
     print gnucap
     f.writelines(gnucap)
     f.close()
-    output = subprocess.Popen(["/usr/bin/gnucap", "-b", filename ],
-                              stdout=subprocess.PIPE).communicate()[0]
+    try:
+      output = subprocess.Popen(["/usr/bin/gnucap", "-b", filename ],
+                                stdout=subprocess.PIPE).communicate()[0]
+    except:
+      gcompris.utils.dialog(_("Cannot find the 'gnucap' electric simulator.\nYou can download and install it from:\n<http://geda.seul.org/tools/gnucap/>\nInstall it to use this activity !"),
+                            stop_board)
+      return
+      
     print "---------------- GNUCAP OUTPUT -----------------------------"
     print output
     print "------------------------------------------------------------"
@@ -1012,7 +1017,7 @@ class Rheostat(Component):
     self.item_values_x = 20
     self.item_values_y = 70
     self.item_values.set(fill_color="blue")
-
+  
     self.move(x, y)
 
     # The wiper wire
@@ -1042,25 +1047,37 @@ class Rheostat(Component):
                 self.x + 55,
                 self.y + 65))
 
+  def move_wiper(self, new_y):
+    if(new_y>self.y+self.wiper_ofset_max_y):
+      self.wiper_ofset_y = self.wiper_ofset_max_y
+    elif(new_y<self.y+self.wiper_ofset_min_y):
+      self.wiper_ofset_y = self.wiper_ofset_min_y
+    else:
+      self.wiper_ofset_y = new_y - self.y
+
+    self.wiper_item.set(
+      y = self.y + self.wiper_ofset_y,
+      )
+    self.update_wiper_wire()
+    self.electric.run_simulation()
+
+  # Fixme: can't connect "scroll-event" to this function
+  def component_scroll(self, widget, event):
+    if event.type == gtk.gdk.SCROLL:
+      if event.direction == gtk.gdk.SCROLL_UP:
+        self.move_wiper(self.y - 5)
+      elif event.type == gtk.gdk.SCROLL_DOWN:
+        self.move_wiper(self.y + 5)
+    return True
+  
   # Callback event on the wiper
   def component_click(self, widget, event):
-
+    # drag and drop
     if event.type == gtk.gdk.MOTION_NOTIFY:
       if event.state & gtk.gdk.BUTTON1_MASK:
-        if(event.y>self.y+self.wiper_ofset_max_y):
-          self.wiper_ofset_y = self.wiper_ofset_max_y
-        elif(event.y<self.y+self.wiper_ofset_min_y):
-          self.wiper_ofset_y = self.wiper_ofset_min_y
-        else:
-          self.wiper_ofset_y = event.y - self.y
-
-        self.wiper_item.set(
-          y = self.y + self.wiper_ofset_y,
-          )
-        self.update_wiper_wire()
-        self.electric.run_simulation()
-
-    return False
+        self.move_wiper(event.y)
+        
+    return True
 
   # Callback event to move the component
   def component_move(self, widget, event, component):
@@ -1350,4 +1367,12 @@ class Selector:
           self.offset_x = self.offset_y = 0
 
         return True
-      
+
+
+    # ------------------------------------------------------------
+    # ------------------------------------------------------------
+    # ------------------------------------------------------------
+    
+def stop_board():
+    gcompris.bonus.board_finished(gcompris.bonus.FINISHED_RANDOM)
+

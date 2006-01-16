@@ -112,7 +112,7 @@ class Gcompris_tuxpaint:
       pid,stdin, stdout, stderr = gcompris.spawn_async(
         options, flags=2|4)
     except:
-      gcompris.utils.dialog(_("Cannot find Tuxpaint. \n Install it to use this board !"),stop_board)
+      gcompris.utils.dialog(_("Cannot find Tuxpaint.\nInstall it to use this activity !"),stop_board)
       return 
     
     gcompris.child_watch_add(pid, child_callback, None)

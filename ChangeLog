@@ -1,3 +1,23 @@
+2006-01-17  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	- Improved letters icons in crane
+	- Removed a memory leak in crane related to pixmaps not freed
+	- added a dialog box when gnucap is not found / or spawn fails
+	- added help in electric.xml.in
+	
+	* boards/awele.xml.in:
+	* boards/crane/arrow_down.png:
+	* boards/crane/arrow_left.png:
+	* boards/crane/arrow_right.png:
+	* boards/crane/arrow_up.png:
+	* boards/crane/letter-a.png:
+	* boards/crane/letter-b.png:
+	* boards/crane/letter-c.png:
+	* boards/electric.xml.in:
+	* src/boards/crane.c: (draw_arrow), (place_item):
+	* src/boards/python/electric.py:
+	* src/boards/python/tuxpaint.py:
+
 2006-01-14  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	Implemented a short circuit feedback by changing the battery

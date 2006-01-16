@@ -56,8 +56,30 @@
 #define LEFT  2
 #define RIGHT 3
 
-#define MAX_LEVEL 6	// Don't raise this number except if putting more values in pixmap[] array, in place_item function
-#define NB_ELEMENT (2 * MAX_LEVEL) + 2 
+#define MAX_LEVEL 6	/* Don't raise this number except if putting more values
+			 * in pixmap[] array, in place_item function
+			 */
+
+// List of images to use in the game
+static gchar *imageList[] =
+  {
+    "crane/water_spot1.png",
+    "crane/water_spot2.png",
+    "crane/water_drop1.png",
+    "crane/water_drop2.png",
+    "crane/tux.png",
+    "crane/triangle1.png",
+    "crane/triangle2.png",
+    "crane/rectangle1.png",
+    "crane/rectangle2.png",
+    "crane/square1.png",
+    "crane/square2.png",
+    "crane/bulb.png",
+    "crane/letter-a.png",
+    "crane/letter-b.png"
+  };
+
+#define NB_ELEMENT G_N_ELEMENTS(imageList)
 
 // Types
 
@@ -454,19 +476,19 @@ static void draw_arrow() {
   int i;
   crane_object arrow[4];
 
-  arrow[0].pixmap = gcompris_load_pixmap("crane/arrow_b.png");
+  arrow[0].pixmap = gcompris_load_pixmap("crane/arrow_down.png");
   arrow[0].x = CRANE_BUTTON_DOWN_X;
   arrow[0].y = CRANE_BUTTON_DOWN_Y;
   
-  arrow[1].pixmap = gcompris_load_pixmap("crane/arrow_u.png");
+  arrow[1].pixmap = gcompris_load_pixmap("crane/arrow_up.png");
   arrow[1].x = CRANE_BUTTON_UP_X;
   arrow[1].y = CRANE_BUTTON_UP_Y;
 
-  arrow[2].pixmap = gcompris_load_pixmap("crane/arrow_l.png");
+  arrow[2].pixmap = gcompris_load_pixmap("crane/arrow_left.png");
   arrow[2].x = CRANE_BUTTON_LEFT_X;
   arrow[2].y = CRANE_BUTTON_LEFT_Y + 2;
 
-  arrow[3].pixmap = gcompris_load_pixmap("crane/arrow_r.png");
+  arrow[3].pixmap = gcompris_load_pixmap("crane/arrow_right.png");
   arrow[3].x = CRANE_BUTTON_RIGHT_X;
   arrow[3].y = CRANE_BUTTON_RIGHT_Y - 2;
 
@@ -577,25 +599,10 @@ static void draw_frame(int x, int y) {
 // if active is off, the elements are unmovable, that's for the top right model
 static void place_item(int x, int y, int active) {
 
-  GdkPixbuf *pixmap[NB_ELEMENT];
+  GdkPixbuf *pixmap;
   GnomeCanvasItem *item_image = NULL;
   int i;
   int valeur;
-
-  pixmap[0] = gcompris_load_pixmap("crane/water_spot1.png");
-  pixmap[1] = gcompris_load_pixmap("crane/water_spot2.png");
-  pixmap[2] = gcompris_load_pixmap("crane/water_drop1.png");
-  pixmap[3] = gcompris_load_pixmap("crane/water_drop2.png");
-  pixmap[4] = gcompris_load_pixmap("crane/tux.png");
-  pixmap[5] = gcompris_load_pixmap("crane/triangle1.png");
-  pixmap[6] = gcompris_load_pixmap("crane/triangle2.png");
-  pixmap[7] = gcompris_load_pixmap("crane/rectangle1.png");
-  pixmap[8] = gcompris_load_pixmap("crane/rectangle2.png");
-  pixmap[9] = gcompris_load_pixmap("crane/square1.png");
-  pixmap[10] = gcompris_load_pixmap("crane/square2.png");
-  pixmap[11] = gcompris_load_pixmap("crane/bulb.png");
-  pixmap[12] = gcompris_load_pixmap("crane/letter-a.png");
-  pixmap[13] = gcompris_load_pixmap("crane/letter-b.png");
 
   for (i = 0 ; i < CRANE_FRAME_LINE * CRANE_FRAME_COLUMN ; i ++) {
 
@@ -609,13 +616,14 @@ static void place_item(int x, int y, int active) {
 	if (valeur == -1)
 		continue;
 
+	pixmap = gcompris_load_pixmap(imageList[valeur]);
 	item_image = gnome_canvas_item_new (boardRootItem,
 				    gnome_canvas_pixbuf_get_type (),
-				    "pixbuf", pixmap[valeur],
+				    "pixbuf", pixmap,
 				    "x", (double) (x + 5 + ((i % CRANE_FRAME_COLUMN) * CRANE_FRAME_CELL)),
 				    "y", (double) (y + 5 + (floor(i / CRANE_FRAME_COLUMN) * CRANE_FRAME_CELL)),
 				    NULL);
-	gdk_pixbuf_unref( pixmap[valeur]);
+	gdk_pixbuf_unref( pixmap);
 
 	if (active)
   		gtk_signal_connect(GTK_OBJECT(item_image), "event", (GtkSignalFunc) item_event, NULL);

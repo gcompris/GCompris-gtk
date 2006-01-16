@@ -3,16 +3,17 @@
   <Board
         name="electric"
         type="python:electric"
-        section="/"
+        section="/experience"
         icon="boardicons/electric.png"
-        difficulty="0"
+        difficulty="5"
         author="Bruno Coudoin (bruno.coudoin@free.fr)"
         boarddir="">
-        <_title>Electric</_title>
-        <_description>Create and simulate electric schema</_description>
-        <_prerequisite></_prerequisite>
-        <_goal></_goal>
-        <_credit></_credit>
+        <_title>Electricity</_title>
+        <_description>Create and simulate an electric schema</_description>
+        <_prerequisite>Need some basic understanding on the electricity concept.</_prerequisite>
+        <_goal>Freely create an electric schema with a real time simulation of it.</_goal>
+        <_credit>GCompris uses the Gnucap electric simulator as a backend (&lt;http://geda.seul.org/tools/gnucap/&gt;)</_credit>
+        <_manual>Drag electrical component from the selector and drop them on the working area. Create wires by clicking on a connection spot and dropping on another one. You can move components by dragging them. You can delete wires by clicking on them. To delete a component, select the deletion tool on the top of the component selector. The simulation is updated in real time on any user action.</_manual>
   </Board>
   <Data directory=""/>
 </GCompris>
