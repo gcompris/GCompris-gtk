@@ -1194,7 +1194,7 @@ class Bulb(Component):
                                "R",
                                self.internal_resistor,
                                self.image,
-                               [Node("electric/connect.png", "A", 0, 170),
+                               [Node("electric/connect.png", "A", 7, 170),
                                 Node("electric/connect.png", "B", 85, 170)])
     # Overide some values
     self.item_values_x = 55
