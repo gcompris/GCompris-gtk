@@ -1,5 +1,13 @@
 2006-01-17  Bruno coudoin  <bruno.coudoin@free.fr>
 
+	Ported electric to rely on python 2.3 instead of 2.4
+	Added a feature, you can now blow a bulb by right clicking on it
+	
+	* boards/electric.xml.in:
+	* src/boards/python/electric.py:
+
+2006-01-17  Bruno coudoin  <bruno.coudoin@free.fr>
+
 	- Improved letters icons in crane
 	- Removed a memory leak in crane related to pixmaps not freed
 	- added a dialog box when gnucap is not found / or spawn fails

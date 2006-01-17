@@ -31,12 +31,6 @@ import pango
 
 import os
 
-try:
-  import subprocess
-except:
-  print "This activity requires python 2.4."
-  pass
-
 from gcompris import gcompris_gettext as _
 
 class Gcompris_electric:
@@ -52,8 +46,8 @@ class Gcompris_electric:
     # Part of UI : tools buttons                               
     # TOOL SELECTION
     self.tools = [
-      ["DEL",            "draw/tool-del.png",             "draw/tool-del_on.png",                gcompris.CURSOR_DEL],
-      ["SELECT",         "draw/tool-select.png",          "draw/tool-select_on.png",             gcompris.CURSOR_SELECT]
+      ["DEL",    "draw/tool-del.png",     "draw/tool-del_on.png",     gcompris.CURSOR_DEL],
+      ["SELECT", "draw/tool-select.png",  "draw/tool-select_on.png",  gcompris.CURSOR_SELECT]
       ]
     
     # These are used to let us restart only after the bonus is displayed.
@@ -66,7 +60,9 @@ class Gcompris_electric:
     self.components = []
     self.gnucap_timer = 0
     self.gnucap_timer_interval = 500
-    
+
+    self.gnucap_binary = None
+
   def start(self):
     
     self.gcomprisBoard.level=1
@@ -82,6 +78,21 @@ class Gcompris_electric:
                             gcompris.skin.image_to_skin("gcompris-bg.jpg"))
 
     self.display_game()
+
+    #
+    # Check gnucap is installed and save it's path in self.gnucap_binary
+    #
+    for binary in ("/usr/bin/gnucap",
+                   "/usr/local/bin/gnucap"):
+      try:
+        os.stat(binary)
+        self.gnucap_binary = binary
+      except:
+        pass
+
+    if not self.gnucap_binary:
+      gcompris.utils.dialog(_("Cannot find the 'gnucap' electric simulator.\nYou can download and install it from:\n<http://geda.seul.org/tools/gnucap/>\nTo be detected, it must be installed in\n/usr/bin/gnucap or /usr/local/bin/gnucap.\nYou can still use this activity to draw schematics without computer simulation."),
+                            None)
     
 
   def end(self):
@@ -183,6 +194,7 @@ class Gcompris_electric:
 
     if self.gnucap_timer :
       gtk.timeout_remove(self.gnucap_timer)
+      self.gnucap_timer = 0
 
     # Remove the root item removes all the others inside it
     self.rootitem.destroy()
@@ -279,9 +291,10 @@ class Gcompris_electric:
 # ----------------------------------------------------------------------
 
   def run_simulation(self):
-    print "run_simulation"
+    if not self.gnucap_binary:
+      return
+
     if not self.gnucap_timer:
-      print "run_simulation armed timer"
       self.gnucap_timer = gtk.timeout_add(self.gnucap_timer_interval, self.ok)
 
   def call_gnucap(self):
@@ -299,23 +312,22 @@ class Gcompris_electric:
     print gnucap
     f.writelines(gnucap)
     f.close()
-    try:
-      output = subprocess.Popen(["/usr/bin/gnucap", "-b", filename ],
-                                stdout=subprocess.PIPE).communicate()[0]
-    except:
-      gcompris.utils.dialog(_("Cannot find the 'gnucap' electric simulator.\nYou can download and install it from:\n<http://geda.seul.org/tools/gnucap/>\nInstall it to use this activity !"),
-                            stop_board)
-      return
-      
-    print "---------------- GNUCAP OUTPUT -----------------------------"
-    print output
-    print "------------------------------------------------------------"
 
-    for line in output.splitlines():
+    #
+    # Run gnucap with the temporary datafile we created.
+    #
+    output = os.popen("%s -b %s" % (self.gnucap_binary, filename))
+
+    #
+    # Read and analyse gnucap result
+    #
+    print "---------------- GNUCAP OUTPUT PARSING ---------------------"
+    for line in output.readlines():
       print "==="
       print line
       if(line.split() == " 0."):
         break
+    print "------------------------------------------------------------"
 
     print "===>"
     print line
@@ -1194,18 +1206,19 @@ class Bulb(Component):
     self.move(x, y)
     self.show()
     self.power_max = power_max
-
+    self.resistor_blown = 100000000
+    
   # Change the pixmap depending on the real power in the Bulb
   # Return False if we need more value to complete our component
   # This is usefull in case where one Component is made of several gnucap component
   def set_voltage_intensity(self, valid_value, voltage, intensity):
 
+    super(Bulb, self).set_voltage_intensity(valid_value, voltage, intensity)
+
     # If the Bulb is blown, do not update it anymore
     if self.is_blown:
       return True
     
-    super(Bulb, self).set_voltage_intensity(valid_value, voltage, intensity)
-
     power = abs(voltage * intensity)
     image_index = min((power * 10) /  self.power_max + 1, 11)
     pixmap = gcompris.utils.load_pixmap("electric/bulb%d.png" %(image_index,))
@@ -1215,7 +1228,7 @@ class Bulb(Component):
     # If the Bulb is blown, we have to change it's internal
     # Resistor value to infinite and ask for a circuit recalc
     if image_index == 11:
-      self.gnucap_value = 100000000
+      self.gnucap_value = self.resistor_blown
       self.electric.run_simulation()
       self.is_blown = True
       
@@ -1225,11 +1238,17 @@ class Bulb(Component):
   # We override it to repair the Bulb
   def component_move(self, widget, event, component):
     # If the Bulb is blown and we get a click repair it
+    # If the bulb is not blown, you can blown it by right clicking on it
     if (event.state & gtk.gdk.BUTTON1_MASK) and self.electric.get_current_tools()=="SELECT":
       if self.is_blown:
         self.is_blown = False
         self.gnucap_value = self.internal_resistor
         self.electric.run_simulation()
+        
+    elif (event.state & gtk.gdk.BUTTON3_MASK) and self.electric.get_current_tools()=="SELECT":
+      if not self.is_blown:
+        # Blown us with arbitrate high value
+        self.set_voltage_intensity(True, 100, 10)
       
     return super(Bulb, self).component_move(widget, event, component)
         
