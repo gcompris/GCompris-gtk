@@ -8,99 +8,106 @@ xml_in_files = \
 	algebra_by.xml.in \
 	algebra_group.xml.in \
 	algebra_guesscount.xml.in \
+	algebramenu.xml.in \
 	algebra_minus.xml.in \
 	algebra_plus.xml.in \
-	algebramenu.xml.in \
 	algorithm.xml.in \
 	anim.xml.in \
 	awele.xml.in \
 	babymatch.xml.in \
 	babyshapes.xml.in \
+	ballcatch.xml.in \
 	bargame.xml.in \
 	billard.xml.in \
-	ballcatch.xml.in \
-	boards.xml.in \
 	canal_lock.xml.in \
-	chess.xml.in \
 	chess_computer.xml.in \
 	chess_movelearn.xml.in \
 	chess_partyend.xml.in \
+	chess.xml.in \
 	chronos.xml.in \
-	click_on_letter.xml.in \
 	clickgame.xml.in \
+	click_on_letter.xml.in \
 	clockgame.xml.in \
-	colors.xml.in \
-	crane.xml.in \
 	colors_group.xml.in \
+	colors.xml.in \
 	computer.xml.in \
 	connect4.xml.in \
 	crane.xml.in \
+	discovery.xml.in \
 	doubleentry.xml.in \
 	draw.xml.in \
 	electric.xml.in \
 	enumerate.xml.in \
-	erase.xml.in \
 	erase_clic.xml.in \
 	erase_double_clic.xml.in \
+	erase.xml.in \
 	experience.xml.in \
+	experimental.xml.in \
 	fifteen.xml.in \
 	followline.xml.in \
 	fun.xml.in \
 	geography.xml.in \
+	geometry.xml.in \
+	gletters.xml.in \
 	gnumch-equality.xml.in \
 	gnumch-factors.xml.in \
 	gnumch-inequality.xml.in \
+	gnumchmenu.xml.in \
 	gnumch-multiples.xml.in \
 	gnumch-primes.xml.in \
-	gnumchmenu.xml.in \
-	gletters.xml.in \
-	gtans.xml.in \
 	guessnumber.xml.in \
-	hanoi.xml.in \
 	hanoi_real.xml.in \
+	hanoi.xml.in \
 	hexagon.xml.in \
 	imageid.xml.in \
 	imagename.xml.in \
+	keyboard.xml.in \
 	leftright.xml.in \
 	login.xml.in \
-	maze.xml.in \
+	math.xml.in \
 	maze2DRelative.xml.in \
 	maze3D.xml.in \
 	mazeInvisible.xml.in \
 	mazeMenu.xml.in \
+	maze.xml.in \
 	melody.xml.in \
-	memory.xml.in \
 	memory_group.xml.in \
-	memory_tux.xml.in \
-	memory_sound.xml.in \
 	memory_sound_tux.xml.in \
+	memory_sound.xml.in \
+	memory_tux.xml.in \
+	memory.xml.in \
 	menu.xml.in \
+	miscelaneous.xml.in \
 	missing_letter.xml.in \
+	money_cents.xml.in \
 	money.xml.in \
 	mosaic.xml.in \
-	money_cents.xml.in \
 	mouse.xml.in \
+	numeration.xml.in \
 	paintings.xml.in \
 	paratrooper.xml.in \
 	planegame.xml.in \
+	puzzle.xml.in \
 	pythontest.xml.in \
 	railroad.xml.in \
-	railroad.xml.in \
 	read_colors.xml.in \
-	reading.xml.in \
 	readingh.xml.in \
 	readingv.xml.in \
-	redraw.xml.in \
+	reading.xml.in \
 	redraw_symmetrical.xml.in \
+	redraw.xml.in \
 	reversecount.xml.in \
-	searace.xml.in \
-	searace1player.xml.in \
 	scalesboard.xml.in \
-	smallnumbers.xml.in \
+	searace1player.xml.in \
+	searace.xml.in \
 	smallnumbers2.xml.in \
+	smallnumbers.xml.in \
+	sound_group.xml.in \
+	strategy.xml.in \
 	submarine.xml.in \
-	superbrain.xml.in \
 	sudoku.xml.in \
+	superbrain.xml.in \
+	tangram.xml.in \
 	target.xml.in \
 	traffic.xml.in \
 	tuxpaint.xml.in \

@@ -116,6 +116,7 @@ static char *popt_profile	   = NULL;
 static int *popt_profile_list	   = FALSE;
 static char *popt_shared_dir	   = NULL;
 static char *popt_users_dir	   = NULL;
+static int  popt_experimental      = FALSE;
 
 static struct poptOption options[] = {
   {"fullscreen", 'f', POPT_ARG_NONE, &popt_fullscreen, 0,
@@ -160,6 +161,8 @@ static struct poptOption options[] = {
    N_("Shared directory location, for profiles and board-configuration data: [$HOME/.gcompris/shared]"), NULL},
   {"users-dir",'\0', POPT_ARG_STRING, &popt_users_dir, 0,
    N_("The location of user directories: [$HOME/.gcompris/users]"), NULL},
+  {"experimental",'\0', POPT_ARG_NONE, &popt_experimental, 0,
+   N_("Run the experimental activities"), NULL},
 #ifndef WIN32	/* Not supported on windows */
   POPT_AUTOHELP
 #endif
@@ -1214,6 +1217,12 @@ gcompris_init (int argc, char *argv[])
     {
       g_warning("Slower Antialiased canvas used");
       antialiased = TRUE;
+    }
+
+  if (popt_experimental)
+    {
+      g_warning("Experimental boards allowed");
+      properties->experimental  = TRUE;
     }
 
   if (popt_difficulty_filter>=0)

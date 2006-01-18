@@ -1,3 +1,121 @@
+2006-01-18  Yves Combe  <yves@ycombe.net>
+
+	reorganise menus
+	suppress -d filter option in menu.c
+	add --experimental
+	probably some boards will disappears (if typo in xml.in section).
+	pass version to 7.29 to force reread xml
+
+	* boards/Makefile.am:
+	* boards/advanced_colors.xml.in:
+	* boards/algebra_by.xml.in:
+	* boards/algebra_group.xml.in:
+	* boards/algebra_guesscount.xml.in:
+	* boards/algebra_minus.xml.in:
+	* boards/algebra_plus.xml.in:
+	* boards/algebramenu.xml.in:
+	* boards/algorithm.xml.in:
+	* boards/awele.xml.in:
+	* boards/babymatch.xml.in:
+	* boards/babyshapes.xml.in:
+	* boards/ballcatch.xml.in:
+	* boards/bargame.xml.in:
+	* boards/billard.xml.in:
+	* boards/boardicons/boards.png:
+	* boards/boardicons/discovery.png:
+	* boards/boardicons/ear.png:
+	* boards/boardicons/eye_colors.png:
+	* boards/boardicons/geometry.png:
+	* boards/boardicons/keyboard.png:
+	* boards/boardicons/math.png:
+	* boards/boardicons/memory_elephant.png:
+	* boards/boardicons/miscelaneous.png:
+	* boards/boardicons/numeration.png:
+	* boards/boardicons/puzzles.png:
+	* boards/boardicons/strategy.png:
+	* boards/boardicons/tangram.png:
+	* boards/boardicons/warning.png:
+	* boards/boards.xml.in:
+	* boards/chess.xml.in:
+	* boards/chess_computer.xml.in:
+	* boards/chess_movelearn.xml.in:
+	* boards/chess_partyend.xml.in:
+	* boards/chronos.xml.in:
+	* boards/clockgame.xml.in:
+	* boards/colors.xml.in:
+	* boards/colors_group.xml.in:
+	* boards/computer.xml.in:
+	* boards/connect4.xml.in:
+	* boards/crane.xml.in:
+	* boards/discovery.xml.in:
+	* boards/doubleentry.xml.in:
+	* boards/draw.xml.in:
+	* boards/electric.xml.in:
+	* boards/enumerate.xml.in:
+	* boards/experience.xml.in:
+	* boards/experimental.xml.in:
+	* boards/fifteen.xml.in:
+	* boards/fun.xml.in:
+	* boards/geography.xml.in:
+	* boards/geometry.xml.in:
+	* boards/gletters.xml.in:
+	* boards/gnumch-equality.xml.in:
+	* boards/gnumch-factors.xml.in:
+	* boards/gnumch-inequality.xml.in:
+	* boards/gnumch-multiples.xml.in:
+	* boards/gnumch-primes.xml.in:
+	* boards/gnumchmenu.xml.in:
+	* boards/gtans.xml.in:
+	* boards/guessnumber.xml.in:
+	* boards/hanoi.xml.in:
+	* boards/hanoi_real.xml.in:
+	* boards/hexagon.xml.in:
+	* boards/keyboard.xml.in:
+	* boards/leftright.xml.in:
+	* boards/math.xml.in:
+	* boards/maze.xml.in:
+	* boards/maze2DRelative.xml.in:
+	* boards/maze3D.xml.in:
+	* boards/mazeInvisible.xml.in:
+	* boards/mazeMenu.xml.in:
+	* boards/melody.xml.in:
+	* boards/memory.xml.in:
+	* boards/memory_group.xml.in:
+	* boards/memory_sound.xml.in:
+	* boards/memory_sound_tux.xml.in:
+	* boards/memory_tux.xml.in:
+	* boards/miscelaneous.xml.in:
+	* boards/money.xml.in:
+	* boards/money_cents.xml.in:
+	* boards/mosaic.xml.in:
+	* boards/mouse.xml.in:
+	* boards/numeration.xml.in:
+	* boards/paintings.xml.in:
+	* boards/planegame.xml.in:
+	* boards/puzzle.xml.in:
+	* boards/pythontest.xml.in:
+	* boards/railroad.xml.in:
+	* boards/read_colors.xml.in:
+	* boards/reading.xml.in:
+	* boards/redraw.xml.in:
+	* boards/redraw_symmetrical.xml.in:
+	* boards/reversecount.xml.in:
+	* boards/scalesboard.xml.in:
+	* boards/smallnumbers.xml.in:
+	* boards/smallnumbers2.xml.in:
+	* boards/sound_group.xml.in:
+	* boards/strategy.xml.in:
+	* boards/sudoku.xml.in:
+	* boards/superbrain.xml.in:
+	* boards/tangram.xml.in:
+	* boards/target.xml.in:
+	* boards/traffic.xml.in:
+	* boards/wordsgame.xml.in:
+	* src/boards/menu.c: (display_board_icon):
+	* src/gcompris/gcompris.c: (gcompris_init):
+	* src/gcompris/properties.c: (gcompris_properties_new):
+	* src/gcompris/properties.h:
+
 2006-01-17  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	Ported electric to rely on python 2.3 instead of 2.4

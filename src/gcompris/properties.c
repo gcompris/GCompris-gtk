@@ -1,6 +1,6 @@
 /* gcompris - properties.c
  *
- * Time-stamp: <2005/11/05 23:15:45 bruno>
+ * Time-stamp: <2006/01/18 15:11:03 yves>
  *
  * Copyright (C) 2000,2003 Bruno Coudoin
  *
@@ -176,6 +176,7 @@ GcomprisProperties *gcompris_properties_new ()
 
   tmp->administration    = FALSE;
   tmp->reread_menu       = FALSE;
+  tmp->experimental      = FALSE;
 
   gcompris_user_dir = get_gcompris_user_root_directory() ;
   create_rootdir( gcompris_user_dir );
