@@ -274,7 +274,7 @@ static GnomeCanvasItem *hanoi_create_item(GnomeCanvasGroup *parent)
 
   gnome_canvas_item_new (boardRootItem,
 			 gnome_canvas_text_get_type (),
-			 "text", _("Move the entire stack to the right peg"),
+			 "text", _("Move the entire stack to the right peg, one disc at a time"),
 			 "font", gcompris_skin_font_board_medium,
 			 "x", (double) BOARDWIDTH/2 +1,
 			 "y", (double) BOARDHEIGHT - 50 +1,
@@ -285,7 +285,7 @@ static GnomeCanvasItem *hanoi_create_item(GnomeCanvasGroup *parent)
 
   gnome_canvas_item_new (boardRootItem,
 			 gnome_canvas_text_get_type (),
-			 "text", _("Move the entire stack to the right peg"),
+			 "text", _("Move the entire stack to the right peg, one disc at a time"),
 			 "font", gcompris_skin_font_board_medium,
 			 "x", (double) BOARDWIDTH/2,
 			 "y", (double) BOARDHEIGHT - 50,

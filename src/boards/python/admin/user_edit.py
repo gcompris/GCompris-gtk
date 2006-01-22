@@ -156,7 +156,7 @@ class UserEdit(gtk.Window):
             dialog = gtk.MessageDialog(None,
                                        gtk.DIALOG_MODAL | gtk.DIALOG_DESTROY_WITH_PARENT,
                                        gtk.MESSAGE_INFO, gtk.BUTTONS_OK,
-                                       _("You need to provide at least a login, firstname and lastname for your users"))
+                                       _("You need to provide at least a login, first name and last name for your users"))
             dialog.run()
             dialog.destroy()
             return

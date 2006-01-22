@@ -261,7 +261,7 @@ class ExpressionLevelset(object):
 
     def getDivide(self, answer):
         n = random.randint(1, 5)
-        return Number( _(u'%d \u2215 %d') % (answer*n, n), 1 )
+        return Number( _(u'%d \u00f7 %d') % (answer*n, n), 1 )
 
 class EqualityLevelset(ExpressionLevelset):
     def __init__(self):

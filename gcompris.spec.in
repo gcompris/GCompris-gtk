@@ -14,7 +14,7 @@ License: 	GPL
 Group: 		Games/Other
 Source:		ftp://gcompris.sourceforge.net/gcompris-%{PACKAGE_VERSION}.tar.gz
 BuildRoot: 	%_tmppath/%name-%version-buildroot
-Buildrequires: gnuchess
+Buildrequires: gnuchess gnucap
 Buildrequires: libxml2-devel libgnomeui2-devel libsqlite3_0-devel
 Buildrequires: texinfo 
 # (misc) needed for python support

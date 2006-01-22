@@ -125,7 +125,7 @@ class Gcompris_tuxpaint:
 
     textItem = self.rootitem.add(
       gnome.canvas.CanvasText,
-      text = _("Waiting for Tuxpaint finishes"), 
+      text = _("Waiting for Tuxpaint to finish"), 
       x = gcompris.BOARD_WIDTH/2, 
       y = 185,
       fill_color_rgba = 0x000000ffL, 

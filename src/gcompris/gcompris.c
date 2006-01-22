@@ -1242,7 +1242,7 @@ gcompris_init (int argc, char *argv[])
     if (strcmp(popt_root_menu,"list")==0){
       /* check the list of possible values for -l, then exit */
       printf(_("Use -l to access an activity directly.\n"));
-      printf(_("List of available activity is :\n"));
+      printf(_("The list of available activities is :\n"));
       properties->root_menu = "/";
 
       gcompris_db_init();

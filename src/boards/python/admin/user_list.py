@@ -289,7 +289,7 @@ class User_list:
     dialog = gtk.MessageDialog(None,
                                gtk.DIALOG_MODAL | gtk.DIALOG_DESTROY_WITH_PARENT,
                                gtk.MESSAGE_INFO, gtk.BUTTONS_OK,
-                               _("To import a user list from a file, first select a class.\nFILE FORMAT: Your file must be formatted like this:\nlogin;First name;Last name;Birth date\nThe separator is autodetected and can be one of ',', ';' or ':'"))
+                               _("To import a user list from a file, first select a class.\nFILE FORMAT: Your file must be formatted like this:\nlogin;First name;Last name;Date of birth\nThe separator is autodetected and can be one of ',', ';' or ':'"))
     dialog.run()
     dialog.destroy()
     

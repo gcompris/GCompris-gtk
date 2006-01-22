@@ -1,6 +1,6 @@
 /* gcompris - paratrooper.c
  *
- * Time-stamp: <2005/10/12 23:25:31 bruno>
+ * Time-stamp: <2006/01/22 22:50:43 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -99,8 +99,8 @@ static BoardPlugin menu_bp =
 {
    NULL,
    NULL,
-   N_("Paratrooper"),
-   N_("Direct the paratrooper to help him land safely"),
+   "Parachutist",
+   "Direct the parachutist to help him or her land safely",
    "Bruno Coudoin <bruno.coudoin@free.fr>",
    NULL,
    NULL,

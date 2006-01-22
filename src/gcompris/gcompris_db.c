@@ -235,7 +235,7 @@ int gcompris_db_init()
 
     request = g_strdup_printf("INSERT INTO class (class_id, name, teacher, wholegroup_id) VALUES ( 1, \'%s\', \'(%s)\', 1);",
 			      _("Unaffected"),
-			      _("Users without class"));
+			      _("Users without a class"));
 
     rc = sqlite3_exec(gcompris_db, request, NULL,  0, &zErrMsg);
     if( rc!=SQLITE_OK ){

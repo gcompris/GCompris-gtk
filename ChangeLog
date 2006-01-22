@@ -1,3 +1,55 @@
+2006-01-23  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	- Review of English strings by Clytie Siddall
+	- Improved the submarine icon based on a Nicu icon from openclipart.org
+	- Fixed Tux_mute.png, it was commited without -kb option and was obviously corrupted.
+	
+	* INSTALL:
+	* boards/administration.xml.in:
+	* boards/awele.xml.in:
+	* boards/babymatch.xml.in:
+	* boards/babyshapes.xml.in:
+	* boards/boardicons/submarine.png:
+	* boards/chronos/board3_0.xml.in:
+	* boards/connect4.xml.in:
+	* boards/crane.xml.in:
+	* boards/electric.xml.in:
+	* boards/gcompris/misc/Tux_mute.png:
+	* boards/geography/board2_0.xml.in:
+	* boards/geography/board4_0.xml.in:
+	* boards/gnumch-equality.xml.in:
+	* boards/gnumch-factors.xml.in:
+	* boards/gnumch-inequality.xml.in:
+	* boards/gnumch-multiples.xml.in:
+	* boards/gnumch-primes.xml.in:
+	* boards/guessnumber.xml.in:
+	* boards/hanoi.xml.in:
+	* boards/hanoi_real.xml.in:
+	* boards/login.xml.in:
+	* boards/mazeMenu.xml.in:
+	* boards/memory_sound_tux.xml.in:
+	* boards/memory_tux.xml.in:
+	* boards/menu.xml.in:
+	* boards/readingh.xml.in:
+	* boards/redraw_symmetrical.xml.in:
+	* boards/reversecount.xml.in:
+	* boards/smallnumbers.xml.in:
+	* boards/smallnumbers2.xml.in:
+	* boards/submarine/submarine-broken.png:
+	* boards/submarine/submarine.png:
+	* boards/submarine/whale_hit.png:
+	* boards/tangram.xml.in:
+	* gcompris.spec.in:
+	* po/POTFILES.in:
+	* src/boards/hanoi_real.c: (hanoi_create_item):
+	* src/boards/paratrooper.c:
+	* src/boards/python/admin/user_edit.py:
+	* src/boards/python/admin/user_list.py:
+	* src/boards/python/gnumch.py:
+	* src/boards/python/tuxpaint.py:
+	* src/gcompris/gcompris.c: (gcompris_init):
+	* src/gcompris/gcompris_db.c: (gcompris_db_init):
+
 2006-01-19  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	Improved board english description.
