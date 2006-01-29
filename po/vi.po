@@ -6,37 +6,38 @@ msgid ""
 ""
 msgstr "Project-Id-Version: gcompris Gnome HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-01-14 02:34+0100\n"
-"PO-Revision-Date: 2006-01-14 14:31+1030\n"
+"POT-Creation-Date: 2006-01-29 02:36+0100\n"
+"PO-Revision-Date: 2006-01-29 14:28+1030\n"
 "Last-Translator: Clytie Siddall <clytie@riverland.net.au>\n"
 "Language-Team: Vietnamese <gnomevi-list@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0\n"
-"X-Generator: LocFactoryEditor 1.6b23\n"
+"X-Generator: LocFactoryEditor 1.6b34\n"
 
 #:../boards/administration.xml.in.h:1
 msgid ""
 "- In the 'Boards' section you can change the list of activities. Just "
 "untoggle them in the treeview. You can change the language used for reading, "
-"for example, then language used for saying the name of colors. - You can "
-"save multiple configurations, and switch easily. In the 'Profile' section "
-"add a profile, then in the 'Board' section select the profile in the "
-"combobox, then select the boards you want to be active. You can add lot of "
-"profiles, with different lists of boards, and different languages. You set "
-"the default profile in the 'Profile' section, by choosing the profile you "
-"want, then clicking on the 'Default' button. You can also choose a profile "
-"from the command line. - You can add users, classes and for each class, you "
-"can create groups of users. Note that you can import users from a comma-"
-"separated file. Assign one or more groups to a profile, after which those "
-"new logins will appear after restarting GCompris. Being able to identify "
-"individual children in GCompris means we can provide individual reports. It "
-"also recognizes the children as individuals; they can learn to type in, and "
-"recognize their own usernames (login is configurable)."
+"for example, then the language used for saying the names of colors.\n"
+"- You can save multiple configurations, and switch between them easily. In "
+"the 'Profile' section add a profile, then in the 'Board' section select the "
+"profile in the combobox, then select the boards you want to be active. You "
+"can add multiple profiles, with different lists of boards, and different "
+"languages. You set the default profile in the 'Profile' section, by choosing "
+"the profile you want, then clicking on the 'Default' button. You can also "
+"choose a profile from the command line.\n"
+"- You can add users, classes and for each class, you can create groups of "
+"users. Note that you can import users from a comma-separated file. Assign "
+"one or more groups to a profile, after which those new logins will appear "
+"after restarting GCompris. Being able to identify individual children in "
+"GCompris means we can provide individual reports. It also recognizes the "
+"children as individuals; they can learn to type in and recognize their own "
+"usernames (login is configurable)."
 msgstr " • Trong phần « Bảng » thì bán có thể sửa đổi danh sách hoạt động. Chỉ hãy "
 "tắt mỗi hoạt động trong khung xem cây. Cũng có thể thay đổi ngôn ngữ đọc, "
-"lấy thí dụ ngôn ngữ âm thanh cho màu sắc.\n"
+"lấy thí dụ ngôn ngữ dùng để nói tên màu sắc.\n"
 " • Bạn có thể lưu nhiều cấu hình, và chuyển đổi giữa chúng một cách dễ dàng. "
 "Trong phần « Xác lập », hãy thêm một xác lập, rồi trong phần « Bảng », hãy "
 "chọn xác lập đó trong hộp tổ hợp, rồi chọn những bảng bạn muốn là hoạt động. "
@@ -52,22 +53,22 @@ msgstr " • Trong phần « Bảng » thì bán có thể sửa đổi danh sá
 "độc đáo : họ có thể học biết gõ vào và nhận ra tên người dùng riêng (có thể "
 "cấu hình khả năng đăng nhập)."
 
-#:../boards/administration.xml.in.h:2
+#:../boards/administration.xml.in.h:4
 msgid "GCompris Administration Menu"
 msgstr "Trình đơn quản lý GCompris"
 
-#:../boards/administration.xml.in.h:3
+#:../boards/administration.xml.in.h:5
 msgid ""
 "If you want to fine tune GCompris to your needs, you can use the "
 "administration module here. The ultimate goal is to provide child-specific "
 "reporting for parents and teacher who want to monitor the progress, "
-"strengths and weakenesses of their children."
+"strengths and needs of their children."
 msgstr "Nếu bạn muốn điều chỉnh trình GCompris một cách thích hợp với sự cần của "
 "bạn, bạn có thể sử dụng mô-đun quản lý này. Mục đích cuối cùng là cung cấp "
 "phiếu thành tích học tập đặc trưng cho mỗi trẻ con. Phải có khả năng này, "
-"cho cha mẹ và giáo viên theo dõi tiến hành, sức mạnh và sự khó của trẻ con."
+"cho cha mẹ và giáo viên theo dõi tiến hành, sức mạnh và sự cần của trẻ con."
 
-#:../boards/administration.xml.in.h:4
+#:../boards/administration.xml.in.h:6
 msgid "Left-Click with the mouse to select an activity"
 msgstr "Nhắp trái trên chuột để chọn hoạt động"
 
@@ -405,12 +406,7 @@ msgstr "Thức hành phép tính nhân"
 msgid "Go to Algebra activities"
 msgstr "Đi tới hoạt động đại số"
 
-#:../boards/algebra_group.xml.in.h:2 ../boards/algebramenu.xml.in.h:2
-#:../boards/boards.xml.in.h:2 ../boards/colors_group.xml.in.h:2
-#:../boards/computer.xml.in.h:2 ../boards/experience.xml.in.h:2
-#:../boards/fun.xml.in.h:2 ../boards/memory_group.xml.in.h:2
-#:../boards/menu.xml.in.h:17 ../boards/mouse.xml.in.h:1
-#:../boards/reading.xml.in.h:2
+#:../boards/algebra_group.xml.in.h:2 ../boards/menu.xml.in.h:17
 msgid "Left-click the mouse on an activity to select it."
 msgstr "Nhắp trái con chuột vào một hoạt động để chọn nó"
 
@@ -502,8 +498,12 @@ msgid "Simple addition. Can recognize written numbers"
 msgstr "Sự cộng đơn giản. Có thể thấy biết con số đã viết."
 
 #:../boards/algebramenu.xml.in.h:1
-msgid "Go to Math activities"
-msgstr "Đi tới hoạt động Toán học"
+msgid "Go to calculation activities"
+msgstr "Đi tới hoạt động Tính toán"
+
+#:../boards/algebramenu.xml.in.h:2
+msgid "Various calculation activities."
+msgstr "Nhiều hoạt động tính khác nhau."
 
 #:../boards/algorithm.xml.in.h:1
 msgid "Complete a list of symbols"
@@ -578,26 +578,27 @@ msgstr "Cháu hãy chọn công cụ vẽ bên trái, và màu tại đáy. Nh�
 #:../boards/awele.xml.in.h:1
 msgid ""
 "At the beginning of the game four seeds are placed in each house. Players "
-"take turns moving the seeds. On a turn, a player chooses one of the six "
-"houses under their control. The player removes all seeds from this house, "
-"and distributes them, dropping one in each house counter-clockwise from this "
-"house, in a process called sowing. Seeds are not distributed into the end "
-"scoring houses, nor into the house drawn from. That is, the starting house "
-"is left empty; if it contained 12 seeds, it is skipped, and the twelfth seed "
-"is placed in the next house. After a turn, if the last seed was placed into "
-"an opponent's house that brought its total to two or three, all the seeds in "
-"that house are captured and placed in the player's scoring house (or set "
-"aside if the board has no scoring houses). If the previous-to-last seed also "
-"brought an opponent's house to two or three, these are captured as well, and "
-"so on. However, if a move would capture all an opponent's seeds, the capture "
-"is forfeited, and the seeds are instead left on the board, since this would "
-"prevent the opponent from continuing the game. The proscription against "
-"capturing all an opponent's seeds is related to a more general idea, that "
-"one ought to make a move that allows the opponent to continue playing. If an "
-"opponent's houses are all empty, the current player must make a move that "
-"gives the opponent seeds. If no such move is possible, the current player "
-"captures all seeds in his/her own territory, ending the game. (Source "
-"Wikipedia &lt;http://en.wikipedia.org/wiki/Oware&gt;)"
+"take turns moving the seeds. In each turn, a player chooses one of the six "
+"houses under his or her control. The player removes all seeds from this "
+"house, and distributes them, dropping one in each house counter-clockwise "
+"from the original house, in a process called sowing. Seeds are not "
+"distributed into the end scoring houses, nor into the house drawn from. That "
+"is, the starting house is left empty; if it contained 12 seeds, it is "
+"skipped, and the twelfth seed is placed in the next house. After a turn, if "
+"the last seed was placed into an opponent's house and brought its total to "
+"two or three, all the seeds in that house are captured and placed in the "
+"player's scoring house (or set aside if the board has no scoring houses). If "
+"the previous-to-last seed also brought the total seeds in an opponent's "
+"house to two or three, these are captured as well, and so on. However, if a "
+"move would capture all an opponent's seeds, the capture is forfeited, and "
+"the seeds are instead left on the board, since this would prevent the "
+"opponent from continuing the game. The proscription against capturing all an "
+"opponent's seeds is related to a more general idea, that one ought to make a "
+"move that allows the opponent to continue playing. If an opponent's houses "
+"are all empty, the current player must make a move that gives the opponent "
+"seeds. If no such move is possible, the current player captures all seeds in "
+"his/her own territory, ending the game. (Source Wikipedia &lt;http://en."
+"wikipedia.org/wiki/Oware&gt;)"
 msgstr "Tại đầu lượt chơi, bốn hạt được để vào mỗi cái nhà. Người chơi di chuyển hạt "
 "lần lượt. Trong mỗi lần, người chơi chọn một của sấu nhà mà cháu ấy điều "
 "khiển. Sau đó, cháu gỡ bỏ tất cả các hạt ra nhà này, và phân phối hết, thả "
@@ -654,11 +655,12 @@ msgstr "Kéo và Thả mục để làm cho khớp."
 
 #:../boards/babymatch.xml.in.h:2
 msgid ""
-"In the main board area, a set of objects are displayed. In the vertical box "
-"(at the left of the main board) another set of objects are shown, each one "
-"matching exactly one object in the main board area. This game challenges you "
-"to fine logical link between these objects. How do they fit together? Drag "
-"each object to the correct red space in the main area."
+"In the main board area, a set of objects is displayed. In the vertical box "
+"(at the left of the main board) another set of objects is shown, each object "
+"in the group on the left matching exactly one object in the main board area. "
+"This game challenges you to find the logical link between these objects. How "
+"do they fit together? Drag each object to the correct red space in the main "
+"area."
 msgstr "Trong vùng bảng chính, cháu có thể thấy một bộ đối tượng. Trong hộp dọc (bên "
 "trái bảng chính) có một bộ đối tượng khác, mỗi mục khớp chính xác một đối "
 "tượng trên bảng chính. Cháu hãy tìm liên kết hợp lý giữa mỗi đôi đối tượng. "
@@ -689,8 +691,8 @@ msgstr "Cháu hãy tạo câu đố hoàn tất bằng cách kéo mỗi mảnh t
 "sang vùng khớp trong câu đố."
 
 #:../boards/babyshapes.xml.in.h:3
-msgid "Drag and Drop the shapes on their respective target"
-msgstr "Hãy kéo và thả hình vào đích."
+msgid "Drag and Drop the shapes on their respective targets"
+msgstr "Hãy kéo và thả hình vào đích tương ứng."
 
 #:../boards/babyshapes.xml.in.h:4
 msgid "Good mouse-control"
@@ -759,8 +761,8 @@ msgstr "Đá bóng vào khung thành gồm."
 #:../boards/clickgame.xml.in.h:16 ../boards/connect4.xml.in.h:7
 #:../boards/erase.xml.in.h:3 ../boards/erase_clic.xml.in.h:6
 #:../boards/erase_double_clic.xml.in.h:6 ../boards/fifteen.xml.in.h:2
-#:../boards/gtans.xml.in.h:2 ../boards/hanoi.xml.in.h:3
-#:../boards/memory.xml.in.h:4
+#:../boards/hanoi.xml.in.h:3 ../boards/memory.xml.in.h:4
+#:../boards/tangram.xml.in.h:8
 msgid "Mouse-manipulation"
 msgstr "Thao tác con chuột"
 
@@ -774,10 +776,6 @@ msgstr "Trỏ và nhắp chuột vào bóng để đặt tốc độ và phía h
 #:../boards/billard.xml.in.h:5
 msgid "The football game"
 msgstr "Trò chơi bóng đá"
-
-#:../boards/boards.xml.in.h:1
-msgid "Go to board-based activities"
-msgstr "Đi tới hoạt động đựa vào bảng"
 
 #:../boards/canal_lock.xml.in.h:1
 msgid "Operate a canal lock"
@@ -904,7 +902,7 @@ msgstr "Đầu máy Hơi nước Tên lửa\n"
 #:../boards/chronos/board3_0.xml.in.h:4
 msgid ""
 "Place each image in the order and\n"
-"on the date it has been invented.\n"
+"on the date it was invented.\n"
 "If not sure, research online at wikipedia:\n"
 "&lt;http://www.wikipedia.org&gt;"
 msgstr "Cháu hãy sắp xếp các ảnh\n"
@@ -1146,6 +1144,10 @@ msgstr "Bảng này dạy cháu thấy biết màu sắc khác nhau. Khi cháu n
 "hãy nhắp vào con vịt mang nó."
 
 #:../boards/colors_group.xml.in.h:1
+msgid "Colors based activities."
+msgstr "Hoạt động đựa vào màu sắc."
+
+#:../boards/colors_group.xml.in.h:2
 msgid "Go to Color activities"
 msgstr "Đi tới hoạt động màu sắc"
 
@@ -1153,12 +1155,16 @@ msgstr "Đi tới hoạt động màu sắc"
 msgid "Discover the Computer"
 msgstr "Khám phá Máy tính"
 
+#:../boards/computer.xml.in.h:2
+msgid "Play with computer peripherals."
+msgstr "Chơi với phần ngoại vi của máy tính."
+
 #:../boards/connect4.xml.in.h:1
 msgid "Arrange four coins in a row"
 msgstr "Xếp bốn cái tiền theo hàng"
 
 #:../boards/connect4.xml.in.h:2
-msgid "Click anywhere in the line in which you want to drop a piece"
+msgid "Click anywhere in the line where you want to drop a piece"
 msgstr "Nhắp vào chỗ nào trong dòng cháu muốn thả một cái."
 
 #:../boards/connect4.xml.in.h:3
@@ -1199,12 +1205,20 @@ msgstr "Thao tác con chuột"
 
 #:../boards/crane.xml.in.h:5
 msgid ""
-"Move the items in the bottom left frame to have them positioned as in the "
-"top right model. On the crane itself, you will find 4 arrows that let you "
+"Move the items in the bottom left frame to copy their position in the top "
+"right model. Below the crane itself, you will find four arrows that let you "
 "move items. To select the item to move, just click on it."
-msgstr "Di chuyển những mục trong khung bên trái, dưới, để theo mẫu trong mô hình "
-"bên phải, trên. Trên cần trục chính nó, cháu sẽ tìm bốn mũi tên cho phép di "
+msgstr "Di chuyển những mục trong khung bên trái, gốc dưới, để theo vị trí nó trong mô hình "
+"bên phải, gốc trên. Trên cần trục chính nó, cháu sẽ tìm bốn mũi tên cho phép di "
 "chuyển mục. Để chọn mục cần di chuyển, đơn giản hãy nhắp vào nó."
+
+#:../boards/discovery.xml.in.h:1
+msgid "Colors, sounds, memory..."
+msgstr "Màu sắc, âm thanh, trí nhớ..."
+
+#:../boards/discovery.xml.in.h:2
+msgid "Go to discovery activities"
+msgstr "Đi đến hoạt động Tìm ra"
 
 #:../boards/doubleentry.xml.in.h:1
 msgid "Basic counting skills"
@@ -1258,12 +1272,39 @@ msgstr "Cháu hãy chọn công cụ vẽ bên trái, chọn màu bên dưới, 
 "giữa trên chuột để xóa bỏ đối tượng nào."
 
 #:../boards/electric.xml.in.h:1
-msgid "Create and simulate electric schema"
+msgid "Create and simulate an electric schema"
 msgstr "Tạo và mô phỏng giản đồ điện"
 
 #:../boards/electric.xml.in.h:2
-msgid "Electric"
+msgid ""
+"Drag electrical components from the selector and drop them in the working "
+"area. Create wires by clicking on a connection spot, dragging the mouse to "
+"the next connection spot, and letting go. You can also move components by "
+"dragging them. You can delete wires by clicking on them. To delete a "
+"component, select the deletion tool on top of the component selector. You "
+"can click on the switch to open and close it. You can change the rheostat "
+"value by dragging its wiper. In order to simulate what happens when a bulb "
+"is blown, you can blown it by right-clicking on it. The simulation is "
+"updated in real time by any user action."
+msgstr "Kéo thành phần điện từ bộ chọn và thả mỗi điều vào vùng làm việc. Tạo dây bằng cách nhắp vào một nơi kết nối, kéo con chuột tới nơi kết nối khác, rồi buông ra. Cháu cũng có thể di chuyển thành phần bằng cách kéo nó. Có thể xoá bỏ dây bằng cách nhắp vào nó. Để xoá bỏ thành phần, hãy chọn công cụ xoá bỏ nằm trên bộ chọn thành phần. Cháu có thể nhắp vào công tắt để mở/tắt nó. Có thể thay đổi giá trị cái biến trở bằng cách kéo bộ lau của nó. Để mô phỏng sự kiện khi bóng đèn ngắt, cháu có thể ngắt nó bằng cách nhắp-phải vào nó. Hành động người dùng nào sẽ cập nhật giờ thật sự mô phỏng."
+
+#:../boards/electric.xml.in.h:3
+msgid "Electricity"
 msgstr "Điện"
+
+#:../boards/electric.xml.in.h:4
+msgid "Freely create an electric schema with a real time simulation of it."
+msgstr "Tạo tự do một giản đồ điện có sự mô phỏng giờ thật."
+
+#:../boards/electric.xml.in.h:5
+msgid ""
+"GCompris uses the Gnucap electric simulator as a backend. You can get more "
+"information on gnucap at &lt;http://geda.seul.org/tools/gnucap/&gt;."
+msgstr "Trình GCompris dùng bộ mô phỏng điện Gnucap làm hậu phương. Có thể xem thông tin thêm về Gnucap tại &lt;http://geda.seul.org/tools/gnucap/&gt;."
+
+#:../boards/electric.xml.in.h:6
+msgid "Requires some basic understanding of the concept of electricity."
+msgstr "Cần thiết hiểu cơ bản khái niệm điện."
 
 #:../boards/enumerate.xml.in.h:1
 msgid "Basic enumeration"
@@ -1342,6 +1383,18 @@ msgstr "Hãy nhắp đôi chuột vào hình chữ nhật đến khi mọi khố
 msgid "Go to experiential activities"
 msgstr "Đi tới hoạt động đựa trên kinh nghiệm"
 
+#:../boards/experience.xml.in.h:2
+msgid "Various physical based activities."
+msgstr "Hoạt động đựa vào di chuyển vật lý."
+
+#:../boards/experimental.xml.in.h:1
+msgid "Go to Experimental activities"
+msgstr "Đi tới hoạt động đựa trên kinh nghiệm"
+
+#:../boards/experimental.xml.in.h:2
+msgid "Run gcompris --experimental to see this menu."
+msgstr "Hãy chạy lệnh « gcompris --experimental » (thực nghiệm) để xem trình đơn này."
+
 #:../boards/fifteen.xml.in.h:1
 msgid ""
 "Click on any item that has a free block beside it, and it will be swapped "
@@ -1414,6 +1467,10 @@ msgstr "Thâch-x cần tưới hoa, nhưng ống vòi bị chặn."
 #:../boards/fun.xml.in.h:1
 msgid "Go to Amusement activities"
 msgstr "Đi tới hoạt động trò vui"
+
+#:../boards/fun.xml.in.h:2
+msgid "Various fun activities."
+msgstr "Nhiều hoạt động trò vui"
 
 #:../boards/gcompris/mimetypes/mime_type.xml.in.h:1
 msgid "gcompris animation"
@@ -1489,8 +1546,8 @@ msgid "Cuba"
 msgstr "Cu-ba"
 
 #:../boards/geography/board2_0.xml.in.h:5
-msgid "Dominican republic"
-msgstr "Cộng hoà Đô-mi-ni-cạ "
+msgid "Dominican Republic"
+msgstr "Cộng hoà Đô-mi-ni-cạ"
 
 #:../boards/geography/board2_0.xml.in.h:6
 msgid "Greenland"
@@ -1844,7 +1901,8 @@ msgid "Mauritania"
 msgstr "Mô-ri-ta-ni-a"
 
 #:../boards/geography/board4_0.xml.in.h:21
-msgid "Moroco"
+#:../boards/geography/board4_2.xml.in.h:31
+msgid "Morocco"
 msgstr "Ma-rốc"
 
 #:../boards/geography/board4_0.xml.in.h:22
@@ -1993,13 +2051,17 @@ msgstr "Dim-ba-bu-ê"
 msgid "Eritrea"
 msgstr "Ê-ri-tơ-rê-a"
 
-#:../boards/geography/board4_2.xml.in.h:31
-msgid "Morocco"
-msgstr "Ma-rốc"
-
 #:../boards/geography/board5_0.xml.in.h:1
 msgid "Regions of France"
 msgstr "Miền của Pháp"
+
+#:../boards/geometry.xml.in.h:1
+msgid "Geometry"
+msgstr "Hình học"
+
+#:../boards/geometry.xml.in.h:2
+msgid "Geometry activities."
+msgstr "Hoạt động Hình học."
 
 #:../boards/gletters.xml.in.h:1 ../boards/wordsgame.xml.in.h:2
 msgid "Keyboard manipulation"
@@ -2028,7 +2090,7 @@ msgid ""
 msgstr "Cháu hãy hướng dẫn Bộ Ăn Số đến biểu thức bằng số tại đỉnh màn hình."
 
 #:../boards/gnumch-equality.xml.in.h:3
-msgid "Practice addition, multiplication, division and substraction."
+msgid "Practice addition, multiplication, division and subtraction."
 msgstr "Thức hành phép cộng, nhân, chia và trừ."
 
 #:../boards/gnumch-equality.xml.in.h:4 ../boards/gnumch-inequality.xml.in.h:4
@@ -2058,8 +2120,10 @@ msgid ""
 "For example, the factors of 6 are 1, 2, 3 and 6. 4 is not a factor of 6 "
 "because 6 cannot be divided into 4 equal pieces. If one number is a multiple "
 "of a second number, then the second number is a factor of the first number. "
-"Use the arrow keys to navigate around the board and to avoid the Troggles. "
-"Press the spacebar to eat a number."
+"You can think of multiples as families, and factors are the people in those "
+"families. So 1, 2, 3 and 6 all fit into the 6 family, but 4 belongs to "
+"another family. Use the arrow keys to navigate around the board and to avoid "
+"the Troggles. Press the spacebar to eat a number."
 msgstr "Cháu à, các hệ số của một số nào đó là mọi số chia nó ra nhiều phần bằng "
 "nhau. Lấy thí dụ, những hệ số của số 6 là số 1, 2, 3 và 6, vì cháu có thể "
 "chia 6 cho các số này:\n"
@@ -2098,7 +2162,7 @@ msgid "Inequality Number Munchers"
 msgstr "Bộ Ăn Số Không Bằng"
 
 #:../boards/gnumch-inequality.xml.in.h:3
-msgid "Practice addition, substraction, multiplication and division."
+msgid "Practice addition, subtraction, multiplication and division."
 msgstr "Thức hành phép cộng, trừ, nhân và chia."
 
 #:../boards/gnumch-multiples.xml.in.h:1
@@ -2121,9 +2185,15 @@ msgid ""
 "number times another number. For example, 24, 36, 48 and 60 are all "
 "multiples of 12. 25 is not a multiple of 12 because there isn't any number "
 "that can be multiplied by 12 to get 25. If one number is a factor of a "
-"second number, then the second number is a multiple of the first number. Use "
-"the arrow keys to navigate around the board and to avoid the Troggles. Press "
-"the spacebar to eat a number."
+"second number, then the second number is a multiple of the first number. "
+"Again, you can think of multiples as families, and factors are the people "
+"who belong to those families. The factor 5, has parents 10, grandparents 15, "
+"great-grandparents 20, great-great-grandparents 25, and every extra step of "
+"5 is another great- in front! But the number 5 does not belong in the 8 or "
+"23 families. You can't fit any number of 5s into 8 or 23 with nothing left "
+"over. So '8 isn't a multiple of 5, nor is 23. Only 5, 10, 15, 20, 25 ... are "
+"multiples (or families or steps) of 5. Use the arrow keys to navigate around "
+"the board and to avoid the Troggles. Press the spacebar to eat a number."
 msgstr "Bội số của một số nào đó là mọi số bằng số gốc nhân với số khác. Lấy thí dụ, "
 "khi cháu nhân số 2:\n"
 " • 1 × 2 = 2\n"
@@ -2148,8 +2218,8 @@ msgstr "Bội số của một số nào đó là mọi số bằng số gốc n
 "    5 × 3 = ?\n"
 "Cháu có thể nói mẫu này, hoặc hát nó. :)  Cũng có thể thức hành những bước:\n"
 " • (1, 2,) 3 (4, 5) 6 (7, 8) 9 (10, 11) 12\n"
-"    _ _ 3 _ _ 6 _ _ 9 _ _ 12 _ _ ?Cháu có thể sử dụng phím mũi tên để di "
-"chuyển ở quanh màn hình. Khi cháu thấy một bội số của số gốc, hãy bấm phím "
+"    _ _ 3 _ _ 6 _ _ 9 _ _ 12 _ _ ?\n"
+"Cháu có thể sử dụng phím mũi tên để di chuyển ở quanh màn hình. Khi cháu thấy một bội số của số gốc, hãy bấm phím "
 "dài để ăn nó. :)"
 
 #:../boards/gnumch-primes.xml.in.h:1
@@ -2167,108 +2237,29 @@ msgstr "Bộ Ăn Số Nguyên Tố"
 #:../boards/gnumch-primes.xml.in.h:4
 msgid ""
 "Prime numbers are numbers that are only divisible by themselves and 1. For "
-"example, 3 is a prime number, but 4 isn't (because 4 is divisible by 2). Use "
-"the arrow keys to navigate around the board and to avoid the Troggles. Press "
-"the spacebar to eat a number."
-msgstr "Chúng ta có tên đặc biệt cho số nào chỉ có hai hệ số, chính nó và số một:\n"
-" • 1 × 2 = 2\n"
-" • 1 × 3 = 3\n"
-"Chúng ta gọi chúng là Số Nguyên Tố. Vì chúng một mình, không có gia đình lớn "
-"như số khác, chúng ta cho chúng tên đặc biệt. :)\n"
-"Vậy cháu phân biệt số nguyên tố như thế nào? Dễ quá! Số nguyên tố chỉ có hai "
-"hệ số, chính nó và 1. Nếu cháu không thể chia nó cho số nào khác, thì nó là "
-"số nguyên tố. Trong lời thí dụ dưới, cháu có thể phân biệt số nguyên tố "
-"chưa?\n"
-" • 1 × 2 = 2\n"
-" • 1 × 3 = 3\n"
-" • 1 × 4 = 4\t2 × 2 = 4\n"
-" • 1 × 5 = 5\n"
-" • 1 × 6 = 6\t2 × 3 = 6\n"
-" • 1 × 7 = 7\n"
-" • 1 × 8 = 8\t2 × 4 = 8\n"
-" • 1 × 9 = 9\t3 × 3 = 9\n"
-"Trong danh sách trên, cháu có thể thấy những số một mình, những số nguyên tố "
-"chưa? Chỉ có thể chia chúng cho số 1. Chúng là: 2, 3, 5 và 7. Nếu cháu có "
-"thể chia một số nào đó cho số 2, số 3, cho bất cứ số khác nào, thì nó không "
-"phải là số nguyên tố. Cháu hiểu chưa? :)\n"
-"\n"
-"☯ Mẹo đặc biệt — cháu có nhớ những bước trong mẫu số không? 2, 4, 6, 8, "
-"10... là mẫu cho số 2. Vì vậy, mọi số trong bất cứ mẫu số nào (trừ số đầu) "
-"không phải là số nguyên tố. Cháu thấy mẫu số 2 đi:\n"
-"[_  2]  _  4  _  6  _  8  _ 10\n"
-"_ 12 _ 14 _ 16 _ 18 _ 20\n"
-"_ 22 _ 24 _ 26 _ 28 _ 30 ...\n"
-"Cháu có thấy hiểu mẫu này chưa? Mọi số kết thức bằng số 2, 4, 6, 8 hay 0 thì "
-"là bội số của 2. Thì (trừ số đầu, 2) nó không phải là số nguyên tố! :) (Cháu "
-"nên khám phá mẫu số khác: 3, 5 v.v.)\n"
-"\n"
-"Vậy cháu biết số nguyên tố có gia đình rất nhỏ, chỉ chính nó và số 1 nhân "
-"với nhau để làm nó. Cháu có thể tìm thấy những số một mình chưa? Có thể sử "
-"dụng phím mũi tên để di chuyển ở quanh màn hình. Khi cháu thấy một số nguyên "
-"tố, hãy bấm phím dài để ăn nó. :)"
+"example, 3 is a prime number, but 4 isn't (because 4 is divisible by 2). You "
+"can think of prime numbers as very small families: they only ever have two "
+"people in them! Only themselves and 1. You can't fit any other numbers into "
+"them with nothing left over. 5 is one of these lonely numbers (only 5 × 1 = "
+"5), but you can see that 6 has 2 and 3 in its family as well (6 × 1 = 6, 2 × "
+"3 = 6). So 6 is not a prime number. Use the arrow keys to navigate around "
+"the board and to avoid the Troggles. Press the spacebar to eat a number."
+msgstr "Số nguyên tố là con số chia hết cho chỉ chính nó và số 1. Lấy thí dụ, số 3 là số nguyên tố, còn số 4 không (vì 4 cũng chia hết cho 2). Cháu có thể tưởng số nguyên tố là rất nhỏ gia đình: không bao giờ có hơn hai người ở ! Chỉ chính nó và số 1. Không thể chia hết số khác nào. Số 5 là một con số một mình như thế (chỉ 5 × 1 = 5), còn cháu thấy biết được số 6 cũng có số 2 và số 3 trong gia đình (6 × 1 = 6, 2 × 3 = 6). Vậy số 6 không phải là số nguyên tố. Hãy dùng phím mũi tên để di chuyển ở quanh bảng và để tránh các Tốc-u. Bấm phím dài để ăn con số."
 
 #:../boards/gnumchmenu.xml.in.h:1
 msgid "Go to Number Munchers activities"
 msgstr "Đi tới hoạt động Bộ Ăn Số"
 
 #:../boards/gnumchmenu.xml.in.h:2
-msgid "Left-Click the mouse on an activity to select it."
-msgstr "Nhắp trái chuột vào một hoạt động nào đó để chọn nó."
-
-#:../boards/gtans.xml.in.h:1
-msgid ""
-"From Wikipedia, the free encyclopedia. Tangram (Chinese: literally \"seven "
-"boards of cunning\") is a Chinese puzzle. While the tangram is often said to "
-"be ancient, its existence has only been verified as far back as 1800. It "
-"consists of 7 pieces, called tans, which fit together to form a square; "
-"taking the square as the unit: * 5 right isosceles triangles o 2 small (legs "
-"of 1) o 1 medium size (legs of square root of 2) o 2 large size (legs of 2) "
-"* 1 square (side of 1) * 1 parallelogram (sides of 1 and square root of 2)"
-msgstr "(Từ Wikipedia, bách khoa tự do) Tangram (tiếng Hòa, nghĩa chữ là « bảy bảng "
-"xảo quyệt ») là một câu đố Hòa. Dù tangram có tiếng về cổ, chỉ có thông tin "
-"tin cây về nó trong năm 1800. Nó gồm 7 phần, được gọi là « tan », mà vừa với "
-"nhau để tạo hình vuông. Khi lập vuông là đơn vị:\n"
-" • 5 hình tam giác cân vuông:\n"
-"\t2 nhỏ (chân là 1)\n"
-"\t\t1 vừa (chân là căn bậc hai của 2)\n"
-"\t\t\t2 lớn (chân là 2)\n"
-" • 1 hình vuông (bên là 1)\n"
-" • 1 hình bình hành (các bên là 1 và căn bậc hai của 2)\n"
-" "
-
-#:../boards/gtans.xml.in.h:3
-msgid ""
-"Select the tangram to form. Move a piece by dragging it. Right click on it "
-"to create a symetrical item. Select an item and drag around it for the "
-"rotation Once the requested shape is created, it will be recognized by the "
-"computer If you need help, click on the shape button, the border of the "
-"shape will be drawn."
-msgstr "Cháu chọn tangram cần tạo nhé. Kéo một phần nào đó, để di chuyển nó. Nhắp-"
-"phải vào nó để tạo mục đối xứng khác. Chọn mục và kéo nó chung quanh để xoay "
-"nó. Một khi đã tạo hình yêu cầu, máy tính sẽchấp nhận nó. Nếu cháu cần sự "
-"giúp đỡ, hãy nhắp vào cái nút hình, và viền hình sẽ được vẽ cho cháu."
-
-#:../boards/gtans.xml.in.h:4
-msgid "The objective is to form a given shape with seven pieces"
-msgstr "Mục tiêu là tạo hình yêu cầu bằng bảy phần"
-
-#:../boards/gtans.xml.in.h:5
-msgid ""
-"The original code has been written by Philippe Banwarth in 1999. It has been "
-"ported to GCompris by Yves Combe in 2005."
-msgstr "Mã nguồn gốc được ghi bởi Phillippe Banwarth trong năm 1999. Nó được chuyển "
-"sang trình GCompris bởi Yves Combe trong năm 2005."
-
-#:../boards/gtans.xml.in.h:6
-msgid "The tangram puzzle game"
-msgstr "Trò chơi câu đố tangram"
+msgid "Number Munchers are games to play with arythmetics."
+msgstr "Number Munchers (Ăn con số) là trò chơi tính toán."
 
 #:../boards/guessnumber.xml.in.h:1
 msgid "Guess a number"
 msgstr "Đoán số"
 
 #:../boards/guessnumber.xml.in.h:2
-msgid "Help Tux escape the cave. Tux hides a number that you must discover."
+msgid "Help Tux escape the cave. Tux hides a number for you to find."
 msgstr "Cháu giúp đỡ Thâ-kh-x thoát khỏi hang nhé. Thâ-kh-x đã ẩn một số mà cháu cần "
 "tìm."
 
@@ -2279,11 +2270,11 @@ msgstr "Số từ 1 đến 1000 cho cấp cuối cùng."
 #:../boards/guessnumber.xml.in.h:4
 msgid ""
 "Read the instructions that give you the range of the number to find. Enter a "
-"number in the top right blue entry box. Tux tell you if your number is "
+"number in the top right blue entry box. Tux will tell you if your number is "
 "higher or lower. Then enter another number. The distance between Tux and the "
-"escape area on the right represents how far you are from the right number. "
-"If Tux is above or under the escape area, it means your number is higher or "
-"under the right number."
+"escape area on the right represents how far you are from the correct number. "
+"If Tux is over or under the escape area, it means your number is over or "
+"under the correct number."
 msgstr "Cháu hãy đọc những hướng dẫn mà cho cháu biết phạm vị chứa số cần tìm. Hãy "
 "gõ một số vào hộp nhập màu dương bên phải trên. Thâ-kh-x sẽ báo cháu biết "
 "nếu số đã gõ là cao hơn, hay thấp hơn. Rồi cháu hãy gõ một số khác. Khoảng "
@@ -2295,10 +2286,10 @@ msgstr "Cháu hãy đọc những hướng dẫn mà cho cháu biết phạm v�
 msgid "Concept taken from EPI games."
 msgstr "Ý niệm thuộc về Trò chơi EPI."
 
-#:../boards/hanoi.xml.in.h:2 ../boards/hanoi_real.xml.in.h:1
+#:../boards/hanoi.xml.in.h:2
 msgid ""
-"Drag and Drop the top pieces only from one peg to another, to reproduce the "
-"tower on the right in the empty space on the left."
+"Drag and Drop one top piece at a time, from one peg to another, to reproduce "
+"the tower on the right in the empty space on the left."
 msgstr "Cháu hãy Kéo và Thả chỉ phần đầu, từ một cái chốt đến cái khác, để tạo lại "
 "tháp bên phải trong vùng trống bên trái."
 
@@ -2313,6 +2304,13 @@ msgstr "Tạo lại tháp bên phải trong vùng trống bên trái."
 #:../boards/hanoi.xml.in.h:6 ../src/boards/hanoi.c:100
 msgid "Simplified Tower of Hanoi"
 msgstr "Tháp của Hà Nội đơn giản"
+
+#:../boards/hanoi_real.xml.in.h:1
+msgid ""
+"Drag and Drop the top pieces only from one peg to another, to reproduce the "
+"tower on the right in the empty space on the left."
+msgstr "Cháu hãy Kéo và Thả chỉ phần đầu, từ một cái chốt đến cái khác, để tạo lại "
+"tháp bên phải trong vùng trống bên trái."
 
 #:../boards/hanoi_real.xml.in.h:3
 msgid "Reproduce the tower on the right side"
@@ -2373,7 +2371,7 @@ msgid "Practice reading by finding the word matching an image"
 msgstr "Thức hành đọc bằng cách tìm từ khớp với ảnh."
 
 #:../boards/imageid.xml.in.h:3 ../boards/imagename.xml.in.h:4
-#:../boards/readingh.xml.in.h:5 ../boards/readingv.xml.in.h:4
+#:../boards/readingh.xml.in.h:4 ../boards/readingv.xml.in.h:4
 #:../src/boards/imageid.c:112 ../src/boards/missingletter.c:104
 msgid "Reading"
 msgstr "Đọc"
@@ -2614,41 +2612,13 @@ msgstr "cờ"
 msgid "racket"
 msgstr "vợt"
 
-#:../boards/login.xml.in.h:1
-msgid ""
-"GCompris identifies each child, so we can provide child-specific reports."
-msgstr "Trình GCompris nhận diện mỗi trẻ con, để có khả năng có thể thông báo đặc "
-"trưng cho mỗi trẻ con."
+#:../boards/keyboard.xml.in.h:1
+msgid "Discover the keyboard."
+msgstr "Khám phá bàn phím."
 
-#:../boards/login.xml.in.h:2
-msgid "GCompris login screen"
-msgstr "Màn hình đăng nhập của GCompris"
-
-#:../boards/login.xml.in.h:3
-msgid ""
-"In order to activate the login screen, you must \n"
-"first add users in the administration part of GCompris. \n"
-"You access the administration part by running 'gcompris -a'.\n"
-"In the administration, you can create different profiles. In each profiles\n"
-"you can have a different set of users and select which activities are "
-"available to them.\n"
-"To run GCompris in a specific profile, you can run 'gcompris -p profile' "
-"where 'profile'\n"
-"is the name of a profile as you created it in the administration."
-msgstr "Để hoạt hóa màn hình đăng nhập, trước tiên\n"
-"bạn hãy thêm người dùng vào phần quản lý của GCompris.\n"
-"Có thể truy cập phần quản lý bằng cách chạy lệnh\n"
-"« gcompris -a » (quẢn lý).\n"
-"Trong phần quản lý này, bạn có thể tạo xác lập.\n"
-"Cho mỗi xác lập, bạn có thể tạo một bộ người dùng khác,\n"
-"và chọn những hoạt động nào sẵn sàng cho họ.\n"
-"Để chạy trình GCompris cho một xác lập nào đó,\n"
-"bạn hãy chậy « gcompris -p tên_xác_lập » (xác lậP).\n"
-"Tên xác lập là tên của xác lập đó khi bạn tạo nọ trong phần quản lý."
-
-#:../boards/login.xml.in.h:10
-msgid "Select or enter your name to log in GCompris"
-msgstr "Hãy chọn hoặc gõ tên bạn để đăng nhập vào trình GCompris."
+#:../boards/keyboard.xml.in.h:2
+msgid "Keyboard-manipulation boards"
+msgstr "Bảng thao tác bàn phím"
 
 #:../boards/leftright.xml.in.h:1
 msgid "Determine if a hand is a right or a left hand"
@@ -2675,6 +2645,50 @@ msgid ""
 "button on the left, or the green button on the right."
 msgstr "Khi cháu thấy một tay, cháu có biết nó là tay trái hay tay phải không? Hãy "
 "nhắp vào nút màu đỏ bên trái, hoạc nút màu xanh bên phải."
+
+#:../boards/login.xml.in.h:1
+msgid ""
+"GCompris identifies each child, so we can provide child-specific reports."
+msgstr "Trình GCompris nhận diện mỗi trẻ con, để có khả năng có thể thông báo đặc "
+"trưng cho mỗi trẻ con."
+
+#:../boards/login.xml.in.h:2
+msgid "GCompris login screen"
+msgstr "Màn hình đăng nhập của GCompris"
+
+#:../boards/login.xml.in.h:3
+msgid ""
+"In order to activate the login screen, you must \n"
+"first add users in the administration part of GCompris. \n"
+"You access Administration by running 'gcompris -a'.\n"
+"In Administration, you can create different profiles. In each profile,\n"
+"you can have a different set of users and select which activities are "
+"available to them.\n"
+"To run GCompris for a specific profile, you use 'gcompris -p profile' where "
+"'profile'\n"
+"is the name of a profile as you created it in Administration."
+msgstr "Để hoạt hóa màn hình đăng nhập, trước tiên\n"
+"bạn hãy thêm người dùng vào phần quản lý của GCompris.\n"
+"Có thể truy cập phần quản lý bằng cách chạy lệnh\n"
+"« gcompris -a » (quẢn lý).\n"
+"Trong phần quản lý này, bạn có thể tạo xác lập.\n"
+"Cho mỗi xác lập, bạn có thể tạo một bộ người dùng khác,\n"
+"và chọn những hoạt động nào sẵn sàng cho họ.\n"
+"Để chạy trình GCompris cho một xác lập nào đó,\n"
+"bạn hãy chậy « gcompris -p tên_xác_lập » (xác lậP).\n"
+"Tên xác lập là tên của xác lập đó khi bạn tạo nọ trong phần quản lý."
+
+#:../boards/login.xml.in.h:10
+msgid "Select or enter your name to log in to GCompris"
+msgstr "Hãy chọn hoặc gõ tên bạn để đăng nhập vào trình GCompris."
+
+#:../boards/math.xml.in.h:1
+msgid "Mathematical activities."
+msgstr "Hoạt động Toán học."
+
+#:../boards/math.xml.in.h:2
+msgid "Mathematics"
+msgstr "Toán học"
 
 #:../boards/maze.xml.in.h:1 ../boards/maze2DRelative.xml.in.h:1
 #:../boards/maze3D.xml.in.h:2 ../boards/mazeInvisible.xml.in.h:1
@@ -2745,7 +2759,7 @@ msgstr "Hãy sử dụng phím mũi tên để di chuyển Thâch-x lên cửa. 
 "được."
 
 #:../boards/mazeMenu.xml.in.h:1
-msgid "Find your way out different type of mazes"
+msgid "Find your way out of different types of mazes"
 msgstr "Cháu hãy tìm đường ra mê lộ kiểu khác nhau"
 
 #:../boards/mazeMenu.xml.in.h:2
@@ -2792,13 +2806,17 @@ msgstr "Lật bài để tìm cặp đôi khớp"
 msgid "Memory Game with images"
 msgstr "Trò chơi nhớ có ảnh"
 
-#:../boards/memory.xml.in.h:5 ../boards/memory_tux.xml.in.h:5
+#:../boards/memory.xml.in.h:5 ../boards/memory_tux.xml.in.h:4
 msgid "Train your memory and remove all the cards"
 msgstr "Dây dỗ trí nhớ cháu, bỏ bài hết"
 
 #:../boards/memory_group.xml.in.h:1
 msgid "Go to Memory activities"
 msgstr "Đi đến hoạt động Nhớ"
+
+#:../boards/memory_group.xml.in.h:2
+msgid "Various memory activities (images, letters, sounds)."
+msgstr "Nhiều hoạt động trí nhớ (ảnh, chữ, âm thanh)."
 
 #:../boards/memory_sound.xml.in.h:1 ../boards/memory_sound_tux.xml.in.h:1
 msgid ""
@@ -2836,31 +2854,30 @@ msgid "Audio memory game against Tux"
 msgstr "Trò chơi nhớ âm thanh với Thâch-x"
 
 #:../boards/memory_sound_tux.xml.in.h:4
-msgid "Play the audio memory against Tux"
+msgid "Play the audio memory game against Tux"
 msgstr "Chơi trò chơi nhớ âm thanh với Thâch-x"
 
 #:../boards/memory_tux.xml.in.h:1
-msgid ""
-"A set of blank cards is shown. Each pair is associated by the same picture "
-"in their hidden faces. Click on a card to can uncover it and see its hidden "
-"picture. However, you can only see two hidden pictures at once. You have to "
-"remember the position of the pictures to associate them. To remove a pair of "
-"cards, uncover both of them. You play alternatively with Tux, and must take "
-"more pairs of cards than him."
-msgstr "Cháu có thể xem một bộ bài trắng. Mỗi cặp bài có cùng một ảnh trên mặt bị "
-"ẩn. Nhắp vào bài nào để xem mặt bị ẩn dưới nó. Tùy nhiên, cháu có thể nhắp "
-"chỉ hai bài trong một lượt. Như thế thì, cháu cần nhớ vị trí của ảnh, vậy "
-"khi cháu tìm ảnh khớp, có thể nhắp vào cặp đôi khớp! Khi cháu nhắp vào cặp "
-"bài ảnh khớp, chúng bị bỏ đi. Cháu có thể tìm mỗi cặp bài ảnh chưa? Cháu cần "
-"chơi lần lượt với Thâch-x, và phải được nhiều bài hơn ta."
+msgid "Have a memory competition with Tux."
+msgstr "Đua trí nhớ với Thâch-x."
 
 #:../boards/memory_tux.xml.in.h:2
 msgid "Memory Game with images, against Tux"
 msgstr "Trò chơi nhớ có ảnh, với Thâch-x."
 
-#:../boards/memory_tux.xml.in.h:4
-msgid "Play to memory against Tux."
-msgstr "Chơi nhớ với Thâch-x."
+#:../boards/memory_tux.xml.in.h:5
+msgid ""
+"You can see a set of cards that all look the same. Each card has a picture "
+"on the other side, and each picture has a twin somewhere in the set. You can "
+"only turn over two cards at once, so you need to remember where the pictures "
+"are until you can find the twin. When you turn over twins, they disappear! "
+"You take turns with Tux, and to win the game, you have to find more pairs of "
+"twins than he does."
+msgstr "Cháu có thể xem một bộ bài trắng. Mỗi cặp bài có cùng một ảnh trên mặt bị "
+"ẩn, và mỗi ảnh có ảnh trùng dưới bài khác. Nhắp vào bài để xem ảnh ẩn dưới "
+"nó, và cố khớp hai ảnh trùng. Bạn chỉ có thể lật hai bài đồng thời, vậy cần "
+"phải nhớ vị trí của ảnh, trong khi tìm ảnh trùng. Khi bạn lật hai ảnh trùng, "
+"cả hai bài biến mất!"
 
 #:../boards/menu.xml.in.h:1
 msgid ""
@@ -2876,10 +2893,10 @@ msgid ""
 "    Music note - Repeat the question\n"
 "    Question Mark - Help\n"
 "    Tool - The configuration menu\n"
-"    Tux Plane - About game\n"
-"The stars, show suitable age groups for each game:\n"
-"    1, 2 or 3 simple stars  - 2 to 6 years old\n"
-"    1, 2 or 3 complex stars - From 7 years old"
+"    Tux Plane - About GCompris\n"
+"The stars show suitable age groups for each game:\n"
+"    1, 2 or 3 simple stars  - from 2 to 6 years old\n"
+"    1, 2 or 3 complex stars - 7 years and up"
 msgstr "Bạn hãy nhắp vào biểu tượng để tới hoạt động đó,\n"
 "hoặc trình đơn có nhiều hoạt động.\n"
 "Tại đáy màn hình có thanh điều khiển của GCompris.\n"
@@ -2903,8 +2920,8 @@ msgstr "Trình đơn chính của GCompris"
 
 #:../boards/menu.xml.in.h:16
 msgid ""
-"GCompris is a collection of educational games that provides for children "
-"from 2 years old with different activities."
+"GCompris is a collection of educational games that provides different "
+"activities for children aged 2 and up."
 msgstr "GCompris là một tập hợp trò chơi giáo dục cung cấp nhiều hoạt động khác nhau "
 "cho trẻ con từ 2 tuổi."
 
@@ -2914,6 +2931,14 @@ msgid ""
 "edutainment software"
 msgstr "Mục đích của GCompris là cung cấp chương trình miễn phí có thể thay thế phần "
 "mềm trò chơi mang tính giáo dục phổ biến sở hữu."
+
+#:../boards/miscelaneous.xml.in.h:1
+msgid "Miscelaneous activities"
+msgstr "Hoạt động lặt vặt"
+
+#:../boards/miscelaneous.xml.in.h:2
+msgid "Time, Geography, ..."
+msgstr "Thời gian, Địa lý, ..."
 
 #:../boards/missing_letter.xml.in.h:1
 msgid ""
@@ -3119,9 +3144,21 @@ msgstr "Thức hành quản lý tiền, gồm đồng xu"
 msgid "Rebuild the mosaic"
 msgstr "Xây dụng lại khảm"
 
+#:../boards/mouse.xml.in.h:1
+msgid "Mouse-manipulation activities."
+msgstr "Hoạt động thao tác con chuột."
+
 #:../boards/mouse.xml.in.h:2
-msgid "Mouse-manipulation boards"
-msgstr "Bảng thao tác con chuột"
+msgid "Various kind of mouse activities (clicks, move)"
+msgstr "Nhiều hoạt động con chuột khác nhau (nhắp, di chuyển)"
+
+#:../boards/numeration.xml.in.h:1
+msgid "Numeration"
+msgstr "Phép đếm"
+
+#:../boards/numeration.xml.in.h:2
+msgid "Numeration activities."
+msgstr "Hoạt động phép đếm."
 
 #:../boards/paintings.xml.in.h:1
 msgid "Assemble the puzzle"
@@ -3222,6 +3259,14 @@ msgstr "Số"
 #:../boards/planegame.xml.in.h:4 ../src/boards/planegame.c:77
 msgid "Numbers in Order"
 msgstr "Các con số theo thứ tự"
+
+#:../boards/puzzle.xml.in.h:1
+msgid "Puzzles"
+msgstr "Câu đố"
+
+#:../boards/puzzle.xml.in.h:2
+msgid "Various kind of puzzle."
+msgstr "Nhiều câu đố khác nhau."
 
 #:../boards/pythontest.xml.in.h:1
 msgid "Add a language-binding to gcompris."
@@ -3333,6 +3378,10 @@ msgstr "vàng"
 msgid "Go to the Reading activities"
 msgstr "Đi tới hoạt động Đọc"
 
+#:../boards/reading.xml.in.h:2
+msgid "Reading activities."
+msgstr "Hoạt động Đọc."
+
 #:../boards/readingh.xml.in.h:1 ../boards/readingv.xml.in.h:1
 msgid ""
 "A word is shown at the top right of the board. A list of words will appear "
@@ -3349,13 +3398,17 @@ msgstr "Thức hành đọc theo chiều ngang"
 msgid "Read a list of words and work out if a given word is in it"
 msgstr "Đọc danh sách từ để phân biệt một từ riêng"
 
-#:../boards/readingh.xml.in.h:4 ../boards/readingv.xml.in.h:3
-msgid "Read training in a limited time"
+#:../boards/readingh.xml.in.h:5
+msgid "Reading training in a limited time"
 msgstr "Dạy dỗ đọc trong thời hạn"
 
 #:../boards/readingv.xml.in.h:2
 msgid "Read a vertical list of words and work out if a given word is in it"
 msgstr "Đọc danh sách từ đọc để phân biệt một từ riêng"
+
+#:../boards/readingv.xml.in.h:3
+msgid "Read training in a limited time"
+msgstr "Dạy dỗ đọc trong thời hạn"
 
 #:../boards/readingv.xml.in.h:5
 msgid "Vertical-reading practice"
@@ -3365,7 +3418,7 @@ msgstr "Thức hành đọc theo chiều dọc"
 msgid "Copy a drawing from the box on the right into the box on the left."
 msgstr "Sao chép một hình vẽ từ hộp bên phải, sang hộp bên trái."
 
-#:../boards/redraw.xml.in.h:2 ../boards/redraw_symmetrical.xml.in.h:2
+#:../boards/redraw.xml.in.h:2
 msgid ""
 "First, select the proper tool from the toolbar. Then drag the mouse to "
 "create objects. When you are done, click on the OK button. Errors will be "
@@ -3387,13 +3440,26 @@ msgid ""
 "the left."
 msgstr "Hãy sao chép hình phản chiếu của đối tượng từ hộp bên phải sang hộp bên trái."
 
+#:../boards/redraw_symmetrical.xml.in.h:2
+msgid ""
+"First, select the proper tool from the toolbar. Then drag the mouse to "
+"create objects. When you are done, click on the OK button. A little red "
+"cross will show you where something isn't right yet. The order of objects "
+"(above/under) is not important but be careful not to end up with unwanted "
+"objects under others."
+msgstr "Trước hết, cháu cần chọn công cụ đúng từ thanh công cụ. Sau đó, cháu hãy kéo "
+"con chuột để tạo đối tượng. Khi xong, cháu có thể nhắp vào nút « Được ». "
+"Trình này sẽ hiển thị lỗi nào dùng chữ thập đỏ nhỏ. Thứ tự đối tượng (trên/"
+"dưới) không phải là quan trọng, nhưng cháu nên cẩn thận không có đối tượng "
+"vô ích dưới mục khác."
+
 #:../boards/redraw_symmetrical.xml.in.h:3
 msgid "Mirror the given item"
 msgstr "Phản chiếu mục đã cho"
 
 #:../boards/reversecount.xml.in.h:1
 msgid ""
-"Can move the mouse, can read numbers and substract numbers up to 10 for the "
+"Can move the mouse, can read numbers and subtract numbers up to 10 for the "
 "first level"
 msgstr "Có thể di chuyển con chuột, có thể đọc con số và trừ số đến 10 cho lớp thứ "
 "nhất"
@@ -3533,15 +3599,29 @@ msgid "Numbers With Dice"
 msgstr "Con số với súc sắc"
 
 #:../boards/smallnumbers.xml.in.h:5 ../boards/smallnumbers2.xml.in.h:5
-msgid ""
-"With the keyboard, type the number corresponding to the number of dots on "
-"the falling dice."
+msgid "With the keyboard, type the number of dots you see on the falling dice."
 msgstr "Dùng bàn phím, cháu hãy gõ con số khớp với số điểm trên súc sắc đang rời "
 "xuống."
 
 #:../boards/smallnumbers2.xml.in.h:4
 msgid "Numbers with pairs of dice"
 msgstr "Con số với súc sắc"
+
+#:../boards/sound_group.xml.in.h:1
+msgid "Go to Sound activities"
+msgstr "Đi tới hoạt động Âm thanh"
+
+#:../boards/sound_group.xml.in.h:2
+msgid "Sound based activities."
+msgstr "Hoạt động đựa vào âm thanh."
+
+#:../boards/strategy.xml.in.h:1
+msgid "Strategy games"
+msgstr "Trò chơi chiến lược"
+
+#:../boards/strategy.xml.in.h:2
+msgid "Strategy games like chess, connect4, ..."
+msgstr "Trò chơi chiến lược như cờ, kết nối 4, ..."
 
 #:../boards/submarine.xml.in.h:1
 msgid ""
@@ -3626,6 +3706,58 @@ msgstr "Siêu trí nhớ"
 msgid "Tux has hidden several items. Find them again in the correct order"
 msgstr "Thâch-x đã ẩn vài lần. Cháu hãy tìm ta theo thứ tự đúng."
 
+#:../boards/tangram.xml.in.h:1
+msgid ""
+"From Wikipedia, the free encyclopedia. Tangram (Chinese: literally \"seven "
+"boards of cunning\") is a Chinese puzzle. While the tangram is often said to "
+"be ancient, its existence has only been verified as far back as 1800. It "
+"consists of 7 pieces, called tans, which fit together to form a square; "
+"taking the square as the unit:\n"
+"\t* 5 right isosceles triangles\n"
+"\t\to 2 small (legs of 1)\n"
+"\t\to 1 medium size (legs of square root of 2)\n"
+"\t\to 2 large size (legs of 2)\n"
+"\t* 1 square (side of 1)\n"
+"\t* 1 parallelogram (sides of 1 and square root of 2)"
+msgstr "(Từ Wikipedia, bách khoa tự do) Tangram (tiếng Hòa, nghĩa chữ là « bảy bảng "
+"xảo quyệt ») là một câu đố Hòa. Dù tangram có tiếng về cổ, chỉ có thông tin "
+"tin cây về nó trong năm 1800. Nó gồm 7 phần, được gọi là « tan », mà vừa với "
+"nhau để tạo hình vuông. Khi lập vuông là đơn vị:\n"
+" • 5 hình tam giác cân vuông:\n"
+"\t2 nhỏ (chân là 1)\n"
+"\t\t1 vừa (chân là căn bậc hai của 2)\n"
+"\t\t\t2 lớn (chân là 2)\n"
+" • 1 hình vuông (bên là 1)\n"
+" • 1 hình bình hành (các bên là 1 và căn bậc hai của 2)\n"
+" "
+
+#:../boards/tangram.xml.in.h:9
+msgid ""
+"Select the tangram to form. Move a piece by dragging it. Right-click on it "
+"to create a symmetrical item. Select an item and drag around it to show the "
+"rotation you want. Once you've shown what shape you want, the computer will "
+"create it. If you need help, click on the shape button, and the border of "
+"the shape will be drawn."
+msgstr "Cháu chọn tangram cần tạo nhé. Kéo một phần nào đó, để di chuyển nó. Nhắp-"
+"phải vào nó để tạo mục đối xứng khác. Chọn mục và kéo nó chung quanh để xoay "
+"nó. Một khi đã tạo hình yêu cầu, máy tính sẽchấp nhận nó. Nếu cháu cần sự "
+"giúp đỡ, hãy nhắp vào cái nút hình, và viền hình sẽ được vẽ cho cháu."
+
+#:../boards/tangram.xml.in.h:10
+msgid "The objective is to form a given shape with seven pieces"
+msgstr "Mục tiêu là tạo hình yêu cầu bằng bảy phần"
+
+#:../boards/tangram.xml.in.h:11
+msgid ""
+"The original code was written by Philippe Banwarth in 1999. It was ported to "
+"GCompris by Yves Combe in 2005."
+msgstr "Mã nguồn gốc được ghi bởi Phillippe Banwarth trong năm 1999. Nó được chuyển "
+"sang trình GCompris bởi Yves Combe trong năm 2005."
+
+#:../boards/tangram.xml.in.h:12
+msgid "The tangram puzzle game"
+msgstr "Trò chơi câu đố tangram"
+
 #:../boards/target.xml.in.h:1
 msgid ""
 "Can move the mouse, can read numbers and count up to 15 for the first level"
@@ -3655,6 +3787,15 @@ msgstr "Thức hành phép cộng trong trò chơi mục đích"
 msgid "Throw darts at a target and count your score."
 msgstr "Ném phi tiêu tới mục đích và đếm điểm mình."
 
+#:../boards/traffic.xml.in.h:1
+msgid "A sliding-block puzzle game"
+msgstr "Trò chơi câu đố khối trượt"
+
+#:../boards/traffic.xml.in.h:2
+msgid ""
+"Remove all the red cars from the parking lot through the gate on the right"
+msgstr "Hãy gỡ bỏ mọi xe màu đỏ ra lưới, qua khe hở bên phải"
+
 #:../boards/tuxpaint.xml.in.h:1
 msgid "Drawing activity (pixmap)"
 msgstr "Hoạt động vẽ (ánh xạ điểm ảnh)"
@@ -3674,15 +3815,6 @@ msgstr "Dùng trình Sơn Thâch-x để vẽ. Khi trình xong, bảng này sẽ
 #:../boards/tuxpaint.xml.in.h:5
 msgid "mouse and keyboard manipulation"
 msgstr "thao tác con chuột và bàn phím"
-
-#:../boards/traffic.xml.in.h:1
-msgid "A sliding-block puzzle game"
-msgstr "Trò chơi câu đố khối trượt"
-
-#:../boards/traffic.xml.in.h:2
-msgid ""
-"Remove all the red cars from the parking lot through the gate on the right"
-msgstr "Hãy gỡ bỏ mọi xe màu đỏ ra lưới, qua khe hở bên phải"
 
 #:../boards/watercycle.xml.in.h:1
 msgid ""
@@ -3902,8 +4034,8 @@ msgid "Tower of Hanoi"
 msgstr "Tháp Hà Nội"
 
 #:../src/boards/hanoi_real.c:277 ../src/boards/hanoi_real.c:288
-msgid "Move the entire stack to the right peg"
-msgstr "Di chuyển toàn bộ đống sang cái móc bên phải"
+msgid "Move the entire stack to the right peg, one disc at a time"
+msgstr "Di chuyển toàn bộ đống sang cái móc bên phải, một đĩa mỗi lần."
 
 #:../src/boards/imageid.c:113 ../src/boards/missingletter.c:105
 msgid "Learn how to read"
@@ -3962,14 +4094,6 @@ msgstr "₫ %.2f"
 #,c-format
 msgid "$ %.0f"
 msgstr "₫ %.0f"
-
-#:../src/boards/paratrooper.c:102
-msgid "Paratrooper"
-msgstr "Lính nhảy dù"
-
-#:../src/boards/paratrooper.c:103
-msgid "Direct the paratrooper to help him land safely"
-msgstr "Hướng dẫn lính nhảy dù để giúp đỡ họ hạ cánh một cách an toàn."
 
 #:../src/boards/planegame.c:78
 msgid "Move the plane to catch the clouds in the correct order"
@@ -4121,7 +4245,7 @@ msgstr "Đang hiệu chỉnh nhóm: "
 
 #:../src/boards/python/admin/group_edit.py:67
 msgid " for class: "
-msgstr "cho lớp: "
+msgstr " cho lớp: "
 
 #:../src/boards/python/admin/group_edit.py:70
 msgid "Editing a new group"
@@ -4283,7 +4407,7 @@ msgstr "Ngày sinh:"
 
 #:../src/boards/python/admin/user_edit.py:159
 msgid ""
-"You need to provide at least a login, firstname and lastname for your users"
+"You need to provide at least a login, first name and last name for your users"
 msgstr "Bạn cần phải cung cấp ít nhất tên đăng nhập và họ tên cho mỗi người dùng."
 
 #:../src/boards/python/admin/user_edit.py:176
@@ -4294,7 +4418,7 @@ msgstr "Đã có người dùng có tên đăng nhập này ồi."
 msgid ""
 "To import a user list from a file, first select a class.\n"
 "FILE FORMAT: Your file must be formatted like this:\n"
-"login;First name;Last name;Birth date\n"
+"login;First name;Last name;Date of birth\n"
 "The separator is autodetected and can be one of ',', ';' or ':'"
 msgstr "Để nhập một danh sách người dùng từ một tập tin,\n"
 "trước tiên bạn hãy chọn lớp nào.\n"
@@ -4334,6 +4458,27 @@ msgstr "Cảnh báo: trong hệ thống bạn, không thể truy cập những �
 #:../src/boards/python/anim.py:2364
 msgid "The corresponding items have been skipped."
 msgstr "Những mục tượng ứng đã bị bỏ qua."
+
+#:../src/boards/python/electric.py:94
+msgid ""
+"Cannot find the 'gnucap' electric simulator.\n"
+"You can download and install it from:\n"
+"<http://geda.seul.org/tools/gnucap/>\n"
+"To be detected, it must be installed in\n"
+"/usr/bin/gnucap or /usr/local/bin/gnucap.\n"
+"You can still use this activity to draw schematics without computer "
+"simulation."
+msgstr "Không tìm thấy bộ mô phỏng điện « gnucap ».\n"
+"Cháu có thể tải nó xuống:\n"
+"<http://geda.seul.org/tools/gnucap/>\n"
+"rồi cài đặt nó. Để cho phép trình GCompris\n"
+"phát hiện bộ mô phỏng này,\n"
+"nó phải được cài đặt vào\n"
+"</usr/bin/gnucap> hay vào\n"
+"</usr/local/bin/gnucap>.\n"
+"Tuy nhiên, cháu vẫn còn có thể vẽ giản đồ,\n"
+"không có mô phỏng máy tính,\n"
+"khi không có bộ mô phỏng gnucap."
 
 #:../src/boards/python/gnumch.py:95
 #,python-format
@@ -4410,7 +4555,7 @@ msgstr "%d × %d"
 # Variable: don't translate / Biến: đừng dịch
 #:../src/boards/python/gnumch.py:264
 #,python-format
-msgid "%d ∕ %d"
+msgid "%d ÷ %d"
 msgstr "%d ÷ %d"
 
 #:../src/boards/python/gnumch.py:272
@@ -4611,13 +4756,13 @@ msgstr "Khoảng cách:"
 
 #:../src/boards/python/tuxpaint.py:115
 msgid ""
-"Cannot find Tuxpaint. \n"
-" Install it to use this board !"
-msgstr "Không thể tìm trình Tuxpaint.\n"
-"Hãy cài đặt nó để sử dụng bảng này."
+"Cannot find Tuxpaint.\n"
+"Install it to use this activity !"
+msgstr "Không thể tìm trình Tuxpaint (Sơn Thâch-x).\n"
+"Hãy cài đặt nó để sử dụng hoạt động này."
 
 #:../src/boards/python/tuxpaint.py:128
-msgid "Waiting for Tuxpaint finishes"
+msgid "Waiting for Tuxpaint to finish"
 msgstr "Đang đợi Sơn Thâch-x chạy xong"
 
 #:../src/boards/python/tuxpaint.py:183
@@ -5065,47 +5210,47 @@ msgid ""
 msgstr "Hãy thoát khỏi nó,\n"
 "rồi thông báo lỗi này cho tác giả."
 
-#:../src/gcompris/gcompris.c:122
+#:../src/gcompris/gcompris.c:123
 msgid "run gcompris in fullscreen mode."
 msgstr "chạy GCompris trong chế độ toàn màn hình."
 
-#:../src/gcompris/gcompris.c:124
+#:../src/gcompris/gcompris.c:125
 msgid "run gcompris in window mode."
 msgstr "chạy GCompris trong chế độ cửa sổ."
 
-#:../src/gcompris/gcompris.c:126
+#:../src/gcompris/gcompris.c:127
 msgid "run gcompris with sound enabled."
 msgstr "chạy GCompris có âm thanh được bật."
 
-#:../src/gcompris/gcompris.c:128
+#:../src/gcompris/gcompris.c:129
 msgid "run gcompris without sound."
 msgstr "chạy GCompris không có âm thanh."
 
-#:../src/gcompris/gcompris.c:130
+#:../src/gcompris/gcompris.c:131
 msgid "run gcompris with the default gnome cursor."
 msgstr "chạy GCompris với con trỏ Gnome mặc định."
 
-#:../src/gcompris/gcompris.c:132
+#:../src/gcompris/gcompris.c:133
 msgid "display only activities with this difficulty level."
 msgstr "hiển thị chỉ những hoạt động tại cấp khó này."
 
-#:../src/gcompris/gcompris.c:134
+#:../src/gcompris/gcompris.c:135
 msgid "display debug informations on the console."
 msgstr "hiển thị thông tin gỡ lỗi trên bàn giao tiếp."
 
-#:../src/gcompris/gcompris.c:136
+#:../src/gcompris/gcompris.c:137
 msgid "Print the version of "
 msgstr "In ra phiên bản của "
 
-#:../src/gcompris/gcompris.c:138
+#:../src/gcompris/gcompris.c:139
 msgid "Use the antialiased canvas (slower)."
 msgstr "Dùng khung vẽ trơn (chậm hơn)."
 
-#:../src/gcompris/gcompris.c:140
+#:../src/gcompris/gcompris.c:141
 msgid "Disable XRANDR (No screen resolution change)."
 msgstr "Tắt XRANDR (không thay đổi độ phân giải màn hình)."
 
-#:../src/gcompris/gcompris.c:142
+#:../src/gcompris/gcompris.c:143
 msgid ""
 "Run gcompris with local menu (e.g -l /reading will let you play only "
 "activities in the reading directory, -l /boards/connect4 only the connect4 "
@@ -5114,50 +5259,54 @@ msgstr "Chạy GCompris với trình đơn cục bộ (v.d.  « -l /reading » s
 "chơi chỉ thư mục hoạt động đọc, « -l /boards/connect4 » chỉ hoạt động kết "
 "nối 4)."
 
-#:../src/gcompris/gcompris.c:144
+#:../src/gcompris/gcompris.c:145
 msgid "Run GCompris with local activity directory added to menu"
 msgstr "Chạy GCompris với thư mục hoạt động cục bộ được thêm vào trình đơn"
 
-#:../src/gcompris/gcompris.c:146
+#:../src/gcompris/gcompris.c:147
 msgid "Run GCompris in administration and user-management mode"
 msgstr "Chạy GCompris trong chế độ quản trị  (hệ thống và người dùng)"
 
-#:../src/gcompris/gcompris.c:148
+#:../src/gcompris/gcompris.c:149
 msgid "Use alternate database for profiles"
 msgstr "Dùng cơ sở dữ liệu thay thế cho xác lập."
 
-#:../src/gcompris/gcompris.c:150
+#:../src/gcompris/gcompris.c:151
 msgid "Use alternate database for logs"
 msgstr "Dùng cơ sở dữ liệu thay thế cho bản ghi."
 
-#:../src/gcompris/gcompris.c:152
+#:../src/gcompris/gcompris.c:153
 msgid "Create the alternate database for profiles"
 msgstr "Tạo cơ sở dữ liệu thay thế cho xác lập."
 
-#:../src/gcompris/gcompris.c:154
+#:../src/gcompris/gcompris.c:155
 msgid "Re-read XML Menus and store them in the database"
 msgstr "Đọc lại các trình đơn XML và lưu chúng vào cơ sở dữ liệu."
 
-#:../src/gcompris/gcompris.c:156
+#:../src/gcompris/gcompris.c:157
 msgid "Set the profile to use. Use 'gcompris -a' to create profiles"
 msgstr "Đặt xác lập cần dùng. Sử dụng lệnh « gcompris -a » để tẠo xÁc lẬp."
 
-#:../src/gcompris/gcompris.c:158
+#:../src/gcompris/gcompris.c:159
 msgid "List all available profiles. Use 'gcompris -a' to create profiles"
 msgstr "Liệt kê mọi xác lập sẵn sàng. Sử dụng lệnh « gcompris -a » để tạo xác lập"
 
-#:../src/gcompris/gcompris.c:160
+#:../src/gcompris/gcompris.c:161
 msgid ""
 "Shared directory location, for profiles and board-configuration data: "
 "[$HOME/.gcompris/shared]"
 msgstr "Địa điểm thư mục dùng chung, cho xác lập và dữ liệu cấu hình bảng: <$HOME/."
 "gcompris/shared>."
 
-#:../src/gcompris/gcompris.c:162
+#:../src/gcompris/gcompris.c:163
 msgid "The location of user directories: [$HOME/.gcompris/users]"
 msgstr "Địa điểm của thư mục người dùng: <$HOME/.gcompris/users>."
 
-#:../src/gcompris/gcompris.c:779
+#:../src/gcompris/gcompris.c:165
+msgid "Run the experimental activities"
+msgstr "Chạy hoạt động đựa trên kinh nghiệm"
+
+#:../src/gcompris/gcompris.c:782
 #,c-format
 msgid ""
 "GCompris is free software released under the GPL License. In order to "
@@ -5182,7 +5331,7 @@ msgstr "GCompris là phần mềm tự do được phát hành với điều ki�
 "nghĩ sử dụng hệ điều hành GNU/Linux. Có thể tìm thông tin thêm tại <http://"
 "www.fsf.org/philosophy>."
 
-#:../src/gcompris/gcompris.c:1167
+#:../src/gcompris/gcompris.c:1170
 #,c-format
 msgid ""
 "GCompris\n"
@@ -5195,17 +5344,17 @@ msgstr "GCompris\n"
 "Thông tin thêm tại <http://gcompris.net/>\n"
 
 #.check the list of possible values for -l, then exit
-#:../src/gcompris/gcompris.c:1235
+#:../src/gcompris/gcompris.c:1244
 #,c-format
 msgid "Use -l to access an activity directly.\n"
 msgstr "Sử dụng lệnh « -l » để truy cập một hoạt động nào đó một cách trực tiếp.\n"
 
-#:../src/gcompris/gcompris.c:1236
+#:../src/gcompris/gcompris.c:1245
 #,c-format
-msgid "List of available activity is :\n"
-msgstr "Danh sách các hoạt động sẵn sàng là:\n"
+msgid "The list of available activities is :\n"
+msgstr "Danh sách các hoạt động sẵn sàng:\n"
 
-#:../src/gcompris/gcompris.c:1379
+#:../src/gcompris/gcompris.c:1388
 #,c-format
 msgid "The list of available profiles is:\n"
 msgstr "Danh sách các xác lập sẵn sàng là:\n"
@@ -5215,8 +5364,8 @@ msgid "Unaffected"
 msgstr "Không có tác động."
 
 #:../src/gcompris/gcompris_db.c:238
-msgid "Users without class"
-msgstr "Người dùng không có lớp"
+msgid "Users without a class"
+msgstr "Người dùng chưa có lớp"
 
 #:../src/gcompris/help.c:203
 msgid "Prerequisite"
