@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-01-29 16:29+0100\n"
-"PO-Revision-Date: 2006-01-29 17:09+0100\n"
+"PO-Revision-Date: 2006-01-30 18:49+0100\n"
 "Last-Translator: Francisco Javier F. Serrador <serrador@cvs.gnome.org>\n"
 "Language-Team: Spanish <traductores@es.gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -21,7 +21,6 @@ msgstr ""
 "Plural-Forms:  nplurals=2; plural=(n != 1);\n"
 
 #: ../boards/administration.xml.in.h:1
-#, fuzzy
 msgid ""
 "- In the 'Boards' section you can change the list of activities. Just "
 "untoggle them in the treeview. You can change the language used for reading, "
@@ -41,42 +40,21 @@ msgid ""
 "children as individuals; they can learn to type in and recognize their own "
 "usernames (login is configurable)."
 msgstr ""
-"- En la sección 'Tableros' puedes cambiar la lista de actividades. "
-"Simplemente desactívalas en la vista de árbol. Puedes cambiar el idioma "
-"usado para leerlas, por ejemplo, y después el idioma usado para decir los "
-"nombres de los colores. - Puedes guardar configuraciones múltiples, y "
-"cambiar fácilmente entre ellas. En la sección 'Perfil' añade un perfil, "
-"después en la sección 'Tablero' selecciona el perfil en la lista "
-"desplegable, y después elige los tableros que quieres que estén activos. "
-"Puedes añadir un montón de perfiles, con diferentes listas de tableros, y "
-"diferentes idiomas. Puedes establecer el perfil por omisión en la sección "
-"'Perfil', eligiendo el perfil que quieras, y después pulsando el botón 'Por "
-"omisión'. También puedes elegir un perfil desde la línea de comandos. - "
-"Puedes añadir usuarios, clases y para cada clase, puedes crear grupos de "
-"usuarios. Ten en cuenta que puedes importar usuarios de un archivo separado "
-"por comas. Asigna uno o más grupos a un perfil, y los nuevos identificadores "
-"de usuario aparecerán tras reiniciar GCompris. El ser capaz de identificar a "
-"los niños de manera individual en GCompris significa que podemos "
-"proporcionar informes individuales. También se reconoce a los niños como "
-"individuos, pueden aprender a teclear y reconocer sus propios nombres de "
-"usuario (el identificador de usuario es configurable)."
+"- En la sección 'Tableros' puedes cambiar la lista de actividades. Simplemente desactívalas en la vista de árbol. Puedes cambiar el idioma usado para leerlas, por ejemplo, y después el idioma usado para decir los nombres de los colores. \n"
+"- Puedes guardar configuraciones múltiples, y cambiar fácilmente entre ellas. En la sección 'Perfil' añade un perfil, después en la sección 'Tablero' selecciona el perfil en la lista desplegable, y después elige los tableros que quieres que estén activos. Puedes añadir un montón de perfiles, con diferentes listas de tableros, y diferentes idiomas. Puedes establecer el perfil por omisión en la sección 'Perfil', eligiendo el perfil que quieras, y después pulsando el botón 'Predeterminado'. También puedes elegir un perfil desde la línea de comandos.\n"
+"- Puedes añadir usuarios, clases y para cada clase, puedes crear grupos de usuarios. Ten en cuenta que puedes importar usuarios de un archivo separado por comas. Asigna uno o más grupos a un perfil, y los nuevos identificadores de usuario aparecerán tras reiniciar GCompris. El ser capaz de identificar a los niños de manera individual en GCompris significa que podemos proporcionar informes individuales. También se reconoce a los niños como individuos, pueden aprender a teclear y reconocer sus propios nombres de usuario (el identificador de usuario es configurable)."
 
 #: ../boards/administration.xml.in.h:4
 msgid "GCompris Administration Menu"
 msgstr "Menú de Administración de GCompris"
 
 #: ../boards/administration.xml.in.h:5
-#, fuzzy
 msgid ""
 "If you want to fine tune GCompris to your needs, you can use the "
 "administration module here. The ultimate goal is to provide child-specific "
 "reporting for parents and teacher who want to monitor the progress, "
 "strengths and needs of their children."
-msgstr ""
-"Si quieres ajustar la configuración de GCompris según tus necesidades, "
-"puedes usar el módulo de aadministración. El objetivo principal es "
-"proporcional informes específicos sobre cada niño a los padres y al profesor "
-"que quieran supervisar el progreso, las fuerzas y debilidades de sus niños."
+msgstr "Si quieres ajustar finamente la configuración de GCompris según tus necesidades, puedes usar el módulo de administración aquí. El objetivo principal es proporcionar informes específicos sobre cada niño a los padres y al profesor que quieran supervisar el progreso, los puntos fuertes y necesidades de sus niños."
 
 #: ../boards/administration.xml.in.h:6
 msgid "Left-Click with the mouse to select an activity"
@@ -100,7 +78,7 @@ msgstr "Pulsa en la caja coloreada correcta."
 
 #: ../boards/advanced_colors.xml.in.h:5
 msgid "Learn to recognize unusual colors."
-msgstr "Aprende a reconocer colores inusuales"
+msgstr "Aprende a reconocer colores inusuales."
 
 #: ../boards/advanced_colors/board1.xml.in.h:1
 msgid "almond"
@@ -646,7 +624,7 @@ msgid ""
 "player has captured 25 or more stones, or both players have taken 24 stones "
 "each (draw). If both players agree that the game has been reduced to an "
 "endless cycle, each player captures the stones on their side of the board."
-msgstr ""
+msgstr "El objetivo del juego es capturar más semillas que el oponene. Debido a que el juego sólo tiene 48 semillas, capturar 25 es suficiente para lograr esto. Debido a que hay un número par de semillas, es posible el empate, si cada jugador captura 24. El juego se acaba cuando un jugador ha capturado 25 o más piedras, o ambos jugadores han capturado 24  piedras cada uno (empate>). Si ambos jugadores están de acuerdo el juego puede reducirse a un ciclo sin fin, cada jugador captura las piedras en su lado del tablero."
 
 #: ../boards/babymatch.xml.in.h:1 ../boards/babymatch/board1_0.xml.in.h:1
 #: ../boards/babymatch/board2_0.xml.in.h:1
@@ -1317,7 +1295,7 @@ msgid ""
 "value by dragging its wiper. In order to simulate what happens when a bulb "
 "is blown, you can blown it by right-clicking on it. The simulation is "
 "updated in real time by any user action."
-msgstr ""
+msgstr "Arrastra compenentes eléctricos desde el selector y suéltalos en el área de trabajo. Crea cables pulsando en un punto de conexión, arrastrando el ratón hasta el siguiente punto de conexión, y soltando. Puedes mover componentes arrastrándolos. Puedes borrar cables pulsando en ellos. Para borrar un componente, pulsa en la herramienta de borrar encima del selector del componente. Puedes pulsar en el interruptor para abrirlo o cerrarlo. Puedes cambiar el valor del reóstato arrastrando su varilla. Para simular lo que ocurre cuando se enciende una bombilla, puses  encenderla pulsando con el botón derecho en ella. La similación se actualiza en tiempo real por cualquier acción del usuario. "
 
 #: ../boards/electric.xml.in.h:3
 msgid "Electricity"
@@ -1325,13 +1303,13 @@ msgstr "Electricidad"
 
 #: ../boards/electric.xml.in.h:4
 msgid "Freely create an electric schema with a real time simulation of it."
-msgstr ""
+msgstr "Crear libremente un esquema eléctrico con una simulación en tiempo real en ella."
 
 #: ../boards/electric.xml.in.h:5
 msgid ""
 "GCompris uses the Gnucap electric simulator as a backend. You can get more "
 "information on gnucap at &lt;http://geda.seul.org/tools/gnucap/&gt;."
-msgstr ""
+msgstr "Gcompris usa el simulador eléctrico GNUcap como backend. Puede obtener información sobre gnucap en &lt;http://geda.seul.org/tools/gnucap/&gt;."
 
 #: ../boards/electric.xml.in.h:6
 msgid "Requires some basic understanding of the concept of electricity."
@@ -3742,7 +3720,6 @@ msgstr ""
 "correcto"
 
 #: ../boards/tangram.xml.in.h:1
-#, fuzzy
 msgid ""
 "From Wikipedia, the free encyclopedia. Tangram (Chinese: literally \"seven "
 "boards of cunning\") is a Chinese puzzle. While the tangram is often said to "
@@ -3756,14 +3733,13 @@ msgid ""
 "\t* 1 square (side of 1)\n"
 "\t* 1 parallelogram (sides of 1 and square root of 2)"
 msgstr ""
-"De la Wikipedia, la enciclopedia libre. Tangram (Chino: literalmente «siete "
-"tableros de astucia») es un puzzle chino. Mientras que tangram a menudo se "
-"dice que es antiguo, su existencia se ha verificado sólo hasta 1800. "
-"Consiste en 7 piezas, llamadas tans, que casan juntas para formar un "
-"cuadrado; tomando el cuadrado como una unidad: * 5 triángulos isósceles o 2 "
-"pequeños (de lado largo 1) o 1 de tamaño medio (de lado la raíz cuadrada de "
-"2) o 2 de gran tamaño (lado 2) * 1 cuadrado (lado de 1) * 1 paralelogramo "
-"(lados de 1 y raíz cuadarada de 2)"
+"De la Wikipedia, la enciclopedia libre. Tangram (Chino: literalmente «siete tableros de astucia») es un puzzle chino. Mientras que tangram a menudo se dice que es antiguo, su existencia se ha verificado sólo hasta 1800. Consiste en 7 piezas, llamadas tans, que casan juntas para formar un cuadrado; tomando el cuadrado como una unidad: \n"
+"* 5 triángulos isósceles \n"
+"  o 2 pequeños (de lado largo 1) \n"
+"  o 1 de tamaño medio (de lado la raíz cuadrada de 2) \n"
+"  o 2 de gran tamaño (lado 2) \n"
+"* 1 cuadrado (lado de 1) \n"
+"* 1 paralelogramo (lados de 1 y raíz cuadarada de 2)"
 
 #: ../boards/tangram.xml.in.h:9
 msgid ""
