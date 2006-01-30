@@ -26,8 +26,6 @@ import gcompris.admin
 import gcompris.bonus
 import gtk
 import gtk.gdk
-import random
-import pango
 
 import os
 
@@ -274,12 +272,13 @@ class Gcompris_electric:
 
     # A list of couple (component class, it's value)
     component_set = ((Battery, 10),
-                     (Connection, None),
                      (Bulb, 0.11),
                      (Rheostat, 100),
                      (Resistor, 1000),
                      (Diode, None),
-                     (Switch, None))
+                     (Switch, None),
+                     (Connection, None)
+                     )
     Selector(self, component_set)
     
 

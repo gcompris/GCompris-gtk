@@ -1,3 +1,22 @@
+2006-01-30  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	- Cleanup in awele. Now uses translatable strings for NORTH and SOUTH.
+	- Changed to use GCompris reload button instead of 'in game' one
+
+	* boards/awele/awele_frame.jpg:
+	* boards/awele/awele_frame.png:
+	* boards/awele/awele_frame_avec_messages.png:
+	* boards/awele/nv_partie.png:
+	* boards/awele/nv_partie_clic.png:
+	* boards/awele/nv_partie_notify.png:
+	* po/TRANSLATORS.README:
+	* src/boards/awele.c: (start_board), (repeat), (awele_create_item),
+	(buttonNewGameClick):
+	* src/boards/awele.h:
+	* src/boards/python/electric.py:
+	* src/gcompris/gcompris-edit.glade: removed, useless file
+	* src/gcompris/gcompris-edit.gladep: -
+
 2006-01-23  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	Fixed po file list

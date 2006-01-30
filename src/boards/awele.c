@@ -34,6 +34,7 @@ static void pause_board (gboolean pause);
 static void end_board (void);
 static int gamewon;
 static void game_won (void);
+static void repeat(void);
 
 static GnomeCanvasGroup *boardRootItem = NULL;
 
@@ -66,7 +67,7 @@ static BoardPlugin menu_bp = {
 	NULL,
 	NULL,
 	NULL,
-	NULL,
+	repeat,
 	NULL,
 	NULL
 };
@@ -103,14 +104,27 @@ start_board (GcomprisBoard * agcomprisBoard)
 
 	if (agcomprisBoard != NULL)
 	{
-		gcomprisBoard = agcomprisBoard;
-		gcomprisBoard->level = 9;
-		gcomprisBoard->maxlevel = 13;
-		gcomprisBoard->sublevel = 2;
-		gcomprisBoard->number_of_sublevel = 1;	/* Go to next level after
-							 * this number of 'play' */
-		gcompris_bar_set (GCOMPRIS_BAR_LEVEL);
+		gchar *str;
+		GdkPixbuf *pixmap = NULL;
 
+		gcomprisBoard = agcomprisBoard;
+		gcomprisBoard->level = 1;
+		gcomprisBoard->maxlevel = 9;
+		gcomprisBoard->sublevel = 1;
+		gcomprisBoard->number_of_sublevel = 10;	/* Go to next level after
+							 * this number of 'play' */
+
+		str = gcompris_image_to_skin("button_reload.png");
+		pixmap = gcompris_load_pixmap(str);
+		g_free(str);
+		if(pixmap) {
+		  gcompris_bar_set_repeat_icon(pixmap);
+		  gdk_pixbuf_unref(pixmap);
+		  gcompris_bar_set(GCOMPRIS_BAR_REPEAT_ICON);
+		} else {
+		  gcompris_bar_set(GCOMPRIS_BAR_REPEAT);
+		}
+		
 		awele_next_level ();
 
 		gamewon = FALSE;
@@ -148,6 +162,15 @@ is_our_board (GcomprisBoard * gcomprisBoard)
 		}
 	}
 	return FALSE;
+}
+
+/*
+ * Repeat let the user restart the current level
+ *
+ */
+static void repeat (){
+
+  buttonNewGameClick(graphsElt);
 }
 
 
@@ -227,6 +250,58 @@ awele_create_item (GnomeCanvasGroup * parent)
 			       "height",
 			       (double) gdk_pixbuf_get_height (pixmap),
 			       "width_set", TRUE, "height_set", TRUE, NULL);
+
+	/*
+	 * Display text
+	 */
+	{
+	  int x, y;
+
+	  x = 35;
+	  y = 190;
+	  gnome_canvas_item_new (boardRootItem,
+				 gnome_canvas_text_get_type (),
+				 "text", _("NORTH"),
+				 "font", gcompris_skin_font_board_medium,
+				 "x", (double) x + 1,
+				 "y", (double) y + 1,
+				 "anchor", GTK_ANCHOR_CENTER,
+				 "fill_color_rgba", gcompris_skin_color_shadow,
+				 NULL);
+
+	  gnome_canvas_item_new (boardRootItem,
+				 gnome_canvas_text_get_type (),
+				 "text", _("NORTH"),
+				 "font", gcompris_skin_font_board_medium,
+				 "x", (double) x,
+				 "y", (double) y,
+				 "anchor", GTK_ANCHOR_CENTER,
+				 "fill_color_rgba", gcompris_skin_color_text_button,
+				 NULL);
+
+	  x = 765;
+	  y = 295;
+	  gnome_canvas_item_new (boardRootItem,
+				 gnome_canvas_text_get_type (),
+				 "text", _("SOUTH"),
+				 "font", gcompris_skin_font_board_medium,
+				 "x", (double) x + 1,
+				 "y", (double) y + 1,
+				 "anchor", GTK_ANCHOR_CENTER,
+				 "fill_color_rgba", gcompris_skin_color_shadow,
+				 NULL);
+
+	  gnome_canvas_item_new (boardRootItem,
+				 gnome_canvas_text_get_type (),
+				 "text", _("SOUTH"),
+				 "font", gcompris_skin_font_board_medium,
+				 "x", (double) x,
+				 "y", (double) y,
+				 "anchor", GTK_ANCHOR_CENTER,
+				 "fill_color_rgba", gcompris_skin_color_text_button,
+				 NULL);
+
+	}
 
 	staticAwale = (AWALE *) malloc (sizeof (AWALE));
 
@@ -402,28 +477,6 @@ awele_create_item (GnomeCanvasGroup * parent)
 						"anchor", GTK_ANCHOR_CENTER,
 						NULL);
 
-	strcpy (xpmFile, NEWGAME);
-	graphsElt->pixbufButtonNewGame = gcompris_load_pixmap (xpmFile);
-	strcpy (xpmFile, NEWGAME_CLIC);
-	graphsElt->pixbufButtonNewGameClicked =
-		gcompris_load_pixmap (xpmFile);
-	strcpy (xpmFile, NEWGAME_NOTIFY);
-	graphsElt->pixbufButtonNewGameNotify = gcompris_load_pixmap (xpmFile);
-
-	graphsElt->ButtonNewGame = gnome_canvas_item_new (boardRootItem,
-							  gnome_canvas_pixbuf_get_type
-							  (), "x",
-							  (double) 700, "y",
-							  (double) 60,
-							  "pixbuf",
-							  graphsElt->
-							  pixbufButtonNewGame,
-							  NULL);
-
-	gtk_signal_connect (GTK_OBJECT (graphsElt->ButtonNewGame), "event",
-			    GTK_SIGNAL_FUNC (buttonNewGameClick),
-			    (gpointer) buttonClickArgs[1]);
-
 	gcomprisBoard->level = 1;
 
 	return NULL;
@@ -468,7 +521,7 @@ game_won ()
 *  les elements graphiques a modifier.
 *  @return void
 */
-void
+static void
 initBoardGraphics (GRAPHICS_ELT * graphsElt)
 {
 
@@ -520,7 +573,7 @@ initBoardGraphics (GRAPHICS_ELT * graphsElt)
 *  les elements graphiques a modifier.
 *  @return un entier
 */
-gint
+static gint
 buttonClick (GtkWidget * item, GdkEvent * event, gpointer data)
 {
 
@@ -629,7 +682,7 @@ buttonClick (GtkWidget * item, GdkEvent * event, gpointer data)
 *  @param alpha entier pour differencier une mise a jour du plateau ou le lancement d'une nouvelle partie.
 *  @return Renvoi du pointeur sur la zone memoire apres redimension (n'a probablement pas changÃ© d'adresse).
 */
-BEANHOLE_LINK *
+static BEANHOLE_LINK *
 updateNbBeans (GnomeCanvasItem * nbBeansHole[NBHOLE],
 	       GnomeCanvasGroup * rootGroup,
 	       BEANHOLE_LINK * ptLink, int alpha)
@@ -724,7 +777,7 @@ updateNbBeans (GnomeCanvasItem * nbBeansHole[NBHOLE],
 *  pour remettre a jour le score des joueurs
 *  @param Captures[2] pointeur sur les gnomeCanvasItem d'affichage des scores
 */
-void
+static void
 updateCapturedBeans (GnomeCanvasItem * Captures[2])
 {
 
@@ -750,76 +803,42 @@ updateCapturedBeans (GnomeCanvasItem * Captures[2])
 *  les elements graphiques a modifier.
 *  @return un entier
 */
-gint
-buttonNewGameClick (GtkWidget * item, GdkEvent * event, gpointer data)
+static gint
+buttonNewGameClick (GRAPHICS_ELT *graphsElt)
 {
-
-	CALLBACK_ARGS *args;
-	short int i = 0, nbCapturedBean = 0;
+	short int nbCapturedBean = 0;
 	BEANHOLE_LINK *ptLink;
-	args = (CALLBACK_ARGS *) data;
+	int i;
 
-	switch (event->type)
-	{
-	case GDK_ENTER_NOTIFY:
-		g_object_set (GTK_OBJECT (args->graphsElt->ButtonNewGame),
-			      "pixbuf",
-			      args->graphsElt->pixbufButtonNewGameNotify,
-			      NULL);
-		break;
-	case GDK_LEAVE_NOTIFY:
-		g_object_set (GTK_OBJECT (args->graphsElt->ButtonNewGame),
-			      "pixbuf", args->graphsElt->pixbufButtonNewGame,
-			      NULL);
-		break;
-	case GDK_BUTTON_PRESS:
-		g_object_set (GTK_OBJECT (args->graphsElt->ButtonNewGame),
-			      "pixbuf",
-			      args->graphsElt->pixbufButtonNewGameClicked,
-			      NULL);
-		g_object_set (args->graphsElt->msg, "text", "", NULL);
-		break;
-	case GDK_BUTTON_RELEASE:
-		g_object_set (GTK_OBJECT (args->graphsElt->ButtonNewGame),
-			      "pixbuf",
-			      args->graphsElt->pixbufButtonNewGameNotify,
-			      NULL);
-
-		nbCapturedBean =
-			staticAwale->CapturedBeans[HUMAN] +
-			staticAwale->CapturedBeans[COMPUTER];
+	nbCapturedBean =
+	  staticAwale->CapturedBeans[HUMAN] +
+	  staticAwale->CapturedBeans[COMPUTER];
 
 	/**
-	*	Destruction de toute les graines et remise a zero compteur de capture 
-	*	et indicateur nbre de graine par case
+	 *	Destruction de toute les graines et remise a zero compteur de capture 
+	 *	et indicateur nbre de graine par case
 	*/
-		for (ptLink = args->graphsElt->ptBeansHoleLink, i = 0;
-		     i < NBTOTALBEAN - nbCapturedBean; i++, ptLink++)
-		{
-			gtk_object_destroy (GTK_OBJECT (ptLink->beanPixbuf));
-		}
+	for (ptLink = graphsElt->ptBeansHoleLink, i = 0;
+	     i < NBTOTALBEAN - nbCapturedBean; i++, ptLink++)
+	  {
+	    gtk_object_destroy (GTK_OBJECT (ptLink->beanPixbuf));
+	  }
+	
+	for (i = 0; i < NBHOLE; i++)
+	  {
+	    staticAwale->board[i] = NBBEANSPERHOLE;
+	    g_object_set (GTK_OBJECT
+			  (graphsElt->nbBeansHole[i]),
+			  "text", "4", NULL);
+	  }
+	
+	staticAwale->player = HUMAN;
 
-		for (i = 0; i < NBHOLE; i++)
-		{
-			staticAwale->board[i] = NBBEANSPERHOLE;
-			g_object_set (GTK_OBJECT
-				      (args->graphsElt->nbBeansHole[i]),
-				      "text", "4", NULL);
-		}
-
-		staticAwale->player = HUMAN;
-
-		for (i = 0; i < NBPLAYER; i++)
-		{
-			staticAwale->CapturedBeans[i] = 0;
-		}
-
-		updateCapturedBeans (args->graphsElt->Captures);
-		initBoardGraphics (args->graphsElt);
-		break;
-	default:
-		break;
-	}
-
-	return FALSE;
+	for (i = 0; i < NBPLAYER; i++)
+	  {
+	    staticAwale->CapturedBeans[i] = 0;
+	  }
+	
+	updateCapturedBeans (graphsElt->Captures);
+	initBoardGraphics (graphsElt);
 }

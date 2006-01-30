@@ -16,9 +16,6 @@
 #define BOUTON "awele/bouton1.png"	//Chemin relatif vers fichiers boutons
 #define BOUTON_NOTIFY "awele/bouton1_notify.png"	//Chemin relatif vers fichiers boutons cliqués
 #define BOUTON_CLIC "awele/bouton1_clic.png"	//Chemin relatif vers fichiers boutons cliqués
-#define NEWGAME "awele/nv_partie.png"
-#define NEWGAME_NOTIFY "awele/nv_partie_notify.png"
-#define NEWGAME_CLIC "awele/nv_partie_clic.png"
 #define BEAN "awele/graine1.png"	//Chemin relatif vers fichiers graines
 
 #define Y_BOUTONS 412		//Abcisse des boutons
@@ -44,10 +41,6 @@ typedef struct {
     GdkPixbuf *pixbufButtonClicked[6];	//pixbuf des boutons cliqués
     GnomeCanvasItem *Captures[2];	//Tableau d'item affichage nbre graine capturées.
     GdkPixbuf *pixbufBeans[4];	//pixbufs des graines
-    GdkPixbuf *pixbufButtonNewGame;
-    GdkPixbuf *pixbufButtonNewGameNotify;
-    GdkPixbuf *pixbufButtonNewGameClicked;
-    GnomeCanvasItem *ButtonNewGame;
 } GRAPHICS_ELT;
 
 typedef struct {
@@ -56,16 +49,16 @@ typedef struct {
 } CALLBACK_ARGS;
 
 /* 
-*	Fonctions de traitement des évènements, signaux et rappels
+*	Fonctions de traitement des events, signaux et rappels
 */
-gint eventDelete (GtkWidget * widget, GdkEvent *event, gpointer data);
-gint eventDestroy (GtkWidget * widget, GdkEvent *event, gpointer data);
-gint buttonClick (GtkWidget *item, GdkEvent *event, gpointer data);
-gint buttonNewGameClick (GtkWidget *item, GdkEvent *event, gpointer data);
+static gint eventDelete (GtkWidget * widget, GdkEvent *event, gpointer data);
+static gint eventDestroy (GtkWidget * widget, GdkEvent *event, gpointer data);
+static gint buttonClick (GtkWidget *item, GdkEvent *event, gpointer data);
+static gint buttonNewGameClick (GRAPHICS_ELT *graphsElt);
 
 /**
 *	Fonctions Mise a jour de l'affichage
 */
-BEANHOLE_LINK * updateNbBeans (GnomeCanvasItem *nbBeansHole[NBHOLE], GnomeCanvasGroup *rootGroup, BEANHOLE_LINK *ptLink, int alpha);
-void updateCapturedBeans (GnomeCanvasItem *Captures[2]);
-void initBoardGraphics (GRAPHICS_ELT *graphsElt);
+static BEANHOLE_LINK * updateNbBeans (GnomeCanvasItem *nbBeansHole[NBHOLE], GnomeCanvasGroup *rootGroup, BEANHOLE_LINK *ptLink, int alpha);
+static void updateCapturedBeans (GnomeCanvasItem *Captures[2]);
+static void initBoardGraphics (GRAPHICS_ELT *graphsElt);
