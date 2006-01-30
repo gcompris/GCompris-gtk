@@ -1,5 +1,15 @@
 2006-01-30  Bruno coudoin  <bruno.coudoin@free.fr>
 
+	- Fixed string typo by Clytie (BUG#329035)
+
+	* boards/experience.xml.in:
+	* boards/gnumchmenu.xml.in:
+	* boards/miscelaneous.xml.in:
+	* boards/mouse.xml.in:
+	* boards/puzzle.xml.in:
+
+2006-01-30  Bruno coudoin  <bruno.coudoin@free.fr>
+
 	- Cleanup in awele. Now uses translatable strings for NORTH and SOUTH.
 	- Changed to use GCompris reload button instead of 'in game' one
 
@@ -13,7 +23,7 @@
 	* src/boards/awele.c: (start_board), (repeat), (awele_create_item),
 	(buttonNewGameClick):
 	* src/boards/awele.h:
-	* src/boards/python/electric.py:
+	* src/boards/python/electric.py: minor changes.
 	* src/gcompris/gcompris-edit.glade: removed, useless file
 	* src/gcompris/gcompris-edit.gladep: -
 
