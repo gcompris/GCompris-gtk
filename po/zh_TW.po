@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: gcompris 7.2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-01-02 14:06+0800\n"
-"PO-Revision-Date: 2006-01-12 09:05+0800\n"
+"PO-Revision-Date: 2006-01-27 12:15+0800\n"
 "Last-Translator: Wei-Lun Chao <william.chao@ossii.com.tw>\n"
 "Language-Team: Chinese (traditional) <zh-l10n@linux.org.tw>\n"
 "MIME-Version: 1.0\n"
@@ -35,6 +35,17 @@ msgid ""
 "also recognizes the children as individuals; they can learn to type in, and "
 "recognize their own usernames (login is configurable)."
 msgstr ""
+"- 在「園地」段落之中，你可以修改遊戲的列表。只要在樹狀圖中切換選擇即可。"
+"你可以改變讀取所用的語言，例如用來表示顏色名稱的語言。- 你可以儲存多份設定，"
+"並且容易地切換。先在「簡介檔案」段落中增加一個簡介檔，然後在「園地」段落中的"
+"下拉式選單中選取該檔，再選擇你想要啟用的園地。你可以加入很多有著不同園地列表"
+"以及不同語言的簡介檔。藉著選取想要的簡介檔並按下「預設」鈕，就可以在"
+"「簡介檔案」段落中設定預設的簡介檔。也可以從命令列來選擇一個簡介檔。- "
+"你可以加入使用者﹑班級，而對於每一班級則可以建立使用者群組。請注意，你可以從"
+"一個內容欄位由逗號分隔的檔案中𣾀入使用者。先去指定一或多個群組到簡介檔案，"
+"這些新的帳號就會在重新啟動 GCompris 之後出現。在 GCompris 中能夠辨別個別的兒"
+"童，這表示我們可以提供個別的報告。程式也能認出個別的兒童；他們可以學習如何打"
+"字，並且認出他們自己的使用者名稱(帳號是可設定的)。"
 
 #: ../boards/administration.xml.in.h:2
 msgid "GCompris Administration Menu"
@@ -47,6 +58,9 @@ msgid ""
 "reporting for parents and teacher who want to monitor the progress, "
 "strengths and weakenesses of their children."
 msgstr ""
+"如果想要依你的需要精細調整 GCompris，你可以利用這裡的管理模組。"
+"最終的目標是提供兒童專用的報告給父母和老師，用來監督他們孩子的"
+"進度﹑強項與弱項。"
 
 #: ../boards/administration.xml.in.h:4
 msgid "Left-Click with the mouse to select an activity"
@@ -58,7 +72,7 @@ msgstr "進階顏色"
 
 #: ../boards/advanced_colors.xml.in.h:2 ../boards/read_colors.xml.in.h:1
 msgid "Can read"
-msgstr "可以讀取"
+msgstr "能夠讀取"
 
 #: ../boards/advanced_colors.xml.in.h:3
 msgid "Click on the correct color"
@@ -361,6 +375,9 @@ msgid ""
 "your answer and press the Enter key to check if you've got it right. If not, "
 "just try again."
 msgstr ""
+"所顯示的是兩個數字的相乘。在等號右邊請給它答案，也就是乘積。利用向左與向右鍵"
+"來修改你的答案，並且按下輸入鍵來檢查你的所得是否正確。如果不正確的話，就再試"
+"一次。"
 
 #: ../boards/algebra_by.xml.in.h:2 ../boards/algebra_minus.xml.in.h:2
 #: ../boards/algebra_plus.xml.in.h:2
@@ -399,6 +416,8 @@ msgid ""
 "(http://schmode.net/). Ralf has kindly permitted Gcompris to include his "
 "pictures. Thanks a lot, Ralf."
 msgstr ""
+"動物圖片來自於 Ralf Schmode 的「動物攝影頁」(http://schmode.net/)。"
+"Ralf 很好心地允許 Gcompris 包含他的圖片。非常謝謝你，Ralf。"
 
 #: ../boards/algebra_guesscount.xml.in.h:2
 msgid ""
@@ -406,26 +425,30 @@ msgid ""
 "that give the specified result. You can deselect a number or operator by "
 "clicking on it again."
 msgstr ""
+"在園地區域的頂部，選擇會得出特定結果的數字和算術運算子。"
+"藉由在它上面再按一次，你可以反向選擇數字或運算子。"
 
 #: ../boards/algebra_guesscount.xml.in.h:3
 msgid ""
 "Deploy a strategy to arrange a set of arithmetic operations to match a given "
 "value."
 msgstr ""
+"部署一個策略來安排一組代數算術，以符合所給的值。"
 
 #: ../boards/algebra_guesscount.xml.in.h:4
 msgid "Find the series of correct operations that matches the given answer"
-msgstr ""
+msgstr "找出一系列正確的運算，以符合所給的答案"
 
 #: ../boards/algebra_guesscount.xml.in.h:5
 msgid "The four arithmetic operations. Combine several arithmetic operations."
-msgstr ""
+msgstr "四則運算。組合多個算術運算。"
 
 #: ../boards/algebra_guesscount.xml.in.h:6
 msgid ""
 "Work out the right combination of numbers and operations to match the given "
 "value"
 msgstr ""
+"得出對的數字與運算的組合，以符合所給的值。"
 
 #: ../boards/algebra_minus.xml.in.h:1
 msgid ""
@@ -434,10 +457,13 @@ msgid ""
 "to modify your answer and press the Enter key to check if you've got it "
 "right. If not, just try again."
 msgstr ""
+"所顯示的是兩個數字的減法問題。差值的答案寫在等號右邊。"
+"利用左右箭號來修改你的答案，並且按下輸入鍵來檢查是否答對了。"
+"假如不對，就再試一次。"
 
 #: ../boards/algebra_minus.xml.in.h:3
 msgid "In a limited time, find the difference between two numbers"
-msgstr ""
+msgstr "在限時之內，找出兩個數字間的差異"
 
 #: ../boards/algebra_minus.xml.in.h:4
 msgid "Practice the subtraction operation"
@@ -454,12 +480,15 @@ msgid ""
 "modify your answer and press the Enter key to check if you've got it right. "
 "If not, just try again."
 msgstr ""
+"所顯示的是兩個數字的加法問題。和值的答案寫在等號右邊。"
+"利用左右箭號來修改你的答案，並且按下輸入鍵來檢查是否答對了。"
+"假如不對，就再試一次。"
 
 #: ../boards/algebra_plus.xml.in.h:3
 msgid ""
 "In a limited time, find the sum of of two numbers. Introduction to simple in-"
 "line addition."
-msgstr ""
+msgstr "在限時之中，找出兩個數字的和。簡單介紹直式加法。"
 
 #: ../boards/algebra_plus.xml.in.h:4
 msgid "Practice the addition operation"
@@ -509,6 +538,9 @@ msgid ""
 "lines. To give children a wider range of choices, a set of images can also "
 "be used."
 msgstr ""
+"在這個遊戲中，兒童可以自由地畫圖。目標是要去探索如何根據基礎形狀：長方形﹑"
+"橢圓形與線段，來創造漂亮的圖畫。為了要提供兒童廣泛的選擇，也可以利用一系列"
+"的圖案。"
 
 #: ../boards/anim.xml.in.h:4 ../boards/draw.xml.in.h:4
 msgid "Needs to be capable of moving and clicking the mouse easily"
@@ -529,6 +561,15 @@ msgid ""
 "corner of the screen. You can also save and reload your animations with the "
 "'floppy disk' and 'folder' buttons."
 msgstr ""
+"在左邊選擇一種畫圖工具，並在下方選擇一種顏色。然後在白色區域按下"
+"並且拖拉以創造一個新的形狀。一旦已經完成一張圖，你可以用「照相機」"
+"按鈕來為它拍一張快照。這會建立一張與你的圖畫內容相同的新圖案。接著"
+"可以藉由稍微移動或是增減物品來編輯它。當你建立多個圖畫然後按下"
+"「電影」鈕，你將會以連續的投影片放映 (無窮循環模式) 來觀看你的圖"
+"畫。你也可以修改這個模式的觀賞速度。在觀賞模式中，按下「畫圖」鈕"
+"以回到畫圖模式。然後就可以利用螢幕左下角的圖案選擇器，來編輯動畫中"
+"的每一張圖案。也可以藉由「軟碟」與「資料夾」來儲存與重新載入你的動"
+"畫。"
 
 #: ../boards/babymatch.xml.in.h:1 ../boards/babymatch/board1_0.xml.in.h:1
 #: ../boards/babymatch/board2_0.xml.in.h:1
@@ -538,7 +579,7 @@ msgstr ""
 #: ../boards/babymatch/board6_0.xml.in.h:1
 #: ../boards/babymatch/board7_0.xml.in.h:1
 msgid "Drag and Drop the items to make them match"
-msgstr "拖放東西使其相符"
+msgstr "拖放物品使其相符"
 
 #: ../boards/babymatch.xml.in.h:2
 msgid ""
@@ -548,14 +589,18 @@ msgid ""
 "to fine logical link between these objects. How do they fit together? Drag "
 "each object to the correct red space in the main area."
 msgstr ""
+"在主要園地區域中，會顯示一組物品。在垂直方框(位於主要園地左邊)中，"
+"會顯示另一組物品，其中每一個都剛好跟一個主要園地區域中的物品相符。"
+"這個遊戲要挑戰你的是這些物品之間的細微邏輯關連。它們要如何配在一起?"
+"拖拉每個物品到主區域的正確紅色位置。"
 
 #: ../boards/babymatch.xml.in.h:3
 msgid "Matching Items"
-msgstr "比對東西"
+msgstr "比對物品"
 
 #: ../boards/babymatch.xml.in.h:4
 msgid "Motor coordination. Conceptual matching."
-msgstr ""
+msgstr "運動統合。概念匹配。"
 
 #: ../boards/babymatch.xml.in.h:5
 msgid "Mouse manipulation: movement, drag and drop. Cultural references."
@@ -570,6 +615,7 @@ msgid ""
 "Complete the puzzle by dragging each piece from the set of pieces on the "
 "left, to the matching space in the puzzle."
 msgstr ""
+"藉由拖拉左側一組碎片中的每一片，到拼圖中相符的空間，來完成這個拼圖。"
 
 #: ../boards/babyshapes.xml.in.h:3
 msgid "Drag and Drop the shapes on their respective target"
@@ -604,6 +650,7 @@ msgid ""
 "Press the two shift keys at the same time, to make the ball go in a straight "
 "line."
 msgstr ""
+"同時按下兩個 shift 鍵，來讓球直線前進。"
 
 #: ../boards/bargame.xml.in.h:1
 msgid "Brain"
@@ -622,6 +669,8 @@ msgid ""
 "Place balls in the holes. You win if the computer has to place the last "
 "ball. If you want Tux to begin, just click on him."
 msgstr ""
+"把球放進洞裡。如果電腦必須放進最後一顆球的話，就算你贏。"
+"如果你想讓小企鵝先開始，只需要按他一下。"
 
 #: ../boards/bargame.xml.in.h:5
 msgid "bar game"
@@ -650,6 +699,8 @@ msgid ""
 "Point the mouse and click on the ball, to set the speed and direction of the "
 "ball. The closer you click to the centre, the slower the ball moves."
 msgstr ""
+"將滑鼠對準球並且按一下，來設定球的速度和方向。"
+"按得愈接近中心，球就移動得愈慢。"
 
 #: ../boards/billard.xml.in.h:5
 msgid "The football game"
@@ -657,23 +708,25 @@ msgstr "足球遊戲"
 
 #: ../boards/boards.xml.in.h:1
 msgid "Go to board-based activities"
-msgstr "前往棋盤遊戲"
+msgstr "前往以園地為主的遊戲"
 
 #: ../boards/canal_lock.xml.in.h:1
 msgid "Operate a canal lock"
-msgstr "操作管道開關"
+msgstr "操作運河閘門"
 
 #: ../boards/canal_lock.xml.in.h:2
 msgid ""
 "Tux is in trouble, and needs to take his boat through a lock. Help Tux and "
 "find out how a canal lock works."
 msgstr ""
+"小企鵝有麻煩了，需要搭船通過閘門。請幫助小企鵝並且去了解運河閘門是如何運作的。"
 
 #: ../boards/canal_lock.xml.in.h:3
 msgid ""
 "You are in charge of the canal lock. Open the gates and the locks in the "
 "right order, so Tux can travel through the gates in both directions."
 msgstr ""
+"你是負責運河閘門的人。請以正確的順序開啟大門與閘道，好讓小企鵝雙向都能通過大門。"
 
 #: ../boards/chess.xml.in.h:1 ../boards/chess_computer.xml.in.h:3
 msgid "Play chess against the computer in a learning mode"
@@ -707,7 +760,7 @@ msgstr "時流"
 
 #: ../boards/chronos.xml.in.h:2
 msgid "Drag and Drop the items to organize the story"
-msgstr "拖放東西來編排故事"
+msgstr "拖放物品來編排故事"
 
 #: ../boards/chronos.xml.in.h:3
 msgid ""
@@ -716,6 +769,9 @@ msgid ""
 "images are copyright Franck Doucet. Dates of Transportation are based on "
 "those found in &lt;http://www.wikipedia.org&gt;."
 msgstr ""
+"月球照片的版權屬於「NASA」。太空的音效來自「小企鵝畫家」與「Vegastrike」，"
+"兩者都是根據 GPL 授權所釋出。變換的圖片版權屬於 Frank Doucet。變換的日期是"
+"根據 &lt;http://www.wikipedia.org&gt; 中所找到的資料。"
 
 #: ../boards/chronos.xml.in.h:4
 msgid "Pick from the pictures on the left and put them on the red dots"
@@ -782,6 +838,9 @@ msgid ""
 "If not sure, research online at wikipedia:\n"
 "&lt;http://www.wikipedia.org&gt;"
 msgstr ""
+"按順序放置每一張圖片於它被發明的日期之上。\n"
+"如果不確定，就在 &lt;http://www.wikipedia.org&gt;\n"
+"線上研究一下。"
 
 #: ../boards/chronos/board3_0.xml.in.h:8 ../boards/chronos/board3_1.xml.in.h:6
 #: ../boards/chronos/board3_2.xml.in.h:5 ../boards/chronos/board3_3.xml.in.h:7
@@ -895,6 +954,8 @@ msgid ""
 "A letter is spoken. Click on the matching letter in the main area. You can "
 "listen to the letter again, by clicking on the mouth icon in the bottom box."
 msgstr ""
+"首先一個字母被唸出來，然後在主區域中按下符合的字母。"
+"藉由按一下底部方格中的嘴巴圖示，可以再重聽字母一次。"
 
 #: ../boards/click_on_letter.xml.in.h:2
 msgid "Click on a letter"
@@ -935,6 +996,19 @@ msgid ""
 "Location: Unknown (image nur03011)\n"
 "Location: Unknown (image nur03013)"
 msgstr ""
+"魚是取自 Unix 公用程式 xfishtank。\n"
+"圖片是取自「國家海底研究計劃 (NURP)」"
+"位於 &lt;http://www.photolib.noaa.gov&gt; 的收集。\n"
+"所有圖片的貢獻要歸功於「國家海底研究計劃 (NURP)」，\n"
+"除了第一張圖片之外，那是北卡羅來納州威明頓大學的財產。\n"
+"在每一階段所用的圖片：\n"
+"地點: 熱帶大西洋﹑佛羅里達群島 (圖片 nur00523) "
+"攝影師: D. Kesling\n"
+"地點: 佛羅里達群島 (圖片 nur03006)\n"
+"地點: 未知 (圖片 nur03505)\n"
+"地點: 未知 (圖片 nur03010)\n"
+"地點: 未知 (圖片 nur03011)\n"
+"地點: 未知 (圖片 nur03013)"
 
 #: ../boards/clickgame.xml.in.h:14
 msgid ""
@@ -972,6 +1046,8 @@ msgid ""
 "hours:minutes:seconds). Click on the different arrows, and move the mouse, "
 "to make the numbers go up or down."
 msgstr ""
+"設定時鐘為指定的時間，依照所顯示的時間單位(時:分 或 時:分:秒)。"
+"按下不同的箭頭並且移動滑鼠，讓數字往上或往下。"
 
 #: ../boards/clockgame.xml.in.h:5
 msgid "The concept of time. Reading the time."
@@ -979,7 +1055,7 @@ msgstr "時間概念。讀出時間。"
 
 #: ../boards/colors.xml.in.h:1
 msgid "Can move the mouse."
-msgstr "可以移動滑鼠。"
+msgstr "能夠移動滑鼠。"
 
 #: ../boards/colors.xml.in.h:2
 msgid "Click on the right color"
@@ -998,6 +1074,7 @@ msgid ""
 "This board teaches you to recognize different colors. When you hear the name "
 "of the color, click on the duck wearing it."
 msgstr ""
+"這塊園地教你辨認不同的顏色。當你聽到顏色的名稱，就按一下這種顏色的鴨子。"
 
 #: ../boards/colors_group.xml.in.h:1
 msgid "Go to Color activities"
@@ -1024,6 +1101,7 @@ msgid ""
 "Create a line of 4 pieces either horizontally (lying down)\n"
 "or vertically (standing up)"
 msgstr ""
+"建立一條由四片組成的線段，可以是水平(躺著)或是垂直(站著)"
 
 #: ../boards/connect4.xml.in.h:6
 msgid ""
@@ -1031,6 +1109,8 @@ msgid ""
 "4stattack by Jeroen Vloothuis. The original project can be found on &lt;"
 "http://forcedattack.sourceforge.net&gt;"
 msgstr ""
+"Laurent Lacheny。圖片和人工智慧取自 Jeroen Vloothuis 的 4stattack 計劃。"
+"原始計劃可以在 &lt;http://forcedattack.sourceforge.net&gt; 找到"
 
 #: ../boards/doubleentry.xml.in.h:1
 msgid "Basic counting skills"
@@ -1042,26 +1122,26 @@ msgstr "雙門表格"
 
 #: ../boards/doubleentry.xml.in.h:3
 msgid "Drag and Drop each proposed item on its destination"
-msgstr "拖放每一個想要的東西到它的目標之上"
+msgstr "拖放每一個想要的物品到它的目標之上"
 
 #: ../boards/doubleentry.xml.in.h:4
 msgid "Drag and Drop the items in the double-entry table"
-msgstr "拖放東西到雙門表格之中"
+msgstr "拖放物品到雙門表格之中"
 
 #: ../boards/doubleentry.xml.in.h:5
 msgid ""
 "Move the items on the left to their proper position in the double-entry "
 "table."
 msgstr ""
-"把左側的東西移到它們在雙門表格中的適當位置。"
+"把左側的物品移到它們在雙門表格中的適當位置。"
 
 #: ../boards/doubleentry/board3_0.xml.in.h:1
 msgid "Click on an item and listen to its target position"
-msgstr "按下一個東西並注意聽它的目標位置"
+msgstr "按下一個物品並注意聽它的目標位置"
 
 #: ../boards/draw.xml.in.h:1
 msgid "A creative board where you can draw freely"
-msgstr "讓你自由畫畫的創作版面"
+msgstr "讓你自由畫畫的創作園地"
 
 #: ../boards/draw.xml.in.h:2
 msgid "A simple vector-drawing tool"
@@ -1073,6 +1153,8 @@ msgid ""
 "create attractive drawings based on basic shapes: rectangles, ellipses and "
 "lines."
 msgstr ""
+"在這個遊戲中，兒童可以自由地畫圖。目標是要去探索如何根據基礎形狀：長方形﹑"
+"橢圓形與線段，來創造漂亮的圖畫。"
 
 #: ../boards/draw.xml.in.h:5
 msgid ""
@@ -1080,6 +1162,8 @@ msgid ""
 "and drag in the white area to create a new shape. To save time, you can "
 "click with the middle mouse button to delete an object."
 msgstr ""
+"在左邊選擇一種畫圖工具，並在下方選擇一種顏色。然後在白色區域按下"
+"並且拖拉來創造一個新的形狀。為了節省時間，你可以按下滑鼠中鍵來刪除一個物品。"
 
 #: ../boards/electric.xml.in.h:1
 msgid "Create and simulate electric schema"
@@ -1095,7 +1179,7 @@ msgstr "基本計數"
 
 #: ../boards/enumerate.xml.in.h:2
 msgid "Count the items"
-msgstr "數一數東西"
+msgstr "數一數物品"
 
 #: ../boards/enumerate.xml.in.h:3
 msgid ""
@@ -1103,6 +1187,8 @@ msgid ""
 "the item you want to answer in the bottom right area. Enter the answer with "
 "the keyboard and press the OK button or the 'Enter' key."
 msgstr ""
+"首先，適當地安排物品，好讓你能數它們。然後，在右下區域中選擇你想要回答的物品。"
+"用鍵盤輸入答案，並且按下「確定」鈕或是「輸入」鍵。"
 
 #: ../boards/enumerate.xml.in.h:4 ../boards/planegame.xml.in.h:5
 #: ../src/boards/enumerate.c:92
@@ -1111,7 +1197,7 @@ msgstr "數量訓練"
 
 #: ../boards/enumerate.xml.in.h:5 ../src/boards/enumerate.c:93
 msgid "Place the items in the best way to count them"
-msgstr "把東西以最適合計算的方式放置"
+msgstr "把物品以最適合計算的方式放置"
 
 #: ../boards/erase.xml.in.h:1
 msgid ""
@@ -1120,6 +1206,9 @@ msgid ""
 "gave GCompris the authorization to include their pictures. Thanks a lot, "
 "both of you."
 msgstr ""
+"動物圖片取自 Ralf Schmode 的「動物攝影頁」(&lt;http://schmode.net/&gt;) "
+"以及來自 LE BERRE Daniel。這些作者好心地授權 GCompris 包含他們的照片。"
+"非常感謝兩位。"
 
 #: ../boards/erase.xml.in.h:2 ../boards/erase_clic.xml.in.h:5
 #: ../boards/erase_double_clic.xml.in.h:5
@@ -1172,13 +1261,13 @@ msgid ""
 "Click on any item that has a free block beside it, and it will be swapped "
 "with the empty block."
 msgstr ""
-"在每個旁邊有未使用區塊的東西上按一下，它將會和空的區塊相互交換。"
+"在每個旁邊有未使用區塊的物品上按一下，它將會和空的區塊相互交換。"
 
 #: ../boards/fifteen.xml.in.h:3
 msgid ""
 "Move each item to make an increasing series: from the smallest to the largest"
 msgstr ""
-"移動每個東西來形成一個漸增的序列：從最小排到最大"
+"移動每個物品來形成一個漸增的序列：從最小排到最大"
 
 #: ../boards/fifteen.xml.in.h:4
 msgid "Original code taken from the libgnomecanvas demo"
@@ -1230,10 +1319,12 @@ msgid ""
 "bringing it, part by part, up to the flowers. Be careful, if you move off "
 "the hose, the red part will go back down."
 msgstr ""
+"移動滑鼠到水管的紅色部份上方。這將會一段一段地移動它﹑帶著它到花上面。"
+"請小心，如果你把水龍頭移掉了，紅色部份又會落下回去。"
 
 #: ../boards/followline.xml.in.h:4
 msgid "Tux needs to water the flowers, but the hose is blocked."
-msgstr "小止鵝需要去澆花，但是水管阻塞了。"
+msgstr "小企鵝需要去澆花，但是水管阻塞了。"
 
 #: ../boards/fun.xml.in.h:1
 msgid "Go to Amusement activities"
@@ -1257,7 +1348,7 @@ msgstr "svg mozilla 圖案"
 
 #: ../boards/geography.xml.in.h:1
 msgid "Drag and Drop the items to redraw the whole map"
-msgstr "拖放東西來重畫整張地圖"
+msgstr "拖放物品來重畫整張地圖"
 
 #: ../boards/geography.xml.in.h:2
 msgid "Locate the countries"
@@ -1831,52 +1922,50 @@ msgstr "鍵盤操控"
 
 #: ../boards/gletters.xml.in.h:2
 msgid "Letter association between the screen and the keyboard"
-msgstr ""
+msgstr "在螢幕與鍵盤之間的字母關連"
 
 #: ../boards/gletters.xml.in.h:3 ../src/boards/gletters.c:132
-#, fuzzy
 msgid "Simple Letters"
-msgstr "單純直線"
+msgstr "簡單字母"
 
 #: ../boards/gletters.xml.in.h:4 ../src/boards/gletters.c:133
-#, fuzzy
 msgid "Type the falling letters before they reach the ground"
-msgstr "使用隨後的程式來繪製背景:"
+msgstr "在落下的字母到達地面之前按下它的按鍵"
 
 #: ../boards/gnumch-equality.xml.in.h:1
 msgid "Equality Number Munchers"
-msgstr ""
+msgstr "相等數字大嘴巴"
 
 #: ../boards/gnumch-equality.xml.in.h:2
 msgid ""
 "Guide the Number Muncher to the expressions that equal the number at the top "
 "of the screen."
-msgstr ""
+msgstr "引導數字大嘴巴到和螢幕頂端數字相等的算式之上"
 
 #: ../boards/gnumch-equality.xml.in.h:3
 msgid "Practice addition, multiplication, division and substraction."
-msgstr ""
+msgstr "練習加法﹑乘法﹑除法和減法。"
 
 #: ../boards/gnumch-equality.xml.in.h:4 ../boards/gnumch-inequality.xml.in.h:4
 msgid ""
 "Use the arrow keys to navigate around the board and to avoid the Troggles. "
 "Press the spacebar to eat a number."
 msgstr ""
+"在園地上頭使用方向鍵來引導並避免野蠻人。按下空白鍵來吃掉數字。"
 
 #: ../boards/gnumch-factors.xml.in.h:1
 msgid "Factor Number Munchers"
-msgstr ""
+msgstr "因數數字大嘴巴"
 
 #: ../boards/gnumch-factors.xml.in.h:2
-#, fuzzy
 msgid ""
 "Guide the Number Muncher to all the factors of the number at the top of the "
 "screen."
-msgstr "選取這個選項，選單不可在螢幕上方"
+msgstr "引導數字大嘴巴到屬於螢幕頂端數字的所有因數之上"
 
 #: ../boards/gnumch-factors.xml.in.h:3
 msgid "Learn about factors and multiples."
-msgstr ""
+msgstr "學習因數與倍數。"
 
 #: ../boards/gnumch-factors.xml.in.h:4
 msgid ""
@@ -1887,36 +1976,38 @@ msgid ""
 "Use the arrow keys to navigate around the board and to avoid the Troggles. "
 "Press the spacebar to eat a number."
 msgstr ""
+"一個數字的因數就是可以整除該數的所有數字。例如，6 的因數是 1﹑2﹑3 和 6。"
+"4 不是 6 的因數，因為 6 無法被分為完整的 4 等分。如果某數是另一數的倍數，"
+"那麼另一數就是某數的因數。使用方向鍵在園地四周引導來閃避野人。按下空白鍵"
+"來吃掉數字。"
 
 #: ../boards/gnumch-inequality.xml.in.h:1
 msgid ""
 "Guide the Number Muncher to the all the expressions that do not equal the "
 "number at the top of the screen."
-msgstr ""
+msgstr "引導數字大嘴巴到和螢幕頂端數字不相等的所有算式之上"
 
 #: ../boards/gnumch-inequality.xml.in.h:2
 msgid "Inequality Number Munchers"
-msgstr ""
+msgstr "不相等數字大嘴巴"
 
 #: ../boards/gnumch-inequality.xml.in.h:3
 msgid "Practice addition, substraction, multiplication and division."
-msgstr ""
+msgstr "練習加法﹑減法﹑乘法和除法。"
 
 #: ../boards/gnumch-multiples.xml.in.h:1
-#, fuzzy
 msgid ""
 "Guide the Number Muncher to all the multiples of the number at the top of "
 "the screen."
-msgstr "選取這個選項，選單不可在螢幕上方"
+msgstr "引導數字大嘴巴到屬於螢幕頂端數字的所有倍數之上"
 
 #: ../boards/gnumch-multiples.xml.in.h:2
 msgid "Learn about multiples and factors."
-msgstr ""
+msgstr "學習倍數與因數。"
 
 #: ../boards/gnumch-multiples.xml.in.h:3
-#, fuzzy
 msgid "Multiple Number Munchers"
-msgstr "多重檔案緩衝區"
+msgstr "倍數數字大嘴巴"
 
 #: ../boards/gnumch-multiples.xml.in.h:4
 msgid ""
@@ -1928,20 +2019,22 @@ msgid ""
 "the arrow keys to navigate around the board and to avoid the Troggles. Press "
 "the spacebar to eat a number."
 msgstr ""
+"一個數字的倍數就是等於原數乘以另一數的所有數字。例如，24﹑36﹑48 和 60 都是 12 的倍數。"
+"25 不是 12 的倍數，因為沒有任何整數乘以 12 會得到 25。如果某數是另一數的因數，"
+"那麼另一數就是某數的倍數。使用方向鍵在園地四周引導來閃避野人。按下空白鍵"
+"來吃掉數字。"
 
 #: ../boards/gnumch-primes.xml.in.h:1
 msgid "Guide the Number Muncher to all the prime numbers."
-msgstr ""
+msgstr "引導數字大嘴巴到所有的質數。"
 
 #: ../boards/gnumch-primes.xml.in.h:2
-#, fuzzy
 msgid "Learn about prime numbers"
-msgstr "列印行號(_L)"
+msgstr "學習質數"
 
 #: ../boards/gnumch-primes.xml.in.h:3
-#, fuzzy
 msgid "Prime Number Munchers"
-msgstr "列印行號"
+msgstr "質數大嘴巴"
 
 #: ../boards/gnumch-primes.xml.in.h:4
 msgid ""
@@ -1950,15 +2043,16 @@ msgid ""
 "the arrow keys to navigate around the board and to avoid the Troggles. Press "
 "the spacebar to eat a number."
 msgstr ""
+"質數就是只能被它們自己和 1 整除的數字。例如，3 是質數而 4 不是(因為 4 可以被 "
+"2 整除)。使用方向鍵在園地四周引導來閃避野人。按下空白鍵來吃掉數字。"
 
 #: ../boards/gnumchmenu.xml.in.h:1
 msgid "Go to Number Munchers activities"
-msgstr ""
+msgstr "前往數字大嘴巴"
 
 #: ../boards/gnumchmenu.xml.in.h:2
-#, fuzzy
 msgid "Left-Click the mouse on an activity to select it."
-msgstr "請點擊圖像來選取它。"
+msgstr "在某個遊戲上按下滑鼠左鍵來選取它。"
 
 #: ../boards/gtans.xml.in.h:1
 msgid ""
@@ -1970,6 +2064,12 @@ msgid ""
 "of 1) o 1 medium size (legs of square root of 2) o 2 large size (legs of 2) "
 "* 1 square (side of 1) * 1 parallelogram (sides of 1 and square root of 2)"
 msgstr ""
+"根據 Wikipedia(自由百科全書)，「七巧板」是一個中式拼圖。雖然七巧板常常"
+"被認為是古老的，它的存在最遠只能被追溯到公元 1800 年。它由七片所謂的 tans "
+"組成，合起來會形成一個正方形；如果以其中的小正方形為一平方單位，則："
+" * 五片直角等腰三角形，包括兩小(腰長為 1)﹑一中(腰長為根號二)﹑兩大(腰長為 2)"
+" * 一片正方形(邊長為 1)"
+" * 一片平行四邊形(邊長為 1 和根號二)"
 
 #: ../boards/gtans.xml.in.h:3
 msgid ""
@@ -1979,33 +2079,36 @@ msgid ""
 "computer If you need help, click on the shape button, the border of the "
 "shape will be drawn."
 msgstr ""
+"選擇七巧板來拼圖。利用滑鼠拖拉來移動它。在上面按右鍵來建立一個對稱的物品。"
+"選擇一片並在它周圍拖拉來旋轉它。一旦建立了所要求的形狀，它就會被電腦辨認出來。"
+"如果你需要幫助，就在形狀鈕上按一下，形狀的邊緣將會被畫出來。"
 
 #: ../boards/gtans.xml.in.h:4
 msgid "The objective is to form a given shape with seven pieces"
-msgstr ""
+msgstr "目的是要用七塊板子拼成所給的形狀"
 
 #: ../boards/gtans.xml.in.h:5
 msgid ""
 "The original code has been written by Philippe Banwarth in 1999. It has been "
 "ported to GCompris by Yves Combe in 2005."
 msgstr ""
+"原本的程式碼是由 Philippe Banwarth 在 1999 年所寫的。2005 年已由 Yves Combe 移植到 GCompris。"
 
 #: ../boards/gtans.xml.in.h:6
 msgid "The tangram puzzle game"
-msgstr ""
+msgstr "七巧板"
 
 #: ../boards/guessnumber.xml.in.h:1
-#, fuzzy
 msgid "Guess a number"
-msgstr "前往訊息編號："
+msgstr "猜一個數字"
 
 #: ../boards/guessnumber.xml.in.h:2
 msgid "Help Tux escape the cave. Tux hides a number that you must discover."
-msgstr ""
+msgstr "幫助小企鵝逃出洞穴。你必須找到小企鵝所藏的一個數字。"
 
 #: ../boards/guessnumber.xml.in.h:3
 msgid "Numbers from 1 to 1000 for the last level."
-msgstr ""
+msgstr "在最後的階段，數字是從 1 到 1000。"
 
 #: ../boards/guessnumber.xml.in.h:4
 msgid ""
@@ -2016,43 +2119,47 @@ msgid ""
 "If Tux is above or under the escape area, it means your number is higher or "
 "under the right number."
 msgstr ""
+"看一下所提供給你要找的數字範圍。在右上角藍色方格中輸入一個數字，"
+"小企鵝會告訴你是否你猜的數字太高或太低，然後再輸入另一個數字。"
+"在小企鵝和右邊脫離區域之間的距離代表著你距離正確的數字有多遠。"
+"如果小企鵝是在脫離區域的上方或下方，那就表示你的數字是高於或低於"
+"正確的數字。"
 
 #: ../boards/hanoi.xml.in.h:1
 msgid "Concept taken from EPI games."
-msgstr ""
+msgstr "概念取自 EPI 遊戲。"
 
 #: ../boards/hanoi.xml.in.h:2 ../boards/hanoi_real.xml.in.h:1
 msgid ""
 "Drag and Drop the top pieces only from one peg to another, to reproduce the "
 "tower on the right in the empty space on the left."
 msgstr ""
+"只能從某根柱子拖放頂端的一片到另一根柱子，"
+"目的是把右側的塔重新建立在空白的左側。"
 
 #: ../boards/hanoi.xml.in.h:4 ../src/boards/hanoi.c:101
 msgid "Reproduce the given tower"
-msgstr ""
+msgstr "重新建立所指定的塔"
 
 #: ../boards/hanoi.xml.in.h:5
 msgid "Reproduce the tower on the right in the empty space on the left"
-msgstr ""
+msgstr "把右側的塔重新建立在空白的左側"
 
 #: ../boards/hanoi.xml.in.h:6 ../src/boards/hanoi.c:100
 msgid "Simplified Tower of Hanoi"
-msgstr ""
+msgstr "簡化的河內塔"
 
 #: ../boards/hanoi_real.xml.in.h:2
-#, fuzzy
 msgid "Mouse manipulation"
-msgstr "滑鼠模擬"
+msgstr "滑鼠操控"
 
 #: ../boards/hanoi_real.xml.in.h:3
-#, fuzzy
 msgid "Reproduce the tower on the right side"
-msgstr "將側面窗格放在右邊顯示(_P)"
+msgstr "重新建立右側的塔"
 
 #: ../boards/hanoi_real.xml.in.h:4
-#, fuzzy
 msgid "The Tower of Hanoi"
-msgstr "該檔案的擁有者。"
+msgstr "河內塔"
 
 #: ../boards/hanoi_real.xml.in.h:5
 msgid ""
@@ -2060,6 +2167,9 @@ msgid ""
 "the following rules: * only one disc may be moved at a time * no disc may be "
 "placed atop a smaller disc"
 msgstr ""
+"遊戲的目標是移動整疊到另一根柱子，但要遵守下列規則："
+" * 一次只能移動一塊碟子"
+" * 任何碟子不可放在比它小的碟子上"
 
 #: ../boards/hanoi_real.xml.in.h:6
 msgid ""
@@ -2072,157 +2182,138 @@ msgid ""
 "inspired by it. (source Wikipedia &lt;http://en.wikipedia.org/wiki/"
 "Tower_of_hanoi&gt;)"
 msgstr ""
+"這個謎題是由法國數學家 Edouard Lucas 於 1883 年所發明。有一個關於印度教寺廟的"
+"傳說，其中的僧人持續努力地根據「河內塔」謎題的規則在搬動一組 64 塊碟子。"
+"根據傳說，當僧人完成他們的工作時，世界將會終結。這個謎題因而又名為「梵天塔」。"
+"並不清楚的是，究竟 Lucas 發明了這個謎題，還是從它得到靈感。(來源為 Wikipedia "
+"&lt;http://en.wikipedia.org/wiki/Tower_of_hanoi&gt;)"
 
 #: ../boards/hexagon.xml.in.h:1
 msgid "Find the strawberry by clicking on the blue fields"
-msgstr ""
+msgstr "在藍色田地裡按下滑鼠以找出草莓"
 
 #: ../boards/hexagon.xml.in.h:4
 msgid ""
 "Try to find the strawberry under the blue fields. The fields become redder "
 "as you get closer."
 msgstr ""
+"試著在藍色田地下面找出草莓。當你接近草莓時，田地會變得比較紅。"
 
 #: ../boards/hexagon.xml.in.h:5
-#, fuzzy
 msgid "hexagon"
-msgstr "正六邊形"
+msgstr "六角形"
 
 #: ../boards/imageid.xml.in.h:1
-#, fuzzy
 msgid "Click on the word corresponding to the printed image."
-msgstr "點選以監視這個介面裝置"
+msgstr "按下跟印出圖片相關的字。"
 
 #: ../boards/imageid.xml.in.h:2
 msgid "Practice reading by finding the word matching an image"
-msgstr ""
+msgstr "藉由找出符合圖片的字來練習閱讀"
 
 #: ../boards/imageid.xml.in.h:3 ../boards/imagename.xml.in.h:4
 #: ../boards/readingh.xml.in.h:5 ../boards/readingv.xml.in.h:4
 #: ../src/boards/imageid.c:112 ../src/boards/missingletter.c:104
 msgid "Reading"
-msgstr "讀取"
+msgstr "閱讀"
 
 #: ../boards/imageid.xml.in.h:4
-#, fuzzy
 msgid "Reading practice"
-msgstr "正在讀取壓縮檔"
+msgstr "閱讀練習"
 
 #: ../boards/imageid/board1.xml.in.h:1 ../boards/imagename/board4_0.xml.in.h:2
-#, fuzzy
 msgid "apple"
-msgstr "套用"
+msgstr "蘋果"
 
 #: ../boards/imageid/board1.xml.in.h:2
-#, fuzzy
 msgid "back"
-msgstr "黑色"
+msgstr "後退"
 
 #: ../boards/imageid/board1.xml.in.h:3
-#, fuzzy
 msgid "bag"
-msgstr "lba"
+msgstr "袋子"
 
 #: ../boards/imageid/board1.xml.in.h:4 ../boards/imagename/board6_0.xml.in.h:2
-#, fuzzy
 msgid "ball"
-msgstr "全部"
+msgstr "皮球"
 
 #: ../boards/imageid/board1.xml.in.h:5
-#, fuzzy
 msgid "banana"
-msgstr "坦尚尼亞"
+msgstr "香蕉"
 
 #: ../boards/imageid/board1.xml.in.h:6
-#, fuzzy
 msgid "bed"
-msgstr "內嵌"
+msgstr "床舖"
 
 #: ../boards/imageid/board1.xml.in.h:7
-#, fuzzy
 msgid "boat"
-msgstr "啟動"
+msgstr "輪船"
 
 #: ../boards/imageid/board1.xml.in.h:8
-#, fuzzy
 msgid "book"
-msgstr "檢視"
+msgstr "書本"
 
 #: ../boards/imageid/board1.xml.in.h:9 ../boards/imagename/board2_0.xml.in.h:2
-#, fuzzy
 msgid "bottle"
-msgstr "斑點"
+msgstr "酒瓶"
 
 #: ../boards/imageid/board1.xml.in.h:10
-#, fuzzy
 msgid "cake"
-msgstr "製作"
+msgstr "蛋糕"
 
 #: ../boards/imageid/board1.xml.in.h:11
-#, fuzzy
 msgid "camel"
-msgstr "取消"
+msgstr "駱駝"
 
 #: ../boards/imageid/board1.xml.in.h:12
 #: ../boards/imagename/board4_0.xml.in.h:4
-#, fuzzy
 msgid "car"
-msgstr "字元"
+msgstr "汽車"
 
 #: ../boards/imageid/board1.xml.in.h:13
-#, fuzzy
 msgid "cat"
-msgstr "Oct"
+msgstr "貓"
 
 #: ../boards/imageid/board1.xml.in.h:14
-#, fuzzy
 msgid "catch"
-msgstr "快取"
+msgstr "抓"
 
 #: ../boards/imageid/board1.xml.in.h:15
 msgid "cheese"
-msgstr "請微笑"
+msgstr "乳酪"
 
 #: ../boards/imageid/board1.xml.in.h:16
-#, fuzzy
 msgid "cow"
-msgstr "行"
+msgstr "牛"
 
 #: ../boards/imageid/board1.xml.in.h:17
-#, fuzzy
 msgid "dog"
-msgstr "組織"
+msgstr "狗"
 
 #: ../boards/imageid/board1.xml.in.h:18
-#, fuzzy
 msgid "finish"
 msgstr "完成"
 
 #: ../boards/imageid/board1.xml.in.h:19
-#, fuzzy
 msgid "fish"
-msgstr "小魚"
+msgstr "魚"
 
 #: ../boards/imageid/board1.xml.in.h:20
 #: ../boards/imagename/board3_0.xml.in.h:2
-#, fuzzy
 msgid "house"
-msgstr "滑鼠"
+msgstr "房屋"
 
 #: ../boards/imageid/board1.xml.in.h:21
-#, fuzzy
 msgid "pear"
-msgstr "出現"
+msgstr "梨"
 
 #: ../boards/imageid/board1.xml.in.h:22
-#, fuzzy
 msgid "plane"
-msgstr "行星"
+msgstr "飛機"
 
 #: ../boards/imageid/board1.xml.in.h:23
-#, fuzzy
 msgid "satchel"
-msgstr " 個符合"
+msgstr "背包"
 
 #: ../boards/imagename.xml.in.h:1 ../boards/imagename/board1_0.xml.in.h:1
 #: ../boards/imagename/board2_0.xml.in.h:1
@@ -2231,167 +2322,145 @@ msgstr " 個符合"
 #: ../boards/imagename/board5_0.xml.in.h:1
 #: ../boards/imagename/board6_0.xml.in.h:1
 msgid "Drag and Drop each item onto its name"
-msgstr ""
+msgstr "拖放每個物品到它的名稱上面"
 
 #: ../boards/imagename.xml.in.h:2
 msgid ""
 "Drag each image from the (vertical) box on the left to its (corresponding) "
 "name on the right. Click the OK button to check your answer."
 msgstr ""
+"從左邊的(垂直)方格中拖拉每一個圖案到右邊它的(相關)名稱上。"
+"按下「確定」鈕來檢查你的答案。"
 
 #: ../boards/imagename.xml.in.h:3
 msgid "Image Name"
-msgstr "影像名稱"
+msgstr "圖片名稱"
 
 #: ../boards/imagename.xml.in.h:5
-#, fuzzy
 msgid "Vocabulary and reading"
-msgstr "字彙章節"
+msgstr "字彙和閱讀"
 
 #: ../boards/imagename/board1_0.xml.in.h:2
 msgid "bulb"
-msgstr ""
+msgstr "燈泡"
 
 #: ../boards/imagename/board1_0.xml.in.h:3
-#, fuzzy
 msgid "fishing boat"
-msgstr "缺少日期。"
+msgstr "漁船"
 
 #: ../boards/imagename/board1_0.xml.in.h:4
-#, fuzzy
 msgid "lamp"
 msgstr "燈"
 
 #: ../boards/imagename/board1_0.xml.in.h:5
-#, fuzzy
 msgid "mail box"
 msgstr "信箱"
 
 #: ../boards/imagename/board1_0.xml.in.h:6
 #: ../boards/imagename/board5_0.xml.in.h:3
-#, fuzzy
 msgid "postcard"
 msgstr "明信片"
 
 #: ../boards/imagename/board1_0.xml.in.h:7
 #: ../boards/imagename/board3_0.xml.in.h:5
 #: ../boards/imagename/board6_0.xml.in.h:7
-#, fuzzy
 msgid "sailing boat"
-msgstr "失敗 "
+msgstr "帆船"
 
 #: ../boards/imagename/board2_0.xml.in.h:3
-#, fuzzy
 msgid "egg"
-msgstr "雷鬼樂(Reggae)"
+msgstr "蛋"
 
 #: ../boards/imagename/board2_0.xml.in.h:4
 msgid "eggcup"
-msgstr ""
+msgstr "蛋杯"
 
 #: ../boards/imagename/board2_0.xml.in.h:5
-#, fuzzy
 msgid "flower"
-msgstr "低"
+msgstr "花"
 
 #: ../boards/imagename/board2_0.xml.in.h:6
-#, fuzzy
 msgid "glass"
-msgstr "類別"
+msgstr "玻璃杯"
 
 #: ../boards/imagename/board2_0.xml.in.h:7
-#, fuzzy
 msgid "vase"
-msgstr "基部"
+msgstr "花瓶"
 
 #: ../boards/imagename/board3_0.xml.in.h:3
-#, fuzzy
 msgid "light house"
-msgstr "淡藍色"
+msgstr "燈塔"
 
 #: ../boards/imagename/board3_0.xml.in.h:4
-#, fuzzy
 msgid "rocket"
-msgstr "socket"
+msgstr "火箭"
 
 #: ../boards/imagename/board3_0.xml.in.h:6
-#, fuzzy
 msgid "sofa"
-msgstr "of"
+msgstr "沙發"
 
 #: ../boards/imagename/board3_0.xml.in.h:7
 #: ../boards/imagename/board5_0.xml.in.h:5
 msgid "star"
-msgstr "星球"
+msgstr "星星"
 
 #: ../boards/imagename/board4_0.xml.in.h:3
-#, fuzzy
 msgid "bicycle"
-msgstr "週轉圓"
+msgstr "腳踏車"
 
 #: ../boards/imagename/board4_0.xml.in.h:5
-#, fuzzy
 msgid "carrot"
-msgstr "箭頭"
+msgstr "胡蘿蔔"
 
 #: ../boards/imagename/board4_0.xml.in.h:6
-#, fuzzy
 msgid "grater"
-msgstr "稍後"
+msgstr "擦菜板"
 
 #: ../boards/imagename/board4_0.xml.in.h:7
 msgid "tree"
-msgstr "樹狀資料元件"
+msgstr "樹"
 
 #: ../boards/imagename/board5_0.xml.in.h:2
-#, fuzzy
 msgid "pencil"
 msgstr "鉛筆"
 
 #: ../boards/imagename/board5_0.xml.in.h:4
-#, fuzzy
 msgid "spruce"
-msgstr "超級使用者"
+msgstr "杉"
 
 #: ../boards/imagename/board5_0.xml.in.h:6
-#, fuzzy
 msgid "truck"
-msgstr "幸運"
+msgstr "卡車"
 
 #: ../boards/imagename/board5_0.xml.in.h:7
-#, fuzzy
 msgid "van"
-msgstr "Sivan"
+msgstr "箱型車"
 
 #: ../boards/imagename/board6_0.xml.in.h:3
-#, fuzzy
 msgid "castle"
-msgstr "貼上"
+msgstr "城堡"
 
 #: ../boards/imagename/board6_0.xml.in.h:4
-#, fuzzy
 msgid "crown"
-msgstr "皺眉(_F)"
+msgstr "王冠"
 
 #: ../boards/imagename/board6_0.xml.in.h:5
-#, fuzzy
 msgid "flag"
-msgstr "旗標"
+msgstr "旗子"
 
 #: ../boards/imagename/board6_0.xml.in.h:6
-#, fuzzy
 msgid "racket"
-msgstr "括號"
+msgstr "球拍"
 
 #: ../boards/login.xml.in.h:1
 msgid ""
 "GCompris identifies each child, so we can provide child-specific reports."
 msgstr ""
+"GCompris 會分辨每個兒童，因此可以提供個別兒童的報告。"
 
 #: ../boards/login.xml.in.h:2
-#, fuzzy
 msgid "GCompris login screen"
-msgstr "設定登入畫面"
+msgstr "GCompris 登入畫面"
 
 #: ../boards/login.xml.in.h:3
 msgid ""
@@ -2405,24 +2474,30 @@ msgid ""
 "where 'profile'\n"
 "is the name of a profile as you created it in the administration."
 msgstr ""
+"為了要啟動登入畫面，必須先在 GCompris 的管理部份增加使用者。\n"
+"利用執行「gcompris -a」來存取管理部份，在其中可以建立不同的簡介檔案。\n"
+"每個簡介檔案中可以有不同組的使用者，並選擇哪些遊戲可以供他們使用。\n"
+"要以某個特定簡介檔案來執行 GCompris，可以執行「gcompris -p profile」，\n"
+"其中的「profile」代表你在管理部份所建立的簡介檔案名稱。"
 
 #: ../boards/login.xml.in.h:10
 msgid "Select or enter your name to log in GCompris"
-msgstr ""
+msgstr "選擇或者輸入你的名字來登入 GCompris"
 
 #: ../boards/leftright.xml.in.h:1
 msgid "Determine if a hand is a right or a left hand"
-msgstr ""
+msgstr "決定某隻手是右手還是左手"
 
 #: ../boards/leftright.xml.in.h:2
 msgid ""
 "Distinguish right and left hands from different points of view. Spatial "
 "representation"
 msgstr ""
+"從不同觀看角度來分辨右手和左手。空間表現"
 
 #: ../boards/leftright.xml.in.h:3
 msgid "Find your left and right hands"
-msgstr ""
+msgstr "找出你的左手和右手"
 
 #: ../boards/leftright.xml.in.h:4 ../boards/railroad.xml.in.h:4
 msgid "None"
@@ -2433,21 +2508,22 @@ msgid ""
 "You can see a hand: is it a left hand or a right hand? Click on the red "
 "button on the left, or the green button on the right."
 msgstr ""
+"你可以看到一隻手：它是左手還是右手？"
+"按下左邊的紅色按鈕，或是右邊的綠色按鈕。"
 
 #: ../boards/maze.xml.in.h:1 ../boards/maze2DRelative.xml.in.h:1
 #: ../boards/maze3D.xml.in.h:2 ../boards/mazeInvisible.xml.in.h:1
 msgid "Can use the keyboard arrow to move an object."
-msgstr ""
+msgstr "能夠使用鍵盤方向鍵來移動一個物品。"
 
 #: ../boards/maze.xml.in.h:2 ../src/boards/maze.c:133
-#, fuzzy
 msgid "Find your way out of the maze"
-msgstr "格式問題： "
+msgstr "找出離開迷宮的路"
 
 #: ../boards/maze.xml.in.h:3 ../boards/maze2DRelative.xml.in.h:3
 #: ../boards/maze3D.xml.in.h:4 ../boards/mazeInvisible.xml.in.h:3
 msgid "Help Tux get out of this maze."
-msgstr ""
+msgstr "幫助小企鵝離開這個迷宮。"
 
 #: ../boards/maze.xml.in.h:4 ../boards/maze2DRelative.xml.in.h:4
 #: ../boards/mazeInvisible.xml.in.h:4 ../src/boards/maze.c:132
@@ -2456,11 +2532,11 @@ msgstr "迷宮"
 
 #: ../boards/maze.xml.in.h:5
 msgid "Use the keyboard arrows to move Tux up to the door."
-msgstr ""
+msgstr "使用鍵盤方向鍵來移動小企鵝往上到門口。"
 
 #: ../boards/maze2DRelative.xml.in.h:2
 msgid "Find your way out of the maze (Move is relative)"
-msgstr ""
+msgstr "找出離開迷宮的路 (移動是相對的)"
 
 #: ../boards/maze2DRelative.xml.in.h:5
 msgid ""
@@ -2468,15 +2544,16 @@ msgid ""
 "is relative (first person). Use the up arrow to go forward. The other arrow "
 "let you turn Tux in another direction."
 msgstr ""
+"利用鍵盤的方向鍵來移動小企鵝往上到門口。在迷宮中，移動是相對的(第一人稱)。"
+"利用向上鍵來前進，而其他方向鍵則讓你將小企鵝轉向至其他方向。"
 
 #: ../boards/maze3D.xml.in.h:1
-#, fuzzy
 msgid "3D Maze"
-msgstr "迷宮"
+msgstr "3D 迷宮"
 
 #: ../boards/maze3D.xml.in.h:3
 msgid "Find your way out of the 3D maze"
-msgstr ""
+msgstr "找出離開 3D 迷宮的路"
 
 #: ../boards/maze3D.xml.in.h:5
 msgid ""
@@ -2484,10 +2561,12 @@ msgid ""
 "switch between 2D and 3D modes. 2D mode just gives you an indication of your "
 "position, like a map. You cannot move Tux in 2D mode."
 msgstr ""
+"利用鍵盤的方向鍵來移動小企鵝往上到門口。利用空白鍵在 2D 與 3D 模式之間切換。"
+"2D 模式就只會提供你位置的指示，像是一張地圖。在 2D 模式中無法移動小企鵝。"
 
 #: ../boards/mazeInvisible.xml.in.h:2
 msgid "Find your way out of the invisible maze"
-msgstr ""
+msgstr "找出離開看不見的迷宮的路"
 
 #: ../boards/mazeInvisible.xml.in.h:5
 msgid ""
@@ -2495,36 +2574,36 @@ msgid ""
 "switch between invisible and visible modes. Visible mode just gives you an "
 "indication of your position, like a map. You cannot move Tux in visible mode."
 msgstr ""
+"利用鍵盤的方向鍵來移動小企鵝往上到門口。利用空白鍵在可見與不可見模式之間切換。"
+"可見模式就只會提供你位置的指示，像是一張地圖。在可見模式中無法移動小企鵝。"
 
 #: ../boards/mazeMenu.xml.in.h:1
-#, fuzzy
 msgid "Find your way out different type of mazes"
-msgstr "顯示不同種類的圖片"
+msgstr "找出離開不同種類迷宮的路"
 
 #: ../boards/mazeMenu.xml.in.h:2
-#, fuzzy
 msgid "Go to Maze activities"
-msgstr "前往指定的行數"
+msgstr "前往迷宮遊戲"
 
 #: ../boards/melody.xml.in.h:1
 msgid "Ear-training activity"
-msgstr ""
+msgstr "耳朵訓練遊戲"
 
 #: ../boards/melody.xml.in.h:2
 msgid ""
 "Listen to the sound sequence played, and repeat it by clicking on the "
 "elements. You can listen again by clicking on the repeat button."
 msgstr ""
+"注意聽播放的聲音序列，利用按下各組件來重覆這個動作。"
+"藉由按下重播按鈕，可以重聽一次。"
 
 #: ../boards/melody.xml.in.h:3
-#, fuzzy
 msgid "Melody"
-msgstr "方法"
+msgstr "旋律"
 
 #: ../boards/melody.xml.in.h:5
-#, fuzzy
 msgid "Repeat a melody"
-msgstr "重複延遲："
+msgstr "重複一首旋律"
 
 #: ../boards/memory.xml.in.h:1
 msgid ""
@@ -2534,24 +2613,28 @@ msgid ""
 "cards at once, so you need to remember where a picture is, while you look "
 "for its twin. When you turn over the twins, they both disappear."
 msgstr ""
+"這裡顯示一組空白卡片。每張卡片的另一面都有一個圖案，"
+"而每個圖案都有一張完全相同的孿生圖案。按下一張卡片"
+"來看它隱藏的圖案，並且試著配對孿生圖案。一次只可以"
+"翻轉兩張卡片，因此在你尋找它的孿生圖案時，需要記得"
+"圖案的位置。當你翻轉出兩張孿生圖案時，它們兩者都會"
+"消失。"
 
 #: ../boards/memory.xml.in.h:2
 msgid "Flip the cards to find the matching pairs"
-msgstr ""
+msgstr "翻轉卡片來找出相符的一對"
 
 #: ../boards/memory.xml.in.h:3
-#, fuzzy
 msgid "Memory Game with images"
-msgstr "更改圖像的名稱"
+msgstr "圖片記憶遊戲"
 
 #: ../boards/memory.xml.in.h:5 ../boards/memory_tux.xml.in.h:5
 msgid "Train your memory and remove all the cards"
-msgstr ""
+msgstr "移除所有的卡片來訓練你的記憶"
 
 #: ../boards/memory_group.xml.in.h:1
-#, fuzzy
 msgid "Go to Memory activities"
-msgstr "監察網路遊戲"
+msgstr "前往記憶遊戲"
 
 #: ../boards/memory_sound.xml.in.h:1 ../boards/memory_sound_tux.xml.in.h:1
 msgid ""
@@ -2561,33 +2644,37 @@ msgid ""
 "need to remember where a sound is, while you listen to its twin. When you "
 "turn over the twins, they both disappear."
 msgstr ""
+"這裡顯示一組小企鵝提琴手。每隻小企鵝都有個相關連的聲音，"
+"而每個聲音都有一個完全相同的孿生聲音。按下一隻小企鵝"
+"來聽它隱藏的聲音，並且試著配對孿生聲音。一次只可以"
+"翻轉兩隻小企鵝，因此在你尋找它的孿生聲音時，需要記得"
+"聲音的位置。當你翻轉出兩隻孿生聲音時，它們兩者都會"
+"消失。"
 
 #: ../boards/memory_sound.xml.in.h:2
-#, fuzzy
 msgid "Audio memory game"
-msgstr "音效裝置名稱"
+msgstr "音效記憶遊戲"
 
 #: ../boards/memory_sound.xml.in.h:3
 msgid "Click on Tux the violinist and listen to find the matching sounds"
-msgstr ""
+msgstr "按一下小企鵝提琴手，然後注意聽並找出符合的聲音"
 
 #: ../boards/memory_sound.xml.in.h:4 ../boards/memory_sound_tux.xml.in.h:3
 #: ../boards/memory_tux.xml.in.h:3
-#, fuzzy
 msgid "Mouse manipulation, Brain."
-msgstr "滑鼠模擬"
+msgstr "滑鼠操控﹑腦力"
 
 #: ../boards/memory_sound.xml.in.h:5 ../boards/memory_sound_tux.xml.in.h:5
 msgid "Train your audio memory and remove all the violonists Tux."
-msgstr ""
+msgstr "移除所有的小企鵝提琴手，並訓練你的音效記憶。"
 
 #: ../boards/memory_sound_tux.xml.in.h:2
 msgid "Audio memory game against Tux"
-msgstr ""
+msgstr "跟小企鵝玩音效記憶遊戲"
 
 #: ../boards/memory_sound_tux.xml.in.h:4
 msgid "Play the audio memory against Tux"
-msgstr ""
+msgstr "跟小企鵝玩音效記憶遊戲"
 
 #: ../boards/memory_tux.xml.in.h:1
 msgid ""
@@ -2598,15 +2685,19 @@ msgid ""
 "cards, uncover both of them. You play alternatively with Tux, and must take "
 "more pairs of cards than him."
 msgstr ""
+"這裡顯示一組空白卡片。每一對都相關於它們背面的相同圖案。"
+"在卡片之上按一下可以翻轉它，並且看到它的隱藏圖案。然而，"
+"一次只能看到兩個隱藏的圖案。你必須記住圖案的位置來使其產"
+"生關連。想移除一對卡片，就要同時翻轉兩者。你與小企鵝交叉"
+"地玩，而且必須比他拿到更多對的卡片。"
 
 #: ../boards/memory_tux.xml.in.h:2
 msgid "Memory Game with images, against Tux"
-msgstr ""
+msgstr "跟小企鵝玩圖片記憶遊戲"
 
 #: ../boards/memory_tux.xml.in.h:4
-#, fuzzy
 msgid "Play to memory against Tux."
-msgstr "請再嘗試。"
+msgstr "跟小企鵝玩記憶遊戲。"
 
 #: ../boards/menu.xml.in.h:1
 msgid ""
@@ -2627,361 +2718,373 @@ msgid ""
 "    1, 2 or 3 simple stars  - 2 to 6 years old\n"
 "    1, 2 or 3 complex stars - From 7 years old"
 msgstr ""
+"在某個圖示上按一下就會帶你進入一個遊戲，或是一個遊戲選單之中。\n"
+"螢幕下方是 gcompris 的控制列。下列圖示是由右到左顯示：\n"
+"(請注意，每個圖示只有當目前遊戲有提供時才會顯示)\n"
+"    房屋 - 回到前一個選單或是離開 gcompris(假如已到頂層)\n"
+"    拇指 - 好的。確認你的回答\n"
+"    骰子 - 顯示目前的階段。按一下以選取其他的階段\n"
+"    音符 - 重覆問一次問題\n"
+"    問號 - 求助\n"
+"    工具 - 設定選單\n"
+"    小企鵝飛機 - 關於遊戲\n"
+"星星表示每個遊戲所適合的年齡群：\n"
+"    1﹑2 或 3 個簡單星星  - 2 到 6 歲\n"
+"    1﹑2 或 3 個複雜星星  - 從 7 歲起"
 
 #: ../boards/menu.xml.in.h:15
-#, fuzzy
 msgid "GCompris Main Menu"
-msgstr "主選單"
+msgstr "GCompris 主選單"
 
 #: ../boards/menu.xml.in.h:16
 msgid ""
 "GCompris is a collection of educational games that provides for children "
 "from 2 years old with different activities."
 msgstr ""
+"GCompris 是教育遊戲的集合，它提供兩歲起兒童各種不同的遊戲。"
 
 #: ../boards/menu.xml.in.h:18
 msgid ""
 "The goal of gcompris is to provide a free alternative to popular proprietary "
 "edutainment software"
 msgstr ""
+"GCompris 的目的是在常見的專屬寓教於樂軟體之外，提供另一個自由免費的選擇"
 
 #: ../boards/missing_letter.xml.in.h:1
 msgid ""
 "An object is displayed in the main area, and an incomplete word is printed "
 "under the picture. Select the missing letter to complete the word."
 msgstr ""
+"在主要區域中會顯示一個物品，而在圖片下方會印出一個不完整的字。"
+"請選擇缺少的字母來完成這個字。"
 
 #: ../boards/missing_letter.xml.in.h:2
-#, fuzzy
 msgid "Fill in the missing letter"
-msgstr "字首大寫。"
+msgstr "填入缺少的字母"
 
 #: ../boards/missing_letter.xml.in.h:3
-#, fuzzy
 msgid "Missing Letter"
-msgstr "缺少日期。"
+msgstr "缺少的字母"
 
 #: ../boards/missing_letter.xml.in.h:4
-#, fuzzy
 msgid "Training reading skills"
-msgstr "正寫入 leadin "
+msgstr "訓練閱讀能力"
 
 #: ../boards/missing_letter.xml.in.h:5
-#, fuzzy
 msgid "Word reading"
-msgstr "文字處理"
+msgstr "單字閱讀"
 
 #: ../boards/missing_letter/board1.xml.in.h:1
 msgid "apple/_pple/a/i/o"
-msgstr ""
+msgstr "蘋果/_果/蘋/貧/頻"
 
 #: ../boards/missing_letter/board1.xml.in.h:2
 msgid "apple/app_e/l/h/n"
-msgstr ""
+msgstr "蘋果/_果/蘋/瓶/平"
 
 #: ../boards/missing_letter/board1.xml.in.h:3
 msgid "apple/appl_/e/h/a"
-msgstr ""
+msgstr "蘋果/蘋_/果/里/思"
 
 #: ../boards/missing_letter/board1.xml.in.h:4
 msgid "ball/_all/b/p/d"
-msgstr ""
+msgstr "皮球/_球/皮/披/彼"
 
 #: ../boards/missing_letter/board1.xml.in.h:5
 msgid "ball/b_ll/a/u/o"
-msgstr ""
+msgstr "皮球/皮_/球/逑/求"
 
 #: ../boards/missing_letter/board1.xml.in.h:6
 msgid "ball/bal_/l/h/s"
-msgstr ""
+msgstr "皮球/皮_/球/秋/囚"
 
 #: ../boards/missing_letter/board1.xml.in.h:7
 msgid "banana/_anana/b/p/d"
-msgstr ""
+msgstr "香蕉/_蕉/香/鄉/相"
 
 #: ../boards/missing_letter/board1.xml.in.h:8
 msgid "banana/b_nana/a/o/i"
-msgstr ""
+msgstr "香蕉/香_/蕉/焦/樵"
 
 #: ../boards/missing_letter/board1.xml.in.h:9
 msgid "banana/ba_ana/n/m/b"
-msgstr ""
+msgstr "香蕉/香_/蕉/交/膠"
 
 #: ../boards/missing_letter/board1.xml.in.h:10
 msgid "bed/_ed/b/l/f"
-msgstr ""
+msgstr "床舖/_舖/床/朮/狀"
 
 #: ../boards/missing_letter/board1.xml.in.h:11
 msgid "bed/b_d/e/a/i"
-msgstr ""
+msgstr "床舖/_舖/床/幢/窗"
 
 #: ../boards/missing_letter/board1.xml.in.h:12
 msgid "bed/be_/d/p/b"
-msgstr ""
+msgstr "床舖/床_/舖/鋪/脯"
 
 #: ../boards/missing_letter/board1.xml.in.h:13
 msgid "bottle/_ottle/b/t/p"
-msgstr ""
+msgstr "酒瓶/酒_/瓶/平/頻"
 
 #: ../boards/missing_letter/board1.xml.in.h:14
 msgid "bottle/b_ttle/o/u/d"
-msgstr ""
+msgstr "酒瓶/酒_/瓶/憑/屏"
 
 #: ../boards/missing_letter/board1.xml.in.h:15
 msgid "bottle/bott_e/l/y/r"
-msgstr ""
+msgstr "酒瓶/_瓶/酒/久/九"
 
 #: ../boards/missing_letter/board1.xml.in.h:16
 msgid "cake/_ake/c/p/d"
-msgstr ""
+msgstr "蛋糕/_糕/蛋/旦/淡"
 
 #: ../boards/missing_letter/board1.xml.in.h:17
 msgid "cake/c_ke/a/o/e"
-msgstr ""
+msgstr "蛋糕/蛋_/糕/高/膏"
 
 #: ../boards/missing_letter/board1.xml.in.h:18
 msgid "cake/ca_e/k/q/c"
-msgstr ""
+msgstr "蛋糕/蛋_/糕/羔/榚"
 
 #: ../boards/missing_letter/board1.xml.in.h:19
 msgid "car/_ar/c/k/b"
-msgstr ""
+msgstr "汽車/_車/汽/器/企"
 
 #: ../boards/missing_letter/board1.xml.in.h:20
 msgid "car/c_r/a/k/o"
-msgstr ""
+msgstr "汽車/_車/汽/氣/乞"
 
 #: ../boards/missing_letter/board1.xml.in.h:21
 msgid "car/ca_/r/w/k"
-msgstr ""
+msgstr "汽車/汽_/車/卓/軍"
 
 #: ../boards/missing_letter/board1.xml.in.h:22
 msgid "dog/_og/d/p/q"
-msgstr ""
+msgstr "狗/_/狗/苟/句"
 
 #: ../boards/missing_letter/board1.xml.in.h:23
 msgid "dog/d_g/o/g/a"
-msgstr ""
+msgstr "狗/_/狗/夠/鉤"
 
 #: ../boards/missing_letter/board1.xml.in.h:24
 msgid "dog/do_/g/p/q"
-msgstr ""
+msgstr "狗/_/狗/狼/狙"
 
 #: ../boards/missing_letter/board1.xml.in.h:25
 msgid "fish/_ish/f/h/l"
-msgstr ""
+msgstr "魚/_/魚/魯/漁"
 
 #: ../boards/missing_letter/board1.xml.in.h:26
 msgid "fish/f_sh/i/u/l"
-msgstr ""
+msgstr "魚/_/魚/于/於"
 
 #: ../boards/missing_letter/board1.xml.in.h:27
 msgid "fish/fis_/h/o/i"
-msgstr ""
+msgstr "魚/_/魚/余/餘"
 
 #: ../boards/missing_letter/board1.xml.in.h:28
 msgid "house/_ouse/h/e/j"
-msgstr ""
+msgstr "房屋/房_/屋/烏/嗚"
 
 #: ../boards/missing_letter/board1.xml.in.h:29
 msgid "house/h_use/o/f/u"
-msgstr ""
+msgstr "房屋/房_/屋/污/巫"
 
 #: ../boards/missing_letter/board1.xml.in.h:30
 msgid "house/hous_/e/a/i"
-msgstr ""
+msgstr "房屋/_屋/房/防/坊"
 
 #: ../boards/missing_letter/board1.xml.in.h:31
 msgid "plane/_lane/p/g/d"
-msgstr ""
+msgstr "飛機/飛_/機/幾/磯"
 
 #: ../boards/missing_letter/board1.xml.in.h:32
 msgid "plane/p_ane/l/j/i"
-msgstr ""
+msgstr "飛機/飛_/機/積/基"
 
 #: ../boards/missing_letter/board1.xml.in.h:33
 msgid "plane/pl_ne/a/o/s"
-msgstr ""
+msgstr "飛機/_機/飛/非/妃"
 
 #: ../boards/missing_letter/board1.xml.in.h:34
 msgid "satchel/_atchel/s/c/l"
-msgstr ""
+msgstr "背包/_包/背/揹/北"
 
 #: ../boards/missing_letter/board1.xml.in.h:35
 msgid "satchel/s_tchel/a/o/i"
-msgstr ""
+msgstr "背包/_包/背/杯/卑"
 
 #: ../boards/missing_letter/board1.xml.in.h:36
 msgid "satchel/sa_chel/t/p/c"
-msgstr ""
+msgstr "背包/背_/包/苞/跑"
 
 #: ../boards/money.xml.in.h:1 ../boards/money_cents.xml.in.h:1
-#, fuzzy
 msgid "Can count"
-msgstr "計數"
+msgstr "能夠計數"
 
 #: ../boards/money.xml.in.h:2 ../boards/money_cents.xml.in.h:2
 msgid ""
 "Click on the coins or paper money at the bottom of the screen to pay. If you "
 "want to remove a coin or note, click on it on the upper screen area."
 msgstr ""
+"利用按下螢幕底部的硬幣或紙鈔來付錢。如果你想要移除某個硬幣或紙鈔，"
+"就在螢幕頂端區域它們的上方按一下。"
 
 #: ../boards/money.xml.in.h:3 ../boards/money_cents.xml.in.h:3
 msgid "Money"
 msgstr "金錢"
 
 #: ../boards/money.xml.in.h:4
-#, fuzzy
 msgid "Practice money usage"
-msgstr "憑證鑰匙使用"
+msgstr "練習金錢使用"
 
 #: ../boards/money.xml.in.h:5 ../boards/money_cents.xml.in.h:5
 msgid ""
 "You must buy the different items and give the exact price. At higher levels, "
 "several items are displayed, and you must first calculate the total price."
 msgstr ""
+"你必須購買不同的物品並且付出剛好的價錢。在較高的階段中，"
+"多個物品會被顯示，而你必須先計算總價。"
 
 #: ../boards/money_cents.xml.in.h:4
-#, fuzzy
 msgid "Practice money usage including cents"
-msgstr "包含空白的字元:"
+msgstr "練習包括角分的金錢使用"
 
 #: ../boards/mosaic.xml.in.h:1
-#, fuzzy
 msgid "Rebuild the mosaic"
-msgstr "重新進行搜尋"
+msgstr "重新製作馬賽克"
 
 #: ../boards/mouse.xml.in.h:2
-#, fuzzy
 msgid "Mouse-manipulation boards"
-msgstr "滑鼠模擬"
+msgstr "滑鼠操控園地"
 
 #: ../boards/paintings.xml.in.h:1
 msgid "Assemble the puzzle"
-msgstr ""
+msgstr "組合這個拼圖"
 
 #: ../boards/paintings.xml.in.h:2
 msgid "Drag and Drop the items to rebuild the original paintings"
-msgstr ""
+msgstr "拖放碎片來重新製作原本的圖畫"
 
 #: ../boards/paintings.xml.in.h:3
 msgid ""
 "Drag the image parts from the box on the left to create a painting on the "
 "main board."
 msgstr ""
+"從左側盒子裡拖出部份的圖案，在主要園地上製作圖畫。"
 
 #: ../boards/paintings.xml.in.h:4
-#, fuzzy
 msgid "Mouse-manipulation: movement, drag and drop"
-msgstr "多重拖放"
+msgstr "滑鼠操控：移動﹑拖放"
 
 #: ../boards/paintings.xml.in.h:5
-#, fuzzy
 msgid "Spatial representation"
-msgstr "StarOffice 簡報檔"
+msgstr "空間表現"
 
 #: ../boards/paintings/board1_0.xml.in.h:1
 msgid "Edgar Degas, The Dancing Class - 1873-75"
-msgstr ""
+msgstr "Edgar Degas(竇加)，舞蹈教室 - 1873-75"
 
 #: ../boards/paintings/board2_0.xml.in.h:1
 msgid "Pierre-Auguste Renoir, Le Moulin de la Galette - 1876"
-msgstr ""
+msgstr "Pierre-Auguste Renoir(雷諾瓦)，煎餅磨坊 - 1876"
 
 #: ../boards/paintings/board3_0.xml.in.h:1
 msgid "Pierre-Auguste Renoir, Girls At The Piano - 1892"
-msgstr ""
+msgstr "Pierre-Auguste Renoir(雷諾瓦)，彈鋼琴的少女們 - 1892"
 
 #: ../boards/paintings/board3_1.xml.in.h:1
 msgid "Kandinsky, Wassily, Composition VIII - 1923"
-msgstr ""
+msgstr "Kandinsky, Wassily(康丁斯基)，構成第八號 - 1923"
 
 #: ../boards/paintings/board3_1.xml.in.h:2
 msgid "Oil on canvas, 140 x 201 cm; Solomon R. Guggenheim Museum, New York"
-msgstr ""
+msgstr "油畫，140 x 201 cm；所羅門古根漢美術館，紐約"
 
 #: ../boards/paintings/board4_0.xml.in.h:1
 msgid "Bazille, The Ramparts at Aigues-Mortes - 1867"
-msgstr ""
+msgstr "Bazille(巴吉爾)，艾格莫特城 - 1867"
 
 #: ../boards/paintings/board5_0.xml.in.h:1
 msgid "Cassatt, Mary - Summertime - 1894"
-msgstr ""
+msgstr "Cassatt, Mary(卡莎特) - 夏日時光 - 1894"
 
 #: ../boards/paintings/board6_0.xml.in.h:1
 msgid "Vincent Van Gogh, Village Street in Auvers - 1890"
-msgstr ""
+msgstr "Vincent Van Gogh(梵谷)，鄉村小路 - 1890"
 
 #: ../boards/paratrooper.xml.in.h:1
 msgid "Help Tux the parachutist land safely"
-msgstr ""
+msgstr "幫助小企鵝傘兵安全降落"
 
 #: ../boards/paratrooper.xml.in.h:2
 msgid ""
 "Hit any key or click on the plane to make Tux jump. Hit another key or click "
 "on Tux to open the parachute."
 msgstr ""
+"敲下任何鍵或在飛機上按一下滑鼠讓小企鵝跳出。"
+"敲下其他鍵或在小企鵝上按一下來打開降落傘。"
 
 #: ../boards/paratrooper.xml.in.h:3
 msgid ""
 "In this game, Tux the parachutist needs help to land safely on the fishing "
 "boat. He needs to allow for the wind direction and speed."
 msgstr ""
+"在這個遊戲中，小企鵝傘兵需要幫助以安全降落在漁船之上。"
+"他需要風向與速度的允許。"
 
 #: ../boards/paratrooper.xml.in.h:4
-#, fuzzy
 msgid "Parachutist"
-msgstr "搜尋清單"
+msgstr "傘兵"
 
 #: ../boards/paratrooper.xml.in.h:5
 msgid "This board is game-oriented. No specific skills are needed to play."
-msgstr ""
+msgstr "這園地是以遊戲為主的。不需要特別的技巧就可以玩。"
 
 #: ../boards/planegame.xml.in.h:1
 msgid ""
 "Catch the numbers in increasing order, using the up, down, right and left "
 "arrows on the keyboard to move the helicopter."
 msgstr ""
+"以漸增的順序抓住數字，利用鍵盤的上﹑下﹑左﹑右方向鍵來移動直升機。"
 
 #: ../boards/planegame.xml.in.h:2
 msgid "Move the helicopter to catch the clouds in the correct order"
-msgstr ""
+msgstr "移動直升機以正確的順序來抓住雲朵"
 
 #: ../boards/planegame.xml.in.h:3
 msgid "Number"
 msgstr "數字"
 
 #: ../boards/planegame.xml.in.h:4 ../src/boards/planegame.c:77
-#, fuzzy
 msgid "Numbers in Order"
-msgstr "數字，其它"
+msgstr "依照順序的數字"
 
 #: ../boards/pythontest.xml.in.h:1
 msgid "Add a language-binding to gcompris."
-msgstr ""
+msgstr "加入一個程式語言－鏈結到 gcompris。"
 
 #: ../boards/pythontest.xml.in.h:2
-#, fuzzy
 msgid "Advanced Python Programmer :)"
-msgstr "附加程式設計:"
+msgstr "進階 Python 程式設計師 :)"
 
 #: ../boards/pythontest.xml.in.h:3
-#, fuzzy
 msgid "Python Test"
-msgstr "Python"
+msgstr "Python 測試"
 
 #: ../boards/pythontest.xml.in.h:4
 msgid "Test board for the python plugin"
-msgstr ""
+msgstr "給 python 插件用的園地"
 
 #: ../boards/pythontest.xml.in.h:5
 msgid ""
 "Thanks to Guido van Rossum and the python team for this powerful language!"
 msgstr ""
+"對於這個強大的語言要感謝 Guido van Rossum 與 python 小組！"
 
 #: ../boards/railroad.xml.in.h:1
 msgid "A memory game based on trains"
-msgstr ""
+msgstr "基於火車的記憶遊戲"
 
 #: ../boards/railroad.xml.in.h:2
 msgid ""
@@ -2990,35 +3093,34 @@ msgid ""
 "appropriate carriages and locomotive. Deselect an item by clicking on it "
 "again. Check your construction by clicking on the hand at the bottom."
 msgstr ""
+"一列火車 - 火車頭和多節車廂 - 會在主要區域頂端顯示幾秒鐘。"
+"利用選擇適當的車廂和火車頭，在螢幕頂端重新建造它。"
+"在物品上再按一次就會取消選取。"
+"利用按下底部的手形圖案來檢查你的建造圖。"
 
 #: ../boards/railroad.xml.in.h:3
-#, fuzzy
 msgid "Memory-training"
-msgstr "記憶體/置換"
+msgstr "記憶訓練"
 
 #: ../boards/railroad.xml.in.h:5
-#, fuzzy
 msgid "Railway"
-msgstr "所有的訊息皆提示"
+msgstr "鐵路"
 
 #: ../boards/read_colors.xml.in.h:2
-#, fuzzy
 msgid "Click on the correct colored object."
-msgstr "按下準備移除的顏色"
+msgstr "按下正確著色的物品。"
 
 #: ../boards/read_colors.xml.in.h:3
-#, fuzzy
 msgid "Click on the matching color"
-msgstr "請指定選擇區域的顏色"
+msgstr "按下符合的顏色"
 
 #: ../boards/read_colors.xml.in.h:4
-#, fuzzy
 msgid "Read the names of colors"
-msgstr "減少顏色數目"
+msgstr "閱讀顏色的名稱"
 
 #: ../boards/read_colors.xml.in.h:5
 msgid "This board teaches basic colors."
-msgstr ""
+msgstr "這個園地教導基本的顏色。"
 
 #: ../boards/read_colors/board1.xml.in.h:1
 msgid "black"
@@ -3029,16 +3131,14 @@ msgid "blue"
 msgstr "藍色"
 
 #: ../boards/read_colors/board1.xml.in.h:3
-#, fuzzy
 msgid "brown"
-msgstr "皺眉(_F)"
+msgstr "棕色"
 
 #: ../boards/read_colors/board1.xml.in.h:4
 msgid "green"
 msgstr "綠色"
 
 #: ../boards/read_colors/board1.xml.in.h:5
-#, fuzzy
 msgid "grey"
 msgstr "灰色"
 
@@ -3055,9 +3155,8 @@ msgid "red"
 msgstr "紅色"
 
 #: ../boards/read_colors/board1.xml.in.h:9
-#, fuzzy
 msgid "violet"
-msgstr "淺紫"
+msgstr "紫色"
 
 #: ../boards/read_colors/board1.xml.in.h:10
 msgid "white"
@@ -3068,43 +3167,40 @@ msgid "yellow"
 msgstr "黃色"
 
 #: ../boards/reading.xml.in.h:1
-#, fuzzy
 msgid "Go to the Reading activities"
-msgstr "瀏覽“星際譯王”網站"
+msgstr "前往閱讀遊戲"
 
 #: ../boards/readingh.xml.in.h:1 ../boards/readingv.xml.in.h:1
 msgid ""
 "A word is shown at the top right of the board. A list of words will appear "
 "and disappear on the left. Does the given word belong to the list?"
 msgstr ""
+"在園地右上方會顯示一個詞，左側則有一組詞會出現與消失。"
+"右側的詞是屬於左側的詞組嗎？"
 
 #: ../boards/readingh.xml.in.h:2
-#, fuzzy
 msgid "Horizontal reading practice"
-msgstr "水平漸層"
+msgstr "水平閱讀練習"
 
 #: ../boards/readingh.xml.in.h:3
 msgid "Read a list of words and work out if a given word is in it"
-msgstr ""
+msgstr "閱讀一組詞然後想看看是否所給的詞屬於其中"
 
 #: ../boards/readingh.xml.in.h:4 ../boards/readingv.xml.in.h:3
-#, fuzzy
 msgid "Read training in a limited time"
-msgstr " 在這限定的瀏覽中"
+msgstr "限制時間的閱讀訓練"
 
 #: ../boards/readingv.xml.in.h:2
 msgid "Read a vertical list of words and work out if a given word is in it"
-msgstr ""
+msgstr "閱讀一組垂直排列的詞然後想看看是否所給的詞屬於其中"
 
 #: ../boards/readingv.xml.in.h:5
-#, fuzzy
 msgid "Vertical-reading practice"
-msgstr "垂直漸層"
+msgstr "垂直閱讀練習"
 
 #: ../boards/redraw.xml.in.h:1
-#, fuzzy
 msgid "Copy a drawing from the box on the right into the box on the left."
-msgstr "從紙張頂部邊緣至影像底部邊緣之間的距離"
+msgstr "從右邊方格中複製一張圖畫到左邊的方格中。"
 
 #: ../boards/redraw.xml.in.h:2 ../boards/redraw_symmetrical.xml.in.h:2
 msgid ""
@@ -3113,28 +3209,32 @@ msgid ""
 "marked with a little red cross. The order of objects (above/under) is not "
 "important but be careful not to end up with unwanted objects under others."
 msgstr ""
+"首先，從工具列中選擇適當的工具。然後拖拉滑鼠來建立物品。"
+"當你完成後，按下「確定」鈕。錯誤會用一個小紅叉來標示。"
+"物品的層次(之上/之下)並不重要，但是小心不要在結束時，"
+"還有不想要的物品躲在其他物品下面。"
 
 #: ../boards/redraw.xml.in.h:3
-#, fuzzy
 msgid "Redraw the given item"
-msgstr "重新進行此次修改"
+msgstr "重畫所給的物品"
 
 #: ../boards/redraw_symmetrical.xml.in.h:1
 msgid ""
 "Copy the mirror image of an object from the box on the right into the box on "
 "the left."
 msgstr ""
+"從右邊方格中複製一張鏡像圖畫到左邊的方格中。"
 
 #: ../boards/redraw_symmetrical.xml.in.h:3
-#, fuzzy
 msgid "Mirror the given item"
-msgstr "將圖像左右倒置"
+msgstr "將所給的物品鏡像反射"
 
 #: ../boards/reversecount.xml.in.h:1
 msgid ""
 "Can move the mouse, can read numbers and substract numbers up to 10 for the "
 "first level"
 msgstr ""
+"能夠移動滑鼠，在第一級中可以讀取和遞減數字一直到 10"
 
 #: ../boards/reversecount.xml.in.h:2
 msgid ""
@@ -3142,14 +3242,17 @@ msgid ""
 "fish. Click the dice with the right mouse button to count backwards. When "
 "done, click on the OK button or hit the Enter key."
 msgstr ""
+"按一下骰子來顯示在小企鵝和魚之間有多少冰面斑點。"
+"用滑鼠右鍵按一下骰子來往後計數。完成時，按一下「確定」"
+"按鈕或是壓一下「輸入鍵」。"
 
 #: ../boards/reversecount.xml.in.h:3
 msgid "Practice subtraction with a fun game"
-msgstr ""
+msgstr "用有趣的遊戲來練習減法"
 
 #: ../boards/reversecount.xml.in.h:4
 msgid "Tux is hungry. Help him find fish by counting to the correct ice spot."
-msgstr ""
+msgstr "小企鵝很餓。利用算出正確的冰面斑點數目來幫他找到魚。"
 
 #: ../boards/scales/board1_0.xml.in.h:1 ../boards/scales/board1_1.xml.in.h:1
 #: ../boards/scales/board1_2.xml.in.h:1 ../boards/scales/board1_3.xml.in.h:1
@@ -3162,15 +3265,15 @@ msgstr ""
 #: ../boards/scales/board3_4.xml.in.h:1 ../boards/scales/board3_5.xml.in.h:1
 #: ../boards/scalesboard.xml.in.h:2
 msgid "Drag and Drop masses to balance the scales"
-msgstr ""
+msgstr "拖放重量讓秤盤平衡"
 
 #: ../boards/scalesboard.xml.in.h:1
 msgid "Balance the scales properly"
-msgstr ""
+msgstr "適當地讓秤盤平衡"
 
 #: ../boards/scalesboard.xml.in.h:3
 msgid "Mental calculation, arithmetic equality"
-msgstr ""
+msgstr "心算﹑代數能力"
 
 #: ../boards/scalesboard.xml.in.h:4
 msgid ""
@@ -3178,16 +3281,18 @@ msgid ""
 "moreau@free.fr) in 2001. Its name is 'Spices Seller in Egypt'. It is "
 "released under the GPL licence."
 msgstr ""
+"這張畫是由 Virginie MOREAU (virginie.moreau@free.fr) 在 2001 年原創的畫作。"
+"它的名稱是「埃及的辣椒商人」。它是依據 GPL 使用授權而釋出。"
 
 #: ../boards/scalesboard.xml.in.h:5
 msgid ""
 "To balance the scales, move the masses on the left side. The masses can be "
 "arranged in any order."
-msgstr ""
+msgstr "要讓秤盤平衡，就移動左邊的重量。這些重量可以用任何順序排列。"
 
 #: ../boards/searace.xml.in.h:1
 msgid "Direct your boat accurately to win the race."
-msgstr ""
+msgstr "準確地駕駛小船以贏得比賽。"
 
 #: ../boards/searace.xml.in.h:2 ../boards/searace1player.xml.in.h:2
 msgid ""
@@ -3204,6 +3309,13 @@ msgid ""
 "anywhere on the map to get a measurement in distance and angle. Going to the "
 "next level will give you more complex weather conditions."
 msgstr ""
+"在文字輸入欄中每列輸入一個命令來控制你的船。支援的命令顯示於兩個輸入區域之間。"
+"命令「左轉」與「右轉」必須跟隨著一個角度。角度值也被稱為這兩個命令的「參數」，"
+"預設會使用 45 度。命令「前進」接受一個距離的參數，預設會使用 1。舉例來說："
+"左轉 90 => 直角左轉﹑前進 10 => 向前 10 單位(依尺上所標)。目標是要到達螢幕右邊"
+"(紅線)。完成之後，可以試著去加強你的程式，並且利用重試按鈕在相同的天氣條件下，"
+"去啟動一次新的競速。你可以在地圖的任何地點按下並拖拉滑鼠，來取得距離與角度的測"
+"量值。往下一層階段將會給予你更加複雜的天氣條件。"
 
 #: ../boards/searace.xml.in.h:3 ../boards/searace1player.xml.in.h:3
 msgid ""
@@ -3212,79 +3324,75 @@ msgid ""
 "construct a program. This activity can be used to introduce the programming "
 "concept to children."
 msgstr ""
+"在這個遊戲中，你將會學到如何給電腦輸入命令。即使所用的語言是極度的基本，"
+"這裡你會學到如何超前思考與建立一個程式。這個遊戲可以用來向兒童介紹寫電腦"
+"程式的概念。"
 
 #: ../boards/searace.xml.in.h:4
-#, fuzzy
 msgid "Sea race (2 Players)"
-msgstr "使用新圖層"
+msgstr "海上競速 (雙人)"
 
 #: ../boards/searace1player.xml.in.h:1
 msgid "Give good instructions to your ship in order to be first in the race."
-msgstr ""
+msgstr "給你的船隻下達適當的指令，以期能在競速中得到第一。"
 
 #: ../boards/searace1player.xml.in.h:4
-#, fuzzy
 msgid "Sea race (Single Player)"
-msgstr "單一玩家(&i)"
+msgstr "海上競速 (單人)"
 
 #: ../boards/smallnumbers.xml.in.h:1 ../boards/smallnumbers2.xml.in.h:1
-#, fuzzy
 msgid "Count the number of dots on dice before they reach the ground"
-msgstr "計算檔案中的字數"
+msgstr "在骰子掉落地面之前計算上面的點數"
 
 #: ../boards/smallnumbers.xml.in.h:2 ../boards/smallnumbers2.xml.in.h:2
-#, fuzzy
 msgid "Counting skills"
-msgstr "日期計算基準"
+msgstr "計算能力"
 
 #: ../boards/smallnumbers.xml.in.h:3 ../boards/smallnumbers2.xml.in.h:3
-#, fuzzy
 msgid "In a limited time, count the number of dots"
-msgstr "列印時，透過指定每英吋有多少點來放大縮小影像"
+msgstr "在限制時間中，計算點數"
 
 #: ../boards/smallnumbers.xml.in.h:4
-#, fuzzy
 msgid "Numbers With Dice"
-msgstr "阿拉伯數字東西"
+msgstr "骰子點數"
 
 #: ../boards/smallnumbers.xml.in.h:5 ../boards/smallnumbers2.xml.in.h:5
 msgid ""
 "With the keyboard, type the number corresponding to the number of dots on "
 "the falling dice."
 msgstr ""
+"藉助鍵盤，根據掉落中骰子上面的點數來輸入數字。"
 
 #: ../boards/smallnumbers2.xml.in.h:4
-#, fuzzy
 msgid "Numbers with pairs of dice"
-msgstr "圓環數目"
+msgstr "幾對骰子的點數"
 
 #: ../boards/submarine.xml.in.h:1
 msgid ""
 "Click on different active elements : engine, rudders and air tanks, in order "
 "to navigate to the required depth."
 msgstr ""
+"按一下不同的運轉零件：引擎﹑方向舵與空氣艙，以便能夠操縱它到達需要的深度。"
 
 #: ../boards/submarine.xml.in.h:2
 msgid "Learn how a submarine works"
-msgstr ""
+msgstr "學習潛水艇是如何運作的"
 
 #: ../boards/submarine.xml.in.h:3
-#, fuzzy
 msgid "Physics basics"
-msgstr "物理學"
+msgstr "物理學基礎"
 
 #: ../boards/submarine.xml.in.h:4
-#, fuzzy
 msgid "Pilot a submarine"
-msgstr "Pilot 名稱"
+msgstr "駕駛潛水艇"
 
 #: ../boards/submarine.xml.in.h:5
 msgid "Pilot a submarine using air tanks and dive rudders"
-msgstr ""
+msgstr "利用空氣艙和下潛方向舵來駕駛潛水艇"
 
 #: ../boards/sudoku.xml.in.h:1
 msgid "Completing the puzzle requires patience and logical ability"
-msgstr ""
+msgstr "解開這個謎題需要耐心和邏輯能力"
 
 #: ../boards/sudoku.xml.in.h:2
 msgid ""
@@ -3293,15 +3401,20 @@ msgid ""
 "the keyboard focus. Then enter a possible letter or number. GCompris will "
 "not let you enter invalid data."
 msgstr ""
+"在用到顏色符號的第一階段，拖拉左邊符號到它們的目標位置。"
+"對於較高的階段，在空的方格上按一下則可得到鍵盤的輸入焦點。"
+"然後輸入有可能的字母或數字。GCompris 將不會讓你輸入無效"
+"的資料。"
 
 #: ../boards/sudoku.xml.in.h:3
 msgid "Sudoku, place unique symbols in a square."
-msgstr ""
+msgstr "數獨，在方格中放置單獨符號。"
 
 #: ../boards/sudoku.xml.in.h:4
 msgid ""
 "Symbols must be unique in a row, in a column, and (if defined) each region."
 msgstr ""
+"符號必須在一列﹑一欄以及每塊區域(如果有定義)中是惟一的。"
 
 #: ../boards/sudoku.xml.in.h:5
 msgid ""
@@ -3312,6 +3425,10 @@ msgid ""
 "instance of each symbol or numeral (Source &lt;http://en.wikipedia.org/wiki/"
 "Sudoku&gt;)."
 msgstr ""
+"謎題的目標是在網格的每個單元中，輸入一個符號或從 1 到 9 的數字，"
+"最常見的是由 3x3 次網格(稱之為「區域」)所組成的 9x9 網格，而在某"
+"些格子(「已知」)中已經給定多種的符號或數字。每一列﹑欄與區域都必"
+"須只包含每種符號與數字的一個實體(來源 &lt;http://en.wikipedia.org/wiki/Sudoku&gt;)。"
 
 #: ../boards/superbrain.xml.in.h:1
 msgid ""
@@ -3321,20 +3438,24 @@ msgid ""
 "a black box. You can use the right mouse button to flip the colors in the "
 "opposite order."
 msgstr ""
+"在物品上按一下直到你找到所認為的正確回答。然後，"
+"按一下控制列中的「確定」鈕。在較低的階段中，小企鵝"
+"會藉著黑色方格標示物品，來指示你是否找到了隱藏的地"
+"方。你可以利用滑鼠右鍵以相反的順序來翻轉顏色。"
 
 #: ../boards/superbrain.xml.in.h:2 ../src/boards/superbrain.c:110
-#, fuzzy
 msgid "Super Brain"
-msgstr "特級 B"
+msgstr "超級頭腦"
 
 #: ../boards/superbrain.xml.in.h:3 ../src/boards/superbrain.c:111
 msgid "Tux has hidden several items. Find them again in the correct order"
-msgstr ""
+msgstr "小企鵝把許多物品藏起來了。以正確的順序將它們重新找出來"
 
 #: ../boards/target.xml.in.h:1
 msgid ""
 "Can move the mouse, can read numbers and count up to 15 for the first level"
 msgstr ""
+"能夠移動滑鼠，能夠讀取數字而且在第一階段最高算到 15"
 
 #: ../boards/target.xml.in.h:2
 msgid ""
@@ -3343,51 +3464,51 @@ msgid ""
 "count your score. Enter the score with the keyboard then press the Enter key "
 "or the OK button."
 msgstr ""
+"檢查風速和風向，然後在目標上按一下來射出飛鏢。"
+"當你射完所有飛鏢，會出現一個視窗要求你去計算分數。"
+"用鍵盤輸入分數之後，按下「輸入」鍵或「確定」鈕。"
 
 #: ../boards/target.xml.in.h:3
 msgid "Hit the target and count your points"
-msgstr ""
+msgstr "打到目標並且計算點數"
 
 #: ../boards/target.xml.in.h:4
 msgid "Practice addition with a target game"
-msgstr ""
+msgstr "利用打目標遊戲來練習加法"
 
 #: ../boards/target.xml.in.h:5
 msgid "Throw darts at a target and count your score."
-msgstr ""
+msgstr "向目標丟飛鏢並且計算成績。"
 
 #: ../boards/tuxpaint.xml.in.h:1
 msgid "Drawing activity (pixmap)"
-msgstr ""
+msgstr "畫圖遊戲 (像素圖)"
 
 #: ../boards/tuxpaint.xml.in.h:2
-#, fuzzy
 msgid "Launch Tuxpaint"
-msgstr "啟動 up2date"
+msgstr "啟動「企鵝小畫家」"
 
 #: ../boards/tuxpaint.xml.in.h:3
-#, fuzzy
 msgid "Tuxpaint"
-msgstr "西班牙"
+msgstr "企鵝小畫家"
 
 #: ../boards/tuxpaint.xml.in.h:4
 msgid "Use Tuxpaint to draw. When Tuxpaint is finished this board will end."
-msgstr ""
+msgstr "利用「企鵝小畫家」來畫圖。當「企鵝小畫家」完畢時，這塊園地也將會結束。"
 
 #: ../boards/tuxpaint.xml.in.h:5
-#, fuzzy
 msgid "mouse and keyboard manipulation"
-msgstr "音效卡設定"
+msgstr "滑鼠和鍵盤操控"
 
 #: ../boards/traffic.xml.in.h:1
 msgid "A sliding-block puzzle game"
-msgstr ""
+msgstr "滑動方塊解謎遊戲"
 
 #: ../boards/traffic.xml.in.h:2
-#, fuzzy
 msgid ""
 "Remove all the red cars from the parking lot through the gate on the right"
-msgstr "由游標所在位置刪除至字尾所有的字元"
+msgstr ""
+"由游標所在位置刪除至字尾所有的字元"
 
 #: ../boards/watercycle.xml.in.h:1
 msgid ""
@@ -3396,59 +3517,57 @@ msgid ""
 "the system is back up and Tux is in the shower, push the shower button for "
 "him."
 msgstr ""
+"在不同的動作元素上按一下：太陽﹑雲﹑抽水站和淨水站，"
+"為了要重新啟動整個水系統。當這個系統回復而且小企鵝進入淋浴間之後，"
+"幫他壓一下淋浴按鈕。"
 
 #: ../boards/watercycle.xml.in.h:2
 msgid "Learn about the water cycle"
-msgstr ""
+msgstr "學習水循環相關知識"
 
 #: ../boards/watercycle.xml.in.h:3
-#, fuzzy
 msgid "Learn the water cycle"
-msgstr "將指定檔案匯入自學區"
+msgstr "學習水的循環"
 
 #: ../boards/watercycle.xml.in.h:4
 msgid ""
 "Tux has come back from a long fishing party on his boat. Bring the water "
 "system back up so he can take a shower."
 msgstr ""
+"小企鵝已經從一個長時間的船上捕漁派對回來。"
+"請回復水循環系統，好讓他能沖個澡。"
 
 #: ../boards/wordsgame.xml.in.h:1 ../src/boards/wordsgame.c:113
-#, fuzzy
 msgid "Falling Words"
-msgstr "失敗 "
+msgstr "單字掉落"
 
 #: ../boards/wordsgame.xml.in.h:3
-#, fuzzy
 msgid "Keyboard training"
-msgstr "鍵盤設定"
+msgstr "鍵盤訓練"
 
 #: ../boards/wordsgame.xml.in.h:4
 msgid "Type the complete word as it falls, before it reachs the ground"
-msgstr ""
+msgstr "在它掉落但到達地面之前輸入整個單字"
 
 #: ../boards/wordsgame.xml.in.h:5 ../src/boards/wordsgame.c:114
-#, fuzzy
 msgid "Type the falling words before they reach the ground"
-msgstr "使用隨後的程式來繪製背景:"
+msgstr "在它們到達地面之前，輸入掉落中的單字"
 
 #: ../gcompris-edit.desktop.in.h:1
-#, fuzzy
 msgid "Administration for gcompris"
-msgstr "系統管理工具"
+msgstr "gcompris 系統管理"
 
 #: ../gcompris.desktop.in.h:1
 msgid "Educational game for ages 2 to 10"
-msgstr ""
+msgstr "適合二到十歲的教育遊戲"
 
 #: ../gcompris.desktop.in.h:2
-#, fuzzy
 msgid "Educational suite gcompris"
-msgstr "教育機構"
+msgstr "教育套裝軟體 gcompris"
 
 #: ../gcompris.desktop.in.h:3
-#, fuzzy
 msgid "Multiple activities for kids"
-msgstr "多重螢幕"
+msgstr "多個兒童遊戲"
 
 #: ../src/boards/chess.c:189
 msgid ""
@@ -3458,6 +3577,9 @@ msgid ""
 "GNU/Linux distribution\n"
 "And check it is located here: "
 msgstr ""
+"錯誤：在 gcompris 中玩西洋棋需要外部程式 gnuchess。\n"
+"從 http://www.rpmfind.net 或是你的 GNU/Linux 發行版\n"
+"本中安裝這個程式，並檢查它是否位於這裡："
 
 #: ../src/boards/chess.c:228
 msgid ""
@@ -3467,51 +3589,47 @@ msgid ""
 "GNU/Linux distribution\n"
 "And check it is in "
 msgstr ""
+"錯誤：在 gcompris 中玩西洋棋需要外部程式 gnuchess。\n"
+"從 http://www.rpmfind.net 或是你的 GNU/Linux 發行版\n"
+"本中安裝這個程式，並檢查它是否在："
 
 #: ../src/boards/chess.c:569
-#, fuzzy
 msgid "White's Turn"
-msgstr "白色鼠標"
+msgstr "輪到白方"
 
 #: ../src/boards/chess.c:569
-#, fuzzy
 msgid "Black's Turn"
-msgstr "黑色"
+msgstr "輪到黑方"
 
 #: ../src/boards/chess.c:713
-#, fuzzy
 msgid "White checks"
-msgstr "空白"
+msgstr "白方將軍"
 
 #: ../src/boards/chess.c:715
-#, fuzzy
 msgid "Black checks"
-msgstr "黑色等級"
+msgstr "黑方將軍"
 
 #: ../src/boards/chess.c:1052
-#, fuzzy
 msgid "Black mates"
-msgstr "黑色等級"
+msgstr "黑方兵士"
 
 #: ../src/boards/chess.c:1057
-#, fuzzy
 msgid "White mates"
-msgstr "白皮書"
+msgstr "白方兵士"
 
 #: ../src/boards/chess.c:1062 ../src/gcompris/bonus.c:312
 #: ../src/gcompris/bonus.c:321
-#, fuzzy
 msgid "Drawn game"
-msgstr "繪畫框格(_D)"
+msgstr "畫圖遊戲"
 
 #. TRANSLATORS: Put here the alphabet in your language
 #. require by all utf8-functions
 #. TRANSLATORS: Put here the alphabet lowercase in your language
 #: ../src/boards/click_on_letter.c:258 ../src/boards/click_on_letter.c:275
 #: ../src/boards/gletters.c:228 ../src/boards/memory.c:565
-#, fuzzy
 msgid "abcdefghijklmnopqrstuvwxyz"
-msgstr "The following is Chinese: '中文測試'"
+msgstr "abcdefghijklmnopqrstuvwxyz"
+#msgstr "ㄅㄆㄇㄈㄉㄊㄋㄌㄍㄎㄏㄐㄑㄒ㞢ㄔㄕㄖㄗㄘㄙㄧㄨㄩㄚㄛㄜㄝㄞㄟㄠㄡㄢㄣㄤㄥㄦ"
 
 #: ../src/boards/click_on_letter.c:287
 #, c-format
@@ -3519,6 +3637,8 @@ msgid ""
 "Error: this activity requires that you first install\n"
 "the packages assetml-voices-alphabet-%s or %s"
 msgstr ""
+"錯誤：這個遊戲需要先安裝套件\n"
+"assetml-voices-alphabet-%s 或 %s"
 
 #: ../src/boards/click_on_letter.c:294
 #, c-format
@@ -3526,6 +3646,8 @@ msgid ""
 "Error: this activity requires that you first install\n"
 "the packages assetml-voices-alphabet-%s ! Fallback to english, sorry!"
 msgstr ""
+"錯誤：這個遊戲需要先安裝套件\n"
+"assetml-voices-alphabet-%s ！回復到英文，抱歉！"
 
 #: ../src/boards/click_on_letter.c:302
 msgid ""
@@ -3534,186 +3656,171 @@ msgid ""
 "Go to the configuration dialogue to\n"
 "enable the sound"
 msgstr ""
+"錯誤：在停用音效時，沒辦法玩這個遊戲。\n"
+"前往設定對話框來啟用音效"
 
 #. toggle box
 #: ../src/boards/click_on_letter.c:611 ../src/boards/gletters.c:813
 #: ../src/boards/python/login.py:535
-#, fuzzy
 msgid "Uppercase only text"
-msgstr "大寫"
+msgstr "只允許大寫字母"
 
 #: ../src/boards/clickgame.c:178
-#, fuzzy, c-format
+#, c-format
 msgid "Couldn't open dir: %s"
-msgstr "無法開啟‘%s’：%s"
+msgstr "無法開啟目錄：%s"
 
 #: ../src/boards/clockgame.c:536 ../src/boards/clockgame.c:546
-#, fuzzy
 msgid "Set the watch to:"
-msgstr "指定寬度"
+msgstr "將錶設定成："
 
 #: ../src/boards/colors.c:57
-#, fuzzy
 msgid "Click on the blue duck"
-msgstr "按下該按鈕後可檢查拼字"
+msgstr "按一下藍色鴨子"
 
 #: ../src/boards/colors.c:58
-#, fuzzy
 msgid "Click on the brown duck"
-msgstr "點選三個點可以畫一個圓弧。"
+msgstr "按一下棕色鴨子"
 
 #: ../src/boards/colors.c:59
-#, fuzzy
 msgid "Click on the green duck"
-msgstr "按下該按鈕後可檢查拼字"
+msgstr "按一下綠色鴨子"
 
 #: ../src/boards/colors.c:60
-#, fuzzy
 msgid "Click on the grey duck"
-msgstr "按下該按鈕後可檢查拼字"
+msgstr "按一下灰色鴨子"
 
 #: ../src/boards/colors.c:61
-#, fuzzy
 msgid "Click on the orange duck"
-msgstr "按下該按鈕後可檢查拼字"
+msgstr "按一下橙色鴨子"
 
 #: ../src/boards/colors.c:62
-#, fuzzy
 msgid "Click on the purple duck"
-msgstr "按下該按鈕後可檢查拼字"
+msgstr "按一下紫色鴨子"
 
 #: ../src/boards/colors.c:63
-#, fuzzy
 msgid "Click on the red duck"
-msgstr "按下該按鈕後可檢查拼字"
+msgstr "按一下紅色鴨子"
 
 #: ../src/boards/colors.c:64
-#, fuzzy
 msgid "Click on the yellow duck"
-msgstr "按下該按鈕後可檢查拼字"
+msgstr "按一下黃色鴨子"
 
 #: ../src/boards/colors.c:65
-#, fuzzy
 msgid "Click on the black duck"
-msgstr "按下該按鈕後可檢查拼字"
+msgstr "按一下黑色鴨子"
 
 #: ../src/boards/colors.c:66
-#, fuzzy
 msgid "Click on the white duck"
-msgstr "白底黑字"
+msgstr "按一下白色鴨子"
 
 #. TRANSLATORS: Put here the numbers in your language
 #: ../src/boards/gletters.c:224 ../src/boards/memory.c:561
 msgid "0123456789"
-msgstr ""
+msgstr "0123456789"
+#msgstr "〇一二三四五六七八九"
 
 #. TRANSLATORS: Put here the alphabet uppercase in your language
 #: ../src/boards/gletters.c:234 ../src/boards/memory.c:571
-#, fuzzy
 msgid "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-msgstr "The following is Chinese: '中文測試'"
+msgstr "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
 #: ../src/boards/hanoi.c:335 ../src/boards/hanoi.c:346
 msgid ""
 "Build the same tower in the empty area as the one you see on the right-hand "
 "side."
 msgstr ""
+"在空地上建造跟你在右手邊所看到一樣的高塔。"
 
 #: ../src/boards/hanoi_real.c:76
-#, fuzzy
 msgid "Tower of Hanoi"
-msgstr "金塊之塔"
+msgstr "河內塔"
 
 #: ../src/boards/hanoi_real.c:277 ../src/boards/hanoi_real.c:288
-#, fuzzy
 msgid "Move the entire stack to the right peg"
-msgstr "將視窗移動至右方的工作區"
+msgstr "將整疊移到右邊的柱子"
 
 #: ../src/boards/imageid.c:113 ../src/boards/missingletter.c:105
 msgid "Learn how to read"
-msgstr ""
+msgstr "學習如何閱讀"
 
 #: ../src/boards/leftright.c:276 ../src/boards/leftright.c:286
 #: ../src/boards/python/searace.py:429 ../src/boards/python/searace.py:454
 #: ../src/boards/python/searace.py:544 ../src/boards/python/searace.py:856
 #: ../src/boards/python/searace.py:889 ../src/boards/python/searace.py:986
 msgid "left"
-msgstr "左"
+msgstr "左轉"
 
 #: ../src/boards/leftright.c:296 ../src/boards/leftright.c:306
 #: ../src/boards/python/searace.py:429 ../src/boards/python/searace.py:454
 #: ../src/boards/python/searace.py:553 ../src/boards/python/searace.py:858
 #: ../src/boards/python/searace.py:891 ../src/boards/python/searace.py:980
 msgid "right"
-msgstr "右"
+msgstr "右轉"
 
 #: ../src/boards/maze.c:492
 msgid ""
 "Look at your position, then switch back to invisible mode to continue your "
 "moves"
 msgstr ""
+"看清楚你的位置，然後切換回看不見的模式來繼續移動"
 
 #: ../src/boards/maze.c:494
 msgid ""
 "Look at your position, then switch back to 3D mode to continue your moves"
 msgstr ""
+"看清楚你的位置，然後切換回 3D 模式來繼續移動"
 
 #: ../src/boards/memory.c:250
 msgid "Memory"
-msgstr "記憶體"
+msgstr "記憶"
 
 #: ../src/boards/memory.c:251
-#, fuzzy
 msgid "Find the matching pair"
-msgstr "尋找符合解釋"
+msgstr "找出相符的一對"
 
 #: ../src/boards/menu.c:79
 msgid "Main Menu"
 msgstr "主選單"
 
 #: ../src/boards/menu.c:80
-#, fuzzy
 msgid "Select a Board"
-msgstr "選擇遊戲板"
+msgstr "選擇一塊園地"
 
 #. Set here the way to display money. Change only the money sign, and it's place, always keep %.2f, it will be replaced by 0,34 if decimal is ',' in your locale
 #: ../src/boards/money.c:489
-#, fuzzy, c-format
+#, c-format
 msgid "$ %.2f"
-msgstr "%.2f GB"
+msgstr "$ %.2f"
 
 #: ../src/boards/money.c:502
-#, fuzzy, c-format
+#, c-format
 msgid "$ %.0f"
-msgstr "%.0fG"
+msgstr "$ %.0f"
 
 #: ../src/boards/paratrooper.c:102
-#, fuzzy
 msgid "Paratrooper"
-msgstr "參數"
+msgstr "傘兵"
 
 #: ../src/boards/paratrooper.c:103
 msgid "Direct the paratrooper to help him land safely"
-msgstr ""
+msgstr "給傘兵指示方向來幫助他安全降落"
 
 #: ../src/boards/planegame.c:78
-#, fuzzy
 msgid "Move the plane to catch the clouds in the correct order"
-msgstr "收起目前資料夾內的所有討論串"
+msgstr "移動飛機並以正確的順序來抓住雲朵"
 
 #: ../src/boards/python.c:62
-#, fuzzy
 msgid "Python Board"
-msgstr "Python 瀏覽器"
+msgstr "Python 園地"
 
 #: ../src/boards/python.c:63
 msgid "Special board that embeds python into gcompris."
-msgstr ""
+msgstr "用來內嵌 python 於 gcompris 的特殊園地。"
 
 #: ../src/boards/python/admin/board_list.py:90
-#, fuzzy
 msgid "Select a profile:"
-msgstr "選取一個資料檔"
+msgstr "選取一個簡介檔："
 
 #: ../src/boards/python/admin/board_list.py:146
 msgid "Filter"
@@ -3728,13 +3835,12 @@ msgid "Unselect all"
 msgstr "全部不選"
 
 #: ../src/boards/python/admin/board_list.py:236
-#, fuzzy
 msgid "Main menu"
 msgstr "主選單"
 
 #: ../src/boards/python/admin/board_list.py:236
 msgid "/"
-msgstr "÷"
+msgstr "/"
 
 #. columns for Board name
 #. column_pref = gtk.TreeViewColumn(_('Conf'))
@@ -3743,17 +3849,16 @@ msgstr "÷"
 #. column_pref.set_widget(image)
 #: ../src/boards/python/admin/board_list.py:293
 msgid "Active"
-msgstr "活躍"
+msgstr "啟動"
 
 #: ../src/boards/python/admin/board_list.py:294
-#, fuzzy
 msgid "Board title"
-msgstr "一個標題"
+msgstr "園地標題"
 
 #: ../src/boards/python/admin/board_list.py:410
-#, fuzzy, python-format
+#, python-format
 msgid "Filter Boards difficulty for profile %s"
-msgstr "轉換至 %s 資料檔失敗"
+msgstr "以簡介檔 %s 來過濾園地時發生困難"
 
 #: ../src/boards/python/admin/board_list.py:441
 #, python-format
@@ -3761,6 +3866,7 @@ msgid ""
 "<span size='x-large'> Select the difficulty range \n"
 "for profile <b>%s</b></span>"
 msgstr ""
+"<span size='x-large'> 選擇簡介檔 <b>%s</b> 中發生困難的範圍 </span>"
 
 #. Init configuration window:
 #. all the configuration functions will use it
@@ -3772,48 +3878,44 @@ msgstr ""
 #: ../src/boards/python/admin/board_list.py:650
 #: ../src/boards/python/admin/wordlist.py:51 ../src/boards/python/login.py:530
 #: ../src/boards/python/pythontest.py:409 ../src/boards/python/tuxpaint.py:179
-#, fuzzy, python-format
+#, python-format
 msgid ""
 "<b>%s</b> configuration\n"
 " for profile <b>%s</b>"
-msgstr "讀取設定檔 %s"
+msgstr ""
+"<b>%s</b> 設定值\n"
+"於簡介檔 <b>%s</b>"
 
 #: ../src/boards/python/admin/board_list.py:662
 #: ../src/boards/python/pythontest.py:473
-#, fuzzy
 msgid "Select sound locale"
-msgstr "選取音效檔"
+msgstr "選擇音效的語區"
 
 #: ../src/boards/python/admin/class_edit.py:60
-#, fuzzy
 msgid "Editing a Class"
-msgstr "編輯已啟用"
+msgstr "正在編輯一個班級"
 
 #: ../src/boards/python/admin/class_edit.py:65
-#, fuzzy
 msgid "Editing class: "
-msgstr "修改光碟的識別碼："
+msgstr "正在編輯班級："
 
 #: ../src/boards/python/admin/class_edit.py:68
-#, fuzzy
 msgid "Editing a new class"
-msgstr "新增使用者等級"
+msgstr "正在編輯一個新班級"
 
 #: ../src/boards/python/admin/class_edit.py:90
 msgid "Class:"
-msgstr "類別"
+msgstr "班級："
 
 #. FIXME: How to remove the default selection
 #. Label and Entry for the teacher name
 #: ../src/boards/python/admin/class_edit.py:103
-#, fuzzy
 msgid "Teacher:"
-msgstr "在這裡測試："
+msgstr "老師："
 
 #: ../src/boards/python/admin/class_edit.py:113
-#, fuzzy
 msgid "Assign all the users belonging to this class"
-msgstr "真實使用者可屬於此等級"
+msgstr "指定所有使用者屬於這個班級"
 
 #: ../src/boards/python/admin/class_edit.py:253
 #: ../src/boards/python/admin/group_edit.py:265
@@ -3830,49 +3932,42 @@ msgid "Last Name"
 msgstr "姓"
 
 #: ../src/boards/python/admin/class_edit.py:341
-#, fuzzy
 msgid "You need to provide at least a name for your class"
-msgstr "您最少要選取一條軌道！"
+msgstr "你至少要提供班級名稱"
 
 #: ../src/boards/python/admin/class_edit.py:387
-#, fuzzy
 msgid "There is already a class with this name"
-msgstr "已經存在一個相同名稱的佇列。"
+msgstr "已經存在一個相同名稱的班級"
 
 #: ../src/boards/python/admin/class_list.py:170
 #: ../src/boards/python/admin/profile_edit.py:269
 #: ../src/boards/python/admin/profile_group_list.py:145
 msgid "Class"
-msgstr "類別"
+msgstr "班級"
 
 #: ../src/boards/python/admin/class_list.py:180
-#, fuzzy
 msgid "Teacher"
-msgstr "羽化"
+msgstr "老師"
 
 #: ../src/boards/python/admin/group_edit.py:60
-#, fuzzy
 msgid "Editing a Group"
-msgstr "指令集"
+msgstr "正在編輯一個群組"
 
 #: ../src/boards/python/admin/group_edit.py:66
-#, fuzzy
 msgid "Editing group: "
-msgstr "讀取群組發生錯誤"
+msgstr "正在編輯群組："
 
 #: ../src/boards/python/admin/group_edit.py:67
-#, fuzzy
 msgid " for class: "
-msgstr "檢查古老的pgp格式"
+msgstr " 對於班級："
 
 #: ../src/boards/python/admin/group_edit.py:70
-#, fuzzy
 msgid "Editing a new group"
-msgstr "新群組"
+msgstr "正在編輯新群組"
 
 #: ../src/boards/python/admin/group_edit.py:90
 msgid "Group:"
-msgstr "群組:"
+msgstr "群組："
 
 #. FIXME: How to remove the selection
 #. Label and Entry for the first name
@@ -3883,24 +3978,20 @@ msgstr "說明："
 
 #. Top message gives instructions
 #: ../src/boards/python/admin/group_edit.py:113
-#, fuzzy
 msgid "Assign all the users belonging to this group"
-msgstr "選取要加入這個群組的使用者："
+msgstr "指定所有使用者屬於這個群組"
 
 #: ../src/boards/python/admin/group_edit.py:359
-#, fuzzy
 msgid "You need to provide at least a name for your group"
-msgstr "您最少要選取一條軌道！"
+msgstr "你至少要提供群組名稱"
 
 #: ../src/boards/python/admin/group_edit.py:373
-#, fuzzy
 msgid "There is already a group with this name"
-msgstr "已經存在一個相同名稱的佇列。"
+msgstr "已經存在一個相同名稱的群組"
 
 #: ../src/boards/python/admin/group_list.py:87
-#, fuzzy
 msgid "Select a class:"
-msgstr "請先選擇一個等級。"
+msgstr "選擇一個班級："
 
 #: ../src/boards/python/admin/group_list.py:215
 #: ../src/boards/python/admin/profile_edit.py:279
@@ -3916,9 +4007,8 @@ msgid "Description"
 msgstr "描述"
 
 #: ../src/boards/python/admin/group_list.py:323
-#, fuzzy
 msgid "You must first select a group in the list"
-msgstr "您必須選取一個印表機型號。"
+msgstr "你必須先在列表中選取一個群組"
 
 #: ../src/boards/python/admin/group_user_list.py:145
 #: ../src/boards/python/admin/user_list.py:187
@@ -3932,9 +4022,8 @@ msgstr "出生日期"
 
 #: ../src/boards/python/admin/module_boards.py:42
 #: ../src/boards/python/admin/module_boards.py:62
-#, fuzzy
 msgid "Boards"
-msgstr "板"
+msgstr "園地"
 
 #: ../src/boards/python/admin/module_groups.py:41
 #: ../src/boards/python/admin/module_groups.py:67
@@ -3944,12 +4033,12 @@ msgstr "群組"
 #: ../src/boards/python/admin/module_profiles.py:41
 #: ../src/boards/python/admin/module_profiles.py:66
 msgid "Profiles"
-msgstr "設定組合"
+msgstr "簡介檔案"
 
 #: ../src/boards/python/admin/module_users.py:42
 #: ../src/boards/python/admin/module_users.py:68
 msgid "Classes"
-msgstr "Classes"
+msgstr "班級"
 
 #: ../src/boards/python/admin/module_users.py:42
 #: ../src/boards/python/admin/module_users.py:68
@@ -3957,39 +4046,33 @@ msgid "Users"
 msgstr "使用者"
 
 #: ../src/boards/python/admin/profile_edit.py:59
-#, fuzzy
 msgid "Editing a Profile"
-msgstr "修改設定組合“%s”"
+msgstr "正在編輯一個簡介檔"
 
 #: ../src/boards/python/admin/profile_edit.py:64
-#, fuzzy
 msgid "Editing profile: "
-msgstr "編輯設定組合 \"%s\""
+msgstr "正在編輯簡介檔："
 
 #: ../src/boards/python/admin/profile_edit.py:67
-#, fuzzy
 msgid "Editing a new profile"
-msgstr "編輯設定組合 \"%s\""
+msgstr "正在編輯新的簡介檔"
 
 #: ../src/boards/python/admin/profile_edit.py:86
-#, fuzzy
 msgid "Profile:"
-msgstr "個人資料"
+msgstr "簡介檔案："
 
 #. Top message gives instructions
 #: ../src/boards/python/admin/profile_edit.py:109
 msgid "Assign all the groups belonging to this profile"
-msgstr ""
+msgstr "指定所有群組屬於這個簡介檔"
 
 #: ../src/boards/python/admin/profile_edit.py:377
-#, fuzzy
 msgid "You need to provide at least a name for your profile"
-msgstr "您必須指定 HTML 檔的檔案名稱。"
+msgstr "你至少需要提供簡介檔名稱"
 
 #: ../src/boards/python/admin/profile_edit.py:399
-#, fuzzy
 msgid "There is already a profile with this name"
-msgstr "已經存在一個相同名稱的佇列。"
+msgstr "已經存在一個相同名稱的簡介檔"
 
 #: ../src/boards/python/admin/profile_list.py:122
 #: ../src/gcompris/board_config.c:602 ../src/gcompris/board_config.c:727
@@ -3998,31 +4081,27 @@ msgstr "預設"
 
 #: ../src/boards/python/admin/profile_list.py:189
 msgid "Profile"
-msgstr "個人資料"
+msgstr "簡介檔案"
 
 #: ../src/boards/python/admin/profile_list.py:316
 msgid "[Default]"
 msgstr "[預設值]"
 
 #: ../src/boards/python/admin/user_edit.py:50
-#, fuzzy
 msgid "Editing a User"
-msgstr "編輯使用者(_E)"
+msgstr "正在編輯一位使用者"
 
 #: ../src/boards/python/admin/user_edit.py:55
-#, fuzzy
 msgid "Editing a User "
-msgstr "編輯使用者(_E)"
+msgstr "正在編輯使用者"
 
 #: ../src/boards/python/admin/user_edit.py:61
-#, fuzzy
 msgid "Editing a new user"
-msgstr "新增一個用者。"
+msgstr "正在編輯新的使用者"
 
 #: ../src/boards/python/admin/user_edit.py:78
-#, fuzzy
 msgid "Login:"
-msgstr "登入(_G)："
+msgstr "帳號："
 
 #. FIXME: How to remove the selection
 #. Label and Entry for the first name
@@ -4037,19 +4116,18 @@ msgstr "姓："
 
 #. Label and Entry for the birth date
 #: ../src/boards/python/admin/user_edit.py:107
-#, fuzzy
 msgid "Birth date:"
-msgstr "出生日期"
+msgstr "出生日期："
 
 #: ../src/boards/python/admin/user_edit.py:159
 msgid ""
 "You need to provide at least a login, firstname and lastname for your users"
 msgstr ""
+"你至少需要提供使用者的帳號﹑姓與名"
 
 #: ../src/boards/python/admin/user_edit.py:176
-#, fuzzy
 msgid "There is already a user with this login"
-msgstr "已經存在一個相同名稱的佇列。"
+msgstr "已經存在一個相同帳號的使用者"
 
 #: ../src/boards/python/admin/user_list.py:292
 msgid ""
@@ -4058,6 +4136,10 @@ msgid ""
 "login;First name;Last name;Birth date\n"
 "The separator is autodetected and can be one of ',', ';' or ':'"
 msgstr ""
+"要從檔案匯入使用者列表，就先選擇一個班級。\n"
+"檔案格式：你的檔案必須有如下的格式：\n"
+"帳號;名;姓;出生日期\n"
+"會自動偵測分隔符號，可以是 ','﹑';' 或 ':' 之一。"
 
 #: ../src/boards/python/admin/user_list.py:371
 #, python-format
@@ -4065,10 +4147,12 @@ msgid ""
 "One or more logins are not unique !\n"
 "You need to change them: %s !"
 msgstr ""
+"一或多個帳號已有重覆！\n"
+"你需要去修改它們: %s ！"
 
 #: ../src/boards/python/anim.py:59
 msgid "You need the python xml module. Disabling SVG."
-msgstr ""
+msgstr "你需要 python xml 模組。正在關閉 SVG。"
 
 #. gcompris.utils.dialog(_('Python xml module bot found. SVG is disabled. Install the python xml module to enable SVG Save/restore.'), None)
 #: ../src/boards/python/anim.py:417
@@ -4076,44 +4160,44 @@ msgid ""
 "Python xml module not found. SVG is disabled. Install the python xml module "
 "to enable SVG Save/restore."
 msgstr ""
+"找不到 Python xml 模組。SVG 已停用。請安裝 "
+"python xml 模組以啟用 SVG 儲存/回復。"
 
 #: ../src/boards/python/anim.py:2206
 msgid "SVG is disabled. Install python xml module to enable it"
-msgstr ""
+msgstr "SVG 已停用。安裝 python xml 模組以啟用它"
 
 #: ../src/boards/python/anim.py:2362
-#, fuzzy
 msgid "Warning: the following images cannot be accessed on your system.\n"
-msgstr "您必須安裝系統所需的下列套件！"
+msgstr "警告：在你的系統上無法存取下列圖片。\n"
 
 #: ../src/boards/python/anim.py:2364
 msgid "The corresponding items have been skipped."
-msgstr ""
+msgstr "已經跳過相關的物品。"
 
 #: ../src/boards/python/gnumch.py:95
-#, fuzzy, python-format
+#, python-format
 msgid ", %d"
-msgstr " (%d"
+msgstr ", %d"
 
 #: ../src/boards/python/gnumch.py:96
-#, fuzzy, python-format
+#, python-format
 msgid " and %d"
-msgstr " 和 "
+msgstr " 和  %d"
 
 #: ../src/boards/python/gnumch.py:116
-#, fuzzy, python-format
+#, python-format
 msgid "%d is divisible by %s."
-msgstr "%s 定義成 %s."
+msgstr "%d 可以被 %s 整除。"
 
 #: ../src/boards/python/gnumch.py:120
-#, fuzzy
 msgid "1 is not a prime number."
-msgstr "%s 沒有群組 ID (gid) 號碼。\n"
+msgstr "1 並不是個質數。"
 
 #: ../src/boards/python/gnumch.py:130
-#, fuzzy, python-format
+#, python-format
 msgid "Primes less than %d"
-msgstr "小於"
+msgstr "小於 %d 的質數"
 
 #: ../src/boards/python/gnumch.py:151
 #, python-format
@@ -4121,76 +4205,78 @@ msgid ""
 "Multiples of %d include %s,\n"
 "but %d is not a multiple of %d."
 msgstr ""
+"%d 的倍數中包含 %s，\n"
+"但是 %d 不是 %d 的倍數。"
 
 #: ../src/boards/python/gnumch.py:160
-#, fuzzy, python-format
+#, python-format
 msgid "Factors of %d"
-msgstr "/%d 頁"
+msgstr "%d 的因數"
 
 #: ../src/boards/python/gnumch.py:193
-#, fuzzy, python-format
+#, python-format
 msgid "%s are the factors of %d."
-msgstr "%s 取消了 %s 的傳送"
+msgstr "%s 是 %d 的因數"
 
 #: ../src/boards/python/gnumch.py:205
-#, fuzzy, python-format
+#, python-format
 msgid "Multiples of %d"
-msgstr "倍數"
+msgstr "%d 的倍數"
 
 #: ../src/boards/python/gnumch.py:239
-#, fuzzy, python-format
+#, python-format
 msgid "%s = %d"
-msgstr "%s = %s"
+msgstr "%s = %d"
 
 #: ../src/boards/python/gnumch.py:250
-#, fuzzy, python-format
+#, python-format
 msgid "%d + %d"
-msgstr "%d×%d"
+msgstr "%d + %d"
 
 #: ../src/boards/python/gnumch.py:255
-#, fuzzy, python-format
+#, python-format
 msgid "%d − %d"
-msgstr "%d×%d"
+msgstr "%d − %d"
 
 #: ../src/boards/python/gnumch.py:260
-#, fuzzy, python-format
+#, python-format
 msgid "%d × %d"
-msgstr "%d×%d"
+msgstr "%d × %d"
 
 #: ../src/boards/python/gnumch.py:264
-#, fuzzy, python-format
+#, python-format
 msgid "%d ∕ %d"
-msgstr "%d×%d"
+msgstr "%d ∕ %d"
 
 #: ../src/boards/python/gnumch.py:272
-#, fuzzy, python-format
+#, python-format
 msgid "Equal to %d"
-msgstr "等於"
+msgstr "等於 %d"
 
 #: ../src/boards/python/gnumch.py:293
-#, fuzzy, python-format
+#, python-format
 msgid "Not equal to %d"
-msgstr "等於"
+msgstr "不等於 %d"
 
 #: ../src/boards/python/gnumch.py:435
 msgid ""
 "You were eaten by a Troggle.\n"
 "Press <Return> to continue."
 msgstr ""
+"你被野人吃掉了。\n"
+"按下輸入鍵來繼續。"
 
 #: ../src/boards/python/gnumch.py:484
-#, fuzzy
 msgid "You ate a wrong number.\n"
-msgstr "您必須輸入一組註冊號碼。"
+msgstr "你吃了一個錯誤的數字。\n"
 
 #: ../src/boards/python/gnumch.py:485
-#, fuzzy
 msgid ""
 "\n"
 "Press <Return> to continue."
 msgstr ""
 "\n"
-"按下輸入鍵繼續啟動 nano\n"
+"按下輸入鍵來繼續。"
 
 #: ../src/boards/python/gnumch.py:778
 msgid ""
@@ -4202,121 +4288,111 @@ msgid ""
 "L\n"
 "E"
 msgstr ""
+"野\n"
+"人"
 
 #: ../src/boards/python/guessnumber.py:222
-#, fuzzy, python-format
+#, python-format
 msgid "Guess a number between %d and %d"
-msgstr "選取的月份(為 0 - 11 之間的數字)"
+msgstr "猜一個在 %d 和 %d 之間的數字"
 
 #: ../src/boards/python/guessnumber.py:337
 #: ../src/boards/python/guessnumber.py:338
-#, fuzzy, python-format
+#, python-format
 msgid "Please enter a number between %d and %d"
-msgstr "選取的月份(為 0 - 11 之間的數字)"
+msgstr "請輸入一個在 %d 和 %d 之間的數字"
 
 #: ../src/boards/python/guessnumber.py:343
 #: ../src/boards/python/guessnumber.py:344
-#, fuzzy
 msgid "Out of range"
-msgstr "% 頁面"
+msgstr "超出範圍"
 
 #: ../src/boards/python/guessnumber.py:350
 #: ../src/boards/python/guessnumber.py:351
-#, fuzzy
 msgid "Too high"
-msgstr "向右(_R)"
+msgstr "太高"
 
 #: ../src/boards/python/guessnumber.py:353
 #: ../src/boards/python/guessnumber.py:354
-#, fuzzy
 msgid "Too low"
-msgstr "工具"
+msgstr "太低"
 
 #: ../src/boards/python/login.py:115
-#, fuzzy
 msgid "Profile: "
-msgstr "個人資料"
+msgstr "簡介資料："
 
 #: ../src/boards/python/login.py:263 ../src/boards/python/login.py:272
-#, fuzzy
 msgid "Login: "
-msgstr "登入:"
+msgstr "帳號："
 
 #. toggle box
 #: ../src/boards/python/login.py:545
-#, fuzzy
 msgid "Enter login to log in"
-msgstr "輸入播放位置:"
+msgstr "輸入帳號來登入"
 
 #: ../src/boards/python/mosaic.py:210
-#, fuzzy
 msgid "Rebuild the same mosaic on the right area"
-msgstr "切換至右方的工作區"
+msgstr "在右邊區域重新建造相同的馬賽克"
 
 #: ../src/boards/python/pythontest.py:149
 msgid ""
 "This is the first plugin in gcompris coded in the Python\n"
 "Programming language."
 msgstr ""
+"這是第一個在 gcompris 中用 Python 程式語言編寫的插件。"
 
 #: ../src/boards/python/pythontest.py:158
 msgid ""
 "It is now possible to develop gcompris activities in C or in Python.\n"
 "Thanks to Olivier Samys who makes this possible."
 msgstr ""
+"現在可以用 C 或 Python 來開發 gcompris 遊戲。\n"
+"謝謝 Olivier Samys 讓它能夠做到。"
 
 #: ../src/boards/python/pythontest.py:167
 msgid "This activity is not playable, just a test"
-msgstr ""
+msgstr "這個遊戲是不可以玩的，只是一個測試"
 
 #. toggle box
 #: ../src/boards/python/pythontest.py:414
-#, fuzzy
 msgid "Disable line drawing in circle"
-msgstr "當插入於搜尋樹之中"
+msgstr "在圓圈中停用畫線"
 
 #. combo box
 #: ../src/boards/python/pythontest.py:423
-#, fuzzy
 msgid "Color of the line"
-msgstr "選擇區域的顏色"
+msgstr "線條的顏色"
 
 #. spin button for int
 #: ../src/boards/python/pythontest.py:434
-#, fuzzy
 msgid "Distance between circles"
-msgstr "圖層之間的空間"
+msgstr "圓圈之間的距離"
 
 #. radio buttons for circle or rectangle
 #: ../src/boards/python/pythontest.py:445
-#, fuzzy
 msgid "Use circles"
-msgstr "使用者存取"
+msgstr "使用圓圈"
 
 #: ../src/boards/python/pythontest.py:446
-#, fuzzy
 msgid "Use rectangles"
-msgstr "3D 矩形"
+msgstr "使用長方形"
 
 #: ../src/boards/python/pythontest.py:449
-#, fuzzy
 msgid "Choice of pattern"
-msgstr "複製圖樣"
+msgstr "圖樣的選擇"
 
 #: ../src/boards/python/redraw.py:348 ../src/boards/python/redraw.py:358
 msgid "Level"
-msgstr "等級"
+msgstr "階段"
 
 #: ../src/boards/python/redraw.py:902 ../src/boards/python/redraw.py:905
-#, fuzzy
 msgid "Coordinate"
 msgstr "座標"
 
 #: ../src/boards/python/searace.py:201 ../src/boards/python/searace.py:206
 #: ../src/boards/python/searace.py:232
-#, fuzzy
 msgid "The race is already being run"
-msgstr "該風格名稱已被使用"
+msgstr "比賽已經開始"
 
 #. Manage default cases (no params given)
 #. Final move, add an ofset because we loose space in abs()
@@ -4324,29 +4400,25 @@ msgstr "該風格名稱已被使用"
 #: ../src/boards/python/searace.py:535 ../src/boards/python/searace.py:854
 #: ../src/boards/python/searace.py:883 ../src/boards/python/searace.py:978
 #: ../src/boards/python/searace.py:984 ../src/boards/python/searace.py:992
-#, fuzzy
 msgid "forward"
-msgstr "快轉"
+msgstr "前進"
 
 #: ../src/boards/python/searace.py:526
-#, fuzzy
 msgid "COMMANDS ARE"
-msgstr "命令"
+msgstr "命令是"
 
 #. The two boat arrived in a close time frame (1s), it's a draw
 #: ../src/boards/python/searace.py:752
 msgid "This is a draw"
-msgstr ""
+msgstr "平手"
 
 #: ../src/boards/python/searace.py:759
-#, fuzzy
 msgid "The Red boat has won"
-msgstr "原因"
+msgstr "紅船獲勝"
 
 #: ../src/boards/python/searace.py:762
-#, fuzzy
 msgid "The Green boat has won"
-msgstr "原因"
+msgstr "紅船獲勝"
 
 #: ../src/boards/python/searace.py:780 ../src/boards/python/searace.py:1022
 msgid "Angle:"
@@ -4357,19 +4429,16 @@ msgid "Wind:"
 msgstr "風向："
 
 #: ../src/boards/python/searace.py:861
-#, fuzzy
 msgid "Syntax error at line"
-msgstr "語法錯誤"
+msgstr "語法錯誤發生於列號"
 
 #: ../src/boards/python/searace.py:879
-#, fuzzy
 msgid "The command"
-msgstr "指令"
+msgstr "命令"
 
 #: ../src/boards/python/searace.py:898
-#, fuzzy
 msgid "Unknown command at line"
-msgstr "未知的指令"
+msgstr "未知命令發生於列號"
 
 #: ../src/boards/python/searace.py:1022
 msgid "Distance:"
@@ -4380,88 +4449,78 @@ msgid ""
 "Cannot find Tuxpaint. \n"
 " Install it to use this board !"
 msgstr ""
+"找不到小企鵝畫家。\n"
+"想使用這個園地就要安裝它！"
 
 #: ../src/boards/python/tuxpaint.py:128
-#, fuzzy
 msgid "Waiting for Tuxpaint finishes"
-msgstr "等待 dvips 完成工作……"
+msgstr "等待小企鵝畫家完成……"
 
 #: ../src/boards/python/tuxpaint.py:183
 msgid "Inherit fullscreen setting from GCompris"
-msgstr ""
+msgstr "從 GCompris 繼承全螢幕設定"
 
 #: ../src/boards/python/tuxpaint.py:187
 msgid "Inherit size setting from GCompris (800x600, 640x480)"
-msgstr ""
+msgstr "從 GCompris 繼承大小設定 (800x600, 640x480)"
 
 #: ../src/boards/python/tuxpaint.py:191
-#, fuzzy
 msgid "Disable shape rotation"
-msgstr "不得加速(&D)"
+msgstr "停用外形旋轉"
 
 #: ../src/boards/python/tuxpaint.py:195
 msgid "Show Uppercase text only"
-msgstr ""
+msgstr "只顯示大寫文字"
 
 #: ../src/boards/python/tuxpaint.py:199
-#, fuzzy
 msgid "Disable stamps"
-msgstr "停用東西"
+msgstr "停用物品"
 
 #: ../src/boards/railroad.c:95
-#, fuzzy
 msgid "Memory game"
-msgstr "記憶體使用量"
+msgstr "記憶遊戲"
 
 #: ../src/boards/railroad.c:96
 msgid "Build a train according to the model"
-msgstr ""
+msgstr "根據模型來建立一輛火車"
 
 #: ../src/boards/reading.c:366
-#, fuzzy
 msgid "Please, check if the word"
-msgstr "請轉換 CD！"
+msgstr "請檢查看看是否這個單字"
 
 #: ../src/boards/reading.c:386
-#, fuzzy
 msgid "is being displayed"
-msgstr "不會顯示"
+msgstr "已經被顯示了"
 
 #: ../src/boards/reading.c:557
-#, fuzzy
 msgid "I am Ready"
-msgstr "備妥"
+msgstr "我準備好了"
 
 #: ../src/boards/reading.c:597
-#, fuzzy
 msgid "Yes, I saw it"
-msgstr "是的，真的結束"
+msgstr "是，我看到它了"
 
 #: ../src/boards/reading.c:627
-#, fuzzy
 msgid "No, it was not there"
-msgstr "不，我不同意(_O)"
+msgstr "不，它不在那兒"
 
 #. Report what was wrong in the log
 #: ../src/boards/reading.c:665
-#, fuzzy, c-format
+#, c-format
 msgid "The word to find was '%s'"
-msgstr "找尋符合字串的自動完成模型"
+msgstr "要找的單字是「%s」"
 
 #: ../src/boards/reading.c:668
-#, fuzzy
 msgid "But it was not displayed"
-msgstr "不會顯示"
+msgstr "但是它沒有顯示"
 
 #: ../src/boards/reading.c:670
-#, fuzzy
 msgid "And it was displayed"
-msgstr "不會顯示"
+msgstr "而它已經顯示"
 
 #: ../src/boards/reading.c:773 ../src/boards/wordsgame.c:776
-#, fuzzy
 msgid "Cannot open file of words for your locale"
-msgstr "不能開啟要讀取的檔案 %1 。"
+msgstr "無法開啟所屬語區的單字檔案"
 
 #. Enter Edit Mode
 #: ../src/boards/shapegame.c:425
@@ -4471,27 +4530,30 @@ msgid ""
 "type 's' to save, and\n"
 "'d' to display all the shapes"
 msgstr ""
+"你已經進入了編輯模式\n"
+"移動謎題物品；\n"
+"輸入「s」表示儲存，而\n"
+"「d」代表顯示全部的形狀"
 
 #: ../src/boards/shapegame.c:433
 msgid ""
 "The data from this activity are saved under\n"
 "/tmp/gcompris-board.xml"
 msgstr ""
+"這個遊戲的資料已經儲存於 /tmp/gcompris-board.xml"
 
 #: ../src/boards/submarine.c:201
-#, fuzzy
 msgid "Submarine"
-msgstr "蘇利南"
+msgstr "潛水艇"
 
 #: ../src/boards/submarine.c:202
-#, fuzzy
 msgid "Control the depth of a submarine"
-msgstr "改變欄的寬度。"
+msgstr "控制潛水艇的深度"
 
 #: ../src/boards/target.c:285 ../src/boards/target.c:538
-#, fuzzy, c-format
+#, c-format
 msgid "Points = %s"
-msgstr "列印 %s"
+msgstr "點數 = %s"
 
 #: ../src/boards/target.c:403
 #, c-format
@@ -4499,11 +4561,13 @@ msgid ""
 "Wind speed = %d\n"
 "kilometers/hour"
 msgstr ""
+"風速 = %d\n"
+"公里/小時"
 
 #: ../src/boards/target.c:465
 #, c-format
 msgid "Distance to target = %d meters"
-msgstr ""
+msgstr "目標距離 = %d 公尺"
 
 #: ../src/gcompris/about.c:65
 msgid ""
@@ -4513,12 +4577,17 @@ msgid ""
 "Intro Music: Djilali Sebihi\n"
 "Background Music: Rico Da Halvarez\n"
 msgstr ""
+"作者: Bruno Coudoin\n"
+"協助: Pascal Georges, Jose Jorge\n"
+"美工: Renaud Blanchard, Franck Doucet\n"
+"介紹音樂: Djilali Sebihi\n"
+"背景音樂: Rico Da Halvarez\n"
 
 #. TRANSLATORS: Replace this string with your names, one name per line.
 #: ../src/gcompris/about.c:73
 msgid "translator_credits"
 msgstr ""
-"Wei-Lun Chao <william.chao@ossii.com.tw>, 2005"
+"趙惟倫 <william.chao@ossii.com.tw>, 2005"
 
 #: ../src/gcompris/about.c:105 ../src/gcompris/about.c:114
 msgid "About GCompris"
@@ -4526,7 +4595,7 @@ msgstr "關於 GCompris"
 
 #: ../src/gcompris/about.c:124 ../src/gcompris/about.c:133
 msgid "Translators:"
-msgstr "翻譯人員:"
+msgstr "翻譯者："
 
 #: ../src/gcompris/about.c:256
 msgid ""
@@ -4541,6 +4610,7 @@ msgid ""
 "This software is a GNU Package and is released under the GNU General Public "
 "License"
 msgstr ""
+"這個軟體是個 GNU 套件，並且根據 GNU 一般公共授權來釋出"
 
 #: ../src/gcompris/about.c:341 ../src/gcompris/about.c:350
 #: ../src/gcompris/config.c:221 ../src/gcompris/config.c:230
@@ -4551,17 +4621,16 @@ msgstr "確定"
 
 #: ../src/gcompris/board.c:173
 msgid "Dynamic module loading is not supported. gcompris cannot load.\n"
-msgstr ""
+msgstr "不支援動態模組載入。無法載入 gcompris。\n"
 
 #: ../src/gcompris/board_config.c:632
-#, fuzzy
 msgid ""
 "Select the language\n"
 " to use in the board"
-msgstr "請選擇系統要安裝的語言。"
+msgstr ""
+"請選擇要在遊戲中使用的語言"
 
 #: ../src/gcompris/config.c:63
-#, fuzzy
 msgid "Your system default"
 msgstr "系統預設值"
 
@@ -4574,9 +4643,8 @@ msgid "Arabic"
 msgstr "阿拉伯文"
 
 #: ../src/gcompris/config.c:66
-#, fuzzy
 msgid "Turkish (Azerbaijan)"
-msgstr "亞塞拜然"
+msgstr "土耳其文(亞塞拜然)"
 
 #: ../src/gcompris/config.c:67
 msgid "Bulgarian"
@@ -4603,7 +4671,6 @@ msgid "English (Canada)"
 msgstr "英文(加拿大)"
 
 #: ../src/gcompris/config.c:74
-#, fuzzy
 msgid "English (Great Britain)"
 msgstr "英文(英國)"
 
@@ -4624,9 +4691,8 @@ msgid "French"
 msgstr "法文"
 
 #: ../src/gcompris/config.c:79
-#, fuzzy
 msgid "Irish (Gaelic)"
-msgstr "西班牙文(瓜地馬拉)"
+msgstr "愛爾蘭文(蓋爾)"
 
 #: ../src/gcompris/config.c:80
 msgid "Hebrew"
@@ -4658,7 +4724,7 @@ msgstr "意大利文"
 
 #: ../src/gcompris/config.c:87
 msgid "Georgian"
-msgstr "格魯吉亞文"
+msgstr "喬吉亞文"
 
 #: ../src/gcompris/config.c:88
 msgid "Lithuanian"
@@ -4685,22 +4751,20 @@ msgid "Dutch"
 msgstr "荷蘭文"
 
 #: ../src/gcompris/config.c:94
-#, fuzzy
 msgid "Norwegian Bokmal"
 msgstr "挪威文(巴克摩)"
 
 #: ../src/gcompris/config.c:95
-#, fuzzy
 msgid "Norwegian Nynorsk"
-msgstr "挪威/新挪威文"
+msgstr "挪威文(新挪威)"
 
 #: ../src/gcompris/config.c:96
 msgid "Polish"
-msgstr "打磨"
+msgstr "波蘭文"
 
 #: ../src/gcompris/config.c:97
 msgid "Portuguese"
-msgstr "標準萄文"
+msgstr "葡萄牙文"
 
 #: ../src/gcompris/config.c:98
 msgid "Portuguese (Brazil)"
@@ -4716,7 +4780,7 @@ msgstr "俄文"
 
 #: ../src/gcompris/config.c:101
 msgid "Kinyarwanda"
-msgstr ""
+msgstr "金亞盧安達文"
 
 #: ../src/gcompris/config.c:102
 msgid "Slovak"
@@ -4731,9 +4795,8 @@ msgid "Albanian"
 msgstr "阿爾巴尼亞文"
 
 #: ../src/gcompris/config.c:105
-#, fuzzy
 msgid "Serbian (Latin)"
-msgstr "N 至 Z|塞爾維亞語 (拉丁)"
+msgstr "塞爾維亞文(拉丁)"
 
 #: ../src/gcompris/config.c:106
 msgid "Serbian"
@@ -4764,34 +4827,32 @@ msgid "Chinese (Traditional)"
 msgstr "繁體中文"
 
 #: ../src/gcompris/config.c:116
-#, fuzzy
 msgid "No time limit"
-msgstr "時間限制"
+msgstr "無時間限制"
 
 #: ../src/gcompris/config.c:117
-#, fuzzy
 msgid "Slow timer"
-msgstr "沒有時間"
+msgstr "慢速計時"
 
 #: ../src/gcompris/config.c:118
-#, fuzzy
 msgid "Normal timer"
-msgstr "原來大小"
+msgstr "正常計時"
 
 #: ../src/gcompris/config.c:119
-#, fuzzy
 msgid "Fast timer"
-msgstr "下降時間"
+msgstr "快速計時"
 
 #: ../src/gcompris/config.c:124
 msgid "800x600 (Default for gcompris)"
-msgstr ""
+msgstr "800x600 (gcompris 預設值)"
 
 #: ../src/gcompris/config.c:129
 msgid ""
 "<i>Use Gcompris administration module\n"
 "to filter boards</i>"
 msgstr ""
+"<i>使用 Gcompris 管理模組\n"
+"來過濾園地</i>"
 
 #: ../src/gcompris/config.c:186 ../src/gcompris/config.c:195
 msgid "GCompris Configuration"
@@ -4806,7 +4867,6 @@ msgid "Music"
 msgstr "音樂"
 
 #: ../src/gcompris/config.c:384
-#, fuzzy
 msgid "Effect"
 msgstr "效果"
 
@@ -4817,84 +4877,77 @@ msgstr "無法開啟外觀目錄: %s"
 
 #: ../src/gcompris/config.c:453 ../src/gcompris/config.c:817
 #: ../src/gcompris/config.c:828
-#, fuzzy, c-format
+#, c-format
 msgid "Skin : %s"
-msgstr "登入：%s"
+msgstr "外觀：%s"
 
 #: ../src/gcompris/file_selector.c:341
-#, fuzzy
 msgid "CANCEL"
-msgstr "變更"
+msgstr "取消"
 
 #: ../src/gcompris/file_selector.c:372
-#, fuzzy
 msgid "LOAD"
-msgstr "FLOAT"
+msgstr "載入"
 
 #: ../src/gcompris/file_selector.c:372
-#, fuzzy
 msgid "SAVE"
-msgstr "WAVE"
+msgstr "儲存"
 
 #: ../src/gcompris/gameutil.c:190
-#, fuzzy
 msgid "Couldn't find file"
-msgstr "無法找到檔案%1"
+msgstr "無法找到檔案"
 
 #: ../src/gcompris/gameutil.c:192
-#, fuzzy
 msgid "This activity is incomplete."
-msgstr "此操作方式沒有實作。"
+msgstr "這個遊戲尚未完成。"
 
 #: ../src/gcompris/gameutil.c:193
 msgid ""
 "Exit it and report\n"
 "the problem to the authors."
 msgstr ""
+"離開它並且回報\n"
+"問題給作者。"
 
 #: ../src/gcompris/gcompris.c:122
-#, fuzzy
 msgid "run gcompris in fullscreen mode."
-msgstr "全螢幕模式。"
+msgstr "以全螢幕模式執行 gcompris。"
 
 #: ../src/gcompris/gcompris.c:124
 msgid "run gcompris in window mode."
-msgstr ""
+msgstr "以視窗模式執行 gcompris。"
 
 #: ../src/gcompris/gcompris.c:126
-#, fuzzy
 msgid "run gcompris with sound enabled."
-msgstr "字串比較出現錯誤"
+msgstr "執行 gcompris 時啟用音效。"
 
 #: ../src/gcompris/gcompris.c:128
 msgid "run gcompris without sound."
-msgstr ""
+msgstr "執行 gcompris 時不啟用音效。"
 
 #: ../src/gcompris/gcompris.c:130
 msgid "run gcompris with the default gnome cursor."
-msgstr ""
+msgstr "執行 gcompris 時使用預設的 gnome 游標。"
 
 #: ../src/gcompris/gcompris.c:132
 msgid "display only activities with this difficulty level."
-msgstr ""
+msgstr "只顯示具有難度階段的遊戲。"
 
 #: ../src/gcompris/gcompris.c:134
-#, fuzzy
 msgid "display debug informations on the console."
-msgstr "顯示版本資訊, 然後離開"
+msgstr "在主控台上顯示除錯資訊。"
 
 #: ../src/gcompris/gcompris.c:136
-#, fuzzy
 msgid "Print the version of "
 msgstr "印出版本資訊"
 
 #: ../src/gcompris/gcompris.c:138
 msgid "Use the antialiased canvas (slower)."
-msgstr ""
+msgstr "使用去鋸齒的畫布（右側）"
 
 #: ../src/gcompris/gcompris.c:140
 msgid "Disable XRANDR (No screen resolution change)."
-msgstr ""
+msgstr "停用 XRANDR (沒有螢幕解析度的變更)。"
 
 #: ../src/gcompris/gcompris.c:142
 msgid ""
@@ -4902,51 +4955,51 @@ msgid ""
 "activities in the reading directory, -l /boards/connect4 only the connect4 "
 "activity)"
 msgstr ""
+"以本機選單來執行 gcompris (例如：-l /reading 將會讓你只能玩位於"
+"閱讀目錄的遊戲，-l /boards/connect4 將會只允許與 CONNECT4 有關的遊戲。)"
 
 #: ../src/gcompris/gcompris.c:144
 msgid "Run GCompris with local activity directory added to menu"
-msgstr ""
+msgstr "在選單中加入本機遊戲目錄後執行"
 
 #: ../src/gcompris/gcompris.c:146
 msgid "Run GCompris in administration and user-management mode"
-msgstr ""
+msgstr "以系統與使用者管理模式來執行 GCompris。"
 
 #: ../src/gcompris/gcompris.c:148
-#, fuzzy
 msgid "Use alternate database for profiles"
-msgstr "使用檔案名稱的樣式來 ripped 檔案"
+msgstr "使用另外的資料庫來處理簡介檔案"
 
 #: ../src/gcompris/gcompris.c:150
-#, fuzzy
 msgid "Use alternate database for logs"
-msgstr "使用全部可用的資料庫"
+msgstr "使用另外的資料庫來處理日誌檔案"
 
 #: ../src/gcompris/gcompris.c:152
-#, fuzzy
 msgid "Create the alternate database for profiles"
-msgstr "請為這個設定檔命名"
+msgstr "建立另外的資料庫來處理簡介檔案"
 
 #: ../src/gcompris/gcompris.c:154
 msgid "Re-read XML Menus and store them in the database"
-msgstr ""
+msgstr "重新讀取 XML 選單並且將它們儲存到資料庫之中"
 
 #: ../src/gcompris/gcompris.c:156
 msgid "Set the profile to use. Use 'gcompris -a' to create profiles"
-msgstr ""
+msgstr "設定要使用的簡介檔案。利用「gcompris -a」來建立簡介檔案"
 
 #: ../src/gcompris/gcompris.c:158
 msgid "List all available profiles. Use 'gcompris -a' to create profiles"
-msgstr ""
+msgstr "列出所有可用的簡介檔案。利用「gcompris -a」來建立簡介檔案"
 
 #: ../src/gcompris/gcompris.c:160
 msgid ""
 "Shared directory location, for profiles and board-configuration data: "
 "[$HOME/.gcompris/shared]"
 msgstr ""
+"用於簡介檔案與遊戲設定資料的分享目錄位置：[$HOME/.gcompris/shared]"
 
 #: ../src/gcompris/gcompris.c:162
 msgid "The location of user directories: [$HOME/.gcompris/users]"
-msgstr ""
+msgstr "使用者目錄的位置：[$HOME/.gcompris/users]"
 
 #: ../src/gcompris/gcompris.c:779
 #, c-format
@@ -4961,6 +5014,12 @@ msgid ""
 "GNU/Linux. Get more information at FSF:\n"
 "<http://www.fsf.org/philosophy>"
 msgstr ""
+"GCompris 是依照 GPL 使用授權而釋出的自由軟體。為了支持它的開發，"
+"Windows 版本只提供 %2$d 中的 %1$d 種遊戲。你可以在 <http://gcompris.net> "
+"花少許費用來取得完整的版本。\n"
+"Linux 版本並沒有這個限制。請注意，現在的 GCompris 開發是為了將"
+"學校從壟斷的軟體供應商手中解放出來。如果你也認為我們應該教導孩子自由，"
+"請考慮使用 GNU/Linux。更多的資訊可以在 FSF：<http://www.fsf.org/philosophy> 取得。"
 
 #: ../src/gcompris/gcompris.c:1163
 #, c-format
@@ -4970,32 +5029,34 @@ msgid ""
 "Licence: GPL\n"
 "More info at http://gcompris.net\n"
 msgstr ""
+"GCompris\n"
+"版本: %s\n"
+"授權: GPL\n"
+"更多的資訊在 http://gcompris.net\n"
 
 #. check the list of possible values for -l, then exit
 #: ../src/gcompris/gcompris.c:1231
-#, fuzzy, c-format
+#, c-format
 msgid "Use -l to access an activity directly.\n"
-msgstr "無法存取目錄"
+msgstr "利用 -l 來直接存取遊戲。\n"
 
 #: ../src/gcompris/gcompris.c:1232
-#, fuzzy, c-format
+#, c-format
 msgid "List of available activity is :\n"
-msgstr "可供選用的選字盤"
+msgstr "可用的遊戲列表是：\n"
 
 #: ../src/gcompris/gcompris.c:1375
-#, fuzzy, c-format
+#, c-format
 msgid "The list of available profiles is:\n"
-msgstr "可供選用的選字盤"
+msgstr "可用的簡介檔案列表是：\n"
 
 #: ../src/gcompris/gcompris_db.c:237
-#, fuzzy
 msgid "Unaffected"
-msgstr "未加密"
+msgstr "沒有影響"
 
 #: ../src/gcompris/gcompris_db.c:238
-#, fuzzy
 msgid "Users without class"
-msgstr "插入時注意大小寫"
+msgstr "不屬於班級的使用者"
 
 #: ../src/gcompris/help.c:203
 msgid "Prerequisite"
