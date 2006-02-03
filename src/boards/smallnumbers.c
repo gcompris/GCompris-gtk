@@ -1,6 +1,6 @@
 /* gcompris - smallnumbers.c
  *
- * Time-stamp: <2005/10/12 22:45:09 bruno>
+ * Time-stamp: <2006/02/03 21:11:30 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  * 
@@ -18,6 +18,7 @@
  *   along with this program; if not, write to the Free Software
  *   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  */
+#include <string.h>
 
 #include "gcompris/gcompris.h"
 
@@ -208,8 +209,6 @@ set_level (guint level)
 
 static gint key_press(guint keyval, gchar *commit_str, gchar *preedit_str)
 {
-  gchar *old_value;
-  gchar *old_name;
   char str[2];
 
   if(!gcomprisBoard || !boardRootItem)
@@ -298,7 +297,6 @@ static void smallnumbers_next_level()
 /* Destroy all the items */
 static void smallnumbers_destroy_all_items()
 {
-  GnomeCanvasItem *item;
 
   if(boardRootItem!=NULL)
     gtk_object_destroy (GTK_OBJECT(boardRootItem));
@@ -357,7 +355,6 @@ static void smallnumbers_create_item(GnomeCanvasGroup *parent)
   GdkPixbuf *smallnumbers_pixmap = NULL;
   GnomeCanvasItem *item;
   GnomeCanvasGroup *group_item;
-  char *str;
   guint i;
   char *lettersItem;
   char *str1 = NULL;
@@ -399,11 +396,13 @@ static void smallnumbers_create_item(GnomeCanvasGroup *parent)
     g_free(str1);
     g_free(str2);
 
-    str = g_strdup_printf("gcompris/dice/gnome-dice%c.png", numbers[i]);
+    str1 = g_strdup_printf("level%c.png", numbers[i]);
+    str2 = gcompris_image_to_skin(str1);
 
-    smallnumbers_pixmap = gcompris_load_pixmap(str);
+    smallnumbers_pixmap = gcompris_load_pixmap(str2);
 
-    g_free(str);
+    g_free(str1);
+    g_free(str2);
 
     if(x==0.0) {
       x = (double)(rand()%(gcomprisBoard->width-
@@ -489,6 +488,8 @@ static GHFunc save_table (gpointer key,
 			    board_conf,
 			    (gchar *) key, 
 			    (gchar *) value);
+
+  return NULL;
 }
 
 static GcomprisConfCallback conf_ok(GHashTable *table)
@@ -497,6 +498,8 @@ static GcomprisConfCallback conf_ok(GHashTable *table)
   
   board_conf = NULL;
   profile_conf = NULL;
+
+  return NULL;
 }
 
 static gboolean check_text(gchar *key, gchar *text, GtkLabel *label){

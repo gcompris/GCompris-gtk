@@ -223,7 +223,7 @@ class Gcompris_guessnumber:
       
       self.rootitem.add(
           gnome.canvas.CanvasText,
-          x=400.0 + 1.0,
+          x=340.0 + 1.0,
           y=30.0 + 1.0,
           font=gcompris.skin.get_font("gcompris/title"),
           text=(text),
@@ -233,7 +233,7 @@ class Gcompris_guessnumber:
 
       self.rootitem.add(
           gnome.canvas.CanvasText,
-          x=400.0,
+          x=340.0,
           y=30.0,
           font=gcompris.skin.get_font("gcompris/title"),
           text=(text),

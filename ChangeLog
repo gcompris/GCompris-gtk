@@ -1,3 +1,39 @@
+2006-02-03  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	- Fixed eu alphabet to use unicode formatting.
+
+	* boards/sounds/eu/alphabet/c.ogg:
+	* boards/sounds/eu/alphabet/d.ogg:
+	* boards/sounds/eu/alphabet/e.ogg:
+	* boards/sounds/eu/alphabet/f.ogg:
+	* boards/sounds/eu/alphabet/g.ogg:
+	* boards/sounds/eu/alphabet/gcompris_alphabet_eu.assetml.in:
+	* boards/sounds/eu/alphabet/h.ogg:
+	* boards/sounds/eu/alphabet/i.ogg:
+	* boards/sounds/eu/alphabet/j.ogg:
+	* boards/sounds/eu/alphabet/k.ogg:
+	* boards/sounds/eu/alphabet/l.ogg:
+	* boards/sounds/eu/alphabet/m.ogg:
+	* boards/sounds/eu/alphabet/n.ogg:
+	* boards/sounds/eu/alphabet/o.ogg:
+	* boards/sounds/eu/alphabet/p.ogg:
+	* boards/sounds/eu/alphabet/q.ogg:
+	* boards/sounds/eu/alphabet/r.ogg:
+	* boards/sounds/eu/alphabet/s.ogg:
+	* boards/sounds/eu/alphabet/t.ogg:
+	* boards/sounds/eu/alphabet/u.ogg:
+	* boards/sounds/eu/alphabet/v.ogg:
+	* boards/sounds/eu/alphabet/w.ogg:
+	* boards/sounds/eu/alphabet/x.ogg:
+	* boards/sounds/eu/alphabet/y.ogg:
+	* boards/sounds/eu/alphabet/z.ogg:
+	* src/boards/awele.c: (start_board), (set_level),
+	(awele_create_item), (updateCapturedBeans): fix from Yves in 7_4 branch.
+	* src/boards/python/guessnumber.py: realigned title
+	* src/boards/smallnumbers.c: (key_press),
+	(smallnumbers_destroy_all_items), (smallnumbers_create_item),
+	(save_table), (conf_ok): use bar level dices (skins) instead of old gnome one.
+
 2006-02-02  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	Updated audio voices for Portuguese by Jose Jorge
