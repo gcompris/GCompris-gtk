@@ -16,8 +16,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris-fr\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-01-28 23:56+0100\n"
-"PO-Revision-Date: 2006-02-04 19:01+0100\n"
+"POT-Creation-Date: 2006-02-05 00:26+0100\n"
+"PO-Revision-Date: 2006-02-05 00:49+0100\n"
 "Last-Translator: Bruno Coudoin <bruno.coudoin@free.fr>\n"
 "Language-Team:  <fr@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -1205,8 +1205,8 @@ msgid "Go to experiential activities"
 msgstr "Vers les activités d'expérimentation"
 
 #: ../boards/experience.xml.in.h:2
-msgid "Various physical based activities."
-msgstr "Diverses activités de physique."
+msgid "Various activities based on physical movement."
+msgstr "Activités variées basées sur les mouvements physiques."
 
 #: ../boards/experimental.xml.in.h:1
 msgid "Go to Experimental activities"
@@ -1997,7 +1997,7 @@ msgid "Go to Number Munchers activities"
 msgstr "Vers les activités basées sur les numérivores"
 
 #: ../boards/gnumchmenu.xml.in.h:2
-msgid "Number Munchers are games to play with arythmetics."
+msgid "Number Munchers are games to play with arithmetic."
 msgstr "Les Numérivores sont des jeux pour apprendre l'arithmétique."
 
 #: ../boards/guessnumber.xml.in.h:1
@@ -2599,7 +2599,7 @@ msgstr ""
 "éducatifs propriétaires."
 
 #: ../boards/miscelaneous.xml.in.h:1
-msgid "Miscelaneous activities"
+msgid "Miscellaneous activities"
 msgstr "Vers diverses activités."
 
 #: ../boards/miscelaneous.xml.in.h:2
@@ -2809,7 +2809,7 @@ msgid "Mouse-manipulation activities."
 msgstr "Activités de manipulation de la souris"
 
 #: ../boards/mouse.xml.in.h:2
-msgid "Various kind of mouse activities (clicks, move)"
+msgid "Various mouse-based activities (clicking, moving)"
 msgstr "Diverses sortes d'activités basées sur la souris (clics, déplacement)"
 
 #: ../boards/numeration.xml.in.h:1
@@ -2916,7 +2916,7 @@ msgid "Puzzles"
 msgstr "Puzzles"
 
 #: ../boards/puzzle.xml.in.h:2
-msgid "Various kind of puzzle."
+msgid "Various puzzles."
 msgstr "Diverses sortes de puzzles."
 
 #: ../boards/pythontest.xml.in.h:1
@@ -4178,24 +4178,24 @@ msgstr ""
 msgid "Guess a number between %d and %d"
 msgstr "Tu dois deviner un nombre entre %d et %d"
 
-#: ../src/boards/python/guessnumber.py:337
-#: ../src/boards/python/guessnumber.py:338
+#: ../src/boards/python/guessnumber.py:335
+#: ../src/boards/python/guessnumber.py:336
 #, python-format
 msgid "Please enter a number between %d and %d"
 msgstr "Tu dois entrer un nombre entre %d et %d"
 
-#: ../src/boards/python/guessnumber.py:343
-#: ../src/boards/python/guessnumber.py:344
+#: ../src/boards/python/guessnumber.py:341
+#: ../src/boards/python/guessnumber.py:342
 msgid "Out of range"
 msgstr "Hors de l'intervalle"
 
-#: ../src/boards/python/guessnumber.py:350
-#: ../src/boards/python/guessnumber.py:351
+#: ../src/boards/python/guessnumber.py:348
+#: ../src/boards/python/guessnumber.py:349
 msgid "Too high"
 msgstr "Trop grand"
 
-#: ../src/boards/python/guessnumber.py:353
-#: ../src/boards/python/guessnumber.py:354
+#: ../src/boards/python/guessnumber.py:351
+#: ../src/boards/python/guessnumber.py:352
 msgid "Too low"
 msgstr "Trop petit"
 
@@ -4971,6 +4971,8 @@ msgstr "Temps écoulé"
 msgid "Remaining Time = %d"
 msgstr "Temps restant = %d"
 
+#~ msgid "Various physical based activities."
+#~ msgstr "Diverses activités de physique."
 #~ msgid "Moroco"
 #~ msgstr "Maroc"
 #~ msgid ""
