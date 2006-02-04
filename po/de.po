@@ -19,8 +19,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: de\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-01-29 13:59+0100\n"
-"PO-Revision-Date: 2006-01-29 17:41+0100\n"
+"POT-Creation-Date: 2006-02-04 16:30+0100\n"
+"PO-Revision-Date: 2006-02-04 17:01+0100\n"
 "Last-Translator: Ronny Standtke <Ronny.Standtke@gmx.net>\n"
 "Language-Team:  <de@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -1362,8 +1362,7 @@ msgstr ""
 "auf einen anderen Verbindungspunkt. Sie können durch erneutes Anklicken "
 "wieder gelöscht werden.\n"
 "Durch Anklicken kann ein Schalter geöffet und wieder geschlossen werden.\n"
-"Die Stärke des Regelwiderstandes kann durch Ziehen seines Abnehmers "
-"verändert werden.\n"
+"Die Stärke des Regelwiderstandes kann durch Ziehen seines verschiebbaren Kontaktes verändert werden.\n"
 "Um zu simulieren, was passiert, wenn eine Glühlampe durchbrennt, kannst du "
 "sie mit einem Rechtsklick durchbrennen lassen.\n"
 "Die Simulation wird in Echtzeit bei jeder Aktion aktualisiert."
@@ -1469,8 +1468,8 @@ msgid "Go to experiential activities"
 msgstr "Gehe zu den Erlebnis-Aktivitäten"
 
 #: ../boards/experience.xml.in.h:2
-msgid "Various physical based activities."
-msgstr "Einige Physik-Spiele"
+msgid "Various activities based on physical movement."
+msgstr "Auf physikalischer Bewegung beruhende Aktivitäten"
 
 #: ../boards/experimental.xml.in.h:1
 msgid "Go to Experimental activities"
@@ -2326,8 +2325,8 @@ msgid "Go to Number Munchers activities"
 msgstr "Zu den Zahlenmampfer-Tafeln"
 
 #: ../boards/gnumchmenu.xml.in.h:2
-msgid "Number Munchers are games to play with arythmetics."
-msgstr "Zahlenmampfer sind Spiele mit Grundrechenarten."
+msgid "Number Munchers are games to play with arithmetic."
+msgstr "Zahlenmampfer sind Rechenspiele."
 
 #: ../boards/guessnumber.xml.in.h:1
 msgid "Guess a number"
@@ -3032,7 +3031,7 @@ msgstr ""
 "Lernprogrammen zu bieten."
 
 #: ../boards/miscelaneous.xml.in.h:1
-msgid "Miscelaneous activities"
+msgid "Miscellaneous activities"
 msgstr "Sonstige Aktivitäten"
 
 #: ../boards/miscelaneous.xml.in.h:2
@@ -3251,7 +3250,7 @@ msgid "Mouse-manipulation activities."
 msgstr "Tafeln zur Maus-Handhabung"
 
 #: ../boards/mouse.xml.in.h:2
-msgid "Various kind of mouse activities (clicks, move)"
+msgid "Various mouse-based activities (clicking, moving)"
 msgstr "Einige Arten der Maus-Handhabung (Klicken, Bewegen)"
 
 #: ../boards/numeration.xml.in.h:1
@@ -3373,8 +3372,8 @@ msgid "Puzzles"
 msgstr "Puzzles"
 
 #: ../boards/puzzle.xml.in.h:2
-msgid "Various kind of puzzle."
-msgstr "Einige Puzzlearten"
+msgid "Various puzzles."
+msgstr "Einige Puzzles"
 
 #: ../boards/pythontest.xml.in.h:1
 msgid "Add a language-binding to gcompris."
@@ -4623,7 +4622,7 @@ msgstr ""
 msgid "The corresponding items have been skipped."
 msgstr "Die entsprechenden Elemente wurden übersprungen."
 
-#: ../src/boards/python/electric.py:94
+#: ../src/boards/python/electric.py:92
 msgid ""
 "Cannot find the 'gnucap' electric simulator.\n"
 "You can download and install it from:\n"
