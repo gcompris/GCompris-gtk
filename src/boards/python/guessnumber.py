@@ -284,13 +284,11 @@ class Gcompris_guessnumber:
     self.entry = gtk.Entry()
 
     self.entry.modify_font(pango.FontDescription("sans bold 24"))
-    text_color = gtk.gdk.color_parse("white")
+    text_color = gtk.gdk.color_parse("blue")
     text_color_selected = gtk.gdk.color_parse("green")
-    bg_color = gtk.gdk.color_parse("blue")
 
     self.entry.modify_text(gtk.STATE_NORMAL, text_color)
     self.entry.modify_text(gtk.STATE_SELECTED, text_color_selected)
-    self.entry.modify_base(gtk.STATE_NORMAL, bg_color)
 
     self.entry.set_max_length(4)
     self.entry.connect("activate", self.enter_callback)
