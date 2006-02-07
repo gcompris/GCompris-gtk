@@ -19,6 +19,7 @@
 
 #include <ctype.h>
 #include <assert.h>
+#include <string.h>
 
 /* libxml includes */
 #include <libxml/tree.h>
@@ -439,21 +440,22 @@ static void add_xml_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child)
 	if (lang == NULL) { // get default value
 	  text = xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 1);
 	  colors[i] = text;
-	} else // get correct language
-	  if ( !strcmp(lang, gcompris_get_locale())	|| !strncmp(lang, gcompris_get_locale(), 2) ) {
+	} else { // get correct language
+	  if ( !strncmp(lang, gcompris_get_locale(), strlen(lang)) ) {
 	    text = xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 1);
 	    g_warning("color prop::lang=%s locale=%s text=%s\n", lang, gcompris_get_locale(), text);
 	    colors[i] = text;
-	    color++;
 	  }
-	break;
+	  g_free(sColor);
+	  break;
+	}
       }
       g_free(sColor);
     } // end for
     xmlnode = xmlnode->next;
   }
 
-  g_warning("colors found in XML = %d\n", color);
+  g_warning("colors found in XML:\n");
   for (color=0; color<LAST_COLOR; color++)
     g_warning("%d %s\n", color, colors[color]);
 
@@ -470,7 +472,7 @@ static void parse_doc(xmlDocPtr doc)
   xmlNodePtr node;
 
   for(node = doc->children->children; node != NULL; node = node->next) {
-    if ( g_strcasecmp(node->name, "Board") == 0 )
+    if ( g_strcasecmp((gchar *)node->name, "Board") == 0 )
       add_xml_data(doc, node,NULL);
   }
 

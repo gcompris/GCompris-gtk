@@ -1,3 +1,10 @@
+2006-02-07  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* src/boards/advanced_colors.c: (add_xml_data): fixed to check properly for long locale (e.g. pt_BR)
+	* src/boards/read_colors.c: (add_xml_data), (parse_doc): -
+	* src/boards/python/melody.py: added a dialog if run without sound fx activated
+	  changed to use the reload icon instead of mouth sign for the repeat.
+
 2006-02-05  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	Changed background entry color to white. The blue background color

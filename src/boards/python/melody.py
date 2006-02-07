@@ -29,6 +29,8 @@ import gtk
 import gtk.gdk
 import random
 
+from gcompris import gcompris_gettext as _
+
 class Gcompris_melody:
   """The melody activity"""
   
@@ -93,14 +95,25 @@ class Gcompris_melody:
     self.maxtheme = len(self.melodylist)-1
     self.gcomprisBoard.maxlevel = 9
 
+    #
+    pixmap = gcompris.utils.load_pixmap(gcompris.skin.image_to_skin("button_reload.png"))
+    if(pixmap):
+      gcompris.bar_set_repeat_icon(pixmap)
+      gcompris.bar_set(gcompris.BAR_LEVEL|gcompris.BAR_REPEAT_ICON)
+    else:
+      gcompris.bar_set(gcompris.BAR_LEVEL|gcompris.BAR_REPEAT)
+
+
+    self.pause(1);
+    self.display_current_level()
+
     # Play an intro sound
     gcompris.sound.play_ogg_cb("melody/" + self.melodylist[self.theme][0]['theme'] + "/melody", self.intro_cb)
     
-    gcompris.bar_set(gcompris.BAR_REPEAT|gcompris.BAR_LEVEL)
+    Prop = gcompris.get_properties()
 
-    self.display_current_level()
-    self.pause(1);
-    print("Gcompris_melody start.")
+    if(not Prop.fx):
+      gcompris.utils.dialog(_("Error: this activity cannot be played with the\nsound effects disabled.\nGo to the configuration dialogue to\nenable the sound"), stop_board)
     
   def end(self):
     self.cleanup()
@@ -371,3 +384,6 @@ class Gcompris_melody:
     self.pause(0)
     self.populate(self.sound_list)	
    
+def stop_board():
+  gcompris.bonus.board_finished(gcompris.bonus.FINISHED_RANDOM)
+  

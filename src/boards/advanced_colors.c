@@ -481,13 +481,14 @@ static void add_xml_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child)
 	if (lang == NULL) { // get default value
 	  text = xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 1);
 	  colors[i] = text;
-	} else // get correct language
-	  if ( !strcmp(lang, gcompris_get_locale())	|| !strncmp(lang, gcompris_get_locale(), 2) ) {
+	} else { // get correct language
+	  if ( !strncmp(lang, gcompris_get_locale(), strlen(lang)) ) {
 	    text = xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 1);
 	    g_warning("color prop::lang=%s locale=%s text=%s\n", lang, gcompris_get_locale(), text);
 	    colors[i] = text;
-	    color++;
 	  }
+	}
+	g_free(sColor);
 	break;
       }
       g_free(sColor);
@@ -495,7 +496,7 @@ static void add_xml_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child)
     xmlnode = xmlnode->next;
   }
 
-  g_warning("colors found in XML = %d\n", color);
+  g_warning("colors found in XML:\n");
   for (color=0; color<8; color++)
     g_warning("%d %s\n", color, colors[color]);
 
