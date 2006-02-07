@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-02-01 19:06+0200\n"
+"POT-Creation-Date: 2006-02-07 07:55+0200\n"
 "PO-Revision-Date: 2005-11-12 07:40+0200\n"
 "Last-Translator: Ilkka Tuohela <hile@iki.fi>\n"
 "Language-Team: Finnish <gnome-fi-laatu@lists.sourceforge.net>\n"
@@ -18,7 +18,6 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../boards/administration.xml.in.h:1
-#, fuzzy
 msgid ""
 "- In the 'Boards' section you can change the list of activities. Just "
 "untoggle them in the treeview. You can change the language used for reading, "
@@ -46,13 +45,13 @@ msgstr ""
 "tehtävät tähän uuteen profiiliin. Voit lisätä suurenkin määrän eri "
 "profiileja, joilla kullakin on eri laudat ja eri kielet. Oletusprofiili "
 "voidaaan asettaa valitsemalla \"Oletus\"-painike kun haluttu profiili on "
-"valittu. Normaalisti profiili annetaan komentoriviltä. - Voit lisätä "
-"käyttäjiä, luokkia ja liittää ryhmän käyttäjiä kuhunkin luokkaan. Käyttäjä "
-"listat voidaan tuoda pilkuilla erotetuissa tiedostoissa ohjelmaan. Liitä "
-"yksi tai useampi ryhmä profiiliin, jonka jälkeen nämä uudet kirjautumiset "
-"näkyvän GComprisin käynnistyksen jälkeen. Yksittäisten lasten tunnistaminen "
-"tarkoittaa, että kunkin lapsen kehityksestä voidaan antaa omat tulokset. "
-"Lapset oppivat myös tunnistautumaan koneen kanssa yksilöinä, eli "
+"valittu. Normaalisti profiili annetaan komentoriviltä.\n"
+"- Voit lisätä käyttäjiä, luokkia ja liittää ryhmän käyttäjiä kuhunkin "
+"luokkaan. Käyttäjälistat voidaan tuoda pilkuilla erotetuilla tiedostoilla "
+"ohjelmaan. Liitä yksi tai useampi ryhmä profiiliin, jonka jälkeen nämä uudet "
+"kirjautumiset näkyvän GComprisin käynnistyksen jälkeen. Yksittäisten lasten "
+"tunnistaminen tarkoittaa, että kunkin lapsen kehityksestä voidaan antaa omat "
+"tulokset. Lapset oppivat myös tunnistautumaan koneen kanssa yksilöinä, eli "
 "kirjoittamaan ja tunnistamaan käyttäjätunnuksensa."
 
 #: ../boards/administration.xml.in.h:4
@@ -60,17 +59,16 @@ msgid "GCompris Administration Menu"
 msgstr "GComprisin hallintavalikko"
 
 #: ../boards/administration.xml.in.h:5
-#, fuzzy
 msgid ""
 "If you want to fine tune GCompris to your needs, you can use the "
 "administration module here. The ultimate goal is to provide child-specific "
 "reporting for parents and teacher who want to monitor the progress, "
 "strengths and needs of their children."
 msgstr ""
-"Jos haluat säätää GComprisia tarkemmin omiin tarpeisiisi, voit käyttää "
-"ohjelman hallintaosaa tästä. Hallintaosan päätarkoitus on tarjota "
-"vanhemmille ja opettajalle lapsikohtaiset tulokset, joiden avulla voidaan "
-"seurata lapsen kehitystä, vahvuuksia ja heikkouksia yksilöllisesti."
+"Jos haluat säätää GComprisia tarkemmin omiin tarpeisiisi, voit käyttää tästä "
+"ohjelman hallintaosaa. Hallintaosan päätarkoitus on tarjota vanhemmille ja "
+"opettajalle lapsikohtaiset tulokset, joiden avulla voidaan seurata lapsen "
+"kehitystä, vahvuuksia ja heikkouksia yksilöllisesti."
 
 #: ../boards/administration.xml.in.h:6
 msgid "Left-Click with the mouse to select an activity"
@@ -631,6 +629,13 @@ msgid ""
 "each (draw). If both players agree that the game has been reduced to an "
 "endless cycle, each player captures the stones on their side of the board."
 msgstr ""
+"Pelin tarkoituksena on kerätä enemmän siemeniä kuin vastustaja. Koska pelissä "
+"on vain 48 siementä, pelin voittaa kerättyään 25 siementä. Koska siemeniä on "
+"parillinen luku, on mahdollista että peli päättyy tasapeliin, kun molemmilla "
+"pelaajilla on 24 siementä. Peli päättyy, kun toinen pelaaja on kerännyt 25 "
+"siementä, tai molemmat pelaajat ovat ovat keränneet 24 siementä (tasapeli). "
+"Jos molemmat pelaajat ovat sitä mieltä, että peli jäi ikuiseen silmukkaan, "
+"keräävät molemmat pelaajat siemenensä omalle puolelle pöytää."
 
 #: ../boards/babymatch.xml.in.h:1 ../boards/babymatch/board1_0.xml.in.h:1
 #: ../boards/babymatch/board2_0.xml.in.h:1
@@ -643,7 +648,6 @@ msgid "Drag and Drop the items to make them match"
 msgstr "Raahaa esineet vastaaville paikoille"
 
 #: ../boards/babymatch.xml.in.h:2
-#, fuzzy
 msgid ""
 "In the main board area, a set of objects is displayed. In the vertical box "
 "(at the left of the main board) another set of objects is shown, each object "
@@ -653,10 +657,10 @@ msgid ""
 "area."
 msgstr ""
 "Kentän keskellä näytetään joukko kohteita. Vasemmalla olevassa "
-"pystylaatikossa on joukko sanoja, joiden täytyy vastata tarkalleen yhtä "
-"kentän keskellä olevaa kohtaa. Sinun täytyy löytää näiden kohteiden väliset "
-"loogiset linkit. Kuinka ne sopivat yhteen? Raahaa vasemmalta osio oikeaan "
-"punaiseen kohtaan kuvan keskiosassa."
+"pystylaatikossa on joukko sanoja, joista kukin vastaa tarkalleen yhtä "
+"kentän keskellä olevaa kohtaa. Tehtävänäsi on löytää näiden kohteiden väliset "
+"yhteydet. Kuinka ne sopivat yhteen? Raahaa sanat laatikosta oikeaan punaiseen "
+"kohtaan kuvan keskiosassa."
 
 #: ../boards/babymatch.xml.in.h:3
 msgid "Matching Items"
@@ -1213,6 +1217,9 @@ msgid ""
 "right model. Below the crane itself, you will find four arrows that let you "
 "move items. To select the item to move, just click on it."
 msgstr ""
+"Siirrä alhaalla vasemmalla laatikossa olevat esineet siten, että niiden sijainti "
+"vastaa ylhäällä oikealla olevaa mallia. Nosturin alapuolelta löydät neljä nuolta, "
+"joiden avulla voit siirtää esineitä. Valitse siirrettävä esine napsauttamalla sitä."
 
 #: ../boards/discovery.xml.in.h:1
 msgid "Colors, sounds, memory..."
@@ -1292,6 +1299,15 @@ msgid ""
 "is blown, you can blown it by right-clicking on it. The simulation is "
 "updated in real time by any user action."
 msgstr ""
+"Raahaa elektroniikan komponentteja valitsimesta ja tiputa ne työskentely"
+"alueelle. Luo lankoja napsauttamalla yhteyspistettä, raahaamalla hiirellä "
+"seuraavaan yhteyspisteeseen ja vapauttamalla hiiren napin. Voit myös siirtää "
+"kappaleita raahaamalla. Voit poistaa lankoja napsauttamalla niitä. Valitse "
+"poistotyökalu valintaikkunasta, jos haluat poistaa komponentin. Voit sulkea "
+"ja avata kytkimen napsauttamalla sitä. Voit muuttaa säätimen arvoa raahamalla "
+"säädintä. Jos haluat simuloida mitä tapahtuu, kun lamppo palaa, voit polttaa "
+"lampun napsauttamalla sitä oikealla hiiren napilla. Simulaatio päivitetään "
+"reaaliajassa aina kun käyttäjä muuttaa kytkentää."
 
 #: ../boards/electric.xml.in.h:3
 msgid "Electricity"
@@ -1306,6 +1322,8 @@ msgid ""
 "GCompris uses the Gnucap electric simulator as a backend. You can get more "
 "information on gnucap at &lt;http://geda.seul.org/tools/gnucap/&gt;."
 msgstr ""
+"GCompris käyttää Gnucap -elektroniikkasimulaattoria taustajärjestelmänä. "
+"Saat lisätietoja gnucapista sivulta &lt;http://geda.seul.org/tools/gnucap/&gt;."
 
 #: ../boards/electric.xml.in.h:6
 msgid "Requires some basic understanding of the concept of electricity."
@@ -2129,7 +2147,6 @@ msgid "Learn about factors and multiples."
 msgstr "Opi luvun tekijöistä ja kertomisesta."
 
 #: ../boards/gnumch-factors.xml.in.h:4
-#, fuzzy
 msgid ""
 "The factors of a number are all the numbers that divide that number evenly. "
 "For example, the factors of 6 are 1, 2, 3 and 6. 4 is not a factor of 6 "
@@ -2179,7 +2196,6 @@ msgid "Multiple Number Munchers"
 msgstr "Moninkertaisten numeroiden mutustajat"
 
 #: ../boards/gnumch-multiples.xml.in.h:4
-#, fuzzy
 msgid ""
 "The multiples of a number are all the numbers that are equal to the original "
 "number times another number. For example, 24, 36, 48 and 60 are all "
@@ -2226,6 +2242,11 @@ msgid ""
 "3 = 6). So 6 is not a prime number. Use the arrow keys to navigate around "
 "the board and to avoid the Troggles. Press the spacebar to eat a number."
 msgstr ""
+"Alkuluvut ovat numeroita, jotka ovat jaettavissa ainoastaan itsellään ja "
+"luvulla yksi. Esimerkiksi 3 on alkuluku mutta 4 ei, koska 4 on jaettavissa "
+"luvulla 2.  Liiku pöydällä käyttäen nuolinäppäimiä ja välttääksesi Trogglesin. "
+"Voit syödä luvun painamalla välilyöntiä sen kohdalla."
+
 
 #: ../boards/gnumchmenu.xml.in.h:1
 msgid "Go to Number Munchers activities"
@@ -2241,15 +2262,15 @@ msgstr "Arvaa numero"
 
 #: ../boards/guessnumber.xml.in.h:2
 msgid "Help Tux escape the cave. Tux hides a number for you to find."
-msgstr "Auta Tuxia pääsemään luolasta. Tux on piilottanut numeron, "
-"joka sinun täytyy keksiä."
+msgstr ""
+"Auta Tuxia pääsemään luolasta. Tux on piilottanut numeron, joka sinun täytyy "
+"keksiä."
 
 #: ../boards/guessnumber.xml.in.h:3
 msgid "Numbers from 1 to 1000 for the last level."
 msgstr "Numerot yhdestä tuhanteen viimeisellä tasolla."
 
 #: ../boards/guessnumber.xml.in.h:4
-#, fuzzy
 msgid ""
 "Read the instructions that give you the range of the number to find. Enter a "
 "number in the top right blue entry box. Tux will tell you if your number is "
@@ -2262,8 +2283,7 @@ msgstr ""
 "ylhäällä olevaan siniseen laatikkoon. Tux kertoo, onko syöttämäsi numero "
 "liian iso vai liian pieni. Syötä sitten toinen numero. Väli Tuxin ja "
 "oikealla olevan pakotien välillä kuvaa, kuinka lähellä olet oikeaa lukua. "
-"Jos Tux on pakotien yläpuolella, on arvauksesi liian suuri, ja jos Tux on "
-"pakotien alapuolella, on arvauksesi liian pieni."
+"Jos Tux on pakotien ylä- tai alapuolella, on arvauksesi liian suuri tai pieni."
 
 #: ../boards/hanoi.xml.in.h:1
 msgid "Concept taken from EPI games."
@@ -2645,7 +2665,6 @@ msgid "GCompris login screen"
 msgstr "GComprisin kirjautumisruutu"
 
 #: ../boards/login.xml.in.h:3
-#, fuzzy
 msgid ""
 "In order to activate the login screen, you must \n"
 "first add users in the administration part of GCompris. \n"
@@ -2665,10 +2684,9 @@ msgstr ""
 "käytettävissään.\n"
 "GCompris käynnistetään haluttuun profiiliin komennolla \n"
 "\"gcompris -p profiili\", \n"
-"jossa \"profiili\" on tallentamasi profiilin nimi."
+"jossa \"profiili\" on hallintaosasta tallentamasi profiilin nimi."
 
 #: ../boards/login.xml.in.h:10
-#, fuzzy
 msgid "Select or enter your name to log in to GCompris"
 msgstr "Valitse tai syötä nimesi kirjautuaksesi GComprisiin"
 
@@ -2859,7 +2877,6 @@ msgid "Memory Game with images, against Tux"
 msgstr "Muistipeli Tuxia vastaan kuvien avulla"
 
 #: ../boards/memory_tux.xml.in.h:5
-#, fuzzy
 msgid ""
 "You can see a set of cards that all look the same. Each card has a picture "
 "on the other side, and each picture has a twin somewhere in the set. You can "
@@ -2868,14 +2885,15 @@ msgid ""
 "You take turns with Tux, and to win the game, you have to find more pairs of "
 "twins than he does."
 msgstr ""
-"Joukko tyhjiä kortteja näytetään. Kutakin kuvakorttia on kaksi kappaletta "
-"piilotettuna väärin päin. Napsauta korttia ja näet sen kuvan. Et voi "
-"kuitenkaan pitää auki useampaa kuin kahta korttia samaan aikaan: sinun "
-"täytyy muistaa korttien sijainnit, jotta voit saada ne yhdistettyä. Poista "
-"korttipari paljastamalla molemmat samanlaiset kortit."
+"Näet joukon kortteja, jotka näyttävät kaikki samalta. Kunkin kortin toisella "
+"puolella on kuva, ja jokaista kuvaa on kaksi kappaletta korttijoukossa. Voit "
+"kääntää ainostaan kaksi korttia kerrallaan, joten sinun täytyy muistaa missä "
+"mikäkin kuva on, jotta voit löytää samanlaiset kuvat yhdellä kertaa. Molemmat "
+"kortit häviävät pelistä, kun käännät esiin kaksi samanlaista kuvaa."
+"Pelaat peliä Tuxia vastaan, ja voittaaksesi pelin sinun täytyy löytää enemmän "
+"korttipareja kuin Tux."
 
 #: ../boards/menu.xml.in.h:1
-#, fuzzy
 msgid ""
 "A simple click on an icon brings you to an activity or a menu of "
 "activities.\n"
@@ -2895,9 +2913,10 @@ msgid ""
 "    1, 2 or 3 complex stars - 7 years and up"
 msgstr ""
 "Napsauttamalla kuvaketta pääset tehtävään tai tehtävävalikkoon.\n"
+"Näytön alalaidassa on gcomprisin ohjauspaneeli.\n"
 "Seuraavat kuvakkeet näytetään vasemmalta oikealle.\n"
 "Ota huomioon että kukin kuvake näytetään vain, jos se on käytettävissä "
-"valitun tehtävän kohdalla:\n"
+"valitun tehtävän kohdalla.\n"
 "  Koti - Takaisin edelliseen valikkoon, tai sulje ohjelma jos päätasolla\n"
 "  Peukalo - OK, eli varmista vastauksesi\n"
 "  Noppa - Näytä tämänhetkinen tehtävän taso, vaihda tasoa napsauttamalla\n"
@@ -2918,8 +2937,8 @@ msgid ""
 "GCompris is a collection of educational games that provides different "
 "activities for children aged 2 and up."
 msgstr ""
-"GCompris on kokoelma erilaisia opetuspelejä lapsille kahden vuoden "
-"iästä alkaen."
+"GCompris on kokoelma erilaisia opetuspelejä lapsille kahden vuoden iästä "
+"alkaen."
 
 #: ../boards/menu.xml.in.h:18
 msgid ""
@@ -3446,7 +3465,6 @@ msgstr ""
 "Kopioi oikealla olevan laatikon sisällön peilikuva vasempaan laatikkoon."
 
 #: ../boards/redraw_symmetrical.xml.in.h:2
-#, fuzzy
 msgid ""
 "First, select the proper tool from the toolbar. Then drag the mouse to "
 "create objects. When you are done, click on the OK button. A little red "
@@ -3455,9 +3473,9 @@ msgid ""
 "objects under others."
 msgstr ""
 "Valitse ensin sopiva työkalu työkalupalkista. Raahaa sitten hiirtä ja luo "
-"uusia kohteita. Kun olet valmis voit painaa \"OK\"-painiketta. Virheet "
+"uusia kohteita. Kun olet valmis, voit painaa \"OK\"-painiketta. Virheet "
 "merkitään pienellä punaisella rastilla. Kappaleiden järjestyksellä ei ole "
-"väliä, mutta pidä huolta ettet piilota sellaisia kohteita, joita et halua, "
+"väliä, mutta pidä huolta ettet piilota sellaisia kohteita, joita et halua "
 "toisten kohteiden alle."
 
 #: ../boards/redraw_symmetrical.xml.in.h:3
@@ -3465,7 +3483,6 @@ msgid "Mirror the given item"
 msgstr "Piirrä peilikuva"
 
 #: ../boards/reversecount.xml.in.h:1
-#, fuzzy
 msgid ""
 "Can move the mouse, can read numbers and subtract numbers up to 10 for the "
 "first level"
@@ -3604,11 +3621,9 @@ msgid "Numbers With Dice"
 msgstr "Noppapeli"
 
 #: ../boards/smallnumbers.xml.in.h:5 ../boards/smallnumbers2.xml.in.h:5
-#, fuzzy
 msgid "With the keyboard, type the number of dots you see on the falling dice."
 msgstr ""
-"Paina näppäimistöltä oikeaa numeroa, joka vastaa nopassa olevien pisteiden "
-"lukumäärää."
+"Kirjoita näppäimistöltä numero, joka vastaa tippuvassa nopassa olevaa lukua."
 
 #: ../boards/smallnumbers2.xml.in.h:4
 msgid "Numbers with pairs of dice"
@@ -3719,7 +3734,6 @@ msgid "Tux has hidden several items. Find them again in the correct order"
 msgstr "Tux on piiloittanut useita esineitä. Löydä ne oikeassa järjestyksessä"
 
 #: ../boards/tangram.xml.in.h:1
-#, fuzzy
 msgid ""
 "From Wikipedia, the free encyclopedia. Tangram (Chinese: literally \"seven "
 "boards of cunning\") is a Chinese puzzle. While the tangram is often said to "
@@ -3738,9 +3752,14 @@ msgstr ""
 "usein väitetään ikivanhaksi, sen olemassa on varmistettu vain 1800-luvulle. "
 "Peli koostuu seitsemästä kappaleesta, joita kutsutaan nimellä \"Tan\". Nämä "
 "kappaleet yhdessä muodostavat suorakaiteen."
+"\t* viisi tasasivuista kolmiota\n"
+"\t\to kaksi pientä (sivun pituus 1)\n"
+"\t\to yksi keskikokoinen (sivun pituus 2:n neliöjuuri)\n"
+"\t\to kaksi suuta (sivun pituus 2)\n"
+"\t* 1 neliö (sivun pituus 1)\n"
+"\t* 1 suorakaide (sivut yhden mittaisia ja 2:n neliöjuuria)"
 
 #: ../boards/tangram.xml.in.h:9
-#, fuzzy
 msgid ""
 "Select the tangram to form. Move a piece by dragging it. Right-click on it "
 "to create a symmetrical item. Select an item and drag around it to show the "
@@ -3759,12 +3778,11 @@ msgid "The objective is to form a given shape with seven pieces"
 msgstr "Tavoitteena on muodostaa annettu muoto seitsemästä kappaleesta"
 
 #: ../boards/tangram.xml.in.h:11
-#, fuzzy
 msgid ""
 "The original code was written by Philippe Banwarth in 1999. It was ported to "
 "GCompris by Yves Combe in 2005."
 msgstr ""
-"Alkuperäisen lähdekoodin kirjoittanut Philippe Banward vuonna 1999. Koodin "
+"Alkuperäisen lähdekoodin kirjoittanut Philippe Banwarth vuonna 1999. Koodin "
 "siirsi Gcomprisiin Yves Combe vuonna 2005."
 
 #: ../boards/tangram.xml.in.h:12
@@ -4505,6 +4523,13 @@ msgid ""
 "You can still use this activity to draw schematics without computer "
 "simulation."
 msgstr ""
+"Gnucap -elektriniikkasimulaattoria ei löydy.\n"
+"Voit hakea ja asentaa sen osoitteesta\n"
+"<http://geda.seul.org/tools/gnucap/>\n"
+"Jotta ohjelma voidaan havaita, tytyy se olla asennettu\n"
+"nimellä usr/bin/gnucap tai /usr/local/bin/gnucap.\n"
+"Voit käyttää tätä tehtävää sähkökaavioden piirtoon ilman elektroniikan "
+"simulointia."
 
 #: ../src/boards/python/gnumch.py:95
 #, python-format
@@ -4632,24 +4657,24 @@ msgstr ""
 msgid "Guess a number between %d and %d"
 msgstr "Arvaa numero väliltä %d ja %d"
 
-#: ../src/boards/python/guessnumber.py:337
-#: ../src/boards/python/guessnumber.py:338
+#: ../src/boards/python/guessnumber.py:335
+#: ../src/boards/python/guessnumber.py:336
 #, python-format
 msgid "Please enter a number between %d and %d"
 msgstr "Syötä numero väliltä %d ja %d"
 
-#: ../src/boards/python/guessnumber.py:343
-#: ../src/boards/python/guessnumber.py:344
+#: ../src/boards/python/guessnumber.py:341
+#: ../src/boards/python/guessnumber.py:342
 msgid "Out of range"
 msgstr "Rajojen ulkopuolella"
 
-#: ../src/boards/python/guessnumber.py:350
-#: ../src/boards/python/guessnumber.py:351
+#: ../src/boards/python/guessnumber.py:348
+#: ../src/boards/python/guessnumber.py:349
 msgid "Too high"
 msgstr "Liian suuri"
 
-#: ../src/boards/python/guessnumber.py:353
-#: ../src/boards/python/guessnumber.py:354
+#: ../src/boards/python/guessnumber.py:351
+#: ../src/boards/python/guessnumber.py:352
 msgid "Too low"
 msgstr "Liian pieni"
 
