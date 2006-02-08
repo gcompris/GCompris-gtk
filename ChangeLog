@@ -1,3 +1,10 @@
+2006-02-08  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* boards/awele.xml.in: Removed for 7.3 release, Yves remade it for 7.4, the current version
+	                       has many problems.
+	* src/boards/python/electric.py: removed the diode. will reintroduce it only when the wire
+	  renumbering will be correct for gnucap (always a 0 wire)
+
 2006-02-07  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* src/boards/advanced_colors.c: (add_xml_data): fixed to check properly for long locale (e.g. pt_BR)

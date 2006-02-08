@@ -275,10 +275,11 @@ class Gcompris_electric:
                      (Bulb, 0.11),
                      (Rheostat, 100),
                      (Resistor, 1000),
-                     (Diode, None),
                      (Switch, None),
                      (Connection, None)
                      )
+    #(Diode, None), (FIXME removed, need to fix wire numbering first)
+
     Selector(self, component_set)
     
 
