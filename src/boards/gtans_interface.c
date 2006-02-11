@@ -14,84 +14,9 @@
 
 void create_mainwindow (GnomeCanvasGroup *rootitem)
 {
-  GtkWidget *mainwindow;
-  GtkWidget *vbox1;
-  GtkWidget *menubar1;
-  GtkWidget *mgame;
-  GtkWidget *mgame_menu;
-  GtkAccelGroup *mgame_menu_accels;
-  GtkWidget *mquit;
-  GtkWidget *mprefs;
-  GtkWidget *mprefs_menu;
-  GtkAccelGroup *mprefs_menu_accels;
-  GtkWidget *mtans;
-  GtkWidget *mtans_menu;
-  GtkAccelGroup *mtans_menu_accels;
-  GtkWidget *mtanscolor;
-  GtkWidget *mtanstexture;
-  GtkWidget *mhitan;
-  GtkWidget *mhitan_menu;
-  GtkAccelGroup *mhitan_menu_accels;
-  GtkWidget *mhighcolor;
-  GtkWidget *mhightexture;
-  GtkWidget *mbg;
-  GtkWidget *mbg_menu;
-  GtkAccelGroup *mbg_menu_accels;
-  GtkWidget *mbgcolor;
-  GtkWidget *mbgtexture;
-  GtkWidget *mhlpoutcolor;
-  GtkWidget *s_parateur1;
-  GtkWidget *msilcolor;
-  GtkWidget *msilbgcolor;
-  GtkWidget *msilbgcol2;
-  GtkWidget *mhlptancolor;
-  GtkWidget *s_parateur2;
-  GtkWidget *imsize;
-  GtkWidget *imsize_menu;
-  GtkAccelGroup *imsize_menu_accels;
-  GtkWidget *msizinc;
-  GtkWidget *msizdec;
-  GtkWidget *maccuracy;
-  GtkWidget *maccuracy_menu;
-  GtkAccelGroup *maccuracy_menu_accels;
-  GSList *accgrp_group = NULL;
-  GtkWidget *maccuracy1;
-  GtkWidget *maccuracy2;
-  GtkWidget *maccuracy3;
-  GtkWidget *rotstp;
-  GtkWidget *rotstp_menu;
-  GtkAccelGroup *rotstp_menu_accels;
-  GSList *rotgrp_group = NULL;
-  GtkWidget *mrotcont;
-  GtkWidget *mrotstp;
-  GtkWidget *separator1;
-  GtkWidget *mfigfile;
-  GtkWidget *s_parateur3;
-  GtkWidget *msaveconf;
-  GtkWidget *mmisc;
-  GtkWidget *mmisc_menu;
-  GtkAccelGroup *mmisc_menu_accels;
-  GtkWidget *mabout;
-  GtkWidget *mhelp;
-  GtkWidget *sep17;
-  GtkWidget *mclrstat;
-  GtkWidget *mclrall;
-  GtkWidget *table1;
-  GtkWidget *aspectframe1;
   GtkWidget *wdrawareagrande;
-  GtkWidget *aspectframe2;
   GtkWidget *wdrawareapetite;
-  GtkWidget *vbox2;
-  GtkWidget *hbox1;
-  GtkWidget *label2;
-  GtkObject *bfignr_adj;
-  GtkWidget *bfignr;
-  GtkWidget *hseparator2;
-  GtkWidget *bunsel;
-  GtkWidget *hseparator1;
-  GtkWidget *bhlptan;
-  GtkWidget *bhlpout;
-  GtkWidget *wstatusbar;
+
 
   /* GCompris : suppression of all menus */
   g_assert(rootitem != NULL);
@@ -266,14 +191,14 @@ void create_mainwindow (GnomeCanvasGroup *rootitem)
   
 
   /* rotation buttons */
+  GdkPixbuf   *right_rot = NULL;
+  GdkPixbuf   *left_rot = NULL;
   GdkPixbuf   *right_rot_big = NULL;
   GdkPixbuf   *left_rot_big = NULL;
-  GnomeCanvasItem *l_rot_s, *r_rot_s,
-    *l_rot_b,  *r_rot_b,
-    *l_rot_b2, *r_rot_b2;
+  GnomeCanvasItem *l_rot_s, *r_rot_s, *l_rot_b,  *r_rot_b;
 
-  right_rot_big   = gcompris_load_skin_pixmap("draw/tool-rotation-cw.png");
-  left_rot_big    = gcompris_load_skin_pixmap("draw/tool-rotation-ccw.png");
+  right_rot       = gcompris_load_pixmap("gtans/gtans_rotate.png");
+  left_rot        = gcompris_load_pixmap("gtans/gtans_rotate-left.png");
 
   r_rot_s = gnome_canvas_item_new (rootitem,
 				   gnome_canvas_pixbuf_get_type (),
@@ -293,6 +218,12 @@ void create_mainwindow (GnomeCanvasGroup *rootitem)
 				   NULL);
       
 
+  gdk_pixbuf_unref(right_rot);
+  gdk_pixbuf_unref(left_rot);
+
+  right_rot_big   = gcompris_load_pixmap("gtans/gtans_2x-rotate.png");
+  left_rot_big    = gcompris_load_pixmap("gtans/gtans_2x-rotate-left.png");
+
   r_rot_b = gnome_canvas_item_new (rootitem,
 				   gnome_canvas_pixbuf_get_type (),
 				   "pixbuf", right_rot_big, 
@@ -309,24 +240,7 @@ void create_mainwindow (GnomeCanvasGroup *rootitem)
 				   "y", (double) Y_BASE_SMALLAREA + WIDTH_SMALLAREA + 120,
 				   "anchor", GTK_ANCHOR_NW,
 				   NULL);
-      
-  r_rot_b2 = gnome_canvas_item_new (rootitem,
-				   gnome_canvas_pixbuf_get_type (),
-				   "pixbuf", right_rot_big, 
-				   "x", (double) X_BASE_SMALLAREA + WIDTH_SMALLAREA + 10,
-				   "y", (double) Y_BASE_SMALLAREA + WIDTH_SMALLAREA + 125,
-				   "anchor", GTK_ANCHOR_NE,
-				   NULL);
-      
 
-  l_rot_b2 = gnome_canvas_item_new (rootitem,
-				   gnome_canvas_pixbuf_get_type (),
-				   "pixbuf", left_rot_big, 
-				   "x", (double) X_BASE_SMALLAREA + WIDTH_SMALLAREA - 110,
-				   "y", (double) Y_BASE_SMALLAREA + WIDTH_SMALLAREA + 125,
-				   "anchor", GTK_ANCHOR_NW,
-				   NULL);
-      
   gdk_pixbuf_unref(right_rot_big);
   gdk_pixbuf_unref(left_rot_big);
 
@@ -360,22 +274,6 @@ void create_mainwindow (GnomeCanvasGroup *rootitem)
 		     (gpointer) 3);
       
   gtk_signal_connect(GTK_OBJECT(l_rot_b), "event",
-		     (GtkSignalFunc) gcompris_item_event_focus,
-		     NULL);
-
-  gtk_signal_connect(GTK_OBJECT(r_rot_b2), "event",
-		     (GtkSignalFunc) on_rotation_clicked,
-		     (gpointer) 2);
-      
-  gtk_signal_connect(GTK_OBJECT(r_rot_b2), "event",
-		     (GtkSignalFunc) gcompris_item_event_focus,
-		     NULL);
-      
-  gtk_signal_connect(GTK_OBJECT(l_rot_b2), "event",
-		     (GtkSignalFunc) on_rotation_clicked,
-		     (gpointer) 3);
-      
-  gtk_signal_connect(GTK_OBJECT(l_rot_b2), "event",
 		     (GtkSignalFunc) gcompris_item_event_focus,
 		     NULL);
 
