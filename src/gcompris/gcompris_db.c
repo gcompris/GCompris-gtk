@@ -20,6 +20,8 @@
 #include <string.h>
 
 #include "gcompris.h"
+#include <sys/stat.h>
+
 
 #ifdef USE_SQLITE
 static sqlite3 *gcompris_db=NULL;
@@ -128,7 +130,21 @@ int gcompris_db_init()
   
   if (!g_file_test(properties->database, G_FILE_TEST_EXISTS))
     creation = TRUE;
+  else {
+    /* we have to check this file is not empty,
+       because bug in administration */
+    struct stat buf;
+    
+    if (stat(properties->database, &buf)!=0)
+      g_error("Can't stat %s", properties->database);
 
+    /* if size of file is null, we recreate the tables */
+    if (buf.st_size == 0){
+      creation = TRUE;
+      g_warning("Database file is empty! Trying to create table...");
+    }
+  }
+    
   rc = sqlite3_open(properties->database, &gcompris_db);
   if( rc ){
     g_error("Can't open database: %s\n", sqlite3_errmsg(gcompris_db));
