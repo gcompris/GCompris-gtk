@@ -19,8 +19,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: de\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-02-04 16:30+0100\n"
-"PO-Revision-Date: 2006-02-04 17:01+0100\n"
+"POT-Creation-Date: 2006-02-12 17:39+0100\n"
+"PO-Revision-Date: 2006-02-12 17:41+0100\n"
 "Last-Translator: Ronny Standtke <Ronny.Standtke@gmx.net>\n"
 "Language-Team:  <de@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -1362,7 +1362,8 @@ msgstr ""
 "auf einen anderen Verbindungspunkt. Sie können durch erneutes Anklicken "
 "wieder gelöscht werden.\n"
 "Durch Anklicken kann ein Schalter geöffet und wieder geschlossen werden.\n"
-"Die Stärke des Regelwiderstandes kann durch Ziehen seines verschiebbaren Kontaktes verändert werden.\n"
+"Die Stärke des Regelwiderstandes kann durch Ziehen seines verschiebbaren "
+"Kontaktes verändert werden.\n"
 "Um zu simulieren, was passiert, wenn eine Glühlampe durchbrennt, kannst du "
 "sie mit einem Rechtsklick durchbrennen lassen.\n"
 "Die Simulation wird in Echtzeit bei jeder Aktion aktualisiert."
@@ -4018,6 +4019,14 @@ msgstr "Bildungs-Sammlung gcompris"
 msgid "Multiple activities for kids"
 msgstr "Mehrere Aktivitäten für Kinder"
 
+#: ../src/boards/awele.c:278 ../src/boards/awele.c:288
+msgid "NORTH"
+msgstr "NORD"
+
+#: ../src/boards/awele.c:300 ../src/boards/awele.c:310
+msgid "SOUTH"
+msgstr "SÜD"
+
 #: ../src/boards/chess.c:189
 msgid ""
 "Error: The external program gnuchess is mandatory\n"
@@ -4101,7 +4110,7 @@ msgstr ""
 "Fehler: Diese Aktivität erfordert die Installation\n"
 "des Paketes \"assetml-voices-alphabet-%s\" ! Weiche auf Englisch aus, sorry!"
 
-#: ../src/boards/click_on_letter.c:302
+#: ../src/boards/click_on_letter.c:302 ../src/boards/python/melody.py:116
 msgid ""
 "Error: this activity cannot be played with the\n"
 "sound effects disabled.\n"
@@ -4767,24 +4776,24 @@ msgstr ""
 msgid "Guess a number between %d and %d"
 msgstr "Errate eine Zahl zwischen %d und %d"
 
-#: ../src/boards/python/guessnumber.py:337
-#: ../src/boards/python/guessnumber.py:338
+#: ../src/boards/python/guessnumber.py:335
+#: ../src/boards/python/guessnumber.py:336
 #, python-format
 msgid "Please enter a number between %d and %d"
 msgstr "Bitte gib eine Zahl zwischen %d und %d ein"
 
-#: ../src/boards/python/guessnumber.py:343
-#: ../src/boards/python/guessnumber.py:344
+#: ../src/boards/python/guessnumber.py:341
+#: ../src/boards/python/guessnumber.py:342
 msgid "Out of range"
 msgstr "Nicht im zulässigen Bereich"
 
-#: ../src/boards/python/guessnumber.py:350
-#: ../src/boards/python/guessnumber.py:351
+#: ../src/boards/python/guessnumber.py:348
+#: ../src/boards/python/guessnumber.py:349
 msgid "Too high"
 msgstr "Zu groß"
 
-#: ../src/boards/python/guessnumber.py:353
-#: ../src/boards/python/guessnumber.py:354
+#: ../src/boards/python/guessnumber.py:351
+#: ../src/boards/python/guessnumber.py:352
 msgid "Too low"
 msgstr "Zu klein"
 
@@ -5540,11 +5549,11 @@ msgstr "Liste der verfügbaren Aktivitäten:\n"
 msgid "The list of available profiles is:\n"
 msgstr "Die Liste der verfügbaren Profile ist:\n"
 
-#: ../src/gcompris/gcompris_db.c:237
+#: ../src/gcompris/gcompris_db.c:253
 msgid "Unaffected"
 msgstr "Nicht betroffen"
 
-#: ../src/gcompris/gcompris_db.c:238
+#: ../src/gcompris/gcompris_db.c:254
 msgid "Users without a class"
 msgstr "Benutzer ohne eine Klasse"
 
