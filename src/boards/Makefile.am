@@ -86,7 +86,7 @@ libdraw_la_SOURCES = draw.c
 
 libawele_la_LDFLAGS = -module -avoid-version
 libawele_la_LIBADD = $(top_builddir)/src/gcompris/libgcompris-1.la
-libawele_la_SOURCES = awele.c awele_alphaBeta.c awele_utils.c
+libawele_la_SOURCES = awele.c awele_alphaBeta.c awele_utils.c awele_utils.h awele.h
 
 libcrane_la_LDFLAGS = -module -avoid-version
 libcrane_la_LIBADD = $(top_builddir)/src/gcompris/libgcompris-1.la

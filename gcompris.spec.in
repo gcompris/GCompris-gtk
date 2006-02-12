@@ -504,7 +504,8 @@ rm -rf $RPM_BUILD_ROOT
 %{prefix}/share/gcompris/boards/skins/*
 %{prefix}/share/gcompris/boards/[^fs]*
 %{prefix}/share/gcompris/boards/f[iuo]*
-%{prefix}/share/gcompris/boards/s[cemu]*
+%{prefix}/share/gcompris/boards/s[tcemu]*
+%{prefix}/share/gcompris/boards/sound_group*
 %dir %{prefix}/share/gcompris/boards/sounds
 %{prefix}/share/gcompris/boards/sounds/*.ogg
 %{prefix}/share/gcompris/boards/sounds/melody/*/*.ogg

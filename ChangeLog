@@ -1,7 +1,14 @@
+2006-02-12  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* po/POTFILES.in: added missing melody.py
+
 	*** RELEASE 7.3RC1 ***
 
 2006-02-11  Bruno coudoin  <bruno.coudoin@free.fr>
 	
+	* boards/awele.xml.in:
+	* gcompris.spec.in:
+	* src/boards/Makefile.am:
 	* configure.in:
 	* src/gcompris/gcompris_db.c: (gcompris_db_init): patch by Yves from 7.4 branch to remove sqlite
 	  database if it is empty.
