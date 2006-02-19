@@ -70,7 +70,7 @@
 
               <P class="flottante">
                 <A>
-                  <xsl:attribute name="href" align="center">
+                  <xsl:attribute name="href">
                     <xsl:value-of select="concat($language,':',@name,'.xml')"/>
                   </xsl:attribute>
                   <IMG border="0" align="top" alt="">

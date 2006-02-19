@@ -324,7 +324,8 @@ foreach my $board (@files) {
     push(@sections, \@section);
   }
 
-  if($board_content =~ /difficulty=\"0\"/) {
+  # Skip experimental activities
+  if($board_content =~ /section=\"\/experimental\"/) {
     goto done;
   }
   # Some filtering
@@ -362,9 +363,11 @@ foreach my $onesection (@sections) {
     my $langstrip = $lang;
     $langstrip =~ s/\@/_/g;
 
-    my $output = `xsltproc --stringparam language $lang --stringparam langstrip $langstrip --stringparam date "${date}" --stringparam article_id ${article_id} --stringparam rubrique_id $rubriques{$lang} --stringparam section $section --stringparam name $name --stringparam section_id $sections{$lang} --stringparam traduction_id ${traduction_id} $xslfile $all_boards_file`;
+    my $cmd = "xsltproc --stringparam language $lang --stringparam langstrip $langstrip --stringparam date \"${date}\" --stringparam article_id ${article_id} --stringparam rubrique_id $rubriques{$lang} --stringparam section $section --stringparam name $name --stringparam section_id $sections{$lang} --stringparam traduction_id ${traduction_id} $xslfile $all_boards_file";
+    my $output = `$cmd`;
 
-    #print "xsltproc --stringparam language $lang --stringparam date \"${date}\" --stringparam article_id ${article_id} --stringparam rubrique_id $rubriques{$lang} --stringparam section $section --stringparam name $name --stringparam section_id $sections{$lang} --stringparam traduction_id ${traduction_id} $xslfile $all_boards_file\n";
+    # Uncomment to debug
+    #print "$cmd\n";
 
     if ($?>>8) {
       print "#\n";
@@ -404,8 +407,9 @@ foreach my $board (@files) {
   print "\nProcessing $board\nLang:";
 
   # Skip some boards
-  if($board eq "administration.xml") {
-    print " (administration is skipped)";
+  if($board eq "administration.xml" ||
+     $board eq "experimental.xml") {
+    print " ($board is skipped)";
     next;
   }
 
@@ -422,7 +426,7 @@ foreach my $board (@files) {
 
     print "$lang ";
 
-    # Remove @ from some langage to avoid non URL char
+    # Remove @ from some language to avoid non URL char
     my $langstrip = $lang;
     $langstrip =~ s/\@/_/g;
 
@@ -471,11 +475,11 @@ open(FILEWRITE, "> $output_file");
 my $line = 0;
 while (<FILEREAD>){
   my $line = $_;
-  m/href=\"(\w+:\w+\.xml)/g;
+  m/href=\"(\w+:[a-zA-Z0-9_-]+\.xml)/g;
   if(defined($articles{"$1"})) {
     print "Found article " . $articles{"$1"} . "\n";
     my $article = "article.php3?id_article=$articles{$1}";
-    my $r = s/(^.*)(href=\")(\w+:\w+\.xml)(.*)/$1$2$article$4/g;
+    my $r = s/(^.*)(href=\")(\w+:[a-zA-Z0-9_-]+\.xml)(.*)/$1$2$article$4/g;
   }
   print FILEWRITE;
 }
