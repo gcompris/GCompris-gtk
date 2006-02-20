@@ -501,7 +501,7 @@ gcompris_sound_instance_init (GTypeInstance   *instance,
 }
 
 static void
-default_sound_played_signal_handler (GcomprisSound *obj, gchar *file)
+default_sound_played_signal_handler (GcomprisSound *obj, gchar *file, gpointer user_data)
 {
         /* Here, we trigger the real file write. */
         g_warning ("sound_played: %s\n", file);
@@ -526,7 +526,7 @@ gcompris_sound_class_init (gpointer g_class,
 			      gnome_canvas_marshal_VOID__POINTER,
 			      G_TYPE_NONE /* return_type */,
 			      1     /* n_params */,
-			      G_TYPE_CHAR  /* param_types */);
+			      G_TYPE_POINTER  /* param_types */);
 
 }
 

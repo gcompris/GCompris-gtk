@@ -1,3 +1,15 @@
+	*** RELEASE 7.3.1 ***
+
+
+2006-02-20  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	Applyed patch by Yves. A crash happens when starting playing sound
+	on some system.
+
+	* configure.in:
+	* src/gcompris/soundutil.c: (default_sound_played_signal_handler),
+	(gcompris_sound_class_init):
+
 	*** RELEASE 7.3 ***
 
 2006-02-18  Bruno coudoin  <bruno.coudoin@free.fr>
