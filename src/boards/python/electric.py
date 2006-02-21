@@ -29,11 +29,13 @@ import gtk.gdk
 
 import os
 
+# Set to True to debug
+debug = False
+
 from gcompris import gcompris_gettext as _
 
 class Gcompris_electric:
   """Tux hide a number, you must guess it"""
-
 
   def __init__(self, gcomprisBoard):    
 
@@ -106,11 +108,11 @@ class Gcompris_electric:
     self.call_gnucap()
     
   def repeat(self):
-    print("Gcompris_electric repeat.")
+    if debug: print("Gcompris_electric repeat.")
 
 
   def config(self):
-    print("Gcompris_electric config.")
+    if debug: print("Gcompris_electric config.")
 
 
   def key_press(self, keyval, commit_str, preedit_str):
@@ -273,12 +275,12 @@ class Gcompris_electric:
     # A list of couple (component class, it's value)
     component_set = ((Battery, 10),
                      (Bulb, 0.11),
-                     (Rheostat, 100),
+                     (Rheostat, 1000),
                      (Resistor, 1000),
                      (Switch, None),
-                     (Connection, None)
+                     (Connection, None),
+                     (Diode, None),
                      )
-    #(Diode, None), (FIXME removed, need to fix wire numbering first)
 
     Selector(self, component_set)
     
@@ -298,10 +300,35 @@ class Gcompris_electric:
       self.gnucap_timer = gtk.timeout_add(self.gnucap_timer_interval, self.ok)
 
   def call_gnucap(self):
+    if not self.components:
+      if debug: print "call_gnucap: No component"
+      self.gnucap_timer = 0
+      return
+    
+    connected = 0
+    for component in self.components:
+      if component.is_connected():
+        connected = 1
+
+    if not connected == 1:
+      if debug: print "call_gnucap: No connected component"
+    
     filename = "/tmp/gcompris_electric.gnucap.%d" %(os.getpid(),)
+
     f = file(filename, "w+")
 
     gnucap = "Title GCompris\n"
+
+    # Ugly hack: connect a 0 ohm (1 fempto) resistor between net 0
+    # and first net found
+    if connected == 1:
+      gnucap += "R999999999 0 "
+      for component in self.components:
+        if component.is_connected():
+          gnucap += str(component.get_nodes()[0].get_wires()[0].get_wire_id())
+          break
+      gnucap += " 1f\n"
+    
     for component in self.components:
       if component.is_connected():
         thisgnucap = component.to_gnucap("")
@@ -309,7 +336,7 @@ class Gcompris_electric:
 
     gnucap += ".dc\n"
     gnucap += ".end\n"
-    print gnucap
+    if debug: print gnucap
     f.writelines(gnucap)
     f.close()
 
@@ -321,24 +348,24 @@ class Gcompris_electric:
     #
     # Read and analyse gnucap result
     #
-    print "---------------- GNUCAP OUTPUT PARSING ---------------------"
+    if debug: print "---------------- GNUCAP OUTPUT PARSING ---------------------"
     for line in output.readlines():
-      print "==="
-      print line
+      if debug: print "==="
+      if debug: print line
       if(line.split() == " 0."):
         break
-    print "------------------------------------------------------------"
+    if debug: print "------------------------------------------------------------"
 
-    print "===>"
-    print line
-    print "===>"
+    if debug: print "===>"
+    if debug: print line
+    if debug: print "===>"
     values = []
     if(line.split()[0] == "0."):
-      print "FOUND 0."
+      if debug: print "FOUND 0."
       values = line.split()
       del values[0]
 
-    print values
+    if debug: print values
     i = 0
 
     # Set all component values
@@ -350,12 +377,14 @@ class Gcompris_electric:
         # data from
         done = False
         while not done:
-          print "Processing component %d" %(i,)
+          if debug: print "Processing component %d" %(i,)
           try:
-            print values[i]
-            print values[i+1]
+            if debug: print values[i]
+            if debug: print values[i+1]
+            dumy = values[i]
+            dumy = values[i+1]
           except:
-            print "Warning: gnucap parsing mismatch"
+            if debug: print "Warning: gnucap parsing mismatch"
             done = True
             continue
             
@@ -363,9 +392,9 @@ class Gcompris_electric:
             volt = self.convert_gnucap_value(values[i])
             amp = self.convert_gnucap_value(values[i+1])
             done = component.set_voltage_intensity(True, volt, amp)
-            print "Converted U=%sV I=%sA" %(volt, amp)
+            if debug: print "Converted U=%sV I=%sA" %(volt, amp)
           except:
-            print "Failed to convert V=%sV I=%sA" %(values[i], values[i+1])
+            if debug: print "Failed to convert V=%sV I=%sA" %(values[i], values[i+1])
             done = component.set_voltage_intensity(False, 0.0, 0.0)
 
           i += 2
@@ -412,7 +441,12 @@ class Gcompris_electric:
       unit = 1e-15
       value = value.replace("f", "")
 
-    return (float(value)*unit)
+    # return absolue value
+    sign = 1
+    if float(value) < 0:
+      sign = -1
+    
+    return (float(sign)*float(value)*unit)
     
 
 
@@ -426,7 +460,12 @@ class Gcompris_electric:
 
 # A wire between 2 Nodes
 class Wire:
-    # Wire ID 0 is a dummy wire, we start at 1
+    # BUG: Wire ID 0 is a dummy wire, we start at 1
+    # 2006/02/19 chgans@gna.org: From gnucap manual chapter 3.1:
+    # Node 0 is used as a reference for all calculations and is assumed
+    #to have a voltage of zero. (This is the ground, earth or common
+    #node.) Nodes must be nonnegative integers, but need not be
+    #numbered sequentially.
     counter = 1
     connection = {}
     colors = [ 0xdfc766FFL,   
@@ -464,12 +503,12 @@ class Wire:
       # Is this node already connected
       if(node.get_wires()):
         wire_id = node.get_wires()[0].get_wire_id()
-        print "Node already connected to %d (self.wire_id=%d)" %(wire_id, self.wire_id)
+        if debug: print "Node already connected to %d (self.wire_id=%d)" %(wire_id, self.wire_id)
         if self.wire_id >= 0:
           # This node was already connected elsewhere, reset it to use our
           # wire_id
           for wire in node.get_wires():
-            print "   Was connected to %d" %(wire.get_wire_id(),)
+            if debug: print "   Was connected to %d" %(wire.get_wire_id(),)
             if wire.get_wire_id() != self.wire_id:
               wire.set_wire_id(self.wire_id)
         else:
@@ -486,7 +525,7 @@ class Wire:
           
         Wire.connection[node] = self
         
-      print "WIRE_ID = %d" %self.wire_id
+      if debug: print "WIRE_ID = %d" %self.wire_id
 
     def set_wire_id(self, id):
       self.wire_id = id
@@ -556,7 +595,7 @@ class Wire:
         if event.button == 1:
           wire.destroy()
         elif event.button == 3:
-          print "WIRE_ID = %d" %self.wire_id
+          if debug: print "WIRE_ID = %d" %self.wire_id
 
       return False
 
@@ -714,7 +753,7 @@ class Component(object):
       self.voltage = voltage
       self.intensity = intensity
       if(valid_value):
-        self.item_values.set(text="V=%.1fV\nI=%.2fA"%(voltage,intensity))
+        self.item_values.set(text="V=%.2fV\nI=%.3fA"%(voltage,intensity))
         self.item_values.show()
       else:
         self.item_values.hide()
@@ -785,15 +824,18 @@ class Component(object):
       # But in this case, it should not be called at all. it's not in the top level
       # components list.
       if gnucap == "":
-        return ""
+        return "* Component ignored\n"
+
+      # ignore component if there are some unconnected node.
+      for node in self.nodes:
+        if not node.get_wires():
+          if debug: print "Component ignored"
+          return "* Component ignored\n"
 
       for node in self.nodes:
         gnucap += " "
         if(node.get_wires()):
           gnucap += str(node.get_wires()[0].get_wire_id())
-        else:
-          # UnConnected nodes are always connected to dummy wire 0
-          gnucap += str(0)
           
       gnucap += " "
       gnucap += str(self.gnucap_value)
@@ -922,7 +964,10 @@ class Diode(Component):
   # Here we just add the diode model
   def to_gnucap(self, model):
     # Our 'ddd' Diode model
-    model = ".model  ddd  d  ( is= 10.f  rs= 0.  n= 1.  tt= 0.  cjo= 1.p  vj= 1.  m= 0.5\n"
+    # Idealized diode: ~0V treshold voltage. Characteristic graph
+    # passes through the two points (10 mV, 10 mA) and (20 mV, 2000
+    # mA) => N  = 0.072 IS = 5x10-5 A
+    model = ".model  ddd  d  ( is= 50.u  rs= 0.  n= 0.072  tt= 0.  cjo= 1.p  vj= 1.  m= 0.5\n"
     model += "+ eg= 1.11  xti= 3.  kf= 0.  af= 1.  fc= 0.5  bv= 0.  ibv= 0.001 )\n"
 
     gnucap = ""
@@ -1012,6 +1057,7 @@ class Rheostat(Component):
   def __init__(self, electric,
                x, y, resitance):
     self.gnucap_current_resistor = 1
+    self.gnucap_nb_resistor = 0
     self.wiper_ofset_x = -2
     self.wiper_ofset_min_y = 22
     self.wiper_ofset_max_y = 103
@@ -1116,7 +1162,7 @@ class Rheostat(Component):
       if node.get_wires():
         count += 1
 
-    if count:
+    if count >= 2:
       return True
 
     return False
@@ -1124,15 +1170,20 @@ class Rheostat(Component):
   # Return the gnucap definition for a single resitor of the rheostat
   # node_id1 and node_id2 are the index in the list of nodes
   def to_gnucap_res(self, gnucap_name, node_id1, node_id2, gnucap_value):
+    # Ignore the component if there is some unconnected nodes.
+    for i in (node_id1, node_id2):
+      node = self.nodes[i]
+      if not node.get_wires():
+        gnucap = "* %s: component ignored: not connected\n" %(gnucap_name)
+        return gnucap
+
     gnucap = gnucap_name
     gnucap += " "
+    
     for i in (node_id1, node_id2):
       node = self.nodes[i]
       if node.get_wires():
         gnucap += str(node.get_wires()[0].get_wire_id())
-      else:
-        # UnConnected nodes are always connected to dummy wire 0
-        gnucap += str(0)
         
       gnucap += " "
 
@@ -1144,21 +1195,23 @@ class Rheostat(Component):
     return gnucap
   
   # Return the gnucap definition for this component
-  # The rheostat is special, it has 3 nodes and creates
-  # 3 resistors for gnucap
+  # depending of the connected nodes, it create one or two resistor
   def to_gnucap(self, model):
-    # Main resistor
-    gnucap = self.to_gnucap_res(self.gnucap_name + "_1", 0, 2, self.resitance)
-
-    # Top resitor
-    gnucap_value = self.resitance * \
-                   (self.wiper_ofset_y - self.wiper_ofset_min_y) / \
-                   (self.wiper_ofset_max_y - self.wiper_ofset_min_y)
-    gnucap += self.to_gnucap_res(self.gnucap_name + "_2", 0, 1, gnucap_value)
-
-    # Bottom resistor
-    gnucap += self.to_gnucap_res(self.gnucap_name + "_3", 1, 2,
-                                self.resitance - gnucap_value)
+    if not self.nodes[1].get_wires():
+      # Main resistor
+      self.gnucap_nb_resistor = 1
+      gnucap = self.to_gnucap_res(self.gnucap_name + "_all", 0, 2, self.resitance)
+    else:
+      # top and bottom resistors
+      self.gnucap_nb_resistor = 2
+      gnucap_value = self.resitance * \
+                     (self.wiper_ofset_y - self.wiper_ofset_min_y) / \
+                     (self.wiper_ofset_max_y - self.wiper_ofset_min_y)
+      gnucap  = self.to_gnucap_res(self.gnucap_name + "_top", 0, 1,
+                                   gnucap_value)
+      gnucap += self.to_gnucap_res(self.gnucap_name + "_bot", 1, 2,
+                                   self.resitance - gnucap_value)
+      
 
     return gnucap
     
@@ -1172,10 +1225,11 @@ class Rheostat(Component):
         self.item_values.set(text="U=%.1fV\nI=%.2fA"%(voltage,intensity))
         self.item_values.show()
       else:
+        # fixme: why display only resistor #1 U/I?
         self.item_values.show()
 
     self.gnucap_current_resistor += 1
-    if self.gnucap_current_resistor > 3:
+    if self.gnucap_current_resistor > self.gnucap_nb_resistor:
       self.gnucap_current_resistor = 1
       return True
     return False
@@ -1222,7 +1276,7 @@ class Bulb(Component):
     power = abs(voltage * intensity)
     image_index = min((power * 10) /  self.power_max + 1, 11)
     pixmap = gcompris.utils.load_pixmap("electric/bulb%d.png" %(image_index,))
-    print "Power = %f (Max=%f) Image index = %d" %(power, self.power_max, image_index)
+    if debug: print "Power = %f (Max=%f) Image index = %d" %(power, self.power_max, image_index)
     self.component_item.set(pixbuf = pixmap)
 
     # If the Bulb is blown, we have to change it's internal
