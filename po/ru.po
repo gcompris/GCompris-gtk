@@ -1,83 +1,60 @@
 # translation of gcompris.po to
-# translation of gcompris.po to Russian
 # translation of ro_org.po to
 # translation of ru_my.po to
 # translation of ru.po to
-# translation of ru.po to Russian
-# Copyright (C) 2001-2002,2003, 2005 Free Software Foundation, Inc.
-# Anna Polesskaya and Kirill Polesski <rami at kaires.org>, 2003
+# Copyright (C) 2001-2002,2003, 2005, 2006 Free Software Foundation, Inc.
+#
+# Anna Polesskaya and Kirill Polesski <rami at kaires.org>, 2003.
 # AVL <avl.altlinux.ru>, 2004-2004.
 # Valek Filippov <frob@df.ru>, 2001-2002.
-# Dubrovskiy Vyacheslav <dubrsl@altlinux.org>, 2005.
-# Slava Dubrovskiy <slava@psv.com.ua>, 2005.
-#
+# Dubrovskiy Vyacheslav <dubrsl@altlinux.org>, 2005, 2006.
 msgid ""
 msgstr ""
-"Project-Id-Version: gcompris\n"
+"Project-Id-Version: ru\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-12-28 13:33+0200\n"
-"PO-Revision-Date: 2005-12-28 18:28+0200\n"
+"POT-Creation-Date: 2006-02-20 15:09+0200\n"
+"PO-Revision-Date: 2006-02-21 14:34+0200\n"
 "Last-Translator: Dubrovskiy Vyacheslav <dubrsl@altlinux.org>\n"
 "Language-Team:  <ru@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: KBabel 1.10.1\n"
+"X-Generator: KBabel 1.11.1\n"
 
 #: ../boards/administration.xml.in.h:1
 msgid ""
 "- In the 'Boards' section you can change the list of activities. Just "
 "untoggle them in the treeview. You can change the language used for reading, "
-"for example, then language used for saying the name of colors. - You can "
-"save multiple configurations, and switch easily. In the 'Profile' section "
-"add a profile, then in the 'Board' section select the profile in the "
-"combobox, then select the boards you want to be active. You can add lot of "
-"profiles, with different lists of boards, and different languages. You set "
-"the default profile in the 'Profile' section, by choosing the profile you "
-"want, then clicking on the 'Default' button. You can also choose a profile "
-"from the command line. - You can add users, classes and for each class, you "
-"can create groups of users. Note that you can import users from a comma-"
-"separated file. Assign one or more groups to a profile, after which those "
-"new logins will appear after restarting GCompris. Being able to identify "
-"individual children in GCompris means we can provide individual reports. It "
-"also recognizes the children as individuals; they can learn to type in, and "
-"recognize their own usernames (login is configurable)."
-msgstr ""
-"- В секции 'Игры' Вы можете изменять список доступных игр. Просто отключите "
-"их в дереве. Вы можете изменить язык, используемый для чтения, например "
-"выбрать другой язык используемый для произношения названий цветов. - Вы "
-"можете сохранять множество конфигураций, и легко их переключать. Добавьте "
-"профиль в секции 'Профиль', затем в секции 'Игры' выбирают профиль в области "
-"выбора, затем выберите игры которые будут доступны в данном профиле. Вы "
-"можете добавить несколько профилей, с различными списками игр, и на "
-"различных языках. Вы можете установить профиль по умолчанию в секции "
-"'Профиля', выбирая профиль, который Вы хотите, и затем нажимая на кнопку 'По "
-"умолчанию'. Вы можете также выбрать профиль из командной строки. - Вы можете "
-"добавить пользователей, классы и для каждого класса, Вы можете создать "
-"группы пользователей. Заметьте, что Вы можете импортировать пользователей из "
-"файла. Назначьте одну или более групп на профиль, после которого те новые "
-"логины появятся после рестарта GCompris. Возможность идентифицировать детей "
-"в GCompris означает, что мы можем получить индивидуальные отчеты. Это также "
-"развивает индивидуальность у детей; они могут учиться печатать, и осознавать "
-"их собственные имена пользователя (логин)."
+"for example, then the language used for saying the names of colors.\n"
+"- You can save multiple configurations, and switch between them easily. In "
+"the 'Profile' section add a profile, then in the 'Board' section select the "
+"profile in the combobox, then select the boards you want to be active. You "
+"can add multiple profiles, with different lists of boards, and different "
+"languages. You set the default profile in the 'Profile' section, by choosing "
+"the profile you want, then clicking on the 'Default' button. You can also "
+"choose a profile from the command line.\n"
+"- You can add users, classes and for each class, you can create groups of "
+"users. Note that you can import users from a comma-separated file. Assign "
+"one or more groups to a profile, after which those new logins will appear "
+"after restarting GCompris. Being able to identify individual children in "
+"GCompris means we can provide individual reports. It also recognizes the "
+"children as individuals; they can learn to type in and recognize their own "
+"usernames (login is configurable)."
+msgstr "- В секции 'Игры' Вы можете изменять список доступных игр. Просто отключите их в дереве. Вы можете изменить язык, используемый для чтения, например выбрать другой язык используемый для произношения названий цветов. - Вы можете сохранять множество конфигураций, и легко их переключать. Добавьте профиль в секции 'Профиль', затем в секции 'Игры' выбирают профиль в области выбора, затем выберите игры которые будут доступны в данном профиле. Вы можете добавить несколько профилей, с различными списками игр, и на различных языках. Вы можете установить профиль по умолчанию в секции 'Профиля', выбирая профиль, который Вы хотите, и затем нажимая на кнопку 'По умолчанию'. Вы можете также выбрать профиль из командной строки. - Вы можете добавить пользователей, классы и для каждого класса, Вы можете создать группы пользователей. Заметьте, что Вы можете импортировать пользователей из файла. Назначьте одну или более групп на профиль, после которого те новые логины появятся после рестарта GCompris. Возможность идентифицировать детей в GCompris означает, что мы можем получить индивидуальные отчеты. Это также развивает индивидуальность у детей; они могут учиться печатать, и осознавать их собственные имена пользователя (логин)."
 
-#: ../boards/administration.xml.in.h:2
+#: ../boards/administration.xml.in.h:4
 msgid "GCompris Administration Menu"
 msgstr "GCompris административное меню"
 
-#: ../boards/administration.xml.in.h:3
+#: ../boards/administration.xml.in.h:5
 msgid ""
 "If you want to fine tune GCompris to your needs, you can use the "
 "administration module here. The ultimate goal is to provide child-specific "
 "reporting for parents and teacher who want to monitor the progress, "
-"strengths and weakenesses of their children."
-msgstr ""
-"Если вы хотите хорошо настроить GCompris для ваших потребностей, вы можете "
-"использовать административный интерфейс. Конечная цель, это предоставить "
-"родителям и учителям отчет, которые хотят наблюдать как их дети обучаются "
-"или испытывают трудности."
+"strengths and needs of their children."
+msgstr "Если вы хотите хорошо настроить GCompris для ваших потребностей, вы можете использовать административный интерфейс. Конечная цель, это предоставить родителям и учителям отчет, которые хотят наблюдать как их дети обучаются или испытывают трудности."
 
-#: ../boards/administration.xml.in.h:4
+#: ../boards/administration.xml.in.h:6
 msgid "Left-Click with the mouse to select an activity"
 msgstr "Щёлкни левой кнопкой мыши, чтобы выбрать задание"
 
@@ -415,12 +392,7 @@ msgstr "Упражнения на умножение"
 msgid "Go to Algebra activities"
 msgstr "Задания по математике"
 
-#: ../boards/algebra_group.xml.in.h:2 ../boards/algebramenu.xml.in.h:2
-#: ../boards/boards.xml.in.h:2 ../boards/colors_group.xml.in.h:2
-#: ../boards/computer.xml.in.h:2 ../boards/experience.xml.in.h:2
-#: ../boards/fun.xml.in.h:2 ../boards/memory_group.xml.in.h:2
-#: ../boards/menu.xml.in.h:17 ../boards/mouse.xml.in.h:1
-#: ../boards/reading.xml.in.h:2
+#: ../boards/algebra_group.xml.in.h:2 ../boards/menu.xml.in.h:17
 msgid "Left-click the mouse on an activity to select it."
 msgstr "Щёлкни левой кнопкой мыши, чтобы выбрать задание."
 
@@ -520,8 +492,12 @@ msgid "Simple addition. Can recognize written numbers"
 msgstr "Простое сложение. Умение читать числа"
 
 #: ../boards/algebramenu.xml.in.h:1
-msgid "Go to Math activities"
-msgstr "Задания по математике"
+msgid "Go to calculation activities"
+msgstr "Задания по простому счету"
+
+#: ../boards/algebramenu.xml.in.h:2
+msgid "Various calculation activities."
+msgstr "Различные задания по математике."
 
 #: ../boards/algorithm.xml.in.h:1
 msgid "Complete a list of symbols"
@@ -598,6 +574,51 @@ msgstr ""
 "в левом нижнем углу экрана. Вы можете также сохранить и загрузить ваши "
 "мультипликации с кнопками 'папка' и 'дискета'."
 
+#: ../boards/awele.xml.in.h:1
+msgid ""
+"At the beginning of the game four seeds are placed in each house. Players "
+"take turns moving the seeds. In each turn, a player chooses one of the six "
+"houses under his or her control. The player removes all seeds from this "
+"house, and distributes them, dropping one in each house counter-clockwise "
+"from the original house, in a process called sowing. Seeds are not "
+"distributed into the end scoring houses, nor into the house drawn from. That "
+"is, the starting house is left empty; if it contained 12 seeds, it is "
+"skipped, and the twelfth seed is placed in the next house. After a turn, if "
+"the last seed was placed into an opponent's house and brought its total to "
+"two or three, all the seeds in that house are captured and placed in the "
+"player's scoring house (or set aside if the board has no scoring houses). If "
+"the previous-to-last seed also brought the total seeds in an opponent's "
+"house to two or three, these are captured as well, and so on. However, if a "
+"move would capture all an opponent's seeds, the capture is forfeited, and "
+"the seeds are instead left on the board, since this would prevent the "
+"opponent from continuing the game. The proscription against capturing all an "
+"opponent's seeds is related to a more general idea, that one ought to make a "
+"move that allows the opponent to continue playing. If an opponent's houses "
+"are all empty, the current player must make a move that gives the opponent "
+"seeds. If no such move is possible, the current player captures all seeds in "
+"his/her own territory, ending the game. (Source Wikipedia &lt;http://en."
+"wikipedia.org/wiki/Oware&gt;)"
+msgstr ""
+
+#: ../boards/awele.xml.in.h:2
+msgid "Oware"
+msgstr ""
+
+#: ../boards/awele.xml.in.h:3
+msgid "Play the Oware strategy game against Tux"
+msgstr "Играй в стратегическую игру \"Oware\" против Тукса"
+
+#: ../boards/awele.xml.in.h:4
+msgid ""
+"The object of the game is to capture more seeds than one's opponent. Since "
+"the game has only 48 seeds, capturing 25 is sufficient to accomplish this. "
+"Since there are an even number of seeds, it is possible for the game to end "
+"in a draw, where each player has captured 24. The game is over when one "
+"player has captured 25 or more stones, or both players have taken 24 stones "
+"each (draw). If both players agree that the game has been reduced to an "
+"endless cycle, each player captures the stones on their side of the board."
+msgstr "Объект игры состоит в том, чтобы захватить больше семян чем противник. Так как игра имеет только 48 семян, захватить 25 достаточно, чтобы выиграть. С тех пор, как есть четное количество семян, возможно игру закончиться в ничью, где каждый игрок захватил по 24. Игра закончена, когда один игрок захватил 25 или больше семян, или оба игрока взяли по 24 каждый (ничья)."
+
 #: ../boards/babymatch.xml.in.h:1 ../boards/babymatch/board1_0.xml.in.h:1
 #: ../boards/babymatch/board2_0.xml.in.h:1
 #: ../boards/babymatch/board3_0.xml.in.h:1
@@ -610,11 +631,12 @@ msgstr "Сопоставь предметы близкие по значению
 
 #: ../boards/babymatch.xml.in.h:2
 msgid ""
-"In the main board area, a set of objects are displayed. In the vertical box "
-"(at the left of the main board) another set of objects are shown, each one "
-"matching exactly one object in the main board area. This game challenges you "
-"to fine logical link between these objects. How do they fit together? Drag "
-"each object to the correct red space in the main area."
+"In the main board area, a set of objects is displayed. In the vertical box "
+"(at the left of the main board) another set of objects is shown, each object "
+"in the group on the left matching exactly one object in the main board area. "
+"This game challenges you to find the logical link between these objects. How "
+"do they fit together? Drag each object to the correct red space in the main "
+"area."
 msgstr ""
 "В основной части доски изображен набор предметов. Слева, на вертикальной "
 "панели, изображен другой набор предметов, каждый из который соответствует "
@@ -645,7 +667,7 @@ msgid ""
 msgstr "Заверши головоломку перетаскивая части из набора слева."
 
 #: ../boards/babyshapes.xml.in.h:3
-msgid "Drag and Drop the shapes on their respective target"
+msgid "Drag and Drop the shapes on their respective targets"
 msgstr "Совмести каждый предмет с соответствующим ему контуром"
 
 #: ../boards/babyshapes.xml.in.h:4
@@ -716,8 +738,8 @@ msgstr "Попади шаром в ворота"
 #: ../boards/clickgame.xml.in.h:16 ../boards/connect4.xml.in.h:7
 #: ../boards/erase.xml.in.h:3 ../boards/erase_clic.xml.in.h:6
 #: ../boards/erase_double_clic.xml.in.h:6 ../boards/fifteen.xml.in.h:2
-#: ../boards/gtans.xml.in.h:2 ../boards/hanoi.xml.in.h:3
-#: ../boards/memory.xml.in.h:4
+#: ../boards/hanoi.xml.in.h:3 ../boards/memory.xml.in.h:4
+#: ../boards/tangram.xml.in.h:8
 msgid "Mouse-manipulation"
 msgstr "Работа с мышью"
 
@@ -732,10 +754,6 @@ msgstr ""
 #: ../boards/billard.xml.in.h:5
 msgid "The football game"
 msgstr "Футбол"
-
-#: ../boards/boards.xml.in.h:1
-msgid "Go to board-based activities"
-msgstr "Настольные игры"
 
 #: ../boards/canal_lock.xml.in.h:1
 msgid "Operate a canal lock"
@@ -861,7 +879,7 @@ msgstr ""
 #: ../boards/chronos/board3_0.xml.in.h:4
 msgid ""
 "Place each image in the order and\n"
-"on the date it has been invented.\n"
+"on the date it was invented.\n"
 "If not sure, research online at wikipedia:\n"
 "&lt;http://www.wikipedia.org&gt;"
 msgstr ""
@@ -1101,6 +1119,10 @@ msgstr ""
 "выбери его из набора раскрашеных игрушек."
 
 #: ../boards/colors_group.xml.in.h:1
+msgid "Colors based activities."
+msgstr "Упражнения на работу с цветами."
+
+#: ../boards/colors_group.xml.in.h:2
 msgid "Go to Color activities"
 msgstr "Пойдите, в игры с цветом"
 
@@ -1108,17 +1130,21 @@ msgstr "Пойдите, в игры с цветом"
 msgid "Discover the Computer"
 msgstr "Изучение компьютера"
 
+#: ../boards/computer.xml.in.h:2
+msgid "Play with computer peripherals."
+msgstr "Работа с компьютерными устройствами..."
+
 #: ../boards/connect4.xml.in.h:1
 msgid "Arrange four coins in a row"
-msgstr "Расположите четыре шара в ряд"
+msgstr "Расположите четыре шара в линию"
 
 #: ../boards/connect4.xml.in.h:2
-msgid "Click anywhere in the line in which you want to drop a piece"
+msgid "Click anywhere in the line where you want to drop a piece"
 msgstr "Кликните на линии в которую ты хочешь поместить шар"
 
 #: ../boards/connect4.xml.in.h:3
 msgid "Connect 4"
-msgstr "4 в линию"
+msgstr "4 в ряд"
 
 #: ../boards/connect4.xml.in.h:4
 msgid ""
@@ -1135,6 +1161,38 @@ msgstr ""
 "Лорент Лакэни. Изображения и Искусственный интеллект, взятый из проекта "
 "4stattack Jeroen Vloothuis. Оригинальный проект может быть найден на &lt;"
 "http://forcedattack.sourceforge.net&gt;"
+
+#: ../boards/crane.xml.in.h:1
+msgid "Build the same model"
+msgstr "Построй аналогичную модель"
+
+#: ../boards/crane.xml.in.h:2
+msgid "Drive the crane and copy the model"
+msgstr "Управляйте краном и скопируйте образец"
+
+#: ../boards/crane.xml.in.h:3 ../boards/erase.xml.in.h:2
+#: ../boards/erase_clic.xml.in.h:5 ../boards/erase_double_clic.xml.in.h:5
+msgid "Motor-coordination"
+msgstr "Моторная координация"
+
+#: ../boards/crane.xml.in.h:4 ../boards/hanoi_real.xml.in.h:2
+msgid "Mouse manipulation"
+msgstr "Работа с мышью"
+
+#: ../boards/crane.xml.in.h:5
+msgid ""
+"Move the items in the bottom left frame to copy their position in the top "
+"right model. Below the crane itself, you will find four arrows that let you "
+"move items. To select the item to move, just click on it."
+msgstr "Двигай предметы в левом поле, чтобы скопировать их позицию в правом поле. Около крана находится пульт управления, с стрелочками. Нажимая на стрелочки вы управляете краном. Для выбора предмета, просто кликните на нем."
+
+#: ../boards/discovery.xml.in.h:1
+msgid "Colors, sounds, memory..."
+msgstr "Переход к заданиям по исследованию"
+
+#: ../boards/discovery.xml.in.h:2
+msgid "Go to discovery activities"
+msgstr "Цвета, звуки, память..."
 
 #: ../boards/doubleentry.xml.in.h:1
 msgid "Basic counting skills"
@@ -1191,12 +1249,39 @@ msgstr ""
 "Для скорости, можно пользоваться средней кнопкой мыши для удаления объекта."
 
 #: ../boards/electric.xml.in.h:1
-msgid "Create and simulate electric schema"
-msgstr "Создание и симуляция электрической схемы"
+msgid "Create and simulate an electric schema"
+msgstr "Создайте и смоделируйте электрическую схему"
 
 #: ../boards/electric.xml.in.h:2
-msgid "Electric"
+msgid ""
+"Drag electrical components from the selector and drop them in the working "
+"area. Create wires by clicking on a connection spot, dragging the mouse to "
+"the next connection spot, and letting go. You can also move components by "
+"dragging them. You can delete wires by clicking on them. To delete a "
+"component, select the deletion tool on top of the component selector. You "
+"can click on the switch to open and close it. You can change the rheostat "
+"value by dragging its wiper. In order to simulate what happens when a bulb "
+"is blown, you can blown it by right-clicking on it. The simulation is "
+"updated in real time by any user action."
+msgstr "Перемещайте доступные электрические компоненты на рабочее поле. Для создания проводов, кликните на соединительное место (черное пятнышко), двигайте мышь до другого соединительного места и отпускайте. Вы также можете двигать компоненты просто перетаскивая их мышкой. Вы можете удалить провода просто кликнув на них. Для удаления компонентов, выберите инструмент для удаления (резинку) и используйте его. Вы можете изменять значение реостата двигая его ползунок.  Для моделирования что произойдет, когда зажигается лампа, вы можете зажечь её кликнув правой кнопкой мыши на ней. Моделирование производится в реальном времени."
+
+#: ../boards/electric.xml.in.h:3
+msgid "Electricity"
 msgstr "Электричество"
+
+#: ../boards/electric.xml.in.h:4
+msgid "Freely create an electric schema with a real time simulation of it."
+msgstr "Создайте электрическую схему в реальном времени по своему желанию."
+
+#: ../boards/electric.xml.in.h:5
+msgid ""
+"GCompris uses the Gnucap electric simulator as a backend. You can get more "
+"information on gnucap at &lt;http://geda.seul.org/tools/gnucap/&gt;."
+msgstr "GCompris использует Gnucap - электрический симулятор. Вы можете получить больше информации по адресу &lt;http://geda.seul.org/tools/gnucap/&gt;."
+
+#: ../boards/electric.xml.in.h:6
+msgid "Requires some basic understanding of the concept of electricity."
+msgstr "Необходимы базовые понятия по электрическим схемам."
 
 #: ../boards/enumerate.xml.in.h:1
 msgid "Basic enumeration"
@@ -1235,11 +1320,6 @@ msgstr ""
 "Фотографии животных взяты со страницы Альбом животных Ральфа Шмоде (&lt;"
 "http://schmode.net&gt;) и у Лебере Дэниела. Эти люди любезно разрешили "
 "GCompris использовать свои фотографии. Большое им спасибо."
-
-#: ../boards/erase.xml.in.h:2 ../boards/erase_clic.xml.in.h:5
-#: ../boards/erase_double_clic.xml.in.h:5
-msgid "Motor-coordination"
-msgstr "Моторная координация"
 
 #: ../boards/erase.xml.in.h:4 ../src/boards/erase.c:110
 #: ../src/boards/machpuzzle.c:92
@@ -1281,6 +1361,18 @@ msgstr "Двигай мышью, пока все блоки не откроют�
 #: ../boards/experience.xml.in.h:1
 msgid "Go to experiential activities"
 msgstr "Задания на смекалку"
+
+#: ../boards/experience.xml.in.h:2
+msgid "Various activities based on physical movement."
+msgstr "Различные понятия основанные на физических явлениях..."
+
+#: ../boards/experimental.xml.in.h:1
+msgid "Go to Experimental activities"
+msgstr "Экспериментальные задания"
+
+#: ../boards/experimental.xml.in.h:2
+msgid "Run gcompris --experimental to see this menu."
+msgstr "Запустите \"gcompris --experimental\" чтобы увидеть это меню."
 
 #: ../boards/fifteen.xml.in.h:1
 msgid ""
@@ -1355,6 +1447,10 @@ msgstr "Пингвиненок Тукс должен полить цветы, н
 
 #: ../boards/fun.xml.in.h:1
 msgid "Go to Amusement activities"
+msgstr "Различные развлечения..."
+
+#: ../boards/fun.xml.in.h:2
+msgid "Various fun activities."
 msgstr "Развлечения"
 
 #: ../boards/gcompris/mimetypes/mime_type.xml.in.h:1
@@ -1431,7 +1527,7 @@ msgid "Cuba"
 msgstr "Куба"
 
 #: ../boards/geography/board2_0.xml.in.h:5
-msgid "Dominican republic"
+msgid "Dominican Republic"
 msgstr "Доминиканская республика"
 
 #: ../boards/geography/board2_0.xml.in.h:6
@@ -1786,7 +1882,8 @@ msgid "Mauritania"
 msgstr "Мавритания"
 
 #: ../boards/geography/board4_0.xml.in.h:21
-msgid "Moroco"
+#: ../boards/geography/board4_2.xml.in.h:31
+msgid "Morocco"
 msgstr "Марокко"
 
 #: ../boards/geography/board4_0.xml.in.h:22
@@ -1935,13 +2032,17 @@ msgstr "Зимбабве"
 msgid "Eritrea"
 msgstr "Эритрея"
 
-#: ../boards/geography/board4_2.xml.in.h:31
-msgid "Morocco"
-msgstr "Марокко"
-
 #: ../boards/geography/board5_0.xml.in.h:1
 msgid "Regions of France"
 msgstr "Регионы Франции"
+
+#: ../boards/geometry.xml.in.h:1
+msgid "Geometry"
+msgstr "Геометрия"
+
+#: ../boards/geometry.xml.in.h:2
+msgid "Geometry activities."
+msgstr "Задания по геометрии."
 
 #: ../boards/gletters.xml.in.h:1 ../boards/wordsgame.xml.in.h:2
 msgid "Keyboard manipulation"
@@ -1970,14 +2071,16 @@ msgid ""
 msgstr "Проведите Цифроеда к выражениям которые равны числу в верху экрана."
 
 #: ../boards/gnumch-equality.xml.in.h:3
-msgid "Practice addition, multiplication, division and substraction."
+msgid "Practice addition, multiplication, division and subtraction."
 msgstr "Упражнения на сложение, умножение, деление и вычитание."
 
 #: ../boards/gnumch-equality.xml.in.h:4 ../boards/gnumch-inequality.xml.in.h:4
 msgid ""
 "Use the arrow keys to navigate around the board and to avoid the Troggles. "
 "Press the spacebar to eat a number."
-msgstr "Используйте клавиши курсора, чтобы провести по доске. Нажмите пробел, чтобы съесть число."
+msgstr ""
+"Используйте клавиши курсора, чтобы провести по доске. Нажмите пробел, чтобы "
+"съесть число."
 
 #: ../boards/gnumch-factors.xml.in.h:1
 msgid "Factor Number Munchers"
@@ -1987,7 +2090,9 @@ msgstr "Цифроед множителей"
 msgid ""
 "Guide the Number Muncher to all the factors of the number at the top of the "
 "screen."
-msgstr "Проведите Цифроеда ко всем числам, которые являются множителем числа вверху экрана."
+msgstr ""
+"Проведите Цифроеда ко всем числам, которые являются множителем числа вверху "
+"экрана."
 
 #: ../boards/gnumch-factors.xml.in.h:3
 msgid "Learn about factors and multiples."
@@ -1999,8 +2104,10 @@ msgid ""
 "For example, the factors of 6 are 1, 2, 3 and 6. 4 is not a factor of 6 "
 "because 6 cannot be divided into 4 equal pieces. If one number is a multiple "
 "of a second number, then the second number is a factor of the first number. "
-"Use the arrow keys to navigate around the board and to avoid the Troggles. "
-"Press the spacebar to eat a number."
+"You can think of multiples as families, and factors are the people in those "
+"families. So 1, 2, 3 and 6 all fit into the 6 family, but 4 belongs to "
+"another family. Use the arrow keys to navigate around the board and to avoid "
+"the Troggles. Press the spacebar to eat a number."
 msgstr ""
 "Множители - это все числа, которые делят число равномерно. Например, "
 "множитель 6 - 1, 2, 3 и 6. 4 не множитель 6, потому что 6 не может быть "
@@ -2019,7 +2126,7 @@ msgid "Inequality Number Munchers"
 msgstr "Цифроед неравных чисел"
 
 #: ../boards/gnumch-inequality.xml.in.h:3
-msgid "Practice addition, substraction, multiplication and division."
+msgid "Practice addition, subtraction, multiplication and division."
 msgstr "Упражнения на сложение, вычитание, умножение и деление."
 
 #: ../boards/gnumch-multiples.xml.in.h:1
@@ -2042,9 +2149,15 @@ msgid ""
 "number times another number. For example, 24, 36, 48 and 60 are all "
 "multiples of 12. 25 is not a multiple of 12 because there isn't any number "
 "that can be multiplied by 12 to get 25. If one number is a factor of a "
-"second number, then the second number is a multiple of the first number. Use "
-"the arrow keys to navigate around the board and to avoid the Troggles. Press "
-"the spacebar to eat a number."
+"second number, then the second number is a multiple of the first number. "
+"Again, you can think of multiples as families, and factors are the people "
+"who belong to those families. The factor 5, has parents 10, grandparents 15, "
+"great-grandparents 20, great-great-grandparents 25, and every extra step of "
+"5 is another great- in front! But the number 5 does not belong in the 8 or "
+"23 families. You can't fit any number of 5s into 8 or 23 with nothing left "
+"over. So '8 isn't a multiple of 5, nor is 23. Only 5, 10, 15, 20, 25 ... are "
+"multiples (or families or steps) of 5. Use the arrow keys to navigate around "
+"the board and to avoid the Troggles. Press the spacebar to eat a number."
 msgstr ""
 "Кратные числа - это все числа, которые являются больше в несколько раз. "
 "Например, 24, 36, 48 и 60 - все кратны 12. 25 не кратно числу 12, потому что "
@@ -2067,78 +2180,29 @@ msgstr "Цифроед простых чисел"
 #: ../boards/gnumch-primes.xml.in.h:4
 msgid ""
 "Prime numbers are numbers that are only divisible by themselves and 1. For "
-"example, 3 is a prime number, but 4 isn't (because 4 is divisible by 2). Use "
-"the arrow keys to navigate around the board and to avoid the Troggles. Press "
-"the spacebar to eat a number."
-msgstr ""
-"Простые числа - это числа которые делятся только на себя и на 1. На пример 3 "
-"- простое число, а 4 - нет (так как 4 еще делится и на 2). Используйте "
-"клавиши со стрелочками для навигации по доске. Нажмите пробел, чтобы съесть число."
+"example, 3 is a prime number, but 4 isn't (because 4 is divisible by 2). You "
+"can think of prime numbers as very small families: they only ever have two "
+"people in them! Only themselves and 1. You can't fit any other numbers into "
+"them with nothing left over. 5 is one of these lonely numbers (only 5 × 1 = "
+"5), but you can see that 6 has 2 and 3 in its family as well (6 × 1 = 6, 2 × "
+"3 = 6). So 6 is not a prime number. Use the arrow keys to navigate around "
+"the board and to avoid the Troggles. Press the spacebar to eat a number."
+msgstr "Простое число, которое делится только на себя самого и на 1. Например 3 - простое число, а 4 - нет (потому, что 4 делется на 2). Используйте стрелочки, чтобы провести по доске и избежать Тогла. Нажимайте пробел, чтобы съесть число. "
 
 #: ../boards/gnumchmenu.xml.in.h:1
 msgid "Go to Number Munchers activities"
 msgstr "Игры с Цифроедом"
 
 #: ../boards/gnumchmenu.xml.in.h:2
-msgid "Left-Click the mouse on an activity to select it."
-msgstr "Щёлкни левой кнопкой мыши, чтобы выбрать задание."
-
-#: ../boards/gtans.xml.in.h:1
-#, fuzzy
-msgid ""
-"From Wikipedia, the free encyclopedia. Tangram (Chinese: literally \"seven "
-"boards of cunning\") is a Chinese puzzle. While the tangram is often said to "
-"be ancient, its existence has only been verified as far back as 1800. It "
-"consists of 7 pieces, called tans, which fit together to form a square; "
-"taking the square as the unit: * 5 right isosceles triangles o 2 small (legs "
-"of 1) o 1 medium size (legs of square root of 2) o 2 large size (legs of 2) "
-"* 1 square (side of 1) * 1 parallelogram (sides of 1 and square root of 2)"
-msgstr ""
-"Из свободной энциклопедии Wikipedia. Танграм китайская головоломка (По "
-"китайски дословно: \"семь хитрых досок\"). Танграм, является древней "
-"головоломкой, его существование было подтверждено еще 1800 году. Он состоит "
-"из 7 частей, названных танс, которые соответствуют друг другу так, чтобы "
-"сформировать квадрат; взятие квадрата как единица: * 5 правильных "
-"равнобедренных треугольников o 2 маленький (ноги 1) o 1 средний размер (ноги "
-"квадратного корня 2) o 2 больших размера (ноги 2) * 1 квадрат (сторона 1) * "
-"1 параллелограм (стороны 1 и квадратный корень 2)"
-
-#: ../boards/gtans.xml.in.h:3
-msgid ""
-"Select the tangram to form. Move a piece by dragging it. Right click on it "
-"to create a symetrical item. Select an item and drag around it for the "
-"rotation Once the requested shape is created, it will be recognized by the "
-"computer If you need help, click on the shape button, the border of the "
-"shape will be drawn."
-msgstr ""
-"Select the tangram to form. Move a piece by dragging it. Right click on it "
-"to create a symetrical item. Select an item and drag around it for the "
-"rotation Once the requested shape is created, it will be recognized by the "
-"computer If you need help, click on the shape button, the border of the "
-"shape will be drawn."
-
-#: ../boards/gtans.xml.in.h:4
-msgid "The objective is to form a given shape with seven pieces"
-msgstr "Сформировать заданную фигуру из семи кусочков"
-
-#: ../boards/gtans.xml.in.h:5
-msgid ""
-"The original code has been written by Philippe Banwarth in 1999. It has been "
-"ported to GCompris by Yves Combe in 2005."
-msgstr ""
-"Оригинальный код был написан Philippe Banwarth в 1999. И был портирован в "
-"GCompris Yves Combe в 2005."
-
-#: ../boards/gtans.xml.in.h:6
-msgid "The tangram puzzle game"
-msgstr "Головоломка со сдвижными блокаPPhilippe Banwarthhilippe Banwarthми"
+msgid "Number Munchers are games to play with arithmetic."
+msgstr "Игра с Цифроедом - арифметическая игра."
 
 #: ../boards/guessnumber.xml.in.h:1
 msgid "Guess a number"
 msgstr "Задачи на догадливость"
 
 #: ../boards/guessnumber.xml.in.h:2
-msgid "Help Tux escape the cave. Tux hides a number that you must discover."
+msgid "Help Tux escape the cave. Tux hides a number for you to find."
 msgstr "Помогите Туксу убежать из пещеры.Тукс прячет  число которое вы должны узнать."
 
 #: ../boards/guessnumber.xml.in.h:3
@@ -2148,27 +2212,23 @@ msgstr "Посчитай от 1 до 1000 для прохождения на с�
 #: ../boards/guessnumber.xml.in.h:4
 msgid ""
 "Read the instructions that give you the range of the number to find. Enter a "
-"number in the top right blue entry box. Tux tell you if your number is "
+"number in the top right blue entry box. Tux will tell you if your number is "
 "higher or lower. Then enter another number. The distance between Tux and the "
-"escape area on the right represents how far you are from the right number. "
-"If Tux is above or under the escape area, it means your number is higher or "
-"under the right number."
+"escape area on the right represents how far you are from the correct number. "
+"If Tux is over or under the escape area, it means your number is over or "
+"under the correct number."
 msgstr ""
 "Прочитайте инструкции, которые дают Вам диапазон чисел. Введите число в "
-"верхнее правое синее поле для ввода. Тукс скажет Вам, если ваше число больше "
-"или меньше. Тогда введите другое число. Расстояние между Туксом и областью "
-"спасения справа покажет, как далеко Вы - от правильного числа. Если Тукс - "
-"выше или под областью спасения, это означает, что ваше число больше или "
-"меньше правильного числа."
+"верхнее правое синее поле для ввода. Тукс скажет Вам, если ваше число больше или меньше. Тогда введите другое число. Расстояние между Туксом и областью спасения справа покажет, как далеко Вы - от правильного числа. Если Тукс - выше или под областью спасения, это означает, что ваше число больше или меньше правильного числа."
 
 #: ../boards/hanoi.xml.in.h:1
 msgid "Concept taken from EPI games."
 msgstr "Концепция взята из EPI·игр."
 
-#: ../boards/hanoi.xml.in.h:2 ../boards/hanoi_real.xml.in.h:1
+#: ../boards/hanoi.xml.in.h:2
 msgid ""
-"Drag and Drop the top pieces only from one peg to another, to reproduce the "
-"tower on the right in the empty space on the left."
+"Drag and Drop one top piece at a time, from one peg to another, to reproduce "
+"the tower on the right in the empty space on the left."
 msgstr ""
 "Перетащи верхние части с одного штыря на другой, чтобы повторить башню "
 "справа на пустом месте слева."
@@ -2185,9 +2245,13 @@ msgstr "Повтори башню справа на пустом месте сл
 msgid "Simplified Tower of Hanoi"
 msgstr "Упрощенная ханойская башня"
 
-#: ../boards/hanoi_real.xml.in.h:2
-msgid "Mouse manipulation"
-msgstr "Работа с мышью"
+#: ../boards/hanoi_real.xml.in.h:1
+msgid ""
+"Drag and Drop the top pieces only from one peg to another, to reproduce the "
+"tower on the right in the empty space on the left."
+msgstr ""
+"Перетащи верхние части с одного штыря на другой, чтобы повторить башню "
+"справа на пустом месте слева."
 
 #: ../boards/hanoi_real.xml.in.h:3
 msgid "Reproduce the tower on the right side"
@@ -2251,7 +2315,7 @@ msgid "Practice reading by finding the word matching an image"
 msgstr "Практика чтения слов, соответствующих изображению"
 
 #: ../boards/imageid.xml.in.h:3 ../boards/imagename.xml.in.h:4
-#: ../boards/readingh.xml.in.h:5 ../boards/readingv.xml.in.h:4
+#: ../boards/readingh.xml.in.h:4 ../boards/readingv.xml.in.h:4
 #: ../src/boards/imageid.c:112 ../src/boards/missingletter.c:104
 msgid "Reading"
 msgstr "Чтение"
@@ -2491,42 +2555,13 @@ msgstr "флаг"
 msgid "racket"
 msgstr "ракетка"
 
-#: ../boards/login.xml.in.h:1
-msgid "GCompris identifies each child, so we can provide child-specific reports."
-msgstr ""
-"GCompris идентифицирует каждого ребенка, и поэтому возможно предоставление "
-"отчетов для каждого ребенка."
+#: ../boards/keyboard.xml.in.h:1
+msgid "Discover the keyboard."
+msgstr "Изучение клавиатуры."
 
-#: ../boards/login.xml.in.h:2
-msgid "GCompris login screen"
-msgstr "Экран логина GCompris"
-
-#: ../boards/login.xml.in.h:3
-msgid ""
-"In order to activate the login screen, you must \n"
-"first add users in the administration part of GCompris. \n"
-"You access the administration part by running 'gcompris -a'.\n"
-"In the administration, you can create different profiles. In each profiles\n"
-"you can have a different set of users and select which activities are "
-"available to them.\n"
-"To run GCompris in a specific profile, you can run 'gcompris -p profile' "
-"where 'profile'\n"
-"is the name of a profile as you created it in the administration."
-msgstr ""
-"Чтобы активизировать экран логина, Вы должны \n"
-" сначала добавить пользователей в административной части GCompris. \n"
-" Вы можете попасть в административную часть набрав 'gcompris -a '.\n"
-" В административной части, Вы можете создать различные профили. В каждом "
-"профиле\n"
-" Вы можете иметь различный набор пользователей и выбирать какие действия "
-"являются доступными для них \n"
-", Чтобы управлять GCompris в определенном профиле, Вы можете запустить "
-"'gcompris -p профиль, 'где' профиль '\n"
-" - название профиля, так как Вы создали его в административной части."
-
-#: ../boards/login.xml.in.h:10
-msgid "Select or enter your name to log in GCompris"
-msgstr "Выберите или введите Ваше имя для того чтобы войти в GCompris"
+#: ../boards/keyboard.xml.in.h:2
+msgid "Keyboard-manipulation boards"
+msgstr "Игры для манипуляции с клавиатурой"
 
 #: ../boards/leftright.xml.in.h:1
 msgid "Determine if a hand is a right or a left hand"
@@ -2553,6 +2588,51 @@ msgid ""
 msgstr ""
 "Показывается рука. Необходимо определить, это правая или левая рука.\n"
 "Щелчок по красной кнопке - левая рука, по зеленой -правая."
+
+#: ../boards/login.xml.in.h:1
+msgid "GCompris identifies each child, so we can provide child-specific reports."
+msgstr ""
+"GCompris идентифицирует каждого ребенка, и поэтому возможно предоставление "
+"отчетов для каждого ребенка."
+
+#: ../boards/login.xml.in.h:2
+msgid "GCompris login screen"
+msgstr "Экран логина GCompris"
+
+#: ../boards/login.xml.in.h:3
+msgid ""
+"In order to activate the login screen, you must \n"
+"first add users in the administration part of GCompris. \n"
+"You access Administration by running 'gcompris -a'.\n"
+"In Administration, you can create different profiles. In each profile,\n"
+"you can have a different set of users and select which activities are "
+"available to them.\n"
+"To run GCompris for a specific profile, you use 'gcompris -p profile' where "
+"'profile'\n"
+"is the name of a profile as you created it in Administration."
+msgstr ""
+"Чтобы активизировать экран логина, Вы должны \n"
+"сначала добавить пользователей в административной части GCompris. \n"
+"Вы можете попасть в административную часть набрав 'gcompris -a '.\n"
+"В административной части, Вы можете создать различные профили. В каждом "
+"профиле\n"
+" Вы можете иметь различный набор пользователей и выбирать какие действия "
+"являются доступными для них \n"
+", Чтобы управлять GCompris в определенном профиле, Вы можете запустить "
+"'gcompris -p профиль, 'где' профиль '\n"
+" - название профиля, так как Вы создали его в административной части."
+
+#: ../boards/login.xml.in.h:10
+msgid "Select or enter your name to log in to GCompris"
+msgstr "Выберите или введите Ваше имя для того чтобы войти в GCompris"
+
+#: ../boards/math.xml.in.h:1
+msgid "Mathematical activities."
+msgstr "Задания по математике..."
+
+#: ../boards/math.xml.in.h:2
+msgid "Mathematics"
+msgstr "Математика"
 
 #: ../boards/maze.xml.in.h:1 ../boards/maze2DRelative.xml.in.h:1
 #: ../boards/maze3D.xml.in.h:2 ../boards/mazeInvisible.xml.in.h:1
@@ -2625,7 +2705,7 @@ msgstr ""
 "режиме перемещаться нельзя."
 
 #: ../boards/mazeMenu.xml.in.h:1
-msgid "Find your way out different type of mazes"
+msgid "Find your way out of different types of mazes"
 msgstr "Найди выход из лабиринта"
 
 #: ../boards/mazeMenu.xml.in.h:2
@@ -2675,13 +2755,17 @@ msgstr "Открывать карты и находить совпадающие
 msgid "Memory Game with images"
 msgstr "Игра 'память' с изображениями"
 
-#: ../boards/memory.xml.in.h:5 ../boards/memory_tux.xml.in.h:5
+#: ../boards/memory.xml.in.h:5 ../boards/memory_tux.xml.in.h:4
 msgid "Train your memory and remove all the cards"
 msgstr "Тренируем твою память и удаляем все карты"
 
 #: ../boards/memory_group.xml.in.h:1
 msgid "Go to Memory activities"
-msgstr "Задания по математике"
+msgstr "Задания на развитие памяти"
+
+#: ../boards/memory_group.xml.in.h:2
+msgid "Various memory activities (images, letters, sounds)."
+msgstr "Задания на развитие памяти (изображения, буквы, звуки)."
 
 #: ../boards/memory_sound.xml.in.h:1 ../boards/memory_sound_tux.xml.in.h:1
 msgid ""
@@ -2719,31 +2803,29 @@ msgid "Audio memory game against Tux"
 msgstr "Игра 'запоминание мелодий' против Тукса"
 
 #: ../boards/memory_sound_tux.xml.in.h:4
-msgid "Play the audio memory against Tux"
+msgid "Play the audio memory game against Tux"
 msgstr "Играй в 'запоминание мелодий' против Тукса"
 
 #: ../boards/memory_tux.xml.in.h:1
-msgid ""
-"A set of blank cards is shown. Each pair is associated by the same picture "
-"in their hidden faces. Click on a card to can uncover it and see its hidden "
-"picture. However, you can only see two hidden pictures at once. You have to "
-"remember the position of the pictures to associate them. To remove a pair of "
-"cards, uncover both of them. You play alternatively with Tux, and must take "
-"more pairs of cards than him."
-msgstr ""
-"Показан набор карт. Каждая карта имеет пару с таким же рисунком на обратной "
-"стороне. При щелчке по карте, она переворачивается и показывает обратную "
-"сторону. Но вы можете видеть только две перевернутые карты одновременно.Вы "
-"должны запоминать позиции скрытых изображений. Для удаления пары одинаковых "
-"карт, откройте их обе."
+msgid "Have a memory competition with Tux."
+msgstr "Соревнования на запоминание с Туксом."
 
 #: ../boards/memory_tux.xml.in.h:2
 msgid "Memory Game with images, against Tux"
 msgstr "Игра в \"Запоминание изображений\" против Тукса"
 
-#: ../boards/memory_tux.xml.in.h:4
-msgid "Play to memory against Tux."
-msgstr "Играй в 'запоминание' против Тукса."
+#: ../boards/memory_tux.xml.in.h:5
+msgid ""
+"You can see a set of cards that all look the same. Each card has a picture "
+"on the other side, and each picture has a twin somewhere in the set. You can "
+"only turn over two cards at once, so you need to remember where the pictures "
+"are until you can find the twin. When you turn over twins, they disappear! "
+"You take turns with Tux, and to win the game, you have to find more pairs of "
+"twins than he does."
+msgstr ""
+"Показан набор карт. Каждая карта имеет пару с таким же рисунком на обратной "
+"стороне. При щелчке по карте, она переворачивается и показывает обратную сторону. Но вы можете видеть только две перевернутые карты одновременно."
+"Вы должны запоминать позиции скрытых изображений. Для удаления пары одинаковых карт, откройте их обе."
 
 #: ../boards/menu.xml.in.h:1
 msgid ""
@@ -2759,28 +2841,28 @@ msgid ""
 "    Music note - Repeat the question\n"
 "    Question Mark - Help\n"
 "    Tool - The configuration menu\n"
-"    Tux Plane - About game\n"
-"The stars, show suitable age groups for each game:\n"
-"    1, 2 or 3 simple stars  - 2 to 6 years old\n"
-"    1, 2 or 3 complex stars - From 7 years old"
+"    Tux Plane - About GCompris\n"
+"The stars show suitable age groups for each game:\n"
+"    1, 2 or 3 simple stars  - from 2 to 6 years old\n"
+"    1, 2 or 3 complex stars - 7 years and up"
 msgstr ""
 "Просто щелкай по значкам для перехода к заданиям или в меню.\n"
-"Внизу экрана расположена gcompris панель управления.\n"
+"Внизу экрана расположена панель управления gcompris.\n"
 "Справа налево, на ней представлены следующие значки:\n"
 "(замечание: значки отображаются только если они актуальны в текущем "
 "задании)\n"
-"Домик - возврат в предыдущее меню или выход из gcompris в самом начале.\n"
-"ОК - Подтверждение вашего ответа. \n"
-"Кубик - Отображает текущий уровень сложности. Щелчок по нему меняет "
+"    Домик - возврат в предыдущее меню или выход из gcompris в самом начале.\n"
+"    ОК - Подтверждение вашего ответа. \n"
+"    Кубик - Отображает текущий уровень сложности. Щелчок по нему меняет "
 "уровень \n"
-"Нота - Повтор вопроса.\n"
-"Вопрос - Помощь.\n"
-"Ящик с инструментами - Конфигурация программы\n"
-"Самолет - Информация о программе\n"
-"Звезды означают:\n"
-" 1 звезда - с 2 до 3 лет\n"
-" 2 звезды с 4 до 5 лет\n"
-"3 звезды - с 6 до 7 лет."
+"    Нота - Повтор вопроса.\n"
+"    Вопрос - Помощь.\n"
+"    Ящик с инструментами - Конфигурация программы\n"
+"    Самолет Тукса- Информация о программе\n"
+"Звезды означают подходящий возраст групп для каждой игры:\n"
+"    1 звезда - с 2 до 3 лет\n"
+"    2 звезды с 4 до 5 лет\n"
+"    3 звезды - с 6 до 7 лет."
 
 #: ../boards/menu.xml.in.h:15
 msgid "GCompris Main Menu"
@@ -2788,10 +2870,10 @@ msgstr "Главное меню GCompris"
 
 #: ../boards/menu.xml.in.h:16
 msgid ""
-"GCompris is a collection of educational games that provides for children "
-"from 2 years old with different activities."
+"GCompris is a collection of educational games that provides different "
+"activities for children aged 2 and up."
 msgstr ""
-"GCompris, это коллекция обучающих игр, которые представляют собой \n"
+"GCompris, это коллекция обучающих игр, которые представляют собой "
 "различные упражнения для детей 3-8 лет."
 
 #: ../boards/menu.xml.in.h:18
@@ -2801,6 +2883,14 @@ msgid ""
 msgstr ""
 "Цель GCompris состоит в том, чтобы предоставить свободную альтернативу \n"
 "популярному проприетарному развивающему ПО"
+
+#: ../boards/miscelaneous.xml.in.h:1
+msgid "Miscellaneous activities"
+msgstr "Разнообразные игры"
+
+#: ../boards/miscelaneous.xml.in.h:2
+msgid "Time, Geography, ..."
+msgstr "Время, География, ..."
 
 #: ../boards/missing_letter.xml.in.h:1
 msgid ""
@@ -3009,9 +3099,21 @@ msgstr "Практика использования денег, включая �
 msgid "Rebuild the mosaic"
 msgstr "Восстановите мозайку"
 
+#: ../boards/mouse.xml.in.h:1
+msgid "Mouse-manipulation activities."
+msgstr "Игры для развития движений мышью."
+
 #: ../boards/mouse.xml.in.h:2
-msgid "Mouse-manipulation boards"
-msgstr "Игры для развития контроля мыши"
+msgid "Various mouse-based activities (clicking, moving)"
+msgstr "Различные задания с мышью (кликанье, движение)"
+
+#: ../boards/numeration.xml.in.h:1
+msgid "Numeration"
+msgstr "Сосчитать предметы"
+
+#: ../boards/numeration.xml.in.h:2
+msgid "Numeration activities."
+msgstr "Сосчитать предметы"
 
 #: ../boards/paintings.xml.in.h:1
 msgid "Assemble the puzzle"
@@ -3122,6 +3224,14 @@ msgstr "Умение считать"
 msgid "Numbers in Order"
 msgstr "Числа в порядке"
 
+#: ../boards/puzzle.xml.in.h:1
+msgid "Puzzles"
+msgstr "Головоломка"
+
+#: ../boards/puzzle.xml.in.h:2
+msgid "Various puzzles."
+msgstr "Различные головоломки..."
+
 #: ../boards/pythontest.xml.in.h:1
 msgid "Add a language-binding to gcompris."
 msgstr "Добавить поддержку этого языка в gcompris."
@@ -3231,7 +3341,11 @@ msgstr "желтый"
 
 #: ../boards/reading.xml.in.h:1
 msgid "Go to the Reading activities"
-msgstr "Упражнения на чтение"
+msgstr "Различные задания на чтение..."
+
+#: ../boards/reading.xml.in.h:2
+msgid "Reading activities."
+msgstr "Упражнения на чтение."
 
 #: ../boards/readingh.xml.in.h:1 ../boards/readingv.xml.in.h:1
 msgid ""
@@ -3249,13 +3363,17 @@ msgstr "Чтение по-горизонтали"
 msgid "Read a list of words and work out if a given word is in it"
 msgstr "Прочитай вертикальный список слов и скажи есть ли в нем заданное слово"
 
-#: ../boards/readingh.xml.in.h:4 ../boards/readingv.xml.in.h:3
-msgid "Read training in a limited time"
+#: ../boards/readingh.xml.in.h:5
+msgid "Reading training in a limited time"
 msgstr "Навыки чтения с лимитом времени"
 
 #: ../boards/readingv.xml.in.h:2
 msgid "Read a vertical list of words and work out if a given word is in it"
 msgstr "Прочитай вертикальный список слов и скажи есть ли в нем заданное слово"
+
+#: ../boards/readingv.xml.in.h:3
+msgid "Read training in a limited time"
+msgstr "Навыки чтения с лимитом времени"
 
 #: ../boards/readingv.xml.in.h:5
 msgid "Vertical-reading practice"
@@ -3265,7 +3383,7 @@ msgstr "Чтение по-вертикали"
 msgid "Copy a drawing from the box on the right into the box on the left."
 msgstr "Повтори рисунок из правой области в левую область."
 
-#: ../boards/redraw.xml.in.h:2 ../boards/redraw_symmetrical.xml.in.h:2
+#: ../boards/redraw.xml.in.h:2
 msgid ""
 "First, select the proper tool from the toolbar. Then drag the mouse to "
 "create objects. When you are done, click on the OK button. Errors will be "
@@ -3288,17 +3406,29 @@ msgid ""
 "the left."
 msgstr "Повтори рисунок из правой области в левую в зеркальном отражении."
 
+#: ../boards/redraw_symmetrical.xml.in.h:2
+msgid ""
+"First, select the proper tool from the toolbar. Then drag the mouse to "
+"create objects. When you are done, click on the OK button. A little red "
+"cross will show you where something isn't right yet. The order of objects "
+"(above/under) is not important but be careful not to end up with unwanted "
+"objects under others."
+msgstr ""
+"Сначала, выбери правильный инструмент в панели инструментов. Затем, "
+"перетаскивай мышь, чтобы создать объект. Когда закончишь, щелкни по кнопке "
+"ОК. Ошибки будут отмечены небольшим красным крестиком. Порядок объектов "
+"(сверху/снизу) не важен, но будь внимателен, чтобы под объектами не "
+"оказалось других ненужных объектов."
+
 #: ../boards/redraw_symmetrical.xml.in.h:3
 msgid "Mirror the given item"
 msgstr "Перерисовать данный предмет"
 
 #: ../boards/reversecount.xml.in.h:1
 msgid ""
-"Can move the mouse, can read numbers and substract numbers up to 10 for the "
+"Can move the mouse, can read numbers and subtract numbers up to 10 for the "
 "first level"
-msgstr ""
-"Умение перемещать мышь, читать числа и вычитать их в пределах до десяти для "
-"первого уровня"
+msgstr "Умение перемещать мышь, читать числа и вычитать их в пределах до десяти для первого уровня"
 
 #: ../boards/reversecount.xml.in.h:2
 msgid ""
@@ -3434,16 +3564,28 @@ msgid "Numbers With Dice"
 msgstr "Числа и кубик"
 
 #: ../boards/smallnumbers.xml.in.h:5 ../boards/smallnumbers2.xml.in.h:5
-msgid ""
-"With the keyboard, type the number corresponding to the number of dots on "
-"the falling dice."
-msgstr ""
-"Набирайте на клавиатуре числа, соответствующие количеству точек на падающем "
-"кубике."
+msgid "With the keyboard, type the number of dots you see on the falling dice."
+msgstr "Набирайте на клавиатуре числа, соответствующие количеству точек на падающем кубике."
 
 #: ../boards/smallnumbers2.xml.in.h:4
 msgid "Numbers with pairs of dice"
 msgstr "Парные числа для игры в кости"
+
+#: ../boards/sound_group.xml.in.h:1
+msgid "Go to Sound activities"
+msgstr "Перейдите в игры с звуком"
+
+#: ../boards/sound_group.xml.in.h:2
+msgid "Sound based activities."
+msgstr "Игры со звуком."
+
+#: ../boards/strategy.xml.in.h:1
+msgid "Strategy games"
+msgstr "Стратегические игры"
+
+#: ../boards/strategy.xml.in.h:2
+msgid "Strategy games like chess, connect4, ..."
+msgstr "Стратегические игры такие как шахматы, 4 в ряд, ..."
 
 #: ../boards/submarine.xml.in.h:1
 msgid ""
@@ -3482,7 +3624,7 @@ msgid ""
 "target position. For the higher levels, click on an empty square to give it "
 "the keyboard focus. Then enter a possible letter or number. GCompris will "
 "not let you enter invalid data."
-msgstr ""
+msgstr "На начальных уровнях с цветными символами, перемещайте символы влево на их позиции. На продвинутых уровнях, кликайте на пустой квадрат, чтобы получить возможность вводить с клавиатуры. Затем введите вероятную букву или число. GCompris не даст ввести не правильные данные."
 
 #: ../boards/sudoku.xml.in.h:3
 msgid "Sudoku, place unique symbols in a square."
@@ -3534,6 +3676,52 @@ msgstr ""
 "Тукс спрятал несколько предметов.\n"
 "Найди и расставь их в правильном порядке"
 
+#: ../boards/tangram.xml.in.h:1
+msgid ""
+"From Wikipedia, the free encyclopedia. Tangram (Chinese: literally \"seven "
+"boards of cunning\") is a Chinese puzzle. While the tangram is often said to "
+"be ancient, its existence has only been verified as far back as 1800. It "
+"consists of 7 pieces, called tans, which fit together to form a square; "
+"taking the square as the unit:\n"
+"\t* 5 right isosceles triangles\n"
+"\t\to 2 small (legs of 1)\n"
+"\t\to 1 medium size (legs of square root of 2)\n"
+"\t\to 2 large size (legs of 2)\n"
+"\t* 1 square (side of 1)\n"
+"\t* 1 parallelogram (sides of 1 and square root of 2)"
+msgstr ""
+"Из свободной энциклопедии Wikipedia. Танграм китайская головоломка (По "
+"китайски дословно: \"семь хитрых досок\"). Танграм, является древней "
+"головоломкой, его существование было подтверждено еще 1800 году. Он состоит из 7 частей, названных танс, которые соответствуют друг другу так, чтобы сформировать квадрат; взятие квадрата как единица: * 5 правильных "
+"равнобедренных треугольников o 2 маленький (ноги 1) o 1 средний размер (ноги "
+"квадратного корня 2) o 2 больших размера (ноги 2) * 1 квадрат (сторона 1) * "
+"1 параллелограм (стороны 1 и квадратный корень 2)"
+
+#: ../boards/tangram.xml.in.h:9
+msgid ""
+"Select the tangram to form. Move a piece by dragging it. Right-click on it "
+"to create a symmetrical item. Select an item and drag around it to show the "
+"rotation you want. Once you've shown what shape you want, the computer will "
+"create it. If you need help, click on the shape button, and the border of "
+"the shape will be drawn."
+msgstr ""
+
+#: ../boards/tangram.xml.in.h:10
+msgid "The objective is to form a given shape with seven pieces"
+msgstr "Сформировать заданную фигуру из семи кусочков"
+
+#: ../boards/tangram.xml.in.h:11
+msgid ""
+"The original code was written by Philippe Banwarth in 1999. It was ported to "
+"GCompris by Yves Combe in 2005."
+msgstr ""
+"Оригинальный код был написан Philippe Banwarth в 1999. И был портирован в "
+"GCompris Yves Combe в 2005."
+
+#: ../boards/tangram.xml.in.h:12
+msgid "The tangram puzzle game"
+msgstr "Головоломка со сдвижными блокаPPhilippe Banwarthhilippe Banwarthми"
+
 #: ../boards/target.xml.in.h:1
 msgid "Can move the mouse, can read numbers and count up to 15 for the first level"
 msgstr ""
@@ -3564,6 +3752,14 @@ msgstr "Упражнения на сложение с игрой в дартс"
 msgid "Throw darts at a target and count your score."
 msgstr "Кидать стрелки в мишень и подсчитывать выпавшие очки."
 
+#: ../boards/traffic.xml.in.h:1
+msgid "A sliding-block puzzle game"
+msgstr "Головоломка со сдвижными блоками"
+
+#: ../boards/traffic.xml.in.h:2
+msgid "Remove all the red cars from the parking lot through the gate on the right"
+msgstr "Убери все красные блоки с поля через ворота справа"
+
 #: ../boards/tuxpaint.xml.in.h:1
 msgid "Drawing activity (pixmap)"
 msgstr "Упражнение на рисование"
@@ -3583,14 +3779,6 @@ msgstr "Используйте Tuxpaint для рисования."
 #: ../boards/tuxpaint.xml.in.h:5
 msgid "mouse and keyboard manipulation"
 msgstr "Манипуляции с клавиатурой и мышкой"
-
-#: ../boards/traffic.xml.in.h:1
-msgid "A sliding-block puzzle game"
-msgstr "Головоломка со сдвижными блоками"
-
-#: ../boards/traffic.xml.in.h:2
-msgid "Remove all the red cars from the parking lot through the gate on the right"
-msgstr "Убери все красные блоки с поля через ворота справа"
 
 #: ../boards/watercycle.xml.in.h:1
 msgid ""
@@ -3651,6 +3839,14 @@ msgstr "Сборник игр gcompris"
 #: ../gcompris.desktop.in.h:3
 msgid "Multiple activities for kids"
 msgstr "Множество игр для детей"
+
+#: ../src/boards/awele.c:278 ../src/boards/awele.c:288
+msgid "NORTH"
+msgstr "СЕВЕР"
+
+#: ../src/boards/awele.c:300 ../src/boards/awele.c:310
+msgid "SOUTH"
+msgstr "ЮГ"
 
 #: ../src/boards/chess.c:189
 msgid ""
@@ -3735,7 +3931,7 @@ msgstr ""
 "Ошибка:·это задание требует установленного \n"
 "пакета·assetml-voices-alphabet-%s ! Fallback to english, sorry!"
 
-#: ../src/boards/click_on_letter.c:302
+#: ../src/boards/click_on_letter.c:302 ../src/boards/python/melody.py:116
 msgid ""
 "Error: this activity cannot be played with the\n"
 "sound effects disabled.\n"
@@ -3804,7 +4000,7 @@ msgstr "Щелкни по белой утке"
 #. TRANSLATORS: Put here the numbers in your language
 #: ../src/boards/gletters.c:224 ../src/boards/memory.c:561
 msgid "0123456789"
-msgstr ""
+msgstr "0123456789"
 
 #. TRANSLATORS: Put here the alphabet uppercase in your language
 #: ../src/boards/gletters.c:234 ../src/boards/memory.c:571
@@ -3822,8 +4018,8 @@ msgid "Tower of Hanoi"
 msgstr "Упрощенная ханойская башня"
 
 #: ../src/boards/hanoi_real.c:277 ../src/boards/hanoi_real.c:288
-msgid "Move the entire stack to the right peg"
-msgstr "Послушай и щёлкни по названной букве"
+msgid "Move the entire stack to the right peg, one disc at a time"
+msgstr "Передвинь всю стопку на правый штырь, по одному диску"
 
 #: ../src/boards/imageid.c:113 ../src/boards/missingletter.c:105
 msgid "Learn how to read"
@@ -3877,20 +4073,12 @@ msgstr "Выбрать игру"
 #: ../src/boards/money.c:489
 #, c-format
 msgid "$ %.2f"
-msgstr ""
+msgstr "$ %.2f"
 
 #: ../src/boards/money.c:502
 #, c-format
 msgid "$ %.0f"
-msgstr ""
-
-#: ../src/boards/paratrooper.c:102
-msgid "Paratrooper"
-msgstr "Парашютист"
-
-#: ../src/boards/paratrooper.c:103
-msgid "Direct the paratrooper to help him land safely"
-msgstr "Управляя парашютистом, помогите ему безопасно приземлиться"
+msgstr "$ %.0f"
 
 #: ../src/boards/planegame.c:78
 msgid "Move the plane to catch the clouds in the correct order"
@@ -3926,7 +4114,7 @@ msgstr "Главное меню"
 
 #: ../src/boards/python/admin/board_list.py:236
 msgid "/"
-msgstr ""
+msgstr "/"
 
 #. columns for Board name
 #. column_pref = gtk.TreeViewColumn(_('Conf'))
@@ -4207,7 +4395,7 @@ msgid "Birth date:"
 msgstr "Дата рождения:"
 
 #: ../src/boards/python/admin/user_edit.py:159
-msgid "You need to provide at least a login, firstname and lastname for your users"
+msgid "You need to provide at least a login, first name and last name for your users"
 msgstr "Необходимо заполнить логин, имя и фамилию для пользователей"
 
 #: ../src/boards/python/admin/user_edit.py:176
@@ -4218,7 +4406,7 @@ msgstr "Уже есть пользователь с таким логином"
 msgid ""
 "To import a user list from a file, first select a class.\n"
 "FILE FORMAT: Your file must be formatted like this:\n"
-"login;First name;Last name;Birth date\n"
+"login;First name;Last name;Date of birth\n"
 "The separator is autodetected and can be one of ',', ';' or ':'"
 msgstr ""
 "Для импорта списка пользователей из файла, сначала выберите класс.\n"
@@ -4262,10 +4450,24 @@ msgstr ""
 msgid "The corresponding items have been skipped."
 msgstr "Соответствующие пункты были пропущены."
 
+#: ../src/boards/python/electric.py:92
+msgid ""
+"Cannot find the 'gnucap' electric simulator.\n"
+"You can download and install it from:\n"
+"<http://geda.seul.org/tools/gnucap/>\n"
+"To be detected, it must be installed in\n"
+"/usr/bin/gnucap or /usr/local/bin/gnucap.\n"
+"You can still use this activity to draw schematics without computer "
+"simulation."
+msgstr ""
+"Не возможно найти 'gnucap' электрический симулятор.\n"
+"Используйте #apt-get install gnucap\n"
+"Вы можете продолжать использовать это задание для  рисования электрической схемы, но без компьютерного моделирования."
+
 #: ../src/boards/python/gnumch.py:95
 #, python-format
 msgid ", %d"
-msgstr ""
+msgstr ", %d"
 
 #: ../src/boards/python/gnumch.py:96
 #, python-format
@@ -4313,27 +4515,27 @@ msgstr "Кратный %d"
 #: ../src/boards/python/gnumch.py:239
 #, python-format
 msgid "%s = %d"
-msgstr ""
+msgstr "%s = %d"
 
 #: ../src/boards/python/gnumch.py:250
 #, python-format
 msgid "%d + %d"
-msgstr ""
+msgstr "%d + %d"
 
 #: ../src/boards/python/gnumch.py:255
 #, python-format
 msgid "%d − %d"
-msgstr ""
+msgstr "%d − %d"
 
 #: ../src/boards/python/gnumch.py:260
 #, python-format
 msgid "%d × %d"
-msgstr ""
+msgstr "%d × %d"
 
 #: ../src/boards/python/gnumch.py:264
 #, python-format
-msgid "%d ∕ %d"
-msgstr ""
+msgid "%d ÷ %d"
+msgstr "%d ÷ %d"
 
 #: ../src/boards/python/gnumch.py:272
 #, python-format
@@ -4388,24 +4590,24 @@ msgstr ""
 msgid "Guess a number between %d and %d"
 msgstr "Пожалуйста введите номер между %d и %d"
 
-#: ../src/boards/python/guessnumber.py:337
-#: ../src/boards/python/guessnumber.py:338
+#: ../src/boards/python/guessnumber.py:335
+#: ../src/boards/python/guessnumber.py:336
 #, python-format
 msgid "Please enter a number between %d and %d"
 msgstr "Пожалуйста введите номер между %d и %d"
 
-#: ../src/boards/python/guessnumber.py:343
-#: ../src/boards/python/guessnumber.py:344
+#: ../src/boards/python/guessnumber.py:341
+#: ../src/boards/python/guessnumber.py:342
 msgid "Out of range"
 msgstr "Вне области"
 
-#: ../src/boards/python/guessnumber.py:350
-#: ../src/boards/python/guessnumber.py:351
+#: ../src/boards/python/guessnumber.py:348
+#: ../src/boards/python/guessnumber.py:349
 msgid "Too high"
 msgstr "Слишком высоко"
 
-#: ../src/boards/python/guessnumber.py:353
-#: ../src/boards/python/guessnumber.py:354
+#: ../src/boards/python/guessnumber.py:351
+#: ../src/boards/python/guessnumber.py:352
 msgid "Too low"
 msgstr "Слишком низко"
 
@@ -4539,14 +4741,14 @@ msgstr "Расстояние:"
 
 #: ../src/boards/python/tuxpaint.py:115
 msgid ""
-"Cannot find Tuxpaint. \n"
-" Install it to use this board !"
+"Cannot find Tuxpaint.\n"
+"Install it to use this activity !"
 msgstr ""
 "Невозможно найти Tuxpaint. \n"
 "Установите его (#apt-get install tuxpaint)!"
 
 #: ../src/boards/python/tuxpaint.py:128
-msgid "Waiting for Tuxpaint finishes"
+msgid "Waiting for Tuxpaint to finish"
 msgstr "Ожидаем пока Tuxpaint закроется"
 
 #: ../src/boards/python/tuxpaint.py:183
@@ -4703,13 +4905,13 @@ msgid ""
 msgstr "Это ПО является частью GNU и выпущено под GNU Public·Licence"
 
 #: ../src/gcompris/about.c:341 ../src/gcompris/about.c:350
-#: ../src/gcompris/config.c:221 ../src/gcompris/config.c:230
+#: ../src/gcompris/config.c:222 ../src/gcompris/config.c:231
 #: ../src/gcompris/gameutil.c:1113 ../src/gcompris/help.c:362
 #: ../src/gcompris/help.c:371 ../src/gcompris/images_selector.c:263
 msgid "OK"
 msgstr "Ok"
 
-#: ../src/gcompris/board.c:173
+#: ../src/gcompris/board.c:176
 msgid "Dynamic module loading is not supported. gcompris cannot load.\n"
 msgstr ""
 "Динамическая подгрузка модулей не поддерживается. gcompris не может "
@@ -4797,7 +4999,7 @@ msgstr "Индийский (Хинди)"
 
 #: ../src/gcompris/config.c:82
 msgid "Gujarati"
-msgstr ""
+msgstr "Гуйарати"
 
 #: ../src/gcompris/config.c:83
 msgid "Punjabi"
@@ -4915,27 +5117,31 @@ msgstr "Валлонский"
 msgid "Chinese (Simplified)"
 msgstr "Китайский (Упрощенный)"
 
-#: ../src/gcompris/config.c:116
+#: ../src/gcompris/config.c:112
+msgid "Chinese (Traditional)"
+msgstr "Китайский (Традиционный)"
+
+#: ../src/gcompris/config.c:117
 msgid "No time limit"
 msgstr "Без лимита времени"
 
-#: ../src/gcompris/config.c:117
+#: ../src/gcompris/config.c:118
 msgid "Slow timer"
 msgstr "Медленный таймер"
 
-#: ../src/gcompris/config.c:118
+#: ../src/gcompris/config.c:119
 msgid "Normal timer"
 msgstr "Нормальный таймер"
 
-#: ../src/gcompris/config.c:119
+#: ../src/gcompris/config.c:120
 msgid "Fast timer"
 msgstr "Быстрый таймер"
 
-#: ../src/gcompris/config.c:124
+#: ../src/gcompris/config.c:125
 msgid "800x600 (Default for gcompris)"
 msgstr "800x600 (Стандарт для gcompris)"
 
-#: ../src/gcompris/config.c:129
+#: ../src/gcompris/config.c:130
 msgid ""
 "<i>Use Gcompris administration module\n"
 "to filter boards</i>"
@@ -4943,29 +5149,29 @@ msgstr ""
 "<i>Используйте административный модуль Gcompris\n"
 "для фильтрации игр</i>"
 
-#: ../src/gcompris/config.c:186 ../src/gcompris/config.c:195
+#: ../src/gcompris/config.c:187 ../src/gcompris/config.c:196
 msgid "GCompris Configuration"
 msgstr "Настройка GCompris"
 
-#: ../src/gcompris/config.c:313
+#: ../src/gcompris/config.c:314
 msgid "Fullscreen"
 msgstr "Во весь экран"
 
-#: ../src/gcompris/config.c:356
+#: ../src/gcompris/config.c:357
 msgid "Music"
 msgstr "Музыка"
 
-#: ../src/gcompris/config.c:384
+#: ../src/gcompris/config.c:385
 msgid "Effect"
 msgstr "Эффекты"
 
-#: ../src/gcompris/config.c:417
+#: ../src/gcompris/config.c:418
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "Не удалось открыть каталог с шкурками: %s"
 
-#: ../src/gcompris/config.c:453 ../src/gcompris/config.c:817
-#: ../src/gcompris/config.c:828
+#: ../src/gcompris/config.c:454 ../src/gcompris/config.c:818
+#: ../src/gcompris/config.c:829
 #, c-format
 msgid "Skin : %s"
 msgstr "Шкурка : %s"
@@ -4998,47 +5204,47 @@ msgstr ""
 "Выходите из программы и \n"
 "сообщите об этой проблеме авторам."
 
-#: ../src/gcompris/gcompris.c:122
+#: ../src/gcompris/gcompris.c:123
 msgid "run gcompris in fullscreen mode."
 msgstr "запустить gcompris в полноэкранном режиме."
 
-#: ../src/gcompris/gcompris.c:124
+#: ../src/gcompris/gcompris.c:125
 msgid "run gcompris in window mode."
 msgstr "запустить gcompris в окне."
 
-#: ../src/gcompris/gcompris.c:126
+#: ../src/gcompris/gcompris.c:127
 msgid "run gcompris with sound enabled."
 msgstr "Запуск gcompris с включенным звуком."
 
-#: ../src/gcompris/gcompris.c:128
+#: ../src/gcompris/gcompris.c:129
 msgid "run gcompris without sound."
 msgstr "запуск gcompris без звука."
 
-#: ../src/gcompris/gcompris.c:130
+#: ../src/gcompris/gcompris.c:131
 msgid "run gcompris with the default gnome cursor."
 msgstr "запускать gcompris·с курсором gnome по умолчанию."
 
-#: ../src/gcompris/gcompris.c:132
+#: ../src/gcompris/gcompris.c:133
 msgid "display only activities with this difficulty level."
 msgstr "Отображать задания только с этим уровнем сложности."
 
-#: ../src/gcompris/gcompris.c:134
+#: ../src/gcompris/gcompris.c:135
 msgid "display debug informations on the console."
 msgstr "отображать отладочную информацию в консоли."
 
-#: ../src/gcompris/gcompris.c:136
+#: ../src/gcompris/gcompris.c:137
 msgid "Print the version of "
 msgstr "Вывод версии "
 
-#: ../src/gcompris/gcompris.c:138
+#: ../src/gcompris/gcompris.c:139
 msgid "Use the antialiased canvas (slower)."
 msgstr "Использовать канву со сглаживанием (медленнее)."
 
-#: ../src/gcompris/gcompris.c:140
+#: ../src/gcompris/gcompris.c:141
 msgid "Disable XRANDR (No screen resolution change)."
 msgstr "Отключить XRANDR (Без изменений разрешения экрана)."
 
-#: ../src/gcompris/gcompris.c:142
+#: ../src/gcompris/gcompris.c:143
 msgid ""
 "Run gcompris with local menu (e.g -l /reading will let you play only "
 "activities in the reading directory, -l /boards/connect4 only the connect4 "
@@ -5048,45 +5254,45 @@ msgstr ""
 "игры, указанные в reading директории, '-l /boards/connect4' только в игру "
 "connect4)"
 
-#: ../src/gcompris/gcompris.c:144
+#: ../src/gcompris/gcompris.c:145
 msgid "Run GCompris with local activity directory added to menu"
 msgstr "Запустите GCompris с ограниченным доступом к директориям, добавленных к меню"
 
-#: ../src/gcompris/gcompris.c:146
+#: ../src/gcompris/gcompris.c:147
 msgid "Run GCompris in administration and user-management mode"
 msgstr ""
 "Запустите GCompris в административном режиме и режиме управления "
 "пользователями"
 
-#: ../src/gcompris/gcompris.c:148
+#: ../src/gcompris/gcompris.c:149
 msgid "Use alternate database for profiles"
 msgstr "Используйте другую базу данных для профайла"
 
-#: ../src/gcompris/gcompris.c:150
+#: ../src/gcompris/gcompris.c:151
 msgid "Use alternate database for logs"
 msgstr "Используйте другую базу данных для логов"
 
-#: ../src/gcompris/gcompris.c:152
+#: ../src/gcompris/gcompris.c:153
 msgid "Create the alternate database for profiles"
 msgstr "Создайте другую базу данных для профайлов"
 
-#: ../src/gcompris/gcompris.c:154
+#: ../src/gcompris/gcompris.c:155
 msgid "Re-read XML Menus and store them in the database"
 msgstr "Перечитайте XML меню и сохраните их в базе данных"
 
-#: ../src/gcompris/gcompris.c:156
+#: ../src/gcompris/gcompris.c:157
 msgid "Set the profile to use. Use 'gcompris -a' to create profiles"
 msgstr ""
 "Установите профайл для использования. Используйте 'gcompris -a' для создания "
 "профайлов"
 
-#: ../src/gcompris/gcompris.c:158
+#: ../src/gcompris/gcompris.c:159
 msgid "List all available profiles. Use 'gcompris -a' to create profiles"
 msgstr ""
 "Список всех доступных профайлов. Используйте 'gcompris -a' для создания "
 "профайлов"
 
-#: ../src/gcompris/gcompris.c:160
+#: ../src/gcompris/gcompris.c:161
 msgid ""
 "Shared directory location, for profiles and board-configuration data: "
 "[$HOME/.gcompris/shared]"
@@ -5094,11 +5300,15 @@ msgstr ""
 "Расположение распределенной директории для профайлов и данных конфигурации "
 "игр: [$HOME/.gcompris/shared]"
 
-#: ../src/gcompris/gcompris.c:162
+#: ../src/gcompris/gcompris.c:163
 msgid "The location of user directories: [$HOME/.gcompris/users]"
 msgstr "Расположение пользовательских директорий: [$HOME/.gcompris/users]"
 
-#: ../src/gcompris/gcompris.c:779
+#: ../src/gcompris/gcompris.c:165
+msgid "Run the experimental activities"
+msgstr "Экспериментальные задания"
+
+#: ../src/gcompris/gcompris.c:782
 #, c-format
 msgid ""
 "GCompris is free software released under the GPL License. In order to "
@@ -5122,7 +5332,7 @@ msgstr ""
 "адресу\n"
 "http://www.fsf.org/philosophy"
 
-#: ../src/gcompris/gcompris.c:1163
+#: ../src/gcompris/gcompris.c:1170
 #, c-format
 msgid ""
 "GCompris\n"
@@ -5136,27 +5346,27 @@ msgstr ""
 "Доп. информация·доступна на·http://gcompris.net\n"
 
 #. check the list of possible values for -l, then exit
-#: ../src/gcompris/gcompris.c:1231
+#: ../src/gcompris/gcompris.c:1244
 #, c-format
 msgid "Use -l to access an activity directly.\n"
 msgstr "Используйте -l для доступа к упражнениям напрямую.\n"
 
-#: ../src/gcompris/gcompris.c:1232
+#: ../src/gcompris/gcompris.c:1245
 #, c-format
-msgid "List of available activity is :\n"
+msgid "The list of available activities is :\n"
 msgstr "Список доступных упражнений :\n"
 
-#: ../src/gcompris/gcompris.c:1375
+#: ../src/gcompris/gcompris.c:1388
 #, c-format
 msgid "The list of available profiles is:\n"
 msgstr "Список доступных профайлов:\n"
 
-#: ../src/gcompris/gcompris_db.c:237
+#: ../src/gcompris/gcompris_db.c:253
 msgid "Unaffected"
 msgstr "Истинный"
 
-#: ../src/gcompris/gcompris_db.c:238
-msgid "Users without class"
+#: ../src/gcompris/gcompris_db.c:254
+msgid "Users without a class"
 msgstr "Пользователи без класса"
 
 #: ../src/gcompris/help.c:203
