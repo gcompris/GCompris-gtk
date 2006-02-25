@@ -66,11 +66,11 @@ class Gcompris_electric:
   def start(self):
     
     self.gcomprisBoard.level=1
-    self.gcomprisBoard.maxlevel=4
+    self.gcomprisBoard.maxlevel=3
     self.gcomprisBoard.sublevel=1
     self.gcomprisBoard.number_of_sublevel=1
 
-    gcompris.bar_set(0)
+    gcompris.bar_set(gcompris.BAR_LEVEL)
     
     gcompris.bar_set_level(self.gcomprisBoard)
 
@@ -105,7 +105,7 @@ class Gcompris_electric:
     self.cleanup_game()
 
   def ok(self):
-    self.call_gnucap()
+    pass
     
   def repeat(self):
     if debug: print("Gcompris_electric repeat.")
@@ -196,6 +196,9 @@ class Gcompris_electric:
       gtk.timeout_remove(self.gnucap_timer)
       self.gnucap_timer = 0
 
+    # No more component in the simulation set
+    self.components = []
+      
     # Remove the root item removes all the others inside it
     self.rootitem.destroy()
 
@@ -211,7 +214,7 @@ class Gcompris_electric:
           y=0.0
           )
 
-      self.create_components()
+      self.create_components(self.gcomprisBoard.level)
 
       # Display the tools
       x = 12
@@ -270,18 +273,36 @@ class Gcompris_electric:
     gcompris.set_cursor(self.tools[self.current_tool][3]);
 
 
-  def create_components(self):
+  #
+  # Depending on the given level, initialize the component selector
+  #
+  def create_components(self, level):
 
-    # A list of couple (component class, it's value)
-    component_set = ((Battery, 10),
-                     (Bulb, 0.11),
-                     (Rheostat, 1000),
-                     (Resistor, 1000),
-                     (Switch, None),
-                     (Connection, None),
-                     (Diode, None),
-                     )
-
+    if(level == 1):
+      # A list of couple (component class, it's value)
+      component_set = ((Battery, 10),
+                       (Bulb, 0.11),
+                       (Switch, None),
+                       )
+    elif(level == 2):
+      # A list of couple (component class, it's value)
+      component_set = ((Battery, 10),
+                       (Bulb, 0.11),
+                       (Rheostat, 1000),
+                       (Switch, None),
+                       (Connection, None),
+                       )
+    elif(level == 3):
+      # A list of couple (component class, it's value)
+      component_set = ((Battery, 10),
+                       (Bulb, 0.11),
+                       (Rheostat, 1000),
+                       (Resistor, 1000),
+                       (Switch, None),
+                       (Connection, None),
+                       (Diode, None),
+                       )
+        
     Selector(self, component_set)
     
 
@@ -297,7 +318,7 @@ class Gcompris_electric:
       return
 
     if not self.gnucap_timer:
-      self.gnucap_timer = gtk.timeout_add(self.gnucap_timer_interval, self.ok)
+      self.gnucap_timer = gtk.timeout_add(self.gnucap_timer_interval, self.call_gnucap)
 
   def call_gnucap(self):
     if not self.components:
@@ -1197,40 +1218,64 @@ class Rheostat(Component):
   # Return the gnucap definition for this component
   # depending of the connected nodes, it create one or two resistor
   def to_gnucap(self, model):
-    if not self.nodes[1].get_wires():
-      # Main resistor
-      self.gnucap_nb_resistor = 1
-      gnucap = self.to_gnucap_res(self.gnucap_name + "_all", 0, 2, self.resitance)
-    else:
-      # top and bottom resistors
-      self.gnucap_nb_resistor = 2
-      gnucap_value = self.resitance * \
-                     (self.wiper_ofset_y - self.wiper_ofset_min_y) / \
-                     (self.wiper_ofset_max_y - self.wiper_ofset_min_y)
-      gnucap  = self.to_gnucap_res(self.gnucap_name + "_top", 0, 1,
-                                   gnucap_value)
-      gnucap += self.to_gnucap_res(self.gnucap_name + "_bot", 1, 2,
-                                   self.resitance - gnucap_value)
-      
 
+    gnucap = ""
+    
+    # reset set_voltage_intensity counter
+    self.gnucap_current_resistor = 0
+
+    gnucap_value = self.resitance * \
+                   (self.wiper_ofset_y - self.wiper_ofset_min_y) / \
+                   (self.wiper_ofset_max_y - self.wiper_ofset_min_y)
+
+    # Main resistor
+    if self.nodes[0].get_wires() and \
+       not self.nodes[1].get_wires() and \
+       self.nodes[2].get_wires():
+      self.gnucap_nb_resistor = 1
+      gnucap += self.to_gnucap_res(self.gnucap_name + "_all", 0, 2,
+                                   self.resitance)
+      return gnucap
+
+
+    self.gnucap_nb_resistor = 0
+
+    # top resistor
+    if self.nodes[0].get_wires() and \
+       self.nodes[1].get_wires():
+      self.gnucap_nb_resistor += 1
+      gnucap  += self.to_gnucap_res(self.gnucap_name + "_top", 0, 1,
+                                    gnucap_value)
+
+    # bottom resistor
+    if self.nodes[1].get_wires() and \
+       self.nodes[2].get_wires():
+      self.gnucap_nb_resistor += 1
+      gnucap += self.to_gnucap_res(self.gnucap_name + "_bot", 1, 2,
+                                     self.resitance - gnucap_value)
+      
     return gnucap
     
   # Return False if we need more value to complete our component
   # This is usefull in case one Component is made of several gnucap component
   def set_voltage_intensity(self, valid_value, voltage, intensity):
+    self.gnucap_current_resistor += 1
     if self.gnucap_current_resistor == 1:
       self.voltage = voltage
       self.intensity = intensity
-      if(valid_value):
+      if(valid_value ):
         self.item_values.set(text="U=%.1fV\nI=%.2fA"%(voltage,intensity))
         self.item_values.show()
       else:
-        # fixme: why display only resistor #1 U/I?
-        self.item_values.show()
+        self.item_values.hide()
 
-    self.gnucap_current_resistor += 1
-    if self.gnucap_current_resistor > self.gnucap_nb_resistor:
-      self.gnucap_current_resistor = 1
+    if self.gnucap_nb_resistor != 1:
+      self.gnucap_current_resistor += 1
+      if self.gnucap_current_resistor > self.gnucap_nb_resistor:
+        self.gnucap_current_resistor = 0
+        return True
+    else:
+      self.gnucap_current_resistor = 0 
       return True
     return False
 

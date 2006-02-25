@@ -72,8 +72,6 @@ static gint actual_figure = -2;
 /* Description of this plugin */
 
 
-#define USERHOMEDIR
-
 static BoardPlugin menu_bp =
   {
     NULL,
@@ -1873,13 +1871,13 @@ void taninitstart(void){
   tanclampgrandefig();
 
 
-  boardRootItem = gnome_canvas_item_new (gnome_canvas_root(gcomprisBoard->canvas),
-					 gnome_canvas_group_get_type(),
-					 "x", 0,
-					 "y", 0,
-                                         NULL
-                                         );
-  
+  boardRootItem = GNOME_CANVAS_GROUP(gnome_canvas_item_new (gnome_canvas_root(gcomprisBoard->canvas),
+							    gnome_canvas_group_get_type(),
+							    "x", 0.0,
+							    "y", 0.0,
+							    NULL
+							    ));
+
   create_mainwindow(boardRootItem);
 
   switch (accuracy){

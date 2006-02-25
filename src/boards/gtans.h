@@ -4,12 +4,6 @@
 #define AN_move 1
 #define AN_rot 2
 
-#define HELPFILE_PATH     HOMEDIR "gtanshelp%s.txt"
-#define DEFAULTFIGFILE    FIGDIR "default.figures"
-#define DEFAULTCONFIGFILE "/etc/gtansrc"
-#define USERHOMEDIR       ".gtans"
-#define USERCONFIG        ".gtansrc"
-
 #define ARON 0.39999
 
 #define mPI 3.14159265356
