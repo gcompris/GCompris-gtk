@@ -461,7 +461,10 @@ gchar *gcompris_alphabet_sound(gchar *chars)
     next = g_utf8_next_char(next);
   }
 
-  return g_strdup_printf("%s.ogg",result);
+  gchar *result2 = g_strdup_printf("%s.ogg",result);
+  g_free(result);
+
+  return result2;
 }
 
 

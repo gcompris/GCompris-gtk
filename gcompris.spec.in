@@ -207,6 +207,31 @@ Version: @VERSION_VOICES_MISC_ES@
 Miscelaneous voices in Spanish
 
 
+%package -n assetml-voices-colors-fi
+Summary:        Colors voices in French
+Group: 		Amusements/Games
+Version: @VERSION_VOICES_COLORS_FI@
+
+%description -n assetml-voices-colors-fi
+Colors voices in French
+
+%package -n assetml-voices-geography-fi
+Summary:        Country name voices in Finish
+Group: 		Amusements/Games
+Version: @VERSION_VOICES_GEOGRAPHY_FI@
+
+%description -n assetml-voices-geography-fi
+Country name voices in Finish
+
+%package -n assetml-voices-misc-fi
+Summary:        Miscelaneous voices in Finish
+Group: 		Amusements/Games
+Version: @VERSION_VOICES_MISC_FI@
+
+%description -n assetml-voices-misc-fi
+Miscelaneous voices in Finish
+
+
 %package -n assetml-voices-alphabet-fr
 Summary:        Alphabet voices in French
 Group: 		Amusements/Games
@@ -247,6 +272,14 @@ Version: @VERSION_VOICES_FRANCE_REGIONS_FR@
 %description -n assetml-voices-france-regions-fr
 Voices of names of the French Regions in French
 
+
+%package -n assetml-voices-alphabet-fi
+Summary:        Alphabet voices in Finish
+Group: 		Amusements/Games
+Version: @VERSION_VOICES_ALPHABET_FI@
+
+%description -n assetml-voices-alphabet-fi
+Alphabet voices in Finish
 
 %package -n assetml-voices-alphabet-hu
 Summary:        Alphabet voices in Hungarian
@@ -611,6 +644,27 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(-, root, root)
 %{prefix}/share/gcompris/boards/sounds/es/misc
 %{prefix}/share/@ASSETML_DIR@/gcompris_misc_es.assetml
+
+
+%files -n assetml-voices-alphabet-fi
+%defattr(-, root, root)
+%{prefix}/share/gcompris/boards/sounds/fi/alphabet
+%{prefix}/share/@ASSETML_DIR@/gcompris_alphabet_fi.assetml
+
+%files -n assetml-voices-colors-fi
+%defattr(-, root, root)
+%{prefix}/share/gcompris/boards/sounds/fi/colors
+%{prefix}/share/@ASSETML_DIR@/gcompris_colors_fi.assetml
+
+%files -n assetml-voices-geography-fi
+%defattr(-, root, root)
+%{prefix}/share/gcompris/boards/sounds/fi/geography
+%{prefix}/share/@ASSETML_DIR@/gcompris_geography_fi.assetml
+
+%files -n assetml-voices-misc-fi
+%defattr(-, root, root)
+%{prefix}/share/gcompris/boards/sounds/fi/misc
+%{prefix}/share/@ASSETML_DIR@/gcompris_misc_fi.assetml
 
 
 %files -n assetml-voices-alphabet-fr

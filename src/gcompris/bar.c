@@ -1,6 +1,6 @@
 /* gcompris - bar.c
  *
- * Time-stamp: <2005/10/03 21:36:37 bruno>
+ * Time-stamp: <2006/02/25 12:31:09 bruno>
  *
  * Copyright (C) 2000-2003 Bruno Coudoin
  *
@@ -506,7 +506,9 @@ item_event_bar(GnomeCanvasItem *item, GdkEvent *event, gchar *data)
 
 	  if(tmp!=current_level)
 	    {
-	      current_level_str = g_strdup_printf("%d.ogg", current_level);
+	      char *number_str = g_strdup_printf("%d", current_level);
+	      current_level_str = gcompris_alphabet_sound(number_str);
+	      g_free(number_str);
 
 	      str_level  = gcompris_get_asset_file("gcompris misc",     NULL, "audio/x-ogg", "level.ogg");
 	      str_number = gcompris_get_asset_file("gcompris alphabet", NULL, "audio/x-ogg", current_level_str);

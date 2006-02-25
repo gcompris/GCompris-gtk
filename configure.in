@@ -458,6 +458,19 @@ AC_SUBST(VERSION_VOICES_MISC_FR)
 VERSION_VOICES_FRANCE_REGIONS_FR=1.0
 AC_SUBST(VERSION_VOICES_FRANCE_REGIONS_FR)
 
+# FI
+VERSION_VOICES_ALPHABET_FI=1.0
+AC_SUBST(VERSION_VOICES_ALPHABET_FI)
+
+VERSION_VOICES_COLORS_FI=1.0
+AC_SUBST(VERSION_VOICES_COLORS_FI)
+
+VERSION_VOICES_GEOGRAPHY_FI=1.0
+AC_SUBST(VERSION_VOICES_GEOGRAPHY_FI)
+
+VERSION_VOICES_MISC_FI=1.0
+AC_SUBST(VERSION_VOICES_MISC_FI)
+
 # HU
 VERSION_VOICES_ALPHABET_HU=1.0
 AC_SUBST(VERSION_VOICES_ALPHABET_HU)
@@ -596,6 +609,11 @@ boards/sounds/eu/alphabet/Makefile
 boards/sounds/eu/colors/Makefile
 boards/sounds/eu/geography/Makefile
 boards/sounds/eu/misc/Makefile
+boards/sounds/fi/Makefile
+boards/sounds/fi/alphabet/Makefile
+boards/sounds/fi/colors/Makefile
+boards/sounds/fi/geography/Makefile
+boards/sounds/fi/misc/Makefile
 boards/sounds/fr/Makefile
 boards/sounds/fr/alphabet/Makefile
 boards/sounds/fr/colors/Makefile
