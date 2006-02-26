@@ -766,7 +766,7 @@ class Component(object):
         fill_color = "white",
         justification=gtk.JUSTIFY_CENTER
         )
-      self.component_item.connect("event", self.component_move, self)
+      self.item_values.connect("event", self.component_move, self)
 
     # Return False if we need more value to complete our component
     # This is usefull in case where one Component is made of several gnucap component
