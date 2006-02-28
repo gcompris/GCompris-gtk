@@ -149,6 +149,7 @@ class Gcompris_sudoku:
 
         # Maybe it's all done
         if self.is_solved():
+          self.cursqre = None
           self.gamewon = 1
           gcompris.bonus.display(gcompris.bonus.WIN, gcompris.bonus.FLOWER)
 
@@ -255,6 +256,10 @@ class Gcompris_sudoku:
   # Event on a placed symbol. Means that we remove it
   #
   def hide_symbol_event(self, item, event, data):
+
+    if(self.gamewon):
+      return False
+
     if event.type == gtk.gdk.BUTTON_PRESS:
       item.hide()
       self.sudo_number[data[0]][data[1]].set(
@@ -266,6 +271,9 @@ class Gcompris_sudoku:
   # If a square has the focus, then the clicked square is assigned there
   #
   def symbol_item_event(self, item, event, text):
+
+    if(self.gamewon):
+      return False
     #
     # MOTION EVENT
     # ------------
@@ -323,6 +331,10 @@ class Gcompris_sudoku:
   # This function is being called uppon a click on any little square
   #
   def square_item_event(self, widget, event, square):
+
+    if(self.gamewon):
+      return False
+    
     # Check it's a user editable square
     oldcolor = self.sudo_number[square[0]][square[1]].get_property('fill_color_rgba')
     if oldcolor == self.fixed_number_color:

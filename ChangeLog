@@ -1,3 +1,9 @@
+2006-03-01  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* src/boards/python/sudoku.py: Added protections to try to avoid a crash hapenning 
+	after or during the bonus. It has been observed after level 4.
+	
+
 	*** RELEASE 7.3.2 ***
 	
 2006-02-26  Bruno coudoin  <bruno.coudoin@free.fr>
