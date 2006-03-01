@@ -1,6 +1,6 @@
 /* gcompris - reading.c
  *
- * Time-stamp: <2005/09/29 22:09:55 bruno>
+ * Time-stamp: <2006/01/31 09:20:51 yves>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -189,7 +189,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 
       gcomprisBoard->level = 1;
       gcomprisBoard->maxlevel = 9;
-      gcompris_bar_set(GCOMPRIS_BAR_LEVEL);
+      gcompris_bar_set(GCOMPRIS_BAR_CONFIG|GCOMPRIS_BAR_LEVEL);
 
       font_size = PANGO_PIXELS(pango_font_description_get_size (pango_font_description_from_string (gcompris_skin_font_board_medium)));
       interline = (int) (1.5*font_size);
@@ -829,10 +829,32 @@ static GHFunc save_table (gpointer key,
 
 static GcomprisConfCallback conf_ok(GHashTable *table)
 {
+  if (!table){
+    if (gcomprisBoard)
+      pause_board(FALSE);
+    return;
+  }
+
   g_hash_table_foreach(table, (GHFunc) save_table, NULL);
   
   board_conf = NULL;
   profile_conf = NULL;
+
+
+  if (gcomprisBoard){
+    gcompris_reset_locale();
+
+    GHashTable *config = gcompris_get_board_conf();
+    
+    gcompris_change_locale(g_hash_table_lookup( config, "locale"));
+  
+    g_hash_table_destroy(config);
+
+    reading_next_level();
+  
+    pause_board(FALSE);
+  }
+
 }
 
 static void
@@ -842,9 +864,12 @@ reading_config_start(GcomprisBoard *agcomprisBoard,
   board_conf = agcomprisBoard;
   profile_conf = aProfile;
 
+  if (gcomprisBoard)
+    pause_board(TRUE);
+
   gcompris_configuration_window( g_strdup_printf("<b>%s</b> configuration\n for profile <b>%s</b>",
 						 agcomprisBoard->name, 
-						 aProfile->name), 
+						 aProfile? aProfile->name: ""), 
 				 (GcomprisConfCallback )conf_ok);
 
   /* init the combo to previously saved value */

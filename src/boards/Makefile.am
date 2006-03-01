@@ -48,6 +48,7 @@ lib_LTLIBRARIES = \
 	libleftright.la \
 	libsuperbrain.la \
 	libmachpuzzle.la \
+	libmagic_hat.la \
 	libmaze.la \
 	libmemory.la \
 	libmenu.la \
@@ -67,6 +68,7 @@ lib_LTLIBRARIES = \
 	libadvanced_colors.la \
 	libread_colors.la \
 	libdraw.la \
+	libwordprocessor.la \
 	$(python_plugin)
 
 libdir = $(plugindir)
@@ -94,8 +96,7 @@ libcrane_la_SOURCES = crane.c
 
 libmenu_la_LDFLAGS = -module -avoid-version
 libmenu_la_LIBADD = $(top_builddir)/src/gcompris/libgcompris-1.la
-libmenu_la_SOURCES = menu.c
-
+libmenu_la_SOURCES = menu2.c
 
 libclickgame_la_LDFLAGS = -module -avoid-version
 libclickgame_la_LIBADD = $(top_builddir)/src/gcompris/libgcompris-1.la
@@ -192,6 +193,10 @@ libtarget_la_LDFLAGS = -module -avoid-version
 libtarget_la_LIBADD = $(top_builddir)/src/gcompris/libgcompris-1.la
 libtarget_la_SOURCES = target.c
 
+libmagic_hat_la_LDFLAGS = -module -avoid-version
+libmagic_hat_la_LIBADD = $(top_builddir)/src/gcompris/libgcompris-1.la
+libmagic_hat_la_SOURCES = magic_hat.c
+
 libmaze_la_LDFLAGS = -module -avoid-version
 libmaze_la_LIBADD = $(top_builddir)/src/gcompris/libgcompris-1.la
 libmaze_la_SOURCES = maze.c
@@ -252,6 +257,10 @@ libhanoi_real_la_SOURCES = hanoi_real.c
 libfifteen_la_LDFLAGS = -module -avoid-version
 libfifteen_la_LIBADD = $(top_builddir)/src/gcompris/libgcompris-1.la
 libfifteen_la_SOURCES = fifteen.c
+
+libwordprocessor_la_LDFLAGS = -module -avoid-version
+libwordprocessor_la_LIBADD = $(top_builddir)/src/gcompris/libgcompris-1.la
+libwordprocessor_la_SOURCES = wordprocessor.c
 
 
 libpython_la_LDFLAGS = -export-dynamic -module -avoid-version $(PYTHON_LIBS)

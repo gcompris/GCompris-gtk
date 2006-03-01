@@ -12,6 +12,9 @@ staticforward PyTypeObject pyGcomprisProfileType;
 PyObject* 
 gcompris_new_pyGcomprisProfileObject(GcomprisProfile* profile)
 {
+  if (!profile)
+    return Py_None;
+
   pyGcomprisProfileObject* theprofile = NULL;
 
   theprofile = PyObject_New(pyGcomprisProfileObject, &pyGcomprisProfileType);

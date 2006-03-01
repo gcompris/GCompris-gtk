@@ -1067,7 +1067,10 @@ static GcomprisConfCallback pyGcomprisConfCallback(GHashTable* table){
 
   gil = pyg_gil_state_ensure();
 
-  result = PyObject_CallFunction(pyGcomprisConfCallbackFunc, "O", hash_to_dict(table));
+  if (table)
+    result = PyObject_CallFunction(pyGcomprisConfCallbackFunc, "O", hash_to_dict(table));
+  else
+    result = PyObject_CallFunction(pyGcomprisConfCallbackFunc, "O", Py_None);
 
   // This callback can be called multiple time ? not now
   

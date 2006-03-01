@@ -12,6 +12,7 @@
  * 330, Boston, MA 02111-1307 USA 
  */
 
+#include "gcompris/gcompris.h"
 
 #ifndef TRUE
 #define TRUE 1
@@ -49,38 +50,26 @@
 *	Definition nouveaux types de variables
 */
 typedef struct {
-    short int board[NBHOLE];
-    short int CapturedBeans[NBPLAYER];
-    short int player;
+  short int board[NBHOLE];
+  short int CapturedBeans[NBPLAYER];
+  short int player;
+  short int last_play;
 } AWALE;
 
-typedef struct tree {
-    short int prof;		/* nb de 1/2 coup depuis racine */
-    short int note;		/* note calculee */
-    short int best;		/* meilleur fils */
-    AWALE *aw;			/* awele courant */
-    struct tree *son[HALF_SIZE];
-} TREE;
+
+
 
 
 /**
 *	Fonction de manipulation de l'awale
 */
-short int isValidMove(short int hole, AWALE * aw);	// test si mouvement valide
-short int move(short int hole, AWALE * aw);
+gboolean diedOfHunger(AWALE *aw);
+AWALE *moveAwale(short int hole, AWALE * aw);
 short int think(AWALE * a, short int level);
-short int isEndOfGame(AWALE * aw);
 short int randplay(AWALE * a);
-short int testMove(short int coup, AWALE * aw);
-
-void destroy_tree(TREE ** t);
-void destroy_awale(AWALE ** a);
 
 short int switch_player(short int player);
-TREE *create_tree(short int prof, short int player, AWALE * aw);
-AWALE *create_awale();
-void awale_equal(AWALE * inp, AWALE * out);
 
 short int threatenDelta(AWALE * aw);
 short int moveDelta(AWALE * aw);
-int eval(AWALE * aw);
+gint eval(GNode *node);

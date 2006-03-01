@@ -1,6 +1,6 @@
 /* gcompris - bar.c
  *
- * Time-stamp: <2006/02/25 12:31:09 bruno>
+ * Time-stamp: <2006/03/01 01:05:02 bruno>
  *
  * Copyright (C) 2000-2003 Bruno Coudoin
  *
@@ -53,6 +53,8 @@ static GnomeCanvasItem *about_item = NULL;
 static guint level_handler_id;
 
 static gint sound_play_id = 0;
+
+void  confirm_quit(gboolean answer);
 
 /*
  * Main entry point 
@@ -544,9 +546,10 @@ item_event_bar(GnomeCanvasItem *item, GdkEvent *event, gchar *data)
 	}
       else if(!strcmp((char *)data, "configuration"))
 	{
-	  if(gcomprisBoard->plugin->config != NULL)
+	  if(gcomprisBoard->plugin->config_start != NULL)
 	    {
-	      gcomprisBoard->plugin->config();
+	      gcomprisBoard->plugin->config_start(gcomprisBoard,
+						  gcompris_get_current_profile());
 	    }
 	}
       else if(!strcmp((char *)data, "about"))
@@ -555,7 +558,12 @@ item_event_bar(GnomeCanvasItem *item, GdkEvent *event, gchar *data)
 	}
       else if(!strcmp((char *)data, "quit"))
 	{
-	  gcompris_exit();
+	  //gcompris_exit();
+	  gcompris_confirm( "GCompris confirmation",
+			    "Sure you want to quit ?",
+			    "Yes, i am sure !",
+			    "No, i am Bruno\'s daughter",
+			    (ConfirmCallBack) confirm_quit);
 	}
       break;
       
@@ -566,7 +574,11 @@ item_event_bar(GnomeCanvasItem *item, GdkEvent *event, gchar *data)
 
 }
 
-
+void     confirm_quit(gboolean answer)
+{
+  if (answer)
+    gcompris_exit();
+}
 
 
 /* Local Variables: */

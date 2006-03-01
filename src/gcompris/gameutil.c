@@ -1,6 +1,6 @@
 /* gcompris - gameutil.c
  *
- * Time-stamp: <2005/11/17 11:13:26 yves>
+ * Time-stamp: <2006/01/20 10:06:29 yves>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -683,6 +683,8 @@ GList *gcompris_get_menulist(gchar *section)
   GList *result_list = NULL;
   gchar *model;
 
+  GcomprisProperties	*properties = gcompris_get_properties();
+
   if (strlen(section)==1)
     model = g_strdup("");
   else
@@ -695,6 +697,10 @@ GList *gcompris_get_menulist(gchar *section)
 
   for(list = boards_list; list != NULL; list = list->next) {
     GcomprisBoard *board = list->data;
+
+    if ( (!properties->experimental) &&
+	 (strcmp (board->name, "experimental") == 0))
+      continue;
 
     if (strcmp (model, board->section) == 0) {	
       if (strlen(board->name) != 0)

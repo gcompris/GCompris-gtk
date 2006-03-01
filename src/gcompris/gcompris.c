@@ -1277,6 +1277,7 @@ gcompris_init (int argc, char *argv[])
     else {
     g_warning("Using menu %s as root.", popt_root_menu);
     properties->root_menu = g_strdup(popt_root_menu);
+    properties->menu_position = g_strdup(popt_root_menu);
     }
   }
 

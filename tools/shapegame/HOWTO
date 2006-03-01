@@ -1,0 +1,114 @@
+#
+#  creating region puzzle for germany
+#
+#
+# 1. got map from wikipedia ->
+#    source/Deutschland_Bundeslaender_1990_thresshold.tif
+# 
+# 2. used gimp to extract individual regions by filling all others with
+#    white and save them as "bayern.png" etc. The size of each
+#    indivudual image must be the same as the full image
+#
+# 3. create the background image by filling the separation lines and 
+#    store it as Deutschland_komplett.png
+# 
+# 4. Now crop away borders and compute the coordiantes for the puzzle
+#    pieces, using pnmcrop from "netpbm" package, and the compute the
+#    target spots with the distance transform, based on the great
+#    algorithm and source code from Pedro F. Felzenszwalb and Daniel
+#    P. Huttenlocher, see http://people.cs.uchicago.edu/~pff/dt/
+# 
+cd ~/gcompris_dev/gcompris/boards/geography/germany_region/source2
+rm -f coordinates.txt
+for i in baden-wuerttemberg.png bayern.png berlin.png brandenburg.png bremen.png hamburg.png hessen.png mecklenburg-vorpommern.png niedersachsen.png nordrhein-westfalen.png rheinland-pfalz.png saarland.png sachsen-anhalt.png sachsen.png schleswig_holstein.png thueringen.png; do
+  echo filename: $i >> coordinates.txt
+  pngtopnm $i |pnmscale 0.8| pnmcrop --white --verbose 2>> coordinates.txt | pnmtopng -transparent white > ../$i
+  echo shape: `pngtopnm ../$i | head -2 | tail -1` >> coordinates.txt 
+  pngtopnm ../$i | ppmtopgm | pgmtopbm -threshold -value 0.9 | pnminvert > binmask.pbm
+  ~/gcompris_dev/gcompris/tool/shapegame/nice_target_spot binmask.pbm target.ppm
+  pnmtopng -transparent white target.ppm > ../target_$i
+done
+
+#
+#  simulate output from pnmcrop for background-image
+#
+
+pngtopnm Deutschland_komplett.png |pnmscale 0.8| pnmtopng -transparent white > ../back.png
+echo filename: back.png >> coordinates.txt 
+echo pnmcrop: cropping 0 rows off the top >> coordinates.txt 
+echo pnmcrop: cropping 0 cols off the left >> coordinates.txt 
+echo shape: `pngtopnm ../back.png | head -2 | tail -1` >> coordinates.txt 
+
+#
+# 5. Now create the xml-file board6_0.xml.in from created
+#   source2/coordinates.txt
+#
+cd ~/gcompris_dev/gcompris/boards/geography/germany_region/source2
+
+cat > realnames.txt <<EOF
+Baden-Württemberg
+Bayern
+Berlin
+Brandenburg
+Bremen
+Hamburg
+Hessen
+Mecklenburg-Vorpommern
+Niedersachsen
+Nordrhein-Westfalen
+Rheinland-Pfalz
+Saarland
+Sachsen-Anhalt
+Sachsen
+Schleswig-Holstein
+Thüringen
+EOF
+
+
+grep "filename:" coordinates.txt | awk '{print $2}' > filenames.txt
+grep "off the left" coordinates.txt | awk '{print $3}' > coords_x.txt
+grep "off the top" coordinates.txt | awk '{print $3}' > coords_y.txt
+grep "shape:" coordinates.txt | awk '{print $2, $3}' > shape.txt
+
+paste filenames.txt coords_x.txt coords_y.txt shape.txt realnames.txt> hurz.txt
+
+echo '<?xml version="1.0" encoding="UTF-8"?>
+<ShapeGame>
+  <Title x="600" y="495" justification="GTK_JUSTIFY_CENTER">
+    <_name>Deutschland Bundesländer</_name>
+  </Title>' > board6_0.xml.in
+
+awk '{ 
+if($1 != "back.png")
+{
+  print "  <Shape name=\"A"NR"\" pixmapfile=\"geography/germany_region/"$1"\" targetfile=\"geography/germany_region/target_"$1"\" x=\""$2+100+$4/2"\" y=\""$3+$5/2"\" zoomx=\"1\" zoomy=\"1\" position=\"0\"><_tooltip>"$6"</_tooltip></Shape>";
+}
+else 
+{
+  print "  <Shape name=\"1\" pixmapfile=\"geography/germany_region/"$1"\" type=\"SHAPE_BACKGROUND\" x=\""$2+100+$4/2"\" y=\""$3+$5/2"\" zoomx=\"1\" zoomy=\"1\" position=\"0\"/>";
+}
+}' < hurz.txt >> board6_0.xml.in
+
+echo '</ShapeGame>' >> board6_0.xml.in
+
+cp -f board6_0.xml.in ../../board6_0.xml.in
+
+
+#
+#  edit gcompris/boards/geography/Makefile.am to include board6_0.xml.in
+#
+
+cd ~/gcompris_dev/gcompris
+intltoolize && automake && autoconf && ./configure --prefix $PWD
+
+cd ~/gcompris_dev/gcompris
+make install
+
+~/gcompris_dev/gcompris/bin/gcompris
+
+
+#
+#  Create the distribution for Bruno
+#
+cd ~/gcompris_dev/
+tar -zcvf germany_regions_2006_01_29.tar.gz gcompris/tool/ gcompris/boards/geography/germany_region/ gcompris/boards/geography/Makefile.am

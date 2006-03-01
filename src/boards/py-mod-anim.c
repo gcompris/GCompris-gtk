@@ -169,7 +169,7 @@ Animation_init(py_GcomprisAnimation *self, PyObject *args, PyObject *key)
 
 static void Animation_free(py_GcomprisAnimation *self)
 {
-  printf("*** Garbage collecting Animation ***\n");
+  g_warning("*** Garbage collecting Animation ***\n");
   if( self->a)
       gcompris_free_animation(self->a);
   PyObject_DEL(self);
@@ -211,7 +211,7 @@ AnimCanvas_init(py_GcomprisAnimCanvas *self, PyObject *args, PyObject *key)
 static void
 AnimCanvas_free(py_GcomprisAnimCanvas *self)
 {
-  printf("*** garbage collecting AnimCanvas ***\n");
+  g_warning("*** garbage collecting AnimCanvas ***\n");
   if(self->item)
     {
       g_warning("You should really call destroy() on an AnimCanvas "

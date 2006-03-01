@@ -138,6 +138,11 @@ void gcompris_deactivate_animation(GcomprisAnimCanvasItem *item)
     return;
   }
 
+  if (GNOME_IS_CANVAS_ITEM(item->canvas)){
+    gtk_object_destroy(GTK_OBJECT(item->canvas));
+    item->canvas = NULL;
+  }
+
   active = g_slist_delete_link(active, node);
   g_object_unref(item->iter);
   g_free(item);
@@ -177,7 +182,7 @@ static gboolean anim_tick(void *ignore)
 {
   if(active == NULL)
     {
-      printf("deactivating anim_tick\n");
+      g_warning("deactivating anim_tick\n");
       return FALSE;
     }
 

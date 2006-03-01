@@ -1,6 +1,6 @@
 /* gcompris - shapegame.c
  *
- * Time-stamp: <2005/11/12 18:56:26 bruno>
+ * Time-stamp: <2006/01/31 00:13:12 yves>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -259,7 +259,11 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 
       g_free(filename);
       
-      gcompris_bar_set(GCOMPRIS_BAR_LEVEL|GCOMPRIS_BAR_OK);
+      if (strcmp(gcomprisBoard->name, "imagename")==0){
+	gcompris_bar_set(GCOMPRIS_BAR_CONFIG|GCOMPRIS_BAR_LEVEL|GCOMPRIS_BAR_OK);
+      } else
+	gcompris_bar_set(GCOMPRIS_BAR_LEVEL|GCOMPRIS_BAR_OK);
+      
 
       gcomprisBoard->sublevel = 0;
 
@@ -2092,10 +2096,31 @@ static GHFunc save_table (gpointer key,
 
 static GcomprisConfCallback conf_ok(GHashTable *table)
 {
+  if (!table){
+    if (gcomprisBoard)
+      pause_board(FALSE);
+    return;
+  }
+
   g_hash_table_foreach(table, (GHFunc) save_table, NULL);
   
   board_conf = NULL;
   profile_conf = NULL;
+
+  if ((gcomprisBoard) && (strcmp(gcomprisBoard->name, "imagename")==0)){
+    GHashTable *config = gcompris_get_board_conf();
+    
+    gcompris_reset_locale();
+    
+    gcompris_change_locale(g_hash_table_lookup( config, "locale"));
+      
+    g_hash_table_destroy(config);
+    
+    shapegame_next_level();
+    
+    pause_board(FALSE);
+  }
+
 }
 
 static void
@@ -2105,9 +2130,12 @@ config_start(GcomprisBoard *agcomprisBoard,
   board_conf = agcomprisBoard;
   profile_conf = aProfile;
 
+  if (gcomprisBoard)
+    pause_board(TRUE);
+
   gcompris_configuration_window( g_strdup_printf("<b>%s</b> configuration\n for profile <b>%s</b>",
 						 agcomprisBoard->name, 
-						 aProfile->name), 
+						 aProfile? aProfile->name : ""), 
 				 (GcomprisConfCallback )conf_ok);
 
   /* init the combo to previously saved value */

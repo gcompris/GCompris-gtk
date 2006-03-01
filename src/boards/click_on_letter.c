@@ -159,7 +159,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       gcomprisBoard->maxlevel=NUMBER_OF_LEVELS;
       gcomprisBoard->sublevel=1;
       gcomprisBoard->number_of_sublevel=NUMBER_OF_SUBLEVELS; /* Go to next level after this number of 'play' */
-      gcompris_bar_set(GCOMPRIS_BAR_LEVEL|GCOMPRIS_BAR_REPEAT);
+      gcompris_bar_set(GCOMPRIS_BAR_CONFIG|GCOMPRIS_BAR_LEVEL|GCOMPRIS_BAR_REPEAT);
       gcompris_score_start(SCORESTYLE_NOTE,
 			   50,
 			   50,
@@ -247,12 +247,6 @@ static gboolean sounds_are_fine ()
   GcomprisProperties	*properties = gcompris_get_properties();
   gchar *locale = NULL;
   gboolean fine = TRUE;
-
-  GHashTable *config = gcompris_get_board_conf();
-
-  gcompris_change_locale(g_hash_table_lookup( config, "locale"));
-
-  g_hash_table_destroy(config);
 
   /* TRANSLATORS: Put here the alphabet in your language */
   alphabet=_("abcdefghijklmnopqrstuvwxyz");
@@ -574,10 +568,41 @@ static GHFunc save_table (gpointer key,
 
 static GcomprisConfCallback conf_ok(GHashTable *table)
 {
+  if (!table){
+    if (gcomprisBoard)
+      pause_board(FALSE);
+    return;
+  }
+    
+
   g_hash_table_foreach(table, (GHFunc) save_table, NULL);
   
   board_conf = NULL;
   profile_conf = NULL;
+
+  if (gcomprisBoard){
+    GHashTable *config = gcompris_get_board_conf();
+
+    gcompris_reset_locale();
+    gcompris_change_locale(g_hash_table_lookup( config, "locale"));
+    
+    gchar *up_init_str = g_hash_table_lookup( config, "uppercase_only");
+    
+    if (up_init_str && (strcmp(up_init_str, "True")==0))
+      uppercase_only = TRUE;
+    else
+      uppercase_only = FALSE;
+    
+    g_hash_table_destroy(config);
+    
+    sounds_are_fine();
+    
+    click_on_letter_next_level();
+    
+    gamewon = FALSE;
+    pause_board(FALSE);
+    
+  }
 }
 
 static void
@@ -587,9 +612,12 @@ config_start(GcomprisBoard *agcomprisBoard,
   board_conf = agcomprisBoard;
   profile_conf = aProfile;
 
+  if (gcomprisBoard)
+    pause_board(TRUE);
+
   gcompris_configuration_window( g_strdup_printf("<b>%s</b> configuration\n for profile <b>%s</b>",
 						 agcomprisBoard->name, 
-						 aProfile->name), 
+						 aProfile ? aProfile->name : ""), 
 				 (GcomprisConfCallback )conf_ok);
 
   /* init the combo to previously saved value */
@@ -599,6 +627,10 @@ config_start(GcomprisBoard *agcomprisBoard,
   
   gcompris_combo_locales( locale);
 
+  //gcompris_separator();
+ 
+  //gcompris_combo_locales_asset( "Select sound locale", locale_sound, "gcompris colors", NULL, "audio/x-ogg", "purple.ogg");
+
   gboolean up_init = FALSE;
 
   gchar *up_init_str = g_hash_table_lookup( config, "uppercase_only");
@@ -606,8 +638,6 @@ config_start(GcomprisBoard *agcomprisBoard,
   if (up_init_str && (strcmp(up_init_str, "True")==0))
     up_init = TRUE;
 
-  gcompris_separator();
- 
   gcompris_boolean_box(_("Uppercase only text"),
 		       "uppercase_only",
 		       up_init);

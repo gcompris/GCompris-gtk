@@ -1,5 +1,709 @@
 2006-03-01  Bruno coudoin  <bruno.coudoin@free.fr>
 
+	*** MERGE OF BRANCH gcompris_7_4 ***
+
+	* boards/Makefile.am:
+	* boards/boardicons/README:
+	* boards/boardicons/magic_hat_minus.png:
+	* boards/boardicons/magic_hat_plus.png:
+	* boards/boardicons/wordprocessor.png:
+	* boards/geography.xml.in:
+	* boards/geography/Makefile.am:
+	* boards/geography/board6_0.xml.in:
+	* boards/geography/germany_region/back.png:
+	* boards/geography/germany_region/baden-wuerttemberg.png:
+	* boards/geography/germany_region/bayern.png:
+	* boards/geography/germany_region/berlin.png:
+	* boards/geography/germany_region/brandenburg.png:
+	* boards/geography/germany_region/bremen.png:
+	* boards/geography/germany_region/hamburg.png:
+	* boards/geography/germany_region/hessen.png:
+	* boards/geography/germany_region/mecklenburg-vorpommern.png:
+	* boards/geography/germany_region/niedersachsen.png:
+	* boards/geography/germany_region/nordrhein-westfalen.png:
+	* boards/geography/germany_region/rheinland-pfalz.png:
+	* boards/geography/germany_region/saarland.png:
+	* boards/geography/germany_region/sachsen-anhalt.png:
+	* boards/geography/germany_region/sachsen.png:
+	* boards/geography/germany_region/schleswig_holstein.png:
+	* boards/geography/germany_region/target_baden-wuerttemberg.png:
+	* boards/geography/germany_region/target_bayern.png:
+	* boards/geography/germany_region/target_berlin.png:
+	* boards/geography/germany_region/target_brandenburg.png:
+	* boards/geography/germany_region/target_bremen.png:
+	* boards/geography/germany_region/target_hamburg.png:
+	* boards/geography/germany_region/target_hessen.png:
+	* boards/geography/germany_region/target_mecklenburg-vorpommern.png
+	:
+	* boards/geography/germany_region/target_niedersachsen.png:
+	* boards/geography/germany_region/target_nordrhein-westfalen.png:
+	* boards/geography/germany_region/target_rheinland-pfalz.png:
+	* boards/geography/germany_region/target_saarland.png:
+	* boards/geography/germany_region/target_sachsen-anhalt.png:
+	* boards/geography/germany_region/target_sachsen.png:
+	* boards/geography/germany_region/target_schleswig_holstein.png:
+	* boards/geography/germany_region/target_thueringen.png:
+	* boards/geography/germany_region/thueringen.png:
+	* boards/magic_hat/hat-point.png:
+	* boards/magic_hat/hat.png:
+	* boards/magic_hat/magic_hat_minus.png:
+	* boards/magic_hat/magic_hat_minus_bg.png:
+	* boards/magic_hat/magic_hat_plus.png:
+	* boards/magic_hat/magic_hat_plus_bg.png:
+	* boards/magic_hat/star-clear.png:
+	* boards/magic_hat/star1.png:
+	* boards/magic_hat/star2.png:
+	* boards/magic_hat/star3.png:
+	* boards/magic_hat_minus.xml.in:
+	* boards/magic_hat_plus.xml.in:
+	* boards/memory_add.xml.in:
+	* boards/memory_add_minus.xml.in:
+	* boards/memory_add_minus_mult_div.xml.in:
+	* boards/memory_add_minus_mult_div_tux.xml.in:
+	* boards/memory_add_minus_tux.xml.in:
+	* boards/memory_add_tux.xml.in:
+	* boards/memory_mult.xml.in:
+	* boards/memory_mult_div.xml.in:
+	* boards/memory_mult_div_tux.xml.in:
+	* boards/memory_mult_tux.xml.in:
+	* boards/memory_op_group.xml.in:
+	* boards/memory_op_group_tux.xml.in:
+	* boards/menu2.xml.in:
+	* boards/skins/gartoon/gcompris-menu2bg.png:
+	* boards/wordprocessor.xml.in:
+	* configure.in:
+	* po/ChangeLog:
+	* po/TRANSLATORS.README:
+	* src/boards/Makefile.am:
+	* src/boards/awele.c: (pause_board), (start_board), (end_board),
+	(repeat), (set_level), (awele_next_level), (awele_create_item),
+	(game_won), (to_computer), (buttonClick):
+	* src/boards/awele.h:
+	* src/boards/awele_alphaBeta.c: (eval), (eval_to_null),
+	(eval_to_best_capture), (firstChild), (nextSibling), (free_awale),
+	(think):
+	* src/boards/awele_utils.c: (isOpponentHungry), (moveAwale),
+	(randplay), (diedOfHunger):
+	* src/boards/awele_utils.h:
+	* src/boards/click_on_letter.c: (start_board), (sounds_are_fine),
+	(conf_ok), (config_start):
+	* src/boards/colors.c: (conf_ok), (colors_config_start),
+	(start_board):
+	* src/boards/gletters.c: (level_set_score), (conf_ok),
+	(gletter_config_start):
+	* src/boards/imageid.c: (start_board), (conf_ok), (config_start):
+	* src/boards/magic_hat.c: (pause_board), (start_board),
+	(end_board), (process_ok), (set_level), (is_our_board),
+	(magic_hat_next_level), (magic_hat_destroy_all_items),
+	(magic_hat_create_item), (finished), (game_won), (draw_frame),
+	(draw_table), (draw_hat), (place_item), (item_event), (hat_event),
+	(nb_list), (move_stars), (close_hat), (smooth_move):
+	* src/boards/memory.c: (get_random_token), (start_board),
+	(memory_destroy_all_items), (get_image), (create_item),
+	(compare_card):
+	* src/boards/menu2.c: (menu_pause), (menu_start), (create_panel),
+	(display_section), (menu_end), (menu_is_our_board), (menu_config),
+	(display_board_icon), (next_spot), (menu_create_item),
+	(item_event), (set_content), (create_info_area), (free_stuff),
+	(get_ratio), (create_top), (display_welcome), (menu_config_start),
+	(menu_config_stop):
+	* src/boards/missingletter.c: (start_board), (conf_ok),
+	(config_start):
+	* src/boards/py-gcompris-profile.c:
+	(gcompris_new_pyGcomprisProfileObject):
+	* src/boards/py-mod-anim.c: (Animation_free), (AnimCanvas_free):
+	* src/boards/py-mod-gcompris.c: (pyGcomprisConfCallback):
+	* src/boards/python/gnumch.py:
+	* src/boards/python/pythontest.py:
+	* src/boards/reading.c: (start_board), (conf_ok),
+	(reading_config_start):
+	* src/boards/shapegame.c: (start_board), (conf_ok), (config_start):
+	* src/boards/smallnumbers.c: (start_board),
+	(smallnumbers_create_item), (conf_ok), (smallnumber_config_start):
+	* src/boards/wordprocessor.c: (pause_board), (start_board),
+	(end_board), (set_level), (is_our_board),
+	(wordprocessor_destroy_all_items), (wordprocessor_create),
+	(display_style_buttons), (item_event), (create_tags),
+	(set_default_style), (display_style_selector),
+	(item_event_style_selection), (key_press_event):
+	* src/gcompris/Makefile.am:
+	* src/gcompris/anim.c: (gcompris_deactivate_animation),
+	(anim_tick):
+	* src/gcompris/bar.c: (item_event_bar), (confirm_quit):
+	* src/gcompris/board_config.c: (gcompris_close_board_conf),
+	(gcompris_response_board_conf), (gcompris_configuration_window),
+	(gcompris_change_locale):
+	* src/gcompris/gameutil.c: (gcompris_get_menulist):
+	* src/gcompris/gcompris.c: (gcompris_init):
+	* src/gcompris/gcompris.h:
+	* src/gcompris/gcompris_alphabeta.c: (gcompris_alphabeta):
+	* src/gcompris/gcompris_alphabeta.h:
+	* src/gcompris/gcompris_confirm.c: (gcompris_confirm),
+	(gcompris_confirm_stop), (display_confirm), (free_stuff),
+	(set_content), (button_event):
+	* src/gcompris/properties.c: (gcompris_properties_new):
+	* src/gcompris/properties.h:
+	* tools/list_missing_sounds.sh:
+	* tools/shapegame/HOWTO:
+	* tools/shapegame/Makefile:
+	* tools/shapegame/dt/.cvsignore:
+	* tools/shapegame/dt/Makefile:
+	* tools/shapegame/dt/README:
+	* tools/shapegame/dt/dt.cpp:
+	* tools/shapegame/dt/dt.h:
+	* tools/shapegame/dt/image.h:
+	* tools/shapegame/dt/imconv.h:
+	* tools/shapegame/dt/imutil.h:
+	* tools/shapegame/dt/input.pbm:
+	* tools/shapegame/dt/misc.h:
+	* tools/shapegame/dt/pnmfile.h:
+	* tools/shapegame/nice_target_spot.cpp:
+	* tools/shapegame/test.pbm:
+
+2006-02-13  Yves Combe  <yves@ycombe.net>
+
+	fix bug in gcompris_sound_controller signal definition. Apparently causes crash in dapper Ubuntu.
+
+	* po/Makefile.in.in:
+	* src/gcompris/soundutil.c: (default_sound_played_signal_handler),
+	(gcompris_sound_class_init):
+
+2006-02-11  Yves Combe  <yves@ycombe.net>
+
+	test on size of db file, to create tables if it's 0
+	(correction of null-sized db due to USE_SQLITE bug).
+	
+	* src/gcompris/gcompris_db.c: (gcompris_db_init):
+
+2006-02-09  Yves Combe  <yves@ycombe.net>
+
+	minor fix (hat double click and highlight focus).
+
+	* src/boards/magic_hat.c: (draw_hat), (hat_event):
+
+2006-02-09  Yves Combe  <yves@ycombe.net>
+
+	new versions of magic hat by Marc Brun: addition and substraction.
+
+	* boards/Makefile.am:
+	* boards/boardicons/magic_hat.png:
+	* boards/boardicons/magic_hat_minus.png:
+	* boards/boardicons/magic_hat_plus.png:
+	* boards/magic_hat.xml.in:
+	* boards/magic_hat/magic_hat_minus.png:
+	* boards/magic_hat/magic_hat_minus_bg.png:
+	* boards/magic_hat/magic_hat_plus.png:
+	* boards/magic_hat/magic_hat_plus_bg.png:
+	* boards/magic_hat/star.png:
+	* boards/magic_hat_minus.xml.in:
+	* boards/magic_hat_plus.xml.in:
+	* configure.in:
+	* src/boards/magic_hat.c: (start_board), (process_ok),
+	(magic_hat_create_item), (draw_frame), (draw_hat), (place_item),
+	(item_event), (hat_event), (move_stars), (close_hat),
+	(smooth_move):
+
+2006-02-09  Yves Combe  <yves@ycombe.net>
+
+	fix bug in memory_div and emory_mult_div. 
+	fix font size and font color.
+
+	* src/boards/memory.c: (get_image), (create_item):
+
+2006-02-09  Yves Combe  <yves@ycombe.net>
+
+	fix bug, change font size following level for memory operations activities.
+
+	* src/boards/memory.c: (get_random_token), (start_board),
+	(create_item), (compare_card):
+
+2006-02-09  Yves Combe  <yves@ycombe.net>
+
+	fix animation was launched after winning.
+	add memory based mathematicals operations boards.
+
+	* boards/Makefile.am:
+	* boards/memory_add.xml.in:
+	* boards/memory_add_minus.xml.in:
+	* boards/memory_add_minus_mult_div.xml.in:
+	* boards/memory_add_minus_mult_div_tux.xml.in:
+	* boards/memory_add_minus_tux.xml.in:
+	* boards/memory_add_tux.xml.in:
+	* boards/memory_mult.xml.in:
+	* boards/memory_mult_div.xml.in:
+	* boards/memory_mult_div_tux.xml.in:
+	* boards/memory_mult_tux.xml.in:
+	* boards/memory_op_group.xml.in:
+	* boards/memory_op_group_tux.xml.in:
+	* src/boards/awele.c: (buttonClick):
+	* src/boards/memory.c: (get_random_token), (start_board),
+	(memory_destroy_all_items), (get_image), (create_item),
+	(compare_card):
+
+2006-02-08  Yves Combe  <yves@ycombe.net>
+
+	fix depth search. Must not to be odd in best difference evaluation!
+
+	* src/boards/awele_alphaBeta.c: (think):
+
+2006-02-08  Yves Combe  <yves@ycombe.net>
+
+	add a reset of item->canvas after destroy.
+
+	* src/gcompris/anim.c: (gcompris_deactivate_animation):
+
+2006-02-08  Yves Combe  <yves@ycombe.net>
+
+	Some fix in animation api/usage.
+
+	* src/boards/awele_alphaBeta.c: (think):
+	* src/boards/py-mod-anim.c: (Animation_free), (AnimCanvas_free):
+	* src/boards/python/gnumch.py:
+	* src/gcompris/anim.c: (anim_tick):
+
+2006-02-07  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* src/boards/advanced_colors.c: (add_xml_data): fixed to check properly for long locale (e.g. pt_BR)
+	* src/boards/read_colors.c: (add_xml_data), (parse_doc): -
+	* src/boards/python/melody.py: added a dialog if run without sound fx activated
+	  changed to use the reload icon instead of mouth sign for the repeat.
+
+2006-02-07  Yves Combe  <yves@ycombe.net>
+
+	fix anim api to destroy the item canvas on deactivate.
+	fix gnumch to not crash with that (del anim before quit)
+	fix anim in awele.
+
+	* src/boards/awele.c: (pause_board), (repeat), (set_level),
+	(to_computer), (buttonClick):
+	* src/boards/awele_utils.c: (diedOfHunger):
+	* src/boards/python/gnumch.py:
+	* src/gcompris/anim.c: (gcompris_deactivate_animation):
+
+2006-02-07  Yves Combe,,,  <yves@ycombe.net>
+
+	add Grand slam rule for capture (no capture 
+	if that let opponent hungry).
+	add correct rule for hunger end of games (untested).
+
+	* src/boards/awele.c: (to_computer):
+	* src/boards/awele_utils.c: (moveAwale), (diedOfHunger):
+	* src/boards/awele_utils.h:
+
+2006-02-07  Yves Combe  <yves@ycombe.net>
+
+	fix crash with animation on next_level and repeat.
+	fix strings i18n. Needs review of strings.
+
+	* src/boards/awele.c: (pause_board), (repeat), (set_level),
+	(awele_create_item), (to_computer), (buttonClick):
+
+2006-02-07  Yves Combe  <yves@ycombe.net>
+
+	add animation like in connect4 when computer think.
+
+	* src/boards/awele.c: (pause_board), (start_board), (end_board),
+	(awele_next_level), (to_computer), (buttonClick):
+
+2006-02-06  Yves Combe  <yves@ycombe.net>
+
+	clean code from unused fucntion
+
+	* src/boards/awele.c:
+	* src/boards/awele.h:
+
+2006-02-06  Yves Combe  <yves@ycombe.net>
+
+	change evaluation fonction usage in awele,
+	to make it easier in level 1-4.
+	difficulty:
+	 - level 1-2 -> random
+	 - level 3-4 -> best computer capture, depth 1.
+	 - level 5-6 -> best difference in capture, depth 1.
+	 - level 7-8 -> best difference in capture, depth 2.
+	 - level 9 -> best difference in capture, depth 3.
+	clean from g_warning.
+	change first player: computer begins at level 2-4-6-8.
+
+	* src/boards/awele.c: (start_board), (repeat), (set_level),
+	(awele_next_level), (game_won), (to_computer),
+	(updateCapturedBeans):
+	* src/boards/awele_alphaBeta.c: (eval_to_null),
+	(eval_to_best_capture), (think):
+	* src/boards/awele_utils.c: (moveAwale):
+	* src/gcompris/gcompris_alphabeta.c: (gcompris_alphabeta):
+
+2006-02-06  Yves Combe  <yves@ycombe.net>
+
+	awele manily fixed.
+	TODO: change first player.
+	TODO: add correct rule in case of end by hungry player.
+
+	* src/boards/awele.c: (pause_board), (start_board),
+	(awele_next_level), (awele_create_item), (to_computer),
+	(buttonClick), (updateNbBeans), (updateCapturedBeans),
+	(buttonNewGameClick):
+	* src/boards/awele.h:
+	* src/boards/awele_alphaBeta.c: (firstChild), (think):
+	* src/boards/awele_utils.c: (moveAwale):
+	* src/gcompris/gcompris_alphabeta.c: (gcompris_alphabeta):
+
+2006-02-06  Yves Combe  <yves@ycombe.net>
+
+	add generic minmax(alphabeta) function.
+	use it in awale.
+	Need more tests.
+
+	* src/boards/awele.c: (start_board), (awele_create_item),
+	(to_computer), (buttonClick), (updateCapturedBeans):
+	* src/boards/awele_alphaBeta.c: (eval), (firstChild),
+	(nextSibling), (free_awale), (think):
+	* src/boards/awele_utils.c: (isOpponentHungry), (moveAwale),
+	(randplay):
+	* src/boards/awele_utils.h:
+	* src/gcompris/Makefile.am:
+	* src/gcompris/gcompris.h:
+	* src/gcompris/gcompris_alphabeta.c: (gcompris_alphabeta):
+	* src/gcompris/gcompris_alphabeta.h:
+
+2006-02-05  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	Changed background entry color to white. The blue background color
+	was no more working for me for no reason.
+
+	Improved wordprocessor. Now handle a single fixed theme coherently.
+	
+	* po/ChangeLog:
+	* src/boards/python/guessnumber.py:
+	* src/boards/wordprocessor.c: (display_style_buttons),
+	(item_event), (create_tags), (set_default_style),
+	(key_press_event):
+
+2006-02-03  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	- merged awele with HEAD.
+	
+	* boards/awele/awele_frame.jpg:
+	* boards/awele/awele_frame.png:
+	* boards/awele/awele_frame_avec_messages.png:
+	* boards/awele/nv_partie.png:
+	* boards/awele/nv_partie_clic.png:
+	* boards/awele/nv_partie_notify.png:
+	* po/TRANSLATORS.README:
+	* src/boards/awele.c: (start_board), (repeat), (awele_create_item),
+	(buttonNewGameClick):
+	* src/boards/awele.h:
+	* src/boards/python/guessnumber.py: fix title alignement from HEAD.
+	* src/boards/smallnumbers.c: (smallnumbers_create_item): from HEAD, use bar dice.
+	* src/boards/wordprocessor.c: (wordprocessor_create),
+	(display_style_buttons), (item_event), (create_tags),
+	(key_press_event):
+
+2006-02-03  Yves Combe,,,  <yves@ycombe.net>
+
+	fix level display and usage in awele.
+	add winning detection at 25 beans-> display bonus and new game.
+
+	* src/boards/awele.c: (start_board), (set_level),
+	(awele_create_item):
+
+2006-02-02  Yves Combe  <yves@ycombe.net>
+
+	Display bonus and end of game when 25 beans are captured.
+
+	* src/boards/awele.c: (updateCapturedBeans):
+
+2006-02-02  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	
+	* tools/list_missing_sounds.sh: By Jose Jorge. A nice utility to compare the locale
+	  translations status of voices to English.
+
+2006-01-31  Yves Combe,,,  <yves@ycombe.net>
+
+	fix configurables boards in c to configure from bar.
+
+	* src/boards/colors.c: (conf_ok), (colors_config_start),
+	(start_board):
+	* src/boards/gletters.c: (level_set_score), (conf_ok),
+	(gletter_config_start):
+	* src/boards/imageid.c: (config_start):
+	* src/boards/missingletter.c: (config_start):
+	* src/boards/reading.c: (reading_config_start):
+	* src/boards/smallnumbers.c: (start_board),
+	(smallnumbers_create_item), (conf_ok), (smallnumber_config_start):
+
+2006-01-31  Yves Combe  <yves@ycombe.net>
+
+	fix /reading boards to configure from bar.
+
+	* src/boards/click_on_letter.c: (conf_ok):
+	* src/boards/imageid.c: (start_board), (conf_ok), (config_start):
+	* src/boards/missingletter.c: (start_board), (conf_ok):
+	* src/boards/python/pythontest.py:
+	* src/boards/reading.c: (start_board), (conf_ok),
+	(reading_config_start):
+	* src/boards/shapegame.c: (conf_ok):
+
+2006-01-30  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	- Added copyright header following formal argeement of
+	  the author Pedro Felzenszwalb <pff@cs.uchicago.edu>
+
+	* tools/shapegame/.cvsignore:
+	* tools/shapegame/dt/.cvsignore:
+	* tools/shapegame/dt/README:
+	* tools/shapegame/dt/dt.cpp:
+	* tools/shapegame/dt/dt.h:
+	* tools/shapegame/dt/image.h:
+	* tools/shapegame/dt/imconv.h:
+	* tools/shapegame/dt/imutil.h:
+	* tools/shapegame/dt/misc.h:
+	* tools/shapegame/dt/pnmfile.h:
+	* tools/shapegame/nice_target_spot.cpp:
+
+2006-01-30  Yves Combe  <yves@ycombe.net>
+
+	fix configuration window was not visible in fullscreen mode, using gtk_dialog.
+
+	* src/gcompris/board_config.c: (gcompris_close_board_conf),
+	(gcompris_response_board_conf), (gcompris_configuration_window):
+
+2006-01-30  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	- Added the German map by Olaf Ronneberger.
+	- Added in tools/shapegame/ a utility to create shapegame activity
+
+	* boards/geography.xml.in:
+	* boards/geography/Makefile.am:
+	* boards/geography/board6_0.xml.in:
+	* boards/geography/germany_region/back.png:
+	* boards/geography/germany_region/baden-wuerttemberg.png:
+	* boards/geography/germany_region/bayern.png:
+	* boards/geography/germany_region/berlin.png:
+	* boards/geography/germany_region/brandenburg.png:
+	* boards/geography/germany_region/bremen.png:
+	* boards/geography/germany_region/hamburg.png:
+	* boards/geography/germany_region/hessen.png:
+	* boards/geography/germany_region/mecklenburg-vorpommern.png:
+	* boards/geography/germany_region/niedersachsen.png:
+	* boards/geography/germany_region/nordrhein-westfalen.png:
+	* boards/geography/germany_region/rheinland-pfalz.png:
+	* boards/geography/germany_region/saarland.png:
+	* boards/geography/germany_region/sachsen-anhalt.png:
+	* boards/geography/germany_region/sachsen.png:
+	* boards/geography/germany_region/schleswig_holstein.png:
+	* boards/geography/germany_region/target_baden-wuerttemberg.png:
+	* boards/geography/germany_region/target_bayern.png:
+	* boards/geography/germany_region/target_berlin.png:
+	* boards/geography/germany_region/target_brandenburg.png:
+	* boards/geography/germany_region/target_bremen.png:
+	* boards/geography/germany_region/target_hamburg.png:
+	* boards/geography/germany_region/target_hessen.png:
+	* boards/geography/germany_region/target_mecklenburg-vorpommern.png
+	:
+	* boards/geography/germany_region/target_niedersachsen.png:
+	* boards/geography/germany_region/target_nordrhein-westfalen.png:
+	* boards/geography/germany_region/target_rheinland-pfalz.png:
+	* boards/geography/germany_region/target_saarland.png:
+	* boards/geography/germany_region/target_sachsen-anhalt.png:
+	* boards/geography/germany_region/target_sachsen.png:
+	* boards/geography/germany_region/target_schleswig_holstein.png:
+	* boards/geography/germany_region/target_thueringen.png:
+	* boards/geography/germany_region/thueringen.png:
+	* src/boards/wordprocessor.c: (wordprocessor_create),
+	(display_style_buttons), (item_event), (create_tags):
+	* src/gcompris/gcompris_confirm.c:
+	* tools/shapegame/HOWTO:
+	* tools/shapegame/Makefile:
+	* tools/shapegame/dt/Makefile:
+	* tools/shapegame/dt/README:
+	* tools/shapegame/dt/dt.cpp:
+	* tools/shapegame/dt/dt.h:
+	* tools/shapegame/dt/image.h:
+	* tools/shapegame/dt/imconv.h:
+	* tools/shapegame/dt/imutil.h:
+	* tools/shapegame/dt/input.pbm:
+	* tools/shapegame/dt/misc.h:
+	* tools/shapegame/dt/pnmfile.h:
+	* tools/shapegame/nice_target_spot.cpp:
+	* tools/shapegame/test.pbm:
+
+2006-01-29  Yves Combe  <yves@ycombe.net>
+
+	fix click_on_letter and shapegame (imagename) to configure from bar.
+
+	* src/boards/click_on_letter.c: (sounds_are_fine), (conf_ok),
+	(config_start):
+	* src/boards/py-gcompris-profile.c:
+	(gcompris_new_pyGcomprisProfileObject):
+	* src/boards/py-mod-gcompris.c: (pyGcomprisConfCallback):
+	* src/boards/shapegame.c: (start_board), (conf_ok), (config_start):
+	* src/gcompris/board_config.c: (gcompris_close_board_conf),
+	(gcompris_apply_board_conf), (gcompris_configuration_window),
+	(gcompris_change_locale):
+
+2006-01-29  Yves Combe  <yves@ycombe.net>
+
+	Add board config_start call by the bar.
+	Click on letter fixed to use that. Menu2 too.
+	Others boards needs fix too.
+
+	* src/boards/click_on_letter.c: (start_board), (conf_ok),
+	(config_start):
+	* src/boards/menu2.c: (menu_config_start), (menu_config_stop):
+	* src/gcompris/bar.c: (item_event_bar):
+
+2006-01-29  Yves Combe,,,  <yves@ycombe.net>
+
+	menu2 is now default menu.
+	menu2 works now with -l option
+
+	* src/boards/Makefile.am:
+	* src/boards/menu2.c: (create_panel), (menu_is_our_board),
+	(create_top):
+	* src/gcompris/gcompris.c: (gcompris_init):
+
+2006-01-29  Yves Combe  <yves@ycombe.net>
+
+	Suppress event connection on text. 
+	Segfault seems to be fixed.
+
+	* src/gcompris/gcompris_confirm.c: (gcompris_confirm_stop),
+	(display_confirm):
+
+2006-01-27  Yves Combe  <yves@ycombe.net>
+
+	fix unpause bug in confirm.
+
+	* src/gcompris/gcompris_confirm.c: (display_confirm):
+
+2006-01-26  Yves Combe  <yves@ycombe.net>
+
+	small memory fix: pixbuf not freed after use.
+
+	* src/gcompris/gcompris_confirm.c: (display_confirm):
+
+2006-01-25  Yves Combe  <yves@ycombe.net>
+
+	fix colors in confirmation window.
+
+	* src/gcompris/gcompris_confirm.c: (display_confirm):
+
+2006-01-25  Yves Combe  <yves@ycombe.net>
+
+	add a confirmation popup on quit. Yet colors problem because of shadow.
+
+	* src/boards/menu2.c: (menu_create_item):
+	* src/gcompris/Makefile.am:
+	* src/gcompris/bar.c: (item_event_bar), (confirm_quit):
+	* src/gcompris/gcompris.h:
+	* src/gcompris/gcompris_confirm.c: (gcompris_confirm),
+	(gcompris_confirm_stop), (display_confirm), (free_stuff),
+	(set_content), (button_event):
+
+2006-01-25  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	First release of a new activity, the wordprocessor.
+	Uncomplete yet.
+
+	* boards/Makefile.am:
+	* boards/boardicons/README:
+	* boards/boardicons/wordprocessor.png:
+	* boards/wordprocessor.xml.in:
+	* src/boards/Makefile.am:
+	* src/boards/wordprocessor.c: (pause_board), (start_board),
+	(end_board), (set_level), (is_our_board),
+	(wordprocessor_destroy_all_items), (wordprocessor_create),
+	(item_event):
+
+2006-01-23  Yves Combe  <yves@ycombe.net>
+
+	constraint resize icon.
+
+	* src/boards/menu2.c: (menu_create_item):
+
+2006-01-23  Yves Combe  <yves@ycombe.net>
+
+	add background for menu2, with the differents zones. 
+
+	* boards/skins/gartoon/gcompris-menu2bg.png:
+	* src/boards/menu2.c: (menu_start):
+
+2006-01-23  Yves Combe  <yves@ycombe.net>
+
+	fix segfault i had in level 4 5 6 of magic hat.
+
+	* src/boards/magic_hat.c: (place_item):
+
+2006-01-23  Yves Combe  <yves@ycombe.net>
+
+	fix bug in menu2.
+	minor update in magic_hat (MB)
+
+	* src/boards/magic_hat.c: (hat_event):
+	* src/boards/menu2.c: (menu_start), (display_section),
+	(item_event), (create_top):
+
+2006-01-22  Yves Combe  <yves@ycombe.net>
+
+	new activity magic_hat by Marc Brun.
+
+	* boards/Makefile.am:
+	* boards/boardicons/magic_hat.png:
+	* boards/magic_hat.xml.in:
+	* boards/magic_hat/hat-point.png:
+	* boards/magic_hat/hat.png:
+	* boards/magic_hat/magic_hat-bg.png:
+	* boards/magic_hat/star-clear.png:
+	* boards/magic_hat/star.png:
+	* boards/magic_hat/star1.png:
+	* boards/magic_hat/star2.png:
+	* boards/magic_hat/star3.png:
+	* src/boards/Makefile.am:
+	* src/boards/magic_hat.c: (pause_board), (start_board),
+	(end_board), (process_ok), (set_level), (is_our_board),
+	(magic_hat_next_level), (magic_hat_destroy_all_items),
+	(magic_hat_create_item), (finished), (game_won), (draw_frame),
+	(draw_table), (draw_hat), (place_item), (item_event), (hat_event),
+	(nb_list), (smooth_move):
+	* src/boards/menu2.c: (display_welcome):
+
+2006-01-21  Yves Combe  <yves@ycombe.net>
+
+	suppress highlight on start
+
+	* src/boards/menu2.c: (display_welcome):
+
+2006-01-21  Yves Combe  <yves@ycombe.net>
+
+	return to last menu position after playing a board
+	add GCompris Logo at start.
+
+	* src/boards/menu2.c: (menu_start), (display_section),
+	(create_top), (display_welcome):
+	* src/gcompris/properties.c: (gcompris_properties_new):
+	* src/gcompris/properties.h:
+
+2006-01-21  Yves Combe  <yves@ycombe.net>
+
+	gcompris -l nowhere/menu2 to test this new menu.
+
+	* boards/Makefile.am:
+	* boards/menu2.xml.in:
+	* src/boards/Makefile.am:
+	* src/boards/menu2.c: (menu_pause), (menu_start), (create_panel),
+	(display_section), (menu_end), (menu_is_our_board), (menu_config),
+	(display_board_icon), (next_spot), (menu_create_item),
+	(item_event), (set_content), (create_info_area), (free_stuff),
+	(get_ratio), (create_top):
+	* src/gcompris/gameutil.c: (gcompris_get_menulist):
+
+
+	*** BRANCH gcompris_7_4 ***
+	
+2006-03-01  Bruno coudoin  <bruno.coudoin@free.fr>
+
 	* src/boards/python/sudoku.py: Added protections to try to avoid a crash hapenning 
 	after or during the bonus. It has been observed after level 4.
 	
@@ -465,6 +1169,548 @@
 	* src/gcompris/gcompris.c: (gcompris_init):
 	* src/gcompris/gcompris_db.c: (gcompris_db_init):
 
+2006-02-13  Yves Combe  <yves@ycombe.net>
+
+	fix bug in gcompris_sound_controller signal definition. Apparently causes crash in dapper Ubuntu.
+
+	* po/Makefile.in.in:
+	* src/gcompris/soundutil.c: (default_sound_played_signal_handler),
+	(gcompris_sound_class_init):
+
+2006-02-11  Yves Combe  <yves@ycombe.net>
+
+	test on size of db file, to create tables if it's 0
+	(correction of null-sized db due to USE_SQLITE bug).
+	
+	* src/gcompris/gcompris_db.c: (gcompris_db_init):
+
+2006-02-09  Yves Combe  <yves@ycombe.net>
+
+	minor fix (hat double click and highlight focus).
+
+	* src/boards/magic_hat.c: (draw_hat), (hat_event):
+
+2006-02-09  Yves Combe  <yves@ycombe.net>
+
+	new versions of magic hat by Marc Brun: addition and substraction.
+
+	* boards/Makefile.am:
+	* boards/boardicons/magic_hat.png:
+	* boards/boardicons/magic_hat_minus.png:
+	* boards/boardicons/magic_hat_plus.png:
+	* boards/magic_hat.xml.in:
+	* boards/magic_hat/magic_hat_minus.png:
+	* boards/magic_hat/magic_hat_minus_bg.png:
+	* boards/magic_hat/magic_hat_plus.png:
+	* boards/magic_hat/magic_hat_plus_bg.png:
+	* boards/magic_hat/star.png:
+	* boards/magic_hat_minus.xml.in:
+	* boards/magic_hat_plus.xml.in:
+	* configure.in:
+	* src/boards/magic_hat.c: (start_board), (process_ok),
+	(magic_hat_create_item), (draw_frame), (draw_hat), (place_item),
+	(item_event), (hat_event), (move_stars), (close_hat),
+	(smooth_move):
+
+2006-02-09  Yves Combe  <yves@ycombe.net>
+
+	fix bug in memory_div and emory_mult_div. 
+	fix font size and font color.
+
+	* src/boards/memory.c: (get_image), (create_item):
+
+2006-02-09  Yves Combe  <yves@ycombe.net>
+
+	fix bug, change font size following level for memory operations activities.
+
+	* src/boards/memory.c: (get_random_token), (start_board),
+	(create_item), (compare_card):
+
+2006-02-09  Yves Combe  <yves@ycombe.net>
+
+	fix animation was launched after winning.
+	add memory based mathematicals operations boards.
+
+	* boards/Makefile.am:
+	* boards/memory_add.xml.in:
+	* boards/memory_add_minus.xml.in:
+	* boards/memory_add_minus_mult_div.xml.in:
+	* boards/memory_add_minus_mult_div_tux.xml.in:
+	* boards/memory_add_minus_tux.xml.in:
+	* boards/memory_add_tux.xml.in:
+	* boards/memory_mult.xml.in:
+	* boards/memory_mult_div.xml.in:
+	* boards/memory_mult_div_tux.xml.in:
+	* boards/memory_mult_tux.xml.in:
+	* boards/memory_op_group.xml.in:
+	* boards/memory_op_group_tux.xml.in:
+	* src/boards/awele.c: (buttonClick):
+	* src/boards/memory.c: (get_random_token), (start_board),
+	(memory_destroy_all_items), (get_image), (create_item),
+	(compare_card):
+
+2006-02-08  Yves Combe  <yves@ycombe.net>
+
+	fix depth search. Must not to be odd in best difference evaluation!
+
+	* src/boards/awele_alphaBeta.c: (think):
+
+2006-02-08  Yves Combe  <yves@ycombe.net>
+
+	add a reset of item->canvas after destroy.
+
+	* src/gcompris/anim.c: (gcompris_deactivate_animation):
+
+2006-02-08  Yves Combe  <yves@ycombe.net>
+
+	Some fix in animation api/usage.
+
+	* src/boards/awele_alphaBeta.c: (think):
+	* src/boards/py-mod-anim.c: (Animation_free), (AnimCanvas_free):
+	* src/boards/python/gnumch.py:
+	* src/gcompris/anim.c: (anim_tick):
+
+2006-02-07  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* src/boards/advanced_colors.c: (add_xml_data): fixed to check properly for long locale (e.g. pt_BR)
+	* src/boards/read_colors.c: (add_xml_data), (parse_doc): -
+	* src/boards/python/melody.py: added a dialog if run without sound fx activated
+	  changed to use the reload icon instead of mouth sign for the repeat.
+
+2006-02-07  Yves Combe  <yves@ycombe.net>
+
+	fix anim api to destroy the item canvas on deactivate.
+	fix gnumch to not crash with that (del anim before quit)
+	fix anim in awele.
+
+	* src/boards/awele.c: (pause_board), (repeat), (set_level),
+	(to_computer), (buttonClick):
+	* src/boards/awele_utils.c: (diedOfHunger):
+	* src/boards/python/gnumch.py:
+	* src/gcompris/anim.c: (gcompris_deactivate_animation):
+
+2006-02-07  Yves Combe,,,  <yves@ycombe.net>
+
+	add Grand slam rule for capture (no capture 
+	if that let opponent hungry).
+	add correct rule for hunger end of games (untested).
+
+	* src/boards/awele.c: (to_computer):
+	* src/boards/awele_utils.c: (moveAwale), (diedOfHunger):
+	* src/boards/awele_utils.h:
+
+2006-02-07  Yves Combe  <yves@ycombe.net>
+
+	fix crash with animation on next_level and repeat.
+	fix strings i18n. Needs review of strings.
+
+	* src/boards/awele.c: (pause_board), (repeat), (set_level),
+	(awele_create_item), (to_computer), (buttonClick):
+
+2006-02-07  Yves Combe  <yves@ycombe.net>
+
+	add animation like in connect4 when computer think.
+
+	* src/boards/awele.c: (pause_board), (start_board), (end_board),
+	(awele_next_level), (to_computer), (buttonClick):
+
+2006-02-06  Yves Combe  <yves@ycombe.net>
+
+	clean code from unused fucntion
+
+	* src/boards/awele.c:
+	* src/boards/awele.h:
+
+2006-02-06  Yves Combe  <yves@ycombe.net>
+
+	change evaluation fonction usage in awele,
+	to make it easier in level 1-4.
+	difficulty:
+	 - level 1-2 -> random
+	 - level 3-4 -> best computer capture, depth 1.
+	 - level 5-6 -> best difference in capture, depth 1.
+	 - level 7-8 -> best difference in capture, depth 2.
+	 - level 9 -> best difference in capture, depth 3.
+	clean from g_warning.
+	change first player: computer begins at level 2-4-6-8.
+
+	* src/boards/awele.c: (start_board), (repeat), (set_level),
+	(awele_next_level), (game_won), (to_computer),
+	(updateCapturedBeans):
+	* src/boards/awele_alphaBeta.c: (eval_to_null),
+	(eval_to_best_capture), (think):
+	* src/boards/awele_utils.c: (moveAwale):
+	* src/gcompris/gcompris_alphabeta.c: (gcompris_alphabeta):
+
+2006-02-06  Yves Combe  <yves@ycombe.net>
+
+	awele manily fixed.
+	TODO: change first player.
+	TODO: add correct rule in case of end by hungry player.
+
+	* src/boards/awele.c: (pause_board), (start_board),
+	(awele_next_level), (awele_create_item), (to_computer),
+	(buttonClick), (updateNbBeans), (updateCapturedBeans),
+	(buttonNewGameClick):
+	* src/boards/awele.h:
+	* src/boards/awele_alphaBeta.c: (firstChild), (think):
+	* src/boards/awele_utils.c: (moveAwale):
+	* src/gcompris/gcompris_alphabeta.c: (gcompris_alphabeta):
+
+2006-02-06  Yves Combe  <yves@ycombe.net>
+
+	add generic minmax(alphabeta) function.
+	use it in awale.
+	Need more tests.
+
+	* src/boards/awele.c: (start_board), (awele_create_item),
+	(to_computer), (buttonClick), (updateCapturedBeans):
+	* src/boards/awele_alphaBeta.c: (eval), (firstChild),
+	(nextSibling), (free_awale), (think):
+	* src/boards/awele_utils.c: (isOpponentHungry), (moveAwale),
+	(randplay):
+	* src/boards/awele_utils.h:
+	* src/gcompris/Makefile.am:
+	* src/gcompris/gcompris.h:
+	* src/gcompris/gcompris_alphabeta.c: (gcompris_alphabeta):
+	* src/gcompris/gcompris_alphabeta.h:
+
+2006-02-05  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	Changed background entry color to white. The blue background color
+	was no more working for me for no reason.
+
+	Improved wordprocessor. Now handle a single fixed theme coherently.
+	
+	* po/ChangeLog:
+	* src/boards/python/guessnumber.py:
+	* src/boards/wordprocessor.c: (display_style_buttons),
+	(item_event), (create_tags), (set_default_style),
+	(key_press_event):
+
+2006-02-03  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	- merged awele with HEAD.
+	
+	* boards/awele/awele_frame.jpg:
+	* boards/awele/awele_frame.png:
+	* boards/awele/awele_frame_avec_messages.png:
+	* boards/awele/nv_partie.png:
+	* boards/awele/nv_partie_clic.png:
+	* boards/awele/nv_partie_notify.png:
+	* po/TRANSLATORS.README:
+	* src/boards/awele.c: (start_board), (repeat), (awele_create_item),
+	(buttonNewGameClick):
+	* src/boards/awele.h:
+	* src/boards/python/guessnumber.py: fix title alignement from HEAD.
+	* src/boards/smallnumbers.c: (smallnumbers_create_item): from HEAD, use bar dice.
+	* src/boards/wordprocessor.c: (wordprocessor_create),
+	(display_style_buttons), (item_event), (create_tags),
+	(key_press_event):
+
+2006-02-03  Yves Combe,,,  <yves@ycombe.net>
+
+	fix level display and usage in awele.
+	add winning detection at 25 beans-> display bonus and new game.
+
+	* src/boards/awele.c: (start_board), (set_level),
+	(awele_create_item):
+
+2006-02-02  Yves Combe  <yves@ycombe.net>
+
+	Display bonus and end of game when 25 beans are captured.
+
+	* src/boards/awele.c: (updateCapturedBeans):
+
+2006-02-02  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	
+	* tools/list_missing_sounds.sh: By Jose Jorge. A nice utility to compare the locale
+	  translations status of voices to English.
+
+2006-01-31  Yves Combe,,,  <yves@ycombe.net>
+
+	fix configurables boards in c to configure from bar.
+
+	* src/boards/colors.c: (conf_ok), (colors_config_start),
+	(start_board):
+	* src/boards/gletters.c: (level_set_score), (conf_ok),
+	(gletter_config_start):
+	* src/boards/imageid.c: (config_start):
+	* src/boards/missingletter.c: (config_start):
+	* src/boards/reading.c: (reading_config_start):
+	* src/boards/smallnumbers.c: (start_board),
+	(smallnumbers_create_item), (conf_ok), (smallnumber_config_start):
+
+2006-01-31  Yves Combe  <yves@ycombe.net>
+
+	fix /reading boards to configure from bar.
+
+	* src/boards/click_on_letter.c: (conf_ok):
+	* src/boards/imageid.c: (start_board), (conf_ok), (config_start):
+	* src/boards/missingletter.c: (start_board), (conf_ok):
+	* src/boards/python/pythontest.py:
+	* src/boards/reading.c: (start_board), (conf_ok),
+	(reading_config_start):
+	* src/boards/shapegame.c: (conf_ok):
+
+2006-01-30  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	- Added copyright header following formal argeement of
+	  the author Pedro Felzenszwalb <pff@cs.uchicago.edu>
+
+	* tools/shapegame/.cvsignore:
+	* tools/shapegame/dt/.cvsignore:
+	* tools/shapegame/dt/README:
+	* tools/shapegame/dt/dt.cpp:
+	* tools/shapegame/dt/dt.h:
+	* tools/shapegame/dt/image.h:
+	* tools/shapegame/dt/imconv.h:
+	* tools/shapegame/dt/imutil.h:
+	* tools/shapegame/dt/misc.h:
+	* tools/shapegame/dt/pnmfile.h:
+	* tools/shapegame/nice_target_spot.cpp:
+
+2006-01-30  Yves Combe  <yves@ycombe.net>
+
+	fix configuration window was not visible in fullscreen mode, using gtk_dialog.
+
+	* src/gcompris/board_config.c: (gcompris_close_board_conf),
+	(gcompris_response_board_conf), (gcompris_configuration_window):
+
+2006-01-30  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	- Added the German map by Olaf Ronneberger.
+	- Added in tools/shapegame/ a utility to create shapegame activity
+
+	* boards/geography.xml.in:
+	* boards/geography/Makefile.am:
+	* boards/geography/board6_0.xml.in:
+	* boards/geography/germany_region/back.png:
+	* boards/geography/germany_region/baden-wuerttemberg.png:
+	* boards/geography/germany_region/bayern.png:
+	* boards/geography/germany_region/berlin.png:
+	* boards/geography/germany_region/brandenburg.png:
+	* boards/geography/germany_region/bremen.png:
+	* boards/geography/germany_region/hamburg.png:
+	* boards/geography/germany_region/hessen.png:
+	* boards/geography/germany_region/mecklenburg-vorpommern.png:
+	* boards/geography/germany_region/niedersachsen.png:
+	* boards/geography/germany_region/nordrhein-westfalen.png:
+	* boards/geography/germany_region/rheinland-pfalz.png:
+	* boards/geography/germany_region/saarland.png:
+	* boards/geography/germany_region/sachsen-anhalt.png:
+	* boards/geography/germany_region/sachsen.png:
+	* boards/geography/germany_region/schleswig_holstein.png:
+	* boards/geography/germany_region/target_baden-wuerttemberg.png:
+	* boards/geography/germany_region/target_bayern.png:
+	* boards/geography/germany_region/target_berlin.png:
+	* boards/geography/germany_region/target_brandenburg.png:
+	* boards/geography/germany_region/target_bremen.png:
+	* boards/geography/germany_region/target_hamburg.png:
+	* boards/geography/germany_region/target_hessen.png:
+	* boards/geography/germany_region/target_mecklenburg-vorpommern.png
+	:
+	* boards/geography/germany_region/target_niedersachsen.png:
+	* boards/geography/germany_region/target_nordrhein-westfalen.png:
+	* boards/geography/germany_region/target_rheinland-pfalz.png:
+	* boards/geography/germany_region/target_saarland.png:
+	* boards/geography/germany_region/target_sachsen-anhalt.png:
+	* boards/geography/germany_region/target_sachsen.png:
+	* boards/geography/germany_region/target_schleswig_holstein.png:
+	* boards/geography/germany_region/target_thueringen.png:
+	* boards/geography/germany_region/thueringen.png:
+	* src/boards/wordprocessor.c: (wordprocessor_create),
+	(display_style_buttons), (item_event), (create_tags):
+	* src/gcompris/gcompris_confirm.c:
+	* tools/shapegame/HOWTO:
+	* tools/shapegame/Makefile:
+	* tools/shapegame/dt/Makefile:
+	* tools/shapegame/dt/README:
+	* tools/shapegame/dt/dt.cpp:
+	* tools/shapegame/dt/dt.h:
+	* tools/shapegame/dt/image.h:
+	* tools/shapegame/dt/imconv.h:
+	* tools/shapegame/dt/imutil.h:
+	* tools/shapegame/dt/input.pbm:
+	* tools/shapegame/dt/misc.h:
+	* tools/shapegame/dt/pnmfile.h:
+	* tools/shapegame/nice_target_spot.cpp:
+	* tools/shapegame/test.pbm:
+
+2006-01-29  Yves Combe  <yves@ycombe.net>
+
+	fix click_on_letter and shapegame (imagename) to configure from bar.
+
+	* src/boards/click_on_letter.c: (sounds_are_fine), (conf_ok),
+	(config_start):
+	* src/boards/py-gcompris-profile.c:
+	(gcompris_new_pyGcomprisProfileObject):
+	* src/boards/py-mod-gcompris.c: (pyGcomprisConfCallback):
+	* src/boards/shapegame.c: (start_board), (conf_ok), (config_start):
+	* src/gcompris/board_config.c: (gcompris_close_board_conf),
+	(gcompris_apply_board_conf), (gcompris_configuration_window),
+	(gcompris_change_locale):
+
+2006-01-29  Yves Combe  <yves@ycombe.net>
+
+	Add board config_start call by the bar.
+	Click on letter fixed to use that. Menu2 too.
+	Others boards needs fix too.
+
+	* src/boards/click_on_letter.c: (start_board), (conf_ok),
+	(config_start):
+	* src/boards/menu2.c: (menu_config_start), (menu_config_stop):
+	* src/gcompris/bar.c: (item_event_bar):
+
+2006-01-29  Yves Combe,,,  <yves@ycombe.net>
+
+	menu2 is now default menu.
+	menu2 works now with -l option
+
+	* src/boards/Makefile.am:
+	* src/boards/menu2.c: (create_panel), (menu_is_our_board),
+	(create_top):
+	* src/gcompris/gcompris.c: (gcompris_init):
+
+2006-01-29  Yves Combe  <yves@ycombe.net>
+
+	Suppress event connection on text. 
+	Segfault seems to be fixed.
+
+	* src/gcompris/gcompris_confirm.c: (gcompris_confirm_stop),
+	(display_confirm):
+
+2006-01-27  Yves Combe  <yves@ycombe.net>
+
+	fix unpause bug in confirm.
+
+	* src/gcompris/gcompris_confirm.c: (display_confirm):
+
+2006-01-26  Yves Combe  <yves@ycombe.net>
+
+	small memory fix: pixbuf not freed after use.
+
+	* src/gcompris/gcompris_confirm.c: (display_confirm):
+
+2006-01-25  Yves Combe  <yves@ycombe.net>
+
+	fix colors in confirmation window.
+
+	* src/gcompris/gcompris_confirm.c: (display_confirm):
+
+2006-01-25  Yves Combe  <yves@ycombe.net>
+
+	add a confirmation popup on quit. Yet colors problem because of shadow.
+
+	* src/boards/menu2.c: (menu_create_item):
+	* src/gcompris/Makefile.am:
+	* src/gcompris/bar.c: (item_event_bar), (confirm_quit):
+	* src/gcompris/gcompris.h:
+	* src/gcompris/gcompris_confirm.c: (gcompris_confirm),
+	(gcompris_confirm_stop), (display_confirm), (free_stuff),
+	(set_content), (button_event):
+
+2006-01-25  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	First release of a new activity, the wordprocessor.
+	Uncomplete yet.
+
+	* boards/Makefile.am:
+	* boards/boardicons/README:
+	* boards/boardicons/wordprocessor.png:
+	* boards/wordprocessor.xml.in:
+	* src/boards/Makefile.am:
+	* src/boards/wordprocessor.c: (pause_board), (start_board),
+	(end_board), (set_level), (is_our_board),
+	(wordprocessor_destroy_all_items), (wordprocessor_create),
+	(item_event):
+
+2006-01-23  Yves Combe  <yves@ycombe.net>
+
+	constraint resize icon.
+
+	* src/boards/menu2.c: (menu_create_item):
+
+2006-01-23  Yves Combe  <yves@ycombe.net>
+
+	add background for menu2, with the differents zones. 
+
+	* boards/skins/gartoon/gcompris-menu2bg.png:
+	* src/boards/menu2.c: (menu_start):
+
+2006-01-23  Yves Combe  <yves@ycombe.net>
+
+	fix segfault i had in level 4 5 6 of magic hat.
+
+	* src/boards/magic_hat.c: (place_item):
+
+2006-01-23  Yves Combe  <yves@ycombe.net>
+
+	fix bug in menu2.
+	minor update in magic_hat (MB)
+
+	* src/boards/magic_hat.c: (hat_event):
+	* src/boards/menu2.c: (menu_start), (display_section),
+	(item_event), (create_top):
+
+2006-01-22  Yves Combe  <yves@ycombe.net>
+
+	new activity magic_hat by Marc Brun.
+
+	* boards/Makefile.am:
+	* boards/boardicons/magic_hat.png:
+	* boards/magic_hat.xml.in:
+	* boards/magic_hat/hat-point.png:
+	* boards/magic_hat/hat.png:
+	* boards/magic_hat/magic_hat-bg.png:
+	* boards/magic_hat/star-clear.png:
+	* boards/magic_hat/star.png:
+	* boards/magic_hat/star1.png:
+	* boards/magic_hat/star2.png:
+	* boards/magic_hat/star3.png:
+	* src/boards/Makefile.am:
+	* src/boards/magic_hat.c: (pause_board), (start_board),
+	(end_board), (process_ok), (set_level), (is_our_board),
+	(magic_hat_next_level), (magic_hat_destroy_all_items),
+	(magic_hat_create_item), (finished), (game_won), (draw_frame),
+	(draw_table), (draw_hat), (place_item), (item_event), (hat_event),
+	(nb_list), (smooth_move):
+	* src/boards/menu2.c: (display_welcome):
+
+2006-01-21  Yves Combe  <yves@ycombe.net>
+
+	suppress highlight on start
+
+	* src/boards/menu2.c: (display_welcome):
+
+2006-01-21  Yves Combe  <yves@ycombe.net>
+
+	return to last menu position after playing a board
+	add GCompris Logo at start.
+
+	* src/boards/menu2.c: (menu_start), (display_section),
+	(create_top), (display_welcome):
+	* src/gcompris/properties.c: (gcompris_properties_new):
+	* src/gcompris/properties.h:
+
+2006-01-21  Yves Combe  <yves@ycombe.net>
+
+	gcompris -l nowhere/menu2 to test this new menu.
+
+	* boards/Makefile.am:
+	* boards/menu2.xml.in:
+	* src/boards/Makefile.am:
+	* src/boards/menu2.c: (menu_pause), (menu_start), (create_panel),
+	(display_section), (menu_end), (menu_is_our_board), (menu_config),
+	(display_board_icon), (next_spot), (menu_create_item),
+	(item_event), (set_content), (create_info_area), (free_stuff),
+	(get_ratio), (create_top):
+	* src/gcompris/gameutil.c: (gcompris_get_menulist):
+
+
+	*** BRANCH gcompris_7_4 ***
+	
 2006-01-19  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	Improved board english description.
@@ -5590,7 +6836,6 @@
 	* src/gcompris/board_config.h:
 	* src/gcompris/plugin.h:
 
->>>>>>> 1.526
 2005-07-22  Yves Combe  <yves@ycombe.net>
 
 	Connect treeview signal to allow usage of pref button

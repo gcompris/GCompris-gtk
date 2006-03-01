@@ -1,0 +1,34 @@
+Implementation of the distance transform algorithm described in:
+
+Distance Transforms of Sampled Functions
+Pedro F. Felzenszwalb and Daniel P. Huttenlocher
+Cornell Computing and Information Science TR2004-1963 
+http://people.cs.uchicago.edu/~pff/dt/
+
+The main program "dt.cpp" computes the standard distance transform of
+a binary image.  The algorithm for computing the transform of a
+sampled function is in "dt.h".
+
+1) Type make to compile "dt".
+
+2) Run "./dt input.pbm output.pgm" to compute the distance transform
+of a binary image.  The input is a binary PBM image and the output is
+a grayscale PGM image.  Note that the actual distance values are
+scaled to fit in the [0-255] grayscale range.
+
+The code in this directory is Copyrighted by Pedro Felzenszwalb and is
+released under GPL:
+
+   Betreff: Re: Gnu public license for your distance transform code?
+   Datum: Sun, 29 Jan 2006 19:20:05 -0600
+   Von: Pedro Felzenszwalb <pff@cs.uchicago.edu>
+   An: Olaf Ronneberger <Olaf@Ronneberger.net>
+   Referenzen: <43DD45AB.1060706@Ronneberger.net>
+
+   Dear Olaf,
+
+   I am glad to hear the code is being used in your software and I am
+   happy to release it under the GPL.
+   Do you need me to send you anything in particular?
+
+   Pedro

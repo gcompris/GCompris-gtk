@@ -122,10 +122,34 @@ static GHFunc save_table (gpointer key,
 
 static GcomprisConfCallback conf_ok(GHashTable *table)
 {
+  if (!table){
+    if (gcomprisBoard)
+      pause_board(FALSE);
+    return;
+  }
+
   g_hash_table_foreach(table, (GHFunc) save_table, NULL);
   
   board_conf = NULL;
   profile_conf = NULL;
+  
+  
+  if (gcomprisBoard){
+    GHashTable *config = gcompris_get_board_conf();
+  
+    if (locale_sound)
+      g_free(locale_sound);
+    locale_sound = g_strdup(g_hash_table_lookup( config, "locale_sound"));
+  
+    g_hash_table_destroy(config);
+
+    colors_next_level();
+
+    pause_board(FALSE);
+  
+  }
+  
+
 }
 
 static gboolean check_text(gchar *key, gchar *text, GtkLabel *label){
@@ -142,6 +166,10 @@ colors_config_start(GcomprisBoard *agcomprisBoard,
   profile_conf = aProfile;
 
   gchar *label;
+
+
+  if (gcomprisBoard)
+    pause_board(TRUE);
   
   label = g_strdup_printf("<b>%s</b> configuration\n for profile <b>%s</b>",
 			  agcomprisBoard->name, aProfile->name);
@@ -153,9 +181,11 @@ colors_config_start(GcomprisBoard *agcomprisBoard,
   /* init the combo to previously saved value */
   GHashTable *config = gcompris_get_conf( profile_conf, board_conf);
 
-  gchar *locale_sound = g_hash_table_lookup( config, "locale_sound");
+  gchar *saved_locale_sound = g_hash_table_lookup( config, "locale_sound");
   
-  gcompris_combo_locales_asset( "Select sound locale", locale_sound, "gcompris colors", NULL, "audio/x-ogg", "purple.ogg");
+  gcompris_combo_locales_asset( "Select sound locale", saved_locale_sound, "gcompris colors", NULL, "audio/x-ogg", "purple.ogg");
+
+  g_hash_table_destroy(config);
 
 }
 
@@ -195,7 +225,9 @@ static void start_board (GcomprisBoard *agcomprisBoard) {
 
   GHashTable *config = gcompris_get_board_conf();
 
-  locale_sound = g_hash_table_lookup( config, "locale_sound");
+  locale_sound = g_strdup(g_hash_table_lookup( config, "locale_sound"));
+  
+  g_hash_table_destroy(config);
 
   if(agcomprisBoard!=NULL) {
     gcomprisBoard=agcomprisBoard;
@@ -204,9 +236,9 @@ static void start_board (GcomprisBoard *agcomprisBoard) {
     gcomprisBoard->maxlevel=1;
 
     if(properties->fx) {
-      gcompris_bar_set(GCOMPRIS_BAR_REPEAT);
+      gcompris_bar_set(GCOMPRIS_BAR_CONFIG|GCOMPRIS_BAR_REPEAT);
     } else {
-      gcompris_bar_set(0);
+      gcompris_bar_set(GCOMPRIS_BAR_CONFIG);
     }
 
     gamewon = FALSE;

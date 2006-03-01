@@ -91,7 +91,7 @@ class Gcompris_pythontest:
     color_name = self.config_dict['color_line']
     self.colors['line'] = self.config_colors[color_name]
 
-    gcompris.bar_set(0)
+    gcompris.bar_set(gcompris.BAR_CONFIG)
     gcompris.set_background(self.gcomprisBoard.canvas.root(),
                             gcompris.skin.image_to_skin("gcompris-bg.jpg"))
     gcompris.bar_set_level(self.gcomprisBoard)
@@ -390,6 +390,7 @@ class Gcompris_pythontest:
   # Configuration function.
   def config_start(self, profile):
     # keep profile in mind
+    # profile can be Py_None
     self.configuring_profile = profile
 
     # init with default values
@@ -483,10 +484,14 @@ class Gcompris_pythontest:
   # Callback when the "OK" button is clicked in configuration window
   # this get all the _changed_ values
   def ok_callback(self, table):
+    if (table == None):
+      print 'Configuration returns None'
+      return
+    
     print "Keys and values returned by PythonTest config window:"
     
     if (len(table) == 0):
-           print '%20s' % 'None'
+        print '%20s' % 'None'
            
     for key,value in table.iteritems():
       print '%20s:%20s    ' % (key, value)

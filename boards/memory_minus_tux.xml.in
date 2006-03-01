@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GCompris>
+  <Board 
+	 name="memory_minus_tux"
+	 type="memory" 
+	 section="/experimental/memory_op_group_tux"
+	 mode="minus_tux" 
+	 difficulty="1"
+	 icon="boardicons/memory_tux.png" 
+	 author="Bruno Coudoin (bruno.coudoin@free.fr)"
+	 boarddir="">
+	 <_title>Memory Game for substractions against Tux</_title>
+ 	 <_description>Flip the cards to find the matching pairs</_description>
+	<_prerequisite>Additions</_prerequisite>
+	<_goal>Train your memory in addition domain and remove all the cards</_goal>
+	<_manual>A set of blank cards is shown. Each card has a picture on the other side, and each picture card has a twin exactly the same. Click on a card to see its hidden picture, and try to match the twins. You can only turn over two cards at once, so you need to remember where a picture is, while you look for its twin. When you turn over the twins, they both disappear.</_manual>
+  </Board>
+  <Data directory=""/>
+</GCompris>

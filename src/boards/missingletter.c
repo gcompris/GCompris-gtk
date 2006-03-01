@@ -173,7 +173,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 			   50,
 			   gcomprisBoard->height - 50,
 			   gcomprisBoard->number_of_sublevel);
-      gcompris_bar_set(GCOMPRIS_BAR_LEVEL);
+      gcompris_bar_set(GCOMPRIS_BAR_CONFIG | GCOMPRIS_BAR_LEVEL);
 
       missing_letter_next_level();
 
@@ -723,10 +723,32 @@ static GHFunc save_table (gpointer key,
 
 static GcomprisConfCallback conf_ok(GHashTable *table)
 {
+  if (!table){
+    if (gcomprisBoard)
+      pause_board(FALSE);
+    return NULL;
+  }
+
   g_hash_table_foreach(table, (GHFunc) save_table, NULL);
   
   board_conf = NULL;
   profile_conf = NULL;
+
+  if (gcomprisBoard){
+    gcompris_reset_locale();
+    GHashTable *config = gcompris_get_board_conf();
+    
+    gcompris_change_locale(g_hash_table_lookup( config, "locale"));
+
+    g_hash_table_destroy(config);
+
+    destroy_board_list();
+
+    init_xml();
+    
+    missing_letter_next_level();
+    
+  }
 
   return NULL;
 }
@@ -737,6 +759,9 @@ config_start(GcomprisBoard *agcomprisBoard,
 {
   board_conf = agcomprisBoard;
   profile_conf = aProfile;
+
+  if (gcomprisBoard)
+    pause_board(TRUE);
 
   gcompris_configuration_window( g_strdup_printf("<b>%s</b> configuration\n for profile <b>%s</b>",
 						 agcomprisBoard->name, 

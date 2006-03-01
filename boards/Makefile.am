@@ -64,6 +64,8 @@ xml_in_files = \
 	keyboard.xml.in \
 	leftright.xml.in \
 	login.xml.in \
+	magic_hat_plus.xml.in \
+	magic_hat_minus.xml.in \
 	math.xml.in \
 	maze2DRelative.xml.in \
 	maze3D.xml.in \
@@ -74,9 +76,26 @@ xml_in_files = \
 	memory_group.xml.in \
 	memory_sound_tux.xml.in \
 	memory_sound.xml.in \
+	memory_op_group.xml.in \
+	memory_op_group_tux.xml.in \
+	memory_add.xml.in \
+	memory_add_tux.xml.in \
+	memory_minus.xml.in \
+	memory_minus_tux.xml.in \
+	memory_mult.xml.in \
+	memory_mult_tux.xml.in \
+	memory_div.xml.in \
+	memory_div_tux.xml.in \
+	memory_add_minus.xml.in \
+	memory_add_minus_tux.xml.in \
+	memory_mult_div.xml.in \
+	memory_mult_div_tux.xml.in \
+	memory_add_minus_mult_div.xml.in \
+	memory_add_minus_mult_div_tux.xml.in \
 	memory_tux.xml.in \
 	memory.xml.in \
 	menu.xml.in \
+	menu2.xml.in \
 	miscelaneous.xml.in \
 	missing_letter.xml.in \
 	money_cents.xml.in \
@@ -112,6 +131,7 @@ xml_in_files = \
 	traffic.xml.in \
 	tuxpaint.xml.in \
 	watercycle.xml.in \
+	wordprocessor.xml.in \
 	wordsgame.xml.in
 
 xml_DATA = $(xml_in_files:.xml.in=.xml)

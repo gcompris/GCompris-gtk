@@ -1,6 +1,6 @@
 /* gcompris - board_config.c
  *
- * Time-stamp: <2005/10/01 14:34:12 bruno>
+ * Time-stamp: <2006/01/30 08:57:29 yves>
  *
  * Copyright (C) 2001 Pascal Georges
  *
@@ -80,104 +80,90 @@ static void check_key(gchar *key)
     g_error(" Key %s forbiden ! Change !", key);
 }
 
-void gcompris_close_board_conf (GtkButton *button,
-				gpointer user_data)
+void gcompris_close_board_conf (GtkDialog *dialog,
+				gpointer   user_data)
 {
-  gtk_object_destroy              ((GtkObject *)conf_window);
+  gtk_object_destroy              (GTK_OBJECT(dialog));
   g_hash_table_destroy (hash_conf);
   hash_conf = NULL;
-  Confcallback = NULL;
+
+  /* in case we close without response */
+  if (Confcallback){
+    Confcallback(NULL);
+    Confcallback = NULL;
+  }
+
   g_free(label_markup);
 }
 
-void gcompris_apply_board_conf (GtkButton *button,
-				gpointer user_data)
+void gcompris_response_board_conf (GtkButton *button,
+				   gint arg1,
+				   gpointer user_data)
 {
-  if (Confcallback != NULL)
-    Confcallback(hash_conf);
 
-  gcompris_close_board_conf (button,
-			     user_data);
+  if (Confcallback){
+
+    switch (arg1){
+    case GTK_RESPONSE_APPLY:
+      Confcallback(hash_conf);
+      break;
+    case GTK_RESPONSE_CANCEL:
+      Confcallback(NULL);
+      break;
+    case GTK_RESPONSE_NONE:
+      Confcallback(NULL);
+      break;
+    default:
+      Confcallback(NULL);
+      break;
+    }
+
+    Confcallback = NULL;
+  }
+
+  gcompris_close_board_conf (GTK_DIALOG(conf_window), NULL);
+
 }
 
 GtkVBox *gcompris_configuration_window(gchar *label, GcomprisConfCallback callback)
 {
-  GtkButton *button, *button_ok;
-  GtkWidget *footer;
   GtkWidget *header;
-  GtkWidget *separator;
  
   /* init static values or callbacks */
   Confcallback = callback;
   hash_conf = g_hash_table_new_full(g_str_hash, g_str_equal, g_free, g_free);
 
   /* main configuration window */
-  conf_window = GTK_WINDOW(gtk_window_new (GTK_WINDOW_TOPLEVEL));
+  conf_window = GTK_WINDOW(gtk_dialog_new_with_buttons ("GCompris",
+							GTK_WINDOW(gtk_widget_get_toplevel (GTK_WIDGET(get_current_gcompris_board()->canvas))),
+							GTK_DIALOG_MODAL | GTK_DIALOG_DESTROY_WITH_PARENT,
+							GTK_STOCK_CANCEL,
+							GTK_RESPONSE_CANCEL,
+							GTK_STOCK_APPLY,
+							GTK_RESPONSE_APPLY,
+                                         NULL));
+  
 
   /* parameters */
-  gtk_window_set_default_size     (conf_window,
-				   320,
-				   300); 
+  gtk_window_set_position         (conf_window,
+				   GTK_WIN_POS_CENTER_ALWAYS);
 
-  gtk_window_set_resizable (conf_window, TRUE);
-
-  gtk_window_set_transient_for(conf_window,
-			       GTK_WINDOW(gtk_widget_get_toplevel(GTK_WIDGET(get_current_gcompris_board()->canvas))));
-  gtk_window_set_modal(conf_window, TRUE);
   gtk_widget_show(GTK_WIDGET(conf_window));
 
   /* main vbox in window */
-  main_conf_box = GTK_VBOX(gtk_vbox_new ( FALSE, 0));
-  gtk_widget_show(GTK_WIDGET(main_conf_box));
-  gtk_container_add(GTK_CONTAINER(conf_window), GTK_WIDGET(main_conf_box));
+  main_conf_box = GTK_VBOX(GTK_DIALOG(conf_window)->vbox);
 
-  /* hbox for apply and close buttons */
-  separator = gtk_hseparator_new();
-  gtk_widget_show(separator);
-
-  footer = gtk_hbox_new (FALSE, 0);
-  gtk_widget_show(footer);
-
-  gtk_box_pack_end (GTK_BOX(main_conf_box),
-		    footer,
-		    FALSE,
-                    FALSE,
-		    0);
-
-
-  gtk_box_pack_end (GTK_BOX(main_conf_box),
-		    separator,
-		    FALSE,
-                    FALSE,
-		    8);
-  /* Close button */
-  button = GTK_BUTTON(gtk_button_new_from_stock(GTK_STOCK_CLOSE));
-  gtk_widget_show(GTK_WIDGET(button));
-
-  g_signal_connect(G_OBJECT(button), 
-		   "clicked",
-		   G_CALLBACK(gcompris_close_board_conf),
+  g_signal_connect(G_OBJECT(conf_window), 
+		   "response",
+		   G_CALLBACK(gcompris_response_board_conf),
 		   NULL);
 
-  /* Ok button */
-  button_ok = GTK_BUTTON(gtk_button_new_from_stock(GTK_STOCK_OK));
-  gtk_widget_show(GTK_WIDGET(button_ok));
-  g_signal_connect (G_OBJECT(button_ok),
-		    "clicked",
-		    G_CALLBACK(gcompris_apply_board_conf),
+  g_signal_connect (G_OBJECT(conf_window),
+		    "close",
+		    G_CALLBACK(gcompris_close_board_conf),
 		    NULL);
 
-  gtk_box_pack_end (GTK_BOX(footer),
-		    GTK_WIDGET(button_ok),
-		    FALSE,
-		    FALSE,
-		    0);
-
-  gtk_box_pack_end (GTK_BOX(footer),
-		    GTK_WIDGET(button),
-		    FALSE,
-		    FALSE,
-		    0);
+  
 
   /* Label header */
   header = gtk_label_new ((gchar *)NULL);
@@ -340,7 +326,6 @@ GtkComboBox *gcompris_combo_box(const gchar *label, GList *strings, gchar *key, 
   return GTK_COMBO_BOX(combobox);
 }
 
-static gchar *radio_value = NULL;
 static GSList *radio_group = NULL;
 static GtkWidget *radio_box;
 static gchar *radio_key = NULL;
@@ -665,8 +650,13 @@ GtkComboBox *gcompris_combo_locales(gchar *init)
 static gchar *current_locale = NULL;
 void gcompris_change_locale(gchar *locale)
 {
-  if ((!locale) || strcmp(locale, "NULL") == 0)
+  if (!locale)
     return;
+
+  if (strcmp(locale, "NULL") == 0){
+    gcompris_reset_locale();
+    return;
+  }
 
   current_locale = g_strdup(gcompris_get_locale());
 

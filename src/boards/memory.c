@@ -1,6 +1,6 @@
 /* gcompris - memory.c
  *
- * Time-stamp: <2005/11/21 15:57:51 yves>
+ * Time-stamp: <2006/02/09 07:58:04 yves>
  *
  * Copyright (C) 2000 Bruno Coudoin
  * 
@@ -34,6 +34,20 @@
 //#define TEXT_FONT gcompris_skin_font_board_huge_bold
 #define TEXT_FONT "Serif bold 28"
 
+static gchar *op_fonts[10] =
+  {
+    "",
+    "Serif bold 28",
+    "Serif bold 24",
+    "Serif bold 20",
+    "Serif bold 20",
+    "Serif bold 17",
+    "Serif bold 13",
+    "Serif bold 13",
+    "Serif bold 13",
+    "Serif bold 11",
+  };
+
 static GcomprisBoard *gcomprisBoard = NULL;
 
 static GnomeCanvasGroup *boardRootItem = NULL;
@@ -50,9 +64,23 @@ static Mode currentMode = MODE_NORMAL;
 typedef enum
 {
   UIMODE_NORMAL		= 0,
-  UIMODE_SOUND            = 1,
+  UIMODE_SOUND          = 1,
 } UiMode;
-static Mode currentUiMode = MODE_NORMAL;
+static UiMode currentUiMode = UIMODE_NORMAL;
+
+typedef enum
+{
+  BOARDMODE_NORMAL	         = 0,
+  BOARDMODE_SOUND                = 1,
+  BOARDMODE_ADD                  = 2,
+  BOARDMODE_MINUS                = 3,
+  BOARDMODE_MULT                 = 4,
+  BOARDMODE_DIV                  = 5,
+  BOARDMODE_ADD_MINUS            = 6,
+  BOARDMODE_MULT_DIV             = 7,
+  BOARDMODE_ADD_MINUS_MULT_DIV   = 8,
+} BoardMode;
+static BoardMode currentBoardMode = BOARDMODE_NORMAL;
 
 typedef enum
 {
@@ -74,6 +102,7 @@ typedef struct {
   GnomeCanvasItem *framecardItem;
   GnomeCanvasItem *frontcardItem;
   gboolean hidden;
+  gchar *second_value;
 } MemoryItem;
 
 static MemoryItem *firstCard = NULL;
@@ -242,6 +271,9 @@ static gchar *soundList[] =
 
 #define NUMBER_OF_SOUNDS G_N_ELEMENTS(soundList)
 
+
+
+
 /* Description of this plugin */
 static BoardPlugin menu_bp =
 {
@@ -296,6 +328,74 @@ static GList *winning_pairs = NULL;
 static gint tux_id = 0;
 
 /*
+ *
+ * Operation versions
+ *
+ */
+
+
+/*  max number 1 / max number 2 */
+/*  to allow level with calculus like 7*12 */
+
+static guint add_levelDescription[10][2] =
+{
+  {0,0},
+  {5,5},
+  {5,7},
+  {7,7},
+  {7,10},
+  {10,10},
+  {10,15},
+  {15,15},
+  {25,25},
+  {50,50},
+};
+
+static guint minus_levelDescription[10][2] =
+{
+  {0,0},
+  {5,5},
+  {5,7},
+  {7,7},
+  {7,10},
+  {10,10},
+  {10,15},
+  {15,15},
+  {25,25},
+  {50,50},
+};
+
+
+static guint mult_levelDescription[10][2] =
+{
+  {0,0},
+  {5,5},
+  {5,7},
+  {7,7},
+  {7,10},
+  {10,10},
+  {12,12},
+  {15,15},
+  {20,20},
+  {25,25},
+};
+
+static guint div_levelDescription[10][2] =
+{
+  {0,0},
+  {5,5},
+  {5,7},
+  {7,7},
+  {7,10},
+  {10,10},
+  {12,12},
+  {15,15},
+  {20,20},
+  {25,25},
+};
+
+
+/*
  * random without repeted token
  * ------------------------
  *
@@ -306,6 +406,10 @@ static gint tux_id = 0;
 #define TYPE_UPPERCASE 4
 #define TYPE_LOWERCASE 8
 #define TYPE_SOUND     16
+#define TYPE_ADD       32
+#define TYPE_MINUS     64
+#define TYPE_MULT      128
+#define TYPE_DIV       256
 
 static GList *passed_token = NULL;
 
@@ -316,9 +420,11 @@ static GnomeCanvasItem *tux_score_s;
 static GnomeCanvasItem *player_score_s;
 
 /* set the type of the token returned in string in returned_type */
-void get_random_token(int token_type, gint *returned_type, gchar **string)
+void get_random_token(int token_type, gint *returned_type, gchar **string, gchar **second_value)
 {
   gchar *result = NULL;
+  gchar *second = NULL;
+  gboolean skip;
 
   gint max_token;
   gint j, i, k;
@@ -376,6 +482,40 @@ void get_random_token(int token_type, gint *returned_type, gchar **string)
     data = g_list_append(data, dat);
   }
 
+  if (token_type & TYPE_ADD){
+    max_token += (add_levelDescription[gcomprisBoard->level][0]+1)*(add_levelDescription[gcomprisBoard->level][1]+1);
+    DATUM *dat = g_malloc0(sizeof(DATUM));
+    dat->bound = max_token;
+    dat->type =   TYPE_ADD;
+    data = g_list_append(data, dat);
+  }
+
+  if (token_type & TYPE_MINUS){
+    max_token += (minus_levelDescription[gcomprisBoard->level][0]+1)*(minus_levelDescription[gcomprisBoard->level][1]+1);
+    DATUM *dat = g_malloc0(sizeof(DATUM));
+    dat->bound = max_token;
+    dat->type =   TYPE_MINUS;
+    data = g_list_append(data, dat);
+  }
+
+  if (token_type & TYPE_MULT){
+   max_token += (mult_levelDescription[gcomprisBoard->level][0]+1)*(mult_levelDescription[gcomprisBoard->level][1]+1);
+    DATUM *dat = g_malloc0(sizeof(DATUM));
+    dat->bound = max_token;
+    dat->type =   TYPE_MULT;
+    data = g_list_append(data, dat);
+  }
+
+  if (token_type & TYPE_DIV){
+    max_token += (div_levelDescription[gcomprisBoard->level][0]+1)*(div_levelDescription[gcomprisBoard->level][1]+1);
+    DATUM *dat = g_malloc0(sizeof(DATUM));
+    dat->bound = max_token;
+    dat->type =   TYPE_DIV;
+    data = g_list_append(data, dat);
+  }
+
+
+
   g_assert(max_token >0);
 
   i = rand()%max_token;
@@ -387,7 +527,10 @@ void get_random_token(int token_type, gint *returned_type, gchar **string)
   j=-1;
 
   do {
+    skip = FALSE;
     g_free(result);
+    result = NULL;
+    g_free(second);
     j++;
 
     if ((i+j) == max_token) {
@@ -420,16 +563,53 @@ void get_random_token(int token_type, gint *returned_type, gchar **string)
       g_utf8_strncpy(result, g_utf8_offset_to_pointer (alphabet_lowercase,k),1);
       break;
     case TYPE_SOUND:
-      result= g_strdup(soundList[k]);
+      result = g_strdup(soundList[k]);
       break;
+    case TYPE_ADD:
+      {
+	int i, j;
+	i = k %  add_levelDescription[gcomprisBoard->level][0];
+	j = k /  add_levelDescription[gcomprisBoard->level][0];
+	result = g_strdup_printf("%d+%d",i,j);
+	second = g_strdup_printf("%d",i+j);;
+	break;
+      }
+    case TYPE_MINUS:
+      {
+	int i, j;
+	i = k %  minus_levelDescription[gcomprisBoard->level][0];
+	j = k /  minus_levelDescription[gcomprisBoard->level][0];
+	result = g_strdup_printf("%d-%d",i+j,i);
+	second = g_strdup_printf("%d",j);;
+	break;
+      }
+    case TYPE_MULT:
+      {
+	int i, j;
+	i = k %  mult_levelDescription[gcomprisBoard->level][0];
+	j = k /  mult_levelDescription[gcomprisBoard->level][0];
+	result = g_strdup_printf("%dx%d",i,j);
+	second = g_strdup_printf("%d",i*j);;
+	break;
+      }
+    case TYPE_DIV:
+      {
+	int i1, i2;
+	i1 = k %  div_levelDescription[gcomprisBoard->level][0];
+	if (i1==0) skip=TRUE;
+	i2 = k /  div_levelDescription[gcomprisBoard->level][0];
+	result = g_strdup_printf("%d÷%d",i1*i2,i1);
+	second = g_strdup_printf("%d",i2);
+	break;
+      }
     default:
       /* should never append */
       g_error("never !");
       break;
     }
 
-  } while ((j < max_token ) 
-	   && (passed_token && result && g_list_find_custom(passed_token, result, (GCompareFunc)strcmp)));
+  } while (skip || ((j < max_token ) 
+	   && (passed_token && result && g_list_find_custom(passed_token, result, (GCompareFunc)strcmp))));
 
   g_assert (j < max_token);
 	 
@@ -438,6 +618,9 @@ void get_random_token(int token_type, gint *returned_type, gchar **string)
   *returned_type = type;
 
   *string = result;
+
+  if (second_value)
+    *second_value = second;
 
   for (list = data; list != NULL; list=list->next)
     g_free(list->data);
@@ -512,29 +695,115 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       if(!gcomprisBoard->mode){
 	currentMode=MODE_NORMAL;
 	currentUiMode=UIMODE_NORMAL;
-      }
-      else {
+	currentBoardMode=BOARDMODE_NORMAL;
+      } else {
 	if(g_strcasecmp(gcomprisBoard->mode, "tux")==0){
 	  currentMode=MODE_TUX;
 	  currentUiMode=UIMODE_NORMAL;
-	}
-	else {
+	  currentBoardMode=BOARDMODE_NORMAL;
+	} else {
 	  if(g_strcasecmp(gcomprisBoard->mode, "sound")==0){
 	    currentMode=MODE_NORMAL;
 	    currentUiMode=UIMODE_SOUND;
+	    currentBoardMode=BOARDMODE_SOUND;
 	  } else {
 	    if(g_strcasecmp(gcomprisBoard->mode, "sound_tux")==0){
 	      currentMode=MODE_TUX;
 	      currentUiMode=UIMODE_SOUND;
-	    }
-	    else{
-	      currentMode=MODE_NORMAL;
-	      currentUiMode=UIMODE_NORMAL;
-	      g_warning("Fallback mode set to images");
+	      currentBoardMode=BOARDMODE_SOUND;
+	    } else {
+	      if(g_strcasecmp(gcomprisBoard->mode, "add")==0){
+		currentMode=MODE_NORMAL;
+		currentUiMode=UIMODE_NORMAL;
+		currentBoardMode=BOARDMODE_ADD;
+	      } else {
+		if(g_strcasecmp(gcomprisBoard->mode, "add_tux")==0){
+		  currentMode=MODE_TUX;
+		  currentUiMode=UIMODE_NORMAL;
+		  currentBoardMode=BOARDMODE_ADD;
+		} else {
+		  if(g_strcasecmp(gcomprisBoard->mode, "minus")==0){
+		    currentMode=MODE_NORMAL;
+		    currentUiMode=UIMODE_NORMAL;
+		    currentBoardMode=BOARDMODE_MINUS;
+		  } else {
+		    if(g_strcasecmp(gcomprisBoard->mode, "minus_tux")==0){
+		      currentMode=MODE_TUX;
+		      currentUiMode=UIMODE_NORMAL;
+		      currentBoardMode=BOARDMODE_MINUS;
+		    } else {
+		      if(g_strcasecmp(gcomprisBoard->mode, "mult")==0){
+			currentMode=MODE_NORMAL;
+			currentUiMode=UIMODE_NORMAL;
+			currentBoardMode=BOARDMODE_MULT;
+		      } else {
+			if(g_strcasecmp(gcomprisBoard->mode, "mult_tux")==0){
+			  currentMode=MODE_TUX;
+			  currentUiMode=UIMODE_NORMAL;
+			  currentBoardMode=BOARDMODE_MULT;
+			} else {
+			  if(g_strcasecmp(gcomprisBoard->mode, "div")==0){
+			    currentMode=MODE_NORMAL;
+			    currentUiMode=UIMODE_NORMAL;
+			    currentBoardMode=BOARDMODE_DIV;
+			  } else {
+			    if(g_strcasecmp(gcomprisBoard->mode, "div_tux")==0){
+			      currentMode=MODE_TUX;
+			      currentUiMode=UIMODE_NORMAL;
+			      currentBoardMode=BOARDMODE_DIV;
+			    } else {
+			      if(g_strcasecmp(gcomprisBoard->mode, "add_minus")==0){
+				currentMode=MODE_NORMAL;
+				currentUiMode=UIMODE_NORMAL;
+				currentBoardMode=BOARDMODE_ADD_MINUS;
+			      } else {
+				if(g_strcasecmp(gcomprisBoard->mode, "add_minus_tux")==0){
+				  currentMode=MODE_TUX;
+				  currentUiMode=UIMODE_NORMAL;
+				  currentBoardMode=BOARDMODE_ADD_MINUS;
+				} else {
+				  if(g_strcasecmp(gcomprisBoard->mode, "mult_div")==0){
+				    currentMode=MODE_NORMAL;
+				    currentUiMode=UIMODE_NORMAL;
+				    currentBoardMode=BOARDMODE_MULT_DIV;
+				  } else {
+				    if(g_strcasecmp(gcomprisBoard->mode, "mult_div_tux")==0){
+				      currentMode=MODE_TUX;
+				      currentUiMode=UIMODE_NORMAL;
+				      currentBoardMode=BOARDMODE_MULT_DIV;
+				    } else {
+				      if(g_strcasecmp(gcomprisBoard->mode, "add_minus_mult_div")==0){
+					currentMode=MODE_NORMAL;
+					currentUiMode=UIMODE_NORMAL;
+					currentBoardMode=BOARDMODE_ADD_MINUS_MULT_DIV;
+				      } else {
+					if(g_strcasecmp(gcomprisBoard->mode, "add_minus_mult_div_tux")==0){
+					  currentMode=MODE_TUX;
+					  currentUiMode=UIMODE_NORMAL;
+					  currentBoardMode=BOARDMODE_ADD_MINUS_MULT_DIV;
+					} else {
+					  currentMode=MODE_NORMAL;
+					  currentUiMode=UIMODE_NORMAL;
+					  g_warning("Fallback mode set to images");
+					}
+				      }
+				    }
+				  }
+				}
+			      }
+			    }
+			  }
+			}
+		      }
+		    }
+		  }
+		}
+	      }
 	    }
 	  }
 	}
       }
+    
 
       if (currentUiMode == UIMODE_SOUND)
 	{
@@ -555,37 +824,37 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 	  base_y2 = BASE_CARD_Y2;
 	  base_x1_tux = BASE_CARD_X1_TUX;
 	}
-
-
+      
+      
       /* TRANSLATORS: Put here the numbers in your language */
       numbers=_("0123456789");
       assert(g_utf8_validate(numbers,-1,NULL)); // require by all utf8-functions
-
+      
       /* TRANSLATORS: Put here the alphabet lowercase in your language */
       alphabet_lowercase=_("abcdefghijklmnopqrstuvwxyz");
       assert(g_utf8_validate(alphabet_lowercase,-1,NULL)); // require by all utf8-functions
-
+      
       g_warning("Using lowercase %s", alphabet_lowercase);
-
+      
       /* TRANSLATORS: Put here the alphabet uppercase in your language */
       alphabet_uppercase=_("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
       assert(g_utf8_validate(alphabet_uppercase,-1,NULL)); // require by all utf8-functions
       g_warning("Using uppercase %s", alphabet_uppercase);
-
+      
       if (currentMode == MODE_TUX){
 	tux_memory_size = tux_memory_sizes[gcomprisBoard->level];
 	tux_memory = g_queue_new ();
       }
-
+      
       Paused = FALSE;
-
+      
       to_tux = FALSE;
       if (currentUiMode == UIMODE_SOUND){
 	playing_sound = TRUE;
 	gcompris_play_ogg_cb("sounds/LuneRouge/musique/LRBuddhist_gong_05_by_Lionel_Allorge.ogg",start_callback);
       } else
 	playing_sound = FALSE;
-
+      
       memory_next_level();
     }      
 }
@@ -724,6 +993,8 @@ static void memory_destroy_all_items()
   for(x=0; x<MAX_MEMORY_WIDTH; x++)
     for(y=0; y<MAX_MEMORY_HEIGHT; y++)
       {
+	if (memoryArray[x][y])
+	  g_free(memoryArray[x][y]->second_value);
 	g_free(memoryArray[x][y]);
 	memoryArray[x][y] = NULL;	
       }
@@ -764,20 +1035,30 @@ static void get_image(MemoryItem *memoryItem, guint x, guint y)
   if(memoryArray[x][y])
     {
       // Get the pair's image
-      memoryItem->data = memoryArray[x][y]->data;
-      memoryItem->type =  memoryArray[x][y]->type;
-      memoryArray[x][y] = memoryItem;
+      if (memoryArray[x][y]->type & (TYPE_ADD|TYPE_MINUS|TYPE_MULT|TYPE_DIV)){
+	memoryItem->data = memoryArray[x][y]->second_value;
+	memoryItem->type =  memoryArray[x][y]->type;
+	memoryArray[x][y] = memoryItem;
+	// if created by g_malloc0, this is not usefull;
+	//memoryItem->second_value = NULL;
+      }
+      else {
+	memoryItem->data = memoryArray[x][y]->data;
+	memoryItem->type =  memoryArray[x][y]->type;
+	memoryArray[x][y] = memoryItem;
+      }
       return;
     }
 
 
   memoryArray[x][y] = memoryItem;
 
-  if (currentUiMode == UIMODE_SOUND){
-    get_random_token ( TYPE_SOUND, &memoryItem->type,  &memoryItem->data);
+  switch (currentBoardMode) {
+  case BOARDMODE_SOUND:
+    get_random_token ( TYPE_SOUND, &memoryItem->type,  &memoryItem->data, NULL);
     g_assert (memoryItem->type ==  TYPE_SOUND);
-  }
-  else {
+    break;
+  case BOARDMODE_NORMAL:
     switch(gcomprisBoard->level) {
 
     case 0:
@@ -786,28 +1067,61 @@ static void get_image(MemoryItem *memoryItem, guint x, guint y)
     case 3:
     case 4:
       /* Image mode */
-      get_random_token ( TYPE_IMAGE, &memoryItem->type,  &memoryItem->data);
+      get_random_token ( TYPE_IMAGE, &memoryItem->type,  &memoryItem->data, NULL);
       g_assert (memoryItem->type ==  TYPE_IMAGE);
       break;
       
     case 5:
       /* Limited Text mode Numbers only */
-      get_random_token ( TYPE_NUMBER, &memoryItem->type,  &memoryItem->data);
+      get_random_token ( TYPE_NUMBER, &memoryItem->type,  &memoryItem->data, NULL);
       g_assert (memoryItem->type ==  TYPE_NUMBER);
       break;
       
     case 6:
       /* Limited Text mode Numbers + Capitals */
-      get_random_token ( TYPE_NUMBER | TYPE_UPPERCASE, &memoryItem->type,  &memoryItem->data);
+      get_random_token ( TYPE_NUMBER | TYPE_UPPERCASE, &memoryItem->type,  &memoryItem->data, NULL);
       g_assert((memoryItem->type == TYPE_NUMBER)||(memoryItem->type==TYPE_UPPERCASE));
       break;
       
     default:
       /* Text mode ALL */
-      get_random_token ( TYPE_NUMBER | TYPE_UPPERCASE | TYPE_LOWERCASE, &memoryItem->type,  &memoryItem->data);
+      get_random_token ( TYPE_NUMBER | TYPE_UPPERCASE | TYPE_LOWERCASE, &memoryItem->type,  &memoryItem->data, NULL);
       g_assert (memoryItem->type & ( TYPE_NUMBER | TYPE_UPPERCASE | TYPE_LOWERCASE));
       break;
     }
+    break;
+  case BOARDMODE_ADD:
+    get_random_token ( TYPE_ADD, &memoryItem->type,  &memoryItem->data, &memoryItem->second_value);
+    g_assert (memoryItem->type == TYPE_ADD);
+    break;
+  case BOARDMODE_MINUS:
+    get_random_token ( TYPE_MINUS, &memoryItem->type,  &memoryItem->data, &memoryItem->second_value);
+    g_assert (memoryItem->type == TYPE_MINUS);
+    break;
+  case BOARDMODE_MULT:
+    get_random_token ( TYPE_MULT, &memoryItem->type,  &memoryItem->data, &memoryItem->second_value);
+    g_assert (memoryItem->type == TYPE_MULT);
+    break;
+  case BOARDMODE_DIV:
+    get_random_token ( TYPE_DIV, &memoryItem->type,  &memoryItem->data, &memoryItem->second_value);
+    g_assert (memoryItem->type == TYPE_DIV);
+    break;
+  case BOARDMODE_ADD_MINUS:
+    get_random_token ( TYPE_ADD | TYPE_MINUS, &memoryItem->type,  &memoryItem->data, &memoryItem->second_value);
+    g_assert (memoryItem->type & (TYPE_ADD | TYPE_MINUS));
+    break;
+  case BOARDMODE_MULT_DIV:
+    get_random_token ( TYPE_MULT | TYPE_DIV, &memoryItem->type,  &memoryItem->data, &memoryItem->second_value);
+    g_assert (memoryItem->type & (TYPE_MULT | TYPE_DIV));
+    break;
+  case BOARDMODE_ADD_MINUS_MULT_DIV:
+    get_random_token ( TYPE_ADD | TYPE_MINUS |TYPE_MULT | TYPE_DIV , &memoryItem->type,  &memoryItem->data, &memoryItem->second_value);
+    g_assert (memoryItem->type & (TYPE_ADD | TYPE_MINUS |TYPE_MULT | TYPE_DIV));
+    break;
+    
+  default:
+    g_error("Don't now in what mode run !");
+    break;
   }
 
   g_warning("returned token %s for item x=%d y=%d", memoryItem->data, x, y);
@@ -849,8 +1163,8 @@ static void create_item(GnomeCanvasGroup *parent)
   height = (base_y2-base_y1)/numberOfLine;
 
   /* Remove a little bit of space for the card shadow */
-  height2 = height * 0.9;
-  width2  = width  * 0.9;
+  height2 = height * 0.95;
+  width2  = width  * 0.95;
 
 
   if (currentUiMode == UIMODE_SOUND) {
@@ -916,7 +1230,7 @@ static void create_item(GnomeCanvasGroup *parent)
       for(y=0; y<numberOfLine; y++)
 	{
 
-	  memoryItem = g_malloc(sizeof(MemoryItem));
+	  memoryItem = g_malloc0(sizeof(MemoryItem));
 	  
 	  memoryItem->rootItem = \
 	    gnome_canvas_item_new (parent,
@@ -936,8 +1250,8 @@ static void create_item(GnomeCanvasGroup *parent)
 				   "pixbuf", pixmap, 
 				   "x", (double) 0,
 				   "y", (double) 0,
-				   "width", (double) width*0.9,
-				   "height", (double) height*0.9,
+				   "width", (double) width2,
+				   "height", (double) height2,
 				   "width_set", TRUE, 
 				   "height_set", TRUE,
 				   NULL);
@@ -951,8 +1265,8 @@ static void create_item(GnomeCanvasGroup *parent)
 				     "pixbuf", pixmap, 
 				     "x", (double) 0,
 				     "y", (double) 0,
-				     "width", (double) width*0.9,
-				     "height", (double) height*0.9,
+				     "width", (double) width2,
+				     "height", (double) height2,
 				     "width_set", TRUE, 
 				     "height_set", TRUE,
 				     NULL);
@@ -972,8 +1286,8 @@ static void create_item(GnomeCanvasGroup *parent)
 				     "pixbuf", pixmap, 
 				     "x", (double) 0,
 				     "y", (double) 0,
-				     "width", (double) width*0.9,
-				     "height", (double) height*0.9,
+				     "width", (double) width2,
+				     "height", (double) height2,
 				     "width_set", TRUE, 
 				     "height_set", TRUE,
 				     NULL);
@@ -986,17 +1300,17 @@ static void create_item(GnomeCanvasGroup *parent)
 	      yratio=(height2*0.8)/(float)gdk_pixbuf_get_height(pixmap);
 	      xratio=(width2*0.8)/(float)gdk_pixbuf_get_width(pixmap);
 	      yratio=xratio=MIN(xratio, yratio);
-	      card_shadow_w = width*0.07;
-	      card_shadow_h = height*0.07;
+	      card_shadow_w = width*0.05;
+	      card_shadow_h = height*0.05;
 	      
 	      memoryItem->frontcardItem =	\
 		gnome_canvas_item_new (GNOME_CANVAS_GROUP(memoryItem->rootItem),
 				       gnome_canvas_pixbuf_get_type (),
 				       "pixbuf", pixmap, 
-				       "x", (double) ((width*0.9)-
+				       "x", (double) ((width2)-
 						      gdk_pixbuf_get_width(pixmap)*xratio*0.8)/2 -
 				       card_shadow_w,
-				       "y", (double) ((height*0.9)-
+				       "y", (double) ((height2)-
 						      gdk_pixbuf_get_height(pixmap)*yratio*0.8)/2 -
 				       card_shadow_h,
 				       "width", (double) gdk_pixbuf_get_width(pixmap)*xratio*0.8,
@@ -1007,16 +1321,21 @@ static void create_item(GnomeCanvasGroup *parent)
 	      gdk_pixbuf_unref(pixmap);
 	      
 	    } else {
+	      gchar *font;
+	      if (memoryItem->type & (TYPE_ADD|TYPE_MINUS|TYPE_MULT|TYPE_DIV))
+		font = op_fonts[gcomprisBoard->level];
+	      else
+		font = TEXT_FONT;
 	      /* It's a letter */
 	      memoryItem->frontcardItem =	 \
 		gnome_canvas_item_new (GNOME_CANVAS_GROUP(memoryItem->rootItem),
 				       gnome_canvas_text_get_type (),
 				       "text", memoryItem->data,
-				       "font", TEXT_FONT,
-				       "x", (double) (width*0.8)/2,
-				       "y", (double) (height*0.8)/2,
+				       "font", font,
+				       "x", (double) (width2*0.9)/2,
+				       "y", (double) (height2*0.9)/2,
 				       "anchor", GTK_ANCHOR_CENTER,
-				       "fill_color_rgba", 0x99CDFFFF,
+				       "fill_color_rgba", 0x559ADDFF,
 				       NULL);
 	      
 	    }
@@ -1301,10 +1620,19 @@ static gint
 compare_card (gconstpointer a,
 	      gconstpointer b)
 {
-  if (((MemoryItem *)a)->data == ((MemoryItem *)b)->data)
-    return  0;
-  else
-    return -1; 
+  MemoryItem *card1 = (MemoryItem *)a;
+  MemoryItem *card2 = (MemoryItem *)b;
+
+  if (card1->type & (TYPE_ADD|TYPE_MINUS|TYPE_MULT|TYPE_DIV)){
+    if ((!card1->second_value) && ( card2->second_value)){
+      return strcmp(card1->data,card2->second_value);
+    }
+    if ((!card2->second_value) && ( card1->second_value)){
+      return strcmp(card2->data,card1->second_value);
+    }
+    return -1;
+  }
+  return ((card1->data == card2->data) ? 0 : -1);
 }
 
 MemoryItem *find_card_in_tux_memory(MemoryItem *card)

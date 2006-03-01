@@ -1,6 +1,6 @@
 /* gcompris - gletters.c
  *
- * Time-stamp: <2005/11/16 23:11:26 yves>
+ * Time-stamp: <2006/01/31 13:25:17 yves>
  *
  * Copyright (C) 2000 Bruno Coudoin
  * 
@@ -174,7 +174,7 @@ static void level_set_score() {
 		       gcomprisBoard->width - 220, 
 		       gcomprisBoard->height - 50, 
 		       gcomprisBoard->number_of_sublevel);
-  gcompris_bar_set(GCOMPRIS_BAR_LEVEL);
+  gcompris_bar_set(GCOMPRIS_BAR_CONFIG|GCOMPRIS_BAR_LEVEL);
 }
 
 static void pause_board (gboolean pause)
@@ -772,10 +772,41 @@ static GHFunc save_table (gpointer key,
 
 static GcomprisConfCallback conf_ok(GHashTable *table)
 {
+  if (!table){
+    if (gcomprisBoard)
+      pause_board(FALSE);
+    return;
+  }
+    
   g_hash_table_foreach(table, (GHFunc) save_table, NULL);
   
   board_conf = NULL;
   profile_conf = NULL;
+  
+  if (gcomprisBoard){
+    gcompris_reset_locale();
+    GHashTable *config = gcompris_get_board_conf();
+    
+    gcompris_change_locale(g_hash_table_lookup( config, "locale"));
+    
+    gchar *up_init_str = g_hash_table_lookup( config, "uppercase_only");
+    
+    if (up_init_str && (strcmp(up_init_str, "True")==0))
+      uppercase_only = TRUE;
+    else
+      uppercase_only = FALSE;
+    
+    g_hash_table_destroy(config);
+
+    load_default_charset();    
+    
+    level_set_score();
+    gletters_next_level();
+    
+    pause_board(FALSE);
+    
+  }
+  
 }
 
 static void
@@ -786,6 +817,9 @@ gletter_config_start(GcomprisBoard *agcomprisBoard,
   profile_conf = aProfile;
 
   gchar *label;
+
+  if (gcomprisBoard)
+    pause_board(TRUE);
   
   label = g_strdup_printf("<b>%s</b> configuration\n for profile <b>%s</b>",
 			  agcomprisBoard->name, aProfile->name);
