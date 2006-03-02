@@ -1,3 +1,34 @@
+2006-03-03  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	- removed many warnings
+	- added two options from the command line to use GCompris in a kiosk mode.
+	    --disable-quit                  Disable the quit button
+            --disable-config                Disable the config button
+
+
+	* src/boards/algebra.c: (algebra_create_item):
+	* src/boards/awele.c: (pause_board), (awele_next_level),
+	(buttonClick):
+	* src/boards/awele.h:
+	* src/boards/menu2.c: (display_welcome):
+	* src/gcompris/bar.c: (gcompris_bar_start), (gcompris_bar_set),
+	(gcompris_bar_hide), (update_exit_button), (item_event_bar),
+	(confirm_quit):
+	* src/gcompris/cursor.c: (gdk_cursor_new_from_data):
+	* src/gcompris/gameutil.c: (reactivate_newline),
+	(gcompris_add_xml_to_data), (gcompris_read_xml_file),
+	(gcompris_display_difficulty_stars):
+	* src/gcompris/gcompris.c: (gcompris_terminate), (gcompris_init):
+	* src/gcompris/gcompris.h:
+	* src/gcompris/gcompris_db.c: (gcompris_db_board_update):
+	* src/gcompris/gcompris_db.h:
+	* src/gcompris/images_selector.c: (parseImage), (read_xml_file),
+	(read_dataset_directory):
+	* src/gcompris/properties.c: (gcompris_properties_new),
+	(gcompris_properties_save):
+	* src/gcompris/properties.h:
+	* src/gcompris/skin.c: (gcompris_skin_xml_load):
+
 2006-03-01  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	*** MERGE OF BRANCH gcompris_7_4 ***

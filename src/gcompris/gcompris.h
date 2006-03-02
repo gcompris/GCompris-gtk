@@ -1,6 +1,6 @@
 /* gcompris - gcompris.h
  *
- * Time-stamp: <2006/02/05 08:44:11 yves>
+ * Time-stamp: <2006/03/02 00:02:09 bruno>
  *
  * Copyright (C) 2000,2001,2002 Bruno Coudoin
  *
@@ -97,6 +97,7 @@ typedef enum
   GCOMPRIS_BAR_CONFIG	   = 1 << 3,
   GCOMPRIS_BAR_ABOUT	   = 1 << 4,
   GCOMPRIS_BAR_REPEAT_ICON = 1 << 5,
+  GCOMPRIS_BAR_QUIT	   = 1 << 6,
 } GComprisBarFlags;
 
 /* Difficulty filtering */

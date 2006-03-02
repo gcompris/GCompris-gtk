@@ -430,8 +430,8 @@ gboolean gcompris_db_check_boards()
         "SELECT board_id FROM boards WHERE name=\'%s\';",n
 
 
-void gcompris_db_board_update(gint *board_id,
-			      gint *section_id,
+void gcompris_db_board_update(guint *board_id,
+			      guint *section_id,
 			      gchar *name,
 			      gchar *section,
 			      gchar *author,

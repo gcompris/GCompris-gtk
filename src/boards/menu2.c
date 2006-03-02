@@ -1,6 +1,6 @@
 /* gcompris - menu2.c
  *
- * Time-stamp: <2006/01/29 20:15:14 yves>
+ * Time-stamp: <2006/03/01 23:18:32 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -1000,11 +1000,11 @@ static void              display_welcome (void)
      && G_IS_OBJECT(menuitems->description_item_s))
     set_content(menuitems->description_item,
 		menuitems->description_item_s,
-		_("GCompris is a collection of educational games that provides for children from 2 years old with different activities."));
+		_("GCompris is a collection of educational games that provides different activities for children aged 2 and up."));
 
   if(G_IS_OBJECT(menuitems->author_item))
     gnome_canvas_item_set (menuitems->author_item,
-			   "text", _("Bruno Coudoin, Genius"),
+			   "text", "",
 			   NULL);
   if(G_IS_OBJECT(menuitems->boardname_item_s))
     gnome_canvas_item_set (menuitems->boardname_item_s,
@@ -1013,7 +1013,7 @@ static void              display_welcome (void)
   
   if(G_IS_OBJECT(menuitems->author_item_s))
     gnome_canvas_item_set (menuitems->author_item_s,
-			   "text", _("Bruno Coudoin, Genius"),
+			   "text", "",
 			   NULL);
   
 }

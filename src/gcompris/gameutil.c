@@ -1,6 +1,6 @@
 /* gcompris - gameutil.c
  *
- * Time-stamp: <2006/01/20 10:06:29 yves>
+ * Time-stamp: <2006/03/02 00:30:53 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -375,12 +375,12 @@ gchar *reactivate_newline(char *str)
 
 
 
-  newstr =  xmlStringDecodeEntities	(ctxt, 
-					 str, 
-					 XML_SUBSTITUTE_REF, 
-					 0, 
-					 0, 
-					 0);
+  newstr =  (gchar *)xmlStringDecodeEntities	(ctxt, 
+						 BAD_CAST str, 
+						 XML_SUBSTITUTE_REF, 
+						 0, 
+						 0, 
+						 0);
     
   xmlFreeParserCtxt		(ctxt);
   
@@ -408,23 +408,23 @@ gcompris_add_xml_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child, Gcomp
   if(/* if the node has no name */
      !xmlnode->name ||
      /* or if the name is not "Board" */
-     (g_strcasecmp(xmlnode->name,"Board")!=0)
+     (g_strcasecmp((char *)xmlnode->name,"Board")!=0)
      )
     return;
 
   /* get the type of the board */
-  gcomprisBoard->type = xmlGetProp(xmlnode,"type");
+  gcomprisBoard->type = (char *)xmlGetProp(xmlnode, BAD_CAST "type");
 
   /* get the specific mode for this board */
-  gcomprisBoard->mode			 = xmlGetProp(xmlnode,"mode");
-  gcomprisBoard->name			 = xmlGetProp(xmlnode,"name");
-  gcomprisBoard->icon_name		 = xmlGetProp(xmlnode,"icon");
-  gcomprisBoard->author			 = xmlGetProp(xmlnode,"author");
-  gcomprisBoard->boarddir		 = xmlGetProp(xmlnode,"boarddir");
-  gcomprisBoard->mandatory_sound_file	 = xmlGetProp(xmlnode,"mandatory_sound_file");
-  gcomprisBoard->mandatory_sound_dataset = xmlGetProp(xmlnode,"mandatory_sound_dataset");
+  gcomprisBoard->mode			 = (char *)xmlGetProp(xmlnode, BAD_CAST "mode");
+  gcomprisBoard->name			 = (char *)xmlGetProp(xmlnode, BAD_CAST "name");
+  gcomprisBoard->icon_name		 = (char *)xmlGetProp(xmlnode, BAD_CAST "icon");
+  gcomprisBoard->author			 = (char *)xmlGetProp(xmlnode, BAD_CAST "author");
+  gcomprisBoard->boarddir		 = (char *)xmlGetProp(xmlnode, BAD_CAST "boarddir");
+  gcomprisBoard->mandatory_sound_file	 = (char *)xmlGetProp(xmlnode, BAD_CAST "mandatory_sound_file");
+  gcomprisBoard->mandatory_sound_dataset = (char *)xmlGetProp(xmlnode, BAD_CAST "mandatory_sound_dataset");
 
-  gchar *path                            = xmlGetProp(xmlnode,"section");
+  gchar *path                            = (char *)xmlGetProp(xmlnode, BAD_CAST "section");
   if (strlen(path)==1){
     g_free(path);
     path = g_strdup("");
@@ -441,7 +441,7 @@ gcompris_add_xml_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child, Gcomp
   gcomprisBoard->manual = NULL;
   gcomprisBoard->credit = NULL;
 
-  gcomprisBoard->difficulty		= xmlGetProp(xmlnode,"difficulty");
+  gcomprisBoard->difficulty		= (char *)xmlGetProp(xmlnode, BAD_CAST "difficulty");
   if(gcomprisBoard->difficulty == NULL)
     gcomprisBoard->difficulty		= "0";
 
@@ -450,60 +450,60 @@ gcompris_add_xml_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child, Gcomp
     properties->difficulty_max = atoi(gcomprisBoard->difficulty);
 
   for (xmlnode = xmlnode->xmlChildrenNode; xmlnode != NULL; xmlnode = xmlnode->next) {
-    if (xmlHasProp(xmlnode, "lang"))
+    if (xmlHasProp(xmlnode, BAD_CAST "lang"))
       continue;
 
     /* get the title of the board */
-    if (!strcmp(xmlnode->name, "title"))
+    if (!strcmp((char *)xmlnode->name, "title"))
       {
-	title = xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 0);
+	title = (char *)xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 0);
 	gcomprisBoard->title = reactivate_newline(gettext(title));
       }
 
     /* get the description of the board */
-    if (!strcmp(xmlnode->name, "description"))
+    if (!strcmp((char *)xmlnode->name, "description"))
       {
-	description = xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 0);
+	description = (char *)xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 0);
 	gcomprisBoard->description = reactivate_newline(gettext(description));
       }
 
     /* get the help prerequisite help of the board */
-    if (!strcmp(xmlnode->name, "prerequisite"))
+    if (!strcmp((char *)xmlnode->name, "prerequisite"))
       {
 	if(gcomprisBoard->prerequisite)
 	  g_free(gcomprisBoard->prerequisite);
 	
-	prerequisite = xmlNodeListGetString(doc,  xmlnode->xmlChildrenNode, 0);
+	prerequisite = (char *)xmlNodeListGetString(doc,  xmlnode->xmlChildrenNode, 0);
 	gcomprisBoard->prerequisite = reactivate_newline(gettext(prerequisite));
       }
 
     /* get the help goal of the board */
-    if (!strcmp(xmlnode->name, "goal"))
+    if (!strcmp((char *)xmlnode->name, "goal"))
       {
 	if(gcomprisBoard->goal)
 	  g_free(gcomprisBoard->goal);
   
-	goal = xmlNodeListGetString(doc,  xmlnode->xmlChildrenNode, 0);
+	goal = (char *)xmlNodeListGetString(doc,  xmlnode->xmlChildrenNode, 0);
 	gcomprisBoard->goal = reactivate_newline(gettext(goal));
       }
 
     /* get the help user manual of the board */
-    if (!strcmp(xmlnode->name, "manual"))
+    if (!strcmp((char *)xmlnode->name, "manual"))
       {
 	if(gcomprisBoard->manual)
 	  g_free(gcomprisBoard->manual);
 
-	manual = xmlNodeListGetString(doc,  xmlnode->xmlChildrenNode, 0);
+	manual = (char *)xmlNodeListGetString(doc,  xmlnode->xmlChildrenNode, 0);
 	gcomprisBoard->manual = reactivate_newline(gettext(manual));
       }
 
     /* get the help user credit of the board */
-    if (!strcmp(xmlnode->name, "credit"))
+    if (!strcmp((char *)xmlnode->name, "credit"))
       {
 	if(gcomprisBoard->credit)
 	  g_free(gcomprisBoard->credit);
   
-	credit = xmlNodeListGetString(doc,  xmlnode->xmlChildrenNode, 0);
+	credit =(char *) xmlNodeListGetString(doc,  xmlnode->xmlChildrenNode, 0);
 	gcomprisBoard->credit = reactivate_newline(gettext(credit));
       }
   }
@@ -615,7 +615,7 @@ GcomprisBoard *gcompris_read_xml_file(GcomprisBoard *gcomprisBoard,
      /* if it doesn't have a name */
      !doc->children->name ||
      /* if it isn't a GCompris node */
-     g_strcasecmp(doc->children->name,"GCompris")!=0) {
+     g_strcasecmp((char *)doc->children->name,"GCompris")!=0) {
     xmlFreeDoc(doc);
     g_free(gcomprisBoard);
     g_warning("Oops, the file %s is not for gcompris", filename);
@@ -1232,16 +1232,16 @@ GnomeCanvasGroup *gcompris_display_difficulty_stars(GnomeCanvasGroup *parent,
 							 "y", (double) 0,
 							 NULL));
 
-  item = gnome_canvas_item_new (stars_group,
-				gnome_canvas_pixbuf_get_type (),
-				"pixbuf", pixmap,
-				"x", x,
-				"y", y,
-				"width", (double) gdk_pixbuf_get_width(pixmap) * ratio,
-				"height", (double) gdk_pixbuf_get_height(pixmap) * ratio,
-				"width_set", TRUE, 
-				"height_set", TRUE,
-				NULL);
+  item = GNOME_CANVAS_PIXBUF(gnome_canvas_item_new (stars_group,
+						    gnome_canvas_pixbuf_get_type (),
+						    "pixbuf", pixmap,
+						    "x", x,
+						    "y", y,
+						    "width", (double) gdk_pixbuf_get_width(pixmap) * ratio,
+						    "height", (double) gdk_pixbuf_get_height(pixmap) * ratio,
+						    "width_set", TRUE, 
+						    "height_set", TRUE,
+						    NULL));
   
   gtk_signal_connect(GTK_OBJECT(item), "event",
 		     (GtkSignalFunc) gcompris_item_event_focus,

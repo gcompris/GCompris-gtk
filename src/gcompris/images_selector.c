@@ -1,6 +1,6 @@
 /* gcompris - images_selector.c
  *
- * Time-stamp: <2005/11/12 19:03:14 bruno>
+ * Time-stamp: <2006/03/02 00:57:15 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -624,25 +624,26 @@ parseImage (xmlDocPtr doc, xmlNodePtr cur) {
   GError **error = NULL;
 
   /* get the filename of this ImageSet */
-  imageSetName = xmlGetProp(cur,"filename");
-  if (xmlHasProp(cur,"PathName")){
-    pathname = xmlGetProp(cur,"PathName");
+  imageSetName = (gchar *)xmlGetProp(cur, BAD_CAST "filename");
+  if (xmlHasProp(cur, BAD_CAST "PathName")){
+    pathname = (gchar *)xmlGetProp(cur, BAD_CAST "PathName");
     havePathName = TRUE;
   }
   if (havePathName && pathname[0] == '~'){
     /* replace '~' by home dir */
     pathname = g_strdup_printf("%s%s",g_get_home_dir(), pathname+1);
     if (!g_file_test ((pathname), G_FILE_TEST_IS_DIR)){
-       g_warning("In ImageSet %s, the pathname for the home directory '%s' is not found. Skipping the whole ImageSet.", imageSetName, pathname);
+       g_warning("In ImageSet %s, the pathname for the home directory '%s' is not found. Skipping the whole ImageSet.",
+		 imageSetName, pathname);
       return;
     }
   }
 
-  if (xmlHasProp(cur,"type")){
+  if (xmlHasProp(cur, BAD_CAST "type")){
     /* lsdir means try all file of directory */
     /* list means just keep old behaviour */
     /* others are extensions to look for */
-    type = xmlGetProp(cur,"type");
+    type = (gchar *)xmlGetProp(cur, BAD_CAST "type");
   }
 
   /* Looking for imageSetName */
@@ -678,7 +679,7 @@ parseImage (xmlDocPtr doc, xmlNodePtr cur) {
     while (cur != NULL) {
       if ((!xmlStrcmp(cur->name, (const xmlChar *)"Image"))) {
 	/* get the filename of this ImageSet */
-	filename = xmlGetProp(cur,"filename");
+	filename = (gchar *)xmlGetProp(cur, BAD_CAST "filename");
 	if (havePathName){
 	  filename = g_strdup_printf("%s/%s",pathname,filename);
 	}
@@ -784,7 +785,7 @@ read_xml_file(gchar *fname)
      /* if it doesn't have a name */
      !doc->children->name ||
      /* if it isn't the good node */
-     g_strcasecmp(doc->children->name,"ImageSetRoot")!=0) {
+     g_strcasecmp((gchar *)doc->children->name, "ImageSetRoot")!=0) {
     xmlFreeDoc(doc);
     return FALSE;
   }
@@ -807,7 +808,8 @@ read_dataset_directory(gchar *dataset_dir)
 
   GError **error = NULL;
   GDir *dataset_directory = g_dir_open (dataset_dir, 0, error);
-  gchar *fname, *absolute_fname;
+  const gchar *fname;
+  gchar *absolute_fname;
 
   while ((fname = g_dir_read_name(dataset_directory))) {
     /* skip files without ".xml" */
@@ -838,7 +840,7 @@ read_dataset_directory(gchar *dataset_dir)
        /* if it doesn't have a name */
        !doc->children->name ||
        /* if it isn't the good node */
-       g_strcasecmp(doc->children->name,"ImageSetRoot")!=0) {
+       g_strcasecmp((gchar *)doc->children->name, "ImageSetRoot")!=0) {
       xmlFreeDoc(doc);
       continue;
     }

@@ -117,6 +117,8 @@ static int *popt_profile_list	   = FALSE;
 static char *popt_shared_dir	   = NULL;
 static char *popt_users_dir	   = NULL;
 static int  popt_experimental      = FALSE;
+static int  popt_no_quit	   = FALSE;
+static int  popt_no_config         = FALSE;
 
 static struct poptOption options[] = {
   {"fullscreen", 'f', POPT_ARG_NONE, &popt_fullscreen, 0,
@@ -163,6 +165,10 @@ static struct poptOption options[] = {
    N_("The location of user directories: [$HOME/.gcompris/users]"), NULL},
   {"experimental",'\0', POPT_ARG_NONE, &popt_experimental, 0,
    N_("Run the experimental activities"), NULL},
+  {"disable-quit",'\0', POPT_ARG_NONE, &popt_no_quit, 0,
+   N_("Disable the quit button"), NULL},
+  {"disable-config",'\0', POPT_ARG_NONE, &popt_no_config, 0,
+   N_("Disable the config button"), NULL},
 #ifndef WIN32	/* Not supported on windows */
   POPT_AUTOHELP
 #endif
@@ -915,14 +921,10 @@ static void map_cb (GtkWidget *widget, gpointer data)
  * Process the cleanup of the child (no zombies)
  * ---------------------------------------------
  */
-void gcompris_terminate(int  signum)
+void gcompris_terminate(int signum)
 {
 
-#ifndef WIN32	/* Not supported on windows */
-  g_warning("gcompris got the %s signal, starting exit procedure", strsignal(signum));
-#else
   g_warning("gcompris got the %d signal, starting exit procedure", signum);
-#endif
 
   gcompris_exit();
   
@@ -1223,6 +1225,18 @@ gcompris_init (int argc, char *argv[])
     {
       g_warning("Experimental boards allowed");
       properties->experimental  = TRUE;
+    }
+
+  if (popt_no_quit)
+    {
+      g_warning("Disable quit button");
+      properties->disable_quit = TRUE;
+    }
+
+  if (popt_no_config)
+    {
+      g_warning("Disable config button");
+      properties->disable_config = TRUE;
     }
 
   if (popt_difficulty_filter>=0)

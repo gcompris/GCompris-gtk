@@ -62,7 +62,7 @@ GdkCursor *gdk_cursor_new_from_data(const gchar *bits[],
     }
     if (j%8) *ptr++ >>= 8-j%8;
   }
-  bitmap = gdk_bitmap_create_from_data(NULL, data, width, height);
+  bitmap = gdk_bitmap_create_from_data(NULL, (gchar *)data, width, height);
 
   /* Build mask */
   ptr = data;
@@ -73,7 +73,7 @@ GdkCursor *gdk_cursor_new_from_data(const gchar *bits[],
     }
     if (j%8) *ptr++ >>= 8-j%8;
   }
-  mask = gdk_bitmap_create_from_data(NULL, data, width, height);
+  mask = gdk_bitmap_create_from_data(NULL, (gchar *)data, width, height);
 
   /* Build cursor from bitmap and mask */
   cursor = gdk_cursor_new_from_pixmap(bitmap, mask, /* Image and mask */

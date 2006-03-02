@@ -1,6 +1,6 @@
 /* gcompris - properties.c
  *
- * Time-stamp: <2006/01/21 20:50:15 yves>
+ * Time-stamp: <2006/03/02 01:08:31 bruno>
  *
  * Copyright (C) 2000,2003 Bruno Coudoin
  *
@@ -168,6 +168,8 @@ GcomprisProperties *gcompris_properties_new ()
   tmp->difficulty_max    = 0;
   tmp->filter_style      = GCOMPRIS_FILTER_NONE;	/* No difficulty filter by default */
   tmp->difficulty_filter = 1;				/* No difficulty filter by default */
+  tmp->disable_quit      = 0;				/* Used to remove the quit button from the bar. Use it for kiosk mode */
+  tmp->disable_config    = 0;				/* Used to remove the config button from the bar. Use it for kiosk mode */
   tmp->root_menu         = "/";
   tmp->local_directory   = NULL;
   tmp->package_data_dir  = PACKAGE_DATA_DIR;
@@ -250,6 +252,12 @@ GcomprisProperties *gcompris_properties_new ()
 	    g_warning("Config file parsing error on token %s", token);
 	} else if(!strcmp(value.v_identifier, "difficulty_filter")) {
 	  if(!scan_get_int(scanner, &tmp->difficulty_filter))
+	    g_warning("Config file parsing error on token %s", token);
+	} else if(!strcmp(value.v_identifier, "disable_quit")) {
+	  if(!scan_get_int(scanner, &tmp->disable_quit))
+	    g_warning("Config file parsing error on token %s", token);
+	} else if(!strcmp(value.v_identifier, "disable_config")) {
+	  if(!scan_get_int(scanner, &tmp->disable_config))
 	    g_warning("Config file parsing error on token %s", token);
 	} else if(!strcmp(value.v_identifier, "filter_style")) {
 	  if(!scan_get_int(scanner, &tmp->filter_style))
@@ -343,15 +351,7 @@ void gcompris_properties_save (GcomprisProperties *props)
   fprintf(filefd, "%s=%d\n", "fx",			props->fx);
   fprintf(filefd, "%s=%d\n", "screensize",		props->screensize);
   fprintf(filefd, "%s=%d\n", "fullscreen",		props->fullscreen);
-  /* FIXME: No more persist the noxrandr option until we provide a way to set it back
-   *
-   fprintf(filefd, "%s=%d\n", "noxrandr",		props->noxrandr); */
   fprintf(filefd, "%s=%d\n", "timer",			props->timer);
-
-  /* No more need to persist these, it's in the base now
-     fprintf(filefd, "%s=%d\n", "difficulty_filter",	props->difficulty_filter);
-     fprintf(filefd, "%s=%d\n", "filter_style",		props->filter_style);
-  */
 
   fprintf(filefd, "%s=\"%s\"\n", "skin",		props->skin);
   fprintf(filefd, "%s=\"%s\"\n", "locale",		props->locale);

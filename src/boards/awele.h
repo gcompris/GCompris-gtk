@@ -51,8 +51,6 @@ typedef struct {
 /* 
 *	Fonctions de traitement des events, signaux et rappels
 */
-static gint eventDelete (GtkWidget * widget, GdkEvent *event, gpointer data);
-static gint eventDestroy (GtkWidget * widget, GdkEvent *event, gpointer data);
 static gint buttonClick (GtkWidget *item, GdkEvent *event, gpointer data);
 
 /**

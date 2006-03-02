@@ -105,10 +105,9 @@ static void pause_board (gboolean pause)
 	      timeout = g_timeout_add (2000,
 				       (GSourceFunc) to_computer,
 				       NULL);
-	      anim_item = (GnomeCanvasItem*)
-		gcompris_activate_animation( boardRootItem,
-					     animation );
-	      gnome_canvas_item_show(anim_item->canvas);
+	      anim_item = gcompris_activate_animation( boardRootItem,
+						       animation );
+	      gnome_canvas_item_show(GNOME_CANVAS_ITEM(anim_item->canvas));
 	    }
 	}
 	else{
@@ -260,10 +259,9 @@ awele_next_level ()
 	  timeout = g_timeout_add (2000,
 				   (GSourceFunc) to_computer,
 				   NULL);
-	  anim_item = (GnomeCanvasItem*)
-	    gcompris_activate_animation( boardRootItem,
-					 animation );
-	  gnome_canvas_item_show(anim_item->canvas);
+	  anim_item = gcompris_activate_animation( boardRootItem,
+						   animation );
+	  gnome_canvas_item_show(GNOME_CANVAS_ITEM(anim_item->canvas));
 
 	} else {
 	  computer_turn = FALSE;
@@ -744,9 +742,8 @@ buttonClick (GtkWidget * item, GdkEvent * event, gpointer data)
 		timeout = g_timeout_add (2000,
 					 (GSourceFunc) to_computer,
 					 NULL);
-		anim_item = (GnomeCanvasItem*)
-		  gcompris_activate_animation( boardRootItem,
-					       animation );
+		anim_item = gcompris_activate_animation( boardRootItem,
+							 animation );
 	      }
 	    }
 	  

@@ -1,6 +1,6 @@
 /* gcompris - properties.h
  *
- * Time-stamp: <2006/01/21 20:49:43 yves>
+ * Time-stamp: <2006/03/02 00:48:25 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -36,6 +36,8 @@ typedef struct {
   gint		filter_style;
   gint		difficulty_filter;
   gint		difficulty_max;
+  gint		disable_quit;
+  gint		disable_config;
   gchar        *root_menu;
   gchar        *local_directory;
   gchar        *user_data_dir;

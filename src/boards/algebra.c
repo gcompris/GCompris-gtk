@@ -1,6 +1,6 @@
 /* gcompris - algebra.c
  *
- * Time-stamp: <2005/10/12 23:24:20 bruno>
+ * Time-stamp: <2006/03/02 00:38:14 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -20,6 +20,7 @@
  */
 
 #include <ctype.h>
+#include <string.h>
 
 #include "gcompris/gcompris.h"
 
@@ -512,7 +513,8 @@ static void display_operand(GnomeCanvasGroup *parent,
 static GnomeCanvasItem *algebra_create_item(GnomeCanvasGroup *parent)
 {
   GnomeCanvasItem *item;
-  guint first_operand, second_operand;
+  guint first_operand = 0;
+  guint second_operand = 0;
   char *first_operand_str = NULL;
   char *second_operand_str = NULL;
   char *audioOperand = NULL;

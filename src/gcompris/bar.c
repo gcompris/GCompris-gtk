@@ -1,6 +1,6 @@
 /* gcompris - bar.c
  *
- * Time-stamp: <2006/03/01 01:05:02 bruno>
+ * Time-stamp: <2006/03/02 23:27:13 bruno>
  *
  * Copyright (C) 2000-2003 Bruno Coudoin
  *
@@ -54,7 +54,7 @@ static guint level_handler_id;
 
 static gint sound_play_id = 0;
 
-void  confirm_quit(gboolean answer);
+static void  confirm_quit(gboolean answer);
 
 /*
  * Main entry point 
@@ -68,7 +68,7 @@ void  confirm_quit(gboolean answer);
  */
 void gcompris_bar_start (GnomeCanvas *theCanvas)
 {
-
+  GcomprisProperties *properties = gcompris_get_properties();
   GdkPixbuf   *pixmap = NULL;
   GnomeCanvasItem *rootitem;
   gint16           width, height;
@@ -96,25 +96,27 @@ void gcompris_bar_start (GnomeCanvas *theCanvas)
   gdk_pixbuf_unref(pixmap);
 
   // EXIT
-  pixmap = gcompris_load_skin_pixmap("button_exit.png");
-  zoom = (double)(height-BAR_GAP)/(double)gdk_pixbuf_get_height(pixmap);
-  exit_item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
-				     gnome_canvas_pixbuf_get_type (),
-				     "pixbuf", pixmap, 
-				     "x", (double) (width/NUMBER_OF_ITEMS) * 1 -
-				     gdk_pixbuf_get_width(pixmap)/2,
-				     "y", (double) (height-gdk_pixbuf_get_height(pixmap)*zoom)/2,
-				     NULL);
-  gdk_pixbuf_unref(pixmap);
+  if(properties->disable_quit == 0)
+    {
+      pixmap = gcompris_load_skin_pixmap("button_exit.png");
+      zoom = (double)(height-BAR_GAP)/(double)gdk_pixbuf_get_height(pixmap);
+      exit_item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
+					 gnome_canvas_pixbuf_get_type (),
+					 "pixbuf", pixmap, 
+					 "x", (double) (width/NUMBER_OF_ITEMS) * 1 -
+					 gdk_pixbuf_get_width(pixmap)/2,
+					 "y", (double) (height-gdk_pixbuf_get_height(pixmap)*zoom)/2,
+					 NULL);
+      gdk_pixbuf_unref(pixmap);
 
-  gtk_signal_connect(GTK_OBJECT(exit_item), "event",
-		     (GtkSignalFunc) item_event_bar,
-		     "quit");
+      gtk_signal_connect(GTK_OBJECT(exit_item), "event",
+			 (GtkSignalFunc) item_event_bar,
+			 "quit");
 
-  gtk_signal_connect(GTK_OBJECT(exit_item), "event",
-		     (GtkSignalFunc) gcompris_item_event_focus,
-		     NULL);
-
+      gtk_signal_connect(GTK_OBJECT(exit_item), "event",
+			 (GtkSignalFunc) gcompris_item_event_focus,
+			 NULL);
+    }
   
   // HOME
   pixmap = gcompris_load_skin_pixmap("home.png");
@@ -220,24 +222,27 @@ void gcompris_bar_start (GnomeCanvas *theCanvas)
 		     NULL);
 
   // CONFIG
-  pixmap = gcompris_load_skin_pixmap("config.png");
-  zoom = (double)(height-BAR_GAP)/(double)gdk_pixbuf_get_height(pixmap);
-  config_item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
-				     gnome_canvas_pixbuf_get_type (),
-				     "pixbuf", pixmap, 
-				     "x", (double) (width/NUMBER_OF_ITEMS) * 3 -
-				     gdk_pixbuf_get_width(pixmap)/2,
-				     "y", (double) (height-gdk_pixbuf_get_height(pixmap)*zoom)/2,
-				     NULL);
-  gdk_pixbuf_unref(pixmap);
+  if(properties->disable_config == 0)
+    {
+      pixmap = gcompris_load_skin_pixmap("config.png");
+      zoom = (double)(height-BAR_GAP)/(double)gdk_pixbuf_get_height(pixmap);
+      config_item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
+					   gnome_canvas_pixbuf_get_type (),
+					   "pixbuf", pixmap, 
+					   "x", (double) (width/NUMBER_OF_ITEMS) * 3 -
+					   gdk_pixbuf_get_width(pixmap)/2,
+					   "y", (double) (height-gdk_pixbuf_get_height(pixmap)*zoom)/2,
+					   NULL);
+      gdk_pixbuf_unref(pixmap);
 
-  gtk_signal_connect(GTK_OBJECT(config_item), "event",
-		     (GtkSignalFunc) item_event_bar,
-		     "configuration");
+      gtk_signal_connect(GTK_OBJECT(config_item), "event",
+			 (GtkSignalFunc) item_event_bar,
+			 "configuration");
 
-  gtk_signal_connect(GTK_OBJECT(config_item), "event",
-		     (GtkSignalFunc) gcompris_item_event_focus,
-		     NULL);
+      gtk_signal_connect(GTK_OBJECT(config_item), "event",
+			 (GtkSignalFunc) gcompris_item_event_focus,
+			 NULL);
+    }
 
   // ABOUT
   pixmap = gcompris_load_skin_pixmap("about.png");
@@ -265,7 +270,8 @@ void gcompris_bar_start (GnomeCanvas *theCanvas)
   gnome_canvas_item_show(ok_item);
   gnome_canvas_item_show(help_item);
   gnome_canvas_item_show(repeat_item);
-  gnome_canvas_item_show(config_item);
+  if(config_item)
+    gnome_canvas_item_show(config_item);
   gnome_canvas_item_show(about_item);
 }
 
@@ -364,7 +370,7 @@ gcompris_bar_set (const GComprisBarFlags flags)
       gnome_canvas_item_hide(repeat_item);
   }
 
-  if(flags&GCOMPRIS_BAR_CONFIG)
+  if(flags&GCOMPRIS_BAR_CONFIG && config_item)
     gnome_canvas_item_show(config_item);
   else
     gnome_canvas_item_hide(config_item);
@@ -387,13 +393,15 @@ gcompris_bar_hide (gboolean hide)
 {
   if(hide)
     {
-      gnome_canvas_item_hide(exit_item);
+      if(exit_item)
+	gnome_canvas_item_hide(exit_item);
       gnome_canvas_item_hide(home_item);
       gnome_canvas_item_hide(level_item);
       gnome_canvas_item_hide(ok_item);
       gnome_canvas_item_hide(help_item);
       gnome_canvas_item_hide(repeat_item);
-      gnome_canvas_item_hide(config_item);
+      if(config_item)
+	gnome_canvas_item_hide(config_item);
       gnome_canvas_item_hide(about_item);
     }
   else
@@ -420,12 +428,14 @@ static void update_exit_button()
   if (get_current_gcompris_board()->previous_board == NULL)
     {
       /* We are in the upper menu: show it */
-      gnome_canvas_item_show(exit_item);
+      if(exit_item)
+	gnome_canvas_item_show(exit_item);
       gnome_canvas_item_hide(home_item);
     }
   else
     {
-      gnome_canvas_item_hide(exit_item);
+      if(exit_item)
+	gnome_canvas_item_hide(exit_item);
       gnome_canvas_item_show(home_item);
     }
 }
@@ -558,11 +568,10 @@ item_event_bar(GnomeCanvasItem *item, GdkEvent *event, gchar *data)
 	}
       else if(!strcmp((char *)data, "quit"))
 	{
-	  //gcompris_exit();
-	  gcompris_confirm( "GCompris confirmation",
-			    "Sure you want to quit ?",
-			    "Yes, i am sure !",
-			    "No, i am Bruno\'s daughter",
+	  gcompris_confirm( _("GCompris confirmation"),
+			    _("Sure you want to quit ?"),
+			    _("Yes, I am sure !"),
+			    _("No, I continue"),
 			    (ConfirmCallBack) confirm_quit);
 	}
       break;
@@ -574,7 +583,8 @@ item_event_bar(GnomeCanvasItem *item, GdkEvent *event, gchar *data)
 
 }
 
-void     confirm_quit(gboolean answer)
+static void
+confirm_quit(gboolean answer)
 {
   if (answer)
     gcompris_exit();
