@@ -1,5 +1,27 @@
 2006-03-05  Yves Combe  <yves@ycombe.net>
 
+	pass memory operations from /experimental to /math/algebramenu.
+	I did not add them in POTFILES.in
+
+	* boards/memory_add.xml.in:
+	* boards/memory_add_minus.xml.in:
+	* boards/memory_add_minus_mult_div.xml.in:
+	* boards/memory_add_minus_mult_div_tux.xml.in:
+	* boards/memory_add_minus_tux.xml.in:
+	* boards/memory_add_tux.xml.in:
+	* boards/memory_div.xml.in:
+	* boards/memory_div_tux.xml.in:
+	* boards/memory_minus.xml.in:
+	* boards/memory_minus_tux.xml.in:
+	* boards/memory_mult.xml.in:
+	* boards/memory_mult_div.xml.in:
+	* boards/memory_mult_div_tux.xml.in:
+	* boards/memory_mult_tux.xml.in:
+	* boards/memory_op_group.xml.in:
+	* boards/memory_op_group_tux.xml.in:
+
+2006-03-05  Yves Combe  <yves@ycombe.net>
+
 	fix tux mode playing already played cards.
 
 	* src/boards/memory.c: (display_card), (hide_card):
