@@ -1,6 +1,6 @@
 /* gcompris - memory.c
  *
- * Time-stamp: <2006/02/09 07:58:04 yves>
+ * Time-stamp: <2006/03/05 22:43:29 yves>
  *
  * Copyright (C) 2000 Bruno Coudoin
  * 
@@ -1373,6 +1373,7 @@ static void display_card(MemoryItem *memoryItem, CardStatus cardStatus)
     switch (cardStatus)
       {
       case ON_FRONT:
+	g_assert(memoryItem->hidden == FALSE);
 	gnome_canvas_item_hide(memoryItem->backcardItem);
 	gnome_canvas_item_show(memoryItem->frontcardItem);
 	playing_sound = TRUE;
@@ -1393,6 +1394,7 @@ static void display_card(MemoryItem *memoryItem, CardStatus cardStatus)
     switch (cardStatus)
       {
       case ON_FRONT:
+	g_assert(memoryItem->hidden == FALSE);
 	gnome_canvas_item_hide(memoryItem->backcardItem);
 	gnome_canvas_item_show(memoryItem->framecardItem);
 	gnome_canvas_item_show(memoryItem->frontcardItem);
@@ -1424,7 +1426,7 @@ static gint hide_card (GtkWidget *widget, gpointer data)
     GList *to_remove = NULL;
 
     for (list =  winning_pairs; list != NULL; list=list->next)
-      if ((((WINNING *) list->data)->first == firstCard) || (((WINNING *) list->data)->first == secondCard)){
+      if ((((WINNING *) list->data)->first == firstCard) || (((WINNING *) list->data)->first == secondCard) || (((WINNING *) list->data)->second == firstCard) || (((WINNING *) list->data)->second == secondCard) ){
 	to_remove = g_list_append( to_remove, list->data);
       }
   
