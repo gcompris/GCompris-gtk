@@ -1,3 +1,22 @@
+2006-03-05  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	translation file list cleanup.
+	Removed translation of german region, just the map title is translated.
+
+	* boards/awele.xml.in:
+	* boards/geography/board6_0.xml.in:
+	* boards/magic_hat_minus.xml.in:
+	* boards/magic_hat_plus.xml.in:
+	* po/POTFILES.in:
+
+2006-03-05  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	Moved awele and magic_hat out of experimental. Added them for translation.
+	* boards/awele.xml.in:
+	* boards/magic_hat_minus.xml.in:
+	* boards/magic_hat_plus.xml.in:
+	* po/POTFILES.in:
+
 2006-03-03  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	- removed many warnings

@@ -3,17 +3,17 @@
   <Board 
 	 name="magic_hat_minus"
 	 type="magic_hat"
-	 section="/experimental"
+	 section="/math/numeration"
 	 icon="boardicons/magic_hat_minus.png" 
 	 difficulty="2"
 	 mode="minus"
 	 author="Marc BRUN"
 	 boarddir="">
 	 <_title>The magician hat</_title>
-	 <_description>Compute how many items are under the magic hat after some escaped</_description>
+	 <_description>Count how many items are under the magic hat after some escaped</_description>
 	<_prerequisite>Substraction</_prerequisite>
 	<_goal>Learn substraction</_goal>
-	 <_manual>Look at the magician, he tells you how much stars are under his magic hat. Then, click on the hat to open it. A few stars now escape. Click again on the hat to close it. You have to compute how much are still under the hat. Click on the bottom right frame to give your answer.</_manual>
+	 <_manual>Look at the magician, he tells you how much stars are under his magic hat. Then, click on the hat to open it. A few stars escape. Click again on the hat to close it. You have to count how much are still under the hat. Click on the bottom right area to answer.</_manual>
 	 <_credit></_credit>
   </Board>
 </GCompris>

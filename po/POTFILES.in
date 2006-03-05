@@ -95,6 +95,7 @@ boards/geography/board4_0.xml.in
 boards/geography/board4_1.xml.in
 boards/geography/board4_2.xml.in
 boards/geography/board5_0.xml.in
+boards/geography/board6_0.xml.in
 boards/geometry.xml.in
 boards/gletters.xml.in
 boards/gnumch-equality.xml.in
@@ -119,6 +120,8 @@ boards/imagename/board6_0.xml.in
 boards/keyboard.xml.in
 boards/leftright.xml.in
 boards/login.xml.in
+boards/magic_hat_plus.xml.in
+boards/magic_hat_minus.xml.in
 boards/math.xml.in
 boards/maze.xml.in
 boards/maze2DRelative.xml.in
@@ -132,6 +135,7 @@ boards/memory_sound.xml.in
 boards/memory_sound_tux.xml.in
 boards/memory_tux.xml.in
 boards/menu.xml.in
+boards/menu2.xml.in
 boards/miscelaneous.xml.in
 boards/missing_letter.xml.in
 boards/missing_letter/board1.xml.in
@@ -220,6 +224,7 @@ src/boards/machpuzzle.c
 src/boards/maze.c
 src/boards/memory.c
 src/boards/menu.c
+src/boards/menu2.c
 src/boards/missingletter.c
 src/boards/money.c
 src/boards/paratrooper.c
@@ -264,6 +269,7 @@ src/boards/target.c
 src/boards/traffic.c
 src/boards/wordsgame.c
 src/gcompris/about.c
+src/gcompris/bar.c
 src/gcompris/board.c
 src/gcompris/board_config.c
 src/gcompris/bonus.c
