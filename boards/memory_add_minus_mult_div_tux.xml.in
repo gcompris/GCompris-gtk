@@ -7,13 +7,15 @@
 	 mode="add_minus_mult_div_tux" 
 	 difficulty="1"
 	 icon="boardicons/memory_tux.png" 
-	 author="Bruno Coudoin (bruno.coudoin@free.fr)"
+	 author="Yves Combe (yves@ycombe.net)"
 	 boarddir="">
-	 <_title>Memory Game for the 4 operations against Tux</_title>
- 	 <_description>Flip the cards to find the matching pairs</_description>
-	<_prerequisite>Additions</_prerequisite>
-	<_goal>Train your memory in addition domain and remove all the cards</_goal>
-	<_manual>A set of blank cards is shown. Each card has a picture on the other side, and each picture card has a twin exactly the same. Click on a card to see its hidden picture, and try to match the twins. You can only turn over two cards at once, so you need to remember where a picture is, while you look for its twin. When you turn over the twins, they both disappear.</_manual>
+	 <_title>All operations memory game against Tux</_title>
+ 	 <_description>Turn the cards over to find a matching operation, until all the cards are gone.</_description>
+	<_prerequisite>Addition, subtraction, multiplication, division</_prerequisite>
+	<_goal>Practise addition, subtraction, multiplication, division, until all the cards are gone.</_goal>
+	<_manual xml:space="preserve">You can see some cards, but you can't see what's on the other side of them. Each card is hiding an operation, or the answer to it.
+
+In this game, these cards are hiding the two parts of an operation. You need to find the two parts of the operation, and bring them together again. Click on a card to see what number it's hiding, then try to find the other card that goes with it, to make a whole operation. You can only turn over two cards in one go, so you need to remember where the numbers are hiding, then you can match them when you find their other half. You're doing the job of the equals sign, and the numbers need you to put them together and make a proper equality. When you do that, both those cards disappear! When you've made them all disappear, found all the operations, you've won the game! :)</_manual>
   </Board>
   <Data directory=""/>
 </GCompris>

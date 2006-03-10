@@ -7,13 +7,17 @@
 	 mode="mult" 
 	 difficulty="1"
 	 icon="boardicons/memory.png" 
-	 author="Bruno Coudoin (bruno.coudoin@free.fr)"
+	 author="Yves Combe (yves@ycombe.net)"
 	 boarddir="">
-	 <_title>Memory Game for multiplications</_title>
- 	 <_description>Flip the cards to find the matching pairs</_description>
-	<_prerequisite>Additions</_prerequisite>
-	<_goal>Train your memory in addition domain and remove all the cards</_goal>
-	<_manual>A set of blank cards is shown. Each card has a picture on the other side, and each picture card has a twin exactly the same. Click on a card to see its hidden picture, and try to match the twins. You can only turn over two cards at once, so you need to remember where a picture is, while you look for its twin. When you turn over the twins, they both disappear.</_manual>
+	 <_title>Multiplication memory game</_title>
+ 	 <_description>Turn the cards over to find two numbers which multiply the same, until all the cards are gone.</_description>
+	<_prerequisite>Multiplication</_prerequisite>
+	<_goal>Practise multiplication, until all the cards are gone.</_goal>
+	<_manual xml:space="preserve">You can see some cards, but you can't see what's on the other side of them. Each card is hiding a multiplication, or the answer to it.
+A multiplication looks like this: 2 × 2 = 4
+The numbers on one side of the equals sign (=) have to be the same as the number on the other side. So 2 (1, 2) by 2 (1, 2) makes 4. Count aloud when you work this out, and count on your fingers, because the more ways you do something, the better you remember it. You can also use blocks, or buttons, or anything you can count. If you have lots of brothers and sisters, you can count them! Or the kids in your class at school. Sing counting songs. Count lots of things, for practice, and you'll be very good at adding-up!
+
+In this game, these cards are hiding the two parts of a multiplication. You need to find the two parts of the subraction, and bring them together again. Click on a card to see what number it's hiding, then try to find the other card that goes with it, to make a whole sum. You can only turn over two cards in one go, so you need to remember where the numbers are hiding, then you can match them when you find their other half. You're doing the job of the equals sign, and the numbers need you to put them together and make a proper multiplication. When you do that, both those cards disappear! When you've made them all disappear, found all the multiplications, you've won the game! :)</_manual>
   </Board>
   <Data directory=""/>
 </GCompris>
