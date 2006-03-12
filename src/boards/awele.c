@@ -531,7 +531,7 @@ awele_create_item (GnomeCanvasGroup * parent)
 
 	graphsElt->msg = gnome_canvas_item_new (boardRootItem,
 						gnome_canvas_text_get_type (),
-						"text", _("Choose an house"),
+						"text", _("Choose a house"),
 						"font", "12x24",
 						"size", 20000,
 						"x", (double) 400,

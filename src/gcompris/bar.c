@@ -1,6 +1,6 @@
 /* gcompris - bar.c
  *
- * Time-stamp: <2006/03/02 23:27:13 bruno>
+ * Time-stamp: <2006/03/12 03:02:12 bruno>
  *
  * Copyright (C) 2000-2003 Bruno Coudoin
  *
@@ -571,7 +571,7 @@ item_event_bar(GnomeCanvasItem *item, GdkEvent *event, gchar *data)
 	  gcompris_confirm( _("GCompris confirmation"),
 			    _("Sure you want to quit ?"),
 			    _("Yes, I am sure !"),
-			    _("No, I continue"),
+			    _("No, I want to keep going"),
 			    (ConfirmCallBack) confirm_quit);
 	}
       break;
