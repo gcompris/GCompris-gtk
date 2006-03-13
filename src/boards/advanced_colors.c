@@ -19,6 +19,7 @@
 
 #include <ctype.h>
 #include <assert.h>
+#include <string.h>
 
 /* libxml includes */
 #include <libxml/tree.h>

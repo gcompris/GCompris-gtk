@@ -35,6 +35,7 @@ static struct BoardPluginData *bp_data;
 extern BoardPlugin * get_advanced_colors_bplugin_info();
 extern BoardPlugin * get_algebra_bplugin_info();
 extern BoardPlugin * get_algebra_guesscount_bplugin_info();
+extern BoardPlugin * get_awele_bplugin_info();
 extern BoardPlugin * get_canal_lock_bplugin_info();
 extern BoardPlugin * get_chess_bplugin_info();
 extern BoardPlugin * get_clickgame_bplugin_info();
@@ -52,6 +53,7 @@ extern BoardPlugin * get_hanoi_real_bplugin_info();
 extern BoardPlugin * get_imageid_bplugin_info();
 extern BoardPlugin * get_leftright_bplugin_info();
 extern BoardPlugin * get_machpuzzle_bplugin_info();
+extern BoardPlugin * get_magic_hat_bplugin_info();
 extern BoardPlugin * get_maze_bplugin_info();
 extern BoardPlugin * get_memory_bplugin_info();
 extern BoardPlugin * get_menu_bplugin_info();
@@ -71,7 +73,7 @@ extern BoardPlugin * get_target_bplugin_info();
 extern BoardPlugin * get_traffic_bplugin_info();
 extern BoardPlugin * get_wordsgame_bplugin_info();
 
-#define MAX_NUMBER_OF_BOARDS 100
+#define MAX_NUMBER_OF_BOARDS 200
 static BoardPlugin *static_boards_demo[MAX_NUMBER_OF_BOARDS];
 static BoardPlugin *static_boards[MAX_NUMBER_OF_BOARDS];
 
@@ -95,20 +97,22 @@ void init_plugins(void)
 
   bp_data = g_malloc0(sizeof (struct BoardPluginData));
 
-  static_boards_demo[i++] = get_menu_bplugin_info();
+  static_boards_demo[i++] = get_awele_bplugin_info();
   static_boards_demo[i++] = get_click_on_letter_bplugin_info();
-  static_boards_demo[i++] = get_colors_bplugin_info();
   static_boards_demo[i++] = get_clickgame_bplugin_info();
+  static_boards_demo[i++] = get_colors_bplugin_info();
   static_boards_demo[i++] = get_draw_bplugin_info();
   static_boards_demo[i++] = get_enumerate_bplugin_info();
   static_boards_demo[i++] = get_erase_bplugin_info();
   static_boards_demo[i++] = get_gletters_bplugin_info();
+  static_boards_demo[i++] = get_gtans_bplugin_info();
   static_boards_demo[i++] = get_hanoi_bplugin_info();
+  static_boards_demo[i++] = get_magic_hat_bplugin_info();
+  static_boards_demo[i++] = get_menu_bplugin_info();
   static_boards_demo[i++] = get_reading_bplugin_info();
   static_boards_demo[i++] = get_submarine_bplugin_info();
   static_boards_demo[i++] = get_superbrain_bplugin_info();
   static_boards_demo[i++] = get_target_bplugin_info();
-  static_boards_demo[i++] = get_gtans_bplugin_info();
   static_boards_demo[i++] = NULL;
 
   i=0;

@@ -73,7 +73,7 @@ GNode *firstChild(GNode *node)
     return NULL;
 
   gint i;
-  rand_play = 1 + random()%6;
+  rand_play = RAND(1, 5);
 
   for (i = 0 ; i < 6; i++)
     {
@@ -97,6 +97,7 @@ GNode *nextSibling(GNode *node)
 gboolean free_awale(GNode *node,
 		    gpointer data){
   g_free(data);
+  return TRUE;
 }
 
 
@@ -117,7 +118,6 @@ short int  think( AWALE *static_awale, short int level){
 
   GNode *t = g_node_new(aw) ;
 
-  int npris ;
   int best = -1;
   int value = 0;
   EvalFunction use_eval = NULL;
@@ -125,40 +125,40 @@ short int  think( AWALE *static_awale, short int level){
   switch (level) {
   case 1:
     maxprof = 1;
-    use_eval = &eval_to_null;
+    use_eval = (EvalFunction)&eval_to_null;
     g_warning("search depth 1, evaluation null");
     break;
   case 2:
     maxprof = 1;
-    use_eval = &eval_to_best_capture;
+    use_eval = (EvalFunction)&eval_to_best_capture;
     g_warning("search depth 1, evaluation best capture");
     break;
   case 3:
   case 4:
     maxprof = 2;
-    use_eval = &eval;
+    use_eval = (EvalFunction)&eval;
     g_warning("search depth %d, evaluation best difference", maxprof);
     break;
   case 5:
   case 6:
     maxprof = 4;
-    use_eval = &eval;
+    use_eval = (EvalFunction)&eval;
     g_warning("search depth %d, evaluation best difference", maxprof);
     break;
   case 7:
   case 8:
     maxprof = 6;
-    use_eval = &eval;
+    use_eval = (EvalFunction)&eval;
     g_warning("search depth %d, evaluation best difference", maxprof);
     break;
   case 9:
     maxprof = 8;
-    use_eval = &eval;
+    use_eval = (EvalFunction)&eval;
     g_warning("search depth %d, evaluation best difference", maxprof);
     break;
   default:
     maxprof = 8;
-    use_eval = &eval;
+    use_eval = (EvalFunction)&eval;
     g_warning("search depth %d, evaluation best difference", maxprof);
     break;
   }

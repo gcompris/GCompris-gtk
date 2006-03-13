@@ -1850,7 +1850,6 @@ void taninitstart(void){
   char* accurstr;
 
   usergtdir = gcompris_get_current_board_dirname();
-  mkdir(usergtdir, -1);         /* mmouais bof */
 
   for (i = PXSTART; i<PXNBR+PXSTART; i++){
     tabpxnam[i] = NULL;

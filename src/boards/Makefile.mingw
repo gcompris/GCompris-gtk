@@ -107,6 +107,7 @@ install:
 BOARDS_C_SRC =	\
 	algebra.c \
 	algebra_guesscount.c \
+	awele.c awele_utils.c awele_alphaBeta.c \
 	canal_lock.c \
 	chess.c chess_position.c chess_notation.c \
 	click_on_letter.c \
@@ -126,8 +127,9 @@ BOARDS_C_SRC =	\
 	superbrain.c \
 	machpuzzle.c \
 	maze.c \
+	magic_hat.c \
 	memory.c \
-	menu.c \
+	menu2.c \
 	missingletter.c \
 	money.c \
 	money_widget.c \
