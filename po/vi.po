@@ -6,8 +6,8 @@ msgid ""
 ""
 msgstr "Project-Id-Version: gcompris Gnome HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-03-10 02:30+0100\n"
-"PO-Revision-Date: 2006-03-10 20:47+1030\n"
+"POT-Creation-Date: 2006-03-14 10:34+0100\n"
+"PO-Revision-Date: 2006-03-15 18:10+1030\n"
 "Last-Translator: Clytie Siddall <clytie@riverland.net.au>\n"
 "Language-Team: Vietnamese <gnomevi-list@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
@@ -1511,10 +1511,12 @@ msgstr "Thao tác con chuột: di chuyển, kéo và thả"
 
 #:../boards/geography.xml.in.h:4
 msgid ""
-"The Germany map comes from Wikipedia and is released under the GNU Free "
+"The map of Germany comes from Wikipedia and is released under the GNU Free "
 "Documentation License. Olaf Ronneberger and his children Lina and Julia "
 "Ronneberger created the German level."
-msgstr "Bản đổ của quốc Đức thuộc về Wikipedia và được phát hành với điều kiện của Quyền Tài liệu Hướng dẫn Tự do GNU (GFDL). Olaf Ronneberger và hai trẻ con Lina và Julia đã tạo lớp Đức."
+msgstr "Bản đổ của quốc Đức thuộc về Wikipedia và được phát hành với điều kiện của "
+"Quyền Tài liệu Hướng dẫn Tự do GNU (GFDL). Olaf Ronneberger và hai trẻ con "
+"Lina và Julia đã tạo lớp Đức."
 
 #:../boards/geography/board1_0.xml.in.h:1
 #:../boards/geography/board4_2.xml.in.h:1
@@ -2709,16 +2711,17 @@ msgstr "Để hoạt hóa màn hình đăng nhập, trước tiên\n"
 msgid "Select or enter your name to log in to GCompris"
 msgstr "Hãy chọn hoặc gõ tên bạn để đăng nhập vào trình GCompris."
 
-#:../boards/magic_hat_plus.xml.in.h:1
+#:../boards/magic_hat_plus.xml.in.h:1 ../boards/memory_add.xml.in.h:1
 msgid "Addition"
 msgstr "Phép cộng"
 
 #:../boards/magic_hat_plus.xml.in.h:2
 msgid ""
-"Click on the hat to open it. A few stars now move under the hat. Click again "
-"on the hat to close it. You have to count how many are under the hat. Click "
-"on the bottom right area to answer."
-msgstr "Nhắp vào cái mũ để mở hoặc đóng nó. Dưới cái mũ, cháu có thể thấy bao nhiều sao? Đếm cẩn thận nhé. :)  Nhắp vào vùng bên phải, góc dưới để nhập trả lời."
+"Click on the hat to open or close it. Under the hat, how many stars can you "
+"see moving around? Count carefully. :) Click in the bottom- right area to "
+"input your answer."
+msgstr "Nhắp vào cái mũ để mở hoặc đóng nó. Dưới cái mũ, cháu có thể thấy bao nhiều "
+"sao đi chung quanh? Đếm cẩn thận nhé. :)  Nhắp vào vùng bên phải, góc dưới để nhập trả lời."
 
 #:../boards/magic_hat_plus.xml.in.h:3
 msgid "Count how many items are under the magic hat"
@@ -2733,23 +2736,28 @@ msgid "The magician hat"
 msgstr "Cái mũ ma thuật"
 
 #:../boards/magic_hat_minus.xml.in.h:1
-msgid "Count how many items are under the magic hat after some escaped"
+msgid "Count how many items are under the magic hat after some have got away"
 msgstr "Đếm bao nhiều mục còn lại dưới cái mũ ma thuật, sau khi một số mục đã thoát"
 
 #:../boards/magic_hat_minus.xml.in.h:2
-msgid "Learn substraction"
+msgid "Learn subtraction"
 msgstr "Học biết cách trừ"
 
 #:../boards/magic_hat_minus.xml.in.h:3
 msgid ""
-"Look at the magician, he tells you how much stars are under his magic hat. "
-"Then, click on the hat to open it. A few stars escape. Click again on the "
-"hat to close it. You have to count how much are still under the hat. Click "
-"on the bottom right area to answer."
-msgstr "Cháu thấy thuật sĩ đi. Bác ấy báo cháu biết bao nhiều sao nằm dưới cái mũ ma thuật. Cháu nhắp vào cái mũ để mở nó. Ồi, một số sao đã thoất ! Nhắp vào cái mũ để đóng nó. Bao nhiều sao còn lại nằm dưới cái mũ ma thuật? Cháu đã đếm đúng chưa? Nhắp vào vùng bên phải, góc dưới để nhập trả lời."
+"Look at the magician, he tells the number of stars that are under his magic "
+"hat. Then, click on the hat to open it. A few stars escape. Click again on "
+"the hat to close it. You have to count how many are still under the hat. "
+"Click on the bottom right area to answer."
+msgstr "Cháu thấy thuật sĩ đi. Bác ấy báo cháu biết bao nhiều sao nằm dưới cái mũ ma "
+"thuật. Cháu nhắp vào cái mũ để mở nó. Ồi, một số sao đã thoất ! Nhắp vào cái "
+"mũ để đóng nó. Bao nhiều sao còn lại nằm dưới cái mũ ma thuật? Cháu đã đếm "
+"đúng chưa? Nhắp vào vùng bên phải, góc dưới để nhập trả lời."
 
-#:../boards/magic_hat_minus.xml.in.h:4
-msgid "Substraction"
+#:../boards/magic_hat_minus.xml.in.h:4 ../boards/memory_add_minus.xml.in.h:3
+#:../boards/memory_add_minus_tux.xml.in.h:3 ../boards/memory_minus.xml.in.h:2
+#:../boards/memory_minus_tux.xml.in.h:2
+msgid "Subtraction"
 msgstr "Phép trừ"
 
 #:../boards/math.xml.in.h:1
@@ -2880,6 +2888,158 @@ msgstr "Trò chơi nhớ có ảnh"
 msgid "Train your memory and remove all the cards"
 msgstr "Dây dỗ trí nhớ cháu, bỏ bài hết"
 
+#:../boards/memory_add.xml.in.h:2
+msgid "Addition memory game"
+msgstr "Trò chơi trí nhớ phép cộng"
+
+#:../boards/memory_add.xml.in.h:3 ../boards/memory_add_tux.xml.in.h:3
+msgid "Practise adding up, until all the cards are gone."
+msgstr "Thức hành phép cộng cho đến hết bài."
+
+#:../boards/memory_add.xml.in.h:4 ../boards/memory_add_tux.xml.in.h:4
+msgid ""
+"Turn the cards over to find two numbers which add up the same, until all the "
+"cards are gone."
+msgstr "Quay bài để tìm hai số trùng tổng, cho đén hết bài."
+
+#:../boards/memory_add.xml.in.h:5 ../boards/memory_add_tux.xml.in.h:5
+msgid ""
+"You can see some cards, but you can't see what's on the other side of them. "
+"Each card is hiding an adding-up sum, or the answer to the sum.\n"
+"An adding-up sum looks like this: 2 + 2 = 4\n"
+"The numbers on one side of the equals sign (=) have to be the same as the "
+"number on the other side. So 2 (1, 2) and 2 more (3, 4) makes 4. Count aloud "
+"when you work this out, and count on your fingers, because the more ways you "
+"do something, the better you remember it. You can also use blocks, or "
+"buttons, or anything you can count. If you have lots of brothers and "
+"sisters, you can count them! Or the kids in your class at school. Sing "
+"counting songs. Count lots of things, for practice, and you'll be very good "
+"at adding-up!\n"
+"\n"
+"In this game, these cards are hiding the two parts of an adding-up sum (also "
+"called an addition sum). You need to find the two parts of the sum, and "
+"bring them together again. Click on a card to see what number it's hiding, "
+"then try to find the other card that goes with it, to make a whole sum. You "
+"can only turn over two cards in one go, so you need to remember where the "
+"numbers are hiding, then you can match them when you find their other half. "
+"You're doing the job of the equals sign, and the numbers need you to put "
+"them together and make a proper sum. When you do that, both those cards "
+"disappear! When you've made them all disappear, found all the sums, you've "
+"won the game! :)"
+msgstr "Cháu xem một số bài, nhưng chưa xem được mặt khác. Mỗi bài ẩn một phép cộng, hoặc tổng cộng.\n"
+"Một phép cộng hoàn toàn hình như đây: 2 + 2 = 4.\n"
+"Những số bên trái dấu bằng phải bằng số bên khác. Vậy 2 (1, 2) và 2 nữa (3, 4) là 4. Đếm lớn tiếng khi cháu tính phép này, và đếm bằng ngón tay, vì càng nhiều cách làm gì, càng giỏi nhớ nó. Cháu cũng có thể đếm khối, hoặc cái nút, hoặc bất cứ vật gì đếm được. Nếu cháu có nhiều anh chị em, cháu đếm đi ! Hoặc các học sinh trong lớp cháu ở trường. Cháu hát bài đếm nhé. Cháu vẫn còn nhớ bài hát này không?\n"
+"\n"
+"Một và một là hai\n"
+"Hai cộng hai bằng bốn\n"
+"Bốn và một bằng năm\n"
+"Năm ngón tay sạch đều. :)"
+"\n"
+"Nếu không, cháu xin mẹ hoặc cô giáo dạy. :)  Cháu có thể thay thế số khác, để thức hành. Cháu đếm rất nhiều vật khác nhau, để thức hành. Sau đó, cháu đếm rất giỏi. :)\n"
+"\n"
+"Trong trò chơi này, những bài giấu giếm này đang ẩn hai phần riêng của một phép cộng. Cháu cần phải tìm cả hai phần của cùng một phép cộng, và kết hợp lại với nhau. Nhắp vào bài nào để quay nó, và xem số nào bị ẩn, rồi cố tìm bài khác khớp để tạo một phép cộng hoàn toàn. Cháu có thể quay chỉ hai bài trong mỗi lượt chơi, vậy cháu cần phải cố nhớ những số ẩn dưới bài nào, để có khả năng khớp khi cháu tìm phần hai khác. Trong trò chơi này, cháu làm việc dấu bằng, và các số này cần thiết cháu kết hợp chúng với nhau, để tạo một phép cộng đúng. Khi cháu làm như thế, cả hai bài đó sẽ biến mất ! Khi cháu đã làm cho hết bài, đã tìm tất cả các phép cộng, lúc đó cháu thắng !"
+
+#:../boards/memory_add_minus.xml.in.h:1
+msgid "Addition and subtraction memory game"
+msgstr "Trò chơi trí nhớ phép cộng và trừ"
+
+#:../boards/memory_add_minus.xml.in.h:2
+#:../boards/memory_add_minus_tux.xml.in.h:2
+msgid "Practise addition, subtraction, until all the cards are gone."
+msgstr "Thức hành phép cộng và trừ cho đến hết bài."
+
+#:../boards/memory_add_minus.xml.in.h:4
+#:../boards/memory_add_minus_tux.xml.in.h:4
+msgid ""
+"Turn the cards over to find two numbers which add or subtract the same, "
+"until all the cards are gone."
+msgstr "Quay bài để tìm hai số mà cộng hoặc trừ để khớp với nhau, cho đến hết bài."
+
+#:../boards/memory_add_minus.xml.in.h:5
+#:../boards/memory_add_minus_mult_div.xml.in.h:5
+#:../boards/memory_add_minus_mult_div_tux.xml.in.h:5
+#:../boards/memory_add_minus_tux.xml.in.h:5 ../boards/memory_div.xml.in.h:5
+#:../boards/memory_div_tux.xml.in.h:5 ../boards/memory_mult.xml.in.h:5
+#:../boards/memory_mult_div.xml.in.h:5
+#:../boards/memory_mult_div_tux.xml.in.h:5
+#:../boards/memory_mult_tux.xml.in.h:5
+msgid ""
+"You can see some cards, but you can't see what's on the other side of them. "
+"Each card is hiding an operation, or the answer to it.\n"
+"\n"
+"In this game, these cards are hiding the two parts of an operation. You need "
+"to find the two parts of the operation, and bring them together again. Click "
+"on a card to see what number it's hiding, then try to find the other card "
+"that goes with it, to make a whole operation. You can only turn over two "
+"cards in one go, so you need to remember where the numbers are hiding, then "
+"you can match them when you find their other half. You're doing the job of "
+"the equals sign, and the numbers need you to put them together and make a "
+"proper equality. When you do that, both those cards disappear! When you've "
+"made them all disappear, found all the operations, you've won the game! :)"
+msgstr "Cháu xem một số bài, nhưng chưa xem được mặt khác. Mỗi bài đang ẩn một phép tính, hoặc trả lời cho nó.\n"
+"\n"
+"Trong trò chơi này, những bài này ẩn hai phần của phép tính. Cháu cần tìm cả hai phần của phép tính, lại kết hợp với nhau. Nhắp vào bài nào để xem số bị ẩn, rồi cố tìm bài khác khớp nó, để tạo phép tính hoàn toàn. Cháu có thể quay chỉ hai bài trong mỗi lượt chơi, vậy cháu cần phải cố nhớ những số ẩn dưới bài nào, để có khả năng khớp khi cháu tìm phần hai khác. Trong trò chơi này, cháu làm việc dấu bằng, và các số này cần thiết cháu kết hợp chúng với nhau, để tạo một phép tính đúng. Khi cháu làm như thế, cả hai bài đó sẽ biến mất ! Khi cháu đã làm cho hết bài, đã tìm tất cả các phép tính, lúc đó cháu thắng !"
+""
+
+#:../boards/memory_add_minus_mult_div.xml.in.h:1
+#:../boards/memory_add_minus_mult_div_tux.xml.in.h:1
+msgid "Addition, subtraction, multiplication, division"
+msgstr "Phép cộng, trừ, nhân và chia."
+
+#:../boards/memory_add_minus_mult_div.xml.in.h:2
+msgid "All operations memory game"
+msgstr "Trò chơi trí nhớ cả bốn phép tính"
+
+#:../boards/memory_add_minus_mult_div.xml.in.h:3
+#:../boards/memory_add_minus_mult_div_tux.xml.in.h:3
+msgid ""
+"Practise addition, subtraction, multiplication, division, until all the "
+"cards are gone."
+msgstr "Thức hành phép cộng, trừ, nhân và chia, cho đến hết bài."
+
+#:../boards/memory_add_minus_mult_div.xml.in.h:4
+#:../boards/memory_add_minus_mult_div_tux.xml.in.h:4
+#:../boards/memory_div.xml.in.h:4 ../boards/memory_div_tux.xml.in.h:4
+#:../boards/memory_mult_div.xml.in.h:4
+#:../boards/memory_mult_div_tux.xml.in.h:4
+#:../boards/memory_mult_tux.xml.in.h:4
+msgid ""
+"Turn the cards over to find a matching operation, until all the cards are "
+"gone."
+msgstr "Quay bài để tìm một phép tính khớp, cho đến hết bài."
+
+#:../boards/memory_add_minus_mult_div_tux.xml.in.h:2
+msgid "All operations memory game against Tux"
+msgstr "Trò chơi trí nhớ cả bốn phép tính đối với Thâch-x"
+
+#:../boards/memory_add_minus_tux.xml.in.h:1
+msgid "Addition and subtraction memory game against Tux"
+msgstr "Trò chơi trí nhớ phép công và trừ đối với Thâch-x"
+
+#:../boards/memory_add_tux.xml.in.h:1
+msgid "Addition memory game against Tux"
+msgstr "Trò chơi trí nhớ cộng đối với Thâch-x"
+
+#:../boards/memory_add_tux.xml.in.h:2 ../boards/memory_mult_tux.xml.in.h:1
+msgid "Additions"
+msgstr "Phép cộng"
+
+#:../boards/memory_div.xml.in.h:1 ../boards/memory_div_tux.xml.in.h:1
+msgid "Division"
+msgstr "Phép nhân"
+
+#:../boards/memory_div.xml.in.h:2
+msgid "Division memory game"
+msgstr "Trò chơi trí nhớ phép chia"
+
+#:../boards/memory_div.xml.in.h:3 ../boards/memory_div_tux.xml.in.h:3
+msgid "Practise division, until all the cards are gone."
+msgstr "Thức hành phép chia cho đến hết bài"
+
+#:../boards/memory_div_tux.xml.in.h:2
+msgid "Division memory game against Tux"
+msgstr "Trò chơi trí nhớ phép chia đối với Thâch-x"
+
 #:../boards/memory_group.xml.in.h:1
 msgid "Go to Memory activities"
 msgstr "Đi đến hoạt động Nhớ"
@@ -2887,6 +3047,119 @@ msgstr "Đi đến hoạt động Nhớ"
 #:../boards/memory_group.xml.in.h:2
 msgid "Various memory activities (images, letters, sounds)."
 msgstr "Nhiều hoạt động trí nhớ (ảnh, chữ, âm thanh)."
+
+#:../boards/memory_minus.xml.in.h:1 ../boards/memory_minus_tux.xml.in.h:1
+msgid "Practise subtraction, until all the cards are gone."
+msgstr "Thức hành phép chia cho đến hết bài."
+
+#:../boards/memory_minus.xml.in.h:3
+msgid "Subtraction memory game"
+msgstr "Trò chơi trí nhớ phép trừ"
+
+#:../boards/memory_minus.xml.in.h:4 ../boards/memory_minus_tux.xml.in.h:4
+msgid ""
+"Turn the cards over to find two numbers which subtract the same, until all "
+"the cards are gone."
+msgstr "Quay bài để tìm hai số làm phép tính trừ, cho đến hết bài."
+
+#:../boards/memory_minus.xml.in.h:5 ../boards/memory_minus_tux.xml.in.h:5
+msgid ""
+"You can see some cards, but you can't see what's on the other side of them. "
+"Each card is hiding a subtraction, or the answer to it.\n"
+"A subtraction looks like this: 3 - 1 = 2\n"
+"The numbers on one side of the equals sign (=) have to be the same as the "
+"number on the other side. So 3 (1, 2, 3) less 1 (1) makes 2. Count aloud "
+"when you work this out, and count on your fingers, because the more ways you "
+"do something, the better you remember it. You can also use blocks, or "
+"buttons, or anything you can count. If you have lots of brothers and "
+"sisters, you can count them! Or the kids in your class at school. Sing "
+"counting songs. Count lots of things, for practice, and you'll be very good "
+"at adding-up!\n"
+"\n"
+"In this game, these cards are hiding the two parts of a subtraction. You "
+"need to find the two parts of the subraction, and bring them together again. "
+"Click on a card to see what number it's hiding, then try to find the other "
+"card that goes with it, to make a whole sum. You can only turn over two "
+"cards in one go, so you need to remember where the numbers are hiding, then "
+"you can match them when you find their other half. You're doing the job of "
+"the equals sign, and the numbers need you to put them together and make a "
+"proper sum. When you do that, both those cards disappear! When you've made "
+"them all disappear, found all the subtracts, you've won the game! :)"
+msgstr "Cháu xem một số bài, nhưng chưa xem được mặt khác. Mỗi bài ẩn một phép trừ, hoặc hiệu.\n"
+"Một phép trừ hoàn toàn hình như đây: 3 - 1 = 2.\n"
+"Những số bên trái dấu bằng phải bằng số bên khác. Vậy 3 (1, 2, 3) trừ 1 (1, 2) còn là 2. Đếm lớn tiếng khi cháu tính phép này, và đếm bằng ngón tay, vì càng nhiều cách làm gì, càng giỏi nhớ nó. Cháu cũng có thể đếm khối, hoặc cái nút, hoặc bất cứ vật gì đếm được. Nếu cháu có nhiều anh chị em, cháu đếm đi ! Hoặc các học sinh trong lớp cháu ở trường. Lấy thí dụ : cháu có ba anh em, nhưng một anh rời phòng. Mấy anh còn lại? Cháu hát bài đếm nhé. Chúng ta tạo bài hát mới nhé.\n"
+"\n"
+"Một và một là hai\n"
+"Hai cộng hai bằng bốn\n"
+"Bốn trừ hai bằng hai\n"
+"Vì hai ngón tay đã trốn."
+""
+"nhưng mà cần hát cao hơn tại kết thúc. ;)"
+"\n"
+"Cháu có thể thay thế số khác, để thức hành. Cháu đếm rất nhiều vật khác nhau, để thức hành. Sau đó, cháu trừ rất giỏi. :)\n"
+"\n"
+"Trong trò chơi này, những bài giấu giếm này đang ẩn hai phần riêng của một phép trừ. Cháu cần phải tìm cả hai phần của cùng một phép trừ, và kết hợp lại với nhau. Nhắp vào bài nào để quay nó, và xem số nào bị ẩn, rồi cố tìm bài khác khớp để tạo một phép trừ hoàn toàn. Cháu có thể quay chỉ hai bài trong mỗi lượt chơi, vậy cháu cần phải cố nhớ những số ẩn dưới bài nào, để có khả năng khớp khi cháu tìm phần hai khác. Trong trò chơi này, cháu làm việc dấu bằng, và các số này cần thiết cháu kết hợp chúng với nhau, để tạo một phép trừ đúng. Khi cháu làm như thế, cả hai bài đó sẽ biến mất ! Khi cháu đã làm cho hết bài, đã tìm tất cả các phép trừ, lúc đó cháu thắng !"
+
+#:../boards/memory_minus_tux.xml.in.h:3
+msgid "Subtraction memory game against Tux"
+msgstr "Trò chơi trí nhớ phép trừ đối với Thâch-x"
+
+#:../boards/memory_mult.xml.in.h:1
+msgid "Multiplication"
+msgstr "Phép nhân"
+
+#:../boards/memory_mult.xml.in.h:2
+msgid "Multiplication memory game"
+msgstr "Trò chơi trí nhớ phép nhân"
+
+#:../boards/memory_mult.xml.in.h:3
+msgid "Practise multiplication, until all the cards are gone."
+msgstr "Thức hành phép tính nhân cho đến hết bài."
+
+#:../boards/memory_mult.xml.in.h:4
+msgid ""
+"Turn the cards over to find two numbers which multiply the same, until all "
+"the cards are gone."
+msgstr "Quay bài để tìm hai số làm phép tính nhân, cho đến hết bài."
+
+#:../boards/memory_mult_div.xml.in.h:1
+msgid "Multiplication and division memory game"
+msgstr "Trò chơi trí nhớ nhân và chia"
+
+#:../boards/memory_mult_div.xml.in.h:2
+#:../boards/memory_mult_div_tux.xml.in.h:2
+msgid "Multiplication, division"
+msgstr "Phép nhân và chia"
+
+#:../boards/memory_mult_div.xml.in.h:3
+#:../boards/memory_mult_div_tux.xml.in.h:3
+msgid "Practise multiplication, division, until all the cards are gone."
+msgstr "Thức hành phép nhân và chia cho đến hết bài."
+
+#:../boards/memory_mult_div_tux.xml.in.h:1
+msgid "Multiplication and division memory game against Tux"
+msgstr "Trò chơi trí nhớ phép nhân và chia đối với Thâch-x"
+
+#:../boards/memory_mult_tux.xml.in.h:2
+msgid "Multiplication memory game against Tux"
+msgstr "Trò chơi trí nhớ phép nhân đối với Thâch-x"
+
+#:../boards/memory_mult_tux.xml.in.h:3
+msgid "Practise multiplication until all the cards are gone."
+msgstr "Thức hành phép nhân cho đến hết bại."
+
+#:../boards/memory_op_group.xml.in.h:1
+msgid "Go to mathematics memory activities"
+msgstr "Đi đến hoạt động trí nhớ toán học"
+
+#:../boards/memory_op_group.xml.in.h:2
+#:../boards/memory_op_group_tux.xml.in.h:2
+msgid "Memory activities based on operations"
+msgstr "Hoạt động trí nhớ đựa vào phép tính"
+
+#:../boards/memory_op_group_tux.xml.in.h:1
+msgid "Go to mathematics memory activities against Tux"
+msgstr "Đi đến hoạt động trí nhớ toán học đối với Thâch-x"
 
 #:../boards/memory_sound.xml.in.h:1 ../boards/memory_sound_tux.xml.in.h:1
 msgid ""
@@ -3994,7 +4267,7 @@ msgid "SOUTH"
 msgstr "NAM"
 
 #:../src/boards/awele.c:534
-msgid "Choose an house"
+msgid "Choose a house"
 msgstr "Chọn một nhà"
 
 #:../src/boards/awele.c:662
@@ -4259,6 +4532,24 @@ msgstr "Chọn tất cả"
 msgid "Unselect all"
 msgstr "Bỏ chọn tất cả"
 
+#:../src/boards/python/admin/board_list.py:161
+msgid "Locales"
+msgstr "Miền địa phương"
+
+#:../src/boards/python/admin/board_list.py:166
+msgid "Locales sound"
+msgstr "Âm thanh miền địa phương"
+
+#:../src/boards/python/admin/board_list.py:171
+msgid "Wordlist"
+msgstr "Danh sách từ"
+
+#:../src/boards/python/admin/board_list.py:178
+#:../src/boards/python/admin/group_user_list.py:145
+#:../src/boards/python/admin/user_list.py:187
+msgid "Login"
+msgstr "Đăng nhập"
+
 #:../src/boards/python/admin/board_list.py:236
 msgid "Main menu"
 msgstr "Trình đơn chính"
@@ -4431,11 +4722,6 @@ msgstr "Mô tả"
 #:../src/boards/python/admin/group_list.py:323
 msgid "You must first select a group in the list"
 msgstr "Trước tiên, bạn cần phải chọn một nhóm trong danh sách."
-
-#:../src/boards/python/admin/group_user_list.py:145
-#:../src/boards/python/admin/user_list.py:187
-msgid "Login"
-msgstr "Đăng nhập"
 
 #:../src/boards/python/admin/group_user_list.py:175
 #:../src/boards/python/admin/user_list.py:217
@@ -5072,10 +5358,10 @@ msgid "Yes, I am sure !"
 msgstr "Có, tôi có chắc."
 
 #:../src/gcompris/bar.c:574
-msgid "No, I continue"
+msgid "No, I want to keep going"
 msgstr "Không, tôi muốn tiếp tục"
 
-#:../src/gcompris/board.c:176
+#:../src/gcompris/board.c:180
 msgid "Dynamic module loading is not supported. gcompris cannot load.\n"
 msgstr "Không hỗ trợ khả năng tải mô-đun một cách động nên không thể tải GCompris.\n"
 
