@@ -202,7 +202,7 @@ void create_mainwindow (GnomeCanvasGroup *rootitem)
 
   r_rot_s = gnome_canvas_item_new (rootitem,
 				   gnome_canvas_pixbuf_get_type (),
-				   "pixbuf", right_rot_big, 
+				   "pixbuf", right_rot, 
 				   "x", (double) X_BASE_SMALLAREA + WIDTH_SMALLAREA,
 				   "y", (double) Y_BASE_SMALLAREA + WIDTH_SMALLAREA + 60,
 				   "anchor", GTK_ANCHOR_NE,
@@ -211,7 +211,7 @@ void create_mainwindow (GnomeCanvasGroup *rootitem)
 
   l_rot_s = gnome_canvas_item_new (rootitem,
 				   gnome_canvas_pixbuf_get_type (),
-				   "pixbuf", left_rot_big, 
+				   "pixbuf", left_rot, 
 				   "x", (double) X_BASE_SMALLAREA + WIDTH_SMALLAREA - 100,
 				   "y", (double) Y_BASE_SMALLAREA + WIDTH_SMALLAREA + 60,
 				   "anchor", GTK_ANCHOR_NW,
