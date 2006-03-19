@@ -1,6 +1,6 @@
 /* gcompris - gletters.c
  *
- * Time-stamp: <2006/01/31 13:25:17 yves>
+ * Time-stamp: <2006/03/19 23:15:02 yves>
  *
  * Copyright (C) 2000 Bruno Coudoin
  * 
@@ -123,6 +123,8 @@ static gunichar *key_find_by_item (const GnomeCanvasItem *item);
 static  guint32              fallSpeed = 0;
 static  double               speed = 0.0;
 static  int		     gamewon;
+
+static gboolean with_sound = FALSE;
 
 /* Description of this plugin */
 static BoardPlugin menu_bp =
@@ -296,6 +298,13 @@ static void start_board (GcomprisBoard *agcomprisBoard)
     uppercase_only = TRUE;
   else
     uppercase_only = FALSE;
+
+  gchar *control_sound = g_hash_table_lookup( config, "with_sound");
+
+  if (control_sound && strcmp(g_hash_table_lookup( config, "with_sound"),"True")==0)
+    with_sound = TRUE;
+  else
+    with_sound = FALSE;
 
   g_hash_table_destroy(config);
 
@@ -615,7 +624,9 @@ static GnomeCanvasItem *gletters_create_item(GnomeCanvasGroup *parent)
 
   gchar *letter_unichar_name= gcompris_alphabet_sound(letter);
   str2 = gcompris_get_asset_file("gcompris alphabet", NULL, "audio/x-ogg",letter_unichar_name);
-  gcompris_play_ogg(str2, NULL);
+
+  if (with_sound)
+    gcompris_play_ogg(str2, NULL);
 
   g_free(letter_unichar_name);
   g_free(str2);
@@ -780,12 +791,15 @@ static GcomprisConfCallback conf_ok(GHashTable *table)
     
   g_hash_table_foreach(table, (GHFunc) save_table, NULL);
   
-  board_conf = NULL;
-  profile_conf = NULL;
-  
   if (gcomprisBoard){
     gcompris_reset_locale();
-    GHashTable *config = gcompris_get_board_conf();
+
+    GHashTable *config;
+
+    if (profile_conf)
+      config = gcompris_get_board_conf();
+    else
+      config = table;
     
     gcompris_change_locale(g_hash_table_lookup( config, "locale"));
     
@@ -795,8 +809,16 @@ static GcomprisConfCallback conf_ok(GHashTable *table)
       uppercase_only = TRUE;
     else
       uppercase_only = FALSE;
+
+    gchar *control_sound = g_hash_table_lookup( config, "with_sound");
     
-    g_hash_table_destroy(config);
+    if (control_sound && strcmp(g_hash_table_lookup( config, "with_sound"),"True")==0)
+      with_sound = TRUE;
+    else
+      with_sound = FALSE;
+    
+    if (profile_conf)
+      g_hash_table_destroy(config);
 
     load_default_charset();    
     
@@ -806,7 +828,10 @@ static GcomprisConfCallback conf_ok(GHashTable *table)
     pause_board(FALSE);
     
   }
-  
+
+  board_conf = NULL;
+  profile_conf = NULL;
+ 
 }
 
 static void
@@ -822,7 +847,7 @@ gletter_config_start(GcomprisBoard *agcomprisBoard,
     pause_board(TRUE);
   
   label = g_strdup_printf("<b>%s</b> configuration\n for profile <b>%s</b>",
-			  agcomprisBoard->name, aProfile->name);
+			  agcomprisBoard->name, aProfile ? aProfile->name : "");
 
   gcompris_configuration_window(label, (GcomprisConfCallback )conf_ok);
 
@@ -843,7 +868,17 @@ gletter_config_start(GcomprisBoard *agcomprisBoard,
     up_init = TRUE;
 
   gcompris_separator();
+
+  gchar *control_sound = g_hash_table_lookup( config, "with_sound");
+  if (control_sound && strcmp(g_hash_table_lookup( config, "with_sound"),"True")==0)
+    with_sound = TRUE;
+  else
+    with_sound = FALSE;
+  
+  GtkCheckButton  *sound_control = gcompris_boolean_box("Enable sounds", "with_sound", with_sound);
  
+  gcompris_separator();
+
   gcompris_boolean_box(_("Uppercase only text"),
 		       "uppercase_only",
 		       up_init);

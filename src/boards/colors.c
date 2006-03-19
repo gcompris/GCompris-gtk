@@ -130,26 +130,29 @@ static GcomprisConfCallback conf_ok(GHashTable *table)
 
   g_hash_table_foreach(table, (GHFunc) save_table, NULL);
   
-  board_conf = NULL;
-  profile_conf = NULL;
-  
-  
   if (gcomprisBoard){
     GHashTable *config = gcompris_get_board_conf();
   
+    if (profile_conf)
+      config = gcompris_get_board_conf();
+    else
+      config = table;
+
     if (locale_sound)
       g_free(locale_sound);
     locale_sound = g_strdup(g_hash_table_lookup( config, "locale_sound"));
   
-    g_hash_table_destroy(config);
+    if (profile_conf)
+      g_hash_table_destroy(config);
 
     colors_next_level();
 
     pause_board(FALSE);
   
   }
+  board_conf = NULL;
+  profile_conf = NULL;
   
-
 }
 
 static gboolean check_text(gchar *key, gchar *text, GtkLabel *label){
@@ -172,7 +175,7 @@ colors_config_start(GcomprisBoard *agcomprisBoard,
     pause_board(TRUE);
   
   label = g_strdup_printf("<b>%s</b> configuration\n for profile <b>%s</b>",
-			  agcomprisBoard->name, aProfile->name);
+			  agcomprisBoard->name, aProfile ? aProfile->name : "");
 
   gcompris_configuration_window(label, (GcomprisConfCallback )conf_ok);
 

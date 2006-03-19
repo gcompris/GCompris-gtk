@@ -1,6 +1,6 @@
 /* gcompris - smallnumbers.c
  *
- * Time-stamp: <2006/03/01 01:05:57 bruno>
+ * Time-stamp: <2006/03/19 22:55:57 yves>
  *
  * Copyright (C) 2000 Bruno Coudoin
  * 
@@ -514,12 +514,14 @@ static GcomprisConfCallback conf_ok(GHashTable *table)
   }
 
   g_hash_table_foreach(table, (GHFunc) save_table, NULL);
-  
-  board_conf = NULL;
-  profile_conf = NULL;
 
   if (gcomprisBoard){
-    GHashTable *config = gcompris_get_board_conf();
+    GHashTable *config;
+
+    if (profile_conf)
+      config = gcompris_get_board_conf();
+    else
+      config = table;
     
     if (locale_sound)
       g_free(locale_sound);
@@ -533,7 +535,8 @@ static GcomprisConfCallback conf_ok(GHashTable *table)
     else
       with_sound = FALSE;
     
-    g_hash_table_destroy(config);
+    if (profile_conf)
+      g_hash_table_destroy(config);
 
     smallnumbers_next_level();
 
@@ -541,6 +544,9 @@ static GcomprisConfCallback conf_ok(GHashTable *table)
 
     pause_board(FALSE);
   }
+
+  board_conf = NULL;
+  profile_conf = NULL;
 }
 
 static gboolean check_text(gchar *key, gchar *text, GtkLabel *label){
@@ -569,7 +575,7 @@ smallnumber_config_start(GcomprisBoard *agcomprisBoard,
   gchar *label;
   
   label = g_strdup_printf("<b>%s</b> configuration\n for profile <b>%s</b>",
-			  agcomprisBoard->name, aProfile->name);
+			  agcomprisBoard->name, aProfile ? aProfile->name : "");
 
   gcompris_configuration_window(label, (GcomprisConfCallback )conf_ok);
 

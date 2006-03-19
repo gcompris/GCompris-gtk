@@ -1,6 +1,6 @@
 /* gcompris - reading.c
  *
- * Time-stamp: <2006/01/31 09:20:51 yves>
+ * Time-stamp: <2006/03/19 22:59:13 yves>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -836,24 +836,29 @@ static GcomprisConfCallback conf_ok(GHashTable *table)
   }
 
   g_hash_table_foreach(table, (GHFunc) save_table, NULL);
-  
-  board_conf = NULL;
-  profile_conf = NULL;
-
 
   if (gcomprisBoard){
     gcompris_reset_locale();
 
-    GHashTable *config = gcompris_get_board_conf();
+    GHashTable *config;
+    
+    if (profile_conf)
+      config = gcompris_get_board_conf();
+    else
+      config = table;
     
     gcompris_change_locale(g_hash_table_lookup( config, "locale"));
   
-    g_hash_table_destroy(config);
+    if (profile_conf)
+      g_hash_table_destroy(config);
 
     reading_next_level();
   
     pause_board(FALSE);
   }
+  
+  board_conf = NULL;
+  profile_conf = NULL;
 
 }
 
@@ -867,10 +872,14 @@ reading_config_start(GcomprisBoard *agcomprisBoard,
   if (gcomprisBoard)
     pause_board(TRUE);
 
-  gcompris_configuration_window( g_strdup_printf("<b>%s</b> configuration\n for profile <b>%s</b>",
-						 agcomprisBoard->name, 
-						 aProfile? aProfile->name: ""), 
+  gchar *label = g_strdup_printf("<b>%s</b> configuration\n for profile <b>%s</b>",
+				 agcomprisBoard->name, 
+				 aProfile? aProfile->name: "");
+
+  gcompris_configuration_window( label, 
 				 (GcomprisConfCallback )conf_ok);
+
+  g_free(label);
 
   /* init the combo to previously saved value */
   GHashTable *config = gcompris_get_conf( profile_conf, board_conf);

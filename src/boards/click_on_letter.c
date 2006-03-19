@@ -581,7 +581,11 @@ static GcomprisConfCallback conf_ok(GHashTable *table)
   profile_conf = NULL;
 
   if (gcomprisBoard){
-    GHashTable *config = gcompris_get_board_conf();
+    GHashTable *config;
+    if (profile_conf)
+      config = gcompris_get_board_conf();
+    else
+      config = table;
 
     gcompris_reset_locale();
     gcompris_change_locale(g_hash_table_lookup( config, "locale"));
@@ -593,7 +597,8 @@ static GcomprisConfCallback conf_ok(GHashTable *table)
     else
       uppercase_only = FALSE;
     
-    g_hash_table_destroy(config);
+    if (profile_conf)
+      g_hash_table_destroy(config);
     
     sounds_are_fine();
     
@@ -603,6 +608,9 @@ static GcomprisConfCallback conf_ok(GHashTable *table)
     pause_board(FALSE);
     
   }
+
+  board_conf = NULL;
+  profile_conf = NULL;
 }
 
 static void
@@ -615,10 +623,14 @@ config_start(GcomprisBoard *agcomprisBoard,
   if (gcomprisBoard)
     pause_board(TRUE);
 
-  gcompris_configuration_window( g_strdup_printf("<b>%s</b> configuration\n for profile <b>%s</b>",
-						 agcomprisBoard->name, 
-						 aProfile ? aProfile->name : ""), 
+  gchar *label = g_strdup_printf("<b>%s</b> configuration\n for profile <b>%s</b>",
+				 agcomprisBoard->name, 
+				 aProfile ? aProfile->name : "");
+
+  gcompris_configuration_window( label, 
 				 (GcomprisConfCallback )conf_ok);
+  
+  g_free(label);
 
   /* init the combo to previously saved value */
   GHashTable *config = gcompris_get_conf( profile_conf, board_conf);

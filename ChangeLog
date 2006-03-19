@@ -1,3 +1,18 @@
+2006-03-19  Yves Combe  <yves@ycombe.net>
+
+	fix crashes and misfonctionnement of boards config on fly
+	if compiled without sqlite (e.g. Windows version).
+
+	* src/boards/click_on_letter.c: (conf_ok), (config_start):
+	* src/boards/colors.c: (conf_ok), (colors_config_start):
+	* src/boards/gletters.c: (start_board), (gletters_create_item),
+	(conf_ok), (gletter_config_start):
+	* src/boards/imageid.c: (conf_ok), (config_start):
+	* src/boards/missingletter.c: (conf_ok), (config_start):
+	* src/boards/reading.c: (conf_ok), (reading_config_start):
+	* src/boards/shapegame.c: (conf_ok), (config_start):
+	* src/boards/smallnumbers.c: (conf_ok), (smallnumber_config_start):
+
 2006-03-16  Yves Combe  <yves@ycombe.net>
 
 	fix missing buttons images in gtans.
