@@ -1,3 +1,10 @@
+2006-03-20  Yves Combe  <yves@ycombe.net>
+
+	fix crash on g_assert(not hidden).
+	Change math symbol to unicode version.
+
+	* src/boards/memory.c: (get_random_token), (hide_card):
+
 2006-03-19  Yves Combe  <yves@ycombe.net>
 
 	fix crashes and misfonctionnement of boards config on fly

@@ -1,6 +1,6 @@
 /* gcompris - memory.c
  *
- * Time-stamp: <2006/03/05 22:43:29 yves>
+ * Time-stamp: <2006/03/20 23:06:04 yves>
  *
  * Copyright (C) 2000 Bruno Coudoin
  * 
@@ -579,7 +579,7 @@ void get_random_token(int token_type, gint *returned_type, gchar **string, gchar
 	int i, j;
 	i = k %  minus_levelDescription[gcomprisBoard->level][0];
 	j = k /  minus_levelDescription[gcomprisBoard->level][0];
-	result = g_strdup_printf("%d-%d",i+j,i);
+	result = g_strdup_printf("%d\u2212%d",i+j,i);
 	second = g_strdup_printf("%d",j);;
 	break;
       }
@@ -588,7 +588,7 @@ void get_random_token(int token_type, gint *returned_type, gchar **string, gchar
 	int i, j;
 	i = k %  mult_levelDescription[gcomprisBoard->level][0];
 	j = k /  mult_levelDescription[gcomprisBoard->level][0];
-	result = g_strdup_printf("%dx%d",i,j);
+	result = g_strdup_printf("%d\u00d7%d",i,j);
 	second = g_strdup_printf("%d",i*j);;
 	break;
       }
@@ -598,7 +598,7 @@ void get_random_token(int token_type, gint *returned_type, gchar **string, gchar
 	i1 = k %  div_levelDescription[gcomprisBoard->level][0];
 	if (i1==0) skip=TRUE;
 	i2 = k /  div_levelDescription[gcomprisBoard->level][0];
-	result = g_strdup_printf("%d÷%d",i1*i2,i1);
+	result = g_strdup_printf("%d\u00f7%d",i1*i2,i1);
 	second = g_strdup_printf("%d",i2);
 	break;
       }
@@ -1450,17 +1450,17 @@ static gint hide_card (GtkWidget *widget, gpointer data)
   if(firstCard!=NULL)
     {
       display_card(firstCard, HIDDEN);
-      firstCard  = NULL;
       if (currentMode == MODE_TUX)
 	remove_card_from_tux_memory(firstCard);
+      firstCard  = NULL;
     }
 
   if(secondCard!=NULL)
     {
       display_card(secondCard, HIDDEN);
-      secondCard  = NULL;
       if (currentMode == MODE_TUX)
 	remove_card_from_tux_memory(secondCard);
+      secondCard  = NULL;
     }
   win_id = 0;
 
