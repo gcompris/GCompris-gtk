@@ -1,3 +1,10 @@
+2006-03-22  Yves Combe  <yves@ycombe.net>
+
+	fix [ 1451703 ] Learning Clock without refresh in time window
+
+	* src/boards/clockgame.c: (display_hour), (display_minute),
+	(display_second):
+
 2006-03-21  Yves Combe  <yves@ycombe.net>
 
 	pass operators in translated string.

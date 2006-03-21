@@ -1,6 +1,6 @@
 /* gcompris - clockgame.c
  *
- * Time-stamp: <2005/10/10 00:28:52 bruno>
+ * Time-stamp: <2006/03/22 00:08:12 yves>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -292,6 +292,7 @@ static void display_hour(guint hour)
 			 NULL);
 
   currentTime.hour=hour;
+  display_digital_time(digital_time_item, &currentTime);
 }
 
 
@@ -324,6 +325,7 @@ static void display_minute(guint minute)
 			 NULL);
 
   currentTime.minute=minute;
+  display_digital_time(digital_time_item, &currentTime);
 }
 
 static void display_second(guint second)
@@ -355,6 +357,7 @@ static void display_second(guint second)
 			 NULL);
 
   currentTime.second=second;
+  display_digital_time(digital_time_item, &currentTime);
 }
 
 
