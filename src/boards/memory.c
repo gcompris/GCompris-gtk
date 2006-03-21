@@ -1,6 +1,6 @@
 /* gcompris - memory.c
  *
- * Time-stamp: <2006/03/20 23:06:04 yves>
+ * Time-stamp: <2006/03/21 23:29:37 yves>
  *
  * Copyright (C) 2000 Bruno Coudoin
  * 
@@ -92,6 +92,11 @@ typedef enum
 static gchar *numbers;
 static gchar *alphabet_lowercase;
 static gchar *alphabet_uppercase;
+static gchar *operators;
+static gchar *op_add;
+static gchar *op_minus;
+static gchar *op_mult;
+static gchar *op_div;
 
 typedef struct {
   gchar *data;
@@ -570,7 +575,7 @@ void get_random_token(int token_type, gint *returned_type, gchar **string, gchar
 	int i, j;
 	i = k %  add_levelDescription[gcomprisBoard->level][0];
 	j = k /  add_levelDescription[gcomprisBoard->level][0];
-	result = g_strdup_printf("%d+%d",i,j);
+	result = g_strdup_printf("%d%s%d",i,op_add,j);
 	second = g_strdup_printf("%d",i+j);;
 	break;
       }
@@ -579,7 +584,7 @@ void get_random_token(int token_type, gint *returned_type, gchar **string, gchar
 	int i, j;
 	i = k %  minus_levelDescription[gcomprisBoard->level][0];
 	j = k /  minus_levelDescription[gcomprisBoard->level][0];
-	result = g_strdup_printf("%d\u2212%d",i+j,i);
+	result = g_strdup_printf("%d%sd",i+j,op_minus,i);
 	second = g_strdup_printf("%d",j);;
 	break;
       }
@@ -588,7 +593,7 @@ void get_random_token(int token_type, gint *returned_type, gchar **string, gchar
 	int i, j;
 	i = k %  mult_levelDescription[gcomprisBoard->level][0];
 	j = k /  mult_levelDescription[gcomprisBoard->level][0];
-	result = g_strdup_printf("%d\u00d7%d",i,j);
+	result = g_strdup_printf("%d%s%d",i,op_mult,j);
 	second = g_strdup_printf("%d",i*j);;
 	break;
       }
@@ -598,7 +603,7 @@ void get_random_token(int token_type, gint *returned_type, gchar **string, gchar
 	i1 = k %  div_levelDescription[gcomprisBoard->level][0];
 	if (i1==0) skip=TRUE;
 	i2 = k /  div_levelDescription[gcomprisBoard->level][0];
-	result = g_strdup_printf("%d\u00f7%d",i1*i2,i1);
+	result = g_strdup_printf("%d%s%d",i1*i2,op_div,i1);
 	second = g_strdup_printf("%d",i2);
 	break;
       }
@@ -841,6 +846,23 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       assert(g_utf8_validate(alphabet_uppercase,-1,NULL)); // require by all utf8-functions
       g_warning("Using uppercase %s", alphabet_uppercase);
       
+      /* TRANSLATORS: Put here the mathematical operators "+-x÷" for  your language. \u00D7 is mult and \u00F7 ÷ */
+      operators=_("+-\u00D7\u00F7");
+      g_assert(g_utf8_validate(operators,-1,NULL)); // require by all utf8-functions
+      g_warning("Using operators %s", operators);
+      
+      op_add = g_malloc0(2*sizeof(gunichar));
+      g_utf8_strncpy(op_add, g_utf8_offset_to_pointer (operators,0),1);
+
+      op_minus = g_malloc0(2*sizeof(gunichar));
+      g_utf8_strncpy(op_minus, g_utf8_offset_to_pointer (operators,1),1);
+
+      op_mult = g_malloc0(2*sizeof(gunichar));
+      g_utf8_strncpy(op_mult, g_utf8_offset_to_pointer (operators,2),1);
+
+      op_div = g_malloc0(2*sizeof(gunichar));
+      g_utf8_strncpy(op_div, g_utf8_offset_to_pointer (operators,3),1);
+
       if (currentMode == MODE_TUX){
 	tux_memory_size = tux_memory_sizes[gcomprisBoard->level];
 	tux_memory = g_queue_new ();

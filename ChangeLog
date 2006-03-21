@@ -1,3 +1,9 @@
+2006-03-21  Yves Combe  <yves@ycombe.net>
+
+	pass operators in translated string.
+
+	* src/boards/memory.c: (get_random_token), (start_board):
+
 2006-03-20  Yves Combe  <yves@ycombe.net>
 
 	fix crash on g_assert(not hidden).
