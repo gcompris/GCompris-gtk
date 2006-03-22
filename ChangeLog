@@ -1,5 +1,14 @@
 2006-03-22  Bruno coudoin  <bruno.coudoin@free.fr>
 
+	Fixed bad compilation directive sqlite_ldflags replaced by
+        sqlite_ldadd (Thanks to Slava Dubrovskiy)
+	Added a warning in the INSTALL file to warn make -j does not work.
+
+	* INSTALL:
+	* src/gcompris/Makefile.am:
+
+2006-03-22  Bruno coudoin  <bruno.coudoin@free.fr>
+
 	* boards/gcompris/animals/donkey.jpg: By Anne and Erwan. Released under GPL.
 	* boards/gcompris/animals/readme.txt:
 	* boards/images/README:

@@ -6,8 +6,11 @@ Gcompris can be installed anywhere on your hard drive.
 for example, you can use:
 
 sh configure --prefix=/home/bruno/gcompris
+make
+make install
 
 Warning: You cannot use ~ in the prefix, it must be a full path.
+Warning: It has been reported that make -j 2 (or more) break the compilation
 
 This will install gcompris and all its data files under 
 /home/bruno/gcompris

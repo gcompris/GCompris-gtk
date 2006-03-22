@@ -8,10 +8,10 @@ python_ldflags =
 endif
 
 if USE_SQLITE
-sqlite_ldflags = $(SQLITE3_LIBS)
+sqlite_ldadd = $(SQLITE3_LIBS)
 sqlite_cflags = $(SQLITE3_CFLAGS)
 else
-sqlite_ldflags =
+sqlite_ldadd =
 sqlite_cflags =
 endif
 
@@ -59,7 +59,7 @@ gcompris_SOURCES = \
 	main.c
 
 gcompris_LDFLAGS = \
-	-export-dynamic $(python_ldflags) $(SDL_LIBS) $(sqlite_ldflags) $(cairo_ldflags)
+	-export-dynamic $(python_ldflags) $(SDL_LIBS) $(cairo_ldflags)
 
 
 gcompris_LDADD = \
@@ -67,6 +67,7 @@ gcompris_LDADD = \
         $(INTLLIBS) \
 	$(python_ldadd) \
 	$(top_builddir)/src/gcompris/libgcompris-1.la \
+	$(sqlite_ldadd) \
 	$(LIBPOPT)
 
 
