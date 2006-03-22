@@ -1,3 +1,15 @@
+2006-03-22  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* boards/gcompris/animals/donkey.jpg: By Anne and Erwan. Released under GPL.
+	* boards/gcompris/animals/readme.txt:
+	* boards/images/README:
+	* boards/images/scenery2_background.png: remade Bruno drawing by Herve CHANAL. Released under GPL.
+	* boards/skins/babytoy/gcompris-menu2bg.png: remade by Bruno based on Franck Doucet artwork
+	* boards/skins/gartoon/gcompris-menu2bg.png: -
+	* src/boards/erase.c: added the donkey.
+	* src/boards/menu2.c: fixed coordinate to suit the new backgrounds
+	* src/boards/python/admin/board_list.py: remove '/' from translation
+
 2006-03-22  Yves Combe  <yves@ycombe.net>
 
 	fix [ 1451703 ] Learning Clock without refresh in time window
@@ -41,7 +53,7 @@
 
 xc2006-03-14  Bruno coudoin  <bruno.coudoin@free.fr>
 
-	reviewed by: <delete if not using a buddy>
+	Added an animal image by Erwan Velu. Released under GPL.
 
 	* boards/gcompris/animals/black-headed-gull.jpg:
 	* src/boards/erase.c:

@@ -1,6 +1,6 @@
 /* gcompris - menu2.c
  *
- * Time-stamp: <2006/03/01 23:18:32 bruno>
+ * Time-stamp: <2006/03/21 23:52:35 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -94,21 +94,21 @@ GList *homeBoards = NULL;
 #define P_H 480
 
 #define T_X 175
-#define T_Y 5
+#define T_Y 10
 #define T_W 550
 #define T_H 55
 #define T_INT_X 5
 #define T_ARROW_SIZE 20
 
 #define D_X 175
-#define D_Y 64
+#define D_Y 70
 #define D_W 550
 #define D_H 320
 #define D_INT_X 50
 #define D_INT_Y 5
 
-#define I_X 120
-#define I_Y 380
+#define I_X 140
+#define I_Y 400
 #define I_W 600
 #define I_H 125
 

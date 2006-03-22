@@ -13,7 +13,8 @@ Images following are released under GPL by LE BERRE Daniel <le.berred@free.fr>
 
 Following images are from Erwan Velu and Anne Nicolas. Taken in Ireland,
 released under the GPL:
-horses.jpg squirrel.jpg sheep_irish.jpg sheep_irish2.jpg cow.jpg 
+horses.jpg squirrel.jpg sheep_irish.jpg sheep_irish2.jpg cow.jpg donkey.jpg
+black-headed-gull.jpg
 
 Following images are from Julien Noel <julien.noel free fr>,
 released under the GPL:

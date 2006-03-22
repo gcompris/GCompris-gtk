@@ -67,6 +67,7 @@ static gchar *imageList[] =
   {
     "gcompris/animals/bear001.jpg",
     "gcompris/animals/black-headed-gull.jpg",
+    "gcompris/animals/donkey.jpg",
     "gcompris/animals/elephanteauxgc.jpg",
     "gcompris/animals/flamentrosegc.jpg",
     "gcompris/animals/girafegc.jpg",

@@ -233,7 +233,7 @@ class Board_list:
         row_dict[''] =  \
                      model.append(None,
                                   [self.pixbuf_at_height('gcompris/misc/tuxplane.png', height),
-                                   _('Main menu') + '\n' + _('/'),
+                                   _('Main menu') + '\n' + '/',
                                    not board_cell[1].board_id in self.out_dict[self.active_profile.profile_id],
                                    '%s/%s' % (board_cell[1].section,board_cell[1].name), self.pixbuf_configurable(board_cell[1])])
 
