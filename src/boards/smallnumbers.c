@@ -1,6 +1,6 @@
 /* gcompris - smallnumbers.c
  *
- * Time-stamp: <2006/03/19 22:55:57 yves>
+ * Time-stamp: <2006/03/27 00:54:18 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  * 
@@ -159,7 +159,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       /* disable im_context */
       gcomprisBoard->disable_im_context = TRUE;
 
-      gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas), "images/scenery3_background.png");
+      gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas), "images/scenery7_background.png");
 
       gcomprisBoard->level = 1;
       gcomprisBoard->maxlevel = 9;

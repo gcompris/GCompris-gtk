@@ -1,9 +1,17 @@
+2006-03-27  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	reviewed by: <delete if not using a buddy>
+
+
 	*** Release 7.4BETA2 ***
 
 2006-03-27  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	Added voices for Dutch by Ivar Snaaijer (Ivar at Snaaijer nl)
 
+	* boards/images/README:
+	* boards/images/scenery7_background.png: New image by Herve Chanal.
+	* src/boards/smallnumbers.c: (start_board): changed to use the new image.
 	* boards/sounds/nl/.cvsignore:
 	* boards/sounds/nl/Makefile.am:
 	* boards/sounds/nl/alphabet/.cvsignore:
