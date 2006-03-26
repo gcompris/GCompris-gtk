@@ -29,8 +29,8 @@ Packager:       Bruno Coudoin <bcoudoin.coudoin@free.fr>
 URL: 		http://gcompris.net
 
 %description
-GCompris / I Have Understood is an educationnal game for children starting at 2.
-More than 60 different activities are proposed:
+GCompris / I Got IT is an educationnal game for children starting at 2.
+More than 100 different activities are proposed:
 * Click on the animals => learn the mouse/click usage
 * Type the falling letters => learn the keyboard usage
 * Falling Dices
@@ -50,7 +50,7 @@ You should install it only if you have children using this computer.
 GCompris / J'ai Compris est un logiciel éducatif pour les enfants 
 à partir de 2 ans.
 
-Plus de 50 activités sont proposées :
+Plus de 100 activités sont proposées :
 * Cliquer sur les animaux => apprentissage du click et de la souris
 * Entrer les lettres qui tombent => Apprentissage du clavier
 * Les dés qui tombent
@@ -345,6 +345,39 @@ Version: @VERSION_VOICES_MISC_IT@
 
 %description -n assetml-voices-misc-it
 Miscelaneous voices in Italian
+
+
+%package -n assetml-voices-alphabet-nl
+Summary:        Alphabet voices in Dutch
+Group: 		Amusements/Games
+Version: @VERSION_VOICES_ALPHABET_NL@
+
+%descrinlion -n assetml-voices-alphabet-nl
+Alphabet voices in Dutch
+
+%package -n assetml-voices-colors-nl
+Summary:        Colors voices in Dutch
+Group: 		Amusements/Games
+Version: @VERSION_VOICES_COLORS_NL@
+
+%descrinlion -n assetml-voices-colors-nl
+Colors voices in Dutch
+
+%package -n assetml-voices-geography-nl
+Summary:        Country name voices in Dutch
+Group: 		Amusements/Games
+Version: @VERSION_VOICES_GEOGRAPHY_NL@
+
+%descrinlion -n assetml-voices-geography-nl
+Country name voices in Dutch
+
+%package -n assetml-voices-misc-nl
+Summary:        Miscelaneous voices in Dutch
+Group: 		Amusements/Games
+Version: @VERSION_VOICES_MISC_NL@
+
+%descrinlion -n assetml-voices-misc-nl
+Miscelaneous voices in Dutch
 
 
 %package -n assetml-voices-alphabet-pt
@@ -733,6 +766,26 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(-, root, root)
 %{prefix}/share/gcompris/boards/sounds/it/misc
 %{prefix}/share/@ASSETML_DIR@/gcompris_misc_it.assetml
+!!!!
+%files -n assetml-voices-alphabet-nl
+%defattr(-, root, root)
+%{prefix}/share/gcompris/boards/sounds/nl/alphabet
+%{prefix}/share/@ASSETML_DIR@/gcompris_alphabet_nl.assetml
+
+%files -n assetml-voices-colors-nl
+%defattr(-, root, root)
+%{prefix}/share/gcompris/boards/sounds/nl/colors
+%{prefix}/share/@ASSETML_DIR@/gcompris_colors_nl.assetml
+
+%files -n assetml-voices-geography-nl
+%defattr(-, root, root)
+%{prefix}/share/gcompris/boards/sounds/nl/geography
+%{prefix}/share/@ASSETML_DIR@/gcompris_geography_nl.assetml
+
+%files -n assetml-voices-misc-nl
+%defattr(-, root, root)
+%{prefix}/share/gcompris/boards/sounds/nl/misc
+%{prefix}/share/@ASSETML_DIR@/gcompris_misc_nl.assetml
 
 
 %files -n assetml-voices-alphabet-pt
