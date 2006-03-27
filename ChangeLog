@@ -1,5 +1,64 @@
 2006-03-27  Bruno coudoin  <bruno.coudoin@free.fr>
 
+	Now erase has 10 sublevels to let small children play longer at the same level
+	Now sudoku has a new level 5x5 with numbers.
+	Removed translation from assetml files because it's useless.
+
+	* boards/sounds/Makefile.am:
+	* boards/sounds/da/alphabet/gcompris_alphabet_da.assetml.in:
+	* boards/sounds/da/colors/gcompris_colors_da.assetml.in:
+	* boards/sounds/da/geography/gcompris_geography_da.assetml.in:
+	* boards/sounds/da/misc/gcompris_misc_da.assetml.in:
+	* boards/sounds/de/alphabet/gcompris_alphabet_de.assetml.in:
+	* boards/sounds/de/colors/gcompris_colors_de.assetml.in:
+	* boards/sounds/de/misc/gcompris_misc_de.assetml.in:
+	* boards/sounds/en/alphabet/gcompris_alphabet_en.assetml.in:
+	* boards/sounds/en/colors/gcompris_colors_en.assetml.in:
+	* boards/sounds/en/geography/gcompris_geography_en.assetml.in:
+	* boards/sounds/en/misc/gcompris_misc_en.assetml.in:
+	* boards/sounds/es/alphabet/gcompris_alphabet_es.assetml.in:
+	* boards/sounds/es/colors/gcompris_colors_es.assetml.in:
+	* boards/sounds/es/geography/gcompris_geography_es.assetml.in:
+	* boards/sounds/es/misc/gcompris_misc_es.assetml.in:
+	* boards/sounds/eu/alphabet/gcompris_alphabet_eu.assetml.in:
+	* boards/sounds/eu/colors/gcompris_colors_eu.assetml.in:
+	* boards/sounds/eu/geography/gcompris_geography_eu.assetml.in:
+	* boards/sounds/eu/misc/gcompris_misc_eu.assetml.in:
+	* boards/sounds/fi/alphabet/gcompris_alphabet_fi.assetml.in:
+	* boards/sounds/fi/colors/gcompris_colors_fi.assetml.in:
+	* boards/sounds/fi/geography/gcompris_geography_fi.assetml.in:
+	* boards/sounds/fi/misc/gcompris_misc_fi.assetml.in:
+	* boards/sounds/fr/alphabet/gcompris_alphabet_fr.assetml.in:
+	* boards/sounds/fr/colors/gcompris_colors_fr.assetml.in:
+	* boards/sounds/fr/geography/gcompris_geography_fr.assetml.in:
+	* boards/sounds/fr/misc/gcompris_misc_fr.assetml.in:
+	* boards/sounds/hu/alphabet/gcompris_alphabet_hu.assetml.in:
+	* boards/sounds/hu/colors/gcompris_colors_hu.assetml.in:
+	* boards/sounds/hu/geography/gcompris_geography_hu.assetml.in:
+	* boards/sounds/hu/misc/gcompris_misc_hu.assetml.in:
+	* boards/sounds/it/alphabet/gcompris_alphabet_it.assetml.in:
+	* boards/sounds/it/colors/gcompris_colors_it.assetml.in:
+	* boards/sounds/it/misc/gcompris_misc_it.assetml.in:
+	* boards/sounds/nl/colors/gcompris_colors_nl.assetml.in:
+	* boards/sounds/nl/geography/gcompris_geography_nl.assetml.in:
+	* boards/sounds/nl/misc/gcompris_misc_nl.assetml.in:
+	* boards/sounds/pt/alphabet/gcompris_alphabet_pt.assetml.in:
+	* boards/sounds/pt/colors/gcompris_colors_pt.assetml.in:
+	* boards/sounds/pt/geography/gcompris_geography_pt.assetml.in:
+	* boards/sounds/pt/misc/gcompris_misc_pt.assetml.in:
+	* boards/sounds/ru/alphabet/gcompris_alphabet_ru.assetml.in:
+	* boards/sounds/ru/colors/gcompris_colors_ru.assetml.in:
+	* boards/sounds/ru/geography/gcompris_geography_ru.assetml.in:
+	* boards/sounds/ru/misc/gcompris_misc_ru.assetml.in:
+	* boards/sounds/sv/alphabet/gcompris_alphabet_sv.assetml.in:
+	* boards/sounds/sv/misc/gcompris_misc_sv.assetml.in:
+	* gcompris.spec.in:
+	* src/boards/erase.c: (start_board), (end_board),
+	(erase_next_level), (game_won):
+	* src/boards/python/sudoku.py:
+
+2006-03-27  Bruno coudoin  <bruno.coudoin@free.fr>
+
 	reviewed by: <delete if not using a buddy>
 
 

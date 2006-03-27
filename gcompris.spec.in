@@ -352,7 +352,7 @@ Summary:        Alphabet voices in Dutch
 Group: 		Amusements/Games
 Version: @VERSION_VOICES_ALPHABET_NL@
 
-%descrinlion -n assetml-voices-alphabet-nl
+%description -n assetml-voices-alphabet-nl
 Alphabet voices in Dutch
 
 %package -n assetml-voices-colors-nl
@@ -360,7 +360,7 @@ Summary:        Colors voices in Dutch
 Group: 		Amusements/Games
 Version: @VERSION_VOICES_COLORS_NL@
 
-%descrinlion -n assetml-voices-colors-nl
+%description -n assetml-voices-colors-nl
 Colors voices in Dutch
 
 %package -n assetml-voices-geography-nl
@@ -368,7 +368,7 @@ Summary:        Country name voices in Dutch
 Group: 		Amusements/Games
 Version: @VERSION_VOICES_GEOGRAPHY_NL@
 
-%descrinlion -n assetml-voices-geography-nl
+%description -n assetml-voices-geography-nl
 Country name voices in Dutch
 
 %package -n assetml-voices-misc-nl
@@ -376,7 +376,7 @@ Summary:        Miscelaneous voices in Dutch
 Group: 		Amusements/Games
 Version: @VERSION_VOICES_MISC_NL@
 
-%descrinlion -n assetml-voices-misc-nl
+%description -n assetml-voices-misc-nl
 Miscelaneous voices in Dutch
 
 
@@ -766,7 +766,8 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(-, root, root)
 %{prefix}/share/gcompris/boards/sounds/it/misc
 %{prefix}/share/@ASSETML_DIR@/gcompris_misc_it.assetml
-!!!!
+
+
 %files -n assetml-voices-alphabet-nl
 %defattr(-, root, root)
 %{prefix}/share/gcompris/boards/sounds/nl/alphabet

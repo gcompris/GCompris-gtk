@@ -170,7 +170,11 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       gcomprisBoard->level=1;
       gcomprisBoard->maxlevel=6;
       gcomprisBoard->sublevel=1;
-      gcomprisBoard->number_of_sublevel=1; /* Go to next level after this number of 'play' */
+      gcomprisBoard->number_of_sublevel=10; /* Go to next level after this number of 'play' */
+      gcompris_score_start(SCORESTYLE_NOTE, 
+			   gcomprisBoard->width - 220, 
+			   gcomprisBoard->height - 50, 
+			   gcomprisBoard->number_of_sublevel);
       gcompris_bar_set(GCOMPRIS_BAR_LEVEL);
 
       if (strcmp(gcomprisBoard->mode,"double_clic")==0)
@@ -217,6 +221,7 @@ static void end_board ()
   if(gcomprisBoard!=NULL)
     {
       pause_board(TRUE);
+      gcompris_score_end();
       erase_destroy_all_items();
     }
   gcomprisBoard = NULL;
@@ -294,6 +299,8 @@ static void erase_next_level()
       
   /* Try the next level */
   erase_create_item(layers);
+
+  gcompris_score_set(gcomprisBoard->sublevel);
 
 }
   
@@ -386,6 +393,7 @@ static void finished() {
 static void game_won()
 {
   gcomprisBoard->sublevel++;
+  gcompris_score_set(gcomprisBoard->sublevel);
 
   if(gcomprisBoard->sublevel>gcomprisBoard->number_of_sublevel) {
     /* Try the next level */
