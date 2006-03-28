@@ -1,6 +1,6 @@
 /* gcompris - profile.c
  *
- * Time-stamp: <2005/09/18 22:51:12 bruno>
+ * Time-stamp: <2006/03/29 01:33:14 bruno>
  *
  * Copyright (C) 2005 Bruno Coudoin
  *
@@ -23,6 +23,9 @@
 #include "gcompris.h"
 #include "properties.h"
 
+/** Return the current profile or NULL if sqlite not activated
+ *
+ */
 GcomprisProfile
 *gcompris_get_current_profile()
 {

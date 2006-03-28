@@ -1,3 +1,16 @@
+2006-03-29  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	- Fixed cameroon image reference.
+	- Better colorscheme for chess.
+	- Now empty menu will no more be displayed.
+
+	* boards/geography/board4_2.xml.in:
+	* src/boards/chess.c: (chess_create_item), (move_piece_to),
+	(hightlight_possible_moves):
+	* src/gcompris/gameutil.c: (gcompris_board_has_activity),
+	(gcompris_get_menulist):
+	* src/gcompris/profile.c:
+
 2006-03-27  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	Now erase has 10 sublevels to let small children play longer at the same level

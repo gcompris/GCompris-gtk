@@ -68,10 +68,10 @@ static int	 get_square_from_coord (double x, double y);
 #define CHESSBOARD_Y	20
 #define SQUARE_WIDTH	60
 #define SQUARE_HEIGHT	60
-#define WHITE_COLOR	0x206070FF
-#define BLACK_COLOR	0x4ACCFAFF
-#define WHITE_COLOR_H	0x6B96A2FF
-#define BLACK_COLOR_H	0xA6E7FFFF
+#define WHITE_COLOR	0xFFFF99FF
+#define BLACK_COLOR	0x9999FFFF
+#define WHITE_COLOR_H	0x99FF99FF
+#define BLACK_COLOR_H	0x99FF99FF
 
 #define TURN_X		(BOARDWIDTH-(BOARDWIDTH-(CHESSBOARD_X+(SQUARE_WIDTH*8)))/2)
 #define TURN_Y		(CHESSBOARD_Y+15)
@@ -413,7 +413,7 @@ static GnomeCanvasItem *chess_create_item(GnomeCanvasGroup *parent)
 				     "y2", (double)  CHESSBOARD_Y + ((7-y) * SQUARE_HEIGHT) + SQUARE_HEIGHT -1,
 				     "fill_color_rgba", color,
 				     "outline_color", "black",
-				     "width_units", (double)1,
+				     "width_units", (double)2,
 				     NULL);
       chessboard[square]->square_item = item;
     }
@@ -639,7 +639,7 @@ static void move_piece_to(Square from, Square to)
   /* Show the moved piece */
   gnome_canvas_item_set(source_square->square_item,
 			"outline_color",
-			(BPIECE(position->square[to])?"red":"green"),
+			(BPIECE(position->square[to])?"red":"blue"),
 			NULL);
 
   display_white_turn(BPIECE(position->square[to]));
@@ -654,7 +654,7 @@ static void move_piece_to(Square from, Square to)
   /* Show the moved piece */
   gnome_canvas_item_set(dest_square->square_item,
 			"outline_color", 
-			(BPIECE(position->square[to])?"red":"green"),
+			(BPIECE(position->square[to])?"red":"blue"),
 			NULL);
 
   if(dest_square->piece_item != NULL)
@@ -796,7 +796,7 @@ void hightlight_possible_moves(GSquare *gsquare)
   /* Show the current piece */
   gnome_canvas_item_set(gsquare->square_item,
 			"outline_color",
-			(BPIECE(position->square[gsquare->square])?"red":"green"),
+			(BPIECE(position->square[gsquare->square])?"red":"blue"),
 			NULL);
   
 }

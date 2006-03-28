@@ -1,6 +1,6 @@
 /* gcompris - gameutil.c
  *
- * Time-stamp: <2006/03/02 00:30:53 bruno>
+ * Time-stamp: <2006/03/29 01:34:58 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -673,27 +673,22 @@ static int boardlist_compare_func(const void *a, const void *b)
   return strcasecmp(((GcomprisBoard *) a)->difficulty, ((GcomprisBoard *) b)->difficulty);
 }
 
-
-/* Return the list of boards in the given section
- * Boards are sorted depending on their difficulty value
+/** Return true is there are at least one activity in the given section
+ *
+ * \param section: the section to check
+ *
+ * \return 1 if there is at least one activity, 0 instead
+ *
  */
-GList *gcompris_get_menulist(gchar *section)
+int
+gcompris_board_has_activity(gchar *section, gchar *name)
 {
   GList *list = NULL;
-  GList *result_list = NULL;
-  gchar *model;
-
   GcomprisProperties	*properties = gcompris_get_properties();
+  gchar *section_name = g_strdup_printf("%s/%s", section, name);
 
   if (strlen(section)==1)
-    model = g_strdup("");
-  else
-    model = g_strdup(section);
-
-  if(!section){
-    g_warning("gcompris_get_menulist called with section == NULL !");
-    return NULL;
-  }
+    return 1;
 
   for(list = boards_list; list != NULL; list = list->next) {
     GcomprisBoard *board = list->data;
@@ -702,13 +697,66 @@ GList *gcompris_get_menulist(gchar *section)
 	 (strcmp (board->name, "experimental") == 0))
       continue;
 
-    if (strcmp (model, board->section) == 0) {	
-      if (strlen(board->name) != 0)
-	result_list = g_list_append(result_list, board);
+    if ((strcmp (section_name, board->section) == 0) &&	
+	(strlen(board->name) != 0))
+	{
+	  if((strcmp(board->type, "menu") == 0) &&
+	     strcmp(board->section, section) != 0)
+	    {
+	      /* We must check this menu is not empty recursively */
+	      g_free(section_name);
+	      return(gcompris_board_has_activity(board->section, board->name));
+	    }
+	  g_free(section_name);
+	  return 1;
+	}
     }
+
+  g_free(section_name);
+  return 0;
+}
+
+/* Return the list of boards in the given section
+ * Boards are sorted depending on their difficulty value
+ */
+GList *gcompris_get_menulist(gchar *section)
+{
+  GList *list = NULL;
+  GList *result_list = NULL;
+
+  GcomprisProperties	*properties = gcompris_get_properties();
+
+  if(!section){
+    g_error("gcompris_get_menulist called with section == NULL !");
+    return NULL;
   }
 
-  g_free(model);
+  if (strlen(section)==1)
+    section = "";
+ 
+  for(list = boards_list; list != NULL; list = list->next) {
+    GcomprisBoard *board = list->data;
+
+    if ( (!properties->experimental) &&
+	 (strcmp (board->name, "experimental") == 0))
+      continue;
+
+    if (strcmp (section, board->section) == 0) {	
+      if (strlen(board->name) != 0)
+	{
+	  if(strcmp(board->type, "menu") == 0)
+	    {
+	      /* We must check first this menu is not empty */
+	      if(gcompris_board_has_activity(board->section, board->name))
+		result_list = g_list_append(result_list, board);
+	    }
+	  else
+	    {
+	      result_list = g_list_append(result_list, board);
+	    }
+	}
+    }
+  }
 
   /* Sort the list now */
   result_list = g_list_sort(result_list, boardlist_compare_func);
