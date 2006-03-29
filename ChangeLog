@@ -1,3 +1,18 @@
+2006-03-30  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	- Updated for windows release 7.4BETA2
+
+	* config.h.mingw:
+	* config.h.windows:
+	* gcompris-installer.nsi:
+	* src/boards/awele.c: (awele_destroy_all_items),
+	(awele_create_item): huge memory leak fixed
+	* src/boards/menu2.c: (menu_start): memory leak fixed. This one is probably
+	  in many other boards.
+	* src/gcompris/anim.c: (gcompris_load_animation): debug string change
+	* src/gcompris/gameutil.c: (gcompris_board_has_activity): fixed to have
+	  menu properly hidden if empty.
+
 2006-03-29  Yves Combe  <yves@ycombe.net>
 
 	fix string encoding for operators.

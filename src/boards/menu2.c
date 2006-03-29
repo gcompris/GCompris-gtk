@@ -1,6 +1,6 @@
 /* gcompris - menu2.c
  *
- * Time-stamp: <2006/03/21 23:52:35 bruno>
+ * Time-stamp: <2006/03/30 01:06:42 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -212,13 +212,16 @@ static void menu_start (GcomprisBoard *agcomprisBoard)
 
   if(agcomprisBoard!=NULL)
     {
+      gchar *img;
 
       gcomprisBoard=agcomprisBoard;
 
       menuitems = g_new(MenuItems, 1);
 
+      img = gcompris_image_to_skin("gcompris-menu2bg.png");
       gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas), 
-			      gcompris_image_to_skin("gcompris-menu2bg.png"));
+			      img);
+      g_free(img);
 
       boardRootItem = GNOME_CANVAS_GROUP(
 					 gnome_canvas_item_new (gnome_canvas_root(gcomprisBoard->canvas),

@@ -277,10 +277,25 @@ awele_next_level ()
 static void
 awele_destroy_all_items ()
 {
+        int i;
+
 	if (boardRootItem != NULL)
 		gtk_object_destroy (GTK_OBJECT (boardRootItem));
 
 	boardRootItem = NULL;
+
+	if(graphsElt)
+	  {
+	    for (i = 0; i < NBHOLE / 2; i++)
+	      {
+		gdk_pixbuf_unref(graphsElt->pixbufButton[i]);
+		gdk_pixbuf_unref(graphsElt->pixbufButtonNotify[i]);
+		gdk_pixbuf_unref(graphsElt->pixbufButtonClicked[i]);
+	      }
+	    g_free(graphsElt);
+	    graphsElt = NULL;
+	  }
+
 }
 
 /*
@@ -319,6 +334,7 @@ awele_create_item (GnomeCanvasGroup * parent)
 			       "height",
 			       (double) gdk_pixbuf_get_height (pixmap),
 			       "width_set", TRUE, "height_set", TRUE, NULL);
+	gdk_pixbuf_unref(pixmap);
 
 	/*
 	 * Display text
@@ -391,7 +407,7 @@ awele_create_item (GnomeCanvasGroup * parent)
 		staticAwale->CapturedBeans[i] = 0;
 	}
 
-	graphsElt = (GRAPHICS_ELT *) malloc (sizeof (GRAPHICS_ELT));
+	graphsElt = (GRAPHICS_ELT *) g_malloc (sizeof (GRAPHICS_ELT));
 
 	/*
 	 * Boucle pour creer et positionner les boutons qui serviront 

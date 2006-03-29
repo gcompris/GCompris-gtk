@@ -1,6 +1,6 @@
 /* gcompris - gameutil.c
  *
- * Time-stamp: <2006/03/29 01:34:58 bruno>
+ * Time-stamp: <2006/03/29 22:03:58 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -698,7 +698,8 @@ gcompris_board_has_activity(gchar *section, gchar *name)
       continue;
 
     if ((strcmp (section_name, board->section) == 0) &&	
-	(strlen(board->name) != 0))
+	(strlen(board->name) != 0) &&
+	board_check_file(board))
 	{
 	  if((strcmp(board->type, "menu") == 0) &&
 	     strcmp(board->section, section) != 0)

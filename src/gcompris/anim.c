@@ -74,7 +74,7 @@ GcomprisAnimation *gcompris_load_animation(char *filename)
     {
       name = (char*) cur->data;
       anim->anim[i] = gdk_pixbuf_animation_new_from_file(name, &error);
-      printf("Opened animation %s\n", name);
+      g_warning("Opened animation %s\n", name);
       if(!anim->anim[i])
         {
           g_critical("Couldn't open animation %s: %s\n", name, error->message);
