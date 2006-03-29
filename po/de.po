@@ -19,8 +19,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: de\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-03-21 21:34+0100\n"
-"PO-Revision-Date: 2006-03-22 08:18+0100\n"
+"POT-Creation-Date: 2006-03-29 11:25+0200\n"
+"PO-Revision-Date: 2006-03-29 11:47+0200\n"
 "Last-Translator: Ronny Standtke <Ronny.Standtke@gmx.net>\n"
 "Language-Team:  <de@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -1428,12 +1428,12 @@ msgstr ""
 "net/&gt;) und LE BERRE Daniel entnommen. Sie haben freundlicherweise "
 "GCompris die Verwendung der Bilder gestattet. Vielen Dank euch beiden!"
 
-#: ../boards/erase.xml.in.h:4 ../src/boards/erase.c:111
+#: ../boards/erase.xml.in.h:4 ../src/boards/erase.c:112
 #: ../src/boards/machpuzzle.c:92
 msgid "Move the mouse"
 msgstr "Bewege die Maus"
 
-#: ../boards/erase.xml.in.h:5 ../src/boards/erase.c:112
+#: ../boards/erase.xml.in.h:5 ../src/boards/erase.c:113
 msgid "Move the mouse to erase the area and discover the background"
 msgstr "Bewege die Maus, um Felder zu löschen und den Hintergrund freizulegen."
 
@@ -1594,7 +1594,10 @@ msgid ""
 "The map of Germany comes from Wikipedia and is released under the GNU Free "
 "Documentation License. Olaf Ronneberger and his children Lina and Julia "
 "Ronneberger created the German level."
-msgstr "Die Deutschlandkarte ist aus Wikipedia. Sie ist unter der GNU Free Documentation License freigegeben. Olaf Ronneberger und seine Kinder Lina und Julia Ronneberger haben diese Ebene erstellt."
+msgstr ""
+"Die Deutschlandkarte ist aus Wikipedia. Sie ist unter der GNU Free "
+"Documentation License freigegeben. Olaf Ronneberger und seine Kinder Lina "
+"und Julia Ronneberger haben diese Ebene erstellt."
 
 #: ../boards/geography/board1_0.xml.in.h:1
 #: ../boards/geography/board4_2.xml.in.h:1
@@ -2787,7 +2790,10 @@ msgid ""
 "Click on the hat to open or close it. Under the hat, how many stars can you "
 "see moving around? Count carefully. :) Click in the bottom- right area to "
 "input your answer."
-msgstr "Klicke auf den Hut, um ihn zu öffnen oder zu schließen. Wie viele Sterne kannst du unter dem Hut sich bewegen sehen? Zähle sorgfältig. :-) Klicke in den unteren rechten Bereich, um deine Antwort einzugeben."
+msgstr ""
+"Klicke auf den Hut, um ihn zu öffnen oder zu schließen. Wie viele Sterne "
+"kannst du unter dem Hut sich bewegen sehen? Zähle sorgfältig. :-) Klicke in "
+"den unteren rechten Bereich, um deine Antwort einzugeben."
 
 #: ../boards/magic_hat_plus.xml.in.h:3
 msgid "Count how many items are under the magic hat"
@@ -2815,7 +2821,12 @@ msgid ""
 "hat. Then, click on the hat to open it. A few stars escape. Click again on "
 "the hat to close it. You have to count how many are still under the hat. "
 "Click on the bottom right area to answer."
-msgstr "Achte auf den Zauberer, er verrät die Anzahl der Sterne unter seinem Zauberhut. Dann klicke auf den Hut, um ihn zu öffnen. Ein paar Sterne verschwinden. Klicke wieder auf den Hut, um ihn zu schließen. Du musst zählen, wie viele Sterne noch unter dem Hut sind. Klicke für die Antwort auf den rechten unteren Bereich."
+msgstr ""
+"Achte auf den Zauberer, er verrät die Anzahl der Sterne unter seinem "
+"Zauberhut. Dann klicke auf den Hut, um ihn zu öffnen. Ein paar Sterne "
+"verschwinden. Klicke wieder auf den Hut, um ihn zu schließen. Du musst "
+"zählen, wie viele Sterne noch unter dem Hut sind. Klicke für die Antwort auf "
+"den rechten unteren Bereich."
 
 #: ../boards/magic_hat_minus.xml.in.h:4 ../boards/memory_add_minus.xml.in.h:3
 #: ../boards/memory_add_minus_tux.xml.in.h:3 ../boards/memory_minus.xml.in.h:2
@@ -2970,7 +2981,9 @@ msgstr "Übe das Addieren, bis alle Karten verschwunden sind."
 msgid ""
 "Turn the cards over to find two numbers which add up the same, until all the "
 "cards are gone."
-msgstr "Drehe die Karten um, so dass du  zwei Karten findest, die die gleiche Summe ergeben, bis alle Karten verschwunden sind."
+msgstr ""
+"Drehe die Karten um, so dass du  zwei Karten findest, die die gleiche Summe "
+"ergeben, bis alle Karten verschwunden sind."
 
 #: ../boards/memory_add.xml.in.h:5 ../boards/memory_add_tux.xml.in.h:5
 msgid ""
@@ -2997,11 +3010,28 @@ msgid ""
 "disappear! When you've made them all disappear, found all the sums, you've "
 "won the game! :)"
 msgstr ""
-"Du kannst ein paar Karten sehen, jedoch nicht ihre Rückseite. Unter jeder Karte ist eine Addition oder eine Summe versteckt.\n"
+"Du kannst ein paar Karten sehen, jedoch nicht ihre Rückseite. Unter jeder "
+"Karte ist eine Addition oder eine Summe versteckt.\n"
 "Eine Addition sieht folgendermaßen aus: 2+2=4\n"
-"Die Zahlen auf der einen Seite des Gleichheitszeichens (=) müssen genauso groß sein wie die Zahlen auf der anderen Seite. Also 2 (1, 2) und nochmal 2 (3, 4) ergibt 4. Zähle laut, wenn du dies ausrechnest und zähle mit den Fingern. Um so mehr verschiedene Wege du verwendest, etwas zu tun, desto besser kannst du dich daran erinnern. Du kannst auch Steine, Knöpfe oder irgendetwas anderes zählen. Wenn du viele Geschwister hast, kannst du auch sie zählen. Oder du zählst die Kinder in deiner Klasse. Singe Zähllieder. Zähle viele Dinge, um zu üben und du wirst sehr gut addieren können.\n"
+"Die Zahlen auf der einen Seite des Gleichheitszeichens (=) müssen genauso "
+"groß sein wie die Zahlen auf der anderen Seite. Also 2 (1, 2) und nochmal 2 "
+"(3, 4) ergibt 4. Zähle laut, wenn du dies ausrechnest und zähle mit den "
+"Fingern. Um so mehr verschiedene Wege du verwendest, etwas zu tun, desto "
+"besser kannst du dich daran erinnern. Du kannst auch Steine, Knöpfe oder "
+"irgendetwas anderes zählen. Wenn du viele Geschwister hast, kannst du auch "
+"sie zählen. Oder du zählst die Kinder in deiner Klasse. Singe Zähllieder. "
+"Zähle viele Dinge, um zu üben und du wirst sehr gut addieren können.\n"
 "\n"
-"In diesem Spiel verstecken die Karten zwei Teile einer Addition. Du musst diese zwei Teile finden und zusammenführen. Klicke auf eine Karte, um zu sehen, welche Zahl sie versteckt und versuche dann, die passende Karte zu finden, die den anderen Teil der Addition enthält. Du kannst immer nur zwei Karten gleichzeitig umdrehen. Du musst dir also merken, wo die Zahlen sich verstecken. Du kannst die Karten zusammenführen, indem du beide Teile der Addition aufdeckst. Du spielst Gleichheitszeichen und die Karten brauchen dich, um wieder zusammenzufinden. Wenn du das geschafft hast, verschwinden die beiden aufgedeckten Karten.Wenn du alle Karten verschwinden lassen hast, hast du das Spiel gewonnen. :-)"
+"In diesem Spiel verstecken die Karten zwei Teile einer Addition. Du musst "
+"diese zwei Teile finden und zusammenführen. Klicke auf eine Karte, um zu "
+"sehen, welche Zahl sie versteckt und versuche dann, die passende Karte zu "
+"finden, die den anderen Teil der Addition enthält. Du kannst immer nur zwei "
+"Karten gleichzeitig umdrehen. Du musst dir also merken, wo die Zahlen sich "
+"verstecken. Du kannst die Karten zusammenführen, indem du beide Teile der "
+"Addition aufdeckst. Du spielst Gleichheitszeichen und die Karten brauchen "
+"dich, um wieder zusammenzufinden. Wenn du das geschafft hast, verschwinden "
+"die beiden aufgedeckten Karten.Wenn du alle Karten verschwinden lassen hast, "
+"hast du das Spiel gewonnen. :-)"
 
 #: ../boards/memory_add_minus.xml.in.h:1
 msgid "Addition and subtraction memory game"
@@ -3017,7 +3047,9 @@ msgstr "Übe Addition und Subtraktion bis alle Karten verschwunden sind."
 msgid ""
 "Turn the cards over to find two numbers which add or subtract the same, "
 "until all the cards are gone."
-msgstr "Drehe die Karten um, so dass du zwei Zahlen findest, die die gleiche Summe oder Differenz ergeben, bis alle Karten verschwunden sind."
+msgstr ""
+"Drehe die Karten um, so dass du zwei Zahlen findest, die die gleiche Summe "
+"oder Differenz ergeben, bis alle Karten verschwunden sind."
 
 #: ../boards/memory_add_minus.xml.in.h:5
 #: ../boards/memory_add_minus_mult_div.xml.in.h:5
@@ -3041,8 +3073,18 @@ msgid ""
 "proper equality. When you do that, both those cards disappear! When you've "
 "made them all disappear, found all the operations, you've won the game! :)"
 msgstr ""
-"Du kannst ein paar Karten sehen, jedoch nicht ihre Rückseite. Unter jeder Karte ist eine Rechenoperation versteckt.\n"
-"In diesem Spiel verstecken die Karten zwei Teile einer Gleichung. Du musst diese zwei Teile finden und zusammenführen. Klicke auf eine Karte, um zu sehen, welche Zahl sie versteckt und versuche dann, die passende Karte zu finden, die den anderen Teil der Gleichung enthält. Du kannst immer nur zwei Karten gleichzeitig umdrehen. Du musst dir also merken, wo die Zahlen sich verstecken. Du kannst die Karten zusammenführen, indem du beide Teile der Gleichung aufdeckst. Du spielst Gleichheitszeichen und die Karten brauchen dich, um wieder zusammenzufinden. Wenn du das geschafft hast, verschwinden die beiden aufgedeckten Karten.Wenn du alle Karten verschwinden lassen hast, hast du das Spiel gewonnen. :-)"
+"Du kannst ein paar Karten sehen, jedoch nicht ihre Rückseite. Unter jeder "
+"Karte ist eine Rechenoperation versteckt.\n"
+"In diesem Spiel verstecken die Karten zwei Teile einer Gleichung. Du musst "
+"diese zwei Teile finden und zusammenführen. Klicke auf eine Karte, um zu "
+"sehen, welche Zahl sie versteckt und versuche dann, die passende Karte zu "
+"finden, die den anderen Teil der Gleichung enthält. Du kannst immer nur zwei "
+"Karten gleichzeitig umdrehen. Du musst dir also merken, wo die Zahlen sich "
+"verstecken. Du kannst die Karten zusammenführen, indem du beide Teile der "
+"Gleichung aufdeckst. Du spielst Gleichheitszeichen und die Karten brauchen "
+"dich, um wieder zusammenzufinden. Wenn du das geschafft hast, verschwinden "
+"die beiden aufgedeckten Karten.Wenn du alle Karten verschwinden lassen hast, "
+"hast du das Spiel gewonnen. :-)"
 
 #: ../boards/memory_add_minus_mult_div.xml.in.h:1
 #: ../boards/memory_add_minus_mult_div_tux.xml.in.h:1
@@ -3058,7 +3100,9 @@ msgstr "Grundrechenarten-Gedächtnisspiel"
 msgid ""
 "Practise addition, subtraction, multiplication, division, until all the "
 "cards are gone."
-msgstr "Übe Addition, Subtraktion, Multiplikation und Division bis alle Karten verschwunden sind."
+msgstr ""
+"Übe Addition, Subtraktion, Multiplikation und Division bis alle Karten "
+"verschwunden sind."
 
 #: ../boards/memory_add_minus_mult_div.xml.in.h:4
 #: ../boards/memory_add_minus_mult_div_tux.xml.in.h:4
@@ -3069,7 +3113,9 @@ msgstr "Übe Addition, Subtraktion, Multiplikation und Division bis alle Karten 
 msgid ""
 "Turn the cards over to find a matching operation, until all the cards are "
 "gone."
-msgstr "Drehe die Karten um, so dass du passende Operationen findest, bis alle Karten verschwunden sind."
+msgstr ""
+"Drehe die Karten um, so dass du passende Operationen findest, bis alle "
+"Karten verschwunden sind."
 
 #: ../boards/memory_add_minus_mult_div_tux.xml.in.h:2
 msgid "All operations memory game against Tux"
@@ -3123,7 +3169,9 @@ msgstr "Subtraktions-Gedächtnistraining"
 msgid ""
 "Turn the cards over to find two numbers which subtract the same, until all "
 "the cards are gone."
-msgstr "Drehe die Karten um, so dass du passende Subtraktionen findest, bis alle Karten verschwunden sind."
+msgstr ""
+"Drehe die Karten um, so dass du passende Subtraktionen findest, bis alle "
+"Karten verschwunden sind."
 
 #: ../boards/memory_minus.xml.in.h:5 ../boards/memory_minus_tux.xml.in.h:5
 msgid ""
@@ -3149,11 +3197,28 @@ msgid ""
 "proper sum. When you do that, both those cards disappear! When you've made "
 "them all disappear, found all the subtracts, you've won the game! :)"
 msgstr ""
-"Du kannst ein paar Karten sehen, jedoch nicht ihre Rückseite. Unter jeder Karte ist eine Subtraktion oder eine Differenz versteckt.\n"
+"Du kannst ein paar Karten sehen, jedoch nicht ihre Rückseite. Unter jeder "
+"Karte ist eine Subtraktion oder eine Differenz versteckt.\n"
 "Eine Subtraktion sieht folgendermaßen aus: 3-1=2\n"
-"Die Zahlen auf der einen Seite des Gleichheitszeichens (=) müssen genauso groß sein wie die Zahlen auf der anderen Seite. Also 3 (1, 2, 3) weniger 1 ergibt 2. Zähle laut, wenn du dies ausrechnest und zähle mit den Fingern. Um so mehr verschiedene Wege du verwendest, etwas zu tun, desto besser kannst du dich daran erinnern. Du kannst auch Steine, Knöpfe oder irgendetwas anderes zählen. Wenn du viele Geschwister hast, kannst du auch sie zählen. Oder du zählst die Kinder in deiner Klasse. Singe Zähllieder. Zähle viele Dinge, um zu üben und du wirst sehr gut subtrahieren können.\n"
+"Die Zahlen auf der einen Seite des Gleichheitszeichens (=) müssen genauso "
+"groß sein wie die Zahlen auf der anderen Seite. Also 3 (1, 2, 3) weniger 1 "
+"ergibt 2. Zähle laut, wenn du dies ausrechnest und zähle mit den Fingern. Um "
+"so mehr verschiedene Wege du verwendest, etwas zu tun, desto besser kannst "
+"du dich daran erinnern. Du kannst auch Steine, Knöpfe oder irgendetwas "
+"anderes zählen. Wenn du viele Geschwister hast, kannst du auch sie zählen. "
+"Oder du zählst die Kinder in deiner Klasse. Singe Zähllieder. Zähle viele "
+"Dinge, um zu üben und du wirst sehr gut subtrahieren können.\n"
 "\n"
-"In diesem Spiel verstecken die Karten zwei Teile einer Subtraktion. Du musst diese zwei Teile finden und zusammenführen. Klicke auf eine Karte, um zu sehen, welche Zahl sie versteckt und versuche dann, die passende Karte zu finden, die den anderen Teil der Subtraktion enthält. Du kannst immer nur zwei Karten gleichzeitig umdrehen. Du musst dir also merken, wo die Zahlen sich verstecken. Du kannst die Karten zusammenführen, indem du beide Teile der Subtraktion aufdeckst. Du spielst Gleichheitszeichen und die Karten brauchen dich, um wieder zusammenzufinden. Wenn du das geschafft hast, verschwinden die beiden aufgedeckten Karten.Wenn du alle Karten verschwinden lassen hast, hast du das Spiel gewonnen. :-)"
+"In diesem Spiel verstecken die Karten zwei Teile einer Subtraktion. Du musst "
+"diese zwei Teile finden und zusammenführen. Klicke auf eine Karte, um zu "
+"sehen, welche Zahl sie versteckt und versuche dann, die passende Karte zu "
+"finden, die den anderen Teil der Subtraktion enthält. Du kannst immer nur "
+"zwei Karten gleichzeitig umdrehen. Du musst dir also merken, wo die Zahlen "
+"sich verstecken. Du kannst die Karten zusammenführen, indem du beide Teile "
+"der Subtraktion aufdeckst. Du spielst Gleichheitszeichen und die Karten "
+"brauchen dich, um wieder zusammenzufinden. Wenn du das geschafft hast, "
+"verschwinden die beiden aufgedeckten Karten.Wenn du alle Karten verschwinden "
+"lassen hast, hast du das Spiel gewonnen. :-)"
 
 #: ../boards/memory_minus_tux.xml.in.h:3
 msgid "Subtraction memory game against Tux"
@@ -3175,7 +3240,9 @@ msgstr "Übe das Multiplizieren, bis alle Karten verschwunden sind."
 msgid ""
 "Turn the cards over to find two numbers which multiply the same, until all "
 "the cards are gone."
-msgstr "Drehe die Karten um, so dass du passende Multiplikationen findest, bis alle Karten verschwunden sind."
+msgstr ""
+"Drehe die Karten um, so dass du passende Multiplikationen findest, bis alle "
+"Karten verschwunden sind."
 
 #: ../boards/memory_mult_div.xml.in.h:1
 msgid "Multiplication and division memory game"
@@ -4451,7 +4518,7 @@ msgstr "Unentschieden"
 #. require by all utf8-functions
 #. TRANSLATORS: Put here the alphabet lowercase in your language
 #: ../src/boards/click_on_letter.c:252 ../src/boards/click_on_letter.c:269
-#: ../src/boards/gletters.c:230 ../src/boards/memory.c:834
+#: ../src/boards/gletters.c:230 ../src/boards/memory.c:839
 msgid "abcdefghijklmnopqrstuvwxyz"
 msgstr "abcdefghijklmnopqrstuvwxyz"
 
@@ -4496,7 +4563,7 @@ msgstr "Nur Großbuchstaben"
 msgid "Couldn't open dir: %s"
 msgstr "Konnte Verzeichnis %s nicht öffnen"
 
-#: ../src/boards/clockgame.c:536 ../src/boards/clockgame.c:546
+#: ../src/boards/clockgame.c:539 ../src/boards/clockgame.c:549
 msgid "Set the watch to:"
 msgstr "Stelle die Uhr auf:"
 
@@ -4541,12 +4608,12 @@ msgid "Click on the white duck"
 msgstr "Klicke auf die weiße Ente"
 
 #. TRANSLATORS: Put here the numbers in your language
-#: ../src/boards/gletters.c:226 ../src/boards/memory.c:830
+#: ../src/boards/gletters.c:226 ../src/boards/memory.c:835
 msgid "0123456789"
 msgstr "0123456789"
 
 #. TRANSLATORS: Put here the alphabet uppercase in your language
-#: ../src/boards/gletters.c:236 ../src/boards/memory.c:840
+#: ../src/boards/gletters.c:236 ../src/boards/memory.c:845
 msgid "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 msgstr "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
@@ -4592,13 +4659,17 @@ msgstr "Betrachte deine Position und schalte zum Weiterlaufen wieder zurück"
 msgid "Look at your position, then switch back to 3D mode to continue your moves"
 msgstr "Betrachte deine Position und schalte zum Weitermachen zum 3D-Modus zurück"
 
-#: ../src/boards/memory.c:282
+#: ../src/boards/memory.c:287
 msgid "Memory"
 msgstr "Memory"
 
-#: ../src/boards/memory.c:283
+#: ../src/boards/memory.c:288
 msgid "Find the matching pair"
 msgstr "Finde das zusammengehörige Paar"
+
+#. TRANSLATORS: Put here the mathematical operators "+-x� for  your language. \u00D7 is mult and \u00F7 �#: ../src/boards/memory.c:850
+msgid "+-\\u00D7\\u00F7"
+msgstr "+-\\u00D7:"
 
 #: ../src/boards/menu.c:79
 msgid "Main Menu"
@@ -4672,10 +4743,6 @@ msgstr "Kennung"
 #: ../src/boards/python/admin/board_list.py:236
 msgid "Main menu"
 msgstr "Hauptmenü"
-
-#: ../src/boards/python/admin/board_list.py:236
-msgid "/"
-msgstr "/"
 
 #. columns for Board name
 #. column_pref = gtk.TreeViewColumn(_('Conf'))
@@ -5477,7 +5544,7 @@ msgstr ""
 
 #: ../src/gcompris/about.c:341 ../src/gcompris/about.c:350
 #: ../src/gcompris/config.c:222 ../src/gcompris/config.c:231
-#: ../src/gcompris/gameutil.c:1119 ../src/gcompris/help.c:362
+#: ../src/gcompris/gameutil.c:1167 ../src/gcompris/help.c:362
 #: ../src/gcompris/help.c:371 ../src/gcompris/images_selector.c:263
 msgid "OK"
 msgstr "OK"
