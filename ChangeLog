@@ -1,3 +1,11 @@
+2006-03-30  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	- Fixes unexpected empty menu on windows (untested)
+
+	* src/gcompris/board.c: (init_plugins):
+	* src/gcompris/gameutil.c: (gcompris_board_has_activity),
+	(gcompris_get_menulist):
+
 2006-03-30  Yves Combe  <yves@ycombe.net>
 
 	board was not reinitialised correctly after first use.

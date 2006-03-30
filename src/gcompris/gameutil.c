@@ -1,6 +1,6 @@
 /* gcompris - gameutil.c
  *
- * Time-stamp: <2006/03/29 22:03:58 bruno>
+ * Time-stamp: <2006/03/30 23:28:50 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -697,6 +697,7 @@ gcompris_board_has_activity(gchar *section, gchar *name)
 	 (strcmp (board->name, "experimental") == 0))
       continue;
 
+    printf("   section_name=%s, board->section=%s\n", section_name, board->section);
     if ((strcmp (section_name, board->section) == 0) &&	
 	(strlen(board->name) != 0) &&
 	board_check_file(board))
@@ -705,11 +706,17 @@ gcompris_board_has_activity(gchar *section, gchar *name)
 	     strcmp(board->section, section) != 0)
 	    {
 	      /* We must check this menu is not empty recursively */
-	      g_free(section_name);
-	      return(gcompris_board_has_activity(board->section, board->name));
+	      if(gcompris_board_has_activity(board->section, board->name))
+		{
+		  g_free(section_name);
+		  return(1);
+		}
 	    }
-	  g_free(section_name);
-	  return 1;
+	  else
+	    {
+	      g_free(section_name);
+	      return 1;
+	    }
 	}
     }
 
@@ -743,6 +750,7 @@ GList *gcompris_get_menulist(gchar *section)
       continue;
 
     if (strcmp (section, board->section) == 0) {	
+      printf("section=%s board->section=%s board->name=%s\n", section, board->section, board->name);
       if (strlen(board->name) != 0)
 	{
 	  if(strcmp(board->type, "menu") == 0)

@@ -117,6 +117,7 @@ void init_plugins(void)
 
   i=0;
 
+  static_boards[i++] = get_awele_bplugin_info();
   static_boards[i++] = get_advanced_colors_bplugin_info();
   static_boards[i++] = get_algebra_bplugin_info();
   static_boards[i++] = get_algebra_bplugin_info();
@@ -138,6 +139,7 @@ void init_plugins(void)
   static_boards[i++] = get_imageid_bplugin_info();
   static_boards[i++] = get_leftright_bplugin_info();
   static_boards[i++] = get_machpuzzle_bplugin_info();
+  static_boards[i++] = get_magic_hat_bplugin_info();
   static_boards[i++] = get_maze_bplugin_info();
   static_boards[i++] = get_memory_bplugin_info();
   static_boards[i++] = get_menu_bplugin_info();
