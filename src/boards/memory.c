@@ -1,6 +1,6 @@
 /* gcompris - memory.c
  *
- * Time-stamp: <2006/03/21 23:29:37 yves>
+ * Time-stamp: <2006/03/30 09:21:14 yves>
  *
  * Copyright (C) 2000 Bruno Coudoin
  * 
@@ -789,6 +789,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 					} else {
 					  currentMode=MODE_NORMAL;
 					  currentUiMode=UIMODE_NORMAL;
+					  currentBoardMode=BOARDMODE_NORMAL;
 					  g_warning("Fallback mode set to images");
 					}
 				      }

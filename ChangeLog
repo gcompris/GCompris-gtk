@@ -1,3 +1,9 @@
+2006-03-30  Yves Combe  <yves@ycombe.net>
+
+	board was not reinitialised correctly after first use.
+
+	* src/boards/memory.c: (start_board):
+
 2006-03-30  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	- Updated for windows release 7.4BETA2
