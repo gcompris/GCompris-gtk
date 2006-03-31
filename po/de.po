@@ -19,8 +19,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: de\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-03-29 11:25+0200\n"
-"PO-Revision-Date: 2006-03-29 11:47+0200\n"
+"POT-Creation-Date: 2006-03-31 19:32+0200\n"
+"PO-Revision-Date: 2006-03-31 19:49+0200\n"
 "Last-Translator: Ronny Standtke <Ronny.Standtke@gmx.net>\n"
 "Language-Team:  <de@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -3389,7 +3389,7 @@ msgstr ""
 msgid "GCompris Main Menu"
 msgstr "GCompris Hauptmenü"
 
-#: ../boards/menu.xml.in.h:16 ../src/boards/menu2.c:1003
+#: ../boards/menu.xml.in.h:16 ../src/boards/menu2.c:1006
 msgid ""
 "GCompris is a collection of educational games that provides different "
 "activities for children aged 2 and up."
@@ -4437,23 +4437,23 @@ msgstr "Bildungs-Sammlung gcompris"
 msgid "Multiple activities for kids"
 msgstr "Mehrere Aktivitäten für Kinder"
 
-#: ../src/boards/awele.c:333 ../src/boards/awele.c:343
+#: ../src/boards/awele.c:349 ../src/boards/awele.c:359
 msgid "NORTH"
 msgstr "NORD"
 
-#: ../src/boards/awele.c:355 ../src/boards/awele.c:365
+#: ../src/boards/awele.c:371 ../src/boards/awele.c:381
 msgid "SOUTH"
 msgstr "SÜD"
 
-#: ../src/boards/awele.c:534
+#: ../src/boards/awele.c:550
 msgid "Choose a house"
 msgstr "Wähle ein Haus"
 
-#: ../src/boards/awele.c:662
+#: ../src/boards/awele.c:678
 msgid "Your turn to play ..."
 msgstr "Du bist dran..."
 
-#: ../src/boards/awele.c:731
+#: ../src/boards/awele.c:747
 msgid "Not allowed! Try again !"
 msgstr "Nicht erlaubt! Versuche etwas anderes."
 
@@ -4518,7 +4518,7 @@ msgstr "Unentschieden"
 #. require by all utf8-functions
 #. TRANSLATORS: Put here the alphabet lowercase in your language
 #: ../src/boards/click_on_letter.c:252 ../src/boards/click_on_letter.c:269
-#: ../src/boards/gletters.c:230 ../src/boards/memory.c:839
+#: ../src/boards/gletters.c:230 ../src/boards/memory.c:840
 msgid "abcdefghijklmnopqrstuvwxyz"
 msgstr "abcdefghijklmnopqrstuvwxyz"
 
@@ -4608,12 +4608,12 @@ msgid "Click on the white duck"
 msgstr "Klicke auf die weiße Ente"
 
 #. TRANSLATORS: Put here the numbers in your language
-#: ../src/boards/gletters.c:226 ../src/boards/memory.c:835
+#: ../src/boards/gletters.c:226 ../src/boards/memory.c:836
 msgid "0123456789"
 msgstr "0123456789"
 
 #. TRANSLATORS: Put here the alphabet uppercase in your language
-#: ../src/boards/gletters.c:236 ../src/boards/memory.c:845
+#: ../src/boards/gletters.c:236 ../src/boards/memory.c:846
 msgid "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 msgstr "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
@@ -4667,9 +4667,10 @@ msgstr "Memory"
 msgid "Find the matching pair"
 msgstr "Finde das zusammengehörige Paar"
 
-#. TRANSLATORS: Put here the mathematical operators "+-x� for  your language. \u00D7 is mult and \u00F7 �#: ../src/boards/memory.c:850
-msgid "+-\\u00D7\\u00F7"
-msgstr "+-\\u00D7:"
+#. TRANSLATORS: Put here the mathematical operators "+-�" for  your language.
+#: ../src/boards/memory.c:851
+msgid "+-×÷"
+msgstr "+-·:"
 
 #: ../src/boards/menu.c:79
 msgid "Main Menu"
@@ -5544,7 +5545,7 @@ msgstr ""
 
 #: ../src/gcompris/about.c:341 ../src/gcompris/about.c:350
 #: ../src/gcompris/config.c:222 ../src/gcompris/config.c:231
-#: ../src/gcompris/gameutil.c:1167 ../src/gcompris/help.c:362
+#: ../src/gcompris/gameutil.c:1176 ../src/gcompris/help.c:362
 #: ../src/gcompris/help.c:371 ../src/gcompris/images_selector.c:263
 msgid "OK"
 msgstr "OK"
@@ -5565,7 +5566,7 @@ msgstr "Ja, wirklich!"
 msgid "No, I want to keep going"
 msgstr "Nein, ich will weitermachen."
 
-#: ../src/gcompris/board.c:180
+#: ../src/gcompris/board.c:182
 msgid "Dynamic module loading is not supported. gcompris cannot load.\n"
 msgstr ""
 "Dynamisches Laden von Modulen wird nicht unterstützt. gcompris kann nicht "
