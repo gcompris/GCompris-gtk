@@ -1,6 +1,6 @@
 /* gcompris - memory.c
  *
- * Time-stamp: <2006/03/30 09:21:14 yves>
+ * Time-stamp: <2006/03/31 22:46:09 yves>
  *
  * Copyright (C) 2000 Bruno Coudoin
  * 
@@ -584,7 +584,7 @@ void get_random_token(int token_type, gint *returned_type, gchar **string, gchar
 	int i, j;
 	i = k %  minus_levelDescription[gcomprisBoard->level][0];
 	j = k /  minus_levelDescription[gcomprisBoard->level][0];
-	result = g_strdup_printf("%d%sd",i+j,op_minus,i);
+	result = g_strdup_printf("%d%s%d",i+j,op_minus,i);
 	second = g_strdup_printf("%d",j);;
 	break;
       }
@@ -863,6 +863,10 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 
       op_div = g_malloc0(2*sizeof(gunichar));
       g_utf8_strncpy(op_div, g_utf8_offset_to_pointer (operators,3),1);
+
+
+      g_warning("Using operators %s %s %s %s", op_add, op_minus,
+		                               op_mult, op_div);
 
       if (currentMode == MODE_TUX){
 	tux_memory_size = tux_memory_sizes[gcomprisBoard->level];
