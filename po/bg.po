@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-03-11 15:46+0200\n"
-"PO-Revision-Date: 2006-03-11 15:48+0200\n"
+"POT-Creation-Date: 2006-04-02 15:54+0300\n"
+"PO-Revision-Date: 2006-04-02 15:57+0300\n"
 "Last-Translator: Yavor Doganov <yavor@doganov.org>\n"
 "Language-Team: Bulgarian <dict@fsa-bg.org>\n"
 "MIME-Version: 1.0\n"
@@ -799,26 +799,6 @@ msgstr ""
 msgid "The football game"
 msgstr "Игра на футбол"
 
-#: ../boards/canal_lock.xml.in.h:1
-msgid "Operate a canal lock"
-msgstr "Управление на шлюз в канал"
-
-#: ../boards/canal_lock.xml.in.h:2
-msgid ""
-"Tux is in trouble, and needs to take his boat through a lock. Help Tux and "
-"find out how a canal lock works."
-msgstr ""
-"Тъкс е в беда и иска да преведете кораба му през шлюза. Помогнете на Тъкс и "
-"разберете как работи шлюза в канал."
-
-#: ../boards/canal_lock.xml.in.h:3
-msgid ""
-"You are in charge of the canal lock. Open the gates and the locks in the "
-"right order, so Tux can travel through the gates in both directions."
-msgstr ""
-"Отговаряте за шлюз в канал. Отворете вратите и камерите в правилна "
-"последователност, така че Тъкс да може да се движи и в двете посоки."
-
 #: ../boards/chess.xml.in.h:1 ../boards/chess_computer.xml.in.h:3
 msgid "Play chess against the computer in a learning mode"
 msgstr "Игра на шах срещу компютъра в режим на обучение"
@@ -1397,12 +1377,12 @@ msgstr ""
 "schmode.net&g;) и от Даниел Льо Бер. Те са дали разрешение да се използват в "
 "GCompris. Благодарим много и на двамата."
 
-#: ../boards/erase.xml.in.h:4 ../src/boards/erase.c:110
+#: ../boards/erase.xml.in.h:4 ../src/boards/erase.c:112
 #: ../src/boards/machpuzzle.c:92
 msgid "Move the mouse"
 msgstr "Движете мишката"
 
-#: ../boards/erase.xml.in.h:5 ../src/boards/erase.c:111
+#: ../boards/erase.xml.in.h:5 ../src/boards/erase.c:113
 msgid "Move the mouse to erase the area and discover the background"
 msgstr "Движете мишката, за да изтриете зоната и разкриете фона"
 
@@ -1562,10 +1542,13 @@ msgstr "Управление на мишката: движение, изтегл
 
 #: ../boards/geography.xml.in.h:4
 msgid ""
-"The Germany map comes from Wikipedia and is released under the GNU Free "
+"The map of Germany comes from Wikipedia and is released under the GNU Free "
 "Documentation License. Olaf Ronneberger and his children Lina and Julia "
 "Ronneberger created the German level."
 msgstr ""
+"Картата на Германия е от Уикипедия и е издадена под Лиценза за свободна "
+"документация на GNU. Олаф Ронебергер и децата му Лина и Джулия Ронебергер са "
+"създали немското ниво."
 
 #: ../boards/geography/board1_0.xml.in.h:1
 #: ../boards/geography/board4_2.xml.in.h:1
@@ -2124,7 +2107,7 @@ msgstr "Области във Франция"
 
 #: ../boards/geography/board6_0.xml.in.h:1
 msgid "Deutschland Bundesländer"
-msgstr ""
+msgstr "Области в Германия"
 
 #: ../boards/geometry.xml.in.h:1
 msgid "Geometry"
@@ -2142,11 +2125,11 @@ msgstr "Операции с клавиатурата"
 msgid "Letter association between the screen and the keyboard"
 msgstr "Разпознаване на букви на екрана и клавиатурата"
 
-#: ../boards/gletters.xml.in.h:3 ../src/boards/gletters.c:132
+#: ../boards/gletters.xml.in.h:3 ../src/boards/gletters.c:134
 msgid "Simple Letters"
 msgstr "Прости букви"
 
-#: ../boards/gletters.xml.in.h:4 ../src/boards/gletters.c:133
+#: ../boards/gletters.xml.in.h:4 ../src/boards/gletters.c:135
 msgid "Type the falling letters before they reach the ground"
 msgstr "Напишете падащите букви, преди да са достигнали земята"
 
@@ -2749,47 +2732,57 @@ msgstr ""
 msgid "Select or enter your name to log in to GCompris"
 msgstr "Изберете или напишете името си, за да влезете в GCompris"
 
-#: ../boards/magic_hat_plus.xml.in.h:1
+#: ../boards/magic_hat_plus.xml.in.h:1 ../boards/memory_add.xml.in.h:1
 msgid "Addition"
 msgstr "Събиране"
 
 #: ../boards/magic_hat_plus.xml.in.h:2
 msgid ""
-"Click on the hat to open it. A few stars now move under the hat. Click again "
-"on the hat to close it. You have to count how many are under the hat. Click "
-"on the bottom right area to answer."
+"Click on the hat to open or close it. Under the hat, how many stars can you "
+"see moving around? Count carefully. :) Click in the bottom- right area to "
+"input your answer."
 msgstr ""
+"Натиснете шапката, за да я отворите или затворите. Колко звезди виждате под "
+"нея? Бройте внимателно. :-) Натиснете в долния десен ъгъл, за да въведете "
+"отговора."
 
 #: ../boards/magic_hat_plus.xml.in.h:3
 msgid "Count how many items are under the magic hat"
-msgstr ""
+msgstr "Пребройте колко обекти има под магическата шапка"
 
 #: ../boards/magic_hat_plus.xml.in.h:4
 msgid "Learn addition"
-msgstr ""
+msgstr "Учене на събиране"
 
 #: ../boards/magic_hat_plus.xml.in.h:5 ../boards/magic_hat_minus.xml.in.h:5
 msgid "The magician hat"
-msgstr ""
+msgstr "Шапката на магьосника"
 
 #: ../boards/magic_hat_minus.xml.in.h:1
-msgid "Count how many items are under the magic hat after some escaped"
+msgid "Count how many items are under the magic hat after some have got away"
 msgstr ""
+"Пребройте колко обекти са под магическата шапка, след като някои изчезнат"
 
 #: ../boards/magic_hat_minus.xml.in.h:2
-msgid "Learn substraction"
+msgid "Learn subtraction"
 msgstr "Учене на изваждане"
 
 #: ../boards/magic_hat_minus.xml.in.h:3
 msgid ""
-"Look at the magician, he tells you how much stars are under his magic hat. "
-"Then, click on the hat to open it. A few stars escape. Click again on the "
-"hat to close it. You have to count how much are still under the hat. Click "
-"on the bottom right area to answer."
+"Look at the magician, he tells the number of stars that are under his magic "
+"hat. Then, click on the hat to open it. A few stars escape. Click again on "
+"the hat to close it. You have to count how many are still under the hat. "
+"Click on the bottom right area to answer."
 msgstr ""
+"Погледнете магьосника, той казва броя на звездите, които са под магическата "
+"му шапка. След това натиснете шапката, за да я отворите. Няколко звезди "
+"бягат. Натиснете отново, за да я затворите. Трябва да преброите колко са все "
+"още под шапката. Натиснете долния десен ъгъл, за да отговорите."
 
-#: ../boards/magic_hat_minus.xml.in.h:4
-msgid "Substraction"
+#: ../boards/magic_hat_minus.xml.in.h:4 ../boards/memory_add_minus.xml.in.h:3
+#: ../boards/memory_add_minus_tux.xml.in.h:3 ../boards/memory_minus.xml.in.h:2
+#: ../boards/memory_minus_tux.xml.in.h:2
+msgid "Subtraction"
 msgstr "Изваждане"
 
 #: ../boards/math.xml.in.h:1
@@ -2926,6 +2919,185 @@ msgstr "Игра на памет с изображения"
 msgid "Train your memory and remove all the cards"
 msgstr "Упражнявайте паметта си и премахнете всички карти"
 
+#: ../boards/memory_add.xml.in.h:2
+msgid "Addition memory game"
+msgstr "Игра на памет със събиране"
+
+#: ../boards/memory_add.xml.in.h:3 ../boards/memory_add_tux.xml.in.h:3
+msgid "Practise adding up, until all the cards are gone."
+msgstr "Упражнения по събиране, докато всички карти свършат."
+
+#: ../boards/memory_add.xml.in.h:4 ../boards/memory_add_tux.xml.in.h:4
+msgid ""
+"Turn the cards over to find two numbers which add up the same, until all the "
+"cards are gone."
+msgstr ""
+"Обърнете картите, за да намерите две числа, които правят същия сбор, докато "
+"всички карти изчезнат."
+
+#: ../boards/memory_add.xml.in.h:5 ../boards/memory_add_tux.xml.in.h:5
+msgid ""
+"You can see some cards, but you can't see what's on the other side of them. "
+"Each card is hiding an adding-up sum, or the answer to the sum.\n"
+"An adding-up sum looks like this: 2 + 2 = 4\n"
+"The numbers on one side of the equals sign (=) have to be the same as the "
+"number on the other side. So 2 (1, 2) and 2 more (3, 4) makes 4. Count aloud "
+"when you work this out, and count on your fingers, because the more ways you "
+"do something, the better you remember it. You can also use blocks, or "
+"buttons, or anything you can count. If you have lots of brothers and "
+"sisters, you can count them! Or the kids in your class at school. Sing "
+"counting songs. Count lots of things, for practice, and you'll be very good "
+"at adding-up!\n"
+"\n"
+"In this game, these cards are hiding the two parts of an adding-up sum (also "
+"called an addition sum). You need to find the two parts of the sum, and "
+"bring them together again. Click on a card to see what number it's hiding, "
+"then try to find the other card that goes with it, to make a whole sum. You "
+"can only turn over two cards in one go, so you need to remember where the "
+"numbers are hiding, then you can match them when you find their other half. "
+"You're doing the job of the equals sign, and the numbers need you to put "
+"them together and make a proper sum. When you do that, both those cards "
+"disappear! When you've made them all disappear, found all the sums, you've "
+"won the game! :)"
+msgstr ""
+"Може да виждате някои карти, но не и какво има на обратната им страна. Всяка "
+"карта крие сбор от събираеми, или отговора на сбора.\n"
+"Сборът от събираеми изглежда така: 2 + 2 = 4\n"
+"Числата от едната страна на знака за равенство (=) трябва да бъдат същите "
+"като числото от другата страна. Така 2 (1, 2) и още 2 (3, 4) прави 4. Бройте "
+"на глас и на пръсти, защото по колкото повече начини правите нещо, толкова "
+"по-добре го запомняте. Може да използвате кубчета или копчета, или каквото и "
+"да е, стига да става за броене. Ако имате много братя и сестри, може да "
+"броите тях! Или децата от училищния ви клас. Пейте песнички за броене. "
+"Бройте много неща, за упражнение, и ще станете много добри в събирането!\n"
+"\n"
+"В тази игра картите крият двете части на сбора от събираеми (също наричан "
+"сума). Трябва да намерите двете части на сбора и да ги съберете заедно "
+"отново. Натиснете карта, за да видите какво число крие, след това се "
+"опитайте да намерите другата карта, която допълва сбора. Може да обръщате "
+"само по две карти на ход, така че трябва да запомняте къде се крият числата "
+"и да ги избирате, когато намерите другата им половина. Вършите работата на "
+"знака за равенство и сте необходими на числата, за да ги съберете заедно и "
+"да направите подходящ сбор. Когато успеете, двете карти изчезват! Когато "
+"направите така, че всички да изчезнат и намерите всички сборове, печелите "
+"играта! :-)"
+
+#: ../boards/memory_add_minus.xml.in.h:1
+msgid "Addition and subtraction memory game"
+msgstr "Игра на памет със събиране и изваждане"
+
+#: ../boards/memory_add_minus.xml.in.h:2
+#: ../boards/memory_add_minus_tux.xml.in.h:2
+msgid "Practise addition, subtraction, until all the cards are gone."
+msgstr "Упражнения по събиране и изваждане, докато всички карти свършат."
+
+#: ../boards/memory_add_minus.xml.in.h:4
+#: ../boards/memory_add_minus_tux.xml.in.h:4
+msgid ""
+"Turn the cards over to find two numbers which add or subtract the same, "
+"until all the cards are gone."
+msgstr ""
+"Обърнете картите, за да намерите две числа, които добавят или изваждат "
+"същото, докато всички карти изчезнат."
+
+#: ../boards/memory_add_minus.xml.in.h:5
+#: ../boards/memory_add_minus_mult_div.xml.in.h:5
+#: ../boards/memory_add_minus_mult_div_tux.xml.in.h:5
+#: ../boards/memory_add_minus_tux.xml.in.h:5 ../boards/memory_div.xml.in.h:5
+#: ../boards/memory_div_tux.xml.in.h:5 ../boards/memory_mult.xml.in.h:5
+#: ../boards/memory_mult_div.xml.in.h:5
+#: ../boards/memory_mult_div_tux.xml.in.h:5
+#: ../boards/memory_mult_tux.xml.in.h:5
+msgid ""
+"You can see some cards, but you can't see what's on the other side of them. "
+"Each card is hiding an operation, or the answer to it.\n"
+"\n"
+"In this game, these cards are hiding the two parts of an operation. You need "
+"to find the two parts of the operation, and bring them together again. Click "
+"on a card to see what number it's hiding, then try to find the other card "
+"that goes with it, to make a whole operation. You can only turn over two "
+"cards in one go, so you need to remember where the numbers are hiding, then "
+"you can match them when you find their other half. You're doing the job of "
+"the equals sign, and the numbers need you to put them together and make a "
+"proper equality. When you do that, both those cards disappear! When you've "
+"made them all disappear, found all the operations, you've won the game! :)"
+msgstr ""
+"Може да виждате някои карти, но не и какво има на обратната им страна. Всяка "
+"карта крие действие, или отговора му.\n"
+"\n"
+"В тази игра, картите крият двете части на действието. Трябва да откриете "
+"двете части и да ги съберете отново. Натиснете карта, за да видите какво "
+"число крие, и се опитайте да намерите другата карта, за да съставите цялото "
+"действие. Може да обръщате само две карти на ход, така че трябва да "
+"запомняте къде се крият числата и да ги избирате, когато намерите другата "
+"половина. Вършите работата на знака за равенство и сте необходими на "
+"числата, за да ги съберете заедно и да направите подходящо уравнение. Когато "
+"успеете, двете карти изчезват! Когато направите така, че всички да изчезнат "
+"и намерите всички действия, печелите играта! :-)"
+
+#: ../boards/memory_add_minus_mult_div.xml.in.h:1
+#: ../boards/memory_add_minus_mult_div_tux.xml.in.h:1
+msgid "Addition, subtraction, multiplication, division"
+msgstr "Събиране, изваждане, умножение и делене."
+
+#: ../boards/memory_add_minus_mult_div.xml.in.h:2
+msgid "All operations memory game"
+msgstr "Игра на памет с всички действия"
+
+#: ../boards/memory_add_minus_mult_div.xml.in.h:3
+#: ../boards/memory_add_minus_mult_div_tux.xml.in.h:3
+msgid ""
+"Practise addition, subtraction, multiplication, division, until all the "
+"cards are gone."
+msgstr ""
+"Упражнения по събиране, изваждане, умножение и делене, докато всички карти "
+"свършат."
+
+#: ../boards/memory_add_minus_mult_div.xml.in.h:4
+#: ../boards/memory_add_minus_mult_div_tux.xml.in.h:4
+#: ../boards/memory_div.xml.in.h:4 ../boards/memory_div_tux.xml.in.h:4
+#: ../boards/memory_mult_div.xml.in.h:4
+#: ../boards/memory_mult_div_tux.xml.in.h:4
+#: ../boards/memory_mult_tux.xml.in.h:4
+msgid ""
+"Turn the cards over to find a matching operation, until all the cards are "
+"gone."
+msgstr ""
+"Обърнете картите, за да откриете съвпадащо действие, докато всички карти "
+"изчезнат."
+
+#: ../boards/memory_add_minus_mult_div_tux.xml.in.h:2
+msgid "All operations memory game against Tux"
+msgstr "Игра на памет с всички действия срещу Тъкс"
+
+#: ../boards/memory_add_minus_tux.xml.in.h:1
+msgid "Addition and subtraction memory game against Tux"
+msgstr "Игра на памет със събиране и изваждане срещу Тъкс"
+
+#: ../boards/memory_add_tux.xml.in.h:1
+msgid "Addition memory game against Tux"
+msgstr "Игра на памет със събиране срещу Тъкс"
+
+#: ../boards/memory_add_tux.xml.in.h:2 ../boards/memory_mult_tux.xml.in.h:1
+msgid "Additions"
+msgstr "Събиране"
+
+#: ../boards/memory_div.xml.in.h:1 ../boards/memory_div_tux.xml.in.h:1
+msgid "Division"
+msgstr "Делене"
+
+#: ../boards/memory_div.xml.in.h:2
+msgid "Division memory game"
+msgstr "Игра на памет с делене"
+
+#: ../boards/memory_div.xml.in.h:3 ../boards/memory_div_tux.xml.in.h:3
+msgid "Practise division, until all the cards are gone."
+msgstr "Упражнения по делене, докато всички карти свършат."
+
+#: ../boards/memory_div_tux.xml.in.h:2
+msgid "Division memory game against Tux"
+msgstr "Игра на памет с делене срещу Тъкс"
+
 #: ../boards/memory_group.xml.in.h:1
 msgid "Go to Memory activities"
 msgstr "Занимания за развиване на паметта"
@@ -2934,6 +3106,130 @@ msgstr "Занимания за развиване на паметта"
 msgid "Various memory activities (images, letters, sounds)."
 msgstr ""
 "Различни занимания за развиване на паметта (изображения, букви, звуци)."
+
+#: ../boards/memory_minus.xml.in.h:1 ../boards/memory_minus_tux.xml.in.h:1
+msgid "Practise subtraction, until all the cards are gone."
+msgstr "Упражнения по изваждане, докато всички карти свършат."
+
+#: ../boards/memory_minus.xml.in.h:3
+msgid "Subtraction memory game"
+msgstr "Игра на памет с изваждане"
+
+#: ../boards/memory_minus.xml.in.h:4 ../boards/memory_minus_tux.xml.in.h:4
+msgid ""
+"Turn the cards over to find two numbers which subtract the same, until all "
+"the cards are gone."
+msgstr ""
+"Обърнете картите, за да намерите две числа, които изваждат същото, докато "
+"всички карти изчезнат."
+
+#: ../boards/memory_minus.xml.in.h:5 ../boards/memory_minus_tux.xml.in.h:5
+msgid ""
+"You can see some cards, but you can't see what's on the other side of them. "
+"Each card is hiding a subtraction, or the answer to it.\n"
+"A subtraction looks like this: 3 - 1 = 2\n"
+"The numbers on one side of the equals sign (=) have to be the same as the "
+"number on the other side. So 3 (1, 2, 3) less 1 (1) makes 2. Count aloud "
+"when you work this out, and count on your fingers, because the more ways you "
+"do something, the better you remember it. You can also use blocks, or "
+"buttons, or anything you can count. If you have lots of brothers and "
+"sisters, you can count them! Or the kids in your class at school. Sing "
+"counting songs. Count lots of things, for practice, and you'll be very good "
+"at adding-up!\n"
+"\n"
+"In this game, these cards are hiding the two parts of a subtraction. You "
+"need to find the two parts of the subraction, and bring them together again. "
+"Click on a card to see what number it's hiding, then try to find the other "
+"card that goes with it, to make a whole sum. You can only turn over two "
+"cards in one go, so you need to remember where the numbers are hiding, then "
+"you can match them when you find their other half. You're doing the job of "
+"the equals sign, and the numbers need you to put them together and make a "
+"proper sum. When you do that, both those cards disappear! When you've made "
+"them all disappear, found all the subtracts, you've won the game! :)"
+msgstr ""
+"Може да виждате някои карти, но не и какво има на обратната им страна. Всяка "
+"карта крие изваждане, или отговора му.\n"
+"Изваждането изглежда така: 3 - 1 = 2\n"
+"Числата от едната страна на знака за равенство (=) трябва да бъдат същите "
+"като числото от другата страна. Така 3 (1, 2, 3) без 1 (1) прави 2. Бройте "
+"на глас и на пръсти, защото по колкото повече начини правите нещо, толкова "
+"по-добре го запомняте. Може да използвате кубчета или копчета, или каквото и "
+"да е, стига да става за броене. Ако имате много братя и сестри, може да "
+"броите тях! Или децата от училищния ви клас. Пейте песнички за броене. "
+"Бройте много неща, за упражнение, и ще станете много добри в изваждането!\n"
+"\n"
+"В тази игра картите крият двете части на уравнение с изваждане. Трябва да "
+"намерите двете части и да ги съберете заедно отново. Натиснете карта, за да "
+"видите какво число крие, след това се опитайте да намерите другата карта, "
+"която допълва уравнението. Може да обръщате само по две карти на ход, така "
+"че трябва да запомняте къде се крият числата и да ги избирате, когато "
+"намерите другата им половина. Вършите работата на знака за равенство и сте "
+"необходими на числата, за да ги съберете заедно и да направите подходящо "
+"уравнение. Когато успеете, двете карти изчезват! Когато направите така, че "
+"всички да изчезнат и намерите всички уравнения, печелите играта! :-)"
+
+#: ../boards/memory_minus_tux.xml.in.h:3
+msgid "Subtraction memory game against Tux"
+msgstr "Игра на памет с изваждане срещу Тъкс"
+
+#: ../boards/memory_mult.xml.in.h:1
+msgid "Multiplication"
+msgstr "Умножение"
+
+#: ../boards/memory_mult.xml.in.h:2
+msgid "Multiplication memory game"
+msgstr "Игра на памет с умножение"
+
+#: ../boards/memory_mult.xml.in.h:3
+msgid "Practise multiplication, until all the cards are gone."
+msgstr "Упражнения по умножение, докато всички карти свършат."
+
+#: ../boards/memory_mult.xml.in.h:4
+msgid ""
+"Turn the cards over to find two numbers which multiply the same, until all "
+"the cards are gone."
+msgstr ""
+"Обърнете картите, за да намерите две числа, които са множители, докато "
+"всички карти изчезнат."
+
+#: ../boards/memory_mult_div.xml.in.h:1
+msgid "Multiplication and division memory game"
+msgstr "Игра на памет с умножение и делене"
+
+#: ../boards/memory_mult_div.xml.in.h:2
+#: ../boards/memory_mult_div_tux.xml.in.h:2
+msgid "Multiplication, division"
+msgstr "Умножение, делене"
+
+#: ../boards/memory_mult_div.xml.in.h:3
+#: ../boards/memory_mult_div_tux.xml.in.h:3
+msgid "Practise multiplication, division, until all the cards are gone."
+msgstr "Упражнения по умножение и делене, докато всички карти свършат."
+
+#: ../boards/memory_mult_div_tux.xml.in.h:1
+msgid "Multiplication and division memory game against Tux"
+msgstr "Игра на памет с умножение и делене срещу Тъкс"
+
+#: ../boards/memory_mult_tux.xml.in.h:2
+msgid "Multiplication memory game against Tux"
+msgstr "Игра на памет с умножение срещу Тъкс"
+
+#: ../boards/memory_mult_tux.xml.in.h:3
+msgid "Practise multiplication until all the cards are gone."
+msgstr "Упражнения по умножение, докато всички карти свършат."
+
+#: ../boards/memory_op_group.xml.in.h:1
+msgid "Go to mathematics memory activities"
+msgstr "Занимания по математика за развиване на паметта"
+
+#: ../boards/memory_op_group.xml.in.h:2
+#: ../boards/memory_op_group_tux.xml.in.h:2
+msgid "Memory activities based on operations"
+msgstr "Игри на памет, базирани на математически действия"
+
+#: ../boards/memory_op_group_tux.xml.in.h:1
+msgid "Go to mathematics memory activities against Tux"
+msgstr "Занимания по математика за развиване на паметта срещу Тъкс"
 
 #: ../boards/memory_sound.xml.in.h:1 ../boards/memory_sound_tux.xml.in.h:1
 msgid ""
@@ -2969,7 +3265,7 @@ msgstr "Упражнявайте звуковата си памет и прем�
 
 #: ../boards/memory_sound_tux.xml.in.h:2
 msgid "Audio memory game against Tux"
-msgstr "Игра на звукова памет срещу Тъкс."
+msgstr "Игра на звукова памет срещу Тъкс"
 
 #: ../boards/memory_sound_tux.xml.in.h:4
 msgid "Play the audio memory game against Tux"
@@ -3040,7 +3336,7 @@ msgstr ""
 msgid "GCompris Main Menu"
 msgstr "Главно меню на GCompris"
 
-#: ../boards/menu.xml.in.h:16 ../src/boards/menu2.c:1003
+#: ../boards/menu.xml.in.h:16 ../src/boards/menu2.c:1006
 msgid ""
 "GCompris is a collection of educational games that provides different "
 "activities for children aged 2 and up."
@@ -3057,7 +3353,6 @@ msgstr ""
 "собственически образователен софтуер."
 
 #: ../boards/menu2.xml.in.h:1
-#, fuzzy
 msgid ""
 "A simple click on an icon brings you to an activity or a menu of "
 "activities.\n"
@@ -3088,8 +3383,8 @@ msgstr ""
 "    Музикална нота - Повтаряне на въпроса\n"
 "    Въпросителен знак - Помощ\n"
 "    Инструмент - Меню за настройки\n"
-"    Самолета на Тъкс - Относно GCompris\n"
-"Звездите край иконата на заниманието означават нивото на трудност:\n"
+"    Самолета на Тъкс - Относно играта\n"
+"Звездите показват подходящата възрастова група за всяка игра:\n"
 "    1, 2 или 3 обикновени  звезди - за деца от 2 до 6 годишна възраст\n"
 "    1, 2 или 3 сложни звезди - за деца от 7 годишна възраст и по-големи"
 
@@ -3469,7 +3764,7 @@ msgstr "Благодарности на Гуидо ван Росум и екип
 
 #: ../boards/railroad.xml.in.h:1
 msgid "A memory game based on trains"
-msgstr "Игра за памет, базирана на влакове"
+msgstr "Игра на памет, базирана на влакове"
 
 #: ../boards/railroad.xml.in.h:2
 msgid ""
@@ -4067,25 +4362,25 @@ msgstr "Образователна серия GCompris"
 msgid "Multiple activities for kids"
 msgstr "Многообразни занимания за деца"
 
-#: ../src/boards/awele.c:333 ../src/boards/awele.c:343
+#: ../src/boards/awele.c:349 ../src/boards/awele.c:359
 msgid "NORTH"
-msgstr ""
+msgstr "СЕВЕР"
 
-#: ../src/boards/awele.c:355 ../src/boards/awele.c:365
+#: ../src/boards/awele.c:371 ../src/boards/awele.c:381
 msgid "SOUTH"
-msgstr ""
+msgstr "ЮГ"
 
-#: ../src/boards/awele.c:534
-msgid "Choose an house"
-msgstr ""
+#: ../src/boards/awele.c:550
+msgid "Choose a house"
+msgstr "Изберете къща"
 
-#: ../src/boards/awele.c:662
+#: ../src/boards/awele.c:678
 msgid "Your turn to play ..."
-msgstr ""
+msgstr "Ваш ред е..."
 
-#: ../src/boards/awele.c:731
+#: ../src/boards/awele.c:747
 msgid "Not allowed! Try again !"
-msgstr ""
+msgstr "Не е позволено! Опитайте отново!"
 
 #: ../src/boards/chess.c:189
 msgid ""
@@ -4148,7 +4443,7 @@ msgstr "Равна игра"
 #. require by all utf8-functions
 #. TRANSLATORS: Put here the alphabet lowercase in your language
 #: ../src/boards/click_on_letter.c:252 ../src/boards/click_on_letter.c:269
-#: ../src/boards/gletters.c:228 ../src/boards/memory.c:834
+#: ../src/boards/gletters.c:230 ../src/boards/memory.c:840
 msgid "abcdefghijklmnopqrstuvwxyz"
 msgstr "абвгдежзийклмнопрстуфхцчшщъьюя"
 
@@ -4183,7 +4478,7 @@ msgstr ""
 "за да включите звука."
 
 #. toggle box
-#: ../src/boards/click_on_letter.c:641 ../src/boards/gletters.c:847
+#: ../src/boards/click_on_letter.c:653 ../src/boards/gletters.c:882
 #: ../src/boards/python/login.py:535
 msgid "Uppercase only text"
 msgstr "Само текст с главни букви"
@@ -4193,7 +4488,7 @@ msgstr "Само текст с главни букви"
 msgid "Couldn't open dir: %s"
 msgstr "Не може да се отвори папка: %s"
 
-#: ../src/boards/clockgame.c:536 ../src/boards/clockgame.c:546
+#: ../src/boards/clockgame.c:539 ../src/boards/clockgame.c:549
 msgid "Set the watch to:"
 msgstr "Настройте часовника на:"
 
@@ -4238,12 +4533,12 @@ msgid "Click on the white duck"
 msgstr "Натиснете бялата играчка"
 
 #. TRANSLATORS: Put here the numbers in your language
-#: ../src/boards/gletters.c:224 ../src/boards/memory.c:830
+#: ../src/boards/gletters.c:226 ../src/boards/memory.c:836
 msgid "0123456789"
 msgstr "0123456789"
 
 #. TRANSLATORS: Put here the alphabet uppercase in your language
-#: ../src/boards/gletters.c:234 ../src/boards/memory.c:840
+#: ../src/boards/gletters.c:236 ../src/boards/memory.c:846
 msgid "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 msgstr "АБВГДЕЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЬЮЯ"
 
@@ -4294,13 +4589,18 @@ msgstr ""
 "Погледнете местоположението си и превключете обратно в триизмерен режим, за "
 "да се движите"
 
-#: ../src/boards/memory.c:282
+#: ../src/boards/memory.c:287
 msgid "Memory"
 msgstr "Памет"
 
-#: ../src/boards/memory.c:283
+#: ../src/boards/memory.c:288
 msgid "Find the matching pair"
 msgstr "Намерете съответстващата двойка"
+
+#. TRANSLATORS: Put here the mathematical operators "+-���" for  your language.
+#: ../src/boards/memory.c:851
+msgid "+-×÷"
+msgstr "+-.:"
 
 #: ../src/boards/menu.c:79
 msgid "Main Menu"
@@ -4312,7 +4612,7 @@ msgstr "Изберете игра"
 
 #: ../src/boards/menu2.c:128
 msgid "Main Menu Second Version"
-msgstr ""
+msgstr "Втора версия на главното меню"
 
 #. Set here the way to display money. Change only the money sign, and it's place, always keep %.2f, it will be replaced by 0,34 if decimal is ',' in your locale
 #: ../src/boards/money.c:489
@@ -4353,13 +4653,27 @@ msgstr "Избор на всичко"
 msgid "Unselect all"
 msgstr "Премахване на избора"
 
+#: ../src/boards/python/admin/board_list.py:161
+msgid "Locales"
+msgstr "Локали"
+
+#: ../src/boards/python/admin/board_list.py:166
+msgid "Locales sound"
+msgstr "Локализирани звуци"
+
+#: ../src/boards/python/admin/board_list.py:171
+msgid "Wordlist"
+msgstr "Списък с думи"
+
+#: ../src/boards/python/admin/board_list.py:178
+#: ../src/boards/python/admin/group_user_list.py:145
+#: ../src/boards/python/admin/user_list.py:187
+msgid "Login"
+msgstr "Влизане"
+
 #: ../src/boards/python/admin/board_list.py:236
 msgid "Main menu"
 msgstr "Главно меню"
-
-#: ../src/boards/python/admin/board_list.py:236
-msgid "/"
-msgstr "/"
 
 #. columns for Board name
 #. column_pref = gtk.TreeViewColumn(_('Conf'))
@@ -4529,11 +4843,6 @@ msgstr "Описание"
 #: ../src/boards/python/admin/group_list.py:323
 msgid "You must first select a group in the list"
 msgstr "Трябва да изберете група от списъка"
-
-#: ../src/boards/python/admin/group_user_list.py:145
-#: ../src/boards/python/admin/user_list.py:187
-msgid "Login"
-msgstr "Влизане"
 
 #: ../src/boards/python/admin/group_user_list.py:175
 #: ../src/boards/python/admin/user_list.py:217
@@ -5028,7 +5337,7 @@ msgstr "Изключване на печати"
 
 #: ../src/boards/railroad.c:95
 msgid "Memory game"
-msgstr "Игра за памет"
+msgstr "Игра на памет"
 
 #: ../src/boards/railroad.c:96
 msgid "Build a train according to the model"
@@ -5165,30 +5474,28 @@ msgstr ""
 
 #: ../src/gcompris/about.c:341 ../src/gcompris/about.c:350
 #: ../src/gcompris/config.c:222 ../src/gcompris/config.c:231
-#: ../src/gcompris/gameutil.c:1119 ../src/gcompris/help.c:362
+#: ../src/gcompris/gameutil.c:1176 ../src/gcompris/help.c:362
 #: ../src/gcompris/help.c:371 ../src/gcompris/images_selector.c:263
 msgid "OK"
 msgstr "Да"
 
 #: ../src/gcompris/bar.c:571
-#, fuzzy
 msgid "GCompris confirmation"
-msgstr "Настройки на GCompris"
+msgstr "Потвърждение на GCompris"
 
 #: ../src/gcompris/bar.c:572
 msgid "Sure you want to quit ?"
-msgstr ""
+msgstr "Сигурни ли сте, че искате да спрете програмата?"
 
 #: ../src/gcompris/bar.c:573
-#, fuzzy
 msgid "Yes, I am sure !"
-msgstr "Да, видях я"
+msgstr "Да, сигурен/сигурна съм!"
 
 #: ../src/gcompris/bar.c:574
-msgid "No, I continue"
-msgstr ""
+msgid "No, I want to keep going"
+msgstr "Не, искам да продължа да се занимавам"
 
-#: ../src/gcompris/board.c:176
+#: ../src/gcompris/board.c:182
 msgid "Dynamic module loading is not supported. gcompris cannot load.\n"
 msgstr ""
 "Не се поддържа динамично зареждане на модули, GCompris не може да се "
@@ -5674,3 +5981,23 @@ msgstr "Отчетено време"
 #, c-format
 msgid "Remaining Time = %d"
 msgstr "Оставащо време = %d"
+
+#~ msgid "Operate a canal lock"
+#~ msgstr "Управление на шлюз в канал"
+
+#~ msgid ""
+#~ "Tux is in trouble, and needs to take his boat through a lock. Help Tux "
+#~ "and find out how a canal lock works."
+#~ msgstr ""
+#~ "Тъкс е в беда и иска да преведете кораба му през шлюза. Помогнете на Тъкс "
+#~ "и разберете как работи шлюза в канал."
+
+#~ msgid ""
+#~ "You are in charge of the canal lock. Open the gates and the locks in the "
+#~ "right order, so Tux can travel through the gates in both directions."
+#~ msgstr ""
+#~ "Отговаряте за шлюз в канал. Отворете вратите и камерите в правилна "
+#~ "последователност, така че Тъкс да може да се движи и в двете посоки."
+
+#~ msgid "+-\\u00D7\\u00F7"
+#~ msgstr "+-\\u00D7\\u00F7"
