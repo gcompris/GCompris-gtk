@@ -67,7 +67,6 @@ gcompris_LDADD = \
         $(INTLLIBS) \
 	$(python_ldadd) \
 	$(top_builddir)/src/gcompris/libgcompris-1.la \
-	$(sqlite_ldadd) \
 	$(LIBPOPT)
 
 
@@ -77,7 +76,7 @@ gcompris_LDADD = \
 lib_LTLIBRARIES = libgcompris-1.la
 
 libgcompris_1_la_LIBADD = \
-	$(GCOMPRIS_LIBS) $(XML_LIBS)
+	$(GCOMPRIS_LIBS) $(sqlite_ldadd) $(XML_LIBS)
 
 libgcompris_1_la_LDFLAGS = $(no_undefined) \
 	-version-info $(LIBGCOMPRIS_CURRENT):$(LIBGCOMPRIS_REVISION):$(LIBGCOMPRIS_AGE) 

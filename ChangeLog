@@ -1,5 +1,12 @@
 2006-04-04  Bruno coudoin  <bruno.coudoin@free.fr>
 
+	Fix by Slava. Set the sqlite library to the linking of libgcompris instead of the
+	binary.
+
+	* src/gcompris/Makefile.am:
+
+2006-04-04  Bruno coudoin  <bruno.coudoin@free.fr>
+
 	Fixed several small memory leaks.	    
 
 	* src/boards/awele.c: (awele_next_level):
