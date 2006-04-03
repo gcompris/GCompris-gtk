@@ -163,6 +163,8 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 {
 
   if (agcomprisBoard != NULL) {
+        gchar *img;
+
 	gcomprisBoard = agcomprisBoard;
 	gcomprisBoard->level = 1;
 	gcomprisBoard->maxlevel = 9;
@@ -177,7 +179,9 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 	else
 		board_mode = DEFAULT_MODE;
 
-	gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas), gcompris_image_to_skin("gcompris-bg.jpg"));
+	img = gcompris_image_to_skin("gcompris-bg.jpg");
+	gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas), img);
+	g_free(img);
 
 	magic_hat_next_level();
 

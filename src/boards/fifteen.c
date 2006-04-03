@@ -162,9 +162,12 @@ static gboolean is_our_board (GcomprisBoard *gcomprisBoard)
 /* set initial values for the next level */
 static void fifteen_next_level()
 {
+  gchar *img;
 
+  img = gcompris_image_to_skin("gcompris-bg.jpg");
   gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas),
-			  gcompris_image_to_skin("gcompris-bg.jpg"));
+			  img);
+  g_free(img);
 
   gcompris_bar_set_level(gcomprisBoard);
 

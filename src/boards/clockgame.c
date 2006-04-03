@@ -1,6 +1,6 @@
 /* gcompris - clockgame.c
  *
- * Time-stamp: <2006/03/22 00:08:12 yves>
+ * Time-stamp: <2006/04/04 00:00:06 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -130,10 +130,13 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 
   if(agcomprisBoard!=NULL)
     {
+      gchar *img;
       gcomprisBoard=agcomprisBoard;
 
+      img = gcompris_image_to_skin("clockgame-bg.jpg");
       gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas), 
-			      gcompris_image_to_skin("clockgame-bg.jpg"));
+			      img);
+      g_free(img);
 
       /* set initial values for this level adjusted to fit the watch background */
       cx =  gcomprisBoard->width/2;

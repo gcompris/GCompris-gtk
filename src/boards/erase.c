@@ -25,6 +25,7 @@
 #include "gcompris/gcompris.h"
 
 #define SOUNDLISTFILE PACKAGE
+#define MAX_LAYERS 3
 
 static GcomprisBoard *gcomprisBoard = NULL;
 static gboolean board_paused = TRUE;
@@ -324,7 +325,9 @@ static GnomeCanvasItem *erase_create_item(int layer)
   int i,j;
   int ix, jy;
   GnomeCanvasItem *item = NULL;
-  GdkPixbuf *pixmap[3];
+  GdkPixbuf *pixmap[MAX_LAYERS];
+
+  assert(layer<=MAX_LAYERS);
 
   boardRootItem = GNOME_CANVAS_GROUP(
 				     gnome_canvas_item_new (gnome_canvas_root(gcomprisBoard->canvas),
@@ -335,9 +338,17 @@ static GnomeCanvasItem *erase_create_item(int layer)
 
   number_of_item = 0;
 
-  pixmap[0] = gcompris_load_pixmap("images/transparent_square.png");
-  pixmap[1] = gcompris_load_pixmap("images/water_spot.png");
-  pixmap[2] = gcompris_load_pixmap("images/water_drop.png");
+  for(i=0; i<MAX_LAYERS; i++)
+    pixmap[i] = NULL;
+
+  if(layer>0)
+    pixmap[0] = gcompris_load_pixmap("images/transparent_square.png");
+
+  if(layer>1)
+    pixmap[1] = gcompris_load_pixmap("images/water_spot.png");
+
+  if(layer>2)
+    pixmap[2] = gcompris_load_pixmap("images/water_drop.png");
 
   for(i=0,ix=0; i<BOARDWIDTH; i+=BOARDWIDTH/number_of_item_x, ix++)
     {
@@ -373,8 +384,9 @@ static GnomeCanvasItem *erase_create_item(int layer)
 	}
     }
 
-  for(i=layer-1; i>=0; i--)
-    gdk_pixbuf_unref(pixmap[i]);
+  for(i=0; i<MAX_LAYERS; i++)
+    if(pixmap[i])
+      gdk_pixbuf_unref(pixmap[i]);
 
   return NULL;
 }

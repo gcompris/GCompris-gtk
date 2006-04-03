@@ -238,9 +238,12 @@ set_level (guint level)
 static void
 awele_next_level ()
 {
+        gchar *img;
 
+	img = gcompris_image_to_skin ("gcompris-bg.jpg");
 	gcompris_set_background (gnome_canvas_root (gcomprisBoard->canvas),
-				 gcompris_image_to_skin ("gcompris-bg.jpg"));
+				 img);
+	g_free(img);
 
 	gcompris_bar_set_level (gcomprisBoard);
 

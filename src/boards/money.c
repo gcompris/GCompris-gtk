@@ -207,9 +207,12 @@ static void money_next_level()
   guint		   number_of_item;
   guint		   i;
   gchar		  *display_format;
+  gchar		  *img;
 
+  img = gcompris_image_to_skin("money-bg.png");
   gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas),
-			  gcompris_image_to_skin("money-bg.png"));
+			  img);
+  g_free(img);
 
   gcompris_bar_set_level(gcomprisBoard);
 

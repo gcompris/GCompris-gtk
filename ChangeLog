@@ -1,3 +1,26 @@
+2006-04-04  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	Fixed several small memory leaks.	    
+
+	* src/boards/awele.c: (awele_next_level):
+	* src/boards/chess.c: (chess_next_level):
+	* src/boards/clockgame.c: (start_board):
+	* src/boards/crane.c: (start_board):
+	* src/boards/draw.c: (start_board):
+	* src/boards/erase.c: (erase_create_item):
+	* src/boards/fifteen.c: (fifteen_next_level):
+	* src/boards/leftright.c: (start_board):
+	* src/boards/magic_hat.c: (start_board):
+	* src/boards/maze.c: (start_board):
+	* src/boards/missingletter.c: (start_board):
+	* src/boards/money.c: (money_next_level):
+	* src/boards/reading.c: (start_board):
+	* src/boards/shapegame.c: (start_board):
+	* src/boards/traffic.c: (start_board):
+	* src/boards/wordprocessor.c: (start_board):
+	* src/gcompris/gameutil.c: (gcompris_board_has_activity),
+	(gcompris_get_menulist), (gcompris_dialog):
+
 2006-03-31  Yves Combe  <yves@ycombe.net>
 
 	Stupid bug in substracion memory (typo).

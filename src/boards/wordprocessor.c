@@ -153,6 +153,8 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 
   if(agcomprisBoard!=NULL)
     {
+      gchar *img;
+
       gcomprisBoard=agcomprisBoard;
       gcomprisBoard->level=1;
       gcomprisBoard->maxlevel=1;
@@ -160,8 +162,10 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       gcomprisBoard->number_of_sublevel=1; /* Go to next level after this number of 'play' */
       gcompris_bar_set(0);
 
+      img = gcompris_image_to_skin("gcompris-shapebg.jpg");
       gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas),
-			      gcompris_image_to_skin("gcompris-shapebg.jpg"));
+			      img);
+      g_free(img);
 
       wordprocessor_create();
 

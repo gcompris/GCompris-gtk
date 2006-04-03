@@ -1,6 +1,6 @@
 /* gcompris - shapegame.c
  *
- * Time-stamp: <2006/03/19 22:57:35 yves>
+ * Time-stamp: <2006/04/04 00:05:12 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -286,9 +286,13 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 
       if(default_background)
 	{
+	  gchar *img;
+
 	  // Default case, load the default background
+	  img = gcompris_image_to_skin("gcompris-shapebg.jpg");
 	  gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas), 
-				  gcompris_image_to_skin("gcompris-shapebg.jpg"));
+				  img);
+	  g_free(img);
 	}
 
       shapegame_next_level();

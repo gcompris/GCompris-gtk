@@ -183,13 +183,17 @@ static void start_board (GcomprisBoard *agcomprisBoard) {
   GdkPixbuf *pixmap = NULL;
 
   if(agcomprisBoard!=NULL) {
+    gchar *img;
+
     gcomprisBoard=agcomprisBoard;
 
     /* disable im_context */
     gcomprisBoard->disable_im_context = TRUE;
 
+    img = gcompris_image_to_skin("gcompris-bg.jpg");
     gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas), 
-			    gcompris_image_to_skin("gcompris-bg.jpg"));
+			    img);
+    g_free(img);
     gcomprisBoard->level=1;
     gcomprisBoard->maxlevel=9;
 

@@ -148,6 +148,8 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 
   if(agcomprisBoard!=NULL)
     {
+      gchar *img;
+
       gcomprisBoard=agcomprisBoard;
       gcomprisBoard->level=1;
       gcomprisBoard->maxlevel=8;
@@ -169,8 +171,10 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 	gcompris_bar_set(GCOMPRIS_BAR_LEVEL|GCOMPRIS_BAR_REPEAT);
       }
 
+      img = gcompris_image_to_skin("traffic-bg.jpg");
       gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas),
-			      gcompris_image_to_skin("traffic-bg.jpg"));
+			      img);
+      g_free(img);
 
       traffic_next_level();
 

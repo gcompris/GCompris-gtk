@@ -1,6 +1,6 @@
 /* gcompris - gameutil.c
  *
- * Time-stamp: <2006/03/30 23:28:50 bruno>
+ * Time-stamp: <2006/04/04 00:21:44 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -697,7 +697,6 @@ gcompris_board_has_activity(gchar *section, gchar *name)
 	 (strcmp (board->name, "experimental") == 0))
       continue;
 
-    printf("   section_name=%s, board->section=%s\n", section_name, board->section);
     if ((strcmp (section_name, board->section) == 0) &&	
 	(strlen(board->name) != 0) &&
 	board_check_file(board))
@@ -750,7 +749,6 @@ GList *gcompris_get_menulist(gchar *section)
       continue;
 
     if (strcmp (section, board->section) == 0) {	
-      printf("section=%s board->section=%s board->name=%s\n", section, board->section, board->name);
       if (strlen(board->name) != 0)
 	{
 	  if(strcmp(board->type, "menu") == 0)
@@ -1137,7 +1135,7 @@ void gcompris_dialog(gchar *str, DialogBoxCallBack dbcb)
   GtkTextBuffer   *buffer;
   GtkTextTag      *txt_tag;
 
-  printf("Dialog=%s\n", str);
+  g_warning("Dialog=%s\n", str);
 
   if(!gcomprisBoard)
     return;
