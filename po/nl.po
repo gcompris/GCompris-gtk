@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: gcompris cvs\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-03-31 02:26+0200\n"
-"PO-Revision-Date: 2006-04-02 20:21+0200\n"
+"PO-Revision-Date: 2006-04-04 11:58+0200\n"
 "Last-Translator: Johan Blok <j.blok.2@student.rug.nl>\n"
 "Language-Team: Dutch <nl@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -628,7 +628,7 @@ msgid ""
 "seeds. If no such move is possible, the current player captures all seeds in "
 "his/her own territory, ending the game. (Source Wikipedia &lt;http://en."
 "wikipedia.org/wiki/Oware&gt;)"
-msgstr ""
+msgstr "Dit spel behoort tot de familie van Mankala spelen. Aan het begin van het spel bevat elk huis vier zaden. De spelers gebruiken hun beurt om zaden te verplaatsen. Tijdens elke beurt kiest de speler één van zijn eigen zes huisjes om daar alle zaadjes weg te pakken. De speler gebruikt deze zaadjes vervolgens door, tegen de klok in, in elk volgend huisje één zaadje te plaatsen. Hierbij slaat de speler de verzamelhuisjes en het gekozen huis over. De laatste blijft dus leeg. Als aan het einde van de beurt het laatste zaadje in een huisje van een opponent geplaatst is en deze daarmee in totaal twee of drie zaadjes bevat, mag de speler deze alle in zijn eigen verzamelhuisje plaatsen (of apart leggen als het bord geen verzamelhuisjes bevat). Als het voorlaatst geplaatste zaadje het totale aantal zaden in een huisje van de opponent ook tot 2 of 3 bracht, dan neemt de speler ook deze zaden. Dezelfde regel geldt ook voor de voor-voor-laatste, enz. De regel gaat echter niet op als dit tot gevolg heeft dat een opponent geen enkele zaadje meer over heeft, dan zou de opponent immers niet meer verder kunnen spelen. Deze uitzondering komt overeen met de algemene idee dat men zodanig moet spelen dat de opponenten ook nog zaden hebben om verder te spelen. Als dat onmogelijk is, neemt de huidige speler alle zaden uit zijn eigen huisjes en beëindigd daarmee het spel. (Bron Wikipedia &lt;http:/en.wikipedia.org/wiki/Oware&gt;)"
 
 #: ../boards/awele.xml.in.h:2
 msgid "Oware"
@@ -647,7 +647,7 @@ msgid ""
 "player has captured 25 or more stones, or both players have taken 24 stones "
 "each (draw). If both players agree that the game has been reduced to an "
 "endless cycle, each player captures the stones on their side of the board."
-msgstr ""
+msgstr "Het doel van het spel is om meer zaden te verzamelen dan de tegenstander. Omdat het spel slechts 48 zaden bevat, volstaat een aantal van 25 om dit doel te bereiken. Omdat het spel een even aantal zaden bevat, is een gelijkspel mogelijk. Het spel is geëindigd als één speler 25 of meer zaden verzameld heeft, als beide spelers 24 zaden bezitten of als beide spelers overeenkomen dat het spel verzand geraakt is in een oneindige cirkel. Dit laatste is het geval als elke speler alleen de zaden op zijn eigen bord verzameld."
 
 #: ../boards/babymatch.xml.in.h:1 ../boards/babymatch/board1_0.xml.in.h:1
 #: ../boards/babymatch/board2_0.xml.in.h:1
@@ -2943,11 +2943,10 @@ msgid "Practise adding up, until all the cards are gone."
 msgstr "Optellen oefenen totdat alle kaarten op zijn."
 
 #: ../boards/memory_add.xml.in.h:4 ../boards/memory_add_tux.xml.in.h:4
-#, fuzzy
 msgid ""
 "Turn the cards over to find two numbers which add up the same, until all the "
 "cards are gone."
-msgstr "Draai de kaarten om zodat je twee getallen"
+msgstr "Draai de kaarten om teneinde twee getallen te vinden die opgeteld hetzelfde zijn, net zolang tot alle kaarten op zijn."
 
 #: ../boards/memory_add.xml.in.h:5 ../boards/memory_add_tux.xml.in.h:5
 msgid ""
@@ -2973,7 +2972,11 @@ msgid ""
 "them together and make a proper sum. When you do that, both those cards "
 "disappear! When you've made them all disappear, found all the sums, you've "
 "won the game! :)"
-msgstr ""
+msgstr "Sommige kaarten kun je zien, maar nooit de rugzijde. Elke kaart verbergt een optelsom of het aantwoord op een optelsom.\n"
+"Een optelsom ziet er alsvolgt uit: 2 + 2 = 4\n"
+"De getallen aan de linkerkant van het isgelijkteken moeten samen hetzelfde zijn als aan de rechterkant. Dus 2 (1, 2) en nog een keer 2 (3, 4) maakt samen 4. Dit lukt het best als je hardop en met je vingers telt. Je kunt ook blokken, legostenen of knikkers gebruiken om te tellen."
+"\n"
+"In dit spel verbergen de kaarten de twee delen van een optelsom. Je moet de twee delen van de som vinden en ze weer bij elkaar brengen. Klik op een kaart om te zien welk getal deze vergbergt en probeer een andere kaart te vinden zodanig dat de getallen van deze kaarten samen gelijk zijn aan de hele som. Je kunt in één beurt slechts twee kaarten omdraaien. Je moet daarom onthouden welk getal bij welke kaart hoort. Als de getallen van twee gekozen kaarten samen gelijk zijn aan de som, verdwijnen ze. Als alle kaarten verdwenen zijn, heb je alle sommen opgelost en het spel gewonnen!"
 
 #: ../boards/memory_add_minus.xml.in.h:1
 msgid "Addition and subtraction memory game"
@@ -2989,7 +2992,7 @@ msgstr "Oefenen met optellen, aftrekken, totdat de kaarten op zijn."
 msgid ""
 "Turn the cards over to find two numbers which add or subtract the same, "
 "until all the cards are gone."
-msgstr ""
+msgstr "Draai de kaarten om teneinde twee getallen te vinden die bij elkaar opgeteld of van elkaar afgetrokken hetzelfde zijn totdat alle kaarten op zijn."
 
 #: ../boards/memory_add_minus.xml.in.h:5
 #: ../boards/memory_add_minus_mult_div.xml.in.h:5
@@ -3012,7 +3015,8 @@ msgid ""
 "the equals sign, and the numbers need you to put them together and make a "
 "proper equality. When you do that, both those cards disappear! When you've "
 "made them all disappear, found all the operations, you've won the game! :)"
-msgstr ""
+msgstr "Sommige kaarten kun je zien, maar niet wat er op hun rugzijde staat. Elke kaart verbergt een rekensom of het antwoord daarop.\n"
+"In dit spel verbergen de kaarten de twee delen van een som. Je moet deze twee delen vinden zodanig dat zij samen de som compleet maken. Klik op een kaart om te zien welk getal het verbergt en probeer dan een andere kaart te vinden die de som compleet maakt. Je kunt elke beurt slechts twee kaarten omdraaien, daarom moet je onthouden welk getal bij welke kaart hoort. Als je met twee omgedraaide kaarten een kloppende som maakt, verdwijnen de kaarten. Als alle kaarten verdwenen zijn, heb je het spel gewonnen!"
 
 #: ../boards/memory_add_minus_mult_div.xml.in.h:1
 #: ../boards/memory_add_minus_mult_div_tux.xml.in.h:1
@@ -3039,7 +3043,7 @@ msgstr "Oefen met optellen, aftrekken, vermenigvuldigen en delen totdat de kaart
 msgid ""
 "Turn the cards over to find a matching operation, until all the cards are "
 "gone."
-msgstr ""
+msgstr "Draai de kaarten om teneinde een passende rekenkundige operatie (optellen, aftrekken, delen of vermenigvuldigen) te vinden, net zo lang tot alle kaarten op zijn."
 
 #: ../boards/memory_add_minus_mult_div_tux.xml.in.h:2
 msgid "All operations memory game against Tux"
@@ -3093,7 +3097,7 @@ msgstr "Geheugenspel met aftrekken"
 msgid ""
 "Turn the cards over to find two numbers which subtract the same, until all "
 "the cards are gone."
-msgstr ""
+msgstr "Draai de kaarten om teneinde twee getallen te vinden die van elkaar afgetrokken hetzelfde zijn, net zolang tot alle kaarten op zijn."
 
 #: ../boards/memory_minus.xml.in.h:5 ../boards/memory_minus_tux.xml.in.h:5
 msgid ""
@@ -3118,7 +3122,12 @@ msgid ""
 "the equals sign, and the numbers need you to put them together and make a "
 "proper sum. When you do that, both those cards disappear! When you've made "
 "them all disappear, found all the subtracts, you've won the game! :)"
-msgstr ""
+msgstr "Sommige kaarten kun je zien, maar nooit de rugzijde. Elke kaart verbergt een aftreksom of het aantwoord op een aftreksom.\n\""
+"\"Een aftreksom ziet er alsvolgt uit: 3 - 1 = 2\n\""
+"\"De getallen aan de linkerkant van het isgelijkteken (=) moeten samen hetzelfde zijn als aan de rechterkant. Dus 3 (1, 2, 3) met 1 eraf maakt samen 2 (1, 2). Dit lukt het best als je hardop en met je vingers telt. Je kunt ook blokken, legostenen of knikkers gebruiken om te tellen.\""
+"\"\n\""
+"\"In dit spel verbergen de kaarten de twee delen van een aftreksom. Je moet de twee delen van de som vinden en ze weer bij elkaar brengen. Klik op een kaart om te zien welk getal deze vergbergt en probeer een andere kaart te vinden zodanig dat de getallen van deze kaarten samen gelijk zijn aan de hele som. Je kunt in één beurt slechts twee kaarten omdraaien. Je moet daarom onthouden welk getal bij welke kaart hoort. Als de getallen van twee gekozen kaarten samen gelijk zijn aan de som, verdwijnen ze. Als alle kaarten verdwenen zijn, heb je alle sommen opgelost en het spel gewonnen!\""
+""
 
 #: ../boards/memory_minus_tux.xml.in.h:3
 msgid "Subtraction memory game against Tux"
@@ -3140,7 +3149,7 @@ msgstr "Oefenen met vermenigvuldigen totdat de kaarten op zijn."
 msgid ""
 "Turn the cards over to find two numbers which multiply the same, until all "
 "the cards are gone."
-msgstr ""
+msgstr "Draai de kaarten om teneinde twee getallen te vinden die met elkaar vermenigvuldigd hetzelfde zijn, net zolang tot alle kaarten op zijn."
 
 #: ../boards/memory_mult_div.xml.in.h:1
 msgid "Multiplication and division memory game"
@@ -4625,9 +4634,8 @@ msgid "Unselect all"
 msgstr "Alles deselecteren"
 
 #: ../src/boards/python/admin/board_list.py:161
-#, fuzzy
 msgid "Locales"
-msgstr "kasteel"
+msgstr "Locales"
 
 #: ../src/boards/python/admin/board_list.py:166
 msgid "Locales sound"
