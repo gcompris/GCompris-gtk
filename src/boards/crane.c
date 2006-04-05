@@ -281,6 +281,8 @@ static void crane_destroy_all_items()
     timer_id = 0;
   }
 
+  gnome_canvas_points_free(crane_rope);
+
   if(boardRootItem != NULL)
 	gtk_object_destroy (GTK_OBJECT(boardRootItem));
 
@@ -520,7 +522,7 @@ static void draw_redhands() {
 
   GdkPixbuf *pixmap;
 
-  /* Initialize the rope */
+  /* Initialize the rope (Warning, it's static and freed in crane_destroy_all_items) */
   crane_rope = gnome_canvas_points_new(2);
 
   crane_rope->coords[0] = 5;
@@ -595,6 +597,7 @@ static void draw_frame(int x, int y) {
 					NULL);
   }
 
+  gnome_canvas_points_free(track);
 
 }
 

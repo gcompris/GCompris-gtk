@@ -1,3 +1,16 @@
+2006-04-05  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	Code cleanup, tracking memory leaks.
+	Especially magic_hat no more requires a lot of memory, removed double image loading.
+
+	* src/boards/clockgame.c: (display_hour), (display_minute),
+	(display_second), (clockgame_create_item):
+	* src/boards/crane.c: (draw_redhands), (draw_frame):
+	* src/boards/magic_hat.c: (magic_hat_create_item), (draw_frame),
+	(draw_table), (draw_hat), (place_item), (item_event), (nb_list),
+	(move_stars), (smooth_move):
+	* src/boards/target.c: (display_windspeed):
+
 2006-04-04  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	Fix by Slava. Set the sqlite library to the linking of libgcompris instead of the

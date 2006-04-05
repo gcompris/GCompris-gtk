@@ -386,6 +386,8 @@ static void display_windspeed()
 			 "arrow_shape_c", (double) 5.0,
 			 NULL);
 
+  gnome_canvas_points_free(canvasPoints);
+
   /* Draw the center of the speedometer */
   gnome_canvas_item_new (speedRootItem,
 			 gnome_canvas_ellipse_get_type(),

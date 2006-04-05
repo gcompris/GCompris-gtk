@@ -1,6 +1,6 @@
 /* gcompris - clockgame.c
  *
- * Time-stamp: <2006/04/04 00:00:06 bruno>
+ * Time-stamp: <2006/04/05 01:16:11 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -293,6 +293,7 @@ static void display_hour(guint hour)
 			 "arrow_shape_b", (double) needle_size-20,
 			 "arrow_shape_c", (double) 8.0,
 			 NULL);
+  gnome_canvas_points_free(canvasPoints);
 
   currentTime.hour=hour;
   display_digital_time(digital_time_item, &currentTime);
@@ -326,6 +327,7 @@ static void display_minute(guint minute)
 			 "arrow_shape_b", (double) needle_size-10,
 			 "arrow_shape_c", (double) 3.0,
 			 NULL);
+  gnome_canvas_points_free(canvasPoints);
 
   currentTime.minute=minute;
   display_digital_time(digital_time_item, &currentTime);
@@ -358,6 +360,7 @@ static void display_second(guint second)
 			 "arrow_shape_b", (double) 0,
 			 "arrow_shape_c", (double) 0,
 			 NULL);
+  gnome_canvas_points_free(canvasPoints);
 
   currentTime.second=second;
   display_digital_time(digital_time_item, &currentTime);
@@ -455,7 +458,6 @@ clockgame_create_item(GnomeCanvasGroup *parent)
 	    g_free(mtext);
 	  }
     }
-
 
   /* Create the text area for the digital time display */
   if(gcomprisBoard->level<4)
@@ -580,6 +582,8 @@ clockgame_create_item(GnomeCanvasGroup *parent)
 			   "fill_color_rgba", gcompris_skin_get_color("clockgame/text"),
 			   NULL);
   display_digital_time(time_to_find_item, &timeToFind);
+
+  gnome_canvas_points_free(canvasPoints);
 
 }
 

@@ -387,11 +387,11 @@ static GnomeCanvasItem *magic_hat_create_item()
   }
 
   if (board_mode == MODE_MINUS) {
-	place_item(&frame1, NORMAL);	// design the 'total' stars, with all the items
-	place_item(&frame2, UNDERHAT);	// design 'out' stars, all the items are hidden under the hat
+    place_item(&frame1, NORMAL);	// design the 'total' stars, with all the items
+    place_item(&frame2, UNDERHAT);	// design 'out' stars, all the items are hidden under the hat
   } else {
-	place_item(&frame1, NORMAL);	// design the first frame stars, with all the items
-	place_item(&frame2, NORMAL);	// design the second frame stars, with all the items
+    place_item(&frame1, NORMAL);	// design the first frame stars, with all the items
+    place_item(&frame2, NORMAL);	// design the second frame stars, with all the items
   }
 
   // The magic hat !! And its table
@@ -461,6 +461,7 @@ static void draw_frame(frame *my_frame) {
 			NULL);
 	}
   }
+  gnome_canvas_points_free(track);
 
   place_item(my_frame, EMPTY);
 
@@ -485,6 +486,8 @@ static void draw_table() {
 		"width_pixels", 1,
 		"fill_color", "black",
 		NULL);
+
+  gnome_canvas_points_free(track);
 }
 
 // Draw the hat
@@ -509,6 +512,8 @@ static void draw_hat(int type) {
 		"anchor", GTK_ANCHOR_NW,
 		NULL);
 
+  gdk_pixbuf_unref(image);
+
   if (type == STARS) {
 	 hat_event_id = gtk_signal_connect(GTK_OBJECT(hat), "event", (GtkSignalFunc) hat_event, NULL);
 	 gtk_signal_connect(GTK_OBJECT(hat), "event", (GtkSignalFunc) gcompris_item_event_focus, NULL);
@@ -531,9 +536,12 @@ static void place_item(frame * my_frame, int type) {
   double item_x, item_y;
   double x, y;
 
-  char *image_name[MAX_LIST] = {"magic_hat/star1.png",
-  				"magic_hat/star2.png",
-				"magic_hat/star3.png"};
+  GdkPixbuf *image_name[MAX_LIST];
+  GdkPixbuf *image_star_clear = gcompris_load_pixmap("magic_hat/star-clear.png");
+
+  image_name[0] = gcompris_load_pixmap("magic_hat/star1.png");
+  image_name[1] = gcompris_load_pixmap("magic_hat/star2.png");
+  image_name[2] = gcompris_load_pixmap("magic_hat/star3.png");
 
   x = my_frame->coord_x;
   y = my_frame->coord_y;
@@ -543,9 +551,9 @@ static void place_item(frame * my_frame, int type) {
 	for (j = 0 ; j < MAX_ITEM ; j++) {
 
 		if ((j < my_frame->nb_stars[i]) && (type != EMPTY))
-			image = gcompris_load_pixmap(image_name[i]);
+			image = image_name[i];
 		else
-			image = gcompris_load_pixmap("magic_hat/star-clear.png");
+			image = image_star_clear;
 
 		if (type == UNDERHAT) {
 			item_x = (MH_HAT_X + ((MH_HAT_WIDTH - ITEM_SIZE) / 2));
@@ -576,22 +584,28 @@ static void place_item(frame * my_frame, int type) {
 				NULL);
 		}
 
-		gdk_pixbuf_unref(image);
-			
 		if (type == DYNAMIC)
-			gtk_signal_connect(GTK_OBJECT(item), "event", (GtkSignalFunc) item_event, GINT_TO_POINTER(MAX_ITEM * i + j));
+			gtk_signal_connect(GTK_OBJECT(item), "event", 
+					   (GtkSignalFunc) item_event, 
+					   GINT_TO_POINTER(MAX_ITEM * i + j));
 
 		if (type == UNDERHAT || type == NORMAL)
 			my_frame->array_item[i][j] = item;
 	}
   }
+
+  gdk_pixbuf_unref(image_star_clear);
+  gdk_pixbuf_unref(image_name[0]);
+  gdk_pixbuf_unref(image_name[1]);
+  gdk_pixbuf_unref(image_name[2]);
+
 }
 
 // When clicked, an star from the player frame changes its appearance (grey or coloured) and the counter is re-evaluated
 static gint item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data) {
 
 	int index = GPOINTER_TO_INT(data);
-	GdkPixbuf *pixmap[MAX_LIST];
+	GdkPixbuf *pixmap;
 
 	if (board_paused)
 		return FALSE;
@@ -607,20 +621,27 @@ static gint item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data) {
 			frame_player.nb_stars[index / MAX_ITEM]--;
 			frame_player.array_star_type[index / MAX_ITEM][index % MAX_ITEM] = -1;
 
-			pixmap[0] = gcompris_load_pixmap("magic_hat/star-clear.png");
+			pixmap = gcompris_load_pixmap("magic_hat/star-clear.png");
 
-			gnome_canvas_item_set(item, "pixbuf", pixmap[0], NULL);
+			gnome_canvas_item_set(item, "pixbuf", pixmap, NULL);
+
+			gdk_pixbuf_unref(pixmap);
+
 		} else {
 
 			// Activate the star
 			frame_player.nb_stars[index / MAX_ITEM]++;
 			frame_player.array_star_type[index / MAX_ITEM][index % MAX_ITEM] = index / MAX_ITEM;
 
-			pixmap[0] = gcompris_load_pixmap("magic_hat/star1.png");
-		        pixmap[1] = gcompris_load_pixmap("magic_hat/star2.png");
-		        pixmap[2] = gcompris_load_pixmap("magic_hat/star3.png");
+			switch(index / MAX_ITEM)
+			  {
+			  case 0: pixmap = gcompris_load_pixmap("magic_hat/star1.png"); break;
+			  case 1: pixmap = gcompris_load_pixmap("magic_hat/star2.png"); break;
+			  case 2: pixmap = gcompris_load_pixmap("magic_hat/star3.png"); break;
+			  }
+			gnome_canvas_item_set(item, "pixbuf", pixmap, NULL);
 
-			gnome_canvas_item_set(item, "pixbuf", pixmap[index / MAX_ITEM], NULL);
+			gdk_pixbuf_unref(pixmap);
 		}
 		gcompris_play_ogg ("gobble", NULL);
 	}
@@ -664,6 +685,9 @@ static gint hat_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data) {
 // levels 7, 8 and 9 : three lists
 static int nb_list() {
 
+  if(gcomprisBoard == NULL)
+    return 0;
+
   return (1 + (gcomprisBoard->level - 1) / MAX_LIST) ;
 
 }
@@ -679,7 +703,6 @@ static gint move_stars(frame *my_frame) {
 		if ((my_move = g_malloc(sizeof(move_object))) == NULL) {        // Freed in function smooth_move
 			g_error ("Malloc error in hat_event");
 		}
-
 		my_move->i = i;
 		my_move->j = j;
 		my_move->nb = 20;
@@ -719,7 +742,7 @@ static gint close_hat() {
 // Move a star smoothly from under the hat to its final location, on the minus frame
 static gint smooth_move(move_object *my_move) {
 
-  if (!my_move->nb--) {
+  if (!my_move->nb-- || boardRootItem == NULL) {
   	g_free(my_move);
 	return FALSE;
   }
