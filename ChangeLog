@@ -1,3 +1,14 @@
+2006-04-09  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	Reworked bargame to load all it's images only once.
+	We have a problem with images in python not being freed.
+	I did put the load of all our images in the __init__ section but it is called 
+	on each activity restart. The leak is much lower than before but not fixed.
+	
+	* src/boards/python/bargame.py:
+	* src/boards/python/connect4.py:
+	* src/boards/python/watercycle.py:
+
 2006-04-05  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	Code cleanup, tracking memory leaks.

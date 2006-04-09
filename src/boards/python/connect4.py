@@ -23,9 +23,6 @@
 # http://forcedattack.sourceforge.net/
 #
 
-
-#TODO 
-
 import gobject
 import gnome
 import gnome.canvas
@@ -74,8 +71,6 @@ class Gcompris_connect4:
     self.gcomprisBoard.sublevel=1
     self.gcomprisBoard.number_of_sublevel=1
     gcompris.bar_set(gcompris.BAR_LEVEL)
-    #gcompris.set_background(self.gcomprisBoard.canvas.root(),
-    #                        "connect4/back.png")
     gcompris.bar_set_level(self.gcomprisBoard)
 
     # Create our rootitem. We put each canvas item in it so at the end we
@@ -110,8 +105,8 @@ class Gcompris_connect4:
     self.prof.connect("event", self.profItemEvent, 0)
     self.prof.connect("event", gcompris.utils.item_event_focus)
 
-    self.tuxboatanim = gcompris.anim.Animation("connect4/sablier.txt")
-    self.timericon = gcompris.anim.CanvasItem( self.tuxboatanim, self.rootitem )
+    self.timericon = gcompris.anim.CanvasItem( gcompris.anim.Animation("connect4/sablier.txt"),
+                                               self.rootitem )
     self.timericon.gnome_canvas.hide()
 
     self.newGame()
@@ -124,7 +119,6 @@ class Gcompris_connect4:
       gtk.timeout_remove(self.timerMachine)
 
     del self.timericon
-    del self.tuxboatanim
 
     # Remove the root item removes all the others inside it
     self.rootitem.destroy()
@@ -152,7 +146,7 @@ class Gcompris_connect4:
 
   def key_press(self, keyval, commit_str, preedit_str):
     print("Gcompris_connect4 key press. %i" % keyval)
-    self.timericon.hide()
+    self.timericon.gnome_canvas.hide()
     return False
 
   def pause(self, pause):

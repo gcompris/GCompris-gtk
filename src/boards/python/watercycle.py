@@ -196,8 +196,8 @@ class Gcompris_watercycle:
     self.watercleaning_on = 0
 
     # The tuxboat
-    self.tuxboatanim = gcompris.anim.Animation("watercycle/tuxboat.txt")
-    self.tuxboatitem = gcompris.anim.CanvasItem( self.tuxboatanim, self.rootitem );
+    self.tuxboatitem = gcompris.anim.CanvasItem( gcompris.anim.Animation("watercycle/tuxboat.txt"),
+                                                 self.rootitem );
     numstates = self.tuxboatitem.num_states
     print "numstates: " + str(numstates)
     self.tuxboatcanvas = self.tuxboatitem.gnome_canvas
