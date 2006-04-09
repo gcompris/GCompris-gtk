@@ -1,6 +1,6 @@
 /* gcompris - gcompris_confirm.c
  *
- * Time-stamp: <2006/01/29 16:06:02 bruno>
+ * Time-stamp: <2006/04/10 00:00:58 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -336,7 +336,7 @@ display_confirm(gchar *title,
 			 "x", (double)  button_x + gdk_pixbuf_get_width(pixmap) + button_x_int ,
 			 "y", (double)  button_y + 2*button_h/3,
 			 "anchor", GTK_ANCHOR_WEST,
-			 "fill_color_rgba", gcompris_skin_color_text_button,
+			 "fill_color_rgba", gcompris_skin_get_color("gcompris/helpfg"),
 			 NULL);
 
   // OK
@@ -384,7 +384,7 @@ display_confirm(gchar *title,
 				 "x", (double)  button_x + gdk_pixbuf_get_width(pixmap) + button_x_int ,
 				 "y", (double)  button_y + button_h/3,
 				 "anchor", GTK_ANCHOR_WEST,
-				 "fill_color_rgba", gcompris_skin_color_text_button,
+				 "fill_color_rgba", gcompris_skin_get_color("gcompris/helpfg"),
 				 NULL);
 
   confirm_displayed = TRUE;
@@ -428,6 +428,7 @@ set_content(GnomeCanvasRichText *item_content,
 
   color_string = g_strdup_printf("#%x", gcompris_skin_color_shadow >> 8);
   gdk_color_parse(color_string, color_s);
+  g_free(color_string);
   success = gdk_colormap_alloc_color(gdk_colormap_get_system(), 
 				     color_s,
   				     FALSE, TRUE); 
@@ -441,13 +442,13 @@ set_content(GnomeCanvasRichText *item_content,
   gtk_text_buffer_get_start_iter(buffer, &iter_start);
   gtk_text_buffer_apply_tag(buffer, txt_tag, &iter_start, &iter_end);
 
-  g_free(color_string);
 
   /* 
    * Set the text
    */
-  color_string = g_strdup_printf("#%x", gcompris_skin_get_color("menu/text") >> 8);
+  color_string = g_strdup_printf("#%x", gcompris_skin_get_color("gcompris/helpunselect") >> 8);
   gdk_color_parse(color_string, color);
+  g_free(color_string);
   success = gdk_colormap_alloc_color(gdk_colormap_get_system(), 
 				     color,
   				     FALSE, TRUE); 

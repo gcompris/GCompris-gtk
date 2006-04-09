@@ -299,8 +299,8 @@ void gcompris_skin_xml_load (gchar* skin)
   while(node !=NULL)
     {
       if(g_strcasecmp((gchar *)node->name, "color")==0){
-	key = xmlGetProp(node, "id");
-	data = xmlGetProp(node, "rgba");
+	key = xmlGetProp(node,  BAD_CAST "id");
+	data = xmlGetProp(node,  BAD_CAST "rgba");
 	if((key!=NULL)&&(data!=NULL)){
 	  if(gcompris_skin_str_to_color(data, &color)){
 	    g_hash_table_insert(gcompris_skin_colors, key, GUINT_TO_POINTER(color));
@@ -311,8 +311,8 @@ void gcompris_skin_xml_load (gchar* skin)
 	if(data!=NULL) g_free(data);
       } 
       else if(g_strcasecmp((gchar *)node->name, "font")==0){
-	key = xmlGetProp(node, "id");
-	data = xmlGetProp(node, "name");
+	key = xmlGetProp(node,  BAD_CAST "id");
+	data = xmlGetProp(node,  BAD_CAST "name");
 	if((key!=NULL)&&(data!=NULL)){
 	  g_hash_table_insert(gcompris_skin_fonts, key, data);
 	} else {
@@ -387,6 +387,23 @@ guint32 gcompris_skin_get_color_default(gchar* id, guint32 def)
   if(result!=NULL)
     return GPOINTER_TO_UINT(result);
   return def;
+}
+
+/*
+ * Get the skin gdkcolor associated to the id
+ *
+ * The color is returned in the given gdkcolor
+ */
+void gcompris_skin_get_gdkcolor_default(gchar* id, guint32 def, GdkColor *gdkcolor)
+{
+  gchar *tmp;
+  guint32 color;
+
+  color = gcompris_skin_get_color_default(id, def);
+
+  tmp = g_strdup_printf("#%06X", gcompris_skin_get_color(id) >> 8);
+  gdk_color_parse(tmp, gdkcolor);
+  g_free(tmp);
 }
 
 /*

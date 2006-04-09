@@ -1,6 +1,6 @@
 /* gcompris - help.c
  *
- * Time-stamp: <2005/10/31 23:00:03 bruno>
+ * Time-stamp: <2006/04/09 23:28:08 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -23,6 +23,7 @@
  * The bar button common to each games
  *
  */
+#include <string.h>
 
 #include "gcompris.h"
 
@@ -35,9 +36,6 @@
 
 #define GAP_TO_BUTTON -20
 
-#define COLOR_SELECTED   0x34682aFF
-#define COLOR_UNSELECTED 0x4252ffFF
-
 static gint	 item_event_help(GnomeCanvasItem *item, GdkEvent *event, gpointer data);
 static void	 select_item(GnomeCanvasItem *item, GnomeCanvasItem *item_text);
 static void	 set_content(char *text);
@@ -45,7 +43,6 @@ static void	 set_content(char *text);
 static gboolean help_displayed			= FALSE;
 
 static GnomeCanvasItem *rootitem		= NULL;
-static GnomeCanvasItem *item_content		= NULL;
 
 static gchar *prerequisite			= NULL;
 static gchar *goal				= NULL;
@@ -65,7 +62,7 @@ static GnomeCanvasItem *item_credit_text        = NULL;
 static GnomeCanvasItem *item_selected		= NULL;
 static GnomeCanvasItem *item_selected_text	= NULL;
 
-
+static GtkTextBuffer   *buffer_content;
 /*
  * Main entry point 
  * ----------------
@@ -205,7 +202,7 @@ void gcompris_help_start (GcomprisBoard *gcomprisBoard)
 				    "x", (double)  BOARDWIDTH*0.20,
 				    "y", (double)  y_start - gdk_pixbuf_get_height(pixmap)  + GAP_TO_BUTTON,
 				    "anchor", GTK_ANCHOR_CENTER,
-				    "fill_color_rgba", COLOR_UNSELECTED,
+				    "fill_color_rgba", gcompris_skin_get_color("gcompris/helpunselect"),
 				    NULL);
       gtk_signal_connect(GTK_OBJECT(item_prerequisite_text), "event",
 			 (GtkSignalFunc) item_event_help,
@@ -233,7 +230,7 @@ void gcompris_help_start (GcomprisBoard *gcomprisBoard)
 				    "x", (double)  BOARDWIDTH*0.4,
 				    "y", (double)  y_start - gdk_pixbuf_get_height(pixmap)  + GAP_TO_BUTTON,
 				    "anchor", GTK_ANCHOR_CENTER,
-				    "fill_color_rgba", COLOR_UNSELECTED,
+				    "fill_color_rgba", gcompris_skin_get_color("gcompris/helpunselect"),
 				    NULL);
       gtk_signal_connect(GTK_OBJECT(item_goal_text), "event",
 			 (GtkSignalFunc) item_event_help,
@@ -261,7 +258,7 @@ void gcompris_help_start (GcomprisBoard *gcomprisBoard)
 				    "x", (double)  BOARDWIDTH*0.6,
 				    "y", (double)  y_start - gdk_pixbuf_get_height(pixmap)  + GAP_TO_BUTTON,
 				    "anchor", GTK_ANCHOR_CENTER,
-				    "fill_color_rgba", COLOR_UNSELECTED,
+				    "fill_color_rgba", gcompris_skin_get_color("gcompris/helpunselect"),
 				    NULL);
       gtk_signal_connect(GTK_OBJECT(item_manual_text), "event",
 			 (GtkSignalFunc) item_event_help,
@@ -289,7 +286,7 @@ void gcompris_help_start (GcomprisBoard *gcomprisBoard)
 				    "x", (double)  BOARDWIDTH*0.8,
 				    "y", (double)  y_start - gdk_pixbuf_get_height(pixmap)  + GAP_TO_BUTTON,
 				    "anchor", GTK_ANCHOR_CENTER,
-				    "fill_color_rgba", COLOR_UNSELECTED,
+				    "fill_color_rgba", gcompris_skin_get_color("gcompris/helpunselect"),
 				    NULL);
       gtk_signal_connect(GTK_OBJECT(item_credit_text), "event",
 			 (GtkSignalFunc) item_event_help,
@@ -325,21 +322,44 @@ void gcompris_help_start (GcomprisBoard *gcomprisBoard)
 
   y_start += 5;
 
-  item_content = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
-					gnome_canvas_rich_text_get_type (),
-					"x", (double)  x_start + 40,
-					"y", (double)  y_start,
-					"width", 620.0,
-					"height", 400.0,
-					"anchor", GTK_ANCHOR_NW,
-					"grow_height", FALSE,
-					"cursor_visible", FALSE,
-					"cursor_blink", FALSE,
-					"editable", FALSE,
-					NULL);
+  /* Create a scrolled area for the text content */
+  GtkWidget *view;
+  GtkWidget *sw;
+  view = gtk_text_view_new ();
+  gtk_text_view_set_wrap_mode (GTK_TEXT_VIEW (view), GTK_WRAP_WORD);
+  gtk_text_view_set_editable(GTK_TEXT_VIEW (view), FALSE);
+  gtk_text_view_set_cursor_visible(GTK_TEXT_VIEW (view), FALSE);
+
+  PangoFontDescription *font_desc;
+  font_desc = pango_font_description_from_string (gcompris_skin_font_content);
+  gtk_widget_modify_font (view, font_desc);
+  pango_font_description_free (font_desc);
+
+  GdkColor fg_color;
+  GdkColor bg_color;
+  gcompris_skin_get_gdkcolor("gcompris/helpfg", &fg_color);
+  gcompris_skin_get_gdkcolor("gcompris/helpbg", &bg_color);
+  gtk_widget_modify_base(view, GTK_STATE_NORMAL, &bg_color);
+  gtk_widget_modify_text(view, GTK_STATE_NORMAL, &fg_color);
+
+  buffer_content = gtk_text_view_get_buffer (GTK_TEXT_VIEW (view));
+  sw = gtk_scrolled_window_new (NULL, NULL);
+  gtk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW (sw),
+				  GTK_POLICY_AUTOMATIC,
+				  GTK_POLICY_AUTOMATIC);
+  gtk_container_add (GTK_CONTAINER (sw), view);
+
+  gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
+			 gnome_canvas_widget_get_type (),
+			 "widget", GTK_WIDGET(sw),
+			 "x", (double)  x_start + 40,
+			 "y", (double)  y_start,
+			 "width",  618.0,
+			 "height", 280.0,
+			 NULL);
+  gtk_widget_show_all (sw);
 
   set_content(text_to_display);
-
   // OK
   pixmap = gcompris_load_skin_pixmap("button_large.png");
 
@@ -403,10 +423,6 @@ void gcompris_help_stop ()
 	  // Destroy the help box
 	  if(rootitem!=NULL)
 	    {
-	      /* WORKAROUND: There is a bug in the richtex item and we need to remove it first */
-	      while (g_idle_remove_by_data (item_content));
-	      gtk_object_destroy (item_content);
-
 	      gtk_object_destroy(GTK_OBJECT(rootitem));
 	      gcomprisBoard->plugin->pause_board(FALSE);
 	    }
@@ -438,7 +454,7 @@ static void select_item(GnomeCanvasItem *item, GnomeCanvasItem *item_text)
 			    "pixbuf", pixmap,
 			    NULL);
       gnome_canvas_item_set(item_selected_text, 
-			    "fill_color_rgba", COLOR_UNSELECTED,
+			    "fill_color_rgba", gcompris_skin_get_color("gcompris/helpunselect"),
 			    NULL);
 
       gdk_pixbuf_unref(pixmap);
@@ -452,32 +468,17 @@ static void select_item(GnomeCanvasItem *item, GnomeCanvasItem *item_text)
 			NULL);
   gdk_pixbuf_unref(pixmap);
   gnome_canvas_item_set(item_text, 
-			"fill_color_rgba", COLOR_SELECTED,
+			"fill_color_rgba", gcompris_skin_get_color("gcompris/helpselect"),
 			NULL);
   item_selected = item;
   item_selected_text = item_text;
 }
 
 /* Apply the style to the given RichText item  */
-static void set_content(gchar *text) {
-
-  GtkTextIter    iter_start, iter_end;
-  GtkTextBuffer *buffer;
-  GtkTextTag    *txt_tag;
-
-  gnome_canvas_item_set(item_content, 
-			"text", text,
-			NULL);
-
-  buffer  = gnome_canvas_rich_text_get_buffer(GNOME_CANVAS_RICH_TEXT(item_content));
-  txt_tag = gtk_text_buffer_create_tag(buffer, NULL, 
-				       "foreground", "blue",
-				       "font",       "Sans 10",
-				       NULL);
-  gtk_text_buffer_get_end_iter(buffer, &iter_end);
-  gtk_text_buffer_get_start_iter(buffer, &iter_start);
-  gtk_text_buffer_apply_tag(buffer, txt_tag, &iter_start, &iter_end);
-
+static void set_content(gchar *text)
+{
+  gtk_text_buffer_set_text (buffer_content, "", 0);
+  gtk_text_buffer_insert_at_cursor(buffer_content, text, -1);
 }
 
 /* Callback for the bar operations */

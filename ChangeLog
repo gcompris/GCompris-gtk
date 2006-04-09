@@ -1,3 +1,21 @@
+2006-04-10  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	Added scroolbars in the help dialogs.
+	Added an entry in skin.c to get a GdkColor : gcompris_skin_get_gdkcolor()
+	Changed confirmation dialog to use the new colors for dialogs in skins
+	
+	* boards/skins/babytoy/help_bg.png:
+	* boards/skins/babytoy/skin.xml:
+	* boards/skins/gartoon/skin.xml:
+	* src/gcompris/gcompris_confirm.c: (display_confirm),
+	(set_content):
+	* src/gcompris/help.c: (gcompris_help_start), (gcompris_help_stop),
+	(select_item), (set_content):
+	* src/gcompris/skin.c: (gcompris_skin_xml_load),
+	(gcompris_skin_get_color_default),
+	(gcompris_skin_get_gdkcolor_default):
+	* src/gcompris/skin.h:
+
 2006-04-09  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	Reworked bargame to load all it's images only once.
