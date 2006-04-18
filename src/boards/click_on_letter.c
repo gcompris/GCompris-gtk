@@ -21,6 +21,7 @@
 #include <math.h>
 #include <assert.h>
 #include <glib.h>
+#include <string.h>
 
 #include "gcompris/gcompris.h"
 
@@ -68,7 +69,6 @@ static GnomeCanvasItem *click_on_letter_create_item(GnomeCanvasGroup *parent);
 static void click_on_letter_destroy_all_items(void);
 static void click_on_letter_next_level(void);
 static gint item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data);
-static gint phone_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data);
 static gboolean sounds_are_fine();
 
 static int right_position;
@@ -76,7 +76,6 @@ static int number_of_letters=MAX_NUMBER_OF_LETTERS;
 static gchar *right_letter;
 
 static gchar *alphabet;
-static void quit_board();
 
 static void sound_played(gchar *file);
 
@@ -137,6 +136,7 @@ static void pause_board (gboolean pause)
 static void start_board (GcomprisBoard *agcomprisBoard)
 {
   GHashTable *config = gcompris_get_board_conf();
+  int ready;
 
   gcompris_change_locale(g_hash_table_lookup( config, "locale"));
 
@@ -149,7 +149,9 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 
   g_hash_table_destroy(config);
 
-  sounds_are_fine();
+  ready = sounds_are_fine();
+
+  gcompris_pause_sound();
 
   if (agcomprisBoard!=NULL)
     {
@@ -158,20 +160,27 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       gcomprisBoard->level=1;
       gcomprisBoard->maxlevel=NUMBER_OF_LEVELS;
       gcomprisBoard->sublevel=1;
-      gcomprisBoard->number_of_sublevel=NUMBER_OF_SUBLEVELS; /* Go to next level after this number of 'play' */
-      gcompris_bar_set(GCOMPRIS_BAR_CONFIG|GCOMPRIS_BAR_LEVEL|GCOMPRIS_BAR_REPEAT);
-      gcompris_score_start(SCORESTYLE_NOTE,
-			   50,
-			   50,
-			   gcomprisBoard->number_of_sublevel);
 
-      click_on_letter_next_level();
+      /* Go to next level after this number of 'play' */
+      gcomprisBoard->number_of_sublevel=NUMBER_OF_SUBLEVELS;
 
-      gamewon = FALSE;
-      pause_board(FALSE);
+      if(ready)
+	{
+	  gcompris_bar_set(GCOMPRIS_BAR_CONFIG|GCOMPRIS_BAR_LEVEL|GCOMPRIS_BAR_REPEAT);
+	  gcompris_score_start(SCORESTYLE_NOTE,
+			       50,
+			       50,
+			       gcomprisBoard->number_of_sublevel);
 
-      
+	  click_on_letter_next_level();
 
+	  gamewon = FALSE;
+	  pause_board(FALSE);
+	}
+      else
+	{
+	  gcompris_bar_set(0);
+	}
     }
 
 }
@@ -180,16 +189,13 @@ static void end_board ()
 {
   if(gcomprisBoard!=NULL)
     {
-      printf("end_board 1\n");
       pause_board(TRUE);
-      printf("end_board 1\n");
       gcompris_score_end();
-      printf("end_board 1\n");
       click_on_letter_destroy_all_items();
-      printf("end_board 1\n");
     }
   gcompris_reset_locale();
   gcomprisBoard = NULL;
+  gcompris_resume_sound();
 }
 
 /* ======================================= */
@@ -293,7 +299,8 @@ static gboolean sounds_are_fine ()
 
   fine = TRUE;
   if(!properties->fx) {
-    gcompris_dialog(_("Error: this activity cannot be played with the\nsound effects disabled.\nGo to the configuration dialogue to\nenable the sound"), board_stop);
+    gcompris_bar_set(0);
+    gcompris_dialog(_("Error: this activity cannot be played with the\nsound effects disabled.\nGo to the configuration dialog to\nenable the sound"), board_stop);
     fine = FALSE;
   }
 
@@ -405,29 +412,29 @@ static GnomeCanvasItem *click_on_letter_create_item(GnomeCanvasGroup *parent)
 
   for (i=0; i< number_of_letters; i++) {
 
-  buttons[i] = gnome_canvas_item_new (boardRootItem,
-				   gnome_canvas_pixbuf_get_type (),
-				   "pixbuf",  button_pixmap,
-				   "x",  (double) xOffset,
-				   "y",  (double) yOffset,
-				   NULL);
+    buttons[i] = gnome_canvas_item_new (boardRootItem,
+					gnome_canvas_pixbuf_get_type (),
+					"pixbuf",  button_pixmap,
+					"x",  (double) xOffset,
+					"y",  (double) yOffset,
+					NULL);
 
 
-  l_items[i] = gnome_canvas_item_new (boardRootItem,
-				      gnome_canvas_text_get_type (),
-				      "text", g_strdup(letters[i]),
-				      "font", gcompris_skin_font_board_huge_bold,
-				      "anchor", GTK_ANCHOR_CENTER,
-				      "fill_color_rgba", 0x0000ffff,
-				      "x",  (double) xOffset + gdk_pixbuf_get_width(button_pixmap)/2,
-				      "y",  (double) yOffset + gdk_pixbuf_get_height(button_pixmap)/2 - 5,
-				      NULL);
-  g_free(letters[i]);
-  xOffset +=HORIZONTAL_SEPARATION +gdk_pixbuf_get_width(button_pixmap);
+    l_items[i] = gnome_canvas_item_new (boardRootItem,
+					gnome_canvas_text_get_type (),
+					"text", g_strdup(letters[i]),
+					"font", gcompris_skin_font_board_huge_bold,
+					"anchor", GTK_ANCHOR_CENTER,
+					"fill_color_rgba", 0x0000ffff,
+					"x",  (double) xOffset + gdk_pixbuf_get_width(button_pixmap)/2,
+					"y",  (double) yOffset + gdk_pixbuf_get_height(button_pixmap)/2 - 5,
+					NULL);
+    g_free(letters[i]);
+    xOffset +=HORIZONTAL_SEPARATION +gdk_pixbuf_get_width(button_pixmap);
 
-  gtk_signal_connect(GTK_OBJECT(l_items[i]), "event", (GtkSignalFunc) item_event, GINT_TO_POINTER(i));
-  gtk_signal_connect(GTK_OBJECT(buttons[i]), "event",  (GtkSignalFunc) item_event, GINT_TO_POINTER(i));
-  //  gtk_signal_connect(GTK_OBJECT(buttons[i]), "event", (GtkSignalFunc) gcompris_item_event_focus, NULL);
+    gtk_signal_connect(GTK_OBJECT(l_items[i]), "event", (GtkSignalFunc) item_event, GINT_TO_POINTER(i));
+    gtk_signal_connect(GTK_OBJECT(buttons[i]), "event",  (GtkSignalFunc) item_event, GINT_TO_POINTER(i));
+    //  gtk_signal_connect(GTK_OBJECT(buttons[i]), "event", (GtkSignalFunc) gcompris_item_event_focus, NULL);
   }
 
 
@@ -461,18 +468,6 @@ static gboolean process_ok_timeout() {
 static void process_ok() {
   // leave time to display the right answer
   g_timeout_add(TIME_CLICK_TO_BONUS, process_ok_timeout, NULL);
-}
-/* ==================================== */
-static gint phone_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data) {
-  switch (event->type)
-    {
-    case GDK_BUTTON_PRESS:
-      repeat();
-      break;
-    default:
-      break;
-    }
-  return TRUE;
 }
 /* ==================================== */
 static gint
@@ -566,12 +561,11 @@ static GHFunc save_table (gpointer key,
   return NULL;
 }
 
-static GcomprisConfCallback conf_ok(GHashTable *table)
+static void conf_ok(GHashTable *table)
 {
   if (!table){
     if (gcomprisBoard)
       pause_board(FALSE);
-    return;
   }
     
 

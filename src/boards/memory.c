@@ -1,6 +1,6 @@
 /* gcompris - memory.c
  *
- * Time-stamp: <2006/03/31 22:46:09 yves>
+ * Time-stamp: <2006/04/17 22:28:15 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  * 
@@ -813,6 +813,8 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 
       if (currentUiMode == UIMODE_SOUND)
 	{
+	  GcomprisProperties	*properties = gcompris_get_properties();
+
 	  gcompris_pause_sound();
 	  gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas), "images/gcompris_band.png");
 	  base_x1 = BASE_SOUND_X1;
@@ -820,6 +822,12 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 	  base_x2 = BASE_SOUND_X2;
 	  base_y2 = BASE_SOUND_Y2;
 	  base_x1_tux = BASE_SOUND_X1_TUX;
+
+	  if(!properties->fx) {
+	    gcompris_dialog(_("Error: this activity cannot be played with the\nsound effects disabled.\nGo to the configuration dialog to\nenable the sound"), board_stop);
+	    return;
+	  }
+
 	}
       else
 	{

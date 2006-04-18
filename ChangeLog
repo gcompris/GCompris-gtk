@@ -1,3 +1,25 @@
+2006-04-18  Bruno coudoin  <bruno.coudoin@free.fr>
+
+
+	* Makefile.mingw: updated for 7.4 windows
+	* boards/images/README:
+	* boards/images/enumerate_background.png: Remade by by Herve Chanal.
+	* src/boards/click_on_letter.c: (start_board), (end_board),
+	(sounds_are_fine), (click_on_letter_create_item), (conf_ok): now sounds is muted
+	* src/boards/memory.c: (start_board): added a dialog when sounds is not activated that the activity cannot be played.
+
+2006-04-17  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	reviewed by: <delete if not using a buddy>
+
+	* Makefile.mingw:
+	* boards/images/README:
+	* boards/images/enumerate_background.png:
+	* po/fr.po:
+	* src/boards/click_on_letter.c: (start_board), (end_board),
+	(sounds_are_fine), (click_on_letter_create_item), (conf_ok):
+	* src/boards/memory.c: (start_board):
+
 	*** Release 7.4 ***
 
 2006-04-10  Bruno coudoin  <bruno.coudoin@free.fr>
