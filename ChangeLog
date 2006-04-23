@@ -1,5 +1,28 @@
-2006-04-18  Bruno coudoin  <bruno.coudoin@free.fr>
+2006-04-24  Bruno coudoin  <bruno.coudoin@free.fr>
 
+	Fixes Dutch alphabet by Hans de Goede
+
+	* boards/sounds/nl/alphabet/U006A.ogg:
+	* boards/sounds/nl/alphabet/U006B.ogg:
+	* boards/sounds/nl/alphabet/U006C.ogg:
+	* boards/sounds/nl/alphabet/U006D.ogg:
+	* boards/sounds/nl/alphabet/U006E.ogg:
+	* boards/sounds/nl/alphabet/U006F.ogg:
+	* boards/sounds/nl/alphabet/U007B.ogg:
+	* boards/sounds/nl/alphabet/U007C.ogg:
+	* boards/sounds/nl/alphabet/U007D.ogg:
+	* boards/sounds/nl/alphabet/U007E.ogg:
+	* boards/sounds/nl/alphabet/U007F.ogg:
+	* boards/sounds/nl/alphabet/gcompris_alphabet_nl.assetml.in:
+	* boards/sounds/nl/misc/check_answer.ogg:
+	* boards/sounds/nl/misc/gcompris_misc_nl.assetml.in:
+	* docs/C/Makefile.am:
+	* docs/C/gcompris.6: added the man from debian
+	* src/boards/python/electric.py: fixes a potential vunerability by
+	not using /tmp. Fixed the delete button that was freezing GCompris
+	when used on an empty 2nd level.
+
+2006-04-18  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* Makefile.mingw: updated for 7.4 windows
 	* boards/images/README:

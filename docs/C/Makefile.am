@@ -2,10 +2,13 @@
 
 doc = gcompris.html
 
+man_MANS = gcompris.6
+
 EXTRA_DIST = overview.jpg \
 	     overview.txt \
 	     topic.dat \
-	     overview.dia
+	     overview.dia \
+	     $(man_MANS)
 
 gcompris_helpdir = $(datadir)/gnome/help/$(PACKAGE)/C
 

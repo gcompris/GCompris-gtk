@@ -26,8 +26,10 @@ import gcompris.admin
 import gcompris.bonus
 import gtk
 import gtk.gdk
+import gobject
 
 import os
+import tempfile
 
 # Set to True to debug
 debug = False
@@ -195,6 +197,10 @@ class Gcompris_electric:
     if self.gnucap_timer :
       gtk.timeout_remove(self.gnucap_timer)
       self.gnucap_timer = 0
+      
+    # remove the appended items from our tools
+    for i in range(0,len(self.tools)):
+      self.tools[i].pop()
 
     # No more component in the simulation set
     self.components = []
@@ -318,7 +324,7 @@ class Gcompris_electric:
       return
 
     if not self.gnucap_timer:
-      self.gnucap_timer = gtk.timeout_add(self.gnucap_timer_interval, self.call_gnucap)
+      self.gnucap_timer = gobject.timeout_add(self.gnucap_timer_interval, self.call_gnucap)
 
   def call_gnucap(self):
     if not self.components:
@@ -334,9 +340,8 @@ class Gcompris_electric:
     if not connected == 1:
       if debug: print "call_gnucap: No connected component"
     
-    filename = "/tmp/gcompris_electric.gnucap.%d" %(os.getpid(),)
-
-    f = file(filename, "w+")
+    fd, filename = tempfile.mkstemp(".gnucap", "gcompris_electric", None, True)
+    f = os.fdopen(fd, "w+t")
 
     gnucap = "Title GCompris\n"
 
@@ -421,7 +426,7 @@ class Gcompris_electric:
           i += 2
 
       
-    os.remove(filename)
+    if not debug: os.remove(filename)
     self.gnucap_timer = 0
     
   # Convert a gnucap value back in a regular number
