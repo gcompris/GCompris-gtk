@@ -1,3 +1,11 @@
+2006-04-26  bruno  <set EMAIL_ADDRESS environment variable>
+
+	Fixed the management of the bar when the sounds are not found and the
+	dialog is displayed.
+
+	* INSTALL:
+	* src/boards/click_on_letter.c: (start_board), (sounds_are_fine):
+
 2006-04-24  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	Fixes Dutch alphabet by Hans de Goede

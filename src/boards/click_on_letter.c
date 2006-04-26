@@ -30,7 +30,7 @@
 #define SOUNDLISTFILE PACKAGE
 
 static GcomprisBoard *gcomprisBoard = NULL;
-static gboolean board_paused = TRUE;
+static gboolean board_paused;
 
 static void		 start_board (GcomprisBoard *agcomprisBoard);
 static void		 pause_board (gboolean pause);
@@ -138,6 +138,8 @@ static void start_board (GcomprisBoard *agcomprisBoard)
   GHashTable *config = gcompris_get_board_conf();
   int ready;
 
+  board_paused = TRUE;
+
   gcompris_change_locale(g_hash_table_lookup( config, "locale"));
 
   gchar *up_init_str = g_hash_table_lookup( config, "uppercase_only");
@@ -176,10 +178,6 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 
 	  gamewon = FALSE;
 	  pause_board(FALSE);
-	}
-      else
-	{
-	  gcompris_bar_set(0);
 	}
     }
 
@@ -252,7 +250,7 @@ static gboolean sounds_are_fine ()
   char *str2 = NULL;
   GcomprisProperties	*properties = gcompris_get_properties();
   gchar *locale = NULL;
-  gboolean fine = TRUE;
+  gboolean fine = FALSE;
 
   /* TRANSLATORS: Put here the alphabet in your language */
   alphabet=_("abcdefghijklmnopqrstuvwxyz");
