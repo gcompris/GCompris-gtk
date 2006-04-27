@@ -564,6 +564,8 @@ static void conf_ok(GHashTable *table)
   if (!table){
     if (gcomprisBoard)
       pause_board(FALSE);
+
+    return;
   }
     
 
@@ -583,12 +585,14 @@ static void conf_ok(GHashTable *table)
     gcompris_change_locale(g_hash_table_lookup( config, "locale"));
     
     gchar *up_init_str = g_hash_table_lookup( config, "uppercase_only");
-    
-    if (up_init_str && (strcmp(up_init_str, "True")==0))
-      uppercase_only = TRUE;
-    else
-      uppercase_only = FALSE;
-    
+    if (up_init_str)
+      {
+	if(strcmp(up_init_str, "True")==0)
+	  uppercase_only = TRUE;
+	else
+	  uppercase_only = FALSE;
+      }
+
     if (profile_conf)
       g_hash_table_destroy(config);
     

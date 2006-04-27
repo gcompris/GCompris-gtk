@@ -1,3 +1,12 @@
+2006-04-27  bruno
+
+	Fixed crash when you click on the configure icon then cancel 
+	Fixed toggle effect if you click on configuration but do not 
+	touch the upper case check box. The game is one time, in upper,
+	one in lower while the check box remains the same.
+
+	* src/boards/click_on_letter.c: (conf_ok):
+
 2006-04-26  bruno
 
 	* boards/geography/board5_0.xml.in: Fixed a typo, Franche Compté
