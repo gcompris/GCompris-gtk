@@ -22,7 +22,6 @@ Buildrequires: gnome-python python-devel pygtk2.0-devel
 Requires:	gnome-libs libxml2 gdk-pixbuf %canvaspackage %canvaslib
 Requires:       gnuchess >= 5.02
 Requires:       @REQUIRE_PYTHON@
-Requires:	assetml-flags
 Requires:	libSDL_mixer1.2
 Requires:	libsqlite3_0
 Packager:       Bruno Coudoin <bcoudoin.coudoin@free.fr>
@@ -511,14 +510,6 @@ Version: @VERSION_VOICES_MISC_EU@
 Miscelaneous voices in Basque
 
 
-%package -n assetml-flags
-Summary:        Contains png 60x40 country flags and an assetml description file
-Group: 		Pixmaps
-Version: @VERSION_FLAGS@
-
-%description -n assetml-flags
-Contains png 60x40 country flags and an assetml description file
-
 %prep
 %setup -q
 
@@ -568,8 +559,7 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{prefix}/share/gcompris/boards
 %dir %{prefix}/share/gcompris/boards/skins
 %{prefix}/share/gcompris/boards/skins/*
-%{prefix}/share/gcompris/boards/[^fs]*
-%{prefix}/share/gcompris/boards/f[iuo]*
+%{prefix}/share/gcompris/boards/[^s]*
 %{prefix}/share/gcompris/boards/s[tcemu]*
 %{prefix}/share/gcompris/boards/sound_group*
 %dir %{prefix}/share/gcompris/boards/sounds
@@ -871,10 +861,3 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(-, root, root)
 %{prefix}/share/gcompris/boards/sounds/eu/misc
 %{prefix}/share/@ASSETML_DIR@/gcompris_misc_eu.assetml
-
-
-%files -n assetml-flags
-%defattr(-, root, root)
-%{prefix}/share/gcompris/boards/flags/*
-%{prefix}/share/@ASSETML_DIR@/gcompris_flags.assetml
-

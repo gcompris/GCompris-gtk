@@ -1,6 +1,6 @@
 /* gcompris - config.c
  *
- * Time-stamp: <2006/01/09 23:59:33 bruno>
+ * Time-stamp: <2006/04/29 01:01:10 bruno>
  *
  * Copyright (C) 2000-2003 Bruno Coudoin
  *
@@ -564,7 +564,8 @@ display_previous_next(guint x_start, guint y_start,
   
 static void set_locale_flag(gchar *locale)
 {
-  char *str = NULL;
+  gchar *str = NULL;
+  gchar *filename;
   GdkPixbuf *pixmap = NULL;
 
   if(locale == NULL)
@@ -577,19 +578,30 @@ static void set_locale_flag(gchar *locale)
   }
 
   /* First try to find a flag for the long locale name */
-  str = g_strdup_printf("%.5s.png", locale);
-  pixmap = gcompris_load_pixmap_asset("gcompris flags", "flags", "image/png", str);
+  str = g_strdup_printf("flags/%.5s.png", locale);
+  filename = gcompris_find_absolute_filename(str);
+  printf("1 str=%s filename=%s\n", str, filename);
+  g_free(str);
 
   /* Not found, Try now with the short locale name */
-  if(!pixmap) {
+  if(!filename) {
+    str = g_strdup_printf("flags/%.2s.png", locale);
+    filename = gcompris_find_absolute_filename(str);
+    printf("2 str=%s filename=%s\n", str, filename);
     g_free(str);
-    str = g_strdup_printf("%.2s.png", locale);
-    pixmap = gcompris_load_pixmap_asset("gcompris flags", "flags", "image/png", str);
   }
 
-  gnome_canvas_item_set (item_locale_flag,
-			 "pixbuf", pixmap,
-			 NULL);
+  if(filename)
+    {
+      pixmap = gdk_pixbuf_new_from_file (filename, NULL);
+
+      gnome_canvas_item_set (item_locale_flag,
+			     "pixbuf", pixmap,
+			     NULL);
+
+      gdk_pixbuf_unref(pixmap);
+      g_free(filename);
+    }
 
   /* Check wether or not the locale is available */
 #ifdef WIN32
@@ -602,10 +614,6 @@ static void set_locale_flag(gchar *locale)
     gnome_canvas_item_hide (item_bad_flag);
 #endif
 
-  g_free(str);
-
-  if(pixmap)
-    gdk_pixbuf_unref(pixmap);
 }
 
 

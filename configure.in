@@ -549,10 +549,6 @@ AC_SUBST(VERSION_VOICES_GEOGRAPHY_SV)
 VERSION_VOICES_MISC_SV=1.0
 AC_SUBST(VERSION_VOICES_MISC_SV)
 
-#FLAGS
-VERSION_FLAGS=1.10
-AC_SUBST(VERSION_FLAGS)
-
 AC_SUBST(CFLAGS)
 
 dnl Autoconf output
@@ -586,7 +582,6 @@ boards/babymatch/Makefile
 boards/babyshapes/Makefile
 boards/chronos/Makefile
 boards/doubleentry/Makefile
-boards/flags/Makefile
 boards/gcompris/Makefile
 boards/gcompris/mimetypes/Makefile
 boards/geography/Makefile

@@ -41,20 +41,6 @@ typedef struct {
 
 GcomprisAnimation *gcompris_load_animation(char *filename);
 
-/*! \fn GcomprisAnimation       *gcompris_load_animation_asset(gchar *dataset, gchar* categories, gchar* name)
-    \brief Returns an animation from the assetml base.
-    \warning If there is more than one answer, the first animation is returned
-
-    \param dataset The assetml dataset
-    \param categories The category filter
-    \param mimetype The mimetype for the asset to search
-    \param name The name filter
-*/
-GcomprisAnimation *gcompris_load_animation_asset(gchar *dataset,
-                                                 gchar *categories,
-                                                 gchar *mimetype,
-                                                 gchar *name);
-
 GcomprisAnimCanvasItem *gcompris_activate_animation(GnomeCanvasGroup *parent,
                                                     GcomprisAnimation*);
 void gcompris_set_anim_state(GcomprisAnimCanvasItem*, int);

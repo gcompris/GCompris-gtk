@@ -86,21 +86,6 @@ GcomprisAnimation *gcompris_load_animation(char *filename)
   return anim;
 }
 
-GcomprisAnimation *gcompris_load_animation_asset(gchar *dataset,
-                                                 gchar *categories,
-                                                 gchar *mimetype,
-                                                 gchar *name)
-{
-  gchar *file = NULL;
-
-  file = gcompris_get_asset_file(dataset, categories, mimetype, name);
-
-  if(file)
-    return gcompris_load_animation(file);
-
-  return NULL;
-}
-
 GcomprisAnimCanvasItem *gcompris_activate_animation(GnomeCanvasGroup *parent,
                                                     GcomprisAnimation *anim)
 {

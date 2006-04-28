@@ -1,3 +1,28 @@
+2006-04-29  bruno  <set EMAIL_ADDRESS environment variable>
+
+	Started to remove assetml usage.
+	Flags are no more in an assetml package
+	animation cannot be loaded from assetml (wasn't used anyway)
+
+	* boards/Makefile.am:
+	* boards/flags/gcompris_flags.assetml.in:
+	* configure.in:
+	* gcompris.spec.in:
+	* src/boards/py-mod-anim.c: (Animation_init):
+	* src/gcompris/anim.c:
+	* src/gcompris/anim.h:
+	* src/gcompris/config.c: (set_locale_flag):
+
+2006-04-29  bruno  <set EMAIL_ADDRESS environment variable>
+
+	reviewed by: <delete if not using a buddy>
+
+	* boards/Makefile.am:
+	* boards/flags/gcompris_flags.assetml.in:
+	* configure.in:
+	* gcompris.spec.in:
+	* src/gcompris/config.c: (set_locale_flag):
+
 2006-04-28  bruno  <set EMAIL_ADDRESS environment variable>
 
         Fixed case where we fallback to english sounds. now the dialog properly hides

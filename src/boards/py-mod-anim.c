@@ -133,13 +133,13 @@ Animation_init(py_GcomprisAnimation *self, PyObject *args, PyObject *key)
 {
   static char *kwlist[] =
   {
-    "filename", "dataset", "categories", "mimetype", "name", NULL
+    "filename", NULL
   };
 
-  char *file=NULL, *data=NULL, *cat=NULL, *mime=NULL, *name=NULL;
+  char *file=NULL;
 
-  if(!PyArg_ParseTupleAndKeywords(args, key, "|sssss", kwlist,
-                                   &file, &data, &cat, &mime, &name))
+  if(!PyArg_ParseTupleAndKeywords(args, key, "|s", kwlist,
+                                   &file))
     {
       PyErr_SetString(PyExc_RuntimeError, "Invalid arguments to Animation()");
       return -1;
@@ -148,15 +148,6 @@ Animation_init(py_GcomprisAnimation *self, PyObject *args, PyObject *key)
   if(file)
     {
       self->a = gcompris_load_animation(file);
-    }
-  else
-    {
-      if( !data || !cat || !mime || !name ) {
-          PyErr_SetString(PyExc_RuntimeError,"Invalid arguments to Animation():"
-                " if file is not specified, data, cat, mime and name must be");
-          return -1;
-      }
-      self->a = gcompris_load_animation_asset(data, cat, mime, name);
     }
 
   if(!self->a)
