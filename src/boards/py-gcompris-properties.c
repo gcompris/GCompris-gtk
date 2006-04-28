@@ -63,15 +63,6 @@ pyGcomprisPropertiesType_getattr(pyGcomprisPropertiesObject *self, char *name)
 	return Py_False;
       }
     }
-    if(strcmp(name,"audio_works")==0){
-      if(self->cdata->audio_works){
-	Py_INCREF(Py_True);
-	return Py_True;
-      } else {
-	Py_INCREF(Py_False);
-	return Py_False;
-      }
-    }
     if(strcmp(name,"fullscreen")==0){
       if(self->cdata->fullscreen){
 	Py_INCREF(Py_True);

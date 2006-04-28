@@ -56,6 +56,10 @@ static void		 config_stop(void);
 #define NUMBER_OF_LEVELS 5
 #define MAX_NUMBER_OF_LETTERS 4
 
+#define NOT_OK		0
+#define OK		1
+#define OK_NO_INIT	2
+
 #define TEXT_COLOR "white"
 
 static GnomeCanvasGroup *boardRootItem = NULL;
@@ -158,7 +162,8 @@ static void start_board (GcomprisBoard *agcomprisBoard)
   if (agcomprisBoard!=NULL)
     {
       gcomprisBoard=agcomprisBoard;
-      gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas), "images/scenery4_background.png");
+      gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas),
+			      "images/scenery4_background.png");
       gcomprisBoard->level=1;
       gcomprisBoard->maxlevel=NUMBER_OF_LEVELS;
       gcomprisBoard->sublevel=1;
@@ -168,13 +173,15 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 
       if(ready)
 	{
-	  gcompris_bar_set(GCOMPRIS_BAR_CONFIG|GCOMPRIS_BAR_LEVEL|GCOMPRIS_BAR_REPEAT);
+	  /* Warning, bar buttons are set in click_on_letter_next_level()
+	     to avoid them to appear in the case a dialog is displayed */
 	  gcompris_score_start(SCORESTYLE_NOTE,
 			       50,
 			       50,
 			       gcomprisBoard->number_of_sublevel);
 
-	  click_on_letter_next_level();
+	  if(ready == OK)
+	    click_on_letter_next_level();
 
 	  gamewon = FALSE;
 	  pause_board(FALSE);
@@ -244,13 +251,17 @@ static void repeat ()
     }
 }
 
-static gboolean sounds_are_fine ()
+static gboolean sounds_are_fine()
 {
   char *str1 = NULL;
   char *str2 = NULL;
   GcomprisProperties	*properties = gcompris_get_properties();
   gchar *locale = NULL;
-  gboolean fine = FALSE;
+
+  if(!properties->fx) {
+    gcompris_dialog(_("Error: this activity cannot be played with the\nsound effects disabled.\nGo to the configuration dialog to\nenable the sound"), board_stop);
+    return(NOT_OK);
+  }
 
   /* TRANSLATORS: Put here the alphabet in your language */
   alphabet=_("abcdefghijklmnopqrstuvwxyz");
@@ -264,7 +275,7 @@ static gboolean sounds_are_fine ()
   str2 = gcompris_get_asset_file("gcompris alphabet", NULL, "audio/x-ogg", str1);
   g_free(str1);
   
-  if (!str2){
+  if (!str2) {
     locale = g_strndup(gcompris_get_locale(), 2);
     gcompris_reset_locale();
     gcompris_change_locale("en_US");
@@ -281,31 +292,27 @@ static gboolean sounds_are_fine ()
     str2 = gcompris_get_asset_file("gcompris alphabet", NULL, "audio/x-ogg", str1);
     g_free(str1);
 
-    if (!str2){
-      gchar *msg = g_strdup_printf( _("Error: this activity requires that you first install\nthe packages assetml-voices-alphabet-%s or %s"),
-					locale, "en");
-      gcompris_dialog(msg, board_stop);
-      g_free(msg);
-      return (fine);
-    }
-    else{
-      gchar *msg = g_strdup_printf( _("Error: this activity requires that you first install\nthe packages assetml-voices-alphabet-%s ! Fallback to english, sorry!"), locale);
-      gcompris_dialog(msg, NULL);
-      g_free(msg);
-    }
-  }
-
-  fine = TRUE;
-  if(!properties->fx) {
-    gcompris_bar_set(0);
-    gcompris_dialog(_("Error: this activity cannot be played with the\nsound effects disabled.\nGo to the configuration dialog to\nenable the sound"), board_stop);
-    fine = FALSE;
+    if (!str2)
+      {
+	gchar *msg = g_strdup_printf( _("Error: this activity requires that you first install\nthe packages assetml-voices-alphabet-%s or %s"),
+				      locale, "en");
+	gcompris_dialog(msg, board_stop);
+	g_free(msg);
+	return (NOT_OK);
+      }
+    else
+      {
+	gchar *msg = g_strdup_printf( _("Error: this activity requires that you first install\nthe packages assetml-voices-alphabet-%s ! Fallback to english, sorry!"), locale);
+	gcompris_dialog(msg, click_on_letter_next_level);
+	g_free(msg);
+	g_free(str2);
+	return(OK_NO_INIT);
+      }
   }
 
   g_free(str2);
-  
-  return(fine);
-  
+
+  return(OK);
 }
 
 /*-------------------------------------------------------------------------------*/
@@ -313,6 +320,9 @@ static gboolean sounds_are_fine ()
 /* set initial values for the next level */
 static void click_on_letter_next_level()
 {
+  /* It must be set it for the warning dialogs */
+  gcompris_bar_set(GCOMPRIS_BAR_CONFIG|GCOMPRIS_BAR_LEVEL|GCOMPRIS_BAR_REPEAT);
+
   gcompris_bar_set_level(gcomprisBoard);
 
   click_on_letter_destroy_all_items();

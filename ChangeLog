@@ -1,3 +1,19 @@
+2006-04-28  bruno  <set EMAIL_ADDRESS environment variable>
+
+        Fixed case where we fallback to english sounds. now the dialog properly hides
+	the toolbar buttons.
+	Removed unused property audio_works. Fixed to test fx in menu instead of audio_works
+	Now the menu properly display a no sound icon if the activity require sounds and
+	fx is disabled (or we failed to init sounds).
+
+	* src/boards/click_on_letter.c: (start_board), (sounds_are_fine):
+	* src/boards/menu.c: (menu_create_item):
+	* src/boards/menu2.c: (menu_create_item):
+	* src/boards/py-gcompris-properties.c:
+	(pyGcomprisPropertiesType_getattr):
+	* src/gcompris/properties.c: (gcompris_properties_new):
+	* src/gcompris/properties.h:
+
 2006-04-27  bruno
 
 	Fixed crash when you click on the configure icon then cancel 

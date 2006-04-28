@@ -1,6 +1,6 @@
 /* gcompris - properties.c
  *
- * Time-stamp: <2006/03/02 01:08:31 bruno>
+ * Time-stamp: <2006/04/28 00:52:51 bruno>
  *
  * Copyright (C) 2000,2003 Bruno Coudoin
  *
@@ -293,9 +293,6 @@ GcomprisProperties *gcompris_properties_new ()
     close(filefd);
 
   }
-
-  /* By default audio is said to work until libao fails to load it */
-  tmp->audio_works	= TRUE;
 
   /*
    * Warning, gcompris need a proper locale prefix to find suitable dataset
