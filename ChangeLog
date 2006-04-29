@@ -1,4 +1,12 @@
-2006-04-29  bruno  <set EMAIL_ADDRESS environment variable>
+2006-04-29  bruno
+
+	Added mandatory_sound_file to have missing sound icon displayed
+
+	* boards/memory_sound.xml.in:
+	* boards/memory_sound_tux.xml.in:
+	* src/gcompris/config.c: (set_locale_flag): removed debug printf
+
+2006-04-29  bruno
 
 	Started to remove assetml usage.
 	Flags are no more in an assetml package
@@ -13,7 +21,7 @@
 	* src/gcompris/anim.h:
 	* src/gcompris/config.c: (set_locale_flag):
 
-2006-04-29  bruno  <set EMAIL_ADDRESS environment variable>
+2006-04-29  bruno
 
 	reviewed by: <delete if not using a buddy>
 
@@ -23,7 +31,7 @@
 	* gcompris.spec.in:
 	* src/gcompris/config.c: (set_locale_flag):
 
-2006-04-28  bruno  <set EMAIL_ADDRESS environment variable>
+2006-04-28  bruno
 
         Fixed case where we fallback to english sounds. now the dialog properly hides
 	the toolbar buttons.
