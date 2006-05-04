@@ -1,6 +1,6 @@
 /* gcompris - file_selector.c
  *
- * Time-stamp: <2005/11/12 19:00:49 bruno>
+ * Time-stamp: <2006/05/05 00:01:26 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -813,16 +813,16 @@ void parseMime (xmlDocPtr doc, xmlNodePtr xmlnode) {
 
   GcomprisMimeType *gcomprisMime = g_malloc0 (sizeof (GcomprisMimeType));
 
-  gcomprisMime->mimetype    = xmlGetProp(xmlnode,"mimetype");
-  gcomprisMime->extension   = xmlGetProp(xmlnode,"extension");
-  gcomprisMime->icon        = xmlGetProp(xmlnode,"icon");
+  gcomprisMime->mimetype    = (gchar *)xmlGetProp(xmlnode, BAD_CAST "mimetype");
+  gcomprisMime->extension   = (gchar *)xmlGetProp(xmlnode, BAD_CAST "extension");
+  gcomprisMime->icon        = (gchar *)xmlGetProp(xmlnode, BAD_CAST "icon");
   gcomprisMime->description = NULL;
 
   /* get the help user credit of the board */
   xmlnode = xmlnode->xmlChildrenNode;
   while (xmlnode != NULL) {
-    gchar *lang = xmlGetProp(xmlnode,"lang");
-    if (!strcmp(xmlnode->name, "description")
+    gchar *lang = (gchar *)xmlGetProp(xmlnode, BAD_CAST "lang");
+    if (!strcmp((char *)xmlnode->name, "description")
 	&& (lang==NULL ||
 	    !strcmp(lang, gcompris_get_locale())
 	    || !strncmp(lang, gcompris_get_locale(), 2)))
@@ -830,8 +830,8 @@ void parseMime (xmlDocPtr doc, xmlNodePtr xmlnode) {
 	if(gcomprisMime->description)
 	  g_free(gcomprisMime->description);
 	
-	gcomprisMime->description = xmlNodeListGetString(doc, 
-							 xmlnode->xmlChildrenNode, 1);
+	gcomprisMime->description = (gchar *)xmlNodeListGetString(doc, 
+								  xmlnode->xmlChildrenNode, 1);
       }
     xmlnode = xmlnode->next;
   }
@@ -906,7 +906,7 @@ gboolean load_mime_type_from_file(gchar *fname)
      /* if it doesn't have a name */
      !doc->children->name ||
      /* if it isn't the good node */
-     g_strcasecmp(doc->children->name,"MimeTypeRoot")!=0) {
+     g_strcasecmp((gchar *)doc->children->name,"MimeTypeRoot")!=0) {
     xmlFreeDoc(doc);
     return FALSE;
   }

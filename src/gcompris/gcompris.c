@@ -1119,7 +1119,6 @@ gcompris_init (int argc, char *argv[])
 {
   poptContext pctx; 
   int popt_option;
-  gchar *str;
 
   /* First, Remove the gnome crash dialog because it locks the user when in full screen */
   signal(SIGSEGV, gcompris_terminate);
@@ -1444,16 +1443,10 @@ gcompris_init (int argc, char *argv[])
 
   gtk_widget_show_all (window);
 
-  str = gcompris_get_asset_file("gcompris misc", NULL, "audio/x-ogg", "welcome.ogg");
-
   if (properties->music)
-    {
-      gcompris_play_ogg("intro", str, NULL);
-    }
+    gcompris_play_ogg("intro", "sounds/$LOCALE/misc/welcome.ogg", NULL);
   else
-    gcompris_play_ogg(str, NULL);
-
-  g_free(str);
+    gcompris_play_ogg("sounds/$LOCALE/misc/welcome.ogg", NULL);
 
   gtk_main ();
   return 0;

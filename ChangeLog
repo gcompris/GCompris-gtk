@@ -1,3 +1,31 @@
+2006-05-05  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	Removed unused sounds (10.ogg and above) from the install because
+	we don't use them.
+	Removed Brahms because it's huge and of bad quality.
+
+	Started the removal of assetml. Now in the core, all sounds are assetml free.
+	Improved the function gcompris_find_absolute_filename() to support a $LOCALE
+	tag in a string. It will be replaced by the current locale when found.
+
+	Next step is to remove assetml from the activity and dataset, then from the API.
+
+	* Makefile.am:
+	* boards/music/background/Brahms_Johannes-String_Quartet_C_minor_Op
+	_51_mvmt_4.ogg:
+	* boards/sounds/eu/alphabet/a.ogg:
+	* src/gcompris/bar.c: (bar_play_sound), (item_event_bar):
+	* src/gcompris/bonus.c: (gcompris_display_bonus):
+	* src/gcompris/file_selector.c: (parseMime),
+	(load_mime_type_from_file):
+	* src/gcompris/gameutil.c: (gcompris_find_absolute_filename):
+	* src/gcompris/gcompris.c: (gcompris_init):
+	* src/gcompris/skin.h:
+	* src/gcompris/soundutil.c: (thread_play_ogg),
+	(gcompris_play_ogg_cb), (gcompris_play_ogg),
+	(gcompris_sound_class_init):
+	* src/gcompris/soundutil.h:
+
 2006-04-29  bruno
 
 	Added mandatory_sound_file to have missing sound icon displayed

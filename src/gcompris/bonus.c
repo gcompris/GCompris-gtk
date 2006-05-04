@@ -41,14 +41,14 @@ static int left_door_limit = 0;
 // List of sounds to use for greetings
 static gchar *greetingsList[] =
 {
-  "congratulation.ogg",
-  "great.ogg",
-  "good.ogg",
-  "awesome.ogg",
-  "fantastic.ogg",
-  "waytogo.ogg",
-  "super.ogg",
-  "perfect.ogg"
+  "sounds/$LOCALE/misc/congratulation.ogg",
+  "sounds/$LOCALE/misc/great.ogg",
+  "sounds/$LOCALE/misc/good.ogg",
+  "sounds/$LOCALE/misc/awesome.ogg",
+  "sounds/$LOCALE/misc/fantastic.ogg",
+  "sounds/$LOCALE/misc/waytogo.ogg",
+  "sounds/$LOCALE/misc/super.ogg",
+  "sounds/$LOCALE/misc/perfect.ogg"
 };
 #define NUMBER_OF_GREETINGS 8
 
@@ -207,11 +207,7 @@ void gcompris_display_bonus(BonusStatusList gamewon, BonusList bonus_id)
     bonus_display_running = TRUE;
   
   if(gamewon == BOARD_WIN || gamewon == BOARD_DRAW) {
-    gchar *str = gcompris_get_asset_file("gcompris misc", NULL, 
-					 "audio/x-ogg", 
-					 greetingsList[RAND(0, NUMBER_OF_GREETINGS-1)]);
-    gcompris_play_ogg(str, NULL);
-    g_free(str);
+    gcompris_play_ogg(greetingsList[RAND(0, NUMBER_OF_GREETINGS-1)], NULL);
   } else {
     gcompris_play_ogg ("crash", NULL);
   }

@@ -271,33 +271,27 @@ static void* thread_play_ogg (char *file)
 
   if (!g_file_test (file, G_FILE_TEST_IS_REGULAR)) {
     gchar *relative_filename;
-    char   locale[3];
-    strncpy( locale, gcompris_get_locale(), 2 );
-    locale[2] = 0; // because strncpy does not put a '\0' at the end of the string
-    relative_filename = g_strdup_printf("sounds/%s/%s.ogg", locale, file);
+
+    relative_filename = g_strdup_printf("music/%s.ogg", file);
     tmpstr = gcompris_find_absolute_filename(relative_filename);
     g_free(relative_filename);
     if (!tmpstr){
-      relative_filename = g_strdup_printf("music/%s.ogg", file);
+      /* Try to find a sound file that does not need to be localized 
+	 (ie directly in root /sounds directory) */
+      relative_filename = g_strdup_printf("sounds/%s.ogg", file);
       tmpstr = gcompris_find_absolute_filename(relative_filename);
       g_free(relative_filename);
       if (!tmpstr){
-	/* Try to find a sound file that does not need to be localized 
-	   (ie directly in root /sounds directory) */
-	relative_filename = g_strdup_printf("sounds/%s.ogg", file);
-	tmpstr = gcompris_find_absolute_filename(relative_filename);
-	g_free(relative_filename);
+	tmpstr = gcompris_find_absolute_filename(file);
 	if (!tmpstr){
-	  tmpstr = gcompris_find_absolute_filename(file);
-	  if (!tmpstr){
 	  g_warning("Can't find sound %s", file);
 	  if (sound_callbacks)
 	    g_hash_table_remove (sound_callbacks, file);
 	  return NULL;
-	  }
 	}
       }
     }
+
     g_free( file );
     file = tmpstr;
   }
@@ -343,7 +337,7 @@ char* get_next_sound_to_play( )
  * gcompris_play_ogg function to process the sounds.
  ======================================================================*/
 
-void	 gcompris_play_ogg_cb(gchar *file, GcomprisSoundCallback cb)
+void	 gcompris_play_ogg_cb(const gchar *file, GcomprisSoundCallback cb)
 {
 
   g_assert ( cb != NULL);
@@ -359,7 +353,7 @@ void	 gcompris_play_ogg_cb(gchar *file, GcomprisSoundCallback cb)
 
   /* i suppose there will not be two call of that function with same sound file before sound is played */
   g_hash_table_replace (sound_callbacks,
-			intern_file,
+			(gpointer)intern_file,
 			cb);
   gcompris_play_ogg(intern_file, NULL);
 }
@@ -369,7 +363,7 @@ void	 gcompris_play_ogg_cb(gchar *file, GcomprisSoundCallback cb)
  * This function wraps the var args into a GList and call the 
  * gcompris_play_ogg_list function to process the sounds.
  ======================================================================*/
-void gcompris_play_ogg(char *sound, ...)
+void gcompris_play_ogg(const gchar *sound, ...)
 {
   va_list ap;
   char* tmp = NULL;
@@ -378,14 +372,14 @@ void gcompris_play_ogg(char *sound, ...)
   if(!sound)
     return;
 
-  list = g_list_append(list, sound);
+  list = g_list_append(list, (gpointer)sound);
 
   g_warning("Adding %s in the play list queue\n", sound);
 
   va_start( ap, sound);
   while( (tmp = va_arg (ap, char *)))
     {
-      list = g_list_append(list, tmp);
+      list = g_list_append(list, (gpointer)tmp);
     }
   va_end(ap);
 
@@ -432,7 +426,13 @@ void gcompris_play_ogg_list( GList* files )
 
 }
 
-/* get alphabet sound file name from gunichar */
+/** return a string representing a letter or number audio file
+ *  get alphabet sound file name from gunichar
+ *
+ * the returned sound has the suffix .ogg
+ *
+ * \return a newly allocated string of the form U0033.ogg
+ */
 
 gchar *gcompris_alphabet_sound(gchar *chars)
 {
@@ -514,7 +514,6 @@ static void
 gcompris_sound_class_init (gpointer g_class,
                       gpointer g_class_data)
 {
-        GObjectClass *gobject_class = G_OBJECT_CLASS (g_class);
         GcomprisSoundClass *klass = GCOMPRIS_SOUND_CLASS (g_class);
 
 	klass->sound_played = default_sound_played_signal_handler;

@@ -35,8 +35,8 @@ typedef enum
 
 typedef void (*GcomprisSoundCallback) (gchar *);
 
-void	 gcompris_play_ogg(char *, ...);
-void	 gcompris_play_ogg_cb(char *, GcomprisSoundCallback);
+void	 gcompris_play_ogg(const gchar *, ...);
+void	 gcompris_play_ogg_cb(const gchar *, GcomprisSoundCallback);
 void	 gcompris_play_ogg_list( GList* files );
 void	 setSoundPolicy(int);
 int	 getSoundPolicy(void);

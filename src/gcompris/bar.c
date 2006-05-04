@@ -1,6 +1,6 @@
 /* gcompris - bar.c
  *
- * Time-stamp: <2006/03/12 03:02:12 bruno>
+ * Time-stamp: <2006/05/05 00:48:26 bruno>
  *
  * Copyright (C) 2000-2003 Bruno Coudoin
  *
@@ -447,17 +447,14 @@ static void update_exit_button()
 static gint bar_play_sound (gchar *sound)
 {
   int policy = getSoundPolicy();
-  gchar *str1;
-  gchar *str2;
+  gchar *str;
   setSoundPolicy(PLAY_ONLY_IF_IDLE);
 
-  str1 = g_strdup_printf("%s%s", sound, ".ogg");
-  str2 = gcompris_get_asset_file("gcompris misc", NULL, "audio/x-ogg", str1);
+  str = g_strdup_printf("sounds/$LOCALE/misc/%s.ogg", sound);
 
-  gcompris_play_ogg( str2, NULL);
+  gcompris_play_ogg(str, NULL);
 
-  g_free(str1);
-  g_free(str2);
+  g_free(str);
 
   setSoundPolicy(policy);
   sound_play_id = 0;
@@ -508,9 +505,6 @@ item_event_bar(GnomeCanvasItem *item, GdkEvent *event, gchar *data)
       else if(!strcmp((char *)data, "level"))
 	{
 	  gint tmp = current_level;
-	  gchar *current_level_str;
-	  gchar *str_level;
-	  gchar *str_number;
 
 	  current_level++;
 	  if(current_level>gcomprisBoard->maxlevel)
@@ -518,16 +512,16 @@ item_event_bar(GnomeCanvasItem *item, GdkEvent *event, gchar *data)
 
 	  if(tmp!=current_level)
 	    {
-	      char *number_str = g_strdup_printf("%d", current_level);
-	      current_level_str = gcompris_alphabet_sound(number_str);
+	      gchar *str_number;
+
+	      gchar *number_str = g_strdup_printf("%d", current_level);
+	      gchar *current_level_str = gcompris_alphabet_sound(number_str);
 	      g_free(number_str);
 
-	      str_level  = gcompris_get_asset_file("gcompris misc",     NULL, "audio/x-ogg", "level.ogg");
-	      str_number = gcompris_get_asset_file("gcompris alphabet", NULL, "audio/x-ogg", current_level_str);
+	      str_number = g_strdup_printf("sounds/$LOCALE/alphabet/%s", current_level_str);
 
-	      gcompris_play_ogg(str_level, str_number, NULL);
+	      gcompris_play_ogg("sounds/$LOCALE/misc/level.ogg", str_number, NULL);
 
-	      g_free(str_level);
 	      g_free(str_number);
 	      g_free(current_level_str);
 	    }

@@ -1,6 +1,6 @@
 /* gcompris - gameutil.c
  *
- * Time-stamp: <2006/04/04 00:21:44 bruno>
+ * Time-stamp: <2006/05/05 00:53:26 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -1323,6 +1323,9 @@ gchar *g_utf8_strndup(gchar* utf8text, gint n)
 
 /** \brief search a given relative file in all gcompris dir it could be found
  *     
+ * If filename contains $LOCALE, it will be first replaced by the current long locale
+ * and if not found the short locale name.
+ *
  * \return NULL or a new gchar* with the absolute_filename of the given filename
  *
  */
@@ -1356,8 +1359,43 @@ gchar *gcompris_find_absolute_filename(gchar *filename)
   
   while (dir_to_search[i])
     {
+      gchar **tmp;
       g_free(absolute_filename);
-      absolute_filename = g_strdup_printf("%s/%s", dir_to_search[i], filename);
+
+      /* Check there is a $LOCALE to replace */
+      if((tmp = g_strsplit(filename, "$LOCALE", -1)))
+	{
+	  gchar locale[6];
+	  gchar *filename2;
+
+	  /* First try with the long locale */
+	  g_strlcpy(locale, gcompris_get_locale(), sizeof(locale));
+	  filename2 = g_strjoinv(locale, tmp);
+	  absolute_filename = g_strdup_printf("%s/%s", dir_to_search[i], filename2);
+	  g_free(filename2);
+	  g_warning(">>>> trying %s\n", absolute_filename);
+	  if(g_file_test (absolute_filename, G_FILE_TEST_IS_REGULAR))
+	    {
+	      g_strfreev(tmp);
+	      goto FOUND;
+	    }
+
+	  /* Try the short locale */
+	  locale[2] = '\0';
+	  filename2 = g_strjoinv(locale, tmp);
+	  g_strfreev(tmp);
+	  absolute_filename = g_strdup_printf("%s/%s", dir_to_search[i], filename2);
+	  g_free(filename2);
+	  g_warning(">>>> tryiing %s\n", absolute_filename);
+	  if(g_file_test (absolute_filename, G_FILE_TEST_IS_REGULAR))
+	    goto FOUND;
+
+	}
+      else
+	{
+	  absolute_filename = g_strdup_printf("%s/%s", dir_to_search[i], filename);
+	}
+
       i++;
       if(g_file_test (absolute_filename, G_FILE_TEST_IS_REGULAR))
 	goto FOUND;

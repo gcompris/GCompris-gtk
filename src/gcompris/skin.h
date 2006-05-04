@@ -54,6 +54,7 @@ void            gcompris_skin_free (void);
 guint32         gcompris_skin_get_color_default(gchar* id, guint32 def);
 void		gcompris_skin_get_gdkcolor_default(gchar* id, guint32 def, GdkColor *gdkcolor);
 gchar*          gcompris_skin_get_font_default(gchar* id, gchar* def);
+guint32		gcompris_skin_get_number_default(gchar* id, guint32 def);
 
 #define gcompris_skin_get_gdkcolor(id, gdkcolor) gcompris_skin_get_gdkcolor_default(id, 0x0D0DFA00, gdkcolor)
 #define gcompris_skin_get_color(id)     gcompris_skin_get_color_default(id, 0x0D0DFA00)
