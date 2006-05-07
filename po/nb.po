@@ -1,19 +1,26 @@
+# translation of gcompris.30.10.2005.po to Norwegian Bokmål <
+# translation of gcompris.po.30.10.2005.po to Norwegian Bokmål <
+# translation of gcompris.14.9.05.po to Norwegian Bokmål <
+# translation of nb.po.gcompris.cvs.po to Norwegian Bokmål <
+# translation of gcompris.6.5.po to Norwegian Bokmål <
+# translation of nb.po to Norwegian Bokmål <
 # Norwegian (bokmål) translation of GCompris.
-# Copyright (C) 2000-2004, 2005 Free Software Foundation, Inc.
-# Kjartan Maraas <kmaraas@gnome.org>, 2000-2006.
-# Klaus Ade Johnstad <klaus@skolelinux.no>, 2004, 2005.
+# Copyright (C) 2000-2004, 2005, 2006 Free Software Foundation, Inc.
+# Kjartan Maraas <kmaraas@gnome.org>, 2000-2005.
+# Klaus Ade Johnstad <klaus@skolelinux.no>, 2004, 2005, 2006.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: gcompris\n"
+"Project-Id-Version: nb\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-04-16 22:21+0200\n"
-"PO-Revision-Date: 2006-04-16 22:34+0200\n"
-"Last-Translator: Kjartan Maraas <kmaraas@gnome.org>\n"
+"POT-Creation-Date: 2006-04-12 11:48+0200\n"
+"PO-Revision-Date: 2006-05-04 22:49+0200\n"
+"Last-Translator: Klaus Ade Johnstad <klaus@skolelinux.no>\n"
 "Language-Team: Norwegian Bokmål < <i18n-nb@lister.ping.uio.no>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.9.1\n"
 
 #: ../boards/administration.xml.in.h:1
 msgid ""
@@ -41,14 +48,13 @@ msgid "GCompris Administration Menu"
 msgstr "GCompris administrasjonsmeny"
 
 #: ../boards/administration.xml.in.h:5
-#, fuzzy
 msgid ""
 "If you want to fine tune GCompris to your needs, you can use the "
 "administration module here. The ultimate goal is to provide child-specific "
 "reporting for parents and teacher who want to monitor the progress, "
 "strengths and needs of their children."
 msgstr ""
-"Du kan fininnstille GCompris ved å benytte denne administrasjons modulen. "
+"Du kan fininnstille GCompris ved å benytte denne administrasjonsmodulen. "
 "Det endelige målet med denne modulen er å kunne tilby lærere og foreldre "
 "muligheten til å følge med på barnets utvikling, styrke og svakheter "
 "innenfor de forskjellige emnene i GCompris.i"
@@ -75,7 +81,7 @@ msgstr "Klikk på riktig farget boks."
 
 #: ../boards/advanced_colors.xml.in.h:5
 msgid "Learn to recognize unusual colors."
-msgstr "Lær å gjenkjenne bokstaver"
+msgstr "Lær å gjenkjenne sjeldne farger."
 
 #: ../boards/advanced_colors/board1.xml.in.h:1
 msgid "almond"
@@ -389,12 +395,12 @@ msgstr "Øv på gangetabellen"
 
 #: ../boards/algebra_group.xml.in.h:1
 msgid "Go to Algebra activities"
-msgstr "Gå til aktiviteter med algebra"
+msgstr "Aktiviteter med algebra"
 
 #: ../boards/algebra_group.xml.in.h:2 ../boards/menu.xml.in.h:17
 #: ../boards/menu2.xml.in.h:17
 msgid "Left-click the mouse on an activity to select it."
-msgstr "Venstreklikk på en aktivitet med musen for å velge den."
+msgstr "Venstreklikk med musen på en aktivitet for å velge den."
 
 #: ../boards/algebra_guesscount.xml.in.h:1 ../boards/erase_clic.xml.in.h:1
 #: ../boards/erase_double_clic.xml.in.h:1
@@ -491,11 +497,11 @@ msgstr "Enkel addisjon. Kunne gjenkjenne skrevne tall"
 
 #: ../boards/algebramenu.xml.in.h:1
 msgid "Go to calculation activities"
-msgstr "Gå til aktiviteter med regning"
+msgstr "Aktiviteter med matematikk"
 
 #: ../boards/algebramenu.xml.in.h:2
 msgid "Various calculation activities."
-msgstr "Forskjellige aktiviteter med regning"
+msgstr "Forskjellige aktiviteter med matematikk."
 
 #: ../boards/algorithm.xml.in.h:1
 msgid "Complete a list of symbols"
@@ -540,7 +546,7 @@ msgstr ""
 
 #: ../boards/anim.xml.in.h:4 ../boards/draw.xml.in.h:4
 msgid "Needs to be capable of moving and clicking the mouse easily"
-msgstr "Må kunne beherske bruk av mus og museknappene enkelt."
+msgstr "Må kunne beherske bruk av mus og museknappene."
 
 #: ../boards/anim.xml.in.h:5
 msgid ""
@@ -598,11 +604,11 @@ msgstr ""
 
 #: ../boards/awele.xml.in.h:2
 msgid "Oware"
-msgstr "Oware"
+msgstr ""
 
 #: ../boards/awele.xml.in.h:3
 msgid "Play the Oware strategy game against Tux"
-msgstr "Spill strategispillet Oware mot Tux"
+msgstr ""
 
 #: ../boards/awele.xml.in.h:4
 msgid ""
@@ -626,7 +632,6 @@ msgid "Drag and Drop the items to make them match"
 msgstr "Dra og plasser bildene som hører sammen."
 
 #: ../boards/babymatch.xml.in.h:2
-#, fuzzy
 msgid ""
 "In the main board area, a set of objects is displayed. In the vertical box "
 "(at the left of the main board) another set of objects is shown, each object "
@@ -635,11 +640,6 @@ msgid ""
 "do they fit together? Drag each object to the correct red space in the main "
 "area."
 msgstr ""
-"I hovedfeltet på brettet befinner deg seg en rekke forskjellige objekter, i "
-"det vertikale feltet på venstre side befinner det seg også en rekke "
-"forskjellige objekter. Oppgaven er å finne en logisk sammenheng mellom "
-"tingene i disse to feltene, å deretter plassere dette objektet på korrekt "
-"rødt punkt"
 
 #: ../boards/babymatch.xml.in.h:3
 msgid "Matching Items"
@@ -666,7 +666,6 @@ msgstr ""
 "riktig plass."
 
 #: ../boards/babyshapes.xml.in.h:3
-#, fuzzy
 msgid "Drag and Drop the shapes on their respective targets"
 msgstr "Dra og plasser figurene på riktig plass"
 
@@ -684,7 +683,7 @@ msgstr "Hallo! Mitt navn er Lars."
 
 #: ../boards/babyshapes/board6_0.xml.in.h:1
 msgid "Lock on the grass."
-msgstr "Lås på gresset."
+msgstr "Lars på gresset."
 
 #: ../boards/babyshapes/board7_0.xml.in.h:1
 msgid "Lock with colored shapes."
@@ -806,8 +805,7 @@ msgstr "Kronologi"
 
 #: ../boards/chronos.xml.in.h:2
 msgid "Drag and Drop the items to organize the story"
-msgstr ""
-"Dra og plasser bildene i riktig rekkefølge, slik at de forteller en historie"
+msgstr "Dra og plasser bildene i riktig rekkefølge, slik at de forteller en historie"
 
 #: ../boards/chronos.xml.in.h:3
 msgid ""
@@ -826,7 +824,7 @@ msgstr "Hent bildene fra venstre og plasser dem på de røde punktene"
 
 #: ../boards/chronos.xml.in.h:5
 msgid "Sort the pictures into the order that tells the story"
-msgstr "Arranger bildene i en rekkefølge som forteller en historie"
+msgstr "Arranger bildene i en slik rekkefølge at de forteller en historie"
 
 #: ../boards/chronos.xml.in.h:6
 msgid "Tell a short story"
@@ -846,7 +844,7 @@ msgstr "Vår"
 
 #: ../boards/chronos/board1_1.xml.in.h:3
 msgid "Summer"
-msgstr "sommer"
+msgstr "Sommer"
 
 #: ../boards/chronos/board1_1.xml.in.h:4
 msgid "The 4 Seasons"
@@ -879,7 +877,6 @@ msgstr ""
 "Damplokomotiv"
 
 #: ../boards/chronos/board3_0.xml.in.h:4
-#, fuzzy
 msgid ""
 "Place each image in the order and\n"
 "on the date it was invented.\n"
@@ -969,7 +966,7 @@ msgstr ""
 
 #: ../boards/chronos/board4_2.xml.in.h:2
 msgid "1878 Léon Bollé's \"La Mancelle\""
-msgstr "1878 Léon Bollés «La Mancelle»"
+msgstr "1878 Léon Bollés \"La Mancelle\""
 
 #: ../boards/chronos/board4_2.xml.in.h:3
 msgid ""
@@ -1097,8 +1094,7 @@ msgid ""
 "Set the clock to the time given, in the time-units shown (hours:minutes or "
 "hours:minutes:seconds). Click on the different arrows, and move the mouse, "
 "to make the numbers go up or down."
-msgstr ""
-"Still klokka til oppgitt tid. Klikk på klokkeviserene for å stille dem."
+msgstr "Still klokka til oppgitt tid. Klikk på klokkeviserene for å stille dem."
 
 #: ../boards/clockgame.xml.in.h:5
 msgid "The concept of time. Reading the time."
@@ -1117,19 +1113,16 @@ msgid "Colors"
 msgstr "Farger"
 
 #: ../boards/colors.xml.in.h:4
-#, fuzzy
 msgid "Listen to the color and click on the matching duck."
-msgstr ""
-"Hør navnet på en farge bli lest opp og klikk på figuren med den fargen."
+msgstr "Hør navnet på en farge bli lest opp og klikk på anden med den fargen."
 
 #: ../boards/colors.xml.in.h:5
-#, fuzzy
 msgid ""
 "This board teaches you to recognize different colors. When you hear the name "
 "of the color, click on the duck wearing it."
 msgstr ""
 "Dette brettet lærer gjenkjenning av farger. Velg den fargen som ble lest ved "
-"å trykke på den riktige figuren."
+"å trykke på den riktige anden."
 
 #: ../boards/colors_group.xml.in.h:1
 msgid "Colors based activities."
@@ -1137,7 +1130,7 @@ msgstr "Aktiviteter med farger."
 
 #: ../boards/colors_group.xml.in.h:2
 msgid "Go to Color activities"
-msgstr "Gå til fargeaktiviteter"
+msgstr "Aktiviteter med farger"
 
 #: ../boards/computer.xml.in.h:1
 msgid "Discover the Computer"
@@ -1145,16 +1138,15 @@ msgstr "Oppdag datamaskinen"
 
 #: ../boards/computer.xml.in.h:2
 msgid "Play with computer peripherals."
-msgstr ""
+msgstr "Spill med mus og tastatur."
 
 #: ../boards/connect4.xml.in.h:1
 msgid "Arrange four coins in a row"
 msgstr "Prøv å få fire brikker på rad"
 
 #: ../boards/connect4.xml.in.h:2
-#, fuzzy
 msgid "Click anywhere in the line where you want to drop a piece"
-msgstr "Klikk der hvor du vil legge en brikke"
+msgstr "Klikk på linja der hvor du vil legge en brikke"
 
 #: ../boards/connect4.xml.in.h:3
 msgid "Connect 4"
@@ -1165,7 +1157,8 @@ msgid ""
 "Create a line of 4 pieces either horizontally (lying down)\n"
 "or vertically (standing up)"
 msgstr ""
-"Prøv å få fire på rad, enten vannrett (liggende) eller loddrett (stående)"
+"Prøv å få fire på rad, enten vannrett (liggende)\n"
+"eller loddrett (stående)"
 
 #: ../boards/connect4.xml.in.h:6
 msgid ""
@@ -1179,11 +1172,11 @@ msgstr ""
 
 #: ../boards/crane.xml.in.h:1
 msgid "Build the same model"
-msgstr "Bygg samme modell"
+msgstr "Lag en kopi av modellen"
 
 #: ../boards/crane.xml.in.h:2
 msgid "Drive the crane and copy the model"
-msgstr "Kjør kranen og kopier modellen"
+msgstr "Bruk kranen for å lage en kopi"
 
 #: ../boards/crane.xml.in.h:3 ../boards/erase.xml.in.h:2
 #: ../boards/erase_clic.xml.in.h:5 ../boards/erase_double_clic.xml.in.h:5
@@ -1203,11 +1196,11 @@ msgstr ""
 
 #: ../boards/discovery.xml.in.h:1
 msgid "Colors, sounds, memory..."
-msgstr "Farger, lyder, hukommelse..."
+msgstr "Farger, lyder, hukommelse ..."
 
 #: ../boards/discovery.xml.in.h:2
 msgid "Go to discovery activities"
-msgstr "Gå til aktiviteter med utforsking"
+msgstr "Aktiviteter for hukommelse"
 
 #: ../boards/doubleentry.xml.in.h:1
 msgid "Basic counting skills"
@@ -1219,7 +1212,7 @@ msgstr "Tall-/gjenstandtabell"
 
 #: ../boards/doubleentry.xml.in.h:3
 msgid "Drag and Drop each proposed item on its destination"
-msgstr "Dra og plasser gjenstandene i riktig rute."
+msgstr "Dra og plasser gjenstandene i riktig rute"
 
 #: ../boards/doubleentry.xml.in.h:4
 msgid "Drag and Drop the items in the double-entry table"
@@ -1229,8 +1222,7 @@ msgstr "Dra og plasser gjenstandene i tabellen"
 msgid ""
 "Move the items on the left to their proper position in the double-entry "
 "table."
-msgstr ""
-"Flytt gjenstandene i det venstre feltet til sin riktige plass i tabellen."
+msgstr "Flytt gjenstandene i det venstre feltet til sin riktige plass i tabellen."
 
 #: ../boards/doubleentry/board3_0.xml.in.h:1
 msgid "Click on an item and listen to its target position"
@@ -1265,7 +1257,7 @@ msgstr ""
 
 #: ../boards/electric.xml.in.h:1
 msgid "Create and simulate an electric schema"
-msgstr ""
+msgstr "Lag og simulert en elektrisk krets"
 
 #: ../boards/electric.xml.in.h:2
 msgid ""
@@ -1282,7 +1274,7 @@ msgstr ""
 
 #: ../boards/electric.xml.in.h:3
 msgid "Electricity"
-msgstr ""
+msgstr "Elektrisitet"
 
 #: ../boards/electric.xml.in.h:4
 msgid "Freely create an electric schema with a real time simulation of it."
@@ -1296,7 +1288,7 @@ msgstr ""
 
 #: ../boards/electric.xml.in.h:6
 msgid "Requires some basic understanding of the concept of electricity."
-msgstr ""
+msgstr "Krever grunnleggende kjennskap til elektrisitet."
 
 #: ../boards/enumerate.xml.in.h:1
 msgid "Basic enumeration"
@@ -1348,8 +1340,7 @@ msgstr "Beveg musa slik at bakgrunnen blir skrapt frem"
 
 #: ../boards/erase.xml.in.h:6
 msgid "Move the mouse until all the blocks disappear."
-msgstr ""
-"Beveg musa helt til alle firkantene er borte, og bilde under kommer frem."
+msgstr "Beveg musa helt til alle firkantene er borte, og bilde under kommer frem."
 
 #: ../boards/erase_clic.xml.in.h:2
 msgid "Click the mouse"
@@ -1377,19 +1368,19 @@ msgstr "Dobbeltklikk på rektanglene med musa helt til alle har blitt borte."
 
 #: ../boards/experience.xml.in.h:1
 msgid "Go to experiential activities"
-msgstr "Gå til aktiviteter med eksperimenter"
+msgstr "Aktiviteter med eksperimenter"
 
 #: ../boards/experience.xml.in.h:2
 msgid "Various activities based on physical movement."
-msgstr "Forskjellige aktiviteter basert på fysisk bevegelse."
+msgstr "Forskjellige naturfagaktiviteter "
 
 #: ../boards/experimental.xml.in.h:1
 msgid "Go to Experimental activities"
-msgstr "Gå til aktiviteter med eksperimenter"
+msgstr "Aktiviteter med eksperimenter"
 
 #: ../boards/experimental.xml.in.h:2
 msgid "Run gcompris --experimental to see this menu."
-msgstr ""
+msgstr "Start med gcompris --experimental for å se denne menyen."
 
 #: ../boards/fifteen.xml.in.h:1
 msgid ""
@@ -1400,8 +1391,7 @@ msgstr ""
 "bytte plass."
 
 #: ../boards/fifteen.xml.in.h:3
-msgid ""
-"Move each item to make an increasing series: from the smallest to the largest"
+msgid "Move each item to make an increasing series: from the smallest to the largest"
 msgstr "Flytt tallene slik at de står i rekkefølge, fra laveste til høyeste."
 
 #: ../boards/fifteen.xml.in.h:4
@@ -1442,7 +1432,7 @@ msgstr ""
 
 #: ../boards/followline.xml.in.h:1
 msgid "Control the hose-pipe"
-msgstr "Kontroller vannslangen"
+msgstr "Bruk vannslangen"
 
 #: ../boards/followline.xml.in.h:2
 msgid "Fine motor coordination"
@@ -1464,11 +1454,11 @@ msgstr "Tux må vanne blomstene, men vannslangen virker ikke."
 
 #: ../boards/fun.xml.in.h:1
 msgid "Go to Amusement activities"
-msgstr "Gå til aktiviteter med moro"
+msgstr "Aktiviteter med moro"
 
 #: ../boards/fun.xml.in.h:2
 msgid "Various fun activities."
-msgstr "Forskjellige morsomme aktiviteter."
+msgstr "Aktiviteter med moro."
 
 #: ../boards/gcompris/mimetypes/mime_type.xml.in.h:1
 msgid "gcompris animation"
@@ -1476,19 +1466,19 @@ msgstr "GCompris animasjon"
 
 #: ../boards/gcompris/mimetypes/mime_type.xml.in.h:2
 msgid "gcompris drawing"
-msgstr "GCompris tegning format"
+msgstr "GCompris filtype"
 
 #: ../boards/gcompris/mimetypes/mime_type.xml.in.h:3
 msgid "svg drawing"
-msgstr "svg tegning format"
+msgstr "svg filtype"
 
 #: ../boards/gcompris/mimetypes/mime_type.xml.in.h:4
 msgid "svg mozilla animation"
-msgstr "svg Mozilla tegning"
+msgstr "svg Mozilla filtype"
 
 #: ../boards/geography.xml.in.h:1
 msgid "Drag and Drop the items to redraw the whole map"
-msgstr "Dra og plasser landene slik at kartet blir korrekt."
+msgstr "Dra og plasser landene slik at kartet blir korrekt"
 
 #: ../boards/geography.xml.in.h:2
 msgid "Locate the countries"
@@ -2062,7 +2052,7 @@ msgstr "Regioner i Frankrike"
 
 #: ../boards/geography/board6_0.xml.in.h:1
 msgid "Deutschland Bundesländer"
-msgstr ""
+msgstr "Tyske delstater"
 
 #: ../boards/geometry.xml.in.h:1
 msgid "Geometry"
@@ -2070,7 +2060,7 @@ msgstr "Geometri"
 
 #: ../boards/geometry.xml.in.h:2
 msgid "Geometry activities."
-msgstr "Gå til aktiviteter med geometri."
+msgstr "Aktiviteter med geometri."
 
 #: ../boards/gletters.xml.in.h:1 ../boards/wordsgame.xml.in.h:2
 msgid "Keyboard manipulation"
@@ -2096,11 +2086,9 @@ msgstr "Liketalls-tallmumser"
 msgid ""
 "Guide the Number Muncher to the expressions that equal the number at the top "
 "of the screen."
-msgstr ""
-"Hjelp tallmumseren fram til uttrykkene som er like tallet øverst på skjermen."
+msgstr "Hjelp tallmumseren fram til uttrykkene som er like tallet øverst på skjermen."
 
 #: ../boards/gnumch-equality.xml.in.h:3
-#, fuzzy
 msgid "Practice addition, multiplication, division and subtraction."
 msgstr "Du skal øve på å legge til, gange, dele og trekke fra."
 
@@ -2120,7 +2108,7 @@ msgstr "Faktor-tallmumser"
 msgid ""
 "Guide the Number Muncher to all the factors of the number at the top of the "
 "screen."
-msgstr "Hjelp tallmumseren fram til faktorene til tallet øverst på skjermen."
+msgstr "Hjelp tallmumseren med å finne faktorene til tallet som står øverst på skjermen."
 
 #: ../boards/gnumch-factors.xml.in.h:3
 msgid "Learn about factors and multiples."
@@ -2158,7 +2146,6 @@ msgid "Inequality Number Munchers"
 msgstr "Ulikhets-tallmumser"
 
 #: ../boards/gnumch-inequality.xml.in.h:3
-#, fuzzy
 msgid "Practice addition, subtraction, multiplication and division."
 msgstr "Du skal øve på å legge til, gange, dele og trekke fra."
 
@@ -2166,8 +2153,7 @@ msgstr "Du skal øve på å legge til, gange, dele og trekke fra."
 msgid ""
 "Guide the Number Muncher to all the multiples of the number at the top of "
 "the screen."
-msgstr ""
-"Hjelp tallmumseren fram til alle multipluma av tallet øverst på skjermen."
+msgstr "Hjelp tallmumseren fram til alle multipluma av tallet øverst på skjermen."
 
 #: ../boards/gnumch-multiples.xml.in.h:2
 msgid "Learn about multiples and factors."
@@ -2239,10 +2225,8 @@ msgid "Guess a number"
 msgstr "Gjett et tall"
 
 #: ../boards/guessnumber.xml.in.h:2
-#, fuzzy
 msgid "Help Tux escape the cave. Tux hides a number for you to find."
-msgstr ""
-"Hjelp Tux med å komme seg ut av hulen. Tux har gjemt et tall som du må finne."
+msgstr "Hjelp Tux med å komme seg ut av hulen. Tux har gjemt et tall som du må finne."
 
 #: ../boards/guessnumber.xml.in.h:3
 msgid "Numbers from 1 to 1000 for the last level."
@@ -2263,7 +2247,6 @@ msgid "Concept taken from EPI games."
 msgstr "Konseptet er hentet fra EPI spill."
 
 #: ../boards/hanoi.xml.in.h:2
-#, fuzzy
 msgid ""
 "Drag and Drop one top piece at a time, from one peg to another, to reproduce "
 "the tower on the right in the empty space on the left."
@@ -2331,7 +2314,7 @@ msgid ""
 "as you get closer."
 msgstr ""
 "Prøv å finne jordbæret som er gjemt under de blå feltene. Jo nærmere du "
-"kommer jordbæret, jo rødere blir feltene det."
+"kommer jordbæret, jo rødere blir feltene."
 
 #: ../boards/hexagon.xml.in.h:5
 msgid "hexagon"
@@ -2588,10 +2571,9 @@ msgstr "tennisracket"
 
 #: ../boards/keyboard.xml.in.h:1
 msgid "Discover the keyboard."
-msgstr "Utforsk tastaturet."
+msgstr "Lær å bruke tastaturet."
 
 #: ../boards/keyboard.xml.in.h:2
-#, fuzzy
 msgid "Keyboard-manipulation boards"
 msgstr "Bruk av tastaturet"
 
@@ -2622,8 +2604,7 @@ msgstr ""
 "Trykk på den røde knappen til venstre, eller på den grønne knappen til høyre."
 
 #: ../boards/login.xml.in.h:1
-msgid ""
-"GCompris identifies each child, so we can provide child-specific reports."
+msgid "GCompris identifies each child, so we can provide child-specific reports."
 msgstr ""
 "GCompris kjenner igjen brukeren, slik at man kan få en oversikt over hver "
 "bruker."
@@ -2656,7 +2637,6 @@ msgstr ""
 "profilen du la til i administratorgrensesnittet."
 
 #: ../boards/login.xml.in.h:10
-#, fuzzy
 msgid "Select or enter your name to log in to GCompris"
 msgstr "Velg eller skriv inn navnet ditt for å logge på GCompris"
 
@@ -2673,7 +2653,7 @@ msgstr ""
 
 #: ../boards/magic_hat_plus.xml.in.h:3
 msgid "Count how many items are under the magic hat"
-msgstr ""
+msgstr "Tell hvor mange gjenstander som er under den magiske hatten"
 
 #: ../boards/magic_hat_plus.xml.in.h:4
 msgid "Learn addition"
@@ -2685,7 +2665,7 @@ msgstr "Den magiske hatten"
 
 #: ../boards/magic_hat_minus.xml.in.h:1
 msgid "Count how many items are under the magic hat after some have got away"
-msgstr ""
+msgstr "Tell hvor mange gjenstander som er under den magiske hatten etter at noen er tatt bort"
 
 #: ../boards/magic_hat_minus.xml.in.h:2
 msgid "Learn subtraction"
@@ -2707,7 +2687,7 @@ msgstr "Subtraksjon"
 
 #: ../boards/math.xml.in.h:1
 msgid "Mathematical activities."
-msgstr "Aktiviteter med matematikk"
+msgstr "Aktiviteter med matematikk."
 
 #: ../boards/math.xml.in.h:2
 msgid "Mathematics"
@@ -2837,14 +2817,12 @@ msgid "Train your memory and remove all the cards"
 msgstr "Tren din hukommelse og fjern alle kortene"
 
 #: ../boards/memory_add.xml.in.h:2
-#, fuzzy
 msgid "Addition memory game"
-msgstr "Lydhukommelsespill"
+msgstr ""
 
 #: ../boards/memory_add.xml.in.h:3 ../boards/memory_add_tux.xml.in.h:3
-#, fuzzy
 msgid "Practise adding up, until all the cards are gone."
-msgstr "Øv på addisjon ved hjelp av et spill"
+msgstr ""
 
 #: ../boards/memory_add.xml.in.h:4 ../boards/memory_add_tux.xml.in.h:4
 msgid ""
@@ -2879,15 +2857,13 @@ msgid ""
 msgstr ""
 
 #: ../boards/memory_add_minus.xml.in.h:1
-#, fuzzy
 msgid "Addition and subtraction memory game"
-msgstr "Lydhukommelsespill"
+msgstr ""
 
 #: ../boards/memory_add_minus.xml.in.h:2
 #: ../boards/memory_add_minus_tux.xml.in.h:2
-#, fuzzy
 msgid "Practise addition, subtraction, until all the cards are gone."
-msgstr "Du skal øve på å legge til, gange, dele og trekke fra."
+msgstr ""
 
 #: ../boards/memory_add_minus.xml.in.h:4
 #: ../boards/memory_add_minus_tux.xml.in.h:4
@@ -2921,22 +2897,19 @@ msgstr ""
 
 #: ../boards/memory_add_minus_mult_div.xml.in.h:1
 #: ../boards/memory_add_minus_mult_div_tux.xml.in.h:1
-#, fuzzy
 msgid "Addition, subtraction, multiplication, division"
-msgstr "Du skal øve på å legge til, gange, dele og trekke fra."
+msgstr "Legge til, gange, dele og trekke fra."
 
 #: ../boards/memory_add_minus_mult_div.xml.in.h:2
-#, fuzzy
 msgid "All operations memory game"
-msgstr "Lydhukommelsespill"
+msgstr ""
 
 #: ../boards/memory_add_minus_mult_div.xml.in.h:3
 #: ../boards/memory_add_minus_mult_div_tux.xml.in.h:3
-#, fuzzy
 msgid ""
 "Practise addition, subtraction, multiplication, division, until all the "
 "cards are gone."
-msgstr "Du skal øve på å legge til, gange, dele og trekke fra."
+msgstr "Du skal øve på å legge til, gange, dele og trekke fra, helt til alle kortene har forsvunnet."
 
 #: ../boards/memory_add_minus_mult_div.xml.in.h:4
 #: ../boards/memory_add_minus_mult_div_tux.xml.in.h:4
@@ -2950,61 +2923,52 @@ msgid ""
 msgstr ""
 
 #: ../boards/memory_add_minus_mult_div_tux.xml.in.h:2
-#, fuzzy
 msgid "All operations memory game against Tux"
-msgstr "Spill lydhukommelsesspill mot Tux."
+msgstr ""
 
 #: ../boards/memory_add_minus_tux.xml.in.h:1
-#, fuzzy
 msgid "Addition and subtraction memory game against Tux"
-msgstr "Spill lydhukommelsesspill mot Tux."
+msgstr ""
 
 #: ../boards/memory_add_tux.xml.in.h:1
-#, fuzzy
 msgid "Addition memory game against Tux"
-msgstr "Spill lydhukommelsesspill mot Tux."
+msgstr ""
 
 #: ../boards/memory_add_tux.xml.in.h:2 ../boards/memory_mult_tux.xml.in.h:1
-#, fuzzy
 msgid "Additions"
-msgstr "Luftfart"
+msgstr "Addisjon"
 
 #: ../boards/memory_div.xml.in.h:1 ../boards/memory_div_tux.xml.in.h:1
 msgid "Division"
-msgstr "Divisjon"
+msgstr "Deling"
 
 #: ../boards/memory_div.xml.in.h:2
-#, fuzzy
 msgid "Division memory game"
-msgstr "Lydhukommelsespill"
+msgstr ""
 
 #: ../boards/memory_div.xml.in.h:3 ../boards/memory_div_tux.xml.in.h:3
-#, fuzzy
 msgid "Practise division, until all the cards are gone."
-msgstr "Øv på addisjon ved hjelp av et spill"
+msgstr "Øv på addisjon, helt til alle kortene har forsvunnet."
 
 #: ../boards/memory_div_tux.xml.in.h:2
-#, fuzzy
 msgid "Division memory game against Tux"
-msgstr "Spill lydhukommelsesspill mot Tux."
+msgstr ""
 
 #: ../boards/memory_group.xml.in.h:1
 msgid "Go to Memory activities"
-msgstr "Gå til aktiviteter for hukommelse"
+msgstr "Aktiviteter med hukommelsestrening"
 
 #: ../boards/memory_group.xml.in.h:2
 msgid "Various memory activities (images, letters, sounds)."
-msgstr ""
+msgstr "Forskjellige hukommelsesaktiviteter (bilder, bokstaver, lyder)."
 
 #: ../boards/memory_minus.xml.in.h:1 ../boards/memory_minus_tux.xml.in.h:1
-#, fuzzy
 msgid "Practise subtraction, until all the cards are gone."
-msgstr "Øv på subtraksjon ved hjelp av at morsomt spill"
+msgstr "Øv på subtraksjon, helt til alle kortene har forsvunnet."
 
 #: ../boards/memory_minus.xml.in.h:3
-#, fuzzy
 msgid "Subtraction memory game"
-msgstr "Lydhukommelsespill"
+msgstr ""
 
 #: ../boards/memory_minus.xml.in.h:4 ../boards/memory_minus_tux.xml.in.h:4
 msgid ""
@@ -3038,23 +3002,20 @@ msgid ""
 msgstr ""
 
 #: ../boards/memory_minus_tux.xml.in.h:3
-#, fuzzy
 msgid "Subtraction memory game against Tux"
-msgstr "Spill lydhukommelsesspill mot Tux."
+msgstr ""
 
 #: ../boards/memory_mult.xml.in.h:1
 msgid "Multiplication"
-msgstr "Multiplikasjon"
-
-#: ../boards/memory_mult.xml.in.h:2
-#, fuzzy
-msgid "Multiplication memory game"
 msgstr "Gangetabellen"
 
+#: ../boards/memory_mult.xml.in.h:2
+msgid "Multiplication memory game"
+msgstr ""
+
 #: ../boards/memory_mult.xml.in.h:3
-#, fuzzy
 msgid "Practise multiplication, until all the cards are gone."
-msgstr "Øv på gangetabellen"
+msgstr "Øv på gangetabellen, helt til alle kortene har forsvunnet."
 
 #: ../boards/memory_mult.xml.in.h:4
 msgid ""
@@ -3068,46 +3029,38 @@ msgstr ""
 
 #: ../boards/memory_mult_div.xml.in.h:2
 #: ../boards/memory_mult_div_tux.xml.in.h:2
-#, fuzzy
 msgid "Multiplication, division"
-msgstr "Gangetabellen"
+msgstr "Gange, dele"
 
 #: ../boards/memory_mult_div.xml.in.h:3
 #: ../boards/memory_mult_div_tux.xml.in.h:3
-#, fuzzy
 msgid "Practise multiplication, division, until all the cards are gone."
-msgstr "Du skal øve på å legge til, gange, dele og trekke fra."
+msgstr "Du skal øve på å gange og dele, helt til alle kortene har forsvunnet."
 
 #: ../boards/memory_mult_div_tux.xml.in.h:1
-#, fuzzy
 msgid "Multiplication and division memory game against Tux"
-msgstr "Spill lydhukommelsesspill mot Tux."
+msgstr ""
 
 #: ../boards/memory_mult_tux.xml.in.h:2
-#, fuzzy
 msgid "Multiplication memory game against Tux"
-msgstr "Spill lydhukommelsesspill mot Tux."
+msgstr ""
 
 #: ../boards/memory_mult_tux.xml.in.h:3
-#, fuzzy
 msgid "Practise multiplication until all the cards are gone."
-msgstr "Øv på gangetabellen"
+msgstr "Øv på gangetabellen, helt til alle kortene har forsvunnet."
 
 #: ../boards/memory_op_group.xml.in.h:1
-#, fuzzy
 msgid "Go to mathematics memory activities"
-msgstr "Gå til aktiviteter for hukommelse"
+msgstr "Aktiviteter med hukommelsestrening"
 
 #: ../boards/memory_op_group.xml.in.h:2
 #: ../boards/memory_op_group_tux.xml.in.h:2
-#, fuzzy
 msgid "Memory activities based on operations"
-msgstr "Et hukommelsespill med tog"
+msgstr ""
 
 #: ../boards/memory_op_group_tux.xml.in.h:1
-#, fuzzy
 msgid "Go to mathematics memory activities against Tux"
-msgstr "Gå til aktiviteter for hukommelse"
+msgstr ""
 
 #: ../boards/memory_sound.xml.in.h:1 ../boards/memory_sound_tux.xml.in.h:1
 #, fuzzy
@@ -3129,8 +3082,7 @@ msgstr "Lydhukommelsespill"
 
 #: ../boards/memory_sound.xml.in.h:3
 msgid "Click on Tux the violinist and listen to find the matching sounds"
-msgstr ""
-"Klikk på fiolinspilleren Tux, og lytt for å finne den andre som spiller likt."
+msgstr "Klikk på fiolinspilleren Tux, og lytt for å finne den andre som spiller likt."
 
 #: ../boards/memory_sound.xml.in.h:4 ../boards/memory_sound_tux.xml.in.h:3
 #: ../boards/memory_tux.xml.in.h:3
@@ -3146,9 +3098,8 @@ msgid "Audio memory game against Tux"
 msgstr "Spill lydhukommelsesspill mot Tux."
 
 #: ../boards/memory_sound_tux.xml.in.h:4
-#, fuzzy
 msgid "Play the audio memory game against Tux"
-msgstr "Spill lydhukommelsesspill mot Tux."
+msgstr "Spill lydhukommelsesspill mot Tux"
 
 #: ../boards/memory_tux.xml.in.h:1
 msgid "Have a memory competition with Tux."
@@ -3221,13 +3172,12 @@ msgid "GCompris Main Menu"
 msgstr "GCompris hovedmeny"
 
 #: ../boards/menu.xml.in.h:16 ../src/boards/menu2.c:1006
-#, fuzzy
 msgid ""
 "GCompris is a collection of educational games that provides different "
 "activities for children aged 2 and up."
 msgstr ""
 "GCompris er en samling av spill som gir pedagogiske aktiviteter for barn i "
-"alderen 3 til 8 år, og opptil 99 år. "
+"alderen 3 til 8 år, og opptil 99 år."
 
 #: ../boards/menu.xml.in.h:18 ../boards/menu2.xml.in.h:18
 msgid ""
@@ -3288,13 +3238,12 @@ msgstr ""
 "alderen 3 til 8 år, og opptil 99 år. "
 
 #: ../boards/miscelaneous.xml.in.h:1
-#, fuzzy
 msgid "Miscellaneous activities"
-msgstr "Gå til aktiviteter med labyrinter"
+msgstr "Forskjellige aktiviteter"
 
 #: ../boards/miscelaneous.xml.in.h:2
 msgid "Time, Geography, ..."
-msgstr ""
+msgstr "Tid, geografi, ..."
 
 #: ../boards/missing_letter.xml.in.h:1
 msgid ""
@@ -3503,23 +3452,20 @@ msgid "Rebuild the mosaic"
 msgstr "Sett sammen mosaikken"
 
 #: ../boards/mouse.xml.in.h:1
-#, fuzzy
 msgid "Mouse-manipulation activities."
-msgstr "Spillbrett med øving på bruk av mus"
+msgstr "Aktiviteter med øving på bruk av mus"
 
 #: ../boards/mouse.xml.in.h:2
 msgid "Various mouse-based activities (clicking, moving)"
-msgstr ""
+msgstr "Forskjellige aktiviteter med bruk av mus (klikk og pek)"
 
 #: ../boards/numeration.xml.in.h:1
-#, fuzzy
 msgid "Numeration"
 msgstr "Telling"
 
 #: ../boards/numeration.xml.in.h:2
-#, fuzzy
 msgid "Numeration activities."
-msgstr "Telling"
+msgstr "Aktiviteter med telling."
 
 #: ../boards/paintings.xml.in.h:1
 msgid "Assemble the puzzle"
@@ -3653,8 +3599,7 @@ msgid "Test board for the python plugin"
 msgstr "Testbrett for Python plugin"
 
 #: ../boards/pythontest.xml.in.h:5
-msgid ""
-"Thanks to Guido van Rossum and the python team for this powerful language!"
+msgid "Thanks to Guido van Rossum and the python team for this powerful language!"
 msgstr ""
 "Takk til Guido van Rossum og Python laget for dette fantastiske "
 "programmeringsspråket."
@@ -3749,7 +3694,7 @@ msgstr "Gå til leseaktiviteter"
 
 #: ../boards/reading.xml.in.h:2
 msgid "Reading activities."
-msgstr "Leseaktiviteter."
+msgstr "Leseaktiviteter"
 
 #: ../boards/readingh.xml.in.h:1 ../boards/readingv.xml.in.h:1
 msgid ""
@@ -3770,12 +3715,11 @@ msgstr "Les en liste med ord, og avgjør om et bestemt ord var blant dem"
 
 #: ../boards/readingh.xml.in.h:5
 msgid "Reading training in a limited time"
-msgstr "Lesetrening med begrenset tid"
+msgstr "Lesetrening på begrenset tid"
 
 #: ../boards/readingv.xml.in.h:2
 msgid "Read a vertical list of words and work out if a given word is in it"
-msgstr ""
-"Les en vertikal liste med ord, og avgjør om et bestemt ord var blant dem"
+msgstr "Les en vertikal liste med ord, og avgjør om et bestemt ord var blant dem"
 
 #: ../boards/readingv.xml.in.h:3
 msgid "Read training in a limited time"
@@ -3809,8 +3753,7 @@ msgstr "Gjenskap gjenstanden"
 msgid ""
 "Copy the mirror image of an object from the box on the right into the box on "
 "the left."
-msgstr ""
-"Kopier det speilvendte bilde fra feltet til høyre over i feltet til venstre."
+msgstr "Kopier det speilvendte bilde fra feltet til høyre over i feltet til venstre."
 
 #: ../boards/redraw_symmetrical.xml.in.h:2
 #, fuzzy
@@ -3831,7 +3774,6 @@ msgid "Mirror the given item"
 msgstr "Lag et speilbilde"
 
 #: ../boards/reversecount.xml.in.h:1
-#, fuzzy
 msgid ""
 "Can move the mouse, can read numbers and subtract numbers up to 10 for the "
 "first level"
@@ -3971,30 +3913,28 @@ msgid "Numbers With Dice"
 msgstr "Tall med terninger"
 
 #: ../boards/smallnumbers.xml.in.h:5 ../boards/smallnumbers2.xml.in.h:5
-#, fuzzy
 msgid "With the keyboard, type the number of dots you see on the falling dice."
-msgstr ""
-"Skriv med tastaturet det antallet prikker du ser på terningen som faller."
+msgstr "Skriv med tastaturet det antallet prikker du ser på terningen som faller."
 
 #: ../boards/smallnumbers2.xml.in.h:4
 msgid "Numbers with pairs of dice"
-msgstr "Tall med terninger"
+msgstr "Tall med terningpar"
 
 #: ../boards/sound_group.xml.in.h:1
 msgid "Go to Sound activities"
-msgstr "Gå til aktiviteter med lyd"
+msgstr "Aktiviteter med lyder"
 
 #: ../boards/sound_group.xml.in.h:2
 msgid "Sound based activities."
-msgstr "Lydbaserte aktiviteter."
+msgstr "Aktiviteter med lyd."
 
 #: ../boards/strategy.xml.in.h:1
 msgid "Strategy games"
-msgstr "Strategispill"
+msgstr "Stragegispill"
 
 #: ../boards/strategy.xml.in.h:2
 msgid "Strategy games like chess, connect4, ..."
-msgstr "Strategispill som sjakk, connect4..."
+msgstr "Strategispill som sjakk, Fire på rad, ..."
 
 #: ../boards/submarine.xml.in.h:1
 msgid ""
@@ -4043,8 +3983,7 @@ msgid "Sudoku, place unique symbols in a square."
 msgstr "Sudoku, plasser unike siffer i firkanter."
 
 #: ../boards/sudoku.xml.in.h:4
-msgid ""
-"Symbols must be unique in a row, in a column, and (if defined) each region."
+msgid "Symbols must be unique in a row, in a column, and (if defined) each region."
 msgstr ""
 "Alle symboler/siffer må være unike i hver rad og i hver kolonne, og i hvert "
 "område."
@@ -4111,7 +4050,6 @@ msgid "The objective is to form a given shape with seven pieces"
 msgstr "Målet er å klare å lage en bestemt form ved hjelp av syv biter"
 
 #: ../boards/tangram.xml.in.h:11
-#, fuzzy
 msgid ""
 "The original code was written by Philippe Banwarth in 1999. It was ported to "
 "GCompris by Yves Combe in 2005."
@@ -4124,8 +4062,7 @@ msgid "The tangram puzzle game"
 msgstr "Tangram"
 
 #: ../boards/target.xml.in.h:1
-msgid ""
-"Can move the mouse, can read numbers and count up to 15 for the first level"
+msgid "Can move the mouse, can read numbers and count up to 15 for the first level"
 msgstr "Kunne bruke musen, kunne telle til 15 i det laveste nivået."
 
 #: ../boards/target.xml.in.h:2
@@ -4157,8 +4094,7 @@ msgid "A sliding-block puzzle game"
 msgstr "Et spill med blokker"
 
 #: ../boards/traffic.xml.in.h:2
-msgid ""
-"Remove all the red cars from the parking lot through the gate on the right"
+msgid "Remove all the red cars from the parking lot through the gate on the right"
 msgstr ""
 "Fjern alle de røde bilene fra parkeringsplassen ved å få dem ut gjennom "
 "porten på høyre side."
@@ -4258,7 +4194,7 @@ msgstr "Velg et hus"
 
 #: ../src/boards/awele.c:681
 msgid "Your turn to play ..."
-msgstr "Din tur til å spille..."
+msgstr "Din turn til å spille ..."
 
 #: ../src/boards/awele.c:750
 msgid "Not allowed! Try again !"
@@ -4428,17 +4364,15 @@ msgstr "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 msgid ""
 "Build the same tower in the empty area as the one you see on the right-hand "
 "side."
-msgstr ""
-"Gjenskap i det tomme feltet det samme tårnet som du ser i feltet til høyre."
+msgstr "Gjenskap i det tomme feltet det samme tårnet som du ser i feltet til høyre."
 
 #: ../src/boards/hanoi_real.c:76
 msgid "Tower of Hanoi"
 msgstr "Tårnet i Hanoi"
 
 #: ../src/boards/hanoi_real.c:277 ../src/boards/hanoi_real.c:288
-#, fuzzy
 msgid "Move the entire stack to the right peg, one disc at a time"
-msgstr "Flytt hele stabelen over til pinnen på høyre side"
+msgstr "Flytt hele stabelen over til pinnen på høyre side, en skive om gangen"
 
 #: ../src/boards/imageid.c:113 ../src/boards/missingletter.c:105
 msgid "Learn how to read"
@@ -4462,14 +4396,11 @@ msgstr "høyre"
 msgid ""
 "Look at your position, then switch back to invisible mode to continue your "
 "moves"
-msgstr ""
-"Se på din posisjon og bytt tilbake til usynlig modus for å bevege deg videre"
+msgstr "Se på din posisjon og bytt tilbake til usynlig modus for å bevege deg videre"
 
 #: ../src/boards/maze.c:498
-msgid ""
-"Look at your position, then switch back to 3D mode to continue your moves"
-msgstr ""
-"Se på din posisjon og bytt tilbake til 3D modus for å bevege deg videre"
+msgid "Look at your position, then switch back to 3D mode to continue your moves"
+msgstr "Se på din posisjon og bytt tilbake til 3D modus for å bevege deg videre"
 
 #: ../src/boards/memory.c:287
 msgid "Memory"
@@ -4479,22 +4410,18 @@ msgstr "Hukommelse"
 msgid "Find the matching pair"
 msgstr "Finn like kort"
 
-#. TRANSLATORS: Put here the mathematical operators "+-���" for  your language.
+#. TRANSLATORS: Put here the mathematical operators "+-�" for  your language.
 #: ../src/boards/memory.c:851
 msgid "+-×÷"
-msgstr ""
-
-#: ../src/boards/menu.c:79
-msgid "Main Menu"
-msgstr "Hovedmeny"
-
-#: ../src/boards/menu.c:80 ../src/boards/menu2.c:129
-msgid "Select a Board"
-msgstr "Velg et brett"
+msgstr "+-×÷"
 
 #: ../src/boards/menu2.c:128
 msgid "Main Menu Second Version"
-msgstr ""
+msgstr "Hovedmeny, andre versjon"
+
+#: ../src/boards/menu2.c:129
+msgid "Select a Board"
+msgstr "Velg et brett"
 
 #. Set here the way to display money. Change only the money sign, and it's place, always keep %.2f, it will be replaced by 0,34 if decimal is ',' in your locale
 #: ../src/boards/money.c:492
@@ -4537,11 +4464,11 @@ msgstr "Fravelg alt"
 
 #: ../src/boards/python/admin/board_list.py:161
 msgid "Locales"
-msgstr ""
+msgstr "Ditt språk"
 
 #: ../src/boards/python/admin/board_list.py:166
 msgid "Locales sound"
-msgstr ""
+msgstr "Lyder på ditt språk"
 
 #: ../src/boards/python/admin/board_list.py:171
 msgid "Wordlist"
@@ -4573,7 +4500,7 @@ msgstr "Tittel på brett"
 #: ../src/boards/python/admin/board_list.py:410
 #, python-format
 msgid "Filter Boards difficulty for profile %s"
-msgstr "Filtrer brettvanskelighetsgraden for profilen «%s»"
+msgstr "Filtrer brettvanskelighetsgraden for profilen %s"
 
 #: ../src/boards/python/admin/board_list.py:441
 #, python-format
@@ -4832,17 +4759,14 @@ msgstr "Fødselsdato:"
 
 #: ../src/boards/python/admin/user_edit.py:159
 #, fuzzy
-msgid ""
-"You need to provide at least a login, first name and last name for your users"
-msgstr ""
-"Du må som et minimum oppgi brukernavn, fornavn og etternavn på dine brukere"
+msgid "You need to provide at least a login, first name and last name for your users"
+msgstr "Du må som et minimum oppgi brukernavn, fornavn og etternavn på dine brukere"
 
 #: ../src/boards/python/admin/user_edit.py:176
 msgid "There is already a user with this login"
 msgstr "Det finnes allerede en bruker med dette brukernavnet"
 
 #: ../src/boards/python/admin/user_list.py:292
-#, fuzzy
 msgid ""
 "To import a user list from a file, first select a class.\n"
 "FILE FORMAT: Your file must be formatted like this:\n"
@@ -4970,9 +4894,9 @@ msgid "%d × %d"
 msgstr "%d × %d"
 
 #: ../src/boards/python/gnumch.py:264
-#, python-format
+#, fuzzy, python-format
 msgid "%d ÷ %d"
-msgstr "%d ÷ %d"
+msgstr "%d × %d"
 
 #: ../src/boards/python/gnumch.py:272
 #, python-format
@@ -5059,7 +4983,7 @@ msgstr "Login: "
 #. toggle box
 #: ../src/boards/python/login.py:545
 msgid "Enter login to log in"
-msgstr "Skriv inn brukernavnet du vil loggføre"
+msgstr "Skriv inn brukernavnet"
 
 #: ../src/boards/python/mosaic.py:210
 msgid "Rebuild the same mosaic on the right area"
@@ -5181,12 +5105,12 @@ msgid ""
 "Cannot find Tuxpaint.\n"
 "Install it to use this activity !"
 msgstr ""
-"Kan ikke finne Tuxpaint.\n"
-"Installer programmet for å starte denne aktiviteten!"
+"Kan ikke finne Tuxpaint. \n"
+"Installer Tuxpaint for å bruke dette brettet. "
 
 #: ../src/boards/python/tuxpaint.py:128
 msgid "Waiting for Tuxpaint to finish"
-msgstr "Venter på at Tuxpaint skal avsluttes"
+msgstr "Venter på at du skal bli ferdig å bruke Tuxpaint"
 
 #: ../src/boards/python/tuxpaint.py:183
 msgid "Inherit fullscreen setting from GCompris"
@@ -5214,7 +5138,7 @@ msgstr "Hukommelsespill"
 
 #: ../src/boards/railroad.c:96
 msgid "Build a train according to the model"
-msgstr "Bygg et tog etter modellen"
+msgstr "Bygg et tog lik modellen"
 
 #: ../src/boards/reading.c:370
 msgid "Please, check if the word"
@@ -5327,7 +5251,7 @@ msgstr "Om GCompris"
 
 #: ../src/gcompris/about.c:124 ../src/gcompris/about.c:133
 msgid "Translators:"
-msgstr "Oversetter:"
+msgstr "Oversettere:"
 
 #: ../src/gcompris/about.c:256
 msgid ""
@@ -5354,24 +5278,23 @@ msgstr "Greit"
 
 #: ../src/gcompris/bar.c:571
 msgid "GCompris confirmation"
-msgstr "GCompris bekreftelse"
+msgstr "Avslutte GCompris"
 
 #: ../src/gcompris/bar.c:572
 msgid "Sure you want to quit ?"
-msgstr "Er du sikker på at du vil avslutte?"
+msgstr "Er du virkelig sikker på at du vil avslutte?"
 
 #: ../src/gcompris/bar.c:573
 msgid "Yes, I am sure !"
-msgstr "Ja, jeg er sikker"
+msgstr "Ja, jeg vil virkelig avslutte."
 
 #: ../src/gcompris/bar.c:574
 msgid "No, I want to keep going"
-msgstr "Nei, jeg vil fortsette"
+msgstr "Nei, jeg vil fortsette."
 
 #: ../src/gcompris/board.c:182
 msgid "Dynamic module loading is not supported. gcompris cannot load.\n"
-msgstr ""
-"Dynamisk lasting av moduler er ikke støttet. GCompris kan ikke starte.\n"
+msgstr "Dynamisk lasting av moduler er ikke støttet. GCompris kan ikke starte.\n"
 
 #: ../src/gcompris/board_config.c:617
 msgid ""
@@ -5575,7 +5498,7 @@ msgstr "Kinesisk (forenklet)"
 
 #: ../src/gcompris/config.c:112
 msgid "Chinese (Traditional)"
-msgstr "Kinesisk (tradisjonell)"
+msgstr "Kinesisk (Tradisjonell)"
 
 #: ../src/gcompris/config.c:117
 msgid "No time limit"
@@ -5666,7 +5589,7 @@ msgstr "kjør GCompris i fullskjermmodus."
 
 #: ../src/gcompris/gcompris.c:127
 msgid "run gcompris in window mode."
-msgstr "kjør GCompris i vindumodus."
+msgstr "kjør GCompris i vindusmodus."
 
 #: ../src/gcompris/gcompris.c:129
 msgid "run gcompris with sound enabled."
@@ -5690,7 +5613,7 @@ msgstr "vis feilsøkings informasjon på konsollen."
 
 #: ../src/gcompris/gcompris.c:139
 msgid "Print the version of "
-msgstr "Skriv ut versjonen av"
+msgstr "Skriv ut versjonen av "
 
 #: ../src/gcompris/gcompris.c:141
 msgid "Use the antialiased canvas (slower)."
@@ -5736,39 +5659,33 @@ msgstr "Les XML-menyer på nytt, og lagre de i databasen"
 
 #: ../src/gcompris/gcompris.c:159
 msgid "Set the profile to use. Use 'gcompris -a' to create profiles"
-msgstr ""
-"Velg hvilken profil som skal brukes. Bruk 'gcompris -a' for å lage en profil"
+msgstr "Velg hvilken profil som skal brukes. Bruk 'gcompris -a' for å lage en profil"
 
 #: ../src/gcompris/gcompris.c:161
 msgid "List all available profiles. Use 'gcompris -a' to create profiles"
-msgstr ""
-"Vis alle tilgjengelige profiler. Bruk 'gcompris -a' for å lage profiler."
+msgstr "Vis alle tilgjengelige profiler. Bruk 'gcompris -a' for å lage profiler."
 
 #: ../src/gcompris/gcompris.c:163
 msgid ""
 "Shared directory location, for profiles and board-configuration data: "
 "[$HOME/.gcompris/shared]"
-msgstr ""
-"Delt mappe-plassering. For profiler og brettoppsett: [$HOME/.gcompris/shared]"
+msgstr "Delt mappe-plassering. For profiler og brettoppsett: [$HOME/.gcompris/shared]"
 
 #: ../src/gcompris/gcompris.c:165
 msgid "The location of user directories: [$HOME/.gcompris/users]"
 msgstr "Brukermappeplassering. [$HOME/.gcompris/users] "
 
 #: ../src/gcompris/gcompris.c:167
-#, fuzzy
 msgid "Run the experimental activities"
-msgstr "Gå til aktiviteter med eksperimenter"
+msgstr "Aktiviteter med eksperimenter"
 
 #: ../src/gcompris/gcompris.c:169
-#, fuzzy
 msgid "Disable the quit button"
-msgstr "Skru av rotasjon av former"
+msgstr "Skru av bruken av avslutt-knappen"
 
 #: ../src/gcompris/gcompris.c:171
-#, fuzzy
 msgid "Disable the config button"
-msgstr "Skru av rotasjon av former"
+msgstr "Skru av konfigurasjons-knappen"
 
 #: ../src/gcompris/gcompris.c:788
 #, c-format
@@ -5804,7 +5721,7 @@ msgid "Use -l to access an activity directly.\n"
 msgstr "Bruk -l aktivitet for å gå rett til denne aktiviteten.\n"
 
 #: ../src/gcompris/gcompris.c:1259
-#, fuzzy, c-format
+#, c-format
 msgid "The list of available activities is :\n"
 msgstr "Liste med tilgjengelige aktiviteter er :\n"
 
@@ -5818,7 +5735,6 @@ msgid "Unaffected"
 msgstr "Ikke berørt"
 
 #: ../src/gcompris/gcompris_db.c:254
-#, fuzzy
 msgid "Users without a class"
 msgstr "Brukere uten klassetilhørighet"
 
@@ -5846,3 +5762,4 @@ msgstr "Medgått tid"
 #, c-format
 msgid "Remaining Time = %d"
 msgstr "Gjenværende tid = %d"
+
