@@ -33,12 +33,13 @@
 
 #include "cursor.h"
 
-/* For XRANDR Support */
-#ifdef XRANDR
+/* For XF86_VIDMODE Support */
+#ifdef XF86_VIDMODE
 #include <gdk/gdkx.h>
 #include <X11/Xlib.h>
-#include <X11/extensions/Xrandr.h>
-#include <X11/extensions/Xrender.h>
+#include <X11/Xutil.h>
+#include <X11/extensions/xf86dga.h>
+#include <X11/extensions/xf86vmode.h>   
 #endif
 
 #if defined _WIN32 || defined __WIN32__
@@ -104,7 +105,7 @@ static int popt_version		   = FALSE;
 static int popt_aalias		   = FALSE;
 static int popt_difficulty_filter  = FALSE;
 static int popt_debug		   = FALSE;
-static int popt_noxrandr	   = FALSE;
+static int popt_noxf86vm	   = FALSE;
 static char *popt_root_menu        = NULL;
 static char *popt_local_activity   = NULL;
 static int popt_administration	   = FALSE;
@@ -139,8 +140,8 @@ static struct poptOption options[] = {
    N_("Print the version of " PACKAGE), NULL},
   {"antialiased", '\0', POPT_ARG_NONE, &popt_aalias, 0,
    N_("Use the antialiased canvas (slower)."), NULL},
-  {"noxrandr", 'x', POPT_ARG_NONE, &popt_noxrandr, 0,
-   N_("Disable XRANDR (No screen resolution change)."), NULL},
+  {"noxf86vm", 'x', POPT_ARG_NONE, &popt_noxf86vm, 0,
+   N_("Disable XF86VidMode (No screen resolution change)."), NULL},
   {"root-menu", 'l', POPT_ARG_STRING, &popt_root_menu, 0,
    N_("Run gcompris with local menu (e.g -l /reading will let you play only activities in the reading directory, -l /boards/connect4 only the connect4 activity)"), NULL},
   {"local-activity", 'L', POPT_ARG_STRING, &popt_local_activity, 0,
@@ -184,29 +185,19 @@ static struct poptOption options[] = {
 };
 
 /* XRandr Stuff */
-#ifdef XRANDR
-typedef struct 
+#ifdef XF86_VIDMODE
+static struct 
 {
-  gboolean                xr_lock_updates;
+  int vidmode_available;
+  XF86VidModeModeInfo orig_mode;
+  int orig_viewport_x;
+  int orig_viewport_y;
+  int width;
+  int height;
+} XF86VidModeData = { 0, { 0 }, 0, 0 };
 
-  XRRScreenConfiguration *xr_screen_conf;
-
-  XRRScreenSize          *xr_sizes;
-  int                     xr_nsize;
-  SizeID	          xr_current_size;
-
-  Rotation                xr_rotations;
-  Rotation                xr_current_rotation;
-
-} XRANDRData; 
-
-static SizeID		 xr_previous_size;
-static gboolean		 xr_previous_size_set = FALSE;
-static XRANDRData	*xrandr = NULL;
-
-static void xrandr_init ( XRANDRData *xrandr );
-static void xrandr_get_config ( XRANDRData *xrandr );
-static void xrandr_set_config( XRANDRData  *xrandr );
+static void xf86_vidmode_init( void );
+static void xf86_vidmode_set_fullscreen( int state );
 #endif
 
 /****************************************************************************/
@@ -441,8 +432,8 @@ static void init_background()
   gint screen_height, screen_width;
   GtkWidget *vbox;
 
-#ifdef XRANDR
-  xrandr = g_new0 (XRANDRData, 1);
+#ifdef XF86_VIDMODE
+  xf86_vidmode_init();
 #endif
 
   gcompris_set_fullscreen(properties->fullscreen);
@@ -450,10 +441,10 @@ static void init_background()
   screen_height = gdk_screen_height();
   screen_width  = gdk_screen_width();
 
-#ifdef XRANDR
-  if(properties->fullscreen && !properties->noxrandr) {
-    screen_height = xrandr->xr_sizes[xrandr->xr_current_size].height;
-    screen_width  = xrandr->xr_sizes[xrandr->xr_current_size].width;
+#ifdef XF86_VIDMODE
+  if(properties->fullscreen && !properties->noxf86vm) {
+    screen_width  = XF86VidModeData.width;
+    screen_height = XF86VidModeData.height;
   }
 #endif
 
@@ -811,39 +802,11 @@ void gcompris_end_board()
  */
 void gcompris_set_fullscreen(gboolean state)
 {
-
+#ifdef XF86_VIDMODE
+  xf86_vidmode_set_fullscreen(state);
+#endif
   if(state)
     {
-#ifdef XRANDR
-      gint i;
-      /* Search the 800x600 Resolution */
-      if(properties->fullscreen && !properties->noxrandr) {
-	
-	g_warning("XRANDR Is compiled in. Searching a good resolution");
-
-	/* Check if XRANDR is available */
-	if (!properties->noxrandr) {
-	  xrandr_get_config ( xrandr );
-	  xr_previous_size = (SizeID)xrandr->xr_current_size;
-	  for (i = 0; i < xrandr->xr_nsize; i++) {
-	    if(xrandr->xr_sizes[i].width == BOARDWIDTH &&
-	       xrandr->xr_sizes[i].height == BOARDHEIGHT+BARHEIGHT) 
-	      {
-		xrandr->xr_current_size = (SizeID)i;
-		xr_previous_size_set = TRUE;
-		break;
-	      }
-	  }
-	}
-
-	/* Set the Fullscreen now */
-	if(xr_previous_size_set) 
-	  {
-	    if(is_mapped)
-	      xrandr_set_config( xrandr );
-	  }
-      }
-#endif
       gdk_window_set_decorations (window->window, 0);
       gdk_window_set_functions (window->window, 0);
       gtk_widget_set_uposition (window, 0, 0);
@@ -851,20 +814,6 @@ void gcompris_set_fullscreen(gboolean state)
     }
   else
     { 
-#ifdef XRANDR
-      /* Set back the original screen size */
-      if(xr_previous_size_set && !properties->noxrandr)
-	{
-	  /* Need to refresh our config or xrandr api will reject us */
-	  if(xrandr)
-	    {
-	      xrandr_get_config ( xrandr );
-	      xrandr->xr_current_size = (SizeID)xr_previous_size;
-	      xrandr_set_config( xrandr );
-	    }
-	}
-      xr_previous_size_set = FALSE;
-#endif
       /* The hide must be done at least for KDE */
       gtk_widget_hide (window);
       gdk_window_set_decorations (window->window, GDK_DECOR_ALL);
@@ -874,6 +823,42 @@ void gcompris_set_fullscreen(gboolean state)
       gtk_window_unfullscreen (GTK_WINDOW(window));
     }
 
+}
+
+/* Use these instead of the gnome_canvas ones for proper fullscreen mousegrab
+   handling. */
+int gcompris_canvas_item_grab (GnomeCanvasItem *item, unsigned int event_mask,
+			    GdkCursor *cursor, guint32 etime)
+{
+  int retval;
+  
+  retval = gnome_canvas_item_grab(item, event_mask, cursor, etime);
+  if (retval != GDK_GRAB_SUCCESS)
+    return retval;
+  
+#ifdef XF86_VIDMODE
+  /* When fullscreen override mouse grab with our own which
+     confines the cursor to our fullscreen window */
+  if (properties->fullscreen && !properties->noxf86vm)
+    if (gdk_pointer_grab(item->canvas->layout.bin_window, FALSE, event_mask,
+          window->window, cursor, etime+1) != GDK_GRAB_SUCCESS) 
+      g_warning("Pointer grab failed");
+#endif
+  
+  return retval;
+}
+
+void gcompris_canvas_item_ungrab (GnomeCanvasItem *item, guint32 etime)
+{
+  gnome_canvas_item_ungrab(item, etime);
+#ifdef XF86_VIDMODE
+  /* When fullscreen restore the normal mouse grab which avoids
+     scrolling the virtual desktop */
+  if (properties->fullscreen && !properties->noxf86vm)
+    if (gdk_pointer_grab(window->window, TRUE, 0, window->window, NULL,
+          etime+1) != GDK_GRAB_SUCCESS)
+      g_warning("Pointer grab failed");
+#endif
 }
 
 void gcompris_exit()
@@ -1044,68 +1029,129 @@ void gcompris_log_handler (const gchar *log_domain,
     g_printerr ("%s: %s\n\n", "gcompris", message);
 }
 
-#ifdef XRANDR
+#ifdef XF86_VIDMODE
 /*
- * XRANDR STUFF
- * ------------
+ * XF86VidMode STUFF
+ * -----------------
  */
 static void
-xrandr_init ( XRANDRData *data )
+xf86_vidmode_init ( void )
 {
-  if(data==NULL)
-    return;
-
-  data->xr_screen_conf = XRRGetScreenInfo (GDK_DISPLAY(), GDK_ROOT_WINDOW());
-
-  if (data->xr_screen_conf == NULL)
-    {
-      g_warning("XRANDR not available");
-      properties->noxrandr = TRUE;
-    }
-  else
-      g_warning("XRANDR support enabled");
- }
-
-static void
-xrandr_get_config ( XRANDRData *data )
-{
-  if(data==NULL)
-    return;
-
-  xrandr_init (data);
-
-  data->xr_current_size = XRRConfigCurrentConfiguration (data->xr_screen_conf, 
-							 &data->xr_current_rotation);
-
-  data->xr_sizes = XRRConfigSizes(data->xr_screen_conf, &data->xr_nsize);
+  int i,j;
+  XF86VidModeModeLine *l = (XF86VidModeModeLine *)((char *)
+    &XF86VidModeData.orig_mode + sizeof XF86VidModeData.orig_mode.dotclock);
   
-  data->xr_rotations = XRRConfigRotations(data->xr_screen_conf,
-					  &data->xr_current_rotation);
+  if (properties->noxf86vm)
+    return;
+  
+  if (!XF86VidModeQueryVersion(GDK_DISPLAY(), &i, &j))
+    properties->noxf86vm = TRUE;
+  else if (!XF86VidModeQueryExtension(GDK_DISPLAY(), &i, &j))
+    properties->noxf86vm = TRUE;
+  else if (!XF86VidModeGetModeLine(GDK_DISPLAY(), GDK_SCREEN_XNUMBER(
+            gdk_screen_get_default()), &XF86VidModeData.orig_mode.dotclock, l))
+    properties->noxf86vm = TRUE;
+  else if (!XF86VidModeGetViewPort(GDK_DISPLAY(), GDK_SCREEN_XNUMBER(
+            gdk_screen_get_default()), &XF86VidModeData.orig_viewport_x,
+            &XF86VidModeData.orig_viewport_x))
+    properties->noxf86vm = TRUE;
+  
+  if (properties->noxf86vm)
+      g_warning("XF86VidMode not available");
+  else
+    {
+      XF86VidModeData.width  = XF86VidModeData.orig_mode.hdisplay;
+      XF86VidModeData.height = XF86VidModeData.orig_mode.vdisplay;
+      g_warning("XF86VidMode support enabled");
+    }
 }
 
-static void
-xrandr_set_config( XRANDRData  *data )
-{
-  Status  status = RRSetConfigFailed;
 
-  if(data==NULL)
+static void
+xf86_vidmode_set_fullscreen ( int state )
+{
+  int i;
+  XF86VidModeModeLine mode;
+
+  if (properties->noxf86vm)
     return;
 
-  if (data->xr_lock_updates) return;
-  
-  status = XRRSetScreenConfig (GDK_DISPLAY(), 
-			       data->xr_screen_conf, 
-			       GDK_ROOT_WINDOW(), 
-			       data->xr_current_size, 
-			       data->xr_current_rotation, 
-			       CurrentTime);
+  if (state)
+    {
+      XF86VidModeModeInfo **modes;
+      int mode_count;
+      
+      if (!XF86VidModeGetModeLine(GDK_DISPLAY(), GDK_SCREEN_XNUMBER(
+            gdk_screen_get_default()), &i, &mode))
+        {
+          /* If we can't get the currentmode force setting of a new mode. */
+          mode.hdisplay = 0;
+        }
+        
+      /* Do we need to switch? */
+      if ((mode.hdisplay != BOARDWIDTH) ||
+          (mode.vdisplay != BOARDHEIGHT+BARHEIGHT))
+        {
+          if (!XF86VidModeGetAllModeLines(GDK_DISPLAY(), GDK_SCREEN_XNUMBER(
+                gdk_screen_get_default()), &mode_count, &modes))
+            mode_count = 0;
 
-  if(status) {
-    g_error("ERROR: Failed to set back the original resolution XRRSetScreenConfig returned status = %d\n",
-	    (int)status);
-  }
-  return;
-
+          for (i = 0; i < mode_count; i++)
+            {
+              if ((modes[i]->hdisplay == BOARDWIDTH) &&
+                  (modes[i]->vdisplay == BOARDHEIGHT+BARHEIGHT))
+                {
+                  if (XF86VidModeSwitchToMode(GDK_DISPLAY(), GDK_SCREEN_XNUMBER(
+                        gdk_screen_get_default()), modes[i]))
+                    {
+                      XF86VidModeData.width  = modes[i]->hdisplay;
+                      XF86VidModeData.height = modes[i]->vdisplay;
+                    }
+                  else
+                      g_warning("XF86VidMode couldnot switch resolution");
+                  break;
+                }
+            }
+          if (i == mode_count)
+            g_warning("XF86VidMode couldnot find a suitable resolution");
+          if (mode_count)
+            XFree(modes);
+        }
+        /* We need to grab the pointer before setting the viewport otherwise
+           setviewport may get "canceled" by the pointer being outside the
+           current viewport. */
+        if (gdk_pointer_grab(window->window, TRUE, 0, window->window, NULL,
+              GDK_CURRENT_TIME) != GDK_GRAB_SUCCESS)
+          g_warning("Pointer grab failed");
+           
+        if (!XF86VidModeSetViewPort(GDK_DISPLAY(),
+              GDK_SCREEN_XNUMBER(gdk_screen_get_default()), 0, 0))
+          g_warning("XF86VidMode couldnot change viewport");
+    }
+  else
+    {
+      if (!XF86VidModeGetModeLine(GDK_DISPLAY(), GDK_SCREEN_XNUMBER(
+            gdk_screen_get_default()), &i, &mode) ||
+          (mode.hdisplay != XF86VidModeData.orig_mode.hdisplay) ||
+          (mode.vdisplay != XF86VidModeData.orig_mode.vdisplay))
+        {
+          if (XF86VidModeSwitchToMode(GDK_DISPLAY(), GDK_SCREEN_XNUMBER(
+                gdk_screen_get_default()), &XF86VidModeData.orig_mode))
+            {
+              XF86VidModeData.width  = XF86VidModeData.orig_mode.hdisplay;
+              XF86VidModeData.height = XF86VidModeData.orig_mode.vdisplay;
+            }
+          else
+              g_warning("XF86VidMode couldnot restore original resolution");
+            
+        }
+      gdk_pointer_ungrab(GDK_CURRENT_TIME);
+      if (XF86VidModeData.orig_viewport_x || XF86VidModeData.orig_viewport_y)
+        if (!XF86VidModeSetViewPort(GDK_DISPLAY(), GDK_SCREEN_XNUMBER(
+              gdk_screen_get_default()), XF86VidModeData.orig_viewport_x,
+              XF86VidModeData.orig_viewport_y))
+          g_warning("XF86VidMode couldnot restore original viewport");
+    }
 }
 #endif
 
@@ -1184,9 +1230,9 @@ gcompris_init (int argc, char *argv[])
       properties->fullscreen = TRUE;
     }
 
-  if (popt_noxrandr)
+  if (popt_noxf86vm)
     {
-      properties->noxrandr = TRUE;
+      properties->noxf86vm = TRUE;
     }
 
   if (popt_window)

@@ -417,7 +417,7 @@ static int car_cb(GnomeCanvasItem *item, GdkEvent *event, car *thiscar)
       cursor=gdk_cursor_new(GDK_SB_V_DOUBLE_ARROW);
     else 
       cursor=gdk_cursor_new(GDK_SB_H_DOUBLE_ARROW);
-    gnome_canvas_item_grab(item,
+    gcompris_canvas_item_grab(item,
 			   GDK_POINTER_MOTION_MASK | GDK_BUTTON_RELEASE_MASK,
 			   cursor,
 			   event->button.time);
@@ -495,7 +495,7 @@ static int car_cb(GnomeCanvasItem *item, GdkEvent *event, car *thiscar)
 	dx=CLAMP(item_x-start_x,-39,39);
 
 	if (thiscar->goal && big_x==250+OFSET_X) { 
-	  gnome_canvas_item_ungrab(item,event->button.time);
+	  gcompris_canvas_item_ungrab(item,event->button.time);
 	  gnome_canvas_item_hide(item);
 	  moving=FALSE;
 
@@ -573,7 +573,7 @@ static int car_cb(GnomeCanvasItem *item, GdkEvent *event, car *thiscar)
 	  dy=*ptr-y;
 
 	gnome_canvas_item_move(item,dx,dy);
-	gnome_canvas_item_ungrab(item,event->button.time);
+	gcompris_canvas_item_ungrab(item,event->button.time);
 	hit=0;
 	moving=FALSE;
       }

@@ -663,7 +663,7 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
       y = item_y;
 
       fleur = gdk_cursor_new(GDK_FLEUR);
-      gnome_canvas_item_grab(item,
+      gcompris_canvas_item_grab(item,
 			     GDK_POINTER_MOTION_MASK |
 			     GDK_BUTTON_RELEASE_MASK,
 			     fleur,
@@ -710,7 +710,7 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
     case GDK_BUTTON_RELEASE:
       if(dragging)
 	{
-	  gnome_canvas_item_ungrab(item, event->button.time);
+	  gcompris_canvas_item_ungrab(item, event->button.time);
 	  dragging = FALSE;
 	}
       break;

@@ -1,6 +1,6 @@
 /* gcompris - board_config.c
  *
- * Time-stamp: <2006/05/09 01:02:10 bruno>
+ * Time-stamp: <2006/05/09 23:57:57 bruno>
  *
  * Copyright (C) 2001 Pascal Georges
  *
@@ -82,7 +82,7 @@ static void check_key(gchar *key)
 void gcompris_close_board_conf (GtkDialog *dialog,
 				gpointer   user_data)
 {
-  gtk_object_destroy              (GTK_OBJECT(dialog));
+  gtk_object_destroy(GTK_OBJECT(dialog));
   g_hash_table_destroy (hash_conf);
   hash_conf = NULL;
 
@@ -544,6 +544,8 @@ gcompris_get_locales_list(){
   //textdomain = bindtextdomain ("gcompris", NULL);
   textdomain = PACKAGE_LOCALE_DIR;
   
+  /* There is no english locale but it exists anyway */
+  locales = g_list_append(locales, g_strdup("en"));
 
   textdomain_dir = g_dir_open (textdomain, 0, error);
   const gchar *fname;
@@ -558,7 +560,7 @@ gcompris_get_locales_list(){
     catalog = g_strdup_printf("%s/LC_MESSAGES/gcompris.mo", fname_abs);
 
     if (g_file_test(catalog, G_FILE_TEST_EXISTS)){
-      locales = g_list_append( locales, g_strdup(fname));
+      locales = g_list_append(locales, g_strdup(fname));
     }
     g_free (fname_abs);
     g_free(catalog);
@@ -718,11 +720,13 @@ gcompris_get_locales_asset_list(const gchar *filename)
 
       abs_filename = gcompris_find_absolute_filename(filename);
 
+      gcompris_reset_locale();
+
       if(abs_filename)
 	locales_asset = g_list_append(locales_asset, list->data);
+
     }
   
-  gcompris_reset_locale();
 
   return locales_asset;
 }
@@ -789,12 +793,12 @@ GtkComboBox *gcompris_combo_locales_asset(const gchar *label,
 
 
   for (list = strings; list != NULL; list = list->next)
-    gtk_combo_box_append_text       (GTK_COMBO_BOX(combobox),
-				     list->data);
+    gtk_combo_box_append_text(GTK_COMBO_BOX(combobox),
+			      list->data);
 
   if (g_list_length(strings) > COMBOBOX_COL_MAX)
-    gtk_combo_box_set_wrap_width    (GTK_COMBO_BOX(combobox),
-  	     g_list_length(strings) / COMBOBOX_COL_MAX +1 );
+    gtk_combo_box_set_wrap_width(GTK_COMBO_BOX(combobox),
+				 g_list_length(strings) / COMBOBOX_COL_MAX +1 );
   
   gtk_combo_box_set_active (GTK_COMBO_BOX(combobox),
 			    init_index);

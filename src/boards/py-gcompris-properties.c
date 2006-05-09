@@ -72,8 +72,8 @@ pyGcomprisPropertiesType_getattr(pyGcomprisPropertiesObject *self, char *name)
 	return Py_False;
       }
     }
-    if(strcmp(name,"noxrandr")==0){
-      if(self->cdata->noxrandr){
+    if(strcmp(name,"noxf86vm")==0){
+      if(self->cdata->noxf86vm){
 	Py_INCREF(Py_True);
 	return Py_True;
       } else {

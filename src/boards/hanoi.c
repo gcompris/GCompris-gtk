@@ -645,7 +645,7 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, PieceItem *data)
 	  gnome_canvas_item_raise_to_top(data->item_text);
 	  
 	  fleur = gdk_cursor_new(GDK_FLEUR);
-	  gnome_canvas_item_grab(data->item,
+	  gcompris_canvas_item_grab(data->item,
 				 GDK_POINTER_MOTION_MASK | 
 				 GDK_BUTTON_RELEASE_MASK,
 				 fleur,
@@ -679,7 +679,7 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, PieceItem *data)
 	  PieceItem *piece_dst;
 	  gint col, line;
 	  
-	  gnome_canvas_item_ungrab(data->item, event->button.time);
+	  gcompris_canvas_item_ungrab(data->item, event->button.time);
 	  dragging = FALSE;
 	  
 	  /* Search the column (x) where this item is ungrabbed */

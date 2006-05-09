@@ -2008,7 +2008,7 @@ item_event_resize(GnomeCanvasItem *item, GdkEvent *event, AnchorsItem *anchorsIt
 	case 1:
 	  fleur = gdk_cursor_new(get_resize_cursor(anchor));
 	  
-	  gnome_canvas_item_grab(item,
+	  gcompris_canvas_item_grab(item,
 				 GDK_POINTER_MOTION_MASK |
 				 GDK_BUTTON_RELEASE_MASK,
 				 fleur,
@@ -2031,7 +2031,7 @@ item_event_resize(GnomeCanvasItem *item, GdkEvent *event, AnchorsItem *anchorsIt
     case GDK_BUTTON_RELEASE:
       if(dragging)
 	{
-	  gnome_canvas_item_ungrab(item, event->button.time);
+	  gcompris_canvas_item_ungrab(item, event->button.time);
 	  dragging = FALSE;
 	  draggingItem = NULL;
 	}
@@ -2179,7 +2179,7 @@ item_event_move(GnomeCanvasItem *item, GdkEvent *event, AnchorsItem *anchorsItem
 
 	    fleur = gdk_cursor_new(GDK_FLEUR);
 
-	    gnome_canvas_item_grab(item,
+	    gcompris_canvas_item_grab(item,
 				   GDK_POINTER_MOTION_MASK |
 				   GDK_BUTTON_RELEASE_MASK,
 				   fleur,
@@ -2296,7 +2296,7 @@ item_event_move(GnomeCanvasItem *item, GdkEvent *event, AnchorsItem *anchorsItem
     case GDK_BUTTON_RELEASE:
       if(dragging)
 	{
-	  gnome_canvas_item_ungrab(item, event->button.time);
+	  gcompris_canvas_item_ungrab(item, event->button.time);
 	  dragging = FALSE;
 	  draggingItem = NULL;
 

@@ -1103,7 +1103,7 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, Shape *shape)
 	       gnome_canvas_item_raise_to_top(shape_list_root_item);
 	       gnome_canvas_item_raise_to_top(item);
 
-	       gnome_canvas_item_grab(item,
+	       gcompris_canvas_item_grab(item,
 				      GDK_POINTER_MOTION_MASK | 
 				      GDK_BUTTON_RELEASE_MASK,
 				      fleur,
@@ -1143,7 +1143,7 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, Shape *shape)
 	 {
 	   Shape *targetshape = NULL;
 
-	   gnome_canvas_item_ungrab(item, event->button.time);
+	   gcompris_canvas_item_ungrab(item, event->button.time);
 	   dragging = FALSE;
 
 	   targetshape = find_closest_shape(item_x - offset_x,
@@ -1304,7 +1304,7 @@ item_event_edition(GnomeCanvasItem *item, GdkEvent *event, Shape *shape)
 
 	       fleur = gdk_cursor_new(GDK_FLEUR);
 
-	       gnome_canvas_item_grab(item,
+	       gcompris_canvas_item_grab(item,
 				      GDK_POINTER_MOTION_MASK | 
 				      GDK_BUTTON_RELEASE_MASK,
 				      fleur,
@@ -1341,7 +1341,7 @@ item_event_edition(GnomeCanvasItem *item, GdkEvent *event, Shape *shape)
        if(dragging) 
 	 {
 
-	   gnome_canvas_item_ungrab(item, event->button.time);
+	   gcompris_canvas_item_ungrab(item, event->button.time);
 	   gnome_canvas_item_raise_to_top(item);
 	   dragging = FALSE;
 

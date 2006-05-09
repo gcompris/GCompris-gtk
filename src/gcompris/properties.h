@@ -28,7 +28,7 @@ typedef struct {
   gint		music;
   gint		fx;
   gint		fullscreen;
-  gint		noxrandr;
+  gint		noxf86vm;
   gint		screensize;
   gint		defaultcursor;
   gint		timer;

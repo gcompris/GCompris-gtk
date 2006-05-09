@@ -159,6 +159,12 @@ void gcompris_confirm (gchar *title,
 
 void gcompris_confirm_stop (void);
 
+/* Use these instead of the gnome_canvas ones for proper fullscreen mousegrab
+   handling. */
+int gcompris_canvas_item_grab (GnomeCanvasItem *item, unsigned int event_mask,
+			    GdkCursor *cursor, guint32 etime);
+void gcompris_canvas_item_ungrab (GnomeCanvasItem *item, guint32 etime);
+
 /* Trace Log */
 #define GCOMPRIS_LOG_STATUS_PASSED    "PASSED"
 #define GCOMPRIS_LOG_STATUS_FAILED    "FAILED"

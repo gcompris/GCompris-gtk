@@ -103,6 +103,11 @@ class Gcompris_tuxpaint:
       options.append('--nostampcontrols')
   
     gcompris.sound.close()
+    
+    # release pointergrab if running fullscreen, tuxpaint wants to grab the
+    # pointer itself
+    if (Prop.fullscreen):
+      gtk.gdk.pointer_ungrab()
 
     #self.window.set_property("accept-focus", 0)
     #self.window.set_keep_below(False)
@@ -115,7 +120,7 @@ class Gcompris_tuxpaint:
       gcompris.utils.dialog(_("Cannot find Tuxpaint.\nInstall it to use this activity !"),stop_board)
       return 
     
-    gcompris.child_watch_add(pid, child_callback, None)
+    gcompris.child_watch_add(pid, child_callback, self)
 
     gcompris.bar_set(0)
     gcompris.bar_hide(1)
@@ -221,6 +226,9 @@ class Gcompris_tuxpaint:
     return default_config_dict
 
 def child_callback(fd,  cond, data):
+  # restore pointergrab if running fullscreen
+  if (gcompris.get_properties().fullscreen):
+    gtk.gdk.pointer_grab(data.window.window, True, 0, data.window.window)
   #global board
   #board.window.set_property("accept-focus", 1)
   #board.window.set_keep_above(False)

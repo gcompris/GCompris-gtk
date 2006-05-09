@@ -170,9 +170,9 @@ static gpointer scheduler_bgnd (gpointer user_data)
 
   /* Sleep to let gcompris intialisation and intro music to complete */
 #if defined WIN32
-  sleep(20000);
+  sleep(25000);
 #else
-  sleep(20);
+  sleep(25);
 #endif
 
   /* Load the Music directory file names */

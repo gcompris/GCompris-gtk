@@ -160,7 +160,7 @@ GcomprisProperties *gcompris_properties_new ()
   tmp->fx		 = 1;
   tmp->screensize	 = 1;
   tmp->fullscreen	 = 1;
-  tmp->noxrandr		 = FALSE;
+  tmp->noxf86vm		 = FALSE;
   tmp->timer		 = 1;
   tmp->skin		 = "babytoy";
   tmp->key		 = "default";
@@ -244,8 +244,8 @@ GcomprisProperties *gcompris_properties_new ()
 	} else if(!strcmp(value.v_identifier, "fullscreen")) {
 	  if(!scan_get_int(scanner, &tmp->fullscreen))
 	    g_warning("Config file parsing error on token %s", token);
-	} else if(!strcmp(value.v_identifier, "noxrandr")) {
-	  if(!scan_get_int(scanner, &tmp->noxrandr))
+	} else if(!strcmp(value.v_identifier, "noxf86vm")) {
+	  if(!scan_get_int(scanner, &tmp->noxf86vm))
 	    g_warning("Config file parsing error on token %s", token);
 	} else if(!strcmp(value.v_identifier, "timer")) {
 	  if(!scan_get_int(scanner, &tmp->timer))
