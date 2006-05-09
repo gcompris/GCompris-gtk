@@ -1,3 +1,39 @@
+2006-05-10  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	Major patch by Hans de Goede /j dot w dot r dot degoede on hhs.nl/
+	replaces xrandr by XF86VidMode
+	XF86VidMode is more appropriate for our usage since it does not change
+	the real screen size, only the virtual one.
+
+	Improved a little bit board_config.c locale management in
+	gcompris_get_locales_asset_list()
+	
+	* configure.in:
+	* src/boards/chess.c: (item_event):
+	* src/boards/clickgame.c: (item_event):
+	* src/boards/clockgame.c: (item_event):
+	* src/boards/draw.c: (item_event_resize), (item_event_move):
+	* src/boards/enumerate.c: (item_event):
+	* src/boards/hanoi.c: (item_event):
+	* src/boards/hanoi_real.c: (item_event):
+	* src/boards/planegame.c: (item_event):
+	* src/boards/py-gcompris-properties.c:
+	(pyGcomprisPropertiesType_getattr):
+	* src/boards/python/tuxpaint.py:
+	* src/boards/shapegame.c: (item_event), (item_event_edition):
+	* src/boards/traffic.c: (car_cb):
+	* src/gcompris/board_config.c: (gcompris_close_board_conf),
+	(gcompris_get_locales_list), (gcompris_get_locales_asset_list),
+	(gcompris_combo_locales_asset):
+	* src/gcompris/gcompris.c: (init_background),
+	(gcompris_set_fullscreen), (gcompris_canvas_item_grab),
+	(gcompris_canvas_item_ungrab), (xf86_vidmode_init),
+	(xf86_vidmode_set_fullscreen), (gcompris_init):
+	* src/gcompris/gcompris.h:
+	* src/gcompris/properties.c: (gcompris_properties_new):
+	* src/gcompris/properties.h:
+	* src/gcompris/soundutil.c: (scheduler_bgnd):
+
 2006-05-09  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	assetml removal. need more test.
