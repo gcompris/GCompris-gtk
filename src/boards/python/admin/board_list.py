@@ -659,7 +659,9 @@ class Board_list:
 
     gcompris.separator()
 
-    gcompris.combo_locales_asset( _("Select sound locale"), conf_locales, "gcompris colors", None, "audio/x-ogg", "purple.ogg" )
+    gcompris.combo_locales_asset( _("Select sound locale"),
+                                  conf_locales,
+                                  "sounds/$LOCALE/colors/purple.ogg" )
 
 
   def ok_callback(self, dict):

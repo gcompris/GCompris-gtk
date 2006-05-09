@@ -1444,7 +1444,7 @@ gcompris_init (int argc, char *argv[])
   gtk_widget_show_all (window);
 
   if (properties->music)
-    gcompris_play_ogg("intro", "sounds/$LOCALE/misc/welcome.ogg", NULL);
+    gcompris_play_ogg("music/intro.ogg", "sounds/$LOCALE/misc/welcome.ogg", NULL);
   else
     gcompris_play_ogg("sounds/$LOCALE/misc/welcome.ogg", NULL);
 

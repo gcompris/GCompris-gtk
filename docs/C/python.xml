@@ -546,16 +546,6 @@ attribute is readeable and/or writable.</para>
 		<entry>void gcompris_dialog_close()</entry>
 		<entry></entry>
 	      </row>
-	      <row>
-		<entry>gcompris.utils.load_pixmap_asset(dataset, categories, mimetype, name)</entry>
-		<entry>GdkPixbuf *gcompris_load_pixmap_asset(gchar *dataset, gchar* categories, gchar* mimetype, gchar* name)</entry>
-		<entry>return a gtk.gdk.Pixbuf</entry>
-	      </row>
-	      <row>
-		<entry>gcompris.utils.get_asset_file(dataset, categories, mimetype, name)</entry>
-		<entry>gchar *gcompris_get_asset_file(gchar *dataset, gchar* categories, gchar* mimetype, gchar* name)</entry>
-		<entry>return a string</entry>
-	      </row>
 	    </tbody>
 	  </tgroup>
 	</informaltable>

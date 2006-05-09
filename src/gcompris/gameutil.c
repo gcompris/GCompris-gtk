@@ -1,6 +1,6 @@
 /* gcompris - gameutil.c
  *
- * Time-stamp: <2006/05/05 00:53:26 bruno>
+ * Time-stamp: <2006/05/08 22:42:22 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -30,8 +30,6 @@
 
 #include "gcompris.h"
 
-#include "assetml.h"
-
 #define IMAGEEXTENSION ".png"
 
 #define MAX_DESCRIPTION_LENGTH 1000
@@ -51,122 +49,6 @@ typedef void (*sighandler_t)(int);
 GList *gcompris_get_boards_list()
 {
   return boards_list;
-}
-
-/*
- * Returns a filename path found from the assetml base. 
- */
-gchar *gcompris_get_asset_file(gchar *dataset, gchar* categories, 
-			       gchar* mimetype, gchar* file)
-{
-  GList *gl_result;
-  AssetML *assetml;
-  gchar* resultfile = NULL;
-
-  gl_result = assetml_get_asset(dataset, categories, mimetype, gcompris_get_locale(), file);
-
-  if(gl_result && g_list_length(gl_result)>0)
-    {
-
-      /* Always get the first item */
-      assetml = (AssetML *)g_list_nth_data(gl_result, 0);
-
-      if(assetml->file)
-	{
-	  resultfile = g_strdup(assetml->file);
-	}
-
-      assetml_free_assetlist(gl_result);
-    }
-  else
-    {
-      
-      g_warning("Asset not found:\n");
-      g_warning("   locale='%s'\n", gcompris_get_locale());
-      if (dataset)
-	g_warning("   dataset='%s'\n", dataset);
-      if (categories)
-	g_warning("   category='%s'\n", categories);
-      if(mimetype)
-	g_warning("   mimetype='%s'\n", mimetype);
-      if(file)
-	g_warning("   file='%s'\n", file);
-    }
-
-  return (resultfile);
-}
-
-/*
- * Returns a filename path found from the assetml base. 
- */
-gchar *gcompris_get_asset_file_locale(gchar *dataset, gchar* categories, 
-			       gchar* mimetype, gchar* file, gchar *locale)
-{
-  GList *gl_result;
-  AssetML *assetml;
-  gchar* resultfile = NULL;
-  gchar *mylocale = locale;
-
-  if (!mylocale || (strcmp( mylocale, "NULL") == 0))
-    mylocale = (gchar *)gcompris_get_locale();
-
-  gl_result = assetml_get_asset(dataset, categories, mimetype, mylocale, file);
-
-  if(gl_result && g_list_length(gl_result)>0)
-    {
-
-      /* Always get the first item */
-      assetml = (AssetML *)g_list_nth_data(gl_result, 0);
-
-      if(assetml->file)
-	{
-	  resultfile = g_strdup(assetml->file);
-	}
-
-      assetml_free_assetlist(gl_result);
-    }
-  else
-    {
-      
-      g_warning("Asset not found:\n");
-      g_warning("   locale='%s'\n", mylocale);
-      if (dataset)
-	g_warning("   dataset='%s'\n", dataset);
-      if (categories)
-	g_warning("   category='%s'\n", categories);
-      if(mimetype)
-	g_warning("   mimetype='%s'\n", mimetype);
-      if(file)
-	g_warning("   file='%s'\n", file);
-    }
-
-  return (resultfile);
-}
-
-
-/*
- * Load a pixmap from the assetml database
- */
-GdkPixbuf *gcompris_load_pixmap_asset(gchar *dataset, gchar* categories, 
-				      gchar* mimetype, gchar* name)
-{
-  GdkPixbuf *pixmap;
-  gchar* file = NULL;
-  
-  file = gcompris_get_asset_file(dataset, categories, mimetype, name);
-  
-  if(file)
-    {
-      
-      pixmap = gdk_pixbuf_new_from_file (file, NULL);
-      
-      if(!pixmap)
-	g_warning("Loading image returned a null pointer");
-      
-      return pixmap;
-    }
-
-  return NULL;
 }
 
 /*
@@ -1323,24 +1205,38 @@ gchar *g_utf8_strndup(gchar* utf8text, gint n)
 
 /** \brief search a given relative file in all gcompris dir it could be found
  *     
- * If filename contains $LOCALE, it will be first replaced by the current long locale
- * and if not found the short locale name.
+ * \param format: If format contains $LOCALE, it will be first replaced by the current long locale
+ *                and if not found the short locale name. It support printf formating.
+ * \param ...:    additional params for the format (printf like)
  *
  * \return NULL or a new gchar* with the absolute_filename of the given filename
  *
  */
-gchar *gcompris_find_absolute_filename(gchar *filename)
+gchar*
+gcompris_find_absolute_filename(const gchar *format, ...)
 {
+  va_list		 args;
   int			 i = 0;
+  gchar			*filename;
   gchar			*absolute_filename;
   gchar			*dir_to_search[4];
   GcomprisProperties	*properties = gcompris_get_properties();
   GcomprisBoard		*gcomprisBoard = get_current_gcompris_board();
 
+  if (!format)
+    return NULL;
+
+  va_start (args, format);
+  filename = g_strdup_vprintf (format, args);
+  va_end (args);
+
   /* Check it's already an absolute file */
   if(g_path_is_absolute (filename) &&
-     g_file_test (filename, G_FILE_TEST_IS_REGULAR))
-    return g_strdup(filename);
+     g_file_test (filename, G_FILE_TEST_EXISTS))
+    {
+      g_free(filename);
+      return g_strdup(filename);
+    }
 
   /*
    * Search it on the file system
@@ -1373,8 +1269,8 @@ gchar *gcompris_find_absolute_filename(gchar *filename)
 	  filename2 = g_strjoinv(locale, tmp);
 	  absolute_filename = g_strdup_printf("%s/%s", dir_to_search[i], filename2);
 	  g_free(filename2);
-	  g_warning(">>>> trying %s\n", absolute_filename);
-	  if(g_file_test (absolute_filename, G_FILE_TEST_IS_REGULAR))
+	  g_warning("1>>>> trying %s\n", absolute_filename);
+	  if(g_file_test (absolute_filename, G_FILE_TEST_EXISTS))
 	    {
 	      g_strfreev(tmp);
 	      goto FOUND;
@@ -1386,8 +1282,8 @@ gchar *gcompris_find_absolute_filename(gchar *filename)
 	  g_strfreev(tmp);
 	  absolute_filename = g_strdup_printf("%s/%s", dir_to_search[i], filename2);
 	  g_free(filename2);
-	  g_warning(">>>> tryiing %s\n", absolute_filename);
-	  if(g_file_test (absolute_filename, G_FILE_TEST_IS_REGULAR))
+	  g_warning("2>>>> tryiing %s\n", absolute_filename);
+	  if(g_file_test (absolute_filename, G_FILE_TEST_EXISTS))
 	    goto FOUND;
 
 	}
@@ -1397,14 +1293,16 @@ gchar *gcompris_find_absolute_filename(gchar *filename)
 	}
 
       i++;
-      if(g_file_test (absolute_filename, G_FILE_TEST_IS_REGULAR))
+      if(g_file_test (absolute_filename, G_FILE_TEST_EXISTS))
 	goto FOUND;
     }
     
+  g_free(filename);
   g_free(absolute_filename);
   return NULL;
 
  FOUND:
+  g_free(filename);
   return absolute_filename;
 }
 

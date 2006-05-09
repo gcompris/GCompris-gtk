@@ -1,6 +1,6 @@
 /* gcompris - config.c
  *
- * Time-stamp: <2006/04/29 01:45:52 bruno>
+ * Time-stamp: <2006/05/08 22:10:08 bruno>
  *
  * Copyright (C) 2000-2003 Bruno Coudoin
  *
@@ -564,7 +564,6 @@ display_previous_next(guint x_start, guint y_start,
   
 static void set_locale_flag(gchar *locale)
 {
-  gchar *str = NULL;
   gchar *filename;
   GdkPixbuf *pixmap = NULL;
 
@@ -578,15 +577,11 @@ static void set_locale_flag(gchar *locale)
   }
 
   /* First try to find a flag for the long locale name */
-  str = g_strdup_printf("flags/%.5s.png", locale);
-  filename = gcompris_find_absolute_filename(str);
-  g_free(str);
+  filename = gcompris_find_absolute_filename("flags/%.5s.png", locale);
 
   /* Not found, Try now with the short locale name */
   if(!filename) {
-    str = g_strdup_printf("flags/%.2s.png", locale);
-    filename = gcompris_find_absolute_filename(str);
-    g_free(str);
+    filename = gcompris_find_absolute_filename("flags/%.2s.png", locale);
   }
 
   if(filename)

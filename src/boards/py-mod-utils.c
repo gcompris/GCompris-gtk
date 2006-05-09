@@ -253,52 +253,6 @@ py_gcompris_dialog_close(PyObject* self, PyObject* args)
 }
 
 
-/* GdkPixbuf *gcompris_load_pixmap_asset(gchar *dataset, gchar* categories, */
-/*                                       gchar* mimetype, gchar* name);     */
-static PyObject*
-py_gcompris_load_pixmap_asset(PyObject* self, PyObject* args)
-{
-  gchar* dataset;
-  gchar* categories;
-  gchar* mimetype;
-  gchar* name;
-  GdkPixbuf* result;
-
-  /* Parse arguments */
-  if(!PyArg_ParseTuple(args, "ssss:gcompris_load_pixmap_asset", &dataset, &categories, &mimetype, &name))
-    return NULL;
-
-  /* Call the corresponding C function */
-  result = gcompris_load_pixmap_asset(dataset, categories, mimetype, name);
-
-  /* Create and return the result */
-  return(PyObject*)pygobject_new((GObject*) result);
-}
-
-
-/* gchar *gcompris_get_asset_file(gchar *dataset, gchar* categories, */
-/*                                gchar* mimetype, gchar* file);     */
-static PyObject*
-py_gcompris_get_asset_file(PyObject* self, PyObject* args)
-{
-  gchar* dataset;
-  gchar* categories;
-  gchar* mimetype;
-  gchar* name;
-  gchar* result;
-
-  /* Parse arguments */
-  if(!PyArg_ParseTuple(args, "zzzs:gcompris_get_asset_file", &dataset, &categories, &mimetype, &name))
-    return NULL;
-
-  /* Call the corresponding C function */
-  result = gcompris_get_asset_file(dataset, categories, mimetype, name);
-
-  /* Create and return the result */
-  return Py_BuildValue("s", result);
-}
-
-
 /* void filename_pass(PyObject *pyitem, PyObject *pystring) */
 static PyObject*
 py_gcompris_filename_pass(PyObject* self, PyObject* args)
@@ -389,29 +343,6 @@ py_gcompris_canvas_get_property(PyObject* self, PyObject* args)
 }
 
 
-/* gchar *gcompris_get_asset_file_locale(gchar *dataset, gchar* categories, */
-/*                                gchar* mimetype, gchar* file, gchar *locale);     */
-static PyObject*
-py_gcompris_get_asset_file_locale(PyObject* self, PyObject* args)
-{
-  gchar* dataset;
-  gchar* categories;
-  gchar* mimetype;
-  gchar* name;
-  gchar *locale;
-  gchar* result;
-
-  /* Parse arguments */
-  if(!PyArg_ParseTuple(args, "zzzsz:gcompris_get_asset_file_locale", &dataset, &categories, &mimetype, &name, &locale))
-    return NULL;
-
-  /* Call the corresponding C function */
-  result = gcompris_get_asset_file_locale(dataset, categories, mimetype, name, locale);
-
-  /* Create and return the result */
-  return Py_BuildValue("s", result);
-}
-
 static PyMethodDef PythonGcomprisUtilsModule[] = {
   { "load_pixmap",  py_gcompris_load_pixmap, METH_VARARGS, "gcompris_load_pixmap" },
   { "set_image_focus",  py_gcompris_set_image_focus, METH_VARARGS, "gcompris_set_image_focus" },
@@ -425,12 +356,9 @@ static PyMethodDef PythonGcomprisUtilsModule[] = {
     "item_rotate_with_center" },
   { "dialog",  py_gcompris_dialog, METH_VARARGS, "gcompris_dialog" },
   { "dialog_close",  py_gcompris_dialog_close, METH_VARARGS, "gcompris_dialog_close" },
-  { "load_pixmap_asset",  py_gcompris_load_pixmap_asset, METH_VARARGS, "gcompris_load_pixmap_asset" },
-  { "get_asset_file",  py_gcompris_get_asset_file, METH_VARARGS, "gcompris_get_asset_file" },
   { "filename_pass",  py_gcompris_filename_pass, METH_VARARGS, "gcompris_filename_pass" },
   { "canvas_set_property",  py_gcompris_canvas_set_property, METH_VARARGS, "gcompris_canvas_set_property" },
   { "canvas_get_property",  py_gcompris_canvas_get_property, METH_VARARGS, "gcompris_canvas_get_property" },
-  { "get_asset_file_locale",  py_gcompris_get_asset_file_locale, METH_VARARGS, "gcompris_get_asset_file_locale" },
   { NULL, NULL, 0, NULL}
 };
 

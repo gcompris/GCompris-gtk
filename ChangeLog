@@ -1,3 +1,178 @@
+2006-05-09  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	assetml removal. need more test.
+
+	* Makefile.am:
+	* boards/Makefile.am:
+	* boards/chronos.xml.in:
+	* boards/chronos/board1_0.xml.in:
+	* boards/chronos/board3_0.xml.in:
+	* boards/chronos/board3_1.xml.in:
+	* boards/chronos/board3_2.xml.in:
+	* boards/chronos/board3_3.xml.in:
+	* boards/chronos/board3_4.xml.in:
+	* boards/chronos/board4_0.xml.in:
+	* boards/chronos/board4_1.xml.in:
+	* boards/chronos/board4_2.xml.in:
+	* boards/chronos/board4_3.xml.in:
+	* boards/click_on_letter.xml.in:
+	* boards/geography.xml.in:
+	* boards/geography/board1_0.xml.in:
+	* boards/geography/board2_0.xml.in:
+	* boards/geography/board2_1.xml.in:
+	* boards/geography/board3_0.xml.in:
+	* boards/geography/board3_1.xml.in:
+	* boards/geography/board4_0.xml.in:
+	* boards/geography/board4_1.xml.in:
+	* boards/geography/board4_2.xml.in:
+	* boards/geography/board5_0.xml.in:
+	* boards/memory_sound.xml.in:
+	* boards/memory_sound_tux.xml.in:
+	* boards/sounds/Makefile.am:
+	* boards/sounds/da/alphabet/README:
+	* boards/sounds/da/alphabet/gcompris_alphabet_da.assetml.in:
+	* boards/sounds/da/colors/README:
+	* boards/sounds/da/colors/gcompris_colors_da.assetml.in:
+	* boards/sounds/da/geography/README:
+	* boards/sounds/da/geography/gcompris_geography_da.assetml.in:
+	* boards/sounds/da/misc/README:
+	* boards/sounds/da/misc/gcompris_misc_da.assetml.in:
+	* boards/sounds/de/alphabet/README:
+	* boards/sounds/de/alphabet/gcompris_alphabet_de.assetml.in:
+	* boards/sounds/de/colors/README:
+	* boards/sounds/de/colors/gcompris_colors_de.assetml.in:
+	* boards/sounds/de/geography/gcompris_geography_de.assetml.in:
+	* boards/sounds/de/misc/README:
+	* boards/sounds/de/misc/gcompris_misc_de.assetml.in:
+	* boards/sounds/en/alphabet/README:
+	* boards/sounds/en/alphabet/gcompris_alphabet_en.assetml.in:
+	* boards/sounds/en/colors/README:
+	* boards/sounds/en/colors/gcompris_colors_en.assetml.in:
+	* boards/sounds/en/geography/README:
+	* boards/sounds/en/geography/gcompris_geography_en.assetml.in:
+	* boards/sounds/en/misc/README:
+	* boards/sounds/en/misc/gcompris_misc_en.assetml.in:
+	* boards/sounds/es/alphabet/README:
+	* boards/sounds/es/alphabet/gcompris_alphabet_es.assetml.in:
+	* boards/sounds/es/colors/README:
+	* boards/sounds/es/colors/gcompris_colors_es.assetml.in:
+	* boards/sounds/es/geography/README:
+	* boards/sounds/es/geography/gcompris_geography_es.assetml.in:
+	* boards/sounds/es/misc/README:
+	* boards/sounds/es/misc/gcompris_misc_es.assetml.in:
+	* boards/sounds/eu/alphabet/README:
+	* boards/sounds/eu/alphabet/gcompris_alphabet_eu.assetml.in:
+	* boards/sounds/eu/colors/README:
+	* boards/sounds/eu/colors/gcompris_colors_eu.assetml.in:
+	* boards/sounds/eu/geography/README:
+	* boards/sounds/eu/geography/gcompris_geography_eu.assetml.in:
+	* boards/sounds/eu/misc/README:
+	* boards/sounds/eu/misc/gcompris_misc_eu.assetml.in:
+	* boards/sounds/fi/alphabet/README:
+	* boards/sounds/fi/alphabet/gcompris_alphabet_fi.assetml.in:
+	* boards/sounds/fi/colors/README:
+	* boards/sounds/fi/colors/gcompris_colors_fi.assetml.in:
+	* boards/sounds/fi/geography/README:
+	* boards/sounds/fi/geography/gcompris_geography_fi.assetml.in:
+	* boards/sounds/fi/misc/README:
+	* boards/sounds/fi/misc/gcompris_misc_fi.assetml.in:
+	* boards/sounds/fr/alphabet/README:
+	* boards/sounds/fr/alphabet/gcompris_alphabet_fr.assetml.in:
+	* boards/sounds/fr/colors/README:
+	* boards/sounds/fr/colors/gcompris_colors_fr.assetml.in:
+	* boards/sounds/fr/france_region/README:
+	* boards/sounds/fr/france_region/gcompris_franceregion_fr.assetml.i
+	n:
+	* boards/sounds/fr/geography/README:
+	* boards/sounds/fr/geography/gcompris_geography_fr.assetml.in:
+	* boards/sounds/fr/misc/README:
+	* boards/sounds/fr/misc/gcompris_misc_fr.assetml.in:
+	* boards/sounds/hu/alphabet/README:
+	* boards/sounds/hu/alphabet/gcompris_alphabet_hu.assetml.in:
+	* boards/sounds/hu/colors/README:
+	* boards/sounds/hu/colors/gcompris_colors_hu.assetml.in:
+	* boards/sounds/hu/geography/README:
+	* boards/sounds/hu/geography/gcompris_geography_hu.assetml.in:
+	* boards/sounds/hu/misc/README:
+	* boards/sounds/hu/misc/gcompris_misc_hu.assetml.in:
+	* boards/sounds/it/alphabet/README:
+	* boards/sounds/it/alphabet/gcompris_alphabet_it.assetml.in:
+	* boards/sounds/it/colors/README:
+	* boards/sounds/it/colors/gcompris_colors_it.assetml.in:
+	* boards/sounds/it/geography/README:
+	* boards/sounds/it/geography/gcompris_geography_it.assetml.in:
+	* boards/sounds/it/misc/README:
+	* boards/sounds/it/misc/gcompris_misc_it.assetml.in:
+	* boards/sounds/nl/alphabet/README:
+	* boards/sounds/nl/alphabet/gcompris_alphabet_nl.assetml.in:
+	* boards/sounds/nl/colors/README:
+	* boards/sounds/nl/colors/gcompris_colors_nl.assetml.in:
+	* boards/sounds/nl/geography/README:
+	* boards/sounds/nl/geography/gcompris_geography_nl.assetml.in:
+	* boards/sounds/nl/misc/README:
+	* boards/sounds/nl/misc/gcompris_misc_nl.assetml.in:
+	* boards/sounds/pt/alphabet/README:
+	* boards/sounds/pt/alphabet/gcompris_alphabet_pt.assetml.in:
+	* boards/sounds/pt/colors/README:
+	* boards/sounds/pt/colors/gcompris_colors_pt.assetml.in:
+	* boards/sounds/pt/geography/README:
+	* boards/sounds/pt/geography/gcompris_geography_pt.assetml.in:
+	* boards/sounds/pt/misc/README:
+	* boards/sounds/pt/misc/gcompris_misc_pt.assetml.in:
+	* boards/sounds/ru/alphabet/README:
+	* boards/sounds/ru/alphabet/gcompris_alphabet_ru.assetml.in:
+	* boards/sounds/ru/colors/README:
+	* boards/sounds/ru/colors/gcompris_colors_ru.assetml.in:
+	* boards/sounds/ru/geography/README:
+	* boards/sounds/ru/geography/gcompris_geography_ru.assetml.in:
+	* boards/sounds/ru/misc/README:
+	* boards/sounds/ru/misc/gcompris_misc_ru.assetml.in:
+	* boards/sounds/sv/alphabet/README:
+	* boards/sounds/sv/alphabet/gcompris_alphabet_sv.assetml.in:
+	* boards/sounds/sv/colors/README:
+	* boards/sounds/sv/colors/gcompris_colors_sv.assetml.in:
+	* boards/sounds/sv/geography/README:
+	* boards/sounds/sv/geography/gcompris_geography_sv.assetml.in:
+	* boards/sounds/sv/misc/README:
+	* boards/sounds/sv/misc/gcompris_misc_sv.assetml.in:
+	* configure.in:
+	* docs/C/python.xml:
+	* gcompris.spec.in:
+	* src/boards/click_on_letter.c: (pause_board), (repeat),
+	(sounds_are_fine), (click_on_letter_next_level),
+	(click_on_letter_create_item), (item_event), (highlight_selected),
+	(save_table), (conf_ok), (config_start), (sound_played):
+	* src/boards/colors.c: (conf_ok), (colors_config_start), (repeat):
+	* src/boards/gletters.c: (level_set_score), (unichar_comp),
+	(is_falling_letter), (gletters_destroy_item),
+	(destroy_canvas_item), (gletters_create_item), (save_table),
+	(conf_ok), (gletter_config_start):
+	* src/boards/imageid.c: (add_xml_data), (conf_ok):
+	* src/boards/menu.c:
+	* src/boards/menu2.c: (menu_create_item):
+	* src/boards/py-mod-gcompris.c: (py_gcompris_combo_locales_asset),
+	(py_gcompris_get_locales_asset_list):
+	* src/boards/py-mod-utils.c:
+	* src/boards/python/admin/board_list.py:
+	* src/boards/smallnumbers.c: (smallnumbers_create_item),
+	(smallnumber_config_start):
+	* src/gcompris/Makefile.am:
+	* src/gcompris/assetml.c:
+	* src/gcompris/assetml.h:
+	* src/gcompris/board.c: (board_check_file), (board_play):
+	* src/gcompris/board_config.c: (gcompris_get_locales_list),
+	(gcompris_combo_locales_changed), (gcompris_combo_locales),
+	(gcompris_get_locales_asset_list), (gcompris_combo_locales_asset):
+	* src/gcompris/board_config.h:
+	* src/gcompris/bonus.c: (gcompris_display_bonus):
+	* src/gcompris/config.c: (set_locale_flag):
+	* src/gcompris/gameutil.c: (gcompris_find_absolute_filename):
+	* src/gcompris/gameutil.h:
+	* src/gcompris/gcompris.c: (gcompris_init):
+	* src/gcompris/soundutil.c: (scheduler_bgnd), (scheduler),
+	(thread_play_ogg), (gcompris_play_ogg_cb):
+	* src/gcompris/soundutil.h:
+
 2006-05-05  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	Removed unused sounds (10.ogg and above) from the install because

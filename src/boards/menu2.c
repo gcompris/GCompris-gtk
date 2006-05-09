@@ -1,6 +1,6 @@
 /* gcompris - menu2.c
  *
- * Time-stamp: <2006/04/28 00:51:29 bruno>
+ * Time-stamp: <2006/05/08 02:05:59 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -512,22 +512,12 @@ static void menu_create_item(GnomeCanvasGroup *parent, MenuItems *menuitems, Gco
   if(board->mandatory_sound_file)
     {
       gchar *soundfile = NULL;
-      gchar *soundfilename = NULL;
 
-      if(board->mandatory_sound_dataset) {
-	/* We have to search for an assetml sound */
-	soundfile = gcompris_get_asset_file(board->mandatory_sound_dataset, NULL, NULL, 
-					    board->mandatory_sound_file);
-      } else {
-	/* We search a fixed path sound file */
-	soundfilename = g_strdup_printf("%s/%s", "sounds", 
-				    board->mandatory_sound_file);
-	soundfile = gcompris_find_absolute_filename(soundfilename);
-	g_free(soundfilename);
-	g_warning("Checking mandatory_sound_file %s\n", soundfile);
-      }
+      /* We search a fixed path sound file */
+      soundfile = gcompris_find_absolute_filename(board->mandatory_sound_file);
+      g_warning("Checking mandatory_sound_file %s\n", soundfile);
 
-      if (!g_file_test (soundfile, G_FILE_TEST_EXISTS) || !gcompris_get_properties()->fx) 
+      if (!soundfile || !gcompris_get_properties()->fx) 
 	{
 	  pixmap = gcompris_load_skin_pixmap("voice_bad.png");
 	}

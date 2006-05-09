@@ -86,7 +86,6 @@ libgcomprisincludedir = $(includedir)/libgcompris-1.0/libgcompris
 libgcomprisinclude_HEADERS =			\
 	about.h \
 	anim.h \
-	assetml.h \
 	bonus.h \
 	cursor.h \
 	gameutil.h \
@@ -138,7 +137,6 @@ libgcompris_1_la_SOURCES =			\
 	about.c \
 	log.c \
 	sdlplayer.c \
-	assetml.c \
 	anim.c \
         $(profile_c) \
 	$(cairo_c)

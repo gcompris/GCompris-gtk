@@ -1,6 +1,6 @@
 /* gcompris - gletters.c
  *
- * Time-stamp: <2006/03/19 23:15:02 yves>
+ * Time-stamp: <2006/05/08 19:21:04 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  * 
@@ -20,6 +20,7 @@
  */
 
 #include <ctype.h>
+#include <string.h>
 
 #include "gcompris/gcompris.h"
 
@@ -167,10 +168,11 @@ GET_BPLUGIN_INFO(gletters)
 static void level_set_score() {
   int l;
 
-  g_message("letters_array length for level %d is %d\n",gcomprisBoard->level,
+  g_message("letters_array length for level %d is %ld\n",
+	    gcomprisBoard->level,
 	    g_utf8_strlen(letters_array[gcomprisBoard->level-1],-1));
   l = g_utf8_strlen(letters_array[gcomprisBoard->level-1],-1)/3;
-  gcomprisBoard->number_of_sublevel=(DEFAULT_SUBLEVEL>l?DEFAULT_SUBLEVEL:l);
+  gcomprisBoard->number_of_sublevel = (DEFAULT_SUBLEVEL>l?DEFAULT_SUBLEVEL:l);
 
   gcompris_score_start(SCORESTYLE_NOTE, 
 		       gcomprisBoard->width - 220, 
@@ -366,21 +368,24 @@ static void add_char(char *key, char *value, char *char_list)
   strcat(char_list, key);
 }
 
-gboolean *unichar_comp (gpointer key,
+gboolean unichar_comp(gpointer key,
 		      gpointer value,
 		      gpointer user_data)
 {
   gunichar *target = (gunichar *) user_data;
   if (*((gunichar *)key) == *target)
     return TRUE;
+
   return FALSE;    
 }
 
-gint is_falling_letter(gunichar  unichar) {
+gint is_falling_letter(gunichar  unichar)
+{
   GnomeCanvasItem *item;
-  if (item = g_hash_table_find         (letters_table,
-				       unichar_comp,
-				       &unichar))
+
+  if ((item = g_hash_table_find(letters_table,
+			       unichar_comp,
+				&unichar)))
     {
       player_win(item);
       return TRUE;
@@ -519,7 +524,7 @@ static void gletters_destroy_item(GnomeCanvasItem *item)
   item2del_list = g_list_remove (item2del_list, item);
 
   /* Remove old letter; this destroy the canvas item  */
-  g_warning("destroying %c", key);
+  g_warning("destroying %d", *key);
   g_hash_table_remove (letters_table, key);
 
 }
@@ -573,7 +578,7 @@ static gint gletters_move_items (GtkWidget *widget, gpointer data)
 }
 
 
-GDestroyNotify destroy_canvas_item(gpointer item)
+void destroy_canvas_item(gpointer item)
 {
   //g_free(g_object_get_data (G_OBJECT(item),"unichar_key"));
   //g_free(g_object_get_data (G_OBJECT(item),"utf8_key"));
@@ -583,7 +588,6 @@ GDestroyNotify destroy_canvas_item(gpointer item)
 static GnomeCanvasItem *gletters_create_item(GnomeCanvasGroup *parent)
 {
   GnomeCanvasItem *item;
-  gchar *str2 = NULL;
   gint i,j,k;
   guint x;
   gunichar *lettersItem;
@@ -591,46 +595,55 @@ static GnomeCanvasItem *gletters_create_item(GnomeCanvasGroup *parent)
 
   if (!letters_table)
     {
-      letters_table= g_hash_table_new_full (g_int_hash, g_int_equal, g_free, destroy_canvas_item);
+      letters_table = g_hash_table_new_full (g_int_hash, g_int_equal, g_free, destroy_canvas_item);
     }
 
   /* Beware, since we put the letters in a hash table, we do not allow the same
-     letter to be displayed two times 
-  */
+   * letter to be displayed two times 
+   */
 
   g_warning("dump: %d, %s\n",gcomprisBoard->level,letters_array[gcomprisBoard->level-1]);
 
-  k=g_utf8_strlen(letters_array[gcomprisBoard->level-1],-1);
+  k = g_utf8_strlen(letters_array[gcomprisBoard->level-1],-1);
 
   lettersItem = g_new(gunichar,1);
   gint attempt=0;
-  do {
+  do
+    {
+      attempt++;
+      str_p = letters_array[gcomprisBoard->level-1];
+      i = (int)((float)k*rand()/(RAND_MAX+1.0));
 
-    attempt++;
-    str_p=letters_array[gcomprisBoard->level-1];
-    i=(int)((float)k*rand()/(RAND_MAX+1.0));
+      for(j = 0; j < i; j++)
+	{
+	  str_p=g_utf8_next_char(str_p);
+	}
 
-    for( j = 0; j < i; j++) {
-      str_p=g_utf8_next_char(str_p);
+      *lettersItem = g_utf8_get_char (str_p);
+
+    } while((attempt<MAX_RAND_ATTEMPTS) && (item_find_by_title(lettersItem)!=NULL));
+
+  if (item_find_by_title(lettersItem)!=NULL)
+    {
+      g_free(lettersItem);
+      return NULL;
     }
 
-    *lettersItem = g_utf8_get_char (str_p);
-
-  } while((attempt<MAX_RAND_ATTEMPTS) && (item_find_by_title(lettersItem)!=NULL));
-
-  if (item_find_by_title(lettersItem)!=NULL)  {g_free(lettersItem); return NULL;}
   letter = g_new0(gchar, 6);
   g_unichar_to_utf8 ( *lettersItem, letter);
 
-  gchar *letter_unichar_name= gcompris_alphabet_sound(letter);
-  str2 = gcompris_get_asset_file("gcompris alphabet", NULL, "audio/x-ogg",letter_unichar_name);
-
   if (with_sound)
-    gcompris_play_ogg(str2, NULL);
+    {
+      gchar *str2 = NULL;
+      gchar *letter_unichar_name = gcompris_alphabet_sound(letter);
 
-  g_free(letter_unichar_name);
-  g_free(str2);
+      str2 = g_strdup_printf("sounds/$LOCALE/alphabet/%s", letter_unichar_name);
 
+      gcompris_play_ogg(str2, NULL);
+
+      g_free(letter_unichar_name);
+      g_free(str2);
+    }
 
   item =					\
     gnome_canvas_item_new (parent,
@@ -667,6 +680,8 @@ static GnomeCanvasItem *gletters_create_item(GnomeCanvasGroup *parent)
 
   /* Add letter to hash table of all falling letters. */
   g_hash_table_insert (letters_table, lettersItem, item);
+
+  g_free(letter);
 
   g_warning("done\n");
 
@@ -771,9 +786,9 @@ item_find_by_title (const gunichar *title)
 static GcomprisProfile *profile_conf;
 static GcomprisBoard   *board_conf;
 
-static GHFunc save_table (gpointer key,
-		    gpointer value,
-		    gpointer user_data)
+static void save_table (gpointer key,
+			gpointer value,
+			gpointer user_data)
 {
   gcompris_set_board_conf ( profile_conf,
 			    board_conf,
@@ -781,7 +796,9 @@ static GHFunc save_table (gpointer key,
 			    (gchar *) value);
 }
 
-static GcomprisConfCallback conf_ok(GHashTable *table)
+/* a GcomprisConfCallback
+ */
+static void conf_ok(GHashTable *table)
 {
   if (!table){
     if (gcomprisBoard)
@@ -789,7 +806,7 @@ static GcomprisConfCallback conf_ok(GHashTable *table)
     return;
   }
     
-  g_hash_table_foreach(table, (GHFunc) save_table, NULL);
+  g_hash_table_foreach(table, save_table, NULL);
   
   if (gcomprisBoard){
     gcompris_reset_locale();
@@ -875,7 +892,7 @@ gletter_config_start(GcomprisBoard *agcomprisBoard,
   else
     with_sound = FALSE;
   
-  GtkCheckButton  *sound_control = gcompris_boolean_box("Enable sounds", "with_sound", with_sound);
+  gcompris_boolean_box("Enable sounds", "with_sound", with_sound);
  
   gcompris_separator();
 

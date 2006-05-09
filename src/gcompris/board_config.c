@@ -1,6 +1,6 @@
 /* gcompris - board_config.c
  *
- * Time-stamp: <2006/01/30 08:57:29 yves>
+ * Time-stamp: <2006/05/09 01:02:10 bruno>
  *
  * Copyright (C) 2001 Pascal Georges
  *
@@ -22,7 +22,6 @@
 #include <string.h>
 
 #include "gcompris.h"
-#include "assetml.h"
 
 #define COMBOBOX_COL_MAX 15
 
@@ -521,15 +520,30 @@ GtkHSeparator *gcompris_separator()
 /* L10n                                        */
 /***********************************************/
 
-GList *gcompris_get_locales_list(){
-  gchar *textdomain;
-  GDir *textdomain_dir;
+/** \brief return the list of locales in which GCompris has been translated
+ *         even partialy.
+ *
+ * \note The list is calculated at the first call and must not be freed.
+ *       Uppon next call, the same list is returned.
+ *
+ * \return a list containing the locales we suport
+ */
+GList*
+gcompris_get_locales_list(){
+
+  static GList *gcompris_locales_list = NULL;
+
+  gchar  *textdomain;
+  GDir   *textdomain_dir;
   GError **error = NULL;
+  GList  *locales = NULL;
+
+  if(gcompris_locales_list)
+    return(gcompris_locales_list);
 
   //textdomain = bindtextdomain ("gcompris", NULL);
   textdomain = PACKAGE_LOCALE_DIR;
   
-  GList *locales = NULL;
 
   textdomain_dir = g_dir_open (textdomain, 0, error);
   const gchar *fname;
@@ -552,12 +566,16 @@ GList *gcompris_get_locales_list(){
 
   g_dir_close (textdomain_dir);
 
+  /* Save it for next call */
+  gcompris_locales_list = locales;
+
   return locales;
 }
 
 
-void gcompris_combo_locales_changed(GtkComboBox *combobox,
-			    gpointer key)
+void 
+gcompris_combo_locales_changed(GtkComboBox *combobox,
+			       gpointer key)
 {
   gchar *the_key = g_strdup((gchar *)key);
   gchar *value;
@@ -573,7 +591,8 @@ void gcompris_combo_locales_changed(GtkComboBox *combobox,
 }
 
 /* key = "locale" */
-GtkComboBox *gcompris_combo_locales(gchar *init)
+GtkComboBox*
+gcompris_combo_locales(gchar *init)
 {
 
   GtkWidget *combobox;
@@ -586,9 +605,11 @@ GtkComboBox *gcompris_combo_locales(gchar *init)
 
   strings = g_list_prepend( strings, _("Default"));
 
-  if (init){
-    init_index =  g_list_position ( strings, g_list_find_custom ( strings,(gconstpointer)  init, (GCompareFunc) my_strcmp));
-  }
+  if (init)
+    init_index = g_list_position(strings,
+				 g_list_find_custom(strings,
+						    (gconstpointer) init,
+						    (GCompareFunc) my_strcmp));
 
   if (init_index < 0)
     init_index=0;
@@ -674,36 +695,42 @@ void gcompris_reset_locale(){
 }
 
 
-GList *gcompris_get_locales_asset_list(gchar *dataset, gchar* categories, 
-				       gchar* mimetype, gchar* file){
+/** \brief Search the given file for each locale and returns the locale list
+ *
+ * \param file: the file to search. In order to work, you need to provide a
+ *              filename that includes a $LOCALE in it like:
+ *              sounds/$LOCALE/colors/blue.ogg
+ *
+ * \return a list of locale
+ */
+GList*
+gcompris_get_locales_asset_list(const gchar *filename)
+{
   GList *locales, *list, *locales_asset = NULL;
-
-  GList *gl_result;
-  AssetML *assetml;
+  gchar *abs_filename;
 
   locales = gcompris_get_locales_list();
 
-  for (list = locales; list != NULL; list = list->next){ 
-    gl_result = assetml_get_asset(dataset, categories, mimetype, list->data, file);
+  for (list = locales; list != NULL; list = list->next)
+    { 
 
-    if(gl_result && g_list_length(gl_result)>0)
-      {
+      gcompris_change_locale(list->data);
 
-	/* Always get the first item */
-	assetml = (AssetML *)g_list_nth_data(gl_result, 0);
+      abs_filename = gcompris_find_absolute_filename(filename);
 
-	if(assetml->file)
-	  locales_asset = g_list_append ( locales_asset, list->data);
-
-	assetml_free_assetlist(gl_result);
-      }
-  }
+      if(abs_filename)
+	locales_asset = g_list_append(locales_asset, list->data);
+    }
   
+  gcompris_reset_locale();
+
   return locales_asset;
 }
 
 /* key = "locale_sound" */
-GtkComboBox *gcompris_combo_locales_asset(const gchar *label, gchar *init, gchar *dataset, gchar* categories, gchar* mimetype, gchar *file)
+GtkComboBox *gcompris_combo_locales_asset(const gchar *label,
+					  gchar *init,
+					  const gchar *file)
 {
 
   GtkWidget *combobox;
@@ -712,13 +739,17 @@ GtkComboBox *gcompris_combo_locales_asset(const gchar *label, gchar *init, gchar
   GtkWidget *label_combo;
   gint init_index = 0;
 
-  strings = gcompris_get_locales_asset_list(dataset, categories, mimetype, file);
+  strings = gcompris_get_locales_asset_list(file);
 
   strings = g_list_prepend( strings, _("Default"));
 
-  if (init){
-    init_index =  g_list_position ( strings, g_list_find_custom ( strings,(gconstpointer)  init, (GCompareFunc) my_strcmp));
-  }
+  if (init)
+    {
+      init_index =  g_list_position(strings,
+				    g_list_find_custom(strings,
+						       (gconstpointer)init,
+						       (GCompareFunc) my_strcmp));
+    }
 
   if (init_index < 0)
     init_index=0;

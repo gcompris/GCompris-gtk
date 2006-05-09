@@ -1345,23 +1345,17 @@ py_gcompris_combo_locales_asset(PyObject* self, PyObject* args)
 {
   gchar *init;
   gchar *label;
-  gchar *dataset;
-  gchar* categories;
-  gchar* mimetype;
   gchar *file;
 
   /* Parse arguments */
-  if(!PyArg_ParseTuple(args, "sszzzz:gcompris_combo_locales", 
+  if(!PyArg_ParseTuple(args, "ssz:gcompris_combo_locales", 
 		       &label, 
 		       &init,
-		       &dataset,
-		       &categories,
-		       &mimetype,
 		       &file))
     return NULL;
 
   return (PyObject *)pygobject_new((GObject*) \
-				   gcompris_combo_locales_asset( label, init, dataset, categories, mimetype, file ));
+				   gcompris_combo_locales_asset( label, init, file ));
 }
 
 
@@ -1370,21 +1364,15 @@ py_gcompris_get_locales_asset_list(PyObject* self, PyObject* args)
 {
   PyObject *pylist;
   GList *result, *list ;
-  gchar *dataset;
-  gchar* categories;
-  gchar* mimetype;
   gchar *file;
 
   /* Parse arguments */
-  if(!PyArg_ParseTuple(args, "zzzz:gcompris.get_locales_asset_list",
-		       &dataset,
-		       &categories,
-		       &mimetype,
+  if(!PyArg_ParseTuple(args, "z:gcompris.get_locales_asset_list",
 		       &file))
     return NULL;
 
   /* Call the corresponding C function */
-  result = gcompris_get_locales_asset_list( dataset, categories, mimetype, file);
+  result = gcompris_get_locales_asset_list(file);
 
   pylist = PyList_New(0);
 

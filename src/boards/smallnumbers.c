@@ -1,6 +1,6 @@
 /* gcompris - smallnumbers.c
  *
- * Time-stamp: <2006/03/27 00:54:18 bruno>
+ * Time-stamp: <2006/05/08 23:20:52 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  * 
@@ -358,13 +358,9 @@ static void smallnumbers_create_item(GnomeCanvasGroup *parent)
   GnomeCanvasItem *item;
   GnomeCanvasGroup *group_item;
   guint i;
-  char *lettersItem;
-  gchar *str1 = NULL;
-  gchar *str2 = NULL;
   guint total_number = 0;
   double x = 0.0;
   guint number_of_dice = number_of_dices;
-  gchar *letter;
 
   group_item = GNOME_CANVAS_GROUP(
 				  gnome_canvas_item_new (parent,
@@ -374,8 +370,8 @@ static void smallnumbers_create_item(GnomeCanvasGroup *parent)
 							 NULL));
 
   while(number_of_dice-- > 0) {
-
-    lettersItem = g_malloc (2);
+    gchar *str1 = NULL;
+    gchar *str2 = NULL;
 
     /* Take care not to go above 9 anyway */
     if(total_number==0) {
@@ -386,29 +382,47 @@ static void smallnumbers_create_item(GnomeCanvasGroup *parent)
     }
 
     total_number += i + 1;
-    sprintf(lettersItem, "%c", numbers[i]);
 
-    lettersItem[1] = '\0';
-
-    gunichar *unichar_letterItem;
-
-    unichar_letterItem = g_new(gunichar,1);
-
-    *unichar_letterItem = g_utf8_get_char (lettersItem);
-
-    letter = g_new0(gchar, 6);
-    g_unichar_to_utf8 ( *unichar_letterItem, letter);
-
-    str1 = gcompris_alphabet_sound(letter);
-
-    str2 = gcompris_get_asset_file_locale("gcompris alphabet", NULL, "audio/x-ogg", str1, locale_sound);
+    /*
+     * Play the sound
+     */
 
     if (with_sound)
-      gcompris_play_ogg(str2, NULL);
+      {
+	gunichar *unichar_letterItem;
+	char *lettersItem;
+	gchar *letter;
 
-    g_free(str1);
-    g_free(str2);
+	lettersItem = g_malloc (2);
 
+	sprintf(lettersItem, "%c", numbers[i]);
+	lettersItem[1] = '\0';
+
+	unichar_letterItem = g_new(gunichar,1);
+
+	*unichar_letterItem = g_utf8_get_char (lettersItem);
+
+	letter = g_new0(gchar, 6);
+
+	g_unichar_to_utf8(*unichar_letterItem, letter);
+
+	str1 = gcompris_alphabet_sound(letter);
+
+	g_free(letter);
+	g_free(lettersItem);
+	g_free(unichar_letterItem);
+
+	str2 = g_strdup_printf("sounds/$LOCALE/alphabet/%s", str1);
+
+	gcompris_play_ogg(str2, NULL);
+
+	g_free(str1);
+	g_free(str2);
+      }
+
+    /*
+     * Now the images
+     */
     str1 = g_strdup_printf("level%c.png", numbers[i]);
     str2 = gcompris_image_to_skin(str1);
 
@@ -417,12 +431,15 @@ static void smallnumbers_create_item(GnomeCanvasGroup *parent)
     g_free(str1);
     g_free(str2);
 
-    if(x==0.0) {
-      x = (double)(rand()%(gcomprisBoard->width-
-			   (guint)(gdk_pixbuf_get_width(smallnumbers_pixmap)* imageZoom)*2));
-    } else {
-      x += ((gdk_pixbuf_get_width(smallnumbers_pixmap)-10)*imageZoom);
-    }
+    if(x==0.0)
+      {
+	x = (double)(rand()%(gcomprisBoard->width-
+			     (guint)(gdk_pixbuf_get_width(smallnumbers_pixmap)* imageZoom)*2));
+      }
+    else
+      {
+	x += ((gdk_pixbuf_get_width(smallnumbers_pixmap)-10)*imageZoom);
+      }
 
     item = gnome_canvas_item_new (group_item,
 				  gnome_canvas_pixbuf_get_type (),
@@ -594,7 +611,9 @@ smallnumber_config_start(GcomprisBoard *agcomprisBoard,
 
   GtkCheckButton  *sound_control = gcompris_boolean_box("Enable sounds", "with_sound", with_sound);
   
-  GtkComboBox *sound_box = gcompris_combo_locales_asset( "Select sound locale", saved_locale_sound, "gcompris colors", NULL, "audio/x-ogg", "purple.ogg");
+  GtkComboBox *sound_box = gcompris_combo_locales_asset( "Select sound locale",
+							 saved_locale_sound,
+							 "sounds/$LOCALE/colors/purple.ogg");
 
   gtk_widget_set_sensitive(GTK_WIDGET(sound_box), with_sound);
 

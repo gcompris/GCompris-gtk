@@ -371,12 +371,7 @@ AC_SUBST(CAIRO_CFLAGS)
 AC_SUBST(CAIRO_LIBS)
 
 
-dnl For libassetml
-ASSETML_DIR=assetml
-AC_SUBST(ASSETML_DIR)
-AC_DEFINE_UNQUOTED(ASSETML_DIR, "${myprefix}/${DATADIRNAME}/${ASSETML_DIR}", [Global assetml directory])
-
-dnl assetml version management
+dnl assets version management
 # DA
 VERSION_VOICES_ALPHABET_DA=1.0
 AC_SUBST(VERSION_VOICES_ALPHABET_DA)
@@ -591,73 +586,6 @@ boards/missing_letter/Makefile
 boards/paintings/Makefile
 boards/read_colors/Makefile
 boards/scales/Makefile
-boards/sounds/Makefile
-boards/sounds/da/Makefile
-boards/sounds/da/alphabet/Makefile
-boards/sounds/da/colors/Makefile
-boards/sounds/da/geography/Makefile
-boards/sounds/da/misc/Makefile
-boards/sounds/de/Makefile
-boards/sounds/de/alphabet/Makefile
-boards/sounds/de/colors/Makefile
-boards/sounds/de/geography/Makefile
-boards/sounds/de/misc/Makefile
-boards/sounds/en/Makefile
-boards/sounds/en/alphabet/Makefile
-boards/sounds/en/colors/Makefile
-boards/sounds/en/geography/Makefile
-boards/sounds/en/misc/Makefile
-boards/sounds/es/Makefile
-boards/sounds/es/alphabet/Makefile
-boards/sounds/es/colors/Makefile
-boards/sounds/es/geography/Makefile
-boards/sounds/es/misc/Makefile
-boards/sounds/eu/Makefile
-boards/sounds/eu/alphabet/Makefile
-boards/sounds/eu/colors/Makefile
-boards/sounds/eu/geography/Makefile
-boards/sounds/eu/misc/Makefile
-boards/sounds/fi/Makefile
-boards/sounds/fi/alphabet/Makefile
-boards/sounds/fi/colors/Makefile
-boards/sounds/fi/geography/Makefile
-boards/sounds/fi/misc/Makefile
-boards/sounds/fr/Makefile
-boards/sounds/fr/alphabet/Makefile
-boards/sounds/fr/colors/Makefile
-boards/sounds/fr/france_region/Makefile
-boards/sounds/fr/geography/Makefile
-boards/sounds/fr/misc/Makefile
-boards/sounds/hu/Makefile
-boards/sounds/hu/alphabet/Makefile
-boards/sounds/hu/colors/Makefile
-boards/sounds/hu/geography/Makefile
-boards/sounds/hu/misc/Makefile
-boards/sounds/it/Makefile
-boards/sounds/it/alphabet/Makefile
-boards/sounds/it/colors/Makefile
-boards/sounds/it/geography/Makefile
-boards/sounds/it/misc/Makefile
-boards/sounds/nl/Makefile
-boards/sounds/nl/alphabet/Makefile
-boards/sounds/nl/colors/Makefile
-boards/sounds/nl/geography/Makefile
-boards/sounds/nl/misc/Makefile
-boards/sounds/pt/Makefile
-boards/sounds/pt/alphabet/Makefile
-boards/sounds/pt/colors/Makefile
-boards/sounds/pt/geography/Makefile
-boards/sounds/pt/misc/Makefile
-boards/sounds/ru/Makefile
-boards/sounds/ru/alphabet/Makefile
-boards/sounds/ru/colors/Makefile
-boards/sounds/ru/geography/Makefile
-boards/sounds/ru/misc/Makefile
-boards/sounds/sv/Makefile
-boards/sounds/sv/alphabet/Makefile
-boards/sounds/sv/colors/Makefile
-boards/sounds/sv/geography/Makefile
-boards/sounds/sv/misc/Makefile
 ])
 
 echo ""

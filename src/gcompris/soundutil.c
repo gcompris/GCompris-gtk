@@ -48,13 +48,11 @@ static guint	 sound_init = 0;
 /* Forward function declarations */
 GThread		*thread_scheduler, *thread_scheduler_bgnd;
 
-static void	*thread_play_ogg (char *file);
+static void	*thread_play_ogg (gchar *file);
 static char	*get_next_sound_to_play( );
 
 static gpointer  scheduler (gpointer user_data);
 static gpointer  scheduler_bgnd (gpointer user_data);
-
-extern int	 ogg123(char * sound);
 
 /* sound control */
 GObject *gcompris_sound_controller = NULL;
@@ -218,7 +216,7 @@ static gpointer scheduler_bgnd (gpointer user_data)
 	  /*	  display_ogg_file_credits((char *)g_list_nth_data(musiclist, i)); */
 	  //	  if(decode_ogg_file((char *)g_list_nth_data(musiclist, i))!=0)
 	  if(sdlplayer_bg((char *)g_list_nth_data(musiclist, i), 128)!=0){
-	    printf("vire de sound_ng\n");
+	    g_warning("Stopping music, sdlplayer_bg failed");
 	    goto exit;
 	  }
 	  g_mutex_lock( lock_bg );
@@ -248,6 +246,7 @@ static gpointer scheduler (gpointer user_data)
       if ( ( sound = get_next_sound_to_play( ) ) != NULL )
 	{
 	  thread_play_ogg(sound);
+	  g_free(sound);
 	  is_playing = FALSE;
 	}
       else
@@ -262,52 +261,27 @@ static gpointer scheduler (gpointer user_data)
 /* =====================================================================
  * Thread function for playing a single file
  ======================================================================*/
-static void* thread_play_ogg (char *file)
+static void* thread_play_ogg (gchar *file)
 {
-  gchar *tmpstr;
-  gchar *file_arg = g_strdup(file);
+  gchar *absolute_file;
 
-  g_warning(" thread_play_ogg %s \n", file);
+  g_warning("  Thread_play_ogg %s", file);
 
-  if (!g_file_test (file, G_FILE_TEST_IS_REGULAR)) {
-    gchar *relative_filename;
+  absolute_file = gcompris_find_absolute_filename(file);
 
-    relative_filename = g_strdup_printf("music/%s.ogg", file);
-    tmpstr = gcompris_find_absolute_filename(relative_filename);
-    g_free(relative_filename);
-    if (!tmpstr){
-      /* Try to find a sound file that does not need to be localized 
-	 (ie directly in root /sounds directory) */
-      relative_filename = g_strdup_printf("sounds/%s.ogg", file);
-      tmpstr = gcompris_find_absolute_filename(relative_filename);
-      g_free(relative_filename);
-      if (!tmpstr){
-	tmpstr = gcompris_find_absolute_filename(file);
-	if (!tmpstr){
-	  g_warning("Can't find sound %s", file);
-	  if (sound_callbacks)
-	    g_hash_table_remove (sound_callbacks, file);
-	  return NULL;
-	}
-      }
-    }
+  if (!absolute_file)
+    return NULL;
 
-    g_free( file );
-    file = tmpstr;
-  }
-
-  if ( file )
-    {
-      g_warning("Calling gcompris internal sdlplayer_file(%s)\n", file);
-      sdlplayer(file, 128);
-      g_signal_emit (gcompris_sound_controller,
-		     GCOMPRIS_SOUND_GET_CLASS (gcompris_sound_controller)->sound_played_signal_id,
-		     0 /* details */,
-		     file_arg);
-      g_warning("sdlplayer_file(%s) ended.\n", file);
-      g_free( file );
-    }
+  g_warning("   Calling gcompris internal sdlplayer_file (%s)", absolute_file);
+  sdlplayer(absolute_file, 128);
+  g_signal_emit (gcompris_sound_controller,
+		 GCOMPRIS_SOUND_GET_CLASS (gcompris_sound_controller)->sound_played_signal_id,
+		 0 /* details */,
+		 g_strdup(file));
+  g_warning("  sdlplayer_file(%s) ended.", absolute_file);
   
+  g_free(absolute_file);
+
   return NULL;
 }
 
@@ -337,7 +311,8 @@ char* get_next_sound_to_play( )
  * gcompris_play_ogg function to process the sounds.
  ======================================================================*/
 
-void	 gcompris_play_ogg_cb(const gchar *file, GcomprisSoundCallback cb)
+void
+gcompris_play_ogg_cb(const gchar *file, GcomprisSoundCallback cb)
 {
 
   g_assert ( cb != NULL);

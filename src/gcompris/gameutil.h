@@ -72,18 +72,6 @@ GnomeCanvasGroup *gcompris_display_difficulty_stars(GnomeCanvasGroup *parent, do
 						    double ratio,
 						    int difficulty);
 
-/*! \fn GdkPixbuf	*gcompris_load_pixmap_asset(gchar *dataset, gchar* categories, gchar* name)
-    \brief Returns a pixmap from the assetml base. 
-    \warning If there is more than one answer, the first pixmap is returned
-
-    \param dataset The assetml dataset
-    \param categories The category filter
-    \param mimetype The mimetype for the asset to search
-    \param name The name filter
-*/
-GdkPixbuf	*gcompris_load_pixmap_asset(gchar *dataset, gchar* categories, 
-					    gchar* mimetype, gchar* name);
-
 /*! \fn gchar	*gcompris_get_asset_file(gchar *dataset, gchar* categories, gchar* name)
     \brief Returns a filename path found from the assetml base. 
     \warning If there is more than one answer, the first asset found is returned
@@ -97,7 +85,7 @@ gchar		*gcompris_get_asset_file(gchar *dataset, gchar* categories,
 					 gchar* mimetype, gchar* file);
 
 gchar		*gcompris_get_asset_file_locale(gchar *dataset, gchar* categories, 
-					 gchar* mimetype, gchar* file, gchar *locale);
+						gchar* mimetype, gchar* file, gchar *locale);
 
 /*! \fn void		 gcompris_clone_item(GnomeCanvasItem *item, GnomeCanvasGroup *parent)
     \brief recursive c func to clone GnomeCanvasItem
@@ -107,8 +95,8 @@ gchar		*gcompris_get_asset_file_locale(gchar *dataset, gchar* categories,
 */
 void		 gcompris_clone_item(GnomeCanvasItem *item, GnomeCanvasGroup *parent);
 
-/* find the complete filename looking for the file everywhere */
-gchar *gcompris_find_absolute_filename(gchar *filename);
+/* find the complete filename looking for the file everywhere (printf formatting supported) */
+gchar *gcompris_find_absolute_filename(const gchar *filename, ...);
 
 /** Select only files with .xml extention */
 int selectMenuXML(const gchar *file);

@@ -209,7 +209,7 @@ void gcompris_display_bonus(BonusStatusList gamewon, BonusList bonus_id)
   if(gamewon == BOARD_WIN || gamewon == BOARD_DRAW) {
     gcompris_play_ogg(greetingsList[RAND(0, NUMBER_OF_GREETINGS-1)], NULL);
   } else {
-    gcompris_play_ogg ("crash", NULL);
+    gcompris_play_ogg("sounds/crash.ogg", NULL);
   }
 
   /* First pause the board */

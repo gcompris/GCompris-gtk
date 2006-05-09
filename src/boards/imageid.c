@@ -22,6 +22,7 @@
 #include <ctype.h>
 #include <math.h>
 #include <assert.h>
+#include <string.h>
 
 #include "gcompris/gcompris.h"
 
@@ -575,7 +576,7 @@ static void add_xml_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child)
   xmlnode = xmlnode->next;
 
   while (xmlnode != NULL) {
-  	gchar *lang = xmlGetProp(xmlnode,"lang");
+        gchar *lang = (gchar *)xmlGetProp(xmlnode, BAD_CAST "lang");
 	if (!strcmp(xmlnode->name, "pixmapfile") && (lang==NULL
 	    || !strcmp(lang, gcompris_get_locale())
 	    || !strncmp(lang, gcompris_get_locale(), 2)))
@@ -712,7 +713,7 @@ static GcomprisConfCallback conf_ok(GHashTable *table)
   if (!table){
     if (gcomprisBoard)
       pause_board(FALSE);
-    return;
+    return NULL;
   }
     
   g_hash_table_foreach(table, (GHFunc) save_table, NULL);
@@ -744,6 +745,7 @@ static GcomprisConfCallback conf_ok(GHashTable *table)
   board_conf = NULL;
   profile_conf = NULL;
 
+  return NULL;
 }
 
 static void

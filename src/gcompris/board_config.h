@@ -1,6 +1,6 @@
 /* gcompris - board_config.h
  *
- * Time-stamp: <2005/08/23 23:28:51 yves>
+ * Time-stamp: <2006/05/08 23:15:02 bruno>
  *
  * Copyright (C) 2001 Pascal Georges
  *
@@ -72,10 +72,10 @@ void gcompris_change_locale(gchar *locale);
 
 void gcompris_reset_locale();
 
-GList *gcompris_get_locales_asset_list(gchar *dataset, gchar* categories, 
-				       gchar* mimetype, gchar* file);
+GList *gcompris_get_locales_asset_list(const gchar *file);
 
-GtkComboBox *gcompris_combo_locales_asset(const gchar *label, gchar *init, gchar *dataset, gchar* categories, gchar* mimetype, gchar *file);
+GtkComboBox *gcompris_combo_locales_asset(const gchar *label, gchar *init,
+					  const gchar *file);
 #endif
 
 /***********************************/

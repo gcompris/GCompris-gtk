@@ -120,7 +120,8 @@ static GHFunc save_table (gpointer key,
 			    (gchar *) value);
 }
 
-static GcomprisConfCallback conf_ok(GHashTable *table)
+static void
+conf_ok(GHashTable *table)
 {
   if (!table){
     if (gcomprisBoard)
@@ -151,8 +152,7 @@ static GcomprisConfCallback conf_ok(GHashTable *table)
   
   }
   board_conf = NULL;
-  profile_conf = NULL;
-  
+  profile_conf = NULL;  
 }
 
 static gboolean check_text(gchar *key, gchar *text, GtkLabel *label){
@@ -170,14 +170,13 @@ colors_config_start(GcomprisBoard *agcomprisBoard,
 
   gchar *label;
 
-
   if (gcomprisBoard)
     pause_board(TRUE);
   
   label = g_strdup_printf("<b>%s</b> configuration\n for profile <b>%s</b>",
 			  agcomprisBoard->name, aProfile ? aProfile->name : "");
 
-  gcompris_configuration_window(label, (GcomprisConfCallback )conf_ok);
+  gcompris_configuration_window(label, conf_ok);
 
   g_free(label);
 
@@ -186,7 +185,8 @@ colors_config_start(GcomprisBoard *agcomprisBoard,
 
   gchar *saved_locale_sound = g_hash_table_lookup( config, "locale_sound");
   
-  gcompris_combo_locales_asset( "Select sound locale", saved_locale_sound, "gcompris colors", NULL, "audio/x-ogg", "purple.ogg");
+  gcompris_combo_locales_asset( "Select sound locale", saved_locale_sound,
+				"sounds/$LOCALE/colors/purple.ogg");
 
   g_hash_table_destroy(config);
 
@@ -312,18 +312,16 @@ static void repeat (){
   if(gcomprisBoard!=NULL)
     {
       char *str  = NULL;
-      char *str1 = NULL;
-      char *str2 = NULL;
-      GcomprisProperties	*properties = gcompris_get_properties();
+      GcomprisProperties *properties = gcompris_get_properties();
 
-      str1 = g_strdup_printf("%s%s", colors[GPOINTER_TO_INT(g_list_nth_data(listColors, 0))*2],
-			     ".ogg");
-      str2 = gcompris_get_asset_file_locale("gcompris colors", NULL, "audio/x-ogg", str1, locale_sound);
+      str = g_strdup_printf("sounds/$LOCALE/colors/%s.ogg",
+			    colors[GPOINTER_TO_INT(g_list_nth_data(listColors, 0))*2]);
 
       /* If we don't find a sound in our locale or the sounds are disabled */
-      if(str2 && properties->fx) {
-	gcompris_play_ogg(str2, NULL);
-      }
+      if(str && properties->fx)
+	{
+	  gcompris_play_ogg(str, NULL);
+	}
       else
 	{
 	  str = g_strdup_printf(gettext(colors[GPOINTER_TO_INT(g_list_nth_data(listColors, 0))*2+1]));
@@ -347,16 +345,9 @@ static void repeat (){
 				 "anchor", GTK_ANCHOR_CENTER,
 				 "fill_color", "blue",
 				 NULL);
-	  
-	  
-	  g_free(str);
 	}
-      
 
-
-      g_free(str1);
-      g_free(str2);
-
+      g_free(str);
     }
 }
 /* =====================================================================

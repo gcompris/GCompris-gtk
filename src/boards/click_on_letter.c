@@ -45,7 +45,7 @@ static void		 highlight_selected(GnomeCanvasItem *);
 static void		 game_won(void);
 static void		 repeat(void);
 static void		 config_start(GcomprisBoard *agcomprisBoard,
-					     GcomprisProfile *aProfile);
+				      GcomprisProfile *aProfile);
 static void		 config_stop(void);
 
 
@@ -122,7 +122,7 @@ GET_BPLUGIN_INFO(click_on_letter)
  * in : boolean TRUE = PAUSE : FALSE = CONTINUE
  *
  */
-static void pause_board (gboolean pause)
+     static void pause_board (gboolean pause)
 {
   if(gcomprisBoard==NULL)
     return;
@@ -233,84 +233,79 @@ static gboolean is_our_board (GcomprisBoard *gcomprisBoard)
 /* ======================================= */
 static void repeat ()
 {
-   if(gcomprisBoard!=NULL)
+  if(gcomprisBoard!=NULL)
     {
-
       gchar *str1 = NULL;
       gchar *right_letter_ogg = NULL;
 
-      right_letter_ogg = gcompris_alphabet_sound(right_letter);
-      str1 = gcompris_get_asset_file("gcompris alphabet", NULL, "audio/x-ogg", right_letter_ogg);
+      str1 = gcompris_alphabet_sound(right_letter);
 
-      if(str1) {
-	gcompris_play_ogg_cb(str1, sound_played);
+      right_letter_ogg = g_strdup_printf("sounds/$LOCALE/alphabet/%s", str1);
+      g_free(str1);
+
+      if(right_letter_ogg) {
+	gcompris_play_ogg_cb(right_letter_ogg, sound_played);
       }
 
-      g_free(str1);
       g_free(right_letter_ogg);
     }
 }
 
 static gboolean sounds_are_fine()
 {
-  char *str1 = NULL;
-  char *str2 = NULL;
+  char *letter_str;
+  char *str1;
+  char *str2;
   GcomprisProperties	*properties = gcompris_get_properties();
-  gchar *locale = NULL;
 
-  if(!properties->fx) {
-    gcompris_dialog(_("Error: this activity cannot be played with the\nsound effects disabled.\nGo to the configuration dialog to\nenable the sound"), board_stop);
-    return(NOT_OK);
-  }
+  if(!properties->fx)
+    {
+      gcompris_dialog(_("Error: this activity cannot be played with the\nsound effects disabled.\nGo to the configuration dialog to\nenable the sound"), board_stop);
+      return(NOT_OK);
+    }
 
   /* TRANSLATORS: Put here the alphabet in your language */
   alphabet=_("abcdefghijklmnopqrstuvwxyz");
-  assert(g_utf8_validate(alphabet,-1,NULL)); // require by all utf8-functions
+  assert(g_utf8_validate(alphabet, -1, NULL)); // require by all utf8-functions
   
   gchar *letter = g_new0(gchar, 8);
-  g_unichar_to_utf8 ( g_utf8_get_char (alphabet), letter);
-
-  str1 = gcompris_alphabet_sound(letter);
+  g_unichar_to_utf8(g_utf8_get_char(alphabet), letter);
+  letter_str = gcompris_alphabet_sound(letter);
   g_free(letter);
-  str2 = gcompris_get_asset_file("gcompris alphabet", NULL, "audio/x-ogg", str1);
-  g_free(str1);
+
+  str2 = gcompris_find_absolute_filename("sounds/$LOCALE/alphabet/%s", letter_str);
   
-  if (!str2) {
-    locale = g_strndup(gcompris_get_locale(), 2);
-    gcompris_reset_locale();
-    gcompris_change_locale("en_US");
+  if (!str2)
+    {
+      gchar *locale = NULL;
 
-    /* TRANSLATORS: Put here the alphabet in your language */
-    alphabet=_("abcdefghijklmnopqrstuvwxyz");
-    assert(g_utf8_validate(alphabet,-1,NULL)); // require by all utf8-functions
-    
-    gchar *letter = g_new0(gchar, 8);
-    g_unichar_to_utf8 ( g_utf8_get_char (alphabet), letter);
+      locale = g_strndup(gcompris_get_locale(), 2);
+      gcompris_reset_locale();
+      gcompris_change_locale("en_US");
 
-    str1 = gcompris_alphabet_sound(letter);
-    g_free(letter);
-    str2 = gcompris_get_asset_file("gcompris alphabet", NULL, "audio/x-ogg", str1);
-    g_free(str1);
+      str2 = gcompris_find_absolute_filename("sounds/en/alphabet/%s", letter_str);
 
-    if (!str2)
-      {
-	gchar *msg = g_strdup_printf( _("Error: this activity requires that you first install\nthe packages assetml-voices-alphabet-%s or %s"),
-				      locale, "en");
-	gcompris_dialog(msg, board_stop);
-	g_free(msg);
-	return (NOT_OK);
-      }
-    else
-      {
-	gchar *msg = g_strdup_printf( _("Error: this activity requires that you first install\nthe packages assetml-voices-alphabet-%s ! Fallback to english, sorry!"), locale);
-	gcompris_dialog(msg, click_on_letter_next_level);
-	g_free(msg);
-	g_free(str2);
-	return(OK_NO_INIT);
-      }
-  }
-
-  g_free(str2);
+      if (!str2)
+	{
+	  gchar *msg = g_strdup_printf( _("Error: this activity requires that you first install\nthe packages assetml-voices-alphabet-%s or %s"),
+					locale, "en");
+	  gcompris_dialog(msg, board_stop);
+	  g_free(msg);
+	  return (NOT_OK);
+	}
+      else
+	{
+	  gchar *msg = g_strdup_printf( _("Error: this activity requires that you first install\nthe packages assetml-voices-alphabet-%s ! Fallback to english, sorry!"), locale);
+	  gcompris_dialog(msg, click_on_letter_next_level);
+	  g_free(msg);
+	  g_free(str2);
+	  return(OK_NO_INIT);
+	}
+    }
+  else
+    {
+      g_free(str2);
+    }
 
   return(OK);
 }
@@ -318,7 +313,8 @@ static gboolean sounds_are_fine()
 /*-------------------------------------------------------------------------------*/
 /*-------------------------------------------------------------------------------*/
 /* set initial values for the next level */
-static void click_on_letter_next_level()
+static void
+click_on_letter_next_level()
 {
   /* It must be set it for the warning dialogs */
   gcompris_bar_set(GCOMPRIS_BAR_CONFIG|GCOMPRIS_BAR_LEVEL|GCOMPRIS_BAR_REPEAT);
@@ -360,40 +356,37 @@ static GnomeCanvasItem *click_on_letter_create_item(GnomeCanvasGroup *parent)
   assert(number_of_letters<=length_of_aphabet); // because we must set unique letter on every "vagon"
 
   for (i=0;i<number_of_letters;i++){
-	numbers[i]=((int)(((float)length_of_aphabet)*rand()/(RAND_MAX+1.0)));
+    numbers[i]=((int)(((float)length_of_aphabet)*rand()/(RAND_MAX+1.0)));
 
-	// check that the letter has not been taken yet	
-	for(j=0;j<i;j++){
-		if (numbers[i]==numbers[j]) {
-			i--;
-			continue;
-		}
-	}
+    // check that the letter has not been taken yet	
+    for(j=0;j<i;j++){
+      if (numbers[i]==numbers[j]) {
+	i--;
+	continue;
+      }
+    }
 
   }
 
-
-
-
   for (i=0;i<number_of_letters;i++){
-   gchar *copy_from=g_utf8_offset_to_pointer(alphabet, numbers[i]);
-   gchar *copy_to=g_utf8_offset_to_pointer(alphabet, numbers[i]+1);
-   letters[i]=g_strndup(copy_from,copy_to-copy_from);
+    gchar *copy_from=g_utf8_offset_to_pointer(alphabet, numbers[i]);
+    gchar *copy_to=g_utf8_offset_to_pointer(alphabet, numbers[i]+1);
+    letters[i]=g_strndup(copy_from,copy_to-copy_from);
 
-   if (uppercase_only)
-     letters[i]=g_utf8_strup(copy_from,copy_to-copy_from);
-   else {
-     switch (gcomprisBoard->level) {
-        case 1	:
-        case 2  : letters[i]=g_strndup(copy_from,copy_to-copy_from); break;
-        case 3  : letters[i]=g_utf8_strup(copy_from,copy_to-copy_from); break;
-	default : 
-	  if ( rand() > (RAND_MAX/2) ) 
-	    letters[i]=g_strndup(copy_from,copy_to-copy_from);
-	  else 
-	    letters[i]=g_utf8_strup(copy_from,copy_to-copy_from);
-     }
-   }
+    if (uppercase_only)
+      letters[i]=g_utf8_strup(copy_from,copy_to-copy_from);
+    else {
+      switch (gcomprisBoard->level) {
+      case 1	:
+      case 2  : letters[i]=g_strndup(copy_from,copy_to-copy_from); break;
+      case 3  : letters[i]=g_utf8_strup(copy_from,copy_to-copy_from); break;
+      default : 
+	if ( rand() > (RAND_MAX/2) ) 
+	  letters[i]=g_strndup(copy_from,copy_to-copy_from);
+	else 
+	  letters[i]=g_utf8_strup(copy_from,copy_to-copy_from);
+      }
+    }
   }
 
   /*  */
@@ -501,7 +494,7 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
       } else {
 	gamewon = FALSE;
       }
-     highlight_selected(item);
+      highlight_selected(item);
       process_ok();
       break;
 
@@ -520,26 +513,26 @@ static void highlight_selected(GnomeCanvasItem * item) {
   /* Replace text item by button item */
   button = item;
   for (i=0; i<number_of_letters;i++) {
-     if ( l_items[i] == item ) {
-	button = buttons[i];
-     }
+    if ( l_items[i] == item ) {
+      button = buttons[i];
+    }
   }
 
   if (selected_button != NULL && selected_button != button) {
-  	button_pixmap = gcompris_load_pixmap("images/wagon-yellow.png");
-	/* Warning changing the image needs to update pixbuf_ref for the focus usage */
-	g_object_set_data (G_OBJECT (selected_button), "pixbuf_ref", button_pixmap);
-  	gnome_canvas_item_set(selected_button, "pixbuf", button_pixmap, NULL);
-  	gdk_pixbuf_unref(button_pixmap);
+    button_pixmap = gcompris_load_pixmap("images/wagon-yellow.png");
+    /* Warning changing the image needs to update pixbuf_ref for the focus usage */
+    g_object_set_data (G_OBJECT (selected_button), "pixbuf_ref", button_pixmap);
+    gnome_canvas_item_set(selected_button, "pixbuf", button_pixmap, NULL);
+    gdk_pixbuf_unref(button_pixmap);
   }
 
   if (selected_button != button) {
-  	button_pixmap_selected = gcompris_load_pixmap("images/wagon-green.png");
-	/* Warning changing the image needs to update pixbuf_ref for the focus usage */
-	g_object_set_data (G_OBJECT (button), "pixbuf_ref", button_pixmap_selected);
-  	gnome_canvas_item_set(button, "pixbuf", button_pixmap_selected, NULL);
-  	selected_button = button;
-  	gdk_pixbuf_unref(button_pixmap_selected);
+    button_pixmap_selected = gcompris_load_pixmap("images/wagon-green.png");
+    /* Warning changing the image needs to update pixbuf_ref for the focus usage */
+    g_object_set_data (G_OBJECT (button), "pixbuf_ref", button_pixmap_selected);
+    gnome_canvas_item_set(button, "pixbuf", button_pixmap_selected, NULL);
+    selected_button = button;
+    gdk_pixbuf_unref(button_pixmap_selected);
   }
 
 }
@@ -558,8 +551,8 @@ static GcomprisProfile *profile_conf;
 static GcomprisBoard   *board_conf;
 
 static GHFunc save_table (gpointer key,
-		    gpointer value,
-		    gpointer user_data)
+			  gpointer value,
+			  gpointer user_data)
 {
   gcompris_set_board_conf ( profile_conf,
 			    board_conf,
@@ -569,7 +562,8 @@ static GHFunc save_table (gpointer key,
   return NULL;
 }
 
-static void conf_ok(GHashTable *table)
+static void 
+conf_ok(GHashTable *table)
 {
   if (!table){
     if (gcomprisBoard)
@@ -621,7 +615,7 @@ static void conf_ok(GHashTable *table)
 
 static void
 config_start(GcomprisBoard *agcomprisBoard,
-		    GcomprisProfile *aProfile)
+	     GcomprisProfile *aProfile)
 {
   board_conf = agcomprisBoard;
   profile_conf = aProfile;
@@ -633,22 +627,18 @@ config_start(GcomprisBoard *agcomprisBoard,
 				 agcomprisBoard->name, 
 				 aProfile ? aProfile->name : "");
 
-  gcompris_configuration_window( label, 
-				 (GcomprisConfCallback )conf_ok);
+  gcompris_configuration_window(label, conf_ok);
   
   g_free(label);
 
   /* init the combo to previously saved value */
   GHashTable *config = gcompris_get_conf( profile_conf, board_conf);
 
-  gchar *locale = g_hash_table_lookup( config, "locale");
-  
-  gcompris_combo_locales( locale);
+  gchar *saved_locale_sound = g_hash_table_lookup( config, "locale_sound");
 
-  //gcompris_separator();
+  gcompris_combo_locales_asset( "Select sound locale", saved_locale_sound,
+				"sounds/$LOCALE/colors/purple.ogg");
  
-  //gcompris_combo_locales_asset( "Select sound locale", locale_sound, "gcompris colors", NULL, "audio/x-ogg", "purple.ogg");
-
   gboolean up_init = FALSE;
 
   gchar *up_init_str = g_hash_table_lookup( config, "uppercase_only");
@@ -660,7 +650,7 @@ config_start(GcomprisBoard *agcomprisBoard,
 		       "uppercase_only",
 		       up_init);
 
-
+  g_hash_table_destroy(config);
 }
 
   
@@ -675,5 +665,5 @@ config_stop()
 static void
 sound_played (gchar *file)
 {
-        g_warning ("Sound_played %s\n", file);
+  g_warning ("Sound_played %s\n", file);
 }

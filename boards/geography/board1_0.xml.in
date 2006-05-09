@@ -4,22 +4,22 @@
   <Title x="600" y="495" justification="GTK_JUSTIFY_CENTER">
     <_name>Continents</_name>
   </Title>
-  <Shape name="A" pixmapfile="geography/continents/africa.png" x="433" y="318" zoomx="1" zoomy="1" position="0" sound="geography/africa">
+  <Shape name="A" pixmapfile="geography/continents/africa.png" x="433" y="318" zoomx="1" zoomy="1" position="0" sound="sounds/$LOCALE/geography/africa.ogg">
         <_tooltip>Africa</_tooltip>
   </Shape>
-  <Shape name="B" pixmapfile="geography/continents/america.png" x="232" y="251" zoomx="1" zoomy="1" position="0" sound="geography/america">
+  <Shape name="B" pixmapfile="geography/continents/america.png" x="232" y="251" zoomx="1" zoomy="1" position="0" sound="sounds/$LOCALE/geography/america.ogg">
         <_tooltip>America</_tooltip>
   </Shape>
-  <Shape name="D" pixmapfile="geography/continents/antartica.png" x="370" y="465" zoomx="1" zoomy="1" position="0" sound="geography/antartica">
+  <Shape name="D" pixmapfile="geography/continents/antartica.png" x="370" y="465" zoomx="1" zoomy="1" position="0" sound="sounds/$LOCALE/geography/antartica.ogg">
         <_tooltip>Antartica</_tooltip>
   </Shape>
-  <Shape name="C" pixmapfile="geography/continents/asia.png" x="595" y="211" zoomx="1" zoomy="1" position="0" sound="geography/asia">
+  <Shape name="C" pixmapfile="geography/continents/asia.png" x="595" y="211" zoomx="1" zoomy="1" position="0" sound="sounds/$LOCALE/geography/asia.ogg">
         <_tooltip>Asia</_tooltip>
   </Shape>
-    <Shape name="E" pixmapfile="geography/continents/europa.png" x="430" y="156" zoomx="1" zoomy="1" position="0" sound="geography/europe">
+    <Shape name="E" pixmapfile="geography/continents/europa.png" x="430" y="156" zoomx="1" zoomy="1" position="0" sound="sounds/$LOCALE/geography/europe.ogg">
         <_tooltip>Europe</_tooltip>
   </Shape>
-  <Shape name="F" pixmapfile="geography/continents/oceania.png" x="695" y="398" zoomx="1" zoomy="1" position="0" sound="geography/oceania">
+  <Shape name="F" pixmapfile="geography/continents/oceania.png" x="695" y="398" zoomx="1" zoomy="1" position="0" sound="sounds/$LOCALE/geography/oceania.ogg">
         <_tooltip>Oceania</_tooltip>
   </Shape>
   <Shape name="1" pixmapfile="geography/continents/back.png" type="SHAPE_BACKGROUND"

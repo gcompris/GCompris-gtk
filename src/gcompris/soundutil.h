@@ -92,7 +92,7 @@ struct _GcomprisSoundClass {
 	GObjectClass parent;
         
         guint sound_played_signal_id;
-        void (*sound_played) (GcomprisSound *self, gchar *file);
+        void (*sound_played) (GcomprisSound *self, gchar *file, gpointer user_data);
 };
 
 /* used by MAMAN_TYPE_FILE */

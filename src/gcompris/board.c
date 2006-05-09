@@ -263,7 +263,6 @@ gboolean board_check_file(GcomprisBoard *gcomprisBoard)
 #else
 gboolean board_check_file(GcomprisBoard *gcomprisBoard)
 {
-  BoardPlugin *bp;
   GModule     *gmodule = NULL;
   gchar       *gmodule_file = NULL;
   BoardPlugin *(*plugin_get_bplugin_info) (void) = NULL;
@@ -281,7 +280,7 @@ gboolean board_check_file(GcomprisBoard *gcomprisBoard)
     gchar *type = g_strdup(gcomprisBoard->type);
 
     /* Manage the python case where : is use to separate python plugin and boards */
-    if(sep = strchr(type, ':'))
+    if((sep = strchr(type, ':')))
       *sep ='\0';
 
     gmodule_file = g_module_build_path (plugin_paths[i++], type);
@@ -342,7 +341,6 @@ gboolean board_check_file(GcomprisBoard *gcomprisBoard)
 void board_play(GcomprisBoard *gcomprisBoard)
 {
   BoardPlugin *bp;
-  GModule     *gmodule = NULL;
 
   g_assert(gcomprisBoard!=NULL);
 
