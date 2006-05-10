@@ -1,6 +1,6 @@
 /* gcompris - board_config.c
  *
- * Time-stamp: <2006/05/09 23:57:57 bruno>
+ * Time-stamp: <2006/05/10 02:08:51 bruno>
  *
  * Copyright (C) 2001 Pascal Georges
  *
@@ -552,7 +552,7 @@ gcompris_get_locales_list(){
   gchar *fname_abs;
   gchar *catalog;
   
-  while (fname = g_dir_read_name(textdomain_dir)) {
+  while ((fname = g_dir_read_name(textdomain_dir))) {
     fname_abs = g_strdup_printf("%s/%s",textdomain, fname);
     if (!g_file_test(fname_abs, G_FILE_TEST_IS_DIR))
       continue;
@@ -715,14 +715,35 @@ gcompris_get_locales_asset_list(const gchar *filename)
 
   for (list = locales; list != NULL; list = list->next)
     { 
+      gchar **tmp;
 
-      gcompris_change_locale(list->data);
+      /* Check there is a $LOCALE to replace */
+      if((tmp = g_strsplit(filename, "$LOCALE", -1)))
+	{
+	  gchar locale[6];
+	  gchar *filename2;
 
-      abs_filename = gcompris_find_absolute_filename(filename);
+	  /* try with the locale */
+	  g_strlcpy(locale, list->data, sizeof(locale));
+	  filename2 = g_strjoinv(locale, tmp);
+	  g_warning("trying locale file '%s'\n", filename2);
+	  abs_filename = gcompris_find_absolute_filename(filename2);
+	  g_free(filename2);
 
-      gcompris_reset_locale();
+	  g_strfreev(tmp);
+	}
+      else
+	{
+	  abs_filename = gcompris_find_absolute_filename(filename);
+	}
 
       if(abs_filename)
+	/* It would be cleaner to provide the real locale name but then we need a way
+	 * to get back the locale code from it's name and from the boards
+	 *
+	 * locales_asset = g_list_append(locales_asset, gcompris_get_locale_name(list->data));
+	 *
+	 */
 	locales_asset = g_list_append(locales_asset, list->data);
 
     }

@@ -1,6 +1,6 @@
 /* gcompris - gameutil.c
  *
- * Time-stamp: <2006/05/08 22:42:22 bruno>
+ * Time-stamp: <2006/05/10 01:22:30 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -1277,15 +1277,17 @@ gcompris_find_absolute_filename(const gchar *format, ...)
 	    }
 
 	  /* Try the short locale */
-	  locale[2] = '\0';
-	  filename2 = g_strjoinv(locale, tmp);
-	  g_strfreev(tmp);
-	  absolute_filename = g_strdup_printf("%s/%s", dir_to_search[i], filename2);
-	  g_free(filename2);
-	  g_warning("2>>>> tryiing %s\n", absolute_filename);
-	  if(g_file_test (absolute_filename, G_FILE_TEST_EXISTS))
-	    goto FOUND;
-
+	  if(g_strv_length(tmp)>1)
+	    {
+	      locale[2] = '\0';
+	      filename2 = g_strjoinv(locale, tmp);
+	      g_strfreev(tmp);
+	      absolute_filename = g_strdup_printf("%s/%s", dir_to_search[i], filename2);
+	      g_free(filename2);
+	      g_warning("2>>>> trying %s\n", absolute_filename);
+	      if(g_file_test (absolute_filename, G_FILE_TEST_EXISTS))
+		goto FOUND;
+	    }
 	}
       else
 	{

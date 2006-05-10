@@ -1,6 +1,6 @@
 /* gcompris - gcompris.h
  *
- * Time-stamp: <2006/03/02 00:02:09 bruno>
+ * Time-stamp: <2006/05/10 01:03:16 bruno>
  *
  * Copyright (C) 2000,2001,2002 Bruno Coudoin
  *
@@ -123,6 +123,7 @@ GtkWidget	*gcompris_get_window(void);
 const gchar	*gcompris_get_locale(void);
 void		 gcompris_set_locale(gchar *locale);
 char		*gcompris_get_user_default_locale(void);
+gchar		*gcompris_get_locale_name(gchar *locale);
 
 void		 gcompris_set_cursor(guint gdk_cursor_type);
 

@@ -1,5 +1,21 @@
 2006-05-10  Bruno coudoin  <bruno.coudoin@free.fr>
 
+	assetml removal continues. added support for local sounds in click_on_letter
+	and colors.
+
+	* src/boards/click_on_letter.c: (start_board), (conf_ok):
+	* src/boards/colors.c: (conf_ok), (start_board), (end_board): support sound locale.
+          now the background music is muted.
+	* src/gcompris/board_config.c: (gcompris_get_locales_list),
+	(gcompris_get_locales_asset_list): now support $LOCALE in the file to check for.
+	* src/gcompris/config.c: (gcompris_config_start),
+	(gcompris_get_locale_name), (item_event_ok): added an API entry
+	 gcompris_get_locale_name() to return the country name based on a locale name.
+	* src/gcompris/gameutil.c: (gcompris_find_absolute_filename): improved to limit searches
+	* src/gcompris/gcompris.h:
+
+2006-05-10  Bruno coudoin  <bruno.coudoin@free.fr>
+
 	Major patch by Hans de Goede /j dot w dot r dot degoede on hhs.nl/
 	replaces xrandr by XF86VidMode
 	XF86VidMode is more appropriate for our usage since it does not change

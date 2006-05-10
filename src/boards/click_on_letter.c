@@ -144,7 +144,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 
   board_paused = TRUE;
 
-  gcompris_change_locale(g_hash_table_lookup( config, "locale"));
+  gcompris_change_locale(g_hash_table_lookup( config, "locale_sound"));
 
   gchar *up_init_str = g_hash_table_lookup( config, "uppercase_only");
 
@@ -586,7 +586,7 @@ conf_ok(GHashTable *table)
       config = table;
 
     gcompris_reset_locale();
-    gcompris_change_locale(g_hash_table_lookup( config, "locale"));
+    gcompris_change_locale(g_hash_table_lookup(config, "locale_sound"));
     
     gchar *up_init_str = g_hash_table_lookup( config, "uppercase_only");
     if (up_init_str)

@@ -1,6 +1,6 @@
 /* gcompris - config.c
  *
- * Time-stamp: <2006/05/08 22:10:08 bruno>
+ * Time-stamp: <2006/05/10 01:48:04 bruno>
  *
  * Copyright (C) 2000-2003 Bruno Coudoin
  *
@@ -131,7 +131,6 @@ static gchar *filtername[] = {
 };
 
 static void set_locale_flag(gchar *locale);
-static gchar *get_locale_name(gchar *locale);
 static gchar *get_next_locale(gchar *locale);
 static gchar *get_previous_locale(gchar *locale);
 static gint   item_event_ok(GnomeCanvasItem *item, GdkEvent *event, gpointer data);
@@ -283,7 +282,7 @@ void gcompris_config_start ()
  
   item_locale_text = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 					    gnome_canvas_text_get_type (),
-					    "text", get_locale_name(current_locale), 
+					    "text", gcompris_get_locale_name(current_locale), 
 					    "font", gcompris_skin_font_subtitle,
 					    "x", (double) x_text_start,
 					    "y", (double) y_start,
@@ -407,7 +406,7 @@ void gcompris_config_start ()
 
   // Skin
   {
-    gchar *one_dirent;
+    const gchar *one_dirent;
     guint  i;
     GDir  *dir;
     
@@ -614,9 +613,14 @@ static void set_locale_flag(gchar *locale)
  * Given the locale name, return the full translated name
  * If not found, simply return the name
  */
-static gchar *get_locale_name(gchar *locale)
+gchar*
+gcompris_get_locale_name(gchar *locale)
 {
   guint i = 0;
+
+  /* en (US) is not in the Linguas table */
+  if(!strncmp(locale, "en", strlen(locale)))
+    return(_("English (United State)"));
 
   while(linguas[i] != NULL)
     {
@@ -759,7 +763,7 @@ item_event_ok(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 	{
 	  current_locale = get_previous_locale(current_locale);
 	  gnome_canvas_item_set (item_locale_text,
-				 "text", get_locale_name(current_locale),
+				 "text", gcompris_get_locale_name(current_locale),
 				 NULL);
 	  set_locale_flag(current_locale);
 	  properties->locale = current_locale;
@@ -768,7 +772,7 @@ item_event_ok(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 	{
 	  current_locale = get_next_locale(current_locale);
 	  gnome_canvas_item_set (item_locale_text,
-				 "text", get_locale_name(current_locale),
+				 "text", gcompris_get_locale_name(current_locale),
 				 NULL);
 
 	  set_locale_flag(current_locale);

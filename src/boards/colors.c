@@ -69,9 +69,6 @@ static gchar *colors[LAST_COLOR*2] = {
 static int X[] = {75,212,242,368,414,533,578,709};
 static int Y[] = {25,170,180,335,337,500};
 
-/* if board has alternate locale */
-static gchar *locale_sound = NULL;
-
 /* Description of this plugin */
 static BoardPlugin menu_bp =
   {
@@ -139,9 +136,8 @@ conf_ok(GHashTable *table)
     else
       config = table;
 
-    if (locale_sound)
-      g_free(locale_sound);
-    locale_sound = g_strdup(g_hash_table_lookup( config, "locale_sound"));
+    gcompris_reset_locale();
+    gcompris_change_locale(g_hash_table_lookup(config, "locale_sound"));
   
     if (profile_conf)
       g_hash_table_destroy(config);
@@ -228,9 +224,11 @@ static void start_board (GcomprisBoard *agcomprisBoard) {
 
   GHashTable *config = gcompris_get_board_conf();
 
-  locale_sound = g_strdup(g_hash_table_lookup( config, "locale_sound"));
+  gcompris_change_locale(g_hash_table_lookup(config, "locale_sound"));
   
   g_hash_table_destroy(config);
+
+  gcompris_pause_sound();
 
   if(agcomprisBoard!=NULL) {
     gcomprisBoard=agcomprisBoard;
@@ -279,7 +277,9 @@ static void end_board () {
     g_list_free(listColors);
     listColors=NULL;
   }
+  gcompris_reset_locale();
   gcomprisBoard = NULL;
+  gcompris_resume_sound();
 }
 
 /* =====================================================================
