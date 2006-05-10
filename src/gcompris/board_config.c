@@ -1,6 +1,6 @@
 /* gcompris - board_config.c
  *
- * Time-stamp: <2006/05/10 02:08:51 bruno>
+ * Time-stamp: <2006/05/10 23:11:49 bruno>
  *
  * Copyright (C) 2001 Pascal Georges
  *
@@ -148,6 +148,13 @@ GtkVBox *gcompris_configuration_window(gchar *label, GcomprisConfCallback callba
 				   GTK_WIN_POS_CENTER_ALWAYS);
 
   gtk_widget_show(GTK_WIDGET(conf_window));
+
+  GcomprisProperties *properties = gcompris_get_properties();
+  if (properties->fullscreen && !properties->noxf86vm)
+    if (gdk_pointer_grab(gcompris_get_window()->window, TRUE, 0,
+			 gcompris_get_window(), NULL, GDK_CURRENT_TIME) !=
+	GDK_GRAB_SUCCESS)
+      g_warning("Pointer grab failed");
 
   /* main vbox in window */
   main_conf_box = GTK_VBOX(GTK_DIALOG(conf_window)->vbox);

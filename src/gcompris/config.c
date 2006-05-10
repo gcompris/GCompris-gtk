@@ -1,6 +1,6 @@
 /* gcompris - config.c
  *
- * Time-stamp: <2006/05/10 01:48:04 bruno>
+ * Time-stamp: <2006/05/10 23:40:56 bruno>
  *
  * Copyright (C) 2000-2003 Bruno Coudoin
  *
@@ -619,7 +619,7 @@ gcompris_get_locale_name(gchar *locale)
   guint i = 0;
 
   /* en (US) is not in the Linguas table */
-  if(!strncmp(locale, "en", strlen(locale)))
+  if(locale[0] != '\0' && !strncmp(locale, "en", strlen(locale)))
     return(_("English (United State)"));
 
   while(linguas[i] != NULL)
