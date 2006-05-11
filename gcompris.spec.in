@@ -73,442 +73,148 @@ Version: %version
 %description devel
 Development package for gcompris
 
-%package -n assetml-voices-alphabet-da
-Summary:        Danish voices in Danish
+%package -n assetml-voices-cs
+Summary:        GCompris Czech voices
 Group: 		Amusements/Games
-Version: @VERSION_VOICES_ALPHABET_DA@
+Version: @VERSION_VOICES_CS@
 
-%description -n assetml-voices-alphabet-da
-Alphabet voices in Danish
+%description -n assetml-voices-cs
+Czech voices for the GCompris game
 
-%package -n assetml-voices-colors-da
-Summary:        Colors voices in Danish
+
+%package -n assetml-voices-da
+Summary:        GCompris Danish voices
 Group: 		Amusements/Games
-Version: @VERSION_VOICES_COLORS_DA@
+Version: @VERSION_VOICES_DA@
 
-%description -n assetml-voices-colors-da
-Colors voices in Danish
+%description -n assetml-voices-da
+Danish voices for the GCompris game
 
-%package -n assetml-voices-geography-da
-Summary:        Country name voices in Danish
+
+%package -n assetml-voices-de
+Summary:        GCompris voices in German
 Group: 		Amusements/Games
-Version: @VERSION_VOICES_GEOGRAPHY_DA@
+Version: @VERSION_VOICES_DE@
 
-%description -n assetml-voices-geography-da
-Country name voices in Danish
-
-%package -n assetml-voices-misc-da
-Summary:        Miscelaneous voices in Danish
-Group: 		Amusements/Games
-Version: @VERSION_VOICES_MISC_DA@
-
-%description -n assetml-voices-misc-da
-Miscelaneous voices in Danish
-
-
-
-%package -n assetml-voices-alphabet-de
-Summary:        Alphabet voices in German
-Group: 		Amusements/Games
-Version: @VERSION_VOICES_ALPHABET_DE@
-
-%description -n assetml-voices-alphabet-de
+%description -n assetml-voices-de
 Alphabet voices in German
 
-%package -n assetml-voices-colors-de
-Summary:        Colors voices in German
+
+%package -n assetml-voices-en
+Summary:        GCompris voices in English
 Group: 		Amusements/Games
-Version: @VERSION_VOICES_COLORS_DE@
+Version: @VERSION_VOICES_EN@
 
-%description -n assetml-voices-colors-de
-Colors voices in German
+%description -n assetml-voices-en
+English voices for the GCompris game
 
-%package -n assetml-voices-geography-de
-Summary:        Country name voices in German
+
+%package -n assetml-voices-es
+Summary:        GCompris voices in Spanish
 Group: 		Amusements/Games
-Version: @VERSION_VOICES_GEOGRAPHY_DE@
+Version: @VERSION_VOICES_ES@
 
-%description -n assetml-voices-geography-de
-Country name voices in German
+%description -n assetml-voices-es
+Spanish voices for the GCompris game
 
-%package -n assetml-voices-misc-de
-Summary:        Miscelaneous voices in German
+
+%package -n assetml-voices-eu
+Summary:        GCompris voices in Basque
 Group: 		Amusements/Games
-Version: @VERSION_VOICES_MISC_DE@
+Version: @VERSION_VOICES_EU@
 
-%description -n assetml-voices-misc-de
-Miscelaneous voices in German
+%description -n assetml-voices-eu
+Basque voices for the GCompris game
 
 
-%package -n assetml-voices-alphabet-en
-Summary:        Alphabet voices in English
+%package -n assetml-voices-fi
+Summary:        GCompris voices in Finish
 Group: 		Amusements/Games
-Version: @VERSION_VOICES_ALPHABET_EN@
+Version: @VERSION_VOICES_FI@
 
-%description -n assetml-voices-alphabet-en
-Alphabet voices in English
+%description -n assetml-voices-fi
+Finish voices for the GCompris game
 
-%package -n assetml-voices-colors-en
-Summary:        Colors voices in English
+
+%package -n assetml-voices-fr
+Summary:        GCompris voices in French
 Group: 		Amusements/Games
-Version: @VERSION_VOICES_COLORS_EN@
+Version: @VERSION_VOICES_FR@
 
-%description -n assetml-voices-colors-en
-Colors voices in English
+%description -n assetml-voices-fr
+French voices for the GCompris game
 
-%package -n assetml-voices-geography-en
-Summary:        Country name voices in English
+
+%package -n assetml-voices-fi
+Summary:        GCompris voices in Finish
 Group: 		Amusements/Games
-Version: @VERSION_VOICES_GEOGRAPHY_EN@
+Version: @VERSION_VOICES_FI@
 
-%description -n assetml-voices-geography-en
-Country name voices in English
+%description -n assetml-voices-fi
+Finish voices for the GCompris game
 
-%package -n assetml-voices-misc-en
-Summary:        Miscelaneous voices in English
+
+%package -n assetml-voices-hu
+Summary:        GCompris voices in Hungarian
 Group: 		Amusements/Games
-Version: @VERSION_VOICES_MISC_EN@
+Version: @VERSION_VOICES_HU@
 
-%description -n assetml-voices-misc-en
-Miscelaneous voices in English
+%description -n assetml-voices-hu
+Hungarian voices for the GCompris game
 
 
-%package -n assetml-voices-alphabet-es
-Summary:        Alphabet voices in Spanish
+%package -n assetml-voices-it
+Summary:        GCompris voices in Italian
 Group: 		Amusements/Games
-Version: @VERSION_VOICES_ALPHABET_ES@
+Version: @VERSION_VOICES_IT@
 
-%description -n assetml-voices-alphabet-es
-Alphabet voices in Spanish
+%description -n assetml-voices-it
+Italian voices for the GCompris game
 
-%package -n assetml-voices-colors-es
-Summary:        Colors voices in Spanish
+
+%package -n assetml-voices-nl
+Summary:        GCompris voices in Dutch
 Group: 		Amusements/Games
-Version: @VERSION_VOICES_COLORS_ES@
+Version: @VERSION_VOICES_NL@
 
-%description -n assetml-voices-colors-es
-Colors voices in Spanish
+%description -n assetml-voices-nl
+Dutch voices for the GCompris game
 
-%package -n assetml-voices-geography-es
-Summary:        Country name voices in Spanish
+
+%package -n assetml-voices-pt
+Summary:        GCompris voices in Portuguese
 Group: 		Amusements/Games
-Version: @VERSION_VOICES_GEOGRAPHY_ES@
+Version: @VERSION_VOICES_PT@
 
-%description -n assetml-voices-geography-es
-Country name voices in Spanish
+%description -n assetml-voices-pt
+Portuguese voices for the GCompris game
 
-%package -n assetml-voices-misc-es
-Summary:        Miscelaneous voices in Spanish
+
+%package -n assetml-voices-pt-br
+Summary:        GCompris voices in Brasilian
 Group: 		Amusements/Games
-Version: @VERSION_VOICES_MISC_ES@
+Version: @VERSION_VOICES_PT_BR@
 
-%description -n assetml-voices-misc-es
-Miscelaneous voices in Spanish
+%description -n assetml-voices-pt-br
+Brasilian voices for the GCompris game
 
 
-%package -n assetml-voices-colors-fi
-Summary:        Colors voices in French
+%package -n assetml-voices-ru
+Summary:        GCompris voices in Russian
 Group: 		Amusements/Games
-Version: @VERSION_VOICES_COLORS_FI@
+Version: @VERSION_VOICES_RU@
 
-%description -n assetml-voices-colors-fi
-Colors voices in French
+%description -n assetml-voices-ru
+Russian voices for the GCompris game
 
-%package -n assetml-voices-geography-fi
-Summary:        Country name voices in Finish
-Group: 		Amusements/Games
-Version: @VERSION_VOICES_GEOGRAPHY_FI@
 
-%description -n assetml-voices-geography-fi
-Country name voices in Finish
-
-%package -n assetml-voices-misc-fi
-Summary:        Miscelaneous voices in Finish
-Group: 		Amusements/Games
-Version: @VERSION_VOICES_MISC_FI@
-
-%description -n assetml-voices-misc-fi
-Miscelaneous voices in Finish
-
-
-%package -n assetml-voices-alphabet-fr
-Summary:        Alphabet voices in French
-Group: 		Amusements/Games
-Version: @VERSION_VOICES_ALPHABET_FR@
-
-%description -n assetml-voices-alphabet-fr
-Alphabet voices in French
-
-%package -n assetml-voices-colors-fr
-Summary:        Colors voices in French
-Group: 		Amusements/Games
-Version: @VERSION_VOICES_COLORS_FR@
-
-%description -n assetml-voices-colors-fr
-Colors voices in French
-
-%package -n assetml-voices-geography-fr
-Summary:        Country name voices in French
-Group: 		Amusements/Games
-Version: @VERSION_VOICES_GEOGRAPHY_FR@
-
-%description -n assetml-voices-geography-fr
-Country name voices in French
-
-%package -n assetml-voices-misc-fr
-Summary:        Miscelaneous voices in French
-Group: 		Amusements/Games
-Version: @VERSION_VOICES_MISC_FR@
-
-%description -n assetml-voices-misc-fr
-Miscelaneous voices in French
-
-%package -n assetml-voices-france-regions-fr
-Summary:        Voices of names of the French Regions in French
-Group: 		Amusements/Games
-Version: @VERSION_VOICES_FRANCE_REGIONS_FR@
-
-%description -n assetml-voices-france-regions-fr
-Voices of names of the French Regions in French
-
-
-%package -n assetml-voices-alphabet-fi
-Summary:        Alphabet voices in Finish
-Group: 		Amusements/Games
-Version: @VERSION_VOICES_ALPHABET_FI@
-
-%description -n assetml-voices-alphabet-fi
-Alphabet voices in Finish
-
-%package -n assetml-voices-alphabet-hu
-Summary:        Alphabet voices in Hungarian
-Group: 		Amusements/Games
-Version: @VERSION_VOICES_ALPHABET_HU@
-
-%description -n assetml-voices-alphabet-hu
-Alphabet voices in Hungarian
-
-%package -n assetml-voices-colors-hu
-Summary:        Colors voices in Hungarian
-Group: 		Amusements/Games
-Version: @VERSION_VOICES_COLORS_HU@
-
-%description -n assetml-voices-colors-hu
-Colors voices in Hungarian
-
-%package -n assetml-voices-geography-hu
-Summary:        Country name voices in Hungarian
-Group: 		Amusements/Games
-Version: @VERSION_VOICES_GEOGRAPHY_HU@
-
-%description -n assetml-voices-geography-hu
-Country name voices in Hungarian
-
-%package -n assetml-voices-misc-hu
-Summary:        Miscelaneous voices in Hungarian
-Group: 		Amusements/Games
-Version: @VERSION_VOICES_MISC_HU@
-
-%description -n assetml-voices-misc-hu
-Miscelaneous voices in Hungarian
-
-
-%package -n assetml-voices-alphabet-it
-Summary:        Alphabet voices in Italian
-Group: 		Amusements/Games
-Version: @VERSION_VOICES_ALPHABET_IT@
-
-%description -n assetml-voices-alphabet-it
-Alphabet voices in Italian
-
-%package -n assetml-voices-colors-it
-Summary:        Colors voices in Italian
-Group: 		Amusements/Games
-Version: @VERSION_VOICES_COLORS_IT@
-
-%description -n assetml-voices-colors-it
-Colors voices in Italian
-
-%package -n assetml-voices-geography-it
-Summary:        Country name voices in Italian
-Group: 		Amusements/Games
-Version: @VERSION_VOICES_GEOGRAPHY_IT@
-
-%description -n assetml-voices-geography-it
-Country name voices in Italian
-
-%package -n assetml-voices-misc-it
-Summary:        Miscelaneous voices in Italian
-Group: 		Amusements/Games
-Version: @VERSION_VOICES_MISC_IT@
-
-%description -n assetml-voices-misc-it
-Miscelaneous voices in Italian
-
-
-%package -n assetml-voices-alphabet-nl
-Summary:        Alphabet voices in Dutch
-Group: 		Amusements/Games
-Version: @VERSION_VOICES_ALPHABET_NL@
-
-%description -n assetml-voices-alphabet-nl
-Alphabet voices in Dutch
-
-%package -n assetml-voices-colors-nl
-Summary:        Colors voices in Dutch
-Group: 		Amusements/Games
-Version: @VERSION_VOICES_COLORS_NL@
-
-%description -n assetml-voices-colors-nl
-Colors voices in Dutch
-
-%package -n assetml-voices-geography-nl
-Summary:        Country name voices in Dutch
-Group: 		Amusements/Games
-Version: @VERSION_VOICES_GEOGRAPHY_NL@
-
-%description -n assetml-voices-geography-nl
-Country name voices in Dutch
-
-%package -n assetml-voices-misc-nl
-Summary:        Miscelaneous voices in Dutch
-Group: 		Amusements/Games
-Version: @VERSION_VOICES_MISC_NL@
-
-%description -n assetml-voices-misc-nl
-Miscelaneous voices in Dutch
-
-
-%package -n assetml-voices-alphabet-pt
-Summary:        Alphabet voices in Portuguese
-Group: 		Amusements/Games
-Version: @VERSION_VOICES_ALPHABET_PT@
-
-%description -n assetml-voices-alphabet-pt
-Alphabet voices in Portuguese
-
-%package -n assetml-voices-colors-pt
-Summary:        Colors voices in Portuguese
-Group: 		Amusements/Games
-Version: @VERSION_VOICES_COLORS_PT@
-
-%description -n assetml-voices-colors-pt
-Colors voices in Portuguese
-
-%package -n assetml-voices-geography-pt
-Summary:        Country name voices in Portuguese
-Group: 		Amusements/Games
-Version: @VERSION_VOICES_GEOGRAPHY_PT@
-
-%description -n assetml-voices-geography-pt
-Country name voices in Portuguese
-
-%package -n assetml-voices-misc-pt
-Summary:        Miscelaneous voices in Portuguese
-Group: 		Amusements/Games
-Version: @VERSION_VOICES_MISC_PT@
-
-%description -n assetml-voices-misc-pt
-Miscelaneous voices in Portuguese
-
-
-%package -n assetml-voices-alphabet-ru
-Summary:        Alphabet voices in Russian
-Group: 		Amusements/Games
-Version: @VERSION_VOICES_ALPHABET_RU@
-
-%description -n assetml-voices-alphabet-ru
-Alphabet voices in Russian
-
-%package -n assetml-voices-colors-ru
-Summary:        Colors voices in Russian
-Group: 		Amusements/Games
-Version: @VERSION_VOICES_COLORS_RU@
-
-%description -n assetml-voices-colors-ru
-Colors voices in Russian
-
-%package -n assetml-voices-geography-ru
-Summary:        Country name voices in Russian
-Group: 		Amusements/Games
-Version: @VERSION_VOICES_GEOGRAPHY_RU@
-
-%description -n assetml-voices-geography-ru
-Country name voices in Russian
-
-%package -n assetml-voices-misc-ru
-Summary:        Miscelaneous voices in Russian
-Group: 		Amusements/Games
-Version: @VERSION_VOICES_MISC_RU@
-
-%description -n assetml-voices-misc-ru
-Miscelaneous voices in Russian
-
-
-%package -n assetml-voices-alphabet-sv
+%package -n assetml-voices-sv
 Summary:        Alphabet voices in Swedish
 Group: 		Amusements/Games
-Version: @VERSION_VOICES_ALPHABET_SV@
+Version: @VERSION_VOICES_SV@
 
-%description -n assetml-voices-alphabet-sv
+%description -n assetml-voices-sv
 Alphabet voices in Swedish
-
-%package -n assetml-voices-colors-sv
-Summary:        Colors voices in Swedish
-Group: 		Amusements/Games
-Version: @VERSION_VOICES_COLORS_SV@
-
-%description -n assetml-voices-colors-sv
-Colors voices in Swedish
-
-%package -n assetml-voices-geography-sv
-Summary:        Country name voices in Swedish
-Group: 		Amusements/Games
-Version: @VERSION_VOICES_GEOGRAPHY_SV@
-
-%description -n assetml-voices-geography-sv
-Country name voices in Swedish
-
-%package -n assetml-voices-misc-sv
-Summary:        Miscelaneous voices in Swedish
-Group: 		Amusements/Games
-Version: @VERSION_VOICES_MISC_SV@
-
-%description -n assetml-voices-misc-sv
-Miscelaneous voices in Swedish
-
-%package -n assetml-voices-alphabet-eu
-Summary:        Alphabet voices in Basque
-Group: 		Amusements/Games
-Version: @VERSION_VOICES_ALPHABET_EU@
-
-%description -n assetml-voices-alphabet-eu
-Alphabet voices in Basque
-
-%package -n assetml-voices-colors-eu
-Summary:        Colors voices in Basque
-Group: 		Amusements/Games
-Version: @VERSION_VOICES_COLORS_EU@
-
-%description -n assetml-voices-colors-eu
-Colors voices in Basque
-
-%package -n assetml-voices-geography-eu
-Summary:        Country name voices in Basque
-Group: 		Amusements/Games
-Version: @VERSION_VOICES_GEOGRAPHY_EU@
-
-%description -n assetml-voices-geography-eu
-Country name voices in Basque
-
-%package -n assetml-voices-misc-eu
-Summary:        Miscelaneous voices in Basque
-Group: 		Amusements/Games
-Version: @VERSION_VOICES_MISC_EU@
-
-%description -n assetml-voices-misc-eu
-Miscelaneous voices in Basque
-
 
 %prep
 %setup -q
@@ -585,227 +291,62 @@ rm -rf $RPM_BUILD_ROOT
 %_libdir/libgcompris-1.so
 %_libdir/pkgconfig/libgcompris-1.0.pc
 
-%files -n assetml-voices-alphabet-da
+%files -n assetml-voices-cs
 %defattr(-, root, root)
-%{prefix}/share/gcompris/boards/sounds/da/alphabet
+%{prefix}/share/gcompris/boards/sounds/cs
 
-%files -n assetml-voices-colors-da
+%files -n assetml-voices-da
 %defattr(-, root, root)
-%{prefix}/share/gcompris/boards/sounds/da/colors
+%{prefix}/share/gcompris/boards/sounds/da
 
-%files -n assetml-voices-geography-da
+%files -n assetml-voices-de
 %defattr(-, root, root)
-%{prefix}/share/gcompris/boards/sounds/da/geography
+%{prefix}/share/gcompris/boards/sounds/de
 
-%files -n assetml-voices-misc-da
+%files -n assetml-voices-en
 %defattr(-, root, root)
-%{prefix}/share/gcompris/boards/sounds/da/misc
+%{prefix}/share/gcompris/boards/sounds/en
 
-
-%files -n assetml-voices-alphabet-de
+%files -n assetml-voices-es
 %defattr(-, root, root)
-%{prefix}/share/gcompris/boards/sounds/de/alphabet
+%{prefix}/share/gcompris/boards/sounds/es
 
-%files -n assetml-voices-colors-de
+%files -n assetml-voices-eu
 %defattr(-, root, root)
-%{prefix}/share/gcompris/boards/sounds/de/colors
+%{prefix}/share/gcompris/boards/sounds/eu
 
-%files -n assetml-voices-geography-de
+%files -n assetml-voices-fi
 %defattr(-, root, root)
-%{prefix}/share/gcompris/boards/sounds/de/geography
+%{prefix}/share/gcompris/boards/sounds/fi
 
-%files -n assetml-voices-misc-de
+%files -n assetml-voices-fr
 %defattr(-, root, root)
-%{prefix}/share/gcompris/boards/sounds/de/misc
+%{prefix}/share/gcompris/boards/sounds/fr
 
-
-%files -n assetml-voices-alphabet-en
+%files -n assetml-voices-hu
 %defattr(-, root, root)
-%{prefix}/share/gcompris/boards/sounds/en/alphabet
+%{prefix}/share/gcompris/boards/sounds/hu
 
-%files -n assetml-voices-colors-en
+%files -n assetml-voices-it
 %defattr(-, root, root)
-%{prefix}/share/gcompris/boards/sounds/en/colors
+%{prefix}/share/gcompris/boards/sounds/it
 
-%files -n assetml-voices-geography-en
+%files -n assetml-voices-nl
 %defattr(-, root, root)
-%{prefix}/share/gcompris/boards/sounds/en/geography
+%{prefix}/share/gcompris/boards/sounds/nl
 
-
-%files -n assetml-voices-misc-en
+%files -n assetml-voices-pt
 %defattr(-, root, root)
-%{prefix}/share/gcompris/boards/sounds/en/misc
+%{prefix}/share/gcompris/boards/sounds/pt
 
-
-%files -n assetml-voices-alphabet-es
+%files -n assetml-voices-pt-br
 %defattr(-, root, root)
-%{prefix}/share/gcompris/boards/sounds/es/alphabet
+%{prefix}/share/gcompris/boards/sounds/pt_BR
 
-%files -n assetml-voices-colors-es
+%files -n assetml-voices-ru
 %defattr(-, root, root)
-%{prefix}/share/gcompris/boards/sounds/es/colors
+%{prefix}/share/gcompris/boards/sounds/ru
 
-%files -n assetml-voices-geography-es
+%files -n assetml-voices-sv
 %defattr(-, root, root)
-%{prefix}/share/gcompris/boards/sounds/es/geography
-
-%files -n assetml-voices-misc-es
-%defattr(-, root, root)
-%{prefix}/share/gcompris/boards/sounds/es/misc
-
-
-%files -n assetml-voices-alphabet-fi
-%defattr(-, root, root)
-%{prefix}/share/gcompris/boards/sounds/fi/alphabet
-
-%files -n assetml-voices-colors-fi
-%defattr(-, root, root)
-%{prefix}/share/gcompris/boards/sounds/fi/colors
-
-%files -n assetml-voices-geography-fi
-%defattr(-, root, root)
-%{prefix}/share/gcompris/boards/sounds/fi/geography
-
-%files -n assetml-voices-misc-fi
-%defattr(-, root, root)
-%{prefix}/share/gcompris/boards/sounds/fi/misc
-
-
-%files -n assetml-voices-alphabet-fr
-%defattr(-, root, root)
-%{prefix}/share/gcompris/boards/sounds/fr/alphabet
-
-%files -n assetml-voices-colors-fr
-%defattr(-, root, root)
-%{prefix}/share/gcompris/boards/sounds/fr/colors
-
-%files -n assetml-voices-geography-fr
-%defattr(-, root, root)
-%{prefix}/share/gcompris/boards/sounds/fr/geography
-
-%files -n assetml-voices-misc-fr
-%defattr(-, root, root)
-%{prefix}/share/gcompris/boards/sounds/fr/misc
-
-%files -n assetml-voices-france-regions-fr
-%defattr(-, root, root)
-%{prefix}/share/gcompris/boards/sounds/fr/france_region
-
-
-%files -n assetml-voices-alphabet-hu
-%defattr(-, root, root)
-%{prefix}/share/gcompris/boards/sounds/hu/alphabet
-
-%files -n assetml-voices-colors-hu
-%defattr(-, root, root)
-%{prefix}/share/gcompris/boards/sounds/hu/colors
-
-%files -n assetml-voices-geography-hu
-%defattr(-, root, root)
-%{prefix}/share/gcompris/boards/sounds/hu/geography
-
-%files -n assetml-voices-misc-hu
-%defattr(-, root, root)
-%{prefix}/share/gcompris/boards/sounds/hu/misc
-
-
-%files -n assetml-voices-alphabet-it
-%defattr(-, root, root)
-%{prefix}/share/gcompris/boards/sounds/it/alphabet
-
-%files -n assetml-voices-colors-it
-%defattr(-, root, root)
-%{prefix}/share/gcompris/boards/sounds/it/colors
-
-%files -n assetml-voices-geography-it
-%defattr(-, root, root)
-%{prefix}/share/gcompris/boards/sounds/it/geography
-
-%files -n assetml-voices-misc-it
-%defattr(-, root, root)
-%{prefix}/share/gcompris/boards/sounds/it/misc
-
-
-%files -n assetml-voices-alphabet-nl
-%defattr(-, root, root)
-%{prefix}/share/gcompris/boards/sounds/nl/alphabet
-
-%files -n assetml-voices-colors-nl
-%defattr(-, root, root)
-%{prefix}/share/gcompris/boards/sounds/nl/colors
-
-%files -n assetml-voices-geography-nl
-%defattr(-, root, root)
-%{prefix}/share/gcompris/boards/sounds/nl/geography
-
-%files -n assetml-voices-misc-nl
-%defattr(-, root, root)
-%{prefix}/share/gcompris/boards/sounds/nl/misc
-
-
-%files -n assetml-voices-alphabet-pt
-%defattr(-, root, root)
-%{prefix}/share/gcompris/boards/sounds/pt/alphabet
-
-%files -n assetml-voices-colors-pt
-%defattr(-, root, root)
-%{prefix}/share/gcompris/boards/sounds/pt/colors
-
-%files -n assetml-voices-geography-pt
-%defattr(-, root, root)
-%{prefix}/share/gcompris/boards/sounds/pt/geography
-
-%files -n assetml-voices-misc-pt
-%defattr(-, root, root)
-%{prefix}/share/gcompris/boards/sounds/pt/misc
-
-
-%files -n assetml-voices-alphabet-ru
-%defattr(-, root, root)
-%{prefix}/share/gcompris/boards/sounds/ru/alphabet
-
-%files -n assetml-voices-colors-ru
-%defattr(-, root, root)
-%{prefix}/share/gcompris/boards/sounds/ru/colors
-
-%files -n assetml-voices-geography-ru
-%defattr(-, root, root)
-%{prefix}/share/gcompris/boards/sounds/ru/geography
-
-%files -n assetml-voices-misc-ru
-%defattr(-, root, root)
-%{prefix}/share/gcompris/boards/sounds/ru/misc
-
-
-%files -n assetml-voices-alphabet-sv
-%defattr(-, root, root)
-%{prefix}/share/gcompris/boards/sounds/sv/alphabet
-
-%files -n assetml-voices-colors-sv
-%defattr(-, root, root)
-%{prefix}/share/gcompris/boards/sounds/sv/colors
-
-%files -n assetml-voices-geography-sv
-%defattr(-, root, root)
-%{prefix}/share/gcompris/boards/sounds/sv/geography
-
-%files -n assetml-voices-misc-sv
-%defattr(-, root, root)
-%{prefix}/share/gcompris/boards/sounds/sv/misc
-
-
-%files -n assetml-voices-alphabet-eu
-%defattr(-, root, root)
-%{prefix}/share/gcompris/boards/sounds/eu/alphabet
-
-%files -n assetml-voices-colors-eu
-%defattr(-, root, root)
-%{prefix}/share/gcompris/boards/sounds/eu/colors
-
-%files -n assetml-voices-geography-eu
-%defattr(-, root, root)
-%{prefix}/share/gcompris/boards/sounds/eu/geography
-
-%files -n assetml-voices-misc-eu
-%defattr(-, root, root)
-%{prefix}/share/gcompris/boards/sounds/eu/misc
+%{prefix}/share/gcompris/boards/sounds/sv

@@ -1,6 +1,6 @@
 /* gcompris - images_selector.c
  *
- * Time-stamp: <2006/03/02 00:57:15 bruno>
+ * Time-stamp: <2006/05/11 23:27:55 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -714,6 +714,19 @@ parseImage (xmlDocPtr doc, xmlNodePtr cur) {
       if (!g_file_test ((filename), G_FILE_TEST_IS_REGULAR)){
 	continue;
       }
+
+      {
+	/* Add a % before a % to avoid it being used as a format arg */
+	gchar **tmp;
+	gchar *filename2;
+	if((tmp = g_strsplit(filename, "%", -1)))
+	  {
+	    filename2 = g_strjoinv("%%", tmp);
+	    g_strfreev(tmp);
+	    g_free(filename);
+	    filename = filename2;
+	  }
+      }
       imageList = g_list_append (imageList, filename);
     }
     g_dir_close(imageset_directory);
@@ -804,8 +817,6 @@ read_xml_file(gchar *fname)
 static gboolean
 read_dataset_directory(gchar *dataset_dir)
 {
-
-
   GError **error = NULL;
   GDir *dataset_directory = g_dir_open (dataset_dir, 0, error);
   const gchar *fname;
@@ -814,12 +825,12 @@ read_dataset_directory(gchar *dataset_dir)
   while ((fname = g_dir_read_name(dataset_directory))) {
     /* skip files without ".xml" */
     if (!g_str_has_suffix (fname,".xml")){
-      printf("skipping file not in .xml : %s\n", fname);
+      g_warning("skipping file not in .xml : %s", fname);
       continue;
     }
 
     absolute_fname = g_strdup_printf("%s/%s",dataset_dir,fname);
-    printf("Reading dataset file %s\n",absolute_fname);
+    g_warning("Reading dataset file %s",absolute_fname);
    
     if (!g_file_test ((absolute_fname), G_FILE_TEST_IS_REGULAR))
       continue;
@@ -846,7 +857,7 @@ read_dataset_directory(gchar *dataset_dir)
     }
   
     /* parse our document and replace old data */
-    printf("Parsing dataset : %s \n",absolute_fname);
+    g_warning("Parsing dataset : %s \n", absolute_fname);
     parse_doc(doc);
     
     xmlFreeDoc(doc);

@@ -1,3 +1,28 @@
+2006-05-12  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	 - Applyed a patch by Hans de Goede to improve fullscreen
+	 - Now OK is sent to a board only on Enter KP_Enter and Space
+	 - Now we make one sound package by locale
+	 - Fixed a bug in image selector that crashes GCompris if a file contains
+	   a % in it
+	 - Activated live fullscreen in configuration but it does not work yet.
+	
+	* configure.in: Added Czech and Brasilian sounds
+	* gcompris.spec.in: Added Czech and Brasilian sounds
+	* src/boards/click_on_letter.c: Fixed, no more consider OK when any keyboard key
+	* src/boards/colors.c: Fixed, no more consider OK when any keyboard key
+	* src/boards/python/tuxpaint.py:
+	* src/gcompris/board_config.c: (gcompris_conf_window_configured),
+	(gcompris_configuration_window):
+	* src/gcompris/config.c: (item_event_ok):
+	* src/gcompris/gameutil.c: (gcompris_load_pixmap),
+	(gcompris_find_absolute_filename):
+	* src/gcompris/gcompris.c: (board_widget_key_press_callback),
+	(init_background), (xf86_vidmode_init),
+	(xf86_vidmode_set_fullscreen):
+	* src/gcompris/images_selector.c: (parseImage),
+	(read_dataset_directory):
+
 2006-05-10  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	  Added Czech sounds from by Martin Sin

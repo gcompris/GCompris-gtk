@@ -1,6 +1,6 @@
 /* gcompris - gameutil.c
  *
- * Time-stamp: <2006/05/10 01:22:30 bruno>
+ * Time-stamp: <2006/05/11 22:03:34 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -83,7 +83,7 @@ GdkPixbuf *gcompris_load_pixmap(char *pixmapfile)
   g_free(filename);
 
   if(!pixmap)
-    g_warning("Loading image returned a null pointer");
+    g_warning("Loading image '%s' returned a null pointer", filename);
 
   return(pixmap);
 }
@@ -1226,16 +1226,19 @@ gcompris_find_absolute_filename(const gchar *format, ...)
   if (!format)
     return NULL;
 
+  g_warning("format '%s'", format);
+
   va_start (args, format);
   filename = g_strdup_vprintf (format, args);
   va_end (args);
+
+  g_warning("filename '%s'", format);
 
   /* Check it's already an absolute file */
   if(g_path_is_absolute (filename) &&
      g_file_test (filename, G_FILE_TEST_EXISTS))
     {
-      g_free(filename);
-      return g_strdup(filename);
+      return filename;
     }
 
   /*

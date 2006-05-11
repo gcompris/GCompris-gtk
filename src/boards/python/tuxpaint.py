@@ -106,7 +106,7 @@ class Gcompris_tuxpaint:
     
     # release pointergrab if running fullscreen, tuxpaint wants to grab the
     # pointer itself
-    if (Prop.fullscreen):
+    if (Prop.fullscreen and not Prop.noxf86vm):
       gtk.gdk.pointer_ungrab()
 
     #self.window.set_property("accept-focus", 0)
@@ -227,7 +227,8 @@ class Gcompris_tuxpaint:
 
 def child_callback(fd,  cond, data):
   # restore pointergrab if running fullscreen
-  if (gcompris.get_properties().fullscreen):
+  if (gcompris.get_properties().fullscreen and
+      not gcompris.get_properties().noxf86vm):
     gtk.gdk.pointer_grab(data.window.window, True, 0, data.window.window)
   #global board
   #board.window.set_property("accept-focus", 1)

@@ -86,7 +86,7 @@ static BoardPlugin menu_bp =
     end_board,
     is_our_board,
     NULL,
-    process_ok,
+    NULL,
     NULL,//set_level,
     NULL,
     repeat,

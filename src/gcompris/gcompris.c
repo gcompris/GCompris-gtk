@@ -184,7 +184,7 @@ static struct poptOption options[] = {
   }
 };
 
-/* XRandr Stuff */
+/* Fullscreen Stuff */
 #ifdef XF86_VIDMODE
 static struct 
 {
@@ -218,7 +218,7 @@ board_widget_key_press_callback (GtkWidget   *widget,
 				 gpointer     client_data)
 {
   int kv = event->keyval;
-
+  
   if(event->state & GDK_CONTROL_MASK && ((event->keyval == GDK_r)
 					 || (event->keyval == GDK_R))) {
     g_message("Refreshing the canvas\n");
@@ -375,7 +375,10 @@ board_widget_key_press_callback (GtkWidget   *widget,
     {
       return(get_current_board_plugin()->key_press (event->keyval, NULL, NULL));
     }
-  else if (get_current_board_plugin()!=NULL && get_current_board_plugin()->ok)
+  else if (get_current_board_plugin()!=NULL && get_current_board_plugin()->ok &&
+	   (event->keyval == GDK_KP_Enter ||
+	    event->keyval == GDK_Return   ||
+	    event->keyval == GDK_KP_Space))
     {
       /* Else we send the OK signal. */
       get_current_board_plugin()->ok ();
@@ -484,7 +487,7 @@ static void init_background()
 				      screen_height + 30);
       
       gtk_widget_set_usize (GTK_WIDGET(canvas_bg), screen_width, screen_height);
-      
+
       /* Create a black box for the background */
       gnome_canvas_item_new (gnome_canvas_root(canvas_bg),
 			     gnome_canvas_rect_get_type (),
@@ -496,6 +499,7 @@ static void init_background()
 			     "outline_color", "black",
 			     "width_units", (double)0,
 			     NULL);
+
     }
 
   /* Create a vertical box in which I put first the play board area, then the button bar */
@@ -1049,7 +1053,7 @@ xf86_vidmode_init ( void )
   else if (!XF86VidModeQueryExtension(GDK_DISPLAY(), &i, &j))
     properties->noxf86vm = TRUE;
   else if (!XF86VidModeGetModeLine(GDK_DISPLAY(), GDK_SCREEN_XNUMBER(
-            gdk_screen_get_default()), &XF86VidModeData.orig_mode.dotclock, l))
+            gdk_screen_get_default()), (int*)&XF86VidModeData.orig_mode.dotclock, l))
     properties->noxf86vm = TRUE;
   else if (!XF86VidModeGetViewPort(GDK_DISPLAY(), GDK_SCREEN_XNUMBER(
             gdk_screen_get_default()), &XF86VidModeData.orig_viewport_x,
@@ -1080,6 +1084,7 @@ xf86_vidmode_set_fullscreen ( int state )
     {
       XF86VidModeModeInfo **modes;
       int mode_count;
+      gint x,y;
       
       if (!XF86VidModeGetModeLine(GDK_DISPLAY(), GDK_SCREEN_XNUMBER(
             gdk_screen_get_default()), &i, &mode))
@@ -1124,8 +1129,9 @@ xf86_vidmode_set_fullscreen ( int state )
               GDK_CURRENT_TIME) != GDK_GRAB_SUCCESS)
           g_warning("Pointer grab failed");
            
+        gdk_window_get_position(window->window, &x, &y);
         if (!XF86VidModeSetViewPort(GDK_DISPLAY(),
-              GDK_SCREEN_XNUMBER(gdk_screen_get_default()), 0, 0))
+              GDK_SCREEN_XNUMBER(gdk_screen_get_default()), x, y))
           g_warning("XF86VidMode couldnot change viewport");
     }
   else
