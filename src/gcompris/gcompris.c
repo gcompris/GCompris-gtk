@@ -38,7 +38,6 @@
 #include <gdk/gdkx.h>
 #include <X11/Xlib.h>
 #include <X11/Xutil.h>
-#include <X11/extensions/xf86dga.h>
 #include <X11/extensions/xf86vmode.h>   
 #endif
 
@@ -1057,7 +1056,7 @@ xf86_vidmode_init ( void )
     properties->noxf86vm = TRUE;
   else if (!XF86VidModeGetViewPort(GDK_DISPLAY(), GDK_SCREEN_XNUMBER(
             gdk_screen_get_default()), &XF86VidModeData.orig_viewport_x,
-            &XF86VidModeData.orig_viewport_x))
+            &XF86VidModeData.orig_viewport_y))
     properties->noxf86vm = TRUE;
   
   if (properties->noxf86vm)
