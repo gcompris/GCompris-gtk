@@ -1,6 +1,6 @@
 /* gcompris - config.c
  *
- * Time-stamp: <2006/05/12 00:12:57 bruno>
+ * Time-stamp: <2006/05/17 08:01:35 bruno>
  *
  * Copyright (C) 2000-2003 Bruno Coudoin
  *
@@ -105,6 +105,7 @@ static gchar *linguas[] = {
   "sr@Latn_YU.ISO-8859-2",	N_("Serbian (Latin)"),
   "sr_YU.UTF-8",	N_("Serbian"),
   "sv_FI.UTF-8",	N_("Swedish"),
+  "th_TH.UTF-8",	N_("Thai"),
   "tr_TR.UTF-8",	N_("Turkish"),
   "vi_VN.UTF-8",	N_("Vietnamese"),
   "wa_BE.UTF-8",	N_("Walloon"),
