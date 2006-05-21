@@ -1,3 +1,15 @@
+2006-05-21  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	Fixed imageid and missingletter to work fine when there is a short and long locale
+	translated (e.g. pt and pt_br). This bug is a long standing bug.
+	Fixed memory leaks at the same time.
+	Removed all compilation warnings in them.
+
+	* src/boards/imageid.c: (add_xml_data), (parse_doc),
+	(read_xml_file), (save_table):
+	* src/boards/missingletter.c: (add_xml_data), (parse_doc),
+	(read_xml_file), (save_table), (conf_ok):
+
 2006-05-17  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	Added support for Thai

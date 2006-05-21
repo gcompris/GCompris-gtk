@@ -578,30 +578,44 @@ static void init_xml()
 /* ==================================== */
 static void add_xml_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child)
 {
-	//int i;
-  char *pixmapfile = NULL;
-  char *question = NULL, *answer = NULL;
-  char *l1 = NULL, *l2 = NULL, *l3 = NULL;
-  char *data = NULL;
+  gchar *pixmapfile = NULL;
+  gchar *question = NULL, *answer = NULL;
+  gchar *l1 = NULL, *l2 = NULL, *l3 = NULL;
+  gchar *data = NULL;
   Board * board = g_new(Board,1);
+  gboolean found = FALSE;
 
   xmlnode = xmlnode->xmlChildrenNode;
 
   xmlnode = xmlnode->next;
 
-  while (xmlnode != NULL) {
-    gchar *lang = xmlGetProp(xmlnode,"lang");
-    if (!strcmp(xmlnode->name, "pixmapfile") && (lang==NULL
-						 || !strcmp(lang, gcompris_get_locale())
-						 || !strncmp(lang, gcompris_get_locale(), 2)))
-      pixmapfile = xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 1);
-    if (!strcmp(xmlnode->name, "data") && (lang==NULL
-					   || !strcmp(lang, gcompris_get_locale())
-					   || !strncmp(lang, gcompris_get_locale(), 2)))
+  while (xmlnode != NULL && !found) {
+    gchar *lang = (gchar *)xmlGetProp(xmlnode, BAD_CAST "lang");
+
+    if (!strcmp((char *)xmlnode->name, "pixmapfile"))
+      pixmapfile = (gchar *)xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 1);
+
+    if (!found && !strcmp((char *)xmlnode->name, "data"))
       {
-	data = xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 1);
+	if(lang==NULL && data==NULL)
+	  {
+	    data = (gchar *)xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 1);
+	  }
+	else if(!strncmp(gcompris_get_locale(), lang, 5))
+	  {
+	    if(data) free(data);
+	    data = (char *)xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 1);
+	    /* That's the perfect choice, do not continue or we may override it */
+	    found = TRUE;
+	  }
+	else if(!strncmp(gcompris_get_locale(), lang, strlen(lang)))
+	  {
+	    if(data) free(data);
+	    data = (gchar *)xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 1);
+	  }
       }
     xmlnode = xmlnode->next;
+    g_free(lang);
   }
 
   // I really don't know why this test, but otherwise, the list is doubled
@@ -612,20 +626,24 @@ static void add_xml_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child)
 /*  if ((i=sscanf(data, "%s / %s / %s / %s / %s", answer, question, l1, l2, l3)) != 5)
 		printf("Error sscanf result != 5 = %i\n",i);
 */
-  answer = (char *)strtok(data,"/");
-  question = (char *)strtok(NULL,"/");
-  l1 = (char *)strtok(NULL,"/");
-  l2 = (char *)strtok(NULL,"/");
-  l3 = (char *)strtok(NULL,"/");
+  gchar **all_answer = g_strsplit(data, "/", 5);
+
+  answer = all_answer[0];
+  question = all_answer[1];
+  l1 = all_answer[2];
+  l2 = all_answer[3];
+  l3 = all_answer[4];
 
   assert(l1 != NULL  && l2 != NULL && l3 != NULL && answer != NULL && question != NULL);
 
-  board->pixmapfile = g_strdup(pixmapfile);
+  board->pixmapfile = pixmapfile;
   board->question = g_strdup(question);
   board->answer = g_strdup(answer);
   board->l1 = g_strdup(l1);
   board->l2 = g_strdup(l2);
   board->l3 = g_strdup(l3);
+
+  g_strfreev(all_answer);
 
   board_list = g_list_append (board_list, board);
 }
@@ -636,7 +654,7 @@ static void parse_doc(xmlDocPtr doc)
   xmlNodePtr node;
 
   for(node = doc->children->children; node != NULL; node = node->next) {
-    if ( g_strcasecmp(node->name, "Board") == 0 )
+    if ( g_strcasecmp((gchar *)node->name, "Board") == 0 )
       add_xml_data(doc, node,NULL);
   }
 
@@ -671,7 +689,7 @@ static gboolean read_xml_file(char *fname)
      /* if it doesn't have a name */
      !doc->children->name ||
      /* if it isn't a ImageId node */
-     g_strcasecmp(doc->children->name,"missing_letter")!=0) {
+     g_strcasecmp((char *)doc->children->name,"missing_letter")!=0) {
     xmlFreeDoc(doc);
     return FALSE;
   }
@@ -714,9 +732,10 @@ static void destroy_board(Board * board) {
 static GcomprisProfile *profile_conf;
 static GcomprisBoard   *board_conf;
 
-static GHFunc save_table (gpointer key,
-		    gpointer value,
-		    gpointer user_data)
+/* GHFunc */
+static void save_table (gpointer key,
+			gpointer value,
+			gpointer user_data)
 {
   gcompris_set_board_conf ( profile_conf,
 			    board_conf,
@@ -757,8 +776,7 @@ static GcomprisConfCallback conf_ok(GHashTable *table)
     
   }
 
-  
-  board_conf = NULL;
+    board_conf = NULL;
   profile_conf = NULL;
 
   return NULL;

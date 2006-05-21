@@ -567,53 +567,95 @@ static void dump_xml() {
 /* ==================================== */
 static void add_xml_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child)
 {
-  char *pixmapfile = NULL;
-  char *text1 = NULL, *text2 = NULL, *text3 = NULL;
+  gchar *pixmapfile = NULL;
+  gchar *text1 = NULL, *text2 = NULL, *text3 = NULL;
   Board * board = g_new(Board,1);
+  gboolean found_text1 = FALSE, found_text2 = FALSE, found_text3 = FALSE;
 
   xmlnode = xmlnode->xmlChildrenNode;
 
   xmlnode = xmlnode->next;
 
-  while (xmlnode != NULL) {
-        gchar *lang = (gchar *)xmlGetProp(xmlnode, BAD_CAST "lang");
-	if (!strcmp(xmlnode->name, "pixmapfile") && (lang==NULL
-	    || !strcmp(lang, gcompris_get_locale())
-	    || !strncmp(lang, gcompris_get_locale(), 2)))
-	  {
-	    pixmapfile = xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 1);
-	  }
-	if (!strcmp(xmlnode->name, "text1") && (lang==NULL
-	    || !strcmp(lang, gcompris_get_locale())
-	    || !strncmp(lang, gcompris_get_locale(), 2)))
-	  {
-		text1 = xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 1);
-	  }
-	if (!strcmp(xmlnode->name, "text2") && (lang==NULL
-	    || !strcmp(lang, gcompris_get_locale())
-	    || !strncmp(lang, gcompris_get_locale(), 2)))
-	  {
-	    text2 = xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 1);
-	  }
-	if (!strcmp(xmlnode->name, "text3") && (lang==NULL
-	    || !strcmp(lang, gcompris_get_locale())
-	    || !strncmp(lang, gcompris_get_locale(), 2)))
-	  {
-	    text3 = xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 1);
-	  }
-	xmlnode = xmlnode->next;
-	}
-	// I really don't know why this test, but otherwise, the list is doubled
-	// with 1 line on 2 filled with NULL elements
-	if ( (pixmapfile == NULL || text1 == NULL || text2 == NULL || text3 == NULL))
-		return;
+  while(xmlnode!=NULL) {
+    gchar *lang = (gchar *)xmlGetProp(xmlnode, BAD_CAST "lang");
+    
+    if (!strcmp((char *)xmlnode->name, "pixmapfile"))
+      pixmapfile = (gchar *)xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 1);
 
-	board->pixmapfile = g_strdup(pixmapfile);
-	board->text1 = g_strdup(text1);
-	board->text2 = g_strdup(text2);
-	board->text3 = g_strdup(text3);
+    if (!found_text1 && !strcmp((char *)xmlnode->name, "text1"))
+      {
+	if(lang==NULL && text1==NULL)
+	  {
+	    text1 = (gchar *)xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 1);
+	  }
+	else if(!strncmp(gcompris_get_locale(), lang, 5))
+	  {
+	    if(text1) free(text1);
+	    text1 = (char *)xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 1);
+	    /* That's the perfect choice, do not continue or we may override it */
+	    found_text1 = TRUE;
+	  }
+	else if(!strncmp(gcompris_get_locale(), lang, strlen(lang)))
+	  {
+	    if(text1) free(text1);
+	    text1 = (gchar *)xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 1);
+	  }
+      }
 
-	board_list = g_list_append (board_list, board);
+    if (!found_text2 && !strcmp((char *)xmlnode->name, "text2"))
+      {
+	if(lang==NULL && text2==NULL)
+	  {
+	    text2 = (gchar *)xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 1);
+	  }
+	else if(!strncmp(gcompris_get_locale(), lang, 5))
+	  {
+	    if(text2) free(text2);
+	    text2 = (char *)xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 1);
+	    /* That's the perfect choice, do not continue or we may override it */
+	    found_text2 = TRUE;
+	  }
+	else if(!strncmp(gcompris_get_locale(), lang, strlen(lang)))
+	  {
+	    if(text2) free(text2);
+	    text2 = (gchar *)xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 1);
+	  }
+      }
+
+    if (!found_text3 && !strcmp((char *)xmlnode->name, "text3"))
+      {
+	if(lang==NULL && text3==NULL)
+	  {
+	    text3 = (gchar *)xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 1);
+	  }
+	else if(!strncmp(gcompris_get_locale(), lang, 5))
+	  {
+	    if(text3) free(text3);
+	    text3 = (char *)xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 1);
+	    /* That's the perfect choice, do not continue or we may override it */
+	    found_text3 = TRUE;
+	  }
+	else if(!strncmp(gcompris_get_locale(), lang, strlen(lang)))
+	  {
+	    if(text3) free(text3);
+	    text3 = (gchar *)xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 1);
+	  }
+      }
+
+    xmlnode = xmlnode->next;
+    g_free(lang);
+  }
+  // I really don't know why this test, but otherwise, the list is doubled
+  // with 1 line on 2 filled with NULL elements
+  if ( (pixmapfile == NULL || text1 == NULL || text2 == NULL || text3 == NULL))
+    return;
+
+  board->pixmapfile = pixmapfile;
+  board->text1 = text1;
+  board->text2 = text2;
+  board->text3 = text3;
+
+  board_list = g_list_append (board_list, board);
 }
 
 /* ==================================== */
@@ -622,7 +664,7 @@ static void parse_doc(xmlDocPtr doc)
   xmlNodePtr node;
 
   for(node = doc->children->children; node != NULL; node = node->next) {
-    if ( g_strcasecmp(node->name, "Board") == 0 )
+    if ( g_strcasecmp((gchar *)node->name, "Board") == 0 )
     	add_xml_data(doc, node,NULL);
   }
 
@@ -656,7 +698,7 @@ static gboolean read_xml_file(char *fname)
      /* if it doesn't have a name */
      !doc->children->name ||
      /* if it isn't a ImageId node */
-     g_strcasecmp(doc->children->name,"ImageId")!=0) {
+     g_strcasecmp((char *)doc->children->name,"ImageId")!=0) {
     xmlFreeDoc(doc);
     return FALSE;
   }
@@ -698,9 +740,10 @@ static void destroy_board(Board * board) {
 static GcomprisProfile *profile_conf;
 static GcomprisBoard   *board_conf;
 
-static GHFunc save_table (gpointer key,
-		    gpointer value,
-		    gpointer user_data)
+/* GHFunc */
+static void save_table (gpointer key,
+			gpointer value,
+			gpointer user_data)
 {
   gcompris_set_board_conf ( profile_conf,
 			    board_conf,
