@@ -1,0 +1,4864 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Thai gCompris\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: 2006-09-14 20:25+0700\n"
+"Last-Translator: Ouychai Chaita <Ae.Freeman@gmail.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Thai\n"
+"X-Poedit-Country: THAILAND\n"
+
+#: ../boards/administration.xml.in.h:1
+msgid ""
+"- In the 'Boards' section you can change the list of activities. Just untoggle them in the treeview. You can change the language used for reading, for example, then the language used for saying the names of colors.\n"
+"- You can save multiple configurations, and switch between them easily. In the 'Profile' section add a profile, then in the 'Board' section select the profile in the combobox, then select the boards you want to be active. You can add multiple profiles, with different lists of boards, and different languages. You set the default profile in the 'Profile' section, by choosing the profile you want, then clicking on the 'Default' button. You can also choose a profile from the command line.\n"
+"- You can add users, classes and for each class, you can create groups of users. Note that you can import users from a comma-separated file. Assign one or more groups to a profile, after which those new logins will appear after restarting GCompris. Being able to identify individual children in GCompris means we can provide individual reports. It also recognizes the children as individuals; they can learn to type in and recognize their own usernames (login is configurable)."
+msgstr ""
+"- ในส่วนของ\"กระดาน\" คุณสามารถเปลี่ยนแปลงรายชื่อกิจกรรม หรือจะปิดสลักมันในผังรายการ คุณสามารถเปลี่ยนภาษาเพื่ออ่านมัน ยกตัวอย่างเช่น เราเปลี่ยนภาษาสำหรับการเอ่ยชื่อของสี\n"
+"- คุณสามารถบันทึกการปรับแต่งหลายรูปแบบ และสลับเปลี่ยนมันได้อย่างง่ายดาย ในหมวดของโปรไฟล์ก็เพิ่มโปรไฟล์ จากนั้นในหมวด\"กระดาน\" สามารถบันทึกโปรไฟล์ใน combobox จากนั้นเลือกกระดานเพื่อให้มันทำงาน คุณสามารถเพิ่มโปรไฟล์ได้หลายๆอัน ด้วยรายชื่อที่แตกต่างในกระดาน และด้วยภาษาอื่นๆ คุณตั้งโปรไฟล์ปรกติในหมวดของโปรไฟล์ โดยเลือกโปรไฟล์ที่คุณต้องการ จากนั้นคลิ๊กปุ่ม \"Default\" หรือคุณสามารถเลือกโปรไฟล์จากการใช้คำสั่ง \n"
+"- คุณสามารเพิ่มผู้ใช้ ชั้นสำหรับแต่ละชึ้น คุณสามารถสร้างกลุ่มสำหรับผู้ใช้แต่ละคน บันทึกไวได้เลยว่าคุณสามารถนำเข้าผู้ใช้จากการใช้เครื่องหมายคอมมาร์แบ่งคั่น กำหนดหนึ่งหรือกลุ่มสำหรับโปรไฟล์ ซึ่งจะปรากฎผู้ใช้รายใหม่หลังจากเริ่มจีคอมพริสอีกครั้ง สามารถจำแนกเฉพาะเด็กแต่ละคนในจีคอมพริส หมายถึงว่าเราสามารถทำรายงานในแต่ละคน เขาสามารถเรียนเพื่ิอพิมพ์หรือบันทึกสำหรับผู้ใช้แต่ละคน (ล๊อคอินสามารถปรับได้)"
+
+#: ../boards/administration.xml.in.h:4
+msgid "GCompris Administration Menu"
+msgstr "ตัวบริหารเมนูของจีคอมพริส"
+
+#: ../boards/administration.xml.in.h:5
+msgid "If you want to fine tune GCompris to your needs, you can use the administration module here. The ultimate goal is to provide child-specific reporting for parents and teacher who want to monitor the progress, strengths and needs of their children."
+msgstr "ถ้าหากคุณต้องการปรับแต่งจีคอมพริสอย่างละเอียดตามที่คุณต้องการ คุณสามารถใช้ระบบบริหารโมดูลที่นี่ ซึ่งได้ถูกจัดเตรียมไว้สำหรับรายงานผลสำหรับผู้ปกครองหรือว่าคุณบาอาจารย์ที่จะดูผลการรายงานอย่างเยี่ยมยอดที่สุด มีจำเป็นและเนื้อหาที่เข้มข้นสำหรับบุตรหลานของท่าน"
+
+#: ../boards/administration.xml.in.h:6
+msgid "Left-Click with the mouse to select an activity"
+msgstr "คลิ๊กเม้าซ้ายเพื่อเลือกกิจกรรม"
+
+#: ../boards/advanced_colors.xml.in.h:1
+msgid "Advanced colors"
+msgstr "สีขั้นปฎิบัติ"
+
+#: ../boards/advanced_colors.xml.in.h:2
+#: ../boards/read_colors.xml.in.h:1
+msgid "Can read"
+msgstr "สามารถอ่านได้"
+
+#: ../boards/advanced_colors.xml.in.h:3
+msgid "Click on the correct color"
+msgstr "กดเลือกสีที่ถูกต้อง"
+
+#: ../boards/advanced_colors.xml.in.h:4
+msgid "Click on the correct colored box."
+msgstr "กดเลือกบนกล่องสีที่ถูกต้อง"
+
+#: ../boards/advanced_colors.xml.in.h:5
+msgid "Learn to recognize unusual colors."
+msgstr "ฝึกฝนการจดจำสีที่ผิดปรกติ"
+
+#: ../boards/advanced_colors/board1.xml.in.h:1
+msgid "almond"
+msgstr "อัลมอนด์"
+
+#: ../boards/advanced_colors/board1.xml.in.h:2
+msgid "chestnut"
+msgstr "เกาลัด"
+
+#: ../boards/advanced_colors/board1.xml.in.h:3
+msgid "claret"
+msgstr "แดงอมม่วง"
+
+#: ../boards/advanced_colors/board1.xml.in.h:4
+msgid "cobalt"
+msgstr "โคบอลด์"
+
+#: ../boards/advanced_colors/board1.xml.in.h:5
+msgid "coral"
+msgstr "ปะการัง"
+
+#: ../boards/advanced_colors/board1.xml.in.h:6
+msgid "corn"
+msgstr "ข้าวโพด"
+
+#: ../boards/advanced_colors/board1.xml.in.h:7
+msgid "cyan"
+msgstr "ฟ้า"
+
+#: ../boards/advanced_colors/board1.xml.in.h:8
+msgid "sienna"
+msgstr "ดินเผา"
+
+#: ../boards/advanced_colors/board2.xml.in.h:1
+msgid "lime"
+msgstr "มะนาว"
+
+#: ../boards/advanced_colors/board2.xml.in.h:2
+msgid "sage"
+msgstr "เครื่องเทศ"
+
+#: ../boards/advanced_colors/board2.xml.in.h:3
+msgid "salmon"
+msgstr "ปลาแซลมอน"
+
+#: ../boards/advanced_colors/board2.xml.in.h:4
+msgid "sapphire"
+msgstr "หินแซฟไฟร์"
+
+#: ../boards/advanced_colors/board2.xml.in.h:5
+msgid "sepia"
+msgstr "ซีเปีย"
+
+#: ../boards/advanced_colors/board2.xml.in.h:6
+msgid "sulphur"
+msgstr "กำมะถัน"
+
+#: ../boards/advanced_colors/board2.xml.in.h:7
+msgid "tea"
+msgstr "ชา"
+
+#: ../boards/advanced_colors/board2.xml.in.h:8
+msgid "turquoise"
+msgstr "แร่เทอร์ควอยซ์"
+
+#: ../boards/advanced_colors/board3.xml.in.h:1
+msgid "absinthe"
+msgstr "แอบซินเท"
+
+#: ../boards/advanced_colors/board3.xml.in.h:2
+msgid "alabaster"
+msgstr "อลาบลาสเตอร์"
+
+#: ../boards/advanced_colors/board3.xml.in.h:3
+msgid "amber"
+msgstr "อำพัน"
+
+#: ../boards/advanced_colors/board3.xml.in.h:4
+msgid "amethyst"
+msgstr "เขี้ยวหนุมาน"
+
+#: ../boards/advanced_colors/board3.xml.in.h:5
+msgid "anise"
+msgstr "อนิส"
+
+#: ../boards/advanced_colors/board3.xml.in.h:6
+msgid "aquamarine"
+msgstr "อความารีน"
+
+#: ../boards/advanced_colors/board3.xml.in.h:7
+msgid "mahogany"
+msgstr "มาโอแกนี่"
+
+#: ../boards/advanced_colors/board3.xml.in.h:8
+#: ../boards/advanced_colors/board8.xml.in.h:8
+msgid "vermilion"
+msgstr "เวอร์มิล่อน"
+
+#: ../boards/advanced_colors/board4.xml.in.h:1
+#: ../boards/advanced_colors/board5.xml.in.h:1
+msgid "aubergine"
+msgstr "อเบอร์จิน"
+
+#: ../boards/advanced_colors/board4.xml.in.h:2
+msgid "ceruse"
+msgstr "ซีรัส"
+
+#: ../boards/advanced_colors/board4.xml.in.h:3
+msgid "chartreuse"
+msgstr "ชาร์ทรียูส"
+
+#: ../boards/advanced_colors/board4.xml.in.h:4
+msgid "emerald"
+msgstr "มรกต"
+
+#: ../boards/advanced_colors/board4.xml.in.h:5
+msgid "fawn"
+msgstr "น้ำตาลแกมเหลือง"
+
+#: ../boards/advanced_colors/board4.xml.in.h:6
+msgid "fuchsia"
+msgstr "แดงม่วงสว่าง"
+
+#: ../boards/advanced_colors/board4.xml.in.h:7
+msgid "glaucous"
+msgstr "เขียวอมเทา"
+
+#: ../boards/advanced_colors/board4.xml.in.h:8
+msgid "ruby"
+msgstr "ทับทิม"
+
+#: ../boards/advanced_colors/board5.xml.in.h:2
+msgid "auburn"
+msgstr "เออร์เบิน"
+
+#: ../boards/advanced_colors/board5.xml.in.h:3
+msgid "azure"
+msgstr "อาเซอร์"
+
+#: ../boards/advanced_colors/board5.xml.in.h:4
+msgid "bistre"
+msgstr "บิสทรี"
+
+#: ../boards/advanced_colors/board5.xml.in.h:5
+msgid "celadon"
+msgstr "เซลลาดอน"
+
+#: ../boards/advanced_colors/board5.xml.in.h:6
+msgid "cerulean"
+msgstr "ซีรูเลิน"
+
+#: ../boards/advanced_colors/board5.xml.in.h:7
+msgid "crimson"
+msgstr "แดงเข้ม"
+
+#: ../boards/advanced_colors/board5.xml.in.h:8
+msgid "greyish-brown"
+msgstr "น้ำตาลอ่อน"
+
+#: ../boards/advanced_colors/board6.xml.in.h:1
+msgid "dove"
+msgstr "นกพิราบ"
+
+#: ../boards/advanced_colors/board6.xml.in.h:2
+msgid "garnet"
+msgstr "การ์เน็ต"
+
+#: ../boards/advanced_colors/board6.xml.in.h:3
+msgid "indigo"
+msgstr "อินดิโก้"
+
+#: ../boards/advanced_colors/board6.xml.in.h:4
+msgid "ivory"
+msgstr "ต้นสน"
+
+#: ../boards/advanced_colors/board6.xml.in.h:5
+msgid "jade"
+msgstr "หยก"
+
+#: ../boards/advanced_colors/board6.xml.in.h:6
+msgid "lavender"
+msgstr "สีม่วงอ่อน"
+
+#: ../boards/advanced_colors/board6.xml.in.h:7
+msgid "lichen"
+msgstr "เห็ดรา"
+
+#: ../boards/advanced_colors/board6.xml.in.h:8
+msgid "wine"
+msgstr "ไวน์"
+
+#: ../boards/advanced_colors/board7.xml.in.h:1
+msgid "larch"
+msgstr "ลาร์จ"
+
+#: ../boards/advanced_colors/board7.xml.in.h:2
+msgid "lilac"
+msgstr "ไลแลค"
+
+#: ../boards/advanced_colors/board7.xml.in.h:3
+msgid "magenta"
+msgstr "บานเย็น"
+
+#: ../boards/advanced_colors/board7.xml.in.h:4
+msgid "malachite"
+msgstr "มาลาชิต"
+
+#: ../boards/advanced_colors/board7.xml.in.h:5
+msgid "mimosa"
+msgstr "ไมโนซา"
+
+#: ../boards/advanced_colors/board7.xml.in.h:6
+msgid "navy"
+msgstr "กรมท่า"
+
+#: ../boards/advanced_colors/board7.xml.in.h:7
+msgid "ochre"
+msgstr "เหลืองออกน้ำตาล"
+
+#: ../boards/advanced_colors/board7.xml.in.h:8
+msgid "olive"
+msgstr "ตันโอลิฟว์"
+
+#: ../boards/advanced_colors/board8.xml.in.h:1
+msgid "greyish blue"
+msgstr "น้ำเงินอ่อน"
+
+#: ../boards/advanced_colors/board8.xml.in.h:2
+msgid "mauve"
+msgstr "สีม่วงซีด"
+
+#: ../boards/advanced_colors/board8.xml.in.h:3
+msgid "opaline"
+msgstr "โอปาไลน"
+
+#: ../boards/advanced_colors/board8.xml.in.h:4
+msgid "pistachio"
+msgstr "พิสเตโช"
+
+#: ../boards/advanced_colors/board8.xml.in.h:5
+msgid "platinum"
+msgstr "ทองคำขาว"
+
+#: ../boards/advanced_colors/board8.xml.in.h:6
+msgid "purple"
+msgstr "ม่วง"
+
+#: ../boards/advanced_colors/board8.xml.in.h:7
+msgid "ultramarine"
+msgstr "อัลตร้ามารีน"
+
+#: ../boards/advanced_colors/board9.xml.in.h:1
+msgid "dark purple"
+msgstr "ม่วงเข้ม"
+
+#: ../boards/advanced_colors/board9.xml.in.h:2
+msgid "plum"
+msgstr "พลัม"
+
+#: ../boards/advanced_colors/board9.xml.in.h:3
+msgid "prussian blue"
+msgstr "น้ำเงินเข้ม"
+
+#: ../boards/advanced_colors/board9.xml.in.h:4
+msgid "rust"
+msgstr "สนิม"
+
+#: ../boards/advanced_colors/board9.xml.in.h:5
+msgid "saffron"
+msgstr "สีเหลืองอมส้ม"
+
+#: ../boards/advanced_colors/board9.xml.in.h:6
+msgid "vanilla"
+msgstr "วนิลา"
+
+#: ../boards/advanced_colors/board9.xml.in.h:7
+msgid "verdigris"
+msgstr "สนิมทองแดง"
+
+#: ../boards/advanced_colors/board9.xml.in.h:8
+msgid "veronese"
+msgstr "เวอร์โรนิส"
+
+#: ../boards/algebra_by.xml.in.h:1
+msgid "A multiplication of two numbers is displayed. At the right of the equals sign, give the answer, the product. Use the left and right arrows to modify your answer and press the Enter key to check if you've got it right. If not, just try again."
+msgstr "การคูณระหว่างจำนวนสองจำนวนได้แสดงผล ภายใต้เครื่องหมายเท่ากับทางซ้าย ให้คำตอบ ผลลัพท์ ใช้ลูกศรด้านซ้ายและขวาเพื่อปรับเปลี่ยนคำตอบและกดปุ่ม Enter ถ้าคุณได้คำตอบที่ถูกตอ้ง ถ้าไม่ ก็ลองอีกครั้ง"
+
+#: ../boards/algebra_by.xml.in.h:2
+#: ../boards/algebra_minus.xml.in.h:2
+#: ../boards/algebra_plus.xml.in.h:2
+msgid "Answer some algebra questions"
+msgstr "คำตอบของโจทย์พีชคณิตบางข้อ"
+
+#: ../boards/algebra_by.xml.in.h:3
+msgid "In a limited time, give the product of two numbers"
+msgstr "ในเวลาที่จำกัด ให้หาผลลัพท์ของเลขสองจำนวน"
+
+#: ../boards/algebra_by.xml.in.h:4
+msgid "Multiplication table"
+msgstr "ตารางคำนวณ"
+
+#: ../boards/algebra_by.xml.in.h:5
+msgid "Practice the multiplication operation"
+msgstr "แบบฝึกหัดการคำนวณการคูณ"
+
+#: ../boards/algebra_group.xml.in.h:1
+msgid "Go to Algebra activities"
+msgstr "เข้าสู่กิจกรรมพีชคณิต"
+
+#: ../boards/algebra_group.xml.in.h:2
+#: ../boards/menu.xml.in.h:17
+msgid "Left-click the mouse on an activity to select it."
+msgstr "คลิ๊กขวาบนเม้าส์สำหรับเลือกกิจกรรม"
+
+#: ../boards/algebra_guesscount.xml.in.h:1
+#: ../boards/erase_clic.xml.in.h:1
+#: ../boards/erase_double_clic.xml.in.h:1
+msgid "Animal pictures come from the Animal Photography Page of Ralf Schmode (http://schmode.net/). Ralf has kindly permitted Gcompris to include his pictures. Thanks a lot, Ralf."
+msgstr "รูปสัตว์เหล่านี้ได้มาจาก Animal Photography Page of Ralf Schomode (http://schmode.net/). ราฟ(Ralf)เป็นคนที่มีเมตตาคุณแก่ Gcompris ในการรวบรวมภาพ ขอขอบพระคุณเป็นอย่างสูงแก่ ราพ(Ralf)"
+
+#: ../boards/algebra_guesscount.xml.in.h:2
+msgid "At the top of the board area, choose the numbers and arithmetic operators that give the specified result. You can deselect a number or operator by clicking on it again."
+msgstr "ในมุมบนสุดของกระดาน เลือกตัวเลขและเครื่องหมายคณิตศาสตร์พื่อที่จะได้ผลลัพท์ออกมา คุณสามารถยกเลิกการเลือกตัวเลขหรือเครื่องหมายคณิตศาสตร์โดยการกดคลิ๊กตรงนั้นอีกครั้ง"
+
+#: ../boards/algebra_guesscount.xml.in.h:3
+msgid "Deploy a strategy to arrange a set of arithmetic operations to match a given value."
+msgstr "ปลดปล่อยยุทธวิธีในการที่จะเรียบเรียงชุดของเครื่องหมายคำนวณให้ตรงกับคำตอบที่ถูกต้อง"
+
+#: ../boards/algebra_guesscount.xml.in.h:4
+msgid "Find the series of correct operations that matches the given answer"
+msgstr "ค้นหาเลขอนุกรมที่ถูกต้องในการคำนวณซึ่งตรงกับคำตอบ"
+
+#: ../boards/algebra_guesscount.xml.in.h:5
+msgid "The four arithmetic operations. Combine several arithmetic operations."
+msgstr "การคำนวณพืนฐานสี่ประการ หาผลลัพท์ทั่วไปสำหรับการคำนวณทางคณิตศาสตร์"
+
+#: ../boards/algebra_guesscount.xml.in.h:6
+msgid "Work out the right combination of numbers and operations to match the given value"
+msgstr "ค่อยหาผลรวมที่ถูกต้องสำหรับจำนวนและเครื่องหมายคำนวณให้ตรงกับค่าที่ให้"
+
+#: ../boards/algebra_minus.xml.in.h:1
+msgid "A subtraction problem with two numbers is displayed. At the right of the equals sign, give the answer, the difference. Use the left and right arrows to modify your answer and press the Enter key to check if you've got it right. If not, just try again."
+msgstr "ปัญหาในการลบระหว่างสองจำนวนซึ่งได้แสดงแล้วนั้น ด้านซ้ายมือของเครื่องหมายเท่ากับ ให้คำตอบผลต่าง ใช้ลูกศรซ้ายและขวาสำหรับแก้ใขคำตอบ และถ้าคุณได้ตรวจสอบแล้วคิดว่าเป็นคำตอบที่ถูกต้องให้กดปุ่ม Enter ถ้าไม่ก็ทำอีกครั้ง"
+
+#: ../boards/algebra_minus.xml.in.h:3
+msgid "In a limited time, find the difference between two numbers"
+msgstr "ในเวลาที่จำกัด ค้นหาความแตกต่างระหว่างสองตัวเลข"
+
+#: ../boards/algebra_minus.xml.in.h:4
+msgid "Practice the subtraction operation"
+msgstr "แบบฝีกหัดการคำนวณการลบ"
+
+#: ../boards/algebra_minus.xml.in.h:5
+msgid "Simple subtraction"
+msgstr "การลบพื้นฐาน"
+
+#: ../boards/algebra_plus.xml.in.h:1
+msgid "An addition problem with two numbers is displayed. At the right of the equals sign, give the answer, the sum. Use the left and right arrows to modify your answer and press the Enter key to check if you've got it right. If not, just try again."
+msgstr "ปัญหาของการบวกด้วยสองจำนวนซึ่งได้แสดงไว้แล้วนั้น ด้านซ้ายจากเครื่องหมายเท่ากับ ให้คำตอบ ผลรวม ใช้ลูกศรซ้ายและขวาเพื่อแก้ใขคำตอบ ถ้าตรวจสอบคำตอบถูกต้องให้แล้วกดปุ่ม Enter ถ้าไม่ก็ให้คำอีกรอบ"
+
+#: ../boards/algebra_plus.xml.in.h:3
+msgid "In a limited time, find the sum of of two numbers. Introduction to simple in-line addition."
+msgstr "ในเวลาที่จำกัด หาผลรวมของเลขสองจำนวน เริ่มต้น โดยบวกตามแนว"
+
+#: ../boards/algebra_plus.xml.in.h:4
+msgid "Practice the addition operation"
+msgstr "บทเรียนการคำนวณการบวก"
+
+#: ../boards/algebra_plus.xml.in.h:5
+msgid "Simple addition. Can recognize written numbers"
+msgstr "การบวกพืิ้นฐาน สามารถจำตัวเลขที่มีไว้แล้ว"
+
+#: ../boards/algebramenu.xml.in.h:1
+msgid "Go to calculation activities"
+msgstr "ไปยังกิจกรรมการคำนวณ"
+
+#: ../boards/algebramenu.xml.in.h:2
+msgid "Various calculation activities."
+msgstr "กิจกรรมการคำนวณที่หลากหลาย"
+
+#: ../boards/algorithm.xml.in.h:1
+msgid "Complete a list of symbols"
+msgstr "เสร็จสิ้นรายชื่อของสัญลักษณ์"
+
+#: ../boards/algorithm.xml.in.h:2
+msgid "Find the next symbol in a list."
+msgstr "ค้นหาสัญลักษณ์ในรายชื่อ"
+
+#: ../boards/algorithm.xml.in.h:3
+msgid "Logic training activity"
+msgstr "กิจกรรมฝึกตรรกะ"
+
+#: ../boards/algorithm.xml.in.h:4
+#: ../boards/hexagon.xml.in.h:3
+#: ../boards/melody.xml.in.h:4
+msgid "Move and click the mouse"
+msgstr "ขยับและคลิกซ์เม้าส์"
+
+#: ../boards/algorithm.xml.in.h:5
+msgid "algorithm"
+msgstr "อัลกอริทึม"
+
+#: ../boards/anim.xml.in.h:1
+msgid "Create a drawing or an animation"
+msgstr "การสร้างภาพหรืออนิเมชั่น"
+
+#: ../boards/anim.xml.in.h:2
+msgid "Free drawing and animation tool."
+msgstr "การวาดแบบอิสระและเครื่องมืออนิเมชั่น"
+
+#: ../boards/anim.xml.in.h:3
+msgid "In this game, children can draw freely. The goal is to discover how to create attractive drawings based on basic shapes: rectangles, ellipses and lines. To give children a wider range of choices, a set of images can also be used."
+msgstr "ในเกมส์นี้ เด็กสามารถวาดได้อย่างอิสระ จุดมุ่งหมายเพื่อค้นหาว่าจะทำอย่างไรในการที่จะสร้างภาพที่ดึงดูดใจจากรูปทรงพื้นฐาน อันได้แก่ รูปสี่เหลี่ยมมุมฉาก รูปวงรี และเส้น ให้เด็กมีทางเลือกที่กว้่างขึ้น กลุ่มของรูปสามารถถูกนำมาใช้ "
+
+#: ../boards/anim.xml.in.h:4
+#: ../boards/draw.xml.in.h:4
+msgid "Needs to be capable of moving and clicking the mouse easily"
+msgstr "จำเป็นที่จะหาความเป็นไปได้ที่จะย้ายหรือคลิ๊กเม้าสได้ง่ายๆ "
+
+#: ../boards/anim.xml.in.h:5
+msgid "Select a drawing tool on the left, and a color down the bottom. Then click and drag in the white area to create a new shape. Once you've completed a drawing, you can take a snapshot of it with the 'camera' button. This creates a new image with the same content, a copy of your image. You can then edit it by moving objects a little bit or adding/deleting objects. When you create several drawings and then click on the 'film' button, you will see all your images in a continuous slide-show (an infinite loop pattern). You can also change the viewing speed in this mode. In viewing mode, click on the 'drawing' button to return to drawing mode. You can then edit each image in your animation, by using the image selector in the bottom-left corner of the screen. You can also save and reload your animations with the 'floppy disk' and 'folder' buttons."
+msgstr "เลือกเครื่องมือวาดจากด้านซ้าย และสีจากด้านล่าง จากนั้นคลิ๊กและลากในพื้นที่สีขาวเพื่อสร้างรูปทรงใหม่ๆ การวาดจะเสร็จสิ้นไปแต่ละครั้ง คุณสามรถบันทึกภาพในปุ่ม\"กล้องถ่ายรูป\" เป็นการสร้างภาพในลักษณะที่เหมือนเดิม หรือทำสำเนารูปภาพ คุณสามารถแก้ใขโดยการเคลือนย้ายวัตถุได้นิดหน่อย หรือว่าเพิ่ม/ลบ วัตถุ เมื่อคุณสร้างวาดรูปทั่วๆไป จากนั้นคลิ๊กบนปุ่ม \"ฟิลม์\" คุณสามารถมองเห็นว่าภาพของคุณถูกแสดงอย่างต่อเนื่อง(ทำอย่างไม่มีที่สิ้นสุด) ในหมวดแสดงผล คุณสามารถปรับความเร็วของการแสดงในหมวดนี้ คลิ๊กที่ปุ่ม\"วาดรูป\" เพื่อกลับเข้าสู่หมวดวาดรูป คุณสามารถแก้ใขในแต่ละภาพในอนิเมชั่นของคุณ โดยการเลือกรูปภาพในปุ่มด้านมุมล่างซ้ายของขอภาพ คุณสามารถบันทึกหรืออนิเมชั่นของคุณมาใหม่ ด้วย\"ฟล๊อบปี้ดิสก์\" หรือปุ่ม \"แฟ้ม\""
+
+#: ../boards/awele.xml.in.h:1
+msgid "At the beginning of the game four seeds are placed in each house. Players take turns moving the seeds. In each turn, a player chooses one of the six houses under his or her control. The player removes all seeds from this house, and distributes them, dropping one in each house counter-clockwise from the original house, in a process called sowing. Seeds are not distributed into the end scoring houses, nor into the house drawn from. That is, the starting house is left empty; if it contained 12 seeds, it is skipped, and the twelfth seed is placed in the next house. After a turn, if the last seed was placed into an opponent's house and brought its total to two or three, all the seeds in that house are captured and placed in the player's scoring house (or set aside if the board has no scoring houses). If the previous-to-last seed also brought the total seeds in an opponent's house to two or three, these are captured as well, and so on. However, if a move would capture all an opponent's seeds, the capture is forfeited, and the seeds are instead left on the board, since this would prevent the opponent from continuing the game. The proscription against capturing all an opponent's seeds is related to a more general idea, that one ought to make a move that allows the opponent to continue playing. If an opponent's houses are all empty, the current player must make a move that gives the opponent seeds. If no such move is possible, the current player captures all seeds in his/her own territory, ending the game. (Source Wikipedia &lt;http://en.wikipedia.org/wiki/Oware&gt;)"
+msgstr "ในการเริ่มต้นเกมจะมีสี่เมล็ดที่วางไว้ในแต่ละบ้าน ผู้เล่นมีตาเดินในการเคลืืื่อนเมล็ด ในแต่ละตาเดิน ผู้เล่นจะได้รับสิทธิเลือกหนึ่งในหกบ้านภายใต้การควบคุมของเธอหรือเขา ผู้เล่นย้ายทุกๆเมล็ดออกจากบ้าน และกระจายมัน วางหนึงอันลงแต่ละบ้านเรียงตามเข็มนาฬิกาจากบ้านหลังแรก การดำเนินเกมส์เรียกว่าการหว่าน เมล็ดไม่สามารถกระจายไปยังบ้านนับคะแนนสุดท้าย หรือไปยังบ้านที่จากมา มันคือสิ่งที่บ้านเริ่มต้นจะต้องจากไปด้วยว่าเปล่า ถ้าหากมันบรรจุึด 12 เมล็ด มันจะต้องถูกข้าม และเมล็ดที่สิบสองจะถูกวางในบ้านหลังถัดไป ในการเดินแต่ละครั้ง ถ้าหากเมล็ดสุดท้ายถูกวางในบ้านของคู่แข่ง และซื้อมันด้วยผลรวมของสองหรือสาม เมล็ดทั้งหมดในบ้านจะต้องถูกจับและวางในบ้่านของผู้เล่นนับคะแนน(หรือเอาไว้ข้างๆ ถ้าหากกระดานไม่มีบ้านนับคะแนน) ถ้าก่อนหน้าเมล็ดสุดท้ายยังซื้อผลรวมของเมล็ดในบ้านของคู่แข่งเป็นจำนวนสองหรือสาม มันถูกจับได้อย่างดี หรืออยู่บนนั้น อย่างไรก็ตาม ถ้าการเคลื่อนใหวถูกจับได้จากเมล็ดของคู่แข่งทั้งหมด การจับนั้นจะต้องถูกปรับ และเมล็ดจะต้องถูกออกแทนที่บนกระดาน ถ้าคิดจะขัดขวางคู่แข่งในการดำเนินเกม การประนามต่อต้านการจับเมล็ดของคู่แข่งทั้งหมด ที่ถูกปล่อยหรือความคิดที่มากกว่านั้น จะต้องมีนหนึ่งคนที่ควรจะสร้างการเคลืืืื่อนใหวที่อนุญาติให้คู่ต่อสู้ดำเนินการต่อ ถ้าหากว่าบ้านของคู่แข่งว่างเปล่าทั้งหมด ผู้เล่นคนปัจจุบันจะต้องสร้างการเคลื่อนใหวที่ให้แก่เมล็ดของคู่แข่ง ถ้าหากว่าการเคลือนใหวจะเป็นไปได้ ผู้เล่นคนปัีจจุบันจับเมล็ดทั้งหมดไว้ในอนาเขตของตนเอง ถือว่าจบเกม (ต้นฉบับมาจากวิกิพีเดี่ย &lt;http://en.wikipedia.org/wiki/Oware&gt;)"
+
+#: ../boards/awele.xml.in.h:2
+msgid "Oware"
+msgstr "โอวาร์"
+
+#: ../boards/awele.xml.in.h:3
+msgid "Play the Oware strategy game against Tux"
+msgstr "เล่นเกมส์วานแผนโอวาร์ต่อสู้กับทักซ์"
+
+#: ../boards/awele.xml.in.h:4
+msgid "The object of the game is to capture more seeds than one's opponent. Since the game has only 48 seeds, capturing 25 is sufficient to accomplish this. Since there are an even number of seeds, it is possible for the game to end in a draw, where each player has captured 24. The game is over when one player has captured 25 or more stones, or both players have taken 24 stones each (draw). If both players agree that the game has been reduced to an endless cycle, each player captures the stones on their side of the board."
+msgstr "วัตถุประสงค์ของเกมนี้เพื่อจับแมล็ดมากกว่าคู่ต่อสู้หนึ่งคน เนื่องจากเกมส์นี้มาเฉพาะ 48 เมล็ด การจับได้ 25 ก็เพียงพอสำหรับการทำให้่สำเร็จ ถ้าทำได้ตั้ังแต่จำนวนคู่ของเมล็ด ก็ถือว่าเพียงพอที่จะทำให้เกมส์เสมอ ผู้เล่นคนใดสามารถจับได้ 24 เกมส์จะจบลงเมื่อผู้เล่นสามารถจับได้ 25 หรือมากกว่านั้น หรือผู้เล่นทั้งสองสามารถทำได้ 24 ก้อน(เสมอ) ถ้าหากผู้เล่นยอมรับที่จะให้เกมส์ลดลงไปยังวงกลมที่ไม่จบสิ้น ผู้เล่นแต่ละคนจับก้อนหินบนแต่ละข้่างของกระดาน"
+
+#: ../boards/babymatch.xml.in.h:1
+#: ../boards/babymatch/board1_0.xml.in.h:1
+#: ../boards/babymatch/board2_0.xml.in.h:1
+#: ../boards/babymatch/board3_0.xml.in.h:1
+#: ../boards/babymatch/board4_0.xml.in.h:1
+#: ../boards/babymatch/board5_0.xml.in.h:1
+#: ../boards/babymatch/board6_0.xml.in.h:1
+#: ../boards/babymatch/board7_0.xml.in.h:1
+msgid "Drag and Drop the items to make them match"
+msgstr "ลากแล้วปล่อยสิ่งของสำหรับของที่เหมาะสม"
+
+#: ../boards/babymatch.xml.in.h:2
+msgid "In the main board area, a set of objects is displayed. In the vertical box (at the left of the main board) another set of objects is shown, each object in the group on the left matching exactly one object in the main board area. This game challenges you to find the logical link between these objects. How do they fit together? Drag each object to the correct red space in the main area."
+msgstr "กลุ่มของวัตถุทีี่ถูกแสดงในพื้นที่ของกระดานหลัก ในกล่องแนวตั้ง(ด้านซ้ายของกระดานหลัก) และมีวัตถุอื่นๆได้แสดง แต่ละวัตถุในกลุ่มทางด้านซ้ายมีอันที่เหมาะสมเพียงอันเดียวในกระดานหลัก เกมส์นี้ท้าทายความสามารถทางตรรกะในการค้นหาความสำพันธ์ของวัตถุ ทำอย่างไรให้มันลงตัว ลากแล้ววางวัตถุให้ถูกต้องกับพื้นที่ว่างสีแดงในพื้นที่หลัก"
+
+#: ../boards/babymatch.xml.in.h:3
+msgid "Matching Items"
+msgstr "จับคู่เหมือน"
+
+#: ../boards/babymatch.xml.in.h:4
+msgid "Motor coordination. Conceptual matching."
+msgstr "ความเข้ากันทางความคิดในการประสานการทำงานของมอเตอร์"
+
+#: ../boards/babymatch.xml.in.h:5
+msgid "Mouse manipulation: movement, drag and drop. Cultural references."
+msgstr "ปรับแต่งเม้าส์ การเคลื่อนใหว ลากแล้ววาง แหล่งอ้างอิงทางวัฒนธรรม"
+
+#: ../boards/babyshapes.xml.in.h:1
+msgid "Complete the puzzle"
+msgstr "เสร็จสิ้นเกมปริศนา"
+
+#: ../boards/babyshapes.xml.in.h:2
+msgid "Complete the puzzle by dragging each piece from the set of pieces on the left, to the matching space in the puzzle."
+msgstr "จบเกมส์ปริศนาโดยลากแต่ละชิ้นจากกลุ่มของมันทางด้านซ้าย เพื่อวางให้เหมาะสมกับช่องว่างของเกมปริศนา"
+
+#: ../boards/babyshapes.xml.in.h:3
+msgid "Drag and Drop the shapes on their respective targets"
+msgstr "ลากรูปทรงแล้ววางลงในแต่ละเป้าหมาย"
+
+#: ../boards/babyshapes.xml.in.h:4
+msgid "Good mouse-control"
+msgstr "ควบคุมเม้าส์ได้ดี"
+
+#: ../boards/babyshapes.xml.in.h:5
+msgid "The dog is provided by Andre Connes and released under the GPL"
+msgstr "สุนัขถูกจัดเตรียมโดย Andre Connes และผลิตภายใต้ GPL"
+
+#: ../boards/babyshapes/board5_0.xml.in.h:1
+msgid "Hello ! My name is Lock."
+msgstr "สวัสดี ฉันชื่อล๊อค"
+
+#: ../boards/babyshapes/board6_0.xml.in.h:1
+msgid "Lock on the grass."
+msgstr "ล๊อคอยู่บนทุ่งหญ้า"
+
+#: ../boards/babyshapes/board7_0.xml.in.h:1
+msgid "Lock with colored shapes."
+msgstr "ล๊อคกับสีรูปทรง"
+
+#: ../boards/ballcatch.xml.in.h:1
+msgid "Make the ball go to Tux"
+msgstr "ให้ลูกบอลไปยังทักซ์"
+
+#: ../boards/ballcatch.xml.in.h:2
+msgid "Press the two shift keys at the same time, to make the ball go in a straight line."
+msgstr "กดปุ่ม Shift ทั้งสองอันพร้อมกัน เพื่อทำให้ลูกบอลเข้าสู้เส้นตรง"
+
+#: ../boards/bargame.xml.in.h:1
+msgid "Brain"
+msgstr "สมอง"
+
+#: ../boards/bargame.xml.in.h:2
+msgid "Don't use the last ball"
+msgstr "อย่าใช้ลูกสุดท้าย"
+
+#: ../boards/bargame.xml.in.h:3
+#: ../boards/hexagon.xml.in.h:2
+msgid "Logic-training activity"
+msgstr "กิจกรรมฝึกฝนตรรกะ"
+
+#: ../boards/bargame.xml.in.h:4
+msgid "Place balls in the holes. You win if the computer has to place the last ball. If you want Tux to begin, just click on him."
+msgstr "ัจับลูกบอลใส่รู เมื่อชนะก็ต่อมเมื่อคอมพิวเตอร์ได้ใส่เป็นลูกสุดท้าย ถ้าคุณต้องการให้ทักซ์เป็นคนเริ่ม คลิ๊กบนตัวเขา"
+
+#: ../boards/bargame.xml.in.h:5
+msgid "bar game"
+msgstr "จบเกม"
+
+#: ../boards/billard.xml.in.h:1
+msgid "Kick the ball into the black hole on the right"
+msgstr "เขี่ยลูกบอลเข้าไปยังหลุมให้ถูกต้อง"
+
+#: ../boards/billard.xml.in.h:2
+msgid "Kick the ball into the goal"
+msgstr "แตะลูกบอลเข้าสู่เป้าหมาย"
+
+#: ../boards/billard.xml.in.h:3
+#: ../boards/chess_computer.xml.in.h:2
+#: ../boards/chess_movelearn.xml.in.h:3
+#: ../boards/chess_partyend.xml.in.h:2
+#: ../boards/clickgame.xml.in.h:16
+#: ../boards/connect4.xml.in.h:7
+#: ../boards/erase.xml.in.h:3
+#: ../boards/erase_clic.xml.in.h:6
+#: ../boards/erase_double_clic.xml.in.h:6
+#: ../boards/fifteen.xml.in.h:2
+#: ../boards/hanoi.xml.in.h:3
+#: ../boards/memory.xml.in.h:4
+#: ../boards/tangram.xml.in.h:8
+msgid "Mouse-manipulation"
+msgstr "การปรับแต่งเม้าส์"
+
+#: ../boards/billard.xml.in.h:4
+msgid "Point the mouse and click on the ball, to set the speed and direction of the ball. The closer you click to the centre, the slower the ball moves."
+msgstr "กำหนดจุดที่เม้าจะคลิ๊กบนลูกบอล เพื่อกำหนดความเร็วและทิศทางของลูก ให้ใกล้จุดศูนย์กลางและช้าเมื่อบอลขยับ"
+
+#: ../boards/billard.xml.in.h:5
+msgid "The football game"
+msgstr "เกมส์ฟุตบอล"
+
+#: ../boards/canal_lock.xml.in.h:1
+msgid "Operate a canal lock"
+msgstr "ปฎิบัติการแคแนลล๊อค"
+
+#: ../boards/canal_lock.xml.in.h:2
+msgid "Tux is in trouble, and needs to take his boat through a lock. Help Tux and find out how a canal lock works."
+msgstr "ทักซ์ถูกรบกวน และต้องการปลดล๊อค ช่วยทักซ์ และหาทางว่าทำอย่างไรให้ประตูน้ำทำงาน"
+
+#: ../boards/canal_lock.xml.in.h:3
+msgid "You are in charge of the canal lock. Open the gates and the locks in the right order, so Tux can travel through the gates in both directions."
+msgstr "คูณได้มีหน้าที่ดูแลแค่แนลล๊อค เปิดประตูและล๊อคตามลำดับที่ถูกต้อง ดังนั้นทักซ์สามารถล่องเรือตามประตูต่างๆ ได้ทั้งสองทิศทาง"
+
+#: ../boards/chess.xml.in.h:1
+#: ../boards/chess_computer.xml.in.h:3
+msgid "Play chess against the computer in a learning mode"
+msgstr "เล่นหมากรุกกับคอมพิวเตอร์ในโหมดสำหรับเรียนรู้"
+
+#: ../boards/chess.xml.in.h:2
+msgid "Practice chess"
+msgstr "แบบฝึกหัดหมากรุก"
+
+#: ../boards/chess_computer.xml.in.h:1
+#: ../boards/chess_movelearn.xml.in.h:2
+#: ../boards/chess_partyend.xml.in.h:1
+msgid "Learning chess"
+msgstr "เรียนรู้หมากรุก"
+
+#: ../boards/chess_computer.xml.in.h:4
+#: ../boards/chess_movelearn.xml.in.h:4
+#: ../boards/chess_partyend.xml.in.h:4
+msgid "The chess engine is from gnuchess."
+msgstr "กลไกของหมากรุกมาจาก gnuchess"
+
+#: ../boards/chess_movelearn.xml.in.h:1
+msgid "Chess training. Catch the computer's pawns."
+msgstr "หมากรุกฝึกหัด จับตัวหมากเบี้ยหมากรุก"
+
+#: ../boards/chess_partyend.xml.in.h:3
+msgid "Play the end of the chess game against the computer"
+msgstr "เล่นหมากรุกให้จบโดยสู้กับคอมพิวเตอร์"
+
+#: ../boards/chronos.xml.in.h:1
+msgid "Chronos"
+msgstr "โครนอส"
+
+#: ../boards/chronos.xml.in.h:2
+msgid "Drag and Drop the items to organize the story"
+msgstr "ลากแล้ววางสิ่งของเพื่อเรียบเรียงเรื่องราว"
+
+#: ../boards/chronos.xml.in.h:3
+msgid "Moon photo is copyright NASA. The space sounds come from Tuxpaint and Vegastrike which are released under the GPL license. The transportation images are copyright Franck Doucet. Dates of Transportation are based on those found in &lt;http://www.wikipedia.org&gt;."
+msgstr "รูปดวงจันทร์ได้เป็นลิขสิทธิ์ขององค์การนาซ่า เสียงอวกาศได้มาจากโปรแกรมทักเพ้นซ์และเวกัสสไตร์คซึ่งเป็นลิขสิทธิแบบ GPL รูปการขนส่งมาจาก Franck Doucet วันที่ขนส่งสามารถหาได้จาก &lt;http://www.wikipedia.org&gt;."
+
+#: ../boards/chronos.xml.in.h:4
+msgid "Pick from the pictures on the left and put them on the red dots"
+msgstr "นำรูปภาพจากด้านซ้ายมือ และวางมันลงบนจุดสีแดง"
+
+#: ../boards/chronos.xml.in.h:5
+msgid "Sort the pictures into the order that tells the story"
+msgstr "เรียงรูปภาพตามลำดับเพื่อบอกเล่าเรื่องราว"
+
+#: ../boards/chronos.xml.in.h:6
+msgid "Tell a short story"
+msgstr "เล่าอย่างสั้น"
+
+#: ../boards/chronos/board1_0.xml.in.h:1
+msgid "Moonwalker"
+msgstr "ผู้เดินบนดวงจันทร์"
+
+#: ../boards/chronos/board1_1.xml.in.h:1
+msgid "Autumn"
+msgstr "ฤดูไบใม้ร่วง"
+
+#: ../boards/chronos/board1_1.xml.in.h:2
+msgid "Spring"
+msgstr "ฤดูใบไม้ผลิ"
+
+#: ../boards/chronos/board1_1.xml.in.h:3
+msgid "Summer"
+msgstr "ฤดูร้อน"
+
+#: ../boards/chronos/board1_1.xml.in.h:4
+msgid "The 4 Seasons"
+msgstr "4 ฤดู"
+
+#: ../boards/chronos/board1_1.xml.in.h:5
+msgid "Winter"
+msgstr "ฤดูหนาว"
+
+#: ../boards/chronos/board1_2.xml.in.h:1
+msgid "Gardening"
+msgstr "การจัดสวน"
+
+#: ../boards/chronos/board2_0.xml.in.h:1
+msgid "Tux and the apple tree"
+msgstr "ทัก และต้นแอบเปิ้ล"
+
+#: ../boards/chronos/board3_0.xml.in.h:1
+#: ../boards/chronos/board3_2.xml.in.h:1
+#: ../boards/chronos/board3_4.xml.in.h:1
+#: ../boards/chronos/board4_2.xml.in.h:1
+msgid "1769 Cugnot's fardier"
+msgstr "1769 Cugnot's fardier"
+
+#: ../boards/chronos/board3_0.xml.in.h:2
+#: ../boards/chronos/board3_3.xml.in.h:5
+#: ../boards/chronos/board3_4.xml.in.h:2
+msgid ""
+"1829 Stephenson's Rocket\n"
+"Steam locomotive"
+msgstr ""
+"1829 Stephenson's Rocket\n"
+"หัวรถจักรไอน้ำ"
+
+#: ../boards/chronos/board3_0.xml.in.h:4
+msgid ""
+"Place each image in the order and\n"
+"on the date it was invented.\n"
+"If not sure, research online at wikipedia:\n"
+"&lt;http://www.wikipedia.org&gt;"
+msgstr ""
+"วางรูปแต่ละรูปตามลำดับและ\n"
+"ตามวันที่ๆได้ถูกสร้างสรรค์\n"
+"หากไม่แน่ใจ สามาถค้นคว้าผ่านระบบออนไล์ได้ที่ wikipedia:\n"
+"&lt;http://www.wikipedia.org&gt;"
+
+#: ../boards/chronos/board3_0.xml.in.h:8
+#: ../boards/chronos/board3_1.xml.in.h:6
+#: ../boards/chronos/board3_2.xml.in.h:5
+#: ../boards/chronos/board3_3.xml.in.h:7
+#: ../boards/chronos/board3_4.xml.in.h:4
+msgid "Transportation"
+msgstr "ขนส่งมวลชน"
+
+#: ../boards/chronos/board3_1.xml.in.h:1
+#: ../boards/chronos/board3_3.xml.in.h:1
+msgid ""
+"1783 Montgolfier brothers'\n"
+"hot air balloon"
+msgstr ""
+"1783 Montgolfier brothers'\n"
+"บอลลูนลมร้อน"
+
+#: ../boards/chronos/board3_1.xml.in.h:3
+#: ../boards/chronos/board3_2.xml.in.h:4
+#: ../boards/chronos/board3_4.xml.in.h:3
+#: ../boards/chronos/board4_0.xml.in.h:1
+msgid "1880 Clement Ader's Eole"
+msgstr ""
+
+#: ../boards/chronos/board3_1.xml.in.h:4
+msgid ""
+"1906 Paul Cornu\n"
+"First helicopter flight"
+msgstr ""
+"1906 Paul Cornu\n"
+"เฮลิคอบเตอร์ต่อสู่ลำแรก"
+
+#: ../boards/chronos/board3_2.xml.in.h:2
+#: ../boards/chronos/board3_3.xml.in.h:3
+msgid ""
+"1791 Comte de Sivrac's\n"
+"Celerifere"
+msgstr ""
+
+#: ../boards/chronos/board4_0.xml.in.h:2
+msgid "1903 The Wright brothers' Flyer III"
+msgstr ""
+
+#: ../boards/chronos/board4_0.xml.in.h:3
+msgid ""
+"1909 Louis Bleriot crosses\n"
+"the English Channel"
+msgstr ""
+"1909 Louis Bleriot crosses\n"
+"ช่องภาษาอังกฤษ"
+
+#: ../boards/chronos/board4_0.xml.in.h:5
+#: ../boards/chronos/board4_1.xml.in.h:7
+msgid "Aviation"
+msgstr "วิชาการบิน"
+
+#: ../boards/chronos/board4_1.xml.in.h:1
+msgid ""
+"1927 Charles Lindbergh\n"
+"crosses the Atlantic Ocean"
+msgstr ""
+"1927 ชาล์ ลินเบอร์ก\n"
+"ข้ามทะเลแอตแลนติก"
+
+#: ../boards/chronos/board4_1.xml.in.h:3
+msgid ""
+"1934 Hélène Boucher's\n"
+"speed record of 444km/h"
+msgstr ""
+"1934 Hรฉlรจne Boucher's\n"
+"บันทึกสถิติ 444km/h"
+
+#: ../boards/chronos/board4_1.xml.in.h:5
+msgid ""
+"1947 Chuck Yeager\n"
+"breaks the sound-barrier"
+msgstr ""
+"1947 Chuck Yeager\n"
+"หยุดกำแพงเสียง"
+
+#: ../boards/chronos/board4_2.xml.in.h:2
+msgid "1878 Léon Bollé's \"La Mancelle\""
+msgstr ""
+
+#: ../boards/chronos/board4_2.xml.in.h:3
+msgid ""
+"1885 The first petrol\n"
+"car by Benz"
+msgstr ""
+"1885 การลาดตระเวณครั้งแรก\n"
+"โดยรถเบ็นซ์"
+
+#: ../boards/chronos/board4_2.xml.in.h:5
+msgid "The car"
+msgstr "รถยนต์"
+
+#: ../boards/chronos/board4_3.xml.in.h:1
+msgid "1899 Renault \"voiturette\""
+msgstr ""
+
+#: ../boards/chronos/board4_3.xml.in.h:2
+msgid "1923 Lancia Lambda"
+msgstr ""
+
+#: ../boards/chronos/board4_3.xml.in.h:3
+msgid "1955 Citroën ds 19"
+msgstr ""
+
+#: ../boards/chronos/board4_3.xml.in.h:4
+msgid "Cars"
+msgstr "รถยนต์"
+
+#: ../boards/click_on_letter.xml.in.h:1
+msgid "A letter is spoken. Click on the matching letter in the main area. You can listen to the letter again, by clicking on the mouth icon in the bottom box."
+msgstr "อักษรที่พูดได้ คลิ๊กลงบนอักษรที่ตรงกันในพื้นที่หลัก คุณสามารถฟังเสียงของอักษรซ้่ำได้ โดยกดคลิ๊กบนรูปปากบนกล่องด้านล่างสุด"
+
+#: ../boards/click_on_letter.xml.in.h:2
+msgid "Click on a letter"
+msgstr "คลิ๊กตรงตัวอักษร"
+
+#: ../boards/click_on_letter.xml.in.h:3
+msgid "Letter-name recognition"
+msgstr "การจำชื่อตัวอักษร"
+
+#: ../boards/click_on_letter.xml.in.h:4
+msgid "Listen to a letter and click on the right one"
+msgstr "ฟังเสียงของตัวอักษรและคลิ๊กที่ถูกต้องเพียงหนึ่งอัน"
+
+#: ../boards/click_on_letter.xml.in.h:5
+msgid "Visual letter-recognition. Can move the mouse."
+msgstr "การจดจำอักษร สามารถขยับเม้าส์"
+
+#: ../boards/clickgame.xml.in.h:1
+msgid "Click On Me"
+msgstr "คลิ๊กบนตัวฉัน"
+
+#: ../boards/clickgame.xml.in.h:2
+msgid ""
+"Fish are taken from the Unix utility xfishtank.\n"
+"Images are taken from the National Undersea Research Program (NURP) Collection\n"
+"at &lt;http://www.photolib.noaa.gov&gt;\n"
+"All image credits belong to the OAR/National Undersea Research Program (NURP),\n"
+"except for the first image, which is property of the University of North Carolina at Wilmington.\n"
+"The images used in each level are:\n"
+"Location: Tropical Atlantic Ocean, Florida Keys (image nur00523) Photographer: D. Kesling\n"
+"Location: Florida Keys (image nur03006)\n"
+"Location: Unknown (image nur03505)\n"
+"Location: Unknown (image nur03010)\n"
+"Location: Unknown (image nur03011)\n"
+"Location: Unknown (image nur03013)"
+msgstr ""
+"ปลาเหล่านี้ได้รับมาจากยูนิกซ์ยูทิลิตี้เอ็กฟิสแท็งค์ (the Unix utility xfishtank)\n"
+"ภาพได้รับมาจาก National Undersea Research Program (NURP) ภาพสะสม\n"
+"ที่ &lt;http://www.photolib.noaa.gov&gt;\n"
+"ภาพทั้งหมดขอยกความดีให้กับ OAR/National Undersea Research Program (NURP),\n"
+"ยกเว้นรูปแรก ซึ่งเหมาะสมจะที่จะให้แก่ the University of North Carolina at Wilmington.\n"
+"รูปภาพถูกใช้ในแต่ละระดับเป็น:\n"
+"สถานที่: Tropical Atlantic Ocean, Florida Keys (image nur00523) ช่างภาพ: D. Kesling\n"
+"สถานที่: Florida Keys (image nur03006)\n"
+"สถานที่: Unknown (image nur03505)\n"
+"สถานที่: Unknown (image nur03010)\n"
+"สถานที่: Unknown (image nur03011)\n"
+"สถานที่: Unknown (image nur03013)"
+
+#: ../boards/clickgame.xml.in.h:14
+msgid "Left-Click with the mouse on all the swimming fish before they leave the fishtank"
+msgstr "คลิ๊กเม้าส์ซ้ายบนปลาที่กำลังว่ายน้ำทั้งหมดก่อนที่มันจะออกจากถังเก็บปลา"
+
+#: ../boards/clickgame.xml.in.h:15
+msgid "Motor coordination: moving and clicking the mouse."
+msgstr "การประสานงานของมอเตอร์: ย้ายและคลิ๊กเม้าส์"
+
+#: ../boards/clickgame.xml.in.h:17
+msgid "Use the left mouse button to click on the moving fish."
+msgstr "ใช้เม้าปุ่มซ้ายเพื่อคลิ๊กสำหรับเคลื่อนย้ายปลา"
+
+#: ../boards/clockgame.xml.in.h:1
+msgid "Distinguish between time-units (hour, minute and second). Set and display time on a clock."
+msgstr "จำแนกหน่วยของเวลา (ชั่วโมง,นาที และวินาที) ตั้งและแสดงผลเวลาบนนาฬิกา"
+
+#: ../boards/clockgame.xml.in.h:2
+msgid "Learn how to tell the time"
+msgstr "เรียนรู้ที่จะบอกเวลา"
+
+#: ../boards/clockgame.xml.in.h:3
+msgid "Learning Clock"
+msgstr "เรียนรู้จักนาฬิกา"
+
+#: ../boards/clockgame.xml.in.h:4
+msgid "Set the clock to the time given, in the time-units shown (hours:minutes or hours:minutes:seconds). Click on the different arrows, and move the mouse, to make the numbers go up or down."
+msgstr "ตั้งค่านาฬิกาตามเวลาที่กำหนด ในหน่วยของเวลาที่ดแสดง(ชั่วโมง:นาที หรือ ชั่วโมง:นาที:วินาที) คลิ๊กในลูกศรที่ตรงข้ามและขยับเม้าส์ เพื่อสร้างจำนวนที่มากขึ้นหรือน้อยลง"
+
+#: ../boards/clockgame.xml.in.h:5
+msgid "The concept of time. Reading the time."
+msgstr "เรียนรู้่หลักการของเวลา การอ่านค่าเวลา"
+
+#: ../boards/colors.xml.in.h:1
+msgid "Can move the mouse."
+msgstr "สามารถขยับเม้าส์"
+
+#: ../boards/colors.xml.in.h:2
+msgid "Click on the right color"
+msgstr "คลิ๊กบนสีที่ถูกต้อง"
+
+#: ../boards/colors.xml.in.h:3
+msgid "Colors"
+msgstr "ชุดสี"
+
+#: ../boards/colors.xml.in.h:4
+msgid "Listen to the color and click on the matching duck."
+msgstr "ฟังสำหรับสีแล้วคลิ๊กบนเป็ดที่เข้ากัน"
+
+#: ../boards/colors.xml.in.h:5
+msgid "This board teaches you to recognize different colors. When you hear the name of the color, click on the duck wearing it."
+msgstr "กระดานสำหรับสอนคุณให้จดจำสีที่แตกต่าง เมื่อคุณได้ยินชื่อของสี คลิ๊กบนตัวเป็ดเพื่อสวมมัน"
+
+#: ../boards/colors_group.xml.in.h:1
+msgid "Colors based activities."
+msgstr "กิจกรรมสีืพื้นฐาน"
+
+#: ../boards/colors_group.xml.in.h:2
+msgid "Go to Color activities"
+msgstr "เข้าสู่กิจกรรมสี"
+
+#: ../boards/computer.xml.in.h:1
+msgid "Discover the Computer"
+msgstr "ค้นพบคอมพิวเตอร์"
+
+#: ../boards/computer.xml.in.h:2
+msgid "Play with computer peripherals."
+msgstr "เล่นกับอุปกรณ์ต่อพ่วงคอมพิวเตอร์"
+
+#: ../boards/connect4.xml.in.h:1
+msgid "Arrange four coins in a row"
+msgstr "จัดเรียงเหรียญสี่อันในแถว"
+
+#: ../boards/connect4.xml.in.h:2
+msgid "Click anywhere in the line where you want to drop a piece"
+msgstr "คลิ๊กที่ใดฯในเส้นที่คุณต้องการวางสิ่งของ"
+
+#: ../boards/connect4.xml.in.h:3
+msgid "Connect 4"
+msgstr "เชื่อมต่อ 4"
+
+#: ../boards/connect4.xml.in.h:4
+msgid ""
+"Create a line of 4 pieces either horizontally (lying down)\n"
+"or vertically (standing up)"
+msgstr ""
+"สร้างเส้นแบ่งสี่ส่วนเช่นเดียวกับเส้นแนวนอน\n"
+"หรือเส้นแนวตั้ง"
+
+#: ../boards/connect4.xml.in.h:6
+msgid "Laurent Lacheny. Images and Artificial Intelligence taken from project 4stattack by Jeroen Vloothuis. The original project can be found on &lt;http://forcedattack.sourceforge.net&gt;"
+msgstr "Laurent Lacheny. ภาพและปัญญาประดิษฐ์ถูกนำมาจากโครงการ 4stattack โดย Jeroen Vloothuis. โครงการต้นแบบสามารถค้นได้จาก &lt;http://forcedattack.sourceforge.net&gt;"
+
+#: ../boards/crane.xml.in.h:1
+msgid "Build the same model"
+msgstr "สร้างรูปแบบที่เหมือนกัน"
+
+#: ../boards/crane.xml.in.h:2
+msgid "Drive the crane and copy the model"
+msgstr "เคลื่อนปั้นจั่นและคัดลอกรูปแบบ"
+
+#: ../boards/crane.xml.in.h:3
+#: ../boards/erase.xml.in.h:2
+#: ../boards/erase_clic.xml.in.h:5
+#: ../boards/erase_double_clic.xml.in.h:5
+msgid "Motor-coordination"
+msgstr "การประสานงานของมอเตอร์"
+
+#: ../boards/crane.xml.in.h:4
+#: ../boards/hanoi_real.xml.in.h:2
+msgid "Mouse manipulation"
+msgstr "การปรัีบแต่งเม้าส์"
+
+#: ../boards/crane.xml.in.h:5
+msgid "Move the items in the bottom left frame to copy their position in the top right model. Below the crane itself, you will find four arrows that let you move items. To select the item to move, just click on it."
+msgstr "ย้ายสิ่งของในด้านล่างของกรอบซ้ายเพื่อคัดลอกตำแหน่งไปยังรูปทรงบนขวา ข้างใต้จะเคลือนโดยตัวมันเอง คุณจะต้องหาลูกศรสี่อันซึ่งให้คุณย้ายสิ่งของ คลิ๊กลงบนสิ่งของที่คุณจะย้าย"
+
+#: ../boards/discovery.xml.in.h:1
+msgid "Colors, sounds, memory..."
+msgstr "สี เสียง และความจำ"
+
+#: ../boards/discovery.xml.in.h:2
+msgid "Go to discovery activities"
+msgstr "เข้าสู่กิจกรรมการค้นพบ"
+
+#: ../boards/doubleentry.xml.in.h:1
+msgid "Basic counting skills"
+msgstr "การคำนวณพื้นฐาน"
+
+#: ../boards/doubleentry.xml.in.h:2
+msgid "Double-entry table"
+msgstr "ตารางกรอกข้อมูลคู่"
+
+#: ../boards/doubleentry.xml.in.h:3
+msgid "Drag and Drop each proposed item on its destination"
+msgstr "ลากแล้ววางในแต่ละชิ้นที่ถูกเสนอลงบนเป้าหมายของมัน"
+
+#: ../boards/doubleentry.xml.in.h:4
+msgid "Drag and Drop the items in the double-entry table"
+msgstr "ลากแล้วว่างสิ่งของในช่องตารางทางเข้่าคู่"
+
+#: ../boards/doubleentry.xml.in.h:5
+msgid "Move the items on the left to their proper position in the double-entry table."
+msgstr "ย้ายส่ิงของจากด้านซ้่ายเพื่อไปยังตำแหน่งที่เหมาะสมบนตารางช่องคู่"
+
+#: ../boards/doubleentry/board3_0.xml.in.h:1
+msgid "Click on an item and listen to its target position"
+msgstr "คลิ๊กบนสิ่งของและฟังเสียงมันเพื่อตำแหน่งเป้าหมาย"
+
+#: ../boards/draw.xml.in.h:1
+msgid "A creative board where you can draw freely"
+msgstr "สร้างสรรค์กระดานด้วยความอิสระ"
+
+#: ../boards/draw.xml.in.h:2
+msgid "A simple vector-drawing tool"
+msgstr "เครื่องมือวาดรูปทรงพื้นฐาน"
+
+#: ../boards/draw.xml.in.h:3
+msgid "In this game, children can draw freely. The goal is to discover how to create attractive drawings based on basic shapes: rectangles, ellipses and lines."
+msgstr "ในเกมส์นี้ เด็กสามารถวาดได้อย่างอิสระ จุดมุ่งหมายเพื่อค้นหาว่าจะทำอย่างไรสร้างภาพที่น่าดึงดูด บนพื้นฐานของรูปทรงพื้นฐาน เช่น สี่เหลี่ยมผืนผ้า รูปวงรี และเส้น"
+
+#: ../boards/draw.xml.in.h:5
+msgid "Select a drawing tool on the left, and a color down the bottom, then click and drag in the white area to create a new shape. To save time, you can click with the middle mouse button to delete an object."
+msgstr "เลือกเครื่องมือสำหรับาดด้านซ้าย และสีสันจากด้านล่าง จากนั้นคลิ๊กและลากในพื้นที่สีขาวที่มีไว้สำหรับวาดรูปทรงใหม่ๆ เพื่อรักษาเวลา คุณสามารถคลิ๊กที่เม้าส์ปุ่มกลางเพื่อลบรูปทรง"
+
+#: ../boards/electric.xml.in.h:1
+msgid "Create and simulate an electric schema"
+msgstr "สร้างผังไฟฟ้าจำลอง"
+
+#: ../boards/electric.xml.in.h:2
+msgid "Drag electrical components from the selector and drop them in the working area. Create wires by clicking on a connection spot, dragging the mouse to the next connection spot, and letting go. You can also move components by dragging them. You can delete wires by clicking on them. To delete a component, select the deletion tool on top of the component selector. You can click on the switch to open and close it. You can change the rheostat value by dragging its wiper. In order to simulate what happens when a bulb is blown, you can blown it by right-clicking on it. The simulation is updated in real time by any user action."
+msgstr "ลากส่วนประกอบอิเล็คโทรนิคส์จากตัวเลือกและวางมันลงมันพื้นที่สำหรับทำงาน สร้างสายไฟโดยคลิ๊กที่จุดเชื่อมต่อ ลากเม้าส์ไปยังจุดต่อไป และปล่อยให้มันทำงาน คุณสามารถเคลื่อนย้ายส่วนประกอบโดยลากมันได้ คุณสามารถลบสายไฟโดยการคลิ๊ก สำหรับการลบส่วนประกอบ ให้เลือกเครื่องมือลบจากด้านบนของตัวเลือกส่วนประกอบ คุณสามารถคลิ๊กที่สวิทซ์เพื่อเปิดหรือปิดมัน คุณสามารถเปลี่ยนค่าของตัวต้านทานโดยการเลื่อนขึ้นลง ในกระบวนการจำลองว่าเกิดอะไรขึ้นเมื่อหลอดไฟสว่าง คุณสามารถเปิดไฟโดยการคลิ๊กขวามนตัวมัน ทุกๆครั้งที่คุณกระทำมันจะปรับปรุงตามเวลาจริงที่เกิดขึั้น"
+
+#: ../boards/electric.xml.in.h:3
+msgid "Electricity"
+msgstr "กระแสไฟฟ้า"
+
+#: ../boards/electric.xml.in.h:4
+msgid "Freely create an electric schema with a real time simulation of it."
+msgstr "สร้างผังวงจรไฟฟ้าอย่างอิสระด้วยระบบจำลองการทำงานที่มีเวลาจริง"
+
+#: ../boards/electric.xml.in.h:5
+msgid "GCompris uses the Gnucap electric simulator as a backend. You can get more information on gnucap at &lt;http://geda.seul.org/tools/gnucap/&gt;."
+msgstr "จีคอมพริสใช้จีนูแคบจำลองไฟฟ้าทำงานเป็นส่วนหลัง คุณสามารถศึกษาข้อมูลเพิ่มเติมของจีนูแคบได้ที่ &lt;http://geda.seul.org/tools/gnucap/&gt;."
+
+#: ../boards/electric.xml.in.h:6
+msgid "Requires some basic understanding of the concept of electricity."
+msgstr "จำเป็นต้องมีความรู้พื้นฐานเกี่ยวกับหลักการของไฟฟ้า"
+
+#: ../boards/enumerate.xml.in.h:1
+msgid "Basic enumeration"
+msgstr "การแจกแจงพื้นฐาน"
+
+#: ../boards/enumerate.xml.in.h:2
+msgid "Count the items"
+msgstr "นับจำนวน"
+
+#: ../boards/enumerate.xml.in.h:3
+msgid "First, properly organize the items so that you can count them. Then, select the item you want to answer in the bottom right area. Enter the answer with the keyboard and press the OK button or the 'Enter' key."
+msgstr "ขั้นแรก จัดเรียงของที่คุณนับได้อย่างเหมาะสม จากนั้น เลือกสิ่งของที่คุณต้องการจะตอบคำถามในช่องทางปุ่มขวา ป้อนคำตอบลงไปบนแป้นพิมพ์และกดปุ่ม ok จากนั้นกดปุ่ม Enter "
+
+#: ../boards/enumerate.xml.in.h:4
+#: ../boards/planegame.xml.in.h:5
+#: ../src/boards/enumerate.c:92
+msgid "Numeration training"
+msgstr "ฝึกฝนนับเลข"
+
+#: ../boards/enumerate.xml.in.h:5
+#: ../src/boards/enumerate.c:93
+msgid "Place the items in the best way to count them"
+msgstr "ใส่ส่ิงของในหนทางที่ถูกต้องเพื่อนับมัน"
+
+#: ../boards/erase.xml.in.h:1
+msgid "Animal pictures are taken from the Animal Photography Page of Ralf Schmode (&lt;http://schmode.net/&gt;) and from LE BERRE Daniel. These people kindly gave GCompris the authorization to include their pictures. Thanks a lot, both of you."
+msgstr "ภาพสัตว์เหล่านี้ได้รับมาจากสมุดภาพสัตว์ของ Ralf Schmode (&lt;http://schmode.net/&gt;) และมาจาก LE BERRE Daniel ซึ่งเป็นผู้ที่เมตตาต่อ จีคอมพริสในการให้ภาพเหล่านี้เข้าร่วมด้วย ขอขอบพระคุณเป็นอย่างสูงสำหรับทั้งสองท่าน"
+
+#: ../boards/erase.xml.in.h:4
+#: ../src/boards/erase.c:110
+#: ../src/boards/machpuzzle.c:92
+msgid "Move the mouse"
+msgstr "ขยับเม้าส์"
+
+#: ../boards/erase.xml.in.h:5
+#: ../src/boards/erase.c:111
+msgid "Move the mouse to erase the area and discover the background"
+msgstr "ขยับเม้าส์เพื่อลบพื้นที่และค้นหาพื้นหลังภาพ"
+
+#: ../boards/erase.xml.in.h:6
+msgid "Move the mouse until all the blocks disappear."
+msgstr "คลิ๊กเม้าส์จนกระทั่งบล๊อคทั้งหมดหายไป"
+
+#: ../boards/erase_clic.xml.in.h:2
+msgid "Click the mouse"
+msgstr "คลิ๊กเม้าส์"
+
+#: ../boards/erase_clic.xml.in.h:3
+msgid "Click the mouse on rectangles until all the blocks disappear."
+msgstr "คลิกเม้าส์บนรูปสี่เหลี่ยมผืนผ้าจนกระทั้งบล๊อคหายไป"
+
+#: ../boards/erase_clic.xml.in.h:4
+msgid "Click the mouse to erase the area and discover the background"
+msgstr "คลิ๊กเม้าส์เพื่อลบพื้นที่และค้นพบภาพเบื้องหล้ง"
+
+#: ../boards/erase_double_clic.xml.in.h:2
+msgid "Double-Click the mouse to erase the area and discover the background"
+msgstr "ดับเบิ้ลคลิ๊กเม้าส์เพื่อลบพื้นที่และค้นพบภาพเบื้่องหลัง"
+
+#: ../boards/erase_double_clic.xml.in.h:3
+msgid "Double-click the mouse"
+msgstr "ดับเบิ้ลคลิ๊กที่เม้าส์"
+
+#: ../boards/erase_double_clic.xml.in.h:4
+msgid "Double-click the mouse on rectangles until all the blocks disappear."
+msgstr "ดับเบิ้ลคลิ๊กเม้าส์บนสี่เหลี่ยมผืนผ้าจนกระทั่งบล๊อคทั้งหมดไม่ปรากฎ"
+
+#: ../boards/experience.xml.in.h:1
+msgid "Go to experiential activities"
+msgstr "เข้าสู่กิจกรรมประสบการณ์"
+
+#: ../boards/experience.xml.in.h:2
+msgid "Various activities based on physical movement."
+msgstr "กิจกรรมที่หลากหลายวมีพื้นฐานจากการเคลื่อนใหวทางกายภาพ"
+
+#: ../boards/experimental.xml.in.h:1
+msgid "Go to Experimental activities"
+msgstr "เข้าสู่กิจกรรมการทดลอง"
+
+#: ../boards/experimental.xml.in.h:2
+msgid "Run gcompris --experimental to see this menu."
+msgstr "เรียกจีคอมพริส ประสบการณ์ในการมองเห็นแต่ละเมนู"
+
+#: ../boards/fifteen.xml.in.h:1
+msgid "Click on any item that has a free block beside it, and it will be swapped with the empty block."
+msgstr "คลิ๊กชิ้นส่วนใดๆซึ่งเป็นช่องอิสระอยู่ข้างใน และนำมันสลับกับช่องที่ว่าง"
+
+#: ../boards/fifteen.xml.in.h:3
+msgid "Move each item to make an increasing series: from the smallest to the largest"
+msgstr "ย้ายแต่ชิ้นเพื่อสร้างเลขลำดับที่มากขึ้น จากน้อยที่สุดไปยัีงมากที่สุด"
+
+#: ../boards/fifteen.xml.in.h:4
+msgid "Original code taken from the libgnomecanvas demo"
+msgstr "ต้นแบบโปรแกรมมาจากตัีวอย่างลิบจีโนมแคนวาส"
+
+#: ../boards/fifteen.xml.in.h:5
+msgid "Samuel Loyd"
+msgstr "Samuel Loyd"
+
+#: ../boards/fifteen.xml.in.h:6
+msgid "The fifteen game"
+msgstr "เกมส์ที่สี่สิบ"
+
+#: ../boards/fifteen.xml.in.h:7
+msgid "anticipate"
+msgstr "ลงมือทำล่วงหน้า"
+
+#: ../boards/fifteen.xml.in.h:8
+msgid "logical"
+msgstr "ตรรกะ"
+
+#: ../boards/fifteen.xml.in.h:9
+msgid "move"
+msgstr "ย้าย"
+
+#: ../boards/fifteen.xml.in.h:10
+msgid "puzzle"
+msgstr "คนที่เข้าใจยาก"
+
+#: ../boards/fifteen.xml.in.h:11
+msgid "slide"
+msgstr "ภาพนิ่ง"
+
+#: ../boards/fifteen.xml.in.h:12
+msgid "taquin"
+msgstr "เทควิน"
+
+#: ../boards/followline.xml.in.h:1
+msgid "Control the hose-pipe"
+msgstr "ควบคุมสายท่อยาง"
+
+#: ../boards/followline.xml.in.h:2
+msgid "Fine motor coordination"
+msgstr "ค้นหาการประสานสำพันธ์ของมอเตอร์"
+
+#: ../boards/followline.xml.in.h:3
+msgid "Move the mouse over the red part of the hose-pipe. This will move it, bringing it, part by part, up to the flowers. Be careful, if you move off the hose, the red part will go back down."
+msgstr "ขยับเม้าส์ไปอยู่เหนือชิ้นส่วนสีแดงของท่อยาง จะต้องเคลื่อยย้ายมัน นำชิ้นส่วนของมัน ชิ้นแต่ละชิ้น นำสู่ดอกไม้ จงระมัดระวัง ถ้าคุณนำออกจากสายท่อ ชิ้นส่วนสีแดงจะร่วงลงกับพื้น"
+
+#: ../boards/followline.xml.in.h:4
+msgid "Tux needs to water the flowers, but the hose is blocked."
+msgstr "ทักซ์จำเป็นต้องมีน้ำสำหรับดอกไม้ แต่สายถูกปิดกั้น"
+
+#: ../boards/fun.xml.in.h:1
+msgid "Go to Amusement activities"
+msgstr "เข้าสู่กิจกรรมหรรษา"
+
+#: ../boards/fun.xml.in.h:2
+msgid "Various fun activities."
+msgstr "กิจกรรมสนุกๆ หลายหลาย"
+
+#: ../boards/gcompris/mimetypes/mime_type.xml.in.h:1
+msgid "gcompris animation"
+msgstr "จีคอมพริส แอนิเมชั่น"
+
+#: ../boards/gcompris/mimetypes/mime_type.xml.in.h:2
+msgid "gcompris drawing"
+msgstr "จีคอมพริส วาดรูป"
+
+#: ../boards/gcompris/mimetypes/mime_type.xml.in.h:3
+msgid "svg drawing"
+msgstr "เอสวีจีวาดรูป"
+
+#: ../boards/gcompris/mimetypes/mime_type.xml.in.h:4
+msgid "svg mozilla animation"
+msgstr "เอสวีจี โมซิล่า แอนิเมชั่น"
+
+#: ../boards/geography.xml.in.h:1
+msgid "Drag and Drop the items to redraw the whole map"
+msgstr "ดึงและวางสิ่งของเพื่อวาดแผนที่ที่สมบูรณ์ขึ้น"
+
+#: ../boards/geography.xml.in.h:2
+msgid "Locate the countries"
+msgstr "หาที่ตั้งของประเทศ"
+
+#: ../boards/geography.xml.in.h:3
+msgid "Mouse manipulation: movement, drag and drop"
+msgstr "การปรับแต่งเม้าส์: เคลื่อนย้าย ลากและวาง"
+
+#: ../boards/geography/board1_0.xml.in.h:1
+#: ../boards/geography/board4_2.xml.in.h:1
+msgid "Africa"
+msgstr "แอฟริกา"
+
+#: ../boards/geography/board1_0.xml.in.h:2
+msgid "America"
+msgstr "อเมริกา"
+
+#: ../boards/geography/board1_0.xml.in.h:3
+msgid "Antartica"
+msgstr "ขั้วโลกใต้"
+
+#: ../boards/geography/board1_0.xml.in.h:4
+msgid "Asia"
+msgstr "เอเซีย"
+
+#: ../boards/geography/board1_0.xml.in.h:5
+msgid "Continents"
+msgstr "ทวีป"
+
+#: ../boards/geography/board1_0.xml.in.h:6
+msgid "Europe"
+msgstr "ยุโรป"
+
+#: ../boards/geography/board1_0.xml.in.h:7
+msgid "Oceania"
+msgstr "โอเชียเนีย"
+
+#: ../boards/geography/board2_0.xml.in.h:1
+msgid "Alaska"
+msgstr "อลาสก้า"
+
+#: ../boards/geography/board2_0.xml.in.h:2
+msgid "Bahamas"
+msgstr "บาฮามาส"
+
+#: ../boards/geography/board2_0.xml.in.h:3
+msgid "Canada"
+msgstr "แคนาดา"
+
+#: ../boards/geography/board2_0.xml.in.h:4
+msgid "Cuba"
+msgstr "คิวบา"
+
+#: ../boards/geography/board2_0.xml.in.h:5
+msgid "Dominican Republic"
+msgstr "สาธารณรัฐโดมินิกัน"
+
+#: ../boards/geography/board2_0.xml.in.h:6
+msgid "Greenland"
+msgstr "กรีนแลนด์"
+
+#: ../boards/geography/board2_0.xml.in.h:7
+msgid "Haiti"
+msgstr "เฮติ"
+
+#: ../boards/geography/board2_0.xml.in.h:8
+#: ../boards/geography/board3_0.xml.in.h:7
+msgid "Iceland"
+msgstr "ไอซ์แลนด์"
+
+#: ../boards/geography/board2_0.xml.in.h:9
+msgid "Jamaica"
+msgstr "จาไมก้า"
+
+#: ../boards/geography/board2_0.xml.in.h:10
+msgid "Mexico"
+msgstr "เม็กซิโก"
+
+#: ../boards/geography/board2_0.xml.in.h:11
+msgid "North America"
+msgstr "Name=อเมริกาเหนือ"
+
+#: ../boards/geography/board2_0.xml.in.h:12
+msgid "United States of America"
+msgstr "สหรัฐอเมริกา"
+
+#: ../boards/geography/board2_1.xml.in.h:1
+msgid "Argentina"
+msgstr "อาร์เจนตินา"
+
+#: ../boards/geography/board2_1.xml.in.h:2
+msgid "Bolivia"
+msgstr "โบลิเวีย"
+
+#: ../boards/geography/board2_1.xml.in.h:3
+msgid "Brazil"
+msgstr "บราซิล"
+
+#: ../boards/geography/board2_1.xml.in.h:4
+msgid "Chile"
+msgstr "ชิลี"
+
+#: ../boards/geography/board2_1.xml.in.h:5
+msgid "Colombia"
+msgstr "โคลัมเบีย"
+
+#: ../boards/geography/board2_1.xml.in.h:6
+msgid "Ecuador"
+msgstr "เอกวาดอร์"
+
+#: ../boards/geography/board2_1.xml.in.h:7
+msgid "French Guiana"
+msgstr "เฟรนช์กายอานา"
+
+#: ../boards/geography/board2_1.xml.in.h:8
+msgid "Guyana"
+msgstr "กายอานา"
+
+#: ../boards/geography/board2_1.xml.in.h:9
+msgid "Panama"
+msgstr "ปานามา"
+
+#: ../boards/geography/board2_1.xml.in.h:10
+msgid "Paraguay"
+msgstr "ปารากวัย"
+
+#: ../boards/geography/board2_1.xml.in.h:11
+msgid "Peru"
+msgstr "เปรู"
+
+#: ../boards/geography/board2_1.xml.in.h:12
+msgid "South America"
+msgstr "อเมริกาใต้"
+
+#: ../boards/geography/board2_1.xml.in.h:13
+msgid "Suriname"
+msgstr "ซูรินาเม"
+
+#: ../boards/geography/board2_1.xml.in.h:14
+msgid "Uruguay"
+msgstr "อุรุกวัย"
+
+#: ../boards/geography/board2_1.xml.in.h:15
+msgid "Venezuela"
+msgstr "เวเนซุเอลา"
+
+#: ../boards/geography/board3_0.xml.in.h:1
+msgid "Austria"
+msgstr "ออสเตรีย"
+
+#: ../boards/geography/board3_0.xml.in.h:2
+msgid "Belgium"
+msgstr "เบลเยียม"
+
+#: ../boards/geography/board3_0.xml.in.h:3
+msgid "Denmark"
+msgstr "เดนมาร์ก"
+
+#: ../boards/geography/board3_0.xml.in.h:4
+msgid "Finland"
+msgstr "ฟินแลนด์ "
+
+#: ../boards/geography/board3_0.xml.in.h:5
+msgid "France"
+msgstr "ฝรั่งเศส "
+
+#: ../boards/geography/board3_0.xml.in.h:6
+msgid "Germany"
+msgstr "เยอรมนี"
+
+#: ../boards/geography/board3_0.xml.in.h:8
+msgid "Ireland"
+msgstr "ไอร์แลนด์"
+
+#: ../boards/geography/board3_0.xml.in.h:9
+msgid "Italy"
+msgstr "อิตาลี"
+
+#: ../boards/geography/board3_0.xml.in.h:10
+msgid "Luxembourg"
+msgstr "ลักเซมเบิร์ก"
+
+#: ../boards/geography/board3_0.xml.in.h:11
+msgid "Norway"
+msgstr "นอร์เวย์"
+
+#: ../boards/geography/board3_0.xml.in.h:12
+msgid "Portugal"
+msgstr "โปรตุเกส"
+
+#: ../boards/geography/board3_0.xml.in.h:13
+msgid "Spain"
+msgstr "สเปน"
+
+#: ../boards/geography/board3_0.xml.in.h:14
+msgid "Sweden"
+msgstr "สวีเดน"
+
+#: ../boards/geography/board3_0.xml.in.h:15
+msgid "Switzerland"
+msgstr "สวิตเซอร์แลนด์"
+
+#: ../boards/geography/board3_0.xml.in.h:16
+msgid "The Netherlands"
+msgstr "เนเธอร์แลนด์"
+
+#: ../boards/geography/board3_0.xml.in.h:17
+msgid "United Kingdom"
+msgstr "สหราชอาณาจักร"
+
+#: ../boards/geography/board3_0.xml.in.h:18
+msgid "Western Europe"
+msgstr "ยุโรปตะวันตก"
+
+#: ../boards/geography/board3_1.xml.in.h:1
+msgid "Albania"
+msgstr "แอลเบเนีย"
+
+#: ../boards/geography/board3_1.xml.in.h:2
+msgid "Belarus"
+msgstr "เบลารุส"
+
+#: ../boards/geography/board3_1.xml.in.h:3
+msgid "Bosnia Herzegovina"
+msgstr "บอสเนีย เฮอร์เซโกวินา"
+
+#: ../boards/geography/board3_1.xml.in.h:4
+msgid "Bulgaria"
+msgstr "บัลแกเรีย"
+
+#: ../boards/geography/board3_1.xml.in.h:5
+msgid "Croatia"
+msgstr "โครเอเชีย"
+
+#: ../boards/geography/board3_1.xml.in.h:6
+msgid "Cyprus"
+msgstr "ไซปรัส"
+
+#: ../boards/geography/board3_1.xml.in.h:7
+#: ../src/gcompris/config.c:69
+msgid "Czech Republic"
+msgstr "สาธารณรัฐเชค"
+
+#: ../boards/geography/board3_1.xml.in.h:8
+msgid "Eastern Europe"
+msgstr "ยุโรปตะวันออก"
+
+#: ../boards/geography/board3_1.xml.in.h:9
+msgid "Estonia"
+msgstr "แอสโตเนีย"
+
+#: ../boards/geography/board3_1.xml.in.h:10
+msgid "Greece"
+msgstr "กรีซ"
+
+#: ../boards/geography/board3_1.xml.in.h:11
+msgid "Hungary"
+msgstr "ฮังการี"
+
+#: ../boards/geography/board3_1.xml.in.h:12
+msgid "Latvia"
+msgstr "ลัตเวีย"
+
+#: ../boards/geography/board3_1.xml.in.h:13
+msgid "Lithuania"
+msgstr "ลิธัวเนีย"
+
+#: ../boards/geography/board3_1.xml.in.h:14
+msgid "Macedonia"
+msgstr "มาซิโดเนีย"
+
+#: ../boards/geography/board3_1.xml.in.h:15
+msgid "Moldova"
+msgstr "มอลโดวา"
+
+#: ../boards/geography/board3_1.xml.in.h:16
+msgid "Poland"
+msgstr "โปแลนด์"
+
+#: ../boards/geography/board3_1.xml.in.h:17
+msgid "Romania"
+msgstr "โรมาเนีย"
+
+#: ../boards/geography/board3_1.xml.in.h:18
+msgid "Russia"
+msgstr "รัสเซีย"
+
+#: ../boards/geography/board3_1.xml.in.h:19
+msgid "Serbia Montenegro"
+msgstr ""
+
+#: ../boards/geography/board3_1.xml.in.h:20
+msgid "Slovak Republic"
+msgstr "สาธารณรัฐสโลวัก"
+
+#: ../boards/geography/board3_1.xml.in.h:21
+msgid "Slovenia"
+msgstr "สโลเวเนีย"
+
+#: ../boards/geography/board3_1.xml.in.h:22
+msgid "Turkey"
+msgstr "ตุรกี"
+
+#: ../boards/geography/board3_1.xml.in.h:23
+msgid "Ukraine"
+msgstr "ยูเครน"
+
+#: ../boards/geography/board4_0.xml.in.h:1
+#: ../boards/geography/board4_2.xml.in.h:2
+msgid "Algeria"
+msgstr "แอลจีเรีย"
+
+#: ../boards/geography/board4_0.xml.in.h:2
+#: ../boards/geography/board4_2.xml.in.h:4
+msgid "Benin"
+msgstr "เบนิน"
+
+#: ../boards/geography/board4_0.xml.in.h:3
+#: ../boards/geography/board4_2.xml.in.h:6
+msgid "Burkina Faso"
+msgstr "บูร์กินาฟาโซ"
+
+#: ../boards/geography/board4_0.xml.in.h:4
+#: ../boards/geography/board4_2.xml.in.h:8
+msgid "Cameroon"
+msgstr "แคเมอรูน"
+
+#: ../boards/geography/board4_0.xml.in.h:5
+#: ../boards/geography/board4_2.xml.in.h:9
+msgid "Central African Republic"
+msgstr "สาธารณรัฐแอฟริกากลาง"
+
+#: ../boards/geography/board4_0.xml.in.h:6
+#: ../boards/geography/board4_2.xml.in.h:10
+msgid "Chad"
+msgstr "ชาด"
+
+#: ../boards/geography/board4_0.xml.in.h:7
+#: ../boards/geography/board4_2.xml.in.h:12
+msgid "Djibouti"
+msgstr "จิบูตี"
+
+#: ../boards/geography/board4_0.xml.in.h:8
+#: ../boards/geography/board4_2.xml.in.h:13
+msgid "Egypt"
+msgstr "อียิปต์"
+
+#: ../boards/geography/board4_0.xml.in.h:9
+#: ../boards/geography/board4_1.xml.in.h:5
+#: ../boards/geography/board4_2.xml.in.h:14
+msgid "Equatorial Guinea"
+msgstr "อิเควทอเรียลกินี "
+
+#: ../boards/geography/board4_0.xml.in.h:10
+#: ../boards/geography/board4_2.xml.in.h:16
+msgid "Ethiopia"
+msgstr "เอธิโอเปีย"
+
+#: ../boards/geography/board4_0.xml.in.h:11
+#: ../boards/geography/board4_1.xml.in.h:6
+#: ../boards/geography/board4_2.xml.in.h:17
+msgid "Gabon"
+msgstr "กาบอง"
+
+#: ../boards/geography/board4_0.xml.in.h:12
+#: ../boards/geography/board4_2.xml.in.h:18
+msgid "Gambia"
+msgstr "แกมเบีย"
+
+#: ../boards/geography/board4_0.xml.in.h:13
+#: ../boards/geography/board4_2.xml.in.h:19
+msgid "Ghana"
+msgstr "กานา"
+
+#: ../boards/geography/board4_0.xml.in.h:14
+#: ../boards/geography/board4_2.xml.in.h:20
+msgid "Guinea"
+msgstr "กินี"
+
+#: ../boards/geography/board4_0.xml.in.h:15
+#: ../boards/geography/board4_2.xml.in.h:21
+msgid "Guinea Bissau"
+msgstr "กินีบิสเซา"
+
+#: ../boards/geography/board4_0.xml.in.h:16
+#: ../boards/geography/board4_2.xml.in.h:22
+msgid "Ivory Coast"
+msgstr "อ่าวไอเวอรรี่"
+
+#: ../boards/geography/board4_0.xml.in.h:17
+#: ../boards/geography/board4_2.xml.in.h:25
+msgid "Liberia"
+msgstr "ไลบีเรีย"
+
+#: ../boards/geography/board4_0.xml.in.h:18
+#: ../boards/geography/board4_2.xml.in.h:26
+msgid "Libya"
+msgstr "ลิเบีย"
+
+#: ../boards/geography/board4_0.xml.in.h:19
+#: ../boards/geography/board4_2.xml.in.h:29
+msgid "Mali"
+msgstr "มาลี"
+
+#: ../boards/geography/board4_0.xml.in.h:20
+#: ../boards/geography/board4_2.xml.in.h:30
+msgid "Mauritania"
+msgstr "โมริตาเนีย"
+
+#: ../boards/geography/board4_0.xml.in.h:21
+#: ../boards/geography/board4_2.xml.in.h:31
+msgid "Morocco"
+msgstr "โมร็อกโก"
+
+#: ../boards/geography/board4_0.xml.in.h:22
+#: ../boards/geography/board4_2.xml.in.h:34
+msgid "Niger"
+msgstr "ไนเจอร์"
+
+#: ../boards/geography/board4_0.xml.in.h:23
+#: ../boards/geography/board4_2.xml.in.h:35
+msgid "Nigeria"
+msgstr "ไนจีเรีย"
+
+#: ../boards/geography/board4_0.xml.in.h:24
+msgid "Northern Africa"
+msgstr "แอฟริกาใต้"
+
+#: ../boards/geography/board4_0.xml.in.h:25
+#: ../boards/geography/board4_1.xml.in.h:14
+#: ../boards/geography/board4_2.xml.in.h:36
+msgid "Rwanda"
+msgstr "รวันดา"
+
+#: ../boards/geography/board4_0.xml.in.h:26
+#: ../boards/geography/board4_2.xml.in.h:37
+msgid "Senegal"
+msgstr "เซเนกัล"
+
+#: ../boards/geography/board4_0.xml.in.h:27
+#: ../boards/geography/board4_2.xml.in.h:38
+msgid "Sierra Leone"
+msgstr "เซียร์ราลีโอน"
+
+#: ../boards/geography/board4_0.xml.in.h:28
+#: ../boards/geography/board4_2.xml.in.h:39
+msgid "Somalia"
+msgstr "โซมาเลีย"
+
+#: ../boards/geography/board4_0.xml.in.h:29
+msgid "Sudan"
+msgstr "ซูดาน"
+
+#: ../boards/geography/board4_0.xml.in.h:30
+#: ../boards/geography/board4_2.xml.in.h:43
+msgid "Togo"
+msgstr "โตโก"
+
+#: ../boards/geography/board4_0.xml.in.h:31
+#: ../boards/geography/board4_2.xml.in.h:44
+msgid "Tunisia"
+msgstr "ตูนิเซีย"
+
+#: ../boards/geography/board4_0.xml.in.h:32
+#: ../boards/geography/board4_1.xml.in.h:19
+#: ../boards/geography/board4_2.xml.in.h:45
+msgid "Uganda"
+msgstr "ยูกันดา"
+
+#: ../boards/geography/board4_0.xml.in.h:33
+msgid "Western Sahara"
+msgstr "ซาฮาราตะวันตก"
+
+#: ../boards/geography/board4_1.xml.in.h:1
+#: ../boards/geography/board4_2.xml.in.h:3
+msgid "Angola"
+msgstr "แองโกลา"
+
+#: ../boards/geography/board4_1.xml.in.h:2
+#: ../boards/geography/board4_2.xml.in.h:5
+msgid "Botswana"
+msgstr "บอตสวานา"
+
+#: ../boards/geography/board4_1.xml.in.h:3
+#: ../boards/geography/board4_2.xml.in.h:7
+msgid "Burundi"
+msgstr "บุรุนดี"
+
+#: ../boards/geography/board4_1.xml.in.h:4
+#: ../boards/geography/board4_2.xml.in.h:11
+msgid "Democratic Republic of Congo"
+msgstr "สาธารณรัฐแอฟริกากลาง"
+
+#: ../boards/geography/board4_1.xml.in.h:7
+#: ../boards/geography/board4_2.xml.in.h:23
+msgid "Kenya"
+msgstr "เคนยา"
+
+#: ../boards/geography/board4_1.xml.in.h:8
+#: ../boards/geography/board4_2.xml.in.h:24
+msgid "Lesotho"
+msgstr "เลโซโท"
+
+#: ../boards/geography/board4_1.xml.in.h:9
+#: ../boards/geography/board4_2.xml.in.h:27
+msgid "Madagascar"
+msgstr "มาดากัสการ์"
+
+#: ../boards/geography/board4_1.xml.in.h:10
+#: ../boards/geography/board4_2.xml.in.h:28
+msgid "Malawi"
+msgstr "มาลาวี"
+
+#: ../boards/geography/board4_1.xml.in.h:11
+#: ../boards/geography/board4_2.xml.in.h:32
+msgid "Mozambique"
+msgstr "โมซัมบิก"
+
+#: ../boards/geography/board4_1.xml.in.h:12
+#: ../boards/geography/board4_2.xml.in.h:33
+msgid "Namibia"
+msgstr "นามิเบีย"
+
+#: ../boards/geography/board4_1.xml.in.h:13
+msgid "Republic of Congo"
+msgstr "สาธารณรัฐคองโก"
+
+#: ../boards/geography/board4_1.xml.in.h:15
+#: ../boards/geography/board4_2.xml.in.h:40
+msgid "South Africa"
+msgstr "แอฟริกาใต้"
+
+#: ../boards/geography/board4_1.xml.in.h:16
+msgid "Southern Africa"
+msgstr "แอฟริกาใต้"
+
+#: ../boards/geography/board4_1.xml.in.h:17
+#: ../boards/geography/board4_2.xml.in.h:41
+msgid "Swaziland"
+msgstr "สวาซิแลนด์"
+
+#: ../boards/geography/board4_1.xml.in.h:18
+#: ../boards/geography/board4_2.xml.in.h:42
+msgid "Tanzania"
+msgstr "แทนซาเนีย"
+
+#: ../boards/geography/board4_1.xml.in.h:20
+#: ../boards/geography/board4_2.xml.in.h:46
+msgid "Zambia"
+msgstr "แซมเบีย"
+
+#: ../boards/geography/board4_1.xml.in.h:21
+#: ../boards/geography/board4_2.xml.in.h:47
+msgid "Zimbabwe"
+msgstr "ซิมบับเว"
+
+#: ../boards/geography/board4_2.xml.in.h:15
+msgid "Eritrea"
+msgstr "เอริเทรีย "
+
+#: ../boards/geography/board5_0.xml.in.h:1
+msgid "Regions of France"
+msgstr "ประชาชาติฝรั่งเศส"
+
+#: ../boards/geometry.xml.in.h:1
+msgid "Geometry"
+msgstr "เรขาคณิต"
+
+#: ../boards/geometry.xml.in.h:2
+msgid "Geometry activities."
+msgstr "กิจกรรมเลขาคณิต"
+
+#: ../boards/gletters.xml.in.h:1
+#: ../boards/wordsgame.xml.in.h:2
+msgid "Keyboard manipulation"
+msgstr "แก้ไขแป้นพิมพ์"
+
+#: ../boards/gletters.xml.in.h:2
+msgid "Letter association between the screen and the keyboard"
+msgstr "อักษรที่สำพันธ์กันระหว่างจอภาพกับแป้นพิมพ์"
+
+#: ../boards/gletters.xml.in.h:3
+#: ../src/boards/gletters.c:132
+msgid "Simple Letters"
+msgstr "อักษรพื้นๆ "
+
+#: ../boards/gletters.xml.in.h:4
+#: ../src/boards/gletters.c:133
+msgid "Type the falling letters before they reach the ground"
+msgstr "พิมพ์อักษรที่ตกลงมาก่อนที่มันจะถึงพื้น"
+
+#: ../boards/gnumch-equality.xml.in.h:1
+msgid "Equality Number Munchers"
+msgstr "ความเท่ากันของตัวเลขมันเชอร์"
+
+#: ../boards/gnumch-equality.xml.in.h:2
+msgid "Guide the Number Muncher to the expressions that equal the number at the top of the screen."
+msgstr "แนะนำตัวเลขมันเชอร์สำหรับหาสมการที่เท่ากับตัวเลขด้านบนของจอภาพ"
+
+#: ../boards/gnumch-equality.xml.in.h:3
+msgid "Practice addition, multiplication, division and subtraction."
+msgstr "แบบฝึกหัดการ บวก ลบ คูณ หาร"
+
+#: ../boards/gnumch-equality.xml.in.h:4
+#: ../boards/gnumch-inequality.xml.in.h:4
+msgid "Use the arrow keys to navigate around the board and to avoid the Troggles. Press the spacebar to eat a number."
+msgstr "ใช้ปุ่มลูกศรสำหรับกำหนดทิศทางรอบๆกระดาน และหลีกเลี่ยงทร๊อคเกิ้ล กดแป้นวรรคเพื่อกลืนตัวเลข"
+
+#: ../boards/gnumch-factors.xml.in.h:1
+msgid "Factor Number Munchers"
+msgstr "องค์ประกอบของตัวเลขมันเชอร์"
+
+#: ../boards/gnumch-factors.xml.in.h:2
+msgid "Guide the Number Muncher to all the factors of the number at the top of the screen."
+msgstr "แนะนำตัวเลขมันเชอร์สำหรับตัวประกอบทั้งหมดด้านบนของจอภาพ"
+
+#: ../boards/gnumch-factors.xml.in.h:3
+msgid "Learn about factors and multiples."
+msgstr "เรียนเกี่ยวกับตัวประกอบและตัวคูณ"
+
+#: ../boards/gnumch-factors.xml.in.h:4
+msgid "The factors of a number are all the numbers that divide that number evenly. For example, the factors of 6 are 1, 2, 3 and 6. 4 is not a factor of 6 because 6 cannot be divided into 4 equal pieces. If one number is a multiple of a second number, then the second number is a factor of the first number. You can think of multiples as families, and factors are the people in those families. So 1, 2, 3 and 6 all fit into the 6 family, but 4 belongs to another family. Use the arrow keys to navigate around the board and to avoid the Troggles. Press the spacebar to eat a number."
+msgstr "องค์ประกอบตัวเลขเป็นสิ่งที่ตัวทั้งหมดเมื่อหารด้วยตัวเลขที่เท่ากัน ยกตัวอย่างเช่น องค์ประกอบของ 6 เป็น 1,2, 3 และ 6  4 ไม่ใช่องค์ประกอบของ 6 เพราะว่า 6 ไม่สามารถถูกหารด้วย 4 อย่างลงตัว ถ้ามีจำนวนหนึ่งถูกคูณด้วยจำนวนที่สอง ดังนั้นจำนวนที่สองเป็นองค์ประกอบของจำนวนแรก คุณสามารถคิดได้ว่าการคูณเป็นกลุ่มเดียวกัน และองค์ประกอบเป็นส่วนหนึ่งของกลุ่มเดียวกัน ดังนั้น 1, 2, 3 และ 6 เป็นกลุ่มเดียวกับ 6 แต่ 4 เป็นเลขที่อยู่ในกลุ่มอื่น ใช้ปุ่มลูกศรไปรอบๆ กระดานและหลีกเลี่ยง Troggles กดปุ่มแป้นเคาะเพื่อกลืนตัวเลข"
+
+#: ../boards/gnumch-inequality.xml.in.h:1
+msgid "Guide the Number Muncher to the all the expressions that do not equal the number at the top of the screen."
+msgstr "แนะนำตัวเลขมันเชอร์แก่ทุกๆสมการแต่ต้องไม่เท่ากับตัวเลขด้านบนของจอภาพ"
+
+#: ../boards/gnumch-inequality.xml.in.h:2
+msgid "Inequality Number Munchers"
+msgstr "ความไม่สมดุลย์ของตัวเลขมันเชอร์"
+
+#: ../boards/gnumch-inequality.xml.in.h:3
+msgid "Practice addition, subtraction, multiplication and division."
+msgstr "แบบฝึกหัดการบวก ลบ คูณ และหาร"
+
+#: ../boards/gnumch-multiples.xml.in.h:1
+msgid "Guide the Number Muncher to all the multiples of the number at the top of the screen."
+msgstr "แนะนำตัวเลขมันเชอร์ให้แก่เลขตัวคูณทั้งหมดด้านบนซ้ายของจอภาพ"
+
+#: ../boards/gnumch-multiples.xml.in.h:2
+msgid "Learn about multiples and factors."
+msgstr "เรียนรู้เกี่ยวกับการคูณและตัวประกอบ"
+
+#: ../boards/gnumch-multiples.xml.in.h:3
+msgid "Multiple Number Munchers"
+msgstr "เลขคูณของตัวเลขมันเชอร์"
+
+#: ../boards/gnumch-multiples.xml.in.h:4
+msgid "The multiples of a number are all the numbers that are equal to the original number times another number. For example, 24, 36, 48 and 60 are all multiples of 12. 25 is not a multiple of 12 because there isn't any number that can be multiplied by 12 to get 25. If one number is a factor of a second number, then the second number is a multiple of the first number. Again, you can think of multiples as families, and factors are the people who belong to those families. The factor 5, has parents 10, grandparents 15, great-grandparents 20, great-great-grandparents 25, and every extra step of 5 is another great- in front! But the number 5 does not belong in the 8 or 23 families. You can't fit any number of 5s into 8 or 23 with nothing left over. So '8 isn't a multiple of 5, nor is 23. Only 5, 10, 15, 20, 25 ... are multiples (or families or steps) of 5. Use the arrow keys to navigate around the board and to avoid the Troggles. Press the spacebar to eat a number."
+msgstr "เลขต้นกำเนิดมีจำนวนครั้งเท่ากับจำนวนอื่นๆ ผลลัพท์ของมันเรียกว่าการคูณ ยกตัวอย่างเช่น 24, 36, 48  และ 60 เป็นผลคูรของ 12 25 ไม่ได้เป็นผลคูณของ 12 เพราะว่ามันไม่ใช่เลขใดๆ ที่จะสามารถคูณได้ด้วย 12 เพื่อให้ได้ 25 ถ้าจำนวนหนึ่ง เป็นองค์ประกอบของจำนวนที่สอง ดังนั้นจำวนที่สองเป็นผลคูณของเลขจำนวนแรก อีกครั้ง คุณสามารถคิดเกี่ยวกับจำนวนประกอบของการคูณ และองค์ประกอบของจำนวน ซึ่งจะเรียกว่ากลุุ่มของมัน เลขประกอบ 5 ให้กำเนิด 10 และกำเนิดต่อไปอีก 15 กำเนิตด่อไปอีก 20 และยิ่งกว่าเป็น 25 ทุกขั้นของ 5 จะยิ่งเป็นการให้กำเนิดต่อไป ต่อ 5 ไม่ได้เป็นส่วนหนี่งของ 8 หรือ 23 ไม่ได้มากกว่านี้ ดังนั้น 8 ไม่ได้เป็นผลคูณของ 5 หรือ 23 เฉพาะ 5 10 15 20 25 เป็นผลคูณ (หรือเป็นกลุ่มหรือว่าแต่ละขั้น) ของ 5 ใช้ลูกศรบนแป้นพิมพ์ นำมันไปรอบๆ กระดานและยกเลิก Troggles กดแป้นเคาะเพื่อกลืนตัวเลข"
+
+#: ../boards/gnumch-primes.xml.in.h:1
+msgid "Guide the Number Muncher to all the prime numbers."
+msgstr "แนะนำตุัวเลขมันเชอร์ให้แก่จำนวนเฉพาะทุกตัว"
+
+#: ../boards/gnumch-primes.xml.in.h:2
+msgid "Learn about prime numbers"
+msgstr "เรียรู้เกี่ียวกับจำนวนเฉพาะ"
+
+#: ../boards/gnumch-primes.xml.in.h:3
+msgid "Prime Number Munchers"
+msgstr "เลขพาร์มมันเชอร์"
+
+#: ../boards/gnumch-primes.xml.in.h:4
+msgid "Prime numbers are numbers that are only divisible by themselves and 1. For example, 3 is a prime number, but 4 isn't (because 4 is divisible by 2). You can think of prime numbers as very small families: they only ever have two people in them! Only themselves and 1. You can't fit any other numbers into them with nothing left over. 5 is one of these lonely numbers (only 5 × 1 = 5), but you can see that 6 has 2 and 3 in its family as well (6 × 1 = 6, 2 × 3 = 6). So 6 is not a prime number. Use the arrow keys to navigate around the board and to avoid the Troggles. Press the spacebar to eat a number."
+msgstr "จำนวนเฉพาะเป็นเลขที่หารได้โดยตัวมันเองและ 1 ยกตัวอย่างเช่น 3 เป็นเลขพาร์มแต่ 4 ไม่เป็น (เพราะ 4 สามารถูกหารได้โดย 2) "
+
+#: ../boards/gnumchmenu.xml.in.h:1
+msgid "Go to Number Munchers activities"
+msgstr "เข้าสู่กิจกรรมตัวเลขมันเชอร์"
+
+#: ../boards/gnumchmenu.xml.in.h:2
+msgid "Number Munchers are games to play with arithmetic."
+msgstr "ตัวเลขมันเชอร์เป็นเกมส์ที่เล่นกับการคำนวณ"
+
+#: ../boards/guessnumber.xml.in.h:1
+msgid "Guess a number"
+msgstr "เลขแบบสุ่ม"
+
+#: ../boards/guessnumber.xml.in.h:2
+msgid "Help Tux escape the cave. Tux hides a number for you to find."
+msgstr "ช่วยทักซ์หลบหนีออกจากถ้ำ ทักซ์ซ่อนตัวเลขไว้ให้คุณค้นหา"
+
+#: ../boards/guessnumber.xml.in.h:3
+msgid "Numbers from 1 to 1000 for the last level."
+msgstr "ตัวเลขจาก 1 ถึง 1000 สำหรับระดับสุดท้าย"
+
+#: ../boards/guessnumber.xml.in.h:4
+msgid "Read the instructions that give you the range of the number to find. Enter a number in the top right blue entry box. Tux will tell you if your number is higher or lower. Then enter another number. The distance between Tux and the escape area on the right represents how far you are from the correct number. If Tux is over or under the escape area, it means your number is over or under the correct number."
+msgstr "อ่านคำสั่งที่คุณได้รับจากช่วงของตัวเลขเพื่อค้นหา ป้อนตัวเลขสู่ช่องข้อความด้านซ้ายบน ทักซ์จะบอกคุณถ้าตัวเลขนั้นสูงหรือต่ำไป จากนั้นป้อนตัวเลขอื่นๆ ระยะทางระหว่างทักซ์กับช่องหลบหนีที่เห็นบนด้านซ้าย แสดงถึงความระยะห่างระหว่างตัวเลขที่ถูกต้อง ถ้าทักซ์อยู่เหนือหรือต่ำกว่าช่องหลบหนี หมายถึงว่าตัวเลขนั้นสูงหรือต่ำกว่าเลขที่ถูกต้อง"
+
+#: ../boards/hanoi.xml.in.h:1
+msgid "Concept taken from EPI games."
+msgstr "ได้รับแนวคิดมาจาก EPI games"
+
+#: ../boards/hanoi.xml.in.h:2
+msgid "Drag and Drop one top piece at a time, from one peg to another, to reproduce the tower on the right in the empty space on the left."
+msgstr "ลากแล้ววางชั้นบนสุดในเวลาเดียว จากหมุดตัวเดียวไปยังตัวอื่นๆ เพื่อทำซ้่ำให้เป็นตึกจากด้านขวาไปยังพื้นที่ว่างด้านซ้าย"
+
+#: ../boards/hanoi.xml.in.h:4
+#: ../src/boards/hanoi.c:101
+msgid "Reproduce the given tower"
+msgstr "ทำสำเนาตึกที่ได้ให้"
+
+#: ../boards/hanoi.xml.in.h:5
+msgid "Reproduce the tower on the right in the empty space on the left"
+msgstr "คัดลอกตึกจากด้านซ็ายไปยังช่องว่างด้านขวา"
+
+#: ../boards/hanoi.xml.in.h:6
+#: ../src/boards/hanoi.c:100
+msgid "Simplified Tower of Hanoi"
+msgstr "เจดีย์ฮานอยอย่างง่าย"
+
+#: ../boards/hanoi_real.xml.in.h:1
+msgid "Drag and Drop the top pieces only from one peg to another, to reproduce the tower on the right in the empty space on the left."
+msgstr "ลากแล้ววางชิ้นบนสุดเฉพาะหมุดอันเดียวไปยังอื่นๆ เพื่อสร้างตึกขึ้นมาใหม่จากด้านขวาไปยังพื้นที่ว่างด้านซ้าย"
+
+#: ../boards/hanoi_real.xml.in.h:3
+msgid "Reproduce the tower on the right side"
+msgstr "ทำสำเนาของตึกทางด้านซ้าย"
+
+#: ../boards/hanoi_real.xml.in.h:4
+msgid "The Tower of Hanoi"
+msgstr "เจดีย์ของฮานอย"
+
+#: ../boards/hanoi_real.xml.in.h:5
+msgid "The object of the game is to move the entire stack to another peg, obeying the following rules: * only one disc may be moved at a time * no disc may be placed atop a smaller disc"
+msgstr "วัตถุประสงค์ของเกมนี้เพื่อย้ายจานที่กองทั้งหมดไปยังหมุดอื่น โดยเชื่อฟังตามกฎ เฉพาะแผ่นเดียวสามารถย้ายได้เพียงครั้งเดียว ไม่มีดิสก์ที่ใหญ่กว่าจะสามารถว่างบงบนดิสก์ที่เล็กกว่า"
+
+#: ../boards/hanoi_real.xml.in.h:6
+msgid "The puzzle was invented by the French mathematician Edouard Lucas in 1883. There is a legend about a Hindu temple whose priests were constantly engaged in moving a set of 64 discs according to the rules of the Tower of Hanoi puzzle. According to the legend, the world would end when the priests finished their work. The puzzle is therefore also known as the Tower of Brahma puzzle. It is not clear whether Lucas invented this legend or was inspired by it. (source Wikipedia &lt;http://en.wikipedia.org/wiki/Tower_of_hanoi&gt;)"
+msgstr "เกมปริศนาถูกคิดค้นโดย French mathematician Edouard Lucas ในปี 1883. มีตำนานเกี่ยวกับเจดีย์ฮินดูซึ่งนักบวชได้พยายามหาความสำพันธ์ของการย้ายจานทั้ง 64 ใบ บันทึกเป็นกฎของเกมปริศนาเจดีย์ฮานอย บันทึกเป็นตำนานได้เลยว่าโลกอาจจะจบสิ้นก่อนที่นักบวชจะทำงานจนเสร็จ  เกมปริศนาเราอาจจะเรียกได้ว่าปริศนาเจดีย์ของบรามา มันไม่แน่ชัดว่าจะลูกคัสจะประดิษฐ์สิ่งที่เป็นตำนานหรือไม่เป็นแรงบัลดาลใจโดยตัวมัน  (source Wikipedia &lt;http://en.wikipedia.org/wiki/Tower_of_hanoi&gt;)"
+
+#: ../boards/hexagon.xml.in.h:1
+msgid "Find the strawberry by clicking on the blue fields"
+msgstr "ค้นหาสเตอร์เบอร์รี่โดยคลิ๊กไปยังทุ่งหญ้าสีน้ำเงิน"
+
+#: ../boards/hexagon.xml.in.h:4
+msgid "Try to find the strawberry under the blue fields. The fields become redder as you get closer."
+msgstr "พยายามค้นหาสเตอร์เบอร์รี่ภายใต้ทุ่งสีน้ำเงิน ทุ่งนี้จะกลายเป็นสีแดงเมื่อคุณเข้าใกล้"
+
+#: ../boards/hexagon.xml.in.h:5
+msgid "hexagon"
+msgstr "รูปหกเหลี่ยม"
+
+#: ../boards/imageid.xml.in.h:1
+msgid "Click on the word corresponding to the printed image."
+msgstr "คลิ๊กลงบนคำที่สอดคล้องกับรูปที่แสดงออกมา"
+
+#: ../boards/imageid.xml.in.h:2
+msgid "Practice reading by finding the word matching an image"
+msgstr "แบบฝึกหัดการอ่านโดยค้นหาคำที่ตรงกับรูปภาพ"
+
+#: ../boards/imageid.xml.in.h:3
+#: ../boards/imagename.xml.in.h:4
+#: ../boards/readingh.xml.in.h:4
+#: ../boards/readingv.xml.in.h:4
+#: ../src/boards/imageid.c:112
+#: ../src/boards/missingletter.c:104
+msgid "Reading"
+msgstr "อ่าน"
+
+#: ../boards/imageid.xml.in.h:4
+msgid "Reading practice"
+msgstr "แบบฝึกหัดอ่าน"
+
+#: ../boards/imageid/board1.xml.in.h:1
+#: ../boards/imagename/board4_0.xml.in.h:2
+msgid "apple"
+msgstr "แอบเปิ้ล"
+
+#: ../boards/imageid/board1.xml.in.h:2
+msgid "back"
+msgstr "ย้อนกลับ"
+
+#: ../boards/imageid/board1.xml.in.h:3
+msgid "bag"
+msgstr "ย่าม"
+
+#: ../boards/imageid/board1.xml.in.h:4
+#: ../boards/imagename/board6_0.xml.in.h:2
+msgid "ball"
+msgstr "บอล"
+
+#: ../boards/imageid/board1.xml.in.h:5
+msgid "banana"
+msgstr "banana"
+
+#: ../boards/imageid/board1.xml.in.h:6
+msgid "bed"
+msgstr "เตียง"
+
+#: ../boards/imageid/board1.xml.in.h:7
+msgid "boat"
+msgstr "เรือ"
+
+#: ../boards/imageid/board1.xml.in.h:8
+msgid "book"
+msgstr "หนังสือ"
+
+#: ../boards/imageid/board1.xml.in.h:9
+#: ../boards/imagename/board2_0.xml.in.h:2
+msgid "bottle"
+msgstr "ขวาด"
+
+#: ../boards/imageid/board1.xml.in.h:10
+msgid "cake"
+msgstr "เค๊ก"
+
+#: ../boards/imageid/board1.xml.in.h:11
+msgid "camel"
+msgstr "อูฐ"
+
+#: ../boards/imageid/board1.xml.in.h:12
+#: ../boards/imagename/board4_0.xml.in.h:4
+msgid "car"
+msgstr "รถยนต์"
+
+#: ../boards/imageid/board1.xml.in.h:13
+msgid "cat"
+msgstr "แมว"
+
+#: ../boards/imageid/board1.xml.in.h:14
+msgid "catch"
+msgstr "การจับ"
+
+#: ../boards/imageid/board1.xml.in.h:15
+msgid "cheese"
+msgstr "เนยแข็ง"
+
+#: ../boards/imageid/board1.xml.in.h:16
+msgid "cow"
+msgstr "วัว"
+
+#: ../boards/imageid/board1.xml.in.h:17
+msgid "dog"
+msgstr "สุนัข"
+
+#: ../boards/imageid/board1.xml.in.h:18
+msgid "finish"
+msgstr "สำเร็จ"
+
+#: ../boards/imageid/board1.xml.in.h:19
+msgid "fish"
+msgstr "ปลา"
+
+#: ../boards/imageid/board1.xml.in.h:20
+#: ../boards/imagename/board3_0.xml.in.h:2
+msgid "house"
+msgstr "บ้าน"
+
+#: ../boards/imageid/board1.xml.in.h:21
+msgid "pear"
+msgstr "ลูกแพร์"
+
+#: ../boards/imageid/board1.xml.in.h:22
+msgid "plane"
+msgstr "แผนการ"
+
+#: ../boards/imageid/board1.xml.in.h:23
+msgid "satchel"
+msgstr "ย่าม"
+
+#: ../boards/imagename.xml.in.h:1
+#: ../boards/imagename/board1_0.xml.in.h:1
+#: ../boards/imagename/board2_0.xml.in.h:1
+#: ../boards/imagename/board3_0.xml.in.h:1
+#: ../boards/imagename/board4_0.xml.in.h:1
+#: ../boards/imagename/board5_0.xml.in.h:1
+#: ../boards/imagename/board6_0.xml.in.h:1
+msgid "Drag and Drop each item onto its name"
+msgstr "ลากแล้ววางของแต่ละชิ้นไปยังชื่อของมัน"
+
+#: ../boards/imagename.xml.in.h:2
+msgid "Drag each image from the (vertical) box on the left to its (corresponding) name on the right. Click the OK button to check your answer."
+msgstr "วางแต่ละรูปจากกล่องในแนวตั้งจากซ้ายให้สำพันธ์กับชื่อทางขวา กดปุ่ม Ok เพื่อตรวจสอบคำตอบที่ถูกต้อง"
+
+#: ../boards/imagename.xml.in.h:3
+msgid "Image Name"
+msgstr "ชื่อรูปภาพ"
+
+#: ../boards/imagename.xml.in.h:5
+msgid "Vocabulary and reading"
+msgstr "คำศัพท์และการอ่าน"
+
+#: ../boards/imagename/board1_0.xml.in.h:2
+msgid "bulb"
+msgstr "หลอดไฟฟ้า"
+
+#: ../boards/imagename/board1_0.xml.in.h:3
+msgid "fishing boat"
+msgstr "เรือตกปลา"
+
+#: ../boards/imagename/board1_0.xml.in.h:4
+msgid "lamp"
+msgstr "โคมไฟ"
+
+#: ../boards/imagename/board1_0.xml.in.h:5
+msgid "mail box"
+msgstr "ตู้จดหมาย"
+
+#: ../boards/imagename/board1_0.xml.in.h:6
+#: ../boards/imagename/board5_0.xml.in.h:3
+msgid "postcard"
+msgstr "โปสการ์ด"
+
+#: ../boards/imagename/board1_0.xml.in.h:7
+#: ../boards/imagename/board3_0.xml.in.h:5
+#: ../boards/imagename/board6_0.xml.in.h:7
+msgid "sailing boat"
+msgstr "ล่องเรือ"
+
+#: ../boards/imagename/board2_0.xml.in.h:3
+msgid "egg"
+msgstr "ไข่"
+
+#: ../boards/imagename/board2_0.xml.in.h:4
+msgid "eggcup"
+msgstr "ถ้วยไข่"
+
+#: ../boards/imagename/board2_0.xml.in.h:5
+msgid "flower"
+msgstr "ดอกไม้"
+
+#: ../boards/imagename/board2_0.xml.in.h:6
+msgid "glass"
+msgstr "แก้ว"
+
+#: ../boards/imagename/board2_0.xml.in.h:7
+msgid "vase"
+msgstr "แจกัน"
+
+#: ../boards/imagename/board3_0.xml.in.h:3
+msgid "light house"
+msgstr "์ประภาคาร"
+
+#: ../boards/imagename/board3_0.xml.in.h:4
+msgid "rocket"
+msgstr "จรวด"
+
+#: ../boards/imagename/board3_0.xml.in.h:6
+msgid "sofa"
+msgstr "โซฟา"
+
+#: ../boards/imagename/board3_0.xml.in.h:7
+#: ../boards/imagename/board5_0.xml.in.h:5
+msgid "star"
+msgstr "รูปดาว"
+
+#: ../boards/imagename/board4_0.xml.in.h:3
+msgid "bicycle"
+msgstr "จักรยาน"
+
+#: ../boards/imagename/board4_0.xml.in.h:5
+msgid "carrot"
+msgstr "แครอท"
+
+#: ../boards/imagename/board4_0.xml.in.h:6
+msgid "grater"
+msgstr "เครื่องขูด"
+
+#: ../boards/imagename/board4_0.xml.in.h:7
+msgid "tree"
+msgstr "ต้นไม้"
+
+#: ../boards/imagename/board5_0.xml.in.h:2
+msgid "pencil"
+msgstr "ดินสอ"
+
+#: ../boards/imagename/board5_0.xml.in.h:4
+msgid "spruce"
+msgstr "สะอาดหมดจด"
+
+#: ../boards/imagename/board5_0.xml.in.h:6
+msgid "truck"
+msgstr "รถบรรทุก"
+
+#: ../boards/imagename/board5_0.xml.in.h:7
+msgid "van"
+msgstr "รถตู้"
+
+#: ../boards/imagename/board6_0.xml.in.h:3
+msgid "castle"
+msgstr "ปราสาท"
+
+#: ../boards/imagename/board6_0.xml.in.h:4
+msgid "crown"
+msgstr "มงกุฎ"
+
+#: ../boards/imagename/board6_0.xml.in.h:5
+msgid "flag"
+msgstr "ธง"
+
+#: ../boards/imagename/board6_0.xml.in.h:6
+msgid "racket"
+msgstr "ไม้แร๊กเก็ต"
+
+#: ../boards/keyboard.xml.in.h:1
+msgid "Discover the keyboard."
+msgstr "ค้นพบแป้นพิมพ์"
+
+#: ../boards/keyboard.xml.in.h:2
+msgid "Keyboard-manipulation boards"
+msgstr "กระดานสำหรับปรับแต่งแป้นพิมพ์"
+
+#: ../boards/leftright.xml.in.h:1
+msgid "Determine if a hand is a right or a left hand"
+msgstr "ถ้าหากมือเป็นด้านซ้ายหรือด้านขวาให้กำหนดมัน"
+
+#: ../boards/leftright.xml.in.h:2
+msgid "Distinguish right and left hands from different points of view. Spatial representation"
+msgstr "จำแนกความแตกต่างระหว่างมือซ้ายและมือขวาจากภาพที่มีจุดที่แตกต่าง ดำเนินการแทนอวกาศ"
+
+#: ../boards/leftright.xml.in.h:3
+msgid "Find your left and right hands"
+msgstr "ค้นหามือซ้ายและมือขวา"
+
+#: ../boards/leftright.xml.in.h:4
+#: ../boards/railroad.xml.in.h:4
+msgid "None"
+msgstr "ไม่มี"
+
+#: ../boards/leftright.xml.in.h:5
+msgid "You can see a hand: is it a left hand or a right hand? Click on the red button on the left, or the green button on the right."
+msgstr "คุณมองเห็นมือ: มันเป็นมือซ้ายหรือว่ามือขวา? คลิ๊กบนปุ่มสีแดงหากเป็นซ้าย หรือคลิ๊กปุ่มสีเขียวหากเป็นขวา"
+
+#: ../boards/login.xml.in.h:1
+msgid "GCompris identifies each child, so we can provide child-specific reports."
+msgstr "จีคอมพริสจำแนกเด็กแต่ละคน ดังนั้นเราสามารถจัดเตรียมรายงานเฉพาะเจาะจงของเด็ก"
+
+#: ../boards/login.xml.in.h:2
+msgid "GCompris login screen"
+msgstr "หน้าจอล๊อคอินของจีคอมพริส"
+
+#: ../boards/login.xml.in.h:3
+msgid ""
+"In order to activate the login screen, you must \n"
+"first add users in the administration part of GCompris. \n"
+"You access Administration by running 'gcompris -a'.\n"
+"In Administration, you can create different profiles. In each profile,\n"
+"you can have a different set of users and select which activities are available to them.\n"
+"To run GCompris for a specific profile, you use 'gcompris -p profile' where 'profile'\n"
+"is the name of a profile as you created it in Administration."
+msgstr ""
+"สิ่งที่ต้องทำคือจะต้องกระตุ้นหน้าจอล๊อคอิน คุณจะต้อง \n"
+"ขั้นแรก เพิ่มรายชื่อผู้ใช้ในระบบการบริหารอันเป็นส่วนหนึ่งของจีคอมพริส\n"
+"คุณสามารถเข้าถึงระบบการบริหารจีคอมพริสโดยสั่งการ 'gcompris -a'\n"
+"ในระบบการบริหาร คุณสามารถสร้างโปรไฟล์ที่แตกต่างกันในแต่ละโปรไฟล์\n"
+"คุณสามารถมีกลุ่มผู้ใช้ท่ี่แตกต่างและเลือกกิจกรรมที่เหมาะสมกับแต่ละอัน\n"
+"เพื่อทำงานกับจีคอมพริสสำหรับโปรไฟล์แต่ละอัน คูณต้องใช้ 'gcompris -p profile' where 'profile'\n"
+"ชื่อของโปรไฟล์คุณสามารถสร้างมันได้ในตัวบริหารระบบ"
+
+#: ../boards/login.xml.in.h:10
+msgid "Select or enter your name to log in to GCompris"
+msgstr "ใส่ชื่อของคุณสำหรับล๊อคอินเข้าจีคอมพริส"
+
+#: ../boards/math.xml.in.h:1
+msgid "Mathematical activities."
+msgstr "กิจกรรมคณิตศาสตร์"
+
+#: ../boards/math.xml.in.h:2
+msgid "Mathematics"
+msgstr "คณิตศาสตร์"
+
+#: ../boards/maze.xml.in.h:1
+#: ../boards/maze2DRelative.xml.in.h:1
+#: ../boards/maze3D.xml.in.h:2
+#: ../boards/mazeInvisible.xml.in.h:1
+msgid "Can use the keyboard arrow to move an object."
+msgstr "สามารถใช้ลูกศรบนแป้นพิมพ์เคลื่อนย้ายวัตถุ"
+
+#: ../boards/maze.xml.in.h:2
+#: ../src/boards/maze.c:133
+msgid "Find your way out of the maze"
+msgstr "หาทางออกจากเขาวงกต"
+
+#: ../boards/maze.xml.in.h:3
+#: ../boards/maze2DRelative.xml.in.h:3
+#: ../boards/maze3D.xml.in.h:4
+#: ../boards/mazeInvisible.xml.in.h:3
+msgid "Help Tux get out of this maze."
+msgstr "ช่วยทักซ์ออกจากเขาวงกต"
+
+#: ../boards/maze.xml.in.h:4
+#: ../boards/maze2DRelative.xml.in.h:4
+#: ../boards/mazeInvisible.xml.in.h:4
+#: ../src/boards/maze.c:132
+msgid "Maze"
+msgstr "เขาวงกต"
+
+#: ../boards/maze.xml.in.h:5
+msgid "Use the keyboard arrows to move Tux up to the door."
+msgstr "ใช้ลูกศรบนคียบอร์ดสำหรับย้่ายทักซ์ไปสู่ประตู"
+
+#: ../boards/maze2DRelative.xml.in.h:2
+msgid "Find your way out of the maze (Move is relative)"
+msgstr "ค้นหาทางออกจากเขาวงกต(การเคลื่อนใหวอย่างสัมพันธ์กัน)"
+
+#: ../boards/maze2DRelative.xml.in.h:5
+msgid "Use the keyboard arrows to move Tux up to the door. In this maze, the move is relative (first person). Use the up arrow to go forward. The other arrow let you turn Tux in another direction."
+msgstr "ณ เขาวงกต ใช้ลูกศรบนแป้นพิมพ์เคลื่อนใหวทักซ์ไปยังประตู การเคลื่อนใหวมีความสำพันธ์กัน(คนแรก) ใช้ลูกศรขึ้นเพื่อไปข้างหน้า ส่วนลูกศรอื่นๆ เพื่อให้ทักซ์ไปยังทิศทางอื่นๆเช่นกัน"
+
+#: ../boards/maze3D.xml.in.h:1
+msgid "3D Maze"
+msgstr "เขาวงกต 3 มิติ"
+
+#: ../boards/maze3D.xml.in.h:3
+msgid "Find your way out of the 3D maze"
+msgstr "หาทางออกบนวงกต 3 มิติ"
+
+#: ../boards/maze3D.xml.in.h:5
+msgid "Use the keyboard arrows to move Tux up to the door. Use the spacebar to switch between 2D and 3D modes. 2D mode just gives you an indication of your position, like a map. You cannot move Tux in 2D mode."
+msgstr "ใช้ลูกศรบนแป้นพิมพ์เพื่อขยับทักซ์ไปยังประตู ใช้แป้นเคาะเพื่อสลับระหว่างรูปแบบ 2มิต กับ 3มิติ 2มิติจะชี้ให้เห็นตำแหน่งของคุณเหมือนกับแผนที่ คุณไม่สามารถเคลื่อนใหวทักซ์ในรูปแบบ 2 มิติได้"
+
+#: ../boards/mazeInvisible.xml.in.h:2
+msgid "Find your way out of the invisible maze"
+msgstr "หาทางออกจากเขาวงกตที่มองไม่เห็น"
+
+#: ../boards/mazeInvisible.xml.in.h:5
+msgid "Use the keyboard arrows to move Tux up to the door. Use the spacebar to switch between invisible and visible modes. Visible mode just gives you an indication of your position, like a map. You cannot move Tux in visible mode."
+msgstr "ใช้ลูกศรบนแป้นพิมพ์เพื่อขยับทักซ์ไปยังประตู ใช้แป้นเคาะเพื่อสลับระหว่างรูปแบบที่มองเห็นกับรูปแบบที่มองไม่เห็น รูปแบบที่มองเห็นจะให้ตำแหน่งแก่คุณดังเช่นแผนที่ คุณไม่สามารถขยับทักซ์ในรูปแบบที่มองเห็น"
+
+#: ../boards/mazeMenu.xml.in.h:1
+msgid "Find your way out of different types of mazes"
+msgstr "ค้นหาทางออกสำหรับเขาวงกตแต่ละชนิด"
+
+#: ../boards/mazeMenu.xml.in.h:2
+msgid "Go to Maze activities"
+msgstr "เข่้าสู่กิจกรรมเขาวงกต"
+
+#: ../boards/melody.xml.in.h:1
+msgid "Ear-training activity"
+msgstr "กิจกรรมฝึกการฟังเสียง"
+
+#: ../boards/melody.xml.in.h:2
+msgid "Listen to the sound sequence played, and repeat it by clicking on the elements. You can listen again by clicking on the repeat button."
+msgstr "รับฟังเสียงจากเครื่องลำดับเสียง สามารถฟังซ้ำโดยคลิ๊กที่ตัวองค์ประกอบ คุณสามารถฟังได้อีกครีั้งโดยคลิ๊กปุ่มฟังซ้ำ"
+
+#: ../boards/melody.xml.in.h:3
+msgid "Melody"
+msgstr "ทำนองเพลง"
+
+#: ../boards/melody.xml.in.h:5
+msgid "Repeat a melody"
+msgstr "ทบทวนเมโลดี้"
+
+#: ../boards/memory.xml.in.h:1
+msgid "A set of blank cards is shown. Each card has a picture on the other side, and each picture card has a twin exactly the same. Click on a card to see its hidden picture, and try to match the twins. You can only turn over two cards at once, so you need to remember where a picture is, while you look for its twin. When you turn over the twins, they both disappear."
+msgstr "กลุ่มของไพ่เปล่าถูกแสดง แต่ละใบจะมีรูปอยู่ในอีกด้าน และแต่ละรูปในไพ่จะมีคู่ที่ถูกต้องแน่นอน คลิ๊กบนไพ่เพื่อดูรูปที่ซ่อนอยู่ และพยายามจับคู่เหมือน คุณสามารถพลิกไพ่สองใบในแต่ละครั้ง ดังนั้นคุณจำเป็นต้องจำรูปว่ารูปอยู่ที่ใหน ขณะที่คุณมองหาไพ่เหมือน เมื่อคุณพลิกไพ่ของคู่เหมือน ทั้งสองจะหายไป"
+
+#: ../boards/memory.xml.in.h:2
+msgid "Flip the cards to find the matching pairs"
+msgstr "คว่ำไพ่เพื่อค้นหาคู่ของมัน"
+
+#: ../boards/memory.xml.in.h:3
+msgid "Memory Game with images"
+msgstr "เกมส์ความจำโดยภาพ "
+
+#: ../boards/memory.xml.in.h:5
+#: ../boards/memory_tux.xml.in.h:4
+msgid "Train your memory and remove all the cards"
+msgstr "ฝึกความจำและเคลื่อนย้ายไพ่ทั้งหมด"
+
+#: ../boards/memory_group.xml.in.h:1
+msgid "Go to Memory activities"
+msgstr "เข่้าสู่กิจกรรมความจำ"
+
+#: ../boards/memory_group.xml.in.h:2
+msgid "Various memory activities (images, letters, sounds)."
+msgstr "กิจกรรมความจำหลากหลาย(ภาพ,อักษร,เสียง)"
+
+#: ../boards/memory_sound.xml.in.h:1
+#: ../boards/memory_sound_tux.xml.in.h:1
+msgid "A set of violinist Tux is shown. Each Tux has an associated sound, and each sound has a twin exactly the same. Click on a Tux to see its hidden sound, and try to match the twins. You can only activate two Tux at once, so you need to remember where a sound is, while you listen to its twin. When you turn over the twins, they both disappear."
+msgstr "การแสดงของกกลุ่มของนักแชลโลทักซ์ ทักซ์แต่ละคนได้เข้าร่วมประสานเสียง และแต่ละเสียงนั้นมีเสียงที่เป็นคู่เหมือน คลิ๊กลงบนทักซ์เพื่อได้ยินเสียงที่ซ่อนไว้ และพยายามหาเสียงที่เหมือน คุณสามารถกระตุ้นเฉพาะสองเสียงได้ในแต่ละครั้ง ดังนั้นคุณจำเป็นที่จะต้องจำเสียงว่าแต่ละเสียงมาจากใหน ขณะที่คุณฟังเสียงของแต่ละคู่ เมื่อคุณได้คู่ของมันทั้งสองจะหายไป"
+
+#: ../boards/memory_sound.xml.in.h:2
+msgid "Audio memory game"
+msgstr "ฝึกจำเสียง"
+
+#: ../boards/memory_sound.xml.in.h:3
+msgid "Click on Tux the violinist and listen to find the matching sounds"
+msgstr "คลิกบนทักซ์ทีเป็นนักดนตรีแชลโลและฟังเพื่อค้นหาเสียงตรงกัน"
+
+#: ../boards/memory_sound.xml.in.h:4
+#: ../boards/memory_sound_tux.xml.in.h:3
+#: ../boards/memory_tux.xml.in.h:3
+msgid "Mouse manipulation, Brain."
+msgstr "การปรับแต่งเม้าส์ สมอง"
+
+#: ../boards/memory_sound.xml.in.h:5
+#: ../boards/memory_sound_tux.xml.in.h:5
+msgid "Train your audio memory and remove all the violonists Tux."
+msgstr "ฝีกการจำเสียงและลบทักซ์ที่เป็นนักเชลโลทั้งหมด"
+
+#: ../boards/memory_sound_tux.xml.in.h:2
+msgid "Audio memory game against Tux"
+msgstr "แข่งเกมส์จำเสียงกับทักซ์"
+
+#: ../boards/memory_sound_tux.xml.in.h:4
+msgid "Play the audio memory game against Tux"
+msgstr "เล่นเกมส์ฝึกจำเสียงกับทักซ์"
+
+#: ../boards/memory_tux.xml.in.h:1
+msgid "Have a memory competition with Tux."
+msgstr "แข่งเกมส์จำภาพกับทักซ์"
+
+#: ../boards/memory_tux.xml.in.h:2
+msgid "Memory Game with images, against Tux"
+msgstr "แข่งเกมส์จำภาพกับทักซ์"
+
+#: ../boards/memory_tux.xml.in.h:5
+msgid "You can see a set of cards that all look the same. Each card has a picture on the other side, and each picture has a twin somewhere in the set. You can only turn over two cards at once, so you need to remember where the pictures are until you can find the twin. When you turn over twins, they disappear! You take turns with Tux, and to win the game, you have to find more pairs of twins than he does."
+msgstr "คุณสามารถมองเห็นกลุ่มของไพ่ที่คุณมองเห็นเหมือนกัน ไพ่แต่ละใบมีรูปอยู่ด้านหลัง และแต่ละรูปจะมีคู่ของมันซักแห่งในกลุ่มนี้ เฉพาะคุณเท่านั้นที่จะสามารถพลิกไพ่สองใบต่อครั้ง ดังนั้นคุณจำเป็นต้องจดจำว่ารูปนั่้นอยู่ที่ใหนจนกระทั้งคุณสามารถหาคู่เหมือน เมื่อคุณพลิกไพ่ของคู่เหมือน มันจะหายไป มันจะเป็นตาเดินของทักซ์ และเพื่อจะมีชัยชนะในเกม คุณจะต้องหาคู่ของมันมากกว่าที่เขาหาได้"
+
+#: ../boards/menu.xml.in.h:1
+msgid ""
+"A simple click on an icon brings you to an activity or a menu of activities.\n"
+"At the bottom of the screen is the gcompris control bar.\n"
+"The following icons are displayed from right to left.\n"
+"(note that each icon is displayed only if available in the current activity)\n"
+"    Home - Back to previous menu or exit gcompris if at the top\n"
+"    Thumb - OK. Confirm your answer\n"
+"    Dice - Display the current level. Click to select another level\n"
+"    Music note - Repeat the question\n"
+"    Question Mark - Help\n"
+"    Tool - The configuration menu\n"
+"    Tux Plane - About GCompris\n"
+"The stars show suitable age groups for each game:\n"
+"    1, 2 or 3 simple stars  - from 2 to 6 years old\n"
+"    1, 2 or 3 complex stars - 7 years and up"
+msgstr ""
+"กาคลิ๊กธรรมดาบนไอคอนนำคุณเข้าสูกิจกรรมในเมนูกิจกรรม\n"
+"ในด้านล่างของจอภาพของจีคอมพริสเป็นคอนโทรลบาร์\n"
+"ไอคอนดังต่อไปนี้จากซ้ายไปขวา\n"
+"(จงจำไว้ว่าแต่ละไอคอนที่ได้แสดงไปนั้น เฉพาะกิจกรรมที่สามารถมีได้ในปัจจุบัน)\n"
+"    Home - กลับสู่เมนูก่อนหน้านี้ หรืออกจากจีคอมพริส ถ้าหากมันอยู่นอกสุด\n"
+"    Thumb - ตกลง ยืนยันคำตอบ\n"
+"    Dice - แสดงระดับปัจจุบัน คลิ๊กเพื่อเลือกระดับต่อไป\n"
+"    Music note - ถามคำถามซ้ำ\n"
+"    Question Mark - ช่วยเหลือ\n"
+"    Tool - การปรับแต่งเมนู\n"
+"    Tux Plane - เกี่ยวกับจีคอมพริส\n"
+"ดวงดาวแสดงถึงความเป็นไปได้สำหรับกลุ่มอายุของเด็กในแต่ละเกม\n"
+"    1, 2 or 3 ดวงดาวธรรมดา  - จาก 2 ถึง 6 ปี\n"
+"    1, 2 or 3 ดวงดาวที่ซับซ้อน - 7 ปีขึ้นไป"
+
+#: ../boards/menu.xml.in.h:15
+msgid "GCompris Main Menu"
+msgstr "เมนูหลักของจีคอมพริส"
+
+#: ../boards/menu.xml.in.h:16
+msgid "GCompris is a collection of educational games that provides different activities for children aged 2 and up."
+msgstr "จีคอมพริสเป็นชุดสะสมสำหรับเกมส์การศึกษาซึ่งได้จัดเตรียมกิจกรรมหลากหลายสำหรับเด็กอายุ 2 ปีขึ้นไป"
+
+#: ../boards/menu.xml.in.h:18
+msgid "The goal of gcompris is to provide a free alternative to popular proprietary edutainment software"
+msgstr "จุดมุ่งหมายของจีคอมพริสเพื่อจัดเตรียมสำหรับการมีทางเลือกอย่างเสรีสำหรับเป็นที่นิยมเป็นเจ้าของ โปรแกรมศึกษาบันเทิง"
+
+#: ../boards/miscelaneous.xml.in.h:1
+msgid "Miscellaneous activities"
+msgstr "กิจกรรมเบ็ดเตล็ด"
+
+#: ../boards/miscelaneous.xml.in.h:2
+msgid "Time, Geography, ..."
+msgstr "เวลา, ภูมิศาสตร์"
+
+#: ../boards/missing_letter.xml.in.h:1
+msgid "An object is displayed in the main area, and an incomplete word is printed under the picture. Select the missing letter to complete the word."
+msgstr "วัตถุที่แสดงออกในพื้นที่หลัก และขาดคำที่สมบูรณ์ที่จะแสดงออกภายใต้รูป เลือกคำที่ขาดหายไปเพื่ิอเติมคำให้สมบูรณ์"
+
+#: ../boards/missing_letter.xml.in.h:2
+msgid "Fill in the missing letter"
+msgstr "ใส่คำที่ขาดหาย"
+
+#: ../boards/missing_letter.xml.in.h:3
+msgid "Missing Letter"
+msgstr "อักษรที่ผิด"
+
+#: ../boards/missing_letter.xml.in.h:4
+msgid "Training reading skills"
+msgstr "ฝึกหัดทักษะในการอ่าน"
+
+#: ../boards/missing_letter.xml.in.h:5
+msgid "Word reading"
+msgstr "การอ่านคำ"
+
+#: ../boards/missing_letter/board1.xml.in.h:1
+msgid "apple/_pple/a/i/o"
+msgstr "apple/_pple/a/i/o"
+
+#: ../boards/missing_letter/board1.xml.in.h:2
+msgid "apple/app_e/l/h/n"
+msgstr "apple/app_e/l/h/n"
+
+#: ../boards/missing_letter/board1.xml.in.h:3
+msgid "apple/appl_/e/h/a"
+msgstr "apple/appl_/e/h/a"
+
+#: ../boards/missing_letter/board1.xml.in.h:4
+msgid "ball/_all/b/p/d"
+msgstr "ball/_all/b/p/d"
+
+#: ../boards/missing_letter/board1.xml.in.h:5
+msgid "ball/b_ll/a/u/o"
+msgstr "ball/b_ll/a/u/o"
+
+#: ../boards/missing_letter/board1.xml.in.h:6
+msgid "ball/bal_/l/h/s"
+msgstr "ball/bal_/l/h/s"
+
+#: ../boards/missing_letter/board1.xml.in.h:7
+msgid "banana/_anana/b/p/d"
+msgstr "banana/_anana/b/p/d"
+
+#: ../boards/missing_letter/board1.xml.in.h:8
+msgid "banana/b_nana/a/o/i"
+msgstr "banana/b_nana/a/o/i"
+
+#: ../boards/missing_letter/board1.xml.in.h:9
+msgid "banana/ba_ana/n/m/b"
+msgstr "banana/ba_ana/n/m/b"
+
+#: ../boards/missing_letter/board1.xml.in.h:10
+msgid "bed/_ed/b/l/f"
+msgstr "bed/_ed/b/l/f"
+
+#: ../boards/missing_letter/board1.xml.in.h:11
+msgid "bed/b_d/e/a/i"
+msgstr "bed/b_d/e/a/i"
+
+#: ../boards/missing_letter/board1.xml.in.h:12
+msgid "bed/be_/d/p/b"
+msgstr "bed/be_/d/p/b"
+
+#: ../boards/missing_letter/board1.xml.in.h:13
+msgid "bottle/_ottle/b/t/p"
+msgstr "bottle/_ottle/b/t/p"
+
+#: ../boards/missing_letter/board1.xml.in.h:14
+msgid "bottle/b_ttle/o/u/d"
+msgstr "bottle/b_ttle/o/u/d"
+
+#: ../boards/missing_letter/board1.xml.in.h:15
+msgid "bottle/bott_e/l/y/r"
+msgstr "bottle/bott_e/l/y/r"
+
+#: ../boards/missing_letter/board1.xml.in.h:16
+msgid "cake/_ake/c/p/d"
+msgstr "cake/_ake/c/p/d"
+
+#: ../boards/missing_letter/board1.xml.in.h:17
+msgid "cake/c_ke/a/o/e"
+msgstr "cake/c_ke/a/o/e"
+
+#: ../boards/missing_letter/board1.xml.in.h:18
+msgid "cake/ca_e/k/q/c"
+msgstr "cake/ca_e/k/q/c"
+
+#: ../boards/missing_letter/board1.xml.in.h:19
+msgid "car/_ar/c/k/b"
+msgstr "car/_ar/c/k/b"
+
+#: ../boards/missing_letter/board1.xml.in.h:20
+msgid "car/c_r/a/k/o"
+msgstr "car/c_r/a/k/o"
+
+#: ../boards/missing_letter/board1.xml.in.h:21
+msgid "car/ca_/r/w/k"
+msgstr "car/ca_/r/w/k"
+
+#: ../boards/missing_letter/board1.xml.in.h:22
+msgid "dog/_og/d/p/q"
+msgstr "dog/_og/d/p/q"
+
+#: ../boards/missing_letter/board1.xml.in.h:23
+msgid "dog/d_g/o/g/a"
+msgstr "dog/d_g/o/g/a"
+
+#: ../boards/missing_letter/board1.xml.in.h:24
+msgid "dog/do_/g/p/q"
+msgstr "dog/do_/g/p/q"
+
+#: ../boards/missing_letter/board1.xml.in.h:25
+msgid "fish/_ish/f/h/l"
+msgstr "fish/_ish/f/h/l"
+
+#: ../boards/missing_letter/board1.xml.in.h:26
+msgid "fish/f_sh/i/u/l"
+msgstr "fish/f_sh/i/u/l"
+
+#: ../boards/missing_letter/board1.xml.in.h:27
+msgid "fish/fis_/h/o/i"
+msgstr "fish/fis_/h/o/i"
+
+#: ../boards/missing_letter/board1.xml.in.h:28
+msgid "house/_ouse/h/e/j"
+msgstr "house/_ouse/h/e/j"
+
+#: ../boards/missing_letter/board1.xml.in.h:29
+msgid "house/h_use/o/f/u"
+msgstr "house/h_use/o/f/u"
+
+#: ../boards/missing_letter/board1.xml.in.h:30
+msgid "house/hous_/e/a/i"
+msgstr "house/hous_/e/a/i"
+
+#: ../boards/missing_letter/board1.xml.in.h:31
+msgid "plane/_lane/p/g/d"
+msgstr "plane/_lane/p/g/d"
+
+#: ../boards/missing_letter/board1.xml.in.h:32
+msgid "plane/p_ane/l/j/i"
+msgstr "plane/p_ane/l/j/i"
+
+#: ../boards/missing_letter/board1.xml.in.h:33
+msgid "plane/pl_ne/a/o/s"
+msgstr "plane/pl_ne/a/o/s"
+
+#: ../boards/missing_letter/board1.xml.in.h:34
+msgid "satchel/_atchel/s/c/l"
+msgstr "satchel/_atchel/s/c/l"
+
+#: ../boards/missing_letter/board1.xml.in.h:35
+msgid "satchel/s_tchel/a/o/i"
+msgstr "satchel/s_tchel/a/o/i"
+
+#: ../boards/missing_letter/board1.xml.in.h:36
+msgid "satchel/sa_chel/t/p/c"
+msgstr "satchel/sa_chel/t/p/c"
+
+#: ../boards/money.xml.in.h:1
+#: ../boards/money_cents.xml.in.h:1
+msgid "Can count"
+msgstr "สามารถนับ"
+
+#: ../boards/money.xml.in.h:2
+#: ../boards/money_cents.xml.in.h:2
+msgid "Click on the coins or paper money at the bottom of the screen to pay. If you want to remove a coin or note, click on it on the upper screen area."
+msgstr "คลิ๊กตรงเหรียญหรือธนบัตรตรงล่างสุดของจอภาพเพื่อจ่ายเงิน ถ้าหากคุณต้องเคลื่อนย้ายเหรียญ หรือกระดาษ กดคลิ๊กตรงมุมของจองภาพ"
+
+#: ../boards/money.xml.in.h:3
+#: ../boards/money_cents.xml.in.h:3
+msgid "Money"
+msgstr "เงิน"
+
+#: ../boards/money.xml.in.h:4
+msgid "Practice money usage"
+msgstr "แบบฝึกหัดการใช้เงิน"
+
+#: ../boards/money.xml.in.h:5
+#: ../boards/money_cents.xml.in.h:5
+msgid "You must buy the different items and give the exact price. At higher levels, several items are displayed, and you must first calculate the total price."
+msgstr "คุณจะต้องซื้อของที่แตกต่างกันและให้ราคาแต่ละชิ้น ที่ระดับสูง สิ่งของทั่วๆไปจะถูกแสดง และคุณจะต้องคำนวณราคาทั้งหมดเป็นคนแรก"
+
+#: ../boards/money_cents.xml.in.h:4
+msgid "Practice money usage including cents"
+msgstr "ฝึกการใช้เงินโดยรวมเงินเป็นเซน"
+
+#: ../boards/mosaic.xml.in.h:1
+msgid "Rebuild the mosaic"
+msgstr "สร้างภาพโมเสก"
+
+#: ../boards/mouse.xml.in.h:1
+msgid "Mouse-manipulation activities."
+msgstr "กิจกรรมหลากหลายสำหรับเด็ก"
+
+#: ../boards/mouse.xml.in.h:2
+msgid "Various mouse-based activities (clicking, moving)"
+msgstr "กิจกรรมเม้าส์พื้นฐาน(คลิ๊ก,ขยับ)"
+
+#: ../boards/numeration.xml.in.h:1
+msgid "Numeration"
+msgstr "ระบบการนับ"
+
+#: ../boards/numeration.xml.in.h:2
+msgid "Numeration activities."
+msgstr "กิจกรรมนับตัวเลข"
+
+#: ../boards/paintings.xml.in.h:1
+msgid "Assemble the puzzle"
+msgstr "ประกอบภาพปริศนา"
+
+#: ../boards/paintings.xml.in.h:2
+msgid "Drag and Drop the items to rebuild the original paintings"
+msgstr "ลากแล้ววางชิ้นส่วนเพื่อประกอบภาพให้่เป็นรูปเดิม"
+
+#: ../boards/paintings.xml.in.h:3
+msgid "Drag the image parts from the box on the left to create a painting on the main board."
+msgstr "วางชิ้นส่วนของรูปภาพจากกล่องด้านซ้ายเพื่อสร้างภาพวาดบนกระดานใหญ่"
+
+#: ../boards/paintings.xml.in.h:4
+msgid "Mouse-manipulation: movement, drag and drop"
+msgstr "การปรับตั้งเม้าส์: การเคลือนใหว ลากและวาง"
+
+#: ../boards/paintings.xml.in.h:5
+msgid "Spatial representation"
+msgstr "การนำเสนอเกี่ยวกับอวกาศ"
+
+#: ../boards/paintings/board1_0.xml.in.h:1
+msgid "Edgar Degas, The Dancing Class - 1873-75"
+msgstr "Edgar Degas, ชั้นเรียนเต้นรำ - 1873-75"
+
+#: ../boards/paintings/board2_0.xml.in.h:1
+msgid "Pierre-Auguste Renoir, Le Moulin de la Galette - 1876"
+msgstr ""
+
+#: ../boards/paintings/board3_0.xml.in.h:1
+msgid "Pierre-Auguste Renoir, Girls At The Piano - 1892"
+msgstr "Pierre-Auguste Renoir, ผู้หญิงกับเปียโน - 1892"
+
+#: ../boards/paintings/board3_1.xml.in.h:1
+msgid "Kandinsky, Wassily, Composition VIII - 1923"
+msgstr "Kandinsky, Wassily, การประพันธ์ 8 - 1923"
+
+#: ../boards/paintings/board3_1.xml.in.h:2
+msgid "Oil on canvas, 140 x 201 cm; Solomon R. Guggenheim Museum, New York"
+msgstr "น้ำมันบนผ้าหนา, 140 x 201 ซม.; Solomon R. Guggenheim พิพิธภัณฑ์ นิวยอร์ค"
+
+#: ../boards/paintings/board4_0.xml.in.h:1
+msgid "Bazille, The Ramparts at Aigues-Mortes - 1867"
+msgstr "บราซิล, The Ramparts at Aigues-Mortes - 1867"
+
+#: ../boards/paintings/board5_0.xml.in.h:1
+msgid "Cassatt, Mary - Summertime - 1894"
+msgstr "Cassatt, Mary - ช่วงฤดูร้อน - 1894"
+
+#: ../boards/paintings/board6_0.xml.in.h:1
+msgid "Vincent Van Gogh, Village Street in Auvers - 1890"
+msgstr "วินเซ็นต์แวนโก๊ะ ถนนหมู่บ้านในอเวอร์นิว - 1890"
+
+#: ../boards/paratrooper.xml.in.h:1
+msgid "Help Tux the parachutist land safely"
+msgstr "ช่วยนักดิ่งพสุธาทักซ์ให้ลงอย่างปลอดภัย"
+
+#: ../boards/paratrooper.xml.in.h:2
+msgid "Hit any key or click on the plane to make Tux jump. Hit another key or click on Tux to open the parachute."
+msgstr "กดปุ่มใดๆ หรือคลิกที่เครื่องบินเพื่อให้ทักซ์กระโดด กดปุ่มอื่นๆ หรือคลิ๊กที่ทักซ์เพื่อกางร่ม"
+
+#: ../boards/paratrooper.xml.in.h:3
+msgid "In this game, Tux the parachutist needs help to land safely on the fishing boat. He needs to allow for the wind direction and speed."
+msgstr "ในเกมส์นี้ ทักซ์เป็นนักดิ่งพสุธา จำเป็นที่จะต้องลงพื้นอย่างปลอดภัยบนเรือตกปลา เขาจำเป็นจำต้องรู้เกี่ยวกับความเร็วและทิศทางลม"
+
+#: ../boards/paratrooper.xml.in.h:4
+msgid "Parachutist"
+msgstr "นักดิ่งพสุธา"
+
+#: ../boards/paratrooper.xml.in.h:5
+msgid "This board is game-oriented. No specific skills are needed to play."
+msgstr "กระดานนี้เป็นเกมส์ท่ีคุนเคย ไม่ต้องอาศัยทักษะพิเศษในการเล่น"
+
+#: ../boards/planegame.xml.in.h:1
+msgid "Catch the numbers in increasing order, using the up, down, right and left arrows on the keyboard to move the helicopter."
+msgstr "จับตัวเลขที่เพิ่มขึ้นตามลำดับ ใช้ลูกศร บน ล่าง ซ้าย ขวา บนแป้นพิมพ์ เพื่อเคลือนใหวเฮลิคอบเตอร์"
+
+#: ../boards/planegame.xml.in.h:2
+msgid "Move the helicopter to catch the clouds in the correct order"
+msgstr "ย้ายเฮลิคอบเตอร์ไปจับก้อนเฆฆในลำดับที่ถูกต้อง"
+
+#: ../boards/planegame.xml.in.h:3
+msgid "Number"
+msgstr "ตัวเลข"
+
+#: ../boards/planegame.xml.in.h:4
+#: ../src/boards/planegame.c:77
+msgid "Numbers in Order"
+msgstr "ตัวเลขที่อยู่ในลำดับรายการ"
+
+#: ../boards/puzzle.xml.in.h:1
+msgid "Puzzles"
+msgstr "ทำให้งง"
+
+#: ../boards/puzzle.xml.in.h:2
+msgid "Various puzzles."
+msgstr "เกมส์ปริศนาหลากหลาย"
+
+#: ../boards/pythontest.xml.in.h:1
+msgid "Add a language-binding to gcompris."
+msgstr "เพิ่มภาษาในจีคอมพริส"
+
+#: ../boards/pythontest.xml.in.h:2
+msgid "Advanced Python Programmer :)"
+msgstr "การเขียนโปรแกรมไพตอนแบบก้าวหน้า"
+
+#: ../boards/pythontest.xml.in.h:3
+msgid "Python Test"
+msgstr "ทดสอบไพตอน"
+
+#: ../boards/pythontest.xml.in.h:4
+msgid "Test board for the python plugin"
+msgstr "ทดสอบกระดานสำหรับโปรแกรมเสริมไพตอน"
+
+#: ../boards/pythontest.xml.in.h:5
+msgid "Thanks to Guido van Rossum and the python team for this powerful language!"
+msgstr "ขอบคุณสำหรับ Guido van Rossum และไพตอนทีมสำหรับภาษาที่เปี่ยมล้น"
+
+#: ../boards/railroad.xml.in.h:1
+msgid "A memory game based on trains"
+msgstr "เกมส์ความจำมีพื้นฐานจากการฝึก"
+
+#: ../boards/railroad.xml.in.h:2
+msgid "A train - a locomotive and carriage(s) - is displayed at the top of the main area for a few seconds. Rebuild it at the top of the screen by selecting the appropriate carriages and locomotive. Deselect an item by clicking on it again. Check your construction by clicking on the hand at the bottom."
+msgstr "รถไฟ - หัวรถจักรไอน้ำและตู้โดยสารรถไฟ - ซึ่งได้แสดงที่ด้านบนสุดของพื้นที่หลักในช่วงเวลาสั้นๆ สร้างมัน ณ บนสุดของจอภาพโดยเลือกหัวรถจักรและตู้โดยสารรถไฟที่เหมาะสม ยกเว้นการเลือกสิ่งต่างๆ โดยการคลิ๊กท่ี่มัีนอีกครั้ง ตรวจสอบส่ิงที่คุณสร้าง โดยคลิ๊กบนมือที่ด้านล่าง"
+
+#: ../boards/railroad.xml.in.h:3
+msgid "Memory-training"
+msgstr "ฝึกหัดใช้หน่วยความจำ"
+
+#: ../boards/railroad.xml.in.h:5
+msgid "Railway"
+msgstr "รางรถไฟ"
+
+#: ../boards/read_colors.xml.in.h:2
+msgid "Click on the correct colored object."
+msgstr "คลิ๊กบนวัตถุสีที่ถูกต้อง"
+
+#: ../boards/read_colors.xml.in.h:3
+msgid "Click on the matching color"
+msgstr "คลิ๊กบนสีที่เหมาะสม"
+
+#: ../boards/read_colors.xml.in.h:4
+msgid "Read the names of colors"
+msgstr "อ่านชื่อของสี"
+
+#: ../boards/read_colors.xml.in.h:5
+msgid "This board teaches basic colors."
+msgstr "กระดานนี้สอนสีพื้นฐาน"
+
+#: ../boards/read_colors/board1.xml.in.h:1
+msgid "black"
+msgstr "ดำ"
+
+#: ../boards/read_colors/board1.xml.in.h:2
+msgid "blue"
+msgstr "น้ำเงิน"
+
+#: ../boards/read_colors/board1.xml.in.h:3
+msgid "brown"
+msgstr "น้ำตาล"
+
+#: ../boards/read_colors/board1.xml.in.h:4
+msgid "green"
+msgstr "เขียว"
+
+#: ../boards/read_colors/board1.xml.in.h:5
+msgid "grey"
+msgstr "เทา"
+
+#: ../boards/read_colors/board1.xml.in.h:6
+msgid "orange"
+msgstr "ส้ม"
+
+#: ../boards/read_colors/board1.xml.in.h:7
+msgid "pink"
+msgstr "ชมพู"
+
+#: ../boards/read_colors/board1.xml.in.h:8
+msgid "red"
+msgstr "แดง"
+
+#: ../boards/read_colors/board1.xml.in.h:9
+msgid "violet"
+msgstr "ม่วง"
+
+#: ../boards/read_colors/board1.xml.in.h:10
+msgid "white"
+msgstr "ขาว"
+
+#: ../boards/read_colors/board1.xml.in.h:11
+msgid "yellow"
+msgstr "เหลือง"
+
+#: ../boards/reading.xml.in.h:1
+msgid "Go to the Reading activities"
+msgstr "เข้าสู่กิจกรรมการอ่าน"
+
+#: ../boards/reading.xml.in.h:2
+msgid "Reading activities."
+msgstr "กิจกรรมการอ่าน"
+
+#: ../boards/readingh.xml.in.h:1
+#: ../boards/readingv.xml.in.h:1
+msgid "A word is shown at the top right of the board. A list of words will appear and disappear on the left. Does the given word belong to the list?"
+msgstr "คำที่แสดงที่ขวาบนสุดของกระดาน รายชื่อคำจะแสดงและหายไปบนด้านซ้าย คำใหนบ้างที่ได้ให้ไป?"
+
+#: ../boards/readingh.xml.in.h:2
+msgid "Horizontal reading practice"
+msgstr "แบบฝึกหัดอ่านแนวนอน"
+
+#: ../boards/readingh.xml.in.h:3
+msgid "Read a list of words and work out if a given word is in it"
+msgstr "อ่านรายช่่อของคำและค่อยๆลงมือทำถ้าคำนั้นได้อยู่ในข้างใน"
+
+#: ../boards/readingh.xml.in.h:5
+msgid "Reading training in a limited time"
+msgstr "แบบฝึกการอ่านในเวลาที่จำกัด"
+
+#: ../boards/readingv.xml.in.h:2
+msgid "Read a vertical list of words and work out if a given word is in it"
+msgstr "อ่านข้อความในแนวตั้งและลงมือทำหากเป็นคำที่กำหนดไว้ให้"
+
+#: ../boards/readingv.xml.in.h:3
+msgid "Read training in a limited time"
+msgstr "แบบฝึกการอ่านในเวลาที่จำกัด"
+
+#: ../boards/readingv.xml.in.h:5
+msgid "Vertical-reading practice"
+msgstr "แบบฝึกหัดอ่านแนวตั้ง"
+
+#: ../boards/redraw.xml.in.h:1
+msgid "Copy a drawing from the box on the right into the box on the left."
+msgstr "คัดลอกรูปวาดจากกล่องด้านขวามือไปสู่กล่องด้านซ้ายมือ"
+
+#: ../boards/redraw.xml.in.h:2
+msgid "First, select the proper tool from the toolbar. Then drag the mouse to create objects. When you are done, click on the OK button. Errors will be marked with a little red cross. The order of objects (above/under) is not important but be careful not to end up with unwanted objects under others."
+msgstr "ขั้นแรก เลือกเครื่องมือที่เหมาะสมจากแถบเครื่องมือ จากนั้นลากเม้าเพื่อสร้างวัตถุ เมื่อคุณเสร็จสิ้น คลิ๊กลงลนปุ่ม Ok สิ่งที่ผิดพลาดจะถูกทำสัญลักษณ์ด้วยกากบาทสีแดง ลำดับของวัตถุ(เหนืิอกว่าหรือตำกว่า) ไม่ได้มีความสำคัญ แต่ควรจะระมัดระวังที่จะเสร็จสิ้น โดยมีวัตถุที่ไม่พึงประสงค์ติดมาด้วย"
+
+#: ../boards/redraw.xml.in.h:3
+msgid "Redraw the given item"
+msgstr "วาดรูปขึ้นมาใหม่ในสิ่งที่มอบให้"
+
+#: ../boards/redraw_symmetrical.xml.in.h:1
+msgid "Copy the mirror image of an object from the box on the right into the box on the left."
+msgstr "คัดลอกภาพสะท้อนของวัตถุจากกล่องด้านซ้ายไปยังกล่องด้านขวา"
+
+#: ../boards/redraw_symmetrical.xml.in.h:2
+msgid "First, select the proper tool from the toolbar. Then drag the mouse to create objects. When you are done, click on the OK button. A little red cross will show you where something isn't right yet. The order of objects (above/under) is not important but be careful not to end up with unwanted objects under others."
+msgstr "ขั้นแรก เลือกเครื่องมือที่เหมาะสมจากแถบเครื่องมือ จากนั้นลากเม้าส์เพื่อสร้างวัตถุ เมื่อคุณเสร็จสิ้น คลิ๊กที่ปุ่ม OK จะมีกากบาทสีแดงปรากฎในจุดที่มีบางอย่างที่ไม่ถูกต้อง การเรียงลำดับของวัตถุ(สูงกว่าหรือต่ำกว่า) ไม่ใช่สิ่งสำคัญ แต่จะต้องระมัดระวังไม่ให้เสร็จสิ้นโดยมีวัตถุที่ไม่พึงประสงค์ติดไปด้วย"
+
+#: ../boards/redraw_symmetrical.xml.in.h:3
+msgid "Mirror the given item"
+msgstr "ทำเป็นเงาสะท้อนในส่ิงที่มอบให้"
+
+#: ../boards/reversecount.xml.in.h:1
+msgid "Can move the mouse, can read numbers and subtract numbers up to 10 for the first level"
+msgstr "สามารถขยับเม้าส์ อ่านตัวตัวเลขและลบตัวเลขให้ได้ 10 สำหรับระดับแรก"
+
+#: ../boards/reversecount.xml.in.h:2
+msgid "Click on the dice to show how many ice spots there are between Tux and the fish. Click the dice with the right mouse button to count backwards. When done, click on the OK button or hit the Enter key."
+msgstr "คลิ๊กที่ลูกเต๋าเพื่อแสดงว่ามีจุดน้ำแข็งกี่จุดที่เป็นระหว่างทักซ์และปลา คลิ๊กที่ลูกเต๋าด้วยปุ่มเม้าส์ซ้่ายเพื่อนับไปข้างหน้า หลังจากเสร็จ กดที่ปุ่ม\"ตกลง\"หรือเคาะปุ่ม Enter"
+
+#: ../boards/reversecount.xml.in.h:3
+msgid "Practice subtraction with a fun game"
+msgstr "แบบฝีกหัดการลบด้วยเกมส์ที่สนุก"
+
+#: ../boards/reversecount.xml.in.h:4
+msgid "Tux is hungry. Help him find fish by counting to the correct ice spot."
+msgstr "ทักซ์กำลังหิว ช่วยเขาหาปลาโดยนับจำนวนที่ถูกต้องของจุดน้ำแข็ง"
+
+#: ../boards/scales/board1_0.xml.in.h:1
+#: ../boards/scales/board1_1.xml.in.h:1
+#: ../boards/scales/board1_2.xml.in.h:1
+#: ../boards/scales/board1_3.xml.in.h:1
+#: ../boards/scales/board1_4.xml.in.h:1
+#: ../boards/scales/board1_5.xml.in.h:1
+#: ../boards/scales/board2_0.xml.in.h:1
+#: ../boards/scales/board2_1.xml.in.h:1
+#: ../boards/scales/board2_2.xml.in.h:1
+#: ../boards/scales/board2_3.xml.in.h:1
+#: ../boards/scales/board2_4.xml.in.h:1
+#: ../boards/scales/board2_5.xml.in.h:1
+#: ../boards/scales/board3_0.xml.in.h:1
+#: ../boards/scales/board3_1.xml.in.h:1
+#: ../boards/scales/board3_2.xml.in.h:1
+#: ../boards/scales/board3_3.xml.in.h:1
+#: ../boards/scales/board3_4.xml.in.h:1
+#: ../boards/scales/board3_5.xml.in.h:1
+#: ../boards/scalesboard.xml.in.h:2
+msgid "Drag and Drop masses to balance the scales"
+msgstr "ลากแล้ววางนำหนักเพื่อทำสมดุลย์ของตราชั่ง"
+
+#: ../boards/scalesboard.xml.in.h:1
+msgid "Balance the scales properly"
+msgstr "ปรับสมดุลตาชั่งอย่างเหมาะสม"
+
+#: ../boards/scalesboard.xml.in.h:3
+msgid "Mental calculation, arithmetic equality"
+msgstr "การคำนวณในใจ การเท่ากันทางคณิตศาสตร์"
+
+#: ../boards/scalesboard.xml.in.h:4
+msgid "The painting is an original painting created by Virginie MOREAU (virginie.moreau@free.fr) in 2001. Its name is 'Spices Seller in Egypt'. It is released under the GPL licence."
+msgstr "โปรแกรมวาดรูปซึ่งต้นฉบับของโปรแกรมวาดรูปถูกสร้างโดย เวอริจินี่ โมรู (virginie.moreau@free.fr) ในปี 2001. มันมีชื่อว่า 'คนขายเครื่องเทศในอียิปต์'โปรแกรมนี้ถูกผลิตภายในลิขสิทธิ์แบบจีพีแอล(GPL) "
+
+#: ../boards/scalesboard.xml.in.h:5
+msgid "To balance the scales, move the masses on the left side. The masses can be arranged in any order."
+msgstr "เพื่อสร้างสมดุลย์ของตราชั่ง เคลื่อนย้ายมวลบนด้านซ้าย มวลสามารถจัดเรียงได้ตามต้องการ"
+
+#: ../boards/searace.xml.in.h:1
+msgid "Direct your boat accurately to win the race."
+msgstr "กำกับเรือของคุณอย่างแม่นยำเพื่อชนะในการแข่งขัน"
+
+#: ../boards/searace.xml.in.h:2
+#: ../boards/searace1player.xml.in.h:2
+msgid "In the text entry, enter one command per line, to control your boat. Commands supported are displayed between the two entry areas. The 'left' and 'right' commands must be followed by an angle in degrees. The angle value is also called a 'parameter' to the left or right command. By default 45 degrees is used. The 'forward' command accepts a distance parameter. By default 1 is used. For example: left 90 => Make a perpendicular left turn forward 10 => Go forward for 10 units (as displayed on the ruler). The goal is to reach the right of the screen (the red line). When done, you can try to improve your program and start a new race with the same weather conditions by using the retry button. You can click and drag your mouse anywhere on the map to get a measurement in distance and angle. Going to the next level will give you more complex weather conditions."
+msgstr "ในช่องป้อนข้อความ ป้อนหนึี่งคำสั่งต่อหนึ่งบรรทัด เพื่อควบคุมเรือของคุณ คำสั่งได้สนับสนุนสิ่งที่แสดงระหว่างพื้นที่สองช่อง 'left' และ 'right' คำสั่งจะต้องบอกมุมเป็นองศา ค่าของมุมจะเรียกว่า พารามิเตอร์ แก่คำสั่งซ้ายและขวา ค่าปรกติจะเป็น 45 องศษ คำสั่ง 'forward' เป็นคำสั่งที่ยกเวันพารามิเตอร์ระยะทาง โดยปรกติจะเป็น 1 ยกตัวอย่างเช่น left 90 => จะทำให้หมุนซ้ายเป็นเส้นตั้งฉาก forward 10 => ไปข้างหน้าเป็นระยะทาง 10 หน่วย (เหมือนอย่างที่แสดงไว้ในกฎ) จุดมุ่งหมายเพื่อไปยังขวาของจอภาพ(เส้นแดง) เมื่อเสร็จ คุณสามารถพัฒนาโปรแกรและเริ่มเส้นทางใหม่ด้วยคำสั่งเดิมๆ เงื่อนใขเดิมๆ โดยใช้ปุ่มเริ่มใหม่ คุณสามารถคลิ๊กและลากเม้าส์ของคุณไปจุดใดๆ บนแผนที่เพื่อวัดระยะทางและมุม ไปยังระดับต่อไปโดยคุณจะได้เงื่อนใขที่ซับซ้อนขึ้น"
+
+#: ../boards/searace.xml.in.h:3
+#: ../boards/searace1player.xml.in.h:3
+msgid "In this activity, you will learn how to enter commands into a computer. Even if the language is extremely basic, you learn here how to think ahead and construct a program. This activity can be used to introduce the programming concept to children."
+msgstr "ในกิจกรรมนี้่ คุณจะต้องเรียนรู้ว่าทำอย่างไรที่จะป้อนคำสั่งไปยังคอมพิวเตอร์ เหตุการณ์ถ้าภาษาที่ใฃ้เป็นอย่างพื้นฐานที่สุด คุณเรียนรู้จากที่นี่ว่าการคิดไปข้างหน้าและวางโครงสร้างโปรแกรมอย่างไร ในกิจกรรมนี้สามารถใช้กับพื้นฐานแนวคิดในการสร้างโปรแกรมสำหรับเด็ก"
+
+#: ../boards/searace.xml.in.h:4
+msgid "Sea race (2 Players)"
+msgstr "ลู่วิ่งทะเล(เล่นสองคน)"
+
+#: ../boards/searace1player.xml.in.h:1
+msgid "Give good instructions to your ship in order to be first in the race."
+msgstr "ให้คำสั่งที่ดีแก่เรือของคุณในการที่จะเป็นที่หนึ่งในการแข่งขัน"
+
+#: ../boards/searace1player.xml.in.h:4
+msgid "Sea race (Single Player)"
+msgstr "ลู่ทะเล(เล่นคนเดียว)"
+
+#: ../boards/smallnumbers.xml.in.h:1
+#: ../boards/smallnumbers2.xml.in.h:1
+msgid "Count the number of dots on dice before they reach the ground"
+msgstr "นับจำนวนจุดบนลูกเต๋าก่อนที่มันจะตกถึงพื้น"
+
+#: ../boards/smallnumbers.xml.in.h:2
+#: ../boards/smallnumbers2.xml.in.h:2
+msgid "Counting skills"
+msgstr "ทักษะการนับ"
+
+#: ../boards/smallnumbers.xml.in.h:3
+#: ../boards/smallnumbers2.xml.in.h:3
+msgid "In a limited time, count the number of dots"
+msgstr "ในเวลาที่จำกัด จงนับจำนวนบนลูกเต๋า"
+
+#: ../boards/smallnumbers.xml.in.h:4
+msgid "Numbers With Dice"
+msgstr "ตัวเลขด้วยลูกเต๋า"
+
+#: ../boards/smallnumbers.xml.in.h:5
+#: ../boards/smallnumbers2.xml.in.h:5
+msgid "With the keyboard, type the number of dots you see on the falling dice."
+msgstr "ด้วยแป้นพิมพ์ พิมพ์จำนวนตัวเลขหรือจุดที่คุณเห็นในลูกเต๋าที่ทอดลงไป"
+
+#: ../boards/smallnumbers2.xml.in.h:4
+msgid "Numbers with pairs of dice"
+msgstr "จำนวนของลูกเต๋าทั้งสองอัน"
+
+#: ../boards/sound_group.xml.in.h:1
+msgid "Go to Sound activities"
+msgstr "เข้าสู่กิจกรรมเสียง"
+
+#: ../boards/sound_group.xml.in.h:2
+msgid "Sound based activities."
+msgstr "เสียงแต่ละกิจกรรมฐาน"
+
+#: ../boards/strategy.xml.in.h:1
+msgid "Strategy games"
+msgstr "เกมส์วางแผน"
+
+#: ../boards/strategy.xml.in.h:2
+msgid "Strategy games like chess, connect4, ..."
+msgstr "เกมส์วางแผนคล้ายหมากรุก connect4"
+
+#: ../boards/submarine.xml.in.h:1
+msgid "Click on different active elements : engine, rudders and air tanks, in order to navigate to the required depth."
+msgstr "คลิ๊กบนหลากหลายสภาพธรรมชาติที่ปฎิบัติการอยู่ เครื่องยนต์ หางเสือเรือ และถังอ๊อกซิเจนตามลำดับเพื่อลำลงไปยังที่ลึก"
+
+#: ../boards/submarine.xml.in.h:2
+msgid "Learn how a submarine works"
+msgstr "เรียนรู้การทำงานของเรือดำน้ำ"
+
+#: ../boards/submarine.xml.in.h:3
+msgid "Physics basics"
+msgstr "ฟิสิกส์พื้นฐาน"
+
+#: ../boards/submarine.xml.in.h:4
+msgid "Pilot a submarine"
+msgstr "คนขับเรือดำน้ำ"
+
+#: ../boards/submarine.xml.in.h:5
+msgid "Pilot a submarine using air tanks and dive rudders"
+msgstr "พลขับเรือดำน้ำให้ใช้ถังอ๊อกซิเจนและบังเรือให้ดำน้ำ"
+
+#: ../boards/sudoku.xml.in.h:1
+msgid "Completing the puzzle requires patience and logical ability"
+msgstr "การทำปริศนาให้สมบูรณ์ต้องอาศัยความอดทนและความสามารถทางตรรกะ"
+
+#: ../boards/sudoku.xml.in.h:2
+msgid "For the first level with colored symbols, drag symbols on the left to their target position. For the higher levels, click on an empty square to give it the keyboard focus. Then enter a possible letter or number. GCompris will not let you enter invalid data."
+msgstr "สำหรับอันดับแรกของสัญลักษณ์สี ลากสัญลักษณ์จากด้านซ้ายสู่เป้าหมายทั้งหลาย สำหรับระดับสูง คลิ๊กที่บนสี่เหลี่ยมว่างให้มันโดยกำหนดจากแป้นพิมพ์ จากนั้นป้อนอักษรหรือตัวเลขที่เป็นไปได้ จีคอมพริสจะไม่ให้คุณป้่อนข้อมูลที่เป็นไปไม่ได้"
+
+#: ../boards/sudoku.xml.in.h:3
+msgid "Sudoku, place unique symbols in a square."
+msgstr "ซูโดคู วางชิ้นส่วนที่ไม่ซ้ำรูปแบบลงบนสี่เหลี่ยม"
+
+#: ../boards/sudoku.xml.in.h:4
+msgid "Symbols must be unique in a row, in a column, and (if defined) each region."
+msgstr "สัญลักษณ์จะไม่มีการซ้ำในแต่แถว ในแต่ละสดมภ์ และ(ถ้าถูกกำหนด)ในแต่ละภูมิภาค"
+
+#: ../boards/sudoku.xml.in.h:5
+msgid "The aim of the puzzle is to enter a symbol or numeral from 1 through 9 in each cell of a grid, most frequently a 9x9 grid made up of 3x3 subgrids (called 'regions'), starting with various symbols or numerals given in some cells (the 'givens'). Each row, column and region must contain only one instance of each symbol or numeral (Source &lt;http://en.wikipedia.org/wiki/Sudoku&gt;)."
+msgstr "ความมุ่งมั่นของเกมปริศนาเพื่อเข้าไปสู่สัญลักษณ์ หรือตัวเลขจาก 1 ถึง 9 ในแต่ละช่องของตาราง มักจะใช้มากที่สุดคือ 9x9 ไปจนถึง 3x3 ช่องเล็ก (เรียกว่า ขอบเขต) เริ่มด้วยสัญลักษณ์ต่างๆ และตัวเลจที่ได้ไห้ในบางช่อง (ผู้ให้) ในแต่ละแถว สดมและขอบเขตจะต้องบรรจุสัญลักษณ์หนึ่งอย่าง หรือเกี่ยวกับตัวเลข (Source &lt;http://en.wikipedia.org/wiki/Sudoku&gt;)"
+
+#: ../boards/superbrain.xml.in.h:1
+msgid "Click on the items until you find what you think is the correct answer. Then, click on the OK button in the control bar. In the lower levels, Tux gives you an indication if you found a hiding place by marking the item with a black box. You can use the right mouse button to flip the colors in the opposite order."
+msgstr "คลิ๊กลงบนสิ่งของจนกระทั่งคุณสามารค้นหาคำตอบที่ถูกต้องได้ จากนั้นคลิ๊กลงบนปุ่ม\"ตกลง\" ในแถบควบคุม ในระดับข้างใต้ ทักซ์ให้บางสิ่งแก่คุณ ถ้าหากคุณสามารถค้นหาสถานที่ซ่อนของที่ทำเป็นสัญลักษณ์ในกล่องดำ คุณสามารถใช้เม้าปุ่มขวาเพื่อสลับสีในลำดับที่ตรงกันข้าม"
+
+#: ../boards/superbrain.xml.in.h:2
+#: ../src/boards/superbrain.c:110
+msgid "Super Brain"
+msgstr "สมองที่ยอดเยี่ยม"
+
+#: ../boards/superbrain.xml.in.h:3
+#: ../src/boards/superbrain.c:111
+msgid "Tux has hidden several items. Find them again in the correct order"
+msgstr "ทักซ์ได้ซ่อนสิ่งของทั่วๆไป ค้นหามันให้อยู่ในลำดับที่ถูกต้อง"
+
+#: ../boards/tangram.xml.in.h:1
+msgid ""
+"From Wikipedia, the free encyclopedia. Tangram (Chinese: literally \"seven boards of cunning\") is a Chinese puzzle. While the tangram is often said to be ancient, its existence has only been verified as far back as 1800. It consists of 7 pieces, called tans, which fit together to form a square; taking the square as the unit:\n"
+"\t* 5 right isosceles triangles\n"
+"\t\to 2 small (legs of 1)\n"
+"\t\to 1 medium size (legs of square root of 2)\n"
+"\t\to 2 large size (legs of 2)\n"
+"\t* 1 square (side of 1)\n"
+"\t* 1 parallelogram (sides of 1 and square root of 2)"
+msgstr ""
+"จากวิกีพีเดี่ย สารานุกรมเสรี แทงแกรม(จีน: อย่งแท้จริง \"กระดานกลเจ็ดอย่าง\") เป็นเกมส์ปริศนาของจีน ขณะทีี่แทงแกรมถูกกล่าวถึงอย่างมากในอดีต มีประวัติอันน่ายาวนานกว่า 1800 ปี มันประกอบด้วย 7 ชิ้น ถูกเรียกว่าแทน ซึ่งถูกสร้างมาจากรูปสี่เหลี่ยม แต่ละอ้นเรียกเป็นชิ้น\n"
+"\t* 5 ขวา สามเหลี่ยมที่มีด้านยาวเท่ากัน 3 ด้าน\n"
+"\t\to 2 เล็ก (ขาของ 1)\n"
+"\t\to 1 ขนาดกลาง (เป็นขาของสแควรูตของ 2)\n"
+"\t\to 2 ขนาดใหญ่ (ขาของ 2)\n"
+"\t* 1 สี่เหลี่ยม (ขนาดของ 1)\n"
+"\t* 1 สี่เหลี่ยมรูปขนาน (ขนาดของ 1 และสแควรูตของ 2)"
+
+#: ../boards/tangram.xml.in.h:9
+msgid "Select the tangram to form. Move a piece by dragging it. Right-click on it to create a symmetrical item. Select an item and drag around it to show the rotation you want. Once you've shown what shape you want, the computer will create it. If you need help, click on the shape button, and the border of the shape will be drawn."
+msgstr "เลือกแทงแกรมเพื่อจัดให้เป็นรูปร่าง เลือกแต่ละชิ้นโดยใช้เม้าส์ลากมัน คลิ๊กขวาเพื่อสร้างสิ่งท่ี่สมมาตรกัน เลือกสิ่งของและวางรอบๆ เพื่อแสดงการหมุนอย่างที่คุณต้องการ สิ่งนั้นได้แสดงรูปร่างที่คุณต้องการ คอมพิวเตอร์จะสร้างมันขึ้นมา ถ้าคุณจำเป็นต้องไดัรับความช่วยเหลือ คลิ๊กที่ปุ่มแสดงรูปร่าง และขอบของรูปทรงจะปรากฎ"
+
+#: ../boards/tangram.xml.in.h:10
+msgid "The objective is to form a given shape with seven pieces"
+msgstr "จุดมุ่งหมายเพื่อสร้างรูปทรงที่กำหนดให้ด้วยชิ้นส่วนเจ็ดชิ้น"
+
+#: ../boards/tangram.xml.in.h:11
+msgid "The original code was written by Philippe Banwarth in 1999. It was ported to GCompris by Yves Combe in 2005."
+msgstr "เริ่มแรกโปรแกรมนี่ถูกเขียนโดย Philippe Banwarth ในปี 1999. ได้ถูกนำไปสู่จีคอมพริสโดย Yves Combe ในปี 2005."
+
+#: ../boards/tangram.xml.in.h:12
+msgid "The tangram puzzle game"
+msgstr "เกมส์แทงแกรมปริศนา"
+
+#: ../boards/target.xml.in.h:1
+msgid "Can move the mouse, can read numbers and count up to 15 for the first level"
+msgstr "คุณสามารถเลื่อนเม้าส์ และสามารถอ่านจำนวนและนับไปถึง 15 สำหรับระดับแรก"
+
+#: ../boards/target.xml.in.h:2
+msgid "Check the wind speed and direction, and then click on the target to launch a dart. When you all your darts are thrown, a window appears asking you to count your score. Enter the score with the keyboard then press the Enter key or the OK button."
+msgstr "ตรวจสอบทิศทางและความเร็วลม หลังจากนั้นคลิ๊กบนเป้าหมายเพื่อยิ่งไปสู่เป้า เมื่อเป้าหมายของคุณถูกยิง จะมีหน้าต่างปรากฎขึ้่นถามคุณเพื่อนับคะแนน ใส่คะแนนบนแป้นพิมพ์จากนั้นก็กดปุ่ม Enter หรือปุ่ม Ok"
+
+#: ../boards/target.xml.in.h:3
+msgid "Hit the target and count your points"
+msgstr "ตีตรงเป้าหมายและนับแต้มของคุณ"
+
+#: ../boards/target.xml.in.h:4
+msgid "Practice addition with a target game"
+msgstr "แบบฝีกหัดเพิ่มเติมด้วยเกมส์เป้าหมาย"
+
+#: ../boards/target.xml.in.h:5
+msgid "Throw darts at a target and count your score."
+msgstr "ข้างลูกดอกไปยังเป้าหมายและนับแต้มด้วย"
+
+#: ../boards/traffic.xml.in.h:1
+msgid "A sliding-block puzzle game"
+msgstr "เกมส์เลื่อนบล๊อคปริศนา"
+
+#: ../boards/traffic.xml.in.h:2
+msgid "Remove all the red cars from the parking lot through the gate on the right"
+msgstr "ย้ายรถสีแดงทั้งหมดออกจากที่จอดโดยผ่านประตูด้านซ้าย"
+
+#: ../boards/tuxpaint.xml.in.h:1
+msgid "Drawing activity (pixmap)"
+msgstr "กิจกรรมวาดภาพ(pixmap)"
+
+#: ../boards/tuxpaint.xml.in.h:2
+msgid "Launch Tuxpaint"
+msgstr "เรียก ทักเพ้นท์"
+
+#: ../boards/tuxpaint.xml.in.h:3
+msgid "Tuxpaint"
+msgstr "ทักซ์สอนวาดรูป"
+
+#: ../boards/tuxpaint.xml.in.h:4
+msgid "Use Tuxpaint to draw. When Tuxpaint is finished this board will end."
+msgstr "ใช้ทัักซ์วาดภาพสำหรับวาด เมื่อทักซ์วาดภาพได้เสร็จสิ้นกระดานนี้่ก็จบ"
+
+#: ../boards/tuxpaint.xml.in.h:5
+msgid "mouse and keyboard manipulation"
+msgstr "ปรับแต่งการตั้งค่าแป้นพิมพ์และเม้าส์"
+
+#: ../boards/watercycle.xml.in.h:1
+msgid "Click on different active elements : sun, cloud, water pump station, and water cleanup station, in order to reactivate the entire water system. When the system is back up and Tux is in the shower, push the shower button for him."
+msgstr "คลิ๊กลงบนสิ่งแวดล้อมที่ปฎิบัติการอยู่ ดวงอาทิตย์ เมฆ สถานีปั้มน้ำ และสถานีกรองน้ำ ในรายการเราต้องฟื้นฟูระบบของน้ำ เมื่อระบบสามารถใช้งานได้ และทักซ์อยู่ใต้ฝักบัว ให้กดปุ่มฝักบัวสำหรับเขา"
+
+#: ../boards/watercycle.xml.in.h:2
+msgid "Learn about the water cycle"
+msgstr "ศึกษาเกี่ยวกับวัฒจักรของน้ำ"
+
+#: ../boards/watercycle.xml.in.h:3
+msgid "Learn the water cycle"
+msgstr "เรียนรู้วัฎจักรของน้ำ"
+
+#: ../boards/watercycle.xml.in.h:4
+msgid "Tux has come back from a long fishing party on his boat. Bring the water system back up so he can take a shower."
+msgstr "ทักซ์กลับมาจากกลุ่มปลาที่ยาวบนเรือของเขา นำน้ำออกจากระบบสำรองเขาต้องการอาบน้ำฝักบัว"
+
+#: ../boards/wordsgame.xml.in.h:1
+#: ../src/boards/wordsgame.c:113
+msgid "Falling Words"
+msgstr "คำที่ตกลงมา"
+
+#: ../boards/wordsgame.xml.in.h:3
+msgid "Keyboard training"
+msgstr "ฝึกหัดการใช้แป้นพิมพ์"
+
+#: ../boards/wordsgame.xml.in.h:4
+msgid "Type the complete word as it falls, before it reachs the ground"
+msgstr "พิมพ์คำที่กำลังตกนี่ให้สมบูรณ์ก่อนที่มันจะตกถึงพื้น"
+
+#: ../boards/wordsgame.xml.in.h:5
+#: ../src/boards/wordsgame.c:114
+msgid "Type the falling words before they reach the ground"
+msgstr "พิมพ์คำที่กำลังตกลงมาก่อนที่มันจะถึงพื้น"
+
+#: ../gcompris-edit.desktop.in.h:1
+msgid "Administration for gcompris"
+msgstr "บริหารระบบจีคอมพริส"
+
+#: ../gcompris.desktop.in.h:1
+msgid "Educational game for ages 2 to 10"
+msgstr "เกมการศึกษาสำหรับอายุ 2 ถึง 10 "
+
+#: ../gcompris.desktop.in.h:2
+msgid "Educational suite gcompris"
+msgstr "ชุดการศึกษาสำหรับจีคอมพริส"
+
+#: ../gcompris.desktop.in.h:3
+msgid "Multiple activities for kids"
+msgstr "กิจกรรมหลากหลายสำหรับเด็ก"
+
+#: ../src/boards/awele.c:278
+#: ../src/boards/awele.c:288
+msgid "NORTH"
+msgstr "ทิศเหนือ"
+
+#: ../src/boards/awele.c:300
+#: ../src/boards/awele.c:310
+msgid "SOUTH"
+msgstr "ทิศใต้"
+
+#: ../src/boards/chess.c:189
+msgid ""
+"Error: The external program gnuchess is mandatory\n"
+"to play chess in gcompris.\n"
+"Find this program on http://www.rpmfind.net or in your\n"
+"GNU/Linux distribution\n"
+"And check it is located here: "
+msgstr ""
+"ผิดพลาด: จีนูเชสโปรแกรมจากภายนอกที่ได้รับอนุญาติ\n"
+"ให้เล่นหมากรุกในจีคอมพริส\n"
+"หาโปรแกรมนี้ได้จาก http://www.rpmfind.net หรือใน\n"
+"GNU/ลีนุกซ์ของคุณ\n"
+"และตรวจสอบว่ามันอยู่ที่นี่: "
+
+#: ../src/boards/chess.c:228
+msgid ""
+"Error: The external program gnuchess is mandatory\n"
+"to play chess in gcompris.\n"
+"Find this program on http://www.rpmfind.net or in your\n"
+"GNU/Linux distribution\n"
+"And check it is in "
+msgstr ""
+"ผิดพลาด: โปรแกรมภายนอกจีนูเชสที่ได้รับมอบหมาย\n"
+"เพื่อให้เล่นหมากรุกในจีคอมพริส\n"
+"ค้นหาโปรแกรมนี้ที่ http://www.rpmfind.net หรือหาใน\n"
+"จีเอ็นยู/ลีนุกซ์ของคุณ\n"
+"และตรวจสอบว่าอยู่ในของคุณ "
+
+#: ../src/boards/chess.c:569
+msgid "White's Turn"
+msgstr "ตาเดินของตัวขาว"
+
+#: ../src/boards/chess.c:569
+msgid "Black's Turn"
+msgstr "ตาเดินของตัวดำ"
+
+#: ../src/boards/chess.c:713
+msgid "White checks"
+msgstr "เฉพาะอักษรตัวใหญ่"
+
+#: ../src/boards/chess.c:715
+msgid "Black checks"
+msgstr "ตัวดำตรวจสอบ"
+
+#: ../src/boards/chess.c:1052
+msgid "Black mates"
+msgstr "ตาเดินของตัวดำ"
+
+#: ../src/boards/chess.c:1057
+msgid "White mates"
+msgstr "ตาเดินของตัวขาว"
+
+#: ../src/boards/chess.c:1062
+#: ../src/gcompris/bonus.c:312
+#: ../src/gcompris/bonus.c:321
+msgid "Drawn game"
+msgstr "จบเกม"
+
+#. TRANSLATORS: Put here the alphabet in your language
+#. require by all utf8-functions
+#. TRANSLATORS: Put here the alphabet lowercase in your language
+#: ../src/boards/click_on_letter.c:258
+#: ../src/boards/click_on_letter.c:275
+#: ../src/boards/gletters.c:228
+#: ../src/boards/memory.c:565
+msgid "abcdefghijklmnopqrstuvwxyz"
+msgstr "ฟิแกำดเ้ร่าสทืนยๆพหะีอไปัผ"
+
+#: ../src/boards/click_on_letter.c:287
+#, c-format
+msgid ""
+"Error: this activity requires that you first install\n"
+"the packages assetml-voices-alphabet-%s or %s"
+msgstr ""
+"ผิดพลาด: กิจกรรมนี้ตอบสนองต่อโปรแกรมที่คุณติดตั้งครั้งแรก\n"
+"แพคเกจ assetml-voices-alphabet-%s หรือ %s"
+
+#: ../src/boards/click_on_letter.c:294
+#, c-format
+msgid ""
+"Error: this activity requires that you first install\n"
+"the packages assetml-voices-alphabet-%s ! Fallback to english, sorry!"
+msgstr ""
+"ผิดพลาด: กิจกรรมนี้ตอบสนองต่อโปรแกรมที่คุณติดตั้ง\n"
+"แพ็คเกจ assetml-voices-alphabet-%s ! กลับสู่ภาษาอังกฤษ, เสียใจด้วย!"
+
+#: ../src/boards/click_on_letter.c:302
+#: ../src/boards/python/melody.py:116
+msgid ""
+"Error: this activity cannot be played with the\n"
+"sound effects disabled.\n"
+"Go to the configuration dialogue to\n"
+"enable the sound"
+msgstr ""
+"ผิดพลาด: กิจกรรมนี้ไม่สามารถเล่นบน\n"
+"เสียงประกอบถูกยกเลิก\n"
+"เข้าสู่บทของการปรับตั้ง\n"
+"สามารถใช้เสียง"
+
+#. toggle box
+#: ../src/boards/click_on_letter.c:611
+#: ../src/boards/gletters.c:813
+#: ../src/boards/python/login.py:535
+msgid "Uppercase only text"
+msgstr "เฉพาะอักษรตัวใหญ่"
+
+#: ../src/boards/clickgame.c:178
+#, c-format
+msgid "Couldn't open dir: %s"
+msgstr "ไม่สามารถเปิด dir: %s"
+
+#: ../src/boards/clockgame.c:536
+#: ../src/boards/clockgame.c:546
+msgid "Set the watch to:"
+msgstr "ปรับค่านาฬิกาเป็น"
+
+#: ../src/boards/colors.c:57
+msgid "Click on the blue duck"
+msgstr "คลิ๊กลงบนเป็ดสีฟ้า"
+
+#: ../src/boards/colors.c:58
+msgid "Click on the brown duck"
+msgstr "คลิ๊กลงบนเป็ดสีน้ำตาล"
+
+#: ../src/boards/colors.c:59
+msgid "Click on the green duck"
+msgstr "คลิ๊กลงบนเป็ดสีเขียว"
+
+#: ../src/boards/colors.c:60
+msgid "Click on the grey duck"
+msgstr "คลิ๊กลงบนเป็ดสีเทา"
+
+#: ../src/boards/colors.c:61
+msgid "Click on the orange duck"
+msgstr "คลิ๊กลงบนเป็ดสีส้ม"
+
+#: ../src/boards/colors.c:62
+msgid "Click on the purple duck"
+msgstr "คลิ๊กลงบนเป็ดสีม่วง"
+
+#: ../src/boards/colors.c:63
+msgid "Click on the red duck"
+msgstr "คลิ๊กลงบนเป็ดสีแดง"
+
+#: ../src/boards/colors.c:64
+msgid "Click on the yellow duck"
+msgstr "คลิ๊กลงบนเป็ดสีเหลือง"
+
+#: ../src/boards/colors.c:65
+msgid "Click on the black duck"
+msgstr "คลิ๊กลงบนเป็ดสีดำ"
+
+#: ../src/boards/colors.c:66
+msgid "Click on the white duck"
+msgstr "คลิ๊กลงบนเป็ดสีขาว"
+
+#. TRANSLATORS: Put here the numbers in your language
+#: ../src/boards/gletters.c:224
+#: ../src/boards/memory.c:561
+msgid "0123456789"
+msgstr "๑๒๓๔๕๖๗๘๙"
+
+#. TRANSLATORS: Put here the alphabet uppercase in your language
+#: ../src/boards/gletters.c:234
+#: ../src/boards/memory.c:571
+msgid "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+msgstr "ฟิแกำดเ้ร่าสทืนยๆพหะีอไปัผ"
+
+#: ../src/boards/hanoi.c:335
+#: ../src/boards/hanoi.c:346
+msgid "Build the same tower in the empty area as the one you see on the right-hand side."
+msgstr "สร้างเจดีย์ที่่เหมือนกันบนที่ว่าง ให้เหมือนกับอีกอันที่คุณเห็นในด้านขวามือ"
+
+#: ../src/boards/hanoi_real.c:76
+msgid "Tower of Hanoi"
+msgstr "เจดีย์ฮานอย"
+
+#: ../src/boards/hanoi_real.c:277
+#: ../src/boards/hanoi_real.c:288
+msgid "Move the entire stack to the right peg, one disc at a time"
+msgstr "เคลื่อนย้ายกองหมุดทั้งหมดในด้านซ้าย หนึ่งแผ่นต่อหนึ่งครั้ง"
+
+#: ../src/boards/imageid.c:113
+#: ../src/boards/missingletter.c:105
+msgid "Learn how to read"
+msgstr "เรียนรู้การอ่าน"
+
+#: ../src/boards/leftright.c:276
+#: ../src/boards/leftright.c:286
+#: ../src/boards/python/searace.py:429
+#: ../src/boards/python/searace.py:454
+#: ../src/boards/python/searace.py:544
+#: ../src/boards/python/searace.py:856
+#: ../src/boards/python/searace.py:889
+#: ../src/boards/python/searace.py:986
+msgid "left"
+msgstr "ซ้าย"
+
+#: ../src/boards/leftright.c:296
+#: ../src/boards/leftright.c:306
+#: ../src/boards/python/searace.py:429
+#: ../src/boards/python/searace.py:454
+#: ../src/boards/python/searace.py:553
+#: ../src/boards/python/searace.py:858
+#: ../src/boards/python/searace.py:891
+#: ../src/boards/python/searace.py:980
+msgid "right"
+msgstr "ขวา"
+
+#: ../src/boards/maze.c:492
+msgid "Look at your position, then switch back to invisible mode to continue your moves"
+msgstr "มองไปที่ตำแหน่งของคุณ จากนั้นคุณกลับไปยังวิธีการล่องหนเพื่อดำเนินต่อไป"
+
+#: ../src/boards/maze.c:494
+msgid "Look at your position, then switch back to 3D mode to continue your moves"
+msgstr "มองดูตำแหน่งขอบคุณ เมื่อสลับกลับไปยังระบบ 3D เพื่อเคลื่อนที่ต่อไป"
+
+#: ../src/boards/memory.c:250
+msgid "Memory"
+msgstr "หน่วยความจำ"
+
+#: ../src/boards/memory.c:251
+msgid "Find the matching pair"
+msgstr "กำหนดการเข้าคู่กันของการค้นหา"
+
+#: ../src/boards/menu.c:79
+msgid "Main Menu"
+msgstr "เมนูหลัก"
+
+#: ../src/boards/menu.c:80
+msgid "Select a Board"
+msgstr "เลือกกระดาน"
+
+#. Set here the way to display money. Change only the money sign, and it's place, always keep %.2f, it will be replaced by 0,34 if decimal is ',' in your locale
+#: ../src/boards/money.c:489
+#, c-format
+msgid "$ %.2f"
+msgstr "ฺ฿ %.2f"
+
+#: ../src/boards/money.c:502
+#, c-format
+msgid "$ %.0f"
+msgstr "฿ %.0f"
+
+#: ../src/boards/planegame.c:78
+msgid "Move the plane to catch the clouds in the correct order"
+msgstr "ย้ายเครื่องบินไปจับก้อนเฆฆในลำดับที่ถูกต้อง"
+
+#: ../src/boards/python.c:62
+msgid "Python Board"
+msgstr "กระดานไพตอน"
+
+#: ../src/boards/python.c:63
+msgid "Special board that embeds python into gcompris."
+msgstr "กระดานพิเศษถูกฝังติดกับไพตอนในจีคอมพริส"
+
+#: ../src/boards/python/admin/board_list.py:90
+msgid "Select a profile:"
+msgstr "เลือกโพรไฟล์"
+
+#: ../src/boards/python/admin/board_list.py:146
+msgid "Filter"
+msgstr "ตัวกรอง"
+
+#: ../src/boards/python/admin/board_list.py:151
+msgid "Select all"
+msgstr "เลือกทั้งหมด"
+
+#: ../src/boards/python/admin/board_list.py:156
+msgid "Unselect all"
+msgstr "ไม่เลือกทั้งหมด"
+
+#: ../src/boards/python/admin/board_list.py:236
+msgid "Main menu"
+msgstr "เมนูหลัก"
+
+#: ../src/boards/python/admin/board_list.py:236
+msgid "/"
+msgstr "/"
+
+#. columns for Board name
+#. column_pref = gtk.TreeViewColumn(_('Conf'))
+#. image = gtk.image_new_from_stock(gtk.STOCK_PREFERENCES, gtk.ICON_SIZE_MENU)
+#. image.show()
+#. column_pref.set_widget(image)
+#: ../src/boards/python/admin/board_list.py:293
+msgid "Active"
+msgstr "กำลังทำงาน"
+
+#: ../src/boards/python/admin/board_list.py:294
+msgid "Board title"
+msgstr "หัวข้อสำหรับกระดาน:"
+
+#: ../src/boards/python/admin/board_list.py:410
+#, python-format
+msgid "Filter Boards difficulty for profile %s"
+msgstr "กระดานกรองมีความยากขึ้นอยู่กับโปรไฟล์ %s"
+
+#: ../src/boards/python/admin/board_list.py:441
+#, python-format
+msgid ""
+"<span size='x-large'> Select the difficulty range \n"
+"for profile <b>%s</b></span>"
+msgstr ""
+"<span size='x-large'> เลือกระดับความยาก \n"
+"สำหรับโปรไฟล์ <b>%s</b></span>"
+
+#. Init configuration window:
+#. all the configuration functions will use it
+#. all the configuration functions returns values for their key in
+#. the dict passed to the apply_callback
+#. the returned value is the main GtkVBox of the window,
+#. we can add what you want in it.
+#: ../src/boards/python/admin/board_list.py:632
+#: ../src/boards/python/admin/board_list.py:650
+#: ../src/boards/python/admin/wordlist.py:51
+#: ../src/boards/python/login.py:530
+#: ../src/boards/python/pythontest.py:409
+#: ../src/boards/python/tuxpaint.py:179
+#, python-format
+msgid ""
+"<b>%s</b> configuration\n"
+" for profile <b>%s</b>"
+msgstr ""
+"<b>%s</b> การปรับแต่ง\n"
+" สำหรับโปรไฟล์ <b>%s</b>"
+
+#: ../src/boards/python/admin/board_list.py:662
+#: ../src/boards/python/pythontest.py:473
+msgid "Select sound locale"
+msgstr "เลือกแฟ้มเสียง"
+
+#: ../src/boards/python/admin/class_edit.py:60
+msgid "Editing a Class"
+msgstr "กำลังแก้ใขชั้น"
+
+#: ../src/boards/python/admin/class_edit.py:65
+msgid "Editing class: "
+msgstr "กำลังแก้ใขชั้น"
+
+#: ../src/boards/python/admin/class_edit.py:68
+msgid "Editing a new class"
+msgstr "ชื่อของคลาสใหม่"
+
+#: ../src/boards/python/admin/class_edit.py:90
+msgid "Class:"
+msgstr "หมวดหมู่:"
+
+#. FIXME: How to remove the default selection
+#. Label and Entry for the teacher name
+#: ../src/boards/python/admin/class_edit.py:103
+msgid "Teacher:"
+msgstr "ครูผู้สอน"
+
+#: ../src/boards/python/admin/class_edit.py:113
+msgid "Assign all the users belonging to this class"
+msgstr "กำหนดคุณสมบัติของผู้ใช้ทั้งหมดในชั้น"
+
+#: ../src/boards/python/admin/class_edit.py:253
+#: ../src/boards/python/admin/group_edit.py:265
+#: ../src/boards/python/admin/group_user_list.py:155
+#: ../src/boards/python/admin/user_list.py:197
+msgid "First Name"
+msgstr "ชื่อ"
+
+#: ../src/boards/python/admin/class_edit.py:264
+#: ../src/boards/python/admin/group_edit.py:276
+#: ../src/boards/python/admin/group_user_list.py:165
+#: ../src/boards/python/admin/user_list.py:207
+msgid "Last Name"
+msgstr "นามสกุล"
+
+#: ../src/boards/python/admin/class_edit.py:341
+msgid "You need to provide at least a name for your class"
+msgstr "อย่างน้อยที่สุดคุณจำเป็นต้องจัดเตรียมชื่อสำหรับชั้น"
+
+#: ../src/boards/python/admin/class_edit.py:387
+msgid "There is already a class with this name"
+msgstr "มีชื่อนี้อยู่แล้วในชื่อของชั้น"
+
+#: ../src/boards/python/admin/class_list.py:170
+#: ../src/boards/python/admin/profile_edit.py:269
+#: ../src/boards/python/admin/profile_group_list.py:145
+msgid "Class"
+msgstr "หมวดหมู่"
+
+#: ../src/boards/python/admin/class_list.py:180
+msgid "Teacher"
+msgstr "คุณครู"
+
+#: ../src/boards/python/admin/group_edit.py:60
+msgid "Editing a Group"
+msgstr "แก้ใขกลุ่ม"
+
+#: ../src/boards/python/admin/group_edit.py:66
+msgid "Editing group: "
+msgstr "แก้ใขกลุ่ม"
+
+#: ../src/boards/python/admin/group_edit.py:67
+msgid " for class: "
+msgstr "สำหรับชั้น:"
+
+#: ../src/boards/python/admin/group_edit.py:70
+msgid "Editing a new group"
+msgstr "ชื่อกลุ่มใหม่"
+
+#: ../src/boards/python/admin/group_edit.py:90
+msgid "Group:"
+msgstr "กลุ่ม:"
+
+#. FIXME: How to remove the selection
+#. Label and Entry for the first name
+#: ../src/boards/python/admin/group_edit.py:102
+#: ../src/boards/python/admin/profile_edit.py:98
+msgid "Description:"
+msgstr "คำอธิบาย:"
+
+#. Top message gives instructions
+#: ../src/boards/python/admin/group_edit.py:113
+msgid "Assign all the users belonging to this group"
+msgstr "กำหนดคุณสมบัติของผู้ใช้ทั้งหมดในกลุ่ม"
+
+#: ../src/boards/python/admin/group_edit.py:359
+msgid "You need to provide at least a name for your group"
+msgstr "คุณจำเป็นต้องมีชื่อสำหรับกลุ่มของคุณ"
+
+#: ../src/boards/python/admin/group_edit.py:373
+msgid "There is already a group with this name"
+msgstr "มีกลุ่มที่มีชื่อนี้อยู่แล้ว"
+
+#: ../src/boards/python/admin/group_list.py:87
+msgid "Select a class:"
+msgstr "เลือกชั้น"
+
+#: ../src/boards/python/admin/group_list.py:215
+#: ../src/boards/python/admin/profile_edit.py:279
+#: ../src/boards/python/admin/profile_group_list.py:155
+msgid "Group"
+msgstr "กลุ่ม"
+
+#: ../src/boards/python/admin/group_list.py:226
+#: ../src/boards/python/admin/profile_edit.py:289
+#: ../src/boards/python/admin/profile_group_list.py:165
+#: ../src/boards/python/admin/profile_list.py:199
+msgid "Description"
+msgstr "คำบรรยาย"
+
+#: ../src/boards/python/admin/group_list.py:323
+msgid "You must first select a group in the list"
+msgstr "คุณจะต้องเลือกเป็นอันดับแรกในรายการ"
+
+#: ../src/boards/python/admin/group_user_list.py:145
+#: ../src/boards/python/admin/user_list.py:187
+msgid "Login"
+msgstr "เข้าระบบ"
+
+#: ../src/boards/python/admin/group_user_list.py:175
+#: ../src/boards/python/admin/user_list.py:217
+msgid "Birth Date"
+msgstr "วันเกิด"
+
+#: ../src/boards/python/admin/module_boards.py:42
+#: ../src/boards/python/admin/module_boards.py:62
+msgid "Boards"
+msgstr "กระดาน"
+
+#: ../src/boards/python/admin/module_groups.py:41
+#: ../src/boards/python/admin/module_groups.py:67
+msgid "Groups"
+msgstr "กลุ่ม"
+
+#: ../src/boards/python/admin/module_profiles.py:41
+#: ../src/boards/python/admin/module_profiles.py:66
+msgid "Profiles"
+msgstr "โปรไฟล์"
+
+#: ../src/boards/python/admin/module_users.py:42
+#: ../src/boards/python/admin/module_users.py:68
+msgid "Classes"
+msgstr "หมวดหมู่"
+
+#: ../src/boards/python/admin/module_users.py:42
+#: ../src/boards/python/admin/module_users.py:68
+msgid "Users"
+msgstr "ผู้ใช้"
+
+#: ../src/boards/python/admin/profile_edit.py:59
+msgid "Editing a Profile"
+msgstr "กำลังแก้ใขโปรไฟล์"
+
+#: ../src/boards/python/admin/profile_edit.py:64
+msgid "Editing profile: "
+msgstr "แก้ใขโพรไฟล์"
+
+#: ../src/boards/python/admin/profile_edit.py:67
+msgid "Editing a new profile"
+msgstr "กำลังแก้ใขโปรไฟล์ใหม่"
+
+#: ../src/boards/python/admin/profile_edit.py:86
+msgid "Profile:"
+msgstr "แฟ้มประวัติ"
+
+#. Top message gives instructions
+#: ../src/boards/python/admin/profile_edit.py:109
+msgid "Assign all the groups belonging to this profile"
+msgstr "กำหนดกลุ่มที่เป็นส่วนตัวทั้งหมดเข้าสู่โปรไฟล์"
+
+#: ../src/boards/python/admin/profile_edit.py:377
+msgid "You need to provide at least a name for your profile"
+msgstr "คุณจำเป็นต้องมีชื่อสำหรับโปรไฟล์"
+
+#: ../src/boards/python/admin/profile_edit.py:399
+msgid "There is already a profile with this name"
+msgstr "มีโปรไฟล์ที่มีชื่อนี้อยู่แล้ว"
+
+#: ../src/boards/python/admin/profile_list.py:122
+#: ../src/gcompris/board_config.c:602
+#: ../src/gcompris/board_config.c:727
+msgid "Default"
+msgstr "ปริยาย"
+
+#: ../src/boards/python/admin/profile_list.py:189
+msgid "Profile"
+msgstr "โปรไฟล์"
+
+#: ../src/boards/python/admin/profile_list.py:316
+msgid "[Default]"
+msgstr "ค่าปริยาย"
+
+#: ../src/boards/python/admin/user_edit.py:50
+msgid "Editing a User"
+msgstr "กำลังแก้ใขผู้ใช้"
+
+#: ../src/boards/python/admin/user_edit.py:55
+msgid "Editing a User "
+msgstr "กำลังแก้ใขผู้ใช้"
+
+#: ../src/boards/python/admin/user_edit.py:61
+msgid "Editing a new user"
+msgstr "แก้ใขผู้ใช้คนใหม่"
+
+#: ../src/boards/python/admin/user_edit.py:78
+msgid "Login:"
+msgstr "เข้าระบบ"
+
+#. FIXME: How to remove the selection
+#. Label and Entry for the first name
+#: ../src/boards/python/admin/user_edit.py:89
+msgid "First name:"
+msgstr "ชื่อ:"
+
+#. Label and Entry for the last name
+#: ../src/boards/python/admin/user_edit.py:98
+msgid "Last name:"
+msgstr "นามสกุล:"
+
+#. Label and Entry for the birth date
+#: ../src/boards/python/admin/user_edit.py:107
+msgid "Birth date:"
+msgstr "วันเกิด:"
+
+#: ../src/boards/python/admin/user_edit.py:159
+msgid "You need to provide at least a login, first name and last name for your users"
+msgstr "อย่างน้อยสิ่งที่คุณต้องจัดเตรียมเพื่อล็อคอิน ชื่อ นามสกุลสำหรับการผู้ใช้"
+
+#: ../src/boards/python/admin/user_edit.py:176
+msgid "There is already a user with this login"
+msgstr "มีคนใช้ชื่อนี้อยู่แล้ว"
+
+#: ../src/boards/python/admin/user_list.py:292
+msgid ""
+"To import a user list from a file, first select a class.\n"
+"FILE FORMAT: Your file must be formatted like this:\n"
+"login;First name;Last name;Date of birth\n"
+"The separator is autodetected and can be one of ',', ';' or ':'"
+msgstr ""
+"เพื่อนำเข้ารายชื่อผู้ใช้จากแฟ้ม ขั้นแรกเลือกชั้นก่อน\n"
+"รูปแบบแฟ้ม: รูปแบบของแฟ้มจะเป็นดังข้างล่าง:\n"
+"ล๊อคอิน;ชื่อ;นามสกุล;วันเกิด\n"
+"ซึ่งตัวแบ่งจะสามารถเป็น ',', ';' หรือ ':' จะถูกตรวจจับโดยอัตโนมัติ"
+
+#: ../src/boards/python/admin/user_list.py:371
+#, python-format
+msgid ""
+"One or more logins are not unique !\n"
+"You need to change them: %s !"
+msgstr ""
+"การล๊อคอินครั้งนี้หรือที่ผ่านมาไม่ได้เป็นชื่อเฉพาะ\n"
+"คุณจำเป็นต้องเปลี่ยนมัน %s !"
+
+#: ../src/boards/python/anim.py:59
+msgid "You need the python xml module. Disabling SVG."
+msgstr "คุณจำเป็นต้องมี python xml โมดูล กำลังยกเลิก SVG"
+
+#. gcompris.utils.dialog(_('Python xml module bot found. SVG is disabled. Install the python xml module to enable SVG Save/restore.'), None)
+#: ../src/boards/python/anim.py:417
+msgid "Python xml module not found. SVG is disabled. Install the python xml module to enable SVG Save/restore."
+msgstr "หาไพตอนเอ็กเอ็มแอลโมดูลไม่พบ เอสวีจีถูกยกเลิก ติดตั้งไพตอนเอ็กเอ็มแอลโมดูลเพื่อทำให้ SVG สามารถบันทึกหรือว่าเรียกคืนได้"
+
+#: ../src/boards/python/anim.py:2206
+msgid "SVG is disabled. Install python xml module to enable it"
+msgstr "SVG ถูกยกเลิก ต้องติดตั้งไฟตอน xml โมดูล เพื่อให้มันทำงานได้"
+
+#: ../src/boards/python/anim.py:2362
+msgid "Warning: the following images cannot be accessed on your system.\n"
+msgstr "คำเตือน: รูปต่อไปนี้ไม่สามารถเข้าถึงได้บนระบบของคุณ\n"
+
+#: ../src/boards/python/anim.py:2364
+msgid "The corresponding items have been skipped."
+msgstr "สิ่งของที่คล้ายกันได้ถูกยกข้ามไป"
+
+#: ../src/boards/python/electric.py:94
+msgid ""
+"Cannot find the 'gnucap' electric simulator.\n"
+"You can download and install it from:\n"
+"<http://geda.seul.org/tools/gnucap/>\n"
+"To be detected, it must be installed in\n"
+"/usr/bin/gnucap or /usr/local/bin/gnucap.\n"
+"You can still use this activity to draw schematics without computer simulation."
+msgstr ""
+"ไม่สามารถค้นหา 'จีนูแคบ' โปรแกรมจำลองระบบไฟฟ้า\n"
+"คุณสามารถดาวน์โหลดและติดตั้งจีนูแคบจาก\n"
+"<http://geda.seul.org/tools/gnucap/>\n"
+"เพื่อให้โปรแกรมสามารถตรวจพบ คุณจะต้องติดตั้งที่\n"
+"/usr/bin/gnucap หรือ /usr/local/bin/gnucap.\n"
+"คุณสามารถใช้กิจกรรมนี้เพื่อวาดวงจรโดยปราศจากการจำลองด้วยคอมพิวเตอร์"
+
+#: ../src/boards/python/gnumch.py:95
+#, python-format
+msgid ", %d"
+msgstr "%d"
+
+#: ../src/boards/python/gnumch.py:96
+#, python-format
+msgid " and %d"
+msgstr "และ %d"
+
+#: ../src/boards/python/gnumch.py:116
+#, python-format
+msgid "%d is divisible by %s."
+msgstr "%d ถูกหารโดย %s"
+
+#: ../src/boards/python/gnumch.py:120
+msgid "1 is not a prime number."
+msgstr "เลขหนึ่งไม่ใช่เลขพาร์ม"
+
+#: ../src/boards/python/gnumch.py:130
+#, python-format
+msgid "Primes less than %d"
+msgstr "เลขพาร์มน้อยกว่า %d"
+
+#: ../src/boards/python/gnumch.py:151
+#, python-format
+msgid ""
+"Multiples of %d include %s,\n"
+"but %d is not a multiple of %d."
+msgstr ""
+"คูณจำนวน %d ด้วย %s,\n"
+"แต่ %d ไม่ใช่ผลคูณของ %d."
+
+#: ../src/boards/python/gnumch.py:160
+#, python-format
+msgid "Factors of %d"
+msgstr "องค์ประกอบของ %d"
+
+#: ../src/boards/python/gnumch.py:193
+#, python-format
+msgid "%s are the factors of %d."
+msgstr "%s เป็นตัวประกอบของ %d."
+
+#: ../src/boards/python/gnumch.py:205
+#, python-format
+msgid "Multiples of %d"
+msgstr "ผลคูณของ %d"
+
+#: ../src/boards/python/gnumch.py:239
+#, python-format
+msgid "%s = %d"
+msgstr "%s = %d"
+
+#: ../src/boards/python/gnumch.py:250
+#, python-format
+msgid "%d + %d"
+msgstr "%d + %d"
+
+#: ../src/boards/python/gnumch.py:255
+#, python-format
+msgid "%d − %d"
+msgstr "%d − %d"
+
+#: ../src/boards/python/gnumch.py:260
+#, python-format
+msgid "%d × %d"
+msgstr "%d × %d"
+
+#: ../src/boards/python/gnumch.py:264
+#, python-format
+msgid "%d ÷ %d"
+msgstr "%d รท %d"
+
+#: ../src/boards/python/gnumch.py:272
+#, python-format
+msgid "Equal to %d"
+msgstr "เทียบเท่ากับ %d"
+
+#: ../src/boards/python/gnumch.py:293
+#, python-format
+msgid "Not equal to %d"
+msgstr "ไม่เท่ากับ %d"
+
+#: ../src/boards/python/gnumch.py:435
+msgid ""
+"You were eaten by a Troggle.\n"
+"Press <Return> to continue."
+msgstr ""
+"คุณถูกกินโดยทรอกเกิ้ล\n"
+"กดปุ่ม <Return> เพื่อดำเนินต่อไป"
+
+#: ../src/boards/python/gnumch.py:484
+msgid "You ate a wrong number.\n"
+msgstr "คุณกลืนตัวเลขที่ผิด\n"
+
+#: ../src/boards/python/gnumch.py:485
+msgid ""
+"\n"
+"Press <Return> to continue."
+msgstr ""
+"\n"
+"กดปุ่ม <Return> เพื่อดำเนินการต่อไป"
+
+#: ../src/boards/python/gnumch.py:778
+msgid ""
+"T\n"
+"R\n"
+"O\n"
+"G\n"
+"G\n"
+"L\n"
+"E"
+msgstr ""
+"T\n"
+"R\n"
+"O\n"
+"G\n"
+"G\n"
+"L\n"
+"E"
+
+#: ../src/boards/python/guessnumber.py:222
+#, python-format
+msgid "Guess a number between %d and %d"
+msgstr "เลขสุ่ม %d ระหว่าง %d"
+
+#: ../src/boards/python/guessnumber.py:335
+#: ../src/boards/python/guessnumber.py:336
+#, python-format
+msgid "Please enter a number between %d and %d"
+msgstr "โปรดใส่จำนวนระหว่าง %d และ %d"
+
+#: ../src/boards/python/guessnumber.py:341
+#: ../src/boards/python/guessnumber.py:342
+msgid "Out of range"
+msgstr "อยู่นอกช่วง"
+
+#: ../src/boards/python/guessnumber.py:348
+#: ../src/boards/python/guessnumber.py:349
+msgid "Too high"
+msgstr "มากเกินไป"
+
+#: ../src/boards/python/guessnumber.py:351
+#: ../src/boards/python/guessnumber.py:352
+msgid "Too low"
+msgstr "น้อยเกินไป"
+
+#: ../src/boards/python/login.py:115
+msgid "Profile: "
+msgstr "โปรไฟล์"
+
+#: ../src/boards/python/login.py:263
+#: ../src/boards/python/login.py:272
+msgid "Login: "
+msgstr "เข้าระบบ:"
+
+#. toggle box
+#: ../src/boards/python/login.py:545
+msgid "Enter login to log in"
+msgstr "ป้อนการล็อคอินเข้าสู่หน้าจอล๊อคอิน"
+
+#: ../src/boards/python/mosaic.py:210
+msgid "Rebuild the same mosaic on the right area"
+msgstr "สร้างภาพโมเสกเช่นเดียวกับช่องทางขวา"
+
+#: ../src/boards/python/pythontest.py:149
+msgid ""
+"This is the first plugin in gcompris coded in the Python\n"
+"Programming language."
+msgstr ""
+"นี่เป็นโปรแกรมเสริมอันแรกของจีคอมพริสชื่อว่าไพตอน\n"
+"เป็นภาษาที่ใช้เขียนโปรแกรม"
+
+#: ../src/boards/python/pythontest.py:158
+msgid ""
+"It is now possible to develop gcompris activities in C or in Python.\n"
+"Thanks to Olivier Samys who makes this possible."
+msgstr ""
+"ปัจจุบันนี้เราสามารถพัฒนากิจกรรมของจีคอมพริสในภาษา C หรือบน Python.\n"
+"ขอบคุณสำหรับ Olivier Samys ผู้ซึ่งทำให้สิ่งเหล่านี้เป็นไปได้"
+
+#: ../src/boards/python/pythontest.py:167
+msgid "This activity is not playable, just a test"
+msgstr "กิจกรรมนี้ไม่สามารถเล่นได้ ต้องทดสอบ"
+
+#. toggle box
+#: ../src/boards/python/pythontest.py:414
+msgid "Disable line drawing in circle"
+msgstr "ยกเลิกการวาดเส้นในวงการ"
+
+#. combo box
+#: ../src/boards/python/pythontest.py:423
+msgid "Color of the line"
+msgstr "สีเส้น"
+
+#. spin button for int
+#: ../src/boards/python/pythontest.py:434
+msgid "Distance between circles"
+msgstr "ระยะห่างของพื้นที่วงกลม"
+
+#. radio buttons for circle or rectangle
+#: ../src/boards/python/pythontest.py:445
+msgid "Use circles"
+msgstr "ใช้วงกลม"
+
+#: ../src/boards/python/pythontest.py:446
+msgid "Use rectangles"
+msgstr "ใช้สี่เหลี่ยม"
+
+#: ../src/boards/python/pythontest.py:449
+msgid "Choice of pattern"
+msgstr "เลือกรูปแบบ"
+
+#: ../src/boards/python/redraw.py:348
+#: ../src/boards/python/redraw.py:358
+msgid "Level"
+msgstr "ระดับ"
+
+#: ../src/boards/python/redraw.py:902
+#: ../src/boards/python/redraw.py:905
+msgid "Coordinate"
+msgstr "พิกัด"
+
+#: ../src/boards/python/searace.py:201
+#: ../src/boards/python/searace.py:206
+#: ../src/boards/python/searace.py:232
+msgid "The race is already being run"
+msgstr "ลู่วิ่งพร้อมที่จะวิ่งแล้ว"
+
+#. Manage default cases (no params given)
+#. Final move, add an ofset because we loose space in abs()
+#: ../src/boards/python/searace.py:429
+#: ../src/boards/python/searace.py:454
+#: ../src/boards/python/searace.py:535
+#: ../src/boards/python/searace.py:854
+#: ../src/boards/python/searace.py:883
+#: ../src/boards/python/searace.py:978
+#: ../src/boards/python/searace.py:984
+#: ../src/boards/python/searace.py:992
+msgid "forward"
+msgstr "ส่งต่อ:"
+
+#: ../src/boards/python/searace.py:526
+msgid "COMMANDS ARE"
+msgstr "คำสั่งผู้ใช้"
+
+#. The two boat arrived in a close time frame (1s), it's a draw
+#: ../src/boards/python/searace.py:752
+msgid "This is a draw"
+msgstr "นี่เป็นการวาด"
+
+#: ../src/boards/python/searace.py:759
+msgid "The Red boat has won"
+msgstr "เรือสีแดงได้รับชัยชนะ"
+
+#: ../src/boards/python/searace.py:762
+msgid "The Green boat has won"
+msgstr "เรือสีเขียวได้รับชัยชนะ"
+
+#: ../src/boards/python/searace.py:780
+#: ../src/boards/python/searace.py:1022
+msgid "Angle:"
+msgstr "มุม:"
+
+#: ../src/boards/python/searace.py:780
+msgid "Wind:"
+msgstr "ลม:"
+
+#: ../src/boards/python/searace.py:861
+msgid "Syntax error at line"
+msgstr "ไวยการณ์ผิดพลาดตรงที่เส้น"
+
+#: ../src/boards/python/searace.py:879
+msgid "The command"
+msgstr "คำสั่ง"
+
+#: ../src/boards/python/searace.py:898
+msgid "Unknown command at line"
+msgstr "ไม่ทราบชนิดคำสั่ง"
+
+#: ../src/boards/python/searace.py:1022
+msgid "Distance:"
+msgstr "ระยะทาง"
+
+#: ../src/boards/python/tuxpaint.py:115
+msgid ""
+"Cannot find Tuxpaint.\n"
+"Install it to use this activity !"
+msgstr ""
+"ไม่สามารถหาทักเพ้นซ์\n"
+"ติดตั้งโปรแกรมเพื่อใฃ้กิจกรรมนี้่"
+
+#: ../src/boards/python/tuxpaint.py:128
+msgid "Waiting for Tuxpaint to finish"
+msgstr "รอจนกว่าโปรแกรม ทักเพ้น จะจบ"
+
+#: ../src/boards/python/tuxpaint.py:183
+msgid "Inherit fullscreen setting from GCompris"
+msgstr "สืบทอดการปรับภาพเต็มจอจากจีคอมพริส"
+
+#: ../src/boards/python/tuxpaint.py:187
+msgid "Inherit size setting from GCompris (800x600, 640x480)"
+msgstr "สืบทอดการปรับขนาดจากจีคอมพริส (800x600, 640x480)"
+
+#: ../src/boards/python/tuxpaint.py:191
+msgid "Disable shape rotation"
+msgstr "ยกเลิกการหมุนรูปทรง"
+
+#: ../src/boards/python/tuxpaint.py:195
+msgid "Show Uppercase text only"
+msgstr "แสดงเฉพาะตัวใหญ่"
+
+#: ../src/boards/python/tuxpaint.py:199
+msgid "Disable stamps"
+msgstr "ยกเลิกตัวประทับ"
+
+#: ../src/boards/railroad.c:95
+msgid "Memory game"
+msgstr "เกมส์ความจำ"
+
+#: ../src/boards/railroad.c:96
+msgid "Build a train according to the model"
+msgstr "สร้างบันทึกการฝึกหัดเข้าสู่โมเดล"
+
+#: ../src/boards/reading.c:366
+msgid "Please, check if the word"
+msgstr "โปรดตรวจคำสะกด"
+
+#: ../src/boards/reading.c:386
+msgid "is being displayed"
+msgstr "กำลังแสดงผลอยู่"
+
+#: ../src/boards/reading.c:557
+msgid "I am Ready"
+msgstr "ฉันพร้อมแล้ว"
+
+#: ../src/boards/reading.c:597
+msgid "Yes, I saw it"
+msgstr "ใช่ ฉันมองเห็น"
+
+#: ../src/boards/reading.c:627
+msgid "No, it was not there"
+msgstr "ไม่, เป็นสิ่งที่ไม่ได้อยู่ที่นี่"
+
+#. Report what was wrong in the log
+#: ../src/boards/reading.c:665
+#, c-format
+msgid "The word to find was '%s'"
+msgstr "ถ้อยคำที่ค้นเป็น '%s'"
+
+#: ../src/boards/reading.c:668
+msgid "But it was not displayed"
+msgstr "แต่ไม่ได้แสดงผล"
+
+#: ../src/boards/reading.c:670
+msgid "And it was displayed"
+msgstr "และได้ทำงานแสดงผล"
+
+#: ../src/boards/reading.c:773
+#: ../src/boards/wordsgame.c:776
+msgid "Cannot open file of words for your locale"
+msgstr "ไม่สามารถเปิดแฟ้มสำหรับคำสำหรับท้องถิ่นของคุณ"
+
+#. Enter Edit Mode
+#: ../src/boards/shapegame.c:425
+msgid ""
+"You have entered Edit mode\n"
+"Move the puzzle items;\n"
+"type 's' to save, and\n"
+"'d' to display all the shapes"
+msgstr ""
+"คุณกำลังเข้าสู่การแก้ใข\n"
+"ขยับตัวเกมส์ปริศนา\n"
+"พิมพ์ 's' เพื่อบันทึก และ\n"
+"'d' เพื่อแสดงรูปทรงทั้งหมด"
+
+#: ../src/boards/shapegame.c:433
+msgid ""
+"The data from this activity are saved under\n"
+"/tmp/gcompris-board.xml"
+msgstr ""
+"ข้อมูลของกิจกรรมถูกรักษาไว้ที่ \n"
+"/tmp/gcompris-board.xml"
+
+#: ../src/boards/submarine.c:201
+msgid "Submarine"
+msgstr "เรือดำน้ำ"
+
+#: ../src/boards/submarine.c:202
+msgid "Control the depth of a submarine"
+msgstr "ควบคุมความลึกของเรือดำน้ำ"
+
+#: ../src/boards/target.c:285
+#: ../src/boards/target.c:538
+#, c-format
+msgid "Points = %s"
+msgstr "จุด = %s"
+
+#: ../src/boards/target.c:403
+#, c-format
+msgid ""
+"Wind speed = %d\n"
+"kilometers/hour"
+msgstr ""
+"ความเร็วลม = %d\n"
+"กิโลเมตรต่อชั่วโมง"
+
+#: ../src/boards/target.c:465
+#, c-format
+msgid "Distance to target = %d meters"
+msgstr "ระยะทางไปสู่เป้าหมาย = %d เมตร"
+
+#: ../src/gcompris/about.c:65
+msgid ""
+"Author: Bruno Coudoin\n"
+"Contribution: Pascal Georges, Jose Jorge\n"
+"Graphics: Renaud Blanchard, Franck Doucet\n"
+"Intro Music: Djilali Sebihi\n"
+"Background Music: Rico Da Halvarez\n"
+msgstr ""
+"ผู้สร้าง: Bruno Coudoin\n"
+"ผู้สนับสนุน: Pascal Georges, Jose Jorge\n"
+"กราฟฟิคส์: Renaud Blanchard, Franck Doucet\n"
+"เพลงขึ้นต้น: Djilali Sebihi\n"
+"เพลงประกอบ: Rico Da Halvarez\n"
+
+#. TRANSLATORS: Replace this string with your names, one name per line.
+#: ../src/gcompris/about.c:73
+msgid "translator_credits"
+msgstr "อวยชัย ไชยถา"
+
+#: ../src/gcompris/about.c:105
+#: ../src/gcompris/about.c:114
+msgid "About GCompris"
+msgstr "เกี่ยวกับจีคอมพริส"
+
+#: ../src/gcompris/about.c:124
+#: ../src/gcompris/about.c:133
+msgid "Translators:"
+msgstr "ผู้แปล"
+
+#: ../src/gcompris/about.c:256
+msgid ""
+"GCompris Home Page\n"
+"http://gcompris.net"
+msgstr ""
+"โอมเพจจองจีคอมพริส \n"
+"http://gcompris.net"
+
+#: ../src/gcompris/about.c:278
+msgid "This software is a GNU Package and is released under the GNU General Public License"
+msgstr "โปรแกรมนี้เป็นชุดของ GNU และถูกปลดปล่อยออกมาภายใต้ GNU General Public License"
+
+#: ../src/gcompris/about.c:341
+#: ../src/gcompris/about.c:350
+#: ../src/gcompris/config.c:222
+#: ../src/gcompris/config.c:231
+#: ../src/gcompris/gameutil.c:1113
+#: ../src/gcompris/help.c:362
+#: ../src/gcompris/help.c:371
+#: ../src/gcompris/images_selector.c:263
+msgid "OK"
+msgstr "ตกลง"
+
+#: ../src/gcompris/board.c:176
+msgid "Dynamic module loading is not supported. gcompris cannot load.\n"
+msgstr "โมดูลอิสระไม่ได้รองรับ จีคอมพริสไม่สามารถเรียกขึ้นมาได้\n"
+
+#: ../src/gcompris/board_config.c:632
+msgid ""
+"Select the language\n"
+" to use in the board"
+msgstr ""
+"เลือกภาษา\n"
+" สำหรับใช้บนกระดาน"
+
+#: ../src/gcompris/config.c:63
+msgid "Your system default"
+msgstr "ระบบที่เป็นปรกติ"
+
+#: ../src/gcompris/config.c:64
+msgid "Amharic"
+msgstr "อัมฮาริค"
+
+#: ../src/gcompris/config.c:65
+msgid "Arabic"
+msgstr "อาราบิค"
+
+#: ../src/gcompris/config.c:66
+msgid "Turkish (Azerbaijan)"
+msgstr "ตุรกี(อาเซอร์ใบจัน)"
+
+#: ../src/gcompris/config.c:67
+msgid "Bulgarian"
+msgstr "บัลแกเรีย"
+
+#: ../src/gcompris/config.c:68
+msgid "Catalan"
+msgstr "ภาษาคาตะลาน"
+
+#: ../src/gcompris/config.c:70
+msgid "Danish"
+msgstr "เดนมาร์ก"
+
+#: ../src/gcompris/config.c:71
+msgid "German"
+msgstr "เยอรมัน"
+
+#: ../src/gcompris/config.c:72
+msgid "Greek"
+msgstr "กรีก"
+
+#: ../src/gcompris/config.c:73
+msgid "English (Canada)"
+msgstr "อังกฤษ(แคนาดา)"
+
+#: ../src/gcompris/config.c:74
+msgid "English (Great Britain)"
+msgstr "สหราชอาณาจักร อังกฤษ"
+
+#: ../src/gcompris/config.c:75
+msgid "Spanish"
+msgstr "สเปน"
+
+#: ../src/gcompris/config.c:76
+msgid "Basque"
+msgstr "ชุดชั้นในรัดรูป"
+
+#: ../src/gcompris/config.c:77
+msgid "Finnish"
+msgstr "ภาษาฟินนิช"
+
+#: ../src/gcompris/config.c:78
+msgid "French"
+msgstr "ฝรั่งเศส"
+
+#: ../src/gcompris/config.c:79
+msgid "Irish (Gaelic)"
+msgstr "ไอริช(Gaelic)"
+
+#: ../src/gcompris/config.c:80
+msgid "Hebrew"
+msgstr "ฮิบรู"
+
+#: ../src/gcompris/config.c:81
+msgid "Hindi"
+msgstr "ฮินดู"
+
+#: ../src/gcompris/config.c:82
+msgid "Gujarati"
+msgstr "กูจาราตี"
+
+#: ../src/gcompris/config.c:83
+msgid "Punjabi"
+msgstr "ปันจาบิ"
+
+#: ../src/gcompris/config.c:84
+msgid "Hungarian"
+msgstr "ฮังการี"
+
+#: ../src/gcompris/config.c:85
+msgid "Croatian"
+msgstr "โครเอเชียน"
+
+#: ../src/gcompris/config.c:86
+msgid "Italian"
+msgstr "อิตาลี"
+
+#: ../src/gcompris/config.c:87
+msgid "Georgian"
+msgstr "จอร์เจีย"
+
+#: ../src/gcompris/config.c:88
+msgid "Lithuanian"
+msgstr "ลิธัวเนีย"
+
+#: ../src/gcompris/config.c:89
+msgid "Macedonian"
+msgstr "มาเซโดเนีย"
+
+#: ../src/gcompris/config.c:90
+msgid "Malayalam"
+msgstr "มะละยาลัม"
+
+#: ../src/gcompris/config.c:91
+msgid "Malay"
+msgstr "มาเล"
+
+#: ../src/gcompris/config.c:92
+msgid "Nepal"
+msgstr "เนปาล"
+
+#: ../src/gcompris/config.c:93
+msgid "Dutch"
+msgstr "ดัทซ์"
+
+#: ../src/gcompris/config.c:94
+msgid "Norwegian Bokmal"
+msgstr "บุคมอล คนเนอเวย์"
+
+#: ../src/gcompris/config.c:95
+msgid "Norwegian Nynorsk"
+msgstr "นายนอร์ค คนเนอร์เวย"
+
+#: ../src/gcompris/config.c:96
+msgid "Polish"
+msgstr "โปแลนด์"
+
+#: ../src/gcompris/config.c:97
+msgid "Portuguese"
+msgstr "โปรตุเกส"
+
+#: ../src/gcompris/config.c:98
+msgid "Portuguese (Brazil)"
+msgstr "ภาษาโปรตุเกสของบราซิล"
+
+#: ../src/gcompris/config.c:99
+msgid "Romanian"
+msgstr "โรมาเนีย"
+
+#: ../src/gcompris/config.c:100
+msgid "Russian"
+msgstr "รัสเซีย"
+
+#: ../src/gcompris/config.c:101
+msgid "Kinyarwanda"
+msgstr "คินยาแวนดา"
+
+#: ../src/gcompris/config.c:102
+msgid "Slovak"
+msgstr "สโลวัค"
+
+#: ../src/gcompris/config.c:103
+msgid "Slovenian"
+msgstr "สโลเวเนีย"
+
+#: ../src/gcompris/config.c:104
+msgid "Albanian"
+msgstr "อัลบาเนีย"
+
+#: ../src/gcompris/config.c:105
+msgid "Serbian (Latin)"
+msgstr "เซอร์เบีย(ลาติน)"
+
+#: ../src/gcompris/config.c:106
+msgid "Serbian"
+msgstr "ชาวเซอร์เบีย"
+
+#: ../src/gcompris/config.c:107
+msgid "Swedish"
+msgstr "สวีเดน"
+
+#: ../src/gcompris/config.c:108
+msgid "Turkish"
+msgstr "ตุรกี"
+
+#: ../src/gcompris/config.c:109
+msgid "Vietnamese"
+msgstr "เวียดนาม"
+
+# ชาวเบลเยี่ยมทางใต้ซึ่งพูดภาษาฝรั่งเศส
+#: ../src/gcompris/config.c:110
+msgid "Walloon"
+msgstr "ชาววอลลูน"
+
+#: ../src/gcompris/config.c:111
+msgid "Chinese (Simplified)"
+msgstr "จีนประยุกต์"
+
+#: ../src/gcompris/config.c:112
+msgid "Chinese (Traditional)"
+msgstr "จีนดั้งเดิม"
+
+#: ../src/gcompris/config.c:117
+msgid "No time limit"
+msgstr "ไม่มีการจำกัดเวลา"
+
+#: ../src/gcompris/config.c:118
+msgid "Slow timer"
+msgstr "เวลาเชื่องช้า"
+
+#: ../src/gcompris/config.c:119
+msgid "Normal timer"
+msgstr "เวลาปรกติ"
+
+#: ../src/gcompris/config.c:120
+msgid "Fast timer"
+msgstr "เวลาเร็ว"
+
+#: ../src/gcompris/config.c:125
+msgid "800x600 (Default for gcompris)"
+msgstr "ความละเอียด 800 x 600 (ปรกติของจีคอมพริส)"
+
+#: ../src/gcompris/config.c:130
+msgid ""
+"<i>Use Gcompris administration module\n"
+"to filter boards</i>"
+msgstr ""
+"<i>ใช้โมดูลบริหารจัดการจีคอมพริส\n"
+"เข้าสู่กระดานกรอง</i>"
+
+#: ../src/gcompris/config.c:187
+#: ../src/gcompris/config.c:196
+msgid "GCompris Configuration"
+msgstr "ปรับตั้ง จีคอมพริส"
+
+#: ../src/gcompris/config.c:314
+msgid "Fullscreen"
+msgstr "เต็มหน้าจอ"
+
+#: ../src/gcompris/config.c:357
+msgid "Music"
+msgstr "เพลง"
+
+#: ../src/gcompris/config.c:385
+msgid "Effect"
+msgstr "เอฟเฟ็กต์"
+
+#: ../src/gcompris/config.c:418
+#, c-format
+msgid "Couldn't open skin dir: %s"
+msgstr "ไม่สามารถเปิดไดเร็คเทอรี่ของหน้ากาก: %s"
+
+#: ../src/gcompris/config.c:454
+#: ../src/gcompris/config.c:818
+#: ../src/gcompris/config.c:829
+#, c-format
+msgid "Skin : %s"
+msgstr "หน้ากาก : %s"
+
+#: ../src/gcompris/file_selector.c:341
+msgid "CANCEL"
+msgstr "ยกเลิก"
+
+#: ../src/gcompris/file_selector.c:372
+msgid "LOAD"
+msgstr "เปิด"
+
+#: ../src/gcompris/file_selector.c:372
+msgid "SAVE"
+msgstr "บันทึก"
+
+#: ../src/gcompris/gameutil.c:190
+msgid "Couldn't find file"
+msgstr "ไม่สามารถค้นหาแฟ้ม"
+
+#: ../src/gcompris/gameutil.c:192
+msgid "This activity is incomplete."
+msgstr "กิจกรรมนี้ไม่สมบูรณ์"
+
+#: ../src/gcompris/gameutil.c:193
+msgid ""
+"Exit it and report\n"
+"the problem to the authors."
+msgstr ""
+"ออกและรายงาน\n"
+"ปัญหาไปยังผู้ผลิต"
+
+#: ../src/gcompris/gcompris.c:123
+msgid "run gcompris in fullscreen mode."
+msgstr "เรียกจีคอมพริส ในระบบเต็มหน้าจอ"
+
+#: ../src/gcompris/gcompris.c:125
+msgid "run gcompris in window mode."
+msgstr "เรียกจีคอมพริสในระบบหน้าต่าง"
+
+#: ../src/gcompris/gcompris.c:127
+msgid "run gcompris with sound enabled."
+msgstr "เรียกจีคอมพริสโดยการเปิดเสียง"
+
+#: ../src/gcompris/gcompris.c:129
+msgid "run gcompris without sound."
+msgstr "เรียกจีคอมพริสโดยปราศจากเสียง"
+
+#: ../src/gcompris/gcompris.c:131
+msgid "run gcompris with the default gnome cursor."
+msgstr "เรียกจีคอมพริสบนจีโนมเคอร์เซอร์ปรกติ"
+
+#: ../src/gcompris/gcompris.c:133
+msgid "display only activities with this difficulty level."
+msgstr "แบ่งแต่ละกิจกรรมด้วยระดับของความยาก"
+
+#: ../src/gcompris/gcompris.c:135
+msgid "display debug informations on the console."
+msgstr "แสดงออกซึ่งการแก้ใขข้อบกพร่อง"
+
+#: ../src/gcompris/gcompris.c:137
+msgid "Print the version of "
+msgstr "พิมพ์รุ่นของ"
+
+#: ../src/gcompris/gcompris.c:139
+msgid "Use the antialiased canvas (slower)."
+msgstr "ใช้ตัวต่อต้านภาพซ้อน(ช้าลง)"
+
+#: ../src/gcompris/gcompris.c:141
+msgid "Disable XRANDR (No screen resolution change)."
+msgstr "ยกเลิก XRANDR (โดยไม่ต้องเปลี่ยนความละเอียดของจอภาพ)"
+
+#: ../src/gcompris/gcompris.c:143
+msgid "Run gcompris with local menu (e.g -l /reading will let you play only activities in the reading directory, -l /boards/connect4 only the connect4 activity)"
+msgstr "เรียกจีคอมพริสในเมนูเฉพาะ (e.g -l /การอ่าจะช่วยให้คุณแสดงเฉพาะกิจกรรมที่ใช้อยู่ในไดเร็คเทอรรี่ปัจจุบัน -l  /boards/connect4 เฉพาะกิจกรรมของ conntect4)"
+
+#: ../src/gcompris/gcompris.c:145
+msgid "Run GCompris with local activity directory added to menu"
+msgstr "เรียกจีคอมพริสด้วยกิจกรรมท้องถิ่นในไดเร็คเทอรรี่ไปยังเมนู"
+
+#: ../src/gcompris/gcompris.c:147
+msgid "Run GCompris in administration and user-management mode"
+msgstr "เรียกจีคอมพริสในระบบการบริหารและการจัดการผู้ใช้งานทั่วไป"
+
+#: ../src/gcompris/gcompris.c:149
+msgid "Use alternate database for profiles"
+msgstr "สร้างฐานข้อมูลอื่นสำหรับโปรไฟล์"
+
+#: ../src/gcompris/gcompris.c:151
+msgid "Use alternate database for logs"
+msgstr "สร้างฐานข้อมูลอื่นสำหรับตัวบันทึกเหตุการณ์"
+
+#: ../src/gcompris/gcompris.c:153
+msgid "Create the alternate database for profiles"
+msgstr "สร้างฐานข้อมูลอื่นสำหรับโปรไฟล์"
+
+#: ../src/gcompris/gcompris.c:155
+msgid "Re-read XML Menus and store them in the database"
+msgstr "อ้านเมนู XML อีกครั้ง และบันทึกไว้ในคลังฐานข้อมูล"
+
+#: ../src/gcompris/gcompris.c:157
+msgid "Set the profile to use. Use 'gcompris -a' to create profiles"
+msgstr "สร้างโปรไฟล์เพื่อใช้ โดยใช้ 'gcompris -a' เพื่อสร้างโปรไฟล์"
+
+#: ../src/gcompris/gcompris.c:159
+msgid "List all available profiles. Use 'gcompris -a' to create profiles"
+msgstr "แสดงโปรไฟล์ทั้งหมด โดย 'gcompris -a ' เพื่อสร้างโปรไฟล์"
+
+#: ../src/gcompris/gcompris.c:161
+msgid "Shared directory location, for profiles and board-configuration data: [$HOME/.gcompris/shared]"
+msgstr "ตำแหน่งไดเร็คเทอรรี่ถุกแชร์แล้ว สำหรับโปรไฟล์และการปรับแต่งกระดาน: [$HOME/.gcompris/shared]"
+
+#: ../src/gcompris/gcompris.c:163
+msgid "The location of user directories: [$HOME/.gcompris/users]"
+msgstr "พื้นที่ไดเร็คเทอรรี่ของผู้ใช้: [$HOME/.gcompris/users]"
+
+#: ../src/gcompris/gcompris.c:165
+msgid "Run the experimental activities"
+msgstr "ปฎิบัติการกิจกรรมการทดลอง"
+
+#: ../src/gcompris/gcompris.c:782
+#, c-format
+msgid ""
+"GCompris is free software released under the GPL License. In order to support its development, the Windows version provides only %d of the %d activities. You can get the full version for a small fee at\n"
+"<http://gcompris.net>\n"
+"The Linux version does not have this restriction. Note that GCompris is being developed to free schools from monopolistic software vendors. If you also believe that we should teach freedom to children, please consider using GNU/Linux. Get more information at FSF:\n"
+"<http://www.fsf.org/philosophy>"
+msgstr ""
+"จีคอมพริสเป็นเสรีโปรแกรมถูกนำออกมาภายใต้ลิขสิทธิ์แบบ GPL ตามรายการสนับสนุนการพัฒนา รุ่นที่เป็นวินโดวส์ได้จัดเตรียมเพียง %d ส่วน %d กิจกรรม คุณสามารถได้รุ่นเต็มด้วยค่าใช้จ่ายเพียงเล็กน้อยที่ \n"
+"<http://gcompris.net>\n"
+"บนลีนุกซ์ไม่ได้มีข้อยกเว้นแต่ประการใด. บันทึกเกี่ยวกับจีคอมพริสซึ่งได้ถูกพัฒนาสำหรับโรงเรียนอย่างเสรีจากป้องกันผูกขาดจากผู้ผลิตซอฟแวร์ ถ้าหากคุณเชื่อเช่นนั้นจงสอนให้เด็กรู้จักเสรีภาพ, โปรดพิจารณาใช้ GNU/Linux. รับข้อมูลข่าวสารเพิ่มเติมที่ FSF:\n"
+"<http://www.fsf.org/philosophy>"
+
+#: ../src/gcompris/gcompris.c:1170
+#, c-format
+msgid ""
+"GCompris\n"
+"Version: %s\n"
+"Licence: GPL\n"
+"More info at http://gcompris.net\n"
+msgstr ""
+"จีคอมพริส\n"
+"รุ่น: %s\n"
+"ลิขสิทธิ์: GPL\n"
+"ข้อมูลเพิ่มเติมที่ http://gcompris.net\n"
+
+#. check the list of possible values for -l, then exit
+#: ../src/gcompris/gcompris.c:1244
+#, c-format
+msgid "Use -l to access an activity directly.\n"
+msgstr "ใช้ -I เพื่อเข้่าถึงไดเร็คเทอรี่กิจกรรม\n"
+
+#: ../src/gcompris/gcompris.c:1245
+#, c-format
+msgid "The list of available activities is :\n"
+msgstr "รายชื่อของกิจกรรมที่มี \n"
+
+#: ../src/gcompris/gcompris.c:1388
+#, c-format
+msgid "The list of available profiles is:\n"
+msgstr "โปรไฟล์ที่ใช้ได้มีดังนี้\n"
+
+#: ../src/gcompris/gcompris_db.c:253
+msgid "Unaffected"
+msgstr "ซึ่งอยู่ในสภาพเดิม"
+
+#: ../src/gcompris/gcompris_db.c:254
+msgid "Users without a class"
+msgstr "ผู้ใช้ที่ไม่อยู่ในกลุ่ม"
+
+#: ../src/gcompris/help.c:203
+msgid "Prerequisite"
+msgstr "สิ่งที่ต้องทำก่อน"
+
+#: ../src/gcompris/help.c:231
+msgid "Goal"
+msgstr "จุดมุ่งหมาย"
+
+#: ../src/gcompris/help.c:259
+msgid "Manual"
+msgstr "คู่มือ"
+
+#: ../src/gcompris/help.c:287
+msgid "Credit"
+msgstr "ผู้ผลิต"
+
+#: ../src/gcompris/timer.c:235
+msgid "Time Elapsed"
+msgstr "เวลาโดยประมาณ"
+
+#: ../src/gcompris/timer.c:321
+#, c-format
+msgid "Remaining Time = %d"
+msgstr "เวลาที่เหลือ %d"
+
