@@ -187,16 +187,15 @@ static struct poptOption options[] = {
 #ifdef XF86_VIDMODE
 static struct 
 {
-  int vidmode_available;
   XF86VidModeModeInfo fs_mode;
   XF86VidModeModeInfo orig_mode;
   int orig_viewport_x;
   int orig_viewport_y;
-} XF86VidModeData = { 0, { 0 }, { 0 }, 0, 0 };
+} XF86VidModeData = { { 0 }, { 0 }, 0, 0 };
 
 static void xf86_vidmode_init( void );
 static void xf86_vidmode_set_fullscreen( int state );
-static void xf86_window_configured(GtkWindow *window,
+static gint xf86_window_configured(GtkWindow *window,
   GdkEventConfigure *event, gpointer param);
 #endif
 
@@ -825,9 +824,11 @@ void gcompris_set_fullscreen(gboolean state)
   else
     { 
       /* The hide must be done at least for KDE */
-      gtk_widget_hide (window);
+      if (is_mapped)
+        gtk_widget_hide (window);
       gdk_window_set_decorations (window->window, GDK_DECOR_ALL);
-      gtk_widget_show (window);
+      if (is_mapped)
+        gtk_widget_show (window);
       gdk_window_set_functions (window->window, GDK_FUNC_ALL);
       gtk_window_unfullscreen (GTK_WINDOW(window));
       gtk_widget_set_uposition (window, 0, 0);
@@ -906,8 +907,8 @@ static void map_cb (GtkWidget *widget, gpointer data)
 {
   if(is_mapped == FALSE)
     {
-      is_mapped = TRUE;
       gcompris_set_fullscreen(properties->fullscreen);
+      is_mapped = TRUE;
     }
   g_warning("gcompris window is now mapped");
 }
@@ -1127,7 +1128,7 @@ xf86_vidmode_set_fullscreen ( int state )
    This has the added advantage that this way we know for sure the pointer is
    always grabbed before setting the viewport otherwise setviewport may get
    "canceled" by the pointer being outside the current viewport. */
-static void xf86_window_configured(GtkWindow *window,
+static gint xf86_window_configured(GtkWindow *window,
   GdkEventConfigure *event, gpointer param)
 {
   if(properties->fullscreen && !properties->noxf86vm) {
@@ -1138,6 +1139,8 @@ static void xf86_window_configured(GtkWindow *window,
           GDK_SCREEN_XNUMBER(gdk_screen_get_default()), event->x, event->y))
       g_warning("XF86VidMode couldnot change viewport");
   }
+  /* Act as if we aren't there / aren't hooked up */
+  return FALSE;
 }
   
 #endif

@@ -1,5 +1,16 @@
 2006-06-05  Bruno coudoin  <bruno.coudoin@free.fr>
 
+	* Release 8.0BETA1
+
+	- Fixes GCompris flashing at startup when running in windows mode
+	  Again by Hans de Goede.
+	
+	* gcompris.desktop.in: Changed to be in the education category.
+	* src/gcompris/gcompris.c: (gcompris_set_fullscreen), (map_cb),
+	(xf86_window_configured):
+
+2006-06-05  Bruno coudoin  <bruno.coudoin@free.fr>
+
 	- Fixes fullscreen issue with xvidmode.
 	  By Hans de Goede.
 
