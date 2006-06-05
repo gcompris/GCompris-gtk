@@ -1,3 +1,38 @@
+2006-06-05  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	- Added Argentina map in geography. 
+	  Contributed by Gonzalo Odiard.
+
+	* boards/geography/Makefile.am:
+	* boards/geography/argentina/argentina.png:
+	* boards/geography/argentina/buenos_aires.png:
+	* boards/geography/argentina/catamarca.png:
+	* boards/geography/argentina/chaco.png:
+	* boards/geography/argentina/chubut.png:
+	* boards/geography/argentina/cordoba.png:
+	* boards/geography/argentina/corrientes.png:
+	* boards/geography/argentina/entre_rios.png:
+	* boards/geography/argentina/formosa.png:
+	* boards/geography/argentina/jujuy.png:
+	* boards/geography/argentina/la_pampa.png:
+	* boards/geography/argentina/la_rioja.png:
+	* boards/geography/argentina/mendoza.png:
+	* boards/geography/argentina/misiones.png:
+	* boards/geography/argentina/neuquen.png:
+	* boards/geography/argentina/rio_negro.png:
+	* boards/geography/argentina/salta.png:
+	* boards/geography/argentina/san_juan.png:
+	* boards/geography/argentina/san_luis.png:
+	* boards/geography/argentina/santa_cruz.png:
+	* boards/geography/argentina/santa_fe.png:
+	* boards/geography/argentina/santiago_del_estero.png:
+	* boards/geography/argentina/tierra_del_fuego.png:
+	* boards/geography/argentina/tucuman.png:
+	* boards/geography/board7_0.xml.in:
+	* boards/images/scenery_background.png:  Remade by Herve Chanal
+	* configure.in: Moved to 0.8BETA1
+	* src/gcompris/gcompris.c: (gcompris_set_fullscreen):
+
 2006-05-21  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	Fixed imageid and missingletter to work fine when there is a short and long locale
