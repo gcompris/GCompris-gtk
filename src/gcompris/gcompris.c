@@ -188,15 +188,16 @@ static struct poptOption options[] = {
 static struct 
 {
   int vidmode_available;
+  XF86VidModeModeInfo fs_mode;
   XF86VidModeModeInfo orig_mode;
   int orig_viewport_x;
   int orig_viewport_y;
-  int width;
-  int height;
-} XF86VidModeData = { 0, { 0 }, 0, 0 };
+} XF86VidModeData = { 0, { 0 }, { 0 }, 0, 0 };
 
 static void xf86_vidmode_init( void );
 static void xf86_vidmode_set_fullscreen( int state );
+static void xf86_window_configured(GtkWindow *window,
+  GdkEventConfigure *event, gpointer param);
 #endif
 
 /****************************************************************************/
@@ -436,19 +437,17 @@ static void init_background()
 
 #ifdef XF86_VIDMODE
   xf86_vidmode_init();
-#endif
 
-  gcompris_set_fullscreen(properties->fullscreen);
-
-  screen_height = gdk_screen_height();
-  screen_width  = gdk_screen_width();
-
-#ifdef XF86_VIDMODE
   if(properties->fullscreen && !properties->noxf86vm) {
-    screen_width  = XF86VidModeData.width;
-    screen_height = XF86VidModeData.height;
+    screen_height = XF86VidModeData.fs_mode.vdisplay;
+    screen_width  = XF86VidModeData.fs_mode.hdisplay;
   }
+  else
 #endif
+  {
+    screen_height = gdk_screen_height();
+    screen_width  = gdk_screen_width();
+  }
 
   yratio=screen_height/(float)(BOARDHEIGHT+BARHEIGHT);
   xratio=screen_width/(float)BOARDWIDTH;
@@ -657,6 +656,14 @@ static void setup_window ()
 
   gtk_signal_connect (GTK_OBJECT (window), "map_event",
 		      GTK_SIGNAL_FUNC (map_cb), NULL);
+
+#ifdef XF86_VIDMODE
+  /* The Xf86VidMode code needs to accuratly now the window position,
+     this is the only way to get it. */
+  gtk_widget_add_events(GTK_WIDGET(window), GDK_STRUCTURE_MASK);  
+  gtk_signal_connect (GTK_OBJECT (window), "configure_event",     
+    GTK_SIGNAL_FUNC (xf86_window_configured), 0);
+#endif
 
   /* For non anti alias canvas */
   gtk_widget_push_visual (gdk_rgb_get_visual ());
@@ -1040,7 +1047,8 @@ void gcompris_log_handler (const gchar *log_domain,
 static void
 xf86_vidmode_init ( void )
 {
-  int i,j;
+  int i,j, mode_count;
+  XF86VidModeModeInfo **modes;
   XF86VidModeModeLine *l = (XF86VidModeModeLine *)((char *)
     &XF86VidModeData.orig_mode + sizeof XF86VidModeData.orig_mode.dotclock);
   
@@ -1058,98 +1066,49 @@ xf86_vidmode_init ( void )
             gdk_screen_get_default()), &XF86VidModeData.orig_viewport_x,
             &XF86VidModeData.orig_viewport_y))
     properties->noxf86vm = TRUE;
+  else if (!XF86VidModeGetAllModeLines(GDK_DISPLAY(), GDK_SCREEN_XNUMBER(
+        gdk_screen_get_default()), &mode_count, &modes))
+    properties->noxf86vm = TRUE;
+  else {
+    for (i = 0; i < mode_count; i++)
+      {
+        if ((modes[i]->hdisplay == BOARDWIDTH) &&
+            (modes[i]->vdisplay == BOARDHEIGHT+BARHEIGHT))
+          {
+            XF86VidModeData.fs_mode = *modes[i];
+            break;
+          }
+      }
+    if (i == mode_count)
+      properties->noxf86vm = TRUE;
+    XFree(modes);
+  }
   
   if (properties->noxf86vm)
-      g_warning("XF86VidMode not available");
+      g_warning("XF86VidMode (or 800x600 resolution) not available");
   else
-    {
-      XF86VidModeData.width  = XF86VidModeData.orig_mode.hdisplay;
-      XF86VidModeData.height = XF86VidModeData.orig_mode.vdisplay;
       g_warning("XF86VidMode support enabled");
-    }
 }
 
 
 static void
 xf86_vidmode_set_fullscreen ( int state )
 {
-  int i;
-  XF86VidModeModeLine mode;
-
   if (properties->noxf86vm)
     return;
 
   if (state)
     {
-      XF86VidModeModeInfo **modes;
-      int mode_count;
-      gint x,y;
-      
-      if (!XF86VidModeGetModeLine(GDK_DISPLAY(), GDK_SCREEN_XNUMBER(
-            gdk_screen_get_default()), &i, &mode))
-        {
-          /* If we can't get the currentmode force setting of a new mode. */
-          mode.hdisplay = 0;
-        }
-        
-      /* Do we need to switch? */
-      if ((mode.hdisplay != BOARDWIDTH) ||
-          (mode.vdisplay != BOARDHEIGHT+BARHEIGHT))
-        {
-          if (!XF86VidModeGetAllModeLines(GDK_DISPLAY(), GDK_SCREEN_XNUMBER(
-                gdk_screen_get_default()), &mode_count, &modes))
-            mode_count = 0;
-
-          for (i = 0; i < mode_count; i++)
-            {
-              if ((modes[i]->hdisplay == BOARDWIDTH) &&
-                  (modes[i]->vdisplay == BOARDHEIGHT+BARHEIGHT))
-                {
-                  if (XF86VidModeSwitchToMode(GDK_DISPLAY(), GDK_SCREEN_XNUMBER(
-                        gdk_screen_get_default()), modes[i]))
-                    {
-                      XF86VidModeData.width  = modes[i]->hdisplay;
-                      XF86VidModeData.height = modes[i]->vdisplay;
-                    }
-                  else
-                      g_warning("XF86VidMode couldnot switch resolution");
-                  break;
-                }
-            }
-          if (i == mode_count)
-            g_warning("XF86VidMode couldnot find a suitable resolution");
-          if (mode_count)
-            XFree(modes);
-        }
-        /* We need to grab the pointer before setting the viewport otherwise
-           setviewport may get "canceled" by the pointer being outside the
-           current viewport. */
-        if (gdk_pointer_grab(window->window, TRUE, 0, window->window, NULL,
-              GDK_CURRENT_TIME) != GDK_GRAB_SUCCESS)
-          g_warning("Pointer grab failed");
-           
-        gdk_window_get_position(window->window, &x, &y);
-        if (!XF86VidModeSetViewPort(GDK_DISPLAY(),
-              GDK_SCREEN_XNUMBER(gdk_screen_get_default()), x, y))
-          g_warning("XF86VidMode couldnot change viewport");
+      if (!XF86VidModeSwitchToMode(GDK_DISPLAY(), GDK_SCREEN_XNUMBER(
+            gdk_screen_get_default()), &XF86VidModeData.fs_mode))
+        g_warning("XF86VidMode couldnot switch resolution");
     }
   else
     {
-      if (!XF86VidModeGetModeLine(GDK_DISPLAY(), GDK_SCREEN_XNUMBER(
-            gdk_screen_get_default()), &i, &mode) ||
-          (mode.hdisplay != XF86VidModeData.orig_mode.hdisplay) ||
-          (mode.vdisplay != XF86VidModeData.orig_mode.vdisplay))
-        {
-          if (XF86VidModeSwitchToMode(GDK_DISPLAY(), GDK_SCREEN_XNUMBER(
-                gdk_screen_get_default()), &XF86VidModeData.orig_mode))
-            {
-              XF86VidModeData.width  = XF86VidModeData.orig_mode.hdisplay;
-              XF86VidModeData.height = XF86VidModeData.orig_mode.vdisplay;
-            }
-          else
-              g_warning("XF86VidMode couldnot restore original resolution");
+      if (!XF86VidModeSwitchToMode(GDK_DISPLAY(), GDK_SCREEN_XNUMBER(
+            gdk_screen_get_default()), &XF86VidModeData.orig_mode))
+        g_warning("XF86VidMode couldnot restore original resolution");
             
-        }
       gdk_pointer_ungrab(GDK_CURRENT_TIME);
       if (XF86VidModeData.orig_viewport_x || XF86VidModeData.orig_viewport_y)
         if (!XF86VidModeSetViewPort(GDK_DISPLAY(), GDK_SCREEN_XNUMBER(
@@ -1158,6 +1117,29 @@ xf86_vidmode_set_fullscreen ( int state )
           g_warning("XF86VidMode couldnot restore original viewport");
     }
 }
+
+/* We need to accuratly now the window position, this is the only way to get
+   it. We also use this as _the_ place to grab the pointer, because gtk seems
+   to be playing tricks with the window (destroying and recreating?) when
+   switching fullscreen <-> window which sometimes (race condition) causes
+   the pointer to not be properly grabbed.
+   
+   This has the added advantage that this way we know for sure the pointer is
+   always grabbed before setting the viewport otherwise setviewport may get
+   "canceled" by the pointer being outside the current viewport. */
+static void xf86_window_configured(GtkWindow *window,
+  GdkEventConfigure *event, gpointer param)
+{
+  if(properties->fullscreen && !properties->noxf86vm) {
+    if (gdk_pointer_grab(event->window, TRUE, 0, event->window, NULL,
+          GDK_CURRENT_TIME) != GDK_GRAB_SUCCESS)
+      g_warning("Pointer grab failed");
+    if (!XF86VidModeSetViewPort(GDK_DISPLAY(),
+          GDK_SCREEN_XNUMBER(gdk_screen_get_default()), event->x, event->y))
+      g_warning("XF86VidMode couldnot change viewport");
+  }
+}
+  
 #endif
 
 /*****************************************

@@ -1,5 +1,14 @@
 2006-06-05  Bruno coudoin  <bruno.coudoin@free.fr>
 
+	- Fixes fullscreen issue with xvidmode.
+	  By Hans de Goede.
+
+	* src/gcompris/gcompris.c: (init_background), (setup_window),
+	(xf86_vidmode_init), (xf86_vidmode_set_fullscreen),
+	(xf86_window_configured):
+
+2006-06-05  Bruno coudoin  <bruno.coudoin@free.fr>
+
 	- Added Argentina map in geography. 
 	  Contributed by Gonzalo Odiard.
 
