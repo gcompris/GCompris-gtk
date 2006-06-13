@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: gCompris\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-06-10 17:35+0700\n"
-"PO-Revision-Date: 2006-06-12 23:01+0700\n"
+"PO-Revision-Date: 2006-06-13 23:09+0700\n"
 "Last-Translator: Theppitak Karoonboonyanan <thep@linux.thai.net>\n"
 "Language-Team: Thai <L10n@opentle.org>\n"
 "MIME-Version: 1.0\n"
@@ -2208,7 +2208,7 @@ msgstr ""
 "เป็นตัวทวีคูณของเลขจำนวนแรก และเช่นกัน คุณอาจคิดถึงเลขทวีคูณว่าเป็นครอบครัว "
 "และตัวประกอบว่าเป็นสมาชิกในครอบครัว ตัวประกอบ 5 มีแม่เป็น 10 มีย่าเป็น 15 มีย่าทวดเป็น 20 "
 "และมีย่าทวดทวดเป็น 25 และทุกๆ ขั้นที่เพิ่มขึ้น 5 ก็คือลำดับของทวดที่เพิ่มขึ้น!  แต่จำนวน 5 "
-"ไม่ได้เป็นสมาชิกของครอบครัว 8 หรือ 23 เพราะคุณไม่สามารถเอา 5 หลายๆ ตัวมาบวกกันให้ได้ 8 "
+"ไม่ได้เป็นสมาชิกของครอบครัว 8 หรือ 23 เพราะคุณไม่สามารถนำ 5 หลายๆ ตัวมาบวกกันให้ได้ 8 "
 "หรือ 23 ได้โดยไม่มีเศษเหลือ ดังนั้น 8 จึงไม่ใช่ทวีคูณของ 5 และ 23 ก็ไม่ใช่เช่นกัน มีเพียง 5, 10, "
 "15, 20, 25, ... เท่านั้น ที่เป็นทวีคูณ (หรือครอบครัว หรือบรรพบุรุษ) ของ 5  "
 "ใช้ปุ่มลูกศรสำหรับเลี้ยวไปมารอบๆ กระดาน และหลบตัวทร็อกเกิล  กดแป้นเว้นวรรคเพื่อกินตัวเลข"
@@ -2621,7 +2621,7 @@ msgstr "พิจารณาว่ามือเป็นมือซ้าย
 msgid ""
 "Distinguish right and left hands from different points of view. Spatial "
 "representation"
-msgstr "จำแนกความแตกต่างระหว่างมือซ้ายและมือขวาจากมุมมองต่างๆ การเรียกแทนตำแหน่งที่ตั้ง"
+msgstr "จำแนกความแตกต่างระหว่างมือซ้ายและมือขวาจากมุมมองต่างๆ  การกำหนดตำแหน่งที่ตั้ง"
 
 #: ../boards/leftright.xml.in.h:3
 msgid "Find your left and right hands"
@@ -2833,7 +2833,7 @@ msgid ""
 msgstr ""
 "โปรแกรมจะแสดงการ์ดชุดหนึ่งโดยคว่ำหน้าไว้ การ์ดแต่ละใบจะมีรูปอยู่อีกด้านหนึ่ง "
 "และการ์ดรูปภาพแต่ละใบ จะมีอีกใบหนึ่งเพียงใบเดียวที่เหมือนกันทุกประการอยู่ "
-"ให้คลิกที่การ์ดเพื่อดูภาพที่คว่ำหน้าไว้ แล้วพยายามหาอีกใบที่เหมือนกัน "
+"ให้คลิกที่การ์ดใบหนึ่งเพื่อดูภาพที่คว่ำหน้าไว้ แล้วพยายามหาอีกใบที่เหมือนกัน "
 "คุณสามารถเปิดการ์ดได้ครั้งละสองใบเท่านั้น ดังนั้น คุณจึงต้องจำตำแหน่งของรูปภาพไว้ในระหว่างที่เปิดหา "
 "และเมื่อคุณเปิดการ์ดที่เหมือนกันพบ การ์ดทั้งสองใบก็จะถูกเก็บออกไป"
 
@@ -2851,7 +2851,7 @@ msgstr "ฝึกความจำและเก็บการ์ดออก
 
 #: ../boards/memory_add.xml.in.h:2
 msgid "Addition memory game"
-msgstr "เกมความจำและบวกเลข"
+msgstr "เกมความจำผสมบวกเลข"
 
 #: ../boards/memory_add.xml.in.h:3 ../boards/memory_add_tux.xml.in.h:3
 msgid "Practise adding up, until all the cards are gone."
@@ -2900,7 +2900,7 @@ msgstr ""
 "แล้วคุณจะบวกเลขได้เก่ง!\n"
 "\n"
 "ในเกมนี้ การ์ดเหล่านี้จะแยกซ่อนประโยคการบวกเป็นสองส่วน คุณต้องหาส่วนทั้งสองของประโยค "
-"แล้วเอามาอยู่ด้วยกันอีกครั้ง คลิกที่การ์ดเพื่อดูตัวเลขที่ถูกซ่อนอยู่ แล้วพยายามหาการ์ดอีกใบที่ตรงกัน "
+"แล้วนำมาอยู่ด้วยกันอีกครั้ง คลิกที่การ์ดใบหนึ่งเพื่อดูตัวเลขที่ถูกซ่อนอยู่ แล้วพยายามหาการ์ดอีกใบที่ตรงกัน "
 "เพื่อรวมเป็นประโยคการบวกเลขที่สมบูรณ์ คุณสามารถเปิดการ์ดได้ครั้งละสองใบเท่านั้น ดังนั้น "
 "คุณต้องจำตำแหน่งที่ซ่อนของตัวเลขไว้ เพื่อที่จะเปิดได้ถูกใบเมื่อเปิดพบอีกครึ่งหนึ่งที่เหลือ "
 "คุณกำลังทำหน้าที่ของเครื่องหมายเท่ากับ และตัวเลขก็ต้องการคุณที่จะพาเขามาอยู่ด้วยกัน "
@@ -2908,15 +2908,13 @@ msgstr ""
 "และเมื่อคุณสามารถเก็บการ์ดออกไปได้หมด โดยค้นหาผลบวกได้ครบ คุณก็เป็นผู้ชนะ! :)"
 
 #: ../boards/memory_add_minus.xml.in.h:1
-#, fuzzy
 msgid "Addition and subtraction memory game"
-msgstr "ฝึกจำเสียง"
+msgstr "เกมความจำผสมบวก-ลบเลข"
 
 #: ../boards/memory_add_minus.xml.in.h:2
 #: ../boards/memory_add_minus_tux.xml.in.h:2
-#, fuzzy
 msgid "Practise addition, subtraction, until all the cards are gone."
-msgstr "แบบฝึกหัดการบวก ลบ คูณ และหาร"
+msgstr "ฝึกบวกและลบเลข โดยเก็บการ์ดออกไปให้หมด"
 
 #: ../boards/memory_add_minus.xml.in.h:4
 #: ../boards/memory_add_minus_tux.xml.in.h:4
@@ -2924,6 +2922,7 @@ msgid ""
 "Turn the cards over to find two numbers which add or subtract the same, "
 "until all the cards are gone."
 msgstr ""
+"พลิกการ์ดเพื่อหาตัวเลขสองตัวที่บวกหรือลบกันได้ค่าเท่ากัน จนกว่าการ์ดจะถูกเก็บออกไปทั้งหมด"
 
 #: ../boards/memory_add_minus.xml.in.h:5
 #: ../boards/memory_add_minus_mult_div.xml.in.h:5
@@ -2947,25 +2946,33 @@ msgid ""
 "proper equality. When you do that, both those cards disappear! When you've "
 "made them all disappear, found all the operations, you've won the game! :)"
 msgstr ""
+"คุณจะเห็นการ์ดจำนวนหนึ่ง แต่จะไม่เห็นว่าอะไรอยู่ที่อีกด้านของการ์ด "
+"การ์ดแต่ละใบจะซ่อนการกระทำเลขคณิตไว้คู่หนึ่ง หรือคำตอบของการกระทำ\n"
+"\n"
+"ในเกมนี้ การ์ดเหล่านี้จะแยกซ่อนประโยคการกระทำเลขคณิตเป็นสองส่วน "
+"คุณต้องหาส่วนทั้งสองของประโยค แล้วนำมาอยู่ด้วยกันอีกครั้ง คลิกที่การ์ดใบหนึ่งเพื่อดูตัวเลขที่ถูกซ่อนอยู่ "
+"แล้วพยายามหาการ์ดอีกใบที่ตรงกัน เพื่อรวมเป็นประโยคการกระทำเลขคณิตเลขที่สมบูรณ์ "
+"คุณสามารถเปิดการ์ดได้ครั้งละสองใบเท่านั้น ดังนั้น คุณต้องจำตำแหน่งที่ซ่อนของตัวเลขไว้ "
+"เพื่อที่จะเปิดได้ถูกใบเมื่อเปิดพบอีกครึ่งหนึ่งที่เหลือ คุณกำลังทำหน้าที่ของเครื่องหมายเท่ากับ "
+"และตัวเลขก็ต้องการคุณที่จะพาเขามาอยู่ด้วยกัน กลายเป็นประโยคการกระทำเลขคณิตที่ถูกต้อง "
+"เมื่อคุณจับคู่ได้แล้ว การ์ดทั้งสองใบจะถูกเก็บออกไป! และเมื่อคุณสามารถเก็บการ์ดออกไปได้หมด "
+"โดยค้นหาผลการกระทำเลขคณิตได้ครบ คุณก็เป็นผู้ชนะ! :)"
 
 #: ../boards/memory_add_minus_mult_div.xml.in.h:1
 #: ../boards/memory_add_minus_mult_div_tux.xml.in.h:1
-#, fuzzy
 msgid "Addition, subtraction, multiplication, division"
-msgstr "แบบฝึกหัดการบวก ลบ คูณ และหาร"
+msgstr "การบวก ลบ คูณ และหาร"
 
 #: ../boards/memory_add_minus_mult_div.xml.in.h:2
-#, fuzzy
 msgid "All operations memory game"
-msgstr "ฝึกจำเสียง"
+msgstr "เกมความจำผสมคำนวณเลขทุกเครื่องหมาย"
 
 #: ../boards/memory_add_minus_mult_div.xml.in.h:3
 #: ../boards/memory_add_minus_mult_div_tux.xml.in.h:3
-#, fuzzy
 msgid ""
 "Practise addition, subtraction, multiplication, division, until all the "
 "cards are gone."
-msgstr "แบบฝึกหัดการบวก ลบ คูณ และหาร"
+msgstr "ฝึกบวก ลบ คูณ และหารเลข โดยเก็บการ์ดออกไปให้หมด"
 
 #: ../boards/memory_add_minus_mult_div.xml.in.h:4
 #: ../boards/memory_add_minus_mult_div_tux.xml.in.h:4
@@ -2977,46 +2984,39 @@ msgid ""
 "Turn the cards over to find a matching operation, until all the cards are "
 "gone."
 msgstr ""
+"พลิกการ์ดเพื่อหาตัวเลขสองตัวที่กระทำกันได้ค่าเท่ากัน จนกว่าการ์ดจะถูกเก็บออกไปทั้งหมด"
 
 #: ../boards/memory_add_minus_mult_div_tux.xml.in.h:2
-#, fuzzy
 msgid "All operations memory game against Tux"
-msgstr "แข่งเกมส์จำเสียงกับทักซ์"
+msgstr "เกมความจำผสมคำนวณเลขทุกเครื่องหมาย แข่งกับทักซ์"
 
 #: ../boards/memory_add_minus_tux.xml.in.h:1
-#, fuzzy
 msgid "Addition and subtraction memory game against Tux"
-msgstr "แข่งเกมส์จำเสียงกับทักซ์"
+msgstr "เกมความจำผสมบวก-ลบเลข แข่งกับทักซ์"
 
 #: ../boards/memory_add_tux.xml.in.h:1
-#, fuzzy
 msgid "Addition memory game against Tux"
-msgstr "แข่งเกมส์จำเสียงกับทักซ์"
+msgstr "เกมความจำผสมบวกเลข แข่งกับทักซ์"
 
 #: ../boards/memory_add_tux.xml.in.h:2 ../boards/memory_mult_tux.xml.in.h:1
-#, fuzzy
 msgid "Additions"
-msgstr "วิชาการบิน"
+msgstr "การบวก"
 
 #: ../boards/memory_div.xml.in.h:1 ../boards/memory_div_tux.xml.in.h:1
-#, fuzzy
 msgid "Division"
-msgstr "วิชาการบิน"
+msgstr "การหาร"
 
 #: ../boards/memory_div.xml.in.h:2
-#, fuzzy
 msgid "Division memory game"
-msgstr "ฝึกจำเสียง"
+msgstr "เกมความจำผสมหารเลข"
 
 #: ../boards/memory_div.xml.in.h:3 ../boards/memory_div_tux.xml.in.h:3
-#, fuzzy
 msgid "Practise division, until all the cards are gone."
-msgstr "แบบฝีกหัดเพิ่มเติมด้วยเกมส์เป้าหมาย"
+msgstr "ฝึกหารเลข โดยเก็บการ์ดออกไปให้หมด"
 
 #: ../boards/memory_div_tux.xml.in.h:2
-#, fuzzy
 msgid "Division memory game against Tux"
-msgstr "แข่งเกมส์จำเสียงกับทักซ์"
+msgstr "เกมความจำผสมหารเลข แข่งกับทักซ์"
 
 #: ../boards/memory_group.xml.in.h:1
 msgid "Go to Memory activities"
@@ -3024,23 +3024,22 @@ msgstr "เข่้าสู่กิจกรรมความจำ"
 
 #: ../boards/memory_group.xml.in.h:2
 msgid "Various memory activities (images, letters, sounds)."
-msgstr "กิจกรรมความจำหลากหลาย(ภาพ,อักษร,เสียง)"
+msgstr "กิจกรรมความจำหลากหลาย (ภาพ, อักษร, เสียง)"
 
 #: ../boards/memory_minus.xml.in.h:1 ../boards/memory_minus_tux.xml.in.h:1
-#, fuzzy
 msgid "Practise subtraction, until all the cards are gone."
-msgstr "แบบฝีกหัดการลบด้วยเกมส์ที่สนุก"
+msgstr "ฝึกลบเลข โดยเก็บการ์ดออกไปให้หมด"
 
 #: ../boards/memory_minus.xml.in.h:3
-#, fuzzy
 msgid "Subtraction memory game"
-msgstr "ฝึกจำเสียง"
+msgstr "เกมความจำผสมลบเลข"
 
 #: ../boards/memory_minus.xml.in.h:4 ../boards/memory_minus_tux.xml.in.h:4
 msgid ""
 "Turn the cards over to find two numbers which subtract the same, until all "
 "the cards are gone."
 msgstr ""
+"พลิกการ์ดเพื่อหาตัวเลขสองตัวที่ลบกันได้ค่าเท่ากัน จนกว่าการ์ดจะถูกเก็บออกไปทั้งหมด"
 
 #: ../boards/memory_minus.xml.in.h:5 ../boards/memory_minus_tux.xml.in.h:5
 msgid ""
@@ -3066,79 +3065,85 @@ msgid ""
 "proper sum. When you do that, both those cards disappear! When you've made "
 "them all disappear, found all the subtracts, you've won the game! :)"
 msgstr ""
+"คุณจะเห็นการ์ดจำนวนหนึ่ง แต่จะไม่เห็นว่าอะไรอยู่ที่อีกด้านของการ์ด "
+"การ์ดแต่ละใบจะซ่อนการลบไว้คู่หนึ่ง หรือคำตอบของการลบ\n"
+"การลบจะอยู่ในรูปคล้ายๆ อย่างนี้: 3 - 1 = 2\n"
+"ตัวเลขทางด้านซ้ายของเครื่องหมายเท่ากับ (=) จะต้องเท่ากับตัวเลขที่อยู่อีกด้านหนึ่ง ดังนั้น "
+"3 ('หนึ่ง', 'สอง', 'สาม') ลบออก 1 ('หนึ่ง') จะเท่ากับ 2 นับดังๆ และนับนิ้วด้วย "
+"เพราะยิ่งคุณทำสิ่งเดียวกันหลายวิธี คุณจะยิ่งจำได้แม่น คุณสามารถใช้กล่อง หรือเม็ดกระดุม "
+"หรืออะไรก็ได้ที่สามารถนับได้ ถ้าคุณมีพี่น้องเยอะ ก็อาจนับพี่น้องเอาก็ได้! หรืออาจจะนับเด็กๆ "
+"ที่อยู่ชั้นเดียวกันที่โรงเรียน ลองร้องเพลงนับเลขดู นับสิ่งต่างๆ ให้มากๆ เพื่อเป็นการฝึกหัด "
+"แล้วคุณจะลบเลขได้เก่ง!\n"
+"\n"
+"ในเกมนี้ การ์ดเหล่านี้จะแยกซ่อนประโยคการลบเป็นสองส่วน คุณต้องหาส่วนทั้งสองของประโยค "
+"แล้วนำมาอยู่ด้วยกันอีกครั้ง คลิกที่การ์ดใบหนึ่งเพื่อดูตัวเลขที่ถูกซ่อนอยู่ แล้วพยายามหาการ์ดอีกใบที่ตรงกัน "
+"เพื่อรวมเป็นประโยคการลบเลขที่สมบูรณ์ คุณสามารถเปิดการ์ดได้ครั้งละสองใบเท่านั้น ดังนั้น "
+"คุณต้องจำตำแหน่งที่ซ่อนของตัวเลขไว้ เพื่อที่จะเปิดได้ถูกใบเมื่อเปิดพบอีกครึ่งหนึ่งที่เหลือ "
+"คุณกำลังทำหน้าที่ของเครื่องหมายเท่ากับ และตัวเลขก็ต้องการคุณที่จะพาเขามาอยู่ด้วยกัน "
+"กลายเป็นประโยคการลบที่ถูกต้อง เมื่อคุณจับคู่ได้แล้ว การ์ดทั้งสองใบจะถูกเก็บออกไป! "
+"และเมื่อคุณสามารถเก็บการ์ดออกไปได้หมด โดยค้นหาผลลบได้ครบ คุณก็เป็นผู้ชนะ! :)"
 
 #: ../boards/memory_minus_tux.xml.in.h:3
-#, fuzzy
 msgid "Subtraction memory game against Tux"
-msgstr "แข่งเกมส์จำเสียงกับทักซ์"
+msgstr "เกมความจำผสมลบเลข แข่งกับทักซ์"
 
 #: ../boards/memory_mult.xml.in.h:1
-#, fuzzy
 msgid "Multiplication"
-msgstr "ตารางคำนวณ"
+msgstr "การคูณ"
 
 #: ../boards/memory_mult.xml.in.h:2
-#, fuzzy
 msgid "Multiplication memory game"
-msgstr "ตารางคำนวณ"
+msgstr "เกมความจำผสมคูณเลข"
 
 #: ../boards/memory_mult.xml.in.h:3
-#, fuzzy
 msgid "Practise multiplication, until all the cards are gone."
-msgstr "แบบฝึกหัดการคำนวณการคูณ"
+msgstr "ฝึกคูณเลข โดยเก็บการ์ดออกไปให้หมด"
 
 #: ../boards/memory_mult.xml.in.h:4
 msgid ""
 "Turn the cards over to find two numbers which multiply the same, until all "
 "the cards are gone."
 msgstr ""
+"พลิกการ์ดเพื่อหาตัวเลขสองตัวที่คูณกันได้ค่าเท่ากัน จนกว่าการ์ดจะถูกเก็บออกไปทั้งหมด"
 
 #: ../boards/memory_mult_div.xml.in.h:1
 msgid "Multiplication and division memory game"
-msgstr ""
+msgstr "เกมความจำผสมคูณ-หารเลข"
 
 #: ../boards/memory_mult_div.xml.in.h:2
 #: ../boards/memory_mult_div_tux.xml.in.h:2
-#, fuzzy
 msgid "Multiplication, division"
-msgstr "ตารางคำนวณ"
+msgstr "การคูณ การหาร"
 
 #: ../boards/memory_mult_div.xml.in.h:3
 #: ../boards/memory_mult_div_tux.xml.in.h:3
-#, fuzzy
 msgid "Practise multiplication, division, until all the cards are gone."
-msgstr "แบบฝึกหัดการ บวก ลบ คูณ หาร"
+msgstr "ฝึกคูณและหารเลข โดยเก็บการ์ดออกไปให้หมด"
 
 #: ../boards/memory_mult_div_tux.xml.in.h:1
-#, fuzzy
 msgid "Multiplication and division memory game against Tux"
-msgstr "เล่นเกมส์ฝึกจำเสียงกับทักซ์"
+msgstr "เกมความจำผสมคูณ-หารเลข แข่งกับทักซ์"
 
 #: ../boards/memory_mult_tux.xml.in.h:2
-#, fuzzy
 msgid "Multiplication memory game against Tux"
-msgstr "แข่งเกมส์จำเสียงกับทักซ์"
+msgstr "เกมความจำผสมคูณเลข แข่งกับทักซ์"
 
 #: ../boards/memory_mult_tux.xml.in.h:3
-#, fuzzy
 msgid "Practise multiplication until all the cards are gone."
-msgstr "แบบฝึกหัดการคำนวณการคูณ"
+msgstr "ฝึกคูณเลข โดยเก็บการ์ดออกไปให้หมด"
 
 #: ../boards/memory_op_group.xml.in.h:1
-#, fuzzy
 msgid "Go to mathematics memory activities"
-msgstr "เข่้าสู่กิจกรรมความจำ"
+msgstr "เข่้าสู่กิจกรรมความจำผสมคณิตศาสตร์"
 
 #: ../boards/memory_op_group.xml.in.h:2
 #: ../boards/memory_op_group_tux.xml.in.h:2
-#, fuzzy
 msgid "Memory activities based on operations"
-msgstr "เกมส์ความจำมีพื้นฐานจากการฝึก"
+msgstr "เกมความจำโดยใช้การกระทำคณิตศาสตร์"
 
 #: ../boards/memory_op_group_tux.xml.in.h:1
-#, fuzzy
 msgid "Go to mathematics memory activities against Tux"
-msgstr "เล่นเกมส์ฝึกจำเสียงกับทักซ์"
+msgstr "เล่นเกมฝึกความจำผสมคณิตศาสตร์กับทักซ์"
 
 #: ../boards/memory_sound.xml.in.h:1 ../boards/memory_sound_tux.xml.in.h:1
 msgid ""
@@ -3148,44 +3153,44 @@ msgid ""
 "need to remember where a sound is, while you listen to its twin. When you "
 "turn over the twins, they both disappear."
 msgstr ""
-"การแสดงของกกลุ่มของนักแชลโลทักซ์ ทักซ์แต่ละคนได้เข้าร่วมประสานเสียง "
-"และแต่ละเสียงนั้นมีเสียงที่เป็นคู่เหมือน คลิ๊กลงบนทักซ์เพื่อได้ยินเสียงที่ซ่อนไว้ "
-"และพยายามหาเสียงที่เหมือน คุณสามารถกระตุ้นเฉพาะสองเสียงได้ในแต่ละครั้ง "
-"ดังนั้นคุณจำเป็นที่จะต้องจำเสียงว่าแต่ละเสียงมาจากใหน ขณะที่คุณฟังเสียงของแต่ละคู่ "
-"เมื่อคุณได้คู่ของมันทั้งสองจะหายไป"
+"โปรแกรมจะแสดงทักซ์นักไวโอลินชุดหนึ่ง ทักซ์แต่ละตัวจะเล่นเสียงเสียงหนึ่ง และแต่ละเสียง "
+"จะมีทักซ์อีกตัวหนึ่งเพียงตัวเดียวที่เล่นเสียงเดียวกัน ให้คลิกที่ทักซ์ตัวหนึ่งเพื่อฟังเสียง "
+"แล้วพยายามหาอีกตัวหนึ่งที่เล่นเสียงเดียวกัน คุณสามารถฟังเสียงทักซ์ได้ครั้งละสองตัวเท่านั้น ดังนั้น "
+"คุณจึงต้องจำตำแหน่งของเสียงต่างๆ ไว้ในระหว่างที่เปิดหา และเมื่อคุณเลือกทักซ์ที่เล่นเสียงเดียวกัน "
+"ทักซ์ทั้งคู่นั้นจะหายไป"
 
 #: ../boards/memory_sound.xml.in.h:2
 msgid "Audio memory game"
-msgstr "ฝึกจำเสียง"
+msgstr "เกมฝึกจำเสียง"
 
 #: ../boards/memory_sound.xml.in.h:3
 msgid "Click on Tux the violinist and listen to find the matching sounds"
-msgstr "คลิกบนทักซ์ทีเป็นนักดนตรีแชลโลและฟังเพื่อค้นหาเสียงตรงกัน"
+msgstr "คลิกที่ทักซ์นักไวโอลินและฟังเพื่อค้นหาเสียงตรงกัน"
 
 #: ../boards/memory_sound.xml.in.h:4 ../boards/memory_sound_tux.xml.in.h:3
 #: ../boards/memory_tux.xml.in.h:3
 msgid "Mouse manipulation, Brain."
-msgstr "การปรับแต่งเม้าส์ สมอง"
+msgstr "การควบคุมเมาส์, สมอง"
 
 #: ../boards/memory_sound.xml.in.h:5 ../boards/memory_sound_tux.xml.in.h:5
 msgid "Train your audio memory and remove all the violonists Tux."
-msgstr "ฝีกการจำเสียงและลบทักซ์ที่เป็นนักเชลโลทั้งหมด"
+msgstr "ฝึกการจำเสียง โดยจับทักซ์นักไวโอลินออกไปให้หมด"
 
 #: ../boards/memory_sound_tux.xml.in.h:2
 msgid "Audio memory game against Tux"
-msgstr "แข่งเกมส์จำเสียงกับทักซ์"
+msgstr "เกมฝึกจำเสียง แข่งกับทักซ์"
 
 #: ../boards/memory_sound_tux.xml.in.h:4
 msgid "Play the audio memory game against Tux"
-msgstr "เล่นเกมส์ฝึกจำเสียงกับทักซ์"
+msgstr "เล่นเกมจำเสียงกับทักซ์"
 
 #: ../boards/memory_tux.xml.in.h:1
 msgid "Have a memory competition with Tux."
-msgstr "แข่งเกมส์จำภาพกับทักซ์"
+msgstr "เล่นเกมความจำแข่งกับทักซ์"
 
 #: ../boards/memory_tux.xml.in.h:2
 msgid "Memory Game with images, against Tux"
-msgstr "แข่งเกมส์จำภาพกับทักซ์"
+msgstr "เล่นเกมจำภาพกับทักซ์"
 
 #: ../boards/memory_tux.xml.in.h:5
 msgid ""
@@ -3196,11 +3201,11 @@ msgid ""
 "You take turns with Tux, and to win the game, you have to find more pairs of "
 "twins than he does."
 msgstr ""
-"คุณสามารถมองเห็นกลุ่มของไพ่ที่คุณมองเห็นเหมือนกัน ไพ่แต่ละใบมีรูปอยู่ด้านหลัง "
-"และแต่ละรูปจะมีคู่ของมันซักแห่งในกลุ่มนี้ เฉพาะคุณเท่านั้นที่จะสามารถพลิกไพ่สองใบต่อครั้ง "
-"ดังนั้นคุณจำเป็นต้องจดจำว่ารูปนั่้นอยู่ที่ใหนจนกระทั้งคุณสามารถหาคู่เหมือน เมื่อคุณพลิกไพ่ของคู่เหมือน "
-"มันจะหายไป มันจะเป็นตาเดินของทักซ์ และเพื่อจะมีชัยชนะในเกม "
-"คุณจะต้องหาคู่ของมันมากกว่าที่เขาหาได้"
+"คุณจะเห็นการ์ดชุดหนึ่งที่เหมือนกันทั้งหมด การ์ดแต่ละใบมีรูปอยู่อีกด้านหนึ่งที่คว่ำไว้ และรูปแต่ละรูป "
+"จะมีรูปที่เหมือนกันอีกใบหนึ่งในชุด คุณสามารถเปิดการ์ดดูได้ครั้งละสองใบเท่านั้น ดังนั้น "
+"คุณจึงต้องจำตำแหน่งของรูปต่างๆ ไว้ จนกว่าคุณจะหารูปที่เหมือนกันพบ เมื่อคุณจับคู่ได้แล้ว "
+"การ์ดทั้งสองใบจะถูกเก็บออกไป! คุณจะผลัดกันเล่นกับทักซ์ และคุณจะชนะเกมได้ "
+"คุณจะต้องจับคู่ให้ได้มากกว่าทักซ์"
 
 #: ../boards/menu.xml.in.h:1
 msgid ""
@@ -3221,42 +3226,40 @@ msgid ""
 "    1, 2 or 3 simple stars  - from 2 to 6 years old\n"
 "    1, 2 or 3 complex stars - 7 years and up"
 msgstr ""
-"กาคลิ๊กธรรมดาบนไอคอนนำคุณเข้าสูกิจกรรมในเมนูกิจกรรม\n"
-"ในด้านล่างของจอภาพของจีคอมพริสเป็นคอนโทรลบาร์\n"
-"ไอคอนดังต่อไปนี้จากซ้ายไปขวา\n"
-"(จงจำไว้ว่าแต่ละไอคอนที่ได้แสดงไปนั้น เฉพาะกิจกรรมที่สามารถมีได้ในปัจจุบัน)\n"
-"    Home - กลับสู่เมนูก่อนหน้านี้ หรืออกจากจีคอมพริส ถ้าหากมันอยู่นอกสุด\n"
-"    Thumb - ตกลง ยืนยันคำตอบ\n"
-"    Dice - แสดงระดับปัจจุบัน คลิ๊กเพื่อเลือกระดับต่อไป\n"
-"    Music note - ถามคำถามซ้ำ\n"
-"    Question Mark - ช่วยเหลือ\n"
-"    Tool - การปรับแต่งเมนู\n"
-"    Tux Plane - เกี่ยวกับจีคอมพริส\n"
-"ดวงดาวแสดงถึงความเป็นไปได้สำหรับกลุ่มอายุของเด็กในแต่ละเกม\n"
-"    1, 2 or 3 ดวงดาวธรรมดา  - จาก 2 ถึง 6 ปี\n"
-"    1, 2 or 3 ดวงดาวที่ซับซ้อน - 7 ปีขึ้นไป"
+"การคลิกธรรมดาที่ไอคอน จะนำคุณเข้าสูกิจกรรม หรือรายการกิจกรรม\n"
+"ที่ด้านล่างของจอภาพจะเป็นแผงควบคุมของ GCompris\n"
+"ซึ่งจะมีไอคอนต่อไปนี้จากขวามาซ้าย\n"
+"(สังเกตว่าแต่ละไอคอนจะปรากฏก็ต่อเมื่อใช้ได้กับกิจกรรมปัจจุบันเท่านั้น)\n"
+"    บ้าน - กลับสู่เมนูก่อนหน้านี้ หรืออกจาก GCompris ถ้าเป็นเมนูนอกสุด\n"
+"    นิ้วโป้ง - ตกลง ยืนยันคำตอบ\n"
+"    ลูกเต๋า - แสดงระดับปัจจุบัน คลิกเพื่อเลือกระดับต่อไป\n"
+"    โน้ตดนตรี - ทวนคำถาม\n"
+"    เครื่องหมายคำถาม - ช่วยเหลือ\n"
+"    เครื่องมือ - เมนูปรับแต่ง\n"
+"    ทักซ์นั่งเครื่องบิน - ข้อมูลเกี่ยวกับ GCompris\n"
+"รูปดาวแสดงถึงความเหมาะสมกับกลุ่มอายุเด็กของแต่ละเกม:\n"
+"    1, 2 หรือ 3 ระดับง่าย - จาก 2 ถึง 6 ขวบ\n"
+"    1, 2 หรือ 3 ระดับยาก - 7 ขวบขึ้นไป"
 
 #: ../boards/menu.xml.in.h:15 ../boards/menu2.xml.in.h:15
 msgid "GCompris Main Menu"
-msgstr "เมนูหลักของจีคอมพริส"
+msgstr "เมนูหลักของ GCompris"
 
 #: ../boards/menu.xml.in.h:16 ../src/boards/menu2.c:996
 msgid ""
 "GCompris is a collection of educational games that provides different "
 "activities for children aged 2 and up."
 msgstr ""
-"จีคอมพริสเป็นชุดสะสมสำหรับเกมส์การศึกษาซึ่งได้จัดเตรียมกิจกรรมหลากหลายสำหรับเด็กอายุ 2 ปีขึ้นไป"
+"GCompris เป็นชุดของเกมการศึกษา ซึ่งได้จัดเตรียมกิจกรรมหลากหลายสำหรับเด็กอายุ 2 ขวบขึ้นไป"
 
 #: ../boards/menu.xml.in.h:18 ../boards/menu2.xml.in.h:18
 msgid ""
 "The goal of gcompris is to provide a free alternative to popular proprietary "
 "edutainment software"
 msgstr ""
-"จุดมุ่งหมายของจีคอมพริสเพื่อจัดเตรียมสำหรับการมีทางเลือกอย่างเสรีสำหรับเป็นที่นิยมเป็นเจ้าของ "
-"โปรแกรมศึกษาบันเทิง"
+"จุดมุ่งหมายของ GCompris คือจัดเตรียมทางเลือกเสรีสำหรับซอฟต์แวร์ศึกษาบันเทิงที่เป็นที่นิยมกัน"
 
 #: ../boards/menu2.xml.in.h:1
-#, fuzzy
 msgid ""
 "A simple click on an icon brings you to an activity or a menu of "
 "activities.\n"
@@ -3275,28 +3278,27 @@ msgid ""
 "    1, 2 or 3 simple stars  - 2 to 6 years old\n"
 "    1, 2 or 3 complex stars - From 7 years old"
 msgstr ""
-"กาคลิ๊กธรรมดาบนไอคอนนำคุณเข้าสูกิจกรรมในเมนูกิจกรรม\n"
-"ในด้านล่างของจอภาพของจีคอมพริสเป็นคอนโทรลบาร์\n"
-"ไอคอนดังต่อไปนี้จากซ้ายไปขวา\n"
-"(จงจำไว้ว่าแต่ละไอคอนที่ได้แสดงไปนั้น เฉพาะกิจกรรมที่สามารถมีได้ในปัจจุบัน)\n"
-"    Home - กลับสู่เมนูก่อนหน้านี้ หรืออกจากจีคอมพริส ถ้าหากมันอยู่นอกสุด\n"
-"    Thumb - ตกลง ยืนยันคำตอบ\n"
-"    Dice - แสดงระดับปัจจุบัน คลิ๊กเพื่อเลือกระดับต่อไป\n"
-"    Music note - ถามคำถามซ้ำ\n"
-"    Question Mark - ช่วยเหลือ\n"
-"    Tool - การปรับแต่งเมนู\n"
-"    Tux Plane - เกี่ยวกับจีคอมพริส\n"
-"ดวงดาวแสดงถึงความเป็นไปได้สำหรับกลุ่มอายุของเด็กในแต่ละเกม\n"
-"    1, 2 or 3 ดวงดาวธรรมดา  - จาก 2 ถึง 6 ปี\n"
-"    1, 2 or 3 ดวงดาวที่ซับซ้อน - 7 ปีขึ้นไป"
+"การคลิกธรรมดาที่ไอคอน จะนำคุณเข้าสูกิจกรรม หรือรายการกิจกรรม\n"
+"ที่ด้านล่างของจอภาพจะเป็นแผงควบคุมของ GCompris\n"
+"ซึ่งจะมีไอคอนต่อไปนี้จากขวามาซ้าย\n"
+"(สังเกตว่าแต่ละไอคอนจะปรากฏก็ต่อเมื่อใช้ได้กับกิจกรรมปัจจุบันเท่านั้น)\n"
+"    บ้าน - กลับสู่เมนูก่อนหน้านี้ หรืออกจาก GCompris ถ้าเป็นเมนูนอกสุด\n"
+"    นิ้วโป้ง - ตกลง ยืนยันคำตอบ\n"
+"    ลูกเต๋า - แสดงระดับปัจจุบัน คลิกเพื่อเลือกระดับต่อไป\n"
+"    โน้ตดนตรี - ทวนคำถาม\n"
+"    เครื่องหมายคำถาม - ช่วยเหลือ\n"
+"    เครื่องมือ - เมนูปรับแต่ง\n"
+"    ทักซ์นั่งเครื่องบิน - ข้อมูลเกี่ยวกับ GCompris\n"
+"รูปดาวแสดงถึงความเหมาะสมกับกลุ่มอายุเด็กของแต่ละเกม:\n"
+"    1, 2 หรือ 3 ระดับง่าย - จาก 2 ถึง 6 ขวบ\n"
+"    1, 2 หรือ 3 ระดับยาก - 7 ขวบขึ้นไป"
 
 #: ../boards/menu2.xml.in.h:16
-#, fuzzy
 msgid ""
 "GCompris is a collection of educational games that provides for children "
 "from 2 years old with different activities."
 msgstr ""
-"จีคอมพริสเป็นชุดสะสมสำหรับเกมส์การศึกษาซึ่งได้จัดเตรียมกิจกรรมหลากหลายสำหรับเด็กอายุ 2 ปีขึ้นไป"
+"GCompris เป็นชุดของเกมการศึกษา ซึ่งได้จัดเตรียมกิจกรรมหลากหลายสำหรับเด็กอายุ 2 ขวบขึ้นไป"
 
 #: ../boards/miscelaneous.xml.in.h:1
 msgid "Miscellaneous activities"
@@ -3304,27 +3306,27 @@ msgstr "กิจกรรมเบ็ดเตล็ด"
 
 #: ../boards/miscelaneous.xml.in.h:2
 msgid "Time, Geography, ..."
-msgstr "เวลา, ภูมิศาสตร์"
+msgstr "เวลา, ภูมิศาสตร์, ..."
 
 #: ../boards/missing_letter.xml.in.h:1
 msgid ""
 "An object is displayed in the main area, and an incomplete word is printed "
 "under the picture. Select the missing letter to complete the word."
 msgstr ""
-"วัตถุที่แสดงออกในพื้นที่หลัก และขาดคำที่สมบูรณ์ที่จะแสดงออกภายใต้รูป "
-"เลือกคำที่ขาดหายไปเพื่ิอเติมคำให้สมบูรณ์"
+"มีรูปภาพแสดงอยู่ในพื้นที่หลัก และมีคำที่สะกดไม่ครบแสดงอยู่ใต้รูป ให้เลือกตัวอักษรที่ขาดหายไป "
+"เพื่อเติมคำให้สมบูรณ์"
 
 #: ../boards/missing_letter.xml.in.h:2
 msgid "Fill in the missing letter"
-msgstr "ใส่คำที่ขาดหาย"
+msgstr "เติมตัวอักษรที่ขาดหาย"
 
 #: ../boards/missing_letter.xml.in.h:3
 msgid "Missing Letter"
-msgstr "อักษรที่ผิด"
+msgstr "ตัวอักษรหาย"
 
 #: ../boards/missing_letter.xml.in.h:4
 msgid "Training reading skills"
-msgstr "ฝึกหัดทักษะในการอ่าน"
+msgstr "ฝึกทักษะการอ่าน"
 
 #: ../boards/missing_letter.xml.in.h:5
 msgid "Word reading"
@@ -3332,99 +3334,99 @@ msgstr "การอ่านคำ"
 
 #: ../boards/missing_letter/board1.xml.in.h:1
 msgid "apple/_pple/a/i/o"
-msgstr "apple/_pple/a/i/o"
+msgstr "แอปเปิล/แอ_เปิล/ป/ด/น"
 
 #: ../boards/missing_letter/board1.xml.in.h:2
 msgid "apple/app_e/l/h/n"
-msgstr "apple/app_e/l/h/n"
+msgstr "แอปเปิล/แอป_ปิล/เ/า/แ"
 
 #: ../boards/missing_letter/board1.xml.in.h:3
 msgid "apple/appl_/e/h/a"
-msgstr "apple/appl_/e/h/a"
+msgstr "แอปเปิล/แอปเปิ_/ล/ด/บ"
 
 #: ../boards/missing_letter/board1.xml.in.h:4
 msgid "ball/_all/b/p/d"
-msgstr "ball/_all/b/p/d"
+msgstr "ลูกบอล/ลูก_อล/บ/ก/ต"
 
 #: ../boards/missing_letter/board1.xml.in.h:5
 msgid "ball/b_ll/a/u/o"
-msgstr "ball/b_ll/a/u/o"
+msgstr "ลูกบอล/ลูกบ_ล/อ/า/ว"
 
 #: ../boards/missing_letter/board1.xml.in.h:6
 msgid "ball/bal_/l/h/s"
-msgstr "ball/bal_/l/h/s"
+msgstr "ลูกบอล/ลูกบอ_/ล/ต/ม"
 
 #: ../boards/missing_letter/board1.xml.in.h:7
 msgid "banana/_anana/b/p/d"
-msgstr "banana/_anana/b/p/d"
+msgstr "กล้วย/_ล้วย/ก/ป/ฉ"
 
 #: ../boards/missing_letter/board1.xml.in.h:8
 msgid "banana/b_nana/a/o/i"
-msgstr "banana/b_nana/a/o/i"
+msgstr "กล้วย/กล้_ย/ว/อ/า"
 
 #: ../boards/missing_letter/board1.xml.in.h:9
 msgid "banana/ba_ana/n/m/b"
-msgstr "banana/ba_ana/n/m/b"
+msgstr "กล้วย/กล้ว_/ย/ม/น"
 
 #: ../boards/missing_letter/board1.xml.in.h:10
 msgid "bed/_ed/b/l/f"
-msgstr "bed/_ed/b/l/f"
+msgstr "เตียง/_ตียง/เ/ก/แ"
 
 #: ../boards/missing_letter/board1.xml.in.h:11
 msgid "bed/b_d/e/a/i"
-msgstr "bed/b_d/e/a/i"
+msgstr "เตียง/เตี_ง/ย/อ/ว"
 
 #: ../boards/missing_letter/board1.xml.in.h:12
 msgid "bed/be_/d/p/b"
-msgstr "bed/be_/d/p/b"
+msgstr "เตียง/เตีย_/ง/น/บ"
 
 #: ../boards/missing_letter/board1.xml.in.h:13
 msgid "bottle/_ottle/b/t/p"
-msgstr "bottle/_ottle/b/t/p"
+msgstr "ขวด/_วด/ข/ก/น"
 
 #: ../boards/missing_letter/board1.xml.in.h:14
 msgid "bottle/b_ttle/o/u/d"
-msgstr "bottle/b_ttle/o/u/d"
+msgstr "ขวด/ข_ด/ว/อ/า"
 
 #: ../boards/missing_letter/board1.xml.in.h:15
 msgid "bottle/bott_e/l/y/r"
-msgstr "bottle/bott_e/l/y/r"
+msgstr "ขวด/ขว_/ด/น/บ"
 
 #: ../boards/missing_letter/board1.xml.in.h:16
 msgid "cake/_ake/c/p/d"
-msgstr "cake/_ake/c/p/d"
+msgstr "ขนมเค้ก/_นมเค้ก/ข/เ/พ"
 
 #: ../boards/missing_letter/board1.xml.in.h:17
 msgid "cake/c_ke/a/o/e"
-msgstr "cake/c_ke/a/o/e"
+msgstr "ขนมเค้ก/ขนม_ค้ก/เ/แ/โ"
 
 #: ../boards/missing_letter/board1.xml.in.h:18
 msgid "cake/ca_e/k/q/c"
-msgstr "cake/ca_e/k/q/c"
+msgstr "ขนมเค้ก/ขนมเค้_/ก/น/ว"
 
 #: ../boards/missing_letter/board1.xml.in.h:19
 msgid "car/_ar/c/k/b"
-msgstr "car/_ar/c/k/b"
+msgstr "รถยนต์/_ถยนต์/ร/ย/ล"
 
 #: ../boards/missing_letter/board1.xml.in.h:20
 msgid "car/c_r/a/k/o"
-msgstr "car/c_r/a/k/o"
+msgstr "รถยนต์/ร_ยนต์/ถ/ด/ก"
 
 #: ../boards/missing_letter/board1.xml.in.h:21
 msgid "car/ca_/r/w/k"
-msgstr "car/ca_/r/w/k"
+msgstr "รถยนต์/รถ_นต์/ย/ล/ว"
 
 #: ../boards/missing_letter/board1.xml.in.h:22
 msgid "dog/_og/d/p/q"
-msgstr "dog/_og/d/p/q"
+msgstr "สุนัข/_ุนัข/ส/ด/จ"
 
 #: ../boards/missing_letter/board1.xml.in.h:23
 msgid "dog/d_g/o/g/a"
-msgstr "dog/d_g/o/g/a"
+msgstr "สุนัข/สุ_ัข/น/ย/ม"
 
 #: ../boards/missing_letter/board1.xml.in.h:24
 msgid "dog/do_/g/p/q"
-msgstr "dog/do_/g/p/q"
+msgstr "สุนัข/สุนั_/ข/ก/ค"
 
 #: ../boards/missing_letter/board1.xml.in.h:25
 msgid "fish/_ish/f/h/l"
@@ -3432,59 +3434,59 @@ msgstr "fish/_ish/f/h/l"
 
 #: ../boards/missing_letter/board1.xml.in.h:26
 msgid "fish/f_sh/i/u/l"
-msgstr "fish/f_sh/i/u/l"
+msgstr "ปลา/_ลา/ป/บ/พ"
 
 #: ../boards/missing_letter/board1.xml.in.h:27
 msgid "fish/fis_/h/o/i"
-msgstr "fish/fis_/h/o/i"
+msgstr "ปลา/ป_า/ล/ร/ว"
 
 #: ../boards/missing_letter/board1.xml.in.h:28
 msgid "house/_ouse/h/e/j"
-msgstr "house/_ouse/h/e/j"
+msgstr "บ้าน/_้าน/บ/ล/ป"
 
 #: ../boards/missing_letter/board1.xml.in.h:29
 msgid "house/h_use/o/f/u"
-msgstr "house/h_use/o/f/u"
+msgstr "บ้าน/บ้_น/า/ว/ย"
 
 #: ../boards/missing_letter/board1.xml.in.h:30
 msgid "house/hous_/e/a/i"
-msgstr "house/hous_/e/a/i"
+msgstr "บ้าน/บ้า_/น/ง/ม"
 
 #: ../boards/missing_letter/board1.xml.in.h:31
 msgid "plane/_lane/p/g/d"
-msgstr "plane/_lane/p/g/d"
+msgstr "เครื่องบิน/เ_รื่องบิน/ค/พ/ห"
 
 #: ../boards/missing_letter/board1.xml.in.h:32
 msgid "plane/p_ane/l/j/i"
-msgstr "plane/p_ane/l/j/i"
+msgstr "เครื่องบิน/เครื่อ_บิน/ง/น/ย"
 
 #: ../boards/missing_letter/board1.xml.in.h:33
 msgid "plane/pl_ne/a/o/s"
-msgstr "plane/pl_ne/a/o/s"
+msgstr "เครื่องบิน/เครื่องบิ_/น/ล/ด"
 
 #: ../boards/missing_letter/board1.xml.in.h:34
 msgid "satchel/_atchel/s/c/l"
-msgstr "satchel/_atchel/s/c/l"
+msgstr "กระเป๋า/_ระเป๋า/ก/ห/ป"
 
 #: ../boards/missing_letter/board1.xml.in.h:35
 msgid "satchel/s_tchel/a/o/i"
-msgstr "satchel/s_tchel/a/o/i"
+msgstr "กระเป๋า/ก_ะเป๋า/ร/ล/ว"
 
 #: ../boards/missing_letter/board1.xml.in.h:36
 msgid "satchel/sa_chel/t/p/c"
-msgstr "satchel/sa_chel/t/p/c"
+msgstr "กระเป๋า/กระเป๋_/า/ง/ะ"
 
 #: ../boards/money.xml.in.h:1 ../boards/money_cents.xml.in.h:1
 msgid "Can count"
-msgstr "สามารถนับ"
+msgstr "สามารถนับเลขได้"
 
 #: ../boards/money.xml.in.h:2 ../boards/money_cents.xml.in.h:2
 msgid ""
 "Click on the coins or paper money at the bottom of the screen to pay. If you "
 "want to remove a coin or note, click on it on the upper screen area."
 msgstr ""
-"คลิ๊กตรงเหรียญหรือธนบัตรตรงล่างสุดของจอภาพเพื่อจ่ายเงิน ถ้าหากคุณต้องเคลื่อนย้ายเหรียญ "
-"หรือกระดาษ กดคลิ๊กตรงมุมของจองภาพ"
+"คลิกที่เหรียญหรือธนบัตรที่ด้านล่างของหน้าจอเพื่อจ่ายเงิน ถ้าคุณต้องการเอาเหรียญหรือธนบัตรออก "
+"ให้คลิกที่เหรียญหรือธนบัตรนั้นที่บริเวณส่วนบนของหน้าจอ"
 
 #: ../boards/money.xml.in.h:3 ../boards/money_cents.xml.in.h:3
 msgid "Money"
@@ -3492,61 +3494,61 @@ msgstr "เงิน"
 
 #: ../boards/money.xml.in.h:4
 msgid "Practice money usage"
-msgstr "แบบฝึกหัดการใช้เงิน"
+msgstr "ฝึกหัดการใช้เงิน"
 
 #: ../boards/money.xml.in.h:5 ../boards/money_cents.xml.in.h:5
 msgid ""
 "You must buy the different items and give the exact price. At higher levels, "
 "several items are displayed, and you must first calculate the total price."
 msgstr ""
-"คุณจะต้องซื้อของที่แตกต่างกันและให้ราคาแต่ละชิ้น ที่ระดับสูง สิ่งของทั่วๆไปจะถูกแสดง "
-"และคุณจะต้องคำนวณราคาทั้งหมดเป็นคนแรก"
+"คุณจะต้องซื้อของรายการต่างๆ โดยจ่ายเงินตามราคาพอดี ในระดับที่สูงขึ้น จะแสดงสิ่งของหลายรายการ "
+"และคุณต้องคำนวณราคาทั้งหมดก่อน"
 
 #: ../boards/money_cents.xml.in.h:4
 msgid "Practice money usage including cents"
-msgstr "ฝึกการใช้เงินโดยรวมเงินเป็นเซน"
+msgstr "ฝึกการใช้เงินโดยมีเงินเซ็นต์ด้วย"
 
 #: ../boards/mosaic.xml.in.h:1
 msgid "Rebuild the mosaic"
-msgstr "สร้างภาพโมเสก"
+msgstr "ต่อภาพโมเสกขึ้นใหม่"
 
 #: ../boards/mouse.xml.in.h:1
 msgid "Mouse-manipulation activities."
-msgstr "กิจกรรมหลากหลายสำหรับเด็ก"
+msgstr "กิจกรรมเกี่ยวกับการฝึกควบคุมเมาส์"
 
 #: ../boards/mouse.xml.in.h:2
 msgid "Various mouse-based activities (clicking, moving)"
-msgstr "กิจกรรมเม้าส์พื้นฐาน(คลิ๊ก,ขยับ)"
+msgstr "กิจกรรมหลากหลายเกี่ยวกับเมาส์ (คลิก, ขยับ)"
 
 #: ../boards/numeration.xml.in.h:1
 msgid "Numeration"
-msgstr "ระบบการนับ"
+msgstr "เลขคณิต"
 
 #: ../boards/numeration.xml.in.h:2
 msgid "Numeration activities."
-msgstr "กิจกรรมนับตัวเลข"
+msgstr "กิจกรรมเกี่ยวกับตัวเลข"
 
 #: ../boards/paintings.xml.in.h:1
 msgid "Assemble the puzzle"
-msgstr "ประกอบภาพปริศนา"
+msgstr "ต่อภาพปริศนา"
 
 #: ../boards/paintings.xml.in.h:2
 msgid "Drag and Drop the items to rebuild the original paintings"
-msgstr "ลากแล้ววางชิ้นส่วนเพื่อประกอบภาพให้่เป็นรูปเดิม"
+msgstr "ลากชิ้นส่วนมาวางเพื่อต่อภาพให้เป็นรูปเดิม"
 
 #: ../boards/paintings.xml.in.h:3
 msgid ""
 "Drag the image parts from the box on the left to create a painting on the "
 "main board."
-msgstr "วางชิ้นส่วนของรูปภาพจากกล่องด้านซ้ายเพื่อสร้างภาพวาดบนกระดานใหญ่"
+msgstr "ลากชิ้นส่วนของรูปภาพจากกล่องด้านซ้าย เพื่อต่อให้เป็นภาพวาดในกระดานหลัก"
 
 #: ../boards/paintings.xml.in.h:4
 msgid "Mouse-manipulation: movement, drag and drop"
-msgstr "การปรับตั้งเม้าส์: การเคลือนใหว ลากและวาง"
+msgstr "การควบคุมเมาส์: การขยับ การลากวาง"
 
 #: ../boards/paintings.xml.in.h:5
 msgid "Spatial representation"
-msgstr "การนำเสนอเกี่ยวกับอวกาศ"
+msgstr "การกำหนดตำแหน่งที่ตั้ง"
 
 #: ../boards/paintings/board1_0.xml.in.h:1
 msgid "Edgar Degas, The Dancing Class - 1873-75"
@@ -3558,7 +3560,7 @@ msgstr ""
 
 #: ../boards/paintings/board3_0.xml.in.h:1
 msgid "Pierre-Auguste Renoir, Girls At The Piano - 1892"
-msgstr "Pierre-Auguste Renoir, ผู้หญิงกับเปียโน - 1892"
+msgstr "Pierre-Auguste Renoir, หญิงสาวกับเปียโน - 1892"
 
 #: ../boards/paintings/board3_1.xml.in.h:1
 msgid "Kandinsky, Wassily, Composition VIII - 1923"
@@ -3566,37 +3568,37 @@ msgstr "Kandinsky, Wassily, การประพันธ์ 8 - 1923"
 
 #: ../boards/paintings/board3_1.xml.in.h:2
 msgid "Oil on canvas, 140 x 201 cm; Solomon R. Guggenheim Museum, New York"
-msgstr "น้ำมันบนผ้าหนา, 140 x 201 ซม.; Solomon R. Guggenheim พิพิธภัณฑ์ นิวยอร์ค"
+msgstr "สีน้ำมันบนผ้าใบ, 140 x 201 ซม.; พิพิธภัณฑ์ Solomon R. Guggenheim นิวยอร์ค"
 
 #: ../boards/paintings/board4_0.xml.in.h:1
 msgid "Bazille, The Ramparts at Aigues-Mortes - 1867"
-msgstr "บราซิล, The Ramparts at Aigues-Mortes - 1867"
+msgstr "บราซิล, ป้อมปราการที่ Aigues-Mortes - 1867"
 
 #: ../boards/paintings/board5_0.xml.in.h:1
 msgid "Cassatt, Mary - Summertime - 1894"
-msgstr "Cassatt, Mary - ช่วงฤดูร้อน - 1894"
+msgstr "Cassatt, แมรี - ช่วงฤดูร้อน - 1894"
 
 #: ../boards/paintings/board6_0.xml.in.h:1
 msgid "Vincent Van Gogh, Village Street in Auvers - 1890"
-msgstr "วินเซ็นต์แวนโก๊ะ ถนนหมู่บ้านในอเวอร์นิว - 1890"
+msgstr "วินเซ็นต์ แวน โก๊ะ, ถนนในหมู่บ้านใน Auvers - 1890"
 
 #: ../boards/paratrooper.xml.in.h:1
 msgid "Help Tux the parachutist land safely"
-msgstr "ช่วยนักดิ่งพสุธาทักซ์ให้ลงอย่างปลอดภัย"
+msgstr "ช่วยทักซ์นักดิ่งพสุธาให้ลงอย่างปลอดภัย"
 
 #: ../boards/paratrooper.xml.in.h:2
 msgid ""
 "Hit any key or click on the plane to make Tux jump. Hit another key or click "
 "on Tux to open the parachute."
-msgstr "กดปุ่มใดๆ หรือคลิกที่เครื่องบินเพื่อให้ทักซ์กระโดด กดปุ่มอื่นๆ หรือคลิ๊กที่ทักซ์เพื่อกางร่ม"
+msgstr "กดปุ่มใดๆ หรือคลิกที่เครื่องบินเพื่อให้ทักซ์กระโดด กดปุ่มอื่นๆ หรือคลิกที่ทักซ์เพื่อกางร่ม"
 
 #: ../boards/paratrooper.xml.in.h:3
 msgid ""
 "In this game, Tux the parachutist needs help to land safely on the fishing "
 "boat. He needs to allow for the wind direction and speed."
 msgstr ""
-"ในเกมส์นี้ ทักซ์เป็นนักดิ่งพสุธา จำเป็นที่จะต้องลงพื้นอย่างปลอดภัยบนเรือตกปลา "
-"เขาจำเป็นจำต้องรู้เกี่ยวกับความเร็วและทิศทางลม"
+"ในเกมนี้ ทักซ์นักดิ่งพสุธา ต้องการความช่วยเหลือในการลงอย่างปลอดภัยบนเรือตกปลา "
+"เขาจำเป็นต้องประเมินความเร็วและทิศทางลม"
 
 #: ../boards/paratrooper.xml.in.h:4
 msgid "Parachutist"
@@ -3604,18 +3606,19 @@ msgstr "นักดิ่งพสุธา"
 
 #: ../boards/paratrooper.xml.in.h:5
 msgid "This board is game-oriented. No specific skills are needed to play."
-msgstr "กระดานนี้เป็นเกมส์ท่ีคุนเคย ไม่ต้องอาศัยทักษะพิเศษในการเล่น"
+msgstr "กระดานนี้เน้นเล่นเกม ไม่ต้องอาศัยทักษะพิเศษในการเล่น"
 
 #: ../boards/planegame.xml.in.h:1
 msgid ""
 "Catch the numbers in increasing order, using the up, down, right and left "
 "arrows on the keyboard to move the helicopter."
 msgstr ""
-"จับตัวเลขที่เพิ่มขึ้นตามลำดับ ใช้ลูกศร บน ล่าง ซ้าย ขวา บนแป้นพิมพ์ เพื่อเคลือนใหวเฮลิคอบเตอร์"
+"จับตัวเลขต่างๆ ตามลำดับจากน้อยไปมาก โดยใช้ลูกศร ขึ้น ลง ซ้าย ขวา บนแป้นพิมพ์ "
+"เพื่อเคลื่อนย้ายเฮลิคอปเตอร์"
 
 #: ../boards/planegame.xml.in.h:2
 msgid "Move the helicopter to catch the clouds in the correct order"
-msgstr "ย้ายเฮลิคอบเตอร์ไปจับก้อนเฆฆในลำดับที่ถูกต้อง"
+msgstr "ย้ายเฮลิคอปเตอร์ไปจับก้อนเฆฆในลำดับที่ถูกต้อง"
 
 #: ../boards/planegame.xml.in.h:3
 msgid "Number"
@@ -3623,40 +3626,40 @@ msgstr "ตัวเลข"
 
 #: ../boards/planegame.xml.in.h:4 ../src/boards/planegame.c:77
 msgid "Numbers in Order"
-msgstr "ตัวเลขที่อยู่ในลำดับรายการ"
+msgstr "ตัวเลขเรียงตามลำดับ"
 
 #: ../boards/puzzle.xml.in.h:1
 msgid "Puzzles"
-msgstr "ทำให้งง"
+msgstr "ปริศนา"
 
 #: ../boards/puzzle.xml.in.h:2
 msgid "Various puzzles."
-msgstr "เกมส์ปริศนาหลากหลาย"
+msgstr "เกมปริศนาหลากหลาย"
 
 #: ../boards/pythontest.xml.in.h:1
 msgid "Add a language-binding to gcompris."
-msgstr "เพิ่มภาษาในจีคอมพริส"
+msgstr "เพิ่มการเชื่อมโยงกับโปรแกรมภาษาอื่นใน GCompris"
 
 #: ../boards/pythontest.xml.in.h:2
 msgid "Advanced Python Programmer :)"
-msgstr "การเขียนโปรแกรมไพตอนแบบก้าวหน้า"
+msgstr "นักเขียนโปรแกรมไพธอนขั้นสูง :)"
 
 #: ../boards/pythontest.xml.in.h:3
 msgid "Python Test"
-msgstr "ทดสอบไพตอน"
+msgstr "ทดสอบไพธอน"
 
 #: ../boards/pythontest.xml.in.h:4
 msgid "Test board for the python plugin"
-msgstr "ทดสอบกระดานสำหรับโปรแกรมเสริมไพตอน"
+msgstr "กระดานทดสอบสำหรับโปรแกรมเสริมโดยใช้ไพธอน"
 
 #: ../boards/pythontest.xml.in.h:5
 msgid ""
 "Thanks to Guido van Rossum and the python team for this powerful language!"
-msgstr "ขอบคุณสำหรับ Guido van Rossum และไพตอนทีมสำหรับภาษาที่เปี่ยมล้น"
+msgstr "ขอบคุณ Guido van Rossum และทีมพัฒนาภาษาไพธอนสำหรับภาษาที่ทรงพลังนี้!"
 
 #: ../boards/railroad.xml.in.h:1
 msgid "A memory game based on trains"
-msgstr "เกมส์ความจำมีพื้นฐานจากการฝึก"
+msgstr "เกมฝึกความจำกับรถไฟ"
 
 #: ../boards/railroad.xml.in.h:2
 msgid ""
@@ -3665,25 +3668,26 @@ msgid ""
 "appropriate carriages and locomotive. Deselect an item by clicking on it "
 "again. Check your construction by clicking on the hand at the bottom."
 msgstr ""
-"รถไฟ - หัวรถจักรไอน้ำและตู้โดยสารรถไฟ - ซึ่งได้แสดงที่ด้านบนสุดของพื้นที่หลักในช่วงเวลาสั้นๆ "
-"สร้างมัน ณ บนสุดของจอภาพโดยเลือกหัวรถจักรและตู้โดยสารรถไฟที่เหมาะสม ยกเว้นการเลือกสิ่งต่างๆ "
-"โดยการคลิ๊กท่ี่มัีนอีกครั้ง ตรวจสอบส่ิงที่คุณสร้าง โดยคลิ๊กบนมือที่ด้านล่าง"
+"รถไฟ - หัวรถจักรและตู้รถไฟ - จะปรากฏที่ด้านบนของพื้นที่หลักของหน้าจอเป็นเวลาสั้นๆ "
+"ให้สร้างรถไฟตามนั้น ที่ด้านบนของจอภาพ โดยเลือกตู้รถไฟและหัวรถจักรที่เหมาะสม "
+"คุณสามารถยกเลิกการเลือกแต่ละตู้ได้โดยคลิกที่ตู้นั้นอีกครั้ง ตรวจสอบรถไฟที่สร้างได้ "
+"โดยคลิกที่รูปมือด้านล่าง"
 
 #: ../boards/railroad.xml.in.h:3
 msgid "Memory-training"
-msgstr "ฝึกหัดใช้หน่วยความจำ"
+msgstr "ฝึกความจำ"
 
 #: ../boards/railroad.xml.in.h:5
 msgid "Railway"
-msgstr "รางรถไฟ"
+msgstr "รถไฟ"
 
 #: ../boards/read_colors.xml.in.h:2
 msgid "Click on the correct colored object."
-msgstr "คลิ๊กบนวัตถุสีที่ถูกต้อง"
+msgstr "คลิกบนวัตถุที่มีสีถูกต้อง"
 
 #: ../boards/read_colors.xml.in.h:3
 msgid "Click on the matching color"
-msgstr "คลิ๊กบนสีที่เหมาะสม"
+msgstr "คลิกบนสีที่ตรงกัน"
 
 #: ../boards/read_colors.xml.in.h:4
 msgid "Read the names of colors"
@@ -3691,7 +3695,7 @@ msgstr "อ่านชื่อของสี"
 
 #: ../boards/read_colors.xml.in.h:5
 msgid "This board teaches basic colors."
-msgstr "กระดานนี้สอนสีพื้นฐาน"
+msgstr "กระดานนี้สอนให้รู้จักสีพื้นฐาน"
 
 #: ../boards/read_colors/board1.xml.in.h:1
 msgid "black"
@@ -3750,35 +3754,36 @@ msgid ""
 "A word is shown at the top right of the board. A list of words will appear "
 "and disappear on the left. Does the given word belong to the list?"
 msgstr ""
-"คำที่แสดงที่ขวาบนสุดของกระดาน รายชื่อคำจะแสดงและหายไปบนด้านซ้าย คำใหนบ้างที่ได้ให้ไป?"
+"มีคำคำหนึ่งแสดงไว้ที่มุมบนขวาของกระดาน และจะมีรายการคำปรากฏแล้วหายไปในด้านซ้าย "
+"คำที่กำหนดอยู่ในรายการคำนั้นหรือไม่?"
 
 #: ../boards/readingh.xml.in.h:2
 msgid "Horizontal reading practice"
-msgstr "แบบฝึกหัดอ่านแนวนอน"
+msgstr "ฝึกอ่านในแนวนอน"
 
 #: ../boards/readingh.xml.in.h:3
 msgid "Read a list of words and work out if a given word is in it"
-msgstr "อ่านรายช่่อของคำและค่อยๆลงมือทำถ้าคำนั้นได้อยู่ในข้างใน"
+msgstr "อ่านรายการคำและหาว่าคำที่กำหนดอยู่ในรายการหรือไม่"
 
 #: ../boards/readingh.xml.in.h:5
 msgid "Reading training in a limited time"
-msgstr "แบบฝึกการอ่านในเวลาที่จำกัด"
+msgstr "ฝึกการอ่านในเวลาที่จำกัด"
 
 #: ../boards/readingv.xml.in.h:2
 msgid "Read a vertical list of words and work out if a given word is in it"
-msgstr "อ่านข้อความในแนวตั้งและลงมือทำหากเป็นคำที่กำหนดไว้ให้"
+msgstr "อ่านรายการคำในแนวตั้งและหาว่าคำที่กำหนดอยู่ในรายการหรือไม่"
 
 #: ../boards/readingv.xml.in.h:3
 msgid "Read training in a limited time"
-msgstr "แบบฝึกการอ่านในเวลาที่จำกัด"
+msgstr "ฝึกการอ่านในเวลาที่จำกัด"
 
 #: ../boards/readingv.xml.in.h:5
 msgid "Vertical-reading practice"
-msgstr "แบบฝึกหัดอ่านแนวตั้ง"
+msgstr "ฝึกหัดอ่านแนวตั้ง"
 
 #: ../boards/redraw.xml.in.h:1
 msgid "Copy a drawing from the box on the right into the box on the left."
-msgstr "คัดลอกรูปวาดจากกล่องด้านขวามือไปสู่กล่องด้านซ้ายมือ"
+msgstr "คัดลอกภาพวาดจากกล่องด้านขวามือไปสู่กล่องด้านซ้ายมือ"
 
 #: ../boards/redraw.xml.in.h:2
 msgid ""
@@ -3787,19 +3792,20 @@ msgid ""
 "marked with a little red cross. The order of objects (above/under) is not "
 "important but be careful not to end up with unwanted objects under others."
 msgstr ""
-"ขั้นแรก เลือกเครื่องมือที่เหมาะสมจากแถบเครื่องมือ จากนั้นลากเม้าเพื่อสร้างวัตถุ เมื่อคุณเสร็จสิ้น "
-"คลิ๊กลงลนปุ่ม Ok สิ่งที่ผิดพลาดจะถูกทำสัญลักษณ์ด้วยกากบาทสีแดง ลำดับของวัตถุ(เหนืิอกว่าหรือตำกว่า) "
-"ไม่ได้มีความสำคัญ แต่ควรจะระมัดระวังที่จะเสร็จสิ้น โดยมีวัตถุที่ไม่พึงประสงค์ติดมาด้วย"
+"ขั้นแรก เลือกเครื่องมือที่เหมาะสมจากแถบเครื่องมือ จากนั้นลากเมาส์เพื่อสร้างวัตถุต่างๆ "
+"เมื่อคุณวาดเสร็จแล้ว ให้คลิกปุ่ม \"ตกลง\" สิ่งที่ผิดพลาดจะถูกทำสัญลักษณ์ด้วยกากบาทสีแดงเล็กๆ "
+"ลำดับของวัตถุ (การวางทับซ้อนกัน) ไม่มีความสำคัญ "
+"แต่ควรจะระมัดระวังไม่ให้มีวัตถุที่ไม่พึงประสงค์ซ่อนอยู่ใต้วัตถุอื่น"
 
 #: ../boards/redraw.xml.in.h:3
 msgid "Redraw the given item"
-msgstr "วาดรูปขึ้นมาใหม่ในสิ่งที่มอบให้"
+msgstr "วาดรูปที่กำหนดขึ้นมาใหม่"
 
 #: ../boards/redraw_symmetrical.xml.in.h:1
 msgid ""
 "Copy the mirror image of an object from the box on the right into the box on "
 "the left."
-msgstr "คัดลอกภาพสะท้อนของวัตถุจากกล่องด้านซ้ายไปยังกล่องด้านขวา"
+msgstr "คัดลอกภาพสะท้อนของวัตถุจากกล่องด้านขวาไปยังกล่องด้านซ้าย"
 
 #: ../boards/redraw_symmetrical.xml.in.h:2
 msgid ""
@@ -3809,19 +3815,20 @@ msgid ""
 "(above/under) is not important but be careful not to end up with unwanted "
 "objects under others."
 msgstr ""
-"ขั้นแรก เลือกเครื่องมือที่เหมาะสมจากแถบเครื่องมือ จากนั้นลากเม้าส์เพื่อสร้างวัตถุ เมื่อคุณเสร็จสิ้น "
-"คลิ๊กที่ปุ่ม OK จะมีกากบาทสีแดงปรากฎในจุดที่มีบางอย่างที่ไม่ถูกต้อง การเรียงลำดับของวัตถุ"
-"(สูงกว่าหรือต่ำกว่า) ไม่ใช่สิ่งสำคัญ แต่จะต้องระมัดระวังไม่ให้เสร็จสิ้นโดยมีวัตถุที่ไม่พึงประสงค์ติดไปด้วย"
+"ขั้นแรก เลือกเครื่องมือที่เหมาะสมจากแถบเครื่องมือ จากนั้นลากเมาส์เพื่อสร้างวัตถุต่างๆ "
+"เมื่อคุณวาดเสร็จแล้ว ให้คลิกปุ่ม \"ตกลง\" กากบาทสีแดงเล็กๆ จะแสดงจุดที่ยังไม่เรียบร้อย "
+"ลำดับของวัตถุ (การวางทับซ้อนกัน) ไม่มีความสำคัญ "
+"แต่ควรจะระมัดระวังไม่ให้มีวัตถุที่ไม่พึงประสงค์ซ่อนอยู่ใต้วัตถุอื่น"
 
 #: ../boards/redraw_symmetrical.xml.in.h:3
 msgid "Mirror the given item"
-msgstr "ทำเป็นเงาสะท้อนในส่ิงที่มอบให้"
+msgstr "วาดภาพเงาสะท้อนของส่ิงที่มอบให้"
 
 #: ../boards/reversecount.xml.in.h:1
 msgid ""
 "Can move the mouse, can read numbers and subtract numbers up to 10 for the "
 "first level"
-msgstr "สามารถขยับเม้าส์ อ่านตัวตัวเลขและลบตัวเลขให้ได้ 10 สำหรับระดับแรก"
+msgstr "สามารถขยับเมาส์ได้ อ่านตัวเลขได้ และลบเลขได้ถึง 10 สำหรับระดับแรก"
 
 #: ../boards/reversecount.xml.in.h:2
 msgid ""
@@ -3829,12 +3836,12 @@ msgid ""
 "fish. Click the dice with the right mouse button to count backwards. When "
 "done, click on the OK button or hit the Enter key."
 msgstr ""
-"คลิ๊กที่ลูกเต๋าเพื่อแสดงว่ามีจุดน้ำแข็งกี่จุดที่เป็นระหว่างทักซ์และปลา "
-"คลิ๊กที่ลูกเต๋าด้วยปุ่มเม้าส์ซ้่ายเพื่อนับไปข้างหน้า หลังจากเสร็จ กดที่ปุ่ม\"ตกลง\"หรือเคาะปุ่ม Enter"
+"คลิกลูกเต๋าเพื่อแสดงว่ามีจุดน้ำแข็งกี่จุดที่อยู่ระหว่างทักซ์กับปลา "
+"คลิกที่ลูกเต๋าด้วยปุ่มเมาส์ขวาเพื่อนับถอยหลัง หลังจากเสร็จแล้ว คลิก \"ตกลง\" หรือเคาะปุ่ม Enter"
 
 #: ../boards/reversecount.xml.in.h:3
 msgid "Practice subtraction with a fun game"
-msgstr "แบบฝีกหัดการลบด้วยเกมส์ที่สนุก"
+msgstr "ฝึกลบเลขด้วยเกมสนุกๆ"
 
 #: ../boards/reversecount.xml.in.h:4
 msgid "Tux is hungry. Help him find fish by counting to the correct ice spot."
@@ -3851,15 +3858,15 @@ msgstr "ทักซ์กำลังหิว ช่วยเขาหาป�
 #: ../boards/scales/board3_4.xml.in.h:1 ../boards/scales/board3_5.xml.in.h:1
 #: ../boards/scalesboard.xml.in.h:2
 msgid "Drag and Drop masses to balance the scales"
-msgstr "ลากแล้ววางนำหนักเพื่อทำสมดุลย์ของตราชั่ง"
+msgstr "ลากวางน้ำหนักเพื่อทำตาชั่งให้สมดุล"
 
 #: ../boards/scalesboard.xml.in.h:1
 msgid "Balance the scales properly"
-msgstr "ปรับสมดุลตาชั่งอย่างเหมาะสม"
+msgstr "ปรับสมดุลตาชั่งให้พอดี"
 
 #: ../boards/scalesboard.xml.in.h:3
 msgid "Mental calculation, arithmetic equality"
-msgstr "การคำนวณในใจ การเท่ากันทางคณิตศาสตร์"
+msgstr "การคำนวณในใจ การเท่ากันทางเลขคณิต"
 
 #: ../boards/scalesboard.xml.in.h:4
 msgid ""
@@ -3867,19 +3874,18 @@ msgid ""
 "moreau@free.fr) in 2001. Its name is 'Spices Seller in Egypt'. It is "
 "released under the GPL licence."
 msgstr ""
-"โปรแกรมวาดรูปซึ่งต้นฉบับของโปรแกรมวาดรูปถูกสร้างโดย เวอริจินี่ โมรู (virginie.moreau@free."
-"fr) ในปี 2001. มันมีชื่อว่า 'คนขายเครื่องเทศในอียิปต์'โปรแกรมนี้ถูกผลิตภายในลิขสิทธิ์แบบจีพีแอล"
-"(GPL) "
+"ภาพวาดเป็นภาพต้นฉบับที่สร้างโดย เวอร์จินี โมรู (virginie.moreau@free.fr) ในปี 2001  "
+"ชื่อของภาพคือ 'คนขายเครื่องเทศในอียิปต์' ภาพนี้เผยแพร่ภายใต้เงื่อนไข GPL"
 
 #: ../boards/scalesboard.xml.in.h:5
 msgid ""
 "To balance the scales, move the masses on the left side. The masses can be "
 "arranged in any order."
-msgstr "เพื่อสร้างสมดุลย์ของตราชั่ง เคลื่อนย้ายมวลบนด้านซ้าย มวลสามารถจัดเรียงได้ตามต้องการ"
+msgstr "ในการดุลตาชั่ง ให้เคลื่อนย้ายก้อนมวลที่ด้านซ้าย ก้อนมวลสามารถจัดเรียงลำดับอย่างไรก็ได้"
 
 #: ../boards/searace.xml.in.h:1
 msgid "Direct your boat accurately to win the race."
-msgstr "กำกับเรือของคุณอย่างแม่นยำเพื่อชนะในการแข่งขัน"
+msgstr "กำกับเรือของคุณอย่างแม่นยำเพื่อชนะการแข่งขัน"
 
 #: ../boards/searace.xml.in.h:2 ../boards/searace1player.xml.in.h:2
 msgid ""
@@ -3896,15 +3902,15 @@ msgid ""
 "anywhere on the map to get a measurement in distance and angle. Going to the "
 "next level will give you more complex weather conditions."
 msgstr ""
-"ในช่องป้อนข้อความ ป้อนหนึี่งคำสั่งต่อหนึ่งบรรทัด เพื่อควบคุมเรือของคุณ "
-"คำสั่งได้สนับสนุนสิ่งที่แสดงระหว่างพื้นที่สองช่อง 'left' และ 'right' คำสั่งจะต้องบอกมุมเป็นองศา "
-"ค่าของมุมจะเรียกว่า พารามิเตอร์ แก่คำสั่งซ้ายและขวา ค่าปรกติจะเป็น 45 องศษ คำสั่ง 'forward' "
-"เป็นคำสั่งที่ยกเวันพารามิเตอร์ระยะทาง โดยปรกติจะเป็น 1 ยกตัวอย่างเช่น left 90 => "
-"จะทำให้หมุนซ้ายเป็นเส้นตั้งฉาก forward 10 => ไปข้างหน้าเป็นระยะทาง 10 หน่วย "
-"(เหมือนอย่างที่แสดงไว้ในกฎ) จุดมุ่งหมายเพื่อไปยังขวาของจอภาพ(เส้นแดง) เมื่อเสร็จ "
-"คุณสามารถพัฒนาโปรแกรและเริ่มเส้นทางใหม่ด้วยคำสั่งเดิมๆ เงื่อนใขเดิมๆ โดยใช้ปุ่มเริ่มใหม่ "
-"คุณสามารถคลิ๊กและลากเม้าส์ของคุณไปจุดใดๆ บนแผนที่เพื่อวัดระยะทางและมุม "
-"ไปยังระดับต่อไปโดยคุณจะได้เงื่อนใขที่ซับซ้อนขึ้น"
+"ในช่องป้อนข้อความ ป้อนหนึ่งคำสั่งต่อบรรทัด เพื่อควบคุมเรือของคุณ "
+"คำสั่งที่ใช้ได้จะแสดงไว้ระหว่างทั้งสองช่อง คำสั่ง 'left' และ 'right' จะต้องตามด้วยมุมเป็นองศา "
+"ค่าของมุมที่ตามหลังคำสั่งดังกล่าวนี้ เรียกว่า 'พารามิเตอร์' ของคำสั่ง left และ right  "
+"ซึ่งหากไม่ระบุ ค่าปรกติจะเป็น 45 องศา คำสั่ง 'forward' จะรับพารามิเตอร์เป็นระยะทาง "
+"ซึ่งหากไม่ระบุ ค่าปรกติจะเป็น 1  ตัวอย่างเช่น left 90 => เลี้ยวซ้ายเป็นมุมฉาก, forward 10 => "
+"ไปข้างหน้าเป็นระยะทาง 10 หน่วย (ตามที่แสดงไว้ในไม้บรรทัด) เป้าหมายคือไปยังด้านขวาของจอภาพ "
+"(เส้นแดง) เมื่อเสร็จแล้ว คุณสามารถพยายามปรับปรุงโปรแกรมและเริ่มแข่งใหม่ด้วยสภาพอากาศเดิมได้ "
+"โดยใช้ปุ่มลองใหม่ คุณสามารถคลิกและลากเมาส์ของคุณไปยังจุดใดๆ บนแผนที่ เพื่อวัดระยะทางและมุมได้ "
+"และเมื่อเลื่อนไปยังระดับต่อไป คุณจะพบสภาพอากาศที่ซับซ้อนขึ้น"
 
 #: ../boards/searace.xml.in.h:3 ../boards/searace1player.xml.in.h:3
 msgid ""
@@ -3913,22 +3919,21 @@ msgid ""
 "construct a program. This activity can be used to introduce the programming "
 "concept to children."
 msgstr ""
-"ในกิจกรรมนี้่ คุณจะต้องเรียนรู้ว่าทำอย่างไรที่จะป้อนคำสั่งไปยังคอมพิวเตอร์ "
-"เหตุการณ์ถ้าภาษาที่ใฃ้เป็นอย่างพื้นฐานที่สุด "
-"คุณเรียนรู้จากที่นี่ว่าการคิดไปข้างหน้าและวางโครงสร้างโปรแกรมอย่างไร "
-"ในกิจกรรมนี้สามารถใช้กับพื้นฐานแนวคิดในการสร้างโปรแกรมสำหรับเด็ก"
+"ในกิจกรรมนี้่ คุณจะเรียนรู้การป้อนคำสั่งให้กับคอมพิวเตอร์ ถึงแม้ภาษาที่ใช้เป็นอย่างพื้นฐานที่สุด "
+"แต่คุณจะได้เรียนรู้การคิดล่วงหน้าเพื่อสร้างเป็นโปรแกรม "
+"กิจกรรมนี้สามารถใช้แนะนำแนวคิดการเขียนโปรแกรมสำหรับเด็กได้"
 
 #: ../boards/searace.xml.in.h:4
 msgid "Sea race (2 Players)"
-msgstr "ลู่วิ่งทะเล(เล่นสองคน)"
+msgstr "เกมเจ้าทะเล (เล่นสองคน)"
 
 #: ../boards/searace1player.xml.in.h:1
 msgid "Give good instructions to your ship in order to be first in the race."
-msgstr "ให้คำสั่งที่ดีแก่เรือของคุณในการที่จะเป็นที่หนึ่งในการแข่งขัน"
+msgstr "ป้อนคำสั่งที่ดีให้กับเรือของคุณเพื่อเป็นที่หนึ่งในการแข่งขัน"
 
 #: ../boards/searace1player.xml.in.h:4
 msgid "Sea race (Single Player)"
-msgstr "ลู่ทะเล(เล่นคนเดียว)"
+msgstr "เกมเจ้าทะเล (เล่นคนเดียว)"
 
 #: ../boards/smallnumbers.xml.in.h:1 ../boards/smallnumbers2.xml.in.h:1
 msgid "Count the number of dots on dice before they reach the ground"
@@ -3940,19 +3945,19 @@ msgstr "ทักษะการนับ"
 
 #: ../boards/smallnumbers.xml.in.h:3 ../boards/smallnumbers2.xml.in.h:3
 msgid "In a limited time, count the number of dots"
-msgstr "ในเวลาที่จำกัด จงนับจำนวนบนลูกเต๋า"
+msgstr "นับจำนวนจุดบนลูกเต๋าในเวลาที่จำกัด "
 
 #: ../boards/smallnumbers.xml.in.h:4
 msgid "Numbers With Dice"
-msgstr "ตัวเลขด้วยลูกเต๋า"
+msgstr "ตัวเลขกับลูกเต๋า"
 
 #: ../boards/smallnumbers.xml.in.h:5 ../boards/smallnumbers2.xml.in.h:5
 msgid "With the keyboard, type the number of dots you see on the falling dice."
-msgstr "ด้วยแป้นพิมพ์ พิมพ์จำนวนตัวเลขหรือจุดที่คุณเห็นในลูกเต๋าที่ทอดลงไป"
+msgstr "พิมพ์ตัวเลขจำนวนจุดที่คุณเห็นในลูกเต๋าที่กำลังหล่น โดยใช้แป้นพิมพ์"
 
 #: ../boards/smallnumbers2.xml.in.h:4
 msgid "Numbers with pairs of dice"
-msgstr "จำนวนของลูกเต๋าทั้งสองอัน"
+msgstr "ตัวเลขลูกเต๋าสองลูก"
 
 #: ../boards/sound_group.xml.in.h:1
 msgid "Go to Sound activities"
@@ -3960,23 +3965,23 @@ msgstr "เข้าสู่กิจกรรมเสียง"
 
 #: ../boards/sound_group.xml.in.h:2
 msgid "Sound based activities."
-msgstr "เสียงแต่ละกิจกรรมฐาน"
+msgstr "กิจกรรมเกี่ยวกับเสียง"
 
 #: ../boards/strategy.xml.in.h:1
 msgid "Strategy games"
-msgstr "เกมส์วางแผน"
+msgstr "เกมวางแผน"
 
 #: ../boards/strategy.xml.in.h:2
 msgid "Strategy games like chess, connect4, ..."
-msgstr "เกมส์วางแผนคล้ายหมากรุก connect4"
+msgstr "เกมวางแผน เช่น หมากรุก, เชื่อมต่อ 4, ..."
 
 #: ../boards/submarine.xml.in.h:1
 msgid ""
 "Click on different active elements : engine, rudders and air tanks, in order "
 "to navigate to the required depth."
 msgstr ""
-"คลิ๊กบนหลากหลายสภาพธรรมชาติที่ปฎิบัติการอยู่ เครื่องยนต์ หางเสือเรือ "
-"และถังอ๊อกซิเจนตามลำดับเพื่อลำลงไปยังที่ลึก"
+"คลิกที่ส่วนประกอบต่างๆ ที่ทำงานอยู่ : เครื่องยนต์, หางเสือ และถังอากาศ "
+"เพื่อดำลงไปที่ความลึกที่กำหนด"
 
 #: ../boards/submarine.xml.in.h:2
 msgid "Learn how a submarine works"
@@ -3984,19 +3989,19 @@ msgstr "เรียนรู้การทำงานของเรือด
 
 #: ../boards/submarine.xml.in.h:3
 msgid "Physics basics"
-msgstr "ฟิสิกส์พื้นฐาน"
+msgstr "พื้นฐานฟิสิกส์"
 
 #: ../boards/submarine.xml.in.h:4
 msgid "Pilot a submarine"
-msgstr "คนขับเรือดำน้ำ"
+msgstr "ขับเรือดำน้ำ"
 
 #: ../boards/submarine.xml.in.h:5
 msgid "Pilot a submarine using air tanks and dive rudders"
-msgstr "พลขับเรือดำน้ำให้ใช้ถังอ๊อกซิเจนและบังเรือให้ดำน้ำ"
+msgstr "ขับเรือดำน้ำโดยใช้ถังอากาศและหางเสือสำหรับดำน้ำ"
 
 #: ../boards/sudoku.xml.in.h:1
 msgid "Completing the puzzle requires patience and logical ability"
-msgstr "การทำปริศนาให้สมบูรณ์ต้องอาศัยความอดทนและความสามารถทางตรรกะ"
+msgstr "การเติมปริศนาให้สมบูรณ์ต้องอาศัยความอดทนและความสามารถทางตรรกะ"
 
 #: ../boards/sudoku.xml.in.h:2
 msgid ""
@@ -4005,18 +4010,18 @@ msgid ""
 "the keyboard focus. Then enter a possible letter or number. GCompris will "
 "not let you enter invalid data."
 msgstr ""
-"สำหรับอันดับแรกของสัญลักษณ์สี ลากสัญลักษณ์จากด้านซ้ายสู่เป้าหมายทั้งหลาย สำหรับระดับสูง "
-"คลิ๊กที่บนสี่เหลี่ยมว่างให้มันโดยกำหนดจากแป้นพิมพ์ จากนั้นป้อนอักษรหรือตัวเลขที่เป็นไปได้ "
-"จีคอมพริสจะไม่ให้คุณป้่อนข้อมูลที่เป็นไปไม่ได้"
+"สำหรับระดับแรกที่ใช้สัญลักษณ์สีต่างๆ ให้ลากสัญลักษณ์จากด้านซ้ายไปยังตำแหน่งเป้าหมาย "
+"สำหรับระดับที่สูงขึ้นไป ให้คลิกที่ช่องที่ว่างอยู่ เพื่อกำหนดโฟกัสของแป้นพิมพ์ จากนั้น "
+"ป้อนตัวอักษรหรือตัวเลขที่สามารถเติมได้ตามกฎ  GCompris จะไม่ยอมให้คุณป้อนข้อมูลที่ไม่ถูกกฎ"
 
 #: ../boards/sudoku.xml.in.h:3
 msgid "Sudoku, place unique symbols in a square."
-msgstr "ซูโดคู วางชิ้นส่วนที่ไม่ซ้ำรูปแบบลงบนสี่เหลี่ยม"
+msgstr "ซูโดกุ วางสัญลักษณ์ในตารางโดยไม่ให้ซ้ำ"
 
 #: ../boards/sudoku.xml.in.h:4
 msgid ""
 "Symbols must be unique in a row, in a column, and (if defined) each region."
-msgstr "สัญลักษณ์จะไม่มีการซ้ำในแต่แถว ในแต่ละสดมภ์ และ(ถ้าถูกกำหนด)ในแต่ละภูมิภาค"
+msgstr "สัญลักษณ์จะต้องไม่ซ้ำในแต่แถว ในแต่ละสดมภ์ และ (ถ้าถูกกำหนด) ในแต่ละบริเวณย่อย"
 
 #: ../boards/sudoku.xml.in.h:5
 msgid ""
@@ -4027,10 +4032,11 @@ msgid ""
 "instance of each symbol or numeral (Source &lt;http://en.wikipedia.org/wiki/"
 "Sudoku&gt;)."
 msgstr ""
-"ความมุ่งมั่นของเกมปริศนาเพื่อเข้าไปสู่สัญลักษณ์ หรือตัวเลขจาก 1 ถึง 9 ในแต่ละช่องของตาราง "
-"มักจะใช้มากที่สุดคือ 9x9 ไปจนถึง 3x3 ช่องเล็ก (เรียกว่า ขอบเขต) เริ่มด้วยสัญลักษณ์ต่างๆ "
-"และตัวเลจที่ได้ไห้ในบางช่อง (ผู้ให้) ในแต่ละแถว สดมและขอบเขตจะต้องบรรจุสัญลักษณ์หนึ่งอย่าง "
-"หรือเกี่ยวกับตัวเลข (Source &lt;http://en.wikipedia.org/wiki/Sudoku&gt;)"
+"เป้าหมายของปริศนาก็คือ เขียนสัญลักษณ์หรือตัวเลขจาก 1 ถึง 9 ในแต่ละช่องของตาราง "
+"ซึ่งโดยส่วนใหญ่จะเป็นตาราง 9x9 ที่ประกอบด้วยตารางย่อยขนาด 3x3 (เรียกว่า 'บริเวณ') "
+"โดยในตอนเริ่มต้น จะมีสัญลักษณ์หรือตัวเลขเติมอยู่ในบางช่อง (เป็น 'เลขโจทย์') แต่ละแถว สดมภ์ "
+"และบริเวณ ต้องใช้สัญลักษณ์หรือตัวเลขแต่ละตัวเพียงครั้งเดียวเท่านั้น (ที่มา: "
+"&lt;http://en.wikipedia.org/wiki/Sudoku&gt;)"
 
 #: ../boards/superbrain.xml.in.h:1
 msgid ""
