@@ -3,13 +3,14 @@
 # Copyright (C) 2006 Free Software Foundation, Inc.
 # Ouychai Chaita <Ae.Freeman@gmail.com>, 2006.
 # Theppitak Karoonboonyanan <thep@linux.thai.net>, 2006.
+# Isriya Paireepairit <markpeak@gmail.com>, 2006.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gCompris\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-06-25 09:44+0700\n"
-"PO-Revision-Date: 2006-06-25 09:55+0700\n"
+"PO-Revision-Date: 2006-06-26 20:37+0700\n"
 "Last-Translator: Theppitak Karoonboonyanan <thep@linux.thai.net>\n"
 "Language-Team: Thai <L10n@opentle.org>\n"
 "MIME-Version: 1.0\n"
@@ -497,11 +498,11 @@ msgstr "การบวกพื้นฐาน รู้จักตัวเ�
 
 #: ../boards/algebramenu.xml.in.h:1
 msgid "Go to calculation activities"
-msgstr "ไปยังกิจกรรมการคำนวณ"
+msgstr "ฝึกคำนวณ"
 
 #: ../boards/algebramenu.xml.in.h:2
 msgid "Various calculation activities."
-msgstr "กิจกรรมการคำนวณที่หลากหลาย"
+msgstr "พบกับเกมฝึกคิดเลขมากมาย"
 
 #: ../boards/algorithm.xml.in.h:1
 msgid "Complete a list of symbols"
@@ -623,7 +624,7 @@ msgstr "โอวาเร"
 
 #: ../boards/awele.xml.in.h:3
 msgid "Play the Oware strategy game against Tux"
-msgstr "เล่นเกมวานแผนโอวาเรต่อสู้กับทักซ์"
+msgstr "เล่นเกมโอวาเรกับทักซ์"
 
 #: ../boards/awele.xml.in.h:4
 msgid ""
@@ -1134,7 +1135,7 @@ msgstr "คลิกบนสีที่ถูกต้อง"
 
 #: ../boards/colors.xml.in.h:3
 msgid "Colors"
-msgstr "สี"
+msgstr "ฝึกแยกแยะสี"
 
 #: ../boards/colors.xml.in.h:4
 msgid "Listen to the color and click on the matching duck."
@@ -1156,11 +1157,11 @@ msgstr "เข้าสู่กิจกรรมสี"
 
 #: ../boards/computer.xml.in.h:1
 msgid "Discover the Computer"
-msgstr "สำรวจคอมพิวเตอร์"
+msgstr "รู้จักคอมพิวเตอร์"
 
 #: ../boards/computer.xml.in.h:2
 msgid "Play with computer peripherals."
-msgstr "เล่นกับอุปกรณ์ต่อพ่วงคอมพิวเตอร์"
+msgstr "เล่นกับอุปกรณ์คอมพิวเตอร์"
 
 #: ../boards/connect4.xml.in.h:1
 msgid "Arrange four coins in a row"
@@ -1218,11 +1219,11 @@ msgstr ""
 
 #: ../boards/discovery.xml.in.h:1
 msgid "Colors, sounds, memory..."
-msgstr "สี เสียง และความจำ..."
+msgstr "แยกแยะสี เสียง และฝึกความจำ..."
 
 #: ../boards/discovery.xml.in.h:2
 msgid "Go to discovery activities"
-msgstr "เข้าสู่กิจกรรมการค้นพบ"
+msgstr "กิจกรรมฝึกสมอง"
 
 #: ../boards/doubleentry.xml.in.h:1
 msgid "Basic counting skills"
@@ -1321,7 +1322,7 @@ msgstr "จำเป็นต้องเข้าใจแนวคิดพื
 
 #: ../boards/enumerate.xml.in.h:1
 msgid "Basic enumeration"
-msgstr "การแจงนับพื้นฐาน"
+msgstr "การนับเลขเบื้องต้น"
 
 #: ../boards/enumerate.xml.in.h:2
 msgid "Count the items"
@@ -1344,7 +1345,7 @@ msgstr "ฝึกการนับเลข"
 
 #: ../boards/enumerate.xml.in.h:5 ../src/boards/enumerate.c:93
 msgid "Place the items in the best way to count them"
-msgstr "จัดเรียงสิ่งของเพื่อให้สะดวกแก่การนับ"
+msgstr "เรียงสิ่งของเพื่อนับจำนวน"
 
 #: ../boards/erase.xml.in.h:1
 msgid ""
@@ -1399,7 +1400,7 @@ msgstr "เข้าสู่กิจกรรมประสบการณ์
 
 #: ../boards/experience.xml.in.h:2
 msgid "Various activities based on physical movement."
-msgstr "กิจกรรมหลากหลายเกี่ยวกับการเคลื่อนไหวทางกายภาพ"
+msgstr "ทดลองเกี่ยวกับการเคลื่อนที่"
 
 #: ../boards/experimental.xml.in.h:1
 msgid "Go to Experimental activities"
@@ -2302,7 +2303,7 @@ msgstr "สร้างหอคอยที่อยู่ทางขวาข
 
 #: ../boards/hanoi.xml.in.h:6 ../src/boards/hanoi.c:100
 msgid "Simplified Tower of Hanoi"
-msgstr "หอคอยฮานอยอย่างง่าย"
+msgstr "หอคอยฮานอย (แบบง่าย)"
 
 #: ../boards/hanoi_real.xml.in.h:1
 msgid ""
@@ -2610,11 +2611,11 @@ msgstr "ไม้เทนนิส"
 
 #: ../boards/keyboard.xml.in.h:1
 msgid "Discover the keyboard."
-msgstr "สำรวจแป้นพิมพ์"
+msgstr "ฝึกการใช้แป้นพิมพ์"
 
 #: ../boards/keyboard.xml.in.h:2
 msgid "Keyboard-manipulation boards"
-msgstr "กระดานควบคุมแป้นพิมพ์"
+msgstr "หัดใช้แป้นพิมพ์"
 
 #: ../boards/leftright.xml.in.h:1
 msgid "Determine if a hand is a right or a left hand"
@@ -2688,7 +2689,7 @@ msgstr ""
 
 #: ../boards/magic_hat_plus.xml.in.h:3
 msgid "Count how many items are under the magic hat"
-msgstr "นับจำนวนสิ่งของที่อยู่ใต้หมวกวิเศษ"
+msgstr "นับจำนวนสิ่งของในหมวกวิเศษ"
 
 #: ../boards/magic_hat_plus.xml.in.h:4
 msgid "Learn addition"
@@ -3511,11 +3512,11 @@ msgstr "เรียงโมเสกตามตัวอย่าง"
 
 #: ../boards/mouse.xml.in.h:1
 msgid "Mouse-manipulation activities."
-msgstr "กิจกรรมเกี่ยวกับการฝึกควบคุมเมาส์"
+msgstr "หัดใช้เมาส์"
 
 #: ../boards/mouse.xml.in.h:2
 msgid "Various mouse-based activities (clicking, moving)"
-msgstr "กิจกรรมหลากหลายเกี่ยวกับเมาส์ (คลิก, ขยับ)"
+msgstr "ฝึกวิธีการใช้เมาส์ (คลิก, ขยับ)"
 
 #: ../boards/numeration.xml.in.h:1
 msgid "Numeration"
@@ -3627,11 +3628,11 @@ msgstr "ตัวเลขเรียงตามลำดับ"
 
 #: ../boards/puzzle.xml.in.h:1
 msgid "Puzzles"
-msgstr "ปริศนา"
+msgstr "เกมปริศนา"
 
 #: ../boards/puzzle.xml.in.h:2
 msgid "Various puzzles."
-msgstr "เกมปริศนาหลากหลาย"
+msgstr "พบกับเกมปริศนามากมาย"
 
 #: ../boards/pythontest.xml.in.h:1
 msgid "Add a language-binding to gcompris."
@@ -3740,11 +3741,11 @@ msgstr "เหลือง"
 
 #: ../boards/reading.xml.in.h:1
 msgid "Go to the Reading activities"
-msgstr "เข้าสู่กิจกรรมการอ่าน"
+msgstr "กิจกรรมการอ่าน"
 
 #: ../boards/reading.xml.in.h:2
 msgid "Reading activities."
-msgstr "กิจกรรมการอ่าน"
+msgstr "เข้าสู่กิจกรรมการอ่าน"
 
 #: ../boards/readingh.xml.in.h:1 ../boards/readingv.xml.in.h:1
 msgid ""
@@ -3756,7 +3757,7 @@ msgstr ""
 
 #: ../boards/readingh.xml.in.h:2
 msgid "Horizontal reading practice"
-msgstr "ฝึกอ่านในแนวนอน"
+msgstr "ฝึกอ่านตามแนวนอน"
 
 #: ../boards/readingh.xml.in.h:3
 msgid "Read a list of words and work out if a given word is in it"
@@ -3776,7 +3777,7 @@ msgstr "ฝึกการอ่านในเวลาที่จำกัด
 
 #: ../boards/readingv.xml.in.h:5
 msgid "Vertical-reading practice"
-msgstr "ฝึกหัดอ่านแนวตั้ง"
+msgstr "ฝึกอ่านตามแนวตั้ง"
 
 #: ../boards/redraw.xml.in.h:1
 msgid "Copy a drawing from the box on the right into the box on the left."
@@ -3995,7 +3996,7 @@ msgstr "ขับเรือดำน้ำ"
 
 #: ../boards/submarine.xml.in.h:5
 msgid "Pilot a submarine using air tanks and dive rudders"
-msgstr "ขับเรือดำน้ำโดยใช้ถังอากาศและหางเสือสำหรับดำน้ำ"
+msgstr "ขับเรือดำน้ำโดยใช้ถังอากาศและหางเสือ"
 
 #: ../boards/sudoku.xml.in.h:1
 msgid "Completing the puzzle requires patience and logical ability"
@@ -4054,7 +4055,7 @@ msgstr "สมองเพชร"
 
 #: ../boards/superbrain.xml.in.h:3 ../src/boards/superbrain.c:111
 msgid "Tux has hidden several items. Find them again in the correct order"
-msgstr "ทักซ์ได้ซ่อนของไว้หลายชิ้น ค้นหาของที่ซ่อนไว้ในลำดับที่ถูกต้อง"
+msgstr "ค้นหาของที่ทักซ์ซ่อนไว้ตามลำดับให้ถูกต้อง"
 
 #: ../boards/tangram.xml.in.h:1
 msgid ""
@@ -4096,7 +4097,7 @@ msgstr ""
 
 #: ../boards/tangram.xml.in.h:10
 msgid "The objective is to form a given shape with seven pieces"
-msgstr "เป้าหมายคือสร้างรูปร่างที่กำหนดด้วยชิ้นส่วนเจ็ดชิ้น"
+msgstr "ต่อชิ้นส่วน 7 ชิ้นให้เป็นรูปร่างตามที่กำหนด"
 
 #: ../boards/tangram.xml.in.h:11
 msgid ""
@@ -4132,11 +4133,11 @@ msgstr "ปาเป้าและนับแต้ม"
 
 #: ../boards/target.xml.in.h:4
 msgid "Practice addition with a target game"
-msgstr "ฝึกบวกเลขด้วยเกมปาเป้า"
+msgstr "ปาเป้าบวกเลข"
 
 #: ../boards/target.xml.in.h:5
 msgid "Throw darts at a target and count your score."
-msgstr "ปาลูกดอกไปยังเป้าและนับแต้ม"
+msgstr "ปาลูกดอกเข้าเป้าเพื่อนับแต้ม"
 
 #: ../boards/traffic.xml.in.h:1
 msgid "A sliding-block puzzle game"
@@ -4414,7 +4415,7 @@ msgstr "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 msgid ""
 "Build the same tower in the empty area as the one you see on the right-hand "
 "side."
-msgstr "สร้างหอคอยที่่เหมือนกันในที่ว่าง ให้เหมือนกับอีกอันที่คุณเห็นทางด้านขวามือ"
+msgstr "สร้างหอคอยในที่ว่าง ให้เหมือนกับอีกอันที่คุณเห็นทางด้านขวามือ"
 
 #: ../src/boards/hanoi_real.c:76
 msgid "Tower of Hanoi"
@@ -5308,7 +5309,8 @@ msgstr ""
 msgid "translator_credits"
 msgstr ""
 "อวยชัย ไชยถา <ae.freeman@gmail.com>\n"
-"เทพพิทักษ์ การุญบุญญานันท์ <thep@linux.thai.net>"
+"เทพพิทักษ์ การุญบุญญานันท์ <thep@linux.thai.net>\n"
+"อิสริยะ ไพรีพ่ายฤทธิ์ <markpeak@gmail.com>"
 
 #: ../src/gcompris/about.c:105 ../src/gcompris/about.c:114
 msgid "About GCompris"
