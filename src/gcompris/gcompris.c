@@ -191,12 +191,17 @@ static struct
   XF86VidModeModeInfo orig_mode;
   int orig_viewport_x;
   int orig_viewport_y;
-} XF86VidModeData = { { 0 }, { 0 }, 0, 0 };
+  int window_x;
+  int window_y;
+  gboolean fullscreen_active;
+} XF86VidModeData = { { 0 }, { 0 }, 0, 0, 0, 0, FALSE };
 
 static void xf86_vidmode_init( void );
 static void xf86_vidmode_set_fullscreen( int state );
 static gint xf86_window_configured(GtkWindow *window,
   GdkEventConfigure *event, gpointer param);
+static gint xf86_focus_changed(GtkWindow *window,
+  GdkEventFocus *event, gpointer param);
 #endif
 
 /****************************************************************************/
@@ -658,10 +663,16 @@ static void setup_window ()
 
 #ifdef XF86_VIDMODE
   /* The Xf86VidMode code needs to accuratly now the window position,
-     this is the only way to get it. */
-  gtk_widget_add_events(GTK_WIDGET(window), GDK_STRUCTURE_MASK);  
+     this is the only way to get it, and it needs to track the focus to
+     enable/disable fullscreen on alt-tab */
+  gtk_widget_add_events(GTK_WIDGET(window),
+    GDK_STRUCTURE_MASK|GDK_FOCUS_CHANGE_MASK);  
   gtk_signal_connect (GTK_OBJECT (window), "configure_event",     
     GTK_SIGNAL_FUNC (xf86_window_configured), 0);
+  gtk_signal_connect (GTK_OBJECT (window), "focus_in_event",     
+    GTK_SIGNAL_FUNC (xf86_focus_changed), 0);
+  gtk_signal_connect (GTK_OBJECT (window), "focus_out_event",     
+    GTK_SIGNAL_FUNC (xf86_focus_changed), 0);
 #endif
 
   /* For non anti alias canvas */
@@ -850,7 +861,7 @@ int gcompris_canvas_item_grab (GnomeCanvasItem *item, unsigned int event_mask,
 #ifdef XF86_VIDMODE
   /* When fullscreen override mouse grab with our own which
      confines the cursor to our fullscreen window */
-  if (properties->fullscreen && !properties->noxf86vm)
+  if (XF86VidModeData.fullscreen_active)
     if (gdk_pointer_grab(item->canvas->layout.bin_window, FALSE, event_mask,
           window->window, cursor, etime+1) != GDK_GRAB_SUCCESS) 
       g_warning("Pointer grab failed");
@@ -865,7 +876,7 @@ void gcompris_canvas_item_ungrab (GnomeCanvasItem *item, guint32 etime)
 #ifdef XF86_VIDMODE
   /* When fullscreen restore the normal mouse grab which avoids
      scrolling the virtual desktop */
-  if (properties->fullscreen && !properties->noxf86vm)
+  if (XF86VidModeData.fullscreen_active)
     if (gdk_pointer_grab(window->window, TRUE, 0, window->window, NULL,
           etime+1) != GDK_GRAB_SUCCESS)
       g_warning("Pointer grab failed");
@@ -1095,32 +1106,45 @@ xf86_vidmode_init ( void )
 static void
 xf86_vidmode_set_fullscreen ( int state )
 {
-  if (properties->noxf86vm)
+  if (properties->noxf86vm || XF86VidModeData.fullscreen_active == state)
     return;
+    
+  printf("setfullscreen %d\n", state);
 
   if (state)
     {
       if (!XF86VidModeSwitchToMode(GDK_DISPLAY(), GDK_SCREEN_XNUMBER(
             gdk_screen_get_default()), &XF86VidModeData.fs_mode))
-        g_warning("XF86VidMode couldnot switch resolution");
+        g_warning("XF86VidMode could not switch resolution");
+      /* Notice the pointer must be grabbed before setting the viewport
+         otherwise setviewport may get "canceled" by the pointer being outside
+         the current viewport. */
+      if (gdk_pointer_grab(window->window, TRUE, 0, window->window, NULL,
+            GDK_CURRENT_TIME) != GDK_GRAB_SUCCESS)
+        g_warning("Pointer grab failed");
+      if (!XF86VidModeSetViewPort(GDK_DISPLAY(),
+            GDK_SCREEN_XNUMBER(gdk_screen_get_default()),
+              XF86VidModeData.window_x, XF86VidModeData.window_y))
+        g_warning("XF86VidMode could not change viewport");
     }
   else
     {
       if (!XF86VidModeSwitchToMode(GDK_DISPLAY(), GDK_SCREEN_XNUMBER(
             gdk_screen_get_default()), &XF86VidModeData.orig_mode))
-        g_warning("XF86VidMode couldnot restore original resolution");
+        g_warning("XF86VidMode could not restore original resolution");
             
       gdk_pointer_ungrab(GDK_CURRENT_TIME);
       if (XF86VidModeData.orig_viewport_x || XF86VidModeData.orig_viewport_y)
         if (!XF86VidModeSetViewPort(GDK_DISPLAY(), GDK_SCREEN_XNUMBER(
               gdk_screen_get_default()), XF86VidModeData.orig_viewport_x,
               XF86VidModeData.orig_viewport_y))
-          g_warning("XF86VidMode couldnot restore original viewport");
+          g_warning("XF86VidMode could not restore original viewport");
     }
+  XF86VidModeData.fullscreen_active = state;
 }
 
 /* We need to accuratly now the window position, this is the only way to get
-   it. We also use this as _the_ place to grab the pointer, because gtk seems
+   it. We also grab the pointer to be sure it is really grabbed. Gtk seems
    to be playing tricks with the window (destroying and recreating?) when
    switching fullscreen <-> window which sometimes (race condition) causes
    the pointer to not be properly grabbed.
@@ -1131,18 +1155,34 @@ xf86_vidmode_set_fullscreen ( int state )
 static gint xf86_window_configured(GtkWindow *window,
   GdkEventConfigure *event, gpointer param)
 {
-  if(properties->fullscreen && !properties->noxf86vm) {
+  XF86VidModeData.window_x = event->x;
+  XF86VidModeData.window_y = event->y;
+  
+  printf("configure: %dx%d, fullscreen_active: %d\n", event->x, event->y,
+    (int)XF86VidModeData.fullscreen_active);
+
+  if(XF86VidModeData.fullscreen_active) {
     if (gdk_pointer_grab(event->window, TRUE, 0, event->window, NULL,
           GDK_CURRENT_TIME) != GDK_GRAB_SUCCESS)
       g_warning("Pointer grab failed");
     if (!XF86VidModeSetViewPort(GDK_DISPLAY(),
           GDK_SCREEN_XNUMBER(gdk_screen_get_default()), event->x, event->y))
-      g_warning("XF86VidMode couldnot change viewport");
+      g_warning("XF86VidMode could not change viewport");
   }
   /* Act as if we aren't there / aren't hooked up */
   return FALSE;
 }
   
+static gint xf86_focus_changed(GtkWindow *window,
+  GdkEventFocus *event, gpointer param)
+{
+  printf("focus change %d\n", (int)event->in);
+  if (properties->fullscreen)
+    xf86_vidmode_set_fullscreen(event->in);
+  /* Act as if we aren't there / aren't hooked up */
+  return FALSE;
+}
+
 #endif
 
 /*****************************************

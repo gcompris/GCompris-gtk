@@ -1,6 +1,25 @@
+2006-07-08  Bruno coudoin  <bruno.coudoin@free.fr>
+
+
+	* docs/gcompris2spip.pl: added pt_BR section 
+	* gcompris-edit.png: redone based on Franck GCompris logo plane
+	* gcompris.gif: redone based on Franck GCompris logo plane
+	* gcompris.ico: redone based on Franck GCompris logo plane
+	* gcompris.png: redone based on Franck GCompris logo plane
+	* src/boards/py-mod-gcompris.c: (py_gcompris_get_board_conf),
+	(pyGcomprisConfCallback), (py_gcompris_combo_box),
+	(pyGcomprisTextCallback): removed compilation warnings
+	* src/gcompris/gcompris.c: (setup_window),
+	(gcompris_canvas_item_grab), (gcompris_canvas_item_ungrab),
+	(xf86_vidmode_set_fullscreen), (xf86_window_configured),
+	(xf86_focus_changed): fixed fullscreen issues by Hans de Goede.
+	* src/gcompris/properties.c: (gcompris_properties_new): added display_resource option (unused yet)
+	* src/gcompris/properties.h: added display_resource option
+
 2006-06-29  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	Rafal Konkolewski created the map of poland internals.
+	Source picture was http://pl.wikipedia.org/wiki/Grafika:Wojewodztwa.png
 	
 	* boards/geography.xml.in:
 	* boards/geography/Makefile.am:

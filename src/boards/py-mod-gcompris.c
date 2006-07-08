@@ -934,7 +934,6 @@ static PyObject*
 py_gcompris_get_board_conf(PyObject* self, PyObject* args)
 {
   PyObject *pydict;
-  PyObject *value;
   GHashTable *table;
 
   /* Parse arguments */
@@ -1057,7 +1056,6 @@ py_gcompris_set_board_conf (PyObject* self, PyObject* args)
 static PyObject* pyGcomprisConfCallbackFunc = NULL;
 
 static GcomprisConfCallback pyGcomprisConfCallback(GHashTable* table){
-  PyObject* args;
   PyObject* result;
 
   PyGILState_STATE gil;
@@ -1146,7 +1144,6 @@ py_gcompris_combo_box(PyObject* self, PyObject* args)
   PyObject *py_list;
   gchar *label;
   gchar *key;
-  gchar *item;
   gchar *init;
 
   GList *list = NULL;
@@ -1440,7 +1437,6 @@ py_gcompris_reset_locale(PyObject* self, PyObject* args)
 static GHashTable *text_callbacks = NULL;
 
 static gboolean pyGcomprisTextCallback(gchar *key, gchar *text, GtkLabel *label){
-  PyObject* args;
   PyObject* result;
   gboolean validate;
 

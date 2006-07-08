@@ -1,6 +1,6 @@
 /* gcompris - properties.c
  *
- * Time-stamp: <2006/04/28 00:52:51 bruno>
+ * Time-stamp: <2006/06/26 22:25:53 bruno>
  *
  * Copyright (C) 2000,2003 Bruno Coudoin
  *
@@ -170,6 +170,7 @@ GcomprisProperties *gcompris_properties_new ()
   tmp->difficulty_filter = 1;				/* No difficulty filter by default */
   tmp->disable_quit      = 0;				/* Used to remove the quit button from the bar. Use it for kiosk mode */
   tmp->disable_config    = 0;				/* Used to remove the config button from the bar. Use it for kiosk mode */
+  tmp->display_resource  = 0;
   tmp->root_menu         = "/";
   tmp->local_directory   = NULL;
   tmp->package_data_dir  = PACKAGE_DATA_DIR;
