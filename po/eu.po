@@ -1,3 +1,4 @@
+# translation of eu.po to Basque
 # translation of gcompris.po to Basque
 # This file is distributed under the same license as the PACKAGE package.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER.
@@ -9,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: eu\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-03-06 11:00+0100\n"
-"PO-Revision-Date: 2006-05-10 20:43+0000\n"
+"POT-Creation-Date: 2006-07-10 07:58+0000\n"
+"PO-Revision-Date: 2006-07-10 09:00+0000\n"
 "Last-Translator: Iñaki Larrañaga Murgoitio <dooteo@euskalgnu.org>\n"
 "Language-Team: Basque <itzulpena@euskalgnu.org>\n"
 "MIME-Version: 1.0\n"
@@ -1407,12 +1408,12 @@ msgstr ""
 "http://schmode.net/&gt;) eta LE BERRE Danieletik hartu dira. Baimena eman "
 "digute bere argazkiak gcompris-en sartzeko. Eskerrik asko."
 
-#: ../boards/erase.xml.in.h:4 ../src/boards/erase.c:110
+#: ../boards/erase.xml.in.h:4 ../src/boards/erase.c:113
 #: ../src/boards/machpuzzle.c:92
 msgid "Move the mouse"
 msgstr "Sagua mugitzea"
 
-#: ../boards/erase.xml.in.h:5 ../src/boards/erase.c:111
+#: ../boards/erase.xml.in.h:5 ../src/boards/erase.c:114
 msgid "Move the mouse to erase the area and discover the background"
 msgstr "Mugitu sagua area garbitzeko eta atzean dagoen irudia ikusteko"
 
@@ -1569,7 +1570,7 @@ msgstr "Sagua erabiltzen jakitea: mugitzea, arrastatzea eta jaregitea"
 
 #: ../boards/geography.xml.in.h:4
 msgid ""
-"The Germany map comes from Wikipedia and is released under the GNU Free "
+"The map of Germany comes from Wikipedia and is released under the GNU Free "
 "Documentation License. Olaf Ronneberger and his children Lina and Julia "
 "Ronneberger created the German level."
 msgstr ""
@@ -2152,11 +2153,11 @@ msgstr "Teklatua erabiltzea"
 msgid "Letter association between the screen and the keyboard"
 msgstr "Letrak pantailan eta teklatuan identifikatzea"
 
-#: ../boards/gletters.xml.in.h:3 ../src/boards/gletters.c:132
+#: ../boards/gletters.xml.in.h:3 ../src/boards/gletters.c:135
 msgid "Simple Letters"
 msgstr "Letra sinpleak"
 
-#: ../boards/gletters.xml.in.h:4 ../src/boards/gletters.c:133
+#: ../boards/gletters.xml.in.h:4 ../src/boards/gletters.c:136
 msgid "Type the falling letters before they reach the ground"
 msgstr "Idatzi erortzen ari diren letrak lurrera iritsi aurretik"
 
@@ -2451,7 +2452,7 @@ msgstr "Trebatu irakurtzen irudiak eta hitzak elkartzen"
 
 #: ../boards/imageid.xml.in.h:3 ../boards/imagename.xml.in.h:4
 #: ../boards/readingh.xml.in.h:4 ../boards/readingv.xml.in.h:4
-#: ../src/boards/imageid.c:112 ../src/boards/missingletter.c:104
+#: ../src/boards/imageid.c:113 ../src/boards/missingletter.c:104
 msgid "Reading"
 msgstr "Irakurketa"
 
@@ -2763,16 +2764,18 @@ msgstr ""
 msgid "Select or enter your name to log in to GCompris"
 msgstr "Hautatu edo sartu erabiltzaile-izena GCompris-en saioa hasteko"
 
-#: ../boards/magic_hat_plus.xml.in.h:1
+#: ../boards/magic_hat_plus.xml.in.h:1 ../boards/memory_add.xml.in.h:1
 msgid "Addition"
 msgstr "Batuketa"
 
 #: ../boards/magic_hat_plus.xml.in.h:2
 msgid ""
-"Click on the hat to open it. A few stars now move under the hat. Click again "
-"on the hat to close it. You have to count how many are under the hat. Click "
-"on the bottom right area to answer."
-msgstr "Egin klik txapelean irekitzeko. Izar batzuk txapelaren barrura mugitu dira. Egin klik berriro txapelean ixteko. Txapelean zenbat izar dauden zenbatu behar duzu. Egin klik azpiko eskuineko arean erantzuteko."
+"Click on the hat to open or close it. Under the hat, how many stars can you "
+"see moving around? Count carefully. :) Click in the bottom- right area to "
+"input your answer."
+msgstr ""
+"Egin klik txapelean irekitzeko edo ixteko. Izar batzuk txapelaren barrura mugitu dira. "
+"Zenbat izar ikus ditzkezu hor mugitzen? Kontuz zenbatu! Egin klik azpiko eskuineko arean erantzuteko."
 
 #: ../boards/magic_hat_plus.xml.in.h:3
 msgid "Count how many items are under the magic hat"
@@ -2787,25 +2790,31 @@ msgid "The magician hat"
 msgstr "Txapel magikoa"
 
 #: ../boards/magic_hat_minus.xml.in.h:1
-msgid "Count how many items are under the magic hat after some escaped"
-msgstr "Zenbatu zenbat gauza dauden txapel magikoaren azpian, gauza batzuk ihes egin ondoren"
+msgid "Count how many items are under the magic hat after some have got away"
+msgstr ""
+"Zenbatu zenbat gauza dauden txapel magikoaren azpian, gauza batzuk ihes egin "
+"ondoren"
 
 #: ../boards/magic_hat_minus.xml.in.h:2
-msgid "Learn substraction"
+msgid "Learn subtraction"
 msgstr "Ikasi kenketak"
 
 #: ../boards/magic_hat_minus.xml.in.h:3
 msgid ""
-"Look at the magician, he tells you how much stars are under his magic hat. "
-"Then, click on the hat to open it. A few stars escape. Click again on the "
-"hat to close it. You have to count how much are still under the hat. Click "
-"on the bottom right area to answer."
+"Look at the magician, he tells the number of stars that are under his magic "
+"hat. Then, click on the hat to open it. A few stars escape. Click again on "
+"the hat to close it. You have to count how many are still under the hat. "
+"Click on the bottom right area to answer."
 msgstr ""
-"Begiratu aztiari, berak esango dizu zenbat izar dauden txapel magikoan. Gero egin klik txapelean irekitzeko. Izar batzuk ihes egin dute. Egin klik berriro txapelean ixteko. Txapelean zenbat izar dauden zenbatu behar duzu. Egin klik "
-"beheko eskuineko arean erantzuteko."
+"Begiratu aztiari, berak esango dizu zenbat izar dauden txapel magikoan. Gero "
+"egin klik txapelean irekitzeko. Izar batzuk ihes egin dute. Egin klik "
+"berriro txapelean ixteko. Txapelean zenbat izar dauden zenbatu behar duzu. "
+"Egin klik beheko eskuineko arean erantzuteko."
 
-#: ../boards/magic_hat_minus.xml.in.h:4
-msgid "Substraction"
+#: ../boards/magic_hat_minus.xml.in.h:4 ../boards/memory_add_minus.xml.in.h:3
+#: ../boards/memory_add_minus_tux.xml.in.h:3 ../boards/memory_minus.xml.in.h:2
+#: ../boards/memory_minus_tux.xml.in.h:2
+msgid "Subtraction"
 msgstr "Kenketa"
 
 #: ../boards/math.xml.in.h:1
@@ -2939,6 +2948,154 @@ msgstr "Memoria-jokoa irudiekin"
 msgid "Train your memory and remove all the cards"
 msgstr "Trebatu memoria, eta eman buelta karta guztiei"
 
+#: ../boards/memory_add.xml.in.h:2
+msgid "Addition memory game"
+msgstr "Batuketako memoria-jokoa"
+
+#: ../boards/memory_add.xml.in.h:3 ../boards/memory_add_tux.xml.in.h:3
+msgid "Practise adding up, until all the cards are gone."
+msgstr "Trebatu batuketak egiten, karta guztiak desagertu arte"
+
+#: ../boards/memory_add.xml.in.h:4 ../boards/memory_add_tux.xml.in.h:4
+msgid ""
+"Turn the cards over to find two numbers which add up the same, until all the "
+"cards are gone."
+msgstr "Ipini kartak buruz gora berdina batzen duten bi zenbaki aurkitzeko, karta guztiak joan arte."
+
+#: ../boards/memory_add.xml.in.h:5 ../boards/memory_add_tux.xml.in.h:5
+msgid ""
+"You can see some cards, but you can't see what's on the other side of them. "
+"Each card is hiding an adding-up sum, or the answer to the sum.\n"
+"An adding-up sum looks like this: 2 + 2 = 4\n"
+"The numbers on one side of the equals sign (=) have to be the same as the "
+"number on the other side. So 2 (1, 2) and 2 more (3, 4) makes 4. Count aloud "
+"when you work this out, and count on your fingers, because the more ways you "
+"do something, the better you remember it. You can also use blocks, or "
+"buttons, or anything you can count. If you have lots of brothers and "
+"sisters, you can count them! Or the kids in your class at school. Sing "
+"counting songs. Count lots of things, for practice, and you'll be very good "
+"at adding-up!\n"
+"\n"
+"In this game, these cards are hiding the two parts of an adding-up sum (also "
+"called an addition sum). You need to find the two parts of the sum, and "
+"bring them together again. Click on a card to see what number it's hiding, "
+"then try to find the other card that goes with it, to make a whole sum. You "
+"can only turn over two cards in one go, so you need to remember where the "
+"numbers are hiding, then you can match them when you find their other half. "
+"You're doing the job of the equals sign, and the numbers need you to put "
+"them together and make a proper sum. When you do that, both those cards "
+"disappear! When you've made them all disappear, found all the sums, you've "
+"won the game! :)"
+msgstr ""
+"Karta batzuk ikus ditzakezu, baina ezin duzu ikusi haien bestaldean dagoena. "
+"Karta bakoitzak batuketa ezkutatzen du, edo batuketaren emaitza.\n"
+"Batuketa batek honelako itxura du: 2 + 2 = 4\n"
+"Berdintasun ikurraren (=) alde batekoak besteladekoaren zenbakia eduki behar du. Hori dela eta, 2 (1 edo 2) gehi 2 (3 edo 4) batuketaren emaitza 4 da. Zenbatu zenbakiak ahoskatuz eta baita eskuko hatzekin ere, zenbat eta bide gehiago jorratu hobeto gogoratuko baitituzu gauzak. Blokeak, botoiak edo zenbatzeko balio duen edozein elementu erabil dezakezu. Anai-arreba asko badituzu, zenba ditzakezu! Edo ikastolako gelako lagunak zenbatu. Abestu zenbakiak zenbatuz. Trebatzeko gauza asko zenba ditzakezu, eta oso ona izango zara batuketetan.\n"
+"\n"
+"Joko honetan kartek batuketen bi zatiak ezkutatzen dute. Batuketaren bi zatiak aurkitu behar dituzu, batera jartzeko. Egin klik karta batean ezkutatzen duen zenbakia ikusteko, gero saiatu berarekin batuketan bat datorren beste karta, batuketa burutzeko. Txanda bakoitzean bi karta bakarrik jar ditzakezu buruz gora. Beraz, ezkutuan dauden kartak gogoratu behar duzu, batuketaren beste zatia aurkitzeko. Berdintasun ikurraren lana egin behar duzu, eta zenbakiek behar zaituzte elkarrekin jarri eta batuketa zuzena egiteko. Behin batuketa zuzena denean bi kartak desagertu egingo dira. Karta guztiak desagertzen direnean (batuketa guztiak aurkitu dituzun seinale) jokoa irabazi duzu! :)"
+
+#: ../boards/memory_add_minus.xml.in.h:1
+msgid "Addition and subtraction memory game"
+msgstr "Batuketako eta kenketako memoria-jokoa"
+
+#: ../boards/memory_add_minus.xml.in.h:2
+#: ../boards/memory_add_minus_tux.xml.in.h:2
+msgid "Practise addition, subtraction, until all the cards are gone."
+msgstr "Trebatu batuketak eta kenketak egiten, karta guztiak desagertu arte."
+
+#: ../boards/memory_add_minus.xml.in.h:4
+#: ../boards/memory_add_minus_tux.xml.in.h:4
+msgid ""
+"Turn the cards over to find two numbers which add or subtract the same, "
+"until all the cards are gone."
+msgstr "Ipini kartak buruz gora zenbaki berdina batzen edo kentzen duten bi zenbaki aurkitzeko, karta guztiak joan arte."
+
+#: ../boards/memory_add_minus.xml.in.h:5
+#: ../boards/memory_add_minus_mult_div.xml.in.h:5
+#: ../boards/memory_add_minus_mult_div_tux.xml.in.h:5
+#: ../boards/memory_add_minus_tux.xml.in.h:5 ../boards/memory_div.xml.in.h:5
+#: ../boards/memory_div_tux.xml.in.h:5 ../boards/memory_mult.xml.in.h:5
+#: ../boards/memory_mult_div.xml.in.h:5
+#: ../boards/memory_mult_div_tux.xml.in.h:5
+#: ../boards/memory_mult_tux.xml.in.h:5
+msgid ""
+"You can see some cards, but you can't see what's on the other side of them. "
+"Each card is hiding an operation, or the answer to it.\n"
+"\n"
+"In this game, these cards are hiding the two parts of an operation. You need "
+"to find the two parts of the operation, and bring them together again. Click "
+"on a card to see what number it's hiding, then try to find the other card "
+"that goes with it, to make a whole operation. You can only turn over two "
+"cards in one go, so you need to remember where the numbers are hiding, then "
+"you can match them when you find their other half. You're doing the job of "
+"the equals sign, and the numbers need you to put them together and make a "
+"proper equality. When you do that, both those cards disappear! When you've "
+"made them all disappear, found all the operations, you've won the game! :)"
+msgstr ""
+"Karta batzuk ikus ditzakezu, baina ezin duzu ikusi haien bestaldean dagoena. "
+"Karta bakoitzak batuketa ezkutatzen du, edo eragiektaren emaitza.\n"
+"\n"
+"Joko honetan kartek eragiketen bi zatiak ezkutatzen dute. Eragiketaren bi zatiak aurkitu behar dituzu, batera jartzeko. Egin klik karta batean ezkutatzen duen zenbakia ikusteko, gero saiatu berarekin eragiketan bat datorren beste karta, eragiketa burutzeko. Txanda bakoitzean bi karta bakarrik jar ditzakezu buruz gora. Beraz, ezkutuan dauden kartak gogoratu behar duzu, eragiketaren beste zatia aurkitzeko. Berdintasun ikurraren lana egin behar duzu, eta zenbakiek behar zaituzte elkarrekin jarri eta eragiketa zuzena egiteko. Behin eragiketa zuzena denean bi kartak desagertu egingo dira. Karta guztiak desagertzen direnean (eragiketa guztiak aurkitu dituzun seinale) jokoa irabazi duzu! :)"
+
+#: ../boards/memory_add_minus_mult_div.xml.in.h:1
+#: ../boards/memory_add_minus_mult_div_tux.xml.in.h:1
+msgid "Addition, subtraction, multiplication, division"
+msgstr "Batuketak, biderketak, zatiketak eta kenketak"
+
+#: ../boards/memory_add_minus_mult_div.xml.in.h:2
+msgid "All operations memory game"
+msgstr "Eragiketa guztien memoria-jokoa"
+
+#: ../boards/memory_add_minus_mult_div.xml.in.h:3
+#: ../boards/memory_add_minus_mult_div_tux.xml.in.h:3
+msgid ""
+"Practise addition, subtraction, multiplication, division, until all the "
+"cards are gone."
+msgstr "Trebatu batuketak, biderketak, zatiketak eta kenketak egiten, karta guztiak desagertu arte."
+
+#: ../boards/memory_add_minus_mult_div.xml.in.h:4
+#: ../boards/memory_add_minus_mult_div_tux.xml.in.h:4
+#: ../boards/memory_div.xml.in.h:4 ../boards/memory_div_tux.xml.in.h:4
+#: ../boards/memory_mult_div.xml.in.h:4
+#: ../boards/memory_mult_div_tux.xml.in.h:4
+#: ../boards/memory_mult_tux.xml.in.h:4
+msgid ""
+"Turn the cards over to find a matching operation, until all the cards are "
+"gone."
+msgstr "Ipini kartak buruz gora bat datorren eragiketa aurkitzeko, karta guztiak joan arte."
+
+#: ../boards/memory_add_minus_mult_div_tux.xml.in.h:2
+msgid "All operations memory game against Tux"
+msgstr "Tux-en aurkako eragiketa guztien memoria-jokoa"
+
+#: ../boards/memory_add_minus_tux.xml.in.h:1
+msgid "Addition and subtraction memory game against Tux"
+msgstr "Tux-en aurkako batuketako eta kenketako memoria-jokoa"
+
+#: ../boards/memory_add_tux.xml.in.h:1
+msgid "Addition memory game against Tux"
+msgstr "Tux-en aurkako batuketako memoria-jokoa"
+
+#: ../boards/memory_add_tux.xml.in.h:2 ../boards/memory_mult_tux.xml.in.h:1
+msgid "Additions"
+msgstr "Batuketa"
+
+#: ../boards/memory_div.xml.in.h:1 ../boards/memory_div_tux.xml.in.h:1
+msgid "Division"
+msgstr "Zatiketa"
+
+#: ../boards/memory_div.xml.in.h:2
+msgid "Division memory game"
+msgstr "Zatiketen memoria-jokoa"
+
+#: ../boards/memory_div.xml.in.h:3 ../boards/memory_div_tux.xml.in.h:3
+msgid "Practise division, until all the cards are gone."
+msgstr "Trebatu zatiketak egiten, karta guztiak desagertu arte."
+
+#: ../boards/memory_div_tux.xml.in.h:2
+msgid "Division memory game against Tux"
+msgstr "Tux-en aurkako zatiketako memoria-jokoa"
+
 #: ../boards/memory_group.xml.in.h:1
 msgid "Go to Memory activities"
 msgstr "Joan memoria jarduerara"
@@ -2946,6 +3103,112 @@ msgstr "Joan memoria jarduerara"
 #: ../boards/memory_group.xml.in.h:2
 msgid "Various memory activities (images, letters, sounds)."
 msgstr "Hainbat memoria ariketa (irudiak, letrak, soinuak)."
+
+#: ../boards/memory_minus.xml.in.h:1 ../boards/memory_minus_tux.xml.in.h:1
+msgid "Practise subtraction, until all the cards are gone."
+msgstr "Trebatu kenketak egiten, karta guztiak desagertu arte."
+
+#: ../boards/memory_minus.xml.in.h:3
+msgid "Subtraction memory game"
+msgstr "Kenketako memoria-jokoa"
+
+#: ../boards/memory_minus.xml.in.h:4 ../boards/memory_minus_tux.xml.in.h:4
+msgid ""
+"Turn the cards over to find two numbers which subtract the same, until all "
+"the cards are gone."
+msgstr "Ipini kartak buruz gora bat datorren kenketa aurkitzeko, karta guztiak joan arte."
+
+#: ../boards/memory_minus.xml.in.h:5 ../boards/memory_minus_tux.xml.in.h:5
+msgid ""
+"You can see some cards, but you can't see what's on the other side of them. "
+"Each card is hiding a subtraction, or the answer to it.\n"
+"A subtraction looks like this: 3 - 1 = 2\n"
+"The numbers on one side of the equals sign (=) have to be the same as the "
+"number on the other side. So 3 (1, 2, 3) less 1 (1) makes 2. Count aloud "
+"when you work this out, and count on your fingers, because the more ways you "
+"do something, the better you remember it. You can also use blocks, or "
+"buttons, or anything you can count. If you have lots of brothers and "
+"sisters, you can count them! Or the kids in your class at school. Sing "
+"counting songs. Count lots of things, for practice, and you'll be very good "
+"at adding-up!\n"
+"\n"
+"In this game, these cards are hiding the two parts of a subtraction. You "
+"need to find the two parts of the subraction, and bring them together again. "
+"Click on a card to see what number it's hiding, then try to find the other "
+"card that goes with it, to make a whole sum. You can only turn over two "
+"cards in one go, so you need to remember where the numbers are hiding, then "
+"you can match them when you find their other half. You're doing the job of "
+"the equals sign, and the numbers need you to put them together and make a "
+"proper sum. When you do that, both those cards disappear! When you've made "
+"them all disappear, found all the subtracts, you've won the game! :)"
+msgstr ""
+"Karta batzuk ikus ditzakezu, baina ezin duzu ikusi haien bestaldean dagoena. "
+"Karta bakoitzak kenketa ezkutatzen du, edo kenketaren emaitza.\n"
+"Kenketa batek honelako itxura du: 3 - 1 = 2\n"
+"Berdintasun ikurraren (=) alde batekoak besteladekoaren zenbakia eduki behar du. Hori dela eta, 3 (1 edo 2) ken 1 (1) kenketaren emaitza 2 da. Zenbatu zenbakiak ahoskatuz eta baita eskuko hatzekin ere, zenbat eta bide gehiago jorratu hobeto gogoratuko baitituzu gauzak. Blokeak, botoiak edo zenbatzeko balio duen edozein elementu erabil dezakezu. Anai-arreba asko badituzu, zenba ditzakezu! Edo ikastolako gelako lagunak zenbatu. Abestu zenbakiak zenbatuz. Trebatzeko gauza asko zenba ditzakezu, eta oso ona izango zara kenketetan.\n"
+"\n"
+"Joko honetan kartek zatiketen bi zatiak ezkutatzen dute. Zatiketaren bi zatiak aurkitu behar dituzu, batera jartzeko. Egin klik karta batean ezkutatzen duen zenbakia ikusteko, gero saiatu berarekin kenketan bat datorren beste karta, kenketa burutzeko. Txanda bakoitzean bi karta bakarrik jar ditzakezu buruz gora. Beraz, ezkutuan dauden kartak gogoratu behar duzu, kenketaren beste zatia aurkitzeko. Berdintasun ikurraren lana egin behar duzu, eta zenbakiek behar zaituzte elkarrekin jarri eta kenketa zuzena egiteko. Behin kenketa zuzena denean bi kartak desagertu egingo dira. Karta guztiak desagertzen direnean (kenketa guztiak aurkitu dituzun seinale) jokoa irabazi duzu! :)"
+
+#: ../boards/memory_minus_tux.xml.in.h:3
+msgid "Subtraction memory game against Tux"
+msgstr "Tux-en aurkako kenketen memoria-jokoa"
+
+#: ../boards/memory_mult.xml.in.h:1
+msgid "Multiplication"
+msgstr "Biderketa"
+
+#: ../boards/memory_mult.xml.in.h:2
+msgid "Multiplication memory game"
+msgstr "Biderketako memoria-jokoa"
+
+#: ../boards/memory_mult.xml.in.h:3
+msgid "Practise multiplication, until all the cards are gone."
+msgstr "Trebatu biderketak egiten, karta guztiak desagertu arte."
+
+#: ../boards/memory_mult.xml.in.h:4
+msgid ""
+"Turn the cards over to find two numbers which multiply the same, until all "
+"the cards are gone."
+msgstr "Ipini kartak buruz gora bat datorren biderketa aurkitzeko, karta guztiak joan arte."
+
+#: ../boards/memory_mult_div.xml.in.h:1
+msgid "Multiplication and division memory game"
+msgstr "Biderketako eta zatiketako memoria-jokoa"
+
+#: ../boards/memory_mult_div.xml.in.h:2
+#: ../boards/memory_mult_div_tux.xml.in.h:2
+msgid "Multiplication, division"
+msgstr "Biderketa, zatiketa"
+
+#: ../boards/memory_mult_div.xml.in.h:3
+#: ../boards/memory_mult_div_tux.xml.in.h:3
+msgid "Practise multiplication, division, until all the cards are gone."
+msgstr "Trebatu biderketak eta zatiketak egiten, karta guztiak desagertu arte."
+
+#: ../boards/memory_mult_div_tux.xml.in.h:1
+msgid "Multiplication and division memory game against Tux"
+msgstr "Tux-en aurkako biderketen eta zatiketen memoria-jokoa"
+
+#: ../boards/memory_mult_tux.xml.in.h:2
+msgid "Multiplication memory game against Tux"
+msgstr "Tux-en aurkako biderketen memoria-jokoa"
+
+#: ../boards/memory_mult_tux.xml.in.h:3
+msgid "Practise multiplication until all the cards are gone."
+msgstr "Trebatu biderketak egiten, karta guztiak desagertu arte."
+
+#: ../boards/memory_op_group.xml.in.h:1
+msgid "Go to mathematics memory activities"
+msgstr "Joan matematikako memoria jarduetara"
+
+#: ../boards/memory_op_group.xml.in.h:2
+#: ../boards/memory_op_group_tux.xml.in.h:2
+msgid "Memory activities based on operations"
+msgstr "Eragiketetan oinarritutako memoria-jokoak"
+
+#: ../boards/memory_op_group_tux.xml.in.h:1
+msgid "Go to mathematics memory activities against Tux"
+msgstr "Joan Tux-en aurkako matematikako memoria-jokotara"
 
 #: ../boards/memory_sound.xml.in.h:1 ../boards/memory_sound_tux.xml.in.h:1
 msgid ""
@@ -3053,7 +3316,7 @@ msgstr ""
 msgid "GCompris Main Menu"
 msgstr "GCompris-en menu nagusia"
 
-#: ../boards/menu.xml.in.h:16 ../src/boards/menu2.c:1003
+#: ../boards/menu.xml.in.h:16 ../src/boards/menu2.c:996
 msgid ""
 "GCompris is a collection of educational games that provides different "
 "activities for children aged 2 and up."
@@ -3997,8 +4260,15 @@ msgid "A sliding-block puzzle game"
 msgstr "Bloke irristakorretako puzzlea"
 
 #: ../boards/traffic.xml.in.h:2
-msgid "Remove all the red cars from the parking lot through the gate on the right"
-msgstr "Atera aparkalekutik auto gorri guztiak eskuineko zirrikituaren bidez"
+#, fuzzy
+msgid ""
+"Each car can only move either horizontaly or verticaly. You must make some "
+"room in order to let the red car move through the gate on the right."
+msgstr "Kotxe bakoitza horizontalki edo bertikalki soilik mugi daiteke. Gela bat egin behar duzu kotxea mugiarazteko eskuineko zirrikituaren bidez"
+
+#: ../boards/traffic.xml.in.h:3
+msgid "Remove the red car from the parking lot through the gate on the right"
+msgstr "Atera aparkalekutik auto gorria eskuineko zirrikituaren bidez"
 
 #: ../boards/tuxpaint.xml.in.h:1
 msgid "Drawing activity (pixmap)"
@@ -4081,23 +4351,23 @@ msgstr "gcompris suite hezigarria"
 msgid "Multiple activities for kids"
 msgstr "Haurrentzako hainbat jarduera"
 
-#: ../src/boards/awele.c:333 ../src/boards/awele.c:343
+#: ../src/boards/awele.c:352 ../src/boards/awele.c:362
 msgid "NORTH"
 msgstr "Iparraldea"
 
-#: ../src/boards/awele.c:355 ../src/boards/awele.c:365
+#: ../src/boards/awele.c:374 ../src/boards/awele.c:384
 msgid "SOUTH"
 msgstr "Hegoaldea"
 
-#: ../src/boards/awele.c:534
-msgid "Choose an house"
+#: ../src/boards/awele.c:553
+msgid "Choose a house"
 msgstr "Aukeratu etxea"
 
-#: ../src/boards/awele.c:662
+#: ../src/boards/awele.c:681
 msgid "Your turn to play ..."
 msgstr "Zure txanda jokatzeko..."
 
-#: ../src/boards/awele.c:731
+#: ../src/boards/awele.c:750
 msgid "Not allowed! Try again !"
 msgstr "Ez dago baimenduta. Saiatu berriro."
 
@@ -4129,44 +4399,56 @@ msgstr ""
 "gunean, edo zure GNU/Linux banaketan\n"
 "Begiratu bertan dagoen "
 
-#: ../src/boards/chess.c:569
+#: ../src/boards/chess.c:572
 msgid "White's Turn"
 msgstr "Zurien txanda"
 
-#: ../src/boards/chess.c:569
+#: ../src/boards/chess.c:572
 msgid "Black's Turn"
 msgstr "Beltzen txanda"
 
-#: ../src/boards/chess.c:713
+#: ../src/boards/chess.c:716
 msgid "White checks"
 msgstr "Zurien xakea"
 
-#: ../src/boards/chess.c:715
+#: ../src/boards/chess.c:718
 msgid "Black checks"
 msgstr "Beltzen xakea"
 
-#: ../src/boards/chess.c:1052
+#: ../src/boards/chess.c:1055
 msgid "Black mates"
 msgstr "Beltzen xake-matea"
 
-#: ../src/boards/chess.c:1057
+#: ../src/boards/chess.c:1060
 msgid "White mates"
 msgstr "Zurien xake-matea"
 
-#: ../src/boards/chess.c:1062 ../src/gcompris/bonus.c:312
-#: ../src/gcompris/bonus.c:321
+#: ../src/boards/chess.c:1065 ../src/gcompris/bonus.c:308
+#: ../src/gcompris/bonus.c:317
 msgid "Drawn game"
 msgstr "Berdinketa"
+
+#: ../src/boards/click_on_letter.c:263 ../src/boards/memory.c:827
+msgid ""
+"Error: this activity cannot be played with the\n"
+"sound effects disabled.\n"
+"Go to the configuration dialog to\n"
+"enable the sound"
+msgstr ""
+"Errorea: ariketa hau ezin da jolastu \n"
+"soinu-efektuak desgaituta badaude.\n"
+"Joan konfiguratzeko elkarrizketara, eta gaitu\n"
+"soinua"
 
 #. TRANSLATORS: Put here the alphabet in your language
 #. require by all utf8-functions
 #. TRANSLATORS: Put here the alphabet lowercase in your language
-#: ../src/boards/click_on_letter.c:252 ../src/boards/click_on_letter.c:269
-#: ../src/boards/gletters.c:228 ../src/boards/memory.c:834
+#: ../src/boards/click_on_letter.c:268 ../src/boards/gletters.c:232
+#: ../src/boards/memory.c:848
 msgid "abcdefghijklmnopqrstuvwxyz"
 msgstr "abcdefghijklmnopqrstuvwxyz"
 
-#: ../src/boards/click_on_letter.c:281
+#: ../src/boards/click_on_letter.c:290
 #, c-format
 msgid ""
 "Error: this activity requires that you first install\n"
@@ -4175,7 +4457,7 @@ msgstr ""
 "Errorea: ariketa hau egiteko assetml-voices-alphabet-%s \n"
 "edo %s paketea instalatuta eduki behar da."
 
-#: ../src/boards/click_on_letter.c:288
+#: ../src/boards/click_on_letter.c:298
 #, c-format
 msgid ""
 "Error: this activity requires that you first install\n"
@@ -4184,20 +4466,8 @@ msgstr ""
 "Errorea: ariketa hau egiteko assetml-voices-alphabet-%s \n"
 "paketea instalatuta eduki behar da. Ingelesera itzultzen, sentitzen da!"
 
-#: ../src/boards/click_on_letter.c:296 ../src/boards/python/melody.py:116
-msgid ""
-"Error: this activity cannot be played with the\n"
-"sound effects disabled.\n"
-"Go to the configuration dialogue to\n"
-"enable the sound"
-msgstr ""
-"Errorea: Ariketa hau ezin da egin \n"
-"soinu-efektuak desgaituta badaude.\n"
-"Joan konfiguratzeko elkarrizketara, eta gaitu\n"
-"soinua"
-
 #. toggle box
-#: ../src/boards/click_on_letter.c:641 ../src/boards/gletters.c:847
+#: ../src/boards/click_on_letter.c:649 ../src/boards/gletters.c:899
 #: ../src/boards/python/login.py:535
 msgid "Uppercase only text"
 msgstr "Testua maiuskuletan soilik"
@@ -4207,7 +4477,7 @@ msgstr "Testua maiuskuletan soilik"
 msgid "Couldn't open dir: %s"
 msgstr "Ezin izan da direktorioa ireki: %s"
 
-#: ../src/boards/clockgame.c:536 ../src/boards/clockgame.c:546
+#: ../src/boards/clockgame.c:544 ../src/boards/clockgame.c:554
 msgid "Set the watch to:"
 msgstr "Jarri ordularia ordu honetan:"
 
@@ -4252,12 +4522,12 @@ msgid "Click on the white duck"
 msgstr "Egin klik panpin zurian"
 
 #. TRANSLATORS: Put here the numbers in your language
-#: ../src/boards/gletters.c:224 ../src/boards/memory.c:830
+#: ../src/boards/gletters.c:228 ../src/boards/memory.c:844
 msgid "0123456789"
 msgstr "0123456789"
 
 #. TRANSLATORS: Put here the alphabet uppercase in your language
-#: ../src/boards/gletters.c:234 ../src/boards/memory.c:840
+#: ../src/boards/gletters.c:238 ../src/boards/memory.c:854
 msgid "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 msgstr "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
@@ -4275,61 +4545,62 @@ msgstr "Hanoiko dorrea"
 msgid "Move the entire stack to the right peg, one disc at a time"
 msgstr "Aldatu lekuz pila osoa eskuineko zirira, disko bat aldatuz aldiko"
 
-#: ../src/boards/imageid.c:113 ../src/boards/missingletter.c:105
+#: ../src/boards/imageid.c:114 ../src/boards/missingletter.c:105
 msgid "Learn how to read"
 msgstr "Ikasi irakurtzen"
 
-#: ../src/boards/leftright.c:276 ../src/boards/leftright.c:286
+#: ../src/boards/leftright.c:280 ../src/boards/leftright.c:290
 #: ../src/boards/python/searace.py:429 ../src/boards/python/searace.py:454
 #: ../src/boards/python/searace.py:544 ../src/boards/python/searace.py:856
 #: ../src/boards/python/searace.py:889 ../src/boards/python/searace.py:986
 msgid "left"
 msgstr "ezkerrera"
 
-#: ../src/boards/leftright.c:296 ../src/boards/leftright.c:306
+#: ../src/boards/leftright.c:300 ../src/boards/leftright.c:310
 #: ../src/boards/python/searace.py:429 ../src/boards/python/searace.py:454
 #: ../src/boards/python/searace.py:553 ../src/boards/python/searace.py:858
 #: ../src/boards/python/searace.py:891 ../src/boards/python/searace.py:980
 msgid "right"
 msgstr "eskuinera"
 
-#: ../src/boards/maze.c:492
+#: ../src/boards/maze.c:496
 msgid ""
 "Look at your position, then switch back to invisible mode to continue your "
 "moves"
 msgstr "Begiratu ondo non zauden eta itzuli ikusezin modura mugitzeko"
 
-#: ../src/boards/maze.c:494
+#: ../src/boards/maze.c:498
 msgid "Look at your position, then switch back to 3D mode to continue your moves"
 msgstr "Begiratu ondo non zauden eta itzuli 3D modura mugitzeko"
 
-#: ../src/boards/memory.c:282
+#: ../src/boards/memory.c:287
 msgid "Memory"
 msgstr "Memoria"
 
-#: ../src/boards/memory.c:283
+#: ../src/boards/memory.c:288
 msgid "Find the matching pair"
 msgstr "Aurkitu dagokion bikotea"
 
-#: ../src/boards/menu.c:79
-msgid "Main Menu"
-msgstr "Menu nagusia"
-
-#: ../src/boards/menu.c:80 ../src/boards/menu2.c:129
-msgid "Select a Board"
-msgstr "Hautatu arbel bat"
+#. TRANSLATORS: Put here the mathematical operators "+-�" for  your language.
+#: ../src/boards/memory.c:859
+msgid "+-×÷"
+msgstr "+-×÷"
 
 #: ../src/boards/menu2.c:128
 msgid "Main Menu Second Version"
 msgstr "Menu nagusiaren bigarren bertsioa"
 
+#: ../src/boards/menu2.c:129
+msgid "Select a Board"
+msgstr "Hautatu arbel bat"
+
 #. Set here the way to display money. Change only the money sign, and it's place, always keep %.2f, it will be replaced by 0,34 if decimal is ',' in your locale
-#: ../src/boards/money.c:489
+#: ../src/boards/money.c:492
 #, c-format
 msgid "$ %.2f"
 msgstr "%.2f €"
 
-#: ../src/boards/money.c:502
+#: ../src/boards/money.c:505
 #, c-format
 msgid "$ %.0f"
 msgstr "%.0f €"
@@ -4362,13 +4633,27 @@ msgstr "Hautatu dena"
 msgid "Unselect all"
 msgstr "Desautatu denak"
 
+#: ../src/boards/python/admin/board_list.py:161
+msgid "Locales"
+msgstr "Hizkuntzak"
+
+#: ../src/boards/python/admin/board_list.py:166
+msgid "Locales sound"
+msgstr "Hizkuntzaren soinuak"
+
+#: ../src/boards/python/admin/board_list.py:171
+msgid "Wordlist"
+msgstr "Hitz-zerrenda"
+
+#: ../src/boards/python/admin/board_list.py:178
+#: ../src/boards/python/admin/group_user_list.py:145
+#: ../src/boards/python/admin/user_list.py:187
+msgid "Login"
+msgstr "Erabiltzaile-izena"
+
 #: ../src/boards/python/admin/board_list.py:236
 msgid "Main menu"
 msgstr "Menu nagusia"
-
-#: ../src/boards/python/admin/board_list.py:236
-msgid "/"
-msgstr "/"
 
 #. columns for Board name
 #. column_pref = gtk.TreeViewColumn(_('Conf'))
@@ -4404,7 +4689,7 @@ msgstr "<span size='x-large'>Hautatu <b>%s</b> profilaren zailtasun barrutia</sp
 #: ../src/boards/python/admin/board_list.py:632
 #: ../src/boards/python/admin/board_list.py:650
 #: ../src/boards/python/admin/wordlist.py:51 ../src/boards/python/login.py:530
-#: ../src/boards/python/pythontest.py:410 ../src/boards/python/tuxpaint.py:179
+#: ../src/boards/python/pythontest.py:410 ../src/boards/python/tuxpaint.py:184
 #, python-format
 msgid ""
 "<b>%s</b> configuration\n"
@@ -4537,18 +4822,13 @@ msgstr "Azalpena"
 msgid "You must first select a group in the list"
 msgstr "Lehenik talde bat hautatu behar duzu zerrendatik"
 
-#: ../src/boards/python/admin/group_user_list.py:145
-#: ../src/boards/python/admin/user_list.py:187
-msgid "Login"
-msgstr "Erabiltzaile-izena"
-
 #: ../src/boards/python/admin/group_user_list.py:175
 #: ../src/boards/python/admin/user_list.py:217
 msgid "Birth Date"
 msgstr "Jaioteguna"
 
-#: ../src/boards/python/admin/module_boards.py:42
-#: ../src/boards/python/admin/module_boards.py:62
+#: ../src/boards/python/admin/module_boards.py:43
+#: ../src/boards/python/admin/module_boards.py:63
 msgid "Boards"
 msgstr "Mahai-jokoak"
 
@@ -4602,7 +4882,7 @@ msgid "There is already a profile with this name"
 msgstr "Izen berdineko profila bat badago lehendik ere"
 
 #: ../src/boards/python/admin/profile_list.py:122
-#: ../src/gcompris/board_config.c:587 ../src/gcompris/board_config.c:717
+#: ../src/gcompris/board_config.c:654 ../src/gcompris/board_config.c:815
 msgid "Default"
 msgstr "Lehenetsia"
 
@@ -4703,7 +4983,7 @@ msgstr "Abisua: honako irudiak ezin dira sisteman aurkitu.\n"
 msgid "The corresponding items have been skipped."
 msgstr "Dagokien elementuak baztertu egin dira."
 
-#: ../src/boards/python/electric.py:94
+#: ../src/boards/python/electric.py:96
 msgid ""
 "Cannot find the 'gnucap' electric simulator.\n"
 "You can download and install it from:\n"
@@ -4885,6 +5165,18 @@ msgstr "Sartu erabiltzaile-izena saioa hasteko"
 msgid "Rebuild the same mosaic on the right area"
 msgstr "Berreraiki mosaiko berdina eskuineko arean"
 
+#: ../src/boards/python/melody.py:116
+msgid ""
+"Error: this activity cannot be played with the\n"
+"sound effects disabled.\n"
+"Go to the configuration dialogue to\n"
+"enable the sound"
+msgstr ""
+"Errorea: Ariketa hau ezin da egin \n"
+"soinu-efektuak desgaituta badaude.\n"
+"Joan konfiguratzeko elkarrizketara, eta gaitu\n"
+"soinua"
+
 #: ../src/boards/python/pythontest.py:149
 msgid ""
 "This is the first plugin in gcompris coded in the Python\n"
@@ -4996,7 +5288,7 @@ msgstr "Komando ezezaguna honako lerroan"
 msgid "Distance:"
 msgstr "Distantzia:"
 
-#: ../src/boards/python/tuxpaint.py:115
+#: ../src/boards/python/tuxpaint.py:120
 msgid ""
 "Cannot find Tuxpaint.\n"
 "Install it to use this activity !"
@@ -5004,27 +5296,27 @@ msgstr ""
 "Ezin da Tuxpaint aurkitu.\n"
 "Instalatu ezazu ariketa hau erabiltzeko."
 
-#: ../src/boards/python/tuxpaint.py:128
+#: ../src/boards/python/tuxpaint.py:133
 msgid "Waiting for Tuxpaint to finish"
 msgstr "Tuxpaint-en zai amaitzeko"
 
-#: ../src/boards/python/tuxpaint.py:183
+#: ../src/boards/python/tuxpaint.py:188
 msgid "Inherit fullscreen setting from GCompris"
 msgstr "Heredatu GCompris-en pantaila osoaren ezarpenak"
 
-#: ../src/boards/python/tuxpaint.py:187
+#: ../src/boards/python/tuxpaint.py:192
 msgid "Inherit size setting from GCompris (800x600, 640x480)"
 msgstr "Heredatu GCompris-en tamainaren ezarpenak (800x600, 640x480)"
 
-#: ../src/boards/python/tuxpaint.py:191
+#: ../src/boards/python/tuxpaint.py:196
 msgid "Disable shape rotation"
 msgstr "Desgaitu forma biratzea"
 
-#: ../src/boards/python/tuxpaint.py:195
+#: ../src/boards/python/tuxpaint.py:200
 msgid "Show Uppercase text only"
 msgstr "Erakutsi letrak maiuskuletan soilik"
 
-#: ../src/boards/python/tuxpaint.py:199
+#: ../src/boards/python/tuxpaint.py:204
 msgid "Disable stamps"
 msgstr "Desgaitu zigiluak"
 
@@ -5036,46 +5328,46 @@ msgstr "Memoria-jokoa"
 msgid "Build a train according to the model"
 msgstr "Osatu trena ereduari jarraiki"
 
-#: ../src/boards/reading.c:366
+#: ../src/boards/reading.c:370
 msgid "Please, check if the word"
 msgstr "Begiratu ea hitza azaltzen"
 
-#: ../src/boards/reading.c:386
+#: ../src/boards/reading.c:390
 msgid "is being displayed"
 msgstr "den ala ez"
 
-#: ../src/boards/reading.c:557
+#: ../src/boards/reading.c:561
 msgid "I am Ready"
 msgstr "Prest nago"
 
-#: ../src/boards/reading.c:597
+#: ../src/boards/reading.c:601
 msgid "Yes, I saw it"
 msgstr "Bai, ikusi dut"
 
-#: ../src/boards/reading.c:627
+#: ../src/boards/reading.c:631
 msgid "No, it was not there"
 msgstr "Ez, ez dut ikusi"
 
 #. Report what was wrong in the log
-#: ../src/boards/reading.c:665
+#: ../src/boards/reading.c:669
 #, c-format
 msgid "The word to find was '%s'"
 msgstr "Aurkitu beharreko hitza '%s' zen"
 
-#: ../src/boards/reading.c:668
+#: ../src/boards/reading.c:672
 msgid "But it was not displayed"
 msgstr "Baina ez da azaldu"
 
-#: ../src/boards/reading.c:670
+#: ../src/boards/reading.c:674
 msgid "And it was displayed"
 msgstr "Eta azaldu da"
 
-#: ../src/boards/reading.c:773 ../src/boards/wordsgame.c:776
+#: ../src/boards/reading.c:777 ../src/boards/wordsgame.c:776
 msgid "Cannot open file of words for your locale"
 msgstr "Ezin da zure hizkuntzaren hitzen fitxategia ireki"
 
 #. Enter Edit Mode
-#: ../src/boards/shapegame.c:429
+#: ../src/boards/shapegame.c:433
 msgid ""
 "You have entered Edit mode\n"
 "Move the puzzle items;\n"
@@ -5088,7 +5380,7 @@ msgstr ""
 "gordetzeko, eta 'd' \n"
 "forma guztiak bistaratzeko"
 
-#: ../src/boards/shapegame.c:437
+#: ../src/boards/shapegame.c:441
 msgid ""
 "The data from this activity are saved under\n"
 "/tmp/gcompris-board.xml"
@@ -5104,12 +5396,12 @@ msgstr "Urpeko ontzia"
 msgid "Control the depth of a submarine"
 msgstr "Kontrolatu urpeko ontzi baten sakonera"
 
-#: ../src/boards/target.c:285 ../src/boards/target.c:538
+#: ../src/boards/target.c:285 ../src/boards/target.c:540
 #, c-format
 msgid "Points = %s"
 msgstr "Puntuak = %s"
 
-#: ../src/boards/target.c:403
+#: ../src/boards/target.c:405
 #, c-format
 msgid ""
 "Wind speed = %d\n"
@@ -5118,7 +5410,7 @@ msgstr ""
 "Haizearen abiadura = %d\n"
 "kilometro orduko"
 
-#: ../src/boards/target.c:465
+#: ../src/boards/target.c:467
 #, c-format
 msgid "Distance to target = %d meters"
 msgstr "Helburuarekiko distantzia = %d metro"
@@ -5170,32 +5462,32 @@ msgstr ""
 
 #: ../src/gcompris/about.c:341 ../src/gcompris/about.c:350
 #: ../src/gcompris/config.c:222 ../src/gcompris/config.c:231
-#: ../src/gcompris/gameutil.c:1119 ../src/gcompris/help.c:362
-#: ../src/gcompris/help.c:371 ../src/gcompris/images_selector.c:263
+#: ../src/gcompris/gameutil.c:1070 ../src/gcompris/help.c:382
+#: ../src/gcompris/help.c:391 ../src/gcompris/images_selector.c:263
 msgid "OK"
 msgstr "Ados"
 
-#: ../src/gcompris/bar.c:571
+#: ../src/gcompris/bar.c:565
 msgid "GCompris confirmation"
 msgstr "GCompris-en berrespena"
 
-#: ../src/gcompris/bar.c:572
+#: ../src/gcompris/bar.c:566
 msgid "Sure you want to quit ?"
 msgstr "Ziur zaude irtetzea nahi duzula?"
 
-#: ../src/gcompris/bar.c:573
+#: ../src/gcompris/bar.c:567
 msgid "Yes, I am sure !"
 msgstr "Bai, ziur nago!"
 
-#: ../src/gcompris/bar.c:574
-msgid "No, I continue"
-msgstr "Ez, jarraitzea nahi dut"
+#: ../src/gcompris/bar.c:568
+msgid "No, I want to keep going"
+msgstr "Ez, irtetzea nahi dut"
 
-#: ../src/gcompris/board.c:176
+#: ../src/gcompris/board.c:182
 msgid "Dynamic module loading is not supported. gcompris cannot load.\n"
 msgstr "Ez da onartzen modulu dinamikoa. gcompris ezin da kargatu.\n"
 
-#: ../src/gcompris/board_config.c:617
+#: ../src/gcompris/board_config.c:686
 msgid ""
 "Select the language\n"
 " to use in the board"
@@ -5380,46 +5672,50 @@ msgid "Swedish"
 msgstr "Suediera"
 
 #: ../src/gcompris/config.c:108
+msgid "Thai"
+msgstr "Thailandiera"
+
+#: ../src/gcompris/config.c:109
 msgid "Turkish"
 msgstr "Turkiera"
 
-#: ../src/gcompris/config.c:109
+#: ../src/gcompris/config.c:110
 msgid "Vietnamese"
 msgstr "Vietnamera"
 
-#: ../src/gcompris/config.c:110
+#: ../src/gcompris/config.c:111
 msgid "Walloon"
 msgstr "Waloiera"
 
-#: ../src/gcompris/config.c:111
+#: ../src/gcompris/config.c:112
 msgid "Chinese (Simplified)"
 msgstr "Txinera (erraztua)"
 
-#: ../src/gcompris/config.c:112
+#: ../src/gcompris/config.c:113
 msgid "Chinese (Traditional)"
 msgstr "Txinatar tradizionala"
 
-#: ../src/gcompris/config.c:117
+#: ../src/gcompris/config.c:118
 msgid "No time limit"
 msgstr "Denbora-mugarik ez"
 
-#: ../src/gcompris/config.c:118
+#: ../src/gcompris/config.c:119
 msgid "Slow timer"
 msgstr "Kronometro motela"
 
-#: ../src/gcompris/config.c:119
+#: ../src/gcompris/config.c:120
 msgid "Normal timer"
 msgstr "Kronometro normala"
 
-#: ../src/gcompris/config.c:120
+#: ../src/gcompris/config.c:121
 msgid "Fast timer"
 msgstr "Kronometro bizkorra"
 
-#: ../src/gcompris/config.c:125
+#: ../src/gcompris/config.c:126
 msgid "800x600 (Default for gcompris)"
 msgstr "800x600 (gcompris-en lehenetsia)"
 
-#: ../src/gcompris/config.c:130
+#: ../src/gcompris/config.c:131
 msgid ""
 "<i>Use Gcompris administration module\n"
 "to filter boards</i>"
@@ -5448,11 +5744,15 @@ msgstr "Efektua"
 msgid "Couldn't open skin dir: %s"
 msgstr "Ezin izan da direktorioa ireki: %s"
 
-#: ../src/gcompris/config.c:454 ../src/gcompris/config.c:818
-#: ../src/gcompris/config.c:829
+#: ../src/gcompris/config.c:454 ../src/gcompris/config.c:824
+#: ../src/gcompris/config.c:835
 #, c-format
 msgid "Skin : %s"
 msgstr "Azala: %s"
+
+#: ../src/gcompris/config.c:624
+msgid "English (United State)"
+msgstr "Ingelesa (Ameriketako Estatu Batuak)"
 
 #: ../src/gcompris/file_selector.c:341
 msgid "CANCEL"
@@ -5466,15 +5766,15 @@ msgstr "KARGATU"
 msgid "SAVE"
 msgstr "GORDE"
 
-#: ../src/gcompris/gameutil.c:190
+#: ../src/gcompris/gameutil.c:72
 msgid "Couldn't find file"
 msgstr "Ezin izan da fitxategia aurkitu"
 
-#: ../src/gcompris/gameutil.c:192
+#: ../src/gcompris/gameutil.c:74
 msgid "This activity is incomplete."
 msgstr "Ariketa hau ez da osatu."
 
-#: ../src/gcompris/gameutil.c:193
+#: ../src/gcompris/gameutil.c:75
 msgid ""
 "Exit it and report\n"
 "the problem to the authors."
@@ -5482,47 +5782,47 @@ msgstr ""
 "Irten, eta eman\n"
 "arazoaren berri egileei."
 
-#: ../src/gcompris/gcompris.c:125
+#: ../src/gcompris/gcompris.c:126
 msgid "run gcompris in fullscreen mode."
 msgstr "exekutatu gcompris pantaila osoko moduan."
 
-#: ../src/gcompris/gcompris.c:127
+#: ../src/gcompris/gcompris.c:128
 msgid "run gcompris in window mode."
 msgstr "exekutatu gcompris leiho-moduan."
 
-#: ../src/gcompris/gcompris.c:129
+#: ../src/gcompris/gcompris.c:130
 msgid "run gcompris with sound enabled."
 msgstr "exekutatu gcompris soinua gaituta dagoela."
 
-#: ../src/gcompris/gcompris.c:131
+#: ../src/gcompris/gcompris.c:132
 msgid "run gcompris without sound."
 msgstr "exekutatu gcompris soinurik gabe."
 
-#: ../src/gcompris/gcompris.c:133
+#: ../src/gcompris/gcompris.c:134
 msgid "run gcompris with the default gnome cursor."
 msgstr "exekutatu gcompris gnome kurtsore lehenetsiarekin."
 
-#: ../src/gcompris/gcompris.c:135
+#: ../src/gcompris/gcompris.c:136
 msgid "display only activities with this difficulty level."
 msgstr "erakutsi zailtasun-maila honetako ariketak bakarrik."
 
-#: ../src/gcompris/gcompris.c:137
+#: ../src/gcompris/gcompris.c:138
 msgid "display debug informations on the console."
 msgstr "bistaratu arazketaren informazioa kontsolan."
 
-#: ../src/gcompris/gcompris.c:139
+#: ../src/gcompris/gcompris.c:140
 msgid "Print the version of "
 msgstr "Inprimatu bertsioa:  "
 
-#: ../src/gcompris/gcompris.c:141
+#: ../src/gcompris/gcompris.c:142
 msgid "Use the antialiased canvas (slower)."
 msgstr "Erabili antialiasing bidezko oihala (motelagoa)."
 
-#: ../src/gcompris/gcompris.c:143
-msgid "Disable XRANDR (No screen resolution change)."
-msgstr "Desgaitu XRANDR (ez da pantailaren bereizmena aldatuko)"
+#: ../src/gcompris/gcompris.c:144
+msgid "Disable XF86VidMode (No screen resolution change)."
+msgstr "Desgaitu XF86VidMode (ez da pantailaren bereizmena aldatuko)."
 
-#: ../src/gcompris/gcompris.c:145
+#: ../src/gcompris/gcompris.c:146
 msgid ""
 "Run gcompris with local menu (e.g -l /reading will let you play only "
 "activities in the reading directory, -l /boards/connect4 only the connect4 "
@@ -5532,41 +5832,41 @@ msgstr ""
 "direktorioarekin bakarrik jolasten utziko dizu, -l /boards/connect4 'lauko "
 "artzain jokoa' jarduerarekin bakarrik)"
 
-#: ../src/gcompris/gcompris.c:147
+#: ../src/gcompris/gcompris.c:148
 msgid "Run GCompris with local activity directory added to menu"
 msgstr "Exekutatu gcompris menuan gehitutako jardueren direktorio lokalarekin"
 
-#: ../src/gcompris/gcompris.c:149
+#: ../src/gcompris/gcompris.c:150
 msgid "Run GCompris in administration and user-management mode"
 msgstr "Exekutatu GCompris administratzeko eta erabiltzaileak kudeatzeko moduan"
 
-#: ../src/gcompris/gcompris.c:151
+#: ../src/gcompris/gcompris.c:152
 msgid "Use alternate database for profiles"
 msgstr "Erabili profilen bestelako datu-basea"
 
-#: ../src/gcompris/gcompris.c:153
+#: ../src/gcompris/gcompris.c:154
 msgid "Use alternate database for logs"
 msgstr "Erabili egunkarien bestelako datu-basea"
 
-#: ../src/gcompris/gcompris.c:155
+#: ../src/gcompris/gcompris.c:156
 msgid "Create the alternate database for profiles"
 msgstr "Sortu profilen bestelako datu-basea"
 
-#: ../src/gcompris/gcompris.c:157
+#: ../src/gcompris/gcompris.c:158
 msgid "Re-read XML Menus and store them in the database"
 msgstr "Irakurri berriro XML menuak eta gorde datu-basean"
 
-#: ../src/gcompris/gcompris.c:159
+#: ../src/gcompris/gcompris.c:160
 msgid "Set the profile to use. Use 'gcompris -a' to create profiles"
 msgstr "Ezarri profila erabiltzeko. Erabili 'gcompris -a' profilak sortzeko"
 
-#: ../src/gcompris/gcompris.c:161
+#: ../src/gcompris/gcompris.c:162
 msgid "List all available profiles. Use 'gcompris -a' to create profiles"
 msgstr ""
 "Zerrendatu erabilgarri dauden profila guztiak. Erabili 'gcompris -a' "
 "profilak sortzeko"
 
-#: ../src/gcompris/gcompris.c:163
+#: ../src/gcompris/gcompris.c:164
 msgid ""
 "Shared directory location, for profiles and board-configuration data: "
 "[$HOME/.gcompris/shared]"
@@ -5574,23 +5874,27 @@ msgstr ""
 "Partekatutako direktorioaren kokalekua, profilak eta arbelen konfigurazioko "
 "datuak dituena: [$HOME/.gcompris/shared]"
 
-#: ../src/gcompris/gcompris.c:165
+#: ../src/gcompris/gcompris.c:166
 msgid "The location of user directories: [$HOME/.gcompris/users]"
 msgstr "Erabiltzaileen direktorioen kokalekua:  [$HOME/.gcompris/users]"
 
-#: ../src/gcompris/gcompris.c:167
+#: ../src/gcompris/gcompris.c:168
 msgid "Run the experimental activities"
 msgstr "Exekutatu ariketa esperimentalak."
 
-#: ../src/gcompris/gcompris.c:169
+#: ../src/gcompris/gcompris.c:170
 msgid "Disable the quit button"
 msgstr "Desgaitu irteerako botoia"
 
-#: ../src/gcompris/gcompris.c:171
+#: ../src/gcompris/gcompris.c:172
 msgid "Disable the config button"
 msgstr "Desgaitu konfigurazioko botoia"
 
-#: ../src/gcompris/gcompris.c:788
+#: ../src/gcompris/gcompris.c:174
+msgid "Display the resources on stdout based on the selected activities"
+msgstr "Bistaratu baliabideak irteera estandarrean (stdout) hautatutako jardueretan oinarrituz"
+
+#: ../src/gcompris/gcompris.c:802
 #, c-format
 msgid ""
 "GCompris is free software released under the GPL License. In order to "
@@ -5614,7 +5918,7 @@ msgstr ""
 "gunean:\n"
 "<http://www.fsf.org/philosophy>"
 
-#: ../src/gcompris/gcompris.c:1172
+#: ../src/gcompris/gcompris.c:1250
 #, c-format
 msgid ""
 "GCompris\n"
@@ -5628,17 +5932,17 @@ msgstr ""
 "Informazio gehiago: http://gcompris.net\n"
 
 #. check the list of possible values for -l, then exit
-#: ../src/gcompris/gcompris.c:1258
+#: ../src/gcompris/gcompris.c:1336
 #, c-format
 msgid "Use -l to access an activity directly.\n"
 msgstr "Erabili -l ariketetara zuzenean sartzeko.\n"
 
-#: ../src/gcompris/gcompris.c:1259
+#: ../src/gcompris/gcompris.c:1337
 #, c-format
 msgid "The list of available activities is :\n"
 msgstr "Ariketa erabilgarrien zerrenda: \n"
 
-#: ../src/gcompris/gcompris.c:1403
+#: ../src/gcompris/gcompris.c:1481
 #, c-format
 msgid "The list of available profiles is:\n"
 msgstr "Profila erabilgarrien zerrenda: \n"
@@ -5651,19 +5955,19 @@ msgstr "Efekturik gabe"
 msgid "Users without a class"
 msgstr "Klaserik gabeko erabiltzeak"
 
-#: ../src/gcompris/help.c:203
+#: ../src/gcompris/help.c:200
 msgid "Prerequisite"
 msgstr "Aurrebaldintzak"
 
-#: ../src/gcompris/help.c:231
+#: ../src/gcompris/help.c:228
 msgid "Goal"
 msgstr "Helburua"
 
-#: ../src/gcompris/help.c:259
+#: ../src/gcompris/help.c:256
 msgid "Manual"
 msgstr "Jarraibideak"
 
-#: ../src/gcompris/help.c:287
+#: ../src/gcompris/help.c:284
 msgid "Credit"
 msgstr "Kreditua"
 
