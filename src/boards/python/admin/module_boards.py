@@ -26,6 +26,7 @@ import gcompris.admin
 import gtk
 import gtk.gdk
 from gettext import gettext as _
+import sys;
 
 # Database
 from pysqlite2 import dbapi2 as sqlite
@@ -82,3 +83,5 @@ class Boards(module.Module):
     # Remove the root item removes all the others inside it
     self.rootitem.destroy()
 
+    # For now, quitting admin is definitive
+    sys.exit()

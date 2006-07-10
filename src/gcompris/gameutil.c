@@ -1,6 +1,6 @@
 /* gcompris - gameutil.c
  *
- * Time-stamp: <2006/05/11 22:03:34 bruno>
+ * Time-stamp: <2006/07/10 01:24:04 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -277,9 +277,10 @@ gchar *reactivate_newline(char *str)
  */
 
 static void
-gcompris_add_xml_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child, GcomprisBoard *gcomprisBoard, gboolean db)
+gcompris_add_xml_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child,
+			 GcomprisBoard *gcomprisBoard, gboolean db)
 {
-  GcomprisProperties	*properties = gcompris_get_properties();
+  GcomprisProperties *properties = gcompris_get_properties();
   gchar *title=NULL;
   gchar *description=NULL;
   gchar *prerequisite=NULL;
@@ -388,6 +389,19 @@ gcompris_add_xml_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child, Gcomp
 	credit =(char *) xmlNodeListGetString(doc,  xmlnode->xmlChildrenNode, 0);
 	gcomprisBoard->credit = reactivate_newline(gettext(credit));
       }
+
+    /* Display the resource on stdout */
+    if (properties->display_resource 
+	&& !strcmp((char *)xmlnode->name, "resource")
+	&& gcompris_get_current_profile())
+      {
+	if(gcompris_is_activity_in_profile(gcompris_get_current_profile(), gcomprisBoard->name))
+	  {
+	    char *resource = (char *)xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 0);
+	    printf("%s\n", resource);
+	  }
+      }
+
   }
 
 

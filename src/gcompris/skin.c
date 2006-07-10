@@ -299,8 +299,8 @@ void gcompris_skin_xml_load (gchar* skin)
   while(node !=NULL)
     {
       if(g_strcasecmp((gchar *)node->name, "color")==0){
-	key = xmlGetProp(node,  BAD_CAST "id");
-	data = xmlGetProp(node,  BAD_CAST "rgba");
+	key = (gchar *)xmlGetProp(node,  BAD_CAST "id");
+	data =(gchar *) xmlGetProp(node,  BAD_CAST "rgba");
 	if((key!=NULL)&&(data!=NULL)){
 	  if(gcompris_skin_str_to_color(data, &color)){
 	    g_hash_table_insert(gcompris_skin_colors, key, GUINT_TO_POINTER(color));
@@ -311,8 +311,8 @@ void gcompris_skin_xml_load (gchar* skin)
 	if(data!=NULL) g_free(data);
       } 
       else if(g_strcasecmp((gchar *)node->name, "font")==0){
-	key = xmlGetProp(node,  BAD_CAST "id");
-	data = xmlGetProp(node,  BAD_CAST "name");
+	key = (gchar *)xmlGetProp(node,  BAD_CAST "id");
+	data = (gchar *)xmlGetProp(node,  BAD_CAST "name");
 	if((key!=NULL)&&(data!=NULL)){
 	  g_hash_table_insert(gcompris_skin_fonts, key, data);
 	} else {

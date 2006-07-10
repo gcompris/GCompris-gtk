@@ -1,6 +1,6 @@
 /* gcompris - gcompris_db.h
  *
- * Time-stamp: <2006/03/02 00:19:19 bruno>
+ * Time-stamp: <2006/07/10 00:48:16 bruno>
  *
  * Copyright (C) 2005 Bruno Coudoin
  *
@@ -117,6 +117,8 @@ GHashTable *gcompris_get_conf(GcomprisProfile *profile, GcomprisBoard  *board);
 GHashTable *gcompris_get_conf_with_table(int profile_id, int board_id, GHashTable *table );
 
 GcomprisBoard *gcompris_get_board_from_id(int board_id);
+
+int gcompris_is_activity_in_profile(GcomprisProfile *profile, char *activity_name);
 
 #endif
 

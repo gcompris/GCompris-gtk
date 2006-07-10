@@ -1829,6 +1829,52 @@ GList *gcompris_get_classes_list()
 #endif
 }
 
+/* Special request, return true if an activity name is disabled in the profile */
+#define DB_IS_ACTIVITY_IN_PROFILE_ID(profile_id, name)			\
+  "SELECT activities_out.board_id FROM activities_out, boards WHERE boards.name='%s' AND activities_out.out_id='%d' AND activities_out.board_id=boards.board_id;", name, profile_id
+
+int gcompris_is_activity_in_profile(GcomprisProfile *profile, char *activity_name)
+{
+#ifdef USE_SQLITE
+  char *zErrMsg;
+  char **result;
+  int rc;
+  int nrow;
+  int ncolumn;
+  gchar *request;
+
+  request = g_strdup_printf(DB_IS_ACTIVITY_IN_PROFILE_ID(profile->profile_id, activity_name));
+  printf("request=%s\n", request);
+
+  rc = sqlite3_get_table(gcompris_db, 
+			 request,  
+			 &result,
+			 &nrow,
+			 &ncolumn,
+			 &zErrMsg
+			 );
+  
+  g_free(request);
+
+  if( rc!=SQLITE_OK ){
+    g_error("SQL error: %s\n", zErrMsg);
+  }
+
+  if (nrow == 0){
+    /* IS IN THE PROFILE */
+    return TRUE;
+  }
+   
+  /* IS NOT IN THE PROFILE */
+  return FALSE;
+
+#else
+  return TRUE;
+#endif
+}
+
+
+
 /* Local Variables: */
 /* mode:c */
 /* eval:(load-library "time-stamp") */

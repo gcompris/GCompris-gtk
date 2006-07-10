@@ -119,6 +119,7 @@ static char *popt_users_dir	   = NULL;
 static int  popt_experimental      = FALSE;
 static int  popt_no_quit	   = FALSE;
 static int  popt_no_config         = FALSE;
+static int  popt_display_resource  = FALSE;
 
 static struct poptOption options[] = {
   {"fullscreen", 'f', POPT_ARG_NONE, &popt_fullscreen, 0,
@@ -169,6 +170,8 @@ static struct poptOption options[] = {
    N_("Disable the quit button"), NULL},
   {"disable-config",'\0', POPT_ARG_NONE, &popt_no_config, 0,
    N_("Disable the config button"), NULL},
+  {"display_resource",'\0', POPT_ARG_NONE, &popt_display_resource, 0,
+   N_("Display the resources on stdout based on the selected activities"), NULL},
 #ifndef WIN32	/* Not supported on windows */
   POPT_AUTOHELP
 #endif
@@ -1503,6 +1506,15 @@ gcompris_init (int argc, char *argv[])
 
 /*     gcompris_wordlist_free(wl); */
 
+    exit(0);
+  }
+
+  /* An alternate profile is requested, check it does exists */
+  if (popt_display_resource){
+    properties->display_resource = TRUE;
+    properties->reread_menu = TRUE;
+    printf("Resources for selected activities (as selected by gcompris --administration):\n");
+    gcompris_load_menus();
     exit(0);
   }
 

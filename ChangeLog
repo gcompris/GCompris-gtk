@@ -1,3 +1,24 @@
+2006-07-10  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	- added support for the --display-resource option (uncomplete yet)
+	
+	* Makefile.am: Moved po/TRANSLATORS.README in README.translators
+	* README.translators:
+	* README.windows:
+	* boards/geography.xml.in: added a resource (test)
+	* po/TRANSLATORS.README: moved up
+	* src/boards/py-gcompris-board.c: (pyGcomprisBoardType_getattr): replace a printf by a g_warning
+	* src/boards/python/admin/module_boards.py: now exit gcompris when closed. It avoids a crash when 
+	  quiting the admin mode. What happens is that since admin is the only activity, it is restarted
+	  by the menu and it creates an sqlite assertion.
+	* src/gcompris/gameutil.c: (gcompris_add_xml_to_data): added support for the --display-resource
+	  option
+	* src/gcompris/gcompris.c: (gcompris_init): - 
+	* src/gcompris/gcompris_db.c: (gcompris_is_activity_in_profile): added function to support
+	  --display-resource
+	* src/gcompris/gcompris_db.h: -
+	* src/gcompris/skin.c: (gcompris_skin_xml_load): fixed warnings
+
 2006-07-08  Bruno coudoin  <bruno.coudoin@free.fr>
 
 
