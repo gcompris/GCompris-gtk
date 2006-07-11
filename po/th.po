@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gCompris\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-06-25 09:44+0700\n"
-"PO-Revision-Date: 2006-06-26 20:37+0700\n"
+"POT-Creation-Date: 2006-07-11 23:19+0700\n"
+"PO-Revision-Date: 2006-07-11 23:28+0700\n"
 "Last-Translator: Theppitak Karoonboonyanan <thep@linux.thai.net>\n"
 "Language-Team: Thai <L10n@opentle.org>\n"
 "MIME-Version: 1.0\n"
@@ -948,8 +948,7 @@ msgstr ""
 
 #: ../boards/chronos/board3_4.xml.in.h:2
 msgid "1829 Stephenson's Rocket\\nSteam locomotive"
-msgstr ""
-"1829 หัวรถจักรไอน้ำร็อกเก็ต\\nของสตีเฟนสัน"
+msgstr "1829 หัวรถจักรไอน้ำร็อกเก็ต\\nของสตีเฟนสัน"
 
 #: ../boards/chronos/board4_0.xml.in.h:2
 msgid "1903 The Wright brothers' Flyer III"
@@ -4710,8 +4709,8 @@ msgstr "คุณต้องเลือกกลุ่มในรายกา
 msgid "Birth Date"
 msgstr "วันเกิด"
 
-#: ../src/boards/python/admin/module_boards.py:42
-#: ../src/boards/python/admin/module_boards.py:62
+#: ../src/boards/python/admin/module_boards.py:43
+#: ../src/boards/python/admin/module_boards.py:63
 msgid "Boards"
 msgstr "กระดาน"
 
@@ -5335,8 +5334,8 @@ msgid ""
 msgstr "โปรแกรมนี้เป็นชุดของ GNU และเผยแพร่ภายใต้เงื่อนไข GNU General Public License"
 
 #: ../src/gcompris/about.c:341 ../src/gcompris/about.c:350
-#: ../src/gcompris/config.c:222 ../src/gcompris/config.c:231
-#: ../src/gcompris/gameutil.c:1056 ../src/gcompris/help.c:382
+#: ../src/gcompris/config.c:223 ../src/gcompris/config.c:232
+#: ../src/gcompris/gameutil.c:1070 ../src/gcompris/help.c:382
 #: ../src/gcompris/help.c:391 ../src/gcompris/images_selector.c:263
 msgid "OK"
 msgstr "ตกลง"
@@ -5478,119 +5477,123 @@ msgid "Malayalam"
 msgstr "มะละยาลัม"
 
 #: ../src/gcompris/config.c:91
+msgid "Marathi"
+msgstr "มาราฐี"
+
+#: ../src/gcompris/config.c:92
 msgid "Malay"
 msgstr "มลายู"
 
-#: ../src/gcompris/config.c:92
+#: ../src/gcompris/config.c:93
 msgid "Nepal"
 msgstr "เนปาล"
 
-#: ../src/gcompris/config.c:93
+#: ../src/gcompris/config.c:94
 msgid "Dutch"
 msgstr "ดัตช์"
 
-#: ../src/gcompris/config.c:94
+#: ../src/gcompris/config.c:95
 msgid "Norwegian Bokmal"
 msgstr "นอร์เวย์ Bokmal"
 
-#: ../src/gcompris/config.c:95
+#: ../src/gcompris/config.c:96
 msgid "Norwegian Nynorsk"
 msgstr "นอร์เวย์ Nynorsk"
 
-#: ../src/gcompris/config.c:96
+#: ../src/gcompris/config.c:97
 msgid "Polish"
 msgstr "โปแลนด์"
 
-#: ../src/gcompris/config.c:97
+#: ../src/gcompris/config.c:98
 msgid "Portuguese"
 msgstr "โปรตุเกส"
 
-#: ../src/gcompris/config.c:98
+#: ../src/gcompris/config.c:99
 msgid "Portuguese (Brazil)"
 msgstr "โปรตุเกส (บราซิล)"
 
-#: ../src/gcompris/config.c:99
+#: ../src/gcompris/config.c:100
 msgid "Romanian"
 msgstr "โรมาเนีย"
 
-#: ../src/gcompris/config.c:100
+#: ../src/gcompris/config.c:101
 msgid "Russian"
 msgstr "รัสเซีย"
 
-#: ../src/gcompris/config.c:101
+#: ../src/gcompris/config.c:102
 msgid "Kinyarwanda"
 msgstr "คินยารวันดา"
 
-#: ../src/gcompris/config.c:102
+#: ../src/gcompris/config.c:103
 msgid "Slovak"
 msgstr "สโลวะเกีย"
 
-#: ../src/gcompris/config.c:103
+#: ../src/gcompris/config.c:104
 msgid "Slovenian"
 msgstr "สโลวีเนีย"
 
-#: ../src/gcompris/config.c:104
+#: ../src/gcompris/config.c:105
 msgid "Albanian"
 msgstr "แอลเบเนีย"
 
-#: ../src/gcompris/config.c:105
+#: ../src/gcompris/config.c:106
 msgid "Serbian (Latin)"
 msgstr "เซอร์เบีย (ละติน)"
 
-#: ../src/gcompris/config.c:106
+#: ../src/gcompris/config.c:107
 msgid "Serbian"
 msgstr "เซอร์เบีย"
 
-#: ../src/gcompris/config.c:107
+#: ../src/gcompris/config.c:108
 msgid "Swedish"
 msgstr "สวีเดน"
 
-#: ../src/gcompris/config.c:108
+#: ../src/gcompris/config.c:109
 msgid "Thai"
 msgstr "ไทย"
 
-#: ../src/gcompris/config.c:109
+#: ../src/gcompris/config.c:110
 msgid "Turkish"
 msgstr "ตุรกี"
 
-#: ../src/gcompris/config.c:110
+#: ../src/gcompris/config.c:111
 msgid "Vietnamese"
 msgstr "เวียดนาม"
 
 # ชาวเบลเยี่ยมทางใต้ซึ่งพูดภาษาฝรั่งเศส
-#: ../src/gcompris/config.c:111
+#: ../src/gcompris/config.c:112
 msgid "Walloon"
 msgstr "วอลลูน"
 
-#: ../src/gcompris/config.c:112
+#: ../src/gcompris/config.c:113
 msgid "Chinese (Simplified)"
 msgstr "จีน (ประยุกต์)"
 
-#: ../src/gcompris/config.c:113
+#: ../src/gcompris/config.c:114
 msgid "Chinese (Traditional)"
 msgstr "จีน (ดั้งเดิม)"
 
-#: ../src/gcompris/config.c:118
+#: ../src/gcompris/config.c:119
 msgid "No time limit"
 msgstr "ไม่มีการจำกัดเวลา"
 
-#: ../src/gcompris/config.c:119
+#: ../src/gcompris/config.c:120
 msgid "Slow timer"
 msgstr "เวลาเชื่องช้า"
 
-#: ../src/gcompris/config.c:120
+#: ../src/gcompris/config.c:121
 msgid "Normal timer"
 msgstr "เวลาปกติ"
 
-#: ../src/gcompris/config.c:121
+#: ../src/gcompris/config.c:122
 msgid "Fast timer"
 msgstr "เวลาเร็ว"
 
-#: ../src/gcompris/config.c:126
+#: ../src/gcompris/config.c:127
 msgid "800x600 (Default for gcompris)"
 msgstr "800x600 (ค่าปกติของ GCompris)"
 
-#: ../src/gcompris/config.c:131
+#: ../src/gcompris/config.c:132
 msgid ""
 "<i>Use Gcompris administration module\n"
 "to filter boards</i>"
@@ -5598,34 +5601,34 @@ msgstr ""
 "<i>ใช้มอดูลบริหารจัดการ GCompris\n"
 "เพื่อกรองใช้กระดาน</i>"
 
-#: ../src/gcompris/config.c:187 ../src/gcompris/config.c:196
+#: ../src/gcompris/config.c:188 ../src/gcompris/config.c:197
 msgid "GCompris Configuration"
 msgstr "ปรับแต่ง GCompris"
 
-#: ../src/gcompris/config.c:314
+#: ../src/gcompris/config.c:315
 msgid "Fullscreen"
 msgstr "เต็มหน้าจอ"
 
-#: ../src/gcompris/config.c:357
+#: ../src/gcompris/config.c:358
 msgid "Music"
 msgstr "เพลง"
 
-#: ../src/gcompris/config.c:385
+#: ../src/gcompris/config.c:386
 msgid "Effect"
 msgstr "เอฟเฟ็กต์"
 
-#: ../src/gcompris/config.c:418
+#: ../src/gcompris/config.c:419
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "ไม่สามารถเปิดโฟลเดอร์ของหน้ากาก: %s"
 
-#: ../src/gcompris/config.c:454 ../src/gcompris/config.c:824
-#: ../src/gcompris/config.c:835
+#: ../src/gcompris/config.c:455 ../src/gcompris/config.c:825
+#: ../src/gcompris/config.c:836
 #, c-format
 msgid "Skin : %s"
 msgstr "หน้ากาก : %s"
 
-#: ../src/gcompris/config.c:624
+#: ../src/gcompris/config.c:625
 msgid "English (United State)"
 msgstr "อังกฤษ (อเมริกัน)"
 
@@ -5657,47 +5660,47 @@ msgstr ""
 "ออกและรายงานปัญหา\n"
 "ไปยังผู้เขียน"
 
-#: ../src/gcompris/gcompris.c:125
+#: ../src/gcompris/gcompris.c:126
 msgid "run gcompris in fullscreen mode."
 msgstr "เรียก GCompris ในแบบเต็มหน้าจอ"
 
-#: ../src/gcompris/gcompris.c:127
+#: ../src/gcompris/gcompris.c:128
 msgid "run gcompris in window mode."
 msgstr "เรียก GCompris ในแบบหน้าต่าง"
 
-#: ../src/gcompris/gcompris.c:129
+#: ../src/gcompris/gcompris.c:130
 msgid "run gcompris with sound enabled."
 msgstr "เรียก GCompris โดยเปิดใช้เสียง"
 
-#: ../src/gcompris/gcompris.c:131
+#: ../src/gcompris/gcompris.c:132
 msgid "run gcompris without sound."
 msgstr "เรียก GCompris โดยไม่ใช้เสียง"
 
-#: ../src/gcompris/gcompris.c:133
+#: ../src/gcompris/gcompris.c:134
 msgid "run gcompris with the default gnome cursor."
 msgstr "เรียก GCompris โดยใช้เคอร์เซอร์ปกติของ GNOME"
 
-#: ../src/gcompris/gcompris.c:135
+#: ../src/gcompris/gcompris.c:136
 msgid "display only activities with this difficulty level."
 msgstr "แสดงเฉพาะกิจกรรมที่ระดับของความยากนี้"
 
-#: ../src/gcompris/gcompris.c:137
+#: ../src/gcompris/gcompris.c:138
 msgid "display debug informations on the console."
 msgstr "แสดงข้อมูลดีบั๊กที่คอนโซล"
 
-#: ../src/gcompris/gcompris.c:139
+#: ../src/gcompris/gcompris.c:140
 msgid "Print the version of "
 msgstr "แสดงรุ่นของ "
 
-#: ../src/gcompris/gcompris.c:141
+#: ../src/gcompris/gcompris.c:142
 msgid "Use the antialiased canvas (slower)."
 msgstr "ใช้การวาดภาพแบบลบรอยหยัก (ช้าลง)"
 
-#: ../src/gcompris/gcompris.c:143
+#: ../src/gcompris/gcompris.c:144
 msgid "Disable XF86VidMode (No screen resolution change)."
 msgstr "ปิดใช้งาน XF86VidMode (ไม่มีการเปลี่ยนความละเอียดของจอภาพ)"
 
-#: ../src/gcompris/gcompris.c:145
+#: ../src/gcompris/gcompris.c:146
 msgid ""
 "Run gcompris with local menu (e.g -l /reading will let you play only "
 "activities in the reading directory, -l /boards/connect4 only the connect4 "
@@ -5707,39 +5710,39 @@ msgstr ""
 "จะให้คุณเล่นเฉพาะกิจกรรมในหมวดการอ่าน, -l /boards/connect4 ให้เล่นเฉพาะกิจกรรม "
 "\"แถวเรียงสี่\")"
 
-#: ../src/gcompris/gcompris.c:147
+#: ../src/gcompris/gcompris.c:148
 msgid "Run GCompris with local activity directory added to menu"
 msgstr "เรียก GCompris โดยเพิ่มรายการกิจกรรมท้องถิ่นในเมนู"
 
-#: ../src/gcompris/gcompris.c:149
+#: ../src/gcompris/gcompris.c:150
 msgid "Run GCompris in administration and user-management mode"
 msgstr "เรียก GCompris ในแบบบริหารระบบและจัดการผู้ใช้"
 
-#: ../src/gcompris/gcompris.c:151
+#: ../src/gcompris/gcompris.c:152
 msgid "Use alternate database for profiles"
 msgstr "ใช้ฐานข้อมูลอื่นเป็นแหล่งโพรไฟล์"
 
-#: ../src/gcompris/gcompris.c:153
+#: ../src/gcompris/gcompris.c:154
 msgid "Use alternate database for logs"
 msgstr "ใช้ฐานข้อมูลอื่นเป็นที่บันทึกเหตุการณ์"
 
-#: ../src/gcompris/gcompris.c:155
+#: ../src/gcompris/gcompris.c:156
 msgid "Create the alternate database for profiles"
 msgstr "สร้างฐานข้อมูลอื่นสำหรับเก็บโพรไฟล์"
 
-#: ../src/gcompris/gcompris.c:157
+#: ../src/gcompris/gcompris.c:158
 msgid "Re-read XML Menus and store them in the database"
 msgstr "อ่านเมนู XML ใหม่ และบันทึกไว้ในฐานข้อมูล"
 
-#: ../src/gcompris/gcompris.c:159
+#: ../src/gcompris/gcompris.c:160
 msgid "Set the profile to use. Use 'gcompris -a' to create profiles"
 msgstr "กำหนดโพรไฟล์ที่จะใช้ ใช้ 'gcompris -a' เพื่อสร้างโพรไฟล์"
 
-#: ../src/gcompris/gcompris.c:161
+#: ../src/gcompris/gcompris.c:162
 msgid "List all available profiles. Use 'gcompris -a' to create profiles"
 msgstr "แสดงโพรไฟล์ทั้งหมด ใช้ 'gcompris -a' เพื่อสร้างโพรไฟล์"
 
-#: ../src/gcompris/gcompris.c:163
+#: ../src/gcompris/gcompris.c:164
 msgid ""
 "Shared directory location, for profiles and board-configuration data: "
 "[$HOME/.gcompris/shared]"
@@ -5747,23 +5750,27 @@ msgstr ""
 "ตำแหน่งโฟลเดอร์ใช้ร่วม สำหรับข้อมูลโพรไฟล์และค่าตั้งของกระดานต่างๆ: [$HOME/.gcompris/"
 "shared]"
 
-#: ../src/gcompris/gcompris.c:165
+#: ../src/gcompris/gcompris.c:166
 msgid "The location of user directories: [$HOME/.gcompris/users]"
 msgstr "ตำแหน่งของโฟลเดอร์ของผู้ใช้: [$HOME/.gcompris/users]"
 
-#: ../src/gcompris/gcompris.c:167
+#: ../src/gcompris/gcompris.c:168
 msgid "Run the experimental activities"
 msgstr "เรียกกิจกรรมที่ยังอยู่ในขั้นทดสอบ"
 
-#: ../src/gcompris/gcompris.c:169
+#: ../src/gcompris/gcompris.c:170
 msgid "Disable the quit button"
 msgstr "ปิดใช้ปุ่มออกจากโปรแกรม"
 
-#: ../src/gcompris/gcompris.c:171
+#: ../src/gcompris/gcompris.c:172
 msgid "Disable the config button"
 msgstr "ปิดใช้ปุ่มตั้งค่าโปรแกรม"
 
-#: ../src/gcompris/gcompris.c:788
+#: ../src/gcompris/gcompris.c:174
+msgid "Display the resources on stdout based on the selected activities"
+msgstr "แสดงทรัพยากรต่างๆ ออกทางเอาต์พุตมาตรฐาน ตามกิจกรรมต่างๆ ที่ได้เลือกไว้"
+
+#: ../src/gcompris/gcompris.c:802
 #, c-format
 msgid ""
 "GCompris is free software released under the GPL License. In order to "
@@ -5785,7 +5792,7 @@ msgstr ""
 "โดยสามารถอ่านข้อมูลข่าวสารเพิ่มเติมได้ที่ FSF:\n"
 "<http://www.fsf.org/philosophy>"
 
-#: ../src/gcompris/gcompris.c:1207
+#: ../src/gcompris/gcompris.c:1250
 #, c-format
 msgid ""
 "GCompris\n"
@@ -5799,17 +5806,17 @@ msgstr ""
 "ข้อมูลเพิ่มเติมที่ http://gcompris.net\n"
 
 #. check the list of possible values for -l, then exit
-#: ../src/gcompris/gcompris.c:1293
+#: ../src/gcompris/gcompris.c:1336
 #, c-format
 msgid "Use -l to access an activity directly.\n"
 msgstr "ใช้ -l เพื่อเข้าถึงกิจกรรมโดยตรง\n"
 
-#: ../src/gcompris/gcompris.c:1294
+#: ../src/gcompris/gcompris.c:1337
 #, c-format
 msgid "The list of available activities is :\n"
 msgstr "รายชื่อของกิจกรรมที่มี:\n"
 
-#: ../src/gcompris/gcompris.c:1438
+#: ../src/gcompris/gcompris.c:1481
 #, c-format
 msgid "The list of available profiles is:\n"
 msgstr "โพรไฟล์ที่ใช้ได้มีดังนี้:\n"
