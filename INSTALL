@@ -12,7 +12,7 @@ make install
 Warning: You cannot use ~ in the prefix, it must be a full path.
 Warning: It has been reported that make -j 2 (or more) break the compilation
 
-This will install gcompris and all its data files under 
+This will install GCompris and all its data files under 
 /home/bruno/gcompris
 
 Then, run /home/bruno/gcompris/bin/gcompris
@@ -22,7 +22,8 @@ xmlib2, gdk-pixbuf-gnomecanvas and gdk-pixbuf.
 
 gcompris also requires the gnuchess package for the chess activity to run.
 
-gcompris includes several activity written in python. To enable them, you need to have python installed on your system with the following packages:
+gcompris includes several activity written in python.
+To enable them, you need to have python installed on your system with the following packages:
 libpython
 python
 gnome-python-canvas
@@ -30,7 +31,7 @@ libpython2.2-devel
 gnome-python
 python-base
 python-pyxml
-python-sqlite (if it's not packaged, download and install it from http://initd.org/tracker/pysqlite)
+python-sqlite2 (if it's not packaged, download and install it from http://initd.org/tracker/pysqlite)
 
 Now that the sound is managed internally, you also need:
 libSDL libSDL-mixer
@@ -38,7 +39,7 @@ libSDL libSDL-mixer
 On a Mandriva, you will need to install their -devel counterpart package in
 order to be abble to compile it plus  intltool, tetex.
 
-In order to compile gcompris on a mandrake 10.2 you must install :
+In order to compile GCompris on a mandrake 10.2 you must install :
 urpmi pkgconfig
 urpmi autoconf2.5
 urpmi glib-gettext
@@ -61,6 +62,10 @@ urpmi gnucap
 urpmi libSDL_mixer1.2-devel
 urpmi libtool
 urpmi libsqlite3_0 libsqlite3_0-devel
+urpmi python-sqlite2
+
+To enable svg export in GCompris drawings:
+urpmi python-pyxml
 
 Mandriva 2006 Addon:
 urpmi python-gnome-devel
