@@ -145,15 +145,6 @@ Version: @VERSION_VOICES_FR@
 French voices for the GCompris game
 
 
-%package -n assetml-voices-fi
-Summary:        GCompris voices in Finish
-Group: 		Amusements/Games
-Version: @VERSION_VOICES_FI@
-
-%description -n assetml-voices-fi
-Finish voices for the GCompris game
-
-
 %package -n assetml-voices-hu
 Summary:        GCompris voices in Hungarian
 Group: 		Amusements/Games
@@ -179,6 +170,15 @@ Version: @VERSION_VOICES_NL@
 
 %description -n assetml-voices-nl
 Dutch voices for the GCompris game
+
+
+%package -n assetml-voices-mr
+Summary:        GCompris voices in Marathi
+Group: 		Amusements/Games
+Version: @VERSION_VOICES_MR@
+
+%description -n assetml-voices-mr
+Marathi voices for the GCompris game
 
 
 %package -n assetml-voices-pt
@@ -282,6 +282,7 @@ rm -rf $RPM_BUILD_ROOT
 %{prefix}/share/locale/*/*/*
 %{prefix}/share/pixmaps/*.png
 %_infodir/*
+%_mandir/*
 
 %files devel
 %dir %_includedir/libgcompris-1.0/libgcompris
@@ -330,6 +331,10 @@ rm -rf $RPM_BUILD_ROOT
 %files -n assetml-voices-it
 %defattr(-, root, root)
 %{prefix}/share/gcompris/boards/sounds/it
+
+%files -n assetml-voices-mr
+%defattr(-, root, root)
+%{prefix}/share/gcompris/boards/sounds/mr
 
 %files -n assetml-voices-nl
 %defattr(-, root, root)

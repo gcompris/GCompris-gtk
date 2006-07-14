@@ -1,3 +1,30 @@
+2006-07-14  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	- Fixed location and name of many voices
+	- added the tool check_missing_voices.pl to 
+	  replace list_missing_sounds.sh
+	
+	* boards/sounds/cs/geography/uruguay.ogg:
+	* boards/sounds/cs/geography/uruquay.ogg:
+	* boards/sounds/da/misc/perfect.ogg:
+	* boards/sounds/da/misc/perfekt.ogg:
+	* boards/sounds/de/colors/back.ogg:
+	* boards/sounds/de/misc/back.ogg:
+	* boards/sounds/es/colors/back.ogg:
+	* boards/sounds/es/misc/back.ogg:
+	* boards/sounds/eu/geography/french-guyana.ogg:
+	* boards/sounds/fi/geography/luxembourg.ogg:
+	* boards/sounds/fi/geography/luxemburg.ogg:
+	* boards/sounds/fr/misc/about.ogg:
+	* boards/sounds/fr/misc/configuration.ogg:
+	* boards/sounds/pt_BR/misc/congratulations.ogg:
+	* boards/sounds/sv/geography/antarctica.ogg:
+	* boards/sounds/sv/geography/antartica.ogg:
+	* tools/check_missing_voices.pl:
+	* configure.in: added marathi voices
+	* gcompris.spec.in: added marathi voices
+	* src/gcompris/Makefile.mingw: fixed to compile again on windows
+
 2006-07-12  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* configure.in: *** release 8.0BETA2 **
