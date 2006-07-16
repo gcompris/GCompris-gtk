@@ -1,6 +1,6 @@
 /* gcompris - config.c
  *
- * Time-stamp: <2006/07/10 23:40:02 bruno>
+ * Time-stamp: <2006/07/15 02:58:38 bruno>
  *
  * Copyright (C) 2000-2003 Bruno Coudoin
  *
@@ -106,6 +106,7 @@ static gchar *linguas[] = {
   "sr@Latn_YU.ISO-8859-2",	N_("Serbian (Latin)"),
   "sr_YU.UTF-8",	N_("Serbian"),
   "sv_FI.UTF-8",	N_("Swedish"),
+  "ta_IN.UTF-8",	N_("Tamil"),
   "th_TH.UTF-8",	N_("Thai"),
   "tr_TR.UTF-8",	N_("Turkish"),
   "vi_VN.UTF-8",	N_("Vietnamese"),
@@ -595,6 +596,13 @@ static void set_locale_flag(gchar *locale)
 
       gdk_pixbuf_unref(pixmap);
       g_free(filename);
+    }
+  else
+    {
+      /* No flags */
+      gnome_canvas_item_set (item_locale_flag,
+			     "pixbuf", NULL,
+			     NULL);
     }
 
   /* Check wether or not the locale is available */

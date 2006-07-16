@@ -1,6 +1,6 @@
 /* gcompris - shapegame.c
  *
- * Time-stamp: <2006/04/04 00:05:12 bruno>
+ * Time-stamp: <2006/07/15 03:27:12 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -676,8 +676,8 @@ static void shapegame_init_canvas(GnomeCanvasGroup *parent)
   tooltip_root_item = GNOME_CANVAS_GROUP(
 					 gnome_canvas_item_new (parent,
 								gnome_canvas_group_get_type (),
-								"x", (double)gcomprisBoard->width/SHAPE_BOX_WIDTH_RATIO + 60,
-								"y", (double)0,
+								"x", (double)10,
+								"y", (double)gcomprisBoard->height-70,
 								NULL)
 					 );
 
@@ -1009,9 +1009,7 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, Shape *shape)
      {
      case GDK_ENTER_NOTIFY:
        if(shape->tooltip && shape->type == SHAPE_ICON) {
-	 gnome_canvas_item_set(GNOME_CANVAS_ITEM(tooltip_root_item),
-			       "y", shape->y,
-			       NULL);
+	 gnome_canvas_item_raise_to_top(tooltip_root_item);
 	 /* WARNING: This should not be needed but if I don't do it, it's not refreshed */
 	 gnome_canvas_item_set(GNOME_CANVAS_ITEM(tooltip_bg_item),
 			       "y", 0.0,

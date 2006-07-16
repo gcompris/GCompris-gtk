@@ -170,7 +170,7 @@ static struct poptOption options[] = {
    N_("Disable the quit button"), NULL},
   {"disable-config",'\0', POPT_ARG_NONE, &popt_no_config, 0,
    N_("Disable the config button"), NULL},
-  {"display_resource",'\0', POPT_ARG_NONE, &popt_display_resource, 0,
+  {"display-resource",'\0', POPT_ARG_NONE, &popt_display_resource, 0,
    N_("Display the resources on stdout based on the selected activities"), NULL},
 #ifndef WIN32	/* Not supported on windows */
   POPT_AUTOHELP

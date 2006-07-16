@@ -1,6 +1,6 @@
 /* gcompris - clickgame.c
  *
- * Time-stamp: <2005/10/10 00:21:56 bruno>
+ * Time-stamp: <2006/07/16 19:19:54 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -160,7 +160,6 @@ static void clickgame_pause (gboolean pause)
  */
 static void clickgame_start (GcomprisBoard *agcomprisBoard)
 {
-  gint		 i;
   gchar		*str;
   gchar		*filename;
   GDir		*dir;
@@ -283,27 +282,27 @@ static void clickgame_next_level()
     {
     case 1:
       gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas), 
-			      "gcompris/nur00523.jpg");
+			      "clickgame/nur00523.jpg");
       break;
     case 2:
       gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas), 
-      			      "gcompris/nur03006.jpg");
+      			      "clickgame/nur03006.jpg");
       break;
     case 3:
       gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas), 
-			      "gcompris/nur03011.jpg");
+			      "clickgame/nur03011.jpg");
       break;
     case 4:
       gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas), 
-			      "gcompris/nur03010.jpg");
+			      "clickgame/nur03010.jpg");
       break;
     case 5:
       gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas), 
-			      "gcompris/nur03013.jpg");
+			      "clickgame/nur03013.jpg");
       break;
     default:
       gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas), 
-			      "gcompris/nur03505.jpg");
+			      "clickgame/nur03505.jpg");
     }
 
   gcompris_bar_set_level(gcomprisBoard);

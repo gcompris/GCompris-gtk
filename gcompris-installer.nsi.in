@@ -18,7 +18,7 @@ Var STARTUP_RUN_KEY
 ;The name var is set in .onInit
 Name $name
 
-!define GCOMPRIS_VERSION			"7.4BETA2"
+!define GCOMPRIS_VERSION			"@VERSION@"
 
 OutFile "gcompris-${GCOMPRIS_VERSION}.exe"
 
@@ -49,7 +49,7 @@ SetDateSave on
 ;Modern UI Configuration
 
   !define MUI_ICON				".\gcompris.ico"
-  !define MUI_UNICON				".\gcompris.ico"
+  !define MUI_UNICON				".\gcompris-uninstall.ico"
   !define MUI_WELCOMEFINISHPAGE_BITMAP 		".\nsis\gcompris-intro.bmp"
   !define MUI_HEADERIMAGE
   !define MUI_HEADERIMAGE_BITMAP		".\nsis\gcompris-header.bmp"

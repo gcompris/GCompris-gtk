@@ -1,3 +1,84 @@
+2006-07-16  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	- Added missing French audio voices by Zohra Coudoin
+	  Released under GPL
+
+	* Makefile.mingw: deleted
+	* Makefile.mingw.in: created based on Makefile.mingw to include @VERSION@
+	* boards/Makefile.am: 
+	* boards/clickgame.xml.in:
+	* boards/clickgame/nur00523.jpg: moved from boards/gcompris/
+	* boards/clickgame/nur03006.jpg:
+	* boards/clickgame/nur03010.jpg:
+	* boards/clickgame/nur03011.jpg:
+	* boards/clickgame/nur03013.jpg:
+	* boards/clickgame/nur03505.jpg:
+	* boards/gcompris/nur00523.jpg:
+	* boards/gcompris/nur03006.jpg:
+	* boards/gcompris/nur03010.jpg:
+	* boards/gcompris/nur03011.jpg:
+	* boards/gcompris/nur03013.jpg:
+	* boards/gcompris/nur03505.jpg:
+	* boards/geography/board4_2.xml.in: fixed zambia.png reference (was broken link)
+	* boards/menu.xml.in:
+	* boards/skins/gartoon/mini_bad.png: rotate to make it more like it's bad
+	* boards/sounds/fr/colors/pink.ogg:
+	* boards/sounds/fr/geography/albania.ogg:
+	* boards/sounds/fr/geography/austria.ogg:
+	* boards/sounds/fr/geography/belarus.ogg:
+	* boards/sounds/fr/geography/belgium.ogg:
+	* boards/sounds/fr/geography/bosnia_herzegovina.ogg:
+	* boards/sounds/fr/geography/bulgaria.ogg:
+	* boards/sounds/fr/geography/croatia.ogg:
+	* boards/sounds/fr/geography/cyprus.ogg:
+	* boards/sounds/fr/geography/czech.ogg:
+	* boards/sounds/fr/geography/denmark.ogg:
+	* boards/sounds/fr/geography/estonia.ogg:
+	* boards/sounds/fr/geography/finland.ogg:
+	* boards/sounds/fr/geography/france.ogg:
+	* boards/sounds/fr/geography/germany.ogg:
+	* boards/sounds/fr/geography/greece.ogg:
+	* boards/sounds/fr/geography/hungary.ogg:
+	* boards/sounds/fr/geography/ireland.ogg:
+	* boards/sounds/fr/geography/italy.ogg:
+	* boards/sounds/fr/geography/latvia.ogg:
+	* boards/sounds/fr/geography/lithuania.ogg:
+	* boards/sounds/fr/geography/luxembourg.ogg:
+	* boards/sounds/fr/geography/macedonia.ogg:
+	* boards/sounds/fr/geography/moldova.ogg:
+	* boards/sounds/fr/geography/netherland.ogg:
+	* boards/sounds/fr/geography/norway.ogg:
+	* boards/sounds/fr/geography/poland.ogg:
+	* boards/sounds/fr/geography/portugal.ogg:
+	* boards/sounds/fr/geography/romania.ogg:
+	* boards/sounds/fr/geography/russia.ogg:
+	* boards/sounds/fr/geography/serbia_montenegro.ogg:
+	* boards/sounds/fr/geography/slovakia.ogg:
+	* boards/sounds/fr/geography/slovenia.ogg:
+	* boards/sounds/fr/geography/spain.ogg:
+	* boards/sounds/fr/geography/sweden.ogg:
+	* boards/sounds/fr/geography/switz.ogg:
+	* boards/sounds/fr/geography/tt:
+	* boards/sounds/fr/geography/turkey.ogg:
+	* boards/sounds/fr/geography/ukraine.ogg:
+	* boards/sounds/fr/geography/united_kingdom.ogg:
+	* boards/sounds/fr/misc/awesome.ogg:
+	* boards/sounds/fr/misc/check_answer.ogg:
+	* boards/sounds/fr/misc/fantastic.ogg:
+	* boards/sounds/fr/misc/perfect.ogg:
+	* boards/sounds/fr/misc/waytogo.ogg:
+	* configure.in:
+	* docs/gcompris2spip.pl:
+	* gcompris-edit.desktop.in: moved edit menu in the same section as GCompris.
+	* gcompris-installer.nsi:
+	* gcompris-installer.nsi.in: now will get version automatically
+	* gcompris-uninstal.ico: remade, not sure yet it will be accepted by the installer
+	* po/POTFILES.in: removed menu2.xml.in
+	* src/boards/shapegame.c: (shapegame_init_canvas), (item_event): now the tooltip is always
+	                          locate in the lower left to avoid hidding the map.
+	* src/gcompris/config.c: (set_locale_flag): fixed to display no flags if none found
+	* src/gcompris/gcompris.c: replaced display_resource by display-resource 
+
 2006-07-14  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	- Fixed location and name of many voices

@@ -95,7 +95,6 @@ xml_in_files = \
 	memory_tux.xml.in \
 	memory.xml.in \
 	menu.xml.in \
-	menu2.xml.in \
 	miscelaneous.xml.in \
 	missing_letter.xml.in \
 	money_cents.xml.in \
