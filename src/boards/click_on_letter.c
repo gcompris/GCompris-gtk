@@ -287,7 +287,7 @@ static gboolean sounds_are_fine()
 
       if (!str2)
 	{
-	  gchar *msg = g_strdup_printf( _("Error: this activity requires that you first install\nthe packages assetml-voices-alphabet-%s or %s"),
+	  gchar *msg = g_strdup_printf( _("Error: this activity requires that you first install\nthe packages with gcompris voices for the locale '%s' or '%s'"),
 					locale, "en");
 	  gcompris_dialog(msg, board_stop);
 	  g_free(msg);
@@ -295,7 +295,7 @@ static gboolean sounds_are_fine()
 	}
       else
 	{
-	  gchar *msg = g_strdup_printf( _("Error: this activity requires that you first install\nthe packages assetml-voices-alphabet-%s ! Fallback to english, sorry!"), locale);
+	  gchar *msg = g_strdup_printf( _("Error: this activity requires that you first install\nthe packages with GCompris voices for the locale '%s' ! Fallback to english, sorry!"), locale);
 	  gcompris_dialog(msg, click_on_letter_next_level);
 	  g_free(msg);
 	  g_free(str2);

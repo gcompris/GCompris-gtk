@@ -1,3 +1,13 @@
+2006-07-31  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* boards/sounds/README: added to report that wahoo comes from childsplay
+	* boards/sounds/wahoo.ogg:
+	* configure.in: removed not yet provided ta.po
+	* src/boards/click_on_letter.c: (sounds_are_fine): fixed dialog messages assetml-voices-alphabet are almost never used under
+	that name on any distro. Now give a more generic message.
+	* src/gcompris/bonus.c: (gcompris_display_bonus):
+	* src/gcompris/config.c:  removed not yet provided ta.po
+
 2006-07-16  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	- Added missing French audio voices by Zohra Coudoin

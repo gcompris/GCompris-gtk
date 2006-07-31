@@ -52,6 +52,13 @@ static gchar *greetingsList[] =
 };
 #define NUMBER_OF_GREETINGS 8
 
+// List of sounds to use for loosing
+static gchar *loosingList[] =
+{
+  "sounds/$LOCALE/misc/check_answer.ogg",
+};
+#define NUMBER_OF_LOOSING 1
+
 /*
  * Function definition
  * -------------------
@@ -198,6 +205,7 @@ void board_finished(BoardFinishedList type) {
 void gcompris_display_bonus(BonusStatusList gamewon, BonusList bonus_id)
 {
   GcomprisBoard *gcomprisBoard = get_current_gcompris_board();
+  gchar *absolute_file;
 
   gcompris_bar_hide(TRUE);
 
@@ -207,9 +215,26 @@ void gcompris_display_bonus(BonusStatusList gamewon, BonusList bonus_id)
     bonus_display_running = TRUE;
   
   if(gamewon == BOARD_WIN || gamewon == BOARD_DRAW) {
-    gcompris_play_ogg(greetingsList[RAND(0, NUMBER_OF_GREETINGS-1)], NULL);
+    absolute_file = gcompris_find_absolute_filename(greetingsList[RAND(0, NUMBER_OF_GREETINGS-1)]);
+
+    if (absolute_file)
+      {
+	gcompris_play_ogg(absolute_file, NULL);
+	g_free(absolute_file);
+      }
+    else
+      gcompris_play_ogg("sounds/wahoo.ogg", NULL);
+
   } else {
-    gcompris_play_ogg("sounds/crash.ogg", NULL);
+    absolute_file = gcompris_find_absolute_filename(loosingList[RAND(0, NUMBER_OF_LOOSING-1)]);
+
+    if (absolute_file)
+      {
+	gcompris_play_ogg(absolute_file, NULL);
+	g_free(absolute_file);
+      }
+    else
+      gcompris_play_ogg("sounds/crash.ogg", NULL);
   }
 
   /* First pause the board */
