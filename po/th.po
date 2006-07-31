@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gCompris\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-07-11 23:19+0700\n"
-"PO-Revision-Date: 2006-07-13 00:34+0700\n"
+"POT-Creation-Date: 2006-07-31 10:49+0700\n"
+"PO-Revision-Date: 2006-07-31 10:55+0700\n"
 "Last-Translator: Theppitak Karoonboonyanan <thep@linux.thai.net>\n"
 "Language-Team: Thai <L10n@opentle.org>\n"
 "MIME-Version: 1.0\n"
@@ -406,7 +406,6 @@ msgid "Go to Algebra activities"
 msgstr "เข้าสู่กิจกรรมพีชคณิต"
 
 #: ../boards/algebra_group.xml.in.h:2 ../boards/menu.xml.in.h:17
-#: ../boards/menu2.xml.in.h:17
 msgid "Left-click the mouse on an activity to select it."
 msgstr "คลิกเมาส์ปุ่มซ้ายที่กิจกรรมเพื่อเลือกเข้ากิจกรรม"
 
@@ -3239,7 +3238,7 @@ msgstr ""
 "    1, 2 หรือ 3 ระดับง่าย - จาก 2 ถึง 6 ขวบ\n"
 "    1, 2 หรือ 3 ระดับยาก - 7 ขวบขึ้นไป"
 
-#: ../boards/menu.xml.in.h:15 ../boards/menu2.xml.in.h:15
+#: ../boards/menu.xml.in.h:15
 msgid "GCompris Main Menu"
 msgstr "เมนูหลักของ GCompris"
 
@@ -3250,52 +3249,11 @@ msgid ""
 msgstr ""
 "GCompris เป็นชุดของเกมการศึกษา ซึ่งได้จัดเตรียมกิจกรรมหลากหลายสำหรับเด็กอายุ 2 ขวบขึ้นไป"
 
-#: ../boards/menu.xml.in.h:18 ../boards/menu2.xml.in.h:18
+#: ../boards/menu.xml.in.h:18
 msgid ""
 "The goal of gcompris is to provide a free alternative to popular proprietary "
 "edutainment software"
 msgstr "จุดมุ่งหมายของ GCompris คือให้ทางเลือกเสรีสำหรับซอฟต์แวร์ศึกษาบันเทิงยอดนิยม"
-
-#: ../boards/menu2.xml.in.h:1
-msgid ""
-"A simple click on an icon brings you to an activity or a menu of "
-"activities.\n"
-"At the bottom of the screen is the gcompris control bar.\n"
-"The following icons are displayed from right to left.\n"
-"(note that each icon is displayed only if available in the current "
-"activity)\n"
-"    Home - Back to previous menu or exit gcompris if at the top\n"
-"    Thumb - OK. Confirm your answer\n"
-"    Dice - Display the current level. Click to select another level\n"
-"    Music note - Repeat the question\n"
-"    Question Mark - Help\n"
-"    Tool - The configuration menu\n"
-"    Tux Plane - About game\n"
-"The stars, show suitable age groups for each game:\n"
-"    1, 2 or 3 simple stars  - 2 to 6 years old\n"
-"    1, 2 or 3 complex stars - From 7 years old"
-msgstr ""
-"การคลิกธรรมดาที่ไอคอน จะนำคุณเข้าสูกิจกรรม หรือรายการกิจกรรม\n"
-"ที่ด้านล่างของจอภาพจะเป็นแผงควบคุมของ GCompris\n"
-"ซึ่งจะมีไอคอนต่อไปนี้จากขวามาซ้าย\n"
-"(สังเกตว่าแต่ละไอคอนจะปรากฏก็ต่อเมื่อใช้ได้กับกิจกรรมปัจจุบันเท่านั้น)\n"
-"    บ้าน - กลับสู่เมนูก่อนหน้านี้ หรืออกจาก GCompris ถ้าเป็นเมนูนอกสุด\n"
-"    นิ้วโป้ง - ตกลง ยืนยันคำตอบ\n"
-"    ลูกเต๋า - แสดงระดับปัจจุบัน คลิกเพื่อเลือกระดับต่อไป\n"
-"    โน้ตดนตรี - ทวนคำถาม\n"
-"    เครื่องหมายคำถาม - ช่วยเหลือ\n"
-"    เครื่องมือ - เมนูปรับแต่ง\n"
-"    ทักซ์นั่งเครื่องบิน - ข้อมูลเกี่ยวกับ GCompris\n"
-"รูปดาวแสดงถึงความเหมาะสมกับกลุ่มอายุเด็กของแต่ละเกม:\n"
-"    1, 2 หรือ 3 ระดับง่าย - จาก 2 ถึง 6 ขวบ\n"
-"    1, 2 หรือ 3 ระดับยาก - 7 ขวบขึ้นไป"
-
-#: ../boards/menu2.xml.in.h:16
-msgid ""
-"GCompris is a collection of educational games that provides for children "
-"from 2 years old with different activities."
-msgstr ""
-"GCompris เป็นชุดของเกมการศึกษา ซึ่งได้จัดเตรียมกิจกรรมหลากหลายสำหรับเด็กอายุ 2 ขวบขึ้นไป"
 
 #: ../boards/miscelaneous.xml.in.h:1
 msgid "Miscellaneous activities"
@@ -4304,8 +4262,8 @@ msgstr "ฝ่ายดำจน"
 msgid "White mates"
 msgstr "ฝ่ายขาวจน"
 
-#: ../src/boards/chess.c:1065 ../src/gcompris/bonus.c:308
-#: ../src/gcompris/bonus.c:317
+#: ../src/boards/chess.c:1065 ../src/gcompris/bonus.c:333
+#: ../src/gcompris/bonus.c:342
 msgid "Drawn game"
 msgstr "เสมอกัน"
 
@@ -4331,19 +4289,21 @@ msgstr "abcdefghijklmnopqrstuvwxyz"
 #, c-format
 msgid ""
 "Error: this activity requires that you first install\n"
-"the packages assetml-voices-alphabet-%s or %s"
+"the packages with gcompris voices for the locale '%s' or '%s'"
 msgstr ""
 "ผิดพลาด: กิจกรรมนี้จำเป็นต้องให้คุณติดตั้งแพกเกจ\n"
-"assetml-voices-alphabet-%s หรือ %s เสียก่อน"
+"ที่มีข้อมูลเสียงของ GCompris สำหรับโลแคล '%s' หรือ '%s' เสียก่อน"
 
 #: ../src/boards/click_on_letter.c:298
 #, c-format
 msgid ""
 "Error: this activity requires that you first install\n"
-"the packages assetml-voices-alphabet-%s ! Fallback to english, sorry!"
+"the packages with GCompris voices for the locale '%s' ! Fallback to english, "
+"sorry!"
 msgstr ""
 "ผิดพลาด: กิจกรรมนี้จำเป็นต้องให้คุณติดตั้งแพกเกจ\n"
-"assetml-voices-alphabet-%s เสียก่อน! ต้องกลับสู่ภาษาอังกฤษ เสียใจด้วย!"
+"ที่มีข้อมูลเสียงของ GCompris สำหรับโลแคล '%s' เสียก่อน "
+"ต้องกลับสู่ภาษาอังกฤษ เสียใจด้วย!"
 
 #. toggle box
 #: ../src/boards/click_on_letter.c:649 ../src/boards/gletters.c:899
@@ -4351,7 +4311,7 @@ msgstr ""
 msgid "Uppercase only text"
 msgstr "เฉพาะอักษรตัวพิมพ์ใหญ่"
 
-#: ../src/boards/clickgame.c:178
+#: ../src/boards/clickgame.c:177
 #, c-format
 msgid "Couldn't open dir: %s"
 msgstr "ไม่สามารถเปิดโฟลเดอร์: %s"
@@ -5334,7 +5294,7 @@ msgid ""
 msgstr "โปรแกรมนี้เป็นชุดของ GNU และเผยแพร่ภายใต้เงื่อนไข GNU General Public License"
 
 #: ../src/gcompris/about.c:341 ../src/gcompris/about.c:350
-#: ../src/gcompris/config.c:223 ../src/gcompris/config.c:232
+#: ../src/gcompris/config.c:224 ../src/gcompris/config.c:233
 #: ../src/gcompris/gameutil.c:1070 ../src/gcompris/help.c:382
 #: ../src/gcompris/help.c:391 ../src/gcompris/images_selector.c:263
 msgid "OK"
@@ -5548,52 +5508,53 @@ msgstr "เซอร์เบีย"
 msgid "Swedish"
 msgstr "สวีเดน"
 
-#: ../src/gcompris/config.c:109
+#. "ta_IN.UTF-8",	N_("Tamil"),
+#: ../src/gcompris/config.c:110
 msgid "Thai"
 msgstr "ไทย"
 
-#: ../src/gcompris/config.c:110
+#: ../src/gcompris/config.c:111
 msgid "Turkish"
 msgstr "ตุรกี"
 
-#: ../src/gcompris/config.c:111
+#: ../src/gcompris/config.c:112
 msgid "Vietnamese"
 msgstr "เวียดนาม"
 
 # ชาวเบลเยี่ยมทางใต้ซึ่งพูดภาษาฝรั่งเศส
-#: ../src/gcompris/config.c:112
+#: ../src/gcompris/config.c:113
 msgid "Walloon"
 msgstr "วอลลูน"
 
-#: ../src/gcompris/config.c:113
+#: ../src/gcompris/config.c:114
 msgid "Chinese (Simplified)"
 msgstr "จีน (ประยุกต์)"
 
-#: ../src/gcompris/config.c:114
+#: ../src/gcompris/config.c:115
 msgid "Chinese (Traditional)"
 msgstr "จีน (ดั้งเดิม)"
 
-#: ../src/gcompris/config.c:119
+#: ../src/gcompris/config.c:120
 msgid "No time limit"
 msgstr "ไม่มีการจำกัดเวลา"
 
-#: ../src/gcompris/config.c:120
+#: ../src/gcompris/config.c:121
 msgid "Slow timer"
 msgstr "เวลาเชื่องช้า"
 
-#: ../src/gcompris/config.c:121
+#: ../src/gcompris/config.c:122
 msgid "Normal timer"
 msgstr "เวลาปกติ"
 
-#: ../src/gcompris/config.c:122
+#: ../src/gcompris/config.c:123
 msgid "Fast timer"
 msgstr "เวลาเร็ว"
 
-#: ../src/gcompris/config.c:127
+#: ../src/gcompris/config.c:128
 msgid "800x600 (Default for gcompris)"
 msgstr "800x600 (ค่าปกติของ GCompris)"
 
-#: ../src/gcompris/config.c:132
+#: ../src/gcompris/config.c:133
 msgid ""
 "<i>Use Gcompris administration module\n"
 "to filter boards</i>"
@@ -5601,34 +5562,34 @@ msgstr ""
 "<i>ใช้มอดูลบริหารจัดการ GCompris\n"
 "เพื่อกรองใช้กระดาน</i>"
 
-#: ../src/gcompris/config.c:188 ../src/gcompris/config.c:197
+#: ../src/gcompris/config.c:189 ../src/gcompris/config.c:198
 msgid "GCompris Configuration"
 msgstr "ปรับแต่ง GCompris"
 
-#: ../src/gcompris/config.c:315
+#: ../src/gcompris/config.c:316
 msgid "Fullscreen"
 msgstr "เต็มหน้าจอ"
 
-#: ../src/gcompris/config.c:358
+#: ../src/gcompris/config.c:359
 msgid "Music"
 msgstr "เพลง"
 
-#: ../src/gcompris/config.c:386
+#: ../src/gcompris/config.c:387
 msgid "Effect"
 msgstr "เอฟเฟ็กต์"
 
-#: ../src/gcompris/config.c:419
+#: ../src/gcompris/config.c:420
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "ไม่สามารถเปิดโฟลเดอร์ของหน้ากาก: %s"
 
-#: ../src/gcompris/config.c:455 ../src/gcompris/config.c:825
-#: ../src/gcompris/config.c:836
+#: ../src/gcompris/config.c:456 ../src/gcompris/config.c:833
+#: ../src/gcompris/config.c:844
 #, c-format
 msgid "Skin : %s"
 msgstr "หน้ากาก : %s"
 
-#: ../src/gcompris/config.c:625
+#: ../src/gcompris/config.c:633
 msgid "English (United State)"
 msgstr "อังกฤษ (อเมริกัน)"
 
@@ -5853,6 +5814,45 @@ msgstr "เวลาที่ใช้"
 #, c-format
 msgid "Remaining Time = %d"
 msgstr "เวลาที่เหลือ = %d"
+
+#~ msgid ""
+#~ "A simple click on an icon brings you to an activity or a menu of "
+#~ "activities.\n"
+#~ "At the bottom of the screen is the gcompris control bar.\n"
+#~ "The following icons are displayed from right to left.\n"
+#~ "(note that each icon is displayed only if available in the current "
+#~ "activity)\n"
+#~ "    Home - Back to previous menu or exit gcompris if at the top\n"
+#~ "    Thumb - OK. Confirm your answer\n"
+#~ "    Dice - Display the current level. Click to select another level\n"
+#~ "    Music note - Repeat the question\n"
+#~ "    Question Mark - Help\n"
+#~ "    Tool - The configuration menu\n"
+#~ "    Tux Plane - About game\n"
+#~ "The stars, show suitable age groups for each game:\n"
+#~ "    1, 2 or 3 simple stars  - 2 to 6 years old\n"
+#~ "    1, 2 or 3 complex stars - From 7 years old"
+#~ msgstr ""
+#~ "การคลิกธรรมดาที่ไอคอน จะนำคุณเข้าสูกิจกรรม หรือรายการกิจกรรม\n"
+#~ "ที่ด้านล่างของจอภาพจะเป็นแผงควบคุมของ GCompris\n"
+#~ "ซึ่งจะมีไอคอนต่อไปนี้จากขวามาซ้าย\n"
+#~ "(สังเกตว่าแต่ละไอคอนจะปรากฏก็ต่อเมื่อใช้ได้กับกิจกรรมปัจจุบันเท่านั้น)\n"
+#~ "    บ้าน - กลับสู่เมนูก่อนหน้านี้ หรืออกจาก GCompris ถ้าเป็นเมนูนอกสุด\n"
+#~ "    นิ้วโป้ง - ตกลง ยืนยันคำตอบ\n"
+#~ "    ลูกเต๋า - แสดงระดับปัจจุบัน คลิกเพื่อเลือกระดับต่อไป\n"
+#~ "    โน้ตดนตรี - ทวนคำถาม\n"
+#~ "    เครื่องหมายคำถาม - ช่วยเหลือ\n"
+#~ "    เครื่องมือ - เมนูปรับแต่ง\n"
+#~ "    ทักซ์นั่งเครื่องบิน - ข้อมูลเกี่ยวกับ GCompris\n"
+#~ "รูปดาวแสดงถึงความเหมาะสมกับกลุ่มอายุเด็กของแต่ละเกม:\n"
+#~ "    1, 2 หรือ 3 ระดับง่าย - จาก 2 ถึง 6 ขวบ\n"
+#~ "    1, 2 หรือ 3 ระดับยาก - 7 ขวบขึ้นไป"
+
+#~ msgid ""
+#~ "GCompris is a collection of educational games that provides for children "
+#~ "from 2 years old with different activities."
+#~ msgstr ""
+#~ "GCompris เป็นชุดของเกมการศึกษา ซึ่งได้จัดเตรียมกิจกรรมหลากหลายสำหรับเด็กอายุ 2 ขวบขึ้นไป"
 
 #~ msgid "Main Menu"
 #~ msgstr "เมนูหลัก"
