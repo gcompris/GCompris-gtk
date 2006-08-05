@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: cs\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-06-10 20:22+0200\n"
-"PO-Revision-Date: 2006-06-10 20:26+0200\n"
+"POT-Creation-Date: 2006-08-05 22:20+0200\n"
+"PO-Revision-Date: 2006-08-05 22:26+0200\n"
 "Last-Translator: Jakub Friedl <jfriedl@suse.cz>\n"
 "Language-Team: Czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -413,7 +413,6 @@ msgid "Go to Algebra activities"
 msgstr "Jít na algebraické aktivity"
 
 #: ../boards/algebra_group.xml.in.h:2 ../boards/menu.xml.in.h:17
-#: ../boards/menu2.xml.in.h:17
 msgid "Left-click the mouse on an activity to select it."
 msgstr "Vyber aktivitu levým tlačítkem myši."
 
@@ -3310,7 +3309,7 @@ msgstr ""
 "    1, 2 nebo 3 jednoduché hvězdičky -  2 až 6 let\n"
 "    1, 2 nebo 3 složené hvězdičky - 7 let a více"
 
-#: ../boards/menu.xml.in.h:15 ../boards/menu2.xml.in.h:15
+#: ../boards/menu.xml.in.h:15
 msgid "GCompris Main Menu"
 msgstr "Hlavní menu GCompris"
 
@@ -3322,56 +3321,13 @@ msgstr ""
 "GCompris je soubor výukových her, které poskytují různé aktivity dětem od 2 "
 "let."
 
-#: ../boards/menu.xml.in.h:18 ../boards/menu2.xml.in.h:18
+#: ../boards/menu.xml.in.h:18
 msgid ""
 "The goal of gcompris is to provide a free alternative to popular proprietary "
 "edutainment software"
 msgstr ""
 "Cílem gcompris je poskytnout volnou alternativu populárnímu proprietárnímu "
 "vzdělávacímu software"
-
-#: ../boards/menu2.xml.in.h:1
-msgid ""
-"A simple click on an icon brings you to an activity or a menu of "
-"activities.\n"
-"At the bottom of the screen is the gcompris control bar.\n"
-"The following icons are displayed from right to left.\n"
-"(note that each icon is displayed only if available in the current "
-"activity)\n"
-"    Home - Back to previous menu or exit gcompris if at the top\n"
-"    Thumb - OK. Confirm your answer\n"
-"    Dice - Display the current level. Click to select another level\n"
-"    Music note - Repeat the question\n"
-"    Question Mark - Help\n"
-"    Tool - The configuration menu\n"
-"    Tux Plane - About game\n"
-"The stars, show suitable age groups for each game:\n"
-"    1, 2 or 3 simple stars  - 2 to 6 years old\n"
-"    1, 2 or 3 complex stars - From 7 years old"
-msgstr ""
-"Kliknutím na ikonu se dostaneš k aktivitě nebo menu aktivit.\n"
-"Ve spodní části obrazovky je řídicí lišta gcompris.\n"
-"Následující ikony jsou zobrazeny zprava doleva.\n"
-"Tyto ikony se zobrazují, jen pokud jsou v aktuální aktivitě k dispozici.\n"
-"    Domů - Zpět do předchozího menu nebo ukončit gcompris, pokud jsi v "
-"hlavním menu\n"
-"    Palec - OK, potvrzení vaší odpovědi\n"
-"    Kostka - zobrazit aktuální úroveň. Klikni na ni pro zvolení jiné úrovně\n"
-"    Nota - Zopakovat otázku\n"
-"    Otazník - nápověda\n"
-"    Nářadí - konfigurační menu\n"
-"    Tuxovo letadlo - o hře\n"
-"Hvězdičky naznačují vhodnost hry pro určitý věk dítěte:\n"
-"    1, 2 nebo 3 jednoduché hvězdičky -  2 až 6 let\n"
-"    1, 2 nebo 3 složené hvězdičky - 7 let a více"
-
-#: ../boards/menu2.xml.in.h:16
-msgid ""
-"GCompris is a collection of educational games that provides for children "
-"from 2 years old with different activities."
-msgstr ""
-"GCompris je soubor výukových her, které poskytují různé aktivity dětem od 2 "
-"let."
 
 #: ../boards/miscelaneous.xml.in.h:1
 msgid "Miscellaneous activities"
@@ -4231,8 +4187,14 @@ msgid "A sliding-block puzzle game"
 msgstr "Hra s posouváním bloků"
 
 #: ../boards/traffic.xml.in.h:2
-msgid "Remove all the red cars from the parking lot through the gate on the right"
-msgstr "Přesuň všechna červená auta z parkoviště do brány vpravo"
+msgid ""
+"Each car can only move either horizontaly or verticaly. You must make some "
+"room in order to let the red car move through the gate on the right."
+msgstr ""
+
+#: ../boards/traffic.xml.in.h:3
+msgid "Remove the red car from the parking lot through the gate on the right"
+msgstr "Odstraň červené auto z parkoviště skrz bránu vpravo"
 
 #: ../boards/tuxpaint.xml.in.h:1
 msgid "Drawing activity (pixmap)"
@@ -4387,8 +4349,8 @@ msgstr "Černý dává mat"
 msgid "White mates"
 msgstr "Bílý dává mat"
 
-#: ../src/boards/chess.c:1065 ../src/gcompris/bonus.c:308
-#: ../src/gcompris/bonus.c:317
+#: ../src/boards/chess.c:1065 ../src/gcompris/bonus.c:333
+#: ../src/gcompris/bonus.c:342
 msgid "Drawn game"
 msgstr "Remíza"
 
@@ -4413,19 +4375,20 @@ msgid "abcdefghijklmnopqrstuvwxyz"
 msgstr "aábcčdďeéěfghiíjklmnňoópqrřsštťuúvwxyýzž"
 
 #: ../src/boards/click_on_letter.c:290
-#, c-format
+#, fuzzy, c-format
 msgid ""
 "Error: this activity requires that you first install\n"
-"the packages assetml-voices-alphabet-%s or %s"
+"the packages with gcompris voices for the locale '%s' or '%s'"
 msgstr ""
 "Chyba: tato aktivita vyžaduje, abyste nejdříve nainstalovali\n"
 "balíček assetml-voices-alphabet-%s nebo %s"
 
 #: ../src/boards/click_on_letter.c:298
-#, c-format
+#, fuzzy, c-format
 msgid ""
 "Error: this activity requires that you first install\n"
-"the packages assetml-voices-alphabet-%s ! Fallback to english, sorry!"
+"the packages with GCompris voices for the locale '%s' ! Fallback to english, "
+"sorry!"
 msgstr ""
 "Chyba: tato aktivita vyžaduje, abyste nejdříve nainstalovali\n"
 "balíček assetml-voices-alphabet-%s ! Zůstávám u angličtiny, promiňte!"
@@ -4436,7 +4399,7 @@ msgstr ""
 msgid "Uppercase only text"
 msgstr "Text pouze velkými písmeny"
 
-#: ../src/boards/clickgame.c:178
+#: ../src/boards/clickgame.c:177
 #, c-format
 msgid "Couldn't open dir: %s"
 msgstr "Nemohu otevřít adresář: %s"
@@ -4793,8 +4756,8 @@ msgstr "Nejprve musíte zvolit skupinu ze seznamu"
 msgid "Birth Date"
 msgstr "Datum narození"
 
-#: ../src/boards/python/admin/module_boards.py:42
-#: ../src/boards/python/admin/module_boards.py:62
+#: ../src/boards/python/admin/module_boards.py:43
+#: ../src/boards/python/admin/module_boards.py:63
 msgid "Boards"
 msgstr "Desky"
 
@@ -5423,8 +5386,8 @@ msgstr ""
 "Licence"
 
 #: ../src/gcompris/about.c:341 ../src/gcompris/about.c:350
-#: ../src/gcompris/config.c:222 ../src/gcompris/config.c:231
-#: ../src/gcompris/gameutil.c:1056 ../src/gcompris/help.c:382
+#: ../src/gcompris/config.c:224 ../src/gcompris/config.c:233
+#: ../src/gcompris/gameutil.c:1070 ../src/gcompris/help.c:382
 #: ../src/gcompris/help.c:391 ../src/gcompris/images_selector.c:263
 msgid "OK"
 msgstr "OK"
@@ -5566,118 +5529,123 @@ msgid "Malayalam"
 msgstr "Malayalam"
 
 #: ../src/gcompris/config.c:91
+msgid "Marathi"
+msgstr "Marathi"
+
+#: ../src/gcompris/config.c:92
 msgid "Malay"
 msgstr "Malajština"
 
-#: ../src/gcompris/config.c:92
+#: ../src/gcompris/config.c:93
 msgid "Nepal"
 msgstr "Nepálština"
 
-#: ../src/gcompris/config.c:93
+#: ../src/gcompris/config.c:94
 msgid "Dutch"
 msgstr "Holandština"
 
-#: ../src/gcompris/config.c:94
+#: ../src/gcompris/config.c:95
 msgid "Norwegian Bokmal"
 msgstr "Norština Bokmal"
 
-#: ../src/gcompris/config.c:95
+#: ../src/gcompris/config.c:96
 msgid "Norwegian Nynorsk"
 msgstr "Norština Nynorsk"
 
-#: ../src/gcompris/config.c:96
+#: ../src/gcompris/config.c:97
 msgid "Polish"
 msgstr "Polština"
 
-#: ../src/gcompris/config.c:97
+#: ../src/gcompris/config.c:98
 msgid "Portuguese"
 msgstr "Portugalština"
 
-#: ../src/gcompris/config.c:98
+#: ../src/gcompris/config.c:99
 msgid "Portuguese (Brazil)"
 msgstr "Portugalština (Brazílie)"
 
-#: ../src/gcompris/config.c:99
+#: ../src/gcompris/config.c:100
 msgid "Romanian"
 msgstr "Rumunština"
 
-#: ../src/gcompris/config.c:100
+#: ../src/gcompris/config.c:101
 msgid "Russian"
 msgstr "Ruština"
 
-#: ../src/gcompris/config.c:101
+#: ../src/gcompris/config.c:102
 msgid "Kinyarwanda"
 msgstr "Kinyarwanda"
 
-#: ../src/gcompris/config.c:102
+#: ../src/gcompris/config.c:103
 msgid "Slovak"
 msgstr "Slovenština"
 
-#: ../src/gcompris/config.c:103
+#: ../src/gcompris/config.c:104
 msgid "Slovenian"
 msgstr "Slovinština"
 
-#: ../src/gcompris/config.c:104
+#: ../src/gcompris/config.c:105
 msgid "Albanian"
 msgstr "Albánština"
 
-#: ../src/gcompris/config.c:105
+#: ../src/gcompris/config.c:106
 msgid "Serbian (Latin)"
 msgstr "Srbština (latinka)"
 
-#: ../src/gcompris/config.c:106
+#: ../src/gcompris/config.c:107
 msgid "Serbian"
 msgstr "Srbština"
 
-#: ../src/gcompris/config.c:107
+#: ../src/gcompris/config.c:108
 msgid "Swedish"
 msgstr "Švédština"
 
-#: ../src/gcompris/config.c:108
+#. "ta_IN.UTF-8",	N_("Tamil"),
+#: ../src/gcompris/config.c:110
 msgid "Thai"
 msgstr "Thajština"
 
-#: ../src/gcompris/config.c:109
+#: ../src/gcompris/config.c:111
 msgid "Turkish"
 msgstr "Turečtina"
 
-#: ../src/gcompris/config.c:110
+#: ../src/gcompris/config.c:112
 msgid "Vietnamese"
 msgstr "Vitnamština"
 
-#: ../src/gcompris/config.c:111
+#: ../src/gcompris/config.c:113
 msgid "Walloon"
 msgstr "Valonština"
 
-#: ../src/gcompris/config.c:112
+#: ../src/gcompris/config.c:114
 msgid "Chinese (Simplified)"
 msgstr "Čínština (zjednodušená)"
 
-#: ../src/gcompris/config.c:113
+#: ../src/gcompris/config.c:115
 msgid "Chinese (Traditional)"
 msgstr "Čínština (klasická)"
 
-#: ../src/gcompris/config.c:118
+#: ../src/gcompris/config.c:120
 msgid "No time limit"
 msgstr "Žádný časový limit"
 
-#: ../src/gcompris/config.c:119
+#: ../src/gcompris/config.c:121
 msgid "Slow timer"
 msgstr "Pomalý časovač"
 
-#: ../src/gcompris/config.c:120
+#: ../src/gcompris/config.c:122
 msgid "Normal timer"
 msgstr "Normální časovač"
 
-#: ../src/gcompris/config.c:121
+#: ../src/gcompris/config.c:123
 msgid "Fast timer"
 msgstr "Rychlý časovač"
 
-#: ../src/gcompris/config.c:126
+#: ../src/gcompris/config.c:128
 msgid "800x600 (Default for gcompris)"
 msgstr "800×600 (Implicitní pro gcompris)"
 
-#: ../src/gcompris/config.c:131
+#: ../src/gcompris/config.c:133
 msgid ""
 "<i>Use Gcompris administration module\n"
 "to filter boards</i>"
@@ -5685,34 +5653,34 @@ msgstr ""
 "<i>Použít administrační modul Gcompris\n"
 "pro filtrování scén</i>"
 
-#: ../src/gcompris/config.c:187 ../src/gcompris/config.c:196
+#: ../src/gcompris/config.c:189 ../src/gcompris/config.c:198
 msgid "GCompris Configuration"
 msgstr "Nastavení GCompris"
 
-#: ../src/gcompris/config.c:314
+#: ../src/gcompris/config.c:316
 msgid "Fullscreen"
 msgstr "Přes celou obrazovku"
 
-#: ../src/gcompris/config.c:357
+#: ../src/gcompris/config.c:359
 msgid "Music"
 msgstr "Hudba"
 
-#: ../src/gcompris/config.c:385
+#: ../src/gcompris/config.c:387
 msgid "Effect"
 msgstr "Efekty"
 
-#: ../src/gcompris/config.c:418
+#: ../src/gcompris/config.c:420
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "Nemohu otevřít adresář skinů: %s"
 
-#: ../src/gcompris/config.c:454 ../src/gcompris/config.c:824
-#: ../src/gcompris/config.c:835
+#: ../src/gcompris/config.c:456 ../src/gcompris/config.c:833
+#: ../src/gcompris/config.c:844
 #, c-format
 msgid "Skin : %s"
 msgstr "Vzhled : %s"
 
-#: ../src/gcompris/config.c:624
+#: ../src/gcompris/config.c:633
 msgid "English (United State)"
 msgstr "Angličtina (americká)"
 
@@ -5744,47 +5712,47 @@ msgstr ""
 "Ukončete ji a nahlaste\n"
 "problém autorům"
 
-#: ../src/gcompris/gcompris.c:125
+#: ../src/gcompris/gcompris.c:126
 msgid "run gcompris in fullscreen mode."
 msgstr "spustit gcompris v režimu přes celou obrazovku."
 
-#: ../src/gcompris/gcompris.c:127
+#: ../src/gcompris/gcompris.c:128
 msgid "run gcompris in window mode."
 msgstr "spustit gcompris v režimu okna."
 
-#: ../src/gcompris/gcompris.c:129
+#: ../src/gcompris/gcompris.c:130
 msgid "run gcompris with sound enabled."
 msgstr "spustit gcompris se zapnutými zvuky."
 
-#: ../src/gcompris/gcompris.c:131
+#: ../src/gcompris/gcompris.c:132
 msgid "run gcompris without sound."
 msgstr "spustit gcompris bez zvuku."
 
-#: ../src/gcompris/gcompris.c:133
+#: ../src/gcompris/gcompris.c:134
 msgid "run gcompris with the default gnome cursor."
 msgstr "spustit gcompris s implicitním kurzorem gnome."
 
-#: ../src/gcompris/gcompris.c:135
+#: ../src/gcompris/gcompris.c:136
 msgid "display only activities with this difficulty level."
 msgstr "zobrazovat jen aktivity s touto úrovní obtížnosti."
 
-#: ../src/gcompris/gcompris.c:137
+#: ../src/gcompris/gcompris.c:138
 msgid "display debug informations on the console."
 msgstr "zobrazovat ladicí informace na konzoli."
 
-#: ../src/gcompris/gcompris.c:139
+#: ../src/gcompris/gcompris.c:140
 msgid "Print the version of "
 msgstr "Vytiskne verzi "
 
-#: ../src/gcompris/gcompris.c:141
+#: ../src/gcompris/gcompris.c:142
 msgid "Use the antialiased canvas (slower)."
 msgstr "Používat vyhlazovaný canvas (pomalejší)"
 
-#: ../src/gcompris/gcompris.c:143
+#: ../src/gcompris/gcompris.c:144
 msgid "Disable XF86VidMode (No screen resolution change)."
 msgstr "Zakázat XF86VidMode (Žádné změny rozlišení obrazovky)."
 
-#: ../src/gcompris/gcompris.c:145
+#: ../src/gcompris/gcompris.c:146
 msgid ""
 "Run gcompris with local menu (e.g -l /reading will let you play only "
 "activities in the reading directory, -l /boards/connect4 only the connect4 "
@@ -5793,39 +5761,39 @@ msgstr ""
 "Spustit gcompris s místním menu (např. -l /reading vás nechá hrát jen "
 "adresář čtecích aktivit, -l /boards/connect4 jen aktivitu connect4)"
 
-#: ../src/gcompris/gcompris.c:147
+#: ../src/gcompris/gcompris.c:148
 msgid "Run GCompris with local activity directory added to menu"
 msgstr "Spustit gcompris s místním adresářem aktivit přidaným do menu"
 
-#: ../src/gcompris/gcompris.c:149
+#: ../src/gcompris/gcompris.c:150
 msgid "Run GCompris in administration and user-management mode"
 msgstr "Spustit GCompris v administračním a řídícím módu"
 
-#: ../src/gcompris/gcompris.c:151
+#: ../src/gcompris/gcompris.c:152
 msgid "Use alternate database for profiles"
 msgstr "Použít alternativní databázi pro profily"
 
-#: ../src/gcompris/gcompris.c:153
+#: ../src/gcompris/gcompris.c:154
 msgid "Use alternate database for logs"
 msgstr "Použít alternativní databázi pro logy"
 
-#: ../src/gcompris/gcompris.c:155
+#: ../src/gcompris/gcompris.c:156
 msgid "Create the alternate database for profiles"
 msgstr "Vytvořit alternativní databázi pro profily"
 
-#: ../src/gcompris/gcompris.c:157
+#: ../src/gcompris/gcompris.c:158
 msgid "Re-read XML Menus and store them in the database"
 msgstr "Znovu načíst XML menu a uložit je do databáze"
 
-#: ../src/gcompris/gcompris.c:159
+#: ../src/gcompris/gcompris.c:160
 msgid "Set the profile to use. Use 'gcompris -a' to create profiles"
 msgstr "Vybrat profil. Pro vytvoření profilu použijte 'gcompris -a'"
 
-#: ../src/gcompris/gcompris.c:161
+#: ../src/gcompris/gcompris.c:162
 msgid "List all available profiles. Use 'gcompris -a' to create profiles"
 msgstr "Seznam všech dostupných profilů. Pro vytvoření profilu použijte 'gcompris -a'"
 
-#: ../src/gcompris/gcompris.c:163
+#: ../src/gcompris/gcompris.c:164
 msgid ""
 "Shared directory location, for profiles and board-configuration data: "
 "[$HOME/.gcompris/shared]"
@@ -5833,23 +5801,27 @@ msgstr ""
 "Umístění sdíleného adresáře - pro profily a konfigurační soubory desek: "
 "[$HOME/.gcompris/shared]"
 
-#: ../src/gcompris/gcompris.c:165
+#: ../src/gcompris/gcompris.c:166
 msgid "The location of user directories: [$HOME/.gcompris/users]"
 msgstr "Umístění uživatelských adresářů: [$HOME/.gcompris/users]"
 
-#: ../src/gcompris/gcompris.c:167
+#: ../src/gcompris/gcompris.c:168
 msgid "Run the experimental activities"
 msgstr "Jít na pokusné aktivity"
 
-#: ../src/gcompris/gcompris.c:169
+#: ../src/gcompris/gcompris.c:170
 msgid "Disable the quit button"
 msgstr "Vypnout tlačítko konec"
 
-#: ../src/gcompris/gcompris.c:171
+#: ../src/gcompris/gcompris.c:172
 msgid "Disable the config button"
 msgstr "Vypnout tlačítko konfigurace"
 
-#: ../src/gcompris/gcompris.c:788
+#: ../src/gcompris/gcompris.c:174
+msgid "Display the resources on stdout based on the selected activities"
+msgstr ""
+
+#: ../src/gcompris/gcompris.c:802
 #, c-format
 msgid ""
 "GCompris is free software released under the GPL License. In order to "
@@ -5872,7 +5844,7 @@ msgstr ""
 "naleznete na FSF:\n"
 "<http://www.fsf.org/philosophy>"
 
-#: ../src/gcompris/gcompris.c:1207
+#: ../src/gcompris/gcompris.c:1250
 #, c-format
 msgid ""
 "GCompris\n"
@@ -5886,17 +5858,17 @@ msgstr ""
 "Více informací na http://gcompris.net\n"
 
 #. check the list of possible values for -l, then exit
-#: ../src/gcompris/gcompris.c:1293
+#: ../src/gcompris/gcompris.c:1336
 #, c-format
 msgid "Use -l to access an activity directly.\n"
 msgstr "Pro přímý přístup k aktivitě použijte -l.\n"
 
-#: ../src/gcompris/gcompris.c:1294
+#: ../src/gcompris/gcompris.c:1337
 #, c-format
 msgid "The list of available activities is :\n"
 msgstr "Seznam dostupných aktivit:\n"
 
-#: ../src/gcompris/gcompris.c:1438
+#: ../src/gcompris/gcompris.c:1481
 #, c-format
 msgid "The list of available profiles is:\n"
 msgstr "Seznam dostupných profilů:\n"
