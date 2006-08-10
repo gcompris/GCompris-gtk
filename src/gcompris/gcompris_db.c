@@ -25,7 +25,6 @@
 
 #ifdef USE_SQLITE
 static sqlite3 *gcompris_db=NULL;
-static sqlite3 *gcompris_db_log=NULL;
 #endif
 
 extern GnomeCanvas *canvas;
@@ -953,7 +952,6 @@ gcompris_get_profile_from_name(gchar *profile_name)
   /* get section_id */
   request = g_strdup_printf(GET_PROFILE_FROM_NAME(profile_name));
 
-  printf("request = %s\n", request);
   rc = sqlite3_get_table(gcompris_db, 
 			 request,  
 			 &result,
@@ -971,7 +969,6 @@ gcompris_get_profile_from_name(gchar *profile_name)
 
     profile_id  = atoi(result[3]);
 
-    printf("profile_id = %d\n", profile_id);
     g_free(request);
 
     profile = gcompris_get_profile_from_id(profile_id);
@@ -1844,7 +1841,6 @@ int gcompris_is_activity_in_profile(GcomprisProfile *profile, char *activity_nam
   gchar *request;
 
   request = g_strdup_printf(DB_IS_ACTIVITY_IN_PROFILE_ID(profile->profile_id, activity_name));
-  printf("request=%s\n", request);
 
   rc = sqlite3_get_table(gcompris_db, 
 			 request,  
