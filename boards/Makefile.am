@@ -102,6 +102,7 @@ xml_in_files = \
 	mosaic.xml.in \
 	mouse.xml.in \
 	numeration.xml.in \
+	oscar_and_friends.xml.in \
 	paintings.xml.in \
 	paratrooper.xml.in \
 	planegame.xml.in \

@@ -17,6 +17,7 @@ dist_python_DATA= \
 	login.py \
 	melody.py \
 	mosaic.py \
+	oscar_and_friends.py \
 	pythontest.py \
 	redraw.py \
 	searace.py \
