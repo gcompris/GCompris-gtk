@@ -68,6 +68,7 @@ static gchar *imageList[] =
   {
     "gcompris/animals/bear001.jpg",
     "gcompris/animals/black-headed-gull.jpg",
+    "gcompris/animals/butterfly.jpg",
     "gcompris/animals/donkey.jpg",
     "gcompris/animals/elephanteauxgc.jpg",
     "gcompris/animals/flamentrosegc.jpg",
@@ -77,6 +78,7 @@ static gchar *imageList[] =
     "gcompris/animals/joybear002.jpg",
     "gcompris/animals/jumentmulassieregc.jpg",
     "gcompris/animals/malaybear002.jpg",
+    "gcompris/animals/pigeon.jpg",
     "gcompris/animals/polabear011.jpg",
     "gcompris/animals/polarbear001.jpg",
     "gcompris/animals/poolbears001.jpg",
@@ -89,6 +91,7 @@ static gchar *imageList[] =
     "gcompris/animals/tigerdrink001.jpg",
     "gcompris/animals/tigerplay001.jpg",
     "gcompris/animals/horses.jpg",
+    "gcompris/animals/horse2.jpg",
     "gcompris/animals/squirrel.jpg",
     "gcompris/animals/sheep_irish.jpg",
     "gcompris/animals/sheep_irish2.jpg",
