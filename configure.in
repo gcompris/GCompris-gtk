@@ -267,6 +267,20 @@ AC_ARG_ENABLE(sqlite,
           with_sqlite="$enableval", with_sqlite="yes")
 AC_MSG_RESULT($with_sqlite)
 
+dnl GNET support
+AC_MSG_CHECKING([wether we build with GNET (if not, networking will be disabled)])
+AC_ARG_ENABLE(gnet,
+          AC_HELP_STRING(
+          [--disable-gnet],
+          [Turn on gnet (will let GCompris fetch content from a web server)]),
+          with_gnet="$enableval", with_gnet="no")
+AC_MSG_RESULT($with_gnet)
+
+if test x$with_gnet = xyes; then
+  PKG_CHECK_MODULES(GNET, gnet-2.0,, AC_MSG_ERROR([*** GNET not found!]))
+  AC_DEFINE([USE_GNET], 1,[Networking is enabled])
+fi
+
 dnl check for python
 AC_ARG_WITH(python,AC_HELP_STRING(
     [--with-python=path],
@@ -500,6 +514,8 @@ fi
 echo "XF86VM option  (--enable-xf86vidmode)    = $found_xf86vidmode"
 
 echo "SQLITE database (--enable-sqlite)        = $with_sqlite (profiles depend on this)"
+
+echo "GNET Networking (--enable-gnet)          = $with_gnet (networking depends on this)"
 
 echo
 echo gcompris will be installed in ${prefix}

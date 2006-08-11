@@ -1,5 +1,38 @@
 2006-08-11  Bruno coudoin  <bruno.coudoin@free.fr>
 
+	- Fixed potential the exit code to avoid a potential core dump when exiting GCompris
+	  Fixed administration. When leave the boards module, GCompris was quitting. This bug has been
+	  introduced in a fix the 2006-07-10.
+	  Now leaving GCompris in administration mode, there is no more segfaults.
+
+	* boards/oscar_and_friends/scene1_0.png: improved by Josef Vybiral
+	* configure.in: added support for gnet (disabled by default)
+	* src/boards/python/admin/module_boards.py: fixed management of the module state. no more double stop modules.
+	* src/boards/python/admin/module_users.py: -
+	* src/boards/python/administration.py: -
+	* src/boards/python/oscar_and_friends.py: changed text coordinate and colors
+	* src/gcompris/Makefile.am: added gc_net.*
+	* src/gcompris/gc_net.c: empty now, will hold the network code
+	* src/gcompris/gc_net.h: -
+	* src/gcompris/board.c: (board_pause), (board_stop),
+	(get_board_playing):
+	* src/gcompris/board.h: cleanup, removed pause board state saving. now board_pause takes an argument, no more a toggle.
+	* src/gcompris/board_config.c: (gcompris_combo_box_changed),
+	(my_strcmp): added several static. code cleanup.
+	* src/gcompris/gameutil.c: (gcompris_load_pixmap),
+	(gcompris_dialog), (item_event_ok): prepared net code.
+	* src/gcompris/gcompris.c: (gcompris_end_board), (cleanup),
+	(gcompris_exit), (quit_cb), (gcompris_init): fixed quit sequence. now a real exit is done after gtk_main_quit
+	* src/gcompris/gcompris.h: added gc_net
+	* src/gcompris/properties.c: (gcompris_properties_new): added server option
+	* src/gcompris/properties.h: -
+	* src/gcompris/sdlplayer.c: (sdlplayer_init), (sdlplayer_quit),
+	(sdlplayer_bg): replaced printf by g_warning
+	* src/gcompris/skin.c: (gcompris_image_to_skin): no more return an empty skin but the default one anyway. It will fail later on
+	  anyway if the image is not available.
+
+2006-08-11  Bruno coudoin  <bruno.coudoin@free.fr>
+
 	- Added a new activity (uncomplete). It's a story based on the drawings of
 	  Josef Vybiral
 	  For now the kid can just read the text of the first image in the first scene.

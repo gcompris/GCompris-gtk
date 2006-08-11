@@ -1,8 +1,8 @@
 /* gcompris - gameutil.c
  *
- * Time-stamp: <2006/07/10 01:24:04 bruno>
+ * Time-stamp: <2006/08/11 14:11:24 bruno>
  *
- * Copyright (C) 2000 Bruno Coudoin
+ * Copyright (C) 2000-2006 Bruno Coudoin
  *
  *   This program is free software; you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
@@ -61,24 +61,31 @@ GdkPixbuf *gcompris_load_pixmap(char *pixmapfile)
   GdkPixbuf *pixmap=NULL;
 
   /* Search */
-
   filename = gcompris_find_absolute_filename(pixmapfile);
 
-  if (!filename) {
-    char *str;
-    g_warning ("Couldn't find file %s !", pixmapfile);
+  if (!filename)
+    {
+      pixmap = gc_net_load_pixmap(pixmapfile);
 
-    str = g_strdup_printf("%s\n%s\n%s\n%s", 
-			  _("Couldn't find file"), 
-			  pixmapfile,
-			  _("This activity is incomplete."),
-			  _("Exit it and report\nthe problem to the authors."));
-    gcompris_dialog (str, NULL);
-    g_free(str);
-    return NULL;
-  }
+      if(!pixmap)
+	{
+	  char *str;
+	  g_warning ("Couldn't find file %s !", pixmapfile);
 
-  pixmap = gdk_pixbuf_new_from_file (filename, NULL);
+	  str = g_strdup_printf("%s\n%s\n%s\n%s", 
+				_("Couldn't find file"), 
+				pixmapfile,
+				_("This activity is incomplete."),
+				_("Exit it and report\nthe problem to the authors."));
+	  gcompris_dialog (str, NULL);
+	  g_free(str);
+	  return NULL;
+	}
+    }
+  else
+    {
+      pixmap = gdk_pixbuf_new_from_file (filename, NULL);
+    }
 
   g_free(filename);
 
@@ -1043,8 +1050,7 @@ void gcompris_dialog(gchar *str, DialogBoxCallBack dbcb)
   }
 
   /* First pause the board */
-  if(gcomprisBoard->plugin && gcomprisBoard->plugin->pause_board != NULL)
-      gcomprisBoard->plugin->pause_board(TRUE);
+  board_pause(TRUE);
 
   gcompris_bar_hide(TRUE);
 
@@ -1136,8 +1142,7 @@ item_event_ok(GnomeCanvasItem *item, GdkEvent *event, DialogBoxCallBack dbcb)
 	gcompris_dialog_close();
 
       /* restart the board */
-      if(gcomprisBoard->plugin->pause_board != NULL)
-	gcomprisBoard->plugin->pause_board(FALSE);
+      board_pause(FALSE);
       
       gcompris_bar_hide(FALSE);
 

@@ -83,7 +83,7 @@ class Users(module.Module):
 
 
   def stop(self):
-    print "stopping profiles panel"
+    print "stopping users panel"
     module.Module.stop(self)
     
     # Remove the root item removes all the others inside it

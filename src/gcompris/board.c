@@ -365,34 +365,24 @@ void board_play(GcomprisBoard *gcomprisBoard)
   bp_data->playing = TRUE;
 }
 
-void board_pause(void)
+void board_pause(int pause)
 {
   if (get_board_playing() && get_current_board_plugin())
     {
-      bp_data->paused = !bp_data->paused;
-      get_current_board_plugin()->pause_board(bp_data->paused);
+      if(get_current_board_plugin()->pause_board)
+	get_current_board_plugin()->pause_board(pause);
     }
 }
 
 void board_stop(void)
 {
-
-  /* If we are in the upper menu, no need to stop and restart it */
-  if (get_current_gcompris_board()->previous_board == NULL){
-    return;
-  }
-
   if (bp_data->playing && get_current_board_plugin())
     {
       bp_data->playing = FALSE;
       
-      if (bp_data->paused)
-	board_pause();
       if (get_current_board_plugin()->end_board)
 	get_current_board_plugin()->end_board();
 
-      bp_data->paused = FALSE;
-      
       gcompris_end_board();
       
       return;
@@ -403,11 +393,6 @@ void board_stop(void)
 gboolean get_board_playing(void)
 {
   return bp_data->playing;
-}
-
-gboolean get_board_paused(void)
-{
-  return bp_data->paused;
 }
 
 static GcomprisBoard *next_board = NULL;

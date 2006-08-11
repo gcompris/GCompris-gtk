@@ -120,6 +120,7 @@ static int  popt_experimental      = FALSE;
 static int  popt_no_quit	   = FALSE;
 static int  popt_no_config         = FALSE;
 static int  popt_display_resource  = FALSE;
+static char *popt_server            = NULL;
 
 static struct poptOption options[] = {
   {"fullscreen", 'f', POPT_ARG_NONE, &popt_fullscreen, 0,
@@ -172,6 +173,8 @@ static struct poptOption options[] = {
    N_("Disable the config button"), NULL},
   {"display-resource",'\0', POPT_ARG_NONE, &popt_display_resource, 0,
    N_("Display the resources on stdout based on the selected activities"), NULL},
+  {"server", '\0', POPT_ARG_STRING, &popt_server, 0,
+   N_("GCompris will get images, sounds and activity data from this server if not found locally. To use the default server, set this value to 'gcompris.net'"), NULL},
 #ifndef WIN32	/* Not supported on windows */
   POPT_AUTOHELP
 #endif
@@ -810,13 +813,10 @@ static void setup_window ()
 
 void gcompris_end_board()
 {
-  if (get_current_gcompris_board()->previous_board == NULL)
-    /* We are in the upper menu */
-    /* board_play (properties->menu_board); */
-    gcompris_exit();
-  else
+  if (get_current_gcompris_board()->previous_board) {
     /* Run the previous board */
     board_play (get_current_gcompris_board()->previous_board);
+  }
 }
 
 /** \brief toggle full screen mode
@@ -886,21 +886,20 @@ void gcompris_canvas_item_ungrab (GnomeCanvasItem *item, guint32 etime)
 #endif
 }
 
-void gcompris_exit()
+static void cleanup()
 {
   /* Do not loopback in exit */
   signal(SIGINT,  NULL);
   signal(SIGSEGV, NULL);
 
   board_stop();
-
   gcompris_db_exit();
-
   gcompris_set_fullscreen(FALSE);
+}
 
-  gtk_main_quit ();
-
-
+void gcompris_exit()
+{
+  g_signal_emit_by_name(G_OBJECT(window), "delete_event");
 }
 
 static void quit_cb (GtkWidget *widget, gpointer data)
@@ -909,8 +908,14 @@ static void quit_cb (GtkWidget *widget, gpointer data)
 #ifdef DMALLOC
   dmalloc_shutdown();
 #endif
-  gcompris_exit();
+  cleanup();
+  gtk_main_quit();
 
+  /*
+   * Very important or GCompris crashes on exit when closed from the dialog
+   * It's like if code in the dialog callback continue after the gtk_main_quit is done
+   */
+  exit(0);
 }
 
 /*
@@ -1451,6 +1456,12 @@ gcompris_init (int argc, char *argv[])
       properties->reread_menu = TRUE;
   }
 
+  if (popt_server){
+    if (strcmp(popt_server,"gcompris.net")==0)
+      properties->server = g_strdup(GCOMPRIS_BASE_URL);
+    else
+      properties->server = g_strdup(popt_server);
+  }
 
   /*
    * Database init MUST BE after properties
@@ -1526,6 +1537,9 @@ gcompris_init (int argc, char *argv[])
 
   /* Gdk-Pixbuf */
   gdk_rgb_init();
+
+  /* networking init */
+  gc_net_init();
 
   setup_window ();
 

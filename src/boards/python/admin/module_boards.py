@@ -83,5 +83,6 @@ class Boards(module.Module):
     # Remove the root item removes all the others inside it
     self.rootitem.destroy()
 
-    # For now, quitting admin is definitive
-    sys.exit()
+    # Close the database
+    self.cur.close()
+    self.con.close()

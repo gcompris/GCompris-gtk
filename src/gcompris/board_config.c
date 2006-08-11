@@ -1,6 +1,6 @@
 /* gcompris - board_config.c
  *
- * Time-stamp: <2006/05/10 23:11:49 bruno>
+ * Time-stamp: <2006/08/11 14:22:34 bruno>
  *
  * Copyright (C) 2001 Pascal Georges
  *
@@ -288,8 +288,8 @@ gcompris_get_active_text (GtkComboBox *combo_box)
   return text;
 }
 
-void gcompris_combo_box_changed(GtkComboBox *combobox,
-				gpointer key)
+static void gcompris_combo_box_changed(GtkComboBox *combobox,
+				       gpointer key)
 {
   gchar *the_key = g_strdup((gchar *)key);
 
@@ -298,7 +298,7 @@ void gcompris_combo_box_changed(GtkComboBox *combobox,
   g_hash_table_replace(hash_conf, (gpointer) the_key, (gpointer) value);
 }
 
-inline int my_strcmp(gchar *a, gchar *b) { return strcmp( a, b); }
+static inline int my_strcmp(gchar *a, gchar *b) { return strcmp( a, b); }
 
 
 GtkComboBox *gcompris_combo_box(const gchar *label, GList *strings, gchar *key, gchar *init)
@@ -377,8 +377,8 @@ static gchar *radio_key = NULL;
 static gchar *radio_text = NULL;
 static gchar *radio_init = NULL;
 
-void radio_changed(GtkToggleButton *togglebutton,
-		   gpointer key)
+static void radio_changed(GtkToggleButton *togglebutton,
+			  gpointer key)
 {
   gboolean state = gtk_toggle_button_get_active (togglebutton);
   gchar *h_key;
@@ -391,9 +391,9 @@ void radio_changed(GtkToggleButton *togglebutton,
   }
 }
 
-void create_radio_buttons(gpointer key,
-			  gpointer value,
-			  gpointer hash_radio)
+static void create_radio_buttons(gpointer key,
+				 gpointer value,
+				 gpointer hash_radio)
 {
   GtkWidget *radio_button;
   gchar *key_copy;
@@ -420,7 +420,7 @@ void create_radio_buttons(gpointer key,
   g_hash_table_replace ( hash_radio, (gpointer) key_copy, (gpointer) radio_button);
 }
 
-void destroy_hash (GtkObject *object,
+static void destroy_hash (GtkObject *object,
                    gpointer hash_table)
 {
   g_hash_table_destroy((GHashTable *)hash_table);
@@ -481,8 +481,8 @@ GHashTable *gcompris_radio_buttons(const gchar *label,
   return buttons;
 }
 
-void spin_changed (GtkSpinButton *spinbutton,
-		    gpointer key)
+static void spin_changed (GtkSpinButton *spinbutton,
+			  gpointer key)
 {
   gchar *h_key = g_strdup((gchar *) key);
   gchar *h_value = g_strdup_printf("%d",gtk_spin_button_get_value_as_int (spinbutton));

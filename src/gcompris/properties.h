@@ -1,6 +1,6 @@
 /* gcompris - properties.h
  *
- * Time-stamp: <2006/06/26 22:25:02 bruno>
+ * Time-stamp: <2006/08/10 14:15:38 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -58,6 +58,7 @@ typedef struct {
   gchar        *default_context;
   gint         experimental;
   gchar        *menu_position;
+  gchar        *server;
 } GcomprisProperties;
 
 GcomprisProperties	*gcompris_get_properties (void);

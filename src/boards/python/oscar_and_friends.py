@@ -99,11 +99,11 @@ class Gcompris_oscar_and_friends:
 
     self.text_item = self.rootitem.add(
       gnome.canvas.CanvasText,
-      x=400.0,
+      x=gcompris.BOARD_WIDTH * 0.45,
       y=gcompris.BOARD_HEIGHT - 40.0,
       text="",
       font=gcompris.skin.get_font("gcompris/content"),
-      fill_color="black",
+      fill_color="white",
       justification=gtk.JUSTIFY_CENTER
       )
     self.text_item.hide()
@@ -163,10 +163,7 @@ class Gcompris_oscar_and_friends:
   def next_item_event(self, widget, event=None):
     if event.type == gtk.gdk.BUTTON_PRESS:
       if event.button == 1:
-        print self.current_texts_index
         self.display_next_text()
-        print self.current_texts_index
-        print "---"
         return True
     return False
 

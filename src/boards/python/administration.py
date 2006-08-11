@@ -29,7 +29,7 @@ from gettext import gettext as _
 # To add a panel, add a python module in the admin subdir
 # This module must have a start() and end() function
 class Gcompris_administration:
-  """Administrating GCompris"""
+  """Administering GCompris"""
 
 
   def __init__(self, gcomprisBoard):
@@ -37,6 +37,7 @@ class Gcompris_administration:
 
     # The panel being displayed
     self.current_panel = None
+    self.current_panel_stopped = False
 
     # Create our rootitem. We put each canvas item in it so at the end we
     # only have to kill it. The canvas deletes all the items it contains automaticaly.
@@ -57,14 +58,15 @@ class Gcompris_administration:
 
 
   def pause(self, pause):
-
     if(self.current_panel != None):
       if pause:
         # Stop current panel
         self.current_panel.stop()
+        self.current_panel_stopped = True
       else:
         # Restart the current panel
         self.current_panel.start(self.panel_area)
+        self.current_panel_stopped = False
 
 
   def start(self):
@@ -141,8 +143,11 @@ class Gcompris_administration:
 
 
   def end(self):
-    pass
-
+    # Stop current panel
+    if(self.current_panel != None and not self.current_panel_stopped):
+      self.current_panel.stop()
+      self.current_panel_stopped = False
+      
   def ok(self):
     pass
 
@@ -173,7 +178,8 @@ class Gcompris_administration:
         # Stop previous panel if any
         if(self.current_panel != None):
           self.current_panel.stop()
-          
+          self.current_panel_stopped = False
+
         self.current_panel = module
 
         # Start the new panel

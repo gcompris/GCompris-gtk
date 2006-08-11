@@ -46,7 +46,6 @@ struct BoardPluginData
 {
   GcomprisBoard	*current_gcompris_board;
   gboolean	 playing;
-  gboolean	 paused;
 };
 
 void		 init_plugins(void);
@@ -57,9 +56,8 @@ void		 set_current_gcompris_board(GcomprisBoard * gcomprisBoard);
 gboolean	 board_check_file(GcomprisBoard *gcomprisBoard);
 void		 board_play(GcomprisBoard *gcomprisBoard);
 void		 board_stop(void);
-void		 board_pause(void);
+void		 board_pause(int pause);
 gboolean	 get_board_playing(void);
-gboolean	 get_board_paused(void);
 gchar		*board_get_info_text(void);
 
 void		 board_set_info_text(gchar * text);

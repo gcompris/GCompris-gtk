@@ -53,6 +53,7 @@ INCLUDES = \
 	$(SDL_CFLAGS) \
 	-DGNOME_DISABLE_DEPRECATED \
         $(sqlite_cflags) \
+	$(GNET_CFLAGS) \
 	$(cairo_cflags)
 
 gcompris_SOURCES = \
@@ -76,7 +77,7 @@ gcompris_LDADD = \
 lib_LTLIBRARIES = libgcompris-1.la
 
 libgcompris_1_la_LIBADD = \
-	$(GCOMPRIS_LIBS) $(sqlite_ldadd) $(XML_LIBS)
+	$(GCOMPRIS_LIBS) $(sqlite_ldadd) $(XML_LIBS) $(GNET_LIBS)
 
 libgcompris_1_la_LDFLAGS = $(no_undefined) \
 	-version-info $(LIBGCOMPRIS_CURRENT):$(LIBGCOMPRIS_REVISION):$(LIBGCOMPRIS_AGE) 
@@ -89,6 +90,7 @@ libgcomprisinclude_HEADERS =			\
 	bonus.h \
 	cursor.h \
 	gameutil.h \
+	gc_net.h \
 	gcompris.h \
 	gcompris-board.h \
 	board_config.h \
@@ -112,6 +114,7 @@ libgcompris_1_la_SOURCES =			\
 	$(libgcomprisinclude_HEADERS)	\
 	gcompris.c \
 	gameutil.c \
+	gc_net.c \
 	properties.c \
 	bar.c \
 	file_selector.c \

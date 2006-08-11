@@ -87,8 +87,8 @@ int sdlplayer_init()
   // print out some info on the audio device and stream
   Mix_QuerySpec(&audio_rate, &audio_format, &audio_channels);
   bits=audio_format&0xFF;
-  printf("Opened audio at %d Hz %d bit %s, %d bytes audio buffer\n", audio_rate,
-	 bits, audio_channels>1?"stereo":"mono", audio_buffers );
+  g_warning("Opened audio at %d Hz %d bit %s, %d bytes audio buffer\n", audio_rate,
+	    bits, audio_channels>1?"stereo":"mono", audio_buffers );
   sound_paused = FALSE;
 
   return(0);
@@ -99,7 +99,7 @@ int sdlplayer_quit(Mix_Music *music)
   // free & close
   Mix_FreeMusic(music); 
   Mix_CloseAudio(); 
-  printf("SDL PLAYER SDL_Quit\n"); 
+  g_warning("SDL PLAYER SDL_Quit\n"); 
   SDL_Quit(); 
 
   return 0;
@@ -112,7 +112,7 @@ int sdlplayer_bg(char *filename, int volume)
   while (sound_paused)
     SDL_Delay(50);
 
-  printf("sdlplayer_bg %s\n", filename);
+  g_warning("sdlplayer_bg %s\n", filename);
 
   // load the song
   if(!(music=Mix_LoadMUS(filename)))

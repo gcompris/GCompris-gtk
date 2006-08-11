@@ -72,21 +72,9 @@ gchar *gcompris_image_to_skin(gchar *pixmapfile)
     return(filename);
   }
 
-  /* Now check if pixmapfile is in the default skin dir */
-
-  filename = g_strdup_printf("%s/skins/%s/%s", PACKAGE_DATA_DIR, DEFAULT_SKIN, pixmapfile);
-    
-  if (g_file_test ((filename), G_FILE_TEST_EXISTS)) {
-    g_free(filename);
-
-    filename = g_strdup_printf("skins/%s/%s", DEFAULT_SKIN, pixmapfile);
-
-    return(filename);
-  }
-
-  g_warning ("Couldn't find file %s !", filename);
-
-  return(NULL);
+  /* Return the default skin dir */
+  filename = g_strdup_printf("skins/%s/%s", DEFAULT_SKIN, pixmapfile);
+  return(filename);
 }
 
 /*
