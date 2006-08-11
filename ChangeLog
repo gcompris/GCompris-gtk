@@ -1,3 +1,39 @@
+2006-08-11  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	- Added a new activity (uncomplete). It's a story based on the drawings of
+	  Josef Vybiral
+	  For now the kid can just read the text of the first image in the first scene.
+
+	* boards/Makefile.am:
+	* boards/oscar_and_friends.xml.in:
+	* boards/oscar_and_friends/scene1_0.png:
+	* po/POTFILES.in:
+	* src/boards/python/Makefile.am:
+	* src/boards/python/oscar_and_friends.py:
+	* src/boards/railroad.c: (animate_model): fixed sounds. the train sounds was no more played.
+
+2006-08-10  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	- saved several images with more compression.
+	- added horses2.jpg butterfly.jpg pigeon.jpg by Anne and Erwan.
+
+	* boards/gcompris/animals/butterfly.jpg:
+	* boards/gcompris/animals/cow.jpg:
+	* boards/gcompris/animals/horses.jpg:
+	* boards/gcompris/animals/horses2.jpg:
+	* boards/gcompris/animals/maki1.jpg:
+	* boards/gcompris/animals/maki2.jpg:
+	* boards/gcompris/animals/maki3.jpg:
+	* boards/gcompris/animals/maki4.jpg:
+	* boards/gcompris/animals/maki5.jpg:
+	* boards/gcompris/animals/maki6.jpg:
+	* boards/gcompris/animals/pigeon.jpg:
+	* boards/gcompris/animals/readme.txt:
+	* boards/gcompris/animals/sheep_irish.jpg:
+	* boards/gcompris/animals/sheep_irish2.jpg:
+	* boards/gcompris/animals/squirrel.jpg:
+	* src/boards/erase.c:
+
 2006-07-31  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* boards/sounds/README: added to report that wahoo comes from childsplay
