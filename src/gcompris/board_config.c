@@ -1,6 +1,6 @@
 /* gcompris - board_config.c
  *
- * Time-stamp: <2006/08/11 14:22:34 bruno>
+ * Time-stamp: <2006/08/11 17:27:15 bruno>
  *
  * Copyright (C) 2001 Pascal Georges
  *
@@ -191,7 +191,7 @@ GtkVBox *gcompris_configuration_window(gchar *label, GcomprisConfCallback callba
   GcomprisProperties *properties = gcompris_get_properties();
   if (properties->fullscreen && !properties->noxf86vm)
     if (gdk_pointer_grab(gcompris_get_window()->window, TRUE, 0,
-			 gcompris_get_window(), NULL, GDK_CURRENT_TIME) !=
+			 GDK_WINDOW(gcompris_get_window()), NULL, GDK_CURRENT_TIME) !=
 	GDK_GRAB_SUCCESS)
       g_warning("Pointer grab failed");
 

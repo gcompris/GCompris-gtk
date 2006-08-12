@@ -677,7 +677,7 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, PieceItem *data)
 	  double tmpx, tmpy;
 	  PieceItem *piece_src;
 	  PieceItem *piece_dst;
-	  gint col, line;
+	  gint col = 0, line;
 	  
 	  gcompris_canvas_item_ungrab(data->item, event->button.time);
 	  dragging = FALSE;

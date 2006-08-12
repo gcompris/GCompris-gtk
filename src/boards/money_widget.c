@@ -232,11 +232,6 @@ static void money_display_total(Money_Widget *moneyWidget)
   
 }
 
-static void
-money_widget_move (Money_Widget *moneyWidget, MoneyItem *moneyItem)
-{
-}
-
 void
 money_widget_add (Money_Widget *moneyWidget, MoneyEuroType value)
 {
@@ -328,7 +323,8 @@ money_widget_remove(Money_Widget *moneyWidget, MoneyEuroType value)
 double
 money_widget_get_total (Money_Widget *moneyWidget)
 {
-  g_return_if_fail (moneyWidget != NULL);
+  if(moneyWidget == NULL)
+    return 0;
 
   return moneyWidget->priv->total;
 }

@@ -319,7 +319,6 @@ py_gcompris_canvas_get_property(PyObject* self, PyObject* args)
   PyObject* pyitem;
   GnomeCanvasItem *item;
   char  *property;
-  char  *value;
   gchar *result;
 
   /* Parse arguments */

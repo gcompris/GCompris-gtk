@@ -1,6 +1,6 @@
 /* gcompris - help.c
  *
- * Time-stamp: <2006/04/09 23:28:08 bruno>
+ * Time-stamp: <2006/08/11 17:24:52 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -101,11 +101,7 @@ void gcompris_help_start (GcomprisBoard *gcomprisBoard)
   if(rootitem)
     return;
 
-  if(gcomprisBoard!=NULL)
-    {
-      if(gcomprisBoard->plugin->pause_board != NULL)
-	  gcomprisBoard->plugin->pause_board(TRUE);
-    }
+  board_pause(TRUE);
 
   item_selected = NULL;
   item_selected_text = NULL;
@@ -414,20 +410,15 @@ void gcompris_help_start (GcomprisBoard *gcomprisBoard)
  */
 void gcompris_help_stop ()
 {
-  GcomprisBoard *gcomprisBoard = get_current_gcompris_board();
-
-  if(gcomprisBoard!=NULL && help_displayed)
+  if(help_displayed)
     {
-      if(gcomprisBoard->plugin->pause_board != NULL)
+      // Destroy the help box
+      if(rootitem!=NULL)
 	{
-	  // Destroy the help box
-	  if(rootitem!=NULL)
-	    {
-	      gtk_object_destroy(GTK_OBJECT(rootitem));
-	      gcomprisBoard->plugin->pause_board(FALSE);
-	    }
+	  gtk_object_destroy(GTK_OBJECT(rootitem));
 	  rootitem = NULL;	  
 	}
+      board_pause(FALSE);
     }
 
   gcompris_bar_hide(FALSE);

@@ -47,8 +47,6 @@ static gint		 piece_event (GnomeCanvasItem *item, GdkEvent *event, gpointer data
 static void		 scramble (GnomeCanvasItem **board, guint number_of_scrambles);
 static char		*get_piece_color (int piece);
 
-static int number_of_scrambles = 0;
-
 /* Description of this plugin */
 static BoardPlugin menu_bp =
   {
@@ -362,7 +360,7 @@ piece_event (GnomeCanvasItem *item, GdkEvent *event, gpointer data)
   double dx = 0.0, dy = 0.0;
   int move;
 
-  canvas = GNOME_CANVAS_GROUP(item->parent);
+  canvas = GNOME_CANVAS(item->parent);
   board = g_object_get_data (G_OBJECT (canvas), "board");
   num = GPOINTER_TO_INT (g_object_get_data (G_OBJECT (item), "piece_num"));
   pos = GPOINTER_TO_INT (g_object_get_data (G_OBJECT (item), "piece_pos"));

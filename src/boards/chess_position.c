@@ -93,7 +93,7 @@ class_init (PositionClass *class)
 
 	object_class = (GtkObjectClass*) class;
 
-	//2	object_class->finalize = finalize;
+	object_class->destroy = finalize;
 }
 
 static void

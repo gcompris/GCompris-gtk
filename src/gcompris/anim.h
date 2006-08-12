@@ -46,5 +46,6 @@ GcomprisAnimCanvasItem *gcompris_activate_animation(GnomeCanvasGroup *parent,
 void gcompris_set_anim_state(GcomprisAnimCanvasItem*, int);
 void gcompris_deactivate_animation(GcomprisAnimCanvasItem*);
 void gcompris_free_animation(GcomprisAnimation*);
+void gcompris_swap_animation(GcomprisAnimCanvasItem *item, GcomprisAnimation *new_anim);
 
 #endif

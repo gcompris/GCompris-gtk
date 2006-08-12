@@ -80,8 +80,6 @@ pyGcomprisClassType_getattr(pyGcomprisClassObject *self, char *name)
 static int
 pyGcomprisClassType_setattr(pyGcomprisClassObject *self, char *name, PyObject *v)
 {
-  int value;
-  
   if (self->cdata==NULL) return -1;
   if (v==NULL) return -1;
 

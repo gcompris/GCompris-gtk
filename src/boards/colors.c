@@ -107,9 +107,9 @@ GET_BPLUGIN_INFO(colors)
 static GcomprisProfile *profile_conf;
 static GcomprisBoard   *board_conf;
 
-static GHFunc save_table (gpointer key,
-		    gpointer value,
-		    gpointer user_data)
+static void save_table (gpointer key,
+			gpointer value,
+			gpointer user_data)
 {
   gcompris_set_board_conf ( profile_conf,
 			    board_conf,
@@ -149,12 +149,6 @@ conf_ok(GHashTable *table)
   }
   board_conf = NULL;
   profile_conf = NULL;  
-}
-
-static gboolean check_text(gchar *key, gchar *text, GtkLabel *label){
-  gtk_label_set_markup(label, text);
-
-  return TRUE;
 }
 
 static void

@@ -113,7 +113,6 @@ on_wdrawareagrande_button_press_event  (GtkWidget       *widget,
 {
   int x,y;
   int piece;
-  int oldselgr=selectedgrande;
 
   if (!selpossible || event->type!=GDK_BUTTON_PRESS)     /* double-click ou deja trouve */
     return TRUE;
@@ -349,10 +348,9 @@ on_rotation_clicked (GnomeCanvasItem *canvasitem,
 		  GdkEvent *event,
 		  gpointer user_data)
 {
-  gint angle;
-
   if ((event->type == GDK_BUTTON_PRESS)  
       && (event->button.button == 1)) {
+    gint angle = 0;
 
     if (selectedgrande==TRUE){
       switch ((gint) user_data){

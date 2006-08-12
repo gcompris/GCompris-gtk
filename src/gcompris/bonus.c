@@ -120,8 +120,7 @@ void board_finished(BoardFinishedList type) {
     board_finished_running = TRUE;
 
   /* First pause the board */
-  if(gcomprisBoard->plugin->pause_board != NULL)
-      gcomprisBoard->plugin->pause_board(TRUE);
+  board_pause(TRUE);
 
   /* WARNING: I remove 1 to the BOARD_FINISHED_LAST because RANDOM is for GOOD end only */
   if(type==BOARD_FINISHED_RANDOM)
@@ -204,7 +203,6 @@ void board_finished(BoardFinishedList type) {
 /* ==================================== */
 void gcompris_display_bonus(BonusStatusList gamewon, BonusList bonus_id)
 {
-  GcomprisBoard *gcomprisBoard = get_current_gcompris_board();
   gchar *absolute_file;
 
   gcompris_bar_hide(TRUE);
@@ -238,8 +236,7 @@ void gcompris_display_bonus(BonusStatusList gamewon, BonusList bonus_id)
   }
 
   /* First pause the board */
-  if(gcomprisBoard->plugin->pause_board != NULL)
-      gcomprisBoard->plugin->pause_board(TRUE);
+  board_pause(TRUE);
 
   if(bonus_id==BONUS_RANDOM)
     bonus_id = RAND(1, BONUS_LAST);
@@ -357,8 +354,6 @@ void bonus_image(char *image, BonusStatusList gamewon)
 /* ==================================== */
 void end_bonus()
 {
-  GcomprisBoard *gcomprisBoard = get_current_gcompris_board();
-
   if (end_bonus_id) {
     gtk_timeout_remove (end_bonus_id);
     end_bonus_id = 0;
@@ -373,6 +368,5 @@ void end_bonus()
   gcompris_bar_hide(FALSE);
 
   /* Re-Start the board */
-  if(gcomprisBoard->plugin->pause_board != NULL)
-      gcomprisBoard->plugin->pause_board(FALSE);
+  board_pause(FALSE);
 }

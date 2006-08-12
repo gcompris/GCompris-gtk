@@ -1,6 +1,6 @@
 /* gcompris - algebra.c
  *
- * Time-stamp: <2006/03/02 00:38:14 bruno>
+ * Time-stamp: <2006/08/12 02:45:08 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -578,19 +578,19 @@ static GnomeCanvasItem *algebra_create_item(GnomeCanvasGroup *parent)
     {
     case PLUSSIGNFILE:
       expected_result = g_strdup_printf("%d", first_operand+second_operand);
-      audioOperand = "plus";
+      audioOperand = "sounds/$LOCALE/misc/plus.ogg";
       break;
     case MINUSSIGNFILE:
       expected_result = g_strdup_printf("%d", first_operand-second_operand);
-      audioOperand = "minus";
+      audioOperand = "sounds/$LOCALE/misc/minus.ogg";
       break;
     case BYSIGNFILE:
       expected_result = g_strdup_printf("%d", first_operand*second_operand);
-      audioOperand = "by";
+      audioOperand = "sounds/$LOCALE/misc/by.ogg";
       break;
     case DIVIDESIGNFILE:
       expected_result = g_strdup_printf("%d", first_operand/second_operand);
-      audioOperand = "outof";
+      audioOperand = "sounds/$LOCALE/misc/outof.ogg";
       break;
     default:
       g_error("Bad Operation");
@@ -600,11 +600,34 @@ static GnomeCanvasItem *algebra_create_item(GnomeCanvasGroup *parent)
 		  y_firstline, expected_result, TRUE);
   
 
-  gcompris_play_ogg(first_operand_str, audioOperand , second_operand_str, "equal", NULL);
+  {
+    gchar *str1 = NULL;
+    gchar *str2 = NULL;
 
-  g_free(first_operand_str);
-  g_free(second_operand_str);
+    if(strlen(first_operand_str)==1)
+      str1 = gcompris_alphabet_sound(first_operand_str);
+    else
+      str1 = g_strdup_printf("%s.ogg", first_operand_str);
 
+    if(strlen(second_operand_str)==1)
+      str2 = gcompris_alphabet_sound(second_operand_str);
+    else
+      str2 = g_strdup_printf("%s.ogg", second_operand_str);
+
+    g_free(first_operand_str);
+    g_free(second_operand_str);
+
+    first_operand_str = g_strdup_printf("sounds/$LOCALE/alphabet/%s", str1);
+    second_operand_str = g_strdup_printf("sounds/$LOCALE/alphabet/%s", str2);
+
+    gcompris_play_ogg(first_operand_str, audioOperand , second_operand_str, "sounds/$LOCALE/misc/equal.ogg", NULL);
+
+    g_free(str1);
+    g_free(str2);
+
+    g_free(first_operand_str);
+    g_free(second_operand_str);
+  }
   return (item);
 }
 
@@ -685,7 +708,7 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 
       currentToBeFoundItem=toBeFoundItem;
 
-      gcompris_play_ogg ("gobble", NULL);
+      gcompris_play_ogg ("sounds/gobble", NULL);
       break;
       
     default:

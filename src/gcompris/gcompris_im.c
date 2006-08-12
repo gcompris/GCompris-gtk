@@ -1,6 +1,6 @@
 /* gcompris - gcompris_im.c
  *
- * Time-stamp: <2005/10/02 22:17:33 bruno>
+ * Time-stamp: <2006/08/11 17:37:17 bruno>
  *
  * Copyright (C) 2000,2003 Bruno Coudoin
  *
@@ -90,6 +90,7 @@ static gint im_context_commit_callback (GtkIMContext *imcontext,
       //      g_free(arg1);
       return(result);
     }
+  return FALSE;
 }
     
 static gint im_context_preedit_callback (GtkIMContext *imcontext,
@@ -111,6 +112,7 @@ static gint im_context_preedit_callback (GtkIMContext *imcontext,
       pango_attr_list_unref (attrs);
       return(result);
     }
+  return FALSE;
 }
 
 static gint window_focus_callback (GtkWidget *widget,

@@ -1,6 +1,6 @@
 /* gcompris - config.c
  *
- * Time-stamp: <2006/07/31 02:57:33 bruno>
+ * Time-stamp: <2006/08/11 17:46:01 bruno>
  *
  * Copyright (C) 2000-2003 Bruno Coudoin
  *
@@ -146,7 +146,6 @@ static void   display_previous_next(guint x_start, guint y_start,
  */
 void gcompris_config_start ()
 {
-  GcomprisBoard		*gcomprisBoard = get_current_gcompris_board();
   GcomprisProperties	*properties = gcompris_get_properties();
   GdkPixbuf   *pixmap = NULL;
   gint y_start = 0;
@@ -157,8 +156,7 @@ void gcompris_config_start ()
   GnomeCanvasItem *item, *item2;
 
   /* Pause the board */
-  if(gcomprisBoard->plugin->pause_board != NULL)
-    gcomprisBoard->plugin->pause_board(TRUE);
+  board_pause(TRUE);
 
   if(rootitem)
     return;
@@ -202,49 +200,6 @@ void gcompris_config_start ()
 			 "anchor", GTK_ANCHOR_CENTER,
 			 "fill_color_rgba", gcompris_skin_color_title,
 			 NULL);
-
-  // OK
-  pixmap = gcompris_load_skin_pixmap("button_large.png");
-  item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
-				gnome_canvas_pixbuf_get_type (),
-				"pixbuf", pixmap, 
-				"x", (double) (BOARDWIDTH*0.5) - gdk_pixbuf_get_width(pixmap)/2,
-				"y", (double) y - gdk_pixbuf_get_height(pixmap) - 5,
-				NULL);
-
-  gtk_signal_connect(GTK_OBJECT(item), "event",
-		     (GtkSignalFunc) item_event_ok,
-		     "ok");
-  gtk_signal_connect(GTK_OBJECT(item), "event",
-		     (GtkSignalFunc) gcompris_item_event_focus,
-		     NULL);
-
-  gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
-			 gnome_canvas_text_get_type (),
-			 "text", _("OK"),
-			 "font", gcompris_skin_font_title,
-			 "x", (double)  BOARDWIDTH*0.5 + 1.0,
-			 "y", (double)  y - gdk_pixbuf_get_height(pixmap) + 20 + 1.0,
-			 "anchor", GTK_ANCHOR_CENTER,
-			 "fill_color_rgba", gcompris_skin_color_shadow,
-			 NULL);
-  item2 = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
-				gnome_canvas_text_get_type (),
-				"text", _("OK"),
-				"font", gcompris_skin_font_title,
-				"x", (double)  BOARDWIDTH*0.5,
-				"y", (double)  y - gdk_pixbuf_get_height(pixmap) + 20,
-				"anchor", GTK_ANCHOR_CENTER,
-				"fill_color_rgba", gcompris_skin_color_text_button,
-				NULL);
-  gtk_signal_connect(GTK_OBJECT(item2), "event",
-		     (GtkSignalFunc) item_event_ok,
-		     "ok");
-  gtk_signal_connect(GTK_OBJECT(item2), "event",
-		     (GtkSignalFunc) gcompris_item_event_focus,
-		     item);
-  gdk_pixbuf_unref(pixmap);
-
 
   pixmap_checked   = gcompris_load_skin_pixmap("button_checked.png");
   pixmap_unchecked = gcompris_load_skin_pixmap("button_unchecked.png");
@@ -482,18 +437,59 @@ void gcompris_config_start ()
 						NULL);
 
 
+  // OK
+  pixmap = gcompris_load_skin_pixmap("button_large.png");
+  item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
+				gnome_canvas_pixbuf_get_type (),
+				"pixbuf", pixmap, 
+				"x", (double) (BOARDWIDTH*0.5) - gdk_pixbuf_get_width(pixmap)/2,
+				"y", (double) y - gdk_pixbuf_get_height(pixmap) - 5,
+				NULL);
+
+  gtk_signal_connect(GTK_OBJECT(item), "event",
+		     (GtkSignalFunc) item_event_ok,
+		     "ok");
+  gtk_signal_connect(GTK_OBJECT(item), "event",
+		     (GtkSignalFunc) gcompris_item_event_focus,
+		     NULL);
+
+  gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
+			 gnome_canvas_text_get_type (),
+			 "text", _("OK"),
+			 "font", gcompris_skin_font_title,
+			 "x", (double)  BOARDWIDTH*0.5 + 1.0,
+			 "y", (double)  y - gdk_pixbuf_get_height(pixmap) + 20 + 1.0,
+			 "anchor", GTK_ANCHOR_CENTER,
+			 "fill_color_rgba", gcompris_skin_color_shadow,
+			 NULL);
+  item2 = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
+				gnome_canvas_text_get_type (),
+				"text", _("OK"),
+				"font", gcompris_skin_font_title,
+				"x", (double)  BOARDWIDTH*0.5,
+				"y", (double)  y - gdk_pixbuf_get_height(pixmap) + 20,
+				"anchor", GTK_ANCHOR_CENTER,
+				"fill_color_rgba", gcompris_skin_color_text_button,
+				NULL);
+  gtk_signal_connect(GTK_OBJECT(item2), "event",
+		     (GtkSignalFunc) item_event_ok,
+		     "ok");
+  gtk_signal_connect(GTK_OBJECT(item2), "event",
+		     (GtkSignalFunc) gcompris_item_event_focus,
+		     item);
+  gdk_pixbuf_unref(pixmap);
+
+
   is_displayed = TRUE;
 }
 
 void gcompris_config_stop ()
 {
-  GcomprisBoard *gcomprisBoard = get_current_gcompris_board();
-
   // Destroy the help box
   if(rootitem!=NULL)
     {
       gtk_object_destroy(GTK_OBJECT(rootitem));
-      gcomprisBoard->plugin->pause_board(FALSE);
+      board_pause(FALSE);
     }
   rootitem = NULL;	  
 
@@ -508,10 +504,8 @@ void gcompris_config_stop ()
   pixmap_checked = NULL;
 
   /* UnPause the board */
-  if((gcomprisBoard->plugin->pause_board != NULL) && is_displayed)
-    {
-      gcomprisBoard->plugin->pause_board(FALSE);
-    }
+  if(is_displayed)
+    board_pause(FALSE);
 
   gcompris_bar_hide(FALSE);
 

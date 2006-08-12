@@ -1,3 +1,100 @@
+2006-08-12  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	- Fixed africa maps. Removed too tiny country in the whole africa map. Fixed missing
+	  country pixmaps. Closes sourceforge GCompris bug#1538043.
+
+	- Added -Werror as a global option. Fixed all warnings. I may have introduced bugs during this
+	  process.
+
+	- click_on_letter: re-added the spoken instruction click on the letter
+	- algebra: re-added the spoken numbers.
+	
+	* boards/geography/africa/angola.png:
+	* boards/geography/africa/eritrea.png:
+	* boards/geography/africa/ethiopia.png:
+	* boards/geography/africa/north_africa.png:
+	* boards/geography/africa/north_africa.xcf:
+	* boards/geography/africa/sudan.png:
+	* boards/geography/afrique/africa.png:
+	* boards/geography/afrique/burundi.png:
+	* boards/geography/afrique/djibouti.png:
+	* boards/geography/afrique/equatorial_guinea.png:
+	* boards/geography/afrique/gambia.png:
+	* boards/geography/afrique/guinea_bissau.png:
+	* boards/geography/afrique/lesotho.png:
+	* boards/geography/afrique/rwanda.png:
+	* boards/geography/afrique/sierra_leone.png:
+	* boards/geography/afrique/swaziland.png:
+	* boards/geography/board4_0.xml.in:
+	* boards/geography/board4_2.xml.in:
+	* configure.in:
+	* src/boards/Makefile.am:
+	* src/boards/advanced_colors.c: (add_xml_data), (parse_doc),
+	(read_xml_file):
+	* src/boards/algebra.c: (item_event):
+	* src/boards/chess.c: (engine_local_cb), (start_child),
+	(write_child):
+	* src/boards/chess_position.c: (class_init):
+	* src/boards/click_on_letter.c: (sounds_are_fine):
+	* src/boards/colors.c: (save_table), (conf_ok):
+	* src/boards/draw.c: (reset_anchors_line), (load_drawing),
+	(save_drawing):
+	* src/boards/enumerate.c: (item_event_focus):
+	* src/boards/erase.c: (item_event):
+	* src/boards/fifteen.c: (piece_event):
+	* src/boards/gtans.c:
+	* src/boards/gtans_callbacks.c:
+	(on_wdrawareagrande_button_press_event), (on_rotation_clicked):
+	* src/boards/hanoi.c: (item_event):
+	* src/boards/magic_hat.c: (item_event):
+	* src/boards/menu2.c: (item_event):
+	* src/boards/money.c: (money_next_level):
+	* src/boards/money_widget.c: (money_widget_get_total):
+	* src/boards/planegame.c:
+	* src/boards/py-gcompris-class.c: (pyGcomprisClassType_setattr):
+	* src/boards/py-gcompris-group.c: (pyGcomprisGroupType_setattr):
+	* src/boards/py-gcompris-profile.c:
+	(pyGcomprisProfileType_setattr):
+	* src/boards/py-gcompris-properties.c:
+	(pyGcomprisPropertiesType_setattr):
+	* src/boards/py-gcompris-user.c: (pyGcomprisUserType_setattr):
+	* src/boards/py-mod-gcompris.c: (pyGcomprisConfCallback):
+	* src/boards/py-mod-utils.c: (py_gcompris_canvas_get_property):
+	* src/boards/python.c: (pythonboard_init):
+	* src/boards/read_colors.c: (add_xml_data), (read_xml_file):
+	* src/boards/reading.c: (read_wordfile), (save_table), (conf_ok):
+	* src/boards/shapegame.c: (key_press),
+	(add_shape_to_list_of_shapes), (item_event),
+	(add_xml_shape_to_data), (read_xml_file), (write_shape_to_xml),
+	(write_xml_file), (save_table), (conf_ok):
+	* src/boards/smallnumbers.c: (conf_ok):
+	* src/boards/traffic.c:
+	* src/boards/wordprocessor.c: (item_event_style_selection):
+	* src/boards/wordsgame.c: (wordsgame_read_wordfile):
+	* src/gcompris/about.c: (gcompris_about_start),
+	(gcompris_about_stop):
+	* src/gcompris/anim.h:
+	* src/gcompris/board_config.c: (gcompris_configuration_window):
+	* src/gcompris/bonus.c: (board_finished), (gcompris_display_bonus),
+	(end_bonus):
+	* src/gcompris/config.c: (gcompris_config_start),
+	(gcompris_config_stop):
+	* src/gcompris/file_selector.c: (gcompris_file_selector_stop),
+	(display_file_selector):
+	* src/gcompris/gameutil.c: (cleanup_menus),
+	(suppress_int_from_list), (compare_id), (item_event_ok):
+	* src/gcompris/gcompris_confirm.c: (gcompris_confirm_stop),
+	(display_confirm):
+	* src/gcompris/gcompris_im.c: (im_context_commit_callback),
+	(im_context_preedit_callback):
+	* src/gcompris/help.c: (gcompris_help_start), (gcompris_help_stop):
+	* src/gcompris/images_selector.c: (gcompris_images_selector_start),
+	(gcompris_images_selector_stop):
+	* src/gcompris/log.c: (gcompris_log_end):
+	* src/gcompris/profile.c: (gcompris_set_current_user):
+	* src/gcompris/profile.h:
+	* src/gcompris/wordlist.c: (gcompris_get_wordlist_from_file):
+
 2006-08-11  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	- Fixed potential the exit code to avoid a potential core dump when exiting GCompris

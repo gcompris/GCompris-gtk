@@ -20,6 +20,7 @@
 #include "gcompris.h"
 #include <libxml/tree.h>
 #include <libxml/parser.h>
+#include <string.h>
 
 GcomprisWordlist     *gcompris_get_wordlist_from_file(gchar *filename)
 {
@@ -127,7 +128,7 @@ GcomprisWordlist     *gcompris_get_wordlist_from_file(gchar *filename)
      continue;
    }
 
-   if (strcmp(node->name,"level")!=0){
+   if (strcmp((char *)node->name,"level")!=0){
      g_warning("Parsing %s error", filename);
      break;
    }

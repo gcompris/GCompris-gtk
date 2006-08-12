@@ -1,6 +1,6 @@
 /* gcompris - menu2.c
  *
- * Time-stamp: <2006/05/08 02:05:59 bruno>
+ * Time-stamp: <2006/08/11 18:58:38 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -24,6 +24,8 @@
  *
  * Seen from gcompris, the menu is a board like another.
  */
+#include <string.h>
+
 #include "gcompris/gcompris.h"
 #include "gcompris/gcompris_config.h"
 
@@ -573,8 +575,6 @@ static gint
 item_event(GnomeCanvasItem *item, GdkEvent *event,  MenuItems *menuitems)
 {
   GcomprisBoard *board;
-  GdkPixbuf *pixmap;
-      
 
   if(board_paused)
     return FALSE;

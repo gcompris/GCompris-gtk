@@ -1,6 +1,6 @@
 /* gcompris - shapegame.c
  *
- * Time-stamp: <2006/07/15 03:27:12 bruno>
+ * Time-stamp: <2006/08/11 18:38:23 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -24,6 +24,7 @@
 #include <libxml/parser.h>
 
 #include <math.h>
+#include <string.h>
 
 #include "gcompris/gcompris.h"
 
@@ -388,7 +389,6 @@ is_our_board (GcomprisBoard *gcomprisBoard)
 static gint key_press(guint keyval, gchar *commit_str, gchar *preedit_str)
 {
   guint c;
-  gboolean stop = FALSE;
 
   if(!gcomprisBoard)
     return FALSE;
@@ -446,7 +446,6 @@ static gint key_press(guint keyval, gchar *commit_str, gchar *preedit_str)
       if(edit_mode)
 	{
 	  GList *list;
-	  Shape *candidateShape = NULL;
 	  
 	  /* loop through all our shapes */
 	  for(list = shape_list; list != NULL; list = list->next) {
@@ -845,7 +844,6 @@ add_shape_to_list_of_shapes(Shape *shape)
 	  if(pixmap)
 	    {
 	      double w, h;
-	      double ratio;
 	      Shape *icon_shape;
 	      
 	      /* Calc a zoom factor so that the shape will fit in the shapelist
@@ -1009,7 +1007,7 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, Shape *shape)
      {
      case GDK_ENTER_NOTIFY:
        if(shape->tooltip && shape->type == SHAPE_ICON) {
-	 gnome_canvas_item_raise_to_top(tooltip_root_item);
+	 gnome_canvas_item_raise_to_top(GNOME_CANVAS_ITEM(tooltip_root_item));
 	 /* WARNING: This should not be needed but if I don't do it, it's not refreshed */
 	 gnome_canvas_item_set(GNOME_CANVAS_ITEM(tooltip_bg_item),
 			       "y", 0.0,
@@ -1073,7 +1071,7 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, Shape *shape)
 		     char *p = NULL;
 		     char *soundfile = g_strdup(shape->soundfile);
 
-		     while (p = strstr (soundfile, " "))
+		     while ((p = strstr (soundfile, " ")))
 		       {
 			 *p='\0';
 			 gcompris_play_ogg(soundfile, NULL);
@@ -1646,15 +1644,15 @@ add_xml_shape_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child)
   if(/* if the node has no name */
      !xmlnode->name ||
      /* or if the name is not "Shape" */
-     (g_strcasecmp(xmlnode->name,"Shape")!=0 &&
+     ((g_strcasecmp((const char *)xmlnode->name,"Shape")!=0) &&
      /* or if the name is not "Title" */
-      g_strcasecmp(xmlnode->name,"Title")!=0 &&
+      (g_strcasecmp((const char *)xmlnode->name,"Title")!=0) &&
      /* or if the name is not "Option" */
-      g_strcasecmp(xmlnode->name,"Option")!=0)
+      (g_strcasecmp((const char *)xmlnode->name,"Option")!=0) )
      )
     return;
   
-  pixmapfile = xmlGetProp(xmlnode,"pixmapfile");
+  pixmapfile = (char *)xmlGetProp(xmlnode, BAD_CAST "pixmapfile");
   /* if unspecified, make it UNDEFINED */
   if(!pixmapfile) {
     pixmapfile = UNDEFINED;
@@ -1667,11 +1665,11 @@ add_xml_shape_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child)
     }
   }
 
-  targetfile = xmlGetProp(xmlnode,"targetfile");
+  targetfile = (char *)xmlGetProp(xmlnode, BAD_CAST "targetfile");
   /* if unspecified, make it UNDEFINED */
   if(!targetfile) targetfile = UNDEFINED;
 
-  soundfile = xmlGetProp(xmlnode,"sound");
+  soundfile = (char *)xmlGetProp(xmlnode, BAD_CAST "sound");
   /* if unspecified, make it UNDEFINED */
   if(!soundfile) soundfile = UNDEFINED;
   /*********************************/
@@ -1679,7 +1677,7 @@ add_xml_shape_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child)
   /* The list of points is similar to the one define in the SVG standard */
   /* FIXME : The implementation is incomplete, a point still needs to be added
      to shapelist and add management for it's x/y coordinates */
-  cd = xmlGetProp(xmlnode,"points");
+  cd = (char *)xmlGetProp(xmlnode, BAD_CAST "points");
   if(!cd) 
     {
       cd = "";
@@ -1704,12 +1702,12 @@ add_xml_shape_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child)
     }
 
   /* get the X coord of the shape */
-  cx = xmlGetProp(xmlnode,"x");
+  cx = (char *)xmlGetProp(xmlnode, BAD_CAST "x");
   if(!cx) cx = "100";
   x = g_ascii_strtod(cx, NULL);
 
   /* get the Y coord of the shape */
-  cy = xmlGetProp(xmlnode,"y");
+  cy = (char *)xmlGetProp(xmlnode, BAD_CAST "y");
   if(!cy) cy = "100";
   y = g_ascii_strtod(cy, NULL);
 
@@ -1718,12 +1716,12 @@ add_xml_shape_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child)
   gcompris_set_locale("C");
 
   /* get the ZOOMX coord of the shape */
-  czoomx = xmlGetProp(xmlnode,"zoomx");
+  czoomx = (char *)xmlGetProp(xmlnode, BAD_CAST "zoomx");
   if(!czoomx) czoomx = "1";
   zoomx = g_ascii_strtod(czoomx, NULL);
 
   /* get the ZOOMY coord of the shape */
-  czoomy = xmlGetProp(xmlnode,"zoomy");
+  czoomy = (char *)xmlGetProp(xmlnode, BAD_CAST "zoomy");
   if(!czoomy) czoomy = "1";
   zoomy = g_ascii_strtod(czoomy, NULL);
 
@@ -1732,7 +1730,7 @@ add_xml_shape_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child)
    * 0 = BOTTOM
    * 1 or more = TOP
    */
-  cposition = xmlGetProp(xmlnode,"position");
+  cposition = (char *)xmlGetProp(xmlnode, BAD_CAST "position");
   if(!cposition) cposition = "0";
   position = atoi(cposition);
 
@@ -1741,7 +1739,7 @@ add_xml_shape_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child)
   g_strdup(locale);
 
   /* get the TYPE of the shape */
-  ctype = xmlGetProp(xmlnode,"type");
+  ctype = (char *)xmlGetProp(xmlnode, BAD_CAST "type");
   if(!ctype) ctype = "SHAPE_TARGET"; /* SHAPE_TARGET is default */
   if(g_strcasecmp(ctype,"SHAPE_TARGET")==0)
     type = SHAPE_TARGET;
@@ -1754,7 +1752,7 @@ add_xml_shape_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child)
 
   /* get the JUSTIFICATION of the Title */
   justification_gtk = GTK_JUSTIFY_CENTER;	/* GTK_JUSTIFICATION_CENTER is default */
-  justification = xmlGetProp(xmlnode,"justification");
+  justification = (char *)xmlGetProp(xmlnode, BAD_CAST "justification");
   if(justification) {
     if (strcmp(justification, "GTK_JUSTIFY_LEFT") == 0) {
       justification_gtk = GTK_JUSTIFY_LEFT;
@@ -1768,7 +1766,7 @@ add_xml_shape_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child)
   }
 
   /* get the COLOR of the Title Specified by skin reference */
-  color_text = xmlGetProp(xmlnode,"color_skin");
+  color_text = (char *)xmlGetProp(xmlnode, BAD_CAST "color_skin");
   if(color_text) {
     color_rgba = gcompris_skin_get_color(color_text);
   } else {
@@ -1781,23 +1779,23 @@ add_xml_shape_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child)
 
   xmlnamenode = xmlnode->xmlChildrenNode;
   while (xmlnamenode != NULL) {
-    gchar *lang = xmlGetProp(xmlnamenode,"lang");
+    gchar *lang = (char *)xmlGetProp(xmlnamenode, BAD_CAST "lang");
     /* get the name of the shape */
-    if (!strcmp(xmlnamenode->name, "name")
+    if (!strcmp((char *)xmlnamenode->name, "name")
 	&& (lang==NULL
 	    || !strcmp(lang, gcompris_get_locale())
 	    || !strncmp(lang, gcompris_get_locale(), 2)))
       {
-	name = xmlNodeListGetString(doc, xmlnamenode->xmlChildrenNode, 1);
+	name = (char *)xmlNodeListGetString(doc, xmlnamenode->xmlChildrenNode, 1);
       }
 
     /* get the tooltip of the shape */
-    if (!strcmp(xmlnamenode->name, "tooltip")
+    if (!strcmp((char *)xmlnamenode->name, "tooltip")
 	&& (lang==NULL
 	    || !strcmp(lang, gcompris_get_locale())
 	    || !strncmp(lang, gcompris_get_locale(), 2)))
       {
-	tooltip = xmlNodeListGetString(doc, xmlnamenode->xmlChildrenNode, 1);
+	tooltip = (char *)xmlNodeListGetString(doc, xmlnamenode->xmlChildrenNode, 1);
       }
 
     xmlnamenode = xmlnamenode->next;
@@ -1805,10 +1803,10 @@ add_xml_shape_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child)
 
   /* If name is not given as an element, try to get it as a property */
   if(!name)
-    name = xmlGetProp(xmlnode,"name");
+    name = (char *)xmlGetProp(xmlnode, BAD_CAST "name");
 
 
-  if(g_strcasecmp(xmlnode->name,"Shape")==0)
+  if(g_strcasecmp((char *)xmlnode->name, "Shape")==0)
     {
       /* add the shape to the database */
       /* WARNING : I do not initialize the width and height since I don't need them */
@@ -1819,7 +1817,7 @@ add_xml_shape_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child)
       /* add the shape to the list */
       shape_list_init = g_list_append(shape_list_init, shape);
     } 
-  else if (g_strcasecmp(xmlnode->name,"Title")==0)
+  else if (g_strcasecmp((char *)xmlnode->name, "Title")==0)
     {
       /* Readd \n is needed */
       gchar *newname;
@@ -1921,14 +1919,14 @@ read_xml_file(char *fname)
      /* if it doesn't have a name */
      !doc->children->name ||
      /* if it isn't a ShapeGame node */
-     g_strcasecmp(doc->children->name,"ShapeGame")!=0) {
+     g_strcasecmp((char *)doc->children->name, "ShapeGame")!=0) {
     xmlFreeDoc(doc);
     return FALSE;
   }
 
   /*--------------------------------------------------*/
   /* Read OkIfAddedName property */
-  tmpstr = xmlGetProp(doc->children,"OkIfAddedName");
+  tmpstr = (char *)xmlGetProp(doc->children, BAD_CAST "OkIfAddedName");
   /* if unspecified, make it INT_MAX */
   if(!tmpstr) 
       addedname = INT_MAX;
@@ -1938,7 +1936,7 @@ read_xml_file(char *fname)
 
   /*--------------------------------------------------*/
   /* Read ShapeBox property */
-  tmpstr = xmlGetProp(doc->children,"shapebox_x");
+  tmpstr = (char *)xmlGetProp(doc->children, BAD_CAST "shapebox_x");
   /* if unspecified, use the default value */
   if(!tmpstr) 
       shapeBox.x = 15;
@@ -1946,7 +1944,7 @@ read_xml_file(char *fname)
     shapeBox.x = g_ascii_strtod(tmpstr, NULL);
   g_warning("shapeBox.x=%f\n", shapeBox.x);
 
-  tmpstr = xmlGetProp(doc->children,"shapebox_y");
+  tmpstr = (char *)xmlGetProp(doc->children, BAD_CAST "shapebox_y");
   /* if unspecified, use the default value */
   if(!tmpstr) 
       shapeBox.y = 25;
@@ -1954,7 +1952,7 @@ read_xml_file(char *fname)
     shapeBox.y = g_ascii_strtod(tmpstr, NULL);
   g_warning("shapeBox.y=%f\n", shapeBox.y);
 
-  tmpstr = xmlGetProp(doc->children,"shapebox_w");
+  tmpstr = (char *)xmlGetProp(doc->children, BAD_CAST "shapebox_w");
   /* if unspecified, use the default value */
   if(!tmpstr) 
       shapeBox.w = 80;
@@ -1962,7 +1960,7 @@ read_xml_file(char *fname)
     shapeBox.w = g_ascii_strtod(tmpstr, NULL);
   g_warning("shapeBox.w=%f\n", shapeBox.w);
 
-  tmpstr = xmlGetProp(doc->children,"shapebox_h");
+  tmpstr = (char *)xmlGetProp(doc->children, BAD_CAST "shapebox_h");
   /* if unspecified, use the default value */
   if(!tmpstr) 
       shapeBox.h = 430;
@@ -1970,7 +1968,7 @@ read_xml_file(char *fname)
     shapeBox.h = g_ascii_strtod(tmpstr, NULL);
   g_warning("shapeBox.h=%f\n", shapeBox.h);
 
-  tmpstr = xmlGetProp(doc->children,"shapebox_nb_shape_x");
+  tmpstr = (char *)xmlGetProp(doc->children, BAD_CAST "shapebox_nb_shape_x");
   /* if unspecified, use the default value */
   if(!tmpstr) 
       shapeBox.nb_shape_x = 1;
@@ -1978,7 +1976,7 @@ read_xml_file(char *fname)
       shapeBox.nb_shape_x = atoi(tmpstr);
   g_warning("shapeBox.nb_shape_x=%d\n", shapeBox.nb_shape_x);
 
-  tmpstr = xmlGetProp(doc->children,"shapebox_nb_shape_y");
+  tmpstr = (char *)xmlGetProp(doc->children, BAD_CAST "shapebox_nb_shape_y");
   /* if unspecified, use the default value */
   if(!tmpstr) 
       shapeBox.nb_shape_y = 5;
@@ -2007,32 +2005,32 @@ write_shape_to_xml(xmlNodePtr xmlnode, Shape *shape)
   
   /* make a new xml node (as a child of xmlnode) with an
      empty content */
-  newxml = xmlNewChild(xmlnode,NULL,"Shape",NULL);
+  newxml = xmlNewChild(xmlnode,NULL, BAD_CAST "Shape",NULL);
   /* set properties on it */
-  xmlSetProp(newxml,"name",shape->name);
+  xmlSetProp(newxml, BAD_CAST "name", BAD_CAST shape->name);
   if(shape->tooltip)
-    xmlSetProp(newxml,"tooltip",shape->tooltip);
-  xmlSetProp(newxml,"pixmapfile",shape->pixmapfile);
-  xmlSetProp(newxml,"sound",shape->soundfile);
+    xmlSetProp(newxml, BAD_CAST "tooltip", BAD_CAST shape->tooltip);
+  xmlSetProp(newxml, BAD_CAST "pixmapfile", BAD_CAST shape->pixmapfile);
+  xmlSetProp(newxml, BAD_CAST "sound", BAD_CAST shape->soundfile);
 
   tmp = g_strdup_printf("%f", shape->x);
-  xmlSetProp(newxml,"x",tmp);
+  xmlSetProp(newxml, BAD_CAST "x", BAD_CAST tmp);
   g_free(tmp);
 
   tmp = g_strdup_printf("%f", shape->y);
-  xmlSetProp(newxml,"y",tmp);
+  xmlSetProp(newxml, BAD_CAST "y", BAD_CAST tmp);
   g_free(tmp);
 
   tmp = g_strdup_printf("%f", shape->zoomx);
-  xmlSetProp(newxml,"zoomx",tmp);
+  xmlSetProp(newxml, BAD_CAST "zoomx", BAD_CAST tmp);
   g_free(tmp);
 
   tmp = g_strdup_printf("%f", shape->zoomy);
-  xmlSetProp(newxml,"zoomy",tmp);
+  xmlSetProp(newxml, BAD_CAST "zoomy", BAD_CAST tmp);
   g_free(tmp);
 
   tmp = g_strdup_printf("%d", shape->position);
-  xmlSetProp(newxml,"position",tmp);
+  xmlSetProp(newxml, BAD_CAST "position", BAD_CAST tmp);
   g_free(tmp);
 
 }
@@ -2050,9 +2048,9 @@ write_xml_file(char *fname)
   g_return_val_if_fail(fname!=NULL,FALSE);
   
   /* create new xml document with version 1.0 */
-  doc = xmlNewDoc("1.0");
+  doc = xmlNewDoc( BAD_CAST "1.0");
   /* create a new root node "ShapeGame" */
-  doc->children = xmlNewDocNode(doc, NULL, "ShapeGame", NULL);
+  doc->children = xmlNewDocNode(doc, NULL, BAD_CAST "ShapeGame", NULL);
   
   /* loop through all our shapes */
   for(list = shape_list; list != NULL; list = list->next) {
@@ -2086,9 +2084,9 @@ write_xml_file(char *fname)
 static GcomprisProfile *profile_conf;
 static GcomprisBoard   *board_conf;
 
-static GHFunc save_table (gpointer key,
-		    gpointer value,
-		    gpointer user_data)
+static void save_table (gpointer key,
+			gpointer value,
+			gpointer user_data)
 {
   gcompris_set_board_conf ( profile_conf,
 			    board_conf,
@@ -2096,7 +2094,7 @@ static GHFunc save_table (gpointer key,
 			    (gchar *) value);
 }
 
-static GcomprisConfCallback conf_ok(GHashTable *table)
+static void conf_ok(GHashTable *table)
 {
   if (!table){
     if (gcomprisBoard)

@@ -1,6 +1,6 @@
 /* gcompris - reading.c
  *
- * Time-stamp: <2006/04/04 00:04:46 bruno>
+ * Time-stamp: <2006/08/11 18:29:19 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -98,7 +98,7 @@ static void		 reading_config_stop(void);
 static void		 player_win(void);
 static void		 player_loose(void);
 static gchar		*get_random_word(gboolean);
-static gboolean	 read_wordfile();
+static gboolean		 read_wordfile();
 static GnomeCanvasItem	*display_what_to_do(GnomeCanvasGroup *parent);
 static void		 ask_ready(gboolean status);
 static void		 ask_yes_no(void);
@@ -758,9 +758,8 @@ static FILE *get_wordfile(const char *locale)
 
 
 
-static gboolean  read_wordfile()
+static gboolean read_wordfile()
 {
-
   FILE *wordsfd;
   gchar *buf;
   int len;                                                                                                                                
@@ -780,7 +779,7 @@ static gboolean  read_wordfile()
     }
                                                                                                                               
    words=g_ptr_array_new ();
-   while (buf=fgets(g_new(gchar,MAXWORDSLENGTH), MAXWORDSLENGTH, wordsfd)) {
+   while ((buf=fgets(g_new(gchar,MAXWORDSLENGTH), MAXWORDSLENGTH, wordsfd))) {
  	assert(g_utf8_validate(buf,-1,NULL));
 
 	//remove \n from end of line
@@ -792,6 +791,7 @@ static gboolean  read_wordfile()
 	}
    fclose(wordsfd);
 
+   return TRUE;
 }
 /*
  * Return a random word from a set of text file depending on 
@@ -821,9 +821,9 @@ static gchar *get_random_word(gboolean remove)
 static GcomprisProfile *profile_conf;
 static GcomprisBoard   *board_conf;
 
-static GHFunc save_table (gpointer key,
-		    gpointer value,
-		    gpointer user_data)
+static void save_table (gpointer key,
+			gpointer value,
+			gpointer user_data)
 {
   gcompris_set_board_conf ( profile_conf,
 			    board_conf,
@@ -831,7 +831,7 @@ static GHFunc save_table (gpointer key,
 			    (gchar *) value);
 }
 
-static GcomprisConfCallback conf_ok(GHashTable *table)
+static void conf_ok(GHashTable *table)
 {
   if (!table){
     if (gcomprisBoard)

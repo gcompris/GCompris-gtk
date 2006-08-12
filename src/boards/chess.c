@@ -61,7 +61,6 @@ static gboolean  engine_local_err_cb (GIOChannel *source,
 				      gpointer data);
 static void	 display_white_turn  (gboolean whiteturn);
 static void	 display_info	     (gchar *info);
-static int	 get_square          (double x, double y);
 static int	 get_square_from_coord (double x, double y);
 
 #define CHESSBOARD_X	50
@@ -725,18 +724,6 @@ static void move_piece_to(Square from, Square to)
  * Return a square suitable for position functions
  */
 static int
-get_square (double x, double y)
-{
-
-  return (A1 + (Square) (x-1)
-	  + 10 * (Square)(y-1));
-
-}
-
-/*
- * Return a square suitable for position functions
- */
-static int
 get_square_from_coord (double x, double y)
 {
 
@@ -985,9 +972,16 @@ engine_local_cb (GIOChannel *source,
   static char *b=buf;
   
   char *p,*q;
-  ssize_t len;
-  
-  g_io_channel_read (read_chan, b, sizeof (buf) - 1 - (b - buf), &len);
+  gsize len;
+  GIOStatus status;
+
+  status = g_io_channel_read_chars (read_chan, b, sizeof (buf) - 1 - (b - buf), &len, NULL);
+  if(status != G_IO_STATUS_NORMAL)
+    {
+      g_warning("g_io_channel_read_chars status=%d\n", status);
+      /* FIXME: Not sure what to do */
+      return FALSE;
+    }
   
   if (len > 0) {
     b[len] = 0;
@@ -1130,9 +1124,17 @@ start_child (char *cmd,
   *read_chan = g_io_channel_unix_new (Child_Out);
   *write_chan = g_io_channel_unix_new (Child_In);
 
+  if(g_io_channel_set_encoding(*write_chan, NULL, NULL) != G_IO_STATUS_NORMAL)
+    g_warning("Failed to set NULL encoding");
+
+  if(g_io_channel_set_flags (*read_chan, G_IO_FLAG_SET_MASK, NULL) != G_IO_STATUS_NORMAL)
+    g_warning("Failed to set NON BLOCKING IO");
+
+  if(g_io_channel_set_flags (*write_chan, G_IO_FLAG_SET_MASK, NULL) != G_IO_STATUS_NORMAL)
+    g_warning("Failed to set NON BLOCKING IO");
+
   return(TRUE);
 }
-
 
 static void 
 write_child (GIOChannel *write_chan, char *format, ...) 
@@ -1140,7 +1142,7 @@ write_child (GIOChannel *write_chan, char *format, ...)
   GIOError err;
   va_list ap;
   char *buf;
-  int len;	
+  gsize len;	
 
   va_start (ap, format);
 
@@ -1149,11 +1151,38 @@ write_child (GIOChannel *write_chan, char *format, ...)
   err = g_io_channel_write (write_chan, buf, strlen (buf), &len);
   if (err != G_IO_ERROR_NONE)
     g_warning ("Writing to child process failed");
-
-  g_warning ("%s", buf);  
+  else
+    g_warning ("Wrote '%s' to gnuchess", buf);
 
   va_end (ap);
 
   g_free (buf);
 }
 
+/* FIXME: The new API bellow should be use but for an unknown reason it doesn't work,
+ *        Not all data are read back using this method
+ */
+/*
+static void 
+write_child (GIOChannel *write_chan, char *format, ...) 
+{
+  GIOStatus err;
+  va_list ap;
+  gchar *buf;
+  gsize len;	
+
+  va_start (ap, format);
+
+  buf = g_strdup_vprintf (format, ap);
+
+  err = g_io_channel_write_chars (write_chan, buf, strlen (buf), &len, NULL);
+  if (err != G_IO_STATUS_NORMAL)
+    g_warning ("Writing to child process failed");
+  else
+    g_warning ("Wrote '%s' to gnuchess", buf);  
+
+  va_end (ap);
+
+  g_free (buf);
+}
+*/

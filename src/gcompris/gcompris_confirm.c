@@ -1,6 +1,6 @@
 /* gcompris - gcompris_confirm.c
  *
- * Time-stamp: <2006/04/10 00:00:58 bruno>
+ * Time-stamp: <2006/08/11 17:28:11 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -135,12 +135,7 @@ void gcompris_confirm_stop ()
   rootitem = NULL;	  
 
   if(gcomprisBoard!=NULL && confirm_displayed)
-    {
-      if(gcomprisBoard->plugin->pause_board != NULL)
-	{
-	  gcomprisBoard->plugin->pause_board(FALSE);
-	}
-    }
+    board_pause(FALSE);
 
   gcompris_bar_hide(FALSE);
   confirm_displayed = FALSE;
@@ -160,9 +155,6 @@ display_confirm(gchar *title,
 		gchar *yes_text,
 		gchar *no_text,
 		ConfirmCallBack iscb) {
-
-  GcomprisBoard *gcomprisBoard = get_current_gcompris_board();
-
 
   GnomeCanvasItem  *item, *item2, *richtext_s, *richtext;
   GdkPixbuf	   *pixmap = NULL;
@@ -197,11 +189,7 @@ display_confirm(gchar *title,
 
   gcompris_bar_hide(TRUE);
 
-  if(gcomprisBoard!=NULL)
-    {
-      if(gcomprisBoard->plugin->pause_board != NULL)
-	gcomprisBoard->plugin->pause_board(TRUE);
-    }
+  board_pause(TRUE);
 
   confirmCallBack=iscb;
 
@@ -389,12 +377,6 @@ display_confirm(gchar *title,
 
   confirm_displayed = TRUE;
 
-}
-
-static void
-free_stuff (GtkObject *obj, gchar *data)
-{
-  g_free(data);
 }
 
 /* Apply the style to the given RichText item  */

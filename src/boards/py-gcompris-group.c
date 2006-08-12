@@ -69,8 +69,6 @@ pyGcomprisGroupType_getattr(pyGcomprisGroupObject *self, char *name)
 static int
 pyGcomprisGroupType_setattr(pyGcomprisGroupObject *self, char *name, PyObject *v)
 {
-  int value;
-  
   if (self->cdata==NULL) return -1;
   if (v==NULL) return -1;
 

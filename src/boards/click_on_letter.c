@@ -254,7 +254,6 @@ static void repeat ()
 static gboolean sounds_are_fine()
 {
   char *letter_str;
-  char *str1;
   char *str2;
   GcomprisProperties	*properties = gcompris_get_properties();
 
@@ -327,6 +326,7 @@ click_on_letter_next_level()
   gcompris_score_set(gcomprisBoard->sublevel);
   g_free (right_letter);
   /* Try the next level */
+  gcompris_play_ogg("sounds/$LOCALE/misc/click_on_letter.ogg", NULL);
   click_on_letter_create_item(gnome_canvas_root(gcomprisBoard->canvas));
 }
 /* ==================================== */

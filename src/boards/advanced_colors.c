@@ -459,7 +459,6 @@ static void init_xml()
 static void add_xml_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child)
 {
   char *text = NULL;
-  char * tmp = NULL;
   char *sColor = NULL;
   int color = 0;
   int i;
@@ -470,21 +469,21 @@ static void add_xml_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child)
   xmlnode = xmlnode->next;
 
   while (xmlnode != NULL) {
-    if (!strcmp(xmlnode->name, "pixmapfile"))
-      backgroundFile = xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 1);
+    if (!strcmp((char *)xmlnode->name, "pixmapfile"))
+      backgroundFile = (char *)xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 1);
 
-    lang = xmlGetProp(xmlnode,"lang");
+    lang = (char *)xmlGetProp(xmlnode, BAD_CAST "lang");
 
     // try to match color[i]
     for (i=0; i<8; i++) {
       sColor = g_strdup_printf("color%d", i+1);
-      if (!strcmp(xmlnode->name, sColor)) {
+      if (!strcmp((char *)xmlnode->name, sColor)) {
 	if (lang == NULL) { // get default value
-	  text = xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 1);
+	  text = (char *)xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 1);
 	  colors[i] = text;
 	} else { // get correct language
 	  if ( !strncmp(lang, gcompris_get_locale(), strlen(lang)) ) {
-	    text = xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 1);
+	    text = (char *)xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 1);
 	    g_warning("color prop::lang=%s locale=%s text=%s\n", lang, gcompris_get_locale(), text);
 	    colors[i] = text;
 	  }
@@ -514,7 +513,7 @@ static void parse_doc(xmlDocPtr doc)
   xmlNodePtr node;
 
   for(node = doc->children->children; node != NULL; node = node->next) {
-    if ( g_strcasecmp(node->name, "Board") == 0 )
+    if ( g_strcasecmp((char *)node->name, "Board") == 0 )
       add_xml_data(doc, node,NULL);
   }
 
@@ -548,7 +547,7 @@ static gboolean read_xml_file(char *fname)
      /* if it doesn't have a name */
      !doc->children->name ||
      /* if it isn't a ImageId node */
-     g_strcasecmp(doc->children->name,"AdvancedColors")!=0) {
+     g_strcasecmp((char *)doc->children->name,"AdvancedColors")!=0) {
     xmlFreeDoc(doc);
     return FALSE;
   }

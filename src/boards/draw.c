@@ -24,8 +24,10 @@
 #include <libxml/parser.h>
 
 #include <math.h>
+#include <string.h>
 
 #include "gcompris/gcompris.h"
+#include "gcompris/pixbuf_util.h"
 
 #define SOUNDLISTFILE PACKAGE
 #define IMG_DATA_SET PACKAGE_DATA_DIR "/dataset"
@@ -190,7 +192,6 @@ static void	 display_color_selector(GnomeCanvasGroup *parent);
 static void	 display_tool_selector(GnomeCanvasGroup *parent);
 static void	 display_drawing_area(GnomeCanvasGroup *parent);
 static void	 display_grid(gboolean status);
-static gint	 color_event(GnomeCanvasItem *item, GdkEvent *event, gchar *color);
 static gint	 ext_color_event(GnomeCanvasItem *item, GdkEvent *event, gpointer color_rgba);
 static void	 set_current_tool(GnomeCanvasItem *item, gint tool);
 static gint	 tool_event(GnomeCanvasItem *item, GdkEvent *event, gint tool);
@@ -201,11 +202,10 @@ static gint	 item_event_move(GnomeCanvasItem *item, GdkEvent *event, AnchorsItem
 static void	 highlight_color_item(GnomeCanvasItem *item);
 static guint	 get_tool_cursor(ToolList tool);
 static guint	 get_resize_cursor(AnchorType anchor);
-static void	 realign_to_grid(GnomeCanvasItem *item);
 static void	 snap_to_grid(double *x, double *y);
 static void	 image_selected(gchar *image);
-static void	 load_drawing(gchar *file);
-static void	 save_drawing(gchar *file);
+static void	 load_drawing(gchar *file, gchar *type);
+static void	 save_drawing(gchar *file, gchar *type);
 
 /* Description of this plugin */
 static BoardPlugin menu_bp =
@@ -753,36 +753,6 @@ static void display_grid(gboolean status)
 }
 
 /*
- * Given an object, realign it to the grid
- * if the grid is on
- * FIXME: Does not work yet as expected
- */
-static void realign_to_grid(GnomeCanvasItem *item)
-{
-
-  if(grid_step!=0)
-    {
-      double x1, y1, x2, y2;
-      double xsnap1, ysnap1;
-
-      gnome_canvas_item_get_bounds  (item,
-				     &x1,
-				     &y1,
-				     &x2,
-				     &y2);
-
-      xsnap1 = x1;
-      ysnap1 = y1;
-      snap_to_grid(&xsnap1, &ysnap1);
-
-      // Realign our object on the grid
-      gnome_canvas_item_move(item,
-			     x1 - xsnap1,
-			     y1 - ysnap1);
-    }
-}
-
-/*
  * Given a pair (x,y) rewrite them so that (x,y) is on a grid node
  * Do nothing if grid_step is 0
  */
@@ -1094,7 +1064,6 @@ static void reset_anchors_line(AnchorsItem *anchorsItem)
 {
   GnomeCanvasItem *item;
   double x1, x2, y1, y2;
-  double x, y;
   GnomeCanvasPoints *points;
 
   item = anchorsItem->item;
@@ -2126,7 +2095,7 @@ static void recreate_item(GnomeCanvasItem *item)
 /**
  * Callback for the drawing load
  */
-static void load_drawing(gchar *file)
+static void load_drawing(gchar *file, gchar *type)
 {
 
 }
@@ -2134,7 +2103,7 @@ static void load_drawing(gchar *file)
 /**
  * Callback for the drawing save
  */
-static void save_drawing(gchar *file)
+static void save_drawing(gchar *file, gchar *type)
 {
 
 }

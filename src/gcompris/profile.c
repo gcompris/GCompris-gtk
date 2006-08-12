@@ -1,6 +1,6 @@
 /* gcompris - profile.c
  *
- * Time-stamp: <2006/03/29 01:33:14 bruno>
+ * Time-stamp: <2006/08/11 17:29:49 bruno>
  *
  * Copyright (C) 2005 Bruno Coudoin
  *
@@ -42,7 +42,7 @@ GcomprisProfile
 
 
 void
-*gcompris_set_current_user(GcomprisUser *user)
+gcompris_set_current_user(GcomprisUser *user)
 {
   GcomprisProperties	*properties = gcompris_get_properties();
 
@@ -52,13 +52,13 @@ void
     g_warning("No user, getting one from system.");
     GcomprisUser *sys_user = g_malloc0(sizeof(GcomprisUser));
 
-    gchar *user_name = g_get_user_name ();
+    const gchar *user_name = g_get_user_name ();
     if (user_name)
       sys_user->login = g_strdup(user_name);
     else
       sys_user->login = g_strdup("nobody");
 
-    gchar *last_name = g_get_real_name ();
+    const gchar *last_name = g_get_real_name ();
     if (last_name)
       sys_user->lastname = g_strdup(last_name);
     else

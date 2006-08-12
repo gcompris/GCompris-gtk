@@ -1,6 +1,6 @@
 /* gcompris - about.c
  *
- * Time-stamp: <2005/10/05 00:57:09 bruno>
+ * Time-stamp: <2006/08/11 17:21:46 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -25,6 +25,7 @@
 
 #include "gcompris.h"
 #include "about.h"
+#include <string.h>
 
 #if defined _WIN32 || defined __WIN32__
 # undef WIN32   /* avoid warning on mingw32 */
@@ -53,7 +54,6 @@ void gcompris_about_stop (void);
  */
 void gcompris_about_start ()
 {
-  GcomprisBoard		*gcomprisBoard = get_current_gcompris_board();
   GdkPixbuf   *pixmap = NULL;
   gint y_start = 0;
   gint x_start = 0;
@@ -73,8 +73,7 @@ void gcompris_about_start ()
   gchar *translators = _("translator_credits");
 
   /* Pause the board */
-  if(gcomprisBoard->plugin->pause_board != NULL)
-    gcomprisBoard->plugin->pause_board(TRUE);
+  board_pause(TRUE);
 
   if(rootitem)
     return;
@@ -385,8 +384,6 @@ void gcompris_about_start ()
 
 void gcompris_about_stop ()
 {
-  GcomprisBoard *gcomprisBoard = get_current_gcompris_board();
-
   if (move_plane_id) {
     gtk_timeout_remove (move_plane_id);
     move_plane_id = 0;
@@ -402,10 +399,8 @@ void gcompris_about_stop ()
   pixmap_about = NULL;
 
   /* UnPause the board */
-  if(gcomprisBoard->plugin->pause_board != NULL && is_displayed)
-    {
-      gcomprisBoard->plugin->pause_board(FALSE);
-    }
+  if(is_displayed)
+    board_pause(FALSE);
 
   gcompris_bar_hide (FALSE);
 

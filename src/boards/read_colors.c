@@ -431,18 +431,18 @@ static void add_xml_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child)
 
   while (xmlnode != NULL) {
 
-    lang = xmlGetProp(xmlnode,"lang");
+    lang = (char *)xmlGetProp(xmlnode, BAD_CAST "lang");
 
     // try to match color[i]
     for (i=0; i<LAST_COLOR; i++) {
       sColor = g_strdup_printf("color%d", i+1);
-      if (!strcmp(xmlnode->name, sColor)) {
+      if (!strcmp((char *)xmlnode->name, sColor)) {
 	if (lang == NULL) { // get default value
-	  text = xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 1);
+	  text = (char *)xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 1);
 	  colors[i] = text;
 	} else { // get correct language
 	  if ( !strncmp(lang, gcompris_get_locale(), strlen(lang)) ) {
-	    text = xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 1);
+	    text = (char *)xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 1);
 	    g_warning("color prop::lang=%s locale=%s text=%s\n", lang, gcompris_get_locale(), text);
 	    colors[i] = text;
 	  }
@@ -506,7 +506,7 @@ static gboolean read_xml_file(char *fname)
      /* if it doesn't have a name */
      !doc->children->name ||
      /* if it isn't a ImageId node */
-     g_strcasecmp(doc->children->name,"ReadColors")!=0) {
+     g_strcasecmp((char *)doc->children->name,"ReadColors")!=0) {
     xmlFreeDoc(doc);
     return FALSE;
   }

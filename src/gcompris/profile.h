@@ -1,6 +1,6 @@
 /* gcompris - profile.h
  *
- * Time-stamp: <2005/08/26 00:35:48 yves>
+ * Time-stamp: <2006/08/11 17:30:14 bruno>
  *
  * Copyright (C) 2005 Bruno Coudoin
  *
@@ -140,7 +140,7 @@ typedef struct {
 GcomprisProfile     *gcompris_get_current_profile();
 
 /* list of Gcomprisusers */
-void                *gcompris_set_current_user(GcomprisUser *user);
+void                 gcompris_set_current_user(GcomprisUser *user);
 GcomprisUser        *gcompris_get_current_user();
 
 #endif

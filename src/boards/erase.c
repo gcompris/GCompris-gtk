@@ -438,7 +438,7 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
     return FALSE;
 
   if (event->type == GDK_MOTION_NOTIFY)
-    return;
+    return FALSE;
 
   if (board_mode == NORMAL)
     if (event->type != GDK_ENTER_NOTIFY)

@@ -269,7 +269,6 @@ static gboolean dumtabpxpixmode[3],*tabpxpixmode=dumtabpxpixmode-PXSTART; /* mod
 static gboolean tabcolalloc[GCNBR];   /* couleur allouee ? */
 static gchar *userconf=NULL;          /* nom complet du fichier de config local */
 static gchar *usergtdir=NULL;         /* nom du home directory local */
-static guint provmsg=0;              /* nr. du dernier msg. provisoire */
 static tanflfig flfigpetite;
 static tanfpnt fpntspetite[FLPNTMAX];
 

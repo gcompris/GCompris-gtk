@@ -1055,7 +1055,7 @@ py_gcompris_set_board_conf (PyObject* self, PyObject* args)
 /* Some functions and variables needed to get the file selector working */
 static PyObject* pyGcomprisConfCallbackFunc = NULL;
 
-static GcomprisConfCallback pyGcomprisConfCallback(GHashTable* table){
+static void pyGcomprisConfCallback(GHashTable* table){
   PyObject* result;
 
   PyGILState_STATE gil;
@@ -1647,8 +1647,8 @@ static PyMethodDef PythonGcomprisModule[] = {
   { "get_database",  py_gcompris_get_database, METH_VARARGS, "gcompris_get_database" },
   { "get_properties",  py_gcompris_get_properties, METH_VARARGS, "gcompris_get_properties" },
   { "get_board_from_section",  py_gcompris_get_board_from_section, METH_VARARGS, "gcompris_get_board_from_section" },
-  { "spawn_async",  py_gcompris_spawn_async, METH_VARARGS|METH_KEYWORDS, "gcompris_spawn_sync" },
-  { "child_watch_add",  py_gcompris_child_watch_add, METH_VARARGS|METH_KEYWORDS, "gcompris_child_watch_add" },
+  { "spawn_async",  (PyCFunction)py_gcompris_spawn_async, METH_VARARGS|METH_KEYWORDS, "gcompris_spawn_sync" },
+  { "child_watch_add",  (PyCFunction)py_gcompris_child_watch_add, METH_VARARGS|METH_KEYWORDS, "gcompris_child_watch_add" },
   { "get_board_conf",  py_gcompris_get_board_conf, METH_VARARGS, "gcompris_get_board_conf" },
   { "get_conf",  py_gcompris_get_conf, METH_VARARGS, "gcompris_get_conf" },
   { "set_board_conf",  py_gcompris_set_board_conf, METH_VARARGS, "gcompris_set_board_conf" },

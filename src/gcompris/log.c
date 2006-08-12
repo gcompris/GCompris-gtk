@@ -167,7 +167,7 @@ void gcompris_log_end (GcomprisBoard *gcomprisBoard, gchar *status) {
   struct tm *tp;
 
   GcomprisUser *gcomprisUser = gcompris_get_current_user();
-  char *username = g_get_user_name();
+  const char *username = g_get_user_name();
 
   if(gcomprisBoard_set != gcomprisBoard)
     return;

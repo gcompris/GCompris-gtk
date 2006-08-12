@@ -1,6 +1,6 @@
 /* gcompris - file_selector.c
  *
- * Time-stamp: <2006/05/05 00:01:26 bruno>
+ * Time-stamp: <2006/08/11 17:14:26 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -141,12 +141,7 @@ void gcompris_file_selector_stop ()
   GcomprisBoard *gcomprisBoard = get_current_gcompris_board();
 
   if(gcomprisBoard!=NULL && file_selector_displayed)
-    {
-      if(gcomprisBoard->plugin->pause_board != NULL)
-	{
-	  gcomprisBoard->plugin->pause_board(FALSE);
-	}
-    }
+    board_pause(FALSE);
 
   // Destroy the file_selector box
   /* FIXME: Crashes randomly */
@@ -211,11 +206,7 @@ display_file_selector(int the_mode,
 
   gcompris_bar_hide(TRUE);
 
-  if(gcomprisBoard!=NULL)
-    {
-      if(gcomprisBoard->plugin->pause_board != NULL)
-	gcomprisBoard->plugin->pause_board(TRUE);
-    }
+  board_pause(TRUE);
 
   name = gcomprisBoard->name;
   fileSelectorCallBack=iscb;

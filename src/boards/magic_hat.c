@@ -605,7 +605,6 @@ static void place_item(frame * my_frame, int type) {
 static gint item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data) {
 
 	int index = GPOINTER_TO_INT(data);
-	GdkPixbuf *pixmap;
 
 	if (board_paused)
 		return FALSE;
@@ -616,32 +615,34 @@ static gint item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data) {
 	if ((event->type == GDK_BUTTON_PRESS) && (event->button.button == 1)) {
 
 		if (frame_player.array_star_type[index / MAX_ITEM][index % MAX_ITEM] >= 0) {
+		  GdkPixbuf *pixmap;
 			
-			// Desactivate the star
-			frame_player.nb_stars[index / MAX_ITEM]--;
-			frame_player.array_star_type[index / MAX_ITEM][index % MAX_ITEM] = -1;
+		  // Desactivate the star
+		  frame_player.nb_stars[index / MAX_ITEM]--;
+		  frame_player.array_star_type[index / MAX_ITEM][index % MAX_ITEM] = -1;
 
-			pixmap = gcompris_load_pixmap("magic_hat/star-clear.png");
+		  pixmap = gcompris_load_pixmap("magic_hat/star-clear.png");
 
-			gnome_canvas_item_set(item, "pixbuf", pixmap, NULL);
+		  gnome_canvas_item_set(item, "pixbuf", pixmap, NULL);
 
-			gdk_pixbuf_unref(pixmap);
+		  gdk_pixbuf_unref(pixmap);
 
 		} else {
+		  GdkPixbuf *pixmap = NULL;
 
-			// Activate the star
-			frame_player.nb_stars[index / MAX_ITEM]++;
-			frame_player.array_star_type[index / MAX_ITEM][index % MAX_ITEM] = index / MAX_ITEM;
+		  // Activate the star
+		  frame_player.nb_stars[index / MAX_ITEM]++;
+		  frame_player.array_star_type[index / MAX_ITEM][index % MAX_ITEM] = index / MAX_ITEM;
 
-			switch(index / MAX_ITEM)
-			  {
-			  case 0: pixmap = gcompris_load_pixmap("magic_hat/star1.png"); break;
-			  case 1: pixmap = gcompris_load_pixmap("magic_hat/star2.png"); break;
-			  case 2: pixmap = gcompris_load_pixmap("magic_hat/star3.png"); break;
-			  }
-			gnome_canvas_item_set(item, "pixbuf", pixmap, NULL);
+		  switch(index / MAX_ITEM)
+		    {
+		    case 0: pixmap = gcompris_load_pixmap("magic_hat/star1.png"); break;
+		    case 1: pixmap = gcompris_load_pixmap("magic_hat/star2.png"); break;
+		    case 2: pixmap = gcompris_load_pixmap("magic_hat/star3.png"); break;
+		    }
+		  gnome_canvas_item_set(item, "pixbuf", pixmap, NULL);
 
-			gdk_pixbuf_unref(pixmap);
+		  gdk_pixbuf_unref(pixmap);
 		}
 		gcompris_play_ogg ("gobble", NULL);
 	}

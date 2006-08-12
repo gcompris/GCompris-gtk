@@ -1,6 +1,6 @@
 /* gcompris - wordsgame.c
  *
- * Time-stamp: <2005/10/30 21:34:00 bruno>
+ * Time-stamp: <2006/08/11 18:08:59 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  * 
@@ -790,7 +790,8 @@ static gboolean  wordsgame_read_wordfile()
         g_ptr_array_add(words,buf);
         }
    fclose(wordsfd);
-                                                                                                                              
+
+   return TRUE;                                                                                                                          
 }
 
 

@@ -1,6 +1,6 @@
 /* gcompris - images_selector.c
  *
- * Time-stamp: <2006/05/11 23:27:55 bruno>
+ * Time-stamp: <2006/08/11 17:07:52 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -116,11 +116,7 @@ void gcompris_images_selector_start (GcomprisBoard *gcomprisBoard, gchar *datase
 
   gcompris_bar_hide(TRUE);
 
-  if(gcomprisBoard!=NULL)
-    {
-      if(gcomprisBoard->plugin->pause_board != NULL)
-	  gcomprisBoard->plugin->pause_board(TRUE);
-    }
+  board_pause(TRUE);
 
   name = gcomprisBoard->name;
   imageSelectorCallBack=iscb;
@@ -310,10 +306,7 @@ void gcompris_images_selector_stop ()
 
   if(gcomprisBoard!=NULL && images_selector_displayed)
     {
-      if(gcomprisBoard->plugin->pause_board != NULL)
-	{
-	  gcomprisBoard->plugin->pause_board(FALSE);
-	}
+      board_pause(FALSE);
     }
 
   // Destroy the images_selector box

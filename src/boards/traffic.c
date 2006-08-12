@@ -84,7 +84,7 @@ struct _jam {
 static int	 car_cb(GnomeCanvasItem *item, GdkEvent *event, car *thiscar);
 gboolean	 load_level(guint level, guint card);
 
-static jam	 current_card  ={0,0,0,NULL};
+static jam	 current_card  ={0,0,0,{NULL}};
 
 static void	 draw_grid  (GnomeCanvasGroup *rootBorder);
 static gint	 cars_from_strv(char *strv);

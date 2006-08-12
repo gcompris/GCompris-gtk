@@ -1,6 +1,6 @@
 /* gcompris - gameutil.c
  *
- * Time-stamp: <2006/08/11 14:11:24 bruno>
+ * Time-stamp: <2006/08/11 16:56:32 bruno>
  *
  * Copyright (C) 2000-2006 Bruno Coudoin
  *
@@ -687,7 +687,7 @@ int selectMenuXML(const gchar *file)
   return (strncmp (&file[strlen(file)-4], ".xml", 4) == 0);
 }
 
-void cleanup_menus() {
+static void cleanup_menus() {
   GList *list = NULL;
 
   for(list = boards_list; list != NULL; list = list->next) {
@@ -702,7 +702,7 @@ void cleanup_menus() {
  * suppress_int_from_list
  */
 
-GList *suppress_int_from_list(GList *list, int value)
+static GList *suppress_int_from_list(GList *list, int value)
 {
 
   GList *cell = list;
@@ -720,7 +720,7 @@ GList *suppress_int_from_list(GList *list, int value)
   return list;
 }
 
-gboolean compare_id(gconstpointer data1, gconstpointer data2)
+static gboolean compare_id(gconstpointer data1, gconstpointer data2)
 {
   int *i = (int *) data1;
   int *j = (int *) data2;
@@ -1129,8 +1129,6 @@ void gcompris_dialog(gchar *str, DialogBoxCallBack dbcb)
 static gint
 item_event_ok(GnomeCanvasItem *item, GdkEvent *event, DialogBoxCallBack dbcb)
 {
-  GcomprisBoard *gcomprisBoard = get_current_gcompris_board();
-
   switch (event->type) 
     {
     case GDK_ENTER_NOTIFY:

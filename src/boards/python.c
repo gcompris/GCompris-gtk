@@ -119,15 +119,11 @@ pythonboard_init (GcomprisBoard *agcomprisBoard){
   gchar* execstr;
   gchar* userplugindir;
 
-
-  gboolean has_config = TRUE;
   char* board_file_name;
   char* boardclass;
   gchar *boarddir;
   PyObject* module_dict;
   PyObject* py_boardclass;
-  PyObject* py_boardclass_args;
-  PyObject* py_config_start;
 
   GcomprisProperties	*properties = gcompris_get_properties();
 

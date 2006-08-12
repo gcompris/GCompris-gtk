@@ -523,14 +523,14 @@ item_event_style_selection (GtkComboBox *widget,
 			    void *doctype_names[])
 {
   gchar *style_str;
-  style_t **doctype;
+  style_t *doctype[1];
 
   style_str = gtk_combo_box_get_active_text((GtkComboBox *)widget);
 
   printf("item_event_style_selection %s\n", style_str);
 
   /* Search the doctype */
-  doctype = (style_t *)(g_hash_table_lookup(styles_hash, style_str));
+  doctype[0] = (style_t *)(g_hash_table_lookup(styles_hash, style_str));
   if(doctype) {
     int i = 0;
     

@@ -1,6 +1,6 @@
 /* gcompris - planegame.c
  *
- * Time-stamp: <2005/10/15 16:54:30 bruno>
+ * Time-stamp: <2006/08/11 19:02:09 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -45,9 +45,6 @@ typedef struct {
   GnomeCanvasItem *rootitem;
 } CloudItem;
 
-
-/* default gnome pixmap directory in which this game tales the icon */
-static char *pixmapsdir = "gcompris/misc/";
 
 static void start_board (GcomprisBoard *agcomprisBoard);
 static void pause_board (gboolean pause);

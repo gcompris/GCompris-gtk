@@ -1,6 +1,6 @@
 /* gcompris - smallnumbers.c
  *
- * Time-stamp: <2006/05/08 23:20:52 bruno>
+ * Time-stamp: <2006/08/11 19:04:23 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  * 
@@ -522,7 +522,7 @@ static GHFunc save_table (gpointer key,
   return NULL;
 }
 
-static GcomprisConfCallback conf_ok(GHashTable *table)
+static void conf_ok(GHashTable *table)
 {
   if (!table){
     if (gcomprisBoard)
@@ -564,12 +564,6 @@ static GcomprisConfCallback conf_ok(GHashTable *table)
 
   board_conf = NULL;
   profile_conf = NULL;
-}
-
-static gboolean check_text(gchar *key, gchar *text, GtkLabel *label){
-  gtk_label_set_markup(label, text);
-
-  return TRUE;
 }
 
 static void sound_control_box_toggled(GtkToggleButton *togglebutton,

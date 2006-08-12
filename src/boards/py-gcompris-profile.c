@@ -84,8 +84,6 @@ pyGcomprisProfileType_getattr(pyGcomprisProfileObject *self, char *name)
 static int
 pyGcomprisProfileType_setattr(pyGcomprisProfileObject *self, char *name, PyObject *v)
 {
-  int value;
-  
   if (self->cdata==NULL) return -1;
   if (v==NULL) return -1;
 

@@ -485,11 +485,13 @@ item_event_focus(GnomeCanvasItem *item, GdkEvent *event, guint index)
        gnome_canvas_item_hide(answer_item_focus[current_focus]);
        current_focus = index;
        gnome_canvas_item_show(answer_item_focus[current_focus]);
+       return TRUE;
        break;
      default:
        break;
      }
 
+   return FALSE;
 }
 
 /* ==================================== */

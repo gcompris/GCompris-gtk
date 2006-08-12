@@ -203,8 +203,8 @@ gboolean is_our_board (GcomprisBoard *gcomprisBoard)
 static void money_next_level()
 {
   GdkPixbuf       *pixmap = NULL;
-  guint		   min_price, max_price;
-  guint		   number_of_item;
+  guint		   min_price = 0, max_price = 0;
+  guint		   number_of_item = 0;
   guint		   i;
   gchar		  *display_format;
   gchar		  *img;
