@@ -279,7 +279,8 @@ board_widget_key_press_callback (GtkWidget   *widget,
     case GDK_Escape:
       gcompris_close_all_dialog();
 
-      board_stop();
+      if (get_current_gcompris_board()->previous_board != NULL)
+	board_stop();
       return TRUE;
     case GDK_F5:
       g_message("Refreshing the canvas\n");
@@ -649,6 +650,7 @@ static void setup_window ()
       gtk_window_set_icon (GTK_WINDOW (window), gcompris_icon_pixbuf);
       gdk_pixbuf_unref (gcompris_icon_pixbuf);
     }
+  gtk_window_set_title(GTK_WINDOW (window), "GCompris");
 
   /*
    * Set the main window
