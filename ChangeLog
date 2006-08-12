@@ -4,7 +4,8 @@
 	  are no more embedded in them. It was no more used for a while, we take the translation
 	  from the po file directly. This saves 2 to 3 MB !.
 	- Fixed the escape key on to level menu. It no more stops the menu itself.
-
+	- Added initial support for autopackage software packaging system.
+	
 	* boards/Makefile.am:
 	* boards/advanced_colors/Makefile.am:
 	* boards/babymatch/Makefile.am:
@@ -23,7 +24,8 @@
 	* configure.in:
 	* src/gcompris/gcompris.c: (board_widget_key_press_callback),
 	(setup_window):
-
+	* autopackage/default.apspec.in:
+	
 2006-08-12  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	- fixed many bad reference to sounds.
