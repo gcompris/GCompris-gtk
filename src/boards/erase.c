@@ -424,7 +424,7 @@ static void game_won()
       g_warning("Double click value is now %d.", DoubleClicLevel[gcomprisBoard->level-1]);
     }
 
-    gcompris_play_ogg ("bonus", NULL);
+    gcompris_play_ogg ("sounds/bonus.ogg", NULL);
   }
   erase_next_level();
 }

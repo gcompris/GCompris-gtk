@@ -1,6 +1,6 @@
 /* gcompris - menu2.c
  *
- * Time-stamp: <2006/08/11 18:58:38 bruno>
+ * Time-stamp: <2006/08/12 02:59:38 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -642,7 +642,7 @@ item_event(GnomeCanvasItem *item, GdkEvent *event,  MenuItems *menuitems)
 
       break;
     case GDK_BUTTON_PRESS:
-	gcompris_play_ogg ("gobble", NULL);
+	gcompris_play_ogg ("sounds/gobble.ogg", NULL);
 	
 	if (strcmp(board->type,"menu")==0){
 	  gchar *path = g_strdup_printf("%s/%s",board->section, board->name);

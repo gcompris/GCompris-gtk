@@ -1,6 +1,6 @@
 /* gcompris - shapegame.c
  *
- * Time-stamp: <2006/08/11 18:38:23 bruno>
+ * Time-stamp: <2006/08/12 03:05:15 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -964,7 +964,7 @@ static void shape_goes_back_to_list(Shape *shape, GnomeCanvasItem *item)
       shape->icon_shape=NULL;
 
       gnome_canvas_item_hide(item);
-      gcompris_play_ogg ("gobble", NULL);
+      gcompris_play_ogg ("sounds/gobble.ogg", NULL);
     }
 }
 

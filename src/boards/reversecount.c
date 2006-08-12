@@ -286,7 +286,7 @@ gint key_press(guint keyval, gchar *commit_str, gchar *preedit_str)
 
 static void process_error()
 {
-  gcompris_play_ogg ("crash", NULL);
+  gcompris_play_ogg ("sounds/crash.ogg", NULL);
   errors--;
   if(errors==0)
     {
@@ -677,7 +677,7 @@ static void game_won()
       board_finished(BOARD_FINISHED_RANDOM);
       return;
     }
-    gcompris_play_ogg ("bonus", NULL);
+    gcompris_play_ogg ("sounds/bonus.ogg", NULL);
   }
   reversecount_next_level();
 }
@@ -826,7 +826,7 @@ static gint animate_tux()
 	  if(fishItem!=NULL)
 	    gtk_object_destroy(GTK_OBJECT(fishItem));
 	  
-	  gcompris_play_ogg ("gobble", NULL);
+	  gcompris_play_ogg ("sounds/gobble.ogg", NULL);
 	  
 	  if(--number_of_fish == 0)
 	    {

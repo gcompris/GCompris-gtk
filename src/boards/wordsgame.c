@@ -1,6 +1,6 @@
 /* gcompris - wordsgame.c
  *
- * Time-stamp: <2006/08/11 18:08:59 bruno>
+ * Time-stamp: <2006/08/12 03:12:06 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  * 
@@ -654,7 +654,7 @@ static gint wordsgame_drop_items (GtkWidget *widget, gpointer data)
 static void player_win(LettersItem *item)
 {
 
-  gcompris_play_ogg ("gobble", NULL);
+  gcompris_play_ogg ("sounds/gobble.ogg", NULL);
 
   assert(gcomprisBoard!=NULL);
 
@@ -685,7 +685,7 @@ static void player_win(LettersItem *item)
 	return;
       }
       wordsgame_next_level();
-      gcompris_play_ogg ("bonus", NULL);
+      gcompris_play_ogg ("sounds/bonus.ogg", NULL);
     }
   else
     {
@@ -720,7 +720,7 @@ static void player_win(LettersItem *item)
 
 static void player_loose()
 {
-  gcompris_play_ogg ("crash", NULL);
+  gcompris_play_ogg ("sounds/crash.ogg", NULL);
 }
 
 

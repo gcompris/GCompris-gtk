@@ -406,7 +406,7 @@ static void game_won()
       board_finished(BOARD_FINISHED_RANDOM);
       return;
     }
-    gcompris_play_ogg ("bonus", NULL);
+    gcompris_play_ogg ("sounds/bonus.ogg", NULL);
   }
   railroad_next_level();
 }

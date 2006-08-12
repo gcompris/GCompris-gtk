@@ -1,6 +1,6 @@
 /* gcompris - smallnumbers.c
  *
- * Time-stamp: <2006/08/11 19:04:23 bruno>
+ * Time-stamp: <2006/08/12 03:05:21 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  * 
@@ -473,7 +473,7 @@ static gint smallnumbers_drop_items (GtkWidget *widget, gpointer data)
 static void player_win(GnomeCanvasItem *item)
 {
   gtk_object_destroy (GTK_OBJECT(item));
-  gcompris_play_ogg ("gobble", NULL);
+  gcompris_play_ogg ("sounds/gobble.ogg", NULL);
 
   gcomprisBoard->sublevel++;
   gcompris_score_set(gcomprisBoard->sublevel);

@@ -1057,7 +1057,7 @@ static gboolean update_timeout_slow() {
     /* magnetic detection (dist1) or collision with the whale (dist2 & dist3) */
     if ( (dist1 < WHALE_DETECTION_RADIUS || dist2 < WHALE_DETECTION_RADIUS ||dist3 < WHALE_DETECTION_RADIUS)
 	 && !submarine_destroyed ) {
-      gcompris_play_ogg("explos", NULL);
+      gcompris_play_ogg("sounds/crash.ogg", NULL);
       gnome_canvas_item_hide(whale);
       //item_absolute_move(big_explosion, whale_x, whale_y);
       gnome_canvas_item_show(big_explosion);
@@ -1483,7 +1483,7 @@ static void submarine_explosion() {
 
   submarine_destroyed = TRUE;
   gamewon = FALSE;
-  gcompris_play_ogg("explos", NULL);
+  gcompris_play_ogg("sounds/crash.ogg", NULL);
   /* make the submarine die */
   setSpeed(speed_ordered = submarine_horizontal_speed = 0.0);
   setBattery(battery = 0.0);

@@ -1,6 +1,6 @@
 /* gcompris - algebra.c
  *
- * Time-stamp: <2006/08/12 02:45:08 bruno>
+ * Time-stamp: <2006/08/12 03:00:37 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -708,7 +708,7 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 
       currentToBeFoundItem=toBeFoundItem;
 
-      gcompris_play_ogg ("sounds/gobble", NULL);
+      gcompris_play_ogg ("sounds/gobble.ogg", NULL);
       break;
       
     default:

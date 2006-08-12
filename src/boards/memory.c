@@ -1,6 +1,6 @@
 /* gcompris - memory.c
  *
- * Time-stamp: <2006/04/17 22:28:15 bruno>
+ * Time-stamp: <2006/08/12 03:08:59 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  * 
@@ -1389,7 +1389,7 @@ static void create_item(GnomeCanvasGroup *parent)
 
 static void player_win()
 {
-  gcompris_play_ogg ("bonus", NULL);
+  gcompris_play_ogg ("sounds/bonus.ogg", NULL);
   /* Try the next level */
   if (tux_pairs <= player_pairs)
     gcomprisBoard->level++;
@@ -1530,7 +1530,7 @@ static void check_win()
 
   // Check win
   if (compare_card((gpointer) firstCard, (gpointer) secondCard) == 0) {
-    gcompris_play_ogg ("gobble", NULL);
+    gcompris_play_ogg ("sounds/gobble.ogg", NULL);
     win_id = g_timeout_add (timeout,
 			    (GSourceFunc) hide_card, NULL);
     return;
@@ -1722,7 +1722,7 @@ static gint tux_play(){
       if (currentUiMode == UIMODE_SOUND)
 	return FALSE;
       else {
-	gcompris_play_ogg ("gobble", NULL);
+	gcompris_play_ogg ("sounds/gobble.ogg", NULL);
 	win_id = g_timeout_add (1000,
 				(GSourceFunc) hide_card, NULL);
 	return TRUE;
@@ -1776,7 +1776,7 @@ static gint tux_play(){
       return FALSE;
     else {
       if (compare_card(firstCard, secondCard)==0){
-	gcompris_play_ogg ("gobble", NULL);
+	gcompris_play_ogg ("sounds/gobble.ogg", NULL);
 	g_warning("Now tux win !");
 	win_id = g_timeout_add (1000,
 				(GSourceFunc) hide_card, NULL);
@@ -1802,7 +1802,7 @@ static void sound_callback(gchar *file)
     if (to_tux) {
       if (firstCard && secondCard){
 	if (compare_card(firstCard, secondCard)==0){
-	  gcompris_play_ogg ("gobble", NULL);
+	  gcompris_play_ogg ("sounds/gobble.ogg", NULL);
 	  win_id = g_timeout_add (1000,
 				  (GSourceFunc) hide_card, NULL);
 	  tux_id = g_timeout_add (2000,

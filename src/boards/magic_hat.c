@@ -225,7 +225,7 @@ static void process_ok() {
 
   if (ok) {
 	gamewon = TRUE;
-	gcompris_play_ogg ("bonus", NULL);
+	gcompris_play_ogg ("sounds/bonus.ogg", NULL);
   }
 
   gcompris_display_bonus(gamewon, BONUS_FLOWER);
@@ -644,7 +644,7 @@ static gint item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data) {
 
 		  gdk_pixbuf_unref(pixmap);
 		}
-		gcompris_play_ogg ("gobble", NULL);
+		gcompris_play_ogg ("sounds/gobble.ogg", NULL);
 	}
 	
 	return FALSE;

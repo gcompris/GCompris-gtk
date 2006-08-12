@@ -1,5 +1,46 @@
 2006-08-12  Bruno coudoin  <bruno.coudoin@free.fr>
 
+	- fixed many bad reference to sounds.
+	- melody game playable again.
+	
+	* boards/melody.xml.in:
+	* boards/sounds/explos.ogg:
+	* src/boards/algebra.c: (item_event):
+	* src/boards/canal_lock.c: (game_won), (move_boat), (item_event):
+	* src/boards/chess.c: (game_won):
+	* src/boards/clickgame.c: (game_won), (item_event):
+	* src/boards/clockgame.c: (game_won):
+	* src/boards/crane.c: (bonus), (select_item):
+	* src/boards/enumerate.c: (game_won):
+	* src/boards/erase.c: (game_won):
+	* src/boards/fifteen.c: (game_won):
+	* src/boards/gletters.c: (player_win), (player_loose):
+	* src/boards/hanoi.c: (game_won):
+	* src/boards/hanoi_real.c: (game_won):
+	* src/boards/machpuzzle.c: (game_won):
+	* src/boards/magic_hat.c: (process_ok), (item_event):
+	* src/boards/maze.c: (game_won):
+	* src/boards/memory.c: (player_win), (check_win), (tux_play),
+	(sound_callback):
+	* src/boards/menu2.c: (item_event):
+	* src/boards/money.c: (game_won):
+	* src/boards/paratrooper.c: (paratrooper_move_tux):
+	* src/boards/planegame.c: (planegame_cloud_colision):
+	* src/boards/python/melody.py:
+	* src/boards/railroad.c: (game_won):
+	* src/boards/reversecount.c: (process_error), (game_won),
+	(animate_tux):
+	* src/boards/shapegame.c: (shape_goes_back_to_list):
+	* src/boards/smallnumbers.c: (player_win):
+	* src/boards/submarine.c: (update_timeout_slow),
+	(submarine_explosion):
+	* src/boards/superbrain.c: (game_won):
+	* src/boards/target.c: (game_won):
+	* src/boards/traffic.c: (game_won):
+	* src/boards/wordsgame.c: (player_win), (player_loose):
+
+2006-08-12  Bruno coudoin  <bruno.coudoin@free.fr>
+
 	- Fixed africa maps. Removed too tiny country in the whole africa map. Fixed missing
 	  country pixmaps. Closes sourceforge GCompris bug#1538043.
 

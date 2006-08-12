@@ -1,6 +1,6 @@
 /* gcompris - gletters.c
  *
- * Time-stamp: <2006/05/08 19:21:04 bruno>
+ * Time-stamp: <2006/08/12 03:12:58 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  * 
@@ -711,7 +711,7 @@ static void player_win(GnomeCanvasItem *item)
   g_message("in player_win\n");
 
   gletters_destroy_item(item);
-  gcompris_play_ogg ("gobble", NULL);
+  gcompris_play_ogg ("sounds/gobble.ogg", NULL);
 
   gcomprisBoard->sublevel++;
 
@@ -754,7 +754,7 @@ static void player_loose()
 {
   g_warning("entering player_loose\n");
 
-  gcompris_play_ogg ("crash", NULL);
+  gcompris_play_ogg ("sounds/crash.ogg", NULL);
   g_warning("leaving player_loose\n");
 }
 

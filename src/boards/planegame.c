@@ -1,6 +1,6 @@
 /* gcompris - planegame.c
  *
- * Time-stamp: <2006/08/11 19:02:09 bruno>
+ * Time-stamp: <2006/08/12 03:09:14 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -336,7 +336,7 @@ static void planegame_cloud_colision(CloudItem *clouditem)
     {
       if(plane_target == clouditem->number)
 	{
-	  gcompris_play_ogg ("gobble", NULL);
+	  gcompris_play_ogg ("sounds/gobble.ogg", NULL);
 	  item2del_list = g_list_append (item2del_list, clouditem);
 	  plane_target++;
 
@@ -354,7 +354,7 @@ static void planegame_cloud_colision(CloudItem *clouditem)
 		return;
 	      }
 	      planegame_next_level();
-	      gcompris_play_ogg ("bonus", NULL);
+	      gcompris_play_ogg ("sounds/bonus.ogg", NULL);
 	    }
 	}
     }

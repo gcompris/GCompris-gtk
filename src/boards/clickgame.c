@@ -1,6 +1,6 @@
 /* gcompris - clickgame.c
  *
- * Time-stamp: <2006/07/16 19:19:54 bruno>
+ * Time-stamp: <2006/08/12 03:08:39 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -561,7 +561,7 @@ static void game_won()
       board_finished(BOARD_FINISHED_RANDOM);
       return;
     }
-    gcompris_play_ogg ("bonus", NULL);
+    gcompris_play_ogg ("sounds/bonus.ogg", NULL);
   }
   clickgame_next_level();
 }
@@ -608,7 +608,7 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, FishItem *fishitem)
            else 
              {
 	       clickgame_destroy_item(fishitem);
-	       gcompris_play_ogg ("gobble", NULL);
+	       gcompris_play_ogg ("sounds/gobble.ogg", NULL);
 	       
 	       gcomprisBoard->sublevel++;
 	       gcompris_score_set(gcomprisBoard->sublevel);

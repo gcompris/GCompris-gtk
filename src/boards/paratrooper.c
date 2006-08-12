@@ -1,6 +1,6 @@
 /* gcompris - paratrooper.c
  *
- * Time-stamp: <2006/01/22 22:50:43 bruno>
+ * Time-stamp: <2006/08/12 03:13:17 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -573,7 +573,7 @@ static gint paratrooper_move_tux (GtkWidget *widget, gpointer data)
 	{
 	  gnome_canvas_item_hide(paratrooperItem.parachute);
 	  paratrooperItem.status = TUX_LANDED;
-	  gcompris_play_ogg ("bonus", NULL);
+	  gcompris_play_ogg ("sounds/bonus.ogg", NULL);
 	  next_state();
 	}
       else
@@ -585,7 +585,7 @@ static gint paratrooper_move_tux (GtkWidget *widget, gpointer data)
 	    {
 	      gnome_canvas_item_hide(paratrooperItem.parachute);
 	      paratrooperItem.status = TUX_CRASHED;
-	      gcompris_play_ogg ("crash", NULL);
+	      gcompris_play_ogg ("sounds/crash.ogg", NULL);
 	      next_state();
 	    }
 	}

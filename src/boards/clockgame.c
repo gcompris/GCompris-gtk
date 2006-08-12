@@ -1,6 +1,6 @@
 /* gcompris - clockgame.c
  *
- * Time-stamp: <2006/04/05 01:16:11 bruno>
+ * Time-stamp: <2006/08/12 03:07:11 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -618,7 +618,7 @@ static void game_won()
       board_finished(BOARD_FINISHED_RANDOM);
       return;
     }
-    gcompris_play_ogg ("bonus", NULL);
+    gcompris_play_ogg ("sounds/bonus.ogg", NULL);
   }
   clockgame_next_level();
 }

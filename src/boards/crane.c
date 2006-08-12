@@ -346,7 +346,7 @@ static GnomeCanvasItem *crane_create_item()
 static void bonus() {
 
   gcompris_display_bonus(gamewon, BONUS_SMILEY);
-  gcompris_play_ogg ("bonus", NULL);
+  gcompris_play_ogg ("sounds/bonus.ogg", NULL);
   timer_id = 0;
 }
 
@@ -736,7 +736,7 @@ static void select_item(GnomeCanvasItem *item, int sound) {
 			 "points", crane_rope,
 			 NULL);
 
-  if (sound) gcompris_play_ogg ("gobble", NULL);
+  if (sound) gcompris_play_ogg ("sounds/gobble.ogg", NULL);
 
   selected_item = item;
 }
