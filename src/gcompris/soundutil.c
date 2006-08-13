@@ -161,9 +161,10 @@ int getSoundPolicy()
  ======================================================================*/
 static gpointer scheduler_bgnd (gpointer user_data)
 {
+  GcomprisProperties *properties = gcompris_get_properties();
   gint i;
   gchar *str;
-  gchar *filename;
+  gchar *music_dir;
   GList *musiclist = NULL;
   GDir *dir;
   const gchar *one_dirent;
@@ -176,23 +177,21 @@ static gpointer scheduler_bgnd (gpointer user_data)
 #endif
 
   /* Load the Music directory file names */
-  filename = g_strdup_printf("%s", PACKAGE_DATA_DIR "/music/background");
+  music_dir = g_strconcat(properties->package_data_dir, "/music/background", NULL);
 
-  dir = g_dir_open(filename, 0, NULL);
+  dir = g_dir_open(music_dir, 0, NULL);
       
   if (!dir) {
-    g_warning ("Couldn't open music dir: %s", filename);
-    g_free(filename);
+    g_warning ("Couldn't open music dir: %s", music_dir);
+    g_free(music_dir);
     return NULL;
   }
-  
-  g_free(filename);
   
   /* Fill up the music list */
   while((one_dirent = g_dir_read_name(dir)) != NULL) {
 
     if (strcmp(one_dirent, "COPYRIGHT")) {
-      str = g_strdup_printf("%s/%s", PACKAGE_DATA_DIR "/music/background", one_dirent);
+      str = g_strdup_printf("%s/%s", music_dir, one_dirent);
 
       musiclist = g_list_append (musiclist, str);
     }
@@ -201,7 +200,10 @@ static gpointer scheduler_bgnd (gpointer user_data)
 
   /* No music no play */
   if(g_list_length(musiclist)==0)
-    return NULL;
+    {
+      g_free(music_dir);
+      return NULL;
+    }
 
   /* Now loop over all our music files */
   while (TRUE)
@@ -227,7 +229,10 @@ static gpointer scheduler_bgnd (gpointer user_data)
 
  exit:
   g_list_free(musiclist);
-  g_warning( "The background thread music is stopped now. The files in %s are not ogg vorbis OR the sound output failed", PACKAGE_DATA_DIR "/music/background");
+  g_warning( "The background thread music is stopped now. "\
+	     "The files in %s are not ogg vorbis OR the sound output failed",
+	     music_dir);
+  g_free(music_dir);
   return NULL;
 }
 /* =====================================================================

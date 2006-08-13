@@ -16,11 +16,12 @@ all: $(doc)
 
 info_TEXINFOS = gcompris.texi
 
-install-data-local:
-	$(mkinstalldirs) $(DESTDIR)$(gcompris_helpdir)
-	$(INSTALL_DATA)  gcompris.html $(DESTDIR)$(gcompris_helpdir)
-	$(INSTALL_DATA)  $(srcdir)/overview.jpg $(DESTDIR)$(gcompris_helpdir)
-	$(INSTALL_DATA)  $(srcdir)/topic.dat $(DESTDIR)$(gcompris_helpdir)
+# No more install the documentation, it's not accurate enough
+#install-data-local:
+#	$(mkinstalldirs) $(DESTDIR)$(gcompris_helpdir)
+#	$(INSTALL_DATA)  gcompris.html $(DESTDIR)$(gcompris_helpdir)
+#	$(INSTALL_DATA)  $(srcdir)/overview.jpg $(DESTDIR)$(gcompris_helpdir)
+#	$(INSTALL_DATA)  $(srcdir)/topic.dat $(DESTDIR)$(gcompris_helpdir)
 
 %.html: %.texi
 	texi2html -monolithic $<

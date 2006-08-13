@@ -79,17 +79,6 @@ static BoardPlugin *static_boards[MAX_NUMBER_OF_BOARDS];
 
 #endif
 
-/*
- * The directory in which we will search for plugins
- * (In that order)
- */
-static gchar *plugin_paths[] = {
-  "../boards/.libs/",		/* Usefull path to test plugins without re-installing them */
-  "./boards/.libs/",
-  PLUGIN_DIR,
-  NULL
-};
-
 #ifdef WIN32
 void init_plugins(void)
 {
@@ -266,33 +255,33 @@ gboolean board_check_file(GcomprisBoard *gcomprisBoard)
   GModule     *gmodule = NULL;
   gchar       *gmodule_file = NULL;
   BoardPlugin *(*plugin_get_bplugin_info) (void) = NULL;
-  guint        i=0;
+  GcomprisProperties *properties = gcompris_get_properties();
+  gchar *sep;
+  gchar *type;
 
   g_assert(gcomprisBoard!=NULL);
-  
+
+  type = g_strdup(gcomprisBoard->type);
+
   /* Check Already loaded */  
   if(gcomprisBoard->plugin!=NULL) {
     return TRUE;
   }
 
-  while(plugin_paths[i] != NULL && gmodule == NULL) {
-    gchar *sep;
-    gchar *type = g_strdup(gcomprisBoard->type);
+  /* Manage the python case where : is use to separate python plugin and boards */
+  if((sep = strchr(type, ':')))
+    *sep ='\0';
 
-    /* Manage the python case where : is use to separate python plugin and boards */
-    if((sep = strchr(type, ':')))
-      *sep ='\0';
+  gmodule_file = g_module_build_path (properties->package_plugin_dir, type);
 
-    gmodule_file = g_module_build_path (plugin_paths[i++], type);
-
-    gmodule = g_module_open (gmodule_file, 0);
-    if(gmodule) {
-      g_warning("opened module %s with name %s\n",gmodule_file , type);
-    } else {
-      g_warning("Failed to open module %s with name %s (error=%s)\n",gmodule_file , type, g_module_error());
-    }
-    g_free(type);
+  gmodule = g_module_open (gmodule_file, 0);
+  if(gmodule) {
+    g_warning("opened module %s with name %s\n", gmodule_file, type);
+  } else {
+    g_warning("Failed to open module %s with name %s (error=%s)\n", gmodule_file,
+	      type, g_module_error());
   }
+  g_free(type);
 
   if(gmodule != NULL) {
 

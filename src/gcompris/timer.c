@@ -86,7 +86,7 @@ void gcompris_timer_display(int ax, int ay, TimerList atype, int second, Gcompri
 	else
 	  filename = g_strdup_printf("gcompris/timers/clock%d.png", fileid);
 	
-	filefull = g_strdup_printf("%s/%s", PACKAGE_DATA_DIR, filename);
+	filefull = g_strdup_printf("%s/%s", properties->package_data_dir, filename);
 	if (g_file_test ((filefull), G_FILE_TEST_EXISTS))
 	  {
 	    pixmap = gcompris_load_pixmap(filename);
@@ -289,6 +289,7 @@ static gint timer_increment(GtkWidget *widget, gpointer data)
     case GCOMPRIS_TIMER_CLOCK:
       if(item)
 	{
+	  GcomprisProperties *properties = gcompris_get_properties();
 	  GdkPixbuf	*pixmap = NULL;
 	  gchar		*filefull = NULL;
 	  gchar		*filename = NULL;
@@ -300,8 +301,8 @@ static gint timer_increment(GtkWidget *widget, gpointer data)
 	  else
 	    filename = g_strdup_printf("gcompris/timers/clock%d.png", fileid);
 
-	  filefull = g_strdup_printf("%s/%s", PACKAGE_DATA_DIR, filename);
-	  printf("timer: filefull = %s\n", filefull);
+	  filefull = g_strdup_printf("%s/%s", properties->package_data_dir, filename);
+	  g_debug("timer: filefull = %s\n", filefull);
 	  if (g_file_test ((filefull), G_FILE_TEST_EXISTS))
 	    {
 	      pixmap = gcompris_load_pixmap(filename);

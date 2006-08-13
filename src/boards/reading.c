@@ -1,6 +1,6 @@
 /* gcompris - reading.c
  *
- * Time-stamp: <2006/08/11 18:29:19 bruno>
+ * Time-stamp: <2006/08/13 18:03:47 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -728,24 +728,24 @@ item_event_valid(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 
 static FILE *get_wordfile(const char *locale)
 {
+  GcomprisProperties *properties = gcompris_get_properties();
   gchar *filename;
   FILE *wordsfd = NULL;
-                                                                                                                              
+
   /* First Try to find a file matching the level and the locale */
   filename = g_strdup_printf("%s%s%d.%.2s",
-                             PACKAGE_DATA_DIR, "/wordsgame/wordslevel",
+                             properties->package_data_dir, "/wordsgame/wordslevel",
                              gcomprisBoard->level, locale);
-  //  g_message("Trying to open file %s ", filename);
   wordsfd = fopen (filename, "r");
                                                                                                                               
   if(wordsfd==NULL)
     {
+      GcomprisProperties *properties = gcompris_get_properties();
       g_free(filename);
       /* Second Try to find a file matching the 'max' and the locale */
       filename = g_strdup_printf("%s%s%.2s",
-				 PACKAGE_DATA_DIR, "/wordsgame/wordslevelmax.",
+				 properties->package_data_dir, "/wordsgame/wordslevelmax.",
 				 locale);
-      //      g_message("Trying to open file %s ", filename);
       
       wordsfd = fopen (filename, "r");
     }

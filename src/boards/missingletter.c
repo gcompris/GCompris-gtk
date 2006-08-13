@@ -567,8 +567,9 @@ static void dump_xml() {
 /* ==================================== */
 static void init_xml()
 {
+  GcomprisProperties *properties = gcompris_get_properties();
   char *filename;
-  filename = g_strdup_printf("%s/%s/board1.xml", PACKAGE_DATA_DIR, gcomprisBoard->boarddir);
+  filename = g_strdup_printf("%s/%s/board1.xml", properties->package_data_dir, gcomprisBoard->boarddir);
   assert(g_file_test(filename, G_FILE_TEST_EXISTS));
   assert(read_xml_file(filename)== TRUE);
   g_free(filename);

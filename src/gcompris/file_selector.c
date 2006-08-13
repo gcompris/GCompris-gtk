@@ -1,6 +1,6 @@
 /* gcompris - file_selector.c
  *
- * Time-stamp: <2006/08/11 17:14:26 bruno>
+ * Time-stamp: <2006/08/13 17:25:46 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -920,30 +920,32 @@ gboolean load_mime_type_from_file(gchar *fname)
 void gcompris_load_mime_types() 
 {
   const gchar  *one_dirent;
+  GcomprisProperties *properties = gcompris_get_properties();
   GDir   *dir;
+  gchar  *mime_dir;
 
   if(mimetypes_hash) {
     return;
   }
+
+  mime_dir = g_strconcat(properties->package_data_dir, "/gcompris/mimetypes/", NULL);
 
   mimetypes_hash      = g_hash_table_new (g_str_hash, g_str_equal);
   mimetypes_ext_hash  = g_hash_table_new (g_str_hash, g_str_equal);
   mimetypes_desc_hash = g_hash_table_new (g_str_hash, g_str_equal);
 
   /* Load the Pixpmaps directory file names */
-  dir = g_dir_open(PACKAGE_DATA_DIR"/gcompris/mimetypes/", 0, NULL);
+  dir = g_dir_open(mime_dir, 0, NULL);
 
   if (!dir) {
-    g_warning("gcompris_load_mime_types : no mime types found in %s", 
-	      PACKAGE_DATA_DIR"/gcompris/mimetypes/");
+    g_warning("gcompris_load_mime_types : no mime types found in %s", mime_dir);
   } else {
 
     while((one_dirent = g_dir_read_name(dir)) != NULL) {
       /* add the board to the list */
       gchar *filename;
       
-      filename = g_strdup_printf("%s/%s",
-				 PACKAGE_DATA_DIR"/gcompris/mimetypes/", one_dirent);
+      filename = g_strdup_printf("%s/%s", mime_dir, one_dirent);
 
       if(!g_file_test(filename, G_FILE_TEST_IS_REGULAR)) {
 	g_free(filename);
@@ -956,6 +958,7 @@ void gcompris_load_mime_types()
       g_free(filename);
     }
   }
+  g_free(mime_dir);
   g_dir_close(dir);
 }
 

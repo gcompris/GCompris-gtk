@@ -1,6 +1,6 @@
 /* gcompris - clickgame.c
  *
- * Time-stamp: <2006/08/12 03:08:39 bruno>
+ * Time-stamp: <2006/08/13 17:56:34 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -167,10 +167,11 @@ static void clickgame_start (GcomprisBoard *agcomprisBoard)
 
   if(agcomprisBoard!=NULL)
     {
+      GcomprisProperties *properties = gcompris_get_properties();
       gcomprisBoard = agcomprisBoard;
 
       /* Load the Pixpmaps directory file names */
-      filename = g_strdup_printf("%s/%s", PACKAGE_DATA_DIR, gcomprisBoard->boarddir);      
+      filename = g_strdup_printf("%s/%s", properties->package_data_dir, gcomprisBoard->boarddir);
       dir = g_dir_open(filename, 0, NULL);
       
       if (!dir)
@@ -709,6 +710,7 @@ setup_item(FishItem *fishitem)
  */
 static void load_random_pixmap()
 {
+  GcomprisProperties *properties = gcompris_get_properties();
   GdkPixbuf *pixmap;
   int i, j;
   gchar *str = NULL;
@@ -734,7 +736,7 @@ static void load_random_pixmap()
       sprintf(numstr, "%d", j++);
       str[strlen(str)-5]=numstr[0];
 
-      filename = g_strdup_printf("%s/%s", PACKAGE_DATA_DIR, str);
+      filename = g_strdup_printf("%s/%s", properties->package_data_dir, str);
 
       if (!g_file_test (filename, G_FILE_TEST_EXISTS))
 	{

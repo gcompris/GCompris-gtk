@@ -78,7 +78,7 @@ class Gcompris_administration:
     import glob
     m_list = glob.glob('admin/module_*.py')
     if m_list == []:
-      m_list = glob.glob(gcompris.DATA_DIR+'/../python/admin/module_*.py')
+      m_list = glob.glob(gcompris.PYTHON_PLUGIN_DIR+'/admin/module_*.py')
     for file in m_list:
       m_name = file.split('/')[-1].split('.')[0].split('_')[1]
       list_modules.append(m_name)

@@ -87,6 +87,7 @@ libgcomprisincludedir = $(includedir)/libgcompris-1.0/libgcompris
 libgcomprisinclude_HEADERS =			\
 	about.h \
 	anim.h \
+	binreloc.h \
 	bonus.h \
 	cursor.h \
 	gameutil.h \
@@ -114,6 +115,7 @@ libgcompris_1_la_SOURCES =			\
 	$(libgcomprisinclude_HEADERS)	\
 	gcompris.c \
 	gameutil.c \
+	binreloc.c \
 	gc_net.c \
 	properties.c \
 	bar.c \

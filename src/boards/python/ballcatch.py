@@ -109,14 +109,14 @@ class Gcompris_ballcatch:
     # The basic tick for object moves
     self.timerinc = 1000
     
-    self.timer_inc  = gtk.timeout_add(self.timerinc, self.timer_inc_display)
-
-    self.counter_left  = 0
-    self.counter_right = 0
-
     self.left_continue  = True
     self.right_continue = True
     
+    self.counter_left  = 0
+    self.counter_right = 0
+
+    self.timer_inc  = gtk.timeout_add(self.timerinc, self.timer_inc_display)
+
     print("Gcompris_ballcatch start.")
 
 

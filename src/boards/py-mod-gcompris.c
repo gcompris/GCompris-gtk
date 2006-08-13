@@ -1740,6 +1740,7 @@ void python_gcompris_module_init(void)
   /* Some non gcompris.h constants. */
   GcomprisProperties	*properties = gcompris_get_properties();
   PyModule_AddStringConstant(gcomprisModule, "DATA_DIR", properties->package_data_dir);
+  PyModule_AddStringConstant(gcomprisModule, "PYTHON_PLUGIN_DIR", properties->package_python_plugin_dir);
 
   /* GetText constants. */
   PyModule_AddStringConstant(gcomprisModule, "GETTEXT_PACKAGE", GETTEXT_PACKAGE);

@@ -1,6 +1,6 @@
 /* gcompris - properties.c
  *
- * Time-stamp: <2006/08/10 14:16:19 bruno>
+ * Time-stamp: <2006/08/13 17:44:47 bruno>
  *
  * Copyright (C) 2000,2003 Bruno Coudoin
  *
@@ -112,7 +112,7 @@ gchar *get_gcompris_user_root_directory ()
     return g_strconcat(home_dir, "/.gcompris", NULL);
 }
 
-/** return the name of the configuration file used
+/** return the name of the configuration file used.
  *  the name has the full path and is platform dependant
  *  must not be freed by the caller.
  * 
@@ -122,7 +122,7 @@ gchar *get_gcompris_conf_name()
   if(config_file)
     return(config_file);
 
-  /* Was never called, mus calculate it */
+  /* Was never called, must calculate it */
   if (g_get_home_dir()==NULL) {
     config_file = g_strconcat(get_gcompris_user_root_directory(), "/gcompris.cfg", NULL);
   } else {
@@ -173,7 +173,6 @@ GcomprisProperties *gcompris_properties_new ()
   tmp->display_resource  = 0;
   tmp->root_menu         = "/";
   tmp->local_directory   = NULL;
-  tmp->package_data_dir  = PACKAGE_DATA_DIR;
   tmp->profile           = NULL;
   tmp->logged_user       = NULL;
 
@@ -183,6 +182,12 @@ GcomprisProperties *gcompris_properties_new ()
   tmp->menu_position     = NULL;
 
   tmp->server            = NULL;
+
+  tmp->package_data_dir           = NULL;
+  tmp->package_locale_dir         = NULL;
+  tmp->package_plugin_dir         = NULL;
+  tmp->package_python_plugin_dir  = NULL;
+  tmp->system_icon_dir            = NULL;
 
   gcompris_user_dir = get_gcompris_user_root_directory() ;
   create_rootdir( gcompris_user_dir );

@@ -40,26 +40,6 @@
 
 void taninitstart(void);
 
-/********************************/
-/* int main (int argc, char *argv[]) */
-/* { */
-/*    textdomain ("gtans"); */
-
-/*   gtk_set_locale (); */
-/*   gtk_init (&argc, &argv); */
-
-/*   /\* */
-/*     add_pixmap_directory (PACKAGE_DATA_DIR "/pixmaps"); */
-/*     add_pixmap_directory (PACKAGE_SOURCE_DIR "/pixmaps"); */
-/*   *\/ */
-
-/*   taninitstart(); */
-
-/*   gtk_main (); */
-/*   return 0; */
-/* } */
-
-
 /* GCompris */
 
 static void start_board (GcomprisBoard *agcomprisBoard);

@@ -2,9 +2,13 @@ dnl Process this file with autoconf to produce a configure script.
 
 AC_INIT(src/gcompris/gcompris.c)
 AC_CANONICAL_TARGET
-AM_INIT_AUTOMAKE(gcompris, 8.0BETA2)
+AM_INIT_AUTOMAKE(gcompris, 8.0BETA3)
 AM_CONFIG_HEADER(config.h)
 AM_MAINTAINER_MODE
+
+# Provide relocatable API from autopackage
+# From http://autopackage.org/docs/binreloc/
+AM_BINRELOC
 
 # Making releases:
 #   LIBGCOMPRIS_MICRO_VERSION += 1;
@@ -206,37 +210,30 @@ if test x"$native_win32" = xyes; then
   fi
 fi
 
-dnl Set PACKAGE_LOCALE_DIR in config.h.
-AC_DEFINE_UNQUOTED(PACKAGE_LOCALE_DIR, "${myprefix}/${DATADIRNAME}/locale", [Gcompris locale directory])
+dnl
+dnl === DIRECTORY DEFINITIONS ===
+dnl
 
-dnl Set PACKAGE_SOUNDS_DIR
-PACKAGE_SOUNDS_DIR="sounds"
-AC_SUBST(PACKAGE_SOUNDS_DIR)
-AC_DEFINE_UNQUOTED(PACKAGE_SOUNDS_DIR, "${myprefix}/${DATADIRNAME}/${PACKAGE}/sounds", [Gcompris sounds directory])
+dnl Set PACKAGE_LOCALE_DIR in config.h.
+AC_DEFINE_UNQUOTED(PACKAGE_LOCALE_DIR, "${myprefix}/${DATADIRNAME}/locale", [GCompris locale directory])
 
 dnl Set PACKAGE_DATA_DIR
 PACKAGE_DATA_DIR="boards"
 AC_SUBST(PACKAGE_DATA_DIR)
-AC_DEFINE_UNQUOTED(PACKAGE_DATA_DIR, "${myprefix}/${DATADIRNAME}/${PACKAGE}/boards", [Gcompris data directory])
+AC_DEFINE_UNQUOTED(PACKAGE_DATA_DIR, "${myprefix}/${DATADIRNAME}", [GCompris data directory])
 
 dnl Set PACKAGE_HELP_DIR
-AC_DEFINE_UNQUOTED(PACKAGE_HELP_DIR, "${myprefix}/${DATADIRNAME}/gnome/help/${PACKAGE}", [Gcompris help directory])
-PACKAGE_HELP_DIR="${myprefix}/${DATADIRNAME}/gnome/help/${PACKAGE}"
+PACKAGE_HELP_DIR="${myprefix}/${DATADIRNAME}/${PACKAGE}/help"
 AC_SUBST(PACKAGE_HELP_DIR)
 
 dnl Plugin Directory
 my_libdir=`eval echo "${libdir}/gcompris"`
-AC_DEFINE_UNQUOTED(PLUGIN_DIR, "${my_libdir}", [Gcompris plugins directory])
 plugindir=$libdir/gcompris
 AC_SUBST(plugindir)
 
 dnl Python plugin Directory
-AC_DEFINE_UNQUOTED(PYTHON_PLUGIN_DIR, "${myprefix}/${DATADIRNAME}/${PACKAGE}/python", [Gcompris python plugins directory])
 PYTHON_PLUGIN_DIR="${myprefix}/${DATADIRNAME}/${PACKAGE}/python"
 AC_SUBST(PYTHON_PLUGIN_DIR)
-
-AC_DEFINE_UNQUOTED(GNOME_ICONDIR, "${myprefix}/${DATADIRNAME}/pixmaps", [Gnome icons directory])
-
 
 dnl Test for gnuchess
 AC_PATH_PROG(GNUCHESS, gnuchess,no,[/usr/bin:/usr/games:/usr/local/bin:$PATH])

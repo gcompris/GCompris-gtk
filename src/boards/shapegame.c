@@ -1,6 +1,6 @@
 /* gcompris - shapegame.c
  *
- * Time-stamp: <2006/08/12 03:05:15 bruno>
+ * Time-stamp: <2006/08/13 18:11:02 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -235,7 +235,8 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 
   if(agcomprisBoard!=NULL)
     {
-      gcomprisBoard=agcomprisBoard;
+      GcomprisProperties *properties = gcompris_get_properties();
+      gcomprisBoard = agcomprisBoard;
 
       /* disable im_context */
       gcomprisBoard->disable_im_context = TRUE;
@@ -246,14 +247,14 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       /* Calculate the maxlevel based on the available data file for this board */
       gcomprisBoard->maxlevel=1;
       filename = g_strdup_printf("%s/%s/board%d_0.xml",
-				 PACKAGE_DATA_DIR, gcomprisBoard->boarddir,
+				 properties->package_data_dir, gcomprisBoard->boarddir,
 				 gcomprisBoard->maxlevel);
       while(g_file_test(filename, G_FILE_TEST_EXISTS))
 	{
 	  gcomprisBoard->maxlevel++;
 	
 	  filename = g_strdup_printf("%s/%s/board%d_0.xml",
-				     PACKAGE_DATA_DIR, gcomprisBoard->boarddir,
+				     properties->package_data_dir, gcomprisBoard->boarddir,
 				     gcomprisBoard->maxlevel);
 	}
       gcomprisBoard->maxlevel--;
@@ -508,6 +509,7 @@ static gboolean increment_sublevel()
 /* set initial values for the next level */
 static void shapegame_next_level()
 {
+  GcomprisProperties *properties = gcompris_get_properties();
   char *filename;
 
   gamewon = FALSE;
@@ -519,10 +521,8 @@ static void shapegame_next_level()
 
   shapegame_init_canvas(gnome_canvas_root(gcomprisBoard->canvas));
 
-  //  gcompris_set_background(GNOME_CANVAS_GROUP(shape_background_item), "gcompris/gcompris-shapebg.jpg");
-
   filename = g_strdup_printf("%s/%s/board%d_%d.xml",
-			     PACKAGE_DATA_DIR, gcomprisBoard->boarddir,
+			     properties->package_data_dir, gcomprisBoard->boarddir,
 			     gcomprisBoard->level, gcomprisBoard->sublevel);
 
 
@@ -536,7 +536,7 @@ static void shapegame_next_level()
 
       g_free(filename);
       filename = g_strdup_printf("%s/%s/board%d_%d.xml",
-				 PACKAGE_DATA_DIR, gcomprisBoard->boarddir,
+				 properties->package_data_dir, gcomprisBoard->boarddir,
 				 gcomprisBoard->level, gcomprisBoard->sublevel);
     }
   read_xml_file(filename);

@@ -1,3 +1,69 @@
+2006-08-13  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	- Added support for relocation using http://autopackage.org/docs/binreloc/
+	  (Needed to create an autopackage installer)
+	  Now GCompris will detect at runtime where it is installed and find it's data.
+	  As a fallback, default set at compile time are used (like before).
+	  To disable is, use sh configure --disable-binreloc
+	  Very usefull for developers, you can now run gcompris from within it's source
+	  code without even installing it !. The new code detect that and set the data
+	  dir accordingly.
+	  Warning, developers must no more use the PACKAGE_DATA_DIR define but must get the
+	  data dir always from the property object like this:
+	  GcomprisProperties *properties = gcompris_get_properties();
+	  properties->package_xxx_dir contains the root data directory, like:
+	  package_data_dir         = /usr/local/share/gcompris/boards
+	  package_locale_dir       = /usr/local/share/locale
+	  package_plugin_dir       = /usr/local/lib/gcompris
+	  package_python_plugin_dir= /usr/local/share/gcompris/python
+	
+	* acinclude.m4:
+	* config.h.mingw:
+	* configure.in:
+	* docs/C/Makefile.am:
+	* gcompris.desktop.in:
+	* gcompris.spec.in:
+	* po/lt.po:
+	* src/boards/advanced_colors.c: (init_xml):
+	* src/boards/clickgame.c: (clickgame_start), (load_random_pixmap):
+	* src/boards/draw.c: (tool_event):
+	* src/boards/gtans.c:
+	* src/boards/imageid.c: (init_xml):
+	* src/boards/missingletter.c: (init_xml):
+	* src/boards/py-mod-gcompris.c: (python_gcompris_module_init):
+	* src/boards/python.c: (pythonboard_init), (pythonboard_start),
+	(pythonboard_config_start):
+	* src/boards/python/administration.py:
+	* src/boards/python/ballcatch.py:
+	* src/boards/read_colors.c: (init_xml):
+	* src/boards/reading.c: (get_wordfile):
+	* src/boards/shapegame.c: (start_board), (shapegame_next_level):
+	* src/boards/wordsgame.c: (get_wordfile):
+	* src/gcompris/Makefile.am:
+	* src/gcompris/binreloc.c: (_br_find_exe),
+	(_br_find_exe_for_symbol), (gbr_init), (gbr_init_lib),
+	(set_gerror), (gbr_find_exe), (gbr_find_exe_dir),
+	(gbr_find_prefix), (gbr_find_bin_dir), (gbr_find_sbin_dir),
+	(gbr_find_data_dir), (gbr_find_locale_dir), (gbr_find_lib_dir),
+	(gbr_find_libexec_dir), (gbr_find_etc_dir):
+	* src/gcompris/binreloc.h:
+	* src/gcompris/board.c: (board_check_file):
+	* src/gcompris/board_config.c: (gcompris_get_locales_list):
+	* src/gcompris/config.c: (gcompris_config_start):
+	* src/gcompris/file_selector.c: (gcompris_load_mime_types):
+	* src/gcompris/gameutil.c: (gcompris_read_xml_file):
+	* src/gcompris/gcompris.c: (setup_window), (load_properties),
+	(gcompris_init):
+	* src/gcompris/images_selector.c: (parseImage):
+	* src/gcompris/properties.c: (get_gcompris_conf_name),
+	(gcompris_properties_new):
+	* src/gcompris/properties.h:
+	* src/gcompris/skin.c: (gcompris_image_to_skin), (skin_xml_load),
+	(gcompris_skin_load):
+	* src/gcompris/soundutil.c: (scheduler_bgnd):
+	* src/gcompris/timer.c: (gcompris_timer_display),
+	(timer_increment):
+
 2006-08-12  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	- changed transformation of xml.in files to xml files. Now the translations

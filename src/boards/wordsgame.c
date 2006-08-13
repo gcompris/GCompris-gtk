@@ -1,6 +1,6 @@
 /* gcompris - wordsgame.c
  *
- * Time-stamp: <2006/08/12 03:12:06 bruno>
+ * Time-stamp: <2006/08/13 18:06:23 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  * 
@@ -726,12 +726,13 @@ static void player_loose()
 
 static FILE *get_wordfile(const char *locale)
 {
+  GcomprisProperties *properties = gcompris_get_properties();
   char *filename;
   FILE *wordsfd = NULL;
 
   /* First Try to find a file matching the level and the locale */
   filename = g_strdup_printf("%s%s%d.%.2s",  
-			     PACKAGE_DATA_DIR, "/wordsgame/wordslevel", 
+			     properties->package_data_dir, "/wordsgame/wordslevel", 
 			     gcomprisBoard->level, locale);
   g_message("Trying to open file %s ", filename);
   wordsfd = fopen (filename, "r");
@@ -741,7 +742,7 @@ static FILE *get_wordfile(const char *locale)
       g_free(filename);
       /* Second Try to find a file matching the 'max' and the locale */
       filename = g_strdup_printf("%s%s%.2s",  
-	      PACKAGE_DATA_DIR, "/wordsgame/wordslevelmax.", 
+	      properties->package_data_dir, "/wordsgame/wordslevelmax.", 
 	      locale);
       g_message("Trying to open file %s ", filename);
 

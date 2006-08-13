@@ -5,13 +5,12 @@ ShortName: gcompris
 SoftwareVersion: @VERSION@
 DisplayName: GCompris Educational software
 RootName: @gcompris.net/gcompris:$SOFTWAREVERSION
-Summary:  GCompris is an educational software which propose different activities to children from 2 to 10 years old.
+Summary:  GCompris Educational suite for kids
 Maintainer: Bruno Coudoin <bruno.coudoin@free.fr>
 Packager: Bruno Coudoin <bruno.coudoin@free.fr>
 PackageVersion: 1
 CPUArchitectures: x86
 AutopackageTarget: 1.0
-Type: Application
 License: GNU General Public License (GPL)
 
 [Description]
@@ -50,6 +49,7 @@ echo '*' | import
 # See http://www.autopackage.org/api/ for details
 installExe bin/*
 installLib lib/*.so.*
+copyFiles lib/gcompris/* "$PREFIX/lib/gcompris"
 installMan 6 man/man6/*
 installData share/gcompris
 installIcon share/pixmaps/gcompris.*

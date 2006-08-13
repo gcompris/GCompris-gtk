@@ -125,7 +125,7 @@ pythonboard_init (GcomprisBoard *agcomprisBoard){
   PyObject* module_dict;
   PyObject* py_boardclass;
 
-  GcomprisProperties	*properties = gcompris_get_properties();
+  GcomprisProperties *properties = gcompris_get_properties();
 
   if (pythonboard_is_ready)
     return ;
@@ -146,14 +146,14 @@ pythonboard_init (GcomprisBoard *agcomprisBoard){
     pythonboard_is_ready = FALSE;
   } else {
     /* Add the python plugins dir to the python's search path */
-    execstr = g_strdup_printf("import sys; sys.path.append('%s')",PYTHON_PLUGIN_DIR);
+    execstr = g_strdup_printf("import sys; sys.path.append('%s')",properties->package_python_plugin_dir);
 #ifndef DISABLE_USER_PLUGIN_DIR
     userplugindir = g_strconcat(g_get_home_dir(), "/.gcompris/Plugins/", NULL);
     execstr = g_strdup_printf("import sys; sys.path.append('%s/python'); sys.path.append('%s')",
-			      userplugindir, PYTHON_PLUGIN_DIR);
+			      userplugindir, properties->package_python_plugin_dir);
     g_free(userplugindir);
 #else
-    execstr = g_strdup_printf("import sys; sys.path.append('%s')",PYTHON_PLUGIN_DIR );
+    execstr = g_strdup_printf("import sys; sys.path.append('%s')",properties->package_python_plugin_dir );
 #endif
     if(PyRun_SimpleString(execstr)!=0){
       pythonboard_is_ready = FALSE;
@@ -207,10 +207,10 @@ pythonboard_init (GcomprisBoard *agcomprisBoard){
 
 	      g_warning("board_dir: %s package_data_dir %s",
 			board->board_dir,
-			properties->package_data_dir);
+			properties->package_python_plugin_dir);
 
-	      if (strcmp(board->board_dir, properties->package_data_dir)!=0){ 
-		boarddir = g_strdup_printf("sys.path.append('%s/../python/')", board->board_dir);
+	      if (strcmp(board->board_dir, properties->package_python_plugin_dir)!=0){ 
+		boarddir = g_strdup_printf("sys.path.append('%s/')", board->board_dir);
 	      
 		PyRun_SimpleString(boarddir);
 		g_free(boarddir);
@@ -303,9 +303,9 @@ pythonboard_start (GcomprisBoard *agcomprisBoard){
     userplugindir = g_strconcat(g_get_home_dir(), "/.gcompris/Plugins/", NULL);
     boarddir = g_strdup_printf("import sys; sys.path.append('%s/python'); sys.path.append('%s')",
 			       userplugindir,
-			       PYTHON_PLUGIN_DIR);
+			       properties->package_python_plugin_dir);
 #else
-    boarddir = g_strdup_printf("import sys; sys.path.append('%s')",PYTHON_PLUGIN_DIR );
+    boarddir = g_strdup_printf("import sys; sys.path.append('%s')",properties->package_python_plugin_dir );
 #endif
 
     PyRun_SimpleString(boarddir);
@@ -556,7 +556,9 @@ static gboolean python_run_by_config = FALSE;
 static void
 pythonboard_config_start (GcomprisBoard *agcomprisBoard,
 			  GcomprisProfile *aProfile
-			  ){
+			  )
+{
+  GcomprisProperties *properties = gcompris_get_properties();
   PyObject* py_function_result;
   PyObject* module_dict;
   PyObject* py_boardclass;
@@ -596,10 +598,10 @@ pythonboard_config_start (GcomprisBoard *agcomprisBoard,
     userplugindir = g_strconcat(g_get_home_dir(), "/.gcompris/Plugins/", NULL);
     boarddir = g_strdup_printf("import sys; sys.path.append('%s/python'); sys.path.append('%s'); sys.path.append('%s')",
 			       userplugindir,
-			       PYTHON_PLUGIN_DIR,
+			       properties->package_python_plugin_dir,
 			       gcomprisBoard_config->board_dir);
 #else
-    boarddir = g_strdup_printf("import sys; sys.path.append('%s')",PYTHON_PLUGIN_DIR );
+    boarddir = g_strdup_printf("import sys; sys.path.append('%s')", properties->package_python_plugin_dir );
 #endif
 
     PyRun_SimpleString(boarddir);

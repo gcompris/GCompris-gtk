@@ -1,6 +1,6 @@
 /* gcompris - gameutil.c
  *
- * Time-stamp: <2006/08/11 16:56:32 bruno>
+ * Time-stamp: <2006/08/13 17:28:18 bruno>
  *
  * Copyright (C) 2000-2006 Bruno Coudoin
  *
@@ -476,6 +476,7 @@ GcomprisBoard *gcompris_read_xml_file(GcomprisBoard *gcomprisBoard,
 				      char *fname,
 				      gboolean db)
 {
+  GcomprisProperties *properties = gcompris_get_properties();
   gchar *filename;
   /* pointer to the new doc */
   xmlDocPtr doc;
@@ -490,8 +491,7 @@ GcomprisBoard *gcompris_read_xml_file(GcomprisBoard *gcomprisBoard,
       g_free(filename);
 
       /* if the file doesn't exist, try with our default prefix */
-      filename = g_strdup_printf("%s/%s",
-				 PACKAGE_DATA_DIR, fname);
+      filename = g_strdup_printf("%s/%s", properties->package_data_dir, fname);
 
       if(!g_file_test ((filename), G_FILE_TEST_EXISTS))
 	{

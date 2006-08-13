@@ -1,6 +1,6 @@
 /* gcompris - config.c
  *
- * Time-stamp: <2006/08/11 17:46:01 bruno>
+ * Time-stamp: <2006/08/13 17:20:28 bruno>
  *
  * Copyright (C) 2000-2003 Bruno Coudoin
  *
@@ -367,20 +367,22 @@ void gcompris_config_start ()
     const gchar *one_dirent;
     guint  i;
     GDir  *dir;
-    
+    gchar *skin_dir;
+
     /* Load the Pixpmaps directory file names */
-    dir = g_dir_open(PACKAGE_DATA_DIR"/skins", 0, NULL);
+    skin_dir = g_strconcat(properties->package_data_dir, "/skins", NULL);
+    dir = g_dir_open(skin_dir, 0, NULL);
 
     if (!dir)
-      g_error (_("Couldn't open skin dir: %s"), PACKAGE_DATA_DIR"/skins");
-    
+      g_error (_("Couldn't open skin dir: %s"), skin_dir);
+
     /* Fill up the skin list */
     while((one_dirent = g_dir_read_name(dir)) != NULL) {
 
       if (one_dirent[0] != '.') {
 	gchar *filename;
 	/* Only directory here are skins */
-	filename = g_strdup_printf("%s/skins/%s", PACKAGE_DATA_DIR, one_dirent);
+	filename = g_strdup_printf("%s/skins/%s", properties->package_data_dir, one_dirent);
 
 	if (g_file_test ((filename), G_FILE_TEST_IS_DIR)) {
 	  gchar *skin_name = g_strdup_printf("%s", one_dirent);
@@ -393,8 +395,10 @@ void gcompris_config_start ()
 
     /* Should not happen. It the user found the config, there should be a skin */
     if(g_list_length(skinlist) == 0) {
-      g_warning( "No skin found in %s\n", PACKAGE_DATA_DIR"/skins");
+      g_warning( "No skin found in %s\n", skin_dir);
     }
+
+    g_free(skin_dir);
 
     /* Find the current skin index */
     skin_index = 0;

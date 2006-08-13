@@ -278,7 +278,6 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{prefix}/share/gcompris/python
 %{prefix}/share/gcompris/python/*
 %{prefix}/share/applications/*
-%{prefix}/share/gnome/help/*
 %{prefix}/share/locale/*/*/*
 %{prefix}/share/pixmaps/*.png
 %_infodir/*

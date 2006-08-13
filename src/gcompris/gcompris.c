@@ -33,6 +33,8 @@
 
 #include "cursor.h"
 
+#include "binreloc.h"
+
 /* For XF86_VIDMODE Support */
 #ifdef XF86_VIDMODE
 #include <gdk/gdkx.h>
@@ -627,6 +629,7 @@ static void setup_window ()
   GcomprisBoard *board_to_start;
   GdkPixbuf     *gcompris_icon_pixbuf;
   GError        *error = NULL;
+  gchar         *icon_file;
 
   window = gtk_window_new (GTK_WINDOW_TOPLEVEL);
 
@@ -634,17 +637,19 @@ static void setup_window ()
    * Set an icon for gcompris
    * ------------------------
    */
-  if (!g_file_test ((GNOME_ICONDIR"/gcompris.png"), G_FILE_TEST_EXISTS)) {
-      g_warning ("Couldn't find file %s !", GNOME_ICONDIR"/gcompris.png" );
+  icon_file = g_strconcat(properties->system_icon_dir, "/gcompris.png", NULL);
+  if (!g_file_test (icon_file, G_FILE_TEST_EXISTS)) {
+      g_warning ("Couldn't find file %s !", icon_file);
   }
-  gcompris_icon_pixbuf = gdk_pixbuf_new_from_file (GNOME_ICONDIR"/gcompris.png",
-						   &error);
+  gcompris_icon_pixbuf = gdk_pixbuf_new_from_file (icon_file, &error);
   if (!gcompris_icon_pixbuf)
     {
       g_warning ("Failed to load pixbuf file: %s: %s\n",
-               GNOME_ICONDIR"/gcompris.png", error->message);
+               icon_file, error->message);
       g_error_free (error);
     }
+  g_free(icon_file);
+
   if (gcompris_icon_pixbuf)
     {
       gtk_window_set_icon (GTK_WINDOW (window), gcompris_icon_pixbuf);
@@ -949,8 +954,57 @@ void gcompris_terminate(int signum)
 
 static void load_properties ()
 {
+  gchar *prefix_dir;
+  gchar *tmpstr;
+
   properties = gcompris_properties_new ();
-  gcompris_skin_load(properties->skin);
+
+  /* Initialize the binary relocation API
+   *  http://autopackage.org/docs/binreloc/
+   */
+  if(gbr_init (NULL))
+    g_warning("Binary relocation enabled");
+  else
+    g_warning("Binary relocation disabled");
+
+  prefix_dir = gbr_find_prefix(NULL);
+
+  /* Check if we are in the source code (developper usage) */
+  tmpstr = g_strconcat(prefix_dir, "/gcompris.c", NULL);
+  if(g_file_test(tmpstr, G_FILE_TEST_EXISTS))
+    {
+      /* Set all directory to get data from the source code we are run in */
+      properties->package_data_dir = g_strconcat(prefix_dir, "/../../boards", NULL);
+
+      /* In source code, locale mo files are not generated, use the installed one */
+      properties->package_locale_dir = g_strdup(PACKAGE_LOCALE_DIR);
+
+      properties->package_plugin_dir = g_strconcat(prefix_dir, "/../boards/.libs", NULL);
+      properties->package_python_plugin_dir = g_strconcat(prefix_dir, "/../boards/python", NULL);
+      properties->system_icon_dir = g_strconcat(prefix_dir, "/../..", NULL);
+    }
+  else
+    {
+      properties->package_data_dir = g_strconcat(gbr_find_data_dir(PACKAGE_DATA_DIR),
+						 "/gcompris/boards", NULL);
+      properties->package_locale_dir = gbr_find_locale_dir(PACKAGE_LOCALE_DIR);
+      properties->package_plugin_dir = g_strconcat(gbr_find_lib_dir(PACKAGE_DATA_DIR),
+						   "/gcompris", NULL);
+      properties->package_python_plugin_dir = g_strconcat(gbr_find_data_dir(PACKAGE_DATA_DIR),
+							  "/gcompris/python", NULL);
+      properties->system_icon_dir = g_strconcat(gbr_find_data_dir(PACKAGE_DATA_DIR),
+							  "/pixmap", NULL);
+    }
+  g_free(tmpstr);
+  g_free(prefix_dir);
+
+
+  /* Display the directory value we have */
+  printf("package_data_dir         = %s\n", properties->package_data_dir);
+  printf("package_locale_dir       = %s\n", properties->package_locale_dir);
+  printf("package_plugin_dir       = %s\n", properties->package_plugin_dir);
+  printf("package_python_plugin_dir= %s\n", properties->package_python_plugin_dir);
+
 }
 
 GcomprisProperties *gcompris_get_properties ()
@@ -1210,13 +1264,17 @@ gcompris_init (int argc, char *argv[])
   signal(SIGSEGV, gcompris_terminate);
   signal(SIGINT, gcompris_terminate);
 
-  bindtextdomain (GETTEXT_PACKAGE, PACKAGE_LOCALE_DIR);
+  load_properties();
+
+  gcompris_skin_load(properties->skin);
+
+  bindtextdomain (GETTEXT_PACKAGE, properties->package_locale_dir);
   bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
   textdomain (GETTEXT_PACKAGE);
 
   /* To have some real random behaviour */
   srand (time (NULL));
-
+  
   /* Default difficulty filter: non specified */
   popt_difficulty_filter = -1;
 
@@ -1226,8 +1284,6 @@ gcompris_init (int argc, char *argv[])
 
   /* Argument parsing */
   popt_option = poptGetNextOpt (pctx);
-
-  load_properties ();
 
   // Set the default gcompris cursor
   properties->defaultcursor = GCOMPRIS_DEFAULT_CURSOR;
@@ -1248,7 +1304,7 @@ gcompris_init (int argc, char *argv[])
 #endif
 
   /* Set the default message handler, it avoids message with option -D */
-  g_log_set_handler (NULL, G_LOG_LEVEL_MESSAGE | G_LOG_LEVEL_WARNING | G_LOG_FLAG_FATAL
+  g_log_set_handler (NULL, G_LOG_LEVEL_MESSAGE | G_LOG_LEVEL_WARNING | G_LOG_LEVEL_DEBUG | G_LOG_FLAG_FATAL
 		     | G_LOG_FLAG_RECURSION, gcompris_log_handler, NULL);
 
   /*------------------------------------------------------------*/

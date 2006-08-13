@@ -30,7 +30,6 @@
 #include "gcompris/pixbuf_util.h"
 
 #define SOUNDLISTFILE PACKAGE
-#define IMG_DATA_SET PACKAGE_DATA_DIR "/dataset"
 #define FILE_SELECTOR_ROOT "drawings"
 
 /* Represent the drawing area */
@@ -888,7 +887,12 @@ tool_event(GnomeCanvasItem *item, GdkEvent *event, gint tool)
 	      return TRUE;
 	      break;
 	    case TOOL_IMAGE:
-	      gcompris_images_selector_start(gcomprisBoard, IMG_DATA_SET, image_selected);
+	      {
+		GcomprisProperties *properties = gcompris_get_properties();
+		gchar *dir = g_strconcat(properties->package_data_dir, "/dataset", NULL);
+		gcompris_images_selector_start(gcomprisBoard, dir, image_selected);
+		g_free(dir);
+	      }
 	    break;
 	    case TOOL_RAISE:
 	    case TOOL_LOWER:

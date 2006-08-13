@@ -1,6 +1,6 @@
 /* gcompris - properties.h
  *
- * Time-stamp: <2006/08/10 14:15:38 bruno>
+ * Time-stamp: <2006/08/13 16:55:16 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -42,6 +42,10 @@ typedef struct {
   gchar        *local_directory;
   gchar        *user_data_dir;
   gchar        *package_data_dir;
+  gchar        *package_locale_dir;
+  gchar        *package_plugin_dir;
+  gchar        *package_python_plugin_dir;
+  gchar        *system_icon_dir;
   gchar	       *locale;
   gchar	       *skin;
   gchar	       *key;

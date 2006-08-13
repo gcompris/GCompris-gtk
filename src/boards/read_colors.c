@@ -407,9 +407,10 @@ static void highlight_selected(int c) {
  * ==================================== */
 static void init_xml()
 {
+  GcomprisProperties *properties = gcompris_get_properties();
   char *filename;
-  filename = g_strdup_printf("%s/%s/board1.xml", PACKAGE_DATA_DIR, gcomprisBoard->boarddir);
-  g_warning("filename = %s %s %s\n", filename,PACKAGE_DATA_DIR,gcomprisBoard->boarddir);
+  filename = g_strdup_printf("%s/%s/board1.xml", properties->package_data_dir, gcomprisBoard->boarddir);
+  g_warning("filename = %s %s %s\n", filename, properties->package_data_dir, gcomprisBoard->boarddir);
 
   assert(g_file_test(filename, G_FILE_TEST_EXISTS));
   assert(read_xml_file(filename)== TRUE);

@@ -1,6 +1,6 @@
 /* gcompris - board_config.c
  *
- * Time-stamp: <2006/08/11 17:27:15 bruno>
+ * Time-stamp: <2006/08/13 17:15:59 bruno>
  *
  * Copyright (C) 2001 Pascal Georges
  *
@@ -579,7 +579,7 @@ gcompris_get_locales_list(){
 
   static GList *gcompris_locales_list = NULL;
 
-  gchar  *textdomain;
+  GcomprisProperties *properties = gcompris_get_properties();
   GDir   *textdomain_dir;
   GError **error = NULL;
   GList  *locales = NULL;
@@ -587,19 +587,16 @@ gcompris_get_locales_list(){
   if(gcompris_locales_list)
     return(gcompris_locales_list);
 
-  //textdomain = bindtextdomain ("gcompris", NULL);
-  textdomain = PACKAGE_LOCALE_DIR;
-  
   /* There is no english locale but it exists anyway */
   locales = g_list_append(locales, g_strdup("en"));
 
-  textdomain_dir = g_dir_open (textdomain, 0, error);
+  textdomain_dir = g_dir_open (properties->package_locale_dir, 0, error);
   const gchar *fname;
   gchar *fname_abs;
   gchar *catalog;
   
   while ((fname = g_dir_read_name(textdomain_dir))) {
-    fname_abs = g_strdup_printf("%s/%s",textdomain, fname);
+    fname_abs = g_strdup_printf("%s/%s", properties->package_locale_dir, fname);
     if (!g_file_test(fname_abs, G_FILE_TEST_IS_DIR))
       continue;
 

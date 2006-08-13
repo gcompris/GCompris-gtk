@@ -1,6 +1,6 @@
 /* gcompris - images_selector.c
  *
- * Time-stamp: <2006/08/11 17:07:52 bruno>
+ * Time-stamp: <2006/08/13 17:29:47 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -606,6 +606,7 @@ item_event_scroll(GnomeCanvasItem *item, GdkEvent *event, GnomeCanvas *canvas)
 
 void
 parseImage (xmlDocPtr doc, xmlNodePtr cur) {
+  GcomprisProperties *properties = gcompris_get_properties();
   gchar *imageSetName = NULL;
   gchar *filename;
   gchar	*pathname = NULL;
@@ -648,7 +649,7 @@ parseImage (xmlDocPtr doc, xmlNodePtr cur) {
       absolutepath = g_strdup_printf("%s/%s",pathname,imageSetName);
       if(!g_file_test ((absolutepath), G_FILE_TEST_EXISTS) ){
 	g_free(absolutepath);
-	absolutepath = g_strdup_printf("%s/%s",PACKAGE_DATA_DIR,imageSetName);
+	absolutepath = g_strdup_printf("%s/%s", properties->package_data_dir, imageSetName);
       }
       else 
 	imageSetName = g_strdup(absolutepath);
@@ -657,7 +658,7 @@ parseImage (xmlDocPtr doc, xmlNodePtr cur) {
       absolutepath = g_strdup(imageSetName);
   }
   else
-    absolutepath = g_strdup_printf("%s/%s",PACKAGE_DATA_DIR,imageSetName);
+    absolutepath = g_strdup_printf("%s/%s", properties->package_data_dir, imageSetName);
   
   if(!g_file_test ((absolutepath), G_FILE_TEST_EXISTS) )
     {
@@ -688,7 +689,7 @@ parseImage (xmlDocPtr doc, xmlNodePtr cur) {
 
     if (!g_file_test ((pathname), G_FILE_TEST_IS_DIR)){
       char *tmpdir;
-      tmpdir = g_strdup_printf("%s/%s", PACKAGE_DATA_DIR, pathname);
+      tmpdir = g_strdup_printf("%s/%s", properties->package_data_dir, pathname);
       g_free(pathname);
       pathname = tmpdir;
       if (!g_file_test ((pathname), G_FILE_TEST_IS_DIR)){

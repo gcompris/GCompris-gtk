@@ -62,7 +62,9 @@ gchar *gcompris_image_to_skin(gchar *pixmapfile)
   gchar *filename;
 
   /* First, test if pixmapfile is in the current skin dir */
-  filename = g_strdup_printf("%s/skins/%s/%s", PACKAGE_DATA_DIR, properties->skin, pixmapfile);
+  filename = g_strdup_printf("%s/skins/%s/%s",
+			     properties->package_data_dir,
+			     properties->skin, pixmapfile);
 
   if (g_file_test ((filename), G_FILE_TEST_EXISTS)) {
     g_free(filename);
@@ -234,8 +236,9 @@ gboolean gcompris_skin_str_to_color(gchar* data, guint32* color){
  * Parse a skin.xml file located in the skin directory
  * and load the skin properties into memory
  */
-void gcompris_skin_xml_load (gchar* skin)
+static void skin_xml_load (gchar* skin)
 {
+  GcomprisProperties *properties = gcompris_get_properties();
   gchar* xmlfilename;
   xmlDocPtr xmldoc;
   xmlNodePtr skinNode;
@@ -246,7 +249,8 @@ void gcompris_skin_xml_load (gchar* skin)
 
   g_return_if_fail(skin!=NULL);
   
-  xmlfilename = g_strdup_printf("%s/skins/%s/skin.xml", PACKAGE_DATA_DIR, skin);
+  xmlfilename = g_strdup_printf("%s/skins/%s/skin.xml",
+				properties->package_data_dir, skin);
 
   /* if the file doesn't exist */
   if(!g_file_test(xmlfilename, G_FILE_TEST_EXISTS))
@@ -346,9 +350,9 @@ void gcompris_skin_load (gchar* skin)
   gcompris_skin_numbers = g_hash_table_new_full(g_str_hash, g_str_equal,
 					      gcompris_skin_free_string,
 					      NULL);
-  gcompris_skin_xml_load(DEFAULT_SKIN);
+  skin_xml_load(DEFAULT_SKIN);
   if(strcmp(skin,DEFAULT_SKIN)!=0)
-    gcompris_skin_xml_load(skin);
+    skin_xml_load(skin);
 
   gcompris_skin_setup_vars();
 }
