@@ -1,5 +1,19 @@
 2006-08-14  Bruno coudoin  <bruno.coudoin@free.fr>
 
+	- Fixed compilation warnings and potential bugs for x86-64.
+	- Reviewed enumerate activity to have 9 level instead of 6 and make
+	  it easier (less objects). Fixed the oject icons to keep their image
+	  ratio in the entry section.
+	
+	* src/boards/algebra_guesscount.c:
+	(algebra_guesscount_create_item):
+	* src/boards/draw.c: (display_tool_selector):
+	* src/boards/enumerate.c: (start_board), (enumerate_next_level),
+	(enumerate_create_item):
+	src/boards/gtans_callbacks.c:
+
+2006-08-14  Bruno coudoin  <bruno.coudoin@free.fr>
+
 	* README.mingw: Updated to reflect the current windows compilation process.
 	* src/boards/superbrain.c: (superbrain_create_item): fixed a warning and highly potential
 	  problem.

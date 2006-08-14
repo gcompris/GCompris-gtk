@@ -286,7 +286,7 @@ on_arrow_clicked (GnomeCanvasItem *item, GdkEvent *event, gpointer user_data)
 {
   if ((event->type == GDK_BUTTON_PRESS)  
       && (event->button.button == 1)) {
-    change_figure((gboolean) user_data);
+    change_figure((gboolean) GPOINTER_TO_INT(user_data));
     return TRUE;
   }
   return FALSE;
