@@ -147,7 +147,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       gcomprisBoard->disable_im_context = TRUE;
 
       gcomprisBoard->level=1;
-      gcomprisBoard->maxlevel=5;
+      gcomprisBoard->maxlevel=9;
       gcomprisBoard->sublevel=1;
       gcomprisBoard->number_of_sublevel=1; /* Go to next level after this number of 'play' */
       gcompris_bar_set(GCOMPRIS_BAR_LEVEL|GCOMPRIS_BAR_OK);
@@ -305,27 +305,39 @@ static void enumerate_next_level()
   switch(gcomprisBoard->level)
     {
     case 1:
-      number_of_item_type = 2;
+      number_of_item_type = 1;
       number_of_item_max  = 5;
       break;
     case 2:
-      number_of_item_type = 3;
-      number_of_item_max  = 6;
+      number_of_item_type = 2;
+      number_of_item_max  = 5;
       break;
     case 3: 
+      number_of_item_type = 3;
+      number_of_item_max  = 5;
+      break;
+    case 4:
+      number_of_item_type = 3;
+      number_of_item_max  = 5;
+      break;
+    case 5:
+      number_of_item_type = 4;
+      number_of_item_max  = 5;
+      break;
+    case 6:
+      number_of_item_type = 4;
+      number_of_item_max  = 6;
+      break;
+    case 7:
       number_of_item_type = 4;
       number_of_item_max  = 7;
       break;
-    case 4:
-      number_of_item_type = 5;
-      number_of_item_max  = 8;
-      break;
-    case 5:
-      number_of_item_type = 6;
+    case 8:
+      number_of_item_type = 4;
       number_of_item_max  = 10;
       break;
     default:
-      number_of_item_type = 6;
+      number_of_item_type = 5;
       number_of_item_max = 10;
     }
       
@@ -403,7 +415,7 @@ static GnomeCanvasItem *enumerate_create_item(GnomeCanvasGroup *parent)
 			       "y", (double) current_y - ANSWER_HEIGHT/2,
 			       NULL);
 
-      gtk_signal_connect(GTK_OBJECT(item), "event", (GtkSignalFunc) item_event_focus, (void *)i);
+      gtk_signal_connect(GTK_OBJECT(item), "event", (GtkSignalFunc) item_event_focus, GINT_TO_POINTER(i));
 
       gdk_pixbuf_unref(pixmap_answer);
 
@@ -425,14 +437,14 @@ static GnomeCanvasItem *enumerate_create_item(GnomeCanvasGroup *parent)
 				    "pixbuf", pixmap, 
 				    "x", (double) ANSWER_X,
 				    "y", (double) current_y,
-				    "width", (double) ANSWER_WIDTH,
+				    "width", (double) gdk_pixbuf_get_width(pixmap)*ANSWER_HEIGHT/gdk_pixbuf_get_height(pixmap),
 				    "height", (double) ANSWER_HEIGHT,
 				    "width_set", TRUE, 
 				    "height_set", TRUE,
 				    NULL);
 
 
-      gtk_signal_connect(GTK_OBJECT(item), "event", (GtkSignalFunc) item_event_focus, (void *)i);
+      gtk_signal_connect(GTK_OBJECT(item), "event", (GtkSignalFunc) item_event_focus,  GINT_TO_POINTER(i));
 
       gtk_signal_connect(GTK_OBJECT(item), "event",
 			 (GtkSignalFunc) gcompris_item_event_focus,
@@ -443,12 +455,13 @@ static GnomeCanvasItem *enumerate_create_item(GnomeCanvasGroup *parent)
 			       gnome_canvas_text_get_type (),
 			       "text", "?",
 			       "font", gcompris_skin_font_board_big,
-			       "x", (double) ANSWER_X + 2*ANSWER_WIDTH,
+			       "x", (double) ANSWER_X + 2.5*ANSWER_WIDTH,
 			       "y", (double) current_y + ANSWER_HEIGHT/2,
 			       "anchor", GTK_ANCHOR_EAST,
 			       "fill_color", "blue",
 			       NULL);
-      gtk_signal_connect(GTK_OBJECT(answer_item[i]), "event", (GtkSignalFunc) item_event_focus, (void *)i);
+      gtk_signal_connect(GTK_OBJECT(answer_item[i]), "event", (GtkSignalFunc) item_event_focus,
+			 GINT_TO_POINTER(i));
 
     }
 

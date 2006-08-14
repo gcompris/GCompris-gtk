@@ -465,7 +465,8 @@ static GnomeCanvasItem *algebra_guesscount_create_item(GnomeCanvasGroup *parent)
 					  "height_set", TRUE,
 					  NULL);
     xOffset += BUTTON_WIDTH+HORIZONTAL_SEPARATION;
-    gtk_signal_connect(GTK_OBJECT(oper_item[i]), "event", (GtkSignalFunc) item_event_oper, (void *) &(token_value[i*2+1]));
+    gtk_signal_connect(GTK_OBJECT(oper_item[i]), "event", (GtkSignalFunc) item_event_oper,
+		       GINT_TO_POINTER(&(token_value[i*2+1])) );
     token_value[i*2+1].isNumber = FALSE;
     token_value[i*2+1].isMoved = FALSE;
     token_value[i*2+1].oper = oper_values[i];

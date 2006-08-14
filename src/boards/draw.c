@@ -629,7 +629,7 @@ static void display_tool_selector(GnomeCanvasGroup *parent)
 
       gtk_signal_connect(GTK_OBJECT(item), "event",
 			 (GtkSignalFunc) tool_event,
-			 (void *)TOOL_SAVE);
+			 GINT_TO_POINTER(TOOL_SAVE) );
 
     }
   currentTool = TOOL_SAVE;
@@ -668,7 +668,7 @@ static void display_tool_selector(GnomeCanvasGroup *parent)
 
 	  gtk_signal_connect(GTK_OBJECT(item), "event",
 			     (GtkSignalFunc) tool_event,
-			     (void *)toolIndex);
+			     GINT_TO_POINTER(toolIndex));
 	}
     }
 }
