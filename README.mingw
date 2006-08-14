@@ -12,8 +12,6 @@ FIXME: http://sources.redhat.com/ml/cygwin/1999-05/msg00249.html
  * Download the "MinGW" installer exe and install into c:\mingw\ .
  * Download the "MSYS" and "MSYS Developer Toolkit" installer exes
    and install into c:\msys\ .
- * Copy the .profile file from the bottom of this document into
-   c:\msys\1.0\home\yourname\.profile .
  * if msvcrt.dll is not in your Windows/System folder, get it
    from http://www.simtel.net/simtel.net/win95/dll
    or by installing Internet Explorer 4.0 or higher
@@ -25,7 +23,7 @@ I installed each of the prerequisites in its own directory underneath
 c:\msys\1.0\opt\, so that (1) they're easy to blow away piece-by-piece
 to upgrade to newer versions, and (2) they show up as /opt/gtk, /opt/libxml,
 and so on from msys, which is reasonably clear.  If you choose a different
-hierarchy make sure to tweak your .profile.
+hierarchy make sure to tweak your Makefile.mingw.
 
 2.1 GTK
 =======
@@ -34,61 +32,48 @@ hierarchy make sure to tweak your .profile.
   and "GTK Development Environment" -- *IN THAT ORDER* --
   from http://sourceforge.net/projects/gtk-win/
   into c:\msys\1.0\opt\gtk
-* edit /opt/gtk/bin/glib-gettextize, replace "/target" with "/opt/gtk"
+* edit /opt/gtk/bin/glib-gettextize, replace "/target" with "/gtk"
 * sanity check: you should now be able to run gtk-demo.exe from msys.
 
 2.2 LIBXML2
 ===========
 + gcompris needs libxml2 to run.
 * Snag a tarball from ftp://xmlsoft.org/ and untar it in your msys home directory.
-* ./configure --prefix=/opt/libxml2; make; make install
-* edit /opt/libxml2/lib/pkgconfig/libxml-2.0.pc:
-  Add " -lws2_32 " to the end of the "Libs:" line.
-* Sanity check: "$ pkg-config --cflags libxml-2.0" should give meaningful output now.
-* Sanity check: "$ pkg-config --libs libxml-2.0" should also work, and include -lws2_32
+* ./configure --prefix=/libxml2; make; make install
+
+2.3 OTHER
+=========
+
+Look at the NEEDED_DLLS section in the Makefile.mingw and make sure you have all of those.
 
 2.6 PREREQUISITE SUMMARY
 ========================
 * At this point, you must have the following subdirectories:
-  + /opt/gtk
-  + /opt/libxml2
-* And, if you plan on building from CVS, you'll also need:
-  + /opt/gnome-common
+GTK_TOP :=		/gtk
+GNUWIN32_TOP :=		/gnuwin32
+LIBXML2_TOP :=		/libxml2
+SDL_TOP :=		/sdl
+CANVAS_TOP :=		/gnomecanvas
+GNUCHESS_TOP :=		/gnuchess
+
 
 3: BUILDING GCOMPRIS.EXE
 ========================
+* On a GNU/Linux system, create gcompris-win-prepack.tar.gz with:
+  make -f Makefile.mingw prep
 * Get a tarball or CVS snapshot of gcompris.
+* untar the gcompris-win-prepack.tar.gz in it
 * run make -f Makefile.mingw from gcompris's top-level directory.  This will take a long time.
-* copy an installed GCompris boards directory in win32-install-dir
-  /usr/local/share/gcompris/boards in win32-install-dir/share/gcompris/boards
-  /usr/local/share/assetml in win32-install-dir/share/assetml
-  /usr/local/share/locale in win32-install-dir/share/locale
-  /usr/local/share/pixmaps in win32-install-dir/share/pixmaps
-  Cleanup to have only GCompris specific file.
-* *drum roll...* make!
-* edit the Makefile.mingw manualy to add includes and library dependancies when missing
-* run ./gcompris.exe
+* run make -f Makefile.mingw prepack to include all necessary libraries in the installer directory
+* run make -f Makefile.mingw install to include the generated code in the installer directory
 
-APPENDIX: MY .profile
-=====================
+the win32-install-dir should contain anything needed to run and package GCompris.
 
-  # Life with MinGW
-  export CFLAGS="$CFLAGS -mwindows -mno-cygwin -mms-bitfields"
-  export CPPFLAGS="$CPPFLAGS -I/c/mingw/include -DWINDOWS -DWIN32"
-  export PATH="$PATH:/c/mingw/bin"
+* run make -f Makefile.make installer to create the installer
+  The installer used is NSIS get it there:
+  http://nsis.sourceforge.net/Main_Page
+  And install it in it's default /c/Program Files/NSIS/makensis.exe
 
-  # GTK
-  export GTK_HOME="/opt/gtk"
-  export CPPFLAGS="$CPPFLAGS -I$GTK_HOME/include"
-  export PATH="$GTK_HOME/bin:$GTK_HOME/lib:$PATH"
-  export PKG_CONFIG_PATH="$GTK_HOME/lib/pkgconfig:$PKG_CONFIG_PATH"
-  export ACLOCAL_FLAGS="$ACLOCAL_FLAGS -I $GTK_HOME/share/aclocal"
-  export LIBICONV="$GTK_HOME/lib/iconv.dll"
-
-  # LIBXML2
-  export LIBXML2_HOME="/opt/libxml2"
-  export PKG_CONFIG_PATH="$LIBXML2_HOME/lib/pkgconfig:$PKG_CONFIG_PATH"
-
-  echo "Loaded .profile..."
+The GCompris package is created, double click on it from your file manager to test it.
 
 

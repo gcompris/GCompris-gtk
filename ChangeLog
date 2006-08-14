@@ -1,3 +1,10 @@
+2006-08-14  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* README.mingw: Updated to reflect the current windows compilation process.
+	* src/boards/superbrain.c: (superbrain_create_item): fixed a warning and highly potential
+	  problem.
+	* src/gcompris/gameutil.c: (gcompris_find_absolute_filename): minor, fixed a debug warning
+
 2006-08-13  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	- Added support for relocation using http://autopackage.org/docs/binreloc/
@@ -23,7 +30,6 @@
 	* docs/C/Makefile.am:
 	* gcompris.desktop.in:
 	* gcompris.spec.in:
-	* po/lt.po:
 	* src/boards/advanced_colors.c: (init_xml):
 	* src/boards/clickgame.c: (clickgame_start), (load_random_pixmap):
 	* src/boards/draw.c: (tool_event):

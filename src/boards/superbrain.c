@@ -403,7 +403,7 @@ static GnomeCanvasItem *superbrain_create_item(GnomeCanvasGroup *parent)
       piece = g_new(Piece, 1);
       piece->listitem = g_list_alloc();
       piece->completed = FALSE;
-      g_list_append(listPieces, piece);
+      listPieces = g_list_append(listPieces, piece);
 
       piece->rootitem = GNOME_CANVAS_GROUP(
 					   gnome_canvas_item_new (parent,
@@ -454,7 +454,7 @@ static GnomeCanvasItem *superbrain_create_item(GnomeCanvasGroup *parent)
 					NULL);
 
 	  gnome_canvas_item_hide(item);
-	  g_list_append(piece->listitem, item);
+	  piece->listitem = g_list_append(piece->listitem, item);
 	  
 	  gtk_signal_connect(GTK_OBJECT(item), "event", (GtkSignalFunc) item_event, piece);
 	}
