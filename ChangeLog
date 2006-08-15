@@ -1,3 +1,37 @@
+2006-08-15  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	- Fixed default path search for platform not supported by binreloc
+	- removed x86-64 warning (all remaining ones I hope).
+	- Added "weight", PANGO_WEIGHT_HEAVY, in all dialogs for the title and
+	  ok button. It looks better.
+	- Fixed menu2 to lock the user board selection until the display is complete.
+	- Added support in gc_net_load_pixmap to also load local file. Thus I standartize
+	  on called this one which will make local or remote load depending on the url given.
+
+	* src/boards/click_on_letter.c: (click_on_letter_create_item):
+	* src/boards/gtans_callbacks.c: (on_rotation_clicked):
+	* src/boards/menu2.c: (display_section), (item_event),
+	(display_welcome):
+	* src/boards/money_widget.c: (money_display_total):
+	* src/boards/smallnumbers.c: (key_press):
+	* src/boards/target.c: (key_press), (display_windspeed),
+	(target_create_item), (request_score):
+	* src/gcompris/about.c: (gcompris_about_start):
+	* src/gcompris/bar.c: (item_event_bar):
+	* src/gcompris/config.c: (gcompris_config_start),
+	(set_locale_flag), (item_event_ok):
+	* src/gcompris/gameutil.c: (gcompris_load_pixmap),
+	(gcompris_dialog), (gcompris_find_absolute_filename):
+	* src/gcompris/gc_net.c: (my_strcmp), (gc_net_init),
+	(gc_net_load_pixmap), (gc_net_get_url_from_file), (gc_net_is_url):
+	* src/gcompris/gc_net.h:
+	* src/gcompris/gcompris.c: (setup_window), (load_properties),
+	(gcompris_init):
+	* src/gcompris/help.c: (gcompris_help_start):
+	* src/gcompris/skin.c: (gcompris_image_to_skin):
+	* src/gcompris/timer.c: (gcompris_timer_display),
+	(timer_increment):
+
 2006-08-14  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	- Fixed compilation warnings and potential bugs for x86-64.

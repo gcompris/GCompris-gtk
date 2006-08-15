@@ -1,6 +1,6 @@
 /* gcompris - config.c
  *
- * Time-stamp: <2006/08/13 17:20:28 bruno>
+ * Time-stamp: <2006/08/15 03:53:37 bruno>
  *
  * Copyright (C) 2000-2003 Bruno Coudoin
  *
@@ -190,6 +190,7 @@ void gcompris_config_start ()
 			 "y", (double) y_start + 40 + 1.0,
 			 "anchor", GTK_ANCHOR_CENTER,
 			 "fill_color_rgba", gcompris_skin_color_shadow,
+			 "weight", PANGO_WEIGHT_HEAVY,
 			 NULL);
   gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 			 gnome_canvas_text_get_type (),
@@ -199,6 +200,7 @@ void gcompris_config_start ()
 			 "y", (double) y_start + 40,
 			 "anchor", GTK_ANCHOR_CENTER,
 			 "fill_color_rgba", gcompris_skin_color_title,
+			 "weight", PANGO_WEIGHT_HEAVY,
 			 NULL);
 
   pixmap_checked   = gcompris_load_skin_pixmap("button_checked.png");
@@ -368,13 +370,14 @@ void gcompris_config_start ()
     guint  i;
     GDir  *dir;
     gchar *skin_dir;
+    gchar *first_skin_name;
 
     /* Load the Pixpmaps directory file names */
     skin_dir = g_strconcat(properties->package_data_dir, "/skins", NULL);
     dir = g_dir_open(skin_dir, 0, NULL);
 
     if (!dir)
-      g_error (_("Couldn't open skin dir: %s"), skin_dir);
+      g_warning (_("Couldn't open skin dir: %s"), skin_dir);
 
     /* Fill up the skin list */
     while((one_dirent = g_dir_read_name(dir)) != NULL) {
@@ -393,11 +396,6 @@ void gcompris_config_start ()
     }
     g_dir_close(dir);
 
-    /* Should not happen. It the user found the config, there should be a skin */
-    if(g_list_length(skinlist) == 0) {
-      g_warning( "No skin found in %s\n", skin_dir);
-    }
-
     g_free(skin_dir);
 
     /* Find the current skin index */
@@ -408,18 +406,25 @@ void gcompris_config_start ()
 
     y_start += Y_GAP;
 
-    display_previous_next(x_start, y_start, "skin_previous", "skin_next");
+    /* Should not happen. It the user found the config, there should be a skin */
+    if(g_list_length(skinlist) > 0) {
+      g_warning("No skin found in %s\n", skin_dir);
+      display_previous_next(x_start, y_start, "skin_previous", "skin_next");
+      first_skin_name = g_strdup_printf(_("Skin : %s"), (char *)g_list_nth_data(skinlist, skin_index));
+    } else {
+      first_skin_name = g_strdup(_("SKINS NOT FOUND"));
+    }
 
     item_skin_text = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 					    gnome_canvas_text_get_type (),
-					    "text", g_strdup_printf(_("Skin : %s"), 
-								    (char *)g_list_nth_data(skinlist, skin_index)),
+					    "text", first_skin_name,
 					    "font", gcompris_skin_font_subtitle,
 					    "x", (double) x_text_start,
 					    "y", (double) y_start,
 					    "anchor", GTK_ANCHOR_WEST,
 					    "fill_color_rgba", gcompris_skin_color_content,
 					    NULL);
+    g_free(first_skin_name);
   }
 
   // Difficulty Filter
@@ -465,16 +470,18 @@ void gcompris_config_start ()
 			 "y", (double)  y - gdk_pixbuf_get_height(pixmap) + 20 + 1.0,
 			 "anchor", GTK_ANCHOR_CENTER,
 			 "fill_color_rgba", gcompris_skin_color_shadow,
+			 "weight", PANGO_WEIGHT_HEAVY,
 			 NULL);
   item2 = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
-				gnome_canvas_text_get_type (),
-				"text", _("OK"),
-				"font", gcompris_skin_font_title,
-				"x", (double)  BOARDWIDTH*0.5,
-				"y", (double)  y - gdk_pixbuf_get_height(pixmap) + 20,
-				"anchor", GTK_ANCHOR_CENTER,
-				"fill_color_rgba", gcompris_skin_color_text_button,
-				NULL);
+				 gnome_canvas_text_get_type (),
+				 "text", _("OK"),
+				 "font", gcompris_skin_font_title,
+				 "x", (double)  BOARDWIDTH*0.5,
+				 "y", (double)  y - gdk_pixbuf_get_height(pixmap) + 20,
+				 "anchor", GTK_ANCHOR_CENTER,
+				 "fill_color_rgba", gcompris_skin_color_text_button,
+				 "weight", PANGO_WEIGHT_HEAVY,
+				 NULL);
   gtk_signal_connect(GTK_OBJECT(item2), "event",
 		     (GtkSignalFunc) item_event_ok,
 		     "ok");
@@ -586,7 +593,7 @@ static void set_locale_flag(gchar *locale)
 
   if(filename)
     {
-      pixmap = gdk_pixbuf_new_from_file (filename, NULL);
+      pixmap = gc_net_load_pixmap(filename);
 
       gnome_canvas_item_set (item_locale_flag,
 			     "pixbuf", pixmap,
@@ -824,24 +831,30 @@ item_event_ok(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 	}
       else if(!strcmp((char *)data, "skin_previous"))
 	{
+	  gchar *skin_str;
 	  if(skin_index-- < 1)
 	    skin_index = g_list_length(skinlist)-1;
 
-	  gnome_canvas_item_set (item_skin_text,
-				 "text", g_strdup_printf(_("Skin : %s"), 
-							 (char *)g_list_nth_data(skinlist, skin_index)),
-				 NULL);
+	  skin_str = g_strdup_printf(_("Skin : %s"), 
+				     (char *)g_list_nth_data(skinlist, skin_index));
 
+	  gnome_canvas_item_set (item_skin_text,
+				 "text", skin_str,
+				 NULL);
+	  g_free(skin_str);
 	}
       else if(!strcmp((char *)data, "skin_next"))
 	{
+	  gchar *skin_str;
 	  if(skin_index++ >= g_list_length(skinlist)-1)
 	    skin_index = 0;
 
+	  skin_str = g_strdup_printf(_("Skin : %s"), 
+				     (char *)g_list_nth_data(skinlist, skin_index));
 	  gnome_canvas_item_set (item_skin_text,
-				 "text", g_strdup_printf(_("Skin : %s"), 
-							 (char *)g_list_nth_data(skinlist, skin_index)),
+				 "text", skin_str,
 				 NULL);
+	  g_free(skin_str);
 	}
     default:
       break;

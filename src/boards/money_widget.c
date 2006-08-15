@@ -223,12 +223,15 @@ money_widget_set_position (Money_Widget *moneyWidget,
 
 static void money_display_total(Money_Widget *moneyWidget)
 {
+  gchar *tmpstr;
   g_return_if_fail (moneyWidget != NULL);
 
+  tmpstr = g_strdup_printf("%.2f €", moneyWidget->priv->total);
   if(moneyWidget->priv->display_total)
     gnome_canvas_item_set (moneyWidget->priv->item_total,
-			   "text", g_strdup_printf("%.2f €", moneyWidget->priv->total),
+			   "text", tmpstr,
 			   NULL);
+  g_free(tmpstr);
   
 }
 

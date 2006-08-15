@@ -58,7 +58,7 @@ gchar* gcompris_skin_font_board_huge_bold;
  */
 gchar *gcompris_image_to_skin(gchar *pixmapfile)
 {
-  GcomprisProperties	*properties = gcompris_get_properties();
+  GcomprisProperties *properties = gcompris_get_properties();
   gchar *filename;
 
   /* First, test if pixmapfile is in the current skin dir */
@@ -73,6 +73,12 @@ gchar *gcompris_image_to_skin(gchar *pixmapfile)
 
     return(filename);
   }
+  g_free(filename);
+
+  /* Check it's on the server */
+  filename = gc_net_get_url_from_file("boards/skins/%s/%s", properties->skin, pixmapfile);
+  if(filename)
+    return(filename);
 
   /* Return the default skin dir */
   filename = g_strdup_printf("skins/%s/%s", DEFAULT_SKIN, pixmapfile);

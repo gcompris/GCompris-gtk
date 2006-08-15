@@ -81,9 +81,9 @@ static gint board_widget_key_press_callback (GtkWidget   *widget,
 					    gpointer     client_data);
 void gcompris_terminate(int  signum);
 
-GcomprisProperties	*properties = NULL;
-static gboolean		 antialiased = FALSE;
-static gboolean		 is_mapped = FALSE;
+static GcomprisProperties *properties = NULL;
+static gboolean		   antialiased = FALSE;
+static gboolean		   is_mapped = FALSE;
 
 /****************************************************************************/
 /* Some constants.  */
@@ -123,60 +123,91 @@ static int  popt_no_quit	   = FALSE;
 static int  popt_no_config         = FALSE;
 static int  popt_display_resource  = FALSE;
 static char *popt_server            = NULL;
+static int  *popt_web_only          = NULL;
 
 static struct poptOption options[] = {
   {"fullscreen", 'f', POPT_ARG_NONE, &popt_fullscreen, 0,
    N_("run gcompris in fullscreen mode."), NULL},
+
   {"window", 'w', POPT_ARG_NONE, &popt_window, 0,
    N_("run gcompris in window mode."), NULL},
+
   {"sound", 's', POPT_ARG_NONE, &popt_sound, 0,
    N_("run gcompris with sound enabled."), NULL},
+
   {"mute", 'm', POPT_ARG_NONE, &popt_mute, 0,
    N_("run gcompris without sound."), NULL},
+
   {"cursor", 'c', POPT_ARG_NONE, &popt_cursor, 0,
    N_("run gcompris with the default gnome cursor."), NULL},
+
   {"difficulty", 'd', POPT_ARG_INT, &popt_difficulty_filter, 0,
    N_("display only activities with this difficulty level."), NULL},
+
   {"debug", 'D', POPT_ARG_NONE, &popt_debug, 0,
    N_("display debug informations on the console."), NULL},
+
   {"version", 'v', POPT_ARG_NONE, &popt_version, 0,
    N_("Print the version of " PACKAGE), NULL},
+
   {"antialiased", '\0', POPT_ARG_NONE, &popt_aalias, 0,
    N_("Use the antialiased canvas (slower)."), NULL},
+
   {"noxf86vm", 'x', POPT_ARG_NONE, &popt_noxf86vm, 0,
    N_("Disable XF86VidMode (No screen resolution change)."), NULL},
+
   {"root-menu", 'l', POPT_ARG_STRING, &popt_root_menu, 0,
    N_("Run gcompris with local menu (e.g -l /reading will let you play only activities in the reading directory, -l /boards/connect4 only the connect4 activity)"), NULL},
+
   {"local-activity", 'L', POPT_ARG_STRING, &popt_local_activity, 0,
    N_("Run GCompris with local activity directory added to menu"), NULL},
+
   {"administration", 'a', POPT_ARG_NONE, &popt_administration, 0,
    N_("Run GCompris in administration and user-management mode"), NULL},
+
   {"database", 'b', POPT_ARG_STRING, &popt_database, 0,
    N_("Use alternate database for profiles"), NULL},
+
   {"logs", 'j', POPT_ARG_STRING, &popt_logs_database, 0,
    N_("Use alternate database for logs"), NULL},
+
   {"create-db",'\0', POPT_ARG_NONE, &popt_create_db, 0,
    N_("Create the alternate database for profiles"), NULL},
+
   {"reread-menu",'\0', POPT_ARG_NONE, &popt_reread_menu, 0,
    N_("Re-read XML Menus and store them in the database"), NULL},
+
   {"profile",'p', POPT_ARG_STRING, &popt_profile, 0,
    N_("Set the profile to use. Use 'gcompris -a' to create profiles"), NULL},
+
   {"profile-list",'\0', POPT_ARG_NONE, &popt_profile_list, 0,
    N_("List all available profiles. Use 'gcompris -a' to create profiles"), NULL},
+
   {"shared-dir",'\0', POPT_ARG_STRING, &popt_shared_dir, 0,
    N_("Shared directory location, for profiles and board-configuration data: [$HOME/.gcompris/shared]"), NULL},
+
   {"users-dir",'\0', POPT_ARG_STRING, &popt_users_dir, 0,
    N_("The location of user directories: [$HOME/.gcompris/users]"), NULL},
+
   {"experimental",'\0', POPT_ARG_NONE, &popt_experimental, 0,
    N_("Run the experimental activities"), NULL},
+
   {"disable-quit",'\0', POPT_ARG_NONE, &popt_no_quit, 0,
    N_("Disable the quit button"), NULL},
+
   {"disable-config",'\0', POPT_ARG_NONE, &popt_no_config, 0,
    N_("Disable the config button"), NULL},
+
   {"display-resource",'\0', POPT_ARG_NONE, &popt_display_resource, 0,
    N_("Display the resources on stdout based on the selected activities"), NULL},
+
   {"server", '\0', POPT_ARG_STRING, &popt_server, 0,
-   N_("GCompris will get images, sounds and activity data from this server if not found locally. To use the default server, set this value to 'gcompris.net'"), NULL},
+   N_("GCompris will get images, sounds and activity data from this server if not found locally."\
+      "To use the default server, set this value to 'gcompris.net'"), NULL},
+
+  {"web-only", '\0', POPT_ARG_NONE, &popt_web_only, 0,
+   N_("Only when --server is provided, disable check for local resource first."
+      "Data are always taken from the web server."), NULL},
 #ifndef WIN32	/* Not supported on windows */
   POPT_AUTOHELP
 #endif
@@ -628,7 +659,6 @@ static void setup_window ()
 {
   GcomprisBoard *board_to_start;
   GdkPixbuf     *gcompris_icon_pixbuf;
-  GError        *error = NULL;
   gchar         *icon_file;
 
   window = gtk_window_new (GTK_WINDOW_TOPLEVEL);
@@ -639,14 +669,18 @@ static void setup_window ()
    */
   icon_file = g_strconcat(properties->system_icon_dir, "/gcompris.png", NULL);
   if (!g_file_test (icon_file, G_FILE_TEST_EXISTS)) {
-      g_warning ("Couldn't find file %s !", icon_file);
+      /* Now check if this file is on the net */
+      icon_file = gc_net_get_url_from_file("gcompris.png", NULL);
   }
-  gcompris_icon_pixbuf = gdk_pixbuf_new_from_file (icon_file, &error);
+
+  if(!icon_file)
+      g_warning ("Couldn't find file %s !", icon_file);
+
+  gcompris_icon_pixbuf = gc_net_load_pixmap(icon_file);
   if (!gcompris_icon_pixbuf)
     {
-      g_warning ("Failed to load pixbuf file: %s: %s\n",
-               icon_file, error->message);
-      g_error_free (error);
+      g_warning ("Failed to load pixbuf file: %s\n",
+               icon_file);
     }
   g_free(icon_file);
 
@@ -985,15 +1019,16 @@ static void load_properties ()
     }
   else
     {
-      properties->package_data_dir = g_strconcat(gbr_find_data_dir(PACKAGE_DATA_DIR),
-						 "/gcompris/boards", NULL);
+      gchar *pkg_data_dir = gbr_find_data_dir(PACKAGE_DATA_DIR);
+      gchar *pkg_plugin_dir = gbr_find_lib_dir(PACKAGE_DATA_DIR "/lib/gcompris");
+
+      properties->package_data_dir = g_strconcat(pkg_data_dir, "/gcompris/boards", NULL);
       properties->package_locale_dir = gbr_find_locale_dir(PACKAGE_LOCALE_DIR);
-      properties->package_plugin_dir = g_strconcat(gbr_find_lib_dir(PACKAGE_DATA_DIR),
-						   "/gcompris", NULL);
-      properties->package_python_plugin_dir = g_strconcat(gbr_find_data_dir(PACKAGE_DATA_DIR),
-							  "/gcompris/python", NULL);
-      properties->system_icon_dir = g_strconcat(gbr_find_data_dir(PACKAGE_DATA_DIR),
-							  "/pixmap", NULL);
+      properties->package_plugin_dir = g_strconcat(pkg_plugin_dir, "/gcompris", NULL);
+      properties->package_python_plugin_dir = g_strconcat(pkg_data_dir, "/gcompris/python", NULL);
+      properties->system_icon_dir = g_strconcat(pkg_data_dir, "/pixmaps", NULL);
+      g_free(pkg_data_dir);
+      g_free(pkg_plugin_dir);
     }
   g_free(tmpstr);
   g_free(prefix_dir);
@@ -1521,6 +1556,15 @@ gcompris_init (int argc, char *argv[])
       properties->server = g_strdup(popt_server);
   }
 
+  if(popt_web_only) {
+    g_free(properties->package_data_dir);
+    properties->package_data_dir = "";
+
+    g_free(properties->system_icon_dir);
+    properties->system_icon_dir = "";
+  }
+
+
   /*
    * Database init MUST BE after properties
    * And after a possible alternate database as been provided
@@ -1555,25 +1599,6 @@ gcompris_init (int argc, char *argv[])
       }
 
     g_list_free(profile_list);
-
-/*     g_warning("Wordlist test"); */
-
-/*     GcomprisWordlist *wl = gcompris_get_wordlist_from_file("default-fr"); */
-
-/*     GList *lev_list, *words, *list; */
-
-/*     lev_list = wl->levels_words; */
-
-/*     for (list = lev_list; list != NULL; list = list->next){ */
-/*       LevelWordlist *lw = list->data; */
-
-/*       g_warning("Level : %d", lw->level); */
-
-/*       for (words = lw->words; words != NULL; words = words->next) */
-/* 	g_warning("%s", (gchar *)words->data); */
-/*     } */
-
-/*     gcompris_wordlist_free(wl); */
 
     exit(0);
   }

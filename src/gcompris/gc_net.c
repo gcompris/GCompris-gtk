@@ -1,4 +1,4 @@
-/* gcompris - gc_net.c
+/* gcompris - gameutil_net.c
  *
  * Time-stamp: <2006/07/10 01:24:04 bruno>
  *
@@ -25,18 +25,70 @@
 #include <gnet.h>
 #endif
 
-/*
- * Init the network library, must be called once before using it
+/* FIXME: Should not be needed, a bug in gnet header ? */
+gboolean         gnet_http_get                     (const gchar      *url,
+                                                    gchar           **buffer,
+                                                    gsize            *length,
+                                                    guint            *response);
+
+#include <string.h>
+
+#ifdef USE_GNET
+static GSList *server_content_list = NULL;
+#define	SUPPORT_OR_RETURN(rv)	{if(!gcompris_get_properties()->server) return rv;}
+#else
+#define	SUPPORT_OR_RETURN(rv)	{ return rv; }
+#endif
+
+
+static inline int my_strcmp(gchar *a, gchar *b) { return strcmp( a, b); }
+
+/** Init the network library, must be called once before using it
+ *
  */
 void gc_net_init()
 {
+  SUPPORT_OR_RETURN();
+
 }
 
-/*
- * load a pixmap from the network
- * pixmapfile is given relative to PACKAGE_DATA_DIR
+/** Load a pixmap from the network
+ *
+ * \param pixmapfile : a full URL to the file to load as an image
+ *                     in case a local file is given, it will be loaded.
+ * \return a GdkPixbuf or NULL
  */
-GdkPixbuf *gc_net_load_pixmap(char *pixmapfile)
+GdkPixbuf *gc_net_load_pixmap(const char *url)
 {
-  return NULL;
+  if(!gc_net_is_url(url))
+    return(gdk_pixbuf_new_from_file (url, NULL));
+
+  SUPPORT_OR_RETURN(NULL);
+
+}
+
+/** return an absolute URL if the given file is part of the file available on our server
+ *
+ * \param file: the file to check
+ * \return: a newly allocated URL or NULL
+ */
+gchar *
+gc_net_get_url_from_file(const gchar *format, ...)
+{
+  SUPPORT_OR_RETURN(NULL);
+
+}
+
+/** return TRUE if the url starts with http://
+ *
+ * \param url: an url to check
+ * \return TRUE is the url starts with 'http://'
+ */
+gboolean
+gc_net_is_url(const gchar *url)
+{
+  if( !url || strncmp(url, "http://", 7) )
+    return FALSE;
+
+  return TRUE;
 }

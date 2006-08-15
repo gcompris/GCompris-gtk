@@ -281,9 +281,13 @@ static gint key_press(guint keyval, gchar *commit_str, gchar *preedit_str)
     }
 
   if(answer_item)
-    gnome_canvas_item_set(answer_item,
-			  "text", g_strdup_printf(_("Points = %s"), answer_string),
-			  NULL);
+    {
+      gchar *tmpstr = g_strdup_printf(_("Points = %s"), answer_string);
+      gnome_canvas_item_set(answer_item,
+			    "text", tmpstr,
+			    NULL);
+      g_free(tmpstr);
+    }
 
   return TRUE;
 }
@@ -347,7 +351,7 @@ static void display_windspeed()
 {
   guint second = 0;
   guint needle_zoom = 15;
-
+  gchar *tmpstr;
   GnomeCanvasPoints *canvasPoints;
   canvasPoints = gnome_canvas_points_new (2);
 
@@ -400,15 +404,17 @@ static void display_windspeed()
 			 "width_units", (double)1,
 			 NULL);
 
+  tmpstr = g_strdup_printf(_("Wind speed = %d\nkilometers/hour"), (guint)wind_speed);
   gnome_canvas_item_new (speedRootItem,
 			 gnome_canvas_text_get_type (),
-			 "text", g_strdup_printf(_("Wind speed = %d\nkilometers/hour"), (guint)wind_speed),
+			 "text", tmpstr,
 			 "font", gcompris_skin_font_board_medium,
 			 "x", (double) SPEED_CENTER_X,
 			 "y", (double) SPEED_CENTER_Y + 110,
 			 "anchor", GTK_ANCHOR_CENTER,
 			 "fill_color", "white",
 			 NULL);
+  g_free(tmpstr);
 
 }
 
@@ -418,6 +424,7 @@ static void display_windspeed()
 static GnomeCanvasItem *target_create_item(GnomeCanvasGroup *parent)
 {
   int i;
+  gchar *tmpstr;
   GnomeCanvasItem *item = NULL;
 
   boardRootItem = GNOME_CANVAS_GROUP(
@@ -445,16 +452,18 @@ static GnomeCanvasItem *target_create_item(GnomeCanvasGroup *parent)
 	  gtk_signal_connect(GTK_OBJECT(item), "event", (GtkSignalFunc) item_event, NULL);
 	  
 	  /* Display the value for this target */
+	  tmpstr = g_strdup_printf("%d",
+				   targetDefinition[gcomprisBoard->level-1].target_width_value[i*2+1]);
 	  item = gnome_canvas_item_new (boardRootItem,
 					gnome_canvas_text_get_type (),
-					"text", g_strdup_printf("%d", 
-								targetDefinition[gcomprisBoard->level-1].target_width_value[i*2+1]),
+					"text", tmpstr,
 					"font", gcompris_skin_font_board_medium,
 					"x", (double) 0,
 					"y", (double) targetDefinition[gcomprisBoard->level-1].target_width_value[i*2] - 10,
 					"anchor", GTK_ANCHOR_CENTER,
 					"fill_color", "white",
 					NULL);
+	  g_free(tmpstr);
 	  
 	  gtk_signal_connect(GTK_OBJECT(item), "event", (GtkSignalFunc) item_event, NULL);
 	}
@@ -462,16 +471,18 @@ static GnomeCanvasItem *target_create_item(GnomeCanvasGroup *parent)
 
   number_of_arrow = targetDefinition[gcomprisBoard->level-1].number_of_arrow;
 
+  tmpstr = g_strdup_printf(_("Distance to target = %d meters"),
+			   targetDefinition[gcomprisBoard->level-1].target_distance);
   gnome_canvas_item_new (boardRootItem,
 			 gnome_canvas_text_get_type (),
-			 "text", g_strdup_printf(_("Distance to target = %d meters"), 
-						 targetDefinition[gcomprisBoard->level-1].target_distance),
+			 "text", tmpstr,
 			 "font", gcompris_skin_font_board_medium,
 			 "x", (double) 0,
 			 "y", (double) BOARDHEIGHT-TARGET_CENTER_Y -45,
 			 "anchor", GTK_ANCHOR_CENTER,
 			 "fill_color", "white",
 			 NULL);
+  g_free(tmpstr);
 
   display_windspeed();
 
@@ -525,6 +536,7 @@ static void request_score()
   GdkPixbuf *button_pixmap = NULL;
   double y_offset = 160;
   double x_offset = 245;
+  gchar *tmpstr;
 
   gcompris_bar_set(GCOMPRIS_BAR_LEVEL|GCOMPRIS_BAR_OK);
   button_pixmap = gcompris_load_skin_pixmap("button_large2.png");
@@ -535,15 +547,17 @@ static void request_score()
 			 "y", y_offset,
 			 NULL);
 
+  tmpstr =  g_strdup_printf(_("Points = %s"), "");
   answer_item = gnome_canvas_item_new (boardRootItem,
 				       gnome_canvas_text_get_type (),
-				       "text", g_strdup_printf(_("Points = %s"), ""),
+				       "text", tmpstr,
 				       "font", gcompris_skin_font_board_title_bold,
 				       "x", (double) x_offset + gdk_pixbuf_get_width(button_pixmap)/2,
 				       "y", (double) y_offset + gdk_pixbuf_get_height(button_pixmap)/2,
 				       "anchor", GTK_ANCHOR_CENTER,
 				       "fill_color", "white",
 				       NULL);
+  g_free(tmpstr);
 
   gdk_pixbuf_unref(button_pixmap);
 }

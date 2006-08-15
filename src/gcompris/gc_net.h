@@ -33,6 +33,8 @@
 #define GCOMPRIS_BASE_URL "http://gcompris.net/gcompris"
 
 void gc_net_init();
-GdkPixbuf *gc_net_load_pixmap(char *pixmapfile);
+GdkPixbuf *gc_net_load_pixmap(const char *url);
+gchar * gc_net_get_url_from_file(const gchar *format, ...);
+gboolean gc_net_is_url(const char *url);
 
 #endif

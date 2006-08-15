@@ -1,6 +1,6 @@
 /* gcompris - menu2.c
  *
- * Time-stamp: <2006/08/12 02:59:38 bruno>
+ * Time-stamp: <2006/08/15 02:27:54 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -46,6 +46,9 @@ static MenuItems *menuitems;
 
 static GcomprisBoard *gcomprisBoard = NULL;
 static gboolean board_paused = TRUE;
+
+/* We don't wan't the callback on boards to be accepted until the menu is fully displayed */
+static gboolean menu_displayed = FALSE;
 
 static void		 menu_start (GcomprisBoard *agcomprisBoard);
 static void		 menu_pause (gboolean pause);
@@ -341,6 +344,8 @@ static void display_section (gchar *path)
 {
       GList		*boardlist;	/* List of Board */
 
+      menu_displayed = FALSE;
+
       boardlist = gcompris_get_menulist(path);
 
       if (actualSectionItem)
@@ -366,6 +371,7 @@ static void display_section (gchar *path)
       if (strcmp(path,"home")!=0)
 	g_list_free(boardlist);
 
+      menu_displayed = TRUE;
 }
 
 static void
@@ -642,22 +648,25 @@ item_event(GnomeCanvasItem *item, GdkEvent *event,  MenuItems *menuitems)
 
       break;
     case GDK_BUTTON_PRESS:
-	gcompris_play_ogg ("sounds/gobble.ogg", NULL);
+      if(!menu_displayed)
+	return TRUE;
 	
-	if (strcmp(board->type,"menu")==0){
-	  gchar *path = g_strdup_printf("%s/%s",board->section, board->name);
-	  GcomprisProperties	*properties = gcompris_get_properties();
+      gcompris_play_ogg ("sounds/gobble.ogg", NULL);
+	
+      if (strcmp(board->type,"menu")==0){
+	gchar *path = g_strdup_printf("%s/%s",board->section, board->name);
+	GcomprisProperties	*properties = gcompris_get_properties();
 
-	  display_section(path);
+	display_section(path);
 
-	  if (properties->menu_position)
-	    g_free(properties->menu_position);
+	if (properties->menu_position)
+	  g_free(properties->menu_position);
 
-	  properties->menu_position = path;
+	properties->menu_position = path;
   
-	}
-	else
-	  board_run_next (board);
+      }
+      else
+	board_run_next (board);
 	
       break;
 
@@ -953,7 +962,8 @@ static void create_top(GnomeCanvasGroup *parent, gchar *path)
   
 }
 
-static void              display_welcome (void)
+static void
+display_welcome (void)
 {
   GnomeCanvasItem *logo;
   GdkPixbuf *pixmap;
@@ -1009,6 +1019,7 @@ static void              display_welcome (void)
 			   "text", "",
 			   NULL);
   
+  menu_displayed = TRUE;
 }
 
 static void

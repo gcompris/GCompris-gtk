@@ -1,6 +1,6 @@
 /* gcompris - gameutil.c
  *
- * Time-stamp: <2006/08/14 02:30:53 bruno>
+ * Time-stamp: <2006/08/15 04:27:21 bruno>
  *
  * Copyright (C) 2000-2006 Bruno Coudoin
  *
@@ -63,34 +63,30 @@ GdkPixbuf *gcompris_load_pixmap(char *pixmapfile)
   /* Search */
   filename = gcompris_find_absolute_filename(pixmapfile);
 
-  if (!filename)
+  if(filename)
+    pixmap = gc_net_load_pixmap(filename);
+
+  if (!filename || !pixmap)
     {
-      pixmap = gc_net_load_pixmap(pixmapfile);
+      char *str;
 
       if(!pixmap)
-	{
-	  char *str;
-	  g_warning ("Couldn't find file %s !", pixmapfile);
+	g_warning("Loading image '%s' returned a null pointer", filename);
+      else
+	g_warning ("Couldn't find file %s !", pixmapfile);
 
-	  str = g_strdup_printf("%s\n%s\n%s\n%s", 
-				_("Couldn't find file"), 
-				pixmapfile,
-				_("This activity is incomplete."),
-				_("Exit it and report\nthe problem to the authors."));
-	  gcompris_dialog (str, NULL);
-	  g_free(str);
-	  return NULL;
-	}
-    }
-  else
-    {
-      pixmap = gdk_pixbuf_new_from_file (filename, NULL);
+      str = g_strdup_printf("%s\n%s\n%s\n%s", 
+			    _("Couldn't find or load the file"),
+			    pixmapfile,
+			    _("This activity is incomplete."),
+			    _("Exit it and report\nthe problem to the authors."));
+      gcompris_dialog (str, NULL);
+      g_free(str);
+      return NULL;
     }
 
   g_free(filename);
 
-  if(!pixmap)
-    g_warning("Loading image '%s' returned a null pointer", filename);
 
   return(pixmap);
 }
@@ -1072,14 +1068,15 @@ void gcompris_dialog(gchar *str, DialogBoxCallBack dbcb)
 
   /* OK Text */
   item_text_ok = gnome_canvas_item_new (rootDialogItem,
-				gnome_canvas_text_get_type (),
-				"text", _("OK"),
-				"font", gcompris_skin_font_title,
-				"x", (double)  BOARDWIDTH*0.5,
-				"y", (double)  (BOARDHEIGHT - gdk_pixbuf_get_height(pixmap_dialog))/2 +
+					gnome_canvas_text_get_type (),
+					"text", _("OK"),
+					"font", gcompris_skin_font_title,
+					"x", (double)  BOARDWIDTH*0.5,
+					"y", (double)  (BOARDHEIGHT - gdk_pixbuf_get_height(pixmap_dialog))/2 +
 					gdk_pixbuf_get_height(pixmap_dialog) - 35,
-				"anchor", GTK_ANCHOR_CENTER,
-				"fill_color_rgba", gcompris_skin_color_text_button,
+					"anchor", GTK_ANCHOR_CENTER,
+					"fill_color_rgba", gcompris_skin_color_text_button,
+					"weight", PANGO_WEIGHT_HEAVY,
 				NULL);
 
   gdk_pixbuf_unref(pixmap_dialog);
@@ -1243,8 +1240,6 @@ gcompris_find_absolute_filename(const gchar *format, ...)
   if (!format)
     return NULL;
 
-  g_warning("format '%s'", format);
-
   va_start (args, format);
   filename = g_strdup_vprintf (format, args);
   va_end (args);
@@ -1252,8 +1247,9 @@ gcompris_find_absolute_filename(const gchar *format, ...)
   g_warning("filename '%s'", filename);
 
   /* Check it's already an absolute file */
-  if(g_path_is_absolute (filename) &&
-     g_file_test (filename, G_FILE_TEST_EXISTS))
+  if( ((g_path_is_absolute (filename) &&
+	g_file_test (filename, G_FILE_TEST_EXISTS))
+       || gc_net_is_url(filename)) )
     {
       return filename;
     }
@@ -1288,11 +1284,19 @@ gcompris_find_absolute_filename(const gchar *format, ...)
 	  g_strlcpy(locale, gcompris_get_locale(), sizeof(locale));
 	  filename2 = g_strjoinv(locale, tmp);
 	  absolute_filename = g_strdup_printf("%s/%s", dir_to_search[i], filename2);
-	  g_free(filename2);
 	  g_warning("1>>>> trying %s\n", absolute_filename);
 	  if(g_file_test (absolute_filename, G_FILE_TEST_EXISTS))
 	    {
 	      g_strfreev(tmp);
+	      g_free(filename2);
+	      goto FOUND;
+	    }
+
+	  /* Now check if this file is on the net */
+	  if((absolute_filename = gc_net_get_url_from_file("boards/%s", filename2, NULL)))
+	    {
+	      g_strfreev(tmp);
+	      g_free(filename2);
 	      goto FOUND;
 	    }
 
@@ -1303,20 +1307,36 @@ gcompris_find_absolute_filename(const gchar *format, ...)
 	      filename2 = g_strjoinv(locale, tmp);
 	      g_strfreev(tmp);
 	      absolute_filename = g_strdup_printf("%s/%s", dir_to_search[i], filename2);
-	      g_free(filename2);
 	      g_warning("2>>>> trying %s\n", absolute_filename);
 	      if(g_file_test (absolute_filename, G_FILE_TEST_EXISTS))
-		goto FOUND;
+		{
+		  g_free(filename2);
+		  goto FOUND;
+		}
+
+	      /* Now check if this file is on the net */
+	      if((absolute_filename = gc_net_get_url_from_file("boards/%s", filename2, NULL)))
+		{
+		  g_free(filename2);
+		  goto FOUND;
+		}
+
+
 	    }
 	}
       else
 	{
 	  absolute_filename = g_strdup_printf("%s/%s", dir_to_search[i], filename);
+
+	  if(g_file_test (absolute_filename, G_FILE_TEST_EXISTS))
+	    goto FOUND;
+
+	  /* Now check if this file is on the net */
+	  if((absolute_filename = gc_net_get_url_from_file("boards/%s", filename, NULL)))
+	    goto FOUND;
 	}
 
       i++;
-      if(g_file_test (absolute_filename, G_FILE_TEST_EXISTS))
-	goto FOUND;
     }
     
   g_free(filename);

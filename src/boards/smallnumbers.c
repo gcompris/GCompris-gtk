@@ -1,6 +1,6 @@
 /* gcompris - smallnumbers.c
  *
- * Time-stamp: <2006/08/12 03:05:21 bruno>
+ * Time-stamp: <2006/08/15 11:09:04 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  * 
@@ -244,7 +244,8 @@ static gint key_press(guint keyval, gchar *commit_str, gchar *preedit_str)
   keyval = atoi(str);
 
   g_list_foreach(GNOME_CANVAS_GROUP(boardRootItem)->item_list, 
-		 (GFunc) smallnumbers_gotkey_item, (void *)keyval);
+		 (GFunc) smallnumbers_gotkey_item,
+		 GINT_TO_POINTER(keyval));
 
   return TRUE;
 }

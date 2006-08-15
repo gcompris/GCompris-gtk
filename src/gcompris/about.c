@@ -1,6 +1,6 @@
 /* gcompris - about.c
  *
- * Time-stamp: <2006/08/11 17:21:46 bruno>
+ * Time-stamp: <2006/08/15 03:56:58 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -107,6 +107,7 @@ void gcompris_about_start ()
 			 "y", (double) y_start + 40 + 1.0,
 			 "anchor", GTK_ANCHOR_CENTER,
 			 "fill_color_rgba", gcompris_skin_color_shadow,
+			 "weight", PANGO_WEIGHT_HEAVY,
 			 NULL);
   gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 			 gnome_canvas_text_get_type (),
@@ -116,6 +117,7 @@ void gcompris_about_start ()
 			 "y", (double) y_start + 40,
 			 "anchor", GTK_ANCHOR_CENTER,
 			 "fill_color_rgba", gcompris_skin_color_title,
+			 "weight", PANGO_WEIGHT_HEAVY,
 			 NULL);
 
   gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
@@ -343,6 +345,7 @@ void gcompris_about_start ()
 			 "y", (double)  y - gdk_pixbuf_get_height(pixmap) + 20 + 1.0,
 			 "anchor", GTK_ANCHOR_CENTER,
 			 "fill_color_rgba", gcompris_skin_color_shadow,
+			 "weight", PANGO_WEIGHT_HEAVY,
 			 NULL);
   item2 = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				gnome_canvas_text_get_type (),
@@ -352,6 +355,7 @@ void gcompris_about_start ()
 				"y", (double)  y - gdk_pixbuf_get_height(pixmap) + 20,
 				"anchor", GTK_ANCHOR_CENTER,
 				"fill_color_rgba", gcompris_skin_color_text_button,
+				 "weight", PANGO_WEIGHT_HEAVY,
 				NULL);
   gtk_signal_connect(GTK_OBJECT(item2), "event",
 		     (GtkSignalFunc) item_event_ok,

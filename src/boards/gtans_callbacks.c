@@ -353,7 +353,7 @@ on_rotation_clicked (GnomeCanvasItem *canvasitem,
     gint angle = 0;
 
     if (selectedgrande==TRUE){
-      switch ((gint) user_data){
+      switch (GPOINTER_TO_INT(user_data)){
       case 0:
 	angle = -rotstepnbr;
 	break;

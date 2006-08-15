@@ -105,16 +105,20 @@ void gcompris_timer_display(int ax, int ay, TimerList atype, int second, Gcompri
       }
       break;
     case GCOMPRIS_TIMER_TEXT:
-      /* Display the value for this timer */
-      item = gnome_canvas_item_new (boardRootItem,
-				    gnome_canvas_text_get_type (),
-				    "text", g_strdup_printf("Remaining Time = %d", timer),
-				    "font_gdk", gdk_font,
-				    "x", x,
-				    "y", y,
-				    "anchor", GTK_ANCHOR_CENTER,
-				    "fill_color", "white",
-				    NULL);      
+      {
+	gchar *tmpstr = g_strdup_printf("Remaining Time = %d", timer);
+	/* Display the value for this timer */
+	item = gnome_canvas_item_new (boardRootItem,
+				      gnome_canvas_text_get_type (),
+				      "text", tmpstr,
+				      "font_gdk", gdk_font,
+				      "x", x,
+				      "y", y,
+				      "anchor", GTK_ANCHOR_CENTER,
+				      "fill_color", "white",
+				      NULL);
+	g_free(tmpstr);
+      }
       break;
     case GCOMPRIS_TIMER_BALLOON:
       pixmap = gcompris_load_pixmap("gcompris/misc/tuxballoon.png");
@@ -318,9 +322,13 @@ static gint timer_increment(GtkWidget *widget, gpointer data)
     case GCOMPRIS_TIMER_TEXT:
       /* Display the value for this timer */
       if(item)
-	gnome_canvas_item_set(item,
-			      "text", g_strdup_printf(_("Remaining Time = %d"), timer),
-			      NULL);
+	{
+	  char *tmpstr = g_strdup_printf(_("Remaining Time = %d"), timer);
+	  gnome_canvas_item_set(item,
+				"text", tmpstr,
+				NULL);
+	  g_free(tmpstr);
+	}
       break;
     case GCOMPRIS_TIMER_BALLOON:
       break;
