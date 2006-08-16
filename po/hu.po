@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris.HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-12-08 18:30+0100\n"
+"POT-Creation-Date: 2006-08-16 01:17+0200\n"
 "PO-Revision-Date: 2005-12-11 22:15+0100\n"
 "Last-Translator: Gabor Kelemen <kelemeng@gnome.hu>\n"
 "Language-Team: Hungarian <gnome@gnome.hu>\n"
@@ -16,44 +16,65 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.11.1\n"
-"Plural-Forms:  nplurals=1; plural=0;\n"
+"Plural-Forms:   nplurals=2; plural=(n != 1);\n"
 
 #: ../boards/administration.xml.in.h:1
+#, fuzzy
 msgid ""
 "- In the 'Boards' section you can change the list of activities. Just "
 "untoggle them in the treeview. You can change the language used for reading, "
-"for example, then language used for saying the name of colors. - You can "
-"save multiple configurations, and switch easily. In the 'Profile' section "
-"add a profile, then in the 'Board' section select the profile in the "
-"combobox, then select the boards you want to be active. You can add lot of "
-"profiles, with different lists of boards, and different languages. You set "
-"the default profile in the 'Profile' section, by choosing the profile you "
-"want, then clicking on the 'Default' button. You can also choose a profile "
-"from the command line. - You can add users, classes and for each class, you "
-"can create groups of users. Note that you can import users from a comma-"
-"separated file. Assign one or more groups to a profile, after which those "
-"new logins will appear after restarting GCompris. Being able to identify "
-"individual children in GCompris means we can provide individual reports. It "
-"also recognizes the children as individuals; they can learn to type in, and "
-"recognize their own usernames (login is configurable)."
+"for example, then the language used for saying the names of colors.\n"
+"- You can save multiple configurations, and switch between them easily. In "
+"the 'Profile' section add a profile, then in the 'Board' section select the "
+"profile in the combobox, then select the boards you want to be active. You "
+"can add multiple profiles, with different lists of boards, and different "
+"languages. You set the default profile in the 'Profile' section, by choosing "
+"the profile you want, then clicking on the 'Default' button. You can also "
+"choose a profile from the command line.\n"
+"- You can add users, classes and for each class, you can create groups of "
+"users. Note that you can import users from a comma-separated file. Assign "
+"one or more groups to a profile, after which those new logins will appear "
+"after restarting GCompris. Being able to identify individual children in "
+"GCompris means we can provide individual reports. It also recognizes the "
+"children as individuals; they can learn to type in and recognize their own "
+"usernames (login is configurable)."
 msgstr ""
-"- A Táblák szakaszban módosíthatja a tevékenységek listáját. Egyszerűen be- és kikapcsolhatja őket a fanézetben. Például módosíthatja az olvasáshoz, majd a színek kimondására használt nyelvet. "
-"- Több konfigurációt menthet és könnyen válthat köztük. A Profilok szakaszban felvehet egy profilt, majd a Táblák szakaszban kiválaszthatja a profilt a legördülő menüben, ezután kiválaszthatja az aktiválni kívánt táblákat. Számos profilt vehet fel, különböző táblalistákkal és különböző nyelvekkel. A Profilok szakaszban a kívánt profil kiválasztásával és az Alapértelmezett gomb megnyomásával beállíthatja az alapértelmezett profilt. Ezen kívül a parancssorból is kiválaszthat egy profilt. "
-"- Felvehet felhasználókat, osztályokat és minden egyes osztályhoz felhasználói csoportokat. Ne feledje, hogy a felhasználókat egy vesszőkkel elválasztott fájlból is felveheti. Társítson néhány csoportot egy profilhoz, majd az új bejelentkezések a GCompris újraindítása után megjelennek. Az egyes gyerekek azonosításának képessége azt jelenti, hogy egyéni jelentések készíthetők. Ezen kívül a gyerekeket egyénekként azonosítja, így megtanulhatják saját felhasználói nevük begépelését és felismerését (a bejelentkezés testre szabható)."
+"- A Táblák szakaszban módosíthatja a tevékenységek listáját. Egyszerűen be- "
+"és kikapcsolhatja őket a fanézetben. Például módosíthatja az olvasáshoz, "
+"majd a színek kimondására használt nyelvet. - Több konfigurációt menthet és "
+"könnyen válthat köztük. A Profilok szakaszban felvehet egy profilt, majd a "
+"Táblák szakaszban kiválaszthatja a profilt a legördülő menüben, ezután "
+"kiválaszthatja az aktiválni kívánt táblákat. Számos profilt vehet fel, "
+"különböző táblalistákkal és különböző nyelvekkel. A Profilok szakaszban a "
+"kívánt profil kiválasztásával és az Alapértelmezett gomb megnyomásával "
+"beállíthatja az alapértelmezett profilt. Ezen kívül a parancssorból is "
+"kiválaszthat egy profilt. - Felvehet felhasználókat, osztályokat és minden "
+"egyes osztályhoz felhasználói csoportokat. Ne feledje, hogy a felhasználókat "
+"egy vesszőkkel elválasztott fájlból is felveheti. Társítson néhány csoportot "
+"egy profilhoz, majd az új bejelentkezések a GCompris újraindítása után "
+"megjelennek. Az egyes gyerekek azonosításának képessége azt jelenti, hogy "
+"egyéni jelentések készíthetők. Ezen kívül a gyerekeket egyénekként "
+"azonosítja, így megtanulhatják saját felhasználói nevük begépelését és "
+"felismerését (a bejelentkezés testre szabható)."
 
-#: ../boards/administration.xml.in.h:2
+#: ../boards/administration.xml.in.h:4
 msgid "GCompris Administration Menu"
 msgstr "GCompris adminisztrációs menü"
 
-#: ../boards/administration.xml.in.h:3
+#: ../boards/administration.xml.in.h:5
+#, fuzzy
 msgid ""
 "If you want to fine tune GCompris to your needs, you can use the "
 "administration module here. The ultimate goal is to provide child-specific "
 "reporting for parents and teacher who want to monitor the progress, "
-"strengths and weakenesses of their children."
-msgstr "Ha szükségleteinek megfelelően szeretné finomhangolni a GCompris-t, ebben az adminisztrációs modulban megteheti. A végső cél a gyerekekre jellemző jelentések készítése azon szülők és tanárok részére, akik figyelemmel kívánják kísérni gyerekeik előrehaladását, erősségeit és gyengéit."
+"strengths and needs of their children."
+msgstr ""
+"Ha szükségleteinek megfelelően szeretné finomhangolni a GCompris-t, ebben az "
+"adminisztrációs modulban megteheti. A végső cél a gyerekekre jellemző "
+"jelentések készítése azon szülők és tanárok részére, akik figyelemmel "
+"kívánják kísérni gyerekeik előrehaladását, erősségeit és gyengéit."
 
-#: ../boards/administration.xml.in.h:4
+#: ../boards/administration.xml.in.h:6
 msgid "Left-Click with the mouse to select an activity"
 msgstr "Egy tábla kiválasztásához kattints rá a bal egérgombbal"
 
@@ -366,10 +387,10 @@ msgid ""
 "your answer and press the Enter key to check if you've got it right. If not, "
 "just try again."
 msgstr ""
-"Két szám szorzása jelenik meg. Az egyenlőségjel jobb oldalán add meg "
-"az eredményt, a szorzatot. A válasz módosításához használd a jobbra "
-"és balra nyilakat. Ha kész vagy, nyomj Enter-t a válaszod ellenőrzéséhez. "
-"Ha hibás, próbáld újra."
+"Két szám szorzása jelenik meg. Az egyenlőségjel jobb oldalán add meg az "
+"eredményt, a szorzatot. A válasz módosításához használd a jobbra és balra "
+"nyilakat. Ha kész vagy, nyomj Enter-t a válaszod ellenőrzéséhez. Ha hibás, "
+"próbáld újra."
 
 #: ../boards/algebra_by.xml.in.h:2 ../boards/algebra_minus.xml.in.h:2
 #: ../boards/algebra_plus.xml.in.h:2
@@ -392,12 +413,7 @@ msgstr "Gyakorold a szorzást"
 msgid "Go to Algebra activities"
 msgstr "A matematikai táblákhoz"
 
-#: ../boards/algebra_group.xml.in.h:2 ../boards/algebramenu.xml.in.h:2
-#: ../boards/boards.xml.in.h:2 ../boards/colors_group.xml.in.h:2
-#: ../boards/computer.xml.in.h:2 ../boards/experience.xml.in.h:2
-#: ../boards/fun.xml.in.h:2 ../boards/memory_group.xml.in.h:2
-#: ../boards/menu.xml.in.h:17 ../boards/mouse.xml.in.h:1
-#: ../boards/reading.xml.in.h:2
+#: ../boards/algebra_group.xml.in.h:2 ../boards/menu.xml.in.h:17
 msgid "Left-click the mouse on an activity to select it."
 msgstr "Egy tevékenység kiválasztásához kattints rá a bal egérgombbal."
 
@@ -418,9 +434,9 @@ msgid ""
 "that give the specified result. You can deselect a number or operator by "
 "clicking on it again."
 msgstr ""
-"A tábla felső részéről válaszd ki a megadott eredményt előállító számokat "
-"és műveleteket. A számok és műveleti jelek kiválasztása visszavonható, "
-"ha újra rájuk kattintasz."
+"A tábla felső részéről válaszd ki a megadott eredményt előállító számokat és "
+"műveleteket. A számok és műveleti jelek kiválasztása visszavonható, ha újra "
+"rájuk kattintasz."
 
 #: ../boards/algebra_guesscount.xml.in.h:3
 msgid ""
@@ -443,8 +459,8 @@ msgid ""
 "Work out the right combination of numbers and operations to match the given "
 "value"
 msgstr ""
-"Találd meg a számok és műveletek megfelelő kombinációját, hogy"
-"megkapd a megadott eredményt"
+"Találd meg a számok és műveletek megfelelő kombinációját, hogymegkapd a "
+"megadott eredményt"
 
 #: ../boards/algebra_minus.xml.in.h:1
 msgid ""
@@ -453,9 +469,10 @@ msgid ""
 "to modify your answer and press the Enter key to check if you've got it "
 "right. If not, just try again."
 msgstr ""
-"Két szám kivonása van felírva. Az egyenlőségjel jobb oldalán add meg a választ, a "
-"különbségüket. A válasz módosításához használd a jobbra és balra nyilakat. "
-"Ha kész vagy, nyomj Enter-t a válaszod ellenőrzéséhez. Ha hibás, próbáld újra."
+"Két szám kivonása van felírva. Az egyenlőségjel jobb oldalán add meg a "
+"választ, a különbségüket. A válasz módosításához használd a jobbra és balra "
+"nyilakat. Ha kész vagy, nyomj Enter-t a válaszod ellenőrzéséhez. Ha hibás, "
+"próbáld újra."
 
 #: ../boards/algebra_minus.xml.in.h:3
 msgid "In a limited time, find the difference between two numbers"
@@ -476,15 +493,18 @@ msgid ""
 "modify your answer and press the Enter key to check if you've got it right. "
 "If not, just try again."
 msgstr ""
-"Két szám összeadása van felírva. Az egyenlőségjel jobb oldalán add meg a választ, "
-"az összeget. A válasz módosításához használd a jobbra és balra nyilakat. "
-"Ha kész vagy, nyomj Enter-t a válaszod ellenőrzéséhez. Ha hibás, próbáld újra."
+"Két szám összeadása van felírva. Az egyenlőségjel jobb oldalán add meg a "
+"választ, az összeget. A válasz módosításához használd a jobbra és balra "
+"nyilakat. Ha kész vagy, nyomj Enter-t a válaszod ellenőrzéséhez. Ha hibás, "
+"próbáld újra."
 
 #: ../boards/algebra_plus.xml.in.h:3
 msgid ""
 "In a limited time, find the sum of of two numbers. Introduction to simple in-"
 "line addition."
-msgstr "Adott idő alatt találd meg két szám összegét. Bevezetés az egyszerű összeadásba."
+msgstr ""
+"Adott idő alatt találd meg két szám összegét. Bevezetés az egyszerű "
+"összeadásba."
 
 #: ../boards/algebra_plus.xml.in.h:4
 msgid "Practice the addition operation"
@@ -495,8 +515,13 @@ msgid "Simple addition. Can recognize written numbers"
 msgstr "Egyszerű összeadás. Képes felismerni írott számokat"
 
 #: ../boards/algebramenu.xml.in.h:1
-msgid "Go to Math activities"
+#, fuzzy
+msgid "Go to calculation activities"
 msgstr "A matematikai tevékenységekhez"
+
+#: ../boards/algebramenu.xml.in.h:2
+msgid "Various calculation activities."
+msgstr ""
 
 #: ../boards/algorithm.xml.in.h:1
 msgid "Complete a list of symbols"
@@ -536,8 +561,8 @@ msgid ""
 msgstr ""
 "Ebben a játékban a gyerekek szabadon rajzolhatnak. A célja, hogy a gyerekek "
 "felfedezzék, hogyan készíthetnek jól kinéző rajzokat az olyan alapvető "
-"formákból, mint a négyzet, az egyenes és az ellipszis. Hogy a gyerekeknek még "
-"több lehetőségük legyen, néhány kép is használható."
+"formákból, mint a négyzet, az egyenes és az ellipszis. Hogy a gyerekeknek "
+"még több lehetőségük legyen, néhány kép is használható."
 
 #: ../boards/anim.xml.in.h:4 ../boards/draw.xml.in.h:4
 msgid "Needs to be capable of moving and clicking the mouse easily"
@@ -558,11 +583,65 @@ msgid ""
 "corner of the screen. You can also save and reload your animations with the "
 "'floppy disk' and 'folder' buttons."
 msgstr ""
-"Válassz egy rajzeszközt a bal oldalról és egy színt lentről. Ezután kattints a "
-"fehér területen és húzd az egeret egy új alakzat rajzolásához. Ha egy rajz "
-"kész, akkor a \"fényképezőgép\" gombbal készíthetsz egy pillanatképet. Ettől egy új kép jön "
-"létre ugyanazzal a tartalommal, a kép másolata. Ezután szerkesztheted a tárgyak elmozdításával, vagy törölheted őket és hozzáadhatsz újakat. Készíts több képet és "
-"kattints a \"film\" gombra! A képeidet egymás után folytatólagos diavetítésként, (végtelenül ismétlődően) láthatod. Ebben a módban megváltoztathatod a lejátszás sebességét. A megjelenítés módból a rajzokhoz visszatérni a \"rajz\" gombbal tudsz. Ezután a képernyő bal alsó sarkában lévő képválasztóval szerkesztheted az animációd minden egyes képét. Ezen kívül elmentheted és betöltheted animációidat a \"floppy lemez\" és a \"mappa\" gombokkal."
+"Válassz egy rajzeszközt a bal oldalról és egy színt lentről. Ezután kattints "
+"a fehér területen és húzd az egeret egy új alakzat rajzolásához. Ha egy rajz "
+"kész, akkor a \"fényképezőgép\" gombbal készíthetsz egy pillanatképet. Ettől "
+"egy új kép jön létre ugyanazzal a tartalommal, a kép másolata. Ezután "
+"szerkesztheted a tárgyak elmozdításával, vagy törölheted őket és "
+"hozzáadhatsz újakat. Készíts több képet és kattints a \"film\" gombra! A "
+"képeidet egymás után folytatólagos diavetítésként, (végtelenül ismétlődően) "
+"láthatod. Ebben a módban megváltoztathatod a lejátszás sebességét. A "
+"megjelenítés módból a rajzokhoz visszatérni a \"rajz\" gombbal tudsz. Ezután "
+"a képernyő bal alsó sarkában lévő képválasztóval szerkesztheted az animációd "
+"minden egyes képét. Ezen kívül elmentheted és betöltheted animációidat a "
+"\"floppy lemez\" és a \"mappa\" gombokkal."
+
+#: ../boards/awele.xml.in.h:1
+msgid ""
+"At the beginning of the game four seeds are placed in each house. Players "
+"take turns moving the seeds. In each turn, a player chooses one of the six "
+"houses under his or her control. The player removes all seeds from this "
+"house, and distributes them, dropping one in each house counter-clockwise "
+"from the original house, in a process called sowing. Seeds are not "
+"distributed into the end scoring houses, nor into the house drawn from. That "
+"is, the starting house is left empty; if it contained 12 seeds, it is "
+"skipped, and the twelfth seed is placed in the next house. After a turn, if "
+"the last seed was placed into an opponent's house and brought its total to "
+"two or three, all the seeds in that house are captured and placed in the "
+"player's scoring house (or set aside if the board has no scoring houses). If "
+"the previous-to-last seed also brought the total seeds in an opponent's "
+"house to two or three, these are captured as well, and so on. However, if a "
+"move would capture all an opponent's seeds, the capture is forfeited, and "
+"the seeds are instead left on the board, since this would prevent the "
+"opponent from continuing the game. The proscription against capturing all an "
+"opponent's seeds is related to a more general idea, that one ought to make a "
+"move that allows the opponent to continue playing. If an opponent's houses "
+"are all empty, the current player must make a move that gives the opponent "
+"seeds. If no such move is possible, the current player captures all seeds in "
+"his/her own territory, ending the game. (Source Wikipedia &lt;http://en."
+"wikipedia.org/wiki/Oware&gt;)"
+msgstr ""
+
+#: ../boards/awele.xml.in.h:2
+#, fuzzy
+msgid "Oware"
+msgstr "azúrkék"
+
+#: ../boards/awele.xml.in.h:3
+#, fuzzy
+msgid "Play the Oware strategy game against Tux"
+msgstr "Hangmemória-játék Tux ellen"
+
+#: ../boards/awele.xml.in.h:4
+msgid ""
+"The object of the game is to capture more seeds than one's opponent. Since "
+"the game has only 48 seeds, capturing 25 is sufficient to accomplish this. "
+"Since there are an even number of seeds, it is possible for the game to end "
+"in a draw, where each player has captured 24. The game is over when one "
+"player has captured 25 or more stones, or both players have taken 24 stones "
+"each (draw). If both players agree that the game has been reduced to an "
+"endless cycle, each player captures the stones on their side of the board."
+msgstr ""
 
 #: ../boards/babymatch.xml.in.h:1 ../boards/babymatch/board1_0.xml.in.h:1
 #: ../boards/babymatch/board2_0.xml.in.h:1
@@ -575,18 +654,20 @@ msgid "Drag and Drop the items to make them match"
 msgstr "Húzd és ejtsd a megfelelő képeket a párjukhoz"
 
 #: ../boards/babymatch.xml.in.h:2
+#, fuzzy
 msgid ""
-"In the main board area, a set of objects are displayed. In the vertical box "
-"(at the left of the main board) another set of objects are shown, each one "
-"matching exactly one object in the main board area. This game challenges you "
-"to fine logical link between these objects. How do they fit together? Drag "
-"each object to the correct red space in the main area."
+"In the main board area, a set of objects is displayed. In the vertical box "
+"(at the left of the main board) another set of objects is shown, each object "
+"in the group on the left matching exactly one object in the main board area. "
+"This game challenges you to find the logical link between these objects. How "
+"do they fit together? Drag each object to the correct red space in the main "
+"area."
 msgstr ""
 "A főtáblán néhány tárgy jelenik meg. A függőleges (bal oldali) dobozban "
-"tárgyak egy másik halmaza jelenik meg, mindegyik a főtábla pontosan "
-"egy tárgyának a párja. Ezek között a tárgyak között kell logikai "
-"kapcsolatot találnod. Hogyan illenek össze? Húzd a tárgyakat a "
-"megfelelő piros helyre a főtáblán."
+"tárgyak egy másik halmaza jelenik meg, mindegyik a főtábla pontosan egy "
+"tárgyának a párja. Ezek között a tárgyak között kell logikai kapcsolatot "
+"találnod. Hogyan illenek össze? Húzd a tárgyakat a megfelelő piros helyre a "
+"főtáblán."
 
 #: ../boards/babymatch.xml.in.h:3
 msgid "Matching Items"
@@ -598,7 +679,8 @@ msgstr "Mozgáskoordináció. Fogalmak összekapcsolása."
 
 #: ../boards/babymatch.xml.in.h:5
 msgid "Mouse manipulation: movement, drag and drop. Cultural references."
-msgstr "Egérkezelés: mozgatás, húzd és ejtsd ismerete. Kulturális vonatkozások."
+msgstr ""
+"Egérkezelés: mozgatás, húzd és ejtsd ismerete. Kulturális vonatkozások."
 
 #: ../boards/babyshapes.xml.in.h:1
 msgid "Complete the puzzle"
@@ -608,10 +690,13 @@ msgstr "Rakd ki a kirakót"
 msgid ""
 "Complete the puzzle by dragging each piece from the set of pieces on the "
 "left, to the matching space in the puzzle."
-msgstr "Rakd ki a kirakót a bal oldalon lévő darabok lerakásával a kirakó megfelelő területére."
+msgstr ""
+"Rakd ki a kirakót a bal oldalon lévő darabok lerakásával a kirakó megfelelő "
+"területére."
 
 #: ../boards/babyshapes.xml.in.h:3
-msgid "Drag and Drop the shapes on their respective target"
+#, fuzzy
+msgid "Drag and Drop the shapes on their respective targets"
 msgstr "Fogd meg az alakzatot és húzd rá a megfelelő formára"
 
 #: ../boards/babyshapes.xml.in.h:4
@@ -620,7 +705,8 @@ msgstr "Jó egérkezelés"
 
 #: ../boards/babyshapes.xml.in.h:5
 msgid "The dog is provided by Andre Connes and released under the GPL"
-msgstr "A kutyát Andre Connes bocsátotta rendelkezésre a GPL feltételei szerint"
+msgstr ""
+"A kutyát Andre Connes bocsátotta rendelkezésre a GPL feltételei szerint"
 
 #: ../boards/babyshapes/board5_0.xml.in.h:1
 msgid "Hello ! My name is Lock."
@@ -642,7 +728,9 @@ msgstr "Dobd oda a labdát Tuxnak"
 msgid ""
 "Press the two shift keys at the same time, to make the ball go in a straight "
 "line."
-msgstr "Nyomd meg egyszerre a két shift gombot, hogy a labda egyenes vonalban haladjon."
+msgstr ""
+"Nyomd meg egyszerre a két shift gombot, hogy a labda egyenes vonalban "
+"haladjon."
 
 #: ../boards/bargame.xml.in.h:1
 msgid "Brain"
@@ -661,8 +749,8 @@ msgid ""
 "Place balls in the holes. You win if the computer has to place the last "
 "ball. If you want Tux to begin, just click on him."
 msgstr ""
-"Tegyél labdákat a lyukakba. Ha a számítógépnek kell letennie az utolsót, akkor "
-"nyertél. Ha azt szeretnéd, hogy Tux kezdjen, kattints rá."
+"Tegyél labdákat a lyukakba. Ha a számítógépnek kell letennie az utolsót, "
+"akkor nyertél. Ha azt szeretnéd, hogy Tux kezdjen, kattints rá."
 
 #: ../boards/bargame.xml.in.h:5
 msgid "bar game"
@@ -681,8 +769,8 @@ msgstr "Lődd a labdát a célba"
 #: ../boards/clickgame.xml.in.h:16 ../boards/connect4.xml.in.h:7
 #: ../boards/erase.xml.in.h:3 ../boards/erase_clic.xml.in.h:6
 #: ../boards/erase_double_clic.xml.in.h:6 ../boards/fifteen.xml.in.h:2
-#: ../boards/gtans.xml.in.h:2 ../boards/hanoi.xml.in.h:3
-#: ../boards/memory.xml.in.h:4
+#: ../boards/hanoi.xml.in.h:3 ../boards/memory.xml.in.h:4
+#: ../boards/tangram.xml.in.h:8
 msgid "Mouse-manipulation"
 msgstr "Egérkezelés"
 
@@ -698,10 +786,6 @@ msgstr ""
 msgid "The football game"
 msgstr "Labdarúgó játék"
 
-#: ../boards/boards.xml.in.h:1
-msgid "Go to board-based activities"
-msgstr "A táblás játékokhoz"
-
 #: ../boards/canal_lock.xml.in.h:1
 msgid "Operate a canal lock"
 msgstr "Üzemeltesd a zsilipet"
@@ -711,8 +795,8 @@ msgid ""
 "Tux is in trouble, and needs to take his boat through a lock. Help Tux and "
 "find out how a canal lock works."
 msgstr ""
-"Tux bajban van a hajóban, át kellene mennie a hajójával a zsilipen. "
-"Segíts Tuxnak és tanuld meg, hogyan működik egy zsilip."
+"Tux bajban van a hajóban, át kellene mennie a hajójával a zsilipen. Segíts "
+"Tuxnak és tanuld meg, hogyan működik egy zsilip."
 
 #: ../boards/canal_lock.xml.in.h:3
 msgid ""
@@ -765,7 +849,9 @@ msgid ""
 "those found in &lt;http://www.wikipedia.org&gt;."
 msgstr ""
 "A Hold képe a NASA-tól van. Az űrhangok a Tuxpaint-ből és a Vegastrike-ból "
-"származnak, amelyek GPL licenszűek. A szállítóeszközökkel kapcsolatos dátumok a http://www.wikipedia.org-on alapulnak. A szállítóeszközök képei Franck Doucet-től vannak."
+"származnak, amelyek GPL licenszűek. A szállítóeszközökkel kapcsolatos "
+"dátumok a http://www.wikipedia.org-on alapulnak. A szállítóeszközök képei "
+"Franck Doucet-től vannak."
 
 #: ../boards/chronos.xml.in.h:4
 msgid "Pick from the pictures on the left and put them on the red dots"
@@ -826,9 +912,10 @@ msgstr ""
 "nevű gőzmozdonya"
 
 #: ../boards/chronos/board3_0.xml.in.h:4
+#, fuzzy
 msgid ""
 "Place each image in the order and\n"
-"on the date it has been invented.\n"
+"on the date it was invented.\n"
 "If not sure, research online at wikipedia:\n"
 "&lt;http://www.wikipedia.org&gt;"
 msgstr ""
@@ -951,8 +1038,8 @@ msgid ""
 "A letter is spoken. Click on the matching letter in the main area. You can "
 "listen to the letter again, by clicking on the mouth icon in the bottom box."
 msgstr ""
-"Egy hangot hallasz. Kattints az ennek megfelelő betűre a fő területen. "
-"Ha az alsó dobozban lévő száj ikonra kattintasz, újra hallhatod a hangot."
+"Egy hangot hallasz. Kattints az ennek megfelelő betűre a fő területen. Ha az "
+"alsó dobozban lévő száj ikonra kattintasz, újra hallhatod a hangot."
 
 #: ../boards/click_on_letter.xml.in.h:2
 msgid "Click on a letter"
@@ -1013,7 +1100,8 @@ msgstr ""
 msgid ""
 "Left-Click with the mouse on all the swimming fish before they leave the "
 "fishtank"
-msgstr "Kattints a bal egérgombbal a halakra, mielőtt kiúsznának az akváriumból"
+msgstr ""
+"Kattints a bal egérgombbal a halakra, mielőtt kiúsznának az akváriumból"
 
 #: ../boards/clickgame.xml.in.h:15
 msgid "Motor coordination: moving and clicking the mouse."
@@ -1027,7 +1115,9 @@ msgstr "Kattints a bal egérgombbal a mozgó halra."
 msgid ""
 "Distinguish between time-units (hour, minute and second). Set and display "
 "time on a clock."
-msgstr "Az óra, perc és másodperc megkülönböztetése. Az idő beállítása és megjelenítése egy órán."
+msgstr ""
+"Az óra, perc és másodperc megkülönböztetése. Az idő beállítása és "
+"megjelenítése egy órán."
 
 #: ../boards/clockgame.xml.in.h:2
 msgid "Learn how to tell the time"
@@ -1043,9 +1133,9 @@ msgid ""
 "hours:minutes:seconds). Click on the different arrows, and move the mouse, "
 "to make the numbers go up or down."
 msgstr ""
-"Állítsd be az órát a megadott időre a megjelenített időegységekben "
-"(óra:perc vagy óra:perc:másodperc). Kattints a különböző nyilakra "
-"és mozgasd az egeret a számok növeléséhez és csökkentéséhez."
+"Állítsd be az órát a megadott időre a megjelenített időegységekben (óra:perc "
+"vagy óra:perc:másodperc). Kattints a különböző nyilakra és mozgasd az egeret "
+"a számok növeléséhez és csökkentéséhez."
 
 #: ../boards/clockgame.xml.in.h:5
 msgid "The concept of time. Reading the time."
@@ -1072,10 +1162,15 @@ msgid ""
 "This board teaches you to recognize different colors. When you hear the name "
 "of the color, click on the duck wearing it."
 msgstr ""
-"Ez a tábla a különböző színek felismerésére tanít. Amikor a szín nevét hallod, kattints "
-"az adott színű kacsára."
+"Ez a tábla a különböző színek felismerésére tanít. Amikor a szín nevét "
+"hallod, kattints az adott színű kacsára."
 
 #: ../boards/colors_group.xml.in.h:1
+#, fuzzy
+msgid "Colors based activities."
+msgstr "A táblás játékokhoz"
+
+#: ../boards/colors_group.xml.in.h:2
 msgid "Go to Color activities"
 msgstr "A színes tevékenységekhez"
 
@@ -1083,12 +1178,17 @@ msgstr "A színes tevékenységekhez"
 msgid "Discover the Computer"
 msgstr "Fedezd fel a számítógépet"
 
+#: ../boards/computer.xml.in.h:2
+msgid "Play with computer peripherals."
+msgstr ""
+
 #: ../boards/connect4.xml.in.h:1
 msgid "Arrange four coins in a row"
 msgstr "Rendezz négy érmét egy sorba"
 
 #: ../boards/connect4.xml.in.h:2
-msgid "Click anywhere in the line in which you want to drop a piece"
+#, fuzzy
+msgid "Click anywhere in the line where you want to drop a piece"
 msgstr "Kattints bárhová abban a sorban, ahová egy érmét szeretnél dobni"
 
 #: ../boards/connect4.xml.in.h:3
@@ -1112,6 +1212,40 @@ msgstr ""
 "Laurent Lacheny. A képeket és a mesterséges intelligenciát Jeroen Vloothuis "
 "4stattack nevű projektjéből vettük. Az eredeti projekt megtalálható a "
 "következő címen: &lt;http://forcedattack.sourceforge.net&gt;"
+
+#: ../boards/crane.xml.in.h:1
+msgid "Build the same model"
+msgstr ""
+
+#: ../boards/crane.xml.in.h:2
+#, fuzzy
+msgid "Drive the crane and copy the model"
+msgstr "Állítsd össze a vonatot a minta alapján"
+
+#: ../boards/crane.xml.in.h:3 ../boards/erase.xml.in.h:2
+#: ../boards/erase_clic.xml.in.h:5 ../boards/erase_double_clic.xml.in.h:5
+msgid "Motor-coordination"
+msgstr "Mozgáskoordináció"
+
+#: ../boards/crane.xml.in.h:4 ../boards/hanoi_real.xml.in.h:2
+msgid "Mouse manipulation"
+msgstr "Egérkezelés"
+
+#: ../boards/crane.xml.in.h:5
+msgid ""
+"Move the items in the bottom left frame to copy their position in the top "
+"right model. Below the crane itself, you will find four arrows that let you "
+"move items. To select the item to move, just click on it."
+msgstr ""
+
+#: ../boards/discovery.xml.in.h:1
+msgid "Colors, sounds, memory..."
+msgstr ""
+
+#: ../boards/discovery.xml.in.h:2
+#, fuzzy
+msgid "Go to discovery activities"
+msgstr "A memória tevékenységekhez"
 
 #: ../boards/doubleentry.xml.in.h:1
 msgid "Basic counting skills"
@@ -1155,9 +1289,9 @@ msgid ""
 "create attractive drawings based on basic shapes: rectangles, ellipses and "
 "lines."
 msgstr ""
-"Ebben a játékban a gyerekek szabadon rajzolhatnak. A célja, hogy "
-"a gyerekek felfedezzék, hogyan készíthetnek jól kinéző rajzokat az "
-"olyan alapvető formákból, mint a négyzet, az egyenes és az ellipszis."
+"Ebben a játékban a gyerekek szabadon rajzolhatnak. A célja, hogy a gyerekek "
+"felfedezzék, hogyan készíthetnek jól kinéző rajzokat az olyan alapvető "
+"formákból, mint a négyzet, az egyenes és az ellipszis."
 
 #: ../boards/draw.xml.in.h:5
 msgid ""
@@ -1165,18 +1299,46 @@ msgid ""
 "and drag in the white area to create a new shape. To save time, you can "
 "click with the middle mouse button to delete an object."
 msgstr ""
-"Válassz ki a bal oldalon egy rajzeszközt, majd alul egy színt. "
-"Ezt követően kattints a fehér mezőre, majd húzd az egeret, így "
-"rajzolhatsz egy új alakzatot. Egy objektumot gyorsan törölni a "
-"középső egérgombbal lehet."
+"Válassz ki a bal oldalon egy rajzeszközt, majd alul egy színt. Ezt követően "
+"kattints a fehér mezőre, majd húzd az egeret, így rajzolhatsz egy új "
+"alakzatot. Egy objektumot gyorsan törölni a középső egérgombbal lehet."
 
 #: ../boards/electric.xml.in.h:1
-msgid "Create and simulate electric schema"
+#, fuzzy
+msgid "Create and simulate an electric schema"
 msgstr "Elektromos séma létrehozása és szimulálása"
 
 #: ../boards/electric.xml.in.h:2
-msgid "Electric"
+msgid ""
+"Drag electrical components from the selector and drop them in the working "
+"area. Create wires by clicking on a connection spot, dragging the mouse to "
+"the next connection spot, and letting go. You can also move components by "
+"dragging them. You can delete wires by clicking on them. To delete a "
+"component, select the deletion tool on top of the component selector. You "
+"can click on the switch to open and close it. You can change the rheostat "
+"value by dragging its wiper. In order to simulate what happens when a bulb "
+"is blown, you can blown it by right-clicking on it. The simulation is "
+"updated in real time by any user action."
+msgstr ""
+
+#: ../boards/electric.xml.in.h:3
+#, fuzzy
+msgid "Electricity"
 msgstr "Elektromos áramkörök"
+
+#: ../boards/electric.xml.in.h:4
+msgid "Freely create an electric schema with a real time simulation of it."
+msgstr ""
+
+#: ../boards/electric.xml.in.h:5
+msgid ""
+"GCompris uses the Gnucap electric simulator as a backend. You can get more "
+"information on gnucap at &lt;http://geda.seul.org/tools/gnucap/&gt;."
+msgstr ""
+
+#: ../boards/electric.xml.in.h:6
+msgid "Requires some basic understanding of the concept of electricity."
+msgstr ""
 
 #: ../boards/enumerate.xml.in.h:1
 msgid "Basic enumeration"
@@ -1213,21 +1375,16 @@ msgid ""
 "gave GCompris the authorization to include their pictures. Thanks a lot, "
 "both of you."
 msgstr ""
-"Az állatképek Ralf Schmode honlapjából (&lt;http://schmode.net/&gt;) és LE BERRE "
-"Daniel-től származnak. Mindketten engedélyezték a gcompris számára a "
+"Az állatképek Ralf Schmode honlapjából (&lt;http://schmode.net/&gt;) és LE "
+"BERRE Daniel-től származnak. Mindketten engedélyezték a gcompris számára a "
 "használatukat. Köszönet érte."
 
-#: ../boards/erase.xml.in.h:2 ../boards/erase_clic.xml.in.h:5
-#: ../boards/erase_double_clic.xml.in.h:5
-msgid "Motor-coordination"
-msgstr "Mozgáskoordináció"
-
-#: ../boards/erase.xml.in.h:4 ../src/boards/erase.c:110
+#: ../boards/erase.xml.in.h:4 ../src/boards/erase.c:116
 #: ../src/boards/machpuzzle.c:92
 msgid "Move the mouse"
 msgstr "Az egér mozgatása"
 
-#: ../boards/erase.xml.in.h:5 ../src/boards/erase.c:111
+#: ../boards/erase.xml.in.h:5 ../src/boards/erase.c:117
 msgid "Move the mouse to erase the area and discover the background"
 msgstr "Mozgasd az egeret, hogy kiradírozd a mezőket és felfedezd a hátteret"
 
@@ -1249,7 +1406,9 @@ msgstr "Kattints az egérrel, hogy kitöröld a területet és felfedezd a hátt
 
 #: ../boards/erase_double_clic.xml.in.h:2
 msgid "Double-Click the mouse to erase the area and discover the background"
-msgstr "Kattints kétszer az egérrel, hogy kitöröld a területet és felfedezd a hátteret."
+msgstr ""
+"Kattints kétszer az egérrel, hogy kitöröld a területet és felfedezd a "
+"hátteret."
 
 #: ../boards/erase_double_clic.xml.in.h:3
 msgid "Double-click the mouse"
@@ -1257,21 +1416,41 @@ msgstr "Kattints kétszer az egérrel"
 
 #: ../boards/erase_double_clic.xml.in.h:4
 msgid "Double-click the mouse on rectangles until all the blocks disappear."
-msgstr "Kattints kétszer a téglalapokra az egérrel, amíg minden téglalap el nem tűnik."
+msgstr ""
+"Kattints kétszer a téglalapokra az egérrel, amíg minden téglalap el nem "
+"tűnik."
 
 #: ../boards/experience.xml.in.h:1
 msgid "Go to experiential activities"
 msgstr "A kísérletező játékokhoz"
 
+#: ../boards/experience.xml.in.h:2
+msgid "Various activities based on physical movement."
+msgstr ""
+
+#: ../boards/experimental.xml.in.h:1
+#, fuzzy
+msgid "Go to Experimental activities"
+msgstr "A kísérletező játékokhoz"
+
+#: ../boards/experimental.xml.in.h:2
+msgid "Run gcompris --experimental to see this menu."
+msgstr ""
+
 #: ../boards/fifteen.xml.in.h:1
 msgid ""
 "Click on any item that has a free block beside it, and it will be swapped "
 "with the empty block."
-msgstr "Kattints egy elemre, amely mellett üres négyzet van, és szám fel lesz cserélve az üres négyzettel."
+msgstr ""
+"Kattints egy elemre, amely mellett üres négyzet van, és szám fel lesz "
+"cserélve az üres négyzettel."
 
 #: ../boards/fifteen.xml.in.h:3
-msgid "Move each item to make an increasing series: from the smallest to the largest"
-msgstr "Mozgasd úgy az egyes elemeket, hogy növekvő sorozatot kapj: a legkisebbtől a legnagyobbig"
+msgid ""
+"Move each item to make an increasing series: from the smallest to the largest"
+msgstr ""
+"Mozgasd úgy az egyes elemeket, hogy növekvő sorozatot kapj: a legkisebbtől a "
+"legnagyobbig"
 
 #: ../boards/fifteen.xml.in.h:4
 msgid "Original code taken from the libgnomecanvas demo"
@@ -1335,6 +1514,11 @@ msgstr "Tuxnak meg kell öntöznie a virágokat, de a cső eldugult"
 msgid "Go to Amusement activities"
 msgstr "A játékokhoz ;-)"
 
+#: ../boards/fun.xml.in.h:2
+#, fuzzy
+msgid "Various fun activities."
+msgstr "A játékokhoz ;-)"
+
 #: ../boards/gcompris/mimetypes/mime_type.xml.in.h:1
 msgid "gcompris animation"
 msgstr "gcompris animáció"
@@ -1362,6 +1546,13 @@ msgstr "Keresd az országokat"
 #: ../boards/geography.xml.in.h:3
 msgid "Mouse manipulation: movement, drag and drop"
 msgstr "Egérkezelés: mozgatás, húzd és ejtsd módszer"
+
+#: ../boards/geography.xml.in.h:4
+msgid ""
+"The map of Germany comes from Wikipedia and is released under the GNU Free "
+"Documentation License. Olaf Ronneberger and his children Lina and Julia "
+"Ronneberger created the German level."
+msgstr ""
 
 #: ../boards/geography/board1_0.xml.in.h:1
 #: ../boards/geography/board4_2.xml.in.h:1
@@ -1409,7 +1600,8 @@ msgid "Cuba"
 msgstr "Kuba"
 
 #: ../boards/geography/board2_0.xml.in.h:5
-msgid "Dominican republic"
+#, fuzzy
+msgid "Dominican Republic"
 msgstr "Dominikai Köztársaság"
 
 #: ../boards/geography/board2_0.xml.in.h:6
@@ -1677,152 +1869,152 @@ msgid "Burkina Faso"
 msgstr "Burkina Faso"
 
 #: ../boards/geography/board4_0.xml.in.h:4
-#: ../boards/geography/board4_2.xml.in.h:8
+#: ../boards/geography/board4_2.xml.in.h:7
 msgid "Cameroon"
 msgstr "Kamerun"
 
 #: ../boards/geography/board4_0.xml.in.h:5
-#: ../boards/geography/board4_2.xml.in.h:9
+#: ../boards/geography/board4_2.xml.in.h:8
 msgid "Central African Republic"
 msgstr "Közép-afrikai Köztársaság"
 
 #: ../boards/geography/board4_0.xml.in.h:6
-#: ../boards/geography/board4_2.xml.in.h:10
+#: ../boards/geography/board4_2.xml.in.h:9
 msgid "Chad"
 msgstr "Csád"
 
 #: ../boards/geography/board4_0.xml.in.h:7
-#: ../boards/geography/board4_2.xml.in.h:12
 msgid "Djibouti"
 msgstr "Dzsibuti"
 
 #: ../boards/geography/board4_0.xml.in.h:8
-#: ../boards/geography/board4_2.xml.in.h:13
+#: ../boards/geography/board4_2.xml.in.h:11
 msgid "Egypt"
 msgstr "Egyiptom"
 
 #: ../boards/geography/board4_0.xml.in.h:9
 #: ../boards/geography/board4_1.xml.in.h:5
-#: ../boards/geography/board4_2.xml.in.h:14
 msgid "Equatorial Guinea"
 msgstr "Egyenlítői Guinea"
 
 #: ../boards/geography/board4_0.xml.in.h:10
-#: ../boards/geography/board4_2.xml.in.h:16
+#: ../boards/geography/board4_2.xml.in.h:12
+msgid "Eritrea"
+msgstr "Eritrea"
+
+#: ../boards/geography/board4_0.xml.in.h:11
+#: ../boards/geography/board4_2.xml.in.h:13
 msgid "Ethiopia"
 msgstr "Etiópia"
 
-#: ../boards/geography/board4_0.xml.in.h:11
+#: ../boards/geography/board4_0.xml.in.h:12
 #: ../boards/geography/board4_1.xml.in.h:6
-#: ../boards/geography/board4_2.xml.in.h:17
+#: ../boards/geography/board4_2.xml.in.h:14
 msgid "Gabon"
 msgstr "Gabon"
 
-#: ../boards/geography/board4_0.xml.in.h:12
-#: ../boards/geography/board4_2.xml.in.h:18
+#: ../boards/geography/board4_0.xml.in.h:13
 msgid "Gambia"
 msgstr "Gambia"
 
-#: ../boards/geography/board4_0.xml.in.h:13
-#: ../boards/geography/board4_2.xml.in.h:19
+#: ../boards/geography/board4_0.xml.in.h:14
+#: ../boards/geography/board4_2.xml.in.h:15
 msgid "Ghana"
 msgstr "Ghána"
 
-#: ../boards/geography/board4_0.xml.in.h:14
-#: ../boards/geography/board4_2.xml.in.h:20
+#: ../boards/geography/board4_0.xml.in.h:15
+#: ../boards/geography/board4_2.xml.in.h:16
 msgid "Guinea"
 msgstr "Guinea"
 
-#: ../boards/geography/board4_0.xml.in.h:15
-#: ../boards/geography/board4_2.xml.in.h:21
+#: ../boards/geography/board4_0.xml.in.h:16
 msgid "Guinea Bissau"
 msgstr "Bissau Guinea"
 
-#: ../boards/geography/board4_0.xml.in.h:16
-#: ../boards/geography/board4_2.xml.in.h:22
+#: ../boards/geography/board4_0.xml.in.h:17
+#: ../boards/geography/board4_2.xml.in.h:17
 msgid "Ivory Coast"
 msgstr "Elefántcsontpart"
 
-#: ../boards/geography/board4_0.xml.in.h:17
-#: ../boards/geography/board4_2.xml.in.h:25
+#: ../boards/geography/board4_0.xml.in.h:18
+#: ../boards/geography/board4_2.xml.in.h:19
 msgid "Liberia"
 msgstr "Libéria"
 
-#: ../boards/geography/board4_0.xml.in.h:18
-#: ../boards/geography/board4_2.xml.in.h:26
+#: ../boards/geography/board4_0.xml.in.h:19
+#: ../boards/geography/board4_2.xml.in.h:20
 msgid "Libya"
 msgstr "Líbia"
 
-#: ../boards/geography/board4_0.xml.in.h:19
-#: ../boards/geography/board4_2.xml.in.h:29
+#: ../boards/geography/board4_0.xml.in.h:20
+#: ../boards/geography/board4_2.xml.in.h:23
 msgid "Mali"
 msgstr "Mali"
 
-#: ../boards/geography/board4_0.xml.in.h:20
-#: ../boards/geography/board4_2.xml.in.h:30
+#: ../boards/geography/board4_0.xml.in.h:21
+#: ../boards/geography/board4_2.xml.in.h:24
 msgid "Mauritania"
 msgstr "Mauritánia"
 
-#: ../boards/geography/board4_0.xml.in.h:21
-msgid "Moroco"
+#: ../boards/geography/board4_0.xml.in.h:22
+#: ../boards/geography/board4_2.xml.in.h:25
+msgid "Morocco"
 msgstr "Marokkó"
 
-#: ../boards/geography/board4_0.xml.in.h:22
-#: ../boards/geography/board4_2.xml.in.h:34
+#: ../boards/geography/board4_0.xml.in.h:23
+#: ../boards/geography/board4_2.xml.in.h:28
 msgid "Niger"
 msgstr "Niger"
 
-#: ../boards/geography/board4_0.xml.in.h:23
-#: ../boards/geography/board4_2.xml.in.h:35
+#: ../boards/geography/board4_0.xml.in.h:24
+#: ../boards/geography/board4_2.xml.in.h:29
 msgid "Nigeria"
 msgstr "Nigéria"
 
-#: ../boards/geography/board4_0.xml.in.h:24
+#: ../boards/geography/board4_0.xml.in.h:25
 msgid "Northern Africa"
 msgstr "Észak-Afrika"
 
-#: ../boards/geography/board4_0.xml.in.h:25
+#: ../boards/geography/board4_0.xml.in.h:26
 #: ../boards/geography/board4_1.xml.in.h:14
-#: ../boards/geography/board4_2.xml.in.h:36
 msgid "Rwanda"
 msgstr "Ruanda"
 
-#: ../boards/geography/board4_0.xml.in.h:26
-#: ../boards/geography/board4_2.xml.in.h:37
+#: ../boards/geography/board4_0.xml.in.h:27
+#: ../boards/geography/board4_2.xml.in.h:30
 msgid "Senegal"
 msgstr "Szenegál"
 
-#: ../boards/geography/board4_0.xml.in.h:27
-#: ../boards/geography/board4_2.xml.in.h:38
+#: ../boards/geography/board4_0.xml.in.h:28
 msgid "Sierra Leone"
 msgstr "Sierra Leone"
 
-#: ../boards/geography/board4_0.xml.in.h:28
-#: ../boards/geography/board4_2.xml.in.h:39
+#: ../boards/geography/board4_0.xml.in.h:29
+#: ../boards/geography/board4_2.xml.in.h:31
 msgid "Somalia"
 msgstr "Szomália"
 
-#: ../boards/geography/board4_0.xml.in.h:29
+#: ../boards/geography/board4_0.xml.in.h:30
 msgid "Sudan"
 msgstr "Szudán"
 
-#: ../boards/geography/board4_0.xml.in.h:30
-#: ../boards/geography/board4_2.xml.in.h:43
+#: ../boards/geography/board4_0.xml.in.h:31
+#: ../boards/geography/board4_2.xml.in.h:35
 msgid "Togo"
 msgstr "Togo"
 
-#: ../boards/geography/board4_0.xml.in.h:31
-#: ../boards/geography/board4_2.xml.in.h:44
+#: ../boards/geography/board4_0.xml.in.h:32
+#: ../boards/geography/board4_2.xml.in.h:36
 msgid "Tunisia"
 msgstr "Tunézia"
 
-#: ../boards/geography/board4_0.xml.in.h:32
+#: ../boards/geography/board4_0.xml.in.h:33
 #: ../boards/geography/board4_1.xml.in.h:19
-#: ../boards/geography/board4_2.xml.in.h:45
+#: ../boards/geography/board4_2.xml.in.h:37
 msgid "Uganda"
 msgstr "Uganda"
 
-#: ../boards/geography/board4_0.xml.in.h:33
+#: ../boards/geography/board4_0.xml.in.h:34
 msgid "Western Sahara"
 msgstr "Nyugat-Szahara"
 
@@ -1837,42 +2029,40 @@ msgid "Botswana"
 msgstr "Botswana"
 
 #: ../boards/geography/board4_1.xml.in.h:3
-#: ../boards/geography/board4_2.xml.in.h:7
 msgid "Burundi"
 msgstr "Burundi"
 
 #: ../boards/geography/board4_1.xml.in.h:4
-#: ../boards/geography/board4_2.xml.in.h:11
+#: ../boards/geography/board4_2.xml.in.h:10
 msgid "Democratic Republic of Congo"
 msgstr "Kongói Demokratikus Köztársaság"
 
 #: ../boards/geography/board4_1.xml.in.h:7
-#: ../boards/geography/board4_2.xml.in.h:23
+#: ../boards/geography/board4_2.xml.in.h:18
 msgid "Kenya"
 msgstr "Kenya"
 
 #: ../boards/geography/board4_1.xml.in.h:8
-#: ../boards/geography/board4_2.xml.in.h:24
 msgid "Lesotho"
 msgstr "Lesotho"
 
 #: ../boards/geography/board4_1.xml.in.h:9
-#: ../boards/geography/board4_2.xml.in.h:27
+#: ../boards/geography/board4_2.xml.in.h:21
 msgid "Madagascar"
 msgstr "Madagaszkár"
 
 #: ../boards/geography/board4_1.xml.in.h:10
-#: ../boards/geography/board4_2.xml.in.h:28
+#: ../boards/geography/board4_2.xml.in.h:22
 msgid "Malawi"
 msgstr "Malawi"
 
 #: ../boards/geography/board4_1.xml.in.h:11
-#: ../boards/geography/board4_2.xml.in.h:32
+#: ../boards/geography/board4_2.xml.in.h:26
 msgid "Mozambique"
 msgstr "Mozambik"
 
 #: ../boards/geography/board4_1.xml.in.h:12
-#: ../boards/geography/board4_2.xml.in.h:33
+#: ../boards/geography/board4_2.xml.in.h:27
 msgid "Namibia"
 msgstr "Namíbia"
 
@@ -1881,7 +2071,7 @@ msgid "Republic of Congo"
 msgstr "Kongói Demokratikus Köztársaság"
 
 #: ../boards/geography/board4_1.xml.in.h:15
-#: ../boards/geography/board4_2.xml.in.h:40
+#: ../boards/geography/board4_2.xml.in.h:33
 msgid "South Africa"
 msgstr "Dél-Afrika"
 
@@ -1890,36 +2080,45 @@ msgid "Southern Africa"
 msgstr "Dél-Afrika"
 
 #: ../boards/geography/board4_1.xml.in.h:17
-#: ../boards/geography/board4_2.xml.in.h:41
 msgid "Swaziland"
 msgstr "Szváziföld"
 
 #: ../boards/geography/board4_1.xml.in.h:18
-#: ../boards/geography/board4_2.xml.in.h:42
+#: ../boards/geography/board4_2.xml.in.h:34
 msgid "Tanzania"
 msgstr "Tanzánia"
 
 #: ../boards/geography/board4_1.xml.in.h:20
-#: ../boards/geography/board4_2.xml.in.h:46
+#: ../boards/geography/board4_2.xml.in.h:38
 msgid "Zambia"
 msgstr "Zambia"
 
 #: ../boards/geography/board4_1.xml.in.h:21
-#: ../boards/geography/board4_2.xml.in.h:47
+#: ../boards/geography/board4_2.xml.in.h:39
 msgid "Zimbabwe"
 msgstr "Zimbabwe"
 
-#: ../boards/geography/board4_2.xml.in.h:15
-msgid "Eritrea"
-msgstr "Eritrea"
-
-#: ../boards/geography/board4_2.xml.in.h:31
-msgid "Morocco"
-msgstr "Marokkó"
+#: ../boards/geography/board4_2.xml.in.h:32
+#, fuzzy
+msgid "Soudan"
+msgstr "Szudán"
 
 #: ../boards/geography/board5_0.xml.in.h:1
 msgid "Regions of France"
 msgstr "Franciaország régiói"
+
+#: ../boards/geography/board6_0.xml.in.h:1
+msgid "Deutschland Bundesländer"
+msgstr ""
+
+#: ../boards/geometry.xml.in.h:1
+msgid "Geometry"
+msgstr ""
+
+#: ../boards/geometry.xml.in.h:2
+#, fuzzy
+msgid "Geometry activities."
+msgstr "A memória tevékenységekhez"
 
 #: ../boards/gletters.xml.in.h:1 ../boards/wordsgame.xml.in.h:2
 msgid "Keyboard manipulation"
@@ -1929,11 +2128,11 @@ msgstr "Billentyűzetkezelés"
 msgid "Letter association between the screen and the keyboard"
 msgstr "Betűfelismerés a képernyő és a billentyűzet között"
 
-#: ../boards/gletters.xml.in.h:3 ../src/boards/gletters.c:132
+#: ../boards/gletters.xml.in.h:3 ../src/boards/gletters.c:135
 msgid "Simple Letters"
 msgstr "Egyszerű betűk"
 
-#: ../boards/gletters.xml.in.h:4 ../src/boards/gletters.c:133
+#: ../boards/gletters.xml.in.h:4 ../src/boards/gletters.c:136
 msgid "Type the falling letters before they reach the ground"
 msgstr "Nyomd meg a billentyűt, mielőtt a betű leérne a földre"
 
@@ -1950,7 +2149,8 @@ msgstr ""
 "kifejezésekre."
 
 #: ../boards/gnumch-equality.xml.in.h:3
-msgid "Practice addition, multiplication, division and substraction."
+#, fuzzy
+msgid "Practice addition, multiplication, division and subtraction."
 msgstr "Gyakorold az összeadást, szorzást, osztást és kivonást."
 
 #: ../boards/gnumch-equality.xml.in.h:4 ../boards/gnumch-inequality.xml.in.h:4
@@ -1969,20 +2169,24 @@ msgstr "Számfaló - osztók"
 msgid ""
 "Guide the Number Muncher to all the factors of the number at the top of the "
 "screen."
-msgstr "Irányítsd a Számfalót a képernyő tetején látható szám összes osztójára."
+msgstr ""
+"Irányítsd a Számfalót a képernyő tetején látható szám összes osztójára."
 
 #: ../boards/gnumch-factors.xml.in.h:3
 msgid "Learn about factors and multiples."
 msgstr "Tanulj a osztókról és többszörösökről."
 
 #: ../boards/gnumch-factors.xml.in.h:4
+#, fuzzy
 msgid ""
 "The factors of a number are all the numbers that divide that number evenly. "
 "For example, the factors of 6 are 1, 2, 3 and 6. 4 is not a factor of 6 "
 "because 6 cannot be divided into 4 equal pieces. If one number is a multiple "
 "of a second number, then the second number is a factor of the first number. "
-"Use the arrow keys to navigate around the board and to avoid the Troggles. "
-"Press the spacebar to eat a number."
+"You can think of multiples as families, and factors are the people in those "
+"families. So 1, 2, 3 and 6 all fit into the 6 family, but 4 belongs to "
+"another family. Use the arrow keys to navigate around the board and to avoid "
+"the Troggles. Press the spacebar to eat a number."
 msgstr ""
 "Egy szám osztói azok a számok, amik maradék nélkül osztják azt. Például, a 6 "
 "osztói az 1, a 2, a 3, és a 6. A 4 nem osztója a 6-nak, mivel a 6 nem "
@@ -2003,7 +2207,8 @@ msgid "Inequality Number Munchers"
 msgstr "Számfaló - egyenlőtlenség"
 
 #: ../boards/gnumch-inequality.xml.in.h:3
-msgid "Practice addition, substraction, multiplication and division."
+#, fuzzy
+msgid "Practice addition, subtraction, multiplication and division."
 msgstr "Gyakorold az összeadást, kivonást, szorzást és osztást"
 
 #: ../boards/gnumch-multiples.xml.in.h:1
@@ -2021,14 +2226,21 @@ msgid "Multiple Number Munchers"
 msgstr "Számfaló - többszörösök"
 
 #: ../boards/gnumch-multiples.xml.in.h:4
+#, fuzzy
 msgid ""
 "The multiples of a number are all the numbers that are equal to the original "
 "number times another number. For example, 24, 36, 48 and 60 are all "
 "multiples of 12. 25 is not a multiple of 12 because there isn't any number "
 "that can be multiplied by 12 to get 25. If one number is a factor of a "
-"second number, then the second number is a multiple of the first number. Use "
-"the arrow keys to navigate around the board and to avoid the Troggles. Press "
-"the spacebar to eat a number."
+"second number, then the second number is a multiple of the first number. "
+"Again, you can think of multiples as families, and factors are the people "
+"who belong to those families. The factor 5, has parents 10, grandparents 15, "
+"great-grandparents 20, great-great-grandparents 25, and every extra step of "
+"5 is another great- in front! But the number 5 does not belong in the 8 or "
+"23 families. You can't fit any number of 5s into 8 or 23 with nothing left "
+"over. So '8 isn't a multiple of 5, nor is 23. Only 5, 10, 15, 20, 25 ... are "
+"multiples (or families or steps) of 5. Use the arrow keys to navigate around "
+"the board and to avoid the Troggles. Press the spacebar to eat a number."
 msgstr ""
 "Egy szám többszörösei azok a számok, melyek az eredeti és egy másik szám "
 "szorzatával egyeznek meg. Például a 24, a 36, a 48 és a 60 mind a 12 "
@@ -2052,106 +2264,64 @@ msgstr "Számfaló - prímek"
 #: ../boards/gnumch-primes.xml.in.h:4
 msgid ""
 "Prime numbers are numbers that are only divisible by themselves and 1. For "
-"example, 3 is a prime number, but 4 isn't (because 4 is divisible by 2). Use "
-"the arrow keys to navigate around the board and to avoid the Troggles. Press "
-"the spacebar to eat a number."
+"example, 3 is a prime number, but 4 isn't (because 4 is divisible by 2). You "
+"can think of prime numbers as very small families: they only ever have two "
+"people in them! Only themselves and 1. You can't fit any other numbers into "
+"them with nothing left over. 5 is one of these lonely numbers (only 5 × 1 = "
+"5), but you can see that 6 has 2 and 3 in its family as well (6 × 1 = 6, 2 × "
+"3 = 6). So 6 is not a prime number. Use the arrow keys to navigate around "
+"the board and to avoid the Troggles. Press the spacebar to eat a number."
 msgstr ""
-"Prímszámok azok a számok, amelyek csak önmagukkal és 1-el oszthatóak.Például "
-"a 3 prímszám, de a 4 nem az (mert a 4 osztható 2-vel). Használd a "
-"nyílbillentyűket a táblán való mozgáshoz és óvakodj a szörnyektől! Nyomd meg "
-"a szóközt egy szám megevéséhez."
 
 #: ../boards/gnumchmenu.xml.in.h:1
 msgid "Go to Number Munchers activities"
 msgstr "A Számfaló játékokhoz"
 
 #: ../boards/gnumchmenu.xml.in.h:2
-msgid "Left-Click the mouse on an activity to select it."
-msgstr "Egy tevékenység kiválasztásához kattints rá a bal egérgombbal"
-
-#: ../boards/gtans.xml.in.h:1
-msgid ""
-"From Wikipedia, the free encyclopedia. Tangram (Chinese: literally \"seven "
-"boards of cunning\") is a Chinese puzzle. While the tangram is often said to "
-"be ancient, its existence has only been verified as far back as 1800. It "
-"consists of 7 pieces, called tans, which fit together to form a square; "
-"taking the square as the unit: * 5 right isosceles triangles o 2 small (legs "
-"of 1) o 1 medium size (legs of square root of 2) o 2 large size (legs of 2) "
-"* 1 square (side of 1) * 1 parallelogram (sides of 1 and square root of 2)"
+msgid "Number Munchers are games to play with arithmetic."
 msgstr ""
-"A Wikipédiából, a szabad lexikonból. A Tangram (Kínai: szó szerint \"a ravaszság "
-" hét deszkája\") egy kínai kirakó. Míg a tangramot gyakran ősinek nevezik, létezését "
-"csak 1800-ig visszamenőleg sikerült bizonyítani. Hét tan-nak nevezett darabból áll, "
-"amelyek együtt négyzetet alkotnak, a négyzetet véve egységnek: öt egyenlőszárú "
-"háromszög, ebből 2 kicsi (1 hosszúságú szárakkal), 1 közepes (gyök 2 hosszúságú "
-"szárakkal) és 2 nagy méretű (2 hosszúságú szárakkal), egy négyzet (1 oldalhosszal) "
-"egy paralelogramma (1 és gyök 2 hosszúságú oldalakkal)."
-
-#: ../boards/gtans.xml.in.h:3
-msgid ""
-"Select the tangram to form. Move a piece by dragging it. Right click on it "
-"to create a symetrical item. Select an item and drag around it for the "
-"rotation Once the requested shape is created, it will be recognized by the "
-"computer If you need help, click on the shape button, the border of the "
-"shape will be drawn."
-msgstr ""
-"Válaszd ki a kialakítandó tangramot. Húzz rá egy darabot. Kattints a jobb "
-"egérgombbal egy szimmetrikus elem létrehozásához. A forgatáshoz válassz ki"
-"egy elemet és húzd körülötte az egeret. A kívánt alakzatot létrehozása után a "
-"számítógép felismeri. Ha segítségre van szükséged, akkor kattints az alakzat "
-"gombra és megjelennek az alakzat körvonalai."
-
-#: ../boards/gtans.xml.in.h:4
-msgid "The objective is to form a given shape with seven pieces"
-msgstr "A cél egy megadott alakzat megformálása mind a hét darab felhasználásával"
-
-#: ../boards/gtans.xml.in.h:5
-msgid ""
-"The original code has been written by Philippe Banwarth in 1999. It has been "
-"ported to GCompris by Yves Combe in 2005."
-msgstr ""
-"Az eredeti kódot Philippe Banwarth írta 1999-ben. A GCompris-hoz "
-"Yves Combe portolta 2005-ben."
-
-#: ../boards/gtans.xml.in.h:6
-msgid "The tangram puzzle game"
-msgstr "A tangram kirakójáték"
 
 #: ../boards/guessnumber.xml.in.h:1
 msgid "Guess a number"
 msgstr "Találj ki egy számot"
 
 #: ../boards/guessnumber.xml.in.h:2
-msgid "Help Tux escape the cave. Tux hides a number that you must discover."
-msgstr "Segíts Tuxnak kijutni a barlangból. Tux egy szám mögött rejtőzik, amit fel kell fedezned."
+#, fuzzy
+msgid "Help Tux escape the cave. Tux hides a number for you to find."
+msgstr ""
+"Segíts Tuxnak kijutni a barlangból. Tux egy szám mögött rejtőzik, amit fel "
+"kell fedezned."
 
 #: ../boards/guessnumber.xml.in.h:3
 msgid "Numbers from 1 to 1000 for the last level."
 msgstr "Az utolsó szinthez a számok 1-1000 között."
 
 #: ../boards/guessnumber.xml.in.h:4
+#, fuzzy
 msgid ""
 "Read the instructions that give you the range of the number to find. Enter a "
-"number in the top right blue entry box. Tux tell you if your number is "
+"number in the top right blue entry box. Tux will tell you if your number is "
 "higher or lower. Then enter another number. The distance between Tux and the "
-"escape area on the right represents how far you are from the right number. "
-"If Tux is above or under the escape area, it means your number is higher or "
-"under the right number."
+"escape area on the right represents how far you are from the correct number. "
+"If Tux is over or under the escape area, it means your number is over or "
+"under the correct number."
 msgstr ""
-"Olvasd el az útmutatásokat, amelyek megadják a keresendő szám tartományát. Írj be egy "
-"számot a jobb felső kék téglalapba. Tux megmondja, hogy a számod kisebb vagy nagyobb "
-"a keresett számnál. Ezután írj be egy másik számot. A távolság Tux és a kijárat között a helyes "
-"számtól való távolságot ábrázolja. Ha Tux a kijárat felett vagy alatt van, az azt jelzi, hogy "
-"a számod nagyobb kisebb a helyes számnál."
+"Olvasd el az útmutatásokat, amelyek megadják a keresendő szám tartományát. "
+"Írj be egy számot a jobb felső kék téglalapba. Tux megmondja, hogy a számod "
+"kisebb vagy nagyobb a keresett számnál. Ezután írj be egy másik számot. A "
+"távolság Tux és a kijárat között a helyes számtól való távolságot ábrázolja. "
+"Ha Tux a kijárat felett vagy alatt van, az azt jelzi, hogy a számod nagyobb "
+"kisebb a helyes számnál."
 
 #: ../boards/hanoi.xml.in.h:1
 msgid "Concept taken from EPI games."
 msgstr "A koncepciót az EPI játékoktól vettük."
 
-#: ../boards/hanoi.xml.in.h:2 ../boards/hanoi_real.xml.in.h:1
+#: ../boards/hanoi.xml.in.h:2
+#, fuzzy
 msgid ""
-"Drag and Drop the top pieces only from one peg to another, to reproduce the "
-"tower on the right in the empty space on the left."
+"Drag and Drop one top piece at a time, from one peg to another, to reproduce "
+"the tower on the right in the empty space on the left."
 msgstr ""
 "Csak a legfelső darabot mozgathatod az egyik rúdról a másikra, hogy "
 "felépítsd \n"
@@ -2163,15 +2333,21 @@ msgstr "Építsd fel a megadott tornyot"
 
 #: ../boards/hanoi.xml.in.h:5
 msgid "Reproduce the tower on the right in the empty space on the left"
-msgstr "Építsd fel a jobb oldalon látható tornyot a bal oldalon lévő üres helyen"
+msgstr ""
+"Építsd fel a jobb oldalon látható tornyot a bal oldalon lévő üres helyen"
 
 #: ../boards/hanoi.xml.in.h:6 ../src/boards/hanoi.c:100
 msgid "Simplified Tower of Hanoi"
 msgstr "Egyszerűsített Hanoi tornyai"
 
-#: ../boards/hanoi_real.xml.in.h:2
-msgid "Mouse manipulation"
-msgstr "Egérkezelés"
+#: ../boards/hanoi_real.xml.in.h:1
+msgid ""
+"Drag and Drop the top pieces only from one peg to another, to reproduce the "
+"tower on the right in the empty space on the left."
+msgstr ""
+"Csak a legfelső darabot mozgathatod az egyik rúdról a másikra, hogy "
+"felépítsd \n"
+"a jobb oldalon látható tornyot a bal oldali üres helyen."
 
 #: ../boards/hanoi_real.xml.in.h:3
 msgid "Reproduce the tower on the right side"
@@ -2187,9 +2363,9 @@ msgid ""
 "the following rules: * only one disc may be moved at a time * no disc may be "
 "placed atop a smaller disc"
 msgstr ""
-"Ezen játék célja a teljes halom áthelyezése a másik pálcára, a következő szabályok betartásával: "
-"- egyszerre csak egy korong mozgatható "
-"- egyetlen korong sem helyezhető egy tőle kisebb korong tetejére"
+"Ezen játék célja a teljes halom áthelyezése a másik pálcára, a következő "
+"szabályok betartásával: - egyszerre csak egy korong mozgatható - egyetlen "
+"korong sem helyezhető egy tőle kisebb korong tetejére"
 
 #: ../boards/hanoi_real.xml.in.h:6
 msgid ""
@@ -2206,8 +2382,9 @@ msgstr ""
 "Létezik egy legenda egy hindu templomról, amely szerzetesei 64 korong "
 "mozgatásával foglalkoznak a Hanoi tornyai szabályai szerint. A legenda "
 "szerint amikor a szerzetesek befejezik a feladatot, vége lesz a világnak. "
-"Emiatt a kirakót Brahma tornyai néven is ismerik. Nem világos, hogy "
-"Lucas találta-e ki a legendát, vagy ötletet merített belőle. (Forrás: Wikipédia, &lt;http://en.wikipedia.org/wiki/Tower_of_hanoi&gt;)"
+"Emiatt a kirakót Brahma tornyai néven is ismerik. Nem világos, hogy Lucas "
+"találta-e ki a legendát, vagy ötletet merített belőle. (Forrás: Wikipédia, "
+"&lt;http://en.wikipedia.org/wiki/Tower_of_hanoi&gt;)"
 
 #: ../boards/hexagon.xml.in.h:1
 msgid "Find the strawberry by clicking on the blue fields"
@@ -2234,8 +2411,8 @@ msgid "Practice reading by finding the word matching an image"
 msgstr "Gyakorold az olvasást, találd meg a képhez illő szót"
 
 #: ../boards/imageid.xml.in.h:3 ../boards/imagename.xml.in.h:4
-#: ../boards/readingh.xml.in.h:5 ../boards/readingv.xml.in.h:4
-#: ../src/boards/imageid.c:112 ../src/boards/missingletter.c:104
+#: ../boards/readingh.xml.in.h:4 ../boards/readingv.xml.in.h:4
+#: ../src/boards/imageid.c:113 ../src/boards/missingletter.c:104
 msgid "Reading"
 msgstr "Olvasás"
 
@@ -2474,40 +2651,15 @@ msgstr "zászló"
 msgid "racket"
 msgstr "ütő"
 
-#: ../boards/login.xml.in.h:1
-msgid "GCompris identifies each child, so we can provide child-specific reports."
-msgstr "A GCompris minden egyes gyereket azonosít, így a gyerekekre jellemző jelentéseket készíthetünk."
+#: ../boards/keyboard.xml.in.h:1
+#, fuzzy
+msgid "Discover the keyboard."
+msgstr "Fedezd fel a számítógépet"
 
-#: ../boards/login.xml.in.h:2
-msgid "GCompris login screen"
-msgstr "GCompris bejelentkező képernyő"
-
-#: ../boards/login.xml.in.h:3
-msgid ""
-"In order to activate the login screen, you must \n"
-"first add users in the administration part of GCompris. \n"
-"You access the administration part by running 'gcompris -a'.\n"
-"In the administration, you can create different profiles. In each profiles\n"
-"you can have a different set of users and select which activities are "
-"available to them.\n"
-"To run GCompris in a specific profile, you can run 'gcompris -p profile' "
-"where 'profile'\n"
-"is the name of a profile as you created it in the administration."
-msgstr ""
-"A bejelentkező képernyő megfelelő aktiválásához először\n"
-"felhasználókat kell felvennie a GCompris adminisztrációs részében.\n"
-"Ehhez a \"gcompris -a\" parancs futtatásával férhet hozzá. \n"
-"Az adminisztrációs felületen különböző profilokat hozhat létre. Minden\n"
-"profilhoz felhasználók különböző halmazait veheti fel és kiválaszthatja, "
-"mely tevékenységek érhetőek el számukra.\n"
-"A Gcompris indításához egy megadott profillal használhatja a \"gcompris -p "
-"profil\" parancsot,\n"
-"ahol a \"profil\" a profil neve, amellyel az adminisztrációs felületen azt "
-"létrehozta."
-
-#: ../boards/login.xml.in.h:10
-msgid "Select or enter your name to log in GCompris"
-msgstr "Válassz vagy add meg a neved a GComprisba bejelentkezéshez"
+#: ../boards/keyboard.xml.in.h:2
+#, fuzzy
+msgid "Keyboard-manipulation boards"
+msgstr "Billentyűzetkezelés"
 
 #: ../boards/leftright.xml.in.h:1
 msgid "Determine if a hand is a right or a left hand"
@@ -2536,6 +2688,103 @@ msgid ""
 msgstr ""
 "Egy kezet látsz. Döntsd el, hogy ez egy jobb vagy bal kéz. Kattints a bal "
 "oldali piros gombon vagy a jobb oldali zöld gombon."
+
+#: ../boards/login.xml.in.h:1
+msgid ""
+"GCompris identifies each child, so we can provide child-specific reports."
+msgstr ""
+"A GCompris minden egyes gyereket azonosít, így a gyerekekre jellemző "
+"jelentéseket készíthetünk."
+
+#: ../boards/login.xml.in.h:2
+msgid "GCompris login screen"
+msgstr "GCompris bejelentkező képernyő"
+
+#: ../boards/login.xml.in.h:3
+#, fuzzy
+msgid ""
+"In order to activate the login screen, you must \n"
+"first add users in the administration part of GCompris. \n"
+"You access Administration by running 'gcompris -a'.\n"
+"In Administration, you can create different profiles. In each profile,\n"
+"you can have a different set of users and select which activities are "
+"available to them.\n"
+"To run GCompris for a specific profile, you use 'gcompris -p profile' where "
+"'profile'\n"
+"is the name of a profile as you created it in Administration."
+msgstr ""
+"A bejelentkező képernyő megfelelő aktiválásához először\n"
+"felhasználókat kell felvennie a GCompris adminisztrációs részében.\n"
+"Ehhez a \"gcompris -a\" parancs futtatásával férhet hozzá. \n"
+"Az adminisztrációs felületen különböző profilokat hozhat létre. Minden\n"
+"profilhoz felhasználók különböző halmazait veheti fel és kiválaszthatja, "
+"mely tevékenységek érhetőek el számukra.\n"
+"A Gcompris indításához egy megadott profillal használhatja a \"gcompris -p "
+"profil\" parancsot,\n"
+"ahol a \"profil\" a profil neve, amellyel az adminisztrációs felületen azt "
+"létrehozta."
+
+#: ../boards/login.xml.in.h:10
+#, fuzzy
+msgid "Select or enter your name to log in to GCompris"
+msgstr "Válassz vagy add meg a neved a GComprisba bejelentkezéshez"
+
+#: ../boards/magic_hat_plus.xml.in.h:1 ../boards/memory_add.xml.in.h:1
+#, fuzzy
+msgid "Addition"
+msgstr "A repülés"
+
+#: ../boards/magic_hat_plus.xml.in.h:2
+msgid ""
+"Click on the hat to open or close it. Under the hat, how many stars can you "
+"see moving around? Count carefully. :) Click in the bottom- right area to "
+"input your answer."
+msgstr ""
+
+#: ../boards/magic_hat_plus.xml.in.h:3
+msgid "Count how many items are under the magic hat"
+msgstr ""
+
+#: ../boards/magic_hat_plus.xml.in.h:4
+msgid "Learn addition"
+msgstr ""
+
+#: ../boards/magic_hat_plus.xml.in.h:5 ../boards/magic_hat_minus.xml.in.h:5
+msgid "The magician hat"
+msgstr ""
+
+#: ../boards/magic_hat_minus.xml.in.h:1
+msgid "Count how many items are under the magic hat after some have got away"
+msgstr ""
+
+#: ../boards/magic_hat_minus.xml.in.h:2
+#, fuzzy
+msgid "Learn subtraction"
+msgstr "Egyszerű kivonás"
+
+#: ../boards/magic_hat_minus.xml.in.h:3
+msgid ""
+"Look at the magician, he tells the number of stars that are under his magic "
+"hat. Then, click on the hat to open it. A few stars escape. Click again on "
+"the hat to close it. You have to count how many are still under the hat. "
+"Click on the bottom right area to answer."
+msgstr ""
+
+#: ../boards/magic_hat_minus.xml.in.h:4 ../boards/memory_add_minus.xml.in.h:3
+#: ../boards/memory_add_minus_tux.xml.in.h:3 ../boards/memory_minus.xml.in.h:2
+#: ../boards/memory_minus_tux.xml.in.h:2
+#, fuzzy
+msgid "Subtraction"
+msgstr "Egyszerű kivonás"
+
+#: ../boards/math.xml.in.h:1
+#, fuzzy
+msgid "Mathematical activities."
+msgstr "A matematikai tevékenységekhez"
+
+#: ../boards/math.xml.in.h:2
+msgid "Mathematics"
+msgstr ""
 
 #: ../boards/maze.xml.in.h:1 ../boards/maze2DRelative.xml.in.h:1
 #: ../boards/maze3D.xml.in.h:2 ../boards/mazeInvisible.xml.in.h:1
@@ -2608,7 +2857,8 @@ msgstr ""
 "látható módban."
 
 #: ../boards/mazeMenu.xml.in.h:1
-msgid "Find your way out different type of mazes"
+#, fuzzy
+msgid "Find your way out of different types of mazes"
 msgstr "Találd meg a kijáratot a különböző labirintusokból"
 
 #: ../boards/mazeMenu.xml.in.h:2
@@ -2644,12 +2894,11 @@ msgid ""
 "cards at once, so you need to remember where a picture is, while you look "
 "for its twin. When you turn over the twins, they both disappear."
 msgstr ""
-"Néhány lefordított kártyát látsz. Minden kártya lefordított oldalán egy "
-"kép van és minden képnek van egy párja. Egy kártya megfordításához "
-"kattints rá és próbáld megtalálni a párját. Azonban egyszerre csak "
-"két kártyát fordíthatsz meg. Meg kell jegyezned a képek helyét, "
-"amíg a párját keresed. Ha megfordítod egy kártyapár "
-"mindkét lapját, mindkettő el fog tűnni."
+"Néhány lefordított kártyát látsz. Minden kártya lefordított oldalán egy kép "
+"van és minden képnek van egy párja. Egy kártya megfordításához kattints rá "
+"és próbáld megtalálni a párját. Azonban egyszerre csak két kártyát "
+"fordíthatsz meg. Meg kell jegyezned a képek helyét, amíg a párját keresed. "
+"Ha megfordítod egy kártyapár mindkét lapját, mindkettő el fog tűnni."
 
 #: ../boards/memory.xml.in.h:2
 msgid "Flip the cards to find the matching pairs"
@@ -2659,12 +2908,283 @@ msgstr "Fordítsd meg a lapokat az egyező párok megtalálásához"
 msgid "Memory Game with images"
 msgstr "Képes memóriajáték"
 
-#: ../boards/memory.xml.in.h:5 ../boards/memory_tux.xml.in.h:5
+#: ../boards/memory.xml.in.h:5 ../boards/memory_tux.xml.in.h:4
 msgid "Train your memory and remove all the cards"
 msgstr "Edzd a memóriádat és távolítsd el az összes kártyát"
 
+#: ../boards/memory_add.xml.in.h:2
+#, fuzzy
+msgid "Addition memory game"
+msgstr "Hangmemória-játék"
+
+#: ../boards/memory_add.xml.in.h:3 ../boards/memory_add_tux.xml.in.h:3
+#, fuzzy
+msgid "Practise adding up, until all the cards are gone."
+msgstr "Gyakorold az összeadást egy célbadobó játékkal"
+
+#: ../boards/memory_add.xml.in.h:4 ../boards/memory_add_tux.xml.in.h:4
+msgid ""
+"Turn the cards over to find two numbers which add up the same, until all the "
+"cards are gone."
+msgstr ""
+
+#: ../boards/memory_add.xml.in.h:5 ../boards/memory_add_tux.xml.in.h:5
+msgid ""
+"You can see some cards, but you can't see what's on the other side of them. "
+"Each card is hiding an adding-up sum, or the answer to the sum.\n"
+"An adding-up sum looks like this: 2 + 2 = 4\n"
+"The numbers on one side of the equals sign (=) have to be the same as the "
+"number on the other side. So 2 (1, 2) and 2 more (3, 4) makes 4. Count aloud "
+"when you work this out, and count on your fingers, because the more ways you "
+"do something, the better you remember it. You can also use blocks, or "
+"buttons, or anything you can count. If you have lots of brothers and "
+"sisters, you can count them! Or the kids in your class at school. Sing "
+"counting songs. Count lots of things, for practice, and you'll be very good "
+"at adding-up!\n"
+"\n"
+"In this game, these cards are hiding the two parts of an adding-up sum (also "
+"called an addition sum). You need to find the two parts of the sum, and "
+"bring them together again. Click on a card to see what number it's hiding, "
+"then try to find the other card that goes with it, to make a whole sum. You "
+"can only turn over two cards in one go, so you need to remember where the "
+"numbers are hiding, then you can match them when you find their other half. "
+"You're doing the job of the equals sign, and the numbers need you to put "
+"them together and make a proper sum. When you do that, both those cards "
+"disappear! When you've made them all disappear, found all the sums, you've "
+"won the game! :)"
+msgstr ""
+
+#: ../boards/memory_add_minus.xml.in.h:1
+#, fuzzy
+msgid "Addition and subtraction memory game"
+msgstr "Hangmemória-játék"
+
+#: ../boards/memory_add_minus.xml.in.h:2
+#: ../boards/memory_add_minus_tux.xml.in.h:2
+#, fuzzy
+msgid "Practise addition, subtraction, until all the cards are gone."
+msgstr "Gyakorold az összeadást, kivonást, szorzást és osztást"
+
+#: ../boards/memory_add_minus.xml.in.h:4
+#: ../boards/memory_add_minus_tux.xml.in.h:4
+msgid ""
+"Turn the cards over to find two numbers which add or subtract the same, "
+"until all the cards are gone."
+msgstr ""
+
+#: ../boards/memory_add_minus.xml.in.h:5
+#: ../boards/memory_add_minus_mult_div.xml.in.h:5
+#: ../boards/memory_add_minus_mult_div_tux.xml.in.h:5
+#: ../boards/memory_add_minus_tux.xml.in.h:5 ../boards/memory_div.xml.in.h:5
+#: ../boards/memory_div_tux.xml.in.h:5 ../boards/memory_mult.xml.in.h:5
+#: ../boards/memory_mult_div.xml.in.h:5
+#: ../boards/memory_mult_div_tux.xml.in.h:5
+#: ../boards/memory_mult_tux.xml.in.h:5
+msgid ""
+"You can see some cards, but you can't see what's on the other side of them. "
+"Each card is hiding an operation, or the answer to it.\n"
+"\n"
+"In this game, these cards are hiding the two parts of an operation. You need "
+"to find the two parts of the operation, and bring them together again. Click "
+"on a card to see what number it's hiding, then try to find the other card "
+"that goes with it, to make a whole operation. You can only turn over two "
+"cards in one go, so you need to remember where the numbers are hiding, then "
+"you can match them when you find their other half. You're doing the job of "
+"the equals sign, and the numbers need you to put them together and make a "
+"proper equality. When you do that, both those cards disappear! When you've "
+"made them all disappear, found all the operations, you've won the game! :)"
+msgstr ""
+
+#: ../boards/memory_add_minus_mult_div.xml.in.h:1
+#: ../boards/memory_add_minus_mult_div_tux.xml.in.h:1
+#, fuzzy
+msgid "Addition, subtraction, multiplication, division"
+msgstr "Gyakorold az összeadást, kivonást, szorzást és osztást"
+
+#: ../boards/memory_add_minus_mult_div.xml.in.h:2
+#, fuzzy
+msgid "All operations memory game"
+msgstr "Hangmemória-játék"
+
+#: ../boards/memory_add_minus_mult_div.xml.in.h:3
+#: ../boards/memory_add_minus_mult_div_tux.xml.in.h:3
+#, fuzzy
+msgid ""
+"Practise addition, subtraction, multiplication, division, until all the "
+"cards are gone."
+msgstr "Gyakorold az összeadást, kivonást, szorzást és osztást"
+
+#: ../boards/memory_add_minus_mult_div.xml.in.h:4
+#: ../boards/memory_add_minus_mult_div_tux.xml.in.h:4
+#: ../boards/memory_div.xml.in.h:4 ../boards/memory_div_tux.xml.in.h:4
+#: ../boards/memory_mult_div.xml.in.h:4
+#: ../boards/memory_mult_div_tux.xml.in.h:4
+#: ../boards/memory_mult_tux.xml.in.h:4
+msgid ""
+"Turn the cards over to find a matching operation, until all the cards are "
+"gone."
+msgstr ""
+
+#: ../boards/memory_add_minus_mult_div_tux.xml.in.h:2
+#, fuzzy
+msgid "All operations memory game against Tux"
+msgstr "Hangmemória-játék Tux ellen"
+
+#: ../boards/memory_add_minus_tux.xml.in.h:1
+#, fuzzy
+msgid "Addition and subtraction memory game against Tux"
+msgstr "Hangmemória-játék Tux ellen"
+
+#: ../boards/memory_add_tux.xml.in.h:1
+#, fuzzy
+msgid "Addition memory game against Tux"
+msgstr "Hangmemória-játék Tux ellen"
+
+#: ../boards/memory_add_tux.xml.in.h:2 ../boards/memory_mult_tux.xml.in.h:1
+#, fuzzy
+msgid "Additions"
+msgstr "A repülés"
+
+#: ../boards/memory_div.xml.in.h:1 ../boards/memory_div_tux.xml.in.h:1
+#, fuzzy
+msgid "Division"
+msgstr "A repülés"
+
+#: ../boards/memory_div.xml.in.h:2
+#, fuzzy
+msgid "Division memory game"
+msgstr "Hangmemória-játék"
+
+#: ../boards/memory_div.xml.in.h:3 ../boards/memory_div_tux.xml.in.h:3
+#, fuzzy
+msgid "Practise division, until all the cards are gone."
+msgstr "Gyakorold az összeadást egy célbadobó játékkal"
+
+#: ../boards/memory_div_tux.xml.in.h:2
+#, fuzzy
+msgid "Division memory game against Tux"
+msgstr "Hangmemória-játék Tux ellen"
+
 #: ../boards/memory_group.xml.in.h:1
 msgid "Go to Memory activities"
+msgstr "A memória tevékenységekhez"
+
+#: ../boards/memory_group.xml.in.h:2
+msgid "Various memory activities (images, letters, sounds)."
+msgstr ""
+
+#: ../boards/memory_minus.xml.in.h:1 ../boards/memory_minus_tux.xml.in.h:1
+#, fuzzy
+msgid "Practise subtraction, until all the cards are gone."
+msgstr "Gyakorold a kivonást egy vidám játékkal"
+
+#: ../boards/memory_minus.xml.in.h:3
+#, fuzzy
+msgid "Subtraction memory game"
+msgstr "Hangmemória-játék"
+
+#: ../boards/memory_minus.xml.in.h:4 ../boards/memory_minus_tux.xml.in.h:4
+msgid ""
+"Turn the cards over to find two numbers which subtract the same, until all "
+"the cards are gone."
+msgstr ""
+
+#: ../boards/memory_minus.xml.in.h:5 ../boards/memory_minus_tux.xml.in.h:5
+msgid ""
+"You can see some cards, but you can't see what's on the other side of them. "
+"Each card is hiding a subtraction, or the answer to it.\n"
+"A subtraction looks like this: 3 - 1 = 2\n"
+"The numbers on one side of the equals sign (=) have to be the same as the "
+"number on the other side. So 3 (1, 2, 3) less 1 (1) makes 2. Count aloud "
+"when you work this out, and count on your fingers, because the more ways you "
+"do something, the better you remember it. You can also use blocks, or "
+"buttons, or anything you can count. If you have lots of brothers and "
+"sisters, you can count them! Or the kids in your class at school. Sing "
+"counting songs. Count lots of things, for practice, and you'll be very good "
+"at adding-up!\n"
+"\n"
+"In this game, these cards are hiding the two parts of a subtraction. You "
+"need to find the two parts of the subraction, and bring them together again. "
+"Click on a card to see what number it's hiding, then try to find the other "
+"card that goes with it, to make a whole sum. You can only turn over two "
+"cards in one go, so you need to remember where the numbers are hiding, then "
+"you can match them when you find their other half. You're doing the job of "
+"the equals sign, and the numbers need you to put them together and make a "
+"proper sum. When you do that, both those cards disappear! When you've made "
+"them all disappear, found all the subtracts, you've won the game! :)"
+msgstr ""
+
+#: ../boards/memory_minus_tux.xml.in.h:3
+#, fuzzy
+msgid "Subtraction memory game against Tux"
+msgstr "Hangmemória-játék Tux ellen"
+
+#: ../boards/memory_mult.xml.in.h:1
+#, fuzzy
+msgid "Multiplication"
+msgstr "Szorzótábla"
+
+#: ../boards/memory_mult.xml.in.h:2
+#, fuzzy
+msgid "Multiplication memory game"
+msgstr "Szorzótábla"
+
+#: ../boards/memory_mult.xml.in.h:3
+#, fuzzy
+msgid "Practise multiplication, until all the cards are gone."
+msgstr "Gyakorold a szorzást"
+
+#: ../boards/memory_mult.xml.in.h:4
+msgid ""
+"Turn the cards over to find two numbers which multiply the same, until all "
+"the cards are gone."
+msgstr ""
+
+#: ../boards/memory_mult_div.xml.in.h:1
+msgid "Multiplication and division memory game"
+msgstr ""
+
+#: ../boards/memory_mult_div.xml.in.h:2
+#: ../boards/memory_mult_div_tux.xml.in.h:2
+#, fuzzy
+msgid "Multiplication, division"
+msgstr "Szorzótábla"
+
+#: ../boards/memory_mult_div.xml.in.h:3
+#: ../boards/memory_mult_div_tux.xml.in.h:3
+#, fuzzy
+msgid "Practise multiplication, division, until all the cards are gone."
+msgstr "Gyakorold az összeadást, szorzást, osztást és kivonást."
+
+#: ../boards/memory_mult_div_tux.xml.in.h:1
+#, fuzzy
+msgid "Multiplication and division memory game against Tux"
+msgstr "Hangmemória-játék Tux ellen"
+
+#: ../boards/memory_mult_tux.xml.in.h:2
+#, fuzzy
+msgid "Multiplication memory game against Tux"
+msgstr "Hangmemória-játék Tux ellen"
+
+#: ../boards/memory_mult_tux.xml.in.h:3
+#, fuzzy
+msgid "Practise multiplication until all the cards are gone."
+msgstr "Gyakorold a szorzást"
+
+#: ../boards/memory_op_group.xml.in.h:1
+#, fuzzy
+msgid "Go to mathematics memory activities"
+msgstr "A memória tevékenységekhez"
+
+#: ../boards/memory_op_group.xml.in.h:2
+#: ../boards/memory_op_group_tux.xml.in.h:2
+#, fuzzy
+msgid "Memory activities based on operations"
+msgstr "Vasúti memória játék"
+
+#: ../boards/memory_op_group_tux.xml.in.h:1
+#, fuzzy
+msgid "Go to mathematics memory activities against Tux"
 msgstr "A memória tevékenységekhez"
 
 #: ../boards/memory_sound.xml.in.h:1 ../boards/memory_sound_tux.xml.in.h:1
@@ -2675,12 +3195,11 @@ msgid ""
 "need to remember where a sound is, while you listen to its twin. When you "
 "turn over the twins, they both disappear."
 msgstr ""
-"Néhány hegedűművész Tux jelenik meg. Minden egyes Tuxhoz társítva "
-"van egy hang, és minden hangnak van egy teljesen azonos párja. "
-"Kattints egy Tuxra a rejtett hang meghallgatásához és próbáld "
-"megkeresni a párját. Egyszerre csak két Tuxot aktiválhatsz, így "
-" meg kell jegyezned a hangok helyét, míg a párját hallgatod. Ha a "
-"párokra kattintasz, akkor mindkettő eltűnik."
+"Néhány hegedűművész Tux jelenik meg. Minden egyes Tuxhoz társítva van egy "
+"hang, és minden hangnak van egy teljesen azonos párja. Kattints egy Tuxra a "
+"rejtett hang meghallgatásához és próbáld megkeresni a párját. Egyszerre csak "
+"két Tuxot aktiválhatsz, így  meg kell jegyezned a hangok helyét, míg a "
+"párját hallgatod. Ha a párokra kattintasz, akkor mindkettő eltűnik."
 
 #: ../boards/memory_sound.xml.in.h:2
 msgid "Audio memory game"
@@ -2704,33 +3223,36 @@ msgid "Audio memory game against Tux"
 msgstr "Hangmemória-játék Tux ellen"
 
 #: ../boards/memory_sound_tux.xml.in.h:4
-msgid "Play the audio memory against Tux"
+#, fuzzy
+msgid "Play the audio memory game against Tux"
 msgstr "Hangmemória-játék Tux ellen"
 
 #: ../boards/memory_tux.xml.in.h:1
-msgid ""
-"A set of blank cards is shown. Each pair is associated by the same picture "
-"in their hidden faces. Click on a card to can uncover it and see its hidden "
-"picture. However, you can only see two hidden pictures at once. You have to "
-"remember the position of the pictures to associate them. To remove a pair of "
-"cards, uncover both of them. You play alternatively with Tux, and must take "
-"more pairs of cards than him."
+msgid "Have a memory competition with Tux."
 msgstr ""
-"Néhány lefordított kártyát látsz. A lefordított oldalukon lévő képek alapján párokat "
-"alkotnak. Egy kártya megfordításához és a rejtett kép megnézéséhez kattints rá. "
-"Azonban egyszerre csak két kártya lehet megfordítva. Meg kell jegyezned a képek "
-"helyét. Egy kártyapár eltávolításához fordítsd meg mindkét lapot. Alternatívaként "
-"játszhatsz Tux-szal, ekkor több párt kell levenned, mint ő."
 
 #: ../boards/memory_tux.xml.in.h:2
 msgid "Memory Game with images, against Tux"
 msgstr "Képes memóriajáték Tux ellen"
 
-#: ../boards/memory_tux.xml.in.h:4
-msgid "Play to memory against Tux."
-msgstr "Képes memóriajáték Tux ellen."
+#: ../boards/memory_tux.xml.in.h:5
+#, fuzzy
+msgid ""
+"You can see a set of cards that all look the same. Each card has a picture "
+"on the other side, and each picture has a twin somewhere in the set. You can "
+"only turn over two cards at once, so you need to remember where the pictures "
+"are until you can find the twin. When you turn over twins, they disappear! "
+"You take turns with Tux, and to win the game, you have to find more pairs of "
+"twins than he does."
+msgstr ""
+"Néhány lefordított kártyát látsz. Minden kártya lefordított oldalán egy kép "
+"van és minden képnek van egy párja. Egy kártya megfordításához kattints rá "
+"és próbáld megtalálni a párját. Azonban egyszerre csak két kártyát "
+"fordíthatsz meg. Meg kell jegyezned a képek helyét, amíg a párját keresed. "
+"Ha megfordítod egy kártyapár mindkét lapját, mindkettő el fog tűnni."
 
 #: ../boards/menu.xml.in.h:1
+#, fuzzy
 msgid ""
 "A simple click on an icon brings you to an activity or a menu of "
 "activities.\n"
@@ -2744,17 +3266,17 @@ msgid ""
 "    Music note - Repeat the question\n"
 "    Question Mark - Help\n"
 "    Tool - The configuration menu\n"
-"    Tux Plane - About game\n"
-"The stars, show suitable age groups for each game:\n"
-"    1, 2 or 3 simple stars  - 2 to 6 years old\n"
-"    1, 2 or 3 complex stars - From 7 years old"
+"    Tux Plane - About GCompris\n"
+"The stars show suitable age groups for each game:\n"
+"    1, 2 or 3 simple stars  - from 2 to 6 years old\n"
+"    1, 2 or 3 complex stars - 7 years and up"
 msgstr ""
 "Egy kattintás a megfelelő ikonra és máris megjelenik a megfelelő játék vagy "
 "a tevékenységek almenüje.\n"
 "A képernyő alján a GCompris vezérlőpanelja látható.\n"
 "A következő ikonok jelennek meg, jobbról balra haladva:\n"
-"(A játékokban csak akkor jelennek meg az egyes ikonok, ha használni is lehet"
-"azokat.)\n"
+"(A játékokban csak akkor jelennek meg az egyes ikonok, ha használni is "
+"lehetazokat.)\n"
 "     Házikó - Vissza az előző menübe, illetve a főmenüben: kilépés a "
 "programból\n"
 "     Hüvelykujj - OK. A megoldásod megerősítése\n"
@@ -2772,13 +3294,14 @@ msgstr ""
 msgid "GCompris Main Menu"
 msgstr "GCompris főmenü"
 
-#: ../boards/menu.xml.in.h:16
+#: ../boards/menu.xml.in.h:16 ../src/boards/menu2.c:1006
+#, fuzzy
 msgid ""
-"GCompris is a collection of educational games that provides for children "
-"from 2 years old with different activities."
+"GCompris is a collection of educational games that provides different "
+"activities for children aged 2 and up."
 msgstr ""
-"A GCompris különböző tevékenységeket kínáló oktatóprogramok gyűjteménye "
-"2 év fölötti gyerekek számára."
+"A GCompris különböző tevékenységeket kínáló oktatóprogramok gyűjteménye 2 év "
+"fölötti gyerekek számára."
 
 #: ../boards/menu.xml.in.h:18
 msgid ""
@@ -2787,6 +3310,15 @@ msgid ""
 msgstr ""
 "A GCompris célja, hogy szabadon elérhető alternatívát biztosítson a népszerű "
 "kereskedelmi Edutainment szoftverekkel szemben"
+
+#: ../boards/miscelaneous.xml.in.h:1
+#, fuzzy
+msgid "Miscellaneous activities"
+msgstr "A labirintusos játékokhoz"
+
+#: ../boards/miscelaneous.xml.in.h:2
+msgid "Time, Geography, ..."
+msgstr ""
 
 #: ../boards/missing_letter.xml.in.h:1
 msgid ""
@@ -2965,8 +3497,9 @@ msgid ""
 "Click on the coins or paper money at the bottom of the screen to pay. If you "
 "want to remove a coin or note, click on it on the upper screen area."
 msgstr ""
-"Kattints a fém- vagy papírpénzekre a képernyő alján a fizetéshez. Ha el akarsz "
-"távolítani egy érmét vagy papírpénzt, akkor kattints rá a képernyő felső részén."
+"Kattints a fém- vagy papírpénzekre a képernyő alján a fizetéshez. Ha el "
+"akarsz távolítani egy érmét vagy papírpénzt, akkor kattints rá a képernyő "
+"felső részén."
 
 #: ../boards/money.xml.in.h:3 ../boards/money_cents.xml.in.h:3
 msgid "Money"
@@ -2993,9 +3526,41 @@ msgstr "Gyakorold a pénz használatát, az aprópénzzel együtt"
 msgid "Rebuild the mosaic"
 msgstr "Rakd ki a mozaikot"
 
-#: ../boards/mouse.xml.in.h:2
-msgid "Mouse-manipulation boards"
+#: ../boards/mouse.xml.in.h:1
+#, fuzzy
+msgid "Mouse-manipulation activities."
 msgstr "Egérkezelést gyakoroltató táblák"
+
+#: ../boards/mouse.xml.in.h:2
+msgid "Various mouse-based activities (clicking, moving)"
+msgstr ""
+
+#: ../boards/numeration.xml.in.h:1
+#, fuzzy
+msgid "Numeration"
+msgstr "Számlálási gyakorlat"
+
+#: ../boards/numeration.xml.in.h:2
+#, fuzzy
+msgid "Numeration activities."
+msgstr "Számlálási gyakorlat"
+
+#: ../boards/oscar_and_friends.xml.in.h:1
+msgid "Improve reading skill and the ability to understand what is read."
+msgstr ""
+
+#: ../boards/oscar_and_friends.xml.in.h:2
+msgid "Read and play with the story"
+msgstr ""
+
+#: ../boards/oscar_and_friends.xml.in.h:3
+msgid "The story of Oscar and friend"
+msgstr ""
+
+#: ../boards/oscar_and_friends.xml.in.h:4
+#, fuzzy
+msgid "reading"
+msgstr "Olvasás"
 
 #: ../boards/paintings.xml.in.h:1
 msgid "Assemble the puzzle"
@@ -3039,7 +3604,8 @@ msgstr "Kandinsky, Wassily, Composition VIII - 1923"
 
 #: ../boards/paintings/board3_1.xml.in.h:2
 msgid "Oil on canvas, 140 x 201 cm; Solomon R. Guggenheim Museum, New York"
-msgstr "Olajfestmény vásznon, 140 x 201 cm; Solomon R. Guggenheim Múzeum, New York"
+msgstr ""
+"Olajfestmény vásznon, 140 x 201 cm; Solomon R. Guggenheim Múzeum, New York"
 
 #: ../boards/paintings/board4_0.xml.in.h:1
 msgid "Bazille, The Ramparts at Aigues-Mortes - 1867"
@@ -3062,9 +3628,8 @@ msgid ""
 "Hit any key or click on the plane to make Tux jump. Hit another key or click "
 "on Tux to open the parachute."
 msgstr ""
-"Nyomj meg egy gombot vagy kattints a gépre, hogy Tux kiugorjon. "
-"Nyomj meg egy újabb gombot, vagy kattints Tuxra, hogy kinyissa "
-"az ejtőernyőjét."
+"Nyomj meg egy gombot vagy kattints a gépre, hogy Tux kiugorjon. Nyomj meg "
+"egy újabb gombot, vagy kattints Tuxra, hogy kinyissa az ejtőernyőjét."
 
 #: ../boards/paratrooper.xml.in.h:3
 msgid ""
@@ -3072,8 +3637,8 @@ msgid ""
 "boat. He needs to allow for the wind direction and speed."
 msgstr ""
 "Ebben a játékban az ejtőernyős Tuxnak segítségre van szüksége, hogy "
-"biztonságosan megérkezzen a halászhajóra. Figyelned kell a szél "
-"irányára és az erősségére."
+"biztonságosan megérkezzen a halászhajóra. Figyelned kell a szél irányára és "
+"az erősségére."
 
 #: ../boards/paratrooper.xml.in.h:4
 msgid "Parachutist"
@@ -3081,25 +3646,38 @@ msgstr "Ejtőernyős"
 
 #: ../boards/paratrooper.xml.in.h:5
 msgid "This board is game-oriented. No specific skills are needed to play."
-msgstr "Ez a tábla játékközpontú. A játékhoz nem szükségesek megadott képességek."
+msgstr ""
+"Ez a tábla játékközpontú. A játékhoz nem szükségesek megadott képességek."
 
 #: ../boards/planegame.xml.in.h:1
 msgid ""
 "Catch the numbers in increasing order, using the up, down, right and left "
 "arrows on the keyboard to move the helicopter."
-msgstr "Fogd el a számokat növekvő sorrendben a fel, le, jobbra és balra nyilak használatával a helikopter mozgatásához."
+msgstr ""
+"Fogd el a számokat növekvő sorrendben a fel, le, jobbra és balra nyilak "
+"használatával a helikopter mozgatásához."
 
 #: ../boards/planegame.xml.in.h:2
 msgid "Move the helicopter to catch the clouds in the correct order"
-msgstr "Mozgasd a helikoptert, hogy a helyes sorrendben repülhess át a felhőkön"
+msgstr ""
+"Mozgasd a helikoptert, hogy a helyes sorrendben repülhess át a felhőkön"
 
 #: ../boards/planegame.xml.in.h:3
 msgid "Number"
 msgstr "Számok"
 
-#: ../boards/planegame.xml.in.h:4 ../src/boards/planegame.c:77
+#: ../boards/planegame.xml.in.h:4 ../src/boards/planegame.c:74
 msgid "Numbers in Order"
 msgstr "Számok sorrendje"
+
+#: ../boards/puzzle.xml.in.h:1
+#, fuzzy
+msgid "Puzzles"
+msgstr "kirakó"
+
+#: ../boards/puzzle.xml.in.h:2
+msgid "Various puzzles."
+msgstr ""
 
 #: ../boards/pythontest.xml.in.h:1
 msgid "Add a language-binding to gcompris."
@@ -3118,7 +3696,8 @@ msgid "Test board for the python plugin"
 msgstr "Teszttábla a Python bővítményhez"
 
 #: ../boards/pythontest.xml.in.h:5
-msgid "Thanks to Guido van Rossum and the python team for this powerful language!"
+msgid ""
+"Thanks to Guido van Rossum and the python team for this powerful language!"
 msgstr ""
 "Köszönet Guido van Rossumnak és a Python csapatnak ezért az erőteljes "
 "nyelvért!"
@@ -3211,13 +3790,18 @@ msgstr "sárga"
 msgid "Go to the Reading activities"
 msgstr "Az olvasási táblákhoz"
 
+#: ../boards/reading.xml.in.h:2
+#, fuzzy
+msgid "Reading activities."
+msgstr "Az olvasási táblákhoz"
+
 #: ../boards/readingh.xml.in.h:1 ../boards/readingv.xml.in.h:1
 msgid ""
 "A word is shown at the top right of the board. A list of words will appear "
 "and disappear on the left. Does the given word belong to the list?"
 msgstr ""
-"A tábla jobb felső részén megjelenik egy szó. Bal oldalon szavak egy "
-"listája jelenik meg, majd tűnik el. Az adott szó szerepelt a listában?"
+"A tábla jobb felső részén megjelenik egy szó. Bal oldalon szavak egy listája "
+"jelenik meg, majd tűnik el. Az adott szó szerepelt a listában?"
 
 #: ../boards/readingh.xml.in.h:2
 msgid "Horizontal reading practice"
@@ -3227,13 +3811,19 @@ msgstr "Olvasási gyakorlat vízszintesen"
 msgid "Read a list of words and work out if a given word is in it"
 msgstr "Olvass el egy szólistát és mondd meg, egy adott szó benne volt-e"
 
-#: ../boards/readingh.xml.in.h:4 ../boards/readingv.xml.in.h:3
-msgid "Read training in a limited time"
+#: ../boards/readingh.xml.in.h:5
+#, fuzzy
+msgid "Reading training in a limited time"
 msgstr "Olvasási gyakorlat behatárolt időben"
 
 #: ../boards/readingv.xml.in.h:2
 msgid "Read a vertical list of words and work out if a given word is in it"
-msgstr "Olvass el egy függőleges szólistát és mondd meg, egy adott szó benne volt-e"
+msgstr ""
+"Olvass el egy függőleges szólistát és mondd meg, egy adott szó benne volt-e"
+
+#: ../boards/readingv.xml.in.h:3
+msgid "Read training in a limited time"
+msgstr "Olvasási gyakorlat behatárolt időben"
 
 #: ../boards/readingv.xml.in.h:5
 msgid "Vertical-reading practice"
@@ -3243,7 +3833,7 @@ msgstr "Olvasási gyakorlat függőlegesen"
 msgid "Copy a drawing from the box on the right into the box on the left."
 msgstr "Másolj egy rajzot a jobb oldali dobozból a bal oldali dobozba."
 
-#: ../boards/redraw.xml.in.h:2 ../boards/redraw_symmetrical.xml.in.h:2
+#: ../boards/redraw.xml.in.h:2
 msgid ""
 "First, select the proper tool from the toolbar. Then drag the mouse to "
 "create objects. When you are done, click on the OK button. Errors will be "
@@ -3252,8 +3842,9 @@ msgid ""
 msgstr ""
 "Először válaszd ki a megfelelő eszközt az eszköztárról. Ezután új objektumok "
 "létrehozásához húzd az egeret. Ha kész vagy, kattints az OK gombra. A "
-"hibákat kis piros keresztek jelölik. Az objektumok sorrendje (melyik van alul/"
-"felül) nem fontos, de figyelj, hogy ne legyenek nemkívánatos ábrák más ábrák alatt."
+"hibákat kis piros keresztek jelölik. Az objektumok sorrendje (melyik van "
+"alul/felül) nem fontos, de figyelj, hogy ne legyenek nemkívánatos ábrák más "
+"ábrák alatt."
 
 #: ../boards/redraw.xml.in.h:3
 msgid "Redraw the given item"
@@ -3263,15 +3854,32 @@ msgstr "Rajzold újra az adott tárgyat"
 msgid ""
 "Copy the mirror image of an object from the box on the right into the box on "
 "the left."
-msgstr "Másold át a jobb oldali dobozban lévő tárgy tükörképét a bal oldali dobozba."
+msgstr ""
+"Másold át a jobb oldali dobozban lévő tárgy tükörképét a bal oldali dobozba."
+
+#: ../boards/redraw_symmetrical.xml.in.h:2
+#, fuzzy
+msgid ""
+"First, select the proper tool from the toolbar. Then drag the mouse to "
+"create objects. When you are done, click on the OK button. A little red "
+"cross will show you where something isn't right yet. The order of objects "
+"(above/under) is not important but be careful not to end up with unwanted "
+"objects under others."
+msgstr ""
+"Először válaszd ki a megfelelő eszközt az eszköztárról. Ezután új objektumok "
+"létrehozásához húzd az egeret. Ha kész vagy, kattints az OK gombra. A "
+"hibákat kis piros keresztek jelölik. Az objektumok sorrendje (melyik van "
+"alul/felül) nem fontos, de figyelj, hogy ne legyenek nemkívánatos ábrák más "
+"ábrák alatt."
 
 #: ../boards/redraw_symmetrical.xml.in.h:3
 msgid "Mirror the given item"
 msgstr "Tükrözd az adott tárgyat"
 
 #: ../boards/reversecount.xml.in.h:1
+#, fuzzy
 msgid ""
-"Can move the mouse, can read numbers and substract numbers up to 10 for the "
+"Can move the mouse, can read numbers and subtract numbers up to 10 for the "
 "first level"
 msgstr ""
 "Mozgatni tudja az egeret, tudja olvasni a számokat és - az első szinthez - "
@@ -3293,7 +3901,8 @@ msgstr "Gyakorold a kivonást egy vidám játékkal"
 
 #: ../boards/reversecount.xml.in.h:4
 msgid "Tux is hungry. Help him find fish by counting to the correct ice spot."
-msgstr "Tux éhes. A megfelelő jégkockáig számolva segíthetsz neki halakat találni."
+msgstr ""
+"Tux éhes. A megfelelő jégkockáig számolva segíthetsz neki halakat találni."
 
 #: ../boards/scales/board1_0.xml.in.h:1 ../boards/scales/board1_1.xml.in.h:1
 #: ../boards/scales/board1_2.xml.in.h:1 ../boards/scales/board1_3.xml.in.h:1
@@ -3322,8 +3931,8 @@ msgid ""
 "moreau@free.fr) in 2001. Its name is 'Spices Seller in Egypt'. It is "
 "released under the GPL licence."
 msgstr ""
-"A festményt Virginie MOREAU (virginie.moreau@free.fr) készítette 2001-ben, "
-"a címe \"Fűszerárus Egyiptomban\". A GPL licenc alatt került kiadásra."
+"A festményt Virginie MOREAU (virginie.moreau@free.fr) készítette 2001-ben, a "
+"címe \"Fűszerárus Egyiptomban\". A GPL licenc alatt került kiadásra."
 
 #: ../boards/scalesboard.xml.in.h:5
 msgid ""
@@ -3352,18 +3961,18 @@ msgid ""
 "anywhere on the map to get a measurement in distance and angle. Going to the "
 "next level will give you more complex weather conditions."
 msgstr ""
-"A szövegbeviteli mezőben adj meg soronként egy parancsot a hajód irányításához. A két "
-"beviteli mező között láthatod a használható parancsokat. A \"jobb\" és \"bal\" "
-" parancsok után egy szöget kell megadni fokokban. A szög értékét a \"jobb\" "
-"vagy a \"bal\" parancs paraméterének nevezzük. Az alapértelmezés 45 fok. Az "
-"\"előre\" parancs egy távolságot fogad el paramétereként. Az alapértelmezés "
-"1. Például: bal 90 -> Balra fordul merőlegesen; előre 10 -> Előre megy 10 "
-"egységet (ez a vonalzón jelenik meg) A cél a képernyő jobb oldalának (a "
-"piros vonal) elérése. Ha kész, megpróbálhatod fejleszteni a "
-"programodat és új versenyt indítani azonos időjárási körülmények között az "
-"\"újra\" gombbal. A térképen bárhová kattintva és az egeret húzva a távolság "
-"és a szög mérését kaphatod. A következő szintre lépve összetettebb időjárási "
-"feltételeket találsz."
+"A szövegbeviteli mezőben adj meg soronként egy parancsot a hajód "
+"irányításához. A két beviteli mező között láthatod a használható "
+"parancsokat. A \"jobb\" és \"bal\"  parancsok után egy szöget kell megadni "
+"fokokban. A szög értékét a \"jobb\" vagy a \"bal\" parancs paraméterének "
+"nevezzük. Az alapértelmezés 45 fok. Az \"előre\" parancs egy távolságot "
+"fogad el paramétereként. Az alapértelmezés 1. Például: bal 90 -> Balra "
+"fordul merőlegesen; előre 10 -> Előre megy 10 egységet (ez a vonalzón "
+"jelenik meg) A cél a képernyő jobb oldalának (a piros vonal) elérése. Ha "
+"kész, megpróbálhatod fejleszteni a programodat és új versenyt indítani "
+"azonos időjárási körülmények között az \"újra\" gombbal. A térképen bárhová "
+"kattintva és az egeret húzva a távolság és a szög mérését kaphatod. A "
+"következő szintre lépve összetettebb időjárási feltételeket találsz."
 
 #: ../boards/searace.xml.in.h:3 ../boards/searace1player.xml.in.h:3
 msgid ""
@@ -3406,14 +4015,31 @@ msgid "Numbers With Dice"
 msgstr "Kockák és számok"
 
 #: ../boards/smallnumbers.xml.in.h:5 ../boards/smallnumbers2.xml.in.h:5
-msgid ""
-"With the keyboard, type the number corresponding to the number of dots on "
-"the falling dice."
+#, fuzzy
+msgid "With the keyboard, type the number of dots you see on the falling dice."
 msgstr "Írd be a leeső kockán lévő pontok számát."
 
 #: ../boards/smallnumbers2.xml.in.h:4
 msgid "Numbers with pairs of dice"
 msgstr "Számok kockapárokkal"
+
+#: ../boards/sound_group.xml.in.h:1
+#, fuzzy
+msgid "Go to Sound activities"
+msgstr "A színes tevékenységekhez"
+
+#: ../boards/sound_group.xml.in.h:2
+#, fuzzy
+msgid "Sound based activities."
+msgstr "A táblás játékokhoz"
+
+#: ../boards/strategy.xml.in.h:1
+msgid "Strategy games"
+msgstr ""
+
+#: ../boards/strategy.xml.in.h:2
+msgid "Strategy games like chess, connect4, ..."
+msgstr ""
 
 #: ../boards/submarine.xml.in.h:1
 msgid ""
@@ -3460,10 +4086,11 @@ msgid "Sudoku, place unique symbols in a square."
 msgstr "Sudoku, helyezz el egyedi számokat egy négyzetben."
 
 #: ../boards/sudoku.xml.in.h:4
-msgid "Symbols must be unique in a row, in a column, and (if defined) each region."
+msgid ""
+"Symbols must be unique in a row, in a column, and (if defined) each region."
 msgstr ""
-"Minden szimbólumnak egyedinek kell lennie a soron, az oszlopon és (ha meg van "
-"adva) minden területen belül."
+"Minden szimbólumnak egyedinek kell lennie a soron, az oszlopon és (ha meg "
+"van adva) minden területen belül."
 
 #: ../boards/sudoku.xml.in.h:5
 msgid ""
@@ -3478,7 +4105,8 @@ msgstr ""
 "számokkal ez leggyakrabban egy 9x9-es rács, amely 3x3-as (\"régióknak\" "
 "nevezett) alrácsokból áll, induláskor néhány cellában különböző szimbólumok "
 "vagy számok találhatóak (a \"megadottak\"). Minden sor, oszlop és régió csak "
-"egyszer tartalmazhat minden egyes szimbólumot vagy számot. (Forrás: &lt;http://en.wikipedia.org/wiki/Sudoku&gt;)"
+"egyszer tartalmazhat minden egyes szimbólumot vagy számot. (Forrás: &lt;"
+"http://en.wikipedia.org/wiki/Sudoku&gt;)"
 
 #: ../boards/superbrain.xml.in.h:1
 msgid ""
@@ -3488,16 +4116,15 @@ msgid ""
 "a black box. You can use the right mouse button to flip the colors in the "
 "opposite order."
 msgstr ""
-"Ebben a játékban egy titkos színkombinációt kell kitalálnod. "
-"A színek sorrendjét a jobbra lent lévő körökre kattintva változtathatod "
-"meg. (a jobb gombbal kattintva fordított sorrendben változnak a színek)"
-"Ha ki szeretnél próbálni egy kombinációt, kattints az OK gombra. "
-"Ha eltaláltad egy rejtekhely színét, az alsóbb szinteken ezt Tux egy "
-"fekete négyzettel jelöli. Ha a kombináció egy színét eltaláltad, de a "
-"szín helyét nem, ezt egy fehér négyzettel jelöli. "
-"Magasabb szinteken csak egy fekete vagy fehér pont jelenik meg a "
-"kombinációd mellett, itt ezek alapján kell kitalálnod, melyik szín hová "
-"van elrejtve."
+"Ebben a játékban egy titkos színkombinációt kell kitalálnod. A színek "
+"sorrendjét a jobbra lent lévő körökre kattintva változtathatod meg. (a jobb "
+"gombbal kattintva fordított sorrendben változnak a színek)Ha ki szeretnél "
+"próbálni egy kombinációt, kattints az OK gombra. Ha eltaláltad egy "
+"rejtekhely színét, az alsóbb szinteken ezt Tux egy fekete négyzettel jelöli. "
+"Ha a kombináció egy színét eltaláltad, de a szín helyét nem, ezt egy fehér "
+"négyzettel jelöli. Magasabb szinteken csak egy fekete vagy fehér pont "
+"jelenik meg a kombinációd mellett, itt ezek alapján kell kitalálnod, melyik "
+"szín hová van elrejtve."
 
 #: ../boards/superbrain.xml.in.h:2 ../src/boards/superbrain.c:110
 msgid "Super Brain"
@@ -3509,8 +4136,66 @@ msgstr ""
 "Tux elrejtett egy titkos színkombinációt. Találd meg a színeket a helyes "
 "sorrendben"
 
+#: ../boards/tangram.xml.in.h:1
+#, fuzzy
+msgid ""
+"From Wikipedia, the free encyclopedia. Tangram (Chinese: literally \"seven "
+"boards of cunning\") is a Chinese puzzle. While the tangram is often said to "
+"be ancient, its existence has only been verified as far back as 1800. It "
+"consists of 7 pieces, called tans, which fit together to form a square; "
+"taking the square as the unit:\n"
+"\t* 5 right isosceles triangles\n"
+"\t\to 2 small (legs of 1)\n"
+"\t\to 1 medium size (legs of square root of 2)\n"
+"\t\to 2 large size (legs of 2)\n"
+"\t* 1 square (side of 1)\n"
+"\t* 1 parallelogram (sides of 1 and square root of 2)"
+msgstr ""
+"A Wikipédiából, a szabad lexikonból. A Tangram (Kínai: szó szerint \"a "
+"ravaszság  hét deszkája\") egy kínai kirakó. Míg a tangramot gyakran ősinek "
+"nevezik, létezését csak 1800-ig visszamenőleg sikerült bizonyítani. Hét tan-"
+"nak nevezett darabból áll, amelyek együtt négyzetet alkotnak, a négyzetet "
+"véve egységnek: öt egyenlőszárú háromszög, ebből 2 kicsi (1 hosszúságú "
+"szárakkal), 1 közepes (gyök 2 hosszúságú szárakkal) és 2 nagy méretű (2 "
+"hosszúságú szárakkal), egy négyzet (1 oldalhosszal) egy paralelogramma (1 és "
+"gyök 2 hosszúságú oldalakkal)."
+
+#: ../boards/tangram.xml.in.h:9
+#, fuzzy
+msgid ""
+"Select the tangram to form. Move a piece by dragging it. Right-click on it "
+"to create a symmetrical item. Select an item and drag around it to show the "
+"rotation you want. Once you've shown what shape you want, the computer will "
+"create it. If you need help, click on the shape button, and the border of "
+"the shape will be drawn."
+msgstr ""
+"Válaszd ki a kialakítandó tangramot. Húzz rá egy darabot. Kattints a jobb "
+"egérgombbal egy szimmetrikus elem létrehozásához. A forgatáshoz válassz "
+"kiegy elemet és húzd körülötte az egeret. A kívánt alakzatot létrehozása "
+"után a számítógép felismeri. Ha segítségre van szükséged, akkor kattints az "
+"alakzat gombra és megjelennek az alakzat körvonalai."
+
+#: ../boards/tangram.xml.in.h:10
+msgid "The objective is to form a given shape with seven pieces"
+msgstr ""
+"A cél egy megadott alakzat megformálása mind a hét darab felhasználásával"
+
+#: ../boards/tangram.xml.in.h:11
+#, fuzzy
+msgid ""
+"The original code was written by Philippe Banwarth in 1999. It was ported to "
+"GCompris by Yves Combe in 2005."
+msgstr ""
+"Az eredeti kódot Philippe Banwarth írta 1999-ben. A GCompris-hoz Yves Combe "
+"portolta 2005-ben."
+
+#: ../boards/tangram.xml.in.h:12
+msgid "The tangram puzzle game"
+msgstr "A tangram kirakójáték"
+
 #: ../boards/target.xml.in.h:1
-msgid "Can move the mouse, can read numbers and count up to 15 for the first level"
+msgid ""
+"Can move the mouse, can read numbers and count up to 15 for the first level"
 msgstr "Kezelni tudja az egeret, számolni tud 15-ig (az első szinthez)"
 
 #: ../boards/target.xml.in.h:2
@@ -3520,9 +4205,10 @@ msgid ""
 "count your score. Enter the score with the keyboard then press the Enter key "
 "or the OK button."
 msgstr ""
-"Elsőként ellenőrizd a szél irányát és erősségét. Ezt követően kattints a céltáblára "
-"egy nyíl elindításához. Ha minden nyilat ellőttél, megjelenik egy új ablak, ide írd be, "
-"hány pontot szereztél. Ha kész vagy, kattints a hüvelykujjra vagy nyomj Enter-t."
+"Elsőként ellenőrizd a szél irányát és erősségét. Ezt követően kattints a "
+"céltáblára egy nyíl elindításához. Ha minden nyilat ellőttél, megjelenik egy "
+"új ablak, ide írd be, hány pontot szereztél. Ha kész vagy, kattints a "
+"hüvelykujjra vagy nyomj Enter-t."
 
 #: ../boards/target.xml.in.h:3
 msgid "Hit the target and count your points"
@@ -3535,6 +4221,22 @@ msgstr "Gyakorold az összeadást egy célbadobó játékkal"
 #: ../boards/target.xml.in.h:5
 msgid "Throw darts at a target and count your score."
 msgstr "Dobd a nyilakat a céltáblára, majd számold össze a pontjaidat."
+
+#: ../boards/traffic.xml.in.h:1
+msgid "A sliding-block puzzle game"
+msgstr "Egy tologatós kirakójáték"
+
+#: ../boards/traffic.xml.in.h:2
+msgid ""
+"Each car can only move either horizontaly or verticaly. You must make some "
+"room in order to let the red car move through the gate on the right."
+msgstr ""
+
+#: ../boards/traffic.xml.in.h:3
+#, fuzzy
+msgid "Remove the red car from the parking lot through the gate on the right"
+msgstr ""
+"Távolítsd el az összes piros autót a parkolóból a jobb oldali kapun keresztül"
 
 #: ../boards/tuxpaint.xml.in.h:1
 msgid "Drawing activity (pixmap)"
@@ -3550,19 +4252,13 @@ msgstr "Tuxpaint"
 
 #: ../boards/tuxpaint.xml.in.h:4
 msgid "Use Tuxpaint to draw. When Tuxpaint is finished this board will end."
-msgstr "A Tuxpaint használatával rajzolhatsz. A Tuxpaint befejeződésekor ez a tábla is véget ér."
+msgstr ""
+"A Tuxpaint használatával rajzolhatsz. A Tuxpaint befejeződésekor ez a tábla "
+"is véget ér."
 
 #: ../boards/tuxpaint.xml.in.h:5
 msgid "mouse and keyboard manipulation"
 msgstr "Egér- és billentyűzetkezelés"
-
-#: ../boards/traffic.xml.in.h:1
-msgid "A sliding-block puzzle game"
-msgstr "Egy tologatós kirakójáték"
-
-#: ../boards/traffic.xml.in.h:2
-msgid "Remove all the red cars from the parking lot through the gate on the right"
-msgstr "Távolítsd el az összes piros autót a parkolóból a jobb oldali kapun keresztül"
 
 #: ../boards/watercycle.xml.in.h:1
 msgid ""
@@ -3618,14 +4314,35 @@ msgid "Educational game for ages 2 to 10"
 msgstr "Oktatószoftver 2-10 éveseknek"
 
 #: ../gcompris.desktop.in.h:2
-msgid "Educational suite gcompris"
+#, fuzzy
+msgid "Educational suite GCompris"
 msgstr "A GCompris oktatóprogram-gyűjtemény"
 
 #: ../gcompris.desktop.in.h:3
-msgid "Multiple activities for kids"
-msgstr "Változatos tevékenységek gyerekeknek"
+msgid "Multi-activity educational game"
+msgstr ""
 
-#: ../src/boards/chess.c:189
+#: ../src/boards/awele.c:352 ../src/boards/awele.c:362
+msgid "NORTH"
+msgstr ""
+
+#: ../src/boards/awele.c:374 ../src/boards/awele.c:384
+msgid "SOUTH"
+msgstr ""
+
+#: ../src/boards/awele.c:553
+msgid "Choose a house"
+msgstr ""
+
+#: ../src/boards/awele.c:681
+msgid "Your turn to play ..."
+msgstr ""
+
+#: ../src/boards/awele.c:750
+msgid "Not allowed! Try again !"
+msgstr ""
+
+#: ../src/boards/chess.c:188
 msgid ""
 "Error: The external program gnuchess is mandatory\n"
 "to play chess in gcompris.\n"
@@ -3640,7 +4357,7 @@ msgstr ""
 "terjesztése webhelyén.\n"
 "És ellenőrizze, hogy benne van-e a következőben:"
 
-#: ../src/boards/chess.c:228
+#: ../src/boards/chess.c:227
 msgid ""
 "Error: The external program gnuchess is mandatory\n"
 "to play chess in gcompris.\n"
@@ -3655,67 +4372,41 @@ msgstr ""
 "terjesztése webhelyén.\n"
 "És ellenőrizze, hogy benne van-e a következőben:"
 
-#: ../src/boards/chess.c:569
+#: ../src/boards/chess.c:571
 msgid "White's Turn"
 msgstr "Fehér lép"
 
-#: ../src/boards/chess.c:569
+#: ../src/boards/chess.c:571
 msgid "Black's Turn"
 msgstr "Fekete lép"
 
-#: ../src/boards/chess.c:713
+#: ../src/boards/chess.c:715
 msgid "White checks"
 msgstr "Fehér sakk"
 
-#: ../src/boards/chess.c:715
+#: ../src/boards/chess.c:717
 msgid "Black checks"
 msgstr "Fekete sakk"
 
-#: ../src/boards/chess.c:1052
+#: ../src/boards/chess.c:1049
 msgid "Black mates"
 msgstr "Fekete matt"
 
-#: ../src/boards/chess.c:1057
+#: ../src/boards/chess.c:1054
 msgid "White mates"
 msgstr "Fehér matt"
 
-#: ../src/boards/chess.c:1062 ../src/gcompris/bonus.c:312
-#: ../src/gcompris/bonus.c:321
+#: ../src/boards/chess.c:1059 ../src/gcompris/bonus.c:330
+#: ../src/gcompris/bonus.c:339
 msgid "Drawn game"
 msgstr "Döntetlen"
 
-#. TRANSLATORS: Put here the alphabet in your language
-#. require by all utf8-functions
-#. TRANSLATORS: Put here the alphabet lowercase in your language
-#: ../src/boards/click_on_letter.c:258 ../src/boards/click_on_letter.c:275
-#: ../src/boards/gletters.c:228 ../src/boards/memory.c:565
-msgid "abcdefghijklmnopqrstuvwxyz"
-msgstr "aábcdeéfghiíjklmnoóöőpqrstuúüűvwxyz"
-
-#: ../src/boards/click_on_letter.c:287
-#, c-format
-msgid ""
-"Error: this activity requires that you first install\n"
-"the packages assetml-voices-alphabet-%s or %s"
-msgstr ""
-"Hiba: Ehhez a tevékenységhez telepítve kell \n"
-"lennie az assetml-voices-alphabet-%s vagy %s csomagnak."
-
-#: ../src/boards/click_on_letter.c:294
-#, c-format
-msgid ""
-"Error: this activity requires that you first install\n"
-"the packages assetml-voices-alphabet-%s ! Fallback to english, sorry!"
-msgstr ""
-"Hiba: Ehhez a tevékenységhez telepítve kell \n"
-"lennie az assetml-voices-alphabet-%s csomagnak! "
-"Az angolt használom, elnézést."
-
-#: ../src/boards/click_on_letter.c:302
+#: ../src/boards/click_on_letter.c:262 ../src/boards/memory.c:827
+#, fuzzy
 msgid ""
 "Error: this activity cannot be played with the\n"
 "sound effects disabled.\n"
-"Go to the configuration dialogue to\n"
+"Go to the configuration dialog to\n"
 "enable the sound"
 msgstr ""
 "Hiba: ez a játék nem játszható kikapcsolt\n"
@@ -3723,8 +4414,36 @@ msgstr ""
 "A beállítási párbeszédablakban\n"
 "kapcsolható be a hang."
 
+#. TRANSLATORS: Put here the alphabet in your language
+#. require by all utf8-functions
+#. TRANSLATORS: Put here the alphabet lowercase in your language
+#: ../src/boards/click_on_letter.c:267 ../src/boards/gletters.c:232
+#: ../src/boards/memory.c:848
+msgid "abcdefghijklmnopqrstuvwxyz"
+msgstr "aábcdeéfghiíjklmnoóöőpqrstuúüűvwxyz"
+
+#: ../src/boards/click_on_letter.c:289
+#, fuzzy, c-format
+msgid ""
+"Error: this activity requires that you first install\n"
+"the packages with gcompris voices for the locale '%s' or '%s'"
+msgstr ""
+"Hiba: Ehhez a tevékenységhez telepítve kell \n"
+"lennie az assetml-voices-alphabet-%s vagy %s csomagnak."
+
+#: ../src/boards/click_on_letter.c:297
+#, fuzzy, c-format
+msgid ""
+"Error: this activity requires that you first install\n"
+"the packages with GCompris voices for the locale '%s' ! Fallback to english, "
+"sorry!"
+msgstr ""
+"Hiba: Ehhez a tevékenységhez telepítve kell \n"
+"lennie az assetml-voices-alphabet-%s csomagnak! Az angolt használom, "
+"elnézést."
+
 #. toggle box
-#: ../src/boards/click_on_letter.c:611 ../src/boards/gletters.c:813
+#: ../src/boards/click_on_letter.c:649 ../src/boards/gletters.c:899
 #: ../src/boards/python/login.py:535
 msgid "Uppercase only text"
 msgstr "Csak nagybetűs szöveg"
@@ -3734,7 +4453,7 @@ msgstr "Csak nagybetűs szöveg"
 msgid "Couldn't open dir: %s"
 msgstr "Nem sikerült megnyitnom a(z) %s könyvtárat"
 
-#: ../src/boards/clockgame.c:536 ../src/boards/clockgame.c:546
+#: ../src/boards/clockgame.c:544 ../src/boards/clockgame.c:554
 msgid "Set the watch to:"
 msgstr "Állítsd be az órát erre:"
 
@@ -3779,12 +4498,12 @@ msgid "Click on the white duck"
 msgstr "Kattints a fehér színű kacsára"
 
 #. TRANSLATORS: Put here the numbers in your language
-#: ../src/boards/gletters.c:224 ../src/boards/memory.c:561
+#: ../src/boards/gletters.c:228 ../src/boards/memory.c:844
 msgid "0123456789"
 msgstr "0123456789"
 
 #. TRANSLATORS: Put here the alphabet uppercase in your language
-#: ../src/boards/gletters.c:234 ../src/boards/memory.c:571
+#: ../src/boards/gletters.c:238 ../src/boards/memory.c:854
 msgid "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 msgstr "AÁBCDEÉFGHIÍJKLMNOÓÖŐPQRSTUÚÜŰXYVZ"
 
@@ -3799,73 +4518,73 @@ msgid "Tower of Hanoi"
 msgstr "Hanoi tornyai"
 
 #: ../src/boards/hanoi_real.c:277 ../src/boards/hanoi_real.c:288
-msgid "Move the entire stack to the right peg"
+#, fuzzy
+msgid "Move the entire stack to the right peg, one disc at a time"
 msgstr "Mozgasd az egész halmot a jobb oldali cölöpre"
 
-#: ../src/boards/imageid.c:113 ../src/boards/missingletter.c:105
+#: ../src/boards/imageid.c:114 ../src/boards/missingletter.c:105
 msgid "Learn how to read"
 msgstr "Tanulj meg olvasni"
 
-#: ../src/boards/leftright.c:276 ../src/boards/leftright.c:286
+#: ../src/boards/leftright.c:280 ../src/boards/leftright.c:290
 #: ../src/boards/python/searace.py:429 ../src/boards/python/searace.py:454
 #: ../src/boards/python/searace.py:544 ../src/boards/python/searace.py:856
 #: ../src/boards/python/searace.py:889 ../src/boards/python/searace.py:986
 msgid "left"
 msgstr "bal"
 
-#: ../src/boards/leftright.c:296 ../src/boards/leftright.c:306
+#: ../src/boards/leftright.c:300 ../src/boards/leftright.c:310
 #: ../src/boards/python/searace.py:429 ../src/boards/python/searace.py:454
 #: ../src/boards/python/searace.py:553 ../src/boards/python/searace.py:858
 #: ../src/boards/python/searace.py:891 ../src/boards/python/searace.py:980
 msgid "right"
 msgstr "jobb"
 
-#: ../src/boards/maze.c:492
+#: ../src/boards/maze.c:496
 msgid ""
 "Look at your position, then switch back to invisible mode to continue your "
 "moves"
-msgstr "Nézd meg, hol állsz majd kapcsolj vissza láthatatlan módba a továbbhaladáshoz"
+msgstr ""
+"Nézd meg, hol állsz majd kapcsolj vissza láthatatlan módba a továbbhaladáshoz"
 
-#: ../src/boards/maze.c:494
-msgid "Look at your position, then switch back to 3D mode to continue your moves"
+#: ../src/boards/maze.c:498
+msgid ""
+"Look at your position, then switch back to 3D mode to continue your moves"
 msgstr "Nézd meg, hol állsz majd kapcsolj vissza 3D módba a továbbhaladáshoz"
 
-#: ../src/boards/memory.c:250
+#: ../src/boards/memory.c:287
 msgid "Memory"
 msgstr "Memória játék"
 
-#: ../src/boards/memory.c:251
+#: ../src/boards/memory.c:288
 msgid "Find the matching pair"
 msgstr "Találd meg a párját"
 
-#: ../src/boards/menu.c:79
-msgid "Main Menu"
-msgstr "Főmenü"
+#. TRANSLATORS: Put here the mathematical operators "+-��" for  your language.
+#: ../src/boards/memory.c:859
+msgid "+-×÷"
+msgstr ""
 
-#: ../src/boards/menu.c:80
+#: ../src/boards/menu2.c:133
+msgid "Main Menu Second Version"
+msgstr ""
+
+#: ../src/boards/menu2.c:134
 msgid "Select a Board"
 msgstr "Válassz egy játékot"
 
 #. Set here the way to display money. Change only the money sign, and it's place, always keep %.2f, it will be replaced by 0,34 if decimal is ',' in your locale
-#: ../src/boards/money.c:489
+#: ../src/boards/money.c:492
 #, c-format
 msgid "$ %.2f"
 msgstr "%.2f Ft"
 
-#: ../src/boards/money.c:502
+#: ../src/boards/money.c:505
 #, c-format
 msgid "$ %.0f"
 msgstr "%.0f Ft"
 
-#: ../src/boards/paratrooper.c:102
-msgid "Paratrooper"
-msgstr "Tux, az ejtőernyős pingvin"
-
-#: ../src/boards/paratrooper.c:103
-msgid "Direct the paratrooper to help him land safely"
-msgstr "Irányítsd Tuxot hogy biztonságban landoljon a hajón"
-
-#: ../src/boards/planegame.c:78
+#: ../src/boards/planegame.c:75
 msgid "Move the plane to catch the clouds in the correct order"
 msgstr "Mozgasd a helikoptert, hogy helyes sorrendben repülhess át a felhőkön"
 
@@ -3893,13 +4612,28 @@ msgstr "Minden kijelölése"
 msgid "Unselect all"
 msgstr "Kijelölés megszüntetése"
 
+#: ../src/boards/python/admin/board_list.py:161
+#, fuzzy
+msgid "Locales"
+msgstr "vár"
+
+#: ../src/boards/python/admin/board_list.py:166
+msgid "Locales sound"
+msgstr ""
+
+#: ../src/boards/python/admin/board_list.py:171
+msgid "Wordlist"
+msgstr ""
+
+#: ../src/boards/python/admin/board_list.py:178
+#: ../src/boards/python/admin/group_user_list.py:145
+#: ../src/boards/python/admin/user_list.py:187
+msgid "Login"
+msgstr "Bejelentkezés"
+
 #: ../src/boards/python/admin/board_list.py:236
 msgid "Main menu"
 msgstr "Főmenü"
-
-#: ../src/boards/python/admin/board_list.py:236
-msgid "/"
-msgstr "/"
 
 #. columns for Board name
 #. column_pref = gtk.TreeViewColumn(_('Conf'))
@@ -3937,7 +4671,7 @@ msgstr ""
 #: ../src/boards/python/admin/board_list.py:632
 #: ../src/boards/python/admin/board_list.py:650
 #: ../src/boards/python/admin/wordlist.py:51 ../src/boards/python/login.py:530
-#: ../src/boards/python/pythontest.py:409 ../src/boards/python/tuxpaint.py:179
+#: ../src/boards/python/pythontest.py:410 ../src/boards/python/tuxpaint.py:184
 #, python-format
 msgid ""
 "<b>%s</b> configuration\n"
@@ -3947,7 +4681,7 @@ msgstr ""
 "<b>%s</b> profilhoz"
 
 #: ../src/boards/python/admin/board_list.py:662
-#: ../src/boards/python/pythontest.py:473
+#: ../src/boards/python/pythontest.py:474
 msgid "Select sound locale"
 msgstr "Válassza ki a hang nyelvét"
 
@@ -4070,18 +4804,13 @@ msgstr "Leírás"
 msgid "You must first select a group in the list"
 msgstr "Először ki kell választania egy csoportot a listából"
 
-#: ../src/boards/python/admin/group_user_list.py:145
-#: ../src/boards/python/admin/user_list.py:187
-msgid "Login"
-msgstr "Bejelentkezés"
-
 #: ../src/boards/python/admin/group_user_list.py:175
 #: ../src/boards/python/admin/user_list.py:217
 msgid "Birth Date"
 msgstr "Születési dátum"
 
-#: ../src/boards/python/admin/module_boards.py:42
-#: ../src/boards/python/admin/module_boards.py:62
+#: ../src/boards/python/admin/module_boards.py:43
+#: ../src/boards/python/admin/module_boards.py:63
 msgid "Boards"
 msgstr "Táblák"
 
@@ -4135,7 +4864,7 @@ msgid "There is already a profile with this name"
 msgstr "Már létezik ilyen nevű profil"
 
 #: ../src/boards/python/admin/profile_list.py:122
-#: ../src/gcompris/board_config.c:602 ../src/gcompris/board_config.c:727
+#: ../src/gcompris/board_config.c:651 ../src/gcompris/board_config.c:812
 msgid "Default"
 msgstr "Alapértelmezett"
 
@@ -4180,7 +4909,9 @@ msgid "Birth date:"
 msgstr "Születési dátum:"
 
 #: ../src/boards/python/admin/user_edit.py:159
-msgid "You need to provide at least a login, firstname and lastname for your users"
+#, fuzzy
+msgid ""
+"You need to provide at least a login, first name and last name for your users"
 msgstr ""
 "Legalább egy bejelentkezési nevet valamint egy utó- és vezetéknevet meg kell "
 "adnia a felhasználóknak."
@@ -4190,10 +4921,11 @@ msgid "There is already a user with this login"
 msgstr "Már létezik ilyen bejelentkezési nevű felhasználó"
 
 #: ../src/boards/python/admin/user_list.py:292
+#, fuzzy
 msgid ""
 "To import a user list from a file, first select a class.\n"
 "FILE FORMAT: Your file must be formatted like this:\n"
-"login;First name;Last name;Birth date\n"
+"login;First name;Last name;Date of birth\n"
 "The separator is autodetected and can be one of ',', ';' or ':'"
 msgstr ""
 "Egy felhasználólista-fájl importálásához először válasszon egy osztályt.\n"
@@ -4226,15 +4958,28 @@ msgstr ""
 
 #: ../src/boards/python/anim.py:2206
 msgid "SVG is disabled. Install python xml module to enable it"
-msgstr "Az SVG ki van kapcsolva. A bekapcsolásához telepítse a python xml modult."
+msgstr ""
+"Az SVG ki van kapcsolva. A bekapcsolásához telepítse a python xml modult."
 
 #: ../src/boards/python/anim.py:2362
 msgid "Warning: the following images cannot be accessed on your system.\n"
-msgstr "Figyelmeztetés: a következő képekhez nem lehet hozzáférni a rendszerén.\n"
+msgstr ""
+"Figyelmeztetés: a következő képekhez nem lehet hozzáférni a rendszerén.\n"
 
 #: ../src/boards/python/anim.py:2364
 msgid "The corresponding items have been skipped."
 msgstr "A megfelelő elemek ki lettek hagyva."
+
+#: ../src/boards/python/electric.py:96
+msgid ""
+"Cannot find the 'gnucap' electric simulator.\n"
+"You can download and install it from:\n"
+"<http://geda.seul.org/tools/gnucap/>\n"
+"To be detected, it must be installed in\n"
+"/usr/bin/gnucap or /usr/local/bin/gnucap.\n"
+"You can still use this activity to draw schematics without computer "
+"simulation."
+msgstr ""
 
 #: ../src/boards/python/gnumch.py:95
 #, python-format
@@ -4305,9 +5050,9 @@ msgid "%d × %d"
 msgstr "%d × %d"
 
 #: ../src/boards/python/gnumch.py:264
-#, python-format
-msgid "%d ∕ %d"
-msgstr "%d ∕ %d"
+#, fuzzy, python-format
+msgid "%d ÷ %d"
+msgstr "%d × %d"
 
 #: ../src/boards/python/gnumch.py:272
 #, python-format
@@ -4361,24 +5106,24 @@ msgstr ""
 msgid "Guess a number between %d and %d"
 msgstr "Írj be egy számot %d és %d között"
 
-#: ../src/boards/python/guessnumber.py:337
-#: ../src/boards/python/guessnumber.py:338
+#: ../src/boards/python/guessnumber.py:335
+#: ../src/boards/python/guessnumber.py:336
 #, python-format
 msgid "Please enter a number between %d and %d"
 msgstr "Egy számot adj meg %d és %d között"
 
-#: ../src/boards/python/guessnumber.py:343
-#: ../src/boards/python/guessnumber.py:344
+#: ../src/boards/python/guessnumber.py:341
+#: ../src/boards/python/guessnumber.py:342
 msgid "Out of range"
 msgstr "Ez kívül esik a tartományon"
 
-#: ../src/boards/python/guessnumber.py:350
-#: ../src/boards/python/guessnumber.py:351
+#: ../src/boards/python/guessnumber.py:348
+#: ../src/boards/python/guessnumber.py:349
 msgid "Too high"
 msgstr "Túl nagy"
 
-#: ../src/boards/python/guessnumber.py:353
-#: ../src/boards/python/guessnumber.py:354
+#: ../src/boards/python/guessnumber.py:351
+#: ../src/boards/python/guessnumber.py:352
 msgid "Too low"
 msgstr "Túl kicsi"
 
@@ -4399,6 +5144,18 @@ msgstr "Add meg a bejelentkezési neved"
 msgid "Rebuild the same mosaic on the right area"
 msgstr "Rakd ki ugyanezt a mozaikot a jobb oldalon"
 
+#: ../src/boards/python/melody.py:116
+msgid ""
+"Error: this activity cannot be played with the\n"
+"sound effects disabled.\n"
+"Go to the configuration dialogue to\n"
+"enable the sound"
+msgstr ""
+"Hiba: ez a játék nem játszható kikapcsolt\n"
+"hangeffektusokkal.\n"
+"A beállítási párbeszédablakban\n"
+"kapcsolható be a hang."
+
 #: ../src/boards/python/pythontest.py:149
 msgid ""
 "This is the first plugin in gcompris coded in the Python\n"
@@ -4418,30 +5175,30 @@ msgid "This activity is not playable, just a test"
 msgstr "Ez a tábla nem játszható, csak egy teszt"
 
 #. toggle box
-#: ../src/boards/python/pythontest.py:414
+#: ../src/boards/python/pythontest.py:415
 msgid "Disable line drawing in circle"
 msgstr "Vonal rajzolásának kikapcsolása a körben"
 
 #. combo box
-#: ../src/boards/python/pythontest.py:423
+#: ../src/boards/python/pythontest.py:424
 msgid "Color of the line"
 msgstr "A vonal színe"
 
 #. spin button for int
-#: ../src/boards/python/pythontest.py:434
+#: ../src/boards/python/pythontest.py:435
 msgid "Distance between circles"
 msgstr "Távolság a körök között"
 
 #. radio buttons for circle or rectangle
-#: ../src/boards/python/pythontest.py:445
+#: ../src/boards/python/pythontest.py:446
 msgid "Use circles"
 msgstr "Körök használata"
 
-#: ../src/boards/python/pythontest.py:446
+#: ../src/boards/python/pythontest.py:447
 msgid "Use rectangles"
 msgstr "Téglalapok használata"
 
-#: ../src/boards/python/pythontest.py:449
+#: ../src/boards/python/pythontest.py:450
 msgid "Choice of pattern"
 msgstr "Minta választása"
 
@@ -4508,35 +5265,37 @@ msgstr "Ismeretlen parancs"
 msgid "Distance:"
 msgstr "Távolság:"
 
-#: ../src/boards/python/tuxpaint.py:115
+#: ../src/boards/python/tuxpaint.py:120
+#, fuzzy
 msgid ""
-"Cannot find Tuxpaint. \n"
-" Install it to use this board !"
+"Cannot find Tuxpaint.\n"
+"Install it to use this activity !"
 msgstr ""
 "A Tuxpaint nem található.\n"
 " Ezen tábla használatához előbb telepíteni kell!"
 
-#: ../src/boards/python/tuxpaint.py:128
-msgid "Waiting for Tuxpaint finishes"
+#: ../src/boards/python/tuxpaint.py:133
+#, fuzzy
+msgid "Waiting for Tuxpaint to finish"
 msgstr "Várakozás a Tuxpaint befejeződésére"
 
-#: ../src/boards/python/tuxpaint.py:183
+#: ../src/boards/python/tuxpaint.py:188
 msgid "Inherit fullscreen setting from GCompris"
 msgstr "A GCompris teljes képernyős beállításának öröklése"
 
-#: ../src/boards/python/tuxpaint.py:187
+#: ../src/boards/python/tuxpaint.py:192
 msgid "Inherit size setting from GCompris (800x600, 640x480)"
 msgstr "A GCompris méretbeállításának öröklése (800x600, 640x480)"
 
-#: ../src/boards/python/tuxpaint.py:191
+#: ../src/boards/python/tuxpaint.py:196
 msgid "Disable shape rotation"
 msgstr "Formák forgatásának kikapcsolása"
 
-#: ../src/boards/python/tuxpaint.py:195
+#: ../src/boards/python/tuxpaint.py:200
 msgid "Show Uppercase text only"
 msgstr "Csak Nagybetűs szövegek mutatása"
 
-#: ../src/boards/python/tuxpaint.py:199
+#: ../src/boards/python/tuxpaint.py:204
 msgid "Disable stamps"
 msgstr "Bélyegek kikapcsolása"
 
@@ -4548,46 +5307,46 @@ msgstr "Memóriajáték"
 msgid "Build a train according to the model"
 msgstr "Állítsd össze a vonatot a minta alapján"
 
-#: ../src/boards/reading.c:366
+#: ../src/boards/reading.c:370
 msgid "Please, check if the word"
 msgstr "Mondd meg nekem, hogy a(z)"
 
-#: ../src/boards/reading.c:386
+#: ../src/boards/reading.c:390
 msgid "is being displayed"
 msgstr "szó szerepelt-e a listán?"
 
-#: ../src/boards/reading.c:557
+#: ../src/boards/reading.c:561
 msgid "I am Ready"
 msgstr "Rajta!"
 
-#: ../src/boards/reading.c:597
+#: ../src/boards/reading.c:601
 msgid "Yes, I saw it"
 msgstr "Igen, láttam"
 
-#: ../src/boards/reading.c:627
+#: ../src/boards/reading.c:631
 msgid "No, it was not there"
 msgstr "Nem, nem szerepelt"
 
 #. Report what was wrong in the log
-#: ../src/boards/reading.c:665
+#: ../src/boards/reading.c:669
 #, c-format
 msgid "The word to find was '%s'"
 msgstr "A keresett szó a(z) '%s' volt"
 
-#: ../src/boards/reading.c:668
+#: ../src/boards/reading.c:672
 msgid "But it was not displayed"
 msgstr "De nem szerepelt a listán"
 
-#: ../src/boards/reading.c:670
+#: ../src/boards/reading.c:674
 msgid "And it was displayed"
 msgstr "És szerepelt a listán"
 
-#: ../src/boards/reading.c:773 ../src/boards/wordsgame.c:776
+#: ../src/boards/reading.c:776 ../src/boards/wordsgame.c:777
 msgid "Cannot open file of words for your locale"
 msgstr "Nem tudom megnyitni a magyar szavak listáját tartalmazó fájlt"
 
 #. Enter Edit Mode
-#: ../src/boards/shapegame.c:425
+#: ../src/boards/shapegame.c:434
 msgid ""
 "You have entered Edit mode\n"
 "Move the puzzle items;\n"
@@ -4599,7 +5358,7 @@ msgstr ""
 "és nyomj \"s\"-et a mentéshez\n"
 "vagy \"d\"-t az összes alakzat mutatásához"
 
-#: ../src/boards/shapegame.c:433
+#: ../src/boards/shapegame.c:442
 msgid ""
 "The data from this activity are saved under\n"
 "/tmp/gcompris-board.xml"
@@ -4616,12 +5375,12 @@ msgstr "Tengeralattjáró"
 msgid "Control the depth of a submarine"
 msgstr "Szabályozd a tengeralattjáró merülésének mélységét"
 
-#: ../src/boards/target.c:285 ../src/boards/target.c:538
+#: ../src/boards/target.c:285 ../src/boards/target.c:550
 #, c-format
 msgid "Points = %s"
 msgstr "Pontszám = %s"
 
-#: ../src/boards/target.c:403
+#: ../src/boards/target.c:407
 #, c-format
 msgid ""
 "Wind speed = %d\n"
@@ -4630,7 +5389,7 @@ msgstr ""
 "Szélsebesség = %d\n"
 "kilométer/óra"
 
-#: ../src/boards/target.c:465
+#: ../src/boards/target.c:474
 #, c-format
 msgid "Distance to target = %d meters"
 msgstr "A célpont távolsága = %d méter"
@@ -4656,15 +5415,15 @@ msgstr ""
 "Hilzinger Marcel <hili@suselinux.hu>\n"
 "Kelemen Gábor <kelemeng@gnome.hu>"
 
-#: ../src/gcompris/about.c:105 ../src/gcompris/about.c:114
+#: ../src/gcompris/about.c:104 ../src/gcompris/about.c:114
 msgid "About GCompris"
 msgstr "A GCompris névjegye"
 
-#: ../src/gcompris/about.c:124 ../src/gcompris/about.c:133
+#: ../src/gcompris/about.c:125 ../src/gcompris/about.c:134
 msgid "Translators:"
 msgstr "Fordítók:"
 
-#: ../src/gcompris/about.c:256
+#: ../src/gcompris/about.c:257
 msgid ""
 "GCompris Home Page\n"
 "http://gcompris.net"
@@ -4672,24 +5431,44 @@ msgstr ""
 "A GCompris honlapja\n"
 "http://gcompris.net"
 
-#: ../src/gcompris/about.c:278
+#: ../src/gcompris/about.c:279
 msgid ""
 "This software is a GNU Package and is released under the GNU General Public "
 "License"
-msgstr "Ez a program GNU szoftver és a GNU General Public License alatt van kiadva"
+msgstr ""
+"Ez a program GNU szoftver és a GNU General Public License alatt van kiadva"
 
-#: ../src/gcompris/about.c:341 ../src/gcompris/about.c:350
-#: ../src/gcompris/config.c:221 ../src/gcompris/config.c:230
-#: ../src/gcompris/gameutil.c:1113 ../src/gcompris/help.c:362
-#: ../src/gcompris/help.c:371 ../src/gcompris/images_selector.c:263
+#: ../src/gcompris/about.c:342 ../src/gcompris/about.c:352
+#: ../src/gcompris/config.c:467 ../src/gcompris/config.c:477
+#: ../src/gcompris/gameutil.c:1072 ../src/gcompris/help.c:380
+#: ../src/gcompris/help.c:390 ../src/gcompris/images_selector.c:259
 msgid "OK"
 msgstr "OK"
 
-#: ../src/gcompris/board.c:173
-msgid "Dynamic module loading is not supported. gcompris cannot load.\n"
-msgstr "Modulok dinamikus betöltése nem támogatott. A GCompris nem tölthető be.\n"
+#: ../src/gcompris/bar.c:566
+#, fuzzy
+msgid "GCompris confirmation"
+msgstr "A GCompris beállítása"
 
-#: ../src/gcompris/board_config.c:632
+#: ../src/gcompris/bar.c:567
+msgid "Sure you want to quit ?"
+msgstr ""
+
+#: ../src/gcompris/bar.c:568
+#, fuzzy
+msgid "Yes, I am sure !"
+msgstr "Igen, láttam"
+
+#: ../src/gcompris/bar.c:569
+msgid "No, I want to keep going"
+msgstr ""
+
+#: ../src/gcompris/board.c:171
+msgid "Dynamic module loading is not supported. gcompris cannot load.\n"
+msgstr ""
+"Modulok dinamikus betöltése nem támogatott. A GCompris nem tölthető be.\n"
+
+#: ../src/gcompris/board_config.c:683
 msgid ""
 "Select the language\n"
 " to use in the board"
@@ -4806,110 +5585,124 @@ msgid "Malayalam"
 msgstr "Malayalam"
 
 #: ../src/gcompris/config.c:91
+#, fuzzy
+msgid "Marathi"
+msgstr "Gujarati"
+
+#: ../src/gcompris/config.c:92
 msgid "Malay"
 msgstr "Maláj"
 
-#: ../src/gcompris/config.c:92
+#: ../src/gcompris/config.c:93
 msgid "Nepal"
 msgstr "Nepáli"
 
-#: ../src/gcompris/config.c:93
+#: ../src/gcompris/config.c:94
 msgid "Dutch"
 msgstr "Holland"
 
-#: ../src/gcompris/config.c:94
+#: ../src/gcompris/config.c:95
 msgid "Norwegian Bokmal"
 msgstr "Norvég Bokmal"
 
-#: ../src/gcompris/config.c:95
+#: ../src/gcompris/config.c:96
 msgid "Norwegian Nynorsk"
 msgstr "Norvég Nyorsk"
 
-#: ../src/gcompris/config.c:96
+#: ../src/gcompris/config.c:97
 msgid "Polish"
 msgstr "Lengyel"
 
-#: ../src/gcompris/config.c:97
+#: ../src/gcompris/config.c:98
 msgid "Portuguese"
 msgstr "Portugál"
 
-#: ../src/gcompris/config.c:98
+#: ../src/gcompris/config.c:99
 msgid "Portuguese (Brazil)"
 msgstr "Portugál (Brazil)"
 
-#: ../src/gcompris/config.c:99
+#: ../src/gcompris/config.c:100
 msgid "Romanian"
 msgstr "Román"
 
-#: ../src/gcompris/config.c:100
+#: ../src/gcompris/config.c:101
 msgid "Russian"
 msgstr "Orosz"
 
-#: ../src/gcompris/config.c:101
+#: ../src/gcompris/config.c:102
 msgid "Kinyarwanda"
 msgstr "Kinyarwanda"
 
-#: ../src/gcompris/config.c:102
+#: ../src/gcompris/config.c:103
 msgid "Slovak"
 msgstr "Szlovák"
 
-#: ../src/gcompris/config.c:103
+#: ../src/gcompris/config.c:104
 msgid "Slovenian"
 msgstr "Szlovén"
 
-#: ../src/gcompris/config.c:104
+#: ../src/gcompris/config.c:105
 msgid "Albanian"
 msgstr "Albán"
 
-#: ../src/gcompris/config.c:105
+#: ../src/gcompris/config.c:106
 msgid "Serbian (Latin)"
 msgstr "Szerb (latin)"
 
-#: ../src/gcompris/config.c:106
+#: ../src/gcompris/config.c:107
 msgid "Serbian"
 msgstr "Szerb"
 
-#: ../src/gcompris/config.c:107
+#: ../src/gcompris/config.c:108
 msgid "Swedish"
 msgstr "Svéd"
 
-#: ../src/gcompris/config.c:108
+#. "ta_IN.UTF-8",	N_("Tamil"),
+#: ../src/gcompris/config.c:110
+msgid "Thai"
+msgstr ""
+
+#: ../src/gcompris/config.c:111
 msgid "Turkish"
 msgstr "Török"
 
-#: ../src/gcompris/config.c:109
+#: ../src/gcompris/config.c:112
 msgid "Vietnamese"
 msgstr "Vietnami"
 
-#: ../src/gcompris/config.c:110
+#: ../src/gcompris/config.c:113
 msgid "Walloon"
 msgstr "Vallon"
 
-#: ../src/gcompris/config.c:111
+#: ../src/gcompris/config.c:114
 msgid "Chinese (Simplified)"
 msgstr "Egyszerűsített kínai"
 
-#: ../src/gcompris/config.c:116
+#: ../src/gcompris/config.c:115
+msgid "Chinese (Traditional)"
+msgstr ""
+
+#: ../src/gcompris/config.c:120
 msgid "No time limit"
 msgstr "Nincs időkorlátozás"
 
-#: ../src/gcompris/config.c:117
+#: ../src/gcompris/config.c:121
 msgid "Slow timer"
 msgstr "Sok idő"
 
-#: ../src/gcompris/config.c:118
+#: ../src/gcompris/config.c:122
 msgid "Normal timer"
 msgstr "Átlagos idő"
 
-#: ../src/gcompris/config.c:119
+#: ../src/gcompris/config.c:123
 msgid "Fast timer"
 msgstr "Kevés idő"
 
-#: ../src/gcompris/config.c:124
+#: ../src/gcompris/config.c:128
 msgid "800x600 (Default for gcompris)"
 msgstr "800x600 (a GCompris alapértelmezettje)"
 
-#: ../src/gcompris/config.c:129
+#: ../src/gcompris/config.c:133
 msgid ""
 "<i>Use Gcompris administration module\n"
 "to filter boards</i>"
@@ -4917,54 +5710,64 @@ msgstr ""
 "<i>Táblák szűréséhez használja a Gcompris\n"
 "adminisztrációs modulját</i> "
 
-#: ../src/gcompris/config.c:186 ../src/gcompris/config.c:195
+#: ../src/gcompris/config.c:187 ../src/gcompris/config.c:197
 msgid "GCompris Configuration"
 msgstr "A GCompris beállítása"
 
-#: ../src/gcompris/config.c:313
+#: ../src/gcompris/config.c:273
 msgid "Fullscreen"
 msgstr "Teljes képernyő"
 
-#: ../src/gcompris/config.c:356
+#: ../src/gcompris/config.c:316
 msgid "Music"
 msgstr "Zene"
 
-#: ../src/gcompris/config.c:384
+#: ../src/gcompris/config.c:344
 msgid "Effect"
 msgstr "Effektusok"
 
-#: ../src/gcompris/config.c:417
+#: ../src/gcompris/config.c:380
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "Nem sikerült megnyitnom a(z) %s témakönyvtárat"
 
-#: ../src/gcompris/config.c:453 ../src/gcompris/config.c:817
-#: ../src/gcompris/config.c:828
+#: ../src/gcompris/config.c:413 ../src/gcompris/config.c:838
+#: ../src/gcompris/config.c:852
 #, c-format
 msgid "Skin : %s"
 msgstr "Téma: %s"
 
-#: ../src/gcompris/file_selector.c:341
+#: ../src/gcompris/config.c:415
+msgid "SKINS NOT FOUND"
+msgstr ""
+
+#: ../src/gcompris/config.c:638
+#, fuzzy
+msgid "English (United State)"
+msgstr "Angol (Kanadai)"
+
+#: ../src/gcompris/file_selector.c:332
 msgid "CANCEL"
 msgstr "MÉGSEM"
 
-#: ../src/gcompris/file_selector.c:372
+#: ../src/gcompris/file_selector.c:363
 msgid "LOAD"
 msgstr "BETÖLTÉS"
 
-#: ../src/gcompris/file_selector.c:372
+#: ../src/gcompris/file_selector.c:363
 msgid "SAVE"
 msgstr "MENTÉS"
 
-#: ../src/gcompris/gameutil.c:190
-msgid "Couldn't find file"
+#: ../src/gcompris/gameutil.c:79
+#, fuzzy
+msgid "Couldn't find or load the file"
 msgstr "Nem található a fájl"
 
-#: ../src/gcompris/gameutil.c:192
+#: ../src/gcompris/gameutil.c:81
 msgid "This activity is incomplete."
 msgstr "ez a játék még nincs befejezve."
 
-#: ../src/gcompris/gameutil.c:193
+#: ../src/gcompris/gameutil.c:82
 msgid ""
 "Exit it and report\n"
 "the problem to the authors."
@@ -4972,47 +5775,48 @@ msgstr ""
 "Lépj ki és jelentsd a \n"
 "hibát a szerzőknek."
 
-#: ../src/gcompris/gcompris.c:122
+#: ../src/gcompris/gcompris.c:130
 msgid "run gcompris in fullscreen mode."
 msgstr "A GCompris teljes képernyős módban fusson."
 
-#: ../src/gcompris/gcompris.c:124
+#: ../src/gcompris/gcompris.c:133
 msgid "run gcompris in window mode."
 msgstr "A GCompris ablakban fusson."
 
-#: ../src/gcompris/gcompris.c:126
+#: ../src/gcompris/gcompris.c:136
 msgid "run gcompris with sound enabled."
 msgstr "A GCompris használjon hangokat."
 
-#: ../src/gcompris/gcompris.c:128
+#: ../src/gcompris/gcompris.c:139
 msgid "run gcompris without sound."
 msgstr "A GCompris ne használjon hangokat."
 
-#: ../src/gcompris/gcompris.c:130
+#: ../src/gcompris/gcompris.c:142
 msgid "run gcompris with the default gnome cursor."
 msgstr "A GCompris az alapértelmezett egérmutatóval fusson."
 
-#: ../src/gcompris/gcompris.c:132
+#: ../src/gcompris/gcompris.c:145
 msgid "display only activities with this difficulty level."
 msgstr "Csak az ilyen nehézségi szintű tevékenységek mutatása."
 
-#: ../src/gcompris/gcompris.c:134
+#: ../src/gcompris/gcompris.c:148
 msgid "display debug informations on the console."
 msgstr "hibakereső információk megjelenítése a konzolon."
 
-#: ../src/gcompris/gcompris.c:136
+#: ../src/gcompris/gcompris.c:151
 msgid "Print the version of "
 msgstr "Verziószám megtekintése: "
 
-#: ../src/gcompris/gcompris.c:138
+#: ../src/gcompris/gcompris.c:154
 msgid "Use the antialiased canvas (slower)."
 msgstr "Élsimított vászon (lassú)."
 
-#: ../src/gcompris/gcompris.c:140
-msgid "Disable XRANDR (No screen resolution change)."
+#: ../src/gcompris/gcompris.c:157
+#, fuzzy
+msgid "Disable XF86VidMode (No screen resolution change)."
 msgstr "XRANDR (képernyő felbontásának változtatása) kikapcsolása ."
 
-#: ../src/gcompris/gcompris.c:142
+#: ../src/gcompris/gcompris.c:160
 msgid ""
 "Run gcompris with local menu (e.g -l /reading will let you play only "
 "activities in the reading directory, -l /boards/connect4 only the connect4 "
@@ -5021,43 +5825,43 @@ msgstr ""
 "A GCompris futtatása helyi menüvel (például a -l /reading csak az olvasási "
 "táblákat indítja, a -l /boards/connect4 csak a connect4 tevékenységet)"
 
-#: ../src/gcompris/gcompris.c:144
+#: ../src/gcompris/gcompris.c:163
 msgid "Run GCompris with local activity directory added to menu"
 msgstr "A GCompris futtatása egy helyi tevékenységkönyvtár menühöz adásával"
 
-#: ../src/gcompris/gcompris.c:146
+#: ../src/gcompris/gcompris.c:166
 msgid "Run GCompris in administration and user-management mode"
 msgstr "A GCompris futtatása adminisztrációs és felhasználókezelési módban"
 
-#: ../src/gcompris/gcompris.c:148
+#: ../src/gcompris/gcompris.c:169
 msgid "Use alternate database for profiles"
 msgstr "Alternatív profiladatbázis használata"
 
-#: ../src/gcompris/gcompris.c:150
+#: ../src/gcompris/gcompris.c:172
 msgid "Use alternate database for logs"
 msgstr "Alternatív naplóadatbázis használata"
 
-#: ../src/gcompris/gcompris.c:152
+#: ../src/gcompris/gcompris.c:175
 msgid "Create the alternate database for profiles"
 msgstr "Az alternatív profiladatbázis létrehozása"
 
-#: ../src/gcompris/gcompris.c:154
+#: ../src/gcompris/gcompris.c:178
 msgid "Re-read XML Menus and store them in the database"
 msgstr "Az XML menük újraolvasása és tárolása az adatbázisban"
 
-#: ../src/gcompris/gcompris.c:156
+#: ../src/gcompris/gcompris.c:181
 msgid "Set the profile to use. Use 'gcompris -a' to create profiles"
 msgstr ""
 "A használandó profil beállítása. Használja a \"gcompris -a\" parancsot "
 "profilok létrehozásához."
 
-#: ../src/gcompris/gcompris.c:158
+#: ../src/gcompris/gcompris.c:184
 msgid "List all available profiles. Use 'gcompris -a' to create profiles"
 msgstr ""
 "Az összes elérhető profil listázása. Használja a \"gcompris -a\" parancsot "
 "profilok létrehozásához."
 
-#: ../src/gcompris/gcompris.c:160
+#: ../src/gcompris/gcompris.c:187
 msgid ""
 "Shared directory location, for profiles and board-configuration data: "
 "[$HOME/.gcompris/shared]"
@@ -5065,11 +5869,42 @@ msgstr ""
 "A megosztott könyvtár helye, a profilok és táblák beállítási adatai számára: "
 "[$HOME/.gcompris/shared]"
 
-#: ../src/gcompris/gcompris.c:162
+#: ../src/gcompris/gcompris.c:190
 msgid "The location of user directories: [$HOME/.gcompris/users]"
 msgstr "A felhasználók könyvtárának helye: [$HOME/.gcompris/users]"
 
-#: ../src/gcompris/gcompris.c:779
+#: ../src/gcompris/gcompris.c:193
+#, fuzzy
+msgid "Run the experimental activities"
+msgstr "A kísérletező játékokhoz"
+
+#: ../src/gcompris/gcompris.c:196
+#, fuzzy
+msgid "Disable the quit button"
+msgstr "Formák forgatásának kikapcsolása"
+
+#: ../src/gcompris/gcompris.c:199
+#, fuzzy
+msgid "Disable the config button"
+msgstr "Formák forgatásának kikapcsolása"
+
+#: ../src/gcompris/gcompris.c:202
+msgid "Display the resources on stdout based on the selected activities"
+msgstr ""
+
+#: ../src/gcompris/gcompris.c:205
+msgid ""
+"GCompris will get images, sounds and activity data from this server if not "
+"found locally.To use the default server, set this value to 'gcompris.net'"
+msgstr ""
+
+#: ../src/gcompris/gcompris.c:209
+msgid ""
+"Only when --server is provided, disable check for local resource first.Data "
+"are always taken from the web server."
+msgstr ""
+
+#: ../src/gcompris/gcompris.c:846
 #, c-format
 msgid ""
 "GCompris is free software released under the GPL License. In order to "
@@ -5083,8 +5918,8 @@ msgid ""
 "<http://www.fsf.org/philosophy>"
 msgstr ""
 "A GCompris szabad szoftver, mely a GPL licenc alatt kerül kiadásra. A "
-"fejlesztés támogatására a Windowsos verzió csak %d játékot "
-"tartalmaz a teljes %d helyett. A teljes verzió csekély díj ellenében megrendelhető a \n"
+"fejlesztés támogatására a Windowsos verzió csak %d játékot tartalmaz a "
+"teljes %d helyett. A teljes verzió csekély díj ellenében megrendelhető a \n"
 "http://gcompris.net\n"
 "címen. A Linux verzió nem tartalmazza ezt a megkötést. Ne feledje, a "
 "GCompris-t azért fejlesztjük, hogy az iskolákat megszabadítsuk a "
@@ -5093,7 +5928,7 @@ msgstr ""
 "használatát. További információért nézze meg a következő oldalt:\n"
 "http://www.fsf.org/philosophy"
 
-#: ../src/gcompris/gcompris.c:1163
+#: ../src/gcompris/gcompris.c:1348
 #, c-format
 msgid ""
 "GCompris\n"
@@ -5107,51 +5942,104 @@ msgstr ""
 "További információ: http://gcompris.net\n"
 
 #. check the list of possible values for -l, then exit
-#: ../src/gcompris/gcompris.c:1231
+#: ../src/gcompris/gcompris.c:1434
 #, c-format
 msgid "Use -l to access an activity directly.\n"
 msgstr "Használja a -l kapcsolót egy tevékenység közvetlen eléréséhez.\n"
 
-#: ../src/gcompris/gcompris.c:1232
-#, c-format
-msgid "List of available activity is :\n"
+#: ../src/gcompris/gcompris.c:1435
+#, fuzzy, c-format
+msgid "The list of available activities is :\n"
 msgstr "A rendelkezésre álló tevékenységek listája:\n"
 
-#: ../src/gcompris/gcompris.c:1375
+#: ../src/gcompris/gcompris.c:1594
 #, c-format
 msgid "The list of available profiles is:\n"
 msgstr "A rendelkezésre álló profilok listája:\n"
 
-#: ../src/gcompris/gcompris_db.c:237
+#: ../src/gcompris/gcompris_db.c:252
 msgid "Unaffected"
 msgstr "Nem befolyásolt"
 
-#: ../src/gcompris/gcompris_db.c:238
-msgid "Users without class"
+#: ../src/gcompris/gcompris_db.c:253
+#, fuzzy
+msgid "Users without a class"
 msgstr "Csoport nélküli felhasználók"
 
-#: ../src/gcompris/help.c:203
+#: ../src/gcompris/help.c:198
 msgid "Prerequisite"
 msgstr "Előfeltétel"
 
-#: ../src/gcompris/help.c:231
+#: ../src/gcompris/help.c:226
 msgid "Goal"
 msgstr "Cél"
 
-#: ../src/gcompris/help.c:259
+#: ../src/gcompris/help.c:254
 msgid "Manual"
 msgstr "Kézikönyv"
 
-#: ../src/gcompris/help.c:287
+#: ../src/gcompris/help.c:282
 msgid "Credit"
 msgstr "Köszönet"
 
-#: ../src/gcompris/timer.c:235
+#: ../src/gcompris/timer.c:239
 msgid "Time Elapsed"
 msgstr "Eltelt idő"
 
-#: ../src/gcompris/timer.c:321
+#: ../src/gcompris/timer.c:326
 #, c-format
 msgid "Remaining Time = %d"
 msgstr "Hátralévő idő = %d"
 
+#~ msgid "Moroco"
+#~ msgstr "Marokkó"
+
+#~ msgid ""
+#~ "Prime numbers are numbers that are only divisible by themselves and 1. "
+#~ "For example, 3 is a prime number, but 4 isn't (because 4 is divisible by "
+#~ "2). Use the arrow keys to navigate around the board and to avoid the "
+#~ "Troggles. Press the spacebar to eat a number."
+#~ msgstr ""
+#~ "Prímszámok azok a számok, amelyek csak önmagukkal és 1-el oszthatóak."
+#~ "Például a 3 prímszám, de a 4 nem az (mert a 4 osztható 2-vel). Használd a "
+#~ "nyílbillentyűket a táblán való mozgáshoz és óvakodj a szörnyektől! Nyomd "
+#~ "meg a szóközt egy szám megevéséhez."
+
+#~ msgid "Left-Click the mouse on an activity to select it."
+#~ msgstr "Egy tevékenység kiválasztásához kattints rá a bal egérgombbal"
+
+#~ msgid ""
+#~ "A set of blank cards is shown. Each pair is associated by the same "
+#~ "picture in their hidden faces. Click on a card to can uncover it and see "
+#~ "its hidden picture. However, you can only see two hidden pictures at "
+#~ "once. You have to remember the position of the pictures to associate "
+#~ "them. To remove a pair of cards, uncover both of them. You play "
+#~ "alternatively with Tux, and must take more pairs of cards than him."
+#~ msgstr ""
+#~ "Néhány lefordított kártyát látsz. A lefordított oldalukon lévő képek "
+#~ "alapján párokat alkotnak. Egy kártya megfordításához és a rejtett kép "
+#~ "megnézéséhez kattints rá. Azonban egyszerre csak két kártya lehet "
+#~ "megfordítva. Meg kell jegyezned a képek helyét. Egy kártyapár "
+#~ "eltávolításához fordítsd meg mindkét lapot. Alternatívaként játszhatsz "
+#~ "Tux-szal, ekkor több párt kell levenned, mint ő."
+
+#~ msgid "Play to memory against Tux."
+#~ msgstr "Képes memóriajáték Tux ellen."
+
+#~ msgid "Multiple activities for kids"
+#~ msgstr "Változatos tevékenységek gyerekeknek"
+
+#~ msgid "Main Menu"
+#~ msgstr "Főmenü"
+
+#~ msgid "Paratrooper"
+#~ msgstr "Tux, az ejtőernyős pingvin"
+
+#~ msgid "Direct the paratrooper to help him land safely"
+#~ msgstr "Irányítsd Tuxot hogy biztonságban landoljon a hajón"
+
+#~ msgid "/"
+#~ msgstr "/"
+
+#~ msgid "%d ∕ %d"
+#~ msgstr "%d ∕ %d"
