@@ -1,6 +1,6 @@
 /* gcompris - shapegame.c
  *
- * Time-stamp: <2006/08/13 18:11:02 bruno>
+ * Time-stamp: <2006/08/17 00:14:52 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -235,7 +235,6 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 
   if(agcomprisBoard!=NULL)
     {
-      GcomprisProperties *properties = gcompris_get_properties();
       gcomprisBoard = agcomprisBoard;
 
       /* disable im_context */
@@ -246,21 +245,19 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 
       /* Calculate the maxlevel based on the available data file for this board */
       gcomprisBoard->maxlevel=1;
-      filename = g_strdup_printf("%s/%s/board%d_0.xml",
-				 properties->package_data_dir, gcomprisBoard->boarddir,
-				 gcomprisBoard->maxlevel);
-      while(g_file_test(filename, G_FILE_TEST_EXISTS))
+      /**/
+      while( (filename = gcompris_find_absolute_filename("%s/board%d_0.xml",
+							 gcomprisBoard->boarddir,
+							 gcomprisBoard->maxlevel++,
+							 NULL)) )
 	{
-	  gcomprisBoard->maxlevel++;
-	
-	  filename = g_strdup_printf("%s/%s/board%d_0.xml",
-				     properties->package_data_dir, gcomprisBoard->boarddir,
-				     gcomprisBoard->maxlevel);
+	  g_free(filename);
+	  
 	}
+
+      /**/
       gcomprisBoard->maxlevel--;
 
-      g_free(filename);
-      
       if (strcmp(gcomprisBoard->name, "imagename")==0){
 	gcompris_bar_set(GCOMPRIS_BAR_CONFIG|GCOMPRIS_BAR_LEVEL|GCOMPRIS_BAR_OK);
       } else
@@ -509,7 +506,6 @@ static gboolean increment_sublevel()
 /* set initial values for the next level */
 static void shapegame_next_level()
 {
-  GcomprisProperties *properties = gcompris_get_properties();
   char *filename;
 
   gamewon = FALSE;
@@ -521,23 +517,17 @@ static void shapegame_next_level()
 
   shapegame_init_canvas(gnome_canvas_root(gcomprisBoard->canvas));
 
-  filename = g_strdup_printf("%s/%s/board%d_%d.xml",
-			     properties->package_data_dir, gcomprisBoard->boarddir,
-			     gcomprisBoard->level, gcomprisBoard->sublevel);
-
-
-  while(!g_file_test(filename, G_FILE_TEST_EXISTS)
-	&& ((gcomprisBoard->level != 1) || (gcomprisBoard->sublevel!=0)))
+  while( ((filename = gcompris_find_absolute_filename("%s/board%d_%d.xml",
+						      gcomprisBoard->boarddir,
+						      gcomprisBoard->level,
+						      gcomprisBoard->sublevel,
+						      NULL)) == NULL)
+	 && ((gcomprisBoard->level != 1) || (gcomprisBoard->sublevel!=0)))
     {
       /* Try the next level */
-      gcomprisBoard->sublevel=gcomprisBoard->number_of_sublevel;
+      gcomprisBoard->sublevel = gcomprisBoard->number_of_sublevel;
       if(!increment_sublevel())
 	return;
-
-      g_free(filename);
-      filename = g_strdup_printf("%s/%s/board%d_%d.xml",
-				 properties->package_data_dir, gcomprisBoard->boarddir,
-				 gcomprisBoard->level, gcomprisBoard->sublevel);
     }
   read_xml_file(filename);
 
@@ -1900,16 +1890,8 @@ read_xml_file(char *fname)
   
   g_return_val_if_fail(fname!=NULL,FALSE);
   
-  /* if the file doesn't exist */
-  if(!g_file_test(fname, G_FILE_TEST_EXISTS)) 
-    {
-      g_warning("Couldn't find file %s !", fname);
-      return FALSE;
-    }
-  g_warning("found file %s !", fname);
-
   /* parse the new file and put the result into newdoc */
-  doc = xmlParseFile(fname);
+  doc = gc_net_load_xml(fname);
   /* in case something went wrong */
   if(!doc)
     return FALSE;

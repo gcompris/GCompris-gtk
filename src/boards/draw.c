@@ -887,13 +887,8 @@ tool_event(GnomeCanvasItem *item, GdkEvent *event, gint tool)
 	      return TRUE;
 	      break;
 	    case TOOL_IMAGE:
-	      {
-		GcomprisProperties *properties = gcompris_get_properties();
-		gchar *dir = g_strconcat(properties->package_data_dir, "/dataset", NULL);
-		gcompris_images_selector_start(gcomprisBoard, dir, image_selected);
-		g_free(dir);
-	      }
-	    break;
+	      gcompris_images_selector_start(gcomprisBoard, "dataset", image_selected);
+	      break;
 	    case TOOL_RAISE:
 	    case TOOL_LOWER:
 	      if(selected_anchors_item)

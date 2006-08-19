@@ -1,6 +1,6 @@
 /* gcompris - gcompris_confirm.c
  *
- * Time-stamp: <2006/08/11 17:28:11 bruno>
+ * Time-stamp: <2006/08/16 19:47:10 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -320,7 +320,7 @@ display_confirm(gchar *title,
   gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 			 gnome_canvas_text_get_type (),
 			 "text", no_text,
-			 "font", gcompris_skin_font_title,
+			 "font", gcompris_skin_font_subtitle,
 			 "x", (double)  button_x + gdk_pixbuf_get_width(pixmap) + button_x_int ,
 			 "y", (double)  button_y + 2*button_h/3,
 			 "anchor", GTK_ANCHOR_WEST,
@@ -368,7 +368,7 @@ display_confirm(gchar *title,
   item2 = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				 gnome_canvas_text_get_type (),
 				 "text", yes_text,
-				 "font", gcompris_skin_font_title,
+				 "font", gcompris_skin_font_subtitle,
 				 "x", (double)  button_x + gdk_pixbuf_get_width(pixmap) + button_x_int ,
 				 "y", (double)  button_y + button_h/3,
 				 "anchor", GTK_ANCHOR_WEST,

@@ -28,13 +28,19 @@
 
 #include <gdk-pixbuf/gdk-pixbuf.h>
 
+/* libxml includes */
+#include <libxml/tree.h>
+#include <libxml/parser.h>
+
 #include "gcompris.h"
 
 #define GCOMPRIS_BASE_URL "http://gcompris.net/gcompris"
 
 void gc_net_init();
 GdkPixbuf *gc_net_load_pixmap(const char *url);
-gchar * gc_net_get_url_from_file(const gchar *format, ...);
-gboolean gc_net_is_url(const char *url);
+xmlDocPtr  gc_net_load_xml(const char *url);
+gchar     *gc_net_get_url_from_file(const gchar *format, ...);
+gboolean   gc_net_is_url(const char *url);
+GSList    *gc_net_dir_read_name(const gchar* dir, const gchar *ext);
 
 #endif

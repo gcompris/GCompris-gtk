@@ -244,7 +244,6 @@ gboolean gcompris_skin_str_to_color(gchar* data, guint32* color){
  */
 static void skin_xml_load (gchar* skin)
 {
-  GcomprisProperties *properties = gcompris_get_properties();
   gchar* xmlfilename;
   xmlDocPtr xmldoc;
   xmlNodePtr skinNode;
@@ -255,17 +254,19 @@ static void skin_xml_load (gchar* skin)
 
   g_return_if_fail(skin!=NULL);
   
-  xmlfilename = g_strdup_printf("%s/skins/%s/skin.xml",
-				properties->package_data_dir, skin);
+  xmlfilename = \
+    gcompris_find_absolute_filename("skins/%s/skin.xml",
+				    skin,
+				    NULL);
 
   /* if the file doesn't exist */
-  if(!g_file_test(xmlfilename, G_FILE_TEST_EXISTS))
+  if(!xmlfilename)
     {
       g_warning("Couldn't find file %s !", xmlfilename);
       return;
     }
 
-  xmldoc = xmlParseFile(xmlfilename);
+  xmldoc = gc_net_load_xml(xmlfilename);
   g_free(xmlfilename);  
 
   if(!xmldoc)

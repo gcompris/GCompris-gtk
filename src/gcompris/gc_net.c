@@ -50,9 +50,11 @@ void gc_net_init()
 {
   SUPPORT_OR_RETURN();
 
+#ifdef USE_GNET
+#endif
 }
 
-/** Load a pixmap from the network
+/** Load a pixmap localy or from the network
  *
  * \param pixmapfile : a full URL to the file to load as an image
  *                     in case a local file is given, it will be loaded.
@@ -65,6 +67,25 @@ GdkPixbuf *gc_net_load_pixmap(const char *url)
 
   SUPPORT_OR_RETURN(NULL);
 
+#ifdef USE_GNET
+#endif
+}
+
+/** Load an xml file from the network
+ *
+ * \param xmlfile : a full URL to the xml file to load as an xmlDocPtr
+ *                     in case a local file is given, it will be loaded.
+ * \return a xmlDocPtr or NULL
+ */
+xmlDocPtr gc_net_load_xml(const char *url)
+{
+  if(!gc_net_is_url(url))
+    return(xmlParseFile(url));
+
+  SUPPORT_OR_RETURN(NULL);
+
+#ifdef USE_GNET
+#endif
 }
 
 /** return an absolute URL if the given file is part of the file available on our server
@@ -77,6 +98,8 @@ gc_net_get_url_from_file(const gchar *format, ...)
 {
   SUPPORT_OR_RETURN(NULL);
 
+#ifdef USE_GNET
+#endif
 }
 
 /** return TRUE if the url starts with http://
@@ -91,4 +114,20 @@ gc_net_is_url(const gchar *url)
     return FALSE;
 
   return TRUE;
+}
+
+/** return a glist with the content of the files in the given directory
+ *
+ * \param dir: the directory to scan
+ * \param ext: optional extention filter. e.g. ".xml" to get only *.xml files.
+ *
+ * \return: a new allocated glist that points to internal elements. Do not free the list
+ *          data itself.
+ */
+GSList *gc_net_dir_read_name(const gchar* dir, const gchar *ext)
+{
+  SUPPORT_OR_RETURN(NULL);
+
+#ifdef USE_GNET
+#endif
 }

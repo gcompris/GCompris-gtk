@@ -157,7 +157,7 @@ static struct poptOption options[] = {
    N_("Disable XF86VidMode (No screen resolution change)."), NULL},
 
   {"root-menu", 'l', POPT_ARG_STRING, &popt_root_menu, 0,
-   N_("Run gcompris with local menu (e.g -l /reading will let you play only activities in the reading directory, -l /boards/connect4 only the connect4 activity)"), NULL},
+   N_("Run gcompris with local menu (e.g -l /reading will let you play only activities in the reading directory, -l /strategy/connect4 only the connect4 activity)"), NULL},
 
   {"local-activity", 'L', POPT_ARG_STRING, &popt_local_activity, 0,
    N_("Run GCompris with local activity directory added to menu"), NULL},

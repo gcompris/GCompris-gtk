@@ -1,6 +1,6 @@
 /* gcompris - gameutil.c
  *
- * Time-stamp: <2006/08/15 04:27:21 bruno>
+ * Time-stamp: <2006/08/19 02:16:40 bruno>
  *
  * Copyright (C) 2000-2006 Bruno Coudoin
  *
@@ -1223,7 +1223,7 @@ gchar *g_utf8_strndup(gchar* utf8text, gint n)
  *                and if not found the short locale name. It support printf formating.
  * \param ...:    additional params for the format (printf like)
  *
- * \return NULL or a new gchar* with the absolute_filename of the given filename
+ * \return NULL or a new gchar* with the absolute_filename of the given filename or a full url to it.
  *
  */
 gchar*
@@ -1235,7 +1235,6 @@ gcompris_find_absolute_filename(const gchar *format, ...)
   gchar			*absolute_filename;
   gchar			*dir_to_search[4];
   GcomprisProperties	*properties = gcompris_get_properties();
-  GcomprisBoard		*gcomprisBoard = get_current_gcompris_board();
 
   if (!format)
     return NULL;
@@ -1260,10 +1259,6 @@ gcompris_find_absolute_filename(const gchar *format, ...)
   
   dir_to_search[i++] = properties->package_data_dir;
   dir_to_search[i++] = properties->user_data_dir;
-
-  if(gcomprisBoard)
-    dir_to_search[i++] = gcomprisBoard->board_dir;
-
   dir_to_search[i++] = NULL;
 
   absolute_filename = g_strdup(filename);
@@ -1293,7 +1288,7 @@ gcompris_find_absolute_filename(const gchar *format, ...)
 	    }
 
 	  /* Now check if this file is on the net */
-	  if((absolute_filename = gc_net_get_url_from_file("boards/%s", filename2, NULL)))
+	  if((absolute_filename = gc_net_get_url_from_file(filename2, NULL)))
 	    {
 	      g_strfreev(tmp);
 	      g_free(filename2);
@@ -1315,7 +1310,7 @@ gcompris_find_absolute_filename(const gchar *format, ...)
 		}
 
 	      /* Now check if this file is on the net */
-	      if((absolute_filename = gc_net_get_url_from_file("boards/%s", filename2, NULL)))
+	      if((absolute_filename = gc_net_get_url_from_file(filename2, NULL)))
 		{
 		  g_free(filename2);
 		  goto FOUND;
@@ -1332,7 +1327,7 @@ gcompris_find_absolute_filename(const gchar *format, ...)
 	    goto FOUND;
 
 	  /* Now check if this file is on the net */
-	  if((absolute_filename = gc_net_get_url_from_file("boards/%s", filename, NULL)))
+	  if((absolute_filename = gc_net_get_url_from_file(filename, NULL)))
 	    goto FOUND;
 	}
 

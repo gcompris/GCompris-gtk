@@ -1,3 +1,37 @@
+	*** RELEASE 8.0BETA4 ***
+
+2006-08-19  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	- removed several race conditions. What happens is that in many activity
+	  and even in GCompris core, we set callback before the end of the initialisation
+	  like displaying all the content. It is then possible for the user to click
+	  start an action while it's not completly displayed. It ends up either in graphical
+	  inconsistencies or may even crash.
+	  Hopefully, this may solve some intermitent crashes we have in GCompris.
+	- Fixed several compilation issues
+	- No more warnings when sqlite is disabled
+
+	* boards/skins/gartoon/dialogbox.png: fixed a like glitch
+	* configure.in:
+	* src/boards/draw.c: (tool_event):
+	* src/boards/python/anim.py:
+	* src/boards/shapegame.c: (start_board), (shapegame_next_level),
+	(read_xml_file):
+	* src/gcompris/gameutil.c: (gcompris_find_absolute_filename):
+	* src/gcompris/gc_net.c: (gc_net_init), (gc_net_load_pixmap),
+	(gc_net_load_xml), (gc_net_get_url_from_file), (gc_net_is_url),
+	(gc_net_dir_read_name):
+	* src/gcompris/gc_net.h:
+	* src/gcompris/gcompris.c:
+	* src/gcompris/gcompris_confirm.c: (display_confirm):
+	* src/gcompris/gcompris_db.c: (gcompris_set_board_conf),
+	(gcompris_get_conf_with_table):
+	* src/gcompris/images_selector.c: (gcompris_images_selector_start),
+	(display_image), (display_image_set), (free_stuff),
+	(item_event_imageset_selector), (item_event_images_selector),
+	(parseImage), (read_xml_file), (read_dataset_directory):
+	* src/gcompris/skin.c: (skin_xml_load):
+
 2006-08-15  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	- Fixed default path search for platform not supported by binreloc
@@ -53,6 +87,8 @@
 	  problem.
 	* src/gcompris/gameutil.c: (gcompris_find_absolute_filename): minor, fixed a debug warning
 
+	*** RELEASE 8.0BETA3 ***
+	
 2006-08-13  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	- Added support for relocation using http://autopackage.org/docs/binreloc/

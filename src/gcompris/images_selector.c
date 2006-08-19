@@ -1,6 +1,6 @@
 /* gcompris - images_selector.c
  *
- * Time-stamp: <2006/08/13 17:29:47 bruno>
+ * Time-stamp: <2006/08/19 02:09:57 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -46,7 +46,7 @@ static gint		 item_event_scroll(GnomeCanvasItem *item,
 static gboolean		 read_xml_file(gchar *fname);
 static gboolean		 read_dataset_directory(gchar *dataset_dir);
 static void		 display_image(gchar *imagename, GnomeCanvasItem *rootitem);
-static void		 free_stuff (GtkObject *obj, GList *data);
+static void		 free_stuff (GtkObject *obj, GSList *data);
 
 static gboolean		 images_selector_displayed = FALSE;
 
@@ -60,6 +60,8 @@ static GnomeCanvas	*canvas_image_selector; /* The scrolled right part */
 static GnomeCanvasItem  *image_bg_item;
 
 static ImageSelectorCallBack imageSelectorCallBack = NULL;
+
+static gboolean		 display_in_progress;
 
 /* Represent the limits of the image area */
 #define	DRAWING_AREA_X1	111.0
@@ -98,8 +100,9 @@ static guint		 isy;
  * Do all the images_selector display and register the events
  */
 
-void gcompris_images_selector_start (GcomprisBoard *gcomprisBoard, gchar *dataset,
-				     ImageSelectorCallBack iscb)
+void 
+gcompris_images_selector_start (GcomprisBoard *gcomprisBoard, gchar *dataset,
+				ImageSelectorCallBack iscb)
 {
 
   GnomeCanvasItem *item, *item2;
@@ -107,7 +110,7 @@ void gcompris_images_selector_start (GcomprisBoard *gcomprisBoard, gchar *datase
   gint		 y = 0;
   gint		 y_start = 0;
   gint		 x_start = 0;
-  gchar		*name = NULL;
+  gchar		*dataseturl = NULL;
 
   GtkWidget	  *w;
 
@@ -118,7 +121,6 @@ void gcompris_images_selector_start (GcomprisBoard *gcomprisBoard, gchar *datase
 
   board_pause(TRUE);
 
-  name = gcomprisBoard->name;
   imageSelectorCallBack=iscb;
 
   rootitem = \
@@ -127,6 +129,8 @@ void gcompris_images_selector_start (GcomprisBoard *gcomprisBoard, gchar *datase
 			   "x", (double)0,
 			   "y", (double)0,
 			   NULL);
+
+  images_selector_displayed = TRUE;
 
   pixmap = gcompris_load_skin_pixmap("images_selector_bg.png");
   y_start = (BOARDHEIGHT - gdk_pixbuf_get_height(pixmap))/2;
@@ -236,6 +240,60 @@ void gcompris_images_selector_start (GcomprisBoard *gcomprisBoard, gchar *datase
 		     (GtkSignalFunc) item_event_scroll,
 		     GNOME_CANVAS(canvas_image_selector));
 
+  /* 
+   * DISPLAY IMAGES
+   */
+
+  /* Initial image position */
+  ix  = 0;
+  iy  = 0;
+  isy = 0;
+
+  /* I need  the following :
+     -> if dataset is a file read it.
+     -> if dataset is a directory, read all xml file in it.
+  */
+  dataseturl = \
+    gcompris_find_absolute_filename(dataset,
+				    NULL);
+
+  /* if the file doesn't exist */
+  if(g_file_test ((dataseturl), G_FILE_TEST_IS_DIR) )
+    {
+      g_warning("dataset %s is a directory. Trying to read xml", dataseturl);
+
+      read_dataset_directory(dataseturl);
+    }
+  else if(dataseturl)
+    {
+      /* Read the given data set file, local or net */
+      read_xml_file(dataseturl);
+    }
+  else
+    {
+      /* Network code for dataset directory */
+      GSList *filelist = NULL;
+      GSList *i = NULL;
+
+      g_free(dataseturl);
+      dataseturl = g_strconcat("boards/", dataset, NULL);
+
+      filelist = gc_net_dir_read_name(dataseturl, ".xml");
+
+      for (i = filelist; i != NULL; i = g_slist_next (i))
+	{
+	  gchar *url = gcompris_find_absolute_filename(i->data,
+						       NULL);
+	  printf("processing dataset=%s\n", (char *)i->data);
+	  read_xml_file(url);
+	  g_free(url);
+	}
+
+      g_slist_free(filelist);
+    
+    }
+  g_free(dataseturl);
+
   /*
    * OK Button
    * ---------
@@ -270,29 +328,6 @@ void gcompris_images_selector_start (GcomprisBoard *gcomprisBoard, gchar *datase
 		     (GtkSignalFunc) gcompris_item_event_focus,
 		     item);
   gdk_pixbuf_unref(pixmap);
-
-  images_selector_displayed = TRUE;
-
-  /* Initial image position */
-  ix  = 0;
-  iy  = 0;
-  isy = 0;
-
-  /* I need  the following :
-     -> if dataset is a file read it.
-     -> if dataset is a directory, read all xml file in it.
-  */
-
-  /* if the file doesn't exist */
-  if(g_file_test ((dataset), G_FILE_TEST_IS_DIR) )
-    {
-      g_warning("dataset %s is a directory. Trying to read xml", dataset);
-
-      read_dataset_directory(dataset);
-    }
-  else 
-    /* Read the given data set */
-    read_xml_file(dataset);
 
 }
 
@@ -336,7 +371,7 @@ static void display_image(gchar *imagename, GnomeCanvasItem *root_item)
   double xratio, yratio;
   double iw, ih;
 
-  if (imagename==NULL)
+  if (imagename==NULL || !images_selector_displayed)
     return;
 
   pixmap = gcompris_load_pixmap(imagename);
@@ -395,16 +430,15 @@ static void display_image(gchar *imagename, GnomeCanvasItem *root_item)
  * Same as display_image but for the dataset
  * The imagelist contains the list of images to be displayed when this dataset is selected
  */
-static void display_image_set(gchar *imagename, GList *imagelist)
+static void display_image_set(gchar *imagename, GSList *imagelist)
 {
-
   GdkPixbuf *pixmap = NULL;
   GnomeCanvasItem *item;
   GnomeCanvasItem *rootitem_set;
   double xratio, yratio;
   double iw, ih;
 
-  if (imagename==NULL)
+  if (imagename==NULL || !images_selector_displayed)
     return;
 
   pixmap = gcompris_load_pixmap(imagename);
@@ -466,13 +500,13 @@ static void display_image_set(gchar *imagename, GList *imagelist)
 }
 
 static void
-free_stuff (GtkObject *obj, GList *list)
+free_stuff (GtkObject *obj, GSList *list)
 {
-  while (g_list_length(list) > 0) {
-    g_free(g_list_nth_data(list,0));
-    list = g_list_remove(list, g_list_nth_data(list,0));
+  while (g_slist_length(list) > 0) {
+    g_free(g_slist_nth_data(list,0));
+    list = g_slist_remove(list, g_slist_nth_data(list,0));
   }
-  g_list_free(list);
+  g_slist_free(list);
 }
 
 
@@ -480,9 +514,12 @@ free_stuff (GtkObject *obj, GList *list)
 static gint
 item_event_imageset_selector(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 {
-  GList *image_list;
+  GSList *image_list;
   GnomeCanvasItem *rootitem_set;
   guint imageset_done;
+
+  if(display_in_progress)
+    return TRUE;
 
   switch (event->type) 
     {
@@ -494,8 +531,10 @@ item_event_imageset_selector(GnomeCanvasItem *item, GdkEvent *event, gpointer da
 	{
 	  guint last_iy;
 
+	  display_in_progress = TRUE;
+
 	  /* We must display the list of images for this set */
-	  image_list = (GList *)g_object_get_data (G_OBJECT (item), "imagelist");
+	  image_list = (GSList *)g_object_get_data (G_OBJECT (item), "imagelist");
 	  g_return_val_if_fail (image_list != NULL, FALSE);
 
 	  /* We must display the list of images for this set */
@@ -516,7 +555,7 @@ item_event_imageset_selector(GnomeCanvasItem *item, GdkEvent *event, gpointer da
 	    iy_calc = IMAGE_HEIGHT + IMAGE_GAP;
 	    g_object_set_data (G_OBJECT (rootitem_set), "iy", GINT_TO_POINTER (iy_calc));
 
-	    g_list_foreach (image_list, (GFunc) display_image, rootitem_set);
+	    g_slist_foreach (image_list, (GFunc) display_image, rootitem_set);
 	    g_object_set_data (G_OBJECT (item), "imageset_done", GINT_TO_POINTER (1));
 	  }
 
@@ -537,6 +576,8 @@ item_event_imageset_selector(GnomeCanvasItem *item, GdkEvent *event, gpointer da
 	  /* Back to the initial image position */
 	  ix  = 0;
 	  iy  = 0;
+
+	  display_in_progress = FALSE;
 	}
     default:
       break;
@@ -549,6 +590,9 @@ item_event_imageset_selector(GnomeCanvasItem *item, GdkEvent *event, gpointer da
 static gint
 item_event_images_selector(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 {
+
+  if(display_in_progress)
+    return TRUE;
 
   switch (event->type) 
     {
@@ -607,15 +651,14 @@ item_event_scroll(GnomeCanvasItem *item, GdkEvent *event, GnomeCanvas *canvas)
 void
 parseImage (xmlDocPtr doc, xmlNodePtr cur) {
   GcomprisProperties *properties = gcompris_get_properties();
-  gchar *imageSetName = NULL;
-  gchar *filename;
-  gchar	*pathname = NULL;
-  gchar *absolutepath;
-  GList	*imageList = NULL;	/* List of Images */
+  gchar  *imageSetName = NULL;
+  gchar  *filename;
+  gchar	 *pathname = NULL;
+  gchar  *absolutepath;
+  GSList *imageList = NULL;	/* List of Images */
   gboolean havePathName = FALSE;
-  gchar *type = NULL;
-  GDir *imageset_directory;
-  GError **error = NULL;
+  gchar  *type = NULL;
+  GDir   *imageset_directory;
 
   /* get the filename of this ImageSet */
   imageSetName = (gchar *)xmlGetProp(cur, BAD_CAST "filename");
@@ -646,21 +689,16 @@ parseImage (xmlDocPtr doc, xmlNodePtr cur) {
   /*               -> and else for PACKAGE_DATA_DIR/imagesetname */
   if (havePathName) {
     if (!g_path_is_absolute (imageSetName)){
-      absolutepath = g_strdup_printf("%s/%s",pathname,imageSetName);
-      if(!g_file_test ((absolutepath), G_FILE_TEST_EXISTS) ){
-	g_free(absolutepath);
-	absolutepath = g_strdup_printf("%s/%s", properties->package_data_dir, imageSetName);
-      }
-      else 
-	imageSetName = g_strdup(absolutepath);
+      absolutepath = gcompris_find_absolute_filename("%s/%s", pathname, imageSetName,
+						     NULL);
     }
     else
       absolutepath = g_strdup(imageSetName);
   }
   else
-    absolutepath = g_strdup_printf("%s/%s", properties->package_data_dir, imageSetName);
+    absolutepath = gcompris_find_absolute_filename(imageSetName, NULL);
   
-  if(!g_file_test ((absolutepath), G_FILE_TEST_EXISTS) )
+  if(!absolutepath)
     {
       g_warning("In ImageSet %s, an image is not found. Skipping ImageSet...", absolutepath);
       return;
@@ -677,7 +715,7 @@ parseImage (xmlDocPtr doc, xmlNodePtr cur) {
 	if (havePathName){
 	  filename = g_strdup_printf("%s/%s",pathname,filename);
 	}
-	imageList = g_list_append (imageList, filename);
+	imageList = g_slist_prepend (imageList, filename);
       }
       cur = cur->next;
     }
@@ -697,7 +735,7 @@ parseImage (xmlDocPtr doc, xmlNodePtr cur) {
         return;
       }
     }
-    imageset_directory = g_dir_open (pathname, 0, error);    
+    imageset_directory = g_dir_open (pathname, 0, NULL);    
     const gchar * onefile;
     while ((onefile = g_dir_read_name(imageset_directory))){
       if ((g_ascii_strcasecmp (type,"lsdir") != 0) && 
@@ -721,13 +759,13 @@ parseImage (xmlDocPtr doc, xmlNodePtr cur) {
 	    filename = filename2;
 	  }
       }
-      imageList = g_list_append (imageList, filename);
+      imageList = g_slist_prepend (imageList, filename);
     }
     g_dir_close(imageset_directory);
   }
 
   /* do not display if there is nothing to display */
-  if (imageList != NULL) /* g_list is not empty */
+  if (imageList != NULL) /* g_slist is not empty */
     display_image_set(imageSetName, imageList);
   
   g_free(absolutepath);
@@ -764,24 +802,20 @@ parse_doc(xmlDocPtr doc) {
 
 
 /* read an xml file into our memory structures and update our view,
-   dump any old data we have in memory if we can load a new set */
+ * dump any old data we have in memory if we can load a new set
+ *
+ * \param fname is an absolute file name
+ *
+ */
 static gboolean
 read_xml_file(gchar *fname)
 {
   /* pointer to the new doc */
   xmlDocPtr doc;
 
-  g_return_val_if_fail(fname!=NULL,FALSE);
+  g_return_val_if_fail(fname!=NULL, FALSE);
 
-  /* if the file doesn't exist */
-  if(!g_file_test ((fname), G_FILE_TEST_EXISTS)) 
-    {
-      g_warning("Couldn't find file %s !", fname);
-      return FALSE;
-    }
-
-  /* parse the new file and put the result into newdoc */
-  doc = xmlParseFile(fname);
+  doc = gc_net_load_xml(fname);
 
   /* in case something went wrong */
   if(!doc)
@@ -806,15 +840,21 @@ read_xml_file(gchar *fname)
 }
 
 
-/* read an xml file into our memory structures and update our view,
-   dump any old data we have in memory if we can load a new set */
+/** read an xml file into our memory structures and update our view,
+ *   dump any old data we have in memory if we can load a new set
+ *
+ * \return TRUE is the parsing occurs, FALSE instead
+ *
+ */
 static gboolean
 read_dataset_directory(gchar *dataset_dir)
 {
-  GError **error = NULL;
-  GDir *dataset_directory = g_dir_open (dataset_dir, 0, error);
+  GDir *dataset_directory = g_dir_open (dataset_dir, 0, NULL);
   const gchar *fname;
   gchar *absolute_fname;
+
+  if(!dataset_directory)
+    return FALSE;
 
   while ((fname = g_dir_read_name(dataset_directory))) {
     /* skip files without ".xml" */
@@ -823,8 +863,8 @@ read_dataset_directory(gchar *dataset_dir)
       continue;
     }
 
-    absolute_fname = g_strdup_printf("%s/%s",dataset_dir,fname);
-    g_warning("Reading dataset file %s",absolute_fname);
+    absolute_fname = g_strdup_printf("%s/%s", dataset_dir, fname);
+    g_warning("Reading dataset file %s", absolute_fname);
    
     if (!g_file_test ((absolute_fname), G_FILE_TEST_IS_REGULAR))
       continue;
