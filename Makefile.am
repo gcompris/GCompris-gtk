@@ -6,7 +6,7 @@ else
 DOCS_SUBDIR=
 endif
 
-SUBDIRS = po src boards $(DOCS_SUBDIR)
+SUBDIRS = po src boards $(DOCS_SUBDIR) autopackage
 
 icondir=$(datadir)/pixmaps
 icon_DATA = gcompris.png gcompris-edit.png

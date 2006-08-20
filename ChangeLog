@@ -1,3 +1,212 @@
+2006-08-20  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	- Major review of the API. now all the API follows the naming convention:
+	  gc_<module>_<item>_<action> for example gc_board_end, gc_bar_start, ...
+	- added in gc_core.h functions that are shared in the core only.
+	- fixed python plugins to remove API entries not needed for activities.
+
+	* Makefile.am:
+	* autopackage/.cvsignore:
+	* autopackage/Makefile.am:
+	* boards/clickgame.xml.in:
+	* configure.in:
+	* docs/C/overview.dia:
+	* docs/C/overview.jpg:
+	* docs/C/python.xml:
+	* src/boards/advanced_colors.c: (pause_board), (start_board),
+	(colors_next_level), (colors_create_item), (ok), (update_clock),
+	(highlight_selected), (add_xml_data):
+	* src/boards/algebra.c: (start_board), (algebra_next_level):
+	* src/boards/algebra_guesscount.c: (start_board),
+	(algebra_guesscount_next_level), (item_event_num):
+	* src/boards/animtest.c: (start_board), (end_board):
+	* src/boards/awele.c: (pause_board), (start_board), (end_board),
+	(repeat), (set_level), (awele_next_level), (awele_create_item),
+	(to_computer), (buttonClick):
+	* src/boards/canal_lock.c: (start_board), (canal_lock_next_level),
+	(canal_lock_create_item):
+	* src/boards/chess.c: (start_board), (chess_next_level),
+	(chess_create_item), (move_piece_to):
+	* src/boards/click_on_letter.c: (sounds_are_fine),
+	(click_on_letter_next_level), (click_on_letter_create_item),
+	(highlight_selected):
+	* src/boards/clickgame.c: (clickgame_start), (clickgame_end),
+	(clickgame_next_level), (load_random_pixmap):
+	* src/boards/clockgame.c: (start_board), (end_board),
+	(clockgame_next_level):
+	* src/boards/colors.c: (pause_board), (start_board),
+	(colors_create_item), (process_ok), (highlight_selected):
+	* src/boards/crane.c: (start_board), (crane_next_level),
+	(crane_create_item), (draw_arrow), (draw_redhands), (place_item):
+	* src/boards/draw.c: (start_board), (end_board), (key_press),
+	(draw_next_level), (display_color_selector),
+	(display_tool_selector), (display_grid), (set_current_tool),
+	(tool_event), (create_item), (item_event_resize),
+	(item_event_move), (item_event):
+	* src/boards/enumerate.c: (start_board), (enumerate_next_level),
+	(enumerate_create_item):
+	* src/boards/erase.c: (start_board), (erase_next_level),
+	(erase_create_item):
+	* src/boards/fifteen.c: (start_board), (fifteen_next_level),
+	(fifteen_create_item):
+	* src/boards/gletters.c: (level_set_score), (key_press),
+	(gletters_next_level):
+	* src/boards/gtans.c: (start_board):
+	* src/boards/gtans_interface.c: (create_mainwindow):
+	* src/boards/hanoi.c: (start_board), (hanoi_next_level),
+	(item_event):
+	* src/boards/hanoi_real.c: (start_board), (hanoi_next_level),
+	(hanoi_create_item), (item_event):
+	* src/boards/imageid.c: (start_board), (imageid_next_level),
+	(imageid_create_item), (add_xml_data):
+	* src/boards/leftright.c: (pause_board), (start_board),
+	(leftright_next_level), (leftright_create_item), (process_ok):
+	* src/boards/machpuzzle.c: (start_board), (minigolf_next_level),
+	(minigolf_move):
+	* src/boards/magic_hat.c: (start_board), (magic_hat_next_level),
+	(magic_hat_create_item), (draw_hat), (place_item), (item_event),
+	(hat_event):
+	* src/boards/maze.c: (start_board), (maze_next_level), (repeat),
+	(update_tux):
+	* src/boards/memory.c: (start_board), (memory_next_level),
+	(create_item):
+	* src/boards/menu2.c: (menu_start), (create_panel),
+	(display_section), (menu_create_item), (create_top):
+	* src/boards/missingletter.c: (pause_board), (start_board),
+	(missing_letter_next_level), (missing_letter_create_item),
+	(process_ok), (add_xml_data):
+	* src/boards/money.c: (start_board), (money_next_level):
+	* src/boards/money_widget.c: (money_widget_add):
+	* src/boards/paratrooper.c: (start_board),
+	(paratrooper_next_level), (paratrooper_create_cloud):
+	* src/boards/planegame.c: (start_board), (planegame_next_level),
+	(planegame_create_item):
+	* src/boards/py-mod-admin.c: (py_gc_menu_get_boards):
+	* src/boards/py-mod-anim.c: (Animation_init), (Animation_free),
+	(AnimCanvas_init), (AnimCanvas_free),
+	(py_gcompris_animcanvas_setstate),
+	(py_gcompris_animcanvas_swapanim),
+	(py_gcompris_animcanvas_destroy):
+	* src/boards/py-mod-gcompris.c: (py_gc_board_end),
+	(py_gc_bar_start), (py_gc_bar_set_level),
+	(py_gc_bar_set_repeat_icon), (py_gc_bar_set), (py_gc_bar_hide),
+	(py_gc_locale_get), (py_gc_locale_set),
+	(py_gc_locale_get_user_default), (py_gc_cursor_set),
+	(py_gc_selector_images_start), (py_gc_log_set_comment),
+	(py_gc_log_end), (py_gc_selector_images_stop),
+	(py_gc_selector_file_load), (py_gc_selector_file_save),
+	(py_gc_selector_file_stop), (py_gc_db_get_filename),
+	(py_gc_locale_gets_list), (py_gc_locale_gets_asset_list),
+	(python_gcompris_module_init):
+	* src/boards/py-mod-utils.c: (py_gc_pixmap_load),
+	(py_gc_item_focus_set), (py_gc_item_focus_event),
+	(py_gcompris_gc_item_absolute_move), (py_gcompris_gc_item_rotate),
+	(py_gcompris_gc_item_rotate_relative),
+	(py_gcompris_gc_item_rotate_with_center),
+	(py_gcompris_gc_item_rotate_relative_with_center), (py_gc_dialog),
+	(py_gc_dialog_close):
+	* src/boards/python.c: (get_pythonboards_list):
+	* src/boards/railroad.c: (start_board), (railroad_next_level):
+	* src/boards/read_colors.c: (pause_board), (start_board),
+	(read_colors_create_item), (update_clock), (process_ok),
+	(highlight_selected), (add_xml_data):
+	* src/boards/reading.c: (start_board), (reading_next_level),
+	(player_loose), (read_wordfile):
+	* src/boards/reversecount.c: (start_board),
+	(reversecount_next_level), (reversecount_create_item),
+	(display_item_at), (item_event), (create_clock), (update_clock):
+	* src/boards/shapegame.c: (start_board), (end_board), (key_press),
+	(increment_sublevel), (shapegame_next_level),
+	(add_shape_to_list_of_shapes), (shape_goes_back_to_list),
+	(item_event), (item_event_ok), (add_shape_to_canvas),
+	(add_xml_shape_to_data):
+	* src/boards/smallnumbers.c: (start_board),
+	(smallnumbers_next_level), (smallnumbers_create_item):
+	* src/boards/submarine.c: (submarine_next_level),
+	(submarine_create_item), (update_timeout_slow),
+	(update_timeout_very_slow), (ballast_av_purge_event),
+	(ballast_ar_purge_event), (regleur_purge_event),
+	(ballast_ar_chasse_event), (ballast_av_chasse_event),
+	(regleur_chasse_event), (barre_av_event), (barre_ar_event),
+	(air_compressor_event), (battery_charger_event),
+	(submarine_explosion):
+	* src/boards/superbrain.c: (start_board), (superbrain_next_level):
+	* src/boards/target.c: (target_next_level), (request_score):
+	* src/boards/traffic.c: (start_board), (traffic_next_level):
+	* src/boards/wordprocessor.c: (start_board),
+	(display_style_buttons):
+	* src/boards/wordsgame.c: (start_board), (wordsgame_next_level),
+	(wordsgame_read_wordfile):
+	* src/gcompris/Makefile.am:
+	* src/gcompris/about.c: (gc_about_start), (gc_about_stop),
+	(item_event_ok):
+	* src/gcompris/about.h:
+	* src/gcompris/anim.c: (gc_anim_load), (gc_anim_activate),
+	(gc_anim_swap), (gc_anim_deactivate), (gc_anim_free),
+	(gc_anim_set_state):
+	* src/gcompris/anim.h:
+	* src/gcompris/bar.c: (gc_bar_start), (gc_bar_set_level),
+	(gc_bar_set_repeat_icon), (gc_bar_set), (gc_bar_hide),
+	(item_event_bar), (confirm_quit):
+	* src/gcompris/board.c: (board_play), (board_stop):
+	* src/gcompris/board_config.c: (gc_locale_gets_list),
+	(gcompris_combo_locales), (gcompris_change_locale),
+	(gcompris_reset_locale), (gc_locale_gets_asset_list),
+	(gcompris_combo_locales_asset):
+	* src/gcompris/board_config.h:
+	* src/gcompris/bonus.c: (end_board_finished), (board_finished),
+	(gcompris_display_bonus), (bonus_image), (end_bonus):
+	* src/gcompris/config.c: (gcompris_config_start),
+	(gcompris_config_stop), (display_previous_next), (set_locale_flag),
+	(gc_locale_get_name), (item_event_ok):
+	* src/gcompris/gc_core.h:
+	* src/gcompris/dialog.c: (gc_dialog_close), (gc_dialog),
+	(item_event_ok):
+	* src/gcompris/file_selector.c: (gc_selector_file_save),
+	(gc_selector_file_load), (gc_selector_file_stop),
+	(display_file_selector), (display_files),
+	(item_event_file_selector), (parseMime), (gc_mime_type_load):
+	* src/gcompris/gameutil.c: (gc_pixmap_load), (gc_item_focus_set),
+	(gc_item_focus_event), (reactivate_newline),
+	(gc_item_absolute_move), (gc_item_rotate),
+	(gc_item_rotate_relative), (gc_item_rotate_with_center),
+	(gc_item_rotate_relative_with_center), (gc_difficulty_display),
+	(gc_file_find_absolute):
+	* src/gcompris/gameutil.h:
+	* src/gcompris/gc_net.c: (gc_net_init), (gc_net_load_pixmap),
+	(gc_net_load_xml), (gc_net_get_url_from_file),
+	(gc_net_dir_read_name):
+	* src/gcompris/gcompris.c: (gcompris_close_all_dialog),
+	(board_widget_key_press_callback), (gcompris_set_background),
+	(gc_cursor_set), (setup_window), (gc_board_end),
+	(gc_fullscreen_set), (cleanup), (gc_exit), (map_cb),
+	(gcompris_terminate), (load_properties), (gc_db_get_filename),
+	(gc_locale_get), (gc_locale_get_user_default), (gc_locale_set),
+	(gc_log_handler), (gcompris_init):
+	* src/gcompris/gcompris.h:
+	* src/gcompris/gcompris_confirm.c: (gc_confirm_box),
+	(gc_confirm_box_stop), (display_confirm), (button_event):
+	* src/gcompris/gcompris_db.c: (gc_menu_load_db):
+	* src/gcompris/gcompris_db.h:
+	* src/gcompris/help.c: (gc_help_has_board), (gc_help_start),
+	(gc_help_stop), (item_event_help):
+	* src/gcompris/images_selector.c: (gc_selector_images_start),
+	(gc_selector_images_stop), (display_image), (display_image_set),
+	(item_event_images_selector), (parseImage):
+	* src/gcompris/log.c: (gc_log_start), (gc_log_set_comment),
+	(gc_log_set_key), (gc_log_end):
+	* src/gcompris/menu.c: (gc_menu_get_boards), (_add_xml_to_data),
+	(parse_doc), (_read_xml_file), (gcompris_get_board_from_section),
+	(boardlist_compare_func), (gcompris_board_has_activity),
+	(gc_menu_getlist), (file_end_with_xml), (cleanup_menus),
+	(suppress_int_from_list), (compare_id), (gc_menu_load_dir),
+	(gc_menu_load):
+	* src/gcompris/skin.c: (gcompris_load_skin_pixmap),
+	(skin_xml_load):
+	* src/gcompris/soundutil.c: (thread_play_ogg):
+	* src/gcompris/timer.c: (gcompris_timer_display),
+	(timer_increment):
+
 	*** RELEASE 8.0BETA4 ***
 
 2006-08-19  Bruno coudoin  <bruno.coudoin@free.fr>

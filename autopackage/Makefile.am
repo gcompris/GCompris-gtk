@@ -1,0 +1,1 @@
+EXTRA_DIST = default.apspec.in
