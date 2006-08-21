@@ -200,7 +200,7 @@ static void pause_board (gboolean pause)
   if(gcomprisBoard==NULL)
     return;
 
-  gcompris_bar_hide(FALSE);
+  gc_bar_hide(FALSE);
   if(gamewon == TRUE && pause == FALSE) /* the game is won */
     game_won();
 
@@ -231,9 +231,9 @@ static void start_board (GcomprisBoard *agcomprisBoard) {
     gcomprisBoard->maxlevel=1;
 
     if(properties->fx) {
-      gcompris_bar_set(GCOMPRIS_BAR_CONFIG|GCOMPRIS_BAR_REPEAT);
+      gc_bar_set(GC_BAR_CONFIG|GC_BAR_REPEAT);
     } else {
-      gcompris_bar_set(GCOMPRIS_BAR_CONFIG);
+      gc_bar_set(GC_BAR_CONFIG);
     }
 
     gamewon = FALSE;
@@ -369,7 +369,7 @@ static GnomeCanvasItem *colors_create_item(GnomeCanvasGroup *parent) {
 							    NULL));
 
   str = g_strdup_printf("%s/%s", gcomprisBoard->boarddir, "colors_highlight.png");
-  highlight_pixmap = gcompris_load_pixmap(str);
+  highlight_pixmap = gc_pixmap_load(str);
 
   highlight_image_item = gnome_canvas_item_new (boardRootItem,
 						gnome_canvas_pixbuf_get_type (),
@@ -417,7 +417,7 @@ static gboolean process_ok_timeout() {
 }
 
 static void process_ok() {
-  gcompris_bar_hide(TRUE);
+  gc_bar_hide(TRUE);
   // leave time to display the right answer
   g_timeout_add(TIME_CLICK_TO_BONUS, process_ok_timeout, NULL);
 }
@@ -486,5 +486,5 @@ static void highlight_selected(int c) {
   x -= highlight_width/2;
   y -= highlight_height/2;
   gnome_canvas_item_show(highlight_image_item);
-  item_absolute_move(highlight_image_item, x, y);
+  gc_item_absolute_move(highlight_image_item, x, y);
 }

@@ -21,7 +21,4 @@
 #ifndef GCOMPRISABOUT_H
 #define GCOMPRISABOUT_H
 
-void gcompris_about_start ();
-void gcompris_about_stop ();
-
 #endif

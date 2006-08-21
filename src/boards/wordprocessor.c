@@ -160,7 +160,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       gcomprisBoard->maxlevel=1;
       gcomprisBoard->sublevel=1;
       gcomprisBoard->number_of_sublevel=1; /* Go to next level after this number of 'play' */
-      gcompris_bar_set(0);
+      gc_bar_set(0);
 
       img = gcompris_image_to_skin("gcompris-shapebg.jpg");
       gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas),
@@ -308,7 +308,7 @@ static void display_style_buttons(GnomeCanvasGroup *boardRootItem,
 				    NULL);
 
       gtk_signal_connect(GTK_OBJECT(item), "event", (GtkSignalFunc) item_event, styles_tab[i+1] );
-      gtk_signal_connect(GTK_OBJECT(item), "event", (GtkSignalFunc) gcompris_item_event_focus, NULL);
+      gtk_signal_connect(GTK_OBJECT(item), "event", (GtkSignalFunc) gc_item_focus_event, NULL);
 
       item = gnome_canvas_item_new (boardRootItem,
 				    gnome_canvas_text_get_type (),

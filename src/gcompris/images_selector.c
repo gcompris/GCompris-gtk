@@ -101,7 +101,7 @@ static guint		 isy;
  */
 
 void 
-gcompris_images_selector_start (GcomprisBoard *gcomprisBoard, gchar *dataset,
+gc_selector_images_start (GcomprisBoard *gcomprisBoard, gchar *dataset,
 				ImageSelectorCallBack iscb)
 {
 
@@ -117,7 +117,7 @@ gcompris_images_selector_start (GcomprisBoard *gcomprisBoard, gchar *dataset,
   if(rootitem)
     return;
 
-  gcompris_bar_hide(TRUE);
+  gc_bar_hide(TRUE);
 
   board_pause(TRUE);
 
@@ -254,7 +254,7 @@ gcompris_images_selector_start (GcomprisBoard *gcomprisBoard, gchar *dataset,
      -> if dataset is a directory, read all xml file in it.
   */
   dataseturl = \
-    gcompris_find_absolute_filename(dataset,
+    gc_file_find_absolute(dataset,
 				    NULL);
 
   /* if the file doesn't exist */
@@ -282,7 +282,7 @@ gcompris_images_selector_start (GcomprisBoard *gcomprisBoard, gchar *dataset,
 
       for (i = filelist; i != NULL; i = g_slist_next (i))
 	{
-	  gchar *url = gcompris_find_absolute_filename(i->data,
+	  gchar *url = gc_file_find_absolute(i->data,
 						       NULL);
 	  printf("processing dataset=%s\n", (char *)i->data);
 	  read_xml_file(url);
@@ -309,7 +309,7 @@ gcompris_images_selector_start (GcomprisBoard *gcomprisBoard, gchar *dataset,
 		     (GtkSignalFunc) item_event_images_selector,
 		     "/ok/");
   gtk_signal_connect(GTK_OBJECT(item), "event",
-		     (GtkSignalFunc) gcompris_item_event_focus,
+		     (GtkSignalFunc) gc_item_focus_event,
 		     NULL);
 
   item2 = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
@@ -325,7 +325,7 @@ gcompris_images_selector_start (GcomprisBoard *gcomprisBoard, gchar *dataset,
 		     (GtkSignalFunc) item_event_images_selector,
 		     "/ok/");
   gtk_signal_connect(GTK_OBJECT(item2), "event",
-		     (GtkSignalFunc) gcompris_item_event_focus,
+		     (GtkSignalFunc) gc_item_focus_event,
 		     item);
   gdk_pixbuf_unref(pixmap);
 
@@ -335,7 +335,7 @@ gcompris_images_selector_start (GcomprisBoard *gcomprisBoard, gchar *dataset,
  * Remove the displayed images_selector.
  * Do nothing if none is currently being dislayed
  */
-void gcompris_images_selector_stop ()
+void gc_selector_images_stop ()
 {
   GcomprisBoard *gcomprisBoard = get_current_gcompris_board();
 
@@ -352,7 +352,7 @@ void gcompris_images_selector_stop ()
   rootitem = NULL;	  
   current_root_set = NULL;
 
-  gcompris_bar_hide(FALSE);
+  gc_bar_hide(FALSE);
   images_selector_displayed = FALSE;
 }
 
@@ -374,7 +374,7 @@ static void display_image(gchar *imagename, GnomeCanvasItem *root_item)
   if (imagename==NULL || !images_selector_displayed)
     return;
 
-  pixmap = gcompris_load_pixmap(imagename);
+  pixmap = gc_pixmap_load(imagename);
 
   /* Sad, the image is not found */
   if(!pixmap)
@@ -404,7 +404,7 @@ static void display_image(gchar *imagename, GnomeCanvasItem *root_item)
 		     (GtkSignalFunc) item_event_images_selector,
 		     imagename);
   gtk_signal_connect(GTK_OBJECT(item), "event",
-		     (GtkSignalFunc) gcompris_item_event_focus,
+		     (GtkSignalFunc) gc_item_focus_event,
 		     NULL);
 
   ix+=IMAGE_WIDTH + IMAGE_GAP;
@@ -441,7 +441,7 @@ static void display_image_set(gchar *imagename, GSList *imagelist)
   if (imagename==NULL || !images_selector_displayed)
     return;
 
-  pixmap = gcompris_load_pixmap(imagename);
+  pixmap = gc_pixmap_load(imagename);
 
   iw = LIST_IMAGE_WIDTH;
   ih = LIST_IMAGE_HEIGHT;
@@ -468,7 +468,7 @@ static void display_image_set(gchar *imagename, GSList *imagelist)
 		     (GtkSignalFunc) item_event_imageset_selector,
 		     imagename);
   gtk_signal_connect(GTK_OBJECT(item), "event",
-		     (GtkSignalFunc) gcompris_item_event_focus,
+		     (GtkSignalFunc) gc_item_focus_event,
 		     NULL);
 
   isy+=LIST_IMAGE_HEIGHT + IMAGE_GAP;
@@ -603,14 +603,14 @@ item_event_images_selector(GnomeCanvasItem *item, GdkEvent *event, gpointer data
     case GDK_BUTTON_PRESS:
       if(!strcmp((char *)data, "/ok/"))
 	{
-	  gcompris_images_selector_stop();
+	  gc_selector_images_stop();
 	}
       else
 	{
 	  if(imageSelectorCallBack!=NULL)
 	    imageSelectorCallBack(data);
 
-	  gcompris_images_selector_stop();
+	  gc_selector_images_stop();
 	}
     default:
       break;
@@ -689,14 +689,14 @@ parseImage (xmlDocPtr doc, xmlNodePtr cur) {
   /*               -> and else for PACKAGE_DATA_DIR/imagesetname */
   if (havePathName) {
     if (!g_path_is_absolute (imageSetName)){
-      absolutepath = gcompris_find_absolute_filename("%s/%s", pathname, imageSetName,
+      absolutepath = gc_file_find_absolute("%s/%s", pathname, imageSetName,
 						     NULL);
     }
     else
       absolutepath = g_strdup(imageSetName);
   }
   else
-    absolutepath = gcompris_find_absolute_filename(imageSetName, NULL);
+    absolutepath = gc_file_find_absolute(imageSetName, NULL);
   
   if(!absolutepath)
     {

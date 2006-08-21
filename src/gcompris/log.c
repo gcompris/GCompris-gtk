@@ -61,11 +61,11 @@ static time_t		 start_time_key;
 /* By default, we use local time, not UTC */
 #define USE_UTC 0
 
-/** gcompris_log_start 
+/** gc_log_start 
  * \param GcomprisBoard *gcomprisBoard: the board for which the event happen
  *
  */
-void gcompris_log_start (GcomprisBoard *gcomprisBoard) {
+void gc_log_start (GcomprisBoard *gcomprisBoard) {
 
   gcomprisBoard_set = gcomprisBoard;
   start_time     = time(NULL);
@@ -79,7 +79,7 @@ void gcompris_log_start (GcomprisBoard *gcomprisBoard) {
   keylog[0]   = '\0';
 }
 
-/** gcompris_log_set_comment
+/** gc_log_set_comment
  * \param GcomprisBoard *gcomprisBoard: the board for which the event happen
  * \param expected: string describing what was expected. This string is copied.
  * \param got: string describing what we got from the user. This string is copied.
@@ -87,9 +87,9 @@ void gcompris_log_start (GcomprisBoard *gcomprisBoard) {
  * Note: Do not include the charater ';' in expected or got
  *
  */
-void gcompris_log_set_comment (GcomprisBoard *gcomprisBoard, gchar *expected, gchar *got) {
+void gc_log_set_comment (GcomprisBoard *gcomprisBoard, gchar *expected, gchar *got) {
 
-  printf("gcompris_log_set_comment %s %s\n", expected, got);
+  printf("gc_log_set_comment %s %s\n", expected, got);
   if(gcomprisBoard_set != gcomprisBoard) {
     return;
   }
@@ -102,18 +102,18 @@ void gcompris_log_set_comment (GcomprisBoard *gcomprisBoard, gchar *expected, gc
 
   /* If We already had a comment, log the previous one */
   if(comment_set[0] != '\0') {
-    gcompris_log_end(gcomprisBoard, GCOMPRIS_LOG_STATUS_FAILED);
+    gc_log_end(gcomprisBoard, GCOMPRIS_LOG_STATUS_FAILED);
   }
 
   comment_set = g_strdup_printf("%s;%s", expected, got);
 }
 
-/** gcompris_log_key
+/** gc_log_key
  * \param GcomprisBoard *gcomprisBoard: the board for which the event happen
  * \param key: a keyval as defined by gtk
  *
  */
-void gcompris_log_set_key (GcomprisBoard *gcomprisBoard, guint keyval) {
+void gc_log_set_key (GcomprisBoard *gcomprisBoard, guint keyval) {
   char utf8char[6];
   int i;
   /* get the current time from the Unix kernel */
@@ -137,19 +137,19 @@ void gcompris_log_set_key (GcomprisBoard *gcomprisBoard, guint keyval) {
 
   if(strlen(keylog)<(KEYLOG_MAX-10)) {
     strcat(keylog, utf8char);
-    printf(" 1 gcompris_log_set_key %s\n", keylog);
+    printf(" 1 gc_log_set_key %s\n", keylog);
     sprintf(keylog+strlen(keylog), "/%d:", (guint)duration);
-    printf(" 2 gcompris_log_set_key %s\n", keylog);
+    printf(" 2 gc_log_set_key %s\n", keylog);
   }
 
 }
 
-/** gcompris_log_end
+/** gc_log_end
  * \param GcomprisBoard *gcomprisBoard: the board for which the event happen
  * \param status: a string representing the status like PASSED, FAILED.
  *
  */
-void gcompris_log_end (GcomprisBoard *gcomprisBoard, gchar *status) {
+void gc_log_end (GcomprisBoard *gcomprisBoard, gchar *status) {
   FILE *flog;
   gchar *file;
 

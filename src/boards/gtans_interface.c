@@ -122,7 +122,7 @@ void create_mainwindow (GnomeCanvasGroup *rootitem)
 		     (gpointer) FALSE);
       
   gtk_signal_connect(GTK_OBJECT(previous_figure), "event",
-		     (GtkSignalFunc) gcompris_item_event_focus,
+		     (GtkSignalFunc) gc_item_focus_event,
 		     NULL);
       
   gtk_signal_connect(GTK_OBJECT(next_figure), "event",
@@ -130,13 +130,13 @@ void create_mainwindow (GnomeCanvasGroup *rootitem)
 		     (gpointer) TRUE);
   
   gtk_signal_connect(GTK_OBJECT(next_figure), "event",
-		     (GtkSignalFunc) gcompris_item_event_focus,
+		     (GtkSignalFunc) gc_item_focus_event,
 		     NULL);
 
 
-  pixmap_show = gcompris_load_pixmap("gtans/gtans_show.png");
+  pixmap_show = gc_pixmap_load("gtans/gtans_show.png");
 
-  pixmap_outline = gcompris_load_pixmap("gtans/gtans_outline.png");
+  pixmap_outline = gc_pixmap_load("gtans/gtans_outline.png");
   
   show_figure = gnome_canvas_item_new (rootitem,
 				       gnome_canvas_pixbuf_get_type (),
@@ -163,11 +163,11 @@ void create_mainwindow (GnomeCanvasGroup *rootitem)
 		     NULL);
       
   gtk_signal_connect(GTK_OBJECT(outline_figure), "event",
-		     (GtkSignalFunc) gcompris_item_event_focus,
+		     (GtkSignalFunc) gc_item_focus_event,
 		     NULL);
       
   gtk_signal_connect(GTK_OBJECT(show_figure), "event",
-		     (GtkSignalFunc) gcompris_item_event_focus,
+		     (GtkSignalFunc) gc_item_focus_event,
 		     NULL);
 
   pixmap_symetry = gcompris_load_skin_pixmap("draw/tool-flip.png");
@@ -186,7 +186,7 @@ void create_mainwindow (GnomeCanvasGroup *rootitem)
 		     NULL);
       
   gtk_signal_connect(GTK_OBJECT(symetry), "event",
-		     (GtkSignalFunc) gcompris_item_event_focus,
+		     (GtkSignalFunc) gc_item_focus_event,
 		     NULL);
   
 
@@ -197,8 +197,8 @@ void create_mainwindow (GnomeCanvasGroup *rootitem)
   GdkPixbuf   *left_rot_big = NULL;
   GnomeCanvasItem *l_rot_s, *r_rot_s, *l_rot_b,  *r_rot_b;
 
-  right_rot       = gcompris_load_pixmap("gtans/gtans_rotate.png");
-  left_rot        = gcompris_load_pixmap("gtans/gtans_rotate-left.png");
+  right_rot       = gc_pixmap_load("gtans/gtans_rotate.png");
+  left_rot        = gc_pixmap_load("gtans/gtans_rotate-left.png");
 
   r_rot_s = gnome_canvas_item_new (rootitem,
 				   gnome_canvas_pixbuf_get_type (),
@@ -221,8 +221,8 @@ void create_mainwindow (GnomeCanvasGroup *rootitem)
   gdk_pixbuf_unref(right_rot);
   gdk_pixbuf_unref(left_rot);
 
-  right_rot_big   = gcompris_load_pixmap("gtans/gtans_2x-rotate.png");
-  left_rot_big    = gcompris_load_pixmap("gtans/gtans_2x-rotate-left.png");
+  right_rot_big   = gc_pixmap_load("gtans/gtans_2x-rotate.png");
+  left_rot_big    = gc_pixmap_load("gtans/gtans_2x-rotate-left.png");
 
   r_rot_b = gnome_canvas_item_new (rootitem,
 				   gnome_canvas_pixbuf_get_type (),
@@ -250,7 +250,7 @@ void create_mainwindow (GnomeCanvasGroup *rootitem)
 		     (gpointer) 0);
       
   gtk_signal_connect(GTK_OBJECT(r_rot_s), "event",
-		     (GtkSignalFunc) gcompris_item_event_focus,
+		     (GtkSignalFunc) gc_item_focus_event,
 		     NULL);
       
   gtk_signal_connect(GTK_OBJECT(l_rot_s), "event",
@@ -258,7 +258,7 @@ void create_mainwindow (GnomeCanvasGroup *rootitem)
 		     (gpointer) 1);
       
   gtk_signal_connect(GTK_OBJECT(l_rot_s), "event",
-		     (GtkSignalFunc) gcompris_item_event_focus,
+		     (GtkSignalFunc) gc_item_focus_event,
 		     NULL);
       
   gtk_signal_connect(GTK_OBJECT(r_rot_b), "event",
@@ -266,7 +266,7 @@ void create_mainwindow (GnomeCanvasGroup *rootitem)
 		     (gpointer) 2);
       
   gtk_signal_connect(GTK_OBJECT(r_rot_b), "event",
-		     (GtkSignalFunc) gcompris_item_event_focus,
+		     (GtkSignalFunc) gc_item_focus_event,
 		     NULL);
       
   gtk_signal_connect(GTK_OBJECT(l_rot_b), "event",
@@ -274,7 +274,7 @@ void create_mainwindow (GnomeCanvasGroup *rootitem)
 		     (gpointer) 3);
       
   gtk_signal_connect(GTK_OBJECT(l_rot_b), "event",
-		     (GtkSignalFunc) gcompris_item_event_focus,
+		     (GtkSignalFunc) gc_item_focus_event,
 		     NULL);
 
 }

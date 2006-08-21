@@ -168,7 +168,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 			   gcomprisBoard->width - 220, 
 			   gcomprisBoard->height - 50, 
 			   gcomprisBoard->number_of_sublevel);
-      gcompris_bar_set(GCOMPRIS_BAR_CONFIG|GCOMPRIS_BAR_LEVEL);
+      gc_bar_set(GC_BAR_CONFIG|GC_BAR_LEVEL);
 
 
       number_of_dices=1;
@@ -277,7 +277,7 @@ static void smallnumbers_next_level()
 {
 
   gamewon = FALSE;
-  gcompris_bar_set_level(gcomprisBoard);
+  gc_bar_set_level(gcomprisBoard);
 
   smallnumbers_destroy_all_items();
 
@@ -427,7 +427,7 @@ static void smallnumbers_create_item(GnomeCanvasGroup *parent)
     str1 = g_strdup_printf("level%c.png", numbers[i]);
     str2 = gcompris_image_to_skin(str1);
 
-    smallnumbers_pixmap = gcompris_load_pixmap(str2);
+    smallnumbers_pixmap = gc_pixmap_load(str2);
 
     g_free(str1);
     g_free(str2);

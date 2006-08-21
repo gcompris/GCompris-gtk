@@ -1,6 +1,6 @@
-/* gcompris - gcompris_confirm.c
+/* gcompris - gc_confirm_box.c
  *
- * Time-stamp: <2006/08/16 19:47:10 bruno>
+ * Time-stamp: <2006/08/20 10:14:18 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -25,6 +25,8 @@
  *
  */
 #include "gcompris.h"
+
+static GnomeCanvasItem *richtext_s, *richtext;
 
 static void              display_confirm(gchar *title,
 					 gchar *question_text,
@@ -105,7 +107,7 @@ static gdouble button_x_int;
  * file_types is A Comma separated text explaining the different file types
  */
 
-void gcompris_confirm (gchar *title, 
+void gc_confirm_box (gchar *title, 
 		       gchar *question_text,
 		       gchar *yes_text,
 		       gchar *no_text,
@@ -123,21 +125,28 @@ void gcompris_confirm (gchar *title,
  * Do nothing if none is currently being dislayed
  */
 
-void gcompris_confirm_stop ()
+void gc_confirm_box_stop ()
 {
   GcomprisBoard *gcomprisBoard = get_current_gcompris_board();
 
   // Destroy the box
   /* FIXME: Crashes randomly */
   if(rootitem!=NULL)
-    gtk_object_destroy(GTK_OBJECT(rootitem));
+    {
+      /* WORKAROUND: There is a bug in the richtex item and we need to remove it first */
+      while (g_idle_remove_by_data (richtext));
+      gtk_object_destroy (GTK_OBJECT(richtext));
+      while (g_idle_remove_by_data (richtext_s));
+      gtk_object_destroy (GTK_OBJECT(richtext_s));
+      gtk_object_destroy(GTK_OBJECT(rootitem));
+    }
 
   rootitem = NULL;	  
 
   if(gcomprisBoard!=NULL && confirm_displayed)
     board_pause(FALSE);
 
-  gcompris_bar_hide(FALSE);
+  gc_bar_hide(FALSE);
   confirm_displayed = FALSE;
 }
 
@@ -156,7 +165,7 @@ display_confirm(gchar *title,
 		gchar *no_text,
 		ConfirmCallBack iscb) {
 
-  GnomeCanvasItem  *item, *item2, *richtext_s, *richtext;
+  GnomeCanvasItem  *item, *item2;
   GdkPixbuf	   *pixmap = NULL;
   GdkPixbuf	   *pixmap_cross = NULL;
   GdkPixbuf	   *pixmap_stick = NULL;
@@ -187,7 +196,7 @@ display_confirm(gchar *title,
   button_h = T_B_Y;
   button_x_int = T_B_X_INT;
 
-  gcompris_bar_hide(TRUE);
+  gc_bar_hide(TRUE);
 
   board_pause(TRUE);
 
@@ -295,7 +304,7 @@ display_confirm(gchar *title,
 		     "/no/");
 
   gtk_signal_connect(GTK_OBJECT(no_button), "event",
-		     (GtkSignalFunc) gcompris_item_event_focus,
+		     (GtkSignalFunc) gc_item_focus_event,
 		     NULL);
 
   // CANCEL CROSS
@@ -313,7 +322,7 @@ display_confirm(gchar *title,
 		     (GtkSignalFunc) button_event,
 		     "/no/");
   gtk_signal_connect(GTK_OBJECT(no_cross), "event",
-		     (GtkSignalFunc) gcompris_item_event_focus,
+		     (GtkSignalFunc) gc_item_focus_event,
 		     NULL);
 
 
@@ -343,7 +352,7 @@ display_confirm(gchar *title,
 		     "/yes/");
 
   gtk_signal_connect(GTK_OBJECT(yes_button), "event",
-		     (GtkSignalFunc) gcompris_item_event_focus,
+		     (GtkSignalFunc) gc_item_focus_event,
 		     NULL);
 
   // OK stick
@@ -361,7 +370,7 @@ display_confirm(gchar *title,
 		     (GtkSignalFunc) button_event,
 		     "/yes/");
   gtk_signal_connect(GTK_OBJECT(yes_stick), "event",
-		     (GtkSignalFunc) gcompris_item_event_focus,
+		     (GtkSignalFunc) gc_item_focus_event,
 		     NULL);
 
 
@@ -459,16 +468,8 @@ button_event(GnomeCanvasItem *item, GdkEvent *event,  gchar *answer)
     else
       confirmCallBack(TRUE);
   }
-  gcompris_confirm_stop();
+  gc_confirm_box_stop();
 
   return TRUE;
   
 }
-
-/* Local Variables: */
-/* mode:c */
-/* eval:(load-library "time-stamp") */
-/* eval:(make-local-variable 'write-file-hooks) */
-/* eval:(add-hook 'write-file-hooks 'time-stamp) */
-/* eval:(setq time-stamp-format '(time-stamp-yyyy/mm/dd time-stamp-hh:mm:ss user-login-name)) */
-/* End: */

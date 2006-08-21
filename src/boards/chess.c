@@ -185,7 +185,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 #ifndef WIN32  
   if (!g_file_test (GNUCHESS, G_FILE_TEST_EXISTS)) {
     
-    gcompris_dialog(_("Error: The external program gnuchess is mandatory\nto play chess in gcompris.\nFind this program on http://www.rpmfind.net or in your\nGNU/Linux distribution\nAnd check it is located here: "GNUCHESS), gcompris_end_board);
+    gc_dialog(_("Error: The external program gnuchess is mandatory\nto play chess in gcompris.\nFind this program on http://www.rpmfind.net or in your\nGNU/Linux distribution\nAnd check it is located here: "GNUCHESS), gc_board_end);
     
     return;
   }
@@ -216,15 +216,15 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 	case PARTYEND:
 	case MOVELEARN:
 	  gcomprisBoard->maxlevel=9;
-	  gcompris_bar_set(GCOMPRIS_BAR_LEVEL);
+	  gc_bar_set(GC_BAR_LEVEL);
 	  break;
 	default:
-	  gcompris_bar_set(0);
+	  gc_bar_set(0);
 	}
 
       if(start_child (GNUCHESS, &read_chan,
 		      &write_chan, &gnuchess_pid)==FALSE) {
-	gcompris_dialog(_("Error: The external program gnuchess is mandatory\nto play chess in gcompris.\nFind this program on http://www.rpmfind.net or in your\nGNU/Linux distribution\nAnd check it is in "GNUCHESS), gcompris_end_board);
+	gc_dialog(_("Error: The external program gnuchess is mandatory\nto play chess in gcompris.\nFind this program on http://www.rpmfind.net or in your\nGNU/Linux distribution\nAnd check it is in "GNUCHESS), gc_board_end);
 	return;
       }
       
@@ -305,7 +305,7 @@ static void chess_next_level()
 			  img);
   g_free(img);
 
-  gcompris_bar_set_level(gcomprisBoard);
+  gc_bar_set_level(gcomprisBoard);
 
   chess_destroy_all_items();
   gamewon = FALSE;
@@ -501,7 +501,7 @@ static GnomeCanvasItem *chess_create_item(GnomeCanvasGroup *parent)
 	    else
 	      str = g_strdup_printf("chess/W%c.png", piece_to_ascii(piece));
 	    
-	    pixmap = gcompris_load_pixmap(str);
+	    pixmap = gc_pixmap_load(str);
 	    //	    g_warning("loading piece %s\n",   str);
 	    g_free(str);
 	    item = gnome_canvas_item_new (boardRootItem,
@@ -701,7 +701,7 @@ static void move_piece_to(Square from, Square to)
       else
 	str = g_strdup_printf("chess/W%c.png", piece_to_ascii(piece));
 	      
-      pixmap = gcompris_load_pixmap(str);
+      pixmap = gc_pixmap_load(str);
       g_free(str);
       g_warning("loading piece %c\n",  piece_to_ascii(piece));
       gnome_canvas_item_set (dest_square->piece_item,

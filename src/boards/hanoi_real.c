@@ -130,7 +130,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       gcomprisBoard->maxlevel=2;
       gcomprisBoard->sublevel=1;
       gcomprisBoard->number_of_sublevel=1; /* Go to next level after this number of 'play' */
-      gcompris_bar_set(GCOMPRIS_BAR_LEVEL);
+      gc_bar_set(GC_BAR_LEVEL);
 
       gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas),
 			      gcompris_image_to_skin("gcompris-bg.jpg"));
@@ -187,7 +187,7 @@ static gboolean is_our_board (GcomprisBoard *gcomprisBoard)
 static void hanoi_next_level()
 {
 
-  gcompris_bar_set_level(gcomprisBoard);
+  gc_bar_set_level(gcomprisBoard);
 
   hanoi_destroy_all_items();
   gamewon = FALSE;
@@ -351,7 +351,7 @@ static GnomeCanvasItem *hanoi_create_item(GnomeCanvasGroup *parent)
 	}
 
       /* The disc support */
-      pixmap = gcompris_load_pixmap ("images/disc_support.png");
+      pixmap = gc_pixmap_load ("images/disc_support.png");
       
       item = gnome_canvas_item_new (boardRootItem,
 				    gnome_canvas_pixbuf_get_type (),
@@ -373,7 +373,7 @@ static GnomeCanvasItem *hanoi_create_item(GnomeCanvasGroup *parent)
 	  if(position[i][j]->width != -1)
 	    {
 	      filename = g_strdup_printf("%s%d.png", "images/disc", j+1);
-	      pixmap = gcompris_load_pixmap (filename);
+	      pixmap = gc_pixmap_load (filename);
 
 	      item = gnome_canvas_item_new (boardRootItem,
 					    gnome_canvas_pixbuf_get_type (),
@@ -456,10 +456,10 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, PieceItem *data)
   switch (event->type) 
     {
     case GDK_ENTER_NOTIFY:
-      gcompris_set_image_focus(item, TRUE);
+      gc_item_focus_set(item, TRUE);
       break;
     case GDK_LEAVE_NOTIFY:
-      gcompris_set_image_focus(item, FALSE);
+      gc_item_focus_set(item, FALSE);
       break;
     case GDK_BUTTON_PRESS:
       switch(event->button.button) 
@@ -536,7 +536,7 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, PieceItem *data)
 	  if(col<0 || col > number_of_item_x || col == data->i)
 	    {
 	      /* Return to the original position */
-	      item_absolute_move (data->item , data->x - disc_w, data->y - disc_h);
+	      gc_item_absolute_move (data->item , data->x - disc_w, data->y - disc_h);
 
 	      /* FIXME : Workaround for bugged canvas */
 	      gnome_canvas_update_now(gcomprisBoard->canvas);
@@ -556,7 +556,7 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, PieceItem *data)
 	     (line > 0 && position[col][line-1]->width != -1 && position[col][line-1]->width < data->width))
 	    {
 	      /* Return to the original position */
-	      item_absolute_move (data->item , data->x - disc_w, data->y - disc_h);
+	      gc_item_absolute_move (data->item , data->x - disc_w, data->y - disc_h);
 
 	      /* FIXME : Workaround for bugged canvas */
 	      gnome_canvas_update_now(gcomprisBoard->canvas);
@@ -576,7 +576,7 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, PieceItem *data)
 	  piece_dst = position[col][line];
 	  piece_src = data;
 
-	  item_absolute_move (data->item,
+	  gc_item_absolute_move (data->item,
 			      piece_dst->x - disc_w,
 			      piece_dst->y - disc_h);
 	  

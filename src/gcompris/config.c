@@ -1,6 +1,6 @@
 /* gcompris - config.c
  *
- * Time-stamp: <2006/08/15 03:53:37 bruno>
+ * Time-stamp: <2006/08/20 23:37:35 bruno>
  *
  * Copyright (C) 2000-2003 Bruno Coudoin
  *
@@ -26,6 +26,7 @@
 #include <string.h>
 
 #include "gcompris.h"
+#include "gc_core.h"
 #include "gcompris_config.h"
 #include "locale.h"
 
@@ -161,7 +162,7 @@ void gcompris_config_start ()
   if(rootitem)
     return;
 
-  gcompris_bar_hide(TRUE);
+  gc_bar_hide(TRUE);
 
   rootitem = \
     gnome_canvas_item_new (gnome_canvas_root(gcompris_get_canvas()),
@@ -242,7 +243,7 @@ void gcompris_config_start ()
  
   item_locale_text = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 					    gnome_canvas_text_get_type (),
-					    "text", gcompris_get_locale_name(current_locale), 
+					    "text", gc_locale_get_name(current_locale), 
 					    "font", gcompris_skin_font_subtitle,
 					    "x", (double) x_text_start,
 					    "y", (double) y_start,
@@ -264,7 +265,7 @@ void gcompris_config_start ()
 		     (GtkSignalFunc) item_event_ok,
 		     "fullscreen");
   gtk_signal_connect(GTK_OBJECT(item), "event",
-		     (GtkSignalFunc) gcompris_item_event_focus,
+		     (GtkSignalFunc) gc_item_focus_event,
 		     NULL);
 
 
@@ -307,7 +308,7 @@ void gcompris_config_start ()
 		     (GtkSignalFunc) item_event_ok,
 		     "music");
   gtk_signal_connect(GTK_OBJECT(item), "event",
-		     (GtkSignalFunc) gcompris_item_event_focus,
+		     (GtkSignalFunc) gc_item_focus_event,
 		     NULL);
 
 
@@ -335,7 +336,7 @@ void gcompris_config_start ()
 		     (GtkSignalFunc) item_event_ok,
 		     "effect");
   gtk_signal_connect(GTK_OBJECT(item), "event",
-		     (GtkSignalFunc) gcompris_item_event_focus,
+		     (GtkSignalFunc) gc_item_focus_event,
 		     NULL);
 
 
@@ -459,7 +460,7 @@ void gcompris_config_start ()
 		     (GtkSignalFunc) item_event_ok,
 		     "ok");
   gtk_signal_connect(GTK_OBJECT(item), "event",
-		     (GtkSignalFunc) gcompris_item_event_focus,
+		     (GtkSignalFunc) gc_item_focus_event,
 		     NULL);
 
   gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
@@ -486,7 +487,7 @@ void gcompris_config_start ()
 		     (GtkSignalFunc) item_event_ok,
 		     "ok");
   gtk_signal_connect(GTK_OBJECT(item2), "event",
-		     (GtkSignalFunc) gcompris_item_event_focus,
+		     (GtkSignalFunc) gc_item_focus_event,
 		     item);
   gdk_pixbuf_unref(pixmap);
 
@@ -518,7 +519,7 @@ void gcompris_config_stop ()
   if(is_displayed)
     board_pause(FALSE);
 
-  gcompris_bar_hide(FALSE);
+  gc_bar_hide(FALSE);
 
   is_displayed = FALSE;
 }
@@ -547,7 +548,7 @@ display_previous_next(guint x_start, guint y_start,
 		     (GtkSignalFunc) item_event_ok,
 		     eventname_previous);
   gtk_signal_connect(GTK_OBJECT(item), "event",
-		     (GtkSignalFunc) gcompris_item_event_focus,
+		     (GtkSignalFunc) gc_item_focus_event,
 		     NULL);
   gdk_pixbuf_unref(pixmap);
 
@@ -564,7 +565,7 @@ display_previous_next(guint x_start, guint y_start,
 		     (GtkSignalFunc) item_event_ok,
 		     eventname_next);
   gtk_signal_connect(GTK_OBJECT(item), "event",
-		     (GtkSignalFunc) gcompris_item_event_focus,
+		     (GtkSignalFunc) gc_item_focus_event,
 		     NULL);
   gdk_pixbuf_unref(pixmap);
 }
@@ -579,16 +580,16 @@ static void set_locale_flag(gchar *locale)
 
   if(locale[0] == '\0') {
     /* Set the flag to the default user's locale */
-    locale = gcompris_get_user_default_locale();
-    g_message("gcompris_get_user_default_locale = %s\n", locale);
+    locale = gc_locale_get_user_default();
+    g_message("gc_locale_get_user_default = %s\n", locale);
   }
 
   /* First try to find a flag for the long locale name */
-  filename = gcompris_find_absolute_filename("flags/%.5s.png", locale);
+  filename = gc_file_find_absolute("flags/%.5s.png", locale);
 
   /* Not found, Try now with the short locale name */
   if(!filename) {
-    filename = gcompris_find_absolute_filename("flags/%.2s.png", locale);
+    filename = gc_file_find_absolute("flags/%.2s.png", locale);
   }
 
   if(filename)
@@ -629,7 +630,7 @@ static void set_locale_flag(gchar *locale)
  * If not found, simply return the name
  */
 gchar*
-gcompris_get_locale_name(gchar *locale)
+gc_locale_get_name(gchar *locale)
 {
   guint i = 0;
 
@@ -719,9 +720,9 @@ item_event_ok(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 	{
 	  if(current_locale[0] == '\0') {
 	    /* Set the locale to the default user's locale */
-	    gcompris_set_locale(gcompris_get_user_default_locale());
+	    gc_locale_set(gc_locale_get_user_default());
 	  } else {
-	    gcompris_set_locale(current_locale);
+	    gc_locale_set(current_locale);
 	  }
 	  properties->skin = g_strdup((char *)g_list_nth_data(skinlist, skin_index));
 	  gcompris_skin_load(properties->skin);
@@ -741,7 +742,7 @@ item_event_ok(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 	     black border we created manually.
 	  */
 	  if(!properties->noxf86vm)
-	    gcompris_set_fullscreen(properties->fullscreen);
+	    gc_fullscreen_set(properties->fullscreen);
 #endif
 	  /* Warning changing the image needs to update pixbuf_ref for the focus usage */
 	  g_object_set_data (G_OBJECT (item), "pixbuf_ref",  
@@ -778,7 +779,7 @@ item_event_ok(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 	{
 	  current_locale = get_previous_locale(current_locale);
 	  gnome_canvas_item_set (item_locale_text,
-				 "text", gcompris_get_locale_name(current_locale),
+				 "text", gc_locale_get_name(current_locale),
 				 NULL);
 	  set_locale_flag(current_locale);
 	  properties->locale = current_locale;
@@ -787,7 +788,7 @@ item_event_ok(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 	{
 	  current_locale = get_next_locale(current_locale);
 	  gnome_canvas_item_set (item_locale_text,
-				 "text", gcompris_get_locale_name(current_locale),
+				 "text", gc_locale_get_name(current_locale),
 				 NULL);
 
 	  set_locale_flag(current_locale);

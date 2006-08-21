@@ -193,7 +193,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 
       gcomprisBoard->level = 1;
       gcomprisBoard->maxlevel = 9;
-      gcompris_bar_set(GCOMPRIS_BAR_CONFIG|GCOMPRIS_BAR_LEVEL);
+      gc_bar_set(GC_BAR_CONFIG|GC_BAR_LEVEL);
 
       font_size = PANGO_PIXELS(pango_font_description_get_size (pango_font_description_from_string (gcompris_skin_font_board_medium)));
       interline = (int) (1.5*font_size);
@@ -202,7 +202,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 
       PangoFontMetrics* pango_metrics =  pango_context_get_metrics (pango_context,
 								    pango_font_description_from_string (gcompris_skin_font_board_medium),
-								    pango_language_from_string   (gcompris_get_locale()));
+								    pango_language_from_string   (gc_locale_get()));
 
       int ascent = PANGO_PIXELS(pango_font_metrics_get_ascent (pango_metrics));
       int descent = PANGO_PIXELS(pango_font_metrics_get_descent (pango_metrics));
@@ -271,7 +271,7 @@ is_our_board (GcomprisBoard *gcomprisBoard)
 static gint reading_next_level()
 {
 
-  gcompris_bar_set_level(gcomprisBoard);
+  gc_bar_set_level(gcomprisBoard);
 
   gamewon = FALSE;
 
@@ -673,7 +673,7 @@ static void player_loose()
   else
     got    = g_strdup_printf(_("And it was displayed"));
 
-  gcompris_log_set_comment (gcomprisBoard, expected, got);
+  gc_log_set_comment (gcomprisBoard, expected, got);
 
   g_free(expected);
   g_free(got);
@@ -764,7 +764,7 @@ static gboolean read_wordfile()
   gchar *buf;
   int len;                                                                                                                                
 
-  wordsfd = get_wordfile(gcompris_get_locale());
+  wordsfd = get_wordfile(gc_locale_get());
                                                                                                                               
   if(wordsfd==NULL)
     {
@@ -773,7 +773,7 @@ static gboolean read_wordfile()
                                                                                                                               
       /* Too bad, even english is not there. Check your Install */
       if(wordsfd==NULL) {
-        gcompris_dialog(_("Cannot open file of words for your locale"), gcompris_end_board);
+        gc_dialog(_("Cannot open file of words for your locale"), gc_board_end);
         return FALSE;
       }
     }

@@ -178,7 +178,7 @@ static void level_set_score() {
 		       gcomprisBoard->width - 220, 
 		       gcomprisBoard->height - 50, 
 		       gcomprisBoard->number_of_sublevel);
-  gcompris_bar_set(GCOMPRIS_BAR_CONFIG|GCOMPRIS_BAR_LEVEL);
+  gc_bar_set(GC_BAR_CONFIG|GC_BAR_LEVEL);
 }
 
 static void pause_board (gboolean pause)
@@ -449,7 +449,7 @@ static gint key_press(guint keyval, gchar *commit_str, gchar *preedit_str) {
 
   /* Log what happened, what was expected, what we got */
 
-  gcompris_log_set_comment(gcomprisBoard, list_of_letters, str);
+  gc_log_set_comment(gcomprisBoard, list_of_letters, str);
   g_free(str);
 
   return TRUE;
@@ -482,7 +482,7 @@ static void gletters_next_level()
 {
 
   gamewon = FALSE;
-  gcompris_bar_set_level(gcomprisBoard);
+  gc_bar_set_level(gcomprisBoard);
 
   gletters_destroy_all_items();
 

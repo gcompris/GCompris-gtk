@@ -1,6 +1,6 @@
 /* gcompris - clickgame.c
  *
- * Time-stamp: <2006/08/13 17:56:34 bruno>
+ * Time-stamp: <2006/08/20 08:10:07 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -42,7 +42,6 @@ static gint dummy_id = 0;
 static gint animate_id = 0;
 static gint drop_items_id = 0;
 
-static GList *pixmaplist = NULL;
 static  GList *imagelist = NULL;
 
 typedef struct {
@@ -76,6 +75,40 @@ static void	 game_won(void);
 static  guint32              fallSpeed = 0;
 static  double               speed = 0.0;
 static  double               imageZoom = 0.0;
+
+// List of images to use in the game
+static gchar *pixmapList[] =
+  {
+    "fishes/blueking2_%d.png",
+    "fishes/butfish_%d.png",
+    "fishes/cichlid1_%d.png",
+    "fishes/cichlid4_%d.png",
+    "fishes/collaris_%d.png",
+    "fishes/discus2_%d.png",
+    "fishes/discus3_%d.png",
+    "fishes/eel_%d.png",
+    "fishes/f00_%d.png",
+    "fishes/f01_%d.png",
+    "fishes/f02_%d.png",
+    "fishes/f03_%d.png",
+    "fishes/f04_%d.png",
+    "fishes/f05_%d.png",
+    "fishes/f06_%d.png",
+    "fishes/f07_%d.png",
+    "fishes/f08_%d.png",
+    "fishes/f09_%d.png",
+    "fishes/f10_%d.png",
+    "fishes/f11_%d.png",
+    "fishes/f12_%d.png",
+    "fishes/f13_%d.png",
+    "fishes/manta_%d.png",
+    "fishes/newf1_%d.png",
+    "fishes/QueenAngel_%d.png",
+    "fishes/shark1_%d.png",
+    "fishes/six_barred_%d.png",
+    "fishes/teeth_%d.png",
+  };
+#define NUMBER_OF_IMAGES G_N_ELEMENTS(pixmapList)
 
 /* Description of this plugin */
 static BoardPlugin menu_bp =
@@ -160,36 +193,9 @@ static void clickgame_pause (gboolean pause)
  */
 static void clickgame_start (GcomprisBoard *agcomprisBoard)
 {
-  gchar		*str;
-  gchar		*filename;
-  GDir		*dir;
-  const gchar	*one_dirent;
-
   if(agcomprisBoard!=NULL)
     {
-      GcomprisProperties *properties = gcompris_get_properties();
       gcomprisBoard = agcomprisBoard;
-
-      /* Load the Pixpmaps directory file names */
-      filename = g_strdup_printf("%s/%s", properties->package_data_dir, gcomprisBoard->boarddir);
-      dir = g_dir_open(filename, 0, NULL);
-      
-      if (!dir)
-	g_error (_("Couldn't open dir: %s"),filename);
-
-      g_free(filename);
-
-      while((one_dirent = g_dir_read_name(dir)) != NULL) {
-
-	str = g_strdup_printf("%s/%s", gcomprisBoard->boarddir, one_dirent);
-	str[strlen(str)-5]='x';
-	
-	if(g_list_find_custom(pixmaplist, str, (GCompareFunc) strcmp) == NULL) {
-	  pixmaplist = g_list_append (pixmaplist, str);
-	}
-      }
-      g_dir_close(dir);
-
 
       /* set initial values for this level */
       gcomprisBoard->level = 1;
@@ -199,7 +205,7 @@ static void clickgame_start (GcomprisBoard *agcomprisBoard)
 			   gcomprisBoard->width - 220, 
 			   gcomprisBoard->height - 50, 
 			   gcomprisBoard->number_of_sublevel);
-      gcompris_bar_set(GCOMPRIS_BAR_LEVEL);
+      gc_bar_set(GC_BAR_LEVEL);
 
       clickgame_next_level();
 
@@ -212,8 +218,6 @@ static void clickgame_start (GcomprisBoard *agcomprisBoard)
 static void
 clickgame_end ()
 {
-  int i;
-
   if(gcomprisBoard!=NULL)
     {
       clickgame_pause(TRUE);
@@ -222,16 +226,6 @@ clickgame_end ()
       gcomprisBoard->level = 1;       // Restart this game to zero
     }
   gcomprisBoard = NULL;
-
-  i=g_list_length(pixmaplist);
-  for(i=0; i<g_list_length(pixmaplist); i++) {
-    g_free(g_list_nth_data(item_list, i));
-  }
-
-  if(pixmaplist) {
-    g_list_free(pixmaplist);
-    pixmaplist = NULL;
-  }
 }
 
 static void
@@ -306,7 +300,7 @@ static void clickgame_next_level()
 			      "clickgame/nur03505.jpg");
     }
 
-  gcompris_bar_set_level(gcomprisBoard);
+  gc_bar_set_level(gcomprisBoard);
 
   /* Try the next level */
   speed=100+(40/(gcomprisBoard->level));
@@ -710,41 +704,30 @@ setup_item(FishItem *fishitem)
  */
 static void load_random_pixmap()
 {
-  GcomprisProperties *properties = gcompris_get_properties();
   GdkPixbuf *pixmap;
   int i, j;
   gchar *str = NULL;
   gboolean cont = TRUE;
 
-  if(g_list_length(pixmaplist)<=0)
-    return;
-
-  i=rand()%(g_list_length(pixmaplist));
-
-  str = (char *)g_list_nth_data(pixmaplist, i);
-  if(str==NULL)
-    return;
+  i=rand()%(NUMBER_OF_IMAGES);
 
   /* First image */
   j=0;
 
   while(cont)
     {
-      gchar *filename;
-      gchar numstr[2];
+      gchar *url;
+      str = g_strdup(pixmapList[i]);
 
-      sprintf(numstr, "%d", j++);
-      str[strlen(str)-5]=numstr[0];
+      url = gc_file_find_absolute(str, j++);
 
-      filename = g_strdup_printf("%s/%s", properties->package_data_dir, str);
-
-      if (!g_file_test (filename, G_FILE_TEST_EXISTS))
+      if(!url)
 	{
 	  cont = FALSE;
 	}
       else
 	{
-	  pixmap = gcompris_load_pixmap (str);
+	  pixmap = gc_pixmap_load (url);
 
 	  if(pixmap) {
 	    imagelist = g_list_append (imagelist, pixmap);
@@ -752,8 +735,7 @@ static void load_random_pixmap()
 	    cont = FALSE;
 	  }
 	}
-
-      g_free (filename);
+      g_free(str);
     }
 
 }

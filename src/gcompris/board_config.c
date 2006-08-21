@@ -575,7 +575,7 @@ GtkHSeparator *gcompris_separator()
  * \return a list containing the locales we suport
  */
 GList*
-gcompris_get_locales_list(){
+gc_locale_gets_list(){
 
   static GList *gcompris_locales_list = NULL;
 
@@ -646,7 +646,7 @@ gcompris_combo_locales(gchar *init)
   GtkWidget *label_combo;
   gint init_index = 0;
 
-  strings = gcompris_get_locales_list();
+  strings = gc_locale_gets_list();
 
   strings = g_list_prepend( strings, _("Default"));
 
@@ -724,16 +724,16 @@ void gcompris_change_locale(gchar *locale)
     return;
   }
 
-  current_locale = g_strdup(gcompris_get_locale());
+  current_locale = g_strdup(gc_locale_get());
 
-  gcompris_set_locale(locale);
+  gc_locale_set(locale);
 }
 
 void gcompris_reset_locale(){
   if (current_locale == NULL)
     return;
 
-  gcompris_set_locale(current_locale);
+  gc_locale_set(current_locale);
 
   g_free(current_locale);
   current_locale = NULL;
@@ -749,12 +749,12 @@ void gcompris_reset_locale(){
  * \return a list of locale
  */
 GList*
-gcompris_get_locales_asset_list(const gchar *filename)
+gc_locale_gets_asset_list(const gchar *filename)
 {
   GList *locales, *list, *locales_asset = NULL;
   gchar *abs_filename;
 
-  locales = gcompris_get_locales_list();
+  locales = gc_locale_gets_list();
 
   for (list = locales; list != NULL; list = list->next)
     { 
@@ -770,21 +770,21 @@ gcompris_get_locales_asset_list(const gchar *filename)
 	  g_strlcpy(locale, list->data, sizeof(locale));
 	  filename2 = g_strjoinv(locale, tmp);
 	  g_warning("trying locale file '%s'\n", filename2);
-	  abs_filename = gcompris_find_absolute_filename(filename2);
+	  abs_filename = gc_file_find_absolute(filename2);
 	  g_free(filename2);
 
 	  g_strfreev(tmp);
 	}
       else
 	{
-	  abs_filename = gcompris_find_absolute_filename(filename);
+	  abs_filename = gc_file_find_absolute(filename);
 	}
 
       if(abs_filename)
 	/* It would be cleaner to provide the real locale name but then we need a way
 	 * to get back the locale code from it's name and from the boards
 	 *
-	 * locales_asset = g_list_append(locales_asset, gcompris_get_locale_name(list->data));
+	 * locales_asset = g_list_append(locales_asset, gc_locale_get_name(list->data));
 	 *
 	 */
 	locales_asset = g_list_append(locales_asset, list->data);
@@ -807,7 +807,7 @@ GtkComboBox *gcompris_combo_locales_asset(const gchar *label,
   GtkWidget *label_combo;
   gint init_index = 0;
 
-  strings = gcompris_get_locales_asset_list(file);
+  strings = gc_locale_gets_asset_list(file);
 
   strings = g_list_prepend( strings, _("Default"));
 

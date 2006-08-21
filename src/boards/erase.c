@@ -179,7 +179,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 			   gcomprisBoard->width - 220, 
 			   gcomprisBoard->height - 50, 
 			   gcomprisBoard->number_of_sublevel);
-      gcompris_bar_set(GCOMPRIS_BAR_LEVEL);
+      gc_bar_set(GC_BAR_LEVEL);
 
       if (strcmp(gcomprisBoard->mode,"double_clic")==0)
 	board_mode = DOUBLECLIC;
@@ -277,7 +277,7 @@ static void erase_next_level()
   if(current_image>NUMBER_OF_IMAGES)
     current_image=0;
 
-  gcompris_bar_set_level(gcomprisBoard);
+  gc_bar_set_level(gcomprisBoard);
 
   erase_destroy_all_items();
   gamewon = FALSE;
@@ -345,13 +345,13 @@ static GnomeCanvasItem *erase_create_item(int layer)
     pixmap[i] = NULL;
 
   if(layer>0)
-    pixmap[0] = gcompris_load_pixmap("images/transparent_square.png");
+    pixmap[0] = gc_pixmap_load("images/transparent_square.png");
 
   if(layer>1)
-    pixmap[1] = gcompris_load_pixmap("images/water_spot.png");
+    pixmap[1] = gc_pixmap_load("images/water_spot.png");
 
   if(layer>2)
-    pixmap[2] = gcompris_load_pixmap("images/water_drop.png");
+    pixmap[2] = gc_pixmap_load("images/water_drop.png");
 
   for(i=0,ix=0; i<BOARDWIDTH; i+=BOARDWIDTH/number_of_item_x, ix++)
     {

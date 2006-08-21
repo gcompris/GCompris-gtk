@@ -161,14 +161,14 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 			   gcomprisBoard->number_of_sublevel);
 
       str = gcompris_image_to_skin("button_reload.png");
-      pixmap = gcompris_load_pixmap(str);
+      pixmap = gc_pixmap_load(str);
       g_free(str);
       if(pixmap) {
-	gcompris_bar_set_repeat_icon(pixmap);
+	gc_bar_set_repeat_icon(pixmap);
 	gdk_pixbuf_unref(pixmap);
-	gcompris_bar_set(GCOMPRIS_BAR_LEVEL|GCOMPRIS_BAR_REPEAT_ICON);
+	gc_bar_set(GC_BAR_LEVEL|GC_BAR_REPEAT_ICON);
       } else {
-	gcompris_bar_set(GCOMPRIS_BAR_LEVEL|GCOMPRIS_BAR_REPEAT);
+	gc_bar_set(GC_BAR_LEVEL|GC_BAR_REPEAT);
       }
 
       img = gcompris_image_to_skin("traffic-bg.jpg");
@@ -239,7 +239,7 @@ static void repeat (){
 static void traffic_next_level()
 {
 
-  gcompris_bar_set_level(gcomprisBoard);
+  gc_bar_set_level(gcomprisBoard);
 
   traffic_destroy_all_items();
   gamewon = FALSE;

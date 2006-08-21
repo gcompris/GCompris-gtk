@@ -253,7 +253,7 @@ static void menu_start (GcomprisBoard *agcomprisBoard)
       /* set initial values for this level */
       gcomprisBoard->level = 1;
       gcomprisBoard->maxlevel=1;
-      gcompris_bar_set(GCOMPRIS_BAR_CONFIG|GCOMPRIS_BAR_ABOUT);
+      gc_bar_set(GC_BAR_CONFIG|GC_BAR_ABOUT);
 
       /* FIXME : Workaround for bugged canvas */
       //gnome_canvas_update_now(gcomprisBoard->canvas);
@@ -281,7 +281,7 @@ static void create_panel(GnomeCanvasGroup *parent)
   /* In normal mode, we show all the sections in panel */
   /* in direct submenu access, we show the icon of the submenu */
   if (strcmp(properties->root_menu,"/")==0)
-    panelBoards = gcompris_get_menulist(properties->root_menu);
+    panelBoards = gc_menu_getlist(properties->root_menu);
   else
     panelBoards = g_list_append(list, gcomprisBoard);
 
@@ -304,7 +304,7 @@ static void create_panel(GnomeCanvasGroup *parent)
   for (list = panelBoards; list != NULL; list = list->next){
     board = (GcomprisBoard *) list->data;
 
-    pixmap = gcompris_load_pixmap(board->icon_name);
+    pixmap = gc_pixmap_load(board->icon_name);
 
     ratio = get_ratio( pixmap, icon_size_panel);
      
@@ -331,7 +331,7 @@ static void create_panel(GnomeCanvasGroup *parent)
 		       menuitems);
     
     gtk_signal_connect(GTK_OBJECT(item), "event",
-		       (GtkSignalFunc) gcompris_item_event_focus,
+		       (GtkSignalFunc) gc_item_focus_event,
 		       NULL);
    
   }
@@ -346,7 +346,7 @@ static void display_section (gchar *path)
 
       menu_displayed = FALSE;
 
-      boardlist = gcompris_get_menulist(path);
+      boardlist = gc_menu_getlist(path);
 
       if (actualSectionItem)
 	gtk_object_destroy (GTK_OBJECT(actualSectionItem));
@@ -477,12 +477,12 @@ static void menu_create_item(GnomeCanvasGroup *parent, MenuItems *menuitems, Gco
   /*
    * Take care to load the board->icon_name from the dir specified
    * in the board->board_dir
-   * To make it simple and reuse the gcompris_load_pixmap, we overwrite temporarily
+   * To make it simple and reuse the gc_pixmap_load, we overwrite temporarily
    * the gcomprisBoard->board_dir and board->board_dir
    */
   tmp_board_dir = gcomprisBoard->board_dir;
   gcomprisBoard->board_dir = board->board_dir;
-  menu_pixmap = gcompris_load_pixmap(board->icon_name);
+  menu_pixmap = gc_pixmap_load(board->icon_name);
   gcomprisBoard->board_dir = tmp_board_dir;
 
   ratio = get_ratio (menu_pixmap, icon_size);
@@ -509,7 +509,7 @@ static void menu_create_item(GnomeCanvasGroup *parent, MenuItems *menuitems, Gco
   // display difficulty stars
   if (board->difficulty != NULL) {
     difficulty = atoi(board->difficulty);
-    gcompris_display_difficulty_stars(parent,
+    gc_difficulty_display(parent,
 				      (double)current_x - pixmap_w/2 - 25,
 				      (double)current_y - pixmap_h/2,
 				      (double) 0.6,
@@ -522,7 +522,7 @@ static void menu_create_item(GnomeCanvasGroup *parent, MenuItems *menuitems, Gco
       gchar *soundfile = NULL;
 
       /* We search a fixed path sound file */
-      soundfile = gcompris_find_absolute_filename(board->mandatory_sound_file);
+      soundfile = gc_file_find_absolute(board->mandatory_sound_file);
       g_warning("Checking mandatory_sound_file %s\n", soundfile);
 
       if (!soundfile || !gcompris_get_properties()->fx) 
@@ -572,7 +572,7 @@ static void menu_create_item(GnomeCanvasGroup *parent, MenuItems *menuitems, Gco
 		     menuitems);
   
   gtk_signal_connect(GTK_OBJECT(menu_button), "event",
-		     (GtkSignalFunc) gcompris_item_event_focus,
+		     (GtkSignalFunc) gc_item_focus_event,
 		     NULL);
 
 }
@@ -923,7 +923,7 @@ static void create_top(GnomeCanvasGroup *parent, gchar *path)
       
       board = gcompris_get_board_from_section(path1);
 
-      pixmap = gcompris_load_pixmap(board->icon_name);
+      pixmap = gc_pixmap_load(board->icon_name);
 
       ratio = get_ratio( pixmap, icon_size_top);
      
@@ -950,7 +950,7 @@ static void create_top(GnomeCanvasGroup *parent, gchar *path)
 			 menuitems);
       
       gtk_signal_connect(GTK_OBJECT(item), "event",
-			 (GtkSignalFunc) gcompris_item_event_focus,
+			 (GtkSignalFunc) gc_item_focus_event,
 			 NULL);
  
       

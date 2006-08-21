@@ -310,7 +310,7 @@ static void submarine_next_level() {
   ballast_av_air = ballast_ar_air = MAX_BALLAST/10.0;
   submarine_destroyed = FALSE;
 
-  gcompris_bar_set(0);
+  gc_bar_set(0);
 
   submarine_destroy_all_items();
   gamewon = FALSE;
@@ -346,7 +346,7 @@ static GnomeCanvasItem *submarine_create_item(GnomeCanvasGroup *parent) {
 							    NULL));
 
   str = g_strdup_printf("%s/%s", gcomprisBoard->boarddir, "submarine.png");
-  pixmap = gcompris_load_pixmap(str);
+  pixmap = gc_pixmap_load(str);
   submarine_item = gnome_canvas_item_new (boardRootItem,
 					  gnome_canvas_pixbuf_get_type (),
 					  "pixbuf", pixmap,
@@ -363,7 +363,7 @@ static GnomeCanvasItem *submarine_create_item(GnomeCanvasGroup *parent) {
   gdk_pixbuf_unref(pixmap);
 
   str = g_strdup_printf("%s/%s", gcomprisBoard->boarddir, "sub_schema.png");
-  pixmap = gcompris_load_pixmap(str);
+  pixmap = gc_pixmap_load(str);
 
   w = gdk_pixbuf_get_width(pixmap);
   h = gdk_pixbuf_get_height(pixmap);
@@ -386,7 +386,7 @@ static GnomeCanvasItem *submarine_create_item(GnomeCanvasGroup *parent) {
   gdk_pixbuf_unref(pixmap);
 
   str = g_strdup_printf("%s/%s", gcomprisBoard->boarddir, "vanne.png");
-  pixmap = gcompris_load_pixmap(str);
+  pixmap = gc_pixmap_load(str);
   w = gdk_pixbuf_get_width(pixmap);
   h = gdk_pixbuf_get_height(pixmap);
   ballast_ar_purge_item = gnome_canvas_item_new (boardRootItem,
@@ -472,7 +472,7 @@ static GnomeCanvasItem *submarine_create_item(GnomeCanvasGroup *parent) {
 
   // DEPTH RUDDERS
   str = g_strdup_printf("%s/%s", gcomprisBoard->boarddir, "rudder.png");
-  pixmap = gcompris_load_pixmap(str);
+  pixmap = gc_pixmap_load(str);
   barre_av_item = gnome_canvas_item_new (boardRootItem,
 					 gnome_canvas_pixbuf_get_type (),
 					 "pixbuf", pixmap,
@@ -500,7 +500,7 @@ static GnomeCanvasItem *submarine_create_item(GnomeCanvasGroup *parent) {
 
 #define COMMAND_OFFSET 20.0
   str = g_strdup_printf("%s/%s", gcomprisBoard->boarddir, "up.png");
-  pixmap = gcompris_load_pixmap(str);
+  pixmap = gc_pixmap_load(str);
   barre_av_up_item = gnome_canvas_item_new (boardRootItem,
 					    gnome_canvas_pixbuf_get_type (),
 					    "pixbuf", pixmap,
@@ -538,7 +538,7 @@ static GnomeCanvasItem *submarine_create_item(GnomeCanvasGroup *parent) {
   gdk_pixbuf_unref(pixmap);
 
   str = g_strdup_printf("%s/%s", gcomprisBoard->boarddir, "down.png");
-  pixmap = gcompris_load_pixmap(str);
+  pixmap = gc_pixmap_load(str);
   barre_av_down_item = gnome_canvas_item_new (boardRootItem,
 					      gnome_canvas_pixbuf_get_type (),
 					      "pixbuf", pixmap,
@@ -743,7 +743,7 @@ static GnomeCanvasItem *submarine_create_item(GnomeCanvasGroup *parent) {
 
   // displays an alert when some parameters are bad
   str = g_strdup_printf("%s/%s", gcomprisBoard->boarddir, "alert_submarine.png");
-  pixmap = gcompris_load_pixmap(str);
+  pixmap = gc_pixmap_load(str);
   alert_submarine = gnome_canvas_item_new (boardRootItem,
 					   gnome_canvas_pixbuf_get_type (),
 					   "pixbuf", pixmap,
@@ -761,7 +761,7 @@ static GnomeCanvasItem *submarine_create_item(GnomeCanvasGroup *parent) {
 
   // when the submarine makes some bubbles ...
   str = g_strdup_printf("%s/%s", gcomprisBoard->boarddir, "bubbling.png");
-  pixmap = gcompris_load_pixmap(str);
+  pixmap = gc_pixmap_load(str);
   for (i=0; i<3; i++) {
     bubbling[i] = gnome_canvas_item_new (boardRootItem,
 					 gnome_canvas_pixbuf_get_type (),
@@ -781,7 +781,7 @@ static GnomeCanvasItem *submarine_create_item(GnomeCanvasGroup *parent) {
 
   // whale item
   str = g_strdup_printf("%s/%s", gcomprisBoard->boarddir, "whale.png");
-  pixmap = gcompris_load_pixmap(str);
+  pixmap = gc_pixmap_load(str);
   whale_x = RAND((int)(gdk_pixbuf_get_width(pixmap)), (int)(gcomprisBoard->width-gdk_pixbuf_get_width(pixmap)));
   whale_y = RAND((int)(SURFACE_IN_BACKGROUND + gdk_pixbuf_get_height(pixmap)),(int)MAX_DEPTH);
   whale = gnome_canvas_item_new (boardRootItem,
@@ -800,7 +800,7 @@ static GnomeCanvasItem *submarine_create_item(GnomeCanvasGroup *parent) {
 
   // big explosion item (only for the whale)
   str = g_strdup_printf("%s/%s", gcomprisBoard->boarddir, "whale_hit.png");
-  pixmap = gcompris_load_pixmap(str);
+  pixmap = gc_pixmap_load(str);
   big_explosion = gnome_canvas_item_new (boardRootItem,
 					 gnome_canvas_pixbuf_get_type (),
 					 "pixbuf", pixmap,
@@ -819,7 +819,7 @@ static GnomeCanvasItem *submarine_create_item(GnomeCanvasGroup *parent) {
 
   // the triggers for air compressor and battery charger
   str = g_strdup_printf("%s/%s", gcomprisBoard->boarddir, "manette.png");
-  pixmap = gcompris_load_pixmap(str);
+  pixmap = gc_pixmap_load(str);
   air_compressor_item = gnome_canvas_item_new (boardRootItem,
 					       gnome_canvas_pixbuf_get_type (),
 					       "pixbuf", pixmap,
@@ -847,7 +847,7 @@ static GnomeCanvasItem *submarine_create_item(GnomeCanvasGroup *parent) {
 
   // the antisubmarine warfare frigate
   str = g_strdup_printf("%s/%s", gcomprisBoard->boarddir, "asw_frigate.png");
-  pixmap = gcompris_load_pixmap(str);
+  pixmap = gc_pixmap_load(str);
   frigate_item = gnome_canvas_item_new (boardRootItem,
 					gnome_canvas_pixbuf_get_type (),
 					"pixbuf", pixmap,
@@ -1007,11 +1007,11 @@ static gboolean update_timeout_slow() {
   if ( depth >= SURFACE_DEPTH+10.0 ) {
     if (air_charging) {
       air_charging = FALSE;
-      item_rotate_with_center(air_compressor_item, 0 , TRIGGER_CENTER_X, TRIGGER_CENTER_Y );
+      gc_item_rotate_with_center(air_compressor_item, 0 , TRIGGER_CENTER_X, TRIGGER_CENTER_Y );
     }
     if (battery_charging) {
       battery_charging = FALSE;
-      item_rotate_with_center(battery_charger_item, 0 , TRIGGER_CENTER_X, TRIGGER_CENTER_Y );
+      gc_item_rotate_with_center(battery_charger_item, 0 , TRIGGER_CENTER_X, TRIGGER_CENTER_Y );
     }
   }
 
@@ -1045,7 +1045,7 @@ static gboolean update_timeout_slow() {
       }
     /* wraps the destroyer if it reached the left side (and disappeared for a long time)*/
     if (x2 < -300.0)
-      item_absolute_move( frigate_item, gcomprisBoard->width, y1 );
+      gc_item_absolute_move( frigate_item, gcomprisBoard->width, y1 );
   }
 
   /* whale detection */
@@ -1059,7 +1059,7 @@ static gboolean update_timeout_slow() {
 	 && !submarine_destroyed ) {
       gcompris_play_ogg("sounds/crash.ogg", NULL);
       gnome_canvas_item_hide(whale);
-      //item_absolute_move(big_explosion, whale_x, whale_y);
+      //gc_item_absolute_move(big_explosion, whale_x, whale_y);
       gnome_canvas_item_show(big_explosion);
       submarine_explosion();
     }
@@ -1107,20 +1107,20 @@ static gboolean update_timeout_very_slow() {
   /* bubbling */
   if ( (ballast_av_purge_open && ballast_av_air > 0.0) ||
        ( ballast_av_chasse_open && ballast_av_air == MAX_BALLAST ) ) {
-    item_absolute_move( bubbling[0], submarine_x-30.0, depth-50.0);
+    gc_item_absolute_move( bubbling[0], submarine_x-30.0, depth-50.0);
     gnome_canvas_item_show( bubbling[0] );
   } else
     gnome_canvas_item_hide( bubbling[0] );
 
   if ( (ballast_ar_purge_open && ballast_ar_air > 0.0) ||
        ( ballast_ar_chasse_open && ballast_ar_air == MAX_BALLAST ) ) {
-    item_absolute_move( bubbling[2], submarine_x - SUBMARINE_WIDTH , depth-30.0);
+    gc_item_absolute_move( bubbling[2], submarine_x - SUBMARINE_WIDTH , depth-30.0);
     gnome_canvas_item_show( bubbling[2] );
   } else
     gnome_canvas_item_hide( bubbling[2] );
 
   if (regleur_purge_open && regleur < MAX_REGLEUR) {
-    item_absolute_move( bubbling[1], submarine_x - SUBMARINE_WIDTH/2 -30.0, depth-30.0);
+    gc_item_absolute_move( bubbling[1], submarine_x - SUBMARINE_WIDTH/2 -30.0, depth-30.0);
     gnome_canvas_item_show( bubbling[1] );
   } else
     gnome_canvas_item_hide( bubbling[1] );
@@ -1174,9 +1174,9 @@ static gint ballast_av_purge_event(GnomeCanvasItem *item, GdkEvent *event, gpoin
     case GDK_BUTTON_PRESS:
       ballast_av_purge_open = !ballast_av_purge_open;
       if (ballast_av_purge_open)
-	item_rotate(item, 90.0);
+	gc_item_rotate(item, 90.0);
       else
-	item_rotate(item, 0.0);
+	gc_item_rotate(item, 0.0);
       break;
 
     default:
@@ -1197,9 +1197,9 @@ static gint ballast_ar_purge_event(GnomeCanvasItem *item, GdkEvent *event, gpoin
     case GDK_BUTTON_PRESS:
       ballast_ar_purge_open = !ballast_ar_purge_open;
       if (ballast_ar_purge_open)
-	item_rotate(item, 90.0);
+	gc_item_rotate(item, 90.0);
       else
-	item_rotate(item, 0.0);
+	gc_item_rotate(item, 0.0);
       break;
 
     default:
@@ -1219,9 +1219,9 @@ static gint regleur_purge_event(GnomeCanvasItem *item, GdkEvent *event, gpointer
     case GDK_BUTTON_PRESS:
       regleur_purge_open = !regleur_purge_open;
       if (regleur_purge_open)
-	item_rotate(item, 90.0);
+	gc_item_rotate(item, 90.0);
       else
-	item_rotate(item, 0.0);
+	gc_item_rotate(item, 0.0);
       break;
 
     default:
@@ -1241,9 +1241,9 @@ static gint ballast_ar_chasse_event(GnomeCanvasItem *item, GdkEvent *event, gpoi
     case GDK_BUTTON_PRESS:
       ballast_ar_chasse_open = !ballast_ar_chasse_open;
       if (ballast_ar_chasse_open)
-	item_rotate(item, 90.0);
+	gc_item_rotate(item, 90.0);
       else
-	item_rotate(item, 0.0);
+	gc_item_rotate(item, 0.0);
       break;
 
     default:
@@ -1263,9 +1263,9 @@ static gint ballast_av_chasse_event(GnomeCanvasItem *item, GdkEvent *event, gpoi
     case GDK_BUTTON_PRESS:
       ballast_av_chasse_open = !ballast_av_chasse_open;
       if (ballast_av_chasse_open)
-	item_rotate(item, 90.0);
+	gc_item_rotate(item, 90.0);
       else
-	item_rotate(item, 0.0);
+	gc_item_rotate(item, 0.0);
       break;
 
     default:
@@ -1285,9 +1285,9 @@ static gint regleur_chasse_event(GnomeCanvasItem *item, GdkEvent *event, gpointe
     case GDK_BUTTON_PRESS:
       regleur_chasse_open = !regleur_chasse_open;
       if (regleur_chasse_open)
-	item_rotate(item, 90.0);
+	gc_item_rotate(item, 90.0);
       else
-	item_rotate(item, 0.0);
+	gc_item_rotate(item, 0.0);
       break;
 
     default:
@@ -1309,11 +1309,11 @@ static gint barre_av_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data
     case GDK_BUTTON_PRESS:
       if (d == UP && barre_av_angle < RUDDER_MAX) {
         barre_av_angle += RUDDER_STEP;
-        item_rotate_with_center( barre_av_item, barre_av_angle,RUDDER_CENTER_X,RUDDER_CENTER_Y);
+        gc_item_rotate_with_center( barre_av_item, barre_av_angle,RUDDER_CENTER_X,RUDDER_CENTER_Y);
       }
       if (d == DOWN && barre_av_angle > -RUDDER_MAX) {
         barre_av_angle -= RUDDER_STEP;
-        item_rotate_with_center( barre_av_item, barre_av_angle,RUDDER_CENTER_X,RUDDER_CENTER_Y);
+        gc_item_rotate_with_center( barre_av_item, barre_av_angle,RUDDER_CENTER_X,RUDDER_CENTER_Y);
       }
       break;
 
@@ -1336,11 +1336,11 @@ static gint barre_ar_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data
     case GDK_BUTTON_PRESS:
       if (d == UP && barre_ar_angle < RUDDER_MAX) {
         barre_ar_angle += RUDDER_STEP;
-        item_rotate_with_center( barre_ar_item, barre_ar_angle,RUDDER_CENTER_X,RUDDER_CENTER_Y);
+        gc_item_rotate_with_center( barre_ar_item, barre_ar_angle,RUDDER_CENTER_X,RUDDER_CENTER_Y);
       }
       if (d == DOWN && barre_ar_angle > -RUDDER_MAX) {
         barre_ar_angle -= RUDDER_STEP;
-        item_rotate_with_center( barre_ar_item, barre_ar_angle,RUDDER_CENTER_X,RUDDER_CENTER_Y);
+        gc_item_rotate_with_center( barre_ar_item, barre_ar_angle,RUDDER_CENTER_X,RUDDER_CENTER_Y);
       }
       break;
 
@@ -1392,7 +1392,7 @@ static gint air_compressor_event(GnomeCanvasItem *item, GdkEvent *event, gpointe
       	air_charging = FALSE;
       else
 	air_charging = TRUE;
-      item_rotate_with_center(item, air_charging ? 180 : 0 , TRIGGER_CENTER_X, TRIGGER_CENTER_Y );
+      gc_item_rotate_with_center(item, air_charging ? 180 : 0 , TRIGGER_CENTER_X, TRIGGER_CENTER_Y );
       break;
 
     default:
@@ -1413,7 +1413,7 @@ static gint battery_charger_event(GnomeCanvasItem *item, GdkEvent *event, gpoint
       	battery_charging = FALSE;
       else
 	battery_charging = TRUE;
-      item_rotate_with_center(item, battery_charging ? 180 : 0 , TRIGGER_CENTER_X, TRIGGER_CENTER_Y );
+      gc_item_rotate_with_center(item, battery_charging ? 180 : 0 , TRIGGER_CENTER_X, TRIGGER_CENTER_Y );
       break;
 
     default:
@@ -1493,7 +1493,7 @@ static void submarine_explosion() {
 
   /* display the boken submarine */
   str = g_strdup_printf("%s/%s", gcomprisBoard->boarddir, "submarine-broken.png");
-  pixmap = gcompris_load_pixmap(str);
+  pixmap = gc_pixmap_load(str);
   gnome_canvas_item_set(submarine_item, 
 			"pixbuf", pixmap,
 			NULL);

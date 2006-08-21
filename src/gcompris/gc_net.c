@@ -51,6 +51,44 @@ void gc_net_init()
   SUPPORT_OR_RETURN();
 
 #ifdef USE_GNET
+  GcomprisProperties *properties = gcompris_get_properties();
+  gchar *url;
+  gchar *buf = NULL;
+  gsize  buflen;
+  guint  response;
+
+  gnet_init();
+
+  /*
+   * Get the content.txt file at the root of the http server and store it in a glist
+   * we then now exactly which files we have there
+   * warning, do not use gc_net_get_url_from_file() since we are in fact buildind the list of file
+   * for it.
+   */
+  url = g_strdup_printf("%s/%s", properties->server, "/content.txt");
+
+  if(gnet_http_get(url, &buf, &buflen, &response) && response == 200)
+    {
+      char line[200];
+      int i = 0;
+      /* Parse each line of the buffer and save it in 'server_content_list' */
+      while( i < buflen)
+	{
+	  sscanf(buf+i, "%s", (char *)&line);
+	  server_content_list = g_slist_prepend(server_content_list, g_strdup(line));
+	  i+=strlen(line)+1;
+	}
+    }
+  else
+    {
+      /* We did not get the content list, disable network now */
+      g_free(properties->server);
+      properties->server = NULL;
+      g_warning("Failed to initialize networked GCompris because '%s' is not found", url);
+    }
+
+  g_free(buf);
+  g_free(url);
 #endif
 }
 
@@ -68,6 +106,30 @@ GdkPixbuf *gc_net_load_pixmap(const char *url)
   SUPPORT_OR_RETURN(NULL);
 
 #ifdef USE_GNET
+  gchar *buf = NULL;
+  gsize  buflen;
+  guint  response;
+
+  g_warning("Loading image from url '%s'", url);
+
+  if(gnet_http_get(url, &buf, &buflen, &response) && response == 200)
+    {
+      GdkPixbuf *pixmap=NULL;
+      GdkPixbufLoader* loader;
+      loader = gdk_pixbuf_loader_new();
+      gdk_pixbuf_loader_write(loader, (guchar *)buf, buflen, NULL);
+      g_free(buf);
+      gdk_pixbuf_loader_close(loader, NULL);
+      pixmap = gdk_pixbuf_loader_get_pixbuf(loader);
+      if(!pixmap)
+	g_warning("Loading image from url '%s' returned a null pointer", url);
+
+      return(pixmap);
+    }
+
+  g_free(buf);
+  return(NULL);
+
 #endif
 }
 
@@ -85,6 +147,25 @@ xmlDocPtr gc_net_load_xml(const char *url)
   SUPPORT_OR_RETURN(NULL);
 
 #ifdef USE_GNET
+  gchar *buf = NULL;
+  gsize  buflen;
+  guint  response;
+
+  g_warning("Loading xml file from url '%s'", url);
+
+  if(gnet_http_get(url, &buf, &buflen, &response) && response == 200)
+    {
+      xmlDocPtr	doc = xmlParseMemory((const char *)buf, buflen);
+      g_free(buf);
+      if(!buf)
+	g_warning("Loading xml file from url '%s' returned a null pointer", url);
+
+      return(doc);
+    }
+
+  g_free(buf);
+  return(NULL);
+
 #endif
 }
 
@@ -99,6 +180,35 @@ gc_net_get_url_from_file(const gchar *format, ...)
   SUPPORT_OR_RETURN(NULL);
 
 #ifdef USE_GNET
+  GcomprisProperties *properties = gcompris_get_properties();
+  gchar *file, *url;
+  va_list args;
+
+  va_start (args, format);
+  file = g_strdup_vprintf (format, args);
+  va_end (args);
+
+  /* FIXME: In case the file does not starts with boards/, preprend it */
+  {
+    if(strncmp(file, "boards/", 7))
+      {
+	gchar *file2 = g_strconcat("boards/", file, NULL);
+	g_free(file);
+	file = file2;
+      }
+  }
+
+  g_warning("gc_net_get_url_from_file '%s'", file);
+  if(!g_slist_find_custom(server_content_list,(gconstpointer) file, (GCompareFunc) my_strcmp))
+    {
+      g_free(file);
+      return NULL;
+    }
+  url = g_strconcat(properties->server, "/", file, NULL);
+  g_free(file);
+
+  g_warning("gc_net_get_url_from_file returns url '%s'", url);
+  return url;
 #endif
 }
 
@@ -129,5 +239,19 @@ GSList *gc_net_dir_read_name(const gchar* dir, const gchar *ext)
   SUPPORT_OR_RETURN(NULL);
 
 #ifdef USE_GNET
+  GSList *filelist = NULL;
+  GSList *i = NULL;
+
+  g_return_val_if_fail(dir!=NULL, NULL);
+
+  for (i = server_content_list; i != NULL; i = g_slist_next (i))
+    {
+      if(strncmp(dir, (gchar *)i->data, strlen(dir)) == 0)
+	if(ext == NULL ||
+	   g_str_has_suffix ((gchar *)i->data, ext))
+	  filelist = g_slist_prepend(filelist, i->data);
+    }
+
+  return(filelist);
 #endif
 }

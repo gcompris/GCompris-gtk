@@ -89,7 +89,7 @@ void gcompris_timer_display(int ax, int ay, TimerList atype, int second, Gcompri
 	filefull = g_strdup_printf("%s/%s", properties->package_data_dir, filename);
 	if (g_file_test ((filefull), G_FILE_TEST_EXISTS))
 	  {
-	    pixmap = gcompris_load_pixmap(filename);
+	    pixmap = gc_pixmap_load(filename);
 
 	    item = gnome_canvas_item_new (boardRootItem,
 					  gnome_canvas_pixbuf_get_type (),
@@ -121,7 +121,7 @@ void gcompris_timer_display(int ax, int ay, TimerList atype, int second, Gcompri
       }
       break;
     case GCOMPRIS_TIMER_BALLOON:
-      pixmap = gcompris_load_pixmap("gcompris/misc/tuxballoon.png");
+      pixmap = gc_pixmap_load("gcompris/misc/tuxballoon.png");
       item = gnome_canvas_item_new (boardRootItem,
 				    gnome_canvas_pixbuf_get_type (),
 				    "pixbuf", pixmap, 
@@ -134,7 +134,7 @@ void gcompris_timer_display(int ax, int ay, TimerList atype, int second, Gcompri
 
       gdk_pixbuf_unref(pixmap);
 
-      pixmap = gcompris_load_pixmap("gcompris/misc/sea.png");
+      pixmap = gc_pixmap_load("gcompris/misc/sea.png");
       gnome_canvas_item_new (boardRootItem,
 			     gnome_canvas_pixbuf_get_type (),
 			     "pixbuf", pixmap, 
@@ -309,7 +309,7 @@ static gint timer_increment(GtkWidget *widget, gpointer data)
 	  g_debug("timer: filefull = %s\n", filefull);
 	  if (g_file_test ((filefull), G_FILE_TEST_EXISTS))
 	    {
-	      pixmap = gcompris_load_pixmap(filename);
+	      pixmap = gc_pixmap_load(filename);
 	      gnome_canvas_item_set(item,
 				    "pixbuf", pixmap,
 				    NULL);

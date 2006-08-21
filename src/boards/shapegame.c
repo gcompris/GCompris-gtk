@@ -246,7 +246,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       /* Calculate the maxlevel based on the available data file for this board */
       gcomprisBoard->maxlevel=1;
       /**/
-      while( (filename = gcompris_find_absolute_filename("%s/board%d_0.xml",
+      while( (filename = gc_file_find_absolute("%s/board%d_0.xml",
 							 gcomprisBoard->boarddir,
 							 gcomprisBoard->maxlevel++,
 							 NULL)) )
@@ -259,9 +259,9 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       gcomprisBoard->maxlevel--;
 
       if (strcmp(gcomprisBoard->name, "imagename")==0){
-	gcompris_bar_set(GCOMPRIS_BAR_CONFIG|GCOMPRIS_BAR_LEVEL|GCOMPRIS_BAR_OK);
+	gc_bar_set(GC_BAR_CONFIG|GC_BAR_LEVEL|GC_BAR_OK);
       } else
-	gcompris_bar_set(GCOMPRIS_BAR_LEVEL|GCOMPRIS_BAR_OK);
+	gc_bar_set(GC_BAR_LEVEL|GC_BAR_OK);
       
 
       gcomprisBoard->sublevel = 0;
@@ -298,7 +298,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 
       pause_board(FALSE);
 
-      gcompris_set_cursor(GCOMPRIS_LINE_CURSOR);
+      gc_cursor_set(GCOMPRIS_LINE_CURSOR);
 
     }
 
@@ -320,7 +320,7 @@ end_board ()
   }
 
   gcomprisBoard = NULL;
-  gcompris_set_cursor(GCOMPRIS_DEFAULT_CURSOR);
+  gc_cursor_set(GCOMPRIS_DEFAULT_CURSOR);
 }
 
 static void
@@ -428,7 +428,7 @@ static gint key_press(guint keyval, gchar *commit_str, gchar *preedit_str)
     {
     case 'e':
       /* Enter Edit Mode */
-      gcompris_dialog(_("You have entered Edit mode\nMove the puzzle items;\ntype 's' to save, and\n'd' to display all the shapes"), NULL);
+      gc_dialog(_("You have entered Edit mode\nMove the puzzle items;\ntype 's' to save, and\n'd' to display all the shapes"), NULL);
       edit_mode = TRUE;
       break;
     case 's':
@@ -436,7 +436,7 @@ static gint key_press(guint keyval, gchar *commit_str, gchar *preedit_str)
       if(edit_mode)
 	{
 	  write_xml_file("/tmp/gcompris-board.xml");
-	  gcompris_dialog(_("The data from this activity are saved under\n/tmp/gcompris-board.xml"), NULL);
+	  gc_dialog(_("The data from this activity are saved under\n/tmp/gcompris-board.xml"), NULL);
 	}
       break;
     case 'd':
@@ -499,7 +499,7 @@ static gboolean increment_sublevel()
 
   }
 
-  gcompris_bar_set_level(gcomprisBoard);
+  gc_bar_set_level(gcomprisBoard);
   return TRUE;
 }
 
@@ -511,13 +511,13 @@ static void shapegame_next_level()
   gamewon = FALSE;
   edit_mode = FALSE;
 
-  gcompris_bar_set_level(gcomprisBoard);
+  gc_bar_set_level(gcomprisBoard);
 
   shapegame_destroy_all_items();
 
   shapegame_init_canvas(gnome_canvas_root(gcomprisBoard->canvas));
 
-  while( ((filename = gcompris_find_absolute_filename("%s/board%d_%d.xml",
+  while( ((filename = gc_file_find_absolute("%s/board%d_%d.xml",
 						      gcomprisBoard->boarddir,
 						      gcomprisBoard->level,
 						      gcomprisBoard->sublevel,
@@ -744,7 +744,7 @@ add_shape_to_list_of_shapes(Shape *shape)
 			 (GtkSignalFunc) item_event_ok,
 			 "previous_shapelist");
       gtk_signal_connect(GTK_OBJECT(previous_shapelist_item), "event",
-			 (GtkSignalFunc) gcompris_item_event_focus,
+			 (GtkSignalFunc) gc_item_focus_event,
 			 NULL);
       gdk_pixbuf_unref(pixmap);
       
@@ -760,7 +760,7 @@ add_shape_to_list_of_shapes(Shape *shape)
 			 (GtkSignalFunc) item_event_ok,
 			 "next_shapelist");
       gtk_signal_connect(GTK_OBJECT(next_shapelist_item), "event",
-			 (GtkSignalFunc) gcompris_item_event_focus,
+			 (GtkSignalFunc) gc_item_focus_event,
 			 NULL);
       gdk_pixbuf_unref(pixmap);
       gnome_canvas_item_hide(next_shapelist_item);
@@ -830,7 +830,7 @@ add_shape_to_list_of_shapes(Shape *shape)
 
       if(strcmp(shape->pixmapfile, UNDEFINED)!=0)
 	{
-	  pixmap = gcompris_load_pixmap(shape->pixmapfile);
+	  pixmap = gc_pixmap_load(shape->pixmapfile);
 	  if(pixmap)
 	    {
 	      double w, h;
@@ -875,7 +875,7 @@ add_shape_to_list_of_shapes(Shape *shape)
 	      icon_shape->shape_list_group_root = shape_list_group_root;
 	      setup_item(item, icon_shape);
 	      gtk_signal_connect(GTK_OBJECT(item), "event",
-				 (GtkSignalFunc) gcompris_item_event_focus,
+				 (GtkSignalFunc) gc_item_focus_event,
 				 NULL);
 	    }
 	}
@@ -950,7 +950,7 @@ static void shape_goes_back_to_list(Shape *shape, GnomeCanvasItem *item)
 			     shape->icon_shape->y - shape->y);
       gnome_canvas_item_show(shape->icon_shape->item);
 
-      gcompris_set_image_focus(shape->icon_shape->item, TRUE);
+      gc_item_focus_set(shape->icon_shape->item, TRUE);
       shape->icon_shape=NULL;
 
       gnome_canvas_item_hide(item);
@@ -1034,7 +1034,7 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, Shape *shape)
 		 {
 		 case SHAPE_TARGET:
 		   gnome_canvas_item_hide(GNOME_CANVAS_ITEM(item));
-		   gcompris_set_image_focus(item, FALSE);
+		   gc_item_focus_set(item, FALSE);
 
 		   if( shape->icon_shape!=NULL)
 		     {
@@ -1047,7 +1047,7 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, Shape *shape)
 					       item_x - shape->x,
 					       item_y - shape->y );
 		       gnome_canvas_item_show( item );
-		       gcompris_set_image_focus(item, TRUE);
+		       gc_item_focus_set(item, TRUE);
 		       shape->icon_shape=NULL;
 		     }
 		   break;
@@ -1176,7 +1176,7 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, Shape *shape)
 		   if(targetshape->bad_item!=NULL)
 		     gtk_object_destroy (GTK_OBJECT(targetshape->bad_item));
 
-		   pixmap = gcompris_load_pixmap(shape->pixmapfile);
+		   pixmap = gc_pixmap_load(shape->pixmapfile);
 		   item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(shape_root_item),
 						 gnome_canvas_pixbuf_get_type (),
 						 "pixbuf", pixmap, 
@@ -1368,7 +1368,7 @@ item_event_ok(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 
 	  if(current_shapelistgroup_index == 0)
 	    {
-	      gcompris_set_image_focus(item, TRUE);
+	      gc_item_focus_set(item, TRUE);
 	      gnome_canvas_item_hide(previous_shapelist_item);
 	    } 
 
@@ -1384,7 +1384,7 @@ item_event_ok(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 
 	  if(current_shapelistgroup_index == g_list_length(shape_list_group)-1)
 	    {
-	      gcompris_set_image_focus(item, TRUE);
+	      gc_item_focus_set(item, TRUE);
 	      gnome_canvas_item_hide(next_shapelist_item);
 	    }
 
@@ -1435,7 +1435,7 @@ add_shape_to_canvas(Shape *shape)
     {
       if(strcmp(shape->targetfile, UNDEFINED)!=0)
 	{
-	  targetpixmap = gcompris_load_pixmap(shape->targetfile);
+	  targetpixmap = gc_pixmap_load(shape->targetfile);
 	  shape->w = (double)gdk_pixbuf_get_width(targetpixmap) * shape->zoomx;
 	  shape->h = (double)gdk_pixbuf_get_height(targetpixmap) *shape->zoomy;
 	  
@@ -1491,7 +1491,7 @@ add_shape_to_canvas(Shape *shape)
       if(strcmp(shape->pixmapfile, UNDEFINED)!=0)
 	{
 	  g_warning("  Yes it is an image \n");
-	  pixmap = gcompris_load_pixmap(shape->pixmapfile);
+	  pixmap = gc_pixmap_load(shape->pixmapfile);
 	  if(pixmap)
 	    {
 	      shape->w = (double)gdk_pixbuf_get_width(pixmap) * shape->zoomx;
@@ -1702,8 +1702,8 @@ add_xml_shape_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child)
   y = g_ascii_strtod(cy, NULL);
 
   /* Back up the current locale to be sure to load well C formated numbers */
-  locale = g_strdup(gcompris_get_locale());
-  gcompris_set_locale("C");
+  locale = g_strdup(gc_locale_get());
+  gc_locale_set("C");
 
   /* get the ZOOMX coord of the shape */
   czoomx = (char *)xmlGetProp(xmlnode, BAD_CAST "zoomx");
@@ -1725,7 +1725,7 @@ add_xml_shape_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child)
   position = atoi(cposition);
 
   /* Back to the user locale */
-  gcompris_set_locale(locale);
+  gc_locale_set(locale);
   g_strdup(locale);
 
   /* get the TYPE of the shape */
@@ -1773,8 +1773,8 @@ add_xml_shape_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child)
     /* get the name of the shape */
     if (!strcmp((char *)xmlnamenode->name, "name")
 	&& (lang==NULL
-	    || !strcmp(lang, gcompris_get_locale())
-	    || !strncmp(lang, gcompris_get_locale(), 2)))
+	    || !strcmp(lang, gc_locale_get())
+	    || !strncmp(lang, gc_locale_get(), 2)))
       {
 	name = (char *)xmlNodeListGetString(doc, xmlnamenode->xmlChildrenNode, 1);
       }
@@ -1782,8 +1782,8 @@ add_xml_shape_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child)
     /* get the tooltip of the shape */
     if (!strcmp((char *)xmlnamenode->name, "tooltip")
 	&& (lang==NULL
-	    || !strcmp(lang, gcompris_get_locale())
-	    || !strncmp(lang, gcompris_get_locale(), 2)))
+	    || !strcmp(lang, gc_locale_get())
+	    || !strncmp(lang, gc_locale_get(), 2)))
       {
 	tooltip = (char *)xmlNodeListGetString(doc, xmlnamenode->xmlChildrenNode, 1);
       }

@@ -72,13 +72,13 @@ static void start_board(GcomprisBoard *b)
       board->sublevel=1;
       board->number_of_sublevel=1;
       gcompris_score_start(SCORESTYLE_NOTE, 10, 50, board->number_of_sublevel);
-      gcompris_bar_set(GCOMPRIS_BAR_LEVEL);
-      gcompris_bar_set_level(board);
+      gc_bar_set(GC_BAR_LEVEL);
+      gc_bar_set_level(board);
       gcompris_score_set(board->sublevel);
 
-      animation = gcompris_load_animation( "animtest/test.txt" );
+      animation = gc_anim_load( "animtest/test.txt" );
       anim_item = (GnomeCanvasItem*)
-                  gcompris_activate_animation( gnome_canvas_root(board->canvas),
+                  gc_anim_activate( gnome_canvas_root(board->canvas),
                                                animation );
       gnome_canvas_item_set(anim_item,
             "x", (double) CENTER_LEFT_X,
@@ -96,8 +96,8 @@ static void end_board()
 {
   if(board != NULL)
     {
-      gcompris_deactivate_animation(anim_item);
-      gcompris_free_animation(animation);
+      gc_anim_deactivate(anim_item);
+      gc_anim_free(animation);
     }
 }
 

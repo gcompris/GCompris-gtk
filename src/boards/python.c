@@ -99,7 +99,7 @@ GList *
 get_pythonboards_list()
 {
   GList *pythonboards_list = NULL;
-  GList *boards_list = gcompris_get_boards_list();
+  GList *boards_list = gc_menu_get_boards();
   GList *list;
   GcomprisBoard *board;
 

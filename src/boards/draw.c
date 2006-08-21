@@ -275,7 +275,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       /* set initial values for this level */
       gcomprisBoard->level = 1;
       gcomprisBoard->maxlevel=1;
-      gcompris_bar_set(0);
+      gc_bar_set(0);
 
       gcomprisBoard->number_of_sublevel=0;
       gcomprisBoard->sublevel = 0;
@@ -285,7 +285,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       drawing_area_x2 = gcomprisBoard->width  - 15;
       drawing_area_y2 = gcomprisBoard->height - 78;
 
-      gcompris_bar_set(0);
+      gc_bar_set(0);
 
       draw_next_level();
 
@@ -304,7 +304,7 @@ end_board ()
 
   if(gcomprisBoard!=NULL)
     {
-      gcompris_set_cursor(GCOMPRIS_DEFAULT_CURSOR);
+      gc_cursor_set(GCOMPRIS_DEFAULT_CURSOR);
       pause_board(TRUE);
       draw_destroy_all_items();
       gcomprisBoard->level = 1;       // Restart this game to zero
@@ -327,10 +327,10 @@ static gint key_press(guint keyval, gchar *commit_str, gchar *preedit_str)
   switch (keyval)
     {
     case GDK_F1:
-      gcompris_file_selector_load(gcomprisBoard, FILE_SELECTOR_ROOT, "", load_drawing);
+      gc_selector_file_load(gcomprisBoard, FILE_SELECTOR_ROOT, "", load_drawing);
       break;
     case GDK_F2:
-      gcompris_file_selector_save(gcomprisBoard, FILE_SELECTOR_ROOT, "", save_drawing);
+      gc_selector_file_save(gcomprisBoard, FILE_SELECTOR_ROOT, "", save_drawing);
       break;
     case GDK_Shift_L:
     case GDK_Shift_R:
@@ -447,7 +447,7 @@ config ()
 static void draw_next_level()
 {
 
-  gcompris_bar_set_level(gcomprisBoard);
+  gc_bar_set_level(gcomprisBoard);
 
   draw_destroy_all_items();
 
@@ -502,7 +502,7 @@ static void display_color_selector(GnomeCanvasGroup *parent)
   gint c  = 0;
   guint color_pixmap_height = 0;
 
-  pixmap = gcompris_load_pixmap("draw/color-selector.png");
+  pixmap = gc_pixmap_load("draw/color-selector.png");
   if(pixmap)
     {
       x = (drawing_area_x2 - drawing_area_x1
@@ -595,7 +595,7 @@ static void display_tool_selector(GnomeCanvasGroup *parent)
   gint y   = 0;
   guint toolIndex = 0;
 
-  pixmap = gcompris_load_pixmap("draw/tool-selector.png");
+  pixmap = gc_pixmap_load("draw/tool-selector.png");
   if(pixmap)
     {
       x = 3;
@@ -612,7 +612,7 @@ static void display_tool_selector(GnomeCanvasGroup *parent)
   y += 15;
   x  = 10;
   x2 = 55;
-  pixmap = gcompris_load_pixmap(tool_pixmap_name[0 + PIXMAP_ON]);
+  pixmap = gc_pixmap_load(tool_pixmap_name[0 + PIXMAP_ON]);
   if(pixmap)
     {
       item = gnome_canvas_item_new (parent,
@@ -638,7 +638,7 @@ static void display_tool_selector(GnomeCanvasGroup *parent)
   for( toolIndex = 1 ; toolIndex < NUMBER_OF_TOOL ; toolIndex++)
     {
       y += (toolIndex%2 == 0 ? SELECTOR_VERTICAL_SPACING : 0);
-      pixmap = gcompris_load_pixmap(tool_pixmap_name[(2*toolIndex) + PIXMAP_OFF]);
+      pixmap = gc_pixmap_load(tool_pixmap_name[(2*toolIndex) + PIXMAP_OFF]);
 
       if(pixmap)
 	{
@@ -682,7 +682,7 @@ static void display_grid(gboolean status)
   guint x, y;
   GdkPixbuf *pixmap = NULL;
 
-  pixmap = gcompris_load_pixmap(tool_pixmap_name[(TOOL_GRID*2) +
+  pixmap = gc_pixmap_load(tool_pixmap_name[(TOOL_GRID*2) +
 						 (status == TRUE ? PIXMAP_ON : PIXMAP_OFF)]);
   if(pixmap)
     {
@@ -834,7 +834,7 @@ static void set_current_tool(GnomeCanvasItem *item, gint tool)
 
   if(currentToolItem)
     {
-      pixmap = gcompris_load_pixmap(tool_pixmap_name[(currentTool*2) + PIXMAP_OFF]);
+      pixmap = gc_pixmap_load(tool_pixmap_name[(currentTool*2) + PIXMAP_OFF]);
       if(pixmap)
 	{
 	  gnome_canvas_item_set (currentToolItem,
@@ -847,7 +847,7 @@ static void set_current_tool(GnomeCanvasItem *item, gint tool)
   currentTool = tool;
   currentToolItem = item;
 
-  pixmap = gcompris_load_pixmap(tool_pixmap_name[(currentTool*2) + PIXMAP_ON]);
+  pixmap = gc_pixmap_load(tool_pixmap_name[(currentTool*2) + PIXMAP_ON]);
   if(pixmap)
     {
       gnome_canvas_item_set (item,
@@ -877,17 +877,17 @@ tool_event(GnomeCanvasItem *item, GdkEvent *event, gint tool)
 	  switch(tool)
 	    {
 	    case TOOL_LOAD:
-	      //	      gcompris_file_selector_load(gcomprisBoard, FILE_SELECTOR_ROOT, "", load_drawing);
+	      //	      gc_selector_file_load(gcomprisBoard, FILE_SELECTOR_ROOT, "", load_drawing);
 	      break;
 	    case TOOL_SAVE:
-	      //	      gcompris_file_selector_save(gcomprisBoard, FILE_SELECTOR_ROOT, "", save_drawing);
+	      //	      gc_selector_file_save(gcomprisBoard, FILE_SELECTOR_ROOT, "", save_drawing);
 	      break;
 	    case TOOL_GRID:
 	      display_grid((grid_step==0 ? TRUE : FALSE));
 	      return TRUE;
 	      break;
 	    case TOOL_IMAGE:
-	      gcompris_images_selector_start(gcomprisBoard, "dataset", image_selected);
+	      gc_selector_images_start(gcomprisBoard, "dataset", image_selected);
 	      break;
 	    case TOOL_RAISE:
 	    case TOOL_LOWER:
@@ -1798,7 +1798,7 @@ static GnomeCanvasItem *create_item(double x, double y, gchar *imagename)
       // This is an image
       x = (drawing_area_x2-drawing_area_x1)/2;
       y = (drawing_area_y2-drawing_area_y1)/2;
-      pixmap = gcompris_load_pixmap(imagename);
+      pixmap = gc_pixmap_load(imagename);
       item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(item_root_item),
 				    gnome_canvas_pixbuf_get_type (),
 				    "pixbuf", pixmap,
@@ -2005,11 +2005,11 @@ item_event_resize(GnomeCanvasItem *item, GdkEvent *event, AnchorsItem *anchorsIt
 	}
       break;
     case GDK_ENTER_NOTIFY:
-      gcompris_set_cursor(get_resize_cursor(anchor));
+      gc_cursor_set(get_resize_cursor(anchor));
       break;
 
     case GDK_LEAVE_NOTIFY:
-      gcompris_set_cursor(get_tool_cursor(currentTool));
+      gc_cursor_set(get_tool_cursor(currentTool));
       break;
 
     case GDK_MOTION_NOTIFY:
@@ -2191,12 +2191,12 @@ item_event_move(GnomeCanvasItem *item, GdkEvent *event, AnchorsItem *anchorsItem
 	    break;
 
 	  case TOOL_ROTATE_CW:
-	    item_rotate_relative(anchorsItem->rootitem, 10);
+	    gc_item_rotate_relative(anchorsItem->rootitem, 10);
 	    reset_anchors_bounded(anchorsItem);
 	    break;
 
 	  case TOOL_ROTATE_CCW:
-	    item_rotate_relative(anchorsItem->rootitem, -10);
+	    gc_item_rotate_relative(anchorsItem->rootitem, -10);
 	    reset_anchors_bounded(anchorsItem);
 	    break;
 
@@ -2236,11 +2236,11 @@ item_event_move(GnomeCanvasItem *item, GdkEvent *event, AnchorsItem *anchorsItem
 	  switch(currentTool) {
 	    /* Perform the reverse operation when it makes sense */
 	  case TOOL_ROTATE_CW:
-	    item_rotate_relative(anchorsItem->rootitem, -10);
+	    gc_item_rotate_relative(anchorsItem->rootitem, -10);
 	    reset_anchors_bounded(anchorsItem);
 	    break;
 	  case TOOL_ROTATE_CCW:
-	    item_rotate_relative(anchorsItem->rootitem, 10);
+	    gc_item_rotate_relative(anchorsItem->rootitem, 10);
 	    reset_anchors_bounded(anchorsItem);
 	    break;
 	  case TOOL_RAISE:
@@ -2284,17 +2284,17 @@ item_event_move(GnomeCanvasItem *item, GdkEvent *event, AnchorsItem *anchorsItem
       case TOOL_DELETE:
       case TOOL_FILL:
       case TOOL_TEXT:
-	gcompris_set_cursor(get_tool_cursor(currentTool));
+	gc_cursor_set(get_tool_cursor(currentTool));
 	break;
       case TOOL_SELECT:
-	gcompris_set_cursor(GDK_FLEUR);
+	gc_cursor_set(GDK_FLEUR);
 	break;
       default:
 	break;
       }
       break;
     case GDK_LEAVE_NOTIFY:
-      gcompris_set_cursor(get_tool_cursor(currentTool));
+      gc_cursor_set(get_tool_cursor(currentTool));
       break;
 
     case GDK_MOTION_NOTIFY:
@@ -2400,11 +2400,11 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, void *shape)
       break;
 
     case GDK_ENTER_NOTIFY:
-      gcompris_set_cursor(get_tool_cursor(currentTool));
+      gc_cursor_set(get_tool_cursor(currentTool));
       break;
 
     case GDK_LEAVE_NOTIFY:
-      gcompris_set_cursor(GCOMPRIS_DEFAULT_CURSOR);
+      gc_cursor_set(GCOMPRIS_DEFAULT_CURSOR);
       break;
 
     case GDK_MOTION_NOTIFY:

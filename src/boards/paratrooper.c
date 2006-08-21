@@ -190,7 +190,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       /* set initial values for this level */
       gcomprisBoard->level = 1;
       gcomprisBoard->maxlevel = 6;
-      gcompris_bar_set(GCOMPRIS_BAR_LEVEL);
+      gc_bar_set(GC_BAR_LEVEL);
 
       /* Init of paratrooper struct */
       paratrooperItem.rootitem = NULL;
@@ -305,7 +305,7 @@ static void paratrooper_next_level()
 
   gamewon = FALSE;
 
-  gcompris_bar_set_level(gcomprisBoard);
+  gc_bar_set_level(gcomprisBoard);
 
   paratrooper_destroy_all_items();
 
@@ -319,7 +319,7 @@ static void paratrooper_next_level()
   planespeed_y = 0;
   planespeed_x = 4 + gcomprisBoard->level;
   str = g_strdup_printf("%s%s", pixmapsdir, "tuxplane.png");
-  pixmap = gcompris_load_pixmap(str);
+  pixmap = gc_pixmap_load(str);
   plane_x = 0;
   plane_y = 40;
   planeitem = gnome_canvas_item_new (gnome_canvas_root(gcomprisBoard->canvas),
@@ -348,7 +348,7 @@ static void paratrooper_next_level()
   /* Display the target */
   g_free(str);
   str = g_strdup_printf("%s%s", pixmapsdir, "fishingboat.png");
-  pixmap = gcompris_load_pixmap(str);
+  pixmap = gc_pixmap_load(str);
   boat_x = 350;
   boat_y = gcomprisBoard->height-100;
   boat_landarea_y = boat_y+20;
@@ -385,7 +385,7 @@ static void paratrooper_next_level()
 
   g_free(str);
   str = g_strdup_printf("%s%s", pixmapsdir, "minitux.png");
-  pixmap = gcompris_load_pixmap(str);
+  pixmap = gc_pixmap_load(str);
 
   paratrooperItem.paratrooper = gnome_canvas_item_new (GNOME_CANVAS_GROUP(paratrooperItem.rootitem),
 						       gnome_canvas_pixbuf_get_type (),
@@ -403,7 +403,7 @@ static void paratrooper_next_level()
 
   g_free(str);
   str = g_strdup_printf("%s%s", pixmapsdir, "parachute.png");
-  pixmap = gcompris_load_pixmap(str);
+  pixmap = gc_pixmap_load(str);
 
   paratrooperItem.parachute = gnome_canvas_item_new (GNOME_CANVAS_GROUP(paratrooperItem.rootitem),
 						     gnome_canvas_pixbuf_get_type (),
@@ -609,7 +609,7 @@ static GnomeCanvasItem *paratrooper_create_cloud(GnomeCanvasGroup *parent)
 
 
   str = g_strdup_printf("%s%s", pixmapsdir, "cloud.png");
-  pixmap = gcompris_load_pixmap(str);
+  pixmap = gc_pixmap_load(str);
 
   if(windspeed>0)
     x = 0;

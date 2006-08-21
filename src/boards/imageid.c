@@ -181,7 +181,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 			   50,
 			   gcomprisBoard->height - 50,
 			   gcomprisBoard->number_of_sublevel);
-      gcompris_bar_set(GCOMPRIS_BAR_CONFIG|GCOMPRIS_BAR_LEVEL);
+      gc_bar_set(GC_BAR_CONFIG|GC_BAR_LEVEL);
 
       imageid_next_level();
 
@@ -240,7 +240,7 @@ is_our_board (GcomprisBoard *gcomprisBoard)
 /* set initial values for the next level */
 static void imageid_next_level()
 {
-  gcompris_bar_set_level(gcomprisBoard);
+  gc_bar_set_level(gcomprisBoard);
 
   imageid_destroy_all_items();
   selected_button = NULL;
@@ -294,7 +294,7 @@ static GnomeCanvasItem *imageid_create_item(GnomeCanvasGroup *parent)
   assert(board != NULL);
 
   str = g_strdup_printf("%s/%s", gcomprisBoard->boarddir, board->pixmapfile);
-  pixmap = gcompris_load_pixmap(str);
+  pixmap = gc_pixmap_load(str);
 
   x = IMAGE_AREA_X1 + ( IMAGE_AREA_X2 - IMAGE_AREA_X1 - gdk_pixbuf_get_width(pixmap))/2;
   y = IMAGE_AREA_Y1 + ( IMAGE_AREA_Y2 - IMAGE_AREA_Y1 - gdk_pixbuf_get_height(pixmap))/2;
@@ -589,14 +589,14 @@ static void add_xml_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child)
 	  {
 	    text1 = (gchar *)xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 1);
 	  }
-	else if(!strncmp(gcompris_get_locale(), lang, 5))
+	else if(!strncmp(gc_locale_get(), lang, 5))
 	  {
 	    if(text1) free(text1);
 	    text1 = (char *)xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 1);
 	    /* That's the perfect choice, do not continue or we may override it */
 	    found_text1 = TRUE;
 	  }
-	else if(!strncmp(gcompris_get_locale(), lang, strlen(lang)))
+	else if(!strncmp(gc_locale_get(), lang, strlen(lang)))
 	  {
 	    if(text1) free(text1);
 	    text1 = (gchar *)xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 1);
@@ -609,14 +609,14 @@ static void add_xml_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child)
 	  {
 	    text2 = (gchar *)xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 1);
 	  }
-	else if(!strncmp(gcompris_get_locale(), lang, 5))
+	else if(!strncmp(gc_locale_get(), lang, 5))
 	  {
 	    if(text2) free(text2);
 	    text2 = (char *)xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 1);
 	    /* That's the perfect choice, do not continue or we may override it */
 	    found_text2 = TRUE;
 	  }
-	else if(!strncmp(gcompris_get_locale(), lang, strlen(lang)))
+	else if(!strncmp(gc_locale_get(), lang, strlen(lang)))
 	  {
 	    if(text2) free(text2);
 	    text2 = (gchar *)xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 1);
@@ -629,14 +629,14 @@ static void add_xml_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child)
 	  {
 	    text3 = (gchar *)xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 1);
 	  }
-	else if(!strncmp(gcompris_get_locale(), lang, 5))
+	else if(!strncmp(gc_locale_get(), lang, 5))
 	  {
 	    if(text3) free(text3);
 	    text3 = (char *)xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 1);
 	    /* That's the perfect choice, do not continue or we may override it */
 	    found_text3 = TRUE;
 	  }
-	else if(!strncmp(gcompris_get_locale(), lang, strlen(lang)))
+	else if(!strncmp(gc_locale_get(), lang, strlen(lang)))
 	  {
 	    if(text3) free(text3);
 	    text3 = (gchar *)xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 1);

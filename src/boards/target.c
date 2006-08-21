@@ -315,8 +315,8 @@ static gboolean is_our_board (GcomprisBoard *gcomprisBoard)
 static void target_next_level()
 {
 
-  gcompris_bar_set(GCOMPRIS_BAR_LEVEL);
-  gcompris_bar_set_level(gcomprisBoard);
+  gc_bar_set(GC_BAR_LEVEL);
+  gc_bar_set_level(gcomprisBoard);
 
   target_destroy_all_items();
   gamewon = FALSE;
@@ -538,7 +538,7 @@ static void request_score()
   double x_offset = 245;
   gchar *tmpstr;
 
-  gcompris_bar_set(GCOMPRIS_BAR_LEVEL|GCOMPRIS_BAR_OK);
+  gc_bar_set(GC_BAR_LEVEL|GC_BAR_OK);
   button_pixmap = gcompris_load_skin_pixmap("button_large2.png");
   gnome_canvas_item_new (boardRootItem,
 			 gnome_canvas_pixbuf_get_type (),

@@ -186,12 +186,12 @@ attribute is readeable and/or writable.</para>
 	    <tbody>
 	      <row>
 		<entry>gcompris.end_board()</entry>
-		<entry>void gcompris_end_board(void)</entry>
+		<entry>void gc_board_end(void)</entry>
 		<entry></entry>
 	      </row>
 	      <row>
 		<entry>gcompris.bar_start(gnomeCanvas)</entry>
-		<entry>void gcompris_bar_start(GnomeCanvas *theCanvas)</entry>
+		<entry>void gc_bar_start(GnomeCanvas *theCanvas)</entry>
 		<entry></entry>
 	      </row>
 	      <row>
@@ -201,37 +201,22 @@ attribute is readeable and/or writable.</para>
 	      </row>
 	      <row>
 		<entry>gcompris.bar_set_level(gcomprisBoard)</entry>
-		<entry>void gcompris_bar_set_level(GcomprisBoard *gcomprisBoard)</entry>
+		<entry>void gc_bar_set_level(GcomprisBoard *gcomprisBoard)</entry>
 		<entry></entry>
 	      </row>
 	      <row>
 		<entry>gcompris.bar_set_repeat_icon(pixmap)</entry>
-		<entry>void gcompris_bar_set_repeat_icon(GdkPixbuf *pixmap)</entry>
+		<entry>void gc_bar_set_repeat_icon(GdkPixbuf *pixmap)</entry>
 		<entry></entry>
 	      </row>
 	      <row>
 		<entry>gcompris.bar_set(flags)</entry>
-		<entry>void gcompris_bar_set(const GComprisBarFlags flags)</entry>
+		<entry>void gc_bar_set(const GComprisBarFlags flags)</entry>
 		<entry></entry>
 	      </row>
 	      <row>
 		<entry>gcompris.bar_hide(hide)</entry>
-		<entry>void gcompris_bar_hide(gboolean hide)</entry>
-		<entry></entry>
-	      </row>
-	    <row>
-		<entry>gcompris.board_has_help(gcomprisBoard)</entry>
-		<entry>gboolean gcompris_board_has_help(GcomprisBoard *gcomprisBoard)</entry>
-		<entry>return a boolean</entry>
-	      </row>
-	      <row>
-	      <entry>gcompris.help_start(gcomprisBoard)</entry>
-		<entry>void gcompris_help_start(GcomprisBoard *gcomprisBoard)</entry>
-		<entry></entry>
-	      </row>
-	      <row>
-		<entry>gcompris.help_stop()</entry>
-		<entry>void gcompris_help_stop(void)</entry>
+		<entry>void gc_bar_hide(gboolean hide)</entry>
 		<entry></entry>
 	      </row>
 	      <row>
@@ -246,32 +231,32 @@ attribute is readeable and/or writable.</para>
 	      </row>
 	      <row>
 		<entry>gcompris.get_locale()</entry>
-		<entry>gchar* gcompris_get_locale(void)</entry>
+		<entry>gchar* gc_locale_get(void)</entry>
 		<entry>return a string</entry>
 	      </row>
 	      <row>
 		<entry>gcompris.set_locale(locale)</entry>
-		<entry>void gcompris_set_locale(gchar *locale)</entry>
+		<entry>void gc_locale_set(gchar *locale)</entry>
 		<entry></entry>
 	      </row>
 	      <row>
 		<entry>gcompris.set_cursor(cursor_type)</entry>
-		<entry>void gcompris_set_cursor(guint gdk_cursor_type)</entry>
+		<entry>void gc_cursor_set(guint gdk_cursor_type)</entry>
 		<entry></entry>
 	      </row>
 	      <row>
 		<entry>gcompris.images_selector_start(gcomprisBoard, dataset, callback)</entry>
-		<entry>void gcompris_images_selector_start (GcomprisBoard *gcomprisBoard, gchar *dataset, ImageSelectorCallBack imscb)</entry>
+		<entry>void gc_selector_images_start (GcomprisBoard *gcomprisBoard, gchar *dataset, ImageSelectorCallBack imscb)</entry>
 		<entry>The callback must be a callable object</entry>
 	      </row>
 	      <row>
 		<entry>gcompris.images_selector_stop()</entry>
-		<entry>void gcompris_images_selector_stop(void)</entry>
+		<entry>void gc_selector_images_stop(void)</entry>
 		<entry></entry>
 	      </row>
 	      <row>
 		<entry>gcompris.exit()</entry>
-		<entry>void gcompris_exit(void)</entry>
+		<entry>void gc_exit(void)</entry>
 		<entry></entry>
 	      </row>
 	      <row>
@@ -286,22 +271,22 @@ attribute is readeable and/or writable.</para>
 	      </row>
 	      <row>
 		<entry>gcompris.file_selector_load(gcomprisBoard, rootdir, file_types, callback)</entry>
-		<entry>void gcompris_file_selector_load (GcomprisBoard *gcomprisBoard, gchar *rootdir, gchar *file_types, FileSelectorCallBack fscb)</entry>
+		<entry>void gc_selector_file_load (GcomprisBoard *gcomprisBoard, gchar *rootdir, gchar *file_types, FileSelectorCallBack fscb)</entry>
 		<entry>The callback must be a callable object</entry>
 	      </row>
 	      <row>
 		<entry>gcompris.file_selector_save(gcomprisBoard, rootdir, file_types, callback)</entry>
-		<entry>void gcompris_file_selector_save(GcomprisBoard *gcomprisBoard, gchar *rootdir,gchar *file_types, FileSelectorCallBack fscb)</entry>
+		<entry>void gc_selector_file_save(GcomprisBoard *gcomprisBoard, gchar *rootdir,gchar *file_types, FileSelectorCallBack fscb)</entry>
 		<entry>The callback must be a callable object</entry>
 	      </row>
 	      <row>
 		<entry>gcompris.file_selector_stop()</entry>
-		<entry>void gcompris_file_selector_stop(void)</entry>
+		<entry>void gc_selector_file_stop(void)</entry>
 		<entry></entry>
 	      </row>
 	      <row>
 		<entry>gcompris.get_database()</entry>
-		<entry>gchar* gcompris_get_database(void)</entry>
+		<entry>gchar* gc_db_get_filename(void)</entry>
 		<entry>return the filename (string) of the database (fullpath)</entry>
 	      </row>
 	    </tbody>
@@ -503,47 +488,47 @@ attribute is readeable and/or writable.</para>
 	      </row>
 	      <row>
 		<entry>gcompris.utils.set_image_focus(item, focus)</entry>
-		<entry>void gcompris_set_image_focus(GnomeCanvasItem *item, gboolean focus)</entry>
+		<entry>void gc_item_focus_set(GnomeCanvasItem *item, gboolean focus)</entry>
 		<entry></entry>
 	      </row>
 	      <row>
 		<entry>gcompris.utils.item_event_focus(item, event, dest_item)</entry>
-		<entry>gint gcompris_item_event_focus(GnomeCanvasItem *item, GdkEvent *event, GnomeCanvasItem *dest_item)</entry>
+		<entry>gint gc_item_focus_event(GnomeCanvasItem *item, GdkEvent *event, GnomeCanvasItem *dest_item)</entry>
 		<entry>return an integer</entry>
 	      </row>
 	      <row>
 		<entry>gcompris.utils.item_absolute_move(item, x, y)</entry>
-		<entry>void item_absolute_move(GnomeCanvasItem *item, int x, int y)</entry>
+		<entry>void gc_item_absolute_move(GnomeCanvasItem *item, int x, int y)</entry>
 		<entry></entry>
 	      </row>
 	      <row>
 		<entry>gcompris.utils.item_rotate(item, angle)</entry>
-		<entry>void item_rotate(GnomeCanvasItem *item, double angle)</entry>
+		<entry>void gc_item_rotate(GnomeCanvasItem *item, double angle)</entry>
 		<entry></entry>
 	      </row>
 	      <row>
 		<entry>gcompris.utils.item_rotate_relative(item, angle)</entry>
-		<entry>void item_rotate_relative(GnomeCanvasItem *item, double angle)</entry>
+		<entry>void gc_item_rotate_relative(GnomeCanvasItem *item, double angle)</entry>
 		<entry></entry>
 	      </row>
 	      <row>
 		<entry>gcompris.utils.item_rotate_with_center(item, angle, x, y)</entry>
-		<entry>void item_rotate_with_center(GnomeCanvasItem *item, double angle, int x, int y)</entry>
+		<entry>void gc_item_rotate_with_center(GnomeCanvasItem *item, double angle, int x, int y)</entry>
 		<entry></entry>
 	      </row>
 	      <row>
 		<entry>gcompris.utils.item_rotate_relative_with_center(item, angle, x, y)</entry>
-		<entry>void item_rotate_relative_with_center(GnomeCanvasItem *item, double angle, int x, int y)</entry>
+		<entry>void gc_item_rotate_relative_with_center(GnomeCanvasItem *item, double angle, int x, int y)</entry>
 		<entry></entry>
 	      </row>
 	      <row>
 		<entry>gcompris.utils.dialog(str, callback)</entry>
-		<entry>void gcompris_dialog(gchar *str, DialogBoxCallBack callback)</entry>
+		<entry>void gc_dialog(gchar *str, DialogBoxCallBack callback)</entry>
 		<entry>The callback must be a callable object</entry>
 	      </row>
 	      <row>
 		<entry>gcompris.utils.dialog_close()</entry>
-		<entry>void gcompris_dialog_close()</entry>
+		<entry>void gc_dialog_close()</entry>
 		<entry></entry>
 	      </row>
 	    </tbody>

@@ -202,7 +202,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 	gcomprisBoard->maxlevel = MAX_LEVEL;
 	gcomprisBoard->sublevel = 1;
 	gcomprisBoard->number_of_sublevel = 1; /* Go to next level after this number of 'play' */
-	gcompris_bar_set(GCOMPRIS_BAR_LEVEL);
+	gc_bar_set(GC_BAR_LEVEL);
 
 	img = gcompris_image_to_skin("gcompris-bg.jpg");
 	gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas),
@@ -263,7 +263,7 @@ static gboolean is_our_board (GcomprisBoard *gcomprisBoard) {
 /* set initial values for the next level */
 static void crane_next_level() {
 
-  gcompris_bar_set_level(gcomprisBoard);
+  gc_bar_set_level(gcomprisBoard);
 
   crane_destroy_all_items();
   gamewon = FALSE;
@@ -303,7 +303,7 @@ static GnomeCanvasItem *crane_create_item()
 				     NULL));
 
 
-  pixmap = gcompris_load_pixmap("crane/crane-bg.png");
+  pixmap = gc_pixmap_load("crane/crane-bg.png");
   gnome_canvas_item_new (boardRootItem,
 			 gnome_canvas_pixbuf_get_type(),
 			 "pixbuf", pixmap,
@@ -482,19 +482,19 @@ static void draw_arrow() {
   int i;
   crane_object arrow[4];
 
-  arrow[0].pixmap = gcompris_load_pixmap("crane/arrow_down.png");
+  arrow[0].pixmap = gc_pixmap_load("crane/arrow_down.png");
   arrow[0].x = CRANE_BUTTON_DOWN_X;
   arrow[0].y = CRANE_BUTTON_DOWN_Y;
   
-  arrow[1].pixmap = gcompris_load_pixmap("crane/arrow_up.png");
+  arrow[1].pixmap = gc_pixmap_load("crane/arrow_up.png");
   arrow[1].x = CRANE_BUTTON_UP_X;
   arrow[1].y = CRANE_BUTTON_UP_Y;
 
-  arrow[2].pixmap = gcompris_load_pixmap("crane/arrow_left.png");
+  arrow[2].pixmap = gc_pixmap_load("crane/arrow_left.png");
   arrow[2].x = CRANE_BUTTON_LEFT_X;
   arrow[2].y = CRANE_BUTTON_LEFT_Y + 2;
 
-  arrow[3].pixmap = gcompris_load_pixmap("crane/arrow_right.png");
+  arrow[3].pixmap = gc_pixmap_load("crane/arrow_right.png");
   arrow[3].x = CRANE_BUTTON_RIGHT_X;
   arrow[3].y = CRANE_BUTTON_RIGHT_Y - 2;
 
@@ -509,7 +509,7 @@ static void draw_arrow() {
   	gtk_signal_connect(GTK_OBJECT(item_arrow), "event",
 			   (GtkSignalFunc) arrow_event, GINT_TO_POINTER(i));
 	gtk_signal_connect(GTK_OBJECT(item_arrow), "event",
-			 (GtkSignalFunc) gcompris_item_event_focus,
+			 (GtkSignalFunc) gc_item_focus_event,
 			 NULL);
 	gdk_pixbuf_unref( arrow[i].pixmap);
 
@@ -538,7 +538,7 @@ static void draw_redhands() {
 					  "width_pixels", (guint) 7,
 					  NULL);
 
-  pixmap = gcompris_load_pixmap("crane/selected.png");
+  pixmap = gc_pixmap_load("crane/selected.png");
 
   red_hands = gnome_canvas_item_new (boardRootItem,
 	gnome_canvas_pixbuf_get_type(),
@@ -623,7 +623,7 @@ static void place_item(int x, int y, int active) {
 	if (valeur == -1)
 		continue;
 
-	pixmap = gcompris_load_pixmap(imageList[valeur]);
+	pixmap = gc_pixmap_load(imageList[valeur]);
 	item_image = gnome_canvas_item_new (boardRootItem,
 				    gnome_canvas_pixbuf_get_type (),
 				    "pixbuf", pixmap,

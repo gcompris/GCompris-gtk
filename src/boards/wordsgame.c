@@ -189,7 +189,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
     gcomprisBoard->level = 1;
     gcomprisBoard->maxlevel = 6;
     gcomprisBoard->sublevel = 0;
-    gcompris_bar_set(GCOMPRIS_BAR_LEVEL);
+    gc_bar_set(GC_BAR_LEVEL);
 
     /* Default speed */
     speed=DEFAULT_SPEED;
@@ -407,7 +407,7 @@ static void wordsgame_next_level()
 		       gcomprisBoard->height - 50, 
 		       gcomprisBoard->number_of_sublevel);
   
-  gcompris_bar_set_level(gcomprisBoard);
+  gc_bar_set_level(gcomprisBoard);
   gcompris_score_set(gcomprisBoard->sublevel);
 
   wordsgame_destroy_all_items();
@@ -765,7 +765,7 @@ static gboolean  wordsgame_read_wordfile()
   gchar *buf;
   int len;
                                                                                                                               
-  wordsfd = get_wordfile(gcompris_get_locale());
+  wordsfd = get_wordfile(gc_locale_get());
                                                                                                                               
   if(wordsfd==NULL)
     {
@@ -774,7 +774,7 @@ static gboolean  wordsgame_read_wordfile()
                                                                                                                               
       /* Too bad, even english is not there. Check your Install */
       if(wordsfd==NULL) {
-        gcompris_dialog(_("Cannot open file of words for your locale"), gcompris_end_board);
+        gc_dialog(_("Cannot open file of words for your locale"), gc_board_end);
         return FALSE;
       }
     }

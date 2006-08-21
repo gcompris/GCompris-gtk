@@ -1,6 +1,6 @@
 /* gcompris - about.c
  *
- * Time-stamp: <2006/08/15 03:56:58 bruno>
+ * Time-stamp: <2006/08/20 23:43:01 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -46,13 +46,10 @@ static gboolean is_displayed			= FALSE;
 static gint item_event_ok(GnomeCanvasItem *item, GdkEvent *event, gpointer data);
 static gint move_plane (GtkWidget *widget, gpointer item);
 
-void gcompris_about_start (void);
-void gcompris_about_stop (void);
-
 /*
  * Do all the bar display and register the events
  */
-void gcompris_about_start ()
+void gc_about_start ()
 {
   GdkPixbuf   *pixmap = NULL;
   gint y_start = 0;
@@ -78,7 +75,7 @@ void gcompris_about_start ()
   if(rootitem)
     return;
 
-  gcompris_bar_hide (TRUE);
+  gc_bar_hide (TRUE);
 
   rootitem = \
     gnome_canvas_item_new (gnome_canvas_root(gcompris_get_canvas()),
@@ -285,7 +282,7 @@ void gcompris_about_start ()
 				NULL);
 
   /* Location for a potential sponsor */
-  gchar *sponsor_image = gcompris_find_absolute_filename("sponsor.png");
+  gchar *sponsor_image = gc_file_find_absolute("sponsor.png");
   if(sponsor_image)
     {
       gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
@@ -307,7 +304,7 @@ void gcompris_about_start ()
 			     "fill_color", "black",
 			     NULL);
 
-      pixmap = gcompris_load_pixmap("sponsor.png");
+      pixmap = gc_pixmap_load("sponsor.png");
       item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				    gnome_canvas_pixbuf_get_type (),
 				    "pixbuf", pixmap, 
@@ -332,7 +329,7 @@ void gcompris_about_start ()
 		     (GtkSignalFunc) item_event_ok,
 		     "ok");
   gtk_signal_connect(GTK_OBJECT(item), "event",
-		     (GtkSignalFunc) gcompris_item_event_focus,
+		     (GtkSignalFunc) gc_item_focus_event,
 		     NULL);
   gdk_pixbuf_unref(pixmap);
 
@@ -361,7 +358,7 @@ void gcompris_about_start ()
 		     (GtkSignalFunc) item_event_ok,
 		     "ok");
   gtk_signal_connect(GTK_OBJECT(item2), "event",
-		     (GtkSignalFunc) gcompris_item_event_focus,
+		     (GtkSignalFunc) gc_item_focus_event,
 		     item);
 
   pixmap_about = gcompris_load_skin_pixmap("gcompris-about.png");
@@ -386,7 +383,7 @@ void gcompris_about_start ()
 
 }
 
-void gcompris_about_stop ()
+void gc_about_stop ()
 {
   if (move_plane_id) {
     gtk_timeout_remove (move_plane_id);
@@ -406,7 +403,7 @@ void gcompris_about_stop ()
   if(is_displayed)
     board_pause(FALSE);
 
-  gcompris_bar_hide (FALSE);
+  gc_bar_hide (FALSE);
 
   is_displayed = FALSE;
 }
@@ -459,7 +456,7 @@ item_event_ok(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
     case GDK_BUTTON_PRESS:
       if(!strcmp((char *)data, "ok"))
 	{
-	  gcompris_about_stop();
+	  gc_about_stop();
 	}
     default:
       break;

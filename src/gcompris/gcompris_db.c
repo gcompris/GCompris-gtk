@@ -601,7 +601,7 @@ void gcompris_db_board_update(guint *board_id,
 #define BOARDS_READ \
         "SELECT board_id ,name, section_id, section, author, type, mode, difficulty, icon, boarddir, mandatory_sound_file, mandatory_sound_dataset, filename, title, description, prerequisite, goal, manual, credit FROM boards;"
 
-GList *gcompris_load_menus_db(GList *boards_list)
+GList *gc_menu_load_db(GList *boards_list)
 {
 #ifdef USE_SQLITE
 

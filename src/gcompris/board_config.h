@@ -64,7 +64,7 @@ GtkSpinButton *gcompris_spin_int(const gchar *label,
 
 GtkHSeparator *gcompris_separator();
 
-GList *gcompris_get_locales_list();
+GList *gc_locale_gets_list();
 
 GtkComboBox *gcompris_combo_locales( gchar *init);
 
@@ -72,7 +72,7 @@ void gcompris_change_locale(gchar *locale);
 
 void gcompris_reset_locale();
 
-GList *gcompris_get_locales_asset_list(const gchar *file);
+GList *gc_locale_gets_asset_list(const gchar *file);
 
 GtkComboBox *gcompris_combo_locales_asset(const gchar *label, gchar *init,
 					  const gchar *file);

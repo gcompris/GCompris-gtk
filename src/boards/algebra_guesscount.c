@@ -192,17 +192,17 @@ static void start_board (GcomprisBoard *agcomprisBoard) {
     g_warning("loading pixmaps in start_board\n");
     for (i=0; i<NUM_VALUES; i++) {
       str = g_strdup_printf("%s/%d.png", gcomprisBoard->boarddir,num_values[i]);
-      num_pixmap[i] = gcompris_load_pixmap(str);
+      num_pixmap[i] = gc_pixmap_load(str);
       g_free(str);
     }
     for (i=0; i<5; i++) {
       str = g_strdup_printf("%s/%s.png", gcomprisBoard->boarddir,oper_images[i]);
-      oper_pixmap[i] = gcompris_load_pixmap(str);
+      oper_pixmap[i] = gc_pixmap_load(str);
       g_free(str);
     }
 
     str = g_strdup_printf("%s/%s", gcomprisBoard->boarddir,"button.png");
-    button_pixmap = gcompris_load_pixmap(str);
+    button_pixmap = gc_pixmap_load(str);
     g_free(str);
 
     gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas),"gcompris/animals/tiger1_by_Ralf_Schmode.jpg");
@@ -214,7 +214,7 @@ static void start_board (GcomprisBoard *agcomprisBoard) {
 			 50,
 			 gcomprisBoard->height - 50,
 			 gcomprisBoard->number_of_sublevel);
-    gcompris_bar_set(GCOMPRIS_BAR_LEVEL|GCOMPRIS_BAR_OK);
+    gc_bar_set(GC_BAR_LEVEL|GC_BAR_OK);
 
     algebra_guesscount_next_level();
 
@@ -259,7 +259,7 @@ static gboolean is_our_board (GcomprisBoard *gcomprisBoard) {
 /* ==================================== */
 /* set initial values for the next level */
 static void algebra_guesscount_next_level() {
-  gcompris_bar_set_level(gcomprisBoard);
+  gc_bar_set_level(gcomprisBoard);
 
   algebra_guesscount_destroy_all_items();
   gamewon = FALSE;
@@ -640,7 +640,7 @@ static gint item_event_num(GnomeCanvasItem *item, GdkEvent *event, gpointer data
       if (item != ptr_token_selected[token_count-1]->item)
 	return FALSE;
       // we put back in its original place a number item
-      item_absolute_move(item, t->xOffset_original, Y_NUM);
+      gc_item_absolute_move(item, t->xOffset_original, Y_NUM);
       token_count--;
       update_line_calcul();
       t->isMoved = FALSE;
@@ -655,7 +655,7 @@ static gint item_event_num(GnomeCanvasItem *item, GdkEvent *event, gpointer data
 	return FALSE;
       }
 
-      item_absolute_move(item, x_token_offset[token_count-1], y_token_offset[token_count-1]);
+      gc_item_absolute_move(item, x_token_offset[token_count-1], y_token_offset[token_count-1]);
       t->isMoved = TRUE;
 
       // update result text items

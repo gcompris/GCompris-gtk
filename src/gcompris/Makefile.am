@@ -89,6 +89,7 @@ libgcomprisinclude_HEADERS =			\
 	anim.h \
 	binreloc.h \
 	bonus.h \
+	gc_core.h \
 	cursor.h \
 	gameutil.h \
 	gc_net.h \
@@ -113,36 +114,38 @@ libgcomprisinclude_HEADERS =			\
 
 libgcompris_1_la_SOURCES =			\
 	$(libgcomprisinclude_HEADERS)	\
-	gcompris.c \
-	gameutil.c \
-	binreloc.c \
-	gc_net.c \
-	properties.c \
+	about.c \
+	anim.c \
 	bar.c \
-	file_selector.c \
-	images_selector.c \
-	help.c \
-	pixbuf_util.c \
+	binreloc.c \
 	board.h board.c \
 	board_config.h board_config.c \
-	gcompris_alphabeta.c \
-	gcompris_files.c \
-	gcompris_confirm.c \
-	profile.c \
-	wordlist.c \
-	gcompris_db.c \
-	gcompris_im.c \
-	soundutil.c \
-	cursor.c \
 	bonus.c \
-	timer.c \
-	score.c \
-	skin.c \
 	config.c \
-	about.c \
+	cursor.c \
+	dialog.c \
+	file_selector.c \
+	gameutil.c \
+	gc_net.c \
+	gcompris.c \
+	gcompris_alphabeta.c \
+	gcompris_confirm.c \
+	gcompris_db.c \
+	gcompris_files.c \
+	gcompris_im.c \
+	help.c \
+	images_selector.c \
 	log.c \
+	menu.c \
+	pixbuf_util.c \
+	profile.c \
+	properties.c \
+	score.c \
 	sdlplayer.c \
-	anim.c \
+	skin.c \
+	soundutil.c \
+	timer.c \
+	wordlist.c \
         $(profile_c) \
 	$(cairo_c)
 

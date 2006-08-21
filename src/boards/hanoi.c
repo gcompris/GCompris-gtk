@@ -154,7 +154,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       gcomprisBoard->maxlevel=6;
       gcomprisBoard->sublevel=1;
       gcomprisBoard->number_of_sublevel=1; /* Go to next level after this number of 'play' */
-      gcompris_bar_set(GCOMPRIS_BAR_LEVEL);
+      gc_bar_set(GC_BAR_LEVEL);
 
       gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas),
 			      gcompris_image_to_skin("gcompris-bg.jpg"));
@@ -209,7 +209,7 @@ static gboolean is_our_board (GcomprisBoard *gcomprisBoard)
 static void hanoi_next_level()
 {
 
-  gcompris_bar_set_level(gcomprisBoard);
+  gc_bar_set_level(gcomprisBoard);
 
   hanoi_destroy_all_items();
   gamewon = FALSE;
@@ -693,8 +693,8 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, PieceItem *data)
 	  if(col<0 || col > number_of_item_x || col == data->i)
 	    {
 	      /* Return to the original position */
-	      item_absolute_move (data->item     , data->x , data->y);
-	      item_absolute_move (data->item_text, data->xt, data->yt);
+	      gc_item_absolute_move (data->item     , data->x , data->y);
+	      gc_item_absolute_move (data->item_text, data->xt, data->yt);
 
 	      /* FIXME : Workaround for bugged canvas */
 	      gnome_canvas_update_now(gcomprisBoard->canvas);
@@ -713,8 +713,8 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, PieceItem *data)
 	  if(line >= number_of_item_y)
 	    {
 	      /* Return to the original position */
-	      item_absolute_move (data->item     , data->x , data->y);
-	      item_absolute_move (data->item_text, data->xt, data->yt);
+	      gc_item_absolute_move (data->item     , data->x , data->y);
+	      gc_item_absolute_move (data->item_text, data->xt, data->yt);
 
 	      /* FIXME : Workaround for bugged canvas */
 	      gnome_canvas_update_now(gcomprisBoard->canvas);
@@ -733,8 +733,8 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, PieceItem *data)
 	  /* Move the piece */
 	  piece_dst = position[col][line];
 	  piece_src = data;
-	  item_absolute_move (data->item     , piece_dst->x , piece_dst->y);
-	  item_absolute_move (data->item_text, piece_dst->xt, piece_dst->yt);
+	  gc_item_absolute_move (data->item     , piece_dst->x , piece_dst->y);
+	  gc_item_absolute_move (data->item_text, piece_dst->xt, piece_dst->yt);
 	  
 	  /* FIXME : Workaround for bugged canvas */
 	  gnome_canvas_update_now(gcomprisBoard->canvas);

@@ -151,14 +151,14 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 			   gcomprisBoard->width - 220,
 			   gcomprisBoard->height - 50,
 			   gcomprisBoard->number_of_sublevel);
-      gcompris_bar_set(GCOMPRIS_BAR_LEVEL|GCOMPRIS_BAR_OK);
+      gc_bar_set(GC_BAR_LEVEL|GC_BAR_OK);
 
       clockgame_next_level();
 
       gamewon = FALSE;
       pause_board(FALSE);
 
-      gcompris_set_cursor(GCOMPRIS_LINE_CURSOR);
+      gc_cursor_set(GCOMPRIS_LINE_CURSOR);
     }
 
 }
@@ -174,7 +174,7 @@ end_board ()
       destroy_all_items();
     }
   gcomprisBoard = NULL;
-  gcompris_set_cursor(GCOMPRIS_DEFAULT_CURSOR);
+  gc_cursor_set(GCOMPRIS_DEFAULT_CURSOR);
 }
 
 static void
@@ -215,7 +215,7 @@ is_our_board (GcomprisBoard *gcomprisBoard)
 static void clockgame_next_level()
 {
 
-  gcompris_bar_set_level(gcomprisBoard);
+  gc_bar_set_level(gcomprisBoard);
   gcompris_score_set(gcomprisBoard->sublevel);
 
   destroy_all_items();

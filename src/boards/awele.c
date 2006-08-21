@@ -105,14 +105,14 @@ static void pause_board (gboolean pause)
 	      timeout = g_timeout_add (2000,
 				       (GSourceFunc) to_computer,
 				       NULL);
-	      anim_item = gcompris_activate_animation( boardRootItem,
+	      anim_item = gc_anim_activate( boardRootItem,
 						       animation );
 	      gnome_canvas_item_show(GNOME_CANVAS_ITEM(anim_item->canvas));
 	    }
 	}
 	else{
 	  if (computer_turn){
-	    gcompris_deactivate_animation(anim_item);
+	    gc_anim_deactivate(anim_item);
 	    if (timeout){
 	      g_source_remove(timeout);
 	      timeout = 0;
@@ -140,17 +140,17 @@ start_board (GcomprisBoard * agcomprisBoard)
 							 * this number of 'play' */
 
 		str = gcompris_image_to_skin("button_reload.png");
-		pixmap = gcompris_load_pixmap(str);
+		pixmap = gc_pixmap_load(str);
 		g_free(str);
 		if(pixmap) {
-		  gcompris_bar_set_repeat_icon(pixmap);
+		  gc_bar_set_repeat_icon(pixmap);
 		  gdk_pixbuf_unref(pixmap);
-		  gcompris_bar_set(GCOMPRIS_BAR_LEVEL|GCOMPRIS_BAR_REPEAT_ICON);
+		  gc_bar_set(GC_BAR_LEVEL|GC_BAR_REPEAT_ICON);
 		} else {
-		  gcompris_bar_set(GCOMPRIS_BAR_LEVEL|GCOMPRIS_BAR_REPEAT);
+		  gc_bar_set(GC_BAR_LEVEL|GC_BAR_REPEAT);
 		}
 
-		animation = gcompris_load_animation( "connect4/sablier.txt" );
+		animation = gc_anim_load( "connect4/sablier.txt" );
 
 		awele_next_level ();
 
@@ -168,7 +168,7 @@ end_board ()
 	if (gcomprisBoard != NULL)
 	{
 		pause_board (TRUE);
-		gcompris_free_animation(animation);
+		gc_anim_free(animation);
 		awele_destroy_all_items ();
 	}
 	gcomprisBoard = NULL;
@@ -198,7 +198,7 @@ is_our_board (GcomprisBoard * gcomprisBoard)
  */
 static void repeat (){
   if (computer_turn){
-    gcompris_deactivate_animation(anim_item);
+    gc_anim_deactivate(anim_item);
     if (timeout){
       g_source_remove(timeout);
       timeout = 0;
@@ -218,7 +218,7 @@ set_level (guint level)
       gcomprisBoard->sublevel = 1;
 
       if (computer_turn){
-	gcompris_deactivate_animation(anim_item);
+	gc_anim_deactivate(anim_item);
 	if (timeout){
 	  g_source_remove(timeout);
 	  timeout = 0;
@@ -245,7 +245,7 @@ awele_next_level ()
 				 img);
 	g_free(img);
 
-	gcompris_bar_set_level (gcomprisBoard);
+	gc_bar_set_level (gcomprisBoard);
 
 	awele_destroy_all_items ();
 	gamewon = FALSE;
@@ -262,7 +262,7 @@ awele_next_level ()
 	  timeout = g_timeout_add (2000,
 				   (GSourceFunc) to_computer,
 				   NULL);
-	  anim_item = gcompris_activate_animation( boardRootItem,
+	  anim_item = gc_anim_activate( boardRootItem,
 						   animation );
 	  gnome_canvas_item_show(GNOME_CANVAS_ITEM(anim_item->canvas));
 
@@ -325,7 +325,7 @@ awele_create_item (GnomeCanvasGroup * parent)
 	/*
 	 * Load the cute frame 
 	 */
-	pixmap = gcompris_load_pixmap ("awele/awele_frame.png");
+	pixmap = gc_pixmap_load ("awele/awele_frame.png");
 
 	gnome_canvas_item_new (boardRootItem,
 			       gnome_canvas_pixbuf_get_type (),
@@ -420,13 +420,13 @@ awele_create_item (GnomeCanvasGroup * parent)
 	{
 		sprintf (buffer, "%d", i + 1);
 		xpmFile[12] = buffer[0];
-		graphsElt->pixbufButton[i] = gcompris_load_pixmap (xpmFile);
+		graphsElt->pixbufButton[i] = gc_pixmap_load (xpmFile);
 		xpmFileNotify[12] = buffer[0];
 		graphsElt->pixbufButtonNotify[i] =
-			gcompris_load_pixmap (xpmFileNotify);
+			gc_pixmap_load (xpmFileNotify);
 		xpmFileClic[12] = buffer[0];
 		graphsElt->pixbufButtonClicked[i] =
-			gcompris_load_pixmap (xpmFileClic);
+			gc_pixmap_load (xpmFileClic);
 
 		/*
 		 * Ajustement de l'ordonnee x, pour positionner le bouton sur la barre de boutons.
@@ -538,7 +538,7 @@ awele_create_item (GnomeCanvasGroup * parent)
 	{
 		sprintf (buffer, "%d", i + 1);
 		xpmFile[12] = buffer[0];
-		graphsElt->pixbufBeans[i] = gcompris_load_pixmap (xpmFile);
+		graphsElt->pixbufBeans[i] = gc_pixmap_load (xpmFile);
 	}
 
 	/**
@@ -663,7 +663,7 @@ static gboolean  to_computer(gpointer data)
 
   coup = think (staticAwale, gcomprisBoard->level);
 
-  gcompris_deactivate_animation(anim_item);
+  gc_anim_deactivate(anim_item);
   computer_turn = FALSE;
 
   if (coup >= 0){
@@ -761,7 +761,7 @@ buttonClick (GtkWidget * item, GdkEvent * event, gpointer data)
 		timeout = g_timeout_add (2000,
 					 (GSourceFunc) to_computer,
 					 NULL);
-		anim_item = gcompris_activate_animation( boardRootItem,
+		anim_item = gc_anim_activate( boardRootItem,
 							 animation );
 	      }
 	    }

@@ -198,7 +198,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       gcomprisBoard->maxlevel=7;
       gcomprisBoard->sublevel=1;
       gcomprisBoard->number_of_sublevel=1; /* Go to next level after this number of 'play' */
-      gcompris_bar_set(GCOMPRIS_BAR_LEVEL|GCOMPRIS_BAR_OK);
+      gc_bar_set(GC_BAR_LEVEL|GC_BAR_OK);
 
       reversecount_next_level();
 
@@ -339,7 +339,7 @@ static void reversecount_next_level()
   gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas),
 			  imageList[gcomprisBoard->level-1]);
 
-  gcompris_bar_set_level(gcomprisBoard);
+  gc_bar_set_level(gcomprisBoard);
 
   reversecount_destroy_all_items();
   gamewon = FALSE;
@@ -452,13 +452,13 @@ static GnomeCanvasItem *reversecount_create_item(GnomeCanvasGroup *parent)
     }
 
   /* Calc the tux best ratio to display it */
-  pixmap = gcompris_load_pixmap(TUX_IMG_EAST);
+  pixmap = gc_pixmap_load(TUX_IMG_EAST);
   xratio =  block_width  / (gdk_pixbuf_get_width (pixmap) + TUX_TO_BORDER_GAP);
   yratio =  block_height / (gdk_pixbuf_get_height(pixmap) + TUX_TO_BORDER_GAP);
   tux_ratio = yratio = MIN(xratio, yratio);
   gdk_pixbuf_unref(pixmap);
 
-  pixmap = gcompris_load_pixmap("reversecount/iceblock.png");
+  pixmap = gc_pixmap_load("reversecount/iceblock.png");
 
   for(i=0; i<BOARDWIDTH; i+=block_width)
     {
@@ -519,7 +519,7 @@ static GnomeCanvasItem *reversecount_create_item(GnomeCanvasGroup *parent)
 
   //----------------------------------------
   // Create the dice area
-  pixmap = gcompris_load_pixmap("reversecount/dice_area.png");
+  pixmap = gc_pixmap_load("reversecount/dice_area.png");
 
   dice_area_x = BOARDWIDTH - block_width - gdk_pixbuf_get_width (pixmap) - 20;
 
@@ -534,7 +534,7 @@ static GnomeCanvasItem *reversecount_create_item(GnomeCanvasGroup *parent)
 
   //----------------------------------------
   // Create the dices
-  pixmap = gcompris_load_pixmap("gcompris/dice/gnome-dice1.png");
+  pixmap = gc_pixmap_load("gcompris/dice/gnome-dice1.png");
 
   for(d=0; d<number_of_dices; d++)
     {
@@ -555,7 +555,7 @@ static GnomeCanvasItem *reversecount_create_item(GnomeCanvasGroup *parent)
       gtk_signal_connect(GTK_OBJECT(item), "event", (GtkSignalFunc) item_event, 
 			 val);
       gtk_signal_connect(GTK_OBJECT(item), "event",
-			 (GtkSignalFunc) gcompris_item_event_focus,
+			 (GtkSignalFunc) gc_item_focus_event,
 			 NULL);
 
     }
@@ -599,7 +599,7 @@ static GnomeCanvasItem *display_item_at(gchar *imagename, int block, double rati
   block_width  = BOARDWIDTH/number_of_item_x;
   block_height = BOARDHEIGHT/number_of_item_y;
 
-  pixmap = gcompris_load_pixmap(imagename);
+  pixmap = gc_pixmap_load(imagename);
 
   if(block < number_of_item_x)
     {
@@ -717,7 +717,7 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, gint *dice_index)
 
       str = g_strdup_printf("gcompris/dice/gnome-dice%d.png", dicevalue_array[i]);
       
-      pixmap = gcompris_load_pixmap(str);
+      pixmap = gc_pixmap_load(str);
 
       /* Warning changing the image needs to update pixbuf_ref for the focus usage */
       g_object_set_data (G_OBJECT (item), "pixbuf_ref", pixmap);
@@ -749,7 +749,7 @@ static void create_clock(double x, double y, int value)
 
   str = g_strdup_printf("%s%d.png", "gcompris/timers/clock",value);
 
-  pixmap = gcompris_load_pixmap(str);
+  pixmap = gc_pixmap_load(str);
 
   clock_image_item = gnome_canvas_item_new (boardRootItem,
 					    gnome_canvas_pixbuf_get_type (),
@@ -772,7 +772,7 @@ static void update_clock(int value)
 
   str = g_strdup_printf("%s%d.png", "gcompris/timers/clock",value);
 
-  pixmap = gcompris_load_pixmap(str);
+  pixmap = gc_pixmap_load(str);
 
   gnome_canvas_item_set (clock_image_item,
 			 "pixbuf", pixmap,

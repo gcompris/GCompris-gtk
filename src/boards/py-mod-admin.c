@@ -78,7 +78,7 @@ py_board_config_stop (PyObject* self, PyObject* args)
 }
 
 static PyObject*
-py_gcompris_get_boards_list (PyObject* self, PyObject* args)
+py_gc_menu_get_boards (PyObject* self, PyObject* args)
 {
   GList *boards_list;
   GList *list;
@@ -89,7 +89,7 @@ py_gcompris_get_boards_list (PyObject* self, PyObject* args)
     return NULL;
 
   /* Call the corresponding C function */
-  boards_list = gcompris_get_boards_list();
+  boards_list = gc_menu_get_boards();
 
   pylist = PyList_New(0);
   for (list = boards_list; list != NULL; list = list->next){
@@ -355,7 +355,7 @@ static PyMethodDef PythonGcomprisAdminModule[] = {
   { "get_class_from_id",  py_gcompris_get_class_from_id, METH_VARARGS, "gcompris_get_class_from_id" },
   { "get_classes_list",  py_gcompris_get_classes_list, METH_VARARGS, "gcompris_get_classes_list" },
   { "get_board_from_id",  py_gcompris_get_board_from_id, METH_VARARGS, "gcompris_get_board_from_id" },
-  { "get_boards_list",  py_gcompris_get_boards_list, METH_VARARGS, "gcompris_get_boards_list" },
+  { "get_boards_list",  py_gc_menu_get_boards, METH_VARARGS, "gc_menu_get_boards" },
   { "get_users_from_group",  py_gcompris_get_users_from_group, METH_VARARGS, "gcompris_get_users_from_group" },
   { "get_users_from_group",  py_gcompris_get_users_from_group, METH_VARARGS, "gcompris_get_users_from_group" },
   { "get_current_user",  py_gcompris_get_current_user, METH_VARARGS, "gcompris_get_current_user" },

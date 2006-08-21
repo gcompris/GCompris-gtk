@@ -150,7 +150,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       gcomprisBoard->maxlevel=9;
       gcomprisBoard->sublevel=1;
       gcomprisBoard->number_of_sublevel=1; /* Go to next level after this number of 'play' */
-      gcompris_bar_set(GCOMPRIS_BAR_LEVEL|GCOMPRIS_BAR_OK);
+      gc_bar_set(GC_BAR_LEVEL|GC_BAR_OK);
 
       gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas),
 			      "images/enumerate_background.png");
@@ -296,7 +296,7 @@ static gboolean is_our_board (GcomprisBoard *gcomprisBoard)
 static void enumerate_next_level()
 {
 
-  gcompris_bar_set_level(gcomprisBoard);
+  gc_bar_set_level(gcomprisBoard);
 
   enumerate_destroy_all_items();
   gamewon = FALSE;
@@ -378,7 +378,7 @@ static GnomeCanvasItem *enumerate_create_item(GnomeCanvasGroup *parent)
   for(i=0; i<number_of_item_type; i++)
     {
 
-      pixmap = gcompris_load_pixmap(imageList[i]);
+      pixmap = gc_pixmap_load(imageList[i]);
 
       answer_to_find[i] = RAND(1, number_of_item_max);
       answer[i] = 0;
@@ -405,7 +405,7 @@ static GnomeCanvasItem *enumerate_create_item(GnomeCanvasGroup *parent)
       /* Display the answer area */
       current_y -= ANSWER_HEIGHT*2;
 
-      pixmap_answer = gcompris_load_pixmap("images/enumerate_answer.png");
+      pixmap_answer = gc_pixmap_load("images/enumerate_answer.png");
 
       item = \
 	gnome_canvas_item_new (boardRootItem,
@@ -419,7 +419,7 @@ static GnomeCanvasItem *enumerate_create_item(GnomeCanvasGroup *parent)
 
       gdk_pixbuf_unref(pixmap_answer);
 
-      pixmap_answer = gcompris_load_pixmap("images/enumerate_answer_focus.png");
+      pixmap_answer = gc_pixmap_load("images/enumerate_answer_focus.png");
 
       answer_item_focus[i] = \
 	gnome_canvas_item_new (boardRootItem,
@@ -447,7 +447,7 @@ static GnomeCanvasItem *enumerate_create_item(GnomeCanvasGroup *parent)
       gtk_signal_connect(GTK_OBJECT(item), "event", (GtkSignalFunc) item_event_focus,  GINT_TO_POINTER(i));
 
       gtk_signal_connect(GTK_OBJECT(item), "event",
-			 (GtkSignalFunc) gcompris_item_event_focus,
+			 (GtkSignalFunc) gc_item_focus_event,
 			 NULL);
       
       answer_item[i] = \

@@ -30,13 +30,13 @@ static GSList *active;
 /* private callback */
 static gboolean anim_tick(void*);
 
-GcomprisAnimation *gcompris_load_animation(char *filename)
+GcomprisAnimation *gc_anim_load(char *filename)
 {
   FILE *f = NULL;
 
   gchar *absolute_filename;
 
-  absolute_filename = gcompris_find_absolute_filename(filename);
+  absolute_filename = gc_file_find_absolute(filename);
 
   if (absolute_filename){
     f = fopen(absolute_filename, "r");
@@ -86,7 +86,7 @@ GcomprisAnimation *gcompris_load_animation(char *filename)
   return anim;
 }
 
-GcomprisAnimCanvasItem *gcompris_activate_animation(GnomeCanvasGroup *parent,
+GcomprisAnimCanvasItem *gc_anim_activate(GnomeCanvasGroup *parent,
                                                     GcomprisAnimation *anim)
 {
   GcomprisAnimCanvasItem *item = g_malloc(sizeof(GcomprisAnimCanvasItem));
@@ -108,13 +108,13 @@ GcomprisAnimCanvasItem *gcompris_activate_animation(GnomeCanvasGroup *parent,
   return item;
 }
 
-void gcompris_swap_animation(GcomprisAnimCanvasItem *item, GcomprisAnimation *new_anim)
+void gc_anim_swap(GcomprisAnimCanvasItem *item, GcomprisAnimation *new_anim)
 {
   item->anim = new_anim;
-  gcompris_set_anim_state(item, 0);
+  gc_anim_set_state(item, 0);
 }
 
-void gcompris_deactivate_animation(GcomprisAnimCanvasItem *item)
+void gc_anim_deactivate(GcomprisAnimCanvasItem *item)
 {
   GSList *node = g_slist_find( active, item );
   if( !node )
@@ -133,7 +133,7 @@ void gcompris_deactivate_animation(GcomprisAnimCanvasItem *item)
   g_free(item);
 }
 
-void gcompris_free_animation(GcomprisAnimation *anim)
+void gc_anim_free(GcomprisAnimation *anim)
 {
   int i;
   for(i=0; i<anim->numstates; i++)
@@ -143,7 +143,7 @@ void gcompris_free_animation(GcomprisAnimation *anim)
   g_free(anim);
 }
 
-void gcompris_set_anim_state(GcomprisAnimCanvasItem *item, int state)
+void gc_anim_set_state(GcomprisAnimCanvasItem *item, int state)
 {
   if(state < item->anim->numstates)
     {

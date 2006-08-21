@@ -164,7 +164,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       gcomprisBoard->maxlevel=6;
       gcomprisBoard->sublevel=1;
       gcomprisBoard->number_of_sublevel=1; /* Go to next level after this number of 'play' */
-      gcompris_bar_set(GCOMPRIS_BAR_OK|GCOMPRIS_BAR_LEVEL);
+      gc_bar_set(GC_BAR_OK|GC_BAR_LEVEL);
 
       superbrain_next_level();
 
@@ -230,7 +230,7 @@ static void superbrain_next_level()
   gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas),
 			  "images/superbrain_background.jpg");
 
-  gcompris_bar_set_level(gcomprisBoard);
+  gc_bar_set_level(gcomprisBoard);
 
   superbrain_destroy_all_items();
   gamewon = FALSE;

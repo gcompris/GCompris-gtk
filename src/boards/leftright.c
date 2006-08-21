@@ -136,7 +136,7 @@ static void pause_board (gboolean pause)
   if(gcomprisBoard==NULL)
     return;
 
-  gcompris_bar_hide(FALSE);
+  gc_bar_hide(FALSE);
   if(gamewon == TRUE && pause == FALSE) /* the game is won */
     game_won();
 
@@ -161,7 +161,7 @@ static void start_board (GcomprisBoard *agcomprisBoard) {
 
     gcomprisBoard->number_of_sublevel = NUMBER_OF_SUBLEVELS;
     gcompris_score_start(SCORESTYLE_NOTE, 10, 50, gcomprisBoard->number_of_sublevel);
-    gcompris_bar_set(GCOMPRIS_BAR_LEVEL);
+    gc_bar_set(GC_BAR_LEVEL);
 
     leftright_next_level();
 
@@ -211,7 +211,7 @@ static gboolean is_our_board (GcomprisBoard *gcomprisBoard) {
  * set initial values for the next level
  * =====================================================================*/
 static void leftright_next_level() {
-  gcompris_bar_set_level(gcomprisBoard);
+  gc_bar_set_level(gcomprisBoard);
 
   leftright_destroy_all_items();
   gamewon = FALSE;
@@ -248,7 +248,7 @@ static GnomeCanvasItem *leftright_create_item(GnomeCanvasGroup *parent) {
 							    "y", (double) 0,
 							    NULL));
 
-  highlight_pixmap = gcompris_load_pixmap("leftright/leftright-select.png");
+  highlight_pixmap = gc_pixmap_load("leftright/leftright-select.png");
 
   left_highlight_image_item = gnome_canvas_item_new (boardRootItem,
 						     gnome_canvas_pixbuf_get_type (),
@@ -328,7 +328,7 @@ static GnomeCanvasItem *leftright_create_item(GnomeCanvasGroup *parent) {
     answer = RIGHT;
 
   str = g_strdup_printf("%s/%s", gcomprisBoard->boarddir, hands[i]);
-  hand_pixmap = gcompris_load_pixmap(str);
+  hand_pixmap = gc_pixmap_load(str);
   hand_image_item = gnome_canvas_item_new (boardRootItem,
 					   gnome_canvas_pixbuf_get_type (),
 					   "pixbuf", hand_pixmap,
@@ -375,7 +375,7 @@ static gboolean process_ok_timeout() {
 }
 
 static void process_ok() {
-  gcompris_bar_hide(TRUE);
+  gc_bar_hide(TRUE);
   // leave time to display the right answer
   g_timeout_add(TIME_CLICK_TO_BONUS, process_ok_timeout, NULL);
 }

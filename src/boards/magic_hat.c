@@ -170,7 +170,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 	gcomprisBoard->maxlevel = 9;
 	gcomprisBoard->sublevel = 1;
 	gcomprisBoard->number_of_sublevel = 1;	// Go to next level after this number of 'play'
-	gcompris_bar_set(GCOMPRIS_BAR_LEVEL|GCOMPRIS_BAR_OK);
+	gc_bar_set(GC_BAR_LEVEL|GC_BAR_OK);
 
 	if (strcmp(gcomprisBoard->mode, "minus") == 0)
 		board_mode = MODE_MINUS;
@@ -263,7 +263,7 @@ static gboolean is_our_board (GcomprisBoard *gcomprisBoard) {
 /* set initial values for the next level */
 static void magic_hat_next_level() {
 
-  gcompris_bar_set_level(gcomprisBoard);
+  gc_bar_set_level(gcomprisBoard);
 
   magic_hat_destroy_all_items();
   gamewon = FALSE;
@@ -301,9 +301,9 @@ static GnomeCanvasItem *magic_hat_create_item()
 				     NULL));
 
   if (board_mode == MODE_MINUS)
-	pixmap = gcompris_load_pixmap("magic_hat/magic_hat_minus_bg.png");
+	pixmap = gc_pixmap_load("magic_hat/magic_hat_minus_bg.png");
   else
-	pixmap = gcompris_load_pixmap("magic_hat/magic_hat_plus_bg.png");
+	pixmap = gc_pixmap_load("magic_hat/magic_hat_plus_bg.png");
 
   gnome_canvas_item_new (boardRootItem,
 			 gnome_canvas_pixbuf_get_type(),
@@ -496,9 +496,9 @@ static void draw_hat(int type) {
   GdkPixbuf *image;
 
   if (type == STARS)
-	image = gcompris_load_pixmap("magic_hat/hat.png");
+	image = gc_pixmap_load("magic_hat/hat.png");
   else
-	image = gcompris_load_pixmap("magic_hat/hat-point.png");
+	image = gc_pixmap_load("magic_hat/hat-point.png");
 
   hat = gnome_canvas_item_new (boardRootItem,
 		gnome_canvas_pixbuf_get_type(),
@@ -516,7 +516,7 @@ static void draw_hat(int type) {
 
   if (type == STARS) {
 	 hat_event_id = gtk_signal_connect(GTK_OBJECT(hat), "event", (GtkSignalFunc) hat_event, NULL);
-	 gtk_signal_connect(GTK_OBJECT(hat), "event", (GtkSignalFunc) gcompris_item_event_focus, NULL);
+	 gtk_signal_connect(GTK_OBJECT(hat), "event", (GtkSignalFunc) gc_item_focus_event, NULL);
   }
 }
 
@@ -537,11 +537,11 @@ static void place_item(frame * my_frame, int type) {
   double x, y;
 
   GdkPixbuf *image_name[MAX_LIST];
-  GdkPixbuf *image_star_clear = gcompris_load_pixmap("magic_hat/star-clear.png");
+  GdkPixbuf *image_star_clear = gc_pixmap_load("magic_hat/star-clear.png");
 
-  image_name[0] = gcompris_load_pixmap("magic_hat/star1.png");
-  image_name[1] = gcompris_load_pixmap("magic_hat/star2.png");
-  image_name[2] = gcompris_load_pixmap("magic_hat/star3.png");
+  image_name[0] = gc_pixmap_load("magic_hat/star1.png");
+  image_name[1] = gc_pixmap_load("magic_hat/star2.png");
+  image_name[2] = gc_pixmap_load("magic_hat/star3.png");
 
   x = my_frame->coord_x;
   y = my_frame->coord_y;
@@ -621,7 +621,7 @@ static gint item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data) {
 		  frame_player.nb_stars[index / MAX_ITEM]--;
 		  frame_player.array_star_type[index / MAX_ITEM][index % MAX_ITEM] = -1;
 
-		  pixmap = gcompris_load_pixmap("magic_hat/star-clear.png");
+		  pixmap = gc_pixmap_load("magic_hat/star-clear.png");
 
 		  gnome_canvas_item_set(item, "pixbuf", pixmap, NULL);
 
@@ -636,9 +636,9 @@ static gint item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data) {
 
 		  switch(index / MAX_ITEM)
 		    {
-		    case 0: pixmap = gcompris_load_pixmap("magic_hat/star1.png"); break;
-		    case 1: pixmap = gcompris_load_pixmap("magic_hat/star2.png"); break;
-		    case 2: pixmap = gcompris_load_pixmap("magic_hat/star3.png"); break;
+		    case 0: pixmap = gc_pixmap_load("magic_hat/star1.png"); break;
+		    case 1: pixmap = gc_pixmap_load("magic_hat/star2.png"); break;
+		    case 2: pixmap = gc_pixmap_load("magic_hat/star3.png"); break;
 		    }
 		  gnome_canvas_item_set(item, "pixbuf", pixmap, NULL);
 
@@ -666,7 +666,7 @@ static gint hat_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data) {
 		gtk_signal_disconnect(GTK_OBJECT(hat), hat_event_id);
 
 		// 'open' the hat
-		item_rotate_with_center(hat, -20.0, 0, MH_HAT_HEIGHT);
+		gc_item_rotate_with_center(hat, -20.0, 0, MH_HAT_HEIGHT);
 
 		// Make the items move from/out the hat, depending on the mode
 		// Wait a few seconds between the two frames

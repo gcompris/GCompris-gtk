@@ -219,15 +219,15 @@ static void start_board (GcomprisBoard *agcomprisBoard) {
     if(!modeIs2D || modeIsInvisible) {
       pixmap = gcompris_load_skin_pixmap("maze-2d-bubble.png");
       if(pixmap) {
-	gcompris_bar_set_repeat_icon(pixmap);
+	gc_bar_set_repeat_icon(pixmap);
 	gdk_pixbuf_unref(pixmap);
-	gcompris_bar_set(GCOMPRIS_BAR_LEVEL|GCOMPRIS_BAR_REPEAT_ICON);
+	gc_bar_set(GC_BAR_LEVEL|GC_BAR_REPEAT_ICON);
       } else {
-	gcompris_bar_set(GCOMPRIS_BAR_LEVEL|GCOMPRIS_BAR_REPEAT);
+	gc_bar_set(GC_BAR_LEVEL|GC_BAR_REPEAT);
       }
     } else {
       /* 2D Regular mode */
-      gcompris_bar_set(GCOMPRIS_BAR_LEVEL);
+      gc_bar_set(GC_BAR_LEVEL);
     }
 
     gamewon = FALSE;
@@ -269,7 +269,7 @@ static void maze_next_level() {
   GdkPixbuf *pixmap = NULL;
 
   maze_destroy_all_items();
-  gcompris_bar_set_level(gcomprisBoard);
+  gc_bar_set_level(gcomprisBoard);
   setlevelproperties();
 
   mapActive = FALSE;
@@ -291,7 +291,7 @@ static void maze_next_level() {
   end=rand()%hoogte;
 
   /* Draw the tux */
-  pixmap = gcompris_load_pixmap("gcompris/misc/tux_top_east.png");
+  pixmap = gc_pixmap_load("gcompris/misc/tux_top_east.png");
   if(pixmap)
     {
       tuxitem = draw_image(mazegroup,0,begin,pixmap);
@@ -300,7 +300,7 @@ static void maze_next_level() {
     }
 
   /* Draw the target */
-  pixmap = gcompris_load_pixmap("gcompris/misc/door.png");
+  pixmap = gc_pixmap_load("gcompris/misc/door.png");
   if(pixmap)
     {
       GnomeCanvasItem *targetitem = draw_image(mazegroup,breedte-1,end,pixmap);
@@ -434,7 +434,7 @@ static void repeat () {
 
     pixmap = gcompris_load_skin_pixmap("maze-3d-bubble.png");
     if(pixmap) {
-      gcompris_bar_set_repeat_icon(pixmap);
+      gc_bar_set_repeat_icon(pixmap);
       gdk_pixbuf_unref(pixmap);
     }
     twoDdisplay();
@@ -445,7 +445,7 @@ static void repeat () {
 
     pixmap = gcompris_load_skin_pixmap("maze-2d-bubble.png");
     if(pixmap) {
-      gcompris_bar_set_repeat_icon(pixmap);
+      gc_bar_set_repeat_icon(pixmap);
       gdk_pixbuf_unref(pixmap);
     }
     gnome_canvas_item_hide(warning_item);
@@ -1405,16 +1405,16 @@ static void update_tux(gint direction)
   switch(direction)
     {
     case EAST:
-      pixmap = gcompris_load_pixmap("gcompris/misc/tux_top_east.png");
+      pixmap = gc_pixmap_load("gcompris/misc/tux_top_east.png");
       break;
     case WEST:
-      pixmap = gcompris_load_pixmap("gcompris/misc/tux_top_west.png");
+      pixmap = gc_pixmap_load("gcompris/misc/tux_top_west.png");
       break;
     case NORTH:
-      pixmap = gcompris_load_pixmap("gcompris/misc/tux_top_north.png");
+      pixmap = gc_pixmap_load("gcompris/misc/tux_top_north.png");
       break;
     case SOUTH:
-      pixmap = gcompris_load_pixmap("gcompris/misc/tux_top_south.png");
+      pixmap = gc_pixmap_load("gcompris/misc/tux_top_south.png");
       break;
     }
 

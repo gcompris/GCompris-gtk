@@ -147,7 +147,7 @@ Animation_init(py_GcomprisAnimation *self, PyObject *args, PyObject *key)
 
   if(file)
     {
-      self->a = gcompris_load_animation(file);
+      self->a = gc_anim_load(file);
     }
 
   if(!self->a)
@@ -162,7 +162,7 @@ static void Animation_free(py_GcomprisAnimation *self)
 {
   g_warning("*** Garbage collecting Animation ***\n");
   if( self->a)
-      gcompris_free_animation(self->a);
+      gc_anim_free(self->a);
   PyObject_DEL(self);
 }
 
@@ -191,7 +191,7 @@ AnimCanvas_init(py_GcomprisAnimCanvas *self, PyObject *args, PyObject *key)
 
   parent = (GnomeCanvasGroup*) pygobject_get(py_p);
   anim = ( (py_GcomprisAnimation*)py_a )->a;
-  item = (GcomprisAnimCanvasItem*) gcompris_activate_animation(parent, anim);
+  item = (GcomprisAnimCanvasItem*) gc_anim_activate(parent, anim);
   self->item = item;
   self->anim = py_a;
 
@@ -207,7 +207,7 @@ AnimCanvas_free(py_GcomprisAnimCanvas *self)
     {
       g_warning("You should really call destroy() on an AnimCanvas "
                 "instead of relying on the refcounter\n");
-      gcompris_deactivate_animation(self->item);
+      gc_anim_deactivate(self->item);
       Py_DECREF(self->anim);
     }
   PyObject_DEL(self);
@@ -234,7 +234,7 @@ py_gcompris_animcanvas_setstate(PyObject *self, PyObject *args)
   if(!PyArg_ParseTuple(args, "i:gcompris_animcanvas_setstate", &state))
     return NULL;
 
-  gcompris_set_anim_state( item, state );
+  gc_anim_set_state( item, state );
 
   Py_INCREF(Py_None);
   return Py_None;
@@ -253,7 +253,7 @@ py_gcompris_animcanvas_swapanim(PyObject *self, PyObject *args)
   if(!PyArg_ParseTuple(args, "O:AnimCanvas_swapAnim", (PyObject**)&new_anim))
     return NULL;
 
-  gcompris_swap_animation(item, new_anim->a);
+  gc_anim_swap(item, new_anim->a);
   Py_INCREF(new_anim);
   s->anim = (PyObject*)new_anim;
   Py_DECREF(old_anim);
@@ -269,7 +269,7 @@ py_gcompris_animcanvas_destroy(PyObject *self, PyObject *args)
 
   if(!s->item) THROW_INACTIVE_ANIMATION;
 
-  gcompris_deactivate_animation(s->item);
+  gc_anim_deactivate(s->item);
   Py_DECREF(s->anim);
   s->item = NULL;
   s->anim = NULL;

@@ -1,6 +1,6 @@
 /* gcompris - file_selector.c
  *
- * Time-stamp: <2006/08/13 17:25:46 bruno>
+ * Time-stamp: <2006/08/20 10:29:31 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -33,6 +33,7 @@
 #include <libxml/parser.h>
 
 #include "gcompris.h"
+#include "gc_core.h"
 
 #define SOUNDLISTFILE PACKAGE
 
@@ -116,7 +117,7 @@ static GHashTable* mimetypes_desc_hash = NULL; /* Mime type with the key being t
  * file_types is A Comma separated text explaining the different file types
  */
 
-void gcompris_file_selector_save (GcomprisBoard *gcomprisBoard, gchar *rootdir,
+void gc_selector_file_save (GcomprisBoard *gcomprisBoard, gchar *rootdir,
 				  gchar *file_types,
 				  FileSelectorCallBack iscb)
 {
@@ -124,7 +125,7 @@ void gcompris_file_selector_save (GcomprisBoard *gcomprisBoard, gchar *rootdir,
 			iscb);
 }
 
-void gcompris_file_selector_load (GcomprisBoard *gcomprisBoard, gchar *rootdir,
+void gc_selector_file_load (GcomprisBoard *gcomprisBoard, gchar *rootdir,
 				  gchar *file_types,
 				  FileSelectorCallBack iscb)
 {
@@ -136,7 +137,7 @@ void gcompris_file_selector_load (GcomprisBoard *gcomprisBoard, gchar *rootdir,
  * Remove the displayed file_selector.
  * Do nothing if none is currently being dislayed
  */
-void gcompris_file_selector_stop ()
+void gc_selector_file_stop ()
 {
   GcomprisBoard *gcomprisBoard = get_current_gcompris_board();
 
@@ -160,7 +161,7 @@ void gcompris_file_selector_stop ()
   }
   file_list = NULL;
 
-  gcompris_bar_hide(FALSE);
+  gc_bar_hide(FALSE);
   file_selector_displayed = FALSE;
 }
 
@@ -204,7 +205,7 @@ display_file_selector(int the_mode,
   if(rootitem)
     return 0;
 
-  gcompris_bar_hide(TRUE);
+  gc_bar_hide(TRUE);
 
   board_pause(TRUE);
 
@@ -324,7 +325,7 @@ display_file_selector(int the_mode,
 		     (GtkSignalFunc) item_event_file_selector,
 		     "/cancel/");
   gtk_signal_connect(GTK_OBJECT(item), "event",
-		     (GtkSignalFunc) gcompris_item_event_focus,
+		     (GtkSignalFunc) gc_item_focus_event,
 		     NULL);
 
   item2 = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
@@ -340,7 +341,7 @@ display_file_selector(int the_mode,
 		     (GtkSignalFunc) item_event_file_selector,
 		     "/cancel/");
   gtk_signal_connect(GTK_OBJECT(item2), "event",
-		     (GtkSignalFunc) gcompris_item_event_focus,
+		     (GtkSignalFunc) gc_item_focus_event,
 		     item);
 
   // OK
@@ -355,7 +356,7 @@ display_file_selector(int the_mode,
 		     (GtkSignalFunc) item_event_file_selector,
 		     "/ok/");
   gtk_signal_connect(GTK_OBJECT(item), "event",
-		     (GtkSignalFunc) gcompris_item_event_focus,
+		     (GtkSignalFunc) gc_item_focus_event,
 		     NULL);
 
   item2 = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
@@ -371,7 +372,7 @@ display_file_selector(int the_mode,
 		     (GtkSignalFunc) item_event_file_selector,
 		     "/ok/");
   gtk_signal_connect(GTK_OBJECT(item2), "event",
-		     (GtkSignalFunc) gcompris_item_event_focus,
+		     (GtkSignalFunc) gc_item_focus_event,
 		     item);
   gdk_pixbuf_unref(pixmap);
 
@@ -543,7 +544,7 @@ static void display_files(GnomeCanvasItem *root_item, gchar *rootdir)
 
 
     if(g_file_test(allfilename, G_FILE_TEST_IS_DIR)) {
-      pixmap_current  = gcompris_load_pixmap(gcompris_image_to_skin("directory.png"));
+      pixmap_current  = gc_pixmap_load(gcompris_image_to_skin("directory.png"));
     } else if(ext) {
       /* Need to find an icon for this extension */
       GcomprisMimeType *mimeType = NULL;
@@ -552,22 +553,22 @@ static void display_files(GnomeCanvasItem *root_item, gchar *rootdir)
       mimeType = (GcomprisMimeType *)(g_hash_table_lookup(mimetypes_ext_hash, ext));
       if(mimeType) {
 	if(mimeType->icon) {
-	  pixmap_current  = gcompris_load_pixmap(mimeType->icon);
+	  pixmap_current  = gc_pixmap_load(mimeType->icon);
 	  if(pixmap_current==NULL) {
 	    g_warning("Cannot find icon %s for mimetype %s", mimeType->icon, mimeType->description);
-	    pixmap_current  = gcompris_load_pixmap(gcompris_image_to_skin("file.png"));
+	    pixmap_current  = gc_pixmap_load(gcompris_image_to_skin("file.png"));
 	  } else {
 	    /* We can remove the extension now that we have an icon */
 	    *ext='\0';
 	  }
 	} else {
-	  pixmap_current  = gcompris_load_pixmap(gcompris_image_to_skin("file.png"));
+	  pixmap_current  = gc_pixmap_load(gcompris_image_to_skin("file.png"));
 	}
       } else {
-	pixmap_current  = gcompris_load_pixmap(gcompris_image_to_skin("file.png"));
+	pixmap_current  = gc_pixmap_load(gcompris_image_to_skin("file.png"));
       }
     } else {
-      pixmap_current  = gcompris_load_pixmap(gcompris_image_to_skin("file.png"));
+      pixmap_current  = gc_pixmap_load(gcompris_image_to_skin("file.png"));
     }
 
     item = gnome_canvas_item_new (gnome_canvas_root(canvas),
@@ -590,7 +591,7 @@ static void display_files(GnomeCanvasItem *root_item, gchar *rootdir)
 			 allfilename);
     }
     gtk_signal_connect(GTK_OBJECT(item), "event",
-		       (GtkSignalFunc) gcompris_item_event_focus,
+		       (GtkSignalFunc) gc_item_focus_event,
 		       NULL);
 
     g_signal_connect (item, "destroy",
@@ -770,9 +771,9 @@ item_event_file_selector(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 	  //	    g_free(result);
 	  //	  }
 	}
-	gcompris_file_selector_stop();
+	gc_selector_file_stop();
       } else if(!strcmp((char *)data, "/cancel/")) {
-	gcompris_file_selector_stop();
+	gc_selector_file_stop();
       } else {
 	gtk_entry_set_text(widget_entry, g_path_get_basename((gchar *)data));
       }
@@ -815,8 +816,8 @@ void parseMime (xmlDocPtr doc, xmlNodePtr xmlnode) {
     gchar *lang = (gchar *)xmlGetProp(xmlnode, BAD_CAST "lang");
     if (!strcmp((char *)xmlnode->name, "description")
 	&& (lang==NULL ||
-	    !strcmp(lang, gcompris_get_locale())
-	    || !strncmp(lang, gcompris_get_locale(), 2)))
+	    !strcmp(lang, gc_locale_get())
+	    || !strncmp(lang, gc_locale_get(), 2)))
       {
 	if(gcomprisMime->description)
 	  g_free(gcomprisMime->description);
@@ -911,13 +912,13 @@ gboolean load_mime_type_from_file(gchar *fname)
 }
 
 /**
- * gcompris_load_mime_types
+ * gc_mime_type_load
  * Load all the mime type in PACKAGE_DATA_DIR"/gcompris/mimetypes/ *.xml"
  *
  * Must be called once at GCompris startup.
  *
  */
-void gcompris_load_mime_types() 
+void gc_mime_type_load() 
 {
   const gchar  *one_dirent;
   GcomprisProperties *properties = gcompris_get_properties();
@@ -938,7 +939,7 @@ void gcompris_load_mime_types()
   dir = g_dir_open(mime_dir, 0, NULL);
 
   if (!dir) {
-    g_warning("gcompris_load_mime_types : no mime types found in %s", mime_dir);
+    g_warning("gc_mime_type_load : no mime types found in %s", mime_dir);
   } else {
 
     while((one_dirent = g_dir_read_name(dir)) != NULL) {
@@ -952,7 +953,7 @@ void gcompris_load_mime_types()
 	continue;
       }
 
-      if(selectMenuXML(one_dirent)) {
+      if(file_end_with_xml(one_dirent)) {
 	load_mime_type_from_file(filename);
       }
       g_free(filename);
@@ -961,12 +962,3 @@ void gcompris_load_mime_types()
   g_free(mime_dir);
   g_dir_close(dir);
 }
-
-
-/* Local Variables: */
-/* mode:c */
-/* eval:(load-library "time-stamp") */
-/* eval:(make-local-variable 'write-file-hooks) */
-/* eval:(add-hook 'write-file-hooks 'time-stamp) */
-/* eval:(setq time-stamp-format '(time-stamp-yyyy/mm/dd time-stamp-hh:mm:ss user-login-name)) */
-/* End: */

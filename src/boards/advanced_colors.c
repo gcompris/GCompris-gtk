@@ -117,7 +117,7 @@ static void pause_board (gboolean pause)
   if(gcomprisBoard==NULL)
     return;
 
-  gcompris_bar_hide(FALSE);
+  gc_bar_hide(FALSE);
   if(gamewon == TRUE && pause == FALSE) /* the game is won */
     game_won();
 
@@ -135,7 +135,7 @@ static void start_board (GcomprisBoard *agcomprisBoard) {
     gcomprisBoard->sublevel = 1;
     gcomprisBoard->number_of_sublevel = 8;
 
-    gcompris_bar_set(GCOMPRIS_BAR_LEVEL);
+    gc_bar_set(GC_BAR_LEVEL);
     gcompris_score_start(SCORESTYLE_NOTE,
 			 gcomprisBoard->width - 220,
 			 gcomprisBoard->height - 50,
@@ -206,7 +206,7 @@ static void colors_next_level() {
   gamewon = FALSE;
 
   gcompris_score_set(gcomprisBoard->sublevel);
-  gcompris_bar_set_level(gcomprisBoard);
+  gc_bar_set_level(gcomprisBoard);
 
   /* initialize board only once*/
   if (gcomprisBoard->sublevel == 1) {
@@ -272,7 +272,7 @@ static GnomeCanvasItem *colors_create_item(GnomeCanvasGroup *parent) {
 							    NULL));
 
   str = g_strdup_printf("%s/%s", gcomprisBoard->boarddir, "advanced_colors_highlight.png");
-  highlight_pixmap = gcompris_load_pixmap(str);
+  highlight_pixmap = gc_pixmap_load(str);
 
   highlight_image_item = gnome_canvas_item_new (boardRootItem,
 						gnome_canvas_pixbuf_get_type (),
@@ -296,7 +296,7 @@ static GnomeCanvasItem *colors_create_item(GnomeCanvasGroup *parent) {
 
   /* setup the clock */
   str = g_strdup_printf("%s%d.png", "gcompris/timers/clock",errors);
-  clock_pixmap = gcompris_load_pixmap(str);
+  clock_pixmap = gc_pixmap_load(str);
 
   clock_image_item = gnome_canvas_item_new (boardRootItem,
 					    gnome_canvas_pixbuf_get_type (),
@@ -355,7 +355,7 @@ static gboolean ok_timeout() {
 }
 
 static void ok() {
-  gcompris_bar_hide(TRUE);
+  gc_bar_hide(TRUE);
   // leave time to display the right answer
   g_timeout_add(TIME_CLICK_TO_BONUS, ok_timeout, NULL);
 }
@@ -407,7 +407,7 @@ static void update_clock() {
 
   gtk_object_destroy (GTK_OBJECT(clock_image_item));
 
-  clock_pixmap = gcompris_load_pixmap(str);
+  clock_pixmap = gc_pixmap_load(str);
 
   clock_image_item = gnome_canvas_item_new (boardRootItem,
 					    gnome_canvas_pixbuf_get_type (),
@@ -437,7 +437,7 @@ static void highlight_selected(int c) {
   x -= highlight_width/2;
   y -= highlight_height;
   gnome_canvas_item_show(highlight_image_item);
-  item_absolute_move(highlight_image_item, x, y);
+  gc_item_absolute_move(highlight_image_item, x, y);
 }
 
 /* ===================================
@@ -488,9 +488,9 @@ static void add_xml_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child)
 	  text = (char *)xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 1);
 	  colors[i] = text;
 	} else { // get correct language
-	  if ( !strncmp(lang, gcompris_get_locale(), strlen(lang)) ) {
+	  if ( !strncmp(lang, gc_locale_get(), strlen(lang)) ) {
 	    text = (char *)xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 1);
-	    g_warning("color prop::lang=%s locale=%s text=%s\n", lang, gcompris_get_locale(), text);
+	    g_warning("color prop::lang=%s locale=%s text=%s\n", lang, gc_locale_get(), text);
 	    colors[i] = text;
 	  }
 	}

@@ -149,7 +149,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       /* set initial values for this level */
       gcomprisBoard->level = 1;
       gcomprisBoard->maxlevel = 2;
-      gcompris_bar_set(GCOMPRIS_BAR_LEVEL);
+      gc_bar_set(GC_BAR_LEVEL);
 
       planegame_next_level();
 
@@ -260,7 +260,7 @@ static void planegame_next_level()
 {
   GdkPixbuf *pixmap = NULL;
 
-  gcompris_bar_set_level(gcomprisBoard);
+  gc_bar_set_level(gcomprisBoard);
 
   planegame_destroy_all_items();
 
@@ -273,7 +273,7 @@ static void planegame_next_level()
   /* Setup and Display the plane */
   planespeed_y = 0;
   planespeed_x = 0;
-  pixmap = gcompris_load_pixmap("gcompris/misc/tuxhelico.png");
+  pixmap = gc_pixmap_load("gcompris/misc/tuxhelico.png");
   plane_x = 50;
   plane_y = 300;
   planeitem = gnome_canvas_item_new (gnome_canvas_root(gcomprisBoard->canvas),
@@ -481,7 +481,7 @@ static GnomeCanvasItem *planegame_create_item(GnomeCanvasGroup *parent)
     }
   number = g_strdup_printf("%d", i);
 
-  pixmap = gcompris_load_pixmap("gcompris/misc/cloud.png");
+  pixmap = gc_pixmap_load("gcompris/misc/cloud.png");
 
   itemgroup = \
     gnome_canvas_item_new (parent,

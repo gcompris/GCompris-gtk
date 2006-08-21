@@ -1,6 +1,6 @@
 /* gcompris - help.c
  *
- * Time-stamp: <2006/08/15 03:55:26 bruno>
+ * Time-stamp: <2006/08/20 23:37:50 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -26,6 +26,7 @@
 #include <string.h>
 
 #include "gcompris.h"
+#include "gc_core.h"
 
 #if defined _WIN32 || defined __WIN32__
 # undef WIN32   /* avoid warning on mingw32 */
@@ -73,7 +74,7 @@ static GtkTextBuffer   *buffer_content;
  * Return true wether the given board has at least one help field defined
  *
  */
-gboolean gcompris_board_has_help (GcomprisBoard *gcomprisBoard)
+gboolean gc_help_has_board (GcomprisBoard *gcomprisBoard)
 {
 
   prerequisite	= gcomprisBoard->prerequisite;
@@ -87,7 +88,7 @@ gboolean gcompris_board_has_help (GcomprisBoard *gcomprisBoard)
  * Do all the help display and register the events
  */
 
-void gcompris_help_start (GcomprisBoard *gcomprisBoard)
+void gc_help_start (GcomprisBoard *gcomprisBoard)
 {
 
   GdkPixbuf   *pixmap = NULL;
@@ -107,7 +108,7 @@ void gcompris_help_start (GcomprisBoard *gcomprisBoard)
   item_selected_text = NULL;
 
   name = gcomprisBoard->title;
-  gcompris_board_has_help(gcomprisBoard);
+  gc_help_has_board(gcomprisBoard);
 
   rootitem = \
     gnome_canvas_item_new (gnome_canvas_root(gcompris_get_canvas()),
@@ -372,7 +373,7 @@ void gcompris_help_start (GcomprisBoard *gcomprisBoard)
 		     (GtkSignalFunc) item_event_help,
 		     "ok");
   gtk_signal_connect(GTK_OBJECT(item), "event",
-		     (GtkSignalFunc) gcompris_item_event_focus,
+		     (GtkSignalFunc) gc_item_focus_event,
 		     NULL);
 
   gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
@@ -399,11 +400,11 @@ void gcompris_help_start (GcomprisBoard *gcomprisBoard)
 		     (GtkSignalFunc) item_event_help,
 		     "ok");
   gtk_signal_connect(GTK_OBJECT(item2), "event",
-		     (GtkSignalFunc) gcompris_item_event_focus,
+		     (GtkSignalFunc) gc_item_focus_event,
 		     item);
   gdk_pixbuf_unref(pixmap);
 
-  gcompris_bar_hide(TRUE);
+  gc_bar_hide(TRUE);
 
   help_displayed = TRUE;
 }
@@ -412,7 +413,7 @@ void gcompris_help_start (GcomprisBoard *gcomprisBoard)
  * Remove the displayed help.
  * Do nothing if none is currently being dislayed
  */
-void gcompris_help_stop ()
+void gc_help_stop ()
 {
   if(help_displayed)
     {
@@ -425,7 +426,7 @@ void gcompris_help_stop ()
       board_pause(FALSE);
     }
 
-  gcompris_bar_hide(FALSE);
+  gc_bar_hide(FALSE);
   help_displayed = FALSE;
 }
 
@@ -490,7 +491,7 @@ item_event_help(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
     case GDK_BUTTON_PRESS:
       if(!strcmp((char *)data, "ok"))
 	{
-	  gcompris_help_stop();
+	  gc_help_stop();
 	}      
       else if(!strcmp((char *)data, "prerequisite"))
 	{

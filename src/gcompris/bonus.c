@@ -96,12 +96,12 @@ void end_board_finished() {
 
   board_finished_running = FALSE;
   
-  gcompris_bar_hide(FALSE);
+  gc_bar_hide(FALSE);
 
   // go back to previous board layout
   if (get_current_board_plugin()->end_board)
     get_current_board_plugin()->end_board();
-  gcompris_end_board();
+  gc_board_end();
 }
 /* ==================================== */
 #define OFFSET 100
@@ -112,7 +112,7 @@ void board_finished(BoardFinishedList type) {
   GdkPixbuf *pixmap_door1 = NULL,*pixmap_door2 = NULL,*pixmap_tuxplane = NULL;
   char * str = NULL;
 
-  gcompris_bar_hide(TRUE);
+  gc_bar_hide(TRUE);
 
   if (board_finished_running)
     return;
@@ -127,7 +127,7 @@ void board_finished(BoardFinishedList type) {
     type = RAND(1,BOARD_FINISHED_LAST-1);
 
   /* Record the end of board */
-  gcompris_log_end (gcomprisBoard, GCOMPRIS_LOG_STATUS_COMPLETED);
+  gc_log_end (gcomprisBoard, GCOMPRIS_LOG_STATUS_COMPLETED);
 
   switch (type) {
 	case BOARD_FINISHED_TUXPLANE :
@@ -144,9 +144,9 @@ void board_finished(BoardFinishedList type) {
 		break;
   }
 
-  pixmap_door1 = gcompris_load_pixmap("gcompris/misc/door1.png");
-  pixmap_door2 = gcompris_load_pixmap("gcompris/misc/door2.png");
-  pixmap_tuxplane = gcompris_load_pixmap(str);
+  pixmap_door1 = gc_pixmap_load("gcompris/misc/door1.png");
+  pixmap_door2 = gc_pixmap_load("gcompris/misc/door2.png");
+  pixmap_tuxplane = gc_pixmap_load(str);
   g_free(str);
 
   g_assert(gcomprisBoard != NULL);
@@ -205,7 +205,7 @@ void gcompris_display_bonus(BonusStatusList gamewon, BonusList bonus_id)
 {
   gchar *absolute_file;
 
-  gcompris_bar_hide(TRUE);
+  gc_bar_hide(TRUE);
 
   if (bonus_display_running)
     return;
@@ -213,7 +213,7 @@ void gcompris_display_bonus(BonusStatusList gamewon, BonusList bonus_id)
     bonus_display_running = TRUE;
   
   if(gamewon == BOARD_WIN || gamewon == BOARD_DRAW) {
-    absolute_file = gcompris_find_absolute_filename(greetingsList[RAND(0, NUMBER_OF_GREETINGS-1)]);
+    absolute_file = gc_file_find_absolute(greetingsList[RAND(0, NUMBER_OF_GREETINGS-1)]);
 
     if (absolute_file)
       {
@@ -224,7 +224,7 @@ void gcompris_display_bonus(BonusStatusList gamewon, BonusList bonus_id)
       gcompris_play_ogg("sounds/wahoo.ogg", NULL);
 
   } else {
-    absolute_file = gcompris_find_absolute_filename(loosingList[RAND(0, NUMBER_OF_LOOSING-1)]);
+    absolute_file = gc_file_find_absolute(loosingList[RAND(0, NUMBER_OF_LOOSING-1)]);
 
     if (absolute_file)
       {
@@ -279,12 +279,12 @@ void bonus_image(char *image, BonusStatusList gamewon)
   case BOARD_WIN :
     str = g_strdup_printf("%s%s%s", "gcompris/bonus/",image,"_good.png");
     /* Record the end of board */
-    gcompris_log_end (gcomprisBoard, GCOMPRIS_LOG_STATUS_PASSED);
+    gc_log_end (gcomprisBoard, GCOMPRIS_LOG_STATUS_PASSED);
     break;
   case BOARD_LOOSE :
     str = g_strdup_printf("%s%s%s", "gcompris/bonus/",image,"_bad.png");
     /* Record the end of board */
-    gcompris_log_end (gcomprisBoard, GCOMPRIS_LOG_STATUS_FAILED);
+    gc_log_end (gcomprisBoard, GCOMPRIS_LOG_STATUS_FAILED);
     break;
   case BOARD_DRAW :
     /* We do not have draw image so a text message is displayed bellow under the
@@ -292,16 +292,16 @@ void bonus_image(char *image, BonusStatusList gamewon)
      */
     str = g_strdup_printf("%s%s%s", "gcompris/bonus/",image,"_good.png");
     /* Record the end of board */
-    gcompris_log_end (gcomprisBoard, GCOMPRIS_LOG_STATUS_DRAW);
+    gc_log_end (gcomprisBoard, GCOMPRIS_LOG_STATUS_DRAW);
     break;
   }
 
   /* Log the board start again*/
-  gcompris_log_start(gcomprisBoard);
+  gc_log_start(gcomprisBoard);
 
   g_assert(gcomprisBoard != NULL);
 
-  pixmap = gcompris_load_pixmap(str);
+  pixmap = gc_pixmap_load(str);
 
   bonus_group = (GnomeCanvasGroup *) \
     gnome_canvas_item_new (gnome_canvas_root(gcomprisBoard->canvas),
@@ -365,7 +365,7 @@ void end_bonus()
   bonus_group = NULL;
   bonus_display_running = FALSE;
 
-  gcompris_bar_hide(FALSE);
+  gc_bar_hide(FALSE);
 
   /* Re-Start the board */
   board_pause(FALSE);

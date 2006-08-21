@@ -259,7 +259,7 @@ static gboolean sounds_are_fine()
 
   if(!properties->fx)
     {
-      gcompris_dialog(_("Error: this activity cannot be played with the\nsound effects disabled.\nGo to the configuration dialog to\nenable the sound"), board_stop);
+      gc_dialog(_("Error: this activity cannot be played with the\nsound effects disabled.\nGo to the configuration dialog to\nenable the sound"), board_stop);
       return(NOT_OK);
     }
 
@@ -272,30 +272,30 @@ static gboolean sounds_are_fine()
   letter_str = gcompris_alphabet_sound(letter);
   g_free(letter);
 
-  str2 = gcompris_find_absolute_filename("sounds/$LOCALE/alphabet/%s", letter_str);
+  str2 = gc_file_find_absolute("sounds/$LOCALE/alphabet/%s", letter_str);
   
   if (!str2)
     {
       gchar *locale = NULL;
 
-      locale = g_strndup(gcompris_get_locale(), 2);
+      locale = g_strndup(gc_locale_get(), 2);
       gcompris_reset_locale();
       gcompris_change_locale("en_US");
 
-      str2 = gcompris_find_absolute_filename("sounds/en/alphabet/%s", letter_str);
+      str2 = gc_file_find_absolute("sounds/en/alphabet/%s", letter_str);
 
       if (!str2)
 	{
 	  gchar *msg = g_strdup_printf( _("Error: this activity requires that you first install\nthe packages with gcompris voices for the locale '%s' or '%s'"),
 					locale, "en");
-	  gcompris_dialog(msg, board_stop);
+	  gc_dialog(msg, board_stop);
 	  g_free(msg);
 	  return (NOT_OK);
 	}
       else
 	{
 	  gchar *msg = g_strdup_printf( _("Error: this activity requires that you first install\nthe packages with GCompris voices for the locale '%s' ! Fallback to english, sorry!"), locale);
-	  gcompris_dialog(msg, click_on_letter_next_level);
+	  gc_dialog(msg, click_on_letter_next_level);
 	  g_free(msg);
 	  g_free(str2);
 	  return(OK_NO_INIT);
@@ -316,9 +316,9 @@ static void
 click_on_letter_next_level()
 {
   /* It must be set it for the warning dialogs */
-  gcompris_bar_set(GCOMPRIS_BAR_CONFIG|GCOMPRIS_BAR_LEVEL|GCOMPRIS_BAR_REPEAT);
+  gc_bar_set(GC_BAR_CONFIG|GC_BAR_LEVEL|GC_BAR_REPEAT);
 
-  gcompris_bar_set_level(gcomprisBoard);
+  gc_bar_set_level(gcomprisBoard);
 
   click_on_letter_destroy_all_items();
   gamewon = FALSE;
@@ -405,7 +405,7 @@ static GnomeCanvasItem *click_on_letter_create_item(GnomeCanvasGroup *parent)
 							    NULL));
 
 
-  button_pixmap = gcompris_load_pixmap("images/wagon-yellow.png");
+  button_pixmap = gc_pixmap_load("images/wagon-yellow.png");
 
   yOffset = VERTICAL_SEPARATION;
   xOffset = 5;
@@ -435,7 +435,7 @@ static GnomeCanvasItem *click_on_letter_create_item(GnomeCanvasGroup *parent)
 
     gtk_signal_connect(GTK_OBJECT(l_items[i]), "event", (GtkSignalFunc) item_event, GINT_TO_POINTER(i));
     gtk_signal_connect(GTK_OBJECT(buttons[i]), "event",  (GtkSignalFunc) item_event, GINT_TO_POINTER(i));
-    //  gtk_signal_connect(GTK_OBJECT(buttons[i]), "event", (GtkSignalFunc) gcompris_item_event_focus, NULL);
+    //  gtk_signal_connect(GTK_OBJECT(buttons[i]), "event", (GtkSignalFunc) gc_item_focus_event, NULL);
   }
 
 
@@ -519,7 +519,7 @@ static void highlight_selected(GnomeCanvasItem * item) {
   }
 
   if (selected_button != NULL && selected_button != button) {
-    button_pixmap = gcompris_load_pixmap("images/wagon-yellow.png");
+    button_pixmap = gc_pixmap_load("images/wagon-yellow.png");
     /* Warning changing the image needs to update pixbuf_ref for the focus usage */
     g_object_set_data (G_OBJECT (selected_button), "pixbuf_ref", button_pixmap);
     gnome_canvas_item_set(selected_button, "pixbuf", button_pixmap, NULL);
@@ -527,7 +527,7 @@ static void highlight_selected(GnomeCanvasItem * item) {
   }
 
   if (selected_button != button) {
-    button_pixmap_selected = gcompris_load_pixmap("images/wagon-green.png");
+    button_pixmap_selected = gc_pixmap_load("images/wagon-green.png");
     /* Warning changing the image needs to update pixbuf_ref for the focus usage */
     g_object_set_data (G_OBJECT (button), "pixbuf_ref", button_pixmap_selected);
     gnome_canvas_item_set(button, "pixbuf", button_pixmap_selected, NULL);

@@ -67,7 +67,7 @@ void gcompris_db_save_user(int *user_id,
 
 GList *gcompris_db_read_board_from_section(gchar *section);
 
-GList *gcompris_load_menus_db(GList *boards);
+GList *gc_menu_load_db(GList *boards);
 
 GList *gcompris_db_get_board_id(GList *list);
 

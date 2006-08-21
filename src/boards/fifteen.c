@@ -109,7 +109,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       gcomprisBoard->maxlevel=6;
       gcomprisBoard->sublevel=1;
       gcomprisBoard->number_of_sublevel=1; /* Go to next level after this number of 'play' */
-      gcompris_bar_set(GCOMPRIS_BAR_LEVEL);
+      gc_bar_set(GC_BAR_LEVEL);
 
       fifteen_next_level();
 
@@ -167,7 +167,7 @@ static void fifteen_next_level()
 			  img);
   g_free(img);
 
-  gcompris_bar_set_level(gcomprisBoard);
+  gc_bar_set_level(gcomprisBoard);
 
   fifteen_destroy_all_items();
   gamewon = FALSE;
@@ -204,7 +204,7 @@ static GnomeCanvasItem *fifteen_create_item(GnomeCanvasGroup *parent)
 							    NULL));
 
   /* Load the cute frame */
-  pixmap = gcompris_load_pixmap("images/fifteen_frame.png");
+  pixmap = gc_pixmap_load("images/fifteen_frame.png");
 
   gnome_canvas_item_new (boardRootItem,
 			 gnome_canvas_pixbuf_get_type (),

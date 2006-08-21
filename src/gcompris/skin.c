@@ -97,7 +97,7 @@ GdkPixbuf *gcompris_load_skin_pixmap(char *pixmapfile)
 
   filename = gcompris_image_to_skin(pixmapfile);
 
-  result_pixbuf = gcompris_load_pixmap (filename);
+  result_pixbuf = gc_pixmap_load (filename);
   
   g_free(filename);
   
@@ -255,7 +255,7 @@ static void skin_xml_load (gchar* skin)
   g_return_if_fail(skin!=NULL);
   
   xmlfilename = \
-    gcompris_find_absolute_filename("skins/%s/skin.xml",
+    gc_file_find_absolute("skins/%s/skin.xml",
 				    skin,
 				    NULL);
 

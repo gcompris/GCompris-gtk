@@ -140,7 +140,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       gcomprisBoard->level=1;
       gcomprisBoard->sublevel=1;
       gcomprisBoard->number_of_sublevel=10; /* Go to next level after this number of 'play' */
-      gcompris_bar_set(GCOMPRIS_BAR_LEVEL|GCOMPRIS_BAR_OK);
+      gc_bar_set(GC_BAR_LEVEL|GC_BAR_OK);
 
       /* Default mode */
       if(!gcomprisBoard->mode)
@@ -214,7 +214,7 @@ static void money_next_level()
 			  img);
   g_free(img);
 
-  gcompris_bar_set_level(gcomprisBoard);
+  gc_bar_set_level(gcomprisBoard);
 
   money_destroy_all_items();
   gamewon = FALSE;
@@ -473,7 +473,7 @@ static void money_next_level()
     double object_price;
     gchar *text;
 
-    pixmap = gcompris_load_pixmap(imageList[RAND(0, NUMBER_OF_IMAGES-1)]);
+    pixmap = gc_pixmap_load(imageList[RAND(0, NUMBER_OF_IMAGES-1)]);
 
     gnome_canvas_item_new ( boardRootItem,
 			    gnome_canvas_pixbuf_get_type (),

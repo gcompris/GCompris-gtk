@@ -272,7 +272,7 @@ static void* thread_play_ogg (gchar *file)
 
   g_warning("  Thread_play_ogg %s", file);
 
-  absolute_file = gcompris_find_absolute_filename(file);
+  absolute_file = gc_file_find_absolute(file);
 
   if (!absolute_file)
     return NULL;

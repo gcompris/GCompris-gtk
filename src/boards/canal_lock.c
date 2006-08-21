@@ -170,7 +170,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 
       canal_lock_next_level();
 
-      gcompris_bar_set(0);
+      gc_bar_set(0);
 
       animation = FALSE;
 
@@ -232,7 +232,7 @@ static void canal_lock_next_level()
   gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas),
 			  "canal_lock/canal_lock_bg.png");
 
-  gcompris_bar_set_level(gcomprisBoard);
+  gc_bar_set_level(gcomprisBoard);
 
   canal_lock_destroy_all_items();
   gamewon = FALSE;
@@ -272,7 +272,7 @@ static GnomeCanvasItem *canal_lock_create_item(GnomeCanvasGroup *parent)
 							    NULL));
 
   /* The boat */
-  pixmap = gcompris_load_pixmap("gcompris/misc/tuxboat.png");
+  pixmap = gc_pixmap_load("gcompris/misc/tuxboat.png");
 
   tuxboat_item = gnome_canvas_item_new (boardRootItem,
 					gnome_canvas_pixbuf_get_type (),
@@ -284,7 +284,7 @@ static GnomeCanvasItem *canal_lock_create_item(GnomeCanvasGroup *parent)
 		     (GtkSignalFunc) item_event,
 		     NULL);
   gtk_signal_connect(GTK_OBJECT(tuxboat_item), "event",
-		     (GtkSignalFunc) gcompris_item_event_focus,
+		     (GtkSignalFunc) gc_item_focus_event,
 		     NULL);
   tuxboat_width = gdk_pixbuf_get_width(pixmap);
 

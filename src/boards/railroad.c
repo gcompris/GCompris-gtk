@@ -152,14 +152,14 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 
       for (i=0; i<ENGINES; i++) {
       	str = g_strdup_printf("railroad/loco%d.png", i+1);
-	pixmap = gcompris_load_pixmap(str);
+	pixmap = gc_pixmap_load(str);
 	listPixmapEngines = g_list_append(listPixmapEngines, pixmap);
 	g_free(str);
       }
 
       for (i=0; i<WAGONS; i++) {
       	str = g_strdup_printf("railroad/wagon%d.png", i+1);
-	pixmap = gcompris_load_pixmap(str);
+	pixmap = gc_pixmap_load(str);
 	listPixmapWagons = g_list_append(listPixmapWagons, pixmap);
 	g_free(str);
       }
@@ -176,14 +176,14 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 
 
       str = gcompris_image_to_skin("button_reload.png");
-      pixmap = gcompris_load_pixmap(str);
+      pixmap = gc_pixmap_load(str);
       g_free(str);
       if(pixmap) {
-	gcompris_bar_set_repeat_icon(pixmap);
+	gc_bar_set_repeat_icon(pixmap);
 	gdk_pixbuf_unref(pixmap);
-	gcompris_bar_set(GCOMPRIS_BAR_LEVEL|GCOMPRIS_BAR_OK|GCOMPRIS_BAR_REPEAT_ICON);
+	gc_bar_set(GC_BAR_LEVEL|GC_BAR_OK|GC_BAR_REPEAT_ICON);
       } else {
-	gcompris_bar_set(GCOMPRIS_BAR_LEVEL|GCOMPRIS_BAR_OK|GCOMPRIS_BAR_REPEAT);
+	gc_bar_set(GC_BAR_LEVEL|GC_BAR_OK|GC_BAR_REPEAT);
       }
 
       railroad_next_level();
@@ -267,7 +267,7 @@ static void repeat ()
 /* set initial values for the next level */
 static void railroad_next_level()
 {
-  gcompris_bar_set_level(gcomprisBoard);
+  gc_bar_set_level(gcomprisBoard);
 
   reset_all_lists();
   // I have big troubles with the GList API : the worst I have ever seen !

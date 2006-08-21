@@ -271,7 +271,7 @@ money_widget_add (Money_Widget *moneyWidget, MoneyEuroType value)
   block_width  = (moneyWidget->priv->x2 - moneyWidget->priv->x1) / moneyWidget->priv->columns;
   block_height = (moneyWidget->priv->y2 - moneyWidget->priv->y1) / moneyWidget->priv->lines;
 
-  pixmap = gcompris_load_pixmap((gchar *)euroList[value].image);
+  pixmap = gc_pixmap_load((gchar *)euroList[value].image);
 
   xratio =  block_width  / (gdk_pixbuf_get_width (pixmap) + BORDER_GAP);
   yratio =  block_height / (gdk_pixbuf_get_height(pixmap) + BORDER_GAP);

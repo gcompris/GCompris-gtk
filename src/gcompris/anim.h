@@ -39,13 +39,13 @@ typedef struct {
   int state;
 } GcomprisAnimCanvasItem;
 
-GcomprisAnimation *gcompris_load_animation(char *filename);
+GcomprisAnimation *gc_anim_load(char *filename);
 
-GcomprisAnimCanvasItem *gcompris_activate_animation(GnomeCanvasGroup *parent,
+GcomprisAnimCanvasItem *gc_anim_activate(GnomeCanvasGroup *parent,
                                                     GcomprisAnimation*);
-void gcompris_set_anim_state(GcomprisAnimCanvasItem*, int);
-void gcompris_deactivate_animation(GcomprisAnimCanvasItem*);
-void gcompris_free_animation(GcomprisAnimation*);
-void gcompris_swap_animation(GcomprisAnimCanvasItem *item, GcomprisAnimation *new_anim);
+void gc_anim_set_state(GcomprisAnimCanvasItem*, int);
+void gc_anim_deactivate(GcomprisAnimCanvasItem*);
+void gc_anim_free(GcomprisAnimation*);
+void gc_anim_swap(GcomprisAnimCanvasItem *item, GcomprisAnimation *new_anim);
 
 #endif

@@ -138,7 +138,7 @@ static void pause_board (gboolean pause)
   if(gcomprisBoard==NULL)
     return;
 
-  gcompris_bar_hide(FALSE);
+  gc_bar_hide(FALSE);
 
   if(gamewon == TRUE && pause == FALSE) /* the game is won */
     {
@@ -176,7 +176,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 			   50,
 			   gcomprisBoard->height - 50,
 			   gcomprisBoard->number_of_sublevel);
-      gcompris_bar_set(GCOMPRIS_BAR_CONFIG | GCOMPRIS_BAR_LEVEL);
+      gc_bar_set(GC_BAR_CONFIG | GC_BAR_LEVEL);
 
       missing_letter_next_level();
 
@@ -234,7 +234,7 @@ is_our_board (GcomprisBoard *gcomprisBoard)
 /* set initial values for the next level */
 static void missing_letter_next_level()
 {
-  gcompris_bar_set_level(gcomprisBoard);
+  gc_bar_set_level(gcomprisBoard);
 
   missing_letter_destroy_all_items();
   selected_button = NULL;
@@ -294,7 +294,7 @@ static GnomeCanvasItem *missing_letter_create_item(GnomeCanvasGroup *parent)
   board = g_list_nth_data(board_list, board_number);
   assert(board != NULL);
   str = g_strdup_printf("%s/%s", "imageid"/*gcomprisBoard->boarddir*/, board->pixmapfile);
-  pixmap = gcompris_load_pixmap(str);
+  pixmap = gc_pixmap_load(str);
 
   yOffset = (gcomprisBoard->height - gdk_pixbuf_get_height(button_pixmap) - gdk_pixbuf_get_height(pixmap) - 2*VERTICAL_SEPARATION)/2;
 
@@ -473,7 +473,7 @@ static void process_ok() {
     gnome_canvas_item_set(text_s, "text", board->answer, NULL);
   }
   // leave time to display the right answer
-  gcompris_bar_hide(TRUE);
+  gc_bar_hide(TRUE);
   g_timeout_add(TIME_CLICK_TO_BONUS, process_ok_timeout, NULL);
 }
 
@@ -602,14 +602,14 @@ static void add_xml_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child)
 	  {
 	    data = (gchar *)xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 1);
 	  }
-	else if(!strncmp(gcompris_get_locale(), lang, 5))
+	else if(!strncmp(gc_locale_get(), lang, 5))
 	  {
 	    if(data) free(data);
 	    data = (char *)xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 1);
 	    /* That's the perfect choice, do not continue or we may override it */
 	    found = TRUE;
 	  }
-	else if(!strncmp(gcompris_get_locale(), lang, strlen(lang)))
+	else if(!strncmp(gc_locale_get(), lang, strlen(lang)))
 	  {
 	    if(data) free(data);
 	    data = (gchar *)xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 1);

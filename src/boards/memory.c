@@ -693,7 +693,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 
       gcomprisBoard->level = 1;
       gcomprisBoard->maxlevel = 9;
-      gcompris_bar_set(GCOMPRIS_BAR_LEVEL);
+      gc_bar_set(GC_BAR_LEVEL);
 
       /* Default mode */
       
@@ -824,7 +824,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 	  base_x1_tux = BASE_SOUND_X1_TUX;
 
 	  if(!properties->fx) {
-	    gcompris_dialog(_("Error: this activity cannot be played with the\nsound effects disabled.\nGo to the configuration dialog to\nenable the sound"), board_stop);
+	    gc_dialog(_("Error: this activity cannot be played with the\nsound effects disabled.\nGo to the configuration dialog to\nenable the sound"), board_stop);
 	    return;
 	  }
 
@@ -966,7 +966,7 @@ static void update_scores()
 /* set initial values for the next level */
 static void memory_next_level() 
 {
-  gcompris_bar_set_level(gcomprisBoard);
+  gc_bar_set_level(gcomprisBoard);
   
   memory_destroy_all_items();
 
@@ -1203,7 +1203,7 @@ static void create_item(GnomeCanvasGroup *parent)
 
 
   if (currentUiMode == UIMODE_SOUND) {
-    GdkPixbuf *pixmap =  gcompris_load_pixmap("images/transparent_square2.png");
+    GdkPixbuf *pixmap =  gc_pixmap_load("images/transparent_square2.png");
     gnome_canvas_item_new (GNOME_CANVAS_GROUP(parent),
 			   gnome_canvas_pixbuf_get_type (),
 			   "pixbuf", pixmap, 
@@ -1214,7 +1214,7 @@ static void create_item(GnomeCanvasGroup *parent)
   }
 
   if (currentMode == MODE_TUX){
-    GdkPixbuf *pixmap_tux =  gcompris_load_pixmap("images/tux-teacher.png");
+    GdkPixbuf *pixmap_tux =  gc_pixmap_load("images/tux-teacher.png");
 
     tux = gnome_canvas_item_new (GNOME_CANVAS_GROUP(parent),
 				 gnome_canvas_pixbuf_get_type (),
@@ -1275,9 +1275,9 @@ static void create_item(GnomeCanvasGroup *parent)
 				   NULL);
 
 	  if (currentUiMode == UIMODE_SOUND)
-	    pixmap = gcompris_load_pixmap("gcompris/misc/Tux_mute.png");
+	    pixmap = gc_pixmap_load("gcompris/misc/Tux_mute.png");
 	  else
-	    pixmap = gcompris_load_pixmap("gcompris/misc/backcard.png");
+	    pixmap = gc_pixmap_load("gcompris/misc/backcard.png");
 
 	  memoryItem->backcardItem = \
 	    gnome_canvas_item_new (GNOME_CANVAS_GROUP(memoryItem->rootItem),
@@ -1293,7 +1293,7 @@ static void create_item(GnomeCanvasGroup *parent)
 	  gdk_pixbuf_unref(pixmap);
 
 	  if (currentUiMode != UIMODE_SOUND){
-	    pixmap = gcompris_load_pixmap("gcompris/misc/emptycard.png");
+	    pixmap = gc_pixmap_load("gcompris/misc/emptycard.png");
 	    memoryItem->framecardItem = \
 	      gnome_canvas_item_new (GNOME_CANVAS_GROUP(memoryItem->rootItem),
 				     gnome_canvas_pixbuf_get_type (),
@@ -1314,7 +1314,7 @@ static void create_item(GnomeCanvasGroup *parent)
 	  get_image(memoryItem, x, y);
 
 	  if (currentUiMode == UIMODE_SOUND){
-	    pixmap = gcompris_load_pixmap("gcompris/misc/Tux_play.png");
+	    pixmap = gc_pixmap_load("gcompris/misc/Tux_play.png");
 	    memoryItem->frontcardItem =	\
 	      gnome_canvas_item_new (GNOME_CANVAS_GROUP(memoryItem->rootItem),
 				     gnome_canvas_pixbuf_get_type (),
@@ -1330,7 +1330,7 @@ static void create_item(GnomeCanvasGroup *parent)
 	  }
 	  else {
 	    if(memoryItem->type == TYPE_IMAGE) {
-	      pixmap = gcompris_load_pixmap(memoryItem->data);
+	      pixmap = gc_pixmap_load(memoryItem->data);
 	      
 	      yratio=(height2*0.8)/(float)gdk_pixbuf_get_height(pixmap);
 	      xratio=(width2*0.8)/(float)gdk_pixbuf_get_width(pixmap);

@@ -10,28 +10,28 @@
  */
 
 
-/* GdkPixbuf *gcompris_load_pixmap(char *pixmapfile); */
+/* GdkPixbuf *gc_pixmap_load(char *pixmapfile); */
 static PyObject*
-py_gcompris_load_pixmap(PyObject* self, PyObject* args)
+py_gc_pixmap_load(PyObject* self, PyObject* args)
 {
   char* pixmapfile;
   GdkPixbuf* result;
   /* Parse arguments */
 
-  if(!PyArg_ParseTuple(args, "s:gcompris_load_pixmap", &pixmapfile))
+  if(!PyArg_ParseTuple(args, "s:gc_pixmap_load", &pixmapfile))
     return NULL;
 
   /* Call the corresponding C function */
-  result = gcompris_load_pixmap(pixmapfile);
+  result = gc_pixmap_load(pixmapfile);
 
   /* Create and return the result */
   return (PyObject*) pygobject_new((GObject*) result);
 }
 
 
-/* void	gcompris_set_image_focus(GnomeCanvasItem *item, gboolean focus); */
+/* void	gc_item_focus_set(GnomeCanvasItem *item, gboolean focus); */
 static PyObject*
-py_gcompris_set_image_focus(PyObject* self, PyObject* args)
+py_gc_item_focus_set(PyObject* self, PyObject* args)
 {
   PyObject* pyitem;
   GnomeCanvasItem* item;
@@ -39,7 +39,7 @@ py_gcompris_set_image_focus(PyObject* self, PyObject* args)
   gboolean focus;
 
   /* Parse arguments */
-  if(!PyArg_ParseTuple(args, "Oi:gcompris_set_image_focus", &pyitem, &pyfocus))
+  if(!PyArg_ParseTuple(args, "Oi:gc_item_focus_set", &pyitem, &pyfocus))
     return NULL;
 
   item = (GnomeCanvasItem*) pygobject_get(pyitem);
@@ -47,7 +47,7 @@ py_gcompris_set_image_focus(PyObject* self, PyObject* args)
   else focus = FALSE;
 
   /* Call the corresponding C function */
-  gcompris_set_image_focus(item, focus);
+  gc_item_focus_set(item, focus);
 
   /* Create and return the result */
   Py_INCREF(Py_None);
@@ -55,12 +55,12 @@ py_gcompris_set_image_focus(PyObject* self, PyObject* args)
 }
 
 
-/* gint	gcompris_item_event_focus(GnomeCanvasItem *item,
+/* gint	gc_item_focus_event(GnomeCanvasItem *item,
                                   GdkEvent *event,
                                   GnomeCanvasItem *dest_item);
 */
 static PyObject*
-py_gcompris_item_event_focus(PyObject* self, PyObject* args)
+py_gc_item_focus_event(PyObject* self, PyObject* args)
 {
   PyObject* pyitem;
   GnomeCanvasItem* item;
@@ -69,34 +69,34 @@ py_gcompris_item_event_focus(PyObject* self, PyObject* args)
   gint result;
 
   /* Parse arguments */
-  if(!PyArg_ParseTuple(args, "OO:gcompris_item_event_focus", &pyitem, &pyevent))
+  if(!PyArg_ParseTuple(args, "OO:gc_item_focus_event", &pyitem, &pyevent))
     return NULL;
   item = (GnomeCanvasItem*) pygobject_get(pyitem);
   event = (GdkEvent*) pygobject_get(pyevent);
 
   /* Call the corresponding C function */
-  result = gcompris_item_event_focus(item, event, NULL);
+  result = gc_item_focus_event(item, event, NULL);
 
   /* Create and return the result */
   return Py_BuildValue("i", result);
 }
 
 
-/* void item_absolute_move(GnomeCanvasItem *item, int x, int y); */
+/* void gc_item_absolute_move(GnomeCanvasItem *item, int x, int y); */
 static PyObject*
-py_gcompris_item_absolute_move(PyObject* self, PyObject* args)
+py_gcompris_gc_item_absolute_move(PyObject* self, PyObject* args)
 {
   PyObject* pyitem;
   GnomeCanvasItem* item;
   int x, y;
 
   /* Parse arguments */
-  if(!PyArg_ParseTuple(args, "Oii:gcompris_item_absolute_move", &pyitem, &x, &y))
+  if(!PyArg_ParseTuple(args, "Oii:gcompris_gc_item_absolute_move", &pyitem, &x, &y))
     return NULL;
   item = (GnomeCanvasItem*) pygobject_get(pyitem);
 
   /* Call the corresponding C function */
-  item_absolute_move(item, x, y);
+  gc_item_absolute_move(item, x, y);
 
   /* Create and return the result */
   Py_INCREF(Py_None);
@@ -104,21 +104,21 @@ py_gcompris_item_absolute_move(PyObject* self, PyObject* args)
 }
 
 
-/* void item_rotate(GnomeCanvasItem *item, double angle); */
+/* void gc_item_rotate(GnomeCanvasItem *item, double angle); */
 static PyObject*
-py_gcompris_item_rotate(PyObject* self, PyObject* args)
+py_gcompris_gc_item_rotate(PyObject* self, PyObject* args)
 {
   PyObject* pyitem;
   GnomeCanvasItem* item;
   double angle;
 
   /* Parse arguments */
-  if(!PyArg_ParseTuple(args, "Od:gcompris_item_rotate", &pyitem, &angle))
+  if(!PyArg_ParseTuple(args, "Od:gcompris_gc_item_rotate_relative", &pyitem, &angle))
     return NULL;
   item = (GnomeCanvasItem*) pygobject_get(pyitem);
 
   /* Call the corresponding C function */
-  item_rotate(item, angle);
+  gc_item_rotate(item, angle);
 
   /* Create and return the result */
   Py_INCREF(Py_None);
@@ -126,21 +126,21 @@ py_gcompris_item_rotate(PyObject* self, PyObject* args)
 }
 
 
-/* void item_rotate_relative(GnomeCanvasItem *item, double angle); */
+/* void gc_item_rotate_relative(GnomeCanvasItem *item, double angle); */
 static PyObject*
-py_gcompris_item_rotate_relative(PyObject* self, PyObject* args)
+py_gcompris_gc_item_rotate_relative(PyObject* self, PyObject* args)
 {
   PyObject* pyitem;
   GnomeCanvasItem* item;
   double angle;
 
   /* Parse arguments */
-  if(!PyArg_ParseTuple(args, "Od:gcompris_item_rotate_relative", &pyitem, &angle))
+  if(!PyArg_ParseTuple(args, "Od:gcompris_gc_item_rotate_relative", &pyitem, &angle))
     return NULL;
   item = (GnomeCanvasItem*) pygobject_get(pyitem);
 
   /* Call the corresponding C function */
-  item_rotate_relative(item, angle);
+  gc_item_rotate_relative(item, angle);
 
   /* Create and return the result */
   Py_INCREF(Py_None);
@@ -148,32 +148,9 @@ py_gcompris_item_rotate_relative(PyObject* self, PyObject* args)
 }
 
 
-/* void item_rotate_with_center(GnomeCanvasItem *item, double angle, int x, int y); */
+/* void gc_item_rotate_with_center(GnomeCanvasItem *item, double angle, int x, int y); */
 static PyObject*
-py_gcompris_item_rotate_with_center(PyObject* self, PyObject* args)
-{
-  PyObject* pyitem;
-  GnomeCanvasItem* item;
-  double angle;
-  int x,y;
-
-  /* Parse arguments */
-  if(!PyArg_ParseTuple(args, "Odii:gcompris_item_rotate_with_center", &pyitem, &angle, &x, &y))
-    return NULL;
-  item = (GnomeCanvasItem*) pygobject_get(pyitem);
-
-  /* Call the corresponding C function */
-  item_rotate_with_center(item, angle, x, y);
-
-  /* Create and return the result */
-  Py_INCREF(Py_None);
-  return Py_None;
-}
-
-
-/* void item_rotate_relative_with_center(GnomeCanvasItem *item, double angle, int x, int y); */
-static PyObject*
-py_gcompris_item_rotate_relative_with_center(PyObject* self, PyObject* args)
+py_gcompris_gc_item_rotate_with_center(PyObject* self, PyObject* args)
 {
   PyObject* pyitem;
   GnomeCanvasItem* item;
@@ -181,12 +158,35 @@ py_gcompris_item_rotate_relative_with_center(PyObject* self, PyObject* args)
   int x,y;
 
   /* Parse arguments */
-  if(!PyArg_ParseTuple(args, "Odii:gcompris_item_rotate_relative_with_center", &pyitem, &angle, &x, &y))
+  if(!PyArg_ParseTuple(args, "Odii:gcompris_gc_item_rotate_with_center", &pyitem, &angle, &x, &y))
     return NULL;
   item = (GnomeCanvasItem*) pygobject_get(pyitem);
 
   /* Call the corresponding C function */
-  item_rotate_relative_with_center(item, angle, x, y);
+  gc_item_rotate_with_center(item, angle, x, y);
+
+  /* Create and return the result */
+  Py_INCREF(Py_None);
+  return Py_None;
+}
+
+
+/* void gc_item_rotate_relative_with_center(GnomeCanvasItem *item, double angle, int x, int y); */
+static PyObject*
+py_gcompris_gc_item_rotate_relative_with_center(PyObject* self, PyObject* args)
+{
+  PyObject* pyitem;
+  GnomeCanvasItem* item;
+  double angle;
+  int x,y;
+
+  /* Parse arguments */
+  if(!PyArg_ParseTuple(args, "Odii:gcompris_gc_item_rotate_relative_with_center", &pyitem, &angle, &x, &y))
+    return NULL;
+  item = (GnomeCanvasItem*) pygobject_get(pyitem);
+
+  /* Call the corresponding C function */
+  gc_item_rotate_relative_with_center(item, angle, x, y);
 
   /* Create and return the result */
   Py_INCREF(Py_None);
@@ -212,23 +212,23 @@ void pyDialogBoxCallBack(){
 }
 
 
-/* void	gcompris_dialog(gchar *str, DialogBoxCallBack dbcb); */
+/* void	gc_dialog(gchar *str, DialogBoxCallBack dbcb); */
 static PyObject*
-py_gcompris_dialog(PyObject* self, PyObject* args)
+py_gc_dialog(PyObject* self, PyObject* args)
 {
   PyObject* pyCallback;
   gchar* str;
 
   /* Parse arguments */
-  if(!PyArg_ParseTuple(args, "sO:gcompris_dialog", &str, &pyCallback))
+  if(!PyArg_ParseTuple(args, "sO:gc_dialog", &str, &pyCallback))
     return NULL;
   if(!PyCallable_Check(pyCallback)){
-    gcompris_dialog(str,NULL);
+    gc_dialog(str,NULL);
   }
   else {
   /* Call the corresponding C function */
   pyDialogBoxCallBackFunc = pyCallback ;
-  gcompris_dialog(str, pyDialogBoxCallBack);
+  gc_dialog(str, pyDialogBoxCallBack);
   }
   /* Create and return the result */
   Py_INCREF(Py_None);
@@ -236,16 +236,16 @@ py_gcompris_dialog(PyObject* self, PyObject* args)
 }
 
 
-/* void	gcompris_dialog_close(); */
+/* void	gc_dialog_close(); */
 static PyObject*
-py_gcompris_dialog_close(PyObject* self, PyObject* args)
+py_gc_dialog_close(PyObject* self, PyObject* args)
 {
   /* Parse arguments */
-  if(!PyArg_ParseTuple(args, ":gcompris_dialog"))
+  if(!PyArg_ParseTuple(args, ":gc_dialog"))
     return NULL;
 
   /* Call the corresponding C function */
-  gcompris_dialog_close();
+  gc_dialog_close();
 
   /* Create and return the result */
   Py_INCREF(Py_None);
@@ -343,18 +343,18 @@ py_gcompris_canvas_get_property(PyObject* self, PyObject* args)
 
 
 static PyMethodDef PythonGcomprisUtilsModule[] = {
-  { "load_pixmap",  py_gcompris_load_pixmap, METH_VARARGS, "gcompris_load_pixmap" },
-  { "set_image_focus",  py_gcompris_set_image_focus, METH_VARARGS, "gcompris_set_image_focus" },
-  { "item_event_focus",  py_gcompris_item_event_focus, METH_VARARGS, "gcompris_item_event_focus" },
-  { "item_absolute_move",  py_gcompris_item_absolute_move, METH_VARARGS, "item_absolute_move" },
-  { "item_rotate",  py_gcompris_item_rotate, METH_VARARGS, "item_rotate" },
-  { "item_rotate_relative",  py_gcompris_item_rotate_relative, METH_VARARGS, "item_rotate_relative" },
-  { "item_rotate_relative_with_center",  py_gcompris_item_rotate_relative_with_center, METH_VARARGS,
-    "item_rotate_relative_with_center" },
-  { "item_rotate_with_center",  py_gcompris_item_rotate_with_center, METH_VARARGS,
-    "item_rotate_with_center" },
-  { "dialog",  py_gcompris_dialog, METH_VARARGS, "gcompris_dialog" },
-  { "dialog_close",  py_gcompris_dialog_close, METH_VARARGS, "gcompris_dialog_close" },
+  { "load_pixmap",  py_gc_pixmap_load, METH_VARARGS, "gc_pixmap_load" },
+  { "set_image_focus",  py_gc_item_focus_set, METH_VARARGS, "gc_item_focus_set" },
+  { "item_event_focus",  py_gc_item_focus_event, METH_VARARGS, "gc_item_focus_event" },
+  { "gc_item_absolute_move",  py_gcompris_gc_item_absolute_move, METH_VARARGS, "gc_item_absolute_move" },
+  { "gc_item_rotate",  py_gcompris_gc_item_rotate, METH_VARARGS, "gc_item_rotate" },
+  { "gc_item_rotate_relative",  py_gcompris_gc_item_rotate_relative, METH_VARARGS, "gc_item_rotate_relative" },
+  { "gc_item_rotate__with_center",  py_gcompris_gc_item_rotate_with_center, METH_VARARGS,
+    "gc_item_rotate_with_center" },
+  { "gc_item_rotate_relative_with_center",  py_gcompris_gc_item_rotate_relative_with_center, METH_VARARGS,
+    "gc_item_rotate_relative_with_center" },
+  { "dialog",  py_gc_dialog, METH_VARARGS, "gc_dialog" },
+  { "dialog_close",  py_gc_dialog_close, METH_VARARGS, "gc_dialog_close" },
   { "filename_pass",  py_gcompris_filename_pass, METH_VARARGS, "gcompris_filename_pass" },
   { "canvas_set_property",  py_gcompris_canvas_set_property, METH_VARARGS, "gcompris_canvas_set_property" },
   { "canvas_get_property",  py_gcompris_canvas_get_property, METH_VARARGS, "gcompris_canvas_get_property" },

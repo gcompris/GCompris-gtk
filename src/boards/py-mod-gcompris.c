@@ -66,16 +66,16 @@ PyObject* hash_to_dict(GHashTable *table)
  */
 
 
-/* void gcompris_end_board(void); */
+/* void gc_board_end(void); */
 static PyObject*
-py_gcompris_end_board(PyObject* self, PyObject* args)
+py_gc_board_end(PyObject* self, PyObject* args)
 {
   /* Parse arguments */
-  if(!PyArg_ParseTuple(args, ":gcompris_end_board"))
+  if(!PyArg_ParseTuple(args, ":gc_board_end"))
     return NULL;
 
   /* Call the corresponding C function */
-  gcompris_end_board();
+  gc_board_end();
 
   /* Create and return the result */
   Py_INCREF(Py_None);
@@ -83,20 +83,20 @@ py_gcompris_end_board(PyObject* self, PyObject* args)
 }
 
 
-/* void	gcompris_bar_start (GnomeCanvas *theCanvas); */
+/* void	gc_bar_start (GnomeCanvas *theCanvas); */
 static PyObject*
-py_gcompris_bar_start(PyObject* self, PyObject* args)
+py_gc_bar_start(PyObject* self, PyObject* args)
 {
   PyObject* pyCanvas;
   GnomeCanvas* canvas;
 
   /* Parse arguments */
-  if(!PyArg_ParseTuple(args, "O:gcompris_bar_start", &pyCanvas))
+  if(!PyArg_ParseTuple(args, "O:gc_bar_start", &pyCanvas))
     return NULL;
   canvas = (GnomeCanvas*) pygobject_get(pyCanvas);
 
   /* Call the corresponding C function */
-  gcompris_bar_start(canvas);
+  gc_bar_start(canvas);
 
   /* Create and return the result */
   Py_INCREF(Py_None);
@@ -128,22 +128,22 @@ py_gcompris_set_background(PyObject* self, PyObject* args)
 }
 
 
-/* void gcompris_bar_set_level (GcomprisBoard *gcomprisBoard); */
+/* void gc_bar_set_level (GcomprisBoard *gcomprisBoard); */
 static PyObject*
-py_gcompris_bar_set_level(PyObject* self, PyObject* args)
+py_gc_bar_set_level(PyObject* self, PyObject* args)
 {
   PyObject* pyObject;
   pyGcomprisBoardObject* pyGcomprisBoard;
   GcomprisBoard* cGcomprisBoard;
 
   /* Parse arguments */
-  if(!PyArg_ParseTuple(args, "O:gcompris_bar_set_level", &pyObject))
+  if(!PyArg_ParseTuple(args, "O:gc_bar_set_level", &pyObject))
     return NULL;
   pyGcomprisBoard = (pyGcomprisBoardObject*) pyObject;
   cGcomprisBoard = pyGcomprisBoard->cdata;
 
   /* Call the corresponding C function */
-  gcompris_bar_set_level(cGcomprisBoard);
+  gc_bar_set_level(cGcomprisBoard);
 
   /* Create and return the result */
   Py_INCREF(Py_None);
@@ -151,20 +151,20 @@ py_gcompris_bar_set_level(PyObject* self, PyObject* args)
 }
 
 
-/* void gcompris_bar_set_repeat_icon (GdkPixbuf *pixmap); */
+/* void gc_bar_set_repeat_icon (GdkPixbuf *pixmap); */
 static PyObject*
-py_gcompris_bar_set_repeat_icon(PyObject* self, PyObject* args)
+py_gc_bar_set_repeat_icon(PyObject* self, PyObject* args)
 {
   PyObject* pyObject;
   GdkPixbuf* pixmap;
 
   /* Parse arguments */
-  if(!PyArg_ParseTuple(args, "O:gcompris_bar_set_repeat_icon", &pyObject))
+  if(!PyArg_ParseTuple(args, "O:gc_bar_set_repeat_icon", &pyObject))
     return NULL;
   pixmap = (GdkPixbuf*) pygobject_get(pyObject);
 
   /* Call the corresponding C function */
-  gcompris_bar_set_repeat_icon(pixmap);
+  gc_bar_set_repeat_icon(pixmap);
 
   /* Create and return the result */
   Py_INCREF(Py_None);
@@ -172,18 +172,18 @@ py_gcompris_bar_set_repeat_icon(PyObject* self, PyObject* args)
 }
 
 
-/* void gcompris_bar_set (const GComprisBarFlags flags); */
+/* void gc_bar_set (const GComprisBarFlags flags); */
 static PyObject*
-py_gcompris_bar_set(PyObject* self, PyObject* args)
+py_gc_bar_set(PyObject* self, PyObject* args)
 {
   gint values;
 
   /* Parse arguments */
-  if(!PyArg_ParseTuple(args, "i:gcompris_bar_set", &values))
+  if(!PyArg_ParseTuple(args, "i:gc_bar_set", &values))
     return NULL;
 
   /* Call the corresponding C function */
-  gcompris_bar_set(values);
+  gc_bar_set(values);
 
   /* Create and return the result */
   Py_INCREF(Py_None);
@@ -191,85 +191,18 @@ py_gcompris_bar_set(PyObject* self, PyObject* args)
 }
 
 
-/* void gcompris_bar_hide (gboolean hide); */
+/* void gc_bar_hide (gboolean hide); */
 static PyObject*
-py_gcompris_bar_hide(PyObject* self, PyObject* args)
+py_gc_bar_hide(PyObject* self, PyObject* args)
 {
   gint values;
 
   /* Parse arguments */
-  if(!PyArg_ParseTuple(args, "i:gcompris_bar_hide", &values))
+  if(!PyArg_ParseTuple(args, "i:gc_bar_hide", &values))
     return NULL;
 
   /* Call the corresponding C function */
-  gcompris_bar_hide(values);
-
-  /* Create and return the result */
-  Py_INCREF(Py_None);
-  return Py_None;
-}
-
-/* gboolean gcompris_board_has_help (GcomprisBoard *gcomprisBoard); */
-static PyObject*
-py_gcompris_board_has_help(PyObject* self, PyObject* args)
-{
-  PyObject* pyObject;
-  pyGcomprisBoardObject* pyGcomprisBoard;
-  GcomprisBoard* cGcomprisBoard;
-  gboolean result;
-
-  /* Parse arguments */
-  if(!PyArg_ParseTuple(args, "O:gcompris_board_has_help", &pyObject))
-    return NULL;
-  pyGcomprisBoard = (pyGcomprisBoardObject*) pyObject;
-  cGcomprisBoard = pyGcomprisBoard -> cdata;
-
-  /* Call the corresponding C function */
-  result = gcompris_board_has_help(cGcomprisBoard);
-
-  /* Create and return the result */
-  if(result){
-    Py_INCREF(Py_True);
-    return Py_True;
-  } else {
-    Py_INCREF(Py_False);
-    return Py_False;
-  }
-}
-
-/* void gcompris_help_start (GcomprisBoard *gcomprisBoard); */
-static PyObject*
-py_gcompris_help_start(PyObject* self, PyObject* args)
-{
-  PyObject* pyObject;
-  pyGcomprisBoardObject* pyGcomprisBoard;
-  GcomprisBoard* cGcomprisBoard;
-
-  /* Parse arguments */
-  if(!PyArg_ParseTuple(args, "O:gcompris_help_start", &pyObject))
-    return NULL;
-  pyGcomprisBoard = (pyGcomprisBoardObject*) pyObject;
-  cGcomprisBoard = pyGcomprisBoard->cdata;
-
-  /* Call the corresponding C function */
-  gcompris_help_start(cGcomprisBoard);
-
-  /* Create and return the result */
-  Py_INCREF(Py_None);
-  return Py_None;
-}
-
-
-/* void gcompris_help_stop (void); */
-static PyObject*
-py_gcompris_help_stop(PyObject* self, PyObject* args)
-{
-  /* Parse arguments */
-  if(!PyArg_ParseTuple(args, ":gcompris_help_stop"))
-    return NULL;
-
-  /* Call the corresponding C function */
-  gcompris_help_stop();
+  gc_bar_hide(values);
 
   /* Create and return the result */
   Py_INCREF(Py_None);
@@ -310,34 +243,34 @@ py_gcompris_get_window(PyObject* self, PyObject* args)
 }
 
 
-/* gchar *gcompris_get_locale(void); */
+/* gchar *gc_locale_get(void); */
 static PyObject*
-py_gcompris_get_locale(PyObject* self, PyObject* args)
+py_gc_locale_get(PyObject* self, PyObject* args)
 {
   gchar* result;
   /* Parse arguments */
-  if(!PyArg_ParseTuple(args, ":gcompris_get_locale"))
+  if(!PyArg_ParseTuple(args, ":gc_locale_get"))
     return NULL;
 
   /* Call the corresponding C function */
-  result = (gchar*)gcompris_get_locale();
+  result = (gchar*)gc_locale_get();
 
   /* Create and return the result */
   return Py_BuildValue("s", result);
 }
 
 
-/* void gcompris_set_locale(gchar *locale); */
+/* void gc_locale_set(gchar *locale); */
 static PyObject*
-py_gcompris_set_locale(PyObject* self, PyObject* args)
+py_gc_locale_set(PyObject* self, PyObject* args)
 {
   gchar* locale;
   /* Parse arguments */
-  if(!PyArg_ParseTuple(args, "s:gcompris_set_locale", &locale))
+  if(!PyArg_ParseTuple(args, "s:gc_locale_set", &locale))
     return NULL;
 
   /* Call the corresponding C function */
-  gcompris_set_locale(locale);
+  gc_locale_set(locale);
 
   /* Create and return the result */
   Py_INCREF(Py_None);
@@ -345,34 +278,34 @@ py_gcompris_set_locale(PyObject* self, PyObject* args)
 }
 
 
-/* char *gcompris_get_user_default_locale(void) */
+/* char *gc_locale_get_user_default(void) */
 static PyObject*
-py_gcompris_get_user_default_locale(PyObject* self, PyObject* args)
+py_gc_locale_get_user_default(PyObject* self, PyObject* args)
 {
   char* result;
   /* Parse arguments */
-  if(!PyArg_ParseTuple(args, ":gcompris_get_user_default_locale"))
+  if(!PyArg_ParseTuple(args, ":gc_locale_get_user_default"))
     return NULL;
 
   /* Call the corresponding C function */
-  result = gcompris_get_user_default_locale();
+  result = gc_locale_get_user_default();
 
   /* Create and return the result */
   return Py_BuildValue("s", result);
 }
 
 
-/* void gcompris_set_cursor(guint gdk_cursor_type); */
+/* void gc_cursor_set(guint gdk_cursor_type); */
 static PyObject*
-py_gcompris_set_cursor(PyObject* self, PyObject* args)
+py_gc_cursor_set(PyObject* self, PyObject* args)
 {
   guint cursor;
   /* Parse arguments */
-  if(!PyArg_ParseTuple(args, "i:gcompris_set_cursor",&cursor))
+  if(!PyArg_ParseTuple(args, "i:gc_cursor_set",&cursor))
     return NULL;
 
   /* Call the corresponding C function */
-  gcompris_set_cursor(cursor);
+  gc_cursor_set(cursor);
 
   /* Create and return the result */
   Py_INCREF(Py_None);
@@ -400,11 +333,11 @@ void pyImageSelectorCallBack(gchar* image){
 }
 
 
-/* void gcompris_images_selector_start (GcomprisBoard *gcomprisBoard,  */
+/* void gc_selector_images_start (GcomprisBoard *gcomprisBoard,  */
 /* 					gchar *dataset,  */
 /* 					ImageSelectorCallBack imscb); */
 static PyObject*
-py_gcompris_images_selector_start(PyObject* self, PyObject* args)
+py_gc_selector_images_start(PyObject* self, PyObject* args)
 {
   PyObject* pyGcomprisBoard;
   GcomprisBoard* cGcomprisBoard;
@@ -413,7 +346,7 @@ py_gcompris_images_selector_start(PyObject* self, PyObject* args)
 
   /* Parse arguments */
   if(!PyArg_ParseTuple(args,
-		       "OsO:gcompris_images_selector_start",
+		       "OsO:gc_selector_images_start",
 		       &pyGcomprisBoard,
 		       &dataset,
 		       &pyCallback))
@@ -423,7 +356,7 @@ py_gcompris_images_selector_start(PyObject* self, PyObject* args)
 
   /* Call the corresponding C function */
   pyImageSelectorCallBackFunc = pyCallback;
-  gcompris_images_selector_start(cGcomprisBoard,
+  gc_selector_images_start(cGcomprisBoard,
 				 dataset,
 				 pyImageSelectorCallBack);
 
@@ -433,9 +366,9 @@ py_gcompris_images_selector_start(PyObject* self, PyObject* args)
 }
 
 
-/* void gcompris_log_set_comment (GcomprisBoard *gcomprisBoard, gchar *expected, gchar *got); */
+/* void gc_log_set_comment (GcomprisBoard *gcomprisBoard, gchar *expected, gchar *got); */
 static PyObject*
-py_gcompris_log_set_comment(PyObject* self, PyObject* args)
+py_gc_log_set_comment(PyObject* self, PyObject* args)
 {
   PyObject* pyGcomprisBoard;
   GcomprisBoard* cGcomprisBoard;
@@ -444,7 +377,7 @@ py_gcompris_log_set_comment(PyObject* self, PyObject* args)
 
   /* Parse arguments */
   if(!PyArg_ParseTuple(args,
-		       "Os:gcompris_log_set_comment",
+		       "Os:gc_log_set_comment",
 		       &pyGcomprisBoard,
 		       &expected,
 		       &got))
@@ -452,7 +385,7 @@ py_gcompris_log_set_comment(PyObject* self, PyObject* args)
   cGcomprisBoard = ((pyGcomprisBoardObject*) pyGcomprisBoard)->cdata;
 
   /* Call the corresponding C function */
-  gcompris_log_set_comment(cGcomprisBoard,
+  gc_log_set_comment(cGcomprisBoard,
 			   expected, got);
 
   /* Create and return the result */
@@ -461,9 +394,9 @@ py_gcompris_log_set_comment(PyObject* self, PyObject* args)
 }
 
 
-/* void gcompris_log_end (GcomprisBoard *gcomprisBoard, gchar *status); */
+/* void gc_log_end (GcomprisBoard *gcomprisBoard, gchar *status); */
 static PyObject*
-py_gcompris_log_end(PyObject* self, PyObject* args)
+py_gc_log_end(PyObject* self, PyObject* args)
 {
   PyObject* pyGcomprisBoard;
   GcomprisBoard* cGcomprisBoard;
@@ -471,14 +404,14 @@ py_gcompris_log_end(PyObject* self, PyObject* args)
 
   /* Parse arguments */
   if(!PyArg_ParseTuple(args,
-		       "Os:gcompris_log_end",
+		       "Os:gc_log_end",
 		       &pyGcomprisBoard,
 		       &status))
     return NULL;
   cGcomprisBoard = ((pyGcomprisBoardObject*) pyGcomprisBoard)->cdata;
 
   /* Call the corresponding C function */
-  gcompris_log_end(cGcomprisBoard,
+  gc_log_end(cGcomprisBoard,
 		   status);
 
   /* Create and return the result */
@@ -487,33 +420,16 @@ py_gcompris_log_end(PyObject* self, PyObject* args)
 }
 
 
-/* void gcompris_images_selector_stop (void); */
+/* void gc_selector_images_stop (void); */
 static PyObject*
-py_gcompris_images_selector_stop(PyObject* self, PyObject* args)
+py_gc_selector_images_stop(PyObject* self, PyObject* args)
 {
   /* Parse arguments */
-  if(!PyArg_ParseTuple(args, ":gcompris_images_selector_stop"))
+  if(!PyArg_ParseTuple(args, ":gc_selector_images_stop"))
     return NULL;
 
   /* Call the corresponding C function */
-  gcompris_images_selector_stop();
-
-  /* Create and return the result */
-  Py_INCREF(Py_None);
-  return Py_None;
-}
-
-
-/* void gcompris_exit(); */
-static PyObject*
-py_gcompris_exit(PyObject* self, PyObject* args)
-{
-  /* Parse arguments */
-  if(!PyArg_ParseTuple(args, ":gcompris_exit"))
-    return NULL;
-
-  /* Call the corresponding C function */
-  gcompris_exit();
+  gc_selector_images_stop();
 
   /* Create and return the result */
   Py_INCREF(Py_None);
@@ -543,13 +459,13 @@ void pyFileSelectorCallBack(gchar* file, char* file_type){
 }
 
 
-/* void gcompris_file_selector_load(GcomprisBoard *gcomprisBoard,
+/* void gc_selector_file_load(GcomprisBoard *gcomprisBoard,
                                     gchar *rootdir,
 				    gchar *file_types, (A Comma separated text explaining the different file types)
                                     FileSelectorCallBack fscb);
 */
 static PyObject*
-py_gcompris_file_selector_load(PyObject* self, PyObject* args){
+py_gc_selector_file_load(PyObject* self, PyObject* args){
   PyObject* pyGcomprisBoard;
   GcomprisBoard* cGcomprisBoard;
   PyObject* pyCallback;
@@ -558,7 +474,7 @@ py_gcompris_file_selector_load(PyObject* self, PyObject* args){
 
   /* Parse arguments */
   if(!PyArg_ParseTuple(args,
-		       "OssO:gcompris_file_selector_load",
+		       "OssO:gc_selector_file_load",
 		       &pyGcomprisBoard,
 		       &rootdir,
 		       &file_types,
@@ -569,7 +485,7 @@ py_gcompris_file_selector_load(PyObject* self, PyObject* args){
 
   /* Call the corresponding C function */
   pyFileSelectorCallBackFunc = pyCallback;
-  gcompris_file_selector_load(cGcomprisBoard,
+  gc_selector_file_load(cGcomprisBoard,
                               rootdir,
 			      file_types,
                               pyFileSelectorCallBack);
@@ -580,13 +496,13 @@ py_gcompris_file_selector_load(PyObject* self, PyObject* args){
 }
 
 
-/* void gcompris_file_selector_save(GcomprisBoard *gcomprisBoard,
+/* void gc_selector_file_save(GcomprisBoard *gcomprisBoard,
                                     gchar *rootdir,
 				    gchar *file_types, (A Comma separated text explaining the different file types)
                                     FileSelectorCallBack fscb);
 */
 static PyObject*
-py_gcompris_file_selector_save(PyObject* self, PyObject* args){
+py_gc_selector_file_save(PyObject* self, PyObject* args){
   PyObject* pyGcomprisBoard;
   GcomprisBoard* cGcomprisBoard;
   PyObject* pyCallback;
@@ -595,7 +511,7 @@ py_gcompris_file_selector_save(PyObject* self, PyObject* args){
 
   /* Parse arguments */
   if(!PyArg_ParseTuple(args,
-		       "OssO:gcompris_file_selector_save",
+		       "OssO:gc_selector_file_save",
 		       &pyGcomprisBoard,
 		       &rootdir,
 		       &file_types,
@@ -606,7 +522,7 @@ py_gcompris_file_selector_save(PyObject* self, PyObject* args){
 
   /* Call the corresponding C function */
   pyFileSelectorCallBackFunc = pyCallback;
-  gcompris_file_selector_save(cGcomprisBoard,
+  gc_selector_file_save(cGcomprisBoard,
                               rootdir,
 			      file_types,
                               pyFileSelectorCallBack);
@@ -617,33 +533,33 @@ py_gcompris_file_selector_save(PyObject* self, PyObject* args){
 }
 
 
-/* void gcompris_file_selector_stop (void); */
+/* void gc_selector_file_stop (void); */
 static PyObject*
-py_gcompris_file_selector_stop(PyObject* self, PyObject* args)
+py_gc_selector_file_stop(PyObject* self, PyObject* args)
 {
   /* Parse arguments */
-  if(!PyArg_ParseTuple(args, ":gcompris_file_selector_stop"))
+  if(!PyArg_ParseTuple(args, ":gc_selector_file_stop"))
     return NULL;
 
   /* Call the corresponding C function */
-  gcompris_file_selector_stop();
+  gc_selector_file_stop();
 
   /* Create and return the result */
   Py_INCREF(Py_None);
   return Py_None;
 }
 
-/* gchar *gcompris_get_database(void); */
+/* gchar *gc_db_get_filename(void); */
 static PyObject*
-py_gcompris_get_database(PyObject* self, PyObject* args)
+py_gc_db_get_filename(PyObject* self, PyObject* args)
 {
   gchar* result;
   /* Parse arguments */
-  if(!PyArg_ParseTuple(args, ":gcompris_get_database"))
+  if(!PyArg_ParseTuple(args, ":gc_db_get_filename"))
     return NULL;
 
   /* Call the corresponding C function */
-  result = (gchar*)gcompris_get_database();
+  result = (gchar*)gc_db_get_filename();
 
   /* Create and return the result */
   return Py_BuildValue("s", result);
@@ -1314,7 +1230,7 @@ py_gcompris_combo_locales(PyObject* self, PyObject* args)
 
 
 static PyObject*
-py_gcompris_get_locales_list(PyObject* self, PyObject* args)
+py_gc_locale_gets_list(PyObject* self, PyObject* args)
 {
   PyObject *pylist;
   GList *result, *list ;
@@ -1324,7 +1240,7 @@ py_gcompris_get_locales_list(PyObject* self, PyObject* args)
     return NULL;
 
   /* Call the corresponding C function */
-  result = gcompris_get_locales_list();
+  result = gc_locale_gets_list();
 
   pylist = PyList_New(0);
 
@@ -1357,7 +1273,7 @@ py_gcompris_combo_locales_asset(PyObject* self, PyObject* args)
 
 
 static PyObject*
-py_gcompris_get_locales_asset_list(PyObject* self, PyObject* args)
+py_gc_locale_gets_asset_list(PyObject* self, PyObject* args)
 {
   PyObject *pylist;
   GList *result, *list ;
@@ -1369,7 +1285,7 @@ py_gcompris_get_locales_asset_list(PyObject* self, PyObject* args)
     return NULL;
 
   /* Call the corresponding C function */
-  result = gcompris_get_locales_asset_list(file);
+  result = gc_locale_gets_asset_list(file);
 
   pylist = PyList_New(0);
 
@@ -1615,36 +1531,32 @@ py_gcompris_im_reset (PyObject* self, PyObject* args)
 /****************************************************/
 
 static PyMethodDef PythonGcomprisModule[] = {
-  { "end_board",  py_gcompris_end_board, METH_VARARGS, "gcompris_end_board" },
-  { "bar_start",  py_gcompris_bar_start, METH_VARARGS, "gcompris_bar_start" },
+  { "end_board",  py_gc_board_end, METH_VARARGS, "gc_board_end" },
+  { "bar_start",  py_gc_bar_start, METH_VARARGS, "gc_bar_start" },
   { "set_background",  py_gcompris_set_background, METH_VARARGS, "gcompris_set_background" },
-  { "bar_set_level",  py_gcompris_bar_set_level, METH_VARARGS, "gcompris_bar_set_level" },
-  { "bar_set_repeat_icon",  py_gcompris_bar_set_repeat_icon, METH_VARARGS, "gcompris_bar_set_repeat_icon" },
-  { "bar_set",  py_gcompris_bar_set, METH_VARARGS, "gcompris_bar_set" },
-  { "bar_hide",  py_gcompris_bar_hide, METH_VARARGS, "gcompris_bar_hide" },
-  { "board_has_help",  py_gcompris_board_has_help, METH_VARARGS, "gcompris_board_has_help" },
-  { "help_start",  py_gcompris_help_start, METH_VARARGS, "gcompris_help_start" },
-  { "help_stop",  py_gcompris_help_stop, METH_VARARGS, "gcompris_help_stop" },
+  { "bar_set_level",  py_gc_bar_set_level, METH_VARARGS, "gc_bar_set_level" },
+  { "bar_set_repeat_icon",  py_gc_bar_set_repeat_icon, METH_VARARGS, "gc_bar_set_repeat_icon" },
+  { "bar_set",  py_gc_bar_set, METH_VARARGS, "gc_bar_set" },
+  { "bar_hide",  py_gc_bar_hide, METH_VARARGS, "gc_bar_hide" },
   { "get_canvas",  py_gcompris_get_canvas, METH_VARARGS, "gcompris_get_canvas" },
   { "get_window",  py_gcompris_get_window, METH_VARARGS, "gcompris_get_window" },
-  { "get_locale",  py_gcompris_get_locale, METH_VARARGS, "gcompris_get_locale" },
-  { "get_user_default_locale",  py_gcompris_get_user_default_locale, METH_VARARGS, "gcompris_get_user_default_locale" },
-  { "set_locale",  py_gcompris_set_locale, METH_VARARGS, "gcompris_set_locale" },
-  { "set_cursor",  py_gcompris_set_cursor, METH_VARARGS, "gcompris_set_cursor" },
-  { "images_selector_start",  py_gcompris_images_selector_start,
-    METH_VARARGS, "gcompris_images_selector_start" },
-  { "images_selector_stop",  py_gcompris_images_selector_stop,
-    METH_VARARGS, "gcompris_images_selector_stop" },
-  { "exit",  py_gcompris_exit, METH_VARARGS, "gcompris_exit" },
-  { "log_set_comment",  py_gcompris_log_set_comment, METH_VARARGS, "gcompris_log_set_comment" },
-  { "log_end",  py_gcompris_log_end, METH_VARARGS, "gcompris_log_end" },
-  { "file_selector_load",  py_gcompris_file_selector_load,
-    METH_VARARGS, "gcompris_file_selector_load" },
-  { "file_selector_save",  py_gcompris_file_selector_save,
-    METH_VARARGS, "gcompris_file_selector_save" },
-  { "file_selector_stop",  py_gcompris_file_selector_stop,
-    METH_VARARGS, "gcompris_file_selector_stop" },
-  { "get_database",  py_gcompris_get_database, METH_VARARGS, "gcompris_get_database" },
+  { "get_locale",  py_gc_locale_get, METH_VARARGS, "gc_locale_get" },
+  { "get_user_default_locale",  py_gc_locale_get_user_default, METH_VARARGS, "gc_locale_get_user_default" },
+  { "set_locale",  py_gc_locale_set, METH_VARARGS, "gc_locale_set" },
+  { "set_cursor",  py_gc_cursor_set, METH_VARARGS, "gc_cursor_set" },
+  { "images_selector_start",  py_gc_selector_images_start,
+    METH_VARARGS, "gc_selector_images_start" },
+  { "images_selector_stop",  py_gc_selector_images_stop,
+    METH_VARARGS, "gc_selector_images_stop" },
+  { "log_set_comment",  py_gc_log_set_comment, METH_VARARGS, "gc_log_set_comment" },
+  { "log_end",  py_gc_log_end, METH_VARARGS, "gc_log_end" },
+  { "file_selector_load",  py_gc_selector_file_load,
+    METH_VARARGS, "gc_selector_file_load" },
+  { "file_selector_save",  py_gc_selector_file_save,
+    METH_VARARGS, "gc_selector_file_save" },
+  { "file_selector_stop",  py_gc_selector_file_stop,
+    METH_VARARGS, "gc_selector_file_stop" },
+  { "get_database",  py_gc_db_get_filename, METH_VARARGS, "gc_db_get_filename" },
   { "get_properties",  py_gcompris_get_properties, METH_VARARGS, "gcompris_get_properties" },
   { "get_board_from_section",  py_gcompris_get_board_from_section, METH_VARARGS, "gcompris_get_board_from_section" },
   { "spawn_async",  (PyCFunction)py_gcompris_spawn_async, METH_VARARGS|METH_KEYWORDS, "gcompris_spawn_sync" },
@@ -1661,12 +1573,12 @@ static PyMethodDef PythonGcomprisModule[] = {
   { "spin_int",  py_gcompris_spin_int, METH_VARARGS, "gcompris_spin_int" },
   { "separator",  py_gcompris_separator, METH_VARARGS, "gcompris_separator" },
   { "combo_locales",  py_gcompris_combo_locales, METH_VARARGS, "gcompris_combo_locales" },
-  { "get_locales_list",  py_gcompris_get_locales_list, METH_VARARGS, "gcompris_get_locales_list" },
+  { "get_locales_list",  py_gc_locale_gets_list, METH_VARARGS, "gc_locale_gets_list" },
   { "gcompris_gettext",  py_gcompris_gettext, METH_VARARGS, "gcompris_gettext" },
   { "change_locale",  py_gcompris_change_locale, METH_VARARGS, "gcompris_change_locale" },
   { "reset_locale",  py_gcompris_reset_locale, METH_VARARGS, "gcompris_reset_locale" },
   { "combo_locales_asset",  py_gcompris_combo_locales_asset, METH_VARARGS, "gcompris_combo_locales_asset" },
-  { "get_locales_asset_list",  py_gcompris_get_locales_asset_list, METH_VARARGS, "gcompris_get_locales_asset_list" },
+  { "get_locales_asset_list",  py_gc_locale_gets_asset_list, METH_VARARGS, "gc_locale_gets_asset_list" },
   { "textview",  py_gcompris_textview, METH_VARARGS, "gcompris_textview" },
   { "get_user_dirname",  py_gcompris_get_user_dirname, METH_VARARGS, "gcompris_get_user_dirname" },
   { "get_current_user_dirname",  py_gcompris_get_current_user_dirname, METH_VARARGS, "gcompris_get_current_user_dirname" },
@@ -1690,12 +1602,12 @@ void python_gcompris_module_init(void)
   PyModule_AddStringConstant(gcomprisModule, "DEFAULT_SKIN", DEFAULT_SKIN);
 
   /* The GComprisBarFlags enum constants */
-  PyModule_AddIntConstant(gcomprisModule, "BAR_LEVEL",       GCOMPRIS_BAR_LEVEL);
-  PyModule_AddIntConstant(gcomprisModule, "BAR_OK",          GCOMPRIS_BAR_OK);
-  PyModule_AddIntConstant(gcomprisModule, "BAR_REPEAT",      GCOMPRIS_BAR_REPEAT);
-  PyModule_AddIntConstant(gcomprisModule, "BAR_REPEAT_ICON", GCOMPRIS_BAR_REPEAT_ICON);
-  PyModule_AddIntConstant(gcomprisModule, "BAR_CONFIG",      GCOMPRIS_BAR_CONFIG);
-  PyModule_AddIntConstant(gcomprisModule, "BAR_ABOUT",       GCOMPRIS_BAR_ABOUT);
+  PyModule_AddIntConstant(gcomprisModule, "BAR_LEVEL",       GC_BAR_LEVEL);
+  PyModule_AddIntConstant(gcomprisModule, "BAR_OK",          GC_BAR_OK);
+  PyModule_AddIntConstant(gcomprisModule, "BAR_REPEAT",      GC_BAR_REPEAT);
+  PyModule_AddIntConstant(gcomprisModule, "BAR_REPEAT_ICON", GC_BAR_REPEAT_ICON);
+  PyModule_AddIntConstant(gcomprisModule, "BAR_CONFIG",      GC_BAR_CONFIG);
+  PyModule_AddIntConstant(gcomprisModule, "BAR_ABOUT",       GC_BAR_ABOUT);
 
   /* Colors constants */
   PyModule_AddIntConstant(gcomprisModule, "COLOR_TITLE",       COLOR_TITLE);

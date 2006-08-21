@@ -1,6 +1,6 @@
 /* gcompris - gcompris.h
  *
- * Time-stamp: <2006/08/11 14:09:45 bruno>
+ * Time-stamp: <2006/08/20 10:03:53 bruno>
  *
  * Copyright (C) 2000,2001,2002 Bruno Coudoin
  *
@@ -80,25 +80,25 @@
 /*****************************************************************************/
 /* Method usefull for boards provided by gcompris */
 
-void		 gcompris_end_board(void);
+void		 gc_board_end(void);
 
 /* Control Bar methods */
-void		 gcompris_bar_start (GnomeCanvas *theCanvas);
+void		 gc_bar_start (GnomeCanvas *theCanvas);
 
 GnomeCanvasItem *gcompris_set_background(GnomeCanvasGroup *parent, gchar *file);
-void		 gcompris_bar_set_level (GcomprisBoard *gcomprisBoard);
-void		 gcompris_bar_set_repeat_icon (GdkPixbuf *pixmap);
+void		 gc_bar_set_level (GcomprisBoard *gcomprisBoard);
+void		 gc_bar_set_repeat_icon (GdkPixbuf *pixmap);
 
 /* Status bar control */
 typedef enum
 {
-  GCOMPRIS_BAR_LEVEL	   = 1 << 0,
-  GCOMPRIS_BAR_OK	   = 1 << 1,
-  GCOMPRIS_BAR_REPEAT	   = 1 << 2,
-  GCOMPRIS_BAR_CONFIG	   = 1 << 3,
-  GCOMPRIS_BAR_ABOUT	   = 1 << 4,
-  GCOMPRIS_BAR_REPEAT_ICON = 1 << 5,
-  GCOMPRIS_BAR_QUIT	   = 1 << 6,
+  GC_BAR_LEVEL	   = 1 << 0,
+  GC_BAR_OK	   = 1 << 1,
+  GC_BAR_REPEAT	   = 1 << 2,
+  GC_BAR_CONFIG	   = 1 << 3,
+  GC_BAR_ABOUT	   = 1 << 4,
+  GC_BAR_REPEAT_ICON = 1 << 5,
+  GC_BAR_QUIT	   = 1 << 6,
 } GComprisBarFlags;
 
 /* Difficulty filtering */
@@ -109,63 +109,60 @@ typedef enum {
   GCOMPRIS_FILTER_ABOVE,
 } GcomprisFilterType;
 
-void		 gcompris_bar_set (const GComprisBarFlags flags);
-void		 gcompris_bar_hide (gboolean hide);
-
-/* Help window */
-gboolean	 gcompris_board_has_help (GcomprisBoard *gcomprisBoard);
-void		 gcompris_help_start (GcomprisBoard *gcomprisBoard);
-void		 gcompris_help_stop (void);
+void		 gc_bar_set (const GComprisBarFlags flags);
+void		 gc_bar_hide (gboolean hide);
 
 /* General */
 GnomeCanvas     *gcompris_get_canvas(void);
 GtkWidget	*gcompris_get_window(void);
 
-const gchar	*gcompris_get_locale(void);
-void		 gcompris_set_locale(gchar *locale);
-char		*gcompris_get_user_default_locale(void);
-gchar		*gcompris_get_locale_name(gchar *locale);
+const gchar	*gc_locale_get(void);
+void		 gc_locale_set(gchar *locale);
+char		*gc_locale_get_user_default(void);
+gchar		*gc_locale_get_name(gchar *locale);
 
-void		 gcompris_set_cursor(guint gdk_cursor_type);
+void		 gc_cursor_set(guint gdk_cursor_type);
 
 typedef void     (*ImageSelectorCallBack)     (gchar* image);
-void		 gcompris_images_selector_start (GcomprisBoard *gcomprisBoard, 
+void		 gc_selector_images_start (GcomprisBoard *gcomprisBoard, 
 						 gchar *dataset, 
 						 ImageSelectorCallBack imscb);
-void		 gcompris_images_selector_stop (void);
+void		 gc_selector_images_stop (void);
 
 typedef void     (*FileSelectorCallBack)     (gchar *file, gchar *file_type); /* file_type is one string from file_types in the save */
-void		 gcompris_file_selector_load (GcomprisBoard *gcomprisBoard, 
+void		 gc_selector_file_load (GcomprisBoard *gcomprisBoard, 
 					      gchar *rootdir,
 					      gchar *file_types, /* A Comma separated text explaining the different file types */
 					      FileSelectorCallBack fscb);
-void		 gcompris_file_selector_save (GcomprisBoard *gcomprisBoard,
+void		 gc_selector_file_save (GcomprisBoard *gcomprisBoard,
 					      gchar *rootdir,
 					      gchar *file_types, /* A Comma separated text explaining the different file types */
 					      FileSelectorCallBack fscb);
-void		 gcompris_file_selector_stop (void);
+void		 gc_selector_file_stop (void);
 
-void		 gcompris_set_fullscreen(gboolean state);
+gchar		*gc_db_get_filename();
 
-void		 gcompris_exit();
+/* Dialog box */
+typedef void     (*DialogBoxCallBack)     ();
+void		 gc_dialog(gchar *str, DialogBoxCallBack dbcb);
+void		 gc_dialog_close();
 
-gchar		*gcompris_get_database();
-
+/* Confirm box */
 typedef void     (*ConfirmCallBack)     (gboolean answer);
 
-void gcompris_confirm (gchar *title, 
-		       gchar *question_text,
-		       gchar *yes_text,
-		       gchar *no_text,
-		       ConfirmCallBack iscb);
+void		 gc_confirm_box (gchar *title, 
+				 gchar *question_text,
+				 gchar *yes_text,
+				 gchar *no_text,
+				 ConfirmCallBack iscb);
 
-void gcompris_confirm_stop (void);
+void		 gc_confirm_box_stop (void);
 
 /* Use these instead of the gnome_canvas ones for proper fullscreen mousegrab
    handling. */
-int gcompris_canvas_item_grab (GnomeCanvasItem *item, unsigned int event_mask,
-			    GdkCursor *cursor, guint32 etime);
-void gcompris_canvas_item_ungrab (GnomeCanvasItem *item, guint32 etime);
+int		 gcompris_canvas_item_grab (GnomeCanvasItem *item, unsigned int event_mask,
+					    GdkCursor *cursor, guint32 etime);
+void		 gcompris_canvas_item_ungrab (GnomeCanvasItem *item, guint32 etime);
 
 /* Trace Log */
 #define GCOMPRIS_LOG_STATUS_PASSED    "PASSED"
@@ -174,14 +171,19 @@ void gcompris_canvas_item_ungrab (GnomeCanvasItem *item, guint32 etime);
 #define GCOMPRIS_LOG_STATUS_COMPLETED "COMPLETED"
 
 /* gcompris internal only */
-void gcompris_log_start (GcomprisBoard *gcomprisBoard); 
-void gcompris_log_set_key (GcomprisBoard *gcomprisBoard, guint keyval);
+void		 gc_log_start (GcomprisBoard *gcomprisBoard); 
+void		 gc_log_set_key (GcomprisBoard *gcomprisBoard, guint keyval);
 
 /* Use it to tell the teacher where the kid failed */
-void gcompris_log_set_comment (GcomprisBoard *gcomprisBoard, gchar *expected, gchar* got); 
+void		 gc_log_set_comment (GcomprisBoard *gcomprisBoard, gchar *expected, gchar* got); 
 
 /* Do not use it if you use the bonus API in your board */
-void gcompris_log_end (GcomprisBoard *gcomprisBoard, gchar *status);
+void		 gc_log_end (GcomprisBoard *gcomprisBoard, gchar *status);
+
+/* For menu type activity */
+GList		*gc_menu_getlist(gchar *section);
+GcomprisBoard   *gcompris_get_board_from_section(gchar *section);
+GList           *gc_menu_get_boards();
 
 /*=========================================================*/
 /* Some global definition to keep a constant look and feel */
@@ -228,11 +230,3 @@ void gcompris_log_end (GcomprisBoard *gcomprisBoard, gchar *status);
 #define GCOMPRIS_DEFAULT_CURSOR		GCOMPRIS_BIG_RED_ARROW_CURSOR
 
 #endif
-
-/* Local Variables: */
-/* mode:c */
-/* eval:(load-library "time-stamp") */
-/* eval:(make-local-variable 'write-file-hooks) */
-/* eval:(add-hook 'write-file-hooks 'time-stamp) */
-/* eval:(setq time-stamp-format '(time-stamp-yyyy/mm/dd time-stamp-hh:mm:ss user-login-name)) */
-/* End: */

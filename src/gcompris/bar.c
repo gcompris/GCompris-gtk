@@ -1,6 +1,6 @@
 /* gcompris - bar.c
  *
- * Time-stamp: <2006/08/15 02:39:55 bruno>
+ * Time-stamp: <2006/08/20 23:37:24 bruno>
  *
  * Copyright (C) 2000-2003 Bruno Coudoin
  *
@@ -27,6 +27,7 @@
 #include <string.h>
 
 #include "gcompris.h"
+#include "gc_core.h"
 #include "gcompris_config.h"
 #include "about.h"
 
@@ -66,7 +67,7 @@ static void  confirm_quit(gboolean answer);
 /*
  * Do all the bar display and register the events
  */
-void gcompris_bar_start (GnomeCanvas *theCanvas)
+void gc_bar_start (GnomeCanvas *theCanvas)
 {
   GcomprisProperties *properties = gcompris_get_properties();
   GdkPixbuf   *pixmap = NULL;
@@ -114,7 +115,7 @@ void gcompris_bar_start (GnomeCanvas *theCanvas)
 			 "quit");
 
       gtk_signal_connect(GTK_OBJECT(exit_item), "event",
-			 (GtkSignalFunc) gcompris_item_event_focus,
+			 (GtkSignalFunc) gc_item_focus_event,
 			 NULL);
     }
   
@@ -135,7 +136,7 @@ void gcompris_bar_start (GnomeCanvas *theCanvas)
 		     "back");
 
   gtk_signal_connect(GTK_OBJECT(home_item), "event",
-		     (GtkSignalFunc) gcompris_item_event_focus,
+		     (GtkSignalFunc) gc_item_focus_event,
 		     NULL);
 
 
@@ -156,7 +157,7 @@ void gcompris_bar_start (GnomeCanvas *theCanvas)
 		     "ok");
 
   gtk_signal_connect(GTK_OBJECT(ok_item), "event",
-		     (GtkSignalFunc) gcompris_item_event_focus,
+		     (GtkSignalFunc) gc_item_focus_event,
 		     NULL);
 
 
@@ -178,7 +179,7 @@ void gcompris_bar_start (GnomeCanvas *theCanvas)
 		     "level");
 
   level_handler_id =   gtk_signal_connect(GTK_OBJECT(level_item), "event",
-					  (GtkSignalFunc) gcompris_item_event_focus,
+					  (GtkSignalFunc) gc_item_focus_event,
 					  NULL);
 
   // REPEAT
@@ -198,7 +199,7 @@ void gcompris_bar_start (GnomeCanvas *theCanvas)
 		     "repeat");
 
   gtk_signal_connect(GTK_OBJECT(repeat_item), "event",
-		     (GtkSignalFunc) gcompris_item_event_focus,
+		     (GtkSignalFunc) gc_item_focus_event,
 		     NULL);
 
   // HELP
@@ -218,7 +219,7 @@ void gcompris_bar_start (GnomeCanvas *theCanvas)
 		     "help");
 
   gtk_signal_connect(GTK_OBJECT(help_item), "event",
-		     (GtkSignalFunc) gcompris_item_event_focus,
+		     (GtkSignalFunc) gc_item_focus_event,
 		     NULL);
 
   // CONFIG
@@ -240,7 +241,7 @@ void gcompris_bar_start (GnomeCanvas *theCanvas)
 			 "configuration");
 
       gtk_signal_connect(GTK_OBJECT(config_item), "event",
-			 (GtkSignalFunc) gcompris_item_event_focus,
+			 (GtkSignalFunc) gc_item_focus_event,
 			 NULL);
     }
 
@@ -261,7 +262,7 @@ void gcompris_bar_start (GnomeCanvas *theCanvas)
 		     "about");
 
   gtk_signal_connect(GTK_OBJECT(about_item), "event",
-		     (GtkSignalFunc) gcompris_item_event_focus,
+		     (GtkSignalFunc) gc_item_focus_event,
 		     NULL);
 
   // Show them all
@@ -276,7 +277,7 @@ void gcompris_bar_start (GnomeCanvas *theCanvas)
 }
 
 
-void gcompris_bar_set_level(GcomprisBoard *gcomprisBoard)
+void gc_bar_set_level(GcomprisBoard *gcomprisBoard)
 {
   char *str = NULL;
   GdkPixbuf *pixmap = NULL;
@@ -308,17 +309,17 @@ void gcompris_bar_set_level(GcomprisBoard *gcomprisBoard)
 
 
 
-/* gcompris_bar_set_repeat_icon
+/* gc_bar_set_repeat_icon
  *
  * Override the repeat icon to a new one specific to your current board.
- * This must be called before calling gcompris_bar_set with GCOMPRIS_BAR_REPEAT_ICON
+ * This must be called before calling gc_bar_set with GC_BAR_REPEAT_ICON
  * the given pixmap is not freed.
  *
- * Next call to gcompris_bar_set with GCOMPRIS_BAR_REPEAT will restore the default icon.
+ * Next call to gc_bar_set with GC_BAR_REPEAT will restore the default icon.
  *
  */
 void
-gcompris_bar_set_repeat_icon (GdkPixbuf *pixmap)
+gc_bar_set_repeat_icon (GdkPixbuf *pixmap)
 {
   /* Warning changing the image needs to update pixbuf_ref for the focus usage */
   g_object_set_data (G_OBJECT (repeat_item), "pixbuf_ref", pixmap);
@@ -329,29 +330,29 @@ gcompris_bar_set_repeat_icon (GdkPixbuf *pixmap)
 
 /* Setting list of available icons in the control bar */
 void
-gcompris_bar_set (const GComprisBarFlags flags)
+gc_bar_set (const GComprisBarFlags flags)
 {
 
   current_flags = flags;
 
   update_exit_button();
 
-  if(flags&GCOMPRIS_BAR_LEVEL)
+  if(flags&GC_BAR_LEVEL)
     gnome_canvas_item_show(level_item);
   else
     gnome_canvas_item_hide(level_item);
 
-  if(flags&GCOMPRIS_BAR_OK)
+  if(flags&GC_BAR_OK)
     gnome_canvas_item_show(ok_item);
   else
     gnome_canvas_item_hide(ok_item);
 
-  if(gcompris_board_has_help(get_current_gcompris_board()))
+  if(gc_help_has_board(get_current_gcompris_board()))
     gnome_canvas_item_show(help_item);
   else
     gnome_canvas_item_hide(help_item);
 
-  if(flags&GCOMPRIS_BAR_REPEAT) {
+  if(flags&GC_BAR_REPEAT) {
     GdkPixbuf *pixmap;
 
     /* Set the repeat icon to the original one */
@@ -364,18 +365,18 @@ gcompris_bar_set (const GComprisBarFlags flags)
     gnome_canvas_item_show(repeat_item);
   } else {
 
-    if(flags&GCOMPRIS_BAR_REPEAT_ICON)
+    if(flags&GC_BAR_REPEAT_ICON)
       gnome_canvas_item_show(repeat_item);
     else
       gnome_canvas_item_hide(repeat_item);
   }
 
-  if(flags&GCOMPRIS_BAR_CONFIG && config_item)
+  if(flags&GC_BAR_CONFIG && config_item)
     gnome_canvas_item_show(config_item);
   else
     gnome_canvas_item_hide(config_item);
 
-  if(flags&GCOMPRIS_BAR_ABOUT)
+  if(flags&GC_BAR_ABOUT)
     gnome_canvas_item_show(about_item);
   else
     gnome_canvas_item_hide(about_item);
@@ -389,7 +390,7 @@ gcompris_bar_set (const GComprisBarFlags flags)
  * or retore the icons to the previous value
  */
 void
-gcompris_bar_hide (gboolean hide)
+gc_bar_hide (gboolean hide)
 {
   if(hide)
     {
@@ -407,7 +408,7 @@ gcompris_bar_hide (gboolean hide)
   else
     {
       gnome_canvas_item_show(home_item);
-      gcompris_bar_set(current_flags);
+      gc_bar_set(current_flags);
     }
 }
 
@@ -490,7 +491,7 @@ item_event_bar(GnomeCanvasItem *item, GdkEvent *event, gchar *data)
       /* This is not perfect clean but it makes it easy to remove the help window
 	 by clicking on any button in the bar */
       if(strcmp((char *)data, "help"))
-	gcompris_help_stop ();
+	gc_help_stop ();
 
       if(!strcmp((char *)data, "ok"))
 	{
@@ -534,13 +535,13 @@ item_event_bar(GnomeCanvasItem *item, GdkEvent *event, gchar *data)
       else if(!strcmp((char *)data, "back"))
 	{
 	  gcompris_play_ogg ("gobble", NULL);
-	  gcompris_bar_hide (TRUE);
+	  gc_bar_hide (TRUE);
 	  board_stop();
 	}
       else if(!strcmp((char *)data, "help"))
 	{
 	  gcompris_play_ogg ("gobble", NULL);
-	  gcompris_help_start(gcomprisBoard);
+	  gc_help_start(gcomprisBoard);
 	}
       else if(!strcmp((char *)data, "repeat"))
 	{
@@ -559,11 +560,11 @@ item_event_bar(GnomeCanvasItem *item, GdkEvent *event, gchar *data)
 	}
       else if(!strcmp((char *)data, "about"))
 	{
-	  gcompris_about_start();
+	  gc_about_start();
 	}
       else if(!strcmp((char *)data, "quit"))
 	{
-	  gcompris_confirm( _("GCompris confirmation"),
+	  gc_confirm_box( _("GCompris confirmation"),
 			    _("Sure you want to quit ?"),
 			    _("Yes, I am sure !"),
 			    _("No, I want to keep going"),
@@ -582,7 +583,7 @@ static void
 confirm_quit(gboolean answer)
 {
   if (answer)
-    gcompris_exit();
+    gc_exit();
 }
 
 

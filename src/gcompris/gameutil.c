@@ -1,6 +1,6 @@
 /* gcompris - gameutil.c
  *
- * Time-stamp: <2006/08/19 02:16:40 bruno>
+ * Time-stamp: <2006/08/20 12:41:31 bruno>
  *
  * Copyright (C) 2000-2006 Bruno Coudoin
  *
@@ -24,44 +24,39 @@
 #include <time.h>
 
 /* libxml includes */
-#include <libxml/tree.h>
-#include <libxml/parser.h>
 #include <libxml/parserInternals.h>
 
 #include "gcompris.h"
-
-#define IMAGEEXTENSION ".png"
-
-#define MAX_DESCRIPTION_LENGTH 1000
-
-/* List of all available boards  */
-static GList *boards_list = NULL;
-
-static GnomeCanvasGroup *rootDialogItem = NULL;
-static GnomeCanvasItem *itemDialogText = NULL;
-static gint item_event_ok(GnomeCanvasItem *item, GdkEvent *event, DialogBoxCallBack dbcb);
 
 extern GnomeCanvas *canvas;
 
 typedef void (*sighandler_t)(int);
 
 
-GList *gcompris_get_boards_list()
-{
-  return boards_list;
-}
-
-/*
- * load a pixmap from the filesystem 
- * pixmapfile is given relative to PACKAGE_DATA_DIR
+/** load a pixmap from the filesystem 
+ *
+ * \param format: If format contains $LOCALE, it will be first replaced by the current long locale
+ *                and if not found the short locale name. It support printf formating.
+ * \param ...:    additional params for the format (printf like)
+ *
+ * \return a new allocated pixbuf or NULL
  */
-GdkPixbuf *gcompris_load_pixmap(char *pixmapfile)
+GdkPixbuf *gc_pixmap_load(const gchar *format, ...)
 {
+  va_list args;
   gchar *filename;
+  gchar *pixmapfile;
   GdkPixbuf *pixmap=NULL;
 
+  if (!format)
+    return NULL;
+
+  va_start (args, format);
+  pixmapfile = g_strdup_vprintf (format, args);
+  va_end (args);
+
   /* Search */
-  filename = gcompris_find_absolute_filename(pixmapfile);
+  filename = gc_file_find_absolute(pixmapfile);
 
   if(filename)
     pixmap = gc_net_load_pixmap(filename);
@@ -80,11 +75,13 @@ GdkPixbuf *gcompris_load_pixmap(char *pixmapfile)
 			    pixmapfile,
 			    _("This activity is incomplete."),
 			    _("Exit it and report\nthe problem to the authors."));
-      gcompris_dialog (str, NULL);
+      gc_dialog (str, NULL);
+      g_free(pixmapfile);
       g_free(str);
       return NULL;
     }
 
+  g_free(pixmapfile);
   g_free(filename);
 
 
@@ -170,7 +167,7 @@ free_image_focus (GnomeCanvasItem *item, void *none)
  * Set the focus of the given image (highlight or not)
  *
  */
-void gcompris_set_image_focus(GnomeCanvasItem *item, gboolean focus)
+void gc_item_focus_set(GnomeCanvasItem *item, gboolean focus)
 {
   GdkPixbuf *dest = NULL;
   GdkPixbuf *pixbuf;
@@ -220,7 +217,7 @@ void gcompris_set_image_focus(GnomeCanvasItem *item, gboolean focus)
  * or the given one
  *
  */
-gint gcompris_item_event_focus(GnomeCanvasItem *item, GdkEvent *event,
+gint gc_item_focus_event(GnomeCanvasItem *item, GdkEvent *event,
 			       GnomeCanvasItem *dest_item)
 {
 
@@ -230,10 +227,10 @@ gint gcompris_item_event_focus(GnomeCanvasItem *item, GdkEvent *event,
   switch (event->type)
     {
     case GDK_ENTER_NOTIFY:
-      gcompris_set_image_focus(item, TRUE);
+      gc_item_focus_set(item, TRUE);
       break;
     case GDK_LEAVE_NOTIFY:
-      gcompris_set_image_focus(item, FALSE);
+      gc_item_focus_set(item, FALSE);
       break;
     default:
       break;
@@ -243,11 +240,11 @@ gint gcompris_item_event_focus(GnomeCanvasItem *item, GdkEvent *event,
 }
 
 /*
- * Return a copy of the given string in which it has
+ * Return a new copy of the given string in which it has
  * changes '\''n' to '\n'.
  * The recognized sequences are \b
  * \f \n \r \t \\ \" and the octal format.
- * 
+ *
  */
 gchar *reactivate_newline(char *str)
 {
@@ -269,618 +266,24 @@ gchar *reactivate_newline(char *str)
     
   xmlFreeParserCtxt		(ctxt);
   
-  //g_free(str);
-
   return newstr;
 }
 
-/*
- * Thanks for George Lebl <jirka@5z.com> for his Genealogy example
- * for all the XML stuff there
- */
-
-static void
-gcompris_add_xml_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child,
-			 GcomprisBoard *gcomprisBoard, gboolean db)
-{
-  GcomprisProperties *properties = gcompris_get_properties();
-  gchar *title=NULL;
-  gchar *description=NULL;
-  gchar *prerequisite=NULL;
-  gchar *goal=NULL;
-  gchar *manual=NULL;
-  gchar *credit=NULL;
-
-  if(/* if the node has no name */
-     !xmlnode->name ||
-     /* or if the name is not "Board" */
-     (g_strcasecmp((char *)xmlnode->name,"Board")!=0)
-     )
-    return;
-
-  /* get the type of the board */
-  gcomprisBoard->type = (char *)xmlGetProp(xmlnode, BAD_CAST "type");
-
-  /* get the specific mode for this board */
-  gcomprisBoard->mode			 = (char *)xmlGetProp(xmlnode, BAD_CAST "mode");
-  gcomprisBoard->name			 = (char *)xmlGetProp(xmlnode, BAD_CAST "name");
-  gcomprisBoard->icon_name		 = (char *)xmlGetProp(xmlnode, BAD_CAST "icon");
-  gcomprisBoard->author			 = (char *)xmlGetProp(xmlnode, BAD_CAST "author");
-  gcomprisBoard->boarddir		 = (char *)xmlGetProp(xmlnode, BAD_CAST "boarddir");
-  gcomprisBoard->mandatory_sound_file	 = (char *)xmlGetProp(xmlnode, BAD_CAST "mandatory_sound_file");
-  gcomprisBoard->mandatory_sound_dataset = (char *)xmlGetProp(xmlnode, BAD_CAST "mandatory_sound_dataset");
-
-  gchar *path                            = (char *)xmlGetProp(xmlnode, BAD_CAST "section");
-  if (strlen(path)==1){
-    g_free(path);
-    path = g_strdup("");
-    if (strcmp(gcomprisBoard->name,"root")==0)
-      gcomprisBoard->name = "";
-  }
-
-  gcomprisBoard->section		 = path;
-
-  gcomprisBoard->title = NULL;
-  gcomprisBoard->description = NULL;
-  gcomprisBoard->prerequisite = NULL;
-  gcomprisBoard->goal = NULL;
-  gcomprisBoard->manual = NULL;
-  gcomprisBoard->credit = NULL;
-
-  gcomprisBoard->difficulty		= (char *)xmlGetProp(xmlnode, BAD_CAST "difficulty");
-  if(gcomprisBoard->difficulty == NULL)
-    gcomprisBoard->difficulty		= "0";
-
-  /* Update the difficulty max */
-  if(properties->difficulty_max < atoi(gcomprisBoard->difficulty))
-    properties->difficulty_max = atoi(gcomprisBoard->difficulty);
-
-  for (xmlnode = xmlnode->xmlChildrenNode; xmlnode != NULL; xmlnode = xmlnode->next) {
-    if (xmlHasProp(xmlnode, BAD_CAST "lang"))
-      continue;
-
-    /* get the title of the board */
-    if (!strcmp((char *)xmlnode->name, "title"))
-      {
-	title = (char *)xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 0);
-	gcomprisBoard->title = reactivate_newline(gettext(title));
-      }
-
-    /* get the description of the board */
-    if (!strcmp((char *)xmlnode->name, "description"))
-      {
-	description = (char *)xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 0);
-	gcomprisBoard->description = reactivate_newline(gettext(description));
-      }
-
-    /* get the help prerequisite help of the board */
-    if (!strcmp((char *)xmlnode->name, "prerequisite"))
-      {
-	if(gcomprisBoard->prerequisite)
-	  g_free(gcomprisBoard->prerequisite);
-	
-	prerequisite = (char *)xmlNodeListGetString(doc,  xmlnode->xmlChildrenNode, 0);
-	gcomprisBoard->prerequisite = reactivate_newline(gettext(prerequisite));
-      }
-
-    /* get the help goal of the board */
-    if (!strcmp((char *)xmlnode->name, "goal"))
-      {
-	if(gcomprisBoard->goal)
-	  g_free(gcomprisBoard->goal);
-  
-	goal = (char *)xmlNodeListGetString(doc,  xmlnode->xmlChildrenNode, 0);
-	gcomprisBoard->goal = reactivate_newline(gettext(goal));
-      }
-
-    /* get the help user manual of the board */
-    if (!strcmp((char *)xmlnode->name, "manual"))
-      {
-	if(gcomprisBoard->manual)
-	  g_free(gcomprisBoard->manual);
-
-	manual = (char *)xmlNodeListGetString(doc,  xmlnode->xmlChildrenNode, 0);
-	gcomprisBoard->manual = reactivate_newline(gettext(manual));
-      }
-
-    /* get the help user credit of the board */
-    if (!strcmp((char *)xmlnode->name, "credit"))
-      {
-	if(gcomprisBoard->credit)
-	  g_free(gcomprisBoard->credit);
-  
-	credit =(char *) xmlNodeListGetString(doc,  xmlnode->xmlChildrenNode, 0);
-	gcomprisBoard->credit = reactivate_newline(gettext(credit));
-      }
-
-    /* Display the resource on stdout */
-    if (properties->display_resource 
-	&& !strcmp((char *)xmlnode->name, "resource")
-	&& gcompris_get_current_profile())
-      {
-	if(gcompris_is_activity_in_profile(gcompris_get_current_profile(), gcomprisBoard->name))
-	  {
-	    char *resource = (char *)xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 0);
-	    printf("%s\n", resource);
-	  }
-      }
-
-  }
-
-
-  /* Check all mandatory field are specified */
-  if(gcomprisBoard->name        == NULL ||
-     gcomprisBoard->type        == NULL ||
-     gcomprisBoard->icon_name   == NULL ||
-     gcomprisBoard->section     == NULL ||
-     gcomprisBoard->title       == NULL ||
-     gcomprisBoard->description == NULL) {
-    g_error("failed to read a mandatory field for this board (mandatory fields are name type icon_name difficulty section title description). check the board xml file is complete, perhaps xml-i18n-tools did not generate the file properly");
-  }
-
-  if (db){
-    gcompris_db_board_update( &gcomprisBoard->board_id, 
-			      &gcomprisBoard->section_id, 
-			      gcomprisBoard->name, 
-			      gcomprisBoard->section, 
-			      gcomprisBoard->author, 
-			      gcomprisBoard->type, 
-			      gcomprisBoard->mode, 
-			      atoi(gcomprisBoard->difficulty), 
-			      gcomprisBoard->icon_name, 
-			      gcomprisBoard->boarddir,
-			      gcomprisBoard->mandatory_sound_file,
-			      gcomprisBoard->mandatory_sound_dataset,
-			      gcomprisBoard->filename,
-			      title,
-			      description,
-			      prerequisite,
-			      goal,
-			      manual,
-			      credit
-			      );
-  
-    g_warning("db board written %d in %d  %s/%s", 
-	      gcomprisBoard->board_id, gcomprisBoard->section_id, 
-	      gcomprisBoard->section, gcomprisBoard->name);
-  }
-  
-}
-
-/* parse the doc, add it to our internal structures and to the clist */
-static void
-parse_doc(xmlDocPtr doc, GcomprisBoard *gcomprisBoard, gboolean db)
-{
-  xmlNodePtr node;
-
-  /* find <Board> nodes and add them to the list, this just
-     loops through all the children of the root of the document */
-  for(node = doc->children->children; node != NULL; node = node->next) {
-    /* add the board to the list, there are no children so
-       we pass NULL as the node of the child */
-    gcompris_add_xml_to_data(doc, node, NULL, gcomprisBoard, db);
-  }
-}
-
-
-
-/* read an xml file into our memory structures and update our view,
-   dump any old data we have in memory if we can load a new set
-   Return a newly allocated GcomprisBoard or NULL if the parsing failed
-*/
-GcomprisBoard *gcompris_read_xml_file(GcomprisBoard *gcomprisBoard, 
-				      char *fname,
-				      gboolean db)
-{
-  GcomprisProperties *properties = gcompris_get_properties();
-  gchar *filename;
-  /* pointer to the new doc */
-  xmlDocPtr doc;
-
-  g_return_val_if_fail(fname!=NULL, NULL);
-
-  filename = g_strdup(fname);
-
-  /* if the file doesn't exist */
-  if(!g_file_test ((filename), G_FILE_TEST_EXISTS))
-    {
-      g_free(filename);
-
-      /* if the file doesn't exist, try with our default prefix */
-      filename = g_strdup_printf("%s/%s", properties->package_data_dir, fname);
-
-      if(!g_file_test ((filename), G_FILE_TEST_EXISTS))
-	{
-	  g_warning("Couldn't find file %s !", fname);
-	  g_warning("Couldn't find file %s !", filename);
-	  g_free(filename);
-	  g_free(gcomprisBoard);
-	  return NULL;
-	}
-
-    }
-
-  /* parse the new file and put the result into newdoc */
-  doc = xmlParseFile(filename);
-
-  /* in case something went wrong */
-  if(!doc) {
-    g_warning("Oops, the parsing of %s failed", filename);
-    return NULL;
-  }
-  
-  if(/* if there is no root element */
-     !doc->children ||
-     /* if it doesn't have a name */
-     !doc->children->name ||
-     /* if it isn't a GCompris node */
-     g_strcasecmp((char *)doc->children->name,"GCompris")!=0) {
-    xmlFreeDoc(doc);
-    g_free(gcomprisBoard);
-    g_warning("Oops, the file %s is not for gcompris", filename);
-    return NULL;
-  }
-  
-  /* Store the file that belong to this board for trace and further need */
-  gcomprisBoard->filename=filename;
-
-  /* parse our document and replace old data */
-  parse_doc(doc, gcomprisBoard, db);
-
-  xmlFreeDoc(doc);
-
-  gcomprisBoard->board_ready=FALSE;
-  gcomprisBoard->canvas=canvas;
-
-  gcomprisBoard->gmodule      = NULL;
-  gcomprisBoard->gmodule_file = NULL;
-
-  /* Fixed since I use the canvas own pixel_per_unit scheme */
-  gcomprisBoard->width  = BOARDWIDTH;
-  gcomprisBoard->height = BOARDHEIGHT;
-
-  return gcomprisBoard;
-}
-
-/* Return the first board with the given section
- */
-GcomprisBoard *gcompris_get_board_from_section(gchar *section)
-{  
-  GList *list = NULL;
-
-  for(list = boards_list; list != NULL; list = list->next) {
-    GcomprisBoard *board = list->data;
-	   
-    gchar *fullname = NULL;
-    
-    fullname = g_strdup_printf("%s/%s",
-			       board->section, board->name);
-
-    if (strcmp (fullname, section) == 0){
-      g_free(fullname);
-      return board;
-    }
-    g_free(fullname);
-    
-  }
-  g_warning("gcompris_get_board_from_section searching '%s' but NOT FOUND\n", section);
-  return NULL;
-}
-
-static int boardlist_compare_func(const void *a, const void *b)
-{
-  return strcasecmp(((GcomprisBoard *) a)->difficulty, ((GcomprisBoard *) b)->difficulty);
-}
-
-/** Return true is there are at least one activity in the given section
- *
- * \param section: the section to check
- *
- * \return 1 if there is at least one activity, 0 instead
- *
- */
-int
-gcompris_board_has_activity(gchar *section, gchar *name)
-{
-  GList *list = NULL;
-  GcomprisProperties	*properties = gcompris_get_properties();
-  gchar *section_name = g_strdup_printf("%s/%s", section, name);
-
-  if (strlen(section)==1)
-    return 1;
-
-  for(list = boards_list; list != NULL; list = list->next) {
-    GcomprisBoard *board = list->data;
-
-    if ( (!properties->experimental) &&
-	 (strcmp (board->name, "experimental") == 0))
-      continue;
-
-    if ((strcmp (section_name, board->section) == 0) &&	
-	(strlen(board->name) != 0) &&
-	board_check_file(board))
-	{
-	  if((strcmp(board->type, "menu") == 0) &&
-	     strcmp(board->section, section) != 0)
-	    {
-	      /* We must check this menu is not empty recursively */
-	      if(gcompris_board_has_activity(board->section, board->name))
-		{
-		  g_free(section_name);
-		  return(1);
-		}
-	    }
-	  else
-	    {
-	      g_free(section_name);
-	      return 1;
-	    }
-	}
-    }
-
-  g_free(section_name);
-  return 0;
-}
-
-/* Return the list of boards in the given section
- * Boards are sorted depending on their difficulty value
- */
-GList *gcompris_get_menulist(gchar *section)
-{
-  GList *list = NULL;
-  GList *result_list = NULL;
-
-  GcomprisProperties	*properties = gcompris_get_properties();
-
-  if(!section){
-    g_error("gcompris_get_menulist called with section == NULL !");
-    return NULL;
-  }
-
-  if (strlen(section)==1)
-    section = "";
- 
-  for(list = boards_list; list != NULL; list = list->next) {
-    GcomprisBoard *board = list->data;
-
-    if ( (!properties->experimental) &&
-	 (strcmp (board->name, "experimental") == 0))
-      continue;
-
-    if (strcmp (section, board->section) == 0) {	
-      if (strlen(board->name) != 0)
-	{
-	  if(strcmp(board->type, "menu") == 0)
-	    {
-	      /* We must check first this menu is not empty */
-	      if(gcompris_board_has_activity(board->section, board->name))
-		result_list = g_list_append(result_list, board);
-	    }
-	  else
-	    {
-	      result_list = g_list_append(result_list, board);
-	    }
-	}
-    }
-  }
-
-  /* Sort the list now */
-  result_list = g_list_sort(result_list, boardlist_compare_func);
-
-  return result_list;
-}
-
-/** Select only files with .xml extention
- *
- * Return 1 if the given file end in .xml 0 else
- */
-int selectMenuXML(const gchar *file)
-{
-
-  if(strlen(file)<4)
-    return 0;
-
-  return (strncmp (&file[strlen(file)-4], ".xml", 4) == 0);
-}
-
-static void cleanup_menus() {
-  GList *list = NULL;
-
-  for(list = boards_list; list != NULL; list = list->next) {
-    GcomprisBoard *gcomprisBoard = list->data;
-
-    gcompris_read_xml_file(gcomprisBoard, gcomprisBoard->filename, FALSE);
-  }
-}
-
-
-/*
- * suppress_int_from_list
- */
-
-static GList *suppress_int_from_list(GList *list, int value)
-{
-
-  GList *cell = list;
-  int *data;
-
-  while (cell != NULL){
-    data = cell->data;
-    if (*data==value){
-      g_free(data);
-      return g_list_remove(list, data);
-    }
-    cell = cell->next;
-  }
-  g_warning("suppress_int_from_list value %d not found", value);
-  return list;
-}
-
-static gboolean compare_id(gconstpointer data1, gconstpointer data2)
-{
-  int *i = (int *) data1;
-  int *j = (int *) data2;
-
-  if (*i == *j)
-    return 0;
-  else
-    return -1;
-}
-
-/*
- * gcompris_load_menus
- *
- * Load all the menu it can from the given dirname
- *
- */
-void gcompris_load_menus_dir(char *dirname, gboolean db){
-  const gchar   *one_dirent;
-  GDir          *dir;
-  GcomprisProperties	*properties = gcompris_get_properties();
-  GList *list_old_boards_id = NULL;
-
-  if (!g_file_test(dirname, G_FILE_TEST_IS_DIR)) {
-    g_warning("Failed to parse board in '%s' because it's not a directory\n", dirname);
-    return;
-  }
-
-  dir = g_dir_open(dirname, 0, NULL);
-
-  if (!dir) {
-    g_warning("gcompris_load_menus : no menu found in %s", dirname);
-    return;
-  } else {
-    if (db)
-      list_old_boards_id = gcompris_db_get_board_id(list_old_boards_id);
-
-    while((one_dirent = g_dir_read_name(dir)) != NULL) {
-      /* add the board to the list */
-      GcomprisBoard *gcomprisBoard = NULL;
-      gchar *filename;
-      
-      filename = g_strdup_printf("%s/%s",
-				 dirname, one_dirent);
-
-      if(!g_file_test(filename, G_FILE_TEST_IS_REGULAR)) {
-	g_free(filename);
-	continue;
-      }
-
-      if(selectMenuXML(one_dirent)) {
-	gcomprisBoard = g_malloc0 (sizeof (GcomprisBoard));
-	gcomprisBoard->board_dir = g_strdup(dirname);
-
-	/* Need to be initialized here because gcompris_read_xml_file is used also to reread 	*/
-	/* the locale data									*/
-	/* And we don't want in this case to loose the current plugin				*/
-	gcomprisBoard->plugin=NULL;
-	gcomprisBoard->previous_board=NULL;
-
-	GcomprisBoard *board_read = gcompris_read_xml_file(gcomprisBoard, filename, db);
-	if (board_read){
-	  list_old_boards_id = suppress_int_from_list(list_old_boards_id, board_read->board_id);
-	  if (properties->administration)
-	    boards_list = g_list_append(boards_list, board_read);
-	  else {
-	    if ((strncmp(board_read->section,
-			 "/administration",
-			 strlen("/administration"))!=0)) {
-		
-	      if (gcompris_get_current_profile() &&
-		  !(g_list_find_custom(gcompris_get_current_profile()->activities, 
-				       &(board_read->board_id), compare_id))) {
-		boards_list = g_list_append(boards_list, board_read);
-	      } else {
-		boards_list = g_list_append(boards_list, board_read);
-	      }
-	    }
-	  }
-	}
-      }
-      g_free(filename);
-    }
-  }
-
-  if (db){
-    /* remove suppressed boards from db */
-    while (list_old_boards_id != NULL){
-      int *data=list_old_boards_id->data;
-      gcompris_db_remove_board(*data);
-      list_old_boards_id=g_list_remove(list_old_boards_id, data);
-      g_free(data);
-    }
-
-  }
-  
-  g_dir_close(dir);
-}
-  
-
-/* load all the menus xml files in the gcompris path
- * into our memory structures.
- */
-void gcompris_load_menus()
-{
-  GcomprisProperties	*properties = gcompris_get_properties();
-
-  if(boards_list) {
-    cleanup_menus();
-    return;
-  }
-
-  if ((!properties->reread_menu) && gcompris_db_check_boards()){
-    boards_list = gcompris_load_menus_db(boards_list);
-
-    if (!properties->administration){
-      GList *out_boards = NULL;
-      GList *list = NULL;
-      GcomprisBoard *board;
-
-      for (list = boards_list; list != NULL; list = list->next){
-	board = (GcomprisBoard *)list->data;
-	if (g_list_find_custom(gcompris_get_current_profile()->activities,
-			       &(board->board_id), compare_id))
-	  out_boards = g_list_append(out_boards, board);
-      }
-      for (list = out_boards; list != NULL; list = list->next)
-	boards_list = g_list_remove(boards_list, list->data);
-    }
-  }
-  else {
-    int db = (gcompris_get_current_profile() ? TRUE: FALSE);
-    properties->reread_menu = TRUE;
-    gcompris_load_menus_dir(properties->package_data_dir, db);
-    GDate *today = g_date_new();
-    g_date_set_time (today, time (NULL));
-
-    gchar date[11];
-    g_date_strftime (date, 11, "%F", today);
-    gcompris_db_set_date(date);
-    gcompris_db_set_version(VERSION);
-    g_date_free(today);
-  }
-  
-
-  if (properties->local_directory){
-    gchar *board_dir = g_strdup_printf("%s/boards/", properties->local_directory);
-    gcompris_load_menus_dir(board_dir, FALSE);
-    g_free(board_dir);
-  }
-}
-
 /* ======================================= */
-void item_absolute_move(GnomeCanvasItem *item, int x, int y) {
+void gc_item_absolute_move(GnomeCanvasItem *item, int x, int y) {
   double dx1, dy1, dx2, dy2;
   gnome_canvas_item_get_bounds(item, &dx1, &dy1, &dx2, &dy2);
   gnome_canvas_item_move(item, ((double)x)-dx1, ((double)y)-dy1);
 }
 
 /* ======================================= */
-/* As gnome does not implement its own API : gnome_canvas_item_rotate
+/** As gnome does not implement its own API : gc_item_rotate
    we have to do it ourselves ....
    IMPORTANT NOTE : This is designed for an item with "anchor" =  GTK_ANCHOR_CENTER
-   rotation is clockwise if angle > 0 */
-void item_rotate(GnomeCanvasItem *item, double angle) {
+   rotation is clockwise if angle > 0 
+*/
+void
+gc_item_rotate(GnomeCanvasItem *item, double angle) {
   double r[6],t[6], x1, x2, y1, y2;
 
   gnome_canvas_item_get_bounds( item, &x1, &y1, &x2, &y2 );
@@ -893,11 +296,13 @@ void item_rotate(GnomeCanvasItem *item, double angle) {
   gnome_canvas_item_affine_absolute(item, r );
 }
 
-/* As gnome does not implement its own API : gnome_canvas_item_rotate
+/* As gnome does not implement its own API : gc_item_rotate_relative
    we have to do it ourselves ....
    IMPORTANT NOTE : This is designed for an item with "anchor" =  GTK_ANCHOR_CENTER
-   rotation is clockwise if angle > 0 */
-void item_rotate_relative(GnomeCanvasItem *item, double angle) {
+   rotation is clockwise if angle > 0
+ */
+void
+gc_item_rotate_relative(GnomeCanvasItem *item, double angle) {
   double x1, x2, y1, y2;
   double tx1, tx2, ty1, ty2;
   double cx, cy;
@@ -968,8 +373,10 @@ void item_rotate_relative(GnomeCanvasItem *item, double angle) {
   gnome_canvas_item_affine_relative(item, r );
 }
 
-/* rotates an item around the center (x,y), relative to the widget's coordinates */
-void	item_rotate_with_center(GnomeCanvasItem *item, double angle, int x, int y) {
+/** rotates an item around the center (x,y), relative to the widget's coordinates
+ */
+void
+gc_item_rotate_with_center(GnomeCanvasItem *item, double angle, int x, int y) {
   double r[6],t[6], x1, x2, y1, y2, tx, ty;
 
   gnome_canvas_item_get_bounds( item, &x1, &y1, &x2, &y2 );
@@ -984,9 +391,11 @@ void	item_rotate_with_center(GnomeCanvasItem *item, double angle, int x, int y) 
   gnome_canvas_item_affine_absolute(item, r );
 }
 
-/* rotates an item around the center (x,y), relative to the widget's coordinates */
-/* The rotation is relative to the previous rotation */
-void	item_rotate_relative_with_center(GnomeCanvasItem *item, double angle, int x, int y) {
+/** rotates an item around the center (x,y), relative to the widget's coordinates
+ *  The rotation is relative to the previous rotation
+ */
+void
+gc_item_rotate_relative_with_center(GnomeCanvasItem *item, double angle, int x, int y) {
   double r[6],t[6], x1, x2, y1, y2, tx, ty;
 
   gnome_canvas_item_get_bounds( item, &x1, &y1, &x2, &y2 );
@@ -1001,162 +410,13 @@ void	item_rotate_relative_with_center(GnomeCanvasItem *item, double angle, int x
   gnome_canvas_item_affine_relative(item, r );
 }
 
-/*
- * Close the dialog box if it was open. It not, do nothing.
- */
-void gcompris_dialog_close() {
-
-  /* If we already running delete the previous one */
-  if(rootDialogItem) {
-    /* WORKAROUND: There is a bug in the richtex item and we need to remove it first */
-    while (g_idle_remove_by_data (itemDialogText));
-    gtk_object_destroy (GTK_OBJECT(itemDialogText));
-    itemDialogText = NULL;
-
-    gtk_object_destroy(GTK_OBJECT(rootDialogItem));
-  }
-  
-  rootDialogItem = NULL;
-
-}
-
-/*
- * Display a dialog box and an OK button
- * When the box is closed, the given callback is called if any
- */
-void gcompris_dialog(gchar *str, DialogBoxCallBack dbcb)
-{
-  GcomprisBoard   *gcomprisBoard = get_current_gcompris_board();
-  GnomeCanvasItem *item_text   = NULL;
-  GnomeCanvasItem *item_text_ok   = NULL;
-  GdkPixbuf       *pixmap_dialog = NULL;
-  GtkTextIter      iter_start, iter_end;
-  GtkTextBuffer   *buffer;
-  GtkTextTag      *txt_tag;
-
-  g_warning("Dialog=%s\n", str);
-
-  if(!gcomprisBoard)
-    return;
-
-  /* If we are already running do nothing */
-  if(rootDialogItem) {
-    g_warning("Cannot run a dialog box, one is already running. Message = %s\n", str);
-    return;
-  }
-
-  /* First pause the board */
-  board_pause(TRUE);
-
-  gcompris_bar_hide(TRUE);
-
-  rootDialogItem = GNOME_CANVAS_GROUP(
-				      gnome_canvas_item_new (gnome_canvas_root(gcomprisBoard->canvas),
-							     gnome_canvas_group_get_type (),
-							     "x", (double) 0,
-							     "y", (double) 0,
-							     NULL));
-      
-  pixmap_dialog = gcompris_load_skin_pixmap("dialogbox.png");
-
-  itemDialogText = gnome_canvas_item_new (rootDialogItem,
-				       gnome_canvas_pixbuf_get_type (),
-				       "pixbuf", pixmap_dialog,
-				       "x", (double) (BOARDWIDTH - gdk_pixbuf_get_width(pixmap_dialog))/2,
-				       "y", (double) (BOARDHEIGHT - gdk_pixbuf_get_height(pixmap_dialog))/2,
-				      NULL);
-
-  /* OK Text */
-  item_text_ok = gnome_canvas_item_new (rootDialogItem,
-					gnome_canvas_text_get_type (),
-					"text", _("OK"),
-					"font", gcompris_skin_font_title,
-					"x", (double)  BOARDWIDTH*0.5,
-					"y", (double)  (BOARDHEIGHT - gdk_pixbuf_get_height(pixmap_dialog))/2 +
-					gdk_pixbuf_get_height(pixmap_dialog) - 35,
-					"anchor", GTK_ANCHOR_CENTER,
-					"fill_color_rgba", gcompris_skin_color_text_button,
-					"weight", PANGO_WEIGHT_HEAVY,
-				NULL);
-
-  gdk_pixbuf_unref(pixmap_dialog);
-
-  gtk_signal_connect(GTK_OBJECT(itemDialogText), "event",
-		     (GtkSignalFunc) item_event_ok,
-		     dbcb);
-
-  item_text = gnome_canvas_item_new (rootDialogItem,
-				     gnome_canvas_rich_text_get_type (),
-				     "x", (double) BOARDWIDTH/2,
-				     "y", (double) 100.0,
-				     "width", (double)BOARDWIDTH-260.0,
-				     "height", 400.0,
-				     "anchor", GTK_ANCHOR_NORTH,
-				     "justification", GTK_JUSTIFY_CENTER,
-				     "grow_height", FALSE,
-				     "cursor_visible", FALSE,
-				     "cursor_blink", FALSE,
-				     "editable", FALSE,
-				     NULL);
-
-  gnome_canvas_item_set (item_text,
-			 "text", str,
-			 NULL);
-
-  buffer  = gnome_canvas_rich_text_get_buffer(GNOME_CANVAS_RICH_TEXT(item_text));
-  txt_tag = gtk_text_buffer_create_tag(buffer, NULL, 
-				       "font",       gcompris_skin_font_board_medium,
-				       "foreground", "blue",
-				       "family-set", TRUE,
-				       NULL);
-  gtk_text_buffer_get_end_iter(buffer, &iter_end);
-  gtk_text_buffer_get_start_iter(buffer, &iter_start);
-  gtk_text_buffer_apply_tag(buffer, txt_tag, &iter_start, &iter_end);
-
-  gtk_signal_connect(GTK_OBJECT(item_text), "event",
-		     (GtkSignalFunc) item_event_ok,
-		     dbcb);
-  gtk_signal_connect(GTK_OBJECT(item_text_ok), "event",
-		     (GtkSignalFunc) item_event_ok,
-		     dbcb);
-
-}
-
-/* Callback for the bar operations */
-static gint
-item_event_ok(GnomeCanvasItem *item, GdkEvent *event, DialogBoxCallBack dbcb)
-{
-  switch (event->type) 
-    {
-    case GDK_ENTER_NOTIFY:
-      break;
-    case GDK_LEAVE_NOTIFY:
-      break;
-    case GDK_BUTTON_PRESS:
-      if(rootDialogItem)
-	gcompris_dialog_close();
-
-      /* restart the board */
-      board_pause(FALSE);
-      
-      gcompris_bar_hide(FALSE);
-
-      if(dbcb != NULL)
-	dbcb();
-	  
-    default:
-      break;
-    }
-  return TRUE;
-}
-
 /**
  * Display the number of stars representing the difficulty level at the x,y location
  * The stars are created in a group 'parent'
  * The new group in which the stars are created is returned.
  * This is only usefull for the menu plugin and the configuration dialog box.
  */
-GnomeCanvasGroup *gcompris_display_difficulty_stars(GnomeCanvasGroup *parent, 
+GnomeCanvasGroup *gc_difficulty_display(GnomeCanvasGroup *parent, 
 						    double x, double y, 
 						    double ratio,
 						    gint difficulty)
@@ -1195,7 +455,7 @@ GnomeCanvasGroup *gcompris_display_difficulty_stars(GnomeCanvasGroup *parent,
 						    NULL));
   
   gtk_signal_connect(GTK_OBJECT(item), "event",
-		     (GtkSignalFunc) gcompris_item_event_focus,
+		     (GtkSignalFunc) gc_item_focus_event,
 		     NULL);
 
   gdk_pixbuf_unref(pixmap);
@@ -1227,7 +487,7 @@ gchar *g_utf8_strndup(gchar* utf8text, gint n)
  *
  */
 gchar*
-gcompris_find_absolute_filename(const gchar *format, ...)
+gc_file_find_absolute(const gchar *format, ...)
 {
   va_list		 args;
   int			 i = 0;
@@ -1276,7 +536,7 @@ gcompris_find_absolute_filename(const gchar *format, ...)
 	  gchar *filename2;
 
 	  /* First try with the long locale */
-	  g_strlcpy(locale, gcompris_get_locale(), sizeof(locale));
+	  g_strlcpy(locale, gc_locale_get(), sizeof(locale));
 	  filename2 = g_strjoinv(locale, tmp);
 	  absolute_filename = g_strdup_printf("%s/%s", dir_to_search[i], filename2);
 	  g_warning("1>>>> trying %s\n", absolute_filename);
@@ -1342,12 +602,3 @@ gcompris_find_absolute_filename(const gchar *format, ...)
   g_free(filename);
   return absolute_filename;
 }
-
-
-/* Local Variables: */
-/* mode:c */
-/* eval:(load-library "time-stamp") */
-/* eval:(make-local-variable 'write-file-hooks) */
-/* eval:(add-hook 'write-file-hooks 'time-stamp) */
-/* eval:(setq time-stamp-format '(time-stamp-yyyy/mm/dd time-stamp-hh:mm:ss user-login-name)) */
-/* End: */
