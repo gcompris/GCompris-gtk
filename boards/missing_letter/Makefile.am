@@ -1,5 +1,5 @@
 
-xmldir = $(pkgdatadir)/@PACKAGE_DATA_DIR@/scales
+xmldir = $(pkgdatadir)/@PACKAGE_DATA_DIR@/missing_letter
 
 xml_in_files = \
 	board1.xml.in
@@ -15,5 +15,4 @@ $(xml_DATA): %.xml: %.xml.in
 	sed -e "s/\(\<\)\/*_//g" $< > $@
 
 
-
-
+CLEANFILES = $(xml_DATA)

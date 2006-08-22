@@ -555,6 +555,7 @@ static void highlight_selected(GnomeCanvasItem * item) {
  *                Ref : shapegame.c
  * ==================================== */
 /* ======  for DEBUG ========  */
+#if 0
 static void dump_xml() {
   GList *list;
   g_warning("XML lentgh = %d\n", g_list_length(board_list));
@@ -564,16 +565,19 @@ static void dump_xml() {
     g_warning("xml = %s %s %s %s %s %s\n", board->pixmapfile, board->answer, board->question, board->l1, board->l2, board->l3);
   }
 }
+#endif
+
 /* ==================================== */
 static void init_xml()
 {
-  GcomprisProperties *properties = gc_prop_get();
   char *filename;
-  filename = g_strdup_printf("%s/%s/board1.xml", properties->package_data_dir, gcomprisBoard->boarddir);
-  assert(g_file_test(filename, G_FILE_TEST_EXISTS));
+
+  filename = gc_file_find_absolute("%s/board1.xml",
+				   gcomprisBoard->boarddir);
+
   assert(read_xml_file(filename)== TRUE);
+
   g_free(filename);
-  dump_xml();
 }
 
 /* ==================================== */
@@ -591,32 +595,18 @@ static void add_xml_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child)
   xmlnode = xmlnode->next;
 
   while (xmlnode != NULL && !found) {
-    gchar *lang = (gchar *)xmlGetProp(xmlnode, BAD_CAST "lang");
 
     if (!strcmp((char *)xmlnode->name, "pixmapfile"))
       pixmapfile = (gchar *)xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 1);
 
     if (!found && !strcmp((char *)xmlnode->name, "data"))
       {
-	if(lang==NULL && data==NULL)
+	if(data==NULL)
 	  {
-	    data = (gchar *)xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 1);
-	  }
-	else if(!strncmp(gc_locale_get(), lang, 5))
-	  {
-	    if(data) free(data);
-	    data = (char *)xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 1);
-	    /* That's the perfect choice, do not continue or we may override it */
-	    found = TRUE;
-	  }
-	else if(!strncmp(gc_locale_get(), lang, strlen(lang)))
-	  {
-	    if(data) free(data);
-	    data = (gchar *)xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 1);
+	    data = gettext((gchar *)xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 1));
 	  }
       }
     xmlnode = xmlnode->next;
-    g_free(lang);
   }
 
   // I really don't know why this test, but otherwise, the list is doubled
@@ -671,16 +661,9 @@ static gboolean read_xml_file(char *fname)
 
   g_return_val_if_fail(fname!=NULL,FALSE);
 
-  /* if the file doesn't exist */
-  if(!g_file_test(fname, G_FILE_TEST_EXISTS))
-    {
-      g_warning("Couldn't find file %s !", fname);
-      return FALSE;
-    }
-  g_warning("found file %s !", fname);
-
   /* parse the new file and put the result into newdoc */
-  doc = xmlParseFile(fname);
+  doc = gc_net_load_xml(fname);
+
   /* in case something went wrong */
   if(!doc)
     return FALSE;

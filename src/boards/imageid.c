@@ -47,13 +47,8 @@ static void		 highlight_selected(GnomeCanvasItem *);
 static void		 game_won(void);
 
 static void		 config_start(GcomprisBoard *agcomprisBoard,
-					     GcomprisProfile *aProfile);
+				      GcomprisProfile *aProfile);
 static void		 config_stop(void);
-
-#ifdef DEBUG
-static void		 dump_xml(void);
-#endif
-
 
 typedef struct {
   char  *pixmapfile;
@@ -142,7 +137,7 @@ GET_BPLUGIN_INFO(imageid)
  * in : boolean TRUE = PAUSE : FALSE = CONTINUE
  *
  */
-static void pause_board (gboolean pause)
+     static void pause_board (gboolean pause)
 {
   if(gcomprisBoard==NULL)
     return;
@@ -257,7 +252,7 @@ static void imageid_next_level()
 static void imageid_destroy_all_items()
 {
   if(boardRootItem!=NULL)
-      gtk_object_destroy (GTK_OBJECT(boardRootItem));
+    gtk_object_destroy (GTK_OBJECT(boardRootItem));
 
   boardRootItem = NULL;
 }
@@ -272,9 +267,9 @@ static GnomeCanvasItem *imageid_create_item(GnomeCanvasGroup *parent)
   Board * board;
 
   board_number = (gcomprisBoard->level-1) * NUMBER_OF_SUBLEVELS + gcomprisBoard->sublevel-1;
-/*  if (board_number >= g_list_length(board_list))
-	board_number = g_list_length(board_list)-1;
-*/
+  /*  if (board_number >= g_list_length(board_list))
+      board_number = g_list_length(board_list)-1;
+  */
   assert(board_number >= 0  && board_number < g_list_length(board_list));
   place = ((int)(3.0*rand()/(RAND_MAX+1.0)));
   assert(place >= 0  && place < 3);
@@ -338,20 +333,20 @@ static GnomeCanvasItem *imageid_create_item(GnomeCanvasGroup *parent)
   yp = (gcomprisBoard->height - 3*gdk_pixbuf_get_height(button_pixmap) - 2*VERTICAL_SEPARATION)/2;
 
   button1 = gnome_canvas_item_new (boardRootItem,
-				gnome_canvas_pixbuf_get_type (),
-				"pixbuf",  button_pixmap,
-				"x",  (double) xp,
-				"y",  (double) yp,
-				NULL);
+				   gnome_canvas_pixbuf_get_type (),
+				   "pixbuf",  button_pixmap,
+				   "x",  (double) xp,
+				   "y",  (double) yp,
+				   NULL);
   gnome_canvas_item_new (boardRootItem,
-				      gnome_canvas_text_get_type (),
-				      "text", buf[0],
-				      "font", gcompris_skin_font_board_big,
-				      "x", (double) xp + gdk_pixbuf_get_width(button_pixmap)/2 + 1.0,
-				      "y", (double) yp + gdk_pixbuf_get_height(button_pixmap)/2 + 1.0,
-				      "anchor", GTK_ANCHOR_CENTER,
-				      "fill_color_rgba", gcompris_skin_color_shadow,
-				      NULL);
+			 gnome_canvas_text_get_type (),
+			 "text", buf[0],
+			 "font", gcompris_skin_font_board_big,
+			 "x", (double) xp + gdk_pixbuf_get_width(button_pixmap)/2 + 1.0,
+			 "y", (double) yp + gdk_pixbuf_get_height(button_pixmap)/2 + 1.0,
+			 "anchor", GTK_ANCHOR_CENTER,
+			 "fill_color_rgba", gcompris_skin_color_shadow,
+			 NULL);
   text1_item = gnome_canvas_item_new (boardRootItem,
 				      gnome_canvas_text_get_type (),
 				      "text", buf[0],
@@ -364,20 +359,20 @@ static GnomeCanvasItem *imageid_create_item(GnomeCanvasGroup *parent)
 
   yp += gdk_pixbuf_get_height(button_pixmap) + VERTICAL_SEPARATION;
   button2 = gnome_canvas_item_new (boardRootItem,
-				gnome_canvas_pixbuf_get_type (),
-				"pixbuf",  button_pixmap,
-				"x",  (double) xp,
-				"y",  (double) yp,
-				NULL);
+				   gnome_canvas_pixbuf_get_type (),
+				   "pixbuf",  button_pixmap,
+				   "x",  (double) xp,
+				   "y",  (double) yp,
+				   NULL);
   gnome_canvas_item_new (boardRootItem,
-				      gnome_canvas_text_get_type (),
-				      "text", buf[1],
-				      "font", gcompris_skin_font_board_big,
-				      "x", (double) xp + gdk_pixbuf_get_width(button_pixmap)/2 + 1.0,
-				      "y", (double) yp + gdk_pixbuf_get_height(button_pixmap)/2 + 1.0,
-				      "anchor", GTK_ANCHOR_CENTER,
-				      "fill_color_rgba", gcompris_skin_color_shadow,
-				      NULL);
+			 gnome_canvas_text_get_type (),
+			 "text", buf[1],
+			 "font", gcompris_skin_font_board_big,
+			 "x", (double) xp + gdk_pixbuf_get_width(button_pixmap)/2 + 1.0,
+			 "y", (double) yp + gdk_pixbuf_get_height(button_pixmap)/2 + 1.0,
+			 "anchor", GTK_ANCHOR_CENTER,
+			 "fill_color_rgba", gcompris_skin_color_shadow,
+			 NULL);
   text2_item = gnome_canvas_item_new (boardRootItem,
 				      gnome_canvas_text_get_type (),
 				      "text", buf[1],
@@ -390,21 +385,21 @@ static GnomeCanvasItem *imageid_create_item(GnomeCanvasGroup *parent)
 
   yp += gdk_pixbuf_get_height(button_pixmap) + VERTICAL_SEPARATION;
   button3 = gnome_canvas_item_new (boardRootItem,
-				gnome_canvas_pixbuf_get_type (),
-				"pixbuf",  button_pixmap,
-				"x",  (double) xp,
-				"y",  (double) yp,
-				NULL);
+				   gnome_canvas_pixbuf_get_type (),
+				   "pixbuf",  button_pixmap,
+				   "x",  (double) xp,
+				   "y",  (double) yp,
+				   NULL);
 
   gnome_canvas_item_new (boardRootItem,
-				      gnome_canvas_text_get_type (),
-				      "text", buf[2],
-				      "font", gcompris_skin_font_board_big,
-				      "x", (double) xp + gdk_pixbuf_get_width(button_pixmap)/2 + 1.0,
-				      "y", (double) yp + gdk_pixbuf_get_height(button_pixmap)/2 + 1.0,
-				      "anchor", GTK_ANCHOR_CENTER,
-				      "fill_color_rgba", gcompris_skin_color_shadow,
-				      NULL);
+			 gnome_canvas_text_get_type (),
+			 "text", buf[2],
+			 "font", gcompris_skin_font_board_big,
+			 "x", (double) xp + gdk_pixbuf_get_width(button_pixmap)/2 + 1.0,
+			 "y", (double) yp + gdk_pixbuf_get_height(button_pixmap)/2 + 1.0,
+			 "anchor", GTK_ANCHOR_CENTER,
+			 "fill_color_rgba", gcompris_skin_color_shadow,
+			 NULL);
   text3_item = gnome_canvas_item_new (boardRootItem,
 				      gnome_canvas_text_get_type (),
 				      "text", buf[2],
@@ -436,9 +431,9 @@ static void game_won()
     gcomprisBoard->sublevel=1;
     gcomprisBoard->level++;
     if(gcomprisBoard->level>gcomprisBoard->maxlevel) { // the current board is finished : bail out
-	board_finished(BOARD_FINISHED_TUXLOCO);
-	return;
-      }
+      board_finished(BOARD_FINISHED_TUXLOCO);
+      return;
+    }
   }
   imageid_next_level();
 }
@@ -446,11 +441,11 @@ static void game_won()
 /* ==================================== */
 static gboolean process_ok_timeout() {
   gcompris_display_bonus(gamewon, BONUS_SMILEY);
-	return FALSE;
+  return FALSE;
 }
 
 static void process_ok() {
-	// leave time to display the right answer
+  // leave time to display the right answer
   g_timeout_add(TIME_CLICK_TO_BONUS, process_ok_timeout, NULL);
 }
 /* ==================================== */
@@ -519,16 +514,16 @@ static void highlight_selected(GnomeCanvasItem * item) {
   }
 
   if (selected_button != NULL && selected_button != button) {
-  	button_pixmap = gcompris_load_skin_pixmap("button_large.png");
-  	gnome_canvas_item_set(selected_button, "pixbuf", button_pixmap, NULL);
-  	gdk_pixbuf_unref(button_pixmap);
+    button_pixmap = gcompris_load_skin_pixmap("button_large.png");
+    gnome_canvas_item_set(selected_button, "pixbuf", button_pixmap, NULL);
+    gdk_pixbuf_unref(button_pixmap);
   }
 
   if (selected_button != button) {
-  	button_pixmap_selected = gcompris_load_skin_pixmap("button_large_selected.png");
-  	gnome_canvas_item_set(button, "pixbuf", button_pixmap_selected, NULL);
-  	selected_button = button;
-  	gdk_pixbuf_unref(button_pixmap_selected);
+    button_pixmap_selected = gcompris_load_skin_pixmap("button_large_selected.png");
+    gnome_canvas_item_set(button, "pixbuf", button_pixmap_selected, NULL);
+    selected_button = button;
+    gdk_pixbuf_unref(button_pixmap_selected);
   }
 
 }
@@ -538,22 +533,8 @@ static void highlight_selected(GnomeCanvasItem * item) {
  *                XML stuff
  *                Ref : shapegame.c
  * ==================================== */
-static void init_xml()
-{
-  GcomprisProperties *properties = gc_prop_get();
-  char *filename;
-  filename = g_strdup_printf("%s/%s/board1.xml", properties->package_data_dir, gcomprisBoard->boarddir);
-  g_debug("filename = %s %s %s\n", filename, properties->package_data_dir, gcomprisBoard->boarddir);
-
-  assert(g_file_test(filename, G_FILE_TEST_EXISTS));
-  assert(read_xml_file(filename)== TRUE);
-  g_free(filename);
-#ifdef DEBUG
-  dump_xml();
-#endif
-}
 /* ======  for DEBUG ========  */
-#ifdef DEBUG
+#if 0
 static void dump_xml() {
   GList *list;
   g_warning("XML lentgh = %d\n", g_list_length(board_list));
@@ -561,10 +542,21 @@ static void dump_xml() {
   for(list = board_list; list != NULL; list = list->next) {
     Board * board = list->data;
     g_warning("xml = %s %s %s %s\n", board->pixmapfile, board->text1, board->text2, board->text3);
-    }
+  }
 }
 #endif
 
+static void init_xml()
+{
+  char *filename;
+
+  filename = gc_file_find_absolute("%s/board1.xml",
+				   gcomprisBoard->boarddir);
+
+  assert(read_xml_file(filename)== TRUE);
+  g_free(filename);
+
+}
 /* ==================================== */
 static void add_xml_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child)
 {
@@ -578,73 +570,38 @@ static void add_xml_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child)
   xmlnode = xmlnode->next;
 
   while(xmlnode!=NULL) {
-    gchar *lang = (gchar *)xmlGetProp(xmlnode, BAD_CAST "lang");
-    
+
     if (!strcmp((char *)xmlnode->name, "pixmapfile"))
       pixmapfile = (gchar *)xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 1);
 
     if (!found_text1 && !strcmp((char *)xmlnode->name, "text1"))
       {
-	if(lang==NULL && text1==NULL)
+	if(text1==NULL)
 	  {
-	    text1 = (gchar *)xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 1);
-	  }
-	else if(!strncmp(gc_locale_get(), lang, 5))
-	  {
-	    if(text1) free(text1);
-	    text1 = (char *)xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 1);
-	    /* That's the perfect choice, do not continue or we may override it */
-	    found_text1 = TRUE;
-	  }
-	else if(!strncmp(gc_locale_get(), lang, strlen(lang)))
-	  {
-	    if(text1) free(text1);
-	    text1 = (gchar *)xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 1);
+	    text1 = \
+	      g_strdup(gettext((gchar *)xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 1)));
 	  }
       }
 
     if (!found_text2 && !strcmp((char *)xmlnode->name, "text2"))
       {
-	if(lang==NULL && text2==NULL)
+	if(text2==NULL)
 	  {
-	    text2 = (gchar *)xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 1);
-	  }
-	else if(!strncmp(gc_locale_get(), lang, 5))
-	  {
-	    if(text2) free(text2);
-	    text2 = (char *)xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 1);
-	    /* That's the perfect choice, do not continue or we may override it */
-	    found_text2 = TRUE;
-	  }
-	else if(!strncmp(gc_locale_get(), lang, strlen(lang)))
-	  {
-	    if(text2) free(text2);
-	    text2 = (gchar *)xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 1);
+	    text2 = \
+	      g_strdup(gettext((gchar *)xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 1)));
 	  }
       }
 
     if (!found_text3 && !strcmp((char *)xmlnode->name, "text3"))
       {
-	if(lang==NULL && text3==NULL)
+	if(text3==NULL)
 	  {
-	    text3 = (gchar *)xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 1);
-	  }
-	else if(!strncmp(gc_locale_get(), lang, 5))
-	  {
-	    if(text3) free(text3);
-	    text3 = (char *)xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 1);
-	    /* That's the perfect choice, do not continue or we may override it */
-	    found_text3 = TRUE;
-	  }
-	else if(!strncmp(gc_locale_get(), lang, strlen(lang)))
-	  {
-	    if(text3) free(text3);
-	    text3 = (gchar *)xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 1);
+	    text3 = \
+	      g_strdup(gettext((gchar *)xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 1)));
 	  }
       }
 
     xmlnode = xmlnode->next;
-    g_free(lang);
   }
   // I really don't know why this test, but otherwise, the list is doubled
   // with 1 line on 2 filled with NULL elements
@@ -666,7 +623,7 @@ static void parse_doc(xmlDocPtr doc)
 
   for(node = doc->children->children; node != NULL; node = node->next) {
     if ( g_strcasecmp((gchar *)node->name, "Board") == 0 )
-    	add_xml_data(doc, node,NULL);
+      add_xml_data(doc, node,NULL);
   }
 
 }
@@ -680,16 +637,9 @@ static gboolean read_xml_file(char *fname)
 
   g_return_val_if_fail(fname!=NULL,FALSE);
 
-  /* if the file doesn't exist */
-  if(!g_file_test(fname, G_FILE_TEST_EXISTS))
-    {
-      g_warning("Couldn't find file %s !", fname);
-      return FALSE;
-    }
-  g_warning("found file %s !", fname);
-
   /* parse the new file and put the result into newdoc */
-  doc = xmlParseFile(fname);
+  doc = gc_net_load_xml(fname);
+
   /* in case something went wrong */
   if(!doc)
     return FALSE;
@@ -710,8 +660,9 @@ static gboolean read_xml_file(char *fname)
 }
 /* ======================================= */
 static void destroy_board_list() {
-Board *board;
- while(g_list_length(board_list)>0)
+  Board *board;
+
+  while(g_list_length(board_list)>0)
     {
       board = g_list_nth_data(board_list, 0);
       board_list = g_list_remove (board_list, board);
@@ -721,11 +672,11 @@ Board *board;
 
 /* ======================================= */
 static void destroy_board(Board * board) {
-	g_free(board->pixmapfile);
-	g_free(board->text1);
-	g_free(board->text2);
-	g_free(board->text3);
-	g_free(board);
+  g_free(board->pixmapfile);
+  g_free(board->text1);
+  g_free(board->text2);
+  g_free(board->text3);
+  g_free(board);
 }
 
 
@@ -794,7 +745,7 @@ static GcomprisConfCallback conf_ok(GHashTable *table)
 
 static void
 config_start(GcomprisBoard *agcomprisBoard,
-		    GcomprisProfile *aProfile)
+	     GcomprisProfile *aProfile)
 {
   board_conf = agcomprisBoard;
   profile_conf = aProfile;

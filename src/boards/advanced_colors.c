@@ -445,19 +445,14 @@ static void highlight_selected(int c) {
  * ==================================== */
 static void init_xml()
 {
-  GcomprisProperties *properties = gc_prop_get();
   char *filename;
-  filename = g_strdup_printf("%s/%s/board%d.xml",
-			     properties->package_data_dir,
+
+  filename = gc_file_find_absolute("%s/board%d.xml",
 			     gcomprisBoard->boarddir,
 			     gcomprisBoard->level);
-  g_debug("filename = %s %s %s\n",
-	  properties->package_data_dir,
-	  filename,
-	  gcomprisBoard->boarddir);
 
-  assert(g_file_test(filename, G_FILE_TEST_EXISTS));
   assert(read_xml_file(filename)== TRUE);
+
   g_free(filename);
 }
 
@@ -466,45 +461,31 @@ static void add_xml_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child)
 {
   char *text = NULL;
   char *sColor = NULL;
-  int color = 0;
   int i;
-  gchar *lang;
 
   xmlnode = xmlnode->xmlChildrenNode;
 
   xmlnode = xmlnode->next;
 
-  while (xmlnode != NULL) {
-    if (!strcmp((char *)xmlnode->name, "pixmapfile"))
-      backgroundFile = (char *)xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 1);
+  while (xmlnode != NULL)
+    {
+      if (!strcmp((char *)xmlnode->name, "pixmapfile"))
+	backgroundFile = (char *)xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 1);
 
-    lang = (char *)xmlGetProp(xmlnode, BAD_CAST "lang");
-
-    // try to match color[i]
-    for (i=0; i<8; i++) {
-      sColor = g_strdup_printf("color%d", i+1);
-      if (!strcmp((char *)xmlnode->name, sColor)) {
-	if (lang == NULL) { // get default value
-	  text = (char *)xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 1);
-	  colors[i] = text;
-	} else { // get correct language
-	  if ( !strncmp(lang, gc_locale_get(), strlen(lang)) ) {
-	    text = (char *)xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 1);
-	    g_warning("color prop::lang=%s locale=%s text=%s\n", lang, gc_locale_get(), text);
-	    colors[i] = text;
-	  }
-	}
-	g_free(sColor);
-	break;
-      }
-      g_free(sColor);
-    } // end for
-    xmlnode = xmlnode->next;
-  }
-
-  g_warning("colors found in XML:\n");
-  for (color=0; color<8; color++)
-    g_warning("%d %s\n", color, colors[color]);
+      // try to match color[i]
+      for (i=0; i<8; i++)
+	{
+	  sColor = g_strdup_printf("color%d", i+1);
+	  if (!strcmp((char *)xmlnode->name, sColor))
+	    {
+	      colors[i] = gettext((char *)xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 1));
+	      g_free(sColor);
+	      break;
+	    }
+	  g_free(sColor);
+	} // end for
+      xmlnode = xmlnode->next;
+    }
 
   // I really don't know why this test, but otherwise, the list is doubled
   // with 1 line on 2 filled with NULL elements
@@ -520,7 +501,7 @@ static void parse_doc(xmlDocPtr doc)
 
   for(node = doc->children->children; node != NULL; node = node->next) {
     if ( g_strcasecmp((char *)node->name, "Board") == 0 )
-      add_xml_data(doc, node,NULL);
+      add_xml_data(doc, node, NULL);
   }
 
 }
@@ -534,16 +515,9 @@ static gboolean read_xml_file(char *fname)
 
   g_return_val_if_fail(fname!=NULL,FALSE);
 
-  /* if the file doesn't exist */
-  if(!g_file_test(fname, G_FILE_TEST_EXISTS))
-    {
-      g_warning("Couldn't find file %s !", fname);
-      return FALSE;
-    }
-  g_warning("found file %s !", fname);
-
   /* parse the new file and put the result into newdoc */
-  doc = xmlParseFile(fname);
+  doc = gc_net_load_xml(fname);
+
   /* in case something went wrong */
   if(!doc)
     return FALSE;

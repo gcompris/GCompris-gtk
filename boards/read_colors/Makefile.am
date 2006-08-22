@@ -13,6 +13,4 @@ xml_DATA = $(xml_in_files:.xml.in=.xml)
 $(xml_DATA): %.xml: %.xml.in
 	sed -e "s/\(\<\)\/*_//g" $< > $@
 
-
-
-
+CLEANFILES = $(xml_DATA)

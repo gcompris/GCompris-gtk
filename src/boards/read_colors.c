@@ -407,13 +407,13 @@ static void highlight_selected(int c) {
  * ==================================== */
 static void init_xml()
 {
-  GcomprisProperties *properties = gc_prop_get();
   char *filename;
-  filename = g_strdup_printf("%s/%s/board1.xml", properties->package_data_dir, gcomprisBoard->boarddir);
-  g_warning("filename = %s %s %s\n", filename, properties->package_data_dir, gcomprisBoard->boarddir);
 
-  assert(g_file_test(filename, G_FILE_TEST_EXISTS));
+  filename = gc_file_find_absolute("%s/board1.xml",
+				   gcomprisBoard->boarddir);
+
   assert(read_xml_file(filename)== TRUE);
+
   g_free(filename);
 }
 
@@ -422,9 +422,7 @@ static void add_xml_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child)
 {
   char *text = NULL;
   char *sColor = NULL;
-  int color = 0;
   int i;
-  gchar *lang;
 
   xmlnode = xmlnode->xmlChildrenNode;
 
@@ -432,33 +430,20 @@ static void add_xml_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child)
 
   while (xmlnode != NULL) {
 
-    lang = (char *)xmlGetProp(xmlnode, BAD_CAST "lang");
-
     // try to match color[i]
     for (i=0; i<LAST_COLOR; i++) {
       sColor = g_strdup_printf("color%d", i+1);
       if (!strcmp((char *)xmlnode->name, sColor)) {
-	if (lang == NULL) { // get default value
-	  text = (char *)xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 1);
-	  colors[i] = text;
-	} else { // get correct language
-	  if ( !strncmp(lang, gc_locale_get(), strlen(lang)) ) {
-	    text = (char *)xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 1);
-	    g_warning("color prop::lang=%s locale=%s text=%s\n", lang, gc_locale_get(), text);
-	    colors[i] = text;
-	  }
-	  g_free(sColor);
-	  break;
-	}
+	text = \
+	  gettext((char *)xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 1));
+	colors[i] = text;
+	g_free(sColor);
+	break;
       }
       g_free(sColor);
     } // end for
     xmlnode = xmlnode->next;
   }
-
-  g_warning("colors found in XML:\n");
-  for (color=0; color<LAST_COLOR; color++)
-    g_warning("%d %s\n", color, colors[color]);
 
   // I really don't know why this test, but otherwise, the list is doubled
   // with 1 line on 2 filled with NULL elements
@@ -488,16 +473,9 @@ static gboolean read_xml_file(char *fname)
 
   g_return_val_if_fail(fname!=NULL,FALSE);
 
-  /* if the file doesn't exist */
-  if(!g_file_test(fname, G_FILE_TEST_EXISTS))
-    {
-      g_warning("Couldn't find file %s !", fname);
-      return FALSE;
-    }
-  g_warning("found file %s !", fname);
-
   /* parse the new file and put the result into newdoc */
-  doc = xmlParseFile(fname);
+  doc = gc_net_load_xml(fname);
+
   /* in case something went wrong */
   if(!doc)
     return FALSE;

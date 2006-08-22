@@ -207,7 +207,7 @@ static struct poptOption options[] = {
 
   {"web-only", '\0', POPT_ARG_NONE, &popt_web_only, 0,
    N_("Only when --server is provided, disable check for local resource first."
-      "Data are always taken from the web server."), NULL},
+      " Data are always taken from the web server."), NULL},
 #ifndef WIN32	/* Not supported on windows */
   POPT_AUTOHELP
 #endif

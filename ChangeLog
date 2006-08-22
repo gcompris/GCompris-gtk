@@ -1,3 +1,33 @@
+2006-08-23  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	- fixed bug#352350 Some typos in the PO file
+	- added ukrainian flag, waiting for po file.
+	- fixed several acivity make them work with gc_net_load_xml API
+	  they no more get their xml data file locally
+	- fixed several activity to get their translations from gettext instead of
+	  the xml data file itself. It saves a lot of space and makes packagers happy.
+	
+	* boards/advanced_colors/Makefile.am:
+	* boards/flags/uk.png:
+	* boards/imageid/Makefile.am:
+	* boards/missing_letter/Makefile.am:
+	* boards/read_colors/Makefile.am:
+	* boards/scales/Makefile.am:
+	* boards/traffic.xml.in:
+	* docs/gcompris2spip.pl: added russian and ukrainian
+	* src/boards/advanced_colors.c: (init_xml), (add_xml_data),
+	(parse_doc), (read_xml_file):
+	* src/boards/imageid.c: (pause_board), (imageid_destroy_all_items),
+	(imageid_create_item), (game_won), (process_ok_timeout),
+	(process_ok), (highlight_selected), (dump_xml), (init_xml),
+	(add_xml_data), (parse_doc), (read_xml_file), (destroy_board_list),
+	(destroy_board), (config_start):
+	* src/boards/missingletter.c: (init_xml), (add_xml_data),
+	(read_xml_file):
+	* src/boards/read_colors.c: (init_xml), (add_xml_data),
+	(read_xml_file):
+	* src/gcompris/gcompris.c:
+
 2006-08-22  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	- cleanup, removed deprecated wordslevel* now the xml version
