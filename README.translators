@@ -25,13 +25,10 @@ So here is the format description:
                letter                   confuse the kid
    apple       appl_                    / e / h / a
 
-A set of file in boards/wordsgame/wordslevelx.yy
-Where x is the level or max and yy your target locale.
+A set of file in boards/wordsgame/default-yy.xml
+Where yy is your target locale.
 Note that these words must be choosen to be simple in your language, don't
-necessary translate the English. Also, it is important to make sure that
-these words can be written with your keyboard in one key (no alt-gr stuff or
-compose key). If it is not possible, there is a special directory to look at in
-boards/gletters/README. It let you configure this activity for any keyboard.
+necessary translate the English.
 
 A complete voice translation in boards/sounds/yy
 It is best to choose somebody that speaks and articulate well your language.

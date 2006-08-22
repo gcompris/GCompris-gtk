@@ -1,5 +1,79 @@
 2006-08-22  Bruno coudoin  <bruno.coudoin@free.fr>
 
+	- cleanup, removed deprecated wordslevel* now the xml version
+	  default-*.xml are used.
+	- cleanup, removed deprecated files boards/gletters/gletters.*
+	  we now use the IM API.
+
+	* boards/wordsgame/default-en.xml:
+	* boards/wordsgame/default-fr.xml:
+	* boards/wordsgame/default-tr.xml:
+	* boards/wordsgame/wordslevel1.da:
+	* boards/wordsgame/wordslevel1.de:
+	* boards/wordsgame/wordslevel1.el:
+	* boards/wordsgame/wordslevel1.en:
+	* boards/wordsgame/wordslevel1.es:
+	* boards/wordsgame/wordslevel1.eu:
+	* boards/wordsgame/wordslevel1.fi:
+	* boards/wordsgame/wordslevel1.fr:
+	* boards/wordsgame/wordslevel1.hu:
+	* boards/wordsgame/wordslevel1.it:
+	* boards/wordsgame/wordslevel1.lt:
+	* boards/wordsgame/wordslevel1.nb:
+	* boards/wordsgame/wordslevel1.nn:
+	* boards/wordsgame/wordslevel1.pt:
+	* boards/wordsgame/wordslevel1.pt_BR:
+	* boards/wordsgame/wordslevel1.ro:
+	* boards/wordsgame/wordslevel1.ru:
+	* boards/wordsgame/wordslevel1.sk:
+	* boards/wordsgame/wordslevel1.sl:
+	* boards/wordsgame/wordslevel1.sv:
+	* boards/wordsgame/wordslevel2.da:
+	* boards/wordsgame/wordslevel2.de:
+	* boards/wordsgame/wordslevel2.el:
+	* boards/wordsgame/wordslevel2.en:
+	* boards/wordsgame/wordslevel2.es:
+	* boards/wordsgame/wordslevel2.eu:
+	* boards/wordsgame/wordslevel2.fi:
+	* boards/wordsgame/wordslevel2.fr:
+	* boards/wordsgame/wordslevel2.it:
+	* boards/wordsgame/wordslevel2.lt:
+	* boards/wordsgame/wordslevel2.nb:
+	* boards/wordsgame/wordslevel2.nn:
+	* boards/wordsgame/wordslevel2.pt:
+	* boards/wordsgame/wordslevel2.pt_BR:
+	* boards/wordsgame/wordslevel2.ro:
+	* boards/wordsgame/wordslevel2.ru:
+	* boards/wordsgame/wordslevel2.sk:
+	* boards/wordsgame/wordslevel2.sl:
+	* boards/wordsgame/wordslevel2.sv:
+	* boards/wordsgame/wordslevel3.fr:
+	* boards/wordsgame/wordslevel3.lt:
+	* boards/wordsgame/wordslevelmax.da:
+	* boards/wordsgame/wordslevelmax.de:
+	* boards/wordsgame/wordslevelmax.el:
+	* boards/wordsgame/wordslevelmax.en:
+	* boards/wordsgame/wordslevelmax.es:
+	* boards/wordsgame/wordslevelmax.eu:
+	* boards/wordsgame/wordslevelmax.fi:
+	* boards/wordsgame/wordslevelmax.fr:
+	* boards/wordsgame/wordslevelmax.hu:
+	* boards/wordsgame/wordslevelmax.it:
+	* boards/wordsgame/wordslevelmax.lt:
+	* boards/wordsgame/wordslevelmax.nb:
+	* boards/wordsgame/wordslevelmax.nl:
+	* boards/wordsgame/wordslevelmax.nn:
+	* boards/wordsgame/wordslevelmax.pt:
+	* boards/wordsgame/wordslevelmax.pt_BR:
+	* boards/wordsgame/wordslevelmax.ro:
+	* boards/wordsgame/wordslevelmax.ru:
+	* boards/wordsgame/wordslevelmax.sk:
+	* boards/wordsgame/wordslevelmax.sl:
+	* boards/wordsgame/wordslevelmax.sv:
+	* src/boards/wordsgame.c: (start_board):
+
+2006-08-22  Bruno coudoin  <bruno.coudoin@free.fr>
+
 	- completed the wordlist API which look like this now:
 	    GcomprisWordlist *gc_wordlist_get_from_file(const gchar *fileformat, ...);
 	    void              gc_wordlist_free(GcomprisWordlist *wordlist);

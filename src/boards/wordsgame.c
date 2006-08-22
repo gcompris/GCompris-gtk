@@ -203,6 +203,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 
 	  if(!gc_wordlist)
 	    {
+	      gcomprisBoard = NULL;
 	      gc_dialog(_("Error: We don't find\na list of words to play this game.\n"), gc_board_end);
 	      return;
 	    }
