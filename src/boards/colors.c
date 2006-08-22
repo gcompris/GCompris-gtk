@@ -211,7 +211,7 @@ static void pause_board (gboolean pause)
  *
  * =====================================================================*/
 static void start_board (GcomprisBoard *agcomprisBoard) {
-  GcomprisProperties	*properties = gcompris_get_properties();
+  GcomprisProperties	*properties = gc_prop_get();
   GList * list = NULL;
   int * item;
   int i;
@@ -306,7 +306,7 @@ static void repeat (){
   if(gcomprisBoard!=NULL)
     {
       char *str  = NULL;
-      GcomprisProperties *properties = gcompris_get_properties();
+      GcomprisProperties *properties = gc_prop_get();
 
       str = g_strdup_printf("sounds/$LOCALE/colors/%s.ogg",
 			    colors[GPOINTER_TO_INT(g_list_nth_data(listColors, 0))*2]);

@@ -1,6 +1,6 @@
 /* gcompris - clickgame.c
  *
- * Time-stamp: <2006/08/20 08:10:07 bruno>
+ * Time-stamp: <2006/08/21 23:30:07 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -739,13 +739,3 @@ static void load_random_pixmap()
     }
 
 }
-
-
-
-/* Local Variables: */
-/* mode:c */
-/* eval:(load-library "time-stamp") */
-/* eval:(make-local-variable 'write-file-hooks) */
-/* eval:(add-hook 'write-file-hooks 'time-stamp) */
-/* eval:(setq time-stamp-format '(time-stamp-yyyy/mm/dd time-stamp-hh:mm:ss user-login-name)) */
-/* End: */

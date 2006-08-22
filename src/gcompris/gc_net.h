@@ -34,8 +34,6 @@
 
 #include "gcompris.h"
 
-#define GCOMPRIS_BASE_URL "http://gcompris.net/gcompris"
-
 void gc_net_init();
 GdkPixbuf *gc_net_load_pixmap(const char *url);
 xmlDocPtr  gc_net_load_xml(const char *url);

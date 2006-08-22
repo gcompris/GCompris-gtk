@@ -28,7 +28,7 @@ gcompris_new_pyGcomprisWordlistObject(GcomprisWordlist* wordlist)
 static void 
 pyGcomprisWordlistType_dealloc(pyGcomprisWordlistObject *self)
 {
-  gcompris_wordlist_free((GcomprisWordlist *)self->cdata);
+  gc_wordlist_free((GcomprisWordlist *)self->cdata);
   self->cdata = NULL;
   PyObject_DEL(self);
 }
@@ -55,8 +55,8 @@ pyGcomprisWordlistType_getattr(pyGcomprisWordlistObject *self, char *name)
       PyObject *pydict;
       PyObject *pylist;
       gint level;
-      GList *words;
-      GList *list, *list_words;
+      GSList *words;
+      GSList *list, *list_words;
 
       pydict = PyDict_New();
       

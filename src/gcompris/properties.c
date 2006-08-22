@@ -1,6 +1,6 @@
 /* gcompris - properties.c
  *
- * Time-stamp: <2006/08/13 17:44:47 bruno>
+ * Time-stamp: <2006/08/21 23:26:56 bruno>
  *
  * Copyright (C) 2000,2003 Bruno Coudoin
  *
@@ -404,12 +404,3 @@ my_setenv (const char * name, const char * value) {
   return -1;
 #endif
 }
-
-
-/* Local Variables: */
-/* mode:c */
-/* eval:(load-library "time-stamp") */
-/* eval:(make-local-variable 'write-file-hooks) */
-/* eval:(add-hook 'write-file-hooks 'time-stamp) */
-/* eval:(setq time-stamp-format '(time-stamp-yyyy/mm/dd time-stamp-hh:mm:ss user-login-name)) */
-/* End: */

@@ -1,6 +1,6 @@
 /* gcompris - profile.c
  *
- * Time-stamp: <2006/08/11 17:29:49 bruno>
+ * Time-stamp: <2006/08/21 23:26:49 bruno>
  *
  * Copyright (C) 2005 Bruno Coudoin
  *
@@ -29,7 +29,7 @@
 GcomprisProfile
 *gcompris_get_current_profile()
 {
-  GcomprisProperties	*properties = gcompris_get_properties();
+  GcomprisProperties	*properties = gc_prop_get();
 
   if (properties->profile)
     return properties->profile;
@@ -44,7 +44,7 @@ GcomprisProfile
 void
 gcompris_set_current_user(GcomprisUser *user)
 {
-  GcomprisProperties	*properties = gcompris_get_properties();
+  GcomprisProperties	*properties = gc_prop_get();
 
   if (user)
     properties->logged_user = user;
@@ -82,17 +82,6 @@ gcompris_set_current_user(GcomprisUser *user)
 
 GcomprisUser            *gcompris_get_current_user()
 {
-  GcomprisProperties	*properties = gcompris_get_properties();
+  GcomprisProperties	*properties = gc_prop_get();
   return properties->logged_user;
 }
-
-
-
-/* Local Variables: */
-/* mode:c */
-/* eval:(load-library "time-stamp") */
-/* eval:(make-local-variable 'write-file-hooks) */
-/* eval:(add-hook 'write-file-hooks 'time-stamp) */
-/* eval:(setq time-stamp-format '(time-stamp-yyyy/mm/dd time-stamp-hh:mm:ss user-login-name)) */
-/* End: */
-

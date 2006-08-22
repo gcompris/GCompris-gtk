@@ -1,6 +1,6 @@
 /* gcompris - config.c
  *
- * Time-stamp: <2006/08/20 23:37:35 bruno>
+ * Time-stamp: <2006/08/21 23:28:06 bruno>
  *
  * Copyright (C) 2000-2003 Bruno Coudoin
  *
@@ -147,7 +147,7 @@ static void   display_previous_next(guint x_start, guint y_start,
  */
 void gcompris_config_start ()
 {
-  GcomprisProperties	*properties = gcompris_get_properties();
+  GcomprisProperties	*properties = gc_prop_get();
   GdkPixbuf   *pixmap = NULL;
   gint y_start = 0;
   gint x_start = 0;
@@ -704,7 +704,7 @@ static gchar *get_previous_locale(gchar *locale)
 static gint
 item_event_ok(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 {
-  GcomprisProperties	*properties = gcompris_get_properties();
+  GcomprisProperties	*properties = gc_prop_get();
 
   if(data==NULL)
     return FALSE;
@@ -863,14 +863,3 @@ item_event_ok(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
   return FALSE;
 
 }
-
-
-
-
-/* Local Variables: */
-/* mode:c */
-/* eval:(load-library "time-stamp") */
-/* eval:(make-local-variable 'write-file-hooks) */
-/* eval:(add-hook 'write-file-hooks 'time-stamp) */
-/* eval:(setq time-stamp-format '(time-stamp-yyyy/mm/dd time-stamp-hh:mm:ss user-login-name)) */
-/* End: */

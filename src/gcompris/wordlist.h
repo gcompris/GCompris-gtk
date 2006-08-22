@@ -22,7 +22,7 @@
 
 typedef struct {
   gint level;
-  GList *words;
+  GSList *words;
 } LevelWordlist;
 
 typedef struct {
@@ -30,18 +30,13 @@ typedef struct {
   gchar         *name;
   gchar         *description;
   gchar         *locale;
+  guint		 number_of_level;
   /* LevelWordlist list */
-  GList         *levels_words;
+  GSList         *levels_words;
 } GcomprisWordlist;
 
-GcomprisWordlist     *gcompris_get_wordlist_from_file(gchar *filename);
-void                 gcompris_wordlist_free(GcomprisWordlist *wordlist);
+GcomprisWordlist *gc_wordlist_get_from_file(const gchar *fileformat, ...);
+void              gc_wordlist_free(GcomprisWordlist *wordlist);
+gchar		 *gc_wordlist_random_word_get(GcomprisWordlist *wordlist, guint level);
 
-#endif
-/* Local Variables: */
-/* mode:c */
-/* eval:(load-library "time-stamp") */
-/* eval:(make-local-variable 'write-file-hooks) */
-/* eval:(add-hook 'write-file-hooks 'time-stamp) */
-/* eval:(setq time-stamp-format '(time-stamp-yyyy/mm/dd time-stamp-hh:mm:ss user-login-name)) */
-/* End: */
+#endif

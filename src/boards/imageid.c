@@ -540,7 +540,7 @@ static void highlight_selected(GnomeCanvasItem * item) {
  * ==================================== */
 static void init_xml()
 {
-  GcomprisProperties *properties = gcompris_get_properties();
+  GcomprisProperties *properties = gc_prop_get();
   char *filename;
   filename = g_strdup_printf("%s/%s/board1.xml", properties->package_data_dir, gcomprisBoard->boarddir);
   g_debug("filename = %s %s %s\n", filename, properties->package_data_dir, gcomprisBoard->boarddir);

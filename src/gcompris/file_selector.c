@@ -921,7 +921,7 @@ gboolean load_mime_type_from_file(gchar *fname)
 void gc_mime_type_load() 
 {
   const gchar  *one_dirent;
-  GcomprisProperties *properties = gcompris_get_properties();
+  GcomprisProperties *properties = gc_prop_get();
   GDir   *dir;
   gchar  *mime_dir;
 

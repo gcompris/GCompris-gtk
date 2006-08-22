@@ -1,6 +1,6 @@
 /* gcompris - board_config.c
  *
- * Time-stamp: <2006/08/13 17:15:59 bruno>
+ * Time-stamp: <2006/08/21 23:27:57 bruno>
  *
  * Copyright (C) 2001 Pascal Georges
  *
@@ -173,8 +173,8 @@ GtkVBox *gcompris_configuration_window(gchar *label, GcomprisConfCallback callba
 
   /* parameters */
 #ifdef XF86_VIDMODE
-  if (gcompris_get_properties()->fullscreen &&
-      !gcompris_get_properties()->noxf86vm)   
+  if (gc_prop_get()->fullscreen &&
+      !gc_prop_get()->noxf86vm)   
     {
       memset(&gcompris_last_configure_event, 0, sizeof(GdkEventConfigure));
       gtk_widget_add_events(GTK_WIDGET(conf_window), GDK_STRUCTURE_MASK);
@@ -188,7 +188,7 @@ GtkVBox *gcompris_configuration_window(gchar *label, GcomprisConfCallback callba
 
   gtk_widget_show(GTK_WIDGET(conf_window));
 
-  GcomprisProperties *properties = gcompris_get_properties();
+  GcomprisProperties *properties = gc_prop_get();
   if (properties->fullscreen && !properties->noxf86vm)
     if (gdk_pointer_grab(gcompris_get_window()->window, TRUE, 0,
 			 GDK_WINDOW(gcompris_get_window()), NULL, GDK_CURRENT_TIME) !=
@@ -579,7 +579,7 @@ gc_locale_gets_list(){
 
   static GList *gcompris_locales_list = NULL;
 
-  GcomprisProperties *properties = gcompris_get_properties();
+  GcomprisProperties *properties = gc_prop_get();
   GDir   *textdomain_dir;
   GError **error = NULL;
   GList  *locales = NULL;
@@ -1126,12 +1126,3 @@ GtkTextView *gcompris_textview(const gchar *label,
 
   return GTK_TEXT_VIEW(textView);
 }
-
-
-/* Local Variables: */
-/* mode:c */
-/* eval:(load-library "time-stamp") */
-/* eval:(make-local-variable 'write-file-hooks) */
-/* eval:(add-hook 'write-file-hooks 'time-stamp) */
-/* eval:(setq time-stamp-format '(time-stamp-yyyy/mm/dd time-stamp-hh:mm:ss user-login-name)) */
-/* End: */

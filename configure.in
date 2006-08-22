@@ -227,7 +227,7 @@ PACKAGE_HELP_DIR="${myprefix}/${DATADIRNAME}/${PACKAGE}/help"
 AC_SUBST(PACKAGE_HELP_DIR)
 
 dnl Plugin Directory
-my_libdir=`eval echo "${libdir}/gcompris"`
+my_libdir=`eval echo "${libdir}"`
 AC_DEFINE_UNQUOTED(PACKAGE_CLIB_DIR, "${my_libdir}", [Gcompris plugins directory])
 plugindir=$libdir/gcompris
 AC_SUBST(plugindir)

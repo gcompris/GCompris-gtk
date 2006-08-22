@@ -196,7 +196,7 @@ void set_current_gcompris_board(GcomprisBoard * gcomprisBoard)
 #ifdef WIN32
 gboolean board_check_file(GcomprisBoard *gcomprisBoard)
 {
-  GcomprisProperties	*properties = gcompris_get_properties();
+  GcomprisProperties	*properties = gc_prop_get();
   BoardPlugin *bp;
   guint        i=0;
 
@@ -255,7 +255,7 @@ gboolean board_check_file(GcomprisBoard *gcomprisBoard)
   GModule     *gmodule = NULL;
   gchar       *gmodule_file = NULL;
   BoardPlugin *(*plugin_get_bplugin_info) (void) = NULL;
-  GcomprisProperties *properties = gcompris_get_properties();
+  GcomprisProperties *properties = gc_prop_get();
   gchar *sep;
   gchar *type;
 
@@ -416,12 +416,3 @@ void board_run_next(GcomprisBoard *board)
 					    NULL);
 	
 }
-
-
-/* Local Variables: */
-/* mode:c */
-/* eval:(load-library "time-stamp") */
-/* eval:(make-local-variable 'write-file-hooks) */
-/* eval:(add-hook 'write-file-hooks 'time-stamp) */
-/* eval:(setq time-stamp-format '(time-stamp-yyyy/mm/dd time-stamp-hh:mm:ss user-login-name)) */
-/* End: */

@@ -1,6 +1,6 @@
 /* gcompris - clockgame.c
  *
- * Time-stamp: <2006/08/12 03:07:11 bruno>
+ * Time-stamp: <2006/08/21 23:33:07 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -747,14 +747,3 @@ static void get_random_hour(GcomprisTime *time)
     }
 
 }
-
-
-
-
-/* Local Variables: */
-/* mode:c */
-/* eval:(load-library "time-stamp") */
-/* eval:(make-local-variable 'write-file-hooks) */
-/* eval:(add-hook 'write-file-hooks 'time-stamp) */
-/* eval:(setq time-stamp-format '(time-stamp-yyyy/mm/dd time-stamp-hh:mm:ss user-login-name)) */
-/* End: */

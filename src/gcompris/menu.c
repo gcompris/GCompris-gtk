@@ -51,7 +51,7 @@ static void
 _add_xml_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child,
 			 GcomprisBoard *gcomprisBoard, gboolean db)
 {
-  GcomprisProperties *properties = gcompris_get_properties();
+  GcomprisProperties *properties = gc_prop_get();
   gchar *title=NULL;
   gchar *description=NULL;
   gchar *prerequisite=NULL;
@@ -241,7 +241,7 @@ _read_xml_file(GcomprisBoard *gcomprisBoard,
 	       char *fname,
 	       gboolean db)
 {
-  GcomprisProperties *properties = gcompris_get_properties();
+  GcomprisProperties *properties = gc_prop_get();
   gchar *filename;
   /* pointer to the new doc */
   xmlDocPtr doc;
@@ -352,7 +352,7 @@ int
 gcompris_board_has_activity(gchar *section, gchar *name)
 {
   GList *list = NULL;
-  GcomprisProperties	*properties = gcompris_get_properties();
+  GcomprisProperties	*properties = gc_prop_get();
   gchar *section_name = g_strdup_printf("%s/%s", section, name);
 
   if (strlen(section)==1)
@@ -399,7 +399,7 @@ GList *gc_menu_getlist(gchar *section)
   GList *list = NULL;
   GList *result_list = NULL;
 
-  GcomprisProperties	*properties = gcompris_get_properties();
+  GcomprisProperties	*properties = gc_prop_get();
 
   if(!section){
     g_error("gc_menu_getlist called with section == NULL !");
@@ -506,7 +506,7 @@ static gboolean compare_id(gconstpointer data1, gconstpointer data2)
 void gc_menu_load_dir(char *dirname, gboolean db){
   const gchar   *one_dirent;
   GDir          *dir;
-  GcomprisProperties	*properties = gcompris_get_properties();
+  GcomprisProperties	*properties = gc_prop_get();
   GList *list_old_boards_id = NULL;
 
   if (!g_file_test(dirname, G_FILE_TEST_IS_DIR)) {
@@ -591,7 +591,7 @@ void gc_menu_load_dir(char *dirname, gboolean db){
  */
 void gc_menu_load()
 {
-  GcomprisProperties	*properties = gcompris_get_properties();
+  GcomprisProperties	*properties = gc_prop_get();
 
   if(boards_list) {
     cleanup_menus();

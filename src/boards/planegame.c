@@ -1,6 +1,6 @@
 /* gcompris - planegame.c
  *
- * Time-stamp: <2006/08/12 03:09:14 bruno>
+ * Time-stamp: <2006/08/21 23:34:38 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -624,13 +624,3 @@ setup_item(GnomeCanvasItem *item)
 		     (GtkSignalFunc) item_event,
 		     NULL);
 }
-
-
-
-/* Local Variables: */
-/* mode:c */
-/* eval:(load-library "time-stamp") */
-/* eval:(make-local-variable 'write-file-hooks) */
-/* eval:(add-hook 'write-file-hooks 'time-stamp) */
-/* eval:(setq time-stamp-format '(time-stamp-yyyy/mm/dd time-stamp-hh:mm:ss user-login-name)) */
-/* End: */

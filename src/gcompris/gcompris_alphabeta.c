@@ -1,6 +1,6 @@
 /* gcompris - gcompris_alphabeta.c
  *
- * Time-stamp: <2006/02/06 18:34:37 yves>
+ * Time-stamp: <2006/08/21 23:28:14 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -119,13 +119,3 @@ gint gcompris_alphabeta (gboolean maximize,
   }
 
 }
-
-
-
-/* Local Variables: */
-/* mode:c */
-/* eval:(load-library "time-stamp") */
-/* eval:(make-local-variable 'write-file-hooks) */
-/* eval:(add-hook 'write-file-hooks 'time-stamp) */
-/* eval:(setq time-stamp-format '(time-stamp-yyyy/mm/dd time-stamp-hh:mm:ss user-login-name)) */
-/* End: */

@@ -1,6 +1,6 @@
 /* gcompris - score.c
  *
- * Time-stamp: <2004/02/02 00:29:24 bcoudoin>
+ * Time-stamp: <2006/08/21 23:27:04 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -149,13 +149,3 @@ static void display_number(GnomeCanvasGroup *parent,
 			 "fill_color_rgba", 0xe5e532FF,
 			 NULL);
 }
-
-
-
-/* Local Variables: */
-/* mode:c */
-/* eval:(load-library "time-stamp") */
-/* eval:(make-local-variable 'write-file-hooks) */
-/* eval:(add-hook 'write-file-hooks 'time-stamp) */
-/* eval:(setq time-stamp-format '(time-stamp-yyyy/mm/dd time-stamp-hh:mm:ss user-login-name)) */
-/* End: */

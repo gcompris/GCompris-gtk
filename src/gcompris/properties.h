@@ -65,7 +65,7 @@ typedef struct {
   gchar        *server;
 } GcomprisProperties;
 
-GcomprisProperties	*gcompris_get_properties (void);
+GcomprisProperties	*gc_prop_get (void);
 GcomprisProperties	*gcompris_properties_new (void);
 void			 gcompris_properties_destroy (GcomprisProperties *props);
 void			 gcompris_properties_save (GcomprisProperties *props);

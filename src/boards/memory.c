@@ -1,6 +1,6 @@
 /* gcompris - memory.c
  *
- * Time-stamp: <2006/08/12 03:08:59 bruno>
+ * Time-stamp: <2006/08/21 23:33:28 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  * 
@@ -813,7 +813,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 
       if (currentUiMode == UIMODE_SOUND)
 	{
-	  GcomprisProperties	*properties = gcompris_get_properties();
+	  GcomprisProperties	*properties = gc_prop_get();
 
 	  gcompris_pause_sound();
 	  gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas), "images/gcompris_band.png");
@@ -1834,12 +1834,3 @@ static void start_callback(gchar *file){
 
   playing_sound = FALSE;
 }
-
-
-/* Local Variables: */
-/* mode:c */
-/* eval:(load-library "time-stamp") */
-/* eval:(make-local-variable 'write-file-hooks) */
-/* eval:(add-hook 'write-file-hooks 'time-stamp) */
-/* eval:(setq time-stamp-format '(time-stamp-yyyy/mm/dd time-stamp-hh:mm:ss user-login-name)) */
-/* End: */

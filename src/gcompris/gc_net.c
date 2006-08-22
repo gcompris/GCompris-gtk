@@ -35,7 +35,7 @@ gboolean         gnet_http_get                     (const gchar      *url,
 
 #ifdef USE_GNET
 static GSList *server_content_list = NULL;
-#define	SUPPORT_OR_RETURN(rv)	{if(!gcompris_get_properties()->server) return rv;}
+#define	SUPPORT_OR_RETURN(rv)	{if(!gc_prop_get()->server) return rv;}
 #else
 #define	SUPPORT_OR_RETURN(rv)	{ return rv; }
 #endif
@@ -51,7 +51,7 @@ void gc_net_init()
   SUPPORT_OR_RETURN();
 
 #ifdef USE_GNET
-  GcomprisProperties *properties = gcompris_get_properties();
+  GcomprisProperties *properties = gc_prop_get();
   gchar *url;
   gchar *buf = NULL;
   gsize  buflen;
@@ -180,7 +180,7 @@ gc_net_get_url_from_file(const gchar *format, ...)
   SUPPORT_OR_RETURN(NULL);
 
 #ifdef USE_GNET
-  GcomprisProperties *properties = gcompris_get_properties();
+  GcomprisProperties *properties = gc_prop_get();
   gchar *file, *url;
   va_list args;
 

@@ -58,7 +58,7 @@ gchar* gcompris_skin_font_board_huge_bold;
  */
 gchar *gcompris_image_to_skin(gchar *pixmapfile)
 {
-  GcomprisProperties *properties = gcompris_get_properties();
+  GcomprisProperties *properties = gc_prop_get();
   gchar *filename;
 
   /* First, test if pixmapfile is in the current skin dir */

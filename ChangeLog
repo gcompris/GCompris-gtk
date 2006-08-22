@@ -1,3 +1,92 @@
+2006-08-22  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	- completed the wordlist API which look like this now:
+	    GcomprisWordlist *gc_wordlist_get_from_file(const gchar *fileformat, ...);
+	    void              gc_wordlist_free(GcomprisWordlist *wordlist);
+	    gchar		 *gc_wordlist_random_word_get(GcomprisWordlist *wordlist, guint level);
+
+	- changed wordsgame.c to use the gc_wordlist API. 
+	- renamed gcompris_get_properties() in gc_prop_get()
+
+	- fixed again the plugin dir path in binreloc mode.
+	
+	* Still need to cleanup boards/wordsgame/wordslevel*.* that are replaced
+	  by default-*.xml
+
+	
+	
+	* src/boards/advanced_colors.c: (init_xml):
+	* src/boards/algebra.c: (game_won):
+	* src/boards/click_on_letter.c: (sounds_are_fine):
+	* src/boards/clickgame.c: (load_random_pixmap):
+	* src/boards/clockgame.c: (get_random_hour):
+	* src/boards/colors.c: (start_board), (repeat):
+	* src/boards/gletters.c: (gletter_config_stop):
+	* src/boards/gtans.c: (tansetdefconfig):
+	* src/boards/imageid.c: (init_xml):
+	* src/boards/memory.c: (start_board), (start_callback):
+	* src/boards/menu2.c: (menu_start), (create_panel),
+	(menu_create_item), (item_event), (create_top), (menu_config_stop):
+	* src/boards/missingletter.c: (init_xml):
+	* src/boards/paratrooper.c: (item_event):
+	* src/boards/planegame.c: (setup_item):
+	* src/boards/py-gcompris-wordlist.c:
+	(pyGcomprisWordlistType_dealloc), (pyGcomprisWordlistType_getattr):
+	* src/boards/py-mod-gcompris.c: (py_gc_prop_get),
+	(py_gcompris_wordlist_get_from_file),
+	(python_gcompris_module_init):
+	* src/boards/python.c: (pythonboard_init), (pythonboard_start),
+	(pythonboard_config_start):
+	* src/boards/read_colors.c: (init_xml):
+	* src/boards/reading.c: (get_wordfile), (reading_config_stop):
+	* src/boards/reversecount.c: (reversecount_create_item):
+	* src/boards/shapegame.c: (config_stop):
+	* src/boards/smallnumbers.c: (smallnumber_config_stop):
+	* src/boards/wordsgame.c: (pause_board), (start_board),
+	(key_press), (wordsgame_next_level), (wordsgame_move_item),
+	(wordsgame_move_items), (wordsgame_destroy_items),
+	(wordsgame_destroy_all_items), (wordsgame_create_item),
+	(wordsgame_add_new_item), (player_win), (player_loose):
+	* src/gcompris/about.c: (item_event_ok):
+	* src/gcompris/bar.c: (gc_bar_start), (confirm_quit):
+	* src/gcompris/board.c: (board_check_file), (board_run_next):
+	* src/gcompris/board_config.c: (gcompris_configuration_window),
+	(gc_locale_gets_list), (gcompris_textview):
+	* src/gcompris/config.c: (gcompris_config_start), (item_event_ok):
+	* src/gcompris/file_selector.c: (gc_mime_type_load):
+	* src/gcompris/gameutil.c: (gc_file_find_absolute):
+	* src/gcompris/gc_net.c: (gc_net_init), (gc_net_get_url_from_file):
+	* src/gcompris/gc_net.h:
+	* src/gcompris/gcompris.c: (gc_prop_get), (gcompris_init):
+	* src/gcompris/gcompris_alphabeta.c: (gcompris_alphabeta):
+	* src/gcompris/gcompris_db.c: (gcompris_db_init),
+	(gc_menu_load_db), (gcompris_get_board_from_id),
+	(gcompris_is_activity_in_profile):
+	* src/gcompris/gcompris_files.c: (gcompris_get_user_dirname),
+	(gcompris_get_board_dirname), (gcompris_get_current_board_dirname):
+	* src/gcompris/gcompris_im.c: (gcompris_im_init),
+	(gcompris_im_reset), (window_focus_callback):
+	* src/gcompris/help.c: (item_event_help):
+	* src/gcompris/images_selector.c: (parseImage),
+	(read_dataset_directory):
+	* src/gcompris/menu.c: (_add_xml_to_data), (_read_xml_file),
+	(gcompris_board_has_activity), (gc_menu_getlist),
+	(gc_menu_load_dir), (gc_menu_load):
+	* src/gcompris/profile.c: (gcompris_get_current_profile),
+	(gcompris_set_current_user), (gcompris_get_current_user):
+	* src/gcompris/properties.c: (my_setenv):
+	* src/gcompris/properties.h:
+	* src/gcompris/score.c: (display_number):
+	* src/gcompris/skin.c: (gcompris_image_to_skin):
+	* src/gcompris/soundutil.c: (initSound), (gcompris_close_sound),
+	(scheduler_bgnd), (gcompris_play_ogg_list),
+	(gcompris_sound_get_type):
+	* src/gcompris/timer.c: (gcompris_timer_display),
+	(timer_increment):
+	* src/gcompris/wordlist.c: (gc_wordlist_get_from_file),
+	(gc_wordlist_random_word_get), (gc_wordlist_free):
+	* src/gcompris/wordlist.h:
+
 2006-08-20  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	- Major review of the API. now all the API follows the naming convention:

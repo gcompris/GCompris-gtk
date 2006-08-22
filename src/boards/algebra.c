@@ -1,6 +1,6 @@
 /* gcompris - algebra.c
  *
- * Time-stamp: <2006/08/12 03:00:37 bruno>
+ * Time-stamp: <2006/08/21 23:29:57 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -826,14 +826,3 @@ static void game_won()
   }
   algebra_next_level();
 }
-
-
-
-
-/* Local Variables: */
-/* mode:c */
-/* eval:(load-library "time-stamp") */
-/* eval:(make-local-variable 'write-file-hooks) */
-/* eval:(add-hook 'write-file-hooks 'time-stamp) */
-/* eval:(setq time-stamp-format '(time-stamp-yyyy/mm/dd time-stamp-hh:mm:ss user-login-name)) */
-/* End: */

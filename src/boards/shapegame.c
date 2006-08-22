@@ -1,6 +1,6 @@
 /* gcompris - shapegame.c
  *
- * Time-stamp: <2006/08/17 00:14:52 bruno>
+ * Time-stamp: <2006/08/21 23:35:01 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -2147,14 +2147,3 @@ static void
 config_stop()
 {
 }
-
-
-
-
-/* Local Variables: */
-/* mode:c */
-/* eval:(load-library "time-stamp") */
-/* eval:(make-local-variable 'write-file-hooks) */
-/* eval:(add-hook 'write-file-hooks 'time-stamp) */
-/* eval:(setq time-stamp-format '(time-stamp-yyyy/mm/dd time-stamp-hh:mm:ss user-login-name)) */
-/* End: */

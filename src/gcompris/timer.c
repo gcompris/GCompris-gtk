@@ -44,7 +44,7 @@ void gcompris_timer_display(int ax, int ay, TimerList atype, int second, Gcompri
 {
   GdkFont *gdk_font;
   GdkPixbuf *pixmap = NULL;
-  GcomprisProperties	*properties = gcompris_get_properties();
+  GcomprisProperties	*properties = gc_prop_get();
 
   /* Timer is not requested */
   if(properties->timer==0)
@@ -293,7 +293,7 @@ static gint timer_increment(GtkWidget *widget, gpointer data)
     case GCOMPRIS_TIMER_CLOCK:
       if(item)
 	{
-	  GcomprisProperties *properties = gcompris_get_properties();
+	  GcomprisProperties *properties = gc_prop_get();
 	  GdkPixbuf	*pixmap = NULL;
 	  gchar		*filefull = NULL;
 	  gchar		*filename = NULL;

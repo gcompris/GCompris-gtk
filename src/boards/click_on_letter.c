@@ -255,7 +255,7 @@ static gboolean sounds_are_fine()
 {
   char *letter_str;
   char *str2;
-  GcomprisProperties	*properties = gcompris_get_properties();
+  GcomprisProperties	*properties = gc_prop_get();
 
   if(!properties->fx)
     {

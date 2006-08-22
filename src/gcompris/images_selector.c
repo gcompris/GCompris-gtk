@@ -1,6 +1,6 @@
 /* gcompris - images_selector.c
  *
- * Time-stamp: <2006/08/19 02:09:57 bruno>
+ * Time-stamp: <2006/08/21 23:26:43 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -650,7 +650,7 @@ item_event_scroll(GnomeCanvasItem *item, GdkEvent *event, GnomeCanvas *canvas)
 
 void
 parseImage (xmlDocPtr doc, xmlNodePtr cur) {
-  GcomprisProperties *properties = gcompris_get_properties();
+  GcomprisProperties *properties = gc_prop_get();
   gchar  *imageSetName = NULL;
   gchar  *filename;
   gchar	 *pathname = NULL;
@@ -901,13 +901,3 @@ read_dataset_directory(gchar *dataset_dir)
 
   return TRUE;
 }
-
-
-
-/* Local Variables: */
-/* mode:c */
-/* eval:(load-library "time-stamp") */
-/* eval:(make-local-variable 'write-file-hooks) */
-/* eval:(add-hook 'write-file-hooks 'time-stamp) */
-/* eval:(setq time-stamp-format '(time-stamp-yyyy/mm/dd time-stamp-hh:mm:ss user-login-name)) */
-/* End: */

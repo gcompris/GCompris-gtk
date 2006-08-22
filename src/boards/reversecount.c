@@ -426,7 +426,7 @@ static GnomeCanvasItem *reversecount_create_item(GnomeCanvasGroup *parent)
   double block_width, block_height;
   double dice_area_x;
   double xratio, yratio;
-  GcomprisProperties	*properties = gcompris_get_properties();
+  GcomprisProperties	*properties = gc_prop_get();
 
   boardRootItem = GNOME_CANVAS_GROUP(
 				     gnome_canvas_item_new (gnome_canvas_root(gcomprisBoard->canvas),

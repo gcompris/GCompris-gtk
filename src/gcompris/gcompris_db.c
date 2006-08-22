@@ -125,7 +125,7 @@ int gcompris_db_init()
   int ncolumn;
   gchar *request;
 
-  GcomprisProperties	*properties = gcompris_get_properties();
+  GcomprisProperties	*properties = gc_prop_get();
   
   if (!g_file_test(properties->database, G_FILE_TEST_EXISTS))
     creation = TRUE;
@@ -605,7 +605,7 @@ GList *gc_menu_load_db(GList *boards_list)
 {
 #ifdef USE_SQLITE
 
-  GcomprisProperties	*properties = gcompris_get_properties();
+  GcomprisProperties	*properties = gc_prop_get();
   
   GList *boards = boards_list;
 
@@ -1640,7 +1640,7 @@ GcomprisBoard *gcompris_get_board_from_id(int board_id)
 {
 #ifdef USE_SQLITE
 
-  GcomprisProperties	*properties = gcompris_get_properties();
+  GcomprisProperties	*properties = gc_prop_get();
   
   char *zErrMsg;
   char **result;
@@ -1868,13 +1868,3 @@ int gcompris_is_activity_in_profile(GcomprisProfile *profile, char *activity_nam
   return TRUE;
 #endif
 }
-
-
-
-/* Local Variables: */
-/* mode:c */
-/* eval:(load-library "time-stamp") */
-/* eval:(make-local-variable 'write-file-hooks) */
-/* eval:(add-hook 'write-file-hooks 'time-stamp) */
-/* eval:(setq time-stamp-format '(time-stamp-yyyy/mm/dd time-stamp-hh:mm:ss user-login-name)) */
-/* End: */

@@ -1,3 +1,24 @@
+/* gcompris - py-mod-gcompris.c
+ *
+ * Time-stamp: <2006/08/21 23:36:37 bruno>
+ *
+ * Copyright (C) 2003 Olivier Samyn <osamyn@ulb.ac.be>
+ * 
+ *   This program is free software; you can redistribute it and/or modify
+ *   it under the terms of the GNU General Public License as published by
+ *   the Free Software Foundation; either version 2 of the License, or
+ *   (at your option) any later version.
+ *
+ *   This program is distributed in the hope that it will be useful,
+ *   but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *   GNU General Public License for more details.
+ *
+ *   You should have received a copy of the GNU General Public License
+ *   along with this program; if not, write to the Free Software
+ *   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+ */
+
 #include <Python.h>
 #include <pygobject.h>
 #include "gcompris/gcompris.h"
@@ -566,17 +587,17 @@ py_gc_db_get_filename(PyObject* self, PyObject* args)
 }
 
 
-/* GcomprisProperties *gcompris_get_properties(void); */
+/* GcomprisProperties *gc_prop_get(void); */
 static PyObject*
-py_gcompris_get_properties(PyObject* self, PyObject* args)
+py_gc_prop_get(PyObject* self, PyObject* args)
 {
   GcomprisProperties* result;
   /* Parse arguments */
-  if(!PyArg_ParseTuple(args, ":gcompris_get_properties"))
+  if(!PyArg_ParseTuple(args, ":gc_prop_get"))
     return NULL;
 
   /* Call the corresponding C function */
-  result = gcompris_get_properties();
+  result = gc_prop_get();
 
   /* Create and return the result */
   return gcompris_new_pyGcomprisPropertiesObject(result);
@@ -1493,7 +1514,7 @@ py_gcompris_get_current_board_dirname (PyObject* self, PyObject* args)
 }
 
 static PyObject*
-py_gcompris_get_wordlist_from_file (PyObject* self, PyObject* args)
+py_gcompris_wordlist_get_from_file (PyObject* self, PyObject* args)
 {
   GcomprisWordlist *result;
   gchar *filename;
@@ -1502,7 +1523,7 @@ py_gcompris_get_wordlist_from_file (PyObject* self, PyObject* args)
     return NULL;
 
   /* Call the corresponding C function */
-  result = gcompris_get_wordlist_from_file (filename);
+  result = gc_wordlist_get_from_file (filename);
   if (result)
     return gcompris_new_pyGcomprisWordlistObject(result);
   else {
@@ -1557,7 +1578,7 @@ static PyMethodDef PythonGcomprisModule[] = {
   { "file_selector_stop",  py_gc_selector_file_stop,
     METH_VARARGS, "gc_selector_file_stop" },
   { "get_database",  py_gc_db_get_filename, METH_VARARGS, "gc_db_get_filename" },
-  { "get_properties",  py_gcompris_get_properties, METH_VARARGS, "gcompris_get_properties" },
+  { "get_properties",  py_gc_prop_get, METH_VARARGS, "gc_prop_get" },
   { "get_board_from_section",  py_gcompris_get_board_from_section, METH_VARARGS, "gcompris_get_board_from_section" },
   { "spawn_async",  (PyCFunction)py_gcompris_spawn_async, METH_VARARGS|METH_KEYWORDS, "gcompris_spawn_sync" },
   { "child_watch_add",  (PyCFunction)py_gcompris_child_watch_add, METH_VARARGS|METH_KEYWORDS, "gcompris_child_watch_add" },
@@ -1584,7 +1605,7 @@ static PyMethodDef PythonGcomprisModule[] = {
   { "get_current_user_dirname",  py_gcompris_get_current_user_dirname, METH_VARARGS, "gcompris_get_current_user_dirname" },
   { "get_board_dirname",  py_gcompris_get_board_dirname, METH_VARARGS, "gcompris_get_board_dirname" },
   { "get_current_board_dirname",  py_gcompris_get_current_board_dirname, METH_VARARGS, "gcompris_get_current_board_dirname" },
-  { "get_wordlist",  py_gcompris_get_wordlist_from_file, METH_VARARGS, "gcompris_get_wordlist_from_file" },
+  { "get_wordlist",  py_gcompris_wordlist_get_from_file, METH_VARARGS, "gcompris_wordlist_get_from_file" },
   { "im_reset",  py_gcompris_im_reset, METH_VARARGS, "gcompris_im_reset" },
   { NULL, NULL, 0, NULL}
 };
@@ -1650,7 +1671,7 @@ void python_gcompris_module_init(void)
   PyModule_AddIntConstant(gcomprisModule, "CURSOR_DEFAULT",       GCOMPRIS_DEFAULT_CURSOR);
 
   /* Some non gcompris.h constants. */
-  GcomprisProperties	*properties = gcompris_get_properties();
+  GcomprisProperties	*properties = gc_prop_get();
   PyModule_AddStringConstant(gcomprisModule, "DATA_DIR", properties->package_data_dir);
   PyModule_AddStringConstant(gcomprisModule, "PYTHON_PLUGIN_DIR", properties->package_python_plugin_dir);
 

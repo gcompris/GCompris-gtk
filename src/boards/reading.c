@@ -1,6 +1,6 @@
 /* gcompris - reading.c
  *
- * Time-stamp: <2006/08/13 18:03:47 bruno>
+ * Time-stamp: <2006/08/21 23:34:48 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -728,7 +728,7 @@ item_event_valid(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 
 static FILE *get_wordfile(const char *locale)
 {
-  GcomprisProperties *properties = gcompris_get_properties();
+  GcomprisProperties *properties = gc_prop_get();
   gchar *filename;
   FILE *wordsfd = NULL;
 
@@ -740,7 +740,7 @@ static FILE *get_wordfile(const char *locale)
                                                                                                                               
   if(wordsfd==NULL)
     {
-      GcomprisProperties *properties = gcompris_get_properties();
+      GcomprisProperties *properties = gc_prop_get();
       g_free(filename);
       /* Second Try to find a file matching the 'max' and the locale */
       filename = g_strdup_printf("%s%s%.2s",
@@ -902,13 +902,3 @@ static void
 reading_config_stop()
 {
 }
-
-
-
-/* Local Variables: */
-/* mode:c */
-/* eval:(load-library "time-stamp") */
-/* eval:(make-local-variable 'write-file-hooks) */
-/* eval:(add-hook 'write-file-hooks 'time-stamp) */
-/* eval:(setq time-stamp-format '(time-stamp-yyyy/mm/dd time-stamp-hh:mm:ss user-login-name)) */
-/* End: */

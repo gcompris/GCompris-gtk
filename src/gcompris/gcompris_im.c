@@ -1,6 +1,6 @@
 /* gcompris - gcompris_im.c
  *
- * Time-stamp: <2006/08/11 17:37:17 bruno>
+ * Time-stamp: <2006/08/21 23:26:19 bruno>
  *
  * Copyright (C) 2000,2003 Bruno Coudoin
  *
@@ -35,7 +35,7 @@ static gint window_focus_callback (GtkWidget *widget,
 
 void gcompris_im_init(GtkWidget *window)
 {
-  GcomprisProperties	*properties = gcompris_get_properties ();
+  GcomprisProperties	*properties = gc_prop_get ();
 
 
   /* set IMContext */
@@ -75,7 +75,7 @@ void gcompris_im_init(GtkWidget *window)
 
 void gcompris_im_reset()
 {
-  GcomprisProperties	*properties = gcompris_get_properties ();
+  GcomprisProperties	*properties = gc_prop_get ();
   gtk_im_context_reset (properties->context);
 }
 
@@ -119,7 +119,7 @@ static gint window_focus_callback (GtkWidget *widget,
 				   GdkEventFocus *event,
 				   gpointer user_data)
 {
-  GcomprisProperties	*properties = gcompris_get_properties ();
+  GcomprisProperties	*properties = gc_prop_get ();
   if (event->in)
     gtk_im_context_focus_in (properties->context);
   else
@@ -127,14 +127,3 @@ static gint window_focus_callback (GtkWidget *widget,
   
   return FALSE;
 }
-
-
-
-
-/* Local Variables: */
-/* mode:c */
-/* eval:(load-library "time-stamp") */
-/* eval:(make-local-variable 'write-file-hooks) */
-/* eval:(add-hook 'write-file-hooks 'time-stamp) */
-/* eval:(setq time-stamp-format '(time-stamp-yyyy/mm/dd time-stamp-hh:mm:ss user-login-name)) */
-/* End: */

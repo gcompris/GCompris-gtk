@@ -125,7 +125,7 @@ pythonboard_init (GcomprisBoard *agcomprisBoard){
   PyObject* module_dict;
   PyObject* py_boardclass;
 
-  GcomprisProperties *properties = gcompris_get_properties();
+  GcomprisProperties *properties = gc_prop_get();
 
   if (pythonboard_is_ready)
     return ;
@@ -277,7 +277,7 @@ pythonboard_start (GcomprisBoard *agcomprisBoard){
   char* board_file_name;
   gchar *userplugindir;
 
-  GcomprisProperties	*properties = gcompris_get_properties();
+  GcomprisProperties	*properties = gc_prop_get();
 
   if(agcomprisBoard!=NULL){
     /* Initialize the python interpreter */
@@ -558,7 +558,7 @@ pythonboard_config_start (GcomprisBoard *agcomprisBoard,
 			  GcomprisProfile *aProfile
 			  )
 {
-  GcomprisProperties *properties = gcompris_get_properties();
+  GcomprisProperties *properties = gc_prop_get();
   PyObject* py_function_result;
   PyObject* module_dict;
   PyObject* py_boardclass;

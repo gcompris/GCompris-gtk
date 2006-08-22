@@ -1270,7 +1270,7 @@ void tansetdefconfig (void){
   colortab[GCPETITEHLP].blue = (colortab[GCPETITEFG].blue+colortab[GCPETITEBG].blue)/2;
   
   /* Gcompris */
-  GcomprisProperties	*properties = gcompris_get_properties();
+  GcomprisProperties	*properties = gc_prop_get();
   gchar *deffigfile = g_strconcat(properties->package_data_dir,"/gtans/figures/default.figures", NULL); 
 
   tanallocname(&figfilename, deffigfile);

@@ -203,8 +203,7 @@ static struct poptOption options[] = {
    N_("Display the resources on stdout based on the selected activities"), NULL},
 
   {"server", '\0', POPT_ARG_STRING, &popt_server, 0,
-   N_("GCompris will get images, sounds and activity data from this server if not found locally."\
-      "To use the default server, set this value to 'gcompris.net'"), NULL},
+   N_("GCompris will get images, sounds and activity data from this server if not found locally."), NULL},
 
   {"web-only", '\0', POPT_ARG_NONE, &popt_web_only, 0,
    N_("Only when --server is provided, disable check for local resource first."
@@ -1021,10 +1020,11 @@ static void load_properties ()
   else
     {
       gchar *pkg_data_dir = gbr_find_data_dir(PACKAGE_DATA_DIR);
+      gchar *pkg_clib_dir = gbr_find_lib_dir(PACKAGE_CLIB_DIR);
 
       properties->package_data_dir = g_strconcat(pkg_data_dir, "/gcompris/boards", NULL);
       properties->package_locale_dir = gbr_find_locale_dir(PACKAGE_LOCALE_DIR);
-      properties->package_plugin_dir = gbr_find_lib_dir(PACKAGE_CLIB_DIR);
+      properties->package_plugin_dir = g_strconcat(pkg_clib_dir, "/gcompris", NULL);
       properties->package_python_plugin_dir = g_strconcat(pkg_data_dir, "/gcompris/python", NULL);
       properties->system_icon_dir = g_strconcat(pkg_data_dir, "/pixmaps", NULL);
       g_free(pkg_data_dir);
@@ -1041,7 +1041,7 @@ static void load_properties ()
 
 }
 
-GcomprisProperties *gcompris_get_properties ()
+GcomprisProperties *gc_prop_get ()
 {
   return (properties);
 }
@@ -1549,10 +1549,12 @@ gcompris_init (int argc, char *argv[])
   }
 
   if (popt_server){
-    if (strcmp(popt_server,"gcompris.net")==0)
-      properties->server = g_strdup(GCOMPRIS_BASE_URL);
-    else
+#ifdef USE_GNET
       properties->server = g_strdup(popt_server);
+#else
+      printf("The --server option cannot be used because GCompris has been compiled without network support!");
+      exit(1);
+#endif
   }
 
   if(popt_web_only) {

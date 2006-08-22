@@ -1,6 +1,6 @@
 /* gcompris - gcompris-files.c
  *
- * Time-stamp: <2005/08/25 23:33:24 yves>
+ * Time-stamp: <2006/08/21 23:26:08 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -23,7 +23,7 @@
 
 gchar                   *gcompris_get_user_dirname(GcomprisUser *user)
 {
-  GcomprisProperties	*properties = gcompris_get_properties ();
+  GcomprisProperties	*properties = gc_prop_get ();
 
   gchar *user_dirname = g_strconcat (properties->users_dir, 
 				     "/", 
@@ -42,7 +42,7 @@ gchar                   *gcompris_get_current_user_dirname()
 
 gchar                   *gcompris_get_board_dirname(GcomprisBoard *board)
 {
-  GcomprisProperties	*properties = gcompris_get_properties ();
+  GcomprisProperties	*properties = gc_prop_get ();
 
   gchar *board_main = g_strconcat (properties->shared_dir, "/boards", NULL);
   create_rootdir(board_main);
@@ -58,13 +58,3 @@ gchar                   *gcompris_get_current_board_dirname()
 {
   return gcompris_get_board_dirname(get_current_gcompris_board());
 }
-
-
-
-/* Local Variables: */
-/* mode:c */
-/* eval:(load-library "time-stamp") */
-/* eval:(make-local-variable 'write-file-hooks) */
-/* eval:(add-hook 'write-file-hooks 'time-stamp) */
-/* eval:(setq time-stamp-format '(time-stamp-yyyy/mm/dd time-stamp-hh:mm:ss user-login-name)) */
-/* End: */

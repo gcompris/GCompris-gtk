@@ -1,6 +1,6 @@
 /* gcompris - bar.c
  *
- * Time-stamp: <2006/08/20 23:37:24 bruno>
+ * Time-stamp: <2006/08/21 23:27:39 bruno>
  *
  * Copyright (C) 2000-2003 Bruno Coudoin
  *
@@ -69,7 +69,7 @@ static void  confirm_quit(gboolean answer);
  */
 void gc_bar_start (GnomeCanvas *theCanvas)
 {
-  GcomprisProperties *properties = gcompris_get_properties();
+  GcomprisProperties *properties = gc_prop_get();
   GdkPixbuf   *pixmap = NULL;
   GnomeCanvasItem *rootitem;
   gint16           width, height;
@@ -585,12 +585,3 @@ confirm_quit(gboolean answer)
   if (answer)
     gc_exit();
 }
-
-
-/* Local Variables: */
-/* mode:c */
-/* eval:(load-library "time-stamp") */
-/* eval:(make-local-variable 'write-file-hooks) */
-/* eval:(add-hook 'write-file-hooks 'time-stamp) */
-/* eval:(setq time-stamp-format '(time-stamp-yyyy/mm/dd time-stamp-hh:mm:ss user-login-name)) */
-/* End: */

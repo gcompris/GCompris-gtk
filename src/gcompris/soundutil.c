@@ -92,8 +92,8 @@ void initSound()
 
   if(sdlplayer_init()!=0) {
     /* Sound init failed. Desactivate the sound */
-    gcompris_get_properties()->music = 0;
-    gcompris_get_properties()->fx    = 0;
+    gc_prop_get()->music = 0;
+    gc_prop_get()->fx    = 0;
     return;
   }
 
@@ -108,8 +108,8 @@ void initSound()
 }
 void gcompris_close_sound()
 {
-  if ( ! ( sound_closed || ( ( gcompris_get_properties()->music ==  0 )
-			     && ( gcompris_get_properties()->fx   == 0) ) ) ){
+  if ( ! ( sound_closed || ( ( gc_prop_get()->music ==  0 )
+			     && ( gc_prop_get()->fx   == 0) ) ) ){
     g_mutex_lock(lock);
     g_mutex_lock(lock_bg);
     sdlplayer_close();
@@ -161,7 +161,7 @@ int getSoundPolicy()
  ======================================================================*/
 static gpointer scheduler_bgnd (gpointer user_data)
 {
-  GcomprisProperties *properties = gcompris_get_properties();
+  GcomprisProperties *properties = gc_prop_get();
   gint i;
   gchar *str;
   gchar *music_dir;
@@ -209,7 +209,7 @@ static gpointer scheduler_bgnd (gpointer user_data)
   while (TRUE)
     {
       /* Music can be disabled at any time */
-      if ( !gcompris_get_properties()->music )
+      if ( !gc_prop_get()->music )
 	return NULL;
 
       for(i=0; i<g_list_length(musiclist); i++)
@@ -379,7 +379,7 @@ void gcompris_play_ogg_list( GList* files )
 {
   GList* list;
 
-  if ( !gcompris_get_properties()->fx )
+  if ( !gc_prop_get()->fx )
     return;
 
   if ( 	sound_policy == PLAY_ONLY_IF_IDLE &&
@@ -533,13 +533,3 @@ GType gcompris_sound_get_type (void)
         }
         return type;
 }
-
-
-
-/* Local Variables: */
-/* mode:c */
-/* eval:(load-library "time-stamp") */
-/* eval:(make-local-variable 'write-file-hooks) */
-/* eval:(add-hook 'write-file-hooks 'time-stamp) */
-/* eval:(setq time-stamp-format '(time-stamp-yyyy/mm/dd time-stamp-hh:mm:ss user-login-name)) */
-/* End: */

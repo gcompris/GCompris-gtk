@@ -1,6 +1,6 @@
 /* gcompris - menu2.c
  *
- * Time-stamp: <2006/08/15 02:27:54 bruno>
+ * Time-stamp: <2006/08/21 23:34:21 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -177,7 +177,7 @@ static void menu_pause (gboolean pause)
 static void menu_start (GcomprisBoard *agcomprisBoard)
 {
 
-  GcomprisProperties	*properties = gcompris_get_properties();
+  GcomprisProperties	*properties = gc_prop_get();
 
   current_x = 0.0;
   current_y = 0.0;
@@ -276,7 +276,7 @@ static void create_panel(GnomeCanvasGroup *parent)
 
   gdouble x, y;
   gint int_y;
-  GcomprisProperties	*properties = gcompris_get_properties();
+  GcomprisProperties	*properties = gc_prop_get();
 
   /* In normal mode, we show all the sections in panel */
   /* in direct submenu access, we show the icon of the submenu */
@@ -525,7 +525,7 @@ static void menu_create_item(GnomeCanvasGroup *parent, MenuItems *menuitems, Gco
       soundfile = gc_file_find_absolute(board->mandatory_sound_file);
       g_warning("Checking mandatory_sound_file %s\n", soundfile);
 
-      if (!soundfile || !gcompris_get_properties()->fx) 
+      if (!soundfile || !gc_prop_get()->fx) 
 	{
 	  pixmap = gcompris_load_skin_pixmap("voice_bad.png");
 	}
@@ -655,7 +655,7 @@ item_event(GnomeCanvasItem *item, GdkEvent *event,  MenuItems *menuitems)
 	
       if (strcmp(board->type,"menu")==0){
 	gchar *path = g_strdup_printf("%s/%s",board->section, board->name);
-	GcomprisProperties	*properties = gcompris_get_properties();
+	GcomprisProperties	*properties = gc_prop_get();
 
 	display_section(path);
 
@@ -871,7 +871,7 @@ static void create_top(GnomeCanvasGroup *parent, gchar *path)
 
   GnomeCanvasItem *item;
 
-  GcomprisProperties	*properties = gcompris_get_properties();
+  GcomprisProperties	*properties = gc_prop_get();
 
   if (!path)
     return;
@@ -1039,13 +1039,3 @@ static void
 menu_config_stop()
 {
 }
-
-
-
-/* Local Variables: */
-/* mode:c */
-/* eval:(load-library "time-stamp") */
-/* eval:(make-local-variable 'write-file-hooks) */
-/* eval:(add-hook 'write-file-hooks 'time-stamp) */
-/* eval:(setq time-stamp-format '(time-stamp-yyyy/mm/dd time-stamp-hh:mm:ss user-login-name)) */
-/* End: */
