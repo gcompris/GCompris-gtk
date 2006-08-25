@@ -49,8 +49,12 @@ foreach my $locale (@LOCALES)
   {
     foreach my $subdir (@SUBDIRS)
       {
-	opendir DIR, "$BASEDIR/$locale/$subdir"
-	  or die "cannot open dir $BASEDIR/$locale/$subdir: $!";
+	if (! opendir DIR, "$BASEDIR/$locale/$subdir")
+	  {
+	    print "cannot open dir $BASEDIR/$locale/$subdir: $!";
+	    next;
+	  }
+
 	foreach my $file ( grep { $_ =~ /\.ogg$/} readdir DIR)
 	  {
 	    if("@ALL_FILES" !~ /$subdir\/$file/g)
