@@ -6,8 +6,8 @@ msgid ""
 ""
 msgstr "Project-Id-Version: gcompris Gnome HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-08-20 10:39+0200\n"
-"PO-Revision-Date: 2006-08-20 22:15+0930\n"
+"POT-Creation-Date: 2006-08-27 02:31+0200\n"
+"PO-Revision-Date: 2006-08-27 16:19+0930\n"
 "Last-Translator: Clytie Siddall <clytie@riverland.net.au>\n"
 "Language-Team: Vietnamese <gnomevi-list@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
@@ -1782,7 +1782,7 @@ msgid "Cyprus"
 msgstr "Síp"
 
 #: ../boards/geography/board3_1.xml.in.h:7
-#: ../src/gcompris/config.c:69
+#: ../src/gcompris/config.c:70
 msgid "Czech Republic"
 msgstr "Cộng hòa Tiếp Khắc"
 
@@ -2439,7 +2439,7 @@ msgstr "Thức hành đọc bằng cách tìm từ khớp với ảnh."
 #: ../boards/imagename.xml.in.h:4
 #: ../boards/readingh.xml.in.h:4
 #: ../boards/readingv.xml.in.h:4
-#: ../src/boards/imageid.c:113
+#: ../src/boards/imageid.c:108
 #: ../src/boards/missingletter.c:104
 msgid "Reading"
 msgstr "Đọc"
@@ -4283,9 +4283,10 @@ msgstr "Trò chơi câu đố khối trượt"
 
 #: ../boards/traffic.xml.in.h:2
 msgid ""
-"Each car can only move either horizontaly or verticaly. You must make some "
+"Each car can only move either horizontally or vertically. You must make some "
 "room in order to let the red car move through the gate on the right."
-msgstr "Mỗi chiếc xe đi được chỉ theo chiều ngang hay theo chiều dọc. Cháu cần phải giải phóng chỗ để chiếc xe màu đỏ đi được qua cửa bên phải."
+msgstr "Mỗi chiếc xe đi được chỉ theo chiều ngang hay theo chiều dọc. Cháu cần phải "
+"giải phóng chỗ để chiếc xe màu đỏ đi được qua cửa bên phải."
 
 #: ../boards/traffic.xml.in.h:3
 msgid "Remove the red car from the parking lot through the gate on the right"
@@ -4337,7 +4338,7 @@ msgstr "Thâch-x mới về sau một cuộc đi đánh cá lâu trên tàu th�
 "thống nước, để cho phép Thâch-x đi tắm."
 
 #: ../boards/wordsgame.xml.in.h:1
-#: ../src/boards/wordsgame.c:113
+#: ../src/boards/wordsgame.c:112
 msgid "Falling Words"
 msgstr "Từ đang rời xuống"
 
@@ -4350,7 +4351,7 @@ msgid "Type the complete word as it falls, before it reachs the ground"
 msgstr "Hãy gõ toàn từ trong khi nó rời xuống, trước khi nó xuống đất."
 
 #: ../boards/wordsgame.xml.in.h:5
-#: ../src/boards/wordsgame.c:114
+#: ../src/boards/wordsgame.c:113
 msgid "Type the falling words before they reach the ground"
 msgstr "Hãy gõ những từ rời xuống, trước khi chúng xuống đất."
 
@@ -4491,11 +4492,6 @@ msgstr "Lỗi: hoạt động này cần thiết bạn đầu tiên\n"
 msgid "Uppercase only text"
 msgstr "Chỉ chữ hoa"
 
-#: ../src/boards/clickgame.c:178
-#, c-format
-msgid "Couldn't open dir: %s"
-msgstr "Không mở được thư mục: %s"
-
 #: ../src/boards/clockgame.c:544
 #: ../src/boards/clockgame.c:554
 msgid "Set the watch to:"
@@ -4569,7 +4565,7 @@ msgstr "Tháp Hà Nội"
 msgid "Move the entire stack to the right peg, one disc at a time"
 msgstr "Di chuyển toàn bộ đống sang cái móc bên phải, một đĩa mỗi lần."
 
-#: ../src/boards/imageid.c:114
+#: ../src/boards/imageid.c:109
 #: ../src/boards/missingletter.c:105
 msgid "Learn how to read"
 msgstr "Học biết cách đọc"
@@ -5405,7 +5401,6 @@ msgid "And it was displayed"
 msgstr "Và nó đã được hiển thị."
 
 #: ../src/boards/reading.c:776
-#: ../src/boards/wordsgame.c:777
 msgid "Cannot open file of words for your locale"
 msgstr "Không mở được tập tin các từ cho miền địa phương của bạn."
 
@@ -5455,7 +5450,14 @@ msgstr "Tốc độ gió = %d\n"
 msgid "Distance to target = %d meters"
 msgstr "Khoảng cách tới đích = %d mét"
 
-#: ../src/gcompris/about.c:65
+#: ../src/boards/wordsgame.c:207
+msgid ""
+"Error: We don't find\n"
+"a list of words to play this game.\n"
+msgstr "Lỗi: không tìm thấy\n"
+"danh sách từ để chơi. :(\n"
+
+#: ../src/gcompris/about.c:62
 msgid ""
 "Author: Bruno Coudoin\n"
 "Contribution: Pascal Georges, Jose Jorge\n"
@@ -5469,58 +5471,57 @@ msgstr "Tác giả: Bruno Coudoin\n"
 "Nhạc nền: Rico Da Halvarez\n"
 
 #.TRANSLATORS: Replace this string with your names, one name per line.
-#: ../src/gcompris/about.c:73
+#: ../src/gcompris/about.c:70
 msgid "translator_credits"
 msgstr "Nhóm Việt hóa Gnome <gnomevi-list@lists.sourceforge.net>"
 
-#: ../src/gcompris/about.c:104
-#: ../src/gcompris/about.c:114
+#: ../src/gcompris/about.c:101
+#: ../src/gcompris/about.c:111
 msgid "About GCompris"
 msgstr "Giới thiệu GCompris"
 
-#: ../src/gcompris/about.c:125
-#: ../src/gcompris/about.c:134
+#: ../src/gcompris/about.c:122
+#: ../src/gcompris/about.c:131
 msgid "Translators:"
 msgstr "Người dịch:"
 
-#: ../src/gcompris/about.c:257
+#: ../src/gcompris/about.c:254
 msgid ""
 "GCompris Home Page\n"
 "http://gcompris.net"
 msgstr "Trang chủ của GCompris\n"
 "<http://gcompris.net/>"
 
-#: ../src/gcompris/about.c:279
+#: ../src/gcompris/about.c:276
 msgid ""
 "This software is a GNU Package and is released under the GNU General Public "
 "License"
 msgstr "Phần mềm là một gói GNU, và được phát hành với điều kiện của Quyền Công "
 "Chung Gnu (GPL)."
 
-#: ../src/gcompris/about.c:342
-#: ../src/gcompris/about.c:352
-#: ../src/gcompris/config.c:467
-#: ../src/gcompris/config.c:477
-#: ../src/gcompris/gameutil.c:1072
-#: ../src/gcompris/help.c:380
-#: ../src/gcompris/help.c:390
+#: ../src/gcompris/about.c:339
+#: ../src/gcompris/about.c:349
+#: ../src/gcompris/config.c:468
+#: ../src/gcompris/config.c:478
+#: ../src/gcompris/help.c:381
+#: ../src/gcompris/help.c:391
 #: ../src/gcompris/images_selector.c:317
 msgid "OK"
 msgstr "Được"
 
-#: ../src/gcompris/bar.c:566
+#: ../src/gcompris/bar.c:567
 msgid "GCompris confirmation"
 msgstr "Xác nhận GCompris"
 
-#: ../src/gcompris/bar.c:567
+#: ../src/gcompris/bar.c:568
 msgid "Sure you want to quit ?"
 msgstr "Cháu có chắc muốn thoát không?"
 
-#: ../src/gcompris/bar.c:568
+#: ../src/gcompris/bar.c:569
 msgid "Yes, I am sure !"
 msgstr "Có, tôi có chắc."
 
-#: ../src/gcompris/bar.c:569
+#: ../src/gcompris/bar.c:570
 msgid "No, I want to keep going"
 msgstr "Không, tôi muốn tiếp tục"
 
@@ -5535,418 +5536,422 @@ msgid ""
 msgstr "Hãy chọn ngôn ngữ\n"
 "cần dùng trong bảng này."
 
-#: ../src/gcompris/config.c:63
+#: ../src/gcompris/config.c:64
 msgid "Your system default"
 msgstr "Giá trị mặc định của hệ thống bạn"
 
-#: ../src/gcompris/config.c:64
+#: ../src/gcompris/config.c:65
 msgid "Amharic"
 msgstr "Am-ha-ri"
 
-#: ../src/gcompris/config.c:65
+#: ../src/gcompris/config.c:66
 msgid "Arabic"
 msgstr "Ả Rập"
 
-#: ../src/gcompris/config.c:66
+#: ../src/gcompris/config.c:67
 msgid "Turkish (Azerbaijan)"
 msgstr "Thổ-nhĩ-kỳ (A-dợ-bai-sanh)"
 
-#: ../src/gcompris/config.c:67
+#: ../src/gcompris/config.c:68
 msgid "Bulgarian"
 msgstr "Bảo Gai Lơi"
 
-#: ../src/gcompris/config.c:68
+#: ../src/gcompris/config.c:69
 msgid "Catalan"
 msgstr "Ca-ta-lan"
 
-#: ../src/gcompris/config.c:70
+#: ../src/gcompris/config.c:71
 msgid "Danish"
 msgstr "Đan mạch"
 
-#: ../src/gcompris/config.c:71
+#: ../src/gcompris/config.c:72
 msgid "German"
 msgstr "Đức"
 
-#: ../src/gcompris/config.c:72
+#: ../src/gcompris/config.c:73
 msgid "Greek"
 msgstr "Hy Lạp"
 
-#: ../src/gcompris/config.c:73
+#: ../src/gcompris/config.c:74
 msgid "English (Canada)"
 msgstr "Anh (Ca-na-đa)"
 
-#: ../src/gcompris/config.c:74
+#: ../src/gcompris/config.c:75
 msgid "English (Great Britain)"
 msgstr "Anh (quốc Anh)"
 
-#: ../src/gcompris/config.c:75
+#: ../src/gcompris/config.c:76
 msgid "Spanish"
 msgstr "Tây Ban Nha"
 
-#: ../src/gcompris/config.c:76
+#: ../src/gcompris/config.c:77
 msgid "Basque"
 msgstr "Baxcơ"
 
-#: ../src/gcompris/config.c:77
+#: ../src/gcompris/config.c:78
 msgid "Finnish"
 msgstr "Phần Lan"
 
-#: ../src/gcompris/config.c:78
+#: ../src/gcompris/config.c:79
 msgid "French"
 msgstr "Pháp"
 
-#: ../src/gcompris/config.c:79
+#: ../src/gcompris/config.c:80
 msgid "Irish (Gaelic)"
 msgstr "Ái-nhĩ-lan (Xen-tơ)"
 
-#: ../src/gcompris/config.c:80
+#: ../src/gcompris/config.c:81
 msgid "Hebrew"
 msgstr "Do Thái"
 
-#: ../src/gcompris/config.c:81
+#: ../src/gcompris/config.c:82
 msgid "Hindi"
 msgstr "Hinh-đi"
 
-#: ../src/gcompris/config.c:82
+#: ../src/gcompris/config.c:83
 msgid "Gujarati"
 msgstr "Gu-gia-ra-ti"
 
-#: ../src/gcompris/config.c:83
+#: ../src/gcompris/config.c:84
 msgid "Punjabi"
 msgstr "Pun-cha-bi"
 
-#: ../src/gcompris/config.c:84
+#: ../src/gcompris/config.c:85
 msgid "Hungarian"
 msgstr "Hung Gia Lợi"
 
-#: ../src/gcompris/config.c:85
+#: ../src/gcompris/config.c:86
 msgid "Croatian"
 msgstr "Cợ-rô-a-ti-a"
 
-#: ../src/gcompris/config.c:86
+#: ../src/gcompris/config.c:87
 msgid "Italian"
 msgstr "Ý"
 
-#: ../src/gcompris/config.c:87
+#: ../src/gcompris/config.c:88
 msgid "Georgian"
 msgstr "Gi-oa-gi-a"
 
-#: ../src/gcompris/config.c:88
+#: ../src/gcompris/config.c:89
 msgid "Lithuanian"
 msgstr "Li-tu-a-ni"
 
-#: ../src/gcompris/config.c:89
+#: ../src/gcompris/config.c:90
 msgid "Macedonian"
 msgstr "Ma-xê-đô-ni"
 
-#: ../src/gcompris/config.c:90
+#: ../src/gcompris/config.c:91
 msgid "Malayalam"
 msgstr "Ma-lay-am"
 
-#: ../src/gcompris/config.c:91
+#: ../src/gcompris/config.c:92
 msgid "Marathi"
 msgstr "Ma-ra-ti"
 
-#: ../src/gcompris/config.c:92
+#: ../src/gcompris/config.c:93
 msgid "Malay"
 msgstr "Mã lai"
 
-#: ../src/gcompris/config.c:93
+#: ../src/gcompris/config.c:94
 msgid "Nepal"
 msgstr "Nê-pan"
 
-#: ../src/gcompris/config.c:94
+#: ../src/gcompris/config.c:95
 msgid "Dutch"
 msgstr "Hoà lan"
 
-#: ../src/gcompris/config.c:95
+#: ../src/gcompris/config.c:96
 msgid "Norwegian Bokmal"
 msgstr "Na-uy (Bokh-man)"
 
-#: ../src/gcompris/config.c:96
+#: ../src/gcompris/config.c:97
 msgid "Norwegian Nynorsk"
 msgstr "Na-uy (Ny-noa-x-kh)"
 
-#: ../src/gcompris/config.c:97
+#: ../src/gcompris/config.c:98
 msgid "Polish"
 msgstr "Ba-lan"
 
-#: ../src/gcompris/config.c:98
+#: ../src/gcompris/config.c:99
 msgid "Portuguese"
 msgstr "Bồ-đào-nha"
 
-#: ../src/gcompris/config.c:99
+#: ../src/gcompris/config.c:100
 msgid "Portuguese (Brazil)"
 msgstr "Bồ-đào-nha (Bra-xin)"
 
-#: ../src/gcompris/config.c:100
+#: ../src/gcompris/config.c:101
 msgid "Romanian"
 msgstr "Lỗ-má-ni"
 
-#: ../src/gcompris/config.c:101
+#: ../src/gcompris/config.c:102
 msgid "Russian"
 msgstr "Nga"
 
-#: ../src/gcompris/config.c:102
+#: ../src/gcompris/config.c:103
 msgid "Kinyarwanda"
 msgstr "Kin-ia-ouanh-đa"
 
-#: ../src/gcompris/config.c:103
+#: ../src/gcompris/config.c:104
 msgid "Slovak"
 msgstr "Xlô-vác"
 
-#: ../src/gcompris/config.c:104
+#: ../src/gcompris/config.c:105
 msgid "Slovenian"
 msgstr "Xlô-ven"
 
-#: ../src/gcompris/config.c:105
+#: ../src/gcompris/config.c:106
 msgid "Albanian"
 msgstr "An-ba-ni"
 
-#: ../src/gcompris/config.c:106
+#: ../src/gcompris/config.c:107
 msgid "Serbian (Latin)"
 msgstr "Xéc-bi (La-tinh)"
 
-#: ../src/gcompris/config.c:107
+#: ../src/gcompris/config.c:108
 msgid "Serbian"
 msgstr "Xéc-bi"
 
-#: ../src/gcompris/config.c:108
+#: ../src/gcompris/config.c:109
 msgid "Swedish"
 msgstr "Thụy Điển"
 
 #."ta_IN.UTF-8",	N_("Tamil"),
-#: ../src/gcompris/config.c:110
+#: ../src/gcompris/config.c:111
 msgid "Thai"
 msgstr "Thái"
 
-#: ../src/gcompris/config.c:111
+#: ../src/gcompris/config.c:112
 msgid "Turkish"
 msgstr "Thổ Nhĩ Kỳ"
 
-#: ../src/gcompris/config.c:112
+#: ../src/gcompris/config.c:113
 msgid "Vietnamese"
 msgstr "Việt"
 
-#: ../src/gcompris/config.c:113
+#: ../src/gcompris/config.c:114
 msgid "Walloon"
 msgstr "Oua-lon"
 
-#: ../src/gcompris/config.c:114
+#: ../src/gcompris/config.c:115
 msgid "Chinese (Simplified)"
 msgstr "Tiếng Hoa (phổ thông)"
 
-#: ../src/gcompris/config.c:115
+#: ../src/gcompris/config.c:116
 msgid "Chinese (Traditional)"
 msgstr "Hoà (truyền thống)"
 
-#: ../src/gcompris/config.c:120
+#: ../src/gcompris/config.c:121
 msgid "No time limit"
 msgstr "Thời gian vô hạn"
 
-#: ../src/gcompris/config.c:121
+#: ../src/gcompris/config.c:122
 msgid "Slow timer"
 msgstr "Bộ đếm thời gian chậm"
 
-#: ../src/gcompris/config.c:122
+#: ../src/gcompris/config.c:123
 msgid "Normal timer"
 msgstr "Bộ đếm thời gian bình thường"
 
-#: ../src/gcompris/config.c:123
+#: ../src/gcompris/config.c:124
 msgid "Fast timer"
 msgstr "Bộ đếm thời gian nhanh"
 
-#: ../src/gcompris/config.c:128
+#: ../src/gcompris/config.c:129
 msgid "800x600 (Default for gcompris)"
 msgstr "800 × 600 (mặc định cho GCompris)"
 
-#: ../src/gcompris/config.c:133
+#: ../src/gcompris/config.c:134
 msgid ""
 "<i>Use Gcompris administration module\n"
 "to filter boards</i>"
 msgstr "<i>Sử dụng mô-đun quản lý của GCompris để lọc bảng</i>"
 
-#: ../src/gcompris/config.c:187
-#: ../src/gcompris/config.c:197
+#: ../src/gcompris/config.c:188
+#: ../src/gcompris/config.c:198
 msgid "GCompris Configuration"
 msgstr "Cấu hình GCompris"
 
-#: ../src/gcompris/config.c:273
+#: ../src/gcompris/config.c:274
 msgid "Fullscreen"
 msgstr "Toàn màn hình"
 
-#: ../src/gcompris/config.c:316
+#: ../src/gcompris/config.c:317
 msgid "Music"
 msgstr "Nhạc"
 
-#: ../src/gcompris/config.c:344
+#: ../src/gcompris/config.c:345
 msgid "Effect"
 msgstr "Hiệu ứng"
 
-#: ../src/gcompris/config.c:380
+#: ../src/gcompris/config.c:381
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "Không mở được thư mục sắc thái: %s"
 
-#: ../src/gcompris/config.c:413
-#: ../src/gcompris/config.c:838
-#: ../src/gcompris/config.c:852
+#: ../src/gcompris/config.c:414
+#: ../src/gcompris/config.c:839
+#: ../src/gcompris/config.c:853
 #, c-format
 msgid "Skin : %s"
 msgstr "Sắc thái: %s"
 
-#: ../src/gcompris/config.c:415
+#: ../src/gcompris/config.c:416
 msgid "SKINS NOT FOUND"
 msgstr "KHÔNG TÌM THẤY SẮC THÁI"
 
-#: ../src/gcompris/config.c:638
+#: ../src/gcompris/config.c:639
 msgid "English (United State)"
 msgstr "Anh (Mỹ)"
 
-#: ../src/gcompris/file_selector.c:332
+#: ../src/gcompris/file_selector.c:333
 msgid "CANCEL"
 msgstr "THÔI"
 
-#: ../src/gcompris/file_selector.c:363
+#: ../src/gcompris/file_selector.c:364
 msgid "LOAD"
 msgstr "TẢI"
 
-#: ../src/gcompris/file_selector.c:363
+#: ../src/gcompris/file_selector.c:364
 msgid "SAVE"
 msgstr "LƯU"
 
-#: ../src/gcompris/gameutil.c:79
+#: ../src/gcompris/gameutil.c:74
 msgid "Couldn't find or load the file"
 msgstr "Không tìm thấy hoặc tải tập tin"
 
-#: ../src/gcompris/gameutil.c:81
+#: ../src/gcompris/gameutil.c:76
 msgid "This activity is incomplete."
 msgstr "Chưa hoàn thành hoạt động này."
 
-#: ../src/gcompris/gameutil.c:82
+#: ../src/gcompris/gameutil.c:77
 msgid ""
 "Exit it and report\n"
 "the problem to the authors."
 msgstr "Hãy thoát khỏi nó,\n"
 "rồi thông báo lỗi này cho tác giả."
 
-#: ../src/gcompris/gcompris.c:130
+#: ../src/gcompris/gcompris.c:131
 msgid "run gcompris in fullscreen mode."
 msgstr "chạy GCompris trong chế độ toàn màn hình."
 
-#: ../src/gcompris/gcompris.c:133
+#: ../src/gcompris/gcompris.c:134
 msgid "run gcompris in window mode."
 msgstr "chạy GCompris trong chế độ cửa sổ."
 
-#: ../src/gcompris/gcompris.c:136
+#: ../src/gcompris/gcompris.c:137
 msgid "run gcompris with sound enabled."
 msgstr "chạy GCompris có âm thanh được bật."
 
-#: ../src/gcompris/gcompris.c:139
+#: ../src/gcompris/gcompris.c:140
 msgid "run gcompris without sound."
 msgstr "chạy GCompris không có âm thanh."
 
-#: ../src/gcompris/gcompris.c:142
+#: ../src/gcompris/gcompris.c:143
 msgid "run gcompris with the default gnome cursor."
 msgstr "chạy GCompris với con trỏ Gnome mặc định."
 
-#: ../src/gcompris/gcompris.c:145
+#: ../src/gcompris/gcompris.c:146
 msgid "display only activities with this difficulty level."
 msgstr "hiển thị chỉ những hoạt động tại cấp khó này."
 
-#: ../src/gcompris/gcompris.c:148
+#: ../src/gcompris/gcompris.c:149
 msgid "display debug informations on the console."
 msgstr "hiển thị thông tin gỡ lỗi trên bàn giao tiếp."
 
-#: ../src/gcompris/gcompris.c:151
+#: ../src/gcompris/gcompris.c:152
 msgid "Print the version of "
 msgstr "In ra phiên bản của "
 
-#: ../src/gcompris/gcompris.c:154
+#: ../src/gcompris/gcompris.c:155
 msgid "Use the antialiased canvas (slower)."
 msgstr "Dùng khung vẽ trơn (chậm hơn)."
 
-#: ../src/gcompris/gcompris.c:157
+#: ../src/gcompris/gcompris.c:158
 msgid "Disable XF86VidMode (No screen resolution change)."
 msgstr "Tắt XF86VidMode (không thay đổi độ phân giải màn hình)."
 
-#: ../src/gcompris/gcompris.c:160
+#: ../src/gcompris/gcompris.c:161
 msgid ""
 "Run gcompris with local menu (e.g -l /reading will let you play only "
 "activities in the reading directory, -l /strategy/connect4 only the connect4 "
 "activity)"
-msgstr "Chạy GCompris với trình đơn cục bộ (v.d.  « -l /reading » sẽ cho bạn có khả năng chơi chỉ thư mục hoạt động đọc, « -l /strategy/connect4 » chỉ hoạt động kết nối 4)."
+msgstr "Chạy GCompris với trình đơn cục bộ (v.d.  « -l /reading » sẽ cho bạn có khả "
+"năng chơi chỉ thư mục hoạt động đọc, « -l /strategy/connect4 » chỉ hoạt động "
+"kết nối 4)."
 
-#: ../src/gcompris/gcompris.c:163
+#: ../src/gcompris/gcompris.c:164
 msgid "Run GCompris with local activity directory added to menu"
 msgstr "Chạy GCompris với thư mục hoạt động cục bộ được thêm vào trình đơn"
 
-#: ../src/gcompris/gcompris.c:166
+#: ../src/gcompris/gcompris.c:167
 msgid "Run GCompris in administration and user-management mode"
 msgstr "Chạy GCompris trong chế độ quản trị  (hệ thống và người dùng)"
 
-#: ../src/gcompris/gcompris.c:169
+#: ../src/gcompris/gcompris.c:170
 msgid "Use alternate database for profiles"
 msgstr "Dùng cơ sở dữ liệu thay thế cho xác lập."
 
-#: ../src/gcompris/gcompris.c:172
+#: ../src/gcompris/gcompris.c:173
 msgid "Use alternate database for logs"
 msgstr "Dùng cơ sở dữ liệu thay thế cho bản ghi."
 
-#: ../src/gcompris/gcompris.c:175
+#: ../src/gcompris/gcompris.c:176
 msgid "Create the alternate database for profiles"
 msgstr "Tạo cơ sở dữ liệu thay thế cho xác lập."
 
-#: ../src/gcompris/gcompris.c:178
+#: ../src/gcompris/gcompris.c:179
 msgid "Re-read XML Menus and store them in the database"
 msgstr "Đọc lại các trình đơn XML và lưu chúng vào cơ sở dữ liệu."
 
-#: ../src/gcompris/gcompris.c:181
+#: ../src/gcompris/gcompris.c:182
 msgid "Set the profile to use. Use 'gcompris -a' to create profiles"
 msgstr "Đặt xác lập cần dùng. Sử dụng lệnh « gcompris -a » để tẠo xÁc lẬp."
 
-#: ../src/gcompris/gcompris.c:184
+#: ../src/gcompris/gcompris.c:185
 msgid "List all available profiles. Use 'gcompris -a' to create profiles"
 msgstr "Liệt kê mọi xác lập sẵn sàng. Sử dụng lệnh « gcompris -a » để tạo xác lập"
 
-#: ../src/gcompris/gcompris.c:187
+#: ../src/gcompris/gcompris.c:188
 msgid ""
 "Shared directory location, for profiles and board-configuration data: "
 "[$HOME/.gcompris/shared]"
 msgstr "Địa điểm thư mục dùng chung, cho xác lập và dữ liệu cấu hình bảng: <$HOME/."
 "gcompris/shared>."
 
-#: ../src/gcompris/gcompris.c:190
+#: ../src/gcompris/gcompris.c:191
 msgid "The location of user directories: [$HOME/.gcompris/users]"
 msgstr "Địa điểm của thư mục người dùng: <$HOME/.gcompris/users>."
 
-#: ../src/gcompris/gcompris.c:193
+#: ../src/gcompris/gcompris.c:194
 msgid "Run the experimental activities"
 msgstr "Chạy hoạt động đựa trên kinh nghiệm"
 
-#: ../src/gcompris/gcompris.c:196
+#: ../src/gcompris/gcompris.c:197
 msgid "Disable the quit button"
 msgstr "Tắt cái nút Thoát"
 
-#: ../src/gcompris/gcompris.c:199
+#: ../src/gcompris/gcompris.c:200
 msgid "Disable the config button"
 msgstr "Tắt cái nút Cấu hình"
 
-#: ../src/gcompris/gcompris.c:202
+#: ../src/gcompris/gcompris.c:203
 msgid "Display the resources on stdout based on the selected activities"
-msgstr "Hiển thị các tài nguyên trên thiết bị xuất chuẩn dựa vào những hoạt động đã chọn"
+msgstr "Hiển thị các tài nguyên trên thiết bị xuất chuẩn dựa vào những hoạt động đã "
+"chọn"
 
-#: ../src/gcompris/gcompris.c:205
+#: ../src/gcompris/gcompris.c:206
 msgid ""
 "GCompris will get images, sounds and activity data from this server if not "
-"found locally.To use the default server, set this value to 'gcompris.net'"
-msgstr "Trình GCompris sẽ lấy các ảnh, âm thanh và dữ liệu hoạt động đều từ máy phục vụ này nếu không tìm thấy cục bộ. Để sử dụng máy phục vụ mặc định, hãy đặt giá trị này thành « gcompris.net »."
+"found locally."
+msgstr "Trình GCompris sẽ lấy các ảnh, âm thanh và dữ liệu hoạt động đều từ máy phục vụ này nếu không tìm thấy cục bộ."
 
 #: ../src/gcompris/gcompris.c:209
 msgid ""
-"Only when --server is provided, disable check for local resource first.Data "
+"Only when --server is provided, disable check for local resource first. Data "
 "are always taken from the web server."
-msgstr "Chỉ khi « --server » được cung cấp, hãy tắt khả năng kiểm tra trước tiên tìm tài nguyên cục bộ. Dữ liệu luôn được lấy từ máy phục vụ Mạng."
+msgstr "Chỉ khi « --server » được cung cấp, hãy tắt khả năng kiểm tra trước tiên tìm "
+"tài nguyên cục bộ. Dữ liệu luôn được lấy từ máy phục vụ Mạng."
 
 #: ../src/gcompris/gcompris.c:846
 #, c-format
@@ -5973,7 +5978,7 @@ msgstr "GCompris là phần mềm tự do được phát hành với điều ki�
 "nghĩ sử dụng hệ điều hành GNU/Linux. Có thể tìm thông tin thêm tại <http://"
 "www.fsf.org/philosophy>."
 
-#: ../src/gcompris/gcompris.c:1348
+#: ../src/gcompris/gcompris.c:1347
 #, c-format
 msgid ""
 "GCompris\n"
@@ -5986,17 +5991,17 @@ msgstr "GCompris\n"
 "Thông tin thêm tại <http://gcompris.net/>\n"
 
 #.check the list of possible values for -l, then exit
-#: ../src/gcompris/gcompris.c:1434
+#: ../src/gcompris/gcompris.c:1433
 #, c-format
 msgid "Use -l to access an activity directly.\n"
 msgstr "Sử dụng lệnh « -l » để truy cập một hoạt động nào đó một cách trực tiếp.\n"
 
-#: ../src/gcompris/gcompris.c:1435
+#: ../src/gcompris/gcompris.c:1434
 #, c-format
 msgid "The list of available activities is :\n"
 msgstr "Danh sách các hoạt động sẵn sàng:\n"
 
-#: ../src/gcompris/gcompris.c:1594
+#: ../src/gcompris/gcompris.c:1595
 #, c-format
 msgid "The list of available profiles is:\n"
 msgstr "Danh sách các xác lập sẵn sàng là:\n"
@@ -6009,19 +6014,19 @@ msgstr "Không có tác động."
 msgid "Users without a class"
 msgstr "Người dùng chưa có lớp"
 
-#: ../src/gcompris/help.c:198
+#: ../src/gcompris/help.c:199
 msgid "Prerequisite"
 msgstr "Cần thiết"
 
-#: ../src/gcompris/help.c:226
+#: ../src/gcompris/help.c:227
 msgid "Goal"
 msgstr "Mục đích"
 
-#: ../src/gcompris/help.c:254
+#: ../src/gcompris/help.c:255
 msgid "Manual"
 msgstr "Sổ hướng dẫn"
 
-#: ../src/gcompris/help.c:282
+#: ../src/gcompris/help.c:283
 msgid "Credit"
 msgstr "Công trạng"
 
