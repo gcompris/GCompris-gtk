@@ -29,19 +29,19 @@
 
 typedef enum
 {
-  GCOMPRIS_TIMER_TEXT		= 0,
-  GCOMPRIS_TIMER_SAND		= 1,
-  GCOMPRIS_TIMER_BALLOON	= 2,
-  GCOMPRIS_TIMER_CLOCK		= 3,
+  GCOMPRIS_TIMER_TEXT,
+  GCOMPRIS_TIMER_SAND,
+  GCOMPRIS_TIMER_BALLOON,
+  GCOMPRIS_TIMER_CLOCK,
 } TimerList;
 
 /* Callback when the timer is completed */
 typedef void          (*GcomprisTimerEnd)       ();
 
-void	 gcompris_timer_display(int x, int y, TimerList type, int second, GcomprisTimerEnd gcomprisTimerEnd);
-void	 gcompris_timer_add(int second);
-void	 gcompris_timer_end(void);
-guint	 gcompris_timer_get_remaining();
-void	 gcompris_timer_pause(gboolean pause);
+void	 gc_timer_display(int x, int y, TimerList type, int second, GcomprisTimerEnd gcomprisTimerEnd);
+void	 gc_timer_add(int second);
+void	 gc_timer_end(void);
+guint	 gc_timer_get_remaining();
+void	 gc_timer_pause(gboolean pause);
 
 #endif

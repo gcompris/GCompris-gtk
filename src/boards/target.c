@@ -195,7 +195,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       gcomprisBoard->sublevel=1;
       gcomprisBoard->number_of_sublevel=1; /* Go to next level after this number of 'play' */
 
-      gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas), "images/target_background.jpg");
+      gc_set_background(gnome_canvas_root(gcomprisBoard->canvas), "images/target_background.jpg");
 
       target_next_level();
 
@@ -408,7 +408,7 @@ static void display_windspeed()
   gnome_canvas_item_new (speedRootItem,
 			 gnome_canvas_text_get_type (),
 			 "text", tmpstr,
-			 "font", gcompris_skin_font_board_medium,
+			 "font", gc_skin_font_board_medium,
 			 "x", (double) SPEED_CENTER_X,
 			 "y", (double) SPEED_CENTER_Y + 110,
 			 "anchor", GTK_ANCHOR_CENTER,
@@ -457,7 +457,7 @@ static GnomeCanvasItem *target_create_item(GnomeCanvasGroup *parent)
 	  item = gnome_canvas_item_new (boardRootItem,
 					gnome_canvas_text_get_type (),
 					"text", tmpstr,
-					"font", gcompris_skin_font_board_medium,
+					"font", gc_skin_font_board_medium,
 					"x", (double) 0,
 					"y", (double) targetDefinition[gcomprisBoard->level-1].target_width_value[i*2] - 10,
 					"anchor", GTK_ANCHOR_CENTER,
@@ -476,7 +476,7 @@ static GnomeCanvasItem *target_create_item(GnomeCanvasGroup *parent)
   gnome_canvas_item_new (boardRootItem,
 			 gnome_canvas_text_get_type (),
 			 "text", tmpstr,
-			 "font", gcompris_skin_font_board_medium,
+			 "font", gc_skin_font_board_medium,
 			 "x", (double) 0,
 			 "y", (double) BOARDHEIGHT-TARGET_CENTER_Y -45,
 			 "anchor", GTK_ANCHOR_CENTER,
@@ -498,10 +498,10 @@ static void game_won()
     gcomprisBoard->sublevel=1;
     gcomprisBoard->level++;
     if(gcomprisBoard->level>gcomprisBoard->maxlevel) { // the current board is finished : bail out
-      board_finished(BOARD_FINISHED_RANDOM);
+      gc_bonus_end_display(BOARD_FINISHED_RANDOM);
       return;
     }
-    gcompris_play_ogg ("sounds/bonus.ogg", NULL);
+    gc_sound_play_ogg ("sounds/bonus.ogg", NULL);
   }
   target_next_level();
 }
@@ -516,12 +516,12 @@ static void process_ok()
       {
 	gamewon = TRUE;
 	target_destroy_all_items();
-	gcompris_display_bonus(gamewon, BONUS_SMILEY);
+	gc_bonus_display(gamewon, BONUS_SMILEY);
       }
     else
       {
 	gamewon = FALSE;
-	gcompris_display_bonus(gamewon, BONUS_SMILEY);
+	gc_bonus_display(gamewon, BONUS_SMILEY);
       }
   }
 
@@ -539,7 +539,7 @@ static void request_score()
   gchar *tmpstr;
 
   gc_bar_set(GC_BAR_LEVEL|GC_BAR_OK);
-  button_pixmap = gcompris_load_skin_pixmap("button_large2.png");
+  button_pixmap = gc_skin_pixmap_load("button_large2.png");
   gnome_canvas_item_new (boardRootItem,
 			 gnome_canvas_pixbuf_get_type (),
 			 "pixbuf",  button_pixmap, 
@@ -551,7 +551,7 @@ static void request_score()
   answer_item = gnome_canvas_item_new (boardRootItem,
 				       gnome_canvas_text_get_type (),
 				       "text", tmpstr,
-				       "font", gcompris_skin_font_board_title_bold,
+				       "font", gc_skin_font_board_title_bold,
 				       "x", (double) x_offset + gdk_pixbuf_get_width(button_pixmap)/2,
 				       "y", (double) y_offset + gdk_pixbuf_get_height(button_pixmap)/2,
 				       "anchor", GTK_ANCHOR_CENTER,

@@ -198,7 +198,7 @@ static gboolean is_our_board (GcomprisBoard *gcomprisBoard)
 static void minigolf_next_level()
 {
 
-  gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas),"images/foot_background.png");
+  gc_set_background(gnome_canvas_root(gcomprisBoard->canvas),"images/foot_background.png");
 
   gc_bar_set_level(gcomprisBoard);
 
@@ -258,10 +258,10 @@ static void game_won()
     gcomprisBoard->sublevel=1;
     gcomprisBoard->level++;
     if(gcomprisBoard->level>gcomprisBoard->maxlevel) { // the current board is finished : bail out
-      board_finished(BOARD_FINISHED_RANDOM);
+      gc_bonus_end_display(BOARD_FINISHED_RANDOM);
       return;
     }
-    gcompris_play_ogg ("sounds/bonus.ogg", NULL);
+    gc_sound_play_ogg ("sounds/bonus.ogg", NULL);
   }
   minigolf_next_level();
 }
@@ -563,7 +563,7 @@ static void minigolf_move(GList *item_list)
 		    
 		    gamewon = TRUE;
 		    minigolf_destroy_all_items();
-		    gcompris_display_bonus(gamewon, BONUS_SMILEY);
+		    gc_bonus_display(gamewon, BONUS_SMILEY);
 		    return;
 		  }
 	      }

@@ -20,11 +20,9 @@
  */
 
 #include <stdio.h>
-#include <sys/types.h>
-#include <sys/stat.h>
 #include <fcntl.h>
-#include <unistd.h>
 #include <string.h>
+#include <unistd.h>
 
 #include "gcompris.h"
 
@@ -47,7 +45,8 @@ static gchar *config_file = NULL;
  * return 1 if parsing OK, 0 otherwise
  * the return value is returned in retval
  */
-guint scan_get_int(GScanner *scanner, int *retval) {
+static guint
+scan_get_int(GScanner *scanner, int *retval) {
   GTokenType token = g_scanner_get_next_token (scanner);
   token = g_scanner_get_next_token (scanner);
   if(token == G_TOKEN_INT) {
@@ -62,7 +61,8 @@ guint scan_get_int(GScanner *scanner, int *retval) {
 /*
  * return String if parsing OK, NULL otherwise
  */
-gchar *scan_get_string(GScanner *scanner) {
+static gchar *
+scan_get_string(GScanner *scanner) {
   GTokenType token = g_scanner_get_next_token (scanner);
   token = g_scanner_get_next_token (scanner);
   if(token == G_TOKEN_STRING) {
@@ -73,36 +73,13 @@ gchar *scan_get_string(GScanner *scanner) {
   return NULL;
 }
 
-/*
- * create the root dir if needed
- *
- * return 0 if OK, -1 if ERROR
- */
-int
-create_rootdir (gchar *rootdir)
-{
-
-  /* Case where ~/.gcompris already exist as a file. We remove it */
-  if(g_file_test(rootdir, G_FILE_TEST_IS_REGULAR)) {
-    unlink(rootdir);
-  }
-
-  if(g_file_test(rootdir, G_FILE_TEST_IS_DIR)) {
-    return 0;
-  }
-
-#if defined WIN32
-  return(mkdir(rootdir));
-#else
-  return(mkdir(rootdir, 0755));
-#endif
-}
 
 /* get the gcompris user directory name */
 /* Architecture dependant: "gcompris" in Win9x, */
 /* "/.gcompris" in POSIX compliant systems */
 
-gchar *get_gcompris_user_root_directory ()
+gchar *
+gc_prop_user_root_directory_get ()
 {
   G_CONST_RETURN gchar *home_dir = g_get_home_dir();
 
@@ -117,16 +94,17 @@ gchar *get_gcompris_user_root_directory ()
  *  must not be freed by the caller.
  * 
  */
-gchar *get_gcompris_conf_name()
+gchar *
+gc_prop_config_file_get()
 {
   if(config_file)
     return(config_file);
 
   /* Was never called, must calculate it */
   if (g_get_home_dir()==NULL) {
-    config_file = g_strconcat(get_gcompris_user_root_directory(), "/gcompris.cfg", NULL);
+    config_file = g_strconcat(gc_prop_user_root_directory_get(), "/gcompris.cfg", NULL);
   } else {
-    config_file = g_strconcat(get_gcompris_user_root_directory(), "/gcompris.conf", NULL);
+    config_file = g_strconcat(gc_prop_user_root_directory_get(), "/gcompris.conf", NULL);
   }
 
    return(config_file);
@@ -136,24 +114,26 @@ gchar *get_gcompris_conf_name()
 #define DEFAULT_DATABASE "gcompris_sqlite.db"
 #define PROFILES_ROOT "profiles"
 
-gchar *get_default_database_name (gchar *shared_dir)
+gchar *
+gc_prop_default_database_name_get (gchar *shared_dir)
 {
   gchar *dir_base = g_strconcat( shared_dir, "/",  PROFILES_ROOT, NULL);
-  create_rootdir(dir_base);
+  gc_util_create_rootdir(dir_base);
   g_free(dir_base);
   return g_strconcat( shared_dir, "/",  PROFILES_ROOT, "/",  DEFAULT_DATABASE, NULL);
   
 }
 
-GcomprisProperties *gcompris_properties_new ()
+GcomprisProperties *
+gc_prop_new ()
 {
   GcomprisProperties *tmp;
-  char          *config_file = get_gcompris_conf_name();
+  char          *config_file = gc_prop_config_file_get();
   GScanner      *scanner;
   int		 filefd;
   gchar         *full_rootdir;
   const gchar   *locale;
-  gchar         *gcompris_user_dir;
+  gchar         *user_dir;
 
   tmp = (GcomprisProperties *) malloc (sizeof (GcomprisProperties));
   tmp->music		 = 1;
@@ -189,31 +169,31 @@ GcomprisProperties *gcompris_properties_new ()
   tmp->package_python_plugin_dir  = NULL;
   tmp->system_icon_dir            = NULL;
 
-  gcompris_user_dir = get_gcompris_user_root_directory() ;
-  create_rootdir( gcompris_user_dir );
+  user_dir = gc_prop_user_root_directory_get() ;
+  gc_util_create_rootdir( user_dir );
 
-  tmp->shared_dir        = g_strconcat(gcompris_user_dir, "/shared", NULL);
-  create_rootdir( tmp->shared_dir );
+  tmp->shared_dir        = g_strconcat(user_dir, "/shared", NULL);
+  gc_util_create_rootdir( tmp->shared_dir );
 
-  tmp->users_dir        = g_strconcat(gcompris_user_dir, "/users", NULL);
-  create_rootdir( tmp->users_dir );
+  tmp->users_dir        = g_strconcat(user_dir, "/users", NULL);
+  gc_util_create_rootdir( tmp->users_dir );
 
-  tmp->user_data_dir	= g_strconcat(gcompris_user_dir, "/Plugins/boards", NULL);
-  create_rootdir( tmp->user_data_dir );
+  tmp->user_data_dir	= g_strconcat(user_dir, "/Plugins/boards", NULL);
+  gc_util_create_rootdir( tmp->user_data_dir );
 
   /* Needs to be set after command line parsing */
   tmp->database          = NULL;
 
-  full_rootdir = g_strconcat(gcompris_user_dir, "/user_data", NULL);
-  create_rootdir(full_rootdir);
+  full_rootdir = g_strconcat(user_dir, "/user_data", NULL);
+  gc_util_create_rootdir(full_rootdir);
   g_free(full_rootdir);
 
-  full_rootdir = g_strconcat(gcompris_user_dir, "/user_data/images", NULL);
-  create_rootdir(full_rootdir);
+  full_rootdir = g_strconcat(user_dir, "/user_data/images", NULL);
+  gc_util_create_rootdir(full_rootdir);
   g_free(full_rootdir);
 
-  full_rootdir = g_strconcat(gcompris_user_dir, "/", PROFILES_ROOT, NULL);
-  create_rootdir(full_rootdir);
+  full_rootdir = g_strconcat(user_dir, "/", PROFILES_ROOT, NULL);
+  gc_util_create_rootdir(full_rootdir);
   g_free(full_rootdir);
 
   g_warning("config_file %s", config_file);
@@ -332,7 +312,8 @@ GcomprisProperties *gcompris_properties_new ()
   return (tmp);
 }
 
-void gcompris_properties_destroy (GcomprisProperties *props)
+void
+gc_prop_destroy (GcomprisProperties *props)
 {
   if(props->locale!=NULL)
     g_free(props->locale);
@@ -340,9 +321,10 @@ void gcompris_properties_destroy (GcomprisProperties *props)
   free (props);
 }
 
-void gcompris_properties_save (GcomprisProperties *props)
+void
+gc_prop_save (GcomprisProperties *props)
 {
-  char *config_file = get_gcompris_conf_name();
+  char *config_file = gc_prop_config_file_get();
   FILE *filefd;
 
   filefd = fopen(config_file, "w+");
@@ -370,7 +352,7 @@ void gcompris_properties_save (GcomprisProperties *props)
 
 
 int
-my_setenv (const char * name, const char * value) {
+gc_setenv (const char * name, const char * value) {
 #if defined WIN32
   size_t namelen = strlen(name);
   size_t valuelen = (value==NULL ? 0 : strlen(value));

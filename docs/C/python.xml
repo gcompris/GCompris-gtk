@@ -43,7 +43,7 @@ xsltproc -o python.html http://docbook.sourceforge.net/release/xsl/current/html/
 
     <sect1>
       <title>Notes about this wrapper</title>
-<para>Generaly speaking, all C gcompris_xxx functions are wrapped to a
+<para>Generaly speaking, all C gc_xxx functions are wrapped to a
 corresponding gcompris.xxx function; parameters and return types remains the same.
 Some structures have also been wrapped. See below particular notes about this.</para>
 
@@ -196,7 +196,7 @@ attribute is readeable and/or writable.</para>
 	      </row>
 	      <row>
 		<entry>gcompris.set_background(gnomeCanvasGroup, file)</entry>
-		<entry>GnomeCanvasItem *gcompris_set_background(GnomeCanvasGroup *parent, gchar *file)</entry>
+		<entry>GnomeCanvasItem *gc_set_background(GnomeCanvasGroup *parent, gchar *file)</entry>
 		<entry>return a gnome.canvas.CanvasItem object</entry>
 	      </row>
 	      <row>
@@ -221,12 +221,12 @@ attribute is readeable and/or writable.</para>
 	      </row>
 	      <row>
 		<entry>gcompris.get_canvas()</entry>
-		<entry>GnomeCanvas* gcompris_get_canvas()</entry>
+		<entry>GnomeCanvas* gc_get_canvas()</entry>
 		<entry>return a gnome.canvas.Canvas</entry>
 	      </row>
 	      <row>
 		<entry>gcompris.get_window()</entry>
-		<entry>GtkWidget* gcompris_get_window(void)</entry>
+		<entry>GtkWidget* gc_get_window(void)</entry>
 		<entry>return a gtk.Widget</entry>
 	      </row>
 	      <row>
@@ -261,12 +261,12 @@ attribute is readeable and/or writable.</para>
 	      </row>
 	      <row>
 		<entry>gcompris.log_set_reason (gcomprisBoard, expected, got)</entry>
-		<entry>gcompris_log_set_reason (GcomprisBoard *gcomprisBoard, gchar *expected, gchar *got)</entry>
+		<entry>gc_log_set_reason (GcomprisBoard *gcomprisBoard, gchar *expected, gchar *got)</entry>
 		<entry></entry>
 	      </row>
 	      <row>
 		<entry>gcompris.log_end (gcomprisBoard, status)</entry>
-		<entry>gcompris_log_end (GcomprisBoard *gcomprisBoard, gchar *status)</entry>
+		<entry>gc_log_end (GcomprisBoard *gcomprisBoard, gchar *status)</entry>
 		<entry></entry>
 	      </row>
 	      <row>
@@ -473,17 +473,17 @@ attribute is readeable and/or writable.</para>
 	    <tbody>
 	      <row>
 		<entry>gcompris.utils.image_to_skin(imagename)</entry>
-		<entry>gchar *gcompris_image_to_skin(gchar *imagename)</entry>
+		<entry>gchar *gc_skin_image_get(gchar *imagename)</entry>
 		<entry>return a string</entry>
 	      </row>
 	      <row>
 		<entry>gcompris.utils.load_skin_pixmap(pixmapfile)</entry>
-		<entry>GdkPixbuf *gcompris_load_skin_pixmap(char *pixmapfile)</entry>
+		<entry>GdkPixbuf *gcompris_skin_pixmap_load(char *pixmapfile)</entry>
 		<entry>return a gtk.gdk.Pixbuf</entry>
 	      </row>
 	      <row>
 		<entry>gcompris.utils.load_pixmap(pixmapfile)</entry>
-		<entry>GdkPixbuf *gcompris_load_pixmap(char *pixmapfile)</entry>
+		<entry>GdkPixbuf *gc_pixmap_load(char *pixmapfile)</entry>
 		<entry>return a gtk.gdk.Pixbuf</entry>
 	      </row>
 	      <row>
@@ -561,12 +561,12 @@ attribute is readeable and/or writable.</para>
 	    <tbody>
 	      <row>
 		<entry>gcompris.bonus.display(BonusStatusList, BonusList)</entry>
-		<entry>void gcompris_display_bonus(BonusStatusList, BonusList)</entry>
+		<entry>void gc_bonus_display(BonusStatusList, BonusList)</entry>
 		<entry></entry>
 	      </row>
 	      <row>
 		<entry>gcompris.bonus.board_finished(BoardFinishedList)</entry>
-		<entry>void board_finished(BoardFinishedList)</entry>
+		<entry>void gc_bonus_end_display(BoardFinishedList)</entry>
 		<entry></entry>
 	      </row>
 	    </tbody>
@@ -620,8 +620,6 @@ attribute is readeable and/or writable.</para>
 		<entry>BONUS_TUX</entry></row>
 	      <row><entry>gcompris.bonus.GNU</entry>
 		<entry>BONUS_TUX</entry></row>
-	      <row><entry>gcompris.bonus.LAST</entry>
-		<entry>BONUS_LAST</entry></row>
 	    </tbody>
 	  </tgroup>
 	</informaltable>
@@ -646,8 +644,6 @@ attribute is readeable and/or writable.</para>
 		<entry>BOARD_FINISHED_TUXLOCO</entry></row>
 	      <row><entry>gcompris.bonus.FINISHED_TOOMANYERRORS</entry>
 		<entry>BOARD_FINISHED_TOOMANYERRORS</entry></row>
-	      <row><entry>gcompris.bonus.FINISHED_LAST</entry>
-		<entry>BOARD_FINISHED_LAST</entry></row>
 	    </tbody>
 	  </tgroup>
 	</informaltable>
@@ -670,17 +666,17 @@ attribute is readeable and/or writable.</para>
 	    <tbody>
 	      <row>
 		<entry>gcompris.score.start(style, x, y, max)</entry>
-		<entry>void gcompris_score_start(ScoreStyleList style, guint x, guint y, guint max)</entry>
+		<entry>void gc_score_start(ScoreStyleList style, guint x, guint y, guint max)</entry>
 		<entry></entry>
 	      </row>
 	      <row>
 		<entry>gcompris.score.end()</entry>
-		<entry>void gcompris_score_end()</entry>
+		<entry>void gc_score_end()</entry>
 		<entry></entry>
 	      </row>
 	      <row>
 		<entry>gcompris.score.set(value)</entry>
-		<entry>void gcompris_score_set(guint value)</entry>
+		<entry>void gc_score_set(guint value)</entry>
 		<entry></entry>
 	      </row>
 	    </tbody>
@@ -704,8 +700,6 @@ attribute is readeable and/or writable.</para>
 		<entry>SCORESTYLE_NOTE</entry></row>
 	      <row><entry>gcompris.score.STYLE_LIFE</entry>
 		<entry>SCORESTYLE_LIFE</entry></row>
-	      <row><entry>gcompris.score.LAST</entry>
-		<entry>SCORE_LAST</entry></row>
 	    </tbody>
 	  </tgroup>
 	</informaltable>
@@ -728,13 +722,18 @@ attribute is readeable and/or writable.</para>
 	    <tbody>
 	      <row>
 		<entry>gcompris.sound.play_ogg_list(list)</entry>
-		<entry>void gcompris_play_ogg_list( GList* files )</entry>
+		<entry>void gc_sound_play_ogg_list( GList* files )</entry>
 		<entry>The list argument is a GList</entry>
 	      </row>
 	      <row>
 		<entry>gcompris.sound.play_ogg(list)</entry>
-		<entry>void gcompris_play_ogg(char *, ...)</entry>
+		<entry>void gc_sound_play_ogg(char *, ...)</entry>
 		<entry>The list argument is a python list containing strings</entry>
+	      </row>
+	      <row>
+		<entry>gcompris.sound.play_ogg_cb(list)</entry>
+		<entry>void gc_sound_play_ogg_cb((const gchar *file, GcomprisSoundCallback cb)</entry>
+		<entry>The list argument is a python string and a function callback. It will be called once the sound has been played.</entry>
 	      </row>
 	    </tbody>
 	  </tgroup>
@@ -771,22 +770,22 @@ attribute is readeable and/or writable.</para>
 	      </row>
 	      <row>
 		<entry>gcompris.timer.add(second)</entry>
-		<entry>void gcompris_timer_add(int second)</entry>
+		<entry>void gc_timer_add(int second)</entry>
 		<entry></entry>
 	      </row>
 	      <row>
 		<entry>gcompris.timer.end()</entry>
-		<entry>void gcompris_timer_end(void)</entry>
+		<entry>void gc_timer_end(void)</entry>
 		<entry></entry>
 	      </row>
 	      <row>
 		<entry>gcompris.timer.get_remaining()</entry>
-		<entry>guint gcompris_timer_get_remaining()</entry>
+		<entry>guint gc_timer_get_remaining()</entry>
 		<entry>Return an integer</entry>
 	      </row>
 	      <row>
 		<entry>gcompris.timer.pause(pause)</entry>
-		<entry>void gcompris_timer_pause(gboolean pause)</entry>
+		<entry>void gc_timer_pause(gboolean pause)</entry>
 		<entry></entry>
 	      </row>
 	    </tbody>
@@ -873,7 +872,7 @@ attribute is readeable and/or writable.</para>
               <tbody>
                 <row>
                   <entry>gcompris.anim.CanvasItem.setState(int)</entry>
-                  <entry>gcompris_set_anim_state(GcomprisAnimCanvasItem*, int)</entry>
+                  <entry>gc_anim_set_state(GcomprisAnimCanvasItem*, int)</entry>
                   <entry></entry>
                 </row>
               </tbody>

@@ -266,8 +266,8 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       /* disable im_context */
       gcomprisBoard->disable_im_context = TRUE;
 
-      img = gcompris_image_to_skin("gcompris-bg.jpg");
-      gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas), 
+      img = gc_skin_image_get("gcompris-bg.jpg");
+      gc_set_background(gnome_canvas_root(gcomprisBoard->canvas), 
 			      img);
       g_free(img);
 
@@ -1890,7 +1890,7 @@ static GnomeCanvasItem *create_item(double x, double y, gchar *imagename)
 	item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(item_root_item),
 				      gnome_canvas_text_get_type (),
 				      "text", "?",
-				      "font", gcompris_skin_font_board_big_bold,
+				      "font", gc_skin_font_board_big_bold,
 				      "x", (double) x,
 				      "y", (double) y,
 				      "anchor", GTK_ANCHOR_CENTER,
@@ -1976,7 +1976,7 @@ item_event_resize(GnomeCanvasItem *item, GdkEvent *event, AnchorsItem *anchorsIt
 	case 1:
 	  fleur = gdk_cursor_new(get_resize_cursor(anchor));
 	  
-	  gcompris_canvas_item_grab(item,
+	  gc_canvas_item_grab(item,
 				 GDK_POINTER_MOTION_MASK |
 				 GDK_BUTTON_RELEASE_MASK,
 				 fleur,
@@ -1999,7 +1999,7 @@ item_event_resize(GnomeCanvasItem *item, GdkEvent *event, AnchorsItem *anchorsIt
     case GDK_BUTTON_RELEASE:
       if(dragging)
 	{
-	  gcompris_canvas_item_ungrab(item, event->button.time);
+	  gc_canvas_item_ungrab(item, event->button.time);
 	  dragging = FALSE;
 	  draggingItem = NULL;
 	}
@@ -2147,7 +2147,7 @@ item_event_move(GnomeCanvasItem *item, GdkEvent *event, AnchorsItem *anchorsItem
 
 	    fleur = gdk_cursor_new(GDK_FLEUR);
 
-	    gcompris_canvas_item_grab(item,
+	    gc_canvas_item_grab(item,
 				   GDK_POINTER_MOTION_MASK |
 				   GDK_BUTTON_RELEASE_MASK,
 				   fleur,
@@ -2264,7 +2264,7 @@ item_event_move(GnomeCanvasItem *item, GdkEvent *event, AnchorsItem *anchorsItem
     case GDK_BUTTON_RELEASE:
       if(dragging)
 	{
-	  gcompris_canvas_item_ungrab(item, event->button.time);
+	  gc_canvas_item_ungrab(item, event->button.time);
 	  dragging = FALSE;
 	  draggingItem = NULL;
 

@@ -1,6 +1,6 @@
 /* gcompris - gcompris_im.h
  *
- * Time-stamp: <2005/10/02 22:12:39 bruno>
+ * Time-stamp: <2006/08/29 01:18:09 bruno>
  *
  * Copyright (C) 2005 Bruno Coudoin
  *
@@ -26,11 +26,8 @@
 #ifndef GCOMPRIS_IM_H
 #define GCOMPRIS_IM_H
 
-void gcompris_im_init();
-
-void gcompris_board_change_context();
-
-void gcompris_im_reset();
+void gc_im_init();
+void gc_im_reset();
 
 #endif
 

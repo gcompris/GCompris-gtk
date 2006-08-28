@@ -157,12 +157,12 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 
   ready = sounds_are_fine();
 
-  gcompris_pause_sound();
+  gc_sound_pause();
 
   if (agcomprisBoard!=NULL)
     {
       gcomprisBoard=agcomprisBoard;
-      gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas),
+      gc_set_background(gnome_canvas_root(gcomprisBoard->canvas),
 			      "images/scenery4_background.png");
       gcomprisBoard->level=1;
       gcomprisBoard->maxlevel=NUMBER_OF_LEVELS;
@@ -175,7 +175,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 	{
 	  /* Warning, bar buttons are set in click_on_letter_next_level()
 	     to avoid them to appear in the case a dialog is displayed */
-	  gcompris_score_start(SCORESTYLE_NOTE,
+	  gc_score_start(SCORESTYLE_NOTE,
 			       50,
 			       50,
 			       gcomprisBoard->number_of_sublevel);
@@ -195,12 +195,12 @@ static void end_board ()
   if(gcomprisBoard!=NULL)
     {
       pause_board(TRUE);
-      gcompris_score_end();
+      gc_score_end();
       click_on_letter_destroy_all_items();
     }
   gcompris_reset_locale();
   gcomprisBoard = NULL;
-  gcompris_resume_sound();
+  gc_sound_resume();
 }
 
 /* ======================================= */
@@ -238,13 +238,13 @@ static void repeat ()
       gchar *str1 = NULL;
       gchar *right_letter_ogg = NULL;
 
-      str1 = gcompris_alphabet_sound(right_letter);
+      str1 = gc_sound_alphabet(right_letter);
 
       right_letter_ogg = g_strdup_printf("sounds/$LOCALE/alphabet/%s", str1);
       g_free(str1);
 
       if(right_letter_ogg) {
-	gcompris_play_ogg_cb(right_letter_ogg, sound_played);
+	gc_sound_play_ogg_cb(right_letter_ogg, sound_played);
       }
 
       g_free(right_letter_ogg);
@@ -269,7 +269,7 @@ static gboolean sounds_are_fine()
   
   gchar *letter = g_new0(gchar, 8);
   g_unichar_to_utf8(g_utf8_get_char(alphabet), letter);
-  letter_str = gcompris_alphabet_sound(letter);
+  letter_str = gc_sound_alphabet(letter);
   g_free(letter);
 
   str2 = gc_file_find_absolute("sounds/$LOCALE/alphabet/%s", letter_str);
@@ -323,10 +323,10 @@ click_on_letter_next_level()
   click_on_letter_destroy_all_items();
   gamewon = FALSE;
   selected_button = NULL;
-  gcompris_score_set(gcomprisBoard->sublevel);
+  gc_score_set(gcomprisBoard->sublevel);
   g_free (right_letter);
   /* Try the next level */
-  gcompris_play_ogg("sounds/$LOCALE/misc/click_on_letter.ogg", NULL);
+  gc_sound_play_ogg("sounds/$LOCALE/misc/click_on_letter.ogg", NULL);
   click_on_letter_create_item(gnome_canvas_root(gcomprisBoard->canvas));
 }
 /* ==================================== */
@@ -423,7 +423,7 @@ static GnomeCanvasItem *click_on_letter_create_item(GnomeCanvasGroup *parent)
     l_items[i] = gnome_canvas_item_new (boardRootItem,
 					gnome_canvas_text_get_type (),
 					"text", letters[i],
-					"font", gcompris_skin_font_board_huge_bold,
+					"font", gc_skin_font_board_huge_bold,
 					"anchor", GTK_ANCHOR_CENTER,
 					"fill_color_rgba", 0x0000ffff,
 					"x",  (double) xOffset + gdk_pixbuf_get_width(button_pixmap)/2,
@@ -453,7 +453,7 @@ static void game_won()
     gcomprisBoard->sublevel=1;
     gcomprisBoard->level++;
     if(gcomprisBoard->level>gcomprisBoard->maxlevel) { // the current board is finished : bail out
-      board_finished(BOARD_FINISHED_TUXPLANE);
+      gc_bonus_end_display(BOARD_FINISHED_TUXPLANE);
       return;
     }
   }
@@ -462,7 +462,7 @@ static void game_won()
 
 /* ==================================== */
 static gboolean process_ok_timeout() {
-  gcompris_display_bonus(gamewon, BONUS_FLOWER);
+  gc_bonus_display(gamewon, BONUS_FLOWER);
   return FALSE;
 }
 
@@ -627,7 +627,7 @@ config_start(GcomprisBoard *agcomprisBoard,
 				 agcomprisBoard->name, 
 				 aProfile ? aProfile->name : "");
 
-  gcompris_configuration_window(label, conf_ok);
+  gc_board_config_window_display(label, conf_ok);
   
   g_free(label);
 

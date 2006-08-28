@@ -164,9 +164,9 @@ _add_xml_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child,
     /* Display the resource on stdout */
     if (properties->display_resource 
 	&& !strcmp((char *)xmlnode->name, "resource")
-	&& gcompris_get_current_profile())
+	&& gc_profile_get_current())
       {
-	if(gcompris_is_activity_in_profile(gcompris_get_current_profile(), gcomprisBoard->name))
+	if(gc_db_is_activity_in_profile(gc_profile_get_current(), gcomprisBoard->name))
 	  {
 	    char *resource = (char *)xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 0);
 	    printf("%s\n", resource);
@@ -187,7 +187,7 @@ _add_xml_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child,
   }
 
   if (db){
-    gcompris_db_board_update( &gcomprisBoard->board_id, 
+    gc_db_board_update( &gcomprisBoard->board_id, 
 			      &gcomprisBoard->section_id, 
 			      gcomprisBoard->name, 
 			      gcomprisBoard->section, 
@@ -313,7 +313,8 @@ _read_xml_file(GcomprisBoard *gcomprisBoard,
 
 /* Return the first board with the given section
  */
-GcomprisBoard *gcompris_get_board_from_section(gchar *section)
+GcomprisBoard *
+gc_menu_section_get(gchar *section)
 {  
   GList *list = NULL;
 
@@ -332,11 +333,12 @@ GcomprisBoard *gcompris_get_board_from_section(gchar *section)
     g_free(fullname);
     
   }
-  g_warning("gcompris_get_board_from_section searching '%s' but NOT FOUND\n", section);
+  g_warning("gc_menu_section_get searching '%s' but NOT FOUND\n", section);
   return NULL;
 }
 
-static int boardlist_compare_func(const void *a, const void *b)
+static int
+boardlist_compare_func(const void *a, const void *b)
 {
   return strcasecmp(((GcomprisBoard *) a)->difficulty, ((GcomprisBoard *) b)->difficulty);
 }
@@ -349,7 +351,7 @@ static int boardlist_compare_func(const void *a, const void *b)
  *
  */
 int
-gcompris_board_has_activity(gchar *section, gchar *name)
+gc_menu_has_activity(gchar *section, gchar *name)
 {
   GList *list = NULL;
   GcomprisProperties	*properties = gc_prop_get();
@@ -373,7 +375,7 @@ gcompris_board_has_activity(gchar *section, gchar *name)
 	     strcmp(board->section, section) != 0)
 	    {
 	      /* We must check this menu is not empty recursively */
-	      if(gcompris_board_has_activity(board->section, board->name))
+	      if(gc_menu_has_activity(board->section, board->name))
 		{
 		  g_free(section_name);
 		  return(1);
@@ -422,7 +424,7 @@ GList *gc_menu_getlist(gchar *section)
 	  if(strcmp(board->type, "menu") == 0)
 	    {
 	      /* We must check first this menu is not empty */
-	      if(gcompris_board_has_activity(board->section, board->name))
+	      if(gc_menu_has_activity(board->section, board->name))
 		result_list = g_list_append(result_list, board);
 	    }
 	  else
@@ -521,7 +523,7 @@ void gc_menu_load_dir(char *dirname, gboolean db){
     return;
   } else {
     if (db)
-      list_old_boards_id = gcompris_db_get_board_id(list_old_boards_id);
+      list_old_boards_id = gc_db_get_board_id(list_old_boards_id);
 
     while((one_dirent = g_dir_read_name(dir)) != NULL) {
       /* add the board to the list */
@@ -556,8 +558,8 @@ void gc_menu_load_dir(char *dirname, gboolean db){
 			 "/administration",
 			 strlen("/administration"))!=0)) {
 		
-	      if (gcompris_get_current_profile() &&
-		  !(g_list_find_custom(gcompris_get_current_profile()->activities, 
+	      if (gc_profile_get_current() &&
+		  !(g_list_find_custom(gc_profile_get_current()->activities, 
 				       &(board_read->board_id), compare_id))) {
 		boards_list = g_list_append(boards_list, board_read);
 	      } else {
@@ -575,7 +577,7 @@ void gc_menu_load_dir(char *dirname, gboolean db){
     /* remove suppressed boards from db */
     while (list_old_boards_id != NULL){
       int *data=list_old_boards_id->data;
-      gcompris_db_remove_board(*data);
+      gc_db_remove_board(*data);
       list_old_boards_id=g_list_remove(list_old_boards_id, data);
       g_free(data);
     }
@@ -598,7 +600,7 @@ void gc_menu_load()
     return;
   }
 
-  if ((!properties->reread_menu) && gcompris_db_check_boards()){
+  if ((!properties->reread_menu) && gc_db_check_boards()){
     boards_list = gc_menu_load_db(boards_list);
 
     if (!properties->administration){
@@ -608,7 +610,7 @@ void gc_menu_load()
 
       for (list = boards_list; list != NULL; list = list->next){
 	board = (GcomprisBoard *)list->data;
-	if (g_list_find_custom(gcompris_get_current_profile()->activities,
+	if (g_list_find_custom(gc_profile_get_current()->activities,
 			       &(board->board_id), compare_id))
 	  out_boards = g_list_append(out_boards, board);
       }
@@ -617,7 +619,7 @@ void gc_menu_load()
     }
   }
   else {
-    int db = (gcompris_get_current_profile() ? TRUE: FALSE);
+    int db = (gc_profile_get_current() ? TRUE: FALSE);
     properties->reread_menu = TRUE;
     gc_menu_load_dir(properties->package_data_dir, db);
     GDate *today = g_date_new();
@@ -625,8 +627,8 @@ void gc_menu_load()
 
     gchar date[11];
     g_date_strftime (date, 11, "%F", today);
-    gcompris_db_set_date(date);
-    gcompris_db_set_version(VERSION);
+    gc_db_set_date(date);
+    gc_db_set_version(VERSION);
     g_date_free(today);
   }
   

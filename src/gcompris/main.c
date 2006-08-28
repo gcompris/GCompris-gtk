@@ -24,12 +24,12 @@
 #include "gcompris.h"
 
 int
-gcompris_init (int argc, char *argv[]);
+gc_init (int argc, char *argv[]);
 
 int
 main (int argc, char *argv[])
 {
-  gcompris_init(argc, argv);
+  gc_init(argc, argv);
 
   return(0);
 }

@@ -66,15 +66,15 @@ static void start_board(GcomprisBoard *b)
   if(b != NULL)
     {
       board = b;
-      gcompris_set_background(gnome_canvas_root(board->canvas), "leftright/leftright-bg.jpg");
+      gc_set_background(gnome_canvas_root(board->canvas), "leftright/leftright-bg.jpg");
       board->level = 1;
       board->maxlevel=1;
       board->sublevel=1;
       board->number_of_sublevel=1;
-      gcompris_score_start(SCORESTYLE_NOTE, 10, 50, board->number_of_sublevel);
+      gc_score_start(SCORESTYLE_NOTE, 10, 50, board->number_of_sublevel);
       gc_bar_set(GC_BAR_LEVEL);
       gc_bar_set_level(board);
-      gcompris_score_set(board->sublevel);
+      gc_score_set(board->sublevel);
 
       animation = gc_anim_load( "animtest/test.txt" );
       anim_item = (GnomeCanvasItem*)

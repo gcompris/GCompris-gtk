@@ -147,7 +147,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
   if(agcomprisBoard!=NULL)
     {
       gcomprisBoard=agcomprisBoard;
-      gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas), 
+      gc_set_background(gnome_canvas_root(gcomprisBoard->canvas), 
 			      "railroad/railroad-bg.png");
 
       for (i=0; i<ENGINES; i++) {
@@ -169,13 +169,13 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       gcomprisBoard->maxlevel=NUMBER_OF_LEVELS;
       gcomprisBoard->sublevel=1;
       gcomprisBoard->number_of_sublevel=NUMBER_OF_SUBLEVELS; /* Go to next level after this number of 'play' */
-      gcompris_score_start(SCORESTYLE_NOTE,
+      gc_score_start(SCORESTYLE_NOTE,
 			   gcomprisBoard->width - 220,
 			   gcomprisBoard->height - 50,
 			   gcomprisBoard->number_of_sublevel);
 
 
-      str = gcompris_image_to_skin("button_reload.png");
+      str = gc_skin_image_get("button_reload.png");
       pixmap = gc_pixmap_load(str);
       g_free(str);
       if(pixmap) {
@@ -205,7 +205,7 @@ static void end_board ()
   if(gcomprisBoard!=NULL)
     {
       pause_board(TRUE);
-      gcompris_score_end();
+      gc_score_end();
       railroad_destroy_all_items();
 
       while(g_list_length(listPixmapEngines)>0) {
@@ -277,7 +277,7 @@ static void railroad_next_level()
 
   railroad_destroy_all_items();
   gamewon = FALSE;
-  gcompris_score_set(gcomprisBoard->sublevel);
+  gc_score_set(gcomprisBoard->sublevel);
 
   /* Try the next level */
   railroad_create_item(gnome_canvas_root(gcomprisBoard->canvas));
@@ -403,10 +403,10 @@ static void game_won()
     gcomprisBoard->sublevel=1;
     gcomprisBoard->level++;
     if(gcomprisBoard->level>gcomprisBoard->maxlevel) { // the current board is finished : bail out
-      board_finished(BOARD_FINISHED_RANDOM);
+      gc_bonus_end_display(BOARD_FINISHED_RANDOM);
       return;
     }
-    gcompris_play_ogg ("sounds/bonus.ogg", NULL);
+    gc_sound_play_ogg ("sounds/bonus.ogg", NULL);
   }
   railroad_next_level();
 }
@@ -438,7 +438,7 @@ static void process_ok()
   for (i=0; i<g_list_length(int_model_list); i++)
     g_warning(" i = \t%d val = \t%d\n", i, GPOINTER_TO_INT(g_list_nth_data(int_model_list,i)) );
 
-  gcompris_display_bonus(gamewon, BONUS_FLOWER);
+  gc_bonus_display(gamewon, BONUS_FLOWER);
 }
 /* ==================================== */
 static gint item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data) {
@@ -619,7 +619,7 @@ static void animate_model() {
   animation_pending = TRUE;
   animation_count = 0;
 
-  gcompris_play_ogg( "sounds/train.ogg", NULL );
+  gc_sound_play_ogg( "sounds/train.ogg", NULL );
 
   // warning : if timeout is too low, the model will not be displayed
   timer_id = gtk_timeout_add (100, (GtkFunction) animate_step, NULL);

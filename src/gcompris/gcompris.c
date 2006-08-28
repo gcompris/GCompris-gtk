@@ -80,7 +80,7 @@ static void map_cb  (GtkWidget *widget, gpointer data);
 static gint board_widget_key_press_callback (GtkWidget   *widget,
 					    GdkEventKey *event,
 					    gpointer     client_data);
-void gcompris_terminate(int  signum);
+void gc_terminate(int  signum);
 
 static GcomprisProperties *properties = NULL;
 static gboolean		   antialiased = FALSE;
@@ -90,9 +90,9 @@ static gboolean		   is_mapped = FALSE;
 /* Some constants.  */
 
 static GnomeCanvasItem *backgroundimg = NULL;
-static gchar           *gcompris_locale = NULL;
-static gchar           *gcompris_user_default_locale = NULL;
-static gboolean		gcompris_debug = FALSE;
+static gchar           *gc_locale = NULL;
+static gchar           *gc_user_default_locale = NULL;
+static gboolean		gc_debug = FALSE;
 
 /****************************************************************************/
 /* Command line params */
@@ -246,10 +246,10 @@ static gint xf86_focus_changed(GtkWindow *window,
 /****************************************************************************/
 
 /* Remove any dialog box */
-static void gcompris_close_all_dialog() {
+static void gc_close_all_dialog() {
   gc_dialog_close();
   gc_help_stop();
-  gcompris_config_stop();
+  gc_config_stop();
   gc_about_stop();
   gc_selector_file_stop();
   gc_selector_images_stop();
@@ -279,10 +279,10 @@ board_widget_key_press_callback (GtkWidget   *widget,
   if(event->state & (GDK_CONTROL_MASK | GDK_SHIFT_MASK) && ((event->keyval == GDK_l)
 							  || (event->keyval == GDK_L))) {
     properties->key="thanks_for_your_help";
-    gcompris_properties_save(properties);
+    gc_prop_save(properties);
     gc_menu_load();
 
-    gcompris_close_all_dialog();
+    gc_close_all_dialog();
 
     board_stop();
     return TRUE;
@@ -291,10 +291,10 @@ board_widget_key_press_callback (GtkWidget   *widget,
   if(event->state & GDK_CONTROL_MASK && ((event->keyval == GDK_p)
 					 || (event->keyval == GDK_P))) {
     properties->key="thanks_for_your_help";
-    gcompris_properties_save(properties);
+    gc_prop_save(properties);
     gc_menu_load();
 
-    gcompris_close_all_dialog();
+    gc_close_all_dialog();
 
     board_stop();
     return TRUE;
@@ -310,9 +310,9 @@ board_widget_key_press_callback (GtkWidget   *widget,
   switch (event->keyval)
     {
     case GDK_Escape:
-      gcompris_close_all_dialog();
+      gc_close_all_dialog();
 
-      if (get_current_gcompris_board()->previous_board != NULL)
+      if (gc_board_get_current()->previous_board != NULL)
 	board_stop();
       return TRUE;
     case GDK_F5:
@@ -388,10 +388,10 @@ board_widget_key_press_callback (GtkWidget   *widget,
 	  if(strncmp(current_keycode, keycode[i-1], KEYCODE_LENGTH) == 0)
 	    {
 	      properties->key="thanks_for_your_help";
-	      gcompris_properties_save(properties);
+	      gc_prop_save(properties);
 	      gc_menu_load();
 
-	      gcompris_close_all_dialog();
+	      gc_close_all_dialog();
 
 	      board_stop();
 	      return TRUE;
@@ -401,7 +401,7 @@ board_widget_key_press_callback (GtkWidget   *widget,
 #endif
 
   /* pass through the IM context */
-  if (get_current_gcompris_board() && (!get_current_gcompris_board()->disable_im_context))
+  if (gc_board_get_current() && (!gc_board_get_current()->disable_im_context))
     {
       if (gtk_im_context_filter_keypress (properties->context, event))
 	{
@@ -415,17 +415,17 @@ board_widget_key_press_callback (GtkWidget   *widget,
   /* NOTE: If a board receives key press, it must bind the ENTER Keys to OK
    *       whenever possible
    */
-  if (get_current_board_plugin()!=NULL && get_current_board_plugin()->key_press)
+  if (gc_board_get_current_board_plugin()!=NULL && gc_board_get_current_board_plugin()->key_press)
     {
-      return(get_current_board_plugin()->key_press (event->keyval, NULL, NULL));
+      return(gc_board_get_current_board_plugin()->key_press (event->keyval, NULL, NULL));
     }
-  else if (get_current_board_plugin()!=NULL && get_current_board_plugin()->ok &&
+  else if (gc_board_get_current_board_plugin()!=NULL && gc_board_get_current_board_plugin()->ok &&
 	   (event->keyval == GDK_KP_Enter ||
 	    event->keyval == GDK_Return   ||
 	    event->keyval == GDK_KP_Space))
     {
       /* Else we send the OK signal. */
-      get_current_board_plugin()->ok ();
+      gc_board_get_current_board_plugin()->ok ();
       return TRUE;
     }
 
@@ -436,18 +436,18 @@ board_widget_key_press_callback (GtkWidget   *widget,
 /**
  * Return the main canvas we run in
  */
-GnomeCanvas *gcompris_get_canvas()
+GnomeCanvas *gc_get_canvas()
 {
   return canvas;
 }
 
-GtkWidget *gcompris_get_window()
+GtkWidget *gc_get_window()
 {
   return window;
 }
 
 
-GnomeCanvasItem *gcompris_set_background(GnomeCanvasGroup *parent, gchar *file)
+GnomeCanvasItem *gc_set_background(GnomeCanvasGroup *parent, gchar *file)
 {
   GdkPixbuf *background_pixmap = NULL;
 
@@ -658,7 +658,7 @@ void gc_cursor_set(guint gdk_cursor_type)
 static void setup_window ()
 {
   GcomprisBoard *board_to_start;
-  GdkPixbuf     *gcompris_icon_pixbuf;
+  GdkPixbuf     *icon_pixbuf;
   gchar         *icon_file;
 
   window = gtk_window_new (GTK_WINDOW_TOPLEVEL);
@@ -676,18 +676,18 @@ static void setup_window ()
   if(!icon_file)
       g_warning ("Couldn't find file %s !", icon_file);
 
-  gcompris_icon_pixbuf = gc_net_load_pixmap(icon_file);
-  if (!gcompris_icon_pixbuf)
+  icon_pixbuf = gc_net_load_pixmap(icon_file);
+  if (!icon_pixbuf)
     {
       g_warning ("Failed to load pixbuf file: %s\n",
                icon_file);
     }
   g_free(icon_file);
 
-  if (gcompris_icon_pixbuf)
+  if (icon_pixbuf)
     {
-      gtk_window_set_icon (GTK_WINDOW (window), gcompris_icon_pixbuf);
-      gdk_pixbuf_unref (gcompris_icon_pixbuf);
+      gtk_window_set_icon (GTK_WINDOW (window), icon_pixbuf);
+      gdk_pixbuf_unref (icon_pixbuf);
     }
   gtk_window_set_title(GTK_WINDOW (window), "GCompris");
 
@@ -759,7 +759,7 @@ static void setup_window ()
   gtk_signal_connect_after (GTK_OBJECT (canvas_bg), "key_press_event",
 			    GTK_SIGNAL_FUNC (board_widget_key_press_callback), 0);
 
-  gcompris_im_init(window);
+  gc_im_init(window);
 
 
   if(properties->fullscreen)
@@ -781,7 +781,7 @@ static void setup_window ()
   gc_mime_type_load();
 
   /* Save the root_menu */
-  properties->menu_board = gcompris_get_board_from_section(properties->root_menu);
+  properties->menu_board = gc_menu_section_get(properties->root_menu);
 
   /* By default, the menu will be started */
   board_to_start = properties->menu_board;
@@ -789,7 +789,7 @@ static void setup_window ()
   /* Get and Run the root menu */
   if(properties->administration)
     {
-      board_to_start = gcompris_get_board_from_section("/administration/administration");
+      board_to_start = gc_menu_section_get("/administration/administration");
     }
   else
     {
@@ -804,23 +804,23 @@ static void setup_window ()
 	  GList *group_id;
 
 	  for (group_id = properties->profile->group_ids; group_id != NULL; group_id = group_id->next) 
-	    if (g_list_length(gcompris_get_users_from_group( *((int *) group_id->data))) > 0){
+	    if (g_list_length(gc_db_users_from_group_get( *((int *) group_id->data))) > 0){
 	      found = TRUE;
 	      break;
 	    }
 	    
 	  /* No profile start normally */
 	  if (found)
-	    board_to_start = gcompris_get_board_from_section("/login/login");	
+	    board_to_start = gc_menu_section_get("/login/login");	
 	  else {
-	    board_to_start = gcompris_get_board_from_section(properties->root_menu);
+	    board_to_start = gc_menu_section_get(properties->root_menu);
 	    /* this will set user information to system one */
-	    gcompris_set_current_user(NULL);
+	    gc_profile_set_current_user(NULL);
 	  }
 	}
       else
 	/* this will set user information to system one */
-	gcompris_set_current_user(NULL);
+	gc_profile_set_current_user(NULL);
     }
 
   if(!board_to_start) {
@@ -854,9 +854,9 @@ static void setup_window ()
 
 void gc_board_end()
 {
-  if (get_current_gcompris_board()->previous_board) {
+  if (gc_board_get_current()->previous_board) {
     /* Run the previous board */
-    board_play (get_current_gcompris_board()->previous_board);
+    board_play (gc_board_get_current()->previous_board);
   }
 }
 
@@ -893,7 +893,7 @@ void gc_fullscreen_set(gboolean state)
 
 /* Use these instead of the gnome_canvas ones for proper fullscreen mousegrab
    handling. */
-int gcompris_canvas_item_grab (GnomeCanvasItem *item, unsigned int event_mask,
+int gc_canvas_item_grab (GnomeCanvasItem *item, unsigned int event_mask,
 			    GdkCursor *cursor, guint32 etime)
 {
   int retval;
@@ -914,7 +914,7 @@ int gcompris_canvas_item_grab (GnomeCanvasItem *item, unsigned int event_mask,
   return retval;
 }
 
-void gcompris_canvas_item_ungrab (GnomeCanvasItem *item, guint32 etime)
+void gc_canvas_item_ungrab (GnomeCanvasItem *item, guint32 etime)
 {
   gnome_canvas_item_ungrab(item, etime);
 #ifdef XF86_VIDMODE
@@ -934,7 +934,7 @@ static void cleanup()
   signal(SIGSEGV, NULL);
 
   board_stop();
-  gcompris_db_exit();
+  gc_db_exit();
   gc_fullscreen_set(FALSE);
 }
 
@@ -977,7 +977,7 @@ static void map_cb (GtkWidget *widget, gpointer data)
  * Process the cleanup of the child (no zombies)
  * ---------------------------------------------
  */
-void gcompris_terminate(int signum)
+void gc_terminate(int signum)
 {
 
   g_warning("gcompris got the %d signal, starting exit procedure", signum);
@@ -991,7 +991,7 @@ static void load_properties ()
   gchar *prefix_dir;
   gchar *tmpstr;
 
-  properties = gcompris_properties_new ();
+  properties = gc_prop_new ();
 
   /* Initialize the binary relocation API
    *  http://autopackage.org/docs/binreloc/
@@ -1065,8 +1065,8 @@ const gchar *gc_locale_get()
   const gchar *locale;
 
   /* First check locale got overrided by the user */
-  if(gcompris_locale != NULL)
-    return(gcompris_locale);
+  if(gc_locale != NULL)
+    return(gc_locale);
 
   locale = g_getenv("LC_ALL");
   if(locale == NULL)
@@ -1087,7 +1087,7 @@ const gchar *gc_locale_get()
  */
 char *gc_locale_get_user_default()
 {
-  return gcompris_user_default_locale;
+  return gc_user_default_locale;
 }
 
 /*
@@ -1098,32 +1098,32 @@ void gc_locale_set(gchar *locale)
 {
 
   g_message("gc_locale_set '%s'\n", locale);
-  if(gcompris_locale != NULL)
-    g_free(gcompris_locale);
+  if(gc_locale != NULL)
+    g_free(gc_locale);
 
 #if defined WIN32
   /* On windows, it always works */
-  gcompris_locale = g_strdup(locale);
+  gc_locale = g_strdup(locale);
   setlocale(LC_MESSAGES, locale);
   setlocale(LC_ALL, locale);
 #else
-  gcompris_locale = g_strdup(setlocale(LC_MESSAGES, locale));
-  if (!gcompris_locale)
-    gcompris_locale = g_strdup(locale);
+  gc_locale = g_strdup(setlocale(LC_MESSAGES, locale));
+  if (!gc_locale)
+    gc_locale = g_strdup(locale);
 #endif
 
-  if(gcompris_locale!=NULL && strcmp(locale, gcompris_locale))
-    g_warning("Requested locale '%s' got '%s'", locale, gcompris_locale);
+  if(gc_locale!=NULL && strcmp(locale, gc_locale))
+    g_warning("Requested locale '%s' got '%s'", locale, gc_locale);
 
-  if(gcompris_locale==NULL)
-    g_warning("Failed to set requested locale %s got %s", locale, gcompris_locale);
+  if(gc_locale==NULL)
+    g_warning("Failed to set requested locale %s got %s", locale, gc_locale);
 
   /* Override the env locale to what the user requested */
   /* This makes gettext to give us the new locale text  */
-  my_setenv ("LC_ALL", gc_locale_get());
-  my_setenv ("LC_MESSAGES", gc_locale_get());
-  my_setenv ("LANGUAGE", gc_locale_get());
-  my_setenv ("LANG", gc_locale_get());
+  gc_setenv ("LC_ALL", gc_locale_get());
+  gc_setenv ("LC_MESSAGES", gc_locale_get());
+  gc_setenv ("LANGUAGE", gc_locale_get());
+  gc_setenv ("LANG", gc_locale_get());
 
   /* This does update gettext translation uppon next gettext call */
   /* Call for localization startup */
@@ -1145,7 +1145,7 @@ void gc_log_handler (const gchar *log_domain,
 			   GLogLevelFlags log_level,
 			   const gchar *message,
 			   gpointer user_data) {
-  if(gcompris_debug)
+  if(gc_debug)
     g_printerr ("%s: %s\n\n", "gcompris", message);
 }
 
@@ -1289,18 +1289,18 @@ static gint xf86_focus_changed(GtkWindow *window,
  */
 
 int
-gcompris_init (int argc, char *argv[])
+gc_init (int argc, char *argv[])
 {
   poptContext pctx; 
   int popt_option;
 
   /* First, Remove the gnome crash dialog because it locks the user when in full screen */
-  signal(SIGSEGV, gcompris_terminate);
-  signal(SIGINT, gcompris_terminate);
+  signal(SIGSEGV, gc_terminate);
+  signal(SIGINT, gc_terminate);
 
   load_properties();
 
-  gcompris_skin_load(properties->skin);
+  gc_skin_load(properties->skin);
 
   bindtextdomain (GETTEXT_PACKAGE, properties->package_locale_dir);
   bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
@@ -1324,15 +1324,15 @@ gcompris_init (int argc, char *argv[])
 
   /* Save the default locale */
 #if defined WIN32
-  gcompris_user_default_locale = g_win32_getlocale();
+  gc_user_default_locale = g_win32_getlocale();
   // Set the user's choice locale
   if(properties->locale[0]=='\0') {
-    gc_locale_set(gcompris_user_default_locale);
+    gc_locale_set(gc_user_default_locale);
   } else {
     gc_locale_set(properties->locale);
   }
 #else
-  gcompris_user_default_locale = g_strdup(setlocale(LC_MESSAGES, NULL));
+  gc_user_default_locale = g_strdup(setlocale(LC_MESSAGES, NULL));
   // Set the user's choice locale
   gc_locale_set(properties->locale);
 #endif
@@ -1352,7 +1352,7 @@ gcompris_init (int argc, char *argv[])
 
   if (popt_debug)
     {
-      gcompris_debug = TRUE;
+      gc_debug = TRUE;
     }
 
   if (popt_fullscreen)
@@ -1434,7 +1434,7 @@ gcompris_init (int argc, char *argv[])
       printf(_("The list of available activities is :\n"));
       properties->root_menu = "/";
 
-      gcompris_db_init();
+      gc_db_init();
 
       gc_menu_load();
 
@@ -1496,7 +1496,7 @@ gcompris_init (int argc, char *argv[])
   }
 
   /* shared_dir initialised, now we can set the default */
-  properties->database = get_default_database_name ( properties->shared_dir );
+  properties->database = gc_prop_default_database_name_get ( properties->shared_dir );
   g_warning( "Infos:\n   Shared dir '%s'\n   Users dir '%s'\n   Database '%s'\n",
 	     properties->shared_dir, 
 	     properties->users_dir,
@@ -1571,11 +1571,11 @@ gcompris_init (int argc, char *argv[])
    * And after a possible alternate database as been provided
    *
    */
-  gcompris_db_init();
+  gc_db_init();
   
   /* An alternate profile is requested, check it does exists */
   if (popt_profile){
-    properties->profile = gcompris_get_profile_from_name(popt_profile);
+    properties->profile = gc_db_profile_from_name_get(popt_profile);
 
     if(properties->profile == NULL)
       {
@@ -1590,7 +1590,7 @@ gcompris_init (int argc, char *argv[])
     GList * profile_list;
     int i;
 
-    profile_list = gcompris_get_profiles_list();
+    profile_list = gc_db_profiles_list_get();
 
     printf(_("The list of available profiles is:\n"));
     for(i=0; i< g_list_length(profile_list); i++)
@@ -1617,7 +1617,7 @@ gcompris_init (int argc, char *argv[])
   /*------------------------------------------------------------*/
 
   if(properties->music || properties->fx)
-    initSound();
+    gc_sound_init();
 
   /* Gdk-Pixbuf */
   gdk_rgb_init();
@@ -1630,9 +1630,9 @@ gcompris_init (int argc, char *argv[])
   gtk_widget_show_all (window);
 
   if (properties->music)
-    gcompris_play_ogg("music/intro.ogg", "sounds/$LOCALE/misc/welcome.ogg", NULL);
+    gc_sound_play_ogg("music/intro.ogg", "sounds/$LOCALE/misc/welcome.ogg", NULL);
   else
-    gcompris_play_ogg("sounds/$LOCALE/misc/welcome.ogg", NULL);
+    gc_sound_play_ogg("sounds/$LOCALE/misc/welcome.ogg", NULL);
 
   gtk_main ();
   return 0;

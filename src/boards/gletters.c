@@ -174,7 +174,7 @@ static void level_set_score() {
   l = g_utf8_strlen(letters_array[gcomprisBoard->level-1],-1)/3;
   gcomprisBoard->number_of_sublevel = (DEFAULT_SUBLEVEL>l?DEFAULT_SUBLEVEL:l);
 
-  gcompris_score_start(SCORESTYLE_NOTE, 
+  gc_score_start(SCORESTYLE_NOTE, 
 		       gcomprisBoard->width - 220, 
 		       gcomprisBoard->height - 50, 
 		       gcomprisBoard->number_of_sublevel);
@@ -314,7 +314,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
     {
       gcomprisBoard=agcomprisBoard;
       load_default_charset();
-      gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas), "images/scenery_background.png");
+      gc_set_background(gnome_canvas_root(gcomprisBoard->canvas), "images/scenery_background.png");
       gcomprisBoard->maxlevel=maxLevel;
       gcomprisBoard->level = 1;
       level_set_score();
@@ -333,7 +333,7 @@ end_board ()
   if(gcomprisBoard!=NULL)
     {
       pause_board(TRUE);
-      gcompris_score_end();
+      gc_score_end();
       gletters_destroy_all_items();
       g_message("freeing memory");
       for (i = 0; i < maxLevel; i++) 
@@ -419,7 +419,7 @@ static gint key_press(guint keyval, gchar *commit_str, gchar *preedit_str) {
   for (i=0; i < length_passed; i++){
     c = g_utf8_get_char (string_passed);
     if (is_falling_letter(c)){
-      gcompris_im_reset();
+      gc_im_reset();
       return TRUE;
     }
 
@@ -433,7 +433,7 @@ static gint key_press(guint keyval, gchar *commit_str, gchar *preedit_str) {
     /* for 2 (or all) first level don't care abour uppercase/lowercase */
     if ((gcomprisBoard->level < level_uppercase) && 
 	(is_falling_letter(g_unichar_toupper(c)))){
-      gcompris_im_reset();
+      gc_im_reset();
       return TRUE;
     }
 
@@ -491,7 +491,7 @@ static void gletters_next_level()
   fallSpeed=dropRateBase+(dropRateMult/gcomprisBoard->level);
 
   gcomprisBoard->sublevel=1;
-  gcompris_score_set(gcomprisBoard->sublevel);
+  gc_score_set(gcomprisBoard->sublevel);
 }
 
 
@@ -635,11 +635,11 @@ static GnomeCanvasItem *gletters_create_item(GnomeCanvasGroup *parent)
   if (with_sound)
     {
       gchar *str2 = NULL;
-      gchar *letter_unichar_name = gcompris_alphabet_sound(letter);
+      gchar *letter_unichar_name = gc_sound_alphabet(letter);
 
       str2 = g_strdup_printf("sounds/$LOCALE/alphabet/%s", letter_unichar_name);
 
-      gcompris_play_ogg(str2, NULL);
+      gc_sound_play_ogg(str2, NULL);
 
       g_free(letter_unichar_name);
       g_free(str2);
@@ -656,7 +656,7 @@ static GnomeCanvasItem *gletters_create_item(GnomeCanvasGroup *parent)
   gnome_canvas_item_new (GNOME_CANVAS_GROUP(item),
 			 gnome_canvas_text_get_type (),
 			 "text", letter,
-			 "font", gcompris_skin_font_board_huge_bold,
+			 "font", gc_skin_font_board_huge_bold,
 			 "x", (double) x,
 			 "y", (double) -20,
 			 "anchor", GTK_ANCHOR_CENTER,
@@ -666,7 +666,7 @@ static GnomeCanvasItem *gletters_create_item(GnomeCanvasGroup *parent)
   gnome_canvas_item_new (GNOME_CANVAS_GROUP(item),
 			 gnome_canvas_text_get_type (),
 			 "text", letter,
-			 "font", gcompris_skin_font_board_huge_bold,
+			 "font", gc_skin_font_board_huge_bold,
 			 "x", (double) x,
 			 "y", (double) -22,
 			 "anchor", GTK_ANCHOR_CENTER,
@@ -711,7 +711,7 @@ static void player_win(GnomeCanvasItem *item)
   g_message("in player_win\n");
 
   gletters_destroy_item(item);
-  gcompris_play_ogg ("sounds/gobble.ogg", NULL);
+  gc_sound_play_ogg ("sounds/gobble.ogg", NULL);
 
   gcomprisBoard->sublevel++;
 
@@ -720,18 +720,18 @@ static void player_win(GnomeCanvasItem *item)
       /* Try the next level */
       gcomprisBoard->level++;
       if(gcomprisBoard->level>gcomprisBoard->maxlevel) { // the current board is finished : bail out
-        gcompris_score_end();
-	board_finished(BOARD_FINISHED_RANDOM);
+        gc_score_end();
+	gc_bonus_end_display(BOARD_FINISHED_RANDOM);
 	return;
       }
 
       gamewon = TRUE;
       gletters_destroy_all_items();
-      gcompris_display_bonus(gamewon, BONUS_SMILEY);
+      gc_bonus_display(gamewon, BONUS_SMILEY);
     }
   else
     {
-      gcompris_score_set(gcomprisBoard->sublevel);
+      gc_score_set(gcomprisBoard->sublevel);
 
       /* Drop a new item now to speed up the game */
       if(g_list_length(item_list)==0)
@@ -754,7 +754,7 @@ static void player_loose()
 {
   g_warning("entering player_loose\n");
 
-  gcompris_play_ogg ("sounds/crash.ogg", NULL);
+  gc_sound_play_ogg ("sounds/crash.ogg", NULL);
   g_warning("leaving player_loose\n");
 }
 
@@ -866,7 +866,7 @@ gletter_config_start(GcomprisBoard *agcomprisBoard,
   label = g_strdup_printf("<b>%s</b> configuration\n for profile <b>%s</b>",
 			  agcomprisBoard->name, aProfile ? aProfile->name : "");
 
-  gcompris_configuration_window(label, (GcomprisConfCallback )conf_ok);
+  gc_board_config_window_display(label, (GcomprisConfCallback )conf_ok);
 
   g_free(label);
 

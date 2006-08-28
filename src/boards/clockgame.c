@@ -133,8 +133,8 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       gchar *img;
       gcomprisBoard=agcomprisBoard;
 
-      img = gcompris_image_to_skin("clockgame-bg.jpg");
-      gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas), 
+      img = gc_skin_image_get("clockgame-bg.jpg");
+      gc_set_background(gnome_canvas_root(gcomprisBoard->canvas), 
 			      img);
       g_free(img);
 
@@ -147,7 +147,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       gcomprisBoard->maxlevel=6;
       gcomprisBoard->sublevel=1;
       gcomprisBoard->number_of_sublevel=3; /* Go to next level after this number of 'play' */
-      gcompris_score_start(SCORESTYLE_NOTE,
+      gc_score_start(SCORESTYLE_NOTE,
 			   gcomprisBoard->width - 220,
 			   gcomprisBoard->height - 50,
 			   gcomprisBoard->number_of_sublevel);
@@ -170,7 +170,7 @@ end_board ()
   if(gcomprisBoard!=NULL)
     {
       pause_board(TRUE);
-      gcompris_score_end();
+      gc_score_end();
       destroy_all_items();
     }
   gcomprisBoard = NULL;
@@ -216,7 +216,7 @@ static void clockgame_next_level()
 {
 
   gc_bar_set_level(gcomprisBoard);
-  gcompris_score_set(gcomprisBoard->sublevel);
+  gc_score_set(gcomprisBoard->sublevel);
 
   destroy_all_items();
 
@@ -401,7 +401,7 @@ clockgame_create_item(GnomeCanvasGroup *parent)
 	  canvasPoints->coords[1]=cy - (needle_size-hour_point_size) * cos(ang);
 	  color="darkblue";
 	  color_text="red";
-	  font = gcompris_skin_font_board_small;
+	  font = gc_skin_font_board_small;
 	}
       else
 	{
@@ -410,7 +410,7 @@ clockgame_create_item(GnomeCanvasGroup *parent)
 	  canvasPoints->coords[1]=cy - (needle_size-min_point_size) * cos(ang);
 	  color="red";
 	  color_text="red";
-	  font = gcompris_skin_font_board_tiny;
+	  font = gc_skin_font_board_tiny;
 	}
 
       canvasPoints->coords[2]=cx + needle_size * sin(ang);
@@ -466,7 +466,7 @@ clockgame_create_item(GnomeCanvasGroup *parent)
 	gnome_canvas_item_new (boardRootItem,
 			       gnome_canvas_text_get_type (),
 			       "text", "",
-			       "font", gcompris_skin_font_board_medium,
+			       "font", gc_skin_font_board_medium,
 			       "x", (double) cx + 1.0,
 			       "y", (double) cy +  needle_size/2 + 1.0,
 			       "anchor", GTK_ANCHOR_CENTER,
@@ -478,7 +478,7 @@ clockgame_create_item(GnomeCanvasGroup *parent)
 	gnome_canvas_item_new (boardRootItem,
 			       gnome_canvas_text_get_type (),
 			       "text", "",
-			       "font", gcompris_skin_font_board_medium,
+			       "font", gc_skin_font_board_medium,
 			       "x", (double) cx,
 			       "y", (double) cy +  needle_size/2,
 			       "anchor", GTK_ANCHOR_CENTER,
@@ -542,32 +542,32 @@ clockgame_create_item(GnomeCanvasGroup *parent)
   gnome_canvas_item_new (boardRootItem,
 			 gnome_canvas_text_get_type (),
 			 "text", _("Set the watch to:"),
-			 "font", gcompris_skin_font_board_small,
+			 "font", gc_skin_font_board_small,
 			 "x", (double) gcomprisBoard->width*0.17 + 1.0,
 			 "y", (double) cy + needle_size +  needle_size / 3 - 30 + 1.0,
 			 "anchor", GTK_ANCHOR_CENTER,
-			 "fill_color_rgba", gcompris_skin_color_shadow,
+			 "fill_color_rgba", gc_skin_color_shadow,
 			 NULL);
 
   gnome_canvas_item_new (boardRootItem,
 			 gnome_canvas_text_get_type (),
 			 "text", _("Set the watch to:"),
-			 "font", gcompris_skin_font_board_small,
+			 "font", gc_skin_font_board_small,
 			 "x", (double) gcomprisBoard->width*0.17,
 			 "y", (double) cy + needle_size +  needle_size / 3 - 30,
 			 "anchor", GTK_ANCHOR_CENTER,
-			 "fill_color_rgba", gcompris_skin_get_color("clockgame/text"),
+			 "fill_color_rgba", gc_skin_get_color("clockgame/text"),
 			 NULL);
 
   time_to_find_item_s =
     gnome_canvas_item_new (boardRootItem,
 			   gnome_canvas_text_get_type (),
 			   "text", "",
-			   "font", gcompris_skin_font_board_big_bold,
+			   "font", gc_skin_font_board_big_bold,
 			   "x", (double) gcomprisBoard->width*0.17 + 1.0,
 			   "y", (double) cy + needle_size +  needle_size / 3 + 1.0,
 			   "anchor", GTK_ANCHOR_CENTER,
-			   "fill_color_rgba", gcompris_skin_color_shadow,
+			   "fill_color_rgba", gc_skin_color_shadow,
 			   NULL);
   display_digital_time(time_to_find_item_s, &timeToFind);
 
@@ -575,11 +575,11 @@ clockgame_create_item(GnomeCanvasGroup *parent)
     gnome_canvas_item_new (boardRootItem,
 			   gnome_canvas_text_get_type (),
 			   "text", "",
-			   "font", gcompris_skin_font_board_big_bold,
+			   "font", gc_skin_font_board_big_bold,
 			   "x", (double) gcomprisBoard->width*0.17,
 			   "y", (double) cy + needle_size +  needle_size / 3,
 			   "anchor", GTK_ANCHOR_CENTER,
-			   "fill_color_rgba", gcompris_skin_get_color("clockgame/text"),
+			   "fill_color_rgba", gc_skin_get_color("clockgame/text"),
 			   NULL);
   display_digital_time(time_to_find_item, &timeToFind);
 
@@ -615,10 +615,10 @@ static void game_won()
     gcomprisBoard->sublevel=1;
     gcomprisBoard->level++;
     if(gcomprisBoard->level>gcomprisBoard->maxlevel) { // the current board is finished : bail out
-      board_finished(BOARD_FINISHED_RANDOM);
+      gc_bonus_end_display(BOARD_FINISHED_RANDOM);
       return;
     }
-    gcompris_play_ogg ("sounds/bonus.ogg", NULL);
+    gc_sound_play_ogg ("sounds/bonus.ogg", NULL);
   }
   clockgame_next_level();
 }
@@ -635,7 +635,7 @@ static void process_ok()
       /* Oups, you're wrong */
       gamewon = FALSE;
     }
-  gcompris_display_bonus(gamewon, BONUS_FLOWER);
+  gc_bonus_display(gamewon, BONUS_FLOWER);
 }
 
 
@@ -663,7 +663,7 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
       y = item_y;
 
       fleur = gdk_cursor_new(GDK_FLEUR);
-      gcompris_canvas_item_grab(item,
+      gc_canvas_item_grab(item,
 			     GDK_POINTER_MOTION_MASK |
 			     GDK_BUTTON_RELEASE_MASK,
 			     fleur,
@@ -710,7 +710,7 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
     case GDK_BUTTON_RELEASE:
       if(dragging)
 	{
-	  gcompris_canvas_item_ungrab(item, event->button.time);
+	  gc_canvas_item_ungrab(item, event->button.time);
 	  dragging = FALSE;
 	}
       break;

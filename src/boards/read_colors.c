@@ -133,7 +133,7 @@ static void start_board (GcomprisBoard *agcomprisBoard) {
 
   if(agcomprisBoard!=NULL) {
     gcomprisBoard=agcomprisBoard;
-    gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas), "read_colors/read_colors_background.png");
+    gc_set_background(gnome_canvas_root(gcomprisBoard->canvas), "read_colors/read_colors_background.png");
     gcomprisBoard->level=1;
     gcomprisBoard->maxlevel=1;
     gc_bar_set(0);
@@ -171,7 +171,7 @@ static void end_board () {
 
   if(gcomprisBoard!=NULL){
     pause_board(TRUE);
-    gcompris_score_end();
+    gc_score_end();
     read_colors_destroy_all_items();
     // free list
     while (g_list_length(listColors) > 0)
@@ -211,7 +211,7 @@ static void read_colors_next_level() {
   color_item = gnome_canvas_item_new (boardRootItem,
 				      gnome_canvas_text_get_type (),
 				      "text", colors[GPOINTER_TO_INT(g_list_nth_data(listColors,0))],
-				      "font", gcompris_skin_font_board_title_bold,
+				      "font", gc_skin_font_board_title_bold,
 				      "x", (double) (color_x1+color_x2)/2,
 				      "y", (double) (color_y1+color_y2)/2,
 				      "anchor", GTK_ANCHOR_CENTER,
@@ -317,7 +317,7 @@ static void game_won() {
   listColors = g_list_remove(listColors, g_list_nth_data(listColors,0));
 
   if( g_list_length(listColors) <= 0 ) { // the current board is finished : bail out
-    board_finished(BOARD_FINISHED_TUXLOCO);
+    gc_bonus_end_display(BOARD_FINISHED_TUXLOCO);
     return;
   }
 
@@ -327,7 +327,7 @@ static void game_won() {
  *
  * =====================================================================*/
 static gboolean process_ok_timeout() {
-  gcompris_display_bonus(gamewon, BONUS_SMILEY);
+  gc_bonus_display(gamewon, BONUS_SMILEY);
   if (!gamewon)
     errors--;
   if (errors <1)
@@ -335,7 +335,7 @@ static gboolean process_ok_timeout() {
   update_clock();
 
   if (errors <= 1) {
-    board_finished(BOARD_FINISHED_TOOMANYERRORS);
+    gc_bonus_end_display(BOARD_FINISHED_TOOMANYERRORS);
   }
 
 	return FALSE;

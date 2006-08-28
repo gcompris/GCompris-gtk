@@ -30,7 +30,8 @@ static GSList *active;
 /* private callback */
 static gboolean anim_tick(void*);
 
-GcomprisAnimation *gc_anim_load(char *filename)
+GcomprisAnimation *
+gc_anim_load(char *filename)
 {
   FILE *f = NULL;
 
@@ -56,7 +57,7 @@ GcomprisAnimation *gc_anim_load(char *filename)
   /* read filenames, one per line, from the animation spec-file */
   while(fscanf(f, "%99s", tmp) == 1)
     {
-      GcomprisBoard   *gcomprisBoard = get_current_gcompris_board();
+      GcomprisBoard   *gcomprisBoard = gc_board_get_current();
       files = g_slist_append(files, 
                              g_strdup_printf("%s/%s", gcomprisBoard->board_dir, tmp));
     }
@@ -86,8 +87,9 @@ GcomprisAnimation *gc_anim_load(char *filename)
   return anim;
 }
 
-GcomprisAnimCanvasItem *gc_anim_activate(GnomeCanvasGroup *parent,
-                                                    GcomprisAnimation *anim)
+GcomprisAnimCanvasItem *
+gc_anim_activate(GnomeCanvasGroup *parent,
+		 GcomprisAnimation *anim)
 {
   GcomprisAnimCanvasItem *item = g_malloc(sizeof(GcomprisAnimCanvasItem));
 
@@ -108,13 +110,15 @@ GcomprisAnimCanvasItem *gc_anim_activate(GnomeCanvasGroup *parent,
   return item;
 }
 
-void gc_anim_swap(GcomprisAnimCanvasItem *item, GcomprisAnimation *new_anim)
+void
+gc_anim_swap(GcomprisAnimCanvasItem *item, GcomprisAnimation *new_anim)
 {
   item->anim = new_anim;
   gc_anim_set_state(item, 0);
 }
 
-void gc_anim_deactivate(GcomprisAnimCanvasItem *item)
+void
+gc_anim_deactivate(GcomprisAnimCanvasItem *item)
 {
   GSList *node = g_slist_find( active, item );
   if( !node )
@@ -133,7 +137,8 @@ void gc_anim_deactivate(GcomprisAnimCanvasItem *item)
   g_free(item);
 }
 
-void gc_anim_free(GcomprisAnimation *anim)
+void
+gc_anim_free(GcomprisAnimation *anim)
 {
   int i;
   for(i=0; i<anim->numstates; i++)
@@ -143,7 +148,8 @@ void gc_anim_free(GcomprisAnimation *anim)
   g_free(anim);
 }
 
-void gc_anim_set_state(GcomprisAnimCanvasItem *item, int state)
+void
+gc_anim_set_state(GcomprisAnimCanvasItem *item, int state)
 {
   if(state < item->anim->numstates)
     {
@@ -163,7 +169,8 @@ void gc_anim_set_state(GcomprisAnimCanvasItem *item, int state)
 
 /* private callback functions */
 
-static gboolean anim_tick(void *ignore)
+static gboolean
+anim_tick(void *ignore)
 {
   if(active == NULL)
     {

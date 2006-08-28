@@ -186,7 +186,7 @@ on_wdrawareagrande_button_release_event (GtkWidget       *widget,
       /* hide widget because of gnomecanvaswidget on top of bonus image */
       gtk_widget_hide(widgetgrande);
       gtk_widget_hide(widgetpetite);
-      gcompris_display_bonus( TRUE, BONUS_RANDOM);
+      gc_bonus_display( TRUE, BONUS_RANDOM);
     }
   }
 

@@ -143,7 +143,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       /* disable im_context */
       gcomprisBoard->disable_im_context = TRUE;
 
-      gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas), "images/scenery3_background.png");
+      gc_set_background(gnome_canvas_root(gcomprisBoard->canvas), "images/scenery3_background.png");
 
 
       /* set initial values for this level */
@@ -166,7 +166,7 @@ end_board ()
   if(gcomprisBoard!=NULL)
     {
       pause_board(TRUE);
-      gcompris_score_end();
+      gc_score_end();
       planegame_destroy_all_items();
       gcomprisBoard->level = 1;       // Restart this game to zero
     }
@@ -299,15 +299,15 @@ static void planegame_next_level()
   if(gcomprisBoard->level>1)
     {
       /* No scoring after level 1 */
-      gcompris_score_end();
+      gc_score_end();
     }
   else
     {
-      gcompris_score_start(SCORESTYLE_NOTE, 
+      gc_score_start(SCORESTYLE_NOTE, 
 			   gcomprisBoard->width - 220, 
 			   gcomprisBoard->height - 50, 
 			   gcomprisBoard->number_of_sublevel);
-      gcompris_score_set(gcomprisBoard->sublevel);
+      gc_score_set(gcomprisBoard->sublevel);
     }
 }
 
@@ -336,13 +336,13 @@ static void planegame_cloud_colision(CloudItem *clouditem)
     {
       if(plane_target == clouditem->number)
 	{
-	  gcompris_play_ogg ("sounds/gobble.ogg", NULL);
+	  gc_sound_play_ogg ("sounds/gobble.ogg", NULL);
 	  item2del_list = g_list_append (item2del_list, clouditem);
 	  plane_target++;
 
 	  if(gcomprisBoard->level==1)
 	    {
-	      gcompris_score_set(plane_target);
+	      gc_score_set(plane_target);
 	    }
 
 	  if(plane_target==plane_last_target)
@@ -350,11 +350,11 @@ static void planegame_cloud_colision(CloudItem *clouditem)
 	      /* Try the next level */
 	      gcomprisBoard->level++;
 	      if(gcomprisBoard->level>gcomprisBoard->maxlevel) { // the current board is finished : bail out
-		board_finished(BOARD_FINISHED_RANDOM);
+		gc_bonus_end_display(BOARD_FINISHED_RANDOM);
 		return;
 	      }
 	      planegame_next_level();
-	      gcompris_play_ogg ("sounds/bonus.ogg", NULL);
+	      gc_sound_play_ogg ("sounds/bonus.ogg", NULL);
 	    }
 	}
     }
@@ -509,7 +509,7 @@ static GnomeCanvasItem *planegame_create_item(GnomeCanvasGroup *parent)
   gnome_canvas_item_new (GNOME_CANVAS_GROUP(itemgroup),
 			 gnome_canvas_text_get_type (),
 			 "text", number,
-			 "font", gcompris_skin_font_board_big,
+			 "font", gc_skin_font_board_big,
 			 "x", (double) 0,
 			 "y", (double) 0,
 			 "fill_color", "red",
@@ -575,7 +575,7 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
                y = item_y;
                
                fleur = gdk_cursor_new(GDK_FLEUR);
-               gcompris_canvas_item_grab(item,
+               gc_canvas_item_grab(item,
                                       GDK_POINTER_MOTION_MASK | 
                                       GDK_BUTTON_RELEASE_MASK,
                                       fleur,
@@ -605,7 +605,7 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
      case GDK_BUTTON_RELEASE:
        if(dragging) 
 	 {
-	   gcompris_canvas_item_ungrab(item, event->button.time);
+	   gc_canvas_item_ungrab(item, event->button.time);
 	   dragging = FALSE;
 	 }
        break;

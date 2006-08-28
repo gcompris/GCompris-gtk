@@ -26,7 +26,7 @@
 
 gchar                   *gcompris_get_user_dirname(GcomprisUser *user);
 
-gchar                   *gcompris_get_current_user_dirname();
+gchar                   *gc_profile_get_current_user_dirname();
 
 gchar                   *gcompris_get_board_dirname(GcomprisBoard *board);
 

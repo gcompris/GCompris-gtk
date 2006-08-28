@@ -152,7 +152,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       gcomprisBoard->number_of_sublevel=1; /* Go to next level after this number of 'play' */
       gc_bar_set(GC_BAR_LEVEL|GC_BAR_OK);
 
-      gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas),
+      gc_set_background(gnome_canvas_root(gcomprisBoard->canvas),
 			      "images/enumerate_background.png");
 
       enumerate_next_level();
@@ -454,7 +454,7 @@ static GnomeCanvasItem *enumerate_create_item(GnomeCanvasGroup *parent)
 	gnome_canvas_item_new (boardRootItem,
 			       gnome_canvas_text_get_type (),
 			       "text", "?",
-			       "font", gcompris_skin_font_board_big,
+			       "font", gc_skin_font_board_big,
 			       "x", (double) ANSWER_X + 2.5*ANSWER_WIDTH,
 			       "y", (double) current_y + ANSWER_HEIGHT/2,
 			       "anchor", GTK_ANCHOR_EAST,
@@ -479,10 +479,10 @@ static void game_won()
     gcomprisBoard->sublevel=1;
     gcomprisBoard->level++;
     if(gcomprisBoard->level>gcomprisBoard->maxlevel) { // the current board is finished : bail out
-      board_finished(BOARD_FINISHED_RANDOM);
+      gc_bonus_end_display(BOARD_FINISHED_RANDOM);
       return;
     }
-    gcompris_play_ogg ("sounds/bonus.ogg", NULL);
+    gc_sound_play_ogg ("sounds/bonus.ogg", NULL);
   }
   enumerate_next_level();
 }
@@ -537,7 +537,7 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 	   gnome_canvas_item_raise_to_top(item);
 
 	   fleur = gdk_cursor_new(GDK_FLEUR);
-	   gcompris_canvas_item_grab(item,
+	   gc_canvas_item_grab(item,
 				  GDK_POINTER_MOTION_MASK | 
 				  GDK_BUTTON_RELEASE_MASK,
 				  fleur,
@@ -592,7 +592,7 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
      case GDK_BUTTON_RELEASE:
        if(dragging) 
 	 {
-	   gcompris_canvas_item_ungrab(item, event->button.time);
+	   gc_canvas_item_ungrab(item, event->button.time);
 	   dragging = FALSE;
 	 }
        break;
@@ -618,10 +618,10 @@ static void process_ok()
 
   if(win) {
     gamewon = TRUE;
-    gcompris_display_bonus(gamewon, BONUS_SMILEY);
+    gc_bonus_display(gamewon, BONUS_SMILEY);
   } else {
     gamewon = FALSE;
-    gcompris_display_bonus(gamewon, BONUS_SMILEY);
+    gc_bonus_display(gamewon, BONUS_SMILEY);
   }
 }
 

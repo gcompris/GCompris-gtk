@@ -95,7 +95,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       gcomprisBoard->maxlevel = 1;
       gc_bar_set(0);
 
-      gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas), "images/gtans_bg.png");
+      gc_set_background(gnome_canvas_root(gcomprisBoard->canvas), "images/gtans_bg.png");
 
       selectedgrande = FALSE;
       taninitstart();

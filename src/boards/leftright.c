@@ -151,8 +151,8 @@ static void start_board (GcomprisBoard *agcomprisBoard) {
     gchar *img;
 
     gcomprisBoard=agcomprisBoard;
-    img = gcompris_image_to_skin("leftright-bg.jpg");
-    gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas), 
+    img = gc_skin_image_get("leftright-bg.jpg");
+    gc_set_background(gnome_canvas_root(gcomprisBoard->canvas), 
 			    img);
     g_free(img);
     gcomprisBoard->level=1;
@@ -160,7 +160,7 @@ static void start_board (GcomprisBoard *agcomprisBoard) {
     gcomprisBoard->sublevel=1;
 
     gcomprisBoard->number_of_sublevel = NUMBER_OF_SUBLEVELS;
-    gcompris_score_start(SCORESTYLE_NOTE, 10, 50, gcomprisBoard->number_of_sublevel);
+    gc_score_start(SCORESTYLE_NOTE, 10, 50, gcomprisBoard->number_of_sublevel);
     gc_bar_set(GC_BAR_LEVEL);
 
     leftright_next_level();
@@ -177,7 +177,7 @@ static void end_board () {
 
   if(gcomprisBoard!=NULL){
     pause_board(TRUE);
-    gcompris_score_end();
+    gc_score_end();
     leftright_destroy_all_items();
   }
   gcomprisBoard = NULL;
@@ -216,7 +216,7 @@ static void leftright_next_level() {
   leftright_destroy_all_items();
   gamewon = FALSE;
 
-  gcompris_score_set(gcomprisBoard->sublevel);
+  gc_score_set(gcomprisBoard->sublevel);
 
   /* Try the next level */
   leftright_create_item(gnome_canvas_root(gcomprisBoard->canvas));
@@ -278,7 +278,7 @@ static GnomeCanvasItem *leftright_create_item(GnomeCanvasGroup *parent) {
   gnome_canvas_item_new (boardRootItem,
 			 gnome_canvas_text_get_type (),
 			 "text", _("left"),
-			 "font", gcompris_skin_font_board_big,
+			 "font", gc_skin_font_board_big,
 			 "x", (double) CENTER_LEFT_X + 1.0,
 			 "y", (double) CENTER_LEFT_Y + 1.0,
 			 "anchor", GTK_ANCHOR_CENTER,
@@ -288,7 +288,7 @@ static GnomeCanvasItem *leftright_create_item(GnomeCanvasGroup *parent) {
   gnome_canvas_item_new (boardRootItem,
 			 gnome_canvas_text_get_type (),
 			 "text", _("left"),
-			 "font", gcompris_skin_font_board_big,
+			 "font", gc_skin_font_board_big,
 			 "x", (double) CENTER_LEFT_X,
 			 "y", (double) CENTER_LEFT_Y,
 			 "anchor", GTK_ANCHOR_CENTER,
@@ -298,7 +298,7 @@ static GnomeCanvasItem *leftright_create_item(GnomeCanvasGroup *parent) {
   gnome_canvas_item_new (boardRootItem,
 			 gnome_canvas_text_get_type (),
 			 "text", _("right"),
-			 "font", gcompris_skin_font_board_big,
+			 "font", gc_skin_font_board_big,
 			 "x", (double) CENTER_RIGHT_X + 1.0,
 			 "y", (double) CENTER_RIGHT_Y + 1.0,
 			 "anchor", GTK_ANCHOR_CENTER,
@@ -308,7 +308,7 @@ static GnomeCanvasItem *leftright_create_item(GnomeCanvasGroup *parent) {
   gnome_canvas_item_new (boardRootItem,
 			 gnome_canvas_text_get_type (),
 			 "text", _("right"),
-			 "font", gcompris_skin_font_board_big,
+			 "font", gc_skin_font_board_big,
 			 "x", (double) CENTER_RIGHT_X,
 			 "y", (double) CENTER_RIGHT_Y,
 			 "anchor", GTK_ANCHOR_CENTER,
@@ -359,7 +359,7 @@ static void game_won() {
     gcomprisBoard->sublevel=1;
     gcomprisBoard->level++;
     if(gcomprisBoard->level>gcomprisBoard->maxlevel) { // the current board is finished : bail out
-      board_finished(BOARD_FINISHED_TUXLOCO);
+      gc_bonus_end_display(BOARD_FINISHED_TUXLOCO);
       return;
     }
   }
@@ -370,7 +370,7 @@ static void game_won() {
  *
  * =====================================================================*/
 static gboolean process_ok_timeout() {
-  gcompris_display_bonus(gamewon, BONUS_SMILEY);
+  gc_bonus_display(gamewon, BONUS_SMILEY);
   return FALSE;
 }
 

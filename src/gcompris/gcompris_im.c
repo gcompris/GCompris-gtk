@@ -33,7 +33,8 @@ static gint window_focus_callback (GtkWidget *widget,
 				   gpointer user_data);
 
 
-void gcompris_im_init(GtkWidget *window)
+void
+gc_im_init(GtkWidget *window)
 {
   GcomprisProperties	*properties = gc_prop_get ();
 
@@ -41,10 +42,10 @@ void gcompris_im_init(GtkWidget *window)
   /* set IMContext */
   properties->context = gtk_im_multicontext_new ();
 
-  if(gcompris_get_current_profile())
+  if(gc_profile_get_current())
     {
       GHashTable *init_im =  g_hash_table_new_full (g_str_hash, g_str_equal, g_free, g_free);
-      init_im = gcompris_get_conf_with_table (gcompris_get_current_profile()->profile_id, 
+      init_im = gc_db_conf_with_table_get (gc_profile_get_current()->profile_id, 
 					      -1, 
 					      init_im );
 
@@ -73,28 +74,31 @@ void gcompris_im_init(GtkWidget *window)
  
 }
 
-void gcompris_im_reset()
+void
+gc_im_reset()
 {
   GcomprisProperties	*properties = gc_prop_get ();
   gtk_im_context_reset (properties->context);
 }
 
     
-static gint im_context_commit_callback (GtkIMContext *imcontext,
-					gchar *arg1,
-					gpointer user_data)
+static gint
+im_context_commit_callback (GtkIMContext *imcontext,
+			    gchar *arg1,
+			    gpointer user_data)
 {
-  if (get_current_board_plugin()!=NULL && get_current_board_plugin()->key_press)
+  if (gc_board_get_current_board_plugin()!=NULL && gc_board_get_current_board_plugin()->key_press)
     {
-      int result = get_current_board_plugin()->key_press (0, arg1, NULL);
+      int result = gc_board_get_current_board_plugin()->key_press (0, arg1, NULL);
       //      g_free(arg1);
       return(result);
     }
   return FALSE;
 }
     
-static gint im_context_preedit_callback (GtkIMContext *imcontext,
-					 gpointer user_data)
+static gint
+im_context_preedit_callback (GtkIMContext *imcontext,
+			     gpointer user_data)
 {
   gchar *preedit_string;
   PangoAttrList *attrs;
@@ -105,9 +109,9 @@ static gint im_context_preedit_callback (GtkIMContext *imcontext,
 				     &attrs,
 				     &cursor_pos);
 
-  if (get_current_board_plugin()!=NULL && get_current_board_plugin()->key_press)
+  if (gc_board_get_current_board_plugin()!=NULL && gc_board_get_current_board_plugin()->key_press)
     {
-      int result = get_current_board_plugin()->key_press (0, NULL, preedit_string);
+      int result = gc_board_get_current_board_plugin()->key_press (0, NULL, preedit_string);
       g_free(preedit_string);
       pango_attr_list_unref (attrs);
       return(result);
@@ -115,9 +119,10 @@ static gint im_context_preedit_callback (GtkIMContext *imcontext,
   return FALSE;
 }
 
-static gint window_focus_callback (GtkWidget *widget,
-				   GdkEventFocus *event,
-				   gpointer user_data)
+static gint
+window_focus_callback (GtkWidget *widget,
+		       GdkEventFocus *event,
+		       gpointer user_data)
 {
   GcomprisProperties	*properties = gc_prop_get ();
   if (event->in)

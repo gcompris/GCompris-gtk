@@ -209,8 +209,8 @@ static void money_next_level()
   gchar		  *display_format;
   gchar		  *img;
 
-  img = gcompris_image_to_skin("money-bg.png");
-  gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas),
+  img = gc_skin_image_get("money-bg.png");
+  gc_set_background(gnome_canvas_root(gcomprisBoard->canvas),
 			  img);
   g_free(img);
 
@@ -510,7 +510,7 @@ static void money_next_level()
     gnome_canvas_item_new(boardRootItem,
 			  gnome_canvas_text_get_type (),
 			  "text", text,
-			  "font", gcompris_skin_font_board_big,
+			  "font", gc_skin_font_board_big,
 			  "x", (double) (i*BOARDWIDTH)/(number_of_item+1),
 			  "y", (double) 180,
 			  "anchor", GTK_ANCHOR_CENTER,
@@ -549,10 +549,10 @@ static void game_won()
     gcomprisBoard->sublevel=1;
     gcomprisBoard->level++;
     if(gcomprisBoard->level>gcomprisBoard->maxlevel) { // the current board is finished : bail out
-      board_finished(BOARD_FINISHED_RANDOM);
+      gc_bonus_end_display(BOARD_FINISHED_RANDOM);
       return;
     }
-    gcompris_play_ogg ("sounds/bonus.ogg", NULL);
+    gc_sound_play_ogg ("sounds/bonus.ogg", NULL);
   }
   money_next_level();
 }
@@ -570,8 +570,8 @@ static void process_ok()
     {
       gamewon = TRUE;
       money_destroy_all_items();
-      gcompris_display_bonus(gamewon, BONUS_SMILEY);
+      gc_bonus_display(gamewon, BONUS_SMILEY);
     }
   else
-    gcompris_display_bonus(gamewon, BONUS_SMILEY);
+    gc_bonus_display(gamewon, BONUS_SMILEY);
 }

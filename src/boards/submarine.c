@@ -243,7 +243,7 @@ static void pause_board (gboolean pause)
 static void start_board (GcomprisBoard *agcomprisBoard) {
   if(agcomprisBoard!=NULL) {
     gcomprisBoard=agcomprisBoard;
-    gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas), "submarine/sub_bg.jpg");
+    gc_set_background(gnome_canvas_root(gcomprisBoard->canvas), "submarine/sub_bg.jpg");
     gcomprisBoard->level=1;
     gcomprisBoard->sublevel=1;
     submarine_next_level();
@@ -587,7 +587,7 @@ static GnomeCanvasItem *submarine_create_item(GnomeCanvasGroup *parent) {
   speed_item_back = gnome_canvas_item_new (boardRootItem,
 					   gnome_canvas_text_get_type (),
 					   "text", s12,
-					   "font", gcompris_skin_font_board_title_bold,
+					   "font", gc_skin_font_board_title_bold,
 					   "x", (double) schema_x + (ENGINE_UP_X + ENGINE_DOWN_X)/2 +1,
 					   "y", (double) schema_y + ENGINE_UP_Y + 1,
 					   "anchor", GTK_ANCHOR_CENTER,
@@ -596,7 +596,7 @@ static GnomeCanvasItem *submarine_create_item(GnomeCanvasGroup *parent) {
   speed_item_front = gnome_canvas_item_new (boardRootItem,
 					    gnome_canvas_text_get_type (),
 					    "text", s12,
-					    "font", gcompris_skin_font_board_title_bold,
+					    "font", gc_skin_font_board_title_bold,
 					    "x", (double) schema_x + (ENGINE_UP_X + ENGINE_DOWN_X)/2,
 					    "y", (double) schema_y + ENGINE_UP_Y,
 					    "anchor", GTK_ANCHOR_CENTER,
@@ -618,7 +618,7 @@ static GnomeCanvasItem *submarine_create_item(GnomeCanvasGroup *parent) {
   ballast_av_air_item_back = gnome_canvas_item_new (boardRootItem,
 						    gnome_canvas_text_get_type (),
 						    "text", s12,
-						    "font", gcompris_skin_font_board_title_bold,
+						    "font", gc_skin_font_board_title_bold,
 						    "x", (double) schema_x + BALLAST_AV_AIR_TEXT_X + 1,
 						    "y", (double) schema_y + BALLAST_AV_AIR_TEXT_Y + 1,
 						    "anchor", GTK_ANCHOR_CENTER,
@@ -627,7 +627,7 @@ static GnomeCanvasItem *submarine_create_item(GnomeCanvasGroup *parent) {
   ballast_av_air_item_front = gnome_canvas_item_new (boardRootItem,
 						     gnome_canvas_text_get_type (),
 						     "text", s12,
-						     "font", gcompris_skin_font_board_title_bold,
+						     "font", gc_skin_font_board_title_bold,
 						     "x", (double) schema_x + BALLAST_AV_AIR_TEXT_X,
 						     "y", (double) schema_y + BALLAST_AV_AIR_TEXT_Y,
 						     "anchor", GTK_ANCHOR_CENTER,
@@ -650,7 +650,7 @@ static GnomeCanvasItem *submarine_create_item(GnomeCanvasGroup *parent) {
   ballast_ar_air_item_back = gnome_canvas_item_new (boardRootItem,
 						    gnome_canvas_text_get_type (),
 						    "text", s12,
-						    "font", gcompris_skin_font_board_title_bold,
+						    "font", gc_skin_font_board_title_bold,
 						    "x", (double) schema_x + BALLAST_AR_AIR_TEXT_X + 1,
 						    "y", (double) schema_y + BALLAST_AR_AIR_TEXT_Y + 1,
 						    "anchor", GTK_ANCHOR_CENTER,
@@ -659,7 +659,7 @@ static GnomeCanvasItem *submarine_create_item(GnomeCanvasGroup *parent) {
   ballast_ar_air_item_front = gnome_canvas_item_new (boardRootItem,
 						     gnome_canvas_text_get_type (),
 						     "text", s12,
-						     "font", gcompris_skin_font_board_title_bold,
+						     "font", gc_skin_font_board_title_bold,
 						     "x", (double) schema_x + BALLAST_AR_AIR_TEXT_X,
 						     "y", (double) schema_y + BALLAST_AR_AIR_TEXT_Y,
 						     "anchor", GTK_ANCHOR_CENTER,
@@ -672,7 +672,7 @@ static GnomeCanvasItem *submarine_create_item(GnomeCanvasGroup *parent) {
   air_item_back = gnome_canvas_item_new (boardRootItem,
 					 gnome_canvas_text_get_type (),
 					 "text", s12,
-					 "font", gcompris_skin_font_board_title_bold,
+					 "font", gc_skin_font_board_title_bold,
 					 "x", (double) schema_x + AIR_X +1,
 					 "y", (double) schema_y + AIR_Y + 1,
 					 "anchor", GTK_ANCHOR_CENTER,
@@ -681,7 +681,7 @@ static GnomeCanvasItem *submarine_create_item(GnomeCanvasGroup *parent) {
   air_item_front = gnome_canvas_item_new (boardRootItem,
 					  gnome_canvas_text_get_type (),
 					  "text", s12,
-					  "font", gcompris_skin_font_board_title_bold,
+					  "font", gc_skin_font_board_title_bold,
 					  "x", (double) schema_x + AIR_X,
 					  "y", (double) schema_y + AIR_Y,
 					  "anchor", GTK_ANCHOR_CENTER,
@@ -693,7 +693,7 @@ static GnomeCanvasItem *submarine_create_item(GnomeCanvasGroup *parent) {
   battery_item_back = gnome_canvas_item_new (boardRootItem,
 					     gnome_canvas_text_get_type (),
 					     "text", s12,
-					     "font", gcompris_skin_font_board_title_bold,
+					     "font", gc_skin_font_board_title_bold,
 					     "x", (double) schema_x + BATTERY_X +1,
 					     "y", (double) schema_y + BATTERY_Y + 1,
 					     "anchor", GTK_ANCHOR_CENTER,
@@ -702,7 +702,7 @@ static GnomeCanvasItem *submarine_create_item(GnomeCanvasGroup *parent) {
   battery_item_front = gnome_canvas_item_new (boardRootItem,
 					      gnome_canvas_text_get_type (),
 					      "text", s12,
-					      "font", gcompris_skin_font_board_title_bold,
+					      "font", gc_skin_font_board_title_bold,
 					      "x", (double) schema_x + BATTERY_X,
 					      "y", (double) schema_y + BATTERY_Y,
 					      "anchor", GTK_ANCHOR_CENTER,
@@ -724,7 +724,7 @@ static GnomeCanvasItem *submarine_create_item(GnomeCanvasGroup *parent) {
   regleur_item_back = gnome_canvas_item_new (boardRootItem,
 					     gnome_canvas_text_get_type (),
 					     "text", s12,
-					     "font", gcompris_skin_font_board_title_bold,
+					     "font", gc_skin_font_board_title_bold,
 					     "x", (double) schema_x + REGLEUR_TEXT_X +1,
 					     "y", (double) schema_y + REGLEUR_TEXT_Y + 1,
 					     "anchor", GTK_ANCHOR_CENTER,
@@ -733,7 +733,7 @@ static GnomeCanvasItem *submarine_create_item(GnomeCanvasGroup *parent) {
   regleur_item_front = gnome_canvas_item_new (boardRootItem,
 					      gnome_canvas_text_get_type (),
 					      "text", s12,
-					      "font", gcompris_skin_font_board_title_bold,
+					      "font", gc_skin_font_board_title_bold,
 					      "x", (double) schema_x + REGLEUR_TEXT_X,
 					      "y", (double) schema_y + REGLEUR_TEXT_Y,
 					      "anchor", GTK_ANCHOR_CENTER,
@@ -1057,7 +1057,7 @@ static gboolean update_timeout_slow() {
     /* magnetic detection (dist1) or collision with the whale (dist2 & dist3) */
     if ( (dist1 < WHALE_DETECTION_RADIUS || dist2 < WHALE_DETECTION_RADIUS ||dist3 < WHALE_DETECTION_RADIUS)
 	 && !submarine_destroyed ) {
-      gcompris_play_ogg("sounds/crash.ogg", NULL);
+      gc_sound_play_ogg("sounds/crash.ogg", NULL);
       gnome_canvas_item_hide(whale);
       //gc_item_absolute_move(big_explosion, whale_x, whale_y);
       gnome_canvas_item_show(big_explosion);
@@ -1137,7 +1137,7 @@ static void game_won() {
     gcomprisBoard->sublevel=1;
     gcomprisBoard->level++;
     if(gcomprisBoard->level>gcomprisBoard->maxlevel) { // the current board is finished : bail out
-      board_finished(BOARD_FINISHED_TUXLOCO);
+      gc_bonus_end_display(BOARD_FINISHED_TUXLOCO);
       return;
     }
   }
@@ -1152,7 +1152,7 @@ static gboolean quit_after_delay() {
   return FALSE;
 }
 static gboolean ok_timeout() {
-  gcompris_display_bonus(gamewon, BONUS_SMILEY);
+  gc_bonus_display(gamewon, BONUS_SMILEY);
   g_timeout_add(TIME_CLICK_TO_BONUS*5, quit_after_delay, NULL);
   return FALSE;
 }
@@ -1483,7 +1483,7 @@ static void submarine_explosion() {
 
   submarine_destroyed = TRUE;
   gamewon = FALSE;
-  gcompris_play_ogg("sounds/crash.ogg", NULL);
+  gc_sound_play_ogg("sounds/crash.ogg", NULL);
   /* make the submarine die */
   setSpeed(speed_ordered = submarine_horizontal_speed = 0.0);
   setBattery(battery = 0.0);

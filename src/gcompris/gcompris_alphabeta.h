@@ -1,6 +1,6 @@
 /* gcompris - gcompris_alphabeta.h
  *
- * Time-stamp: <2006/02/05 09:27:20 yves>
+ * Time-stamp: <2006/08/28 21:20:56 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -24,7 +24,7 @@
 
 #include "gcompris.h"
 
-/* gcompris_alphabeta returns the best value of evaluation functions */
+/* gc_alphabeta returns the best value of evaluation functions */
 /* set the bestChild to the index of child with this value */
 /* maximize : TRUE if depth is maximize one, neither FALSE. */
 /* treeGame : pointer on game to pass to others functions, */
@@ -40,16 +40,16 @@ typedef gboolean     (*LeafFunction)              (gpointer treeGame);
 typedef gpointer     (*FirstChildGameFunction)    (gpointer treeGame); 
 typedef gpointer     (*NextSiblingGameFunction)     (gpointer treeGame); 
 
-gint gcompris_alphabeta (gboolean maximize,
-			 gpointer treeGame,
-			 EvalFunction heuristic,
-			 gint *bestChild,
-			 FirstChildGameFunction firstChild,
-			 NextSiblingGameFunction nextSibling,
-			 gint alpha,
-			 gint beta,
-			 gint depth
-			 );
+gint gc_alphabeta (gboolean maximize,
+		   gpointer treeGame,
+		   EvalFunction heuristic,
+		   gint *bestChild,
+		   FirstChildGameFunction firstChild,
+		   NextSiblingGameFunction nextSibling,
+		   gint alpha,
+		   gint beta,
+		   gint depth
+		   );
 
 #endif
 

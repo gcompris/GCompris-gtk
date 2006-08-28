@@ -182,7 +182,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       /* disable im_context */
       //gcomprisBoard->disable_im_context = TRUE;
 
-      gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas), "images/scenery_background.png");
+      gc_set_background(gnome_canvas_root(gcomprisBoard->canvas), "images/scenery_background.png");
 
 
       gcomprisBoard->level = 1;
@@ -220,13 +220,13 @@ end_board ()
   if(gcomprisBoard!=NULL)
     {
       pause_board(TRUE);
-      gcompris_score_end();
+      gc_score_end();
       wordsgame_destroy_all_items();
       if (preedit_text){
 	gtk_object_destroy(GTK_OBJECT(preedit_text));
 	preedit_text=NULL;
       }
-      gcompris_im_reset();
+      gc_im_reset();
       gcomprisBoard = NULL;
 
       if (gc_wordlist != NULL){
@@ -281,7 +281,7 @@ static gint key_press(guint keyval, gchar *commit_str, gchar *preedit_str)
       preedit_text = \
 	gnome_canvas_item_new (gnome_canvas_root(gcomprisBoard->canvas),
 			       gnome_canvas_text_get_type (),
-			       "font", gcompris_skin_font_board_huge_bold,
+			       "font", gc_skin_font_board_huge_bold,
 			       "x", (double) BOARDWIDTH/2,
 			       "y", (double) BOARDHEIGHT - 100,
 			       "anchor", GTK_ANCHOR_N,
@@ -422,13 +422,13 @@ static void wordsgame_next_level()
 
   gcomprisBoard->number_of_sublevel = 10 + 
     ((gcomprisBoard->level-1) * 5);
-  gcompris_score_start(SCORESTYLE_NOTE, 
+  gc_score_start(SCORESTYLE_NOTE, 
 		       gcomprisBoard->width - 220, 
 		       gcomprisBoard->height - 50, 
 		       gcomprisBoard->number_of_sublevel);
   
   gc_bar_set_level(gcomprisBoard);
-  gcompris_score_set(gcomprisBoard->sublevel);
+  gc_score_set(gcomprisBoard->sublevel);
 
   wordsgame_destroy_all_items();
   
@@ -436,7 +436,7 @@ static void wordsgame_next_level()
     gtk_object_destroy(GTK_OBJECT(preedit_text));
     preedit_text=NULL;
   }
-  gcompris_im_reset();
+  gc_im_reset();
   
   items=g_ptr_array_new();
   items2del=g_ptr_array_new();
@@ -609,7 +609,7 @@ static GnomeCanvasItem *wordsgame_create_item(GnomeCanvasGroup *parent)
     gnome_canvas_item_new (GNOME_CANVAS_GROUP(item->rootitem),
 			   gnome_canvas_text_get_type (),
 			   "text", item->word,
-			   "font", gcompris_skin_font_board_huge_bold,
+			   "font", gc_skin_font_board_huge_bold,
 			   "x", (double) 0,
 			   "y", (double) 0,
 			   "anchor", GTK_ANCHOR_NW,
@@ -620,7 +620,7 @@ static GnomeCanvasItem *wordsgame_create_item(GnomeCanvasGroup *parent)
     gnome_canvas_item_new (GNOME_CANVAS_GROUP(item->rootitem),
 			   gnome_canvas_text_get_type (),
 			   "text", item->overword,
-			   "font", gcompris_skin_font_board_huge_bold,
+			   "font", gc_skin_font_board_huge_bold,
 			   "x", (double) 0,
 			   "y", (double) 0,
 			   "anchor", GTK_ANCHOR_NW,
@@ -672,12 +672,12 @@ static gint wordsgame_drop_items (GtkWidget *widget, gpointer data)
 static void player_win(LettersItem *item)
 {
 
-  gcompris_play_ogg ("sounds/gobble.ogg", NULL);
+  gc_sound_play_ogg ("sounds/gobble.ogg", NULL);
 
   assert(gcomprisBoard!=NULL);
 
   gcomprisBoard->sublevel++;
-  gcompris_score_set(gcomprisBoard->sublevel);
+  gc_score_set(gcomprisBoard->sublevel);
 
 
   g_static_rw_lock_writer_lock (&items_lock);
@@ -699,11 +699,11 @@ static void player_win(LettersItem *item)
       gcomprisBoard->level++;
       gcomprisBoard->sublevel = 0;
       if(gcomprisBoard->level>gcomprisBoard->maxlevel) { // the current board is finished : bail out
-	board_finished(BOARD_FINISHED_RANDOM);
+	gc_bonus_end_display(BOARD_FINISHED_RANDOM);
 	return;
       }
       wordsgame_next_level();
-      gcompris_play_ogg ("sounds/bonus.ogg", NULL);
+      gc_sound_play_ogg ("sounds/bonus.ogg", NULL);
     }
   else
     {
@@ -739,5 +739,5 @@ static void player_win(LettersItem *item)
 
 static void player_loose()
 {
-  gcompris_play_ogg ("sounds/crash.ogg", NULL);
+  gc_sound_play_ogg ("sounds/crash.ogg", NULL);
 }

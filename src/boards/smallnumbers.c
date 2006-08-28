@@ -159,12 +159,12 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       /* disable im_context */
       gcomprisBoard->disable_im_context = TRUE;
 
-      gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas), "images/scenery7_background.png");
+      gc_set_background(gnome_canvas_root(gcomprisBoard->canvas), "images/scenery7_background.png");
 
       gcomprisBoard->level = 1;
       gcomprisBoard->maxlevel = 9;
       gcomprisBoard->number_of_sublevel=10;
-      gcompris_score_start(SCORESTYLE_NOTE, 
+      gc_score_start(SCORESTYLE_NOTE, 
 			   gcomprisBoard->width - 220, 
 			   gcomprisBoard->height - 50, 
 			   gcomprisBoard->number_of_sublevel);
@@ -192,7 +192,7 @@ end_board ()
   if(gcomprisBoard!=NULL)
     {
       pause_board(TRUE);
-      gcompris_score_end();
+      gc_score_end();
       smallnumbers_destroy_all_items();
     }
   gcomprisBoard = NULL;
@@ -293,7 +293,7 @@ static void smallnumbers_next_level()
   fallSpeed=5000-gcomprisBoard->level*200;
   imageZoom=0.9+(0.5/gcomprisBoard->level);
   gcomprisBoard->sublevel=1;
-  gcompris_score_set(gcomprisBoard->sublevel);
+  gc_score_set(gcomprisBoard->sublevel);
 }
 
 
@@ -407,7 +407,7 @@ static void smallnumbers_create_item(GnomeCanvasGroup *parent)
 
 	g_unichar_to_utf8(*unichar_letterItem, letter);
 
-	str1 = gcompris_alphabet_sound(letter);
+	str1 = gc_sound_alphabet(letter);
 
 	g_free(letter);
 	g_free(lettersItem);
@@ -415,7 +415,7 @@ static void smallnumbers_create_item(GnomeCanvasGroup *parent)
 
 	str2 = g_strdup_printf("sounds/$LOCALE/alphabet/%s", str1);
 
-	gcompris_play_ogg(str2, NULL);
+	gc_sound_play_ogg(str2, NULL);
 
 	g_free(str1);
 	g_free(str2);
@@ -425,7 +425,7 @@ static void smallnumbers_create_item(GnomeCanvasGroup *parent)
      * Now the images
      */
     str1 = g_strdup_printf("level%c.png", numbers[i]);
-    str2 = gcompris_image_to_skin(str1);
+    str2 = gc_skin_image_get(str1);
 
     smallnumbers_pixmap = gc_pixmap_load(str2);
 
@@ -474,33 +474,33 @@ static gint smallnumbers_drop_items (GtkWidget *widget, gpointer data)
 static void player_win(GnomeCanvasItem *item)
 {
   gtk_object_destroy (GTK_OBJECT(item));
-  gcompris_play_ogg ("sounds/gobble.ogg", NULL);
+  gc_sound_play_ogg ("sounds/gobble.ogg", NULL);
 
   gcomprisBoard->sublevel++;
-  gcompris_score_set(gcomprisBoard->sublevel);
+  gc_score_set(gcomprisBoard->sublevel);
 
   if(gcomprisBoard->sublevel>gcomprisBoard->number_of_sublevel)
     {
       /* Try the next level */
       gcomprisBoard->level++;
       if(gcomprisBoard->level>gcomprisBoard->maxlevel) { // the current board is finished : bail out
-	gcompris_score_end();
-	board_finished(BOARD_FINISHED_RANDOM);
+	gc_score_end();
+	gc_bonus_end_display(BOARD_FINISHED_RANDOM);
 	return;
       }
       gamewon = TRUE;
       smallnumbers_destroy_all_items();
-      gcompris_display_bonus(gamewon, BONUS_SMILEY);
+      gc_bonus_display(gamewon, BONUS_SMILEY);
     }
   else
     {
-      gcompris_score_set(gcomprisBoard->sublevel);
+      gc_score_set(gcomprisBoard->sublevel);
     }
 }
 
 static void player_loose()
 {
-  gcompris_play_ogg ("crash", NULL);
+  gc_sound_play_ogg ("crash", NULL);
 }
 
 
@@ -589,7 +589,7 @@ smallnumber_config_start(GcomprisBoard *agcomprisBoard,
   label = g_strdup_printf("<b>%s</b> configuration\n for profile <b>%s</b>",
 			  agcomprisBoard->name, aProfile ? aProfile->name : "");
 
-  gcompris_configuration_window(label, (GcomprisConfCallback )conf_ok);
+  gc_board_config_window_display(label, (GcomprisConfCallback )conf_ok);
 
   g_free(label);
 

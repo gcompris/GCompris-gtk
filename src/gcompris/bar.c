@@ -87,7 +87,7 @@ void gc_bar_start (GnomeCanvas *theCanvas)
 			   "y", (double)0,
 			   NULL);
 
-  pixmap = gcompris_load_skin_pixmap("bar_bg.jpg");
+  pixmap = gc_skin_pixmap_load("bar_bg.jpg");
   bar_item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				gnome_canvas_pixbuf_get_type (),
 				"pixbuf", pixmap, 
@@ -99,7 +99,7 @@ void gc_bar_start (GnomeCanvas *theCanvas)
   // EXIT
   if(properties->disable_quit == 0)
     {
-      pixmap = gcompris_load_skin_pixmap("button_exit.png");
+      pixmap = gc_skin_pixmap_load("button_exit.png");
       zoom = (double)(height-BAR_GAP)/(double)gdk_pixbuf_get_height(pixmap);
       exit_item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 					 gnome_canvas_pixbuf_get_type (),
@@ -120,7 +120,7 @@ void gc_bar_start (GnomeCanvas *theCanvas)
     }
   
   // HOME
-  pixmap = gcompris_load_skin_pixmap("home.png");
+  pixmap = gc_skin_pixmap_load("home.png");
   zoom = (double)(height-BAR_GAP)/(double)gdk_pixbuf_get_height(pixmap);
   home_item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				     gnome_canvas_pixbuf_get_type (),
@@ -141,7 +141,7 @@ void gc_bar_start (GnomeCanvas *theCanvas)
 
 
   // OK
-  pixmap = gcompris_load_skin_pixmap("ok.png");
+  pixmap = gc_skin_pixmap_load("ok.png");
   zoom = (double)(height-BAR_GAP)/(double)gdk_pixbuf_get_height(pixmap);
   ok_item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				   gnome_canvas_pixbuf_get_type (),
@@ -162,7 +162,7 @@ void gc_bar_start (GnomeCanvas *theCanvas)
 
 
   // LEVEL
-  pixmap = gcompris_load_skin_pixmap("level1.png");
+  pixmap = gc_skin_pixmap_load("level1.png");
   zoom = (double)(height-BAR_GAP)/(double)gdk_pixbuf_get_height(pixmap);
   level_item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				      gnome_canvas_pixbuf_get_type (),
@@ -183,7 +183,7 @@ void gc_bar_start (GnomeCanvas *theCanvas)
 					  NULL);
 
   // REPEAT
-  pixmap = gcompris_load_skin_pixmap("repeat.png");
+  pixmap = gc_skin_pixmap_load("repeat.png");
   zoom = (double)(height-BAR_GAP)/(double)gdk_pixbuf_get_height(pixmap);
   repeat_item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				       gnome_canvas_pixbuf_get_type (),
@@ -203,7 +203,7 @@ void gc_bar_start (GnomeCanvas *theCanvas)
 		     NULL);
 
   // HELP
-  pixmap = gcompris_load_skin_pixmap("help.png");
+  pixmap = gc_skin_pixmap_load("help.png");
   zoom = (double)(height-BAR_GAP)/(double)gdk_pixbuf_get_height(pixmap);
   help_item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				     gnome_canvas_pixbuf_get_type (),
@@ -225,7 +225,7 @@ void gc_bar_start (GnomeCanvas *theCanvas)
   // CONFIG
   if(properties->disable_config == 0)
     {
-      pixmap = gcompris_load_skin_pixmap("config.png");
+      pixmap = gc_skin_pixmap_load("config.png");
       zoom = (double)(height-BAR_GAP)/(double)gdk_pixbuf_get_height(pixmap);
       config_item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 					   gnome_canvas_pixbuf_get_type (),
@@ -246,7 +246,7 @@ void gc_bar_start (GnomeCanvas *theCanvas)
     }
 
   // ABOUT
-  pixmap = gcompris_load_skin_pixmap("about.png");
+  pixmap = gc_skin_pixmap_load("about.png");
   zoom = (double)(height-BAR_GAP)/(double)gdk_pixbuf_get_height(pixmap);
   about_item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				     gnome_canvas_pixbuf_get_type (),
@@ -293,7 +293,7 @@ void gc_bar_set_level(GcomprisBoard *gcomprisBoard)
     {
 
       str = g_strdup_printf("level%d.png", gcomprisBoard->level);
-      pixmap = gcompris_load_skin_pixmap(str);
+      pixmap = gc_skin_pixmap_load(str);
    
       g_free(str);
       /* Warning changing the image needs to update pixbuf_ref for the focus usage */
@@ -347,7 +347,7 @@ gc_bar_set (const GComprisBarFlags flags)
   else
     gnome_canvas_item_hide(ok_item);
 
-  if(gc_help_has_board(get_current_gcompris_board()))
+  if(gc_help_has_board(gc_board_get_current()))
     gnome_canvas_item_show(help_item);
   else
     gnome_canvas_item_hide(help_item);
@@ -356,7 +356,7 @@ gc_bar_set (const GComprisBarFlags flags)
     GdkPixbuf *pixmap;
 
     /* Set the repeat icon to the original one */
-    pixmap = gcompris_load_skin_pixmap("repeat.png");
+    pixmap = gc_skin_pixmap_load("repeat.png");
     gnome_canvas_item_set (repeat_item,
 			   "pixbuf", pixmap,
 			   NULL);
@@ -382,7 +382,7 @@ gc_bar_set (const GComprisBarFlags flags)
     gnome_canvas_item_hide(about_item);
 
   /* FIXME : Workaround for bugged canvas */
-  //  gnome_canvas_update_now(get_current_gcompris_board()->canvas);
+  //  gnome_canvas_update_now(gc_board_get_current()->canvas);
 
 }
 
@@ -423,10 +423,10 @@ gc_bar_hide (gboolean hide)
 static void update_exit_button()
 {
 
-  if(get_current_gcompris_board() == NULL)
+  if(gc_board_get_current() == NULL)
     return;
 
-  if (get_current_gcompris_board()->previous_board == NULL)
+  if (gc_board_get_current()->previous_board == NULL)
     {
       /* We are in the upper menu: show it */
       if(exit_item)
@@ -447,17 +447,17 @@ static void update_exit_button()
  */
 static gint bar_play_sound (gchar *sound)
 {
-  int policy = getSoundPolicy();
+  int policy = gc_sound_policy_get();
   gchar *str;
-  setSoundPolicy(PLAY_ONLY_IF_IDLE);
+  gc_sound_policy_set(PLAY_ONLY_IF_IDLE);
 
   str = g_strdup_printf("sounds/$LOCALE/misc/%s.ogg", sound);
 
-  gcompris_play_ogg(str, NULL);
+  gc_sound_play_ogg(str, NULL);
 
   g_free(str);
 
-  setSoundPolicy(policy);
+  gc_sound_policy_set(policy);
   sound_play_id = 0;
   return (FALSE);
 }
@@ -474,7 +474,7 @@ static void bar_reset_sound_id ()
 static gint
 item_event_bar(GnomeCanvasItem *item, GdkEvent *event, gchar *data)
 {
-  GcomprisBoard *gcomprisBoard = get_current_gcompris_board();
+  GcomprisBoard *gcomprisBoard = gc_board_get_current();
 
   switch (event->type)
     {
@@ -516,12 +516,12 @@ item_event_bar(GnomeCanvasItem *item, GdkEvent *event, gchar *data)
 	      gchar *str_number;
 
 	      gchar *number_str = g_strdup_printf("%d", current_level);
-	      gchar *current_level_str = gcompris_alphabet_sound(number_str);
+	      gchar *current_level_str = gc_sound_alphabet(number_str);
 	      g_free(number_str);
 
 	      str_number = g_strdup_printf("sounds/$LOCALE/alphabet/%s", current_level_str);
 
-	      gcompris_play_ogg("sounds/$LOCALE/misc/level.ogg", str_number, NULL);
+	      gc_sound_play_ogg("sounds/$LOCALE/misc/level.ogg", str_number, NULL);
 
 	      g_free(str_number);
 	      g_free(current_level_str);
@@ -534,13 +534,13 @@ item_event_bar(GnomeCanvasItem *item, GdkEvent *event, gchar *data)
 	}
       else if(!strcmp((char *)data, "back"))
 	{
-	  gcompris_play_ogg ("gobble", NULL);
+	  gc_sound_play_ogg ("gobble", NULL);
 	  gc_bar_hide (TRUE);
 	  board_stop();
 	}
       else if(!strcmp((char *)data, "help"))
 	{
-	  gcompris_play_ogg ("gobble", NULL);
+	  gc_sound_play_ogg ("gobble", NULL);
 	  gc_help_start(gcomprisBoard);
 	}
       else if(!strcmp((char *)data, "repeat"))
@@ -555,7 +555,7 @@ item_event_bar(GnomeCanvasItem *item, GdkEvent *event, gchar *data)
 	  if(gcomprisBoard->plugin->config_start != NULL)
 	    {
 	      gcomprisBoard->plugin->config_start(gcomprisBoard,
-						  gcompris_get_current_profile());
+						  gc_profile_get_current());
 	    }
 	}
       else if(!strcmp((char *)data, "about"))

@@ -1,3 +1,263 @@
+2006-08-29  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	Continued the rework of the API.
+
+	* docs/C/python.xml:
+	* po/ChangeLog:
+	* po/POTFILES.in:
+	* po/tr.po:
+	* src/boards/advanced_colors.c: (start_board), (end_board),
+	(colors_next_level), (game_won), (ok_timeout):
+	* src/boards/algebra.c: (pause_board), (start_board), (end_board),
+	(timer_end), (algebra_next_level), (algebra_destroy_all_items),
+	(display_operand), (algebra_create_item), (item_event), (game_won):
+	* src/boards/algebra_guesscount.c: (start_board), (end_board),
+	(algebra_guesscount_next_level), (algebra_guesscount_create_item),
+	(game_won), (process_time):
+	* src/boards/animtest.c: (start_board):
+	* src/boards/awele.c: (start_board), (awele_next_level),
+	(awele_create_item), (game_won), (to_computer),
+	(updateCapturedBeans):
+	* src/boards/awele_alphaBeta.c: (think):
+	* src/boards/canal_lock.c: (canal_lock_next_level), (game_won),
+	(move_boat), (item_event):
+	* src/boards/chess.c: (chess_next_level), (game_won),
+	(display_white_turn), (display_info), (item_event):
+	* src/boards/click_on_letter.c: (start_board), (end_board),
+	(repeat), (sounds_are_fine), (click_on_letter_next_level),
+	(click_on_letter_create_item), (game_won), (process_ok_timeout),
+	(config_start):
+	* src/boards/clickgame.c: (clickgame_start), (clickgame_end),
+	(clickgame_next_level), (clickgame_move_item), (game_won),
+	(item_event):
+	* src/boards/clockgame.c: (start_board), (end_board),
+	(clockgame_next_level), (clockgame_create_item), (game_won),
+	(process_ok), (item_event):
+	* src/boards/colors.c: (colors_config_start), (start_board),
+	(end_board), (repeat), (game_won), (process_ok_timeout):
+	* src/boards/crane.c: (start_board), (bonus), (finished),
+	(select_item):
+	* src/boards/draw.c: (start_board), (create_item),
+	(item_event_resize), (item_event_move):
+	* src/boards/enumerate.c: (start_board), (enumerate_create_item),
+	(game_won), (item_event), (process_ok):
+	* src/boards/erase.c: (start_board), (end_board),
+	(erase_next_level), (bonus), (finished), (game_won):
+	* src/boards/fifteen.c: (fifteen_next_level),
+	(fifteen_create_item), (game_won), (test_win):
+	* src/boards/gletters.c: (level_set_score), (start_board),
+	(end_board), (key_press), (gletters_next_level),
+	(gletters_create_item), (player_win), (player_loose),
+	(gletter_config_start):
+	* src/boards/gtans.c: (start_board):
+	* src/boards/gtans_callbacks.c:
+	(on_wdrawareagrande_button_release_event):
+	* src/boards/gtans_interface.c: (create_mainwindow):
+	* src/boards/hanoi.c: (start_board), (hanoi_create_item),
+	(game_won), (item_event):
+	* src/boards/hanoi_real.c: (start_board), (hanoi_create_item),
+	(game_won), (item_event):
+	* src/boards/imageid.c: (start_board), (end_board),
+	(imageid_next_level), (imageid_create_item), (game_won),
+	(process_ok_timeout), (highlight_selected), (config_start):
+	* src/boards/leftright.c: (start_board), (end_board),
+	(leftright_next_level), (leftright_create_item), (game_won),
+	(process_ok_timeout):
+	* src/boards/machpuzzle.c: (minigolf_next_level), (game_won),
+	(minigolf_move):
+	* src/boards/magic_hat.c: (start_board), (process_ok), (finished),
+	(item_event):
+	* src/boards/maze.c: (start_board), (repeat), (maze_create_item),
+	(game_won), (draw_background), (twoDdisplay), (threeDdisplay):
+	* src/boards/memory.c: (start_board), (end_board), (create_item),
+	(player_win), (display_card), (check_win), (tux_play),
+	(sound_callback):
+	* src/boards/menu2.c: (menu_start), (menu_config),
+	(menu_create_item), (item_event), (set_content),
+	(create_info_area), (create_top), (display_welcome),
+	(menu_config_start):
+	* src/boards/missingletter.c: (start_board), (end_board),
+	(missing_letter_next_level), (missing_letter_create_item),
+	(game_won), (process_ok_timeout), (highlight_selected),
+	(config_start):
+	* src/boards/money.c: (money_next_level), (game_won), (process_ok):
+	* src/boards/money_widget.c: (money_widget_set_position):
+	* src/boards/paratrooper.c: (pause_board), (start_board),
+	(paratrooper_move_tux), (next_state):
+	* src/boards/planegame.c: (start_board), (end_board),
+	(planegame_next_level), (planegame_cloud_colision),
+	(planegame_create_item), (item_event):
+	* src/boards/py-mod-admin.c: (py_gc_board_config_start),
+	(py_gc_board_config_stop), (py_gc_db_profiles_list_get),
+	(py_gc_db_users_from_group_get), (py_gc_profile_set_current_user),
+	(py_gc_profile_get_current_user):
+	* src/boards/py-mod-bonus.c: (py_gc_bonus_display),
+	(py_gcompris_gc_bonus_end_display),
+	(python_gcompris_bonus_module_init):
+	* src/boards/py-mod-gcompris.c: (py_gc_set_background),
+	(py_gc_get_canvas), (py_gc_get_window), (py_gc_menu_section_get),
+	(py_gc_profile_get_current), (py_gc_profile_get_current_user),
+	(py_gc_board_config_window_display), (py_gcompris_textview),
+	(py_gc_profile_get_current_user_dirname), (py_gc_im_reset),
+	(python_gcompris_module_init):
+	* src/boards/py-mod-score.c: (py_gc_score_start),
+	(py_gc_score_end), (py_gc_score_set),
+	(python_gc_score_module_init):
+	* src/boards/py-mod-score.h:
+	* src/boards/py-mod-skin.c: (py_gc_skin_image_get),
+	(py_gc_skin_pixmap_load), (py_gc_skin_get_color_default),
+	(py_gc_skin_get_font_default), (py_gc_skin_get_color),
+	(py_gc_skin_get_font), (python_gc_skin_module_init):
+	* src/boards/py-mod-skin.h:
+	* src/boards/py-mod-sound.c: (py_gc_sound_play_ogg_list),
+	(py_gc_sound_play_ogg), (py_gc_sound_reopen), (py_gc_sound_close),
+	(py_gc_sound_pause), (py_gc_sound_resume),
+	(py_gc_sound_play_ogg_cb):
+	* src/boards/py-mod-timer.c: (py_gc_timer_display),
+	(py_gc_timer_add), (py_gc_timer_end), (py_gc_timer_get_remaining),
+	(py_gc_timer_pause), (python_gc_timer_module_init):
+	* src/boards/py-mod-timer.h:
+	* src/boards/python.c: (pythongc_board_config_start),
+	(pythongc_board_config_stop):
+	* src/boards/railroad.c: (start_board), (end_board),
+	(railroad_next_level), (game_won), (process_ok), (animate_model):
+	* src/boards/read_colors.c: (start_board), (end_board),
+	(read_colors_next_level), (game_won), (process_ok_timeout):
+	* src/boards/reading.c: (start_board), (display_what_to_do),
+	(reading_create_item), (ask_ready), (ask_yes_no), (player_win),
+	(player_loose), (reading_config_start):
+	* src/boards/reversecount.c: (pause_board), (process_error),
+	(reversecount_next_level), (reversecount_destroy_all_items),
+	(game_won), (animate_tux):
+	* src/boards/shapegame.c: (start_board), (increment_sublevel),
+	(process_ok), (shapegame_init_canvas),
+	(add_shape_to_list_of_shapes), (shape_goes_back_to_list),
+	(item_event), (item_event_edition), (create_title),
+	(add_xml_shape_to_data), (config_start):
+	* src/boards/smallnumbers.c: (start_board), (end_board),
+	(smallnumbers_next_level), (smallnumbers_create_item),
+	(player_win), (player_loose), (smallnumber_config_start):
+	* src/boards/submarine.c: (start_board), (submarine_create_item),
+	(update_timeout_slow), (game_won), (ok_timeout),
+	(submarine_explosion):
+	* src/boards/superbrain.c: (process_ok), (superbrain_next_level),
+	(game_won):
+	* src/boards/target.c: (start_board), (display_windspeed),
+	(target_create_item), (game_won), (process_ok), (request_score):
+	* src/boards/traffic.c: (start_board), (end_board),
+	(traffic_next_level), (game_won), (car_cb):
+	* src/boards/wordprocessor.c: (start_board),
+	(display_style_buttons):
+	* src/boards/wordsgame.c: (start_board), (end_board), (key_press),
+	(wordsgame_next_level), (wordsgame_create_item), (player_win),
+	(player_loose):
+	* src/gcompris/about.c: (gc_about_start), (move_plane):
+	* src/gcompris/anim.c: (gc_anim_load), (gc_anim_activate),
+	(gc_anim_swap), (gc_anim_deactivate), (gc_anim_free),
+	(gc_anim_set_state), (anim_tick):
+	* src/gcompris/bar.c: (gc_bar_start), (gc_bar_set_level),
+	(gc_bar_set), (update_exit_button), (bar_play_sound),
+	(item_event_bar):
+	* src/gcompris/board.c: (gc_board_get_current_board_plugin),
+	(gc_board_get_current), (gc_board_set_current), (board_play),
+	(board_pause), (board_stop), (board_run_next_end),
+	(board_run_next):
+	* src/gcompris/board.h:
+	* src/gcompris/board_config.c: (gc_board_config_start),
+	(gc_board_config_stop), (check_key), (gc_board_conf_close),
+	(_response_board_conf), (_conf_window_configured),
+	(gc_board_config_window_display),
+	(gc_board_conf_boolean_box_toggled), (gcompris_boolean_box),
+	(create_radio_buttons), (destroy_hash), (gcompris_radio_buttons),
+	(spin_changed), (gcompris_spin_int), (gcompris_separator),
+	(gcompris_textview_yes), (gcompris_textview):
+	* src/gcompris/board_config.h:
+	* src/gcompris/bonus.c: (end_gc_bonus_end_display),
+	(gc_bonus_end_display), (gc_bonus_display), (bonus_image),
+	(end_bonus):
+	* src/gcompris/bonus.h:
+	* src/gcompris/config.c: (gc_config_start), (gc_config_stop),
+	(gc_locale_get_name), (display_previous_next), (set_locale_flag),
+	(get_next_locale), (get_previous_locale), (item_event_ok):
+	* src/gcompris/dialog.c: (gc_dialog):
+	* src/gcompris/file_selector.c: (gc_selector_file_stop),
+	(display_file_selector), (display_files):
+	* src/gcompris/gameutil.c: (gc_difficulty_display),
+	(gc_file_find_absolute), (gc_util_create_rootdir):
+	* src/gcompris/gameutil.h:
+	* src/gcompris/gc_core.h:
+	* src/gcompris/gcompris.c: (gc_close_all_dialog),
+	(board_widget_key_press_callback), (gc_get_canvas),
+	(gc_get_window), (gc_set_background), (setup_window),
+	(gc_board_end), (gc_canvas_item_grab), (gc_canvas_item_ungrab),
+	(cleanup), (gc_terminate), (load_properties), (gc_locale_get),
+	(gc_locale_get_user_default), (gc_locale_set), (gc_log_handler),
+	(gc_init):
+	* src/gcompris/gcompris.h:
+	* src/gcompris/gcompris_alphabeta.c: (gc_alphabeta):
+	* src/gcompris/gcompris_alphabeta.h:
+	* src/gcompris/gcompris_config.h:
+	* src/gcompris/gcompris_confirm.c: (gc_confirm_box_stop),
+	(display_confirm), (set_content):
+	* src/gcompris/gcompris_db.c: (gc_db_init), (gc_db_exit),
+	(gc_db_set_date), (gc_db_set_version), (gc_db_check_boards),
+	(gc_db_board_update), (gc_db_read_board_from_section),
+	(gc_db_get_board_id), (gc_db_remove_board),
+	(gc_db_profile_from_name_get), (gc_db_get_profile),
+	(gc_db_users_from_group_get), (gc_db_conf_with_table_get),
+	(gcompris_get_conf), (gcompris_get_board_conf),
+	(gc_db_profiles_list_get), (gcompris_get_group_from_id),
+	(gcompris_get_groups_list), (gc_db_is_activity_in_profile):
+	* src/gcompris/gcompris_db.h:
+	* src/gcompris/gcompris_files.c: (gcompris_get_user_dirname),
+	(gc_profile_get_current_user_dirname),
+	(gcompris_get_board_dirname), (gcompris_get_current_board_dirname):
+	* src/gcompris/gcompris_files.h:
+	* src/gcompris/gcompris_im.c: (gc_im_init), (gc_im_reset),
+	(im_context_commit_callback), (im_context_preedit_callback),
+	(window_focus_callback):
+	* src/gcompris/gcompris_im.h:
+	* src/gcompris/help.c: (gc_help_start), (select_item):
+	* src/gcompris/images_selector.c: (gc_selector_images_start),
+	(gc_selector_images_stop):
+	* src/gcompris/log.c: (gc_log_end):
+	* src/gcompris/main.c: (main):
+	* src/gcompris/menu.c: (_add_xml_to_data), (gc_menu_section_get),
+	(boardlist_compare_func), (gc_menu_has_activity),
+	(gc_menu_getlist), (gc_menu_load_dir), (gc_menu_load):
+	* src/gcompris/profile.c: (gc_profile_get_current),
+	(gc_profile_set_current_user), (gc_profile_get_current_user):
+	* src/gcompris/profile.h:
+	* src/gcompris/properties.c: (scan_get_int), (scan_get_string),
+	(gc_prop_user_root_directory_get), (gc_prop_config_file_get),
+	(gc_prop_default_database_name_get), (gc_prop_new),
+	(gc_prop_destroy), (gc_prop_save), (gc_setenv):
+	* src/gcompris/properties.h:
+	* src/gcompris/score.c: (gc_score_start), (gc_score_end),
+	(gc_score_set), (display_number):
+	* src/gcompris/score.h:
+	* src/gcompris/skin.c: (gc_skin_image_get), (gc_skin_pixmap_load),
+	(gc_skin_free_string), (gc_skin_setup_vars),
+	(gc_skin_str_to_color), (skin_xml_load), (gc_skin_load),
+	(gc_skin_free), (gc_skin_get_color_default),
+	(gc_skin_get_gdkcolor_default), (gc_skin_get_font_default),
+	(gc_skin_get_number_default):
+	* src/gcompris/skin.h:
+	* src/gcompris/soundutil.c: (gc_sound_init), (gc_sound_close),
+	(gc_sound_reopen), (gc_sound_pause), (gc_sound_resume),
+	(gc_sound_policy_set), (gc_sound_policy_get), (scheduler_bgnd),
+	(scheduler), (thread_play_ogg), (get_next_sound_to_play),
+	(gc_sound_play_ogg_cb), (gc_sound_play_ogg),
+	(gc_sound_play_ogg_list), (gc_sound_alphabet), (gc_sound_callback),
+	(gc_sound_instance_init), (gc_sound_class_init),
+	(gc_sound_get_type):
+	* src/gcompris/soundutil.h:
+	* src/gcompris/timer.c: (gc_timer_display), (gc_timer_add),
+	(gc_timer_end), (gc_timer_pause), (gc_timer_get_remaining),
+	(start_animation), (display_time_ellapsed), (subtimer_increment),
+	(timer_increment):
+	* src/gcompris/timer.h:
+
 2006-08-23  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	- fixed bug#352350 Some typos in the PO file

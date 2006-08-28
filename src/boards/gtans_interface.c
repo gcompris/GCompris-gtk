@@ -97,9 +97,9 @@ void create_mainwindow (GnomeCanvasGroup *rootitem)
   GnomeCanvasItem *previous_figure, *next_figure;
   GnomeCanvasItem *show_figure, *outline_figure, *symetry;
 
-  pixmap_l = gcompris_load_skin_pixmap("button_backward.png");
+  pixmap_l = gc_skin_pixmap_load("button_backward.png");
 
-  pixmap_r = gcompris_load_skin_pixmap("button_forward.png");
+  pixmap_r = gc_skin_pixmap_load("button_forward.png");
 
   previous_figure = gnome_canvas_item_new (rootitem,
 					   gnome_canvas_pixbuf_get_type (),
@@ -170,7 +170,7 @@ void create_mainwindow (GnomeCanvasGroup *rootitem)
 		     (GtkSignalFunc) gc_item_focus_event,
 		     NULL);
 
-  pixmap_symetry = gcompris_load_skin_pixmap("draw/tool-flip.png");
+  pixmap_symetry = gc_skin_pixmap_load("draw/tool-flip.png");
 
       
   symetry = gnome_canvas_item_new (rootitem,

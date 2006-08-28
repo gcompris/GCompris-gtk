@@ -153,7 +153,7 @@ static void pause_board (gboolean pause)
 	{
 	  gcomprisBoard->level++;
 	  if(gcomprisBoard->level>gcomprisBoard->maxlevel) { // the current board is finished : bail out
-	    board_finished(BOARD_FINISHED_RANDOM);
+	    gc_bonus_end_display(BOARD_FINISHED_RANDOM);
 	    return;
 	  }
 	  printf("paratrooper pause start next level\n");
@@ -184,7 +184,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       /* disable im_context */
       gcomprisBoard->disable_im_context = TRUE;
 
-      gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas), "images/scenery3_background.png");
+      gc_set_background(gnome_canvas_root(gcomprisBoard->canvas), "images/scenery3_background.png");
 
 
       /* set initial values for this level */
@@ -573,7 +573,7 @@ static gint paratrooper_move_tux (GtkWidget *widget, gpointer data)
 	{
 	  gnome_canvas_item_hide(paratrooperItem.parachute);
 	  paratrooperItem.status = TUX_LANDED;
-	  gcompris_play_ogg ("sounds/bonus.ogg", NULL);
+	  gc_sound_play_ogg ("sounds/bonus.ogg", NULL);
 	  next_state();
 	}
       else
@@ -585,7 +585,7 @@ static gint paratrooper_move_tux (GtkWidget *widget, gpointer data)
 	    {
 	      gnome_canvas_item_hide(paratrooperItem.parachute);
 	      paratrooperItem.status = TUX_CRASHED;
-	      gcompris_play_ogg ("sounds/crash.ogg", NULL);
+	      gc_sound_play_ogg ("sounds/crash.ogg", NULL);
 	      next_state();
 	    }
 	}
@@ -693,7 +693,7 @@ void next_state()
       break;
     case TUX_LANDED:
       gamewon = TRUE;
-      gcompris_display_bonus(gamewon, BONUS_TUX);
+      gc_bonus_display(gamewon, BONUS_TUX);
       break;
     case TUX_CRASHED:
       /* Restart */

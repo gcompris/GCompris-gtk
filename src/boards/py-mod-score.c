@@ -9,21 +9,21 @@
  * "*" C function.
  */
 
-/* void gcompris_score_start (ScoreStyleList style, guint x, guint y, guint max); */
+/* void gc_score_start (ScoreStyleList style, guint x, guint y, guint max); */
 static PyObject*
-py_gcompris_score_start(PyObject* self, PyObject* args)
+py_gc_score_start(PyObject* self, PyObject* args)
 {
   int style;
   int x,y;
   guint max;
 
   /* Parse arguments */
-  if(!PyArg_ParseTuple(args, "iiii:gcompris_score_start", &style, &x, &y, &max))
+  if(!PyArg_ParseTuple(args, "iiii:gc_score_start", &style, &x, &y, &max))
     return NULL;
   if(max<0) return NULL;
 
   /* Call the corresponding C function */
-  gcompris_score_start(style, x, y, max);
+  gc_score_start(style, x, y, max);
 
   /* Create and return the result */
   Py_INCREF(Py_None);
@@ -31,16 +31,16 @@ py_gcompris_score_start(PyObject* self, PyObject* args)
 }
 
 
-/* void gcompris_score_end(); */
+/* void gc_score_end(); */
 static PyObject*
-py_gcompris_score_end(PyObject* self, PyObject* args)
+py_gc_score_end(PyObject* self, PyObject* args)
 {
   /* Parse arguments */
-  if(!PyArg_ParseTuple(args, ":gcompris_score_end"))
+  if(!PyArg_ParseTuple(args, ":gc_score_end"))
     return NULL;
 
   /* Call the corresponding C function */
-  gcompris_score_end();
+  gc_score_end();
 
   /* Create and return the result */
   Py_INCREF(Py_None);
@@ -48,19 +48,19 @@ py_gcompris_score_end(PyObject* self, PyObject* args)
 }
 
 
-/* void gcompris_score_set(guint value); */
+/* void gc_score_set(guint value); */
 static PyObject*
-py_gcompris_score_set(PyObject* self, PyObject* args)
+py_gc_score_set(PyObject* self, PyObject* args)
 {
   guint value;
 
   /* Parse arguments */
-  if(!PyArg_ParseTuple(args, "i:gcompris_score_set", &value))
+  if(!PyArg_ParseTuple(args, "i:gc_score_set", &value))
     return NULL;
   if(value<0) return NULL;
 
   /* Call the corresponding C function */
-  gcompris_score_set(value);
+  gc_score_set(value);
 
   /* Create and return the result */
   Py_INCREF(Py_None);
@@ -69,13 +69,13 @@ py_gcompris_score_set(PyObject* self, PyObject* args)
 
 
 static PyMethodDef PythonGcomprisScoreModule[] = {
-  { "start",  py_gcompris_score_start, METH_VARARGS, "gcompris_score_start" },
-  { "end",  py_gcompris_score_end, METH_VARARGS, "gcompris_score_end" },
-  { "set",  py_gcompris_score_set, METH_VARARGS, "gcompris_score_set" },
+  { "start",  py_gc_score_start, METH_VARARGS, "gc_score_start" },
+  { "end",  py_gc_score_end, METH_VARARGS, "gc_score_end" },
+  { "set",  py_gc_score_set, METH_VARARGS, "gc_score_set" },
   { NULL, NULL, 0, NULL}
 };
 
-void python_gcompris_score_module_init(void)
+void python_gc_score_module_init(void)
 {
   PyObject* module;
   module = Py_InitModule("_gcompris_score", PythonGcomprisScoreModule);
@@ -83,7 +83,6 @@ void python_gcompris_score_module_init(void)
   /* Misc constants */
   PyModule_AddIntConstant(module, "STYLE_NOTE", SCORESTYLE_NOTE ); 
   PyModule_AddIntConstant(module, "STYLE_LIFE", SCORESTYLE_LIFE ); 
-  PyModule_AddIntConstant(module, "LAST", SCORE_LAST ); 
 }
 
 /* Some usefull code parts ... */

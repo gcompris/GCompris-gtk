@@ -21,7 +21,7 @@
 
 #include "gcompris.h"
 
-/* gcompris_alphabeta returns the best value of evaluation functions */
+/* gc_alphabeta returns the best value of evaluation functions */
 /* set the bestChild to the index of child with this value */
 /* maximize : TRUE if depth is maximize one, neither FALSE. */
 /* treeGame : pointer on game to pass to others functions, */
@@ -31,7 +31,7 @@
 /* nextSibling : return pointer on next sibling of a node. */
 /* heuristic : evaluation function of game. */
 /* depth is max depth of recursion */
-gint gcompris_alphabeta (gboolean maximize,
+gint gc_alphabeta (gboolean maximize,
 			 gpointer treeGame,
 			 EvalFunction heuristic,
 			 gint *bestChild,
@@ -51,11 +51,11 @@ gint gcompris_alphabeta (gboolean maximize,
 
   *bestChild = -1;
 
-/*   g_warning("gcompris_alphabeta %d %d %d", depth, alpha, beta); */
+/*   g_warning("gc_alphabeta %d %d %d", depth, alpha, beta); */
   
   /* directly return value for leaf node*/
   if ((!child) || (depth == 0)){
-/*     g_warning("gcompris_alphabeta %d returns %d bestChild %d", depth, heuristic(treeGame), *bestChild); */
+/*     g_warning("gc_alphabeta %d returns %d bestChild %d", depth, heuristic(treeGame), *bestChild); */
     return heuristic(treeGame);
   }
 
@@ -64,7 +64,7 @@ gint gcompris_alphabeta (gboolean maximize,
   if (maximize) {
     m = alpha;
     while (child){
-      t = gcompris_alphabeta (!maximize,
+      t = gc_alphabeta (!maximize,
 			      child,
 			      heuristic,
 			      &nextBest,
@@ -79,20 +79,20 @@ gint gcompris_alphabeta (gboolean maximize,
 	*bestChild = index;
       }
       if ( m >= beta){
-/* 	g_warning("gcompris_alphabeta %d returns %d bestChild %d", depth, heuristic(treeGame), *bestChild); */
+/* 	g_warning("gc_alphabeta %d returns %d bestChild %d", depth, heuristic(treeGame), *bestChild); */
 	return m;
       }
       index++;
       child = nextSibling(child);
     }
-/*     g_warning("gcompris_alphabeta %d returns %d bestChild %d", depth, heuristic(treeGame), *bestChild); */
+/*     g_warning("gc_alphabeta %d returns %d bestChild %d", depth, heuristic(treeGame), *bestChild); */
     return m;
   }
   else {
     /* minimize */
     m = beta;
     while (child){
-      t = gcompris_alphabeta (!maximize,
+      t = gc_alphabeta (!maximize,
 			      child,
 			      heuristic,
 			      &nextBest,
@@ -107,13 +107,13 @@ gint gcompris_alphabeta (gboolean maximize,
 	*bestChild = index;
       }
       if ( m <= alpha){
-/* 	g_warning("gcompris_alphabeta %d returns %d bestChild %d", depth, heuristic(treeGame), *bestChild); */
+/* 	g_warning("gc_alphabeta %d returns %d bestChild %d", depth, heuristic(treeGame), *bestChild); */
 	return m;
       }
       index++;
       child = nextSibling(child);
     }
-/* 	g_warning("gcompris_alphabeta %d returns %d bestChild %d", depth, heuristic(treeGame), *bestChild); */
+/* 	g_warning("gc_alphabeta %d returns %d bestChild %d", depth, heuristic(treeGame), *bestChild); */
     return m;
 
   }

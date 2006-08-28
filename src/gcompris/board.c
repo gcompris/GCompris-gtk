@@ -21,6 +21,7 @@
 #include <string.h>
 
 #include "gcompris.h"
+#include "gc_core.h"
 
 
 static struct BoardPluginData *bp_data;
@@ -175,7 +176,7 @@ void init_plugins(void)
 }
 #endif
 
-BoardPlugin *get_current_board_plugin(void)
+BoardPlugin *gc_board_get_current_board_plugin(void)
 {
   if(bp_data->current_gcompris_board)
     return bp_data->current_gcompris_board->plugin;
@@ -183,12 +184,12 @@ BoardPlugin *get_current_board_plugin(void)
   return NULL;
 }
 
-GcomprisBoard *get_current_gcompris_board(void)
+GcomprisBoard *gc_board_get_current(void)
 {
   return bp_data->current_gcompris_board;
 }
 
-void set_current_gcompris_board(GcomprisBoard * gcomprisBoard)
+void gc_board_set_current(GcomprisBoard * gcomprisBoard)
 {
   bp_data->current_gcompris_board = gcomprisBoard;
 }
@@ -341,7 +342,7 @@ void board_play(GcomprisBoard *gcomprisBoard)
       gc_log_start(gcomprisBoard);
 
       bp = gcomprisBoard->plugin;
-      set_current_gcompris_board(gcomprisBoard);
+      gc_board_set_current(gcomprisBoard);
       
       bp->start_board(gcomprisBoard);
       bp_data->playing = TRUE;
@@ -356,21 +357,21 @@ void board_play(GcomprisBoard *gcomprisBoard)
 
 void board_pause(int pause)
 {
-  if (get_board_playing() && get_current_board_plugin())
+  if (get_board_playing() && gc_board_get_current_board_plugin())
     {
-      if(get_current_board_plugin()->pause_board)
-	get_current_board_plugin()->pause_board(pause);
+      if(gc_board_get_current_board_plugin()->pause_board)
+	gc_board_get_current_board_plugin()->pause_board(pause);
     }
 }
 
 void board_stop(void)
 {
-  if (bp_data->playing && get_current_board_plugin())
+  if (bp_data->playing && gc_board_get_current_board_plugin())
     {
       bp_data->playing = FALSE;
       
-      if (get_current_board_plugin()->end_board)
-	get_current_board_plugin()->end_board();
+      if (gc_board_get_current_board_plugin()->end_board)
+	gc_board_get_current_board_plugin()->end_board();
 
       gc_board_end();
       
@@ -399,7 +400,7 @@ void board_run_next_end()
     next_board->previous_board->plugin->end_board();
 
   /* reset the im context */
-  gcompris_im_reset();
+  gc_im_reset();
 
   /*run the board */
   board_play(next_board);
@@ -407,7 +408,7 @@ void board_run_next_end()
 
 void board_run_next(GcomprisBoard *board)
 {
-  board->previous_board = get_current_gcompris_board();
+  board->previous_board = gc_board_get_current();
 
   next_board = board;
 

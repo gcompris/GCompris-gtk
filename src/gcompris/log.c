@@ -1,4 +1,4 @@
-/* gcompris - reporting.c
+/* gcompris - log.c
  *
  * Time-stamp: <2003/10/29 18:55:55 bcoudoin>
  *
@@ -166,7 +166,7 @@ void gc_log_end (GcomprisBoard *gcomprisBoard, gchar *status) {
 
   struct tm *tp;
 
-  GcomprisUser *gcomprisUser = gcompris_get_current_user();
+  GcomprisUser *gcomprisUser = gc_profile_get_current_user();
   const char *username = g_get_user_name();
 
   if(gcomprisBoard_set != gcomprisBoard)

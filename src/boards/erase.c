@@ -175,7 +175,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       gcomprisBoard->maxlevel=6;
       gcomprisBoard->sublevel=1;
       gcomprisBoard->number_of_sublevel=10; /* Go to next level after this number of 'play' */
-      gcompris_score_start(SCORESTYLE_NOTE, 
+      gc_score_start(SCORESTYLE_NOTE, 
 			   gcomprisBoard->width - 220, 
 			   gcomprisBoard->height - 50, 
 			   gcomprisBoard->number_of_sublevel);
@@ -225,7 +225,7 @@ static void end_board ()
   if(gcomprisBoard!=NULL)
     {
       pause_board(TRUE);
-      gcompris_score_end();
+      gc_score_end();
       erase_destroy_all_items();
     }
   gcomprisBoard = NULL;
@@ -271,7 +271,7 @@ static void erase_next_level()
 {
   int layers = 1;
 
-  gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas),
+  gc_set_background(gnome_canvas_root(gcomprisBoard->canvas),
 			  imageList[current_image++]);
 
   if(current_image>NUMBER_OF_IMAGES)
@@ -304,7 +304,7 @@ static void erase_next_level()
   /* Try the next level */
   erase_create_item(layers);
 
-  gcompris_score_set(gcomprisBoard->sublevel);
+  gc_score_set(gcomprisBoard->sublevel);
 
 }
   
@@ -395,12 +395,12 @@ static GnomeCanvasItem *erase_create_item(int layer)
 }
 
 static void bonus() {
-  gcompris_display_bonus(gamewon, BONUS_SMILEY);
+  gc_bonus_display(gamewon, BONUS_SMILEY);
   timer_id = 0;
 }
 
 static void finished() {
-  board_finished(BOARD_FINISHED_RANDOM);
+  gc_bonus_end_display(BOARD_FINISHED_RANDOM);
   timer_id = 0;
 }
 
@@ -408,7 +408,7 @@ static void finished() {
 static void game_won()
 {
   gcomprisBoard->sublevel++;
-  gcompris_score_set(gcomprisBoard->sublevel);
+  gc_score_set(gcomprisBoard->sublevel);
 
   if(gcomprisBoard->sublevel>gcomprisBoard->number_of_sublevel) {
     /* Try the next level */
@@ -424,7 +424,7 @@ static void game_won()
       g_warning("Double click value is now %d.", DoubleClicLevel[gcomprisBoard->level-1]);
     }
 
-    gcompris_play_ogg ("sounds/bonus.ogg", NULL);
+    gc_sound_play_ogg ("sounds/bonus.ogg", NULL);
   }
   erase_next_level();
 }

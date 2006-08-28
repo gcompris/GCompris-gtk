@@ -26,15 +26,15 @@
 /** Return the current profile or NULL if sqlite not activated
  *
  */
-GcomprisProfile
-*gcompris_get_current_profile()
+GcomprisProfile*
+gc_profile_get_current()
 {
   GcomprisProperties	*properties = gc_prop_get();
 
   if (properties->profile)
     return properties->profile;
 
-  properties->profile = gcompris_db_get_profile();
+  properties->profile = gc_db_get_profile();
 
   return properties->profile;
 
@@ -42,7 +42,7 @@ GcomprisProfile
 
 
 void
-gcompris_set_current_user(GcomprisUser *user)
+gc_profile_set_current_user(GcomprisUser *user)
 {
   GcomprisProperties	*properties = gc_prop_get();
 
@@ -80,7 +80,8 @@ gcompris_set_current_user(GcomprisUser *user)
 }
 
 
-GcomprisUser            *gcompris_get_current_user()
+GcomprisUser*
+gc_profile_get_current_user()
 {
   GcomprisProperties	*properties = gc_prop_get();
   return properties->logged_user;

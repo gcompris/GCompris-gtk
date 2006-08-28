@@ -162,8 +162,8 @@ static void fifteen_next_level()
 {
   gchar *img;
 
-  img = gcompris_image_to_skin("gcompris-bg.jpg");
-  gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas),
+  img = gc_skin_image_get("gcompris-bg.jpg");
+  gc_set_background(gnome_canvas_root(gcomprisBoard->canvas),
 			  img);
   g_free(img);
 
@@ -249,7 +249,7 @@ static GnomeCanvasItem *fifteen_create_item(GnomeCanvasGroup *parent)
 				  "text", buf,
 				  "x", (double) PIECE_SIZE / 2.0,
 				  "y", (double) PIECE_SIZE / 2.0,
-				  "font", gcompris_skin_font_board_medium,
+				  "font", gc_skin_font_board_medium,
 				  "anchor", GTK_ANCHOR_CENTER,
 				  "fill_color", "black",
 				  NULL);
@@ -296,10 +296,10 @@ static void game_won()
     gcomprisBoard->sublevel=1;
     gcomprisBoard->level++;
     if(gcomprisBoard->level>gcomprisBoard->maxlevel) { // the current board is finished : bail out
-      board_finished(BOARD_FINISHED_RANDOM);
+      gc_bonus_end_display(BOARD_FINISHED_RANDOM);
       return;
     }
-    gcompris_play_ogg ("sounds/bonus.ogg", NULL);
+    gc_sound_play_ogg ("sounds/bonus.ogg", NULL);
   }
   fifteen_next_level();
 }
@@ -326,7 +326,7 @@ test_win (GnomeCanvasItem **board)
 
   gamewon = TRUE;
   fifteen_destroy_all_items();
-  gcompris_display_bonus(gamewon, BONUS_SMILEY);
+  gc_bonus_display(gamewon, BONUS_SMILEY);
 
 }
 

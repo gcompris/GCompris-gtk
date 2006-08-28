@@ -139,7 +139,7 @@ start_board (GcomprisBoard * agcomprisBoard)
 		gcomprisBoard->number_of_sublevel = 1;	/* Go to next level after
 							 * this number of 'play' */
 
-		str = gcompris_image_to_skin("button_reload.png");
+		str = gc_skin_image_get("button_reload.png");
 		pixmap = gc_pixmap_load(str);
 		g_free(str);
 		if(pixmap) {
@@ -240,8 +240,8 @@ awele_next_level ()
 {
         gchar *img;
 
-	img = gcompris_image_to_skin ("gcompris-bg.jpg");
-	gcompris_set_background (gnome_canvas_root (gcomprisBoard->canvas),
+	img = gc_skin_image_get ("gcompris-bg.jpg");
+	gc_set_background (gnome_canvas_root (gcomprisBoard->canvas),
 				 img);
 	g_free(img);
 
@@ -350,21 +350,21 @@ awele_create_item (GnomeCanvasGroup * parent)
 	  gnome_canvas_item_new (boardRootItem,
 				 gnome_canvas_text_get_type (),
 				 "text", _("NORTH"),
-				 "font", gcompris_skin_font_board_medium,
+				 "font", gc_skin_font_board_medium,
 				 "x", (double) x + 1,
 				 "y", (double) y + 1,
 				 "anchor", GTK_ANCHOR_CENTER,
-				 "fill_color_rgba", gcompris_skin_color_shadow,
+				 "fill_color_rgba", gc_skin_color_shadow,
 				 NULL);
 
 	  gnome_canvas_item_new (boardRootItem,
 				 gnome_canvas_text_get_type (),
 				 "text", _("NORTH"),
-				 "font", gcompris_skin_font_board_medium,
+				 "font", gc_skin_font_board_medium,
 				 "x", (double) x,
 				 "y", (double) y,
 				 "anchor", GTK_ANCHOR_CENTER,
-				 "fill_color_rgba", gcompris_skin_color_text_button,
+				 "fill_color_rgba", gc_skin_color_text_button,
 				 NULL);
 
 	  x = 765;
@@ -372,21 +372,21 @@ awele_create_item (GnomeCanvasGroup * parent)
 	  gnome_canvas_item_new (boardRootItem,
 				 gnome_canvas_text_get_type (),
 				 "text", _("SOUTH"),
-				 "font", gcompris_skin_font_board_medium,
+				 "font", gc_skin_font_board_medium,
 				 "x", (double) x + 1,
 				 "y", (double) y + 1,
 				 "anchor", GTK_ANCHOR_CENTER,
-				 "fill_color_rgba", gcompris_skin_color_shadow,
+				 "fill_color_rgba", gc_skin_color_shadow,
 				 NULL);
 
 	  gnome_canvas_item_new (boardRootItem,
 				 gnome_canvas_text_get_type (),
 				 "text", _("SOUTH"),
-				 "font", gcompris_skin_font_board_medium,
+				 "font", gc_skin_font_board_medium,
 				 "x", (double) x,
 				 "y", (double) y,
 				 "anchor", GTK_ANCHOR_CENTER,
-				 "fill_color_rgba", gcompris_skin_color_text_button,
+				 "fill_color_rgba", gc_skin_color_text_button,
 				 NULL);
 
 	}
@@ -587,7 +587,7 @@ game_won ()
 			// finished 
 			// : bail
 			// out
-	    board_finished (BOARD_FINISHED_RANDOM);
+	    gc_bonus_end_display (BOARD_FINISHED_RANDOM);
 	    return;
 	  }
 	
@@ -684,7 +684,7 @@ static gboolean  to_computer(gpointer data)
       /* Human player win by catching all the beans left. */
       gamewon = TRUE;
       sublevel_finished = TRUE;
-      gcompris_display_bonus(TRUE, BONUS_FLOWER);
+      gc_bonus_display(TRUE, BONUS_FLOWER);
     }
   } else {
     /* computer can't play. Why? human is hungry and i cannot give it 
@@ -693,7 +693,7 @@ static gboolean  to_computer(gpointer data)
     /* if not, all staying are captured by computer and computer win */
     gamewon = TRUE;
     sublevel_finished = (staticAwale->CapturedBeans[HUMAN] ==  24);
-    gcompris_display_bonus(sublevel_finished, BONUS_FLOWER);
+    gc_bonus_display(sublevel_finished, BONUS_FLOWER);
   }
   
   timeout = 0;
@@ -903,7 +903,7 @@ updateCapturedBeans ()
  		  { 
  		    gamewon = TRUE;
 		    sublevel_finished = (i==0);
- 		    gcompris_display_bonus(sublevel_finished, BONUS_FLOWER);
+ 		    gc_bonus_display(sublevel_finished, BONUS_FLOWER);
  		  } 
 	}
 }

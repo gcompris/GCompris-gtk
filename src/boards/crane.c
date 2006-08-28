@@ -204,8 +204,8 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 	gcomprisBoard->number_of_sublevel = 1; /* Go to next level after this number of 'play' */
 	gc_bar_set(GC_BAR_LEVEL);
 
-	img = gcompris_image_to_skin("gcompris-bg.jpg");
-	gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas),
+	img = gc_skin_image_get("gcompris-bg.jpg");
+	gc_set_background(gnome_canvas_root(gcomprisBoard->canvas),
 				img);
 	g_free(img);
 
@@ -345,15 +345,15 @@ static GnomeCanvasItem *crane_create_item()
 // Display an happy face for end of level
 static void bonus() {
 
-  gcompris_display_bonus(gamewon, BONUS_SMILEY);
-  gcompris_play_ogg ("sounds/bonus.ogg", NULL);
+  gc_bonus_display(gamewon, BONUS_SMILEY);
+  gc_sound_play_ogg ("sounds/bonus.ogg", NULL);
   timer_id = 0;
 }
 
 // Display a 'end of game' animation
 static void finished() {
 
-  board_finished(BOARD_FINISHED_RANDOM);
+  gc_bonus_end_display(BOARD_FINISHED_RANDOM);
   timer_id = 0;
 }
 
@@ -736,7 +736,7 @@ static void select_item(GnomeCanvasItem *item, int sound) {
 			 "points", crane_rope,
 			 NULL);
 
-  if (sound) gcompris_play_ogg ("sounds/gobble.ogg", NULL);
+  if (sound) gc_sound_play_ogg ("sounds/gobble.ogg", NULL);
 
   selected_item = item;
 }

@@ -49,7 +49,8 @@ static void display_number(GnomeCanvasGroup *parent,
 /*
  * Do all the score display
  */
-void gcompris_score_start (ScoreStyleList style, guint gx, guint gy, guint gmax)
+void
+gc_score_start (ScoreStyleList style, guint gx, guint gy, guint gmax)
 {
 
   currentStyle = style;
@@ -67,7 +68,8 @@ void gcompris_score_start (ScoreStyleList style, guint gx, guint gy, guint gmax)
 }
 
 
-void gcompris_score_end()
+void
+gc_score_end()
 {
   if(boardRootItem!=NULL)
     gtk_object_destroy (GTK_OBJECT(boardRootItem));
@@ -75,7 +77,8 @@ void gcompris_score_end()
   boardRootItem=NULL;
 }
 
-void gcompris_score_set(guint value)
+void
+gc_score_set(guint value)
 {
 
   if(boardRootItem!=NULL)
@@ -83,7 +86,7 @@ void gcompris_score_set(guint value)
 
   boardRootItem = GNOME_CANVAS_GROUP(
 				     gnome_canvas_item_new (
-							    gnome_canvas_root(get_current_gcompris_board()->canvas),
+							    gnome_canvas_root(gc_board_get_current()->canvas),
 							    gnome_canvas_group_get_type (),
 							    "x", (double) x,
 							    "y", (double) y,
@@ -95,7 +98,7 @@ void gcompris_score_set(guint value)
       gchar *tmp;
       GdkPixbuf *button_pixmap = NULL;
 
-      button_pixmap = gcompris_load_skin_pixmap("button_large.png");
+      button_pixmap = gc_skin_pixmap_load("button_large.png");
       gnome_canvas_item_new (boardRootItem,
 			     gnome_canvas_pixbuf_get_type (),
 			     "pixbuf",  button_pixmap,
@@ -122,10 +125,11 @@ void gcompris_score_set(guint value)
 
 #define NUMBERSWIDTH       110
 
-static void display_number(GnomeCanvasGroup *parent, 
-			   guint x,
-			   guint y, 
-			   char *operand_str)
+static void
+display_number(GnomeCanvasGroup *parent, 
+	       guint x,
+	       guint y, 
+	       char *operand_str)
 {
 
   x -= NUMBERSWIDTH;
@@ -133,7 +137,7 @@ static void display_number(GnomeCanvasGroup *parent,
   gnome_canvas_item_new (parent,
 			 gnome_canvas_text_get_type (),
 			 "text", operand_str,
-			 "font", gcompris_skin_font_board_huge_bold,
+			 "font", gc_skin_font_board_huge_bold,
 			 "x", (double) x+2,
 			 "y", (double) y+2,
 			 "anchor", GTK_ANCHOR_CENTER,
@@ -142,7 +146,7 @@ static void display_number(GnomeCanvasGroup *parent,
   gnome_canvas_item_new (parent,
 			 gnome_canvas_text_get_type (),
 			 "text", operand_str,
-			 "font", gcompris_skin_font_board_huge_bold,
+			 "font", gc_skin_font_board_huge_bold,
 			 "x", (double) x,
 			 "y", (double) y,
 			 "anchor", GTK_ANCHOR_CENTER,

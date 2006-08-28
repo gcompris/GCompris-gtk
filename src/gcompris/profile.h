@@ -1,6 +1,6 @@
 /* gcompris - profile.h
  *
- * Time-stamp: <2006/08/11 17:30:14 bruno>
+ * Time-stamp: <2006/08/29 01:16:51 bruno>
  *
  * Copyright (C) 2005 Bruno Coudoin
  *
@@ -81,7 +81,7 @@ struct _GcomprisGroup {
 typedef struct _GcomprisGroup GcomprisGroup;
 
 /* find a group */
-GcomprisGroup         *gcompris_group_load(gint *group_id);
+GcomprisGroup         *gc_profile_group_load(gint *group_id);
 
 /*****************************************************************************/
 /* The following structure dsecribes a user */
@@ -137,19 +137,10 @@ typedef struct {
 
 
 /* active profil */
-GcomprisProfile     *gcompris_get_current_profile();
+GcomprisProfile     *gc_profile_get_current();
 
 /* list of Gcomprisusers */
-void                 gcompris_set_current_user(GcomprisUser *user);
-GcomprisUser        *gcompris_get_current_user();
+void                 gc_profile_set_current_user(GcomprisUser *user);
+GcomprisUser        *gc_profile_get_current_user();
 
 #endif
-
-
-/* Local Variables: */
-/* mode:c */
-/* eval:(load-library "time-stamp") */
-/* eval:(make-local-variable 'write-file-hooks) */
-/* eval:(add-hook 'write-file-hooks 'time-stamp) */
-/* eval:(setq time-stamp-format '(time-stamp-yyyy/mm/dd time-stamp-hh:mm:ss user-login-name)) */
-/* End: */

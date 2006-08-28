@@ -85,7 +85,7 @@ void		 gc_board_end(void);
 /* Control Bar methods */
 void		 gc_bar_start (GnomeCanvas *theCanvas);
 
-GnomeCanvasItem *gcompris_set_background(GnomeCanvasGroup *parent, gchar *file);
+GnomeCanvasItem *gc_set_background(GnomeCanvasGroup *parent, gchar *file);
 void		 gc_bar_set_level (GcomprisBoard *gcomprisBoard);
 void		 gc_bar_set_repeat_icon (GdkPixbuf *pixmap);
 
@@ -113,8 +113,8 @@ void		 gc_bar_set (const GComprisBarFlags flags);
 void		 gc_bar_hide (gboolean hide);
 
 /* General */
-GnomeCanvas     *gcompris_get_canvas(void);
-GtkWidget	*gcompris_get_window(void);
+GnomeCanvas     *gc_get_canvas(void);
+GtkWidget	*gc_get_window(void);
 
 const gchar	*gc_locale_get(void);
 void		 gc_locale_set(gchar *locale);
@@ -160,19 +160,15 @@ void		 gc_confirm_box_stop (void);
 
 /* Use these instead of the gnome_canvas ones for proper fullscreen mousegrab
    handling. */
-int		 gcompris_canvas_item_grab (GnomeCanvasItem *item, unsigned int event_mask,
+int		 gc_canvas_item_grab (GnomeCanvasItem *item, unsigned int event_mask,
 					    GdkCursor *cursor, guint32 etime);
-void		 gcompris_canvas_item_ungrab (GnomeCanvasItem *item, guint32 etime);
+void		 gc_canvas_item_ungrab (GnomeCanvasItem *item, guint32 etime);
 
 /* Trace Log */
 #define GCOMPRIS_LOG_STATUS_PASSED    "PASSED"
 #define GCOMPRIS_LOG_STATUS_FAILED    "FAILED"
 #define GCOMPRIS_LOG_STATUS_DRAW      "DRAW"
 #define GCOMPRIS_LOG_STATUS_COMPLETED "COMPLETED"
-
-/* gcompris internal only */
-void		 gc_log_start (GcomprisBoard *gcomprisBoard); 
-void		 gc_log_set_key (GcomprisBoard *gcomprisBoard, guint keyval);
 
 /* Use it to tell the teacher where the kid failed */
 void		 gc_log_set_comment (GcomprisBoard *gcomprisBoard, gchar *expected, gchar* got); 
@@ -182,7 +178,7 @@ void		 gc_log_end (GcomprisBoard *gcomprisBoard, gchar *status);
 
 /* For menu type activity */
 GList		*gc_menu_getlist(gchar *section);
-GcomprisBoard   *gcompris_get_board_from_section(gchar *section);
+GcomprisBoard   *gc_menu_section_get(gchar *section);
 GList           *gc_menu_get_boards();
 
 /*=========================================================*/

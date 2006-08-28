@@ -23,30 +23,30 @@
 #include <libxml/tree.h>
 #include <libxml/parser.h>
 
-GHashTable* gcompris_skin_fonts   = NULL;
-GHashTable* gcompris_skin_colors  = NULL;
-GHashTable* gcompris_skin_numbers = NULL;
+GHashTable* gc_skin_fonts   = NULL;
+GHashTable* gc_skin_colors  = NULL;
+GHashTable* gc_skin_numbers = NULL;
 
-guint32 gcompris_skin_color_title;
-guint32 gcompris_skin_color_text_button;
-guint32 gcompris_skin_color_content;
-guint32 gcompris_skin_color_subtitle;
-guint32 gcompris_skin_color_shadow;
+guint32 gc_skin_color_title;
+guint32 gc_skin_color_text_button;
+guint32 gc_skin_color_content;
+guint32 gc_skin_color_subtitle;
+guint32 gc_skin_color_shadow;
 
-gchar* gcompris_skin_font_title;
-gchar* gcompris_skin_font_subtitle;
-gchar* gcompris_skin_font_content;
+gchar* gc_skin_font_title;
+gchar* gc_skin_font_subtitle;
+gchar* gc_skin_font_content;
 
-gchar* gcompris_skin_font_board_tiny;
-gchar* gcompris_skin_font_board_small;
-gchar* gcompris_skin_font_board_medium;
-gchar* gcompris_skin_font_board_big;
-gchar* gcompris_skin_font_board_big_bold;
-gchar* gcompris_skin_font_board_fixed;
-gchar* gcompris_skin_font_board_title;
-gchar* gcompris_skin_font_board_title_bold;
-gchar* gcompris_skin_font_board_huge;
-gchar* gcompris_skin_font_board_huge_bold;
+gchar* gc_skin_font_board_tiny;
+gchar* gc_skin_font_board_small;
+gchar* gc_skin_font_board_medium;
+gchar* gc_skin_font_board_big;
+gchar* gc_skin_font_board_big_bold;
+gchar* gc_skin_font_board_fixed;
+gchar* gc_skin_font_board_title;
+gchar* gc_skin_font_board_title_bold;
+gchar* gc_skin_font_board_huge;
+gchar* gc_skin_font_board_huge_bold;
 
 
 /*
@@ -56,7 +56,8 @@ gchar* gcompris_skin_font_board_huge_bold;
  *
  * The caller must free the returned string
  */
-gchar *gcompris_image_to_skin(gchar *pixmapfile)
+gchar *
+gc_skin_image_get(gchar *pixmapfile)
 {
   GcomprisProperties *properties = gc_prop_get();
   gchar *filename;
@@ -90,12 +91,13 @@ gchar *gcompris_image_to_skin(gchar *pixmapfile)
  * If not found, try in the default skin directory
  * If not found abort gcompris
  */
-GdkPixbuf *gcompris_load_skin_pixmap(char *pixmapfile)
+GdkPixbuf *
+gc_skin_pixmap_load(char *pixmapfile)
 {
   gchar *filename;
   GdkPixbuf *result_pixbuf;
 
-  filename = gcompris_image_to_skin(pixmapfile);
+  filename = gc_skin_image_get(pixmapfile);
 
   result_pixbuf = gc_pixmap_load (filename);
   
@@ -108,7 +110,8 @@ GdkPixbuf *gcompris_load_skin_pixmap(char *pixmapfile)
  * Utility function used when freeing the memory used by 
  * a hashtable containing strings.
  */ 
-void gcompris_skin_free_string(gpointer data)
+static void
+gc_skin_free_string(gpointer data)
 {
   g_free(data);
 }
@@ -117,53 +120,54 @@ void gcompris_skin_free_string(gpointer data)
  * Initialize some common variables 
  * (the one that have to be defined in each skin)
  */
-void gcompris_skin_setup_vars(void)
+void
+gc_skin_setup_vars(void)
 {
-  gcompris_skin_color_title = 
-    gcompris_skin_get_color_default("gcompris/title", COLOR_TITLE);
-  gcompris_skin_color_text_button = 
-    gcompris_skin_get_color_default("gcompris/text button", COLOR_TEXT_BUTTON);
-  gcompris_skin_color_content = 
-    gcompris_skin_get_color_default("gcompris/content", COLOR_CONTENT);
-  gcompris_skin_color_subtitle = 
-    gcompris_skin_get_color_default("gcompris/subtitle", COLOR_SUBTITLE);
-  gcompris_skin_color_shadow = 
-    gcompris_skin_get_color_default("gcompris/shadow", COLOR_SHADOW);
+  gc_skin_color_title = 
+    gc_skin_get_color_default("gcompris/title", COLOR_TITLE);
+  gc_skin_color_text_button = 
+    gc_skin_get_color_default("gcompris/text button", COLOR_TEXT_BUTTON);
+  gc_skin_color_content = 
+    gc_skin_get_color_default("gcompris/content", COLOR_CONTENT);
+  gc_skin_color_subtitle = 
+    gc_skin_get_color_default("gcompris/subtitle", COLOR_SUBTITLE);
+  gc_skin_color_shadow = 
+    gc_skin_get_color_default("gcompris/shadow", COLOR_SHADOW);
   
-  gcompris_skin_font_title = 
-    gcompris_skin_get_font_default("gcompris/title", FONT_TITLE);
-  gcompris_skin_font_subtitle =
-    gcompris_skin_get_font_default("gcompris/subtitle", FONT_SUBTITLE);
-  gcompris_skin_font_content = 
-    gcompris_skin_get_font_default("gcompris/content", FONT_CONTENT);
+  gc_skin_font_title = 
+    gc_skin_get_font_default("gcompris/title", FONT_TITLE);
+  gc_skin_font_subtitle =
+    gc_skin_get_font_default("gcompris/subtitle", FONT_SUBTITLE);
+  gc_skin_font_content = 
+    gc_skin_get_font_default("gcompris/content", FONT_CONTENT);
   
-  gcompris_skin_font_board_tiny =
-    gcompris_skin_get_font_default("gcompris/board/tiny", FONT_BOARD_TINY);
-  gcompris_skin_font_board_small =
-    gcompris_skin_get_font_default("gcompris/board/small", FONT_BOARD_SMALL);
-  gcompris_skin_font_board_medium =
-    gcompris_skin_get_font_default("gcompris/board/medium", FONT_BOARD_MEDIUM);
-  gcompris_skin_font_board_big =
-    gcompris_skin_get_font_default("gcompris/board/big", FONT_BOARD_BIG);
-  gcompris_skin_font_board_big_bold =
-    gcompris_skin_get_font_default("gcompris/board/big bold", FONT_BOARD_BIG_BOLD);
-  gcompris_skin_font_board_fixed =
-    gcompris_skin_get_font_default("gcompris/board/fixed", FONT_BOARD_FIXED);
-  gcompris_skin_font_board_title =
-    gcompris_skin_get_font_default("gcompris/board/title", FONT_BOARD_TITLE);
-  gcompris_skin_font_board_title_bold =
-    gcompris_skin_get_font_default("gcompris/board/title bold", FONT_BOARD_TITLE_BOLD);
-  gcompris_skin_font_board_huge =
-    gcompris_skin_get_font_default("gcompris/board/huge", FONT_BOARD_HUGE);
-  gcompris_skin_font_board_huge_bold =
-    gcompris_skin_get_font_default("gcompris/board/huge bold", FONT_BOARD_HUGE_BOLD);
+  gc_skin_font_board_tiny =
+    gc_skin_get_font_default("gcompris/board/tiny", FONT_BOARD_TINY);
+  gc_skin_font_board_small =
+    gc_skin_get_font_default("gcompris/board/small", FONT_BOARD_SMALL);
+  gc_skin_font_board_medium =
+    gc_skin_get_font_default("gcompris/board/medium", FONT_BOARD_MEDIUM);
+  gc_skin_font_board_big =
+    gc_skin_get_font_default("gcompris/board/big", FONT_BOARD_BIG);
+  gc_skin_font_board_big_bold =
+    gc_skin_get_font_default("gcompris/board/big bold", FONT_BOARD_BIG_BOLD);
+  gc_skin_font_board_fixed =
+    gc_skin_get_font_default("gcompris/board/fixed", FONT_BOARD_FIXED);
+  gc_skin_font_board_title =
+    gc_skin_get_font_default("gcompris/board/title", FONT_BOARD_TITLE);
+  gc_skin_font_board_title_bold =
+    gc_skin_get_font_default("gcompris/board/title bold", FONT_BOARD_TITLE_BOLD);
+  gc_skin_font_board_huge =
+    gc_skin_get_font_default("gcompris/board/huge", FONT_BOARD_HUGE);
+  gc_skin_font_board_huge_bold =
+    gc_skin_get_font_default("gcompris/board/huge bold", FONT_BOARD_HUGE_BOLD);
 }
 
 /*
  * Convert from string a color expressed in the form 0xRRGGBBAA
  * to a unsigned 32 bit integer.
  */
-gboolean gcompris_skin_str_to_color(gchar* data, guint32* color){
+gboolean gc_skin_str_to_color(gchar* data, guint32* color){
   char c;
   int i;
   int n = 32;
@@ -242,7 +246,8 @@ gboolean gcompris_skin_str_to_color(gchar* data, guint32* color){
  * Parse a skin.xml file located in the skin directory
  * and load the skin properties into memory
  */
-static void skin_xml_load (gchar* skin)
+static void
+skin_xml_load (gchar* skin)
 {
   gchar* xmlfilename;
   xmlDocPtr xmldoc;
@@ -301,8 +306,8 @@ static void skin_xml_load (gchar* skin)
 	key = (gchar *)xmlGetProp(node,  BAD_CAST "id");
 	data =(gchar *) xmlGetProp(node,  BAD_CAST "rgba");
 	if((key!=NULL)&&(data!=NULL)){
-	  if(gcompris_skin_str_to_color(data, &color)){
-	    g_hash_table_insert(gcompris_skin_colors, key, GUINT_TO_POINTER(color));
+	  if(gc_skin_str_to_color(data, &color)){
+	    g_hash_table_insert(gc_skin_colors, key, GUINT_TO_POINTER(color));
 	  } else {
 	    if(key!=NULL) g_free(key);
 	  }	
@@ -313,7 +318,7 @@ static void skin_xml_load (gchar* skin)
 	key = (gchar *)xmlGetProp(node,  BAD_CAST "id");
 	data = (gchar *)xmlGetProp(node,  BAD_CAST "name");
 	if((key!=NULL)&&(data!=NULL)){
-	  g_hash_table_insert(gcompris_skin_fonts, key, data);
+	  g_hash_table_insert(gc_skin_fonts, key, data);
 	} else {
 	  if(key!=NULL) g_free(key);
 	  if(data!=NULL) g_free(data);
@@ -324,7 +329,7 @@ static void skin_xml_load (gchar* skin)
 	data = (gchar *)xmlGetProp(node, BAD_CAST "value");
 	if((key!=NULL)&&(data!=NULL)){
 	  int number = atoi(data);
-	  g_hash_table_insert(gcompris_skin_numbers, key, GUINT_TO_POINTER(number));
+	  g_hash_table_insert(gc_skin_numbers, key, GUINT_TO_POINTER(number));
 	} else {
 	  if(key!=NULL) g_free(key);
 	  if(data!=NULL) g_free(data);
@@ -340,49 +345,52 @@ static void skin_xml_load (gchar* skin)
  * Parse the default skin.xml file and the one located in the skin 
  * directory then load all skins properties into memory
  */
-void gcompris_skin_load (gchar* skin)
+void
+gc_skin_load (gchar* skin)
 {
 
   if(skin==NULL)
     return;
 
-  gcompris_skin_free();
+  gc_skin_free();
   
-  gcompris_skin_fonts = g_hash_table_new_full(g_str_hash, g_str_equal,
-					      gcompris_skin_free_string,
-					      gcompris_skin_free_string);
-  gcompris_skin_colors = g_hash_table_new_full(g_str_hash, g_str_equal,
-					      gcompris_skin_free_string,
+  gc_skin_fonts = g_hash_table_new_full(g_str_hash, g_str_equal,
+					      gc_skin_free_string,
+					      gc_skin_free_string);
+  gc_skin_colors = g_hash_table_new_full(g_str_hash, g_str_equal,
+					      gc_skin_free_string,
 					      NULL);
-  gcompris_skin_numbers = g_hash_table_new_full(g_str_hash, g_str_equal,
-					      gcompris_skin_free_string,
+  gc_skin_numbers = g_hash_table_new_full(g_str_hash, g_str_equal,
+					      gc_skin_free_string,
 					      NULL);
   skin_xml_load(DEFAULT_SKIN);
   if(strcmp(skin,DEFAULT_SKIN)!=0)
     skin_xml_load(skin);
 
-  gcompris_skin_setup_vars();
+  gc_skin_setup_vars();
 }
 
 /*
  * Free the memory used to store the skin properties.
  */
-void gcompris_skin_free (void)
+void
+gc_skin_free (void)
 {
-  if(gcompris_skin_fonts!=NULL)
-    g_hash_table_destroy(gcompris_skin_fonts);
+  if(gc_skin_fonts!=NULL)
+    g_hash_table_destroy(gc_skin_fonts);
 
-  if(gcompris_skin_colors!=NULL)
-    g_hash_table_destroy(gcompris_skin_colors);
+  if(gc_skin_colors!=NULL)
+    g_hash_table_destroy(gc_skin_colors);
 }
 
 /*
  * Get the skin color associated to the id
  */
-guint32 gcompris_skin_get_color_default(gchar* id, guint32 def)
+guint32
+gc_skin_get_color_default(gchar* id, guint32 def)
 {
   gpointer result;
-  result = g_hash_table_lookup(gcompris_skin_colors, (gpointer)id);
+  result = g_hash_table_lookup(gc_skin_colors, (gpointer)id);
   if(result!=NULL)
     return GPOINTER_TO_UINT(result);
   return def;
@@ -393,14 +401,15 @@ guint32 gcompris_skin_get_color_default(gchar* id, guint32 def)
  *
  * The color is returned in the given gdkcolor
  */
-void gcompris_skin_get_gdkcolor_default(gchar* id, guint32 def, GdkColor *gdkcolor)
+void
+gc_skin_get_gdkcolor_default(gchar* id, guint32 def, GdkColor *gdkcolor)
 {
   gchar *tmp;
   guint32 color;
 
-  color = gcompris_skin_get_color_default(id, def);
+  color = gc_skin_get_color_default(id, def);
 
-  tmp = g_strdup_printf("#%06X", gcompris_skin_get_color(id) >> 8);
+  tmp = g_strdup_printf("#%06X", gc_skin_get_color(id) >> 8);
   gdk_color_parse(tmp, gdkcolor);
   g_free(tmp);
 }
@@ -408,10 +417,11 @@ void gcompris_skin_get_gdkcolor_default(gchar* id, guint32 def, GdkColor *gdkcol
 /*
  * Get the skin font name associated to the id
  */
-gchar* gcompris_skin_get_font_default(gchar* id, gchar* def)
+gchar*
+gc_skin_get_font_default(gchar* id, gchar* def)
 {
   gpointer result;
-  result = g_hash_table_lookup(gcompris_skin_fonts, (gpointer)id);
+  result = g_hash_table_lookup(gc_skin_fonts, (gpointer)id);
   if(result!=NULL)
     return (gchar*)result;
   return def;
@@ -420,10 +430,11 @@ gchar* gcompris_skin_get_font_default(gchar* id, gchar* def)
 /*
  * Get the skin 'number' associated to the id
  */
-guint32 gcompris_skin_get_number_default(gchar* id, guint32 def)
+guint32
+gc_skin_get_number_default(gchar* id, guint32 def)
 {
   gpointer result;
-  result = g_hash_table_lookup(gcompris_skin_numbers, (gpointer)id);
+  result = g_hash_table_lookup(gc_skin_numbers, (gpointer)id);
   if(result!=NULL)
     return GPOINTER_TO_UINT(result);
   return def;

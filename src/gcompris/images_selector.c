@@ -124,7 +124,7 @@ gc_selector_images_start (GcomprisBoard *gcomprisBoard, gchar *dataset,
   imageSelectorCallBack=iscb;
 
   rootitem = \
-    gnome_canvas_item_new (gnome_canvas_root(gcompris_get_canvas()),
+    gnome_canvas_item_new (gnome_canvas_root(gc_get_canvas()),
 			   gnome_canvas_group_get_type (),
 			   "x", (double)0,
 			   "y", (double)0,
@@ -132,7 +132,7 @@ gc_selector_images_start (GcomprisBoard *gcomprisBoard, gchar *dataset,
 
   images_selector_displayed = TRUE;
 
-  pixmap = gcompris_load_skin_pixmap("images_selector_bg.png");
+  pixmap = gc_skin_pixmap_load("images_selector_bg.png");
   y_start = (BOARDHEIGHT - gdk_pixbuf_get_height(pixmap))/2;
   x_start = (BOARDWIDTH - gdk_pixbuf_get_width(pixmap))/2;
   item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
@@ -146,7 +146,7 @@ gc_selector_images_start (GcomprisBoard *gcomprisBoard, gchar *dataset,
 
   y_start += 110;
 
-  pixmap = gcompris_load_skin_pixmap("button_large.png");
+  pixmap = gc_skin_pixmap_load("button_large.png");
 
   /*
    * Create the list scrollbar
@@ -172,7 +172,7 @@ gc_selector_images_start (GcomprisBoard *gcomprisBoard, gchar *dataset,
 					"y1", (double) 0,
 					"x2", (double) LIST_AREA_X2 - LIST_AREA_X1,
 					"y2", (double) LIST_AREA_Y2 - LIST_AREA_Y1,
-					"fill_color_rgba", gcompris_skin_get_color("gcompris/imageselectbg"),
+					"fill_color_rgba", gc_skin_get_color("gcompris/imageselectbg"),
 					NULL);
 
 
@@ -218,7 +218,7 @@ gc_selector_images_start (GcomprisBoard *gcomprisBoard, gchar *dataset,
 					"y1", (double) 0,
 					"x2", (double) DRAWING_AREA_X2 - DRAWING_AREA_X1,
 					"y2", (double) DRAWING_AREA_Y2 - DRAWING_AREA_Y1,
-					 "fill_color_rgba", gcompris_skin_get_color("gcompris/imageselectbg"),
+					 "fill_color_rgba", gc_skin_get_color("gcompris/imageselectbg"),
 					NULL);
 
 
@@ -315,11 +315,11 @@ gc_selector_images_start (GcomprisBoard *gcomprisBoard, gchar *dataset,
   item2 = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				gnome_canvas_text_get_type (),
 				"text", _("OK"),
-				"font", gcompris_skin_font_title,
+				"font", gc_skin_font_title,
 				"x", (double)  BOARDWIDTH*0.5,
 				"y", (double)  y - gdk_pixbuf_get_height(pixmap) + 15,
 				"anchor", GTK_ANCHOR_CENTER,
-				"fill_color_rgba", gcompris_skin_color_text_button,
+				"fill_color_rgba", gc_skin_color_text_button,
 				NULL);
   gtk_signal_connect(GTK_OBJECT(item2), "event",
 		     (GtkSignalFunc) item_event_images_selector,
@@ -337,7 +337,7 @@ gc_selector_images_start (GcomprisBoard *gcomprisBoard, gchar *dataset,
  */
 void gc_selector_images_stop ()
 {
-  GcomprisBoard *gcomprisBoard = get_current_gcompris_board();
+  GcomprisBoard *gcomprisBoard = gc_board_get_current();
 
   if(gcomprisBoard!=NULL && images_selector_displayed)
     {

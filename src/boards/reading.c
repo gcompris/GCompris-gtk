@@ -184,8 +184,8 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 
       gcomprisBoard=agcomprisBoard;
 
-      img = gcompris_image_to_skin("reading-bg.jpg");
-      gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas),
+      img = gc_skin_image_get("reading-bg.jpg");
+      gc_set_background(gnome_canvas_root(gcomprisBoard->canvas),
 			      img);
       g_free(img);
       wait_for_ready = TRUE;
@@ -195,13 +195,13 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       gcomprisBoard->maxlevel = 9;
       gc_bar_set(GC_BAR_CONFIG|GC_BAR_LEVEL);
 
-      font_size = PANGO_PIXELS(pango_font_description_get_size (pango_font_description_from_string (gcompris_skin_font_board_medium)));
+      font_size = PANGO_PIXELS(pango_font_description_get_size (pango_font_description_from_string (gc_skin_font_board_medium)));
       interline = (int) (1.5*font_size);
 
       PangoContext *pango_context = gtk_widget_get_pango_context  (GTK_WIDGET(agcomprisBoard->canvas));
 
       PangoFontMetrics* pango_metrics =  pango_context_get_metrics (pango_context,
-								    pango_font_description_from_string (gcompris_skin_font_board_medium),
+								    pango_font_description_from_string (gc_skin_font_board_medium),
 								    pango_language_from_string   (gc_locale_get()));
 
       int ascent = PANGO_PIXELS(pango_font_metrics_get_ascent (pango_metrics));
@@ -368,7 +368,7 @@ static GnomeCanvasItem *display_what_to_do(GnomeCanvasGroup *parent)
   gnome_canvas_item_new (parent,
 			 gnome_canvas_text_get_type (),
 			 "text", _("Please, check if the word"),
-			 "font", gcompris_skin_font_board_big,
+			 "font", gc_skin_font_board_big,
 			 "x", (double) base_X,
 			 "y", (double) base_Y,
 			 "anchor", GTK_ANCHOR_CENTER,
@@ -378,7 +378,7 @@ static GnomeCanvasItem *display_what_to_do(GnomeCanvasGroup *parent)
   gnome_canvas_item_new (parent,
 			 gnome_canvas_text_get_type (),
 			 "text", textToFind,
-			 "font", gcompris_skin_font_board_big,
+			 "font", gc_skin_font_board_big,
 			 "x", (double) base_X,
 			 "y", (double) base_Y + 30,
 			 "anchor", GTK_ANCHOR_CENTER,
@@ -388,7 +388,7 @@ static GnomeCanvasItem *display_what_to_do(GnomeCanvasGroup *parent)
   gnome_canvas_item_new (parent,
 			 gnome_canvas_text_get_type (),
 			 "text", _("is being displayed"),
-			 "font", gcompris_skin_font_board_big,
+			 "font", gc_skin_font_board_big,
 			 "x", (double) base_X,
 			 "y", (double) base_Y + 60,
 			 "anchor", GTK_ANCHOR_CENTER,
@@ -456,7 +456,7 @@ static gboolean reading_create_item(GnomeCanvasGroup *parent)
     gnome_canvas_item_new (GNOME_CANVAS_GROUP(previousFocus.rootItem),
 			   gnome_canvas_text_get_type (),
 			   "text", word,
-			   "font", gcompris_skin_font_board_medium,
+			   "font", gc_skin_font_board_medium,
 			   "x", (double) 0,
 			   "y", (double) 0,
 			   "anchor", anchor,
@@ -469,7 +469,7 @@ static gboolean reading_create_item(GnomeCanvasGroup *parent)
     gnome_canvas_item_new (GNOME_CANVAS_GROUP(previousFocus.rootItem),
 			   gnome_canvas_text_get_type (),
 			   "markup", oldword,
-			   "font", gcompris_skin_font_board_medium,
+			   "font", gc_skin_font_board_medium,
 			   "x", (double) 0,
 			   "y", (double) 0,
 			   "anchor", anchor,
@@ -543,7 +543,7 @@ static void ask_ready(gboolean status)
     }
 
   /*----- READY -----*/
-  button_pixmap = gcompris_load_skin_pixmap("button_large2.png");
+  button_pixmap = gc_skin_pixmap_load("button_large2.png");
   item1 = gnome_canvas_item_new (boardRootItem,
 				gnome_canvas_pixbuf_get_type (),
 				"pixbuf",  button_pixmap, 
@@ -559,7 +559,7 @@ static void ask_ready(gboolean status)
   item2 = gnome_canvas_item_new (boardRootItem,
 				gnome_canvas_text_get_type (),
 				"text", _("I am Ready"),
-				"font", gcompris_skin_font_board_big,
+				"font", gc_skin_font_board_big,
 				"x", (double) x_offset +
 				gdk_pixbuf_get_width(button_pixmap)/2,
 				"y", (double) y_offset + 40,
@@ -583,7 +583,7 @@ static void ask_yes_no()
     return;
 
   /*----- YES -----*/
-  button_pixmap = gcompris_load_skin_pixmap("button_large2.png");
+  button_pixmap = gc_skin_pixmap_load("button_large2.png");
   item = gnome_canvas_item_new (boardRootItem,
 				gnome_canvas_pixbuf_get_type (),
 				"pixbuf",  button_pixmap,
@@ -599,7 +599,7 @@ static void ask_yes_no()
   item = gnome_canvas_item_new (boardRootItem,
 				gnome_canvas_text_get_type (),
 				"text", _("Yes, I saw it"),
-				"font", gcompris_skin_font_board_big,
+				"font", gc_skin_font_board_big,
 				"x", (double) x_offset +
 				gdk_pixbuf_get_width(button_pixmap)/2,
 				"y", (double) y_offset + 40,
@@ -613,7 +613,7 @@ static void ask_yes_no()
 
   /*----- NO -----*/
   y_offset += 100;
-  button_pixmap = gcompris_load_skin_pixmap("button_large2.png");
+  button_pixmap = gc_skin_pixmap_load("button_large2.png");
   item = gnome_canvas_item_new (boardRootItem,
 				gnome_canvas_pixbuf_get_type (),
 				"pixbuf",  button_pixmap,
@@ -629,7 +629,7 @@ static void ask_yes_no()
   item = gnome_canvas_item_new (boardRootItem,
 				gnome_canvas_text_get_type (),
 				"text", _("No, it was not there"),
-				"font", gcompris_skin_font_board_big,
+				"font", gc_skin_font_board_big,
 				"x", (double) x_offset +
 				gdk_pixbuf_get_width(button_pixmap)/2,
 				"y", (double) y_offset + 40,
@@ -647,11 +647,11 @@ static void player_win()
 {
   gamewon = TRUE;
   wait_for_ready = TRUE;
-  gcompris_display_bonus(gamewon, BONUS_FLOWER);
+  gc_bonus_display(gamewon, BONUS_FLOWER);
   /* Try the next level */
   gcomprisBoard->level++;
   if(gcomprisBoard->level>gcomprisBoard->maxlevel) { // the current board is finished : bail out
-    board_finished(BOARD_FINISHED_RANDOM);
+    gc_bonus_end_display(BOARD_FINISHED_RANDOM);
     return;
   }
 
@@ -678,7 +678,7 @@ static void player_loose()
   g_free(expected);
   g_free(got);
 
-  gcompris_display_bonus(gamewon, BONUS_FLOWER);
+  gc_bonus_display(gamewon, BONUS_FLOWER);
 
   next_level_timer = g_timeout_add(3000, (GtkFunction)reading_next_level, NULL);
 }
@@ -880,7 +880,7 @@ reading_config_start(GcomprisBoard *agcomprisBoard,
 				 agcomprisBoard->name, 
 				 aProfile? aProfile->name: "");
 
-  gcompris_configuration_window( label, 
+  gc_board_config_window_display( label, 
 				 (GcomprisConfCallback )conf_ok);
 
   g_free(label);

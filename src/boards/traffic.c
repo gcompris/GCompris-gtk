@@ -155,12 +155,12 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       gcomprisBoard->maxlevel=8;
       gcomprisBoard->sublevel=1;
       gcomprisBoard->number_of_sublevel=5; /* Go to next level after this number of 'play' */
-      gcompris_score_start(SCORESTYLE_NOTE, 
+      gc_score_start(SCORESTYLE_NOTE, 
 			   gcomprisBoard->width - 220, 
 			   gcomprisBoard->height - 50, 
 			   gcomprisBoard->number_of_sublevel);
 
-      str = gcompris_image_to_skin("button_reload.png");
+      str = gc_skin_image_get("button_reload.png");
       pixmap = gc_pixmap_load(str);
       g_free(str);
       if(pixmap) {
@@ -171,8 +171,8 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 	gc_bar_set(GC_BAR_LEVEL|GC_BAR_REPEAT);
       }
 
-      img = gcompris_image_to_skin("traffic-bg.jpg");
-      gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas),
+      img = gc_skin_image_get("traffic-bg.jpg");
+      gc_set_background(gnome_canvas_root(gcomprisBoard->canvas),
 			      img);
       g_free(img);
 
@@ -188,7 +188,7 @@ static void end_board ()
   if(gcomprisBoard!=NULL)
     {
       pause_board(TRUE);
-      gcompris_score_end();
+      gc_score_end();
       traffic_destroy_all_items();
     }
   gcomprisBoard = NULL;
@@ -244,7 +244,7 @@ static void traffic_next_level()
   traffic_destroy_all_items();
   gamewon = FALSE;
 
-  gcompris_score_set(gcomprisBoard->sublevel);
+  gc_score_set(gcomprisBoard->sublevel);
 
   /* Try the next level */
   traffic_create_item(gnome_canvas_root(gcomprisBoard->canvas));
@@ -309,10 +309,10 @@ static void game_won()
     gcomprisBoard->sublevel=1;
     gcomprisBoard->level++;
     if(gcomprisBoard->level>gcomprisBoard->maxlevel) { // the current board is finished : bail out
-      board_finished(BOARD_FINISHED_RANDOM);
+      gc_bonus_end_display(BOARD_FINISHED_RANDOM);
       return;
     }
-    gcompris_play_ogg ("sounds/bonus.ogg", NULL);
+    gc_sound_play_ogg ("sounds/bonus.ogg", NULL);
   }
   traffic_next_level();
 }
@@ -417,7 +417,7 @@ static int car_cb(GnomeCanvasItem *item, GdkEvent *event, car *thiscar)
       cursor=gdk_cursor_new(GDK_SB_V_DOUBLE_ARROW);
     else 
       cursor=gdk_cursor_new(GDK_SB_H_DOUBLE_ARROW);
-    gcompris_canvas_item_grab(item,
+    gc_canvas_item_grab(item,
 			   GDK_POINTER_MOTION_MASK | GDK_BUTTON_RELEASE_MASK,
 			   cursor,
 			   event->button.time);
@@ -495,12 +495,12 @@ static int car_cb(GnomeCanvasItem *item, GdkEvent *event, car *thiscar)
 	dx=CLAMP(item_x-start_x,-39,39);
 
 	if (thiscar->goal && big_x==250+OFSET_X) { 
-	  gcompris_canvas_item_ungrab(item,event->button.time);
+	  gc_canvas_item_ungrab(item,event->button.time);
 	  gnome_canvas_item_hide(item);
 	  moving=FALSE;
 
 	  gamewon = TRUE;
-	  gcompris_display_bonus(gamewon, BONUS_SMILEY);
+	  gc_bonus_display(gamewon, BONUS_SMILEY);
 
 	}
 
@@ -573,7 +573,7 @@ static int car_cb(GnomeCanvasItem *item, GdkEvent *event, car *thiscar)
 	  dy=*ptr-y;
 
 	gnome_canvas_item_move(item,dx,dy);
-	gcompris_canvas_item_ungrab(item,event->button.time);
+	gc_canvas_item_ungrab(item,event->button.time);
 	hit=0;
 	moving=FALSE;
       }

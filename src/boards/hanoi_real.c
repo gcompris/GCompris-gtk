@@ -132,8 +132,8 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       gcomprisBoard->number_of_sublevel=1; /* Go to next level after this number of 'play' */
       gc_bar_set(GC_BAR_LEVEL);
 
-      gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas),
-			      gcompris_image_to_skin("gcompris-bg.jpg"));
+      gc_set_background(gnome_canvas_root(gcomprisBoard->canvas),
+			      gc_skin_image_get("gcompris-bg.jpg"));
 
       boardRootItem = NULL;
 
@@ -258,7 +258,7 @@ static GnomeCanvasItem *hanoi_create_item(GnomeCanvasGroup *parent)
 							    "y", (double) 0,
 							    NULL));
 
-  pixmap = gcompris_load_skin_pixmap("gcompris-shapelabel.png");
+  pixmap = gc_skin_pixmap_load("gcompris-shapelabel.png");
   if(pixmap) {
     gnome_canvas_item_new (boardRootItem,
 			   gnome_canvas_pixbuf_get_type (),
@@ -275,22 +275,22 @@ static GnomeCanvasItem *hanoi_create_item(GnomeCanvasGroup *parent)
   gnome_canvas_item_new (boardRootItem,
 			 gnome_canvas_text_get_type (),
 			 "text", _("Move the entire stack to the right peg, one disc at a time"),
-			 "font", gcompris_skin_font_board_medium,
+			 "font", gc_skin_font_board_medium,
 			 "x", (double) BOARDWIDTH/2 +1,
 			 "y", (double) BOARDHEIGHT - 50 +1,
 			 "anchor", GTK_ANCHOR_NORTH,
-			 "fill_color_rgba", gcompris_skin_color_shadow,
+			 "fill_color_rgba", gc_skin_color_shadow,
 			 "justification", GTK_JUSTIFY_CENTER,
 			 NULL);
 
   gnome_canvas_item_new (boardRootItem,
 			 gnome_canvas_text_get_type (),
 			 "text", _("Move the entire stack to the right peg, one disc at a time"),
-			 "font", gcompris_skin_font_board_medium,
+			 "font", gc_skin_font_board_medium,
 			 "x", (double) BOARDWIDTH/2,
 			 "y", (double) BOARDHEIGHT - 50,
 			 "anchor", GTK_ANCHOR_NORTH,
-			 "fill_color_rgba", gcompris_skin_color_text_button,
+			 "fill_color_rgba", gc_skin_color_text_button,
 			 "justification", GTK_JUSTIFY_CENTER,
 			 NULL);
 
@@ -405,10 +405,10 @@ static void game_won()
     gcomprisBoard->sublevel=1;
     gcomprisBoard->level++;
     if(gcomprisBoard->level>gcomprisBoard->maxlevel) { // the current board is finished : bail out
-      board_finished(BOARD_FINISHED_RANDOM);
+      gc_bonus_end_display(BOARD_FINISHED_RANDOM);
       return;
     }
-    gcompris_play_ogg ("sounds/bonus.ogg", NULL);
+    gc_sound_play_ogg ("sounds/bonus.ogg", NULL);
   }
   hanoi_next_level();
 }
@@ -472,7 +472,7 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, PieceItem *data)
 	  gnome_canvas_item_raise_to_top(data->item);
 	  
 	  fleur = gdk_cursor_new(GDK_FLEUR);
-	  gcompris_canvas_item_grab(data->item,
+	  gc_canvas_item_grab(data->item,
 				 GDK_POINTER_MOTION_MASK | 
 				 GDK_BUTTON_RELEASE_MASK,
 				 fleur,
@@ -513,7 +513,7 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, PieceItem *data)
 	  disc_h = gdk_pixbuf_get_height(pixmap)/2;
 	  gdk_pixbuf_unref(pixmap);
       
-	  gcompris_canvas_item_ungrab(data->item, event->button.time);
+	  gc_canvas_item_ungrab(data->item, event->button.time);
 	  dragging = FALSE;
 	  
 	  /* Search the column (x) where this item is ungrabbed */
@@ -606,7 +606,7 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, PieceItem *data)
 	    {
 	      gamewon = TRUE;
 	      hanoi_destroy_all_items();
-	      gcompris_display_bonus(gamewon, BONUS_SMILEY);
+	      gc_bonus_display(gamewon, BONUS_SMILEY);
 	    }
 	}
       break;

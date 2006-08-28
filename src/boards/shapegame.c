@@ -278,7 +278,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 	    tmp = g_malloc(strlen(gcomprisBoard->mode));
 	    tmp = strcpy(tmp, gcomprisBoard->mode + 11);
 	    
-	    gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas), tmp);
+	    gc_set_background(gnome_canvas_root(gcomprisBoard->canvas), tmp);
 	    default_background = FALSE;
 	    g_free(tmp);
 	  }
@@ -288,8 +288,8 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 	  gchar *img;
 
 	  // Default case, load the default background
-	  img = gcompris_image_to_skin("gcompris-shapebg.jpg");
-	  gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas), 
+	  img = gc_skin_image_get("gcompris-shapebg.jpg");
+	  gc_set_background(gnome_canvas_root(gcomprisBoard->canvas), 
 				  img);
 	  g_free(img);
 	}
@@ -493,7 +493,7 @@ static gboolean increment_sublevel()
     gcomprisBoard->sublevel=0;
 
     if(gcomprisBoard->level>gcomprisBoard->maxlevel) { // the current board is finished : bail out
-      board_finished(BOARD_FINISHED_RANDOM);
+      gc_bonus_end_display(BOARD_FINISHED_RANDOM);
       return FALSE;
     }
 
@@ -589,11 +589,11 @@ static void process_ok()
   if(done)
     {
       gamewon = TRUE;
-      gcompris_display_bonus(gamewon, BONUS_FLOWER);
+      gc_bonus_display(gamewon, BONUS_FLOWER);
     }
   else
     {
-      gcompris_display_bonus(gamewon, BONUS_FLOWER);
+      gc_bonus_display(gamewon, BONUS_FLOWER);
     }
 
 }
@@ -661,7 +661,7 @@ static void shapegame_init_canvas(GnomeCanvasGroup *parent)
 			   NULL);
 
   /* Create the tooltip area */
-  pixmap = gcompris_load_skin_pixmap("button_large.png");
+  pixmap = gc_skin_pixmap_load("button_large.png");
   tooltip_root_item = GNOME_CANVAS_GROUP(
 					 gnome_canvas_item_new (parent,
 								gnome_canvas_group_get_type (),
@@ -683,23 +683,23 @@ static void shapegame_init_canvas(GnomeCanvasGroup *parent)
     gnome_canvas_item_new (GNOME_CANVAS_GROUP(tooltip_root_item),
 			   gnome_canvas_text_get_type (),
 			   "text", "",
-			   "font", gcompris_skin_font_board_small,
+			   "font", gc_skin_font_board_small,
 			   "x", (double)gdk_pixbuf_get_width(pixmap)/2 + 1.0,
 			   "y", 24.0 + 1.0,
 			   "anchor", GTK_ANCHOR_CENTER,
 			   "justification", GTK_JUSTIFY_CENTER,
-			   "fill_color_rgba", gcompris_skin_color_shadow,
+			   "fill_color_rgba", gc_skin_color_shadow,
 			   NULL);
   tooltip_text_item = \
     gnome_canvas_item_new (GNOME_CANVAS_GROUP(tooltip_root_item),
 			   gnome_canvas_text_get_type (),
 			   "text", "",
-			   "font", gcompris_skin_font_board_small,
+			   "font", gc_skin_font_board_small,
 			   "x", (double)gdk_pixbuf_get_width(pixmap)/2,
 			   "y", 24.0,
 			   "anchor", GTK_ANCHOR_CENTER,
 			   "justification", GTK_JUSTIFY_CENTER,
-			   "fill_color_rgba", gcompris_skin_color_text_button,
+			   "fill_color_rgba", gc_skin_color_text_button,
 			   NULL);
 
   /* Hide the tooltip */
@@ -731,7 +731,7 @@ add_shape_to_list_of_shapes(Shape *shape)
   /* If the first list is full, add the previous/forward buttons          */
   if(g_hash_table_size(shapelist_table)==(shapeBox.nb_shape_x * shapeBox.nb_shape_y))
     {
-      pixmap = gcompris_load_skin_pixmap("button_backward.png");
+      pixmap = gc_skin_pixmap_load("button_backward.png");
       previous_shapelist_item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(shape_list_root_item),
 						       gnome_canvas_pixbuf_get_type (),
 						       "pixbuf", pixmap, 
@@ -748,7 +748,7 @@ add_shape_to_list_of_shapes(Shape *shape)
 			 NULL);
       gdk_pixbuf_unref(pixmap);
       
-      pixmap = gcompris_load_skin_pixmap("button_forward.png");
+      pixmap = gc_skin_pixmap_load("button_forward.png");
       next_shapelist_item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(shape_list_root_item),
 						   gnome_canvas_pixbuf_get_type (),
 						   "pixbuf", pixmap, 
@@ -954,7 +954,7 @@ static void shape_goes_back_to_list(Shape *shape, GnomeCanvasItem *item)
       shape->icon_shape=NULL;
 
       gnome_canvas_item_hide(item);
-      gcompris_play_ogg ("sounds/gobble.ogg", NULL);
+      gc_sound_play_ogg ("sounds/gobble.ogg", NULL);
     }
 }
 
@@ -1064,12 +1064,12 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, Shape *shape)
 		     while ((p = strstr (soundfile, " ")))
 		       {
 			 *p='\0';
-			 gcompris_play_ogg(soundfile, NULL);
+			 gc_sound_play_ogg(soundfile, NULL);
 			 soundfile=p+1;
 			 g_warning("soundfile = %s\n", soundfile);
 		       }
 
-		     gcompris_play_ogg(soundfile, NULL);
+		     gc_sound_play_ogg(soundfile, NULL);
 
 		   }
 		   break;
@@ -1089,7 +1089,7 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, Shape *shape)
 	       gnome_canvas_item_raise_to_top(shape_list_root_item);
 	       gnome_canvas_item_raise_to_top(item);
 
-	       gcompris_canvas_item_grab(item,
+	       gc_canvas_item_grab(item,
 				      GDK_POINTER_MOTION_MASK | 
 				      GDK_BUTTON_RELEASE_MASK,
 				      fleur,
@@ -1129,7 +1129,7 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, Shape *shape)
 	 {
 	   Shape *targetshape = NULL;
 
-	   gcompris_canvas_item_ungrab(item, event->button.time);
+	   gc_canvas_item_ungrab(item, event->button.time);
 	   dragging = FALSE;
 
 	   targetshape = find_closest_shape(item_x - offset_x,
@@ -1290,7 +1290,7 @@ item_event_edition(GnomeCanvasItem *item, GdkEvent *event, Shape *shape)
 
 	       fleur = gdk_cursor_new(GDK_FLEUR);
 
-	       gcompris_canvas_item_grab(item,
+	       gc_canvas_item_grab(item,
 				      GDK_POINTER_MOTION_MASK | 
 				      GDK_BUTTON_RELEASE_MASK,
 				      fleur,
@@ -1327,7 +1327,7 @@ item_event_edition(GnomeCanvasItem *item, GdkEvent *event, Shape *shape)
        if(dragging) 
 	 {
 
-	   gcompris_canvas_item_ungrab(item, event->button.time);
+	   gc_canvas_item_ungrab(item, event->button.time);
 	   gnome_canvas_item_raise_to_top(item);
 	   dragging = FALSE;
 
@@ -1541,12 +1541,12 @@ static void create_title(char *name, double x, double y, GtkJustification justif
     gnome_canvas_item_new (GNOME_CANVAS_GROUP(shape_root_item),
 			   gnome_canvas_text_get_type (),
 			   "text", name,
-			   "font", gcompris_skin_font_board_medium,
+			   "font", gc_skin_font_board_medium,
 			   "x", x + 1.0,
 			   "y", y + 1.0,
 			   "anchor", GTK_ANCHOR_CENTER,
 			   "justification", justification,
-			   "fill_color_rgba", gcompris_skin_color_shadow,
+			   "fill_color_rgba", gc_skin_color_shadow,
 			   NULL);
 
   gnome_canvas_item_raise_to_top(item);
@@ -1555,7 +1555,7 @@ static void create_title(char *name, double x, double y, GtkJustification justif
     gnome_canvas_item_new (GNOME_CANVAS_GROUP(shape_root_item),
 			   gnome_canvas_text_get_type (),
 			   "text", name,
-			   "font", gcompris_skin_font_board_medium,
+			   "font", gc_skin_font_board_medium,
 			   "x", x,
 			   "y", y,
 			   "anchor", GTK_ANCHOR_CENTER,
@@ -1650,7 +1650,7 @@ add_xml_shape_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child)
     /* If the pixmapfile starts with skin: then get the skin relative image instead */
     if(!strncmp(pixmapfile, "skin:", 5)) {
       gchar *oldpixmapfile = pixmapfile;
-      pixmapfile = gcompris_image_to_skin(oldpixmapfile+5);
+      pixmapfile = gc_skin_image_get(oldpixmapfile+5);
       g_free(oldpixmapfile);
     }
   }
@@ -1758,9 +1758,9 @@ add_xml_shape_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child)
   /* get the COLOR of the Title Specified by skin reference */
   color_text = (char *)xmlGetProp(xmlnode, BAD_CAST "color_skin");
   if(color_text) {
-    color_rgba = gcompris_skin_get_color(color_text);
+    color_rgba = gc_skin_get_color(color_text);
   } else {
-    color_rgba = gcompris_skin_get_color("gcompris/content");	/* the default */
+    color_rgba = gc_skin_get_color("gcompris/content");	/* the default */
   }
 
   /* get the name and tooltip of the shape */
@@ -2125,7 +2125,7 @@ config_start(GcomprisBoard *agcomprisBoard,
 				  agcomprisBoard->name, 
 				  aProfile? aProfile->name : "");
 
-  gcompris_configuration_window( label,
+  gc_board_config_window_display( label,
 				 (GcomprisConfCallback )conf_ok);
 
   g_free(label);

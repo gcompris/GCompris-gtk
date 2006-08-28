@@ -163,15 +163,15 @@ short int  think( AWALE *static_awale, short int level){
     break;
   }
 
-  value = gcompris_alphabeta( TRUE, 
-			      t, 
-			      use_eval, 
-			      &best, 
-			      (FirstChildGameFunction) firstChild, 
-			      (NextSiblingGameFunction) nextSibling,
-			      -INFINI , 
-			      INFINI,
-			      maxprof) ;
+  value = gc_alphabeta( TRUE, 
+			t, 
+			use_eval, 
+			&best, 
+			(FirstChildGameFunction) firstChild, 
+			(NextSiblingGameFunction) nextSibling,
+			-INFINI , 
+			INFINI,
+			maxprof) ;
   
   if (best < 0){
     g_warning("Leaf node, game is over");

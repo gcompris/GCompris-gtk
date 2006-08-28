@@ -179,8 +179,8 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 	else
 		board_mode = DEFAULT_MODE;
 
-	img = gcompris_image_to_skin("gcompris-bg.jpg");
-	gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas), img);
+	img = gc_skin_image_get("gcompris-bg.jpg");
+	gc_set_background(gnome_canvas_root(gcomprisBoard->canvas), img);
 	g_free(img);
 
 	magic_hat_next_level();
@@ -225,10 +225,10 @@ static void process_ok() {
 
   if (ok) {
 	gamewon = TRUE;
-	gcompris_play_ogg ("sounds/bonus.ogg", NULL);
+	gc_sound_play_ogg ("sounds/bonus.ogg", NULL);
   }
 
-  gcompris_display_bonus(gamewon, BONUS_FLOWER);
+  gc_bonus_display(gamewon, BONUS_FLOWER);
 
 }
 
@@ -405,7 +405,7 @@ static GnomeCanvasItem *magic_hat_create_item()
 // Display a 'end of game' animation
 static void finished() {
 
-  board_finished(BOARD_FINISHED_RANDOM);
+  gc_bonus_end_display(BOARD_FINISHED_RANDOM);
   timer_id = 0;
 }
 
@@ -644,7 +644,7 @@ static gint item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data) {
 
 		  gdk_pixbuf_unref(pixmap);
 		}
-		gcompris_play_ogg ("sounds/gobble.ogg", NULL);
+		gc_sound_play_ogg ("sounds/gobble.ogg", NULL);
 	}
 	
 	return FALSE;

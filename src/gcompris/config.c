@@ -145,7 +145,8 @@ static void   display_previous_next(guint x_start, guint y_start,
 /*
  * Do all the bar display and register the events
  */
-void gcompris_config_start ()
+void
+gc_config_start ()
 {
   GcomprisProperties	*properties = gc_prop_get();
   GdkPixbuf   *pixmap = NULL;
@@ -165,13 +166,13 @@ void gcompris_config_start ()
   gc_bar_hide(TRUE);
 
   rootitem = \
-    gnome_canvas_item_new (gnome_canvas_root(gcompris_get_canvas()),
+    gnome_canvas_item_new (gnome_canvas_root(gc_get_canvas()),
 			   gnome_canvas_group_get_type (),
 			   "x", (double)0,
 			   "y", (double)0,
 			   NULL);
 
-  pixmap = gcompris_load_skin_pixmap("help_bg.png");
+  pixmap = gc_skin_pixmap_load("help_bg.png");
   y_start = (BOARDHEIGHT - gdk_pixbuf_get_height(pixmap))/2;
   x_start = (BOARDWIDTH - gdk_pixbuf_get_width(pixmap))/2;
   item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
@@ -186,26 +187,26 @@ void gcompris_config_start ()
   gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 			 gnome_canvas_text_get_type (),
 			 "text", _("GCompris Configuration"),
-			 "font", gcompris_skin_font_title,
+			 "font", gc_skin_font_title,
 			 "x", (double) BOARDWIDTH/2 + 1.0,
 			 "y", (double) y_start + 40 + 1.0,
 			 "anchor", GTK_ANCHOR_CENTER,
-			 "fill_color_rgba", gcompris_skin_color_shadow,
+			 "fill_color_rgba", gc_skin_color_shadow,
 			 "weight", PANGO_WEIGHT_HEAVY,
 			 NULL);
   gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 			 gnome_canvas_text_get_type (),
 			 "text", _("GCompris Configuration"),
-			 "font", gcompris_skin_font_title,
+			 "font", gc_skin_font_title,
 			 "x", (double) BOARDWIDTH/2,
 			 "y", (double) y_start + 40,
 			 "anchor", GTK_ANCHOR_CENTER,
-			 "fill_color_rgba", gcompris_skin_color_title,
+			 "fill_color_rgba", gc_skin_color_title,
 			 "weight", PANGO_WEIGHT_HEAVY,
 			 NULL);
 
-  pixmap_checked   = gcompris_load_skin_pixmap("button_checked.png");
-  pixmap_unchecked = gcompris_load_skin_pixmap("button_unchecked.png");
+  pixmap_checked   = gc_skin_pixmap_load("button_checked.png");
+  pixmap_unchecked = gc_skin_pixmap_load("button_unchecked.png");
 
 
   x_start += 150;
@@ -226,7 +227,7 @@ void gcompris_config_start ()
 					    NULL);
 
   /* Display a bad icon if this locale is not available */
-  pixmap   = gcompris_load_skin_pixmap("mini_bad.png");
+  pixmap   = gc_skin_pixmap_load("mini_bad.png");
   item_bad_flag = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 					    gnome_canvas_pixbuf_get_type (),
 					    "pixbuf", pixmap,
@@ -244,11 +245,11 @@ void gcompris_config_start ()
   item_locale_text = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 					    gnome_canvas_text_get_type (),
 					    "text", gc_locale_get_name(current_locale), 
-					    "font", gcompris_skin_font_subtitle,
+					    "font", gc_skin_font_subtitle,
 					    "x", (double) x_text_start,
 					    "y", (double) y_start,
 					    "anchor", GTK_ANCHOR_WEST,
-					    "fill_color_rgba", gcompris_skin_color_content,
+					    "fill_color_rgba", gc_skin_color_content,
 					    NULL);
 
   // Fullscreen / Window
@@ -272,11 +273,11 @@ void gcompris_config_start ()
   gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 			 gnome_canvas_text_get_type (),
 			 "text", _("Fullscreen"), 
-			 "font", gcompris_skin_font_subtitle,
+			 "font", gc_skin_font_subtitle,
 			 "x", (double) x_text_start,
 			 "y", (double) y_start,
 			 "anchor", GTK_ANCHOR_WEST,
-			 "fill_color_rgba", gcompris_skin_color_content,
+			 "fill_color_rgba", gc_skin_color_content,
 			 NULL);
 
   // Screen size
@@ -287,11 +288,11 @@ void gcompris_config_start ()
   item_screen_text = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 					    gnome_canvas_text_get_type (),
 					    "text", gettext(screenname[properties->screensize]), 
-					    "font", gcompris_skin_font_subtitle,
+					    "font", gc_skin_font_subtitle,
 					    "x", (double) x_text_start,
 					    "y", (double) y_start,
 					    "anchor", GTK_ANCHOR_WEST,
-					    "fill_color_rgba", gcompris_skin_color_content,
+					    "fill_color_rgba", gc_skin_color_content,
 					    NULL);
 
   // Music
@@ -315,11 +316,11 @@ void gcompris_config_start ()
   gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 			 gnome_canvas_text_get_type (),
 			 "text", _("Music"), 
-			 "font", gcompris_skin_font_subtitle,
+			 "font", gc_skin_font_subtitle,
 			 "x", (double) x_text_start,
 			 "y", (double) y_start,
 			 "anchor", GTK_ANCHOR_WEST,
-			 "fill_color_rgba", gcompris_skin_color_content,
+			 "fill_color_rgba", gc_skin_color_content,
 			 NULL);
 
   // Effect
@@ -343,11 +344,11 @@ void gcompris_config_start ()
   gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 			 gnome_canvas_text_get_type (),
 			 "text", _("Effect"), 
-			 "font", gcompris_skin_font_subtitle,
+			 "font", gc_skin_font_subtitle,
 			 "x", (double) x_text_start,
 			 "y", (double) y_start,
 			 "anchor", GTK_ANCHOR_WEST,
-			 "fill_color_rgba", gcompris_skin_color_content,
+			 "fill_color_rgba", gc_skin_color_content,
 			 NULL);
 
   // Timer
@@ -358,11 +359,11 @@ void gcompris_config_start ()
   item_timer_text = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 					   gnome_canvas_text_get_type (),
 					   "text", gettext(timername[properties->timer]),
-					   "font", gcompris_skin_font_subtitle,
+					   "font", gc_skin_font_subtitle,
 					   "x", (double) x_text_start,
 					   "y", (double) y_start,
 					   "anchor", GTK_ANCHOR_WEST,
-					   "fill_color_rgba", gcompris_skin_color_content,
+					   "fill_color_rgba", gc_skin_color_content,
 					   NULL);
 
   // Skin
@@ -419,11 +420,11 @@ void gcompris_config_start ()
     item_skin_text = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 					    gnome_canvas_text_get_type (),
 					    "text", first_skin_name,
-					    "font", gcompris_skin_font_subtitle,
+					    "font", gc_skin_font_subtitle,
 					    "x", (double) x_text_start,
 					    "y", (double) y_start,
 					    "anchor", GTK_ANCHOR_WEST,
-					    "fill_color_rgba", gcompris_skin_color_content,
+					    "fill_color_rgba", gc_skin_color_content,
 					    NULL);
     g_free(first_skin_name);
   }
@@ -439,16 +440,16 @@ void gcompris_config_start ()
   item_filter_text = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 						gnome_canvas_text_get_type (),
 						"markup", gettext(filtername[0]), 
-						"font", gcompris_skin_font_subtitle,
+						"font", gc_skin_font_subtitle,
 						"x", (double) x_text_start,
 						"y", (double) y_start,
 						"anchor", GTK_ANCHOR_WEST,
-						"fill_color_rgba", gcompris_skin_color_content,
+						"fill_color_rgba", gc_skin_color_content,
 						NULL);
 
 
   // OK
-  pixmap = gcompris_load_skin_pixmap("button_large.png");
+  pixmap = gc_skin_pixmap_load("button_large.png");
   item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				gnome_canvas_pixbuf_get_type (),
 				"pixbuf", pixmap, 
@@ -466,21 +467,21 @@ void gcompris_config_start ()
   gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 			 gnome_canvas_text_get_type (),
 			 "text", _("OK"),
-			 "font", gcompris_skin_font_title,
+			 "font", gc_skin_font_title,
 			 "x", (double)  BOARDWIDTH*0.5 + 1.0,
 			 "y", (double)  y - gdk_pixbuf_get_height(pixmap) + 20 + 1.0,
 			 "anchor", GTK_ANCHOR_CENTER,
-			 "fill_color_rgba", gcompris_skin_color_shadow,
+			 "fill_color_rgba", gc_skin_color_shadow,
 			 "weight", PANGO_WEIGHT_HEAVY,
 			 NULL);
   item2 = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				 gnome_canvas_text_get_type (),
 				 "text", _("OK"),
-				 "font", gcompris_skin_font_title,
+				 "font", gc_skin_font_title,
 				 "x", (double)  BOARDWIDTH*0.5,
 				 "y", (double)  y - gdk_pixbuf_get_height(pixmap) + 20,
 				 "anchor", GTK_ANCHOR_CENTER,
-				 "fill_color_rgba", gcompris_skin_color_text_button,
+				 "fill_color_rgba", gc_skin_color_text_button,
 				 "weight", PANGO_WEIGHT_HEAVY,
 				 NULL);
   gtk_signal_connect(GTK_OBJECT(item2), "event",
@@ -495,7 +496,7 @@ void gcompris_config_start ()
   is_displayed = TRUE;
 }
 
-void gcompris_config_stop ()
+void gc_config_stop ()
 {
   // Destroy the help box
   if(rootitem!=NULL)
@@ -525,6 +526,31 @@ void gcompris_config_stop ()
 }
 
 
+/**
+ * Given the locale name, return the full translated name
+ * If not found, simply return the name
+ */
+gchar*
+gc_locale_get_name(gchar *locale)
+{
+  guint i = 0;
+
+  /* en (US) is not in the Linguas table */
+  if(locale[0] != '\0' && !strncmp(locale, "en", strlen(locale)))
+    return(_("English (United State)"));
+
+  while(linguas[i] != NULL)
+    {
+
+      if(!strncmp(locale, linguas[i], strlen(locale)))
+	return(gettext(linguas[i+1]));
+
+      i=i+2;
+    }
+  // Oups this locale is not in the table. Return the first one (system default)
+  return(linguas[1]);
+}
+
 /*-------------------------------------------------------------------------------*/
 /*-------------------------------------------------------------------------------*/
 /*-------------------------------------------------------------------------------*/
@@ -536,7 +562,7 @@ display_previous_next(guint x_start, guint y_start,
   GdkPixbuf   *pixmap = NULL;
   GnomeCanvasItem *item;
 
-  pixmap = gcompris_load_skin_pixmap("button_backward.png");
+  pixmap = gc_skin_pixmap_load("button_backward.png");
   item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				gnome_canvas_pixbuf_get_type (),
 				"pixbuf", pixmap, 
@@ -553,7 +579,7 @@ display_previous_next(guint x_start, guint y_start,
   gdk_pixbuf_unref(pixmap);
 
 
-  pixmap = gcompris_load_skin_pixmap("button_forward.png");
+  pixmap = gc_skin_pixmap_load("button_forward.png");
   item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				gnome_canvas_pixbuf_get_type (),
 				"pixbuf", pixmap, 
@@ -570,7 +596,8 @@ display_previous_next(guint x_start, guint y_start,
   gdk_pixbuf_unref(pixmap);
 }
   
-static void set_locale_flag(gchar *locale)
+static void
+set_locale_flag(gchar *locale)
 {
   gchar *filename;
   GdkPixbuf *pixmap = NULL;
@@ -626,34 +653,10 @@ static void set_locale_flag(gchar *locale)
 
 
 /**
- * Given the locale name, return the full translated name
- * If not found, simply return the name
- */
-gchar*
-gc_locale_get_name(gchar *locale)
-{
-  guint i = 0;
-
-  /* en (US) is not in the Linguas table */
-  if(locale[0] != '\0' && !strncmp(locale, "en", strlen(locale)))
-    return(_("English (United State)"));
-
-  while(linguas[i] != NULL)
-    {
-
-      if(!strncmp(locale, linguas[i], strlen(locale)))
-	return(gettext(linguas[i+1]));
-
-      i=i+2;
-    }
-  // Oups this locale is not in the table. Return the first one (system default)
-  return(linguas[1]);
-}
-
-/**
  * Given the short locale name, return the next one in our linguas table
  */
-static gchar *get_next_locale(gchar *locale)
+static gchar *
+get_next_locale(gchar *locale)
 {
   guint i = 0;
 
@@ -677,7 +680,8 @@ static gchar *get_next_locale(gchar *locale)
 /**
  * Given the short locale name, return the previous one in our linguas table
  */
-static gchar *get_previous_locale(gchar *locale)
+static gchar *
+get_previous_locale(gchar *locale)
 {
   guint i = 0;
 
@@ -725,12 +729,12 @@ item_event_ok(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 	    gc_locale_set(current_locale);
 	  }
 	  properties->skin = g_strdup((char *)g_list_nth_data(skinlist, skin_index));
-	  gcompris_skin_load(properties->skin);
-	  gcompris_config_stop();
-	  gcompris_properties_save(properties);
+	  gc_skin_load(properties->skin);
+	  gc_config_stop();
+	  gc_prop_save(properties);
 
 	  if(properties->music || properties->fx) {
-	    initSound();
+	    gc_sound_init();
 	  }
 	}
       else if(!strcmp((char *)data, "fullscreen"))

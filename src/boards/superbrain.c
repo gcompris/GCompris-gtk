@@ -216,7 +216,7 @@ static void process_ok() {
   mark_pieces();
 
   if(gamewon)
-    gcompris_display_bonus(gamewon, BONUS_SMILEY);
+    gc_bonus_display(gamewon, BONUS_SMILEY);
 }
 
 /*-------------------------------------------------------------------------------*/
@@ -227,7 +227,7 @@ static void superbrain_next_level()
   guint i;
   gboolean selected_color[MAX_COLORS];
 
-  gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas),
+  gc_set_background(gnome_canvas_root(gcomprisBoard->canvas),
 			  "images/superbrain_background.jpg");
 
   gc_bar_set_level(gcomprisBoard);
@@ -478,10 +478,10 @@ static void game_won()
     gcomprisBoard->sublevel=1;
     gcomprisBoard->level++;
     if(gcomprisBoard->level>gcomprisBoard->maxlevel) { // the current board is finished : bail out
-      board_finished(BOARD_FINISHED_RANDOM);
+      gc_bonus_end_display(BOARD_FINISHED_RANDOM);
       return;
     }
-    gcompris_play_ogg ("sounds/bonus.ogg", NULL);
+    gc_sound_play_ogg ("sounds/bonus.ogg", NULL);
   }
   superbrain_next_level();
 }

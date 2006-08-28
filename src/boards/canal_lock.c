@@ -229,7 +229,7 @@ static gboolean is_our_board (GcomprisBoard *gcomprisBoard)
 static void canal_lock_next_level()
 {
 
-  gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas),
+  gc_set_background(gnome_canvas_root(gcomprisBoard->canvas),
 			  "canal_lock/canal_lock_bg.png");
 
   gc_bar_set_level(gcomprisBoard);
@@ -447,10 +447,10 @@ static void game_won()
     gcomprisBoard->sublevel=1;
     gcomprisBoard->level++;
     if(gcomprisBoard->level>gcomprisBoard->maxlevel) { // the current board is finished : bail out
-      board_finished(BOARD_FINISHED_RANDOM);
+      gc_bonus_end_display(BOARD_FINISHED_RANDOM);
       return;
     }
-    gcompris_play_ogg ("sounds/bonus.ogg", NULL);
+    gc_sound_play_ogg ("sounds/bonus.ogg", NULL);
   }
   canal_lock_next_level();
 }
@@ -492,7 +492,7 @@ static void move_boat()
   else
     {
       /* No possible move */
-      gcompris_play_ogg ("sounds/crash.ogg", NULL);
+      gc_sound_play_ogg ("sounds/crash.ogg", NULL);
       animation = FALSE;
       return;
     }
@@ -721,7 +721,7 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 	  if(lock_water_low && canallock_right_up)
 	      toggle_lock(item);
 	  else
-	    gcompris_play_ogg ("sounds/crash.ogg", NULL);
+	    gc_sound_play_ogg ("sounds/crash.ogg", NULL);
 
 	}
       else if(item == lock_right_item)
@@ -729,21 +729,21 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 	  if(!lock_water_low && canallock_left_up)
 	      toggle_lock(item);
 	  else
-	    gcompris_play_ogg ("sounds/crash.ogg", NULL);
+	    gc_sound_play_ogg ("sounds/crash.ogg", NULL);
 	}
       else if(item == canallock_left_item && canallock_right_up)
 	{
 	  if(lock_right_up)
 	      toggle_lock(item);
 	  else
-	    gcompris_play_ogg ("sounds/crash.ogg", NULL);
+	    gc_sound_play_ogg ("sounds/crash.ogg", NULL);
 	}
       else if(item == canallock_right_item && canallock_left_up)
 	{
 	  if(lock_left_up)
 	      toggle_lock(item);
 	  else
-	    gcompris_play_ogg ("sounds/crash.ogg", NULL);
+	    gc_sound_play_ogg ("sounds/crash.ogg", NULL);
 	}
       else if(item == tuxboat_item)
 	{
@@ -751,7 +751,7 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 	}
       else
 	{
-	  gcompris_play_ogg ("sounds/crash.ogg", NULL);
+	  gc_sound_play_ogg ("sounds/crash.ogg", NULL);
 	}
       break;
     default:
@@ -763,7 +763,7 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
   /*
     gamewon = TRUE;
     canal_lock_destroy_all_items();
-    gcompris_display_bonus(gamewon, BONUS_SMILEY);
+    gc_bonus_display(gamewon, BONUS_SMILEY);
   */
   return FALSE;
 }

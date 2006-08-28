@@ -22,49 +22,44 @@
 #ifndef BONUS_H
 #define BONUS_H
 
-#include <ctype.h>
-#include <math.h>
-#include <assert.h>
-#include "gcompris.h"
-
 /* The time, in ms, between the click of the player, making a choice
-		and the moment the bonus appears. Only used when there is no thumb 
-    in the board */
+ * and the moment the bonus appears. Only used when there is no thumb 
+ * in the board */
 #define TIME_CLICK_TO_BONUS 800
 
 /* BONUS_LAST is equals to the last available bonus type */
 
 typedef enum
 {
-  BONUS_RANDOM		= 0,
-  BONUS_SMILEY		= 1,
-  BONUS_FLOWER		= 2,
-  BONUS_TUX		= 3,
-  BONUS_GNU		= 4,
-  BONUS_LAST		= 2
+  BONUS_RANDOM,
+  BONUS_SMILEY,
+  BONUS_FLOWER,
+  BONUS_TUX,
+  BONUS_GNU,
+  BONUS_LAST
 } BonusList;
 
 typedef enum
 {
-  BOARD_FINISHED_RANDOM		= 0,
-  BOARD_FINISHED_TUXPLANE	= 1,
-  BOARD_FINISHED_TUXLOCO	= 2,
-  BOARD_FINISHED_TOOMANYERRORS  = 3,
-  BOARD_FINISHED_LAST		= 3
+  BOARD_FINISHED_RANDOM,
+  BOARD_FINISHED_TUXPLANE,
+  BOARD_FINISHED_TUXLOCO,
+  BOARD_FINISHED_TOOMANYERRORS,
+  BOARD_FINISHED_LAST
 } BoardFinishedList;
 
 typedef enum
 {
-  BOARD_LOOSE			= 0,
-  BOARD_WIN			= 1,
-  BOARD_DRAW			= 2,
+  BOARD_LOOSE,
+  BOARD_WIN,
+  BOARD_DRAW,
 } BonusStatusList;
 
 /*
  * Public BONUS API Entry
  * ----------------------
  */
-void	 gcompris_display_bonus(BonusStatusList, BonusList);
-void	 board_finished(BoardFinishedList);
+void	 gc_bonus_display(BonusStatusList, BonusList);
+void	 gc_bonus_end_display(BoardFinishedList);
 
 #endif

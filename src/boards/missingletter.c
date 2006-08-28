@@ -162,8 +162,8 @@ static void start_board (GcomprisBoard *agcomprisBoard)
     {
       gchar *img;
       gcomprisBoard=agcomprisBoard;
-      img = gcompris_image_to_skin("missingletter-bg.jpg");
-      gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas),
+      img = gc_skin_image_get("missingletter-bg.jpg");
+      gc_set_background(gnome_canvas_root(gcomprisBoard->canvas),
 			      img);
       g_free(img);
       gcomprisBoard->level=1;
@@ -172,7 +172,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       gcomprisBoard->number_of_sublevel=NUMBER_OF_SUBLEVELS; /* Go to next level after this number of 'play' */
       init_xml();
       assert(NUMBER_OF_LEVELS*NUMBER_OF_SUBLEVELS == g_list_length(board_list));
-      gcompris_score_start(SCORESTYLE_NOTE,
+      gc_score_start(SCORESTYLE_NOTE,
 			   50,
 			   gcomprisBoard->height - 50,
 			   gcomprisBoard->number_of_sublevel);
@@ -191,7 +191,7 @@ static void end_board ()
   if(gcomprisBoard!=NULL)
     {
       pause_board(TRUE);
-      gcompris_score_end();
+      gc_score_end();
       missing_letter_destroy_all_items();
       destroy_board_list();
     }
@@ -240,7 +240,7 @@ static void missing_letter_next_level()
   selected_button = NULL;
   gamewon = FALSE;
 
-  gcompris_score_set(gcomprisBoard->sublevel);
+  gc_score_set(gcomprisBoard->sublevel);
 
   /* Try the next level */
   missing_letter_create_item(gnome_canvas_root(gcomprisBoard->canvas));
@@ -289,7 +289,7 @@ static GnomeCanvasItem *missing_letter_create_item(GnomeCanvasGroup *parent)
 							    "x", (double) 0,
 							    "y", (double) 0,
 							    NULL));
-  button_pixmap = gcompris_load_skin_pixmap("button.png");
+  button_pixmap = gc_skin_pixmap_load("button.png");
   /* display the image */
   board = g_list_nth_data(board_list, board_number);
   assert(board != NULL);
@@ -301,20 +301,20 @@ static GnomeCanvasItem *missing_letter_create_item(GnomeCanvasGroup *parent)
   text_s = gnome_canvas_item_new (boardRootItem,
 				gnome_canvas_text_get_type (),
 				"text", _(board->question),
-				"font", gcompris_skin_font_board_huge_bold,
+				"font", gc_skin_font_board_huge_bold,
 				"x", (double) txt_area_x + 1.0,
 				"y", (double) txt_area_y + 1.0,
 				"anchor", GTK_ANCHOR_CENTER,
-				"fill_color_rgba", gcompris_skin_get_color("missingletter/shadow"),
+				"fill_color_rgba", gc_skin_get_color("missingletter/shadow"),
 				NULL);
   text = gnome_canvas_item_new (boardRootItem,
 				gnome_canvas_text_get_type (),
 				"text", _(board->question),
-				"font", gcompris_skin_font_board_huge_bold,
+				"font", gc_skin_font_board_huge_bold,
 				"x", (double) txt_area_x,
 				"y", (double) txt_area_y,
 				"anchor", GTK_ANCHOR_CENTER,
-				"fill_color_rgba", gcompris_skin_get_color("missingletter/question"),
+				"fill_color_rgba", gc_skin_get_color("missingletter/question"),
 				NULL);
 
   gnome_canvas_item_get_bounds(text, &dx1, &dy1, &dx2, &dy2);
@@ -365,20 +365,20 @@ static GnomeCanvasItem *missing_letter_create_item(GnomeCanvasGroup *parent)
   gnome_canvas_item_new (boardRootItem,
 				   gnome_canvas_text_get_type (),
 				   "text", buf[0],
-				   "font", gcompris_skin_font_board_huge_bold,
+				   "font", gc_skin_font_board_huge_bold,
 				   "x", (double) xOffset + gdk_pixbuf_get_width(button_pixmap)/2 + 1.0,
 				   "y", (double) yOffset + gdk_pixbuf_get_height(button_pixmap)/2 + 1.0,
 				   "anchor", GTK_ANCHOR_CENTER,
-				   "fill_color_rgba", gcompris_skin_color_shadow,
+				   "fill_color_rgba", gc_skin_color_shadow,
 				   NULL);
   l1_item = gnome_canvas_item_new (boardRootItem,
 				   gnome_canvas_text_get_type (),
 				   "text", buf[0],
-				   "font", gcompris_skin_font_board_huge_bold,
+				   "font", gc_skin_font_board_huge_bold,
 				   "x", (double) xOffset + gdk_pixbuf_get_width(button_pixmap)/2,
 				   "y", (double) yOffset + gdk_pixbuf_get_height(button_pixmap)/2,
 				   "anchor", GTK_ANCHOR_CENTER,
-				   "fill_color_rgba", gcompris_skin_color_text_button,
+				   "fill_color_rgba", gc_skin_color_text_button,
 				   NULL);
 
   yOffset += HORIZONTAL_SEPARATION + gdk_pixbuf_get_height(button_pixmap);
@@ -391,20 +391,20 @@ static GnomeCanvasItem *missing_letter_create_item(GnomeCanvasGroup *parent)
   gnome_canvas_item_new (boardRootItem,
 				   gnome_canvas_text_get_type (),
 				   "text", buf[1],
-				   "font", gcompris_skin_font_board_huge_bold,
+				   "font", gc_skin_font_board_huge_bold,
 				   "x", (double) xOffset + gdk_pixbuf_get_width(button_pixmap)/2 + 1.0,
 				   "y", (double) yOffset + gdk_pixbuf_get_height(button_pixmap)/2 + 1.0,
 				   "anchor", GTK_ANCHOR_CENTER,
-				   "fill_color_rgba", gcompris_skin_color_shadow,
+				   "fill_color_rgba", gc_skin_color_shadow,
 				   NULL);
   l2_item = gnome_canvas_item_new (boardRootItem,
 				   gnome_canvas_text_get_type (),
 				   "text", buf[1],
-				   "font", gcompris_skin_font_board_huge_bold,
+				   "font", gc_skin_font_board_huge_bold,
 				   "x", (double) xOffset + gdk_pixbuf_get_width(button_pixmap)/2,
 				   "y", (double) yOffset + gdk_pixbuf_get_height(button_pixmap)/2,
 				   "anchor", GTK_ANCHOR_CENTER,
-				   "fill_color_rgba", gcompris_skin_color_text_button,
+				   "fill_color_rgba", gc_skin_color_text_button,
 				   NULL);
 
   yOffset += HORIZONTAL_SEPARATION + gdk_pixbuf_get_height(button_pixmap);
@@ -418,20 +418,20 @@ static GnomeCanvasItem *missing_letter_create_item(GnomeCanvasGroup *parent)
   gnome_canvas_item_new (boardRootItem,
 				   gnome_canvas_text_get_type (),
 				   "text", buf[2],
-				   "font", gcompris_skin_font_board_huge_bold,
+				   "font", gc_skin_font_board_huge_bold,
 				   "x", (double) xOffset + gdk_pixbuf_get_width(button_pixmap)/2 + 1.0,
 				   "y", (double) yOffset + gdk_pixbuf_get_height(button_pixmap)/2 + 1.0,
 				   "anchor", GTK_ANCHOR_CENTER,
-				   "fill_color_rgba", gcompris_skin_color_shadow,
+				   "fill_color_rgba", gc_skin_color_shadow,
 				   NULL);
   l3_item = gnome_canvas_item_new (boardRootItem,
 				   gnome_canvas_text_get_type (),
 				   "text", buf[2],
-				   "font", gcompris_skin_font_board_huge_bold,
+				   "font", gc_skin_font_board_huge_bold,
 				   "x", (double) xOffset + gdk_pixbuf_get_width(button_pixmap)/2,
 				   "y", (double) yOffset + gdk_pixbuf_get_height(button_pixmap)/2,
 				   "anchor", GTK_ANCHOR_CENTER,
-				   "fill_color_rgba", gcompris_skin_color_text_button,
+				   "fill_color_rgba", gc_skin_color_text_button,
 				   NULL);
 
   gdk_pixbuf_unref(button_pixmap);
@@ -454,7 +454,7 @@ static void game_won() {
     gcomprisBoard->sublevel=1;
     gcomprisBoard->level++;
     if(gcomprisBoard->level>gcomprisBoard->maxlevel) {
-	board_finished(BOARD_FINISHED_TUXPLANE);
+	gc_bonus_end_display(BOARD_FINISHED_TUXPLANE);
 	return;
     }
   }
@@ -463,7 +463,7 @@ static void game_won() {
 
 /* ==================================== */
 static gboolean process_ok_timeout() {
-  gcompris_display_bonus(gamewon, BONUS_FLOWER);
+  gc_bonus_display(gamewon, BONUS_FLOWER);
   return FALSE;
 }
 
@@ -536,13 +536,13 @@ static void highlight_selected(GnomeCanvasItem * item) {
   }
 
   if (selected_button != NULL && selected_button != button) {
-  	button_pixmap = gcompris_load_skin_pixmap("button.png");
+  	button_pixmap = gc_skin_pixmap_load("button.png");
   	gnome_canvas_item_set(selected_button, "pixbuf", button_pixmap, NULL);
   	gdk_pixbuf_unref(button_pixmap);
   }
 
   if (selected_button != button) {
-  	button_pixmap_selected = gcompris_load_skin_pixmap("button_selected.png");
+  	button_pixmap_selected = gc_skin_pixmap_load("button_selected.png");
   	gnome_canvas_item_set(button, "pixbuf", button_pixmap_selected, NULL);
   	selected_button = button;
   	gdk_pixbuf_unref(button_pixmap_selected);
@@ -780,7 +780,7 @@ config_start(GcomprisBoard *agcomprisBoard,
 				 agcomprisBoard->name, 
 				 aProfile ? aProfile->name : "");
 
-  gcompris_configuration_window( label,
+  gc_board_config_window_display( label,
 				 (GcomprisConfCallback )conf_ok);
 
   g_free(label);

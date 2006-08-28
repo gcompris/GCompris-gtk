@@ -45,4 +45,8 @@ void gc_menu_load();
 /** mimetype */
 void gc_mime_type_load();
 
+/* log */
+void gc_log_start (GcomprisBoard *gcomprisBoard); 
+void gc_log_set_key (GcomprisBoard *gcomprisBoard, guint keyval);
+
 #endif

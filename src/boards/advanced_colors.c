@@ -136,7 +136,7 @@ static void start_board (GcomprisBoard *agcomprisBoard) {
     gcomprisBoard->number_of_sublevel = 8;
 
     gc_bar_set(GC_BAR_LEVEL);
-    gcompris_score_start(SCORESTYLE_NOTE,
+    gc_score_start(SCORESTYLE_NOTE,
 			 gcomprisBoard->width - 220,
 			 gcomprisBoard->height - 50,
 			 gcomprisBoard->number_of_sublevel);
@@ -159,7 +159,7 @@ static void end_board () {
 
   if(gcomprisBoard!=NULL){
     pause_board(TRUE);
-    gcompris_score_end();
+    gc_score_end();
     colors_destroy_all_items();
     // free list
     while (g_list_length(listColors) > 0)
@@ -205,7 +205,7 @@ static void colors_next_level() {
   colors_destroy_all_items();
   gamewon = FALSE;
 
-  gcompris_score_set(gcomprisBoard->sublevel);
+  gc_score_set(gcomprisBoard->sublevel);
   gc_bar_set_level(gcomprisBoard);
 
   /* initialize board only once*/
@@ -227,7 +227,7 @@ static void colors_next_level() {
     /* set background */
     str = g_strdup_printf("%s/%s", gcomprisBoard->boarddir, backgroundFile);
     g_warning("background = %s\n", str);
-    gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas), str);
+    gc_set_background(gnome_canvas_root(gcomprisBoard->canvas), str);
     g_free(str);
   }
 
@@ -237,7 +237,7 @@ static void colors_next_level() {
   color_item = gnome_canvas_item_new (boardRootItem,
 				      gnome_canvas_text_get_type (),
 				      "text", colors[GPOINTER_TO_INT(g_list_nth_data(listColors,0))],
-				      "font", gcompris_skin_font_board_title_bold,
+				      "font", gc_skin_font_board_title_bold,
 				      "x", (double) (color_x1+color_x2)/2,
 				      "y", (double) (color_y1+color_y2)/2,
 				      "anchor", GTK_ANCHOR_CENTER,
@@ -324,7 +324,7 @@ static void game_won() {
     gcomprisBoard->level++;
     gcomprisBoard->sublevel = 1;
     if (gcomprisBoard->level > gcomprisBoard->maxlevel) {
-      board_finished(BOARD_FINISHED_TUXLOCO);
+      gc_bonus_end_display(BOARD_FINISHED_TUXLOCO);
       return;
     }
 
@@ -340,7 +340,7 @@ static void game_won() {
  * =====================================================================*/
 static gboolean ok_timeout() {
   g_warning("+++ ok_timeout errors = %d\n", errors);
-  gcompris_display_bonus(gamewon, BONUS_SMILEY);
+  gc_bonus_display(gamewon, BONUS_SMILEY);
   if (!gamewon)
     errors--;
   if (errors <1)
@@ -348,7 +348,7 @@ static gboolean ok_timeout() {
   update_clock();
 
   if (errors <= 1) {
-    board_finished(BOARD_FINISHED_TOOMANYERRORS);
+    gc_bonus_end_display(BOARD_FINISHED_TOOMANYERRORS);
   }
 
   return FALSE;

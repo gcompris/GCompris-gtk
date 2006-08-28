@@ -35,16 +35,16 @@ typedef enum
 
 typedef void (*GcomprisSoundCallback) (gchar *);
 
-void	 gcompris_play_ogg(const gchar *, ...);
-void	 gcompris_play_ogg_cb(const gchar *, GcomprisSoundCallback);
-void	 gcompris_play_ogg_list( GList* files );
-void	 setSoundPolicy(int);
-int	 getSoundPolicy(void);
-void	 initSound(void);
-void	 gcompris_reopen_sound(void);
-void	 gcompris_close_sound(void);
-void	 gcompris_pause_sound(void);
-void	 gcompris_resume_sound(void);
+void	 gc_sound_play_ogg(const gchar *, ...);
+void	 gc_sound_play_ogg_cb(const gchar *, GcomprisSoundCallback);
+void	 gc_sound_play_ogg_list( GList* files );
+void	 gc_sound_policy_set(int);
+int	 gc_sound_policy_get(void);
+void	 gc_sound_init(void);
+void	 gc_sound_reopen(void);
+void	 gc_sound_close(void);
+void	 gc_sound_pause(void);
+void	 gc_sound_resume(void);
 
 int	 decode_ogg_file(char *infile);
 void	 display_ao_devices();
@@ -60,7 +60,7 @@ void	 sdlplayer_pause();
 void	 sdlplayer_resume();
 int	 sdlplayer(char *filename, int volume);
 
-gchar *gcompris_alphabet_sound(gchar *chars);
+gchar *gc_sound_alphabet(gchar *chars);
 
 
 /*************************************************************/
@@ -71,7 +71,7 @@ gchar *gcompris_alphabet_sound(gchar *chars);
  */
 #include <glib-object.h>
 
-#define GCOMPRIS_SOUND_TYPE 	  (gcompris_sound_get_type ())
+#define GCOMPRIS_SOUND_TYPE 	  (gc_sound_get_type ())
 #define GCOMPRIS_SOUND(obj)		  (G_TYPE_CHECK_INSTANCE_CAST ((obj), GCOMPRIS_SOUND_TYPE, GcomprisSound))
 #define GCOMPRIS_SOUND_CLASS(klass)	  (G_TYPE_CHECK_CLASS_CAST ((klass), GCOMPRIS_SOUND_TYPE, GcomprisSoundClass))
 #define GCOMPRIS_SOUND_IS(obj)	  (G_TYPE_CHECK_INSTANCE_TYPE ((obj),  GCOMPRIS_SOUND_TYPE))
@@ -96,7 +96,7 @@ struct _GcomprisSoundClass {
 };
 
 /* used by MAMAN_TYPE_FILE */
-GType gcompris_sound_get_type (void);
+GType gc_sound_get_type (void);
 
 /* API. */
 
@@ -104,6 +104,6 @@ GType gcompris_sound_get_type (void);
 
 
 /* Declaration of GCompris Sound Controller */
-extern GObject *gcompris_sound_controller;
+extern GObject *gc_sound_controller;
 
 #endif

@@ -27,16 +27,12 @@
 
 static GcomprisBoard *config_board;
 
-void	 board_config_start(GcomprisBoard *aBoard, GcomprisProfile *aProfile)
+void
+gc_board_config_start(GcomprisBoard *aBoard, GcomprisProfile *aProfile)
 {
 
-/*   if (config_board){ */
-/*     g_warning("board_config_start Cannot configure two boards at same time !\n Call config_end on previous board before !"); */
-/*     return; */
-/*   } */
-
   if (aBoard->plugin == NULL){
-    g_warning("board_config_start: board %s/%s is not initialised ? Hummmm...", aBoard->section,aBoard->name);
+    g_warning("gc_board_config_start: board %s/%s is not initialised ? Hummmm...", aBoard->section,aBoard->name);
     return;
   }
 
@@ -53,7 +49,8 @@ void	 board_config_start(GcomprisBoard *aBoard, GcomprisProfile *aProfile)
 
 
   
-void	 board_config_stop()
+void
+gc_board_config_stop()
 {
   if (!config_board)
     return;
@@ -71,7 +68,8 @@ static GcomprisConfCallback Confcallback = NULL;
 static gchar *label_markup = NULL;
 
 
-static void check_key(gchar *key)
+static void
+check_key(gchar *key)
 {
   if ((strcmp(key, "locale") == 0) ||
       (strcmp(key, "locale_sound") == 0) ||
@@ -79,8 +77,9 @@ static void check_key(gchar *key)
     g_error(" Key %s forbiden ! Change !", key);
 }
 
-void gcompris_close_board_conf (GtkDialog *dialog,
-				gpointer   user_data)
+void
+gc_board_conf_close (GtkDialog *dialog,
+		     gpointer   user_data)
 {
   gtk_object_destroy(GTK_OBJECT(dialog));
   g_hash_table_destroy (hash_conf);
@@ -95,9 +94,10 @@ void gcompris_close_board_conf (GtkDialog *dialog,
   g_free(label_markup);
 }
 
-void gcompris_response_board_conf (GtkButton *button,
-				   gint arg1,
-				   gpointer user_data)
+void
+_response_board_conf (GtkButton *button,
+		      gint arg1,
+		      gpointer user_data)
 {
 
   if (Confcallback){
@@ -120,15 +120,16 @@ void gcompris_response_board_conf (GtkButton *button,
     Confcallback = NULL;
   }
 
-  gcompris_close_board_conf (GTK_DIALOG(conf_window), NULL);
+  gc_board_conf_close (GTK_DIALOG(conf_window), NULL);
 
 }
 
 #ifdef XF86_VIDMODE
 static GdkEventConfigure gcompris_last_configure_event;
 
-static gint gcompris_conf_window_configured(GtkWindow *window,
-  GdkEventConfigure *event, gpointer param)
+static gint
+_conf_window_configured(GtkWindow *window,
+			GdkEventConfigure *event, gpointer param)
 {
   gint new_x, new_y;
   double screen_width, screen_height;
@@ -137,7 +138,7 @@ static gint gcompris_conf_window_configured(GtkWindow *window,
   if (memcmp(&gcompris_last_configure_event, event, sizeof(GdkEventConfigure)))
   {
     gnome_canvas_get_scroll_region( GNOME_CANVAS( gtk_bin_get_child( GTK_BIN(
-      gcompris_get_window()))), NULL, NULL, &screen_width, &screen_height);
+      gc_get_window()))), NULL, NULL, &screen_width, &screen_height);
     /* strange but gcompris.c sets the scrollheight to screen_height + 30 */
     screen_height -= 30;
     new_x = ((gint)screen_width - event->width) / 2;
@@ -152,7 +153,8 @@ static gint gcompris_conf_window_configured(GtkWindow *window,
 }
 #endif
 
-GtkVBox *gcompris_configuration_window(gchar *label, GcomprisConfCallback callback)
+GtkVBox *
+gc_board_config_window_display(gchar *label, GcomprisConfCallback callback)
 {
   GtkWidget *header;
  
@@ -161,14 +163,15 @@ GtkVBox *gcompris_configuration_window(gchar *label, GcomprisConfCallback callba
   hash_conf = g_hash_table_new_full(g_str_hash, g_str_equal, g_free, g_free);
 
   /* main configuration window */
-  conf_window = GTK_WINDOW(gtk_dialog_new_with_buttons ("GCompris",
-							GTK_WINDOW(gtk_widget_get_toplevel (GTK_WIDGET(get_current_gcompris_board()->canvas))),
-							GTK_DIALOG_MODAL | GTK_DIALOG_DESTROY_WITH_PARENT,
-							GTK_STOCK_CANCEL,
-							GTK_RESPONSE_CANCEL,
-							GTK_STOCK_APPLY,
-							GTK_RESPONSE_APPLY,
-                                         NULL));
+  conf_window = \
+    GTK_WINDOW(gtk_dialog_new_with_buttons ("GCompris",
+					    GTK_WINDOW(gtk_widget_get_toplevel (GTK_WIDGET(gc_board_get_current()->canvas))),
+					    GTK_DIALOG_MODAL | GTK_DIALOG_DESTROY_WITH_PARENT,
+					    GTK_STOCK_CANCEL,
+					    GTK_RESPONSE_CANCEL,
+					    GTK_STOCK_APPLY,
+					    GTK_RESPONSE_APPLY,
+					    NULL));
   
 
   /* parameters */
@@ -179,7 +182,7 @@ GtkVBox *gcompris_configuration_window(gchar *label, GcomprisConfCallback callba
       memset(&gcompris_last_configure_event, 0, sizeof(GdkEventConfigure));
       gtk_widget_add_events(GTK_WIDGET(conf_window), GDK_STRUCTURE_MASK);
       gtk_signal_connect (GTK_OBJECT (conf_window), "configure_event",
-        GTK_SIGNAL_FUNC (gcompris_conf_window_configured), 0);
+        GTK_SIGNAL_FUNC (_conf_window_configured), 0);
     }
   else
 #endif
@@ -190,8 +193,8 @@ GtkVBox *gcompris_configuration_window(gchar *label, GcomprisConfCallback callba
 
   GcomprisProperties *properties = gc_prop_get();
   if (properties->fullscreen && !properties->noxf86vm)
-    if (gdk_pointer_grab(gcompris_get_window()->window, TRUE, 0,
-			 GDK_WINDOW(gcompris_get_window()), NULL, GDK_CURRENT_TIME) !=
+    if (gdk_pointer_grab(gc_get_window()->window, TRUE, 0,
+			 GDK_WINDOW(gc_get_window()), NULL, GDK_CURRENT_TIME) !=
 	GDK_GRAB_SUCCESS)
       g_warning("Pointer grab failed");
 
@@ -200,12 +203,12 @@ GtkVBox *gcompris_configuration_window(gchar *label, GcomprisConfCallback callba
 
   g_signal_connect(G_OBJECT(conf_window), 
 		   "response",
-		   G_CALLBACK(gcompris_response_board_conf),
+		   G_CALLBACK(_response_board_conf),
 		   NULL);
 
   g_signal_connect (G_OBJECT(conf_window),
 		    "close",
-		    G_CALLBACK(gcompris_close_board_conf),
+		    G_CALLBACK(gc_board_conf_close),
 		    NULL);
 
   
@@ -231,8 +234,9 @@ GtkVBox *gcompris_configuration_window(gchar *label, GcomprisConfCallback callba
   return main_conf_box;
 }
 
-void gcompris_boolean_box_toggled (GtkToggleButton *togglebutton,
-				   gpointer key)
+void 
+gc_board_conf_boolean_box_toggled (GtkToggleButton *togglebutton,
+			      gpointer key)
 {
   gchar *the_key = g_strdup((gchar *)key);
   gchar *value;
@@ -245,7 +249,8 @@ void gcompris_boolean_box_toggled (GtkToggleButton *togglebutton,
   g_hash_table_replace(hash_conf, (gpointer) the_key, (gpointer) value);
 }
 
-GtkCheckButton *gcompris_boolean_box(const gchar *label, gchar *key, gboolean initial_value)
+GtkCheckButton *
+gcompris_boolean_box(const gchar *label, gchar *key, gboolean initial_value)
 {
   check_key( key);
 
@@ -264,7 +269,7 @@ GtkCheckButton *gcompris_boolean_box(const gchar *label, gchar *key, gboolean in
 
   g_signal_connect   (G_OBJECT(CheckBox),
 		      "toggled",
-		      G_CALLBACK(gcompris_boolean_box_toggled),
+		      G_CALLBACK(gc_board_conf_boolean_box_toggled),
 		      key);
 
   return GTK_CHECK_BUTTON(CheckBox);
@@ -391,9 +396,10 @@ static void radio_changed(GtkToggleButton *togglebutton,
   }
 }
 
-static void create_radio_buttons(gpointer key,
-				 gpointer value,
-				 gpointer hash_radio)
+static void
+create_radio_buttons(gpointer key,
+		     gpointer value,
+		     gpointer hash_radio)
 {
   GtkWidget *radio_button;
   gchar *key_copy;
@@ -420,8 +426,9 @@ static void create_radio_buttons(gpointer key,
   g_hash_table_replace ( hash_radio, (gpointer) key_copy, (gpointer) radio_button);
 }
 
-static void destroy_hash (GtkObject *object,
-                   gpointer hash_table)
+static void
+destroy_hash (GtkObject *object,
+	      gpointer hash_table)
 {
   g_hash_table_destroy((GHashTable *)hash_table);
   radio_group = NULL;
@@ -430,10 +437,11 @@ static void destroy_hash (GtkObject *object,
   g_free(radio_init);
 }
 
-GHashTable *gcompris_radio_buttons(const gchar *label,
-				   gchar *key,
-				   GHashTable *buttons_label,
-				   gchar *init)
+GHashTable *
+gcompris_radio_buttons(const gchar *label,
+		       gchar *key,
+		       GHashTable *buttons_label,
+		       gchar *init)
 {
   check_key( key);
 
@@ -481,8 +489,9 @@ GHashTable *gcompris_radio_buttons(const gchar *label,
   return buttons;
 }
 
-static void spin_changed (GtkSpinButton *spinbutton,
-			  gpointer key)
+static void
+spin_changed (GtkSpinButton *spinbutton,
+	      gpointer key)
 {
   gchar *h_key = g_strdup((gchar *) key);
   gchar *h_value = g_strdup_printf("%d",gtk_spin_button_get_value_as_int (spinbutton));
@@ -490,7 +499,8 @@ static void spin_changed (GtkSpinButton *spinbutton,
   g_hash_table_replace (hash_conf, h_key, h_value);
 }
 
-GtkSpinButton *gcompris_spin_int(const gchar *label, gchar *key, gint min, gint max, gint step, gint init)
+GtkSpinButton *
+gcompris_spin_int(const gchar *label, gchar *key, gint min, gint max, gint step, gint init)
 {
   check_key( key);
 
@@ -546,7 +556,8 @@ GtkSpinButton *gcompris_spin_int(const gchar *label, gchar *key, gint min, gint 
 
 }
 
-GtkHSeparator *gcompris_separator()
+GtkHSeparator *
+gcompris_separator()
 {
   GtkWidget *separator = gtk_hseparator_new ();
 
@@ -904,8 +915,10 @@ void *gcompris_textbuffer_changed (GtkTextBuffer *buffer,
   return NULL;
 }
 
-void *gcompris_textview_yes (GtkButton *button,
-			      gpointer user_data){
+void *
+gcompris_textview_yes (GtkButton *button,
+		       gpointer user_data)
+{
 
   user_param_type *params= (user_param_type *) user_data;
 
@@ -948,13 +961,13 @@ void *gcompris_textview_yes (GtkButton *button,
   return NULL;
 }
 
-GtkTextView *gcompris_textview(const gchar *label, 
-			       gchar *key,
-			       const gchar*description, 
-			       gchar *init_text, 
-			       GcomprisTextCallback validate){
-
-
+GtkTextView *
+gcompris_textview(const gchar *label, 
+		  gchar *key,
+		  const gchar*description, 
+		  gchar *init_text, 
+		  GcomprisTextCallback validate)
+{
   GtkWidget*frame =  gtk_frame_new ("GCompris text tool");
   gtk_widget_show(frame);
 

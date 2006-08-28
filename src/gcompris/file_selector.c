@@ -139,7 +139,7 @@ void gc_selector_file_load (GcomprisBoard *gcomprisBoard, gchar *rootdir,
  */
 void gc_selector_file_stop ()
 {
-  GcomprisBoard *gcomprisBoard = get_current_gcompris_board();
+  GcomprisBoard *gcomprisBoard = gc_board_get_current();
 
   if(gcomprisBoard!=NULL && file_selector_displayed)
     board_pause(FALSE);
@@ -194,9 +194,9 @@ display_file_selector(int the_mode,
   mode = the_mode;
 
   /* Get the coordinate x y of the control area from the skin */
-  control_area_x1   = gcompris_skin_get_number_default("gcompris/fileselectx", 85);
-  control_area_y1   = gcompris_skin_get_number_default("gcompris/fileselecty", 80);
-  directory_label_y = gcompris_skin_get_number_default("gcompris/fileselectdiry", 180);
+  control_area_x1   = gc_skin_get_number_default("gcompris/fileselectx", 85);
+  control_area_y1   = gc_skin_get_number_default("gcompris/fileselecty", 80);
+  directory_label_y = gc_skin_get_number_default("gcompris/fileselectdiry", 180);
 
   if(file_types) {
     file_types_string = g_strdup(file_types);
@@ -213,13 +213,13 @@ display_file_selector(int the_mode,
   fileSelectorCallBack=iscb;
 
   rootitem = \
-    gnome_canvas_item_new (gnome_canvas_root(gcompris_get_canvas()),
+    gnome_canvas_item_new (gnome_canvas_root(gc_get_canvas()),
 			   gnome_canvas_group_get_type (),
 			   "x", (double)0,
 			   "y", (double)0,
 			   NULL);
 
-  pixmap = gcompris_load_skin_pixmap("file_selector_bg.png");
+  pixmap = gc_skin_pixmap_load("file_selector_bg.png");
   y_start = (BOARDHEIGHT - gdk_pixbuf_get_height(pixmap))/2;
   x_start = (BOARDWIDTH - gdk_pixbuf_get_width(pixmap))/2;
   item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
@@ -311,7 +311,7 @@ display_file_selector(int the_mode,
    * -------
    */
 
-  pixmap = gcompris_load_skin_pixmap("button_large.png");
+  pixmap = gc_skin_pixmap_load("button_large.png");
 
   // CANCEL
   item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
@@ -331,11 +331,11 @@ display_file_selector(int the_mode,
   item2 = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				 gnome_canvas_text_get_type (),
 				 "text", _("CANCEL"),
-				 "font", gcompris_skin_font_title,
+				 "font", gc_skin_font_title,
 				 "x", (double)  BOARDWIDTH*0.33,
 				 "y", (double)  y - gdk_pixbuf_get_height(pixmap),
 				 "anchor", GTK_ANCHOR_CENTER,
-				 "fill_color_rgba", gcompris_skin_color_text_button,
+				 "fill_color_rgba", gc_skin_color_text_button,
 				 NULL);
   gtk_signal_connect(GTK_OBJECT(item2), "event",
 		     (GtkSignalFunc) item_event_file_selector,
@@ -362,11 +362,11 @@ display_file_selector(int the_mode,
   item2 = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				 gnome_canvas_text_get_type (),
 				 "text", (mode==MODE_LOAD ? _("LOAD") : _("SAVE")),
-				 "font", gcompris_skin_font_title,
+				 "font", gc_skin_font_title,
 				 "x", (double)  BOARDWIDTH*0.66,
 				 "y", (double)  y - gdk_pixbuf_get_height(pixmap),
 				 "anchor", GTK_ANCHOR_CENTER,
-				 "fill_color_rgba", gcompris_skin_color_text_button,
+				 "fill_color_rgba", gc_skin_color_text_button,
 				 NULL);
   gtk_signal_connect(GTK_OBJECT(item2), "event",
 		     (GtkSignalFunc) item_event_file_selector,
@@ -380,8 +380,8 @@ display_file_selector(int the_mode,
 
   file_selector_displayed = TRUE;
 
-  full_rootdir = g_strconcat(gcompris_get_current_user_dirname(), "/", rootdir, NULL);
-  create_rootdir(full_rootdir);
+  full_rootdir = g_strconcat(gc_profile_get_current_user_dirname(), "/", rootdir, NULL);
+  gc_util_create_rootdir(full_rootdir);
 
   current_rootdir = full_rootdir;
 
@@ -472,7 +472,7 @@ static void display_files(GnomeCanvasItem *root_item, gchar *rootdir)
 			 "y1", (double) 0,
 			 "x2", (double) DRAWING_AREA_X2- DRAWING_AREA_X1,
 			 "y2", (double) DRAWING_AREA_Y2-DRAWING_AREA_Y1,
-			 "fill_color_rgba", gcompris_skin_get_color("gcompris/fileselectbg"),
+			 "fill_color_rgba", gc_skin_get_color("gcompris/fileselectbg"),
 			 NULL);
 
 
@@ -503,7 +503,7 @@ static void display_files(GnomeCanvasItem *root_item, gchar *rootdir)
 				"text", rootdir,
 				"x", (double)control_area_x1,
 				"y", (double)directory_label_y,
-				"fill_color_rgba", gcompris_skin_get_color("gcompris/fileselectcol"),
+				"fill_color_rgba", gc_skin_get_color("gcompris/fileselectcol"),
 				"anchor", GTK_ANCHOR_NW,
 				NULL);
 
@@ -544,7 +544,7 @@ static void display_files(GnomeCanvasItem *root_item, gchar *rootdir)
 
 
     if(g_file_test(allfilename, G_FILE_TEST_IS_DIR)) {
-      pixmap_current  = gc_pixmap_load(gcompris_image_to_skin("directory.png"));
+      pixmap_current  = gc_pixmap_load(gc_skin_image_get("directory.png"));
     } else if(ext) {
       /* Need to find an icon for this extension */
       GcomprisMimeType *mimeType = NULL;
@@ -556,19 +556,19 @@ static void display_files(GnomeCanvasItem *root_item, gchar *rootdir)
 	  pixmap_current  = gc_pixmap_load(mimeType->icon);
 	  if(pixmap_current==NULL) {
 	    g_warning("Cannot find icon %s for mimetype %s", mimeType->icon, mimeType->description);
-	    pixmap_current  = gc_pixmap_load(gcompris_image_to_skin("file.png"));
+	    pixmap_current  = gc_pixmap_load(gc_skin_image_get("file.png"));
 	  } else {
 	    /* We can remove the extension now that we have an icon */
 	    *ext='\0';
 	  }
 	} else {
-	  pixmap_current  = gc_pixmap_load(gcompris_image_to_skin("file.png"));
+	  pixmap_current  = gc_pixmap_load(gc_skin_image_get("file.png"));
 	}
       } else {
-	pixmap_current  = gc_pixmap_load(gcompris_image_to_skin("file.png"));
+	pixmap_current  = gc_pixmap_load(gc_skin_image_get("file.png"));
       }
     } else {
-      pixmap_current  = gc_pixmap_load(gcompris_image_to_skin("file.png"));
+      pixmap_current  = gc_pixmap_load(gc_skin_image_get("file.png"));
     }
 
     item = gnome_canvas_item_new (gnome_canvas_root(canvas),
@@ -604,7 +604,7 @@ static void display_files(GnomeCanvasItem *root_item, gchar *rootdir)
 				  "x", (double)ix + (IMAGE_WIDTH + IMAGE_GAP)/2,
 				  "y", (double)iy + IMAGE_HEIGHT - 5,
 				  "anchor", GTK_ANCHOR_CENTER,
-				  "fill_color_rgba", gcompris_skin_get_color("gcompris/fileselectcol"),
+				  "fill_color_rgba", gc_skin_get_color("gcompris/fileselectcol"),
 				  NULL);
 
     if(g_file_test(allfilename, G_FILE_TEST_IS_DIR)) {

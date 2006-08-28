@@ -33,7 +33,7 @@ py_board_run_next (PyObject* self, PyObject* args)
 }
 
 static PyObject*
-py_board_config_start (PyObject* self, PyObject* args)
+py_gc_board_config_start (PyObject* self, PyObject* args)
 {
   PyObject* pyBoard;
   PyObject* pyProfile;
@@ -44,7 +44,7 @@ py_board_config_start (PyObject* self, PyObject* args)
 
   /* Parse arguments */
   if(!PyArg_ParseTuple(args, 
-		       "OO:board_config_start", 
+		       "OO:gc_board_config_start", 
 		       &pyBoard, 
 		       &pyProfile))
     return NULL;
@@ -55,7 +55,7 @@ py_board_config_start (PyObject* self, PyObject* args)
   cGcomprisProfile = pyGcomprisProfile->cdata;
 
   /* Call the corresponding C function */
-  board_config_start(cGcomprisBoard, cGcomprisProfile);
+  gc_board_config_start(cGcomprisBoard, cGcomprisProfile);
 
   /* Create and return the result */
   Py_INCREF(Py_None);
@@ -63,14 +63,14 @@ py_board_config_start (PyObject* self, PyObject* args)
 }
 
 static PyObject*
-py_board_config_stop (PyObject* self, PyObject* args)
+py_gc_board_config_stop (PyObject* self, PyObject* args)
 {
   /* Parse arguments */
-  if(!PyArg_ParseTuple(args, ":gcompris.board_config_stop"))
+  if(!PyArg_ParseTuple(args, ":gcompris.gc_board_config_stop"))
     return NULL;
 
   /* Call the corresponding C function */
-  board_config_stop();
+  gc_board_config_stop();
 
   /* Create and return the result */
   Py_INCREF(Py_None);
@@ -185,7 +185,7 @@ py_gcompris_get_class_from_id (PyObject* self, PyObject* args)
 }
 
 static PyObject*
-py_gcompris_get_profiles_list (PyObject* self, PyObject* args)
+py_gc_db_profiles_list_get (PyObject* self, PyObject* args)
 {
   GList *profiles_list;
   GList *list;
@@ -196,7 +196,7 @@ py_gcompris_get_profiles_list (PyObject* self, PyObject* args)
     return NULL;
 
   /* Call the corresponding C function */
-  profiles_list = gcompris_get_profiles_list();
+  profiles_list = gc_db_profiles_list_get();
 
   pylist = PyList_New(0);
   for (list = profiles_list; list != NULL; list = list->next){
@@ -273,7 +273,7 @@ py_gcompris_get_classes_list (PyObject* self, PyObject* args)
 }
 
 static PyObject*
-py_gcompris_get_users_from_group (PyObject* self, PyObject* args)
+py_gc_db_users_from_group_get (PyObject* self, PyObject* args)
 {
   GList *users_list;
   GList *list;
@@ -281,11 +281,11 @@ py_gcompris_get_users_from_group (PyObject* self, PyObject* args)
   int group_id;
 
   /* Parse arguments */
-  if(!PyArg_ParseTuple(args, "i:gcompris_get_users_from_group", &group_id))
+  if(!PyArg_ParseTuple(args, "i:gc_db_users_from_group_get", &group_id))
     return NULL;
 
   /* Call the corresponding C function */
-  users_list = gcompris_get_users_from_group(group_id);
+  users_list = gc_db_users_from_group_get(group_id);
 
   pylist = PyList_New(0);
   for (list = users_list; list != NULL; list = list->next){
@@ -295,9 +295,9 @@ py_gcompris_get_users_from_group (PyObject* self, PyObject* args)
   return pylist;
 }
 
-/* void                *gcompris_set_current_user(GcomprisUser *user); */
+/* void                *gc_profile_set_current_user(GcomprisUser *user); */
 static PyObject*
-py_gcompris_set_current_user (PyObject* self, PyObject* args)
+py_gc_profile_set_current_user (PyObject* self, PyObject* args)
 {
   PyObject *pyObject_user;
   pyGcomprisUserObject *pyUser;
@@ -311,7 +311,7 @@ py_gcompris_set_current_user (PyObject* self, PyObject* args)
 
   user = (GcomprisUser *) pyUser->cdata;
   /* Call the corresponding C function */
-  gcompris_set_current_user(user);
+  gc_profile_set_current_user(user);
 
   /* Create and return the result */
   Py_INCREF(Py_None);
@@ -320,9 +320,9 @@ py_gcompris_set_current_user (PyObject* self, PyObject* args)
 
 
 
-/* GcomprisUser        *gcompris_get_current_user(); */
+/* GcomprisUser        *gc_profile_get_current_user(); */
 static PyObject*
-py_gcompris_get_current_user (PyObject* self, PyObject* args)
+py_gc_profile_get_current_user (PyObject* self, PyObject* args)
 {
   GcomprisUser *user;
 
@@ -331,7 +331,7 @@ py_gcompris_get_current_user (PyObject* self, PyObject* args)
     return NULL;
 
   /* Call the corresponding C function */
-  user = gcompris_get_current_user ();
+  user = gc_profile_get_current_user ();
 
   /* Create and return the result */
   if (!user) {
@@ -344,10 +344,10 @@ py_gcompris_get_current_user (PyObject* self, PyObject* args)
 
 static PyMethodDef PythonGcomprisAdminModule[] = {
   { "board_run_next",  py_board_run_next, METH_VARARGS, "board_run_next" },
-  { "board_config_start",  py_board_config_start, METH_VARARGS, "board_config_start" },
-  { "board_config_stop",  py_board_config_stop, METH_VARARGS, "board_config_stop" },
+  { "gc_board_config_start",  py_gc_board_config_start, METH_VARARGS, "gc_board_config_start" },
+  { "gc_board_config_stop",  py_gc_board_config_stop, METH_VARARGS, "gc_board_config_stop" },
   { "get_profile_from_id",  py_gcompris_get_profile_from_id, METH_VARARGS, "gcompris_get_profile_from_id" },
-  { "get_profiles_list",  py_gcompris_get_profiles_list, METH_VARARGS, "gcompris_get_profiles_list" },
+  { "get_profiles_list",  py_gc_db_profiles_list_get, METH_VARARGS, "gc_db_profiles_list_get" },
   { "get_user_from_id",  py_gcompris_get_user_from_id, METH_VARARGS, "gcompris_get_user_from_id" },
   { "get_users_list",  py_gcompris_get_users_list, METH_VARARGS, "gcompris_get_users_list" },
   { "get_group_from_id",  py_gcompris_get_group_from_id, METH_VARARGS, "gcompris_get_group_from_id" },
@@ -356,10 +356,10 @@ static PyMethodDef PythonGcomprisAdminModule[] = {
   { "get_classes_list",  py_gcompris_get_classes_list, METH_VARARGS, "gcompris_get_classes_list" },
   { "get_board_from_id",  py_gcompris_get_board_from_id, METH_VARARGS, "gcompris_get_board_from_id" },
   { "get_boards_list",  py_gc_menu_get_boards, METH_VARARGS, "gc_menu_get_boards" },
-  { "get_users_from_group",  py_gcompris_get_users_from_group, METH_VARARGS, "gcompris_get_users_from_group" },
-  { "get_users_from_group",  py_gcompris_get_users_from_group, METH_VARARGS, "gcompris_get_users_from_group" },
-  { "get_current_user",  py_gcompris_get_current_user, METH_VARARGS, "gcompris_get_current_user" },
-  { "set_current_user",  py_gcompris_set_current_user, METH_VARARGS, "gcompris_set_current_user" },
+  { "get_users_from_group",  py_gc_db_users_from_group_get, METH_VARARGS, "gc_db_users_from_group_get" },
+  { "get_users_from_group",  py_gc_db_users_from_group_get, METH_VARARGS, "gc_db_users_from_group_get" },
+  { "get_current_user",  py_gc_profile_get_current_user, METH_VARARGS, "gc_profile_get_current_user" },
+  { "set_current_user",  py_gc_profile_set_current_user, METH_VARARGS, "gc_profile_set_current_user" },
   { NULL, NULL, 0, NULL}
 };
 

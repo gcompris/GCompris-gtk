@@ -28,16 +28,16 @@
 #endif
 
 /* Database management */
-int gcompris_db_init();
-void gcompris_db_exit();
+int gc_db_init();
+void gc_db_exit();
 
-gboolean gcompris_db_check_boards();
+gboolean gc_db_check_boards();
 
-void gcompris_db_set_date(gchar *date);
+void gc_db_set_date(gchar *date);
 
-void gcompris_db_set_version(gchar *version);
+void gc_db_set_version(gchar *version);
 
-void gcompris_db_board_update(guint *board_id, 
+void gc_db_board_update(guint *board_id, 
 			      guint *section_id, 
 			      gchar *name, 
 			      gchar *section, 
@@ -58,27 +58,27 @@ void gcompris_db_board_update(guint *board_id,
 			      gchar *credit
 			      );
 
-void gcompris_db_save_user(int *user_id,
+void gc_db_save_user(int *user_id,
 			   gchar *login,
 			   gchar *name,
 			   gchar *firstname,
 			   gchar *birthday,
 			   int class_id);
 
-GList *gcompris_db_read_board_from_section(gchar *section);
+GList *gc_db_read_board_from_section(gchar *section);
 
 GList *gc_menu_load_db(GList *boards);
 
-GList *gcompris_db_get_board_id(GList *list);
+GList *gc_db_get_board_id(GList *list);
 
-void gcompris_db_remove_board(int board_id);
+void gc_db_remove_board(int board_id);
 
 
 /* Profile management */
 
 GcomprisProfile *gcompris_get_profile_from_id(gint profile_id);
-GcomprisProfile *gcompris_get_profile_from_name(gchar *profile_name);
-GList *gcompris_get_profiles_list();
+GcomprisProfile *gc_db_profile_from_name_get(gchar *profile_name);
+GList *gc_db_profiles_list_get();
 
 
 /* Classes management */
@@ -95,9 +95,9 @@ GcomprisUser *gcompris_get_user_from_id(gint user_id);
 
 GList *gcompris_get_users_list();
 
-GcomprisProfile *gcompris_db_get_profile();
+GcomprisProfile *gc_db_get_profile();
 
-GList *gcompris_get_users_from_group(gint group_id);
+GList *gc_db_users_from_group_get(gint group_id);
 
 void gcompris_set_board_conf(GcomprisProfile *profile, 
 			     GcomprisBoard  *board, 
@@ -114,11 +114,11 @@ GHashTable *gcompris_get_board_conf();
 GHashTable *gcompris_get_conf(GcomprisProfile *profile, GcomprisBoard  *board);
 
 /*internal initialisation use only, do not use it for boards*/
-GHashTable *gcompris_get_conf_with_table(int profile_id, int board_id, GHashTable *table );
+GHashTable *gc_db_conf_with_table_get(int profile_id, int board_id, GHashTable *table );
 
 GcomprisBoard *gcompris_get_board_from_id(int board_id);
 
-int gcompris_is_activity_in_profile(GcomprisProfile *profile, char *activity_name);
+int gc_db_is_activity_in_profile(GcomprisProfile *profile, char *activity_name);
 
 #endif
 

@@ -10,114 +10,114 @@
  */
 
 
-/* gchar *gcompris_image_to_skin(gchar *imagename); */
+/* gchar *gc_skin_image_get(gchar *imagename); */
 static PyObject*
-py_gcompris_image_to_skin(PyObject* self, PyObject* args)
+py_gc_skin_image_get(PyObject* self, PyObject* args)
 {
   gchar* imagename;
   gchar* result;
   /* Parse arguments */
-  if(!PyArg_ParseTuple(args, "s:gcompris_image_to_skin", &imagename))
+  if(!PyArg_ParseTuple(args, "s:gc_skin_image_get", &imagename))
     return NULL;
 
   /* Call the corresponding C function */
-  result = gcompris_image_to_skin(imagename);
+  result = gc_skin_image_get(imagename);
 
   /* Create and return the result */
   return Py_BuildValue("s", result);
 }
 
 
-/* GdkPixbuf *gcompris_load_skin_pixmap(char *pixmapfile); */
+/* GdkPixbuf *gc_skin_pixmap_load(char *pixmapfile); */
 static PyObject*
-py_gcompris_load_skin_pixmap(PyObject* self, PyObject* args)
+py_gc_skin_pixmap_load(PyObject* self, PyObject* args)
 {
   char* pixmapfile;
   GdkPixbuf* result;
   /* Parse arguments */
-  if(!PyArg_ParseTuple(args, "s:gcompris_load_skin_pixmap", &pixmapfile))
+  if(!PyArg_ParseTuple(args, "s:gc_skin_pixmap_load", &pixmapfile))
     return NULL;
 
   /* Call the corresponding C function */
-  result = gcompris_load_skin_pixmap(pixmapfile);
+  result = gc_skin_pixmap_load(pixmapfile);
 
   /* Create and return the result */
   return (PyObject*) pygobject_new((GObject*) result);
 }
 
 
-/* guint32 gcompris_skin_get_color_default(gchar* id, guint32 def); */
+/* guint32 gc_skin_get_color_default(gchar* id, guint32 def); */
 static PyObject*
-py_gcompris_skin_get_color_default(PyObject* self, PyObject* args)
+py_gc_skin_get_color_default(PyObject* self, PyObject* args)
 {
   gchar* id;
   guint32 def;
   guint32 result;
 
   /* Parse arguments */
-  if(!PyArg_ParseTuple(args, "sl:gcompris_skin_get_color_default", &id, &def))
+  if(!PyArg_ParseTuple(args, "sl:gc_skin_get_color_default", &id, &def))
     return NULL;
 
   /* Call the corresponding C function */
-  result = gcompris_skin_get_color_default(id, def);
+  result = gc_skin_get_color_default(id, def);
 
   /* Create and return the result */
   return PyLong_FromUnsignedLong(result);
 }
 
 
-/* gchar* gcompris_skin_get_font_default(gchar* id, gchar* def); */
+/* gchar* gc_skin_get_font_default(gchar* id, gchar* def); */
 static PyObject*
-py_gcompris_skin_get_font_default(PyObject* self, PyObject* args)
+py_gc_skin_get_font_default(PyObject* self, PyObject* args)
 {
   gchar* id;
   gchar* def;
   gchar* result;
 
   /* Parse arguments */
-  if(!PyArg_ParseTuple(args, "ss:gcompris_skin_get_font_default", &id, &def))
+  if(!PyArg_ParseTuple(args, "ss:gc_skin_get_font_default", &id, &def))
     return NULL;
 
   /* Call the corresponding C function */
-  result = gcompris_skin_get_font_default(id, def);
+  result = gc_skin_get_font_default(id, def);
 
   /* Create and return the result */
   return Py_BuildValue("s", result);
 }
 
 
-/* guint32 gcompris_skin_get_color(gchar* id); */
+/* guint32 gc_skin_get_color(gchar* id); */
 static PyObject*
-py_gcompris_skin_get_color(PyObject* self, PyObject* args)
+py_gc_skin_get_color(PyObject* self, PyObject* args)
 {
   gchar* id;
   guint32 result;
 
   /* Parse arguments */
-  if(!PyArg_ParseTuple(args, "s:gcompris_skin_get_color", &id))
+  if(!PyArg_ParseTuple(args, "s:gc_skin_get_color", &id))
     return NULL;
 
   /* Call the corresponding C function */
-  result = gcompris_skin_get_color(id);
+  result = gc_skin_get_color(id);
 
   /* Create and return the result */
   return PyLong_FromUnsignedLong(result);
 }
 
 
-/* gchar* gcompris_skin_get_font(gchar* id); */
+/* gchar* gc_skin_get_font(gchar* id); */
 static PyObject*
-py_gcompris_skin_get_font(PyObject* self, PyObject* args)
+py_gc_skin_get_font(PyObject* self, PyObject* args)
 {
   gchar* id;
   gchar* result;
 
   /* Parse arguments */
-  if(!PyArg_ParseTuple(args, "s:gcompris_skin_get_font_default", &id))
+  if(!PyArg_ParseTuple(args, "s:gc_skin_get_font_default", &id))
     return NULL;
 
   /* Call the corresponding C function */
-  result = gcompris_skin_get_font(id);
+  result = gc_skin_get_font(id);
 
   /* Create and return the result */
   return Py_BuildValue("s", result);
@@ -125,21 +125,21 @@ py_gcompris_skin_get_font(PyObject* self, PyObject* args)
 
 
 static PyMethodDef PythonGcomprisSkinModule[] = {
-  { "image_to_skin",  py_gcompris_image_to_skin, METH_VARARGS, "gcompris_image_to_skin" },
-  { "load_pixmap",  py_gcompris_load_skin_pixmap, METH_VARARGS, "gcompris_load_skin_pixmap" },
-  { "get_color_default",  py_gcompris_skin_get_color_default, METH_VARARGS, 
-    "gcompris_skin_get_color_default" },
-  { "get_font_default",  py_gcompris_skin_get_font_default, METH_VARARGS, 
-    "gcompris_skin_get_font_default" },
-  { "get_color",  py_gcompris_skin_get_color, METH_VARARGS, 
-    "gcompris_skin_get_color" },
-  { "get_font",  py_gcompris_skin_get_font, METH_VARARGS, 
-    "gcompris_skin_get_font" },
+  { "image_to_skin",  py_gc_skin_image_get, METH_VARARGS, "gc_skin_image_get" },
+  { "load_pixmap",  py_gc_skin_pixmap_load, METH_VARARGS, "gc_skin_pixmap_load" },
+  { "get_color_default",  py_gc_skin_get_color_default, METH_VARARGS, 
+    "gc_skin_get_color_default" },
+  { "get_font_default",  py_gc_skin_get_font_default, METH_VARARGS, 
+    "gc_skin_get_font_default" },
+  { "get_color",  py_gc_skin_get_color, METH_VARARGS, 
+    "gc_skin_get_color" },
+  { "get_font",  py_gc_skin_get_font, METH_VARARGS, 
+    "gc_skin_get_font" },
   { NULL, NULL, 0, NULL}
 };
 
 
-void python_gcompris_skin_module_init(void)
+void python_gc_skin_module_init(void)
 {
   PyObject* module;
   module = Py_InitModule("_gcompris_skin", PythonGcomprisSkinModule);

@@ -21,7 +21,8 @@
 
 #include "gcompris_files.h"
 
-gchar                   *gcompris_get_user_dirname(GcomprisUser *user)
+gchar*
+gcompris_get_user_dirname(GcomprisUser *user)
 {
   GcomprisProperties	*properties = gc_prop_get ();
 
@@ -30,31 +31,34 @@ gchar                   *gcompris_get_user_dirname(GcomprisUser *user)
 				     user->login, 
 				     NULL);
 
-  create_rootdir(user_dirname);
+  gc_util_create_rootdir(user_dirname);
 
   return user_dirname;
 }
 
-gchar                   *gcompris_get_current_user_dirname()
+gchar*
+gc_profile_get_current_user_dirname()
 {
-  return gcompris_get_user_dirname(gcompris_get_current_user());
+  return gcompris_get_user_dirname(gc_profile_get_current_user());
 }
 
-gchar                   *gcompris_get_board_dirname(GcomprisBoard *board)
+gchar*
+gcompris_get_board_dirname(GcomprisBoard *board)
 {
   GcomprisProperties	*properties = gc_prop_get ();
 
   gchar *board_main = g_strconcat (properties->shared_dir, "/boards", NULL);
-  create_rootdir(board_main);
+  gc_util_create_rootdir(board_main);
 
   gchar *board_dirname = g_strconcat (board_main, "/", board->name, NULL);
-  create_rootdir(board_dirname);
+  gc_util_create_rootdir(board_dirname);
 
   g_free(board_main);
   return board_dirname;
 }
 
-gchar                   *gcompris_get_current_board_dirname()
+gchar*
+gcompris_get_current_board_dirname()
 {
-  return gcompris_get_board_dirname(get_current_gcompris_board());
+  return gcompris_get_board_dirname(gc_board_get_current());
 }

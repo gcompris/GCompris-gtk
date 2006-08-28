@@ -133,13 +133,13 @@ static void pause_board (gboolean pause)
     return;
 
   /* Make the timer follow our pause status */
-  gcompris_timer_pause(pause);
+  gc_timer_pause(pause);
 
   if(gamewon == TRUE && pause == FALSE) /* the game is won */
       algebra_next_level();
 
   if(leavenow == TRUE && pause == FALSE)
-    board_finished(BOARD_FINISHED_RANDOM);
+    gc_bonus_end_display(BOARD_FINISHED_RANDOM);
 
   board_paused = pause;
 }
@@ -156,14 +156,14 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       /* disable im_context */
       gcomprisBoard->disable_im_context = TRUE;
 
-      gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas), "images/scenery2_background.png");
+      gc_set_background(gnome_canvas_root(gcomprisBoard->canvas), "images/scenery2_background.png");
 
       /* set initial values for this level */
       gcomprisBoard->level=1;
       gcomprisBoard->maxlevel=9;
       gcomprisBoard->sublevel=1;
       gcomprisBoard->number_of_sublevel=10; /* Go to next level after this number of 'play' */
-      gcompris_score_start(SCORESTYLE_NOTE, 
+      gc_score_start(SCORESTYLE_NOTE, 
 			   gcomprisBoard->width - 220, 
 			   gcomprisBoard->height - 50, 
 			   gcomprisBoard->number_of_sublevel);
@@ -200,7 +200,7 @@ end_board ()
   if(gcomprisBoard!=NULL)
     {
       pause_board(TRUE);
-      gcompris_score_end();
+      gc_score_end();
       algebra_destroy_all_items();
     }
   gcomprisBoard = NULL;
@@ -338,7 +338,7 @@ static void timer_end()
   gamewon = FALSE;
   leavenow = TRUE;
   algebra_destroy_all_items();
-  gcompris_display_bonus(gamewon, BONUS_SMILEY);
+  gc_bonus_display(gamewon, BONUS_SMILEY);
 }
 
 
@@ -347,7 +347,7 @@ static void algebra_next_level()
 {
 
   gc_bar_set_level(gcomprisBoard);
-  gcompris_score_set(gcomprisBoard->sublevel);
+  gc_score_set(gcomprisBoard->sublevel);
 
   algebra_destroy_all_items();
 
@@ -359,7 +359,7 @@ static void algebra_next_level()
 							    NULL));
 
   maxtime = 20;
-  gcompris_timer_display(TIMER_X, TIMER_Y, 
+  gc_timer_display(TIMER_X, TIMER_Y, 
 			 GCOMPRIS_TIMER_BALLOON, maxtime, timer_end);
 
   /* Try the next level */
@@ -380,7 +380,7 @@ static void algebra_destroy_all_items()
   GnomeCanvasItem *item;
   gboolean stop = FALSE;
 
-  gcompris_timer_end();
+  gc_timer_end();
 
   while(g_list_length(item_list)>0) 
     {
@@ -439,7 +439,7 @@ static void display_operand(GnomeCanvasGroup *parent,
       item = gnome_canvas_item_new (parent,
 				    gnome_canvas_text_get_type (),
 				    "text", &operand, 
-				    "font", gcompris_skin_font_board_huge_bold,
+				    "font", gc_skin_font_board_huge_bold,
 				    "anchor", GTK_ANCHOR_CENTER,
 				    "x", x_align-((strlen(operand_str)-i)*NUMBERSWIDTH),
 				    "y", y,
@@ -452,7 +452,7 @@ static void display_operand(GnomeCanvasGroup *parent,
 	  focus_item = gnome_canvas_item_new (parent,
 					      gnome_canvas_text_get_type (),
 					      "text", "_",
-					      "font", gcompris_skin_font_board_huge_bold,
+					      "font", gc_skin_font_board_huge_bold,
 					      "anchor", GTK_ANCHOR_CENTER,
 					      "x", x_align-((strlen(operand_str)-i)*NUMBERSWIDTH),
 					      "y", y,
@@ -464,7 +464,7 @@ static void display_operand(GnomeCanvasGroup *parent,
 	  bad_item = gnome_canvas_item_new (parent,
 					    gnome_canvas_text_get_type (),
 					    "text", "/",
-					    "font", gcompris_skin_font_board_huge_bold,
+					    "font", gc_skin_font_board_huge_bold,
 					    "anchor", GTK_ANCHOR_CENTER,
 					    "x", x_align-((strlen(operand_str)-i)*NUMBERSWIDTH),
 					    "y", y,
@@ -552,7 +552,7 @@ static GnomeCanvasItem *algebra_create_item(GnomeCanvasGroup *parent)
   item = gnome_canvas_item_new (parent,
 				gnome_canvas_text_get_type (),
 				"text", currentOperation, 
-				"font", gcompris_skin_font_board_huge_bold,
+				"font", gc_skin_font_board_huge_bold,
 				"x", x,
 				"y", y,
 				"anchor", GTK_ANCHOR_CENTER,
@@ -564,7 +564,7 @@ static GnomeCanvasItem *algebra_create_item(GnomeCanvasGroup *parent)
   item = gnome_canvas_item_new (parent,
 				gnome_canvas_text_get_type (),
 				"text", "=", 
-				"font", gcompris_skin_font_board_huge_bold,
+				"font", gc_skin_font_board_huge_bold,
 				"x", x_align + NUMBERSWIDTH*(strlen(second_operand_str)+1),
 				"y", y,
 				"anchor", GTK_ANCHOR_CENTER,
@@ -605,12 +605,12 @@ static GnomeCanvasItem *algebra_create_item(GnomeCanvasGroup *parent)
     gchar *str2 = NULL;
 
     if(strlen(first_operand_str)==1)
-      str1 = gcompris_alphabet_sound(first_operand_str);
+      str1 = gc_sound_alphabet(first_operand_str);
     else
       str1 = g_strdup_printf("%s.ogg", first_operand_str);
 
     if(strlen(second_operand_str)==1)
-      str2 = gcompris_alphabet_sound(second_operand_str);
+      str2 = gc_sound_alphabet(second_operand_str);
     else
       str2 = g_strdup_printf("%s.ogg", second_operand_str);
 
@@ -620,7 +620,7 @@ static GnomeCanvasItem *algebra_create_item(GnomeCanvasGroup *parent)
     first_operand_str = g_strdup_printf("sounds/$LOCALE/alphabet/%s", str1);
     second_operand_str = g_strdup_printf("sounds/$LOCALE/alphabet/%s", str2);
 
-    gcompris_play_ogg(first_operand_str, audioOperand , second_operand_str, "sounds/$LOCALE/misc/equal.ogg", NULL);
+    gc_sound_play_ogg(first_operand_str, audioOperand , second_operand_str, "sounds/$LOCALE/misc/equal.ogg", NULL);
 
     g_free(str1);
     g_free(str2);
@@ -708,7 +708,7 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 
       currentToBeFoundItem=toBeFoundItem;
 
-      gcompris_play_ogg ("sounds/gobble.ogg", NULL);
+      gc_sound_play_ogg ("sounds/gobble.ogg", NULL);
       break;
       
     default:
@@ -814,13 +814,13 @@ static void game_won()
     gcomprisBoard->sublevel=1;
     gcomprisBoard->level++;
     if(gcomprisBoard->level>gcomprisBoard->maxlevel) { // the current board is finished : bail out
-      board_finished(BOARD_FINISHED_RANDOM);
+      gc_bonus_end_display(BOARD_FINISHED_RANDOM);
       return;
     }
 
     gamewon = TRUE;
     algebra_destroy_all_items();
-    gcompris_display_bonus(gamewon, BONUS_SMILEY);
+    gc_bonus_display(gamewon, BONUS_SMILEY);
     init_operation();
     return;
   }

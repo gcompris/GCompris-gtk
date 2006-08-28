@@ -10,19 +10,19 @@
  * "*" C function.
  */
 
-/*void gcompris_play_ogg_list( GList* files ); */
+/*void gc_sound_play_ogg_list( GList* files ); */
 static PyObject*
-py_gcompris_play_ogg_list(PyObject* self, PyObject* args)
+py_gc_sound_play_ogg_list(PyObject* self, PyObject* args)
 {
   GList* list;
   PyObject* pylist;
   /* Parse arguments */
-  if(!PyArg_ParseTuple(args, "O:gcompris_play_ogg_list", &pylist))
+  if(!PyArg_ParseTuple(args, "O:gc_sound_play_ogg_list", &pylist))
     return NULL;
   list = (GList*) pygobject_get(pylist);
 
   /* Call the corresponding C function */
-  gcompris_play_ogg_list(list);
+  gc_sound_play_ogg_list(list);
 
   /* Create and return the result */
   Py_INCREF(Py_None);
@@ -31,14 +31,14 @@ py_gcompris_play_ogg_list(PyObject* self, PyObject* args)
 
 
 
-/* void gcompris_play_ogg(char *, ...);
-   The method: gcompris_play_ogg_list( GList* ) is used
+/* void gc_sound_play_ogg(char *, ...);
+   The method: gc_sound_play_ogg_list( GList* ) is used
    to perform the core call. (Because there's no way to construct
    a variable argument function call.
 */
 
 static PyObject*
-py_gcompris_play_ogg(PyObject* self, PyObject* args)
+py_gc_sound_play_ogg(PyObject* self, PyObject* args)
 {
   PyObject* item;
   GList* list = NULL;
@@ -53,7 +53,7 @@ py_gcompris_play_ogg(PyObject* self, PyObject* args)
   }
   
   /* Call the corresponding C function */
-  gcompris_play_ogg_list(list);
+  gc_sound_play_ogg_list(list);
   g_list_free(list);
     
   /* Create and return the result */
@@ -64,14 +64,14 @@ py_gcompris_play_ogg(PyObject* self, PyObject* args)
 
 
 static PyObject*
-py_gcompris_reopen_sound(PyObject* self, PyObject* args)
+py_gc_sound_reopen(PyObject* self, PyObject* args)
 {
   /* Parse arguments */
   if(!PyArg_ParseTuple(args, ":gcompris.reopen_sound"))
     return NULL;
 
   /* Call the corresponding C function */
-  gcompris_reopen_sound();
+  gc_sound_reopen();
 
   /* Create and return the result */
   Py_INCREF(Py_None);
@@ -79,14 +79,14 @@ py_gcompris_reopen_sound(PyObject* self, PyObject* args)
 }
 
 static PyObject*
-py_gcompris_close_sound(PyObject* self, PyObject* args)
+py_gc_sound_close(PyObject* self, PyObject* args)
 {
   /* Parse arguments */
   if(!PyArg_ParseTuple(args, ":gcompris.close_sound"))
     return NULL;
 
   /* Call the corresponding C function */
-  gcompris_close_sound();
+  gc_sound_close();
 
   /* Create and return the result */
   Py_INCREF(Py_None);
@@ -94,14 +94,14 @@ py_gcompris_close_sound(PyObject* self, PyObject* args)
 }
 
 static PyObject*
-py_gcompris_pause_sound(PyObject* self, PyObject* args)
+py_gc_sound_pause(PyObject* self, PyObject* args)
 {
   /* Parse arguments */
   if(!PyArg_ParseTuple(args, ":gcompris.pause_sound"))
     return NULL;
 
   /* Call the corresponding C function */
-  gcompris_pause_sound();
+  gc_sound_pause();
 
   /* Create and return the result */
   Py_INCREF(Py_None);
@@ -109,14 +109,14 @@ py_gcompris_pause_sound(PyObject* self, PyObject* args)
 }
 
 static PyObject*
-py_gcompris_resume_sound(PyObject* self, PyObject* args)
+py_gc_sound_resume(PyObject* self, PyObject* args)
 {
   /* Parse arguments */
   if(!PyArg_ParseTuple(args, ":gcompris.sound.resume"))
     return NULL;
 
   /* Call the corresponding C function */
-  gcompris_resume_sound();
+  gc_sound_resume();
 
   /* Create and return the result */
   Py_INCREF(Py_None);
@@ -166,14 +166,14 @@ void pyGcomprisSoundCallback(gchar *file){
 
 
 static PyObject*
-py_gcompris_play_ogg_cb(PyObject* self, PyObject* args)
+py_gc_sound_play_ogg_cb(PyObject* self, PyObject* args)
 {
   gchar *file;
   PyObject* pyCallback;
   
   /* Parse arguments */
   if(!PyArg_ParseTuple(args,
-		       "sO:gcompris_play_ogg_cb",
+		       "sO:gc_sound_play_ogg_cb",
 		       &file,
 		       &pyCallback))
     return NULL;
@@ -181,7 +181,7 @@ py_gcompris_play_ogg_cb(PyObject* self, PyObject* args)
   if(!PyCallable_Check(pyCallback))
     {
       PyErr_SetString(PyExc_TypeError,
-		      "gcompris_play_ogg_cb second argument must be callable");
+		      "gc_sound_play_ogg_cb second argument must be callable");
       return NULL;
     }
 
@@ -196,9 +196,9 @@ py_gcompris_play_ogg_cb(PyObject* self, PyObject* args)
 			pyCallback);
   Py_INCREF(pyCallback);
 
-  g_warning("py_gcompris_play_ogg_cb %s", file);
+  g_warning("py_gc_sound_play_ogg_cb %s", file);
 
-  gcompris_play_ogg_cb( file,
+  gc_sound_play_ogg_cb( file,
 			(GcomprisSoundCallback) pyGcomprisSoundCallback);
 
   /* Create and return the result */
@@ -208,13 +208,13 @@ py_gcompris_play_ogg_cb(PyObject* self, PyObject* args)
 }
 
 static PyMethodDef PythonGcomprisSoundModule[] = {
-  { "play_ogg_list",  py_gcompris_play_ogg_list, METH_VARARGS, "gcompris_play_ogg_list" },
-  { "play_ogg",  py_gcompris_play_ogg, METH_VARARGS, "gcompris_play_ogg" },
-  { "reopen",  py_gcompris_reopen_sound, METH_VARARGS, "gcompris_reopen_sound" },
-  { "close",  py_gcompris_close_sound, METH_VARARGS, "gcompris_close_sound" },
-  { "pause",  py_gcompris_pause_sound, METH_VARARGS, "gcompris_pause_sound" },
-  { "resume",  py_gcompris_resume_sound, METH_VARARGS, "gcompris_resume_sound" },
-  { "play_ogg_cb",  py_gcompris_play_ogg_cb, METH_VARARGS, "gcompris_play_ogg_cb" },
+  { "play_ogg_list",  py_gc_sound_play_ogg_list, METH_VARARGS, "gc_sound_play_ogg_list" },
+  { "play_ogg",  py_gc_sound_play_ogg, METH_VARARGS, "gc_sound_play_ogg" },
+  { "reopen",  py_gc_sound_reopen, METH_VARARGS, "gc_sound_reopen" },
+  { "close",  py_gc_sound_close, METH_VARARGS, "gc_sound_close" },
+  { "pause",  py_gc_sound_pause, METH_VARARGS, "gc_sound_pause" },
+  { "resume",  py_gc_sound_resume, METH_VARARGS, "gc_sound_resume" },
+  { "play_ogg_cb",  py_gc_sound_play_ogg_cb, METH_VARARGS, "gc_sound_play_ogg_cb" },
   { NULL, NULL, 0, NULL}
 };
 

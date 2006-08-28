@@ -9,18 +9,18 @@
  * "*" C function.
  */
 
-/* void	gcompris_display_bonus(int gamewon, int bonus_id); */
+/* void	gc_bonus_display(int gamewon, int bonus_id); */
 static PyObject*
-py_gcompris_display_bonus(PyObject* self, PyObject* args)
+py_gc_bonus_display(PyObject* self, PyObject* args)
 {
   int gamewon;
   int bonus_id;
   /* Parse arguments */
-  if(!PyArg_ParseTuple(args, "ii:gcompris_display_bonus", &gamewon, &bonus_id))
+  if(!PyArg_ParseTuple(args, "ii:gc_bonus_display", &gamewon, &bonus_id))
     return NULL;
 
   /* Call the corresponding C function */
-  gcompris_display_bonus(gamewon, bonus_id);
+  gc_bonus_display(gamewon, bonus_id);
 
   /* Create and return the result */
   Py_INCREF(Py_None);
@@ -28,17 +28,17 @@ py_gcompris_display_bonus(PyObject* self, PyObject* args)
 }
 
 
-/* void board_finished(int type); */
+/* void gc_bonus_end_display(int type); */
 static PyObject*
-py_gcompris_board_finished(PyObject* self, PyObject* args)
+py_gcompris_gc_bonus_end_display(PyObject* self, PyObject* args)
 {
   int type;
   /* Parse arguments */
-  if(!PyArg_ParseTuple(args, "i:board_finished", &type))
+  if(!PyArg_ParseTuple(args, "i:gc_bonus_end_display", &type))
     return NULL;
 
   /* Call the corresponding C function */
-  board_finished(type);
+  gc_bonus_end_display(type);
 
   /* Create and return the result */
   Py_INCREF(Py_None);
@@ -47,8 +47,8 @@ py_gcompris_board_finished(PyObject* self, PyObject* args)
 
 
 static PyMethodDef PythonGcomprisBonusModule[] = {
-  { "display",  py_gcompris_display_bonus, METH_VARARGS, "gcompris_display_bonus" },
-  { "board_finished",  py_gcompris_board_finished, METH_VARARGS, "board_finished" },
+  { "display",  py_gc_bonus_display, METH_VARARGS, "gc_bonus_display" },
+  { "gc_bonus_end_display",  py_gcompris_gc_bonus_end_display, METH_VARARGS, "gc_bonus_end_display" },
   { NULL, NULL, 0, NULL}
 };
 
@@ -66,14 +66,12 @@ void python_gcompris_bonus_module_init(void)
   PyModule_AddIntConstant(module, "FLOWER", BONUS_FLOWER ); 
   PyModule_AddIntConstant(module, "TUX",    BONUS_TUX );
   PyModule_AddIntConstant(module, "GNU",    BONUS_GNU );
-  PyModule_AddIntConstant(module, "LAST", BONUS_LAST ); 
 
   /* BonusFinishedList constants */
   PyModule_AddIntConstant(module, "FINISHED_RANDOM", BOARD_FINISHED_RANDOM ); 
   PyModule_AddIntConstant(module, "FINISHED_TUXPLANE", BOARD_FINISHED_TUXPLANE ); 
   PyModule_AddIntConstant(module, "FINISHED_TUXLOCO", BOARD_FINISHED_TUXLOCO ); 
   PyModule_AddIntConstant(module, "FINISHED_TOOMANYERRORS", BOARD_FINISHED_TOOMANYERRORS ); 
-  PyModule_AddIntConstant(module, "FINISHED_LAST", BOARD_FINISHED_LAST ); 
 
   /* BonusStatusList constants */
   PyModule_AddIntConstant(module, "LOOSE", BOARD_LOOSE ); 

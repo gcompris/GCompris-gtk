@@ -23,6 +23,11 @@
 #include <string.h>
 #include <time.h>
 
+/* for gc_util_create_rootdir */
+#include <unistd.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+
 /* libxml includes */
 #include <libxml/parserInternals.h>
 
@@ -430,7 +435,7 @@ GnomeCanvasGroup *gc_difficulty_display(GnomeCanvasGroup *parent,
     return NULL;
 
   filename = g_strdup_printf("difficulty_star%d.png", difficulty);
-  pixmap   = gcompris_load_skin_pixmap(filename);
+  pixmap   = gc_skin_pixmap_load(filename);
   g_free(filename);
 
   if(!pixmap)
@@ -601,4 +606,31 @@ gc_file_find_absolute(const gchar *format, ...)
  FOUND:
   g_free(filename);
   return absolute_filename;
+}
+
+/** Create a directory if needed.
+ *  If a file is given, it is removed and a directory is created instead.
+ *
+ * \param rootdir: the directory to create
+ *
+ * return 0 if OK, -1 if ERROR
+ */
+int
+gc_util_create_rootdir (gchar *rootdir)
+{
+
+  /* Case where ~/.gcompris already exist as a file. We remove it */
+  if(g_file_test(rootdir, G_FILE_TEST_IS_REGULAR)) {
+    unlink(rootdir);
+  }
+
+  if(g_file_test(rootdir, G_FILE_TEST_IS_DIR)) {
+    return 0;
+  }
+
+#if defined WIN32
+  return(mkdir(rootdir));
+#else
+  return(mkdir(rootdir, 0755));
+#endif
 }

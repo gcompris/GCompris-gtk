@@ -205,12 +205,12 @@ static void start_board (GcomprisBoard *agcomprisBoard) {
     button_pixmap = gc_pixmap_load(str);
     g_free(str);
 
-    gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas),"gcompris/animals/tiger1_by_Ralf_Schmode.jpg");
+    gc_set_background(gnome_canvas_root(gcomprisBoard->canvas),"gcompris/animals/tiger1_by_Ralf_Schmode.jpg");
     gcomprisBoard->level=1;
     gcomprisBoard->maxlevel=NUMBER_OF_LEVELS;
     gcomprisBoard->sublevel=1;
     gcomprisBoard->number_of_sublevel=NUMBER_OF_SUBLEVELS; /* Go to next level after this number of 'play' */
-    gcompris_score_start(SCORESTYLE_NOTE,
+    gc_score_start(SCORESTYLE_NOTE,
 			 50,
 			 gcomprisBoard->height - 50,
 			 gcomprisBoard->number_of_sublevel);
@@ -228,7 +228,7 @@ static void start_board (GcomprisBoard *agcomprisBoard) {
 static void end_board () {
   if(gcomprisBoard!=NULL) {
     pause_board(TRUE);
-    gcompris_score_end();
+    gc_score_end();
     destroy_board();
     algebra_guesscount_destroy_all_items();
   }
@@ -265,7 +265,7 @@ static void algebra_guesscount_next_level() {
   gamewon = FALSE;
   token_count = 0;
 
-  gcompris_score_set(gcomprisBoard->sublevel);
+  gc_score_set(gcomprisBoard->sublevel);
 
   /* Try the next level */
   algebra_guesscount_create_item(gnome_canvas_root(gcomprisBoard->canvas));
@@ -414,7 +414,7 @@ static GnomeCanvasItem *algebra_guesscount_create_item(GnomeCanvasGroup *parent)
     calcul_line_item_back[i*2] = gnome_canvas_item_new (boardRootItem,
 							gnome_canvas_text_get_type (),
 							"text", BLANK,
-							"font", gcompris_skin_font_board_title_bold,
+							"font", gc_skin_font_board_title_bold,
 							"x", (double) X_EQUAL+BUTTON_WIDTH*1.5 + 1,
 							"y", (double) y_equal_offset[i]+BUTTON_HEIGHT/2 + 1,
 							"anchor", GTK_ANCHOR_CENTER,
@@ -423,7 +423,7 @@ static GnomeCanvasItem *algebra_guesscount_create_item(GnomeCanvasGroup *parent)
     calcul_line_item[i*2] = gnome_canvas_item_new (boardRootItem,
 						   gnome_canvas_text_get_type (),
 						   "text", BLANK,
-						   "font", gcompris_skin_font_board_title_bold,
+						   "font", gc_skin_font_board_title_bold,
 						   "x", (double) X_EQUAL+BUTTON_WIDTH*1.5,
 						   "y", (double) y_equal_offset[i]+BUTTON_HEIGHT/2,
 						   "anchor", GTK_ANCHOR_CENTER,
@@ -435,7 +435,7 @@ static GnomeCanvasItem *algebra_guesscount_create_item(GnomeCanvasGroup *parent)
     calcul_line_item_back[i*2+1] = gnome_canvas_item_new (boardRootItem,
 							  gnome_canvas_text_get_type (),
 							  "text", BLANK,
-							  "font", gcompris_skin_font_board_title_bold,
+							  "font", gc_skin_font_board_title_bold,
 							  "x", (double) X_NUM1+BUTTON_WIDTH/2 + 1,
 							  "y", (double) y_equal_offset[i+1]+BUTTON_HEIGHT/2 + 1,
 							  "anchor", GTK_ANCHOR_CENTER,
@@ -444,7 +444,7 @@ static GnomeCanvasItem *algebra_guesscount_create_item(GnomeCanvasGroup *parent)
     calcul_line_item[i*2+1] = gnome_canvas_item_new (boardRootItem,
 						     gnome_canvas_text_get_type (),
 						     "text", BLANK,
-						     "font", gcompris_skin_font_board_title_bold,
+						     "font", gc_skin_font_board_title_bold,
 						     "x", (double) X_NUM1+BUTTON_WIDTH/2,
 						     "y", (double) y_equal_offset[i+1]+BUTTON_HEIGHT/2,
 						     "anchor", GTK_ANCHOR_CENTER,
@@ -477,7 +477,7 @@ static GnomeCanvasItem *algebra_guesscount_create_item(GnomeCanvasGroup *parent)
   result_item_back = gnome_canvas_item_new (boardRootItem,
 					    gnome_canvas_text_get_type (),
 					    "text", str,
-					    "font", gcompris_skin_font_board_title_bold,
+					    "font", gc_skin_font_board_title_bold,
 					    "x", (double) xOffset+BUTTON_WIDTH +1,
 					    "y", (double) Y_OPE+BUTTON_HEIGHT/2 +1,
 					    "anchor", GTK_ANCHOR_CENTER,
@@ -486,7 +486,7 @@ static GnomeCanvasItem *algebra_guesscount_create_item(GnomeCanvasGroup *parent)
   result_item_front = gnome_canvas_item_new (boardRootItem,
 					     gnome_canvas_text_get_type (),
 					     "text", str,
-					     "font", gcompris_skin_font_board_title_bold,
+					     "font", gc_skin_font_board_title_bold,
 					     "x", (double) xOffset+BUTTON_WIDTH,
 					     "y", (double) Y_OPE+BUTTON_HEIGHT/2,
 					     "anchor", GTK_ANCHOR_CENTER,
@@ -542,10 +542,10 @@ static void game_won() {
     gcomprisBoard->level++;
 
     if(gcomprisBoard->level>gcomprisBoard->maxlevel) {
-      board_finished(BOARD_FINISHED_TUXPLANE);
+      gc_bonus_end_display(BOARD_FINISHED_TUXPLANE);
       return;
     }
-    gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas),background_images[gcomprisBoard->level-1]);
+    gc_set_background(gnome_canvas_root(gcomprisBoard->canvas),background_images[gcomprisBoard->level-1]);
   }
   algebra_guesscount_next_level();
 }
@@ -561,7 +561,7 @@ static void process_time(){
     gtk_timeout_remove (process_time_id);
     process_time_id = 0;
   }
-  gcompris_display_bonus(gamewon, BONUS_RANDOM);
+  gc_bonus_display(gamewon, BONUS_RANDOM);
 }
 /* ==================================== */
 static int oper_char_to_pixmap_index(char oper) {

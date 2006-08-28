@@ -64,5 +64,6 @@ GnomeCanvasGroup *gc_difficulty_display(GnomeCanvasGroup *parent, double x, doub
 
 /* find the complete filename looking for the file everywhere (printf formatting supported) */
 gchar		 *gc_file_find_absolute(const gchar *filename, ...);
+int               gc_util_create_rootdir (gchar *rootdir);
 
 #endif

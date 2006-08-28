@@ -162,8 +162,8 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       gcomprisBoard->number_of_sublevel=1; /* Go to next level after this number of 'play' */
       gc_bar_set(0);
 
-      img = gcompris_image_to_skin("gcompris-shapebg.jpg");
-      gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas),
+      img = gc_skin_image_get("gcompris-shapebg.jpg");
+      gc_set_background(gnome_canvas_root(gcomprisBoard->canvas),
 			      img);
       g_free(img);
 
@@ -289,7 +289,7 @@ static void display_style_buttons(GnomeCanvasGroup *boardRootItem,
 			  _("TEXT"), "P",
 			  NULL, NULL };
 
-  pixmap = gcompris_load_skin_pixmap("button_small.png");
+  pixmap = gc_skin_pixmap_load("button_small.png");
 
   offset_y = gdk_pixbuf_get_height(pixmap) + 10;
   text_x   = gdk_pixbuf_get_width(pixmap) / 2;
@@ -313,22 +313,22 @@ static void display_style_buttons(GnomeCanvasGroup *boardRootItem,
       item = gnome_canvas_item_new (boardRootItem,
 				    gnome_canvas_text_get_type (),
 				    "text", styles_tab[i],
-				    "font", gcompris_skin_font_board_medium,
+				    "font", gc_skin_font_board_medium,
 				    "x", (double) x + text_x + 1,
 				    "y", (double) y + text_y + 1,
 				    "anchor", GTK_ANCHOR_CENTER,
-				    "fill_color_rgba", gcompris_skin_color_shadow,
+				    "fill_color_rgba", gc_skin_color_shadow,
 				    NULL);
       gtk_signal_connect(GTK_OBJECT(item), "event", (GtkSignalFunc) item_event, styles_tab[i+1] );
 
       item = gnome_canvas_item_new (boardRootItem,
 				    gnome_canvas_text_get_type (),
 				    "text", styles_tab[i],
-				    "font", gcompris_skin_font_board_medium,
+				    "font", gc_skin_font_board_medium,
 				    "x", (double) x + text_x,
 				    "y", (double) y + text_y,
 				    "anchor", GTK_ANCHOR_CENTER,
-				    "fill_color_rgba", gcompris_skin_color_text_button,
+				    "fill_color_rgba", gc_skin_color_text_button,
 				    NULL);
       gtk_signal_connect(GTK_OBJECT(item), "event", (GtkSignalFunc) item_event, styles_tab[i+1] );
 

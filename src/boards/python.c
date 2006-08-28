@@ -47,9 +47,9 @@ static void	 pythonboard_ok (void);
 static void	 pythonboard_set_level (guint level);
 static void	 pythonboard_config(void);
 static void	 pythonboard_repeat (void);
-static void	 pythonboard_config_start (GcomprisBoard *agcomprisBoard,
+static void	 pythongc_board_config_start (GcomprisBoard *agcomprisBoard,
 					   GcomprisProfile *aProfile);
-static void	 pythonboard_config_stop (void);
+static void	 pythongc_board_config_stop (void);
 
 static gboolean  pythonboard_is_ready = FALSE;
 
@@ -75,8 +75,8 @@ static BoardPlugin menu_bp =
     pythonboard_set_level,
     pythonboard_config,
     pythonboard_repeat,
-    pythonboard_config_start,
-    pythonboard_config_stop
+    pythongc_board_config_start,
+    pythongc_board_config_stop
   };
 
 static BoardPlugin *bp_board = NULL;
@@ -554,7 +554,7 @@ static void pythonboard_repeat (void){
 static gboolean python_run_by_config = FALSE;
 
 static void
-pythonboard_config_start (GcomprisBoard *agcomprisBoard,
+pythongc_board_config_start (GcomprisBoard *agcomprisBoard,
 			  GcomprisProfile *aProfile
 			  )
 {
@@ -671,7 +671,7 @@ pythonboard_config_start (GcomprisBoard *agcomprisBoard,
  * - call the board end function
  * - finalise python interpreter
  */
-static void pythonboard_config_stop (void){
+static void pythongc_board_config_stop (void){
   PyObject* result = NULL;
 
   if(python_gcomprisBoard_config!=NULL){

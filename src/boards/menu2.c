@@ -223,8 +223,8 @@ static void menu_start (GcomprisBoard *agcomprisBoard)
 
       menuitems = g_new(MenuItems, 1);
 
-      img = gcompris_image_to_skin("gcompris-menu2bg.png");
-      gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas), 
+      img = gc_skin_image_get("gcompris-menu2bg.png");
+      gc_set_background(gnome_canvas_root(gcomprisBoard->canvas), 
 			      img);
       g_free(img);
 
@@ -415,7 +415,7 @@ menu_config ()
   if(gcomprisBoard!=NULL)
     {
       menu_pause(TRUE);
-      gcompris_config_start();
+      gc_config_start();
     }
 }
 
@@ -527,11 +527,11 @@ static void menu_create_item(GnomeCanvasGroup *parent, MenuItems *menuitems, Gco
 
       if (!soundfile || !gc_prop_get()->fx) 
 	{
-	  pixmap = gcompris_load_skin_pixmap("voice_bad.png");
+	  pixmap = gc_skin_pixmap_load("voice_bad.png");
 	}
       else
 	{
-	  pixmap = gcompris_load_skin_pixmap("voice.png");
+	  pixmap = gc_skin_pixmap_load("voice.png");
 	}
 
       gnome_canvas_item_new (parent,
@@ -547,7 +547,7 @@ static void menu_create_item(GnomeCanvasGroup *parent, MenuItems *menuitems, Gco
   // display menu icon ========================== BEGIN
   if(g_strcasecmp(board->type, "menu")==0)
     {
-      pixmap = gcompris_load_skin_pixmap("menuicon.png");
+      pixmap = gc_skin_pixmap_load("menuicon.png");
       item =  gnome_canvas_item_new (parent,
 				     gnome_canvas_pixbuf_get_type (),
 				     "pixbuf", pixmap,
@@ -651,7 +651,7 @@ item_event(GnomeCanvasItem *item, GdkEvent *event,  MenuItems *menuitems)
       if(!menu_displayed)
 	return TRUE;
 	
-      gcompris_play_ogg ("sounds/gobble.ogg", NULL);
+      gc_sound_play_ogg ("sounds/gobble.ogg", NULL);
 	
       if (strcmp(board->type,"menu")==0){
 	gchar *path = g_strdup_printf("%s/%s",board->section, board->name);
@@ -706,7 +706,7 @@ set_content(GnomeCanvasRichText *item_content,
    * Set the shadow
    */
 
-  color_string = g_strdup_printf("#%x", gcompris_skin_color_shadow >> 8);
+  color_string = g_strdup_printf("#%x", gc_skin_color_shadow >> 8);
   gdk_color_parse(color_string, color_s);
   success = gdk_colormap_alloc_color(gdk_colormap_get_system(), 
 				     color_s,
@@ -715,7 +715,7 @@ set_content(GnomeCanvasRichText *item_content,
   buffer  = gnome_canvas_rich_text_get_buffer(GNOME_CANVAS_RICH_TEXT(item_content_s));
   txt_tag = gtk_text_buffer_create_tag(buffer, NULL, 
 				       "foreground-gdk", color_s,
-				       "font",       gcompris_skin_font_board_medium,
+				       "font",       gc_skin_font_board_medium,
 				       NULL);
   gtk_text_buffer_get_end_iter(buffer, &iter_end);
   gtk_text_buffer_get_start_iter(buffer, &iter_start);
@@ -726,7 +726,7 @@ set_content(GnomeCanvasRichText *item_content,
   /* 
    * Set the text
    */
-  color_string = g_strdup_printf("#%x", gcompris_skin_get_color("menu/text") >> 8);
+  color_string = g_strdup_printf("#%x", gc_skin_get_color("menu/text") >> 8);
   gdk_color_parse(color_string, color);
   success = gdk_colormap_alloc_color(gdk_colormap_get_system(), 
 				     color,
@@ -735,7 +735,7 @@ set_content(GnomeCanvasRichText *item_content,
   buffer  = gnome_canvas_rich_text_get_buffer(GNOME_CANVAS_RICH_TEXT(item_content));
   txt_tag = gtk_text_buffer_create_tag(buffer, NULL, 
 				       "foreground-gdk", color,
-				       "font",        gcompris_skin_font_board_medium,
+				       "font",        gc_skin_font_board_medium,
 				       NULL);
   gtk_text_buffer_get_end_iter(buffer, &iter_end);
   gtk_text_buffer_get_start_iter(buffer, &iter_start);
@@ -758,22 +758,22 @@ static void create_info_area(GnomeCanvasGroup *parent, MenuItems *menuitems)
     gnome_canvas_item_new (parent,
 			   gnome_canvas_text_get_type (),
 			   "text", " ",
-			   "font", gcompris_skin_font_board_big,
+			   "font", gc_skin_font_board_big,
 			   "x", (double) x + 1.0,
 			   "y", (double) y + 1.0,
 			   "anchor", GTK_ANCHOR_NORTH,
-			   "fill_color_rgba",  gcompris_skin_color_shadow,
+			   "fill_color_rgba",  gc_skin_color_shadow,
 			   NULL);
 
   menuitems->boardname_item = \
     gnome_canvas_item_new (parent,
 			   gnome_canvas_text_get_type (),
 			   "text", " ",
-			   "font", gcompris_skin_font_board_big,
+			   "font", gc_skin_font_board_big,
 			   "x", (double) x,
 			   "y", (double) y,
 			   "anchor", GTK_ANCHOR_NORTH,
-			   "fill_color_rgba",  gcompris_skin_get_color("menu/text"),
+			   "fill_color_rgba",  gc_skin_get_color("menu/text"),
 			   NULL);
 
   menuitems->description_item_s = \
@@ -809,11 +809,11 @@ static void create_info_area(GnomeCanvasGroup *parent, MenuItems *menuitems)
     gnome_canvas_item_new (parent,
 			   gnome_canvas_text_get_type (),
 			   "text", " ",
-			   "font", gcompris_skin_font_board_tiny,
+			   "font", gc_skin_font_board_tiny,
 			   "x", (double) x + 1.0,
 			   "y", (double) y + 90 + 1.0,
   			   "anchor", GTK_ANCHOR_NORTH,
-  			   "fill_color_rgba", gcompris_skin_color_shadow,
+  			   "fill_color_rgba", gc_skin_color_shadow,
   			   "justification", GTK_JUSTIFY_CENTER,
 			   NULL);
 
@@ -821,11 +821,11 @@ static void create_info_area(GnomeCanvasGroup *parent, MenuItems *menuitems)
     gnome_canvas_item_new (parent,
 			   gnome_canvas_text_get_type (),
 			   "text", " ",
-			   "font", gcompris_skin_font_board_tiny,
+			   "font", gc_skin_font_board_tiny,
 			   "x", (double) x,
 			   "y", (double) y + 90,
   			   "anchor", GTK_ANCHOR_NORTH,
-  			   "fill_color_rgba", gcompris_skin_get_color("menu/text"),
+  			   "fill_color_rgba", gc_skin_get_color("menu/text"),
   			   "justification", GTK_JUSTIFY_CENTER,
 			   NULL);
 
@@ -900,7 +900,7 @@ static void create_top(GnomeCanvasGroup *parent, gchar *path)
 	current_top_x = top_x;
 	current_top_y = top_y + top_h/2.0;
       } else {
-	pixmap = gcompris_load_skin_pixmap("button_forward.png");
+	pixmap = gc_skin_pixmap_load("button_forward.png");
 	ratio = get_ratio(pixmap, top_arrow_size);
 	
 	gnome_canvas_item_new (parent,
@@ -921,7 +921,7 @@ static void create_top(GnomeCanvasGroup *parent, gchar *path)
 	
       }
       
-      board = gcompris_get_board_from_section(path1);
+      board = gc_menu_section_get(path1);
 
       pixmap = gc_pixmap_load(board->icon_name);
 
@@ -981,7 +981,7 @@ display_welcome (void)
 								 "y", (double) 0,
 								 NULL));
   
-  pixmap = gcompris_load_skin_pixmap("gcompris-about.png");
+  pixmap = gc_skin_pixmap_load("gcompris-about.png");
 
 
   logo = gnome_canvas_item_new (actualSectionItem,
@@ -1028,7 +1028,7 @@ menu_config_start(GcomprisBoard *agcomprisBoard,
   if(gcomprisBoard!=NULL)
     {
       menu_pause(TRUE);
-      gcompris_config_start();
+      gc_config_start();
     }
 }
 

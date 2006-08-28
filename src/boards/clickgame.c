@@ -201,7 +201,7 @@ static void clickgame_start (GcomprisBoard *agcomprisBoard)
       gcomprisBoard->level = 1;
       gcomprisBoard->maxlevel=6;
       gcomprisBoard->number_of_sublevel=10; /* Go to next level after this number of 'play' */
-      gcompris_score_start(SCORESTYLE_NOTE, 
+      gc_score_start(SCORESTYLE_NOTE, 
 			   gcomprisBoard->width - 220, 
 			   gcomprisBoard->height - 50, 
 			   gcomprisBoard->number_of_sublevel);
@@ -221,7 +221,7 @@ clickgame_end ()
   if(gcomprisBoard!=NULL)
     {
       clickgame_pause(TRUE);
-      gcompris_score_end();
+      gc_score_end();
       clickgame_destroy_all_items();
       gcomprisBoard->level = 1;       // Restart this game to zero
     }
@@ -276,27 +276,27 @@ static void clickgame_next_level()
   switch(gcomprisBoard->level)
     {
     case 1:
-      gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas), 
+      gc_set_background(gnome_canvas_root(gcomprisBoard->canvas), 
 			      "clickgame/nur00523.jpg");
       break;
     case 2:
-      gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas), 
+      gc_set_background(gnome_canvas_root(gcomprisBoard->canvas), 
       			      "clickgame/nur03006.jpg");
       break;
     case 3:
-      gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas), 
+      gc_set_background(gnome_canvas_root(gcomprisBoard->canvas), 
 			      "clickgame/nur03011.jpg");
       break;
     case 4:
-      gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas), 
+      gc_set_background(gnome_canvas_root(gcomprisBoard->canvas), 
 			      "clickgame/nur03010.jpg");
       break;
     case 5:
-      gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas), 
+      gc_set_background(gnome_canvas_root(gcomprisBoard->canvas), 
 			      "clickgame/nur03013.jpg");
       break;
     default:
-      gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas), 
+      gc_set_background(gnome_canvas_root(gcomprisBoard->canvas), 
 			      "clickgame/nur03505.jpg");
     }
 
@@ -308,7 +308,7 @@ static void clickgame_next_level()
   /* Make the images tend to 0.5 ratio */
   imageZoom=0.5+(0.5/(gcomprisBoard->level));
   gcomprisBoard->sublevel=0;
-  gcompris_score_set(gcomprisBoard->sublevel);
+  gc_score_set(gcomprisBoard->sublevel);
 
 }
 
@@ -349,14 +349,14 @@ static void clickgame_move_item(FishItem *fishitem)
     {
       if(x1>gcomprisBoard->width) {
 	item2del_list = g_list_append (item2del_list, fishitem);
-	gcompris_play_ogg ("crash", NULL);
+	gc_sound_play_ogg ("crash", NULL);
       }
     }
   else
     {
       if(x2<0) {
 	item2del_list = g_list_append (item2del_list, fishitem);
-	gcompris_play_ogg ("crash", NULL);
+	gc_sound_play_ogg ("crash", NULL);
       }
     }
 
@@ -553,10 +553,10 @@ static void game_won()
     gcomprisBoard->sublevel=0;
     gcomprisBoard->level++;
     if(gcomprisBoard->level>gcomprisBoard->maxlevel) { // the current board is finished : bail out
-      board_finished(BOARD_FINISHED_RANDOM);
+      gc_bonus_end_display(BOARD_FINISHED_RANDOM);
       return;
     }
-    gcompris_play_ogg ("sounds/bonus.ogg", NULL);
+    gc_sound_play_ogg ("sounds/bonus.ogg", NULL);
   }
   clickgame_next_level();
 }
@@ -592,7 +592,7 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, FishItem *fishitem)
                y = item_y;
                
                fleur = gdk_cursor_new(GDK_FLEUR);
-               gcompris_canvas_item_grab(item,
+               gc_canvas_item_grab(item,
                                       GDK_POINTER_MOTION_MASK | 
                                       GDK_BUTTON_RELEASE_MASK,
                                       fleur,
@@ -603,15 +603,15 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, FishItem *fishitem)
            else 
              {
 	       clickgame_destroy_item(fishitem);
-	       gcompris_play_ogg ("sounds/gobble.ogg", NULL);
+	       gc_sound_play_ogg ("sounds/gobble.ogg", NULL);
 	       
 	       gcomprisBoard->sublevel++;
-	       gcompris_score_set(gcomprisBoard->sublevel);
+	       gc_score_set(gcomprisBoard->sublevel);
 	       
 	       if(gcomprisBoard->sublevel>=gcomprisBoard->number_of_sublevel) {
 		 gamewon = TRUE;
 		 clickgame_destroy_all_items();
-		 gcompris_display_bonus(gamewon, BONUS_FLOWER);
+		 gc_bonus_display(gamewon, BONUS_FLOWER);
 		 return FALSE;
 	       }
 	       /* Drop a new item now to speed up the game */
@@ -677,7 +677,7 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, FishItem *fishitem)
      case GDK_BUTTON_RELEASE:
        if(dragging) 
 	 {
-	   gcompris_canvas_item_ungrab(item, event->button.time);
+	   gc_canvas_item_ungrab(item, event->button.time);
 	   dragging = FALSE;
 	 }
        break;

@@ -57,7 +57,7 @@ void gc_dialog_close() {
  */
 void gc_dialog(gchar *str, DialogBoxCallBack dbcb)
 {
-  GcomprisBoard   *gcomprisBoard = get_current_gcompris_board();
+  GcomprisBoard   *gcomprisBoard = gc_board_get_current();
   GnomeCanvasItem *item_text   = NULL;
   GnomeCanvasItem *item_text_ok   = NULL;
   GdkPixbuf       *pixmap_dialog = NULL;
@@ -88,7 +88,7 @@ void gc_dialog(gchar *str, DialogBoxCallBack dbcb)
 							     "y", (double) 0,
 							     NULL));
       
-  pixmap_dialog = gcompris_load_skin_pixmap("dialogbox.png");
+  pixmap_dialog = gc_skin_pixmap_load("dialogbox.png");
 
   itemDialogText = gnome_canvas_item_new (rootDialogItem,
 				       gnome_canvas_pixbuf_get_type (),
@@ -101,12 +101,12 @@ void gc_dialog(gchar *str, DialogBoxCallBack dbcb)
   item_text_ok = gnome_canvas_item_new (rootDialogItem,
 					gnome_canvas_text_get_type (),
 					"text", _("OK"),
-					"font", gcompris_skin_font_title,
+					"font", gc_skin_font_title,
 					"x", (double)  BOARDWIDTH*0.5,
 					"y", (double)  (BOARDHEIGHT - gdk_pixbuf_get_height(pixmap_dialog))/2 +
 					gdk_pixbuf_get_height(pixmap_dialog) - 35,
 					"anchor", GTK_ANCHOR_CENTER,
-					"fill_color_rgba", gcompris_skin_color_text_button,
+					"fill_color_rgba", gc_skin_color_text_button,
 					"weight", PANGO_WEIGHT_HEAVY,
 				NULL);
 
@@ -136,7 +136,7 @@ void gc_dialog(gchar *str, DialogBoxCallBack dbcb)
 
   buffer  = gnome_canvas_rich_text_get_buffer(GNOME_CANVAS_RICH_TEXT(item_text));
   txt_tag = gtk_text_buffer_create_tag(buffer, NULL, 
-				       "font",       gcompris_skin_font_board_medium,
+				       "font",       gc_skin_font_board_medium,
 				       "foreground", "blue",
 				       "family-set", TRUE,
 				       NULL);

@@ -19,7 +19,11 @@
  * Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-#include "bonus.h"
+#include "gcompris.h"
+#include "gc_core.h"
+
+#include <ctype.h>
+#include <math.h>
 
 #define SOUNDLISTFILE PACKAGE
 #define BONUS_DURATION 2000
@@ -30,10 +34,10 @@ static GnomeCanvasItem  *door1_item    = NULL;
 static GnomeCanvasItem  *door2_item    = NULL;
 static GnomeCanvasItem  *tuxplane_item = NULL;
 
-static gboolean board_finished_running = FALSE;
+static gboolean gc_bonus_end_display_running = FALSE;
 static gboolean bonus_display_running = FALSE;
 
-static gint end_bonus_id = 0, board_finished_id = 0;
+static gint end_bonus_id = 0, gc_bonus_end_display_id = 0;
 
 //static gint end_board_count = 0;
 static int left_door_limit = 0;
@@ -50,7 +54,7 @@ static gchar *greetingsList[] =
   "sounds/$LOCALE/misc/super.ogg",
   "sounds/$LOCALE/misc/perfect.ogg"
 };
-#define NUMBER_OF_GREETINGS 8
+#define NUMBER_OF_GREETINGS G_N_ELEMENTS(greetingsList)
 
 // List of sounds to use for loosing
 static gchar *loosingList[] =
@@ -63,12 +67,13 @@ static gchar *loosingList[] =
  * Function definition
  * -------------------
  */
-void	 bonus_image(char *,BonusStatusList);
-void	 end_bonus(void);
+static void	 bonus_image(char *,BonusStatusList);
+static void	 end_bonus(void);
 
 
 /* ==================================== */
-void end_board_finished() {
+static void
+end_gc_bonus_end_display() {
   double dx1, dy1, dx2, dy2;
   //end_board_count++;
   gnome_canvas_item_get_bounds(tuxplane_item,  &dx1, &dy1, &dx2, &dy2);
@@ -78,9 +83,9 @@ void end_board_finished() {
     return;
   }
 
-  if (board_finished_id) {
-    gtk_timeout_remove(board_finished_id);
-    board_finished_id = 0;
+  if (gc_bonus_end_display_id) {
+    gtk_timeout_remove(gc_bonus_end_display_id);
+    gc_bonus_end_display_id = 0;
   }
 
   if(door1_item)
@@ -94,37 +99,40 @@ void end_board_finished() {
   door2_item = NULL;
   tuxplane_item = NULL;
 
-  board_finished_running = FALSE;
+  gc_bonus_end_display_running = FALSE;
   
   gc_bar_hide(FALSE);
 
   // go back to previous board layout
-  if (get_current_board_plugin()->end_board)
-    get_current_board_plugin()->end_board();
+  if (gc_board_get_current_board_plugin()->end_board)
+    gc_board_get_current_board_plugin()->end_board();
   gc_board_end();
 }
 /* ==================================== */
 #define OFFSET 100
-void board_finished(BoardFinishedList type) {
-  GcomprisBoard *gcomprisBoard = get_current_gcompris_board();
+void
+gc_bonus_end_display(BoardFinishedList type) {
+  GcomprisBoard *gcomprisBoard = gc_board_get_current();
 
   int x,y;
   GdkPixbuf *pixmap_door1 = NULL,*pixmap_door2 = NULL,*pixmap_tuxplane = NULL;
   char * str = NULL;
 
+  g_assert(type < BOARD_FINISHED_LAST);
+
   gc_bar_hide(TRUE);
 
-  if (board_finished_running)
+  if (gc_bonus_end_display_running)
     return;
   else
-    board_finished_running = TRUE;
+    gc_bonus_end_display_running = TRUE;
 
   /* First pause the board */
   board_pause(TRUE);
 
   /* WARNING: I remove 1 to the BOARD_FINISHED_LAST because RANDOM is for GOOD end only */
   if(type==BOARD_FINISHED_RANDOM)
-    type = RAND(1,BOARD_FINISHED_LAST-1);
+    type = RAND(1,BOARD_FINISHED_LAST-2);
 
   /* Record the end of board */
   gc_log_end (gcomprisBoard, GCOMPRIS_LOG_STATUS_COMPLETED);
@@ -196,14 +204,17 @@ void board_finished(BoardFinishedList type) {
   gdk_pixbuf_unref(pixmap_door2);
   gdk_pixbuf_unref(pixmap_tuxplane);
 
-  board_finished_id = gtk_timeout_add (TUX_TIME_STEP, (GtkFunction) end_board_finished, NULL);
+  gc_bonus_end_display_id = gtk_timeout_add (TUX_TIME_STEP, (GtkFunction) end_gc_bonus_end_display, NULL);
 
 }
 
 /* ==================================== */
-void gcompris_display_bonus(BonusStatusList gamewon, BonusList bonus_id)
+void
+gc_bonus_display(BonusStatusList gamewon, BonusList bonus_id)
 {
   gchar *absolute_file;
+
+  g_assert(bonus_id < BONUS_LAST);
 
   gc_bar_hide(TRUE);
 
@@ -217,29 +228,29 @@ void gcompris_display_bonus(BonusStatusList gamewon, BonusList bonus_id)
 
     if (absolute_file)
       {
-	gcompris_play_ogg(absolute_file, NULL);
+	gc_sound_play_ogg(absolute_file, NULL);
 	g_free(absolute_file);
       }
     else
-      gcompris_play_ogg("sounds/wahoo.ogg", NULL);
+      gc_sound_play_ogg("sounds/wahoo.ogg", NULL);
 
   } else {
     absolute_file = gc_file_find_absolute(loosingList[RAND(0, NUMBER_OF_LOOSING-1)]);
 
     if (absolute_file)
       {
-	gcompris_play_ogg(absolute_file, NULL);
+	gc_sound_play_ogg(absolute_file, NULL);
 	g_free(absolute_file);
       }
     else
-      gcompris_play_ogg("sounds/crash.ogg", NULL);
+      gc_sound_play_ogg("sounds/crash.ogg", NULL);
   }
 
   /* First pause the board */
   board_pause(TRUE);
 
   if(bonus_id==BONUS_RANDOM)
-    bonus_id = RAND(1, BONUS_LAST);
+    bonus_id = RAND(1, BONUS_LAST-2);
 
   switch(bonus_id) {
   case BONUS_SMILEY :
@@ -261,12 +272,13 @@ void gcompris_display_bonus(BonusStatusList gamewon, BonusList bonus_id)
 }
 
 /* ==================================== */
-void bonus_image(char *image, BonusStatusList gamewon)
+static void
+bonus_image(char *image, BonusStatusList gamewon)
 {
   char *str= NULL;
   int x,y;
   GdkPixbuf *pixmap = NULL;
-  GcomprisBoard *gcomprisBoard = get_current_gcompris_board();
+  GcomprisBoard *gcomprisBoard = gc_board_get_current();
 
   /* check that bonus_group is a singleton */
   if (bonus_group != NULL) {
@@ -328,7 +340,7 @@ void bonus_image(char *image, BonusStatusList gamewon)
     gnome_canvas_item_new (bonus_group,
 			   gnome_canvas_text_get_type (),
 			   "text", _("Drawn game"),
-			   "font", gcompris_skin_font_title,
+			   "font", gc_skin_font_title,
 			   "x", (double) BOARDWIDTH/2 + 1.0,
 			   "y", (double) gdk_pixbuf_get_height(pixmap) + 1.0,
 			   "anchor", GTK_ANCHOR_CENTER,
@@ -337,11 +349,11 @@ void bonus_image(char *image, BonusStatusList gamewon)
     gnome_canvas_item_new (bonus_group,
 			   gnome_canvas_text_get_type (),
 			   "text", _("Drawn game"),
-			   "font", gcompris_skin_font_title,
+			   "font", gc_skin_font_title,
 			   "x", (double) BOARDWIDTH/2,
 			   "y", (double) gdk_pixbuf_get_height(pixmap),
 			   "anchor", GTK_ANCHOR_CENTER,
-			   "fill_color_rgba", gcompris_skin_color_title,
+			   "fill_color_rgba", gc_skin_color_title,
 			   NULL);
   }
 
@@ -352,7 +364,8 @@ void bonus_image(char *image, BonusStatusList gamewon)
 }
 
 /* ==================================== */
-void end_bonus()
+static void
+end_bonus()
 {
   if (end_bonus_id) {
     gtk_timeout_remove (end_bonus_id);

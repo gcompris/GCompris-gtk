@@ -31,7 +31,7 @@
 #define MAX_MEMORY_WIDTH  7
 #define MAX_MEMORY_HEIGHT 6
 
-//#define TEXT_FONT gcompris_skin_font_board_huge_bold
+//#define TEXT_FONT gc_skin_font_board_huge_bold
 #define TEXT_FONT "Serif bold 28"
 
 static gchar *op_fonts[10] =
@@ -815,8 +815,8 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 	{
 	  GcomprisProperties	*properties = gc_prop_get();
 
-	  gcompris_pause_sound();
-	  gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas), "images/gcompris_band.png");
+	  gc_sound_pause();
+	  gc_set_background(gnome_canvas_root(gcomprisBoard->canvas), "images/gcompris_band.png");
 	  base_x1 = BASE_SOUND_X1;
 	  base_y1 = BASE_SOUND_Y1;
 	  base_x2 = BASE_SOUND_X2;
@@ -831,7 +831,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 	}
       else
 	{
-	  gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas), "images/scenery_background.png");
+	  gc_set_background(gnome_canvas_root(gcomprisBoard->canvas), "images/scenery_background.png");
 	  base_x1 = BASE_CARD_X1;
 	  base_y1 = BASE_CARD_Y1;
 	  base_x2 = BASE_CARD_X2;
@@ -886,7 +886,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       to_tux = FALSE;
       if (currentUiMode == UIMODE_SOUND){
 	playing_sound = TRUE;
-	gcompris_play_ogg_cb("sounds/LuneRouge/musique/LRBuddhist_gong_05_by_Lionel_Allorge.ogg",start_callback);
+	gc_sound_play_ogg_cb("sounds/LuneRouge/musique/LRBuddhist_gong_05_by_Lionel_Allorge.ogg",start_callback);
       } else
 	playing_sound = FALSE;
       
@@ -898,7 +898,7 @@ static void
 end_board ()
 {
   if (currentUiMode == UIMODE_SOUND)
-    gcompris_resume_sound();
+    gc_sound_resume();
 
   if(gcomprisBoard!=NULL)
     {
@@ -1225,7 +1225,7 @@ static void create_item(GnomeCanvasGroup *parent)
     
     tux_score_s = gnome_canvas_item_new (GNOME_CANVAS_GROUP(parent),
 				       gnome_canvas_text_get_type (),
-				       "font", gcompris_skin_font_board_huge_bold,
+				       "font", gc_skin_font_board_huge_bold,
 				       "x", (double) 100+1.0,
 				       "y", (double) 200+1.0,
 				       "anchor", GTK_ANCHOR_CENTER,
@@ -1234,7 +1234,7 @@ static void create_item(GnomeCanvasGroup *parent)
 
     player_score_s = gnome_canvas_item_new (GNOME_CANVAS_GROUP(parent),
 					  gnome_canvas_text_get_type (),
-					  "font", gcompris_skin_font_board_huge_bold,
+					  "font", gc_skin_font_board_huge_bold,
 					  "x", (double) 100+1.0,
 					  "y", (double) BASE_CARD_Y2 - 20+1.0,
 					  "anchor", GTK_ANCHOR_CENTER,
@@ -1243,7 +1243,7 @@ static void create_item(GnomeCanvasGroup *parent)
 
     tux_score = gnome_canvas_item_new (GNOME_CANVAS_GROUP(parent),
 				       gnome_canvas_text_get_type (),
-				       "font", gcompris_skin_font_board_huge_bold,
+				       "font", gc_skin_font_board_huge_bold,
 				       "x", (double) 100,
 				       "y", (double) 200,
 				       "anchor", GTK_ANCHOR_CENTER,
@@ -1252,7 +1252,7 @@ static void create_item(GnomeCanvasGroup *parent)
 
     player_score = gnome_canvas_item_new (GNOME_CANVAS_GROUP(parent),
 					  gnome_canvas_text_get_type (),
-					  "font", gcompris_skin_font_board_huge_bold,
+					  "font", gc_skin_font_board_huge_bold,
 					  "x", (double) 100,
 					  "y", (double) BASE_CARD_Y2 - 20,
 					  "anchor", GTK_ANCHOR_CENTER,
@@ -1389,15 +1389,15 @@ static void create_item(GnomeCanvasGroup *parent)
 
 static void player_win()
 {
-  gcompris_play_ogg ("sounds/bonus.ogg", NULL);
+  gc_sound_play_ogg ("sounds/bonus.ogg", NULL);
   /* Try the next level */
   if (tux_pairs <= player_pairs)
     gcomprisBoard->level++;
   if(gcomprisBoard->level>gcomprisBoard->maxlevel) { // the current board is finished : bail out
-    board_finished(BOARD_FINISHED_RANDOM);
+    gc_bonus_end_display(BOARD_FINISHED_RANDOM);
     return;
   }
-  gcompris_display_bonus((tux_pairs <= player_pairs), BONUS_RANDOM);
+  gc_bonus_display((tux_pairs <= player_pairs), BONUS_RANDOM);
 
 }
 
@@ -1412,7 +1412,7 @@ static void display_card(MemoryItem *memoryItem, CardStatus cardStatus)
 	gnome_canvas_item_hide(memoryItem->backcardItem);
 	gnome_canvas_item_show(memoryItem->frontcardItem);
 	playing_sound = TRUE;
-	gcompris_play_ogg_cb (memoryItem->data, sound_callback);
+	gc_sound_play_ogg_cb (memoryItem->data, sound_callback);
 	break;
       case ON_BACK:
 	gnome_canvas_item_show(memoryItem->backcardItem);
@@ -1530,7 +1530,7 @@ static void check_win()
 
   // Check win
   if (compare_card((gpointer) firstCard, (gpointer) secondCard) == 0) {
-    gcompris_play_ogg ("sounds/gobble.ogg", NULL);
+    gc_sound_play_ogg ("sounds/gobble.ogg", NULL);
     win_id = g_timeout_add (timeout,
 			    (GSourceFunc) hide_card, NULL);
     return;
@@ -1722,7 +1722,7 @@ static gint tux_play(){
       if (currentUiMode == UIMODE_SOUND)
 	return FALSE;
       else {
-	gcompris_play_ogg ("sounds/gobble.ogg", NULL);
+	gc_sound_play_ogg ("sounds/gobble.ogg", NULL);
 	win_id = g_timeout_add (1000,
 				(GSourceFunc) hide_card, NULL);
 	return TRUE;
@@ -1776,7 +1776,7 @@ static gint tux_play(){
       return FALSE;
     else {
       if (compare_card(firstCard, secondCard)==0){
-	gcompris_play_ogg ("sounds/gobble.ogg", NULL);
+	gc_sound_play_ogg ("sounds/gobble.ogg", NULL);
 	g_warning("Now tux win !");
 	win_id = g_timeout_add (1000,
 				(GSourceFunc) hide_card, NULL);
@@ -1802,7 +1802,7 @@ static void sound_callback(gchar *file)
     if (to_tux) {
       if (firstCard && secondCard){
 	if (compare_card(firstCard, secondCard)==0){
-	  gcompris_play_ogg ("sounds/gobble.ogg", NULL);
+	  gc_sound_play_ogg ("sounds/gobble.ogg", NULL);
 	  win_id = g_timeout_add (1000,
 				  (GSourceFunc) hide_card, NULL);
 	  tux_id = g_timeout_add (2000,

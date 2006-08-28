@@ -177,7 +177,7 @@ static void pause_board (gboolean pause)
     }
 
   if(leavenow == TRUE && pause == FALSE)
-    board_finished(BOARD_FINISHED_TOOMANYERRORS);
+    gc_bonus_end_display(BOARD_FINISHED_TOOMANYERRORS);
 
   board_paused = pause;
 }
@@ -286,14 +286,14 @@ gint key_press(guint keyval, gchar *commit_str, gchar *preedit_str)
 
 static void process_error()
 {
-  gcompris_play_ogg ("sounds/crash.ogg", NULL);
+  gc_sound_play_ogg ("sounds/crash.ogg", NULL);
   errors--;
   if(errors==0)
     {
       gamewon = FALSE;
       leavenow = TRUE;
       reversecount_destroy_all_items();
-      gcompris_display_bonus(gamewon, BONUS_SMILEY);
+      gc_bonus_display(gamewon, BONUS_SMILEY);
     }
   else
     {
@@ -336,7 +336,7 @@ static void process_ok()
 static void reversecount_next_level()
 {
 
-  gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas),
+  gc_set_background(gnome_canvas_root(gcomprisBoard->canvas),
 			  imageList[gcomprisBoard->level-1]);
 
   gc_bar_set_level(gcomprisBoard);
@@ -410,7 +410,7 @@ static void reversecount_next_level()
 static void reversecount_destroy_all_items()
 {
 
-  gcompris_timer_end();
+  gc_timer_end();
 
   if(boardRootItem!=NULL)
     gtk_object_destroy (GTK_OBJECT(boardRootItem));
@@ -674,10 +674,10 @@ static void game_won()
     gcomprisBoard->sublevel=1;
     gcomprisBoard->level++;
     if(gcomprisBoard->level>gcomprisBoard->maxlevel) { // the current board is finished : bail out
-      board_finished(BOARD_FINISHED_RANDOM);
+      gc_bonus_end_display(BOARD_FINISHED_RANDOM);
       return;
     }
-    gcompris_play_ogg ("sounds/bonus.ogg", NULL);
+    gc_sound_play_ogg ("sounds/bonus.ogg", NULL);
   }
   reversecount_next_level();
 }
@@ -826,13 +826,13 @@ static gint animate_tux()
 	  if(fishItem!=NULL)
 	    gtk_object_destroy(GTK_OBJECT(fishItem));
 	  
-	  gcompris_play_ogg ("sounds/gobble.ogg", NULL);
+	  gc_sound_play_ogg ("sounds/gobble.ogg", NULL);
 	  
 	  if(--number_of_fish == 0)
 	    {
 	      gamewon = TRUE;
 	      reversecount_destroy_all_items();
-	      gcompris_display_bonus(gamewon, BONUS_SMILEY);
+	      gc_bonus_display(gamewon, BONUS_SMILEY);
 	    }
 	  else
 	    {

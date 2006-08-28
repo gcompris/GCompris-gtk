@@ -127,7 +127,7 @@ void gc_confirm_box (gchar *title,
 
 void gc_confirm_box_stop ()
 {
-  GcomprisBoard *gcomprisBoard = get_current_gcompris_board();
+  GcomprisBoard *gcomprisBoard = gc_board_get_current();
 
   // Destroy the box
   /* FIXME: Crashes randomly */
@@ -203,13 +203,13 @@ display_confirm(gchar *title,
   confirmCallBack=iscb;
 
   rootitem = \
-    gnome_canvas_item_new (gnome_canvas_root(gcompris_get_canvas()),
+    gnome_canvas_item_new (gnome_canvas_root(gc_get_canvas()),
 			   gnome_canvas_group_get_type (),
 			   "x", (double)0,
 			   "y", (double)0,
 			   NULL);
 
-  pixmap = gcompris_load_skin_pixmap("help_bg.png");
+  pixmap = gc_skin_pixmap_load("help_bg.png");
   y_start = (BOARDHEIGHT - gdk_pixbuf_get_height(pixmap))/2;
   if (y_start < 0)
     y_start = 0;
@@ -230,9 +230,9 @@ display_confirm(gchar *title,
 			 "text", title,
 			 "x", (gdouble) titre_x + titre_w/2 + 1.0,
 			 "y", (gdouble) titre_y + titre_h/2 + 1.0,
-			 "font", gcompris_skin_font_title,
+			 "font", gc_skin_font_title,
 			 "anchor", GTK_ANCHOR_CENTER,
-			 "fill_color_rgba",  gcompris_skin_color_shadow,
+			 "fill_color_rgba",  gc_skin_color_shadow,
 			 NULL);
 
   gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
@@ -240,9 +240,9 @@ display_confirm(gchar *title,
 			 "text", title,
 			 "x", (gdouble) titre_x + titre_w/2,
 			 "y", (gdouble) titre_y + titre_h/2,
-			 "font", gcompris_skin_font_title,
+			 "font", gc_skin_font_title,
 			 "anchor", GTK_ANCHOR_CENTER,
-			 "fill_color_rgba",  gcompris_skin_color_title,
+			 "fill_color_rgba",  gc_skin_color_title,
 			 NULL);
 
   richtext_s = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
@@ -284,9 +284,9 @@ display_confirm(gchar *title,
    * -------
    */
 
-  pixmap = gcompris_load_skin_pixmap("button_large.png");
-  pixmap_stick = gcompris_load_skin_pixmap("button_checked.png");
-  pixmap_cross = gcompris_load_skin_pixmap("bad.png");
+  pixmap = gc_skin_pixmap_load("button_large.png");
+  pixmap_stick = gc_skin_pixmap_load("button_checked.png");
+  pixmap_cross = gc_skin_pixmap_load("bad.png");
 
   // CANCEL
   no_button = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
@@ -329,11 +329,11 @@ display_confirm(gchar *title,
   gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 			 gnome_canvas_text_get_type (),
 			 "text", no_text,
-			 "font", gcompris_skin_font_subtitle,
+			 "font", gc_skin_font_subtitle,
 			 "x", (double)  button_x + gdk_pixbuf_get_width(pixmap) + button_x_int ,
 			 "y", (double)  button_y + 2*button_h/3,
 			 "anchor", GTK_ANCHOR_WEST,
-			 "fill_color_rgba", gcompris_skin_get_color("gcompris/helpfg"),
+			 "fill_color_rgba", gc_skin_get_color("gcompris/helpfg"),
 			 NULL);
 
   // OK
@@ -377,11 +377,11 @@ display_confirm(gchar *title,
   item2 = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				 gnome_canvas_text_get_type (),
 				 "text", yes_text,
-				 "font", gcompris_skin_font_subtitle,
+				 "font", gc_skin_font_subtitle,
 				 "x", (double)  button_x + gdk_pixbuf_get_width(pixmap) + button_x_int ,
 				 "y", (double)  button_y + button_h/3,
 				 "anchor", GTK_ANCHOR_WEST,
-				 "fill_color_rgba", gcompris_skin_get_color("gcompris/helpfg"),
+				 "fill_color_rgba", gc_skin_get_color("gcompris/helpfg"),
 				 NULL);
 
   confirm_displayed = TRUE;
@@ -417,7 +417,7 @@ set_content(GnomeCanvasRichText *item_content,
    * Set the shadow
    */
 
-  color_string = g_strdup_printf("#%x", gcompris_skin_color_shadow >> 8);
+  color_string = g_strdup_printf("#%x", gc_skin_color_shadow >> 8);
   gdk_color_parse(color_string, color_s);
   g_free(color_string);
   success = gdk_colormap_alloc_color(gdk_colormap_get_system(), 
@@ -427,7 +427,7 @@ set_content(GnomeCanvasRichText *item_content,
   buffer  = gnome_canvas_rich_text_get_buffer(GNOME_CANVAS_RICH_TEXT(item_content_s));
   txt_tag = gtk_text_buffer_create_tag(buffer, NULL, 
 				       "foreground-gdk", color_s,
-				       "font",       gcompris_skin_font_board_medium,
+				       "font",       gc_skin_font_board_medium,
 				       NULL);
   gtk_text_buffer_get_end_iter(buffer, &iter_end);
   gtk_text_buffer_get_start_iter(buffer, &iter_start);
@@ -437,7 +437,7 @@ set_content(GnomeCanvasRichText *item_content,
   /* 
    * Set the text
    */
-  color_string = g_strdup_printf("#%x", gcompris_skin_get_color("gcompris/helpunselect") >> 8);
+  color_string = g_strdup_printf("#%x", gc_skin_get_color("gcompris/helpunselect") >> 8);
   gdk_color_parse(color_string, color);
   g_free(color_string);
   success = gdk_colormap_alloc_color(gdk_colormap_get_system(), 
@@ -447,7 +447,7 @@ set_content(GnomeCanvasRichText *item_content,
   buffer  = gnome_canvas_rich_text_get_buffer(GNOME_CANVAS_RICH_TEXT(item_content));
   txt_tag = gtk_text_buffer_create_tag(buffer, NULL, 
 				       "foreground-gdk", color,
-				       "font",        gcompris_skin_font_board_medium,
+				       "font",        gc_skin_font_board_medium,
 				       NULL);
   gtk_text_buffer_get_end_iter(buffer, &iter_end);
   gtk_text_buffer_get_start_iter(buffer, &iter_start);

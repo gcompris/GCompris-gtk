@@ -24,17 +24,14 @@
 
 #include "gcompris.h"
 
-/* SCORE_LAST is equals to the last available score type */
-
 typedef enum
 {
-  SCORESTYLE_NOTE	= 0,
-  SCORESTYLE_LIFE	= 1,
-  SCORE_LAST		= 1
+  SCORESTYLE_NOTE,
+  SCORESTYLE_LIFE,
 } ScoreStyleList;
 
-void gcompris_score_start (ScoreStyleList style, guint x, guint y, guint max);
-void gcompris_score_end();
-void gcompris_score_set(guint value);
+void gc_score_start (ScoreStyleList style, guint x, guint y, guint max);
+void gc_score_end();
+void gc_score_set(guint value);
 
 #endif

@@ -1,6 +1,6 @@
 /* gcompris - properties.h
  *
- * Time-stamp: <2006/08/13 16:55:16 bruno>
+ * Time-stamp: <2006/08/28 23:54:33 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -57,7 +57,7 @@ typedef struct {
   gint          reread_menu;
   gchar        *shared_dir;
   gchar        *users_dir;
-  /* this are set by gcompris_im_init() */
+  /* this are set by gc_im_init() */
   GtkIMContext *context;
   gchar        *default_context;
   gint         experimental;
@@ -66,20 +66,11 @@ typedef struct {
 } GcomprisProperties;
 
 GcomprisProperties	*gc_prop_get (void);
-GcomprisProperties	*gcompris_properties_new (void);
-void			 gcompris_properties_destroy (GcomprisProperties *props);
-void			 gcompris_properties_save (GcomprisProperties *props);
+GcomprisProperties	*gc_prop_new (void);
+void			 gc_prop_destroy (GcomprisProperties *props);
+void			 gc_prop_save (GcomprisProperties *props);
 
-gchar                   *get_default_database_name (gchar *shared_dir);
-int                      create_rootdir (gchar *rootdir);
-int			 my_setenv (const char * name, const char * value);
+gchar                   *gc_prop_default_database_name_get (gchar *shared_dir);
+int			 gc_setenv (const char * name, const char * value);
 
 #endif
-
-/* Local Variables: */
-/* mode:c */
-/* eval:(load-library "time-stamp") */
-/* eval:(make-local-variable 'write-file-hooks) */
-/* eval:(add-hook 'write-file-hooks 'time-stamp) */
-/* eval:(setq time-stamp-format '(time-stamp-yyyy/mm/dd time-stamp-hh:mm:ss user-login-name)) */
-/* End: */

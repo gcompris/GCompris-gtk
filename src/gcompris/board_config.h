@@ -1,6 +1,6 @@
 /* gcompris - board_config.h
  *
- * Time-stamp: <2006/05/08 23:15:02 bruno>
+ * Time-stamp: <2006/08/29 01:12:58 bruno>
  *
  * Copyright (C) 2001 Pascal Georges
  *
@@ -22,11 +22,9 @@
 #ifndef BOARD_CONFIG_H
 #define BOARD_CONFIG_H
 
-#include "gcompris.h"
-gboolean board_config_check(GcomprisBoard *aBoard);
-void	 board_config_start(GcomprisBoard *aBoard,
-			    GcomprisProfile *aProfile);
-void	 board_config_stop();
+void	 gc_board_config_start(GcomprisBoard *aBoard,
+			       GcomprisProfile *aProfile);
+void	 gc_board_config_stop();
 
 
 /* Usefull fonctions for configuration of boards */
@@ -37,7 +35,7 @@ void	 board_config_stop();
 /* the callback type */
 typedef void (*GcomprisConfCallback) (GHashTable *table);
 
-GtkVBox *gcompris_configuration_window(gchar *label, GcomprisConfCallback callback);
+GtkVBox *gc_board_config_window_display(gchar *label, GcomprisConfCallback callback);
 
 GtkCheckButton *gcompris_boolean_box(const gchar *label, gchar *key, gboolean initial_value);
 
@@ -91,13 +89,3 @@ GtkTextView *gcompris_textview(const gchar *label,
 			       const gchar*description, 
 			       gchar *init_text, 
 			       GcomprisTextCallback validate);
-
-/***********************************/
-
-/* Local Variables: */
-/* mode:c */
-/* eval:(load-library "time-stamp") */
-/* eval:(make-local-variable 'write-file-hooks) */
-/* eval:(add-hook 'write-file-hooks 'time-stamp) */
-/* eval:(setq time-stamp-format '(time-stamp-yyyy/mm/dd time-stamp-hh:mm:ss user-login-name)) */
-/* End: */

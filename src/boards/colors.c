@@ -166,7 +166,7 @@ colors_config_start(GcomprisBoard *agcomprisBoard,
   label = g_strdup_printf("<b>%s</b> configuration\n for profile <b>%s</b>",
 			  agcomprisBoard->name, aProfile ? aProfile->name : "");
 
-  gcompris_configuration_window(label, conf_ok);
+  gc_board_config_window_display(label, conf_ok);
 
   g_free(label);
 
@@ -222,11 +222,11 @@ static void start_board (GcomprisBoard *agcomprisBoard) {
   
   g_hash_table_destroy(config);
 
-  gcompris_pause_sound();
+  gc_sound_pause();
 
   if(agcomprisBoard!=NULL) {
     gcomprisBoard=agcomprisBoard;
-    gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas), "colors/colors_bg.png");
+    gc_set_background(gnome_canvas_root(gcomprisBoard->canvas), "colors/colors_bg.png");
     gcomprisBoard->level=1;
     gcomprisBoard->maxlevel=1;
 
@@ -263,7 +263,7 @@ static void end_board () {
 
   if(gcomprisBoard!=NULL){
     pause_board(TRUE);
-    gcompris_score_end();
+    gc_score_end();
     colors_destroy_all_items();
     // free list
     while (g_list_length(listColors) > 0)
@@ -273,7 +273,7 @@ static void end_board () {
   }
   gcompris_reset_locale();
   gcomprisBoard = NULL;
-  gcompris_resume_sound();
+  gc_sound_resume();
 }
 
 /* =====================================================================
@@ -314,7 +314,7 @@ static void repeat (){
       /* If we don't find a sound in our locale or the sounds are disabled */
       if(str && properties->fx)
 	{
-	  gcompris_play_ogg(str, NULL);
+	  gc_sound_play_ogg(str, NULL);
 	}
       else
 	{
@@ -323,7 +323,7 @@ static void repeat (){
 	  gnome_canvas_item_new (boardRootItem,
 				 gnome_canvas_text_get_type (),
 				 "text", str,
-				 "font", gcompris_skin_font_board_huge_bold,
+				 "font", gc_skin_font_board_huge_bold,
 				 "x", (double) BOARDWIDTH/2+2,
 				 "y", (double) BOARDHEIGHT-25+2,
 				 "anchor", GTK_ANCHOR_CENTER,
@@ -333,7 +333,7 @@ static void repeat (){
 	  gnome_canvas_item_new (boardRootItem,
 				 gnome_canvas_text_get_type (),
 				 "text", str,
-				 "font", gcompris_skin_font_board_huge_bold,
+				 "font", gc_skin_font_board_huge_bold,
 				 "x", (double) BOARDWIDTH/2,
 				 "y", (double) BOARDHEIGHT-25,
 				 "anchor", GTK_ANCHOR_CENTER,
@@ -402,7 +402,7 @@ static void game_won() {
   listColors = g_list_remove(listColors, g_list_nth_data(listColors,0));
 
   if( g_list_length(listColors) <= 0 ) { // the current board is finished : bail out
-    board_finished(BOARD_FINISHED_TUXLOCO);
+    gc_bonus_end_display(BOARD_FINISHED_TUXLOCO);
     return;
   }
 
@@ -412,7 +412,7 @@ static void game_won() {
  *
  * =====================================================================*/
 static gboolean process_ok_timeout() {
-  gcompris_display_bonus(gamewon, BONUS_GNU);
+  gc_bonus_display(gamewon, BONUS_GNU);
   return FALSE;
 }
 

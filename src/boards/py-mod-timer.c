@@ -26,10 +26,10 @@ void pyTimerCallBack(){
 }
 
 
-/* void gcompris_timer_display
+/* void gc_timer_display
         (int x, int y, TimerList type, int second, GcomprisTimerEnd gcomprisTimerEnd); */
 static PyObject*
-py_gcompris_timer_display(PyObject* self, PyObject* args)
+py_gc_timer_display(PyObject* self, PyObject* args)
 {
   int x,y;
   int type;
@@ -37,13 +37,13 @@ py_gcompris_timer_display(PyObject* self, PyObject* args)
   PyObject* pyCallback;
 
   /* Parse arguments */
-  if(!PyArg_ParseTuple(args, "iiiiO:gcompris_timer_display", &x, &y, &type, &second, &pyCallback))
+  if(!PyArg_ParseTuple(args, "iiiiO:gc_timer_display", &x, &y, &type, &second, &pyCallback))
     return NULL;
   if(!PyCallable_Check(pyCallback)) return NULL;
   pyTimerCallBackFunc = pyCallback;
 
   /* Call the corresponding C function */
-  gcompris_timer_display(x, y, type, second, pyTimerCallBack );
+  gc_timer_display(x, y, type, second, pyTimerCallBack );
 
   /* Create and return the result */
   Py_INCREF(Py_None);
@@ -51,18 +51,18 @@ py_gcompris_timer_display(PyObject* self, PyObject* args)
 }
 
 
-/* void gcompris_timer_add(int second); */
+/* void gc_timer_add(int second); */
 static PyObject*
-py_gcompris_timer_add(PyObject* self, PyObject* args)
+py_gc_timer_add(PyObject* self, PyObject* args)
 {
   int second;
 
   /* Parse arguments */
-  if(!PyArg_ParseTuple(args, "i:gcompris_timer_add", &second))
+  if(!PyArg_ParseTuple(args, "i:gc_timer_add", &second))
     return NULL;
 
   /* Call the corresponding C function */
-  gcompris_timer_add(second);
+  gc_timer_add(second);
 
   /* Create and return the result */
   Py_INCREF(Py_None);
@@ -70,16 +70,16 @@ py_gcompris_timer_add(PyObject* self, PyObject* args)
 }
 
 
-/*void gcompris_timer_end(void); */
+/*void gc_timer_end(void); */
 static PyObject*
-py_gcompris_timer_end(PyObject* self, PyObject* args)
+py_gc_timer_end(PyObject* self, PyObject* args)
 {
   /* Parse arguments */
-  if(!PyArg_ParseTuple(args, ":gcompris_timer_end"))
+  if(!PyArg_ParseTuple(args, ":gc_timer_end"))
     return NULL;
 
   /* Call the corresponding C function */
-  gcompris_timer_end();
+  gc_timer_end();
 
   /* Create and return the result */
   Py_INCREF(Py_None);
@@ -87,36 +87,36 @@ py_gcompris_timer_end(PyObject* self, PyObject* args)
 }
 
 
-/* guint gcompris_timer_get_remaining(); */
+/* guint gc_timer_get_remaining(); */
 static PyObject*
-py_gcompris_timer_get_remaining(PyObject* self, PyObject* args)
+py_gc_timer_get_remaining(PyObject* self, PyObject* args)
 {
   guint result;
 
   /* Parse arguments */
-  if(!PyArg_ParseTuple(args, ":gcompris_timer_get_remaining"))
+  if(!PyArg_ParseTuple(args, ":gc_timer_get_remaining"))
     return NULL;
 
   /* Call the corresponding C function */
-  result = gcompris_timer_get_remaining();
+  result = gc_timer_get_remaining();
 
   /* Create and return the result */
   return Py_BuildValue("i", result);  
 }
 
 
-/* void	 gcompris_timer_pause(gboolean pause); */
+/* void	 gc_timer_pause(gboolean pause); */
 static PyObject*
-py_gcompris_timer_pause(PyObject* self, PyObject* args)
+py_gc_timer_pause(PyObject* self, PyObject* args)
 {
   gboolean pause;
 
   /* Parse arguments */
-  if(!PyArg_ParseTuple(args, "i:gcompris_timer_pause", &pause))
+  if(!PyArg_ParseTuple(args, "i:gc_timer_pause", &pause))
     return NULL;
 
   /* Call the corresponding C function */
-  gcompris_timer_pause(pause);
+  gc_timer_pause(pause);
 
   /* Create and return the result */
   Py_INCREF(Py_None);
@@ -125,18 +125,18 @@ py_gcompris_timer_pause(PyObject* self, PyObject* args)
 
 
 static PyMethodDef PythonGcomprisTimerModule[] = {
-  { "display",  py_gcompris_timer_display, METH_VARARGS, "gcompris_timer_display" },
-  { "add",  py_gcompris_timer_add, METH_VARARGS, "gcompris_timer_add" },
-  { "end",  py_gcompris_timer_end, METH_VARARGS, "gcompris_timer_end" },
-  { "get_remaining",  py_gcompris_timer_get_remaining, METH_VARARGS, "gcompris_timer_get_remaining" },
-  { "pause",  py_gcompris_timer_pause, METH_VARARGS, "gcompris_timer_pause" },
+  { "display",  py_gc_timer_display, METH_VARARGS, "gc_timer_display" },
+  { "add",  py_gc_timer_add, METH_VARARGS, "gc_timer_add" },
+  { "end",  py_gc_timer_end, METH_VARARGS, "gc_timer_end" },
+  { "get_remaining",  py_gc_timer_get_remaining, METH_VARARGS, "gc_timer_get_remaining" },
+  { "pause",  py_gc_timer_pause, METH_VARARGS, "gc_timer_pause" },
   { NULL, NULL, 0, NULL}
 };
 
-void python_gcompris_timer_module_init(void)
+void python_gc_timer_module_init(void)
 {
   PyObject* module;
-  module = Py_InitModule("_gcompris_timer", PythonGcomprisTimerModule);
+  module = Py_InitModule("_gc_timer", PythonGcomprisTimerModule);
 
   /* TimerList constants */
   PyModule_AddIntConstant(module, "TEXT", GCOMPRIS_TIMER_TEXT );

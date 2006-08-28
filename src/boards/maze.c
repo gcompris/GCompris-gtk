@@ -190,8 +190,8 @@ static void start_board (GcomprisBoard *agcomprisBoard) {
     /* disable im_context */
     gcomprisBoard->disable_im_context = TRUE;
 
-    img = gcompris_image_to_skin("gcompris-bg.jpg");
-    gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas), 
+    img = gc_skin_image_get("gcompris-bg.jpg");
+    gc_set_background(gnome_canvas_root(gcomprisBoard->canvas), 
 			    img);
     g_free(img);
     gcomprisBoard->level=1;
@@ -217,7 +217,7 @@ static void start_board (GcomprisBoard *agcomprisBoard) {
     }
 
     if(!modeIs2D || modeIsInvisible) {
-      pixmap = gcompris_load_skin_pixmap("maze-2d-bubble.png");
+      pixmap = gc_skin_pixmap_load("maze-2d-bubble.png");
       if(pixmap) {
 	gc_bar_set_repeat_icon(pixmap);
 	gdk_pixbuf_unref(pixmap);
@@ -432,7 +432,7 @@ static void repeat () {
 
   if(threeDactive) {
 
-    pixmap = gcompris_load_skin_pixmap("maze-3d-bubble.png");
+    pixmap = gc_skin_pixmap_load("maze-3d-bubble.png");
     if(pixmap) {
       gc_bar_set_repeat_icon(pixmap);
       gdk_pixbuf_unref(pixmap);
@@ -443,7 +443,7 @@ static void repeat () {
     
   } else {
 
-    pixmap = gcompris_load_skin_pixmap("maze-2d-bubble.png");
+    pixmap = gc_skin_pixmap_load("maze-2d-bubble.png");
     if(pixmap) {
       gc_bar_set_repeat_icon(pixmap);
       gdk_pixbuf_unref(pixmap);
@@ -501,11 +501,11 @@ static GnomeCanvasItem *maze_create_item(GnomeCanvasGroup *parent) {
   warning_item = gnome_canvas_item_new (boardRootItem,
 					gnome_canvas_text_get_type (),
 					"text", message,
-					"font", gcompris_skin_font_board_big,
+					"font", gc_skin_font_board_big,
 					"x", (double) BOARDWIDTH/2,
 					"y", (double) BOARDHEIGHT-20,
 					"anchor", GTK_ANCHOR_CENTER,
-					"fill_color_rgba", gcompris_skin_color_content,
+					"fill_color_rgba", gc_skin_color_content,
 					NULL);
   gnome_canvas_item_hide(warning_item);
 
@@ -516,11 +516,11 @@ static GnomeCanvasItem *maze_create_item(GnomeCanvasGroup *parent) {
  * =====================================================================*/
 static void game_won() {
   twoDdisplay();
-  gcompris_play_ogg ("sounds/bonus.ogg", NULL);
+  gc_sound_play_ogg ("sounds/bonus.ogg", NULL);
   /* Try the next level */
   gcomprisBoard->level++;
   if(gcomprisBoard->level>gcomprisBoard->maxlevel) { // the current board is finished : bail out
-    board_finished(BOARD_FINISHED_RANDOM);
+    gc_bonus_end_display(BOARD_FINISHED_RANDOM);
     return;
   }
   maze_next_level();
@@ -788,16 +788,16 @@ draw_background(GnomeCanvasGroup *rootItem)
 	  y=cellsize*(y1)+board_border_y;
 	  x=cellsize*(x1)+board_border_x;
 	  if (x1==0)
-	    draw_a_line(rootItem,x, y, x, y+cellsize, gcompris_skin_get_color("maze/wall color"));
+	    draw_a_line(rootItem,x, y, x, y+cellsize, gc_skin_get_color("maze/wall color"));
 
 	  if (y1==0)
-	    draw_a_line(rootItem,x, y, x+cellsize, y, gcompris_skin_get_color("maze/wall color"));
+	    draw_a_line(rootItem,x, y, x+cellsize, y, gc_skin_get_color("maze/wall color"));
 
 	  if (wall&EAST)
-	    draw_a_line(rootItem,x+cellsize, y, x+cellsize, y+cellsize, gcompris_skin_get_color("maze/wall color"));
+	    draw_a_line(rootItem,x+cellsize, y, x+cellsize, y+cellsize, gc_skin_get_color("maze/wall color"));
 
 	  if (wall&SOUTH)
-	    draw_a_line(rootItem,x, y+cellsize, x+cellsize, y+cellsize, gcompris_skin_get_color("maze/wall color"));
+	    draw_a_line(rootItem,x, y+cellsize, x+cellsize, y+cellsize, gc_skin_get_color("maze/wall color"));
 
 	}
     }
@@ -1382,8 +1382,8 @@ static void draw3D()
 
 static void twoDdisplay()
 {
-  gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas), 
-			  gcompris_image_to_skin("gcompris-bg.jpg"));
+  gc_set_background(gnome_canvas_root(gcomprisBoard->canvas), 
+			  gc_skin_image_get("gcompris-bg.jpg"));
   if (threedgroup) 
     gnome_canvas_item_hide(GNOME_CANVAS_ITEM(threedgroup));
   gnome_canvas_item_show(GNOME_CANVAS_ITEM(boardRootItem));
@@ -1392,7 +1392,7 @@ static void twoDdisplay()
 
 static void threeDdisplay()
 {
-  gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas), "images/maze-bg.jpg");
+  gc_set_background(gnome_canvas_root(gcomprisBoard->canvas), "images/maze-bg.jpg");
   gnome_canvas_item_hide(GNOME_CANVAS_ITEM(boardRootItem));
   threeDactive=TRUE;
   draw3D();

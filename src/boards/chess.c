@@ -300,8 +300,8 @@ static void chess_next_level()
   register gshort rank;
   gchar *img;
 
-  img = gcompris_image_to_skin("gcompris-bg.jpg");
-  gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas), 
+  img = gc_skin_image_get("gcompris-bg.jpg");
+  gc_set_background(gnome_canvas_root(gcomprisBoard->canvas), 
 			  img);
   g_free(img);
 
@@ -543,10 +543,10 @@ static void game_won()
     gcomprisBoard->sublevel=1;
     gcomprisBoard->level++;
     if(gcomprisBoard->level>gcomprisBoard->maxlevel) { // the current board is finished : bail out
-      board_finished(BOARD_FINISHED_RANDOM);
+      gc_bonus_end_display(BOARD_FINISHED_RANDOM);
       return;
     }
-    gcompris_play_ogg ("sounds/bonus.ogg", NULL);
+    gc_sound_play_ogg ("sounds/bonus.ogg", NULL);
   }
   chess_next_level();
 }
@@ -560,11 +560,11 @@ static void display_white_turn(gboolean whiteturn)
       turn_item = gnome_canvas_item_new (boardRootItem,
 					 gnome_canvas_text_get_type (),
 					 "text",       " ",
-					 "font",       gcompris_skin_font_board_big,
+					 "font",       gc_skin_font_board_big,
 					 "x", (double) TURN_X,
 					 "y", (double) TURN_Y,
 					 "anchor",     GTK_ANCHOR_CENTER,
-					 "fill_color_rgba", gcompris_skin_color_content,
+					 "fill_color_rgba", gc_skin_color_content,
 					 NULL);
     }
 
@@ -581,11 +581,11 @@ static void display_info(gchar *info)
       info_item = gnome_canvas_item_new (boardRootItem,
 					 gnome_canvas_text_get_type (),
 					 "text",       " ",
-					 "font",       gcompris_skin_font_board_big,
+					 "font",       gc_skin_font_board_big,
 					 "x", (double) INFO_X,
 					 "y", (double) INFO_Y,
 					 "anchor",     GTK_ANCHOR_CENTER,
-					 "fill_color_rgba", gcompris_skin_color_subtitle,
+					 "fill_color_rgba", gc_skin_color_subtitle,
 					 NULL);
     }
 
@@ -826,7 +826,7 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 	
 	fleur = gdk_cursor_new(GDK_FLEUR);
 	gnome_canvas_item_raise_to_top(item);
-	gcompris_canvas_item_grab(item,
+	gc_canvas_item_grab(item,
 			       GDK_POINTER_MOTION_MASK | 
 			       GDK_BUTTON_RELEASE_MASK,
 			       fleur,
@@ -896,7 +896,7 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 	       gnome_canvas_item_move(item, ofset_x, ofset_y);
 	     }
 
-	   gcompris_canvas_item_ungrab(item, event->button.time);
+	   gc_canvas_item_ungrab(item, event->button.time);
 	   dragging = FALSE;
 
 	   position_display(position);

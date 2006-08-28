@@ -31,7 +31,6 @@ static double		 ystep;
 static int		 timer;
 static double		 subratio;
 static TimerList	 type;
-GnomeCanvasItem		*item;
 static gint		 timer_increment (GtkWidget *widget, gpointer data);
 static gint		 subtimer_increment (GtkWidget *widget, gpointer data);
 static void		 start_animation();
@@ -40,11 +39,14 @@ static gint		 animate_id = 0;
 static gint		 subanimate_id = 0;
 static GcomprisTimerEnd	 gcomprisTimerEnd;
 
-void gcompris_timer_display(int ax, int ay, TimerList atype, int second, GcomprisTimerEnd agcomprisTimerEnd)
+GnomeCanvasItem	*gc_timer_item;
+
+void
+gc_timer_display(int ax, int ay, TimerList atype, int second, GcomprisTimerEnd agcomprisTimerEnd)
 {
   GdkFont *gdk_font;
   GdkPixbuf *pixmap = NULL;
-  GcomprisProperties	*properties = gc_prop_get();
+  GcomprisProperties *properties = gc_prop_get();
 
   /* Timer is not requested */
   if(properties->timer==0)
@@ -52,12 +54,12 @@ void gcompris_timer_display(int ax, int ay, TimerList atype, int second, Gcompri
 
   gdk_font = gdk_font_load (FONT_BOARD_MEDIUM);
 
-  gcompris_timer_end();
+  gc_timer_end();
 
   paused = FALSE;
 
   boardRootItem = GNOME_CANVAS_GROUP(
-				     gnome_canvas_item_new (gnome_canvas_root(gcompris_get_canvas()),
+				     gnome_canvas_item_new (gnome_canvas_root(gc_get_canvas()),
 							    gnome_canvas_group_get_type (),
 							    "x", (double) 0,
 							    "y", (double) 0,
@@ -91,12 +93,12 @@ void gcompris_timer_display(int ax, int ay, TimerList atype, int second, Gcompri
 	  {
 	    pixmap = gc_pixmap_load(filename);
 
-	    item = gnome_canvas_item_new (boardRootItem,
-					  gnome_canvas_pixbuf_get_type (),
-					  "pixbuf", pixmap, 
-					  "x", x,
-					  "y", y,
-					  NULL);
+	    gc_timer_item = gnome_canvas_item_new (boardRootItem,
+						   gnome_canvas_pixbuf_get_type (),
+						   "pixbuf", pixmap, 
+						   "x", x,
+						   "y", y,
+						   NULL);
 	    
 	    gdk_pixbuf_unref(pixmap);
 	  }
@@ -108,26 +110,26 @@ void gcompris_timer_display(int ax, int ay, TimerList atype, int second, Gcompri
       {
 	gchar *tmpstr = g_strdup_printf("Remaining Time = %d", timer);
 	/* Display the value for this timer */
-	item = gnome_canvas_item_new (boardRootItem,
-				      gnome_canvas_text_get_type (),
-				      "text", tmpstr,
-				      "font_gdk", gdk_font,
-				      "x", x,
-				      "y", y,
-				      "anchor", GTK_ANCHOR_CENTER,
-				      "fill_color", "white",
-				      NULL);
+	gc_timer_item = gnome_canvas_item_new (boardRootItem,
+					       gnome_canvas_text_get_type (),
+					       "text", tmpstr,
+					       "font_gdk", gdk_font,
+					       "x", x,
+					       "y", y,
+					       "anchor", GTK_ANCHOR_CENTER,
+					       "fill_color", "white",
+					       NULL);
 	g_free(tmpstr);
       }
       break;
     case GCOMPRIS_TIMER_BALLOON:
       pixmap = gc_pixmap_load("gcompris/misc/tuxballoon.png");
-      item = gnome_canvas_item_new (boardRootItem,
-				    gnome_canvas_pixbuf_get_type (),
-				    "pixbuf", pixmap, 
-				    "x", x,
-				    "y", y,
-				    NULL);
+      gc_timer_item = gnome_canvas_item_new (boardRootItem,
+					     gnome_canvas_pixbuf_get_type (),
+					     "pixbuf", pixmap, 
+					     "x", x,
+					     "y", y,
+					     NULL);
 
       /* Calc the number of step needed to reach the sea based on user y and second */
       ystep = (BOARDHEIGHT-y-gdk_pixbuf_get_height(pixmap))/second;
@@ -153,12 +155,14 @@ void gcompris_timer_display(int ax, int ay, TimerList atype, int second, Gcompri
   start_animation();
 }
 
-void gcompris_timer_add(int second)
+void
+gc_timer_add(int second)
 {
   timer +=second;
 }
 
-void gcompris_timer_end()
+void
+gc_timer_end()
 {
   if(boardRootItem!=NULL)
     gtk_object_destroy (GTK_OBJECT(boardRootItem));
@@ -175,7 +179,8 @@ void gcompris_timer_end()
   subanimate_id = 0;
 }
 
-void gcompris_timer_pause(gboolean pause)
+void
+gc_timer_pause(gboolean pause)
 {
   if(boardRootItem==NULL)
     return;
@@ -199,13 +204,18 @@ void gcompris_timer_pause(gboolean pause)
 
 }
 
-guint gcompris_timer_get_remaining()
+guint
+gc_timer_get_remaining()
 {
   return(timer);
 }
 
-
-static void start_animation()
+/*
+ * Local functions
+ * ---------------
+ */
+static void
+start_animation()
 {
 
   switch(type)
@@ -228,14 +238,15 @@ static void start_animation()
 }
 
 
-static void display_time_ellapsed()
+static void
+display_time_ellapsed()
 {
   switch(type)
     {
     case GCOMPRIS_TIMER_TEXT:
       /* Display the value for this timer */
-      if(item)
-	gnome_canvas_item_set(item,
+      if(gc_timer_item)
+	gnome_canvas_item_set(gc_timer_item,
 			      "text", _("Time Elapsed"),
 			      NULL);
       break;
@@ -246,7 +257,8 @@ static void display_time_ellapsed()
 }
 
 
-static gint subtimer_increment(GtkWidget *widget, gpointer data)
+static gint
+subtimer_increment(GtkWidget *widget, gpointer data)
 {
   if(paused)
     return(FALSE);
@@ -256,11 +268,11 @@ static gint subtimer_increment(GtkWidget *widget, gpointer data)
     case GCOMPRIS_TIMER_BALLOON:
       /* Display the value for this timer */
       y+=ystep/subratio;
-      if(item)
-	gnome_canvas_item_set(item,
+      if(gc_timer_item)
+	gnome_canvas_item_set(gc_timer_item,
 			      "y", y,
 			      NULL);
-      //      gnome_canvas_update_now(gcompris_get_canvas());
+      //      gnome_canvas_update_now(gc_get_canvas());
       break;
     default:
       break;
@@ -268,7 +280,8 @@ static gint subtimer_increment(GtkWidget *widget, gpointer data)
   return (TRUE);
 }
 
-static gint timer_increment(GtkWidget *widget, gpointer data)
+static gint
+timer_increment(GtkWidget *widget, gpointer data)
 {
   if(paused)
     return(FALSE);
@@ -291,7 +304,7 @@ static gint timer_increment(GtkWidget *widget, gpointer data)
     {
     case GCOMPRIS_TIMER_SAND:
     case GCOMPRIS_TIMER_CLOCK:
-      if(item)
+      if(gc_timer_item)
 	{
 	  GcomprisProperties *properties = gc_prop_get();
 	  GdkPixbuf	*pixmap = NULL;
@@ -310,7 +323,7 @@ static gint timer_increment(GtkWidget *widget, gpointer data)
 	  if (g_file_test ((filefull), G_FILE_TEST_EXISTS))
 	    {
 	      pixmap = gc_pixmap_load(filename);
-	      gnome_canvas_item_set(item,
+	      gnome_canvas_item_set(gc_timer_item,
 				    "pixbuf", pixmap,
 				    NULL);
 	      gdk_pixbuf_unref(pixmap);
@@ -321,10 +334,10 @@ static gint timer_increment(GtkWidget *widget, gpointer data)
       break;
     case GCOMPRIS_TIMER_TEXT:
       /* Display the value for this timer */
-      if(item)
+      if(gc_timer_item)
 	{
 	  char *tmpstr = g_strdup_printf(_("Remaining Time = %d"), timer);
-	  gnome_canvas_item_set(item,
+	  gnome_canvas_item_set(gc_timer_item,
 				"text", tmpstr,
 				NULL);
 	  g_free(tmpstr);
