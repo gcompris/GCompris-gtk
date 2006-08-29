@@ -100,7 +100,7 @@ py_gc_menu_get_boards (PyObject* self, PyObject* args)
 }
 
 static PyObject*
-py_gcompris_get_profile_from_id (PyObject* self, PyObject* args)
+py_gc_db_get_profile_from_id (PyObject* self, PyObject* args)
 {
   GcomprisProfile *profile;
   int profile_id;
@@ -110,14 +110,14 @@ py_gcompris_get_profile_from_id (PyObject* self, PyObject* args)
     return NULL;
 
   /* Call the corresponding C function */
-  profile = gcompris_get_profile_from_id (profile_id);
+  profile = gc_db_get_profile_from_id (profile_id);
 
   /* Create and return the result */
   return gcompris_new_pyGcomprisProfileObject(profile) ;
 }
 
 static PyObject*
-py_gcompris_get_board_from_id (PyObject* self, PyObject* args)
+py_gc_db_get_board_from_id (PyObject* self, PyObject* args)
 {
   GcomprisBoard *board;
   int board_id;
@@ -127,14 +127,14 @@ py_gcompris_get_board_from_id (PyObject* self, PyObject* args)
     return NULL;
 
   /* Call the corresponding C function */
-  board = gcompris_get_board_from_id (board_id);
+  board = gc_db_get_board_from_id (board_id);
 
   /* Create and return the result */
   return gcompris_new_pyGcomprisBoardObject(board) ;
 }
 
 static PyObject*
-py_gcompris_get_group_from_id (PyObject* self, PyObject* args)
+py_gc_db_get_group_from_id (PyObject* self, PyObject* args)
 {
   GcomprisGroup *group;
   int group_id;
@@ -144,14 +144,14 @@ py_gcompris_get_group_from_id (PyObject* self, PyObject* args)
     return NULL;
 
   /* Call the corresponding C function */
-  group = gcompris_get_group_from_id (group_id);
+  group = gc_db_get_group_from_id (group_id);
 
   /* Create and return the result */
   return gcompris_new_pyGcomprisGroupObject(group) ;
 }
 
 static PyObject*
-py_gcompris_get_user_from_id (PyObject* self, PyObject* args)
+py_gc_db_get_user_from_id (PyObject* self, PyObject* args)
 {
   GcomprisUser *user;
   int user_id;
@@ -161,14 +161,14 @@ py_gcompris_get_user_from_id (PyObject* self, PyObject* args)
     return NULL;
 
   /* Call the corresponding C function */
-  user = gcompris_get_user_from_id (user_id);
+  user = gc_db_get_user_from_id (user_id);
 
   /* Create and return the result */
   return gcompris_new_pyGcomprisUserObject(user) ;
 }
 
 static PyObject*
-py_gcompris_get_class_from_id (PyObject* self, PyObject* args)
+py_gc_db_get_class_from_id (PyObject* self, PyObject* args)
 {
   GcomprisClass *class;
   int class_id;
@@ -178,7 +178,7 @@ py_gcompris_get_class_from_id (PyObject* self, PyObject* args)
     return NULL;
 
   /* Call the corresponding C function */
-  class = gcompris_get_class_from_id (class_id);
+  class = gc_db_get_class_from_id (class_id);
 
   /* Create and return the result */
   return gcompris_new_pyGcomprisClassObject(class) ;
@@ -207,7 +207,7 @@ py_gc_db_profiles_list_get (PyObject* self, PyObject* args)
 }
 
 static PyObject*
-py_gcompris_get_users_list (PyObject* self, PyObject* args)
+py_gc_db_get_users_list (PyObject* self, PyObject* args)
 {
   GList *users_list;
   GList *list;
@@ -218,7 +218,7 @@ py_gcompris_get_users_list (PyObject* self, PyObject* args)
     return NULL;
 
   /* Call the corresponding C function */
-  users_list = gcompris_get_users_list();
+  users_list = gc_db_get_users_list();
 
   pylist = PyList_New(0);
   for (list = users_list; list != NULL; list = list->next){
@@ -229,7 +229,7 @@ py_gcompris_get_users_list (PyObject* self, PyObject* args)
 }
 
 static PyObject*
-py_gcompris_get_groups_list (PyObject* self, PyObject* args)
+py_gc_db_get_groups_list (PyObject* self, PyObject* args)
 {
   GList *groups_list;
   GList *list;
@@ -240,7 +240,7 @@ py_gcompris_get_groups_list (PyObject* self, PyObject* args)
     return NULL;
 
   /* Call the corresponding C function */
-  groups_list = gcompris_get_groups_list();
+  groups_list = gc_db_get_groups_list();
 
   pylist = PyList_New(0);
   for (list = groups_list; list != NULL; list = list->next){
@@ -251,7 +251,7 @@ py_gcompris_get_groups_list (PyObject* self, PyObject* args)
 }
 
 static PyObject*
-py_gcompris_get_classes_list (PyObject* self, PyObject* args)
+py_gc_db_get_classes_list (PyObject* self, PyObject* args)
 {
   GList *classes_list;
   GList *list;
@@ -262,7 +262,7 @@ py_gcompris_get_classes_list (PyObject* self, PyObject* args)
     return NULL;
 
   /* Call the corresponding C function */
-  classes_list = gcompris_get_classes_list();
+  classes_list = gc_db_get_classes_list();
 
   pylist = PyList_New(0);
   for (list = classes_list; list != NULL; list = list->next){
@@ -346,15 +346,15 @@ static PyMethodDef PythonGcomprisAdminModule[] = {
   { "board_run_next",  py_board_run_next, METH_VARARGS, "board_run_next" },
   { "gc_board_config_start",  py_gc_board_config_start, METH_VARARGS, "gc_board_config_start" },
   { "gc_board_config_stop",  py_gc_board_config_stop, METH_VARARGS, "gc_board_config_stop" },
-  { "get_profile_from_id",  py_gcompris_get_profile_from_id, METH_VARARGS, "gcompris_get_profile_from_id" },
+  { "get_profile_from_id",  py_gc_db_get_profile_from_id, METH_VARARGS, "gc_db_get_profile_from_id" },
   { "get_profiles_list",  py_gc_db_profiles_list_get, METH_VARARGS, "gc_db_profiles_list_get" },
-  { "get_user_from_id",  py_gcompris_get_user_from_id, METH_VARARGS, "gcompris_get_user_from_id" },
-  { "get_users_list",  py_gcompris_get_users_list, METH_VARARGS, "gcompris_get_users_list" },
-  { "get_group_from_id",  py_gcompris_get_group_from_id, METH_VARARGS, "gcompris_get_group_from_id" },
-  { "get_groups_list",  py_gcompris_get_groups_list, METH_VARARGS, "gcompris_get_groups_list" },
-  { "get_class_from_id",  py_gcompris_get_class_from_id, METH_VARARGS, "gcompris_get_class_from_id" },
-  { "get_classes_list",  py_gcompris_get_classes_list, METH_VARARGS, "gcompris_get_classes_list" },
-  { "get_board_from_id",  py_gcompris_get_board_from_id, METH_VARARGS, "gcompris_get_board_from_id" },
+  { "get_user_from_id",  py_gc_db_get_user_from_id, METH_VARARGS, "gc_db_get_user_from_id" },
+  { "get_users_list",  py_gc_db_get_users_list, METH_VARARGS, "gc_db_get_users_list" },
+  { "get_group_from_id",  py_gc_db_get_group_from_id, METH_VARARGS, "gc_db_get_group_from_id" },
+  { "get_groups_list",  py_gc_db_get_groups_list, METH_VARARGS, "gc_db_get_groups_list" },
+  { "get_class_from_id",  py_gc_db_get_class_from_id, METH_VARARGS, "gc_db_get_class_from_id" },
+  { "get_classes_list",  py_gc_db_get_classes_list, METH_VARARGS, "gc_db_get_classes_list" },
+  { "get_board_from_id",  py_gc_db_get_board_from_id, METH_VARARGS, "gc_db_get_board_from_id" },
   { "get_boards_list",  py_gc_menu_get_boards, METH_VARARGS, "gc_menu_get_boards" },
   { "get_users_from_group",  py_gc_db_users_from_group_get, METH_VARARGS, "gc_db_users_from_group_get" },
   { "get_users_from_group",  py_gc_db_users_from_group_get, METH_VARARGS, "gc_db_users_from_group_get" },

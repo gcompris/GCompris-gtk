@@ -290,9 +290,9 @@ int whitespace(char *buffer) {
  */
 static void start_board (GcomprisBoard *agcomprisBoard)
 {
-  GHashTable *config = gcompris_get_board_conf();
+  GHashTable *config = gc_db_get_board_conf();
 
-  gcompris_change_locale(g_hash_table_lookup( config, "locale"));
+  gc_locale_set(g_hash_table_lookup( config, "locale"));
 
   gchar *up_init_str = g_hash_table_lookup( config, "uppercase_only");
 
@@ -345,7 +345,7 @@ end_board ()
       g_free(keyMap);
     }
 
-  gcompris_reset_locale();
+  gc_locale_reset();
 
   gcomprisBoard = NULL;
 }
@@ -790,7 +790,7 @@ static void save_table (gpointer key,
 			gpointer value,
 			gpointer user_data)
 {
-  gcompris_set_board_conf ( profile_conf,
+  gc_db_set_board_conf ( profile_conf,
 			    board_conf,
 			    (gchar *) key, 
 			    (gchar *) value);
@@ -809,16 +809,16 @@ static void conf_ok(GHashTable *table)
   g_hash_table_foreach(table, save_table, NULL);
   
   if (gcomprisBoard){
-    gcompris_reset_locale();
+    gc_locale_reset();
 
     GHashTable *config;
 
     if (profile_conf)
-      config = gcompris_get_board_conf();
+      config = gc_db_get_board_conf();
     else
       config = table;
     
-    gcompris_change_locale(g_hash_table_lookup( config, "locale"));
+    gc_locale_set(g_hash_table_lookup( config, "locale"));
     
     gchar *up_init_str = g_hash_table_lookup( config, "uppercase_only");
     
@@ -871,11 +871,11 @@ gletter_config_start(GcomprisBoard *agcomprisBoard,
   g_free(label);
 
   /* init the combo to previously saved value */
-  GHashTable *config = gcompris_get_conf( profile_conf, board_conf);
+  GHashTable *config = gc_db_get_conf( profile_conf, board_conf);
 
   gchar *locale = g_hash_table_lookup( config, "locale");
   
-  gcompris_combo_locales( locale);
+  gc_board_config_combo_locales( locale);
 
   gboolean up_init = FALSE;
 
@@ -884,7 +884,7 @@ gletter_config_start(GcomprisBoard *agcomprisBoard,
   if (up_init_str && (strcmp(up_init_str, "True")==0))
     up_init = TRUE;
 
-  gcompris_separator();
+  gc_board_conf_separator();
 
   gchar *control_sound = g_hash_table_lookup( config, "with_sound");
   if (control_sound && strcmp(g_hash_table_lookup( config, "with_sound"),"True")==0)
@@ -892,11 +892,11 @@ gletter_config_start(GcomprisBoard *agcomprisBoard,
   else
     with_sound = FALSE;
   
-  gcompris_boolean_box("Enable sounds", "with_sound", with_sound);
+  gc_board_config_boolean_box("Enable sounds", "with_sound", with_sound);
  
-  gcompris_separator();
+  gc_board_conf_separator();
 
-  gcompris_boolean_box(_("Uppercase only text"),
+  gc_board_config_boolean_box(_("Uppercase only text"),
 		       "uppercase_only",
 		       up_init);
   

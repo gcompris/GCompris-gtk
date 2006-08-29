@@ -139,12 +139,12 @@ GET_BPLUGIN_INFO(click_on_letter)
  */
 static void start_board (GcomprisBoard *agcomprisBoard)
 {
-  GHashTable *config = gcompris_get_board_conf();
+  GHashTable *config = gc_db_get_board_conf();
   int ready;
 
   board_paused = TRUE;
 
-  gcompris_change_locale(g_hash_table_lookup( config, "locale_sound"));
+  gc_locale_set(g_hash_table_lookup( config, "locale_sound"));
 
   gchar *up_init_str = g_hash_table_lookup( config, "uppercase_only");
 
@@ -198,7 +198,7 @@ static void end_board ()
       gc_score_end();
       click_on_letter_destroy_all_items();
     }
-  gcompris_reset_locale();
+  gc_locale_reset();
   gcomprisBoard = NULL;
   gc_sound_resume();
 }
@@ -279,8 +279,8 @@ static gboolean sounds_are_fine()
       gchar *locale = NULL;
 
       locale = g_strndup(gc_locale_get(), 2);
-      gcompris_reset_locale();
-      gcompris_change_locale("en_US");
+      gc_locale_reset();
+      gc_locale_set("en_US");
 
       str2 = gc_file_find_absolute("sounds/en/alphabet/%s", letter_str);
 
@@ -554,7 +554,7 @@ static GHFunc save_table (gpointer key,
 			  gpointer value,
 			  gpointer user_data)
 {
-  gcompris_set_board_conf ( profile_conf,
+  gc_db_set_board_conf ( profile_conf,
 			    board_conf,
 			    (gchar *) key, 
 			    (gchar *) value);
@@ -581,12 +581,12 @@ conf_ok(GHashTable *table)
   if (gcomprisBoard){
     GHashTable *config;
     if (profile_conf)
-      config = gcompris_get_board_conf();
+      config = gc_db_get_board_conf();
     else
       config = table;
 
-    gcompris_reset_locale();
-    gcompris_change_locale(g_hash_table_lookup(config, "locale_sound"));
+    gc_locale_reset();
+    gc_locale_set(g_hash_table_lookup(config, "locale_sound"));
     
     gchar *up_init_str = g_hash_table_lookup( config, "uppercase_only");
     if (up_init_str)
@@ -632,11 +632,11 @@ config_start(GcomprisBoard *agcomprisBoard,
   g_free(label);
 
   /* init the combo to previously saved value */
-  GHashTable *config = gcompris_get_conf( profile_conf, board_conf);
+  GHashTable *config = gc_db_get_conf( profile_conf, board_conf);
 
   gchar *saved_locale_sound = g_hash_table_lookup( config, "locale_sound");
 
-  gcompris_combo_locales_asset( "Select sound locale", saved_locale_sound,
+  gc_board_config_combo_locales_asset( "Select sound locale", saved_locale_sound,
 				"sounds/$LOCALE/colors/purple.ogg");
  
   gboolean up_init = FALSE;
@@ -646,7 +646,7 @@ config_start(GcomprisBoard *agcomprisBoard,
   if (up_init_str && (strcmp(up_init_str, "True")==0))
     up_init = TRUE;
 
-  gcompris_boolean_box(_("Uppercase only text"),
+  gc_board_config_boolean_box(_("Uppercase only text"),
 		       "uppercase_only",
 		       up_init);
 

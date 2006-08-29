@@ -197,7 +197,6 @@ class Gcompris_bargame:
 
     # Holes reinit
     for h in self.holes:
-      print "deleting hole"
       del h
 
     del self.holes
@@ -205,7 +204,6 @@ class Gcompris_bargame:
 
     # Balls reinit
     for h in self.balls:
-      print "deleting ball"
       del h
 
     del self.balls
@@ -222,7 +220,6 @@ class Gcompris_bargame:
     width_ref = 256
 
     scale = self.scales[self.gcomprisBoard.sublevel-1]
-    print scale
 
     self.last_played = -1
     self.finished_sublevel = False

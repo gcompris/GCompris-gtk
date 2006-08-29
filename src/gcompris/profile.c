@@ -86,3 +86,4 @@ gc_profile_get_current_user()
   GcomprisProperties	*properties = gc_prop_get();
   return properties->logged_user;
 }
+

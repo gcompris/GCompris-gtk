@@ -51,7 +51,6 @@
 
 #include "profile.h"
 #include "gcompris_db.h"
-#include "gcompris_files.h"
 #include "wordlist.h"
 #include "gcompris_im.h"
 #include "gcompris_alphabeta.h"

@@ -226,9 +226,9 @@ static void start_board (GcomprisBoard *agcomprisBoard)
   gboolean default_background = TRUE;
 
   if (strcmp(agcomprisBoard->name, "imagename")==0){
-    GHashTable *config = gcompris_get_board_conf();
+    GHashTable *config = gc_db_get_board_conf();
     
-    gcompris_change_locale(g_hash_table_lookup( config, "locale"));
+    gc_locale_set(g_hash_table_lookup( config, "locale"));
 
     g_hash_table_destroy(config);
   }
@@ -316,7 +316,7 @@ end_board ()
     }
 
   if (strcmp(gcomprisBoard->name, "imagename")==0){
-    gcompris_reset_locale();
+    gc_locale_reset();
   }
 
   gcomprisBoard = NULL;
@@ -2070,7 +2070,7 @@ static void save_table (gpointer key,
 			gpointer value,
 			gpointer user_data)
 {
-  gcompris_set_board_conf ( profile_conf,
+  gc_db_set_board_conf ( profile_conf,
 			    board_conf,
 			    (gchar *) key, 
 			    (gchar *) value);
@@ -2090,13 +2090,13 @@ static void conf_ok(GHashTable *table)
     GHashTable *config;
     
     if (profile_conf)
-      config = gcompris_get_board_conf();
+      config = gc_db_get_board_conf();
     else
       config = table;
     
-    gcompris_reset_locale();
+    gc_locale_reset();
     
-    gcompris_change_locale(g_hash_table_lookup( config, "locale"));
+    gc_locale_set(g_hash_table_lookup( config, "locale"));
       
     if (profile_conf)
       g_hash_table_destroy(config);
@@ -2131,11 +2131,11 @@ config_start(GcomprisBoard *agcomprisBoard,
   g_free(label);
 
   /* init the combo to previously saved value */
-  GHashTable *config = gcompris_get_conf( profile_conf, board_conf);
+  GHashTable *config = gc_db_get_conf( profile_conf, board_conf);
 
   gchar *locale = g_hash_table_lookup( config, "locale");
   
-  gcompris_combo_locales( locale);
+  gc_board_config_combo_locales( locale);
 
 }
 

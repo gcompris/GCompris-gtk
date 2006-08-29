@@ -1,5 +1,77 @@
 2006-08-29  Bruno coudoin  <bruno.coudoin@free.fr>
 
+	- Last iteration over API cleanup. Some fine tune will be needed later
+	  but most of the clenup is done now.
+
+	* src/boards/click_on_letter.c: (start_board), (end_board),
+	(sounds_are_fine), (save_table), (conf_ok), (config_start):
+	* src/boards/colors.c: (save_table), (conf_ok),
+	(colors_config_start), (start_board), (end_board):
+	* src/boards/gletters.c: (start_board), (end_board), (save_table),
+	(conf_ok), (gletter_config_start):
+	* src/boards/gtans.c: (taninitstart):
+	* src/boards/imageid.c: (start_board), (end_board), (save_table),
+	(conf_ok), (config_start):
+	* src/boards/missingletter.c: (start_board), (end_board),
+	(save_table), (conf_ok), (config_start):
+	* src/boards/py-mod-admin.c: (py_gc_db_get_profile_from_id),
+	(py_gc_db_get_board_from_id), (py_gc_db_get_group_from_id),
+	(py_gc_db_get_user_from_id), (py_gc_db_get_class_from_id),
+	(py_gc_db_get_users_list), (py_gc_db_get_groups_list),
+	(py_gc_db_get_classes_list):
+	* src/boards/py-mod-gcompris.c: (py_gc_db_get_board_conf),
+	(py_gc_db_get_conf), (py_gc_db_set_board_conf),
+	(py_gc_board_config_boolean_box), (py_gc_board_config_combo_box),
+	(py_gc_board_config_radio_buttons), (py_gc_board_config_spin_int),
+	(py_gc_board_conf_separator), (py_gc_board_config_combo_locales),
+	(py_gc_board_config_combo_locales_asset), (py_gc_locale_change),
+	(py_gc_locale_reset), (py_gc_board_config_textview),
+	(py_gc_prop_user_dirname_get), (py_gc_prop_board_dirname_get),
+	(py_gc_prop_current_user_dirname_get),
+	(py_gc_prop_current_board_dirname_get):
+	* src/boards/py-mod-timer.c: (python_gc_timer_module_init):
+	* src/boards/python/anim.py:
+	* src/boards/python/bargame.py:
+	* src/boards/reading.c: (start_board), (end_board), (save_table),
+	(conf_ok), (reading_config_start):
+	* src/boards/shapegame.c: (start_board), (end_board), (save_table),
+	(conf_ok), (config_start):
+	* src/boards/smallnumbers.c: (start_board), (save_table),
+	(conf_ok), (smallnumber_config_start):
+	* src/gcompris/Makefile.am:
+	* src/gcompris/board_config.c: (_conf_window_configured),
+	(gc_board_config_window_display), (gc_board_config_boolean_box),
+	(_get_active_text), (_combo_box_changed),
+	(gc_board_config_combo_box), (gc_board_config_radio_buttons),
+	(gc_board_config_spin_int), (gc_board_conf_separator),
+	(gc_board_config_combo_locales_changed),
+	(gc_board_config_combo_locales), (gc_locale_change),
+	(gc_locale_reset), (gc_board_config_combo_locales_asset),
+	(_textview_destroy), (_textbuffer_changed), (_textview_yes),
+	(gc_board_config_textview):
+	* src/gcompris/board_config.h:
+	* src/gcompris/file_selector.c: (display_file_selector):
+	* src/gcompris/gcompris.c: (gc_locale_set):
+	* src/gcompris/gcompris.h:
+	* src/gcompris/gcompris_db.c: (gc_db_get_profile_from_id),
+	(gc_db_profile_from_name_get), (gc_db_get_profile),
+	(gc_db_get_user_from_id), (gc_db_get_class_from_id),
+	(gc_db_set_board_conf), (gc_db_get_conf), (gc_db_get_board_conf),
+	(gc_db_get_group_from_id), (gc_db_get_groups_list),
+	(gc_db_get_board_from_id), (gc_db_get_users_list),
+	(gc_db_get_classes_list):
+	* src/gcompris/gcompris_db.h:
+	* src/gcompris/gcompris_files.c:
+	* src/gcompris/gcompris_files.h:
+	* src/gcompris/profile.c:
+	* src/gcompris/profile.h:
+	* src/gcompris/properties.c: (gc_prop_user_dirname_get),
+	(gc_prop_current_user_dirname_get), (gc_prop_board_dirname_get),
+	(gc_prop_current_board_dirname_get):
+	* src/gcompris/properties.h:
+
+2006-08-29  Bruno coudoin  <bruno.coudoin@free.fr>
+
 	Continued the rework of the API.
 
 	* docs/C/python.xml:

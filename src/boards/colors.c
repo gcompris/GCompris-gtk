@@ -111,7 +111,7 @@ static void save_table (gpointer key,
 			gpointer value,
 			gpointer user_data)
 {
-  gcompris_set_board_conf ( profile_conf,
+  gc_db_set_board_conf ( profile_conf,
 			    board_conf,
 			    (gchar *) key, 
 			    (gchar *) value);
@@ -129,15 +129,15 @@ conf_ok(GHashTable *table)
   g_hash_table_foreach(table, (GHFunc) save_table, NULL);
   
   if (gcomprisBoard){
-    GHashTable *config = gcompris_get_board_conf();
+    GHashTable *config = gc_db_get_board_conf();
   
     if (profile_conf)
-      config = gcompris_get_board_conf();
+      config = gc_db_get_board_conf();
     else
       config = table;
 
-    gcompris_reset_locale();
-    gcompris_change_locale(g_hash_table_lookup(config, "locale_sound"));
+    gc_locale_reset();
+    gc_locale_set(g_hash_table_lookup(config, "locale_sound"));
   
     if (profile_conf)
       g_hash_table_destroy(config);
@@ -171,11 +171,11 @@ colors_config_start(GcomprisBoard *agcomprisBoard,
   g_free(label);
 
   /* init the combo to previously saved value */
-  GHashTable *config = gcompris_get_conf( profile_conf, board_conf);
+  GHashTable *config = gc_db_get_conf( profile_conf, board_conf);
 
   gchar *saved_locale_sound = g_hash_table_lookup( config, "locale_sound");
   
-  gcompris_combo_locales_asset( "Select sound locale", saved_locale_sound,
+  gc_board_config_combo_locales_asset( "Select sound locale", saved_locale_sound,
 				"sounds/$LOCALE/colors/purple.ogg");
 
   g_hash_table_destroy(config);
@@ -216,9 +216,9 @@ static void start_board (GcomprisBoard *agcomprisBoard) {
   int * item;
   int i;
 
-  GHashTable *config = gcompris_get_board_conf();
+  GHashTable *config = gc_db_get_board_conf();
 
-  gcompris_change_locale(g_hash_table_lookup(config, "locale_sound"));
+  gc_locale_set(g_hash_table_lookup(config, "locale_sound"));
   
   g_hash_table_destroy(config);
 
@@ -271,7 +271,7 @@ static void end_board () {
     g_list_free(listColors);
     listColors=NULL;
   }
-  gcompris_reset_locale();
+  gc_locale_reset();
   gcomprisBoard = NULL;
   gc_sound_resume();
 }

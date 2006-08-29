@@ -56,7 +56,8 @@ try:
   import xml.utils
 except:
   python_xml = False
-  print _('You need the python xml module. Disabling SVG.')
+  # Commented out, until we have a clean support for a mainstream mozilla
+  #print _('You need the python xml module. Disabling SVG.')
 
 fles=None
 

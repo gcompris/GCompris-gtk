@@ -76,30 +76,30 @@ void gc_db_remove_board(int board_id);
 
 /* Profile management */
 
-GcomprisProfile *gcompris_get_profile_from_id(gint profile_id);
+GcomprisProfile *gc_db_get_profile_from_id(gint profile_id);
 GcomprisProfile *gc_db_profile_from_name_get(gchar *profile_name);
 GList *gc_db_profiles_list_get();
 
 
 /* Classes management */
 
-GcomprisClass *gcompris_get_class_from_id(gint class_id);
+GcomprisClass *gc_db_get_class_from_id(gint class_id);
 
-GList *gcompris_get_classes_list();
+GList *gc_db_get_classes_list();
 
-GcomprisGroup *gcompris_get_group_from_id(gint group_id);
+GcomprisGroup *gc_db_get_group_from_id(gint group_id);
 
-GList *gcompris_get_groups_list();
+GList *gc_db_get_groups_list();
 
-GcomprisUser *gcompris_get_user_from_id(gint user_id);
+GcomprisUser *gc_db_get_user_from_id(gint user_id);
 
-GList *gcompris_get_users_list();
+GList *gc_db_get_users_list();
 
 GcomprisProfile *gc_db_get_profile();
 
 GList *gc_db_users_from_group_get(gint group_id);
 
-void gcompris_set_board_conf(GcomprisProfile *profile, 
+void gc_db_set_board_conf(GcomprisProfile *profile, 
 			     GcomprisBoard  *board, 
 			     gchar *key, 
 			     gchar *value);
@@ -108,15 +108,15 @@ void gcompris_set_board_conf(GcomprisProfile *profile,
 /* These two hash tables needs to be destroyed when not used more */
 
 /* get conf for currents profile and board */
-GHashTable *gcompris_get_board_conf();
+GHashTable *gc_db_get_board_conf();
 
 /* get conf for specific profile and board */
-GHashTable *gcompris_get_conf(GcomprisProfile *profile, GcomprisBoard  *board);
+GHashTable *gc_db_get_conf(GcomprisProfile *profile, GcomprisBoard  *board);
 
 /*internal initialisation use only, do not use it for boards*/
 GHashTable *gc_db_conf_with_table_get(int profile_id, int board_id, GHashTable *table );
 
-GcomprisBoard *gcompris_get_board_from_id(int board_id);
+GcomprisBoard *gc_db_get_board_from_id(int board_id);
 
 int gc_db_is_activity_in_profile(GcomprisProfile *profile, char *activity_name);
 

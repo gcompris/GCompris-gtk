@@ -37,9 +37,9 @@ typedef void (*GcomprisConfCallback) (GHashTable *table);
 
 GtkVBox *gc_board_config_window_display(gchar *label, GcomprisConfCallback callback);
 
-GtkCheckButton *gcompris_boolean_box(const gchar *label, gchar *key, gboolean initial_value);
+GtkCheckButton *gc_board_config_boolean_box(const gchar *label, gchar *key, gboolean initial_value);
 
-GtkComboBox *gcompris_combo_box(const gchar *label, GList *strings, gchar *key, gchar *init);
+GtkComboBox *gc_board_config_combo_box(const gchar *label, GList *strings, gchar *key, gchar *init);
 
 /* Params: */
 /*   - Label */
@@ -48,31 +48,31 @@ GtkComboBox *gcompris_combo_box(const gchar *label, GList *strings, gchar *key, 
 /* Returns */
 /*   - g_hash_table (gchar *values, GtkWidget *pointer) */
 
-GHashTable *gcompris_radio_buttons(const gchar *label,
+GHashTable *gc_board_config_radio_buttons(const gchar *label,
 				   gchar *key,
 				   GHashTable *buttons_label,
 				   gchar *init);
 
-GtkSpinButton *gcompris_spin_int(const gchar *label, 
+GtkSpinButton *gc_board_config_spin_int(const gchar *label, 
 				 gchar *key, 
 				 gint min, 
 				 gint max, 
 				 gint step, 
 				 gint init);
 
-GtkHSeparator *gcompris_separator();
+GtkHSeparator *gc_board_conf_separator();
 
 GList *gc_locale_gets_list();
 
-GtkComboBox *gcompris_combo_locales( gchar *init);
+GtkComboBox *gc_board_config_combo_locales( gchar *init);
 
-void gcompris_change_locale(gchar *locale);
+void gc_locale_change(gchar *locale);
 
-void gcompris_reset_locale();
+void gc_locale_reset();
 
 GList *gc_locale_gets_asset_list(const gchar *file);
 
-GtkComboBox *gcompris_combo_locales_asset(const gchar *label, gchar *init,
+GtkComboBox *gc_board_config_combo_locales_asset(const gchar *label, gchar *init,
 					  const gchar *file);
 #endif
 
@@ -84,7 +84,7 @@ GtkComboBox *gcompris_combo_locales_asset(const gchar *label, gchar *init,
 
 typedef gboolean (*GcomprisTextCallback) (gchar *key, gchar *text, GtkLabel *label);
 
-GtkTextView *gcompris_textview(const gchar *label, 
+GtkTextView *gc_board_config_textview(const gchar *label, 
 			       gchar *key,
 			       const gchar*description, 
 			       gchar *init_text, 

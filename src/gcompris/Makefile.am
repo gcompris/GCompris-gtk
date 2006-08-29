@@ -100,7 +100,6 @@ libgcomprisinclude_HEADERS =			\
 	gcompris_config.h \
 	gcompris_db.h \
 	gcompris_im.h \
-	gcompris_files.h \
 	wordlist.h \
 	pixbuf_util.h \
 	plugin.h \
@@ -131,7 +130,6 @@ libgcompris_1_la_SOURCES =			\
 	gcompris_alphabeta.c \
 	gcompris_confirm.c \
 	gcompris_db.c \
-	gcompris_files.c \
 	gcompris_im.c \
 	help.c \
 	images_selector.c \

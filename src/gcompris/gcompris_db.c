@@ -818,7 +818,7 @@ void gc_db_remove_board(int board_id)
 #define GET_ACTIVITIES_OUT_OF_PROFILE(n) \
         "SELECT board_id FROM activities_out WHERE out_id=%d;",n
 
-GcomprisProfile *gcompris_get_profile_from_id(gint profile_id)
+GcomprisProfile *gc_db_get_profile_from_id(gint profile_id)
 {
 #ifdef USE_SQLITE
   GcomprisProfile *profile = NULL;
@@ -971,7 +971,7 @@ gc_db_profile_from_name_get(gchar *profile_name)
 
     g_free(request);
 
-    profile = gcompris_get_profile_from_id(profile_id);
+    profile = gc_db_get_profile_from_id(profile_id);
 
   }
 
@@ -1011,7 +1011,7 @@ GcomprisProfile *gc_db_get_profile()
 
   profile_id = atoi(result[1]); 
 
-  return gcompris_get_profile_from_id(profile_id);
+  return gc_db_get_profile_from_id(profile_id);
 
 #else
   return NULL;
@@ -1076,7 +1076,7 @@ GList *gc_db_users_from_group_get(gint group_id)
 #define USER_FROM_ID(n) \
         "SELECT users.login, lastname, firstname, birthdate, class_id  FROM users WHERE user_id = %d;",n
 
-GcomprisUser *gcompris_get_user_from_id(gint user_id)
+GcomprisUser *gc_db_get_user_from_id(gint user_id)
 {
 #ifdef USE_SQLITE
   char *zErrMsg;
@@ -1131,7 +1131,7 @@ GcomprisUser *gcompris_get_user_from_id(gint user_id)
 #define GROUPS_IN_CLASS(n) \
         "SELECT group_id  FROM groups WHERE class_id = %d;",n
 
-GcomprisClass *gcompris_get_class_from_id(gint class_id)
+GcomprisClass *gc_db_get_class_from_id(gint class_id)
 {
 #ifdef USE_SQLITE
   char *zErrMsg;
@@ -1227,7 +1227,7 @@ GcomprisClass *gcompris_get_class_from_id(gint class_id)
 #define UPDATE_KEY \
         "UPDATE board_profile_conf SET conf_value=%Q WHERE profile_id=%d AND board_id=%d AND conf_key=%Q;"
 
-void gcompris_set_board_conf(GcomprisProfile *profile, 
+void gc_db_set_board_conf(GcomprisProfile *profile, 
 			     GcomprisBoard  *board, 
 			     gchar *key, 
 			     gchar *value)
@@ -1356,7 +1356,7 @@ GHashTable *gc_db_conf_with_table_get(int profile_id, int board_id, GHashTable *
   return hash_conf;
 }
 
-GHashTable *gcompris_get_conf(GcomprisProfile *profile, GcomprisBoard  *board )
+GHashTable *gc_db_get_conf(GcomprisProfile *profile, GcomprisBoard  *board )
 {
   GHashTable *hash_result = g_hash_table_new_full(g_str_hash, g_str_equal, g_free, g_free);
 
@@ -1367,7 +1367,7 @@ GHashTable *gcompris_get_conf(GcomprisProfile *profile, GcomprisBoard  *board )
 #endif
 }
 
-GHashTable *gcompris_get_board_conf()
+GHashTable *gc_db_get_board_conf()
 {
   GHashTable *hash_result = g_hash_table_new_full(g_str_hash, g_str_equal, g_free, g_free);
 
@@ -1525,7 +1525,7 @@ GList *gc_db_profiles_list_get()
 #define GROUP_FROM_ID(n) \
         "SELECT name, class_id, description FROM groups WHERE group_id=%d;",n
 
-GcomprisGroup *gcompris_get_group_from_id(int group_id)
+GcomprisGroup *gc_db_get_group_from_id(int group_id)
 {
 #ifdef USE_SQLITE
 
@@ -1580,7 +1580,7 @@ GcomprisGroup *gcompris_get_group_from_id(int group_id)
 #define GET_ALL_GROUPS \
         "SELECT group_id, name, class_id, description FROM groups;"
 
-GList *gcompris_get_groups_list()
+GList *gc_db_get_groups_list()
 {
 #ifdef USE_SQLITE
   GList *groups_list = NULL;
@@ -1636,7 +1636,7 @@ GList *gcompris_get_groups_list()
 #define BOARDS_READ_FROM_ID(n) \
         "SELECT name, section_id, section, author, type, mode, difficulty, icon, boarddir, mandatory_sound_file, mandatory_sound_dataset, filename, title, description, prerequisite, goal, manual, credit FROM boards WHERE board_id=%d;",n
 
-GcomprisBoard *gcompris_get_board_from_id(int board_id)
+GcomprisBoard *gc_db_get_board_from_id(int board_id)
 {
 #ifdef USE_SQLITE
 
@@ -1721,7 +1721,7 @@ GcomprisBoard *gcompris_get_board_from_id(int board_id)
 #define GET_ALL_USERS \
         "SELECT user_id, login, lastname, firstname, birthdate, class_id FROM users;"
  
-GList *gcompris_get_users_list()
+GList *gc_db_get_users_list()
 {
 #ifdef USE_SQLITE
   GList *users_list = NULL;
@@ -1776,7 +1776,7 @@ GList *gcompris_get_users_list()
 #define GET_ALL_CLASSES \
         "SELECT class_id, name, teacher, wholegroup_id FROM class;"
 
-GList *gcompris_get_classes_list()
+GList *gc_db_get_classes_list()
 {
 #ifdef USE_SQLITE
   GList *classes_list = NULL;

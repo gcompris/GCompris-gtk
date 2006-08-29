@@ -136,10 +136,10 @@ typedef struct {
 } GcomprisProfile;
 
 
-/* active profil */
+/* Active profile */
 GcomprisProfile     *gc_profile_get_current();
 
-/* list of Gcomprisusers */
+/* List of Gcomprisusers */
 void                 gc_profile_set_current_user(GcomprisUser *user);
 GcomprisUser        *gc_profile_get_current_user();
 

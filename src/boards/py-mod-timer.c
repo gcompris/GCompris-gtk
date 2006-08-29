@@ -136,7 +136,7 @@ static PyMethodDef PythonGcomprisTimerModule[] = {
 void python_gc_timer_module_init(void)
 {
   PyObject* module;
-  module = Py_InitModule("_gc_timer", PythonGcomprisTimerModule);
+  module = Py_InitModule("_gcompris_timer", PythonGcomprisTimerModule);
 
   /* TimerList constants */
   PyModule_AddIntConstant(module, "TEXT", GCOMPRIS_TIMER_TEXT );

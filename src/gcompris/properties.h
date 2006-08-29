@@ -73,4 +73,11 @@ void			 gc_prop_save (GcomprisProperties *props);
 gchar                   *gc_prop_default_database_name_get (gchar *shared_dir);
 int			 gc_setenv (const char * name, const char * value);
 
+/* Directories */
+gchar			*gc_prop_user_dirname_get(GcomprisUser *user);
+gchar			*gc_prop_current_user_dirname_get();
+gchar			*gc_prop_board_dirname_get(GcomprisBoard *board);
+gchar			*gc_prop_current_board_dirname_get();
+
+
 #endif

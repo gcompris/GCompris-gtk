@@ -1094,7 +1094,8 @@ char *gc_locale_get_user_default()
  * This set the locale for which text must be displayed
  *
  */
-void gc_locale_set(gchar *locale)
+void
+gc_locale_set(gchar *locale)
 {
 
   g_message("gc_locale_set '%s'\n", locale);

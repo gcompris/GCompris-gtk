@@ -349,6 +349,47 @@ gc_prop_save (GcomprisProperties *props)
   fclose(filefd);
 }
 
+gchar*
+gc_prop_user_dirname_get(GcomprisUser *user)
+{
+  GcomprisProperties	*properties = gc_prop_get ();
+
+  gchar *user_dirname = g_strconcat (properties->users_dir, 
+				     "/", 
+				     user->login, 
+				     NULL);
+
+  gc_util_create_rootdir(user_dirname);
+
+  return user_dirname;
+}
+
+gchar*
+gc_prop_current_user_dirname_get()
+{
+  return gc_prop_user_dirname_get(gc_profile_get_current_user());
+}
+
+gchar*
+gc_prop_board_dirname_get(GcomprisBoard *board)
+{
+  GcomprisProperties	*properties = gc_prop_get ();
+
+  gchar *board_main = g_strconcat (properties->shared_dir, "/boards", NULL);
+  gc_util_create_rootdir(board_main);
+
+  gchar *board_dirname = g_strconcat (board_main, "/", board->name, NULL);
+  gc_util_create_rootdir(board_dirname);
+
+  g_free(board_main);
+  return board_dirname;
+}
+
+gchar*
+gc_prop_current_board_dirname_get()
+{
+  return gc_prop_board_dirname_get(gc_board_get_current());
+}
 
 
 int

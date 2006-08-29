@@ -868,7 +868,7 @@ py_gcompris_spawn_async(PyObject *unused, PyObject *args, PyObject *kwargs)
 
 
 static PyObject*
-py_gcompris_get_board_conf(PyObject* self, PyObject* args)
+py_gc_db_get_board_conf(PyObject* self, PyObject* args)
 {
   PyObject *pydict;
   GHashTable *table;
@@ -879,7 +879,7 @@ py_gcompris_get_board_conf(PyObject* self, PyObject* args)
 
   /* Call the corresponding C function */
 
-  table = gcompris_get_board_conf();
+  table = gc_db_get_board_conf();
 
   pydict = hash_to_dict(table);
 
@@ -889,7 +889,7 @@ py_gcompris_get_board_conf(PyObject* self, PyObject* args)
 }
 
 static PyObject*
-py_gcompris_get_conf(PyObject* self, PyObject* args)
+py_gc_db_get_conf(PyObject* self, PyObject* args)
 {
   PyObject *pydict;
   GHashTable *table;
@@ -912,7 +912,7 @@ py_gcompris_get_conf(PyObject* self, PyObject* args)
   cGcomprisBoard = pyGcomprisBoard->cdata;
 
   /* Call the corresponding C function */
-  table = gcompris_get_conf(cGcomprisProfile, cGcomprisBoard);
+  table = gc_db_get_conf(cGcomprisProfile, cGcomprisBoard);
 
   pydict = hash_to_dict(table);
 
@@ -957,7 +957,7 @@ py_gc_profile_get_current_user(PyObject* self, PyObject* args)
 
 
 static PyObject*
-py_gcompris_set_board_conf (PyObject* self, PyObject* args)
+py_gc_db_set_board_conf (PyObject* self, PyObject* args)
 {
   PyObject* pyBoard;
   PyObject* pyProfile;
@@ -981,7 +981,7 @@ py_gcompris_set_board_conf (PyObject* self, PyObject* args)
   cGcomprisBoard = pyGcomprisBoard->cdata;
 
   /* Call the corresponding C function */
-  gcompris_set_board_conf(cGcomprisProfile, cGcomprisBoard, key, value);
+  gc_db_set_board_conf(cGcomprisProfile, cGcomprisBoard, key, value);
 
   /* Create and return the result */
   Py_INCREF(Py_None);
@@ -1056,27 +1056,27 @@ py_gc_board_config_window_display(PyObject* self, PyObject* args){
 }
 
 
-/* GtkCheckButton *gcompris_boolean_box (label, key, init);*/
+/* GtkCheckButton *gc_board_config_boolean_box (label, key, init);*/
 static PyObject*
-py_gcompris_boolean_box(PyObject* self, PyObject* args)
+py_gc_board_config_boolean_box(PyObject* self, PyObject* args)
 {
   PyObject *py_bool;
   gchar *label;
   gchar *key;
 
   /* Parse arguments */
-  if(!PyArg_ParseTuple(args, "ssO:gcompris_boolean_box", &label, &key, &py_bool))
+  if(!PyArg_ParseTuple(args, "ssO:gc_board_config_boolean_box", &label, &key, &py_bool))
     return NULL;
 
   /* Call the corresponding C function */
   return (PyObject *)pygobject_new((GObject*) \
-				    gcompris_boolean_box((const gchar *)label, key, PyObject_IsTrue(py_bool)));
+				    gc_board_config_boolean_box((const gchar *)label, key, PyObject_IsTrue(py_bool)));
 
 }
 
-/* GtkComboBox *gcompris_combo_box(const gchar *label, GList *strings, gchar *key, gint index); */
+/* GtkComboBox *gc_board_config_combo_box(const gchar *label, GList *strings, gchar *key, gint index); */
 static PyObject*
-py_gcompris_combo_box(PyObject* self, PyObject* args)
+py_gc_board_config_combo_box(PyObject* self, PyObject* args)
 {
   PyObject *py_list;
   gchar *label;
@@ -1088,12 +1088,12 @@ py_gcompris_combo_box(PyObject* self, PyObject* args)
   int i, size;
 
   /* Parse arguments */
-  if(!PyArg_ParseTuple(args, "sOss:gcompris_combo_box", &label, &py_list, &key, &init))
+  if(!PyArg_ParseTuple(args, "sOss:gc_board_config_combo_box", &label, &py_list, &key, &init))
     return NULL;
 
   if (!PyList_Check(py_list)){
     PyErr_SetString(PyExc_TypeError,
-		      "gcompris_combo_box second argument must be a list");
+		      "gc_board_config_combo_box second argument must be a list");
     return NULL;
   }
 
@@ -1105,7 +1105,7 @@ py_gcompris_combo_box(PyObject* self, PyObject* args)
 
   /* Call the corresponding C function */
   return (PyObject *)pygobject_new((GObject*) \
-				    gcompris_combo_box((const gchar *)label, 
+				    gc_board_config_combo_box((const gchar *)label, 
 						       list, 
 						       key, 
 						       init));
@@ -1119,7 +1119,7 @@ py_gcompris_combo_box(PyObject* self, PyObject* args)
 /* Returns */
 /*   - g_hash_table (gchar *values, GtkWidget *pointer) */
 
-/* GHashTable *gcompris_radio_buttons(const gchar *label, */
+/* GHashTable *gc_board_config_radio_buttons(const gchar *label, */
 /* 				   gchar *key, */
 /* 				   GHashTable *buttons_label, */
 /* 				   gchar *init);  */
@@ -1158,7 +1158,7 @@ PyObject* hash_object_to_dict(GHashTable *table)
 
 
 static PyObject*
-py_gcompris_radio_buttons(PyObject* self, PyObject* args)
+py_gc_board_config_radio_buttons(PyObject* self, PyObject* args)
 {
   PyObject *py_dict;
   GHashTable *buttons_label, *result;
@@ -1167,12 +1167,12 @@ py_gcompris_radio_buttons(PyObject* self, PyObject* args)
   gchar *init;
 
   /* Parse arguments */
-  if(!PyArg_ParseTuple(args, "ssOs:gcompris_radio_buttons", &label, &key, &py_dict, &init))
+  if(!PyArg_ParseTuple(args, "ssOs:gc_board_config_radio_buttons", &label, &key, &py_dict, &init))
     return NULL;
 
   if (!PyDict_Check(py_dict)){
     PyErr_SetString(PyExc_TypeError,
-		      "gcompris_radio_buttons second argument must be a dict");
+		      "gc_board_config_radio_buttons second argument must be a dict");
     return NULL;
   }
   
@@ -1190,7 +1190,7 @@ py_gcompris_radio_buttons(PyObject* self, PyObject* args)
 			  g_strdup(PyString_AsString(pyvalue)));
   }
 
-  result = gcompris_radio_buttons(label, 
+  result = gc_board_config_radio_buttons(label, 
 				  key, 
 				  buttons_label,
 				  init);
@@ -1201,18 +1201,18 @@ py_gcompris_radio_buttons(PyObject* self, PyObject* args)
 }
 
 static PyObject*
-py_gcompris_spin_int(PyObject* self, PyObject* args)
+py_gc_board_config_spin_int(PyObject* self, PyObject* args)
 {
   gchar *label;
   gchar *key;
   gint min, max, step, init;
 
   /* Parse arguments */
-  if(!PyArg_ParseTuple(args, "ssiiii:gcompris_radio_buttons", &label, &key, &min, &max, &step, &init))
+  if(!PyArg_ParseTuple(args, "ssiiii:gc_board_config_radio_buttons", &label, &key, &min, &max, &step, &init))
     return NULL;
 
   return (PyObject *)pygobject_new((GObject*) \
-				   gcompris_spin_int((const gchar *)label, 
+				   gc_board_config_spin_int((const gchar *)label, 
 						     key,
 						     min,
 						     max,
@@ -1222,31 +1222,31 @@ py_gcompris_spin_int(PyObject* self, PyObject* args)
 }
 
 
-/* GtkHSeparator *gcompris_separator(void); */
+/* GtkHSeparator *gc_board_conf_separator(void); */
 static PyObject*
-py_gcompris_separator(PyObject* self, PyObject* args)
+py_gc_board_conf_separator(PyObject* self, PyObject* args)
 {
   /* Parse arguments */
-  if(!PyArg_ParseTuple(args, ":gcompris_separator"))
+  if(!PyArg_ParseTuple(args, ":gc_board_conf_separator"))
     return NULL;
 
   /* Create and return the result */
-  return (PyObject *)pygobject_new((GObject*) gcompris_separator());
+  return (PyObject *)pygobject_new((GObject*) gc_board_conf_separator());
 
 }
 
 
 static PyObject*
-py_gcompris_combo_locales(PyObject* self, PyObject* args)
+py_gc_board_config_combo_locales(PyObject* self, PyObject* args)
 {
   gchar *init;
 
   /* Parse arguments */
-  if(!PyArg_ParseTuple(args, "s:gcompris_combo_locales", &init))
+  if(!PyArg_ParseTuple(args, "s:gc_board_config_combo_locales", &init))
     return NULL;
 
   return (PyObject *)pygobject_new((GObject*) \
-				   gcompris_combo_locales( init));
+				   gc_board_config_combo_locales( init));
 }
 
 
@@ -1275,21 +1275,21 @@ py_gc_locale_gets_list(PyObject* self, PyObject* args)
 
 
 static PyObject*
-py_gcompris_combo_locales_asset(PyObject* self, PyObject* args)
+py_gc_board_config_combo_locales_asset(PyObject* self, PyObject* args)
 {
   gchar *init;
   gchar *label;
   gchar *file;
 
   /* Parse arguments */
-  if(!PyArg_ParseTuple(args, "ssz:gcompris_combo_locales", 
+  if(!PyArg_ParseTuple(args, "ssz:gc_board_config_combo_locales", 
 		       &label, 
 		       &init,
 		       &file))
     return NULL;
 
   return (PyObject *)pygobject_new((GObject*) \
-				   gcompris_combo_locales_asset( label, init, file ));
+				   gc_board_config_combo_locales_asset( label, init, file ));
 }
 
 
@@ -1334,18 +1334,18 @@ py_gcompris_gettext(PyObject* self, PyObject* args)
 
 
 
-/* void gcompris_change_locale(gchar *locale); */
+/* void gc_locale_change(gchar *locale); */
 static PyObject*
-py_gcompris_change_locale(PyObject* self, PyObject* args)
+py_gc_locale_change(PyObject* self, PyObject* args)
 {
   gchar *locale;
 
   /* Parse arguments */
-  if(!PyArg_ParseTuple(args, "s:gcompris_change_locale", &locale))
+  if(!PyArg_ParseTuple(args, "s:gc_locale_change", &locale))
     return NULL;
 
   /* Call the corresponding C function */
-  gcompris_change_locale(locale);
+  gc_locale_set(locale);
 
   /* Create and return the result */
   Py_INCREF(Py_None);
@@ -1353,16 +1353,16 @@ py_gcompris_change_locale(PyObject* self, PyObject* args)
 }
 
 
-/* void gcompris_reset_locale(gchar *locale); */
+/* void gc_locale_reset(gchar *locale); */
 static PyObject*
-py_gcompris_reset_locale(PyObject* self, PyObject* args)
+py_gc_locale_reset(PyObject* self, PyObject* args)
 {
   /* Parse arguments */
-  if(!PyArg_ParseTuple(args, ":gcompris_reset_locale"))
+  if(!PyArg_ParseTuple(args, ":gc_locale_reset"))
     return NULL;
 
   /* Call the corresponding C function */
-  gcompris_reset_locale();
+  gc_locale_reset();
 
   /* Create and return the result */
   Py_INCREF(Py_None);
@@ -1408,7 +1408,7 @@ static gboolean pyGcomprisTextCallback(gchar *key, gchar *text, GtkLabel *label)
 
 
 static PyObject*
-py_gcompris_textview(PyObject* self, PyObject* args){
+py_gc_board_config_textview(PyObject* self, PyObject* args){
   PyObject* pyCallback;
   gchar *label;
   gchar *key;
@@ -1427,7 +1427,7 @@ py_gcompris_textview(PyObject* self, PyObject* args){
   if(!PyCallable_Check(pyCallback))
     {
       PyErr_SetString(PyExc_TypeError,
-		      "gcompris_textview 5th argument must be callable");
+		      "gc_board_config_textview 5th argument must be callable");
       return NULL;
     }
 
@@ -1440,7 +1440,7 @@ py_gcompris_textview(PyObject* self, PyObject* args){
 
   return (PyObject *) \
              pygobject_new((GObject*) \
-			   gcompris_textview( label,
+			   gc_board_config_textview( label,
 					      key,
 					      desc,
 					      init_text,
@@ -1450,7 +1450,7 @@ py_gcompris_textview(PyObject* self, PyObject* args){
 
 
 static PyObject*
-py_gcompris_get_user_dirname (PyObject* self, PyObject* args)
+py_gc_prop_user_dirname_get (PyObject* self, PyObject* args)
 {
   PyObject* pyUser;
   pyGcomprisUserObject* pyGcomprisUser;
@@ -1465,12 +1465,12 @@ py_gcompris_get_user_dirname (PyObject* self, PyObject* args)
   cGcomprisUser = pyGcomprisUser->cdata;
 
   /* Call the corresponding C function */
-  return PyString_FromString(gcompris_get_user_dirname(cGcomprisUser));
+  return PyString_FromString(gc_prop_user_dirname_get(cGcomprisUser));
 
 }
 
 static PyObject*
-py_gcompris_get_board_dirname (PyObject* self, PyObject* args)
+py_gc_prop_board_dirname_get (PyObject* self, PyObject* args)
 {
   PyObject* pyBoard;
   pyGcomprisBoardObject* pyGcomprisBoard;
@@ -1485,31 +1485,31 @@ py_gcompris_get_board_dirname (PyObject* self, PyObject* args)
   cGcomprisBoard = pyGcomprisBoard->cdata;
 
   /* Call the corresponding C function */
-  return PyString_FromString(gcompris_get_board_dirname(cGcomprisBoard));
+  return PyString_FromString(gc_prop_board_dirname_get(cGcomprisBoard));
 
 }
 
 static PyObject*
-py_gc_profile_get_current_user_dirname (PyObject* self, PyObject* args)
+py_gc_prop_current_user_dirname_get (PyObject* self, PyObject* args)
 {
   /* Parse arguments */
   if(!PyArg_ParseTuple(args, ":gcompris.get_current_user_dirname"))
     return NULL;
 
   /* Call the corresponding C function */
-  return PyString_FromString(gc_profile_get_current_user_dirname());
+  return PyString_FromString(gc_prop_current_user_dirname_get());
 
 }
 
 static PyObject*
-py_gcompris_get_current_board_dirname (PyObject* self, PyObject* args)
+py_gc_prop_current_board_dirname_get (PyObject* self, PyObject* args)
 {
   /* Parse arguments */
   if(!PyArg_ParseTuple(args, ":gcompris.get_current_board_dirname"))
     return NULL;
 
   /* Call the corresponding C function */
-  return PyString_FromString(gcompris_get_current_board_dirname());
+  return PyString_FromString(gc_prop_current_board_dirname_get());
 
 }
 
@@ -1582,29 +1582,29 @@ static PyMethodDef PythonGcomprisModule[] = {
   { "get_board_from_section",  py_gc_menu_section_get, METH_VARARGS, "gc_menu_section_get" },
   { "spawn_async",  (PyCFunction)py_gcompris_spawn_async, METH_VARARGS|METH_KEYWORDS, "gcompris_spawn_sync" },
   { "child_watch_add",  (PyCFunction)py_gcompris_child_watch_add, METH_VARARGS|METH_KEYWORDS, "gcompris_child_watch_add" },
-  { "get_board_conf",  py_gcompris_get_board_conf, METH_VARARGS, "gcompris_get_board_conf" },
-  { "get_conf",  py_gcompris_get_conf, METH_VARARGS, "gcompris_get_conf" },
-  { "set_board_conf",  py_gcompris_set_board_conf, METH_VARARGS, "gcompris_set_board_conf" },
+  { "get_board_conf",  py_gc_db_get_board_conf, METH_VARARGS, "gc_db_get_board_conf" },
+  { "get_conf",  py_gc_db_get_conf, METH_VARARGS, "gc_db_get_conf" },
+  { "set_board_conf",  py_gc_db_set_board_conf, METH_VARARGS, "gc_db_set_board_conf" },
   { "get_current_profile",  py_gc_profile_get_current, METH_VARARGS, "gc_profile_get_current" },
   { "get_current_user",  py_gc_profile_get_current_user, METH_VARARGS, "gc_profile_get_current_user" },
   { "configuration_window",  py_gc_board_config_window_display, METH_VARARGS, "gc_board_config_window_display" },
-  { "boolean_box",  py_gcompris_boolean_box, METH_VARARGS, "gcompris_boolean_box" },
-  { "combo_box",  py_gcompris_combo_box, METH_VARARGS, "gcompris_combo_box" },
-  { "radio_buttons",  py_gcompris_radio_buttons, METH_VARARGS, "gcompris_radio_buttons" },
-  { "spin_int",  py_gcompris_spin_int, METH_VARARGS, "gcompris_spin_int" },
-  { "separator",  py_gcompris_separator, METH_VARARGS, "gcompris_separator" },
-  { "combo_locales",  py_gcompris_combo_locales, METH_VARARGS, "gcompris_combo_locales" },
+  { "boolean_box",  py_gc_board_config_boolean_box, METH_VARARGS, "gc_board_config_boolean_box" },
+  { "combo_box",  py_gc_board_config_combo_box, METH_VARARGS, "gc_board_config_combo_box" },
+  { "radio_buttons",  py_gc_board_config_radio_buttons, METH_VARARGS, "gc_board_config_radio_buttons" },
+  { "spin_int",  py_gc_board_config_spin_int, METH_VARARGS, "gc_board_config_spin_int" },
+  { "separator",  py_gc_board_conf_separator, METH_VARARGS, "gc_board_conf_separator" },
+  { "combo_locales",  py_gc_board_config_combo_locales, METH_VARARGS, "gc_board_config_combo_locales" },
   { "get_locales_list",  py_gc_locale_gets_list, METH_VARARGS, "gc_locale_gets_list" },
   { "gcompris_gettext",  py_gcompris_gettext, METH_VARARGS, "gcompris_gettext" },
-  { "change_locale",  py_gcompris_change_locale, METH_VARARGS, "gcompris_change_locale" },
-  { "reset_locale",  py_gcompris_reset_locale, METH_VARARGS, "gcompris_reset_locale" },
-  { "combo_locales_asset",  py_gcompris_combo_locales_asset, METH_VARARGS, "gcompris_combo_locales_asset" },
+  { "change_locale",  py_gc_locale_change, METH_VARARGS, "gc_locale_change" },
+  { "reset_locale",  py_gc_locale_reset, METH_VARARGS, "gc_locale_reset" },
+  { "combo_locales_asset",  py_gc_board_config_combo_locales_asset, METH_VARARGS, "gc_board_config_combo_locales_asset" },
   { "get_locales_asset_list",  py_gc_locale_gets_asset_list, METH_VARARGS, "gc_locale_gets_asset_list" },
-  { "textview",  py_gcompris_textview, METH_VARARGS, "gcompris_textview" },
-  { "get_user_dirname",  py_gcompris_get_user_dirname, METH_VARARGS, "gcompris_get_user_dirname" },
-  { "get_current_user_dirname",  py_gc_profile_get_current_user_dirname, METH_VARARGS, "gc_profile_get_current_user_dirname" },
-  { "get_board_dirname",  py_gcompris_get_board_dirname, METH_VARARGS, "gcompris_get_board_dirname" },
-  { "get_current_board_dirname",  py_gcompris_get_current_board_dirname, METH_VARARGS, "gcompris_get_current_board_dirname" },
+  { "textview",  py_gc_board_config_textview, METH_VARARGS, "gc_board_config_textview" },
+  { "get_user_dirname",  py_gc_prop_user_dirname_get, METH_VARARGS, "gc_prop_user_dirname_get" },
+  { "get_current_user_dirname",  py_gc_prop_current_user_dirname_get, METH_VARARGS, "gc_prop_current_user_dirname_get" },
+  { "get_board_dirname",  py_gc_prop_board_dirname_get, METH_VARARGS, "gc_prop_board_dirname_get" },
+  { "get_current_board_dirname",  py_gc_prop_current_board_dirname_get, METH_VARARGS, "gc_prop_current_board_dirname_get" },
   { "get_wordlist",  py_gcompris_wordlist_get_from_file, METH_VARARGS, "gcompris_wordlist_get_from_file" },
   { "im_reset",  py_gc_im_reset, METH_VARARGS, "gc_im_reset" },
   { NULL, NULL, 0, NULL}

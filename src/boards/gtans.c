@@ -1828,7 +1828,7 @@ void taninitstart(void){
   int i;
   char* accurstr;
 
-  usergtdir = gcompris_get_current_board_dirname();
+  usergtdir = gc_prop_current_board_dirname_get();
 
   for (i = PXSTART; i<PXNBR+PXSTART; i++){
     tabpxnam[i] = NULL;

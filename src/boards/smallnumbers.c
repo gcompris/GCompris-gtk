@@ -139,7 +139,7 @@ static void pause_board (gboolean pause)
  */
 static void start_board (GcomprisBoard *agcomprisBoard)
 {
-  GHashTable *config = gcompris_get_board_conf();
+  GHashTable *config = gc_db_get_board_conf();
 
   locale_sound = g_strdup(g_hash_table_lookup( config, "locale_sound"));
 
@@ -515,7 +515,7 @@ static GHFunc save_table (gpointer key,
 		    gpointer value,
 		    gpointer user_data)
 {
-  gcompris_set_board_conf ( profile_conf,
+  gc_db_set_board_conf ( profile_conf,
 			    board_conf,
 			    (gchar *) key, 
 			    (gchar *) value);
@@ -537,7 +537,7 @@ static void conf_ok(GHashTable *table)
     GHashTable *config;
 
     if (profile_conf)
-      config = gcompris_get_board_conf();
+      config = gc_db_get_board_conf();
     else
       config = table;
     
@@ -594,7 +594,7 @@ smallnumber_config_start(GcomprisBoard *agcomprisBoard,
   g_free(label);
 
   /* init the combo to previously saved value */
-  GHashTable *config = gcompris_get_conf( profile_conf, board_conf);
+  GHashTable *config = gc_db_get_conf( profile_conf, board_conf);
 
   gchar *saved_locale_sound = g_hash_table_lookup( config, "locale_sound");
 
@@ -604,9 +604,9 @@ smallnumber_config_start(GcomprisBoard *agcomprisBoard,
   else
     with_sound = FALSE;
 
-  GtkCheckButton  *sound_control = gcompris_boolean_box("Enable sounds", "with_sound", with_sound);
+  GtkCheckButton  *sound_control = gc_board_config_boolean_box("Enable sounds", "with_sound", with_sound);
   
-  GtkComboBox *sound_box = gcompris_combo_locales_asset( "Select sound locale",
+  GtkComboBox *sound_box = gc_board_config_combo_locales_asset( "Select sound locale",
 							 saved_locale_sound,
 							 "sounds/$LOCALE/colors/purple.ogg");
 
