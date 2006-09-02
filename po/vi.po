@@ -6,8 +6,8 @@ msgid ""
 ""
 msgstr "Project-Id-Version: gcompris Gnome HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-08-27 02:31+0200\n"
-"PO-Revision-Date: 2006-08-27 16:19+0930\n"
+"POT-Creation-Date: 2006-09-02 03:54+0200\n"
+"PO-Revision-Date: 2006-09-02 17:48+0930\n"
 "Last-Translator: Clytie Siddall <clytie@riverland.net.au>\n"
 "Language-Team: Vietnamese <gnomevi-list@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
@@ -4440,8 +4440,8 @@ msgid "White mates"
 msgstr "Trắng chiếu hết"
 
 #: ../src/boards/chess.c:1059
-#: ../src/gcompris/bonus.c:330
-#: ../src/gcompris/bonus.c:339
+#: ../src/gcompris/bonus.c:342
+#: ../src/gcompris/bonus.c:351
 msgid "Drawn game"
 msgstr "Trận đấu hoà"
 
@@ -4914,8 +4914,8 @@ msgid "There is already a profile with this name"
 msgstr "Xác lập tên này đã có."
 
 #: ../src/boards/python/admin/profile_list.py:122
-#: ../src/gcompris/board_config.c:651
-#: ../src/gcompris/board_config.c:812
+#: ../src/gcompris/board_config.c:663
+#: ../src/gcompris/board_config.c:827
 msgid "Default"
 msgstr "Mặc định"
 
@@ -4989,27 +4989,23 @@ msgid ""
 msgstr "Một hay nhiều thông tin đăng nhập không phải là duy nhất.\n"
 "Bạn cần phải thay đổi chúng: %s."
 
-#: ../src/boards/python/anim.py:59
-msgid "You need the python xml module. Disabling SVG."
-msgstr "Bạn cần mô-đun XML Python. Bây giờ đang vô hiệu hóa SVG."
-
 #.gcompris.utils.dialog(_('Python xml module bot found. SVG is disabled. Install the python xml module to enable SVG Save/restore.'), None)
-#: ../src/boards/python/anim.py:417
+#: ../src/boards/python/anim.py:418
 msgid ""
 "Python xml module not found. SVG is disabled. Install the python xml module "
 "to enable SVG Save/restore."
 msgstr "Không tìm thấy mô-đun XL Python nên SVG bị vô hiệu hóa. Bạn hãy cài đặt mô-"
 "đun XML Python để hiệu lực khả năng lưu/phục hồi của SVG."
 
-#: ../src/boards/python/anim.py:2206
+#: ../src/boards/python/anim.py:2207
 msgid "SVG is disabled. Install python xml module to enable it"
 msgstr "SVG bị vô hiệu hóa. Bạn hãy cài đặt mô-đun XML Python để hiệu lực nó."
 
-#: ../src/boards/python/anim.py:2362
+#: ../src/boards/python/anim.py:2363
 msgid "Warning: the following images cannot be accessed on your system.\n"
 msgstr "Cảnh báo: trong hệ thống bạn, không thể truy cập những ảnh theo đây:\n"
 
-#: ../src/boards/python/anim.py:2364
+#: ../src/boards/python/anim.py:2365
 msgid "The corresponding items have been skipped."
 msgstr "Những mục tượng ứng đã bị bỏ qua."
 
@@ -5208,6 +5204,27 @@ msgid ""
 msgstr "Lỗi: không thể chơi hoạt động này\n"
 "khi hiệu ứng âm thanh bị tắt.\n"
 "Hãy mở hộp thoại cấu hình để bật âm thanh."
+
+#: ../src/boards/python/oscar_and_friends.py:117
+msgid ""
+"Below the surface, Oscar the octopus and his friends sat on a rock,\n"
+"watching the bad weather above them."
+msgstr "Dưới mặt nước, Ót-că con tuộc và các bạn bè có ngồi trên đá,\n"
+"theo dõi thời tiết xấu ở trên."
+
+#: ../src/boards/python/oscar_and_friends.py:118
+msgid ""
+"They were all happy that the storms never reached all the way down to them."
+msgstr "Cả họ vui lòng các bão không bao giờ tới đất, làm hại họ."
+
+#: ../src/boards/python/oscar_and_friends.py:119
+msgid ""
+"No matter how bad it was up there, the bottom was always calm and quiet."
+msgstr "Bất chấp thời tiết rất xấu ở trên, xuống đất luôn luôn yên lặng."
+
+#: ../src/boards/python/oscar_and_friends.py:120
+msgid "Oscar's best friends were Charlie the crab and Sandy the sea-star."
+msgstr "Bạn bè chí thiết của Ót-că là Cha-li con cua và Xan-đi sao biến."
 
 #: ../src/boards/python/pythontest.py:149
 msgid ""
@@ -5501,8 +5518,8 @@ msgstr "Phần mềm là một gói GNU, và được phát hành với điều 
 
 #: ../src/gcompris/about.c:339
 #: ../src/gcompris/about.c:349
-#: ../src/gcompris/config.c:468
-#: ../src/gcompris/config.c:478
+#: ../src/gcompris/config.c:469
+#: ../src/gcompris/config.c:479
 #: ../src/gcompris/help.c:381
 #: ../src/gcompris/help.c:391
 #: ../src/gcompris/images_selector.c:317
@@ -5525,11 +5542,11 @@ msgstr "Có, tôi có chắc."
 msgid "No, I want to keep going"
 msgstr "Không, tôi muốn tiếp tục"
 
-#: ../src/gcompris/board.c:171
+#: ../src/gcompris/board.c:172
 msgid "Dynamic module loading is not supported. gcompris cannot load.\n"
 msgstr "Không hỗ trợ khả năng tải mô-đun một cách động nên không thể tải GCompris.\n"
 
-#: ../src/gcompris/board_config.c:683
+#: ../src/gcompris/board_config.c:695
 msgid ""
 "Select the language\n"
 " to use in the board"
@@ -5767,40 +5784,40 @@ msgid ""
 "to filter boards</i>"
 msgstr "<i>Sử dụng mô-đun quản lý của GCompris để lọc bảng</i>"
 
-#: ../src/gcompris/config.c:188
-#: ../src/gcompris/config.c:198
+#: ../src/gcompris/config.c:189
+#: ../src/gcompris/config.c:199
 msgid "GCompris Configuration"
 msgstr "Cấu hình GCompris"
 
-#: ../src/gcompris/config.c:274
+#: ../src/gcompris/config.c:275
 msgid "Fullscreen"
 msgstr "Toàn màn hình"
 
-#: ../src/gcompris/config.c:317
+#: ../src/gcompris/config.c:318
 msgid "Music"
 msgstr "Nhạc"
 
-#: ../src/gcompris/config.c:345
+#: ../src/gcompris/config.c:346
 msgid "Effect"
 msgstr "Hiệu ứng"
 
-#: ../src/gcompris/config.c:381
+#: ../src/gcompris/config.c:382
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "Không mở được thư mục sắc thái: %s"
 
-#: ../src/gcompris/config.c:414
-#: ../src/gcompris/config.c:839
-#: ../src/gcompris/config.c:853
+#: ../src/gcompris/config.c:415
+#: ../src/gcompris/config.c:843
+#: ../src/gcompris/config.c:857
 #, c-format
 msgid "Skin : %s"
 msgstr "Sắc thái: %s"
 
-#: ../src/gcompris/config.c:416
+#: ../src/gcompris/config.c:417
 msgid "SKINS NOT FOUND"
 msgstr "KHÔNG TÌM THẤY SẮC THÁI"
 
-#: ../src/gcompris/config.c:639
+#: ../src/gcompris/config.c:540
 msgid "English (United State)"
 msgstr "Anh (Mỹ)"
 
@@ -5816,15 +5833,15 @@ msgstr "TẢI"
 msgid "SAVE"
 msgstr "LƯU"
 
-#: ../src/gcompris/gameutil.c:74
+#: ../src/gcompris/gameutil.c:79
 msgid "Couldn't find or load the file"
 msgstr "Không tìm thấy hoặc tải tập tin"
 
-#: ../src/gcompris/gameutil.c:76
+#: ../src/gcompris/gameutil.c:81
 msgid "This activity is incomplete."
 msgstr "Chưa hoàn thành hoạt động này."
 
-#: ../src/gcompris/gameutil.c:77
+#: ../src/gcompris/gameutil.c:82
 msgid ""
 "Exit it and report\n"
 "the problem to the authors."
@@ -5944,7 +5961,8 @@ msgstr "Hiển thị các tài nguyên trên thiết bị xuất chuẩn dựa v
 msgid ""
 "GCompris will get images, sounds and activity data from this server if not "
 "found locally."
-msgstr "Trình GCompris sẽ lấy các ảnh, âm thanh và dữ liệu hoạt động đều từ máy phục vụ này nếu không tìm thấy cục bộ."
+msgstr "Trình GCompris sẽ lấy các ảnh, âm thanh và dữ liệu hoạt động đều từ máy phục "
+"vụ này nếu không tìm thấy cục bộ."
 
 #: ../src/gcompris/gcompris.c:209
 msgid ""
@@ -5978,7 +5996,7 @@ msgstr "GCompris là phần mềm tự do được phát hành với điều ki�
 "nghĩ sử dụng hệ điều hành GNU/Linux. Có thể tìm thông tin thêm tại <http://"
 "www.fsf.org/philosophy>."
 
-#: ../src/gcompris/gcompris.c:1347
+#: ../src/gcompris/gcompris.c:1348
 #, c-format
 msgid ""
 "GCompris\n"
@@ -5991,17 +6009,17 @@ msgstr "GCompris\n"
 "Thông tin thêm tại <http://gcompris.net/>\n"
 
 #.check the list of possible values for -l, then exit
-#: ../src/gcompris/gcompris.c:1433
+#: ../src/gcompris/gcompris.c:1434
 #, c-format
 msgid "Use -l to access an activity directly.\n"
 msgstr "Sử dụng lệnh « -l » để truy cập một hoạt động nào đó một cách trực tiếp.\n"
 
-#: ../src/gcompris/gcompris.c:1434
+#: ../src/gcompris/gcompris.c:1435
 #, c-format
 msgid "The list of available activities is :\n"
 msgstr "Danh sách các hoạt động sẵn sàng:\n"
 
-#: ../src/gcompris/gcompris.c:1595
+#: ../src/gcompris/gcompris.c:1596
 #, c-format
 msgid "The list of available profiles is:\n"
 msgstr "Danh sách các xác lập sẵn sàng là:\n"
@@ -6030,11 +6048,11 @@ msgstr "Sổ hướng dẫn"
 msgid "Credit"
 msgstr "Công trạng"
 
-#: ../src/gcompris/timer.c:239
+#: ../src/gcompris/timer.c:250
 msgid "Time Elapsed"
 msgstr "Thời gian đã qua"
 
-#: ../src/gcompris/timer.c:326
+#: ../src/gcompris/timer.c:339
 #, c-format
 msgid "Remaining Time = %d"
 msgstr "Thời gian còn lại = %d"
