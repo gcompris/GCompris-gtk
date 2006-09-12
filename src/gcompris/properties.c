@@ -92,7 +92,7 @@ gc_prop_user_root_directory_get ()
 /** return the name of the configuration file used.
  *  the name has the full path and is platform dependant
  *  must not be freed by the caller.
- * 
+ *
  */
 gchar *
 gc_prop_config_file_get()
@@ -121,7 +121,7 @@ gc_prop_default_database_name_get (gchar *shared_dir)
   gc_util_create_rootdir(dir_base);
   g_free(dir_base);
   return g_strconcat( shared_dir, "/",  PROFILES_ROOT, "/",  DEFAULT_DATABASE, NULL);
-  
+
 }
 
 GcomprisProperties *
@@ -168,6 +168,7 @@ gc_prop_new ()
   tmp->package_plugin_dir         = NULL;
   tmp->package_python_plugin_dir  = NULL;
   tmp->system_icon_dir            = NULL;
+  tmp->cache_dir                  = NULL;
 
   user_dir = gc_prop_user_root_directory_get() ;
   gc_util_create_rootdir( user_dir );
@@ -300,7 +301,7 @@ gc_prop_new ()
     if (locale != NULL && !strcmp(locale, "C"))
       {
 	tmp->locale		= "en_US.UTF-8";
-      } 
+      }
 #endif
   }
 
@@ -354,9 +355,9 @@ gc_prop_user_dirname_get(GcomprisUser *user)
 {
   GcomprisProperties	*properties = gc_prop_get ();
 
-  gchar *user_dirname = g_strconcat (properties->users_dir, 
-				     "/", 
-				     user->login, 
+  gchar *user_dirname = g_strconcat (properties->users_dir,
+				     "/",
+				     user->login,
 				     NULL);
 
   gc_util_create_rootdir(user_dirname);

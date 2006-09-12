@@ -46,6 +46,7 @@ typedef struct {
   gchar        *package_plugin_dir;
   gchar        *package_python_plugin_dir;
   gchar        *system_icon_dir;
+  gchar        *cache_dir;
   gchar	       *locale;
   gchar	       *skin;
   gchar	       *key;

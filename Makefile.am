@@ -28,6 +28,7 @@ EXTRA_DIST = \
 	intltool-extract.in \
 	intltool-merge.in \
 	intltool-update.in \
+	gnome2-macros \
 	README.mingw README.translators README.windows \
 	config.h.mingw Makefile.mingw global_win32.mak gcompris.ico gcompris-installer.nsi
 
@@ -65,7 +66,7 @@ dist-core:
 	gzip --best $(distcore).tar
 	@echo Created $(distcore).tar.gz
 
-all-local: 
+all-local:
 
 
-ACLOCAL_AMFLAGS = 
+ACLOCAL_AMFLAGS =

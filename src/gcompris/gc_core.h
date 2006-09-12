@@ -45,8 +45,15 @@ void gc_menu_load();
 /** mimetype */
 void gc_mime_type_load();
 
-/* log */
-void gc_log_start (GcomprisBoard *gcomprisBoard); 
+/** log */
+void gc_log_start (GcomprisBoard *gcomprisBoard);
 void gc_log_set_key (GcomprisBoard *gcomprisBoard, guint keyval);
+
+/** cache */
+void gc_cache_init(int max_size);
+void gc_cache_end();
+void gc_cache_clear();
+gchar *gc_cache_get(gchar *url);
+gchar *gc_cache_insert(const gchar *url, const char *buffer, gssize length);
 
 #endif

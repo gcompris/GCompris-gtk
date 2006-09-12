@@ -84,14 +84,14 @@ py_gc_item_focus_event(PyObject* self, PyObject* args)
 
 /* void gc_item_absolute_move(GnomeCanvasItem *item, int x, int y); */
 static PyObject*
-py_gcompris_gc_item_absolute_move(PyObject* self, PyObject* args)
+py_gc_item_absolute_move(PyObject* self, PyObject* args)
 {
   PyObject* pyitem;
   GnomeCanvasItem* item;
   int x, y;
 
   /* Parse arguments */
-  if(!PyArg_ParseTuple(args, "Oii:gcompris_gc_item_absolute_move", &pyitem, &x, &y))
+  if(!PyArg_ParseTuple(args, "Oii:gc_item_absolute_move", &pyitem, &x, &y))
     return NULL;
   item = (GnomeCanvasItem*) pygobject_get(pyitem);
 
@@ -106,14 +106,14 @@ py_gcompris_gc_item_absolute_move(PyObject* self, PyObject* args)
 
 /* void gc_item_rotate(GnomeCanvasItem *item, double angle); */
 static PyObject*
-py_gcompris_gc_item_rotate(PyObject* self, PyObject* args)
+py_gc_item_rotate(PyObject* self, PyObject* args)
 {
   PyObject* pyitem;
   GnomeCanvasItem* item;
   double angle;
 
   /* Parse arguments */
-  if(!PyArg_ParseTuple(args, "Od:gcompris_gc_item_rotate_relative", &pyitem, &angle))
+  if(!PyArg_ParseTuple(args, "Od:gc_item_rotate_relative", &pyitem, &angle))
     return NULL;
   item = (GnomeCanvasItem*) pygobject_get(pyitem);
 
@@ -128,14 +128,14 @@ py_gcompris_gc_item_rotate(PyObject* self, PyObject* args)
 
 /* void gc_item_rotate_relative(GnomeCanvasItem *item, double angle); */
 static PyObject*
-py_gcompris_gc_item_rotate_relative(PyObject* self, PyObject* args)
+py_gc_item_rotate_relative(PyObject* self, PyObject* args)
 {
   PyObject* pyitem;
   GnomeCanvasItem* item;
   double angle;
 
   /* Parse arguments */
-  if(!PyArg_ParseTuple(args, "Od:gcompris_gc_item_rotate_relative", &pyitem, &angle))
+  if(!PyArg_ParseTuple(args, "Od:gc_item_rotate_relative", &pyitem, &angle))
     return NULL;
   item = (GnomeCanvasItem*) pygobject_get(pyitem);
 
@@ -150,7 +150,7 @@ py_gcompris_gc_item_rotate_relative(PyObject* self, PyObject* args)
 
 /* void gc_item_rotate_with_center(GnomeCanvasItem *item, double angle, int x, int y); */
 static PyObject*
-py_gcompris_gc_item_rotate_with_center(PyObject* self, PyObject* args)
+py_gc_item_rotate_with_center(PyObject* self, PyObject* args)
 {
   PyObject* pyitem;
   GnomeCanvasItem* item;
@@ -158,7 +158,7 @@ py_gcompris_gc_item_rotate_with_center(PyObject* self, PyObject* args)
   int x,y;
 
   /* Parse arguments */
-  if(!PyArg_ParseTuple(args, "Odii:gcompris_gc_item_rotate_with_center", &pyitem, &angle, &x, &y))
+  if(!PyArg_ParseTuple(args, "Odii:gc_item_rotate_with_center", &pyitem, &angle, &x, &y))
     return NULL;
   item = (GnomeCanvasItem*) pygobject_get(pyitem);
 
@@ -173,7 +173,7 @@ py_gcompris_gc_item_rotate_with_center(PyObject* self, PyObject* args)
 
 /* void gc_item_rotate_relative_with_center(GnomeCanvasItem *item, double angle, int x, int y); */
 static PyObject*
-py_gcompris_gc_item_rotate_relative_with_center(PyObject* self, PyObject* args)
+py_gc_item_rotate_relative_with_center(PyObject* self, PyObject* args)
 {
   PyObject* pyitem;
   GnomeCanvasItem* item;
@@ -181,7 +181,7 @@ py_gcompris_gc_item_rotate_relative_with_center(PyObject* self, PyObject* args)
   int x,y;
 
   /* Parse arguments */
-  if(!PyArg_ParseTuple(args, "Odii:gcompris_gc_item_rotate_relative_with_center", &pyitem, &angle, &x, &y))
+  if(!PyArg_ParseTuple(args, "Odii:gc_item_rotate_relative_with_center", &pyitem, &angle, &x, &y))
     return NULL;
   item = (GnomeCanvasItem*) pygobject_get(pyitem);
 
@@ -346,13 +346,13 @@ static PyMethodDef PythonGcomprisUtilsModule[] = {
   { "load_pixmap",  py_gc_pixmap_load, METH_VARARGS, "gc_pixmap_load" },
   { "set_image_focus",  py_gc_item_focus_set, METH_VARARGS, "gc_item_focus_set" },
   { "item_event_focus",  py_gc_item_focus_event, METH_VARARGS, "gc_item_focus_event" },
-  { "gc_item_absolute_move",  py_gcompris_gc_item_absolute_move, METH_VARARGS, "gc_item_absolute_move" },
-  { "gc_item_rotate",  py_gcompris_gc_item_rotate, METH_VARARGS, "gc_item_rotate" },
-  { "gc_item_rotate_relative",  py_gcompris_gc_item_rotate_relative, METH_VARARGS, "gc_item_rotate_relative" },
-  { "gc_item_rotate__with_center",  py_gcompris_gc_item_rotate_with_center, METH_VARARGS,
-    "gc_item_rotate_with_center" },
-  { "gc_item_rotate_relative_with_center",  py_gcompris_gc_item_rotate_relative_with_center, METH_VARARGS,
-    "gc_item_rotate_relative_with_center" },
+  { "item_absolute_move",  py_gc_item_absolute_move, METH_VARARGS, "gc_item_absolute_move" },
+  { "item_rotate",  py_gc_item_rotate, METH_VARARGS, "gc_item_rotate" },
+  { "item_rotate_relative",  py_gc_item_rotate_relative, METH_VARARGS, "gc_item_rotate_relative" },
+  { "item_rotate__with_center",  py_gc_item_rotate_with_center, METH_VARARGS,
+    "item_rotate_with_center" },
+  { "item_rotate_relative_with_center",  py_gc_item_rotate_relative_with_center, METH_VARARGS,
+    "item_rotate_relative_with_center" },
   { "dialog",  py_gc_dialog, METH_VARARGS, "gc_dialog" },
   { "dialog_close",  py_gc_dialog_close, METH_VARARGS, "gc_dialog_close" },
   { "filename_pass",  py_gcompris_filename_pass, METH_VARARGS, "gcompris_filename_pass" },

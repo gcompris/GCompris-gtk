@@ -20,6 +20,7 @@
  */
 
 #include "gc_net.h"
+#include "gc_core.h"
 
 #ifdef USE_GNET
 #include <gnet.h>

@@ -41,7 +41,7 @@
 #include <gdk/gdkx.h>
 #include <X11/Xlib.h>
 #include <X11/Xutil.h>
-#include <X11/extensions/xf86vmode.h>   
+#include <X11/extensions/xf86vmode.h>
 #endif
 
 #if defined _WIN32 || defined __WIN32__
@@ -73,7 +73,7 @@ GtkWidget *drawing_area;
 GnomeCanvas *canvas;
 GnomeCanvas *canvas_bar;
 GnomeCanvas *canvas_bg;
- 
+
 //static gint pause_board_cb (GtkWidget *widget, gpointer data);
 static void quit_cb (GtkWidget *widget, gpointer data);
 static void map_cb  (GtkWidget *widget, gpointer data);
@@ -125,6 +125,7 @@ static int  popt_no_config         = FALSE;
 static int  popt_display_resource  = FALSE;
 static char *popt_server            = NULL;
 static int  *popt_web_only          = NULL;
+static char *popt_cache_dir         = NULL;
 
 static struct poptOption options[] = {
   {"fullscreen", 'f', POPT_ARG_NONE, &popt_fullscreen, 0,
@@ -208,6 +209,10 @@ static struct poptOption options[] = {
   {"web-only", '\0', POPT_ARG_NONE, &popt_web_only, 0,
    N_("Only when --server is provided, disable check for local resource first."
       " Data are always taken from the web server."), NULL},
+
+  {"cache-dir", '\0', POPT_ARG_STRING, &popt_cache_dir, 0,
+   N_("In server mode, where is the cache directory to avoid useless downloads."), NULL},
+
 #ifndef WIN32	/* Not supported on windows */
   POPT_AUTOHELP
 #endif
@@ -224,7 +229,7 @@ static struct poptOption options[] = {
 
 /* Fullscreen Stuff */
 #ifdef XF86_VIDMODE
-static struct 
+static struct
 {
   XF86VidModeModeInfo fs_mode;
   XF86VidModeModeInfo orig_mode;
@@ -261,7 +266,7 @@ board_widget_key_press_callback (GtkWidget   *widget,
 				 gpointer     client_data)
 {
   int kv = event->keyval;
-  
+
   if(event->state & GDK_CONTROL_MASK && ((event->keyval == GDK_r)
 					 || (event->keyval == GDK_R))) {
     g_message("Refreshing the canvas\n");
@@ -460,7 +465,7 @@ GnomeCanvasItem *gc_set_background(GnomeCanvasGroup *parent, gchar *file)
   else
     backgroundimg=gnome_canvas_item_new (parent,
 					 gnome_canvas_pixbuf_get_type (),
-					 "pixbuf", background_pixmap, 
+					 "pixbuf", background_pixmap,
 					 "x", 0.0,
 					 "y", 0.0,
 					 "width", (double) BOARDWIDTH,
@@ -516,7 +521,7 @@ static void init_background()
   xratio=MIN(max, xratio);
 
   g_message("Calculated x ratio xratio=%f\n", xratio);
-  
+
 
   /* Background area if ratio above 1 */
   if(properties->fullscreen)
@@ -527,7 +532,7 @@ static void init_background()
 				      0, 0,
 				      screen_width,
 				      screen_height + 30);
-      
+
       gtk_widget_set_usize (GTK_WIDGET(canvas_bg), screen_width, screen_height);
 
       /* Create a black box for the background */
@@ -560,7 +565,7 @@ static void init_background()
     {
       gnome_canvas_item_new (gnome_canvas_root(canvas_bg),
 			     gnome_canvas_widget_get_type (),
-			     "widget", vbox, 
+			     "widget", vbox,
 			     "x", (double) (screen_width-
 					    BOARDWIDTH*xratio)/2,
 			     "y", (double) (screen_height-
@@ -616,39 +621,39 @@ void gc_cursor_set(guint gdk_cursor_type)
     gdk_color_parse("red",&bg);
 
     switch (gdk_cursor_type) {
-    case GCOMPRIS_BIG_RED_ARROW_CURSOR : 
+    case GCOMPRIS_BIG_RED_ARROW_CURSOR :
       bits = big_red_arrow_cursor_bits;
       break;
-    case GCOMPRIS_BIRD_CURSOR : 
-      bits = bird_cursor_bits; 
+    case GCOMPRIS_BIRD_CURSOR :
+      bits = bird_cursor_bits;
       break;
-    case GCOMPRIS_LINE_CURSOR : 
-      bits = big_red_line_cursor_bits; 
+    case GCOMPRIS_LINE_CURSOR :
+      bits = big_red_line_cursor_bits;
       break;
-    case GCOMPRIS_RECT_CURSOR : 
-      bits = big_red_rectangle_cursor_bits; 
+    case GCOMPRIS_RECT_CURSOR :
+      bits = big_red_rectangle_cursor_bits;
       break;
-    case GCOMPRIS_FILLRECT_CURSOR : 
-      bits = big_red_filledrectangle_cursor_bits; 
+    case GCOMPRIS_FILLRECT_CURSOR :
+      bits = big_red_filledrectangle_cursor_bits;
       break;
-    case GCOMPRIS_CIRCLE_CURSOR : 
-      bits = big_red_circle_cursor_bits; 
+    case GCOMPRIS_CIRCLE_CURSOR :
+      bits = big_red_circle_cursor_bits;
       break;
-    case GCOMPRIS_FILLCIRCLE_CURSOR : 
-      bits = big_red_filledcircle_cursor_bits; 
+    case GCOMPRIS_FILLCIRCLE_CURSOR :
+      bits = big_red_filledcircle_cursor_bits;
       break;
-    case GCOMPRIS_FILL_CURSOR : 
-      bits = big_red_fill_cursor_bits; 
+    case GCOMPRIS_FILL_CURSOR :
+      bits = big_red_fill_cursor_bits;
       break;
-    case GCOMPRIS_DEL_CURSOR : 
-      bits = big_red_del_cursor_bits; 
+    case GCOMPRIS_DEL_CURSOR :
+      bits = big_red_del_cursor_bits;
       break;
-    case GCOMPRIS_SELECT_CURSOR : 
-      bits = big_red_select_cursor_bits; 
+    case GCOMPRIS_SELECT_CURSOR :
+      bits = big_red_select_cursor_bits;
       break;
     default : bits = big_red_arrow_cursor_bits;
     }
-    
+
     cursor = gdk_cursor_new_from_data(bits, 40 , 40, &fg, &bg, 0, 0);
     gdk_window_set_cursor(window->window, cursor);
     gdk_cursor_unref(cursor);
@@ -713,12 +718,12 @@ static void setup_window ()
      this is the only way to get it, and it needs to track the focus to
      enable/disable fullscreen on alt-tab */
   gtk_widget_add_events(GTK_WIDGET(window),
-    GDK_STRUCTURE_MASK|GDK_FOCUS_CHANGE_MASK);  
-  gtk_signal_connect (GTK_OBJECT (window), "configure_event",     
+    GDK_STRUCTURE_MASK|GDK_FOCUS_CHANGE_MASK);
+  gtk_signal_connect (GTK_OBJECT (window), "configure_event",
     GTK_SIGNAL_FUNC (xf86_window_configured), 0);
-  gtk_signal_connect (GTK_OBJECT (window), "focus_in_event",     
+  gtk_signal_connect (GTK_OBJECT (window), "focus_in_event",
     GTK_SIGNAL_FUNC (xf86_focus_changed), 0);
-  gtk_signal_connect (GTK_OBJECT (window), "focus_out_event",     
+  gtk_signal_connect (GTK_OBJECT (window), "focus_out_event",
     GTK_SIGNAL_FUNC (xf86_focus_changed), 0);
 #endif
 
@@ -772,7 +777,7 @@ static void setup_window ()
   gtk_widget_show (GTK_WIDGET(canvas_bg));
 
   init_plugins();
-  
+
 
   /* Load all the menu once */
   gc_menu_load();
@@ -800,18 +805,18 @@ static void setup_window ()
       if(properties->profile && properties->profile->group_ids)
 	{
 	  gboolean found = FALSE;
-	  
+
 	  GList *group_id;
 
-	  for (group_id = properties->profile->group_ids; group_id != NULL; group_id = group_id->next) 
+	  for (group_id = properties->profile->group_ids; group_id != NULL; group_id = group_id->next)
 	    if (g_list_length(gc_db_users_from_group_get( *((int *) group_id->data))) > 0){
 	      found = TRUE;
 	      break;
 	    }
-	    
+
 	  /* No profile start normally */
 	  if (found)
-	    board_to_start = gc_menu_section_get("/login/login");	
+	    board_to_start = gc_menu_section_get("/login/login");
 	  else {
 	    board_to_start = gc_menu_section_get(properties->root_menu);
 	    /* this will set user information to system one */
@@ -877,7 +882,7 @@ void gc_fullscreen_set(gboolean state)
       gtk_widget_set_uposition (window, 0, 0);
     }
   else
-    { 
+    {
       /* The hide must be done at least for KDE */
       if (is_mapped)
         gtk_widget_hide (window);
@@ -897,20 +902,20 @@ int gc_canvas_item_grab (GnomeCanvasItem *item, unsigned int event_mask,
 			    GdkCursor *cursor, guint32 etime)
 {
   int retval;
-  
+
   retval = gnome_canvas_item_grab(item, event_mask, cursor, etime);
   if (retval != GDK_GRAB_SUCCESS)
     return retval;
-  
+
 #ifdef XF86_VIDMODE
   /* When fullscreen override mouse grab with our own which
      confines the cursor to our fullscreen window */
   if (XF86VidModeData.fullscreen_active)
     if (gdk_pointer_grab(item->canvas->layout.bin_window, FALSE, event_mask,
-          window->window, cursor, etime+1) != GDK_GRAB_SUCCESS) 
+          window->window, cursor, etime+1) != GDK_GRAB_SUCCESS)
       g_warning("Pointer grab failed");
 #endif
-  
+
   return retval;
 }
 
@@ -973,7 +978,7 @@ static void map_cb (GtkWidget *widget, gpointer data)
   g_warning("gcompris window is now mapped");
 }
 
-/* 
+/*
  * Process the cleanup of the child (no zombies)
  * ---------------------------------------------
  */
@@ -983,7 +988,7 @@ void gc_terminate(int signum)
   g_warning("gcompris got the %d signal, starting exit procedure", signum);
 
   gc_exit();
-  
+
 }
 
 static void load_properties ()
@@ -1162,10 +1167,10 @@ xf86_vidmode_init ( void )
   XF86VidModeModeInfo **modes;
   XF86VidModeModeLine *l = (XF86VidModeModeLine *)((char *)
     &XF86VidModeData.orig_mode + sizeof XF86VidModeData.orig_mode.dotclock);
-  
+
   if (properties->noxf86vm)
     return;
-  
+
   if (!XF86VidModeQueryVersion(GDK_DISPLAY(), &i, &j))
     properties->noxf86vm = TRUE;
   else if (!XF86VidModeQueryExtension(GDK_DISPLAY(), &i, &j))
@@ -1194,7 +1199,7 @@ xf86_vidmode_init ( void )
       properties->noxf86vm = TRUE;
     XFree(modes);
   }
-  
+
   if (properties->noxf86vm)
       g_warning("XF86VidMode (or 800x600 resolution) not available");
   else
@@ -1207,7 +1212,7 @@ xf86_vidmode_set_fullscreen ( int state )
 {
   if (properties->noxf86vm || XF86VidModeData.fullscreen_active == state)
     return;
-    
+
   printf("setfullscreen %d\n", state);
 
   if (state)
@@ -1231,7 +1236,7 @@ xf86_vidmode_set_fullscreen ( int state )
       if (!XF86VidModeSwitchToMode(GDK_DISPLAY(), GDK_SCREEN_XNUMBER(
             gdk_screen_get_default()), &XF86VidModeData.orig_mode))
         g_warning("XF86VidMode could not restore original resolution");
-            
+
       gdk_pointer_ungrab(GDK_CURRENT_TIME);
       if (XF86VidModeData.orig_viewport_x || XF86VidModeData.orig_viewport_y)
         if (!XF86VidModeSetViewPort(GDK_DISPLAY(), GDK_SCREEN_XNUMBER(
@@ -1247,7 +1252,7 @@ xf86_vidmode_set_fullscreen ( int state )
    to be playing tricks with the window (destroying and recreating?) when
    switching fullscreen <-> window which sometimes (race condition) causes
    the pointer to not be properly grabbed.
-   
+
    This has the added advantage that this way we know for sure the pointer is
    always grabbed before setting the viewport otherwise setviewport may get
    "canceled" by the pointer being outside the current viewport. */
@@ -1256,7 +1261,7 @@ static gint xf86_window_configured(GtkWindow *window,
 {
   XF86VidModeData.window_x = event->x;
   XF86VidModeData.window_y = event->y;
-  
+
   printf("configure: %dx%d, fullscreen_active: %d\n", event->x, event->y,
     (int)XF86VidModeData.fullscreen_active);
 
@@ -1271,7 +1276,7 @@ static gint xf86_window_configured(GtkWindow *window,
   /* Act as if we aren't there / aren't hooked up */
   return FALSE;
 }
-  
+
 static gint xf86_focus_changed(GtkWindow *window,
   GdkEventFocus *event, gpointer param)
 {
@@ -1292,7 +1297,7 @@ static gint xf86_focus_changed(GtkWindow *window,
 int
 gc_init (int argc, char *argv[])
 {
-  poptContext pctx; 
+  poptContext pctx;
   int popt_option;
 
   /* First, Remove the gnome crash dialog because it locks the user when in full screen */
@@ -1309,7 +1314,7 @@ gc_init (int argc, char *argv[])
 
   /* To have some real random behaviour */
   srand (time (NULL));
-  
+
   /* Default difficulty filter: non specified */
   popt_difficulty_filter = -1;
 
@@ -1452,7 +1457,7 @@ gc_init (int argc, char *argv[])
 
 	for(list = menulist; list != NULL; list = list->next) {
 	  GcomprisBoard *board = list->data;
-	
+
 	  if (board){
 	    if (strcmp(board->type,"menu")==0)
 	      menu_todo = g_list_prepend(menu_todo, g_strdup_printf("%s/%s",board->section, board->name));
@@ -1461,7 +1466,7 @@ gc_init (int argc, char *argv[])
 	  }
 	}
       }
-      
+
       exit(0);
     }
     else {
@@ -1472,7 +1477,7 @@ gc_init (int argc, char *argv[])
   }
 
   if (popt_users_dir){
-    if ((!g_file_test(popt_users_dir, G_FILE_TEST_IS_DIR)) || 
+    if ((!g_file_test(popt_users_dir, G_FILE_TEST_IS_DIR)) ||
 	(access(popt_users_dir, popt_administration? R_OK : W_OK ) == -1)){
 	g_warning("%s does not exists or is not %s ", popt_users_dir,
 		  popt_administration? "readable" : "writable");
@@ -1499,7 +1504,7 @@ gc_init (int argc, char *argv[])
   /* shared_dir initialised, now we can set the default */
   properties->database = gc_prop_default_database_name_get ( properties->shared_dir );
   g_warning( "Infos:\n   Shared dir '%s'\n   Users dir '%s'\n   Database '%s'\n",
-	     properties->shared_dir, 
+	     properties->shared_dir,
 	     properties->users_dir,
 	     properties->database);
 
@@ -1521,7 +1526,7 @@ gc_init (int argc, char *argv[])
       g_warning("Using %s as database.", popt_database);
       properties->database = g_strdup(popt_database);
     } else {
-      g_warning("Alternate database %s does not exists.\n Use --create-db to force creation !", popt_database); 
+      g_warning("Alternate database %s does not exists.\n Use --create-db to force creation !", popt_database);
       exit(0);
     }
   }
@@ -1566,6 +1571,9 @@ gc_init (int argc, char *argv[])
     properties->system_icon_dir = "";
   }
 
+  if (popt_server){
+      properties->cache_dir = g_strdup(popt_cache_dir);
+  }
 
   /*
    * Database init MUST BE after properties
@@ -1573,7 +1581,7 @@ gc_init (int argc, char *argv[])
    *
    */
   gc_db_init();
-  
+
   /* An alternate profile is requested, check it does exists */
   if (popt_profile){
     properties->profile = gc_db_profile_from_name_get(popt_profile);
@@ -1614,7 +1622,7 @@ gc_init (int argc, char *argv[])
     exit(0);
   }
 
-  poptFreeContext(pctx); 
+  poptFreeContext(pctx);
   /*------------------------------------------------------------*/
 
   if(properties->music || properties->fx)
@@ -1622,6 +1630,9 @@ gc_init (int argc, char *argv[])
 
   /* Gdk-Pixbuf */
   gdk_rgb_init();
+
+  /* Cache init */
+  gc_cache_init(-1);
 
   /* networking init */
   gc_net_init();

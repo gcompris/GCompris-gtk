@@ -34,11 +34,11 @@
 
 #define SOUNDLISTFILE PACKAGE
 
-static gint		 item_event_images_selector(GnomeCanvasItem *item, 
-						    GdkEvent *event, 
+static gint		 item_event_images_selector(GnomeCanvasItem *item,
+						    GdkEvent *event,
 						    gpointer data);
-static gint		 item_event_imageset_selector(GnomeCanvasItem *item, 
-						      GdkEvent *event, 
+static gint		 item_event_imageset_selector(GnomeCanvasItem *item,
+						      GdkEvent *event,
 						      gpointer data);
 static gint		 item_event_scroll(GnomeCanvasItem *item,
 					   GdkEvent *event,
@@ -91,7 +91,7 @@ static guint		 iy;
 static guint		 isy;
 
 /*
- * Main entry point 
+ * Main entry point
  * ----------------
  *
  */
@@ -100,7 +100,7 @@ static guint		 isy;
  * Do all the images_selector display and register the events
  */
 
-void 
+void
 gc_selector_images_start (GcomprisBoard *gcomprisBoard, gchar *dataset,
 				ImageSelectorCallBack iscb)
 {
@@ -137,7 +137,7 @@ gc_selector_images_start (GcomprisBoard *gcomprisBoard, gchar *dataset,
   x_start = (BOARDWIDTH - gdk_pixbuf_get_width(pixmap))/2;
   item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				gnome_canvas_pixbuf_get_type (),
-				"pixbuf", pixmap, 
+				"pixbuf", pixmap,
 				"x", (double) x_start,
 				"y", (double) y_start,
 				NULL);
@@ -240,7 +240,7 @@ gc_selector_images_start (GcomprisBoard *gcomprisBoard, gchar *dataset,
 		     (GtkSignalFunc) item_event_scroll,
 		     GNOME_CANVAS(canvas_image_selector));
 
-  /* 
+  /*
    * DISPLAY IMAGES
    */
 
@@ -283,14 +283,14 @@ gc_selector_images_start (GcomprisBoard *gcomprisBoard, gchar *dataset,
       for (i = filelist; i != NULL; i = g_slist_next (i))
 	{
 	  gchar *url = gc_file_find_absolute(i->data,
-						       NULL);
-	  printf("processing dataset=%s\n", (char *)i->data);
+					     NULL);
+	  g_warning("processing dataset=%s\n", (char *)i->data);
 	  read_xml_file(url);
 	  g_free(url);
 	}
 
       g_slist_free(filelist);
-    
+
     }
   g_free(dataseturl);
 
@@ -300,7 +300,7 @@ gc_selector_images_start (GcomprisBoard *gcomprisBoard, gchar *dataset,
    */
   item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				gnome_canvas_pixbuf_get_type (),
-				"pixbuf", pixmap, 
+				"pixbuf", pixmap,
 				"x", (double) (BOARDWIDTH*0.5) - gdk_pixbuf_get_width(pixmap)/2,
 				"y", (double) y - gdk_pixbuf_get_height(pixmap) - 10,
 				NULL);
@@ -349,7 +349,7 @@ void gc_selector_images_stop ()
     {
       gtk_object_destroy(GTK_OBJECT(rootitem));
     }
-  rootitem = NULL;	  
+  rootitem = NULL;
   current_root_set = NULL;
 
   gc_bar_hide(FALSE);
@@ -395,7 +395,7 @@ static void display_image(gchar *imagename, GnomeCanvasItem *root_item)
 				"y", (double)iy,
 				"width", (double) gdk_pixbuf_get_width(pixmap)/xratio,
 				"height", (double) gdk_pixbuf_get_height(pixmap)/xratio,
-				"width_set", TRUE, 
+				"width_set", TRUE,
 				"height_set", TRUE,
 				NULL);
   gdk_pixbuf_unref(pixmap);
@@ -458,7 +458,7 @@ static void display_image_set(gchar *imagename, GSList *imagelist)
 				"y", (double)isy,
 				"width", (double) gdk_pixbuf_get_width(pixmap)/xratio,
 				"height", (double) gdk_pixbuf_get_height(pixmap)/xratio,
-				"width_set", TRUE, 
+				"width_set", TRUE,
 				"height_set", TRUE,
 				NULL);
   gdk_pixbuf_unref(pixmap);
@@ -473,8 +473,8 @@ static void display_image_set(gchar *imagename, GSList *imagelist)
 
   isy+=LIST_IMAGE_HEIGHT + IMAGE_GAP;
 
-  gnome_canvas_set_scroll_region (GNOME_CANVAS (canvas_list_selector), 0, 0, 
-				  LIST_AREA_X2- LIST_AREA_X1, 
+  gnome_canvas_set_scroll_region (GNOME_CANVAS (canvas_list_selector), 0, 0,
+				  LIST_AREA_X2- LIST_AREA_X1,
 				  isy - IMAGE_GAP);
 
   if(isy>=LIST_AREA_Y2-LIST_AREA_Y1) {
@@ -521,7 +521,7 @@ item_event_imageset_selector(GnomeCanvasItem *item, GdkEvent *event, gpointer da
   if(display_in_progress)
     return TRUE;
 
-  switch (event->type) 
+  switch (event->type)
     {
     case GDK_ENTER_NOTIFY:
       break;
@@ -561,8 +561,8 @@ item_event_imageset_selector(GnomeCanvasItem *item, GdkEvent *event, gpointer da
 
 	  /* Set the image scrollbar back to its max position */
 	  last_iy = GPOINTER_TO_INT (g_object_get_data (G_OBJECT (rootitem_set), "iy"));
-	  gnome_canvas_set_scroll_region (GNOME_CANVAS (canvas_image_selector), 0, 0, 
-					  DRAWING_AREA_X2- DRAWING_AREA_X1, 
+	  gnome_canvas_set_scroll_region (GNOME_CANVAS (canvas_image_selector), 0, 0,
+					  DRAWING_AREA_X2- DRAWING_AREA_X1,
 					  last_iy - IMAGE_GAP);
 	  if(last_iy>=DRAWING_AREA_Y2-DRAWING_AREA_Y1) {
 	    gnome_canvas_item_set(image_bg_item,
@@ -594,7 +594,7 @@ item_event_images_selector(GnomeCanvasItem *item, GdkEvent *event, gpointer data
   if(display_in_progress)
     return TRUE;
 
-  switch (event->type) 
+  switch (event->type)
     {
     case GDK_ENTER_NOTIFY:
       break;
@@ -627,7 +627,7 @@ item_event_scroll(GnomeCanvasItem *item, GdkEvent *event, GnomeCanvas *canvas)
   if(!rootitem)
     return FALSE;
 
-  switch (event->type) 
+  switch (event->type)
     {
     case GDK_SCROLL:
       gnome_canvas_get_scroll_offsets (canvas, &x, &y);
@@ -697,7 +697,7 @@ parseImage (xmlDocPtr doc, xmlNodePtr cur) {
   }
   else
     absolutepath = gc_file_find_absolute(imageSetName, NULL);
-  
+
   if(!absolutepath)
     {
       g_warning("In ImageSet %s, an image is not found. Skipping ImageSet...", absolutepath);
@@ -735,10 +735,10 @@ parseImage (xmlDocPtr doc, xmlNodePtr cur) {
         return;
       }
     }
-    imageset_directory = g_dir_open (pathname, 0, NULL);    
+    imageset_directory = g_dir_open (pathname, 0, NULL);
     const gchar * onefile;
     while ((onefile = g_dir_read_name(imageset_directory))){
-      if ((g_ascii_strcasecmp (type,"lsdir") != 0) && 
+      if ((g_ascii_strcasecmp (type,"lsdir") != 0) &&
 	  (!g_str_has_suffix (onefile, type))){
 	continue;
       }
@@ -767,7 +767,7 @@ parseImage (xmlDocPtr doc, xmlNodePtr cur) {
   /* do not display if there is nothing to display */
   if (imageList != NULL) /* g_slist is not empty */
     display_image_set(imageSetName, imageList);
-  
+
   g_free(absolutepath);
   if(pathname)
     g_free(pathname);
@@ -781,7 +781,7 @@ static void
 parse_doc(xmlDocPtr doc) {
   xmlNodePtr cur;
 
-  cur = xmlDocGetRootElement(doc);	
+  cur = xmlDocGetRootElement(doc);
   if (cur == NULL) {
     fprintf(stderr,"empty document\n");
     xmlFreeDoc(doc);
@@ -793,10 +793,10 @@ parse_doc(xmlDocPtr doc) {
     if ((!xmlStrcmp(cur->name, (const xmlChar *)"ImageSet"))){
       parseImage (doc, cur);
     }
-    
+
     cur = cur->next;
   }
-	
+
   return;
 }
 
@@ -820,7 +820,7 @@ read_xml_file(gchar *fname)
   /* in case something went wrong */
   if(!doc)
     return FALSE;
-  
+
   if(/* if there is no root element */
      !doc->children ||
      /* if it doesn't have a name */
@@ -830,12 +830,12 @@ read_xml_file(gchar *fname)
     xmlFreeDoc(doc);
     return FALSE;
   }
-  
+
   /* parse our document and replace old data */
   parse_doc(doc);
-  
+
   xmlFreeDoc(doc);
-  
+
   return TRUE;
 }
 
@@ -865,7 +865,7 @@ read_dataset_directory(gchar *dataset_dir)
 
     absolute_fname = g_strdup_printf("%s/%s", dataset_dir, fname);
     g_warning("Reading dataset file %s", absolute_fname);
-   
+
     if (!g_file_test ((absolute_fname), G_FILE_TEST_IS_REGULAR))
       continue;
 
@@ -879,7 +879,7 @@ read_dataset_directory(gchar *dataset_dir)
     /* in case something went wrong */
     if(!doc)
       continue;
-  
+
     if(/* if there is no root element */
        !doc->children ||
        /* if it doesn't have a name */
@@ -889,11 +889,11 @@ read_dataset_directory(gchar *dataset_dir)
       xmlFreeDoc(doc);
       continue;
     }
-  
+
     /* parse our document and replace old data */
     g_warning("Parsing dataset : %s \n", absolute_fname);
     parse_doc(doc);
-    
+
     xmlFreeDoc(doc);
   }
 

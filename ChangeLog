@@ -1,3 +1,34 @@
+2006-09-13  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* Makefile.am: added again gnome2-macros
+	* docs/screenshots/memory_div.jpg: updated
+	* docs/screenshots/memory_div_small.jpg: -
+	* docs/screenshots/submarine.jpg: -
+	* docs/screenshots/submarine_small.jpg: -
+	* docs/take_screenshots.sh: fixed window name
+	* po/POTFILES.in:
+	* src/boards/py-mod-utils.c: (py_gc_item_absolute_move),
+	(py_gc_item_rotate), (py_gc_item_rotate_relative),
+	(py_gc_item_rotate_with_center),
+	(py_gc_item_rotate_relative_with_center): fixed, bad replace. anim work again.
+	* src/gcompris/Makefile.am:
+	* src/gcompris/gc_core.h:
+	* src/gcompris/gc_net.c:
+	* src/gcompris/gcompris.c: (board_widget_key_press_callback),
+	(gc_set_background), (init_background), (gc_cursor_set),
+	(setup_window), (gc_fullscreen_set), (gc_canvas_item_grab),
+	(gc_terminate), (xf86_vidmode_init), (xf86_vidmode_set_fullscreen),
+	(xf86_window_configured), (gc_init): added cache support
+	* src/gcompris/images_selector.c: (gc_selector_images_start),
+	(gc_selector_images_stop), (display_image), (display_image_set),
+	(item_event_imageset_selector), (item_event_images_selector),
+	(item_event_scroll), (parseImage), (parse_doc), (read_xml_file),
+	(read_dataset_directory): typo, removed white space
+	* src/gcompris/properties.c: (gc_prop_default_database_name_get),
+	(gc_prop_new), (gc_prop_user_dirname_get):
+	* src/gcompris/properties.h: added cache support
+	* src/gcompris/cache.c: not functional yet cache mecanism for the web version.
+
 2006-08-29  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	- Last iteration over API cleanup. Some fine tune will be needed later
@@ -338,7 +369,7 @@
 	  they no more get their xml data file locally
 	- fixed several activity to get their translations from gettext instead of
 	  the xml data file itself. It saves a lot of space and makes packagers happy.
-	
+
 	* boards/advanced_colors/Makefile.am:
 	* boards/flags/uk.png:
 	* boards/imageid/Makefile.am:
@@ -441,16 +472,16 @@
 	    void              gc_wordlist_free(GcomprisWordlist *wordlist);
 	    gchar		 *gc_wordlist_random_word_get(GcomprisWordlist *wordlist, guint level);
 
-	- changed wordsgame.c to use the gc_wordlist API. 
+	- changed wordsgame.c to use the gc_wordlist API.
 	- renamed gcompris_get_properties() in gc_prop_get()
 
 	- fixed again the plugin dir path in binreloc mode.
-	
+
 	* Still need to cleanup boards/wordsgame/wordslevel*.* that are replaced
 	  by default-*.xml
 
-	
-	
+
+
 	* src/boards/advanced_colors.c: (init_xml):
 	* src/boards/algebra.c: (game_won):
 	* src/boards/click_on_letter.c: (sounds_are_fine):
@@ -806,7 +837,7 @@
 	- Reviewed enumerate activity to have 9 level instead of 6 and make
 	  it easier (less objects). Fixed the oject icons to keep their image
 	  ratio in the entry section.
-	
+
 	* src/boards/algebra_guesscount.c:
 	(algebra_guesscount_create_item):
 	* src/boards/draw.c: (display_tool_selector):
@@ -822,7 +853,7 @@
 	* src/gcompris/gameutil.c: (gcompris_find_absolute_filename): minor, fixed a debug warning
 
 	*** RELEASE 8.0BETA3 ***
-	
+
 2006-08-13  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	- Added support for relocation using http://autopackage.org/docs/binreloc/
@@ -841,7 +872,7 @@
 	  package_locale_dir       = /usr/local/share/locale
 	  package_plugin_dir       = /usr/local/lib/gcompris
 	  package_python_plugin_dir= /usr/local/share/gcompris/python
-	
+
 	* acinclude.m4:
 	* config.h.mingw:
 	* configure.in:
@@ -895,7 +926,7 @@
 	  from the po file directly. This saves 2 to 3 MB !.
 	- Fixed the escape key on to level menu. It no more stops the menu itself.
 	- Added initial support for autopackage software packaging system.
-	
+
 	* boards/Makefile.am:
 	* boards/advanced_colors/Makefile.am:
 	* boards/babymatch/Makefile.am:
@@ -915,12 +946,12 @@
 	* src/gcompris/gcompris.c: (board_widget_key_press_callback),
 	(setup_window):
 	* autopackage/default.apspec.in:
-	
+
 2006-08-12  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	- fixed many bad reference to sounds.
 	- melody game playable again.
-	
+
 	* boards/melody.xml.in:
 	* boards/sounds/explos.ogg:
 	* src/boards/algebra.c: (item_event):
@@ -967,7 +998,7 @@
 
 	- click_on_letter: re-added the spoken instruction click on the letter
 	- algebra: re-added the spoken numbers.
-	
+
 	* boards/geography/africa/angola.png:
 	* boards/geography/africa/eritrea.png:
 	* boards/geography/africa/ethiopia.png:
@@ -1140,7 +1171,7 @@
 
 	* Makefile.mingw: deleted
 	* Makefile.mingw.in: created based on Makefile.mingw to include @VERSION@
-	* boards/Makefile.am: 
+	* boards/Makefile.am:
 	* boards/clickgame.xml.in:
 	* boards/clickgame/nur00523.jpg: moved from boards/gcompris/
 	* boards/clickgame/nur03006.jpg:
@@ -1212,14 +1243,14 @@
 	* src/boards/shapegame.c: (shapegame_init_canvas), (item_event): now the tooltip is always
 	                          locate in the lower left to avoid hidding the map.
 	* src/gcompris/config.c: (set_locale_flag): fixed to display no flags if none found
-	* src/gcompris/gcompris.c: replaced display_resource by display-resource 
+	* src/gcompris/gcompris.c: replaced display_resource by display-resource
 
 2006-07-14  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	- Fixed location and name of many voices
-	- added the tool check_missing_voices.pl to 
+	- added the tool check_missing_voices.pl to
 	  replace list_missing_sounds.sh
-	
+
 	* boards/sounds/cs/geography/uruguay.ogg:
 	* boards/sounds/cs/geography/uruquay.ogg:
 	* boards/sounds/da/misc/perfect.ogg:
@@ -1402,19 +1433,19 @@
 2006-07-10  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	- added support for the --display-resource option (uncomplete yet)
-	
+
 	* Makefile.am: Moved po/TRANSLATORS.README in README.translators
 	* README.translators:
 	* README.windows:
 	* boards/geography.xml.in: added a resource (test)
 	* po/TRANSLATORS.README: moved up
 	* src/boards/py-gcompris-board.c: (pyGcomprisBoardType_getattr): replace a printf by a g_warning
-	* src/boards/python/admin/module_boards.py: now exit gcompris when closed. It avoids a crash when 
+	* src/boards/python/admin/module_boards.py: now exit gcompris when closed. It avoids a crash when
 	  quiting the admin mode. What happens is that since admin is the only activity, it is restarted
 	  by the menu and it creates an sqlite assertion.
 	* src/gcompris/gameutil.c: (gcompris_add_xml_to_data): added support for the --display-resource
 	  option
-	* src/gcompris/gcompris.c: (gcompris_init): - 
+	* src/gcompris/gcompris.c: (gcompris_init): -
 	* src/gcompris/gcompris_db.c: (gcompris_is_activity_in_profile): added function to support
 	  --display-resource
 	* src/gcompris/gcompris_db.h: -
@@ -1423,7 +1454,7 @@
 2006-07-08  Bruno coudoin  <bruno.coudoin@free.fr>
 
 
-	* docs/gcompris2spip.pl: added pt_BR section 
+	* docs/gcompris2spip.pl: added pt_BR section
 	* gcompris-edit.png: redone based on Franck GCompris logo plane
 	* gcompris.gif: redone based on Franck GCompris logo plane
 	* gcompris.ico: redone based on Franck GCompris logo plane
@@ -1442,7 +1473,7 @@
 
 	Rafal Konkolewski created the map of poland internals.
 	Source picture was http://pl.wikipedia.org/wiki/Grafika:Wojewodztwa.png
-	
+
 	* boards/geography.xml.in:
 	* boards/geography/Makefile.am:
 	* boards/geography/board8_0.xml.in:
@@ -1521,7 +1552,7 @@
 
 	- Fixes GCompris flashing at startup when running in windows mode
 	  Again by Hans de Goede.
-	
+
 	* gcompris.desktop.in: Changed to be in the education category.
 	* src/gcompris/gcompris.c: (gcompris_set_fullscreen), (map_cb),
 	(xf86_window_configured):
@@ -1537,7 +1568,7 @@
 
 2006-06-05  Bruno coudoin  <bruno.coudoin@free.fr>
 
-	- Added Argentina map in geography. 
+	- Added Argentina map in geography.
 	  Contributed by Gonzalo Odiard.
 
 	* boards/geography/Makefile.am:
@@ -1604,7 +1635,7 @@
 	 - Fixed a bug in image selector that crashes GCompris if a file contains
 	   a % in it
 	 - Activated live fullscreen in configuration but it does not work yet.
-	
+
 	* configure.in: Added Czech and Brasilian sounds
 	* gcompris.spec.in: Added Czech and Brasilian sounds
 	* src/boards/click_on_letter.c: Fixed, no more consider OK when any keyboard key
@@ -1627,7 +1658,7 @@
 	  Added Brasilian sounds by Francisco Marcelo Mendes Damasceno
 
 	  Cleanup to remove assetml files and makefiles.
-	
+
 	* Makefile.am:
 	* src/gcompris/board_config.c: added code to grab the dialog (from Hans de Goede)
 	* boards/sounds/cs/README:
@@ -2098,7 +2129,7 @@
 
 	Improved a little bit board_config.c locale management in
 	gcompris_get_locales_asset_list()
-	
+
 	* configure.in:
 	* src/boards/chess.c: (item_event):
 	* src/boards/clickgame.c: (item_event):
@@ -2379,8 +2410,8 @@
 
 2006-04-27  bruno
 
-	Fixed crash when you click on the configure icon then cancel 
-	Fixed toggle effect if you click on configuration but do not 
+	Fixed crash when you click on the configure icon then cancel
+	Fixed toggle effect if you click on configuration but do not
 	touch the upper case check box. The game is one time, in upper,
 	one in lower while the check box remains the same.
 
@@ -2450,7 +2481,7 @@
 	Added scroolbars in the help dialogs.
 	Added an entry in skin.c to get a GdkColor : gcompris_skin_get_gdkcolor()
 	Changed confirmation dialog to use the new colors for dialogs in skins
-	
+
 	* boards/skins/babytoy/help_bg.png:
 	* boards/skins/babytoy/skin.xml:
 	* boards/skins/gartoon/skin.xml:
@@ -2467,9 +2498,9 @@
 
 	Reworked bargame to load all it's images only once.
 	We have a problem with images in python not being freed.
-	I did put the load of all our images in the __init__ section but it is called 
+	I did put the load of all our images in the __init__ section but it is called
 	on each activity restart. The leak is much lower than before but not fixed.
-	
+
 	* src/boards/python/bargame.py:
 	* src/boards/python/connect4.py:
 	* src/boards/python/watercycle.py:
@@ -2496,7 +2527,7 @@
 
 2006-04-04  Bruno coudoin  <bruno.coudoin@free.fr>
 
-	Fixed several small memory leaks.	    
+	Fixed several small memory leaks.
 
 	* src/boards/awele.c: (awele_next_level):
 	* src/boards/chess.c: (chess_next_level):
@@ -2875,7 +2906,7 @@ xc2006-03-14  Bruno coudoin  <bruno.coudoin@free.fr>
 2006-03-14  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	Minor changes to update the windows version.
-	
+
 	* Makefile.mingw:
 	* gcompris-installer.nsi:
 	* src/boards/Makefile.mingw:
@@ -2912,7 +2943,7 @@ xc2006-03-14  Bruno coudoin  <bruno.coudoin@free.fr>
 	Included Clytie Siddall documentation.
 	In fact, I have only the plus from her. I adapted for
 	the other one. There is still some review to be done.
-	
+
 	* boards/memory_add.xml.in:
 	* boards/memory_add_minus.xml.in:
 	* boards/memory_add_minus_mult_div.xml.in:
@@ -3181,7 +3212,7 @@ xc2006-03-14  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	test on size of db file, to create tables if it's 0
 	(correction of null-sized db due to USE_SQLITE bug).
-	
+
 	* src/gcompris/gcompris_db.c: (gcompris_db_init):
 
 2006-02-09  Yves Combe  <yves@ycombe.net>
@@ -3214,7 +3245,7 @@ xc2006-03-14  Bruno coudoin  <bruno.coudoin@free.fr>
 
 2006-02-09  Yves Combe  <yves@ycombe.net>
 
-	fix bug in memory_div and emory_mult_div. 
+	fix bug in memory_div and emory_mult_div.
 	fix font size and font color.
 
 	* src/boards/memory.c: (get_image), (create_item):
@@ -3291,7 +3322,7 @@ xc2006-03-14  Bruno coudoin  <bruno.coudoin@free.fr>
 
 2006-02-07  Yves Combe,,,  <yves@ycombe.net>
 
-	add Grand slam rule for capture (no capture 
+	add Grand slam rule for capture (no capture
 	if that let opponent hungry).
 	add correct rule for hunger end of games (untested).
 
@@ -3381,7 +3412,7 @@ xc2006-03-14  Bruno coudoin  <bruno.coudoin@free.fr>
 	was no more working for me for no reason.
 
 	Improved wordprocessor. Now handle a single fixed theme coherently.
-	
+
 	* po/ChangeLog:
 	* src/boards/python/guessnumber.py:
 	* src/boards/wordprocessor.c: (display_style_buttons),
@@ -3391,7 +3422,7 @@ xc2006-03-14  Bruno coudoin  <bruno.coudoin@free.fr>
 2006-02-03  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	- merged awele with HEAD.
-	
+
 	* boards/awele/awele_frame.jpg:
 	* boards/awele/awele_frame.png:
 	* boards/awele/awele_frame_avec_messages.png:
@@ -3424,7 +3455,7 @@ xc2006-03-14  Bruno coudoin  <bruno.coudoin@free.fr>
 
 2006-02-02  Bruno coudoin  <bruno.coudoin@free.fr>
 
-	
+
 	* tools/list_missing_sounds.sh: By Jose Jorge. A nice utility to compare the locale
 	  translations status of voices to English.
 
@@ -3575,7 +3606,7 @@ xc2006-03-14  Bruno coudoin  <bruno.coudoin@free.fr>
 
 2006-01-29  Yves Combe  <yves@ycombe.net>
 
-	Suppress event connection on text. 
+	Suppress event connection on text.
 	Segfault seems to be fixed.
 
 	* src/gcompris/gcompris_confirm.c: (gcompris_confirm_stop),
@@ -3634,7 +3665,7 @@ xc2006-03-14  Bruno coudoin  <bruno.coudoin@free.fr>
 
 2006-01-23  Yves Combe  <yves@ycombe.net>
 
-	add background for menu2, with the differents zones. 
+	add background for menu2, with the differents zones.
 
 	* boards/skins/gartoon/gcompris-menu2bg.png:
 	* src/boards/menu2.c: (menu_start):
@@ -3710,18 +3741,18 @@ xc2006-03-14  Bruno coudoin  <bruno.coudoin@free.fr>
 
 
 	*** BRANCH gcompris_7_4 ***
-	
+
 2006-03-01  Bruno coudoin  <bruno.coudoin@free.fr>
 
-	* src/boards/python/sudoku.py: Added protections to try to avoid a crash hapenning 
+	* src/boards/python/sudoku.py: Added protections to try to avoid a crash hapenning
 	after or during the bonus. It has been observed after level 4.
-	
+
 
 	*** RELEASE 7.3.2 ***
-	
+
 2006-02-26  Bruno coudoin  <bruno.coudoin@free.fr>
 
-	* src/boards/python/electric.py: Now 
+	* src/boards/python/electric.py: Now
 
 2006-02-26  Bruno coudoin  <bruno.coudoin@free.fr>
 
@@ -3915,7 +3946,7 @@ xc2006-03-14  Bruno coudoin  <bruno.coudoin@free.fr>
 	* boards/sounds/en/misc/check_answer.ogg: taken from en/finland.ogg. We need to rerecord
 	  finland. Susan, Jim where are you.
 	* boards/sounds/en/misc/gcompris_misc_en.assetml.in:
-	* src/boards/gtans.c: (taninitstart): Fixed a random crash / non functional 
+	* src/boards/gtans.c: (taninitstart): Fixed a random crash / non functional
 	on many distrib.
 	* src/boards/gtans.h: cleanup
 	* src/boards/python/electric.py: included a patch from Christian Gagneraud to better handle the rheostat. Created 3 difficulty levels.
@@ -3988,7 +4019,7 @@ xc2006-03-14  Bruno coudoin  <bruno.coudoin@free.fr>
 	*** RELEASE 7.3RC1 ***
 
 2006-02-11  Bruno coudoin  <bruno.coudoin@free.fr>
-	
+
 	* boards/awele.xml.in:
 	* gcompris.spec.in:
 	* src/boards/Makefile.am:
@@ -3999,7 +4030,7 @@ xc2006-03-14  Bruno coudoin  <bruno.coudoin@free.fr>
 2006-02-11  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	New icons from Franck Doucet.
-	
+
 	* boards/boardicons/eye_colors.png:
 	* boards/boardicons/geometry.png:
 	* boards/boardicons/memory_elephant.png:
@@ -4131,7 +4162,7 @@ xc2006-03-14  Bruno coudoin  <bruno.coudoin@free.fr>
 	- Review of English strings by Clytie Siddall
 	- Improved the submarine icon based on a Nicu icon from openclipart.org
 	- Fixed Tux_mute.png, it was commited without -kb option and was obviously corrupted.
-	
+
 	* INSTALL:
 	* boards/administration.xml.in:
 	* boards/awele.xml.in:
@@ -4190,7 +4221,7 @@ xc2006-03-14  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	test on size of db file, to create tables if it's 0
 	(correction of null-sized db due to USE_SQLITE bug).
-	
+
 	* src/gcompris/gcompris_db.c: (gcompris_db_init):
 
 2006-02-09  Yves Combe  <yves@ycombe.net>
@@ -4223,7 +4254,7 @@ xc2006-03-14  Bruno coudoin  <bruno.coudoin@free.fr>
 
 2006-02-09  Yves Combe  <yves@ycombe.net>
 
-	fix bug in memory_div and emory_mult_div. 
+	fix bug in memory_div and emory_mult_div.
 	fix font size and font color.
 
 	* src/boards/memory.c: (get_image), (create_item):
@@ -4300,7 +4331,7 @@ xc2006-03-14  Bruno coudoin  <bruno.coudoin@free.fr>
 
 2006-02-07  Yves Combe,,,  <yves@ycombe.net>
 
-	add Grand slam rule for capture (no capture 
+	add Grand slam rule for capture (no capture
 	if that let opponent hungry).
 	add correct rule for hunger end of games (untested).
 
@@ -4390,7 +4421,7 @@ xc2006-03-14  Bruno coudoin  <bruno.coudoin@free.fr>
 	was no more working for me for no reason.
 
 	Improved wordprocessor. Now handle a single fixed theme coherently.
-	
+
 	* po/ChangeLog:
 	* src/boards/python/guessnumber.py:
 	* src/boards/wordprocessor.c: (display_style_buttons),
@@ -4400,7 +4431,7 @@ xc2006-03-14  Bruno coudoin  <bruno.coudoin@free.fr>
 2006-02-03  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	- merged awele with HEAD.
-	
+
 	* boards/awele/awele_frame.jpg:
 	* boards/awele/awele_frame.png:
 	* boards/awele/awele_frame_avec_messages.png:
@@ -4433,7 +4464,7 @@ xc2006-03-14  Bruno coudoin  <bruno.coudoin@free.fr>
 
 2006-02-02  Bruno coudoin  <bruno.coudoin@free.fr>
 
-	
+
 	* tools/list_missing_sounds.sh: By Jose Jorge. A nice utility to compare the locale
 	  translations status of voices to English.
 
@@ -4584,7 +4615,7 @@ xc2006-03-14  Bruno coudoin  <bruno.coudoin@free.fr>
 
 2006-01-29  Yves Combe  <yves@ycombe.net>
 
-	Suppress event connection on text. 
+	Suppress event connection on text.
 	Segfault seems to be fixed.
 
 	* src/gcompris/gcompris_confirm.c: (gcompris_confirm_stop),
@@ -4643,7 +4674,7 @@ xc2006-03-14  Bruno coudoin  <bruno.coudoin@free.fr>
 
 2006-01-23  Yves Combe  <yves@ycombe.net>
 
-	add background for menu2, with the differents zones. 
+	add background for menu2, with the differents zones.
 
 	* boards/skins/gartoon/gcompris-menu2bg.png:
 	* src/boards/menu2.c: (menu_start):
@@ -4719,7 +4750,7 @@ xc2006-03-14  Bruno coudoin  <bruno.coudoin@free.fr>
 
 
 	*** BRANCH gcompris_7_4 ***
-	
+
 2006-01-19  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	Improved board english description.
@@ -4870,7 +4901,7 @@ xc2006-03-14  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	Ported electric to rely on python 2.3 instead of 2.4
 	Added a feature, you can now blow a bulb by right clicking on it
-	
+
 	* boards/electric.xml.in:
 	* src/boards/python/electric.py:
 
@@ -4880,7 +4911,7 @@ xc2006-03-14  Bruno coudoin  <bruno.coudoin@free.fr>
 	- Removed a memory leak in crane related to pixmaps not freed
 	- added a dialog box when gnucap is not found / or spawn fails
 	- added help in electric.xml.in
-	
+
 	* boards/awele.xml.in:
 	* boards/crane/arrow_down.png:
 	* boards/crane/arrow_left.png:
@@ -4946,7 +4977,7 @@ xc2006-03-14  Bruno coudoin  <bruno.coudoin@free.fr>
 
 2006-01-10  Bruno coudoin  <bruno.coudoin@free.fr>
 
-	Minor feature enhancement, now in delete mode, a click on a 
+	Minor feature enhancement, now in delete mode, a click on a
 	component in the selector change the tool to select mode.
 
 	* src/boards/python/electric.py:
@@ -4956,7 +4987,7 @@ xc2006-03-14  Bruno coudoin  <bruno.coudoin@free.fr>
 	Remade searace icons from image in openclipart.org
 	Added support for Chinese Traditional by Wei-Lun Chao
 	Added delete tool in electric.
-	
+
 	* boards/boardicons/README:
 	* boards/boardicons/searace.png:
 	* boards/boardicons/searace1player.png:
@@ -5002,7 +5033,7 @@ xc2006-03-14  Bruno coudoin  <bruno.coudoin@free.fr>
 2006-01-04  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	Improved crane drawing with new arrow and a rope.
-	Improved electric. It's now playable in free mode with a switch, 
+	Improved electric. It's now playable in free mode with a switch,
 	resistor, rheostat and bulb. Need more work to make it playable.
 
 	* boards/crane/arrow_b.png:
@@ -5037,7 +5068,7 @@ xc2006-03-14  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	Some code cleanup in crane.c, removed image memory leaks
 	Improved drawings.
-	
+
 	* boards/Makefile.am:
 	* boards/boardicons/crane.png:
 	* boards/crane/bulb.png:
@@ -5103,7 +5134,7 @@ xc2006-03-14  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	- Patch by Patrick GOLDBRONN pgoldbronn on free.fr
           Support out of dir compilation
-	
+
 	* Makefile.am:
 	* autogen.sh:
 	* gnome2-macros/autogen.sh:
@@ -5216,7 +5247,7 @@ xc2006-03-14  Bruno coudoin  <bruno.coudoin@free.fr>
 	Our automated buildd log filter[1] detected a problem that will cause
         your package to segfault on architectures where the size of a pointer is
         greater than the size of an integer, such as ia64.
-	
+
 	* src/boards/py-gcompris-wordlist.h:
 	* src/boards/python/electric.py:
 	* src/gcompris/gcompris.c: (setup_window):
@@ -5249,7 +5280,7 @@ xc2006-03-14  Bruno coudoin  <bruno.coudoin@free.fr>
 	Miklos Merenyi & Margareta Merenyi Released under GPL.
 	Updated web site screenshots.
 	Aplyed patch from Yann Dirson for Python detection.
-	
+
 	* boards/Makefile.am:
 	* boards/colors.xml.in:
 	* boards/sounds/Makefile.am:
@@ -5456,7 +5487,7 @@ xc2006-03-14  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	- Shortened some files due to 99 chars limitation in tar files
 	- Fixed spec to include new files
-	
+
 	* boards/sounds/LuneRouge/animaux/LRFrogsInPondDuringStormByLionelA
 	llorgeCut.ogg:
 	* boards/sounds/LuneRouge/animaux/LRFrogs_in_pond_during_storm_by_L
@@ -5493,7 +5524,7 @@ xc2006-03-14  Bruno coudoin  <bruno.coudoin@free.fr>
 	- Improved gtans big rotation
 	- Improved memory sound background to avoid confusion.
 	- Added Screenshots
-	
+
 	* boards/algebra_group.xml.in:
 	* boards/algebramenu.xml.in:
 	* boards/colors_group.xml.in:
@@ -5561,10 +5592,10 @@ xc2006-03-14  Bruno coudoin  <bruno.coudoin@free.fr>
 
 2005-11-14  Bruno coudoin  <bruno.coudoin@free.fr>
 
-	Improved gtans (a little bit.) 
+	Improved gtans (a little bit.)
 	Added the board description, added it for translation.
 	Created a temporary background until we have someting better.
-	
+
 	* boards/gtans.xml.in:
 	* boards/images/gtans_bg.png:
 	* boards/images/mosaic_palette.png:
@@ -5693,10 +5724,10 @@ xc2006-03-14  Bruno coudoin  <bruno.coudoin@free.fr>
 2005-11-12  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	- More animals from 2 contributions. They appear in the erase activity.
-	
+
 	Following images are from Erwan Velu and Anne Nicolas. Taken in Ireland,
 	released under the GPL:
-	horses.jpg squirrel.jpg sheep_irish.jpg sheep_irish2.jpg cow.jpg 
+	horses.jpg squirrel.jpg sheep_irish.jpg sheep_irish2.jpg cow.jpg
 
 	Following images are from Julien Noel <julien.noel free fr>,
 	released under the GPL:
@@ -5741,7 +5772,7 @@ xc2006-03-14  Bruno coudoin  <bruno.coudoin@free.fr>
 
 2005-11-11  Bruno coudoin  <bruno.coudoin@free.fr>
 
-	
+
 
 	* src/boards/memory.c: (memory_destroy_all_items), (hide_card): cleanup, tries to solve
 	  double free but it's not this yet.
@@ -5768,7 +5799,7 @@ xc2006-03-14  Bruno coudoin  <bruno.coudoin@free.fr>
 	* boards/boardicons/memory_sound.png: created based on Francks artwork
 	* boards/boardicons/memory_sound_tux.png: -
 	* boards/colors_group.xml.in: Fixed english typos, it's Color not Colour
-	* boards/guessnumber.xml.in: Fixed English typos: Tux hide(s) a number 
+	* boards/guessnumber.xml.in: Fixed English typos: Tux hide(s) a number
 	* boards/memory_sound.xml.in: Updated board description, documentation
 	* boards/memory_sound_tux.xml.in: Updated  board description, documentation
 	* po/POTFILES.in: added memory_sound
@@ -5895,7 +5926,7 @@ xc2006-03-14  Bruno coudoin  <bruno.coudoin@free.fr>
 
 2005-11-07  Yves Combe  <yves@ycombe.net>
 
-	memo_sound and memo_sound_tux code finished. We need a function to stop running sound if board is stopped before end. And sound needs yet to be choosen correctly. 
+	memo_sound and memo_sound_tux code finished. We need a function to stop running sound if board is stopped before end. And sound needs yet to be choosen correctly.
 
 	* src/boards/memory.c: (start_board), (display_card), (check_win),
 	(item_event), (tux_play), (sound_callback), (start_callback):
@@ -5909,7 +5940,7 @@ xc2006-03-14  Bruno coudoin  <bruno.coudoin@free.fr>
 
 2005-11-07  Yves Combe  <yves@ycombe.net>
 
-	Add LaPause piano music in background music. 
+	Add LaPause piano music in background music.
 	Update LuneRouge/Licence.txt to english version of the licence.
 
 	* boards/music/background/COPYRIGHT:
@@ -6050,10 +6081,10 @@ xc2006-03-14  Bruno coudoin  <bruno.coudoin@free.fr>
 2005-11-06  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	- Improved mosaic background
-	- changed gameutil to search files in 
+	- changed gameutil to search files in
 	  ~/.gcompris/Plugins/boards if a file is not found in the
 	  /usr/.../gcompris/boards directory
-	
+
 	* boards/images/mosaic_bg.png:
 	* src/boards/python/mosaic.py:
 	* src/gcompris/gameutil.c: (gcompris_find_absolute_filename):
@@ -6091,7 +6122,7 @@ xc2006-03-14  Bruno coudoin  <bruno.coudoin@free.fr>
 2005-11-05  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	Completed the mosaic activity.
-	
+
 	* boards/boardicons/guessnumber.png:
 	* boards/boardicons/mosaic.png:
 	* boards/images/mosaic_bg.png:
@@ -6178,7 +6209,7 @@ xc2006-03-14  Bruno coudoin  <bruno.coudoin@free.fr>
 	- login do no more need pysqlite
 	- user report now use the gcompris login name if available
 	- created a new activity, called mosaic. Not playable yet.
-	
+
 	* boards/mosaic.xml.in:
 	* src/boards/python/mosaic.py:
 	* boards/Makefile.am:
@@ -6190,7 +6221,7 @@ xc2006-03-14  Bruno coudoin  <bruno.coudoin@free.fr>
 	* src/gcompris/log.c: (gcompris_log_end):
 
 	*** RELEASE 7.1.0PRE1 (In GCOMPRIS_7_1 BRANCH) ***
-	
+
 2005-10-29  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* boards/chronos.xml.in: added missing xml:space="preserve"
@@ -6243,7 +6274,7 @@ xc2006-03-14  Bruno coudoin  <bruno.coudoin@free.fr>
 2005-10-16  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	- Completed the guessnumber activity, including artwork
-	
+
 	* boards/images/cave.png:
 	* src/boards/boaricons/guessnumber.png:
 	* src/boards/python/guessnumber.py:
@@ -6257,7 +6288,7 @@ xc2006-03-14  Bruno coudoin  <bruno.coudoin@free.fr>
 	  boards
 	- Now the guessnumber game as an helico that shows the distance
 	  to the number to find
-	
+
 	* boards/boardicons/connect4.png:
 	* boards/boardicons/gnumch-equal.png:
 	* boards/boardicons/gnumch-factors.png:
@@ -6292,7 +6323,7 @@ xc2006-03-14  Bruno coudoin  <bruno.coudoin@free.fr>
 	spellings. They, and any other British English spellings, should be
 	changed to their US English counterparts.
 	thanks to Adam Weinberger for his patience in explaining it to me.
-	
+
 	* boards/administration.xml.in:
 	* boards/algebra_minus.xml.in:
 	* boards/algebra_plus.xml.in:
@@ -6328,11 +6359,11 @@ xc2006-03-14  Bruno coudoin  <bruno.coudoin@free.fr>
 	* src/boards/target.c: (key_press):
 	* src/gcompris/gcompris.c: (board_widget_key_press_callback):
 	* boards/memory_group.xml.in: create a new group
-	
+
 2005-10-12  Yves Combe  <yves@ycombe.net>
 
 	test and fix wordlist reading. Will be continued after 7.1.
-	
+
 	* src/gcompris/gcompris.c: (gcompris_init):
 	* src/gcompris/wordlist.c: (gcompris_get_wordlist_from_file):
 
@@ -6343,7 +6374,7 @@ xc2006-03-14  Bruno coudoin  <bruno.coudoin@free.fr>
 	It's already playable but uncomplete.
 	It's hidden by a difficulty 0
 	run 'gcompris -d 0'  to play with it
-	
+
 	* boards/guessnumber.xml.in:
 	* src/boards/python/guessnumber.py:
 
@@ -6498,7 +6529,7 @@ xc2006-03-14  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	Updated screenshots.
 	Changed the web site generation to have clean URL.
-	
+
 	* boards/algebra_by.xml.in:
 	* boards/algebra_group.xml.in:
 	* boards/algebra_guesscount.xml.in:
@@ -6544,7 +6575,7 @@ xc2006-03-14  Bruno coudoin  <bruno.coudoin@free.fr>
 	New image set for the bar game from Franck.
 	Now we have a different image set by level that show up
 	the difficulty increase.
-	
+
 	* .cvsignore:
 	* boards/images/README:
 	* boards/images/school_bg1.jpg:
@@ -6575,7 +6606,7 @@ xc2006-03-14  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	updated mingw makefiles.
 	Added a new background for traffic from Franck. Since I also did one
-	I added traffic background in skins, one from me in babytoy, the new one 
+	I added traffic background in skins, one from me in babytoy, the new one
 	in gartoon.
 	Fixed gcompris_im.c not to crash if no profiles are found
 	Removed some warnings
@@ -6666,7 +6697,7 @@ xc2006-03-14  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	Fixed formatting of boards/wordsgame/default-*
 	Removed some warnings
-	Added shadow in missingletter question and changed 
+	Added shadow in missingletter question and changed
 	it's color to come from the skin
 
 	* boards/skins/gartoon/skin.xml:
@@ -6784,7 +6815,7 @@ xc2006-03-14  Bruno coudoin  <bruno.coudoin@free.fr>
 	Now the default skin is gartoon. The only other option is
 	babytoy.
 	Fixed some warnings.
-	
+
 	* boards/boardicons/anim.png:
 	* boards/boardicons/tuxpaint.png:
 	* boards/skins/babytoy/draw/camera.png:
@@ -6993,7 +7024,7 @@ xc2006-03-14  Bruno coudoin  <bruno.coudoin@free.fr>
 	website and our administratif activity filter.
 	The keywords are incomplete yet.
 	Fixed some warnings.
-	
+
 
 	* boards/algebra_by.xml.in:
 	* boards/algebra_minus.xml.in:
@@ -7049,11 +7080,11 @@ xc2006-03-14  Bruno coudoin  <bruno.coudoin@free.fr>
 	pass sounds files from name like y.ogg to U0079.ogg.
 	Update assetml.in to.
 	Alexey Lubimov fixes the description in russian assetml alphabet file.
-	gameutil.c: fix crash when closing dialog with a callback. 
+	gameutil.c: fix crash when closing dialog with a callback.
 	click_on_letter: fallback to english if locale sound is not here.
 	soundutil: add usefull function to get filename  Uxxxx.ogg from letter.
 	gcompris: fix compilation error with gcc 4.0 (missing declaration)
-	
+
 	* boards/sounds/da/alphabet/1.ogg:
 	* boards/sounds/da/alphabet/2.ogg:
 	* boards/sounds/da/alphabet/3.ogg:
@@ -7810,14 +7841,14 @@ xc2006-03-14  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	Franck gave us 3 new background images for missingletter, money
 	and reading. We are lucky.
-	
+
 	Integrated Basque sounds by Jone de la Cruz Plazaola (GPL)
 
 	Added a shadows in the text of the menu. Need to be well designed
 	for each skin.
 
 	enumerate.c: fixed, was crashing at activity startup
-	
+
 	* boards/missing_letter/missingletter-bg.jpg:
 	* boards/money/money-bg.png:
 	* boards/reading/reading-bg.jpg:
@@ -8110,7 +8141,7 @@ xc2006-03-14  Bruno coudoin  <bruno.coudoin@free.fr>
 
 2005-09-21  Yves Combe  <yves@ycombe.net>
 
-	pass text colors for menu into skin (Franck Doucet need it). 
+	pass text colors for menu into skin (Franck Doucet need it).
 
 	* boards/skins/babytoy/skin.xml:
 	* boards/skins/default/skin.xml:
@@ -8182,7 +8213,7 @@ xc2006-03-14  Bruno coudoin  <bruno.coudoin@free.fr>
 	Fixed gcompris2spip to work with spip 1.8.2
 
 	Commit of XRANDR patch from debian Bug report logs - #310058
-	
+
 	* INSTALL:
 	* boards/hanoi_real.xml.in:
 	* docs/screenshots/memory_tux.jpg:
@@ -8208,7 +8239,7 @@ xc2006-03-14  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	Release 7.0.1
 	Minor fixes for this release
-	
+
 	* boards/flags/ka.png:
 	* boards/hanoi_real.xml.in:
 	* configure.in:
@@ -8239,7 +8270,7 @@ xc2006-03-14  Bruno coudoin  <bruno.coudoin@free.fr>
 	Improved images and icons
 	Added full activity path/name in the help so that user can run
 	gcompris -l activity
-	
+
 	* boards/boardicons/algorithm.png:
 	* boards/boardicons/hexagon.png:
 	* boards/images/scenery5_background.png:
@@ -8315,7 +8346,7 @@ xc2006-03-14  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	refuse --reread-menu if db is read-only.
 	quote boards strings before inserting in db with sqlite3_mprintf.
-	
+
 	* src/gcompris/gcompris.c: (gcompris_init):
 	* src/gcompris/gcompris_db.c: (gcompris_db_board_update),
 	(gcompris_db_get_board_id):
@@ -8354,7 +8385,7 @@ xc2006-03-14  Bruno coudoin  <bruno.coudoin@free.fr>
 2005-09-11  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	Reworked icons by Bruno.
-	
+
 	* boards/boardicons/fifteen.png:
 	* boards/boardicons/hanoi.png:
 	* boards/boardicons/hanoi_real.png:
@@ -8465,7 +8496,7 @@ xc2006-03-14  Bruno coudoin  <bruno.coudoin@free.fr>
 	(hanoi_create_item), (game_won), (is_completed), (item_event):
 
 2005-09-09  Bruno coudoin  <bruno.coudoin@free.fr>
-	
+
 	Fixed connect4 (bug #313432)
 	Added sudoku dataset (9x9 level)
 	Removed external lauch of mozilla in the about box. It create problems
@@ -8513,7 +8544,7 @@ xc2006-03-14  Bruno coudoin  <bruno.coudoin@free.fr>
 
 2005-09-04  Bruno coudoin  <bruno.coudoin@free.fr>
 
-	Fixed bug #314680 
+	Fixed bug #314680
 	http://bugzilla.gnome.org/show_bug.cgi?id=314680
 	Thanks to Clytie Siddall
 
@@ -8814,7 +8845,7 @@ xc2006-03-14  Bruno coudoin  <bruno.coudoin@free.fr>
 
         - added continent voices for french by Julien Gilles
 	- removed useless translation in src/gcompris/gcompris_db.c
-	
+
 
 	* boards/login.xml.in: typo
 	* boards/sounds/fr/geography/COPYRIGHT:
@@ -8864,7 +8895,7 @@ xc2006-03-14  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	Change fonts size and interline  in reading.c
 	suppress filter boards from old config.
-	
+
 	* src/boards/reading.c: (start_board), (reading_create_item):
 	* src/gcompris/config.c: (gcompris_config_start), (item_event_ok):
 
@@ -8890,7 +8921,7 @@ xc2006-03-14  Bruno coudoin  <bruno.coudoin@free.fr>
 	clean login.py trace
 	clean get_conf trace in gcompris_db
 	add wordlist.h wordlist.c: preparation of api for getting wordlist xml files. Not used in the coming release.
-	
+
 	* src/boards/click_on_letter.c: (start_board):
 	* src/boards/colors.c: (colors_config_start), (start_board):
 	* src/boards/gletters.c: (start_board), (end_board), (save_table),
@@ -8922,11 +8953,11 @@ xc2006-03-14  Bruno coudoin  <bruno.coudoin@free.fr>
 
 2005-08-27  bruno coudoin
 
-	- a trigger was bad and caused wholegroup to be not 
+	- a trigger was bad and caused wholegroup to be not
 	  well maintained
 	- added many ORDER BY to keep list ordered in the user
 	  interface
-	
+
 	* src/boards/python/admin/class_edit.py:
 	* src/boards/python/admin/group_edit.py:
 	* src/boards/python/admin/group_list.py:
@@ -8937,7 +8968,7 @@ xc2006-03-14  Bruno coudoin  <bruno.coudoin@free.fr>
 	* src/boards/python/admin/user_list.py:
 	* src/boards/python/sudoku.py: minor, color change
 	* src/gcompris/gcompris_db.c: fixed trigger.
-	 
+
 
 2005-08-27  Yves Combe  <yves@ycombe.net>
 
@@ -8991,7 +9022,7 @@ xc2006-03-14  Bruno coudoin  <bruno.coudoin@free.fr>
 2005-08-26  Yves Combe  <yves@ycombe.net>
 
 	patch by Joe Neeman.
-	This patch fixes some issues with Troggle difficulty and fixes translation problems. 
+	This patch fixes some issues with Troggle difficulty and fixes translation problems.
 
 	* src/boards/python/gnumch.py:
 
@@ -8999,7 +9030,7 @@ xc2006-03-14  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	add several functions for directory management.
 	create user from system data if no user to log (system encoding?).
-	
+
 	* src/boards/py-gcompris-user.c: (pyGcomprisUserType_getattr):
 	* src/boards/py-mod-gcompris.c: (pyGcomprisTextCallback),
 	(py_gcompris_get_user_dirname), (py_gcompris_get_board_dirname),
@@ -9024,10 +9055,10 @@ xc2006-03-14  Bruno coudoin  <bruno.coudoin@free.fr>
 	* src/boards/python/sudoku.py: After gcompris team review, fixed
 	several bugs, added support for drop over previous symbol
 	added current sublevel number display
-	
+
 2005-08-25  Yves Combe  <yves@ycombe.net>
 
-	Fix (hope it's fixed) strange locale bug with shapegame. Bar buttons actions like Help and About were passed non translated when go in/out shapegame. 
+	Fix (hope it's fixed) strange locale bug with shapegame. Bar buttons actions like Help and About were passed non translated when go in/out shapegame.
 
 	* src/gcompris/gcompris.c: (gcompris_set_locale):
 
@@ -9094,7 +9125,7 @@ xc2006-03-14  Bruno coudoin  <bruno.coudoin@free.fr>
 	Fixed maintenance of the wholegroup by using sqlite triggers
 	This fixes several bugs in class edition. I'll look further
 	this way to fix group and profile edition if needed.
-	
+
 	* src/boards/python/admin/class_edit.py:
 	* src/boards/python/admin/class_list.py:
 	* src/boards/python/admin/user_edit.py:
@@ -9147,7 +9178,7 @@ xc2006-03-14  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	key is no more passed in combo_locales nor combo_locales_asset (for general conf control).
 	add a repeat button in bar for login. Usefull to restart the login process in case of mistake.
-	
+
 	* src/boards/click_on_letter.c: (config_start):
 	* src/boards/colors.c: (colors_config_start):
 	* src/boards/py-mod-gcompris.c: (py_gcompris_combo_locales),
@@ -9202,14 +9233,14 @@ xc2006-03-14  Bruno coudoin  <bruno.coudoin@free.fr>
 	* src/boards/python/sudoku.py: Implemented support for non 9x9 sudoku
 	Implemented level management
 	The first level is playable
-	
+
 2005-08-20  Yves Combe  <yves@ycombe.net>
 
 	fix GcomprisUser binding (user->login was missing).
 	add missing python bindings in admin: get_users_from_group, set_current_user, get_current_user.
 	login.py now uses that.
 	pythontest check get_current_user
-	
+
 	* src/boards/py-gcompris-user.c: (pyGcomprisUserType_getattr):
 	* src/boards/py-mod-admin.c: (py_gcompris_get_users_from_group),
 	(py_gcompris_set_current_user), (py_gcompris_get_current_user):
@@ -9248,7 +9279,7 @@ xc2006-03-14  Bruno coudoin  <bruno.coudoin@free.fr>
 	* po/POTFILES.in: added missing sudoku
 	* src/boards/python/sudoku.py: improved colors
 	* boards/boardicons/sudoku.png: created by bruno
-	
+
 2005-08-20  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	reviewed by: <delete if not using a buddy>
@@ -9258,12 +9289,12 @@ xc2006-03-14  Bruno coudoin  <bruno.coudoin@free.fr>
 
 2005-08-20  Bruno coudoin  <bruno.coudoin@free.fr>
 
- 	- Included art from Nicu for Mister Potato 
+ 	- Included art from Nicu for Mister Potato
 	  Nicu Buculei <nicu@nicubunu.ro> gave us it's Mister Potato
 	  and released it under GPL.
-	- Implemented a first login screen. Not all problem solved and we 
-	  need at least a login level where kids enter their name with the 
-	  keyboard. 
+	- Implemented a first login screen. Not all problem solved and we
+	  need at least a login level where kids enter their name with the
+	  keyboard.
 	  The problem with the current login is that it become a top level
 	  pseudo board which is loaded shortly even if there is no users.
 	  When there is no users, the login should not be used at all.
@@ -9475,7 +9506,7 @@ xc2006-03-14  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	pass gcompris_combo_box init and returned values to string.
 	add gcompris_combo_locale to add easily a locale choice for board.
-	
+
 	* src/boards/colors.c: (colors_config_start):
 	* src/boards/py-mod-gcompris.c: (py_gcompris_combo_box):
 	* src/boards/python/pythontest.py:
@@ -9581,7 +9612,7 @@ xc2006-03-14  Bruno coudoin  <bruno.coudoin@free.fr>
 
 2005-08-04  Bruno coudoin  <bruno.coudoin@free.fr>
 
-	Improved by Yves. Now there is a by level filtering. 
+	Improved by Yves. Now there is a by level filtering.
 	Very impressive how he made this user friendly. Much
 	better than what I did in the configuration panel.
 
@@ -9596,9 +9627,9 @@ xc2006-03-14  Bruno coudoin  <bruno.coudoin@free.fr>
 	  'almost' because until you enter and quit the gcompris config
 	  panel, it is not saved. This is very dangerous becaus after that
 	  there is no way to put back xrander in since there is no --withxrandr
-	  switch. 
+	  switch.
 	  WARNING: This need more works !!
-	
+
 	* boards/login.xml.in:
 	* src/boards/python/login.py: Empty and unused for now
 	* boards/Makefile.am:
@@ -9630,7 +9661,7 @@ xc2006-03-14  Bruno coudoin  <bruno.coudoin@free.fr>
 	Completed the code, added some checkings.
 	Still need some testing.
 	Made the icons.
-	
+
 	* boards/skins/default/config_boards.png:
 	* boards/skins/default/config_groups.png:
 	* boards/skins/default/config_profiles.png:
@@ -9654,7 +9685,7 @@ xc2006-03-14  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	Completed management of the wholegroup. Now after editing class users
 	the wholegroup is updated automatically
-	
+
 	* src/boards/python/admin/class_edit.py:
 	* src/boards/python/admin/class_list.py:
 	* src/gcompris/gcompris.c:
@@ -9800,7 +9831,7 @@ xc2006-03-14  Bruno coudoin  <bruno.coudoin@free.fr>
 	* README: moved translators info in po/TRANSLATORS.README
 	* boards/flags/gcompris_flags.assetml.in:
 	* po/TRANSLATORS.README: created.
-	* src/gcompris/config.c: 
+	* src/gcompris/config.c:
 	* configure.in: flags version is now 1.9
 
 2005-07-23  Pawan Chitrakar  <pawan@nplinux.org>
@@ -9836,7 +9867,7 @@ xc2006-03-14  Bruno coudoin  <bruno.coudoin@free.fr>
 2005-07-22  Yves Combe  <yves@ycombe.net>
 
 	board config_start function now launched correctly. Example is in tuxpaint.py
-	
+
 	* src/boards/py-mod-admin.c: (py_board_config_start):
 	* src/boards/python.c: (pythonboard_config_start):
 	* src/boards/python/admin/board_list.py:
@@ -9861,7 +9892,7 @@ xc2006-03-14  Bruno coudoin  <bruno.coudoin@free.fr>
 	Added 3 new background musics (classical music).
 
 	Implemented the management of the default profile.
-	
+
 	* boards/music/background/COPYRIGHT: Added public domain released classical musics
 	  from T. Willhoite found on http://www.archive.org
 	* boards/music/background/Mozart__WA_-_String_Quartet_No.2_in_D_Mvmt_3.ogg
@@ -9905,7 +9936,7 @@ xc2006-03-14  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	First implementation of the profile module in the editor
 	The edition of the profile's group is not yet coded.
-	
+
 	* src/boards/python/admin/Makefile.am:
 	* src/boards/python/admin/constants.py:
 	* src/boards/python/admin/group_edit.py:
@@ -10032,7 +10063,7 @@ xc2006-03-14  Bruno coudoin  <bruno.coudoin@free.fr>
 	Reworked the class module to use a single canvas item
 	Now layout is managed by GTK
 	Bottom user list now follow the top class list selection
-	
+
 	* src/boards/python/admin/class_list.py:
 	* src/boards/python/admin/group_user_list.py:
 	* src/boards/python/admin/module_users.py:
@@ -10045,7 +10076,7 @@ xc2006-03-14  Bruno coudoin  <bruno.coudoin@free.fr>
 	I still need to rework the class module to use a single canvas object
 	and use GTK layout instead of a fixed layout.
 	This solved the I18N issue with text too large in buttons.
-	
+
 	* src/boards/python/admin/group_edit.py:
 	* src/boards/python/admin/group_user_list.py:
 	* src/boards/python/admin/module_users.py:
@@ -10057,7 +10088,7 @@ xc2006-03-14  Bruno coudoin  <bruno.coudoin@free.fr>
 	* admin/group_edit.py: new file for group edition
 	* admin/group_user_list.py: same
 	* src/gcompris/gcompris.c: (gcompris_init): force fullscreen off in edit mode.
-	
+
 
 2005-07-10  Yves Combe  <yves@ycombe.net>
 
@@ -10171,7 +10202,7 @@ xc2006-03-14  Bruno coudoin  <bruno.coudoin@free.fr>
 	Fixed the POTFILES.in
 	Changed all gtk.FALSE by False in all python script.
 	gtk.FALSE is deprecated
-		
+
 	* po/POTFILES.in:
 	* src/boards/python/admin/class_list.py:
 	* src/boards/python/admin/user_list.py:
@@ -10327,7 +10358,7 @@ xc2006-03-14  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	Added missing files for the edit mode (editing class)
 	Re-Added gcompris-edit menu
-	
+
 	* Makefile.am:
 	* gcompris-edit.desktop.in:
 	* gcompris-edit.png:
@@ -10342,7 +10373,7 @@ xc2006-03-14  Bruno coudoin  <bruno.coudoin@free.fr>
 	* INSTALL: fixed new dependancies pyxml, pysqlite sqlite-devel
 	* src/boards/python/admin/users.py: improved, started class-edit
 	* src/boards/python/admin/class_edit.py: started, no complete yet.
-	
+
 2005-07-01  Yves Combe  <yves@ycombe.net>
 
 	* src/boards/py-mod-gcompris.c: gcompris.child_watch_add compris.spawn_async to bind g_child_watch_add and g_spawn_async, (code from pygtk 2.6)
@@ -10356,7 +10387,7 @@ xc2006-03-14  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* add tuxpaint launcher board.
 	* add properties python binding.
-	* fix board_finished bug when launched directly with -l 
+	* fix board_finished bug when launched directly with -l
 
 2005-06-27  Bruno coudoin  <bruno.coudoin@free.fr>
 
@@ -10381,7 +10412,7 @@ xc2006-03-14  Bruno coudoin  <bruno.coudoin@free.fr>
 2005-06-27  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* boards/dataset/mrpatate.xml: added missing images from imageid
-	* boards/dataset/tuxpaint_pictures.xml: will provide tuxpaint user saved drawings from 
+	* boards/dataset/tuxpaint_pictures.xml: will provide tuxpaint user saved drawings from
 	  gcompris image selector (if any).
 
 2005-06-27  Yves Combe  <yves@ycombe.net>
@@ -10396,7 +10427,7 @@ xc2006-03-14  Bruno coudoin  <bruno.coudoin@free.fr>
 2005-06-22  Yves Combe  <yves@ycombe.net>
 
 	* Completed migration of USE_PROFILS to USE_SQLITE.
-	* Now profile system is always compiled in. 
+	* Now profile system is always compiled in.
 	If SQLITE is not avalaible, profile system is just disabled.
 
 2005-06-20  Yves Combe  <yves@ycombe.net>
@@ -10421,7 +10452,7 @@ xc2006-03-14  Bruno coudoin  <bruno.coudoin@free.fr>
 
 2005-06-14  Yves Combe  <yves@ycombe.net>
 
-	* fix missing board_dir initialisation when board is read 
+	* fix missing board_dir initialisation when board is read
 	from db.
 
 2005-06-14  Yves Combe  <yves@ycombe.net>
@@ -10441,7 +10472,7 @@ xc2006-03-14  Bruno coudoin  <bruno.coudoin@free.fr>
 2005-06-13  Yves Combe  <yves@ycombe.net>
 
 	PROFILS
-	* Read board from db at load ! 
+	* Read board from db at load !
 
 2005-06-13  Yves Combe  <yves@ycombe.net>
 
@@ -10477,7 +10508,7 @@ xc2006-03-14  Bruno coudoin  <bruno.coudoin@free.fr>
 
 2005-05-30  Yves Combe <yves@ycombe.net>
 
-	* src/gcompris/gcompris.c src/gcompris/properties.c src/gcompris/properties.h: 
+	* src/gcompris/gcompris.c src/gcompris/properties.c src/gcompris/properties.h:
 	command line parameters for profils database
 
 2005-05-27  Yves Combe  <yves@ycombe.net>
@@ -10488,7 +10519,7 @@ xc2006-03-14  Bruno coudoin  <bruno.coudoin@free.fr>
 	* add profile.h (profile.c missing again)
 	* add profiles in properties.{c,h} and in gcompris.c
 	* fix configure.in and src/gcompris/Makefile.am to compile profiles correctly.
-	
+
 2005-05-25  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* boards/maze2DRelative.xml.in: improved help message
@@ -10504,7 +10535,7 @@ xc2006-03-14  Bruno coudoin  <bruno.coudoin@free.fr>
 	In anim, fixed the search for external (full path images)
 	Question: Yves could we put external images relatives to the user home dir.
 	This way we could exchange animation is the user copy her personal image dir.
-	
+
 	* src/boards/python/anim.py:
 	* src/boards/python/bargame.py:
 	* src/boards/python/gnumch.py:
@@ -10517,7 +10548,7 @@ xc2006-03-14  Bruno coudoin  <bruno.coudoin@free.fr>
 2005-05-17  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	Updated the screenshots web site.
-	
+
 	* boards/gnumch-equality.xml.in:
 	* boards/gnumch-factors.xml.in:
 	* boards/gnumch-inequality.xml.in:
@@ -10662,7 +10693,7 @@ xc2006-03-14  Bruno coudoin  <bruno.coudoin@free.fr>
 	Added many files needed for the windows side of the world, including
 	installer files. I copied these files from gaim and adapted them for gcompris.
 	fixed gletters not to crash anymore on windows.
-	
+
 	* boards/gnumch-equality.xml.in:
 	* boards/gnumch-factors.xml.in:
 	* boards/gnumch-inequality.xml.in:
@@ -10709,7 +10740,7 @@ xc2006-03-14  Bruno coudoin  <bruno.coudoin@free.fr>
 2005-05-10  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	Fixed board.c not to write out of bounds in an array
-	
+
 
 	* src/gcompris/assetml.c: (assetml_get_asset): added more checkings in case of errors.
 	* src/gcompris/board.c: (init_plugins), (board_check_file): Fixed board.c not to write out of bounds in an array.
@@ -10718,7 +10749,7 @@ xc2006-03-14  Bruno coudoin  <bruno.coudoin@free.fr>
 2005-05-07  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* README.mingw: updated
-	* src/gcompris/Makefile.mingw: now the installer works. 
+	* src/gcompris/Makefile.mingw: now the installer works.
 	There is still a major problem with bonuses not working on windows.
 
 2005-05-03  Bruno coudoin  <bruno.coudoin@free.fr>
@@ -10834,7 +10865,7 @@ xc2006-03-14  Bruno coudoin  <bruno.coudoin@free.fr>
 	Many little changes to ease the windows port. Now uses the glib
 	to load files with g_dir_open and no more readdir.
 	Many compilation warning removed.
-	
+
 	* INSTALL: updated for SDL_mixer
 	* src/boards/clickgame.c: (clickgame_start):
 	* src/boards/money_widget.c: (finalize):
@@ -10871,7 +10902,7 @@ xc2006-03-14  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	anim, fixed the bug when you ask an animation play on an empty
 	drawing.
-	
+
 	* boards/Makefile.am:
 	* boards/boardicons/gnumch.png:
 	* boards/gletters/gletters.nb:
@@ -10927,7 +10958,7 @@ xc2006-03-14  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* boards/gletters/README: added a comment explaining the fallrate and droprate are optional
 	* boards/gletters/gletters.sv: provided by G~ran Uddeborg <goeran at uddeborg.se>
-	* src/boards/python/algorithm.py: changed the question mark color to black (for color blind 
+	* src/boards/python/algorithm.py: changed the question mark color to black (for color blind
 	and ease of view).
 	* src/boards/python/anim.py: fixed a string.
 
@@ -10946,7 +10977,7 @@ xc2006-03-14  Bruno coudoin  <bruno.coudoin@free.fr>
 	* boards/music/intro.ogg: Ludovic Grossard reworked the intro music.
 	It's based on the previous melody but sounds better.
 	* src/boards/python/connect4.py: Fixed to work with new graphism
-	* src/boards/smallnumbers.c: (smallnumbers_create_item): In case of 2 dices, one could be hidden 
+	* src/boards/smallnumbers.c: (smallnumbers_create_item): In case of 2 dices, one could be hidden
 	on the right. It's fixed now.
 	* src/gcompris/gcompris.c: Minor string change in the usage.
 
@@ -10956,7 +10987,7 @@ xc2006-03-14  Bruno coudoin  <bruno.coudoin@free.fr>
 	* boards/erase_double_clic.xml.in: -
 	* po/POTFILES.in: fixed misspelled files
 	* po_report.pl: added Rwanda
-	* src/gcompris/anim.c: (gcompris_load_animation): 
+	* src/gcompris/anim.c: (gcompris_load_animation):
 	* src/gcompris/gameutil.c: (gcompris_load_pixmap),
 	(gcompris_find_absolute_filename): added gcompris_find_absolute_filename by Yves
 	It makes it easier to search file in GCompris usual directory or local
@@ -10981,7 +11012,7 @@ xc2006-03-14  Bruno coudoin  <bruno.coudoin@free.fr>
 	Some minor fixes for win32 compilation
 
 	log format is now generic and does not need to be localised.
-	
+
 	* Makefile.am:
 	* boards/Makefile.am:
 	* boards/bargame.xml.in:
@@ -11033,13 +11064,13 @@ xc2006-03-14  Bruno coudoin  <bruno.coudoin@free.fr>
 2005-04-12  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	Yves created 2 new activities by changeing the erase one.
-	Now we have a submenu in the computer menu to learn 
+	Now we have a submenu in the computer menu to learn
 	mouse move, simple and double click
 
 	Laurent fixed connect4 activity. No more bug clicking on a full column.
 
 	menu.c fixed to find boardicon in it's local board directory
-	
+
 	* boards/Makefile.am:
 	* boards/boardicons/erase_clic.png:
 	* boards/boardicons/erase_double_clic.png:
@@ -11068,7 +11099,7 @@ xc2006-03-14  Bruno coudoin  <bruno.coudoin@free.fr>
 	* src/boards/python/connect4.py: fixed by Yves. There was a bug in case of a draw game.
 	* src/gcompris/gameutil.c: (gcompris_get_board_from_section): By Yves, we can now run a single
 	activity from the command line with for e.g -l /reading/imagename.
-	* src/gcompris/interface.c: (create_gcompris_edit): removed unused menu that seems to crash 
+	* src/gcompris/interface.c: (create_gcompris_edit): removed unused menu that seems to crash
 	compilation on new distrib
 	* src/gcompris/soundutil.c: (thread_play_ogg): fixed to search sound file in local board_dir as well
 
@@ -11081,11 +11112,11 @@ xc2006-03-14  Bruno coudoin  <bruno.coudoin@free.fr>
 
 
 	* README: update to point the the boards/gletters/README
-	* boards/boardicons/connect4.png: 
+	* boards/boardicons/connect4.png:
 	* boards/connect4.xml.in: changed to use the icon already in the game
 	* docs/C/python.html: updated
 	* docs/C/python.xml: -
-	* po/POTFILES.in: updated 
+	* po/POTFILES.in: updated
 	* src/boards/py-mod-gcompris.c: (python_gcompris_module_init):
 	* src/boards/python.c: (pythonboard_start):
 	* src/boards/python/anim.py:
@@ -11105,8 +11136,8 @@ xc2006-03-14  Bruno coudoin  <bruno.coudoin@free.fr>
 2005-04-10  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	New sounds package for Swedish
-	The voice is Ulrika Uddeborg and the packager is G~ran Uddeborg 
-	
+	The voice is Ulrika Uddeborg and the packager is G~ran Uddeborg
+
 	* boards/sounds/Makefile.am:
 	* boards/sounds/sv/Makefile.am:
 	* boards/sounds/sv/alphabet/0.ogg:
@@ -11293,7 +11324,7 @@ xc2006-03-14  Bruno coudoin  <bruno.coudoin@free.fr>
 2005-04-04  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	Improved by Laurent Lacheny
-	
+
 	* src/boards/python/connect4.py:
 	* src/boards/python/connect4p/minmax.py:
 
@@ -11312,7 +11343,7 @@ xc2006-03-14  Bruno coudoin  <bruno.coudoin@free.fr>
 
 2005-03-31  Bruno coudoin  <bruno.coudoin@free.fr>
 
-	Laurent Lacheny has created a new activity in gcompris. 
+	Laurent Lacheny has created a new activity in gcompris.
 	It's the classic connect4. You have to connect 4 lines in a row.
 	You play against the computer.
 	The IA code comes from the project 4stattack by Jeroen Vloothuis
@@ -11369,7 +11400,7 @@ xc2006-03-14  Bruno coudoin  <bruno.coudoin@free.fr>
 	startup)
 	Just put some images here and they will be selectable in the image_selector
 	in anim or draw.
-	
+
 	* boards/dataset/user_pictures.xml:
 	* configure.in:
 	* gcompris.spec.in:
@@ -11385,7 +11416,7 @@ xc2006-03-14  Bruno coudoin  <bruno.coudoin@free.fr>
 	- Improved wartercycle to use latest animation code. Made a new
 	  boat animation based on Frank's fishing boat.
 	- Implemented XRANDR support in gcompris.c
-	
+
 	* boards/watercycle/fishingboat.gif:
 	* boards/watercycle/fishingboat.png:
 	* boards/watercycle/fishingboat_tux.png:
@@ -11431,7 +11462,7 @@ xc2006-03-14  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	Fixed by Jose to have a decreasing boat speed.
 	Stopped animation.
-	
+
 	* src/boards/python/watercycle.py:
 
 2005-03-23  Bruno coudoin  <bruno.coudoin@free.fr>
@@ -11461,7 +11492,7 @@ xc2006-03-14  Bruno coudoin  <bruno.coudoin@free.fr>
 	Joe Neeman implemented the animation API (C and python)
 	Added a test case for that in watercycle.
 	Added a Garden chronos level by Frank
-	
+
 	* boards/chronos/Makefile.am: added a Garden chronos level by Frank
 	* boards/chronos/images/garden1.png:
 	* boards/chronos/images/garden2.png:
@@ -11470,7 +11501,7 @@ xc2006-03-14  Bruno coudoin  <bruno.coudoin@free.fr>
 	* boards/clockgame/clockgame-bg.jpg: rework by bruno to look like babytoy theme
 	* boards/draw/tool-camera.png: fixed by Frank
 	* boards/draw/tool-camera_on.png: -
-	* boards/geography/board2_0.xml.in: Fixed switz to Switzeraland. 
+	* boards/geography/board2_0.xml.in: Fixed switz to Switzeraland.
 	* boards/geography/board2_1.xml.in: Added capital letters in front of each contry
 	* boards/geography/board3_0.xml.in: -
 	* boards/geography/board3_1.xml.in: -
@@ -11632,13 +11663,13 @@ xc2006-03-14  Bruno coudoin  <bruno.coudoin@free.fr>
 	* boards/sounds/melody/xylofon/son4.ogg:
 	* configure.in:
 	* po_report.pl: updated to use C locale
-	* src/boards/python/melody.py: 
+	* src/boards/python/melody.py:
 	* src/gcompris/config.c: added bulgarian
 
 	*** RELEASE 6.5.1 ***
 
 	Fixed Packaging bug
-	
+
 	*** RELEASE 6.5   ***
 
 2005-03-11  Alexander Shopov  <ash@contact.bg>
@@ -11649,11 +11680,11 @@ xc2006-03-14  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	Updated TODO related to the PROFILE DESIGN
 	Web site updated
-	Fixed major bug and crash in click_on_letter. One problem was a free 
-	on the text being passed to the wagon. The othe is a bad side effect of the 
+	Fixed major bug and crash in click_on_letter. One problem was a free
+	on the text being passed to the wagon. The othe is a bad side effect of the
 	focus on the wagon.
 	final bonus now hide the toolbar.
-	
+
 	* TODO:
 	* docs/website/article.html:
 	* docs/website/auteur.html:
@@ -11717,7 +11748,7 @@ xc2006-03-14  Bruno coudoin  <bruno.coudoin@free.fr>
 	Better icons. Completed the fileselector to use the icons based on their extension
 	and the mimetype.
 	Need testing.
-	
+
 	* boards/gcompris/mimetypes/icons/gcompris+draw.png:
 	* boards/gcompris/mimetypes/icons/gcompris.png:
 	* boards/gcompris/mimetypes/icons/svg+xml+javascript.png:
@@ -11732,7 +11763,7 @@ xc2006-03-14  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	Yves fixed dialog call from python and anim
 	file_selector is a little bit improved
-	
+
 	* src/boards/py-mod-utils.c: (py_gcompris_dialog):
 	* src/boards/python/anim.py:
 	* src/gcompris/file_selector.c: (display_files),
@@ -11741,7 +11772,7 @@ xc2006-03-14  Bruno coudoin  <bruno.coudoin@free.fr>
 2005-03-01  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	Yves has added a dialog in case the images are not found on reload
-	
+
 	* src/boards/python/anim.py:
 
 2005-02-28  Bruno coudoin  <bruno.coudoin@free.fr>
@@ -11750,7 +11781,7 @@ xc2006-03-14  Bruno coudoin  <bruno.coudoin@free.fr>
 	Now it's possible to provide a single .xml file by mimetype definition.
 	Add icons from the gnome stock default icons.
 	At least, extension are added on save.
-	
+
 	* boards/gcompris/Makefile.am:
 	* boards/gcompris/mime_type.xml.in:
 	* boards/gcompris/mimetypes/.cvsignore:
@@ -11782,7 +11813,7 @@ xc2006-03-14  Bruno coudoin  <bruno.coudoin@free.fr>
 
 
 	*** RELEASE 6.5PRE2 ***
-	
+
 2005-02-18  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* boards/anim/animation.js: updated by Yves
@@ -11838,7 +11869,7 @@ xc2006-03-14  Bruno coudoin  <bruno.coudoin@free.fr>
 	Commited Hindi Gujarati translation by jignesh chaudhari
 	Commited update of anim.py plus mozilla svg export by Yve Combe
 	Fixed file_selector to return the correct file type
-	
+
 	* boards/anim/animation.js:
 	* boards/flags/gcompris_flags.assetml.in:
 	* boards/flags/gu.png:
@@ -11895,8 +11926,8 @@ xc2006-03-14  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	- added a new maze variant on Yves suggestion. The 2D invisible maze.
 	- changed anim to support the draw mode
-	
-	* boards/Makefile.am: 
+
+	* boards/Makefile.am:
 	* boards/draw.xml.in:
 	* po/POTFILES.in:
 	* src/boards/maze.c: (start_board), (maze_next_level), (repeat),
@@ -11938,7 +11969,7 @@ After level 5, 2 dices fall with total numbers up to 9. With the simplistic entr
 	Welcome to life to Nicolas Combes.
 
 	Added a new relative 2D maze. On the idea of Yves.
-	Well meny peaple though about it and wanted it. Yves and Nicolas decided me to 
+	Well meny peaple though about it and wanted it. Yves and Nicolas decided me to
 	implement it now.
 
 	* boards/Makefile.am: added maze2DRelative
@@ -11963,7 +11994,7 @@ After level 5, 2 dices fall with total numbers up to 9. With the simplistic entr
 
 2005-01-24  Bruno coudoin  <bruno.coudoin@free.fr>
 
-	* boards/click_on_letter.xml.in: fixed bad assetml reference that was making the 
+	* boards/click_on_letter.xml.in: fixed bad assetml reference that was making the
 	audio being seen as broken on the menu icon
 	* boards/geography.xml.in: same
 	* boards/searace1player.xml.in: fixed typo
@@ -11984,7 +12015,7 @@ After level 5, 2 dices fall with total numbers up to 9. With the simplistic entr
 2005-01-18  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	Added one player searace
-	
+
 	* boards/Makefile.am:
 	* boards/boardicons/searace1player.png:
 	* boards/images/top_boat_green_tux.png:
@@ -11993,7 +12024,7 @@ After level 5, 2 dices fall with total numbers up to 9. With the simplistic entr
 
 2005-01-16  Bruno coudoin  <bruno.coudoin@free.fr>
 
-	* boards/chronos/images/chronos-tuxtree1.png: fixed to include a background 
+	* boards/chronos/images/chronos-tuxtree1.png: fixed to include a background
 	* boards/chronos/images/chronos-tuxtree2.png: -
 	* boards/chronos/images/chronos-tuxtree3.png: -
 	* boards/chronos/images/chronos-tuxtree4.png: -
@@ -12098,7 +12129,7 @@ After level 5, 2 dices fall with total numbers up to 9. With the simplistic entr
 	Before, The enter key was always sent to the ok function.
 	I did not checked if this breaks compatibility yet. It may be needed to add some
 	catch of the Enter key in ok functions.
-	
+
 2004-12-16  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* docs/gcompris2spip.pl: added Norsk Bokmal
@@ -12109,8 +12140,8 @@ After level 5, 2 dices fall with total numbers up to 9. With the simplistic entr
 
 	Franck Doucet made again some vehicles.
 	They are added in chronos and the drawings utilities
-	
-	* boards/chronos/Makefile.am: 
+
+	* boards/chronos/Makefile.am:
 	* boards/chronos/board4_1.xml.in:
 	* boards/chronos/images/1955ds19.png:
 	* boards/chronos/images/benz1885.png:
@@ -12185,15 +12216,15 @@ After level 5, 2 dices fall with total numbers up to 9. With the simplistic entr
 
 	* configure.in: changed to release 6.4: release 6.4
 	* boards/wordsgame/wordslevel1.nb: created by Klaus Ade Johnstad.
-	* boards/wordsgame/wordslevel2.nb: - 
+	* boards/wordsgame/wordslevel2.nb: -
 	* boards/wordsgame/wordslevelmax.nb: -
 	* po/nb.po: translation updated by Klaus Ade Johnstad.
 
 2004-11-29  Bruno coudoin  <bruno.coudoin@free.fr>
-	
+
 	to fix the newline issues in xml files, added the token xml:space="preserve"
 	Thanks to Danilo Segan for that.
-	
+
 	* boards/chronos/board3_0.xml.in:
 	* boards/menu.xml.in:
 	* boards/redraw_symmetrical.xml.in: fixed directory path
@@ -12202,7 +12233,7 @@ After level 5, 2 dices fall with total numbers up to 9. With the simplistic entr
 
 	* boards/algebramenu.xml.in: replace algebra by math
 	* docs/spip_oneboard.xsl: updated, fixed web site
-	* docs/spipparser.pl: - 
+	* docs/spipparser.pl: -
 	* docs/website/article.html: added the spip web site here.
 	* docs/website/gcompris.css:
 	* docs/website/rubrique.html:
@@ -12223,7 +12254,7 @@ After level 5, 2 dices fall with total numbers up to 9. With the simplistic entr
 
 	complete the work on screenshots creation.
 	First release of the screenshots are online on http://gcompris.net
-	
+
 	* docs/.cvsignore:
 	* docs/spip_menuboard.xsl:
 	* docs/spip_oneboard.xsl:
@@ -12241,7 +12272,7 @@ After level 5, 2 dices fall with total numbers up to 9. With the simplistic entr
 	* src/boards/wordsgame.c: (pause_board), (start_board),
 	(wordsgame_next_level), (wordsgame_move_item),
 	(wordsgame_move_items), (player_win): improved the drop speed to
-	change speed and fallspeed when list of words on screen is empty 
+	change speed and fallspeed when list of words on screen is empty
 	(player typed words more fast when it drops).
 	May be adjust increment min and max speed by change #define constants.
 	Done by Alexey Lubimov
@@ -12269,7 +12300,7 @@ After level 5, 2 dices fall with total numbers up to 9. With the simplistic entr
 
 	Italian sounds resampled to 44100 by Marcello Missiroli
 	Upgraded italian sounds release to 1.1
-	
+
 	* boards/sounds/it/alphabet/1.ogg:
 	* boards/sounds/it/alphabet/10.ogg:
 	* boards/sounds/it/alphabet/11.ogg:
@@ -12422,7 +12453,7 @@ After level 5, 2 dices fall with total numbers up to 9. With the simplistic entr
 2004-11-09  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	release 6.3 final
-	
+
 	Also I fixed the too long text in chronos. Now shapes type activity have
 	a better textual color. I added the option
 	color_skin="gcompris/textbutton" in the shape xml format.
@@ -12476,22 +12507,22 @@ After level 5, 2 dices fall with total numbers up to 9. With the simplistic entr
 
 2004-11-08  Bruno coudoin  <bruno.coudoin@free.fr>
 
-	* src/boards/gletters.c: (gletters_create_item): By Alexey Lubimov 
-	1)  fix find voices for letters. (convert to lowercase, as filenames in 
+	* src/boards/gletters.c: (gletters_create_item): By Alexey Lubimov
+	1)  fix find voices for letters. (convert to lowercase, as filenames in
 	    assetml)
-	2) fix range in random generator (at this time first letter in alphabet 
+	2) fix range in random generator (at this time first letter in alphabet
 	   never used and may use len(alphabet) +1 ).
 	3) remove limit for alphabet. (fix infinite loop).
 
 2004-11-07  Bruno coudoin  <bruno.coudoin@free.fr>
 
-	* configure.in: added AC_CANONICAL_TARGET to avoid the warning in AC_ARG_PROGRAM was called before AC_CANONICAL_TARGET	
+	* configure.in: added AC_CANONICAL_TARGET to avoid the warning in AC_ARG_PROGRAM was called before AC_CANONICAL_TARGET
 	bug reported by the debian team Yann Dirson.
 
 2004-11-07  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	Alexey Lubimov <avl@l14.ru> made all the sounds for russian.
-	
+
 	* boards/babymatch/board7_0.xml.in: Changed babymatch/board7_0.xml.in by Karl Ove Hufthammer <karl@huftis.org>
 	so that is more complex.
 	* boards/babymatch/umbrella.png: taken from openclipart
@@ -12695,7 +12726,7 @@ After level 5, 2 dices fall with total numbers up to 9. With the simplistic entr
 	* boards/babymatch/lifebuoy.png: -
 	* boards/babymatch/sun.png: -
 	* boards/babymatch/board7_0.xml.in: added a new level by Karl Ove Hufthammer <karl@huftis.org>
-	* boards/gcompris/bonus/smiley_bad.png: recolored by Karl Ove Hufthammer 
+	* boards/gcompris/bonus/smiley_bad.png: recolored by Karl Ove Hufthammer
 	* boards/gcompris/bonus/smiley_good.png:
 	* po/POTFILES.in: added board7_0.xml.in
 
@@ -12706,9 +12737,9 @@ After level 5, 2 dices fall with total numbers up to 9. With the simplistic entr
 	Changed the shapeboard data format to allow the passing of an image from the skins
 	by using pixmapfile="skin:gcompris-shapelabel.png"
 	changed all shapeboard that was usin gcompris-shapelabel and moved it to skins
-	
+
 	added the GNU bonus
-	
+
 	* boards/babymatch/board1_0.xml.in:
 	* boards/babymatch/board2_0.xml.in:
 	* boards/babymatch/board3_0.xml.in:
@@ -12788,13 +12819,13 @@ After level 5, 2 dices fall with total numbers up to 9. With the simplistic entr
 	* boards/sounds/Makefile.am: added russian
 	* configure.in: removed linguas, moved to po/LINGUAS
 	* gcompris.spec.in: added russian
-	* po/LINGUAS: added 
+	* po/LINGUAS: added
 	* src/gcompris/config.c: added ga locale Irish (Gaelic)
 
 2004-10-28  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	changed to use ~/.gcompris as a directory and store all created files in it.
-	
+
 	* boards/flags/gcompris_flags.assetml.in: added indian
 	* configure.in: increased to release 6.3RC3. updated flags release
 	* src/boards/py-mod-utils.c: (py_gcompris_canvas_get_property): fixed bug
@@ -12824,7 +12855,7 @@ After level 5, 2 dices fall with total numbers up to 9. With the simplistic entr
 
 	Franck Doucet remade many graphism
 	new level by Franck in chronos concerning aviation
-	
+
 	* boards/boardicons/helicogame.png:
 	* boards/boardicons/reading.png:
 	* boards/boardicons/readingh.png:
@@ -12871,7 +12902,7 @@ After level 5, 2 dices fall with total numbers up to 9. With the simplistic entr
 2004-10-20  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	Franck Doucet remade the graphism of algebra_guesscount and doubleentry
-	
+
 	* boards/doubleentry/d-entry_banane_1.png:
 	* boards/doubleentry/d-entry_banane_2.png:
 	* boards/doubleentry/d-entry_banane_3.png:
@@ -12892,7 +12923,7 @@ After level 5, 2 dices fall with total numbers up to 9. With the simplistic entr
 2004-10-20  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	Franck Doucet remade the graphism of algebra_guesscount and doubleentry
-	
+
 	* boards/algebra_guesscount/1.png:
 	* boards/algebra_guesscount/10.png:
 	* boards/algebra_guesscount/100.png:
@@ -12960,7 +12991,7 @@ After level 5, 2 dices fall with total numbers up to 9. With the simplistic entr
 	* boards/reversecount/phoque.png:
 	* configure.in: assemlt flag increated, fixed for no=>nb/nn
 	* po/ChangeLog: fixed for no=>nb/nn
-	* po/nb.po:fixed for no=>nb/nn 
+	* po/nb.po:fixed for no=>nb/nn
 	* po/nn.po:fixed for no=>nb/nn
 	* po/no.po:fixed for no=>nb/nn
 	* src/boards/reversecount.c: (reversecount_next_level),
@@ -12970,8 +13001,8 @@ After level 5, 2 dices fall with total numbers up to 9. With the simplistic entr
 2004-10-16  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	many icons remade by Franck Doucet
-	
-	* boards/boardicons/babymatch.png: 
+
+	* boards/boardicons/babymatch.png:
 	* boards/boardicons/babyshapes.png:
 	* boards/boardicons/chronos.png:
 	* boards/boardicons/maze3D.png:
@@ -13272,7 +13303,7 @@ After level 5, 2 dices fall with total numbers up to 9. With the simplistic entr
 
 	* configure.in: changed to LIBGNOMECANVAS_REQUIRED=2.3.6
 	* src/gcompris/gameutil.c: (gcompris_dialog_close),
-	(gcompris_dialog): fixed richtext canvas instability with 
+	(gcompris_dialog): fixed richtext canvas instability with
 	workaround from Jean Bréfort
 	* src/gcompris/help.c: (gcompris_help_stop): -
 
@@ -13327,7 +13358,7 @@ After level 5, 2 dices fall with total numbers up to 9. With the simplistic entr
 2004-09-17  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	Added Danish translation by Mogens Jaeger <mogensjaeger@get2net.dk>
-	
+
 	* boards/sounds/Makefile.am:
 	* boards/sounds/da/alphabet/1.ogg:
 	* boards/sounds/da/alphabet/10.ogg:
@@ -13534,7 +13565,7 @@ After level 5, 2 dices fall with total numbers up to 9. With the simplistic entr
 
 	* src/boards/python/Makefile.am: added missing ballcatch.py. Thanks
 	Jose.
-	* src/boards/shapegame.c: (parse_doc): fixed annoying behaviour 
+	* src/boards/shapegame.c: (parse_doc): fixed annoying behaviour
 	where the last shape group is displayed instead of the very first.
 	thanks Nabil.
 
@@ -13552,7 +13583,7 @@ After level 5, 2 dices fall with total numbers up to 9. With the simplistic entr
 	Major image review. I took several images from openclipart (http://www.openclipart.org).
 	I made some new images with inkscape in SVG. For those I felt they have an acceptable
 	quality, I sent them to openclipart and so released them as public domain.
-	
+
 	* boards/boardicons/ballcatch.png: openclipart
 	* boards/boardicons/book.png:openclipart
 	* boards/boardicons/fun.png:openclipart
@@ -13573,14 +13604,14 @@ After level 5, 2 dices fall with total numbers up to 9. With the simplistic entr
 	* boards/gcompris/misc/strawberry.png:
 	* boards/imageid/ballon.png: openclipart
 	* boards/imageid/banana.png: openclipart
-	* boards/imageid/biberon.png: removed. too confusing, bottle in english means both biberon (french) 
+	* boards/imageid/biberon.png: removed. too confusing, bottle in english means both biberon (french)
 	and bouteille. translations are so impossible to handle.
 	* boards/imageid/board1.xml.in:
 	* boards/imageid/bottle.png: bruno, released under public domain
 	* boards/imageid/cake.png: openclipart
 	* boards/imageid/car.png: openclipart
 	* boards/imageid/maison.png: openclipart
-	* boards/imageid/pomme.png: openclipart 
+	* boards/imageid/pomme.png: openclipart
 	* boards/images/followline.png: improved by bruno
 	* boards/watercycle/rain.png: openclipart
 	* boards/watercycle/sun.png: openclipart
@@ -13652,7 +13683,7 @@ After level 5, 2 dices fall with total numbers up to 9. With the simplistic entr
 2004-08-17  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* boards/sounds/fr/geography/gcompris_geography_fr.assetml.in: fixed
-	* boards/sounds/it/alphabet/1.ogg: all ogg files below have been converted from 
+	* boards/sounds/it/alphabet/1.ogg: all ogg files below have been converted from
 	* boards/sounds/it/alphabet/10.ogg: 44000Hz to 44100Hz
 	* boards/sounds/it/alphabet/11.ogg: using the command
 	* boards/sounds/it/alphabet/12.ogg: oggdec *.ogg && oggenc  --resample 44100 -q -1 *.wav && rm -f *.wav
@@ -13794,7 +13825,7 @@ After level 5, 2 dices fall with total numbers up to 9. With the simplistic entr
 	* configure.in: fixed debug option bug #1010459 By Mike Frysinger (vapier)
 	* src/gcompris/sdlplayer.c: Fixed the explicit error on stderr if ogg vorbis support is not
 	installed (Thanks to Yin Xu <yxu@ic-tech.ca>)
-	
+
 2004-08-17  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* boards/boardicons/maze3D.png: remade of the icon by bruno with inkscape
@@ -13854,7 +13885,7 @@ After level 5, 2 dices fall with total numbers up to 9. With the simplistic entr
 	* src/gcompris/file_selector.c: (gcompris_file_selector_stop),
 	(display_file_selector), (item_event_directory),
 	(entry_enter_callback): added grab on the entry to have it behave correctly.
-	unstable code. the gcompris_file_selector_stop fails randomly on 
+	unstable code. the gcompris_file_selector_stop fails randomly on
 	gtk_object_destroy(GTK_OBJECT(rootitem)); don't know why yet.
 
 2004-07-30  Bruno coudoin  <bruno.coudoin@free.fr>
@@ -13862,7 +13893,7 @@ After level 5, 2 dices fall with total numbers up to 9. With the simplistic entr
 	* src/boards/draw.c: (display_tool_selector): improved, not yet complete.
 	* boards/skins/default/button_load.png: created with image from http://www.openclipart.org in public domain
 	* boards/skins/default/button_save.png: created with image from http://www.openclipart.org in public domain
-	
+
 2004-07-29  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* po/POTFILES.in: removed uneeded boards/geography/board5_0.xml.in
@@ -14117,12 +14148,12 @@ After level 5, 2 dices fall with total numbers up to 9. With the simplistic entr
 	* src/boards/python.c: (pythonboard_init), (pythonboard_start):
 	* src/boards/python/Makefile.am: -A- now python plugins are in share/gcompris/python
 	* src/boards/python/gcompris/Makefile.am: now python plugins are in share/gcompris/python
-	* src/boards/python/gcompris/bonus/Makefile.am: -A- 
-	* src/boards/python/gcompris/score/Makefile.am: -A- 
-	* src/boards/python/gcompris/skin/Makefile.am: -A- 
-	* src/boards/python/gcompris/sound/Makefile.am: -A- 
-	* src/boards/python/gcompris/timer/Makefile.am: -A- 
-	* src/boards/python/gcompris/utils/Makefile.am: -A- 
+	* src/boards/python/gcompris/bonus/Makefile.am: -A-
+	* src/boards/python/gcompris/score/Makefile.am: -A-
+	* src/boards/python/gcompris/skin/Makefile.am: -A-
+	* src/boards/python/gcompris/sound/Makefile.am: -A-
+	* src/boards/python/gcompris/timer/Makefile.am: -A-
+	* src/boards/python/gcompris/utils/Makefile.am: -A-
 	* src/gcompris/config.c: (gcompris_config_start), (item_event_ok):
 	* src/gcompris/gameutil.c: (gcompris_add_xml_to_data),
 	(gcompris_load_menus), (gcompris_dialog_close), (item_event_ok),
@@ -14307,7 +14338,7 @@ After level 5, 2 dices fall with total numbers up to 9. With the simplistic entr
 2004-05-13  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* src/gcompris/log.c: (gcompris_log_start), (gcompris_log_end): fixed bugs on the win32 side
-	* src/gcompris/sdlplayer.c: (sdlplayer_init): -A- fixed to cleanly disable sounds if SDL fails to 
+	* src/gcompris/sdlplayer.c: (sdlplayer_init): -A- fixed to cleanly disable sounds if SDL fails to
 	init audio out
 	* src/gcompris/soundutil.c: (initSound): -A-
 
@@ -14388,14 +14419,14 @@ After level 5, 2 dices fall with total numbers up to 9. With the simplistic entr
 2004-05-05  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* boards/Makefile.am: removed minouche
-	* boards/doubleentry/board3_0.xml.in: fixed audio naming 
+	* boards/doubleentry/board3_0.xml.in: fixed audio naming
 	* boards/doubleentry/boardicon.png: removed, unused here
 	* boards/doubleentry/gcompris-bg.png: color change
 	* boards/geography/board1_0.xml.in: added a zoomed part (caribean)
-	* boards/geography/northamerica/cuba.png: bigger 
-	* boards/geography/northamerica/dominican_republic.png: bigger 
-	* boards/geography/northamerica/haiti.png: bigger 
-	* boards/geography/northamerica/jamaica.png: bigger 
+	* boards/geography/northamerica/cuba.png: bigger
+	* boards/geography/northamerica/dominican_republic.png: bigger
+	* boards/geography/northamerica/haiti.png: bigger
+	* boards/geography/northamerica/jamaica.png: bigger
 	* boards/geography/northamerica/north_america.png: added a zoomed part
 	* boards/minouche.xml.in: removed, redundant with hexagon
 	* boards/skins/default/help_bg.png: color change
@@ -14647,7 +14678,7 @@ After level 5, 2 dices fall with total numbers up to 9. With the simplistic entr
 	* boards/sounds/fr/france_region/poitou-charentes.ogg: -
 	* boards/sounds/fr/france_region/provence-alpes-cote_d_azur.ogg: -
 	* boards/sounds/fr/france_region/rhone-alpes.ogg: -
-	* boards/sounds/it/.cvsignore: Italian sounds created by Francesco Agrusti 
+	* boards/sounds/it/.cvsignore: Italian sounds created by Francesco Agrusti
 	* boards/sounds/it/Makefile.am: -
 	* boards/sounds/it/alphabet/.cvsignore: -
 	* boards/sounds/it/alphabet/1.ogg: -
@@ -14849,7 +14880,7 @@ After level 5, 2 dices fall with total numbers up to 9. With the simplistic entr
 	* src/gcompris/about.c: (gcompris_about_start):
 	* src/gcompris/board.c: (init_plugins), (get_current_board_plugin),
 	(board_check_file), (board_play), (board_stop): changed to include the work done by pluginenum.
-	now use g_module instead of dl_open and plugins are loaded only when needed. 
+	now use g_module instead of dl_open and plugins are loaded only when needed.
 	Note that they are never unloaded yet.
 	* src/gcompris/board.h: cleanup
 	* src/gcompris/config.c: (gcompris_config_start):
@@ -14884,8 +14915,8 @@ After level 5, 2 dices fall with total numbers up to 9. With the simplistic entr
 
 	* boards/chronos.xml.in: added transportation levels
 	* boards/chronos/Makefile.am:  added transportation
-	* boards/chronos/images/README: created. 
-	* boards/chronos/images/vicking_boat.png: created by Bruno coudoin. Released under the GPL. 
+	* boards/chronos/images/README: created.
+	* boards/chronos/images/vicking_boat.png: created by Bruno coudoin. Released under the GPL.
 	* boards/dataset/mrpatate.xml: added the viking boat
 	* boards/gletters/README: created bt Yan Seiner
 	* boards/redraw_symmetrical.xml.in: reset the name. I have a problem with the web site generation here.
@@ -15121,18 +15152,18 @@ After level 5, 2 dices fall with total numbers up to 9. With the simplistic entr
 	* boards/clickgame.xml.in: improved comments
 	* boards/enumerate.xml.in: improved comments
 	* boards/sounds/pt/misc/gcompris_misc_pt.assetml.in: updated by Jose
-	* boards/sounds/pt/misc/about.ogg: created by Jose Jorge 
-	* boards/sounds/pt/misc/back.ogg:  created by Jose Jorge 
-	* boards/sounds/pt/misc/configuration.ogg:  created by Jose Jorge 
-	* boards/sounds/pt/misc/congratulations.ogg: created by Jose Jorge 
-	* src/boards/gletters.c: (gletters_create_item): fixed bug where object could be displayed 
+	* boards/sounds/pt/misc/about.ogg: created by Jose Jorge
+	* boards/sounds/pt/misc/back.ogg:  created by Jose Jorge
+	* boards/sounds/pt/misc/configuration.ogg:  created by Jose Jorge
+	* boards/sounds/pt/misc/congratulations.ogg: created by Jose Jorge
+	* src/boards/gletters.c: (gletters_create_item): fixed bug where object could be displayed
 	on the right (invisible)
 	* src/boards/wordsgame.c: (key_press): cleanup
 	* src/gcompris/gcompris.c: (board_widget_key_press_callback): added the key logger in log
 	* src/gcompris/gcompris.h: added the key logger in log (no need for python plugins)
 	* src/gcompris/log.c: (gcompris_log_start), (gcompris_log_set_key),
 	(gcompris_log_end): added the key logger
-	
+
 2004-02-02  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* boards/algebra_group.xml.in: -A- removed difficulty=0 cause it breaks the web site generation
@@ -15187,8 +15218,8 @@ After level 5, 2 dices fall with total numbers up to 9. With the simplistic entr
 
 	* boards/Makefile.am: added billard
 	* boards/billard.xml.in: created
-	* boards/boardicons/billard.png: created 
-	* boards/images/billard_background.jpg: created 
+	* boards/boardicons/billard.png: created
+	* boards/images/billard_background.jpg: created
 	* po/POTFILES.in: added billard
 	* src/boards/machpuzzle.c: (start_board), (end_board), (set_level),
 	(is_our_board), (minigolf_next_level),
@@ -15294,13 +15325,13 @@ After level 5, 2 dices fall with total numbers up to 9. With the simplistic entr
 	* src/boards/gletters.c: (pause_board), (start_board),
 	(gletters_next_level), (gletters_create_item), (player_win): changed to use fonts instead of fixed pixmaps for letters
 	* src/gcompris/score.c: (display_number): changed to use fonts instead of fixed pixmaps for letters
-	* boards/melody.xml.in: added _ to title, added mandatory_sound_file.	
+	* boards/melody.xml.in: added _ to title, added mandatory_sound_file.
 
 2004-01-24  Olivier Samyn  <osamyn@ulb.ac.be>
 
 	* src/boards/py-mod-gcompris.c: (py_gcompris_bar_set_repeat_icon),
 	(py_gcompris_bar_hide), (py_gcompris_board_has_help),
-	(py_gcompris_help_start), (py_gcompris_log_set_comment): fixed compilation warning and some errors 
+	(py_gcompris_help_start), (py_gcompris_log_set_comment): fixed compilation warning and some errors
 	* src/boards/py-mod-skin.c: (py_gcompris_skin_get_font): fixed compilation warning and some errors
 	* src/boards/py-mod-utils.c: (py_gcompris_item_event_focus): fixed compilation warning and some errors
 	* src/boards/python.c: (pythonboard_init), (pythonboard_start),
@@ -15363,7 +15394,7 @@ wrapped some new functions
 	* src/boards/maze.c: (start_board): fixed image icon name
 	* src/boards/python/melody.py: fixed timer management and crash
 	* boards/click_on_letter.xml.in: replaced speaker by mouth icon in help comment
-	
+
 2004-01-16  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* boards/boardicons/melody.png: created by Jose
@@ -15491,7 +15522,7 @@ wrapped some new functions
 	* src/boards/draw.c: implemented pause
 	* src/boards/maze.c: implemented pause
 	* src/railroad.c: implemented pause
-	
+
 2003-11-29  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* Release 4.2
@@ -15504,7 +15535,7 @@ wrapped some new functions
 	(set_locale_flag), (get_locale_name): changed locale init to support the default locale as is
 	* src/gcompris/gcompris.c: (gcompris_get_locale),
 	(gcompris_get_user_default_locale), (gcompris_set_locale),
-	(gcompris_init): changed locale init to support the default locale 
+	(gcompris_init): changed locale init to support the default locale
 	* src/gcompris/gcompris.h: added gcompris_get_user_default_locale
 	* src/gcompris/properties.c: (gcompris_properties_new): changed locale init to support the default locale
 
@@ -15512,7 +15543,7 @@ wrapped some new functions
 
 	* boards/redraw.xml.in: added redraw.png. set level to 3
 	* boards/boardicons/redraw.png: created
-	* src/boards/python/redraw.py: completed, usable board. Need more content yet.	
+	* src/boards/python/redraw.py: completed, usable board. Need more content yet.
 
 2003-11-21  Bruno coudoin  <bruno.coudoin@free.fr>
 
@@ -15530,7 +15561,7 @@ wrapped some new functions
 
 	* src/boards/python/redraw.py: nearly completed the implementation but not yet playable
 	* src/boards/python/watercycle.py: added file header
-	
+
 2003-11-08  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* src/gcompris/gcompris.c: (gcompris_set_locale), (gcompris_init): added display of ao devices
@@ -15541,13 +15572,13 @@ wrapped some new functions
 2003-11-05  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* TODO: updated
-	* src/boards/draw.c: (get_tool_cursor), (item_event_move): changed drawing tools order. 
+	* src/boards/draw.c: (get_tool_cursor), (item_event_move): changed drawing tools order.
 	*                                                          fixed raise/lower button.
 	* src/boards/menu.c: (menu_create_item): put in red sound icon if sound is not working
 	* src/gcompris/oggplayer.c: (decode_ogg_file): disable the sounds in gcompris if cannot open it
 	* src/gcompris/properties.h: added a boolean to check if the sounds is working
 	* src/gcompris/soundutil.c: (scheduler_bgnd): check in the background loop if sounds is enabled
-	*                                             now if you disable music, next song will quit the 
+	*                                             now if you disable music, next song will quit the
 	*                                             background loop
 	* src/gcompris/gcompris.c: (gcompris_set_cursor): Patch from PUYDT Julien (from debian)
 	*                          solves the cursor random color.
@@ -15560,7 +15591,7 @@ wrapped some new functions
 
 	* src/boards/draw.c: changed to rotate only item not group and recalc anchors
 	resizing an image works fine but it is not easy to resize it after
-	
+
 2003-10-30  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* boards/Makefile.am: added experience menu
@@ -15571,7 +15602,7 @@ wrapped some new functions
 	* boards/draw/tool-flip_on.png: created flip option
 	* boards/draw/tool-move-off.png: created move option
 	* boards/draw/tool-move.png: created move option
-	* boards/draw/tool-point.png: deleted 
+	* boards/draw/tool-point.png: deleted
 	* boards/draw/tool-point_on.png: deleted
 	* boards/draw/tool-selector.jpg: longer now
 	* boards/paratrooper.xml.in: moved to experiece menu
@@ -15644,14 +15675,14 @@ wrapped some new functions
 	* boards/dataset/mrpatate.xml: added images
 	* boards/flags/sl.png: added slovenian flag
 	* boards/flags/gcompris_flags.xml.in: added slovenian flag
-	* boards/gcompris/animals/elephanteauxgc.jpg: animal image given by 
+	* boards/gcompris/animals/elephanteauxgc.jpg: animal image given by
 	* LE BERRE Daniel <le.berred@free.fr> : released under GPL
-	* boards/gcompris/animals/hypogc.jpg: animal image given by 
+	* boards/gcompris/animals/hypogc.jpg: animal image given by
 	* LE BERRE Daniel <le.berred@free.fr> : released under GPL
-	* boards/gcompris/animals/jumentmulassieregc.jpg: animal image given by 
+	* boards/gcompris/animals/jumentmulassieregc.jpg: animal image given by
 	* LE BERRE Daniel <le.berred@free.fr> : released under GPL
 	* boards/gcompris/animals/readme.txt: updated
-	* boards/gcompris/animals/tetegorillegc.jpg: animal image given by 
+	* boards/gcompris/animals/tetegorillegc.jpg: animal image given by
 	* LE BERRE Daniel <le.berred@free.fr> : released under GPL
 	* boards/geography/board4_0.xml.in: fixed link to serbia audio
 	* configure.in: Set now to gcompris 4.0 : Added sl
@@ -15666,35 +15697,35 @@ wrapped some new functions
 	* boards/dataset/mrpatate.xml: added much more images. Now uses imageset.
 	* boards/watercycle.xml.in: changed help text
 	* src/boards/python/watercycle.py: little cleanup
-	* src/boards/read_colors.c: (start_board), (end_board): memory leak: added g_list_free 
+	* src/boards/read_colors.c: (start_board), (end_board): memory leak: added g_list_free
 	  where needed
 	* src/gcompris/images_selector.c: (gcompris_images_selector_start),
 	(gcompris_images_selector_stop), (display_image),
 	(display_image_set), (free_stuff), (item_event_imageset_selector),
-	(parseImage), (parse_doc), (read_xml_file): complete rework to support dataset in the xml 
+	(parseImage), (parse_doc), (read_xml_file): complete rework to support dataset in the xml
 	 file and display them.
 
 2003-10-17  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* src/boards/python/watercycle.py: now tux must have a shower.
-	
+
 2003-10-15  Bruno coudoin  <bruno.coudoin@free.fr>
 
-	* src/boards/railroad.c: use item group to simplify code. Fixed bug where train goes 
+	* src/boards/railroad.c: use item group to simplify code. Fixed bug where train goes
 	  faster and faster after each 'repeat'.
-	
+
 2003-10-15  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* TODO: added xrender and gtk
 	* configure.in: changed to to PRE4
-	* src/gcompris/gcompris.c: (board_widget_key_press_callback): added F5 and ctrl-r for 
+	* src/gcompris/gcompris.c: (board_widget_key_press_callback): added F5 and ctrl-r for
 	refresh and ctrl-q to quit gcompris.
 
 2003-10-12  Bruno coudoin  <bruno.coudoin@free.fr>
 
-	* boards/boardicons/submarine.png: added shadow 
-	* boards/boardicons/watercycle.png: added shadow 
-	* src/boards/clickgame.c: (clickgame_next_level), (game_won): Patch by PUYDT Julien 
+	* boards/boardicons/submarine.png: added shadow
+	* boards/boardicons/watercycle.png: added shadow
+	* src/boards/clickgame.c: (clickgame_next_level), (game_won): Patch by PUYDT Julien
 	  <julien.puydt@laposte.net>. The counter now starts at 0 and 10 fishes must be hit.
 	* src/boards/python/watercycle.py: increased timer : minor change
 	* src/gcompris/oggplayer.c: added -1 return value when it fails to play
@@ -15730,7 +15761,7 @@ wrapped some new functions
 2003-10-09  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* boards/Makefile.am: added watercycle
-	* boards/gcompris/animals/flamentrosegc.jpg: animal image given by 
+	* boards/gcompris/animals/flamentrosegc.jpg: animal image given by
 	* LE BERRE Daniel <le.berred@free.fr> : released under GPL
 	* boards/gcompris/animals/girafegc.jpg: same as flamentrosegc.jpg
 	* boards/gcompris/animals/readme.txt: update with new images
@@ -15742,7 +15773,7 @@ wrapped some new functions
 	* src/boards/py-mod-skin.c: (py_gcompris_load_skin_pixmap): fixed parameter passing
 	* src/boards/py-mod-utils.c: (py_gcompris_load_pixmap): fixed parameter passing
 	* src/boards/python/Makefile.am: added watercycle
-	* src/boards/python/watercycle.py: created 
+	* src/boards/python/watercycle.py: created
 	* src/boards/reading.c: (player_win): re-indented
 	* src/boards/reversecount.c: added new animal images
 	* src/gcompris/bonus.c: (board_finished): re-indented
@@ -15751,11 +15782,11 @@ wrapped some new functions
 
 	* configure.in: Release 4.0PRE3
 	* gcompris.desktop.in: added bugzilla, category and startup notifier information
-	* src/gcompris/about.c: (gcompris_about_start), (item_event_ok): fixed fsf and gcompris help 
+	* src/gcompris/about.c: (gcompris_about_start), (item_event_ok): fixed fsf and gcompris help
 	* loading
 	* gcompris: menu entry changed to section Applications/Edutainment instead of game/toy
 	* boards/skins/default/ofsetlogo.png: replaced by the new official jumping gnu
-	
+
 2003-10-06  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* boards/skins/default/button.png: better looking
@@ -15764,7 +15795,7 @@ wrapped some new functions
 	* boards/skins/default/button_small.png: better looking
 	* boards/skins/default/gcompris-shapebg.jpg: better looking
 	* configure.in: adapted to remove libassetml from the source of gcompris
-	* now assetml is an independant package 
+	* now assetml is an independant package
 	* gcompris.spec.in: adapted to remove libassetml from the source of gcompris
 	* src/gcompris/Makefile.am: adapted to remove libassetml from the source of gcompris
 	* src/gcompris/gameutil.c: adapted to remove libassetml from the source of gcompris
@@ -15795,13 +15826,13 @@ wrapped some new functions
 	* boards/sounds/en/colors/gcompris_colors_en.assetml.in: updated description field
 	* boards/sounds/fr/colors/gcompris_colors_fr.assetml.in: fixed yellow
 	* gcompris.spec.in: fixed python requirement
-	* src/boards/colors.c: (start_board): now the repeat icon is not display if sound is 
+	* src/boards/colors.c: (start_board): now the repeat icon is not display if sound is
 	* available
 	* src/boards/menu.c: (menu_create_item): manage assetml dataset in mandatory_sound_*
 	* src/gcompris/bonus.c: (gcompris_display_bonus): fixed "good job" sounds to use assetml
 	* src/gcompris/gameutil.c: (gcompris_add_xml_to_data): added mandatory_sound_dataset
 	* src/gcompris/gcompris-board.h: added mandatory_sound_dataset
-	* src/gcompris/oggplayer.c: (erase_credits), (item_event_ogginfo): check rootitem before 
+	* src/gcompris/oggplayer.c: (erase_credits), (item_event_ogginfo): check rootitem before
 	destroy in case
 
 2003-09-26  Bruno coudoin  <bruno.coudoin@free.fr>
@@ -15814,10 +15845,10 @@ wrapped some new functions
 	* boards/click_on_letter.xml.in: changed reference to mandatory_sound_file but stil buggy
 	* boards/flags/ca.png: now catalan instead of canadian
 	* boards/flags/cs.png: Former Tchechoslovakia
-	* boards/flags/gcompris_flags.assetml.in: fixed 
+	* boards/flags/gcompris_flags.assetml.in: fixed
 	* boards/flags/sr.png: added
-	* boards/money.xml.in: added help 
-	* boards/money_cents.xml.in: added help 
+	* boards/money.xml.in: added help
+	* boards/money_cents.xml.in: added help
 	* boards/skins/default/display_area_small.png: added to display the music artist
 	* boards/skins/pink/display_area_small.png: added to display the music artist
 	* configure.in: removed python compilation and passes info to spec file
@@ -15828,9 +15859,9 @@ wrapped some new functions
 	* src/boards/hanoi.c: (hanoi_create_item): fixed plot width
 	* src/boards/menu.c: (menu_create_item): added a fixme: need to complete test of
 	mandatory_sound_file with assetml
-	* src/gcompris/bonus.c: (board_finished): bad end bonuses are not used when random end is 
+	* src/gcompris/bonus.c: (board_finished): bad end bonuses are not used when random end is
 	requested
-	* src/gcompris/config.c: (set_locale_flag), (get_locale_name): added serbian: fixed to 
+	* src/gcompris/config.c: (set_locale_flag), (get_locale_name): added serbian: fixed to
 	support serbian specifics with 2 different char set
 	* src/gcompris/gcompris.c: (setup_window): fixed the long lasting random cursor color. It needed to be set AFTER the colormap settings.
 	* src/gcompris/oggplayer.c: (display_ogg_file_credits),
@@ -15923,12 +15954,12 @@ wrapped some new functions
 	* po/de.po: updated by Ronny Standtke <Ronny.Standtke@gmx.de>
 
 2003-08-16  Guntupalli Karunakar  <karunakar@freedomink.org>
-	
+
 	* configure.in: Added "hi" to ALL_LINGUAS.
 
 2003-08-15  Bruno coudoin  <bruno.coudoin@free.fr>
 
-	* Makefile.am: changed rule for the translation report to work even if gcompris.pot is not 
+	* Makefile.am: changed rule for the translation report to work even if gcompris.pot is not
 	* there
 	* boards/submarine/big_explosion.png: removed explosion and mine in submarine
 	* boards/submarine/explosion.png: removed explosion and mine in submarine
@@ -15961,12 +15992,12 @@ wrapped some new functions
 	(assetml_add_xml_to_data), (matching), (parse_doc),
 	(assetml_read_xml_file), (assetml_load_xml), (free_asset),
 	(assetml_get_asset): changed assetml api to include the mimetype
-	* src/libassetml/assetml.h: changed assetml api 
+	* src/libassetml/assetml.h: changed assetml api
 	* src/libassetml/test/test.c: (load_asset), (main): changed assetml
-	* api 
-	* src/libassetml/test/test_assetml.assetml: changed assetml api 
+	* api
+	* src/libassetml/test/test_assetml.assetml: changed assetml api
 	* src/libassetml/tools/assetml-query.c: (dump_asset), (main): changed
-	* assetml api 
+	* assetml api
 
 2003-08-11  Bruno coudoin  <bruno.coudoin@free.fr>
 
@@ -15987,11 +16018,11 @@ wrapped some new functions
 	* src/gcompris/Makefile.am:
 	* src/gcompris/gameutil.c: (gcompris_load_pixmap_asset),
 	(gcompris_load_pixmap): initial support for libassetml
-	* src/gcompris/gcompris.c: (setup_window): added gtk_window_fullscreen call to 
+	* src/gcompris/gcompris.c: (setup_window): added gtk_window_fullscreen call to
 	  support full compliant standard window manager (like xfce)
-	* src/gcompris/soundutil.c: (scheduler_bgnd): fixed end loop in case there was no 
+	* src/gcompris/soundutil.c: (scheduler_bgnd): fixed end loop in case there was no
 	  .ogg to play
-	* src/libassetml/assetml.c: Created 
+	* src/libassetml/assetml.c: Created
 	* src/libassetml/test/Makefile.am: Created
 	* src/libassetml/tools/Makefile.am: Created
 	* src/libassetml/tools/assetml-query.c: Created
@@ -16033,7 +16064,7 @@ wrapped some new functions
 2003-06-27  Bruno Coudoin  <bruno.coudoin@free.fr>
 
 	* src/boards/chess.c: (chess_create_item): fixed bug with gnuchess above 5.05 and 5.06
-	  with these gnuchess, gcompris was not able to play chess. Simon Waters 
+	  with these gnuchess, gcompris was not able to play chess. Simon Waters
 	  <Simon@wretched.demon.co.uk> who maintains gnuchess tell me it should be fixed in 5.07
 
 2003-06-18  Guntupalli Karunakar  <karunakar@freedomink.org>
@@ -16057,7 +16088,7 @@ wrapped some new functions
 
 	* configure.in : removed gnome-common-init, added gnome-compile-warning
 
-	
+
 2003-06-03  Uwe Koloska <uwe@koloro.de>
 
 	reviewed by: Bruno Coudoin
@@ -16178,7 +16209,7 @@ wrapped some new functions
 2003-03-04  Gregory Leblanc  <gleblanc@linuxweasel.com>
 
 	* boards/algebra_guesscount/dash.png:
-	* boards/gcompris/letters/dash.png: murder these two files, per a 9 
+	* boards/gcompris/letters/dash.png: murder these two files, per a 9
 	month old request.  Must be a CVS bug. (they were -.png)
 
 2003-03-01  Pascal Georges <pascal.georges1@free.fr>
@@ -16350,11 +16381,11 @@ wrapped some new functions
 2003-01-26  Daniel Yacob  <locales@geez.org>
 
 	* configure.in: Added "am" to ALL_LINGUAS.
-	
+
 2003-01-23  Kjartan Maraas  <kmaraas@gnome.org>
 
 	* configure.in: Added "no" to ALL_LINGUAS.
-	
+
 2003-01-18  bruno  <bruno.coudoin@free.fr>
 
 	* boards/algebra_group.xml.in: removed no more needed data tags
@@ -16595,7 +16626,7 @@ wrapped some new functions
 	* boards/scales/board1_0.xml.in: fixed random bad display of the image
 	* src/boards/gletters.c: (key_press): fixed in i386, keys was not working anymore
 	* src/boards/shapegame.c: (item_event), (add_shape_to_canvas),
-	(add_xml_shape_to_data), (parse_doc): now support the position property in the xml to specify the 
+	(add_xml_shape_to_data), (parse_doc): now support the position property in the xml to specify the
 	depth of the shape :back/front. Fixed the sound support for the level 3 of doublentry board.
 	* src/gcompris/soundutil.c: reindented
 
@@ -16792,7 +16823,7 @@ wrapped some new functions
 2002-06-26 Bruno Coudoin <bruno.coudoin@free.fr>
 	* boards/gcompris/buttons/button_exit.png: added an exit button
 	* src/gcompris/bar.c: added the exit button
-	
+
 2002-06-17 Marcel Hilzinger <hili@suselinux.hu>
 	* boards/wordslevel/*.hu: created hungarian files
 
@@ -16813,7 +16844,7 @@ wrapped some new functions
 	changed to have the shapelist buttons previous/next contextual
 	changed to allow the shapelist area to be defined in the xml.in file using for
 	example:
-	<ShapeGame shapebox_x="15" shapebox_y="20" shapebox_w="280" shapebox_h="240" 
+	<ShapeGame shapebox_x="15" shapebox_y="20" shapebox_w="280" shapebox_h="240"
 	shapebox_nb_shape_x="2" shapebox_nb_shape_y="3" >
 	* boards/gcompris/gcompris-shapebg.jpg: changed the shapelist hope it looks better
 
@@ -16861,7 +16892,7 @@ wrapped some new functions
 	* boards/*.xml.in: added the name property and change name entity to title
 	* src/boards/algebra.c: implemented the use of the new timer api
 	* src/boards/clockgame.c: changed the cursor to ease the selection
-	
+
 2002-04-28 Thomas Gebhardt <gebhardt@HRZ.Uni-Marburg.DE>
 
 	* boards/scales/board3_0.xml.in: changed because there was 2 solutions
@@ -16880,7 +16911,7 @@ wrapped some new functions
 	* src/board/maze.c: Changed to use a tux and a door
 	* boards/doubleentry/board2_0.xml.in: create a new level for doubleentry
 	* configure.in: release of 1.0.2
-	
+
 2002-03-27 Bruno Coudoin <bruno.coudoin@free.fr>
 
 	* autogen.sh: changed to use gnome-autogen
@@ -17085,7 +17116,7 @@ wrapped some new functions
 	* Changed smiley_good and smiley_bad pictures (made with kpovmodeler & povray)
 
 2002-02-09 Pascal Georges <pascal.georges1@free.fr>
-	
+
 	* Changed 2 pictures : banana.png (I took a photo) and ballon.png (made with povray)
 	* Modified readingh & readingv to give some feedback when the answer is submited
 	* Added a TESTS file in root directory to keep track of board tests
@@ -17128,13 +17159,13 @@ wrapped some new functions
 	* src/board/planegame.c: removed the sound when the wrong cloud is hit due to too much noise
 	*                        when the plane is in a storm ;)
 	*                        Fixed the cloud detection to work even when a cloud is hit in front
-	
+
 2002-01-19  Bruno Coudoin  <bruno.coudoin@free.fr>
 
 	* src/gcompris/properties.c: fixed locale initialization to use use current locale intead of en
 	* src/gcompris/gcompris.c: modified locale retrieving because setlocale does not work for me
 	                           I now get the env variable LC_ALL and LANG if not found.
-	
+
 2002-01-14  Bruno Coudoin  <bruno.coudoin@free.fr>
 
 	* src/gcompris/about.c: completed the about box
@@ -17151,7 +17182,7 @@ wrapped some new functions
 
 	* src/boards/clickgame.c, src/boards/draw.c, src/boards/menu.c,
 	* src/boards/paratrooper.c: Reformated somes translated strings.
- 
+
 2002-01-02  Bruno Coudoin  <bruno.coudoin@free.fr>
 	* src/gcompris/config.c: added support for locale selection
 	* boards/locale*: removed locale selection by boards
@@ -17319,12 +17350,12 @@ wrapped some new functions
         * boards/local*.xml.in: created the local selection board
         * boards/boardicons/local*.png: created the local selection board
         * po/POTFILE.in: added missing draw.c, added local*
-        * boards/*.xml.in: corrected a few missing translation thanks Herman        
+        * boards/*.xml.in: corrected a few missing translation thanks Herman
 
 2001-11-11  Zohra Coudoin  <zohra.coudoin@free.fr>
 
         * po/es.po: updated
-        
+
 2001-11-11  Bruno Coudoin  <bruno.coudoin@free.fr>
 
         * src/boards/reading.c: corrected button reference to use the correct one
@@ -17335,7 +17366,7 @@ wrapped some new functions
         * aclocal.m4: added gdk_pixbuf in GNOME_INCLUDEDIR for new gtk-pixbuf
         * board/*.xml: CVS cleanup, only .xml.in need to be in
         * src/boards/gletter.c: stdout printf message cleanup
-        
+
 2001-11-06  Bruno Coudoin  <bruno.coudoin@free.fr>
 
         * src/boards/menu.c: implemented an automatic menu arrow instead of icon harddrawed
@@ -17356,7 +17387,7 @@ wrapped some new functions
         * src/boards/missingletter.c: changed to use the new bonus API
         * src/board/click_on_letter.c: new board created by Pascal Georges. This is the first
                                        with educational sounds.
-                
+
 2001-10-26  Bruno Coudoin  <bruno.coudoin@free.fr>, Pascal Georges <pascal.georges1@free.fr>
         * GCompris: Release 0.9.3
         * gcompris.spec: fixed changelog date
@@ -17373,7 +17404,7 @@ wrapped some new functions
                                    the bottom
                                    Added gnome_sound_init(NULL); to make the sound works
                                    on different platform (eg KDE). Thanks to Pascal Georges.
-                                   Added hyper link to gcompris and osfet web site in the 
+                                   Added hyper link to gcompris and osfet web site in the
                                    about box. No more spam from hilaire ;)
         * src/boards/imageid.c: corrected a bug that could cause a crash at startup
                                 moved the button image to the global dir gcompris/button
@@ -17403,12 +17434,12 @@ wrapped some new functions
                                    after each call to gcompris_set_background
                                    split of gcompris_set_background to create a
                                    specific init_background for canvas initialisation
-                                   - Added the Escape key support to shortcut to the 
+                                   - Added the Escape key support to shortcut to the
                                      home button bar
         * src/boards/menu.c: fixed to delete icons after each menu exit
         * src/boards/algebra.c: fixed to deleted properly the buttons on board end
         * boards/gcompris/buttons/level1.png: !!!! I had to increase the size of this icon
-                                              of 1x1 pixel to remove the SEGFAULT in 
+                                              of 1x1 pixel to remove the SEGFAULT in
                                               gnome-canvas-pixbuf.c of gdk-pixbuf-0.11.0
                                               in transform_pixbuf at line 644
                                               *d++ = *src++;
@@ -17426,7 +17457,7 @@ wrapped some new functions
         * boards/*.xml.in: creation of these files to implement xml i18n
         * src/gcompris/gcompris.c: added the method gcompris_get_locale()
                                    this way it will be easy to implement an
-                                   internal setup of the locale to let the user 
+                                   internal setup of the locale to let the user
                                    change the locale for training purpose
         * boards/wordsgame.c: Changed to use gcompris_get_locale()
         * board/reading.c: Changed to use gcompris_get_locale()
@@ -17442,7 +17473,7 @@ wrapped some new functions
 2001-09-19  Bruno Coudoin  <bruno.coudoin@free.fr>
         * GCompris: Release 0.7.4
         * src/boards/draw.c: Corrected bug that was creating a random crash.
-                             when loading this board the current_color_item was 
+                             when loading this board the current_color_item was
                              not nulled between two board call.
         * aclocal.m4: added option -Werror to gcc to the whole project to be clean
         * src/gcompris/gcompris.c: cleanup, gcompris_get_canvas do no more return
@@ -17452,7 +17483,7 @@ wrapped some new functions
                                   correction of board 4 that could not be parsed
         * src/board/memory.c: creation of this board
         * boards/memory.xml: creation of this board
-        
+
 2001-09-13  Bruno Coudoin  <bruno.coudoin@free.fr>
         * GCompris: Release 0.7.3
         * docs/C/overview.txt: Creation of this file because it crashes
@@ -17468,12 +17499,12 @@ wrapped some new functions
                                    avoid to force it to implement its own xml
                                    data set and load it.
         * src/gcompris/gcompris-board.h: add of the property mode
-        
+
 2001-09-12  Bruno Coudoin  <bruno.coudoin@free.fr>
         * GCompris: Release 0.7.2
         * boards/gcompris/gcompris-shapelabel.jpg: added back this file
         * boards/boardicons/draw.png: changed color to be less flashy
-        * src/boards/algebra.c: Now has 9 level with level x = table of x in add and 
+        * src/boards/algebra.c: Now has 9 level with level x = table of x in add and
                                 by operation
                                 Now each operand is proposed only once by level in
                                 add and by operation
@@ -17481,7 +17512,7 @@ wrapped some new functions
         * src/gcompris/plugin.h: added prototype declaration of get_bplugin_info to
                                  please the compiler
         * sounds/crash.wav: changed it because my dauther clara is afraid by this noise ;)
-        
+
 2001-09-08  Bruno Coudoin  <bruno.coudoin@free.fr>
         * GCompris: Release 0.7.1
         * src/boards/draw.c: Corrected bug on ellipse creation
@@ -17495,20 +17526,20 @@ wrapped some new functions
         * src/boards/paratrooper.c: Implementation of the help
         * boards/draw/*: Creation of the buttons for the draw board
         * boards/boardicons/planegame.png: Change to use the flying tux
-        
+
 2001-08-13  Bruno Coudoin  <bruno.coudoin@free.fr>
         * GCompris: Release 0.6.6
         * boards/gcompris/nur*.jpg: - added these images to be used as the
                                       clickgame background.
-          Thanks to the National Undersearch Research Program (NURP) 
+          Thanks to the National Undersearch Research Program (NURP)
           other images can be accessed through http://www.photolib.noaa.gov
         * src/boards/clickgame.c: - modified to include new backgrounds
                                     added board help.
-        * src/boards/reading.c: - cleanup, fonts bigger, a GO button added, 
+        * src/boards/reading.c: - cleanup, fonts bigger, a GO button added,
                                   board has 9 levels now
         * src/gcompris/bar.c - Height of the bar now thinner
                                implemented the help button in the bar
-        * docs/C/gcompris.texi: Corrected a sentence were I was telling gcompris 
+        * docs/C/gcompris.texi: Corrected a sentence were I was telling gcompris
                                 will support plugin but it already does for a while.
                                 Thanks abuledu for noticing it.
 
@@ -17535,7 +17566,7 @@ wrapped some new functions
                               being context sensitive
         * src/boards/*.c: modified to use gcompris_bar_set(status)
         * src/gcompris/gcompris.c: corrected bug where max ration display was 0.8 instead of 1
-        * sounds/*: changed all the sounds        
+        * sounds/*: changed all the sounds
 
 2001-07-01  Bruno Coudoin  <bruno.coudoin@free.fr>
         * GCompris: Release 0.6.3
@@ -17578,7 +17609,7 @@ wrapped some new functions
                               have difficulties to manipulate it.
         * docs/C/gcompris.texi: Update of the doc to explain the new plugin
                                 mecanism
-        
+
 2001-03-10  Bruno Coudoin  <bruno.coudoin@free.fr>
         * GCompris: Release 0.5.1
         * gcompris.c: adjusted main window size calculation.
@@ -17595,7 +17626,7 @@ wrapped some new functions
         * configure.in: Changed to use local relative pixmaps and sounds
                         instead of gnome api
         * src/*.c: Changed to use relative pixmaps and sounds
-        
+
 2001-02-18  Bruno Coudoin  <bruno.coudoin@free.fr>
         * GCompris : Release 0.4.1
         * pt_BR.po: Created by Isa?Â­as V. Prestes <isix@uol.com.br>
@@ -17604,7 +17635,7 @@ wrapped some new functions
         * shapegame.c: Created by bruno. This is a new board in the puzzle style.
         * wordsgame.c (get_wordfile): Replaced malloc by g_strdup_printf
         * src/*.c: removed a lot of old hard coded traces
-        * src/algebra.c: set the horizontal layout by default        
+        * src/algebra.c: set the horizontal layout by default
         * src/main.c: removed pause and end from the menu
         * src/status.c: removed and moved to bar.c
         * src/player.c: removed and moved to bar.c
@@ -17612,7 +17643,7 @@ wrapped some new functions
         * src/shapegame.c: Creation of the shape board
         * src/planegame.c: Creation of the plane game board
         * src/clickgame.c: Complete review to use fish instead of animals
-        
+
 2000-12-16  Bruno Coudoin  <bruno.coudoin@free.fr>
         * GCompris : Release 0.3.5
         * ChangeLog : Changed the order of the file and made adjustment
@@ -17630,7 +17661,7 @@ wrapped some new functions
           140 because it is not rendered on my new Mandrake 7.2. Don't know why.
         * ALL : thanks to Gerhard Dieringer replaced malloc+sprintf by the
                 safer g_strdup_printf
-          
+
 2000-11-22 Bruno Coudoin <bruno.coudoin@free.fr>
         * GCompris : 0.3.4
         * Corrected the small offset bug in the clock game when dragging the needles.
@@ -17641,7 +17672,7 @@ wrapped some new functions
 2000-10-25 Bruno Coudoin <bruno.coudoin@free.fr>
         * GCompris : 0.3.3
         * Added the teaching analog clock board
-        * Removed empty jpg directory in animals that was creating an 
+        * Removed empty jpg directory in animals that was creating an
           image not found (why jpg does not support transparency !!)
         * Added bar icon selection highlighting        system
         * Added algebra operation icon selection highlighting system
@@ -17685,7 +17716,7 @@ wrapped some new functions
         * In the letters game, lowercase are accepted even for upercase letter
         * Added numbers and lower case char in the letters game
         * Changed all games falling strategy upon user success. Now a new item
-          is send only when there is no more item displayed.        
+          is send only when there is no more item displayed.
 
 2000-06-25 Bruno Coudoin <bruno.coudoin@free.fr>
         * GCompris : 0.2.2
@@ -17697,7 +17728,7 @@ wrapped some new functions
           game end then new game. (Probably Bug #108462)
         * Added the falling word level
         * Review of the letters to make them more visible
-        
+
 2000-06-20 Bruno Coudoin <bruno.coudoin@free.fr>
         * GCompris : 0.2.1
         * Now main window can't be resized
@@ -17714,5 +17745,5 @@ wrapped some new functions
 
 2000-06-12 Bruno Coudoin <bruno.coudoin@free.fr>
         * Creation of the first version
-          First Release 0.1 
+          First Release 0.1
           Only two boards available, properties not implemented.

@@ -73,14 +73,14 @@ gcompris_LDADD = \
 
 #
 # Gcompris library
-# 
+#
 lib_LTLIBRARIES = libgcompris-1.la
 
 libgcompris_1_la_LIBADD = \
 	$(GCOMPRIS_LIBS) $(sqlite_ldadd) $(XML_LIBS) $(GNET_LIBS)
 
 libgcompris_1_la_LDFLAGS = $(no_undefined) \
-	-version-info $(LIBGCOMPRIS_CURRENT):$(LIBGCOMPRIS_REVISION):$(LIBGCOMPRIS_AGE) 
+	-version-info $(LIBGCOMPRIS_CURRENT):$(LIBGCOMPRIS_REVISION):$(LIBGCOMPRIS_AGE)
 
 libgcomprisincludedir = $(includedir)/libgcompris-1.0/libgcompris
 
@@ -126,6 +126,7 @@ libgcompris_1_la_SOURCES =			\
 	file_selector.c \
 	gameutil.c \
 	gc_net.c \
+	cache.c \
 	gcompris.c \
 	gcompris_alphabeta.c \
 	gcompris_confirm.c \
