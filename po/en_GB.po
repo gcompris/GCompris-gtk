@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-09-13 21:07+0100\n"
-"PO-Revision-Date: 2006-09-13 21:41-0000\n"
+"POT-Creation-Date: 2006-09-14 07:04+0100\n"
+"PO-Revision-Date: 2006-09-14 07:04-0000\n"
 "Last-Translator: David Lodge <dave@cirt.net>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -4594,43 +4594,48 @@ msgstr "Memory game"
 msgid "Build a train according to the model"
 msgstr "Build a train according to the model"
 
-#: ../src/boards/reading.c:370
+#: ../src/boards/reading.c:227
+#: ../src/boards/wordsgame.c:207
+msgid ""
+"Error: We can't find\n"
+"a list of words to play this game.\n"
+msgstr ""
+"Error: We can't find\n"
+"a list of words to play this game.\n"
+
+#: ../src/boards/reading.c:381
 msgid "Please, check if the word"
 msgstr "Please, check if the word"
 
-#: ../src/boards/reading.c:390
+#: ../src/boards/reading.c:401
 msgid "is being displayed"
 msgstr "is being displayed"
 
-#: ../src/boards/reading.c:561
+#: ../src/boards/reading.c:575
 msgid "I am Ready"
 msgstr "I am Ready"
 
-#: ../src/boards/reading.c:601
+#: ../src/boards/reading.c:615
 msgid "Yes, I saw it"
 msgstr "Yes, I saw it"
 
-#: ../src/boards/reading.c:631
+#: ../src/boards/reading.c:645
 msgid "No, it was not there"
 msgstr "No, it was not there"
 
 #. Report what was wrong in the log
-#: ../src/boards/reading.c:669
+#: ../src/boards/reading.c:683
 #, c-format
 msgid "The word to find was '%s'"
 msgstr "The word to find was '%s'"
 
-#: ../src/boards/reading.c:672
+#: ../src/boards/reading.c:686
 msgid "But it was not displayed"
 msgstr "But it was not displayed"
 
-#: ../src/boards/reading.c:674
+#: ../src/boards/reading.c:688
 msgid "And it was displayed"
 msgstr "And it was displayed"
-
-#: ../src/boards/reading.c:776
-msgid "Cannot open file of words for your locale"
-msgstr "Cannot open file of words for your locale"
 
 #. Enter Edit Mode
 #: ../src/boards/shapegame.c:431
@@ -4680,14 +4685,6 @@ msgstr ""
 #, c-format
 msgid "Distance to target = %d meters"
 msgstr "Distance to target = %d metres"
-
-#: ../src/boards/wordsgame.c:207
-msgid ""
-"Error: We don't find\n"
-"a list of words to play this game.\n"
-msgstr ""
-"Error: We don't find\n"
-"a list of words to play this game.\n"
 
 #: ../src/gcompris/about.c:62
 msgid ""
@@ -4749,11 +4746,11 @@ msgid "GCompris confirmation"
 msgstr "GCompris confirmation"
 
 #: ../src/gcompris/bar.c:568
-msgid "Sure you want to quit ?"
+msgid "Are you sure you want to quit?"
 msgstr "Are you sure you want to quit?"
 
 #: ../src/gcompris/bar.c:569
-msgid "Yes, I am sure !"
+msgid "Yes, I am sure!"
 msgstr "Yes, I am sure!"
 
 #: ../src/gcompris/bar.c:570
@@ -5196,7 +5193,7 @@ msgstr ""
 "The Linux version does not have this restriction. Note that GCompris is being developed to free schools from monopolistic software vendors. If you also believe that we should teach freedom to children, please consider using GNU/Linux. Get more information at FSF:\n"
 "<http://www.fsf.org/philosophy>"
 
-#: ../src/gcompris/gcompris.c:1353
+#: ../src/gcompris/gcompris.c:1356
 #, c-format
 msgid ""
 "GCompris\n"
@@ -5210,17 +5207,17 @@ msgstr ""
 "More info at http://gcompris.net\n"
 
 #. check the list of possible values for -l, then exit
-#: ../src/gcompris/gcompris.c:1439
+#: ../src/gcompris/gcompris.c:1442
 #, c-format
 msgid "Use -l to access an activity directly.\n"
 msgstr "Use -l to access an activity directly.\n"
 
-#: ../src/gcompris/gcompris.c:1440
+#: ../src/gcompris/gcompris.c:1443
 #, c-format
 msgid "The list of available activities is :\n"
 msgstr "The list of available activities is :\n"
 
-#: ../src/gcompris/gcompris.c:1604
+#: ../src/gcompris/gcompris.c:1607
 #, c-format
 msgid "The list of available profiles is:\n"
 msgstr "The list of available profiles is:\n"
@@ -5258,6 +5255,8 @@ msgstr "Time Elapsed"
 msgid "Remaining Time = %d"
 msgstr "Remaining Time = %d"
 
+#~ msgid "Cannot open file of words for your locale"
+#~ msgstr "Cannot open file of words for your locale"
 #~ msgid ""
 #~ "A addition problem with two numbers is displayed. At the right of the "
 #~ "equal sign, give the sum. Use the left and right arrows to modify the "
