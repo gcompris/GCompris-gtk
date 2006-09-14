@@ -38,7 +38,7 @@
 
 #include <gcompris.h>
 #include "profile.h"
- 
+
 #define KEYLOG_MAX 256
 
 #if defined _WIN32 || defined __WIN32__
@@ -61,7 +61,7 @@ static time_t		 start_time_key;
 /* By default, we use local time, not UTC */
 #define USE_UTC 0
 
-/** gc_log_start 
+/** gc_log_start
  * \param GcomprisBoard *gcomprisBoard: the board for which the event happen
  *
  */
@@ -159,7 +159,7 @@ void gc_log_end (GcomprisBoard *gcomprisBoard, gchar *status) {
   char *fmt = "%F %T";
 
   char buf[256];
-   
+
   /* get the current time from the Unix kernel */
   time_t end_time = time(NULL);
   double duration = difftime(end_time,start_time);
@@ -189,28 +189,33 @@ void gc_log_end (GcomprisBoard *gcomprisBoard, gchar *status) {
     file = g_strconcat(g_get_home_dir(), "/.gcompris/gcompris.log", NULL);
   } else {
     /* On WIN98, No home dir */
-    file = g_strdup("gcompris/gcompris.log");
+    file = g_strdup("gcompris.log");
   }
 
   flog = fopen(file,"a");
 
   /* date,computer,user,board,level,sublevel,status, duration,comment */
-  fprintf(flog, "%s;%s;%s;gcompris;%s;%d;%d;%s;%d;%s;%s\n", buf, hostname, username,
-	  gcomprisBoard->name, 
-	  gcomprisBoard->level, gcomprisBoard->sublevel,
-	  status,
-	  (guint)duration,
-	  comment_set,
-	  keylog);
-  printf("%s;%s;%s;gcompris;%s;%d;%d;%s;%d;%s;%s\n", buf, hostname, username,
-	 gcomprisBoard->name, 
-	 gcomprisBoard->level, gcomprisBoard->sublevel,
-	 status,
-	 (guint)duration,
-	 comment_set,
-	 keylog);
+  if(flog)
+    fprintf(flog, "%s;%s;%s;gcompris;%s;%d;%d;%s;%d;%s;%s\n", buf, hostname, username,
+	    gcomprisBoard->name,
+	    gcomprisBoard->level, gcomprisBoard->sublevel,
+	    status,
+	    (guint)duration,
+	    comment_set,
+	    keylog);
+  else
+    g_warning("Failed to save the log in file '%s'", file);
 
-  fclose(flog);
+  g_warning("%s;%s;%s;gcompris;%s;%d;%d;%s;%d;%s;%s\n", buf, hostname, username,
+	    gcomprisBoard->name,
+	    gcomprisBoard->level, gcomprisBoard->sublevel,
+	    status,
+	    (guint)duration,
+	    comment_set,
+	    keylog);
+
+  if(flog)
+    fclose(flog);
 
   g_free(file);
 }

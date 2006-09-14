@@ -91,7 +91,7 @@ static gchar *imageList[] =
     "gcompris/animals/tigerdrink001.jpg",
     "gcompris/animals/tigerplay001.jpg",
     "gcompris/animals/horses.jpg",
-    "gcompris/animals/horse2.jpg",
+    "gcompris/animals/horses2.jpg",
     "gcompris/animals/squirrel.jpg",
     "gcompris/animals/sheep_irish.jpg",
     "gcompris/animals/sheep_irish2.jpg",
@@ -175,9 +175,9 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       gcomprisBoard->maxlevel=6;
       gcomprisBoard->sublevel=1;
       gcomprisBoard->number_of_sublevel=10; /* Go to next level after this number of 'play' */
-      gc_score_start(SCORESTYLE_NOTE, 
-			   gcomprisBoard->width - 220, 
-			   gcomprisBoard->height - 50, 
+      gc_score_start(SCORESTYLE_NOTE,
+			   gcomprisBoard->width - 220,
+			   gcomprisBoard->height - 50,
 			   gcomprisBoard->number_of_sublevel);
       gc_bar_set(GC_BAR_LEVEL);
 
@@ -185,7 +185,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 	board_mode = DOUBLECLIC;
       else if (strcmp(gcomprisBoard->mode,"clic")==0)
 	board_mode = CLIC;
-      else 
+      else
 	board_mode = NORMAL;
 
       if (board_mode == DOUBLECLIC){
@@ -194,9 +194,9 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 	if (DefaultsGtkSettings == NULL) {
 	  g_warning("Couldn't get GTK settings");
 	} else {
-	  g_object_get(G_OBJECT(DefaultsGtkSettings), 
+	  g_object_get(G_OBJECT(DefaultsGtkSettings),
 		       "gtk-double-click-time", &DefaultDoubleClicDistance, NULL);
-	  
+
 	  g_warning("Double-click default value %d.",DefaultDoubleClicDistance);
 	}
 
@@ -246,7 +246,7 @@ static void set_level (guint level)
 				       DoubleClicLevel[gcomprisBoard->level-1]);
     g_warning("Double click value is now %d.",DoubleClicLevel[gcomprisBoard->level-1]);
   }
-  
+
 }
 /* ======================================= */
 static gboolean is_our_board (GcomprisBoard *gcomprisBoard)
@@ -283,14 +283,14 @@ static void erase_next_level()
   gamewon = FALSE;
 
   /* Select level difficulty */
-  
+
   if (board_mode != NORMAL) {
     number_of_item_x = 5;
     number_of_item_y = 5;
   } else {
     number_of_item_x = ((gcomprisBoard->level+1)%2+1)*5;
     number_of_item_y = ((gcomprisBoard->level+1)%2+1)*5;
-  }  
+  }
 
   /* Select the number of layer depending on the level */
 
@@ -300,14 +300,14 @@ static void erase_next_level()
     else if(gcomprisBoard->level>2)
       layers = 2;
   }
-      
+
   /* Try the next level */
   erase_create_item(layers);
 
   gc_score_set(gcomprisBoard->sublevel);
 
 }
-  
+
 /* ==================================== */
 /* Destroy all the items */
 static void erase_destroy_all_items()
@@ -463,7 +463,7 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
       return FALSE;
     }
   }
-    
+
   gtk_object_destroy(GTK_OBJECT(item));
 
   if(--number_of_item == 0)
@@ -472,7 +472,7 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
       erase_destroy_all_items();
       timer_id = gtk_timeout_add (4000, (GtkFunction) bonus, NULL);
     }
-  
+
   return FALSE;
 }
 
