@@ -44,7 +44,7 @@
  * </level>
  * </Wordlist>
  * </GCompris>
- * 
+ *
  *
  * \param format: the xml file to load (ex: wordsgame/default-fr.xml)
  *                If format contains $LOCALE, it will be first replaced by the current long locale
@@ -69,7 +69,7 @@ GcomprisWordlist
   GcomprisWordlist     *wordlist;
   xmlChar              *text;
 
-  gchar               **wordsArray;              
+  gchar               **wordsArray;
   GSList                *words = NULL;
 
   if (!format)
@@ -92,7 +92,7 @@ GcomprisWordlist
   g_warning("Wordlist found %s\n", xmlfilename);
 
   xmldoc = xmlParseFile(xmlfilename);
-  g_free(xmlfilename);  
+  g_free(xmlfilename);
 
   if(!xmldoc){
     g_warning("Couldn't parse file %s !", xmlfilename);
@@ -121,7 +121,7 @@ GcomprisWordlist
     xmlFreeDoc(xmldoc);
     return NULL;
   }
- 
+
 
   /* ok, we can process the wordlist */
   wordlist = g_malloc0(sizeof(GcomprisWordlist));
@@ -176,13 +176,13 @@ GcomprisWordlist
     }
 
     text = xmlNodeGetContent ( wordsNode);
- 
+
     wordsArray = g_strsplit_set ((const gchar *) text,
 				 (const gchar *) " \n\t",
 				 0);
 
     g_warning("Wordlist read : %s", text);
- 
+
     xmlFree (text);
 
     i=0;
@@ -191,7 +191,7 @@ GcomprisWordlist
 	words = g_slist_append( words, g_strdup( wordsArray[i]));
       i++;
     }
-   
+
     g_strfreev ( wordsArray);
 
 
@@ -210,7 +210,7 @@ GcomprisWordlist
     level_words->words = words;
 
     wordlist->levels_words = g_slist_append( wordlist->levels_words, level_words);
-   
+
     node = node->next;
   }
 
@@ -240,7 +240,7 @@ gc_wordlist_random_word_get(GcomprisWordlist *wordlist, guint level)
   if(level > wordlist->number_of_level)
     level = wordlist->number_of_level;
 
-  for (list = lev_list; list != NULL; list = list->next) 
+  for (list = lev_list; list != NULL; list = list->next)
     {
       LevelWordlist *lw = list->data;
 
@@ -248,12 +248,12 @@ gc_wordlist_random_word_get(GcomprisWordlist *wordlist, guint level)
 	{
 	  gchar *word;
 	  g_warning("Level : %d", lw->level);
-	  
+
 	  /* We got the proper level, find a random word */
 	  word = (gchar *)g_slist_nth_data(lw->words,
-					  RAND(0, g_slist_length(lw->words))
+					  RAND(0, g_slist_length(lw->words)-1)
 					  );
-	  g_warning("returning random word '%s'", (gchar *)word);
+	  g_warning("returning random word '%s'", word);
 	  return(g_strdup(word));
 	}
     }
@@ -278,7 +278,7 @@ gc_wordlist_free(GcomprisWordlist *wordlist)
   g_free ( wordlist->description);
   g_free ( wordlist->locale);
   g_free ( wordlist->name);
-  
+
   for ( list = wordlist->levels_words; list !=NULL; list=list->next){
     LevelWordlist *lw = (LevelWordlist *)list->data;
     for ( words = lw->words; words !=NULL; words = words->next)

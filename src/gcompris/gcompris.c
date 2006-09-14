@@ -1103,6 +1103,9 @@ void
 gc_locale_set(gchar *locale)
 {
 
+  if(!locale)
+    return;
+
   g_message("gc_locale_set '%s'\n", locale);
   if(gc_locale != NULL)
     g_free(gc_locale);

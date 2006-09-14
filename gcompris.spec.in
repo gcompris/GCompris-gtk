@@ -16,9 +16,9 @@ Source:		ftp://gcompris.sourceforge.net/gcompris-%{PACKAGE_VERSION}.tar.gz
 BuildRoot: 	%_tmppath/%name-%version-buildroot
 Buildrequires: gnuchess gnucap
 Buildrequires: libxml2-devel libgnomeui2-devel libsqlite3_0-devel
-Buildrequires: texinfo 
+Buildrequires: texinfo
 # (misc) needed for python support
-Buildrequires: gnome-python python-devel pygtk2.0-devel 
+Buildrequires: gnome-python python-devel pygtk2.0-devel
 Requires:	gnome-libs libxml2 gdk-pixbuf %canvaspackage %canvaslib
 Requires:       gnuchess >= 5.02
 Requires:       @REQUIRE_PYTHON@
@@ -46,7 +46,7 @@ The Game is included in the Main desktop menu in 'Games'.
 You should install it only if you have children using this computer.
 
 %description -l fr
-GCompris / J'ai Compris est un logiciel éducatif pour les enfants 
+GCompris / J'ai Compris est un logiciel éducatif pour les enfants
 à partir de 2 ans.
 
 Plus de 100 activités sont proposées :
@@ -73,148 +73,157 @@ Version: %version
 %description devel
 Development package for gcompris
 
-%package -n assetml-voices-cs
+%package -n gcompris-voices-cs
 Summary:        GCompris Czech voices
 Group: 		Amusements/Games
 Version: @VERSION_VOICES_CS@
 
-%description -n assetml-voices-cs
+%description -n gcompris-voices-cs
 Czech voices for the GCompris game
 
 
-%package -n assetml-voices-da
+%package -n gcompris-voices-da
 Summary:        GCompris Danish voices
 Group: 		Amusements/Games
 Version: @VERSION_VOICES_DA@
 
-%description -n assetml-voices-da
+%description -n gcompris-voices-da
 Danish voices for the GCompris game
 
 
-%package -n assetml-voices-de
+%package -n gcompris-voices-de
 Summary:        GCompris voices in German
 Group: 		Amusements/Games
 Version: @VERSION_VOICES_DE@
 
-%description -n assetml-voices-de
+%description -n gcompris-voices-de
 Alphabet voices in German
 
 
-%package -n assetml-voices-en
+%package -n gcompris-voices-en
 Summary:        GCompris voices in English
 Group: 		Amusements/Games
 Version: @VERSION_VOICES_EN@
 
-%description -n assetml-voices-en
+%description -n gcompris-voices-en
 English voices for the GCompris game
 
 
-%package -n assetml-voices-es
+%package -n gcompris-voices-es
 Summary:        GCompris voices in Spanish
 Group: 		Amusements/Games
 Version: @VERSION_VOICES_ES@
 
-%description -n assetml-voices-es
+%description -n gcompris-voices-es
 Spanish voices for the GCompris game
 
 
-%package -n assetml-voices-eu
+%package -n gcompris-voices-eu
 Summary:        GCompris voices in Basque
 Group: 		Amusements/Games
 Version: @VERSION_VOICES_EU@
 
-%description -n assetml-voices-eu
+%description -n gcompris-voices-eu
 Basque voices for the GCompris game
 
 
-%package -n assetml-voices-fi
+%package -n gcompris-voices-fi
 Summary:        GCompris voices in Finish
 Group: 		Amusements/Games
 Version: @VERSION_VOICES_FI@
 
-%description -n assetml-voices-fi
+%description -n gcompris-voices-fi
 Finish voices for the GCompris game
 
 
-%package -n assetml-voices-fr
+%package -n gcompris-voices-fr
 Summary:        GCompris voices in French
 Group: 		Amusements/Games
 Version: @VERSION_VOICES_FR@
 
-%description -n assetml-voices-fr
+%description -n gcompris-voices-fr
 French voices for the GCompris game
 
 
-%package -n assetml-voices-hu
+%package -n gcompris-voices-hu
 Summary:        GCompris voices in Hungarian
 Group: 		Amusements/Games
 Version: @VERSION_VOICES_HU@
 
-%description -n assetml-voices-hu
+%description -n gcompris-voices-hu
 Hungarian voices for the GCompris game
 
 
-%package -n assetml-voices-it
+%package -n gcompris-voices-it
 Summary:        GCompris voices in Italian
 Group: 		Amusements/Games
 Version: @VERSION_VOICES_IT@
 
-%description -n assetml-voices-it
+%description -n gcompris-voices-it
 Italian voices for the GCompris game
 
 
-%package -n assetml-voices-nl
+%package -n gcompris-voices-nl
 Summary:        GCompris voices in Dutch
 Group: 		Amusements/Games
 Version: @VERSION_VOICES_NL@
 
-%description -n assetml-voices-nl
+%description -n gcompris-voices-nl
 Dutch voices for the GCompris game
 
 
-%package -n assetml-voices-mr
+%package -n gcompris-voices-mr
 Summary:        GCompris voices in Marathi
 Group: 		Amusements/Games
 Version: @VERSION_VOICES_MR@
 
-%description -n assetml-voices-mr
+%description -n gcompris-voices-mr
 Marathi voices for the GCompris game
 
 
-%package -n assetml-voices-pt
+%package -n gcompris-voices-pt
 Summary:        GCompris voices in Portuguese
 Group: 		Amusements/Games
 Version: @VERSION_VOICES_PT@
 
-%description -n assetml-voices-pt
+%description -n gcompris-voices-pt
 Portuguese voices for the GCompris game
 
 
-%package -n assetml-voices-pt-br
+%package -n gcompris-voices-pt-br
 Summary:        GCompris voices in Brasilian
 Group: 		Amusements/Games
 Version: @VERSION_VOICES_PT_BR@
 
-%description -n assetml-voices-pt-br
+%description -n gcompris-voices-pt-br
 Brasilian voices for the GCompris game
 
 
-%package -n assetml-voices-ru
+%package -n gcompris-voices-ru
 Summary:        GCompris voices in Russian
 Group: 		Amusements/Games
 Version: @VERSION_VOICES_RU@
 
-%description -n assetml-voices-ru
+%description -n gcompris-voices-ru
 Russian voices for the GCompris game
 
 
-%package -n assetml-voices-sv
+%package -n gcompris-voices-sv
 Summary:        Alphabet voices in Swedish
 Group: 		Amusements/Games
 Version: @VERSION_VOICES_SV@
 
-%description -n assetml-voices-sv
+%description -n gcompris-voices-sv
 Alphabet voices in Swedish
+
+
+%package -n gcompris-voices-tr
+Summary:        Alphabet voices in Turkish
+Group: 		Amusements/Games
+Version: @VERSION_VOICES_TR@
+
+%description -n gcompris-voices-tr
+Alphabet voices in Turkish
 
 %prep
 %setup -q
@@ -223,7 +232,7 @@ Alphabet voices in Swedish
 %ifarch alpha
   MYARCH_FLAGS="--host=alpha-redhat-linux"
 %endif
-%configure 
+%configure
 
 %make
 
@@ -236,13 +245,13 @@ rm -rf $RPM_BUILD_ROOT
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%post 
+%post
 
 %update_menus
 
 %_install_info %{name}.info
 
-%postun 
+%postun
 
 %clean_menus
 
@@ -291,66 +300,70 @@ rm -rf $RPM_BUILD_ROOT
 %_libdir/libgcompris-1.so
 %_libdir/pkgconfig/libgcompris-1.0.pc
 
-%files -n assetml-voices-cs
+%files -n gcompris-voices-cs
 %defattr(-, root, root)
 %{prefix}/share/gcompris/boards/sounds/cs
 
-%files -n assetml-voices-da
+%files -n gcompris-voices-da
 %defattr(-, root, root)
 %{prefix}/share/gcompris/boards/sounds/da
 
-%files -n assetml-voices-de
+%files -n gcompris-voices-de
 %defattr(-, root, root)
 %{prefix}/share/gcompris/boards/sounds/de
 
-%files -n assetml-voices-en
+%files -n gcompris-voices-en
 %defattr(-, root, root)
 %{prefix}/share/gcompris/boards/sounds/en
 
-%files -n assetml-voices-es
+%files -n gcompris-voices-es
 %defattr(-, root, root)
 %{prefix}/share/gcompris/boards/sounds/es
 
-%files -n assetml-voices-eu
+%files -n gcompris-voices-eu
 %defattr(-, root, root)
 %{prefix}/share/gcompris/boards/sounds/eu
 
-%files -n assetml-voices-fi
+%files -n gcompris-voices-fi
 %defattr(-, root, root)
 %{prefix}/share/gcompris/boards/sounds/fi
 
-%files -n assetml-voices-fr
+%files -n gcompris-voices-fr
 %defattr(-, root, root)
 %{prefix}/share/gcompris/boards/sounds/fr
 
-%files -n assetml-voices-hu
+%files -n gcompris-voices-hu
 %defattr(-, root, root)
 %{prefix}/share/gcompris/boards/sounds/hu
 
-%files -n assetml-voices-it
+%files -n gcompris-voices-it
 %defattr(-, root, root)
 %{prefix}/share/gcompris/boards/sounds/it
 
-%files -n assetml-voices-mr
+%files -n gcompris-voices-mr
 %defattr(-, root, root)
 %{prefix}/share/gcompris/boards/sounds/mr
 
-%files -n assetml-voices-nl
+%files -n gcompris-voices-nl
 %defattr(-, root, root)
 %{prefix}/share/gcompris/boards/sounds/nl
 
-%files -n assetml-voices-pt
+%files -n gcompris-voices-pt
 %defattr(-, root, root)
 %{prefix}/share/gcompris/boards/sounds/pt
 
-%files -n assetml-voices-pt-br
+%files -n gcompris-voices-pt-br
 %defattr(-, root, root)
 %{prefix}/share/gcompris/boards/sounds/pt_BR
 
-%files -n assetml-voices-ru
+%files -n gcompris-voices-ru
 %defattr(-, root, root)
 %{prefix}/share/gcompris/boards/sounds/ru
 
-%files -n assetml-voices-sv
+%files -n gcompris-voices-sv
 %defattr(-, root, root)
 %{prefix}/share/gcompris/boards/sounds/sv
+
+%files -n gcompris-voices-tr
+%defattr(-, root, root)
+%{prefix}/share/gcompris/boards/sounds/tr

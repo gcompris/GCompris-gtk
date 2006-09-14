@@ -2,7 +2,7 @@ dnl Process this file with autoconf to produce a configure script.
 
 AC_INIT(src/gcompris/gcompris.c)
 AC_CANONICAL_TARGET
-AM_INIT_AUTOMAKE(gcompris, 8.0BETA4)
+AM_INIT_AUTOMAKE(gcompris, 8.0BETA5)
 AM_CONFIG_HEADER(config.h)
 AM_MAINTAINER_MODE
 
@@ -21,7 +21,7 @@ LIBGCOMPRIS_MAJOR_VERSION=1
 LIBGCOMPRIS_MINOR_VERSION=0
 LIBGCOMPRIS_MICRO_VERSION=0
 LIBGCOMPRIS_INTERFACE_AGE=0
-# If you need a modifier for the version number. 
+# If you need a modifier for the version number.
 # Normally empty, but can be used to make "fixup" releases.
 LIBGCOMPRIS_EXTRAVERSION=
 
@@ -320,7 +320,7 @@ else
     dnl Set this variable for the .spec.in file
     REQUIRE_PYTHON="python gnome-python gnome-python-canvas pygtk2.0"
 
-    dnl with gnome-python >= 2.10 gnome.canvas is obsolete. use gnomecanvas 
+    dnl with gnome-python >= 2.10 gnome.canvas is obsolete. use gnomecanvas
     dnl gnomecanvas not supported yet in gcompris
     dnl
     dnl   AM_CHECK_PYMOD(gnome.canvas,,test_gnomecanvas="no",test_gnomevanvas="yes")
@@ -351,7 +351,7 @@ AC_SUBST(SQLITE3_LIBS)
 
 AC_SUBST(REQUIRE_PYTHON)
 
-dnl PYCAIRO SUPPORT 
+dnl PYCAIRO SUPPORT
 dnl Check for pycairo
 AC_ARG_ENABLE(cairo,
           AC_HELP_STRING(
@@ -365,7 +365,7 @@ if test x$with_cairo = xyes; then
    if test x$py_build_only = xno; then
       if test x$build_python_plugin = xyes; then
          PKG_CHECK_MODULES(PYCAIRO, pycairo >= 0.5.0,, AC_MSG_ERROR([*** pycairo not found! get it at http://cairographics.org/ if you want --enable-cairo ]))
-         AM_CHECK_PYMOD(cairo,,,AC_MSG_ERROR([*** pycairo installed but not visible from python ]))		 
+         AM_CHECK_PYMOD(cairo,,,AC_MSG_ERROR([*** pycairo installed but not visible from python ]))
          use_cairo=yes
          AC_DEFINE([USE_CAIRO],[],[use Cairo graphic library])
       else
@@ -447,6 +447,10 @@ AC_SUBST(VERSION_VOICES_RU)
 # SV
 VERSION_VOICES_SV=1.0
 AC_SUBST(VERSION_VOICES_SV)
+
+# TR
+VERSION_VOICES_TR=1.0
+AC_SUBST(VERSION_VOICES_TR)
 
 AC_SUBST(CFLAGS)
 

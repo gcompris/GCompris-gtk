@@ -33,7 +33,7 @@
 #define MAX_WORDS 100
 
 
-static GPtrArray *words=NULL;
+static GcomprisWordlist *gc_wordlist = NULL;
 
 static GcomprisBoard *gcomprisBoard = NULL;
 
@@ -97,8 +97,7 @@ static void		 reading_config_stop(void);
 
 static void		 player_win(void);
 static void		 player_loose(void);
-static gchar		*get_random_word(gboolean);
-static gboolean		 read_wordfile();
+static gchar		*get_random_word(const gchar *except);
 static GnomeCanvasItem	*display_what_to_do(GnomeCanvasGroup *parent);
 static void		 ask_ready(gboolean status);
 static void		 ask_yes_no(void);
@@ -215,6 +214,21 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       if(gcomprisBoard->mode && g_strcasecmp(gcomprisBoard->mode, "horizontal")==0)
 	currentMode=MODE_HORIZONTAL;
 
+      gc_wordlist = gc_wordlist_get_from_file("wordsgame/default-$LOCALE.xml");
+
+      if(!gc_wordlist)
+	{
+	  /* Fallback to english */
+	  gc_wordlist = gc_wordlist_get_from_file("wordsgame/default-en.xml");
+
+	  if(!gc_wordlist)
+	    {
+	      gcomprisBoard = NULL;
+	      gc_dialog(_("Error: We can't find\na list of words to play this game.\n"), gc_board_end);
+	      return;
+	    }
+	}
+
       reading_next_level();
     }
 }
@@ -228,6 +242,11 @@ end_board ()
       pause_board(TRUE);
       reading_destroy_all_items();
     }
+
+  if (gc_wordlist != NULL){
+    gc_wordlist_free(gc_wordlist);
+    gc_wordlist = NULL;
+  }
 
   gc_locale_reset();
 
@@ -303,7 +322,6 @@ static gint reading_next_level()
   gcomprisBoard->number_of_sublevel=1;
   gcomprisBoard->sublevel=1;
 
-  read_wordfile();
   display_what_to_do(boardRootItem);
   ask_ready(TRUE);
   return (FALSE);
@@ -318,7 +336,7 @@ static void reading_destroy_all_items()
     drop_items_id = 0;
   }
 
-  if (next_level_timer) { 
+  if (next_level_timer) {
     gtk_timeout_remove (next_level_timer);
     drop_items_id = 0;
   }
@@ -330,18 +348,11 @@ static void reading_destroy_all_items()
   previousFocus.rootItem = NULL;
   toDeleteFocus.rootItem = NULL;
 
-  if (textToFind!=NULL) 
+  if (textToFind!=NULL)
     {
     g_free(textToFind);
     textToFind=NULL;
     }
-
-  if (words!=NULL) 
-    {
-    g_ptr_array_free (words, TRUE);
-    words=NULL;
-    }
-
 }
 
 static GnomeCanvasItem *display_what_to_do(GnomeCanvasGroup *parent)
@@ -352,8 +363,8 @@ static GnomeCanvasItem *display_what_to_do(GnomeCanvasGroup *parent)
   gint i;
 
   /* Load the text to find */
-  
-  textToFind = get_random_word(TRUE);
+
+  textToFind = get_random_word(NULL);
 
   assert(textToFind != NULL);
 
@@ -427,14 +438,14 @@ static gboolean reading_create_item(GnomeCanvasGroup *parent)
       return FALSE;
     }
 
-    
+
   if(textToFindIndex!=0)
     {
-      word = get_random_word(FALSE);
+      word = get_random_word(textToFind);
     }
   else
     {
-      word = textToFind;
+      word = g_strdup(textToFind);
     }
 
   assert(word!=NULL);
@@ -463,9 +474,12 @@ static gboolean reading_create_item(GnomeCanvasGroup *parent)
 			   "fill_color", "black",
 			   NULL);
 
+
   gchar *oldword = g_strdup_printf("<span foreground=\"black\" background=\"black\">%s</span>", word);
 
-  previousFocus.overwriteItem = \
+  g_free(word);
+
+  previousFocus.overwriteItem =						\
     gnome_canvas_item_new (GNOME_CANVAS_GROUP(previousFocus.rootItem),
 			   gnome_canvas_text_get_type (),
 			   "markup", oldword,
@@ -546,7 +560,7 @@ static void ask_ready(gboolean status)
   button_pixmap = gc_skin_pixmap_load("button_large2.png");
   item1 = gnome_canvas_item_new (boardRootItem,
 				gnome_canvas_pixbuf_get_type (),
-				"pixbuf",  button_pixmap, 
+				"pixbuf",  button_pixmap,
 				"x", x_offset,
 				"y", y_offset,
 				NULL);
@@ -724,88 +738,28 @@ item_event_valid(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 }
 
 
-
-
-static FILE *get_wordfile(const char *locale)
-{
-  GcomprisProperties *properties = gc_prop_get();
-  gchar *filename;
-  FILE *wordsfd = NULL;
-
-  /* First Try to find a file matching the level and the locale */
-  filename = g_strdup_printf("%s%s%d.%.2s",
-                             properties->package_data_dir, "/wordsgame/wordslevel",
-                             gcomprisBoard->level, locale);
-  wordsfd = fopen (filename, "r");
-                                                                                                                              
-  if(wordsfd==NULL)
-    {
-      GcomprisProperties *properties = gc_prop_get();
-      g_free(filename);
-      /* Second Try to find a file matching the 'max' and the locale */
-      filename = g_strdup_printf("%s%s%.2s",
-				 properties->package_data_dir, "/wordsgame/wordslevelmax.",
-				 locale);
-      
-      wordsfd = fopen (filename, "r");
-    }
-                                                                                                                              
-  g_free(filename);
-                                                                                                                              
-  return wordsfd;
-}
-
-
-
-
-static gboolean read_wordfile()
-{
-  FILE *wordsfd;
-  gchar *buf;
-  int len;                                                                                                                                
-
-  wordsfd = get_wordfile(gc_locale_get());
-                                                                                                                              
-  if(wordsfd==NULL)
-    {
-      /* Try to open the english locale by default */
-      wordsfd = get_wordfile("en");
-                                                                                                                              
-      /* Too bad, even english is not there. Check your Install */
-      if(wordsfd==NULL) {
-        gc_dialog(_("Cannot open file of words for your locale"), gc_board_end);
-        return FALSE;
-      }
-    }
-                                                                                                                              
-   words=g_ptr_array_new ();
-   while ((buf=fgets(g_new(gchar,MAXWORDSLENGTH), MAXWORDSLENGTH, wordsfd))) {
- 	assert(g_utf8_validate(buf,-1,NULL));
-
-	//remove \n from end of line
-        len = strlen(buf);
-        if((0 < len)&&('\n'==buf[len-1]))
-            buf[len-1] = '\0';
-	    
-	g_ptr_array_add(words,buf);
-	}
-   fclose(wordsfd);
-
-   return TRUE;
-}
-/*
- * Return a random word from a set of text file depending on 
- * the current level and language
+/** Return a random word from a set of text file depending on
+ *  the current level and language
+ *
+ * \param except: if non NULL, never return this value
+ *
+ * \return a random word from. must be freed by the caller
  */
-
-
-static gchar *get_random_word(gboolean remove)
+static gchar *
+get_random_word(const gchar* except)
 {
-  int i=rand()%words->len;
-  if (remove) 
-    return g_ptr_array_remove_index(words,i);
-  else
-    return g_ptr_array_index(words,i);
+  gchar *word;
+
+  word = gc_wordlist_random_word_get(gc_wordlist, gcomprisBoard->level);
+
+  if(except)
+    while(strcmp(except, word)==0)
+      {
+	g_free(word);
+	word = gc_wordlist_random_word_get(gc_wordlist, gcomprisBoard->level);
+      }
+
+  return(word);
 }
 
 
@@ -827,7 +781,7 @@ static void save_table (gpointer key,
 {
   gc_db_set_board_conf ( profile_conf,
 			    board_conf,
-			    (gchar *) key, 
+			    (gchar *) key,
 			    (gchar *) value);
 }
 
@@ -845,22 +799,22 @@ static void conf_ok(GHashTable *table)
     gc_locale_reset();
 
     GHashTable *config;
-    
+
     if (profile_conf)
       config = gc_db_get_board_conf();
     else
       config = table;
-    
+
     gc_locale_set(g_hash_table_lookup( config, "locale"));
-  
+
     if (profile_conf)
       g_hash_table_destroy(config);
 
     reading_next_level();
-  
+
     pause_board(FALSE);
   }
-  
+
   board_conf = NULL;
   profile_conf = NULL;
 
@@ -877,10 +831,10 @@ reading_config_start(GcomprisBoard *agcomprisBoard,
     pause_board(TRUE);
 
   gchar *label = g_strdup_printf("<b>%s</b> configuration\n for profile <b>%s</b>",
-				 agcomprisBoard->name, 
+				 agcomprisBoard->name,
 				 aProfile? aProfile->name: "");
 
-  gc_board_config_window_display( label, 
+  gc_board_config_window_display( label,
 				 (GcomprisConfCallback )conf_ok);
 
   g_free(label);
@@ -889,16 +843,16 @@ reading_config_start(GcomprisBoard *agcomprisBoard,
   GHashTable *config = gc_db_get_conf( profile_conf, board_conf);
 
   gchar *locale = g_hash_table_lookup( config, "locale");
-  
+
   gc_board_config_combo_locales( locale);
 
 }
 
-  
+
 /* ======================= */
 /* = config_stop        = */
 /* ======================= */
-static void 
+static void
 reading_config_stop()
 {
 }

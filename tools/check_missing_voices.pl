@@ -51,7 +51,7 @@ foreach my $locale (@LOCALES)
       {
 	if (! opendir DIR, "$BASEDIR/$locale/$subdir")
 	  {
-	    print "cannot open dir $BASEDIR/$locale/$subdir: $!";
+	    print "cannot open dir $BASEDIR/$locale/$subdir: $!\n";
 	    next;
 	  }
 

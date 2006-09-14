@@ -58,7 +58,7 @@ static gint sound_play_id = 0;
 static void  confirm_quit(gboolean answer);
 
 /*
- * Main entry point 
+ * Main entry point
  * ----------------
  *
  */
@@ -90,7 +90,7 @@ void gc_bar_start (GnomeCanvas *theCanvas)
   pixmap = gc_skin_pixmap_load("bar_bg.jpg");
   bar_item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				gnome_canvas_pixbuf_get_type (),
-				"pixbuf", pixmap, 
+				"pixbuf", pixmap,
 				"x", (double) 0,
 				"y", (double) 0,
 				NULL);
@@ -103,7 +103,7 @@ void gc_bar_start (GnomeCanvas *theCanvas)
       zoom = (double)(height-BAR_GAP)/(double)gdk_pixbuf_get_height(pixmap);
       exit_item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 					 gnome_canvas_pixbuf_get_type (),
-					 "pixbuf", pixmap, 
+					 "pixbuf", pixmap,
 					 "x", (double) (width/NUMBER_OF_ITEMS) * 1 -
 					 gdk_pixbuf_get_width(pixmap)/2,
 					 "y", (double) (height-gdk_pixbuf_get_height(pixmap)*zoom)/2,
@@ -118,14 +118,14 @@ void gc_bar_start (GnomeCanvas *theCanvas)
 			 (GtkSignalFunc) gc_item_focus_event,
 			 NULL);
     }
-  
+
   // HOME
   pixmap = gc_skin_pixmap_load("home.png");
   zoom = (double)(height-BAR_GAP)/(double)gdk_pixbuf_get_height(pixmap);
   home_item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				     gnome_canvas_pixbuf_get_type (),
-				     "pixbuf", pixmap, 
-				     "x", (double) (width/NUMBER_OF_ITEMS) * 9 - 
+				     "pixbuf", pixmap,
+				     "x", (double) (width/NUMBER_OF_ITEMS) * 9 -
 				     gdk_pixbuf_get_width(pixmap)/2,
 				     "y", (double) (height-gdk_pixbuf_get_height(pixmap)*zoom)/2,
 				     NULL);
@@ -145,7 +145,7 @@ void gc_bar_start (GnomeCanvas *theCanvas)
   zoom = (double)(height-BAR_GAP)/(double)gdk_pixbuf_get_height(pixmap);
   ok_item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				   gnome_canvas_pixbuf_get_type (),
-				   "pixbuf", pixmap, 
+				   "pixbuf", pixmap,
 				   "x", (double) (width/NUMBER_OF_ITEMS) * 7 -
 				   gdk_pixbuf_get_width(pixmap)/2,
 				   "y", (double) (height-gdk_pixbuf_get_height(pixmap)*zoom)/2,
@@ -166,7 +166,7 @@ void gc_bar_start (GnomeCanvas *theCanvas)
   zoom = (double)(height-BAR_GAP)/(double)gdk_pixbuf_get_height(pixmap);
   level_item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				      gnome_canvas_pixbuf_get_type (),
-				      "pixbuf", pixmap, 
+				      "pixbuf", pixmap,
 				      "x", (double) (width/NUMBER_OF_ITEMS) * 5 -
 				      gdk_pixbuf_get_width(pixmap)/2,
 				      "y", (double) (height-gdk_pixbuf_get_height(pixmap)*zoom)/2,
@@ -187,13 +187,13 @@ void gc_bar_start (GnomeCanvas *theCanvas)
   zoom = (double)(height-BAR_GAP)/(double)gdk_pixbuf_get_height(pixmap);
   repeat_item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				       gnome_canvas_pixbuf_get_type (),
-				       "pixbuf", pixmap, 
+				       "pixbuf", pixmap,
 				       "x", (double) (width/NUMBER_OF_ITEMS) * 6 -
 				       gdk_pixbuf_get_width(pixmap)/2,
 				       "y", (double) (height-gdk_pixbuf_get_height(pixmap)*zoom)/2,
 				       NULL);
   gdk_pixbuf_unref(pixmap);
-  
+
   gtk_signal_connect(GTK_OBJECT(repeat_item), "event",
 		     (GtkSignalFunc) item_event_bar,
 		     "repeat");
@@ -207,7 +207,7 @@ void gc_bar_start (GnomeCanvas *theCanvas)
   zoom = (double)(height-BAR_GAP)/(double)gdk_pixbuf_get_height(pixmap);
   help_item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				     gnome_canvas_pixbuf_get_type (),
-				     "pixbuf", pixmap, 
+				     "pixbuf", pixmap,
 				     "x", (double) (width/NUMBER_OF_ITEMS) * 4 -
 				     gdk_pixbuf_get_width(pixmap)/2,
 				     "y", (double) (height-gdk_pixbuf_get_height(pixmap)*zoom)/2,
@@ -229,7 +229,7 @@ void gc_bar_start (GnomeCanvas *theCanvas)
       zoom = (double)(height-BAR_GAP)/(double)gdk_pixbuf_get_height(pixmap);
       config_item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 					   gnome_canvas_pixbuf_get_type (),
-					   "pixbuf", pixmap, 
+					   "pixbuf", pixmap,
 					   "x", (double) (width/NUMBER_OF_ITEMS) * 3 -
 					   gdk_pixbuf_get_width(pixmap)/2,
 					   "y", (double) (height-gdk_pixbuf_get_height(pixmap)*zoom)/2,
@@ -250,7 +250,7 @@ void gc_bar_start (GnomeCanvas *theCanvas)
   zoom = (double)(height-BAR_GAP)/(double)gdk_pixbuf_get_height(pixmap);
   about_item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				     gnome_canvas_pixbuf_get_type (),
-				     "pixbuf", pixmap, 
+				     "pixbuf", pixmap,
 				     "x", (double) (width/NUMBER_OF_ITEMS) * 2 -
 				     gdk_pixbuf_get_width(pixmap)/2,
 				     "y", (double) (height-gdk_pixbuf_get_height(pixmap)*zoom)/2,
@@ -294,7 +294,7 @@ void gc_bar_set_level(GcomprisBoard *gcomprisBoard)
 
       str = g_strdup_printf("level%d.png", gcomprisBoard->level);
       pixmap = gc_skin_pixmap_load(str);
-   
+
       g_free(str);
       /* Warning changing the image needs to update pixbuf_ref for the focus usage */
       g_object_set_data (G_OBJECT (level_item), "pixbuf_ref", pixmap);
@@ -303,7 +303,7 @@ void gc_bar_set_level(GcomprisBoard *gcomprisBoard)
       			     NULL);
       gdk_pixbuf_unref(pixmap);
     }
-  
+
   current_level=gcomprisBoard->level;
 }
 
@@ -386,7 +386,7 @@ gc_bar_set (const GComprisBarFlags flags)
 
 }
 
-/* Hide all icons in the control bar 
+/* Hide all icons in the control bar
  * or retore the icons to the previous value
  */
 void
@@ -565,13 +565,13 @@ item_event_bar(GnomeCanvasItem *item, GdkEvent *event, gchar *data)
       else if(!strcmp((char *)data, "quit"))
 	{
 	  gc_confirm_box( _("GCompris confirmation"),
-			    _("Sure you want to quit ?"),
-			    _("Yes, I am sure !"),
+			    _("Are you sure you want to quit?"),
+			    _("Yes, I am sure!"),
 			    _("No, I want to keep going"),
 			    (ConfirmCallBack) confirm_quit);
 	}
       break;
-      
+
     default:
       break;
     }
