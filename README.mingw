@@ -61,6 +61,7 @@ GNUCHESS_TOP :=		/gnuchess
 ========================
 * On a GNU/Linux system, create gcompris-win-prepack.tar.gz with:
   make -f Makefile.mingw prep
+* Now on the windows system:
 * Get a tarball or CVS snapshot of gcompris.
 * untar the gcompris-win-prepack.tar.gz in it
 * run make -f Makefile.mingw from gcompris's top-level directory.  This will take a long time.

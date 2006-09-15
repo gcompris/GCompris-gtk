@@ -48,7 +48,7 @@ py_gcompris_gc_bonus_end_display(PyObject* self, PyObject* args)
 
 static PyMethodDef PythonGcomprisBonusModule[] = {
   { "display",  py_gc_bonus_display, METH_VARARGS, "gc_bonus_display" },
-  { "gc_bonus_end_display",  py_gcompris_gc_bonus_end_display, METH_VARARGS, "gc_bonus_end_display" },
+  { "board_finished",  py_gcompris_gc_bonus_end_display, METH_VARARGS, "gc_bonus_end_display" },
   { NULL, NULL, 0, NULL}
 };
 
@@ -58,25 +58,25 @@ void python_gcompris_bonus_module_init(void)
   module = Py_InitModule("_gcompris_bonus", PythonGcomprisBonusModule);
 
   /* Misc constants */
-  PyModule_AddIntConstant(module, "TIME_CLICK_TO", TIME_CLICK_TO_BONUS ); 
+  PyModule_AddIntConstant(module, "TIME_CLICK_TO", TIME_CLICK_TO_BONUS );
 
   /* BonusList constants */
-  PyModule_AddIntConstant(module, "RANDOM", BONUS_RANDOM ); 
-  PyModule_AddIntConstant(module, "SMILEY", BONUS_SMILEY ); 
-  PyModule_AddIntConstant(module, "FLOWER", BONUS_FLOWER ); 
+  PyModule_AddIntConstant(module, "RANDOM", BONUS_RANDOM );
+  PyModule_AddIntConstant(module, "SMILEY", BONUS_SMILEY );
+  PyModule_AddIntConstant(module, "FLOWER", BONUS_FLOWER );
   PyModule_AddIntConstant(module, "TUX",    BONUS_TUX );
   PyModule_AddIntConstant(module, "GNU",    BONUS_GNU );
 
   /* BonusFinishedList constants */
-  PyModule_AddIntConstant(module, "FINISHED_RANDOM", BOARD_FINISHED_RANDOM ); 
-  PyModule_AddIntConstant(module, "FINISHED_TUXPLANE", BOARD_FINISHED_TUXPLANE ); 
-  PyModule_AddIntConstant(module, "FINISHED_TUXLOCO", BOARD_FINISHED_TUXLOCO ); 
-  PyModule_AddIntConstant(module, "FINISHED_TOOMANYERRORS", BOARD_FINISHED_TOOMANYERRORS ); 
+  PyModule_AddIntConstant(module, "FINISHED_RANDOM", BOARD_FINISHED_RANDOM );
+  PyModule_AddIntConstant(module, "FINISHED_TUXPLANE", BOARD_FINISHED_TUXPLANE );
+  PyModule_AddIntConstant(module, "FINISHED_TUXLOCO", BOARD_FINISHED_TUXLOCO );
+  PyModule_AddIntConstant(module, "FINISHED_TOOMANYERRORS", BOARD_FINISHED_TOOMANYERRORS );
 
   /* BonusStatusList constants */
-  PyModule_AddIntConstant(module, "LOOSE", BOARD_LOOSE ); 
-  PyModule_AddIntConstant(module, "WIN",   BOARD_WIN ); 
-  PyModule_AddIntConstant(module, "DRAW",  BOARD_DRAW ); 
+  PyModule_AddIntConstant(module, "LOOSE", BOARD_LOOSE );
+  PyModule_AddIntConstant(module, "WIN",   BOARD_WIN );
+  PyModule_AddIntConstant(module, "DRAW",  BOARD_DRAW );
 }
 
 /* Some usefull code parts ... */
