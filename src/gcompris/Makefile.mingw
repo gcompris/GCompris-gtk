@@ -30,7 +30,7 @@ CFLAGS =
 
 DEFINES =
 
-LDFLAGS = -mwindows -mno-cygwin -mms-bitfields 
+LDFLAGS = -mwindows -mno-cygwin -mms-bitfields
 
 #-mconsole
 #-mwindows
@@ -80,11 +80,14 @@ EXE_C_SRC = \
 	about.c \
 	anim.c \
 	bar.c \
+	binreloc.c \
 	board.c \
 	board_config.c \
 	bonus.c \
+	cache.c \
 	config.c \
 	cursor.c \
+	dialog.c \
 	file_selector.c \
 	gameutil.c \
 	gcompris.c \
@@ -92,11 +95,12 @@ EXE_C_SRC = \
 	gcompris_confirm.c \
 	gcompris_db.c \
 	gcompris_im.c \
-	gcompris_files.c \
+	gc_net.c \
 	help.c \
 	images_selector.c \
 	log.c \
 	main.c \
+	menu.c \
 	pixbuf_util.c \
 	profile.c \
 	properties.c \
@@ -104,11 +108,12 @@ EXE_C_SRC = \
 	sdlplayer.c \
 	skin.c \
 	soundutil.c \
-	timer.c
+	timer.c \
+	wordlist.c
 
 RC_SRC =		gcomprisrc.rc
 
-EXE_OBJECTS = $(EXE_C_SRC:%.c=%.o) $(RC_SRC:%.rc=%.o) 
+EXE_OBJECTS = $(EXE_C_SRC:%.c=%.o) $(RC_SRC:%.rc=%.o)
 
 ##
 ## LIBRARIES

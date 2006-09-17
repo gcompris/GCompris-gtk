@@ -1,3 +1,40 @@
+2006-09-17  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	- Minor resizing of some icons do make them appear smother
+	- Changed gcompris logo to newer design from Franck.
+	- Fixed clickgame to work again on windows.
+
+	* Makefile.am:
+	* README.mingw:
+	* boards/boardicons/book.png:
+	* boards/boardicons/computer.png:
+	* boards/boardicons/discovery.png:
+	* boards/boardicons/experience.png:
+	* boards/boardicons/fun.png:
+	* boards/boardicons/puzzles.png:
+	* boards/skins/gartoon/gcompris-about.png:
+	* boards/skins/gartoon/gcomprislogo.png:
+	* config.h.mingw:
+	* configure.in:
+	* nsis/gcompris-intro.bmp:
+	* src/boards/chess.c: (start_board), (chess_next_level),
+	(chess_destroy_all_items), (chess_create_item), (move_piece_to),
+	(hightlight_possible_moves), (item_event), (engine_local_destroy),
+	(engine_local_cb), (engine_local_err_cb), (start_child),
+	(write_child): nothing, just reindent.
+	* src/boards/clickgame.c: (clickgame_start),
+	(clickgame_next_level), (clickgame_animate_item),
+	(clickgame_destroy_items), (clickgame_destroy_all_items),
+	(clickgame_create_item), (clickgame_add_new_item), (item_event),
+	(load_random_pixmap):
+	* src/gcompris/Makefile.mingw:
+	* src/gcompris/about.c: (gc_about_start), (gc_about_stop):
+	* src/gcompris/gcompris.c: (setup_window):
+	* src/gcompris/images_selector.c: (display_image),
+	(display_image_set), (parseImage):
+	* src/gcompris/skin.c: (gc_skin_image_get), (gc_skin_pixmap_load),
+	(gc_skin_setup_vars), (skin_xml_load), (gc_skin_load):
+
 2006-09-15  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* README.mingw: minor update

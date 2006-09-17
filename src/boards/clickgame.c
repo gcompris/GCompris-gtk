@@ -201,9 +201,9 @@ static void clickgame_start (GcomprisBoard *agcomprisBoard)
       gcomprisBoard->level = 1;
       gcomprisBoard->maxlevel=6;
       gcomprisBoard->number_of_sublevel=10; /* Go to next level after this number of 'play' */
-      gc_score_start(SCORESTYLE_NOTE, 
-			   gcomprisBoard->width - 220, 
-			   gcomprisBoard->height - 50, 
+      gc_score_start(SCORESTYLE_NOTE,
+			   gcomprisBoard->width - 220,
+			   gcomprisBoard->height - 50,
 			   gcomprisBoard->number_of_sublevel);
       gc_bar_set(GC_BAR_LEVEL);
 
@@ -270,33 +270,33 @@ clickgame_config ()
 /*-------------------------------------------------------------------------------*/
 
 /* set initial values for the next level */
-static void clickgame_next_level() 
+static void clickgame_next_level()
 {
 
   switch(gcomprisBoard->level)
     {
     case 1:
-      gc_set_background(gnome_canvas_root(gcomprisBoard->canvas), 
+      gc_set_background(gnome_canvas_root(gcomprisBoard->canvas),
 			      "clickgame/nur00523.jpg");
       break;
     case 2:
-      gc_set_background(gnome_canvas_root(gcomprisBoard->canvas), 
+      gc_set_background(gnome_canvas_root(gcomprisBoard->canvas),
       			      "clickgame/nur03006.jpg");
       break;
     case 3:
-      gc_set_background(gnome_canvas_root(gcomprisBoard->canvas), 
+      gc_set_background(gnome_canvas_root(gcomprisBoard->canvas),
 			      "clickgame/nur03011.jpg");
       break;
     case 4:
-      gc_set_background(gnome_canvas_root(gcomprisBoard->canvas), 
+      gc_set_background(gnome_canvas_root(gcomprisBoard->canvas),
 			      "clickgame/nur03010.jpg");
       break;
     case 5:
-      gc_set_background(gnome_canvas_root(gcomprisBoard->canvas), 
+      gc_set_background(gnome_canvas_root(gcomprisBoard->canvas),
 			      "clickgame/nur03013.jpg");
       break;
     default:
-      gc_set_background(gnome_canvas_root(gcomprisBoard->canvas), 
+      gc_set_background(gnome_canvas_root(gcomprisBoard->canvas),
 			      "clickgame/nur03505.jpg");
     }
 
@@ -323,10 +323,10 @@ static void clickgame_animate_item(FishItem *fishitem)
   if(fishitem->currentItem >= g_list_length(fishitem->item_list))
     fishitem->currentItem=0;
 
-  gnome_canvas_item_show((GnomeCanvasItem *)g_list_nth_data(fishitem->item_list, 
+  gnome_canvas_item_show((GnomeCanvasItem *)g_list_nth_data(fishitem->item_list,
 							    fishitem->currentItem));
 
-  gnome_canvas_item_hide((GnomeCanvasItem *)g_list_nth_data(fishitem->item_list, 
+  gnome_canvas_item_hide((GnomeCanvasItem *)g_list_nth_data(fishitem->item_list,
 							    currentItem));
 }
 
@@ -379,7 +379,7 @@ static void clickgame_destroy_items()
 {
   FishItem *fishitem;
 
-  while(g_list_length(item2del_list)>0) 
+  while(g_list_length(item2del_list)>0)
     {
       fishitem = g_list_nth_data(item2del_list, 0);
       clickgame_destroy_item(fishitem);
@@ -391,7 +391,7 @@ static void clickgame_destroy_all_items()
 {
   FishItem *fishitem;
 
-  while(g_list_length(item_list)>0) 
+  while(g_list_length(item_list)>0)
     {
       fishitem = g_list_nth_data(item_list, 0);
       clickgame_destroy_item(fishitem);
@@ -468,7 +468,7 @@ static FishItem *clickgame_create_item(GnomeCanvasGroup *parent)
       x = (double) gcomprisBoard->width;
       fishitem->speed=MIN(fishitem->speed, -1);
     }
-  else 
+  else
     {
       x = (double) -gdk_pixbuf_get_width(pixmap)*imageZoom;
       fishitem->speed=MAX(fishitem->speed, 1);
@@ -497,12 +497,12 @@ static FishItem *clickgame_create_item(GnomeCanvasGroup *parent)
 
       item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				    gnome_canvas_pixbuf_get_type (),
-				    "pixbuf", pixmap2, 
+				    "pixbuf", pixmap2,
 				    "x", 0.0,
 				    "y", 0.0,
 				    "width", (double) gdk_pixbuf_get_width(pixmap)*imageZoom,
 				    "height", (double) gdk_pixbuf_get_height(pixmap)*imageZoom,
-				    "width_set", TRUE, 
+				    "width_set", TRUE,
 				    "height_set", TRUE,
 				    NULL);
       gdk_pixbuf_unref(pixmap2);
@@ -511,7 +511,7 @@ static FishItem *clickgame_create_item(GnomeCanvasGroup *parent)
 	gnome_canvas_item_show(item);
       else
 	gnome_canvas_item_hide(item);
-	
+
       fishitem->item_list = g_list_append (fishitem->item_list, item);
     }
 
@@ -525,7 +525,7 @@ static FishItem *clickgame_create_item(GnomeCanvasGroup *parent)
   return (fishitem);
 }
 
-static void clickgame_add_new_item() 
+static void clickgame_add_new_item()
 {
   setup_item (clickgame_create_item(gnome_canvas_root(gcomprisBoard->canvas)));
 }
@@ -580,34 +580,34 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, FishItem *fishitem)
    item_y = event->button.y;
    gnome_canvas_item_w2i(item->parent, &item_x, &item_y);
 
-   switch (event->type) 
+   switch (event->type)
      {
      case GDK_BUTTON_PRESS:
-       switch(event->button.button) 
+       switch(event->button.button)
          {
          case 1:
            if (event->button.state & GDK_SHIFT_MASK)
              {
                x = item_x;
                y = item_y;
-               
+
                fleur = gdk_cursor_new(GDK_FLEUR);
                gc_canvas_item_grab(item,
-                                      GDK_POINTER_MOTION_MASK | 
+                                      GDK_POINTER_MOTION_MASK |
                                       GDK_BUTTON_RELEASE_MASK,
                                       fleur,
                                       event->button.time);
                gdk_cursor_destroy(fleur);
                dragging = TRUE;
              }
-           else 
+           else
              {
 	       clickgame_destroy_item(fishitem);
 	       gc_sound_play_ogg ("sounds/gobble.ogg", NULL);
-	       
+
 	       gcomprisBoard->sublevel++;
 	       gc_score_set(gcomprisBoard->sublevel);
-	       
+
 	       if(gcomprisBoard->sublevel>=gcomprisBoard->number_of_sublevel) {
 		 gamewon = TRUE;
 		 clickgame_destroy_all_items();
@@ -663,19 +663,19 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, FishItem *fishitem)
        break;
 
      case GDK_MOTION_NOTIFY:
-       if (dragging && (event->motion.state & GDK_BUTTON1_MASK)) 
+       if (dragging && (event->motion.state & GDK_BUTTON1_MASK))
          {
            new_x = item_x;
            new_y = item_y;
-             
+
            gnome_canvas_item_move(item, new_x - x, new_y - y);
            x = new_x;
            y = new_y;
          }
        break;
-           
+
      case GDK_BUTTON_RELEASE:
-       if(dragging) 
+       if(dragging)
 	 {
 	   gc_canvas_item_ungrab(item, event->button.time);
 	   dragging = FALSE;
@@ -685,7 +685,7 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, FishItem *fishitem)
      default:
        break;
      }
-         
+
    return FALSE;
  }
 
@@ -727,7 +727,7 @@ static void load_random_pixmap()
 	}
       else
 	{
-	  pixmap = gc_pixmap_load (url);
+	  pixmap = gc_pixmap_load (str, j-1);
 
 	  if(pixmap) {
 	    imagelist = g_list_append (imagelist, pixmap);

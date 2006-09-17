@@ -177,16 +177,25 @@ static void pause_board (gboolean pause)
   board_paused = pause;
 }
 
+void gnuchess_died(int signum)
+{
+  if(signum == SIGTRAP)
+    {
+      gc_dialog(_("Error: The external program gnuchess died unexpectingly"), gc_board_end);
+    }
+}
+
 /*
  */
 static void start_board (GcomprisBoard *agcomprisBoard)
 {
-  
-#ifndef WIN32  
+
+  signal(SIGTRAP, gnuchess_died);
+#ifndef WIN32
   if (!g_file_test (GNUCHESS, G_FILE_TEST_EXISTS)) {
-    
+
     gc_dialog(_("Error: The external program gnuchess is mandatory\nto play chess in gcompris.\nFind this program on http://www.rpmfind.net or in your\nGNU/Linux distribution\nAnd check it is located here: "GNUCHESS), gc_board_end);
-    
+
     return;
   }
 #endif
@@ -195,7 +204,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
     {
 
       gcomprisBoard=agcomprisBoard;
-      
+
       /* Default mode */
       if(!gcomprisBoard->mode)
 	gameType=COMPUTER;
@@ -205,12 +214,12 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 	gameType=PARTYEND;
       else if(g_strncasecmp(gcomprisBoard->mode, "movelearn", 1)==0)
 	gameType=MOVELEARN;
-      
+
       gcomprisBoard->level=1;
       gcomprisBoard->maxlevel=1;
       gcomprisBoard->sublevel=1;
       gcomprisBoard->number_of_sublevel=1; /* Go to next level after this number of 'play' */
-      
+
       switch(gameType)
 	{
 	case PARTYEND:
@@ -227,21 +236,21 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 	gc_dialog(_("Error: The external program gnuchess is mandatory\nto play chess in gcompris.\nFind this program on http://www.rpmfind.net or in your\nGNU/Linux distribution\nAnd check it is in "GNUCHESS), gc_board_end);
 	return;
       }
-      
+
       read_cb = g_io_add_watch (read_chan, G_IO_IN,
 				engine_local_cb, NULL);
       err_cb = g_io_add_watch (read_chan, G_IO_HUP,
 			       engine_local_err_cb, NULL);
-      
+
       write_child (write_chan, "xboard\n");
       write_child (write_chan, "protover 2\n");
       write_child (write_chan, "post\n");
       write_child (write_chan, "easy\n");
       write_child (write_chan, "level 100 1 0\n");
       write_child (write_chan, "depth 1\n");
-      
+
       chess_next_level();
-      
+
       gamewon = FALSE;
       pause_board(FALSE);
     }
@@ -301,7 +310,7 @@ static void chess_next_level()
   gchar *img;
 
   img = gc_skin_image_get("gcompris-bg.jpg");
-  gc_set_background(gnome_canvas_root(gcomprisBoard->canvas), 
+  gc_set_background(gnome_canvas_root(gcomprisBoard->canvas),
 			  img);
   g_free(img);
 
@@ -323,8 +332,8 @@ static void chess_next_level()
       break;
     }
   /* Init our internal chessboard */
-  for (rank = 1; rank <= 8; rank++) { 
-    for (square = A1 + ((rank - 1) * 10); 
+  for (rank = 1; rank <= 8; rank++) {
+    for (square = A1 + ((rank - 1) * 10);
 	 square <= H1 + ((rank - 1) * 10);
 	 square++) {
 
@@ -335,10 +344,10 @@ static void chess_next_level()
 	chessboard[square] = gsquare;
 	chessboard[square]->piece_item = NULL;
 	chessboard[square]->square = square;
-	
+
     }
-  }    
-   
+  }
+
   /* Try the next level */
   chess_create_item(gnome_canvas_root(gcomprisBoard->canvas));
 }
@@ -362,11 +371,11 @@ static void chess_destroy_all_items()
 
   position = NULL;
 
-  for (rank = 1; rank <= 8; rank++) { 
-    for (square = A1 + ((rank - 1) * 10); 
+  for (rank = 1; rank <= 8; rank++) {
+    for (square = A1 + ((rank - 1) * 10);
 	 square <= H1 + ((rank - 1) * 10);
 	 square++) {
-      
+
       if(chessboard[square]!=NULL)
 	{
 	  g_free(chessboard[square]);
@@ -396,17 +405,17 @@ static GnomeCanvasItem *chess_create_item(GnomeCanvasGroup *parent)
 
 							    NULL));
 
-  for (rank = 1; rank <= 8; rank++) { 
-    for (square = A1 + ((rank - 1) * 10); 
+  for (rank = 1; rank <= 8; rank++) {
+    for (square = A1 + ((rank - 1) * 10);
 	 square <= H1 + ((rank - 1) * 10);
 	 square++) {
       int x,y;
-      
+
       x = square % 10 - 1;
       y = square / 10 - 2;
 
       color=((x+y)%2?BLACK_COLOR:WHITE_COLOR);
-      
+
       item  = gnome_canvas_item_new (boardRootItem,
 				     gnome_canvas_rect_get_type (),
 				     "x1", (double) CHESSBOARD_X + (x * SQUARE_WIDTH),
@@ -430,10 +439,10 @@ static GnomeCanvasItem *chess_create_item(GnomeCanvasGroup *parent)
   need_slash = FALSE;
 
   /* Display the pieces */
-  for (rank = 8; rank >= 1; rank--) { 
-    for (square = A1 + ((rank - 1) * 10); 
+  for (rank = 8; rank >= 1; rank--) {
+    for (square = A1 + ((rank - 1) * 10);
 	 square <= H1 + ((rank - 1) * 10);
-	 square++) 
+	 square++)
       {
 	GdkPixbuf *pixmap = NULL;
 	char *str;
@@ -462,7 +471,7 @@ static GnomeCanvasItem *chess_create_item(GnomeCanvasGroup *parent)
 	  {
 
 	    if( (white_side && BPIECE(piece)) ||
-		(!white_side && WPIECE(piece)) ) 
+		(!white_side && WPIECE(piece)) )
 	      {
 		white_side = !white_side;
 		//		write_child (write_chan, "c\n");
@@ -500,25 +509,25 @@ static GnomeCanvasItem *chess_create_item(GnomeCanvasGroup *parent)
 	      str = g_strdup_printf("chess/B%c.png", piece_to_ascii(piece));
 	    else
 	      str = g_strdup_printf("chess/W%c.png", piece_to_ascii(piece));
-	    
+
 	    pixmap = gc_pixmap_load(str);
 	    //	    g_warning("loading piece %s\n",   str);
 	    g_free(str);
 	    item = gnome_canvas_item_new (boardRootItem,
 					  gnome_canvas_pixbuf_get_type (),
-					  "pixbuf", pixmap, 
+					  "pixbuf", pixmap,
 					  "x", (double)CHESSBOARD_X + (x * SQUARE_WIDTH) +
 					  (guint)((SQUARE_WIDTH-gdk_pixbuf_get_width(pixmap))/2),
 					  "y", (double) CHESSBOARD_Y + ((7-y) * SQUARE_HEIGHT) +
 					  (guint)((SQUARE_HEIGHT-gdk_pixbuf_get_height(pixmap))/2),
 					  NULL);
-	    
+
 	    chessboard[square]->piece_item = item;
 	    if(WPIECE(piece))
-	      gtk_signal_connect(GTK_OBJECT(item), "event", 
+	      gtk_signal_connect(GTK_OBJECT(item), "event",
 				 (GtkSignalFunc) item_event, NULL);
 	    else
-	      gtk_signal_connect(GTK_OBJECT(item), "event", 
+	      gtk_signal_connect(GTK_OBJECT(item), "event",
 				 (GtkSignalFunc) item_event_black, NULL);
 
 	    gdk_pixbuf_unref(pixmap);
@@ -606,7 +615,7 @@ static void move_piece_to(Square from, Square to)
   double ofset_x, ofset_y;
   double x1, y1, x2, y2;
   Piece piece = NONE;
-      
+
 
   g_warning("move_piece_to from=%d to=%d\n", from, to);
 
@@ -625,7 +634,7 @@ static void move_piece_to(Square from, Square to)
     {
       if (to & 128) {
 	piece = ((to & 127) >> 3 ) + WP - 1;
-	to = (to & 7) + A8;            
+	to = (to & 7) + A8;
 	printf("  Promoting white piece to %d\n", piece);
       }
     }
@@ -648,14 +657,14 @@ static void move_piece_to(Square from, Square to)
 
   x = to % 10;
   y = to / 10 -1;
-  
+
   g_warning("   move_piece_to to    x=%d y=%d\n", x, y);
 
   dest_square = chessboard[to];
 
   /* Show the moved piece */
   gnome_canvas_item_set(dest_square->square_item,
-			"outline_color", 
+			"outline_color",
 			(BPIECE(position->square[to])?"red":"blue"),
 			NULL);
 
@@ -700,12 +709,12 @@ static void move_piece_to(Square from, Square to)
 	str = g_strdup_printf("chess/B%c.png", piece_to_ascii(piece));
       else
 	str = g_strdup_printf("chess/W%c.png", piece_to_ascii(piece));
-	      
+
       pixmap = gc_pixmap_load(str);
       g_free(str);
       g_warning("loading piece %c\n",  piece_to_ascii(piece));
       gnome_canvas_item_set (dest_square->piece_item,
-			     "pixbuf", pixmap, 
+			     "pixbuf", pixmap,
 			     NULL);
 
     }
@@ -751,15 +760,15 @@ void hightlight_possible_moves(GSquare *gsquare)
   else
     position_set_color_to_move(position, BLACK);
 
-  for (rank = 1; rank <= 8; rank++) { 
-    for (square = A1 + ((rank - 1) * 10); 
+  for (rank = 1; rank <= 8; rank++) {
+    for (square = A1 + ((rank - 1) * 10);
 	 square <= H1 + ((rank - 1) * 10);
 	 square++) {
 
 
 	square_test = position_move_normalize (position, gsquare->square, chessboard[square]->square);
 
-	if (square_test) 
+	if (square_test)
 	  {
 	    color=((rank+square)%2?BLACK_COLOR_H:WHITE_COLOR_H);
 
@@ -777,7 +786,7 @@ void hightlight_possible_moves(GSquare *gsquare)
 				  "outline_color", "black",
 				  NULL);
 	  }
-      }      
+      }
   }
 
   /* Set back the current color to move */
@@ -788,7 +797,7 @@ void hightlight_possible_moves(GSquare *gsquare)
 			"outline_color",
 			(BPIECE(position->square[gsquare->square])?"red":"blue"),
 			NULL);
-  
+
 }
 
 /* ==================================== */
@@ -823,11 +832,11 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 
 	x = item_x;
 	y = item_y;
-	
+
 	fleur = gdk_cursor_new(GDK_FLEUR);
 	gnome_canvas_item_raise_to_top(item);
 	gc_canvas_item_grab(item,
-			       GDK_POINTER_MOTION_MASK | 
+			       GDK_POINTER_MOTION_MASK |
 			       GDK_BUTTON_RELEASE_MASK,
 			       fleur,
 			       event->button.time);
@@ -838,7 +847,7 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
       }
       break;
     case GDK_MOTION_NOTIFY:
-       if (dragging && (event->motion.state & GDK_BUTTON1_MASK)) 
+       if (dragging && (event->motion.state & GDK_BUTTON1_MASK))
          {
            new_x = item_x;
            new_y = item_y;
@@ -848,9 +857,9 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
            y = new_y;
          }
        break;
-           
+
      case GDK_BUTTON_RELEASE:
-       if(dragging) 
+       if(dragging)
 	 {
 	   guint x, y;
 	   double ofset_x, ofset_y;
@@ -859,7 +868,7 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 	   Square to;
 
 	   to = get_square_from_coord(event->button.x, event->button.y);
-	   g_warning("===== Source square = %d Destination square = %d\n", gsquare->square, 
+	   g_warning("===== Source square = %d Destination square = %d\n", gsquare->square,
 		  to);
 
 	   to = position_move_normalize (position, gsquare->square, to);
@@ -878,21 +887,21 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 	   else
 	     {
 	       g_warning("====== MOVE from %d REFUSED\n", gsquare->square);
-	   
+
 	       /* Find the ofset to move the piece back to where it was*/
 	       gnome_canvas_item_get_bounds  (item,
 					      &x1,
 					      &y1,
 					      &x2,
 					      &y2);
-	       
+
 	       x = gsquare->square % 10;
 	       y = gsquare->square / 10 -1;
-	       
+
 	       ofset_x = (CHESSBOARD_X + SQUARE_WIDTH  * (x-1)) - x1 + (SQUARE_WIDTH  - (x2-x1))/2;
 	       ofset_y = (CHESSBOARD_Y + SQUARE_HEIGHT * (8-y)) - y1 + (SQUARE_HEIGHT - (y2-y1))/2;
 	       g_warning("ofset = x=%f y=%f\n", ofset_x, ofset_y);
-	       
+
 	       gnome_canvas_item_move(item, ofset_x, ofset_y);
 	     }
 
@@ -944,7 +953,7 @@ item_event_black(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 /*======================================================================*/
 /*======================================================================*/
 static void
-engine_local_destroy (GPid gnuchess_pid) 
+engine_local_destroy (GPid gnuchess_pid)
 {
 
   g_warning("engine_local_destroy () \n");
@@ -955,7 +964,7 @@ engine_local_destroy (GPid gnuchess_pid)
 
   g_io_channel_close (read_chan);
   g_io_channel_unref (read_chan);
-  
+
   g_io_channel_close (write_chan);
   g_io_channel_unref (write_chan);
 
@@ -970,7 +979,7 @@ engine_local_cb (GIOChannel *source,
 {
   static char buf[1024];
   static char *b=buf;
-  
+
   char *p,*q;
   gsize len;
   GIOStatus status;
@@ -982,37 +991,37 @@ engine_local_cb (GIOChannel *source,
       /* FIXME: Not sure what to do */
       return FALSE;
     }
-  
+
   if (len > 0) {
     b[len] = 0;
     b += len;
   }
-  
+
   while (1) {
     char tmp;
-    
+
     q = strchr (buf,'\n');
     if (q == NULL) break;
     tmp = *(q+1);
     *(q+1) = '\0';
-    
+
     *q='\0';
     *(q+1) = tmp;
-    
+
     g_warning("engine_local_cb read=%s\n", buf);
-    
+
     /* parse for  NUMBER ... MOVE */
     if (isdigit (*buf))
       {
 	if ((p = strstr (buf, "...")))
 	  {
 	    Square from, to;
-	  
+
 	    g_warning("computer number moves to %s\n", p+4);
-	  
+
 	    if (san_to_move (position, p+4, &from, &to))
 	      ascii_to_move (position, p+4, &from, &to);
-	  
+
 	    position_move (position, from, to);
 	    move_piece_to(from , to);
 	  }
@@ -1037,7 +1046,7 @@ engine_local_cb (GIOChannel *source,
 	position_move (position, from, to);
 	move_piece_to(from , to);
       }
-    
+
     /* parse for illegal move */
     if (!strncmp ("Illegal move",buf,12))
       {
@@ -1074,7 +1083,7 @@ engine_local_cb (GIOChannel *source,
     memmove (buf, q+1, sizeof(buf) - ( q + 1 - buf));
     b -= (q + 1 - buf);
   }
-  
+
   return TRUE;
 }
 
@@ -1084,7 +1093,7 @@ engine_local_err_cb (GIOChannel *source,
 		     gpointer data)
 {
   g_error ("Local Engine connection died");
-  
+
   return FALSE;
 }
 
@@ -1094,8 +1103,8 @@ engine_local_err_cb (GIOChannel *source,
  *----------------------------------------*/
 
 static gboolean
-start_child (char *cmd, 
-	     GIOChannel **read_chan, 
+start_child (char *cmd,
+	     GIOChannel **read_chan,
 	     GIOChannel **write_chan,
 	     GPid *Child_Process)
 {
@@ -1110,7 +1119,7 @@ start_child (char *cmd,
 				G_SPAWN_SEARCH_PATH,
 				NULL, NULL, Child_Process, &Child_In, &Child_Out,
 				&Child_Err, &gerror)) {
-    
+
     g_warning("Error message '%s'", gerror->message);
     g_warning("Error code    '%d'", gerror->code);
     g_error_free (gerror);
@@ -1136,13 +1145,13 @@ start_child (char *cmd,
   return(TRUE);
 }
 
-static void 
-write_child (GIOChannel *write_chan, char *format, ...) 
+static void
+write_child (GIOChannel *write_chan, char *format, ...)
 {
   GIOError err;
   va_list ap;
   char *buf;
-  gsize len;	
+  gsize len;
 
   va_start (ap, format);
 
@@ -1163,13 +1172,13 @@ write_child (GIOChannel *write_chan, char *format, ...)
  *        Not all data are read back using this method
  */
 /*
-static void 
-write_child (GIOChannel *write_chan, char *format, ...) 
+static void
+write_child (GIOChannel *write_chan, char *format, ...)
 {
   GIOStatus err;
   va_list ap;
   gchar *buf;
-  gsize len;	
+  gsize len;
 
   va_start (ap, format);
 
@@ -1179,7 +1188,7 @@ write_child (GIOChannel *write_chan, char *format, ...)
   if (err != G_IO_STATUS_NORMAL)
     g_warning ("Writing to child process failed");
   else
-    g_warning ("Wrote '%s' to gnuchess", buf);  
+    g_warning ("Wrote '%s' to gnuchess", buf);
 
   va_end (ap);
 

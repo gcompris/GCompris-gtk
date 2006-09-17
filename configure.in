@@ -457,6 +457,7 @@ AC_SUBST(CFLAGS)
 dnl Autoconf output
 AC_OUTPUT([ gcompris.spec
 Makefile.mingw
+config.h.mingw
 gcompris-installer.nsi
 Makefile
 autopackage/Makefile

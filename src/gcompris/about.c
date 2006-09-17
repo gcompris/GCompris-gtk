@@ -89,7 +89,7 @@ void gc_about_start ()
   x_start = (BOARDWIDTH - gdk_pixbuf_get_width(pixmap))/2;
   item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				gnome_canvas_pixbuf_get_type (),
-				"pixbuf", pixmap, 
+				"pixbuf", pixmap,
 				"x", (double) x_start,
 				"y", (double) y_start,
 				NULL);
@@ -98,7 +98,7 @@ void gc_about_start ()
 
   gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 			 gnome_canvas_text_get_type (),
-			 "text", _("About GCompris"), 
+			 "text", _("About GCompris"),
 			 "font", gc_skin_font_title,
 			 "x", (double) BOARDWIDTH/2 + 1.0,
 			 "y", (double) y_start + 40 + 1.0,
@@ -108,7 +108,7 @@ void gc_about_start ()
 			 NULL);
   gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 			 gnome_canvas_text_get_type (),
-			 "text", _("About GCompris"), 
+			 "text", _("About GCompris"),
 			 "font", gc_skin_font_title,
 			 "x", (double) BOARDWIDTH/2,
 			 "y", (double) y_start + 40,
@@ -119,7 +119,7 @@ void gc_about_start ()
 
   gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 			 gnome_canvas_text_get_type (),
-			 "text", _("Translators:"), 
+			 "text", _("Translators:"),
 			 "font", gc_skin_font_subtitle,
 			 "x", (double) BOARDWIDTH/2-320 + 1.0,
 			 "y", (double) y_start + 90 + 1.0,
@@ -128,7 +128,7 @@ void gc_about_start ()
 			 NULL);
   gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 			 gnome_canvas_text_get_type (),
-			 "text", _("Translators:"), 
+			 "text", _("Translators:"),
 			 "font", gc_skin_font_subtitle,
 			 "x", (double) BOARDWIDTH/2-320,
 			 "y", (double) y_start + 90,
@@ -200,13 +200,13 @@ void gc_about_start ()
   pixmap = gc_skin_pixmap_load("ofsetlogo.png");
   item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				gnome_canvas_pixbuf_get_type (),
-				"pixbuf", pixmap, 
+				"pixbuf", pixmap,
 				"x", (double) (BOARDWIDTH*0.15) - gdk_pixbuf_get_width(pixmap)/2,
 				"y", (double) y_start - gdk_pixbuf_get_height(pixmap)/2,
 				NULL);
 
   gdk_pixbuf_unref(pixmap);
-  
+
   item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				gnome_canvas_text_get_type (),
 				"text", "OFSET\nhttp://ofset.org",
@@ -214,19 +214,19 @@ void gc_about_start ()
 				"x", (double)  (BOARDWIDTH*0.15),
 				"y", (double)  y_start + 80,
 				"anchor", GTK_ANCHOR_CENTER,
-				"fill_color_rgba",gc_skin_color_subtitle, 
+				"fill_color_rgba",gc_skin_color_subtitle,
 				NULL);
 
   // FSF Reference
   pixmap = gc_skin_pixmap_load("fsflogo.png");
   item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				gnome_canvas_pixbuf_get_type (),
-				"pixbuf", pixmap, 
+				"pixbuf", pixmap,
 				"x", (double) (BOARDWIDTH*0.8) - gdk_pixbuf_get_width(pixmap)/2,
 				"y", (double) y_start - gdk_pixbuf_get_height(pixmap)/2,
 				NULL);
   gdk_pixbuf_unref(pixmap);
-  
+
   item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				gnome_canvas_text_get_type (),
 				"text", "Free Software Foundation\nhttp://www.fsf.org",
@@ -242,8 +242,8 @@ void gc_about_start ()
   pixmap = gc_skin_pixmap_load("gcomprislogo.png");
   item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				gnome_canvas_pixbuf_get_type (),
-				"pixbuf", pixmap, 
-				"x", (double) (BOARDWIDTH*0.5) - gdk_pixbuf_get_width(pixmap)/2,
+				"pixbuf", pixmap,
+				"x", (double) (BOARDWIDTH*0.5) - gdk_pixbuf_get_width(pixmap)/2 -50,
 				"y", (double) y_start - gdk_pixbuf_get_height(pixmap)/2,
 				NULL);
 
@@ -253,7 +253,7 @@ void gc_about_start ()
 				gnome_canvas_text_get_type (),
 				"text", _("GCompris Home Page\nhttp://gcompris.net"),
 				"font", gc_skin_font_content,
-				"x", (double)  (BOARDWIDTH*0.5),
+				"x", (double)  (BOARDWIDTH*0.5) - 50,
 				"y", (double)  y_start + 30,
 				"anchor", GTK_ANCHOR_CENTER,
 				"fill_color_rgba", gc_skin_color_subtitle,
@@ -307,7 +307,7 @@ void gc_about_start ()
       pixmap = gc_pixmap_load("sponsor.png");
       item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				    gnome_canvas_pixbuf_get_type (),
-				    "pixbuf", pixmap, 
+				    "pixbuf", pixmap,
 				    "x", (double) (BOARDWIDTH*0.85) - gdk_pixbuf_get_width(pixmap)/2,
 				    "y", (double) 15,
 				    NULL);
@@ -320,7 +320,7 @@ void gc_about_start ()
   pixmap = gc_skin_pixmap_load("button_large.png");
   item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				gnome_canvas_pixbuf_get_type (),
-				"pixbuf", pixmap, 
+				"pixbuf", pixmap,
 				"x", (double) BOARDWIDTH*0.5 - gdk_pixbuf_get_width(pixmap)/2,
 				"y", (double) y - gdk_pixbuf_get_height(pixmap) - 5,
 				NULL);
@@ -368,7 +368,7 @@ void gc_about_start ()
   plane_speed = 1;
   plane_item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				      gnome_canvas_pixbuf_get_type (),
-				      "pixbuf", pixmap_about, 
+				      "pixbuf", pixmap_about,
 				      "x", (double) plane_x,
 				      "y", (double) plane_y,
 				      NULL);
@@ -393,7 +393,7 @@ void gc_about_stop ()
   // Destroy the help box
   if(rootitem!=NULL)
       gtk_object_destroy(GTK_OBJECT(rootitem));
-  rootitem = NULL;	  
+  rootitem = NULL;
 
   if(pixmap_about)
     gdk_pixbuf_unref(pixmap_about);

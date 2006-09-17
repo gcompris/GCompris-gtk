@@ -18,7 +18,7 @@
  */
 
 #include "string.h"
- 
+
 #include "skin.h"
 #include <libxml/tree.h>
 #include <libxml/parser.h>
@@ -69,7 +69,7 @@ gc_skin_image_get(gchar *pixmapfile)
 
   if (g_file_test ((filename), G_FILE_TEST_EXISTS)) {
     g_free(filename);
-    
+
     filename = g_strdup_printf("skins/%s/%s", properties->skin, pixmapfile);
 
     return(filename);
@@ -100,16 +100,16 @@ gc_skin_pixmap_load(char *pixmapfile)
   filename = gc_skin_image_get(pixmapfile);
 
   result_pixbuf = gc_pixmap_load (filename);
-  
+
   g_free(filename);
-  
+
   return (result_pixbuf);
 }
 
 /*
- * Utility function used when freeing the memory used by 
+ * Utility function used when freeing the memory used by
  * a hashtable containing strings.
- */ 
+ */
 static void
 gc_skin_free_string(gpointer data)
 {
@@ -117,30 +117,30 @@ gc_skin_free_string(gpointer data)
 }
 
 /*
- * Initialize some common variables 
+ * Initialize some common variables
  * (the one that have to be defined in each skin)
  */
 void
 gc_skin_setup_vars(void)
 {
-  gc_skin_color_title = 
+  gc_skin_color_title =
     gc_skin_get_color_default("gcompris/title", COLOR_TITLE);
-  gc_skin_color_text_button = 
+  gc_skin_color_text_button =
     gc_skin_get_color_default("gcompris/text button", COLOR_TEXT_BUTTON);
-  gc_skin_color_content = 
+  gc_skin_color_content =
     gc_skin_get_color_default("gcompris/content", COLOR_CONTENT);
-  gc_skin_color_subtitle = 
+  gc_skin_color_subtitle =
     gc_skin_get_color_default("gcompris/subtitle", COLOR_SUBTITLE);
-  gc_skin_color_shadow = 
+  gc_skin_color_shadow =
     gc_skin_get_color_default("gcompris/shadow", COLOR_SHADOW);
-  
-  gc_skin_font_title = 
+
+  gc_skin_font_title =
     gc_skin_get_font_default("gcompris/title", FONT_TITLE);
   gc_skin_font_subtitle =
     gc_skin_get_font_default("gcompris/subtitle", FONT_SUBTITLE);
-  gc_skin_font_content = 
+  gc_skin_font_content =
     gc_skin_get_font_default("gcompris/content", FONT_CONTENT);
-  
+
   gc_skin_font_board_tiny =
     gc_skin_get_font_default("gcompris/board/tiny", FONT_BOARD_TINY);
   gc_skin_font_board_small =
@@ -258,7 +258,7 @@ skin_xml_load (gchar* skin)
   guint32 color;
 
   g_return_if_fail(skin!=NULL);
-  
+
   xmlfilename = \
     gc_file_find_absolute("skins/%s/skin.xml",
 				    skin,
@@ -267,12 +267,12 @@ skin_xml_load (gchar* skin)
   /* if the file doesn't exist */
   if(!xmlfilename)
     {
-      g_warning("Couldn't find file %s !", xmlfilename);
+      g_warning("Couldn't find skin file %s !", skin);
       return;
     }
 
   xmldoc = gc_net_load_xml(xmlfilename);
-  g_free(xmlfilename);  
+  g_free(xmlfilename);
 
   if(!xmldoc)
     return;
@@ -291,7 +291,7 @@ skin_xml_load (gchar* skin)
   skinNode = xmldoc->children->children;
   while((skinNode!=NULL)&&(skinNode->type!=XML_ELEMENT_NODE))
     skinNode = skinNode->next;
-  
+
   if((skinNode==NULL)||
      g_strcasecmp((gchar *)skinNode->name, "Skin")!=0) {
     g_warning("No Skin node %s", xmldoc->children->children->name);
@@ -310,10 +310,10 @@ skin_xml_load (gchar* skin)
 	    g_hash_table_insert(gc_skin_colors, key, GUINT_TO_POINTER(color));
 	  } else {
 	    if(key!=NULL) g_free(key);
-	  }	
+	  }
 	}
 	if(data!=NULL) g_free(data);
-      } 
+      }
       else if(g_strcasecmp((gchar *)node->name, "font")==0){
 	key = (gchar *)xmlGetProp(node,  BAD_CAST "id");
 	data = (gchar *)xmlGetProp(node,  BAD_CAST "name");
@@ -333,7 +333,7 @@ skin_xml_load (gchar* skin)
 	} else {
 	  if(key!=NULL) g_free(key);
 	  if(data!=NULL) g_free(data);
-	}	
+	}
       }
       node = node->next;
     }
@@ -342,7 +342,7 @@ skin_xml_load (gchar* skin)
 }
 
 /*
- * Parse the default skin.xml file and the one located in the skin 
+ * Parse the default skin.xml file and the one located in the skin
  * directory then load all skins properties into memory
  */
 void
@@ -353,7 +353,7 @@ gc_skin_load (gchar* skin)
     return;
 
   gc_skin_free();
-  
+
   gc_skin_fonts = g_hash_table_new_full(g_str_hash, g_str_equal,
 					      gc_skin_free_string,
 					      gc_skin_free_string);

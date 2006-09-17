@@ -30,7 +30,8 @@ EXTRA_DIST = \
 	intltool-update.in \
 	gnome2-macros \
 	README.mingw README.translators README.windows \
-	config.h.mingw Makefile.mingw global_win32.mak gcompris.ico gcompris-installer.nsi
+	config.h.mingw.in Makefile.mingw global_win32.mak gcompris.ico gcompris-uninstall.ico \
+	gcompris-installer.nsi
 
 
 distcore = $(PACKAGE)-core-$(VERSION)
@@ -49,7 +50,7 @@ dist-hook:
 	fi
 
 
-CLEANFILES = core-translation-report gcompris.desktop gcompris-edit.desktop gcompris.spec
+CLEANFILES = core-translation-report gcompris.desktop gcompris-edit.desktop gcompris.spec config.h.mingw
 
 clean-local:
 	rm -f intltool-extract intltool-merge intltool-update

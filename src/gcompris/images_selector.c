@@ -363,7 +363,8 @@ void gc_selector_images_stop ()
 /*-------------------------------------------------------------------------------*/
 /*-------------------------------------------------------------------------------*/
 
-static void display_image(gchar *imagename, GnomeCanvasItem *root_item)
+static void
+display_image(gchar *imagename, GnomeCanvasItem *root_item)
 {
 
   GdkPixbuf *pixmap = NULL;
@@ -430,7 +431,8 @@ static void display_image(gchar *imagename, GnomeCanvasItem *root_item)
  * Same as display_image but for the dataset
  * The imagelist contains the list of images to be displayed when this dataset is selected
  */
-static void display_image_set(gchar *imagename, GSList *imagelist)
+static void
+display_image_set(gchar *imagename, GSList *imagelist)
 {
   GdkPixbuf *pixmap = NULL;
   GnomeCanvasItem *item;
@@ -648,7 +650,7 @@ item_event_scroll(GnomeCanvasItem *item, GdkEvent *event, GnomeCanvas *canvas)
  * --------------
  */
 
-void
+static void
 parseImage (xmlDocPtr doc, xmlNodePtr cur) {
   GcomprisProperties *properties = gc_prop_get();
   gchar  *imageSetName = NULL;
@@ -689,8 +691,7 @@ parseImage (xmlDocPtr doc, xmlNodePtr cur) {
   /*               -> and else for PACKAGE_DATA_DIR/imagesetname */
   if (havePathName) {
     if (!g_path_is_absolute (imageSetName)){
-      absolutepath = gc_file_find_absolute("%s/%s", pathname, imageSetName,
-						     NULL);
+      absolutepath = gc_file_find_absolute(imageSetName, NULL);
     }
     else
       absolutepath = g_strdup(imageSetName);
@@ -700,7 +701,7 @@ parseImage (xmlDocPtr doc, xmlNodePtr cur) {
 
   if(!absolutepath)
     {
-      g_warning("In ImageSet %s, an image is not found. Skipping ImageSet...", absolutepath);
+      g_warning("In ImageSet %s, an image is not found. Skipping ImageSet...", imageSetName);
       return;
     }
 
