@@ -1,5 +1,5 @@
 /*  GCompris -- This files comes from XMMS
- * 
+ *
  *  XMMS - Cross-platform multimedia player
  *  Copyright (C) 1998-2000  Peter Alm, Mikael Alm, Olle Hallnas, Thomas Nilsson and 4Front Technologies
  *
@@ -25,6 +25,8 @@
 
 
 static struct BoardPluginData *bp_data;
+
+static gboolean	 get_board_playing(void);
 
 #if defined _WIN32 || defined __WIN32__
 # undef WIN32   /* avoid warning on mingw32 */
@@ -154,10 +156,10 @@ void init_plugins(void)
   while(static_boards[i] != NULL) {
     /* If this plugin defines an initialisation entry point, call it */
     BoardPlugin *bp;
-      
+
     /* Get the BoardPlugin Info */
     bp = (BoardPlugin *) static_boards[i++];
-      
+
     if(bp->init != NULL) {
       bp->init(NULL);
     }
@@ -195,7 +197,8 @@ void gc_board_set_current(GcomprisBoard * gcomprisBoard)
 }
 
 #ifdef WIN32
-gboolean board_check_file(GcomprisBoard *gcomprisBoard)
+gboolean
+gc_board_check_file(GcomprisBoard *gcomprisBoard)
 {
   GcomprisProperties	*properties = gc_prop_get();
   BoardPlugin *bp;
@@ -204,7 +207,7 @@ gboolean board_check_file(GcomprisBoard *gcomprisBoard)
   g_assert(gcomprisBoard!=NULL);
   g_assert(properties->key!=NULL);
 
-  /* Check Already loaded */  
+  /* Check Already loaded */
   if(gcomprisBoard->plugin!=NULL) {
     return TRUE;
   }
@@ -218,7 +221,7 @@ gboolean board_check_file(GcomprisBoard *gcomprisBoard)
 
       if(bp->is_our_board(gcomprisBoard)) {
 	/* Great, we found our plugin */
-	g_warning("We found the correct plugin for board %s (type=%s)\n", 
+	g_warning("We found the correct plugin for board %s (type=%s)\n",
 		  gcomprisBoard->name, gcomprisBoard->type);
 
 	gcomprisBoard->plugin = bp;
@@ -235,7 +238,7 @@ gboolean board_check_file(GcomprisBoard *gcomprisBoard)
 
       if(bp->is_our_board(gcomprisBoard)) {
 	/* Great, we found our plugin */
-	g_warning("We found the correct plugin for board %s (type=%s)\n", 
+	g_warning("We found the correct plugin for board %s (type=%s)\n",
 		  gcomprisBoard->name, gcomprisBoard->type);
 
 	gcomprisBoard->plugin = bp;
@@ -245,13 +248,14 @@ gboolean board_check_file(GcomprisBoard *gcomprisBoard)
     }
   }
 
-  g_warning("No plugin library found for board type '%s', requested by '%s'", 
+  g_warning("No plugin library found for board type '%s', requested by '%s'",
 	    gcomprisBoard->type,  gcomprisBoard->filename);
 
   return FALSE;
 }
 #else
-gboolean board_check_file(GcomprisBoard *gcomprisBoard)
+gboolean
+gc_board_check_file(GcomprisBoard *gcomprisBoard)
 {
   GModule     *gmodule = NULL;
   gchar       *gmodule_file = NULL;
@@ -264,7 +268,7 @@ gboolean board_check_file(GcomprisBoard *gcomprisBoard)
 
   type = g_strdup(gcomprisBoard->type);
 
-  /* Check Already loaded */  
+  /* Check Already loaded */
   if(gcomprisBoard->plugin!=NULL) {
     return TRUE;
   }
@@ -312,29 +316,30 @@ gboolean board_check_file(GcomprisBoard *gcomprisBoard)
 
 	return TRUE;
       } else {
-	g_warning("We found a plugin with the name %s but is_our_board() returned FALSE (type=%s)\n", 
+	g_warning("We found a plugin with the name %s but is_our_board() returned FALSE (type=%s)\n",
 		  gcomprisBoard->name,
 		  gcomprisBoard->type);
       }
     } else {
-      g_warning("plugin_get_bplugin_info entry point not found for %s\n", 
+      g_warning("plugin_get_bplugin_info entry point not found for %s\n",
 		gcomprisBoard->filename);
     }
   }
-  g_warning("No plugin library found for board type '%s', requested by '%s'", 
+  g_warning("No plugin library found for board type '%s', requested by '%s'",
 	    gcomprisBoard->type,  gcomprisBoard->filename);
 
   return FALSE;
 }
 #endif
 
-void board_play(GcomprisBoard *gcomprisBoard)
+void
+gc_board_play(GcomprisBoard *gcomprisBoard)
 {
   BoardPlugin *bp;
 
   g_assert(gcomprisBoard!=NULL);
 
-  board_check_file(gcomprisBoard);
+  gc_board_check_file(gcomprisBoard);
 
   if(gcomprisBoard->plugin!=NULL)
     {
@@ -343,7 +348,7 @@ void board_play(GcomprisBoard *gcomprisBoard)
 
       bp = gcomprisBoard->plugin;
       gc_board_set_current(gcomprisBoard);
-      
+
       bp->start_board(gcomprisBoard);
       bp_data->playing = TRUE;
 
@@ -355,7 +360,8 @@ void board_play(GcomprisBoard *gcomprisBoard)
   bp_data->playing = TRUE;
 }
 
-void board_pause(int pause)
+void
+gc_board_pause(int pause)
 {
   if (get_board_playing() && gc_board_get_current_board_plugin())
     {
@@ -364,23 +370,25 @@ void board_pause(int pause)
     }
 }
 
-void board_stop(void)
+void
+gc_board_stop(void)
 {
   if (bp_data->playing && gc_board_get_current_board_plugin())
     {
       bp_data->playing = FALSE;
-      
+
       if (gc_board_get_current_board_plugin()->end_board)
 	gc_board_get_current_board_plugin()->end_board();
 
       gc_board_end();
-      
+
       return;
     }
   bp_data->playing = FALSE;
 }
 
-gboolean get_board_playing(void)
+static gboolean
+get_board_playing(void)
 {
   return bp_data->playing;
 }
@@ -394,7 +402,7 @@ void board_run_next_end()
   gtk_timeout_remove(next_board_callback_id);
   next_board_callback_id = 0;
 
-  if (next_board && 
+  if (next_board &&
       next_board->previous_board &&
       next_board->previous_board->plugin->end_board)
     next_board->previous_board->plugin->end_board();
@@ -403,7 +411,7 @@ void board_run_next_end()
   gc_im_reset();
 
   /*run the board */
-  board_play(next_board);
+  gc_board_play(next_board);
 }
 
 void board_run_next(GcomprisBoard *board)
@@ -415,5 +423,5 @@ void board_run_next(GcomprisBoard *board)
   next_board_callback_id = gtk_timeout_add (NEXT_TIME_DELAY,
 					    (GtkFunction) board_run_next_end,
 					    NULL);
-	
+
 }

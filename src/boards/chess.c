@@ -179,10 +179,8 @@ static void pause_board (gboolean pause)
 
 void gnuchess_died(int signum)
 {
-  if(signum == SIGTRAP)
-    {
-      gc_dialog(_("Error: The external program gnuchess died unexpectingly"), gc_board_end);
-    }
+  gnuchess_pid = 0;
+  gc_dialog(_("Error: The external program gnuchess died unexpectingly"), gc_board_stop);
 }
 
 /*
@@ -190,12 +188,17 @@ void gnuchess_died(int signum)
 static void start_board (GcomprisBoard *agcomprisBoard)
 {
 
-  signal(SIGTRAP, gnuchess_died);
+  gnuchess_pid = 0;
+
 #ifndef WIN32
-  if (!g_file_test (GNUCHESS, G_FILE_TEST_EXISTS)) {
-
-    gc_dialog(_("Error: The external program gnuchess is mandatory\nto play chess in gcompris.\nFind this program on http://www.rpmfind.net or in your\nGNU/Linux distribution\nAnd check it is located here: "GNUCHESS), gc_board_end);
-
+  signal(SIGTRAP, gnuchess_died);
+  signal(SIGPIPE, gnuchess_died);
+  if (!g_file_test (GNUCHESS, G_FILE_TEST_EXISTS))
+    {
+    gc_dialog(_("Error: The external program gnuchess is mandatory\nto play chess in gcompris.\n"
+		"Find this program on http://www.rpmfind.net or in your\nGNU/Linux distribution\n"
+		"And check it is located here: "GNUCHESS),
+	      gc_board_stop);
     return;
   }
 #endif
@@ -232,12 +235,15 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 	}
 
       if(start_child (GNUCHESS, &read_chan,
-		      &write_chan, &gnuchess_pid)==FALSE) {
-	gc_dialog(_("Error: The external program gnuchess is mandatory\nto play chess in gcompris.\nFind this program on http://www.rpmfind.net or in your\nGNU/Linux distribution\nAnd check it is in "GNUCHESS), gc_board_end);
-	return;
-      }
+		      &write_chan, &gnuchess_pid)==FALSE)
+	{
+	  gc_dialog(_("Error: The external program gnuchess is mandatory\n"
+		      "to play chess in gcompris.\n"
+		      "First install it, and check it is in "GNUCHESS), gc_board_stop);
+	  return;
+	}
 
-      read_cb = g_io_add_watch (read_chan, G_IO_IN,
+      read_cb = g_io_add_watch (read_chan, G_IO_IN|G_IO_PRI,
 				engine_local_cb, NULL);
       err_cb = g_io_add_watch (read_chan, G_IO_HUP,
 			       engine_local_err_cb, NULL);
@@ -248,17 +254,23 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       write_child (write_chan, "easy\n");
       write_child (write_chan, "level 100 1 0\n");
       write_child (write_chan, "depth 1\n");
+      write_child (write_chan, "time 500\n");
 
       chess_next_level();
 
       gamewon = FALSE;
       pause_board(FALSE);
+
     }
 }
 
 /* ======================================= */
 static void end_board ()
 {
+#ifndef WIN32
+  signal(SIGTRAP, NULL);
+  signal(SIGPIPE, NULL);
+#endif
   if(gcomprisBoard!=NULL)
     {
       pause_board(TRUE);
@@ -386,7 +398,8 @@ static void chess_destroy_all_items()
 }
 
 /* ==================================== */
-static GnomeCanvasItem *chess_create_item(GnomeCanvasGroup *parent)
+static GnomeCanvasItem *
+chess_create_item(GnomeCanvasGroup *parent)
 {
   guint color;
   GnomeCanvasItem *item = NULL;
@@ -956,6 +969,9 @@ static void
 engine_local_destroy (GPid gnuchess_pid)
 {
 
+  if(!gnuchess_pid)
+    return;
+
   g_warning("engine_local_destroy () \n");
   write_child (write_chan, "quit\n");
 
@@ -972,25 +988,47 @@ engine_local_destroy (GPid gnuchess_pid)
     g_spawn_close_pid(gnuchess_pid);
 }
 
+/** We got data back from gnuchess, we parse them here
+ *
+ */
 static gboolean
 engine_local_cb (GIOChannel *source,
 		 GIOCondition condition,
 		 gpointer data)
 {
-  static char buf[1024];
-  static char *b=buf;
-
+  gchar buf[1000];
+  char *b=buf;
+  GError *err = NULL;
   char *p,*q;
-  gsize len;
-  GIOStatus status;
+  gsize len = 0;
+  GIOStatus status = G_IO_STATUS_NORMAL;
 
-  status = g_io_channel_read_chars (read_chan, b, sizeof (buf) - 1 - (b - buf), &len, NULL);
-  if(status != G_IO_STATUS_NORMAL)
+  g_warning("engine_local_cb");
+
+  status = g_io_channel_read_chars(source,
+				   buf,
+				   1000,
+				   &len,
+				   &err);
+
+  g_warning("g_io_channel_read_line len=%d", len);
+  if(status == G_IO_STATUS_ERROR)
     {
-      g_warning("g_io_channel_read_chars status=%d\n", status);
+      g_warning("g_io_channel_read_chars error=%s",
+		err->message);
       /* FIXME: Not sure what to do */
       return FALSE;
     }
+
+  if(status != G_IO_STATUS_NORMAL)
+    {
+      g_warning("g_io_channel_read_chars error=%d",
+		status);
+      /* FIXME: Not sure what to do */
+      return FALSE;
+    }
+
+  g_warning("engine_local_cb read=%s\n", buf);
 
   if (len > 0) {
     b[len] = 0;
@@ -1038,7 +1076,7 @@ engine_local_cb (GIOChannel *source,
 	Square from, to;
 
 	p = strstr (buf, ":");
-	printf("computer moves to %s\n", p+1);
+	g_warning("computer moves to %s\n", p+1);
 
 	if (san_to_move (position, p+1, &from, &to))
 	  ascii_to_move (position, p+1, &from, &to);
@@ -1092,8 +1130,8 @@ engine_local_err_cb (GIOChannel *source,
 		     GIOCondition condition,
 		     gpointer data)
 {
-  g_error ("Local Engine connection died");
-
+  gnuchess_pid = 0;
+  gc_dialog(_("Error: The external program gnuchess died unexpectingly"), gc_board_stop);
   return FALSE;
 }
 
@@ -1111,7 +1149,7 @@ start_child (char *cmd,
   gint   Child_In, Child_Out, Child_Err;
   GError *gerror = NULL;
 
-  gchar *Child_Argv[]={ cmd, NULL };
+  gchar *Child_Argv[]={ cmd, "-e", NULL };
 
   g_warning("Ready to start child");
 
@@ -1136,42 +1174,18 @@ start_child (char *cmd,
   if(g_io_channel_set_encoding(*write_chan, NULL, NULL) != G_IO_STATUS_NORMAL)
     g_warning("Failed to set NULL encoding");
 
-  if(g_io_channel_set_flags (*read_chan, G_IO_FLAG_SET_MASK, NULL) != G_IO_STATUS_NORMAL)
+  if(g_io_channel_set_flags (*read_chan, G_IO_FLAG_NONBLOCK, NULL) != G_IO_STATUS_NORMAL)
     g_warning("Failed to set NON BLOCKING IO");
 
-  if(g_io_channel_set_flags (*write_chan, G_IO_FLAG_SET_MASK, NULL) != G_IO_STATUS_NORMAL)
+  if(g_io_channel_set_flags (*write_chan, G_IO_FLAG_NONBLOCK, NULL) != G_IO_STATUS_NORMAL)
     g_warning("Failed to set NON BLOCKING IO");
 
   return(TRUE);
 }
 
-static void
-write_child (GIOChannel *write_chan, char *format, ...)
-{
-  GIOError err;
-  va_list ap;
-  char *buf;
-  gsize len;
-
-  va_start (ap, format);
-
-  buf = g_strdup_vprintf (format, ap);
-
-  err = g_io_channel_write (write_chan, buf, strlen (buf), &len);
-  if (err != G_IO_ERROR_NONE)
-    g_warning ("Writing to child process failed");
-  else
-    g_warning ("Wrote '%s' to gnuchess", buf);
-
-  va_end (ap);
-
-  g_free (buf);
-}
-
-/* FIXME: The new API bellow should be use but for an unknown reason it doesn't work,
- *        Not all data are read back using this method
+/** Write a command to the gnuchess backend
+ *
  */
-/*
 static void
 write_child (GIOChannel *write_chan, char *format, ...)
 {
@@ -1179,19 +1193,27 @@ write_child (GIOChannel *write_chan, char *format, ...)
   va_list ap;
   gchar *buf;
   gsize len;
+  GError *error = NULL;
 
   va_start (ap, format);
 
   buf = g_strdup_vprintf (format, ap);
 
-  err = g_io_channel_write_chars (write_chan, buf, strlen (buf), &len, NULL);
+  err = g_io_channel_write_chars (write_chan, buf, strlen (buf), &len, &error);
+
+  if (err == G_IO_STATUS_ERROR)
+    g_error ("Error writing: %s\n", error->message);
+
   if (err != G_IO_STATUS_NORMAL)
     g_warning ("Writing to child process failed");
   else
     g_warning ("Wrote '%s' to gnuchess", buf);
 
+  err = g_io_channel_flush (write_chan, &error);
+  if (err == G_IO_STATUS_ERROR)
+    g_error ("Error flushing: %s\n", error->message);
+
   va_end (ap);
 
   g_free (buf);
 }
-*/

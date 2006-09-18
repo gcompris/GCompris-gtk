@@ -22,6 +22,8 @@ Name $name
 
 OutFile "gcompris-${GCOMPRIS_VERSION}.exe"
 
+UninstallIcon ".\gcompris-uninstal.ico"
+
 SetCompressor lzma
 ShowInstDetails show
 ShowUninstDetails show
@@ -49,7 +51,7 @@ SetDateSave on
 ;Modern UI Configuration
 
   !define MUI_ICON				".\gcompris.ico"
-  !define MUI_UNICON				".\gcompris-uninstall.ico"
+  !define MUI_UNICON				".\gcompris-uninstal.ico"
   !define MUI_WELCOMEFINISHPAGE_BITMAP 		".\nsis\gcompris-intro.bmp"
   !define MUI_HEADERIMAGE
   !define MUI_HEADERIMAGE_BITMAP		".\nsis\gcompris-header.bmp"
@@ -69,7 +71,7 @@ SetDateSave on
 
 ;--------------------------------
 ;Pages
-  
+
   !insertmacro MUI_PAGE_WELCOME
   !insertmacro MUI_PAGE_LICENSE			"./COPYING"
   !insertmacro MUI_PAGE_COMPONENTS
@@ -87,7 +89,7 @@ SetDateSave on
 
 ;--------------------------------
 ;Languages
- 
+
   ;; English goes first because its the default. The rest are
   ;; in alphabetical order (at least the strings actually displayed
   ;; will be).
@@ -163,7 +165,7 @@ SetDateSave on
   ; Only need this if using bzip2 compression
 
   !insertmacro MUI_RESERVEFILE_INSTALLOPTIONS
-  !insertmacro MUI_RESERVEFILE_LANGDLL 
+  !insertmacro MUI_RESERVEFILE_LANGDLL
   ReserveFile "${NSISDIR}\Plugins\UserInfo.dll"
 
 
@@ -208,7 +210,7 @@ Section -SecUninstallOldGcompris
   ; If previous version exists .. remove
   try_uninstall:
     StrCmp $R1 "" done
-      ; Version key started with 0.60a3. Prior versions can't be 
+      ; Version key started with 0.60a3. Prior versions can't be
       ; automaticlly uninstalled.
       StrCmp $R2 "" uninstall_problem
         ; Check if we have uninstall string..
@@ -234,7 +236,7 @@ Section -SecUninstallOldGcompris
         uninstall_problem:
 	  ; In this case just wipe out previous Gcompris install dir..
 	  ; We get here because versions 0.60a1 and 0.60a2 don't have versions set in the registry
-	  ; and versions 0.60 and lower did not correctly set the uninstall reg string 
+	  ; and versions 0.60 and lower did not correctly set the uninstall reg string
 	  ; (the string was set in quotes)
           IfSilent do_wipeout
           MessageBox MB_YESNO $(GCOMPRIS_PROMPT_WIPEOUT) IDYES do_wipeout IDNO cancel_install
@@ -646,7 +648,7 @@ Function un.onInit
 
   ; Get stored language prefrence
   ReadRegStr $LANGUAGE HKCU ${GCOMPRIS_REG_KEY} "${GCOMPRIS_REG_LANG}"
-  
+
 FunctionEnd
 
 
@@ -654,42 +656,42 @@ FunctionEnd
 ; input, none
 ; output, top of stack (replaces, with e.g. whatever)
 ; modifies no other variables.
- 
+
 Function GetParameters
- 
+
    Push $R0
    Push $R1
    Push $R2
    Push $R3
-   
+
    StrCpy $R2 1
    StrLen $R3 $CMDLINE
-   
+
    ;Check for quote or space
    StrCpy $R0 $CMDLINE $R2
    StrCmp $R0 '"' 0 +3
      StrCpy $R1 '"'
      Goto loop
    StrCpy $R1 " "
-   
+
    loop:
      IntOp $R2 $R2 + 1
      StrCpy $R0 $CMDLINE 1 $R2
      StrCmp $R0 $R1 get
      StrCmp $R2 $R3 get
      Goto loop
-   
+
    get:
      IntOp $R2 $R2 + 1
      StrCpy $R0 $CMDLINE 1 $R2
      StrCmp $R0 " " get
      StrCpy $R0 $CMDLINE "" $R2
-   
+
    Pop $R3
    Pop $R2
    Pop $R1
    Exch $R0
- 
+
 FunctionEnd
 
  ; StrStr
@@ -836,7 +838,7 @@ Function GetWindowsVersion
   lbl_error:
     Strcpy $R0 ''
   lbl_done:
- 
+
   Pop $R1
   Exch $R0
 FunctionEnd

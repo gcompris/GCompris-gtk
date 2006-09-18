@@ -259,7 +259,7 @@ static gboolean sounds_are_fine()
 
   if(!properties->fx)
     {
-      gc_dialog(_("Error: this activity cannot be played with the\nsound effects disabled.\nGo to the configuration dialog to\nenable the sound"), board_stop);
+      gc_dialog(_("Error: this activity cannot be played with the\nsound effects disabled.\nGo to the configuration dialog to\nenable the sound"), gc_board_stop);
       return(NOT_OK);
     }
 
@@ -288,7 +288,7 @@ static gboolean sounds_are_fine()
 	{
 	  gchar *msg = g_strdup_printf( _("Error: this activity requires that you first install\nthe packages with gcompris voices for the locale '%s' or '%s'"),
 					locale, "en");
-	  gc_dialog(msg, board_stop);
+	  gc_dialog(msg, gc_board_stop);
 	  g_free(msg);
 	  return (NOT_OK);
 	}

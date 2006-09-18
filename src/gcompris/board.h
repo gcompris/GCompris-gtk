@@ -53,11 +53,10 @@ BoardPlugin	*gc_board_get_current_board_plugin(void);
 void		 set_current_board_plugin(BoardPlugin * ip);
 GcomprisBoard	*gc_board_get_current(void);
 void		 gc_board_set_current(GcomprisBoard * gcomprisBoard);
-gboolean	 board_check_file(GcomprisBoard *gcomprisBoard);
-void		 board_play(GcomprisBoard *gcomprisBoard);
-void		 board_stop(void);
-void		 board_pause(int pause);
-gboolean	 get_board_playing(void);
+gboolean	 gc_board_check_file(GcomprisBoard *gcomprisBoard);
+void		 gc_board_play(GcomprisBoard *gcomprisBoard);
+void		 gc_board_stop(void);
+void		 gc_board_pause(int pause);
 gchar		*board_get_info_text(void);
 
 void		 board_set_info_text(gchar * text);

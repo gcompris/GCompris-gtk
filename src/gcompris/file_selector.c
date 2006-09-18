@@ -142,7 +142,7 @@ void gc_selector_file_stop ()
   GcomprisBoard *gcomprisBoard = gc_board_get_current();
 
   if(gcomprisBoard!=NULL && file_selector_displayed)
-    board_pause(FALSE);
+    gc_board_pause(FALSE);
 
   // Destroy the file_selector box
   /* FIXME: Crashes randomly */
@@ -207,7 +207,7 @@ display_file_selector(int the_mode,
 
   gc_bar_hide(TRUE);
 
-  board_pause(TRUE);
+  gc_board_pause(TRUE);
 
   name = gcomprisBoard->name;
   fileSelectorCallBack=iscb;

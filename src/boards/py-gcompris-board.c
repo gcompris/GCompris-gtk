@@ -9,7 +9,7 @@ staticforward PyTypeObject pyGcomprisBoardType;
 /* Special function created for the python plugin to be able to create
  * a pyGcomprisBoardObject form the existing GcomprisBoard structure
  */
-PyObject* 
+PyObject*
 gcompris_new_pyGcomprisBoardObject(GcomprisBoard* aboard)
 {
   pyGcomprisBoardObject* theboard = NULL;
@@ -23,19 +23,19 @@ gcompris_new_pyGcomprisBoardObject(GcomprisBoard* aboard)
 
 
 /* Free the python gcompris board */
-static void 
+static void
 pyGcomprisBoardType_dealloc(pyGcomprisBoardObject *self)
 {
   self->cdata = NULL;
   PyObject_DEL(self);
 }
-                       
+
 
 /* Methods defined in the pyGcomprisBoard class */
 static PyMethodDef pyGcomprisBoardType_methods[] = {
         {NULL,          NULL}           /* sentinel */
 };
- 
+
 
 /* Return the value of the members contained in the GcomprisBoard structure */
 static PyObject *
@@ -69,7 +69,7 @@ pyGcomprisBoardType_getattr(pyGcomprisBoardObject *self, char *name)
     if(strcmp(name,"filename")==0) return Py_BuildValue("s", self->cdata->filename);
     if(strcmp(name,"difficulty")==0) return Py_BuildValue("s", self->cdata->difficulty);
     if(strcmp(name,"mandatory_sound_file")==0) return Py_BuildValue("s", self->cdata->mandatory_sound_file);
-    
+
     /* Menu positionning */
     if(strcmp(name,"section")==0) return Py_BuildValue("s", self->cdata->section);
     if(strcmp(name,"menuposition")==0) return Py_BuildValue("s", self->cdata->menuposition);
@@ -92,20 +92,20 @@ pyGcomprisBoardType_getattr(pyGcomprisBoardObject *self, char *name)
 
     if(strcmp(name,"previous_level")==0)
       return gcompris_new_pyGcomprisBoardObject(self->cdata->previous_board);
-    
+
     if(strcmp(name,"canvas")==0)
       return (PyObject*) pygobject_new((GObject*)self->cdata->canvas);
 
     if(strcmp(name,"is_configurable")==0){
       if (!self->cdata->plugin){
-	board_check_file(self->cdata);
+	gc_board_check_file(self->cdata);
 	if (!self->cdata->plugin){
 	  g_warning("board %s/%s seems not working !", self->cdata->section, self->cdata->name);
 	  Py_INCREF(Py_False);
 	  return Py_False;
 	}
       }
-      
+
       if (self->cdata->plugin->config_start && self->cdata->plugin->config_stop){
 	g_warning ("Board %s is configurable\n", self->cdata->name);
 	Py_INCREF(Py_True);
@@ -119,10 +119,10 @@ pyGcomprisBoardType_getattr(pyGcomprisBoardObject *self, char *name)
     if(strcmp(name,"board_id")==0) return Py_BuildValue("i", self->cdata->board_id);
 
     if(strcmp(name,"section_id")==0) return Py_BuildValue("i", self->cdata->section_id);
-    
-    /* Other members are special one... 
+
+    /* Other members are special one...
      * TODO: Does we need to write a BoardPlugin structure wrapper ?
-     */    
+     */
   }
   return Py_FindMethod(pyGcomprisBoardType_methods, (PyObject *)self, name);
 }
@@ -132,7 +132,7 @@ static int
 pyGcomprisBoardType_setattr(pyGcomprisBoardObject *self, char *name, PyObject *v)
 {
   int value;
-  
+
   if (self->cdata==NULL) return -1;
   if (v==NULL) return -1;
 
@@ -169,7 +169,7 @@ pyGcomprisBoardType_setattr(pyGcomprisBoardObject *self, char *name, PyObject *v
 
   return -1;
 }
-                                                                                
+
 static PyTypeObject pyGcomprisBoardType = {
   PyObject_HEAD_INIT(&PyType_Type)
   0,                                        /*ob_size*/

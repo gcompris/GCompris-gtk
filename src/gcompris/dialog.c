@@ -77,7 +77,7 @@ void gc_dialog(gchar *str, DialogBoxCallBack dbcb)
   }
 
   /* First pause the board */
-  board_pause(TRUE);
+  gc_board_pause(TRUE);
 
   gc_bar_hide(TRUE);
 
@@ -168,7 +168,7 @@ item_event_ok(GnomeCanvasItem *item, GdkEvent *event, DialogBoxCallBack dbcb)
 	gc_dialog_close();
 
       /* restart the board */
-      board_pause(FALSE);
+      gc_board_pause(FALSE);
       
       gc_bar_hide(FALSE);
 

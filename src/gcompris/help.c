@@ -102,7 +102,7 @@ void gc_help_start (GcomprisBoard *gcomprisBoard)
   if(rootitem)
     return;
 
-  board_pause(TRUE);
+  gc_board_pause(TRUE);
 
   item_selected = NULL;
   item_selected_text = NULL;
@@ -423,7 +423,7 @@ void gc_help_stop ()
 	  gtk_object_destroy(GTK_OBJECT(rootitem));
 	  rootitem = NULL;	  
 	}
-      board_pause(FALSE);
+      gc_board_pause(FALSE);
     }
 
   gc_bar_hide(FALSE);

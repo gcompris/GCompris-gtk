@@ -536,7 +536,7 @@ item_event_bar(GnomeCanvasItem *item, GdkEvent *event, gchar *data)
 	{
 	  gc_sound_play_ogg ("gobble", NULL);
 	  gc_bar_hide (TRUE);
-	  board_stop();
+	  gc_board_stop();
 	}
       else if(!strcmp((char *)data, "help"))
 	{

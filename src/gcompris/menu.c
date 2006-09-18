@@ -126,7 +126,7 @@ _add_xml_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child,
       {
 	if(gcomprisBoard->prerequisite)
 	  g_free(gcomprisBoard->prerequisite);
-	
+
 	prerequisite = (char *)xmlNodeListGetString(doc,  xmlnode->xmlChildrenNode, 0);
 	gcomprisBoard->prerequisite = reactivate_newline(gettext(prerequisite));
       }
@@ -136,7 +136,7 @@ _add_xml_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child,
       {
 	if(gcomprisBoard->goal)
 	  g_free(gcomprisBoard->goal);
-  
+
 	goal = (char *)xmlNodeListGetString(doc,  xmlnode->xmlChildrenNode, 0);
 	gcomprisBoard->goal = reactivate_newline(gettext(goal));
       }
@@ -156,13 +156,13 @@ _add_xml_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child,
       {
 	if(gcomprisBoard->credit)
 	  g_free(gcomprisBoard->credit);
-  
+
 	credit =(char *) xmlNodeListGetString(doc,  xmlnode->xmlChildrenNode, 0);
 	gcomprisBoard->credit = reactivate_newline(gettext(credit));
       }
 
     /* Display the resource on stdout */
-    if (properties->display_resource 
+    if (properties->display_resource
 	&& !strcmp((char *)xmlnode->name, "resource")
 	&& gc_profile_get_current())
       {
@@ -187,15 +187,15 @@ _add_xml_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child,
   }
 
   if (db){
-    gc_db_board_update( &gcomprisBoard->board_id, 
-			      &gcomprisBoard->section_id, 
-			      gcomprisBoard->name, 
-			      gcomprisBoard->section, 
-			      gcomprisBoard->author, 
-			      gcomprisBoard->type, 
-			      gcomprisBoard->mode, 
-			      atoi(gcomprisBoard->difficulty), 
-			      gcomprisBoard->icon_name, 
+    gc_db_board_update( &gcomprisBoard->board_id,
+			      &gcomprisBoard->section_id,
+			      gcomprisBoard->name,
+			      gcomprisBoard->section,
+			      gcomprisBoard->author,
+			      gcomprisBoard->type,
+			      gcomprisBoard->mode,
+			      atoi(gcomprisBoard->difficulty),
+			      gcomprisBoard->icon_name,
 			      gcomprisBoard->boarddir,
 			      gcomprisBoard->mandatory_sound_file,
 			      gcomprisBoard->mandatory_sound_dataset,
@@ -207,12 +207,12 @@ _add_xml_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child,
 			      manual,
 			      credit
 			      );
-  
-    g_warning("db board written %d in %d  %s/%s", 
-	      gcomprisBoard->board_id, gcomprisBoard->section_id, 
+
+    g_warning("db board written %d in %d  %s/%s",
+	      gcomprisBoard->board_id, gcomprisBoard->section_id,
 	      gcomprisBoard->section, gcomprisBoard->name);
   }
-  
+
 }
 
 /* parse the doc, add it to our internal structures and to the clist */
@@ -237,7 +237,7 @@ parse_doc(xmlDocPtr doc, GcomprisBoard *gcomprisBoard, gboolean db)
    Return a newly allocated GcomprisBoard or NULL if the parsing failed
 */
 GcomprisBoard *
-_read_xml_file(GcomprisBoard *gcomprisBoard, 
+_read_xml_file(GcomprisBoard *gcomprisBoard,
 	       char *fname,
 	       gboolean db)
 {
@@ -277,7 +277,7 @@ _read_xml_file(GcomprisBoard *gcomprisBoard,
     g_warning("Oops, the parsing of %s failed", filename);
     return NULL;
   }
-  
+
   if(/* if there is no root element */
      !doc->children ||
      /* if it doesn't have a name */
@@ -289,7 +289,7 @@ _read_xml_file(GcomprisBoard *gcomprisBoard,
     g_warning("Oops, the file %s is not for gcompris", filename);
     return NULL;
   }
-  
+
   /* Store the file that belong to this board for trace and further need */
   gcomprisBoard->filename=filename;
 
@@ -315,14 +315,14 @@ _read_xml_file(GcomprisBoard *gcomprisBoard,
  */
 GcomprisBoard *
 gc_menu_section_get(gchar *section)
-{  
+{
   GList *list = NULL;
 
   for(list = boards_list; list != NULL; list = list->next) {
     GcomprisBoard *board = list->data;
-	   
+
     gchar *fullname = NULL;
-    
+
     fullname = g_strdup_printf("%s/%s",
 			       board->section, board->name);
 
@@ -331,7 +331,7 @@ gc_menu_section_get(gchar *section)
       return board;
     }
     g_free(fullname);
-    
+
   }
   g_warning("gc_menu_section_get searching '%s' but NOT FOUND\n", section);
   return NULL;
@@ -367,9 +367,9 @@ gc_menu_has_activity(gchar *section, gchar *name)
 	 (strcmp (board->name, "experimental") == 0))
       continue;
 
-    if ((strcmp (section_name, board->section) == 0) &&	
+    if ((strcmp (section_name, board->section) == 0) &&
 	(strlen(board->name) != 0) &&
-	board_check_file(board))
+	gc_board_check_file(board))
 	{
 	  if((strcmp(board->type, "menu") == 0) &&
 	     strcmp(board->section, section) != 0)
@@ -410,7 +410,7 @@ GList *gc_menu_getlist(gchar *section)
 
   if (strlen(section)==1)
     section = "";
- 
+
   for(list = boards_list; list != NULL; list = list->next) {
     GcomprisBoard *board = list->data;
 
@@ -418,7 +418,7 @@ GList *gc_menu_getlist(gchar *section)
 	 (strcmp (board->name, "experimental") == 0))
       continue;
 
-    if (strcmp (section, board->section) == 0) {	
+    if (strcmp (section, board->section) == 0) {
       if (strlen(board->name) != 0)
 	{
 	  if(strcmp(board->type, "menu") == 0)
@@ -529,7 +529,7 @@ void gc_menu_load_dir(char *dirname, gboolean db){
       /* add the board to the list */
       GcomprisBoard *gcomprisBoard = NULL;
       gchar *filename;
-      
+
       filename = g_strdup_printf("%s/%s",
 				 dirname, one_dirent);
 
@@ -557,9 +557,9 @@ void gc_menu_load_dir(char *dirname, gboolean db){
 	    if ((strncmp(board_read->section,
 			 "/administration",
 			 strlen("/administration"))!=0)) {
-		
+
 	      if (gc_profile_get_current() &&
-		  !(g_list_find_custom(gc_profile_get_current()->activities, 
+		  !(g_list_find_custom(gc_profile_get_current()->activities,
 				       &(board_read->board_id), compare_id))) {
 		boards_list = g_list_append(boards_list, board_read);
 	      } else {
@@ -583,10 +583,10 @@ void gc_menu_load_dir(char *dirname, gboolean db){
     }
 
   }
-  
+
   g_dir_close(dir);
 }
-  
+
 
 /* load all the menus xml files in the gcompris path
  * into our memory structures.
@@ -631,7 +631,7 @@ void gc_menu_load()
     gc_db_set_version(VERSION);
     g_date_free(today);
   }
-  
+
 
   if (properties->local_directory){
     gchar *board_dir = g_strdup_printf("%s/boards/", properties->local_directory);

@@ -128,7 +128,7 @@ gc_bonus_end_display(BoardFinishedList type) {
     gc_bonus_end_display_running = TRUE;
 
   /* First pause the board */
-  board_pause(TRUE);
+  gc_board_pause(TRUE);
 
   /* WARNING: I remove 1 to the BOARD_FINISHED_LAST because RANDOM is for GOOD end only */
   if(type==BOARD_FINISHED_RANDOM)
@@ -247,7 +247,7 @@ gc_bonus_display(BonusStatusList gamewon, BonusList bonus_id)
   }
 
   /* First pause the board */
-  board_pause(TRUE);
+  gc_board_pause(TRUE);
 
   if(bonus_id==BONUS_RANDOM)
     bonus_id = RAND(1, BONUS_LAST-2);
@@ -381,5 +381,5 @@ end_bonus()
   gc_bar_hide(FALSE);
 
   /* Re-Start the board */
-  board_pause(FALSE);
+  gc_board_pause(FALSE);
 }

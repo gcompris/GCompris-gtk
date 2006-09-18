@@ -158,7 +158,7 @@ gc_config_start ()
   GnomeCanvasItem *item, *item2;
 
   /* Pause the board */
-  board_pause(TRUE);
+  gc_board_pause(TRUE);
 
   if(rootitem)
     return;
@@ -502,7 +502,7 @@ void gc_config_stop ()
   if(rootitem!=NULL)
     {
       gtk_object_destroy(GTK_OBJECT(rootitem));
-      board_pause(FALSE);
+      gc_board_pause(FALSE);
     }
   rootitem = NULL;	  
 
@@ -518,7 +518,7 @@ void gc_config_stop ()
 
   /* UnPause the board */
   if(is_displayed)
-    board_pause(FALSE);
+    gc_board_pause(FALSE);
 
   gc_bar_hide(FALSE);
 

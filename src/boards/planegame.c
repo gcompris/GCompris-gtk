@@ -209,7 +209,7 @@ static gint key_press(guint keyval, gchar *commit_str, gchar *preedit_str)
     case GDK_Hyper_L:
     case GDK_Hyper_R:
     case GDK_Num_Lock:
-      return FALSE; 
+      return FALSE;
     case GDK_KP_Enter:
     case GDK_Return:
       return TRUE;
@@ -256,7 +256,7 @@ is_our_board (GcomprisBoard *gcomprisBoard)
 /*-------------------------------------------------------------------------------*/
 
 /* set initial values for the next level */
-static void planegame_next_level() 
+static void planegame_next_level()
 {
   GdkPixbuf *pixmap = NULL;
 
@@ -278,12 +278,12 @@ static void planegame_next_level()
   plane_y = 300;
   planeitem = gnome_canvas_item_new (gnome_canvas_root(gcomprisBoard->canvas),
 				     gnome_canvas_pixbuf_get_type (),
-				     "pixbuf", pixmap, 
+				     "pixbuf", pixmap,
 				     "x", (double) plane_x,
 				     "y", (double) plane_y,
 				     "width", (double) gdk_pixbuf_get_width(pixmap)*imageZoom,
 				     "height", (double) gdk_pixbuf_get_height(pixmap)*imageZoom,
-				     "width_set", TRUE, 
+				     "width_set", TRUE,
 				     "height_set", TRUE,
 				     NULL);
   gdk_pixbuf_unref(pixmap);
@@ -303,9 +303,9 @@ static void planegame_next_level()
     }
   else
     {
-      gc_score_start(SCORESTYLE_NOTE, 
-			   gcomprisBoard->width - 220, 
-			   gcomprisBoard->height - 50, 
+      gc_score_start(SCORESTYLE_NOTE,
+			   gcomprisBoard->width - 220,
+			   gcomprisBoard->height - 50,
 			   gcomprisBoard->number_of_sublevel);
       gc_score_set(gcomprisBoard->sublevel);
     }
@@ -324,8 +324,8 @@ static void planegame_cloud_colision(CloudItem *clouditem)
 
   item = clouditem->rootitem;
 
-  gnome_canvas_item_get_bounds(planeitem,  &px1, &py1, &px2, &py2); 
-  gnome_canvas_item_get_bounds(item,  &x1, &y1, &x2, &y2); 
+  gnome_canvas_item_get_bounds(planeitem,  &px1, &py1, &px2, &py2);
+  gnome_canvas_item_get_bounds(item,  &x1, &y1, &x2, &y2);
 
   if(
      ISIN(x1, y1, px1, py1, px2, py2) ||
@@ -392,7 +392,7 @@ static void planegame_move_item(CloudItem *clouditem)
 				   &y1,
 				   &x2,
 				   &y2);
-  
+
   if(x2<0) {
     item2del_list = g_list_append (item2del_list, clouditem);
   }
@@ -415,7 +415,7 @@ static void planegame_destroy_items()
 {
   CloudItem *clouditem;
 
-  while(g_list_length(item2del_list)>0) 
+  while(g_list_length(item2del_list)>0)
     {
       clouditem = g_list_nth_data(item2del_list, 0);
       planegame_destroy_item(clouditem);
@@ -427,7 +427,7 @@ static void planegame_destroy_all_items()
 {
   CloudItem *clouditem;
 
-  while(g_list_length(item_list)>0) 
+  while(g_list_length(item_list)>0)
     {
       clouditem = g_list_nth_data(item_list, 0);
       planegame_destroy_item(clouditem);
@@ -495,12 +495,12 @@ static GnomeCanvasItem *planegame_create_item(GnomeCanvasGroup *parent)
 
   gnome_canvas_item_new (GNOME_CANVAS_GROUP(itemgroup),
 			 gnome_canvas_pixbuf_get_type (),
-			 "pixbuf", pixmap, 
+			 "pixbuf", pixmap,
 			 "x", (double) -gdk_pixbuf_get_width(pixmap)*imageZoom/2,
 			 "y", (double) -gdk_pixbuf_get_height(pixmap)*imageZoom/2,
 			 "width", (double) gdk_pixbuf_get_width(pixmap)*imageZoom,
 			 "height", (double) gdk_pixbuf_get_height(pixmap)*imageZoom,
-			 "width_set", TRUE, 
+			 "width_set", TRUE,
 			 "height_set", TRUE,
 			 NULL);
   gdk_pixbuf_unref(pixmap);
@@ -529,7 +529,7 @@ static GnomeCanvasItem *planegame_create_item(GnomeCanvasGroup *parent)
   return (itemgroup);
 }
 
-static void planegame_add_new_item() 
+static void planegame_add_new_item()
 {
   setup_item (planegame_create_item(gnome_canvas_root(gcomprisBoard->canvas)));
 }
@@ -556,27 +556,27 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
    static int dragging;
    double item_x, item_y;
 
-   if(!get_board_playing())
-     return FALSE;
+  if(!gcomprisBoard)
+    return FALSE;
 
    item_x = event->button.x;
    item_y = event->button.y;
    gnome_canvas_item_w2i(item->parent, &item_x, &item_y);
 
-   switch (event->type) 
+   switch (event->type)
      {
      case GDK_BUTTON_PRESS:
-       switch(event->button.button) 
+       switch(event->button.button)
          {
          case 1:
            if (event->button.state & GDK_SHIFT_MASK)
              {
                x = item_x;
                y = item_y;
-               
+
                fleur = gdk_cursor_new(GDK_FLEUR);
                gc_canvas_item_grab(item,
-                                      GDK_POINTER_MOTION_MASK | 
+                                      GDK_POINTER_MOTION_MASK |
                                       GDK_BUTTON_RELEASE_MASK,
                                       fleur,
                                       event->button.time);
@@ -591,19 +591,19 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
        break;
 
      case GDK_MOTION_NOTIFY:
-       if (dragging && (event->motion.state & GDK_BUTTON1_MASK)) 
+       if (dragging && (event->motion.state & GDK_BUTTON1_MASK))
          {
            new_x = item_x;
            new_y = item_y;
-             
+
            gnome_canvas_item_move(item, new_x - x, new_y - y);
            x = new_x;
            y = new_y;
          }
        break;
-           
+
      case GDK_BUTTON_RELEASE:
-       if(dragging) 
+       if(dragging)
 	 {
 	   gc_canvas_item_ungrab(item, event->button.time);
 	   dragging = FALSE;
@@ -613,7 +613,7 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
      default:
        break;
      }
-         
+
    return FALSE;
  }
 

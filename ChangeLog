@@ -1,3 +1,60 @@
+	*** RELEASE 8.0BETA6 ***
+
+2006-09-18  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	- Fixed clickgame and chess on windows (uses the old chess.c code)
+	- chess on linux updated to use the new glib API
+	- More GC API fix:
+	  board_pause now gc_board_pause
+	  board_play now gc_board_play
+	  board_stop now gc_board_stop
+
+	* Makefile.am:
+	* Makefile.mingw:
+	* README.mingw:
+	* config.h.mingw:
+	* configure.in:
+	* gcompris-installer.nsi.in:
+	* src/boards/chess.c: (gnuchess_died), (start_board), (end_board),
+	(chess_create_item), (engine_local_destroy), (engine_local_cb),
+	(engine_local_err_cb), (start_child), (write_child):
+	* src/boards/click_on_letter.c: (sounds_are_fine):
+	* src/boards/memory.c: (start_board):
+	* src/boards/menu2.c: (menu_start), (create_panel),
+	(display_section), (display_board_icon), (next_spot),
+	(menu_create_item), (item_event), (set_content), (get_ratio),
+	(create_top), (display_welcome):
+	* src/boards/planegame.c: (key_press), (planegame_next_level),
+	(planegame_cloud_colision), (planegame_move_item),
+	(planegame_destroy_items), (planegame_destroy_all_items),
+	(planegame_create_item), (planegame_add_new_item), (item_event):
+	* src/boards/py-gcompris-board.c: (pyGcomprisBoardType_getattr),
+	(pyGcomprisBoardType_setattr):
+	* src/boards/shapegame.c: (item_event):
+	* src/boards/submarine.c: (quit_after_delay):
+	* src/gcompris/about.c: (gc_about_start), (gc_about_stop):
+	* src/gcompris/bar.c: (item_event_bar):
+	* src/gcompris/board.c: (init_plugins), (gc_board_check_file),
+	(gc_board_play), (gc_board_pause), (gc_board_stop),
+	(get_board_playing), (board_run_next_end), (board_run_next):
+	* src/gcompris/board.h:
+	* src/gcompris/bonus.c: (gc_bonus_end_display), (gc_bonus_display),
+	(end_bonus):
+	* src/gcompris/config.c: (gc_config_start), (gc_config_stop):
+	* src/gcompris/dialog.c: (gc_dialog), (item_event_ok):
+	* src/gcompris/file_selector.c: (gc_selector_file_stop),
+	(display_file_selector):
+	* src/gcompris/gcompris.c: (board_widget_key_press_callback),
+	(setup_window), (gc_board_end), (cleanup):
+	* src/gcompris/gcompris_confirm.c: (gc_confirm_box_stop),
+	(display_confirm):
+	* src/gcompris/help.c: (gc_help_start), (gc_help_stop):
+	* src/gcompris/images_selector.c: (gc_selector_images_start),
+	(gc_selector_images_stop):
+	* src/gcompris/menu.c: (_add_xml_to_data), (_read_xml_file),
+	(gc_menu_section_get), (gc_menu_has_activity), (gc_menu_getlist),
+	(gc_menu_load_dir), (gc_menu_load):
+
 2006-09-17  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	- Minor resizing of some icons do make them appear smother

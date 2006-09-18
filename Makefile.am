@@ -30,7 +30,7 @@ EXTRA_DIST = \
 	intltool-update.in \
 	gnome2-macros \
 	README.mingw README.translators README.windows \
-	config.h.mingw.in Makefile.mingw global_win32.mak gcompris.ico gcompris-uninstall.ico \
+	config.h.mingw Makefile.mingw global_win32.mak gcompris.ico gcompris-uninstal.ico \
 	gcompris-installer.nsi
 
 

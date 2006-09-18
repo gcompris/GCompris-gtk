@@ -289,7 +289,7 @@ board_widget_key_press_callback (GtkWidget   *widget,
 
     gc_close_all_dialog();
 
-    board_stop();
+    gc_board_stop();
     return TRUE;
   }
 
@@ -301,7 +301,7 @@ board_widget_key_press_callback (GtkWidget   *widget,
 
     gc_close_all_dialog();
 
-    board_stop();
+    gc_board_stop();
     return TRUE;
   }
 
@@ -318,7 +318,7 @@ board_widget_key_press_callback (GtkWidget   *widget,
       gc_close_all_dialog();
 
       if (gc_board_get_current()->previous_board != NULL)
-	board_stop();
+	gc_board_stop();
       return TRUE;
     case GDK_F5:
       g_message("Refreshing the canvas\n");
@@ -398,7 +398,7 @@ board_widget_key_press_callback (GtkWidget   *widget,
 
 	      gc_close_all_dialog();
 
-	      board_stop();
+	      gc_board_stop();
 	      return TRUE;
 	    }
 	}
@@ -831,7 +831,7 @@ static void setup_window ()
   if(!board_to_start) {
     g_warning("Couldn't find the board menu %s, or plugin execution error", properties->root_menu);
     exit(1);
-  } else if(!board_check_file(board_to_start)) {
+  } else if(!gc_board_check_file(board_to_start)) {
     g_error("Couldn't find the board menu, or plugin execution error");
   } else {
     g_warning("Fine, we got the gcomprisBoardMenu, xml boards parsing went fine");
@@ -841,7 +841,7 @@ static void setup_window ()
 
   init_background();
 
-  board_play (board_to_start);
+  gc_board_play(board_to_start);
 
 #ifdef WIN32
 #define WIN_ACTIVITY_COUNT   16
@@ -850,7 +850,7 @@ static void setup_window ()
     if(strncmp(properties->key, "thanks_for_your_help", 20)!=0) {
       char *msg = g_strdup_printf(_("GCompris is free software released under the GPL License. In order to support its development, the Windows version provides only %d of the %d activities. You can get the full version for a small fee at\n<http://gcompris.net>\nThe Linux version does not have this restriction. Note that GCompris is being developed to free schools from monopolistic software vendors. If you also believe that we should teach freedom to children, please consider using GNU/Linux. Get more information at FSF:\n<http://www.fsf.org/philosophy>"),
 				  WIN_ACTIVITY_COUNT, TOTAL_ACTIVITY_COUNT);
-      board_pause(TRUE);
+      gc_board_pause(TRUE);
       gc_dialog(msg, NULL);
       g_free(msg);
     }
@@ -862,7 +862,7 @@ void gc_board_end()
 {
   if (gc_board_get_current()->previous_board) {
     /* Run the previous board */
-    board_play (gc_board_get_current()->previous_board);
+    gc_board_play(gc_board_get_current()->previous_board);
   }
 }
 
@@ -939,7 +939,7 @@ static void cleanup()
   signal(SIGINT,  NULL);
   signal(SIGSEGV, NULL);
 
-  board_stop();
+  gc_board_stop();
   gc_db_exit();
   gc_fullscreen_set(FALSE);
 }

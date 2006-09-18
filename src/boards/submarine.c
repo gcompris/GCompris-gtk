@@ -1148,7 +1148,7 @@ static void game_won() {
  *
  * =====================================================================*/
 static gboolean quit_after_delay() {
-  board_stop();
+  gc_board_stop();
   return FALSE;
 }
 static gboolean ok_timeout() {

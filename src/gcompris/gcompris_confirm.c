@@ -144,7 +144,7 @@ void gc_confirm_box_stop ()
   rootitem = NULL;	  
 
   if(gcomprisBoard!=NULL && confirm_displayed)
-    board_pause(FALSE);
+    gc_board_pause(FALSE);
 
   gc_bar_hide(FALSE);
   confirm_displayed = FALSE;
@@ -198,7 +198,7 @@ display_confirm(gchar *title,
 
   gc_bar_hide(TRUE);
 
-  board_pause(TRUE);
+  gc_board_pause(TRUE);
 
   confirmCallBack=iscb;
 

@@ -70,7 +70,7 @@ void gc_about_start ()
   gchar *translators = _("translator_credits");
 
   /* Pause the board */
-  board_pause(TRUE);
+  gc_board_pause(TRUE);
 
   if(rootitem)
     return;
@@ -401,7 +401,7 @@ void gc_about_stop ()
 
   /* UnPause the board */
   if(is_displayed)
-    board_pause(FALSE);
+    gc_board_pause(FALSE);
 
   gc_bar_hide (FALSE);
 

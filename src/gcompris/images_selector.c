@@ -119,7 +119,7 @@ gc_selector_images_start (GcomprisBoard *gcomprisBoard, gchar *dataset,
 
   gc_bar_hide(TRUE);
 
-  board_pause(TRUE);
+  gc_board_pause(TRUE);
 
   imageSelectorCallBack=iscb;
 
@@ -341,7 +341,7 @@ void gc_selector_images_stop ()
 
   if(gcomprisBoard!=NULL && images_selector_displayed)
     {
-      board_pause(FALSE);
+      gc_board_pause(FALSE);
     }
 
   // Destroy the images_selector box

@@ -64,6 +64,8 @@ GNUCHESS_TOP :=		/gnuchess
 * Now on the windows system:
 * Get a tarball or CVS snapshot of gcompris.
 * untar the gcompris-win-prepack.tar.gz in it
+* Manual fix draw.xml to use draw instead of python
+* Manual fix, replace chess.c by chess.c.windows
 * run: make -f Makefile.mingw from gcompris's top-level directory.  This will take a long time.
 * run: make -f Makefile.mingw prepack to include all necessary libraries in the installer directory
 * run: make -f Makefile.mingw install to include the generated code in the installer directory

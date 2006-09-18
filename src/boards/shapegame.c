@@ -968,8 +968,8 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, Shape *shape)
    static int dragging;
    double item_x, item_y;
 
-   if(!get_board_playing())
-     return FALSE;
+  if(!gcomprisBoard)
+    return FALSE;
 
   if(board_paused)
     return FALSE;

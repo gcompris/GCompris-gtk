@@ -824,7 +824,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 	  base_x1_tux = BASE_SOUND_X1_TUX;
 
 	  if(!properties->fx) {
-	    gc_dialog(_("Error: this activity cannot be played with the\nsound effects disabled.\nGo to the configuration dialog to\nenable the sound"), board_stop);
+	    gc_dialog(_("Error: this activity cannot be played with the\nsound effects disabled.\nGo to the configuration dialog to\nenable the sound"), gc_board_stop);
 	    return;
 	  }
 
