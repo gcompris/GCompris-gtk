@@ -112,6 +112,7 @@ _add_xml_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child,
       {
 	title = (char *)xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 0);
 	gcomprisBoard->title = reactivate_newline(gettext(title));
+	g_free(title);
       }
 
     /* get the description of the board */
@@ -119,6 +120,7 @@ _add_xml_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child,
       {
 	description = (char *)xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 0);
 	gcomprisBoard->description = reactivate_newline(gettext(description));
+	g_free(description);
       }
 
     /* get the help prerequisite help of the board */

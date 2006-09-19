@@ -146,7 +146,6 @@ pythonboard_init (GcomprisBoard *agcomprisBoard){
     pythonboard_is_ready = FALSE;
   } else {
     /* Add the python plugins dir to the python's search path */
-    execstr = g_strdup_printf("import sys; sys.path.append('%s')",properties->package_python_plugin_dir);
 #ifndef DISABLE_USER_PLUGIN_DIR
     userplugindir = g_strconcat(g_get_home_dir(), "/.gcompris/Plugins/", NULL);
     execstr = g_strdup_printf("import sys; sys.path.append('%s/python'); sys.path.append('%s')",

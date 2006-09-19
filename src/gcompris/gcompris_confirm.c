@@ -453,6 +453,9 @@ set_content(GnomeCanvasRichText *item_content,
   gtk_text_buffer_get_start_iter(buffer, &iter_start);
   gtk_text_buffer_apply_tag(buffer, txt_tag, &iter_start, &iter_end);
 
+  g_free(color);
+  g_free(color_s);
+
 }
 
 static gint

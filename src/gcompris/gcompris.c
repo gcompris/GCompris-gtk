@@ -941,6 +941,7 @@ static void cleanup()
 
   gc_board_stop();
   gc_db_exit();
+  gc_prop_destroy(gc_prop_get());
   gc_fullscreen_set(FALSE);
 }
 

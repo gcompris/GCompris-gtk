@@ -1,3 +1,36 @@
+2006-09-20  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	reviewed by: <delete if not using a buddy>
+
+	* Makefile.mingw:
+	* src/boards/Makefile.mingw:
+	* src/boards/chess_position.c: (position_set_empty),
+	(position_set_initial), (position_set_initial_partyend),
+	(position_set_initial_movelearn), (position_display),
+	(position_move_white), (position_move_black),
+	(position_move_normalize_promotion), (position_move_normalize),
+	(position_move_reverse_white), (position_move_reverse_black),
+	(wpawn2), (wpawn5), (wknight), (w_ro_l), (bdouble), (bpawn7),
+	(b_ro_k), (b_ro_l), (bkingro), (position_move_generator_white),
+	(position_move_generator_black), (position_move_generator),
+	(long4), (position_white_king_attack),
+	(position_black_king_attack), (position_legal_move):
+	* src/boards/imageid.c:
+	* src/boards/menu2.c: (menu_end), (set_content):
+	* src/boards/python.c: (pythonboard_init):
+	* src/gcompris/file_selector.c: (parseMime):
+	* src/gcompris/gcompris.c: (cleanup):
+	* src/gcompris/gcompris_confirm.c: (set_content):
+	* src/gcompris/gcompris_db.c: (gc_db_get_profile_from_id),
+	(gc_db_get_profile):
+	* src/gcompris/menu.c: (_add_xml_to_data):
+	* src/gcompris/profile.c: (gc_profile_set_current_user),
+	(gc_profile_destroy), (gc_user_destroy):
+	* src/gcompris/profile.h:
+	* src/gcompris/properties.c: (gc_prop_config_file_get),
+	(gc_prop_new), (gc_prop_destroy):
+	* src/gcompris/skin.c: (skin_xml_load):
+
 	*** RELEASE 8.0BETA6 ***
 
 2006-09-18  Bruno coudoin  <bruno.coudoin@free.fr>

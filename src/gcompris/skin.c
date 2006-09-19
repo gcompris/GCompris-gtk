@@ -330,6 +330,7 @@ skin_xml_load (gchar* skin)
 	if((key!=NULL)&&(data!=NULL)){
 	  int number = atoi(data);
 	  g_hash_table_insert(gc_skin_numbers, key, GUINT_TO_POINTER(number));
+	  g_free(data);
 	} else {
 	  if(key!=NULL) g_free(key);
 	  if(data!=NULL) g_free(data);

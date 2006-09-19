@@ -15,6 +15,7 @@ GNUWIN32_TOP :=		/gnuwin32
 LIBXML2_TOP :=		/libxml2
 SDL_TOP :=		/sdl
 CANVAS_TOP :=		/gnomecanvas
+PYTHON_TOP :=		/c/Python24
 GCOMPRIS_INSTALL_DIR :=	$(GCOMPRIS_TOP)/win32-install-dir
 
 ##
@@ -55,14 +56,18 @@ INCLUDE_PATHS +=	-I$(GCOMPRIS_PLUGINS) \
 			-I$(LIBXML2_TOP)/include \
 			-I$(GNUWIN32_TOP)/include \
 			-I$(GCOMPRIS_TOP) \
-			-I$(GCOMPRIS_TOP)/src
+			-I$(GCOMPRIS_TOP)/src \
+			-I$(PYTHON_TOP)/include \
+			-I$(PYTHON_TOP)/include/pygtk-2.0
+
 
 
 LIB_PATHS =		-L$(GTK_TOP)/lib \
 			-L$(LIBXML2_TOP)/lib \
 			-L$(GNUWIN32_TOP)/lib \
 			-L$(SDL_TOP)/lib \
-			-L$(GCOMPRIS_TOP)/src/gcompris
+			-L$(GCOMPRIS_TOP)/src/gcompris \
+			-I$(PYTHON_TOP)/lib
 
 
 ##
@@ -84,6 +89,8 @@ LIBS =			-lgtk-win32-2.0 \
 			-lgdi32 -lgthread-2.0 \
 			-lintl \
 			-lws2_32 \
+			-lpython \
+			-lpython24 \
 			libgcompris-1.la
 
 ##
@@ -103,6 +110,37 @@ install:
 ##
 ##  SOURCES, OBJECTS
 ##
+PYTHON_C_SRC = \
+	     python.c \
+	     py-gcompris-board.c \
+	     py-gcompris-board.h \
+	     py-gcompris-properties.c \
+	     py-gcompris-properties.h \
+	     py-gcompris-profile.c \
+	     py-gcompris-profile.h \
+	     py-gcompris-wordlist.c \
+	     py-gcompris-wordlist.h \
+	     py-gcompris-user.c	\
+	     py-gcompris-class.c \
+	     py-gcompris-group.c \
+	     py-mod-gcompris.c \
+	     py-mod-gcompris.h \
+	     py-mod-utils.c \
+	     py-mod-utils.h \
+	     py-mod-admin.c \
+	     py-mod-admin.h \
+	     py-mod-bonus.c \
+	     py-mod-bonus.h \
+	     py-mod-score.c \
+	     py-mod-score.h \
+	     py-mod-timer.c \
+	     py-mod-timer.h \
+	     py-mod-sound.c \
+	     py-mod-sound.h \
+	     py-mod-skin.c \
+	     py-mod-skin.h \
+	     py-mod-anim.c \
+	     py-mod-anim.h
 
 BOARDS_C_SRC =	\
 	algebra.c \
@@ -145,12 +183,13 @@ BOARDS_C_SRC =	\
 	traffic.c \
 	wordsgame.c \
 	advanced_colors.c \
-	read_colors.c
+	read_colors.c \
+	$(PYTHON_C_SRC)
 
 
 
 
-BOARDS_OBJECTS = $(BOARDS_C_SRC:%.c=%.o) 
+BOARDS_OBJECTS = $(BOARDS_C_SRC:%.c=%.o)
 
 
 #

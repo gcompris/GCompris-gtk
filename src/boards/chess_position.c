@@ -41,8 +41,8 @@ struct _PositionPrivate {
 };
 
 /* Move generation variables */
-static const int jump [] = { 8, 12,19, 21,-8,-12,-19,-21,     
-			     9, 11,-9,-11, 1, 10,-10, -1,     
+static const int jump [] = { 8, 12,19, 21,-8,-12,-19,-21,
+			     9, 11,-9,-11, 1, 10,-10, -1,
 			     9, 11, 1, 10,-1,  1, 10, -1,
 			     -9,-11, 1,-10,-1     };
 static Square *nindex, *sindex;
@@ -137,7 +137,7 @@ position_copy (Position *pos)
 static void
 position_set_empty (Position *pos)
 {
-	unsigned int a;            
+	unsigned int a;
 
 	for (a = 0 ; a < 120 ; a++)
 		pos->square [a] = EMPTY;
@@ -159,7 +159,7 @@ position_set_empty (Position *pos)
 	pos->priv->br_a_move = 0;
 	pos->priv->captured = EMPTY;
 
-	pos->priv->tomove = NONE;  
+	pos->priv->tomove = NONE;
 }
 
 void
@@ -188,7 +188,7 @@ position_set_initial (Position *pos)
 	pos->square [H8] = BR;
 
 	/* Pawns on the 2nd and 7th ranks */
-	for (a = A2; a <= H2 ;a++) 
+	for (a = A2; a <= H2 ;a++)
 		pos->square [a] = WP;
 	for (a = A7; a <= H7 ;a++)
 		pos->square [a] = BP;
@@ -220,8 +220,8 @@ position_set_initial_partyend (Position *pos, int level)
 	register Square square;
 	register gshort rank;
 
-	for (rank = 1; rank <= 8; rank++) { 
-		for (square = A1 + ((rank - 1) * 10); 
+	for (rank = 1; rank <= 8; rank++) {
+		for (square = A1 + ((rank - 1) * 10);
 		     square <= H1 + ((rank - 1) * 10);
 		     square++) {
 		pos->square [square] = EMPTY;
@@ -235,7 +235,7 @@ position_set_initial_partyend (Position *pos, int level)
 		pos->square [A1] = WK;
 		pos->square [G1] = WQ;
 		pos->square [F1] = WQ;
-		
+
 		/* The black pieces */
 		pos->square [E8] = BK;
 
@@ -248,7 +248,7 @@ position_set_initial_partyend (Position *pos, int level)
 		pos->square [E1] = WK;
 		pos->square [F1] = WR;
 		pos->square [G1] = WR;
-		
+
 		/* The black pieces */
 		pos->square [A8] = BK;
 
@@ -261,7 +261,7 @@ position_set_initial_partyend (Position *pos, int level)
 		pos->square [E1] = WK;
 		pos->square [B4] = WR;
 		pos->square [B5] = WB;
-		
+
 		/* The black pieces */
 		pos->square [A1] = BK;
 
@@ -286,8 +286,8 @@ position_set_initial_movelearn (Position *pos, int level)
 	register Square square;
 	register gshort rank;
 
-	for (rank = 1; rank <= 8; rank++) { 
-		for (square = A1 + ((rank - 1) * 10); 
+	for (rank = 1; rank <= 8; rank++) {
+		for (square = A1 + ((rank - 1) * 10);
 		     square <= H1 + ((rank - 1) * 10);
 		     square++) {
 		pos->square [square] = EMPTY;
@@ -300,7 +300,7 @@ position_set_initial_movelearn (Position *pos, int level)
 		/* The white pieces */
 		pos->square [E1] = WK;
 		pos->square [B4] = WR;
-		
+
 		/* The black pieces */
 		pos->square [A1] = BK;
 		pos->square [E7] = BP;
@@ -313,7 +313,7 @@ position_set_initial_movelearn (Position *pos, int level)
 		/* The white pieces */
 		pos->square [E1] = WK;
 		pos->square [G1] = WQ;
-		
+
 		/* The black pieces */
 		pos->square [A1] = BK;
 		pos->square [E7] = BP;
@@ -326,8 +326,8 @@ position_set_initial_movelearn (Position *pos, int level)
 		/* The white pieces */
 		pos->square [E1] = WK;
 		pos->square [C4] = WB;
-		pos->square [D4] = WB;
-		
+		pos->square [C5] = WB;
+
 		/* The black pieces */
 		pos->square [A1] = BK;
 		pos->square [E7] = BP;
@@ -341,7 +341,7 @@ position_set_initial_movelearn (Position *pos, int level)
 		pos->square [E1] = WK;
 		pos->square [B4] = WN;
 		pos->square [B5] = WN;
-		
+
 		/* The black pieces */
 		pos->square [A1] = BK;
 		pos->square [E7] = BP;
@@ -358,7 +358,7 @@ position_set_initial_movelearn (Position *pos, int level)
 		pos->square [F2] = WP;
 		pos->square [G2] = WP;
 		pos->square [H2] = WP;
-		
+
 		/* The black pieces */
 		pos->square [A1] = BK;
 		pos->square [E7] = BP;
@@ -385,8 +385,8 @@ position_display (Position *pos)
   register Square square;
   register gshort rank;
 
-  for (rank = 8; rank >= 1; rank--) { 
-    for (square = A1 + ((rank - 1) * 10); 
+  for (rank = 8; rank >= 1; rank--) {
+    for (square = A1 + ((rank - 1) * 10);
 	 square <= H1 + ((rank - 1) * 10);
 	 square++) {
 
@@ -395,10 +395,10 @@ position_display (Position *pos)
     g_warning("\n");
   }
 }
-/* 
+/*
  * Move Functions
  *
- * A set of functions to make a move in the context of the position 
+ * A set of functions to make a move in the context of the position
  * passed in.
  */
 static void
@@ -445,7 +445,7 @@ position_move_white (Position *pos, Square from, Square to)
 	case WP :
 		/* If we are promoting a pawn */
 		if (to & 128) {
-			new_to = (to & 7) + A8;            
+			new_to = (to & 7) + A8;
 			piece = ((to & 127) >> 3 ) + WP - 1;
 
 			pos->priv->captured = pos->square [new_to];
@@ -475,7 +475,7 @@ position_move_white (Position *pos, Square from, Square to)
 
 		if ((to - from) == 20)
 			pos->priv->ep = to;
-		else  
+		else
 			pos->priv->ep = EMPTY;
 		return;
 
@@ -488,7 +488,7 @@ position_move_white (Position *pos, Square from, Square to)
 		/*  If we are not castling */
 		if (from != E1 || abs (to - from) != 2) {
 			pos->priv->captured = pos->square [to];
-			pos->square [to]   = piece; 
+			pos->square [to]   = piece;
 			pos->square [from] = EMPTY;
 			return;
 		}
@@ -497,11 +497,11 @@ position_move_white (Position *pos, Square from, Square to)
 		switch (to) {
 		case G1 :
 			position_move_white_castle_short (pos);
-			break;  
+			break;
 		case C1 :
 			position_move_white_castle_long (pos);
-			break;  
-		default :       
+			break;
+		default :
 			abort ();
 		}
 		return;
@@ -562,8 +562,8 @@ position_move_black (Position *pos, Square from, Square to)
 
 		if ((from - to) == 20)
 			pos->priv->ep = to;
-		else                   
-			pos->priv->ep = EMPTY;	
+		else
+			pos->priv->ep = EMPTY;
 		return;
 
 	case BK :
@@ -582,12 +582,12 @@ position_move_black (Position *pos, Square from, Square to)
 
 		/*  If we are castling */
 		switch (to) {
-		case G8 :       
+		case G8 :
 			position_move_black_castle_short (pos);
-			break; 
+			break;
 		case C8 :
 			position_move_black_castle_long (pos);
-			break; 
+			break;
 		default :
 			abort();
 		}
@@ -642,14 +642,14 @@ position_move_normalize_promotion (Position *pos, Square to, gshort n1,
 		/* Automatic queen promotion prefs_get_promotetoqueen */
 		c = 0;
 
-		if (pos->priv->tomove == WHITE) 
+		if (pos->priv->tomove == WHITE)
 			switch (c) {
 			case 0 : fi = WQ; break;
 			case 1 : fi = WR; break;
 			case 2 : fi = WB; break;
 			case 3 : fi = WN; break;
 			}
-		else 
+		else
 			switch (c) {
 			case 0 : fi = BQ; break;
 			case 1 : fi = BR; break;
@@ -670,7 +670,7 @@ position_move_normalize_promotion (Position *pos, Square to, gshort n1,
 			return n3;
 		if (help == n4)
 			return n4;
-	  
+
         }
         return FALSE;
 }
@@ -688,9 +688,9 @@ position_move_normalize (Position *pos, Square from, Square to)
 
 	for (aq = ap, i = 0; i < legal_moves; i++, aq += 2 ) {
 		if (from == *aq) {
-			if (to == *(aq + 1)) 
+			if (to == *(aq + 1))
 				return to;
-			else if (*(aq + 1) & 128) { 
+			else if (*(aq + 1) & 128) {
                                 /* Promotion */
 				ret = position_move_normalize_promotion (
 					pos, to, *(aq + 1), *(aq + 3),
@@ -705,10 +705,10 @@ position_move_normalize (Position *pos, Square from, Square to)
 	return FALSE;
 }
 
-/* 
+/*
  * Move Reverse Functions
  *
- * A set of functions to reverse a previous move in the context of the position 
+ * A set of functions to reverse a previous move in the context of the position
  * passed in.
  *
  */
@@ -759,7 +759,7 @@ position_move_reverse_promotion_black (Position *pos, Square from, Square to)
 }
 
 void
-position_move_reverse_white (Position *pos, Square from, Square to) 
+position_move_reverse_white (Position *pos, Square from, Square to)
 {
 	Piece fi;
 
@@ -778,7 +778,7 @@ position_move_reverse_white (Position *pos, Square from, Square to)
         	pos->priv->wk_square = from;
 		pos->priv->wr_a_move -= 1;
 		pos->priv->wr_h_move -= 1;
-		
+
         	if (from != E1)  {  /*    no castling   */
                		pos->square[from]  = fi;
                		pos->square[to] = pos->priv->captured;
@@ -825,7 +825,7 @@ position_move_reverse_white (Position *pos, Square from, Square to)
 }
 
 void
-position_move_reverse_black (Position *pos, Square from, Square to) 
+position_move_reverse_black (Position *pos, Square from, Square to)
 {
 	int fi;
 
@@ -844,7 +844,7 @@ position_move_reverse_black (Position *pos, Square from, Square to)
         	pos->priv->bk_square = from;
 		pos->priv->br_a_move -= 1;
 		pos->priv->br_h_move -= 1;
-		
+
         	if (from != E8)  {  /*    no castling   */
                		pos->square[from]  = fi;
                		pos->square[to] = pos->priv->captured;
@@ -905,10 +905,10 @@ position_move_reverse (Position *pos, Square from, Square to)
 	}
 }
 
-/* 
+/*
  * Move Generation Functions
  *
- * A set of functions to generate moves in the context of the position 
+ * A set of functions to generate moves in the context of the position
  * passed in.
  *
  */
@@ -921,7 +921,7 @@ new_move (Square from, Square to)
 	nindex += 2;
 }
 
-static void 
+static void
 new_capture_move (Square from, Square to)
 {
 	sindex -= 2;
@@ -975,7 +975,7 @@ wpawn2 (Position *pos, Square from)
 {
 	register Square to;
 
-	to = from + 10;    
+	to = from + 10;
 	if (pos->square[to] == EMPTY ) {
 		new_move (from, to);
 	        to = from + 20;
@@ -1009,7 +1009,7 @@ wpawn5 (Position *pos, Square from)
 {
 	wpawn3 (pos, from);
 
-	if ((from - 1) == pos->priv->ep)  
+	if ((from - 1) == pos->priv->ep)
 		new_capture_move (from, from + 9);
 	else if ((from + 1) == pos->priv->ep)
 		new_capture_move (from, from + 11);
@@ -1045,7 +1045,7 @@ wknight (Position *pos, gshort from)
 			case EMPTY:
 				new_move (from, to);
 				break;
-			case BORDER:  
+			case BORDER:
 				break;
 			default:
 				if (BPIECE (piece))
@@ -1117,7 +1117,7 @@ w_ro_l (Position *pos)
 	if (pos->square[D1] == EMPTY &&
 	    pos->square[C1] == EMPTY &&
 	    pos->square[B1] == EMPTY &&
-	    pos->square[A1] == WR) 
+	    pos->square[A1] == WR)
 		new_move (E1, C1);
 }
 
@@ -1170,7 +1170,7 @@ bdouble (Position *pos, Square from, gshort a, gshort b)
 				new_move (from, to);
 			else if (piece == BORDER)
 				break;
-			else if (WPIECE (piece)) { 
+			else if (WPIECE (piece)) {
 				new_capture_move (from, to);
 				break;
 			} else {
@@ -1197,10 +1197,10 @@ bpawn7 (Position *pos, Square from)
 {
 	register Square to;
 
-	to = from - 10;                
+	to = from - 10;
 	if (pos->square[to] == EMPTY) {
 		new_move (from, to);
-		to = from - 20;            
+		to = from - 20;
 		if (pos->square[to] == EMPTY)
 			new_move (from, to);
 	}
@@ -1328,7 +1328,7 @@ static
 void b_ro_k (Position *pos)
 {
 	if (pos->square[F8] == EMPTY &&
-	    pos->square[G8] == EMPTY && 
+	    pos->square[G8] == EMPTY &&
 	    pos->square[H8] == BR)
 		new_move (E8, G8);
 
@@ -1340,12 +1340,12 @@ void b_ro_l (Position *pos)
 	if (pos->square[D8] == EMPTY &&
 	    pos->square[C8] == EMPTY &&
 	    pos->square[B8] == EMPTY &&
-	    pos->square[A8] == BR) 
+	    pos->square[A8] == BR)
 		new_move(E8, C8);
 }
 
 static void
-bkingro (Position *pos, Square from) 
+bkingro (Position *pos, Square from)
 {
 	register Square to;
 	register Piece piece;
@@ -1370,7 +1370,7 @@ bkingro (Position *pos, Square from)
 	if ( pos->priv->bk_square != E8)
 		return;
 	if (!pos->priv->br_h_move)
-		b_ro_k (pos);  
+		b_ro_k (pos);
 	if (!pos->priv->br_a_move)
 		b_ro_l (pos);
 }
@@ -1384,8 +1384,8 @@ position_move_generator_white (Position *pos, Square **index0, gshort *anz_s, gs
 
 	nindex = sindex = *index0;
 
-	for (rank = 1; rank <= 8; rank++) { 
-		for (square = A1 + ((rank - 1) * 10); 
+	for (rank = 1; rank <= 8; rank++) {
+		for (square = A1 + ((rank - 1) * 10);
 		     square <= H1 + ((rank - 1) * 10);
 		     square++) {
 			piece = pos->square[square];
@@ -1394,7 +1394,7 @@ position_move_generator_white (Position *pos, Square **index0, gshort *anz_s, gs
 				continue;
 
 			switch (piece) {
-			case WP: 
+			case WP:
 				switch (rank) {
 				case 1:
 				case 8:
@@ -1429,7 +1429,7 @@ position_move_generator_white (Position *pos, Square **index0, gshort *anz_s, gs
 				wqueen (pos, square);
 				break;
 			case WK:
-				if (rank == 1) 
+				if (rank == 1)
 					wkingro (pos, square);
 				else
 					wking (pos, square);
@@ -1454,16 +1454,16 @@ position_move_generator_black (Position *pos, Square **index0, gshort *anz_s, gs
 
 	nindex = sindex = *index0;
 
-	for (rank = 1; rank <= 8; rank++) { 
+	for (rank = 1; rank <= 8; rank++) {
 		for (square = A1 + ((rank - 1) * 10);
 		     square <= H1 + ((rank - 1) * 10);
 		     square++ ) {
 			piece = pos->square[square];
 			if (!BPIECE (piece))
 				continue;
-			
+
 			switch (piece)   {
-			case BP: 
+			case BP:
 				switch (rank) {
 				case 1:
 				case 8:
@@ -1498,7 +1498,7 @@ position_move_generator_black (Position *pos, Square **index0, gshort *anz_s, gs
 				bqueen (pos, square);
 				break;
 			case BK:
-				if (rank == 8) 
+				if (rank == 8)
 					bkingro (pos, square);
 				else
 					bking (pos, square);
@@ -1510,7 +1510,7 @@ position_move_generator_black (Position *pos, Square **index0, gshort *anz_s, gs
 	*anz_n = (gshort) ((nindex  - *index0) / 2);
 	*anz_s = (gshort) ((*index0 - sindex) / 2);
 	*index0 = sindex;
-     
+
 	return *anz_n + *anz_s;
 }
 
@@ -1519,15 +1519,15 @@ position_move_generator (Position *pos, Square **index0,
 			 gshort *anz_s, gshort *anz_n)
 {
 
-	if (pos->priv->tomove == WHITE ) 
+	if (pos->priv->tomove == WHITE )
 		return position_move_generator_white (pos, index0, anz_s, anz_n);
-	else if (pos->priv->tomove == BLACK ) 
+	else if (pos->priv->tomove == BLACK )
 		return position_move_generator_black (pos, index0, anz_s, anz_n);
 	else
 		abort();
 }
 
-/* 
+/*
  * Position Characteristic Functions
  *
  * A set of functions to give information about the position
@@ -1552,7 +1552,7 @@ static int long4 (Position *pos, int ort, int r1, int r2, int r3, int r4, int f1
 	CHECK (ort,r4,f1,f2);
 
 	return FALSE;
-}   
+}
 
 #define KURZ_TEST(r)   if (pos->square[ort+r] == f1) return f1
 
@@ -1584,16 +1584,16 @@ position_white_king_attack (Position *pos)
 	ret = long4 (pos, k, 9, 11, -9, -11, BQ, BB);
 	if (ret)
 		return ret;
-   
+
 	ret = long4 (pos, k, 1, 10, -10, -1, BQ, BR);
 	if (ret)
 		return ret;
-   
+
 	if (short8 (pos, k, 8, 12, 19, 21, -8, -12, -19, -21, BN))
 		return BN;
 	if (short8 (pos, k, 9, 11, -9, -11, 1, 10, -10, -1, BK))
 		return BK;
-   
+
 	if (pos->square[k+OL] == BP)
 		return BP;
 	if (pos->square[k+OR] == BP)
@@ -1610,20 +1610,20 @@ position_black_king_attack (Position *pos)
 
 	g_return_val_if_fail (pos != NULL, 0);
 	g_return_val_if_fail (IS_POSITION (pos), 0);
-	
+
 	ret = long4 (pos, k, 9, 11, -9, -11, WQ, WB);
 	if (ret)
 		return ret;
-   
+
 	ret = long4 (pos, k, 1, 10, -10, -1, WQ, WR);
 	if (ret)
 		return ret;
-   
+
 	if (short8 (pos, k, 8, 12, 19, 21, -8, -12, -19, -21, WN))
 		return WN;
 	if (short8 (pos, k, 9, 11, -9, -11, 1, 10, -10, -1, WK))
 		return WK;
-   
+
 	if (pos->square[k+UL] == WP)
 	   	return WP;
 	if (pos->square[k+UR] == WP)
@@ -1656,7 +1656,7 @@ position_legal_move (Position *pos, Square **zl, gshort *as, gshort *an)
                 position_move (pos, *ap, *(ap+1));
 
                 switch (tomove) {
-                        case WHITE: 
+                        case WHITE:
 				check = position_white_king_attack (pos);
 				break;
                         case BLACK:
@@ -1675,11 +1675,11 @@ position_legal_move (Position *pos, Square **zl, gshort *as, gshort *an)
 		}
                 switch (tomove) {
                         case WHITE:
-                                position_move_reverse_white (pos, *(ap - 2), 
+                                position_move_reverse_white (pos, *(ap - 2),
 							     *(ap - 1));
                                 break;
                         case BLACK:
-                                position_move_reverse_black (pos, *(ap - 2), 
+                                position_move_reverse_black (pos, *(ap - 2),
 							     *(ap - 1));
                                 break;
                 }

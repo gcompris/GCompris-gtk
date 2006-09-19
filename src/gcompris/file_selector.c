@@ -825,6 +825,7 @@ void parseMime (xmlDocPtr doc, xmlNodePtr xmlnode) {
 	gcomprisMime->description = (gchar *)xmlNodeListGetString(doc, 
 								  xmlnode->xmlChildrenNode, 1);
       }
+    g_free(lang);
     xmlnode = xmlnode->next;
   }
 

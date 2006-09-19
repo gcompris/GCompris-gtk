@@ -97,16 +97,17 @@ gc_prop_user_root_directory_get ()
 gchar *
 gc_prop_config_file_get()
 {
+  gchar *dir;
   if(config_file)
     return(config_file);
-
+  dir = gc_prop_user_root_directory_get();
   /* Was never called, must calculate it */
   if (g_get_home_dir()==NULL) {
-    config_file = g_strconcat(gc_prop_user_root_directory_get(), "/gcompris.cfg", NULL);
+    config_file = g_strconcat(dir, "/gcompris.cfg", NULL);
   } else {
-    config_file = g_strconcat(gc_prop_user_root_directory_get(), "/gcompris.conf", NULL);
+    config_file = g_strconcat(dir, "/gcompris.conf", NULL);
   }
-
+  g_free(dir);
    return(config_file);
 }
 
@@ -197,6 +198,8 @@ gc_prop_new ()
   gc_util_create_rootdir(full_rootdir);
   g_free(full_rootdir);
 
+  g_free(user_dir);
+
   g_warning("config_file %s", config_file);
 
   filefd = open(config_file, O_RDONLY);
@@ -213,8 +216,8 @@ gc_prop_new ()
     while(g_scanner_peek_next_token(scanner) != G_TOKEN_EOF) {
 
       /* get the next token */
-      GTokenType token = g_scanner_get_next_token(scanner);
-      switch(token) {
+      GTokenType tokent = g_scanner_get_next_token(scanner);
+      switch(tokent) {
       case G_TOKEN_IDENTIFIER: {
 	gchar *token;
 	/* if we have a symbol, check it's ours */
@@ -269,6 +272,7 @@ gc_prop_new ()
 	  if(!tmp->database)
 	    g_warning("Config file parsing error on token %s", token);
 	}
+	g_free(token);
 	break;
       }
       default:
@@ -316,10 +320,25 @@ gc_prop_new ()
 void
 gc_prop_destroy (GcomprisProperties *props)
 {
-  if(props->locale!=NULL)
-    g_free(props->locale);
-
-  free (props);
+  g_free(props->user_data_dir);
+  g_free(props->package_data_dir);
+  g_free(props->package_locale_dir);
+  g_free(props->package_plugin_dir);
+  g_free(props->package_python_plugin_dir);
+  g_free(props->system_icon_dir);
+  g_free(props->cache_dir);
+  g_free(props->locale);
+  g_free(props->skin);
+  g_free(props->key);
+  gc_profile_destroy(props->profile);
+  gc_user_destroy(props->logged_user);
+  g_free(props->database);
+  g_free(props->shared_dir);
+  g_free(props->users_dir);
+  g_free(props->menu_position);
+  g_free(props->server);
+  g_free (props);
+  g_warning("properties free");
 }
 
 void

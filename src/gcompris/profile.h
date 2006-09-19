@@ -138,6 +138,8 @@ typedef struct {
 
 /* Active profile */
 GcomprisProfile     *gc_profile_get_current();
+void gc_profile_destroy(GcomprisProfile *prof);
+void gc_user_destroy(GcomprisUser *user);
 
 /* List of Gcomprisusers */
 void                 gc_profile_set_current_user(GcomprisUser *user);

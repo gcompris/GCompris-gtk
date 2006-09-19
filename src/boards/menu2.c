@@ -91,8 +91,6 @@ static double icon_size, icon_size_panel, icon_size_top, top_arrow_size;
 
 static gdouble get_ratio(GdkPixbuf *pixmap, gdouble size);
 
-GList *homeBoards = NULL;
-
 #define P_X 10
 #define P_Y 10
 #define P_W 90
@@ -391,6 +389,9 @@ menu_end ()
 
   boardRootItem     = NULL;
   actualSectionItem = NULL;
+
+  g_list_free(panelBoards);
+
 }
 
 static gboolean
@@ -708,6 +709,7 @@ set_content(GnomeCanvasRichText *item_content,
 
   color_string = g_strdup_printf("#%x", gc_skin_color_shadow >> 8);
   gdk_color_parse(color_string, color_s);
+  g_free(color_string);
   success = gdk_colormap_alloc_color(gdk_colormap_get_system(),
 				     color_s,
   				     FALSE, TRUE);
@@ -721,13 +723,12 @@ set_content(GnomeCanvasRichText *item_content,
   gtk_text_buffer_get_start_iter(buffer, &iter_start);
   gtk_text_buffer_apply_tag(buffer, txt_tag, &iter_start, &iter_end);
 
-  g_free(color_string);
-
   /*
    * Set the text
    */
   color_string = g_strdup_printf("#%x", gc_skin_get_color("menu/text") >> 8);
   gdk_color_parse(color_string, color);
+  g_free(color_string);
   success = gdk_colormap_alloc_color(gdk_colormap_get_system(),
 				     color,
   				     FALSE, TRUE);
@@ -740,7 +741,8 @@ set_content(GnomeCanvasRichText *item_content,
   gtk_text_buffer_get_end_iter(buffer, &iter_end);
   gtk_text_buffer_get_start_iter(buffer, &iter_start);
   gtk_text_buffer_apply_tag(buffer, txt_tag, &iter_start, &iter_end);
-
+  g_free(color);
+  g_free(color_s);
 }
 
 /** \brief create the area in which we display the board title and description

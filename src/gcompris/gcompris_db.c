@@ -857,7 +857,7 @@ GcomprisProfile *gc_db_get_profile_from_id(gint profile_id)
     profile->name = g_strdup(result[3]);
     profile->directory = g_strdup(result[4]);
     profile->description = g_strdup(result[5]);
-    
+    sqlite3_free_table(result);
     g_free(request);
     
     request = g_strdup_printf(GET_GROUPS_IN_PROFILE(profile->profile_id));
@@ -891,6 +891,7 @@ GcomprisProfile *gc_db_get_profile_from_id(gint profile_id)
       }
       profile->group_ids = ids;
     }
+    sqlite3_free_table(result);
 
     request = g_strdup_printf(GET_ACTIVITIES_OUT_OF_PROFILE(profile->profile_id));
     rc = sqlite3_get_table(gcompris_db, 
@@ -922,6 +923,7 @@ GcomprisProfile *gc_db_get_profile_from_id(gint profile_id)
       }
       profile->activities = ids;
     }
+    sqlite3_free_table(result);
   }
 
   return profile;
@@ -1010,6 +1012,8 @@ GcomprisProfile *gc_db_get_profile()
   }
 
   profile_id = atoi(result[1]); 
+
+  sqlite3_free_table(result);
 
   return gc_db_get_profile_from_id(profile_id);
 
