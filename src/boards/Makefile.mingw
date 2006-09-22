@@ -67,7 +67,7 @@ LIB_PATHS =		-L$(GTK_TOP)/lib \
 			-L$(GNUWIN32_TOP)/lib \
 			-L$(SDL_TOP)/lib \
 			-L$(GCOMPRIS_TOP)/src/gcompris \
-			-I$(PYTHON_TOP)/lib
+			-L$(PYTHON_TOP)/libs
 
 
 ##
@@ -89,7 +89,6 @@ LIBS =			-lgtk-win32-2.0 \
 			-lgdi32 -lgthread-2.0 \
 			-lintl \
 			-lws2_32 \
-			-lpython \
 			-lpython24 \
 			libgcompris-1.la
 

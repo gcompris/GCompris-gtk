@@ -75,6 +75,7 @@ extern BoardPlugin * get_superbrain_bplugin_info();
 extern BoardPlugin * get_target_bplugin_info();
 extern BoardPlugin * get_traffic_bplugin_info();
 extern BoardPlugin * get_wordsgame_bplugin_info();
+extern BoardPlugin * get_python_bplugin_info();
 
 #define MAX_NUMBER_OF_BOARDS 200
 static BoardPlugin *static_boards_demo[MAX_NUMBER_OF_BOARDS];
@@ -105,6 +106,7 @@ void init_plugins(void)
   static_boards_demo[i++] = get_submarine_bplugin_info();
   static_boards_demo[i++] = get_superbrain_bplugin_info();
   static_boards_demo[i++] = get_target_bplugin_info();
+  static_boards_demo[i++] = get_python_bplugin_info();
   static_boards_demo[i++] = NULL;
 
   i=0;
@@ -150,6 +152,7 @@ void init_plugins(void)
   static_boards[i++] = get_target_bplugin_info();
   static_boards[i++] = get_traffic_bplugin_info();
   static_boards[i++] = get_wordsgame_bplugin_info();
+  static_boards[i++] = get_python_bplugin_info();
   static_boards[i++] = NULL;
 
   i=0;
@@ -214,7 +217,6 @@ gc_board_check_file(GcomprisBoard *gcomprisBoard)
 
   if(strncmp(properties->key, "thanks_for_your_help", 20)==0) {
     while(static_boards[i++] != NULL) {
-      BoardPlugin *bp;
 
       /* Get the BoardPlugin Info */
       bp = (BoardPlugin *) static_boards[i-1];
@@ -231,7 +233,6 @@ gc_board_check_file(GcomprisBoard *gcomprisBoard)
     }
   } else {
     while(static_boards_demo[i++] != NULL) {
-      BoardPlugin *bp;
 
       /* Get the BoardPlugin Info */
       bp = (BoardPlugin *) static_boards_demo[i-1];
@@ -266,12 +267,12 @@ gc_board_check_file(GcomprisBoard *gcomprisBoard)
 
   g_assert(gcomprisBoard!=NULL);
 
-  type = g_strdup(gcomprisBoard->type);
-
   /* Check Already loaded */
   if(gcomprisBoard->plugin!=NULL) {
     return TRUE;
   }
+
+  type = g_strdup(gcomprisBoard->type);
 
   /* Manage the python case where : is use to separate python plugin and boards */
   if((sep = strchr(type, ':')))

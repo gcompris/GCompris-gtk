@@ -20,7 +20,7 @@
  */
 
 #include "anim.h"
-#include <stdio.h>
+#include <glib/gstdio.h>
 
 #define TICK_TIME 20
 
@@ -40,7 +40,7 @@ gc_anim_load(char *filename)
   absolute_filename = gc_file_find_absolute(filename);
 
   if (absolute_filename){
-    f = fopen(absolute_filename, "r");
+    f = g_fopen(absolute_filename, "r");
     g_free(absolute_filename);
   }
 

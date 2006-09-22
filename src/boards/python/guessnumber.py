@@ -1,21 +1,21 @@
 #  gcompris - guessnumber
-# 
+#
 # Copyright (C) 2005 Bruno Coudoin / Clement Coudoin
-# 
+#
 #   This program is free software; you can redistribute it and/or modify
 #   it under the terms of the GNU General Public License as published by
 #   the Free Software Foundation; either version 2 of the License, or
 #   (at your option) any later version.
-# 
+#
 #   This program is distributed in the hope that it will be useful,
 #   but WITHOUT ANY WARRANTY; without even the implied warranty of
 #   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 #   GNU General Public License for more details.
-# 
+#
 #   You should have received a copy of the GNU General Public License
 #   along with this program; if not, write to the Free Software
 #   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
-# 
+#
 
 import gnome
 import gnome.canvas
@@ -35,7 +35,7 @@ class Gcompris_guessnumber:
   """Tux hide a number, you must guess it"""
 
 
-  def __init__(self, gcomprisBoard):    
+  def __init__(self, gcomprisBoard):
 
     self.gcomprisBoard = gcomprisBoard
 
@@ -51,7 +51,7 @@ class Gcompris_guessnumber:
     # The min and max value that must be found
     self.min = -1
     self.max = -1
-    
+
     # These are used to let us restart only after the bonus is displayed.
     # When the bonus is displayed, it call us first with pause(1) and then with pause(0)
     self.board_paused  = 0
@@ -79,25 +79,25 @@ class Gcompris_guessnumber:
     self.helico_height = -1
 
   def start(self):
-    
+
     self.gcomprisBoard.level=1
     self.gcomprisBoard.maxlevel=4
     self.gcomprisBoard.sublevel=1
     self.gcomprisBoard.number_of_sublevel=1
 
     gcompris.bar_set(gcompris.BAR_OK|gcompris.BAR_LEVEL)
-    
+
     gcompris.bar_set_level(self.gcomprisBoard)
 
     gcompris.set_background(self.gcomprisBoard.canvas.root(), "images/cave.png")
 
     self.display_game()
-    
+
 
   def end(self):
 
     gcompris.reset_locale()
-    
+
     # Remove the root item removes all the others inside it
     self.cleanup_game()
 
@@ -107,10 +107,6 @@ class Gcompris_guessnumber:
 
   def repeat(self):
     print("Gcompris_guessnumber repeat.")
-
-
-  def config(self):
-    print("Gcompris_guessnumber config.")
 
 
   def key_press(self, keyval, commit_str, preedit_str):
@@ -127,7 +123,7 @@ class Gcompris_guessnumber:
        self.entry.hide()
     else:
       self.entry.show()
-      
+
     # When the bonus is displayed, it call us first with pause(1) and then with pause(0)
     # the game is won
     if(pause == 0 and self.gamewon):
@@ -149,18 +145,6 @@ class Gcompris_guessnumber:
 
     self.cleanup_game()
     self.display_game()
-    
-  ###################################################
-  # Configuration system
-  ###################################################
-  
-  #mandatory but unused yet
-  def config_stop(self):
-    pass
-
-  # Configuration function.
-  def config_start(self, profile):
-    pass
 
   #
   # End of Initialisation
@@ -178,21 +162,21 @@ class Gcompris_guessnumber:
       self.gcomprisBoard.sublevel=1
       self.gcomprisBoard.level += 1
       gcompris.bar_set_level(self.gcomprisBoard)
-      
+
       if(self.gcomprisBoard.level>self.gcomprisBoard.maxlevel):
         # the current board is finished : bail out
         gcompris.bonus.board_finished(gcompris.bonus.FINISHED_RANDOM)
         return 0
-      
+
     return 1
-  
+
   # Display the board game
   def cleanup_game(self):
     self.gamewon = False
     if self.movestep_timer != 0:
       gtk.timeout_remove(self.movestep_timer)
       self.movestep_timer = 0
-      
+
     # Remove the root item removes all the others inside it
     self.rootitem.destroy()
 
@@ -218,9 +202,9 @@ class Gcompris_guessnumber:
 
       # Select the number to find
       self.solution = random.randint(self.min, self.max)
-    
+
       text = _("Guess a number between %d and %d") %(self.min, self.max)
-      
+
       self.rootitem.add(
           gnome.canvas.CanvasText,
           x=340.0 + 1.0,
@@ -271,7 +255,7 @@ class Gcompris_guessnumber:
       self.helico_height = pixmap.get_height()
       self.orig_x = self.x_old = self.x = pixmap.get_width()/2 + 10
       self.y_old = self.y = self.orig_y
-      
+
       self.anim = self.rootitem.add(
         gnome.canvas.CanvasPixbuf,
         pixbuf = pixmap,
@@ -313,11 +297,11 @@ class Gcompris_guessnumber:
     #self.gcomprisBoard.canvas.grab_focus()
     self.widget.grab_focus()
     self.entry.grab_focus()
-   
+
   def enter_char_callback(self, widget):
       text = widget.get_text()
       widget.set_text(text.decode('utf8').upper().encode('utf8'))
-    
+
   def enter_callback(self, widget):
     text = widget.get_text()
 
@@ -350,11 +334,11 @@ class Gcompris_guessnumber:
         else:
           self.indicator.set(text=_("Too low"))
           self.indicator_s.set(text=_("Too low"))
-        
+
         self.move(self.x_old, self.y_old,
                   distance_x,
                   distance_y)
-                      
+
     widget.set_text('')
 
 
@@ -379,12 +363,12 @@ class Gcompris_guessnumber:
       gcompris.utils.item_rotate(self.anim, 0)
       self.entry.set_editable(True)
       return False
-      
+
 
   def move(self, x_old, y_old, x, y):
     if x == x_old and y == y_old:
       return
-    
+
     self.entry.set_editable(False)
     self.x_old = x
     self.y_old = y
@@ -399,9 +383,9 @@ class Gcompris_guessnumber:
     else:
       self.rotation = 0
     gcompris.utils.item_rotate(self.anim, self.rotation)
-    
+
     self.moving = True
     self.move_stepnum = 0
-    
+
     # it takes self.num_moveticks iterations of duration self.move_tick to move squares
     self.movestep_timer = gtk.timeout_add(self.move_tick, self.move_step)

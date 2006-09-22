@@ -19,7 +19,7 @@
  * Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-#include <stdio.h>
+#include <glib/gstdio.h>
 #include <fcntl.h>
 #include <string.h>
 #include <unistd.h>
@@ -347,7 +347,7 @@ gc_prop_save (GcomprisProperties *props)
   char *config_file = gc_prop_config_file_get();
   FILE *filefd;
 
-  filefd = fopen(config_file, "w+");
+  filefd = g_fopen(config_file, "w+");
 
   if(!filefd) {
       g_warning("cannot open '%s', configuration file not saved\n",(char *) config_file);

@@ -9,7 +9,7 @@ staticforward PyTypeObject pyGcomprisProfileType;
 /* Special function created for the python plugin to be able to create
  * a pyGcomprisBoardObject form the existing GcomprisBoard structure
  */
-PyObject* 
+PyObject*
 gcompris_new_pyGcomprisProfileObject(GcomprisProfile* profile)
 {
   if (!profile)
@@ -26,19 +26,19 @@ gcompris_new_pyGcomprisProfileObject(GcomprisProfile* profile)
 
 
 /* Free the python gcompris profile */
-static void 
+static void
 pyGcomprisProfileType_dealloc(pyGcomprisProfileObject *self)
 {
   self->cdata = NULL;
   PyObject_DEL(self);
 }
-                       
+
 
 /* Methods defined in the pyGcomprisProfile class */
 static PyMethodDef pyGcomprisProfileType_methods[] = {
         {NULL,          NULL}           /* sentinel */
 };
- 
+
 
 /* Return the value of the members contained in the GcomprisProfile structure */
 static PyObject *
@@ -97,9 +97,13 @@ pyGcomprisProfileType_setattr(pyGcomprisProfileObject *self, char *name, PyObjec
 
   return -1;
 }
-                                                                                
+
 static PyTypeObject pyGcomprisProfileType = {
+#if defined(WIN32)
+  PyObject_HEAD_INIT(NULL)
+#else /* ! WIN32 */
   PyObject_HEAD_INIT(&PyType_Type)
+#endif
   0,                                        /*ob_size*/
   "pyGcomprisProfile",                        /*tp_name*/
   sizeof(pyGcomprisProfileObject),            /*tp_basicsize*/

@@ -14,6 +14,7 @@ GNUWIN32_TOP :=		/gnuwin32
 LIBXML2_TOP :=		/libxml2
 SDL_TOP :=		/sdl
 CANVAS_TOP :=		/gnomecanvas
+PYTHON_TOP :=		/c/Python24
 GCOMPRIS_TOP :=		../..
 GCOMPRIS_SRC :=		.
 GCOMPRIS_INSTALL_DIR :=	$(GCOMPRIS_TOP)/win32-install-dir
@@ -69,6 +70,7 @@ LIB_PATHS =		-L$(GTK_TOP)/lib \
 			-L$(GNUWIN32_TOP)/lib \
 			-L$(SDL_TOP)/lib \
 			-L$(CANVAS_TOP)/lib \
+			-L$(PYTHON_TOP)/libs \
 			-L$(GCOMPRIS_TOP)/src/gcompris
 
 
@@ -138,7 +140,9 @@ EXE_LIBS =		../boards/libboards.a \
 			-lgnomecanvas-2 \
 			-lart_lgpl_2 \
 			-lpangoft2-1.0 \
-			-liconv
+			-liconv \
+			-lpython24
+
 
 
 ##

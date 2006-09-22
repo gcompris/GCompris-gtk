@@ -32,7 +32,7 @@
  */
 
 #include <unistd.h>
-#include <stdio.h>
+#include <glib/gstdio.h>
 #include <time.h>
 #include <string.h>
 
@@ -192,7 +192,7 @@ void gc_log_end (GcomprisBoard *gcomprisBoard, gchar *status) {
     file = g_strdup("gcompris.log");
   }
 
-  flog = fopen(file,"a");
+  flog = g_fopen(file,"a");
 
   /* date,computer,user,board,level,sublevel,status, duration,comment */
   if(flog)

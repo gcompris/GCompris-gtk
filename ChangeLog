@@ -1,6 +1,52 @@
+2006-09-23  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	- Start of support of python plugin on window.
+	- Fixed several issues in the admin.
+	- Fixed the login mode.
+	- Removed empty config code in some python plugin because it causes the admin
+	  to display a conbfiguration icon for them.
+
+	* Makefile.mingw:
+	* docs/website/footer.php3:
+	* docs/website/header.php3:
+	* docs/website/menu.php3:
+	* docs/website/meta.php3:
+	* src/boards/Makefile.mingw:
+	* src/boards/py-gcompris-board.c:
+	* src/boards/py-gcompris-class.c:
+	* src/boards/py-gcompris-group.c:
+	* src/boards/py-gcompris-profile.c:
+	* src/boards/py-gcompris-properties.c:
+	(pyGcomprisPropertiesType_getattr):
+	* src/boards/py-gcompris-user.c:
+	* src/boards/py-gcompris-wordlist.c:
+	(pyGcomprisWordlistType_getattr):
+	* src/boards/py-mod-admin.c: (py_gc_board_config_start):
+	* src/boards/py-mod-anim.c: (AnimCanvas_getattr),
+	(py_gcompris_animcanvas_swapanim),
+	(python_gcompris_anim_module_init):
+	* src/boards/python.c: (pythonboard_init), (pythonboard_start),
+	(pythonboard_is_our_board), (pythongc_board_config_start):
+	* src/boards/python/admin/board_list.py:
+	* src/boards/python/electric.py:
+	* src/boards/python/guessnumber.py:
+	* src/boards/python/login.py:
+	* src/boards/python/mosaic.py:
+	* src/gcompris/Makefile.mingw:
+	* src/gcompris/anim.c: (gc_anim_load):
+	* src/gcompris/binreloc.c: (_br_find_exe),
+	(_br_find_exe_for_symbol):
+	* src/gcompris/board.c: (init_plugins), (gc_board_check_file):
+	* src/gcompris/log.c: (gc_log_end):
+	* src/gcompris/profile.c: (gc_profile_set_current_user),
+	(gc_profile_destroy), (gc_user_destroy):
+	* src/gcompris/properties.c: (gc_prop_save):
+
 2006-09-20  Bruno coudoin  <bruno.coudoin@free.fr>
 
-	reviewed by: <delete if not using a buddy>
+	- Memory leak review by miguel2i (on free.fr)
+	- Fixed chess movelearn level 3, white could take
+	  the king immediately. reported by woof
 
 	* Makefile.mingw:
 	* src/boards/Makefile.mingw:

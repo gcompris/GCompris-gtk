@@ -38,7 +38,11 @@ static PyMethodDef AnimationMethods[] = {
 };
 
 static PyTypeObject py_GcomprisAnimationType = {
+#if defined(WIN32)
   PyObject_HEAD_INIT(NULL)
+#else /* ! WIN32 */
+  PyObject_HEAD_INIT(&PyType_Type)
+#endif
   0,                            /* ob_size */
   "pyGcomprisAnimation",        /* tp_name */
   sizeof(py_GcomprisAnimation), /* tp_basicsize */
@@ -80,7 +84,11 @@ static PyTypeObject py_GcomprisAnimationType = {
 };
 
 static PyTypeObject py_GcomprisAnimCanvasType = {
+#if defined(WIN32)
   PyObject_HEAD_INIT(NULL)
+#else /* ! WIN32 */
+  PyObject_HEAD_INIT(&PyType_Type)
+#endif
   0,                                /* ob_size */
   "pyGcomprisAnimCanvas",           /* tp_name */
   sizeof(py_GcomprisAnimCanvas),    /* tp_basicsize */
@@ -220,7 +228,7 @@ static PyObject *AnimCanvas_getattr(py_GcomprisAnimCanvas *self, char *name)
   else if(!strcmp(name, "num_states"))
     return Py_BuildValue("i", self->item->anim->numstates);
 
-  return Py_FindMethod(AnimCanvasMethods, (PyObject *)self, name);  
+  return Py_FindMethod(AnimCanvasMethods, (PyObject *)self, name);
 }
 
 static PyObject*
@@ -248,7 +256,7 @@ py_gcompris_animcanvas_swapanim(PyObject *self, PyObject *args)
   py_GcomprisAnimation *old_anim = (py_GcomprisAnimation*)s->anim;
   GcomprisAnimCanvasItem *item = s->item;
 
-  if(!item) THROW_INACTIVE_ANIMATION;  
+  if(!item) THROW_INACTIVE_ANIMATION;
 
   if(!PyArg_ParseTuple(args, "O:AnimCanvas_swapAnim", (PyObject**)&new_anim))
     return NULL;
@@ -282,7 +290,7 @@ py_gcompris_animcanvas_destroy(PyObject *self, PyObject *args)
 #define PyMODINIT_FUNC void
 #endif
 PyMODINIT_FUNC
-python_gcompris_anim_module_init(void) 
+python_gcompris_anim_module_init(void)
 {
   PyObject* m;
 

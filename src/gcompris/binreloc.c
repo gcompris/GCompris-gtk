@@ -20,7 +20,7 @@
 	#include <sys/stat.h>
 	#include <unistd.h>
 #endif /* ENABLE_BINRELOC */
-#include <stdio.h>
+#include <glib/gstdio.h>
 #include <stdlib.h>
 #include <limits.h>
 #include <string.h>
@@ -118,7 +118,7 @@ _br_find_exe (GbrInitError *error)
 		return NULL;
 	}
 
-	f = fopen ("/proc/self/maps", "r");
+	f = g_fopen ("/proc/self/maps", "r");
 	if (f == NULL) {
 		g_free (line);
 		if (error)
@@ -189,7 +189,7 @@ _br_find_exe_for_symbol (const void *symbol, GbrInitError *error)
 	if (symbol == NULL)
 		return (char *) NULL;
 
-	f = fopen ("/proc/self/maps", "r");
+	f = g_fopen ("/proc/self/maps", "r");
 	if (f == NULL)
 		return (char *) NULL;
 

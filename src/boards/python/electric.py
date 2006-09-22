@@ -1,21 +1,21 @@
 #  gcompris - electric
-# 
+#
 # Copyright (C) 2005 Bruno Coudoin
-# 
+#
 #   This program is free software; you can redistribute it and/or modify
 #   it under the terms of the GNU General Public License as published by
 #   the Free Software Foundation; either version 2 of the License, or
 #   (at your option) any later version.
-# 
+#
 #   This program is distributed in the hope that it will be useful,
 #   but WITHOUT ANY WARRANTY; without even the implied warranty of
 #   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 #   GNU General Public License for more details.
-# 
+#
 #   You should have received a copy of the GNU General Public License
 #   along with this program; if not, write to the Free Software
 #   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
-# 
+#
 
 import gnome
 import gnome.canvas
@@ -39,19 +39,19 @@ from gcompris import gcompris_gettext as _
 class Gcompris_electric:
   """Tux hide a number, you must guess it"""
 
-  def __init__(self, gcomprisBoard):    
+  def __init__(self, gcomprisBoard):
 
     self.gcomprisBoard = gcomprisBoard
 
     self.gcomprisBoard.disable_im_context = True
 
-    # Part of UI : tools buttons                               
+    # Part of UI : tools buttons
     # TOOL SELECTION
     self.tools = [
       ["DEL",    "draw/tool-del.png",     "draw/tool-del_on.png",     gcompris.CURSOR_DEL],
       ["SELECT", "draw/tool-select.png",  "draw/tool-select_on.png",  gcompris.CURSOR_SELECT]
       ]
-    
+
     # These are used to let us restart only after the bonus is displayed.
     # When the bonus is displayed, it call us first with pause(1) and then
     # with pause(0)
@@ -66,14 +66,14 @@ class Gcompris_electric:
     self.gnucap_binary = None
 
   def start(self):
-    
+
     self.gcomprisBoard.level=1
     self.gcomprisBoard.maxlevel=3
     self.gcomprisBoard.sublevel=1
     self.gcomprisBoard.number_of_sublevel=1
 
     gcompris.bar_set(gcompris.BAR_LEVEL)
-    
+
     gcompris.bar_set_level(self.gcomprisBoard)
 
     gcompris.set_background(self.gcomprisBoard.canvas.root(),
@@ -95,7 +95,7 @@ class Gcompris_electric:
     if not self.gnucap_binary:
       gcompris.utils.dialog(_("Cannot find the 'gnucap' electric simulator.\nYou can download and install it from:\n<http://geda.seul.org/tools/gnucap/>\nTo be detected, it must be installed in\n/usr/bin/gnucap or /usr/local/bin/gnucap.\nYou can still use this activity to draw schematics without computer simulation."),
                             None)
-    
+
 
   def end(self):
 
@@ -108,13 +108,9 @@ class Gcompris_electric:
 
   def ok(self):
     pass
-    
+
   def repeat(self):
     if debug: print("Gcompris_electric repeat.")
-
-
-  def config(self):
-    if debug: print("Gcompris_electric config.")
 
 
   def key_press(self, keyval, commit_str, preedit_str):
@@ -148,18 +144,6 @@ class Gcompris_electric:
 
     self.cleanup_game()
     self.display_game()
-    
-  ###################################################
-  # Configuration system
-  ###################################################
-  
-  #mandatory but unused yet
-  def config_stop(self):
-    pass
-
-  # Configuration function.
-  def config_start(self, profile):
-    pass
 
   #
   # End of Initialisation
@@ -182,14 +166,14 @@ class Gcompris_electric:
       self.gcomprisBoard.sublevel=1
       self.gcomprisBoard.level += 1
       gcompris.bar_set_level(self.gcomprisBoard)
-      
+
       if(self.gcomprisBoard.level>self.gcomprisBoard.maxlevel):
         # the current board is finished : bail out
         gcompris.bonus.board_finished(gcompris.bonus.FINISHED_RANDOM)
         return 0
-      
+
     return 1
-  
+
   # Cleanup the board game
   def cleanup_game(self):
     self.gamewon = False
@@ -197,14 +181,14 @@ class Gcompris_electric:
     if self.gnucap_timer :
       gtk.timeout_remove(self.gnucap_timer)
       self.gnucap_timer = 0
-      
+
     # remove the appended items from our tools
     for i in range(0,len(self.tools)):
       self.tools[i].pop()
 
     # No more component in the simulation set
     self.components = []
-      
+
     # Remove the root item removes all the others inside it
     self.rootitem.destroy()
 
@@ -247,14 +231,14 @@ class Gcompris_electric:
 
         # Add the item in self.tools for later use
         self.tools[i].append(item)
-        
+
 
   # Return the textual form of the current selected tool
   # Return on of self.tools[i][0]
   def get_current_tools(self):
       return(self.tools[self.current_tool][0])
 
-    
+
   # Event when a tool is selected
   # Perform instant action or swich the tool selection
   def tool_item_event(self, item, event, tool):
@@ -266,13 +250,13 @@ class Gcompris_electric:
 
     return False
 
-  
+
   def assign_tool(self, newtool):
     # Deactivate old button
     item = self.tools[self.current_tool][4]
     item.set(pixbuf = gcompris.utils.load_pixmap(gcompris.skin.image_to_skin(self.tools[self.current_tool][1])))
 
-    # Activate new button                         
+    # Activate new button
     self.current_tool = newtool
     item = self.tools[newtool][4]
     item.set(pixbuf = gcompris.utils.load_pixmap(gcompris.skin.image_to_skin(self.tools[self.current_tool][2])))
@@ -308,12 +292,12 @@ class Gcompris_electric:
                        (Connection, None),
                        (Diode, None),
                        )
-        
+
     Selector(self, component_set)
-    
 
 
-  
+
+
 # ----------------------------------------------------------------------
 # ----------------------------------------------------------------------
 # ----------------------------------------------------------------------
@@ -331,7 +315,7 @@ class Gcompris_electric:
       if debug: print "call_gnucap: No component"
       self.gnucap_timer = 0
       return
-    
+
     connected = 0
     for component in self.components:
       if component.is_connected():
@@ -339,7 +323,7 @@ class Gcompris_electric:
 
     if not connected == 1:
       if debug: print "call_gnucap: No connected component"
-    
+
     fd, filename = tempfile.mkstemp(".gnucap", "gcompris_electric", None, True)
     f = os.fdopen(fd, "w+t")
 
@@ -354,7 +338,7 @@ class Gcompris_electric:
           gnucap += str(component.get_nodes()[0].get_wires()[0].get_wire_id())
           break
       gnucap += " 1f\n"
-    
+
     for component in self.components:
       if component.is_connected():
         thisgnucap = component.to_gnucap("")
@@ -413,7 +397,7 @@ class Gcompris_electric:
             if debug: print "Warning: gnucap parsing mismatch"
             done = True
             continue
-            
+
           try:
             volt = self.convert_gnucap_value(values[i])
             amp = self.convert_gnucap_value(values[i+1])
@@ -425,16 +409,16 @@ class Gcompris_electric:
 
           i += 2
 
-      
+
     if not debug: os.remove(filename)
     self.gnucap_timer = 0
-    
+
   # Convert a gnucap value back in a regular number
   # Return a float value
   # Or a ValueError exception
   def convert_gnucap_value(self, value):
     unit = 1
-    
+
     if value.endswith("T"):
       unit = e12
       value = value.replace("T", "")
@@ -471,9 +455,9 @@ class Gcompris_electric:
     sign = 1
     if float(value) < 0:
       sign = -1
-    
+
     return (float(sign)*float(value)*unit)
-    
+
 
 
 
@@ -494,18 +478,18 @@ class Wire:
     #numbered sequentially.
     counter = 1
     connection = {}
-    colors = [ 0xdfc766FFL,   
-               0xdf9766FFL,   
-               0xdf667dFFL,   
-               0xdf66bcFFL,   
-               0xc466dfFFL,   
-               0x9c66dfFFL,   
-               0xA4FFB3FFL,   
-               0x6666dfFFL,   
-               0x669fdfFFL,   
+    colors = [ 0xdfc766FFL,
+               0xdf9766FFL,
+               0xdf667dFFL,
+               0xdf66bcFFL,
+               0xc466dfFFL,
+               0x9c66dfFFL,
+               0xA4FFB3FFL,
+               0x6666dfFFL,
+               0x669fdfFFL,
                0x66df6cFFL,
                0x66dfd8FFL ]
-               
+
     def __init__(self, electric, source_node, x1, y1, x2, y2):
       self.electric = electric
       self.rootitem = electric.rootitem
@@ -524,7 +508,7 @@ class Wire:
       self.wire_item.connect("event", self.delete_wire, self)
       self.wire_id = -1
       self._add_connection(source_node)
-      
+
     def _add_connection(self, node):
       # Is this node already connected
       if(node.get_wires()):
@@ -543,14 +527,14 @@ class Wire:
             Wire.counter += 1
           else:
             self.wire_id = wire_id
-           
+
       else:
         if self.wire_id == -1:
           self.wire_id = Wire.counter
           Wire.counter += 1
-          
+
         Wire.connection[node] = self
-        
+
       if debug: print "WIRE_ID = %d" %self.wire_id
 
     def set_wire_id(self, id):
@@ -562,10 +546,10 @@ class Wire:
 
       # Colorize the wire
       self.wire_item.set(fill_color_rgba = Wire.colors[id % len(Wire.colors)])
-    
+
     def get_wire_id(self):
       return self.wire_id
-    
+
     def destroy(self):
       self.wire_item.destroy()
       self.wire_id = -1
@@ -576,15 +560,15 @@ class Wire:
       self.source_node = None
       self.target_node = None
       self.electric.run_simulation()
-      
-      
+
+
     def set_target_node(self, node):
       self.target_node = node
       self._add_connection(node)
-      
+
       # Colorize the wire
       self.wire_item.set(fill_color_rgba = Wire.colors[self.wire_id % len(Wire.colors)])
-      
+
     # Move wire. In fact, the attached component are moved and THEY
     # move the wire
     def move_all_wire(self, x, y):
@@ -593,14 +577,14 @@ class Wire:
         target_component = self.target_node.get_component()
         # TBD Need to move the components but not loosing their distance.
         #     Don't know yet how
-        
+
     # Move one node of the wire at a time, depending on the given node
     def move(self, node, x, y):
       if(node == self.source_node):
         self.move_source_node(x, y)
       elif(node== self.target_node):
         self.move_target_node(x, y)
-        
+
     def move_source_node(self, x1, y1):
       self.x1 = x1
       self.y1 = y1
@@ -616,7 +600,7 @@ class Wire:
 
     # Callback event to delete a wire
     def delete_wire(self, widget, event, wire):
-      
+
       if event.type == gtk.gdk.BUTTON_PRESS:
         if event.button == 1:
           wire.destroy()
@@ -646,7 +630,7 @@ class Node:
       pixmap = gcompris.utils.load_pixmap(self.image)
       self.center_x =  pixmap.get_width()/2
       self.center_y =  pixmap.get_height()/2
-        
+
       self.item = self.rootitem.add(
         gnome.canvas.CanvasPixbuf,
         pixbuf = pixmap,
@@ -673,8 +657,8 @@ class Node:
           self.renumber_wire(wire, wire_id)
       except:
         pass
-        
-      
+
+
     # Renumber the wires
     def renumber_wire(self, wire, wire_id):
       for wire in self.wires:
@@ -696,7 +680,7 @@ class Node:
       except:
         pass
 
-      
+
     def move(self, x, y):
       if(self.item):
         self.item.set(x = x + self.x,
@@ -726,7 +710,7 @@ class Component(object):
         self.electric.components.append(self)
       else:
         self.gnucap_name = ""
-        
+
       Component.counter += 1
       self.gnucap_value = gnucap_value
       self.image = image
@@ -745,7 +729,7 @@ class Component(object):
       self.y = 0
       self.center_x =  pixmap.get_width()/2
       self.center_y =  pixmap.get_height()/2
-      
+
       self.component_item = self.comp_rootitem.add(
         gnome.canvas.CanvasPixbuf,
         pixbuf = pixmap,
@@ -785,14 +769,14 @@ class Component(object):
         self.item_values.hide()
       return True
 
-      
+
     def get_rootitem(self):
       return self.comp_rootitem
-    
+
     def move(self, x, y):
       self.x =  x - self.center_x
       self.y =  y - self.center_y
-      
+
       self.item_values.set(x =  self.item_values_x + self.x,
                            y =  self.item_values_y + self.y)
 
@@ -801,7 +785,7 @@ class Component(object):
 
       for node in self.nodes:
         node.move( self.x,  self.y)
-        
+
     def show(self):
       self.comp_rootitem.show()
 
@@ -814,7 +798,7 @@ class Component(object):
         self.electric.components.remove(self)
       except:
         pass
-      
+
       for node in self.nodes:
         while node.get_wires():
           wire = node.get_wires()[0]
@@ -822,7 +806,7 @@ class Component(object):
           wire.destroy()
 
       self.comp_rootitem.destroy()
-        
+
     # Return the nodes
     def get_nodes(self):
       return self.nodes
@@ -837,9 +821,9 @@ class Component(object):
       for node in self.nodes:
         if not node.get_wires():
           return False
-        
+
       return True
-    
+
     # Return the gnucap definition for this component
     # model is optional
     #
@@ -862,7 +846,7 @@ class Component(object):
         gnucap += " "
         if(node.get_wires()):
           gnucap += str(node.get_wires()[0].get_wire_id())
-          
+
       gnucap += " "
       gnucap += str(self.gnucap_value)
       gnucap += "\n"
@@ -870,19 +854,19 @@ class Component(object):
       gnucap += ".print dc + v(%s) i(%s)\n" %(self.gnucap_name, self.gnucap_name)
 
       return gnucap
-    
+
     # Callback event to move the component
     def component_move(self, widget, event, component):
-      
+
       if event.state & gtk.gdk.BUTTON1_MASK:
         if event.type == gtk.gdk.MOTION_NOTIFY:
           if(self.electric.get_current_tools()=="SELECT"):
             component.move(event.x, event.y)
-            
+
         else:
           if(self.electric.get_current_tools()=="DEL"):
             self.destroy()
-          
+
       return True
 
     # Callback event to create a wire
@@ -890,7 +874,7 @@ class Component(object):
 
       if(self.electric.get_current_tools()=="DEL"):
         return True
-      
+
       if event.type == gtk.gdk.BUTTON_PRESS:
         if event.button == 1:
           bounds = widget.get_bounds()
@@ -904,7 +888,7 @@ class Component(object):
       if event.type == gtk.gdk.MOTION_NOTIFY:
         if event.state & gtk.gdk.BUTTON1_MASK:
           self.wire.move_target_node(event.x, event.y)
-        
+
       if event.type == gtk.gdk.BUTTON_RELEASE:
         if event.button == 1:
           node_target = None
@@ -915,7 +899,7 @@ class Component(object):
               node_target = target_item.get_data('node')
               if(node_target):
                 break
-            
+
           # Take care not to wire the same component or 2 times the same node
           if(not node_target
              or node.get_component() == node_target.get_component()
@@ -926,7 +910,7 @@ class Component(object):
             self.wire.set_target_node(node_target)
             node_target.add_wire(self.wire)
             self.electric.run_simulation()
-            
+
           return True
 
       return False
@@ -941,7 +925,7 @@ class Component(object):
 
 # ----------------------------------------
 # RESISTOR
-# 
+#
 #
 class Resistor(Component):
   image = "electric/resistor.png"
@@ -964,7 +948,7 @@ class Resistor(Component):
 
 # ----------------------------------------
 # DIODE
-# 
+#
 #
 class Diode(Component):
   image = "electric/diode.png"
@@ -999,10 +983,10 @@ class Diode(Component):
     gnucap = ""
     gnucap += super(Diode, self).to_gnucap(model)
     return gnucap
-  
+
 # ----------------------------------------
 # SWITCH
-# 
+#
 #
 class Switch(Component):
   image = "electric/switch_off.png"
@@ -1013,7 +997,7 @@ class Switch(Component):
     self.click_ofset_y = -28
     self.value_on  = "0"
     self.value_off = "10000k"
-    
+
     super(Switch, self).__init__(electric,
                                  "R",
                                  self.value_off,
@@ -1023,7 +1007,7 @@ class Switch(Component):
 
     # Overide some values
     self.item_values.hide()
-    
+
     self.move(x, y)
 
     pixmap = gcompris.utils.load_pixmap("electric/switch_click.png")
@@ -1045,25 +1029,25 @@ class Switch(Component):
       else:
         self.gnucap_value = self.value_off
         pixmap = gcompris.utils.load_pixmap("electric/switch_off.png")
-        
+
       self.component_item.set(pixbuf = pixmap)
       self.electric.run_simulation()
-        
+
     return False
 
   # Callback event to move the component
   def component_move(self, widget, event, component):
      super(Switch, self).component_move(widget, event, component)
-     
+
      if(self.electric.get_current_tools()=="DEL"):
        return True
-     
+
      self.click_item.set(
        x = self.x + self.click_ofset_x,
        y = self.y + self.click_ofset_y)
 
      return True
-   
+
   # Return False if we need more value to complete our component
   # This is usefull in case where one Component is made of several gnucap component
   def set_voltage_intensity(self, valid_value, voltage, intensity):
@@ -1075,7 +1059,7 @@ class Switch(Component):
 
 # ----------------------------------------
 # RHEOSTAT
-# 
+#
 #
 class Rheostat(Component):
   image = "electric/resistor_track.png"
@@ -1096,12 +1080,12 @@ class Rheostat(Component):
                                    [Node("electric/connect.png", "A", 0, -25),
                                     Node("electric/connect.png", "B", 50, 50),
                                     Node("electric/connect.png", "C", 0, 125)])
-    
+
     # Overide some values
     self.item_values_x = 20
     self.item_values_y = 70
     self.item_values.set(fill_color="blue")
-  
+
     self.move(x, y)
 
     # The wiper wire
@@ -1112,7 +1096,7 @@ class Rheostat(Component):
       width_units=5.0
       )
     self.update_wiper_wire()
-    
+
     pixmap = gcompris.utils.load_pixmap("electric/resistor_wiper.png")
     self.wiper_item = self.comp_rootitem.add(
       gnome.canvas.CanvasPixbuf,
@@ -1123,7 +1107,7 @@ class Rheostat(Component):
     self.wiper_item.connect("event", self.component_click)
 
     self.show()
-    
+
   def update_wiper_wire(self):
     self.wiper_wire_item.set(
       points = (self.x + self.wiper_ofset_x + 35,
@@ -1153,14 +1137,14 @@ class Rheostat(Component):
       elif event.type == gtk.gdk.SCROLL_DOWN:
         self.move_wiper(self.y + 5)
     return True
-  
+
   # Callback event on the wiper
   def component_click(self, widget, event):
     # drag and drop
     if event.type == gtk.gdk.MOTION_NOTIFY:
       if event.state & gtk.gdk.BUTTON1_MASK:
         self.move_wiper(event.y)
-        
+
     return True
 
   # Callback event to move the component
@@ -1169,14 +1153,14 @@ class Rheostat(Component):
 
      if(self.electric.get_current_tools()=="DEL"):
        return True
-     
+
      self.wiper_item.set(
        x = self.x + self.wiper_ofset_x,
        y = self.y + self.wiper_ofset_y)
      self.update_wiper_wire()
 
      return True
-   
+
   # Return True if this component is connected and can provides a gnucap
   # description
   #
@@ -1192,7 +1176,7 @@ class Rheostat(Component):
       return True
 
     return False
-    
+
   # Return the gnucap definition for a single resitor of the rheostat
   # node_id1 and node_id2 are the index in the list of nodes
   def to_gnucap_res(self, gnucap_name, node_id1, node_id2, gnucap_value):
@@ -1205,12 +1189,12 @@ class Rheostat(Component):
 
     gnucap = gnucap_name
     gnucap += " "
-    
+
     for i in (node_id1, node_id2):
       node = self.nodes[i]
       if node.get_wires():
         gnucap += str(node.get_wires()[0].get_wire_id())
-        
+
       gnucap += " "
 
     gnucap += " "
@@ -1219,13 +1203,13 @@ class Rheostat(Component):
     gnucap += ".print dc + v(%s) i(%s)\n" %(gnucap_name, gnucap_name)
 
     return gnucap
-  
+
   # Return the gnucap definition for this component
   # depending of the connected nodes, it create one or two resistor
   def to_gnucap(self, model):
 
     gnucap = ""
-    
+
     # reset set_voltage_intensity counter
     self.gnucap_current_resistor = 0
 
@@ -1258,9 +1242,9 @@ class Rheostat(Component):
       self.gnucap_nb_resistor += 1
       gnucap += self.to_gnucap_res(self.gnucap_name + "_bot", 1, 2,
                                      self.resitance - gnucap_value)
-      
+
     return gnucap
-    
+
   # Return False if we need more value to complete our component
   # This is usefull in case one Component is made of several gnucap component
   def set_voltage_intensity(self, valid_value, voltage, intensity):
@@ -1280,13 +1264,13 @@ class Rheostat(Component):
         self.gnucap_current_resistor = 0
         return True
     else:
-      self.gnucap_current_resistor = 0 
+      self.gnucap_current_resistor = 0
       return True
     return False
 
 # ----------------------------------------
 # BULB
-# 
+#
 #
 class Bulb(Component):
   image = "electric/bulb1.png"
@@ -1311,7 +1295,7 @@ class Bulb(Component):
     self.show()
     self.power_max = power_max
     self.resistor_blown = 100000000
-    
+
   # Change the pixmap depending on the real power in the Bulb
   # Return False if we need more value to complete our component
   # This is usefull in case where one Component is made of several gnucap component
@@ -1322,7 +1306,7 @@ class Bulb(Component):
     # If the Bulb is blown, do not update it anymore
     if self.is_blown:
       return True
-    
+
     power = abs(voltage * intensity)
     image_index = min((power * 10) /  self.power_max + 1, 11)
     pixmap = gcompris.utils.load_pixmap("electric/bulb%d.png" %(image_index,))
@@ -1335,7 +1319,7 @@ class Bulb(Component):
       self.gnucap_value = self.resistor_blown
       self.electric.run_simulation()
       self.is_blown = True
-      
+
     return True
 
   # Callback event to move the component
@@ -1348,19 +1332,19 @@ class Bulb(Component):
         self.is_blown = False
         self.gnucap_value = self.internal_resistor
         self.electric.run_simulation()
-        
+
     elif (event.state & gtk.gdk.BUTTON3_MASK) and self.electric.get_current_tools()=="SELECT":
       if not self.is_blown:
         # Blown us with arbitrate high value
         self.set_voltage_intensity(True, 100, 10)
-      
-    return super(Bulb, self).component_move(widget, event, component)
-        
 
-    
+    return super(Bulb, self).component_move(widget, event, component)
+
+
+
 # ----------------------------------------
 # BATTERY
-# 
+#
 #
 class Battery(Component):
   image = "electric/battery.png"
@@ -1376,7 +1360,7 @@ class Battery(Component):
     # Overide some values
     self.item_values_x = 23
     self.item_values_y = 70
-    
+
     self.move(x, y)
     self.show()
 
@@ -1390,7 +1374,7 @@ class Battery(Component):
       self.component_item.set(pixbuf = gcompris.utils.load_pixmap("electric/battery_dead.png"))
     else:
       self.component_item.set(pixbuf = gcompris.utils.load_pixmap("electric/battery.png"))
-      
+
     return True
 
 # ----------------------------------------
@@ -1441,7 +1425,7 @@ class Selector:
       gap     = 20
       self.init_coord = {}
       self.offset_x = self.offset_y = 0
-      
+
       for component_class in components_class:
         pixmap = gcompris.utils.load_pixmap(component_class[0].icon)
         item = self.rootitem.add(
@@ -1464,7 +1448,7 @@ class Selector:
           and self.electric.get_current_tools()=="DEL"):
         # Switch to select mode
         self.electric.assign_tool(1)
-      
+
       if event.type == gtk.gdk.MOTION_NOTIFY:
         if event.state & gtk.gdk.BUTTON1_MASK:
           # Save the click to image offset
@@ -1475,7 +1459,7 @@ class Selector:
 
           widget.set(x = event.x - self.offset_x,
                      y = event.y - self.offset_y)
-          
+
       if event.type == gtk.gdk.BUTTON_RELEASE:
         if event.button == 1:
           bounds = widget.get_bounds()
@@ -1483,7 +1467,7 @@ class Selector:
                              event.x - self.offset_x + (bounds[2]-bounds[0])/2,
                              event.y - self.offset_y + (bounds[3]-bounds[1])/2,
                              component_class[1])
-          
+
           widget.set(x = self.init_coord[component_class[0]][0],
                      y = self.init_coord[component_class[0]][1])
 
@@ -1495,7 +1479,7 @@ class Selector:
     # ------------------------------------------------------------
     # ------------------------------------------------------------
     # ------------------------------------------------------------
-    
+
 def stop_board():
     gcompris.bonus.board_finished(gcompris.bonus.FINISHED_RANDOM)
 

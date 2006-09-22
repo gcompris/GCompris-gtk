@@ -77,24 +77,30 @@ gc_profile_set_current_user(GcomprisUser *user)
 
   (properties->logged_user)->session_id = g_str_hash((gconstpointer) session_id_str);
   g_free(session_id_str);
-   
+
 }
 
 void gc_profile_destroy(GcomprisProfile*prof)
 {
-	g_free(prof->name);
-	g_free(prof->directory);
-	g_free(prof->description);
-	g_free(prof);
+  if(!prof)
+    return;
+
+  g_free(prof->name);
+  g_free(prof->directory);
+  g_free(prof->description);
+  g_free(prof);
 }
 
 void gc_user_destroy(GcomprisUser*user)
 {
-	g_free(user->login);
-	g_free(user->lastname);
-	g_free(user->firstname);
-	g_free(user->birthdate);
-	g_free(user);
+  if(!user)
+    return;
+
+  g_free(user->login);
+  g_free(user->lastname);
+  g_free(user->firstname);
+  g_free(user->birthdate);
+  g_free(user);
 }
 
 GcomprisUser*

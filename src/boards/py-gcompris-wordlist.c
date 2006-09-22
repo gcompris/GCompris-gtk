@@ -11,7 +11,7 @@ staticforward PyTypeObject pyGcomprisWordlistType;
 /* Special function created for the python plugin to be able to create
  * a pyGcomprisBoardObject form the existing GcomprisBoard structure
  */
-PyObject* 
+PyObject*
 gcompris_new_pyGcomprisWordlistObject(GcomprisWordlist* wordlist)
 {
   pyGcomprisWordlistObject* thewordlist = NULL;
@@ -25,20 +25,20 @@ gcompris_new_pyGcomprisWordlistObject(GcomprisWordlist* wordlist)
 
 
 /* Free the python gcompris wordlist */
-static void 
+static void
 pyGcomprisWordlistType_dealloc(pyGcomprisWordlistObject *self)
 {
   gc_wordlist_free((GcomprisWordlist *)self->cdata);
   self->cdata = NULL;
   PyObject_DEL(self);
 }
-                       
+
 
 /* Methods defined in the pyGcomprisWordlist class */
 static PyMethodDef pyGcomprisWordlistType_methods[] = {
         {NULL,          NULL}           /* sentinel */
 };
- 
+
 
 /* Return the value of the members contained in the GcomprisWordlist structure */
 static PyObject *
@@ -59,18 +59,18 @@ pyGcomprisWordlistType_getattr(pyGcomprisWordlistObject *self, char *name)
       GSList *list, *list_words;
 
       pydict = PyDict_New();
-      
+
       for (list = self->cdata->levels_words; list !=NULL; list = list->next){
 	level =  ((LevelWordlist *)  list)->level;
 	words = ((LevelWordlist *)  list)->words;
-	
+
 	pylist = PyList_New(0);
 	for (list_words = words; list_words !=NULL; list_words = list_words->next){
 	  PyList_Append(pylist, Py_BuildValue("s", (gchar *)list->data));
 	}
-	
+
 	PyDict_SetItem( pydict, PyInt_FromLong(	(long) level), pylist);
-	
+
       return pydict;
       }
     }
@@ -88,9 +88,13 @@ pyGcomprisWordlistType_setattr(pyGcomprisWordlistObject *self, char *name, PyObj
 
   return -1;
 }
-                                                                                
+
 static PyTypeObject pyGcomprisWordlistType = {
+#if defined(WIN32)
+  PyObject_HEAD_INIT(NULL)
+#else /* ! WIN32 */
   PyObject_HEAD_INIT(&PyType_Type)
+#endif
   0,                                        /*ob_size*/
   "pyGcomprisWordlist",                        /*tp_name*/
   sizeof(pyGcomprisWordlistObject),            /*tp_basicsize*/

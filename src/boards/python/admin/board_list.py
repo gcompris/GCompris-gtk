@@ -1,21 +1,21 @@
 #  gcompris - board_list.py
-# 
+#
 # Copyright (C) 2005 Yves Combe
-# 
+#
 #   This program is free software; you can redistribute it and/or modify
 #   it under the terms of the GNU General Public License as published by
 #   the Free Software Foundation; either version 2 of the License, or
 #   (at your option) any later version.
-# 
+#
 #   This program is distributed in the hope that it will be useful,
 #   but WITHOUT ANY WARRANTY; without even the implied warranty of
 #   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 #   GNU General Public License for more details.
-# 
+#
 #   You should have received a copy of the GNU General Public License
 #   along with this program; if not, write to the Free Software
 #   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
-# 
+#
 
 import gnome
 import gnome.canvas
@@ -47,12 +47,12 @@ class Board_list:
       self.frame = frame
       self.cur = db_cursor
       self.con = db_connect
-      
+
       # ---------------
       # Boards Management
       # ---------------
 
-      
+
       # Create the profiles Combo
       self.profiles_list = gcompris.admin.get_profiles_list()
 
@@ -61,7 +61,7 @@ class Board_list:
       self.con.commit()
 
       self.default_profile_id = self.cur.fetchall()[0][0]
-      
+
       self.out_dict = self.get_boards_out_by_profile()
 
       self.difficulty = [1, 6]
@@ -81,7 +81,7 @@ class Board_list:
 
       box3 = gtk.VBox(False, 8)
       box3.show()
-      
+
       top_box.pack_start(box1, False, False, 0)
       top_box.pack_start(box2, True, True, 0)
 
@@ -100,10 +100,10 @@ class Board_list:
         combobox.append_text(profile.name)
         if profile.profile_id == self.default_profile_id:
           combobox.set_active(self.profiles_list.index(profile))
-        
+
       self.active_profile = self.profiles_list[combobox.get_active()]
       print 'Active profile is now', self.active_profile.name
-      
+
       # Create the table
       sw = gtk.ScrolledWindow()
       sw.set_shadow_type(gtk.SHADOW_ETCHED_IN)
@@ -191,7 +191,7 @@ class Board_list:
       if (board.section + '/' + board.name) == name:
         return board
     return None
-   
+
   def get_board_from_menu(self, menu, list):
     if menu.name =='':
       section = ''
@@ -201,9 +201,9 @@ class Board_list:
     for board in list:
       if board.section == section:
         return_list.append([section, board])
-        
+
     return return_list
-  
+
   def add_boards_in_model(self, model, boards_list):
     root_menu = '/'
     root = self.get_board_by_name(root_menu, boards_list)
@@ -215,7 +215,7 @@ class Board_list:
       menu = list.pop(0)[1]
       list_board = self.get_board_from_menu(menu, boards_list)
       menu_list = menu_list + list_board
-    
+
       for board_cell in list_board:
         if board_cell[1].type == 'menu':
           list.append(board_cell)
@@ -263,14 +263,14 @@ class Board_list:
       )
 
     self.boards_list = gcompris.admin.get_boards_list()
-    
+
     self.add_boards_in_model(model, self.boards_list)
 
     return model
 
 
   def __add_columns(self, treeview):
-    
+
     model = treeview.get_model()
 
     # Render for Board name with icon.
@@ -283,7 +283,7 @@ class Board_list:
     cell_active_board.connect( 'toggled', self.board_acive_cb, model )
 
     cell_board_configure = gtk.CellRendererPixbuf()
-    
+
 #    columns for Board name
 #    column_pref = gtk.TreeViewColumn(_('Conf'))
 #    image = gtk.image_new_from_stock(gtk.STOCK_PREFERENCES, gtk.ICON_SIZE_MENU)
@@ -319,7 +319,7 @@ class Board_list:
       self.update_child(model[path].iterchildren().next(), model[path][2])
     except StopIteration:
       pass
-    
+
     self.update_selected(model, path)
 
   def update_selected(self, model, path):
@@ -338,7 +338,7 @@ class Board_list:
 
     # update infos
     self.out_dict = self.get_boards_out_by_profile()
-    
+
     return
 
   def dict_from_list(self, list):
@@ -372,7 +372,7 @@ class Board_list:
     return self.dict_from_list(self.cur.fetchall())
 
   def pixbuf_configurable(self, board):
-    if board.is_configurable:
+    if board.is_configurable and board.type != "menu":
       return gtk.STOCK_PREFERENCES
     else:
       return None
@@ -398,7 +398,7 @@ class Board_list:
 
   def select_all_boards(self, button, Value):
     self.model.foreach(self.update_all, Value)
-  
+
   def update_all(self, model, path, iter, Value):
     model[path][2] = Value
 
@@ -413,19 +413,19 @@ class Board_list:
     window.set_transient_for(self.frame.get_toplevel())
     window.set_modal(True)
     window.show()
-    
+
     button_close = gtk.Button(stock=gtk.STOCK_CLOSE)
     button_close.connect("clicked", self.filter_close, window)
     button_close.show()
-    
+
     button_apply = gtk.Button(stock=gtk.STOCK_APPLY)
     button_apply.connect("clicked", self.filter_apply)
     button_apply.show()
 
     main_box = gtk.VBox(False, 8)
     main_box.show()
-    window.add(main_box) 
-    
+    window.add(main_box)
+
     box_bottom = gtk.HBox(False, 0)
     box_bottom.show()
     main_box.pack_end(box_bottom, False, False, 0)
@@ -453,7 +453,7 @@ class Board_list:
     main_box.pack_start(arrows_box, False, False, 0)
 
     self.stars = {}
-    
+
     for i in range(1,7):
       box = gtk.VBox(False, 8)
       box.show()
@@ -483,7 +483,7 @@ class Board_list:
       self.arrows[i].connect("clicked", self.arrow_clicked, i)
 
     self.update_arrows_active()
-    
+
   def filter_close(self, button, window):
     window.destroy()
 
@@ -562,7 +562,7 @@ class Board_list:
 
     if model[path][2]:
       self.update_parent(model[path].parent)
-      
+
     self.update_selected( model, path)
 
   # toggled off.
@@ -612,7 +612,7 @@ class Board_list:
       return
 
     row[2] = value
-    
+
     try:
       self.update_child(row.iterchildren().next(), value)
     except StopIteration:
@@ -642,9 +642,9 @@ class Board_list:
     gcompris.separator()
 
     gcompris.combo_locales( conf_locales)
-    
+
   def locales_sound(self, button):
- 
+
     conf_locales = self.get_configured(self.active_profile, 'locale_sound', 'NULL')
     self.main_vbox = gcompris.configuration_window ( \
       _('<b>%s</b> configuration\n for profile <b>%s</b>') % ('Locale sound', self.active_profile.name ),
@@ -668,13 +668,13 @@ class Board_list:
 
     for key, value in dict.iteritems():
       if key in self.already_conf:
-        req = 'UPDATE board_profile_conf SET conf_value=\'%s\' WHERE profile_id=%d AND board_id=-1 AND conf_key=\'%s\'' % (value, self.active_profile.profile_id, key) 
+        req = 'UPDATE board_profile_conf SET conf_value=\'%s\' WHERE profile_id=%d AND board_id=-1 AND conf_key=\'%s\'' % (value, self.active_profile.profile_id, key)
       else:
         req = 'INSERT INTO board_profile_conf (profile_id, board_id, conf_key, conf_value) VALUES (%d, -1, \'%s\', \'%s\')' % (self.active_profile.profile_id, key, value)
-      
+
       self.cur.execute(req)
       self.con.commit()
-      
+
   def get_configured(self, profile, key, if_not):
     self.cur.execute('select conf_value from board_profile_conf where profile_id=%d and board_id=-1 and conf_key =\'%s\' ' % (profile.profile_id, key))
 

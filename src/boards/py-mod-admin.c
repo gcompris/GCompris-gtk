@@ -43,9 +43,9 @@ py_gc_board_config_start (PyObject* self, PyObject* args)
   GcomprisProfile* cGcomprisProfile;
 
   /* Parse arguments */
-  if(!PyArg_ParseTuple(args, 
-		       "OO:gc_board_config_start", 
-		       &pyBoard, 
+  if(!PyArg_ParseTuple(args,
+		       "OO:gc_board_config_start",
+		       &pyBoard,
 		       &pyProfile))
     return NULL;
 
@@ -344,8 +344,8 @@ py_gc_profile_get_current_user (PyObject* self, PyObject* args)
 
 static PyMethodDef PythonGcomprisAdminModule[] = {
   { "board_run_next",  py_board_run_next, METH_VARARGS, "board_run_next" },
-  { "gc_board_config_start",  py_gc_board_config_start, METH_VARARGS, "gc_board_config_start" },
-  { "gc_board_config_stop",  py_gc_board_config_stop, METH_VARARGS, "gc_board_config_stop" },
+  { "board_config_start",  py_gc_board_config_start, METH_VARARGS, "gc_board_config_start" },
+  { "board_config_stop",  py_gc_board_config_stop, METH_VARARGS, "gc_board_config_stop" },
   { "get_profile_from_id",  py_gc_db_get_profile_from_id, METH_VARARGS, "gc_db_get_profile_from_id" },
   { "get_profiles_list",  py_gc_db_profiles_list_get, METH_VARARGS, "gc_db_profiles_list_get" },
   { "get_user_from_id",  py_gc_db_get_user_from_id, METH_VARARGS, "gc_db_get_user_from_id" },

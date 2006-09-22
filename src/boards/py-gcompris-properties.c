@@ -11,7 +11,7 @@ staticforward PyTypeObject pyGcomprisPropertiesType;
 /* Special function created for the python plugin to be able to create
  * a pyGcomprisBoardObject form the existing GcomprisBoard structure
  */
-PyObject* 
+PyObject*
 gcompris_new_pyGcomprisPropertiesObject(GcomprisProperties* properties)
 {
   pyGcomprisPropertiesObject* theproperties = NULL;
@@ -25,19 +25,19 @@ gcompris_new_pyGcomprisPropertiesObject(GcomprisProperties* properties)
 
 
 /* Free the python gcompris properties */
-static void 
+static void
 pyGcomprisPropertiesType_dealloc(pyGcomprisPropertiesObject *self)
 {
   self->cdata = NULL;
   PyObject_DEL(self);
 }
-                       
+
 
 /* Methods defined in the pyGcomprisProperties class */
 static PyMethodDef pyGcomprisPropertiesType_methods[] = {
         {NULL,          NULL}           /* sentinel */
 };
- 
+
 
 /* Return the value of the members contained in the GcomprisProperties structure */
 static PyObject *
@@ -101,7 +101,7 @@ pyGcomprisPropertiesType_getattr(pyGcomprisPropertiesObject *self, char *name)
     if(strcmp(name,"skin")==0) return Py_BuildValue("s", self->cdata->skin);
     if(strcmp(name,"shared_dir")==0) return Py_BuildValue("s", self->cdata->shared_dir);
     if(strcmp(name,"users_dir")==0) return Py_BuildValue("s", self->cdata->users_dir);
-    
+
     if(strcmp(name,"profile")==0){
       if (self->cdata->profile)
 	return gcompris_new_pyGcomprisProfileObject(self->cdata->profile);
@@ -181,9 +181,13 @@ pyGcomprisPropertiesType_setattr(pyGcomprisPropertiesObject *self, char *name, P
 
   return -1;
 }
-                                                                                
+
 static PyTypeObject pyGcomprisPropertiesType = {
+#if defined(WIN32)
+  PyObject_HEAD_INIT(NULL)
+#else /* ! WIN32 */
   PyObject_HEAD_INIT(&PyType_Type)
+#endif
   0,                                        /*ob_size*/
   "pyGcomprisProperties",                        /*tp_name*/
   sizeof(pyGcomprisPropertiesObject),            /*tp_basicsize*/

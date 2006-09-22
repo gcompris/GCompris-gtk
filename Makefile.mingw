@@ -55,9 +55,10 @@ NEEDED_DLLS =		$(GNUCHESS_TOP)/bin/pthreadGC.dll \
 			$(GTK_TOP)/expat/bin/xmlparse.dll \
 			$(GTK_TOP)/expat/bin/xmltok.dll \
 			$(GTK_TOP)/bin/iconv.dll \
-			$(GTK_TOP)/bin/intl.dll \
-			$(GTK_TOP)/bin/libpng12.dll \
+			$(GTK_TOP)/bin/libpng13.dll \
 			$(GTK_TOP)/bin/jpeg62.dll \
+			$(GTK_TOP)/bin/libcairo-2.dll \
+			$(GTK_TOP)/bin/libpangocairo-1.0-0.dll \
 			/c/WINDOWS/system32/python24.dll
 
 NEEDED_FILES =		README \

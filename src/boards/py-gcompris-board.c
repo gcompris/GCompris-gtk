@@ -171,7 +171,11 @@ pyGcomprisBoardType_setattr(pyGcomprisBoardObject *self, char *name, PyObject *v
 }
 
 static PyTypeObject pyGcomprisBoardType = {
+#if defined(WIN32)
+  PyObject_HEAD_INIT(NULL)
+#else /* ! WIN32 */
   PyObject_HEAD_INIT(&PyType_Type)
+#endif
   0,                                        /*ob_size*/
   "pyGcomprisBoard",                        /*tp_name*/
   sizeof(pyGcomprisBoardObject),            /*tp_basicsize*/

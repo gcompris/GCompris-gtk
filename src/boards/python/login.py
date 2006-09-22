@@ -1,21 +1,21 @@
 #  gcompris - login
-# 
+#
 # Copyright (C) 2005 Bruno Coudoin
-# 
+#
 #   This program is free software; you can redistribute it and/or modify
 #   it under the terms of the GNU General Public License as published by
 #   the Free Software Foundation; either version 2 of the License, or
 #   (at your option) any later version.
-# 
+#
 #   This program is distributed in the hope that it will be useful,
 #   but WITHOUT ANY WARRANTY; without even the implied warranty of
 #   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 #   GNU General Public License for more details.
-# 
+#
 #   You should have received a copy of the GNU General Public License
 #   along with this program; if not, write to the Free Software
 #   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
-# 
+#
 import gnome
 import gnome.canvas
 import gcompris
@@ -87,7 +87,7 @@ class Gcompris_login:
     users = []
     for group_id in self.Prop.profile.group_ids:
       users.extend( gcompris.admin.get_users_from_group(group_id))
-      
+
     self.users = self.check_unique_id(users)
 
     if eval(self.config_dict['entry_text']):
@@ -149,7 +149,7 @@ class Gcompris_login:
       result.append(passed[login])
 
     return result
-    
+
   def end(self):
 
     # Remove the root item removes all the others inside it
@@ -185,6 +185,12 @@ class Gcompris_login:
 
   def pause(self, pause):
     print("Gcompris_login pause. %i" % pause)
+    # There is a problem with GTK widgets, they are not covered by the help
+    # We hide/show them here
+    if(pause):
+      self.entry.hide()
+    else:
+      self.entryt.show()
 
 
   def set_level(self, level):
@@ -203,15 +209,15 @@ class Gcompris_login:
   # param: users is the sorted list of users to display
   # param: start_filter is a string filter to apply on
   #        the first letters of the user name
-  # 
+  #
   def display_user_by_letter(self, users, start_filter):
 
     print "display_user_by_letter start_filter=" + start_filter
-          
+
     first_letters = []
     current_letter = None
     remaining_users=0
-    
+
     for user in users:
       if eval(self.config_dict['uppercase_only']):
         login = user.login.decode('utf8').upper().encode('utf8')
@@ -238,7 +244,7 @@ class Gcompris_login:
   #
   # param users and start_filter are just need to let
   # this function pass it to it's event function
-  # 
+  #
   def display_letters(self, letters, users, start_filter):
 
     # Create a group for the letters
@@ -278,7 +284,7 @@ class Gcompris_login:
     # Tricky but does the job, try to make the layout as large as
     # possible
     step_x = 480/math.sqrt(len(letters))
-    
+
     start_x = 100
     x = start_x
     y = 100
@@ -288,7 +294,7 @@ class Gcompris_login:
     max_letter_by_line = (gcompris.BOARD_WIDTH-start_x*2)/step_x
     letter_by_line = max_letter_by_line
     button_pixbuf = gcompris.utils.load_pixmap(gcompris.skin.image_to_skin("ok.png"))
-    
+
     for letter in letters:
 
       # Display both cases for the letter
@@ -307,7 +313,7 @@ class Gcompris_login:
       item.connect("event", gcompris.utils.item_event_focus)
       item.connect("event", self.letter_click_event,
                    (users, start_filter + letter))
-      
+
       # The shadow
       item = self.letter_rootitem.add(
         gnome.canvas.CanvasText,
@@ -342,9 +348,9 @@ class Gcompris_login:
           x = start_x
           letter_by_line = max_letter_by_line
         else:
-          x = start_x + step_x/2 
+          x = start_x + step_x/2
           letter_by_line = max_letter_by_line-1
-         
+
         y += step_y
         current_line += 1
 
@@ -361,7 +367,7 @@ class Gcompris_login:
     i = 0
     step_y = 90
     button_pixbuf = gcompris.utils.load_pixmap(gcompris.skin.image_to_skin("button_large2.png"))
-    
+
     for user in users:
       if eval(self.config_dict['uppercase_only']):
         login = user.login.decode('utf8').upper().encode('utf8')
@@ -370,7 +376,7 @@ class Gcompris_login:
 
       if not login.startswith(start_filter):
         continue
-      
+
       item = self.rootitem.add(
         gnome.canvas.CanvasPixbuf,
         pixbuf = button_pixbuf,
@@ -381,7 +387,7 @@ class Gcompris_login:
       item.connect("event", gcompris.utils.item_event_focus)
       item.connect("event", self.name_click_event, user)
 
-      
+
       # The shadow
       item = self.rootitem.add(
         gnome.canvas.CanvasText,
@@ -422,7 +428,7 @@ class Gcompris_login:
       self.letter_rootitem.destroy()
       self.display_user_by_letter(data[0], data[1])
       return True
-    
+
     return False
 
   #
@@ -434,14 +440,14 @@ class Gcompris_login:
 
       self.logon(user)
       return True
-    
+
     return False
 
   def logon(self, user):
     gcompris.admin.set_current_user(user)
     gcompris.admin.board_run_next(self.Prop.menu_board)
- 
- 
+
+
   def init_config(self):
     default_config = { 'uppercase_only'    : 'False',
                        'entry_text'      : 'False'
@@ -451,26 +457,26 @@ class Gcompris_login:
 
   def entry_text(self):
     print "__entry__"
-    entry = gtk.Entry()
+    self.entry = gtk.Entry()
 
-    entry.modify_font(pango.FontDescription("sans bold 36"))
-    text_color = gtk.gdk.color_parse("white")
+    self.entry.modify_font(pango.FontDescription("sans bold 36"))
+    text_color = gtk.gdk.color_parse("blue")
     text_color_selected = gtk.gdk.color_parse("green")
     bg_color = gtk.gdk.color_parse("blue")
 
-    entry.modify_text(gtk.STATE_NORMAL, text_color)
-    entry.modify_text(gtk.STATE_SELECTED, text_color_selected)
-    entry.modify_base(gtk.STATE_NORMAL, bg_color)
+    self.entry.modify_text(gtk.STATE_NORMAL, text_color)
+    self.entry.modify_text(gtk.STATE_SELECTED, text_color_selected)
+    self.entry.modify_base(gtk.STATE_NORMAL, bg_color)
 
-    entry.set_max_length(50)
-    entry.connect("activate", self.enter_callback)
-    entry.connect("changed", self.enter_char_callback)
+    self.entry.set_max_length(50)
+    self.entry.connect("activate", self.enter_callback)
+    self.entry.connect("changed", self.enter_char_callback)
 
-    entry.show()
+    self.entry.show()
 
     self.widget = self.rootitem.add(
       gnome.canvas.CanvasWidget,
-      widget=entry,
+      widget=self.entry,
       x=400,
       y=400,
       width=400,
@@ -484,13 +490,13 @@ class Gcompris_login:
     # does not work. Why ?
     #self.gcomprisBoard.canvas.grab_focus()
     self.widget.grab_focus()
-    entry.grab_focus()
-   
+    self.entry.grab_focus()
+
   def enter_char_callback(self, widget):
     if eval(self.config_dict['uppercase_only']):
       text = widget.get_text()
       widget.set_text(text.decode('utf8').upper().encode('utf8'))
-    
+
   def enter_callback(self, widget):
     text = widget.get_text()
 
@@ -515,7 +521,7 @@ class Gcompris_login:
 
     # init with default values
     self.config_dict = self.init_config()
-    
+
     #get the configured values for that profile
     self.config_dict.update(gcompris.get_conf(profile, self.gcomprisBoard))
 
@@ -552,6 +558,8 @@ class Gcompris_login:
     pass
 
   def ok_callback(self, table):
+    if(not table):
+      return
     for key,value in table.iteritems():
       gcompris.set_board_conf(self.configuring_profile, self.gcomprisBoard, key, value)
-    
+

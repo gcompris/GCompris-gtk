@@ -208,13 +208,13 @@ pythonboard_init (GcomprisBoard *agcomprisBoard){
 			board->board_dir,
 			properties->package_python_plugin_dir);
 
-	      if (strcmp(board->board_dir, properties->package_python_plugin_dir)!=0){ 
+	      if (strcmp(board->board_dir, properties->package_python_plugin_dir)!=0){
 		boarddir = g_strdup_printf("sys.path.append('%s/')", board->board_dir);
-	      
+
 		PyRun_SimpleString(boarddir);
 		g_free(boarddir);
 	      }
-	      
+
 	      /* Insert the board module into the python's interpreter */
 	      python_board_module = PyImport_ImportModuleEx(board_file_name,
 							    globals,
@@ -224,13 +224,13 @@ pythonboard_init (GcomprisBoard *agcomprisBoard){
 	      if(python_board_module!=NULL){
 		/* Get the module dictionnary */
 		module_dict = PyModule_GetDict(python_board_module);
-	      
+
 		/* Get the python board class */
 		py_boardclass = PyDict_GetItemString(module_dict, boardclass);
 
 		if (PyObject_HasAttrString( py_boardclass, "config_start")) {
 		  config_boards = g_list_append(config_boards, board);
-		  g_warning("The board '%s' has a configuration entry", 
+		  g_warning("The board '%s' has a configuration entry",
 			    board_file_name);
 		}
 	      }
@@ -312,9 +312,9 @@ pythonboard_start (GcomprisBoard *agcomprisBoard){
 
 
     /* Test if board come with -L option */
-    if (strcmp(gcomprisBoard->board_dir, properties->package_data_dir)!=0){ 
+    if (strcmp(gcomprisBoard->board_dir, properties->package_data_dir)!=0){
       boarddir = g_strdup_printf("sys.path.append('%s/../python/')", gcomprisBoard->board_dir);
-      
+
       PyRun_SimpleString(boarddir);
       g_free(boarddir);
     }
@@ -418,9 +418,9 @@ static gboolean pythonboard_is_our_board (GcomprisBoard *agcomprisBoard){
     if (agcomprisBoard!=NULL) {
 
       if (g_ascii_strncasecmp(agcomprisBoard->type, "python", 6)==0) {
-  
+
 	bp_board = g_malloc0(sizeof(BoardPlugin));
-	
+
 	bp_board->handle        = menu_bp.handle;
 	bp_board->filename      = menu_bp.filename;
 	bp_board->name          = menu_bp.name;
@@ -439,7 +439,7 @@ static gboolean pythonboard_is_our_board (GcomprisBoard *agcomprisBoard){
 	bp_board->set_level     = menu_bp.set_level;
 	bp_board->config        = menu_bp.config;
 	bp_board->repeat        = menu_bp.repeat;
-  
+
 	if (g_list_find (config_boards, agcomprisBoard)){
 	  bp_board->config_start  = menu_bp.config_start;
 	  bp_board->config_stop   = menu_bp.config_stop;
@@ -451,11 +451,11 @@ static gboolean pythonboard_is_our_board (GcomprisBoard *agcomprisBoard){
 
 	/* Set the plugin entry */
 	agcomprisBoard->plugin = bp_board;
-	
+
 	bp_board = NULL;
-	
+
 	//g_print("pythonboard: is our board = TRUE\n");
-	
+
 	return TRUE;
       }
     }
@@ -572,19 +572,19 @@ pythongc_board_config_start (GcomprisBoard *agcomprisBoard,
   gchar *userplugindir;
 
   g_assert (agcomprisBoard != NULL);
- 
+
   if(!Py_IsInitialized()){
     /* Initialize the python interpreter */
     Py_SetProgramName(python_prog_name);
     Py_Initialize();
-    
+
     PySys_SetArgv(1, python_args);
-    
+
     init_pygobject();
 
     main_module = PyImport_AddModule("__main__");
     globals = PyModule_GetDict(main_module);
-    
+
     if(globals==NULL){
       g_print("Cannot get info from the python interpreter. Seems there is a problem with this one.\n");
       return;
@@ -614,7 +614,7 @@ pythongc_board_config_start (GcomprisBoard *agcomprisBoard,
     python_gcompris_module_init();
 
     python_run_by_config = TRUE;
-   
+
   }
   else {
     main_module = PyImport_AddModule("__main__"); /* Borrowed reference */
@@ -624,7 +624,7 @@ pythongc_board_config_start (GcomprisBoard *agcomprisBoard,
   /* Python is now initialized we create some usefull variables */
   board_file_name = strchr(agcomprisBoard->type, ':')+1;
   boardclass = g_strdup_printf("Gcompris_%s", board_file_name);
-  
+
   /* Insert the board module into the python's interpreter */
   python_board_config_module = PyImport_ImportModuleEx(board_file_name,
 						       globals,
@@ -647,9 +647,9 @@ pythongc_board_config_start (GcomprisBoard *agcomprisBoard,
     python_board_config_instance = PyInstance_New(py_boardclass, py_boardclass_args, NULL);
     Py_DECREF(py_boardclass_args);
 
-    py_function_result = PyObject_CallMethod(python_board_config_instance, 
-					     "config_start", 
-					     "O", 
+    py_function_result = PyObject_CallMethod(python_board_config_instance,
+					     "config_start",
+					     "O",
 					     gcompris_new_pyGcomprisProfileObject(aProfile));
 
     if( py_function_result != NULL){
@@ -660,7 +660,7 @@ pythongc_board_config_start (GcomprisBoard *agcomprisBoard,
   } else {
     PyErr_Print();
   }
-  
+
   g_free(boardclass);
 }
 

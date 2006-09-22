@@ -9,7 +9,7 @@ staticforward PyTypeObject pyGcomprisClassType;
 /* Special function created for the python plugin to be able to create
  * a pyGcomprisBoardObject form the existing GcomprisBoard structure
  */
-PyObject* 
+PyObject*
 gcompris_new_pyGcomprisClassObject(GcomprisClass* class)
 {
   pyGcomprisClassObject* theclass = NULL;
@@ -23,19 +23,19 @@ gcompris_new_pyGcomprisClassObject(GcomprisClass* class)
 
 
 /* Free the python gcompris class */
-static void 
+static void
 pyGcomprisClassType_dealloc(pyGcomprisClassObject *self)
 {
   self->cdata = NULL;
   PyObject_DEL(self);
 }
-                       
+
 
 /* Methods defined in the pyGcomprisClass class */
 static PyMethodDef pyGcomprisClassType_methods[] = {
         {NULL,          NULL}           /* sentinel */
 };
- 
+
 
 /* Return the value of the members contained in the GcomprisClass structure */
 static PyObject *
@@ -93,9 +93,13 @@ pyGcomprisClassType_setattr(pyGcomprisClassObject *self, char *name, PyObject *v
 
   return -1;
 }
-                                                                                
+
 static PyTypeObject pyGcomprisClassType = {
+#if defined(WIN32)
+  PyObject_HEAD_INIT(NULL)
+#else /* ! WIN32 */
   PyObject_HEAD_INIT(&PyType_Type)
+#endif
   0,                                        /*ob_size*/
   "pyGcomprisClass",                        /*tp_name*/
   sizeof(pyGcomprisClassObject),            /*tp_basicsize*/
