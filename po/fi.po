@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-02-15 06:27+0200\n"
-"PO-Revision-Date: 2006-02-15 06:30+0200\n"
+"POT-Creation-Date: 2006-09-25 19:27+0300\n"
+"PO-Revision-Date: 2006-09-25 19:47+0300\n"
 "Last-Translator: Ilkka Tuohela <hile@iki.fi>\n"
 "Language-Team: Finnish <gnome-fi-laatu@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
@@ -1392,12 +1392,12 @@ msgstr ""
 "&gt; ja Le Berre Danielilta. He antoivat gcomprisille luvan käyttää "
 "kuviansa. Paljon kiitoksia heille."
 
-#: ../boards/erase.xml.in.h:4 ../src/boards/erase.c:110
+#: ../boards/erase.xml.in.h:4 ../src/boards/erase.c:116
 #: ../src/boards/machpuzzle.c:92
 msgid "Move the mouse"
 msgstr "Liikuta hiirtä"
 
-#: ../boards/erase.xml.in.h:5 ../src/boards/erase.c:111
+#: ../boards/erase.xml.in.h:5 ../src/boards/erase.c:117
 msgid "Move the mouse to erase the area and discover the background"
 msgstr "Pyyhi aluetta liikuttamalla hiirtä ja näe piilotettu taustakuva"
 
@@ -1552,6 +1552,16 @@ msgstr "Löydä maiden sijainnit"
 #: ../boards/geography.xml.in.h:3
 msgid "Mouse manipulation: movement, drag and drop"
 msgstr "Hiiren käyttäminen: siirtäminen ja raahaus"
+
+#: ../boards/geography.xml.in.h:4
+msgid ""
+"The map of Germany comes from Wikipedia and is released under the GNU Free "
+"Documentation License. Olaf Ronneberger and his children Lina and Julia "
+"Ronneberger created the German level."
+msgstr ""
+"Saksan kartta tulee Wikipediasta ja on julkaistu \"GNU Free "
+"Documentation License\" -lisenssillä. Olaf Ronneberger ja hänen "
+"lapsensa Lina ja Julia Ronneberger loivat Saksan tason."
 
 #: ../boards/geography/board1_0.xml.in.h:1
 #: ../boards/geography/board4_2.xml.in.h:1
@@ -1783,7 +1793,7 @@ msgstr "Kroatia"
 msgid "Cyprus"
 msgstr "Kypros"
 
-#: ../boards/geography/board3_1.xml.in.h:7 ../src/gcompris/config.c:69
+#: ../boards/geography/board3_1.xml.in.h:7 ../src/gcompris/config.c:70
 msgid "Czech Republic"
 msgstr "Tsekin tasavalta"
 
@@ -1867,153 +1877,152 @@ msgid "Burkina Faso"
 msgstr "Burkina Faso"
 
 #: ../boards/geography/board4_0.xml.in.h:4
-#: ../boards/geography/board4_2.xml.in.h:8
+#: ../boards/geography/board4_2.xml.in.h:7
 msgid "Cameroon"
 msgstr "Kamerun"
 
 #: ../boards/geography/board4_0.xml.in.h:5
-#: ../boards/geography/board4_2.xml.in.h:9
+#: ../boards/geography/board4_2.xml.in.h:8
 msgid "Central African Republic"
 msgstr "Keski-Afrikan tasavalta"
 
 #: ../boards/geography/board4_0.xml.in.h:6
-#: ../boards/geography/board4_2.xml.in.h:10
+#: ../boards/geography/board4_2.xml.in.h:9
 msgid "Chad"
 msgstr "Tsad"
 
 #: ../boards/geography/board4_0.xml.in.h:7
-#: ../boards/geography/board4_2.xml.in.h:12
 msgid "Djibouti"
 msgstr "Djibouti"
 
 #: ../boards/geography/board4_0.xml.in.h:8
-#: ../boards/geography/board4_2.xml.in.h:13
+#: ../boards/geography/board4_2.xml.in.h:11
 msgid "Egypt"
 msgstr "Egypti"
 
 #: ../boards/geography/board4_0.xml.in.h:9
 #: ../boards/geography/board4_1.xml.in.h:5
-#: ../boards/geography/board4_2.xml.in.h:14
 msgid "Equatorial Guinea"
 msgstr "Päiväntasaajan Guinea"
 
 #: ../boards/geography/board4_0.xml.in.h:10
-#: ../boards/geography/board4_2.xml.in.h:16
+#: ../boards/geography/board4_2.xml.in.h:12
+msgid "Eritrea"
+msgstr "Eritrea"
+
+#: ../boards/geography/board4_0.xml.in.h:11
+#: ../boards/geography/board4_2.xml.in.h:13
 msgid "Ethiopia"
 msgstr "Etiopia"
 
-#: ../boards/geography/board4_0.xml.in.h:11
+#: ../boards/geography/board4_0.xml.in.h:12
 #: ../boards/geography/board4_1.xml.in.h:6
-#: ../boards/geography/board4_2.xml.in.h:17
+#: ../boards/geography/board4_2.xml.in.h:14
 msgid "Gabon"
 msgstr "Gabon"
 
-#: ../boards/geography/board4_0.xml.in.h:12
-#: ../boards/geography/board4_2.xml.in.h:18
+#: ../boards/geography/board4_0.xml.in.h:13
 msgid "Gambia"
 msgstr "Gambia"
 
-#: ../boards/geography/board4_0.xml.in.h:13
-#: ../boards/geography/board4_2.xml.in.h:19
+#: ../boards/geography/board4_0.xml.in.h:14
+#: ../boards/geography/board4_2.xml.in.h:15
 msgid "Ghana"
 msgstr "Ghana"
 
-#: ../boards/geography/board4_0.xml.in.h:14
-#: ../boards/geography/board4_2.xml.in.h:20
+#: ../boards/geography/board4_0.xml.in.h:15
+#: ../boards/geography/board4_2.xml.in.h:16
 msgid "Guinea"
 msgstr "Guinea"
 
-#: ../boards/geography/board4_0.xml.in.h:15
-#: ../boards/geography/board4_2.xml.in.h:21
+#: ../boards/geography/board4_0.xml.in.h:16
 msgid "Guinea Bissau"
 msgstr "Guinea-Bissau"
 
-#: ../boards/geography/board4_0.xml.in.h:16
-#: ../boards/geography/board4_2.xml.in.h:22
+#: ../boards/geography/board4_0.xml.in.h:17
+#: ../boards/geography/board4_2.xml.in.h:17
 msgid "Ivory Coast"
 msgstr "Norsunluurannikko"
 
-#: ../boards/geography/board4_0.xml.in.h:17
-#: ../boards/geography/board4_2.xml.in.h:25
+#: ../boards/geography/board4_0.xml.in.h:18
+#: ../boards/geography/board4_2.xml.in.h:19
 msgid "Liberia"
 msgstr "Liberia"
 
-#: ../boards/geography/board4_0.xml.in.h:18
-#: ../boards/geography/board4_2.xml.in.h:26
+#: ../boards/geography/board4_0.xml.in.h:19
+#: ../boards/geography/board4_2.xml.in.h:20
 msgid "Libya"
 msgstr "Libya"
 
-#: ../boards/geography/board4_0.xml.in.h:19
-#: ../boards/geography/board4_2.xml.in.h:29
+#: ../boards/geography/board4_0.xml.in.h:20
+#: ../boards/geography/board4_2.xml.in.h:23
 msgid "Mali"
 msgstr "Mali"
 
-#: ../boards/geography/board4_0.xml.in.h:20
-#: ../boards/geography/board4_2.xml.in.h:30
+#: ../boards/geography/board4_0.xml.in.h:21
+#: ../boards/geography/board4_2.xml.in.h:24
 msgid "Mauritania"
 msgstr "Mauritania"
 
-#: ../boards/geography/board4_0.xml.in.h:21
-#: ../boards/geography/board4_2.xml.in.h:31
+#: ../boards/geography/board4_0.xml.in.h:22
+#: ../boards/geography/board4_2.xml.in.h:25
 msgid "Morocco"
 msgstr "Marokko"
 
-#: ../boards/geography/board4_0.xml.in.h:22
-#: ../boards/geography/board4_2.xml.in.h:34
+#: ../boards/geography/board4_0.xml.in.h:23
+#: ../boards/geography/board4_2.xml.in.h:28
 msgid "Niger"
 msgstr "Niger"
 
-#: ../boards/geography/board4_0.xml.in.h:23
-#: ../boards/geography/board4_2.xml.in.h:35
+#: ../boards/geography/board4_0.xml.in.h:24
+#: ../boards/geography/board4_2.xml.in.h:29
 msgid "Nigeria"
 msgstr "Nigeria"
 
-#: ../boards/geography/board4_0.xml.in.h:24
+#: ../boards/geography/board4_0.xml.in.h:25
 msgid "Northern Africa"
 msgstr "Pohjois-Afrikka"
 
-#: ../boards/geography/board4_0.xml.in.h:25
+#: ../boards/geography/board4_0.xml.in.h:26
 #: ../boards/geography/board4_1.xml.in.h:14
-#: ../boards/geography/board4_2.xml.in.h:36
 msgid "Rwanda"
 msgstr "Ruanda"
 
-#: ../boards/geography/board4_0.xml.in.h:26
-#: ../boards/geography/board4_2.xml.in.h:37
+#: ../boards/geography/board4_0.xml.in.h:27
+#: ../boards/geography/board4_2.xml.in.h:30
 msgid "Senegal"
 msgstr "Senegal"
 
-#: ../boards/geography/board4_0.xml.in.h:27
-#: ../boards/geography/board4_2.xml.in.h:38
+#: ../boards/geography/board4_0.xml.in.h:28
 msgid "Sierra Leone"
 msgstr "Sierra Leone"
 
-#: ../boards/geography/board4_0.xml.in.h:28
-#: ../boards/geography/board4_2.xml.in.h:39
+#: ../boards/geography/board4_0.xml.in.h:29
+#: ../boards/geography/board4_2.xml.in.h:31
 msgid "Somalia"
 msgstr "Somalia"
 
-#: ../boards/geography/board4_0.xml.in.h:29
+#: ../boards/geography/board4_0.xml.in.h:30
 msgid "Sudan"
 msgstr "Sudan"
 
-#: ../boards/geography/board4_0.xml.in.h:30
-#: ../boards/geography/board4_2.xml.in.h:43
+#: ../boards/geography/board4_0.xml.in.h:31
+#: ../boards/geography/board4_2.xml.in.h:35
 msgid "Togo"
 msgstr "Togo"
 
-#: ../boards/geography/board4_0.xml.in.h:31
-#: ../boards/geography/board4_2.xml.in.h:44
+#: ../boards/geography/board4_0.xml.in.h:32
+#: ../boards/geography/board4_2.xml.in.h:36
 msgid "Tunisia"
 msgstr "Tunisia"
 
-#: ../boards/geography/board4_0.xml.in.h:32
+#: ../boards/geography/board4_0.xml.in.h:33
 #: ../boards/geography/board4_1.xml.in.h:19
-#: ../boards/geography/board4_2.xml.in.h:45
+#: ../boards/geography/board4_2.xml.in.h:37
 msgid "Uganda"
 msgstr "Uganda"
 
-#: ../boards/geography/board4_0.xml.in.h:33
+#: ../boards/geography/board4_0.xml.in.h:34
 msgid "Western Sahara"
 msgstr "Länsi-Sahara"
 
@@ -2028,42 +2037,40 @@ msgid "Botswana"
 msgstr "Botsvana"
 
 #: ../boards/geography/board4_1.xml.in.h:3
-#: ../boards/geography/board4_2.xml.in.h:7
 msgid "Burundi"
 msgstr "Burundi"
 
 #: ../boards/geography/board4_1.xml.in.h:4
-#: ../boards/geography/board4_2.xml.in.h:11
+#: ../boards/geography/board4_2.xml.in.h:10
 msgid "Democratic Republic of Congo"
 msgstr "Kongon tasavalta"
 
 #: ../boards/geography/board4_1.xml.in.h:7
-#: ../boards/geography/board4_2.xml.in.h:23
+#: ../boards/geography/board4_2.xml.in.h:18
 msgid "Kenya"
 msgstr "Kenia"
 
 #: ../boards/geography/board4_1.xml.in.h:8
-#: ../boards/geography/board4_2.xml.in.h:24
 msgid "Lesotho"
 msgstr "Lesotho"
 
 #: ../boards/geography/board4_1.xml.in.h:9
-#: ../boards/geography/board4_2.xml.in.h:27
+#: ../boards/geography/board4_2.xml.in.h:21
 msgid "Madagascar"
 msgstr "Madagascar"
 
 #: ../boards/geography/board4_1.xml.in.h:10
-#: ../boards/geography/board4_2.xml.in.h:28
+#: ../boards/geography/board4_2.xml.in.h:22
 msgid "Malawi"
 msgstr "Malawi"
 
 #: ../boards/geography/board4_1.xml.in.h:11
-#: ../boards/geography/board4_2.xml.in.h:32
+#: ../boards/geography/board4_2.xml.in.h:26
 msgid "Mozambique"
 msgstr "Mosambik"
 
 #: ../boards/geography/board4_1.xml.in.h:12
-#: ../boards/geography/board4_2.xml.in.h:33
+#: ../boards/geography/board4_2.xml.in.h:27
 msgid "Namibia"
 msgstr "Namibia"
 
@@ -2072,7 +2079,7 @@ msgid "Republic of Congo"
 msgstr "Kongon tasavalta"
 
 #: ../boards/geography/board4_1.xml.in.h:15
-#: ../boards/geography/board4_2.xml.in.h:40
+#: ../boards/geography/board4_2.xml.in.h:33
 msgid "South Africa"
 msgstr "Etelä-Afrikka"
 
@@ -2081,32 +2088,35 @@ msgid "Southern Africa"
 msgstr "Etelä-Afrikka"
 
 #: ../boards/geography/board4_1.xml.in.h:17
-#: ../boards/geography/board4_2.xml.in.h:41
 msgid "Swaziland"
 msgstr "Swazimaa"
 
 #: ../boards/geography/board4_1.xml.in.h:18
-#: ../boards/geography/board4_2.xml.in.h:42
+#: ../boards/geography/board4_2.xml.in.h:34
 msgid "Tanzania"
 msgstr "Tansania"
 
 #: ../boards/geography/board4_1.xml.in.h:20
-#: ../boards/geography/board4_2.xml.in.h:46
+#: ../boards/geography/board4_2.xml.in.h:38
 msgid "Zambia"
 msgstr "Sambia"
 
 #: ../boards/geography/board4_1.xml.in.h:21
-#: ../boards/geography/board4_2.xml.in.h:47
+#: ../boards/geography/board4_2.xml.in.h:39
 msgid "Zimbabwe"
 msgstr "Zimbabwe"
 
-#: ../boards/geography/board4_2.xml.in.h:15
-msgid "Eritrea"
-msgstr "Eritrea"
+#: ../boards/geography/board4_2.xml.in.h:32
+msgid "Soudan"
+msgstr "Sudan"
 
 #: ../boards/geography/board5_0.xml.in.h:1
 msgid "Regions of France"
 msgstr "Ranskan alueet"
+
+#: ../boards/geography/board6_0.xml.in.h:1
+msgid "Deutschland Bundesländer"
+msgstr "Saksan liittotasavalta"
 
 #: ../boards/geometry.xml.in.h:1
 msgid "Geometry"
@@ -2124,11 +2134,11 @@ msgstr "Näppäimiston käyttö"
 msgid "Letter association between the screen and the keyboard"
 msgstr "Kirjainten tunnistaminen näytön ja näppäimistön välillä"
 
-#: ../boards/gletters.xml.in.h:3 ../src/boards/gletters.c:132
+#: ../boards/gletters.xml.in.h:3 ../src/boards/gletters.c:135
 msgid "Simple Letters"
 msgstr "Kirjaimet"
 
-#: ../boards/gletters.xml.in.h:4 ../src/boards/gletters.c:133
+#: ../boards/gletters.xml.in.h:4 ../src/boards/gletters.c:136
 msgid "Type the falling letters before they reach the ground"
 msgstr "Syötä putoavat kirjaimet näppäimistöltä ennen kuin ne osuvat maahan"
 
@@ -2405,7 +2415,7 @@ msgstr "Harjoittele lukemista löytämällä kuvaa vastaava sana"
 
 #: ../boards/imageid.xml.in.h:3 ../boards/imagename.xml.in.h:4
 #: ../boards/readingh.xml.in.h:4 ../boards/readingv.xml.in.h:4
-#: ../src/boards/imageid.c:112 ../src/boards/missingletter.c:104
+#: ../src/boards/imageid.c:106 ../src/boards/missingletter.c:104
 msgid "Reading"
 msgstr "Lukutaito"
 
@@ -2715,6 +2725,54 @@ msgstr ""
 msgid "Select or enter your name to log in to GCompris"
 msgstr "Valitse tai syötä nimesi kirjautuaksesi GComprisiin"
 
+#: ../boards/magic_hat_plus.xml.in.h:1 ../boards/memory_add.xml.in.h:1
+msgid "Addition"
+msgstr "Yhteenlasku"
+
+#: ../boards/magic_hat_plus.xml.in.h:2
+msgid ""
+"Click on the hat to open or close it. Under the hat, how many stars can you "
+"see moving around? Count carefully. :) Click in the bottom- right area to "
+"input your answer."
+msgstr ""
+"Avaa ja sulje hattu napsauttamalla. Kuinka monta tähteä näet hatun alla "
+"liikkumassa? Laske tarkasti! Syötä vastauksesi alhaalla oikealla olevaan "
+"tilaan."
+
+#: ../boards/magic_hat_plus.xml.in.h:3
+msgid "Count how many items are under the magic hat"
+msgstr "Laske kuinka monta esinettä on taikurin hatun alla"
+
+#: ../boards/magic_hat_plus.xml.in.h:4
+msgid "Learn addition"
+msgstr "Opi yhteenlaskua"
+
+#: ../boards/magic_hat_plus.xml.in.h:5 ../boards/magic_hat_minus.xml.in.h:5
+msgid "The magician hat"
+msgstr "Taikurin hattu"
+
+#: ../boards/magic_hat_minus.xml.in.h:1
+msgid "Count how many items are under the magic hat after some have got away"
+msgstr "Laske, monta esinettä on taikurin hatun alla, kun osa on poistettu"
+
+#: ../boards/magic_hat_minus.xml.in.h:2
+msgid "Learn subtraction"
+msgstr "Opi vähennyslaskua"
+
+#: ../boards/magic_hat_minus.xml.in.h:3
+msgid ""
+"Look at the magician, he tells the number of stars that are under his magic "
+"hat. Then, click on the hat to open it. A few stars escape. Click again on "
+"the hat to close it. You have to count how many are still under the hat. "
+"Click on the bottom right area to answer."
+msgstr ""
+
+#: ../boards/magic_hat_minus.xml.in.h:4 ../boards/memory_add_minus.xml.in.h:3
+#: ../boards/memory_add_minus_tux.xml.in.h:3 ../boards/memory_minus.xml.in.h:2
+#: ../boards/memory_minus_tux.xml.in.h:2
+msgid "Subtraction"
+msgstr "Vähennyslasku"
+
 #: ../boards/math.xml.in.h:1
 msgid "Mathematical activities."
 msgstr "Matematiikkatehtävät."
@@ -2846,6 +2904,152 @@ msgstr "Muistipeli kuvien avulla"
 msgid "Train your memory and remove all the cards"
 msgstr "Harjoita muistiasi ja poista kaikki kortit pelilaudalta"
 
+#: ../boards/memory_add.xml.in.h:2
+msgid "Addition memory game"
+msgstr "Muistipeli yhteenlaskuun"
+
+#: ../boards/memory_add.xml.in.h:3 ../boards/memory_add_tux.xml.in.h:3
+msgid "Practise adding up, until all the cards are gone."
+msgstr "Yhteenlaskua tikkapelin avulla"
+
+#: ../boards/memory_add.xml.in.h:4 ../boards/memory_add_tux.xml.in.h:4
+msgid ""
+"Turn the cards over to find two numbers which add up the same, until all the "
+"cards are gone."
+msgstr ""
+"Käännä kortteja ja etsi kaksi numeroa, jotka ynnätään samaan lukuun, "
+"kunnes kaikki kortit on käytetty."
+
+#: ../boards/memory_add.xml.in.h:5 ../boards/memory_add_tux.xml.in.h:5
+msgid ""
+"You can see some cards, but you can't see what's on the other side of them. "
+"Each card is hiding an adding-up sum, or the answer to the sum.\n"
+"An adding-up sum looks like this: 2 + 2 = 4\n"
+"The numbers on one side of the equals sign (=) have to be the same as the "
+"number on the other side. So 2 (1, 2) and 2 more (3, 4) makes 4. Count aloud "
+"when you work this out, and count on your fingers, because the more ways you "
+"do something, the better you remember it. You can also use blocks, or "
+"buttons, or anything you can count. If you have lots of brothers and "
+"sisters, you can count them! Or the kids in your class at school. Sing "
+"counting songs. Count lots of things, for practice, and you'll be very good "
+"at adding-up!\n"
+"\n"
+"In this game, these cards are hiding the two parts of an adding-up sum (also "
+"called an addition sum). You need to find the two parts of the sum, and "
+"bring them together again. Click on a card to see what number it's hiding, "
+"then try to find the other card that goes with it, to make a whole sum. You "
+"can only turn over two cards in one go, so you need to remember where the "
+"numbers are hiding, then you can match them when you find their other half. "
+"You're doing the job of the equals sign, and the numbers need you to put "
+"them together and make a proper sum. When you do that, both those cards "
+"disappear! When you've made them all disappear, found all the sums, you've "
+"won the game! :)"
+msgstr ""
+
+#: ../boards/memory_add_minus.xml.in.h:1
+msgid "Addition and subtraction memory game"
+msgstr "Muistipeli yhteen- ja vähennyslaskuun"
+
+#: ../boards/memory_add_minus.xml.in.h:2
+#: ../boards/memory_add_minus_tux.xml.in.h:2
+msgid "Practise addition, subtraction, until all the cards are gone."
+msgstr "Harjoittele yhteen- ja vähennyslaskua kunnes kortit on käytetty"
+
+#: ../boards/memory_add_minus.xml.in.h:4
+#: ../boards/memory_add_minus_tux.xml.in.h:4
+msgid ""
+"Turn the cards over to find two numbers which add or subtract the same, "
+"until all the cards are gone."
+msgstr ""
+"Käännä kortteja ja etsi kaksi numeroa, jotka ynnätään tai vähennetään "
+"samaan lukuun, kunnes kaikki kortit on käytetty."
+
+#: ../boards/memory_add_minus.xml.in.h:5
+#: ../boards/memory_add_minus_mult_div.xml.in.h:5
+#: ../boards/memory_add_minus_mult_div_tux.xml.in.h:5
+#: ../boards/memory_add_minus_tux.xml.in.h:5 ../boards/memory_div.xml.in.h:5
+#: ../boards/memory_div_tux.xml.in.h:5 ../boards/memory_mult.xml.in.h:5
+#: ../boards/memory_mult_div.xml.in.h:5
+#: ../boards/memory_mult_div_tux.xml.in.h:5
+#: ../boards/memory_mult_tux.xml.in.h:5
+msgid ""
+"You can see some cards, but you can't see what's on the other side of them. "
+"Each card is hiding an operation, or the answer to it.\n"
+"\n"
+"In this game, these cards are hiding the two parts of an operation. You need "
+"to find the two parts of the operation, and bring them together again. Click "
+"on a card to see what number it's hiding, then try to find the other card "
+"that goes with it, to make a whole operation. You can only turn over two "
+"cards in one go, so you need to remember where the numbers are hiding, then "
+"you can match them when you find their other half. You're doing the job of "
+"the equals sign, and the numbers need you to put them together and make a "
+"proper equality. When you do that, both those cards disappear! When you've "
+"made them all disappear, found all the operations, you've won the game! :)"
+msgstr ""
+
+#: ../boards/memory_add_minus_mult_div.xml.in.h:1
+#: ../boards/memory_add_minus_mult_div_tux.xml.in.h:1
+msgid "Addition, subtraction, multiplication, division"
+msgstr "Yhteen-, vähennys- kerto- ja jakolasku"
+
+#: ../boards/memory_add_minus_mult_div.xml.in.h:2
+msgid "All operations memory game"
+msgstr "Muistipeli kaikilla laskutoimituksilla"
+
+#: ../boards/memory_add_minus_mult_div.xml.in.h:3
+#: ../boards/memory_add_minus_mult_div_tux.xml.in.h:3
+msgid ""
+"Practise addition, subtraction, multiplication, division, until all the "
+"cards are gone."
+msgstr ""
+"Harjoittele yhteen-, vähennys-, kerto- ja jakolaskua kunnes "
+"kortit on käytetty."
+
+#: ../boards/memory_add_minus_mult_div.xml.in.h:4
+#: ../boards/memory_add_minus_mult_div_tux.xml.in.h:4
+#: ../boards/memory_div.xml.in.h:4 ../boards/memory_div_tux.xml.in.h:4
+#: ../boards/memory_mult_div.xml.in.h:4
+#: ../boards/memory_mult_div_tux.xml.in.h:4
+#: ../boards/memory_mult_tux.xml.in.h:4
+msgid ""
+"Turn the cards over to find a matching operation, until all the cards are "
+"gone."
+msgstr ""
+"Käännä kortteja ja etsi vastaava laskutoimitus, kunnes kaikki kortit "
+"on käytetty."
+
+#: ../boards/memory_add_minus_mult_div_tux.xml.in.h:2
+msgid "All operations memory game against Tux"
+msgstr "Muistipeli kaikilla laskutoimituksilla Tuxia vastaan"
+
+#: ../boards/memory_add_minus_tux.xml.in.h:1
+msgid "Addition and subtraction memory game against Tux"
+msgstr "Muistipeli yhteen- ja vähennyslaskuilla Tuxia vastaan"
+
+#: ../boards/memory_add_tux.xml.in.h:1
+msgid "Addition memory game against Tux"
+msgstr "Muistipeli yhteenlaskulla Tuxia vastaan"
+
+#: ../boards/memory_add_tux.xml.in.h:2 ../boards/memory_mult_tux.xml.in.h:1
+msgid "Additions"
+msgstr "Yhteenlasku"
+
+#: ../boards/memory_div.xml.in.h:1 ../boards/memory_div_tux.xml.in.h:1
+msgid "Division"
+msgstr "Jakaminen"
+
+#: ../boards/memory_div.xml.in.h:2
+msgid "Division memory game"
+msgstr "Muistipeli jakolaskuun"
+
+#: ../boards/memory_div.xml.in.h:3 ../boards/memory_div_tux.xml.in.h:3
+msgid "Practise division, until all the cards are gone."
+msgstr "Harjoittele jakamista kunnes kaikki kortit on käytetty."
+
+#: ../boards/memory_div_tux.xml.in.h:2
+msgid "Division memory game against Tux"
+msgstr "Muistipeli vähennyslaskulla Tuxia vastaan"
+
 #: ../boards/memory_group.xml.in.h:1
 msgid "Go to Memory activities"
 msgstr "Siirry muistitehtäviin"
@@ -2853,6 +3057,106 @@ msgstr "Siirry muistitehtäviin"
 #: ../boards/memory_group.xml.in.h:2
 msgid "Various memory activities (images, letters, sounds)."
 msgstr "Erilaisia muistipelejä (kuvia, kirjaimia ja ääniä)."
+
+#: ../boards/memory_minus.xml.in.h:1 ../boards/memory_minus_tux.xml.in.h:1
+msgid "Practise subtraction, until all the cards are gone."
+msgstr "Harjoittele vähennyslaskua kunnes kortit on käytetty."
+
+#: ../boards/memory_minus.xml.in.h:3
+msgid "Subtraction memory game"
+msgstr "Muistipeli vähennyslaskulla"
+
+#: ../boards/memory_minus.xml.in.h:4 ../boards/memory_minus_tux.xml.in.h:4
+msgid ""
+"Turn the cards over to find two numbers which subtract the same, until all "
+"the cards are gone."
+msgstr ""
+
+#: ../boards/memory_minus.xml.in.h:5 ../boards/memory_minus_tux.xml.in.h:5
+msgid ""
+"You can see some cards, but you can't see what's on the other side of them. "
+"Each card is hiding a subtraction, or the answer to it.\n"
+"A subtraction looks like this: 3 - 1 = 2\n"
+"The numbers on one side of the equals sign (=) have to be the same as the "
+"number on the other side. So 3 (1, 2, 3) less 1 (1) makes 2. Count aloud "
+"when you work this out, and count on your fingers, because the more ways you "
+"do something, the better you remember it. You can also use blocks, or "
+"buttons, or anything you can count. If you have lots of brothers and "
+"sisters, you can count them! Or the kids in your class at school. Sing "
+"counting songs. Count lots of things, for practice, and you'll be very good "
+"at adding-up!\n"
+"\n"
+"In this game, these cards are hiding the two parts of a subtraction. You "
+"need to find the two parts of the subraction, and bring them together again. "
+"Click on a card to see what number it's hiding, then try to find the other "
+"card that goes with it, to make a whole sum. You can only turn over two "
+"cards in one go, so you need to remember where the numbers are hiding, then "
+"you can match them when you find their other half. You're doing the job of "
+"the equals sign, and the numbers need you to put them together and make a "
+"proper sum. When you do that, both those cards disappear! When you've made "
+"them all disappear, found all the subtracts, you've won the game! :)"
+msgstr ""
+
+#: ../boards/memory_minus_tux.xml.in.h:3
+msgid "Subtraction memory game against Tux"
+msgstr "Muistipeli vähennyslaskulla Tuxia vastaan"
+
+#: ../boards/memory_mult.xml.in.h:1
+msgid "Multiplication"
+msgstr "Kertolasku"
+
+#: ../boards/memory_mult.xml.in.h:2
+msgid "Multiplication memory game"
+msgstr "Muistipeli kertolaskulla"
+
+#: ../boards/memory_mult.xml.in.h:3
+msgid "Practise multiplication, until all the cards are gone."
+msgstr "Harjoittele kertolaskua kunnes kortit on käytetty."
+
+#: ../boards/memory_mult.xml.in.h:4
+msgid ""
+"Turn the cards over to find two numbers which multiply the same, until all "
+"the cards are gone."
+msgstr ""
+
+#: ../boards/memory_mult_div.xml.in.h:1
+msgid "Multiplication and division memory game"
+msgstr ""
+
+#: ../boards/memory_mult_div.xml.in.h:2
+#: ../boards/memory_mult_div_tux.xml.in.h:2
+msgid "Multiplication, division"
+msgstr "Kertolasku ja jakolasku"
+
+#: ../boards/memory_mult_div.xml.in.h:3
+#: ../boards/memory_mult_div_tux.xml.in.h:3
+msgid "Practise multiplication, division, until all the cards are gone."
+msgstr "Harjoittele kerto- ja jakolaskua kunnes kortit on käytetty."
+
+#: ../boards/memory_mult_div_tux.xml.in.h:1
+msgid "Multiplication and division memory game against Tux"
+msgstr "Muistipeli kerto- ja jakulaskulla Tuxia vastaan"
+
+#: ../boards/memory_mult_tux.xml.in.h:2
+msgid "Multiplication memory game against Tux"
+msgstr "Muistipeli kertolaskulla Tuxia vastaan"
+
+#: ../boards/memory_mult_tux.xml.in.h:3
+msgid "Practise multiplication until all the cards are gone."
+msgstr "Harjoittele kertolaskua kunnes kortit on käytetty."
+
+#: ../boards/memory_op_group.xml.in.h:1
+msgid "Go to mathematics memory activities"
+msgstr "Siirry matemaattisiin muistitehtäviin"
+
+#: ../boards/memory_op_group.xml.in.h:2
+#: ../boards/memory_op_group_tux.xml.in.h:2
+msgid "Memory activities based on operations"
+msgstr "Muistipelit laskutoimituksilla"
+
+#: ../boards/memory_op_group_tux.xml.in.h:1
+msgid "Go to mathematics memory activities against Tux"
+msgstr "Pelaa laskutoimituksiin perustuvia muistipelejä Tuxia vastaan"
 
 #: ../boards/memory_sound.xml.in.h:1 ../boards/memory_sound_tux.xml.in.h:1
 msgid ""
@@ -2957,7 +3261,7 @@ msgstr ""
 msgid "GCompris Main Menu"
 msgstr "GCompris päävalikko"
 
-#: ../boards/menu.xml.in.h:16
+#: ../boards/menu.xml.in.h:16 ../src/boards/menu2.c:1008
 msgid ""
 "GCompris is a collection of educational games that provides different "
 "activities for children aged 2 and up."
@@ -3202,6 +3506,22 @@ msgstr "Järjestäminen"
 msgid "Numeration activities."
 msgstr "Järjestämistehtäviä."
 
+#: ../boards/oscar_and_friends.xml.in.h:1
+msgid "Improve reading skill and the ability to understand what is read."
+msgstr "Paranna lukutaitoa ja luetun ymmärtämistä."
+
+#: ../boards/oscar_and_friends.xml.in.h:2
+msgid "Read and play with the story"
+msgstr "Lue ja leiki tarinan mukana"
+
+#: ../boards/oscar_and_friends.xml.in.h:3
+msgid "The story of Oscar and friend"
+msgstr "Tarina Oskarista ja ystävästä"
+
+#: ../boards/oscar_and_friends.xml.in.h:4
+msgid "reading"
+msgstr "lukeminen"
+
 #: ../boards/paintings.xml.in.h:1
 msgid "Assemble the puzzle"
 msgstr "Kokoa palapeli"
@@ -3303,7 +3623,7 @@ msgstr "Ohjaa helikopteria ja kerää pilvet oikeassa järjestyksessä"
 msgid "Number"
 msgstr "Numerot"
 
-#: ../boards/planegame.xml.in.h:4 ../src/boards/planegame.c:77
+#: ../boards/planegame.xml.in.h:4 ../src/boards/planegame.c:74
 msgid "Numbers in Order"
 msgstr "Numerot järjestyksessä"
 
@@ -3838,7 +4158,7 @@ msgstr "Osu maaliin ja laske saamasi pisteet"
 
 #: ../boards/target.xml.in.h:4
 msgid "Practice addition with a target game"
-msgstr "Ynnälaskua tikkapelin avulla"
+msgstr "Yhteenlaskua tikkapelin avulla"
 
 #: ../boards/target.xml.in.h:5
 msgid "Throw darts at a target and count your score."
@@ -3850,9 +4170,15 @@ msgstr "Palapelin tapainen autopeli"
 
 #: ../boards/traffic.xml.in.h:2
 msgid ""
-"Remove all the red cars from the parking lot through the gate on the right"
+"Each car can only move either horizontally or vertically. You must make some "
+"room in order to let the red car move through the gate on the right."
 msgstr ""
-"Poista kaikki punaiset autot parkkipaikalta oikealla olevan portin kautta."
+"Kukin auto voi liikkua joko pysty- tai vaakasuuntaan. Sinun täytyy tehdä "
+"tilaa siten, että saat siirrettyä punaisen auton oikealla olevasta portista."
+
+#: ../boards/traffic.xml.in.h:3
+msgid "Remove the red car from the parking lot through the gate on the right"
+msgstr "Poista punainen auto parkkipaikalta oikealla olevan portin kautta"
 
 #: ../boards/tuxpaint.xml.in.h:1
 msgid "Drawing activity (pixmap)"
@@ -3902,7 +4228,7 @@ msgstr ""
 "Tux tuli takaisin pitkältä kalastusretkeltä veneellään. Korjaa "
 "vesijärjestelmä, jotta Tux pääsee suihkuun."
 
-#: ../boards/wordsgame.xml.in.h:1 ../src/boards/wordsgame.c:113
+#: ../boards/wordsgame.xml.in.h:1 ../src/boards/wordsgame.c:112
 msgid "Falling Words"
 msgstr "Putoavat sanat"
 
@@ -3914,7 +4240,7 @@ msgstr "Kirjoitusharjoitus"
 msgid "Type the complete word as it falls, before it reachs the ground"
 msgstr "Kirjoita koko putoava sana ennen kuin se osuu maahan"
 
-#: ../boards/wordsgame.xml.in.h:5 ../src/boards/wordsgame.c:114
+#: ../boards/wordsgame.xml.in.h:5 ../src/boards/wordsgame.c:113
 msgid "Type the falling words before they reach the ground"
 msgstr "Kirjoita putoavat sanat ennen kuin ne osuvat maahan"
 
@@ -3927,22 +4253,38 @@ msgid "Educational game for ages 2 to 10"
 msgstr "Opettavaisia pelejä kahdesta kymmenen vuotiaille"
 
 #: ../gcompris.desktop.in.h:2
-msgid "Educational suite gcompris"
+msgid "Educational suite GCompris"
 msgstr "Gcompris-opetuspelit"
 
 #: ../gcompris.desktop.in.h:3
-msgid "Multiple activities for kids"
-msgstr "Useita tehtäviä lapsille"
+msgid "Multi-activity educational game"
+msgstr "Kokoelma erilaisia opetuspelejä"
 
-#: ../src/boards/awele.c:278 ../src/boards/awele.c:288
+#: ../src/boards/awele.c:352 ../src/boards/awele.c:362
 msgid "NORTH"
 msgstr "POHJOINEN"
 
-#: ../src/boards/awele.c:300 ../src/boards/awele.c:310
+#: ../src/boards/awele.c:374 ../src/boards/awele.c:384
 msgid "SOUTH"
 msgstr "ETELÄ"
 
-#: ../src/boards/chess.c:189
+#: ../src/boards/awele.c:553
+msgid "Choose a house"
+msgstr "Valitse talo"
+
+#: ../src/boards/awele.c:681
+msgid "Your turn to play ..."
+msgstr "Vuorosi pelata..."
+
+#: ../src/boards/awele.c:750
+msgid "Not allowed! Try again !"
+msgstr "Ei sallittu, yritä uudestaan!"
+
+#: ../src/boards/chess.c:183 ../src/boards/chess.c:1134
+msgid "Error: The external program gnuchess died unexpectingly"
+msgstr "Virhe: ulkoinen ohjelma gnuchess päättyi odottamatta"
+
+#: ../src/boards/chess.c:198
 msgid ""
 "Error: The external program gnuchess is mandatory\n"
 "to play chess in gcompris.\n"
@@ -3956,13 +4298,12 @@ msgstr ""
 "omilta GNU/Linux asennuslevyiltäsi\n"
 "ja tarkista että se on asennettu paikkaan: "
 
-#: ../src/boards/chess.c:228
+#: ../src/boards/chess.c:240
+#, fuzzy
 msgid ""
 "Error: The external program gnuchess is mandatory\n"
 "to play chess in gcompris.\n"
-"Find this program on http://www.rpmfind.net or in your\n"
-"GNU/Linux distribution\n"
-"And check it is in "
+"First install it, and check it is in "
 msgstr ""
 "Virhe: Tarvitset gnuchess ohjelman pelataksesi\n"
 "shakkia gcomprisissa.\n"
@@ -3970,85 +4311,82 @@ msgstr ""
 "omilta GNU/Linux asennuslevyiltäsi\n"
 "ja tarkista että se on paikassa "
 
-#: ../src/boards/chess.c:569
+#: ../src/boards/chess.c:593
 msgid "White's Turn"
 msgstr "Valkoisten vuoro"
 
-#: ../src/boards/chess.c:569
+#: ../src/boards/chess.c:593
 msgid "Black's Turn"
 msgstr "Mustien vuoro"
 
-#: ../src/boards/chess.c:713
+#: ../src/boards/chess.c:737
 msgid "White checks"
 msgstr "Valkoinen shakkaa"
 
-#: ../src/boards/chess.c:715
+#: ../src/boards/chess.c:739
 msgid "Black checks"
 msgstr "Musta shakkaa"
 
-#: ../src/boards/chess.c:1052
+#: ../src/boards/chess.c:1096
 msgid "Black mates"
 msgstr "Musta matittaa"
 
-#: ../src/boards/chess.c:1057
+#: ../src/boards/chess.c:1101
 msgid "White mates"
 msgstr "Valkoinen matittaa"
 
-#: ../src/boards/chess.c:1062 ../src/gcompris/bonus.c:312
-#: ../src/gcompris/bonus.c:321
+#: ../src/boards/chess.c:1106 ../src/gcompris/bonus.c:342
+#: ../src/gcompris/bonus.c:351
 msgid "Drawn game"
 msgstr "Tasapeli"
 
-#. TRANSLATORS: Put here the alphabet in your language
-#. require by all utf8-functions
-#. TRANSLATORS: Put here the alphabet lowercase in your language
-#: ../src/boards/click_on_letter.c:258 ../src/boards/click_on_letter.c:275
-#: ../src/boards/gletters.c:228 ../src/boards/memory.c:565
-msgid "abcdefghijklmnopqrstuvwxyz"
-msgstr "abcdefghijklmnopqrstuvwxyzåäö"
-
-#: ../src/boards/click_on_letter.c:287
-#, c-format
-msgid ""
-"Error: this activity requires that you first install\n"
-"the packages assetml-voices-alphabet-%s or %s"
-msgstr ""
-"Virhe: sinun täytyy ensin asentaa paketti \n"
-"assetml-voices-alphabet-%s tai %s ennen kuin voit käyttää tätä osaa"
-
-#: ../src/boards/click_on_letter.c:294
-#, c-format
-msgid ""
-"Error: this activity requires that you first install\n"
-"the packages assetml-voices-alphabet-%s ! Fallback to english, sorry!"
-msgstr ""
-"Virhe: sinun täytyy ensin asentaa paketti \n"
-"assetml-voices-alphabet-%s ennen kuin voit käyttää tätä osaa. Palataan "
-"käyttämään englantia!"
-
-#: ../src/boards/click_on_letter.c:302 ../src/boards/python/melody.py:116
+#: ../src/boards/click_on_letter.c:262 ../src/boards/memory.c:827
+#, fuzzy
 msgid ""
 "Error: this activity cannot be played with the\n"
 "sound effects disabled.\n"
-"Go to the configuration dialogue to\n"
+"Go to the configuration dialog to\n"
 "enable the sound"
 msgstr ""
 "Virhe: tätä osaa ei voi käyttää, jos äänet eivät\n"
 "ole käytössä.\n"
 "Mene asetuksiin ja ota äänen äänet käyttöön"
 
+#. TRANSLATORS: Put here the alphabet in your language
+#. require by all utf8-functions
+#. TRANSLATORS: Put here the alphabet lowercase in your language
+#: ../src/boards/click_on_letter.c:267 ../src/boards/gletters.c:232
+#: ../src/boards/memory.c:848
+msgid "abcdefghijklmnopqrstuvwxyz"
+msgstr "abcdefghijklmnopqrstuvwxyzåäö"
+
+#: ../src/boards/click_on_letter.c:289
+#, fuzzy, c-format
+msgid ""
+"Error: this activity requires that you first install\n"
+"the packages with gcompris voices for the locale '%s' or '%s'"
+msgstr ""
+"Virhe: sinun täytyy ensin asentaa paketti \n"
+"assetml-voices-alphabet-%s tai %s ennen kuin voit käyttää tätä osaa"
+
+#: ../src/boards/click_on_letter.c:297
+#, fuzzy, c-format
+msgid ""
+"Error: this activity requires that you first install\n"
+"the packages with GCompris voices for the locale '%s' ! Fallback to english, "
+"sorry!"
+msgstr ""
+"Virhe: sinun täytyy ensin asentaa paketti \n"
+"assetml-voices-alphabet-%s ennen kuin voit käyttää tätä osaa. Palataan "
+"käyttämään englantia!"
+
 #. toggle box
-#: ../src/boards/click_on_letter.c:611 ../src/boards/gletters.c:813
-#: ../src/boards/python/login.py:535
+#: ../src/boards/click_on_letter.c:649 ../src/boards/gletters.c:899
+#: ../src/boards/python/login.py:541
 msgid "Uppercase only text"
 msgstr "Näytä vain isoja kirjaimia"
 
-#: ../src/boards/clickgame.c:178
-#, c-format
-msgid "Couldn't open dir: %s"
-msgstr "Hakemistoa ei voida avata: %s"
-
-#: ../src/boards/clockgame.c:536 ../src/boards/clockgame.c:546
+#: ../src/boards/clockgame.c:544 ../src/boards/clockgame.c:554
 msgid "Set the watch to:"
 msgstr "Käännä kellon viisarit aikaan:"
 
@@ -4093,12 +4431,12 @@ msgid "Click on the white duck"
 msgstr "Napsauta valkoista ankkaa"
 
 #. TRANSLATORS: Put here the numbers in your language
-#: ../src/boards/gletters.c:224 ../src/boards/memory.c:561
+#: ../src/boards/gletters.c:228 ../src/boards/memory.c:844
 msgid "0123456789"
 msgstr "0123456789"
 
 #. TRANSLATORS: Put here the alphabet uppercase in your language
-#: ../src/boards/gletters.c:234 ../src/boards/memory.c:571
+#: ../src/boards/gletters.c:238 ../src/boards/memory.c:854
 msgid "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 msgstr "ABCDEFGHIJKLMNOPQRSTUVWXYZÅÄÖ"
 
@@ -4116,64 +4454,69 @@ msgstr "Hanoin tornit"
 msgid "Move the entire stack to the right peg, one disc at a time"
 msgstr "Siirrä koko pino oikealla olevaan tappiin, yksi kerrallaan"
 
-#: ../src/boards/imageid.c:113 ../src/boards/missingletter.c:105
+#: ../src/boards/imageid.c:107 ../src/boards/missingletter.c:105
 msgid "Learn how to read"
 msgstr "Opettele lukemaan"
 
-#: ../src/boards/leftright.c:276 ../src/boards/leftright.c:286
+#: ../src/boards/leftright.c:280 ../src/boards/leftright.c:290
 #: ../src/boards/python/searace.py:429 ../src/boards/python/searace.py:454
 #: ../src/boards/python/searace.py:544 ../src/boards/python/searace.py:856
 #: ../src/boards/python/searace.py:889 ../src/boards/python/searace.py:986
 msgid "left"
 msgstr "vasen"
 
-#: ../src/boards/leftright.c:296 ../src/boards/leftright.c:306
+#: ../src/boards/leftright.c:300 ../src/boards/leftright.c:310
 #: ../src/boards/python/searace.py:429 ../src/boards/python/searace.py:454
 #: ../src/boards/python/searace.py:553 ../src/boards/python/searace.py:858
 #: ../src/boards/python/searace.py:891 ../src/boards/python/searace.py:980
 msgid "right"
 msgstr "oikea"
 
-#: ../src/boards/maze.c:492
+#: ../src/boards/maze.c:496
 msgid ""
 "Look at your position, then switch back to invisible mode to continue your "
 "moves"
 msgstr "Katso sijaintiasi ja vaihda takaisin näkymättömäksi jotta voit liikkua"
 
-#: ../src/boards/maze.c:494
+#: ../src/boards/maze.c:498
 msgid ""
 "Look at your position, then switch back to 3D mode to continue your moves"
 msgstr ""
 "Katso sijaintiasi ja vaihda takaisin kolmiulotteiseksi, jotta voit liikkua"
 
-#: ../src/boards/memory.c:250
+#: ../src/boards/memory.c:287
 msgid "Memory"
 msgstr "Memory"
 
-#: ../src/boards/memory.c:251
+#: ../src/boards/memory.c:288
 msgid "Find the matching pair"
 msgstr "Löydä täsmäävä pari"
 
-#: ../src/boards/menu.c:79
-msgid "Main Menu"
-msgstr "Päävalikko"
+#. TRANSLATORS: Put here the mathematical operators for  your language.
+#: ../src/boards/memory.c:859
+msgid "+-×÷"
+msgstr "+-×÷"
 
-#: ../src/boards/menu.c:80
+#: ../src/boards/menu2.c:131
+msgid "Main Menu Second Version"
+msgstr "Päävalikon toinen versio"
+
+#: ../src/boards/menu2.c:132
 msgid "Select a Board"
 msgstr "Valitse tehtävä"
 
 #. Set here the way to display money. Change only the money sign, and it's place, always keep %.2f, it will be replaced by 0,34 if decimal is ',' in your locale
-#: ../src/boards/money.c:489
+#: ../src/boards/money.c:492
 #, c-format
 msgid "$ %.2f"
 msgstr "$ %.2f"
 
-#: ../src/boards/money.c:502
+#: ../src/boards/money.c:505
 #, c-format
 msgid "$ %.0f"
 msgstr "$ %.0f"
 
-#: ../src/boards/planegame.c:78
+#: ../src/boards/planegame.c:75
 msgid "Move the plane to catch the clouds in the correct order"
 msgstr "Ohjaa lentokonetta ja kerää pilvet numerojärjestyksessä"
 
@@ -4201,13 +4544,27 @@ msgstr "Valitse kaikki"
 msgid "Unselect all"
 msgstr "Unohda kaikki valinnat"
 
+#: ../src/boards/python/admin/board_list.py:161
+msgid "Locales"
+msgstr ""
+
+#: ../src/boards/python/admin/board_list.py:166
+msgid "Locales sound"
+msgstr ""
+
+#: ../src/boards/python/admin/board_list.py:171
+msgid "Wordlist"
+msgstr "Sanalista"
+
+#: ../src/boards/python/admin/board_list.py:178
+#: ../src/boards/python/admin/group_user_list.py:145
+#: ../src/boards/python/admin/user_list.py:187
+msgid "Login"
+msgstr "Kirjautuminen"
+
 #: ../src/boards/python/admin/board_list.py:236
 msgid "Main menu"
 msgstr "Päävalikko"
-
-#: ../src/boards/python/admin/board_list.py:236
-msgid "/"
-msgstr "/"
 
 #. columns for Board name
 #. column_pref = gtk.TreeViewColumn(_('Conf'))
@@ -4244,8 +4601,8 @@ msgstr ""
 #. we can add what you want in it.
 #: ../src/boards/python/admin/board_list.py:632
 #: ../src/boards/python/admin/board_list.py:650
-#: ../src/boards/python/admin/wordlist.py:51 ../src/boards/python/login.py:530
-#: ../src/boards/python/pythontest.py:409 ../src/boards/python/tuxpaint.py:179
+#: ../src/boards/python/admin/wordlist.py:51 ../src/boards/python/login.py:536
+#: ../src/boards/python/pythontest.py:410 ../src/boards/python/tuxpaint.py:184
 #, python-format
 msgid ""
 "<b>%s</b> configuration\n"
@@ -4255,7 +4612,7 @@ msgstr ""
 " profiilille <b>%s</b>"
 
 #: ../src/boards/python/admin/board_list.py:662
-#: ../src/boards/python/pythontest.py:473
+#: ../src/boards/python/pythontest.py:474
 msgid "Select sound locale"
 msgstr "Valitse äänen maa-asetusto"
 
@@ -4378,18 +4735,13 @@ msgstr "Kuvaus"
 msgid "You must first select a group in the list"
 msgstr "Valitse ensin ryhmä listasta"
 
-#: ../src/boards/python/admin/group_user_list.py:145
-#: ../src/boards/python/admin/user_list.py:187
-msgid "Login"
-msgstr "Kirjautuminen"
-
 #: ../src/boards/python/admin/group_user_list.py:175
 #: ../src/boards/python/admin/user_list.py:217
 msgid "Birth Date"
 msgstr "Syntymäpäivä"
 
-#: ../src/boards/python/admin/module_boards.py:42
-#: ../src/boards/python/admin/module_boards.py:62
+#: ../src/boards/python/admin/module_boards.py:43
+#: ../src/boards/python/admin/module_boards.py:63
 msgid "Boards"
 msgstr "Laudat"
 
@@ -4443,7 +4795,7 @@ msgid "There is already a profile with this name"
 msgstr "Tämän niminen profiilin on jo olemassa"
 
 #: ../src/boards/python/admin/profile_list.py:122
-#: ../src/gcompris/board_config.c:602 ../src/gcompris/board_config.c:727
+#: ../src/gcompris/board_config.c:663 ../src/gcompris/board_config.c:827
 msgid "Default"
 msgstr "Oletus"
 
@@ -4520,12 +4872,8 @@ msgstr ""
 "Yksi tai useampi kirjautumistunnus ei ole yksilöllinen!\n"
 "Sinun täytyy muokata niitä: %s !"
 
-#: ../src/boards/python/anim.py:59
-msgid "You need the python xml module. Disabling SVG."
-msgstr "Tarvitset pythonin XMl-osan. Poistetaan SVG käytöstä."
-
 #. gcompris.utils.dialog(_('Python xml module bot found. SVG is disabled. Install the python xml module to enable SVG Save/restore.'), None)
-#: ../src/boards/python/anim.py:417
+#: ../src/boards/python/anim.py:418
 msgid ""
 "Python xml module not found. SVG is disabled. Install the python xml module "
 "to enable SVG Save/restore."
@@ -4533,19 +4881,19 @@ msgstr ""
 "Pythonin XMl-osaa ei löytynyt. SVG on pois käytöstä. Asenna pythonin XML-osa "
 "jos haluat käyttää SVG-tallennusta tai -palautusta."
 
-#: ../src/boards/python/anim.py:2206
+#: ../src/boards/python/anim.py:2207
 msgid "SVG is disabled. Install python xml module to enable it"
 msgstr "SVG ei ole käytössä. Asenna pythonin XML-osa jos haluat käyttää sitä"
 
-#: ../src/boards/python/anim.py:2362
+#: ../src/boards/python/anim.py:2363
 msgid "Warning: the following images cannot be accessed on your system.\n"
 msgstr "Varoitus: seuraavia kuvia ei löydy järjestelmästä.\n"
 
-#: ../src/boards/python/anim.py:2364
+#: ../src/boards/python/anim.py:2365
 msgid "The corresponding items have been skipped."
 msgstr "Niihin liittyvät osat sivuutetaan."
 
-#: ../src/boards/python/electric.py:92
+#: ../src/boards/python/electric.py:96
 msgid ""
 "Cannot find the 'gnucap' electric simulator.\n"
 "You can download and install it from:\n"
@@ -4684,29 +5032,29 @@ msgstr ""
 "L\n"
 "E"
 
-#: ../src/boards/python/guessnumber.py:222
+#: ../src/boards/python/guessnumber.py:206
 #, python-format
 msgid "Guess a number between %d and %d"
 msgstr "Arvaa numero väliltä %d ja %d"
 
-#: ../src/boards/python/guessnumber.py:335
-#: ../src/boards/python/guessnumber.py:336
+#: ../src/boards/python/guessnumber.py:319
+#: ../src/boards/python/guessnumber.py:320
 #, python-format
 msgid "Please enter a number between %d and %d"
 msgstr "Syötä numero väliltä %d ja %d"
 
-#: ../src/boards/python/guessnumber.py:341
-#: ../src/boards/python/guessnumber.py:342
+#: ../src/boards/python/guessnumber.py:325
+#: ../src/boards/python/guessnumber.py:326
 msgid "Out of range"
 msgstr "Rajojen ulkopuolella"
 
-#: ../src/boards/python/guessnumber.py:348
-#: ../src/boards/python/guessnumber.py:349
+#: ../src/boards/python/guessnumber.py:332
+#: ../src/boards/python/guessnumber.py:333
 msgid "Too high"
 msgstr "Liian suuri"
 
-#: ../src/boards/python/guessnumber.py:351
-#: ../src/boards/python/guessnumber.py:352
+#: ../src/boards/python/guessnumber.py:335
+#: ../src/boards/python/guessnumber.py:336
 msgid "Too low"
 msgstr "Liian pieni"
 
@@ -4714,18 +5062,49 @@ msgstr "Liian pieni"
 msgid "Profile: "
 msgstr "Profiili:"
 
-#: ../src/boards/python/login.py:263 ../src/boards/python/login.py:272
+#: ../src/boards/python/login.py:269 ../src/boards/python/login.py:278
 msgid "Login: "
 msgstr "Kirjautuminen:"
 
 #. toggle box
-#: ../src/boards/python/login.py:545
+#: ../src/boards/python/login.py:551
 msgid "Enter login to log in"
 msgstr "Kirjaudu sisään"
 
-#: ../src/boards/python/mosaic.py:210
+#: ../src/boards/python/mosaic.py:194
 msgid "Rebuild the same mosaic on the right area"
 msgstr "Rakenna sama mosaiikki oikealle puolelle"
+
+#: ../src/boards/python/melody.py:116
+msgid ""
+"Error: this activity cannot be played with the\n"
+"sound effects disabled.\n"
+"Go to the configuration dialogue to\n"
+"enable the sound"
+msgstr ""
+"Virhe: tätä osaa ei voi käyttää, jos äänet eivät\n"
+"ole käytössä.\n"
+"Mene asetuksiin ja ota äänen äänet käyttöön"
+
+#: ../src/boards/python/oscar_and_friends.py:117
+msgid ""
+"Below the surface, Oscar the octopus and his friends sat on a rock,\n"
+"watching the bad weather above them."
+msgstr ""
+
+#: ../src/boards/python/oscar_and_friends.py:118
+msgid ""
+"They were all happy that the storms never reached all the way down to them."
+msgstr ""
+
+#: ../src/boards/python/oscar_and_friends.py:119
+msgid ""
+"No matter how bad it was up there, the bottom was always calm and quiet."
+msgstr ""
+
+#: ../src/boards/python/oscar_and_friends.py:120
+msgid "Oscar's best friends were Charlie the crab and Sandy the sea-star."
+msgstr ""
 
 #: ../src/boards/python/pythontest.py:149
 msgid ""
@@ -4747,30 +5126,30 @@ msgid "This activity is not playable, just a test"
 msgstr "Tämä tehtävä ei ole vieläl pelattavissa, se on pelkkä testi"
 
 #. toggle box
-#: ../src/boards/python/pythontest.py:414
+#: ../src/boards/python/pythontest.py:415
 msgid "Disable line drawing in circle"
 msgstr "Älä käytä viivanpiirtoa ympyrässä"
 
 #. combo box
-#: ../src/boards/python/pythontest.py:423
+#: ../src/boards/python/pythontest.py:424
 msgid "Color of the line"
 msgstr "Viivan väri"
 
 #. spin button for int
-#: ../src/boards/python/pythontest.py:434
+#: ../src/boards/python/pythontest.py:435
 msgid "Distance between circles"
 msgstr "Ympyröiden välinen etäisyys"
 
 #. radio buttons for circle or rectangle
-#: ../src/boards/python/pythontest.py:445
+#: ../src/boards/python/pythontest.py:446
 msgid "Use circles"
 msgstr "Käytä ympyröitä"
 
-#: ../src/boards/python/pythontest.py:446
+#: ../src/boards/python/pythontest.py:447
 msgid "Use rectangles"
 msgstr "Käytä suorakaiteita"
 
-#: ../src/boards/python/pythontest.py:449
+#: ../src/boards/python/pythontest.py:450
 msgid "Choice of pattern"
 msgstr "Valittu kuvio"
 
@@ -4837,7 +5216,7 @@ msgstr "Tuntematon komento rivillä"
 msgid "Distance:"
 msgstr "Etäisyys:"
 
-#: ../src/boards/python/tuxpaint.py:115
+#: ../src/boards/python/tuxpaint.py:120
 msgid ""
 "Cannot find Tuxpaint.\n"
 "Install it to use this activity !"
@@ -4845,27 +5224,27 @@ msgstr ""
 "Tuxpaintia ei löydy.\n"
 "Asenna se, jos haluat käyttää tätä tehtävää!"
 
-#: ../src/boards/python/tuxpaint.py:128
+#: ../src/boards/python/tuxpaint.py:133
 msgid "Waiting for Tuxpaint to finish"
 msgstr "Odotetaan tuxpaintin sulkeutumista"
 
-#: ../src/boards/python/tuxpaint.py:183
+#: ../src/boards/python/tuxpaint.py:188
 msgid "Inherit fullscreen setting from GCompris"
 msgstr "Hae kokoruudun asetukset GComprisilta"
 
-#: ../src/boards/python/tuxpaint.py:187
+#: ../src/boards/python/tuxpaint.py:192
 msgid "Inherit size setting from GCompris (800x600, 640x480)"
 msgstr "Hae koon asetukset GComprisilta (800x600, 640x480)"
 
-#: ../src/boards/python/tuxpaint.py:191
+#: ../src/boards/python/tuxpaint.py:196
 msgid "Disable shape rotation"
 msgstr "Älä pyöritä kappaleita"
 
-#: ../src/boards/python/tuxpaint.py:195
+#: ../src/boards/python/tuxpaint.py:200
 msgid "Show Uppercase text only"
 msgstr "Näytä vain isoja kirjaimia"
 
-#: ../src/boards/python/tuxpaint.py:199
+#: ../src/boards/python/tuxpaint.py:204
 msgid "Disable stamps"
 msgstr "Älä käytä leimoja"
 
@@ -4877,46 +5256,50 @@ msgstr "Muistipeli"
 msgid "Build a train according to the model"
 msgstr "Tehdäänkö samanlainen juna?"
 
-#: ../src/boards/reading.c:366
+#: ../src/boards/reading.c:227 ../src/boards/wordsgame.c:207
+msgid ""
+"Error: We can't find\n"
+"a list of words to play this game.\n"
+msgstr ""
+"Virhe: listaa sanoista\n"
+"tämän pelin pelaamiseksi ei löydy.\n"
+
+#: ../src/boards/reading.c:381
 msgid "Please, check if the word"
 msgstr "Katso onko sana"
 
-#: ../src/boards/reading.c:386
+#: ../src/boards/reading.c:401
 msgid "is being displayed"
 msgstr "näkyvissä"
 
-#: ../src/boards/reading.c:557
+#: ../src/boards/reading.c:575
 msgid "I am Ready"
 msgstr "Olen valmis."
 
-#: ../src/boards/reading.c:597
+#: ../src/boards/reading.c:615
 msgid "Yes, I saw it"
 msgstr "kyllä, näin sen."
 
-#: ../src/boards/reading.c:627
+#: ../src/boards/reading.c:645
 msgid "No, it was not there"
 msgstr "Ei se siinä ollutkaan!"
 
 #. Report what was wrong in the log
-#: ../src/boards/reading.c:665
+#: ../src/boards/reading.c:683
 #, c-format
 msgid "The word to find was '%s'"
 msgstr "Löydettävä sana oli '%s'"
 
-#: ../src/boards/reading.c:668
+#: ../src/boards/reading.c:686
 msgid "But it was not displayed"
 msgstr "Mutta se ei ollut näkyvissä"
 
-#: ../src/boards/reading.c:670
+#: ../src/boards/reading.c:688
 msgid "And it was displayed"
 msgstr "Oli näkyvissä"
 
-#: ../src/boards/reading.c:773 ../src/boards/wordsgame.c:776
-msgid "Cannot open file of words for your locale"
-msgstr "En voi löytää kielellesi sanastoa."
-
 #. Enter Edit Mode
-#: ../src/boards/shapegame.c:425
+#: ../src/boards/shapegame.c:431
 msgid ""
 "You have entered Edit mode\n"
 "Move the puzzle items;\n"
@@ -4928,7 +5311,7 @@ msgstr ""
 "'s' tallentaaksesi\n"
 "'d' nähdäksesi kaikki muodot"
 
-#: ../src/boards/shapegame.c:433
+#: ../src/boards/shapegame.c:439
 msgid ""
 "The data from this activity are saved under\n"
 "/tmp/gcompris-board.xml"
@@ -4944,12 +5327,12 @@ msgstr "Sukellusvene"
 msgid "Control the depth of a submarine"
 msgstr "Säädä sukellusveneen syvyyttä"
 
-#: ../src/boards/target.c:285 ../src/boards/target.c:538
+#: ../src/boards/target.c:285 ../src/boards/target.c:550
 #, c-format
 msgid "Points = %s"
 msgstr "Pisteet = %s"
 
-#: ../src/boards/target.c:403
+#: ../src/boards/target.c:407
 #, c-format
 msgid ""
 "Wind speed = %d\n"
@@ -4958,12 +5341,12 @@ msgstr ""
 "Tuulen nopeus = %d\n"
 "kilometriä tunnissa"
 
-#: ../src/boards/target.c:465
+#: ../src/boards/target.c:474
 #, c-format
 msgid "Distance to target = %d meters"
 msgstr "%d metriä maaliin."
 
-#: ../src/gcompris/about.c:65
+#: ../src/gcompris/about.c:62
 msgid ""
 "Author: Bruno Coudoin\n"
 "Contribution: Pascal Georges, Jose Jorge\n"
@@ -4978,7 +5361,7 @@ msgstr ""
 "Taustamusiikki: Rico Da Halvarez\n"
 
 #. TRANSLATORS: Replace this string with your names, one name per line.
-#: ../src/gcompris/about.c:73
+#: ../src/gcompris/about.c:70
 msgid "translator_credits"
 msgstr ""
 "Rami Aubourg-Kaires, Merja Kaires, Satu Ellermaa, 2003-2004\n"
@@ -4988,15 +5371,15 @@ msgstr ""
 "Jyrki Kuoppala, 2001\n"
 "http://gnome.fi/"
 
-#: ../src/gcompris/about.c:105 ../src/gcompris/about.c:114
+#: ../src/gcompris/about.c:101 ../src/gcompris/about.c:111
 msgid "About GCompris"
 msgstr "Tietoja GComprisista"
 
-#: ../src/gcompris/about.c:124 ../src/gcompris/about.c:133
+#: ../src/gcompris/about.c:122 ../src/gcompris/about.c:131
 msgid "Translators:"
 msgstr "Kääntäjät:"
 
-#: ../src/gcompris/about.c:256
+#: ../src/gcompris/about.c:254
 msgid ""
 "GCompris Home Page\n"
 "http://gcompris.net"
@@ -5004,7 +5387,7 @@ msgstr ""
 "GCompris Kotisivut\n"
 "http://gcompris.net/"
 
-#: ../src/gcompris/about.c:278
+#: ../src/gcompris/about.c:276
 msgid ""
 "This software is a GNU Package and is released under the GNU General Public "
 "License"
@@ -5012,240 +5395,265 @@ msgstr ""
 "Tämä ohjelma on GNU-ohjelma ja on julkaistu GNU General Public Licensen "
 "mukaisesti"
 
-#: ../src/gcompris/about.c:341 ../src/gcompris/about.c:350
-#: ../src/gcompris/config.c:222 ../src/gcompris/config.c:231
-#: ../src/gcompris/gameutil.c:1113 ../src/gcompris/help.c:362
-#: ../src/gcompris/help.c:371 ../src/gcompris/images_selector.c:263
+#: ../src/gcompris/about.c:339 ../src/gcompris/about.c:349
+#: ../src/gcompris/config.c:469 ../src/gcompris/config.c:479
+#: ../src/gcompris/dialog.c:103 ../src/gcompris/help.c:381
+#: ../src/gcompris/help.c:391 ../src/gcompris/images_selector.c:317
 msgid "OK"
 msgstr "OK"
 
-#: ../src/gcompris/board.c:176
+#: ../src/gcompris/bar.c:567
+msgid "GCompris confirmation"
+msgstr "GComprisin vahvistus"
+
+#: ../src/gcompris/bar.c:568
+msgid "Are you sure you want to quit?"
+msgstr "Haluatko varmasti lopettaa?"
+
+#: ../src/gcompris/bar.c:569
+msgid "Yes, I am sure!"
+msgstr "Kyllä, haluan lopettaa!"
+
+#: ../src/gcompris/bar.c:570
+msgid "No, I want to keep going"
+msgstr "Ei, haluan jatkaa pelaamista."
+
+#: ../src/gcompris/board.c:177
 msgid "Dynamic module loading is not supported. gcompris cannot load.\n"
 msgstr "Dynaaminen moduulin lataus ei toiminut. Gcompris ei voi startata.\n"
 
-#: ../src/gcompris/board_config.c:632
+#: ../src/gcompris/board_config.c:695
 msgid ""
 "Select the language\n"
 " to use in the board"
 msgstr "Valitse kentässä käytettävä kieli."
 
-#: ../src/gcompris/config.c:63
+#: ../src/gcompris/config.c:64
 msgid "Your system default"
 msgstr "Järjestelmän oletusasetus"
 
-#: ../src/gcompris/config.c:64
+#: ../src/gcompris/config.c:65
 msgid "Amharic"
 msgstr "Amhari"
 
-#: ../src/gcompris/config.c:65
+#: ../src/gcompris/config.c:66
 msgid "Arabic"
 msgstr "Arabia"
 
-#: ../src/gcompris/config.c:66
+#: ../src/gcompris/config.c:67
 msgid "Turkish (Azerbaijan)"
 msgstr "Turkki (Azerbajzan)"
 
-#: ../src/gcompris/config.c:67
+#: ../src/gcompris/config.c:68
 msgid "Bulgarian"
 msgstr "Bulgaria"
 
-#: ../src/gcompris/config.c:68
+#: ../src/gcompris/config.c:69
 msgid "Catalan"
 msgstr "Katalonia"
 
-#: ../src/gcompris/config.c:70
+#: ../src/gcompris/config.c:71
 msgid "Danish"
 msgstr "Tanska"
 
-#: ../src/gcompris/config.c:71
+#: ../src/gcompris/config.c:72
 msgid "German"
 msgstr "Saksa"
 
-#: ../src/gcompris/config.c:72
+#: ../src/gcompris/config.c:73
 msgid "Greek"
 msgstr "Kreikka"
 
-#: ../src/gcompris/config.c:73
+#: ../src/gcompris/config.c:74
 msgid "English (Canada)"
 msgstr "Englanti (Kanada)"
 
-#: ../src/gcompris/config.c:74
+#: ../src/gcompris/config.c:75
 msgid "English (Great Britain)"
 msgstr "Englanti (Iso-Britannia)"
 
-#: ../src/gcompris/config.c:75
+#: ../src/gcompris/config.c:76
 msgid "Spanish"
 msgstr "Espanja"
 
-#: ../src/gcompris/config.c:76
+#: ../src/gcompris/config.c:77
 msgid "Basque"
 msgstr "Baski"
 
-#: ../src/gcompris/config.c:77
+#: ../src/gcompris/config.c:78
 msgid "Finnish"
 msgstr "Suomi"
 
-#: ../src/gcompris/config.c:78
+#: ../src/gcompris/config.c:79
 msgid "French"
 msgstr "Ranska"
 
-#: ../src/gcompris/config.c:79
+#: ../src/gcompris/config.c:80
 msgid "Irish (Gaelic)"
 msgstr "Iiri (Gaeli)"
 
-#: ../src/gcompris/config.c:80
+#: ../src/gcompris/config.c:81
 msgid "Hebrew"
 msgstr "Heprea"
 
-#: ../src/gcompris/config.c:81
+#: ../src/gcompris/config.c:82
 msgid "Hindi"
 msgstr "Hindi"
 
-#: ../src/gcompris/config.c:82
+#: ../src/gcompris/config.c:83
 msgid "Gujarati"
 msgstr "Gujarati"
 
-#: ../src/gcompris/config.c:83
+#: ../src/gcompris/config.c:84
 msgid "Punjabi"
 msgstr "Punjabi"
 
-#: ../src/gcompris/config.c:84
+#: ../src/gcompris/config.c:85
 msgid "Hungarian"
 msgstr "Unkari"
 
-#: ../src/gcompris/config.c:85
+#: ../src/gcompris/config.c:86
 msgid "Croatian"
 msgstr "Kroatia"
 
-#: ../src/gcompris/config.c:86
+#: ../src/gcompris/config.c:87
 msgid "Italian"
 msgstr "Italia"
 
-#: ../src/gcompris/config.c:87
+#: ../src/gcompris/config.c:88
 msgid "Georgian"
 msgstr "Georgia"
 
-#: ../src/gcompris/config.c:88
+#: ../src/gcompris/config.c:89
 msgid "Lithuanian"
 msgstr "Liettua"
 
-#: ../src/gcompris/config.c:89
+#: ../src/gcompris/config.c:90
 msgid "Macedonian"
 msgstr "Makedonia"
 
-#: ../src/gcompris/config.c:90
+#: ../src/gcompris/config.c:91
 msgid "Malayalam"
 msgstr "Malayalam"
 
-#: ../src/gcompris/config.c:91
+#: ../src/gcompris/config.c:92
+msgid "Marathi"
+msgstr "Marathi"
+
+#: ../src/gcompris/config.c:93
 msgid "Malay"
 msgstr "Malaiji"
 
-#: ../src/gcompris/config.c:92
+#: ../src/gcompris/config.c:94
 msgid "Nepal"
 msgstr "Nepali"
 
-#: ../src/gcompris/config.c:93
+#: ../src/gcompris/config.c:95
 msgid "Dutch"
 msgstr "Hollanti"
 
-#: ../src/gcompris/config.c:94
+#: ../src/gcompris/config.c:96
 msgid "Norwegian Bokmal"
 msgstr "Norja (Bokmal)"
 
-#: ../src/gcompris/config.c:95
+#: ../src/gcompris/config.c:97
 msgid "Norwegian Nynorsk"
 msgstr "Norja (Nynorsk)"
 
-#: ../src/gcompris/config.c:96
+#: ../src/gcompris/config.c:98
 msgid "Polish"
 msgstr "Puola"
 
-#: ../src/gcompris/config.c:97
+#: ../src/gcompris/config.c:99
 msgid "Portuguese"
 msgstr "Portugali"
 
-#: ../src/gcompris/config.c:98
+#: ../src/gcompris/config.c:100
 msgid "Portuguese (Brazil)"
 msgstr "Portugali (Brasilia)"
 
-#: ../src/gcompris/config.c:99
+#: ../src/gcompris/config.c:101
 msgid "Romanian"
 msgstr "Romania"
 
-#: ../src/gcompris/config.c:100
+#: ../src/gcompris/config.c:102
 msgid "Russian"
 msgstr "Venäjä"
 
-#: ../src/gcompris/config.c:101
+#: ../src/gcompris/config.c:103
 msgid "Kinyarwanda"
 msgstr "Kinyawanda"
 
-#: ../src/gcompris/config.c:102
+#: ../src/gcompris/config.c:104
 msgid "Slovak"
 msgstr "Slovakia"
 
-#: ../src/gcompris/config.c:103
+#: ../src/gcompris/config.c:105
 msgid "Slovenian"
 msgstr "Slovenia"
 
-#: ../src/gcompris/config.c:104
+#: ../src/gcompris/config.c:106
 msgid "Albanian"
 msgstr "Albania"
 
-#: ../src/gcompris/config.c:105
+#: ../src/gcompris/config.c:107
 msgid "Serbian (Latin)"
 msgstr "Serbia (latinalaiset aakkoset)"
 
-#: ../src/gcompris/config.c:106
+#: ../src/gcompris/config.c:108
 msgid "Serbian"
 msgstr "Serbi"
 
-#: ../src/gcompris/config.c:107
+#: ../src/gcompris/config.c:109
 msgid "Swedish"
 msgstr "Ruotsi"
 
-#: ../src/gcompris/config.c:108
+#. "ta_IN.UTF-8",	N_("Tamil"),
+#: ../src/gcompris/config.c:111
+msgid "Thai"
+msgstr "Thai"
+
+#: ../src/gcompris/config.c:112
 msgid "Turkish"
 msgstr "Turkki"
 
-#: ../src/gcompris/config.c:109
+#: ../src/gcompris/config.c:113
 msgid "Vietnamese"
 msgstr "Vietnam"
 
-#: ../src/gcompris/config.c:110
+#: ../src/gcompris/config.c:114
 msgid "Walloon"
 msgstr "Belgian hollanti"
 
-#: ../src/gcompris/config.c:111
+#: ../src/gcompris/config.c:115
 msgid "Chinese (Simplified)"
 msgstr "Kiina (yksinkertaistettu)"
 
-#: ../src/gcompris/config.c:112
+#: ../src/gcompris/config.c:116
 msgid "Chinese (Traditional)"
 msgstr "Kiina (perinteinen)"
 
-#: ../src/gcompris/config.c:117
+#: ../src/gcompris/config.c:121
 msgid "No time limit"
 msgstr "Ei aikarajaa"
 
-#: ../src/gcompris/config.c:118
+#: ../src/gcompris/config.c:122
 msgid "Slow timer"
 msgstr "Hidas kello"
 
-#: ../src/gcompris/config.c:119
+#: ../src/gcompris/config.c:123
 msgid "Normal timer"
 msgstr "Normaali kello"
 
-#: ../src/gcompris/config.c:120
+#: ../src/gcompris/config.c:124
 msgid "Fast timer"
 msgstr "Nopea kello"
 
-#: ../src/gcompris/config.c:125
+#: ../src/gcompris/config.c:129
 msgid "800x600 (Default for gcompris)"
 msgstr "800x600 (Gcomprisin oletus)"
 
-#: ../src/gcompris/config.c:130
+#: ../src/gcompris/config.c:134
 msgid ""
 "<i>Use Gcompris administration module\n"
 "to filter boards</i>"
@@ -5253,54 +5661,62 @@ msgstr ""
 "<i>Käytä GComprisin hallintaosaa\n"
 "tehtävien rajaamiseen</i>"
 
-#: ../src/gcompris/config.c:187 ../src/gcompris/config.c:196
+#: ../src/gcompris/config.c:189 ../src/gcompris/config.c:199
 msgid "GCompris Configuration"
 msgstr "GComprisin asetukset"
 
-#: ../src/gcompris/config.c:314
+#: ../src/gcompris/config.c:275
 msgid "Fullscreen"
 msgstr "Kokoruututila"
 
-#: ../src/gcompris/config.c:357
+#: ../src/gcompris/config.c:318
 msgid "Music"
 msgstr "Musiikki"
 
-#: ../src/gcompris/config.c:385
+#: ../src/gcompris/config.c:346
 msgid "Effect"
 msgstr "Tehosteet"
 
-#: ../src/gcompris/config.c:418
+#: ../src/gcompris/config.c:382
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "Pixmap-hakemistoa %s ei voi avata"
 
-#: ../src/gcompris/config.c:454 ../src/gcompris/config.c:818
-#: ../src/gcompris/config.c:829
+#: ../src/gcompris/config.c:415 ../src/gcompris/config.c:843
+#: ../src/gcompris/config.c:857
 #, c-format
 msgid "Skin : %s"
 msgstr "Teema: %s"
 
-#: ../src/gcompris/file_selector.c:341
+#: ../src/gcompris/config.c:417
+msgid "SKINS NOT FOUND"
+msgstr "TEEMOJA EI LÖYTYNYT"
+
+#: ../src/gcompris/config.c:540
+msgid "English (United State)"
+msgstr "Englanti (Yhdysvallat)"
+
+#: ../src/gcompris/file_selector.c:333
 msgid "CANCEL"
 msgstr "TAKAISIN"
 
-#: ../src/gcompris/file_selector.c:372
+#: ../src/gcompris/file_selector.c:364
 msgid "LOAD"
 msgstr "LATAA"
 
-#: ../src/gcompris/file_selector.c:372
+#: ../src/gcompris/file_selector.c:364
 msgid "SAVE"
 msgstr "TALLENNA"
 
-#: ../src/gcompris/gameutil.c:190
-msgid "Couldn't find file"
-msgstr "Tiedostoa ei löydy"
+#: ../src/gcompris/gameutil.c:79
+msgid "Couldn't find or load the file"
+msgstr "Tiedostoa ei löytynyt tai ei voitu ladata"
 
-#: ../src/gcompris/gameutil.c:192
+#: ../src/gcompris/gameutil.c:81
 msgid "This activity is incomplete."
 msgstr "Tämä taulu on keskeneräinen"
 
-#: ../src/gcompris/gameutil.c:193
+#: ../src/gcompris/gameutil.c:82
 msgid ""
 "Exit it and report\n"
 "the problem to the authors."
@@ -5308,89 +5724,90 @@ msgstr ""
 "Pysäytä Gcompris ja\n"
 "lähetä virheilmoitus tekijöille."
 
-#: ../src/gcompris/gcompris.c:123
+#: ../src/gcompris/gcompris.c:132
 msgid "run gcompris in fullscreen mode."
 msgstr "Suorita kokoruututilassa."
 
-#: ../src/gcompris/gcompris.c:125
+#: ../src/gcompris/gcompris.c:135
 msgid "run gcompris in window mode."
 msgstr "Suorita ikkunassa."
 
-#: ../src/gcompris/gcompris.c:127
+#: ../src/gcompris/gcompris.c:138
 msgid "run gcompris with sound enabled."
 msgstr "Suorita änen kanssa."
 
-#: ../src/gcompris/gcompris.c:129
+#: ../src/gcompris/gcompris.c:141
 msgid "run gcompris without sound."
 msgstr "Suorita ilman ääntä."
 
-#: ../src/gcompris/gcompris.c:131
+#: ../src/gcompris/gcompris.c:144
 msgid "run gcompris with the default gnome cursor."
 msgstr "Suorita Gnomen käyttämällä kursorilla."
 
-#: ../src/gcompris/gcompris.c:133
+#: ../src/gcompris/gcompris.c:147
 msgid "display only activities with this difficulty level."
 msgstr "näytä ainoastaan tätä vaikeusastetta vastaavat tehtävät."
 
-#: ../src/gcompris/gcompris.c:135
+#: ../src/gcompris/gcompris.c:150
 msgid "display debug informations on the console."
 msgstr "Näytä debug-tiedot konsolilla."
 
-#: ../src/gcompris/gcompris.c:137
+#: ../src/gcompris/gcompris.c:153
 msgid "Print the version of "
 msgstr "Tulosta versio "
 
-#: ../src/gcompris/gcompris.c:139
+#: ../src/gcompris/gcompris.c:156
 msgid "Use the antialiased canvas (slower)."
 msgstr "Käytä antialiasoitua piirtoa (hitaampi)."
 
-#: ../src/gcompris/gcompris.c:141
-msgid "Disable XRANDR (No screen resolution change)."
-msgstr "Poista XRANDR käytöstä (ei vaihdeta näytön tarkkuutta)."
+#: ../src/gcompris/gcompris.c:159
+msgid "Disable XF86VidMode (No screen resolution change)."
+msgstr "Poista XF86VidMode käytöstä (ei vaihdeta näytön tarkkuutta)."
 
-#: ../src/gcompris/gcompris.c:143
+#: ../src/gcompris/gcompris.c:162
+#, fuzzy
 msgid ""
 "Run gcompris with local menu (e.g -l /reading will let you play only "
-"activities in the reading directory, -l /boards/connect4 only the connect4 "
+"activities in the reading directory, -l /strategy/connect4 only the connect4 "
 "activity)"
 msgstr ""
 "Suorita gcompris halutulla valikolla, esimerkiksi -l /reading antaa pelata "
 "vain lukutehtäviä, -l /boards/connect4 vain connect4-tehtävää."
 
-#: ../src/gcompris/gcompris.c:145
+#: ../src/gcompris/gcompris.c:165
 msgid "Run GCompris with local activity directory added to menu"
 msgstr "Suorita gcompris näyttäen vain halutun valikon"
 
-#: ../src/gcompris/gcompris.c:147
+#: ../src/gcompris/gcompris.c:168
 msgid "Run GCompris in administration and user-management mode"
 msgstr "Suorita gcompris hallintatilassa"
 
-#: ../src/gcompris/gcompris.c:149
+#: ../src/gcompris/gcompris.c:171
 msgid "Use alternate database for profiles"
 msgstr "Käytä vaihtoehtoista profiilien tietokantaa"
 
-#: ../src/gcompris/gcompris.c:151
+#: ../src/gcompris/gcompris.c:174
 msgid "Use alternate database for logs"
 msgstr "Käytä vaihtoehtoista tietokantaa lokitiedoille"
 
-#: ../src/gcompris/gcompris.c:153
+#: ../src/gcompris/gcompris.c:177
 msgid "Create the alternate database for profiles"
 msgstr "Luo vaihtoehtoinen tietokanta profiileille"
 
-#: ../src/gcompris/gcompris.c:155
+#: ../src/gcompris/gcompris.c:180
 msgid "Re-read XML Menus and store them in the database"
 msgstr "Lue XML-valikot uudestaan ja tallenna ne tietokantaan"
 
-#: ../src/gcompris/gcompris.c:157
+#: ../src/gcompris/gcompris.c:183
 msgid "Set the profile to use. Use 'gcompris -a' to create profiles"
 msgstr "Aseta käytettävä profiili. Luo profiileja komennolla'gcompris -a'"
 
-#: ../src/gcompris/gcompris.c:159
+#: ../src/gcompris/gcompris.c:186
 msgid "List all available profiles. Use 'gcompris -a' to create profiles"
 msgstr ""
 "Näytä olemassaolevat profiilit. Luo profiileja komennolla 'gcompris -a'"
 
-#: ../src/gcompris/gcompris.c:161
+#: ../src/gcompris/gcompris.c:189
 msgid ""
 "Shared directory location, for profiles and board-configuration data: "
 "[$HOME/.gcompris/shared]"
@@ -5398,15 +5815,45 @@ msgstr ""
 "Jaetun tiedon hakemiston sijainti. Sisältää profiilit ja tehtävien "
 "asetustiedostot: [$HOME/.gcompris/shared]"
 
-#: ../src/gcompris/gcompris.c:163
+#: ../src/gcompris/gcompris.c:192
 msgid "The location of user directories: [$HOME/.gcompris/users]"
 msgstr "Käyttäjien hakemiston sijainti: [$HOME/.gcompris/users] "
 
-#: ../src/gcompris/gcompris.c:165
+#: ../src/gcompris/gcompris.c:195
 msgid "Run the experimental activities"
 msgstr "Siirry kokeellisiin tehtäviin"
 
-#: ../src/gcompris/gcompris.c:782
+#: ../src/gcompris/gcompris.c:198
+msgid "Disable the quit button"
+msgstr "Poista sulkemisnappi käytöstä"
+
+#: ../src/gcompris/gcompris.c:201
+msgid "Disable the config button"
+msgstr "Poista asetusnappi käytöstä"
+
+#: ../src/gcompris/gcompris.c:204
+msgid "Display the resources on stdout based on the selected activities"
+msgstr ""
+
+#: ../src/gcompris/gcompris.c:207
+msgid ""
+"GCompris will get images, sounds and activity data from this server if not "
+"found locally."
+msgstr ""
+
+#: ../src/gcompris/gcompris.c:210
+msgid ""
+"Only when --server is provided, disable check for local resource first. Data "
+"are always taken from the web server."
+msgstr ""
+
+#: ../src/gcompris/gcompris.c:214
+msgid ""
+"In server mode, where is the cache directory to avoid useless downloads."
+msgstr ""
+"Välimuistihakemiston sijainti palvelintilassa."
+
+#: ../src/gcompris/gcompris.c:851
 #, c-format
 msgid ""
 "GCompris is free software released under the GPL License. In order to "
@@ -5430,7 +5877,7 @@ msgstr ""
 "Lisää tietoja aiheesta FSF:n sivuilta:\n"
 "http://www.fsf.org/philosophy"
 
-#: ../src/gcompris/gcompris.c:1170
+#: ../src/gcompris/gcompris.c:1358
 #, c-format
 msgid ""
 "GCompris\n"
@@ -5444,53 +5891,71 @@ msgstr ""
 "Lisää tetoja täältä: http://gcompris.net\n"
 
 #. check the list of possible values for -l, then exit
-#: ../src/gcompris/gcompris.c:1244
+#: ../src/gcompris/gcompris.c:1444
 #, c-format
 msgid "Use -l to access an activity directly.\n"
 msgstr "Käytä valitsinta -l saadaksesi tietyn tehtävän suoraan.\n"
 
-#: ../src/gcompris/gcompris.c:1245
+#: ../src/gcompris/gcompris.c:1445
 #, c-format
 msgid "The list of available activities is :\n"
 msgstr "Lista mahdollisista tehtävistä:\n"
 
-#: ../src/gcompris/gcompris.c:1388
+#: ../src/gcompris/gcompris.c:1609
 #, c-format
 msgid "The list of available profiles is:\n"
 msgstr "Lista mahdollisista profiileista:\n"
 
-#: ../src/gcompris/gcompris_db.c:253
+#: ../src/gcompris/gcompris_db.c:252
 msgid "Unaffected"
 msgstr "Ei vaikutusta"
 
-#: ../src/gcompris/gcompris_db.c:254
+#: ../src/gcompris/gcompris_db.c:253
 msgid "Users without a class"
 msgstr "Luokkaan kuulumattomat käyttäjät"
 
-#: ../src/gcompris/help.c:203
+#: ../src/gcompris/help.c:199
 msgid "Prerequisite"
 msgstr "Edellytys"
 
-#: ../src/gcompris/help.c:231
+#: ../src/gcompris/help.c:227
 msgid "Goal"
 msgstr "Päämäärä"
 
-#: ../src/gcompris/help.c:259
+#: ../src/gcompris/help.c:255
 msgid "Manual"
 msgstr "Ohje"
 
-#: ../src/gcompris/help.c:287
+#: ../src/gcompris/help.c:283
 msgid "Credit"
 msgstr "Kiitokset"
 
-#: ../src/gcompris/timer.c:235
+#: ../src/gcompris/timer.c:250
 msgid "Time Elapsed"
 msgstr "Aika loppui"
 
-#: ../src/gcompris/timer.c:321
+#: ../src/gcompris/timer.c:339
 #, c-format
 msgid "Remaining Time = %d"
 msgstr "Aikaa jäljellä = %d"
+
+#~ msgid "Multiple activities for kids"
+#~ msgstr "Useita tehtäviä lapsille"
+
+#~ msgid "Couldn't open dir: %s"
+#~ msgstr "Hakemistoa ei voida avata: %s"
+
+#~ msgid "Main Menu"
+#~ msgstr "Päävalikko"
+
+#~ msgid "/"
+#~ msgstr "/"
+
+#~ msgid "You need the python xml module. Disabling SVG."
+#~ msgstr "Tarvitset pythonin XMl-osan. Poistetaan SVG käytöstä."
+
+#~ msgid "Cannot open file of words for your locale"
+#~ msgstr "En voi löytää kielellesi sanastoa."
 
 #~ msgid "Moroco"
 #~ msgstr "Marokko"
