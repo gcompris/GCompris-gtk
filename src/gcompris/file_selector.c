@@ -41,17 +41,17 @@
 #define MODE_SAVE 2
 static gint mode;
 
-static gint		 item_event_file_selector(GnomeCanvasItem *item, 
-						  GdkEvent *event, 
+static gint		 item_event_file_selector(GnomeCanvasItem *item,
+						  GdkEvent *event,
 						  gpointer data);
 static gint		 item_event_scroll(GnomeCanvasItem *item,
 					   GdkEvent *event,
 					   GnomeCanvas *canvas);
-static gint		 item_event_directory(GnomeCanvasItem *item, 
-					      GdkEvent *event, 
+static gint		 item_event_directory(GnomeCanvasItem *item,
+					      GdkEvent *event,
 					      char *dir);
 static void		 display_files(GnomeCanvasItem *rootitem, gchar *rootdir);
-static int		 display_file_selector(int mode, 
+static int		 display_file_selector(int mode,
 					       GcomprisBoard *gcomprisBoard,
 					       gchar *rootdir,
 					       gchar *file_types,
@@ -107,7 +107,7 @@ static GHashTable* mimetypes_ext_hash  = NULL; /* Mime type with the key being t
 static GHashTable* mimetypes_desc_hash = NULL; /* Mime type with the key being the description */
 
 /*
- * Main entry point 
+ * Main entry point
  * ----------------
  *
  */
@@ -149,7 +149,7 @@ void gc_selector_file_stop ()
   if(rootitem!=NULL)
     gtk_object_destroy(GTK_OBJECT(rootitem));
 
-  rootitem = NULL;	  
+  rootitem = NULL;
 
   /* No need to destroy it since it's in rootitem but just clear it */
   file_root_item = NULL;
@@ -173,8 +173,8 @@ void gc_selector_file_stop ()
 /*-------------------------------------------------------------------------------*/
 
 
-static int 
-display_file_selector(int the_mode, 
+static int
+display_file_selector(int the_mode,
 		      GcomprisBoard *gcomprisBoard,
 		      gchar *rootdir,
 		      gchar *file_types,
@@ -224,7 +224,7 @@ display_file_selector(int the_mode,
   x_start = (BOARDWIDTH - gdk_pixbuf_get_width(pixmap))/2;
   item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				gnome_canvas_pixbuf_get_type (),
-				"pixbuf", pixmap, 
+				"pixbuf", pixmap,
 				"x", (double) x_start,
 				"y", (double) y_start,
 				NULL);
@@ -250,7 +250,7 @@ display_file_selector(int the_mode,
   gtk_widget_show(GTK_WIDGET(widget_entry));
 
   /*
-   * Create the combo with the file types 
+   * Create the combo with the file types
    * ------------------------------------
    */
   if(mode==MODE_SAVE && file_types_string && *file_types_string!='\0') {
@@ -265,7 +265,7 @@ display_file_selector(int the_mode,
     /* Extract the mime type */
     mimeType = (GcomprisMimeType *)(g_hash_table_lookup(mimetypes_hash, str));
     if(mimeType) {
-      result = strdup(mimeType->description);
+      result = strdup(gettext(mimeType->description));
     } else {
       result = str;
     }
@@ -278,7 +278,7 @@ display_file_selector(int the_mode,
 	/* Extract the mime type */
 	mimeType = (GcomprisMimeType *)(g_hash_table_lookup(mimetypes_hash, sub_string));
 	if(mimeType) {
-	  result = strdup(mimeType->description);
+	  result = strdup(gettext(mimeType->description));
 	} else {
 	  result = str;
 	}
@@ -316,7 +316,7 @@ display_file_selector(int the_mode,
   // CANCEL
   item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				gnome_canvas_pixbuf_get_type (),
-				"pixbuf", pixmap, 
+				"pixbuf", pixmap,
 				"x", (double) (BOARDWIDTH*0.33) - gdk_pixbuf_get_width(pixmap)/2,
 				"y", (double) y - gdk_pixbuf_get_height(pixmap) - 25,
 				NULL);
@@ -347,7 +347,7 @@ display_file_selector(int the_mode,
   // OK
   item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				gnome_canvas_pixbuf_get_type (),
-				"pixbuf", pixmap, 
+				"pixbuf", pixmap,
 				"x", (double) (BOARDWIDTH*0.66) - gdk_pixbuf_get_width(pixmap)/2,
 				"y", (double) y - gdk_pixbuf_get_height(pixmap) - 25,
 				NULL);
@@ -439,7 +439,7 @@ static void display_files(GnomeCanvasItem *root_item, gchar *rootdir)
     g_list_free(file_list);
   }
   file_list = NULL;
-  
+
   /* Create a root item to put the image list in it */
   file_root_item = \
     gnome_canvas_item_new (GNOME_CANVAS_GROUP(root_item),
@@ -616,7 +616,7 @@ static void display_files(GnomeCanvasItem *root_item, gchar *rootdir)
 			 (GtkSignalFunc) item_event_file_selector,
 			 allfilename);
     }
-      
+
     ix+=IMAGE_WIDTH + IMAGE_GAP;
     if(ix>=DRAWING_AREA_X2 - DRAWING_AREA_X1 -IMAGE_GAP)
       {
@@ -624,8 +624,8 @@ static void display_files(GnomeCanvasItem *root_item, gchar *rootdir)
 
 	iy+=IMAGE_HEIGHT + IMAGE_GAP;
 
-	gnome_canvas_set_scroll_region (GNOME_CANVAS (canvas), 0, 0, 
-					DRAWING_AREA_X2- DRAWING_AREA_X1, 
+	gnome_canvas_set_scroll_region (GNOME_CANVAS (canvas), 0, 0,
+					DRAWING_AREA_X2- DRAWING_AREA_X1,
 					iy + IMAGE_HEIGHT + IMAGE_GAP);
 
 	if(iy>=DRAWING_AREA_Y2-DRAWING_AREA_Y1) {
@@ -649,7 +649,7 @@ item_event_directory(GnomeCanvasItem *item, GdkEvent *event, gchar *dir)
   if(!rootitem)
     return FALSE;
 
-  switch (event->type) 
+  switch (event->type)
     {
     case GDK_ENTER_NOTIFY:
       break;
@@ -679,7 +679,7 @@ item_event_scroll(GnomeCanvasItem *item, GdkEvent *event, GnomeCanvas *canvas)
   if(!rootitem)
     return FALSE;
 
-  switch (event->type) 
+  switch (event->type)
     {
     case GDK_SCROLL:
       gnome_canvas_get_scroll_offsets (canvas, &x, &y);
@@ -703,7 +703,7 @@ item_event_file_selector(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
   if(!rootitem)
     return FALSE;
 
-  switch (event->type) 
+  switch (event->type)
     {
     case GDK_ENTER_NOTIFY:
       break;
@@ -722,7 +722,7 @@ item_event_file_selector(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 	  gchar *file_type=NULL;
 
 	  result = g_strdup_printf("%s/%s", current_rootdir, gtk_entry_get_text(widget_entry));
-	  
+
 	  if(mode==MODE_SAVE) {
 	    GcomprisMimeType *mimeType = NULL;
 	    GtkTreeModel *model;
@@ -808,25 +808,15 @@ void parseMime (xmlDocPtr doc, xmlNodePtr xmlnode) {
   gcomprisMime->mimetype    = (gchar *)xmlGetProp(xmlnode, BAD_CAST "mimetype");
   gcomprisMime->extension   = (gchar *)xmlGetProp(xmlnode, BAD_CAST "extension");
   gcomprisMime->icon        = (gchar *)xmlGetProp(xmlnode, BAD_CAST "icon");
-  gcomprisMime->description = NULL;
 
-  /* get the help user credit of the board */
-  xmlnode = xmlnode->xmlChildrenNode;
-  while (xmlnode != NULL) {
-    gchar *lang = (gchar *)xmlGetProp(xmlnode, BAD_CAST "lang");
-    if (!strcmp((char *)xmlnode->name, "description")
-	&& (lang==NULL ||
-	    !strcmp(lang, gc_locale_get())
-	    || !strncmp(lang, gc_locale_get(), 2)))
-      {
-	if(gcomprisMime->description)
-	  g_free(gcomprisMime->description);
-	
-	gcomprisMime->description = (gchar *)xmlNodeListGetString(doc, 
-								  xmlnode->xmlChildrenNode, 1);
-      }
-    g_free(lang);
-    xmlnode = xmlnode->next;
+  for (xmlnode = xmlnode->xmlChildrenNode; xmlnode != NULL; xmlnode = xmlnode->next) {
+    if (xmlHasProp(xmlnode, BAD_CAST "lang"))
+      continue;
+
+    /* get the title of the board */
+    if (!strcmp((char *)xmlnode->name, "description"))
+      gcomprisMime->description = (gchar *)xmlNodeListGetString(doc,
+								xmlnode->xmlChildrenNode, 0);
   }
 
   if(!gcomprisMime->mimetype || !gcomprisMime->extension || !gcomprisMime->description ) {
@@ -851,7 +841,7 @@ void parseMime (xmlDocPtr doc, xmlNodePtr xmlnode) {
 static void parse_doc(xmlDocPtr doc) {
   xmlNodePtr cur;
 
-  cur = xmlDocGetRootElement(doc);	
+  cur = xmlDocGetRootElement(doc);
   if (cur == NULL) {
     fprintf(stderr,"empty document\n");
     xmlFreeDoc(doc);
@@ -863,10 +853,10 @@ static void parse_doc(xmlDocPtr doc) {
     if ((!xmlStrcmp(cur->name, (const xmlChar *)"MimeType"))){
       parseMime (doc, cur);
     }
-    
+
     cur = cur->next;
   }
-	
+
   return;
 }
 
@@ -881,7 +871,7 @@ gboolean load_mime_type_from_file(gchar *fname)
   g_return_val_if_fail(fname!=NULL,FALSE);
 
   /* if the file doesn't exist */
-  if(!g_file_test ((fname), G_FILE_TEST_EXISTS)) 
+  if(!g_file_test ((fname), G_FILE_TEST_EXISTS))
     {
       g_warning("Couldn't find file %s !", fname);
       return FALSE;
@@ -893,7 +883,7 @@ gboolean load_mime_type_from_file(gchar *fname)
   /* in case something went wrong */
   if(!doc)
     return FALSE;
-  
+
   if(/* if there is no root element */
      !doc->children ||
      /* if it doesn't have a name */
@@ -903,12 +893,12 @@ gboolean load_mime_type_from_file(gchar *fname)
     xmlFreeDoc(doc);
     return FALSE;
   }
-  
+
   /* parse our document and replace old data */
   parse_doc(doc);
-  
+
   xmlFreeDoc(doc);
-  
+
   return TRUE;
 }
 
@@ -919,7 +909,7 @@ gboolean load_mime_type_from_file(gchar *fname)
  * Must be called once at GCompris startup.
  *
  */
-void gc_mime_type_load() 
+void gc_mime_type_load()
 {
   const gchar  *one_dirent;
   GcomprisProperties *properties = gc_prop_get();
@@ -946,7 +936,7 @@ void gc_mime_type_load()
     while((one_dirent = g_dir_read_name(dir)) != NULL) {
       /* add the board to the list */
       gchar *filename;
-      
+
       filename = g_strdup_printf("%s/%s", mime_dir, one_dirent);
 
       if(!g_file_test(filename, G_FILE_TEST_IS_REGULAR)) {

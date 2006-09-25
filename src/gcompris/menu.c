@@ -190,25 +190,25 @@ _add_xml_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child,
 
   if (db){
     gc_db_board_update( &gcomprisBoard->board_id,
-			      &gcomprisBoard->section_id,
-			      gcomprisBoard->name,
-			      gcomprisBoard->section,
-			      gcomprisBoard->author,
-			      gcomprisBoard->type,
-			      gcomprisBoard->mode,
-			      atoi(gcomprisBoard->difficulty),
-			      gcomprisBoard->icon_name,
-			      gcomprisBoard->boarddir,
-			      gcomprisBoard->mandatory_sound_file,
-			      gcomprisBoard->mandatory_sound_dataset,
-			      gcomprisBoard->filename,
-			      title,
-			      description,
-			      prerequisite,
-			      goal,
-			      manual,
-			      credit
-			      );
+			&gcomprisBoard->section_id,
+			gcomprisBoard->name,
+			gcomprisBoard->section,
+			gcomprisBoard->author,
+			gcomprisBoard->type,
+			gcomprisBoard->mode,
+			atoi(gcomprisBoard->difficulty),
+			gcomprisBoard->icon_name,
+			gcomprisBoard->boarddir,
+			gcomprisBoard->mandatory_sound_file,
+			gcomprisBoard->mandatory_sound_dataset,
+			gcomprisBoard->filename,
+			gcomprisBoard->title,
+			gcomprisBoard->description,
+			gcomprisBoard->prerequisite,
+			gcomprisBoard->goal,
+			gcomprisBoard->manual,
+			gcomprisBoard->credit
+			);
 
     g_warning("db board written %d in %d  %s/%s",
 	      gcomprisBoard->board_id, gcomprisBoard->section_id,
@@ -597,42 +597,47 @@ void gc_menu_load()
 {
   GcomprisProperties	*properties = gc_prop_get();
 
-  if(boards_list) {
-    cleanup_menus();
-    return;
-  }
-
-  if ((!properties->reread_menu) && gc_db_check_boards()){
-    boards_list = gc_menu_load_db(boards_list);
-
-    if (!properties->administration){
-      GList *out_boards = NULL;
-      GList *list = NULL;
-      GcomprisBoard *board;
-
-      for (list = boards_list; list != NULL; list = list->next){
-	board = (GcomprisBoard *)list->data;
-	if (g_list_find_custom(gc_profile_get_current()->activities,
-			       &(board->board_id), compare_id))
-	  out_boards = g_list_append(out_boards, board);
-      }
-      for (list = out_boards; list != NULL; list = list->next)
-	boards_list = g_list_remove(boards_list, list->data);
+  if(boards_list)
+    {
+      cleanup_menus();
+      return;
     }
-  }
-  else {
-    int db = (gc_profile_get_current() ? TRUE: FALSE);
-    properties->reread_menu = TRUE;
-    gc_menu_load_dir(properties->package_data_dir, db);
-    GDate *today = g_date_new();
-    g_date_set_time (today, time (NULL));
 
-    gchar date[11];
-    g_date_strftime (date, 11, "%F", today);
-    gc_db_set_date(date);
-    gc_db_set_version(VERSION);
-    g_date_free(today);
-  }
+  if ((!properties->reread_menu) && gc_db_check_boards())
+    {
+      boards_list = gc_menu_load_db(boards_list);
+
+      if (!properties->administration)
+	{
+	  GList *out_boards = NULL;
+	  GList *list = NULL;
+	  GcomprisBoard *board;
+
+	  for (list = boards_list; list != NULL; list = list->next)
+	    {
+	      board = (GcomprisBoard *)list->data;
+	      if (g_list_find_custom(gc_profile_get_current()->activities,
+				     &(board->board_id), compare_id))
+		out_boards = g_list_append(out_boards, board);
+	    }
+	  for (list = out_boards; list != NULL; list = list->next)
+	    boards_list = g_list_remove(boards_list, list->data);
+	}
+    }
+  else
+    {
+      int db = (gc_profile_get_current() ? TRUE: FALSE);
+      properties->reread_menu = TRUE;
+      gc_menu_load_dir(properties->package_data_dir, db);
+      GDate *today = g_date_new();
+      g_date_set_time (today, time (NULL));
+
+      gchar date[11];
+      g_date_strftime (date, 11, "%F", today);
+      gc_db_set_date(date);
+      gc_db_set_version(VERSION);
+      g_date_free(today);
+    }
 
 
   if (properties->local_directory){

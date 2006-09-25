@@ -32,7 +32,7 @@ import os
 import tempfile
 
 # Set to True to debug
-debug = False
+debug = True
 
 from gcompris import gcompris_gettext as _
 
@@ -280,6 +280,7 @@ class Gcompris_electric:
                        (Bulb, 0.11),
                        (Rheostat, 1000),
                        (Switch, None),
+                       (Switch2, None),
                        (Connection, None),
                        )
     elif(level == 3):
@@ -730,11 +731,13 @@ class Component(object):
       self.center_x =  pixmap.get_width()/2
       self.center_y =  pixmap.get_height()/2
 
+      self.component_item_offset_x = 0
+      self.component_item_offset_y = 0
       self.component_item = self.comp_rootitem.add(
         gnome.canvas.CanvasPixbuf,
         pixbuf = pixmap,
-        x = self.x,
-        y = self.y,
+        x = self.x + self.component_item_offset_x,
+        y = self.y + self.component_item_offset_y,
         )
       self.component_item.connect("event", self.component_move, self)
 
@@ -780,8 +783,8 @@ class Component(object):
       self.item_values.set(x =  self.item_values_x + self.x,
                            y =  self.item_values_y + self.y)
 
-      self.component_item.set(x =  self.x,
-                              y =  self.y)
+      self.component_item.set(x =  self.x + self.component_item_offset_x,
+                              y =  self.y + self.component_item_offset_y )
 
       for node in self.nodes:
         node.move( self.x,  self.y)
@@ -1056,6 +1059,156 @@ class Switch(Component):
     # Never show values
     self.item_values.hide()
     return True
+
+# ----------------------------------------
+# SWITCH2
+#
+#
+class Switch2(Component):
+  image = "electric/switch2_on.png"
+  icon  = "electric/switch2_icon.png"
+  def __init__(self, electric,
+               x, y, dummy):
+    self.click_ofset_x = 22
+    self.click_ofset_y = -28
+    self.gnucap_current_resistor = 1
+    self.gnucap_nb_resistor = 0
+    self.value_on  = "0"
+    self.value_off = "10000k"
+    self.value_top = self.value_on
+    self.value_bottom = self.value_off
+
+    super(Switch2, self).__init__(electric,
+                                   "R",
+                                   self.value_off,
+                                   self.image,
+                                   [Node("electric/connect.png", "C", -15, 0),
+                                    Node("electric/connect.png", "A", 80, -25),
+                                    Node("electric/connect.png", "B", 80, 25)])
+
+    # Overide some values
+    self.item_values.hide()
+
+    self.move(x, y)
+
+    pixmap = gcompris.utils.load_pixmap("electric/switch_click.png")
+    self.click_item = self.comp_rootitem.add(
+      gnome.canvas.CanvasPixbuf,
+      pixbuf = pixmap,
+      x = self.x + self.click_ofset_x,
+      y = self.y + self.click_ofset_y,
+      )
+    self.click_item.connect("event", self.component_click)
+    self.show()
+
+
+  # Callback event on the switch
+  def component_click(self, widget, event):
+    if event.state & gtk.gdk.BUTTON1_MASK:
+      if(self.value_top == self.value_off):
+        self.value_top = self.value_on
+        self.value_bottom = self.value_off
+        self.component_item_offset_y = - 6
+        pixmap = gcompris.utils.load_pixmap("electric/switch2_on.png")
+      else:
+        self.value_top = self.value_off
+        self.value_bottom = self.value_on
+        self.component_item_offset_y = 10
+        pixmap = gcompris.utils.load_pixmap("electric/switch2_off.png")
+
+      self.component_item.set(y = self.y + self.component_item_offset_y)
+      self.component_item.set(pixbuf = pixmap)
+      self.electric.run_simulation()
+
+    return False
+
+  # Callback event to move the component
+  def component_move(self, widget, event, component):
+    super(Switch2, self).component_move(widget, event, component)
+
+    if(self.electric.get_current_tools()=="DEL"):
+      return True
+
+    self.click_item.set(
+      x = self.x + self.click_ofset_x,
+      y = self.y + self.click_ofset_y)
+
+    return True
+
+  # Return True if this component is connected and can provides a gnucap
+  # description
+  #
+  # The switch2 needs at least 2 connected nodes
+  #
+  def is_connected(self):
+    count = 0
+    for node in self.nodes:
+      if node.get_wires():
+        count += 1
+
+    if count >= 2:
+      return True
+
+    return False
+
+  # Return the gnucap definition for a single resitor of the switch2
+  # node_id1 and node_id2 are the index in the list of nodes
+  def to_gnucap_res(self, gnucap_name, node_id1, node_id2, gnucap_value):
+    gnucap = gnucap_name
+    gnucap += " "
+
+    for i in (node_id1, node_id2):
+      node = self.nodes[i]
+      if node.get_wires():
+        gnucap += str(node.get_wires()[0].get_wire_id())
+
+      gnucap += " "
+
+    gnucap += " "
+    gnucap += str(gnucap_value)
+    gnucap += "\n"
+    gnucap += ".print dc + v(%s) i(%s)\n" %(gnucap_name, gnucap_name)
+
+    return gnucap
+
+  # Return the gnucap definition for this component
+  # depending of the connected nodes, it create one or two resistor
+  def to_gnucap(self, model):
+
+    gnucap = ""
+
+    # reset set_voltage_intensity counter
+    self.gnucap_current_resistor = 0
+    self.gnucap_nb_resistor = 0
+
+    # top resistor
+    if self.nodes[0].get_wires() and \
+       self.nodes[1].get_wires():
+      gnucap  += self.to_gnucap_res(self.gnucap_name + "_top", 0, 1,
+                                    self.value_top)
+      self.gnucap_nb_resistor += 1
+
+    # bottom resistor
+    if self.nodes[0].get_wires() and \
+       self.nodes[2].get_wires():
+      gnucap += self.to_gnucap_res(self.gnucap_name + "_bot", 0, 2,
+                                     self.value_bottom)
+      self.gnucap_nb_resistor += 1
+
+    return gnucap
+
+  # Return False if we need more value to complete our component
+  # This is usefull in case where one Component is made of several gnucap component
+  def set_voltage_intensity(self, valid_value, voltage, intensity):
+    # Never show values
+    self.item_values.hide()
+
+    self.gnucap_current_resistor += 1
+
+    if(self.gnucap_nb_resistor == self.gnucap_current_resistor):
+      return True
+    else:
+      return False
 
 # ----------------------------------------
 # RHEOSTAT

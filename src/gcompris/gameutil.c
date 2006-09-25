@@ -38,7 +38,7 @@ extern GnomeCanvas *canvas;
 typedef void (*sighandler_t)(int);
 
 
-/** load a pixmap from the filesystem 
+/** load a pixmap from the filesystem
  *
  * \param format: If format contains $LOCALE, it will be first replaced by the current long locale
  *                and if not found the short locale name. It support printf formating.
@@ -75,7 +75,7 @@ GdkPixbuf *gc_pixmap_load(const gchar *format, ...)
       else
 	g_warning ("Couldn't find file %s !", pixmapfile);
 
-      str = g_strdup_printf("%s\n%s\n%s\n%s", 
+      str = g_strdup_printf("%s\n%s\n%s\n%s",
 			    _("Couldn't find or load the file"),
 			    pixmapfile,
 			    _("This activity is incomplete."),
@@ -192,7 +192,7 @@ void gc_item_focus_set(GnomeCanvasItem *item, gboolean focus)
  			NULL);
 
     }
-  
+
 
   switch (focus)
     {
@@ -255,22 +255,21 @@ gchar *reactivate_newline(char *str)
 {
   gchar *newstr;
 
-  xmlParserCtxtPtr ctxt = xmlNewParserCtxt	();
+  xmlParserCtxtPtr ctxt = xmlNewParserCtxt();
 
   if(str==NULL)
     return NULL;
 
 
+  newstr =  (gchar *)xmlStringDecodeEntities(ctxt,
+					     BAD_CAST str,
+					     XML_SUBSTITUTE_REF,
+					     0,
+					     0,
+					     0);
 
-  newstr =  (gchar *)xmlStringDecodeEntities	(ctxt, 
-						 BAD_CAST str, 
-						 XML_SUBSTITUTE_REF, 
-						 0, 
-						 0, 
-						 0);
-    
-  xmlFreeParserCtxt		(ctxt);
-  
+  xmlFreeParserCtxt(ctxt);
+
   return newstr;
 }
 
@@ -285,7 +284,7 @@ void gc_item_absolute_move(GnomeCanvasItem *item, int x, int y) {
 /** As gnome does not implement its own API : gc_item_rotate
    we have to do it ourselves ....
    IMPORTANT NOTE : This is designed for an item with "anchor" =  GTK_ANCHOR_CENTER
-   rotation is clockwise if angle > 0 
+   rotation is clockwise if angle > 0
 */
 void
 gc_item_rotate(GnomeCanvasItem *item, double angle) {
@@ -351,7 +350,7 @@ gc_item_rotate_relative(GnomeCanvasItem *item, double angle) {
   y1 = MIN(ty1,ty2);
   x2 = MAX(tx1,tx2);
   y2 = MAX(ty1,ty2);
-    
+
 
   cx = (x2+x1)/2;
   cy = (y2+y1)/2;
@@ -421,8 +420,8 @@ gc_item_rotate_relative_with_center(GnomeCanvasItem *item, double angle, int x, 
  * The new group in which the stars are created is returned.
  * This is only usefull for the menu plugin and the configuration dialog box.
  */
-GnomeCanvasGroup *gc_difficulty_display(GnomeCanvasGroup *parent, 
-						    double x, double y, 
+GnomeCanvasGroup *gc_difficulty_display(GnomeCanvasGroup *parent,
+						    double x, double y,
 						    double ratio,
 						    gint difficulty)
 {
@@ -455,10 +454,10 @@ GnomeCanvasGroup *gc_difficulty_display(GnomeCanvasGroup *parent,
 						    "y", y,
 						    "width", (double) gdk_pixbuf_get_width(pixmap) * ratio,
 						    "height", (double) gdk_pixbuf_get_height(pixmap) * ratio,
-						    "width_set", TRUE, 
+						    "width_set", TRUE,
 						    "height_set", TRUE,
 						    NULL));
-  
+
   gtk_signal_connect(GTK_OBJECT(item), "event",
 		     (GtkSignalFunc) gc_item_focus_event,
 		     NULL);
@@ -480,10 +479,10 @@ gchar *g_utf8_strndup(gchar* utf8text, gint n)
  result = g_strndup(utf8text, g_utf8_offset_to_pointer(utf8text, len) - utf8text);
 
  return result;
-} 
+}
 
 /** \brief search a given relative file in all gcompris dir it could be found
- *     
+ *
  * \param format: If format contains $LOCALE, it will be first replaced by the current long locale
  *                and if not found the short locale name. It support printf formating.
  * \param ...:    additional params for the format (printf like)
@@ -521,14 +520,14 @@ gc_file_find_absolute(const gchar *format, ...)
   /*
    * Search it on the file system
    */
-  
+
   dir_to_search[i++] = properties->package_data_dir;
   dir_to_search[i++] = properties->user_data_dir;
   dir_to_search[i++] = NULL;
 
   absolute_filename = g_strdup(filename);
   i = 0;
-  
+
   while (dir_to_search[i])
     {
       gchar **tmp;
@@ -598,7 +597,7 @@ gc_file_find_absolute(const gchar *format, ...)
 
       i++;
     }
-    
+
   g_free(filename);
   g_free(absolute_filename);
   return NULL;

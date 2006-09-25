@@ -1,3 +1,54 @@
+2006-09-25  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	- fixed missing config.h.mingw.in (that replaces config.h.mingw)
+	- added support for python plugin compilation under mingw
+	- improved wordprocessor activity. it no more crashes and allow
+	  two styles, on for the layout, one for the color (on an idea
+	  of my daughter Clara)
+	- This activity could be moved out of --experimental now but
+	  we are in string freeze.
+	- Added a double switch in electricity. It is now possible to make
+	  a 2 switches corridor like circuit (va et vient in french).
+	- config.c : fixed a double memory free on locale that crashed GC at exit time.
+	- file_selector.c: fixed mime type loading and display. now uses gettext instead of
+	  inline xml translation.
+	- menu.c: fixed a misplaced free that makes all board description in the database to be junk.
+
+	* Makefile.mingw:
+	* boards/gcompris/mimetypes/Makefile.am:
+	* config.h.mingw.in:
+	* src/boards/python/electric.py:
+	* src/boards/wordprocessor.c: (wordprocessor_create),
+	(display_style_buttons), (item_event), (create_tags),
+	(set_default_style), (display_style_selector),
+	(display_color_style_selector), (tag_style_set),
+	(item_event_style_selection), (item_event_color_style_selection),
+	(key_press_event):
+	* src/gcompris/config.c: (gc_config_start), (gc_config_stop),
+	(display_previous_next), (get_next_locale), (get_previous_locale),
+	(item_event_ok):
+	* src/gcompris/file_selector.c: (gc_selector_file_stop),
+	(display_file_selector), (display_files), (item_event_directory),
+	(item_event_scroll), (item_event_file_selector), (parseMime),
+	(parse_doc), (load_mime_type_from_file), (gc_mime_type_load):
+	* src/gcompris/gameutil.c: (gc_pixmap_load), (gc_item_focus_set),
+	(reactivate_newline), (gc_item_rotate_relative),
+	(gc_difficulty_display), (g_utf8_strndup), (gc_file_find_absolute):
+	* src/gcompris/gcompris.c: (board_widget_key_press_callback):
+	* src/gcompris/gcompris_db.c: (gc_db_init), (gc_db_set_date),
+	(gc_db_set_version), (gc_db_check_boards), (gc_db_board_update),
+	(gc_menu_load_db), (gc_db_get_board_id), (gc_db_remove_board),
+	(gc_db_get_profile_from_id), (gc_db_profile_from_name_get),
+	(gc_db_get_profile), (gc_db_users_from_group_get),
+	(gc_db_get_user_from_id), (gc_db_get_class_from_id),
+	(gc_db_set_board_conf), (gc_db_conf_with_table_get),
+	(gc_db_get_board_conf), (gc_db_profiles_list_get),
+	(gc_db_get_group_from_id), (gc_db_get_groups_list),
+	(gc_db_get_board_from_id), (gc_db_get_users_list),
+	(gc_db_get_classes_list), (gc_db_is_activity_in_profile):
+	* src/gcompris/menu.c: (_add_xml_to_data), (gc_menu_load):
+	* src/gcompris/properties.c: (gc_prop_destroy):
+
 2006-09-23  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	- Start of support of python plugin on window.

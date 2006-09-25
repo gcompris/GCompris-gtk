@@ -320,6 +320,8 @@ gc_prop_new ()
 void
 gc_prop_destroy (GcomprisProperties *props)
 {
+  if(!props)
+    return;
   g_free(props->user_data_dir);
   g_free(props->package_data_dir);
   g_free(props->package_locale_dir);

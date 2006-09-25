@@ -138,7 +138,7 @@ static void set_locale_flag(gchar *locale);
 static gchar *get_next_locale(gchar *locale);
 static gchar *get_previous_locale(gchar *locale);
 static gint   item_event_ok(GnomeCanvasItem *item, GdkEvent *event, gpointer data);
-static void   display_previous_next(guint x_start, guint y_start, 
+static void   display_previous_next(guint x_start, guint y_start,
 				    gchar *eventname_previous, gchar *eventname_next);
 
 
@@ -177,7 +177,7 @@ gc_config_start ()
   x_start = (BOARDWIDTH - gdk_pixbuf_get_width(pixmap))/2;
   item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				gnome_canvas_pixbuf_get_type (),
-				"pixbuf", pixmap, 
+				"pixbuf", pixmap,
 				"x", (double) x_start,
 				"y", (double) y_start,
 				NULL);
@@ -221,7 +221,7 @@ gc_config_start ()
 
   item_locale_flag = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 					    gnome_canvas_pixbuf_get_type (),
-					    "pixbuf", NULL, 
+					    "pixbuf", NULL,
 					    "x", (double) x_flag_start,
 					    "y", (double) y_start - gdk_pixbuf_get_width(pixmap_checked)/2,
 					    NULL);
@@ -241,10 +241,10 @@ gc_config_start ()
    */
   current_locale = properties->locale;
   set_locale_flag(current_locale);
- 
+
   item_locale_text = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 					    gnome_canvas_text_get_type (),
-					    "text", gc_locale_get_name(current_locale), 
+					    "text", gc_locale_get_name(current_locale),
 					    "font", gc_skin_font_subtitle,
 					    "x", (double) x_text_start,
 					    "y", (double) y_start,
@@ -257,7 +257,7 @@ gc_config_start ()
 
   item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				gnome_canvas_pixbuf_get_type (),
-				"pixbuf", (properties->fullscreen ? pixmap_checked : pixmap_unchecked), 
+				"pixbuf", (properties->fullscreen ? pixmap_checked : pixmap_unchecked),
 				"x", (double) x_start,
 				"y", (double) y_start - gdk_pixbuf_get_width(pixmap_checked)/2,
 				NULL);
@@ -272,7 +272,7 @@ gc_config_start ()
 
   gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 			 gnome_canvas_text_get_type (),
-			 "text", _("Fullscreen"), 
+			 "text", _("Fullscreen"),
 			 "font", gc_skin_font_subtitle,
 			 "x", (double) x_text_start,
 			 "y", (double) y_start,
@@ -287,7 +287,7 @@ gc_config_start ()
 
   item_screen_text = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 					    gnome_canvas_text_get_type (),
-					    "text", gettext(screenname[properties->screensize]), 
+					    "text", gettext(screenname[properties->screensize]),
 					    "font", gc_skin_font_subtitle,
 					    "x", (double) x_text_start,
 					    "y", (double) y_start,
@@ -300,7 +300,7 @@ gc_config_start ()
 
   item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				gnome_canvas_pixbuf_get_type (),
-				"pixbuf", (properties->music ? pixmap_checked : pixmap_unchecked), 
+				"pixbuf", (properties->music ? pixmap_checked : pixmap_unchecked),
 				"x", (double) x_start,
 				"y", (double) y_start - gdk_pixbuf_get_width(pixmap_checked)/2,
 				NULL);
@@ -315,7 +315,7 @@ gc_config_start ()
 
   gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 			 gnome_canvas_text_get_type (),
-			 "text", _("Music"), 
+			 "text", _("Music"),
 			 "font", gc_skin_font_subtitle,
 			 "x", (double) x_text_start,
 			 "y", (double) y_start,
@@ -328,7 +328,7 @@ gc_config_start ()
 
   item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				gnome_canvas_pixbuf_get_type (),
-				"pixbuf", (properties->fx ? pixmap_checked : pixmap_unchecked), 
+				"pixbuf", (properties->fx ? pixmap_checked : pixmap_unchecked),
 				"x", (double) x_start,
 				"y", (double) y_start - gdk_pixbuf_get_width(pixmap_checked)/2,
 				NULL);
@@ -343,7 +343,7 @@ gc_config_start ()
 
   gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 			 gnome_canvas_text_get_type (),
-			 "text", _("Effect"), 
+			 "text", _("Effect"),
 			 "font", gc_skin_font_subtitle,
 			 "x", (double) x_text_start,
 			 "y", (double) y_start,
@@ -439,7 +439,7 @@ gc_config_start ()
 
   item_filter_text = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 						gnome_canvas_text_get_type (),
-						"markup", gettext(filtername[0]), 
+						"markup", gettext(filtername[0]),
 						"font", gc_skin_font_subtitle,
 						"x", (double) x_text_start,
 						"y", (double) y_start,
@@ -452,7 +452,7 @@ gc_config_start ()
   pixmap = gc_skin_pixmap_load("button_large.png");
   item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				gnome_canvas_pixbuf_get_type (),
-				"pixbuf", pixmap, 
+				"pixbuf", pixmap,
 				"x", (double) (BOARDWIDTH*0.5) - gdk_pixbuf_get_width(pixmap)/2,
 				"y", (double) y - gdk_pixbuf_get_height(pixmap) - 5,
 				NULL);
@@ -504,7 +504,7 @@ void gc_config_stop ()
       gtk_object_destroy(GTK_OBJECT(rootitem));
       gc_board_pause(FALSE);
     }
-  rootitem = NULL;	  
+  rootitem = NULL;
 
   stars_group = NULL;
 
@@ -556,7 +556,7 @@ gc_locale_get_name(gchar *locale)
 /*-------------------------------------------------------------------------------*/
 /*-------------------------------------------------------------------------------*/
 static void
-display_previous_next(guint x_start, guint y_start, 
+display_previous_next(guint x_start, guint y_start,
 		      gchar *eventname_previous, gchar *eventname_next)
 {
   GdkPixbuf   *pixmap = NULL;
@@ -565,7 +565,7 @@ display_previous_next(guint x_start, guint y_start,
   pixmap = gc_skin_pixmap_load("button_backward.png");
   item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				gnome_canvas_pixbuf_get_type (),
-				"pixbuf", pixmap, 
+				"pixbuf", pixmap,
 				"x", (double) x_start - gdk_pixbuf_get_width(pixmap) - 10,
 				"y", (double) y_start - gdk_pixbuf_get_width(pixmap_checked)/2,
 				NULL);
@@ -582,7 +582,7 @@ display_previous_next(guint x_start, guint y_start,
   pixmap = gc_skin_pixmap_load("button_forward.png");
   item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				gnome_canvas_pixbuf_get_type (),
-				"pixbuf", pixmap, 
+				"pixbuf", pixmap,
 				"x", (double) x_start,
 				"y", (double) y_start - gdk_pixbuf_get_width(pixmap_checked)/2,
 				NULL);
@@ -595,7 +595,7 @@ display_previous_next(guint x_start, guint y_start,
 		     NULL);
   gdk_pixbuf_unref(pixmap);
 }
-  
+
 static void
 set_locale_flag(gchar *locale)
 {
@@ -669,7 +669,7 @@ get_next_locale(gchar *locale)
 	    return(linguas[i+2]);
 	  else
 	    return(linguas[0]);
-	  
+
 	}
       i=i+2;
     }
@@ -697,7 +697,7 @@ get_previous_locale(gchar *locale)
 	      // Go to the end of the list
 	      while(linguas[i]!=NULL) { i=i+2; };
 	      return(linguas[i-2]);
-	    }	  
+	    }
 	}
       i=i+2;
     }
@@ -713,7 +713,7 @@ item_event_ok(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
   if(data==NULL)
     return FALSE;
 
-  switch (event->type) 
+  switch (event->type)
     {
     case GDK_ENTER_NOTIFY:
       break;
@@ -731,6 +731,11 @@ item_event_ok(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 	  properties->skin = g_strdup((char *)g_list_nth_data(skinlist, skin_index));
 	  gc_skin_load(properties->skin);
 	  gc_config_stop();
+
+	  /* Set the new locale in the properties */
+	  g_free(properties->locale);
+	  properties->locale = strdup(current_locale);
+
 	  gc_prop_save(properties);
 
 	  if(properties->music || properties->fx) {
@@ -749,7 +754,7 @@ item_event_ok(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 	    gc_fullscreen_set(properties->fullscreen);
 #endif
 	  /* Warning changing the image needs to update pixbuf_ref for the focus usage */
-	  g_object_set_data (G_OBJECT (item), "pixbuf_ref",  
+	  g_object_set_data (G_OBJECT (item), "pixbuf_ref",
 			     (properties->fullscreen ? pixmap_checked : pixmap_unchecked));
 	  gnome_canvas_item_set (item,
 				 "pixbuf", (properties->fullscreen ? pixmap_checked : pixmap_unchecked),
@@ -760,7 +765,7 @@ item_event_ok(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 	{
 	  properties->music = (properties->music ? 0 : 1);
 	  /* Warning changing the image needs to update pixbuf_ref for the focus usage */
-	  g_object_set_data (G_OBJECT (item), "pixbuf_ref",  
+	  g_object_set_data (G_OBJECT (item), "pixbuf_ref",
 			     (properties->music ? pixmap_checked : pixmap_unchecked));
 	  gnome_canvas_item_set (item,
 				 "pixbuf", (properties->music ? pixmap_checked : pixmap_unchecked),
@@ -771,7 +776,7 @@ item_event_ok(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 	{
 	  properties->fx = (properties->fx ? 0 : 1);
 	  /* Warning changing the image needs to update pixbuf_ref for the focus usage */
-	  g_object_set_data (G_OBJECT (item), "pixbuf_ref",  
+	  g_object_set_data (G_OBJECT (item), "pixbuf_ref",
 			     (properties->fx ? pixmap_checked : pixmap_unchecked));
 	  gnome_canvas_item_set (item,
 				 "pixbuf", (properties->fx ? pixmap_checked : pixmap_unchecked),
@@ -786,7 +791,6 @@ item_event_ok(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 				 "text", gc_locale_get_name(current_locale),
 				 NULL);
 	  set_locale_flag(current_locale);
-	  properties->locale = current_locale;
 	}
       else if(!strcmp((char *)data, "locale_next"))
 	{
@@ -796,7 +800,6 @@ item_event_ok(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 				 NULL);
 
 	  set_locale_flag(current_locale);
-	  properties->locale = current_locale;
 	}
       else if(!strcmp((char *)data, "screen_previous"))
 	{
@@ -804,7 +807,7 @@ item_event_ok(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 	    properties->screensize--;
 
 	  gnome_canvas_item_set (item_screen_text,
-				 "text", gettext(screenname[properties->screensize]), 
+				 "text", gettext(screenname[properties->screensize]),
 				 NULL);
 	}
       else if(!strcmp((char *)data, "screen_next"))
@@ -813,7 +816,7 @@ item_event_ok(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 	    properties->screensize++;
 
 	  gnome_canvas_item_set (item_screen_text,
-				 "text", gettext(screenname[properties->screensize]), 
+				 "text", gettext(screenname[properties->screensize]),
 				 NULL);
 	}
       else if(!strcmp((char *)data, "timer_previous"))
@@ -822,7 +825,7 @@ item_event_ok(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 	    properties->timer--;
 
 	  gnome_canvas_item_set (item_timer_text,
-				 "text", gettext(timername[properties->timer]), 
+				 "text", gettext(timername[properties->timer]),
 				 NULL);
 	}
       else if(!strcmp((char *)data, "timer_next"))
@@ -831,7 +834,7 @@ item_event_ok(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 	    properties->timer++;
 
 	  gnome_canvas_item_set (item_timer_text,
-				 "text", gettext(timername[properties->timer]), 
+				 "text", gettext(timername[properties->timer]),
 				 NULL);
 	}
       else if(!strcmp((char *)data, "skin_previous"))
@@ -840,7 +843,7 @@ item_event_ok(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 	  if(skin_index-- < 1)
 	    skin_index = g_list_length(skinlist)-1;
 
-	  skin_str = g_strdup_printf(_("Skin : %s"), 
+	  skin_str = g_strdup_printf(_("Skin : %s"),
 				     (char *)g_list_nth_data(skinlist, skin_index));
 
 	  gnome_canvas_item_set (item_skin_text,
@@ -854,7 +857,7 @@ item_event_ok(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 	  if(skin_index++ >= g_list_length(skinlist)-1)
 	    skin_index = 0;
 
-	  skin_str = g_strdup_printf(_("Skin : %s"), 
+	  skin_str = g_strdup_printf(_("Skin : %s"),
 				     (char *)g_list_nth_data(skinlist, skin_index));
 	  gnome_canvas_item_set (item_skin_text,
 				 "text", skin_str,

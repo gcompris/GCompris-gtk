@@ -80,7 +80,7 @@ static void map_cb  (GtkWidget *widget, gpointer data);
 static gint board_widget_key_press_callback (GtkWidget   *widget,
 					    GdkEventKey *event,
 					    gpointer     client_data);
-void gc_terminate(int  signum);
+void gc_terminate(int signum);
 
 static GcomprisProperties *properties = NULL;
 static gboolean		   antialiased = FALSE;
@@ -283,18 +283,6 @@ board_widget_key_press_callback (GtkWidget   *widget,
 #ifdef WIN32
   if(event->state & (GDK_CONTROL_MASK | GDK_SHIFT_MASK) && ((event->keyval == GDK_l)
 							  || (event->keyval == GDK_L))) {
-    properties->key="thanks_for_your_help";
-    gc_prop_save(properties);
-    gc_menu_load();
-
-    gc_close_all_dialog();
-
-    gc_board_stop();
-    return TRUE;
-  }
-
-  if(event->state & GDK_CONTROL_MASK && ((event->keyval == GDK_p)
-					 || (event->keyval == GDK_P))) {
     properties->key="thanks_for_your_help";
     gc_prop_save(properties);
     gc_menu_load();

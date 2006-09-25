@@ -29,85 +29,85 @@ static sqlite3 *gcompris_db=NULL;
 
 extern GnomeCanvas *canvas;
 
-#define CREATE_TABLE_USERS \
-        "CREATE TABLE users (user_id INT UNIQUE, login TEXT, lastname TEXT, firstname TEXT, birthdate TEXT, class_id INT ); "
-#define CREATE_TABLE_CLASS \
-        "CREATE TABLE class (class_id INT UNIQUE, name TEXT, teacher TEXT, wholegroup_id INT ); "
-#define CREATE_TABLE_GROUPS \
-        "CREATE TABLE groups (group_id INT UNIQUE, name TEXT, class_id INT, description TEXT ); "
-#define CREATE_TABLE_USERS_IN_GROUPS  \
-        "CREATE TABLE list_users_in_groups (user_id INT, group_id INT ); "
-#define CREATE_TABLE_GROUPS_IN_PROFILES  \
-        "CREATE TABLE list_groups_in_profiles (profile_id INT, group_id INT ); "
-#define CREATE_TABLE_ACTIVITIES_OUT \
-        "CREATE TABLE activities_out (board_id INT, type INT, out_id INT ); "
-#define CREATE_TABLE_PROFILES \
-        "CREATE TABLE profiles (profile_id INT UNIQUE, name TEXT, profile_directory TEXT, description TEXT); "
-#define CREATE_TABLE_BOARDS_PROFILES_CONF \
-        "CREATE TABLE board_profile_conf (profile_id INT, board_id INT, conf_key TEXT, conf_value TEXT ); "
-#define CREATE_TABLE_BOARDS \
-        "CREATE TABLE boards (board_id INT UNIQUE, name TEXT, section_id INT, section TEXT, author TEXT, type TEXT, mode TEXT, difficulty INT, icon TEXT, boarddir TEXT, mandatory_sound_file TEXT, mandatory_sound_dataset TEXT, filename TEXT, title TEXT, description TEXT, prerequisite TEXT, goal TEXT, manual TEXT, credit TEXT);"
+#define CREATE_TABLE_USERS						\
+  "CREATE TABLE users (user_id INT UNIQUE, login TEXT, lastname TEXT, firstname TEXT, birthdate TEXT, class_id INT ); "
+#define CREATE_TABLE_CLASS						\
+  "CREATE TABLE class (class_id INT UNIQUE, name TEXT, teacher TEXT, wholegroup_id INT ); "
+#define CREATE_TABLE_GROUPS						\
+  "CREATE TABLE groups (group_id INT UNIQUE, name TEXT, class_id INT, description TEXT ); "
+#define CREATE_TABLE_USERS_IN_GROUPS					\
+  "CREATE TABLE list_users_in_groups (user_id INT, group_id INT ); "
+#define CREATE_TABLE_GROUPS_IN_PROFILES					\
+  "CREATE TABLE list_groups_in_profiles (profile_id INT, group_id INT ); "
+#define CREATE_TABLE_ACTIVITIES_OUT					\
+  "CREATE TABLE activities_out (board_id INT, type INT, out_id INT ); "
+#define CREATE_TABLE_PROFILES						\
+  "CREATE TABLE profiles (profile_id INT UNIQUE, name TEXT, profile_directory TEXT, description TEXT); "
+#define CREATE_TABLE_BOARDS_PROFILES_CONF				\
+  "CREATE TABLE board_profile_conf (profile_id INT, board_id INT, conf_key TEXT, conf_value TEXT ); "
+#define CREATE_TABLE_BOARDS						\
+  "CREATE TABLE boards (board_id INT UNIQUE, name TEXT, section_id INT, section TEXT, author TEXT, type TEXT, mode TEXT, difficulty INT, icon TEXT, boarddir TEXT, mandatory_sound_file TEXT, mandatory_sound_dataset TEXT, filename TEXT, title TEXT, description TEXT, prerequisite TEXT, goal TEXT, manual TEXT, credit TEXT);"
 
-#define CREATE_TABLE_INFO \
-        "CREATE TABLE informations (gcompris_version TEXT UNIQUE, init_date TEXTUNIQUE, profile_id INT UNIQUE ); "
+#define CREATE_TABLE_INFO						\
+  "CREATE TABLE informations (gcompris_version TEXT UNIQUE, init_date TEXTUNIQUE, profile_id INT UNIQUE ); "
 
-#define PRAGMA_INTEGRITY \
-        "PRAGMA integrity_check; "
+#define PRAGMA_INTEGRITY			\
+  "PRAGMA integrity_check; "
 
 /* WARNING: template for g_strdup_printf */
-#define SET_VERSION(v)\
-        "INSERT INTO informations (gcompris_version) VALUES(\'%s\'); ", v
+#define SET_VERSION(v)							\
+  "INSERT INTO informations (gcompris_version) VALUES(\'%s\'); ", v
 
-#define CHECK_VERSION \
-        "SELECT gcompris_version FROM informations;"
+#define CHECK_VERSION				\
+  "SELECT gcompris_version FROM informations;"
 
-#define SET_DEFAULT_PROFILE \
-        "INSERT INTO profiles (profile_id, name, profile_directory, description) VALUES ( 1, \'Default\', \'Default\', \'Default profil for gcompris\');"
-#define ACTIVATE_DEFAULT_PROFILE \
-        "UPDATE informations SET profile_id=1;"
+#define SET_DEFAULT_PROFILE						\
+  "INSERT INTO profiles (profile_id, name, profile_directory, description) VALUES ( 1, \'Default\', \'Default\', \'Default profil for gcompris\');"
+#define ACTIVATE_DEFAULT_PROFILE		\
+  "UPDATE informations SET profile_id=1;"
 
-#define SET_DEFAULT_GROUP \
-        "INSERT INTO groups (group_id, name, class_id, description) VALUES ( 1, \'All\', 1, \'All users\');"
+#define SET_DEFAULT_GROUP						\
+  "INSERT INTO groups (group_id, name, class_id, description) VALUES ( 1, \'All\', 1, \'All users\');"
 
 /*
  * TRIGGERS
  * --------
  */
 
-#define TRIGGER_DELETE_CLASS \
+#define TRIGGER_DELETE_CLASS					\
   "CREATE TRIGGER delete_class  DELETE ON class\
      BEGIN								\
        DELETE FROM groups WHERE class_id=old.class_id;			\
        UPDATE users SET class_id=1 WHERE class_id=old.class_id;		\
      END;"
 
-#define TRIGGER_DELETE_GROUPS \
+#define TRIGGER_DELETE_GROUPS						\
   "CREATE TRIGGER delete_groups  DELETE ON groups\
      BEGIN								\
        DELETE FROM list_users_in_groups WHERE group_id=old.group_id;	\
        DELETE FROM list_groups_in_profiles WHERE group_id=old.group_id; \
      END;"
 
-#define TRIGGER_DELETE_PROFILES \
+#define TRIGGER_DELETE_PROFILES						\
   "CREATE TRIGGER delete_profiles DELETE ON profiles\
      BEGIN								\
        DELETE FROM list_groups_in_profiles WHERE profile_id=old.profile_id; \
        DELETE FROM board_profile_conf WHERE profile_id=old.profile_id;	\
      END;"
 
-#define TRIGGER_DELETE_USERS \
+#define TRIGGER_DELETE_USERS						\
   "CREATE TRIGGER delete_users DELETE ON users\
      BEGIN							   \
        DELETE FROM list_users_in_groups WHERE user_id=old.user_id; \
      END;"
 
-#define TRIGGER_INSERT_USERS \
+#define TRIGGER_INSERT_USERS						\
   "CREATE TRIGGER insert_users INSERT ON users\
      BEGIN								\
        INSERT INTO list_users_in_groups (user_id, group_id) VALUES (new.user_id, (SELECT wholegroup_id FROM class WHERE class_id=new.class_id)); \
      END;"
 
-#define TRIGGER_UPDATE_USERS \
+#define TRIGGER_UPDATE_USERS						\
   "CREATE TRIGGER update_wholegroup UPDATE OF class_id ON users\
      BEGIN							   \
        UPDATE list_users_in_groups SET group_id=(SELECT wholegroup_id FROM class WHERE class_id=new.class_id) WHERE user_id=new.user_id; \
@@ -126,14 +126,14 @@ int gc_db_init()
   gchar *request;
 
   GcomprisProperties	*properties = gc_prop_get();
-  
+
   if (!g_file_test(properties->database, G_FILE_TEST_EXISTS))
     creation = TRUE;
   else {
     /* we have to check this file is not empty,
        because bug in administration */
     struct stat buf;
-    
+
     if (stat(properties->database, &buf)!=0)
       g_error("Can't stat %s", properties->database);
 
@@ -143,7 +143,7 @@ int gc_db_init()
       g_warning("Database file is empty! Trying to create table...");
     }
   }
-    
+
   rc = sqlite3_open(properties->database, &gcompris_db);
   if( rc ){
     g_error("Can't open database: %s\n", sqlite3_errmsg(gcompris_db));
@@ -226,8 +226,8 @@ int gc_db_init()
 
     request = g_strdup_printf(SET_VERSION(VERSION));
 
-    rc = sqlite3_get_table(gcompris_db, 
-			   request,  
+    rc = sqlite3_get_table(gcompris_db,
+			   request,
 			   &result,
 			   &nrow,
 			   &ncolumn,
@@ -269,8 +269,8 @@ int gc_db_init()
 
   } else {
     /* Check the db integrity */
-    rc = sqlite3_get_table(gcompris_db, 
-			   PRAGMA_INTEGRITY,  
+    rc = sqlite3_get_table(gcompris_db,
+			   PRAGMA_INTEGRITY,
 			   &result,
 			   &nrow,
 			   &ncolumn,
@@ -284,8 +284,8 @@ int gc_db_init()
     g_warning("Database Integrity ok");
     sqlite3_free_table(result);
 
-    rc = sqlite3_get_table(gcompris_db, 
-			   CHECK_VERSION,  
+    rc = sqlite3_get_table(gcompris_db,
+			   CHECK_VERSION,
 			   &result,
 			   &nrow,
 			   &ncolumn,
@@ -314,8 +314,8 @@ void gc_db_exit()
 #endif
 }
 
-#define BOARDS_SET_DATE(date) \
-        "UPDATE informations SET init_date=\'%s\';",date
+#define BOARDS_SET_DATE(date)				\
+  "UPDATE informations SET init_date=\'%s\';",date
 
 void gc_db_set_date(gchar *date)
 {
@@ -329,25 +329,25 @@ void gc_db_set_date(gchar *date)
   gchar *request;
 
   request = g_strdup_printf(BOARDS_SET_DATE(date));
-  rc = sqlite3_get_table(gcompris_db, 
-			 request,  
+  rc = sqlite3_get_table(gcompris_db,
+			 request,
 			 &result,
 			 &nrow,
 			 &ncolumn,
 			 &zErrMsg
 			 );
-    if( rc!=SQLITE_OK ){
-      g_error("SQL error: %s\n", zErrMsg);
-    }
-    g_free(request);
+  if( rc!=SQLITE_OK ){
+    g_error("SQL error: %s\n", zErrMsg);
+  }
+  g_free(request);
 
-    sqlite3_free_table(result);
+  sqlite3_free_table(result);
 
 #endif
 }
 
-#define BOARDS_UPDATE_VERSION(version) \
-        "UPDATE informations SET gcompris_version=\'%s\';",version
+#define BOARDS_UPDATE_VERSION(version)				\
+  "UPDATE informations SET gcompris_version=\'%s\';",version
 
 void gc_db_set_version(gchar *version)
 {
@@ -361,25 +361,25 @@ void gc_db_set_version(gchar *version)
   gchar *request;
 
   request = g_strdup_printf(BOARDS_UPDATE_VERSION(version));
-  rc = sqlite3_get_table(gcompris_db, 
-			 request,  
+  rc = sqlite3_get_table(gcompris_db,
+			 request,
 			 &result,
 			 &nrow,
 			 &ncolumn,
 			 &zErrMsg
 			 );
-    if( rc!=SQLITE_OK ){
-      g_error("SQL error: %s\n", zErrMsg);
-    }
-    g_free(request);
+  if( rc!=SQLITE_OK ){
+    g_error("SQL error: %s\n", zErrMsg);
+  }
+  g_free(request);
 
-    sqlite3_free_table(result);
+  sqlite3_free_table(result);
 
 #endif
 }
 
-#define BOARDS_CHECK \
-        "SELECT gcompris_version, init_date FROM informations;"
+#define BOARDS_CHECK						\
+  "SELECT gcompris_version, init_date FROM informations;"
 gboolean gc_db_check_boards()
 {
 #ifdef USE_SQLITE
@@ -391,64 +391,65 @@ gboolean gc_db_check_boards()
   int ncolumn;
   gboolean ret_value;
 
-  rc = sqlite3_get_table(gcompris_db, 
-			 BOARDS_CHECK,  
+  rc = sqlite3_get_table(gcompris_db,
+			 BOARDS_CHECK,
 			 &result,
 			 &nrow,
 			 &ncolumn,
 			 &zErrMsg
 			 );
-    if( rc!=SQLITE_OK ){
-      g_error("SQL error: %s\n", zErrMsg);
-    }
+  if( rc!=SQLITE_OK ){
+    g_error("SQL error: %s\n", zErrMsg);
+  }
 
-    ret_value = (strcmp(result[2],VERSION)==0) && (result[3] != NULL);
+  ret_value = (strcmp(result[2],VERSION)==0) && (result[3] != NULL);
 
-    sqlite3_free_table(result);
+  sqlite3_free_table(result);
 
-    return ret_value;
+  return ret_value;
 #else
-    return FALSE;
+  return FALSE;
 #endif
 }
 
 
-#define BOARD_INSERT \
-        "INSERT OR REPLACE INTO boards VALUES (%d, %Q, %d, %Q, %Q, %Q, %Q, %d, %Q, %Q, %Q, %Q, %Q, %Q, %Q, %Q, %Q, %Q, %Q);"
+#define BOARD_INSERT							\
+  "INSERT OR REPLACE INTO boards VALUES (%d, %Q, %d, %Q, %Q, %Q, %Q, %d, %Q, %Q, %Q, %Q, %Q, %Q, %Q, %Q, %Q, %Q, %Q);"
 
-#define MAX_BOARD_ID \
-        "SELECT MAX(board_id) FROM boards;"
+#define MAX_BOARD_ID				\
+  "SELECT MAX(board_id) FROM boards;"
 
-#define SECTION_ID(s) \
-        "SELECT section_id FROM boards WHERE section=\'%s\';",s
+#define SECTION_ID(s)						\
+  "SELECT section_id FROM boards WHERE section=\'%s\';",s
 
-#define MAX_SECTION_ID \
-        "SELECT MAX(section_id) FROM boards;"
+#define MAX_SECTION_ID				\
+  "SELECT MAX(section_id) FROM boards;"
 
-#define CHECK_BOARD(n) \
-        "SELECT board_id FROM boards WHERE name=\'%s\';",n
+#define CHECK_BOARD(n)					\
+  "SELECT board_id FROM boards WHERE name=\'%s\';",n
 
 
-void gc_db_board_update(guint *board_id,
-			      guint *section_id,
-			      gchar *name,
-			      gchar *section,
-			      gchar *author,
-			      gchar *type,
-			      gchar *mode,
-			      int difficulty,
-			      gchar *icon,
-			      gchar *boarddir,
-			      gchar *mandatory_sound_file,
-			      gchar *mandatory_sound_dataset,
-			      gchar *filename,
-			      gchar *title, 
-			      gchar *description, 
-			      gchar *prerequisite, 
-			      gchar *goal, 
-			      gchar *manual,
-			      gchar *credit
-			      )
+void
+gc_db_board_update(guint *board_id,
+		   guint *section_id,
+		   gchar *name,
+		   gchar *section,
+		   gchar *author,
+		   gchar *type,
+		   gchar *mode,
+		   int difficulty,
+		   gchar *icon,
+		   gchar *boarddir,
+		   gchar *mandatory_sound_file,
+		   gchar *mandatory_sound_dataset,
+		   gchar *filename,
+		   gchar *title,
+		   gchar *description,
+		   gchar *prerequisite,
+		   gchar *goal,
+		   gchar *manual,
+		   gchar *credit
+		   )
 {
 #ifdef USE_SQLITE
 
@@ -464,19 +465,19 @@ void gc_db_board_update(guint *board_id,
 
   if (*board_id==0){
     /* board not yet registered */
-    
+
     /* assume name is unique */
-    
+
     request = g_strdup_printf(CHECK_BOARD(name));
 
-    rc = sqlite3_get_table(gcompris_db, 
-			   request,  
+    rc = sqlite3_get_table(gcompris_db,
+			   request,
 			   &result,
 			   &nrow,
 			   &ncolumn,
 			   &zErrMsg
 			   );
-    
+
     if( rc!=SQLITE_OK ){
       g_error("SQL error: %s\n", zErrMsg);
     }
@@ -489,124 +490,124 @@ void gc_db_board_update(guint *board_id,
     } else {
 
       /* get last board_id written */
-      rc = sqlite3_get_table(gcompris_db, 
+      rc = sqlite3_get_table(gcompris_db,
 			     MAX_BOARD_ID,
 			     &result,
 			     &nrow,
 			     &ncolumn,
 			     &zErrMsg
 			     );
-      
+
       if( rc!=SQLITE_OK ){
 	g_error("SQL error: %s\n", zErrMsg);
       }
-      
+
       if (result[1] == NULL)
 	*board_id = 1;
       else
 	*board_id = atoi(result[1]) + 1;
 
       sqlite3_free_table(result);
-      
-    }      
+
+    }
   }
-  
+
   /* get section_id */
   request = g_strdup_printf(SECTION_ID(section));
- 
-  rc = sqlite3_get_table(gcompris_db, 
+
+  rc = sqlite3_get_table(gcompris_db,
 			 request,
 			 &result,
 			 &nrow,
 			 &ncolumn,
 			 &zErrMsg
 			 );
-    
+
   g_free(request);
- 
+
   if( rc!=SQLITE_OK ){
     g_error("SQL error: %s\n", zErrMsg);
   }
-    
+
   if (nrow == 0){
-    
+
     /* get max section_id */
-    
-    rc = sqlite3_get_table(gcompris_db, 
+
+    rc = sqlite3_get_table(gcompris_db,
 			   MAX_SECTION_ID,
 			   &result,
 			   &nrow,
 			   &ncolumn,
 			   &zErrMsg
 			   );
-    
-    
+
+
     if( rc!=SQLITE_OK ){
       g_error("SQL error: %s\n", zErrMsg);
     }
-      
+
     if (result[1] == NULL){
       *section_id = 1;
     } else {
       *section_id = atoi(result[1]) + 1;
     }
     sqlite3_free_table(result);
-  } else { 
+  } else {
     *section_id = atoi(result[1]);
     sqlite3_free_table(result);
   }
 
   request = sqlite3_mprintf( BOARD_INSERT,
-			    *board_id,
-			    name,
-			    *section_id,
-			    section, 
-			    author,
-			    type,
-			    mode,
-			    difficulty,
-			    icon,
-			    boarddir,
-			    mandatory_sound_file,
-			    mandatory_sound_dataset, 
-			    filename, 
-			    title,
-			    description,
-			    prerequisite, 
-				goal, 
-			    manual,
-			    credit
-			    );
-  
-  rc = sqlite3_get_table(gcompris_db, 
-			 request,  
+			     *board_id,
+			     name,
+			     *section_id,
+			     section,
+			     author,
+			     type,
+			     mode,
+			     difficulty,
+			     icon,
+			     boarddir,
+			     mandatory_sound_file,
+			     mandatory_sound_dataset,
+			     filename,
+			     title,
+			     description,
+			     prerequisite,
+			     goal,
+			     manual,
+			     credit
+			     );
+
+  rc = sqlite3_get_table(gcompris_db,
+			 request,
 			 &result,
 			 &nrow,
 			 &ncolumn,
 			 &zErrMsg
 			 );
-  
+
   if( rc!=SQLITE_OK ){
     g_error("SQL error: %s\n", zErrMsg);
   }
-  
+
   sqlite3_free_table(result);
-  
+
   sqlite3_free(request);
- 
+
 #endif
 }
 
 
-#define BOARDS_READ \
-        "SELECT board_id ,name, section_id, section, author, type, mode, difficulty, icon, boarddir, mandatory_sound_file, mandatory_sound_dataset, filename, title, description, prerequisite, goal, manual, credit FROM boards;"
+#define BOARDS_READ							\
+  "SELECT board_id ,name, section_id, section, author, type, mode, difficulty, icon, boarddir, mandatory_sound_file, mandatory_sound_dataset, filename, title, description, prerequisite, goal, manual, credit FROM boards;"
 
 GList *gc_menu_load_db(GList *boards_list)
 {
 #ifdef USE_SQLITE
 
   GcomprisProperties	*properties = gc_prop_get();
-  
+
   GList *boards = boards_list;
 
   char *zErrMsg;
@@ -616,42 +617,42 @@ GList *gc_menu_load_db(GList *boards_list)
   int ncolumn;
   int i;
 
-  rc = sqlite3_get_table(gcompris_db, 
-			 BOARDS_READ,  
+  rc = sqlite3_get_table(gcompris_db,
+			 BOARDS_READ,
 			 &result,
 			 &nrow,
 			 &ncolumn,
 			 &zErrMsg
 			 );
-  
+
   if( rc!=SQLITE_OK ){
     g_error("SQL error: %s\n", zErrMsg);
   }
 
   /* first ncolumns are columns labels. */
   i = ncolumn;
-  
+
   while (i < (nrow +1)*ncolumn) {
     GcomprisBoard *gcomprisBoard = NULL;
 
     gcomprisBoard = g_malloc0 (sizeof (GcomprisBoard));
-    
+
     gcomprisBoard->plugin=NULL;
     gcomprisBoard->previous_board=NULL;
     gcomprisBoard->board_ready=FALSE;
     gcomprisBoard->canvas=canvas;
-    
+
     gcomprisBoard->gmodule      = NULL;
     gcomprisBoard->gmodule_file = NULL;
-    
+
     /* From DB we have only package_data_dir. */
     gcomprisBoard->board_dir = properties->package_data_dir;
-    
+
     /* Fixed since I use the canvas own pixel_per_unit scheme */
     gcomprisBoard->width  = BOARDWIDTH;
     gcomprisBoard->height = BOARDHEIGHT;
-    
-    
+
+
     gcomprisBoard->board_id = atoi(result[i++]);
     gcomprisBoard->name = g_strdup(result[i++]);
     gcomprisBoard->section_id = atoi(result[i++]);
@@ -671,12 +672,12 @@ GList *gc_menu_load_db(GList *boards_list)
     gcomprisBoard->goal = reactivate_newline(gettext(result[i++]));
     gcomprisBoard->manual = reactivate_newline(gettext(result[i++]));
     gcomprisBoard->credit = reactivate_newline(gettext(result[i++]));
-    
+
     boards = g_list_append(boards, gcomprisBoard);
-  } 
+  }
 
   sqlite3_free_table(result);
-  
+
   return boards;
 
 #else
@@ -690,13 +691,13 @@ GList *gc_db_read_board_from_section(gchar *section)
 }
 
 
-#define BOARD_ID_READ \
-        "SELECT board_id FROM boards;"
+#define BOARD_ID_READ				\
+  "SELECT board_id FROM boards;"
 
 GList *gc_db_get_board_id(GList *list)
 {
 #ifdef USE_SQLITE
-  
+
   GList *board_id_list = list;
 
   char *zErrMsg;
@@ -705,25 +706,25 @@ GList *gc_db_get_board_id(GList *list)
   int nrow;
   int ncolumn;
   int i;
-  
-  rc = sqlite3_get_table(gcompris_db, 
-			 BOARD_ID_READ,  
+
+  rc = sqlite3_get_table(gcompris_db,
+			 BOARD_ID_READ,
 			 &result,
 			 &nrow,
 			 &ncolumn,
 			 &zErrMsg
 			 );
-  
+
   if( rc!=SQLITE_OK ){
     g_error("SQL error: %s\n", zErrMsg);
   }
 
   /* first ncolumns are columns labels. */
   i = ncolumn;
-  
+
   while (i < (nrow +1)*ncolumn) {
     int *board_id = g_malloc(sizeof(int));
-  
+
     *board_id = atoi(result[i++]);
     board_id_list = g_list_append(board_id_list, board_id);
   }
@@ -735,8 +736,8 @@ GList *gc_db_get_board_id(GList *list)
 #endif
 }
 
-#define DELETE_BOARD(table, board_id) \
-        "DELETE FROM %s WHERE board_id=%d;", table, board_id
+#define DELETE_BOARD(table, board_id)			\
+  "DELETE FROM %s WHERE board_id=%d;", table, board_id
 
 void gc_db_remove_board(int board_id)
 {
@@ -753,14 +754,14 @@ void gc_db_remove_board(int board_id)
   /* get section_id */
   request = g_strdup_printf(DELETE_BOARD("boards",board_id));
 
-  rc = sqlite3_get_table(gcompris_db, 
-			 request,  
+  rc = sqlite3_get_table(gcompris_db,
+			 request,
 			 &result,
 			 &nrow,
 			 &ncolumn,
 			 &zErrMsg
 			 );
-  
+
   if( rc!=SQLITE_OK ){
     g_error("SQL error: %s\n", zErrMsg);
   }
@@ -771,14 +772,14 @@ void gc_db_remove_board(int board_id)
   /* get section_id */
   request = g_strdup_printf(DELETE_BOARD("board_profile_conf",board_id));
 
-  rc = sqlite3_get_table(gcompris_db, 
-			 request,  
+  rc = sqlite3_get_table(gcompris_db,
+			 request,
 			 &result,
 			 &nrow,
 			 &ncolumn,
 			 &zErrMsg
 			 );
-  
+
   if( rc!=SQLITE_OK ){
     g_error("SQL error: %s\n", zErrMsg);
   }
@@ -789,14 +790,14 @@ void gc_db_remove_board(int board_id)
   /* get section_id */
   request = g_strdup_printf(DELETE_BOARD("activities_out",board_id));
 
-  rc = sqlite3_get_table(gcompris_db, 
-			 request,  
+  rc = sqlite3_get_table(gcompris_db,
+			 request,
 			 &result,
 			 &nrow,
 			 &ncolumn,
 			 &zErrMsg
 			 );
-  
+
   if( rc!=SQLITE_OK ){
     g_error("SQL error: %s\n", zErrMsg);
   }
@@ -806,17 +807,17 @@ void gc_db_remove_board(int board_id)
 }
 
 
-#define GET_PROFILE(n) \
-        "SELECT name, profile_directory, description FROM profiles WHERE profile_id=%d;",n
+#define GET_PROFILE(n)							\
+  "SELECT name, profile_directory, description FROM profiles WHERE profile_id=%d;",n
 
-#define GET_PROFILE_FROM_NAME(n) \
-        "SELECT profile_id, profile_directory, description FROM profiles WHERE name='%s';",n
+#define GET_PROFILE_FROM_NAME(n)					\
+  "SELECT profile_id, profile_directory, description FROM profiles WHERE name='%s';",n
 
-#define GET_GROUPS_IN_PROFILE(n) \
-        "SELECT group_id FROM list_groups_in_profiles WHERE profile_id=%d;",n
+#define GET_GROUPS_IN_PROFILE(n)					\
+  "SELECT group_id FROM list_groups_in_profiles WHERE profile_id=%d;",n
 
-#define GET_ACTIVITIES_OUT_OF_PROFILE(n) \
-        "SELECT board_id FROM activities_out WHERE out_id=%d;",n
+#define GET_ACTIVITIES_OUT_OF_PROFILE(n)			\
+  "SELECT board_id FROM activities_out WHERE out_id=%d;",n
 
 GcomprisProfile *gc_db_get_profile_from_id(gint profile_id)
 {
@@ -835,57 +836,57 @@ GcomprisProfile *gc_db_get_profile_from_id(gint profile_id)
   /* get section_id */
   request = g_strdup_printf(GET_PROFILE(profile_id));
 
-  
-  rc = sqlite3_get_table(gcompris_db, 
-			 request,  
+
+  rc = sqlite3_get_table(gcompris_db,
+			 request,
 			 &result,
 			 &nrow,
 			 &ncolumn,
 			 &zErrMsg
 			 );
-  
+
   if( rc!=SQLITE_OK ){
     g_error("SQL error: %s\n", zErrMsg);
   }
-  
+
   if (nrow != 0){
     profile = g_malloc0(sizeof(GcomprisProfile));
 
-    profile->profile_id = profile_id; 
+    profile->profile_id = profile_id;
 
-    
+
     profile->name = g_strdup(result[3]);
     profile->directory = g_strdup(result[4]);
     profile->description = g_strdup(result[5]);
     sqlite3_free_table(result);
     g_free(request);
-    
+
     request = g_strdup_printf(GET_GROUPS_IN_PROFILE(profile->profile_id));
 
-    rc = sqlite3_get_table(gcompris_db, 
-			   request,  
+    rc = sqlite3_get_table(gcompris_db,
+			   request,
 			   &result,
 			   &nrow,
 			   &ncolumn,
 			   &zErrMsg
-			 );
-    
+			   );
+
     if( rc!=SQLITE_OK ){
       g_error("SQL error: %s\n", zErrMsg);
     }
 
     g_free(request);
-    
+
     if (nrow == 0){
       g_warning("No users' groups for profile %s", profile->name);
       profile->group_ids = NULL;
     } else {
       ids = NULL;
-      
+
       i = ncolumn;
       while (i < (nrow +1)*ncolumn) {
 	int *group_id = g_malloc(sizeof(int));
-	
+
 	*group_id = atoi(result[i++]);
 	ids = g_list_append(ids, group_id);
       }
@@ -894,30 +895,30 @@ GcomprisProfile *gc_db_get_profile_from_id(gint profile_id)
     sqlite3_free_table(result);
 
     request = g_strdup_printf(GET_ACTIVITIES_OUT_OF_PROFILE(profile->profile_id));
-    rc = sqlite3_get_table(gcompris_db, 
-			   request,  
+    rc = sqlite3_get_table(gcompris_db,
+			   request,
 			   &result,
 			   &nrow,
 			   &ncolumn,
 			   &zErrMsg
 			   );
-    
+
     if( rc!=SQLITE_OK ){
       g_error("SQL error: %s\n", zErrMsg);
     }
-    
+
     g_free(request);
-    
+
     if (nrow == 0){
       g_warning("No activities for profile %s", profile->name);
       profile->activities = NULL;
     } else {
       ids = NULL;
-      
+
       i = ncolumn;
       while (i < (nrow +1)*ncolumn) {
 	int *board_id = g_malloc(sizeof(int));
-	
+
 	*board_id = atoi(result[i++]);
 	ids = g_list_append(ids, board_id);
       }
@@ -935,7 +936,7 @@ GcomprisProfile *gc_db_get_profile_from_id(gint profile_id)
 /** \brief Given a profile name, return a GcomprisProfile struct
  *
  * \param profile_name: the profile to retrieve.
- * 
+ *
  * \return *GcomprisProfile
  */
 GcomprisProfile *
@@ -954,18 +955,18 @@ gc_db_profile_from_name_get(gchar *profile_name)
   /* get section_id */
   request = g_strdup_printf(GET_PROFILE_FROM_NAME(profile_name));
 
-  rc = sqlite3_get_table(gcompris_db, 
-			 request,  
+  rc = sqlite3_get_table(gcompris_db,
+			 request,
 			 &result,
 			 &nrow,
 			 &ncolumn,
 			 &zErrMsg
 			 );
-  
+
   if( rc!=SQLITE_OK ){
     g_error("SQL error: %s\n", zErrMsg);
   }
-  
+
   if (nrow != 0){
     gint profile_id;
 
@@ -986,8 +987,8 @@ gc_db_profile_from_name_get(gchar *profile_name)
 
 
 
-#define GET_ACTIVE_PROFILE_ID \
-        "SELECT profile_id FROM informations;"
+#define GET_ACTIVE_PROFILE_ID			\
+  "SELECT profile_id FROM informations;"
 
 GcomprisProfile *gc_db_get_profile()
 {
@@ -999,19 +1000,19 @@ GcomprisProfile *gc_db_get_profile()
   int ncolumn;
   int profile_id;
 
-  rc = sqlite3_get_table(gcompris_db, 
-			 GET_ACTIVE_PROFILE_ID,  
+  rc = sqlite3_get_table(gcompris_db,
+			 GET_ACTIVE_PROFILE_ID,
 			 &result,
 			 &nrow,
 			 &ncolumn,
 			 &zErrMsg
 			 );
-  
+
   if( rc!=SQLITE_OK ){
     g_error("SQL error: %s\n", zErrMsg);
   }
 
-  profile_id = atoi(result[1]); 
+  profile_id = atoi(result[1]);
 
   sqlite3_free_table(result);
 
@@ -1022,8 +1023,8 @@ GcomprisProfile *gc_db_get_profile()
 #endif
 }
 
-#define USERS_FROM_GROUP(n) \
-        "SELECT users.user_id, users.login, users.lastname, users.firstname, users.birthdate, users.class_id  FROM users, list_users_in_groups WHERE users.user_id = list_users_in_groups.user_id AND list_users_in_groups.group_id = %d;",n
+#define USERS_FROM_GROUP(n)						\
+  "SELECT users.user_id, users.login, users.lastname, users.firstname, users.birthdate, users.class_id  FROM users, list_users_in_groups WHERE users.user_id = list_users_in_groups.user_id AND list_users_in_groups.group_id = %d;",n
 
 GList *gc_db_users_from_group_get(gint group_id)
 {
@@ -1039,14 +1040,14 @@ GList *gc_db_users_from_group_get(gint group_id)
   GList *users = NULL;
 
   request = g_strdup_printf(USERS_FROM_GROUP(group_id));
-  rc = sqlite3_get_table(gcompris_db, 
-			 request,  
+  rc = sqlite3_get_table(gcompris_db,
+			 request,
 			 &result,
 			 &nrow,
 			 &ncolumn,
 			 &zErrMsg
 			 );
-  
+
   if( rc!=SQLITE_OK ){
     g_error("SQL error: %s\n", zErrMsg);
   }
@@ -1059,14 +1060,14 @@ GList *gc_db_users_from_group_get(gint group_id)
     i = ncolumn;
     while (i < (nrow +1)*ncolumn) {
       GcomprisUser *user = g_malloc0(sizeof(GcomprisUser));
-      
+
       user->user_id = atoi(result[i++]);
       user->login = g_strdup(result[i++]);
       user->lastname = g_strdup(result[i++]);
       user->firstname = g_strdup(result[i++]);
       user->birthdate = g_strdup(result[i++]);
       user->class_id = atoi(result[i++]);
-      
+
       users = g_list_append(users, user);
     }
   }
@@ -1077,8 +1078,8 @@ GList *gc_db_users_from_group_get(gint group_id)
 #endif
 }
 
-#define USER_FROM_ID(n) \
-        "SELECT users.login, lastname, firstname, birthdate, class_id  FROM users WHERE user_id = %d;",n
+#define USER_FROM_ID(n)							\
+  "SELECT users.login, lastname, firstname, birthdate, class_id  FROM users WHERE user_id = %d;",n
 
 GcomprisUser *gc_db_get_user_from_id(gint user_id)
 {
@@ -1093,14 +1094,14 @@ GcomprisUser *gc_db_get_user_from_id(gint user_id)
   GcomprisUser *user = NULL;
 
   request = g_strdup_printf(USER_FROM_ID(user_id));
-  rc = sqlite3_get_table(gcompris_db, 
-			 request,  
+  rc = sqlite3_get_table(gcompris_db,
+			 request,
 			 &result,
 			 &nrow,
 			 &ncolumn,
 			 &zErrMsg
 			 );
-  
+
   if( rc!=SQLITE_OK ){
     g_error("SQL error: %s\n", zErrMsg);
   }
@@ -1113,7 +1114,7 @@ GcomprisUser *gc_db_get_user_from_id(gint user_id)
   } else {
     i = ncolumn;
     user = g_malloc0(sizeof(GcomprisUser));
-    
+
     user->user_id = user_id;
     user->login = g_strdup(result[i++]);
     user->lastname = g_strdup(result[i++]);
@@ -1121,7 +1122,7 @@ GcomprisUser *gc_db_get_user_from_id(gint user_id)
     user->birthdate = g_strdup(result[i++]);
     user->class_id = atoi(result[i++]);
   }
-  
+
 
   return user ;
 #else
@@ -1129,11 +1130,11 @@ GcomprisUser *gc_db_get_user_from_id(gint user_id)
 #endif
 }
 
-#define CLASS_FROM_ID(n) \
-        "SELECT name, teacher, wholegroup_id  FROM class WHERE class_id = %d;",n
+#define CLASS_FROM_ID(n)						\
+  "SELECT name, teacher, wholegroup_id  FROM class WHERE class_id = %d;",n
 
-#define GROUPS_IN_CLASS(n) \
-        "SELECT group_id  FROM groups WHERE class_id = %d;",n
+#define GROUPS_IN_CLASS(n)				\
+  "SELECT group_id  FROM groups WHERE class_id = %d;",n
 
 GcomprisClass *gc_db_get_class_from_id(gint class_id)
 {
@@ -1149,14 +1150,14 @@ GcomprisClass *gc_db_get_class_from_id(gint class_id)
   GcomprisClass *class = NULL;
 
   request = g_strdup_printf(CLASS_FROM_ID(class_id));
-  rc = sqlite3_get_table(gcompris_db, 
-			 request,  
+  rc = sqlite3_get_table(gcompris_db,
+			 request,
 			 &result,
 			 &nrow,
 			 &ncolumn,
 			 &zErrMsg
 			 );
-  
+
   if( rc!=SQLITE_OK ){
     g_error("SQL error: %s\n", zErrMsg);
   }
@@ -1184,14 +1185,14 @@ GcomprisClass *gc_db_get_class_from_id(gint class_id)
 
   request = g_strdup_printf(GROUPS_IN_CLASS(class_id));
 
-  rc = sqlite3_get_table(gcompris_db, 
-			 request,  
+  rc = sqlite3_get_table(gcompris_db,
+			 request,
 			 &result,
 			 &nrow,
 			 &ncolumn,
 			 &zErrMsg
 			 );
-  
+
   if( rc!=SQLITE_OK ){
     g_error("SQL error: %s\n", zErrMsg);
   }
@@ -1199,7 +1200,7 @@ GcomprisClass *gc_db_get_class_from_id(gint class_id)
   g_free(request);
 
   if (nrow == 0){
-    g_error("No groups found for class id %d: there must be at least one for the whole class with id (%d)", 
+    g_error("No groups found for class id %d: there must be at least one for the whole class with id (%d)",
 	    class_id, class->wholegroup_id);
     g_free(class);
     class = NULL;
@@ -1222,19 +1223,19 @@ GcomprisClass *gc_db_get_class_from_id(gint class_id)
 }
 
 
-#define CHECK_CONF \
-        "SELECT * FROM board_profile_conf WHERE profile_id=%d AND board_id=%d AND conf_key=%Q;"
+#define CHECK_CONF							\
+  "SELECT * FROM board_profile_conf WHERE profile_id=%d AND board_id=%d AND conf_key=%Q;"
 
-#define INSERT_KEY \
-        "INSERT INTO board_profile_conf (profile_id, board_id, conf_key, conf_value) VALUES (%d, %d, %Q, %Q);"
+#define INSERT_KEY							\
+  "INSERT INTO board_profile_conf (profile_id, board_id, conf_key, conf_value) VALUES (%d, %d, %Q, %Q);"
 
-#define UPDATE_KEY \
-        "UPDATE board_profile_conf SET conf_value=%Q WHERE profile_id=%d AND board_id=%d AND conf_key=%Q;"
+#define UPDATE_KEY							\
+  "UPDATE board_profile_conf SET conf_value=%Q WHERE profile_id=%d AND board_id=%d AND conf_key=%Q;"
 
-void gc_db_set_board_conf(GcomprisProfile *profile, 
-			     GcomprisBoard  *board, 
-			     gchar *key, 
-			     gchar *value)
+void gc_db_set_board_conf(GcomprisProfile *profile,
+			  GcomprisBoard  *board,
+			  gchar *key,
+			  gchar *value)
 {
 #ifdef USE_SQLITE
   char *zErrMsg;
@@ -1245,71 +1246,71 @@ void gc_db_set_board_conf(GcomprisProfile *profile,
   gchar *request;
 
   request = sqlite3_mprintf(CHECK_CONF,
-			    profile->profile_id, 
-			    board->board_id, 
+			    profile->profile_id,
+			    board->board_id,
 			    key);
 
-  rc = sqlite3_get_table(gcompris_db, 
-			 request,  
+  rc = sqlite3_get_table(gcompris_db,
+			 request,
 			 &result,
 			 &nrow,
 			 &ncolumn,
 			 &zErrMsg
 			 );
-  
+
   if( rc!=SQLITE_OK ){
     g_error("SQL error: %s\n", zErrMsg);
   }
-  
+
   sqlite3_free(request);
-  
+
   if (nrow == 0){
-    request = sqlite3_mprintf(INSERT_KEY, 
-			      profile->profile_id, 
-			      board->board_id, 
+    request = sqlite3_mprintf(INSERT_KEY,
+			      profile->profile_id,
+			      board->board_id,
 			      key,
 			      value);
-    
-    rc = sqlite3_get_table(gcompris_db, 
-			   request,  
+
+    rc = sqlite3_get_table(gcompris_db,
+			   request,
 			   &result,
 			   &nrow,
 			   &ncolumn,
 			   &zErrMsg
 			   );
-    
+
     if( rc!=SQLITE_OK ){
       g_error("SQL error: %s\n", zErrMsg);
     }
-    
+
     sqlite3_free(request);
   } else {
     request = sqlite3_mprintf(UPDATE_KEY,
 			      value,
-			      profile->profile_id, 
-			      board->board_id, 
+			      profile->profile_id,
+			      board->board_id,
 			      key
 			      );
-    
-    rc = sqlite3_get_table(gcompris_db, 
-			   request,  
+
+    rc = sqlite3_get_table(gcompris_db,
+			   request,
 			   &result,
 			   &nrow,
 			   &ncolumn,
 			   &zErrMsg
 			   );
-    
+
     if( rc!=SQLITE_OK ){
       g_error("SQL error: %s\n", zErrMsg);
     }
-   
+
     sqlite3_free(request);
   }
 #endif
-} 
+}
 
-#define GET_CONF(p, b) \
-        "SELECT conf_key, conf_value FROM board_profile_conf WHERE profile_id=%d AND board_id=%d;", p, b
+#define GET_CONF(p, b)							\
+  "SELECT conf_key, conf_value FROM board_profile_conf WHERE profile_id=%d AND board_id=%d;", p, b
 
 GHashTable *gc_db_conf_with_table_get(int profile_id, int board_id, GHashTable *table )
 {
@@ -1324,25 +1325,25 @@ GHashTable *gc_db_conf_with_table_get(int profile_id, int board_id, GHashTable *
   gchar *request;
   int i;
 
-  request = g_strdup_printf(GET_CONF(profile_id, 
+  request = g_strdup_printf(GET_CONF(profile_id,
 				     board_id));
-  
+
   g_warning ( "Request get_conf : %s", request);
 
-  rc = sqlite3_get_table(gcompris_db, 
-			 request,  
+  rc = sqlite3_get_table(gcompris_db,
+			 request,
 			 &result,
 			 &nrow,
 			 &ncolumn,
 			 &zErrMsg
 			 );
-  
+
   if( rc!=SQLITE_OK ){
     g_error("SQL error: %s\n", zErrMsg);
   }
 
   g_free(request);
-  
+
   for ( i=ncolumn; i < (nrow +1)*ncolumn; i+=2){
     if (strcmp(result[i+1],"NULL")!=0){
       /* "NULL" values are ignored */
@@ -1356,7 +1357,7 @@ GHashTable *gc_db_conf_with_table_get(int profile_id, int board_id, GHashTable *
   }
 
   sqlite3_free_table(result);
-#endif  
+#endif
   return hash_conf;
 }
 
@@ -1379,26 +1380,26 @@ GHashTable *gc_db_get_board_conf()
 
   /* conf values for default profile and current board */
   hash_result = gc_db_conf_with_table_get(1,
-					     gc_board_get_current()->board_id,
-					     hash_result);
+					  gc_board_get_current()->board_id,
+					  hash_result);
 
   /* conf values for profile (board independant) */
   if(gc_profile_get_current()) {
     hash_result = gc_db_conf_with_table_get(gc_profile_get_current()->profile_id,
-					       -1,
-					       hash_result);
+					    -1,
+					    hash_result);
 
     /* conf value for current profile and current board */
     hash_result = gc_db_conf_with_table_get(gc_profile_get_current()->profile_id,
-					       gc_board_get_current()->board_id,
-					       hash_result);
+					    gc_board_get_current()->board_id,
+					    hash_result);
   }
 
   return hash_result;
 }
 
-#define GET_ALL_PROFILES \
-        "SELECT profile_id, name, profile_directory, description FROM profiles;"
+#define GET_ALL_PROFILES						\
+  "SELECT profile_id, name, profile_directory, description FROM profiles;"
 
 
 GList *gc_db_profiles_list_get()
@@ -1423,58 +1424,58 @@ GList *gc_db_profiles_list_get()
   int i_;
   GList *ids_;
 
-  
-  rc = sqlite3_get_table(gcompris_db, 
-			 GET_ALL_PROFILES,  
+
+  rc = sqlite3_get_table(gcompris_db,
+			 GET_ALL_PROFILES,
 			 &result,
 			 &nrow,
 			 &ncolumn,
 			 &zErrMsg
 			 );
-  
+
   if( rc!=SQLITE_OK ){
     g_error("SQL error: %s\n", zErrMsg);
   }
 
   if (nrow == 0)
     return NULL;
-  
+
   i = ncolumn;
   while (i < (nrow +1)*ncolumn) {
     GcomprisProfile *profile = g_malloc0(sizeof(GcomprisProfile));
 
-    profile->profile_id = atoi(result[i++]); 
-    
+    profile->profile_id = atoi(result[i++]);
+
     profile->name = g_strdup(result[i++]);
     profile->directory = g_strdup(result[i++]);
     profile->description = g_strdup(result[i++]);
-    
+
     request = g_strdup_printf(GET_GROUPS_IN_PROFILE(profile->profile_id));
 
-    rc = sqlite3_get_table(gcompris_db, 
-			   request,  
+    rc = sqlite3_get_table(gcompris_db,
+			   request,
 			   &result_,
 			   &nrow_,
 			   &ncolumn_,
 			   &zErrMsg
-			 );
-    
+			   );
+
     if( rc!=SQLITE_OK ){
       g_error("SQL error: %s\n", zErrMsg);
     }
 
     g_free(request);
-    
+
     if (nrow_ == 0){
       g_warning("No users groups for profile %s", profile->name);
       profile->group_ids = NULL;
     } else {
       ids_ = NULL;
-      
+
       i_ = ncolumn_;
       while (i_ < (nrow_ +1)*ncolumn_) {
 	int *group_id = g_malloc(sizeof(int));
-	
+
 	*group_id = atoi(result_[i_++]);
 	ids_ = g_list_append(ids_, group_id);
       }
@@ -1484,50 +1485,50 @@ GList *gc_db_profiles_list_get()
     sqlite3_free_table(result_);
 
     request = g_strdup_printf(GET_ACTIVITIES_OUT_OF_PROFILE(profile->profile_id));
-    rc = sqlite3_get_table(gcompris_db, 
-			   request,  
+    rc = sqlite3_get_table(gcompris_db,
+			   request,
 			   &result_,
 			   &nrow_,
 			   &ncolumn_,
 			   &zErrMsg
 			   );
-    
+
     if( rc!=SQLITE_OK ){
       g_error("SQL error: %s\n", zErrMsg);
     }
-    
+
     g_free(request);
-    
+
     if (nrow_ == 0){
       g_warning("No activities out for profile %s", profile->name);
       profile->activities = NULL;
     } else {
       ids_ = NULL;
-      
+
       i_ = ncolumn_;
       while (i_ < (nrow_ +1)*ncolumn_) {
 	int *board_id = g_malloc(sizeof(int));
-	
+
 	*board_id = atoi(result_[i_++]);
 	ids_ = g_list_append(ids_, board_id);
       }
       profile->activities = ids_;
     }
 
-  sqlite3_free_table(result_);  
-  profiles_list = g_list_append( profiles_list, profile);
-  }  
+    sqlite3_free_table(result_);
+    profiles_list = g_list_append( profiles_list, profile);
+  }
 
-  sqlite3_free_table(result);  
-  
+  sqlite3_free_table(result);
+
   return profiles_list;
 #else
   return NULL;
 #endif
 }
 
-#define GROUP_FROM_ID(n) \
-        "SELECT name, class_id, description FROM groups WHERE group_id=%d;",n
+#define GROUP_FROM_ID(n)						\
+  "SELECT name, class_id, description FROM groups WHERE group_id=%d;",n
 
 GcomprisGroup *gc_db_get_group_from_id(int group_id)
 {
@@ -1544,14 +1545,14 @@ GcomprisGroup *gc_db_get_group_from_id(int group_id)
   GcomprisGroup *group = NULL;
 
   request = g_strdup_printf(GROUP_FROM_ID(group_id));
-  rc = sqlite3_get_table(gcompris_db, 
-			 request,  
+  rc = sqlite3_get_table(gcompris_db,
+			 request,
 			 &result,
 			 &nrow,
 			 &ncolumn,
 			 &zErrMsg
 			 );
-  
+
   if( rc!=SQLITE_OK ){
     g_error("SQL error: %s\n", zErrMsg);
   }
@@ -1581,8 +1582,8 @@ GcomprisGroup *gc_db_get_group_from_id(int group_id)
 #endif
 }
 
-#define GET_ALL_GROUPS \
-        "SELECT group_id, name, class_id, description FROM groups;"
+#define GET_ALL_GROUPS						\
+  "SELECT group_id, name, class_id, description FROM groups;"
 
 GList *gc_db_get_groups_list()
 {
@@ -1597,14 +1598,14 @@ GList *gc_db_get_groups_list()
   int i;
   GcomprisGroup *group = NULL;
 
-  rc = sqlite3_get_table(gcompris_db, 
-			 GET_ALL_GROUPS,  
+  rc = sqlite3_get_table(gcompris_db,
+			 GET_ALL_GROUPS,
 			 &result,
 			 &nrow,
 			 &ncolumn,
 			 &zErrMsg
 			 );
-  
+
   if( rc!=SQLITE_OK ){
     g_error("SQL error: %s\n", zErrMsg);
   }
@@ -1622,7 +1623,7 @@ GList *gc_db_get_groups_list()
       group->name = g_strdup(result[i++]);
       group->class_id = atoi(result[i++]);
       group->description = g_strdup(result[i++]);
-   
+
       group->user_ids = gc_db_users_from_group_get(group->group_id);
 
       groups_list = g_list_append(groups_list, group);
@@ -1637,15 +1638,15 @@ GList *gc_db_get_groups_list()
 }
 
 
-#define BOARDS_READ_FROM_ID(n) \
-        "SELECT name, section_id, section, author, type, mode, difficulty, icon, boarddir, mandatory_sound_file, mandatory_sound_dataset, filename, title, description, prerequisite, goal, manual, credit FROM boards WHERE board_id=%d;",n
+#define BOARDS_READ_FROM_ID(n)						\
+  "SELECT name, section_id, section, author, type, mode, difficulty, icon, boarddir, mandatory_sound_file, mandatory_sound_dataset, filename, title, description, prerequisite, goal, manual, credit FROM boards WHERE board_id=%d;",n
 
 GcomprisBoard *gc_db_get_board_from_id(int board_id)
 {
 #ifdef USE_SQLITE
 
   GcomprisProperties	*properties = gc_prop_get();
-  
+
   char *zErrMsg;
   char **result;
   int rc;
@@ -1656,14 +1657,14 @@ GcomprisBoard *gc_db_get_board_from_id(int board_id)
 
   request = g_strdup_printf(BOARDS_READ_FROM_ID(board_id));
 
-  rc = sqlite3_get_table(gcompris_db, 
-			 request,  
+  rc = sqlite3_get_table(gcompris_db,
+			 request,
 			 &result,
 			 &nrow,
 			 &ncolumn,
 			 &zErrMsg
 			 );
-  
+
   if( rc!=SQLITE_OK ){
     g_error("SQL error: %s\n", zErrMsg);
   }
@@ -1672,28 +1673,28 @@ GcomprisBoard *gc_db_get_board_from_id(int board_id)
 
   /* first ncolumns are columns labels. */
   i = ncolumn;
-  
+
   GcomprisBoard *gcomprisBoard = NULL;
 
   gcomprisBoard = g_malloc0 (sizeof (GcomprisBoard));
-    
-  
+
+
   gcomprisBoard->plugin=NULL;
   gcomprisBoard->previous_board=NULL;
   gcomprisBoard->board_ready=FALSE;
   gcomprisBoard->canvas=canvas;
-  
+
   gcomprisBoard->gmodule      = NULL;
   gcomprisBoard->gmodule_file = NULL;
-    
+
   /* From DB we have only package_data_dir. */
   gcomprisBoard->board_dir = properties->package_data_dir;
-    
+
   /* Fixed since I use the canvas own pixel_per_unit scheme */
   gcomprisBoard->width  = BOARDWIDTH;
   gcomprisBoard->height = BOARDHEIGHT;
-    
-    
+
+
   gcomprisBoard->board_id = board_id;
   gcomprisBoard->name = g_strdup(result[i++]);
   gcomprisBoard->section_id = atoi(result[i++]);
@@ -1713,18 +1714,18 @@ GcomprisBoard *gc_db_get_board_from_id(int board_id)
   gcomprisBoard->goal = reactivate_newline(gettext(result[i++]));
   gcomprisBoard->manual = reactivate_newline(gettext(result[i++]));
   gcomprisBoard->credit = reactivate_newline(gettext(result[i++]));
-    
+
   sqlite3_free_table(result);
-  
+
   return gcomprisBoard;
 #else
   return NULL;
 #endif
 }
 
-#define GET_ALL_USERS \
-        "SELECT user_id, login, lastname, firstname, birthdate, class_id FROM users;"
- 
+#define GET_ALL_USERS							\
+  "SELECT user_id, login, lastname, firstname, birthdate, class_id FROM users;"
+
 GList *gc_db_get_users_list()
 {
 #ifdef USE_SQLITE
@@ -1738,14 +1739,14 @@ GList *gc_db_get_users_list()
   int i;
   GcomprisUser *user = NULL;
 
-  rc = sqlite3_get_table(gcompris_db, 
-			 GET_ALL_USERS,  
+  rc = sqlite3_get_table(gcompris_db,
+			 GET_ALL_USERS,
 			 &result,
 			 &nrow,
 			 &ncolumn,
 			 &zErrMsg
 			 );
-  
+
   if( rc!=SQLITE_OK ){
     g_error("SQL error: %s\n", zErrMsg);
   }
@@ -1765,7 +1766,7 @@ GList *gc_db_get_users_list()
       user->lastname = g_strdup(result[i++]);
       user->birthdate = g_strdup(result[i++]);
       user->class_id = atoi(result[i++]);
-   
+
       users_list = g_list_append(users_list, user);
     }
   }
@@ -1777,8 +1778,8 @@ GList *gc_db_get_users_list()
 #endif
 }
 
-#define GET_ALL_CLASSES \
-        "SELECT class_id, name, teacher, wholegroup_id FROM class;"
+#define GET_ALL_CLASSES						\
+  "SELECT class_id, name, teacher, wholegroup_id FROM class;"
 
 GList *gc_db_get_classes_list()
 {
@@ -1793,14 +1794,14 @@ GList *gc_db_get_classes_list()
   int i;
   GcomprisClass *class = NULL;
 
-  rc = sqlite3_get_table(gcompris_db, 
-			 GET_ALL_CLASSES,  
+  rc = sqlite3_get_table(gcompris_db,
+			 GET_ALL_CLASSES,
 			 &result,
 			 &nrow,
 			 &ncolumn,
 			 &zErrMsg
 			 );
-  
+
   if( rc!=SQLITE_OK ){
     g_error("SQL error: %s\n", zErrMsg);
   }
@@ -1846,14 +1847,14 @@ int gc_db_is_activity_in_profile(GcomprisProfile *profile, char *activity_name)
 
   request = g_strdup_printf(DB_IS_ACTIVITY_IN_PROFILE_ID(profile->profile_id, activity_name));
 
-  rc = sqlite3_get_table(gcompris_db, 
-			 request,  
+  rc = sqlite3_get_table(gcompris_db,
+			 request,
 			 &result,
 			 &nrow,
 			 &ncolumn,
 			 &zErrMsg
 			 );
-  
+
   g_free(request);
 
   if( rc!=SQLITE_OK ){
@@ -1864,7 +1865,7 @@ int gc_db_is_activity_in_profile(GcomprisProfile *profile, char *activity_name)
     /* IS IN THE PROFILE */
     return TRUE;
   }
-   
+
   /* IS NOT IN THE PROFILE */
   return FALSE;
 
