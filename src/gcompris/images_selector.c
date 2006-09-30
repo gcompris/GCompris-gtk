@@ -867,7 +867,7 @@ read_dataset_directory(gchar *dataset_dir)
     absolute_fname = g_strdup_printf("%s/%s", dataset_dir, fname);
     g_warning("Reading dataset file %s", absolute_fname);
 
-    if (!g_file_test ((absolute_fname), G_FILE_TEST_IS_REGULAR))
+    if (!g_file_test ((absolute_fname), G_FILE_TEST_EXISTS))
       continue;
 
     /* parse the new file and put the result into newdoc */

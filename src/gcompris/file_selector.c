@@ -735,11 +735,14 @@ item_event_file_selector(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 
 	    /* Extract the mime type */
 	    mimeType = (GcomprisMimeType *)(g_hash_table_lookup(mimetypes_desc_hash, file_type));
-	    file_type = strdup(mimeType->mimetype);
-	    if(!g_str_has_suffix(result,mimeType->extension)) {
-	      gchar *old_result = result;
-	      result = g_strconcat(result, mimeType->extension, NULL);
-	      g_free(old_result);
+	    g_free(file_type);
+	    if(mimeType && mimeType->mimetype) {
+	      file_type = strdup(mimeType->mimetype);
+	      if(!g_str_has_suffix(result,mimeType->extension)) {
+		gchar *old_result = result;
+		result = g_strconcat(result, mimeType->extension, NULL);
+		g_free(old_result);
+	      }
 	    }
 	  } else {
 	    /* LOAD Mode, get the file_type from the extension in the mimetype */
@@ -833,7 +836,7 @@ void parseMime (xmlDocPtr doc, xmlNodePtr xmlnode) {
 
   g_hash_table_insert(mimetypes_hash,      gcomprisMime->mimetype,    gcomprisMime);
   g_hash_table_insert(mimetypes_ext_hash,  gcomprisMime->extension,   gcomprisMime);
-  g_hash_table_insert(mimetypes_desc_hash, gcomprisMime->description, gcomprisMime);
+  g_hash_table_insert(mimetypes_desc_hash, gettext(gcomprisMime->description), gcomprisMime);
 
   return;
 }

@@ -1,3 +1,11 @@
+2006-09-30  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* boards/dataset/misc.xml: added a tux image set with our tux images
+	* src/boards/python/anim.py: commented out svg export code
+	* src/gcompris/file_selector.c: (item_event_file_selector),
+	(parseMime): fixed segfault on mime type
+	* src/gcompris/images_selector.c: (read_dataset_directory): minor, now allow simlynks
+
 2006-09-25  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	- fixed missing config.h.mingw.in (that replaces config.h.mingw)

@@ -1,19 +1,19 @@
 #  gcompris - anim
-# 
+#
 # Time-stamp: <2001/08/20 00:54:45 bruno>
-# 
+#
 # Copyright (C) 2003 Bruno Coudoin (redraw code), 2004 Yves Combe (anim code)
-# 
+#
 #   This program is free software; you can redistribute it and/or modify
 #   it under the terms of the GNU General Public License as published by
 #   the Free Software Foundation; either version 2 of the License, or
 #   (at your option) any later version.
-# 
+#
 #   This program is distributed in the hope that it will be useful,
 #   but WITHOUT ANY WARRANTY; without even the implied warranty of
 #   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 #   GNU General Public License for more details.
-# 
+#
 #   You should have received a copy of the GNU General Public License
 #   along with this program; if not, write to the Free Software
 #   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
@@ -49,13 +49,14 @@ import base64
 # Note that we only need one of these for any given version of the
 # processing class.
 #
-python_xml = True
-try:
-  from xml.dom.DOMImplementation import implementation
-  import xml.sax.writer
-  import xml.utils
-except:
-  python_xml = False
+python_xml = False
+# python_xml = True
+# try:
+#   from xml.dom.DOMImplementation import implementation
+#   import xml.sax.writer
+#   import xml.utils
+# except:
+#   python_xml = False
   # Commented out, until we have a clean support for a mainstream mozilla
   #print _('You need the python xml module. Disabling SVG.')
 
@@ -77,7 +78,7 @@ class Gcompris_anim:
 
     # The main list of items
     # this parameter is used in svg save, to know where to get the list
-    self.itemlist = { 'draw' : 'framelist', 
+    self.itemlist = { 'draw' : 'framelist',
 		      'anim': 'animlist'
                       }
 
@@ -89,7 +90,7 @@ class Gcompris_anim:
       self.format_string = { 'gcompris' : 'GCompris anim 2 cPikle file',
                              'svg' : 'GCompris anim 2 svg file'
                              }
-      
+
     if self.gcomprisBoard.mode == 'draw':
       # DRAW
       #
@@ -120,9 +121,9 @@ class Gcompris_anim:
     # In draw objects are created without drag&drop
     # Default size for rect, circle, line
     self.draw_defaults_size = { 'RECT' : {'width' : 60 , 'height' : 40 },
-				'FILL_RECT' : {'width' : 60 , 'height' : 40 },	
-                   		'CIRCLE' : {'width' : 60 , 'height' : 40 },	
-                                'FILL_CIRCLE' : {'width' : 60 , 'height' : 40 },	
+				'FILL_RECT' : {'width' : 60 , 'height' : 40 },
+                   		'CIRCLE' : {'width' : 60 , 'height' : 40 },
+                                'FILL_CIRCLE' : {'width' : 60 , 'height' : 40 },
                                 'LINE' : {'width' : 60 , 'height' : 40 }
                               }
 
@@ -134,7 +135,7 @@ class Gcompris_anim:
     fles=self
 
     # File formats to save/restore
-    # 
+    #
     # svg has proprietary data to handle animation, base64 included images
     # gcompris is cPickle python saved data
     #
@@ -146,8 +147,8 @@ class Gcompris_anim:
         self.file_type = self.file_type + " image/svg+xml"
     else:
       self.file_type = "image/gcompris+anim"
-      if python_xml:
-        self.file_type = self.file_type +"  image/svg+xml+javascript"
+      #      if python_xml:
+      #        self.file_type = self.file_type +"  image/svg+xml+javascript"
 
     # These are used to let us restart only after the bonux is displayed.
     # When the bonus is displayed, it call us first with pause(1) and then with pause(0)
@@ -169,7 +170,7 @@ class Gcompris_anim:
     self.ANCHOR_SW = 6
     self.ANCHOR_S  = 7
     self.ANCHOR_SE = 8
-    
+
     self.anchors = { 'LINE': [ self.ANCHOR_SW , self.ANCHOR_NE ],
                      'RECT': [ self.ANCHOR_N,
                                self.ANCHOR_NE,
@@ -196,8 +197,8 @@ class Gcompris_anim:
                    'IMAGE' : gnome.canvas.CanvasPixbuf,
                    'LINE' : gnome.canvas.CanvasLine
                    }
-    
-    # mutable gnome canvas attributs 
+
+    # mutable gnome canvas attributs
     self.attributs = { 'LINE' : [ "points",
                                   "fill_color_rgba",
                                   ],
@@ -256,8 +257,8 @@ class Gcompris_anim:
                                         'height_set': True
                                         }
                        }
-        
-    
+
+
     # events handled by each type
     self.events = { 'LINE' : [ self.fillin_item_event,
                                self.move_item_event,
@@ -275,19 +276,19 @@ class Gcompris_anim:
                                 self.create_item_event,
                                 self.del_item_event ]
                     }
-    
+
     self.events ['FILL_RECT']         = self.events ['LINE']
     self.events ['FILL_CIRCLE']       = self.events ['LINE']
     self.events ['CIRCLE']  = self.events ['RECT']
 
 
-    # Part of UI : tools buttons                               
+    # Part of UI : tools buttons
     # TOOL SELECTION
     self.tools = [
       ["SAVE",           "draw/tool-save.png",            "draw/tool-save.png",                  gcompris.CURSOR_SELECT],
-      ["LOAD",           "draw/tool-load.png",            "draw/tool-load.png",                  gcompris.CURSOR_SELECT],  
+      ["LOAD",           "draw/tool-load.png",            "draw/tool-load.png",                  gcompris.CURSOR_SELECT],
       ["MOVIE",          "draw/tool-movie.png",           "draw/tool-movie_on.png",              gcompris.CURSOR_SELECT],
-      ["PICTURE",        "draw/tool-camera.png",          "draw/tool-camera_on.png",             gcompris.CURSOR_SELECT],  
+      ["PICTURE",        "draw/tool-camera.png",          "draw/tool-camera_on.png",             gcompris.CURSOR_SELECT],
       ["RECT",           "draw/tool-rectangle.png",       "draw/tool-rectangle_on.png",          gcompris.CURSOR_RECT],
       ["FILL_RECT",      "draw/tool-filledrectangle.png", "draw/tool-filledrectangle_on.png",    gcompris.CURSOR_FILLRECT],
       ["CIRCLE",         "draw/tool-circle.png",          "draw/tool-circle_on.png",             gcompris.CURSOR_CIRCLE],
@@ -305,22 +306,22 @@ class Gcompris_anim:
       ["IMAGE",          "draw/tool-image.png",           "draw/tool-image_on.png",              gcompris.CURSOR_DEFAULT],
       ]
 
-    # keep the tool selected    
+    # keep the tool selected
     self.current_tool=0
 
     # Part of UI: colors buttons
     # COLOR SELECTION
     # RGBA unsigned long. A is always FF.
-    # keep in mind if you change that to change the svg export: it does not pass A. 
-    self.colors = [   0x000000FFL, 0x202020FFL, 0x404040FFL, 0x505050FFL, 
-                      0x815a38FFL, 0xb57c51FFL, 0xe5a370FFL, 0xfcc69cFFL, 
-                      0xb20c0cFFL, 0xea2c2cFFL, 0xf26363FFL, 0xf7a3a3FFL, 
-                      0xff6600FFL, 0xff8a3dFFL, 0xfcaf7bFFL, 0xf4c8abFFL, 
-                      0x9b8904FFL, 0xd3bc10FFL, 0xf4dd2cFFL, 0xfcee85FFL, 
-                      0x255b0cFFL, 0x38930eFFL, 0x56d11dFFL, 0x8fe268FFL, 
-                      0x142f9bFFL, 0x2d52e5FFL, 0x667eddFFL, 0xa6b4eaFFL, 
-                      0x328989FFL, 0x37b2b2FFL, 0x3ae0e0FFL, 0x96e0e0FFL, 
-                      0x831891FFL, 0xc741d8FFL, 0xde81eaFFL, 0xeecdf2FFL, 
+    # keep in mind if you change that to change the svg export: it does not pass A.
+    self.colors = [   0x000000FFL, 0x202020FFL, 0x404040FFL, 0x505050FFL,
+                      0x815a38FFL, 0xb57c51FFL, 0xe5a370FFL, 0xfcc69cFFL,
+                      0xb20c0cFFL, 0xea2c2cFFL, 0xf26363FFL, 0xf7a3a3FFL,
+                      0xff6600FFL, 0xff8a3dFFL, 0xfcaf7bFFL, 0xf4c8abFFL,
+                      0x9b8904FFL, 0xd3bc10FFL, 0xf4dd2cFFL, 0xfcee85FFL,
+                      0x255b0cFFL, 0x38930eFFL, 0x56d11dFFL, 0x8fe268FFL,
+                      0x142f9bFFL, 0x2d52e5FFL, 0x667eddFFL, 0xa6b4eaFFL,
+                      0x328989FFL, 0x37b2b2FFL, 0x3ae0e0FFL, 0x96e0e0FFL,
+                      0x831891FFL, 0xc741d8FFL, 0xde81eaFFL, 0xeecdf2FFL,
                       0x666666FFL, 0x838384FFL, 0xc4c4c4FFL, 0xffffffFFL
                       ]
 
@@ -328,7 +329,7 @@ class Gcompris_anim:
     self.current_color = 0
 
     # step of the grid used for positioning objects
-    # TODO : add a parameters to put step=5 in draw and step=1 in anim 
+    # TODO : add a parameters to put step=5 in draw and step=1 in anim
     self.current_step = 0
 
     # selected object
@@ -338,12 +339,12 @@ class Gcompris_anim:
     # when anim is played, it's masked and playing_area is displayed
     #
     # Drawing area is editing image area
-    # Palying area is playing map 
+    # Palying area is playing map
     self.drawing_area = [124.0, 20.0, gcompris.BOARD_WIDTH - 15, gcompris.BOARD_HEIGHT - 78]
     self.playing_area = [124.0, 20.0, gcompris.BOARD_WIDTH - 15, gcompris.BOARD_HEIGHT - 78]
 
     # Global used for the select event
-    # 
+    #
     # used to keep the distance between pointer and corner in moving objects
     self.in_select_ofx = -1
     self.in_select_ofy = -1
@@ -373,7 +374,7 @@ class Gcompris_anim:
     self.animlist = []
     # rank of the current frame being processed
     self.current_frame = 0
-    self.frames_total =  self.current_frame 
+    self.frames_total =  self.current_frame
     # list of z values in last shot
     self.list_z_last_shot = []
     # list of actual z values
@@ -391,7 +392,7 @@ class Gcompris_anim:
     self.gcomprisBoard.maxlevel=1
     self.gcomprisBoard.sublevel=0
     self.gcomprisBoard.number_of_sublevel=0
-    
+
     gcompris.bar_set(0)
     gcompris.set_background(self.gcomprisBoard.canvas.root(),
                             gcompris.skin.image_to_skin("gcompris-bg.jpg"))
@@ -406,7 +407,7 @@ class Gcompris_anim:
 
     # initialisation
     self.draw_tools()
-    self.draw_animtools()  
+    self.draw_animtools()
     self.draw_colors()
     self.draw_drawing_area(self.grid_step)
     self.draw_playing_area()
@@ -414,14 +415,15 @@ class Gcompris_anim:
 
     global python_xml
     if not python_xml:
-      #gcompris.utils.dialog(_('Python xml module bot found. SVG is disabled. Install the python xml module to enable SVG Save/restore.'), None)
-      print _('Python xml module not found. SVG is disabled. Install the python xml module to enable SVG Save/restore.')
+      #gcompris.utils.dialog(_('Python xml module not found. SVG is disabled. Install the python xml module to enable SVG Save/restore.'), None)
+      #print _('Python xml module not found. SVG is disabled. Install the python xml module to enable SVG Save/restore.')
+      pass
 
   def end(self):
     # stop the animation
     if self.running:
       self.playing_stop()
-    
+
     # Remove the root item removes all the others inside it
     gcompris.set_cursor(gcompris.CURSOR_DEFAULT);
     self.rootitem.destroy()
@@ -430,19 +432,19 @@ class Gcompris_anim:
     #used to stop the event reception at the end?
     self.board_paused = pause
     return
-            
+
   def repeat(self):
     print("Gcompris_anim repeat.")
-            
+
   def config(self):
     print("Gcompris_anim config.")
-              
+
   def key_press(self, keyval, commit_str, preedit_str):
     #
     # I suppose codec is the stdin one.
     #
     codec = sys.stdin.encoding
-    
+
     # keyboard shortcuts
     if (keyval == gtk.keysyms.F1):
       gcompris.file_selector_save( self.gcomprisBoard, self.selector_section, self.file_type, general_save)
@@ -461,7 +463,7 @@ class Gcompris_anim:
       #else:
         #print "Sorry i can't print an animation"
 
-    # AFAIR The keyboard part was written by bruno 
+    # AFAIR The keyboard part was written by bruno
     elif ((keyval == gtk.keysyms.Shift_L) or
           (keyval == gtk.keysyms.Shift_R) or
           (keyval == gtk.keysyms.Control_L) or
@@ -480,7 +482,7 @@ class Gcompris_anim:
           (keyval == gtk.keysyms.dead_circumflex) or
           (keyval == gtk.keysyms.Num_Lock)):
       return False
-    
+
     if (self.selected == None):
       return True
     elif (gobject.type_name(self.selected.item_list[0])!="GnomeCanvasText"):
@@ -492,7 +494,7 @@ class Gcompris_anim:
       oldtext = textItem.get_property('text').decode('UTF-8')
     else:
       oldtext = self.last_commit
-    
+
     if ((keyval == gtk.keysyms.BackSpace) or
         (keyval == gtk.keysyms.Delete)):
       print "DEL", oldtext, len(oldtext)
@@ -501,8 +503,8 @@ class Gcompris_anim:
       else:
         newtext = u'?'
     else:
-    
-        
+
+
 
       if ((oldtext[:1] == u'?') and (len(oldtext)==1)):
         oldtext = u' '
@@ -514,7 +516,7 @@ class Gcompris_anim:
       if (preedit_str != None):
         str = '<span foreground="red">'+ preedit_str +'</span>'
         self.last_commit = oldtext
-        
+
       if (len(oldtext) < self.MAX_TEXT_CHAR):
         newtext = oldtext + str
       else:
@@ -525,7 +527,7 @@ class Gcompris_anim:
     self.updated_text(textItem)
 
     return True
-  
+
   # Display the tools
   def draw_tools(self):
 
@@ -558,12 +560,12 @@ class Gcompris_anim:
       if self.gcomprisBoard.mode == 'draw':
         if self.tools[i][0]=="MOVIE" or self.tools[i][0]=="PICTURE":
           continue
-          
+
       if(i%2):
         theX = x2
       else:
         theX = x1
-        
+
       item = self.root_toolitem.add(
         gnome.canvas.CanvasPixbuf,
         pixbuf = gcompris.utils.load_pixmap(gcompris.skin.image_to_skin(self.tools[i][1])),
@@ -595,11 +597,11 @@ class Gcompris_anim:
 #          self.Anim2Shot()
           gcompris.file_selector_save( self.gcomprisBoard, self.selector_section, self.file_type, general_save)
           return True
-          
+
         elif (self.tools[tool][0] == "LOAD"):
           gcompris.file_selector_load( self.gcomprisBoard, self.selector_section, self.file_type, general_restore)
           return True
-          
+
         elif (self.tools[tool][0] == "IMAGE"):
           self.pos_x = gcompris.BOARD_WIDTH/2
           self.pos_y = gcompris.BOARD_HEIGHT/2
@@ -608,20 +610,20 @@ class Gcompris_anim:
                                          "dataset",
                                          image_selected);
           return True
-          
+
         elif (self.tools[tool][0] == "PICTURE"):
           self.Anim2Shot()
           return True
-        
+
         elif (self.tools[tool][0] == "MOVIE"):
           if self.frames_total == 0:
             print 'Mmm... Need to make shots before run anim !!'
             return True
-          
-          if not self.running:            
+
+          if not self.running:
             # unselect object if necessary
             self.unselect()
-              
+
             self.playing_start()
             return True
 
@@ -631,17 +633,17 @@ class Gcompris_anim:
         #
         # Normal case, tool button switch
         # -------------------------------
-        
+
         # Deactivate old button
         self.old_tool_item.set(pixbuf = gcompris.utils.load_pixmap(gcompris.skin.image_to_skin(self.tools[self.current_tool][1])))
 
-        # Activate new button                         
+        # Activate new button
         self.current_tool = tool
         self.old_tool_item = item
         self.old_tool_item.set(pixbuf = gcompris.utils.load_pixmap(gcompris.skin.image_to_skin(self.tools[self.current_tool][2])))
         gcompris.set_cursor(self.tools[self.current_tool][3]);
 
-        
+
   # Display the color selector
   def draw_colors(self):
 
@@ -661,7 +663,7 @@ class Gcompris_anim:
       x=0.0,
       y=0.0
       )
-    
+
     self.root_coloritem.add(
       gnome.canvas.CanvasPixbuf,
       pixbuf = pixmap,
@@ -683,7 +685,7 @@ class Gcompris_anim:
           fill_color_rgba=self.colors[c],
           outline_color_rgba=0x07A3E0FFL
           )
-        
+
         item.connect("event", self.color_item_event, c)
         if (c==0):
           self.current_color = c
@@ -695,7 +697,7 @@ class Gcompris_anim:
   def color_item_event(self, item, event, color):
     if self.running:
       return
-    
+
     if event.type == gtk.gdk.BUTTON_PRESS:
       if event.button == 1:
         # Deactivate old button
@@ -751,7 +753,7 @@ class Gcompris_anim:
                                       )
 
     # Create a group for the first drawing
-    
+
     self.flash = self.rootitem.add (
       gnome.canvas.CanvasPixbuf,
       pixbuf = gcompris.utils.load_pixmap(gcompris.skin.image_to_skin("draw/camera.png")),
@@ -833,9 +835,9 @@ class Gcompris_anim:
     self.running=False
     gobject.source_remove(self.timeout)
     self.run_anim2()
-  
+
   def speed_event(self, item, event, up):
-  
+
     if event.type == gtk.gdk.BUTTON_PRESS:
       if up:
         if self.anim_speed==25:
@@ -851,13 +853,13 @@ class Gcompris_anim:
       gobject.source_remove(self.timeout)
       self.timeout=gobject.timeout_add(1000/self.anim_speed, self.run_anim2)
       self.speed_item.set(text=self.anim_speed)
-  
+
   # Draw the grid
   #
   def draw_grid(self, x1, x2, y1, y2, step):
 
     self.current_step = step
-    
+
     color = 0x1D0DFFFFL
 
     self.grid = self.rootitem.add (
@@ -866,7 +868,7 @@ class Gcompris_anim:
       y=0.0
       )
     self.grid.hide()
-      
+
     for i in range(int(x1), int(x2), step):
       item = self.grid.add (
         gnome.canvas.CanvasLine,
@@ -876,7 +878,7 @@ class Gcompris_anim:
         )
       # Clicking on lines let you create object
       item.connect("event", self.create_item_event)
- 
+
     for i in range(int(y1), int(y2), step):
       item = self.grid.add (
         gnome.canvas.CanvasLine,
@@ -945,14 +947,14 @@ class Gcompris_anim:
         return True
       else:
         return False
-    
+
     if self.tools[self.current_tool][0] != "SELECT":
       return False
 
     if event.type == gtk.gdk.BUTTON_PRESS and event.button == 1:
       if event.button == 1:
         self.unselect()
-      
+
     #
     # MOUSE DRAG STOP
     # ---------------
@@ -964,13 +966,13 @@ class Gcompris_anim:
         # activate the anchors
         self.selected=item.get_property("parent")
         self.selected.item_list[1].show()
-         
+
         # Reset the in_select_ofx ofset
         self.in_select_ofx = -1
         self.in_select_ofy = -1
 
         return True
-        
+
     if event.state & gtk.gdk.BUTTON1_MASK:
       wx=event.x
       wy=event.y
@@ -1018,9 +1020,9 @@ class Gcompris_anim:
         )
 
       return True
-    
+
     return False
-          
+
   # Event when a click on an item happen on fill in type object
   def fillin_item_event(self, item, event):
     if event.type == gtk.gdk.BUTTON_PRESS:
@@ -1029,7 +1031,7 @@ class Gcompris_anim:
           item.set(fill_color_rgba=self.colors[self.current_color])
           return True
     return False
-          
+
   # Event when a click on an item happen on border fill type object
   def fillout_item_event(self, item, event):
     if event.type == gtk.gdk.BUTTON_PRESS:
@@ -1058,14 +1060,14 @@ class Gcompris_anim:
     if(event.type == gtk.gdk.BUTTON_PRESS and self.running==True):
       self.playing_stop()
       return False
-    
+
     # Right button is a shortcup to Shot
     if (self.gcomprisBoard.mode != 'draw' and
         event.type == gtk.gdk.BUTTON_PRESS and
         event.button == 3):
       self.Anim2Shot()
       return False
-    
+
     if (not (self.tools[self.current_tool][0] == "RECT" or
              self.tools[self.current_tool][0] == "CIRCLE" or
              self.tools[self.current_tool][0] == "FILL_RECT" or
@@ -1076,7 +1078,7 @@ class Gcompris_anim:
       return False
 
     if event.type == gtk.gdk.BUTTON_PRESS:
-      
+
       if event.button == 1:
         self.newitem = None
         print "----------------------------------------"
@@ -1095,9 +1097,9 @@ class Gcompris_anim:
           # This event is treated in del_item_event to avoid
           # operating on background item and grid
           return False
-        
+
         elif self.tools[self.current_tool][0] == "LINE":
-          
+
           x,y = self.snap_to_grid(event.x,event.y)
           self.pos_x = x
           self.pos_y = y
@@ -1112,7 +1114,7 @@ class Gcompris_anim:
               points[c + '1'] = eval(c) - self.draw_defaults_size['LINE'][dist[c]]/2
               points[c + '2'] = eval(c) + self.draw_defaults_size['LINE'][dist[c]]/2
             tuple_points = ( points['x1'], points['y1'], points['x2'], points['y2'])
- 
+
 #     ItemGroup:
 #        AnchorsGroup
 #           ANCHOR_SE
@@ -1121,13 +1123,13 @@ class Gcompris_anim:
 
           self.newitem = self.newitemgroup.add(
             gnome.canvas.CanvasLine,
-            points=tuple_points,          
+            points=tuple_points,
             fill_color_rgba=self.colors[self.current_color],
             width_units=8.0
             )
 
         elif self.tools[self.current_tool][0] == "RECT":
-          
+
           x,y = self.snap_to_grid(event.x,event.y)
           self.pos_x = x
           self.pos_y = y
@@ -1145,7 +1147,7 @@ class Gcompris_anim:
             for c in ['x', 'y']:
               points[c + '1'] = eval(c) - self.draw_defaults_size['LINE'][dist[c]]/2
               points[c + '2'] = eval(c) + self.draw_defaults_size['LINE'][dist[c]]/2
-          
+
           self.newitem = self.newitemgroup.add(
             gnome.canvas.CanvasRect,
             x1=points['x1'],
@@ -1157,7 +1159,7 @@ class Gcompris_anim:
             )
           #          self.newitem.set_data('empty',True)
           gcompris.utils.canvas_set_property(self.newitem, "empty", "True")
-          
+
         elif self.tools[self.current_tool][0] == "FILL_RECT":
 
           x,y = self.snap_to_grid(event.x,event.y)
@@ -1176,7 +1178,7 @@ class Gcompris_anim:
             for c in ['x', 'y']:
               points[c + '1'] = eval(c) - self.draw_defaults_size['LINE'][dist[c]]/2
               points[c + '2'] = eval(c) + self.draw_defaults_size['LINE'][dist[c]]/2
-          
+
           self.newitem = self.newitemgroup.add(
             gnome.canvas.CanvasRect,
             x1=points['x1'],
@@ -1188,13 +1190,13 @@ class Gcompris_anim:
             outline_color_rgba=0x000000FFL,
             width_units=1.0
             )
-        
+
         elif self.tools[self.current_tool][0] == "CIRCLE":
 
           x,y = self.snap_to_grid(event.x,event.y)
           self.pos_x = x
           self.pos_y = y
-          
+
 
           points = {}
           for c in ['x' , 'y']:
@@ -1209,7 +1211,7 @@ class Gcompris_anim:
             for c in ['x', 'y']:
               points[c + '1'] = eval(c) - self.draw_defaults_size['LINE'][dist[c]]/2
               points[c + '2'] = eval(c) + self.draw_defaults_size['LINE'][dist[c]]/2
-          
+
           self.newitem = self.newitemgroup.add(
             gnome.canvas.CanvasEllipse,
             x1=points['x1'],
@@ -1221,19 +1223,19 @@ class Gcompris_anim:
             )
           #          self.newitem.set_data('empty',True)
           gcompris.utils.canvas_set_property(self.newitem, "empty", "True")
-        
+
         elif self.tools[self.current_tool][0] == "FILL_CIRCLE":
 
           x,y = self.snap_to_grid(event.x,event.y)
           self.pos_x = x
           self.pos_y = y
-          
+
 
           points = {}
           for c in ['x' , 'y']:
             points[c + '1'] = eval(c)
             points[c + '2'] = eval( 'self.pos_' + c )
-   
+
 
           if self.gcomprisBoard.mode == 'draw':
             dist = {'x' : 'width', 'y' : 'height'}
@@ -1242,7 +1244,7 @@ class Gcompris_anim:
             for c in ['x', 'y']:
               points[c + '1'] = eval(c) - self.draw_defaults_size['LINE'][dist[c]]/2
               points[c + '2'] = eval(c) + self.draw_defaults_size['LINE'][dist[c]]/2
-          
+
           self.newitem = self.newitemgroup.add(
             gnome.canvas.CanvasEllipse,
             x1=points['x1'],
@@ -1253,7 +1255,7 @@ class Gcompris_anim:
             outline_color_rgba=0x000000FFL,
             width_units=1.0
             )
-          
+
         elif self.tools[self.current_tool][0] == "TEXT":
 
           x,y = self.snap_to_grid(event.x,event.y)
@@ -1269,7 +1271,7 @@ class Gcompris_anim:
             text=u'?',
             anchor=gtk.ANCHOR_CENTER
             )
-                  
+
         if self.newitem != 0:
           self.anchorize(self.newitemgroup)
           anAnimItem = self.AnimItem()
@@ -1281,7 +1283,7 @@ class Gcompris_anim:
           self.list_z_actual.append(anAnimItem.z)
           self.draw_created_object = True
 
-        
+
           if self.tools[self.current_tool][0] == "TEXT":
             self.updated_text(self.newitem)
             (x1, x2, y1, y2) = self.get_bounds(self.newitem)
@@ -1299,7 +1301,7 @@ class Gcompris_anim:
                                           x2=points['x2'],
                                           y2=points['y2']
                                           )
-                                          
+
             self.select_item(self.newitemgroup)
             # in draw creation is finished. Object is selected.
             self.newitem = None
@@ -1319,7 +1321,7 @@ class Gcompris_anim:
       if ((self.tools[self.current_tool][0] == "IMAGE") or
           (self.tools[self.current_tool][0] == "TEXT")):
         return False
-      
+
       if event.state & gtk.gdk.BUTTON1_MASK:
         if (self.tools[self.current_tool][0] == "RAISE" or
             self.tools[self.current_tool][0] == "LOWER"):
@@ -1327,7 +1329,7 @@ class Gcompris_anim:
         x=event.x
         y=event.y
         x,y = self.snap_to_grid(event.x,event.y)
-        
+
         # Check drawing boundaries
         if(event.x<self.drawing_area[0]):
           x=self.drawing_area[0]
@@ -1337,7 +1339,7 @@ class Gcompris_anim:
           y=self.drawing_area[1]
         if(event.y>self.drawing_area[3]):
           y=self.drawing_area[3]
-          
+
 #        if self.tools[self.current_tool][0] == "LINE":
 #          self.newitem.set( points=( self.pos_x, self.pos_y, x, y) )
 #        elif (self.tools[self.current_tool][0] == "RECT" or
@@ -1374,7 +1376,7 @@ class Gcompris_anim:
       if ((self.tools[self.current_tool][0] == "IMAGE") or
           (self.tools[self.current_tool][0] == "TEXT")):
         return False
-      
+
       if event.button == 1:
         if (self.tools[self.current_tool][0] == "RAISE" or
             self.tools[self.current_tool][0] == "LOWER"):
@@ -1390,7 +1392,7 @@ class Gcompris_anim:
           # Oups, empty rect
           #self.del_item(self.newitem)
           pass
-        
+
 #        print self.tools[self.current_tool][0]
 #        print self.newitem.get_bounds()
 #        print self.newitemgroup.get_bounds()
@@ -1424,7 +1426,7 @@ class Gcompris_anim:
   # Display the animation tools
   def draw_animtools(self):
     # Desactived for the moment
-  
+
     x_left = 8
     y_top  = 472
     minibutton_width = 32
@@ -1432,7 +1434,7 @@ class Gcompris_anim:
 
     if self.gcomprisBoard.mode == 'draw':
       return
-    
+
     # Draw the background area
     self.rootitem.add(
       gnome.canvas.CanvasPixbuf,
@@ -1487,7 +1489,7 @@ class Gcompris_anim:
 
     # Next line
     #y_top += minibutton_height
-    
+
     # Previous
     #item = self.rootitem.add(
     #  gnome.canvas.CanvasPixbuf,
@@ -1525,7 +1527,7 @@ class Gcompris_anim:
 
   def object_move(self,object,dx,dy):
     # Unfortunately object.move is broken for 'TEXT' group.
-    
+
     if gobject.type_name(object.item_list[0])=="GnomeCanvasText":
       (x1,y1,x2,y2) = object.get_bounds()
       (idx, idy) =  object.w2i( dx, dy )
@@ -1557,7 +1559,7 @@ class Gcompris_anim:
         y1=y1,
         y2=y2
         )
-      
+
     for anchor in object.item_list[1].item_list:
       anchor_type = anchor.get_data('anchor_type')
 
@@ -1618,7 +1620,7 @@ class Gcompris_anim:
           y2= y2 + self.DEFAULT_ANCHOR_SIZE
           )
 
-      
+
   def resize_item_event(self, item, event, anchor_type):
     if self.running:
       return
@@ -1627,7 +1629,7 @@ class Gcompris_anim:
     if event.type == gtk.gdk.BUTTON_PRESS and event.button == 3:
       self.Anim2Shot()
       return False
-    
+
     if event.state & gtk.gdk.BUTTON1_MASK:
       # warning: anchor is in a group of anchors, wich is in the object group
       parent=item.get_property("parent").get_property("parent")
@@ -1716,7 +1718,7 @@ class Gcompris_anim:
 
 
   def get_bounds(self, item):
-    
+
     if gobject.type_name(item)=="GnomeCanvasLine":
       (x1,y1,x2,y2)=item.get_property("points")
     elif gobject.type_name(item)=="GnomeCanvasPixbuf":
@@ -1741,11 +1743,11 @@ class Gcompris_anim:
 
     return (min(x1,x2),min(y1,y2),max(x1,x2),max(y1,y2))
 
-    
+
   def item_type(self, item):
 
     item_type = ''
-    
+
     if gobject.type_name(item)=="GnomeCanvasGroup":
       item_type='GROUP'
     elif gobject.type_name(item)=="GnomeCanvasLine":
@@ -1765,7 +1767,7 @@ class Gcompris_anim:
         # if we get it that means is True
       except:
         empty = False
-        
+
       if empty:
         item_type='RECT'
       else:
@@ -1849,8 +1851,8 @@ class Gcompris_anim:
 
     # Deactivate old button
     self.old_tool_item.set(pixbuf = gcompris.utils.load_pixmap(gcompris.skin.image_to_skin(self.tools[self.current_tool][1])))
-        
-    # Activate new button                         
+
+    # Activate new button
     self.current_tool = self.select_tool_number
     self.old_tool_item = self.select_tool
     self.old_tool_item.set(pixbuf = gcompris.utils.load_pixmap(gcompris.skin.image_to_skin(self.tools[self.current_tool][2])))
@@ -1867,8 +1869,8 @@ class Gcompris_anim:
     #    print "Item parent bounds : ", bounds
 
     (cx, cy) = ( (bounds[2]+bounds[0])/2 , (bounds[3]+bounds[1])/2)
-  
-    
+
+
     t = math.radians(angle)
 
     # This matrix rotate around ( cx, cy )
@@ -1882,14 +1884,14 @@ class Gcompris_anim:
     #       0    1   cy  by   sin(t)  cos(t)    0   by   0    1  -cy
     #       0    0    1         0       0       1        0    0   1
 
-    
+
     mat = ( math.cos(t),
             math.sin(t),
             -math.sin(t),
             math.cos(t),
             (1-math.cos(t))*cx + math.sin(t)*cy,
             -math.sin(t)*cx + (1 - math.cos(t))*cy)
-   
+
     item.get_property("parent").affine_relative(mat)
 
 
@@ -1898,9 +1900,9 @@ class Gcompris_anim:
   def item_flip(self, item):
     bounds = self.get_bounds(item)
     (cx, cy) = ( (bounds[2]+bounds[0])/2 , (bounds[3]+bounds[1])/2)
-    
+
     mat = ( -1, 0, 0, 1, 2*cx, 0)
-   
+
     item.get_property("parent").affine_relative(mat)
 
 
@@ -1912,7 +1914,7 @@ class Gcompris_anim:
     #         clip_height=bounds[3]-bounds[1]
     #         )
     return
-    
+
 ###########################################
 # Anim 2 specific
 ###########################################
@@ -1923,7 +1925,7 @@ class Gcompris_anim:
       self.frames_info = {}
       self.canvas_item = None
       self.z_previous = None
-    
+
   def new_z(self):
     if self.list_z_actual != []:
       return int(self.list_z_actual[-1] + 1 )
@@ -1960,7 +1962,7 @@ class Gcompris_anim:
   #
   # self.attributs is list of specific attributs usable for animation
   # There is matrice (rotation, flip) and z position to check too
-  
+
 
   def get_animitem_properties(self, anAnimItem):
     properties = {'matrice' : anAnimItem.canvas_item.i2c_affine((0,0,0,0,0,0)) }
@@ -1983,14 +1985,14 @@ class Gcompris_anim:
         self.list_z_last_shot.remove(anAnimItem.z_previous)
 
   def get_modified_parameters(self, animItem):
-    
+
         modified= {}
         dict_properties = self.get_animitem_properties(animItem)
         frames = animItem.frames_info.keys()
         if frames != []:
           frames.sort()
           frames.reverse()
-          
+
           for property in dict_properties.keys():
             for frame in frames:
 #              print animItem.type, property, frame, animItem.frames_info[frame]
@@ -2002,7 +2004,7 @@ class Gcompris_anim:
           modified = dict_properties
           modified.update(self.fixedattributs[animItem.type])
           if animItem.type == 'IMAGE':
-            modified['image_name']= animItem.image_name         
+            modified['image_name']= animItem.image_name
           modified['create']=True
           self.animlist.append(animItem)
 
@@ -2020,7 +2022,7 @@ class Gcompris_anim:
     self.flash.show()
     for anAnimItem in self.framelist[:]:
       if anAnimItem.z == None:
-        # deleted 
+        # deleted
         self.z_delete_on_shot(anAnimItem)
         modified = { 'delete': True }
         self.framelist.remove(anAnimItem)
@@ -2031,26 +2033,26 @@ class Gcompris_anim:
 #
         modified = self.get_modified_parameters(anAnimItem)
 
-               
+
       if len(modified) != 0:
         anAnimItem.frames_info[self.current_frame] = modified
 #
     self.current_frame = self.current_frame + 1
-    self.frames_total =  self.current_frame 
+    self.frames_total =  self.current_frame
     self.z_reinit()
     self.item_frame_counter.set(text=self.current_frame + 1)
     # print self.current_frame + 1
     gtk.timeout_add(500, self.run_flash)
-    
+
   def z_find_index(self, anAnimItem):
     def f(x): return x < anAnimItem.z
-    
+
     return len(filter(f, self.list_z_last_shot))
-    
+
 #    self.z_reinit()
 
 #  def anim2Run(self):
-    
+
   def apply_frame(self, frame):
     for item in self.playlist:
       if not item.frames_info.has_key(frame):
@@ -2091,7 +2093,7 @@ class Gcompris_anim:
           item.canvas_item.affine_absolute(matrice)
         if len(modif) != 0:
           item.canvas_item.set(**modif)
-            
+
   def run_anim2(self):
     if self.running:
       if self.current_frame==0:
@@ -2135,11 +2137,11 @@ class Gcompris_anim:
       playItem.frames_info = aItem.frames_info.copy()
       playItem.type = aItem.type
       self.playlist.append(playItem)
-    
+
     # Show the first drawing
     self.apply_frame(0)
     self.current_frame = 0
-   
+
     self.timeout=gobject.timeout_add(1000/self.anim_speed, self.run_anim2)
 
 
@@ -2156,8 +2158,8 @@ class Gcompris_anim:
     self.selected.item_list[1].hide()
     self.selected = None
 
-      
-    
+
+
 
 
 ###############################################
@@ -2196,7 +2198,7 @@ def general_restore(filename, filetype):
     filetype = 'image/gcompris+anim'
   elif(line == "<?xml version='1.0' enco"):
     filetype = 'image/svg+xml'
-  
+
   #   print " Detected type ",filetype
 
   if (filetype in ['image/svg+xml+javascript','image/svg+xml']):
@@ -2210,7 +2212,7 @@ def general_restore(filename, filetype):
     file_to_anim2(filename)
     return
   print "Error File selector return unknown filetype :",filetype, "!!!"
- 
+
 
 def anim2_to_file(filename):
   global fles
@@ -2218,20 +2220,20 @@ def anim2_to_file(filename):
   file =   open(filename, 'wb')
 
   # Save the descriptif frame:
-  pickle.dump(fles.format_string['gcompris'],file,True) 
+  pickle.dump(fles.format_string['gcompris'],file,True)
 
   # save the total of frames
   pickle.dump(fles.frames_total, file, True)
 
   # save the list into
   list_to = []
-  
-  # get the list 
+
+  # get the list
   list_from = []
 
   if (fles.gcomprisBoard.mode == 'draw'):
     # in draw we need to get the list in z order, because of svg.
-    def get_item_at(z):    
+    def get_item_at(z):
       for item in eval('fles.' + fles.itemlist[fles.gcomprisBoard.mode]):
         if item.z == z: return item
     for z in fles.list_z_actual:
@@ -2242,14 +2244,14 @@ def anim2_to_file(filename):
       modified = fles.get_modified_parameters(anAnimItem)
       if len(modified) != 0:
         anAnimItem.frames_info[fles.current_frame] = modified
-     
+
   else:
     list_from = fles.animlist
 
   for item in list_from:
     frames_info_copied = {}
     for t, d  in item.frames_info.iteritems():
-      frames_info_copied[t] = d.copy(); 
+      frames_info_copied[t] = d.copy();
     Sitem = [ item.type, frames_info_copied]
     list_frames = Sitem[1].keys()
     list_frames.sort()
@@ -2291,7 +2293,7 @@ def file_to_anim2(filename):
     print filename, 'has no description. Are you sure it\'s', fles.format_string['gcompris'],'?'
     # int
     fles.frames_total = desc
-    
+
   picklelist = pickle.load(file)
   file.close()
   list_restore(picklelist)
@@ -2324,7 +2326,7 @@ def list_restore(picklelist):
       param = data['parent'], data['x'], data['y'], data['x']+data['width'], data['y']+data['height']
     else:
       param = data['parent'], data['x1'], data['y1'], data['x2'], data['y2']
-      
+
 
     fles.object_set_size_and_pos(*param)
 
@@ -2339,7 +2341,7 @@ def list_restore(picklelist):
       item.canvas_item.get_property("parent").destroy()
     except:
       pass
-    
+
   fles.framelist = []
   fles.animlist=[]
 
@@ -2381,7 +2383,7 @@ def list_restore(picklelist):
   else:
     for anAnimItem in fles.animlist[:]:
       anAnimItem.frames_info = {}
- 
+
 def restore_item(item, frame, missing):
   global fles
   if not item.frames_info.has_key(frame):
@@ -2501,7 +2503,7 @@ class BaseProcess:
                    }
 
         global fles
-        
+
         self.outfp = outfp
         self.images_list = {}
 
@@ -2510,13 +2512,13 @@ class BaseProcess:
 
         # save the list into
         self.list_to = []
-  
-        # get the list 
+
+        # get the list
         self.list_from = []
 
         if (fles.gcomprisBoard.mode == 'draw'):
           # in draw we need to get the list in z order, because of svg.
-          def get_item_at(z):    
+          def get_item_at(z):
             for item in eval('fles.' + fles.itemlist[fles.gcomprisBoard.mode]):
               if item.z == z: return item
           for z in fles.list_z_actual:
@@ -2533,7 +2535,7 @@ class BaseProcess:
         for item in self.list_from:
           frames_info_copied = {}
           for t, d  in item.frames_info.iteritems():
-            frames_info_copied[t] = d.copy(); 
+            frames_info_copied[t] = d.copy();
           Sitem = [ item.type, frames_info_copied]
           list_frames = Sitem[1].keys()
           list_frames.sort()
@@ -2561,7 +2563,7 @@ class BaseProcess:
              y1 = item[1][frame]['y1']
           if item[1][frame].has_key('y2'):
              y2 = item[1][frame]['y2']
-                  
+
         return (x1,y1,x2,y2)
 
     def get_last_line_points(self, item, frame_no):
@@ -2569,7 +2571,7 @@ class BaseProcess:
         listkeys.sort()
 
         def f(x): return x < frame_no
-        
+
         for frame in filter(f,listkeys):
             if  item[1][frame].has_key('points'):
                 points = item[1][frame]['points']
@@ -2579,8 +2581,8 @@ class BaseProcess:
         red = int ( ( rgba >> 24 ) & 255 )
         green = int ( ( rgba >> 16 ) & 255 )
         blue = int ( ( rgba >> 8 ) & 255 )
-        return 'rgb(' + str(red) +',' + str(green) + ',' + str(blue) + ')' 
-        
+        return 'rgb(' + str(red) +',' + str(green) + ',' + str(blue) + ')'
+
     def run(self):
         """Perform the complete conversion process.
 
@@ -2601,7 +2603,7 @@ class BaseProcess:
             # in this case parameters are put in self.element
             # and not in self.frame
 
-            if fles.gcomprisBoard.mode == 'draw':	
+            if fles.gcomprisBoard.mode == 'draw':
               self.frame = self.element
             else:
              self.frame = self.document.createElement("gcompris:frame")
@@ -2653,14 +2655,14 @@ class BaseProcess:
                   self.frame.setAttribute(
                       'stroke-width',
                       str(item[1][frame_no]['width-units']))
-                  continue  
-                
+                  continue
+
               if (self.types[item[0]] == 'ellipse'):
                 if (attr == 'width-units'):
                   self.frame.setAttribute(
                       'stroke-width',
                       str(item[1][frame_no]['width-units']))
-                  continue  
+                  continue
 
                 if (attr == 'outline_color_rgba'):
                   self.frame.setAttribute(
@@ -2675,7 +2677,7 @@ class BaseProcess:
                       'fill',
                       self.rgb_write(item[1][frame_no]['fill_color_rgba']))
                   continue
-              
+
                 if (attr == 'x2'):
                   if item[1][frame_no].has_key('x1'):
                     cx = (item[1][frame_no]['x2']+item[1][frame_no]['x1'])/2
@@ -2717,7 +2719,7 @@ class BaseProcess:
                     self.frame.setAttribute('cy',str(cy))
                     self.frame.setAttribute('ry',str(ry))
                   continue
-                      
+
               if (self.types[item[0]] == 'line'):
                 if (attr == 'fill_color_rgba'):
                   self.frame.setAttribute(
@@ -2728,7 +2730,7 @@ class BaseProcess:
                   self.frame.setAttribute(
                       'stroke-width',
                       str(item[1][frame_no]['width-units']))
-                  continue  
+                  continue
                 if (attr == 'points'):
                     if item[1][frame_no].has_key('create'):
                         self.frame.setAttribute('x1', str(item[1][frame_no]['points'][0]))
@@ -2772,8 +2774,8 @@ class BaseProcess:
                       'font-size',list[-1] + 'pt')
                   self.frame.setAttribute(
                       'font-family',list[0] + ' ' + list[1])
-                  
-                  
+
+
               if (item[0] == 'IMAGE'):
                 if (attr == 'image_name'):
                   image_name=item[1][frame_no]['image_name']
@@ -2805,11 +2807,11 @@ class BaseProcess:
                     self.image.setAttribute(
                         'xlink:href','data:image/png;base64,' + base64string)
 
-                    # get real size of the image.                    
+                    # get real size of the image.
                     pixmap = gcompris.utils.load_pixmap(image_name)
                     width = pixmap.get_width()
                     height = pixmap.get_height()
-                    
+
                     # Pass the <symbol> with image included.
                     self.image.setAttribute(
                         'x','0')
@@ -2828,7 +2830,7 @@ class BaseProcess:
                     self.image.appendChild(self.gcompris_name)
                     self.gcompris_name.setAttribute('value',image_name)
                   continue
-              
+
                 if ((attr == 'height_set') or  (attr == 'width_set')):
                   continue
 
@@ -2837,7 +2839,7 @@ class BaseProcess:
                       'transform',
                       'matrix' + str(item[1][frame_no]['matrice']))
                   continue
-                
+
               if fles.gcomprisBoard.mode == 'draw':
                 if (attr != 'create'):
                   self.frame.setAttribute(attr,str(item[1][frame_no][attr]))
@@ -2877,20 +2879,20 @@ class DOMProcess(BaseProcess):
         self.metadata.appendChild(self.gc_desc)
         self.gc_desc.setAttribute('value',fles.format_string['svg'])
 
-        if fles.gcomprisBoard.mode != 'draw':	
+        if fles.gcomprisBoard.mode != 'draw':
           self.script = self.document.createElement("script")
           self.svg.appendChild(self.script)
           self.gcompris_frames_total = self.document.createElement("gcompris:frames_total")
           self.svg.appendChild(self.gcompris_frames_total)
           self.gcompris_frames_total.setAttribute("value",str(self.frames_total))
-          scriptfile = open(gcompris.DATA_DIR + "/anim/animation.js") 
+          scriptfile = open(gcompris.DATA_DIR + "/anim/animation.js")
           t = self.document.createCDATASection(scriptfile.read())
           self.script.appendChild(t)
 
         self.defel = self.document.createElement("defs")
         self.svg.appendChild(self.defel)
 
-        if fles.gcomprisBoard.mode != 'draw':	
+        if fles.gcomprisBoard.mode != 'draw':
           # html buttons included
           self.foreign = self.document.createElement("foreignObject")
           self.svg.appendChild(self.foreign)
@@ -2904,13 +2906,13 @@ class DOMProcess(BaseProcess):
           self.button1.setAttribute("onclick", "start_animation();")
           self.button1text = self.document.createTextNode(u'>'.encode('UTF-8'))
           self.button1.appendChild(self.button1text)
-         
+
           self.button2 = self.document.createElement("html:button")
           self.foreign.appendChild(self.button2)
           self.button2.setAttribute("onclick", "speed_down();")
           self.button2text = self.document.createTextNode(u'<<'.encode('UTF-8'))
           self.button2.appendChild(self.button2text)
-        
+
           self.speedtext = self.document.createElement("html:input")
           self.foreign.appendChild(self.speedtext)
           self.speedtext.setAttribute("id","speed_text")
@@ -2918,7 +2920,7 @@ class DOMProcess(BaseProcess):
           self.speedtext.setAttribute("size","6")
           self.speedtext.setAttribute("maxlength","6")
           self.speedtext.setAttribute("value","4 fps")
-         
+
           self.ratetext = self.document.createElement("html:input")
           self.foreign.appendChild(self.ratetext)
           self.ratetext.setAttribute("id","rate_text")
@@ -2926,13 +2928,13 @@ class DOMProcess(BaseProcess):
           self.ratetext.setAttribute("size","6")
           self.ratetext.setAttribute("maxlength","6")
           self.ratetext.setAttribute("value","")
-        
+
           self.button3 = self.document.createElement("html:button")
           self.foreign.appendChild(self.button3)
           self.button3.setAttribute("onclick", "speed_up();")
           self.button3text = self.document.createTextNode(u'>>'.encode('UTF-8'))
           self.button3.appendChild(self.button3text)
-        
+
           self.button4 = self.document.createElement("html:button")
           self.foreign.appendChild(self.button4)
           self.button4.setAttribute("onclick", "stop_animation();")
@@ -3015,11 +3017,11 @@ class Outputter:
     global fles
 
     def __init__(self):
-       self.fixedattributs = fles.fixedattributs        
+       self.fixedattributs = fles.fixedattributs
 
        # used to check the element coming is the right one
        self.wait_element_list = ['svg']
-       
+
        # keep where we are in the tree
        self.in_element = []
 
@@ -3028,7 +3030,7 @@ class Outputter:
 
        # dict with id : image_name pairs
        self.images = {}
-       
+
        # Format of output in the gcompris anim2 pickle format,
        # close to the anim2 internal format
        self.picklelist = []
@@ -3042,7 +3044,7 @@ class Outputter:
        # used to skip elements we are not interested in (foreignObject, script)
        self.wait_end_of = None
 
-       
+
     def StartElementHandler(self, name, attrs):
         global fles
         def get_attrs(attrs):
@@ -3104,7 +3106,7 @@ class Outputter:
                #print u'Attribut non trait\xe9 :', self.item_getting[0], " ", k, "=", attrs[k]
                frame_info[k] = eval(attrs[k])
 
-          if (self.points != {}): 
+          if (self.points != {}):
             if (self.item_getting[0] == 'LINE'):
               for coord in ['x1', 'y1', 'x2', 'y2']:
                 if (not self.points.has_key(coord)):
@@ -3115,8 +3117,8 @@ class Outputter:
                                          self.points['y2'])
               self.last_points.update(self.points)
               self.points = {}
-                                      
-            if (self.item_getting[0] == 'IMAGE'):                
+
+            if (self.item_getting[0] == 'IMAGE'):
               for j in self.points.keys():
                   frame_info[j] = self.points[j]
               self.points = {}
@@ -3141,7 +3143,7 @@ class Outputter:
                   else:
                     # x and w not changed. normally never here
                     b2 = self.last_points[c + '2']
-                    
+
                 if (b1 != self.last_points[c+'1']):
                   frame_info[c+'1'] = b1
                   self.last_points[c+'1'] = b1
@@ -3170,7 +3172,7 @@ class Outputter:
                     # c and r not changed
                     b1 = self.last_points[c + '1']
                     b2 = self.last_points[c + '2']
-                    
+
                 if (b1 != self.last_points[c+'1']):
                   frame_info[c+'1'] = b1
                   self.last_points[c+'1'] = b1
@@ -3185,7 +3187,7 @@ class Outputter:
                   self.last_points[c+'1'] = self.points[c]
 
           return frame_info
-        
+
         if self.wait_end_of != None:
            # ignore all childs of that element .
            return
@@ -3198,7 +3200,7 @@ class Outputter:
           if (fles.gcomprisBoard.mode == 'draw'):
             self.wait_element_list = [ 'defs', 'metadata' ]
           else:
-            self.wait_element_list = [ 'script', 'metadata' ] 
+            self.wait_element_list = [ 'script', 'metadata' ]
           return
         if (name == 'metadata'):
            self.wait_element_list = ['gcompris:description']
@@ -3219,7 +3221,7 @@ class Outputter:
            self.wait_element_list = ['symbol']
            return
         if (name == 'symbol'):
-           # just get the id. 
+           # just get the id.
            self.wait_element_list = ['image']
            self.image_getting = attrs['id']
         if (name == 'image'):
@@ -3238,7 +3240,7 @@ class Outputter:
            self.last_points = { 'x1' : None,
                                 'y1' : None,
                                 'x2' : None,
-                                'y2' : None 
+                                'y2' : None
                                 }
 
            if (name == 'use'):
@@ -3260,7 +3262,7 @@ class Outputter:
 
            if (fles.gcomprisBoard.mode == 'draw'):
              self.item_getting[1][0] = get_attrs(attrs)
-             
+
         if (name == 'gcompris:frame'):
           self.item_getting[1][eval(attrs['time'])] = {}
           frame_info = self.item_getting[1][eval(attrs['time'])]
@@ -3279,7 +3281,7 @@ class Outputter:
           print "Error close ", name, " but ", self.in_element[-1], " waited."
           return
         self.in_element.pop()
-        
+
         if (name == 'svg'):
             list_restore(self.picklelist)
             return
@@ -3287,7 +3289,7 @@ class Outputter:
           if (fles.gcomprisBoard.mode == 'draw'):
             self.wait_element_list = [ 'defs' ]
           else:
-            self.wait_element_list = [ 'script' ] 
+            self.wait_element_list = [ 'script' ]
           return
         if (name == 'script'):
             self.wait_element_list = [ 'gcompris:frames_total' ]
@@ -3315,7 +3317,7 @@ class Outputter:
 
     def CharacterDataHandler(self, data):
       pass
-          
+
     def ProcessingInstructionHandler(self, target, data):
       pass
 
@@ -3329,14 +3331,14 @@ class Outputter:
       pass
 
     def EndCdataSectionHandler(self):
-      pass 
+      pass
 
     def CommentHandler(self, text):
       pass
 
     def NotationDeclHandler(self, *args):
       pass
-    
+
     def UnparsedEntityDeclHandler(self, *args):
       pass
 
