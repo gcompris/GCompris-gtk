@@ -31,12 +31,15 @@
  * 0  = NO LIMITS
  * -1 = NO CACHE
  */
+#ifdef USE_GNET
 static int cache_max_size = 1000;
 
 static GHashTable *hash_cache = NULL;
+#endif
 
 /** For debug only
  */
+#ifdef USE_GNET
 static void
 _dump_cache(gchar *key,
 	    gchar *value,
@@ -51,12 +54,14 @@ static void dump_cache(void)
 		       (GHFunc) _dump_cache,
 		       NULL);
 }
+#endif
 
 /**
  * recursively parse the cache and fill up the hash with files there
  */
 void _cache_init(const gchar *basedir, const gchar *currentdir)
 {
+#ifdef USE_GNET
   GcomprisProperties *properties = gc_prop_get();
   GDir *dir;
   const gchar *file;
@@ -92,6 +97,7 @@ void _cache_init(const gchar *basedir, const gchar *currentdir)
     }
 
   g_dir_close(dir);
+#endif
 }
 
 /** Initialize the cache system
@@ -101,6 +107,7 @@ void _cache_init(const gchar *basedir, const gchar *currentdir)
  */
 void gc_cache_init(int max_size)
 {
+#ifdef USE_GNET
   cache_max_size = max_size;
 
   /* No server defined, the cache is useless */
@@ -118,12 +125,12 @@ void gc_cache_init(int max_size)
     {
       g_error("Failed to create the cache directory");
     }
-
   printf("  opened top directory\n");
   /* Load the previous cache directory if any */
   _cache_init(gc_prop_get()->cache_dir, NULL);
 
   dump_cache();
+#endif
 }
 
 /** End the cache system
@@ -131,15 +138,18 @@ void gc_cache_init(int max_size)
  */
 void gc_cache_end()
 {
+#ifdef USE_GNET
 
   if(!hash_cache)
     return;
 
   g_hash_table_destroy (hash_cache);
   hash_cache = NULL;
+#endif
 }
 
 
+#ifdef USE_GNET
 static void
 _clear_cache(gchar *key,
 	     gchar *value,
@@ -147,16 +157,19 @@ _clear_cache(gchar *key,
 {
   printf("NOT IMPLEMENTED: Clearing chache %s:%s\n", key, value);
 }
+#endif
 
 /** Clear the cache. All files in the cache are removed
  *
  */
 void gc_cache_clear()
 {
+#ifdef USE_GNET
   g_hash_table_foreach(hash_cache,
 		       (GHFunc) _clear_cache,
 		       NULL);
 
+#endif
 }
 
 /** Get a file from the cache based on it's URL
@@ -164,7 +177,11 @@ void gc_cache_clear()
  */
 gchar *gc_cache_get(gchar *url)
 {
+#ifdef USE_GNET
   return((char *)g_hash_table_lookup(hash_cache, url));
+#else
+  return NULL;
+#endif
 }
 
 /** Put and Get a file from the cache. The data in 'buffer' are saved in the
@@ -178,9 +195,10 @@ gchar *gc_cache_get(gchar *url)
  */
 gchar *gc_cache_insert(const gchar *url, const char *buffer, gssize length)
 {
+#ifdef USE_GNET
   /* Save the buffer in the cache */
   if(g_file_set_contents("TBD", buffer, length, NULL))
     g_hash_table_replace(hash_cache, (gpointer) url, (gpointer) "TBD");
-
+#endif
   return("TBD");
 }
