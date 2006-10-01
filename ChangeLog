@@ -1,5 +1,98 @@
 2006-10-01  Bruno coudoin  <bruno.coudoin@free.fr>
 
+	- Added Turkish map by Onur Tolga Sehitoglu
+	  (removed translatable title because of string freeze)
+
+	* boards/geography/board9_0.xml.in:
+	* boards/geography/board9_1.xml.in:
+	* boards/geography/board9_2.xml.in:
+	* boards/geography/turkey_district/adana.png:
+	* boards/geography/turkey_district/adiyaman.png:
+	* boards/geography/turkey_district/afyon.png:
+	* boards/geography/turkey_district/agri.png:
+	* boards/geography/turkey_district/aksaray.png:
+	* boards/geography/turkey_district/amasya.png:
+	* boards/geography/turkey_district/ankara.png:
+	* boards/geography/turkey_district/antalya.png:
+	* boards/geography/turkey_district/ardahan.png:
+	* boards/geography/turkey_district/artvin.png:
+	* boards/geography/turkey_district/aydin.png:
+	* boards/geography/turkey_district/balikesir.png:
+	* boards/geography/turkey_district/bartin.png:
+	* boards/geography/turkey_district/batman.png:
+	* boards/geography/turkey_district/bayburt.png:
+	* boards/geography/turkey_district/bilecik.png:
+	* boards/geography/turkey_district/bingol.png:
+	* boards/geography/turkey_district/bitlis.png:
+	* boards/geography/turkey_district/bolu.png:
+	* boards/geography/turkey_district/burdur.png:
+	* boards/geography/turkey_district/bursa.png:
+	* boards/geography/turkey_district/canakkale.png:
+	* boards/geography/turkey_district/cankiri.png:
+	* boards/geography/turkey_district/corum.png:
+	* boards/geography/turkey_district/denizli.png:
+	* boards/geography/turkey_district/diyarbakir.png:
+	* boards/geography/turkey_district/duzce.png:
+	* boards/geography/turkey_district/edirne.png:
+	* boards/geography/turkey_district/elazig.png:
+	* boards/geography/turkey_district/erzincan.png:
+	* boards/geography/turkey_district/erzurum.png:
+	* boards/geography/turkey_district/eskisehir.png:
+	* boards/geography/turkey_district/gaziantep.png:
+	* boards/geography/turkey_district/giresun.png:
+	* boards/geography/turkey_district/gumushane.png:
+	* boards/geography/turkey_district/hakkari.png:
+	* boards/geography/turkey_district/hatay.png:
+	* boards/geography/turkey_district/igdir.png:
+	* boards/geography/turkey_district/isparta.png:
+	* boards/geography/turkey_district/istanbul.png:
+	* boards/geography/turkey_district/izmir.png:
+	* boards/geography/turkey_district/kahramanmaras.png:
+	* boards/geography/turkey_district/karabuk.png:
+	* boards/geography/turkey_district/karaman.png:
+	* boards/geography/turkey_district/kars.png:
+	* boards/geography/turkey_district/kastamonu.png:
+	* boards/geography/turkey_district/kayseri.png:
+	* boards/geography/turkey_district/kilis.png:
+	* boards/geography/turkey_district/kirikkale.png:
+	* boards/geography/turkey_district/kirklareli.png:
+	* boards/geography/turkey_district/kirsehir.png:
+	* boards/geography/turkey_district/kocaeli.png:
+	* boards/geography/turkey_district/konya.png:
+	* boards/geography/turkey_district/kutahya.png:
+	* boards/geography/turkey_district/malatya.png:
+	* boards/geography/turkey_district/manisa.png:
+	* boards/geography/turkey_district/mardin.png:
+	* boards/geography/turkey_district/mersin.png:
+	* boards/geography/turkey_district/mugla.png:
+	* boards/geography/turkey_district/mus.png:
+	* boards/geography/turkey_district/nevsehir.png:
+	* boards/geography/turkey_district/nigde.png:
+	* boards/geography/turkey_district/ordu.png:
+	* boards/geography/turkey_district/osmaniye.png:
+	* boards/geography/turkey_district/rize.png:
+	* boards/geography/turkey_district/sakarya.png:
+	* boards/geography/turkey_district/samsun.png:
+	* boards/geography/turkey_district/sanliurfa.png:
+	* boards/geography/turkey_district/siirt.png:
+	* boards/geography/turkey_district/sinop.png:
+	* boards/geography/turkey_district/sirnak.png:
+	* boards/geography/turkey_district/sivas.png:
+	* boards/geography/turkey_district/tekirdag.png:
+	* boards/geography/turkey_district/tokat.png:
+	* boards/geography/turkey_district/trabzon.png:
+	* boards/geography/turkey_district/tunceli.png:
+	* boards/geography/turkey_district/turkey-east.png:
+	* boards/geography/turkey_district/turkey-west.png:
+	* boards/geography/turkey_district/turkey.png:
+	* boards/geography/turkey_district/usak.png:
+	* boards/geography/turkey_district/van.png:
+	* boards/geography/turkey_district/yalova.png:
+	* boards/geography/turkey_district/yozgat.png:
+	* boards/geography/turkey_district/zonguldak.png:
+
+2006-10-01  Bruno coudoin  <bruno.coudoin@free.fr>
+
 	- Improved the activation system for windows
 
 	* configure.in: typo in disable-gnet
