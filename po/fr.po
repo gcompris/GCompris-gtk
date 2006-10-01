@@ -1,30 +1,28 @@
-# translation of fr.po to 
-# translation of gcompris-fr.po to
-# translation of gcompris-fr.po to
-# translation of gcompris_fr.po to Français
 # French translation of gcompris
-# Copyright (C) 2000-2003, 2004, 2005, 2006 Free Software Foundation, Inc.
+# Copyright (C) 2000-2006 Free Software Foundation, Inc.
+#
 # maintainer: Bruno Coudoin <bruno.coudoin@free.fr>, 2000-2003.
-# Christophe Merlet (RedFox) <redfox@eikonex.org>, 2002.
+# Christophe Merlet (RedFox) <redfox@redfoxcenter.org>, 2002.
 # Laurent Richard <laurent.richard@lilit.be>, 2003, 2004.
 # Renaud de Colombel <renaud.decolombel@free.fr>, 2004, 2005.
 # Bruno coudoin <bruno.coudoin@free.fr>, 2005.
 # de Colombel Renaud <renaud.decolombel@free.fr>, 2005.
 # Jean-Philippe Ayanides <jp.ayanides@free.fr>, 2005, 2006.
 # Ayanides Jean-Philippe <jp.ayanides@free.fr>, 2005.
+# Jonathan Ernst <jonathan@ernstfamily.ch>, 2006.
+# Claude Paroz <paroz@email.ch>, 2006.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: fr\n"
+"Project-Id-Version: gcompris 8.0BETA6\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-04-03 22:01+0200\n"
-"PO-Revision-Date: 2006-04-17 23:55+0200\n"
-"Last-Translator: Jean-Philippe Ayanides <jp.ayanides@free.fr>\n"
-"Language-Team:  <fr@li.org>\n"
+"POT-Creation-Date: 2006-10-01 15:44+0200\n"
+"PO-Revision-Date: 2006-10-01 15:44+0200\n"
+"Last-Translator: Claude Paroz <paroz@email.ch>\n"
+"Language-Team: GNOME French Team <gnomefr@traduc.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: KBabel 1.3.1\n"
 
 #: ../boards/administration.xml.in.h:1
 msgid ""
@@ -46,16 +44,16 @@ msgid ""
 "children as individuals; they can learn to type in and recognize their own "
 "usernames (login is configurable)."
 msgstr ""
-"- Dans la section \"Activité\" vous pouvez changer la liste des activités. "
+"- Dans la section « Activité » vous pouvez changer la liste des activités. "
 "Il suffit pour cela de les cocher/décocher dans la vue arborescente. Vous "
 "pouvez changer le langage utilisé pour les activités de lecture, par exemple "
 "le langage utilisé pour nommer des couleurs.\n"
 " - Vous pouvez sauver plusieurs configurations, et tout simplement passer de "
-"l'une à l'autre. Dans la section \"Profils\", ajoutez un profil, ensuite "
-"dans la section \"Activité\" sélectionnez le profil dans la boîte à choix "
+"l'une à l'autre. Dans la section « Profils », ajoutez un profil, ensuite "
+"dans la section « Activité » sélectionnez le profil dans la boîte à choix "
 "multiples, ensuite sélectionnez les activités désirées. Vous pouvez ajouter "
 "beaucoup de profils, avec différentes listes d'activités, et différentes "
-"langues. Vous positionnez le profil par défaut dans la section \"Profil\", "
+"langues. Vous positionnez le profil par défaut dans la section « Profil », "
 "en sélectionnant le profil désiré. Il est aussi possible de sélectionner "
 "directement un profil à partir de la ligne de commande. Vous pouvez ajouter "
 "des utilisateurs, classes et pour chaque classe vous pouvez créer des "
@@ -398,7 +396,7 @@ msgid ""
 msgstr ""
 "La multiplication de deux nombres est affichée. À droite du signe égal,tu "
 "dois entrer la réponse. Utilise les touches flèches gauche et droite pour "
-"modifier la réponse, puis appuie sur la touche \"Entrée\" pour valider celle-"
+"modifier la réponse, puis appuie sur la touche « Entrée » pour valider celle-"
 "ci. Si elle est fausse, tu peux essayer à nouveau."
 
 #: ../boards/algebra_by.xml.in.h:2 ../boards/algebra_minus.xml.in.h:2
@@ -423,7 +421,6 @@ msgid "Go to Algebra activities"
 msgstr "Vers les activités d'arithmétique"
 
 #: ../boards/algebra_group.xml.in.h:2 ../boards/menu.xml.in.h:17
-#: ../boards/menu2.xml.in.h:17
 msgid "Left-click the mouse on an activity to select it."
 msgstr "Clique avec le bouton gauche sur une activité pour la sélectionner."
 
@@ -435,7 +432,7 @@ msgid ""
 "pictures. Thanks a lot, Ralf."
 msgstr ""
 "Les photos d'animaux viennent d'une page consacrée aux photographies "
-"d'animaux de Ralf Schmode (http://schmode.net).Ralf a gentiment autorisé "
+"d'animaux de Ralf Schmode (http://schmode.net). Ralf a gentiment autorisé "
 "GCompris à les inclure. Merci beaucoup Ralf."
 
 #: ../boards/algebra_guesscount.xml.in.h:2
@@ -444,8 +441,8 @@ msgid ""
 "that give the specified result. You can deselect a number or operator by "
 "clicking on it again."
 msgstr ""
-"Tu dois choisir, en haut de la zone de l'activité, des nombres et des "
-"opérateurs arithmétiques ; tu dois les composer pour donner le résultat "
+"En haut de la zone de l'activité, tu dois choisir des nombres et des "
+"opérateurs arithmétiques ; tu dois les composer pour donner le résultat "
 "indiqué. Tu peux déselectionner un nombre ou un opérateur en cliquant dessus "
 "à nouveau."
 
@@ -455,11 +452,12 @@ msgid ""
 "value."
 msgstr ""
 "Mettre au point une stratégie pour ordonner un ensemble d'opérations "
-"arithmétiques afin de trouver une valeur cible"
+"arithmétiques afin de trouver une valeur cible."
 
 #: ../boards/algebra_guesscount.xml.in.h:4
 msgid "Find the series of correct operations that matches the given answer"
-msgstr "Trouve la séquence d'opérations correctes t'amenant au résultat recherché"
+msgstr ""
+"Trouve la séquence d'opérations correctes t'amenant au résultat recherché"
 
 #: ../boards/algebra_guesscount.xml.in.h:5
 msgid "The four arithmetic operations. Combine several arithmetic operations."
@@ -472,7 +470,7 @@ msgid ""
 "Work out the right combination of numbers and operations to match the given "
 "value"
 msgstr ""
-"Découvre la bonne combinaison de nombres et d'opérations afind'obtenir le "
+"Découvre la bonne combinaison de nombres et d'opérations afin d'obtenir le "
 "résultat demandé."
 
 #: ../boards/algebra_minus.xml.in.h:1
@@ -483,11 +481,9 @@ msgid ""
 "right. If not, just try again."
 msgstr ""
 "L'opération soustractive de deux nombres est affichée. À droite du signe "
-"égal,\n"
-"tu dois entrer la réponse. Utilise les touches flèches gauche et droite pour "
-"modifier la réponse.\n"
-"La touche \"entrée\" valide la réponse. Si elle est incorrecte, tu peux "
-"essayer à nouveau."
+"égal, tu dois entrer la réponse. Utilise les touches flèches gauche et "
+"droite pour modifier la réponse. La touche « Entrée » valide la réponse. Si "
+"elle est incorrecte, tu peux essayer à nouveau."
 
 #: ../boards/algebra_minus.xml.in.h:3
 msgid "In a limited time, find the difference between two numbers"
@@ -508,18 +504,17 @@ msgid ""
 "modify your answer and press the Enter key to check if you've got it right. "
 "If not, just try again."
 msgstr ""
-"L'opération additive de deux nombres est affichée. À droite du signe égal,\n"
+"L'opération additive de deux nombres est affichée. À droite du signe égal, "
 "tu dois entrer la réponse (donc la somme). Utilise les touches flèches "
-"gauche et droite pour modifier la réponse.\n"
-"La touche \"entrée\" valide la réponse. Si elle est incorrecte, tu peux "
-"essayer à nouveau."
+"gauche et droite pour modifier la réponse.La touche « Entrée » valide la "
+"réponse. Si elle est incorrecte, tu peux essayer à nouveau."
 
 #: ../boards/algebra_plus.xml.in.h:3
 msgid ""
 "In a limited time, find the sum of of two numbers. Introduction to simple in-"
 "line addition."
 msgstr ""
-"En en temps limité, trouve la somme de deux nombres. Introduction à "
+"En un temps limité, trouve la somme de deux nombres. Introduction à "
 "l'addition simple en ligne."
 
 #: ../boards/algebra_plus.xml.in.h:4
@@ -565,7 +560,7 @@ msgstr "Crée un dessin ou une animation"
 
 #: ../boards/anim.xml.in.h:2
 msgid "Free drawing and animation tool."
-msgstr "Outil libre de dessin et d'animation"
+msgstr "Outil libre de dessin et d'animation."
 
 #: ../boards/anim.xml.in.h:3
 msgid ""
@@ -574,11 +569,10 @@ msgid ""
 "lines. To give children a wider range of choices, a set of images can also "
 "be used."
 msgstr ""
-"Dans ce jeu, l'enfant peut dessiner librement.\n"
-"L'objectif est juste de découvrir comment créer de jolis dessins à partir\n"
-"de formes élémentaires : rectangles, ellipses et droites.\n"
-"Pour donner à l'enfant un choix plus varié, un ensemble d'images peut aussi "
-"être utilisé."
+"Dans ce jeu, l'enfant peut dessiner librement. L'objectif est juste de "
+"découvrir comment créer de jolis dessins à partir de formes élémentaires : "
+"rectangles, ellipses et droites. Pour donner à l'enfant un choix plus varié, "
+"un ensemble d'images peut aussi être utilisé."
 
 #: ../boards/anim.xml.in.h:4 ../boards/draw.xml.in.h:4
 msgid "Needs to be capable of moving and clicking the mouse easily"
@@ -604,15 +598,15 @@ msgstr ""
 "Sélectionne un outil de dessin sur la gauche et une couleur en bas. Ensuite "
 "clique et fais glisser dans la zone blanche pour créer une nouvelle forme. "
 "Lorsqu'un dessin est terminé, tu peux prendre une photo avec le bouton "
-"\"appareil photo\". Une nouvelle image avec le même contenu est créée. Tu "
+"« appareil photo ». Une nouvelle image avec le même contenu est créée. Tu "
 "peux ensuite déplacer les objets légèrement ou ajouter et enlever des "
-"objets. Lorsque tu as créé plusieurs images, appuie sur le bouton \"film\". "
+"objets. Lorsque tu as créé plusieurs images, appuie sur le bouton « film ». "
 "Tu verras tes images défiler en diaporama (dans une boucle infinie). Tu peux "
 "changer la rapidité de défilement dans ce mode. En mode visualisation, "
-"appuie sur le bouton \"dessiner\" pour revenir au mode dessin. Tu peux "
+"appuie sur le bouton « dessiner » pour revenir au mode dessin. Tu peux "
 "ensuite modifier chaque image en utilisant le sélecteur d'image en bas à "
 "gauche de l'écran. Tu peux sauver et recharger ton travail avec les boutons "
-"\"disquette\" et \"dossier\". "
+"« disquette » et « dossier »."
 
 #: ../boards/awele.xml.in.h:1
 msgid ""
@@ -639,35 +633,32 @@ msgid ""
 "his/her own territory, ending the game. (Source Wikipedia &lt;http://en."
 "wikipedia.org/wiki/Oware&gt;)"
 msgstr ""
-"Comme les échecs, seulement deux joueurs peuvent s'affronter, mais "
-"contrairement aux échecs, les joueurs doivent jouer rapidement et le public "
-"peut (et doit) faire du bruit, chanter, discuter les coups.\n"
 "Au départ, on répartit quarante-huit graines dans les douze trous à raison "
-"de quatre graines par trou.\n"
-"Les joueurs sont l'un en face de l'autre, avec une rangée devant chaque "
-"joueur. Cette rangée sera son camp. On choisit un sens de rotation qui "
-"vaudra pour toute la partie (sens inverse des aiguilles d'une montre pour la "
-"règle décrite). On choisit également un joueur qui commencera la partie.\n"
-"Un tour se joue de la façon suivante : le premier joueur prend toutes les "
+"de quatre graines par trou. Les joueurs sont l'un en face de l'autre, avec "
+"une rangée devant chaque joueur. Cette rangée sera son camp. On choisit un "
+"sens de rotation qui vaudra pour toute la partie (sens inverse des aiguilles "
+"d'une montre pour la règle décrite). On choisit également un joueur qui "
+"commencera la partie.\n"
+"Un tour se joue de la façon suivante : le premier joueur prend toutes les "
 "graines d'un des trous de sa rangée puis il les égraine dans toutes les "
 "cases qui suivent sur sa rangée puis sur celle de son adversaire suivant le "
 "sens de rotation. Si sa dernière graine tombe dans le camp adverse et qu'il "
 "y a maintenant deux ou trois graines, le joueur récupère ces deux ou trois "
-"graines et les met de côté. Ensuite il regarde la case précédente : si elle "
+"graines et les met de côté. Ensuite il regarde la case précédente : si elle "
 "est dans le camp adverse et contient deux ou trois graines, il récupère ces "
 "graines, et ainsi de suite jusqu'à ce qu'il arrive à son camp ou jusqu'à ce "
 "qu'il y ait un nombre de graines différent de deux ou trois.\n"
 " Le but du jeu est d'avoir récupéré le plus de graines à la fin de la "
 "partie.\n"
 "On ne saute pas de case lorsqu'on égraine sauf lorsqu'on a plus de douze "
-"graines, c'est-à-dire qu'on fait un tour complet : on ne remplit pas la case "
+"graines, c'est-à-dire qu'on fait un tour complet : on ne remplit pas la case "
 "où l'on vient de prendre les graines.\n"
 "Il faut nourrir l'adversaire, c'est-à-dire que, quand celui-ci n'a plus de "
 "graines, il faut absolument jouer un coup qui lui permette de rejouer "
 "ensuite. Si ce n'est pas possible, la partie s'arrête et le joueur qui "
 "allait jouer capture les graines restantes.\n"
 "Si un coup devait prendre toutes les graines adverses, alors le coup peut "
-"être joué, mais aucune capture n'est faite : il ne faut pas affamer "
+"être joué, mais aucune capture n'est faite : il ne faut pas affamer "
 "l'adversaire.\n"
 " La partie s'arrête quand un des joueurs a capturé au moins 25 graines, soit "
 "plus de la moitié.\n"
@@ -723,11 +714,11 @@ msgid ""
 "area."
 msgstr ""
 "Dans la zone principale, un ensemble d'objets est présenté. Dans le "
-"présentoir (zone verticale gauche), un autre ensemble est présenté ; chacun "
-"de ces objets correspond exactement à un objet de la zone principale.Le jeu "
+"présentoir (zone verticale gauche), un autre ensemble est présenté ; chacun "
+"de ces objets correspond exactement à un objet de la zone principale. Le jeu "
 "t'invite à découvrir le lien logique entre ces objets. Comment s'ajustent-"
-"ils ensemble ? Clique et fais glisser chaque objet jusqu'à l'emplacement "
-"rouge correctdans la zone principale."
+"ils ensemble ? Clique et fais glisser chaque objet jusqu'à l'emplacement "
+"rouge correct dans la zone principale."
 
 #: ../boards/babymatch.xml.in.h:3
 msgid "Matching Items"
@@ -740,12 +731,12 @@ msgstr "Coordination moteur. Concept d'association."
 #: ../boards/babymatch.xml.in.h:5
 msgid "Mouse manipulation: movement, drag and drop. Cultural references."
 msgstr ""
-"Manipulation de la souris : mouvement, attraper et faire glisser. Références "
+"Manipulation de la souris : mouvement, attraper et faire glisser. Références "
 "culturelles."
 
 #: ../boards/babyshapes.xml.in.h:1
 msgid "Complete the puzzle"
-msgstr "Complète le puzzle "
+msgstr "Complète le puzzle"
 
 #: ../boards/babyshapes.xml.in.h:2
 msgid ""
@@ -769,15 +760,15 @@ msgstr "Le chien est fourni par André Connes et est placé sous licence GPL."
 
 #: ../boards/babyshapes/board5_0.xml.in.h:1
 msgid "Hello ! My name is Lock."
-msgstr "Bonjour ! Mon nom est Lock."
+msgstr "Bonjour ! Mon nom est Lock."
 
 #: ../boards/babyshapes/board6_0.xml.in.h:1
 msgid "Lock on the grass."
-msgstr "Lock sur l'herbe"
+msgstr "Lock sur l'herbe."
 
 #: ../boards/babyshapes/board7_0.xml.in.h:1
 msgid "Lock with colored shapes."
-msgstr "Lock avec des formes colorées"
+msgstr "Lock avec des formes colorées."
 
 #: ../boards/ballcatch.xml.in.h:1
 msgid "Make the ball go to Tux"
@@ -788,8 +779,8 @@ msgid ""
 "Press the two shift keys at the same time, to make the ball go in a straight "
 "line."
 msgstr ""
-"Appuie sur les deux touches \"Shift\" en même temps pour envoyer la balle "
-"droit en avant"
+"Appuie sur les deux touches « Majuscule » en même temps pour envoyer la "
+"balle droit en avant."
 
 #: ../boards/bargame.xml.in.h:1
 msgid "Brain"
@@ -863,9 +854,8 @@ msgid ""
 "You are in charge of the canal lock. Open the gates and the locks in the "
 "right order, so Tux can travel through the gates in both directions."
 msgstr ""
-"Tu es responsable de l'écluse. Tu dois ouvrir les portes et les vannes\n"
-"dans le bon ordre afin de faire passer Tux à travers l'écluse dans les deux "
-"sens."
+"Tu es responsable de l'écluse. Tu dois ouvrir les portes et les vannes dans "
+"le bon ordre afin de faire passer Tux à travers l'écluse dans les deux sens."
 
 #: ../boards/chess.xml.in.h:1 ../boards/chess_computer.xml.in.h:3
 msgid "Play chess against the computer in a learning mode"
@@ -899,7 +889,8 @@ msgstr "Le temps"
 
 #: ../boards/chronos.xml.in.h:2
 msgid "Drag and Drop the items to organize the story"
-msgstr "Attrape et fais glisser les éléments pour remettre l'histoire dans l'ordre."
+msgstr ""
+"Attrape et fais glisser les éléments pour remettre l'histoire dans l'ordre."
 
 #: ../boards/chronos.xml.in.h:3
 msgid ""
@@ -909,10 +900,9 @@ msgid ""
 "those found in &lt;http://www.wikipedia.org&gt;."
 msgstr ""
 "Les photos de la lune viennent de la NASA. Les sons de l'espace viennent de "
-"Tuxpaint et Vegastrike, ils sont sous licence GPL. Les dates historiques des "
-"moyens de transport proviennent de &lt;http://www.wikipedia.org&gt;. Les "
-"images des moyens de transport sont la propriété de Franck Doucet, sous "
-"licence GPL."
+"Tuxpaint et Vegastrike, ils sont sous licence GPL. Les images des moyens de "
+"transport sont la propriété de Franck Doucet. Les dates historiques des "
+"moyens de transport proviennent de &lt;http://www.wikipedia.org&gt;."
 
 #: ../boards/chronos.xml.in.h:4
 msgid "Pick from the pictures on the left and put them on the red dots"
@@ -940,7 +930,7 @@ msgstr "Printemps"
 
 #: ../boards/chronos/board1_1.xml.in.h:3
 msgid "Summer"
-msgstr "Eté"
+msgstr "Été"
 
 #: ../boards/chronos/board1_1.xml.in.h:4
 msgid "The 4 Seasons"
@@ -961,9 +951,7 @@ msgstr "Tux et le pommier"
 #: ../boards/chronos/board3_0.xml.in.h:1 ../boards/chronos/board3_2.xml.in.h:1
 #: ../boards/chronos/board3_4.xml.in.h:1 ../boards/chronos/board4_2.xml.in.h:1
 msgid "1769 Cugnot's fardier"
-msgstr ""
-"1769 le fardier\n"
-"de Cugnot"
+msgstr "1769 le fardier de Cugnot"
 
 #: ../boards/chronos/board3_0.xml.in.h:2 ../boards/chronos/board3_3.xml.in.h:5
 #: ../boards/chronos/board3_4.xml.in.h:2
@@ -984,7 +972,7 @@ msgstr ""
 "Place chaque image dans l'ordre\n"
 "et en correspondance avec la date\n"
 "à laquelle elle a été inventée.\n"
-"Si tu n'es pas sûr(e) de toi, vérifie sur la Wikipedia :\n"
+"Si tu n'es pas sûr(e) de toi, vérifie sur Wikipedia :\n"
 "&lt;http://www.wikipedia.org&gt;"
 
 #: ../boards/chronos/board3_0.xml.in.h:8 ../boards/chronos/board3_1.xml.in.h:6
@@ -998,8 +986,8 @@ msgid ""
 "1783 Montgolfier brothers'\n"
 "hot air balloon"
 msgstr ""
-"1783 Les frères Mongolfier\n"
-"La mongolfière"
+"1783 Les frères Montgolfier\n"
+"La montgolfière"
 
 #: ../boards/chronos/board3_1.xml.in.h:3 ../boards/chronos/board3_2.xml.in.h:4
 #: ../boards/chronos/board3_4.xml.in.h:3 ../boards/chronos/board4_0.xml.in.h:1
@@ -1019,7 +1007,7 @@ msgid ""
 "1791 Comte de Sivrac's\n"
 "Celerifere"
 msgstr ""
-"1791 Compte de Sivrac\n"
+"1791 Comte de Sivrac\n"
 "Le Célérifère"
 
 #: ../boards/chronos/board4_0.xml.in.h:2
@@ -1046,7 +1034,7 @@ msgid ""
 "crosses the Atlantic Ocean"
 msgstr ""
 "1927 Charles Lindbergh\n"
-"traverse l' Atlantique"
+"traverse l'Atlantique"
 
 #: ../boards/chronos/board4_1.xml.in.h:3
 msgid ""
@@ -1066,7 +1054,7 @@ msgstr ""
 
 #: ../boards/chronos/board4_2.xml.in.h:2
 msgid "1878 Léon Bollé's \"La Mancelle\""
-msgstr "1878 Léon Bollé : \"La Mancelle\""
+msgstr "1878 Léon Bollé : « La Mancelle »"
 
 #: ../boards/chronos/board4_2.xml.in.h:3
 msgid ""
@@ -1082,7 +1070,7 @@ msgstr "La voiture"
 
 #: ../boards/chronos/board4_3.xml.in.h:1
 msgid "1899 Renault \"voiturette\""
-msgstr "1899 Renault \"voiturette\""
+msgstr "1899 Renault « voiturette »"
 
 #: ../boards/chronos/board4_3.xml.in.h:2
 msgid "1923 Lancia Lambda"
@@ -1145,21 +1133,21 @@ msgid ""
 "Location: Unknown (image nur03013)"
 msgstr ""
 "Les poissons proviennent de l'utilitaire Unix xfishtank.\n"
-"Les images proviennent de la collection du \"National Undersearch Research "
-"Program (NURP)\"\n"
+"Les images proviennent de la collection du « National Undersearch Research "
+"Program (NURP) »\n"
 "à &lt;http://www.photolib.noaa.gov&gt;.\n"
-"Toutes les images appartiennent au \"OAR/National Undersea Research Program"
-"\"\n"
+"Toutes les images appartiennent au « OAR/National Undersea Research "
+"Program »\n"
 "sauf la première qui provient de l'université de Caroline du Nord à "
-"Wilmington\"\n"
-"Les images utilisées à chaque niveau sont :\n"
-"Emplacement : Océan Tropical Atlantique, Florida Keys (image nur00523) "
-"Photographe : D. Kesling\n"
-"Emplacement : Florida Keys (image nur03006)\n"
-"Emplacement : Inconnu (image nur03505)\n"
-"Emplacement : Inconnu (image nur03010)\n"
-"Emplacement : Inconnu (image nur03011)\n"
-"Emplacement : Inconnu (image nur03013)"
+"Wilmington.\n"
+"Les images utilisées à chaque niveau sont :\n"
+"Emplacement : Océan Tropical Atlantique, Florida Keys (image nur00523) "
+"Photographe : D. Kesling\n"
+"Emplacement : Florida Keys (image nur03006)\n"
+"Emplacement : Inconnu (image nur03505)\n"
+"Emplacement : Inconnu (image nur03010)\n"
+"Emplacement : Inconnu (image nur03011)\n"
+"Emplacement : Inconnu (image nur03013)"
 
 #: ../boards/clickgame.xml.in.h:14
 msgid ""
@@ -1171,19 +1159,20 @@ msgstr ""
 
 #: ../boards/clickgame.xml.in.h:15
 msgid "Motor coordination: moving and clicking the mouse."
-msgstr "Coordination moteur : déplacements et clics avec la souris."
+msgstr "Coordination moteur : déplacements et clics avec la souris."
 
 #: ../boards/clickgame.xml.in.h:17
 msgid "Use the left mouse button to click on the moving fish."
-msgstr "Clique avec le bouton gauche de la souris sur les poissons qui bougent."
+msgstr ""
+"Clique avec le bouton gauche de la souris sur les poissons qui bougent."
 
 #: ../boards/clockgame.xml.in.h:1
 msgid ""
 "Distinguish between time-units (hour, minute and second). Set and display "
 "time on a clock."
 msgstr ""
-"Distinguer les différences entre les heures, minutes et secondes. Régler "
-"etafficher l'heure sur une horloge."
+"Distinguer les différences entre les heures, minutes et secondes. Régler et "
+"afficher l'heure sur une horloge."
 
 #: ../boards/clockgame.xml.in.h:2
 msgid "Learn how to tell the time"
@@ -1201,7 +1190,7 @@ msgid ""
 msgstr ""
 "Règle l'horloge à l'heure donnée, en respectant les unités de temps choisies "
 "(heures:minutes ou heures:minutes:secondes). Clique sur différentes "
-"aiguilles, et bouge la souris, pour augmenter ou diminuer la valeur qu'elles "
+"aiguilles et bouge la souris, pour augmenter ou diminuer la valeur qu'elles "
 "indiquent."
 
 #: ../boards/clockgame.xml.in.h:5
@@ -1210,7 +1199,7 @@ msgstr "Concept de l'heure. Lecture de l'heure."
 
 #: ../boards/colors.xml.in.h:1
 msgid "Can move the mouse."
-msgstr "Pouvoir déplacer la souris"
+msgstr "Pouvoir déplacer la souris."
 
 #: ../boards/colors.xml.in.h:2
 msgid "Click on the right color"
@@ -1222,7 +1211,8 @@ msgstr "Couleurs"
 
 #: ../boards/colors.xml.in.h:4
 msgid "Listen to the color and click on the matching duck."
-msgstr "Écoute la couleur qui est prononcée et clique sur le canard correspondant."
+msgstr ""
+"Écoute la couleur qui est prononcée et clique sur le canard correspondant."
 
 #: ../boards/colors.xml.in.h:5
 msgid ""
@@ -1238,7 +1228,7 @@ msgstr "Activités basées sur les couleurs."
 
 #: ../boards/colors_group.xml.in.h:2
 msgid "Go to Color activities"
-msgstr "Vers les activités des couleurs"
+msgstr "Vers les activités de couleurs"
 
 #: ../boards/computer.xml.in.h:1
 msgid "Discover the Computer"
@@ -1301,14 +1291,14 @@ msgid ""
 "right model. Below the crane itself, you will find four arrows that let you "
 "move items. To select the item to move, just click on it."
 msgstr ""
-"Déplace les objets situé en bas à gauche et recopie la position qu'ils "
+"Déplace les objets situés en bas à gauche et recopie la position qu'ils "
 "occupent dans le modèle à droite. Sous la grue elle-même, tu trouveras "
-"quatre flêches qui te permetteront de déplacer les objets. Pour sélectionner "
+"quatre flèches qui te permettront de déplacer les objets. Pour sélectionner "
 "un objet à déplacer, clique dessus."
 
 #: ../boards/discovery.xml.in.h:1
 msgid "Colors, sounds, memory..."
-msgstr "Couleurs, sons, et mémoire..."
+msgstr "Couleurs, sons et mémoire..."
 
 #: ../boards/discovery.xml.in.h:2
 msgid "Go to discovery activities"
@@ -1324,7 +1314,8 @@ msgstr "Table à double entrée"
 
 #: ../boards/doubleentry.xml.in.h:3
 msgid "Drag and Drop each proposed item on its destination"
-msgstr "Attrape et fais glisser chaque élément proposé vers son bon emplacement."
+msgstr ""
+"Attrape et fais glisser chaque élément proposé vers son bon emplacement."
 
 #: ../boards/doubleentry.xml.in.h:4
 msgid "Drag and Drop the items in the double-entry table"
@@ -1357,8 +1348,8 @@ msgid ""
 "lines."
 msgstr ""
 "Dans ce jeu, les enfants peuvent dessiner librement.\n"
-"L'objectif est juste de découvrir comment créer de jolis dessins à partirde "
-"formes simples : rectangles, ellipses et droites."
+"L'objectif est juste de découvrir comment créer de jolis dessins à partir de "
+"formes simples : rectangles, ellipses et droites."
 
 #: ../boards/draw.xml.in.h:5
 msgid ""
@@ -1391,7 +1382,7 @@ msgstr ""
 "point de connexion et en faisant glisser la souris jusqu'à un second point "
 "de connexion (libérer le bouton de la souris). Tu peux déplacer des "
 "composants en cliquant sur eux et en les faisant glisser. Tu peux supprimer "
-"des liaisons en cliquant sur elles. Pour supprimer un composant, selectionne "
+"des liaisons en cliquant sur elles. Pour supprimer un composant, sélectionne "
 "l'outil de suppression en haut du présentoir des composants. Tu peux cliquer "
 "sur le bouton pour l'ouvrir ou le fermer. Tu peux changer la valeur du "
 "rhéostat en cliquant et en faisant glisser son aiguille. Afin de simuler ce "
@@ -1401,7 +1392,7 @@ msgstr ""
 
 #: ../boards/electric.xml.in.h:3
 msgid "Electricity"
-msgstr "Electricité"
+msgstr "Électricité"
 
 #: ../boards/electric.xml.in.h:4
 msgid "Freely create an electric schema with a real time simulation of it."
@@ -1413,7 +1404,7 @@ msgid ""
 "information on gnucap at &lt;http://geda.seul.org/tools/gnucap/&gt;."
 msgstr ""
 "Gcompris utilise le simulateur de circuit électrique Gnucap comme moteur. "
-"Vous pouvez obtenir plus d'information sur Gnucap à l'adresse : &lt;http://"
+"Vous pouvez obtenir plus d'information sur Gnucap à l'adresse : &lt;http://"
 "geda.seul.org/tools/gnucap/&gt;."
 
 #: ../boards/electric.xml.in.h:6
@@ -1434,10 +1425,10 @@ msgid ""
 "the item you want to answer in the bottom right area. Enter the answer with "
 "the keyboard and press the OK button or the 'Enter' key."
 msgstr ""
-"D'abord, organise correctement les éléments afin de pouvoir les compter. "
-"Ensuite sélectionne l'élément pour lequel tu désires répondre dans la zone "
-"de droite. Entre la réponse avec le clavier et clique sur le bouton \"OK\" "
-"ou la touche \"Entrée\"."
+"Premièrement, organise correctement les éléments afin de pouvoir les "
+"compter. Ensuite, sélectionne l'élément pour lequel tu désires répondre dans "
+"la zone de droite. Saisis la réponse avec le clavier et clique sur le bouton "
+"« OK » ou la touche « Entrée »."
 
 #: ../boards/enumerate.xml.in.h:4 ../boards/planegame.xml.in.h:5
 #: ../src/boards/enumerate.c:92
@@ -1457,21 +1448,21 @@ msgid ""
 msgstr ""
 "Les photos d'animaux proviennent de la page consacrée aux photographies "
 "d'animaux de Ralf Schmode (&lt;http://schmode.net&gt;) et aussi de Daniel LE "
-"BERRE. Ils ont gentiment autorisé GCompris à inclure leurs photos. Merci "
+"BERRE. Ils ont aimablement autorisé GCompris à inclure leurs photos. Merci "
 "beaucoup à eux deux."
 
-#: ../boards/erase.xml.in.h:4 ../src/boards/erase.c:112
+#: ../boards/erase.xml.in.h:4 ../src/boards/erase.c:116
 #: ../src/boards/machpuzzle.c:92
 msgid "Move the mouse"
 msgstr "Déplace la souris."
 
-#: ../boards/erase.xml.in.h:5 ../src/boards/erase.c:113
+#: ../boards/erase.xml.in.h:5 ../src/boards/erase.c:117
 msgid "Move the mouse to erase the area and discover the background"
 msgstr "Déplace la souris pour tout effacer et découvrir le fond."
 
 #: ../boards/erase.xml.in.h:6
 msgid "Move the mouse until all the blocks disappear."
-msgstr "Déplace la souris sur les blocs pour les faire disparaître"
+msgstr "Déplace la souris sur les blocs pour les faire disparaître."
 
 #: ../boards/erase_clic.xml.in.h:2
 msgid "Click the mouse"
@@ -1479,7 +1470,7 @@ msgstr "Cliquer avec la souris"
 
 #: ../boards/erase_clic.xml.in.h:3
 msgid "Click the mouse on rectangles until all the blocks disappear."
-msgstr "Clique avec la souris sur les rectangles pour les faire disparaître"
+msgstr "Clique avec la souris sur les rectangles pour les faire disparaître."
 
 #: ../boards/erase_clic.xml.in.h:4
 msgid "Click the mouse to erase the area and discover the background"
@@ -1489,7 +1480,8 @@ msgstr ""
 
 #: ../boards/erase_double_clic.xml.in.h:2
 msgid "Double-Click the mouse to erase the area and discover the background"
-msgstr "Double-clique avec la souris pour tout effacer et découvrir l'image de fond."
+msgstr ""
+"Double-clique avec la souris pour tout effacer et découvrir l'image de fond."
 
 #: ../boards/erase_double_clic.xml.in.h:3
 msgid "Double-click the mouse"
@@ -1515,21 +1507,22 @@ msgstr "Vers les activités d'expérimentation"
 
 #: ../boards/experimental.xml.in.h:2
 msgid "Run gcompris --experimental to see this menu."
-msgstr "Lance \"gcompris --experimental\" pour voir ce menu."
+msgstr "Lance « gcompris --experimental » pour voir ce menu."
 
 #: ../boards/fifteen.xml.in.h:1
 msgid ""
 "Click on any item that has a free block beside it, and it will be swapped "
 "with the empty block."
 msgstr ""
-"Clique sur un élément jouxtant un espace libre ; l'élement se déplacera dans "
+"Clique sur un élément jouxtant un espace libre ; l'élement se déplacera dans "
 "l'espace libre et laissera un espace libre à la place."
 
 #: ../boards/fifteen.xml.in.h:3
-msgid "Move each item to make an increasing series: from the smallest to the largest"
+msgid ""
+"Move each item to make an increasing series: from the smallest to the largest"
 msgstr ""
-"Déplace chaque élément afin de créer une série croissante, allant du nombre "
-"le plus petit vers le nombre le plus grand."
+"Déplace chaque élément afin de créer une série croissante, allant du plus "
+"petit nombre au plus grand."
 
 #: ../boards/fifteen.xml.in.h:4
 msgid "Original code taken from the libgnomecanvas demo"
@@ -1587,7 +1580,7 @@ msgstr ""
 
 #: ../boards/followline.xml.in.h:4
 msgid "Tux needs to water the flowers, but the hose is blocked."
-msgstr "Tux a besoin d'arroser les fleurs mais le tuyau est bouché."
+msgstr "Tux a besoin d'arroser les fleurs, mais le tuyau est bouché."
 
 #: ../boards/fun.xml.in.h:1
 msgid "Go to Amusement activities"
@@ -1595,7 +1588,7 @@ msgstr "Vers les activités ludiques"
 
 #: ../boards/fun.xml.in.h:2
 msgid "Various fun activities."
-msgstr "Diverses activités ludiques"
+msgstr "Diverses activités ludiques."
 
 #: ../boards/gcompris/mimetypes/mime_type.xml.in.h:1
 msgid "gcompris animation"
@@ -1623,14 +1616,17 @@ msgstr "Repère l'emplacement des pays"
 
 #: ../boards/geography.xml.in.h:3
 msgid "Mouse manipulation: movement, drag and drop"
-msgstr "Manipulation de la souris : mouvement, saisir et et déplacer"
+msgstr "Manipulation de la souris : mouvement, saisir et déplacer"
 
 #: ../boards/geography.xml.in.h:4
 msgid ""
 "The map of Germany comes from Wikipedia and is released under the GNU Free "
 "Documentation License. Olaf Ronneberger and his children Lina and Julia "
 "Ronneberger created the German level."
-msgstr "La carte d'Allemagne provient de la Wikipédia et est diffusée sous licence GNU de documention libre. Olaf Ronneberger et ses enfants Lina et Julia Robberberger ont créé ce niveau."
+msgstr ""
+"La carte d'Allemagne provient de Wikipédia et est diffusée sous licence GNU "
+"de documentation libre. Olaf Ronneberger et ses enfants Lina et Julia "
+"Robberberger ont créé ce niveau."
 
 #: ../boards/geography/board1_0.xml.in.h:1
 #: ../boards/geography/board4_2.xml.in.h:1
@@ -1708,7 +1704,7 @@ msgstr "Amérique du Nord"
 
 #: ../boards/geography/board2_0.xml.in.h:12
 msgid "United States of America"
-msgstr "États Unis d'Amérique"
+msgstr "États-Unis d'Amérique"
 
 #: ../boards/geography/board2_1.xml.in.h:1
 msgid "Argentina"
@@ -1844,7 +1840,7 @@ msgstr "Albanie"
 
 #: ../boards/geography/board3_1.xml.in.h:2
 msgid "Belarus"
-msgstr "Bielorussie"
+msgstr "Biélorussie"
 
 #: ../boards/geography/board3_1.xml.in.h:3
 msgid "Bosnia Herzegovina"
@@ -1862,7 +1858,7 @@ msgstr "Croatie"
 msgid "Cyprus"
 msgstr "Chypre"
 
-#: ../boards/geography/board3_1.xml.in.h:7 ../src/gcompris/config.c:69
+#: ../boards/geography/board3_1.xml.in.h:7 ../src/gcompris/config.c:70
 msgid "Czech Republic"
 msgstr "République tchèque"
 
@@ -1946,153 +1942,152 @@ msgid "Burkina Faso"
 msgstr "Burkina Faso"
 
 #: ../boards/geography/board4_0.xml.in.h:4
-#: ../boards/geography/board4_2.xml.in.h:8
+#: ../boards/geography/board4_2.xml.in.h:7
 msgid "Cameroon"
 msgstr "Cameroun"
 
 #: ../boards/geography/board4_0.xml.in.h:5
-#: ../boards/geography/board4_2.xml.in.h:9
+#: ../boards/geography/board4_2.xml.in.h:8
 msgid "Central African Republic"
 msgstr "République centrafricaine"
 
 #: ../boards/geography/board4_0.xml.in.h:6
-#: ../boards/geography/board4_2.xml.in.h:10
+#: ../boards/geography/board4_2.xml.in.h:9
 msgid "Chad"
 msgstr "Tchad"
 
 #: ../boards/geography/board4_0.xml.in.h:7
-#: ../boards/geography/board4_2.xml.in.h:12
 msgid "Djibouti"
 msgstr "Djibouti"
 
 #: ../boards/geography/board4_0.xml.in.h:8
-#: ../boards/geography/board4_2.xml.in.h:13
+#: ../boards/geography/board4_2.xml.in.h:11
 msgid "Egypt"
-msgstr "Egypte"
+msgstr "Égypte"
 
 #: ../boards/geography/board4_0.xml.in.h:9
 #: ../boards/geography/board4_1.xml.in.h:5
-#: ../boards/geography/board4_2.xml.in.h:14
 msgid "Equatorial Guinea"
 msgstr "Guinée équatoriale"
 
 #: ../boards/geography/board4_0.xml.in.h:10
-#: ../boards/geography/board4_2.xml.in.h:16
-msgid "Ethiopia"
-msgstr "Ethiopie"
+#: ../boards/geography/board4_2.xml.in.h:12
+msgid "Eritrea"
+msgstr "Érythrée"
 
 #: ../boards/geography/board4_0.xml.in.h:11
+#: ../boards/geography/board4_2.xml.in.h:13
+msgid "Ethiopia"
+msgstr "Éthiopie"
+
+#: ../boards/geography/board4_0.xml.in.h:12
 #: ../boards/geography/board4_1.xml.in.h:6
-#: ../boards/geography/board4_2.xml.in.h:17
+#: ../boards/geography/board4_2.xml.in.h:14
 msgid "Gabon"
 msgstr "Gabon"
 
-#: ../boards/geography/board4_0.xml.in.h:12
-#: ../boards/geography/board4_2.xml.in.h:18
+#: ../boards/geography/board4_0.xml.in.h:13
 msgid "Gambia"
 msgstr "Gambie"
 
-#: ../boards/geography/board4_0.xml.in.h:13
-#: ../boards/geography/board4_2.xml.in.h:19
+#: ../boards/geography/board4_0.xml.in.h:14
+#: ../boards/geography/board4_2.xml.in.h:15
 msgid "Ghana"
 msgstr "Ghana"
 
-#: ../boards/geography/board4_0.xml.in.h:14
-#: ../boards/geography/board4_2.xml.in.h:20
+#: ../boards/geography/board4_0.xml.in.h:15
+#: ../boards/geography/board4_2.xml.in.h:16
 msgid "Guinea"
 msgstr "Guinée"
 
-#: ../boards/geography/board4_0.xml.in.h:15
-#: ../boards/geography/board4_2.xml.in.h:21
+#: ../boards/geography/board4_0.xml.in.h:16
 msgid "Guinea Bissau"
 msgstr "Guinée Bissau"
 
-#: ../boards/geography/board4_0.xml.in.h:16
-#: ../boards/geography/board4_2.xml.in.h:22
+#: ../boards/geography/board4_0.xml.in.h:17
+#: ../boards/geography/board4_2.xml.in.h:17
 msgid "Ivory Coast"
 msgstr "Côte d'Ivoire"
 
-#: ../boards/geography/board4_0.xml.in.h:17
-#: ../boards/geography/board4_2.xml.in.h:25
+#: ../boards/geography/board4_0.xml.in.h:18
+#: ../boards/geography/board4_2.xml.in.h:19
 msgid "Liberia"
 msgstr "Libéria"
 
-#: ../boards/geography/board4_0.xml.in.h:18
-#: ../boards/geography/board4_2.xml.in.h:26
+#: ../boards/geography/board4_0.xml.in.h:19
+#: ../boards/geography/board4_2.xml.in.h:20
 msgid "Libya"
 msgstr "Libye"
 
-#: ../boards/geography/board4_0.xml.in.h:19
-#: ../boards/geography/board4_2.xml.in.h:29
+#: ../boards/geography/board4_0.xml.in.h:20
+#: ../boards/geography/board4_2.xml.in.h:23
 msgid "Mali"
 msgstr "Mali"
 
-#: ../boards/geography/board4_0.xml.in.h:20
-#: ../boards/geography/board4_2.xml.in.h:30
+#: ../boards/geography/board4_0.xml.in.h:21
+#: ../boards/geography/board4_2.xml.in.h:24
 msgid "Mauritania"
 msgstr "Mauritanie"
 
-#: ../boards/geography/board4_0.xml.in.h:21
-#: ../boards/geography/board4_2.xml.in.h:31
+#: ../boards/geography/board4_0.xml.in.h:22
+#: ../boards/geography/board4_2.xml.in.h:25
 msgid "Morocco"
 msgstr "Maroc"
 
-#: ../boards/geography/board4_0.xml.in.h:22
-#: ../boards/geography/board4_2.xml.in.h:34
+#: ../boards/geography/board4_0.xml.in.h:23
+#: ../boards/geography/board4_2.xml.in.h:28
 msgid "Niger"
 msgstr "Niger"
 
-#: ../boards/geography/board4_0.xml.in.h:23
-#: ../boards/geography/board4_2.xml.in.h:35
+#: ../boards/geography/board4_0.xml.in.h:24
+#: ../boards/geography/board4_2.xml.in.h:29
 msgid "Nigeria"
 msgstr "Nigeria"
 
-#: ../boards/geography/board4_0.xml.in.h:24
+#: ../boards/geography/board4_0.xml.in.h:25
 msgid "Northern Africa"
 msgstr "Afrique du Nord"
 
-#: ../boards/geography/board4_0.xml.in.h:25
+#: ../boards/geography/board4_0.xml.in.h:26
 #: ../boards/geography/board4_1.xml.in.h:14
-#: ../boards/geography/board4_2.xml.in.h:36
 msgid "Rwanda"
 msgstr "Rwanda"
 
-#: ../boards/geography/board4_0.xml.in.h:26
-#: ../boards/geography/board4_2.xml.in.h:37
+#: ../boards/geography/board4_0.xml.in.h:27
+#: ../boards/geography/board4_2.xml.in.h:30
 msgid "Senegal"
 msgstr "Sénégal"
 
-#: ../boards/geography/board4_0.xml.in.h:27
-#: ../boards/geography/board4_2.xml.in.h:38
+#: ../boards/geography/board4_0.xml.in.h:28
 msgid "Sierra Leone"
 msgstr "Sierra Leone"
 
-#: ../boards/geography/board4_0.xml.in.h:28
-#: ../boards/geography/board4_2.xml.in.h:39
+#: ../boards/geography/board4_0.xml.in.h:29
+#: ../boards/geography/board4_2.xml.in.h:31
 msgid "Somalia"
 msgstr "Somalie"
 
-#: ../boards/geography/board4_0.xml.in.h:29
+#: ../boards/geography/board4_0.xml.in.h:30
 msgid "Sudan"
 msgstr "Soudan"
 
-#: ../boards/geography/board4_0.xml.in.h:30
-#: ../boards/geography/board4_2.xml.in.h:43
+#: ../boards/geography/board4_0.xml.in.h:31
+#: ../boards/geography/board4_2.xml.in.h:35
 msgid "Togo"
 msgstr "Togo"
 
-#: ../boards/geography/board4_0.xml.in.h:31
-#: ../boards/geography/board4_2.xml.in.h:44
+#: ../boards/geography/board4_0.xml.in.h:32
+#: ../boards/geography/board4_2.xml.in.h:36
 msgid "Tunisia"
 msgstr "Tunisie"
 
-#: ../boards/geography/board4_0.xml.in.h:32
+#: ../boards/geography/board4_0.xml.in.h:33
 #: ../boards/geography/board4_1.xml.in.h:19
-#: ../boards/geography/board4_2.xml.in.h:45
+#: ../boards/geography/board4_2.xml.in.h:37
 msgid "Uganda"
 msgstr "Ouganda"
 
-#: ../boards/geography/board4_0.xml.in.h:33
+#: ../boards/geography/board4_0.xml.in.h:34
 msgid "Western Sahara"
 msgstr "Sahara occidental"
 
@@ -2107,42 +2102,40 @@ msgid "Botswana"
 msgstr "Botswana"
 
 #: ../boards/geography/board4_1.xml.in.h:3
-#: ../boards/geography/board4_2.xml.in.h:7
 msgid "Burundi"
 msgstr "Burundi"
 
 #: ../boards/geography/board4_1.xml.in.h:4
-#: ../boards/geography/board4_2.xml.in.h:11
+#: ../boards/geography/board4_2.xml.in.h:10
 msgid "Democratic Republic of Congo"
 msgstr "République démocratique du Congo"
 
 #: ../boards/geography/board4_1.xml.in.h:7
-#: ../boards/geography/board4_2.xml.in.h:23
+#: ../boards/geography/board4_2.xml.in.h:18
 msgid "Kenya"
 msgstr "Kenya"
 
 #: ../boards/geography/board4_1.xml.in.h:8
-#: ../boards/geography/board4_2.xml.in.h:24
 msgid "Lesotho"
 msgstr "Lesotho"
 
 #: ../boards/geography/board4_1.xml.in.h:9
-#: ../boards/geography/board4_2.xml.in.h:27
+#: ../boards/geography/board4_2.xml.in.h:21
 msgid "Madagascar"
 msgstr "Madagascar"
 
 #: ../boards/geography/board4_1.xml.in.h:10
-#: ../boards/geography/board4_2.xml.in.h:28
+#: ../boards/geography/board4_2.xml.in.h:22
 msgid "Malawi"
 msgstr "Malawi"
 
 #: ../boards/geography/board4_1.xml.in.h:11
-#: ../boards/geography/board4_2.xml.in.h:32
+#: ../boards/geography/board4_2.xml.in.h:26
 msgid "Mozambique"
 msgstr "Mozambique"
 
 #: ../boards/geography/board4_1.xml.in.h:12
-#: ../boards/geography/board4_2.xml.in.h:33
+#: ../boards/geography/board4_2.xml.in.h:27
 msgid "Namibia"
 msgstr "Namibie"
 
@@ -2151,7 +2144,7 @@ msgid "Republic of Congo"
 msgstr "République du Congo"
 
 #: ../boards/geography/board4_1.xml.in.h:15
-#: ../boards/geography/board4_2.xml.in.h:40
+#: ../boards/geography/board4_2.xml.in.h:33
 msgid "South Africa"
 msgstr "Afrique du Sud"
 
@@ -2160,28 +2153,27 @@ msgid "Southern Africa"
 msgstr "Sud de l'Afrique"
 
 #: ../boards/geography/board4_1.xml.in.h:17
-#: ../boards/geography/board4_2.xml.in.h:41
 msgid "Swaziland"
 msgstr "Swaziland"
 
 #: ../boards/geography/board4_1.xml.in.h:18
-#: ../boards/geography/board4_2.xml.in.h:42
+#: ../boards/geography/board4_2.xml.in.h:34
 msgid "Tanzania"
 msgstr "Tanzanie"
 
 #: ../boards/geography/board4_1.xml.in.h:20
-#: ../boards/geography/board4_2.xml.in.h:46
+#: ../boards/geography/board4_2.xml.in.h:38
 msgid "Zambia"
 msgstr "Zambie"
 
 #: ../boards/geography/board4_1.xml.in.h:21
-#: ../boards/geography/board4_2.xml.in.h:47
+#: ../boards/geography/board4_2.xml.in.h:39
 msgid "Zimbabwe"
 msgstr "Zimbabwe"
 
-#: ../boards/geography/board4_2.xml.in.h:15
-msgid "Eritrea"
-msgstr "Érythrée"
+#: ../boards/geography/board4_2.xml.in.h:32
+msgid "Soudan"
+msgstr "Soudan"
 
 #: ../boards/geography/board5_0.xml.in.h:1
 msgid "Regions of France"
@@ -2207,11 +2199,11 @@ msgstr "Manipulation du clavier"
 msgid "Letter association between the screen and the keyboard"
 msgstr "Reconnaissance des lettres entre le clavier et l'écran"
 
-#: ../boards/gletters.xml.in.h:3 ../src/boards/gletters.c:134
+#: ../boards/gletters.xml.in.h:3 ../src/boards/gletters.c:135
 msgid "Simple Letters"
 msgstr "Jeu de lettres"
 
-#: ../boards/gletters.xml.in.h:4 ../src/boards/gletters.c:135
+#: ../boards/gletters.xml.in.h:4 ../src/boards/gletters.c:136
 msgid "Type the falling letters before they reach the ground"
 msgstr ""
 "Avec les touches du clavier, élimine les lettres qui tombent\n"
@@ -2226,14 +2218,14 @@ msgid ""
 "Guide the Number Muncher to the expressions that equal the number at the top "
 "of the screen."
 msgstr ""
-"Guide le croqueur de nombres sur les expressions qui sont égales\n"
-"au nombre présenté en haut de l'écran."
+"Guide le croqueur de nombres sur les expressions qui sont égales au nombre "
+"présenté en haut de l'écran."
 
 #: ../boards/gnumch-equality.xml.in.h:3
 msgid "Practice addition, multiplication, division and subtraction."
 msgstr ""
-"Entraînement aux opérations d'addition, de multiplication,\n"
-"de division et de soustraction."
+"Entraînement aux opérations d'addition, de multiplication, de division et de "
+"soustraction."
 
 #: ../boards/gnumch-equality.xml.in.h:4 ../boards/gnumch-inequality.xml.in.h:4
 msgid ""
@@ -2241,7 +2233,7 @@ msgid ""
 "Press the spacebar to eat a number."
 msgstr ""
 "Utilise les touches fléchées pour naviguer sur le plateau et pour éviter les "
-"troggles. Appuie sur la barre \"espace\" pour manger un nombre."
+"troggles. Appuie sur la barre espace pour manger un nombre."
 
 #: ../boards/gnumch-factors.xml.in.h:1
 msgid "Factor Number Munchers"
@@ -2273,11 +2265,11 @@ msgstr ""
 "On appelle diviseur d'un nombre tout nombre entier qui divise ce nombre sans "
 "laisser de reste. Par exemple, les diviseurs de 6 sont 1, 2, 3, et 6. 4 "
 "n'est pas un diviseur de 6 parce que 6 ne peut être divisé en 4 parties "
-"égales.Si un premier nombre est un multiple d'un deuxième, alors ce dernier "
+"égales. Si un premier nombre est un multiple d'un deuxième, alors ce dernier "
 "est un diviseur du premier. Tu peux voir les multiples d'un nombre comme un "
-"ensemble. Ainsi 1, 2, 3, e 6 sont éléments de cet ensemble, mais 4 ne l'est "
-"pas.Utilise les touches flèchées pour te déplacer dans l'activité et éviter "
-"les troggles. Appuie sur la barre \"espace\" pour manger un nombre."
+"ensemble. Ainsi 1, 2, 3 et 6 sont éléments de cet ensemble, mais 4 ne l'est "
+"pas. Utilise les touches fléchées pour te déplacer dans l'activité et éviter "
+"les troggles. Appuie sur la barre espace pour manger un nombre."
 
 #: ../boards/gnumch-inequality.xml.in.h:1
 msgid ""
@@ -2336,8 +2328,8 @@ msgstr ""
 "entier qui, multiplié par 12, peut donner 25.\n"
 "Si un nombre est un diviseur d'un deuxième nombre, ce dernier est un "
 "multiple du premier.\n"
-"Utilise les touches flèchées pour te déplacer dans l'activité et éviter les "
-"troggles. Appuie sur la barre \"espace\" pour manger un nombre."
+"Utilise les touches fléchées pour te déplacer dans l'activité et éviter les "
+"troggles. Appuie sur la barre espace pour manger un nombre."
 
 #: ../boards/gnumch-primes.xml.in.h:1
 msgid "Guide the Number Muncher to all the prime numbers."
@@ -2365,11 +2357,11 @@ msgstr ""
 "Les nombres premiers sont des nombres supérieurs à 2 qui ne sont divisibles "
 "que par eux-mêmes et par 1. Par exemple, 3 est un nombre premier, mais 4 ne "
 "l'est pas (car divisible par 2). 5 est aussi un nombre premier (les seuls "
-"nombres qu'on puisse multiplier ensemble pour donner 5 sont 5 et 1), mais tu "
-"peux voir que 2 x 3 = 6, aussi bien que 1 x 6 = 6) ; donc 6 n'est pas un "
-"nombre premier.\n"
-"Utilise les flêches de direction pour naviguer sur le plateau et éviter les "
-"Troggles. Appuis sur la touche \"espace\" pour manger un nombre."
+"nombres qu'on puisse multiplier pour donner 5 sont 5 et 1), mais tu peux "
+"voir que 2 x 3 = 6, aussi bien que 1 x 6 = 6) ; donc 6 n'est pas un nombre "
+"premier.\n"
+"Utilise les flèches de direction pour naviguer sur le plateau et éviter les "
+"Troggles. Appuie sur la barre espace pour manger un nombre."
 
 #: ../boards/gnumchmenu.xml.in.h:1
 msgid "Go to Number Munchers activities"
@@ -2385,7 +2377,8 @@ msgstr "Essaye de deviner un nombre"
 
 #: ../boards/guessnumber.xml.in.h:2
 msgid "Help Tux escape the cave. Tux hides a number for you to find."
-msgstr "Aide Tux à sortir de la grotte. Tux cache un nombre que tu dois découvrir."
+msgstr ""
+"Aide Tux à sortir de la grotte. Tux cache un nombre que tu dois découvrir."
 
 #: ../boards/guessnumber.xml.in.h:3
 msgid "Numbers from 1 to 1000 for the last level."
@@ -2417,7 +2410,7 @@ msgid ""
 "Drag and Drop one top piece at a time, from one peg to another, to reproduce "
 "the tower on the right in the empty space on the left."
 msgstr ""
-"Prend et fais glisser les pièces situées tout en haut, pour les déplacer "
+"Prends et fais glisser les pièces situées tout en haut, pour les déplacer "
 "d'un piquet à un autre, afin de reproduire la tour modèle (à droite) dans "
 "l'emplacement vide situé à sa gauche."
 
@@ -2459,7 +2452,7 @@ msgid ""
 "placed atop a smaller disc"
 msgstr ""
 "L'objectif de ce jeu est de déplacer la pile complète vers une autre pile en "
-"obéissant aux règles suivantes:\n"
+"obéissant aux règles suivantes :\n"
 "- un seul disque peut être déplacé à la fois\n"
 "- un disque ne peut pas être placé sur un disque plus petit."
 
@@ -2480,8 +2473,8 @@ msgstr ""
 "Tour de Hanoï. Selon la légende, le monde devait prendre fin lorsque les "
 "prêtres auraient terminé leur travail. Le puzzle est donc aussi connu sous "
 "le nom de puzzle de la Tour de Brahma. On ne sait pas bien si Lucas a "
-"inventé cette légende ou s'il s'en est inspiré. (source : la Wikipedia &lt;"
-"http://en.wikipedia.org/wiki/Tower_of_hanoi&gt;)"
+"inventé cette légende ou s'il s'en est inspiré. (source : Wikipédia &lt;"
+"http://fr.wikipedia.org/wiki/Tours_de_Hanoi&gt;)"
 
 #: ../boards/hexagon.xml.in.h:1
 msgid "Find the strawberry by clicking on the blue fields"
@@ -2492,10 +2485,8 @@ msgid ""
 "Try to find the strawberry under the blue fields. The fields become redder "
 "as you get closer."
 msgstr ""
-"Trouve la fraise dans le champ d'hexagones bleus. Plus tu te rapproches (tu "
-"chauffes), et Plus l'élément cliqué est rouge, plus tu te rapproches (tu "
-"chauffes) ; plus l'élément cliqué est proche du bleu et plus tu t'éloignes "
-"(tu refroidis)."
+"Trouve la fraise dans le champ d'hexagones bleus. Le champ devient de plus "
+"en plus rouge au fur et à mesure que tu te rapproches."
 
 #: ../boards/hexagon.xml.in.h:5
 msgid "hexagon"
@@ -2511,7 +2502,7 @@ msgstr "Exercices de lecture pour trouver le mot correspondant à une image"
 
 #: ../boards/imageid.xml.in.h:3 ../boards/imagename.xml.in.h:4
 #: ../boards/readingh.xml.in.h:4 ../boards/readingv.xml.in.h:4
-#: ../src/boards/imageid.c:112 ../src/boards/missingletter.c:104
+#: ../src/boards/imageid.c:106 ../src/boards/missingletter.c:104
 msgid "Reading"
 msgstr "Lecture"
 
@@ -2628,7 +2619,7 @@ msgid ""
 "name on the right. Click the OK button to check your answer."
 msgstr ""
 "Attrape et fais glisser les images situées dans le présentoir (à gauche) "
-"vers l'emplacement qui correspond à leur nom. Clique le bouton \"OK\" pour "
+"vers l'emplacement qui correspond à leur nom. Clique le bouton « OK » pour "
 "vérifier ta réponse."
 
 #: ../boards/imagename.xml.in.h:3
@@ -2753,7 +2744,7 @@ msgstr "raquette"
 
 #: ../boards/keyboard.xml.in.h:1
 msgid "Discover the keyboard."
-msgstr "Découvre le clavier"
+msgstr "Découvre le clavier."
 
 #: ../boards/keyboard.xml.in.h:2
 msgid "Keyboard-manipulation boards"
@@ -2789,14 +2780,15 @@ msgstr ""
 "Clique sur le bouton rouge (à gauche) ou vert (à droite)."
 
 #: ../boards/login.xml.in.h:1
-msgid "GCompris identifies each child, so we can provide child-specific reports."
+msgid ""
+"GCompris identifies each child, so we can provide child-specific reports."
 msgstr ""
 "GCompris identifie chaque enfant, afin de pouvoir fournir des rapports "
 "spécifiques."
 
 #: ../boards/login.xml.in.h:2
 msgid "GCompris login screen"
-msgstr "Ecran de connexion de GCompris"
+msgstr "Écran de connexion de GCompris"
 
 #: ../boards/login.xml.in.h:3
 msgid ""
@@ -2810,14 +2802,14 @@ msgid ""
 "'profile'\n"
 "is the name of a profile as you created it in Administration."
 msgstr ""
-"Pour activer l'écran de connexion, vous devez d'abord ajouter des "
-"utilisateurs dans la partie administrative de GCompris.\n"
-"Pour accéder à cet écran, il faut lancer \"gcompris -a\".\n"
+"Pour activer l'écran de connexion, vous devez d'abord\n"
+"ajouter des utilisateurs dans la partie administrative de GCompris.\n"
+"Pour accéder à cet écran, il faut lancer « gcompris -a ».\n"
 "Dans l'administration, vous pouvez créer différents profils. Dans chaque "
 "profil, vous pouvez avoir plusieurs ensembles d'utilisateurs et sélectionner "
 "les activités disponibles pour eux.\n"
-"Pour lancer GCompris avec un profil donné, utilisez la commande \"gcompris -"
-"p profil\"' où \"profil\" est le nom d'un profil tel que vous l'avez créé "
+"Pour lancer GCompris avec un profil donné, utilisez la commande « gcompris -"
+"p profil » où « profil » est le nom d'un profil tel que vous l'avez créé "
 "dans l'administration."
 
 #: ../boards/login.xml.in.h:10
@@ -2834,8 +2826,9 @@ msgid ""
 "see moving around? Count carefully. :) Click in the bottom- right area to "
 "input your answer."
 msgstr ""
-"Clique sur chapeau pour l'ouvrir ou le fermer. Sous le chapeau, combien d'étoiles "
-"peux-tu voir tournoyer ? Compte attentivement :) Clique sur la zone en bas à droite pour insérer ta réponse."
+"Clique sur le chapeau pour l'ouvrir ou le fermer. Sous le chapeau, combien "
+"d'étoiles peux-tu voir tournoyer ? Compte attentivement :) Clique sur la "
+"zone en bas à droite pour insérer ta réponse."
 
 #: ../boards/magic_hat_plus.xml.in.h:3
 msgid "Count how many items are under the magic hat"
@@ -2851,7 +2844,9 @@ msgstr "Le chapeau du magicien"
 
 #: ../boards/magic_hat_minus.xml.in.h:1
 msgid "Count how many items are under the magic hat after some have got away"
-msgstr "Compter combien d'objets se trouvent sous le chapeau du magicien après que certains sont partis."
+msgstr ""
+"Compter combien d'objets se trouvent sous le chapeau du magicien après que "
+"certains sont partis."
 
 #: ../boards/magic_hat_minus.xml.in.h:2
 msgid "Learn subtraction"
@@ -2863,7 +2858,12 @@ msgid ""
 "hat. Then, click on the hat to open it. A few stars escape. Click again on "
 "the hat to close it. You have to count how many are still under the hat. "
 "Click on the bottom right area to answer."
-msgstr "Regarde le magicien, il donne le nombre d'étoiles qui sont sous son chapeau magique. Clique alors sur le chapeau pour l'ouvrir. Plusieurs étoiles s'échappent alors. Clique alors sur le chapeau pour le fermer. Tu dois établir le nombre d'étoiles restant sous le chapeau. Clique sur la zone en bas à droite pour insérer ta réponse."
+msgstr ""
+"Regarde le magicien, il donne le nombre d'étoiles qui sont sous son chapeau "
+"magique. Clique alors sur le chapeau pour l'ouvrir. Plusieurs étoiles "
+"s'échappent alors. Clique alors sur le chapeau pour le fermer. Tu dois "
+"établir le nombre d'étoiles restant sous le chapeau. Clique sur la zone en "
+"bas à droite pour insérer ta réponse."
 
 #: ../boards/magic_hat_minus.xml.in.h:4 ../boards/memory_add_minus.xml.in.h:3
 #: ../boards/memory_add_minus_tux.xml.in.h:3 ../boards/memory_minus.xml.in.h:2
@@ -2873,7 +2873,7 @@ msgstr "Soustraction"
 
 #: ../boards/math.xml.in.h:1
 msgid "Mathematical activities."
-msgstr "Activités de mathématiques"
+msgstr "Activités de mathématiques."
 
 #: ../boards/math.xml.in.h:2
 msgid "Mathematics"
@@ -2882,7 +2882,7 @@ msgstr "Mathématiques"
 #: ../boards/maze.xml.in.h:1 ../boards/maze2DRelative.xml.in.h:1
 #: ../boards/maze3D.xml.in.h:2 ../boards/mazeInvisible.xml.in.h:1
 msgid "Can use the keyboard arrow to move an object."
-msgstr "Sait utiliser les flèches du clavier."
+msgstr "Sait utiliser les flèches du clavier pour déplacer un objet."
 
 #: ../boards/maze.xml.in.h:2 ../src/boards/maze.c:133
 msgid "Find your way out of the maze"
@@ -2913,7 +2913,7 @@ msgid ""
 "let you turn Tux in another direction."
 msgstr ""
 "Utilise le clavier pour déplacer Tux jusqu'à la porte. Dans ce labyrinthe, "
-"le déplacement est relatif (première personne). Utilise la flèche \"haut\" "
+"le déplacement est relatif (première personne). Utilise la flèche « haut » "
 "pour avancer. Les autres flèches permettent de tourner."
 
 #: ../boards/maze3D.xml.in.h:1
@@ -2931,7 +2931,7 @@ msgid ""
 "position, like a map. You cannot move Tux in 2D mode."
 msgstr ""
 "Utilise les flèches du clavier pour déplacer Tux jusqu'à la porte. Utilise "
-"la touche \"Espace\" pour passer du mode bidimensionnel (2D) au mode "
+"la touche « espace » pour passer du mode bidimensionnel (2D) au mode "
 "tridimensionnel (3D). Le mode bidimensionnel donne juste une indication sur "
 "ta position, comme une carte. Tu ne peux pas déplacer Tux en mode "
 "bidimensionnel."
@@ -2947,13 +2947,13 @@ msgid ""
 "indication of your position, like a map. You cannot move Tux in visible mode."
 msgstr ""
 "Utilise les flèches du clavier pour déplacer Tux jusqu'à la porte. Utilise "
-"la touche \"Espace\" pour commuter les modes invisible et visible. Le mode "
+"la touche « espace » pour commuter les modes invisible et visible. Le mode "
 "visible donne juste une indication sur ta position, comme une carte. Tu ne "
 "peux pas déplacer Tux en mode visible."
 
 #: ../boards/mazeMenu.xml.in.h:1
 msgid "Find your way out of different types of mazes"
-msgstr "Trouve ta sortie dans différentes sortes de labyrinthes."
+msgstr "Trouve la sortie dans différentes sortes de labyrinthes."
 
 #: ../boards/mazeMenu.xml.in.h:2
 msgid "Go to Maze activities"
@@ -2968,8 +2968,8 @@ msgid ""
 "Listen to the sound sequence played, and repeat it by clicking on the "
 "elements. You can listen again by clicking on the repeat button."
 msgstr ""
-"Ecoute les séquences sonores. Ensuite, essaie de les reproduire en cliquant "
-"sur les objets. Tu peux réécouter en cliquant sur le bouton \"répéter\". "
+"Écoute les séquences sonores. Ensuite, essaie de les reproduire en cliquant "
+"sur les objets. Tu peux réécouter en cliquant sur le bouton « répéter »."
 
 #: ../boards/melody.xml.in.h:3
 msgid "Melody"
@@ -2989,9 +2989,11 @@ msgid ""
 msgstr ""
 "Un ensemble de cartes est affiché,côté faces cachées. Chaque carte est "
 "présente en double exemplaire. En cliquant sur une carte, on découvre sa "
-"face cachée. Cependant, on ne peut découvrir que deux faces cachées à la fois.\n"
+"face cachée. Cependant, on ne peut découvrir que deux faces cachées à la "
+"fois.\n"
 "Il faut se rappeler la position des images pour les associer deux à deux "
-"entre elles. Une paire de cartes identiques est enlevée lorsqu'elle est découverte."
+"entre elles. Une paire de cartes identiques est enlevée lorsqu'elle est "
+"découverte."
 
 #: ../boards/memory.xml.in.h:2
 msgid "Flip the cards to find the matching pairs"
@@ -3011,13 +3013,17 @@ msgstr "Jeu de memory sur l'addition"
 
 #: ../boards/memory_add.xml.in.h:3 ../boards/memory_add_tux.xml.in.h:3
 msgid "Practise adding up, until all the cards are gone."
-msgstr "Entraînement à l'opération d'addition, sur des cartes qui disparaissent une fois associées."
+msgstr ""
+"Entraînement à l'opération d'addition, sur des cartes qui disparaissent une "
+"fois associées."
 
 #: ../boards/memory_add.xml.in.h:4 ../boards/memory_add_tux.xml.in.h:4
 msgid ""
 "Turn the cards over to find two numbers which add up the same, until all the "
 "cards are gone."
-msgstr "Retourne les cartes pour associer une somme et son résultat, tant qu'il y reste des cartes."
+msgstr ""
+"Retourne les cartes pour associer une somme et son résultat, tant qu'il "
+"reste des cartes."
 
 #: ../boards/memory_add.xml.in.h:5 ../boards/memory_add_tux.xml.in.h:5
 msgid ""
@@ -3044,13 +3050,29 @@ msgid ""
 "disappear! When you've made them all disappear, found all the sums, you've "
 "won the game! :)"
 msgstr ""
-"Tu peux voir plusieurs cartes, mais tu ne peux pas voir ce qu'elles cachent."
+"Tu peux voir plusieurs cartes, mais tu ne peux pas voir ce qu'elles cachent. "
 "Chaque carte cache une somme ou le résultat d'une somme.\n"
-"Une addition est ressemble à ceci : 2 + 2 = 4\n"
+"Une addition ressemble à ceci : 2 + 2 = 4\n"
 "Les nombres d'un côté du signe égal (=) doivent représenter la même quantité "
-"que les nombres de l'autre côté. Ainsi 2 (compte 1, puis 2) auquel on ajoute encore 2 (compte 3, puis 4) font 4. Compte à haute voix quand tu penses avoir trouvé, et compte sur tes doigts, parce que plus tu connaîtras de moyens de faire quelque chose, et mieux tu te rappeleras. Tu peux utiliser des legos, des boutons, ou n'importe quoi que tu puisses compter ! Si tu as beaucoup de frères et de soeurs, compte-les ! Ou bien encore les enfants de ta classe. Fredonne des chansons qui apprennent à compter, pour t'entraîner, et tu deviendras très fort en addition !\n"
+"que les nombres de l'autre côté. Ainsi 2 (compte 1, puis 2) auquel on ajoute "
+"encore 2 (compte 3, puis 4) font 4. Compte à haute voix quand tu penses "
+"avoir trouvé, et compte sur tes doigts, parce que plus tu connaîtras de "
+"moyens de faire quelque chose, et mieux tu t'en rappelleras. Tu peux "
+"utiliser des legos, des boutons, ou n'importe quoi que tu puisses compter ! "
+"Si tu as beaucoup de frères et de soeurs, compte-les ! Ou bien encore les "
+"enfants de ta classe. Fredonne des chansons qui apprennent à compter, pour "
+"t'entraîner, et tu deviendras très fort en addition !\n"
 "\n"
-"Dans ce jeu, les cartes cachent les deux parties d'une addition. Tu dois trouver ces parties, et les apparier. Clique sur une carte pour voir ce qu'elle cache, et essaie de trouver l'autre carte qui lui correspond, afin de compléter l'addition. Tu peux retourner seulement deux cartes à la fois, donc tu dois te rappeler où se cachent les nombres, et les apparier quand tu trouves l'autre partie. Tu réalises ainsi le travail du signe égal, et les nombres ont besoin de toi pour s'associer afin de reconstituer une véritable égalité. Quand tu as effectué celà, les deux cartes appariées disparaissent ! Quand tu les as faites toutes disparaître, que tu as reconstitué toutes les additions, alors tu as gagné la partie ! :)"
+"Dans ce jeu, les cartes cachent les deux parties d'une addition. Tu dois "
+"trouver ces parties, et les apparier. Clique sur une carte pour voir ce "
+"qu'elle cache, et essaie de trouver l'autre carte qui lui correspond, afin "
+"de compléter l'addition. Tu peux retourner seulement deux cartes à la fois, "
+"donc tu dois te rappeler où se cachent les nombres, et les apparier quand tu "
+"trouves l'autre partie. Tu réalises ainsi le travail du signe égal, et les "
+"nombres ont besoin de toi pour s'associer afin de reconstituer une véritable "
+"égalité. Quand tu as effectué cela, les deux cartes appariées "
+"disparaissent ! Quand tu les as faites toutes disparaître, que tu as "
+"reconstitué toutes les additions, alors tu as gagné la partie ! :)"
 
 #: ../boards/memory_add_minus.xml.in.h:1
 msgid "Addition and subtraction memory game"
@@ -3059,7 +3081,9 @@ msgstr "Jeu de memory sur l'addition et la soustraction"
 #: ../boards/memory_add_minus.xml.in.h:2
 #: ../boards/memory_add_minus_tux.xml.in.h:2
 msgid "Practise addition, subtraction, until all the cards are gone."
-msgstr "Entraînement aux opérations d'addition, de soustraction, sur des cartes qui disparaissent une fois associées."
+msgstr ""
+"Entraînement aux opérations d'addition, de soustraction, sur des cartes qui "
+"disparaissent une fois associées."
 
 #: ../boards/memory_add_minus.xml.in.h:4
 #: ../boards/memory_add_minus_tux.xml.in.h:4
@@ -3067,8 +3091,8 @@ msgid ""
 "Turn the cards over to find two numbers which add or subtract the same, "
 "until all the cards are gone."
 msgstr ""
-"Retourne les cartes pour apparier celles qui permettent de reconstruire "
-"les additions et les soustractions ; elles disparaîtront une fois associées."
+"Retourne les cartes pour apparier celles qui permettent de reconstruire les "
+"additions et les soustractions ; elles disparaîtront une fois associées."
 
 #: ../boards/memory_add_minus.xml.in.h:5
 #: ../boards/memory_add_minus_mult_div.xml.in.h:5
@@ -3092,10 +3116,19 @@ msgid ""
 "proper equality. When you do that, both those cards disappear! When you've "
 "made them all disappear, found all the operations, you've won the game! :)"
 msgstr ""
-"Tu peux voir des cartes, mais tu ne peux pas voir leur face cachée. Chaque carte "
-"cache une opération, ou le résultat de celle-ci.\n"
+"Tu peux voir des cartes, mais tu ne peux pas voir leur face cachée. Chaque "
+"carte cache une opération ou le résultat de celle-ci.\n"
 "\n"
-"Dans ce jeu, les cartes cachent les deux parties d'une opération. Tu dois trouver ces parties, et les apparier. Clique sur une carte pour voir ce qu'elle cache, et essaie de trouver l'autre carte qui lui correspond, afin de compléter l'opération. Tu peux retourner seulement deux cartes à la fois, donc tu dois te rappeler où se cachent les nombres, et les apparier quand tu trouves l'autre partie. Tu réalises ainsi le travail du signe égal, et les nombres ont besoin de toi pour s'assembler afin de reconstituer une véritable égalité. Quand tu as effectué celà, les deux cartes appariées disparaissent ! Quand tu les as faites toutes disparaitre, que tu as reconstitué toutes les opérations, alors tu as gagné la partie ! :)"
+"Dans ce jeu, les cartes cachent les deux parties d'une opération. Tu dois "
+"trouver ces parties, et les apparier. Clique sur une carte pour voir ce "
+"qu'elle cache, et essaie de trouver l'autre carte qui lui correspond, afin "
+"de compléter l'opération. Tu peux retourner seulement deux cartes à la fois, "
+"donc tu dois te rappeler où se cachent les nombres, et les apparier quand tu "
+"trouves l'autre partie. Tu réalises ainsi le travail du signe égal, et les "
+"nombres ont besoin de toi pour s'assembler afin de reconstituer une "
+"véritable égalité. Quand tu as effectué cela, les deux cartes appariées "
+"disparaissent ! Quand tu les as faites toutes disparaître, que tu as "
+"reconstitué toutes les opérations, alors tu as gagné la partie ! :)"
 
 #: ../boards/memory_add_minus_mult_div.xml.in.h:1
 #: ../boards/memory_add_minus_mult_div_tux.xml.in.h:1
@@ -3111,7 +3144,9 @@ msgstr "Jeu de memory sur toutes les opérations"
 msgid ""
 "Practise addition, subtraction, multiplication, division, until all the "
 "cards are gone."
-msgstr "Entraînement aux opérations d'addition, de soustraction, de multiplication et de division, sur des cartes qui disparaissent une fois associées."
+msgstr ""
+"Entraînement aux opérations d'addition, de soustraction, de multiplication "
+"et de division, sur des cartes qui disparaissent une fois associées."
 
 #: ../boards/memory_add_minus_mult_div.xml.in.h:4
 #: ../boards/memory_add_minus_mult_div_tux.xml.in.h:4
@@ -3122,7 +3157,9 @@ msgstr "Entraînement aux opérations d'addition, de soustraction, de multiplica
 msgid ""
 "Turn the cards over to find a matching operation, until all the cards are "
 "gone."
-msgstr "Retourne les cartes pour trouver une opération qui concorde, tant qu'il reste des cartes."
+msgstr ""
+"Retourne les cartes pour trouver une opération qui concorde, tant qu'il "
+"reste des cartes."
 
 #: ../boards/memory_add_minus_mult_div_tux.xml.in.h:2
 msgid "All operations memory game against Tux"
@@ -3150,7 +3187,9 @@ msgstr "Jeu de memory sur la division"
 
 #: ../boards/memory_div.xml.in.h:3 ../boards/memory_div_tux.xml.in.h:3
 msgid "Practise division, until all the cards are gone."
-msgstr "Entraînement à l'opération de division, sur des cartes qui disparaissent une fois associées."
+msgstr ""
+"Entraînement à l'opération de division, sur des cartes qui disparaissent une "
+"fois associées."
 
 #: ../boards/memory_div_tux.xml.in.h:2
 msgid "Division memory game against Tux"
@@ -3166,7 +3205,9 @@ msgstr "Diverses activités de mémoire (images, lettres, sons)."
 
 #: ../boards/memory_minus.xml.in.h:1 ../boards/memory_minus_tux.xml.in.h:1
 msgid "Practise subtraction, until all the cards are gone."
-msgstr "Entraînement à la soustraction, sur des cartes qui disparaissent une fois associées."
+msgstr ""
+"Entraînement à la soustraction, sur des cartes qui disparaissent une fois "
+"associées."
 
 #: ../boards/memory_minus.xml.in.h:3
 msgid "Subtraction memory game"
@@ -3176,7 +3217,9 @@ msgstr "Jeu de memory sur la soustraction"
 msgid ""
 "Turn the cards over to find two numbers which subtract the same, until all "
 "the cards are gone."
-msgstr "Retourne les cartes pour trouver les deux côtés d'une opération de soustraction, jusqu'à ce qu'il n'y ait plus de cartes."
+msgstr ""
+"Retourne les cartes pour trouver les deux côtés d'une opération de "
+"soustraction, jusqu'à ce qu'il n'y ait plus de cartes."
 
 #: ../boards/memory_minus.xml.in.h:5 ../boards/memory_minus_tux.xml.in.h:5
 msgid ""
@@ -3202,10 +3245,27 @@ msgid ""
 "proper sum. When you do that, both those cards disappear! When you've made "
 "them all disappear, found all the subtracts, you've won the game! :)"
 msgstr ""
-"Une soustraction ressemble à ceci : 3 - 1 = 2\n"
-"Les nombres d'un côté du signe égal (=) doivent représenter la même quantité que le nombre situé de l'autre côté. Ainsi 3 (avance jusqu'à 3) moins 1 (recule d'1) font 2. Compte à haute voix quand tu penses avoir fini, et compte avec tes doigts, parce que plus tu trouves de façons différentes de faire quelque chose, mieux tu te rappelleras. Tu peux aussi utiliser des legos, des boutons, ou n'importe quoi que tu puisses compter ! Si tu as beaucoup de frères et de soeurs, tu peux les compter. Tu peux aussi compter les enfants de ta classe à l'école. Fredonne des chansons qui apprennent à compter, pour t'entraîner, et tu deviendras très fort en addition !\n"
+"Une soustraction ressemble à ceci : 3 - 1 = 2\n"
+"Les nombres d'un côté du signe égal (=) doivent représenter la même quantité "
+"que le nombre situé de l'autre côté. Ainsi 3 (avance jusqu'à 3) moins 1 "
+"(recule d'1) font 2. Compte à haute voix quand tu penses avoir fini, et "
+"compte avec tes doigts, parce que plus tu trouves de façons différentes de "
+"faire quelque chose, mieux tu te rappelleras. Tu peux aussi utiliser des "
+"legos, des boutons, ou n'importe quoi que tu puisses compter ! Si tu as "
+"beaucoup de frères et de soeurs, tu peux les compter. Tu peux aussi compter "
+"les enfants de ta classe à l'école. Fredonne des chansons qui apprennent à "
+"compter, pour t'entraîner, et tu deviendras très fort en addition !\n"
 "\n"
-"Dans ce jeu, les cartes cachent les deux parties d'une soustraction. Tu dois trouver ces parties, et les apparier. Clique sur une carte pour voir ce qu'elle cache, et essaie de trouver l'autre carte qui lui correspond, afin de compléter la soustraction. Tu peux retourner seulement deux cartes à la fois, donc tu dois te rappeler où se cachent les nombres, et les apparier quand tu trouves l'autre partie. Tu réalises ainsi le travail du signe égal, et les nombres ont besoin de toi pour s'associer afin de reconstituer une véritable égalité. Quand tu as effectué celà, les deux cartes appariées disparaissent ! Quand tu les as faites toutes disparaître, que tu as reconstitué toutes les soustractions, alors tu as gagné la partie ! :)"
+"Dans ce jeu, les cartes cachent les deux parties d'une soustraction. Tu dois "
+"trouver ces parties, et les apparier. Clique sur une carte pour voir ce "
+"qu'elle cache, et essaie de trouver l'autre carte qui lui correspond, afin "
+"de compléter la soustraction. Tu peux retourner seulement deux cartes à la "
+"fois, donc tu dois te rappeler où se cachent les nombres, et les apparier "
+"quand tu trouves l'autre partie. Tu réalises ainsi le travail du signe égal, "
+"et les nombres ont besoin de toi pour s'associer afin de reconstituer une "
+"véritable égalité. Quand tu as effectué cela, les deux cartes appariées "
+"disparaissent ! Quand tu les as faites toutes disparaître, que tu as "
+"reconstitué toutes les soustractions, alors tu as gagné la partie ! :)"
 
 #: ../boards/memory_minus_tux.xml.in.h:3
 msgid "Subtraction memory game against Tux"
@@ -3221,13 +3281,17 @@ msgstr "Jeu de memory sur la multiplication"
 
 #: ../boards/memory_mult.xml.in.h:3
 msgid "Practise multiplication, until all the cards are gone."
-msgstr "Entraînement à l'opération de multiplication, sur des cartes qui disparaissent une fois associées."
+msgstr ""
+"Entraînement à l'opération de multiplication, sur des cartes qui "
+"disparaissent une fois associées."
 
 #: ../boards/memory_mult.xml.in.h:4
 msgid ""
 "Turn the cards over to find two numbers which multiply the same, until all "
 "the cards are gone."
-msgstr "Retourne les cartes pour trouver les deux côtés d'une opération de multiplication, tant qu'il reste des cartes."
+msgstr ""
+"Retourne les cartes pour trouver les deux côtés d'une opération de "
+"multiplication, tant qu'il reste des cartes."
 
 #: ../boards/memory_mult_div.xml.in.h:1
 msgid "Multiplication and division memory game"
@@ -3241,7 +3305,9 @@ msgstr "Multiplication, division"
 #: ../boards/memory_mult_div.xml.in.h:3
 #: ../boards/memory_mult_div_tux.xml.in.h:3
 msgid "Practise multiplication, division, until all the cards are gone."
-msgstr "Entraînement aux opérations de multiplication, de division, sur des cartes qui disparaissent une fois associées."
+msgstr ""
+"Entraînement aux opérations de multiplication, de division, sur des cartes "
+"qui disparaissent une fois associées."
 
 #: ../boards/memory_mult_div_tux.xml.in.h:1
 msgid "Multiplication and division memory game against Tux"
@@ -3253,7 +3319,9 @@ msgstr "Jeu de memory sur la multiplication contre Tux"
 
 #: ../boards/memory_mult_tux.xml.in.h:3
 msgid "Practise multiplication until all the cards are gone."
-msgstr "Entraînement à l'opération de multiplication, sur des cartes qui disparaissent une fois associées."
+msgstr ""
+"Entraînement à l'opération de multiplication, sur des cartes qui "
+"disparaissent une fois associées."
 
 #: ../boards/memory_op_group.xml.in.h:1
 msgid "Go to mathematics memory activities"
@@ -3276,7 +3344,7 @@ msgid ""
 "need to remember where a sound is, while you listen to its twin. When you "
 "turn over the twins, they both disappear."
 msgstr ""
-"Un ensemble de violoniste Tux est affiché. Chaque Tux a un son associé, et "
+"Un ensemble de Tux violonistes est affiché. Chaque Tux a un son associé, et "
 "chaque son a un frère jumeau, exactement le même. En cliquant sur une Tux, "
 "on découvre le son caché. Cependant, on ne peut entendre que deux Tux à la "
 "fois.\n"
@@ -3356,8 +3424,8 @@ msgid ""
 "    1, 2 or 3 complex stars - 7 years and up"
 msgstr ""
 "Un simple clic sur une icône t'amènera vers une activité ou un menu "
-"d'activité.\n"
-"Au bas de l'écran, se trouve la barre de contrôle de GCompris.\n"
+"d'activités.\n"
+"Au bas de l'écran se trouve la barre de contrôle de GCompris.\n"
 "Les icônes suivantes sont décrites ci-dessous de droite à gauche.\n"
 "(Notons que ces icônes ne sont affichées que si elles sont disponibles dans "
 "l'activité)\n"
@@ -3370,15 +3438,15 @@ msgstr ""
 "    Point d'interrogation - Affiche la boîte de dialogue de l'aide\n"
 "    Boîte à outils - Menu de configuration\n"
 "    Tux et son avion - Boîte d'information sur GCompris\n"
-"Les étoiles indiquent le groupe d'âge adapté à chaque jeu :\n"
+"Les étoiles indiquent le groupe d'âge adapté à chaque jeu :\n"
 "    1, 2 ou 3 étoiles - de 2 à 6 ans\n"
 "    1, 2 ou 3 étoiles complexes - 7 ans et plus."
 
-#: ../boards/menu.xml.in.h:15 ../boards/menu2.xml.in.h:15
+#: ../boards/menu.xml.in.h:15
 msgid "GCompris Main Menu"
 msgstr "Menu principal de GCompris"
 
-#: ../boards/menu.xml.in.h:16 ../src/boards/menu2.c:1006
+#: ../boards/menu.xml.in.h:16 ../src/boards/menu2.c:1008
 msgid ""
 "GCompris is a collection of educational games that provides different "
 "activities for children aged 2 and up."
@@ -3386,59 +3454,13 @@ msgstr ""
 "GCompris est une collection de jeux éducatifs qui offre différentes "
 "activités aux enfants âgés de 2 ans et plus."
 
-#: ../boards/menu.xml.in.h:18 ../boards/menu2.xml.in.h:18
+#: ../boards/menu.xml.in.h:18
 msgid ""
 "The goal of gcompris is to provide a free alternative to popular proprietary "
 "edutainment software"
 msgstr ""
-"L'objectif de GCompris est de fournir une alternative libre aux logiciels\n"
+"L'objectif de GCompris est de fournir une alternative libre aux logiciels "
 "éducatifs propriétaires."
-
-#: ../boards/menu2.xml.in.h:1
-msgid ""
-"A simple click on an icon brings you to an activity or a menu of "
-"activities.\n"
-"At the bottom of the screen is the gcompris control bar.\n"
-"The following icons are displayed from right to left.\n"
-"(note that each icon is displayed only if available in the current "
-"activity)\n"
-"    Home - Back to previous menu or exit gcompris if at the top\n"
-"    Thumb - OK. Confirm your answer\n"
-"    Dice - Display the current level. Click to select another level\n"
-"    Music note - Repeat the question\n"
-"    Question Mark - Help\n"
-"    Tool - The configuration menu\n"
-"    Tux Plane - About game\n"
-"The stars, show suitable age groups for each game:\n"
-"    1, 2 or 3 simple stars  - 2 to 6 years old\n"
-"    1, 2 or 3 complex stars - From 7 years old"
-msgstr ""
-"Un simple clic sur une icône t'amènera vers une activité ou un menu "
-"d'activité.\n"
-"Au bas de l'écran, se trouve la barre de contrôle de GCompris.\n"
-"Les icônes suivantes sont décrites ci-dessous de droite à gauche.\n"
-"(Note que ces icônes ne sont affichées que si elles sont disponibles dans "
-"l'activité)\n"
-"    Accueil - Revient au menu précédent ou quitte GCompris si on se trouve "
-"au menu principal\n"
-"    Pouce - Valider, confirmer ta réponse\n"
-"    Dé - Le niveau courant est affiché. Clique dessus pour sélectionner un "
-"autre niveau\n"
-"    Note de musique - Demande à GCompris de répéter la question\n"
-"    Point d'interrogation - Affiche la boîte de dialogue de l'aide\n"
-"    Boîte à outils - Menu de configuration\n"
-"    Tux et son avion - Boîte d'information sur GCompris\n"
-"Les étoiles indiquent le groupe d'âge adapté à chaque jeu :\n"
-"    1, 2 ou 3 étoiles - de 2 à 6 ans\n"
-"    1, 2 ou 3 étoiles complexes - 7 ans et plus."
-
-#: ../boards/menu2.xml.in.h:16
-msgid ""
-"GCompris is a collection of educational games that provides for children "
-"from 2 years old with different activities."
-msgstr ""
-"GCompris est une collection de jeux éducatifs qui offre différentes "
-"activités aux enfants âgés de 2 ans et plus."
 
 #: ../boards/miscelaneous.xml.in.h:1
 msgid "Miscellaneous activities"
@@ -3655,7 +3677,7 @@ msgstr "Reconstruire la mosaïque"
 
 #: ../boards/mouse.xml.in.h:1
 msgid "Mouse-manipulation activities."
-msgstr "Activités de manipulation de la souris"
+msgstr "Activités de manipulation de la souris."
 
 #: ../boards/mouse.xml.in.h:2
 msgid "Various mouse-based activities (clicking, moving)"
@@ -3667,7 +3689,23 @@ msgstr "Numération"
 
 #: ../boards/numeration.xml.in.h:2
 msgid "Numeration activities."
-msgstr "Activités de numération"
+msgstr "Activités de numération."
+
+#: ../boards/oscar_and_friends.xml.in.h:1
+msgid "Improve reading skill and the ability to understand what is read."
+msgstr "Améliore les capacités de lecture et la compréhension."
+
+#: ../boards/oscar_and_friends.xml.in.h:2
+msgid "Read and play with the story"
+msgstr "Lis et joue avec l'histoire"
+
+#: ../boards/oscar_and_friends.xml.in.h:3
+msgid "The story of Oscar and friend"
+msgstr "L'histoire d'Oscar et de ses amis"
+
+#: ../boards/oscar_and_friends.xml.in.h:4
+msgid "reading"
+msgstr "lecture"
 
 #: ../boards/paintings.xml.in.h:1
 msgid "Assemble the puzzle"
@@ -3675,7 +3713,8 @@ msgstr "Reconstitue le puzzle"
 
 #: ../boards/paintings.xml.in.h:2
 msgid "Drag and Drop the items to rebuild the original paintings"
-msgstr "Attrape et fais glisser les éléments pour reconstruire le tableau original."
+msgstr ""
+"Attrape et fais glisser les éléments pour reconstruire le tableau original."
 
 #: ../boards/paintings.xml.in.h:3
 msgid ""
@@ -3687,7 +3726,7 @@ msgstr ""
 
 #: ../boards/paintings.xml.in.h:4
 msgid "Mouse-manipulation: movement, drag and drop"
-msgstr "Manipulation de la souris : mouvement, glisser et déplacer"
+msgstr "Manipulation de la souris : mouvement, glisser et déplacer"
 
 #: ../boards/paintings.xml.in.h:5
 msgid "Spatial representation"
@@ -3763,7 +3802,7 @@ msgid ""
 "arrows on the keyboard to move the helicopter."
 msgstr ""
 "Attrape les nombres dans l'ordre croissant, en utilisant les touches "
-"fléchées du clavier pour bouger l'hélicopter."
+"fléchées du clavier pour bouger l'hélicoptère."
 
 #: ../boards/planegame.xml.in.h:2
 msgid "Move the helicopter to catch the clouds in the correct order"
@@ -3773,7 +3812,7 @@ msgstr "Déplace l'hélicoptère pour attraper les nuages dans le bon ordre."
 msgid "Number"
 msgstr "Nombre"
 
-#: ../boards/planegame.xml.in.h:4 ../src/boards/planegame.c:77
+#: ../boards/planegame.xml.in.h:4 ../src/boards/planegame.c:74
 msgid "Numbers in Order"
 msgstr "Les nombres dans l'ordre"
 
@@ -3787,7 +3826,7 @@ msgstr "Diverses sortes de puzzles."
 
 #: ../boards/pythontest.xml.in.h:1
 msgid "Add a language-binding to gcompris."
-msgstr "Ajout du support d'un langage dans GCompris"
+msgstr "Ajout du support d'un langage dans GCompris."
 
 #: ../boards/pythontest.xml.in.h:2
 msgid "Advanced Python Programmer :)"
@@ -3802,8 +3841,10 @@ msgid "Test board for the python plugin"
 msgstr "Activité test pour le plugin python"
 
 #: ../boards/pythontest.xml.in.h:5
-msgid "Thanks to Guido van Rossum and the python team for this powerful language!"
-msgstr "Merci à Guido van Rossum et à l'équipe python pour ce langage puissant !"
+msgid ""
+"Thanks to Guido van Rossum and the python team for this powerful language!"
+msgstr ""
+"Merci à Guido van Rossum et à l'équipe python pour ce langage puissant !"
 
 #: ../boards/railroad.xml.in.h:1
 msgid "A memory game based on trains"
@@ -3840,7 +3881,7 @@ msgstr "Clique sur la couleur adéquate"
 
 #: ../boards/read_colors.xml.in.h:4
 msgid "Read the names of colors"
-msgstr "Lire des noms de couleur"
+msgstr "Lire des noms de couleurs"
 
 #: ../boards/read_colors.xml.in.h:5
 msgid "This board teaches basic colors."
@@ -3905,7 +3946,7 @@ msgid ""
 msgstr ""
 "Un mot est affiché en haut à droite. Une liste de mots va apparaître et "
 "disparaître sur la gauche. Est-ce que le mot qui s'affiche appartient à "
-"cette liste ?"
+"cette liste ?"
 
 #: ../boards/readingh.xml.in.h:2
 msgid "Horizontal reading practice"
@@ -3913,7 +3954,7 @@ msgstr "Entraînement à la lecture horizontale"
 
 #: ../boards/readingh.xml.in.h:3
 msgid "Read a list of words and work out if a given word is in it"
-msgstr "Lis une liste de mots et précise si le mot proposé en faisait partie."
+msgstr "Lis une liste de mots et précise si le mot proposé en fait partie."
 
 #: ../boards/readingh.xml.in.h:5
 msgid "Reading training in a limited time"
@@ -3921,7 +3962,8 @@ msgstr "Apprentissage de la lecture en temps limité"
 
 #: ../boards/readingv.xml.in.h:2
 msgid "Read a vertical list of words and work out if a given word is in it"
-msgstr "Lis une liste verticale de mots et précise si le mot proposé en fait partie."
+msgstr ""
+"Lis une liste verticale de mots et précise si le mot proposé en fait partie."
 
 #: ../boards/readingv.xml.in.h:3
 msgid "Read training in a limited time"
@@ -3944,9 +3986,9 @@ msgid ""
 msgstr ""
 "D'abord, tu dois sélectionner le bon outil dans la barre d'outils.\n"
 "Ensuite, clique et fais glisser la souris pour créer des objets.\n"
-"Lorsque tu as terminé, clique sur le bouton \"OK\" dans le \n"
+"Lorsque tu as terminé, clique sur le bouton « OK » dans le \n"
 "menu de GCompris. Tes erreurs sont indiquées par une petite croix rouge.\n"
-"Attention, l'ordre des objets (devant/derrière) n'est pas important mais\n"
+"Attention, l'ordre des objets (devant/derrière) n'est pas important, mais\n"
 "fais bien attention de ne pas laisser d'objets non désirés sous d'autres."
 
 #: ../boards/redraw.xml.in.h:3
@@ -3971,9 +4013,9 @@ msgid ""
 msgstr ""
 "D'abord, tu dois sélectionner le bon outil dans la barre d'outils.\n"
 "Ensuite, clique et fais glisser la souris pour créer des objets.\n"
-"Lorsque tu as terminé, clique sur le bouton \"OK\" dans le \n"
+"Lorsque tu as terminé, clique sur le bouton « OK » dans le \n"
 "menu de GCompris. Tes erreurs sont indiquées par une petite croix rouge.\n"
-"Attention, l'ordre des objets (devant/derrière) n'est pas important mais\n"
+"Attention, l'ordre des objets (devant/derrière) n'est pas important, mais\n"
 "fais bien attention de ne pas laisser d'objets non désirés cachés sous "
 "d'autres."
 
@@ -3995,12 +4037,12 @@ msgid ""
 "fish. Click the dice with the right mouse button to count backwards. When "
 "done, click on the OK button or hit the Enter key."
 msgstr ""
-"D'abord, compte combien de glaçons il y a entre Tux et le poisson.\n"
+"D'abord, compte combien de glaçons se trouvent entre Tux et le poisson.\n"
 "Ensuite, clique sur le dé pour sélectionner le bon chiffre.\n"
 "Tu peux aussi utiliser le bouton droit de la souris pour compter à "
 "l'envers.\n"
-"Quand tu as terminé, clique sur le bouton \"OK\" ou utilise la touche "
-"\"Entrée\"."
+"Quand tu as terminé, clique sur le bouton « OK » ou utilise la touche "
+"« Entrée »."
 
 #: ../boards/reversecount.xml.in.h:3
 msgid "Practice subtraction with a fun game"
@@ -4027,7 +4069,7 @@ msgstr "Attrape et fais glisser les poids pour équilibrer la balance."
 
 #: ../boards/scalesboard.xml.in.h:1
 msgid "Balance the scales properly"
-msgstr "Equilibre correctement la balance"
+msgstr "Équilibre correctement la balance"
 
 #: ../boards/scalesboard.xml.in.h:3
 msgid "Mental calculation, arithmetic equality"
@@ -4041,8 +4083,8 @@ msgid ""
 msgstr ""
 "Le tableau est une peinture originale créée par Virginie Moreau\n"
 "(virginie.moreau@free.fr) en 2001. \n"
-"Il s'appelle « vendeur d'épices en Egypte ».\n"
-"Il est placé sous la licence GPL."
+"Il s'appelle « Vendeur d'épices en Égypte ».\n"
+"Il est placé sous licence GPL."
 
 #: ../boards/scalesboard.xml.in.h:5
 msgid ""
@@ -4073,18 +4115,18 @@ msgid ""
 msgstr ""
 "Dans la zone de texte, inscris une commande par ligne pour contrôler ton "
 "bateau. Les commandes supportées sont affichées entre les deux zones de "
-"saisie. Les commandes \"gauche\" et \"droite\" doivent être suivies par une "
+"saisie. Les commandes « gauche » et « droite » doivent être suivies par une "
 "valeur d'angle en degrés. La valeur de l'angle est aussi appelée un "
-"\"paramètre\" pour les commandes \"gauche\" et \"droite\". Par défaut, la "
-"valeur 45 degrés est utilisée. La commande \"avance\" prend comme paramètre "
+"« paramètre » pour les commandes « gauche » et « droite ». Par défaut, la "
+"valeur 45 degrés est utilisée. La commande « avance » prend comme paramètre "
 "une distance. Par défaut la valeur 1 est utilisée.\n"
-"Par exemple :\n"
+"Par exemple :\n"
 "gauche 90   => Tourne perpendiculairement à gauche \n"
 "avance 10   => Avance de 10 unités (comme indiqué dans le jeu)\n"
 "L'objectif est d'atteindre la droite de l'écran (la ligne rouge). Lorsque tu "
 "es arrivé(e), tu peux essayer d'améliorer ton programme en recommençant une "
-"course avec les mêmes conditions météo en utilisant le bouton \"recommencer"
-"\".\n"
+"course avec les mêmes conditions météo en utilisant le bouton "
+"« recommencer ».\n"
 "Tu peux cliquer et faire glisser ta souris sur n'importe quelle zone de la "
 "carte pour obtenir la mesure sous la forme d'une distance et d'un angle.\n"
 "Tu peux aussi tenter ta chance dans les niveaux suivants qui ont des "
@@ -4119,7 +4161,8 @@ msgstr "Course de bateaux (1 joueur)"
 
 #: ../boards/smallnumbers.xml.in.h:1 ../boards/smallnumbers2.xml.in.h:1
 msgid "Count the number of dots on dice before they reach the ground"
-msgstr "Compte le nombre de points sur les dés avant qu'ils ne touchent le sol."
+msgstr ""
+"Compte le nombre de points sur les dés avant qu'ils ne touchent le sol."
 
 #: ../boards/smallnumbers.xml.in.h:2 ../boards/smallnumbers2.xml.in.h:2
 msgid "Counting skills"
@@ -4164,7 +4207,7 @@ msgid ""
 "Click on different active elements : engine, rudders and air tanks, in order "
 "to navigate to the required depth."
 msgstr ""
-"Clique sur différents éléments actifs : moteur, gouvernails et\n"
+"Clique sur différents éléments actifs : moteur, gouvernails et\n"
 "réservoir d'air pour naviguer à la bonne profondeur."
 
 #: ../boards/submarine.xml.in.h:2
@@ -4196,7 +4239,7 @@ msgid ""
 "the keyboard focus. Then enter a possible letter or number. GCompris will "
 "not let you enter invalid data."
 msgstr ""
-"Pour les premiers niveaux avec des symboles colorés, attrape et fait glisser "
+"Pour les premiers niveaux avec des symboles colorés, attrape et fais glisser "
 "les symboles situés dans le présentoir vers leur position cible. Pour les "
 "niveaux supérieurs, clique sur un carré vide pour l'activer. Ensuite, entre "
 "une lettre ou un nombre possible. GCompris ne te laissera pas entrer des "
@@ -4204,10 +4247,11 @@ msgstr ""
 
 #: ../boards/sudoku.xml.in.h:3
 msgid "Sudoku, place unique symbols in a square."
-msgstr "Sudoku, placer des symboles uniques dans une grille"
+msgstr "Sudoku, placer des symboles uniques dans une grille."
 
 #: ../boards/sudoku.xml.in.h:4
-msgid "Symbols must be unique in a row, in a column, and (if defined) each region."
+msgid ""
+"Symbols must be unique in a row, in a column, and (if defined) each region."
 msgstr ""
 "Les symboles doivent être présents en un seul exemplaire sur une ligne,\n"
 "dans une colonne, et (si définie) dans chaque région."
@@ -4221,7 +4265,7 @@ msgid ""
 "instance of each symbol or numeral (Source &lt;http://en.wikipedia.org/wiki/"
 "Sudoku&gt;)."
 msgstr ""
-"Sudoku (en japonais : 数独, sūdoku signifiant chiffre unique) est un casse-"
+"Sudoku (en japonais : 数独, sūdoku signifiant chiffre unique) est un casse-"
 "tête à chiffres, inspiré du carré latin. Le but du jeu est de remplir la "
 "grille avec des chiffres allant de 1 à 9, en partant de certains chiffres "
 "déjà disposés dans la grille. La grille est généralement composée de régions "
@@ -4272,20 +4316,20 @@ msgid ""
 "\t* 1 square (side of 1)\n"
 "\t* 1 parallelogram (sides of 1 and square root of 2)"
 msgstr ""
-"D'après Wikipédia, l'encyclopédie libre. Le Tangram  appelé en chinois « "
-"Tchi'i Tchi'iao pan » (qui signifie « La plaquette de sagesse » ou encore « "
-"La plaquette aux sept astuces » n'est pas connu, mais il semble remonter à "
+"D'après Wikipédia, l'encyclopédie libre. Le Tangram  appelé en chinois "
+"« Tchi'i Tchi'iao pan » (qui signifie « La plaquette de sagesse » ou encore "
+"« La plaquette aux sept astuces » n'est pas connu, mais il semble remonter à "
 "la haute antiquité. , quoique son existence ne soit vérifiée que depuis le "
 "18e siècle.\n"
 "Il se compose de sept pièces qui peuvent se juxtaposer pour former un "
-"carré : \t 5 triangles rectangles isocèles (on dit aussi triangles demi-"
+"carré : \t 5 triangles rectangles isocèles (on dit aussi triangles demi-"
 "carrés), de trois tailles différentes; \t1 carré ; \t1 parallélogramme.\n"
 "On remarquera que le petit triangle est l'unité de base du découpage, l'aire "
 "totale du Tangram est 16 fois son aire, la diagonale du grand carré est 4 "
 "fois la hauteur du petit triangle, son côté, 2 fois la base ou 4 fois la "
 "médiane de la base du petit triangle.\n"
 "Le but du jeu est de reproduire une forme donnée, généralement choisie dans "
-"un recueil de modèles. Les règles sont simples : on utilise toujours la "
+"un recueil de modèles. Les règles sont simples : on utilise toujours la "
 "totalité des pièces, les pièces doivent être posées à plat et ne doivent pas "
 "se superposer."
 
@@ -4298,11 +4342,11 @@ msgid ""
 "the shape will be drawn."
 msgstr ""
 "Sélectionne le tangram à réaliser. Déplace une pièce en la faisant glisser. "
-"Un Clic droit sur une pièce permet d'obtenir son inverse. Sélectionne une "
-"pièce et glisse la souris autour en gardant le bouton gauche enfoncé te "
-"permet de la faire tourner. Lorsque la forme demandée est crée, elle sera "
-"reconnue par l'ordinateur. Si tu as besoin d'aide, clique sur le bouton "
-"\"forme\", et le contour de la forme sera dessiné."
+"Un clic droit sur une pièce permet d'obtenir son inverse. Sélectionne une "
+"pièce et glisse la souris autour en gardant le bouton gauche enfoncé pour la "
+"faire tourner. Lorsque la forme demandée est créée, elle sera reconnue par "
+"l'ordinateur. Si tu as besoin d'aide, clique sur le bouton « forme », et le "
+"contour de la forme sera dessiné."
 
 #: ../boards/tangram.xml.in.h:10
 msgid "The objective is to form a given shape with seven pieces"
@@ -4321,10 +4365,11 @@ msgid "The tangram puzzle game"
 msgstr "Le jeu du tangram (puzzle)"
 
 #: ../boards/target.xml.in.h:1
-msgid "Can move the mouse, can read numbers and count up to 15 for the first level"
+msgid ""
+"Can move the mouse, can read numbers and count up to 15 for the first level"
 msgstr ""
-"Sait déplacer la souris, lire des nombres et compter jusqu'à 15\n"
-"pour le premier niveau"
+"Sait déplacer la souris, lire des nombres et compter jusqu'à 15 pour le "
+"premier niveau"
 
 #: ../boards/target.xml.in.h:2
 msgid ""
@@ -4336,7 +4381,7 @@ msgstr ""
 "Pour commencer, vérifie la force et la direction du vent. Ensuite clique sur "
 "la cible pour lancer une flèche. Quand toutes tes flèches sont lancées, une "
 "fenêtre apparaît te demandant de comptabiliser ton score. Entre le score "
-"avec le clavier et appuie sur \"entrée\" ou sur l'icône \"OK\"."
+"avec le clavier et appuie sur « Entrée » ou sur l'icône « OK »."
 
 #: ../boards/target.xml.in.h:3
 msgid "Hit the target and count your points"
@@ -4355,14 +4400,21 @@ msgid "A sliding-block puzzle game"
 msgstr "Un puzzle avec des pièces qui glissent"
 
 #: ../boards/traffic.xml.in.h:2
-msgid "Remove all the red cars from the parking lot through the gate on the right"
+msgid ""
+"Each car can only move either horizontally or vertically. You must make some "
+"room in order to let the red car move through the gate on the right."
 msgstr ""
-"Fais sortir toutes les voitures rouges du parking à travers l'ouverture "
-"située à droite"
+"Chaque voiture peut se déplacer horizontalement ou verticalement. Tu dois "
+"faire de la place pour que la voiture puisse aller à la sortie à droite."
+
+#: ../boards/traffic.xml.in.h:3
+msgid "Remove the red car from the parking lot through the gate on the right"
+msgstr ""
+"Fais sortir la voiture rouge du parking à travers l'ouverture située à droite"
 
 #: ../boards/tuxpaint.xml.in.h:1
 msgid "Drawing activity (pixmap)"
-msgstr "Activité de dessin 'bitmap' (image en mode point)"
+msgstr "Activité de dessin « bitmap » (image en mode point)"
 
 #: ../boards/tuxpaint.xml.in.h:2
 msgid "Launch Tuxpaint"
@@ -4389,10 +4441,10 @@ msgid ""
 "the system is back up and Tux is in the shower, push the shower button for "
 "him."
 msgstr ""
-"Clique sur différents éléments actifs : soleil, nuage, eau, station de "
-"pompage et station d'épuration afin de remettre en route la distribution "
-"d'eau. Quand c'est fait et que Tux est dans sa douche, appuie sur le bouton "
-"de la douche pour lui."
+"Clique sur différents éléments actifs : soleil, nuage, station de pompage et "
+"station d'épuration afin de remettre en route la distribution d'eau. Quand "
+"c'est fait et que Tux est dans sa douche, appuie sur le bouton de la douche "
+"pour lui."
 
 #: ../boards/watercycle.xml.in.h:2
 msgid "Learn about the water cycle"
@@ -4410,7 +4462,7 @@ msgstr ""
 "Tux revient d'une longue partie de pêche en bateau. Tu dois remettre en "
 "marche la distribution d'eau pour qu'il puisse prendre une douche."
 
-#: ../boards/wordsgame.xml.in.h:1 ../src/boards/wordsgame.c:113
+#: ../boards/wordsgame.xml.in.h:1 ../src/boards/wordsgame.c:112
 msgid "Falling Words"
 msgstr "Les mots qui tombent"
 
@@ -4424,9 +4476,10 @@ msgstr ""
 "Entre au clavier les mots complets pendant qu'ils tombent, et avant qu'ils "
 "ne touchent le sol."
 
-#: ../boards/wordsgame.xml.in.h:5 ../src/boards/wordsgame.c:114
+#: ../boards/wordsgame.xml.in.h:5 ../src/boards/wordsgame.c:113
 msgid "Type the falling words before they reach the ground"
-msgstr "Saisis au clavier les mots qui tombent avant qu'ils ne touchent le sol."
+msgstr ""
+"Saisis au clavier les mots qui tombent avant qu'ils ne touchent le sol."
 
 #: ../gcompris-edit.desktop.in.h:1
 msgid "Administration for gcompris"
@@ -4437,34 +4490,38 @@ msgid "Educational game for ages 2 to 10"
 msgstr "Jeu éducatif pour les enfants de 2 à 10 ans"
 
 #: ../gcompris.desktop.in.h:2
-msgid "Educational suite gcompris"
+msgid "Educational suite GCompris"
 msgstr "Suite éducative GCompris"
 
 #: ../gcompris.desktop.in.h:3
-msgid "Multiple activities for kids"
-msgstr "Activités multiples pour enfants"
+msgid "Multi-activity educational game"
+msgstr "Jeu éducatif multi-activités"
 
-#: ../src/boards/awele.c:349 ../src/boards/awele.c:359
+#: ../src/boards/awele.c:352 ../src/boards/awele.c:362
 msgid "NORTH"
 msgstr "NORD"
 
-#: ../src/boards/awele.c:371 ../src/boards/awele.c:381
+#: ../src/boards/awele.c:374 ../src/boards/awele.c:384
 msgid "SOUTH"
 msgstr "SUD"
 
-#: ../src/boards/awele.c:550
+#: ../src/boards/awele.c:553
 msgid "Choose a house"
 msgstr "Choisis une maison"
 
-#: ../src/boards/awele.c:678
+#: ../src/boards/awele.c:681
 msgid "Your turn to play ..."
 msgstr "C'est à toi de jouer..."
 
-#: ../src/boards/awele.c:747
+#: ../src/boards/awele.c:750
 msgid "Not allowed! Try again !"
-msgstr "Coup non autorisé, essaie encore !"
+msgstr "Coup non autorisé, essaie encore !"
 
-#: ../src/boards/chess.c:189
+#: ../src/boards/chess.c:183 ../src/boards/chess.c:1134
+msgid "Error: The external program gnuchess died unexpectingly"
+msgstr "Erreur : le programme externe gnuchess a quitté subitement"
+
+#: ../src/boards/chess.c:198
 msgid ""
 "Error: The external program gnuchess is mandatory\n"
 "to play chess in gcompris.\n"
@@ -4472,107 +4529,101 @@ msgid ""
 "GNU/Linux distribution\n"
 "And check it is located here: "
 msgstr ""
-"Erreur: Le programme externe gnuchess est nécessaire\n"
+"Erreur : Le programme externe gnuchess est nécessaire\n"
 "pour jouer aux échecs dans GCompris.\n"
 "Trouvez ce programme sur http://www.rpmfind.net ou \n"
 "dans votre distribution GNU/Linux.\n"
-"Ensuite vérifiez qu'il est dans :"
+"Ensuite vérifiez qu'il est dans : "
 
-#: ../src/boards/chess.c:228
+#: ../src/boards/chess.c:240
 msgid ""
 "Error: The external program gnuchess is mandatory\n"
 "to play chess in gcompris.\n"
-"Find this program on http://www.rpmfind.net or in your\n"
-"GNU/Linux distribution\n"
-"And check it is in "
+"First install it, and check it is in "
 msgstr ""
 "Erreur: Le programme externe gnuchess est nécessaire\n"
 "pour jouer aux échecs dans GCompris.\n"
-"Trouvez ce programme sur http://www.rpmfind.net ou \n"
-"dans votre distribution GNU/Linux.\n"
-"Ensuite vérifiez qu'il est dans "
+"Commencez par l'installer, puis\n"
+"vérifiez qu'il est dans "
 
-#: ../src/boards/chess.c:569
+#: ../src/boards/chess.c:593
 msgid "White's Turn"
 msgstr "Les blancs jouent"
 
-#: ../src/boards/chess.c:569
+#: ../src/boards/chess.c:593
 msgid "Black's Turn"
 msgstr "Les noirs jouent"
 
-#: ../src/boards/chess.c:713
+#: ../src/boards/chess.c:737
 msgid "White checks"
 msgstr "Échec aux noirs"
 
-#: ../src/boards/chess.c:715
+#: ../src/boards/chess.c:739
 msgid "Black checks"
 msgstr "Échec aux blancs"
 
-#: ../src/boards/chess.c:1052
+#: ../src/boards/chess.c:1096
 msgid "Black mates"
 msgstr "Échec et mat aux blancs"
 
-#: ../src/boards/chess.c:1057
+#: ../src/boards/chess.c:1101
 msgid "White mates"
 msgstr "Échec et mat aux noirs"
 
-#: ../src/boards/chess.c:1062 ../src/gcompris/bonus.c:312
-#: ../src/gcompris/bonus.c:321
+#: ../src/boards/chess.c:1106 ../src/gcompris/bonus.c:342
+#: ../src/gcompris/bonus.c:351
 msgid "Drawn game"
 msgstr "Match nul"
+
+#: ../src/boards/click_on_letter.c:262 ../src/boards/memory.c:827
+msgid ""
+"Error: this activity cannot be played with the\n"
+"sound effects disabled.\n"
+"Go to the configuration dialog to\n"
+"enable the sound"
+msgstr ""
+"Erreur : cette activité ne peut être jouée\n"
+"avec les effets sonores désactivés.\n"
+"Va dans la boîte de dialogue de\n"
+"configuration pour activer le son"
 
 #. TRANSLATORS: Put here the alphabet in your language
 #. require by all utf8-functions
 #. TRANSLATORS: Put here the alphabet lowercase in your language
-#: ../src/boards/click_on_letter.c:252 ../src/boards/click_on_letter.c:269
-#: ../src/boards/gletters.c:230 ../src/boards/memory.c:840
+#: ../src/boards/click_on_letter.c:267 ../src/boards/gletters.c:232
+#: ../src/boards/memory.c:848
 msgid "abcdefghijklmnopqrstuvwxyz"
 msgstr "abcdefghijklmnopqrstuvwxyz"
 
-#: ../src/boards/click_on_letter.c:281
+#: ../src/boards/click_on_letter.c:289
 #, c-format
 msgid ""
 "Error: this activity requires that you first install\n"
-"the packages assetml-voices-alphabet-%s or %s"
+"the packages with gcompris voices for the locale '%s' or '%s'"
 msgstr ""
-"Erreur : cette activité nécessite d'abord l'installation\n"
-"du paquetage assetml-voices-alphabet-%s ou %s"
+"Erreur : cette activité nécessite d'abord l'installation\n"
+"des paquets avec les voix GCompris pour la locale « %s » ou « %s »"
 
-#: ../src/boards/click_on_letter.c:288
+#: ../src/boards/click_on_letter.c:297
 #, c-format
 msgid ""
 "Error: this activity requires that you first install\n"
-"the packages assetml-voices-alphabet-%s ! Fallback to english, sorry!"
+"the packages with GCompris voices for the locale '%s' ! Fallback to english, "
+"sorry!"
 msgstr ""
-"Erreur : cette activité nécessite d'abord l'installation\n"
-"du paquetage assetml-voices-alphabet-%s ! Retour à l'origine, désolé !"
-
-#: ../src/boards/click_on_letter.c:296 ../src/boards/python/melody.py:116
-msgid ""
-"Error: this activity cannot be played with the\n"
-"sound effects disabled.\n"
-"Go to the configuration dialogue to\n"
-"enable the sound"
-msgstr ""
-"Erreur : cette activité ne peut être jouée\n"
-"avec l'option \"effet sonore\" désactivée.\n"
-"Va dans la fenêtre de configuration\n"
-"pour activer les effets sonores"
+"Erreur : cette activité nécessite d'abord l'installation\n"
+"des paquets avec les voix GCompris pour la locale « %s » ! Retour à "
+"l'anglais, désolé !"
 
 #. toggle box
-#: ../src/boards/click_on_letter.c:653 ../src/boards/gletters.c:882
-#: ../src/boards/python/login.py:535
+#: ../src/boards/click_on_letter.c:649 ../src/boards/gletters.c:899
+#: ../src/boards/python/login.py:541
 msgid "Uppercase only text"
 msgstr "Texte en majuscule uniquement"
 
-#: ../src/boards/clickgame.c:178
-#, c-format
-msgid "Couldn't open dir: %s"
-msgstr "Ne peut ouvrir le répertoire : %s"
-
-#: ../src/boards/clockgame.c:539 ../src/boards/clockgame.c:549
+#: ../src/boards/clockgame.c:544 ../src/boards/clockgame.c:554
 msgid "Set the watch to:"
-msgstr "Règle la montre sur :"
+msgstr "Règle la montre sur :"
 
 #: ../src/boards/colors.c:57
 msgid "Click on the blue duck"
@@ -4615,12 +4666,12 @@ msgid "Click on the white duck"
 msgstr "Clique sur le canard blanc"
 
 #. TRANSLATORS: Put here the numbers in your language
-#: ../src/boards/gletters.c:226 ../src/boards/memory.c:836
+#: ../src/boards/gletters.c:228 ../src/boards/memory.c:844
 msgid "0123456789"
 msgstr "0123456789"
 
 #. TRANSLATORS: Put here the alphabet uppercase in your language
-#: ../src/boards/gletters.c:236 ../src/boards/memory.c:846
+#: ../src/boards/gletters.c:238 ../src/boards/memory.c:854
 msgid "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 msgstr "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
@@ -4636,27 +4687,28 @@ msgstr "Tour de Hanoï"
 
 #: ../src/boards/hanoi_real.c:277 ../src/boards/hanoi_real.c:288
 msgid "Move the entire stack to the right peg, one disc at a time"
-msgstr "Déplace la pile entière sur la tige située à droite, un disque à la fois."
+msgstr ""
+"Déplace la pile entière sur la tige située à droite, un disque à la fois."
 
-#: ../src/boards/imageid.c:113 ../src/boards/missingletter.c:105
+#: ../src/boards/imageid.c:107 ../src/boards/missingletter.c:105
 msgid "Learn how to read"
 msgstr "Apprends à lire."
 
-#: ../src/boards/leftright.c:276 ../src/boards/leftright.c:286
+#: ../src/boards/leftright.c:280 ../src/boards/leftright.c:290
 #: ../src/boards/python/searace.py:429 ../src/boards/python/searace.py:454
 #: ../src/boards/python/searace.py:544 ../src/boards/python/searace.py:856
 #: ../src/boards/python/searace.py:889 ../src/boards/python/searace.py:986
 msgid "left"
 msgstr "gauche"
 
-#: ../src/boards/leftright.c:296 ../src/boards/leftright.c:306
+#: ../src/boards/leftright.c:300 ../src/boards/leftright.c:310
 #: ../src/boards/python/searace.py:429 ../src/boards/python/searace.py:454
 #: ../src/boards/python/searace.py:553 ../src/boards/python/searace.py:858
 #: ../src/boards/python/searace.py:891 ../src/boards/python/searace.py:980
 msgid "right"
 msgstr "droite"
 
-#: ../src/boards/maze.c:492
+#: ../src/boards/maze.c:496
 msgid ""
 "Look at your position, then switch back to invisible mode to continue your "
 "moves"
@@ -4664,8 +4716,9 @@ msgstr ""
 "Repère bien ta position, puis retourne à la vue invisible pour continuer à "
 "te déplacer"
 
-#: ../src/boards/maze.c:494
-msgid "Look at your position, then switch back to 3D mode to continue your moves"
+#: ../src/boards/maze.c:498
+msgid ""
+"Look at your position, then switch back to 3D mode to continue your moves"
 msgstr ""
 "Repère bien ta position, puis retourne à la vue tridimensionnelle pour "
 "poursuivre tes mouvements"
@@ -4678,35 +4731,31 @@ msgstr "Memory"
 msgid "Find the matching pair"
 msgstr "Trouve les paires correspondantes."
 
-#. TRANSLATORS: Put here the mathematical operators "+-�" for  your language.
-#: ../src/boards/memory.c:851
+#. TRANSLATORS: Put here the mathematical operators "+-��" for  your language.
+#: ../src/boards/memory.c:859
 msgid "+-×÷"
-msgstr "+-x÷"
+msgstr "+-×÷"
 
-#: ../src/boards/menu.c:79
-msgid "Main Menu"
-msgstr "Menu principal"
+#: ../src/boards/menu2.c:131
+msgid "Main Menu Second Version"
+msgstr "Menu principal deuxième version"
 
-#: ../src/boards/menu.c:80 ../src/boards/menu2.c:129
+#: ../src/boards/menu2.c:132
 msgid "Select a Board"
 msgstr "Sélectionne un tableau."
 
-#: ../src/boards/menu2.c:128
-msgid "Main Menu Second Version"
-msgstr "Menu principal deuxième versio"
-
 #. Set here the way to display money. Change only the money sign, and it's place, always keep %.2f, it will be replaced by 0,34 if decimal is ',' in your locale
-#: ../src/boards/money.c:489
+#: ../src/boards/money.c:492
 #, c-format
 msgid "$ %.2f"
 msgstr "%.2f €"
 
-#: ../src/boards/money.c:502
+#: ../src/boards/money.c:505
 #, c-format
 msgid "$ %.0f"
 msgstr "%.0f €"
 
-#: ../src/boards/planegame.c:78
+#: ../src/boards/planegame.c:75
 msgid "Move the plane to catch the clouds in the correct order"
 msgstr "Déplace l'avion pour attraper les nuages dans le bon ordre."
 
@@ -4720,7 +4769,7 @@ msgstr "Activité spéciale qui embarque Python dans GCompris."
 
 #: ../src/boards/python/admin/board_list.py:90
 msgid "Select a profile:"
-msgstr "Sélectionne un profil :"
+msgstr "Sélectionne un profil :"
 
 #: ../src/boards/python/admin/board_list.py:146
 msgid "Filter"
@@ -4732,7 +4781,7 @@ msgstr "Tout sélectionner"
 
 #: ../src/boards/python/admin/board_list.py:156
 msgid "Unselect all"
-msgstr "Tout déselectionner"
+msgstr "Tout désélectionner"
 
 #: ../src/boards/python/admin/board_list.py:161
 msgid "Locales"
@@ -4772,7 +4821,7 @@ msgstr "Titre activité"
 #: ../src/boards/python/admin/board_list.py:410
 #, python-format
 msgid "Filter Boards difficulty for profile %s"
-msgstr "Fitre la difficulté des activités pour le profil %s"
+msgstr "Filtre la difficulté des activités pour le profil %s"
 
 #: ../src/boards/python/admin/board_list.py:441
 #, python-format
@@ -4791,8 +4840,8 @@ msgstr ""
 #. we can add what you want in it.
 #: ../src/boards/python/admin/board_list.py:632
 #: ../src/boards/python/admin/board_list.py:650
-#: ../src/boards/python/admin/wordlist.py:51 ../src/boards/python/login.py:530
-#: ../src/boards/python/pythontest.py:410 ../src/boards/python/tuxpaint.py:179
+#: ../src/boards/python/admin/wordlist.py:51 ../src/boards/python/login.py:536
+#: ../src/boards/python/pythontest.py:410 ../src/boards/python/tuxpaint.py:184
 #, python-format
 msgid ""
 "<b>%s</b> configuration\n"
@@ -4808,25 +4857,25 @@ msgstr "Sélectionne la langue des sons"
 
 #: ../src/boards/python/admin/class_edit.py:60
 msgid "Editing a Class"
-msgstr "Édition d'une classe :"
+msgstr "Édition d'une classe"
 
 #: ../src/boards/python/admin/class_edit.py:65
 msgid "Editing class: "
-msgstr "Edition de la classe :"
+msgstr "Édition de la classe : "
 
 #: ../src/boards/python/admin/class_edit.py:68
 msgid "Editing a new class"
-msgstr "Edition d'une nouvelle classe :"
+msgstr "Édition d'une nouvelle classe"
 
 #: ../src/boards/python/admin/class_edit.py:90
 msgid "Class:"
-msgstr "Classe :"
+msgstr "Classe :"
 
 #. FIXME: How to remove the default selection
 #. Label and Entry for the teacher name
 #: ../src/boards/python/admin/class_edit.py:103
 msgid "Teacher:"
-msgstr "Professeur :"
+msgstr "Professeur :"
 
 #: ../src/boards/python/admin/class_edit.py:113
 msgid "Assign all the users belonging to this class"
@@ -4870,26 +4919,26 @@ msgstr "Édition d'un groupe"
 
 #: ../src/boards/python/admin/group_edit.py:66
 msgid "Editing group: "
-msgstr "Edition du groupe :"
+msgstr "Édition du groupe : "
 
 #: ../src/boards/python/admin/group_edit.py:67
 msgid " for class: "
-msgstr " pour la classe : "
+msgstr " pour la classe : "
 
 #: ../src/boards/python/admin/group_edit.py:70
 msgid "Editing a new group"
-msgstr "Edition d'un nouveau groupe"
+msgstr "Édition d'un nouveau groupe"
 
 #: ../src/boards/python/admin/group_edit.py:90
 msgid "Group:"
-msgstr "Groupe :"
+msgstr "Groupe :"
 
 #. FIXME: How to remove the selection
 #. Label and Entry for the first name
 #: ../src/boards/python/admin/group_edit.py:102
 #: ../src/boards/python/admin/profile_edit.py:98
 msgid "Description:"
-msgstr "Description :"
+msgstr "Description :"
 
 #. Top message gives instructions
 #: ../src/boards/python/admin/group_edit.py:113
@@ -4906,7 +4955,7 @@ msgstr "Il existe déjà un groupe avec ce nom"
 
 #: ../src/boards/python/admin/group_list.py:87
 msgid "Select a class:"
-msgstr "Sélectionne une classe :"
+msgstr "Sélectionne une classe :"
 
 #: ../src/boards/python/admin/group_list.py:215
 #: ../src/boards/python/admin/profile_edit.py:279
@@ -4930,10 +4979,10 @@ msgstr "Vous devez d'abord sélectionner un groupe dans la liste"
 msgid "Birth Date"
 msgstr "Naissance"
 
-#: ../src/boards/python/admin/module_boards.py:42
-#: ../src/boards/python/admin/module_boards.py:62
+#: ../src/boards/python/admin/module_boards.py:43
+#: ../src/boards/python/admin/module_boards.py:63
 msgid "Boards"
-msgstr "Activité"
+msgstr "Activités"
 
 #: ../src/boards/python/admin/module_groups.py:41
 #: ../src/boards/python/admin/module_groups.py:67
@@ -4961,15 +5010,15 @@ msgstr "Édition d'un profil"
 
 #: ../src/boards/python/admin/profile_edit.py:64
 msgid "Editing profile: "
-msgstr "Edition du profil :"
+msgstr "Édition du profil : "
 
 #: ../src/boards/python/admin/profile_edit.py:67
 msgid "Editing a new profile"
-msgstr "Edition d'un nouveau profil"
+msgstr "Édition d'un nouveau profil"
 
 #: ../src/boards/python/admin/profile_edit.py:86
 msgid "Profile:"
-msgstr "Profil :"
+msgstr "Profil :"
 
 #. Top message gives instructions
 #: ../src/boards/python/admin/profile_edit.py:109
@@ -4985,7 +5034,7 @@ msgid "There is already a profile with this name"
 msgstr "Il y a déjà un profil qui porte ce nom"
 
 #: ../src/boards/python/admin/profile_list.py:122
-#: ../src/gcompris/board_config.c:587 ../src/gcompris/board_config.c:717
+#: ../src/gcompris/board_config.c:663 ../src/gcompris/board_config.c:827
 msgid "Default"
 msgstr "Défaut"
 
@@ -5007,30 +5056,31 @@ msgstr "Édition d'un utilisateur"
 
 #: ../src/boards/python/admin/user_edit.py:61
 msgid "Editing a new user"
-msgstr "Edition d'un nouvel utilisateur"
+msgstr "Édition d'un nouvel utilisateur"
 
 #: ../src/boards/python/admin/user_edit.py:78
 msgid "Login:"
-msgstr "Identifiant :"
+msgstr "Identifiant :"
 
 #. FIXME: How to remove the selection
 #. Label and Entry for the first name
 #: ../src/boards/python/admin/user_edit.py:89
 msgid "First name:"
-msgstr "Prénom :"
+msgstr "Prénom :"
 
 #. Label and Entry for the last name
 #: ../src/boards/python/admin/user_edit.py:98
 msgid "Last name:"
-msgstr "Nom :"
+msgstr "Nom :"
 
 #. Label and Entry for the birth date
 #: ../src/boards/python/admin/user_edit.py:107
 msgid "Birth date:"
-msgstr "Date de naissance :"
+msgstr "Date de naissance :"
 
 #: ../src/boards/python/admin/user_edit.py:159
-msgid "You need to provide at least a login, first name and last name for your users"
+msgid ""
+"You need to provide at least a login, first name and last name for your users"
 msgstr ""
 "Vous devez fournir au moins un identifiant, un prénom et un nom pour vos "
 "utilisateurs"
@@ -5046,10 +5096,10 @@ msgid ""
 "login;First name;Last name;Date of birth\n"
 "The separator is autodetected and can be one of ',', ';' or ':'"
 msgstr ""
-"Pour importer un fichier, d'abord, sélectionnez une classe.\n"
-"FICHIER FORMAT. Votre fichier doit être formaté comme ceci :\n"
+"Pour importer un fichier, sélectionnez d'abord une classe.\n"
+"FORMAT DE FICHIER : Votre fichier doit être formaté comme ceci :\n"
 "identifiant;prénom;nom;date de naissance\n"
-"Le séparateur est autodétecté et peut être \",\", \";\" ou encore \":\""
+"Le séparateur est autodétecté et peut être « , », « ; » ou encore « : »"
 
 #: ../src/boards/python/admin/user_list.py:371
 #, python-format
@@ -5057,35 +5107,23 @@ msgid ""
 "One or more logins are not unique !\n"
 "You need to change them: %s !"
 msgstr ""
-"Un ou plusieurs identifiants ne sont pas uniques !\n"
-"Vous devez les modifier: %s !"
+"Un ou plusieurs identifiants ne sont pas uniques !\n"
+"Vous devez les modifier : %s !"
 
-#: ../src/boards/python/anim.py:59
-msgid "You need the python xml module. Disabling SVG."
-msgstr "Vous avez besoin du module python xml. Désactivation SVG."
-
-#. gcompris.utils.dialog(_('Python xml module bot found. SVG is disabled. Install the python xml module to enable SVG Save/restore.'), None)
-#: ../src/boards/python/anim.py:417
-msgid ""
-"Python xml module not found. SVG is disabled. Install the python xml module "
-"to enable SVG Save/restore."
-msgstr ""
-"Python xml module non trouvé. SVG est désactivé. Installer le module python "
-"xml pour activer la fonction Sauvegarde/Restauration SVG."
-
-#: ../src/boards/python/anim.py:2206
+#: ../src/boards/python/anim.py:2209
 msgid "SVG is disabled. Install python xml module to enable it"
 msgstr "SVG est désactivé. Installez le module python xml pour l'activer"
 
-#: ../src/boards/python/anim.py:2362
+#: ../src/boards/python/anim.py:2365
 msgid "Warning: the following images cannot be accessed on your system.\n"
-msgstr "Attention: les images suivantes ne peuvent être trouvées sur votre système.\n"
+msgstr ""
+"Attention: les images suivantes ne peuvent être trouvées sur votre système.\n"
 
-#: ../src/boards/python/anim.py:2364
+#: ../src/boards/python/anim.py:2367
 msgid "The corresponding items have been skipped."
-msgstr "Les éléments suivants ont été enlevés"
+msgstr "Les éléments suivants ont été enlevés."
 
-#: ../src/boards/python/electric.py:94
+#: ../src/boards/python/electric.py:96
 msgid ""
 "Cannot find the 'gnucap' electric simulator.\n"
 "You can download and install it from:\n"
@@ -5095,7 +5133,7 @@ msgid ""
 "You can still use this activity to draw schematics without computer "
 "simulation."
 msgstr ""
-"Impossible de trouver le logiciel de simulation électrique \"GnuCap\".\n"
+"Impossible de trouver le logiciel de simulation électrique « GnuCap ».\n"
 "Vous pouvez le télécharger à l'adresse:\n"
 "<http://geda.seul.org/tools/gnucap/>\n"
 "Pour être détecté, l'exécutable doit être installé dans /usr/bin/gnucap ou /"
@@ -5116,7 +5154,7 @@ msgstr " et %d"
 #: ../src/boards/python/gnumch.py:116
 #, python-format
 msgid "%d is divisible by %s."
-msgstr "%d est divisible par %s"
+msgstr "%d est divisible par %s."
 
 #: ../src/boards/python/gnumch.py:120
 msgid "1 is not a prime number."
@@ -5139,7 +5177,7 @@ msgstr ""
 #: ../src/boards/python/gnumch.py:160
 #, python-format
 msgid "Factors of %d"
-msgstr "Facteur de %d"
+msgstr "Facteurs de %d"
 
 #: ../src/boards/python/gnumch.py:193
 #, python-format
@@ -5179,7 +5217,7 @@ msgstr "%d ÷ %d"
 #: ../src/boards/python/gnumch.py:272
 #, python-format
 msgid "Equal to %d"
-msgstr "Egal à %d"
+msgstr "Égal à %d"
 
 #: ../src/boards/python/gnumch.py:293
 #, python-format
@@ -5224,48 +5262,86 @@ msgstr ""
 "RE\n"
 "S"
 
-#: ../src/boards/python/guessnumber.py:222
+#: ../src/boards/python/guessnumber.py:206
 #, python-format
 msgid "Guess a number between %d and %d"
 msgstr "Tu dois deviner un nombre entre %d et %d"
 
-#: ../src/boards/python/guessnumber.py:335
-#: ../src/boards/python/guessnumber.py:336
+#: ../src/boards/python/guessnumber.py:319
+#: ../src/boards/python/guessnumber.py:320
 #, python-format
 msgid "Please enter a number between %d and %d"
 msgstr "Tu dois entrer un nombre entre %d et %d"
 
-#: ../src/boards/python/guessnumber.py:341
-#: ../src/boards/python/guessnumber.py:342
+#: ../src/boards/python/guessnumber.py:325
+#: ../src/boards/python/guessnumber.py:326
 msgid "Out of range"
 msgstr "Hors de l'intervalle"
 
-#: ../src/boards/python/guessnumber.py:348
-#: ../src/boards/python/guessnumber.py:349
+#: ../src/boards/python/guessnumber.py:332
+#: ../src/boards/python/guessnumber.py:333
 msgid "Too high"
 msgstr "Trop grand"
 
-#: ../src/boards/python/guessnumber.py:351
-#: ../src/boards/python/guessnumber.py:352
+#: ../src/boards/python/guessnumber.py:335
+#: ../src/boards/python/guessnumber.py:336
 msgid "Too low"
 msgstr "Trop petit"
 
 #: ../src/boards/python/login.py:115
 msgid "Profile: "
-msgstr "Profil :"
+msgstr "Profil : "
 
-#: ../src/boards/python/login.py:263 ../src/boards/python/login.py:272
+#: ../src/boards/python/login.py:269 ../src/boards/python/login.py:278
 msgid "Login: "
-msgstr "Identifiant :"
+msgstr "Identifiant : "
 
 #. toggle box
-#: ../src/boards/python/login.py:545
+#: ../src/boards/python/login.py:551
 msgid "Enter login to log in"
 msgstr "Entre ton identifiant pour te connecter"
 
-#: ../src/boards/python/mosaic.py:210
+#: ../src/boards/python/mosaic.py:194
 msgid "Rebuild the same mosaic on the right area"
 msgstr "Reconstruire la mosaïque sur l'emplacement de droite"
+
+#: ../src/boards/python/melody.py:116
+msgid ""
+"Error: this activity cannot be played with the\n"
+"sound effects disabled.\n"
+"Go to the configuration dialogue to\n"
+"enable the sound"
+msgstr ""
+"Erreur : cette activité ne peut être jouée\n"
+"avec les effets sonores désactivés.\n"
+"Va dans la boîte de dialogue de\n"
+"configuration pour activer le son"
+
+#: ../src/boards/python/oscar_and_friends.py:117
+msgid ""
+"Below the surface, Oscar the octopus and his friends sat on a rock,\n"
+"watching the bad weather above them."
+msgstr ""
+"Sous la surface, Oscar le poulpe et ses amis s'assirent sur un rocher, en "
+"regardant à quel point le temps était mauvais au-dessus d'eux."
+
+#: ../src/boards/python/oscar_and_friends.py:118
+msgid ""
+"They were all happy that the storms never reached all the way down to them."
+msgstr ""
+"Ils étaient tous heureux que les tempêtes ne les avaient jamais atteints."
+
+#: ../src/boards/python/oscar_and_friends.py:119
+msgid ""
+"No matter how bad it was up there, the bottom was always calm and quiet."
+msgstr ""
+"Quelle que soit la situation là-haut, le fond était toujours calme et "
+"paisible."
+
+#: ../src/boards/python/oscar_and_friends.py:120
+msgid "Oscar's best friends were Charlie the crab and Sandy the sea-star."
+msgstr ""
+"Les meilleurs amis d'Oscar étaient Charlie le crabe et Sandy l'étoile de mer."
 
 #: ../src/boards/python/pythontest.py:149
 msgid ""
@@ -5283,7 +5359,7 @@ msgstr ""
 
 #: ../src/boards/python/pythontest.py:167
 msgid "This activity is not playable, just a test"
-msgstr "Cette activité n'est pas jouable,c'est juste un test"
+msgstr "Cette activité n'est pas jouable, c'est juste un test"
 
 #. toggle box
 #: ../src/boards/python/pythontest.py:415
@@ -5311,7 +5387,7 @@ msgstr "Utilisation de rectangles"
 
 #: ../src/boards/python/pythontest.py:450
 msgid "Choice of pattern"
-msgstr "Choix d'un modèle"
+msgstr "Choix d'un motif"
 
 #: ../src/boards/python/redraw.py:348 ../src/boards/python/redraw.py:358
 msgid "Level"
@@ -5324,7 +5400,7 @@ msgstr "Coordonnée"
 #: ../src/boards/python/searace.py:201 ../src/boards/python/searace.py:206
 #: ../src/boards/python/searace.py:232
 msgid "The race is already being run"
-msgstr "La course est déjà commencée"
+msgstr "La course a déjà commencé"
 
 #. Manage default cases (no params given)
 #. Final move, add an ofset because we loose space in abs()
@@ -5342,7 +5418,7 @@ msgstr "LES COMMANDES SONT"
 #. The two boat arrived in a close time frame (1s), it's a draw
 #: ../src/boards/python/searace.py:752
 msgid "This is a draw"
-msgstr "Egalité"
+msgstr "Égalité"
 
 #: ../src/boards/python/searace.py:759
 msgid "The Red boat has won"
@@ -5354,11 +5430,11 @@ msgstr "Le bateau VERT a gagné"
 
 #: ../src/boards/python/searace.py:780 ../src/boards/python/searace.py:1022
 msgid "Angle:"
-msgstr "Angle:"
+msgstr "Angle :"
 
 #: ../src/boards/python/searace.py:780
 msgid "Wind:"
-msgstr "Vent:"
+msgstr "Vent :"
 
 #: ../src/boards/python/searace.py:861
 msgid "Syntax error at line"
@@ -5374,37 +5450,38 @@ msgstr "Commande inconnue à la ligne"
 
 #: ../src/boards/python/searace.py:1022
 msgid "Distance:"
-msgstr "Distance:"
+msgstr "Distance :"
 
-#: ../src/boards/python/tuxpaint.py:115
+#: ../src/boards/python/tuxpaint.py:120
 msgid ""
 "Cannot find Tuxpaint.\n"
 "Install it to use this activity !"
 msgstr ""
-"Ne peut pas trouver Tuxpaint.\n"
-"Installe ce logiciel pour utiliser cette activité !"
+"Impossible de trouver Tuxpaint.\n"
+"Installe ce logiciel pour utiliser cette activité !"
 
-#: ../src/boards/python/tuxpaint.py:128
+#: ../src/boards/python/tuxpaint.py:133
 msgid "Waiting for Tuxpaint to finish"
 msgstr "En attente de la fermeture de Tuxpaint"
 
-#: ../src/boards/python/tuxpaint.py:183
+#: ../src/boards/python/tuxpaint.py:188
 msgid "Inherit fullscreen setting from GCompris"
 msgstr "Héritage de la configuration plein écran de GCompris"
 
-#: ../src/boards/python/tuxpaint.py:187
+#: ../src/boards/python/tuxpaint.py:192
 msgid "Inherit size setting from GCompris (800x600, 640x480)"
-msgstr "Héritage de la configuration de la taille de GCompris (800x600, 640x480)"
+msgstr ""
+"Héritage de la configuration de la taille de GCompris (800x600, 640x480)"
 
-#: ../src/boards/python/tuxpaint.py:191
+#: ../src/boards/python/tuxpaint.py:196
 msgid "Disable shape rotation"
 msgstr "Désactiver la rotation des formes"
 
-#: ../src/boards/python/tuxpaint.py:195
+#: ../src/boards/python/tuxpaint.py:200
 msgid "Show Uppercase text only"
 msgstr "Affiche le texte en majuscule uniquement"
 
-#: ../src/boards/python/tuxpaint.py:199
+#: ../src/boards/python/tuxpaint.py:204
 msgid "Disable stamps"
 msgstr "Désactiver les tampons"
 
@@ -5416,46 +5493,50 @@ msgstr "Le jeu de mémoire"
 msgid "Build a train according to the model"
 msgstr "Construis un train correspondant au modèle."
 
-#: ../src/boards/reading.c:366
+#: ../src/boards/reading.c:227 ../src/boards/wordsgame.c:207
+msgid ""
+"Error: We can't find\n"
+"a list of words to play this game.\n"
+msgstr ""
+"Erreur : Impossible de trouver\n"
+"une liste de mots pour jouer à ce jeu.\n"
+
+#: ../src/boards/reading.c:381
 msgid "Please, check if the word"
 msgstr "S'il te plaît, vérifie si le mot"
 
-#: ../src/boards/reading.c:386
+#: ../src/boards/reading.c:401
 msgid "is being displayed"
 msgstr "est affiché."
 
-#: ../src/boards/reading.c:557
+#: ../src/boards/reading.c:575
 msgid "I am Ready"
-msgstr "Je suis prêt !"
+msgstr "Je suis prêt"
 
-#: ../src/boards/reading.c:597
+#: ../src/boards/reading.c:615
 msgid "Yes, I saw it"
 msgstr "Oui, je l'ai vu"
 
-#: ../src/boards/reading.c:627
+#: ../src/boards/reading.c:645
 msgid "No, it was not there"
 msgstr "Non, il n'y était pas."
 
 #. Report what was wrong in the log
-#: ../src/boards/reading.c:665
+#: ../src/boards/reading.c:683
 #, c-format
 msgid "The word to find was '%s'"
-msgstr "Le mot à trouver était '%s'"
+msgstr "Le mot à trouver était « %s »"
 
-#: ../src/boards/reading.c:668
+#: ../src/boards/reading.c:686
 msgid "But it was not displayed"
 msgstr "mais il n'était pas affiché."
 
-#: ../src/boards/reading.c:670
+#: ../src/boards/reading.c:688
 msgid "And it was displayed"
 msgstr "et il était affiché."
 
-#: ../src/boards/reading.c:773 ../src/boards/wordsgame.c:776
-msgid "Cannot open file of words for your locale"
-msgstr "Ne peut ouvrir le fichier de mots correspondant à votre langue"
-
 #. Enter Edit Mode
-#: ../src/boards/shapegame.c:429
+#: ../src/boards/shapegame.c:431
 msgid ""
 "You have entered Edit mode\n"
 "Move the puzzle items;\n"
@@ -5464,16 +5545,16 @@ msgid ""
 msgstr ""
 "Tu entres dans le mode édition\n"
 "Déplace les éléments et utilise les touches\n"
-"\"s\" pour sauver et\n"
-"\"d\"' pour afficher toutes les pièces."
+"« s » pour sauver et\n"
+"« d » pour afficher toutes les pièces"
 
-#: ../src/boards/shapegame.c:437
+#: ../src/boards/shapegame.c:439
 msgid ""
 "The data from this activity are saved under\n"
 "/tmp/gcompris-board.xml"
 msgstr ""
 "Les données de ce tableau \n"
-"sont sauvées dans \n"
+"sont enregistrées dans \n"
 "/tmp/gcompris-board.xml"
 
 #: ../src/boards/submarine.c:201
@@ -5484,12 +5565,12 @@ msgstr "Sous-marin"
 msgid "Control the depth of a submarine"
 msgstr "Contrôle la profondeur d'un sous-marin."
 
-#: ../src/boards/target.c:285 ../src/boards/target.c:538
+#: ../src/boards/target.c:285 ../src/boards/target.c:550
 #, c-format
 msgid "Points = %s"
 msgstr "Points = %s"
 
-#: ../src/boards/target.c:403
+#: ../src/boards/target.c:407
 #, c-format
 msgid ""
 "Wind speed = %d\n"
@@ -5498,12 +5579,12 @@ msgstr ""
 "Vitesse du vent = %d\n"
 "kilomètres/heure"
 
-#: ../src/boards/target.c:465
+#: ../src/boards/target.c:474
 #, c-format
 msgid "Distance to target = %d meters"
 msgstr "Distance de la cible = %d mètres"
 
-#: ../src/gcompris/about.c:65
+#: ../src/gcompris/about.c:62
 msgid ""
 "Author: Bruno Coudoin\n"
 "Contribution: Pascal Georges, Jose Jorge\n"
@@ -5511,29 +5592,31 @@ msgid ""
 "Intro Music: Djilali Sebihi\n"
 "Background Music: Rico Da Halvarez\n"
 msgstr ""
-"Auteur: Bruno Coudoin\n"
-"Contribution: Pascal Georges, Jose Jorge\n"
-"Graphiques: Renaud Blanchard, Franck Doucet\n"
-"Musique d'intro: Djilali Sebihi\n"
-"Musique de fond: Rico Da Halvarez\n"
+"Auteur : Bruno Coudoin\n"
+"Contribution : Pascal Georges, Jose Jorge\n"
+"Graphiques : Renaud Blanchard, Franck Doucet\n"
+"Musique d'intro : Djilali Sebihi\n"
+"Musique de fond : Rico Da Halvarez\n"
 
 #. TRANSLATORS: Replace this string with your names, one name per line.
-#: ../src/gcompris/about.c:73
+#: ../src/gcompris/about.c:70
 msgid "translator_credits"
 msgstr ""
-"Bruno Coudoin\n"
-"Christophe Merlet (RedFox)\n"
-"Laurent Richard"
+"Bruno Coudoin <bruno.coudoin@free.fr>\n"
+"Christophe Merlet (RedFox) <redfox@redfoxcenter.org>\n"
+"Laurent Richard <laurent.richard@lilit.be>\n"
+"Jonathan Ernst <jonathan@ernstfamily.ch>\n"
+"Claude Paroz <paroz@email.ch>"
 
-#: ../src/gcompris/about.c:105 ../src/gcompris/about.c:114
+#: ../src/gcompris/about.c:101 ../src/gcompris/about.c:111
 msgid "About GCompris"
-msgstr "Au sujet de GCompris"
+msgstr "À propos de GCompris"
 
-#: ../src/gcompris/about.c:124 ../src/gcompris/about.c:133
+#: ../src/gcompris/about.c:122 ../src/gcompris/about.c:131
 msgid "Translators:"
-msgstr "Traducteurs :"
+msgstr "Traducteurs :"
 
-#: ../src/gcompris/about.c:256
+#: ../src/gcompris/about.c:254
 msgid ""
 "GCompris Home Page\n"
 "http://gcompris.net"
@@ -5541,42 +5624,43 @@ msgstr ""
 "Page d'accueil de GCompris\n"
 "http://gcompris.net"
 
-#: ../src/gcompris/about.c:278
+#: ../src/gcompris/about.c:276
 msgid ""
 "This software is a GNU Package and is released under the GNU General Public "
 "License"
 msgstr ""
-"Ce logiciel est un paquetage GNU et est soumis à la Licence Publique "
-"Générale Gnu (GPL)."
+"Ce logiciel est un paquet GNU et est soumis à la Licence Publique Générale "
+"GNU (GPL)."
 
-#: ../src/gcompris/about.c:341 ../src/gcompris/about.c:350
-#: ../src/gcompris/config.c:222 ../src/gcompris/config.c:231
-#: ../src/gcompris/gameutil.c:1176 ../src/gcompris/help.c:362
-#: ../src/gcompris/help.c:371 ../src/gcompris/images_selector.c:263
+#: ../src/gcompris/about.c:339 ../src/gcompris/about.c:349
+#: ../src/gcompris/config.c:469 ../src/gcompris/config.c:479
+#: ../src/gcompris/dialog.c:103 ../src/gcompris/help.c:381
+#: ../src/gcompris/help.c:391 ../src/gcompris/images_selector.c:317
 msgid "OK"
 msgstr "Valider"
 
-#: ../src/gcompris/bar.c:571
+#: ../src/gcompris/bar.c:567
 msgid "GCompris confirmation"
-msgstr "Gcompris : confirmation"
+msgstr "Gcompris : confirmation"
 
-#: ../src/gcompris/bar.c:572
-msgid "Sure you want to quit ?"
-msgstr "Veux-tu vraiment quitter ?"
+#: ../src/gcompris/bar.c:568
+msgid "Are you sure you want to quit?"
+msgstr "Veux-tu vraiment quitter ?"
 
-#: ../src/gcompris/bar.c:573
-msgid "Yes, I am sure !"
-msgstr "Oui, je suis sûr !"
+#: ../src/gcompris/bar.c:569
+msgid "Yes, I am sure!"
+msgstr "Oui, je suis sûr !"
 
-#: ../src/gcompris/bar.c:574
+#: ../src/gcompris/bar.c:570
 msgid "No, I want to keep going"
-msgstr "Non, non, laisse-moi rester encore !"
+msgstr "Non, non, laisse-moi rester encore !"
 
-#: ../src/gcompris/board.c:182
+#: ../src/gcompris/board.c:177
 msgid "Dynamic module loading is not supported. gcompris cannot load.\n"
-msgstr "Chargement dynamique non supporté. GCompris ne peut pas charger.\n"
+msgstr ""
+"Chargement dynamique non pris en charge. GCompris ne peut pas charger.\n"
 
-#: ../src/gcompris/board_config.c:617
+#: ../src/gcompris/board_config.c:695
 msgid ""
 "Select the language\n"
 " to use in the board"
@@ -5584,223 +5668,232 @@ msgstr ""
 "Sélection du langage\n"
 "à utiliser dans cette activité"
 
-#: ../src/gcompris/config.c:63
+#: ../src/gcompris/config.c:64
 msgid "Your system default"
 msgstr "Par défaut (système)"
 
-#: ../src/gcompris/config.c:64
+#: ../src/gcompris/config.c:65
 msgid "Amharic"
 msgstr "Amharique"
 
-#: ../src/gcompris/config.c:65
+#: ../src/gcompris/config.c:66
 msgid "Arabic"
 msgstr "Arabe"
 
-#: ../src/gcompris/config.c:66
+#: ../src/gcompris/config.c:67
 msgid "Turkish (Azerbaijan)"
 msgstr "Turque (Azerbaïdjan)"
 
-#: ../src/gcompris/config.c:67
-msgid "Bulgarian"
-msgstr "Bulgarie"
-
 #: ../src/gcompris/config.c:68
+msgid "Bulgarian"
+msgstr "Bulgare"
+
+#: ../src/gcompris/config.c:69
 msgid "Catalan"
 msgstr "Catalan"
 
-#: ../src/gcompris/config.c:70
+#: ../src/gcompris/config.c:71
 msgid "Danish"
 msgstr "Danois"
 
-#: ../src/gcompris/config.c:71
+#: ../src/gcompris/config.c:72
 msgid "German"
 msgstr "Allemand"
 
-#: ../src/gcompris/config.c:72
+#: ../src/gcompris/config.c:73
 msgid "Greek"
 msgstr "Grec"
 
-#: ../src/gcompris/config.c:73
+#: ../src/gcompris/config.c:74
 msgid "English (Canada)"
 msgstr "Anglais (Canada)"
 
-#: ../src/gcompris/config.c:74
-msgid "English (Great Britain)"
-msgstr "Anglais (Royaume Uni)"
-
 #: ../src/gcompris/config.c:75
+msgid "English (Great Britain)"
+msgstr "Anglais (Royaume-Uni)"
+
+#: ../src/gcompris/config.c:76
 msgid "Spanish"
 msgstr "Espagnol"
 
-#: ../src/gcompris/config.c:76
+#: ../src/gcompris/config.c:77
 msgid "Basque"
 msgstr "Basque"
 
-#: ../src/gcompris/config.c:77
+#: ../src/gcompris/config.c:78
 msgid "Finnish"
 msgstr "Finnois"
 
-#: ../src/gcompris/config.c:78
+#: ../src/gcompris/config.c:79
 msgid "French"
 msgstr "Français"
 
-#: ../src/gcompris/config.c:79
-msgid "Irish (Gaelic)"
-msgstr "Irlandais (Gaelic)"
-
 #: ../src/gcompris/config.c:80
+msgid "Irish (Gaelic)"
+msgstr "Irlandais (Gaélique)"
+
+#: ../src/gcompris/config.c:81
 msgid "Hebrew"
 msgstr "Hébreu"
 
-#: ../src/gcompris/config.c:81
+#: ../src/gcompris/config.c:82
 msgid "Hindi"
 msgstr "Hindi"
 
-#: ../src/gcompris/config.c:82
+#: ../src/gcompris/config.c:83
 msgid "Gujarati"
 msgstr "Gujarati"
 
-#: ../src/gcompris/config.c:83
+#: ../src/gcompris/config.c:84
 msgid "Punjabi"
 msgstr "Punjabi"
 
-#: ../src/gcompris/config.c:84
+#: ../src/gcompris/config.c:85
 msgid "Hungarian"
 msgstr "Hongrois"
 
-#: ../src/gcompris/config.c:85
+#: ../src/gcompris/config.c:86
 msgid "Croatian"
 msgstr "Croate"
 
-#: ../src/gcompris/config.c:86
+#: ../src/gcompris/config.c:87
 msgid "Italian"
 msgstr "Italien"
 
-#: ../src/gcompris/config.c:87
+#: ../src/gcompris/config.c:88
 msgid "Georgian"
 msgstr "Géorgien"
 
-#: ../src/gcompris/config.c:88
+#: ../src/gcompris/config.c:89
 msgid "Lithuanian"
 msgstr "Lituanien"
 
-#: ../src/gcompris/config.c:89
+#: ../src/gcompris/config.c:90
 msgid "Macedonian"
 msgstr "Macédonien"
 
-#: ../src/gcompris/config.c:90
+#: ../src/gcompris/config.c:91
 msgid "Malayalam"
 msgstr "Malayalam"
 
-#: ../src/gcompris/config.c:91
+#: ../src/gcompris/config.c:92
+msgid "Marathi"
+msgstr "Marâthî"
+
+#: ../src/gcompris/config.c:93
 msgid "Malay"
 msgstr "Malaisien"
 
-#: ../src/gcompris/config.c:92
+#: ../src/gcompris/config.c:94
 msgid "Nepal"
-msgstr "Nepalais"
+msgstr "Népalais"
 
-#: ../src/gcompris/config.c:93
+#: ../src/gcompris/config.c:95
 msgid "Dutch"
 msgstr "Hollandais"
 
-#: ../src/gcompris/config.c:94
+#: ../src/gcompris/config.c:96
 msgid "Norwegian Bokmal"
 msgstr "Norvégien Bokmal"
 
-#: ../src/gcompris/config.c:95
+#: ../src/gcompris/config.c:97
 msgid "Norwegian Nynorsk"
 msgstr "Norvégien Nynorsk"
 
-#: ../src/gcompris/config.c:96
+#: ../src/gcompris/config.c:98
 msgid "Polish"
 msgstr "Polonais"
 
-#: ../src/gcompris/config.c:97
+#: ../src/gcompris/config.c:99
 msgid "Portuguese"
 msgstr "Portugais"
 
-#: ../src/gcompris/config.c:98
+#: ../src/gcompris/config.c:100
 msgid "Portuguese (Brazil)"
 msgstr "Portugais (Brésil)"
 
-#: ../src/gcompris/config.c:99
+#: ../src/gcompris/config.c:101
 msgid "Romanian"
 msgstr "Roumain"
 
-#: ../src/gcompris/config.c:100
+#: ../src/gcompris/config.c:102
 msgid "Russian"
 msgstr "Russe"
 
-#: ../src/gcompris/config.c:101
+#: ../src/gcompris/config.c:103
 msgid "Kinyarwanda"
 msgstr "Kinyarwandais"
 
-#: ../src/gcompris/config.c:102
+#: ../src/gcompris/config.c:104
 msgid "Slovak"
 msgstr "Slovaque"
 
-#: ../src/gcompris/config.c:103
+#: ../src/gcompris/config.c:105
 msgid "Slovenian"
 msgstr "Slovène"
 
-#: ../src/gcompris/config.c:104
+#: ../src/gcompris/config.c:106
 msgid "Albanian"
 msgstr "Albanais"
 
-#: ../src/gcompris/config.c:105
+#: ../src/gcompris/config.c:107
 msgid "Serbian (Latin)"
 msgstr "Serbe (Latin)"
 
-#: ../src/gcompris/config.c:106
+#: ../src/gcompris/config.c:108
 msgid "Serbian"
 msgstr "Serbe"
 
-#: ../src/gcompris/config.c:107
+#: ../src/gcompris/config.c:109
 msgid "Swedish"
 msgstr "Suédois"
 
-#: ../src/gcompris/config.c:108
+#. "ta_IN.UTF-8",	N_("Tamil"),
+#: ../src/gcompris/config.c:111
+msgid "Thai"
+msgstr "Thaï"
+
+#: ../src/gcompris/config.c:112
 msgid "Turkish"
 msgstr "Turc"
 
-#: ../src/gcompris/config.c:109
+#: ../src/gcompris/config.c:113
 msgid "Vietnamese"
 msgstr "Vietnamien"
 
-#: ../src/gcompris/config.c:110
+#: ../src/gcompris/config.c:114
 msgid "Walloon"
 msgstr "Wallon"
 
-#: ../src/gcompris/config.c:111
+#: ../src/gcompris/config.c:115
 msgid "Chinese (Simplified)"
 msgstr "Chinois (simplifié)"
 
-#: ../src/gcompris/config.c:112
+#: ../src/gcompris/config.c:116
 msgid "Chinese (Traditional)"
 msgstr "Chinois (traditionnel)"
 
-#: ../src/gcompris/config.c:117
+#: ../src/gcompris/config.c:121
 msgid "No time limit"
 msgstr "Pas de limite de temps"
 
-#: ../src/gcompris/config.c:118
+#: ../src/gcompris/config.c:122
 msgid "Slow timer"
 msgstr "Compteur lent"
 
-#: ../src/gcompris/config.c:119
+#: ../src/gcompris/config.c:123
 msgid "Normal timer"
 msgstr "Compteur normal"
 
-#: ../src/gcompris/config.c:120
+#: ../src/gcompris/config.c:124
 msgid "Fast timer"
 msgstr "Compteur rapide"
 
-#: ../src/gcompris/config.c:125
+#: ../src/gcompris/config.c:129
 msgid "800x600 (Default for gcompris)"
 msgstr "800x600 (par défaut pour GCompris)"
 
-#: ../src/gcompris/config.c:130
+#: ../src/gcompris/config.c:134
 msgid ""
 "<i>Use Gcompris administration module\n"
 "to filter boards</i>"
@@ -5808,54 +5901,62 @@ msgstr ""
 "<i>Utilisez le module d'administration de\n"
 "GCompris pour filtrer les activités</i>"
 
-#: ../src/gcompris/config.c:187 ../src/gcompris/config.c:196
+#: ../src/gcompris/config.c:189 ../src/gcompris/config.c:199
 msgid "GCompris Configuration"
 msgstr "Configuration de GCompris"
 
-#: ../src/gcompris/config.c:314
+#: ../src/gcompris/config.c:275
 msgid "Fullscreen"
 msgstr "Plein écran"
 
-#: ../src/gcompris/config.c:357
+#: ../src/gcompris/config.c:318
 msgid "Music"
 msgstr "Musique"
 
-#: ../src/gcompris/config.c:385
+#: ../src/gcompris/config.c:346
 msgid "Effect"
 msgstr "Effet"
 
-#: ../src/gcompris/config.c:418
+#: ../src/gcompris/config.c:382
 #, c-format
 msgid "Couldn't open skin dir: %s"
-msgstr "Ne peut pas trouver le répertoire de thèmes : %s"
+msgstr "Impossible d'ouvrir le répertoire de thèmes : %s"
 
-#: ../src/gcompris/config.c:454 ../src/gcompris/config.c:818
-#: ../src/gcompris/config.c:829
+#: ../src/gcompris/config.c:415 ../src/gcompris/config.c:846
+#: ../src/gcompris/config.c:860
 #, c-format
 msgid "Skin : %s"
-msgstr "Thème : %s"
+msgstr "Thème : %s"
 
-#: ../src/gcompris/file_selector.c:341
+#: ../src/gcompris/config.c:417
+msgid "SKINS NOT FOUND"
+msgstr "THÈMES INTROUVABLES"
+
+#: ../src/gcompris/config.c:540
+msgid "English (United State)"
+msgstr "Anglais (États-Unis)"
+
+#: ../src/gcompris/file_selector.c:333
 msgid "CANCEL"
 msgstr "ANNULER"
 
-#: ../src/gcompris/file_selector.c:372
+#: ../src/gcompris/file_selector.c:364
 msgid "LOAD"
 msgstr "CHARGER"
 
-#: ../src/gcompris/file_selector.c:372
+#: ../src/gcompris/file_selector.c:364
 msgid "SAVE"
-msgstr "SAUVER"
+msgstr "ENREGISTRER"
 
-#: ../src/gcompris/gameutil.c:190
-msgid "Couldn't find file"
-msgstr "Ne peut pas trouver le fichier"
+#: ../src/gcompris/gameutil.c:79
+msgid "Couldn't find or load the file"
+msgstr "Impossible de trouver ou de charger le fichier"
 
-#: ../src/gcompris/gameutil.c:192
+#: ../src/gcompris/gameutil.c:81
 msgid "This activity is incomplete."
-msgstr "Cette activité est incomplète"
+msgstr "Cette activité est incomplète."
 
-#: ../src/gcompris/gameutil.c:193
+#: ../src/gcompris/gameutil.c:82
 msgid ""
 "Exit it and report\n"
 "the problem to the authors."
@@ -5863,94 +5964,97 @@ msgstr ""
 "Quitte-la et informe\n"
 "les auteurs du problème rencontré."
 
-#: ../src/gcompris/gcompris.c:125
+#: ../src/gcompris/gcompris.c:132
 msgid "run gcompris in fullscreen mode."
 msgstr "Lance GCompris en mode plein écran."
 
-#: ../src/gcompris/gcompris.c:127
+#: ../src/gcompris/gcompris.c:135
 msgid "run gcompris in window mode."
 msgstr "Lance GCompris en mode fenêtré."
 
-#: ../src/gcompris/gcompris.c:129
+#: ../src/gcompris/gcompris.c:138
 msgid "run gcompris with sound enabled."
 msgstr "Lance GCompris avec le son."
 
-#: ../src/gcompris/gcompris.c:131
+#: ../src/gcompris/gcompris.c:141
 msgid "run gcompris without sound."
 msgstr "Lance GCompris sans le son."
 
-#: ../src/gcompris/gcompris.c:133
+#: ../src/gcompris/gcompris.c:144
 msgid "run gcompris with the default gnome cursor."
 msgstr "Lance GCompris avec le curseur par défaut de gnome."
 
-#: ../src/gcompris/gcompris.c:135
+#: ../src/gcompris/gcompris.c:147
 msgid "display only activities with this difficulty level."
 msgstr "Affiche uniquement les activités avec ce niveau de difficulté."
 
-#: ../src/gcompris/gcompris.c:137
+#: ../src/gcompris/gcompris.c:150
 msgid "display debug informations on the console."
 msgstr "Affiche les informations de débogage dans la console."
 
-#: ../src/gcompris/gcompris.c:139
+#: ../src/gcompris/gcompris.c:153
 msgid "Print the version of "
 msgstr "Affiche la version de "
 
-#: ../src/gcompris/gcompris.c:141
+#: ../src/gcompris/gcompris.c:156
 msgid "Use the antialiased canvas (slower)."
 msgstr "Utiliser le canvas anti-crénelé (plus lent)."
 
-#: ../src/gcompris/gcompris.c:143
-msgid "Disable XRANDR (No screen resolution change)."
-msgstr "Désactivation de XRANDR (Pas de modification de la résolution de l'écran)"
+#: ../src/gcompris/gcompris.c:159
+msgid "Disable XF86VidMode (No screen resolution change)."
+msgstr ""
+"Désactivation de XF86VidMode (Pas de modification de la résolution de "
+"l'écran)."
 
-#: ../src/gcompris/gcompris.c:145
+#: ../src/gcompris/gcompris.c:162
 msgid ""
 "Run gcompris with local menu (e.g -l /reading will let you play only "
-"activities in the reading directory, -l /boards/connect4 only the connect4 "
+"activities in the reading directory, -l /strategy/connect4 only the connect4 "
 "activity)"
 msgstr ""
-"Lance GCompris avec un menu local (ex: -l /reading pour jouer uniquement "
-"avec les activités du menu lecture, -l /boards/connect4 pour avoir "
-"uniquement l'activité connect4), -l list pour avoir la liste des menus et "
-"des activités."
+"Lance GCompris avec un menu local (ex : -l /reading pour jouer uniquement "
+"avec les activités du menu lecture, -l /strategy/connect4 pour avoir "
+"uniquement l'activité connect4)"
 
-#: ../src/gcompris/gcompris.c:147
+#: ../src/gcompris/gcompris.c:165
 msgid "Run GCompris with local activity directory added to menu"
 msgstr "Lance GCompris avec un répertoire local d'activités ajouté au menu."
 
-#: ../src/gcompris/gcompris.c:149
+#: ../src/gcompris/gcompris.c:168
 msgid "Run GCompris in administration and user-management mode"
-msgstr "Lance GCompris dans le mode administration et gestion des utilisateurs."
+msgstr ""
+"Lance GCompris dans le mode administration et gestion des utilisateurs."
 
-#: ../src/gcompris/gcompris.c:151
+#: ../src/gcompris/gcompris.c:171
 msgid "Use alternate database for profiles"
 msgstr "Utilise une base de données alternative pour les profils."
 
-#: ../src/gcompris/gcompris.c:153
+#: ../src/gcompris/gcompris.c:174
 msgid "Use alternate database for logs"
-msgstr "Utilise une base de données alternative pour l'historique d'utilisation."
+msgstr ""
+"Utilise une base de données alternative pour l'historique d'utilisation."
 
-#: ../src/gcompris/gcompris.c:155
+#: ../src/gcompris/gcompris.c:177
 msgid "Create the alternate database for profiles"
 msgstr "Créer la base alternative pour les profils."
 
-#: ../src/gcompris/gcompris.c:157
+#: ../src/gcompris/gcompris.c:180
 msgid "Re-read XML Menus and store them in the database"
 msgstr "Relis les menus XML et sauvegarde-les dans la base."
 
-#: ../src/gcompris/gcompris.c:159
+#: ../src/gcompris/gcompris.c:183
 msgid "Set the profile to use. Use 'gcompris -a' to create profiles"
 msgstr ""
-"Sélectionner le profil à utiliser. Utiliser \"gcompris -a\" pour créer des "
-"profils."
+"Sélectionner le profil à utiliser. Utiliser « gcompris -a » pour créer des "
+"profils"
 
-#: ../src/gcompris/gcompris.c:161
+#: ../src/gcompris/gcompris.c:186
 msgid "List all available profiles. Use 'gcompris -a' to create profiles"
 msgstr ""
-"Lister les profils disponibles. Utiliser \"gcompris -a\" pour créer "
-"desprofils."
+"Lister les profils disponibles. Utilisez « gcompris -a » pour créer des "
+"profils"
 
-#: ../src/gcompris/gcompris.c:163
+#: ../src/gcompris/gcompris.c:189
 msgid ""
 "Shared directory location, for profiles and board-configuration data: "
 "[$HOME/.gcompris/shared]"
@@ -5958,23 +6062,53 @@ msgstr ""
 "Emplacement du répertoire partagé. Pour les profils et la configuration des "
 "données d'activités. [$HOME/.gcompris/shared]"
 
-#: ../src/gcompris/gcompris.c:165
+#: ../src/gcompris/gcompris.c:192
 msgid "The location of user directories: [$HOME/.gcompris/users]"
 msgstr "Emplacement du répertoire des utilisateurs. [$HOME/.gcompris/users]"
 
-#: ../src/gcompris/gcompris.c:167
+#: ../src/gcompris/gcompris.c:195
 msgid "Run the experimental activities"
 msgstr "Vers les activités d'expérimentation"
 
-#: ../src/gcompris/gcompris.c:169
+#: ../src/gcompris/gcompris.c:198
 msgid "Disable the quit button"
 msgstr "Désactiver le bouton quitter"
 
-#: ../src/gcompris/gcompris.c:171
+#: ../src/gcompris/gcompris.c:201
 msgid "Disable the config button"
 msgstr "Désactiver le bouton de configuration"
 
-#: ../src/gcompris/gcompris.c:788
+#: ../src/gcompris/gcompris.c:204
+msgid "Display the resources on stdout based on the selected activities"
+msgstr ""
+"Affiche les ressources sur la sortie standard en fonction des activités "
+"sélectionnées"
+
+#: ../src/gcompris/gcompris.c:207
+msgid ""
+"GCompris will get images, sounds and activity data from this server if not "
+"found locally."
+msgstr ""
+"GCompris récupère les images, les sons et les activités depuis ce serveur "
+"s'ils ne sont pas disponibles localement."
+
+#: ../src/gcompris/gcompris.c:210
+msgid ""
+"Only when --server is provided, disable check for local resource first. Data "
+"are always taken from the web server."
+msgstr ""
+"Seulement lorsque --server est fourni, désactive la vérification en premier "
+"des ressources locales. Les données sont toujours récupérées depuis le "
+"serveur Web."
+
+#: ../src/gcompris/gcompris.c:214
+msgid ""
+"In server mode, where is the cache directory to avoid useless downloads."
+msgstr ""
+"En mode serveur, l'emplacement du dossier de cache pour éviter des "
+"téléchargements inutiles."
+
+#: ../src/gcompris/gcompris.c:839
 #, c-format
 msgid ""
 "GCompris is free software released under the GPL License. In order to "
@@ -5998,7 +6132,7 @@ msgstr ""
 "apprendre la liberté à nos enfants, merci d'utiliser GNU/Linux. Vous pouvez "
 "obtenir plus d'informations sur http://www.fsf.org/philosophy"
 
-#: ../src/gcompris/gcompris.c:1172
+#: ../src/gcompris/gcompris.c:1346
 #, c-format
 msgid ""
 "GCompris\n"
@@ -6007,403 +6141,65 @@ msgid ""
 "More info at http://gcompris.net\n"
 msgstr ""
 "GCompris\n"
-"Version: %s\n"
-"License: GPL\n"
+"Version : %s\n"
+"Licence : GPL\n"
 "Plus d'informations sur http://gcompris.net\n"
 
 #. check the list of possible values for -l, then exit
-#: ../src/gcompris/gcompris.c:1258
+#: ../src/gcompris/gcompris.c:1432
 #, c-format
 msgid "Use -l to access an activity directly.\n"
 msgstr "Utilise l'option -l pour accéder directement à une activité.\n"
 
-#: ../src/gcompris/gcompris.c:1259
+#: ../src/gcompris/gcompris.c:1433
 #, c-format
 msgid "The list of available activities is :\n"
-msgstr "La liste des activités disponibles est :\n"
+msgstr "La liste des activités disponibles est :\n"
 
-#: ../src/gcompris/gcompris.c:1403
+#: ../src/gcompris/gcompris.c:1597
 #, c-format
 msgid "The list of available profiles is:\n"
-msgstr "La liste des profils disponibles est :\n"
+msgstr "La liste des profils disponibles est :\n"
 
-#: ../src/gcompris/gcompris_db.c:253
+#: ../src/gcompris/gcompris_db.c:252
 msgid "Unaffected"
 msgstr "Non affecté"
 
-#: ../src/gcompris/gcompris_db.c:254
+#: ../src/gcompris/gcompris_db.c:253
 msgid "Users without a class"
 msgstr "Utilisateurs sans classe"
 
-#: ../src/gcompris/help.c:203
+#: ../src/gcompris/help.c:199
 msgid "Prerequisite"
 msgstr "Prérequis"
 
-#: ../src/gcompris/help.c:231
+#: ../src/gcompris/help.c:227
 msgid "Goal"
 msgstr "Objectif"
 
-#: ../src/gcompris/help.c:259
+#: ../src/gcompris/help.c:255
 msgid "Manual"
 msgstr "Manuel"
 
-#: ../src/gcompris/help.c:287
+#: ../src/gcompris/help.c:283
 msgid "Credit"
 msgstr "Crédit"
 
-#: ../src/gcompris/timer.c:235
+#: ../src/gcompris/timer.c:250
 msgid "Time Elapsed"
 msgstr "Temps écoulé"
 
-#: ../src/gcompris/timer.c:321
+#: ../src/gcompris/timer.c:339
 #, c-format
 msgid "Remaining Time = %d"
 msgstr "Temps restant = %d"
 
-#~ msgid "/"
-#~ msgstr "/"
-
-#~ msgid "Various physical based activities."
-#~ msgstr "Diverses activités de physique."
-
-#~ msgid "Moroco"
-#~ msgstr "Maroc"
-
 #~ msgid ""
-#~ "Prime numbers are numbers that are only divisible by themselves and 1. "
-#~ "For example, 3 is a prime number, but 4 isn't (because 4 is divisible by "
-#~ "2). Use the arrow keys to navigate around the board and to avoid the "
-#~ "Troggles. Press the spacebar to eat a number."
+#~ "Python xml module not found. SVG is disabled. Install the python xml "
+#~ "module to enable SVG Save/restore."
 #~ msgstr ""
-#~ "Les nombres premiers sont des nombres que tu ne peux diviser que par eux-"
-#~ "mêmes et par 1.\n"
-#~ "Par exemple, 3 est un nombre premier, mais 4 ne l'est pas (car on peut "
-#~ "aussi le diviser par 2).\n"
-#~ "Utilise les flèches pour te déplacer dans l'activité et éviter les "
-#~ "troggles. Appuie sur la barre \"espace\" pour manger un nombre."
-
-#~ msgid "Left-Click the mouse on an activity to select it."
-#~ msgstr "Clique sur une activité avec le bouton gauche pour la sélectionner."
-
-#~ msgid ""
-#~ "A set of blank cards is shown. Each pair is associated by the same "
-#~ "picture in their hidden faces. Click on a card to can uncover it and see "
-#~ "its hidden picture. However, you can only see two hidden pictures at "
-#~ "once. You have to remember the position of the pictures to associate "
-#~ "them. To remove a pair of cards, uncover both of them. You play "
-#~ "alternatively with Tux, and must take more pairs of cards than him."
-#~ msgstr ""
-#~ "Un ensemble de cartes est affiché,côté faces cachées. Chaque carte est "
-#~ "présente en double exemplaire. En cliquant sur une carte, on découvre sa "
-#~ "face cachée. Cependant, on ne peut voir que deux faces cachées à la "
-#~ "fois.\n"
-#~ "Il faut se rappeler la position des images pour les associer deux à deux "
-#~ "entre elles.\n"
-#~ "Une paire de cartes identiques est enlevée lorsqu'elle est découverte. Tu "
-#~ "joues contre Tux, et tu dois gagner plus de paires de cartes que lui."
-
-#~ msgid "Play to memory against Tux."
-#~ msgstr "Joue au memory contre Tux."
-
-#~ msgid "Paratrooper"
-#~ msgstr "Parachutiste"
-
-#~ msgid "Direct the paratrooper to help him land safely"
-#~ msgstr "Commande le parachutiste pour l'aider à atterrir en douceur."
-
-#~ msgid "%d ∕ %d"
-#~ msgstr "%d ∕ %d"
-
-#~ msgid "Couldn't find file %s !"
-#~ msgstr "Ne peux pas trouver le fichier %s !"
-
-#~ msgid "find file %s !"
-#~ msgstr "trouve le fichier %s !"
-
-#~ msgid "Couldn't get GTK settings"
-#~ msgstr "Impossible de charger les valeurs de GTK"
-
-#~ msgid "Double-click default value %d."
-#~ msgstr "Valeur par défaut du double-clic %d."
-
-#~ msgid "Double-click value is now %d."
-#~ msgstr "La valeur du double-clic est maintenant de %d."
-
-#~ msgid "Double click value is now %d."
-#~ msgstr "La valeur du double-clic est maintenant de %d"
-
-#~ msgid "Read Colors"
-#~ msgstr "Lire des couleurs"
-
-#~ msgid "Click on the corresponding color"
-#~ msgstr "Clique sur la bonne couleur lue."
-
-#~ msgid "No skin found in %s\n"
-#~ msgstr "Pas de thème trouvé dans %s\n"
-
-#~ msgid "dataset %s is a directory. Trying to read xml "
-#~ msgstr "dataset %s est un répertoire. Essai de lecture xml"
-
-#~ msgid ""
-#~ "In ImageSet %s, the pathname for the home directory '%s' is not found. "
-#~ "Skipping the whole ImageSet.\n"
-#~ msgstr ""
-#~ "Dans le jeu d'images %s, le répertoire maison %s est non trouvé. Ignore "
-#~ "tout le jeu d'images...\n"
-
-#~ msgid "In ImageSet %s, an image is not found. Skipping ImageSet...\n"
-#~ msgstr ""
-#~ "Dans le jeu d'images%s une image n'est pas trouvée. Ignore le jeu "
-#~ "d'images...\n"
-
-#~ msgid ""
-#~ "In ImageSet %s, directory %s is not found. Skipping all the ImageSet...\n"
-#~ msgstr ""
-#~ "Dans le jeu d'images %s, le répertoire %s est non trouvé. Ignore tout le "
-#~ "jeu d'images...\n"
-
-#~ msgid "Couldn't open music dir: %s"
-#~ msgstr "Ne peut pas trouver le répertoire de musique : %s"
-
-#~ msgid ""
-#~ "The background thread music is stopped now. The files in %s are not ogg "
-#~ "vorbis OR the sound output failed"
-#~ msgstr ""
-#~ "Le processus qui joue les sons vient de s'arrêter. Les fichiers %s ne "
-#~ "sont pas au format ogg vorbis OU la sortie du son a échoué."
-
-#~ msgid "Couldn't parse file %s !"
-#~ msgstr "Ne peut pas trouver le fichier %s !"
-
-#~ msgid ""
-#~ "A addition problem with two numbers is displayed. At the right of the "
-#~ "equal sign, give the sum. Use the left and right arrows to modify the "
-#~ "sum, and the Enter key to check your answer. You can control the speed of "
-#~ "the timer in the GCompris configuration dialog."
-#~ msgstr ""
-#~ "Une addition de deux nombres est proposée. A droite du signe égal,\n"
-#~ "donne la réponse. Utilise les flèches gauche et droite pour modifier\n"
-#~ "la réponse. La touche \"Entrée\" valide la réponse. Tu peux contrôler la "
-#~ "vitesse du compteur de temps dans le menu configuration de GCompris."
-
-#~ msgid "The aviation"
-#~ msgstr "L'aviation"
-
-#~ msgid ""
-#~ "Benz builds the first\n"
-#~ "petrol-driven car in 1885.\n"
-#~ "car by Benz"
-#~ msgstr ""
-#~ "Benz construit la\n"
-#~ "première voiture à\n"
-#~ "propulsion par pétrole\n"
-#~ "en 1885."
-
-#~ msgid "Move the items one by one to reorder them in the increasing number"
-#~ msgstr ""
-#~ "Déplace les éléments un par un pour les replacer dans l'ordre croissant."
-
-#~ msgid "Help the hose move up"
-#~ msgstr "Aide à déboucher le tuyau"
-
-#~ msgid "Czech"
-#~ msgstr "République tchèque"
-
-#~ msgid ""
-#~ "Click on the coins or paper money on the botton of the screen to pay. If "
-#~ "you want to remove a coin or note, click on it in the upper screen area."
-#~ msgstr ""
-#~ "Clique sur les pièces ou les billets en bas de l'écran pour payer. Si tu "
-#~ "désires enlever une pièce, clique dessus dans la zone du haut."
-
-#~ msgid "Make the puzzle"
-#~ msgstr "Construis le puzzle."
-
-#~ msgid "Parachute jumper"
-#~ msgstr "Parachutiste"
-
-#~ msgid ""
-#~ "Use the up, down, right and left keyboard keys to move the helicopter to "
-#~ "catch the numbers in increasing order."
-#~ msgstr ""
-#~ "Utilise les touches flèches de direction du clavier pour déplacer\n"
-#~ "l'hélicoptère et attraper les nombres dans l'ordre croissant."
-
-#~ msgid "Railroad"
-#~ msgstr "Chemin de fer"
-
-#~ msgid ""
-#~ "A word is shown at the top right of the board. A list of words will "
-#~ "appear and disappear on left. Indicate whether or not the given word "
-#~ "appeared in the list."
-#~ msgstr ""
-#~ "Un mot est affiché en haut à droite. Des mots vont apparaître et "
-#~ "disparaître sur la gauche. Indique si le mot demandé est, ou n'est pas "
-#~ "apparu dans la liste."
-
-#~ msgid "Practice subtraction while enjoying a game."
-#~ msgstr "Entraînement à la soustraction avec un jeu amusant"
-
-#~ msgid ""
-#~ "In the text box, enter commands, line by line, to direct your ship. You "
-#~ "can use any of the commands shown between the two entry areas. When you "
-#~ "use the 'left' or 'right' commands, you have to tell the ship how far you "
-#~ "want it to turn, in degrees (e.g. 'left 30' degrees). Giving special "
-#~ "measurements like this is also called 'passing a parameter': this is how "
-#~ "we tell the computer how much to do something. The 'forward' command "
-#~ "accepts a distance parameter, so you can tell it how far you want your "
-#~ "ship to move. The default is 1, so if you don't add that parameter, each "
-#~ "move will be 1 unit. (Defaults are handy values that help the computer "
-#~ "out when we don't pass any parameters.) So you could say: 'left 90' : "
-#~ "make a perpendicular turn (a whole corner) to the left. 'forward 10' : go "
-#~ "ahead 10 units (as shown on the ruler). The goal is to reach the right "
-#~ "edge of the screen (the red line). When you get there, you can try to "
-#~ "improve your program, with the same weather conditions, and try again, "
-#~ "using the Retry button. You can click and drag your mouse anywhere on the "
-#~ "map, to show a measurement of distance (how far) and angle (how much "
-#~ "turn). Going to the next level will introduce more complex weather "
-#~ "conditions: a fun challenge for a budding programmer. ;)"
-#~ msgstr ""
-#~ "Dans la zone de texte, entre des commandes ligne après ligne pour donner "
-#~ "la direction à ton bateau. Les commandes supportées sont affichées entre "
-#~ "les deux zones de saisie de texte. Les commandes \"gauche\" et \"droite\" "
-#~ "doivent être suivies par une valeur d'angle en degrés. La valeur de "
-#~ "l'angle est aussi appelée un \"paramètre\" pour les commandes \"gauche\" "
-#~ "et \"droite\". Par défaut, la valeur 45 degrés est utilisée. Le commande "
-#~ "\"avance\" accepte un paramètre de distance. Par défaut 1 est utilisé.\n"
-#~ "Par exemple :\n"
-#~ "gauche 90   => Tourne perpendiculairement à gauche \n"
-#~ "avance 10   => Avance de 10 unités (comme indiqué dans le jeu)\n"
-#~ "L'objectif est d'atteindre la droite de l'écran (la ligne rouge). Lorsque "
-#~ "tu es arrivé(e), tu peux essayer d'améliorer ton programme en "
-#~ "recommençant une course avec les mêmes conditions météo en utilisant le "
-#~ "bouton \"recommencer\".\n"
-#~ "Tu peux cliquer et faire glisser ta souris sur n'importe quelle zone de "
-#~ "la carte pour avoir une mesure d'une distance et d'un angle.\n"
-#~ "Tu peux aussi tenter ta chance dans les niveaux suivants qui ont des "
-#~ "conditions météo plus complexes : c'est un défi amusant pour un "
-#~ "programmeur junior !"
-
-#~ msgid "Practice the math operation"
-#~ msgstr "Entraînement en mathématiques"
-
-#~ msgid "Guess operations"
-#~ msgstr "Trouve les opérations"
-
-#~ msgid ""
-#~ "Tux is in trouble in his ship. He needs to take it through a lock.\n"
-#~ "Help Tux and understand how a canal lock works."
-#~ msgstr ""
-#~ "Tux a quelques difficultés dans son bateau. Il doit passer une écluse.\n"
-#~ "Aide Tux et apprends comment fonctionne une écluse."
-
-#~ msgid "Learning Chess"
-#~ msgstr "Apprentissage des échecs"
-
-#~ msgid "Play chess against tux in a learning mode"
-#~ msgstr "Joue aux échecs contre l'ordinateur dans un mode d'apprentissage."
-
-#~ msgid "Read a letter"
-#~ msgstr "Lis une lettre"
-
-#~ msgid "Learn to recognize letters"
-#~ msgstr "Apprends à reconnaître les lettres."
-
-#~ msgid "Move the items one by one to rearrange them in increasing order"
-#~ msgstr ""
-#~ "Déplace les éléments un par un pour les replacer dans l'ordre croissant."
-
-#~ msgid "Given each picture of a hand, indentify it as either left or right"
-#~ msgstr ""
-#~ "A partir de la photo d'une main, détermine si c'est la gauche ou la "
-#~ "droite."
-
-#~ msgid "Pratice money usage"
-#~ msgstr "Manipulation des billets et pièces"
-
-#~ msgid "%d ? %d"
-#~ msgstr "%d ? %d"
-
-#~ msgid "Read a list of words to see if the given word is there."
-#~ msgstr "Lis une liste de mots pour voir si le mot donné en fait partie."
-
-#~ msgid "Reverse count"
-#~ msgstr "Compte à rebours"
-
-#~ msgid "Drag and Drop the items to rebuild the object"
-#~ msgstr "Attrape et fais glisser les éléments pour reconstruire l'objet."
-
-#~ msgid "Type the keyboard number 1 to 9 before the dice reaches the ground"
-#~ msgstr "Appuie sur les touches 1 à 9 avant que les dés ne touchent le sol."
-
-#~ msgid ""
-#~ "For each printed hour (hours:minutes or hours:minutes:seconds) click the "
-#~ "corresponding arrow to set the clock time to match the given hour. The "
-#~ "different arrows can be turned by selecting them and moving the mouse"
-#~ msgstr ""
-#~ "Pour chaque heure affichée (heures:minutes ou heures:minutes:secondes), "
-#~ "manipule les aiguilles correspondantes pour les positionner correctement. "
-#~ "Les aiguilles peuvent être tournées en les sélectionnant et en bougeant "
-#~ "la souris (mouvement glisser déplacer)."
-
-#~ msgid "Emerge the pipe"
-#~ msgstr "Débouche le tuyau."
-
-#~ msgid "Place the lands"
-#~ msgstr "Place les pays"
-
-#~ msgid "South of Africa"
-#~ msgstr "Afrique du Sud"
-
-#~ msgid ""
-#~ "By identifying in GCompris, we are able to provide specific reporting for "
-#~ "each kid."
-#~ msgstr ""
-#~ "En s'identifiant dans GCompris, nous sommes capable de fournir un suivi "
-#~ "pour chaque enfant."
-
-#~ msgid "Drag and Drop masses to equilibrate the scales"
-#~ msgstr "Attrape et fais glisser les poids pour équilibrer la balance."
-
-#~ msgid "Numbers With 2 Dices"
-#~ msgstr "Les nombres avec 2 dés"
-
-#~ msgid "Class Edition"
-#~ msgstr "Edition des Classes"
-
-#~ msgid "Group Edition"
-#~ msgstr "Edition des groupes"
-
-#~ msgid "Profile Edition"
-#~ msgstr "Edition profil"
-
-#~ msgid "Follow gcompris fullscreen"
-#~ msgstr "Suivre le mode GCompris plein écran."
-
-#~ msgid "Numbers With Dices"
-#~ msgstr "Les nombres avec les dés"
-
-#~ msgid "Fully type the falling words before they reach the ground"
-#~ msgstr ""
-#~ "Saisis au clavier les mots qui tombent avant qu'ils ne touchent le sol."
-
-#~ msgid "Help"
-#~ msgstr "Aide"
-
-#~ msgid "Azerbaijani Turkic"
-#~ msgstr "Turc azerbaïdjanais"
-
-#~ msgid "English (USA)"
-#~ msgstr "Anglais (Etats-Unis)"
-
-#~ msgid "Indian (Hindi)"
-#~ msgstr "Indien (Hindi)"
-
-#~ msgid "Brazil Portuguese"
-#~ msgstr "Portugais brésilien"
-
-#~ msgid ""
-#~ "In ImageSet %s, home pathname %s is not found. Skipping ImageSet...\n"
-#~ msgstr ""
-#~ "Dans l'ImageSet %s, le chemin %s n'est pas trouvé. Ignore ImageSet...\n"
-
+#~ "Module Python xml introuvable. SVG est désactivé. Installez le module "
+#~ "python xml pour activer la fonction enregistrement/restauration SVG."
+
+#~ msgid "Cannot open file of words for your locale"
+#~ msgstr "Impossible d'ouvrir le fichier de mots correspondant à votre langue"
