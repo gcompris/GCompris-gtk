@@ -27,8 +27,6 @@ static GnomeCanvasGroup *rootDialogItem = NULL;
 static GnomeCanvasItem *itemDialogText = NULL;
 static gint item_event_ok(GnomeCanvasItem *item, GdkEvent *event, DialogBoxCallBack dbcb);
 
-extern GnomeCanvas *canvas;
-
 typedef void (*sighandler_t)(int);
 
 
@@ -46,7 +44,7 @@ void gc_dialog_close() {
 
     gtk_object_destroy(GTK_OBJECT(rootDialogItem));
   }
-  
+
   rootDialogItem = NULL;
 
 }
@@ -87,7 +85,7 @@ void gc_dialog(gchar *str, DialogBoxCallBack dbcb)
 							     "x", (double) 0,
 							     "y", (double) 0,
 							     NULL));
-      
+
   pixmap_dialog = gc_skin_pixmap_load("dialogbox.png");
 
   itemDialogText = gnome_canvas_item_new (rootDialogItem,
@@ -135,7 +133,7 @@ void gc_dialog(gchar *str, DialogBoxCallBack dbcb)
 			 NULL);
 
   buffer  = gnome_canvas_rich_text_get_buffer(GNOME_CANVAS_RICH_TEXT(item_text));
-  txt_tag = gtk_text_buffer_create_tag(buffer, NULL, 
+  txt_tag = gtk_text_buffer_create_tag(buffer, NULL,
 				       "font",       gc_skin_font_board_medium,
 				       "foreground", "blue",
 				       "family-set", TRUE,
@@ -157,7 +155,7 @@ void gc_dialog(gchar *str, DialogBoxCallBack dbcb)
 static gint
 item_event_ok(GnomeCanvasItem *item, GdkEvent *event, DialogBoxCallBack dbcb)
 {
-  switch (event->type) 
+  switch (event->type)
     {
     case GDK_ENTER_NOTIFY:
       break;
@@ -169,12 +167,12 @@ item_event_ok(GnomeCanvasItem *item, GdkEvent *event, DialogBoxCallBack dbcb)
 
       /* restart the board */
       gc_board_pause(FALSE);
-      
+
       gc_bar_hide(FALSE);
 
       if(dbcb != NULL)
 	dbcb();
-	  
+
     default:
       break;
     }

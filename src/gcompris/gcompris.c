@@ -49,30 +49,10 @@
 # define WIN32
 #endif
 
-#ifdef WIN32
-/* List of keycodes */
-static gchar *keycode[] =
-  {
-    "83640",
-    "33251",
-    "99301",
-    "71848",
-    "79657",
-    "47561",
-    "84175",
-    NULL
-  };
-#endif
-
-#define KEYCODE_LENGTH 5
-static char current_keycode[KEYCODE_LENGTH];
-static int  current_keycode_index;
-
-GtkWidget *window;
-GtkWidget *drawing_area;
-GnomeCanvas *canvas;
-GnomeCanvas *canvas_bar;
-GnomeCanvas *canvas_bg;
+static GtkWidget *window;
+static GnomeCanvas *canvas;
+static GnomeCanvas *canvas_bar;
+static GnomeCanvas *canvas_bg;
 
 //static gint pause_board_cb (GtkWidget *widget, gpointer data);
 static void quit_cb (GtkWidget *widget, gpointer data);
@@ -81,6 +61,21 @@ static gint board_widget_key_press_callback (GtkWidget   *widget,
 					    GdkEventKey *event,
 					    gpointer     client_data);
 void gc_terminate(int signum);
+
+/*
+ * For the Activation dialiog
+ */
+#ifdef WIN32
+static void activation_enter_callback(GtkWidget *widget,
+				      GtkWidget *entry );
+static void activation_done();
+static void display_activation_dialog();
+static GnomeCanvasItem *activation_item;
+static GtkEntry *widget_activation_entry;
+#else
+#define display_activation_dialog()
+#endif
+
 
 static GcomprisProperties *properties = NULL;
 static gboolean		   antialiased = FALSE;
@@ -280,26 +275,6 @@ board_widget_key_press_callback (GtkWidget   *widget,
     return TRUE;
   }
 
-#ifdef WIN32
-  if(event->state & (GDK_CONTROL_MASK | GDK_SHIFT_MASK) && ((event->keyval == GDK_l)
-							  || (event->keyval == GDK_L))) {
-    properties->key="thanks_for_your_help";
-    gc_prop_save(properties);
-    gc_menu_load();
-
-    gc_close_all_dialog();
-
-    gc_board_stop();
-    return TRUE;
-  }
-
-  if(event->keyval>=GDK_0 && event->keyval<=GDK_9)
-    current_keycode[current_keycode_index++] = event->keyval;
-
-  if((char)event->keyval == '*')
-      current_keycode_index = 0;
-#endif
-
   switch (event->keyval)
     {
     case GDK_Escape:
@@ -314,84 +289,50 @@ board_widget_key_press_callback (GtkWidget   *widget,
       return TRUE;
 
     case GDK_KP_Multiply:
-      current_keycode_index = 0;
       break;
     case GDK_KP_0:
     case GDK_KP_Insert:
       event->keyval=GDK_0;
-      current_keycode[current_keycode_index++] = event->keyval;
       break;
     case GDK_KP_1:
     case GDK_KP_End:
       event->keyval=GDK_1;
-      current_keycode[current_keycode_index++] = event->keyval;
       break;
     case GDK_KP_2:
     case GDK_KP_Down:
       event->keyval=GDK_2;
-      current_keycode[current_keycode_index++] = event->keyval;
       break;
     case GDK_KP_3:
     case GDK_KP_Page_Down:
       event->keyval=GDK_3;
-      current_keycode[current_keycode_index++] = event->keyval;
       break;
     case GDK_KP_4:
     case GDK_KP_Left:
       event->keyval=GDK_4;
-      current_keycode[current_keycode_index++] = event->keyval;
       break;
     case GDK_KP_5:
     case GDK_KP_Begin:
       event->keyval=GDK_5;
-      current_keycode[current_keycode_index++] = event->keyval;
       break;
     case GDK_KP_6:
     case GDK_KP_Right:
       event->keyval=GDK_6;
-      current_keycode[current_keycode_index++] = event->keyval;
       break;
     case GDK_KP_7:
     case GDK_KP_Home:
       event->keyval=GDK_7;
-      current_keycode[current_keycode_index++] = event->keyval;
       break;
     case GDK_KP_8:
     case GDK_KP_Up:
       event->keyval=GDK_8;
-      current_keycode[current_keycode_index++] = event->keyval;
       break;
     case GDK_KP_9:
     case GDK_KP_Page_Up:
       event->keyval=GDK_9;
-      current_keycode[current_keycode_index++] = event->keyval;
       break;
     default:
       break;
     }
-
-  /* Check keycode */
-#ifdef WIN32
-  if(current_keycode_index == KEYCODE_LENGTH)
-    {
-      int i = 0;
-      current_keycode_index = 0;
-      while(keycode[i++])
-	{
-	  if(strncmp(current_keycode, keycode[i-1], KEYCODE_LENGTH) == 0)
-	    {
-	      properties->key="thanks_for_your_help";
-	      gc_prop_save(properties);
-	      gc_menu_load();
-
-	      gc_close_all_dialog();
-
-	      gc_board_stop();
-	      return TRUE;
-	    }
-	}
-    }
-#endif
 
   /* pass through the IM context */
   if (gc_board_get_current() && (!gc_board_get_current()->disable_im_context))
@@ -831,21 +772,112 @@ static void setup_window ()
 
   gc_board_play(board_to_start);
 
-#ifdef WIN32
-#define WIN_ACTIVITY_COUNT   16
-#define TOTAL_ACTIVITY_COUNT 58
-  {
-    if(strncmp(properties->key, "thanks_for_your_help", 20)!=0) {
-      char *msg = g_strdup_printf(_("GCompris is free software released under the GPL License. In order to support its development, the Windows version provides only %d of the %d activities. You can get the full version for a small fee at\n<http://gcompris.net>\nThe Linux version does not have this restriction. Note that GCompris is being developed to free schools from monopolistic software vendors. If you also believe that we should teach freedom to children, please consider using GNU/Linux. Get more information at FSF:\n<http://www.fsf.org/philosophy>"),
-				  WIN_ACTIVITY_COUNT, TOTAL_ACTIVITY_COUNT);
-      gc_board_pause(TRUE);
-      gc_dialog(msg, NULL);
-      g_free(msg);
-    }
-  }
-#endif
+  display_activation_dialog();
+
 }
 
+#ifdef WIN32
+/** Display the activation dialog for the windows version
+ *
+ */
+void
+display_activation_dialog()
+{
+#define WIN_ACTIVITY_COUNT   16
+#define TOTAL_ACTIVITY_COUNT 58
+  if(strncmp(properties->key, "your_welcome", 12)!=0)
+    {
+
+      /* Entry area */
+      widget_activation_entry = (GtkEntry *)gtk_entry_new();
+      gtk_entry_set_max_length(widget_activation_entry, 5);
+      activation_item = \
+	gnome_canvas_item_new (gnome_canvas_root(canvas),
+			       gnome_canvas_widget_get_type (),
+			       "widget", GTK_WIDGET(widget_activation_entry),
+			       "x", (double) BOARDWIDTH / 2 - 50,
+			       "y", (double) BOARDHEIGHT - 60,
+			       "width", 100.0,
+			       "height", 30.0,
+			       "anchor", GTK_ANCHOR_NW,
+			       "size_pixels", FALSE,
+			       NULL);
+      gtk_signal_connect(GTK_OBJECT(widget_activation_entry), "activate",
+			 GTK_SIGNAL_FUNC(activation_enter_callback),
+			 widget_activation_entry);
+
+      gtk_widget_show(GTK_WIDGET(widget_activation_entry));
+
+      char *msg = g_strdup_printf(_("GCompris is free software released under the GPL License. In order to support its development, the Windows version provides only %d of the %d activities. You can get the full version for a small fee at\n<http://gcompris.net>\nThe Linux version does not have this restriction. Note that GCompris is being developed to free schools from monopolistic software vendors. If you also believe that we should teach freedom to children, please consider using GNU/Linux. Get more information at FSF:\n<http://www.fsf.org/philosophy>"),
+				  WIN_ACTIVITY_COUNT, TOTAL_ACTIVITY_COUNT);
+      gc_dialog(msg, activation_done);
+      g_free(msg);
+    }
+}
+
+/* Check the activation code
+ *
+ */
+static void
+activation_enter_callback( GtkWidget *widget,
+			   GtkWidget *entry )
+{
+  gchar *entry_text;
+
+  entry_text = (char *)gtk_entry_get_text(GTK_ENTRY(entry));
+
+  /* List of keycodes */
+  gchar *keycode[] =
+    {
+      "83640",
+      "33251",
+      "99301",
+      "71848",
+      "79657",
+      "47561",
+      "84175",
+      "15987",
+      NULL
+    };
+
+  if(strlen(entry_text) == 5)
+    {
+      int i = 0;
+      while(keycode[i++])
+	{
+	  if(strncmp(entry_text, keycode[i-1], 5) == 0)
+	    {
+	      g_free(properties->key);
+	      properties->key=strdup("your_welcome");
+	      gc_prop_save(properties);
+	      gc_menu_load();
+
+	      gc_board_stop();
+	      gtk_entry_set_text(GTK_ENTRY(entry), "GOOD");
+	      return;
+	    }
+	}
+    }
+
+  gtk_entry_set_text(GTK_ENTRY(entry), "WRONG");
+}
+
+/* Callback for the activation dialog
+ *
+ */
+static void
+activation_done()
+{
+  if(strcmp((char *)gtk_entry_get_text(GTK_ENTRY(widget_activation_entry)), "GOOD") == 0)
+    gc_board_play(properties->menu_board);
+
+  gtk_object_destroy (GTK_OBJECT(activation_item));
+}
+#endif
+
+/** Call me to end an activity
+ *
+ */
 void gc_board_end()
 {
   if (gc_board_get_current()->previous_board) {

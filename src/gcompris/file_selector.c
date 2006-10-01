@@ -232,7 +232,8 @@ display_file_selector(int the_mode,
   gdk_pixbuf_unref(pixmap);
 
   /* Entry area */
-  widget_entry = (GtkEntry *)gtk_entry_new_with_max_length (30);
+  widget_entry = (GtkEntry *)gtk_entry_new ();
+  gtk_entry_set_max_length(widget_entry, 30);
   item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				gnome_canvas_widget_get_type (),
 				"widget", GTK_WIDGET(widget_entry),

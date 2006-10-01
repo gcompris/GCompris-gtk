@@ -27,8 +27,6 @@
 static sqlite3 *gcompris_db=NULL;
 #endif
 
-extern GnomeCanvas *canvas;
-
 #define CREATE_TABLE_USERS						\
   "CREATE TABLE users (user_id INT UNIQUE, login TEXT, lastname TEXT, firstname TEXT, birthdate TEXT, class_id INT ); "
 #define CREATE_TABLE_CLASS						\
@@ -640,7 +638,7 @@ GList *gc_menu_load_db(GList *boards_list)
     gcomprisBoard->plugin=NULL;
     gcomprisBoard->previous_board=NULL;
     gcomprisBoard->board_ready=FALSE;
-    gcomprisBoard->canvas=canvas;
+    gcomprisBoard->canvas=gc_get_canvas();
 
     gcomprisBoard->gmodule      = NULL;
     gcomprisBoard->gmodule_file = NULL;
@@ -1682,7 +1680,7 @@ GcomprisBoard *gc_db_get_board_from_id(int board_id)
   gcomprisBoard->plugin=NULL;
   gcomprisBoard->previous_board=NULL;
   gcomprisBoard->board_ready=FALSE;
-  gcomprisBoard->canvas=canvas;
+  gcomprisBoard->canvas=gc_get_canvas();
 
   gcomprisBoard->gmodule      = NULL;
   gcomprisBoard->gmodule_file = NULL;

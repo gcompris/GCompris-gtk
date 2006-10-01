@@ -35,8 +35,6 @@ GcomprisBoard	*_read_xml_file(GcomprisBoard *gcomprisBoard, char *fname, gboolea
 /* List of all available boards  */
 static GList *boards_list = NULL;
 
-extern GnomeCanvas *canvas;
-
 GList *gc_menu_get_boards()
 {
   return boards_list;
@@ -301,7 +299,7 @@ _read_xml_file(GcomprisBoard *gcomprisBoard,
   xmlFreeDoc(doc);
 
   gcomprisBoard->board_ready=FALSE;
-  gcomprisBoard->canvas=canvas;
+  gcomprisBoard->canvas=gc_get_canvas();
 
   gcomprisBoard->gmodule      = NULL;
   gcomprisBoard->gmodule_file = NULL;

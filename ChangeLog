@@ -1,5 +1,21 @@
 2006-10-01  Bruno coudoin  <bruno.coudoin@free.fr>
 
+	- Improved the activation system for windows
+
+	* configure.in: typo in disable-gnet
+	* src/gcompris/board.c: (gc_board_check_file):
+	* src/gcompris/dialog.c: (gc_dialog_close), (gc_dialog),
+	(item_event_ok):
+	* src/gcompris/file_selector.c: (display_file_selector):
+	* src/gcompris/gcompris.c: (board_widget_key_press_callback),
+	(setup_window), (display_activation_dialog),
+	(activation_enter_callback), (activation_done):
+	* src/gcompris/gcompris_db.c: (gc_menu_load_db),
+	(gc_db_get_board_from_id):
+	* src/gcompris/menu.c: (_read_xml_file):
+
+2006-10-01  Bruno coudoin  <bruno.coudoin@free.fr>
+
 	* src/gcompris/cache.c: (_cache_init), (gc_cache_init),
 	(gc_cache_end), (gc_cache_clear), (gc_cache_get),
 	(gc_cache_insert): Do not compile it if network mode is not enabled

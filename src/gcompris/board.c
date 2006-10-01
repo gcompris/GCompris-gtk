@@ -215,7 +215,7 @@ gc_board_check_file(GcomprisBoard *gcomprisBoard)
     return TRUE;
   }
 
-  if(strncmp(properties->key, "thanks_for_your_help", 20)==0) {
+  if(strncmp(properties->key, "your_welcome", 12)==0) {
     while(static_boards[i++] != NULL) {
 
       /* Get the BoardPlugin Info */
