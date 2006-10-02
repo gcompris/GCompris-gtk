@@ -12,7 +12,7 @@ make install
 Warning: You cannot use ~ in the prefix, it must be a full path.
 Warning: It has been reported that make -j 2 (or more) break the compilation
 
-This will install GCompris and all its data files under 
+This will install GCompris and all its data files under
 /home/bruno/gcompris
 
 Then, run /home/bruno/gcompris/bin/gcompris
@@ -26,9 +26,7 @@ gcompris includes several activity written in python.
 To enable them, you need to have python installed on your system with the following packages:
 libpython
 python
-gnome-python-canvas
 libpython2.2-devel
-gnome-python
 python-base
 python-pyxml
 python-sqlite2 (if it's not packaged, download and install it from http://initd.org/tracker/pysqlite)
@@ -50,7 +48,7 @@ urpmi libglib2.0_0-devel
 urpmi libgnome2_0-devel
 urpmi libgnomecanvas2_0-devel libgdk_pixbuf2.0_0-devel
 urpmi libgnomeui2_0-devel
-urpmi libSDL_mixer1.2-devel libSDL1.2-devel 
+urpmi libSDL_mixer1.2-devel libSDL1.2-devel
 urpmi python-gtk-devel gnome-python-canvas
 urpmi libpython2.4-devel
 urpmi pygtk2.0-devel

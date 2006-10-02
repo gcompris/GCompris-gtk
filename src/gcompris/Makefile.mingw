@@ -10,11 +10,13 @@
 
 INCLUDE_DIR :=		.
 GTK_TOP :=		/gtk
+GLIB_TOP :=		/glib
 GNUWIN32_TOP :=		/gnuwin32
 LIBXML2_TOP :=		/libxml2
 SDL_TOP :=		/sdl
 CANVAS_TOP :=		/gnomecanvas
 PYTHON_TOP :=		/c/Python24
+CAIRO_TOP :=		/cairo
 GCOMPRIS_TOP :=		../..
 GCOMPRIS_SRC :=		.
 GCOMPRIS_INSTALL_DIR :=	$(GCOMPRIS_TOP)/win32-install-dir
@@ -49,10 +51,10 @@ include $(GCOMPRIS_TOP)/global_win32.mak
 INCLUDE_PATHS +=	-I$(INCLUDE_DIR) \
 			-I$(GTK_TOP)/include \
 			-I$(GTK_TOP)/include/gtk-2.0 \
-			-I$(GTK_TOP)/include/glib-2.0 \
+			-I$(GLIB_TOP)/include/glib-2.0 \
 			-I$(GTK_TOP)/include/pango-1.0 \
 			-I$(GTK_TOP)/include/atk-1.0 \
-			-I$(GTK_TOP)/lib/glib-2.0/include \
+			-I$(GLIB_TOP)/lib/glib-2.0/include \
 			-I$(GTK_TOP)/lib/gtk-2.0/include \
 			-I$(CANVAS_TOP)/include/libgnomecanvas-2.0 \
 			-I$(GTK_TOP)/include/atk-1.0 \
@@ -61,11 +63,13 @@ INCLUDE_PATHS +=	-I$(INCLUDE_DIR) \
 			-I$(SDL_TOP)/include/SDL \
 			-I$(LIBXML2_TOP)/include \
 			-I$(GNUWIN32_TOP)/include \
+			-I$(CAIRO_TOP)/include/cairo \
 			-I$(GCOMPRIS_TOP) \
 			-I$(GCOMPRIS_TOP)/src/boards
 
 
 LIB_PATHS =		-L$(GTK_TOP)/lib \
+	  		-L$(GLIB_TOP)/lib \
 			-L$(LIBXML2_TOP)/lib \
 			-L$(GNUWIN32_TOP)/lib \
 			-L$(SDL_TOP)/lib \
@@ -135,7 +139,6 @@ EXE_LIBS =		../boards/libboards.a \
 			-lws2_32 \
 			-lpopt \
 			-lxml2 \
-			-lzdll \
 			-lSDLmain -lSDL -lSDL_mixer \
 			-lgnomecanvas-2 \
 			-lart_lgpl_2 \

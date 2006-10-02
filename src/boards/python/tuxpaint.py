@@ -1,23 +1,22 @@
 #  gcompris - Tuxpaint Launcher
-# 
+#
 #  Copyright (C) 2004  Yves Combe
-# 
+#
 #   This program is free software; you can redistribute it and/or modify
 #   it under the terms of the GNU General Public License as published by
 #   the Free Software Foundation; either version 2 of the License, or
 #   (at your option) any later version.
-# 
+#
 #   This program is distributed in the hope that it will be useful,
 #   but WITHOUT ANY WARRANTY; without even the implied warranty of
 #   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 #   GNU General Public License for more details.
-# 
+#
 #   You should have received a copy of the GNU General Public License
 #   along with this program; if not, write to the Free Software
 #   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
-# 
-import gnome
-import gnome.canvas
+#
+import gnomecanvas
 import gcompris
 import gcompris.utils
 import gcompris.bonus
@@ -38,7 +37,7 @@ pid = None
 class Gcompris_tuxpaint:
   """TuxPaint Launcher"""
   global pid
-  
+
   def __init__(self, gcomprisBoard):
     self.gcomprisBoard = gcomprisBoard
     pass
@@ -59,7 +58,7 @@ class Gcompris_tuxpaint:
 
     #global board
     #board = self
-    
+
     Prop = gcompris.get_properties()
 
     #get default values
@@ -67,9 +66,9 @@ class Gcompris_tuxpaint:
 
     #replace configured values
     self.config_dict.update(gcompris.get_board_conf())
-    
+
     self.rootitem = self.gcomprisBoard.canvas.root().add(
-      gnome.canvas.CanvasGroup,
+      gnomecanvas.CanvasGroup,
       x=0.0,
       y=0.0
       )
@@ -101,9 +100,9 @@ class Gcompris_tuxpaint:
 
     if eval(self.config_dict['disable_stamps_control']):
       options.append('--nostampcontrols')
-  
+
     gcompris.sound.close()
-    
+
     # release pointergrab if running fullscreen, tuxpaint wants to grab the
     # pointer itself
     if (Prop.fullscreen and not Prop.noxf86vm):
@@ -111,15 +110,15 @@ class Gcompris_tuxpaint:
 
     #self.window.set_property("accept-focus", 0)
     #self.window.set_keep_below(False)
-    
+
     try:
       # gobject.SPAWN_DO_NOT_REAP_CHILD|gobject.SPAWN_SEARCH_PATH = 2 | 4
       pid,stdin, stdout, stderr = gcompris.spawn_async(
         options, flags=2|4)
     except:
       gcompris.utils.dialog(_("Cannot find Tuxpaint.\nInstall it to use this activity !"),stop_board)
-      return 
-    
+      return
+
     gcompris.child_watch_add(pid, child_callback, self)
 
     gcompris.bar_set(0)
@@ -129,14 +128,14 @@ class Gcompris_tuxpaint:
                             gcompris.skin.image_to_skin("gcompris-bg.jpg"))
 
     textItem = self.rootitem.add(
-      gnome.canvas.CanvasText,
-      text = _("Waiting for Tuxpaint to finish"), 
-      x = gcompris.BOARD_WIDTH/2, 
+      gnomecanvas.CanvasText,
+      text = _("Waiting for Tuxpaint to finish"),
+      x = gcompris.BOARD_WIDTH/2,
       y = 185,
-      fill_color_rgba = 0x000000ffL, 
+      fill_color_rgba = 0x000000ffL,
       font = gcompris.skin.get_font("gcompris/board/huge bold"),
       )
-    
+
   def end(self):
     gcompris.sound.reopen()
     global pid
@@ -145,13 +144,13 @@ class Gcompris_tuxpaint:
       print "Tuxpaint not killed", self.pid
     #import os
     #os.kill(self.pid, signal.SIGKILL)
-    if self.rootitem != None: 
+    if self.rootitem != None:
       self.rootitem.destroy()
       self.rootitem = None
 
   def set_level(self,level):
     pass
-        
+
   def ok(self):
     pass
 
@@ -203,10 +202,10 @@ class Gcompris_tuxpaint:
 
     stamps = gcompris.boolean_box(_('Disable stamps'), 'disable_stamps', eval(self.config_dict['disable_stamps']))
     stamps.connect("toggled", self.stamps_changed)
-    
+
     self.stamps_control = gcompris.boolean_box('Disable stamps control', 'disable_stamps_control', eval(self.config_dict['disable_stamps_control']))
     self.stamps_control.set_sensitive(not eval(self.config_dict['disable_stamps']))
-     
+
   def stamps_changed(self, button):
     self.stamps_control.set_sensitive(not button.get_active())
 
@@ -247,7 +246,7 @@ def child_callback(fd,  cond, data):
   pid = None
   gcompris.bar_hide(0)
   gcompris.bonus.board_finished(gcompris.bonus.FINISHED_RANDOM)
-  
+
 def stop_board():
   gcompris.bonus.board_finished(gcompris.bonus.FINISHED_RANDOM)
-  
+

@@ -3,7 +3,7 @@
  * Time-stamp: <2006/08/21 23:36:37 bruno>
  *
  * Copyright (C) 2003 Olivier Samyn <osamyn@ulb.ac.be>
- * 
+ *
  *   This program is free software; you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
  *   the Free Software Foundation; either version 2 of the License, or
@@ -38,6 +38,7 @@
 #include "py-mod-anim.h"
 #include "py-mod-admin.h"
 
+void initgnomecanvas (void);
 
 void pair_in_dict(gpointer key,
 		  gpointer value,
@@ -48,7 +49,7 @@ void pair_in_dict(gpointer key,
 
   pyKey = PyString_FromString((gchar *)key);
   Py_INCREF(pyKey);
-  
+
 
   /* key cannot be NULL. But value can */
   if (value==NULL){
@@ -63,7 +64,7 @@ void pair_in_dict(gpointer key,
 
   g_warning("Hash to dict: pass key %s and value %s",(gchar *)key, (gchar *)value );
 }
-     
+
 
 /* Utility */
 PyObject* hash_to_dict(GHashTable *table)
@@ -1008,7 +1009,7 @@ static void pyGcomprisConfCallback(GHashTable* table){
     result = PyObject_CallFunction(pyGcomprisConfCallbackFunc, "O", Py_None);
 
   // This callback can be called multiple time ? not now
-  
+
   Py_DECREF(pyGcomprisConfCallbackFunc);
 
   if(result==NULL){
@@ -1100,14 +1101,14 @@ py_gc_board_config_combo_box(PyObject* self, PyObject* args)
   size = PyList_Size (py_list);
 
   for (i=0; i < size; i ++)
-    list = g_list_append( list, 
+    list = g_list_append( list,
 			  PyString_AsString( PyList_GetItem( py_list, i)));
 
   /* Call the corresponding C function */
   return (PyObject *)pygobject_new((GObject*) \
-				    gc_board_config_combo_box((const gchar *)label, 
-						       list, 
-						       key, 
+				    gc_board_config_combo_box((const gchar *)label,
+						       list,
+						       key,
 						       init));
 }
 
@@ -1133,13 +1134,13 @@ void pair_object_in_dict(gpointer key,
 
   pyKey = PyString_FromString((gchar *)key);
   Py_INCREF(pyKey);
-  
+
   pyValue = pygobject_new((GObject*) value);
   Py_INCREF(pyValue);
 
   PyDict_SetItem((PyObject *)dict, pyKey, pyValue);
 }
-     
+
 
 /* Utility */
 PyObject* hash_object_to_dict(GHashTable *table)
@@ -1175,7 +1176,7 @@ py_gc_board_config_radio_buttons(PyObject* self, PyObject* args)
 		      "gc_board_config_radio_buttons second argument must be a dict");
     return NULL;
   }
-  
+
   PyObject *pykey, *pyvalue;
   int pos = 0;
 
@@ -1190,8 +1191,8 @@ py_gc_board_config_radio_buttons(PyObject* self, PyObject* args)
 			  g_strdup(PyString_AsString(pyvalue)));
   }
 
-  result = gc_board_config_radio_buttons(label, 
-				  key, 
+  result = gc_board_config_radio_buttons(label,
+				  key,
 				  buttons_label,
 				  init);
 
@@ -1212,7 +1213,7 @@ py_gc_board_config_spin_int(PyObject* self, PyObject* args)
     return NULL;
 
   return (PyObject *)pygobject_new((GObject*) \
-				   gc_board_config_spin_int((const gchar *)label, 
+				   gc_board_config_spin_int((const gchar *)label,
 						     key,
 						     min,
 						     max,
@@ -1282,8 +1283,8 @@ py_gc_board_config_combo_locales_asset(PyObject* self, PyObject* args)
   gchar *file;
 
   /* Parse arguments */
-  if(!PyArg_ParseTuple(args, "ssz:gc_board_config_combo_locales", 
-		       &label, 
+  if(!PyArg_ParseTuple(args, "ssz:gc_board_config_combo_locales",
+		       &label,
 		       &init,
 		       &file))
     return NULL;
@@ -1539,10 +1540,10 @@ py_gc_im_reset (PyObject* self, PyObject* args)
   /* Parse arguments */
   if(!PyArg_ParseTuple(args, ":gcompris.im_reset"))
     return NULL;
-  
+
   /* Call the corresponding C function */
   gc_im_reset ();
-  
+
   Py_INCREF(Py_None);
   return Py_None;
 }
@@ -1681,6 +1682,7 @@ void python_gcompris_module_init(void)
 
 
   /* Initialize the sub modules */
+  initgnomecanvas();
   python_gcompris_bonus_module_init();
   python_gc_score_module_init();
   python_gc_skin_module_init();

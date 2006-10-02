@@ -17,8 +17,7 @@
 #   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 #
 
-import gnome
-import gnome.canvas
+import gnomecanvas
 import gcompris
 import gcompris.utils
 import gcompris.skin

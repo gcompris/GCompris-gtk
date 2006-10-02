@@ -1,24 +1,23 @@
 #  gcompris - class_list.py
-# 
+#
 # Copyright (C) 2005 Bruno Coudoin and Yves Combe
-# 
+#
 #   This program is free software; you can redistribute it and/or modify
 #   it under the terms of the GNU General Public License as published by
 #   the Free Software Foundation; either version 2 of the License, or
 #   (at your option) any later version.
-# 
+#
 #   This program is distributed in the hope that it will be useful,
 #   but WITHOUT ANY WARRANTY; without even the implied warranty of
 #   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 #   GNU General Public License for more details.
-# 
+#
 #   You should have received a copy of the GNU General Public License
 #   along with this program; if not, write to the Free Software
 #   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
-# 
+#
 
-import gnome
-import gnome.canvas
+import gnomecanvas
 import gcompris
 import gcompris.utils
 import gcompris.skin
@@ -52,7 +51,7 @@ class Class_list:
 
       self.cur = db_cursor
       self.con = db_connect
-      
+
       self.class_data = []
 
       # ---------------
@@ -96,7 +95,7 @@ class Class_list:
       sw.add(self.treeview_class)
 
       left_box.pack_start(sw, True, True, 0)
-            
+
       # add columns to the tree view
       self.__add_columns_class(self.treeview_class)
 
@@ -120,7 +119,7 @@ class Class_list:
       self.button_remove.show()
       # Not removable until one class is selected
       self.button_remove.set_sensitive(False)
-      
+
       # User list for the group
       user_hbox = gtk.HBox(False, 8)
       user_hbox.show()
@@ -194,7 +193,7 @@ class Class_list:
                COLUMN_TEACHER,    aclass[COLUMN_TEACHER]
                )
 
-    
+
   def on_remove_class_clicked(self, button, treeview):
     selection = treeview.get_selection()
     model, iter = selection.get_selected()
@@ -271,7 +270,7 @@ class Class_list:
     while(iter):
       path = model.get_path(iter)[0]
       tmp_class_id = model.get_value(iter, COLUMN_CLASSID)
-      
+
       if(tmp_class_id == class_id):
 
         # Now update the class_name and class_teacher if provided
@@ -286,9 +285,9 @@ class Class_list:
         updated = True
         # It's updated now
         break
-      
+
       iter = model.iter_next(iter)
-      
+
 
 
     # The job not done yet, it's a new class.
@@ -308,4 +307,4 @@ class Class_list:
         self.list_user.reload(sel_class_id)
 
     print "class_list reload DONE"
-  
+

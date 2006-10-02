@@ -223,7 +223,7 @@ AnimCanvas_free(py_GcomprisAnimCanvas *self)
 
 static PyObject *AnimCanvas_getattr(py_GcomprisAnimCanvas *self, char *name)
 {
-  if(!strcmp(name, "gnome_canvas"))
+  if(!strcmp(name, "gnomecanvas"))
     return (PyObject*) pygobject_new( (GObject*) self->item->canvas );
   else if(!strcmp(name, "num_states"))
     return Py_BuildValue("i", self->item->anim->numstates);

@@ -11,11 +11,13 @@
 GCOMPRIS_PLUGINS := 	.
 GCOMPRIS_TOP :=		../..
 GTK_TOP :=		/gtk
+GLIB_TOP :=		/glib
 GNUWIN32_TOP :=		/gnuwin32
 LIBXML2_TOP :=		/libxml2
 SDL_TOP :=		/sdl
 CANVAS_TOP :=		/gnomecanvas
 PYTHON_TOP :=		/c/Python24
+CAIRO_TOP :=		/cairo
 GCOMPRIS_INSTALL_DIR :=	$(GCOMPRIS_TOP)/win32-install-dir
 
 ##
@@ -44,10 +46,10 @@ include $(GCOMPRIS_TOP)/global_win32.mak
 INCLUDE_PATHS +=	-I$(GCOMPRIS_PLUGINS) \
 			-I$(GTK_TOP)/include \
 			-I$(GTK_TOP)/include/gtk-2.0 \
-			-I$(GTK_TOP)/include/glib-2.0 \
+			-I$(GLIB_TOP)/include/glib-2.0 \
 			-I$(GTK_TOP)/include/pango-1.0 \
 			-I$(GTK_TOP)/include/atk-1.0 \
-			-I$(GTK_TOP)/lib/glib-2.0/include \
+			-I$(GLIB_TOP)/lib/glib-2.0/include \
 			-I$(GTK_TOP)/lib/gtk-2.0/include \
 			-I$(CANVAS_TOP)/include/libgnomecanvas-2.0 \
 			-I$(GTK_TOP)/include/atk-1.0 \
@@ -57,6 +59,7 @@ INCLUDE_PATHS +=	-I$(GCOMPRIS_PLUGINS) \
 			-I$(GNUWIN32_TOP)/include \
 			-I$(GCOMPRIS_TOP) \
 			-I$(GCOMPRIS_TOP)/src \
+			-I$(CAIRO_TOP)/include/cairo \
 			-I$(PYTHON_TOP)/include \
 			-I$(PYTHON_TOP)/include/pygtk-2.0
 
@@ -67,7 +70,7 @@ LIB_PATHS =		-L$(GTK_TOP)/lib \
 			-L$(GNUWIN32_TOP)/lib \
 			-L$(SDL_TOP)/lib \
 			-L$(GCOMPRIS_TOP)/src/gcompris \
-			-L$(PYTHON_TOP)/libs
+			-L$(PYTHON_TOP)/lib
 
 
 ##
@@ -90,6 +93,7 @@ LIBS =			-lgtk-win32-2.0 \
 			-lintl \
 			-lws2_32 \
 			-lpython24 \
+			-lpython
 			libgcompris-1.la
 
 ##
@@ -111,6 +115,8 @@ install:
 ##
 PYTHON_C_SRC = \
 	     python.c \
+	     canvas.c \
+	     canvasmodule.c \
 	     py-gcompris-board.c \
 	     py-gcompris-board.h \
 	     py-gcompris-properties.c \

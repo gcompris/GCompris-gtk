@@ -1,24 +1,23 @@
 #  gcompris - module_boards.py
-# 
+#
 # Copyright (C) 2005 Yves Combe
-# 
+#
 #   This program is free software; you can redistribute it and/or modify
 #   it under the terms of the GNU General Public License as published by
 #   the Free Software Foundation; either version 2 of the License, or
 #   (at your option) any later version.
-# 
+#
 #   This program is distributed in the hope that it will be useful,
 #   but WITHOUT ANY WARRANTY; without even the implied warranty of
 #   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 #   GNU General Public License for more details.
-# 
+#
 #   You should have received a copy of the GNU General Public License
 #   along with this program; if not, write to the Free Software
 #   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 #
 
-import gnome
-import gnome.canvas
+import gnomecanvas
 import gcompris
 import gcompris.utils
 import gcompris.skin
@@ -49,7 +48,7 @@ class Boards(module.Module):
     # only have to kill it. The canvas deletes all the items it contains automaticaly.
 
     self.rootitem = self.canvas.add(
-        gnome.canvas.CanvasGroup,
+        gnomecanvas.CanvasGroup,
         x=0.0,
         y=0.0
         )
@@ -64,7 +63,7 @@ class Boards(module.Module):
     frame.show()
 
     self.rootitem.add(
-      gnome.canvas.CanvasWidget,
+      gnomecanvas.CanvasWidget,
       widget=frame,
       x=area[0]+self.module_panel_ofset,
       y=area[1]+self.module_panel_ofset,
@@ -75,7 +74,7 @@ class Boards(module.Module):
 
     board_list.Board_list(self.con, self.cur,
                           frame)
-    
+
   def stop(self):
     print "stopping boards panel"
     module.Module.stop(self)

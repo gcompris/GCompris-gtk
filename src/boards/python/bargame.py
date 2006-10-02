@@ -1,25 +1,24 @@
 #  gcompris - BarGame
-# 
-# 
-# 
+#
+#
+#
 # Copyright (C) 2004  Yves Combe
-# 
+#
 #   This program is free software; you can redistribute it and/or modify
 #   it under the terms of the GNU General Public License as published by
 #   the Free Software Foundation; either version 2 of the License, or
 #   (at your option) any later version.
-# 
+#
 #   This program is distributed in the hope that it will be useful,
 #   but WITHOUT ANY WARRANTY; without even the implied warranty of
 #   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 #   GNU General Public License for more details.
-# 
+#
 #   You should have received a copy of the GNU General Public License
 #   along with this program; if not, write to the Free Software
 #   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
-# 
-import gnome
-import gnome.canvas
+#
+import gnomecanvas
 import gcompris
 import gcompris.utils
 import gcompris.bonus
@@ -44,7 +43,7 @@ profs = [ 'images/tux.png',
 
 class Gcompris_bargame:
   """The Bar Game"""
-  
+
   def __init__(self, gcomprisBoard):
     random.seed()
     self.gcomprisBoard = gcomprisBoard
@@ -58,7 +57,7 @@ class Gcompris_bargame:
     self.gcomprisBoard.maxlevel=4
     self.gcomprisBoard.sublevel=1
     self.gcomprisBoard.number_of_sublevel=3
-    
+
     # global scale depending on the level
     self.scales = [0.208, 0.164, 0.107]
 
@@ -67,7 +66,7 @@ class Gcompris_bargame:
     self.list_win = []
     self.profbutton = []
     self.answer = []
-    
+
     self.pixmap_blue_ball  = gcompris.utils.load_pixmap("bargame/blue_ball.png")
     self.pixmap_green_ball = gcompris.utils.load_pixmap("bargame/green_ball.png")
     self.pixmap_case       = gcompris.utils.load_pixmap("bargame/case.png")
@@ -75,7 +74,7 @@ class Gcompris_bargame:
     self.pixmap_ombre      = gcompris.utils.load_pixmap("bargame/ombre.png")
     self.pixmap_mask       = gcompris.utils.load_pixmap("bargame/mask.png")
     self.pixmap_mask_last  = gcompris.utils.load_pixmap("bargame/mask_last.png")
-    
+
   def start(self):
     # load pixmaps for the ui.
     #
@@ -89,7 +88,7 @@ class Gcompris_bargame:
 
     # Create persistent over levels root item canvas for the board
     self.rootitem_p = self.gcomprisBoard.canvas.root().add(
-      gnome.canvas.CanvasGroup,
+      gnomecanvas.CanvasGroup,
       x=0,
       y=0
       )
@@ -126,7 +125,7 @@ class Gcompris_bargame:
 
     self.newGame()
     pass
-        
+
   def ok(self):
     self.answer.has_focus()
     self.play(self.answer.value,True)
@@ -140,7 +139,7 @@ class Gcompris_bargame:
 
   def pause(self, pause):
     self.board_paused = pause
-    
+
     # When the bonus is displayed, it call us first with pause(1) and then with pause(0)
     # the game is won
     if ((pause == 0) and self.finished_sublevel):
@@ -165,9 +164,9 @@ class Gcompris_bargame:
         self.gcomprisBoard.sublevel = 1
         self.newGame()
     else:
-      self.gcomprisBoard.sublevel = sublevel 
+      self.gcomprisBoard.sublevel = sublevel
       self.newGame()
-    
+
 
   def calculate_win_places(self):
     winners = []
@@ -209,11 +208,11 @@ class Gcompris_bargame:
     del self.balls
     self.balls = []
 
-    
+
     # Other variable cleanup
     del self.list_win
     self.list_win = []
-    
+
   def newGame(self):
     self.cleanup()
 
@@ -229,7 +228,7 @@ class Gcompris_bargame:
 
     # Create root item canvas for the board
     self.rootitem = self.gcomprisBoard.canvas.root().add(
-      gnome.canvas.CanvasGroup,
+      gnomecanvas.CanvasGroup,
       x=0,
       y=0
       )
@@ -239,7 +238,7 @@ class Gcompris_bargame:
                             backgrounds[self.gcomprisBoard.level - 1])
 
     self.profbutton.set_prof(profs[self.gcomprisBoard.level - 1])
-    
+
     for i in range(self.board_size[self.gcomprisBoard.sublevel-1]):
       self.holes.append(self.hole(self,
                                   self.rootitem,
@@ -277,7 +276,7 @@ class Gcompris_bargame:
 
     if human:
       self.machine_play()
-      
+
 
   def machine_play(self):
 
@@ -296,7 +295,7 @@ class Gcompris_bargame:
       self.play(random.choice(range(self.number_balls[self.gcomprisBoard.sublevel-1][0],
                                     self.number_balls[self.gcomprisBoard.sublevel-1][1]+1)),
                 False)
-      
+
     self.answer.new_value(self.number_balls[self.gcomprisBoard.sublevel-1][0])
 
   def gamelost(self,human):
@@ -307,7 +306,7 @@ class Gcompris_bargame:
       self.game_won = True
       gcompris.bonus.display(gcompris.bonus.WIN, gcompris.bonus.GNU)
 
-                     
+
   class hole:
     def __init__(self, board, root, x, y, index,
                  board_size,
@@ -315,12 +314,12 @@ class Gcompris_bargame:
       self.board = board
 
       self.itemgroup = root.add(
-        gnome.canvas.CanvasGroup,
+        gnomecanvas.CanvasGroup,
         x=x,
         y=y)
-      
+
       self.scale = scale
-      
+
       if (index == (board_size-1)):
         pixbuf_case = self.board.pixmap_case_last
         pixbuf_mask = self.board.pixmap_mask_last
@@ -330,7 +329,7 @@ class Gcompris_bargame:
 
 
       item = self.itemgroup.add(
-        gnome.canvas.CanvasPixbuf,
+        gnomecanvas.CanvasPixbuf,
         pixbuf = pixbuf_case,
         x=0,
         y=0)
@@ -341,7 +340,7 @@ class Gcompris_bargame:
                height_set = True)
 
       self.ombre = self.itemgroup.add(
-        gnome.canvas.CanvasPixbuf,
+        gnomecanvas.CanvasPixbuf,
         pixbuf = self.board.pixmap_ombre,
         x=0,
         y=0)
@@ -353,13 +352,13 @@ class Gcompris_bargame:
                      height_set = True)
 
       self.ball = self.itemgroup.add(
-        gnome.canvas.CanvasPixbuf,
+        gnomecanvas.CanvasPixbuf,
         x=0,
         y=0)
       self.ball.hide()
 
       item = self.itemgroup.add(
-        gnome.canvas.CanvasPixbuf,
+        gnomecanvas.CanvasPixbuf,
         pixbuf = pixbuf_mask,
         x=0,
         y=0)
@@ -371,7 +370,7 @@ class Gcompris_bargame:
 
       if ((index+1)%5 == 0):
         self.itemgroup.add(
-          gnome.canvas.CanvasText,
+          gnomecanvas.CanvasText,
           x=(bounds[2]-bounds[0])/2,
           y=-10,
           fill_color_rgba=0x000000ffL,
@@ -399,13 +398,13 @@ class Gcompris_bargame:
                     height_set = True)
       self.ball.show()
       self.ombre.show()
-      
+
 
   class ball:
     def __init__(self, root, x, y, scale, image):
-      
+
       self.ball = root.add(
-        gnome.canvas.CanvasPixbuf,
+        gnomecanvas.CanvasPixbuf,
         pixbuf = image,
         x=x,
         y=y)
@@ -420,14 +419,14 @@ class Gcompris_bargame:
       self.focus = False
 
       self.number_balls = number_balls
-      
+
       self.itemgroup = root.add(
-        gnome.canvas.CanvasGroup,
+        gnomecanvas.CanvasGroup,
         x = gcompris.BOARD_WIDTH - 200,
         )
-      
+
       self.background = self.itemgroup.add(
-        gnome.canvas.CanvasPixbuf,
+        gnomecanvas.CanvasPixbuf,
         pixbuf = gcompris.utils.load_pixmap("images/enumerate_answer.png"),
         x=0,
         y=0
@@ -435,17 +434,17 @@ class Gcompris_bargame:
       answer_bounds = self.background.get_bounds()
 
       self.itemgroup.set( y = gcompris.BOARD_HEIGHT - answer_bounds[3]-answer_bounds[1] - 5)
-      
+
       self.background_focused = self.itemgroup.add(
-        gnome.canvas.CanvasPixbuf,
+        gnomecanvas.CanvasPixbuf,
         pixbuf = gcompris.utils.load_pixmap("images/enumerate_answer_focus.png"),
         x=0,
         y=0
         )
-      self.background_focused.hide() 
-    
+      self.background_focused.hide()
+
       self.icone = self.itemgroup.add(
-        gnome.canvas.CanvasPixbuf,
+        gnomecanvas.CanvasPixbuf,
         pixbuf = image,
         x=10,
         y=20
@@ -457,9 +456,9 @@ class Gcompris_bargame:
                      height_set = True)
 
       self.value = number_balls[0]
-      
+
       self.text = self.itemgroup.add(
-        gnome.canvas.CanvasText,
+        gnomecanvas.CanvasText,
         x = answer_bounds[2]-answer_bounds[0] - 50,
         y = 40,
         fill_color_rgba=0xff0000ffL,
@@ -469,10 +468,10 @@ class Gcompris_bargame:
         )
 
       self.background.connect("event",self.answer_event)
-      self.background_focused.connect("event",self.answer_event) 
+      self.background_focused.connect("event",self.answer_event)
       self.icone.connect("event",self.answer_event)
       self.text.connect("event",self.answer_event)
-      
+
 
     def new_value(self, value):
       self.value = value
@@ -485,7 +484,7 @@ class Gcompris_bargame:
     def set_number_of_balls(self, number_balls):
       self.number_balls = number_balls
       self.new_value(1)
-      
+
     def answer_event(self, item, event):
       if ((event.type != gtk.gdk.BUTTON_PRESS) or
           (event.button != 1)):
@@ -510,7 +509,7 @@ class Gcompris_bargame:
       self.board = board
 
       self.prof_item = root.add(
-        gnome.canvas.CanvasPixbuf,
+        gnomecanvas.CanvasPixbuf,
         y = 230
         )
       bounds = self.prof_item.get_bounds()
@@ -532,6 +531,6 @@ class Gcompris_bargame:
       if self.board.last_played == -1 :
         self.board.machine_play()
         return True
-      
+
       return False
-      
+

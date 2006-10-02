@@ -1,24 +1,23 @@
 #  gcompris - profile_list.py
-# 
+#
 # Copyright (C) 2005 Bruno Coudoin and Yves Combe
-# 
+#
 #   This program is free software; you can redistribute it and/or modify
 #   it under the terms of the GNU General Public License as published by
 #   the Free Software Foundation; either version 2 of the License, or
 #   (at your option) any later version.
-# 
+#
 #   This program is distributed in the hope that it will be useful,
 #   but WITHOUT ANY WARRANTY; without even the implied warranty of
 #   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 #   GNU General Public License for more details.
-# 
+#
 #   You should have received a copy of the GNU General Public License
 #   along with this program; if not, write to the Free Software
 #   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
-# 
+#
 
-import gnome
-import gnome.canvas
+import gnomecanvas
 import gcompris
 import gcompris.utils
 import gcompris.skin
@@ -80,7 +79,7 @@ class Profile_list:
       vbox_button.show()
       profile_hbox.add(vbox_button)
 
-      
+
       # Create the table
       sw = gtk.ScrolledWindow()
       sw.show()
@@ -96,7 +95,7 @@ class Profile_list:
       sw.add(treeview_profile)
 
       profilelist_box.pack_start(sw, True, True, 0)
-      
+
 
       # add columns to the tree view
       self.__add_columns_profile(treeview_profile)
@@ -106,7 +105,7 @@ class Profile_list:
       button.connect("clicked", self.on_add_profile_clicked, self.profile_model)
       vbox_button.pack_start(button, False, False, 0)
       button.show()
-      
+
       self.button_edit = gtk.Button(stock='gtk-edit')
       self.button_edit.connect("clicked", self.on_edit_profile_clicked, treeview_profile)
       vbox_button.pack_start(self.button_edit, False, False, 0)
@@ -150,7 +149,7 @@ class Profile_list:
 
     # Remove all entries in the list
     self.profile_model.clear()
-    
+
     # Get the default profile
     self.cur.execute('select * from informations')
     self.default_profile_id = self.cur.fetchall()[0][2]
@@ -166,7 +165,7 @@ class Profile_list:
 
     self.profile_group.reload(self.current_profile_id)
 
-      
+
 
   # Create the model for the profile list
   def __create_model_profile(self):
@@ -180,7 +179,7 @@ class Profile_list:
 
 
   def __add_columns_profile(self, treeview):
-    
+
     model = treeview.get_model()
 
     # columns for name
@@ -212,10 +211,10 @@ class Profile_list:
                COLUMN_NAME,               aprofile[COLUMN_NAME],
                COLUMN_DESCRIPTION,        aprofile[COLUMN_DESCRIPTION]
                )
-    
+
     if self.default_profile_id ==  aprofile[COLUMN_PROFILEID]:
       self.set_default_in_description(iter)
-    
+
   #
   def on_add_profile_clicked(self, button, model):
 
@@ -256,7 +255,7 @@ class Profile_list:
     column = cell.get_data("column")
 
     profile_id = model.get_value(iter, COLUMN_PROFILEID)
-    
+
     if column == COLUMN_NAME:
       model.set(iter, column, new_text)
 
@@ -306,7 +305,7 @@ class Profile_list:
       self.con.commit()
 
       self.set_default_in_description(iter)
-     
+
   # Write an additional [Default] in the profile description
   def set_default_in_description(self, iter):
       # set default in description
@@ -351,4 +350,4 @@ class Profile_list:
          self.button_remove.set_sensitive(False)
       else:
          self.button_remove.set_sensitive(True)
-        
+

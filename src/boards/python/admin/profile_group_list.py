@@ -1,24 +1,23 @@
 #  gcompris - profile_group_list.py
-# 
+#
 # Copyright (C) 2005 Bruno Coudoin and Yves Combe
-# 
+#
 #   This program is free software; you can redistribute it and/or modify
 #   it under the terms of the GNU General Public License as published by
 #   the Free Software Foundation; either version 2 of the License, or
 #   (at your option) any later version.
-# 
+#
 #   This program is distributed in the hope that it will be useful,
 #   but WITHOUT ANY WARRANTY; without even the implied warranty of
 #   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 #   GNU General Public License for more details.
-# 
+#
 #   You should have received a copy of the GNU General Public License
 #   along with this program; if not, write to the Free Software
 #   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
-# 
+#
 
-import gnome
-import gnome.canvas
+import gnomecanvas
 import gcompris
 import gcompris.utils
 import gcompris.skin
@@ -56,16 +55,16 @@ class Profile_group_list:
 
       # The profile_id to work on
       self.profile_id = profile_id
-      
+
       # ---------------
       # User Group Management
       # ---------------
 
       # create tree model
       self.model = self.__create_model()
-      
+
       self.reload(self.profile_id)
-      
+
       # Create the table
       sw = gtk.ScrolledWindow()
       sw.show()
@@ -98,18 +97,18 @@ class Profile_group_list:
   def reload(self, profile_id):
 
       self.profile_id = profile_id
-      
+
       # Remove all entries in the list
       self.model.clear()
 
       self.cur.execute('SELECT DISTINCT groups.group_id,class.name,groups.name,groups.description FROM groups,list_groups_in_profiles,class WHERE list_groups_in_profiles.profile_id=? AND list_groups_in_profiles.group_id=groups.group_id AND class.class_id=groups.class_id ORDER BY class.name,groups.name',
                        (self.profile_id, ))
-      
+
       groups = self.cur.fetchall()
       for group in groups:
         self.add_group_in_model(self.model, group)
 
-    
+
 
   # Add group in the model
   def add_group_in_model(self, model, group):
@@ -121,7 +120,7 @@ class Profile_group_list:
                COLUMN_DESCRIPTION, group[COLUMN_DESCRIPTION],
                )
 
-    
+
 
   def __create_model(self):
     model = gtk.ListStore(
@@ -134,11 +133,11 @@ class Profile_group_list:
 
 
   def __add_columns(self, treeview):
-    
+
     model = treeview.get_model()
 
     # Total column lengh must be 400
-    
+
     # columns for class name
     renderer = gtk.CellRendererText()
     renderer.set_data("column", COLUMN_CLASSNAME)

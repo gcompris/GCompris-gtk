@@ -1,19 +1,19 @@
-#  gcompris - connect4 
-# 
-# Time-stamp: 
-# 
-# Copyright (C) 2005 Laurent Lacheny 
-# 
+#  gcompris - connect4
+#
+# Time-stamp:
+#
+# Copyright (C) 2005 Laurent Lacheny
+#
 #   This program is free software; you can redistribute it and/or modify
 #   it under the terms of the GNU General Public License as published by
 #   the Free Software Foundation; either version 2 of the License, or
 #   (at your option) any later version.
-# 
+#
 #   This program is distributed in the hope that it will be useful,
 #   but WITHOUT ANY WARRANTY; without even the implied warranty of
 #   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 #   GNU General Public License for more details.
-# 
+#
 #   You should have received a copy of the GNU General Public License
 #   along with this program; if not, write to the Free Software
 #   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
@@ -24,8 +24,7 @@
 #
 
 import gobject
-import gnome
-import gnome.canvas
+import gnomecanvas
 import gcompris
 import gcompris.utils
 import gcompris.skin
@@ -41,7 +40,7 @@ from  connect4p import human
 from  connect4p import minmax
 from  connect4p import board
 # ----------------------------------------
-# 
+#
 
 class Gcompris_connect4:
   """Connect 4 stones"""
@@ -61,8 +60,8 @@ class Gcompris_connect4:
     self.maxLevel = 4
     self.firstPlayer = False
     self.boardItem = None
-    self.timerAnim = 0 
-    self.timerMachine = 0 
+    self.timerAnim = 0
+    self.timerMachine = 0
     self.humanVictory = 0
     self.machineHasPlayed = True
     self.endAnimCallback = None
@@ -76,7 +75,7 @@ class Gcompris_connect4:
     # Create our rootitem. We put each canvas item in it so at the end we
     # only have to kill it. The canvas deletes all the items it contains automaticaly.
     self.rootitem = self.gcomprisBoard.canvas.root().add(
-      gnome.canvas.CanvasGroup,
+      gnomecanvas.CanvasGroup,
       x=0.0,
       y=0.0
       )
@@ -89,7 +88,7 @@ class Gcompris_connect4:
       gcompris.bar_set(gcompris.BAR_LEVEL|gcompris.BAR_REPEAT)
 
     selector = self.rootitem.add(
-     gnome.canvas.CanvasPixbuf,
+     gnomecanvas.CanvasPixbuf,
       pixbuf = gcompris.utils.load_pixmap("connect4/back.png"),
       x=0.0,
       y=0.0
@@ -97,7 +96,7 @@ class Gcompris_connect4:
     selector.connect("event", self.columnItemEvent, 0)
 
     self.prof = self.rootitem.add(
-     gnome.canvas.CanvasPixbuf,
+     gnomecanvas.CanvasPixbuf,
       pixbuf = gcompris.utils.load_pixmap("connect4/tux-teacher.png"),
       x=10,
       y=350.0
@@ -107,7 +106,7 @@ class Gcompris_connect4:
 
     self.timericon = gcompris.anim.CanvasItem( gcompris.anim.Animation("connect4/sablier.txt"),
                                                self.rootitem )
-    self.timericon.gnome_canvas.hide()
+    self.timericon.gnomecanvas.hide()
 
     self.newGame()
 
@@ -123,7 +122,7 @@ class Gcompris_connect4:
     # Remove the root item removes all the others inside it
     self.rootitem.destroy()
     self.boardItem.destroy()
-    
+
 
   def ok(self):
     print("Gcompris_connect4 ok.")
@@ -137,7 +136,7 @@ class Gcompris_connect4:
         print "Level max is reached!"
         self.end()
         gcompris.end_board()
-    else: 
+    else:
       self.newGame()
 
   def config(self):
@@ -146,7 +145,7 @@ class Gcompris_connect4:
 
   def key_press(self, keyval, commit_str, preedit_str):
     print("Gcompris_connect4 key press. %i" % keyval)
-    self.timericon.gnome_canvas.hide()
+    self.timericon.gnomecanvas.hide()
     return False
 
   def pause(self, pause):
@@ -160,7 +159,7 @@ class Gcompris_connect4:
     gcompris.bar_set_level(self.gcomprisBoard)
     self.player1.setDifficulty(level)
     self.player2.setDifficulty(level)
-    self.humanVictory = 0 
+    self.humanVictory = 0
     self.newGame()
 
   # End of Initialisation
@@ -170,9 +169,9 @@ class Gcompris_connect4:
     if self.boardItem != None:
       self.boardItem.destroy()
     self.boardItem = self.gcomprisBoard.canvas.root().add(
-      gnome.canvas.CanvasGroup,
+      gnomecanvas.CanvasGroup,
       x=(gcompris.BOARD_WIDTH-self.boardSize)/2.0,
-      y=50.0 
+      y=50.0
       )
     self.player1 = human.Human(self.gcomprisBoard.level)
     self.player2 = minmax.MinMax(self.gcomprisBoard.level, self.refreshScreen)
@@ -183,7 +182,7 @@ class Gcompris_connect4:
       del self.redLine
     except:
       pass
-    self.firstPlayer = False 
+    self.firstPlayer = False
     self.prof.show()
 
   def columnItemEvent(self, widget, event, column):
@@ -195,12 +194,12 @@ class Gcompris_connect4:
           gcompris.bar_hide(True)
           if self.play(self.player1, 1, column):
             if self.gamewon == False:
-              self.timericon.gnome_canvas.show()
+              self.timericon.gnomecanvas.show()
               self.endAnimCallback = self.machinePlay
               self.machineHasPlayed = False
-   
+
     return False
-  
+
   def profItemEvent(self, widget, event, column):
     #if event.type == gtk.gdk.BUTTON_PRESS and self.firstPlayer == False:
     if event.type == gtk.gdk.BUTTON_PRESS:
@@ -211,7 +210,7 @@ class Gcompris_connect4:
     print "ai starts"
     self.play(self.player2, 2, 0)
     print "ai ends"
-    self.timericon.gnome_canvas.hide()
+    self.timericon.gnomecanvas.hide()
     self.prof.hide()
     self.endAnimCallback = self.machinePlayed
 
@@ -225,22 +224,22 @@ class Gcompris_connect4:
 
   def play(self, player, numPlayer, column):
     move = player.doMove(self.board, numPlayer, column)
-    
+
     if type(move) is types.IntType and rules.isMoveLegal(self.board, move):
 #      self.firstPlayer = True
       self.board.move(move, numPlayer)
       self.drawBoard(self.board)
       self.winLine = rules.isWinner(self.board, numPlayer)
-      
+
       if self.winLine:
         self.winner(numPlayer)
       elif rules.isBoardFull(self.board):
         self.winner(0)
       return True
-    
+
     gcompris.bar_hide(False)
     return False
-        
+
   def drawBoard(self, board):
     stone = self.board.state[self.board.last_move][-1]
     x = self.board.last_move
@@ -248,7 +247,7 @@ class Gcompris_connect4:
     file = "connect4/stone_%d.png" % stone
 
     self.stone = self.boardItem.add(
-      gnome.canvas.CanvasPixbuf,
+      gnomecanvas.CanvasPixbuf,
        pixbuf = gcompris.utils.load_pixmap(file),
        x=x*(self.boardSize/self.nbColumns),
        #y=(self.boardSize/self.nbColumns)*(self.nbLines-1-y)
@@ -282,18 +281,18 @@ class Gcompris_connect4:
         ((not self.firstPlayer) and (player==1))):
       self.humanVictory += 1
     else:
-      self.humanVictory = 0 
+      self.humanVictory = 0
     points = ( self.winLine[0][0]*(self.boardSize/self.nbColumns)+self.stoneSize/2,
                (self.boardSize/self.nbColumns)*(self.nbLines-1-self.winLine[0][1])+self.stoneSize/2,
                self.winLine[1][0]*(self.boardSize/self.nbColumns)+self.stoneSize/2,
                (self.boardSize/self.nbColumns)*(self.nbLines-1-self.winLine[1][1])+self.stoneSize/2
                )
-               
+
     self.redLine = self.boardItem.add(
-      gnome.canvas.CanvasLine,
+      gnomecanvas.CanvasLine,
        fill_color_rgba=0xFF0000FFL,
        points=points,
-       width_pixels = 8 
+       width_pixels = 8
        )
     self.redLine.set_property("cap-style", gtk.gdk.CAP_ROUND)
     if player == 1:

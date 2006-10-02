@@ -168,12 +168,12 @@ pythonboard_init (GcomprisBoard *agcomprisBoard){
 	pythonboard_is_ready = FALSE;
 	g_warning("! Python disabled: Cannot import pygtk modules\n");
       } else {
-	/* Try to import gnome-python modules */
+	/* Try to import gnomecanvas modules */
 	g_free(execstr);
-	execstr = g_strdup("import gnome; import gnome.canvas");
+	execstr = g_strdup("import gnomecanvas");
 	if(PyRun_SimpleString(execstr)!=0){
 	  pythonboard_is_ready = FALSE;
-	  g_warning("! Python disabled: Cannot import gnome-python modules\n");
+	  g_warning("! Python disabled: Cannot import gnomecanvas modules\n");
 	} else {
 	  /* Try to import gcompris modules */
 	  g_free(execstr);

@@ -1,24 +1,23 @@
 #  gcompris - group_user_list.py
-# 
+#
 # Copyright (C) 2005 Bruno Coudoin and Yves Combe
-# 
+#
 #   This program is free software; you can redistribute it and/or modify
 #   it under the terms of the GNU General Public License as published by
 #   the Free Software Foundation; either version 2 of the License, or
 #   (at your option) any later version.
-# 
+#
 #   This program is distributed in the hope that it will be useful,
 #   but WITHOUT ANY WARRANTY; without even the implied warranty of
 #   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 #   GNU General Public License for more details.
-# 
+#
 #   You should have received a copy of the GNU General Public License
 #   along with this program; if not, write to the Free Software
 #   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
-# 
+#
 
-import gnome
-import gnome.canvas
+import gnomecanvas
 import gcompris
 import gcompris.utils
 import gcompris.skin
@@ -57,16 +56,16 @@ class Group_user_list:
 
       # The group_id to work on
       self.group_id = group_id
-      
+
       # ---------------
       # User Group Management
       # ---------------
 
       # create tree model
       self.model = self.__create_model()
-      
+
       self.reload(self.group_id)
-      
+
       # Create the table
       sw = gtk.ScrolledWindow()
       sw.show()
@@ -99,7 +98,7 @@ class Group_user_list:
   # Retrieve data from the database for the given group_id
   def reload(self, group_id):
       self.group_id = group_id
-      
+
       # Remove all entries in the list
       self.model.clear()
 
@@ -107,7 +106,7 @@ class Group_user_list:
       users = self.cur.fetchall()
       for user in users:
         self.add_user_in_model(self.model, user)
-            
+
 
   # Add user in the model
   def add_user_in_model(self, model, user):
@@ -120,7 +119,7 @@ class Group_user_list:
                COLUMN_BIRTHDATE, user[COLUMN_BIRTHDATE]
                )
 
-    
+
 
   def __create_model(self):
     model = gtk.ListStore(
@@ -134,11 +133,11 @@ class Group_user_list:
 
 
   def __add_columns(self, treeview):
-    
+
     model = treeview.get_model()
 
     # Total column lengh must be 400
-    
+
     # columns for login
     renderer = gtk.CellRendererText()
     renderer.set_data("column", COLUMN_LOGIN)

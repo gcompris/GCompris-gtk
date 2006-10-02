@@ -16,8 +16,7 @@
 #   along with this program; if not, write to the Free Software
 #   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 #
-import gnome
-import gnome.canvas
+import gnomecanvas
 import gcompris
 import gcompris.utils
 import gcompris.skin
@@ -104,7 +103,7 @@ class Gcompris_login:
     # We put each canvas item in it so at the end we only have to kill it.
     # The canvas deletes all the items it contains automaticaly.
     self.rootitem = self.gcomprisBoard.canvas.root().add(
-      gnome.canvas.CanvasGroup,
+      gnomecanvas.CanvasGroup,
       x=0.0,
       y=0.0
       )
@@ -116,7 +115,7 @@ class Gcompris_login:
 
     # Shadow
     self.rootitem.add(
-      gnome.canvas.CanvasText,
+      gnomecanvas.CanvasText,
       x= x + 1,
       y= y + 1,
       text= text,
@@ -127,7 +126,7 @@ class Gcompris_login:
 
     # Profile name
     self.rootitem.add(
-      gnome.canvas.CanvasText,
+      gnomecanvas.CanvasText,
       x= x,
       y= y,
       text= text,
@@ -263,7 +262,7 @@ class Gcompris_login:
 
     # The shadow
     self.letter_rootitem.add(
-      gnome.canvas.CanvasText,
+      gnomecanvas.CanvasText,
       x= x + 1.5,
       y= y + 1.5,
       text= _("Login: ") + start_filter + "...",
@@ -272,7 +271,7 @@ class Gcompris_login:
       )
     # The text
     self.letter_rootitem.add(
-      gnome.canvas.CanvasText,
+      gnomecanvas.CanvasText,
       x= x,
       y= y,
       text= _("Login: ") + start_filter + "...",
@@ -304,7 +303,7 @@ class Gcompris_login:
         text = letter.upper() + letter.lower()
 
       item = self.letter_rootitem.add(
-        gnome.canvas.CanvasPixbuf,
+        gnomecanvas.CanvasPixbuf,
         pixbuf = button_pixbuf,
         x = x -  button_pixbuf.get_width()/2,
         y = y -  button_pixbuf.get_height()/2,
@@ -316,7 +315,7 @@ class Gcompris_login:
 
       # The shadow
       item = self.letter_rootitem.add(
-        gnome.canvas.CanvasText,
+        gnomecanvas.CanvasText,
         x= x + 1.5,
         y= y + 1.5,
         text= text,
@@ -328,7 +327,7 @@ class Gcompris_login:
 
       # The text
       item = self.letter_rootitem.add(
-        gnome.canvas.CanvasText,
+        gnomecanvas.CanvasText,
         x= x,
         y= y,
         text= text,
@@ -378,7 +377,7 @@ class Gcompris_login:
         continue
 
       item = self.rootitem.add(
-        gnome.canvas.CanvasPixbuf,
+        gnomecanvas.CanvasPixbuf,
         pixbuf = button_pixbuf,
         x = x -  button_pixbuf.get_width()/2,
         y = y -  button_pixbuf.get_height()/2,
@@ -390,7 +389,7 @@ class Gcompris_login:
 
       # The shadow
       item = self.rootitem.add(
-        gnome.canvas.CanvasText,
+        gnomecanvas.CanvasText,
         x= x + 1.5,
         y= y + 1.5,
         text= login,
@@ -401,7 +400,7 @@ class Gcompris_login:
 
       # The text
       item = self.rootitem.add(
-        gnome.canvas.CanvasText,
+        gnomecanvas.CanvasText,
         x= x,
         y= y,
         text= login,
@@ -475,7 +474,7 @@ class Gcompris_login:
     self.entry.show()
 
     self.widget = self.rootitem.add(
-      gnome.canvas.CanvasWidget,
+      gnomecanvas.CanvasWidget,
       widget=self.entry,
       x=400,
       y=400,

@@ -20,8 +20,7 @@
 #   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 #
 
-import gnome
-import gnome.canvas
+import gnomecanvas
 import gcompris
 import gcompris.utils
 import gcompris.skin
@@ -43,7 +42,7 @@ class Number:
 class Square:
     def __init__(self, x, y):
         self.num = None
-        self.pic = game.rootitem.add( gnome.canvas.CanvasText,
+        self.pic = game.rootitem.add( gnomecanvas.CanvasText,
                                       text = "",
                                       font = gcompris.skin.get_font("gcompris/content"),
                                       x = x,
@@ -343,10 +342,10 @@ class Player(object):
     def move_step(self):
         if self.move_stepnum < game.num_moveticks-1:
             self.move_stepnum += 1
-            x_old = self.anim.gnome_canvas.get_property("x")
-            y_old = self.anim.gnome_canvas.get_property("y")
-            x = self.anim.gnome_canvas.get_property("x") + self.velocity[0]*game.sw/game.num_moveticks
-            y = self.anim.gnome_canvas.get_property("y") + self.velocity[1]*game.sh/game.num_moveticks
+            x_old = self.anim.gnomecanvas.get_property("x")
+            y_old = self.anim.gnomecanvas.get_property("y")
+            x = self.anim.gnomecanvas.get_property("x") + self.velocity[0]*game.sw/game.num_moveticks
+            y = self.anim.gnomecanvas.get_property("y") + self.velocity[1]*game.sh/game.num_moveticks
             ret = True
         else:
             self.move_stepnum = 0
@@ -356,7 +355,7 @@ class Player(object):
             self.movestep_timer = 0
             ret = False
 
-        self.anim.gnome_canvas.set(x=x, y=y)
+        self.anim.gnomecanvas.set(x=x, y=y)
         return ret
 
     def move(self, x_old, y_old, x, y):
@@ -365,7 +364,7 @@ class Player(object):
         self.x = x
         self.y = y
         self.velocity = [x-x_old, y-y_old]
-        self.anim.gnome_canvas.set(x=(self.x_old * game.sw + game.left),
+        self.anim.gnomecanvas.set(x=(self.x_old * game.sw + game.left),
                                    y=(self.y_old * game.sh + game.top))
         self.moving = True
 
@@ -407,28 +406,28 @@ class Muncher(Player):
         self.lives = 1
         self.anim = gcompris.anim.CanvasItem(game.munchanimation, game.rootitem)
         self.spare = gcompris.anim.CanvasItem(game.munchanimation, game.rootitem)
-        self.anim.gnome_canvas.hide()
+        self.anim.gnomecanvas.hide()
         self.key_queue = []
-        self.spare.gnome_canvas.set(x=0, y=0)
+        self.spare.gnomecanvas.set(x=0, y=0)
 
     def spawn(self):
         if self.lives >= 1:
-            self.spare.gnome_canvas.show()
+            self.spare.gnomecanvas.show()
         elif self.lives == 0:
-            self.spare.gnome_canvas.hide()
+            self.spare.gnomecanvas.hide()
         else:
             game.loseGame()
         self.key_queue = []
         game.hide_message()
         self.exists = True
         self.move(0,0,0,0)
-        self.anim.gnome_canvas.show()
+        self.anim.gnomecanvas.show()
 
     def die(self):
         super(Muncher, self).die()
         self.lives -= 1
         self.exists = False
-        self.anim.gnome_canvas.hide()
+        self.anim.gnomecanvas.hide()
         self.key_queue = []
 
     def getEaten(self):
@@ -530,13 +529,13 @@ class Troggle(Player):
                 self.y = game.height - 1
             self.x = self.x_old = random.randint(0, game.width-1)
         self.move(self.x_old, self.y_old, self.x, self.y)
-        self.anim.gnome_canvas.show()
+        self.anim.gnomecanvas.show()
         game.hide_trogwarning()
 
     def die(self):
         super(Troggle, self).die()
         self.exists = 0
-        self.anim.gnome_canvas.hide()
+        self.anim.gnomecanvas.hide()
 
         time = game.trog_spawn_time()
         self.nextspawn_timer = game.timeout_add( time + game.trogwarn_time, self.spawn )
@@ -708,19 +707,19 @@ class Gcompris_gnumch:
 
         # create our rootitem. We put each canvas item here so at the end we only
         # need to destroy the rootitem
-        self.rootitem = self.board.canvas.root().add(gnome.canvas.CanvasGroup,
+        self.rootitem = self.board.canvas.root().add(gnomecanvas.CanvasGroup,
                                                      x=0.0,
                                                      y=0.0)
 
         # draw the board on top of the background
         for i in range(0,self.width+1):
-            self.rootitem.add(gnome.canvas.CanvasLine,
+            self.rootitem.add(gnomecanvas.CanvasLine,
                               points = (i*self.sw + self.left, self.top,
                                         i*self.sw + self.left, self.scrh),
                               fill_color_rgba = 0x000000FFL,
                               width_units = 3.0)
         for i in range(0,self.height+1):
-            self.rootitem.add(gnome.canvas.CanvasLine,
+            self.rootitem.add(gnomecanvas.CanvasLine,
                               points = (self.left, self.top + i*self.sh,
                                         self.scrw, self.top + i*self.sh),
                               fill_color_rgba = 0x000000FFL,
@@ -745,27 +744,27 @@ class Gcompris_gnumch:
             self.squares.append(tmp)
 
         # so that the troggles get clipped to the board area
-        self.rootitem.add(gnome.canvas.CanvasRect,
+        self.rootitem.add(gnomecanvas.CanvasRect,
                           x1=0, y1=0,
                           x2=self.scrw, y2=self.top,
                           fill_color_rgba = 0xFFFFFFFFL)
-        self.rootitem.add(gnome.canvas.CanvasRect,
+        self.rootitem.add(gnomecanvas.CanvasRect,
                           x1=0, y1=0,
                           x2=self.left, y2=self.scrh,
                           fill_color_rgba = 0xFFFFFFFFL)
 
         # the board title
-        self.title = self.rootitem.add(gnome.canvas.CanvasText,
+        self.title = self.rootitem.add(gnomecanvas.CanvasText,
                                        text = "",
                                        font = gcompris.skin.get_font("gcompris/board/huge bold"),
                                        x = self.scrw/2,
                                        y = self.top/2)
 
         # the message
-        self.message_back = self.rootitem.add(gnome.canvas.CanvasRect,
+        self.message_back = self.rootitem.add(gnomecanvas.CanvasRect,
                                         x1=0, y1=0, x2=1, y2=1,
                                         fill_color_rgba = 0x60F06060L)
-        self.message = self.rootitem.add(gnome.canvas.CanvasText,
+        self.message = self.rootitem.add(gnomecanvas.CanvasText,
                                         text = "",
                                         justification = gtk.JUSTIFY_CENTER,
                                         font = gcompris.skin.get_font("gcompris/board/huge bold"),
@@ -774,7 +773,7 @@ class Gcompris_gnumch:
         self.message.hide()
 
         # the trogwarning
-        self.trogwarning = self.rootitem.add(gnome.canvas.CanvasText,
+        self.trogwarning = self.rootitem.add(gnomecanvas.CanvasText,
                                         text = _("T\nR\nO\nG\nG\nL\nE"),
                                         justification = gtk.JUSTIFY_CENTER,
                                         font = gcompris.skin.get_font("gcompris/board/huge bold"),
@@ -784,7 +783,7 @@ class Gcompris_gnumch:
         self.trogwarning_num = 0
 
         # the spare life
-        self.muncher.spare.gnome_canvas.raise_to_top()
+        self.muncher.spare.gnomecanvas.raise_to_top()
 
         self.startGame()
 
@@ -875,7 +874,7 @@ class Gcompris_gnumch:
                 self.troggles[i].die()
             else: # don't move them into the spawning queue
                 self.troggles[i].exists = 0
-                self.troggles[i].anim.gnome_canvas.hide()
+                self.troggles[i].anim.gnomecanvas.hide()
         self.muncher.spawn()
 
     def winGame(self):
@@ -906,7 +905,7 @@ class Gcompris_gnumch:
             self.set_level( self.board.level % self.board.maxlevel + 1)
         else:
             self.startGame();
-            
+
 
     def repeat(self):
         self.stopGame()

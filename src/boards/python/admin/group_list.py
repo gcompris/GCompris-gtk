@@ -1,24 +1,23 @@
 #  gcompris - group_list.py
-# 
+#
 # Copyright (C) 2005 Bruno Coudoin and Yves Combe
-# 
+#
 #   This program is free software; you can redistribute it and/or modify
 #   it under the terms of the GNU General Public License as published by
 #   the Free Software Foundation; either version 2 of the License, or
 #   (at your option) any later version.
-# 
+#
 #   This program is distributed in the hope that it will be useful,
 #   but WITHOUT ANY WARRANTY; without even the implied warranty of
 #   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 #   GNU General Public License for more details.
-# 
+#
 #   You should have received a copy of the GNU General Public License
 #   along with this program; if not, write to the Free Software
 #   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
-# 
+#
 
-import gnome
-import gnome.canvas
+import gnomecanvas
 import gcompris
 import gcompris.utils
 import gcompris.skin
@@ -58,7 +57,7 @@ class Group_list:
 
       # The group_id selected
       self.current_group_id = 0
-      
+
       # ---------------
       # Group Management
       # ---------------
@@ -83,11 +82,11 @@ class Group_list:
       class_box = gtk.HBox(False, 8)
       class_box.show()
       label_box.pack_start(class_box, False, False, 0)
-      
+
       class_label = gtk.Label(_('Select a class:'))
       class_label.show()
       label_box.pack_start(class_label, False, False, 0)
-      
+
       self.cur.execute('SELECT * FROM class WHERE class_id>1 ORDER BY name')
       class_list = self.cur.fetchall()
 
@@ -97,7 +96,7 @@ class Group_list:
         self.combo_class.append_text(aclass[1])
         # Save in a list the combo index => the class_id
         self.class_list.append(aclass[0])
-        
+
       self.combo_class.set_active(self.current_class_id)
       label_box.pack_end(self.combo_class, True, True, 0)
 
@@ -114,7 +113,7 @@ class Group_list:
       vbox_button.show()
       group_hbox.add(vbox_button)
 
-      
+
       # Create the table
       sw = gtk.ScrolledWindow()
       sw.show()
@@ -130,7 +129,7 @@ class Group_list:
       sw.add(treeview_group)
 
       grouplist_box.pack_start(sw, True, True, 0)
-      
+
 
       # add columns to the tree view
       self.__add_columns_group(treeview_group)
@@ -141,7 +140,7 @@ class Group_list:
       vbox_button.pack_start(self.button_add, False, False, 0)
       self.button_add.show()
       self.button_add.set_sensitive(False)
-      
+
       self.button_edit = gtk.Button(stock='gtk-edit')
       self.button_edit.connect("clicked", self.on_edit_group_clicked, treeview_group)
       vbox_button.pack_start(self.button_edit, False, False, 0)
@@ -181,7 +180,7 @@ class Group_list:
 
     # Remove all entries in the list
     self.group_model.clear()
-    
+
     # Grab the group data
     self.cur.execute('SELECT group_id, name, description FROM groups WHERE class_id=? ORDER BY name',
                      (self.current_class_id,))
@@ -205,7 +204,7 @@ class Group_list:
 
 
   def __add_columns_group(self, treeview):
-    
+
     model = treeview.get_model()
 
     # columns for name
@@ -240,7 +239,7 @@ class Group_list:
                COLUMN_DESCRIPTION,      agroup[COLUMN_DESCRIPTION]
                )
 
-    
+
   #
   def on_add_group_clicked(self, button, model):
     group_id = constants.get_next_group_id(self.con, self.cur)
@@ -249,7 +248,7 @@ class Group_list:
                          self.current_class_id, self.get_active_text(self.combo_class),
                          group_id, None, None,
                          self)
-    
+
 
   def on_remove_group_clicked(self, button, treeview):
 
@@ -274,7 +273,7 @@ class Group_list:
     column = cell.get_data("column")
 
     group_id = model.get_value(iter, COLUMN_GROUPID)
-    
+
     if column == COLUMN_NAME:
       model.set(iter, column, new_text)
 
@@ -340,7 +339,7 @@ class Group_list:
       wholegroup_id = constants.get_wholegroup_id(self.con,
                                                   self.cur,
                                                   self.current_class_id)
-      
+
       if(wholegroup_id == self.current_group_id):
         self.button_edit.set_sensitive(False)
         self.button_remove.set_sensitive(False)
@@ -356,7 +355,7 @@ class Group_list:
       self.button_remove.set_sensitive(False)
       self.button_add.set_sensitive(False)
       return
-    
+
     self.button_add.set_sensitive(True)
     self.current_class_id = self.class_list[active]
     self.reload_group()

@@ -267,6 +267,7 @@ libpython_la_LDFLAGS = -export-dynamic -module -avoid-version $(PYTHON_LIBS)
 libpython_la_LIBADD = $(top_builddir)/src/gcompris/libgcompris-1.la
 libpython_la_CFLAGS = -fno-strict-aliasing
 libpython_la_SOURCES = python.c \
+	canvas.c canvasmodule.c \
 	py-gcompris-board.c	py-gcompris-board.h	\
 	py-gcompris-properties.c	py-gcompris-properties.h	\
 	py-gcompris-profile.c	py-gcompris-profile.h	\

@@ -17,8 +17,7 @@
 #   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 #
 
-import gnome
-import gnome.canvas
+import gnomecanvas
 import gcompris
 import gcompris.utils
 import gcompris.skin
@@ -199,7 +198,7 @@ class Gcompris_electric:
       # only have to kill it. The canvas deletes all the items it contains
       # automaticaly.
       self.rootitem = self.gcomprisBoard.canvas.root().add(
-          gnome.canvas.CanvasGroup,
+          gnomecanvas.CanvasGroup,
           x=0.0,
           y=0.0
           )
@@ -212,7 +211,7 @@ class Gcompris_electric:
       for i in range(0,len(self.tools)):
 
         item = self.rootitem.add(
-          gnome.canvas.CanvasPixbuf,
+          gnomecanvas.CanvasPixbuf,
           pixbuf = gcompris.utils.load_pixmap(gcompris.skin.image_to_skin(self.tools[i][1])),
           x=x,
           y=y
@@ -501,7 +500,7 @@ class Wire:
       self.x2 = x2
       self.y2 = y2
       self.wire_item = self.rootitem.add(
-        gnome.canvas.CanvasLine,
+        gnomecanvas.CanvasLine,
         points=( self.x1, self.y1, self.x2, self.y2),
         fill_color_rgba = 0xFF0000FFL,
         width_units=5.0
@@ -633,7 +632,7 @@ class Node:
       self.center_y =  pixmap.get_height()/2
 
       self.item = self.rootitem.add(
-        gnome.canvas.CanvasPixbuf,
+        gnomecanvas.CanvasPixbuf,
         pixbuf = pixmap,
         x = x + self.center_x,
         y = y + self.center_y,
@@ -718,7 +717,7 @@ class Component(object):
       self.nodes = nodes
       # Create a group for this component
       self.comp_rootitem = self.rootitem.add(
-        gnome.canvas.CanvasGroup,
+        gnomecanvas.CanvasGroup,
         x=0.0,
         y=0.0
         )
@@ -734,7 +733,7 @@ class Component(object):
       self.component_item_offset_x = 0
       self.component_item_offset_y = 0
       self.component_item = self.comp_rootitem.add(
-        gnome.canvas.CanvasPixbuf,
+        gnomecanvas.CanvasPixbuf,
         pixbuf = pixmap,
         x = self.x + self.component_item_offset_x,
         y = self.y + self.component_item_offset_y,
@@ -750,7 +749,7 @@ class Component(object):
       self.item_values_x = 0
       self.item_values_y = 0
       self.item_values = self.comp_rootitem.add(
-        gnome.canvas.CanvasText,
+        gnomecanvas.CanvasText,
         x = self.item_values_x,
         y = self.item_values_y,
         font = "Sans 8",
@@ -1015,7 +1014,7 @@ class Switch(Component):
 
     pixmap = gcompris.utils.load_pixmap("electric/switch_click.png")
     self.click_item = self.comp_rootitem.add(
-      gnome.canvas.CanvasPixbuf,
+      gnomecanvas.CanvasPixbuf,
       pixbuf = pixmap,
       x = self.x + self.click_ofset_x,
       y = self.y + self.click_ofset_y,
@@ -1093,7 +1092,7 @@ class Switch2(Component):
 
     pixmap = gcompris.utils.load_pixmap("electric/switch_click.png")
     self.click_item = self.comp_rootitem.add(
-      gnome.canvas.CanvasPixbuf,
+      gnomecanvas.CanvasPixbuf,
       pixbuf = pixmap,
       x = self.x + self.click_ofset_x,
       y = self.y + self.click_ofset_y,
@@ -1243,7 +1242,7 @@ class Rheostat(Component):
 
     # The wiper wire
     self.wiper_wire_item = self.comp_rootitem.add(
-      gnome.canvas.CanvasLine,
+      gnomecanvas.CanvasLine,
       points = (0,0,0,0),
       fill_color_rgba = 0x5A5A5AFFL,
       width_units=5.0
@@ -1252,7 +1251,7 @@ class Rheostat(Component):
 
     pixmap = gcompris.utils.load_pixmap("electric/resistor_wiper.png")
     self.wiper_item = self.comp_rootitem.add(
-      gnome.canvas.CanvasPixbuf,
+      gnomecanvas.CanvasPixbuf,
       pixbuf = pixmap,
       x = self.x + self.wiper_ofset_x,
       y = self.y + self.wiper_ofset_y,
@@ -1561,7 +1560,7 @@ class Selector:
       self.rootitem = electric.rootitem
 
       self.rootitem.add(
-        gnome.canvas.CanvasPixbuf,
+        gnomecanvas.CanvasPixbuf,
         pixbuf = gcompris.utils.load_pixmap(gcompris.skin.image_to_skin("draw/tool-selector.png")),
         x=5,
         y=5.0,
@@ -1582,7 +1581,7 @@ class Selector:
       for component_class in components_class:
         pixmap = gcompris.utils.load_pixmap(component_class[0].icon)
         item = self.rootitem.add(
-          gnome.canvas.CanvasPixbuf,
+          gnomecanvas.CanvasPixbuf,
           pixbuf = pixmap,
           x = self.x,
           y = self.y + index_y,

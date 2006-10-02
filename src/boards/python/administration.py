@@ -1,24 +1,23 @@
 #  gcompris - administration.py
-# 
+#
 # Copyright (C) 2005 Bruno Coudoin and Yves Combe
-# 
+#
 #   This program is free software; you can redistribute it and/or modify
 #   it under the terms of the GNU General Public License as published by
 #   the Free Software Foundation; either version 2 of the License, or
 #   (at your option) any later version.
-# 
+#
 #   This program is distributed in the hope that it will be useful,
 #   but WITHOUT ANY WARRANTY; without even the implied warranty of
 #   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 #   GNU General Public License for more details.
-# 
+#
 #   You should have received a copy of the GNU General Public License
 #   along with this program; if not, write to the Free Software
 #   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
-# 
+#
 # Administration Board module
-import gnome
-import gnome.canvas
+import gnomecanvas
 import gcompris
 import gcompris.utils
 import gcompris.skin
@@ -42,11 +41,11 @@ class Gcompris_administration:
     # Create our rootitem. We put each canvas item in it so at the end we
     # only have to kill it. The canvas deletes all the items it contains automaticaly.
     self.rootitem = self.gcomprisBoard.canvas.root().add(
-      gnome.canvas.CanvasGroup,
+      gnomecanvas.CanvasGroup,
       x=0.0,
       y=0.0
       )
-                    
+
     gap = 10
     panel_x = 120
     self.select_area = (gap , gap, panel_x + gap , gcompris.BOARD_HEIGHT-gap)
@@ -74,7 +73,7 @@ class Gcompris_administration:
     # Find the list of modules in admin/
     # that means all files, but __init__.py and module.py
     list_modules = []
-    
+
     import glob
     m_list = glob.glob('admin/module_*.py')
     if m_list == []:
@@ -92,7 +91,7 @@ class Gcompris_administration:
       modules_init.append(module+ '.' + module[0].upper() + module[1:])
 
     del list_modules
-  
+
     self.gcomprisBoard.level=1
     self.gcomprisBoard.maxlevel=1
     self.gcomprisBoard.sublevel=1
@@ -103,7 +102,7 @@ class Gcompris_administration:
     gcompris.bar_set_level(self.gcomprisBoard)
 
     self.rootitem.add(
-      gnome.canvas.CanvasRect,
+      gnomecanvas.CanvasRect,
       x1=self.select_area[0],
       y1=self.select_area[1],
       x2=self.select_area[2],
@@ -115,7 +114,7 @@ class Gcompris_administration:
 
     # A White background in the panel area
     self.rootitem.add(
-      gnome.canvas.CanvasRect,
+      gnomecanvas.CanvasRect,
       x1=self.panel_area[0],
       y1=self.panel_area[1],
       x2=self.panel_area[2],
@@ -147,7 +146,7 @@ class Gcompris_administration:
     if(self.current_panel != None and not self.current_panel_stopped):
       self.current_panel.stop()
       self.current_panel_stopped = False
-      
+
   def ok(self):
     pass
 
@@ -174,7 +173,7 @@ class Gcompris_administration:
         # Do not reload it
         if(self.current_panel ==  module):
           return
-        
+
         # Stop previous panel if any
         if(self.current_panel != None):
           self.current_panel.stop()
@@ -184,4 +183,4 @@ class Gcompris_administration:
 
         # Start the new panel
         module.start(self.panel_area)
-        
+

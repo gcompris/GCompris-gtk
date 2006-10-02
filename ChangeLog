@@ -1,3 +1,64 @@
+2006-10-03  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	- Imported these files from the gnome-python module in the gnome CVS
+	  Now it is no more needed to have gnome-python installed on your system
+	  to have the python plugin support.
+	* src/boards/canvas.c:
+	* src/boards/canvasmodule.c:
+
+	- Improved makefiles to compile python plugins on windows
+
+	* Makefile.mingw:
+	* src/boards/Makefile.am:
+	* src/boards/Makefile.mingw:
+
+	- fixed python animation
+	- fixed all python code to no more import gnome
+
+	* src/boards/py-mod-anim.c: (AnimCanvas_getattr):
+	* src/boards/py-mod-gcompris.c: (pair_in_dict),
+	(pyGcomprisConfCallback), (py_gc_board_config_combo_box),
+	(pair_object_in_dict), (py_gc_board_config_radio_buttons),
+	(py_gc_board_config_spin_int),
+	(py_gc_board_config_combo_locales_asset), (py_gc_im_reset),
+	(python_gcompris_module_init):
+	* src/boards/python.c: (pythonboard_init):
+	* src/boards/python/admin/board_list.py:
+	* src/boards/python/admin/class_list.py:
+	* src/boards/python/admin/group_list.py:
+	* src/boards/python/admin/group_user_list.py:
+	* src/boards/python/admin/module.py:
+	* src/boards/python/admin/module_boards.py:
+	* src/boards/python/admin/module_groups.py:
+	* src/boards/python/admin/module_profiles.py:
+	* src/boards/python/admin/module_users.py:
+	* src/boards/python/admin/profile_group_list.py:
+	* src/boards/python/admin/profile_list.py:
+	* src/boards/python/admin/user_list.py:
+	* src/boards/python/admin/wordlist.py:
+	* src/boards/python/administration.py:
+	* src/boards/python/algorithm.py:
+	* src/boards/python/anim.py:
+	* src/boards/python/ballcatch.py:
+	* src/boards/python/bargame.py:
+	* src/boards/python/connect4.py:
+	* src/boards/python/electric.py:
+	* src/boards/python/followline.py:
+	* src/boards/python/gnumch.py:
+	* src/boards/python/guessnumber.py:
+	* src/boards/python/hexagon.py:
+	* src/boards/python/login.py:
+	* src/boards/python/melody.py:
+	* src/boards/python/mosaic.py:
+	* src/boards/python/oscar_and_friends.py:
+	* src/boards/python/pythontest.py:
+	* src/boards/python/redraw.py:
+	* src/boards/python/searace.py:
+	* src/boards/python/sudoku.py:
+	* src/boards/python/tuxpaint.py:
+	* src/boards/python/watercycle.py:
+	* src/gcompris/Makefile.mingw:
+
 2006-10-01  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	- Added Turkish map by Onur Tolga Sehitoglu

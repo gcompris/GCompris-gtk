@@ -1,27 +1,26 @@
 #  gcompris - redraw
-# 
+#
 # Time-stamp: <2001/08/20 00:54:45 bruno>
-# 
+#
 # Copyright (C) 2003 Bruno Coudoin
-# 
+#
 #   This program is free software; you can redistribute it and/or modify
 #   it under the terms of the GNU General Public License as published by
 #   the Free Software Foundation; either version 2 of the License, or
 #   (at your option) any later version.
-# 
+#
 #   This program is distributed in the hope that it will be useful,
 #   but WITHOUT ANY WARRANTY; without even the implied warranty of
 #   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 #   GNU General Public License for more details.
-# 
+#
 #   You should have received a copy of the GNU General Public License
 #   along with this program; if not, write to the Free Software
 #   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
-# 
+#
 from gettext import gettext as _
 # PythonTest Board module
-import gnome
-import gnome.canvas
+import gnomecanvas
 import gcompris
 import gcompris.utils
 import gcompris.skin
@@ -33,7 +32,7 @@ import math
 
 class Gcompris_redraw:
   """The Re-drawing activity"""
-  
+
 
   def __init__(self, gcomprisBoard):
 
@@ -43,7 +42,7 @@ class Gcompris_redraw:
     # When the bonus is displayed, it call us first with pause(1) and then with pause(0)
     self.board_paused  = 0;
     self.gamewon       = 0;
-    
+
     # TOOL SELECTION
     self.tools = [
       ["RECT",           "draw/tool-rectangle.png",       "draw/tool-rectangle_on.png",          gcompris.CURSOR_RECT],
@@ -59,16 +58,16 @@ class Gcompris_redraw:
     self.current_tool=0
 
     # COLOR SELECTION
-    self.colors = [ 0x2A2A2AFFL,   
-                    0x7C4B21FFL,   
-                    0xEE0000FFL,   
-                    0xFF8C45FFL,   
-                    0xFFFF0cFFL,   
-                    0xB9BC0DFFL,   
-                    0x14FF3bFFL,   
-                    0xA4FFB3FFL,   
-                    0xFF53AFFFL,   
-                    0x831891FFL,   
+    self.colors = [ 0x2A2A2AFFL,
+                    0x7C4B21FFL,
+                    0xEE0000FFL,
+                    0xFF8C45FFL,
+                    0xFFFF0cFFL,
+                    0xB9BC0DFFL,
+                    0x14FF3bFFL,
+                    0xA4FFB3FFL,
+                    0xFF53AFFFL,
+                    0x831891FFL,
                     0x666666FFL,
                     0xF0F0F0FFL]
 
@@ -96,14 +95,14 @@ class Gcompris_redraw:
     # Set self.editing_mode = None to forbid drawing in the right area
     self.editing_mode = None
     #self.editing_mode = 1
-    
 
-  def start(self):  
+
+  def start(self):
     self.gcomprisBoard.level=1
     self.gcomprisBoard.maxlevel=1
     self.gcomprisBoard.sublevel=1
     self.gcomprisBoard.number_of_sublevel=1
-    
+
     gcompris.bar_set(gcompris.BAR_OK|gcompris.BAR_LEVEL)
     gcompris.set_background(self.gcomprisBoard.canvas.root(),
                             gcompris.skin.image_to_skin("gcompris-bg.jpg"))
@@ -112,13 +111,13 @@ class Gcompris_redraw:
     # Create our rootitem. We put each canvas item in it so at the end we
     # only have to kill it. The canvas deletes all the items it contains automaticaly.
     self.rootitem = self.gcomprisBoard.canvas.root().add(
-      gnome.canvas.CanvasGroup,
+      gnomecanvas.CanvasGroup,
       x=0.0,
       y=0.0
       )
 
     self.rootitem.add(
-      gnome.canvas.CanvasPixbuf,
+      gnomecanvas.CanvasPixbuf,
       pixbuf = gcompris.utils.load_pixmap(self.gcomprisBoard.icon_name),
       x = gcompris.BOARD_WIDTH - 60,
       y = 5,
@@ -127,7 +126,7 @@ class Gcompris_redraw:
       width_set = 1,
       height_set = 1
       )
-    
+
     self.draw_tools()
     self.draw_colors()
     self.draw_drawing_area(20)
@@ -136,7 +135,7 @@ class Gcompris_redraw:
     self.display_current_level()
 
     self.pause(0);
-    
+
   def end(self):
     # Remove the root item removes all the others inside it
     gcompris.set_cursor(gcompris.CURSOR_DEFAULT);
@@ -146,13 +145,13 @@ class Gcompris_redraw:
     # Delete error previous mark if any
     if(self.root_erroritem):
       self.root_erroritem.destroy()
-        
+
 
 
   def pause(self, pause):
-    
+
     self.board_paused = pause
-    
+
     # When the bonus is displayed, it call us first with pause(1) and then with pause(0)
     # the game is won
     if(self.gamewon == 1 and pause == 0):
@@ -160,7 +159,7 @@ class Gcompris_redraw:
       self.gamewon = 0
 
     return
-                  
+
 
   def ok(self):
     # Save a copy of the target drawing future comparison
@@ -182,18 +181,18 @@ class Gcompris_redraw:
       print("-------------------------------------------------------------------------------")
       print source
       print("-------------------------------------------------------------------------------")
-      
+
     # Need to check if target image equals drawing image
     for i in source:
       for j in target:
         if i == j:
           target.remove(j)
-          
+
     for i in target2:
       for j in source:
         if i == j:
           source.remove(j)
-          
+
     if(len(target) == 0 and len(source) == 0):
       # This is a WIN
       self.erase_drawing_area()
@@ -202,7 +201,7 @@ class Gcompris_redraw:
         gcompris.bonus.display(gcompris.bonus.WIN, gcompris.bonus.FLOWER)
         self.display_current_level()
         self.root_targetitem.hide()
-        
+
     else:
       # Delete previous mark if any
       if(self.root_erroritem):
@@ -210,7 +209,7 @@ class Gcompris_redraw:
 
       # Create our rootitem for error items mark
       self.root_erroritem = self.gcomprisBoard.canvas.root().add(
-        gnome.canvas.CanvasGroup,
+        gnomecanvas.CanvasGroup,
         x=0.0,
         y=0.0
         )
@@ -235,24 +234,24 @@ class Gcompris_redraw:
       xofset = self.target_area[0] - self.drawing_area[0]
     else:
       xofset = 0
-    
+
     for t in target:
       if(t.has_key('points')):
         self.root_erroritem.add(
-          gnome.canvas.CanvasPixbuf,
+          gnomecanvas.CanvasPixbuf,
           pixbuf = gcompris.utils.load_pixmap(gcompris.skin.image_to_skin("mini_bad.png")),
           x = t['points'][0] + (t['points'][2]-t['points'][0])/2 - icw + xofset,
           y = t['points'][1] + (t['points'][3]-t['points'][1])/2 -ich
           )
       else:
         self.root_erroritem.add(
-          gnome.canvas.CanvasPixbuf,
+          gnomecanvas.CanvasPixbuf,
           pixbuf = gcompris.utils.load_pixmap(gcompris.skin.image_to_skin("mini_bad.png")),
           x = t['x1'] + (t['x2']-t['x1'])/2 -icw + xofset,
           y = t['y1'] + (t['y2']-t['y1'])/2 -ich
           )
 
-    
+
   # Called by gcompris when the user click on the level icon
   def set_level(self, level):
     self.gcomprisBoard.level=level;
@@ -260,14 +259,14 @@ class Gcompris_redraw:
 
     self.erase_drawing_area()
     self.display_current_level()
-            
+
   def repeat(self):
     print("Gcompris_redraw repeat.")
-            
+
 
   def config(self):
     print("Gcompris_redraw config.")
-              
+
   def key_press(self, keyval, commit_str, preedit_str):
     print("got key %i" % keyval)
     return False
@@ -287,26 +286,26 @@ class Gcompris_redraw:
     # Calc the index in drawlist
     i = (self.gcomprisBoard.level-1)*self.gcomprisBoard.number_of_sublevel+ \
         (self.gcomprisBoard.sublevel-1)
-    
+
     if(i>=len(self.drawlist)):
        # the current board is finished : bail out
        gcompris.bonus.board_finished(gcompris.bonus.FINISHED_RANDOM)
        return
-       
+
     self.draw_image_target(self.drawlist[i])
 
     self.display_sublevel()
 
     # Prepare an item for the coord display
     self.coorditem = self.root_targetitem.add(
-      gnome.canvas.CanvasText,
+      gnomecanvas.CanvasText,
       font=gcompris.skin.get_font("gcompris/content"),
       x=gcompris.BOARD_WIDTH / 2 + 1,
       y=gcompris.BOARD_HEIGHT - 10 + 1 ,
       fill_color_rgba=0x000000FFL
       )
     self.coorditem_shadow = self.root_targetitem.add(
-      gnome.canvas.CanvasText,
+      gnomecanvas.CanvasText,
       font=gcompris.skin.get_font("gcompris/content"),
       x=gcompris.BOARD_WIDTH / 2,
       y= gcompris.BOARD_HEIGHT - 10,
@@ -315,7 +314,7 @@ class Gcompris_redraw:
 
     # Create our rootitem for drawing items
     self.root_drawingitem = self.gcomprisBoard.canvas.root().add(
-      gnome.canvas.CanvasGroup,
+      gnomecanvas.CanvasGroup,
       x=0.0,
       y=0.0
       )
@@ -337,14 +336,14 @@ class Gcompris_redraw:
         # the current board is finished : bail out
         gcompris.bonus.board_finished(gcompris.bonus.FINISHED_RANDOM)
         return 0
-      
+
     return 1
-        
+
   # display current/sublevel number
   def display_sublevel(self):
 
     self.root_targetitem.add(
-      gnome.canvas.CanvasText,
+      gnomecanvas.CanvasText,
       text=_("Level") + " " + str(self.gcomprisBoard.sublevel) + "/"
       + str(self.gcomprisBoard.number_of_sublevel),
       font=gcompris.skin.get_font("gcompris/content"),
@@ -354,7 +353,7 @@ class Gcompris_redraw:
       anchor=gtk.ANCHOR_EAST,
       )
     self.root_targetitem.add(
-      gnome.canvas.CanvasText,
+      gnomecanvas.CanvasText,
       text=_("Level") + " " + str(self.gcomprisBoard.sublevel) + "/"
       + str(self.gcomprisBoard.number_of_sublevel),
       font=gcompris.skin.get_font("gcompris/content"),
@@ -368,7 +367,7 @@ class Gcompris_redraw:
   def draw_tools(self):
 
     self.rootitem.add(
-      gnome.canvas.CanvasPixbuf,
+      gnomecanvas.CanvasPixbuf,
       pixbuf = gcompris.utils.load_pixmap("draw/little-tool-selector.png"),
       x=5,
       y=20.0,
@@ -386,9 +385,9 @@ class Gcompris_redraw:
         theX = x2
       else:
         theX = x1
-        
+
       item = self.rootitem.add(
-        gnome.canvas.CanvasPixbuf,
+        gnomecanvas.CanvasPixbuf,
         pixbuf = gcompris.utils.load_pixmap(self.tools[i][1]),
         x=theX,
         y=y
@@ -411,7 +410,7 @@ class Gcompris_redraw:
         # Deactivate old button
         self.old_tool_item.set(pixbuf = gcompris.utils.load_pixmap(self.tools[self.current_tool][1]))
 
-        # Activate new button                         
+        # Activate new button
         self.current_tool = tool
         self.old_tool_item = item
         self.old_tool_item.set(pixbuf = gcompris.utils.load_pixmap(self.tools[self.current_tool][2]))
@@ -419,7 +418,7 @@ class Gcompris_redraw:
 
   # Display the color selector
   def draw_colors(self):
-    
+
     x1=13.0
     x2=59.0
     y=230.0
@@ -431,9 +430,9 @@ class Gcompris_redraw:
         theX = x2
       else:
         theX = x1
-        
+
       item = self.rootitem.add(
-        gnome.canvas.CanvasRect,
+        gnomecanvas.CanvasRect,
         fill_color_rgba = self.colors[i],
         x1=theX,
         y1=y,
@@ -478,7 +477,7 @@ class Gcompris_redraw:
     y2=self.drawing_area[3]
 
     item = self.rootitem.add (
-      gnome.canvas.CanvasRect,
+      gnomecanvas.CanvasRect,
       x1=x1,
       y1=y1,
       x2=x2,
@@ -497,7 +496,7 @@ class Gcompris_redraw:
     y2=self.target_area[3]
 
     item = self.rootitem.add (
-      gnome.canvas.CanvasRect,
+      gnomecanvas.CanvasRect,
       x1=x1,
       y1=y1,
       x2=x2,
@@ -513,7 +512,7 @@ class Gcompris_redraw:
     #
     # Given coord are returned swapped
     # Work fine for rect and ellipse but not line
-    # so that y2 > y1 and x2 > x1 
+    # so that y2 > y1 and x2 > x1
     #
   def reorder_coord(self, x1, y1, x2, y2):
     p = [x1, y1, x2, y2]
@@ -541,7 +540,7 @@ class Gcompris_redraw:
 
         if k == 'points' :
           if self.gcomprisBoard.mode == 'normal':
-            v2 = (v[0]+xofset, v[1], v[2]+xofset, v[3])            
+            v2 = (v[0]+xofset, v[1], v[2]+xofset, v[3])
           else:
             # Symmetrical view
             v2 = (self.drawing_area[2] - (v[0] - self.drawing_area[0])+xofset, v[1],
@@ -570,7 +569,7 @@ class Gcompris_redraw:
             item[k] = self.drawing_area[2] - (v - self.drawing_area[0])  + xofset
 
     return drawing
-    
+
   # Draw the image target
   # depending on self.gcomprisBoard.level drawing is 'normal' or 'symmetric'
   #
@@ -578,41 +577,41 @@ class Gcompris_redraw:
 
     # Save the drawing in image_target for future comparison
     self.image_target = drawing
-    
+
     # Create our rootitem for target items
     self.root_targetitem = self.gcomprisBoard.canvas.root().add(
-      gnome.canvas.CanvasGroup,
+      gnomecanvas.CanvasGroup,
       x=0.0,
       y=0.0
       )
 
     if self.gcomprisBoard.mode == 'symmetrical':
       drawing = self.get_symmetry(drawing)
-      
+
     # The images target are always drawn on the drawing area to ease the final comparison
     xofset = self.target_area[0] - self.drawing_area[0]
     for i in drawing:
       #
-      # Can specify the item type to draw via a real GTK type or a TOOL string 
+      # Can specify the item type to draw via a real GTK type or a TOOL string
       if(i.has_key('type')):
         item = self.root_targetitem.add ( i['type'] )
         item.connect("event", self.target_item_event)
 
       elif(i.has_key('tool')):
         if(i['tool'] == "RECT"):
-          item = self.root_targetitem.add ( gnome.canvas.CanvasRect )
+          item = self.root_targetitem.add ( gnomecanvas.CanvasRect )
         elif(i['tool'] == "FILL_RECT"):
-          item = self.root_targetitem.add ( gnome.canvas.CanvasRect )
+          item = self.root_targetitem.add ( gnomecanvas.CanvasRect )
         elif(i['tool'] == "CIRCLE"):
-          item = self.root_targetitem.add ( gnome.canvas.CanvasEllipse )
+          item = self.root_targetitem.add ( gnomecanvas.CanvasEllipse )
         elif(i['tool'] == "FILL_CIRCLE"):
-          item = self.root_targetitem.add ( gnome.canvas.CanvasEllipse )
+          item = self.root_targetitem.add ( gnomecanvas.CanvasEllipse )
         elif(i['tool'] == "LINE"):
-          item = self.root_targetitem.add ( gnome.canvas.CanvasLine )
+          item = self.root_targetitem.add ( gnomecanvas.CanvasLine )
         else:
           print ("ERROR: incorrect type in draw_image_target", i)
         item.connect("event", self.target_item_event)
-      
+
       for k, v in i.items():
         if k == 'fill_color' :
           item.set ( fill_color = v )
@@ -627,7 +626,7 @@ class Gcompris_redraw:
         elif k == 'outline_color_rgba' :
           item.set ( outline_color_rgba = v )
         elif k == 'points' :
-          v2 = (v[0]+xofset, v[1], v[2]+xofset, v[3])            
+          v2 = (v[0]+xofset, v[1], v[2]+xofset, v[3])
           item.set ( points = v2)
         elif k == 'width_units' :
           item.set ( width_units = v )
@@ -662,30 +661,30 @@ class Gcompris_redraw:
       x_text = x1 - 14
     else:
       x_text = x2 + 14
-      
+
     y_text = y1 - 10
 
     # We manage a 2 colors grid
     ci = 0
     ca = 0x1D0DFFFFL
     cb = 0xAAEEAAFFL
-    
+
     for i in range(x1,x2,step):
       if(ci%2):
         color = ca
       else:
         color = cb
       ci += 1
-      
+
       item = self.rootitem.add (
-        gnome.canvas.CanvasLine,
+        gnomecanvas.CanvasLine,
         points=(i , y1, i , y2),
         fill_color_rgba=color,
         width_units=1.0,
         )
       # Shadow for text number
       self.rootitem.add (
-        gnome.canvas.CanvasText,
+        gnomecanvas.CanvasText,
         text=int((i-x1) / step),
         font=gcompris.skin.get_font("gcompris/content"),
         x=i+1,
@@ -694,14 +693,14 @@ class Gcompris_redraw:
         )
       # Text number
       self.rootitem.add (
-        gnome.canvas.CanvasText,
+        gnomecanvas.CanvasText,
         text=int((i-x1) / step),
         font=gcompris.skin.get_font("gcompris/content"),
         x=i,
         y=y_text,
         fill_color_rgba=0xFFFFA0FFL
         )
-      
+
       # Clicking on lines let you create object
       if(x1<self.target_area[0]):
         item.connect("event", self.create_item_event)
@@ -714,16 +713,16 @@ class Gcompris_redraw:
       else:
         color = cb
       ci += 1
-      
+
       item = self.rootitem.add (
-        gnome.canvas.CanvasLine,
+        gnomecanvas.CanvasLine,
         points=(x1, i, x2 , i),
         fill_color_rgba=color,
         width_units=1.0,
         )
       # Shadow for text number
       self.rootitem.add (
-        gnome.canvas.CanvasText,
+        gnomecanvas.CanvasText,
         text=int((i-y1) / step),
         font=gcompris.skin.get_font("gcompris/content"),
         x=x_text+1,
@@ -732,7 +731,7 @@ class Gcompris_redraw:
         )
       # Text number
       self.rootitem.add (
-        gnome.canvas.CanvasText,
+        gnomecanvas.CanvasText,
         text=int((i-y1) / step),
         font=gcompris.skin.get_font("gcompris/content"),
         x=x_text,
@@ -768,13 +767,13 @@ class Gcompris_redraw:
     # ---------------
     if event.type == gtk.gdk.BUTTON_RELEASE:
       if event.button == 1:
-        
+
         # Reset thein_select_ofx ofset
         self.in_select_ofx = -1
         self.in_select_ofy = -1
 
         return True
-        
+
     if event.state & gtk.gdk.BUTTON1_MASK:
       x=event.x
       y=event.y
@@ -836,9 +835,9 @@ class Gcompris_redraw:
         item.set(width_units=8.0)
 
       return True
-    
+
     return False
-          
+
   # Event when a click on an item happen on fill in type object
   def fillin_item_event(self, item, event, drawing_item_index):
     if event.type == gtk.gdk.BUTTON_PRESS:
@@ -849,7 +848,7 @@ class Gcompris_redraw:
           self.current_drawing[drawing_item_index]['fill_color_rgba'] = self.colors[self.current_color]
           return True
     return False
-          
+
   # Event when a click on an item happen on border fill type object
   def fillout_item_event(self, item, event, drawing_item_index):
     if event.type == gtk.gdk.BUTTON_PRESS:
@@ -888,9 +887,9 @@ class Gcompris_redraw:
       xl = self.drawing_area[0]
     else:
       xl = self.target_area[0]
-      
+
     yl = self.drawing_area[1]
-    
+
     x = int(round(((x+(self.current_step/2)) - xl)/self.current_step) - 1)
     y = int(round(((y+(self.current_step/2)) - yl)/self.current_step) - 1)
 
@@ -907,7 +906,7 @@ class Gcompris_redraw:
 
 
 
-    
+
   # Event when an event on the target area happen
   def target_item_event(self, item, event):
 
@@ -916,7 +915,7 @@ class Gcompris_redraw:
     else:
       self.display_coord(event.x,event.y, 2)
 
-      
+
   # Event when an event on the drawing area happen
   def create_item_event(self, item, event):
 
@@ -924,32 +923,32 @@ class Gcompris_redraw:
       self.display_coord(event.x,event.y, 3)
     else:
       self.display_coord(event.x,event.y, 1)
-      
+
     if event.type == gtk.gdk.BUTTON_PRESS:
-      
+
       # Delete error previous mark if any
       if(self.root_erroritem):
         self.root_erroritem.destroy()
 
       if event.button == 1:
         self.newitem = None
-        
+
         if (self.tools[self.current_tool][0] == "DEL" or
             self.tools[self.current_tool][0] == "SELECT" or
             self.tools[self.current_tool][0] == "FILL"):
           # This event is treated in del_item_event to avoid
           # operating on background item and grid
           return False
-        
+
         elif self.tools[self.current_tool][0] == "LINE":
-          
+
           x,y = self.snap_to_grid(event.x,event.y)
           self.pos_x = x
           self.pos_y = y
 
           self.newitem = self.root_drawingitem.add(
-            gnome.canvas.CanvasLine,
-            points=(self.pos_x, self.pos_y, x, y),          
+            gnomecanvas.CanvasLine,
+            points=(self.pos_x, self.pos_y, x, y),
             fill_color_rgba=self.colors[self.current_color],
             width_units=8.0
             )
@@ -963,13 +962,13 @@ class Gcompris_redraw:
                                         'width_units':8.0})
 
         elif self.tools[self.current_tool][0] == "RECT":
-          
+
           x,y = self.snap_to_grid(event.x,event.y)
           self.pos_x = x
           self.pos_y = y
-          
+
           self.newitem = self.root_drawingitem.add(
-            gnome.canvas.CanvasRect,
+            gnomecanvas.CanvasRect,
             x1=self.pos_x,
             y1=self.pos_y,
             x2=x,
@@ -988,15 +987,15 @@ class Gcompris_redraw:
                                        'y2':y,
                                        'outline_color_rgba':self.colors[self.current_color],
                                        'width_units':4.0})
-                                      
+
         elif self.tools[self.current_tool][0] == "FILL_RECT":
 
           x,y = self.snap_to_grid(event.x,event.y)
           self.pos_x = x
           self.pos_y = y
-          
+
           self.newitem = self.root_drawingitem.add(
-            gnome.canvas.CanvasRect,
+            gnomecanvas.CanvasRect,
             x1=self.pos_x,
             y1=self.pos_y,
             x2=x,
@@ -1023,9 +1022,9 @@ class Gcompris_redraw:
           x,y = self.snap_to_grid(event.x,event.y)
           self.pos_x = x
           self.pos_y = y
-          
+
           self.newitem = self.root_drawingitem.add(
-            gnome.canvas.CanvasEllipse,
+            gnomecanvas.CanvasEllipse,
             x1=self.pos_x,
             y1=self.pos_y,
             x2=x,
@@ -1050,9 +1049,9 @@ class Gcompris_redraw:
           x,y = self.snap_to_grid(event.x,event.y)
           self.pos_x = x
           self.pos_y = y
-          
+
           self.newitem = self.root_drawingitem.add(
-            gnome.canvas.CanvasEllipse,
+            gnomecanvas.CanvasEllipse,
             x1=self.pos_x,
             y1=self.pos_y,
             x2=x,
@@ -1063,7 +1062,7 @@ class Gcompris_redraw:
             )
           self.newitem.connect("event", self.fillin_item_event, len(self.current_drawing))
           self.newitem.connect("event", self.move_item_event, len(self.current_drawing))
-          
+
           # Add the new item to our list
           self.current_drawing.append({'tool': self.tools[self.current_tool][0],
                                        'x1':self.pos_x,
@@ -1076,7 +1075,7 @@ class Gcompris_redraw:
         if self.newitem != 0:
           self.newitem.connect("event", self.create_item_event)
           self.newitem.connect("event", self.del_item_event, len(self.current_drawing)-1)
-          
+
       return True
 
     #
@@ -1087,7 +1086,7 @@ class Gcompris_redraw:
         x=event.x
         y=event.y
         x,y = self.snap_to_grid(event.x,event.y)
-        
+
         # Check drawing boundaries
         if(event.x<self.drawing_area[0]):
           x=self.drawing_area[0]
@@ -1097,7 +1096,7 @@ class Gcompris_redraw:
           y=self.drawing_area[1]
         if(event.y>self.drawing_area[3]):
           y=self.drawing_area[3]
-          
+
         if self.tools[self.current_tool][0] == "LINE":
           self.newitem.set( points=( self.pos_x, self.pos_y, x, y) )
           # Reset the item to our list
@@ -1112,7 +1111,7 @@ class Gcompris_redraw:
           # Reset the item to our list
           self.current_drawing[len(self.current_drawing)-1]['x2'] = x
           self.current_drawing[len(self.current_drawing)-1]['y2'] = y
-          
+
 
     #
     # MOUSE DRAG STOP
@@ -1136,7 +1135,7 @@ class Gcompris_redraw:
             else:
               self.current_drawing[len(self.current_drawing)-1]['points'] = (bounds[2], bounds[3],
                                                                              bounds[0], bounds[1])
-            
+
         elif (self.tools[self.current_tool][0] == "RECT" or
               self.tools[self.current_tool][0] == "FILL_RECT" or
               self.tools[self.current_tool][0] == "CIRCLE" or
@@ -1156,7 +1155,7 @@ class Gcompris_redraw:
             self.current_drawing[len(self.current_drawing)-1]['y1'] = y1
             self.current_drawing[len(self.current_drawing)-1]['x2'] = x2
             self.current_drawing[len(self.current_drawing)-1]['y2'] = y2
-          
+
         return True
     return False
 
@@ -1264,7 +1263,7 @@ class Gcompris_redraw:
       ,
       # Sea boat and sun
       [{'x2': 420.0, 'width_units': 1.0, 'y2': 500.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 2768221183L, 'y1': 420.0, 'tool': 'FILL_RECT', 'x1': 140.0}, {'x2': 260.0, 'width_units': 1.0, 'y2': 160.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 4294905087L, 'y1': 60.0, 'tool': 'FILL_CIRCLE', 'x1': 160.0}, {'x2': 360.0, 'width_units': 1.0, 'y2': 200.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 4042322175L, 'y1': 160.0, 'tool': 'FILL_CIRCLE', 'x1': 260.0}, {'x2': 360.0, 'width_units': 1.0, 'y2': 220.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 4042322175L, 'y1': 200.0, 'tool': 'FILL_CIRCLE', 'x1': 300.0}, {'x2': 400.0,'width_units': 1.0, 'y2': 160.0, 'outline_color_rgba': 255L, 'fill_color_rgba':4042322175L, 'y1': 140.0, 'tool': 'FILL_CIRCLE', 'x1': 360.0}, {'tool': 'LINE','points': (220.0, 400.0, 240.0, 420.0), 'width_units': 8.0, 'fill_color_rgba': 3992977663L}, {'tool': 'LINE', 'points': (240.0, 420.0, 280.0, 420.0), 'width_units': 8.0, 'fill_color_rgba': 3992977663L}, {'tool': 'LINE', 'points': (280.0, 420.0, 300.0, 400.0), 'width_units': 8.0, 'fill_color_rgba': 3992977663L}, {'tool': 'LINE', 'points': (220.0, 400.0, 300.0, 400.0), 'width_units': 8.0, 'fill_color_rgba': 3992977663L}, {'tool': 'LINE', 'points': (260.0, 280.0, 260.0, 400.0),'width_units': 8.0, 'fill_color_rgba': 3992977663L}, {'tool': 'LINE', 'points':(260.0, 280.0, 300.0, 380.0), 'width_units': 8.0, 'fill_color_rgba': 2199425535L}, {'tool': 'LINE', 'points': (260.0, 380.0, 300.0, 380.0), 'width_units': 8.0,'fill_color_rgba': 2199425535L}]
-      
+
       ]
     else:
       # Symmetrical items
@@ -1290,7 +1289,7 @@ class Gcompris_redraw:
         ,
         # Plane
         [{'x2': 420.0, 'width_units': 1.0, 'y2': 380.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 3992977663L, 'y1': 140.0, 'tool': 'FILL_RECT', 'x1': 360.0}, {'x2': 360.0, 'width_units': 1.0, 'y2': 280.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 4287383039L, 'y1': 220.0, 'tool': 'FILL_RECT', 'x1': 180.0}, {'x2': 260.0, 'width_units': 1.0, 'y2': 220.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 707406591L, 'y1': 200.0, 'tool': 'FILL_RECT', 'x1': 240.0}, {'tool': 'LINE', 'points': (180.0, 200.0, 320.0, 200.0), 'width_units': 8.0, 'fill_color_rgba': 4283674623L}, {'x2': 420.0, 'width_units': 1.0, 'y2': 420.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 4287383039L, 'y1': 360.0, 'tool': 'FILL_RECT', 'x1': 400.0}, {'x2': 420.0, 'width_units': 1.0, 'y2': 180.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 4287383039L, 'y1': 160.0, 'tool': 'FILL_RECT', 'x1': 380.0}]
-        ,        
+        ,
         # bipbip (big non flying bird)
         [{'x2': 280.0, 'width_units': 1.0, 'y2': 320.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 352271359L, 'y1': 120.0, 'tool': 'FILL_RECT', 'x1': 260.0}, {'x2': 300.0, 'width_units': 1.0, 'y2': 120.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 352271359L, 'y1': 80.0, 'tool': 'FILL_RECT', 'x1': 260.0}, {'x2': 320.0, 'width_units': 1.0, 'y2': 120.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 352271359L, 'y1': 100.0, 'tool': 'FILL_RECT', 'x1': 300.0}, {'x2': 280.0, 'width_units': 1.0, 'y2': 380.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 352271359L, 'y1': 320.0, 'tool': 'FILL_RECT', 'x1': 200.0}, {'x2': 220.0, 'width_units': 1.0, 'y2': 320.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 352271359L, 'y1': 300.0, 'tool': 'FILL_RECT', 'x1': 200.0}, {'x2': 260.0, 'width_units': 1.0, 'y2': 460.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 352271359L, 'y1': 380.0, 'tool': 'FILL_RECT', 'x1': 240.0}, {'x2': 280.0, 'width_units': 1.0, 'y2': 460.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 352271359L, 'y1': 440.0, 'tool': 'FILL_RECT', 'x1': 260.0}]
         ,
@@ -1311,7 +1310,7 @@ class Gcompris_redraw:
         ,
         # Flying toy (cerf volant in french)
         [{'tool': 'LINE', 'points': (160.0, 140.0, 260.0, 100.0), 'width_units': 8.0, 'fill_color_rgba': 4042322175L}, {'tool': 'LINE', 'points': (160.0, 140.0, 160.0, 220.0), 'width_units': 8.0, 'fill_color_rgba': 4042322175L}, {'tool': 'LINE', 'points': (160.0, 220.0, 260.0, 380.0), 'width_units': 8.0, 'fill_color_rgba': 4042322175L}, {'tool': 'LINE', 'points': (260.0, 380.0, 360.0, 220.0), 'width_units': 8.0, 'fill_color_rgba': 4042322175L}, {'tool': 'LINE', 'points': (360.0, 140.0, 360.0, 220.0), 'width_units': 8.0, 'fill_color_rgba': 4042322175L}, {'tool': 'LINE', 'points': (260.0, 100.0, 360.0, 140.0), 'width_units': 8.0, 'fill_color_rgba': 4042322175L}, {'tool': 'LINE', 'points': (220.0, 500.0, 260.0, 380.0), 'width_units': 8.0, 'fill_color_rgba': 707406591L}, {'x2': 240.0, 'width_units': 1.0, 'y2': 180.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 3992977663L, 'y1': 160.0, 'tool': 'FILL_RECT', 'x1': 220.0}, {'x2': 300.0, 'width_units': 1.0, 'y2': 220.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 3992977663L, 'y1': 200.0, 'tool': 'FILL_RECT', 'x1': 280.0}, {'x2': 240.0, 'width_units': 1.0, 'y2': 260.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 3992977663L, 'y1': 240.0, 'tool': 'FILL_RECT', 'x1': 220.0}, {'x2': 300.0, 'width_units': 1.0, 'y2': 180.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 4287383039L, 'y1': 160.0, 'tool': 'FILL_CIRCLE', 'x1': 280.0}, {'x2': 240.0, 'width_units': 1.0, 'y2': 220.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 4287383039L, 'y1': 200.0, 'tool': 'FILL_CIRCLE', 'x1': 220.0}, {'x2': 300.0, 'width_units': 1.0, 'y2': 260.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 4287383039L, 'y1': 240.0, 'tool': 'FILL_CIRCLE', 'x1': 280.0}]
-        
+
       ]
 
     # No more than 9 level allowed in gcompris
@@ -1319,4 +1318,4 @@ class Gcompris_redraw:
     self.gcomprisBoard.maxlevel=min(9, math.ceil(float(len(self.drawlist))/self.gcomprisBoard.number_of_sublevel))
     print "Number of target=", len(self.drawlist)
     print "Maxlevel=", self.gcomprisBoard.maxlevel, " sublevel=", self.gcomprisBoard.number_of_sublevel
-    
+

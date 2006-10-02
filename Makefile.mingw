@@ -13,11 +13,14 @@ GCOMPRIS_BOARDS = ./src/boards
 GCOMPRIS_INSTALL_DIR = ./win32-install-dir
 
 GTK_TOP :=		/gtk
+GLIB_TOP :=		/glib
 GNUWIN32_TOP :=		/gnuwin32
 LIBXML2_TOP :=		/libxml2
 SDL_TOP :=		/sdl
 CANVAS_TOP :=		/gnomecanvas
+CAIRO_TOP :=		/cairo
 GNUCHESS_TOP :=		/gnuchess
+PYTHON_TOP :=		/c/Python24
 
 MAKENSIS := "/c/Program Files/NSIS/makensis.exe"
 
@@ -40,7 +43,7 @@ NEEDED_DLLS =		$(GNUCHESS_TOP)/bin/pthreadGC.dll \
 			$(GTK_TOP)/bin/libart_lgpl_2-2.dll \
 			$(GTK_TOP)/bin/libgdk-win32-2.0-0.dll \
 			$(GTK_TOP)/bin/libgdk_pixbuf-2.0-0.dll \
-			$(GTK_TOP)/bin/libglib-2.0-0.dll \
+			$(GLIB_TOP)/bin/libglib-2.0-0.dll \
 			$(GTK_TOP)/bin/libgmodule-2.0-0.dll \
 			$(GTK_TOP)/bin/libgobject-2.0-0.dll \
 			$(GTK_TOP)/bin/libpango-1.0-0.dll \
@@ -55,8 +58,11 @@ NEEDED_DLLS =		$(GNUCHESS_TOP)/bin/pthreadGC.dll \
 			$(GTK_TOP)/expat/bin/xmltok.dll \
 			$(GTK_TOP)/bin/iconv.dll \
 			$(GTK_TOP)/bin/intl.dll \
-			$(GTK_TOP)/bin/libpng12.dll \
-			$(GTK_TOP)/bin/jpeg62.dll
+			$(GTK_TOP)/bin/libpng13.dll \
+			$(GTK_TOP)/bin/jpeg62.dll \
+			$(GTK_TOP)/bin/libpangocairo-1.0-0.dll \
+			$(CAIRO_TOP/bin/libcairo-2.dll \
+			/c/WINDOWS/system32/python24.dll
 
 NEEDED_FILES =		README \
 			COPYING \

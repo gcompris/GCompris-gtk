@@ -1,6 +1,5 @@
 # Oscar_and_friends Board module
-import gnome
-import gnome.canvas
+import gnomecanvas
 import gcompris
 import gcompris.utils
 import gcompris.skin
@@ -15,7 +14,7 @@ class Gcompris_oscar_and_friends:
   """Testing gcompris python class"""
 
 
-  def __init__(self, gcomprisBoard):    
+  def __init__(self, gcomprisBoard):
     self.gcomprisBoard = gcomprisBoard
     self.next_item = None
     self.back_item = None
@@ -23,7 +22,7 @@ class Gcompris_oscar_and_friends:
 
     self.current_texts = None
     self.current_texts_index = 0
-    
+
     #initialisation to default values. Some of them will be replaced by
     #the configured values.
 
@@ -34,7 +33,7 @@ class Gcompris_oscar_and_friends:
     # Create our rootitem. We put each canvas item in it so at the end we
     # only have to kill it. The canvas deletes all the items it contains automaticaly.
     self.rootitem = self.gcomprisBoard.canvas.root().add(
-      gnome.canvas.CanvasGroup,
+      gnomecanvas.CanvasGroup,
       x=0.0,
       y=0.0
       )
@@ -78,7 +77,7 @@ class Gcompris_oscar_and_friends:
 
   def display_book_control(self):
     self.back_item = self.rootitem.add(
-      gnome.canvas.CanvasPixbuf,
+      gnomecanvas.CanvasPixbuf,
       pixbuf = gcompris.utils.load_pixmap(gcompris.skin.image_to_skin("button_backward.png")),
       x = gcompris.BOARD_WIDTH - 100,
       y = gcompris.BOARD_HEIGHT - 40
@@ -88,7 +87,7 @@ class Gcompris_oscar_and_friends:
     self.back_item.connect("event", self.back_item_event)
 
     self.next_item = self.rootitem.add(
-      gnome.canvas.CanvasPixbuf,
+      gnomecanvas.CanvasPixbuf,
       pixbuf = gcompris.utils.load_pixmap(gcompris.skin.image_to_skin("button_forward.png")),
       x = gcompris.BOARD_WIDTH - 50,
       y = gcompris.BOARD_HEIGHT - 40
@@ -98,7 +97,7 @@ class Gcompris_oscar_and_friends:
     self.next_item.connect("event", self.next_item_event)
 
     self.text_item = self.rootitem.add(
-      gnome.canvas.CanvasText,
+      gnomecanvas.CanvasText,
       x=gcompris.BOARD_WIDTH * 0.45,
       y=gcompris.BOARD_HEIGHT - 40.0,
       text="",
@@ -107,7 +106,7 @@ class Gcompris_oscar_and_friends:
       justification=gtk.JUSTIFY_CENTER
       )
     self.text_item.hide()
-    
+
   def display_scene_1_0(self):
       gcompris.set_background(self.gcomprisBoard.canvas.root(),
                               "oscar_and_friends/scene1_0.png")
@@ -129,13 +128,13 @@ class Gcompris_oscar_and_friends:
     self.display_back_previous_buttons()
     self.text_item.show()
 
-    
+
   def display_next_text(self):
     self.current_texts_index += 1
     if(self.current_texts_index < len(self.current_texts)):
       self.text_item.set(text=self.current_texts[self.current_texts_index])
       self.display_back_previous_buttons()
-    
+
   def display_previous_text(self):
     self.current_texts_index -= 1
     if(self.current_texts_index >= 0):

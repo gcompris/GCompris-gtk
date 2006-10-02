@@ -1,17 +1,17 @@
 #  gcompris - module.py
-# 
+#
 # Copyright (C) 2005 Bruno Coudoin and Yves Combe
-# 
+#
 #   This program is free software; you can redistribute it and/or modify
 #   it under the terms of the GNU General Public License as published by
 #   the Free Software Foundation; either version 2 of the License, or
 #   (at your option) any later version.
-# 
+#
 #   This program is distributed in the hope that it will be useful,
 #   but WITHOUT ANY WARRANTY; without even the implied warranty of
 #   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 #   GNU General Public License for more details.
-# 
+#
 #   You should have received a copy of the GNU General Public License
 #   along with this program; if not, write to the Free Software
 #   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
@@ -19,8 +19,7 @@
 
 # This is the base Class for all Administration modules.
 
-import gnome
-import gnome.canvas
+import gnomecanvas
 import gcompris
 import gcompris.utils
 import gcompris.skin
@@ -45,7 +44,7 @@ class Module:
     # By default, return 999 to let the module be low
     def position(self):
         return 999
-    
+
     def init(self, index, select_area, callback):
         print("Gcompris_administration init panel.")
 
@@ -59,13 +58,13 @@ class Module:
         # only have to kill it. The canvas deletes all the items it contains automaticaly.
 
         self.root_select_item = self.canvas.add(
-            gnome.canvas.CanvasGroup,
+            gnomecanvas.CanvasGroup,
             x=0.0,
             y=0.0
             )
 
         self.select_item = self.root_select_item.add(
-            gnome.canvas.CanvasRect,
+            gnomecanvas.CanvasRect,
             x1=select_area[0]+2,
             y1=y1,
             x2=select_area[2]-2,
@@ -82,7 +81,7 @@ class Module:
                                           self.module_name +
                                           ".png")
         item = self.root_select_item.add(
-            gnome.canvas.CanvasPixbuf,
+            gnomecanvas.CanvasPixbuf,
             pixbuf = gcompris.utils.load_pixmap(gcompris.skin.image_to_skin("config_" +
                                                                             self.module_name +
                                                                             ".png")),
@@ -93,9 +92,9 @@ class Module:
         item.connect("event", callback, self)
 
         y1 += gap
-    
+
         item = self.root_select_item.add (
-            gnome.canvas.CanvasText,
+            gnomecanvas.CanvasText,
             text=_(self.module_label),
             font=gcompris.skin.get_font("gcompris/tiny"),
             x = x,
@@ -107,7 +106,7 @@ class Module:
 
     def get_module_name(self):
         return self.module_name
-    
+
     def start(self):
         self.select_item.set(
             fill_color_rgba=self.selector_color,

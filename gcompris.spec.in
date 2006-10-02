@@ -18,7 +18,7 @@ Buildrequires: gnuchess gnucap
 Buildrequires: libxml2-devel libgnomeui2-devel libsqlite3_0-devel
 Buildrequires: texinfo
 # (misc) needed for python support
-Buildrequires: gnome-python python-devel pygtk2.0-devel
+Buildrequires:  python-devel pygtk2.0-devel
 Requires:	gnome-libs libxml2 gdk-pixbuf %canvaspackage %canvaslib
 Requires:       gnuchess >= 5.02
 Requires:       @REQUIRE_PYTHON@

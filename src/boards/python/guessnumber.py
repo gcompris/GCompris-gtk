@@ -17,8 +17,7 @@
 #   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 #
 
-import gnome
-import gnome.canvas
+import gnomecanvas
 import gcompris
 import gcompris.utils
 import gcompris.skin
@@ -186,7 +185,7 @@ class Gcompris_guessnumber:
       # Create our rootitem. We put each canvas item in it so at the end we
       # only have to kill it. The canvas deletes all the items it contains automaticaly.
       self.rootitem = self.gcomprisBoard.canvas.root().add(
-          gnome.canvas.CanvasGroup,
+          gnomecanvas.CanvasGroup,
           x=0.0,
           y=0.0
           )
@@ -206,7 +205,7 @@ class Gcompris_guessnumber:
       text = _("Guess a number between %d and %d") %(self.min, self.max)
 
       self.rootitem.add(
-          gnome.canvas.CanvasText,
+          gnomecanvas.CanvasText,
           x=340.0 + 1.0,
           y=30.0 + 1.0,
           font=gcompris.skin.get_font("gcompris/title"),
@@ -216,7 +215,7 @@ class Gcompris_guessnumber:
           )
 
       self.rootitem.add(
-          gnome.canvas.CanvasText,
+          gnomecanvas.CanvasText,
           x=340.0,
           y=30.0,
           font=gcompris.skin.get_font("gcompris/title"),
@@ -226,7 +225,7 @@ class Gcompris_guessnumber:
           )
 
       self.indicator_s = self.rootitem.add(
-          gnome.canvas.CanvasText,
+          gnomecanvas.CanvasText,
           x=300.0 + 1.0,
           y=70.0 + 1.0,
           font=gcompris.skin.get_font("gcompris/subtitle"),
@@ -236,7 +235,7 @@ class Gcompris_guessnumber:
           )
 
       self.indicator = self.rootitem.add(
-          gnome.canvas.CanvasText,
+          gnomecanvas.CanvasText,
           x=300.0,
           y=70.0,
           font=gcompris.skin.get_font("gcompris/subtitle"),
@@ -257,7 +256,7 @@ class Gcompris_guessnumber:
       self.y_old = self.y = self.orig_y
 
       self.anim = self.rootitem.add(
-        gnome.canvas.CanvasPixbuf,
+        gnomecanvas.CanvasPixbuf,
         pixbuf = pixmap,
         x=self.x,
         y=self.y,
@@ -281,7 +280,7 @@ class Gcompris_guessnumber:
     self.entry.show()
 
     self.widget = self.rootitem.add(
-      gnome.canvas.CanvasWidget,
+      gnomecanvas.CanvasWidget,
       widget=self.entry,
       x=730,
       y=30,

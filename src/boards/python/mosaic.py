@@ -17,8 +17,7 @@
 #   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 #
 
-import gnome
-import gnome.canvas
+import gnomecanvas
 import gcompris
 import gcompris.utils
 import gcompris.skin
@@ -186,14 +185,14 @@ class Gcompris_mosaic:
       # Create our rootitem. We put each canvas item in it so at the end we
       # only have to kill it. The canvas deletes all the items it contains automaticaly.
       self.rootitem = self.gcomprisBoard.canvas.root().add(
-          gnome.canvas.CanvasGroup,
+          gnomecanvas.CanvasGroup,
           x=0.0,
           y=0.0
           )
 
       text = _("Rebuild the same mosaic on the right area")
       self.rootitem.add(
-          gnome.canvas.CanvasText,
+          gnomecanvas.CanvasText,
           x=gcompris.BOARD_WIDTH/2 + 1.0,
           y=gcompris.BOARD_HEIGHT - 30 + 1.0,
           font=gcompris.skin.get_font("gcompris/title"),
@@ -202,7 +201,7 @@ class Gcompris_mosaic:
           justification=gtk.JUSTIFY_CENTER
           )
       self.rootitem.add(
-          gnome.canvas.CanvasText,
+          gnomecanvas.CanvasText,
           x=gcompris.BOARD_WIDTH/2,
           y=gcompris.BOARD_HEIGHT - 30,
           font=gcompris.skin.get_font("gcompris/title"),
@@ -252,7 +251,7 @@ class Gcompris_mosaic:
 
       # Create the check button to show the selected color
       self.checked_color_item = self.rootitem.add(
-        gnome.canvas.CanvasPixbuf,
+        gnomecanvas.CanvasPixbuf,
         pixbuf = gcompris.utils.load_pixmap(gcompris.skin.image_to_skin("button_checked.png")),
         x = 0,
         y = 0)
@@ -285,7 +284,7 @@ class Gcompris_mosaic:
                                            self.palette_item_width, self.palette_item_height)
 
               item = self.rootitem.add(
-                gnome.canvas.CanvasPixbuf,
+                gnomecanvas.CanvasPixbuf,
                 pixbuf = image,
                 x = orig_x + x * (self.palette_item_width  + gap_x),
                 y = orig_y + y * (self.palette_item_height + gap_y))
@@ -327,7 +326,7 @@ class Gcompris_mosaic:
             coord_x = orig_x + x * (self.palette_item_width  + gap_x)
             coord_y = orig_y + y * (self.palette_item_height + gap_y)
             item = self.rootitem.add(
-              gnome.canvas.CanvasPixbuf,
+              gnomecanvas.CanvasPixbuf,
               pixbuf = image,
               x = coord_x,
               y = coord_y)

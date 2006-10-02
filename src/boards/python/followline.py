@@ -1,7 +1,6 @@
 # Follow Line Board module
 import gobject
-import gnome
-import gnome.canvas
+import gnomecanvas
 import gcompris
 import gcompris.skin
 import gcompris.bonus
@@ -13,7 +12,7 @@ import math
 from gettext import gettext as _
 
 # ----------------------------------------
-# 
+#
 
 class Gcompris_followline:
   """follow the line"""
@@ -33,7 +32,7 @@ class Gcompris_followline:
     self.color_full    = 0x1a24cbffL
     self.color_target  = 0xFF0000FFL
     self.color_border  = 0x101010FFL
-    
+
     print("Gcompris_followline __init__.")
 
 
@@ -49,8 +48,8 @@ class Gcompris_followline:
 
     gcompris.bar_set_level(self.gcomprisBoard)
 
-    self.init_board()    
-    
+    self.init_board()
+
     print("Gcompris_followline start.")
 
 
@@ -77,12 +76,12 @@ class Gcompris_followline:
   def key_press(self, keyval, commit_str, preedit_str):
     return False
 
-      
-  # Called by gcompris core 
+
+  # Called by gcompris core
   def pause(self, pause):
-    
+
     self.board_paused = pause
-    
+
     # When the bonus is displayed, it call us first with pause(1) and then with pause(0)
     # the game is won
     if(pause == 0):
@@ -108,17 +107,17 @@ class Gcompris_followline:
     self.rootitem.destroy()
     self.lines_group.destroy()
     self.water_spot_group.destroy()
-    
+
   def next_level(self):
 
     self.cleanup()
-    
+
     # Set the level in the control bar
     gcompris.bar_set_level(self.gcomprisBoard);
-    
+
     self.init_board()
 
-          
+
 
   def init_board(self):
 
@@ -127,18 +126,18 @@ class Gcompris_followline:
     # Create our rootitem. We put each canvas item in it so at the end we
     # only have to kill it. The canvas deletes all the items it contains automaticaly.
     self.rootitem = self.gcomprisBoard.canvas.root().add(
-      gnome.canvas.CanvasGroup,
+      gnomecanvas.CanvasGroup,
       x=0.0,
       y=0.0
       )
 
     # Another group where we put each canvas line item in it
     self.lines_group = self.gcomprisBoard.canvas.root().add(
-      gnome.canvas.CanvasGroup,
+      gnomecanvas.CanvasGroup,
       x=0.0,
       y=0.0
       )
-    
+
     start_x         = 40
     start_y         = gcompris.BOARD_HEIGHT/2
     stop_x          = gcompris.BOARD_WIDTH - 100
@@ -150,14 +149,14 @@ class Gcompris_followline:
     step         = (stop_x-start_x)/(30)
 
     frequency = 1 + int(self.gcomprisBoard.level/4)
-      
+
     xpi = math.pi/2*frequency
     y   = start_y + math.cos(xpi)*(self.gcomprisBoard.level*10)
     for x in range(start_x, stop_x, step):
-      
+
       xpi += (math.pi/2*frequency)/step
       y2 = start_y + math.cos(xpi)*(self.gcomprisBoard.level*10)
-      
+
       # Check we stay within boundaries
       if(y2>=gcompris.BOARD_HEIGHT-min_boundary):
         y2=gcompris.BOARD_HEIGHT-min_boundary
@@ -165,7 +164,7 @@ class Gcompris_followline:
         y2=min_boundary
 
       item = self.lines_group.add(
-        gnome.canvas.CanvasLine,
+        gnomecanvas.CanvasLine,
         points          =( x,
                            y,
                            x + step,
@@ -175,10 +174,10 @@ class Gcompris_followline:
         cap_style       = gtk.gdk.CAP_ROUND
         )
       item.connect("event", self.line_item_event)
-      
+
       if x > start_x and x < stop_x-step:
         self.rootitem.add(
-          gnome.canvas.CanvasLine,
+          gnomecanvas.CanvasLine,
           points          =( x,
                              y,
                              x + step,
@@ -187,26 +186,26 @@ class Gcompris_followline:
           width_units     = line_width + 20,
           cap_style       = gtk.gdk.CAP_ROUND
           )
-        
+
       y = y2
 
     self.highlight_next_line()
 
     # Another group where we put each canvas line item in it
     self.water_spot_group = self.gcomprisBoard.canvas.root().add(
-      gnome.canvas.CanvasGroup,
+      gnomecanvas.CanvasGroup,
       x=0.0,
       y=0.0
       )
     # A water spot will be displayed when the user win
     self.water_spot = self.water_spot_group.add (
-      gnome.canvas.CanvasPixbuf,
+      gnomecanvas.CanvasPixbuf,
       pixbuf = gcompris.utils.load_pixmap("images/water_spot.png"),
       x=580,
       y=260,
       )
     self.water_spot.hide()
-    
+
 
   # Code that increments the sublevel and level
   # And bail out if no more levels are available
@@ -222,7 +221,7 @@ class Gcompris_followline:
         # the current board is finished : bail out
         gcompris.bonus.board_finished(gcompris.bonus.FINISHED_RANDOM)
         return 0
-      
+
     return 1
 
   #
@@ -243,9 +242,9 @@ class Gcompris_followline:
   #
   def highlight_previous_line(self):
     previous_item = []
-    
+
     for item in self.lines_group.item_list:
-      
+
       if(item.get_data("iamnext") == True):
 
         if(previous_item):
@@ -261,11 +260,11 @@ class Gcompris_followline:
             )
           item.set_data("gotit", False)
           previous_item.set_data("iamnext", True);
-        
+
         return
-      
+
       previous_item = item
-      
+
 
   def is_done(self):
     done = True
@@ -281,7 +280,7 @@ class Gcompris_followline:
         self.water_spot.raise_to_top()
         self.water_spot.show()
         gcompris.bonus.display(gcompris.bonus.WIN, gcompris.bonus.FLOWER)
-      
+
     return done
 
   def loosing_item_event(self, widget, event=None):
@@ -303,6 +302,6 @@ class Gcompris_followline:
       widget.set_data("iamnext", False);
       self.highlight_next_line()
       self.is_done()
-      
+
     return False
 

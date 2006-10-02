@@ -1,7 +1,6 @@
 # Ballcatch Board module
 import gobject
-import gnome
-import gnome.canvas
+import gnomecanvas
 import gcompris
 import gcompris.utils
 import gcompris.skin
@@ -43,18 +42,18 @@ class Gcompris_ballcatch:
 
     self.ballinc    = 20        # Event loop timer for the ball move
     self.timer_diff = 0         # Store the time diff between left and right key
-    
+
     # Create our rootitem. We put each canvas item in it so at the end we
     # only have to kill it. The canvas deletes all the items it contains automaticaly.
     self.rootitem = self.gcomprisBoard.canvas.root().add(
-      gnome.canvas.CanvasGroup,
+      gnomecanvas.CanvasGroup,
       x=0.0,
       y=0.0
       )
 
     # Tux
     self.lefthand = self.rootitem.add(
-      gnome.canvas.CanvasPixbuf,
+      gnomecanvas.CanvasPixbuf,
       pixbuf = gcompris.utils.load_pixmap("gcompris/misc/tux.png"),
       x=gcompris.BOARD_WIDTH/2 - 60,
       y=135.0
@@ -62,7 +61,7 @@ class Gcompris_ballcatch:
 
     # Balloon
     self.balloon_item = self.rootitem.add(
-      gnome.canvas.CanvasEllipse,
+      gnomecanvas.CanvasEllipse,
       x1=0.0,
       y1=0.0,
       x2=0.0,
@@ -72,7 +71,7 @@ class Gcompris_ballcatch:
 
     # The Left Hand
     self.lefthand = self.rootitem.add(
-      gnome.canvas.CanvasPixbuf,
+      gnomecanvas.CanvasPixbuf,
       pixbuf = gcompris.utils.load_pixmap("gcompris/misc/hand.png"),
       x=gcompris.BOARD_WIDTH/2-150.0,
       y=gcompris.BOARD_HEIGHT - 150
@@ -80,7 +79,7 @@ class Gcompris_ballcatch:
 
     # The Right Hand
     item = self.lefthand = self.rootitem.add(
-      gnome.canvas.CanvasPixbuf,
+      gnomecanvas.CanvasPixbuf,
       pixbuf = gcompris.utils.load_pixmap("gcompris/misc/hand.png"),
       x=gcompris.BOARD_WIDTH/2+100.0,
       y=gcompris.BOARD_HEIGHT - 150.0
@@ -89,10 +88,10 @@ class Gcompris_ballcatch:
     (cx, cy) = ( (bounds[2]+bounds[0])/2 , (bounds[3]+bounds[1])/2)
     mat = ( -1, 0, 0, 1, 2*cx, 0)
     item.affine_relative(mat)
-    
+
     # The Left Shift KEY
     self.leftkey = self.rootitem.add(
-      gnome.canvas.CanvasPixbuf,
+      gnomecanvas.CanvasPixbuf,
       pixbuf = gcompris.utils.load_pixmap("images/shift_key.png"),
       x=gcompris.BOARD_WIDTH/2-240.0,
       y=gcompris.BOARD_HEIGHT - 80
@@ -100,7 +99,7 @@ class Gcompris_ballcatch:
 
     # The Right Shift KEY
     self.rightkey = self.rootitem.add(
-      gnome.canvas.CanvasPixbuf,
+      gnomecanvas.CanvasPixbuf,
       pixbuf = gcompris.utils.load_pixmap("images/shift_key.png"),
       x=gcompris.BOARD_WIDTH/2+100.0,
       y=gcompris.BOARD_HEIGHT - 80
@@ -108,10 +107,10 @@ class Gcompris_ballcatch:
 
     # The basic tick for object moves
     self.timerinc = 1000
-    
+
     self.left_continue  = True
     self.right_continue = True
-    
+
     self.counter_left  = 0
     self.counter_right = 0
 
@@ -146,17 +145,17 @@ class Gcompris_ballcatch:
 
     if (keyval == gtk.keysyms.Shift_L):
       self.left_continue  = False
-    
+
     if (keyval == gtk.keysyms.Shift_R):
       self.right_continue = False
 
     return False
-      
-  # Called by gcompris core 
+
+  # Called by gcompris core
   def pause(self, pause):
-    
+
     self.board_paused = pause
-    
+
     # When the bonus is displayed, it call us first with pause(1) and then with pause(0)
     # the game is won
     if(pause == 0):
@@ -174,12 +173,12 @@ class Gcompris_ballcatch:
 
   # End of Initialisation
   # ---------------------
-  
+
   def next_level(self):
 
     # Set the level in the control bar
     gcompris.bar_set_level(self.gcomprisBoard);
-    
+
     self.init_balloon()
     self.left_continue  = True
     self.right_continue = True
@@ -207,7 +206,7 @@ class Gcompris_ballcatch:
 
     if(self.timerinc<1):
       self.timerinc = 1
-          
+
     # Restart the timer
     self.timer_inc  = gtk.timeout_add(self.timerinc, self.timer_inc_display)
 
@@ -236,9 +235,9 @@ class Gcompris_ballcatch:
         self.timer_diff = -1.5
       elif(self.timer_diff < 1.5 and self.timer_diff > 0 ):
         self.timer_diff = 1.5
-        
+
       self.timer_inc  = gtk.timeout_add(self.ballinc, self.ball_move)
-      
+
   def ball_move(self):
 
     # The move simulation
@@ -248,7 +247,7 @@ class Gcompris_ballcatch:
 
     if(self.balloon_width_units>1.0):
       self.balloon_width_units -= 0.5
-    
+
     self.balloon_item.set(
       x1=self.balloon_x - self.balloon_size/2,
       y1=self.balloon_y - self.balloon_size/2,
@@ -309,6 +308,6 @@ class Gcompris_ballcatch:
         # the current board is finished : bail out
         gcompris.bonus.board_finished(gcompris.bonus.FINISHED_RANDOM)
         return 0
-      
+
     return 1
-        
+

@@ -1,23 +1,22 @@
 #  gcompris - user_list.py
-# 
+#
 # Copyright (C) 2005 Bruno Coudoin and Yves Combe
-# 
+#
 #   This program is free software; you can redistribute it and/or modify
 #   it under the terms of the GNU General Public License as published by
 #   the Free Software Foundation; either version 2 of the License, or
 #   (at your option) any later version.
-# 
+#
 #   This program is distributed in the hope that it will be useful,
 #   but WITHOUT ANY WARRANTY; without even the implied warranty of
 #   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 #   GNU General Public License for more details.
-# 
+#
 #   You should have received a copy of the GNU General Public License
 #   along with this program; if not, write to the Free Software
 #   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
-# 
+#
 
-import gnome
 import gcompris
 import gcompris.utils
 import gcompris.skin
@@ -122,11 +121,11 @@ class User_list:
       self.button_remove.connect("clicked", self.on_remove_item_clicked, treeview)
       right_box.pack_start(self.button_remove, False, False, 0)
       self.button_remove.show()
-      
+
       # Missing callbacks
       selection = treeview.get_selection()
       selection.connect('changed', self.user_changed_cb, treeview)
-      
+
   # -------------------
   # User Management
   # -------------------
@@ -135,7 +134,7 @@ class User_list:
   def reload(self, class_id):
     print "user_list reload %d" %class_id
     self.class_id = class_id
-      
+
     # Remove all entries in the list
     self.model.clear()
 
@@ -161,7 +160,7 @@ class User_list:
                COLUMN_BIRTHDATE, user[COLUMN_BIRTHDATE]
                )
 
-    
+
 
   def __create_model(self):
     model = gtk.ListStore(
@@ -178,7 +177,7 @@ class User_list:
   def __add_columns(self, treeview):
 
     # Total column length must be 400
-    
+
     model = treeview.get_model()
 
     # columns for login
@@ -197,7 +196,7 @@ class User_list:
     column = gtk.TreeViewColumn(_('First Name'), renderer,
                                 text=COLUMN_FIRSTNAME)
     column.set_sort_column_id(COLUMN_FIRSTNAME)
-    column.set_sizing(gtk.TREE_VIEW_COLUMN_FIXED) 
+    column.set_sizing(gtk.TREE_VIEW_COLUMN_FIXED)
     column.set_fixed_width(constants.COLUMN_WIDTH_FIRSTNAME)
     treeview.append_column(column)
 
@@ -230,7 +229,7 @@ class User_list:
       user_id=0
     else:
       user_id += 1
-      
+
     return user_id
 
 
@@ -241,7 +240,7 @@ class User_list:
     model = treeview.get_model()
     treestore, paths = treeview.get_selection().get_selected_rows()
     paths.reverse()
-        
+
     for path in paths:
       iter = treestore.get_iter(path)
       path = model.get_path(iter)[0]
@@ -270,7 +269,7 @@ class User_list:
     model = treeview.get_model()
     treestore, paths = treeview.get_selection().get_selected_rows()
     paths.reverse()
-        
+
     for path in paths:
       iter = treestore.get_iter(path)
       path = model.get_path(iter)[0]
@@ -292,16 +291,16 @@ class User_list:
                                _("To import a user list from a file, first select a class.\nFILE FORMAT: Your file must be formatted like this:\nlogin;First name;Last name;Date of birth\nThe separator is autodetected and can be one of ',', ';' or ':'"))
     dialog.run()
     dialog.destroy()
-    
+
     model = treeview.get_model()
-    
+
     dialog = gtk.FileChooserDialog("Open..",
                                    None,
                                    gtk.FILE_CHOOSER_ACTION_OPEN,
                                    (gtk.STOCK_CANCEL, gtk.RESPONSE_CANCEL,
                                     gtk.STOCK_OPEN, gtk.RESPONSE_OK))
     dialog.set_default_response(gtk.RESPONSE_OK)
-    
+
     filter = gtk.FileFilter()
     filter.set_name("All files")
     filter.add_pattern("*")
@@ -313,7 +312,7 @@ class User_list:
     elif response == gtk.RESPONSE_CANCEL:
       dialog.destroy()
       return
-    
+
     dialog.destroy()
 
     # Parse the file and include each line in the user table
@@ -333,7 +332,7 @@ class User_list:
         sep=asep
 
     self.cur.execute('SELECT login FROM users')
-    
+
     passed_upper_login = [x[0].upper() for x in self.cur.fetchall()]
 
     rejected = []
@@ -352,7 +351,7 @@ class User_list:
         login = login + str(time.time())
       else:
         passed_upper_login.append(up_login)
-        
+
       # Save the changes in the base
       new_user = [user_id, login, firstname, lastname, birthdate, self.class_id]
       self.add_user_in_model(model, new_user)

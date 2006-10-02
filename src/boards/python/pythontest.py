@@ -1,6 +1,5 @@
 # PythonTest Board module
-import gnome
-import gnome.canvas
+import gnomecanvas
 import gcompris
 import gcompris.utils
 import gcompris.skin
@@ -15,11 +14,11 @@ class Gcompris_pythontest:
   """Testing gcompris python class"""
 
 
-  def __init__(self, gcomprisBoard):    
+  def __init__(self, gcomprisBoard):
     self.gcomprisBoard = gcomprisBoard
 
     self.gcomprisBoard.disable_im_context = True
-    
+
     self.canvasitems = {}
 
     self.colors = {}
@@ -32,7 +31,7 @@ class Gcompris_pythontest:
                            'green' : 0x00FF00FFL,
                            'blue' : 0x0000FFFFL }
 
-    # dict .keys() list of keys has random order 
+    # dict .keys() list of keys has random order
     self.config_colors_list = [ 'red', 'green', 'blue']
 
     self.movingline='none'
@@ -63,7 +62,7 @@ class Gcompris_pythontest:
     if logged:
       print "User Logged in:"
       print "   ", logged.login, logged.firstname, logged.lastname
-    
+
     self.gcomprisBoard.level=1
     self.gcomprisBoard.maxlevel=1
     self.gcomprisBoard.sublevel=1
@@ -79,7 +78,7 @@ class Gcompris_pythontest:
     self.config_dict.update(gcompris.get_board_conf())
 
     print "self.config_dict final :", self.config_dict
-    
+
     self.previous_locale = gcompris.get_locale()
 
     if self.config_dict.has_key('locale'):
@@ -87,7 +86,7 @@ class Gcompris_pythontest:
 
     # self.colors['line'] s set in init.
     # I put here the configuration use
-    
+
     color_name = self.config_dict['color_line']
     self.colors['line'] = self.config_colors[color_name]
 
@@ -99,7 +98,7 @@ class Gcompris_pythontest:
     # Create our rootitem. We put each canvas item in it so at the end we
     # only have to kill it. The canvas deletes all the items it contains automaticaly.
     self.rootitem = self.gcomprisBoard.canvas.root().add(
-      gnome.canvas.CanvasGroup,
+      gnomecanvas.CanvasGroup,
       x=0.0,
       y=0.0
       )
@@ -110,14 +109,14 @@ class Gcompris_pythontest:
     # pattern is for gcompris.radio_buttons
     pattern = self.config_dict['pattern']
 
-    patterns = { 'circle': gnome.canvas.CanvasEllipse,
-                 'rectangle': gnome.canvas.CanvasRect
+    patterns = { 'circle': gnomecanvas.CanvasEllipse,
+                 'rectangle': gnomecanvas.CanvasRect
                  }
 
     #error check
     if not patterns.has_key(pattern):
       pattern = 'circle'
-    
+
     self.canvasitems[1] = self.rootitem.add(
       patterns[pattern],
       x1=400.0 - distance ,
@@ -143,7 +142,7 @@ class Gcompris_pythontest:
     self.canvasitems[2].connect("event", self.circle_item_event)
 
     self.canvasitems[3] = self.rootitem.add(
-      gnome.canvas.CanvasText,
+      gnomecanvas.CanvasText,
       x=400.0,
       y=100.0,
       text=_("This is the first plugin in gcompris coded in the Python\nProgramming language."),
@@ -152,7 +151,7 @@ class Gcompris_pythontest:
       )
 
     self.canvasitems[4] = self.rootitem.add(
-      gnome.canvas.CanvasText,
+      gnomecanvas.CanvasText,
       x=400.0,
       y=140.0,
       text=_("It is now possible to develop gcompris activities in C or in Python.\nThanks to Olivier Samys who makes this possible."),
@@ -161,7 +160,7 @@ class Gcompris_pythontest:
       )
 
     self.canvasitems[5] = self.rootitem.add(
-      gnome.canvas.CanvasText,
+      gnomecanvas.CanvasText,
       x=400.0,
       y=250.0,
       text=_("This activity is not playable, just a test"),
@@ -173,7 +172,7 @@ class Gcompris_pythontest:
     # A simple game.
     # Try to hit left shift and right shift together. The peed increases
     self.rootitem.add(
-          gnome.canvas.CanvasRect,
+          gnomecanvas.CanvasRect,
           x1=20,
           y1=gcompris.BOARD_HEIGHT-180,
           x2=gcompris.BOARD_WIDTH-20,
@@ -184,7 +183,7 @@ class Gcompris_pythontest:
 
     # For the game status WIN/LOOSE
     self.canvasitems[6] = self.rootitem.add(
-      gnome.canvas.CanvasText,
+      gnomecanvas.CanvasText,
       x=gcompris.BOARD_WIDTH / 2,
       y=gcompris.BOARD_HEIGHT - 40,
       font=gcompris.skin.get_font("gcompris/content"),
@@ -193,7 +192,7 @@ class Gcompris_pythontest:
       )
 
     self.rootitem.add(
-      gnome.canvas.CanvasText,
+      gnomecanvas.CanvasText,
       x=400.0,
       y=400.0,
       text=("Test your reflex with the counter. Hit the 2 shifts key together.\nHit space to reset the counter and increase the speed.\nBackspace to reset the speed"),
@@ -203,14 +202,14 @@ class Gcompris_pythontest:
 
     # The basic tick for object moves
     self.timerinc = 1000
-    
+
     self.timer_inc  = gtk.timeout_add(self.timerinc, self.timer_inc_display)
 
     self.counter_left  = 0
     self.counter_right = 0
 
     self.canvasitems[7] = self.rootitem.add(
-      gnome.canvas.CanvasText,
+      gnomecanvas.CanvasText,
       x=gcompris.BOARD_WIDTH / 2,
       y=gcompris.BOARD_HEIGHT - 80,
       font=gcompris.skin.get_font("gcompris/content"),
@@ -220,15 +219,15 @@ class Gcompris_pythontest:
       )
 
     self.textitem_left = self.rootitem.add(
-      gnome.canvas.CanvasText,
+      gnomecanvas.CanvasText,
       font=gcompris.skin.get_font("gcompris/content"),
       x=gcompris.BOARD_WIDTH / 3,
       y=gcompris.BOARD_HEIGHT - 40,
       fill_color_rgba=0xFFFFFFFFL
       )
-    
+
     self.textitem_right = self.rootitem.add(
-      gnome.canvas.CanvasText,
+      gnomecanvas.CanvasText,
       font=gcompris.skin.get_font("gcompris/content"),
       x=gcompris.BOARD_WIDTH / 1.5,
       y=gcompris.BOARD_HEIGHT - 40,
@@ -237,14 +236,14 @@ class Gcompris_pythontest:
 
     self.left_continue  = True
     self.right_continue = True
-    
+
     print("Gcompris_pythontest start.")
 
 
   def end(self):
 
     gcompris.reset_locale()
-    
+
     # Remove the root item removes all the others inside it
     self.rootitem.destroy()
 
@@ -271,10 +270,10 @@ class Gcompris_pythontest:
     strn = u'%c' % utf8char
 
     win = False
-    
+
     if (keyval == gtk.keysyms.Shift_L):
       self.left_continue  = False
-    
+
     if (keyval == gtk.keysyms.Shift_R):
       self.right_continue = False
 
@@ -286,12 +285,12 @@ class Gcompris_pythontest:
       else:
         self.canvasitems[6].set(text="LOOSE",
                                 fill_color_rgba=0xFF0000FFL)
-        
+
     if ((keyval == gtk.keysyms.BackSpace) or
         (keyval == gtk.keysyms.Delete)):
       self.timerinc = 1100
       keyval = 32
-      
+
     if (keyval == 32):
       self.left_continue  = True
       self.right_continue = True
@@ -309,7 +308,7 @@ class Gcompris_pythontest:
 
       if(self.timerinc<1):
           self.timerinc = 1
-          
+
       self.canvasitems[3].set(text="")
       self.canvasitems[6].set(text="")
 
@@ -350,7 +349,7 @@ class Gcompris_pythontest:
   def circle_item_event(self, widget, event=None):
     if eval(self.config_dict['disable_line']):
       return False
-    
+
     if event.type == gtk.gdk.BUTTON_PRESS:
       if event.button == 1:
         bounds = widget.get_bounds()
@@ -359,7 +358,7 @@ class Gcompris_pythontest:
         if 'line 1' in self.canvasitems:
           self.canvasitems['line 1'].destroy()
         self.canvasitems['line 1'] = self.rootitem.add(
-          gnome.canvas.CanvasLine,
+          gnomecanvas.CanvasLine,
           points=( self.pos_x, self.pos_y, event.x, event.y),
           fill_color_rgba=self.colors['line'],
           width_units=5.0
@@ -382,7 +381,7 @@ class Gcompris_pythontest:
   ###################################################
   # Configuration system
   ###################################################
-  
+
   #mandatory but unused yet
   def config_stop(self):
     pass
@@ -395,7 +394,7 @@ class Gcompris_pythontest:
 
     # init with default values
     self.config_dict = self.init_config()
-    
+
     #get the configured values for that profile
     self.config_dict.update(gcompris.get_conf(profile, self.gcomprisBoard))
 
@@ -446,13 +445,13 @@ class Gcompris_pythontest:
     patterns = { 'circle': _('Use circles'),
                  'rectangle': _('Use rectangles')
                  }
-    
+
     gcompris.radio_buttons(_('Choice of pattern'),
                            'pattern',
                            patterns,
                            self.config_dict['pattern']
                            )
-    
+
     print "List of locales shown in gcompris.combo_locale :"
     print gcompris.get_locales_list()
 
@@ -487,17 +486,17 @@ class Gcompris_pythontest:
     if (table == None):
       print 'Configuration returns None'
       return
-    
+
     print "Keys and values returned by PythonTest config window:"
-    
+
     if (len(table) == 0):
         print '%20s' % 'None'
-           
+
     for key,value in table.iteritems():
       print '%20s:%20s    ' % (key, value)
       gcompris.set_board_conf(self.configuring_profile, self.gcomprisBoard, key, value)
 
-  
+
   def init_config(self):
     default_config = { 'disable_line'    : 'False',
                        'color_line'      : 'red',
@@ -507,5 +506,5 @@ class Gcompris_pythontest:
                        'locale_sound'    : 'NULL'
                        }
     return default_config
-  
-    
+
+

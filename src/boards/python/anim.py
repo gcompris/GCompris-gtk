@@ -28,8 +28,7 @@
 from gettext import gettext as _
 # PythonTest Board module
 import gobject
-import gnome
-import gnome.canvas
+import gnomecanvas
 import gcompris
 import gcompris.utils
 import gcompris.skin
@@ -188,17 +187,17 @@ class Gcompris_anim:
     self.anchors ['FILL_CIRCLE'] =  self.anchors ['RECT']
     self.anchors ['IMAGE'] =  self.anchors ['RECT']
 
-    # gnome canvas type corresponding
-    self.types = { 'RECT' : gnome.canvas.CanvasRect,
-                   'FILL_RECT' : gnome.canvas.CanvasRect,
-                   'CIRCLE' : gnome.canvas.CanvasEllipse,
-                   'FILL_CIRCLE' : gnome.canvas.CanvasEllipse,
-                   'TEXT' : gnome.canvas.CanvasText,
-                   'IMAGE' : gnome.canvas.CanvasPixbuf,
-                   'LINE' : gnome.canvas.CanvasLine
+    # gnomecanvas type corresponding
+    self.types = { 'RECT' : gnomecanvas.CanvasRect,
+                   'FILL_RECT' : gnomecanvas.CanvasRect,
+                   'CIRCLE' : gnomecanvas.CanvasEllipse,
+                   'FILL_CIRCLE' : gnomecanvas.CanvasEllipse,
+                   'TEXT' : gnomecanvas.CanvasText,
+                   'IMAGE' : gnomecanvas.CanvasPixbuf,
+                   'LINE' : gnomecanvas.CanvasLine
                    }
 
-    # mutable gnome canvas attributs
+    # mutable gnomecanvas attributs
     self.attributs = { 'LINE' : [ "points",
                                   "fill_color_rgba",
                                   ],
@@ -238,7 +237,7 @@ class Gcompris_anim:
                                    ]
                        }
 
-    # non mutable gnome canvas attributs
+    # non mutable gnomecanvas attributs
     self.fixedattributs = { 'LINE' : { 'width-units': 8.0
                                        },
                             'RECT' : { 'width-units': 4.0
@@ -400,7 +399,7 @@ class Gcompris_anim:
     # Create our rootitem. We put each canvas item in it so at the end we
     # only have to kill it. The canvas deletes all the items it contains automaticaly.
     self.rootitem = self.gcomprisBoard.canvas.root().add(
-      gnome.canvas.CanvasGroup,
+      gnomecanvas.CanvasGroup,
       x=0.0,
       y=0.0
       )
@@ -532,13 +531,13 @@ class Gcompris_anim:
   def draw_tools(self):
 
     self.root_toolitem = self.rootitem.add(
-      gnome.canvas.CanvasGroup,
+      gnomecanvas.CanvasGroup,
       x=0.0,
       y=0.0
       )
 
     self.root_toolitem.add(
-      gnome.canvas.CanvasPixbuf,
+      gnomecanvas.CanvasPixbuf,
       pixbuf = gcompris.utils.load_pixmap(gcompris.skin.image_to_skin("draw/tool-selector.png")),
       x=5,
       y=5.0,
@@ -567,7 +566,7 @@ class Gcompris_anim:
         theX = x1
 
       item = self.root_toolitem.add(
-        gnome.canvas.CanvasPixbuf,
+        gnomecanvas.CanvasPixbuf,
         pixbuf = gcompris.utils.load_pixmap(gcompris.skin.image_to_skin(self.tools[i][1])),
         x=theX,
         y=y
@@ -659,13 +658,13 @@ class Gcompris_anim:
     c = 0
 
     self.root_coloritem = self.rootitem.add(
-      gnome.canvas.CanvasGroup,
+      gnomecanvas.CanvasGroup,
       x=0.0,
       y=0.0
       )
 
     self.root_coloritem.add(
-      gnome.canvas.CanvasPixbuf,
+      gnomecanvas.CanvasPixbuf,
       pixbuf = pixmap,
       x=x,
       y=y,
@@ -677,7 +676,7 @@ class Gcompris_anim:
       for j in range(0,4):
         c = i*4 +j
         item = self.root_coloritem.add(
-          gnome.canvas.CanvasRect,
+          gnomecanvas.CanvasRect,
           x1=x1 + 26*(j%2),
           y1=y+8 + (color_pixmap_height/2 -6)*(j/2),
           x2=x1 + 24  + 26*(j%2),
@@ -720,7 +719,7 @@ class Gcompris_anim:
     y2=self.drawing_area[3]
 
     item = self.rootitem.add (
-      gnome.canvas.CanvasRect,
+      gnomecanvas.CanvasRect,
       x1=x1,
       y1=y1,
       x2=x2,
@@ -733,7 +732,7 @@ class Gcompris_anim:
 
     # The CanvasGroup for the edit space.
     self.root_drawingitem = self.rootitem.add(
-      gnome.canvas.CanvasGroup,
+      gnomecanvas.CanvasGroup,
       x=0.0,
       y=0.0
       )
@@ -742,7 +741,7 @@ class Gcompris_anim:
     # Create the root_anim group which contains all the drawings.
     # At root_anim root, there is a group for each drawings.
     self.root_anim = self.rootitem.add(
-      gnome.canvas.CanvasGroup,
+      gnomecanvas.CanvasGroup,
       x=0.0,
       y=0.0
       )
@@ -755,7 +754,7 @@ class Gcompris_anim:
     # Create a group for the first drawing
 
     self.flash = self.rootitem.add (
-      gnome.canvas.CanvasPixbuf,
+      gnomecanvas.CanvasPixbuf,
       pixbuf = gcompris.utils.load_pixmap(gcompris.skin.image_to_skin("draw/camera.png")),
       x=300,
       y=200,
@@ -774,7 +773,7 @@ class Gcompris_anim:
 
     # The CanvasGroup for the playing area.
     self.root_playingitem = self.rootitem.add(
-      gnome.canvas.CanvasGroup,
+      gnomecanvas.CanvasGroup,
       x=0.0,
       y=0.0
       )
@@ -784,7 +783,7 @@ class Gcompris_anim:
     self.anim_speed=5
 
     run = self.root_playingitem.add(
-      gnome.canvas.CanvasPixbuf,
+      gnomecanvas.CanvasPixbuf,
       pixbuf = gcompris.utils.load_pixmap(gcompris.skin.image_to_skin("draw/down.png")),
       x = 15,
       y = 410,
@@ -796,7 +795,7 @@ class Gcompris_anim:
     run.connect("event", self.speed_event,False)
 
     self.speed_item = self.root_playingitem.add(
-      gnome.canvas.CanvasText,
+      gnomecanvas.CanvasText,
       text=self.anim_speed,
       font = gcompris.skin.get_font("gcompris/board/medium"),
       x=52,
@@ -806,7 +805,7 @@ class Gcompris_anim:
 
 
     run = self.root_playingitem.add(
-      gnome.canvas.CanvasPixbuf,
+      gnomecanvas.CanvasPixbuf,
       pixbuf = gcompris.utils.load_pixmap(gcompris.skin.image_to_skin("draw/up.png")),
       x = 70,
       y = 410,
@@ -819,7 +818,7 @@ class Gcompris_anim:
 
     # And finaly a STOP icon
     run = self.root_playingitem.add(
-      gnome.canvas.CanvasPixbuf,
+      gnomecanvas.CanvasPixbuf,
       pixbuf = gcompris.utils.load_pixmap("boardicons/draw.png"),
       x = 16,
       y = 110,
@@ -863,7 +862,7 @@ class Gcompris_anim:
     color = 0x1D0DFFFFL
 
     self.grid = self.rootitem.add (
-      gnome.canvas.CanvasGroup,
+      gnomecanvas.CanvasGroup,
       x=0.0,
       y=0.0
       )
@@ -871,7 +870,7 @@ class Gcompris_anim:
 
     for i in range(int(x1), int(x2), step):
       item = self.grid.add (
-        gnome.canvas.CanvasLine,
+        gnomecanvas.CanvasLine,
         points=(i , y1, i , y2),
         fill_color_rgba=color,
         width_units=1.0,
@@ -881,7 +880,7 @@ class Gcompris_anim:
 
     for i in range(int(y1), int(y2), step):
       item = self.grid.add (
-        gnome.canvas.CanvasLine,
+        gnomecanvas.CanvasLine,
         points=(x1, i, x2 , i),
         fill_color_rgba=color,
         width_units=1.0,
@@ -1085,7 +1084,7 @@ class Gcompris_anim:
         print "Current image = " + str(self.current_frame)
         #self.dump_group(self.root_anim)
         self.newitemgroup = self.root_anim.add(
-          gnome.canvas.CanvasGroup,
+          gnomecanvas.CanvasGroup,
           x=0.0,
           y=0.0
           )
@@ -1122,7 +1121,7 @@ class Gcompris_anim:
 #        Item
 
           self.newitem = self.newitemgroup.add(
-            gnome.canvas.CanvasLine,
+            gnomecanvas.CanvasLine,
             points=tuple_points,
             fill_color_rgba=self.colors[self.current_color],
             width_units=8.0
@@ -1149,7 +1148,7 @@ class Gcompris_anim:
               points[c + '2'] = eval(c) + self.draw_defaults_size['LINE'][dist[c]]/2
 
           self.newitem = self.newitemgroup.add(
-            gnome.canvas.CanvasRect,
+            gnomecanvas.CanvasRect,
             x1=points['x1'],
             y1=points['y1'],
             x2=points['x2'],
@@ -1180,7 +1179,7 @@ class Gcompris_anim:
               points[c + '2'] = eval(c) + self.draw_defaults_size['LINE'][dist[c]]/2
 
           self.newitem = self.newitemgroup.add(
-            gnome.canvas.CanvasRect,
+            gnomecanvas.CanvasRect,
             x1=points['x1'],
             y1=points['y1'],
             x2=points['x2'],
@@ -1213,7 +1212,7 @@ class Gcompris_anim:
               points[c + '2'] = eval(c) + self.draw_defaults_size['LINE'][dist[c]]/2
 
           self.newitem = self.newitemgroup.add(
-            gnome.canvas.CanvasEllipse,
+            gnomecanvas.CanvasEllipse,
             x1=points['x1'],
             y1=points['y1'],
             x2=points['x2'],
@@ -1246,7 +1245,7 @@ class Gcompris_anim:
               points[c + '2'] = eval(c) + self.draw_defaults_size['LINE'][dist[c]]/2
 
           self.newitem = self.newitemgroup.add(
-            gnome.canvas.CanvasEllipse,
+            gnomecanvas.CanvasEllipse,
             x1=points['x1'],
             y1=points['y1'],
             x2=points['x2'],
@@ -1263,7 +1262,7 @@ class Gcompris_anim:
           self.pos_y = y
 
           self.newitem = self.newitemgroup.add(
-            gnome.canvas.CanvasText,
+            gnomecanvas.CanvasText,
             x=self.pos_x,
             y=self.pos_y,
             fill_color_rgba=self.colors[self.current_color],
@@ -1437,7 +1436,7 @@ class Gcompris_anim:
 
     # Draw the background area
     self.rootitem.add(
-      gnome.canvas.CanvasPixbuf,
+      gnomecanvas.CanvasPixbuf,
       pixbuf = gcompris.utils.load_pixmap(gcompris.skin.image_to_skin("draw/counter.png")),
       x=x_left - -11,
       y=y_top - 2,
@@ -1449,14 +1448,14 @@ class Gcompris_anim:
 
     # First
     #item = self.rootitem.add(
-    #  gnome.canvas.CanvasPixbuf,
+    #  gnomecanvas.CanvasPixbuf,
     #  pixbuf = gcompris.utils.load_pixmap(gcompris.skin.image_to_skin("anim/minibutton.png")),
     #  x = x_left,
     #  y = y_top,
     #  )
     #item.connect("event", self.image_select_event, "first")
     #item = self.rootitem.add(
-    #  gnome.canvas.CanvasText,
+    #  gnomecanvas.CanvasText,
     #  text = "<<",
     #  x = x_left + 14,
     #  y = y_top + 7,
@@ -1465,7 +1464,7 @@ class Gcompris_anim:
 
     # Image Number
     self.item_frame_counter = self.rootitem.add(
-      gnome.canvas.CanvasText,
+      gnomecanvas.CanvasText,
       text = self.current_frame + 1,
       x = x_left + minibutton_width + 14,
       y = y_top + 15,
@@ -1473,14 +1472,14 @@ class Gcompris_anim:
 
     # Last
     #item = self.rootitem.add(
-    #  gnome.canvas.CanvasPixbuf,
+    #  gnomecanvas.CanvasPixbuf,
     #  pixbuf = gcompris.utils.load_pixmap(gcompris.skin.image_to_skin("anim/minibutton.png")),
     #  x = x_left + 2*minibutton_width,
     #  y = y_top,
     #  )
     #item.connect("event", self.image_select_event, "last")
     #item = self.rootitem.add(
-    #  gnome.canvas.CanvasText,
+    #  gnomecanvas.CanvasText,
     #  text = ">>",
     #  x = x_left + 2*minibutton_width + 14,
     #  y = y_top + 7,
@@ -1492,14 +1491,14 @@ class Gcompris_anim:
 
     # Previous
     #item = self.rootitem.add(
-    #  gnome.canvas.CanvasPixbuf,
+    #  gnomecanvas.CanvasPixbuf,
     #  pixbuf = gcompris.utils.load_pixmap(gcompris.skin.image_to_skin("anim/minibutton.png")),
     #  x = x_left,
     #  y = y_top,
     #  )
     #item.connect("event", self.image_select_event, "previous")
     ##item = self.rootitem.add(
-    #  gnome.canvas.CanvasText,
+    #  gnomecanvas.CanvasText,
     #  text = "<",
     #  x = x_left + 14,
     #  y = y_top + 7,
@@ -1508,14 +1507,14 @@ class Gcompris_anim:
 
     # Next
     #item = self.rootitem.add(
-    #  gnome.canvas.CanvasPixbuf,
+    #  gnomecanvas.CanvasPixbuf,
     #  pixbuf = gcompris.utils.load_pixmap(gcompris.skin.image_to_skin("anim/minibutton.png")),
     #  x = x_left + 2*minibutton_width,
     #  y = y_top,
     #  )
     #item.connect("event", self.image_select_event, "next")
     #item = self.rootitem.add(
-    #  gnome.canvas.CanvasText,
+    #  gnomecanvas.CanvasText,
     #  text = ">",
     #  x = x_left + 2*minibutton_width + 14,
     #  y = y_top + 7,
@@ -1827,7 +1826,7 @@ class Gcompris_anim:
       item.connect("event", event)
 
     anchorgroup=group.add(
-      gnome.canvas.CanvasGroup,
+      gnomecanvas.CanvasGroup,
       x=0,
       y=0
       )
@@ -1836,7 +1835,7 @@ class Gcompris_anim:
 
     for anchor_type in self.anchors[item_type]:
       anchor=anchorgroup.add(
-        gnome.canvas.CanvasRect,
+        gnomecanvas.CanvasRect,
         fill_color_rgba=self.ANCHOR_COLOR,
         outline_color_rgba=0x000000FFL,
         width_pixels=1,
@@ -2099,7 +2098,7 @@ class Gcompris_anim:
       if self.current_frame==0:
         self.playing.destroy()
         self.playing = self.rootitem.add(
-          gnome.canvas.CanvasGroup,
+          gnomecanvas.CanvasGroup,
           x=0.0,
           y=0.0
           )
@@ -2126,7 +2125,7 @@ class Gcompris_anim:
     # Hide the current drawing
     self.root_anim.hide()
     self.playing = self.root_anim.add(
-      gnome.canvas.CanvasGroup,
+      gnomecanvas.CanvasGroup,
       x=0.0,
       y=0.0
       )
@@ -2421,7 +2420,7 @@ def restore_item(item, frame, missing):
       pixmap = gcompris.utils.load_pixmap(item.image_name)
       modif['pixbuf']= pixmap
     newitemgroup = fles.root_anim.add(
-        gnome.canvas.CanvasGroup,
+        gnomecanvas.CanvasGroup,
         x=0.0,
         y=0.0
         )
@@ -3367,7 +3366,7 @@ def image_selected(image):
 
   fles.newitem = None
   fles.newitemgroup = fles.root_anim.add(
-    gnome.canvas.CanvasGroup,
+    gnomecanvas.CanvasGroup,
     x=0.0,
     y=0.0
     )
@@ -3378,7 +3377,7 @@ def image_selected(image):
   height = pixmap.get_height()
 
   fles.newitem = fles.newitemgroup.add(
-    gnome.canvas.CanvasPixbuf,
+    gnomecanvas.CanvasPixbuf,
     pixbuf = pixmap,
     x=x,
     y=y,

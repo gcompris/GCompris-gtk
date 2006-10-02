@@ -18,8 +18,7 @@
 #   along with this program; if not, write to the Free Software
 #   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 #
-import gnome
-import gnome.canvas
+import gnomecanvas
 import gcompris
 import gcompris.utils
 import gcompris.bonus
@@ -47,7 +46,7 @@ class Gcompris_hexagon:
     gcompris.set_background(self.gcomprisBoard.canvas.root(),
                             gcompris.skin.image_to_skin("gcompris-bg.jpg"))
     self.rootitem = self.gcomprisBoard.canvas.root().add(
-     gnome.canvas.CanvasGroup,
+     gnomecanvas.CanvasGroup,
      x=0.0,
      y=0.0
      )
@@ -104,7 +103,7 @@ class Gcompris_hexagon:
      self.pts.append (ax+self.cx [i])
      self.pts.append (ay+self.cy [i])
 
-    s = self.rootitem.add(gnome.canvas.CanvasPolygon, points = self.pts,
+    s = self.rootitem.add(gnomecanvas.CanvasPolygon, points = self.pts,
          fill_color_rgba = color, outline_color = "black", width_units =
          2.5)
     return s
@@ -168,7 +167,7 @@ class Gcompris_hexagon:
     ("gcompris/misc/strawberry.png")
     h2 = 30
     w2 = pixbuf2.get_width()*h2/pixbuf2.get_height()
-    self.rootitem.add(gnome.canvas.CanvasPixbuf,
+    self.rootitem.add(gnomecanvas.CanvasPixbuf,
                       pixbuf=pixbuf2.scale_simple(w2, h2,
                                                   gtk.gdk.INTERP_BILINEAR),
                       x=position,
