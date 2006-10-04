@@ -1,5 +1,13 @@
 2006-10-05  Bruno coudoin  <bruno.coudoin@free.fr>
 
+	- On a great suggestion of Joshua N Pritikin, now in shapegames like
+	  puzzles and geography, the hot point is set in green. This let the kid
+	  know in advance where she will drop her piece.
+
+	* src/boards/shapegame.c: (item_event), (add_shape_to_canvas):
+
+2006-10-05  Bruno coudoin  <bruno.coudoin@free.fr>
+
 	- added a new tool from Miguel DE IZARRA /miguel2i on free point fr/
 	  This tool allow us to create puzzle or geography type activity
 	  with ease.

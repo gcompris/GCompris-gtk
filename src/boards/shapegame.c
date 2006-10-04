@@ -47,6 +47,9 @@ static gint addedname;	/* Defined the rules to apply to determine if the
 static GcomprisBoard *gcomprisBoard = NULL;
 static gboolean board_paused = TRUE;
 
+#define POINT_COLOR_OFF 0xEf000080
+#define POINT_COLOR_ON  0x00EF0080
+
 typedef enum
 {
   SHAPE_TARGET		= 1 << 0,
@@ -967,6 +970,7 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, Shape *shape)
    GdkCursor *fleur;
    static int dragging;
    double item_x, item_y;
+   static GnomeCanvasItem *target_point_previous;
 
   if(!gcomprisBoard)
     return FALSE;
@@ -1024,6 +1028,8 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, Shape *shape)
 	     }
 	   else
 	     {
+	       target_point_previous = NULL;
+
 	       x = item_x;
 	       y = item_y;
 
@@ -1114,6 +1120,7 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, Shape *shape)
      case GDK_MOTION_NOTIFY:
        if (dragging && (event->motion.state & GDK_BUTTON1_MASK))
          {
+	   Shape *targetshape = NULL;
 	   new_x = item_x;
 	   new_y = item_y;
 
@@ -1121,7 +1128,24 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, Shape *shape)
 
 	   x = new_x;
 	   y = new_y;
-         }
+
+	   targetshape = find_closest_shape(item_x - offset_x,
+					    item_y - offset_y,
+					    SQUARE_LIMIT_DISTANCE);
+	   if(targetshape!=NULL)
+	     {
+	       if(target_point_previous)
+		 gnome_canvas_item_set(GNOME_CANVAS_ITEM(target_point_previous),
+				       "fill_color_rgba", POINT_COLOR_OFF,
+				       NULL);
+
+	       gnome_canvas_item_set(GNOME_CANVAS_ITEM(targetshape->target_point),
+				     "fill_color_rgba", POINT_COLOR_ON,
+				     NULL);
+
+	       target_point_previous = targetshape->target_point;
+	     }
+	 }
        break;
 
      case GDK_BUTTON_RELEASE:
@@ -1131,6 +1155,12 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, Shape *shape)
 
 	   gc_canvas_item_ungrab(item, event->button.time);
 	   dragging = FALSE;
+
+	   if(target_point_previous)
+		 gnome_canvas_item_set(GNOME_CANVAS_ITEM(target_point_previous),
+				       "fill_color_rgba", POINT_COLOR_OFF,
+				       NULL);
+	   target_point_previous = NULL;
 
 	   targetshape = find_closest_shape(item_x - offset_x,
 					    item_y - offset_y,
@@ -1462,7 +1492,7 @@ add_shape_to_canvas(Shape *shape)
 					"y1", (double)shape->y-point_size,
 					"x2", (double)shape->x+point_size,
 					"y2", (double)shape->y+point_size,
-					"fill_color_rgba", 0xEf000080,
+					"fill_color_rgba", POINT_COLOR_OFF,
 					"outline_color", "black",
 					"width_pixels", 2,
 					NULL);
