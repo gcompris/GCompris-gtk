@@ -311,7 +311,7 @@ gc_prop_new ()
 
   if(!tmp->locale) {
     /* No user specified locale = '' */
-    tmp->locale		= "";
+    tmp->locale		= strdup("");
   }
 
   return (tmp);

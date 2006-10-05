@@ -722,6 +722,12 @@ item_event_ok(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
     case GDK_BUTTON_PRESS:
       if(!strcmp((char *)data, "ok"))
 	{
+	  gchar *tmpptr = properties->locale;
+	  /* Set the new locale in the properties */
+	  properties->locale = strdup(current_locale);
+	  gc_prop_save(properties);
+	  g_free(tmpptr);
+
 	  if(current_locale[0] == '\0') {
 	    /* Set the locale to the default user's locale */
 	    gc_locale_set(gc_locale_get_user_default());
@@ -731,12 +737,6 @@ item_event_ok(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 	  properties->skin = g_strdup((char *)g_list_nth_data(skinlist, skin_index));
 	  gc_skin_load(properties->skin);
 	  gc_config_stop();
-
-	  /* Set the new locale in the properties */
-	  g_free(properties->locale);
-	  properties->locale = strdup(current_locale);
-
-	  gc_prop_save(properties);
 
 	  if(properties->music || properties->fx) {
 	    gc_sound_init();

@@ -459,8 +459,8 @@ class Gcompris_login:
     self.entry = gtk.Entry()
 
     self.entry.modify_font(pango.FontDescription("sans bold 36"))
-    text_color = gtk.gdk.color_parse("blue")
-    text_color_selected = gtk.gdk.color_parse("green")
+    text_color = gtk.gdk.color_parse("brown")
+    text_color_selected = gtk.gdk.color_parse("brown")
     bg_color = gtk.gdk.color_parse("blue")
 
     self.entry.modify_text(gtk.STATE_NORMAL, text_color)

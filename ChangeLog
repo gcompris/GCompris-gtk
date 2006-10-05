@@ -1,3 +1,10 @@
+2006-10-06  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* src/boards/python/login.py: changed text color to avoid blue on blue (in vnc)
+	* src/gcompris/config.c: (item_event_ok): fixed a double free creating a corrupted locale field
+	in the config file when default locale was selected and not changed.
+	* src/gcompris/properties.c: (gc_prop_new): fixed locale allocation to create a locale pointer in all case
+
 2006-10-05  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	- fixed to work with shape game that provides a pixmap instead of the red dot.
