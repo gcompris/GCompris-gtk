@@ -89,6 +89,7 @@ struct _Shape {
   gboolean found;			/* The user found this item */
   gboolean placed;			/* The user placed this item */
   GnomeCanvasItem *target_point;       	/* Target point item for this shape */
+  GnomeCanvasItem *targetitem;       	/* Target item for this shape (if targetfile is defined) */
 };
 
 gchar *colorlist [] =
@@ -904,8 +905,6 @@ static Shape *find_closest_shape(double x, double y, double limit)
       {
 	/* Calc the distance between this shape and the given coord */
 	dist = sqrt(pow((shape->x-x),2) + pow((shape->y-y),2));
-	g_warning("DIST=%f shapename=%s\n", dist, shape->name);
-	g_warning("   x=%f y=%f shape->x=%f shape->y=%f\n", x, y, shape->x, shape->y);
 	if(dist<goodDist)
 	  {
 	    goodDist=dist;
@@ -1135,15 +1134,29 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, Shape *shape)
 	   if(targetshape!=NULL)
 	     {
 	       if(target_point_previous)
-		 gnome_canvas_item_set(GNOME_CANVAS_ITEM(target_point_previous),
-				       "fill_color_rgba", POINT_COLOR_OFF,
-				       NULL);
+		 {
+		   if(strcmp(shape->targetfile, UNDEFINED)==0)
+		     {
+		       gnome_canvas_item_set(GNOME_CANVAS_ITEM(target_point_previous),
+					     "fill_color_rgba", POINT_COLOR_OFF,
+					     NULL);
 
-	       gnome_canvas_item_set(GNOME_CANVAS_ITEM(targetshape->target_point),
-				     "fill_color_rgba", POINT_COLOR_ON,
-				     NULL);
+		       gnome_canvas_item_set(GNOME_CANVAS_ITEM(targetshape->target_point),
+					     "fill_color_rgba", POINT_COLOR_ON,
+					     NULL);
+		     }
+		   else
+		     {
+		       gc_item_focus_set(target_point_previous, FALSE);
+		       gc_item_focus_set(targetshape->targetitem, TRUE);
+		       target_point_previous = targetshape->targetitem;
+		     }
+		 }
 
-	       target_point_previous = targetshape->target_point;
+	       if(strcmp(shape->targetfile, UNDEFINED)==0)
+		 target_point_previous = targetshape->target_point;
+	       else
+		 target_point_previous = targetshape->targetitem;
 	     }
 	 }
        break;
@@ -1157,9 +1170,14 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, Shape *shape)
 	   dragging = FALSE;
 
 	   if(target_point_previous)
+	     {
+	       if(strcmp(shape->targetfile, UNDEFINED)==0)
 		 gnome_canvas_item_set(GNOME_CANVAS_ITEM(target_point_previous),
 				       "fill_color_rgba", POINT_COLOR_OFF,
 				       NULL);
+	       else
+		 gc_item_focus_set(target_point_previous, FALSE);
+	     }
 	   target_point_previous = NULL;
 
 	   targetshape = find_closest_shape(item_x - offset_x,
@@ -1479,6 +1497,7 @@ add_shape_to_canvas(Shape *shape)
 					"width_set", TRUE,
 					"height_set", TRUE,
 					NULL);
+	  shape->targetitem = item;
 	  gdk_pixbuf_unref(targetpixmap);
 	}
       else
