@@ -708,7 +708,7 @@ static void setup_window ()
 
   gtk_widget_show (GTK_WIDGET(canvas_bg));
 
-  init_plugins();
+  gc_board_init();
 
 
   /* Load all the menu once */
@@ -783,14 +783,26 @@ static void setup_window ()
 }
 
 #ifdef WIN32
+extern int gc_board_number_in_demo;
 /** Display the activation dialog for the windows version
  *
  */
 void
 display_activation_dialog()
 {
-#define WIN_ACTIVITY_COUNT   16
-#define TOTAL_ACTIVITY_COUNT 58
+  int board_count = 0;
+  GList *list;
+
+  /* Count non menu boards */
+  for (list = gc_menu_get_boards(); list != NULL; list = list->next)
+    {
+      GcomprisBoard *board = list->data;
+      if (strcmp(board->type, "menu") != 0 &&
+	  strcmp(board->section, "/experimental") != 0 &&
+	  strcmp(board->section, "/administration") != 0)
+	board_count++;
+    }
+
   if(strncmp(properties->key, "your_welcome", 12)!=0)
     {
 
@@ -813,9 +825,10 @@ display_activation_dialog()
 			 widget_activation_entry);
 
       gtk_widget_show(GTK_WIDGET(widget_activation_entry));
+      gtk_entry_set_text(GTK_ENTRY(widget_activation_entry), "CODE");
 
       char *msg = g_strdup_printf(_("GCompris is free software released under the GPL License. In order to support its development, the Windows version provides only %d of the %d activities. You can get the full version for a small fee at\n<http://gcompris.net>\nThe Linux version does not have this restriction. Note that GCompris is being developed to free schools from monopolistic software vendors. If you also believe that we should teach freedom to children, please consider using GNU/Linux. Get more information at FSF:\n<http://www.fsf.org/philosophy>"),
-				  WIN_ACTIVITY_COUNT, TOTAL_ACTIVITY_COUNT);
+				  gc_board_number_in_demo, board_count);
       gc_dialog(msg, activation_done);
       g_free(msg);
     }
@@ -1479,6 +1492,7 @@ gc_init (int argc, char *argv[])
       GList *list = NULL;
       GList *menulist = NULL;
       GList *menu_todo = NULL;
+      int board_count = 0;
 
       menu_todo = g_list_append(menu_todo,g_strdup("/"));
 
@@ -1493,11 +1507,15 @@ gc_init (int argc, char *argv[])
 	  if (board){
 	    if (strcmp(board->type,"menu")==0)
 	      menu_todo = g_list_prepend(menu_todo, g_strdup_printf("%s/%s",board->section, board->name));
+	    else
+	      board_count++;
 
 	    printf("%s/%s : %s (%s) \n", board->section, board->name, board->title, board->description );
 	  }
 	}
       }
+      /* FIXME: Need to translate */
+      printf("Number of activities: %d\n", board_count);
 
       exit(0);
     }

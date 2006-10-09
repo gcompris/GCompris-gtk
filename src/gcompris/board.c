@@ -84,7 +84,8 @@ static BoardPlugin *static_boards[MAX_NUMBER_OF_BOARDS];
 #endif
 
 #ifdef WIN32
-void init_plugins(void)
+int gc_board_number_in_demo;
+void gc_board_init(void)
 {
   guint i=0;
 
@@ -108,6 +109,8 @@ void init_plugins(void)
   static_boards_demo[i++] = get_target_bplugin_info();
   static_boards_demo[i++] = get_python_bplugin_info();
   static_boards_demo[i++] = NULL;
+
+  gc_board_number_in_demo = i - 2;
 
   i=0;
 
@@ -169,7 +172,7 @@ void init_plugins(void)
   }
 }
 #else
-void init_plugins(void)
+void gc_board_init(void)
 {
 
   /* Fist make sure the module loading is supported on this platform */
@@ -415,7 +418,7 @@ void board_run_next_end()
   gc_board_play(next_board);
 }
 
-void board_run_next(GcomprisBoard *board)
+void gc_board_run_next(GcomprisBoard *board)
 {
   board->previous_board = gc_board_get_current();
 

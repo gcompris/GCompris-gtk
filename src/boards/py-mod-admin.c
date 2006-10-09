@@ -25,7 +25,7 @@ py_board_run_next (PyObject* self, PyObject* args)
   cGcomprisBoard = pyGcomprisBoard->cdata;
 
   /* Call the corresponding C function */
-  board_run_next(cGcomprisBoard);
+  gc_board_run_next(cGcomprisBoard);
 
   /* Create and return the result */
   Py_INCREF(Py_None);

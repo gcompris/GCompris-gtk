@@ -667,7 +667,7 @@ item_event(GnomeCanvasItem *item, GdkEvent *event,  MenuItems *menuitems)
 
       }
       else
-	board_run_next (board);
+	gc_board_run_next (board);
 
       break;
 

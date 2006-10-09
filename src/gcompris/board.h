@@ -48,19 +48,15 @@ struct BoardPluginData
   gboolean	 playing;
 };
 
-void		 init_plugins(void);
+void		 gc_board_init(void);
 BoardPlugin	*gc_board_get_current_board_plugin(void);
-void		 set_current_board_plugin(BoardPlugin * ip);
 GcomprisBoard	*gc_board_get_current(void);
 void		 gc_board_set_current(GcomprisBoard * gcomprisBoard);
 gboolean	 gc_board_check_file(GcomprisBoard *gcomprisBoard);
 void		 gc_board_play(GcomprisBoard *gcomprisBoard);
 void		 gc_board_stop(void);
 void		 gc_board_pause(int pause);
-gchar		*board_get_info_text(void);
 
-void		 board_set_info_text(gchar * text);
-void		 board_file_info_box(gchar * filename);
-void             board_run_next(GcomprisBoard *board);
+void             gc_board_run_next(GcomprisBoard *board);
 
 #endif

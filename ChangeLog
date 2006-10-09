@@ -1,3 +1,51 @@
+2006-10-10  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	- José JORGE created a new set of icons that were missing for the memory
+
+	* board/boardicons/mem_solo_calc.png
+	* board/boardicons/mem_solo_all.png
+	* board/boardicons/mem_solo_div.png
+	* board/boardicons/mem_solo_mult_div.png
+	* board/boardicons/mem_solo_minus.png
+	* board/boardicons/mem_solo_mult.png
+	* board/boardicons/mem_solo_plus.png
+	* board/boardicons/mem_solo_plus_minus.png
+	* board/boardicons/mem_tux_div.png
+	* board/boardicons/mem_tux_calc.png
+	* board/boardicons/mem_tux_all.png
+	* board/boardicons/mem_tux_minus.png
+	* board/boardicons/mem_tux_mult.png
+	* board/boardicons/mem_tux_mult_div.png
+	* board/boardicons/mem_tux_plus.png
+	* board/boardicons/mem_tux_plus_minus.png
+	* boards/memory_add.xml.in:
+	* boards/memory_add_minus.xml.in:
+	* boards/memory_add_minus_mult_div.xml.in:
+	* boards/memory_add_minus_mult_div_tux.xml.in:
+	* boards/memory_add_minus_tux.xml.in:
+	* boards/memory_add_tux.xml.in:
+	* boards/memory_div.xml.in:
+	* boards/memory_div_tux.xml.in:
+	* boards/memory_minus.xml.in:
+	* boards/memory_minus_tux.xml.in:
+	* boards/memory_mult.xml.in:
+	* boards/memory_mult_div.xml.in:
+	* boards/memory_mult_div_tux.xml.in:
+	* boards/memory_mult_tux.xml.in:
+	* boards/memory_op_group.xml.in:
+	* boards/memory_op_group_tux.xml.in:
+
+
+	- improved windows code to count automatically the number of activity
+	  now the -l list option also display the number of activity.
+
+	* src/boards/menu2.c: (item_event):
+	* src/boards/py-mod-admin.c: (py_board_run_next):
+	* src/gcompris/board.c: (gc_board_init), (gc_board_run_next):
+	* src/gcompris/board.h:
+	* src/gcompris/gcompris.c: (setup_window),
+	(display_activation_dialog), (gc_init):
+
 2006-10-09  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	All memory leaks fixed by Miguel DE IZARRA (miguel2i)
