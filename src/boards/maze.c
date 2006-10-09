@@ -1382,8 +1382,11 @@ static void draw3D()
 
 static void twoDdisplay()
 {
-  gc_set_background(gnome_canvas_root(gcomprisBoard->canvas), 
-			  gc_skin_image_get("gcompris-bg.jpg"));
+  char *fileskin;
+  fileskin = gc_skin_image_get("gcompris-bg.jpg");
+  gc_set_background(gnome_canvas_root(gcomprisBoard->canvas), fileskin);
+  g_free(fileskin);
+
   if (threedgroup) 
     gnome_canvas_item_hide(GNOME_CANVAS_ITEM(threedgroup));
   gnome_canvas_item_show(GNOME_CANVAS_ITEM(boardRootItem));

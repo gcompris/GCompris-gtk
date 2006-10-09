@@ -143,8 +143,8 @@ gc_prop_new ()
   tmp->fullscreen	 = 1;
   tmp->noxf86vm		 = FALSE;
   tmp->timer		 = 1;
-  tmp->skin		 = "babytoy";
-  tmp->key		 = "default";
+  tmp->skin		 = g_strdup("babytoy");
+  tmp->key		 = g_strdup("default");
   tmp->locale            = NULL;
   tmp->difficulty_max    = 0;
   tmp->filter_style      = GCOMPRIS_FILTER_NONE;	/* No difficulty filter by default */
@@ -255,6 +255,7 @@ gc_prop_new ()
 	  if(!scan_get_int(scanner, &tmp->filter_style))
 	    g_warning("Config file parsing error on token %s", token);
 	} else if(!strcmp(value.v_identifier, "skin")) {
+        g_free(tmp->skin);
 	  tmp->skin = scan_get_string(scanner);
 	  if(!tmp->skin)
 	    g_warning("Config file parsing error on token %s", token);
@@ -263,6 +264,7 @@ gc_prop_new ()
 	  if(!tmp->locale)
 	    g_warning("Config file parsing error on token %s", token);
 	} else if(!strcmp(value.v_identifier, "key")) {
+      g_free(tmp->key);
 	  tmp->key = scan_get_string(scanner);
 	  if(!tmp->key)
 	    g_warning("Config file parsing error on token %s", token);

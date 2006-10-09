@@ -31,7 +31,7 @@ import os
 import tempfile
 
 # Set to True to debug
-debug = True
+debug = False
 
 from gcompris import gcompris_gettext as _
 
@@ -83,8 +83,10 @@ class Gcompris_electric:
     #
     # Check gnucap is installed and save it's path in self.gnucap_binary
     #
+    wingnucap = os.getcwd() + "/gnucap.exe"
     for binary in ("/usr/bin/gnucap",
-                   "/usr/local/bin/gnucap"):
+                   "/usr/local/bin/gnucap",
+                   wingnucap):
       try:
         os.stat(binary)
         self.gnucap_binary = binary
@@ -316,13 +318,14 @@ class Gcompris_electric:
       self.gnucap_timer = 0
       return
 
-    connected = 0
+    connected = False
     for component in self.components:
       if component.is_connected():
-        connected = 1
+        connected = True
 
-    if not connected == 1:
+    if not connected:
       if debug: print "call_gnucap: No connected component"
+      return
 
     fd, filename = tempfile.mkstemp(".gnucap", "gcompris_electric", None, True)
     f = os.fdopen(fd, "w+t")
@@ -331,13 +334,12 @@ class Gcompris_electric:
 
     # Ugly hack: connect a 0 ohm (1 fempto) resistor between net 0
     # and first net found
-    if connected == 1:
-      gnucap += "R999999999 0 "
-      for component in self.components:
-        if component.is_connected():
-          gnucap += str(component.get_nodes()[0].get_wires()[0].get_wire_id())
-          break
-      gnucap += " 1f\n"
+    gnucap += "R999999999 0 "
+    for component in self.components:
+      if component.is_connected():
+        gnucap += str(component.get_nodes()[0].get_wires()[0].get_wire_id())
+        break
+    gnucap += " 1f\n"
 
     for component in self.components:
       if component.is_connected():

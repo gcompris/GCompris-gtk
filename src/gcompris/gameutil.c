@@ -507,8 +507,6 @@ gc_file_find_absolute(const gchar *format, ...)
   filename = g_strdup_vprintf (format, args);
   va_end (args);
 
-  g_warning("filename '%s'", filename);
-
   /* Check it's already an absolute file */
   if( ((g_path_is_absolute (filename) &&
 	g_file_test (filename, G_FILE_TEST_EXISTS))
@@ -543,14 +541,13 @@ gc_file_find_absolute(const gchar *format, ...)
 	  g_strlcpy(locale, gc_locale_get(), sizeof(locale));
 	  filename2 = g_strjoinv(locale, tmp);
 	  absolute_filename = g_strdup_printf("%s/%s", dir_to_search[i], filename2);
-	  g_warning("1>>>> trying %s\n", absolute_filename);
 	  if(g_file_test (absolute_filename, G_FILE_TEST_EXISTS))
 	    {
 	      g_strfreev(tmp);
 	      g_free(filename2);
 	      goto FOUND;
 	    }
-
+      g_free(absolute_filename);
 	  /* Now check if this file is on the net */
 	  if((absolute_filename = gc_net_get_url_from_file(filename2, NULL)))
 	    {
@@ -559,6 +556,8 @@ gc_file_find_absolute(const gchar *format, ...)
 	      goto FOUND;
 	    }
 
+      g_free(filename2);
+      g_free(absolute_filename);
 	  /* Try the short locale */
 	  if(g_strv_length(tmp)>1)
 	    {
@@ -566,7 +565,6 @@ gc_file_find_absolute(const gchar *format, ...)
 	      filename2 = g_strjoinv(locale, tmp);
 	      g_strfreev(tmp);
 	      absolute_filename = g_strdup_printf("%s/%s", dir_to_search[i], filename2);
-	      g_warning("2>>>> trying %s\n", absolute_filename);
 	      if(g_file_test (absolute_filename, G_FILE_TEST_EXISTS))
 		{
 		  g_free(filename2);
@@ -579,9 +577,11 @@ gc_file_find_absolute(const gchar *format, ...)
 		  g_free(filename2);
 		  goto FOUND;
 		}
-
+        g_free(filename2);
 
 	    }
+      else
+          g_strfreev(tmp);
 	}
       else
 	{
@@ -589,10 +589,11 @@ gc_file_find_absolute(const gchar *format, ...)
 
 	  if(g_file_test (absolute_filename, G_FILE_TEST_EXISTS))
 	    goto FOUND;
-
+    g_free(absolute_filename);
 	  /* Now check if this file is on the net */
 	  if((absolute_filename = gc_net_get_url_from_file(filename, NULL)))
 	    goto FOUND;
+      g_free(absolute_filename);
 	}
 
       i++;

@@ -960,6 +960,7 @@ static void create_top(GnomeCanvasGroup *parent, gchar *path)
       i++;
     }
 
+  g_strfreev(splitted_section);
   g_free(path1);
 
 }

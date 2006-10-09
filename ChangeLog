@@ -1,3 +1,30 @@
+2006-10-09  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	All memory leaks fixed by Miguel DE IZARRA (miguel2i)
+
+	* Makefile.mingw.in: removed deprecated assetml files
+	* boards/flags/Makefile.am: cleanup
+	* boards/flags/README: updated image source
+	* boards/gcompris_pixmaps.assetml.in: removed, no more needed
+	* src/boards/chess.c: (chess_create_item): fixed leak
+	* src/boards/machpuzzle.c: (minigolf_destroy_all_items): fixed leak
+	* src/boards/maze.c: (twoDdisplay): fixed leak
+	* src/boards/menu2.c: (create_top): fixed leak
+	* src/boards/python/electric.py: added windows support
+	* src/boards/shapegame.c: (destroy_shape), (xmlGetProp_Double),
+	(add_xml_shape_to_data): fixed leak
+	* src/gcompris/bar.c: (gc_bar_start): no more show button by default
+	* src/gcompris/config.c: (gc_config_start), (item_event_ok): fixed leak
+	* src/gcompris/dialog.c: (gc_dialog): accept a dialog without a board running
+	  this is usefull to display dialog at statup when we don't find a board at all
+	* src/gcompris/gameutil.c: (gc_file_find_absolute): fixed leak
+	* src/gcompris/gcompris.c: (gc_cursor_set), (setup_window),
+	(cleanup), (load_properties), (gc_init): memory leak, display a dialog now when
+	no board are found
+	* src/gcompris/menu.c: (_add_xml_to_data): fixed leak
+	* src/gcompris/properties.c: (gc_prop_new): fixed leak
+	* src/gcompris/skin.c: (gc_skin_free): fixed leak
+
 2006-10-06  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* src/boards/python/login.py: changed text color to avoid blue on blue (in vnc)

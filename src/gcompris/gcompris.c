@@ -584,8 +584,11 @@ void gc_cursor_set(guint gdk_cursor_type)
     }
 
     cursor = gdk_cursor_new_from_data(bits, 40 , 40, &fg, &bg, 0, 0);
-    gdk_window_set_cursor(window->window, cursor);
-    gdk_cursor_unref(cursor);
+    if(cursor)
+      {
+	gdk_window_set_cursor(window->window, cursor);
+	gdk_cursor_unref(cursor);
+      }
   }
 }
 
@@ -757,20 +760,23 @@ static void setup_window ()
 	gc_profile_set_current_user(NULL);
     }
 
-  if(!board_to_start) {
-    g_warning("Couldn't find the board menu %s, or plugin execution error", properties->root_menu);
-    exit(1);
-  } else if(!gc_board_check_file(board_to_start)) {
-    g_error("Couldn't find the board menu, or plugin execution error");
-  } else {
-    g_warning("Fine, we got the gcomprisBoardMenu, xml boards parsing went fine");
-  }
-  /* Run the bar */
+    /* Run the bar */
   gc_bar_start(canvas_bar);
 
   init_background();
 
-  gc_board_play(board_to_start);
+  if(!board_to_start) {
+    gchar *tmpstr= g_strdup_printf("Couldn't find the board menu %s, or plugin execution error", properties->root_menu);
+    gc_dialog(tmpstr, NULL);
+    g_free(tmpstr);
+  } else if(!gc_board_check_file(board_to_start)) {
+    gchar *tmpstr= g_strdup_printf("Couldn't find the board menu, or plugin execution error");
+    gc_dialog(tmpstr, NULL);
+    g_free(tmpstr);
+  } else {
+    g_warning("Fine, we got the gcomprisBoardMenu, xml boards parsing went fine");
+    gc_board_play(board_to_start);
+  }
 
   display_activation_dialog();
 
@@ -961,8 +967,8 @@ static void cleanup()
 
   gc_board_stop();
   gc_db_exit();
-  gc_prop_destroy(gc_prop_get());
   gc_fullscreen_set(FALSE);
+  gc_prop_destroy(gc_prop_get());
 }
 
 void gc_exit()
@@ -1055,6 +1061,7 @@ static void load_properties ()
       properties->package_python_plugin_dir = g_strconcat(pkg_data_dir, "/gcompris/python", NULL);
       properties->system_icon_dir = g_strconcat(pkg_data_dir, "/pixmaps", NULL);
       g_free(pkg_data_dir);
+      g_free(pkg_clib_dir);
     }
   g_free(tmpstr);
   g_free(prefix_dir);
@@ -1527,6 +1534,7 @@ gc_init (int argc, char *argv[])
   }
 
   /* shared_dir initialised, now we can set the default */
+  g_free(properties->database);
   properties->database = gc_prop_default_database_name_get ( properties->shared_dir );
   g_warning( "Infos:\n   Shared dir '%s'\n   Users dir '%s'\n   Database '%s'\n",
 	     properties->shared_dir,

@@ -129,6 +129,7 @@ _add_xml_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child,
 
 	prerequisite = (char *)xmlNodeListGetString(doc,  xmlnode->xmlChildrenNode, 0);
 	gcomprisBoard->prerequisite = reactivate_newline(gettext(prerequisite));
+    g_free(prerequisite);
       }
 
     /* get the help goal of the board */
@@ -139,6 +140,7 @@ _add_xml_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child,
 
 	goal = (char *)xmlNodeListGetString(doc,  xmlnode->xmlChildrenNode, 0);
 	gcomprisBoard->goal = reactivate_newline(gettext(goal));
+    g_free(goal);
       }
 
     /* get the help user manual of the board */
@@ -149,6 +151,7 @@ _add_xml_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child,
 
 	manual = (char *)xmlNodeListGetString(doc,  xmlnode->xmlChildrenNode, 0);
 	gcomprisBoard->manual = reactivate_newline(gettext(manual));
+    g_free(manual);
       }
 
     /* get the help user credit of the board */
@@ -159,6 +162,7 @@ _add_xml_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child,
 
 	credit =(char *) xmlNodeListGetString(doc,  xmlnode->xmlChildrenNode, 0);
 	gcomprisBoard->credit = reactivate_newline(gettext(credit));
+    g_free(credit);
       }
 
     /* Display the resource on stdout */

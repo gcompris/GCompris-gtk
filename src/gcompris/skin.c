@@ -382,6 +382,9 @@ gc_skin_free (void)
 
   if(gc_skin_colors!=NULL)
     g_hash_table_destroy(gc_skin_colors);
+
+  if(gc_skin_numbers!= NULL)
+      g_hash_table_destroy(gc_skin_numbers);
 }
 
 /*

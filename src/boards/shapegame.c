@@ -607,6 +607,8 @@ static void destroy_shape (Shape *shape)
   g_free(shape->name);
   g_free(shape->pixmapfile);
   g_free(shape->targetfile);
+  g_free(shape->soundfile);
+  g_free(shape->tooltip);
   if(shape->points!=NULL)
     gnome_canvas_points_unref(shape->points);
   g_free(shape);
@@ -1658,11 +1660,37 @@ create_shape(ShapeType type, char *name, char *tooltip, char *pixmapfile, GnomeC
   return shape;
 }
 
+/** return a double value from an nodePtr
+ *
+ * \param node
+ * \param prop
+ * \param def_value :  default value
+ *
+ * \return a double value found in the 'prop' property of the 'node' or
+ *         the default value if not found
+ */
+static double
+xmlGetProp_Double(xmlNodePtr node, xmlChar *prop, double def_value)
+{
+  double value;
+  char *str;
+
+  str = (char *)xmlGetProp(node, prop);
+  if(str)
+  {
+       value = g_ascii_strtod(str, NULL);
+      free(str);
+  }
+  else
+      value = def_value;
+
+  return value;
+}
 
 static void
 add_xml_shape_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child)
 {
-  char *name, *cx, *cy, *cd, *czoomx, *czoomy, *cposition, *ctype, *justification;
+  char *name, *cd ,*ctype, *justification;
   char *tooltip;
   GtkJustification justification_gtk;
   char *pixmapfile = NULL;
@@ -1692,10 +1720,7 @@ add_xml_shape_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child)
     return;
 
   pixmapfile = (char *)xmlGetProp(xmlnode, BAD_CAST "pixmapfile");
-  /* if unspecified, make it UNDEFINED */
-  if(!pixmapfile) {
-    pixmapfile = UNDEFINED;
-  } else {
+  if(pixmapfile) {
     /* If the pixmapfile starts with skin: then get the skin relative image instead */
     if(!strncmp(pixmapfile, "skin:", 5)) {
       gchar *oldpixmapfile = pixmapfile;
@@ -1705,12 +1730,8 @@ add_xml_shape_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child)
   }
 
   targetfile = (char *)xmlGetProp(xmlnode, BAD_CAST "targetfile");
-  /* if unspecified, make it UNDEFINED */
-  if(!targetfile) targetfile = UNDEFINED;
 
   soundfile = (char *)xmlGetProp(xmlnode, BAD_CAST "sound");
-  /* if unspecified, make it UNDEFINED */
-  if(!soundfile) soundfile = UNDEFINED;
   /*********************************/
   /* get the points for a polygone */
   /* The list of points is similar to the one define in the SVG standard */
@@ -1741,53 +1762,46 @@ add_xml_shape_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child)
     }
 
   /* get the X coord of the shape */
-  cx = (char *)xmlGetProp(xmlnode, BAD_CAST "x");
-  if(!cx) cx = "100";
-  x = g_ascii_strtod(cx, NULL);
-
+  x = xmlGetProp_Double(xmlnode, BAD_CAST "x", 100);
   /* get the Y coord of the shape */
-  cy = (char *)xmlGetProp(xmlnode, BAD_CAST "y");
-  if(!cy) cy = "100";
-  y = g_ascii_strtod(cy, NULL);
+  y = xmlGetProp_Double(xmlnode, BAD_CAST "y", 100);
 
   /* Back up the current locale to be sure to load well C formated numbers */
   locale = g_strdup(gc_locale_get());
   gc_locale_set("C");
 
   /* get the ZOOMX coord of the shape */
-  czoomx = (char *)xmlGetProp(xmlnode, BAD_CAST "zoomx");
-  if(!czoomx) czoomx = "1";
-  zoomx = g_ascii_strtod(czoomx, NULL);
+  zoomx = xmlGetProp_Double(xmlnode, BAD_CAST "zoomx", 1);
 
   /* get the ZOOMY coord of the shape */
-  czoomy = (char *)xmlGetProp(xmlnode, BAD_CAST "zoomy");
-  if(!czoomy) czoomy = "1";
-  zoomy = g_ascii_strtod(czoomy, NULL);
+  zoomy = xmlGetProp_Double(xmlnode, BAD_CAST "zoomy", 1);
 
   /* get the POSITION of the shape */
   /* Position in the xml means:
    * 0 = BOTTOM
    * 1 or more = TOP
    */
-  cposition = (char *)xmlGetProp(xmlnode, BAD_CAST "position");
-  if(!cposition) cposition = "0";
-  position = atoi(cposition);
+  position = (guint) xmlGetProp_Double(xmlnode, BAD_CAST "position", 0);
 
   /* Back to the user locale */
   gc_locale_set(locale);
-  g_strdup(locale);
+  g_free(locale);
 
   /* get the TYPE of the shape */
   ctype = (char *)xmlGetProp(xmlnode, BAD_CAST "type");
-  if(!ctype) ctype = "SHAPE_TARGET"; /* SHAPE_TARGET is default */
-  if(g_strcasecmp(ctype,"SHAPE_TARGET")==0)
-    type = SHAPE_TARGET;
-  else if(g_strcasecmp(ctype,"SHAPE_DUMMY_TARGET")==0)
-    type = SHAPE_DUMMY_TARGET;
-  else if (g_strcasecmp(ctype,"SHAPE_BACKGROUND")==0)
-    type = SHAPE_BACKGROUND;
-  else if (g_strcasecmp(ctype,"SHAPE_COLORLIST")==0)
-    type = SHAPE_COLORLIST;
+  if(ctype) {
+    if(g_strcasecmp(ctype,"SHAPE_TARGET")==0)
+        type = SHAPE_TARGET;
+      else if(g_strcasecmp(ctype,"SHAPE_DUMMY_TARGET")==0)
+        type = SHAPE_DUMMY_TARGET;
+      else if (g_strcasecmp(ctype,"SHAPE_BACKGROUND")==0)
+        type = SHAPE_BACKGROUND;
+      else if (g_strcasecmp(ctype,"SHAPE_COLORLIST")==0)
+        type = SHAPE_COLORLIST;
+   xmlFree(ctype);
+  }
+  else
+      type = SHAPE_TARGET;
 
   /* get the JUSTIFICATION of the Title */
   justification_gtk = GTK_JUSTIFY_CENTER;	/* GTK_JUSTIFICATION_CENTER is default */
@@ -1802,12 +1816,14 @@ add_xml_shape_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child)
     } else if (strcmp(justification, "GTK_JUSTIFY_FILL") == 0) {
       justification_gtk = GTK_JUSTIFY_FILL;
     }
+    xmlFree(justification);
   }
 
   /* get the COLOR of the Title Specified by skin reference */
   color_text = (char *)xmlGetProp(xmlnode, BAD_CAST "color_skin");
   if(color_text) {
     color_rgba = gc_skin_get_color(color_text);
+    xmlFree(color_text);
   } else {
     color_rgba = gc_skin_get_color("gcompris/content");	/* the default */
   }
@@ -1825,7 +1841,9 @@ add_xml_shape_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child)
 	    || !strcmp(lang, gc_locale_get())
 	    || !strncmp(lang, gc_locale_get(), 2)))
       {
-	name = (char *)xmlNodeListGetString(doc, xmlnamenode->xmlChildrenNode, 1);
+          if (name)
+              xmlFree(name);
+        	name = (char *)xmlNodeListGetString(doc, xmlnamenode->xmlChildrenNode, 1);
       }
 
     /* get the tooltip of the shape */
@@ -1834,9 +1852,11 @@ add_xml_shape_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child)
 	    || !strcmp(lang, gc_locale_get())
 	    || !strncmp(lang, gc_locale_get(), 2)))
       {
-	tooltip = (char *)xmlNodeListGetString(doc, xmlnamenode->xmlChildrenNode, 1);
+          if (tooltip)
+              xmlFree(tooltip);
+          tooltip = (char *)xmlNodeListGetString(doc, xmlnamenode->xmlChildrenNode, 1);
       }
-
+    xmlFree(lang);
     xmlnamenode = xmlnamenode->next;
   }
 
@@ -1849,9 +1869,11 @@ add_xml_shape_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child)
     {
       /* add the shape to the database */
       /* WARNING : I do not initialize the width and height since I don't need them */
-      shape = create_shape(type, name, tooltip, pixmapfile, points, targetfile, x, y,
+      shape = create_shape(type, name, tooltip, pixmapfile ? pixmapfile : UNDEFINED, points,
+                targetfile ? targetfile : UNDEFINED, x, y,
 			   (double)0, (double)0,
-			   zoomx, zoomy, position, soundfile);
+			   zoomx, zoomy, position,
+               soundfile ? soundfile : UNDEFINED);
 
       /* add the shape to the list */
       shape_list_init = g_list_append(shape_list_init, shape);
@@ -1864,12 +1886,14 @@ add_xml_shape_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child)
       if(name != NULL) {
 	newname = g_strcompress(name);
 
-	g_free(name);
-
 	create_title(newname, x, y, justification_gtk, color_rgba);
+    g_free(newname);
       }
     }
-
+  g_free(pixmapfile);
+  g_free(soundfile);
+  g_free(name);
+  g_free(targetfile);
 }
 
 /* parse the doc, add it to our internal structures and to the clist */

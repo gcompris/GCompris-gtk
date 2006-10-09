@@ -55,7 +55,6 @@ void gc_dialog_close() {
  */
 void gc_dialog(gchar *str, DialogBoxCallBack dbcb)
 {
-  GcomprisBoard   *gcomprisBoard = gc_board_get_current();
   GnomeCanvasItem *item_text   = NULL;
   GnomeCanvasItem *item_text_ok   = NULL;
   GdkPixbuf       *pixmap_dialog = NULL;
@@ -64,9 +63,6 @@ void gc_dialog(gchar *str, DialogBoxCallBack dbcb)
   GtkTextTag      *txt_tag;
 
   g_warning("Dialog=%s\n", str);
-
-  if(!gcomprisBoard)
-    return;
 
   /* If we are already running do nothing */
   if(rootDialogItem) {
@@ -79,12 +75,12 @@ void gc_dialog(gchar *str, DialogBoxCallBack dbcb)
 
   gc_bar_hide(TRUE);
 
-  rootDialogItem = GNOME_CANVAS_GROUP(
-				      gnome_canvas_item_new (gnome_canvas_root(gcomprisBoard->canvas),
-							     gnome_canvas_group_get_type (),
-							     "x", (double) 0,
-							     "y", (double) 0,
-							     NULL));
+  rootDialogItem = \
+    GNOME_CANVAS_GROUP(gnome_canvas_item_new (gnome_canvas_root(gc_get_canvas()),
+					      gnome_canvas_group_get_type (),
+					      "x", (double) 0,
+					      "y", (double) 0,
+					      NULL));
 
   pixmap_dialog = gc_skin_pixmap_load("dialogbox.png");
 

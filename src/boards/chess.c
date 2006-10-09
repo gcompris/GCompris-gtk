@@ -460,18 +460,12 @@ chess_create_item(GnomeCanvasGroup *parent)
 	GdkPixbuf *pixmap = NULL;
 	char *str;
 	gint x, y;
-	char *temp;
-	char *san;
 
 	piece = position->square[square];
 
 	x = square % 10 - 1;
 	y = square / 10 - 2;
 
-	/* Destination square */
-	san = g_new0 (char, 12);
-	temp = san;
-	square_to_ascii (&temp, square);
 	//	printf ( "%c%s\n", piece_to_ascii(piece), san);
 
 	if(need_slash)
@@ -510,10 +504,6 @@ chess_create_item(GnomeCanvasGroup *parent)
 
 	    need_slash = TRUE;
 	  }
-
-  	temp = san;
-	san = g_strdup (temp);
-	g_free (temp);
 
 	//	printf("square=%d piece=%d x=%d y=%d\n", square, piece, x, y);
 	if(piece != EMPTY)

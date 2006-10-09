@@ -226,8 +226,12 @@ static void minigolf_destroy_all_items()
   boardRootItem = NULL;
 
   if(item_list)
-    g_list_free(item_list);
-
+  {
+      int i;
+      for( i=0; i< g_list_length(item_list); i++)
+          g_free(g_list_nth_data(item_list,i));
+      g_list_free(item_list);
+  }
   item_list = NULL;
 }
 /* ==================================== */

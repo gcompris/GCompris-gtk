@@ -267,13 +267,13 @@ void gc_bar_start (GnomeCanvas *theCanvas)
 
   // Show them all
   update_exit_button();
-  gnome_canvas_item_show(level_item);
-  gnome_canvas_item_show(ok_item);
-  gnome_canvas_item_show(help_item);
-  gnome_canvas_item_show(repeat_item);
+  gnome_canvas_item_hide(level_item);
+  gnome_canvas_item_hide(ok_item);
+  gnome_canvas_item_hide(help_item);
+  gnome_canvas_item_hide(repeat_item);
   if(config_item)
-    gnome_canvas_item_show(config_item);
-  gnome_canvas_item_show(about_item);
+    gnome_canvas_item_hide(config_item);
+  gnome_canvas_item_hide(about_item);
 }
 
 
