@@ -1,3 +1,9 @@
+2006-10-13  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* src/boards/Makefile.mingw: update for windows python support
+	* src/boards/python/electric.py: improved to work on windows (untested yet)
+	* src/gcompris/board.c: (gc_board_init): added missing crane activity for windows
+
 2006-10-12  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* src/gcompris/gameutil.c: (gc_item_focus_set): Fixed a memleak by Miguel DE IZARRA

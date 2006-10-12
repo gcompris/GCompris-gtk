@@ -83,15 +83,13 @@ class Gcompris_electric:
     #
     # Check gnucap is installed and save it's path in self.gnucap_binary
     #
-    wingnucap = os.getcwd() + "/gnucap.exe"
+    wingnucap = os.path.join(os.getcwd(), "/gnucap.exe")
     for binary in ("/usr/bin/gnucap",
                    "/usr/local/bin/gnucap",
                    wingnucap):
-      try:
-        os.stat(binary)
+      if(os.path.exists(binary)):
         self.gnucap_binary = binary
-      except:
-        pass
+        break
 
     if not self.gnucap_binary:
       gcompris.utils.dialog(_("Cannot find the 'gnucap' electric simulator.\nYou can download and install it from:\n<http://geda.seul.org/tools/gnucap/>\nTo be detected, it must be installed in\n/usr/bin/gnucap or /usr/local/bin/gnucap.\nYou can still use this activity to draw schematics without computer simulation."),
@@ -306,10 +304,13 @@ class Gcompris_electric:
 # ----------------------------------------------------------------------
 
   def run_simulation(self):
+    if debug: print "run_simulation %s" %(self.gnucap_binary,)
     if not self.gnucap_binary:
       return
 
+    if debug: print "self.gnucap_timer = %d" %(self.gnucap_timer,)
     if not self.gnucap_timer:
+      if debug: print "run_simulation timeout_add"
       self.gnucap_timer = gobject.timeout_add(self.gnucap_timer_interval, self.call_gnucap)
 
   def call_gnucap(self):
@@ -323,9 +324,7 @@ class Gcompris_electric:
       if component.is_connected():
         connected = True
 
-    if not connected:
-      if debug: print "call_gnucap: No connected component"
-      return
+    if debug: print "call_gnucap create the tempfile"
 
     fd, filename = tempfile.mkstemp(".gnucap", "gcompris_electric", None, True)
     f = os.fdopen(fd, "w+t")
@@ -355,12 +354,14 @@ class Gcompris_electric:
     #
     # Run gnucap with the temporary datafile we created.
     #
+    if debug: print "calling gnucap: %s -b %s" % (self.gnucap_binary, filename)
     output = os.popen("%s -b %s" % (self.gnucap_binary, filename))
 
     #
     # Read and analyse gnucap result
     #
     if debug: print "---------------- GNUCAP OUTPUT PARSING ---------------------"
+    line = ""
     for line in output.readlines():
       if debug: print "==="
       if debug: print line
@@ -371,6 +372,14 @@ class Gcompris_electric:
     if debug: print "===>"
     if debug: print line
     if debug: print "===>"
+
+    # Close it to check errors
+    results = output.close()
+    if results:
+      print('Failed to run gnugap with error ', os.WEXITSTATUS(results))
+      self.gnucap_timer = 0
+      return
+
     values = []
     if(line.split()[0] == "0."):
       if debug: print "FOUND 0."
