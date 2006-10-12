@@ -180,6 +180,7 @@ void gc_item_focus_set(GnomeCanvasItem *item, gboolean focus)
 
   gtk_object_get (GTK_OBJECT (item), "pixbuf", &pixbuf, NULL);
   g_return_if_fail (pixbuf != NULL);
+  gdk_pixbuf_unref(pixbuf);
 
   /* Store the first pixbuf */
   pixbuf_ref = (GdkPixbuf *)g_object_get_data (G_OBJECT (item), "pixbuf_ref");
@@ -187,6 +188,7 @@ void gc_item_focus_set(GnomeCanvasItem *item, gboolean focus)
     {
       g_object_set_data (G_OBJECT (item), "pixbuf_ref", pixbuf);
       pixbuf_ref = pixbuf;
+      gdk_pixbuf_ref(pixbuf);
       g_signal_connect (item, "destroy",
  			G_CALLBACK (free_image_focus),
  			NULL);

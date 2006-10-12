@@ -1,3 +1,13 @@
+2006-10-12  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* src/gcompris/gameutil.c: (gc_item_focus_set): Fixed a memleak by Miguel DE IZARRA
+
+2006-10-10  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	reviewed by: <delete if not using a buddy>
+
+	* src/gcompris/gameutil.c: (gc_item_focus_set):
+
 2006-10-10  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	- José JORGE created a new set of icons that were missing for the memory
