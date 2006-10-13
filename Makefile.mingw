@@ -4,7 +4,7 @@
 # Description: Top Makefile for win32 (mingw) port of GCompris
 #
 
-VERSION = "8.0BETA6"
+VERSION = "8.0"
 
 pkgdatadir = gcompris
 
@@ -13,20 +13,19 @@ GCOMPRIS_BOARDS = ./src/boards
 GCOMPRIS_INSTALL_DIR = ./win32-install-dir
 
 GTK_TOP :=		/gtk
-GLIB_TOP :=		/glib
 GNUWIN32_TOP :=		/gnuwin32
 LIBXML2_TOP :=		/libxml2
 SDL_TOP :=		/sdl
 CANVAS_TOP :=		/gnomecanvas
-CAIRO_TOP :=		/cairo
 GNUCHESS_TOP :=		/gnuchess
-PYTHON_TOP :=		/c/Python24
+GNUCAP_TOP :=		/gnucap
 
 MAKENSIS := "/c/Program Files/NSIS/makensis.exe"
 
 # These will be copied in the win32-install-dir ready to be packaged.
 NEEDED_DLLS =		$(GNUCHESS_TOP)/bin/pthreadGC.dll \
 			$(GNUCHESS_TOP)/bin/libreadline.dll \
+			$(GNUCAP_TOP)/src/MSW/gnucap.exe \
 			$(GTK_TOP)/bin/gspawn-win32-helper.exe \
 			$(GNUCHESS_TOP)/bin/gnuchess.exe \
 			$(GNUWIN32_TOP)/bin/popt1.dll \
@@ -43,7 +42,7 @@ NEEDED_DLLS =		$(GNUCHESS_TOP)/bin/pthreadGC.dll \
 			$(GTK_TOP)/bin/libart_lgpl_2-2.dll \
 			$(GTK_TOP)/bin/libgdk-win32-2.0-0.dll \
 			$(GTK_TOP)/bin/libgdk_pixbuf-2.0-0.dll \
-			$(GLIB_TOP)/bin/libglib-2.0-0.dll \
+			$(GTK_TOP)/bin/libglib-2.0-0.dll \
 			$(GTK_TOP)/bin/libgmodule-2.0-0.dll \
 			$(GTK_TOP)/bin/libgobject-2.0-0.dll \
 			$(GTK_TOP)/bin/libpango-1.0-0.dll \
@@ -60,9 +59,8 @@ NEEDED_DLLS =		$(GNUCHESS_TOP)/bin/pthreadGC.dll \
 			$(GTK_TOP)/bin/intl.dll \
 			$(GTK_TOP)/bin/libpng13.dll \
 			$(GTK_TOP)/bin/jpeg62.dll \
-			$(GTK_TOP)/bin/libpangocairo-1.0-0.dll \
-			$(CAIRO_TOP/bin/libcairo-2.dll \
-			/c/WINDOWS/system32/python24.dll
+			$(GTK_TOP)/bin/libcairo-2.dll \
+			$(GTK_TOP)/bin/libpangocairo-1.0-0.dll
 
 NEEDED_FILES =		README \
 			COPYING \
@@ -82,6 +80,11 @@ install: all
 	mkdir -p $(GCOMPRIS_INSTALL_DIR)/share
 	$(MAKE) -C $(GCOMPRIS_BOARDS) -f Makefile.mingw install
 	$(MAKE) -C $(GCOMPRIS_SRC) -f Makefile.mingw install
+	mkdir -p $(GCOMPRIS_INSTALL_DIR)/share/gcompris
+	cp -r $(GCOMPRIS_BOARDS)/python $(GCOMPRIS_INSTALL_DIR)/share/gcompris
+	rm -f $(GCOMPRIS_INSTALL_DIR)/share/gcompris/python/Makefile*
+	rm -f $(GCOMPRIS_INSTALL_DIR)/share/gcompris/python/gcompris/Makefile*
+	rm -f $(GCOMPRIS_INSTALL_DIR)/share/gcompris/python/admin/Makefile*
 
 # Copy mandratory files for the package in the package directory
 prepack:
@@ -111,7 +114,7 @@ clean:
 #
 prep:
 	mkdir -p $(GCOMPRIS_INSTALL_DIR)/share/$(pkgdatadir)/boards
-	cd boards ; tar cf -  --exclude "Makefile.in" --exclude "*.in" --exclude "*~" --exclude "Makefile" --exclude "Makefile.am" --exclude CVS --exclude .xvpics --exclude "*.assetml" * | ( cd ../$(GCOMPRIS_INSTALL_DIR)/share/$(pkgdatadir)/boards ; tar xf -) ; cd .. ;
+	cd boards ; tar cf -  --exclude "Makefile.in" --exclude "*.in" --exclude "*~" --exclude "Makefile" --exclude "Makefile.am" --exclude CVS --exclude .xvpics * | ( cd ../$(GCOMPRIS_INSTALL_DIR)/share/$(pkgdatadir)/boards ; tar xf -) ; cd .. ;
 	@echo "-------------------------------------------------------------------------------"
 	@echo " WARNING: MAKE SURE TO HAVE RUN A MAKE INSTALL OF GCOMPRIS IN /USR/LOCAL FIRST"
 	@echo "-------------------------------------------------------------------------------"
@@ -119,8 +122,6 @@ prep:
 	cp -r /usr/local/share/locale/* $(GCOMPRIS_INSTALL_DIR)/share/locale/
 	@echo "Remove other .mo file not from gcompris"
 	find ./win32-install-dir/share/locale/ -name \*.mo | grep -v gcompris.mo | xargs rm -f
-	@echo "Grab installed assetml files"
-	cp -r /usr/local/share/assetml $(GCOMPRIS_INSTALL_DIR)/share/
 	@echo "Copy pixmap"
 	mkdir $(GCOMPRIS_INSTALL_DIR)/share/pixmaps
 	cp gcompris.png $(GCOMPRIS_INSTALL_DIR)/share/pixmaps

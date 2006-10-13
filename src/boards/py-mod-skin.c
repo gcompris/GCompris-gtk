@@ -16,6 +16,7 @@ py_gc_skin_image_get(PyObject* self, PyObject* args)
 {
   gchar* imagename;
   gchar* result;
+  PyObject* pyresult;
   /* Parse arguments */
   if(!PyArg_ParseTuple(args, "s:gc_skin_image_get", &imagename))
     return NULL;
@@ -24,7 +25,11 @@ py_gc_skin_image_get(PyObject* self, PyObject* args)
   result = gc_skin_image_get(imagename);
 
   /* Create and return the result */
-  return Py_BuildValue("s", result);
+  pyresult = Py_BuildValue("s", result);
+
+  g_free(result);
+
+  return(pyresult);
 }
 
 
@@ -34,6 +39,8 @@ py_gc_skin_pixmap_load(PyObject* self, PyObject* args)
 {
   char* pixmapfile;
   GdkPixbuf* result;
+  PyObject* pyresult;
+
   /* Parse arguments */
   if(!PyArg_ParseTuple(args, "s:gc_skin_pixmap_load", &pixmapfile))
     return NULL;
@@ -42,7 +49,11 @@ py_gc_skin_pixmap_load(PyObject* self, PyObject* args)
   result = gc_skin_pixmap_load(pixmapfile);
 
   /* Create and return the result */
-  return (PyObject*) pygobject_new((GObject*) result);
+  pyresult = (PyObject*) pygobject_new((GObject*) result);
+
+  gdk_pixbuf_unref(result);
+
+  return(pyresult);
 }
 
 
@@ -127,13 +138,13 @@ py_gc_skin_get_font(PyObject* self, PyObject* args)
 static PyMethodDef PythonGcomprisSkinModule[] = {
   { "image_to_skin",  py_gc_skin_image_get, METH_VARARGS, "gc_skin_image_get" },
   { "load_pixmap",  py_gc_skin_pixmap_load, METH_VARARGS, "gc_skin_pixmap_load" },
-  { "get_color_default",  py_gc_skin_get_color_default, METH_VARARGS, 
+  { "get_color_default",  py_gc_skin_get_color_default, METH_VARARGS,
     "gc_skin_get_color_default" },
-  { "get_font_default",  py_gc_skin_get_font_default, METH_VARARGS, 
+  { "get_font_default",  py_gc_skin_get_font_default, METH_VARARGS,
     "gc_skin_get_font_default" },
-  { "get_color",  py_gc_skin_get_color, METH_VARARGS, 
+  { "get_color",  py_gc_skin_get_color, METH_VARARGS,
     "gc_skin_get_color" },
-  { "get_font",  py_gc_skin_get_font, METH_VARARGS, 
+  { "get_font",  py_gc_skin_get_font, METH_VARARGS,
     "gc_skin_get_font" },
   { NULL, NULL, 0, NULL}
 };

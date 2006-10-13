@@ -83,10 +83,9 @@ class Gcompris_electric:
     #
     # Check gnucap is installed and save it's path in self.gnucap_binary
     #
-    wingnucap = os.path.join(os.getcwd(), "/gnucap.exe")
     for binary in ("/usr/bin/gnucap",
                    "/usr/local/bin/gnucap",
-                   wingnucap):
+                   "gnucap.exe"):
       if(os.path.exists(binary)):
         self.gnucap_binary = binary
         break
@@ -376,7 +375,7 @@ class Gcompris_electric:
     # Close it to check errors
     results = output.close()
     if results:
-      print('Failed to run gnugap with error ', os.WEXITSTATUS(results))
+      print('Failed to run gnugap with error ', results)
       self.gnucap_timer = 0
       return
 

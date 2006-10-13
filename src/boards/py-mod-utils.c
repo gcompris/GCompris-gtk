@@ -16,6 +16,8 @@ py_gc_pixmap_load(PyObject* self, PyObject* args)
 {
   char* pixmapfile;
   GdkPixbuf* result;
+  PyObject* pyresult;
+
   /* Parse arguments */
 
   if(!PyArg_ParseTuple(args, "s:gc_pixmap_load", &pixmapfile))
@@ -25,7 +27,12 @@ py_gc_pixmap_load(PyObject* self, PyObject* args)
   result = gc_pixmap_load(pixmapfile);
 
   /* Create and return the result */
-  return (PyObject*) pygobject_new((GObject*) result);
+  pyresult = (PyObject*) pygobject_new((GObject*) result);
+
+  gdk_pixbuf_unref(result);
+
+  return(pyresult);
+
 }
 
 

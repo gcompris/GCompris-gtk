@@ -1440,6 +1440,9 @@ gc_init (int argc, char *argv[])
       g_warning("Default gnome cursor enabled");
       properties->defaultcursor = GDK_LEFT_PTR;
     }
+#ifdef WIN32
+  properties->defaultcursor = GDK_LEFT_PTR;
+#endif
 
   if (popt_aalias)
     {

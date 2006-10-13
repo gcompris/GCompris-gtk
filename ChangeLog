@@ -1,3 +1,21 @@
+2006-10-14  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	- Fixed a major memory leak in python bindings. all image loading was leaking.
+	- Now electricity works on windows.
+	- On windows disable the colored cursor. Need to use the new GTK API, maybe
+	  it would work on windows with it. With the new api, we can provide png files
+	  as cursor which would be better for skins as well.
+
+	* Makefile.mingw:
+	* config.h.mingw:
+	* configure.in:
+	* src/boards/Makefile.mingw:
+	* src/boards/py-mod-skin.c: (py_gc_skin_image_get),
+	(py_gc_skin_pixmap_load):
+	* src/boards/py-mod-utils.c: (py_gc_pixmap_load):
+	* src/boards/python/electric.py:
+	* src/gcompris/gcompris.c: (gc_init):
+
 2006-10-13  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* src/boards/Makefile.mingw: update for windows python support
