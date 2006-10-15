@@ -158,14 +158,21 @@ make_hc_pixbuf(GdkPixbuf *pb, gint val)
 
 /**
  * Free the highlight image from our image_focus system
+ *
+ * It must be called before assigning a new image to an item that
+ * already has a focus enabled with gc_item_focus_event().
  */
-static void
-free_image_focus (GnomeCanvasItem *item, void *none)
+void
+gc_item_focus_free(GnomeCanvasItem *item, void *none)
 {
   GdkPixbuf *pixbuf;
 
   pixbuf = (GdkPixbuf *)g_object_get_data (G_OBJECT (item), "pixbuf_ref");
-  gdk_pixbuf_unref(pixbuf);
+  if(pixbuf)
+    {
+      g_object_set_data (G_OBJECT (item), "pixbuf_ref", NULL);
+      gdk_pixbuf_unref(pixbuf);
+    }
 }
 
 /**
@@ -190,7 +197,7 @@ void gc_item_focus_set(GnomeCanvasItem *item, gboolean focus)
       pixbuf_ref = pixbuf;
       gdk_pixbuf_ref(pixbuf);
       g_signal_connect (item, "destroy",
- 			G_CALLBACK (free_image_focus),
+ 			G_CALLBACK (gc_item_focus_free),
  			NULL);
 
     }
@@ -224,8 +231,9 @@ void gc_item_focus_set(GnomeCanvasItem *item, gboolean focus)
  * or the given one
  *
  */
-gint gc_item_focus_event(GnomeCanvasItem *item, GdkEvent *event,
-			       GnomeCanvasItem *dest_item)
+gint
+gc_item_focus_event(GnomeCanvasItem *item, GdkEvent *event,
+		    GnomeCanvasItem *dest_item)
 {
 
   if(dest_item!=NULL)

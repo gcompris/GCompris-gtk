@@ -63,9 +63,23 @@ static gint board_widget_key_press_callback (GtkWidget   *widget,
 void gc_terminate(int signum);
 
 /*
- * For the Activation dialiog
+ * For the Activation dialog
  */
 #ifdef WIN32
+  /* List of keycodes */
+  gchar *keycode[] =
+    {
+      "83640",
+      "33251",
+      "99301",
+      "71848",
+      "79657",
+      "47561",
+      "84175",
+      "15987",
+      NULL
+    };
+
 static void activation_enter_callback(GtkWidget *widget,
 				      GtkWidget *entry );
 static void activation_done();
@@ -845,20 +859,6 @@ activation_enter_callback( GtkWidget *widget,
 
   entry_text = (char *)gtk_entry_get_text(GTK_ENTRY(entry));
 
-  /* List of keycodes */
-  gchar *keycode[] =
-    {
-      "83640",
-      "33251",
-      "99301",
-      "71848",
-      "79657",
-      "47561",
-      "84175",
-      "15987",
-      NULL
-    };
-
   if(strlen(entry_text) == 5)
     {
       int i = 0;
@@ -867,7 +867,7 @@ activation_enter_callback( GtkWidget *widget,
 	  if(strncmp(entry_text, keycode[i-1], 5) == 0)
 	    {
 	      g_free(properties->key);
-	      properties->key=strdup("your_welcome");
+	      properties->key=strdup( keycode[i-1]);
 	      gc_prop_save(properties);
 	      gc_menu_load();
 

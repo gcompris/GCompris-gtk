@@ -48,7 +48,8 @@ gchar           *reactivate_newline(char *str);
 
 GdkPixbuf	*gc_pixmap_load(const gchar *filename, ...);
 void		 gc_item_focus_set(GnomeCanvasItem *item, gboolean focus);
-gint		 gc_item_focus_event(GnomeCanvasItem *item, GdkEvent *event, 
+void		 gc_item_focus_free(GnomeCanvasItem *item, void *none);
+gint		 gc_item_focus_event(GnomeCanvasItem *item, GdkEvent *event,
 					   GnomeCanvasItem *dest_item);
 
 gchar		*convertUTF8Toisolat1(gchar * text);
@@ -58,7 +59,7 @@ void		 gc_item_rotate_relative(GnomeCanvasItem *item, double angle);
 void		 gc_item_rotate_with_center(GnomeCanvasItem *item, double angle, int x, int y);
 void		 gc_item_rotate_relative_with_center(GnomeCanvasItem *item, double angle, int x, int y);
 
-GnomeCanvasGroup *gc_difficulty_display(GnomeCanvasGroup *parent, double x, double y, 
+GnomeCanvasGroup *gc_difficulty_display(GnomeCanvasGroup *parent, double x, double y,
 						    double ratio,
 						    int difficulty);
 

@@ -33,8 +33,8 @@ static gboolean	 get_board_playing(void);
 # define WIN32
 #endif
 
-
 #ifdef WIN32
+extern gchar *keycode[];
 extern BoardPlugin * get_advanced_colors_bplugin_info();
 extern BoardPlugin * get_algebra_bplugin_info();
 extern BoardPlugin * get_algebra_guesscount_bplugin_info();
@@ -211,6 +211,7 @@ gc_board_check_file(GcomprisBoard *gcomprisBoard)
   GcomprisProperties	*properties = gc_prop_get();
   BoardPlugin *bp;
   guint        i=0;
+  guint        key_is_valid = 0;
 
   g_assert(gcomprisBoard!=NULL);
   g_assert(properties->key!=NULL);
@@ -220,7 +221,15 @@ gc_board_check_file(GcomprisBoard *gcomprisBoard)
     return TRUE;
   }
 
-  if(strncmp(properties->key, "your_welcome", 12)==0) {
+  while(keycode[i++])
+    {
+      if(strncmp(entry_text, keycode[i-1], 5) == 0)
+	{
+	  key_is_valid = 1;
+	}
+    }
+
+  if(key_is_valid)
     while(static_boards[i++] != NULL) {
 
       /* Get the BoardPlugin Info */

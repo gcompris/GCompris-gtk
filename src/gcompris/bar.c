@@ -296,8 +296,9 @@ void gc_bar_set_level(GcomprisBoard *gcomprisBoard)
       pixmap = gc_skin_pixmap_load(str);
 
       g_free(str);
-      /* Warning changing the image needs to update pixbuf_ref for the focus usage */
-      g_object_set_data (G_OBJECT (level_item), "pixbuf_ref", pixmap);
+      /* Warning changing the image needs to free the focus first */
+      gc_item_focus_free(level_item, NULL);
+
       gnome_canvas_item_set (level_item,
       			     "pixbuf", pixmap,
       			     NULL);
@@ -322,7 +323,7 @@ void
 gc_bar_set_repeat_icon (GdkPixbuf *pixmap)
 {
   /* Warning changing the image needs to update pixbuf_ref for the focus usage */
-  g_object_set_data (G_OBJECT (repeat_item), "pixbuf_ref", pixmap);
+  gc_item_focus_free(repeat_item, NULL);
   gnome_canvas_item_set (repeat_item,
 			 "pixbuf", pixmap,
 			 NULL);

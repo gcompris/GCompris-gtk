@@ -757,8 +757,7 @@ item_event_ok(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 	    gc_fullscreen_set(properties->fullscreen);
 #endif
 	  /* Warning changing the image needs to update pixbuf_ref for the focus usage */
-	  g_object_set_data (G_OBJECT (item), "pixbuf_ref",
-			     (properties->fullscreen ? pixmap_checked : pixmap_unchecked));
+	  gc_item_focus_free(item, NULL);
 	  gnome_canvas_item_set (item,
 				 "pixbuf", (properties->fullscreen ? pixmap_checked : pixmap_unchecked),
 				 NULL);
@@ -768,8 +767,7 @@ item_event_ok(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 	{
 	  properties->music = (properties->music ? 0 : 1);
 	  /* Warning changing the image needs to update pixbuf_ref for the focus usage */
-	  g_object_set_data (G_OBJECT (item), "pixbuf_ref",
-			     (properties->music ? pixmap_checked : pixmap_unchecked));
+	  gc_item_focus_free(item, NULL);
 	  gnome_canvas_item_set (item,
 				 "pixbuf", (properties->music ? pixmap_checked : pixmap_unchecked),
 				 NULL);
@@ -779,8 +777,7 @@ item_event_ok(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 	{
 	  properties->fx = (properties->fx ? 0 : 1);
 	  /* Warning changing the image needs to update pixbuf_ref for the focus usage */
-	  g_object_set_data (G_OBJECT (item), "pixbuf_ref",
-			     (properties->fx ? pixmap_checked : pixmap_unchecked));
+	  gc_item_focus_free(item, NULL);
 	  gnome_canvas_item_set (item,
 				 "pixbuf", (properties->fx ? pixmap_checked : pixmap_unchecked),
 				 NULL);

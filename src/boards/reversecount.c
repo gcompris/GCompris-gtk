@@ -273,7 +273,7 @@ gint key_press(guint keyval, gchar *commit_str, gchar *preedit_str)
     case GDK_Hyper_L:
     case GDK_Hyper_R:
     case GDK_Num_Lock:
-      return FALSE; 
+      return FALSE;
     case GDK_KP_Enter:
     case GDK_Return:
       process_ok();
@@ -326,7 +326,7 @@ static void process_ok()
   if(!animate_id) {
     animate_id = gtk_timeout_add (animate_speed, (GtkFunction) animate_tux, NULL);
   }
-  
+
 }
 
 /*-------------------------------------------------------------------------------*/
@@ -465,24 +465,24 @@ static GnomeCanvasItem *reversecount_create_item(GnomeCanvasGroup *parent)
       j=0;
       item = gnome_canvas_item_new (boardRootItem,
 				    gnome_canvas_pixbuf_get_type (),
-				    "pixbuf", pixmap, 
+				    "pixbuf", pixmap,
 				    "x", (double) i,
 				    "y", (double) j,
 				    "width", (double) block_width,
 				    "height", (double)  block_height,
-				    "width_set", TRUE, 
+				    "width_set", TRUE,
 				    "height_set", TRUE,
 					NULL);
 
       j=BOARDHEIGHT-block_height;
       item = gnome_canvas_item_new (boardRootItem,
 				    gnome_canvas_pixbuf_get_type (),
-				    "pixbuf", pixmap, 
+				    "pixbuf", pixmap,
 				    "x", (double) i,
 				    "y", (double) j,
 				    "width", (double) block_width,
 				    "height", (double)  block_height,
-				    "width_set", TRUE, 
+				    "width_set", TRUE,
 				    "height_set", TRUE,
 					NULL);
     }
@@ -492,24 +492,24 @@ static GnomeCanvasItem *reversecount_create_item(GnomeCanvasGroup *parent)
       i = 0;
       item = gnome_canvas_item_new (boardRootItem,
 				    gnome_canvas_pixbuf_get_type (),
-				    "pixbuf", pixmap, 
+				    "pixbuf", pixmap,
 				    "x", (double) i,
 				    "y", (double) j,
 				    "width", (double) block_width,
 				    "height", (double)  block_height,
-				    "width_set", TRUE, 
+				    "width_set", TRUE,
 				    "height_set", TRUE,
 					NULL);
 
       i = BOARDWIDTH - block_width;
       item = gnome_canvas_item_new (boardRootItem,
 				    gnome_canvas_pixbuf_get_type (),
-				    "pixbuf", pixmap, 
+				    "pixbuf", pixmap,
 				    "x", (double) i,
 				    "y", (double) j,
 				    "width", (double) block_width,
 				    "height", (double)  block_height,
-				    "width_set", TRUE, 
+				    "width_set", TRUE,
 				    "height_set", TRUE,
 					NULL);
     }
@@ -525,7 +525,7 @@ static GnomeCanvasItem *reversecount_create_item(GnomeCanvasGroup *parent)
 
   gnome_canvas_item_new (boardRootItem,
 			 gnome_canvas_pixbuf_get_type (),
-			 "pixbuf", pixmap, 
+			 "pixbuf", pixmap,
 			 "x", (double) dice_area_x,
 			 "y", (double) block_height + 20,
 			 NULL);
@@ -545,14 +545,14 @@ static GnomeCanvasItem *reversecount_create_item(GnomeCanvasGroup *parent)
 
       item = gnome_canvas_item_new (boardRootItem,
 				    gnome_canvas_pixbuf_get_type (),
-				    "pixbuf", pixmap, 
+				    "pixbuf", pixmap,
 				    "x", (double) i,
 				    "y", (double) j,
 				    NULL);
       dicevalue_array[d] = 1;
       val = g_new(gint, 1);
       *val = d;
-      gtk_signal_connect(GTK_OBJECT(item), "event", (GtkSignalFunc) item_event, 
+      gtk_signal_connect(GTK_OBJECT(item), "event", (GtkSignalFunc) item_event,
 			 val);
       gtk_signal_connect(GTK_OBJECT(item), "event",
 			 (GtkSignalFunc) gc_item_focus_event,
@@ -573,7 +573,7 @@ static GnomeCanvasItem *reversecount_create_item(GnomeCanvasGroup *parent)
 static void display_random_fish()
 {
 
-  fish_index = tux_index + 
+  fish_index = tux_index +
     rand()%(max_dice_number*number_of_dices) + 1;
 
   // Wrapping
@@ -607,7 +607,7 @@ static GnomeCanvasItem *display_item_at(gchar *imagename, int block, double rati
       g_warning("      // Upper line\n");
       i = block_width * block;
       j = 0;
-    } 
+    }
   else if(block < number_of_item_x + number_of_item_y - 2)
     {
       // Right line
@@ -628,7 +628,7 @@ static GnomeCanvasItem *display_item_at(gchar *imagename, int block, double rati
       // Left line
       g_warning("      // Left line\n");
       i = 0;
-      j = block_height * (number_of_item_y - (block - (number_of_item_x*2 + 
+      j = block_height * (number_of_item_y - (block - (number_of_item_x*2 +
 						      number_of_item_y-4)));
     }
 
@@ -648,14 +648,14 @@ static GnomeCanvasItem *display_item_at(gchar *imagename, int block, double rati
 
   item = gnome_canvas_item_new (boardRootItem,
 				gnome_canvas_pixbuf_get_type (),
-				"pixbuf", pixmap, 
+				"pixbuf", pixmap,
 				"x", (double) i + (block_width -
 						   (gdk_pixbuf_get_width (pixmap) * xratio)) / 2,
 				"y", (double) j + (block_height -
 						   (gdk_pixbuf_get_height (pixmap) * yratio)) / 2,
 				"width", (double) gdk_pixbuf_get_width (pixmap) * xratio,
 				"height", (double)  gdk_pixbuf_get_height (pixmap) * yratio,
-				"width_set", TRUE, 
+				"width_set", TRUE,
 				"height_set", TRUE,
 				NULL);
 
@@ -697,10 +697,10 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, gint *dice_index)
   if(board_paused)
     return FALSE;
 
-  switch (event->type) 
+  switch (event->type)
     {
     case GDK_BUTTON_PRESS:
-      switch(event->button.button) 
+      switch(event->button.button)
 	{
 	case 1:
 	  if(dicevalue_array[i]++ >= max_dice_number)
@@ -716,11 +716,11 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, gint *dice_index)
 	}
 
       str = g_strdup_printf("gcompris/dice/gnome-dice%d.png", dicevalue_array[i]);
-      
+
       pixmap = gc_pixmap_load(str);
 
       /* Warning changing the image needs to update pixbuf_ref for the focus usage */
-      g_object_set_data (G_OBJECT (item), "pixbuf_ref", pixmap);
+      gc_item_focus_free(item, NULL);
       gnome_canvas_item_set (item,
       			     "pixbuf", pixmap,
       			     NULL);
@@ -739,7 +739,7 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, gint *dice_index)
 /*
  * Clock management
  */
-static void create_clock(double x, double y, int value) 
+static void create_clock(double x, double y, int value)
 {
   GdkPixbuf   *pixmap = NULL;
   char	      *str = NULL;
@@ -757,12 +757,12 @@ static void create_clock(double x, double y, int value)
 					    "x", (double) x,
 					    "y", (double) y,
 					    NULL);
-  
+
   gdk_pixbuf_unref(pixmap);
   g_free(str);
 }
 
-static void update_clock(int value) 
+static void update_clock(int value)
 {
   GdkPixbuf   *pixmap = NULL;
   char        *str = NULL;
@@ -777,7 +777,7 @@ static void update_clock(int value)
   gnome_canvas_item_set (clock_image_item,
 			 "pixbuf", pixmap,
 			 NULL);
-  
+
   gdk_pixbuf_unref(pixmap);
   g_free(str);
 }
@@ -825,9 +825,9 @@ static gint animate_tux()
 	  // Remove the fish
 	  if(fishItem!=NULL)
 	    gtk_object_destroy(GTK_OBJECT(fishItem));
-	  
+
 	  gc_sound_play_ogg ("sounds/gobble.ogg", NULL);
-	  
+
 	  if(--number_of_fish == 0)
 	    {
 	      gamewon = TRUE;

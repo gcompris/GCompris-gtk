@@ -266,14 +266,14 @@ static gboolean sounds_are_fine()
   /* TRANSLATORS: Put here the alphabet in your language */
   alphabet=_("abcdefghijklmnopqrstuvwxyz");
   assert(g_utf8_validate(alphabet, -1, NULL)); // require by all utf8-functions
-  
+
   gchar *letter = g_new0(gchar, 8);
   g_unichar_to_utf8(g_utf8_get_char(alphabet), letter);
   letter_str = gc_sound_alphabet(letter);
   g_free(letter);
 
   str2 = gc_file_find_absolute("sounds/$LOCALE/alphabet/%s", letter_str);
-  
+
   if (!str2)
     {
       gchar *locale = NULL;
@@ -358,7 +358,7 @@ static GnomeCanvasItem *click_on_letter_create_item(GnomeCanvasGroup *parent)
   for (i=0;i<number_of_letters;i++){
     numbers[i]=((int)(((float)length_of_aphabet)*rand()/(RAND_MAX+1.0)));
 
-    // check that the letter has not been taken yet	
+    // check that the letter has not been taken yet
     for(j=0;j<i;j++){
       if (numbers[i]==numbers[j]) {
 	i--;
@@ -380,10 +380,10 @@ static GnomeCanvasItem *click_on_letter_create_item(GnomeCanvasGroup *parent)
       case 1	:
       case 2  : letters[i]=g_strndup(copy_from,copy_to-copy_from); break;
       case 3  : letters[i]=g_utf8_strup(copy_from,copy_to-copy_from); break;
-      default : 
-	if ( rand() > (RAND_MAX/2) ) 
+      default :
+	if ( rand() > (RAND_MAX/2) )
 	  letters[i]=g_strndup(copy_from,copy_to-copy_from);
-	else 
+	else
 	  letters[i]=g_utf8_strup(copy_from,copy_to-copy_from);
       }
     }
@@ -395,7 +395,7 @@ static GnomeCanvasItem *click_on_letter_create_item(GnomeCanvasGroup *parent)
   right_letter = g_utf8_strdown(letters[right_position],-1);
 
   repeat();
- 
+
 
   boardRootItem = GNOME_CANVAS_GROUP(
 				     gnome_canvas_item_new (gnome_canvas_root(gcomprisBoard->canvas),
@@ -488,7 +488,7 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
     case GDK_BUTTON_PRESS:
       /* We really don't want the user to change his/her mind */
       board_paused = TRUE;
-  
+
       if ( pos == right_position ) {
 	gamewon = TRUE;
       } else {
@@ -521,7 +521,7 @@ static void highlight_selected(GnomeCanvasItem * item) {
   if (selected_button != NULL && selected_button != button) {
     button_pixmap = gc_pixmap_load("images/wagon-yellow.png");
     /* Warning changing the image needs to update pixbuf_ref for the focus usage */
-    g_object_set_data (G_OBJECT (selected_button), "pixbuf_ref", button_pixmap);
+    gc_item_focus_free(selected_button, NULL);
     gnome_canvas_item_set(selected_button, "pixbuf", button_pixmap, NULL);
     gdk_pixbuf_unref(button_pixmap);
   }
@@ -529,7 +529,7 @@ static void highlight_selected(GnomeCanvasItem * item) {
   if (selected_button != button) {
     button_pixmap_selected = gc_pixmap_load("images/wagon-green.png");
     /* Warning changing the image needs to update pixbuf_ref for the focus usage */
-    g_object_set_data (G_OBJECT (button), "pixbuf_ref", button_pixmap_selected);
+      gc_item_focus_free(button, NULL);
     gnome_canvas_item_set(button, "pixbuf", button_pixmap_selected, NULL);
     selected_button = button;
     gdk_pixbuf_unref(button_pixmap_selected);
@@ -556,13 +556,13 @@ static GHFunc save_table (gpointer key,
 {
   gc_db_set_board_conf ( profile_conf,
 			    board_conf,
-			    (gchar *) key, 
+			    (gchar *) key,
 			    (gchar *) value);
 
   return NULL;
 }
 
-static void 
+static void
 conf_ok(GHashTable *table)
 {
   if (!table){
@@ -571,10 +571,10 @@ conf_ok(GHashTable *table)
 
     return;
   }
-    
+
 
   g_hash_table_foreach(table, (GHFunc) save_table, NULL);
-  
+
   board_conf = NULL;
   profile_conf = NULL;
 
@@ -587,7 +587,7 @@ conf_ok(GHashTable *table)
 
     gc_locale_reset();
     gc_locale_set(g_hash_table_lookup(config, "locale_sound"));
-    
+
     gchar *up_init_str = g_hash_table_lookup( config, "uppercase_only");
     if (up_init_str)
       {
@@ -599,14 +599,14 @@ conf_ok(GHashTable *table)
 
     if (profile_conf)
       g_hash_table_destroy(config);
-    
+
     sounds_are_fine();
-    
+
     click_on_letter_next_level();
-    
+
     gamewon = FALSE;
     pause_board(FALSE);
-    
+
   }
 
   board_conf = NULL;
@@ -624,11 +624,11 @@ config_start(GcomprisBoard *agcomprisBoard,
     pause_board(TRUE);
 
   gchar *label = g_strdup_printf("<b>%s</b> configuration\n for profile <b>%s</b>",
-				 agcomprisBoard->name, 
+				 agcomprisBoard->name,
 				 aProfile ? aProfile->name : "");
 
   gc_board_config_window_display(label, conf_ok);
-  
+
   g_free(label);
 
   /* init the combo to previously saved value */
@@ -638,7 +638,7 @@ config_start(GcomprisBoard *agcomprisBoard,
 
   gc_board_config_combo_locales_asset( "Select sound locale", saved_locale_sound,
 				"sounds/$LOCALE/colors/purple.ogg");
- 
+
   gboolean up_init = FALSE;
 
   gchar *up_init_str = g_hash_table_lookup( config, "uppercase_only");
@@ -653,11 +653,11 @@ config_start(GcomprisBoard *agcomprisBoard,
   g_hash_table_destroy(config);
 }
 
-  
+
 /* ======================= */
 /* = config_stop        = */
 /* ======================= */
-static void 
+static void
 config_stop()
 {
 }
