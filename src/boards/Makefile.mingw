@@ -118,36 +118,24 @@ PYTHON_C_SRC = \
 	     canvas.c \
 	     canvasmodule.c \
 	     py-gcompris-board.c \
-	     py-gcompris-board.h \
 	     py-gcompris-properties.c \
-	     py-gcompris-properties.h \
 	     py-gcompris-profile.c \
-	     py-gcompris-profile.h \
 	     py-gcompris-wordlist.c \
-	     py-gcompris-wordlist.h \
 	     py-gcompris-user.c	\
 	     py-gcompris-class.c \
 	     py-gcompris-group.c \
 	     py-mod-gcompris.c \
-	     py-mod-gcompris.h \
 	     py-mod-utils.c \
-	     py-mod-utils.h \
 	     py-mod-admin.c \
-	     py-mod-admin.h \
 	     py-mod-bonus.c \
-	     py-mod-bonus.h \
 	     py-mod-score.c \
-	     py-mod-score.h \
 	     py-mod-timer.c \
-	     py-mod-timer.h \
 	     py-mod-sound.c \
-	     py-mod-sound.h \
 	     py-mod-skin.c \
-	     py-mod-skin.h \
-	     py-mod-anim.c \
-	     py-mod-anim.h
+	     py-mod-anim.c
 
 BOARDS_C_SRC =	\
+	advanced_colors.c \
 	algebra.c \
 	algebra_guesscount.c \
 	awele.c awele_utils.c awele_alphaBeta.c \
@@ -159,8 +147,8 @@ BOARDS_C_SRC =	\
 	colors.c \
 	crane.c \
 	draw.c \
-	erase.c \
 	enumerate.c \
+	erase.c \
 	fifteen.c \
 	gletters.c \
 	gtans.c gtans_callbacks.c gtans_support.c gtans_interface.c \
@@ -168,10 +156,9 @@ BOARDS_C_SRC =	\
 	hanoi_real.c \
 	imageid.c \
 	leftright.c \
-	superbrain.c \
 	machpuzzle.c \
-	maze.c \
 	magic_hat.c \
+	maze.c \
 	memory.c \
 	menu2.c \
 	missingletter.c \
@@ -180,16 +167,16 @@ BOARDS_C_SRC =	\
 	paratrooper.c \
 	planegame.c \
 	railroad.c \
+	read_colors.c \
 	reading.c \
 	reversecount.c \
 	shapegame.c \
 	smallnumbers.c \
 	submarine.c \
+	superbrain.c \
 	target.c \
 	traffic.c \
 	wordsgame.c \
-	advanced_colors.c \
-	read_colors.c \
 	$(PYTHON_C_SRC)
 
 

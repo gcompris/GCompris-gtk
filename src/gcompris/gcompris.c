@@ -806,6 +806,19 @@ display_activation_dialog()
 {
   int board_count = 0;
   GList *list;
+  guint  i=0;
+  guint  key_is_valid = 0;
+
+  while(keycode[i++])
+    {
+      if(strncmp(properties->key, keycode[i-1], 5) == 0)
+	{
+	  key_is_valid = 1;
+	}
+    }
+
+  if(key_is_valid)
+    return;
 
   /* Count non menu boards */
   for (list = gc_menu_get_boards(); list != NULL; list = list->next)
@@ -817,43 +830,41 @@ display_activation_dialog()
 	board_count++;
     }
 
-  if(strncmp(properties->key, "your_welcome", 12)!=0)
-    {
+  /* Entry area */
+  widget_activation_entry = (GtkEntry *)gtk_entry_new();
+  gtk_entry_set_max_length(widget_activation_entry, 5);
+  activation_item = \
+    gnome_canvas_item_new (gnome_canvas_root(canvas),
+			   gnome_canvas_widget_get_type (),
+			   "widget", GTK_WIDGET(widget_activation_entry),
+			   "x", (double) BOARDWIDTH / 2 - 50,
+			   "y", (double) BOARDHEIGHT - 60,
+			   "width", 100.0,
+			   "height", 30.0,
+			   "anchor", GTK_ANCHOR_NW,
+			   "size_pixels", FALSE,
+			   NULL);
+  gtk_signal_connect(GTK_OBJECT(widget_activation_entry), "activate",
+		     GTK_SIGNAL_FUNC(activation_enter_callback),
+		     NULL);
 
-      /* Entry area */
-      widget_activation_entry = (GtkEntry *)gtk_entry_new();
-      gtk_entry_set_max_length(widget_activation_entry, 5);
-      activation_item = \
-	gnome_canvas_item_new (gnome_canvas_root(canvas),
-			       gnome_canvas_widget_get_type (),
-			       "widget", GTK_WIDGET(widget_activation_entry),
-			       "x", (double) BOARDWIDTH / 2 - 50,
-			       "y", (double) BOARDHEIGHT - 60,
-			       "width", 100.0,
-			       "height", 30.0,
-			       "anchor", GTK_ANCHOR_NW,
-			       "size_pixels", FALSE,
-			       NULL);
-      gtk_signal_connect(GTK_OBJECT(widget_activation_entry), "activate",
-			 GTK_SIGNAL_FUNC(activation_enter_callback),
-			 widget_activation_entry);
+  gtk_widget_show(GTK_WIDGET(widget_activation_entry));
+  gtk_entry_set_text(GTK_ENTRY(widget_activation_entry), "CODE");
 
-      gtk_widget_show(GTK_WIDGET(widget_activation_entry));
-      gtk_entry_set_text(GTK_ENTRY(widget_activation_entry), "CODE");
+  gc_board_stop();
 
-      char *msg = g_strdup_printf(_("GCompris is free software released under the GPL License. In order to support its development, the Windows version provides only %d of the %d activities. You can get the full version for a small fee at\n<http://gcompris.net>\nThe Linux version does not have this restriction. Note that GCompris is being developed to free schools from monopolistic software vendors. If you also believe that we should teach freedom to children, please consider using GNU/Linux. Get more information at FSF:\n<http://www.fsf.org/philosophy>"),
-				  gc_board_number_in_demo, board_count);
-      gc_dialog(msg, activation_done);
-      g_free(msg);
-    }
+  char *msg = g_strdup_printf(_("GCompris is free software released under the GPL License. In order to support its development, the Windows version provides only %d of the %d activities. You can get the full version for a small fee at\n<http://gcompris.net>\nThe Linux version does not have this restriction. Note that GCompris is being developed to free schools from monopolistic software vendors. If you also believe that we should teach freedom to children, please consider using GNU/Linux. Get more information at FSF:\n<http://www.fsf.org/philosophy>"),
+			      gc_board_number_in_demo, board_count);
+  gc_dialog(msg, activation_done);
+  g_free(msg);
 }
 
 /* Check the activation code
  *
  */
 static void
-activation_enter_callback( GtkWidget *widget,
-			   GtkWidget *entry )
+activation_enter_callback( GtkWidget *entry,
+			   GtkWidget *notused )
 {
   gchar *entry_text;
 
@@ -871,7 +882,6 @@ activation_enter_callback( GtkWidget *widget,
 	      gc_prop_save(properties);
 	      gc_menu_load();
 
-	      gc_board_stop();
 	      gtk_entry_set_text(GTK_ENTRY(entry), "GOOD");
 	      return;
 	    }
@@ -887,9 +897,14 @@ activation_enter_callback( GtkWidget *widget,
 static void
 activation_done()
 {
-  if(strcmp((char *)gtk_entry_get_text(GTK_ENTRY(widget_activation_entry)), "GOOD") == 0)
-    gc_board_play(properties->menu_board);
+  if ((strcmp((char *)gtk_entry_get_text(GTK_ENTRY(widget_activation_entry)), "CODE") != 0) &&
+      (strcmp((char *)gtk_entry_get_text(GTK_ENTRY(widget_activation_entry)), "GOOD") != 0) &&
+      (strcmp((char *)gtk_entry_get_text(GTK_ENTRY(widget_activation_entry)), "WRONG") != 0))
+    {
+      activation_enter_callback(widget_activation_entry, NULL);
+    }
 
+  gc_board_play(properties->menu_board);
   gtk_object_destroy (GTK_OBJECT(activation_item));
 }
 #endif

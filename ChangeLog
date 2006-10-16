@@ -1,3 +1,16 @@
+2006-10-16  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	- Some fixed to compile and run 8.1 on windows.
+
+	* Makefile.mingw:
+	* config.h.mingw:
+	* src/boards/Makefile.mingw:
+	* src/gcompris/board.c: (gc_board_init), (gc_board_check_file):
+	* src/gcompris/gcompris.c: (display_activation_dialog),
+	(activation_enter_callback), (activation_done):
+
+	*** RELEASE 8.1 ***
+
 2006-10-15  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	- Fixed a major crash case on images with a focus and a changing image
