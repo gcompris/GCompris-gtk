@@ -41,6 +41,7 @@ int file_end_with_xml(const gchar *file);
 
 /** menu */
 void gc_menu_load();
+void gc_menu_destroy(void);
 
 /** mimetype */
 void gc_mime_type_load();

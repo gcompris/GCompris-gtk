@@ -265,11 +265,10 @@ gchar *reactivate_newline(char *str)
 {
   gchar *newstr;
 
-  xmlParserCtxtPtr ctxt = xmlNewParserCtxt();
-
   if(str==NULL)
     return NULL;
 
+  xmlParserCtxtPtr ctxt = xmlNewParserCtxt();
 
   newstr =  (gchar *)xmlStringDecodeEntities(ctxt,
 					     BAD_CAST str,

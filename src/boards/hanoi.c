@@ -146,6 +146,7 @@ static void pause_board (gboolean pause)
  */
 static void start_board (GcomprisBoard *agcomprisBoard)
 {
+    gchar *img;
 
   if(agcomprisBoard!=NULL)
     {
@@ -157,8 +158,8 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       gc_bar_set(GC_BAR_LEVEL);
 
       gc_set_background(gnome_canvas_root(gcomprisBoard->canvas),
-			      gc_skin_image_get("gcompris-bg.jpg"));
-
+			      img = gc_skin_image_get("gcompris-bg.jpg"));
+      g_free(img);
       hanoi_next_level();
 
       gamewon = FALSE;
@@ -374,7 +375,7 @@ static GnomeCanvasItem *hanoi_create_item(GnomeCanvasGroup *parent)
   /* Initialize a random goal and store the color index in position[number_of_item_x] */
   for(i=0; i<(number_of_item_y); i++)
     {
-      guint color = (guint)RAND(0, NUMBER_OF_COLOR);
+      guint color = (guint)RAND(0, NUMBER_OF_COLOR-1);
       position[number_of_item_x+1][i]->color = color;
       used_colors[color] = TRUE;
       
@@ -411,12 +412,13 @@ static GnomeCanvasItem *hanoi_create_item(GnomeCanvasGroup *parent)
 	  if(position[i][j]->color == -1)
 	    {
 	      /* Take only a color that is not part of the goal */
-	      guint color = (guint)RAND(0, NUMBER_OF_COLOR);
+	      guint color = (guint)RAND(0, NUMBER_OF_COLOR-1);
 	      //printf(" i,j=%d,%d random color = %d used_colors[color]=%d\n", i,j,color, used_colors[color]);
 	      while(used_colors[color])
 		{
 		  //printf("  used_colors[%d]=%d\n", color, used_colors[color]);
-		if(color++>NUMBER_OF_COLOR)
+        color++;
+		if(color >= NUMBER_OF_COLOR)
 		  color = 0;
 		}
 

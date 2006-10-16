@@ -438,7 +438,6 @@ gc_sound_alphabet(gchar *chars)
 
   next = chars;
   result = NULL;
-  str = g_new0(gchar, 6);
 
   for (i=0; i < length; i++) {
     next_unichar = g_utf8_get_char(next);

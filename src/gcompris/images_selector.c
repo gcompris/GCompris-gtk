@@ -868,7 +868,10 @@ read_dataset_directory(gchar *dataset_dir)
     g_warning("Reading dataset file %s", absolute_fname);
 
     if (!g_file_test ((absolute_fname), G_FILE_TEST_EXISTS))
+    {
+      g_free(absolute_fname);
       continue;
+    }
 
     /* parse the new file and put the result into newdoc */
 
@@ -879,8 +882,11 @@ read_dataset_directory(gchar *dataset_dir)
 
     /* in case something went wrong */
     if(!doc)
+    {
+      g_free(absolute_fname);
       continue;
-
+    }
+    
     if(/* if there is no root element */
        !doc->children ||
        /* if it doesn't have a name */
@@ -888,11 +894,13 @@ read_dataset_directory(gchar *dataset_dir)
        /* if it isn't the good node */
        g_strcasecmp((gchar *)doc->children->name, "ImageSetRoot")!=0) {
       xmlFreeDoc(doc);
+      g_free(absolute_fname);
       continue;
     }
 
     /* parse our document and replace old data */
     g_warning("Parsing dataset : %s \n", absolute_fname);
+    g_free(absolute_fname);
     parse_doc(doc);
 
     xmlFreeDoc(doc);

@@ -61,7 +61,7 @@ gc_anim_load(char *filename)
       files = g_slist_append(files, 
                              g_strdup_printf("%s/%s", gcomprisBoard->board_dir, tmp));
     }
-
+  fclose(f);
   anim = g_malloc(sizeof(GcomprisAnimation));
   anim->numstates = g_slist_length(files);
   anim->anim = g_malloc(sizeof(GdkPixbuf*) * anim->numstates);
@@ -145,6 +145,7 @@ gc_anim_free(GcomprisAnimation *anim)
     {
       g_object_unref(anim->anim[i]);
     }
+  g_free(anim->anim);
   g_free(anim);
 }
 

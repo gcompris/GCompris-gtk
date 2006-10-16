@@ -35,6 +35,8 @@ GcomprisBoard	*_read_xml_file(GcomprisBoard *gcomprisBoard, char *fname, gboolea
 /* List of all available boards  */
 static GList *boards_list = NULL;
 
+void gc_menu_board_free(GcomprisBoard *board);
+
 GList *gc_menu_get_boards()
 {
   return boards_list;
@@ -81,7 +83,10 @@ _add_xml_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child,
     g_free(path);
     path = g_strdup("");
     if (strcmp(gcomprisBoard->name,"root")==0)
-      gcomprisBoard->name = "";
+    {
+      g_free(gcomprisBoard->name);
+      gcomprisBoard->name = g_strdup("");
+    }
   }
 
   gcomprisBoard->section		 = path;
@@ -95,7 +100,7 @@ _add_xml_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child,
 
   gcomprisBoard->difficulty		= (char *)xmlGetProp(xmlnode, BAD_CAST "difficulty");
   if(gcomprisBoard->difficulty == NULL)
-    gcomprisBoard->difficulty		= "0";
+    gcomprisBoard->difficulty		= g_strdup("0");
 
   /* Update the difficulty max */
   if(properties->difficulty_max < atoi(gcomprisBoard->difficulty))
@@ -561,18 +566,15 @@ void gc_menu_load_dir(char *dirname, gboolean db){
 	    if ((strncmp(board_read->section,
 			 "/administration",
 			 strlen("/administration"))!=0)) {
-
-	      if (gc_profile_get_current() &&
-		  !(g_list_find_custom(gc_profile_get_current()->activities,
-				       &(board_read->board_id), compare_id))) {
-		boards_list = g_list_append(boards_list, board_read);
-	      } else {
 		boards_list = g_list_append(boards_list, board_read);
 	      }
+      else
+          gc_menu_board_free(board_read);
 	    }
 	  }
+    else
+        gc_menu_board_free(gcomprisBoard);
 	}
-      }
       g_free(filename);
     }
   }
@@ -647,4 +649,51 @@ void gc_menu_load()
     gc_menu_load_dir(board_dir, FALSE);
     g_free(board_dir);
   }
+}
+
+
+void gc_menu_board_free(GcomprisBoard *board)
+{
+    if(strcmp(board->type,"shapegame")==0 || 
+            strncmp(board->type, "python", 6)==0)
+    {
+        g_free(board->plugin);
+    }
+    g_free(board->type);
+    g_free(board->board_dir);
+    g_free(board->mode);
+
+    g_free(board->name);
+    g_free(board->title);
+    g_free(board->description);
+    g_free(board->icon_name);
+    g_free(board->author);
+    g_free(board->boarddir);
+    g_free(board->filename);
+    g_free(board->difficulty);
+    g_free(board->mandatory_sound_file);
+    g_free(board->mandatory_sound_dataset);
+
+    g_free(board->section);
+    g_free(board->menuposition);
+
+    g_free(board->prerequisite);
+    g_free(board->goal);
+    g_free(board->manual);
+    g_free(board->credit);
+
+    if (board->gmodule)
+        g_module_close(board->gmodule);
+    g_free(board->gmodule_file);
+
+    g_free(board);
+}
+
+void gc_menu_destroy(void)
+{
+    GList * list;
+    for(list = boards_list ; list ; list = list -> next)
+    {
+        gc_menu_board_free((GcomprisBoard *) list->data);
+    }
 }

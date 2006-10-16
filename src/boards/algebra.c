@@ -52,16 +52,18 @@ static char *expected_result = NULL;
 
 static gboolean operation_done[11];
 
-typedef struct {
+typedef struct _ToBeFoundItem ToBeFoundItem;
+
+struct _ToBeFoundItem{
   guint index;
   GnomeCanvasItem *item;
   GnomeCanvasItem *focus_item;
   GnomeCanvasItem *bad_item;
-  char *next;  /* Help : Should point to a ToBeFoundItem but don't know how to recurse on it */
-  char *previous;
+  ToBeFoundItem *next;
+  ToBeFoundItem *previous;
   char value;
   gboolean in_error;
-} ToBeFoundItem;
+};
 static ToBeFoundItem *currentToBeFoundItem = NULL;
 
 static GnomeCanvasGroup *boardRootItem = NULL;
@@ -378,7 +380,7 @@ static void algebra_destroy_item(GnomeCanvasItem *item)
 static void algebra_destroy_all_items()
 {
   GnomeCanvasItem *item;
-  gboolean stop = FALSE;
+  ToBeFoundItem *next;
 
   gc_timer_end();
 
@@ -388,29 +390,12 @@ static void algebra_destroy_all_items()
       algebra_destroy_item(item);
     }
 
-  if(currentToBeFoundItem!=NULL)
-    {
-      /* Move toBeFoundItem to the most next digit */
-      while(!stop)
-	{
-	  if(currentToBeFoundItem->next!=NULL)
-	    currentToBeFoundItem = (ToBeFoundItem *)currentToBeFoundItem->next;
-	  else
-	    stop = TRUE;
-	}
-      
-      /* Now free toBeFoundItems */
-      while(!stop)
-	{
-	  if(currentToBeFoundItem->previous!=NULL)
-	    {
-	      currentToBeFoundItem = (ToBeFoundItem *)currentToBeFoundItem->previous;
-	      free(currentToBeFoundItem->next);
-	    }
-	  else
-	    stop = TRUE;
-	}
-    }
+  while(currentToBeFoundItem)
+  {
+      next = currentToBeFoundItem -> next;
+      g_free(currentToBeFoundItem);
+      currentToBeFoundItem = next;
+  }
 
   if(boardRootItem!=NULL)
     gtk_object_destroy (GTK_OBJECT(boardRootItem));
@@ -484,12 +469,12 @@ static void display_operand(GnomeCanvasGroup *parent,
 	  toBeFoundItem->value='?';
 	  toBeFoundItem->item=item;
 	  toBeFoundItem->focus_item=focus_item;
-	  toBeFoundItem->previous=(char *)previousToBeFoundItem;
+	  toBeFoundItem->previous=previousToBeFoundItem;
 	  toBeFoundItem->next=NULL;
 
 	  /* I Create a double linked list with the toBeFoundItem in order to navigate through them */
 	  if(previousToBeFoundItem!=NULL)
-	    previousToBeFoundItem->next=(char *)toBeFoundItem;
+	    previousToBeFoundItem->next=toBeFoundItem;
 
 	  previousToBeFoundItem=toBeFoundItem;
 

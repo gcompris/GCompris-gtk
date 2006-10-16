@@ -1,5 +1,26 @@
 2006-10-16  Bruno coudoin  <bruno.coudoin@free.fr>
 
+	- Applied patch from Miguel DE IZARRA that removes memory leaks
+
+	* Makefile.mingw:
+	* config.h.mingw:
+	* configure.in:
+	* src/boards/algebra.c: (algebra_destroy_all_items),
+	(display_operand):
+	* src/boards/canal_lock.c: (canal_lock_create_item):
+	* src/boards/hanoi.c: (start_board), (hanoi_create_item):
+	* src/boards/shapegame.c: (add_xml_shape_to_data):
+	* src/gcompris/anim.c: (gc_anim_load), (gc_anim_free):
+	* src/gcompris/gameutil.c: (reactivate_newline):
+	* src/gcompris/gc_core.h:
+	* src/gcompris/gcompris.c: (cleanup):
+	* src/gcompris/images_selector.c: (read_dataset_directory):
+	* src/gcompris/menu.c: (_add_xml_to_data), (gc_menu_load_dir),
+	(gc_menu_load), (gc_menu_board_free), (gc_menu_destroy):
+	* src/gcompris/soundutil.c: (gc_sound_alphabet):
+
+2006-10-16  Bruno coudoin  <bruno.coudoin@free.fr>
+
 	- Some fixed to compile and run 8.1 on windows.
 
 	* Makefile.mingw:
@@ -39,6 +60,7 @@
 2006-10-15  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	- Updated Indian Marathi voices by Anand Kulkarni
+	  Credit goes to 'Sarvangin Vikas Sanstha'
 
 	* boards/sounds/mr/alphabet/10.ogg:
 	* boards/sounds/mr/alphabet/11.ogg:

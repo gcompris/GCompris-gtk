@@ -287,6 +287,7 @@ static GnomeCanvasItem *canal_lock_create_item(GnomeCanvasGroup *parent)
 		     (GtkSignalFunc) gc_item_focus_event,
 		     NULL);
   tuxboat_width = gdk_pixbuf_get_width(pixmap);
+  gdk_pixbuf_unref(pixmap);
 
   /* This is the ground canal */
   gnome_canvas_item_new (boardRootItem,

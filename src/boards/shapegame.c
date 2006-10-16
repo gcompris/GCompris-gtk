@@ -1894,6 +1894,7 @@ add_xml_shape_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child)
   g_free(soundfile);
   g_free(name);
   g_free(targetfile);
+  g_free(tooltip);
 }
 
 /* parse the doc, add it to our internal structures and to the clist */
