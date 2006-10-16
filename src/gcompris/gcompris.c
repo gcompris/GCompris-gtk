@@ -247,7 +247,8 @@ static struct
   int window_x;
   int window_y;
   gboolean fullscreen_active;
-} XF86VidModeData = { { 0 }, { 0 }, 0, 0, 0, 0, FALSE };
+  int ignore_focus_out;
+} XF86VidModeData = { { 0 }, { 0 }, 0, 0, 0, 0, FALSE, 0 };
 
 static void xf86_vidmode_init( void );
 static void xf86_vidmode_set_fullscreen( int state );
@@ -394,6 +395,12 @@ GtkWidget *gc_get_window()
   return window;
 }
 
+void gc_ignore_next_focus_out()
+{
+#ifdef XF86_VIDMODE
+  XF86VidModeData.ignore_focus_out++;
+#endif
+}
 
 GnomeCanvasItem *gc_set_background(GnomeCanvasGroup *parent, gchar *file)
 {
@@ -1274,8 +1281,6 @@ xf86_vidmode_set_fullscreen ( int state )
   if (properties->noxf86vm || XF86VidModeData.fullscreen_active == state)
     return;
 
-  printf("setfullscreen %d\n", state);
-
   if (state)
     {
       if (!XF86VidModeSwitchToMode(GDK_DISPLAY(), GDK_SCREEN_XNUMBER(
@@ -1323,9 +1328,6 @@ static gint xf86_window_configured(GtkWindow *window,
   XF86VidModeData.window_x = event->x;
   XF86VidModeData.window_y = event->y;
 
-  printf("configure: %dx%d, fullscreen_active: %d\n", event->x, event->y,
-    (int)XF86VidModeData.fullscreen_active);
-
   if(XF86VidModeData.fullscreen_active) {
     if (gdk_pointer_grab(event->window, TRUE, 0, event->window, NULL,
           GDK_CURRENT_TIME) != GDK_GRAB_SUCCESS)
@@ -1341,8 +1343,9 @@ static gint xf86_window_configured(GtkWindow *window,
 static gint xf86_focus_changed(GtkWindow *window,
   GdkEventFocus *event, gpointer param)
 {
-  printf("focus change %d\n", (int)event->in);
-  if (properties->fullscreen)
+  if (!event->in && XF86VidModeData.ignore_focus_out)
+    XF86VidModeData.ignore_focus_out--;
+  else if (properties->fullscreen)
     xf86_vidmode_set_fullscreen(event->in);
   /* Act as if we aren't there / aren't hooked up */
   return FALSE;

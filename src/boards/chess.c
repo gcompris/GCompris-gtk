@@ -1001,7 +1001,7 @@ engine_local_cb (GIOChannel *source,
 				   &len,
 				   &err);
 
-  g_warning("g_io_channel_read_line len=%d", len);
+  g_warning("g_io_channel_read_line len=%d", (int)len);
   if(status == G_IO_STATUS_ERROR)
     {
       g_warning("g_io_channel_read_chars error=%s",

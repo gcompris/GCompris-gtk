@@ -1,3 +1,35 @@
+2006-10-17  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	- Aplied patch from Hans de Goede
+	- gcompris-8.0-warn.patch
+	This patch fixes a warning (which is turned into an error due to
+	-Werror) when compiling gcompris with the latest gcc. And it fixes a GTK
+	critical error message due to passing a gtk window instead of a gdk
+	window to gdk_grab_pointer. This also means that when a configuration
+	dialog is shown the mouse is no longer constrained to the fullscreen
+	window.
+
+	- gcompris-8.0-fullscreen.patch
+	One of my latest fixes to the fullscreen code was to leave fullscreen
+	mode when loosing focus, this is nescesarry to play nice with the
+	screensaver and allows alt-tabbing away from gcompris with certain
+	windowmanagers. However when one tries to configure an activity then a
+	new gtk-window is created for the config dialog, causing the main window
+	to loose focus. Thus currently when trying to configure an activity,
+	fullscreen mode is exited which looks rather silly. This patches fixes this.
+
+	- gcompris-8.0-silence.patch: removed printf
+
+	* src/boards/chess.c: (engine_local_cb):
+	* src/gcompris/board_config.c: (gc_board_config_window_display):
+	* src/gcompris/gcompris.c: (gc_ignore_next_focus_out),
+	(xf86_vidmode_set_fullscreen), (xf86_window_configured),
+	(xf86_focus_changed):
+	* src/gcompris/gcompris.h:
+
+	* src/gcompris/gcompris_db.c: added a copy in board_dir pointer to avoid
+	 a crash on gcompris exit in gc_menu_board_free
+
 2006-10-16  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	- Applied patch from Miguel DE IZARRA that removes memory leaks

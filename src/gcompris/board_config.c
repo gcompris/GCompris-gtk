@@ -161,6 +161,11 @@ gc_board_config_window_display(gchar *label, GcomprisConfCallback callback)
   /* init static values or callbacks */
   Confcallback = callback;
   hash_conf = g_hash_table_new_full(g_str_hash, g_str_equal, g_free, g_free);
+  
+  /* Creating a config window will cause our main window to loose focus,
+     this tells the main window to ignore the next focus out event (and thus
+     stay in fullscreen mode if we're fullscreen). */
+  gc_ignore_next_focus_out();
 
   /* main configuration window */
   conf_window = \
@@ -194,7 +199,7 @@ gc_board_config_window_display(gchar *label, GcomprisConfCallback callback)
   GcomprisProperties *properties = gc_prop_get();
   if (properties->fullscreen && !properties->noxf86vm)
     if (gdk_pointer_grab(gc_get_window()->window, TRUE, 0,
-			 GDK_WINDOW(gc_get_window()), NULL, GDK_CURRENT_TIME) !=
+			 gc_get_window()->window, NULL, GDK_CURRENT_TIME) !=
 	GDK_GRAB_SUCCESS)
       g_warning("Pointer grab failed");
 
