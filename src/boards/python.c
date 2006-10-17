@@ -154,13 +154,12 @@ pythonboard_init (GcomprisBoard *agcomprisBoard){
 #else
     execstr = g_strdup_printf("import sys; sys.path.append('%s')",properties->package_python_plugin_dir );
 #endif
+
+    g_warning("Executing %s\n", execstr);
     if(PyRun_SimpleString(execstr)!=0){
       pythonboard_is_ready = FALSE;
       g_warning("! Python disabled: Cannot add plugins dir into search path\n");
     } else {
-      /* Load the gcompris modules */
-      python_gcompris_module_init();
-
       /* Try to import pygtk modules */
       g_free(execstr);
       execstr = g_strdup("import gtk; import gtk.gdk");
@@ -168,78 +167,71 @@ pythonboard_init (GcomprisBoard *agcomprisBoard){
 	pythonboard_is_ready = FALSE;
 	g_warning("! Python disabled: Cannot import pygtk modules\n");
       } else {
-	/* Try to import gnomecanvas modules */
+	/* Try to import gcompris modules */
+
+	/* Load the gcompris modules */
+	python_gcompris_module_init();
+
 	g_free(execstr);
-	execstr = g_strdup("import gnomecanvas");
+	execstr = g_strdup("import gcompris; import gcompris.bonus; "
+			   "import gcompris.score; import gcompris.sound;"
+			   "import gcompris.skin; import gcompris.timer;"
+			   "import gcompris.utils; import gcompris.anim");
 	if(PyRun_SimpleString(execstr)!=0){
 	  pythonboard_is_ready = FALSE;
-	  g_warning("! Python disabled: Cannot import gnomecanvas modules\n");
+	  g_warning("! Python disabled: Cannot import gcompris modules\n");
 	} else {
-	  /* Try to import gcompris modules */
-	  g_free(execstr);
-	  execstr = g_strdup("import gcompris; import gcompris.bonus; "
-			     "import gcompris.score; import gcompris.sound;"
-			     "import gcompris.skin; import gcompris.timer;"
-			     "import gcompris.utils; import gcompris.anim");
-	  if(PyRun_SimpleString(execstr)!=0){
-	    pythonboard_is_ready = FALSE;
-	    g_warning("! Python disabled: Cannot import gcompris modules\n");
-	  } else {
-	    GList *python_boards;
-	    GList *list;
+	  GList *python_boards;
+	  GList *list;
 
-	    /* Load the gcompris modules */
-	    python_gcompris_module_init();
+	  /* Get the list of python boards */
+	  python_boards = get_pythonboards_list();
 
-	    /* Get the list of python boards */
-	    python_boards = get_pythonboards_list();
+	  /* Search in the list each one with a config entry */
+	  for(list = python_boards; list != NULL; list = list->next) {
+	    GcomprisBoard *board = (GcomprisBoard *) list->data;
 
-	    /* Search in the list each one with a config entry */
-	    for(list = python_boards; list != NULL; list = list->next) {
-	      GcomprisBoard *board = (GcomprisBoard *) list->data;
+	    /* Python is now initialized we create some usefull variables */
+	    board_file_name = strchr(board->type, ':')+1;
+	    boardclass = g_strdup_printf("Gcompris_%s", board_file_name);
 
-	      /* Python is now initialized we create some usefull variables */
-	      board_file_name = strchr(board->type, ':')+1;
-	      boardclass = g_strdup_printf("Gcompris_%s", board_file_name);
+	    /* Test if board come with -L option */
 
-	      /* Test if board come with -L option */
+	    g_warning("board_dir: %s package_data_dir %s",
+		      board->board_dir,
+		      properties->package_python_plugin_dir);
 
-	      g_warning("board_dir: %s package_data_dir %s",
-			board->board_dir,
-			properties->package_python_plugin_dir);
+	    if (strcmp(board->board_dir, properties->package_python_plugin_dir)!=0){
+	      boarddir = g_strdup_printf("sys.path.append('%s/')", board->board_dir);
 
-	      if (strcmp(board->board_dir, properties->package_python_plugin_dir)!=0){
-		boarddir = g_strdup_printf("sys.path.append('%s/')", board->board_dir);
-
-		PyRun_SimpleString(boarddir);
-		g_free(boarddir);
-	      }
-
-	      /* Insert the board module into the python's interpreter */
-	      python_board_module = PyImport_ImportModuleEx(board_file_name,
-							    globals,
-							    globals,
-							    NULL);
-
-	      if(python_board_module!=NULL){
-		/* Get the module dictionnary */
-		module_dict = PyModule_GetDict(python_board_module);
-
-		/* Get the python board class */
-		py_boardclass = PyDict_GetItemString(module_dict, boardclass);
-
-		if (PyObject_HasAttrString( py_boardclass, "config_start")) {
-		  config_boards = g_list_append(config_boards, board);
-		  g_warning("The board '%s' has a configuration entry",
-			    board_file_name);
-		}
-	      }
-
-	      g_free(boardclass);
+	      PyRun_SimpleString(boarddir);
+	      g_free(boarddir);
 	    }
 
-	    g_list_free(python_boards);
+	    /* Insert the board module into the python's interpreter */
+	    python_board_module = PyImport_ImportModuleEx(board_file_name,
+							  globals,
+							  globals,
+							  NULL);
+
+	    if(python_board_module!=NULL){
+	      /* Get the module dictionnary */
+	      module_dict = PyModule_GetDict(python_board_module);
+
+	      /* Get the python board class */
+	      py_boardclass = PyDict_GetItemString(module_dict, boardclass);
+
+	      if (PyObject_HasAttrString( py_boardclass, "config_start")) {
+		config_boards = g_list_append(config_boards, board);
+		g_warning("The board '%s' has a configuration entry",
+			  board_file_name);
+	      }
+	    }
+
+	    g_free(boardclass);
 	  }
+
+	  g_list_free(python_boards);
 	}
       }
     }

@@ -7,6 +7,8 @@
 	* Makefile.mingw.in:
 	* configure.in:
 	* boards/colors.xml.in: fixed goal, it has a newline that break translations.
+	* src/boards/python.c: removed an extra call to python_gcompris_module_init();
+
 
 2006-10-17  Bruno coudoin  <bruno.coudoin@free.fr>
 
