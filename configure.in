@@ -310,15 +310,14 @@ REQUIRE_PYTHON=""
 if test x$build_python_plugin = xno; then
   AC_MSG_NOTICE([Python plugin is disabled.])
 else
-  dnl Python interpreter is available so check for pygtk and gnome-python
-  PKG_CHECK_MODULES(PYGTK, pygtk-2.0 gnome-python-2.0)
+  dnl Python interpreter is available so check for pygtk
+  PKG_CHECK_MODULES(PYGTK, pygtk-2.0)
   if test x$py_build_only = xno; then
     AM_CHECK_PYMOD(gtk,,,AC_MSG_ERROR([*** pygtk installed but not visible from python ]))
-    AM_CHECK_PYMOD(gnome.canvas,,,AC_MSG_ERROR([*** pygtk installed but not visible from python ]))
-    AM_CHECK_PYMOD(xml.dom.DOMImplementation,,,AC_MSG_WARN([*** pyxml missing ]))
+    dnl AM_CHECK_PYMOD(xml.dom.DOMImplementation,,,AC_MSG_WARN([*** pyxml missing ]))
 
     dnl Set this variable for the .spec.in file
-    REQUIRE_PYTHON="python gnome-python gnome-python-canvas pygtk2.0"
+    REQUIRE_PYTHON="python pygtk2.0"
 
     dnl with gnome-python >= 2.10 gnome.canvas is obsolete. use gnomecanvas
     dnl gnomecanvas not supported yet in gcompris
@@ -336,7 +335,7 @@ else
 
   else
     AC_MSG_WARN([py-build-only: Skipping python modules dependancies])
-    AC_MSG_WARN([py-build-only: Do not forget to install pygtk, gnome-python, pysqlite2 and pyxml])
+    AC_MSG_WARN([py-build-only: Do not forget to install pygtk, pysqlite2])
   fi
 
   if test x$with_sqlite = xyes; then

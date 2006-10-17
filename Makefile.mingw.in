@@ -35,6 +35,8 @@ NEEDED_DLLS =		$(GNUCHESS_TOP)/bin/pthreadGC.dll \
 			$(LIBXML2_TOP)/bin/libxml2.dll \
 			$(GTK_TOP)/bin/freetype6.dll \
 			$(GTK_TOP)/bin/intl.dll \
+			$(GTK_TOP)/bin/libcairo-2.dll \
+			$(GTK_TOP)/bin/libpangocairo-1.0-0.dll \
 			$(GTK_TOP)/bin/libart_lgpl_2-2.dll \
 			$(GTK_TOP)/bin/freetype6.dll \
 			$(GTK_TOP)/bin/libart_lgpl_2-2.dll \
@@ -55,7 +57,7 @@ NEEDED_DLLS =		$(GNUCHESS_TOP)/bin/pthreadGC.dll \
 			$(GTK_TOP)/expat/bin/xmltok.dll \
 			$(GTK_TOP)/bin/iconv.dll \
 			$(GTK_TOP)/bin/intl.dll \
-			$(GTK_TOP)/bin/libpng12.dll \
+			$(GTK_TOP)/bin/libpng13.dll \
 			$(GTK_TOP)/bin/jpeg62.dll
 
 NEEDED_FILES =		README \
@@ -76,6 +78,15 @@ install: all
 	mkdir -p $(GCOMPRIS_INSTALL_DIR)/share
 	$(MAKE) -C $(GCOMPRIS_BOARDS) -f Makefile.mingw install
 	$(MAKE) -C $(GCOMPRIS_SRC) -f Makefile.mingw install
+	cp -r $(GCOMPRIS_BOARDS)/python $(GCOMPRIS_INSTALL_DIR)/share/gcompris
+	rm -f $(GCOMPRIS_INSTALL_DIR)/share/gcompris/python/Makefile*
+	rm -f $(GCOMPRIS_INSTALL_DIR)/share/gcompris/python/gcompris/Makefile*
+	rm -f $(GCOMPRIS_INSTALL_DIR)/share/gcompris/python/admin/Makefile*
+	cp -r $(GCOMPRIS_BOARDS)/python $(GCOMPRIS_INSTALL_DIR)/share/gcompris
+	rm -f $(GCOMPRIS_INSTALL_DIR)/share/gcompris/python/Makefile*
+	rm -f $(GCOMPRIS_INSTALL_DIR)/share/gcompris/python/gcompris/Makefile*
+	rm -f $(GCOMPRIS_INSTALL_DIR)/share/gcompris/python/admin/Makefile*
+
 
 # Copy mandratory files for the package in the package directory
 prepack:
@@ -104,6 +115,7 @@ clean:
 # Run this on Linux to prepare datadir for windows
 #
 prep:
+	mkdir $(GCOMPRIS_INSTALL_DIR)
 	mkdir -p $(GCOMPRIS_INSTALL_DIR)/share/$(pkgdatadir)/boards
 	cd boards ; tar cf -  --exclude "Makefile.in" --exclude "*.in" --exclude "*~" --exclude "Makefile" --exclude "Makefile.am" --exclude CVS --exclude .xvpics * | ( cd ../$(GCOMPRIS_INSTALL_DIR)/share/$(pkgdatadir)/boards ; tar xf -) ; cd .. ;
 	@echo "-------------------------------------------------------------------------------"

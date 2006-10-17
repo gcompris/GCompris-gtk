@@ -1,3 +1,13 @@
+2006-10-18  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	- Updated windows makefiles
+	- Cleanup configure.in to no more depend on pyxml and python-gnome.
+
+	* Makefile.mingw:
+	* Makefile.mingw.in:
+	* configure.in:
+	* boards/colors.xml.in: fixed goal, it has a newline that break translations.
+
 2006-10-17  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	- Aplied patch from Hans de Goede
