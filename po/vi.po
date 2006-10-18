@@ -6,8 +6,8 @@ msgid ""
 ""
 msgstr "Project-Id-Version: gcompris Gnome HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-09-02 03:54+0200\n"
-"PO-Revision-Date: 2006-09-02 17:48+0930\n"
+"POT-Creation-Date: 2006-10-18 02:35+0200\n"
+"PO-Revision-Date: 2006-10-18 17:19+0930\n"
 "Last-Translator: Clytie Siddall <clytie@riverland.net.au>\n"
 "Language-Team: Vietnamese <gnomevi-list@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
@@ -2439,7 +2439,7 @@ msgstr "Thức hành đọc bằng cách tìm từ khớp với ảnh."
 #: ../boards/imagename.xml.in.h:4
 #: ../boards/readingh.xml.in.h:4
 #: ../boards/readingv.xml.in.h:4
-#: ../src/boards/imageid.c:108
+#: ../src/boards/imageid.c:106
 #: ../src/boards/missingletter.c:104
 msgid "Reading"
 msgstr "Đọc"
@@ -3370,7 +3370,7 @@ msgid "GCompris Main Menu"
 msgstr "Trình đơn chính của GCompris"
 
 #: ../boards/menu.xml.in.h:16
-#: ../src/boards/menu2.c:1006
+#: ../src/boards/menu2.c:1009
 msgid ""
 "GCompris is a collection of educational games that provides different "
 "activities for children aged 2 and up."
@@ -4393,7 +4393,12 @@ msgstr "Cháu đi ..."
 msgid "Not allowed! Try again !"
 msgstr "Không cho phép. Cháu thử lại. :)"
 
-#: ../src/boards/chess.c:188
+#: ../src/boards/chess.c:183
+#: ../src/boards/chess.c:1124
+msgid "Error: The external program gnuchess died unexpectingly"
+msgstr "Lỗi: chương trình bên ngoài GnuChess đã chết bất thường"
+
+#: ../src/boards/chess.c:198
 msgid ""
 "Error: The external program gnuchess is mandatory\n"
 "to play chess in gcompris.\n"
@@ -4404,42 +4409,40 @@ msgstr "Lỗi: phải cài đặt chương trình bên ngoài gnuchess, để đ
 "GCompris. Bạn có thể tìm chương trình gnuchess tại <http://www.rpmfind.net> "
 "hay trong bản phát hành GNU/LInux của bạn. Cũng hãy kiểm tra nó có trong"
 
-#: ../src/boards/chess.c:227
+#: ../src/boards/chess.c:240
 msgid ""
 "Error: The external program gnuchess is mandatory\n"
 "to play chess in gcompris.\n"
-"Find this program on http://www.rpmfind.net or in your\n"
-"GNU/Linux distribution\n"
-"And check it is in "
-msgstr "Lỗi: phải cài đặt chương trình bên ngoài gnuchess, để đánh cờ trong "
-"GCompris. Bạn có thể tìm chương trình gnuchess tại <http://www.rpmfind.net> "
-"hay trong bản phát hành GNU/LInux của bạn. Cũng hãy kiểm tra nó có trong"
+"First install it, and check it is in "
+msgstr "Lỗi: chương trình bên ngoài gnuchess cần thiết\n"
+"để đánh cờ trong GCompris.\n"
+"Trước tiên, hãy co sở dữ liệu nó, rồi kiểm tra nó nằm trong"
 
-#: ../src/boards/chess.c:571
+#: ../src/boards/chess.c:583
 msgid "White's Turn"
 msgstr "Lượt của Trắng"
 
-#: ../src/boards/chess.c:571
+#: ../src/boards/chess.c:583
 msgid "Black's Turn"
 msgstr "Lượt của Đen"
 
-#: ../src/boards/chess.c:715
+#: ../src/boards/chess.c:727
 msgid "White checks"
 msgstr "Trắng chiếu"
 
-#: ../src/boards/chess.c:717
+#: ../src/boards/chess.c:729
 msgid "Black checks"
 msgstr "Đen chiếu"
 
-#: ../src/boards/chess.c:1049
+#: ../src/boards/chess.c:1086
 msgid "Black mates"
 msgstr "Đen chiếu hết"
 
-#: ../src/boards/chess.c:1054
+#: ../src/boards/chess.c:1091
 msgid "White mates"
 msgstr "Trắng chiếu hết"
 
-#: ../src/boards/chess.c:1059
+#: ../src/boards/chess.c:1096
 #: ../src/gcompris/bonus.c:342
 #: ../src/gcompris/bonus.c:351
 msgid "Drawn game"
@@ -4488,7 +4491,7 @@ msgstr "Lỗi: hoạt động này cần thiết bạn đầu tiên\n"
 #.toggle box
 #: ../src/boards/click_on_letter.c:649
 #: ../src/boards/gletters.c:899
-#: ../src/boards/python/login.py:535
+#: ../src/boards/python/login.py:540
 msgid "Uppercase only text"
 msgstr "Chỉ chữ hoa"
 
@@ -4549,8 +4552,8 @@ msgstr "0123456789"
 msgid "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 msgstr "AĂÂBCDĐEÊGHIKLMNOÔƠPQRSTUƯVXY"
 
-#: ../src/boards/hanoi.c:335
-#: ../src/boards/hanoi.c:346
+#: ../src/boards/hanoi.c:336
+#: ../src/boards/hanoi.c:347
 msgid ""
 "Build the same tower in the empty area as the one you see on the right-hand "
 "side."
@@ -4565,30 +4568,30 @@ msgstr "Tháp Hà Nội"
 msgid "Move the entire stack to the right peg, one disc at a time"
 msgstr "Di chuyển toàn bộ đống sang cái móc bên phải, một đĩa mỗi lần."
 
-#: ../src/boards/imageid.c:109
+#: ../src/boards/imageid.c:107
 #: ../src/boards/missingletter.c:105
 msgid "Learn how to read"
 msgstr "Học biết cách đọc"
 
 #: ../src/boards/leftright.c:280
 #: ../src/boards/leftright.c:290
-#: ../src/boards/python/searace.py:429
-#: ../src/boards/python/searace.py:454
-#: ../src/boards/python/searace.py:544
-#: ../src/boards/python/searace.py:856
-#: ../src/boards/python/searace.py:889
-#: ../src/boards/python/searace.py:986
+#: ../src/boards/python/searace.py:428
+#: ../src/boards/python/searace.py:453
+#: ../src/boards/python/searace.py:543
+#: ../src/boards/python/searace.py:855
+#: ../src/boards/python/searace.py:888
+#: ../src/boards/python/searace.py:985
 msgid "left"
 msgstr "trái"
 
 #: ../src/boards/leftright.c:300
 #: ../src/boards/leftright.c:310
-#: ../src/boards/python/searace.py:429
-#: ../src/boards/python/searace.py:454
-#: ../src/boards/python/searace.py:553
-#: ../src/boards/python/searace.py:858
-#: ../src/boards/python/searace.py:891
-#: ../src/boards/python/searace.py:980
+#: ../src/boards/python/searace.py:428
+#: ../src/boards/python/searace.py:453
+#: ../src/boards/python/searace.py:552
+#: ../src/boards/python/searace.py:857
+#: ../src/boards/python/searace.py:890
+#: ../src/boards/python/searace.py:979
 msgid "right"
 msgstr "phải"
 
@@ -4618,11 +4621,11 @@ msgstr "Dò cặp ảnh khớp"
 msgid "+-×÷"
 msgstr "+-×÷"
 
-#: ../src/boards/menu2.c:133
+#: ../src/boards/menu2.c:131
 msgid "Main Menu Second Version"
 msgstr "Trình đơn chính phiên bản thứ hai"
 
-#: ../src/boards/menu2.c:134
+#: ../src/boards/menu2.c:132
 msgid "Select a Board"
 msgstr "Chọn bảng"
 
@@ -4649,41 +4652,41 @@ msgstr "Bảng Python"
 msgid "Special board that embeds python into gcompris."
 msgstr "Bảng đặc biệt có nhúng Python vào GCompris."
 
-#: ../src/boards/python/admin/board_list.py:90
+#: ../src/boards/python/admin/board_list.py:89
 msgid "Select a profile:"
 msgstr "Chọn xác lập:"
 
-#: ../src/boards/python/admin/board_list.py:146
+#: ../src/boards/python/admin/board_list.py:145
 msgid "Filter"
 msgstr "Lọc"
 
-#: ../src/boards/python/admin/board_list.py:151
+#: ../src/boards/python/admin/board_list.py:150
 msgid "Select all"
 msgstr "Chọn tất cả"
 
-#: ../src/boards/python/admin/board_list.py:156
+#: ../src/boards/python/admin/board_list.py:155
 msgid "Unselect all"
 msgstr "Bỏ chọn tất cả"
 
-#: ../src/boards/python/admin/board_list.py:161
+#: ../src/boards/python/admin/board_list.py:160
 msgid "Locales"
 msgstr "Miền địa phương"
 
-#: ../src/boards/python/admin/board_list.py:166
+#: ../src/boards/python/admin/board_list.py:165
 msgid "Locales sound"
 msgstr "Âm thanh miền địa phương"
 
-#: ../src/boards/python/admin/board_list.py:171
+#: ../src/boards/python/admin/board_list.py:170
 msgid "Wordlist"
 msgstr "Danh sách từ"
 
-#: ../src/boards/python/admin/board_list.py:178
-#: ../src/boards/python/admin/group_user_list.py:145
-#: ../src/boards/python/admin/user_list.py:187
+#: ../src/boards/python/admin/board_list.py:177
+#: ../src/boards/python/admin/group_user_list.py:144
+#: ../src/boards/python/admin/user_list.py:186
 msgid "Login"
 msgstr "Đăng nhập"
 
-#: ../src/boards/python/admin/board_list.py:236
+#: ../src/boards/python/admin/board_list.py:235
 msgid "Main menu"
 msgstr "Trình đơn chính"
 
@@ -4692,20 +4695,20 @@ msgstr "Trình đơn chính"
 #.image = gtk.image_new_from_stock(gtk.STOCK_PREFERENCES, gtk.ICON_SIZE_MENU)
 #.image.show()
 #.column_pref.set_widget(image)
-#: ../src/boards/python/admin/board_list.py:293
+#: ../src/boards/python/admin/board_list.py:292
 msgid "Active"
 msgstr "Hoạt động"
 
-#: ../src/boards/python/admin/board_list.py:294
+#: ../src/boards/python/admin/board_list.py:293
 msgid "Board title"
 msgstr "Tên bảng"
 
-#: ../src/boards/python/admin/board_list.py:410
+#: ../src/boards/python/admin/board_list.py:409
 #, python-format
 msgid "Filter Boards difficulty for profile %s"
 msgstr "Lọc lớp khó của bảng cho xác lập %s"
 
-#: ../src/boards/python/admin/board_list.py:441
+#: ../src/boards/python/admin/board_list.py:440
 #, python-format
 msgid ""
 "<span size='x-large'> Select the difficulty range \n"
@@ -4718,20 +4721,20 @@ msgstr "<span size='x-large'> Chọn phạm vi khó cho xác lập <b>%s</b></sp
 #.the dict passed to the apply_callback
 #.the returned value is the main GtkVBox of the window,
 #.we can add what you want in it.
-#: ../src/boards/python/admin/board_list.py:632
-#: ../src/boards/python/admin/board_list.py:650
-#: ../src/boards/python/admin/wordlist.py:51
-#: ../src/boards/python/login.py:530
-#: ../src/boards/python/pythontest.py:410
-#: ../src/boards/python/tuxpaint.py:184
+#: ../src/boards/python/admin/board_list.py:631
+#: ../src/boards/python/admin/board_list.py:649
+#: ../src/boards/python/admin/wordlist.py:50
+#: ../src/boards/python/login.py:535
+#: ../src/boards/python/pythontest.py:409
+#: ../src/boards/python/tuxpaint.py:183
 #, python-format
 msgid ""
 "<b>%s</b> configuration\n"
 " for profile <b>%s</b>"
 msgstr "<b>%s</b> cấu hình cho xác lập <b>%s</b>"
 
-#: ../src/boards/python/admin/board_list.py:662
-#: ../src/boards/python/pythontest.py:474
+#: ../src/boards/python/admin/board_list.py:661
+#: ../src/boards/python/pythontest.py:473
 msgid "Select sound locale"
 msgstr "Chọn miền địa phương âm thanh"
 
@@ -4763,15 +4766,15 @@ msgstr "Hãy gán tất cả các người dùng thuộc về lớp này."
 
 #: ../src/boards/python/admin/class_edit.py:253
 #: ../src/boards/python/admin/group_edit.py:265
-#: ../src/boards/python/admin/group_user_list.py:155
-#: ../src/boards/python/admin/user_list.py:197
+#: ../src/boards/python/admin/group_user_list.py:154
+#: ../src/boards/python/admin/user_list.py:196
 msgid "First Name"
 msgstr "Tên"
 
 #: ../src/boards/python/admin/class_edit.py:264
 #: ../src/boards/python/admin/group_edit.py:276
-#: ../src/boards/python/admin/group_user_list.py:165
-#: ../src/boards/python/admin/user_list.py:207
+#: ../src/boards/python/admin/group_user_list.py:164
+#: ../src/boards/python/admin/user_list.py:206
 msgid "Last Name"
 msgstr "Họ"
 
@@ -4783,13 +4786,13 @@ msgstr "Bạn cần phải cung cấp ít nhất một tên cho lớp này."
 msgid "There is already a class with this name"
 msgstr "Lớp tên này đã có."
 
-#: ../src/boards/python/admin/class_list.py:170
+#: ../src/boards/python/admin/class_list.py:169
 #: ../src/boards/python/admin/profile_edit.py:269
-#: ../src/boards/python/admin/profile_group_list.py:145
+#: ../src/boards/python/admin/profile_group_list.py:144
 msgid "Class"
 msgstr "Lớp"
 
-#: ../src/boards/python/admin/class_list.py:180
+#: ../src/boards/python/admin/class_list.py:179
 msgid "Teacher"
 msgstr "Giáo viên"
 
@@ -4833,54 +4836,54 @@ msgstr "Cần phải cung cấp ít nhất một tên cho nhóm này."
 msgid "There is already a group with this name"
 msgstr "Nhóm tên này đã có."
 
-#: ../src/boards/python/admin/group_list.py:87
+#: ../src/boards/python/admin/group_list.py:86
 msgid "Select a class:"
 msgstr "Chọn lớp:"
 
-#: ../src/boards/python/admin/group_list.py:215
+#: ../src/boards/python/admin/group_list.py:214
 #: ../src/boards/python/admin/profile_edit.py:279
-#: ../src/boards/python/admin/profile_group_list.py:155
+#: ../src/boards/python/admin/profile_group_list.py:154
 msgid "Group"
 msgstr "Nhóm"
 
-#: ../src/boards/python/admin/group_list.py:226
+#: ../src/boards/python/admin/group_list.py:225
 #: ../src/boards/python/admin/profile_edit.py:289
-#: ../src/boards/python/admin/profile_group_list.py:165
-#: ../src/boards/python/admin/profile_list.py:199
+#: ../src/boards/python/admin/profile_group_list.py:164
+#: ../src/boards/python/admin/profile_list.py:198
 msgid "Description"
 msgstr "Mô tả"
 
-#: ../src/boards/python/admin/group_list.py:323
+#: ../src/boards/python/admin/group_list.py:322
 msgid "You must first select a group in the list"
 msgstr "Trước tiên, bạn cần phải chọn một nhóm trong danh sách."
 
-#: ../src/boards/python/admin/group_user_list.py:175
-#: ../src/boards/python/admin/user_list.py:217
+#: ../src/boards/python/admin/group_user_list.py:174
+#: ../src/boards/python/admin/user_list.py:216
 msgid "Birth Date"
 msgstr "Ngày sinh"
 
-#: ../src/boards/python/admin/module_boards.py:43
-#: ../src/boards/python/admin/module_boards.py:63
+#: ../src/boards/python/admin/module_boards.py:42
+#: ../src/boards/python/admin/module_boards.py:62
 msgid "Boards"
 msgstr "Bảng"
 
-#: ../src/boards/python/admin/module_groups.py:41
-#: ../src/boards/python/admin/module_groups.py:67
+#: ../src/boards/python/admin/module_groups.py:40
+#: ../src/boards/python/admin/module_groups.py:66
 msgid "Groups"
 msgstr "Nhóm"
 
-#: ../src/boards/python/admin/module_profiles.py:41
-#: ../src/boards/python/admin/module_profiles.py:66
+#: ../src/boards/python/admin/module_profiles.py:40
+#: ../src/boards/python/admin/module_profiles.py:65
 msgid "Profiles"
 msgstr "Xác lập"
 
-#: ../src/boards/python/admin/module_users.py:42
-#: ../src/boards/python/admin/module_users.py:68
+#: ../src/boards/python/admin/module_users.py:41
+#: ../src/boards/python/admin/module_users.py:67
 msgid "Classes"
 msgstr "Lớp"
 
-#: ../src/boards/python/admin/module_users.py:42
-#: ../src/boards/python/admin/module_users.py:68
+#: ../src/boards/python/admin/module_users.py:41
+#: ../src/boards/python/admin/module_users.py:67
 msgid "Users"
 msgstr "Người dùng"
 
@@ -4913,17 +4916,17 @@ msgstr "Bạn cần phải cung cấp ít nhất một tên cho xác lập này.
 msgid "There is already a profile with this name"
 msgstr "Xác lập tên này đã có."
 
-#: ../src/boards/python/admin/profile_list.py:122
-#: ../src/gcompris/board_config.c:663
-#: ../src/gcompris/board_config.c:827
+#: ../src/boards/python/admin/profile_list.py:121
+#: ../src/gcompris/board_config.c:668
+#: ../src/gcompris/board_config.c:832
 msgid "Default"
 msgstr "Mặc định"
 
-#: ../src/boards/python/admin/profile_list.py:189
+#: ../src/boards/python/admin/profile_list.py:188
 msgid "Profile"
 msgstr "Xác lập"
 
-#: ../src/boards/python/admin/profile_list.py:316
+#: ../src/boards/python/admin/profile_list.py:315
 msgid "[Default]"
 msgstr "[Mặc định]"
 
@@ -4968,7 +4971,7 @@ msgstr "Bạn cần phải cung cấp ít nhất tên đăng nhập và họ tê
 msgid "There is already a user with this login"
 msgstr "Một người dùng có tên đăng nhập này đã có"
 
-#: ../src/boards/python/admin/user_list.py:292
+#: ../src/boards/python/admin/user_list.py:291
 msgid ""
 "To import a user list from a file, first select a class.\n"
 "FILE FORMAT: Your file must be formatted like this:\n"
@@ -4981,7 +4984,7 @@ msgstr "Để nhập một danh sách người dùng từ một tập tin,\n"
 "Dấu ngăn cách được phát hiện tự động\n"
 "và có thể là một của: « , » « ; » hay « : »."
 
-#: ../src/boards/python/admin/user_list.py:371
+#: ../src/boards/python/admin/user_list.py:370
 #, python-format
 msgid ""
 "One or more logins are not unique !\n"
@@ -4989,27 +4992,19 @@ msgid ""
 msgstr "Một hay nhiều thông tin đăng nhập không phải là duy nhất.\n"
 "Bạn cần phải thay đổi chúng: %s."
 
-#.gcompris.utils.dialog(_('Python xml module bot found. SVG is disabled. Install the python xml module to enable SVG Save/restore.'), None)
-#: ../src/boards/python/anim.py:418
-msgid ""
-"Python xml module not found. SVG is disabled. Install the python xml module "
-"to enable SVG Save/restore."
-msgstr "Không tìm thấy mô-đun XL Python nên SVG bị vô hiệu hóa. Bạn hãy cài đặt mô-"
-"đun XML Python để hiệu lực khả năng lưu/phục hồi của SVG."
-
-#: ../src/boards/python/anim.py:2207
+#: ../src/boards/python/anim.py:2208
 msgid "SVG is disabled. Install python xml module to enable it"
 msgstr "SVG bị vô hiệu hóa. Bạn hãy cài đặt mô-đun XML Python để hiệu lực nó."
 
-#: ../src/boards/python/anim.py:2363
+#: ../src/boards/python/anim.py:2364
 msgid "Warning: the following images cannot be accessed on your system.\n"
 msgstr "Cảnh báo: trong hệ thống bạn, không thể truy cập những ảnh theo đây:\n"
 
-#: ../src/boards/python/anim.py:2365
+#: ../src/boards/python/anim.py:2366
 msgid "The corresponding items have been skipped."
 msgstr "Những mục tượng ứng đã bị bỏ qua."
 
-#: ../src/boards/python/electric.py:96
+#: ../src/boards/python/electric.py:94
 msgid ""
 "Cannot find the 'gnucap' electric simulator.\n"
 "You can download and install it from:\n"
@@ -5030,31 +5025,31 @@ msgstr "Không tìm thấy bộ mô phỏng điện « gnucap ».\n"
 "không có mô phỏng máy tính,\n"
 "khi không có bộ mô phỏng gnucap."
 
-#: ../src/boards/python/gnumch.py:95
+#: ../src/boards/python/gnumch.py:94
 #, python-format
 msgid ", %d"
 msgstr ", %d"
 
-#: ../src/boards/python/gnumch.py:96
+#: ../src/boards/python/gnumch.py:95
 #, python-format
 msgid " and %d"
 msgstr " và %d"
 
-#: ../src/boards/python/gnumch.py:116
+#: ../src/boards/python/gnumch.py:115
 #, python-format
 msgid "%d is divisible by %s."
 msgstr "%d có thể được chia cho %s."
 
-#: ../src/boards/python/gnumch.py:120
+#: ../src/boards/python/gnumch.py:119
 msgid "1 is not a prime number."
 msgstr "1 không phải là số nguyên tố."
 
-#: ../src/boards/python/gnumch.py:130
+#: ../src/boards/python/gnumch.py:129
 #, python-format
 msgid "Primes less than %d"
 msgstr "Số nguyên tố nhỏ hơn %d"
 
-#: ../src/boards/python/gnumch.py:151
+#: ../src/boards/python/gnumch.py:150
 #, python-format
 msgid ""
 "Multiples of %d include %s,\n"
@@ -5063,80 +5058,80 @@ msgstr "Các bội số của %d gồm %s,\n"
 "nhưng %d không phải là\n"
 "bội số của %d."
 
-#: ../src/boards/python/gnumch.py:160
+#: ../src/boards/python/gnumch.py:159
 #, python-format
 msgid "Factors of %d"
 msgstr "Các hệ số của %d"
 
-#: ../src/boards/python/gnumch.py:193
+#: ../src/boards/python/gnumch.py:192
 #, python-format
 msgid "%s are the factors of %d."
 msgstr "%s là các hệ số của %d."
 
-#: ../src/boards/python/gnumch.py:205
+#: ../src/boards/python/gnumch.py:204
 #, python-format
 msgid "Multiples of %d"
 msgstr "Các bội số của %d"
 
 # Variable: do not translate/ biến: đừng dịch
-#: ../src/boards/python/gnumch.py:239
+#: ../src/boards/python/gnumch.py:238
 #, python-format
 msgid "%s = %d"
 msgstr "%s = %d"
 
 # Variable: don't translate / Biến: đừng dịch
-#: ../src/boards/python/gnumch.py:250
+#: ../src/boards/python/gnumch.py:249
 #, python-format
 msgid "%d + %d"
 msgstr "%d + %d"
 
 # Variable: don't translate / Biến: đừng dịch
-#: ../src/boards/python/gnumch.py:255
+#: ../src/boards/python/gnumch.py:254
 #, python-format
 msgid "%d − %d"
 msgstr "%d - %d"
 
 # Variable: don't translate / Biến: đừng dịch
-#: ../src/boards/python/gnumch.py:260
+#: ../src/boards/python/gnumch.py:259
 #, python-format
 msgid "%d × %d"
 msgstr "%d × %d"
 
 # Variable: don't translate / Biến: đừng dịch
-#: ../src/boards/python/gnumch.py:264
+#: ../src/boards/python/gnumch.py:263
 #, python-format
 msgid "%d ÷ %d"
 msgstr "%d ÷ %d"
 
-#: ../src/boards/python/gnumch.py:272
+#: ../src/boards/python/gnumch.py:271
 #, python-format
 msgid "Equal to %d"
 msgstr "Bằng %d"
 
-#: ../src/boards/python/gnumch.py:293
+#: ../src/boards/python/gnumch.py:292
 #, python-format
 msgid "Not equal to %d"
 msgstr "Không phải bằng %d"
 
-#: ../src/boards/python/gnumch.py:435
+#: ../src/boards/python/gnumch.py:434
 msgid ""
 "You were eaten by a Troggle.\n"
 "Press <Return> to continue."
 msgstr "Ồ, cháu bị ăn bởi Tốc-u.\n"
 "Hãy bấm phím Return để tiếp tục."
 
-#: ../src/boards/python/gnumch.py:484
+#: ../src/boards/python/gnumch.py:483
 msgid "You ate a wrong number.\n"
 msgstr "Ồ, cháu mới ăn số không đúng.\n"
 
-#: ../src/boards/python/gnumch.py:485
+#: ../src/boards/python/gnumch.py:484
 msgid ""
 "\n"
 "Press <Return> to continue."
 msgstr "\n"
 "Hãy bấm phím Return để tiếp tục."
 
-#: ../src/boards/python/gnumch.py:778
+#: ../src/boards/python/gnumch.py:777
 msgid ""
 "T\n"
 "R\n"
@@ -5151,51 +5146,51 @@ msgstr "T\n"
 "-\n"
 "U"
 
-#: ../src/boards/python/guessnumber.py:222
+#: ../src/boards/python/guessnumber.py:205
 #, python-format
 msgid "Guess a number between %d and %d"
 msgstr "Đoán một số giữa %d và %d"
 
-#: ../src/boards/python/guessnumber.py:335
-#: ../src/boards/python/guessnumber.py:336
+#: ../src/boards/python/guessnumber.py:318
+#: ../src/boards/python/guessnumber.py:319
 #, python-format
 msgid "Please enter a number between %d and %d"
 msgstr "Hãy gõ một số giữa %d và %d"
 
-#: ../src/boards/python/guessnumber.py:341
-#: ../src/boards/python/guessnumber.py:342
+#: ../src/boards/python/guessnumber.py:324
+#: ../src/boards/python/guessnumber.py:325
 msgid "Out of range"
 msgstr "Ở ngoại phạm vi"
 
-#: ../src/boards/python/guessnumber.py:348
-#: ../src/boards/python/guessnumber.py:349
+#: ../src/boards/python/guessnumber.py:331
+#: ../src/boards/python/guessnumber.py:332
 msgid "Too high"
 msgstr "Quá cao"
 
-#: ../src/boards/python/guessnumber.py:351
-#: ../src/boards/python/guessnumber.py:352
+#: ../src/boards/python/guessnumber.py:334
+#: ../src/boards/python/guessnumber.py:335
 msgid "Too low"
 msgstr "Quá thấp"
 
-#: ../src/boards/python/login.py:115
+#: ../src/boards/python/login.py:114
 msgid "Profile: "
 msgstr "Xác lập: "
 
-#: ../src/boards/python/login.py:263
-#: ../src/boards/python/login.py:272
+#: ../src/boards/python/login.py:268
+#: ../src/boards/python/login.py:277
 msgid "Login: "
 msgstr "Đăng nhập: "
 
 #.toggle box
-#: ../src/boards/python/login.py:545
+#: ../src/boards/python/login.py:550
 msgid "Enter login to log in"
 msgstr "Hãy gõ tên đăng nhập để đăng nhập"
 
-#: ../src/boards/python/mosaic.py:210
+#: ../src/boards/python/mosaic.py:193
 msgid "Rebuild the same mosaic on the right area"
 msgstr "Xây dựng cùng một khảm trong vùng đúng"
 
-#: ../src/boards/python/melody.py:116
+#: ../src/boards/python/melody.py:115
 msgid ""
 "Error: this activity cannot be played with the\n"
 "sound effects disabled.\n"
@@ -5205,35 +5200,35 @@ msgstr "Lỗi: không thể chơi hoạt động này\n"
 "khi hiệu ứng âm thanh bị tắt.\n"
 "Hãy mở hộp thoại cấu hình để bật âm thanh."
 
-#: ../src/boards/python/oscar_and_friends.py:117
+#: ../src/boards/python/oscar_and_friends.py:116
 msgid ""
 "Below the surface, Oscar the octopus and his friends sat on a rock,\n"
 "watching the bad weather above them."
 msgstr "Dưới mặt nước, Ót-că con tuộc và các bạn bè có ngồi trên đá,\n"
 "theo dõi thời tiết xấu ở trên."
 
-#: ../src/boards/python/oscar_and_friends.py:118
+#: ../src/boards/python/oscar_and_friends.py:117
 msgid ""
 "They were all happy that the storms never reached all the way down to them."
 msgstr "Cả họ vui lòng các bão không bao giờ tới đất, làm hại họ."
 
-#: ../src/boards/python/oscar_and_friends.py:119
+#: ../src/boards/python/oscar_and_friends.py:118
 msgid ""
 "No matter how bad it was up there, the bottom was always calm and quiet."
 msgstr "Bất chấp thời tiết rất xấu ở trên, xuống đất luôn luôn yên lặng."
 
-#: ../src/boards/python/oscar_and_friends.py:120
+#: ../src/boards/python/oscar_and_friends.py:119
 msgid "Oscar's best friends were Charlie the crab and Sandy the sea-star."
 msgstr "Bạn bè chí thiết của Ót-că là Cha-li con cua và Xan-đi sao biến."
 
-#: ../src/boards/python/pythontest.py:149
+#: ../src/boards/python/pythontest.py:148
 msgid ""
 "This is the first plugin in gcompris coded in the Python\n"
 "Programming language."
 msgstr "Đây là bộ cầm phít thứ nhất trong GCompris mà được mã hóa bằng Ngôn ngữ Lập "
 "trình Python."
 
-#: ../src/boards/python/pythontest.py:158
+#: ../src/boards/python/pythontest.py:157
 msgid ""
 "It is now possible to develop gcompris activities in C or in Python.\n"
 "Thanks to Olivier Samys who makes this possible."
@@ -5241,137 +5236,137 @@ msgstr "Lúc bây giờ có thể phát triển hoạt động GCompris\n"
 "bằng C hay bằng Python.\n"
 "Cám ơn Oliver Samys đã tạo khả năng này."
 
-#: ../src/boards/python/pythontest.py:167
+#: ../src/boards/python/pythontest.py:166
 msgid "This activity is not playable, just a test"
 msgstr "Chưa có thể chơi hoạt động này, nó chỉ thử ra."
 
 #.toggle box
-#: ../src/boards/python/pythontest.py:415
+#: ../src/boards/python/pythontest.py:414
 msgid "Disable line drawing in circle"
 msgstr "Tắt vẽ đường trong hình tròn."
 
 #.combo box
-#: ../src/boards/python/pythontest.py:424
+#: ../src/boards/python/pythontest.py:423
 msgid "Color of the line"
 msgstr "Màu đường"
 
 #.spin button for int
-#: ../src/boards/python/pythontest.py:435
+#: ../src/boards/python/pythontest.py:434
 msgid "Distance between circles"
 msgstr "Khoảng cách giữa các hình tròn"
 
 #.radio buttons for circle or rectangle
-#: ../src/boards/python/pythontest.py:446
+#: ../src/boards/python/pythontest.py:445
 msgid "Use circles"
 msgstr "Dùng hình tròn"
 
-#: ../src/boards/python/pythontest.py:447
+#: ../src/boards/python/pythontest.py:446
 msgid "Use rectangles"
 msgstr "Dùng chữ nhật"
 
-#: ../src/boards/python/pythontest.py:450
+#: ../src/boards/python/pythontest.py:449
 msgid "Choice of pattern"
 msgstr "Chọn mẫu"
 
-#: ../src/boards/python/redraw.py:348
-#: ../src/boards/python/redraw.py:358
+#: ../src/boards/python/redraw.py:347
+#: ../src/boards/python/redraw.py:357
 msgid "Level"
 msgstr "Cấp"
 
-#: ../src/boards/python/redraw.py:902
-#: ../src/boards/python/redraw.py:905
+#: ../src/boards/python/redraw.py:901
+#: ../src/boards/python/redraw.py:904
 msgid "Coordinate"
 msgstr "Toạ độ"
 
-#: ../src/boards/python/searace.py:201
-#: ../src/boards/python/searace.py:206
-#: ../src/boards/python/searace.py:232
+#: ../src/boards/python/searace.py:200
+#: ../src/boards/python/searace.py:205
+#: ../src/boards/python/searace.py:231
 msgid "The race is already being run"
 msgstr "Cuộc đua đang chạy."
 
 #.Manage default cases (no params given)
 #.Final move, add an ofset because we loose space in abs()
-#: ../src/boards/python/searace.py:429
-#: ../src/boards/python/searace.py:454
-#: ../src/boards/python/searace.py:535
-#: ../src/boards/python/searace.py:854
-#: ../src/boards/python/searace.py:883
-#: ../src/boards/python/searace.py:978
-#: ../src/boards/python/searace.py:984
-#: ../src/boards/python/searace.py:992
+#: ../src/boards/python/searace.py:428
+#: ../src/boards/python/searace.py:453
+#: ../src/boards/python/searace.py:534
+#: ../src/boards/python/searace.py:853
+#: ../src/boards/python/searace.py:882
+#: ../src/boards/python/searace.py:977
+#: ../src/boards/python/searace.py:983
+#: ../src/boards/python/searace.py:991
 msgid "forward"
 msgstr "đi thẳng"
 
-#: ../src/boards/python/searace.py:526
+#: ../src/boards/python/searace.py:525
 msgid "COMMANDS ARE"
 msgstr "• Các lệnh •"
 
 #.The two boat arrived in a close time frame (1s), it's a draw
-#: ../src/boards/python/searace.py:752
+#: ../src/boards/python/searace.py:751
 msgid "This is a draw"
 msgstr "Trận đấu hoà."
 
-#: ../src/boards/python/searace.py:759
+#: ../src/boards/python/searace.py:758
 msgid "The Red boat has won"
 msgstr "Tàu đỏ đã thắng"
 
-#: ../src/boards/python/searace.py:762
+#: ../src/boards/python/searace.py:761
 msgid "The Green boat has won"
 msgstr "Tàu xanh đã thắng"
 
-#: ../src/boards/python/searace.py:780
-#: ../src/boards/python/searace.py:1022
+#: ../src/boards/python/searace.py:779
+#: ../src/boards/python/searace.py:1021
 msgid "Angle:"
 msgstr "Góc:"
 
-#: ../src/boards/python/searace.py:780
+#: ../src/boards/python/searace.py:779
 msgid "Wind:"
 msgstr "Gió:"
 
-#: ../src/boards/python/searace.py:861
+#: ../src/boards/python/searace.py:860
 msgid "Syntax error at line"
 msgstr "Lỗi cú pháp tại dòng"
 
-#: ../src/boards/python/searace.py:879
+#: ../src/boards/python/searace.py:878
 msgid "The command"
 msgstr "Lệnh"
 
-#: ../src/boards/python/searace.py:898
+#: ../src/boards/python/searace.py:897
 msgid "Unknown command at line"
 msgstr "Gặp lệnh lạ tại dòng"
 
-#: ../src/boards/python/searace.py:1022
+#: ../src/boards/python/searace.py:1021
 msgid "Distance:"
 msgstr "Khoảng cách:"
 
-#: ../src/boards/python/tuxpaint.py:120
+#: ../src/boards/python/tuxpaint.py:119
 msgid ""
 "Cannot find Tuxpaint.\n"
 "Install it to use this activity !"
 msgstr "Không thể tìm trình Tuxpaint (Sơn Thâch-x).\n"
 "Hãy cài đặt nó để sử dụng hoạt động này."
 
-#: ../src/boards/python/tuxpaint.py:133
+#: ../src/boards/python/tuxpaint.py:132
 msgid "Waiting for Tuxpaint to finish"
 msgstr "Đang đợi Sơn Thâch-x chạy xong"
 
-#: ../src/boards/python/tuxpaint.py:188
+#: ../src/boards/python/tuxpaint.py:187
 msgid "Inherit fullscreen setting from GCompris"
 msgstr "Kế thừa thiết lập toàn màn hình từ trình GCompris"
 
-#: ../src/boards/python/tuxpaint.py:192
+#: ../src/boards/python/tuxpaint.py:191
 msgid "Inherit size setting from GCompris (800x600, 640x480)"
 msgstr "Kế thừa thiết lập kích cỡ từ trình GCompris (800x600, 640x480)"
 
-#: ../src/boards/python/tuxpaint.py:196
+#: ../src/boards/python/tuxpaint.py:195
 msgid "Disable shape rotation"
 msgstr "Vô hiệu hóa khả năng xoay hình"
 
-#: ../src/boards/python/tuxpaint.py:200
+#: ../src/boards/python/tuxpaint.py:199
 msgid "Show Uppercase text only"
 msgstr "Hiển thị chỉ chữ hoa"
 
-#: ../src/boards/python/tuxpaint.py:204
+#: ../src/boards/python/tuxpaint.py:203
 msgid "Disable stamps"
 msgstr "Vô hiệu hóa dấu hình"
 
@@ -5383,46 +5378,50 @@ msgstr "Trò chơi trí nhớ"
 msgid "Build a train according to the model"
 msgstr "Xâu dụng một xe lửa tùy theo mô hình"
 
-#: ../src/boards/reading.c:370
+#: ../src/boards/reading.c:227
+#: ../src/boards/wordsgame.c:207
+msgid ""
+"Error: We can't find\n"
+"a list of words to play this game.\n"
+msgstr "Lỗi: không tìm thấy\n"
+"danh sách từ để chơi trò này. :(\n"
+
+#: ../src/boards/reading.c:381
 msgid "Please, check if the word"
 msgstr "Hãy kiểm tra xem nếu từ"
 
-#: ../src/boards/reading.c:390
+#: ../src/boards/reading.c:401
 msgid "is being displayed"
 msgstr "đang được hiển thị"
 
-#: ../src/boards/reading.c:561
+#: ../src/boards/reading.c:575
 msgid "I am Ready"
 msgstr "Tôi sẵn sàng"
 
-#: ../src/boards/reading.c:601
+#: ../src/boards/reading.c:615
 msgid "Yes, I saw it"
 msgstr "Có, tôi có thấy nó."
 
-#: ../src/boards/reading.c:631
+#: ../src/boards/reading.c:645
 msgid "No, it was not there"
 msgstr "Không, nó không có ở đó."
 
 #.Report what was wrong in the log
-#: ../src/boards/reading.c:669
+#: ../src/boards/reading.c:683
 #, c-format
 msgid "The word to find was '%s'"
 msgstr "Từ cần tìm là « %s »"
 
-#: ../src/boards/reading.c:672
+#: ../src/boards/reading.c:686
 msgid "But it was not displayed"
 msgstr "Nhưng mà chưa hiển thị nó."
 
-#: ../src/boards/reading.c:674
+#: ../src/boards/reading.c:688
 msgid "And it was displayed"
 msgstr "Và nó đã được hiển thị."
 
-#: ../src/boards/reading.c:776
-msgid "Cannot open file of words for your locale"
-msgstr "Không mở được tập tin các từ cho miền địa phương của bạn."
-
 #.Enter Edit Mode
-#: ../src/boards/shapegame.c:431
+#: ../src/boards/shapegame.c:435
 msgid ""
 "You have entered Edit mode\n"
 "Move the puzzle items;\n"
@@ -5433,7 +5432,7 @@ msgstr "Cháu mới vào chế độ Sửa đổi.\n"
 "gõ chữ « s » để lưu câu này,\n"
 "và « d » để hiển thị tất cả hình."
 
-#: ../src/boards/shapegame.c:439
+#: ../src/boards/shapegame.c:443
 msgid ""
 "The data from this activity are saved under\n"
 "/tmp/gcompris-board.xml"
@@ -5466,13 +5465,6 @@ msgstr "Tốc độ gió = %d\n"
 #, c-format
 msgid "Distance to target = %d meters"
 msgstr "Khoảng cách tới đích = %d mét"
-
-#: ../src/boards/wordsgame.c:207
-msgid ""
-"Error: We don't find\n"
-"a list of words to play this game.\n"
-msgstr "Lỗi: không tìm thấy\n"
-"danh sách từ để chơi. :(\n"
 
 #: ../src/gcompris/about.c:62
 msgid ""
@@ -5520,33 +5512,34 @@ msgstr "Phần mềm là một gói GNU, và được phát hành với điều 
 #: ../src/gcompris/about.c:349
 #: ../src/gcompris/config.c:469
 #: ../src/gcompris/config.c:479
+#: ../src/gcompris/dialog.c:97
 #: ../src/gcompris/help.c:381
 #: ../src/gcompris/help.c:391
 #: ../src/gcompris/images_selector.c:317
 msgid "OK"
 msgstr "Được"
 
-#: ../src/gcompris/bar.c:567
+#: ../src/gcompris/bar.c:568
 msgid "GCompris confirmation"
 msgstr "Xác nhận GCompris"
 
-#: ../src/gcompris/bar.c:568
-msgid "Sure you want to quit ?"
+#: ../src/gcompris/bar.c:569
+msgid "Are you sure you want to quit?"
 msgstr "Cháu có chắc muốn thoát không?"
 
-#: ../src/gcompris/bar.c:569
-msgid "Yes, I am sure !"
-msgstr "Có, tôi có chắc."
-
 #: ../src/gcompris/bar.c:570
+msgid "Yes, I am sure!"
+msgstr "Chắc rồi."
+
+#: ../src/gcompris/bar.c:571
 msgid "No, I want to keep going"
 msgstr "Không, tôi muốn tiếp tục"
 
-#: ../src/gcompris/board.c:172
+#: ../src/gcompris/board.c:186
 msgid "Dynamic module loading is not supported. gcompris cannot load.\n"
 msgstr "Không hỗ trợ khả năng tải mô-đun một cách động nên không thể tải GCompris.\n"
 
-#: ../src/gcompris/board_config.c:695
+#: ../src/gcompris/board_config.c:700
 msgid ""
 "Select the language\n"
 " to use in the board"
@@ -5806,14 +5799,14 @@ msgstr "Hiệu ứng"
 msgid "Couldn't open skin dir: %s"
 msgstr "Không mở được thư mục sắc thái: %s"
 
-#: ../src/gcompris/config.c:415
-#: ../src/gcompris/config.c:843
-#: ../src/gcompris/config.c:857
+#: ../src/gcompris/config.c:413
+#: ../src/gcompris/config.c:846
+#: ../src/gcompris/config.c:860
 #, c-format
 msgid "Skin : %s"
 msgstr "Sắc thái: %s"
 
-#: ../src/gcompris/config.c:417
+#: ../src/gcompris/config.c:415
 msgid "SKINS NOT FOUND"
 msgstr "KHÔNG TÌM THẤY SẮC THÁI"
 
@@ -5821,15 +5814,15 @@ msgstr "KHÔNG TÌM THẤY SẮC THÁI"
 msgid "English (United State)"
 msgstr "Anh (Mỹ)"
 
-#: ../src/gcompris/file_selector.c:333
+#: ../src/gcompris/file_selector.c:334
 msgid "CANCEL"
 msgstr "THÔI"
 
-#: ../src/gcompris/file_selector.c:364
+#: ../src/gcompris/file_selector.c:365
 msgid "LOAD"
 msgstr "TẢI"
 
-#: ../src/gcompris/file_selector.c:364
+#: ../src/gcompris/file_selector.c:365
 msgid "SAVE"
 msgstr "LƯU"
 
@@ -5848,47 +5841,47 @@ msgid ""
 msgstr "Hãy thoát khỏi nó,\n"
 "rồi thông báo lỗi này cho tác giả."
 
-#: ../src/gcompris/gcompris.c:131
+#: ../src/gcompris/gcompris.c:141
 msgid "run gcompris in fullscreen mode."
 msgstr "chạy GCompris trong chế độ toàn màn hình."
 
-#: ../src/gcompris/gcompris.c:134
+#: ../src/gcompris/gcompris.c:144
 msgid "run gcompris in window mode."
 msgstr "chạy GCompris trong chế độ cửa sổ."
 
-#: ../src/gcompris/gcompris.c:137
+#: ../src/gcompris/gcompris.c:147
 msgid "run gcompris with sound enabled."
 msgstr "chạy GCompris có âm thanh được bật."
 
-#: ../src/gcompris/gcompris.c:140
+#: ../src/gcompris/gcompris.c:150
 msgid "run gcompris without sound."
 msgstr "chạy GCompris không có âm thanh."
 
-#: ../src/gcompris/gcompris.c:143
+#: ../src/gcompris/gcompris.c:153
 msgid "run gcompris with the default gnome cursor."
 msgstr "chạy GCompris với con trỏ Gnome mặc định."
 
-#: ../src/gcompris/gcompris.c:146
+#: ../src/gcompris/gcompris.c:156
 msgid "display only activities with this difficulty level."
 msgstr "hiển thị chỉ những hoạt động tại cấp khó này."
 
-#: ../src/gcompris/gcompris.c:149
+#: ../src/gcompris/gcompris.c:159
 msgid "display debug informations on the console."
 msgstr "hiển thị thông tin gỡ lỗi trên bàn giao tiếp."
 
-#: ../src/gcompris/gcompris.c:152
+#: ../src/gcompris/gcompris.c:162
 msgid "Print the version of "
 msgstr "In ra phiên bản của "
 
-#: ../src/gcompris/gcompris.c:155
+#: ../src/gcompris/gcompris.c:165
 msgid "Use the antialiased canvas (slower)."
 msgstr "Dùng khung vẽ trơn (chậm hơn)."
 
-#: ../src/gcompris/gcompris.c:158
+#: ../src/gcompris/gcompris.c:168
 msgid "Disable XF86VidMode (No screen resolution change)."
 msgstr "Tắt XF86VidMode (không thay đổi độ phân giải màn hình)."
 
-#: ../src/gcompris/gcompris.c:161
+#: ../src/gcompris/gcompris.c:171
 msgid ""
 "Run gcompris with local menu (e.g -l /reading will let you play only "
 "activities in the reading directory, -l /strategy/connect4 only the connect4 "
@@ -5897,81 +5890,86 @@ msgstr "Chạy GCompris với trình đơn cục bộ (v.d.  « -l /reading » s
 "năng chơi chỉ thư mục hoạt động đọc, « -l /strategy/connect4 » chỉ hoạt động "
 "kết nối 4)."
 
-#: ../src/gcompris/gcompris.c:164
+#: ../src/gcompris/gcompris.c:174
 msgid "Run GCompris with local activity directory added to menu"
 msgstr "Chạy GCompris với thư mục hoạt động cục bộ được thêm vào trình đơn"
 
-#: ../src/gcompris/gcompris.c:167
+#: ../src/gcompris/gcompris.c:177
 msgid "Run GCompris in administration and user-management mode"
 msgstr "Chạy GCompris trong chế độ quản trị  (hệ thống và người dùng)"
 
-#: ../src/gcompris/gcompris.c:170
+#: ../src/gcompris/gcompris.c:180
 msgid "Use alternate database for profiles"
 msgstr "Dùng cơ sở dữ liệu thay thế cho xác lập."
 
-#: ../src/gcompris/gcompris.c:173
+#: ../src/gcompris/gcompris.c:183
 msgid "Use alternate database for logs"
 msgstr "Dùng cơ sở dữ liệu thay thế cho bản ghi."
 
-#: ../src/gcompris/gcompris.c:176
+#: ../src/gcompris/gcompris.c:186
 msgid "Create the alternate database for profiles"
 msgstr "Tạo cơ sở dữ liệu thay thế cho xác lập."
 
-#: ../src/gcompris/gcompris.c:179
+#: ../src/gcompris/gcompris.c:189
 msgid "Re-read XML Menus and store them in the database"
 msgstr "Đọc lại các trình đơn XML và lưu chúng vào cơ sở dữ liệu."
 
-#: ../src/gcompris/gcompris.c:182
+#: ../src/gcompris/gcompris.c:192
 msgid "Set the profile to use. Use 'gcompris -a' to create profiles"
 msgstr "Đặt xác lập cần dùng. Sử dụng lệnh « gcompris -a » để tẠo xÁc lẬp."
 
-#: ../src/gcompris/gcompris.c:185
+#: ../src/gcompris/gcompris.c:195
 msgid "List all available profiles. Use 'gcompris -a' to create profiles"
 msgstr "Liệt kê mọi xác lập sẵn sàng. Sử dụng lệnh « gcompris -a » để tạo xác lập"
 
-#: ../src/gcompris/gcompris.c:188
+#: ../src/gcompris/gcompris.c:198
 msgid ""
 "Shared directory location, for profiles and board-configuration data: "
 "[$HOME/.gcompris/shared]"
 msgstr "Địa điểm thư mục dùng chung, cho xác lập và dữ liệu cấu hình bảng: <$HOME/."
 "gcompris/shared>."
 
-#: ../src/gcompris/gcompris.c:191
+#: ../src/gcompris/gcompris.c:201
 msgid "The location of user directories: [$HOME/.gcompris/users]"
 msgstr "Địa điểm của thư mục người dùng: <$HOME/.gcompris/users>."
 
-#: ../src/gcompris/gcompris.c:194
+#: ../src/gcompris/gcompris.c:204
 msgid "Run the experimental activities"
 msgstr "Chạy hoạt động đựa trên kinh nghiệm"
 
-#: ../src/gcompris/gcompris.c:197
+#: ../src/gcompris/gcompris.c:207
 msgid "Disable the quit button"
 msgstr "Tắt cái nút Thoát"
 
-#: ../src/gcompris/gcompris.c:200
+#: ../src/gcompris/gcompris.c:210
 msgid "Disable the config button"
 msgstr "Tắt cái nút Cấu hình"
 
-#: ../src/gcompris/gcompris.c:203
+#: ../src/gcompris/gcompris.c:213
 msgid "Display the resources on stdout based on the selected activities"
 msgstr "Hiển thị các tài nguyên trên thiết bị xuất chuẩn dựa vào những hoạt động đã "
 "chọn"
 
-#: ../src/gcompris/gcompris.c:206
+#: ../src/gcompris/gcompris.c:216
 msgid ""
 "GCompris will get images, sounds and activity data from this server if not "
 "found locally."
 msgstr "Trình GCompris sẽ lấy các ảnh, âm thanh và dữ liệu hoạt động đều từ máy phục "
 "vụ này nếu không tìm thấy cục bộ."
 
-#: ../src/gcompris/gcompris.c:209
+#: ../src/gcompris/gcompris.c:219
 msgid ""
 "Only when --server is provided, disable check for local resource first. Data "
 "are always taken from the web server."
 msgstr "Chỉ khi « --server » được cung cấp, hãy tắt khả năng kiểm tra trước tiên tìm "
 "tài nguyên cục bộ. Dữ liệu luôn được lấy từ máy phục vụ Mạng."
 
-#: ../src/gcompris/gcompris.c:846
+#: ../src/gcompris/gcompris.c:223
+msgid ""
+"In server mode, where is the cache directory to avoid useless downloads."
+msgstr "Trong chế độ máy phục vụ, thư mục nhớ tạm (để tránh nhiều việc tải xuống vô ích) ở đâu."
+
+#: ../src/gcompris/gcompris.c:863
 #, c-format
 msgid ""
 "GCompris is free software released under the GPL License. In order to "
@@ -5996,7 +5994,7 @@ msgstr "GCompris là phần mềm tự do được phát hành với điều ki�
 "nghĩ sử dụng hệ điều hành GNU/Linux. Có thể tìm thông tin thêm tại <http://"
 "www.fsf.org/philosophy>."
 
-#: ../src/gcompris/gcompris.c:1348
+#: ../src/gcompris/gcompris.c:1417
 #, c-format
 msgid ""
 "GCompris\n"
@@ -6009,26 +6007,26 @@ msgstr "GCompris\n"
 "Thông tin thêm tại <http://gcompris.net/>\n"
 
 #.check the list of possible values for -l, then exit
-#: ../src/gcompris/gcompris.c:1434
+#: ../src/gcompris/gcompris.c:1506
 #, c-format
 msgid "Use -l to access an activity directly.\n"
 msgstr "Sử dụng lệnh « -l » để truy cập một hoạt động nào đó một cách trực tiếp.\n"
 
-#: ../src/gcompris/gcompris.c:1435
+#: ../src/gcompris/gcompris.c:1507
 #, c-format
 msgid "The list of available activities is :\n"
 msgstr "Danh sách các hoạt động sẵn sàng:\n"
 
-#: ../src/gcompris/gcompris.c:1596
+#: ../src/gcompris/gcompris.c:1677
 #, c-format
 msgid "The list of available profiles is:\n"
 msgstr "Danh sách các xác lập sẵn sàng là:\n"
 
-#: ../src/gcompris/gcompris_db.c:252
+#: ../src/gcompris/gcompris_db.c:250
 msgid "Unaffected"
 msgstr "Không có tác động."
 
-#: ../src/gcompris/gcompris_db.c:253
+#: ../src/gcompris/gcompris_db.c:251
 msgid "Users without a class"
 msgstr "Người dùng chưa có lớp"
 
