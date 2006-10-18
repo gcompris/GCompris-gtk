@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GCompris>
-  <Board 
+  <Board
 	 name="paintings"
-	 type="shapegame" 
+	 type="shapegame"
 	 section="/puzzle"
-	 icon="boardicons/shapegame.png" 
+	 icon="boardicons/shapegame.png"
 	 difficulty="1"
 	 author="Bruno Coudoin (bruno.coudoin@free.fr)"
 	 boarddir="paintings">
@@ -12,7 +12,6 @@
 	 <_description>Drag and Drop the items to rebuild the original paintings</_description>
 	<_prerequisite>Mouse-manipulation: movement, drag and drop</_prerequisite>
 	<_goal>Spatial representation</_goal>
-	<_manual>Drag the image parts from the box on the left to
-create a painting on the main board.</_manual>
+	<_manual>Drag the image parts from the box on the left to create a painting on the main board.</_manual>
   </Board>
 </GCompris>

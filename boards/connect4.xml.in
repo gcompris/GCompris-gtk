@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GCompris>
   <Board type="python:connect4"
-         section="/strategy" 
-	 name="connect4" 
-         icon="boardicons/connect4.png" 
-	 difficulty="2" 
-         boarddir="connect4" 
+         section="/strategy"
+	 name="connect4"
+         icon="boardicons/connect4.png"
+	 difficulty="2"
+         boarddir="connect4"
 	 author="Laurent Lacheny (laurent.lacheny@wanadoo.fr)">
          <_title>Connect 4</_title>
          <_description>Arrange four coins in a row</_description>
 	<_prerequisite>Mouse-manipulation</_prerequisite>
-	<_goal xml:space="preserve">Create a line of 4 pieces either horizontally (lying down)
-or vertically (standing up)</_goal>
+	<_goal>Create a line of 4 pieces either horizontally (lying down) or vertically (standing up)</_goal>
 	<_manual>Click anywhere in the line where you want to drop a piece</_manual>
         <_credit>Laurent Lacheny. Images and Artificial Intelligence taken from project 4stattack by Jeroen Vloothuis. The original project can be found on &lt;http://forcedattack.sourceforge.net&gt;</_credit>
   </Board>

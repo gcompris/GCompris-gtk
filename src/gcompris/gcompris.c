@@ -220,7 +220,7 @@ static struct poptOption options[] = {
       " Data are always taken from the web server."), NULL},
 
   {"cache-dir", '\0', POPT_ARG_STRING, &popt_cache_dir, 0,
-   N_("In server mode, where is the cache directory to avoid useless downloads."), NULL},
+   N_("In server mode, specify the cache directory used to avoid useless downloads."), NULL},
 
 #ifndef WIN32	/* Not supported on windows */
   POPT_AUTOHELP

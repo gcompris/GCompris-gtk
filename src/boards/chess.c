@@ -180,7 +180,7 @@ static void pause_board (gboolean pause)
 void gnuchess_died(int signum)
 {
   gnuchess_pid = 0;
-  gc_dialog(_("Error: The external program gnuchess died unexpectingly"), gc_board_stop);
+  gc_dialog(_("Error: The external program gnuchess died unexpectedly"), gc_board_stop);
 }
 
 /*
@@ -195,7 +195,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
   signal(SIGPIPE, gnuchess_died);
   if (!g_file_test (GNUCHESS, G_FILE_TEST_EXISTS))
     {
-    gc_dialog(_("Error: The external program gnuchess is mandatory\nto play chess in gcompris.\n"
+    gc_dialog(_("Error: The external program gnuchess is required\nto play chess in gcompris.\n"
 		"Find this program on http://www.rpmfind.net or in your\nGNU/Linux distribution\n"
 		"And check it is located here: "GNUCHESS),
 	      gc_board_stop);

@@ -1,20 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GCompris>
-  <Board 
+  <Board
 	 name="money_cents"
-	 type="money" 
+	 type="money"
 	 section="/math/numeration"
-	 icon="boardicons/money_cents.png" 
-	 mode="WITH_CENTS" 
+	 icon="boardicons/money_cents.png"
+	 mode="WITH_CENTS"
 	 difficulty="3"
 	 author="Bruno Coudoin (bruno.coudoin@free.fr)"
 	 boarddir="">
 	 <_title>Money</_title>
 	 <_description>Practice money usage including cents</_description>
-	<_prerequisite>Can count</_prerequisite>
-	<_goal>You must buy the different items and give the exact price.
-At higher levels, several items are displayed, and you must first calculate the
-total price.</_goal>
+	 <_prerequisite>Can count</_prerequisite>
+	 <_goal>You must buy the different items and give the exact price. At higher levels, several items are displayed, and you must first calculate the total price.</_goal>
 	 <_manual>Click on the coins or paper money at the bottom of the screen to pay. If you want to remove a coin or note, click on it on the upper screen area.</_manual>
   </Board>
 </GCompris>

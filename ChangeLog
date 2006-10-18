@@ -1,3 +1,46 @@
+2006-10-19  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	- There were a lot of bad formatted xml string in the menus for the help.
+	  When a line is split on several lines, the  xml:space="preserve" was missing
+	  in numerous places. It means that many translations was missing.
+	- Fixed some bad English thanks to Clytie.
+
+	* boards/algebra_guesscount.xml.in:
+	* boards/babyshapes.xml.in:
+	* boards/bargame.xml.in:
+	* boards/canal_lock.xml.in:
+	* boards/chess_computer.xml.in:
+	* boards/chess_movelearn.xml.in:
+	* boards/chess_partyend.xml.in:
+	* boards/chronos.xml.in:
+	* boards/connect4.xml.in:
+	* boards/enumerate.xml.in:
+	* boards/erase.xml.in:
+	* boards/erase_clic.xml.in:
+	* boards/erase_double_clic.xml.in:
+	* boards/fifteen.xml.in:
+	* boards/gnumch-factors.xml.in:
+	* boards/hanoi_real.xml.in:
+	* boards/imageid.xml.in:
+	* boards/leftright.xml.in:
+	* boards/magic_hat_plus.xml.in:
+	* boards/melody.xml.in:
+	* boards/missing_letter.xml.in:
+	* boards/money.xml.in:
+	* boards/money_cents.xml.in:
+	* boards/paintings.xml.in:
+	* boards/paratrooper.xml.in:
+	* boards/redraw.xml.in:
+	* boards/redraw_symmetrical.xml.in:
+	* boards/scalesboard.xml.in:
+	* boards/searace1player.xml.in:
+	* boards/sudoku.xml.in:
+	* boards/superbrain.xml.in:
+	* boards/target.xml.in:
+	* boards/watercycle.xml.in:
+	* src/boards/chess.c: (gnuchess_died), (start_board):
+	* src/gcompris/gcompris.c:
+
 2006-10-18  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	- Updated windows makefiles
