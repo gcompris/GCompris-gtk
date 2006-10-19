@@ -3,7 +3,7 @@
  * Time-stamp: <2005/09/14 23:30:48 yves>
  *
  * Copyright (C) 2000 Bruno Coudoin
- * 
+ *
  *   This program is free software; you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
  *   the Free Software Foundation; either version 2 of the License, or
@@ -33,8 +33,8 @@ typedef void          (*GcomprisInitBoard)    (GcomprisBoard *gcomprisBoard);
 typedef void          (*GcomprisStartBoard)   (GcomprisBoard *gcomprisBoard);
 typedef void          (*GcomprisPauseBoard)   (gboolean pause);
 typedef void          (*GcomprisEndBoard)     (void);
-typedef gint          (*GcomprisKeyPress)     (guint keyval, 
-					       gchar *commited_str, 
+typedef gint          (*GcomprisKeyPress)     (guint keyval,
+					       gchar *commited_str,
 					       gchar *preedit_str);
 typedef void          (*GcomprisOK)           (void);
 typedef void          (*GcomprisSetLevel)     (guint level);
@@ -57,7 +57,7 @@ typedef struct
   void (*cleanup) (void);      	/* Called when gcompris exit */
   void (*about) (void);		/* Show the about box */
   void (*configure) (void);	/* Show the configuration dialog */
-  
+
   GcomprisStartBoard   start_board;
   GcomprisPauseBoard   pause_board;
   GcomprisEndBoard     end_board;

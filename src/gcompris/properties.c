@@ -29,11 +29,6 @@
 /* This should be detected in the configure for good portability */
 #define HAVE_SETENV 1
 
-#if defined _WIN32 || defined __WIN32__
-# undef WIN32   /* avoid warning on mingw32 */
-# define WIN32
-#endif
-
 #ifdef WIN32
 # define WIN32_LEAN_AND_MEAN
 # include <windows.h>

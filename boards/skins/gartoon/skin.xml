@@ -30,22 +30,22 @@
     <!-- Defines the gcompris boards fonts -->
     <font id="gcompris/board/tiny"       name="sans 10"/>
     <font id="gcompris/board/small"      name="sans 12"/>
-    <font id="gcompris/board/medium"     name="URW Chancery L Medium Italic 14" />
-    <font id="gcompris/board/big"        name="URW Chancery L Medium Italic 18" />
-    <font id="gcompris/board/big bold"   name="sans 17"/>
+    <font id="gcompris/board/medium"     name="sans 14" />
+    <font id="gcompris/board/big"        name="sans 18" />
+    <font id="gcompris/board/big bold"   name="sans bold 17"/>
     <font id="gcompris/board/fixed"      name="sans 12"/>
     <font id="gcompris/board/title"      name="sans 20"/>
-    <font id="gcompris/board/title bold" name="sans 21"/>
+    <font id="gcompris/board/title bold" name="sans bold 21"/>
     <font id="gcompris/board/huge"       name="sans 28"/>
-    <font id="gcompris/board/huge bold"  name="sans 29"/>
-    
+    <font id="gcompris/board/huge bold"  name="sans bold 29"/>
+
     <color id="menu/text"             rgba="0x597ad7FF"/>
     <color id="menu/text_shadow"      rgba="0x000000FF"/>
 
     <!-- Here you may define some other properties that will -->
     <!-- affect a particular game. -->
     <!-- For example, in futur, the colors of the canal lock game will be -->
-    <!-- customisable with some lines like: --> 
+    <!-- customisable with some lines like: -->
     <!-- <color id="canal_lock/canal color"        rgba="0x0010FFFF"/>-->
     <!-- <color id="canal_lock/lock color"         rgba="0x8cc679FF"/>-->
     <!-- <color id="canal_lock/lock color h"       rgba="0x71A65FFF"/>-->
@@ -67,9 +67,9 @@
     <color id="missingletter/question" rgba="0XFFFFFFFF"/>
 
     <color id="maze/wall color"       rgba="0x1a1109ff"/>
-    
+
     <color id="clockgame/text"        rgba="0Xc20200FF"/>
-    
+
   </Skin>
 </GCompris>
 

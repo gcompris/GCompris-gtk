@@ -41,11 +41,6 @@
 
 #define KEYLOG_MAX 256
 
-#if defined _WIN32 || defined __WIN32__
-# undef WIN32   /* avoid warning on mingw32 */
-# define WIN32
-#endif
-
 #ifdef WIN32
 static gchar hostname[256]="unknown";
 #else

@@ -654,11 +654,10 @@ void gc_menu_load()
 
 void gc_menu_board_free(GcomprisBoard *board)
 {
-    if(strcmp(board->type,"shapegame")==0 || 
-            strncmp(board->type, "python", 6)==0)
-    {
-        g_free(board->plugin);
-    }
+#ifndef WIN32 /* Win32 plugins are static */
+    /* Need to reference cound plugins and free them once it's no more used */
+    // FIXME g_free(board->plugin);
+#endif
     g_free(board->type);
     g_free(board->board_dir);
     g_free(board->mode);

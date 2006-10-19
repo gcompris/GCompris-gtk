@@ -44,11 +44,6 @@
 #include <X11/extensions/xf86vmode.h>
 #endif
 
-#if defined _WIN32 || defined __WIN32__
-# undef WIN32   /* avoid warning on mingw32 */
-# define WIN32
-#endif
-
 static GtkWidget *window;
 static GnomeCanvas *canvas;
 static GnomeCanvas *canvas_bar;
@@ -1638,10 +1633,10 @@ gc_init (int argc, char *argv[])
 
   if(popt_web_only) {
     g_free(properties->package_data_dir);
-    properties->package_data_dir = "";
+    properties->package_data_dir = g_strdup("");
 
     g_free(properties->system_icon_dir);
-    properties->system_icon_dir = "";
+    properties->system_icon_dir = g_strdup("");
   }
 
   if (popt_server){

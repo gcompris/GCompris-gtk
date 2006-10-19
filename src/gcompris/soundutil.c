@@ -32,11 +32,6 @@ static int	 sound_policy;
 static gboolean	 is_playing;
 static gboolean	 sound_closed = FALSE;
 
-#if defined _WIN32 || defined __WIN32__
-# undef WIN32   /* avoid warning on mingw32 */
-# define WIN32
-#endif
-
 /* mutex */
 GMutex		*lock = NULL;
 GMutex		*lock_bg = NULL;
@@ -68,7 +63,7 @@ gc_sound_init()
 
   gc_sound_controller = g_object_new (GCOMPRIS_SOUND_TYPE, NULL);
 
-  g_signal_connect( gc_sound_controller, 
+  g_signal_connect( gc_sound_controller,
 		    "sound-played",
 		    (GCallback) gc_sound_callback,
 		    NULL);
@@ -188,13 +183,13 @@ scheduler_bgnd (gpointer user_data)
   music_dir = g_strconcat(properties->package_data_dir, "/music/background", NULL);
 
   dir = g_dir_open(music_dir, 0, NULL);
-      
+
   if (!dir) {
     g_warning ("Couldn't open music dir: %s", music_dir);
     g_free(music_dir);
     return NULL;
   }
-  
+
   /* Fill up the music list */
   while((one_dirent = g_dir_read_name(dir)) != NULL) {
 
@@ -294,7 +289,7 @@ thread_play_ogg (gchar *file)
 		 0 /* details */,
 		 g_strdup(file));
   g_warning("  sdlplayer_file(%s) ended.", absolute_file);
-  
+
   g_free(absolute_file);
 
   return NULL;
@@ -350,7 +345,7 @@ gc_sound_play_ogg_cb(const gchar *file, GcomprisSoundCallback cb)
 
 /* =====================================================================
  * Play a list of OGG sound files. The list must be NULL terminated
- * This function wraps the var args into a GList and call the 
+ * This function wraps the var args into a GList and call the
  * gc_sound_play_ogg_list function to process the sounds.
  ======================================================================*/
 void
@@ -375,12 +370,12 @@ gc_sound_play_ogg(const gchar *sound, ...)
   va_end(ap);
 
   gc_sound_play_ogg_list( list );
-  
-  g_list_free(list);  
+
+  g_list_free(list);
 }
 
 /* =====================================================================
- * Play a list of OGG sound files. 
+ * Play a list of OGG sound files.
  * The given ogg files will be first tested as a locale dependant sound file:
  * sounds/<current gcompris locale>/<sound>
  * If it doesn't exists, then the test is done with a music file:
@@ -409,7 +404,7 @@ gc_sound_play_ogg_list( GList* files )
 	}
       list = g_list_next(list);
     }
-  
+
   g_mutex_unlock (lock);
 
   // Tell the scheduler to check for new sounds to play
@@ -466,7 +461,7 @@ void gc_sound_callback(GcomprisSound *ctl, gchar *file, gpointer user_data)
 
   if (!sound_callbacks)
     return;
-  
+
   cb = g_hash_table_lookup (sound_callbacks, file);
 
   if (cb){
@@ -510,7 +505,7 @@ gc_sound_class_init (gpointer g_class,
 
 	klass->sound_played = default_sound_played_signal_handler;
 
-        klass->sound_played_signal_id = 
+        klass->sound_played_signal_id =
                 g_signal_new ("sound-played",
 			      G_TYPE_FROM_CLASS (g_class),
 			      G_SIGNAL_RUN_LAST | G_SIGNAL_NO_RECURSE | G_SIGNAL_NO_HOOKS,

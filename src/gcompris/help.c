@@ -28,11 +28,6 @@
 #include "gcompris.h"
 #include "gc_core.h"
 
-#if defined _WIN32 || defined __WIN32__
-# undef WIN32   /* avoid warning on mingw32 */
-# define WIN32
-#endif
-
 #define SOUNDLISTFILE PACKAGE
 
 #define GAP_TO_BUTTON -20

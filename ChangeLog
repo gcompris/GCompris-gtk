@@ -1,3 +1,26 @@
+2006-10-20  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	- Unexistant font on windows in gartoon/skin.xml makes it unstable.
+	- cleanup, removed uneeded #if defined _WIN32
+	- in menu.c, removed a free of the plugin that was not correct.
+	  there is a leak but it cannot be fixed this way, we need to ref_count
+	  the plugins
+	- fixed config.c to make skin selection work again.
+
+	* boards/skins/gartoon/skin.xml:
+	* src/gcompris/about.c:
+	* src/gcompris/board.c:
+	* src/gcompris/config.c: (gc_config_start), (item_event_ok):
+	* src/gcompris/gcompris.c: (gc_init):
+	* src/gcompris/help.c:
+	* src/gcompris/log.c:
+	* src/gcompris/menu.c: (gc_menu_board_free):
+	* src/gcompris/plugin.h:
+	* src/gcompris/properties.c:
+	* src/gcompris/soundutil.c: (gc_sound_init), (scheduler_bgnd),
+	(thread_play_ogg), (gc_sound_play_ogg), (gc_sound_play_ogg_list),
+	(gc_sound_callback), (gc_sound_class_init):
+
 2006-10-19  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	- There were a lot of bad formatted xml string in the menus for the help.

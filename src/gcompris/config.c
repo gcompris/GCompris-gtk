@@ -30,11 +30,6 @@
 #include "gcompris_config.h"
 #include "locale.h"
 
-#if defined _WIN32 || defined __WIN32__
-# undef WIN32   /* avoid warning on mingw32 */
-# define WIN32
-#endif
-
 static GnomeCanvasItem	*rootitem		= NULL;
 static GnomeCanvasItem	*item_locale_text	= NULL;
 static GnomeCanvasItem	*item_locale_flag	= NULL;
@@ -229,11 +224,11 @@ gc_config_start ()
   /* Display a bad icon if this locale is not available */
   pixmap   = gc_skin_pixmap_load("mini_bad.png");
   item_bad_flag = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
-					    gnome_canvas_pixbuf_get_type (),
-					    "pixbuf", pixmap,
-					    "x", (double) x_flag_start - 20,
-					    "y", (double) y_start - gdk_pixbuf_get_width(pixmap_checked)/2,
-					    NULL);
+					 gnome_canvas_pixbuf_get_type (),
+					 "pixbuf", pixmap,
+					 "x", (double) x_flag_start - 20,
+					 "y", (double) y_start - gdk_pixbuf_get_width(pixmap_checked)/2,
+					 NULL);
   gdk_pixbuf_unref(pixmap);
 
   /*
@@ -438,14 +433,14 @@ gc_config_start ()
   stars_group_y = y_start - 25;
 
   item_filter_text = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
-						gnome_canvas_text_get_type (),
-						"markup", gettext(filtername[0]),
-						"font", gc_skin_font_subtitle,
-						"x", (double) x_text_start,
-						"y", (double) y_start,
-						"anchor", GTK_ANCHOR_WEST,
-						"fill_color_rgba", gc_skin_color_content,
-						NULL);
+					    gnome_canvas_text_get_type (),
+					    "markup", gettext(filtername[0]),
+					    "font", gc_skin_font_subtitle,
+					    "x", (double) x_text_start,
+					    "y", (double) y_start,
+					    "anchor", GTK_ANCHOR_WEST,
+					    "fill_color_rgba", gc_skin_color_content,
+					    NULL);
 
 
   // OK
@@ -723,12 +718,11 @@ item_event_ok(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
       if(!strcmp((char *)data, "ok"))
 	{
 	  /* Set the new locale in the properties */
-      if (properties->locale != current_locale)
-      {
-          g_free(properties->locale);
-          properties->locale = strdup(current_locale);
-      }
-	  gc_prop_save(properties);
+	  if (properties->locale != current_locale)
+	    {
+	      g_free(properties->locale);
+	      properties->locale = strdup(current_locale);
+	    }
 
 	  if(current_locale[0] == '\0') {
 	    /* Set the locale to the default user's locale */
@@ -736,7 +730,7 @@ item_event_ok(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 	  } else {
 	    gc_locale_set(current_locale);
 	  }
-      g_free(properties->skin);
+	  g_free(properties->skin);
 	  properties->skin = g_strdup((char *)g_list_nth_data(skinlist, skin_index));
 	  gc_skin_load(properties->skin);
 	  gc_config_stop();
@@ -744,6 +738,8 @@ item_event_ok(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 	  if(properties->music || properties->fx) {
 	    gc_sound_init();
 	  }
+
+	  gc_prop_save(properties);
 	}
       else if(!strcmp((char *)data, "fullscreen"))
 	{

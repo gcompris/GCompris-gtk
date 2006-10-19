@@ -27,11 +27,6 @@
 #include "about.h"
 #include <string.h>
 
-#if defined _WIN32 || defined __WIN32__
-# undef WIN32   /* avoid warning on mingw32 */
-# define WIN32
-#endif
-
 static GnomeCanvasItem	*rootitem		= NULL;
 static GnomeCanvasItem	*plane_item		= NULL;
 static GdkPixbuf	*pixmap_about		= NULL;

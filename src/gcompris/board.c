@@ -28,11 +28,6 @@ static struct BoardPluginData *bp_data;
 
 static gboolean	 get_board_playing(void);
 
-#if defined _WIN32 || defined __WIN32__
-# undef WIN32   /* avoid warning on mingw32 */
-# define WIN32
-#endif
-
 #ifdef WIN32
 extern gchar *keycode[];
 extern BoardPlugin * get_advanced_colors_bplugin_info();
