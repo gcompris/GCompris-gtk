@@ -133,7 +133,7 @@ class Gcompris_tuxpaint:
       x = gcompris.BOARD_WIDTH/2,
       y = 185,
       fill_color_rgba = 0x000000ffL,
-      font = gcompris.skin.get_font("gcompris/board/huge bold"),
+      font = gcompris.skin.get_font("gcompris/board/title bold"),
       )
 
   def end(self):

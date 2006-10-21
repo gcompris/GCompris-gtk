@@ -17,11 +17,7 @@
  *   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  */
 
-#include <ctype.h>
-#include <math.h>
-#include <assert.h>
 #include <string.h>
-#include <unistd.h>
 
 #include "gcompris/gcompris.h"
 
@@ -209,7 +205,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 				img);
 	g_free(img);
 
-	
+
 	crane_next_level();
 
 	gamewon = FALSE;
@@ -236,7 +232,7 @@ static void end_board () {
 static void set_level (guint level) {
 
   if (gcomprisBoard != NULL) {
-	  
+
       gcomprisBoard->level = level;
       gcomprisBoard->sublevel = 1;
       crane_next_level();
@@ -271,7 +267,7 @@ static void crane_next_level() {
   /* Try the next level */
   crane_create_item();
 }
-  
+
 /* ==================================== */
 /* Destroy all the items */
 static void crane_destroy_all_items()
@@ -441,7 +437,7 @@ static gint arrow_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data) {
 	  my_move.y = 1;
 	  break;
 	}
-			       
+
 	// Check if the move doesn't go out of the frame
 	if (is_allowed_move(dx1, dy1, direction)) {
 
@@ -470,7 +466,7 @@ static gint arrow_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data) {
       gamewon = TRUE;
       timer_id = g_timeout_add (1200, (GtkFunction) bonus, NULL);
   }
-  
+
   return FALSE;
 }
 
@@ -485,7 +481,7 @@ static void draw_arrow() {
   arrow[0].pixmap = gc_pixmap_load("crane/arrow_down.png");
   arrow[0].x = CRANE_BUTTON_DOWN_X;
   arrow[0].y = CRANE_BUTTON_DOWN_Y;
-  
+
   arrow[1].pixmap = gc_pixmap_load("crane/arrow_up.png");
   arrow[1].x = CRANE_BUTTON_UP_X;
   arrow[1].y = CRANE_BUTTON_UP_Y;
@@ -551,12 +547,12 @@ static void draw_redhands() {
 	"height_set", TRUE,
 	"anchor", GTK_ANCHOR_NW,
 	NULL);
-  
+
   gdk_pixbuf_unref(pixmap);
 
   gnome_canvas_item_hide(red_hands);
 
-} 
+}
 
 // Draw the drak frame (horizontal and vertical lines) that helps positionning elements
 static void draw_frame(int x, int y) {
@@ -699,7 +695,7 @@ void shuffle_list(int list[], int size) {
   int rand1, rand2, buffer;
 
   for (i = 0 ; i < size ; i++) {
-	  
+
 	rand1 = RAND(0, size-1);
 	rand2 = RAND(0, size-1);
 
@@ -720,13 +716,13 @@ static void select_item(GnomeCanvasItem *item, int sound) {
   // Place redhands in (O;O)
   gnome_canvas_item_get_bounds(red_hands, &dx1, &dy1, &dx2, &dy2);
   gnome_canvas_item_move(red_hands, -(dx1), -(dy1));
- 
-  // Place redhands 'around' the selected item 
+
+  // Place redhands 'around' the selected item
   gnome_canvas_item_get_bounds(item, &dx1, &dy1, &dx2, &dy2);
   gnome_canvas_item_move(red_hands, dx1 - 1 , dy1 - 1);
 
   gnome_canvas_item_show(red_hands);
- 
+
   crane_rope->coords[0] = (dx1 + dx2) / 2;
   crane_rope->coords[1] = CRANE_ROPE_Y;
   crane_rope->coords[2] = (dx1 + dx2) / 2;

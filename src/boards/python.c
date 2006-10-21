@@ -79,7 +79,29 @@ static BoardPlugin menu_bp =
     pythongc_board_config_stop
   };
 
-static BoardPlugin *bp_board = NULL;
+static BoardPlugin menu_bp_no_config =
+  {
+    NULL,
+    NULL,
+    N_("Python Board"),
+    N_("Special board that embeds python into gcompris."),
+    "Olivier Samyn <osamyn@ulb.ac.be>",
+    pythonboard_init,
+    NULL,
+    NULL,
+    NULL,
+    pythonboard_start,
+    pythonboard_pause,
+    pythonboard_end,
+    pythonboard_is_our_board,
+    pythonboard_key_press,
+    pythonboard_ok,
+    pythonboard_set_level,
+    pythonboard_config,
+    pythonboard_repeat,
+    NULL,
+    NULL
+  };
 
 /*
  * Return the plugin structure (Common to all gcompris boards)
@@ -401,58 +423,28 @@ static void pythonboard_end (void){
 /*
  * Return TRUE if the board is a python one.
  */
-static gboolean pythonboard_is_our_board (GcomprisBoard *agcomprisBoard){
+static gboolean pythonboard_is_our_board (GcomprisBoard *gcomprisBoard){
 
-  if (agcomprisBoard->plugin)
+  if (gcomprisBoard->plugin)
     return TRUE;
 
   if(pythonboard_is_ready) {
-    if (agcomprisBoard!=NULL) {
+    if (gcomprisBoard!=NULL) {
 
-      if (g_ascii_strncasecmp(agcomprisBoard->type, "python", 6)==0) {
-
-	bp_board = g_malloc0(sizeof(BoardPlugin));
-
-	bp_board->handle        = menu_bp.handle;
-	bp_board->filename      = menu_bp.filename;
-	bp_board->name          = menu_bp.name;
-	bp_board->description   = menu_bp.description;
-	bp_board->author        = menu_bp.author;
-	bp_board->init          = menu_bp.init;
-	bp_board->cleanup       = menu_bp.cleanup;
-	bp_board->about         = menu_bp.about;
-	bp_board->configure     = menu_bp.configure;
-	bp_board->start_board   = menu_bp.start_board;
-	bp_board->pause_board   = menu_bp.pause_board;
-	bp_board->end_board     = menu_bp.end_board;
-	bp_board->is_our_board  = menu_bp.is_our_board;
-	bp_board->key_press     = menu_bp.key_press;
-	bp_board->ok            = menu_bp.ok;
-	bp_board->set_level     = menu_bp.set_level;
-	bp_board->config        = menu_bp.config;
-	bp_board->repeat        = menu_bp.repeat;
-
-	if (g_list_find (config_boards, agcomprisBoard)){
-	  bp_board->config_start  = menu_bp.config_start;
-	  bp_board->config_stop   = menu_bp.config_stop;
-	} else {
-	  bp_board->config_start  = NULL;
-	  bp_board->config_stop   = NULL;
-	}
-
+      if (g_ascii_strncasecmp(gcomprisBoard->type, "python", 6)==0) {
 
 	/* Set the plugin entry */
-	agcomprisBoard->plugin = bp_board;
-
-	bp_board = NULL;
-
-	//g_print("pythonboard: is our board = TRUE\n");
+	if (g_list_find (config_boards, gcomprisBoard)){
+	  gcomprisBoard->plugin = &menu_bp;
+	} else {
+	  gcomprisBoard->plugin = &menu_bp_no_config;
+	}
 
 	return TRUE;
       }
     }
   }
-  agcomprisBoard->plugin=NULL;
+  gcomprisBoard->plugin=NULL;
   return FALSE;
 }
 

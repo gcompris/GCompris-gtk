@@ -17,13 +17,7 @@
  *   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  */
 
-#include <ctype.h>
-#include <math.h>
-#include <assert.h>
-
 #include "gcompris/gcompris.h"
-
-#define SOUNDLISTFILE PACKAGE
 
 static GcomprisBoard *gcomprisBoard = NULL;
 static gboolean board_paused = TRUE;
@@ -67,7 +61,10 @@ static void		 destroy_board(void);
 #define HORIZONTAL_SEPARATION 20
 #define VERTICAL_SEPARATION 20
 
-static char* background_images[] = {"gcompris/animals/tiger1_by_Ralf_Schmode","gcompris/animals/tigerdrink001.jpg","gcompris/animals/tigercub003.jpg", "gcompris/animals/tigerplay001.jpg"};
+static char* background_images[] = {"gcompris/animals/tiger1_by_Ralf_Schmode",
+				    "gcompris/animals/tigerdrink001.jpg",
+				    "gcompris/animals/tigercub003.jpg",
+				    "gcompris/animals/tigerplay001.jpg"};
 static const char  oper_values[] = {'+', '-', 'x', ':', '='};
 static const char *oper_images[] = {"plus", "minus", "by", "div", "equal"};
 static const int   num_values[] = {1,2,3,4,5,6,7,8,9,10,25,50,100};
@@ -285,11 +282,11 @@ static int token_result() {
   if (token_count < 2)
     return NO_RESULT;
 
-  assert(ptr_token_selected[0]->isNumber);
+  g_assert(ptr_token_selected[0]->isNumber);
   result = num_values[ptr_token_selected[0]->num];
 
   for (i=2; i<token_count; i+=2) {
-    assert(!ptr_token_selected[i-1]->isNumber);
+    g_assert(!ptr_token_selected[i-1]->isNumber);
     switch (ptr_token_selected[i-1]->oper) {
     case '+' : 	result += num_values[ptr_token_selected[i]->num];
       break;
@@ -354,7 +351,7 @@ static int generate_numbers() {
     r = 2 + minus + divide;
 
     switch (RAND(1,r)) {
-    case 1 : 	
+    case 1 :
       answer_oper[i] = '+';
       result += num_values[answer_num_index[i+1]];
       break;
@@ -372,21 +369,21 @@ static int generate_numbers() {
       if (minus) {
 	answer_oper[i] = '-';
 	result -= num_values[answer_num_index[i+1]];
-	assert(result >= 0);
+	g_assert(result >= 0);
       } else {
 	answer_oper[i] = ':';
-	assert(result%num_values[answer_num_index[i+1]] == 0);
+	g_assert(result%num_values[answer_num_index[i+1]] == 0);
 	result /= num_values[answer_num_index[i+1]];
       }
       break;
-    case 4 : 
+    case 4 :
       if ( RAND(0,1) == 0) {
 	answer_oper[i] = '-';
 	result -= num_values[answer_num_index[i+1]];
-	assert(result >= 0);
+	g_assert(result >= 0);
       } else {
 	answer_oper[i] = ':';
-	assert(result%num_values[answer_num_index[i+1]] == 0);
+	g_assert(result%num_values[answer_num_index[i+1]] == 0);
 	result /= num_values[answer_num_index[i+1]];
       }
       break;
@@ -567,7 +564,7 @@ static void process_time(){
 static int oper_char_to_pixmap_index(char oper) {
   int i;
 
-  assert(oper == '+' || oper == '-' || oper == 'x' || oper == ':' || oper == '=');
+  g_assert(oper == '+' || oper == '-' || oper == 'x' || oper == ':' || oper == '=');
 
   for (i=0; i<5; i++)
     if (oper_values[i] == oper)
@@ -661,7 +658,7 @@ static gint item_event_num(GnomeCanvasItem *item, GdkEvent *event, gpointer data
       // update result text items
       if (token_count != 1 && token_count % 2 == 1) {
 	sprintf(str,"%d",token_result());
-	
+
 	gnome_canvas_item_set(calcul_line_item[token_count-3], "text", str, NULL);
 	gnome_canvas_item_set(calcul_line_item_back[token_count-3], "text", str, NULL);
 

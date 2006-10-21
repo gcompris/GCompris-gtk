@@ -12,6 +12,6 @@ xml_DATA = $(xml_in_files:.xml.in=.xml)
 # runtime.
 #
 $(xml_DATA): %.xml: %.xml.in
-	sed -e "s/\(\<\)\/*_//g" $< > $@
+	sed -e "s/\(<\{1\}\/*\)_/\1/g" $< > $@
 
 CLEANFILES = $(xml_DATA)

@@ -3,7 +3,7 @@
  * Time-stamp: <2006/08/21 23:33:28 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
- * 
+ *
  *   This program is free software; you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
  *   the Free Software Foundation; either version 2 of the License, or
@@ -19,7 +19,7 @@
  *   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  */
 
-// FIXME: Cleanup of MemoryItem created struct is not done 
+// FIXME: Cleanup of MemoryItem created struct is not done
 
 #include <errno.h>
 #include <string.h>
@@ -613,13 +613,13 @@ void get_random_token(int token_type, gint *returned_type, gchar **string, gchar
       break;
     }
 
-  } while (skip || ((j < max_token ) 
+  } while (skip || ((j < max_token )
 	   && (passed_token && result && g_list_find_custom(passed_token, result, (GCompareFunc)strcmp))));
 
   g_assert (j < max_token);
-	 
+
   passed_token = g_list_append( passed_token, result);
-  
+
   *returned_type = type;
 
   *string = result;
@@ -679,7 +679,7 @@ static void pause_board (gboolean pause)
 	}
       }
     }
-    
+
   }
 }
 /*
@@ -696,7 +696,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       gc_bar_set(GC_BAR_LEVEL);
 
       /* Default mode */
-      
+
       if(!gcomprisBoard->mode){
 	currentMode=MODE_NORMAL;
 	currentUiMode=UIMODE_NORMAL;
@@ -809,7 +809,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 	  }
 	}
       }
-    
+
 
       if (currentUiMode == UIMODE_SOUND)
 	{
@@ -838,28 +838,28 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 	  base_y2 = BASE_CARD_Y2;
 	  base_x1_tux = BASE_CARD_X1_TUX;
 	}
-      
-      
+
+
       /* TRANSLATORS: Put here the numbers in your language */
       numbers=_("0123456789");
-      assert(g_utf8_validate(numbers,-1,NULL)); // require by all utf8-functions
-      
+      g_assert(g_utf8_validate(numbers,-1,NULL)); // require by all utf8-functions
+
       /* TRANSLATORS: Put here the alphabet lowercase in your language */
       alphabet_lowercase=_("abcdefghijklmnopqrstuvwxyz");
-      assert(g_utf8_validate(alphabet_lowercase,-1,NULL)); // require by all utf8-functions
-      
+      g_assert(g_utf8_validate(alphabet_lowercase,-1,NULL)); // require by all utf8-functions
+
       g_warning("Using lowercase %s", alphabet_lowercase);
-      
+
       /* TRANSLATORS: Put here the alphabet uppercase in your language */
       alphabet_uppercase=_("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
-      assert(g_utf8_validate(alphabet_uppercase,-1,NULL)); // require by all utf8-functions
+      g_assert(g_utf8_validate(alphabet_uppercase,-1,NULL)); // require by all utf8-functions
       g_warning("Using uppercase %s", alphabet_uppercase);
-      
+
       /* TRANSLATORS: Put here the mathematical operators "+-×÷" for  your language. */
       operators=_("+-Ã—Ã·");
       g_assert(g_utf8_validate(operators,-1,NULL)); // require by all utf8-functions
       g_warning("Using operators %s", operators);
-      
+
       op_add = g_malloc0(2*sizeof(gunichar));
       g_utf8_strncpy(op_add, g_utf8_offset_to_pointer (operators,0),1);
 
@@ -880,18 +880,18 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 	tux_memory_size = tux_memory_sizes[gcomprisBoard->level];
 	tux_memory = g_queue_new ();
       }
-      
+
       Paused = FALSE;
-      
+
       to_tux = FALSE;
       if (currentUiMode == UIMODE_SOUND){
 	playing_sound = TRUE;
 	gc_sound_play_ogg_cb("sounds/LuneRouge/musique/LRBuddhist_gong_05_by_Lionel_Allorge.ogg",start_callback);
       } else
 	playing_sound = FALSE;
-      
+
       memory_next_level();
-    }      
+    }
 }
 
 static void
@@ -964,10 +964,10 @@ static void update_scores()
 }
 
 /* set initial values for the next level */
-static void memory_next_level() 
+static void memory_next_level()
 {
   gc_bar_set_level(gcomprisBoard);
-  
+
   memory_destroy_all_items();
 
   boardRootItem = GNOME_CANVAS_GROUP(
@@ -1031,29 +1031,29 @@ static void memory_destroy_all_items()
 	if (memoryArray[x][y])
 	  g_free(memoryArray[x][y]->second_value);
 	g_free(memoryArray[x][y]);
-	memoryArray[x][y] = NULL;	
+	memoryArray[x][y] = NULL;
       }
 
   GList *list;
 
   for (list = passed_token; list != NULL; list=list->next)
     g_free(list->data);
-  
+
   g_list_free(passed_token);
-  
+
   passed_token = NULL;
-    
+
   if (currentMode == MODE_TUX){
     for (list = winning_pairs; list != NULL; list=list->next)
       g_free(list->data);
-    
+
     g_list_free(winning_pairs);
-    
+
     winning_pairs = NULL;
     while (g_queue_pop_head (tux_memory));
     //tux_memory = NULL;
   }
-  
+
 }
 
 /*
@@ -1105,19 +1105,19 @@ static void get_image(MemoryItem *memoryItem, guint x, guint y)
       get_random_token ( TYPE_IMAGE, &memoryItem->type,  &memoryItem->data, NULL);
       g_assert (memoryItem->type ==  TYPE_IMAGE);
       break;
-      
+
     case 5:
       /* Limited Text mode Numbers only */
       get_random_token ( TYPE_NUMBER, &memoryItem->type,  &memoryItem->data, NULL);
       g_assert (memoryItem->type ==  TYPE_NUMBER);
       break;
-      
+
     case 6:
       /* Limited Text mode Numbers + Capitals */
       get_random_token ( TYPE_NUMBER | TYPE_UPPERCASE, &memoryItem->type,  &memoryItem->data, NULL);
       g_assert((memoryItem->type == TYPE_NUMBER)||(memoryItem->type==TYPE_UPPERCASE));
       break;
-      
+
     default:
       /* Text mode ALL */
       get_random_token ( TYPE_NUMBER | TYPE_UPPERCASE | TYPE_LOWERCASE, &memoryItem->type,  &memoryItem->data, NULL);
@@ -1153,7 +1153,7 @@ static void get_image(MemoryItem *memoryItem, guint x, guint y)
     get_random_token ( TYPE_ADD | TYPE_MINUS |TYPE_MULT | TYPE_DIV , &memoryItem->type,  &memoryItem->data, &memoryItem->second_value);
     g_assert (memoryItem->type & (TYPE_ADD | TYPE_MINUS |TYPE_MULT | TYPE_DIV));
     break;
-    
+
   default:
     g_error("Don't now in what mode run !");
     break;
@@ -1165,7 +1165,7 @@ static void get_image(MemoryItem *memoryItem, guint x, guint y)
   // Randomly set the pair
   rx = (int)(numberOfColumn*((double)rand()/RAND_MAX));
   ry = (int)(numberOfLine*((double)rand()/RAND_MAX));
-	
+
   while(memoryArray[rx][ry])
     {
       rx++;
@@ -1206,7 +1206,7 @@ static void create_item(GnomeCanvasGroup *parent)
     GdkPixbuf *pixmap =  gc_pixmap_load("images/transparent_square2.png");
     gnome_canvas_item_new (GNOME_CANVAS_GROUP(parent),
 			   gnome_canvas_pixbuf_get_type (),
-			   "pixbuf", pixmap, 
+			   "pixbuf", pixmap,
 			   "x", (double) (currentMode == MODE_TUX ? base_x1_tux : base_x1) - 20,
 			   "y", (double) base_y1 - 15,
 			   NULL);
@@ -1218,11 +1218,11 @@ static void create_item(GnomeCanvasGroup *parent)
 
     tux = gnome_canvas_item_new (GNOME_CANVAS_GROUP(parent),
 				 gnome_canvas_pixbuf_get_type (),
-				 "pixbuf", pixmap_tux, 
+				 "pixbuf", pixmap_tux,
 				 "x", (double) 50,
 				 "y", (double) 20,
 				 NULL);
-    
+
     tux_score_s = gnome_canvas_item_new (GNOME_CANVAS_GROUP(parent),
 				       gnome_canvas_text_get_type (),
 				       "font", gc_skin_font_board_huge_bold,
@@ -1266,7 +1266,7 @@ static void create_item(GnomeCanvasGroup *parent)
 	{
 
 	  memoryItem = g_malloc0(sizeof(MemoryItem));
-	  
+
 	  memoryItem->rootItem = \
 	    gnome_canvas_item_new (parent,
 				   gnome_canvas_group_get_type (),
@@ -1282,12 +1282,12 @@ static void create_item(GnomeCanvasGroup *parent)
 	  memoryItem->backcardItem = \
 	    gnome_canvas_item_new (GNOME_CANVAS_GROUP(memoryItem->rootItem),
 				   gnome_canvas_pixbuf_get_type (),
-				   "pixbuf", pixmap, 
+				   "pixbuf", pixmap,
 				   "x", (double) 0,
 				   "y", (double) 0,
 				   "width", (double) width2,
 				   "height", (double) height2,
-				   "width_set", TRUE, 
+				   "width_set", TRUE,
 				   "height_set", TRUE,
 				   NULL);
 	  gdk_pixbuf_unref(pixmap);
@@ -1297,18 +1297,18 @@ static void create_item(GnomeCanvasGroup *parent)
 	    memoryItem->framecardItem = \
 	      gnome_canvas_item_new (GNOME_CANVAS_GROUP(memoryItem->rootItem),
 				     gnome_canvas_pixbuf_get_type (),
-				     "pixbuf", pixmap, 
+				     "pixbuf", pixmap,
 				     "x", (double) 0,
 				     "y", (double) 0,
 				     "width", (double) width2,
 				     "height", (double) height2,
-				     "width_set", TRUE, 
+				     "width_set", TRUE,
 				     "height_set", TRUE,
 				     NULL);
 	    gnome_canvas_item_hide(memoryItem->framecardItem);
 	    gdk_pixbuf_unref(pixmap);
 	  }
-  
+
 
 	  // Display the image itself while taking care of its size and maximize the ratio
 	  get_image(memoryItem, x, y);
@@ -1318,12 +1318,12 @@ static void create_item(GnomeCanvasGroup *parent)
 	    memoryItem->frontcardItem =	\
 	      gnome_canvas_item_new (GNOME_CANVAS_GROUP(memoryItem->rootItem),
 				     gnome_canvas_pixbuf_get_type (),
-				     "pixbuf", pixmap, 
+				     "pixbuf", pixmap,
 				     "x", (double) 0,
 				     "y", (double) 0,
 				     "width", (double) width2,
 				     "height", (double) height2,
-				     "width_set", TRUE, 
+				     "width_set", TRUE,
 				     "height_set", TRUE,
 				     NULL);
 	    gdk_pixbuf_unref(pixmap);
@@ -1331,17 +1331,17 @@ static void create_item(GnomeCanvasGroup *parent)
 	  else {
 	    if(memoryItem->type == TYPE_IMAGE) {
 	      pixmap = gc_pixmap_load(memoryItem->data);
-	      
+
 	      yratio=(height2*0.8)/(float)gdk_pixbuf_get_height(pixmap);
 	      xratio=(width2*0.8)/(float)gdk_pixbuf_get_width(pixmap);
 	      yratio=xratio=MIN(xratio, yratio);
 	      card_shadow_w = width*0.05;
 	      card_shadow_h = height*0.05;
-	      
+
 	      memoryItem->frontcardItem =	\
 		gnome_canvas_item_new (GNOME_CANVAS_GROUP(memoryItem->rootItem),
 				       gnome_canvas_pixbuf_get_type (),
-				       "pixbuf", pixmap, 
+				       "pixbuf", pixmap,
 				       "x", (double) ((width2)-
 						      gdk_pixbuf_get_width(pixmap)*xratio*0.8)/2 -
 				       card_shadow_w,
@@ -1350,11 +1350,11 @@ static void create_item(GnomeCanvasGroup *parent)
 				       card_shadow_h,
 				       "width", (double) gdk_pixbuf_get_width(pixmap)*xratio*0.8,
 				       "height", (double) gdk_pixbuf_get_height(pixmap)*yratio*0.8,
-				       "width_set", TRUE, 
+				       "width_set", TRUE,
 				       "height_set", TRUE,
 				       NULL);
 	      gdk_pixbuf_unref(pixmap);
-	      
+
 	    } else {
 	      gchar *font;
 	      if (memoryItem->type & (TYPE_ADD|TYPE_MINUS|TYPE_MULT|TYPE_DIV))
@@ -1372,7 +1372,7 @@ static void create_item(GnomeCanvasGroup *parent)
 				       "anchor", GTK_ANCHOR_CENTER,
 				       "fill_color_rgba", 0x559ADDFF,
 				       NULL);
-	      
+
 	    }
 	  }
 
@@ -1464,7 +1464,7 @@ static gint hide_card (GtkWidget *widget, gpointer data)
       if ((((WINNING *) list->data)->first == firstCard) || (((WINNING *) list->data)->first == secondCard) || (((WINNING *) list->data)->second == firstCard) || (((WINNING *) list->data)->second == secondCard) ){
 	to_remove = g_list_append( to_remove, list->data);
       }
-  
+
     for (list =  to_remove; list != NULL; list=list->next){
       void *data = list->data;
       winning_pairs = g_list_remove (winning_pairs, list->data);
@@ -1535,7 +1535,7 @@ static void check_win()
 			    (GSourceFunc) hide_card, NULL);
     return;
   }
-  
+
   if (currentMode == MODE_TUX){
 		 /* time to tux to play, after a delay */
     to_tux = TRUE;
@@ -1544,7 +1544,7 @@ static void check_win()
 			    (GSourceFunc) tux_play, NULL);
     return;
   }
-  
+
 }
 
 static gint
@@ -1554,10 +1554,10 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, MemoryItem *memoryItem)
   if(!gcomprisBoard)
     return FALSE;
 
-   switch (event->type) 
+   switch (event->type)
      {
      case GDK_BUTTON_PRESS:
-       switch(event->button.button) 
+       switch(event->button.button)
          {
          case 1:
 
@@ -1581,7 +1581,7 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, MemoryItem *memoryItem)
 	       display_card(firstCard, ON_BACK);
 	       firstCard = NULL;
 	       display_card(secondCard, ON_BACK);
-	       secondCard = NULL;	       
+	       secondCard = NULL;
 	     }
 
 	   if(!firstCard)
@@ -1609,12 +1609,12 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, MemoryItem *memoryItem)
 		 check_win();
 		 return TRUE;
 	       }
-	     
+
 	     }
 	   break;
 	 default:
 	   break;
-	 }	   
+	 }
      default:
        break;
      }
@@ -1702,7 +1702,7 @@ static gint tux_play(){
       display_card(firstCard, ON_BACK);
       firstCard = NULL;
       display_card(secondCard, ON_BACK);
-      secondCard = NULL;	       
+      secondCard = NULL;
     }
 
   if (winning_pairs){
@@ -1733,13 +1733,13 @@ static gint tux_play(){
   // Randomly set the pair
   rx = (int)(numberOfColumn*((double)rand()/RAND_MAX));
   ry = (int)(numberOfLine*((double)rand()/RAND_MAX));
-  
-  gboolean  stay_unknown = (remainingCards > (g_queue_get_length (tux_memory) 
+
+  gboolean  stay_unknown = (remainingCards > (g_queue_get_length (tux_memory)
 					      + (firstCard ? 1 : 0)));
 
-  g_warning("remainingCards %d tux_memory %d -> stay_unknown %d ", 
-	    remainingCards, 
-	    g_queue_get_length (tux_memory), 
+  g_warning("remainingCards %d tux_memory %d -> stay_unknown %d ",
+	    remainingCards,
+	    g_queue_get_length (tux_memory),
 	    stay_unknown );
 
   while((memoryArray[rx][ry]->hidden) || (memoryArray[rx][ry] == firstCard)
@@ -1756,7 +1756,7 @@ static gint tux_play(){
 	    ry=0;
 	}
     }
-  
+
   if (!firstCard){
     g_warning("case 3");
     firstCard = memoryArray[rx][ry];

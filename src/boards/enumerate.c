@@ -17,9 +17,6 @@
  *   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  */
 
-#include <ctype.h>
-#include <math.h>
-#include <assert.h>
 #include <string.h>
 
 #include "gcompris/gcompris.h"
@@ -201,7 +198,7 @@ static gint key_press(guint keyval, gchar *commit_str, gchar *preedit_str)
     case GDK_Mode_switch:
     case GDK_dead_circumflex:
     case GDK_Num_Lock:
-      return FALSE; 
+      return FALSE;
     case GDK_KP_Enter:
     case GDK_Return:
       process_ok();
@@ -211,7 +208,7 @@ static gint key_press(guint keyval, gchar *commit_str, gchar *preedit_str)
   sprintf(str, "%c", keyval);
 
   item = answer_item[current_focus];
-      
+
   if(GNOME_IS_CANVAS_TEXT(item))
     {
       gchar *oldtext;
@@ -256,7 +253,7 @@ static gint key_press(guint keyval, gchar *commit_str, gchar *preedit_str)
       gnome_canvas_item_set (item,
 			     "text", newtext,
 			     NULL);
-	      
+
       g_free(oldtext);
     }
 
@@ -312,7 +309,7 @@ static void enumerate_next_level()
       number_of_item_type = 2;
       number_of_item_max  = 5;
       break;
-    case 3: 
+    case 3:
       number_of_item_type = 3;
       number_of_item_max  = 5;
       break;
@@ -340,7 +337,7 @@ static void enumerate_next_level()
       number_of_item_type = 5;
       number_of_item_max = 10;
     }
-      
+
   current_focus = 0;
 
   /* Try the next level */
@@ -392,11 +389,11 @@ static GnomeCanvasItem *enumerate_create_item(GnomeCanvasGroup *parent)
 
 	  item = gnome_canvas_item_new (boardRootItem,
 					gnome_canvas_pixbuf_get_type (),
-					"pixbuf", pixmap, 
+					"pixbuf", pixmap,
 					"x", (double) x,
 					"y", (double) y,
 					NULL);
-      
+
 	  gtk_signal_connect(GTK_OBJECT(item), "event", (GtkSignalFunc) item_event, NULL);
 	}
 
@@ -410,7 +407,7 @@ static GnomeCanvasItem *enumerate_create_item(GnomeCanvasGroup *parent)
       item = \
 	gnome_canvas_item_new (boardRootItem,
 			       gnome_canvas_pixbuf_get_type (),
-			       "pixbuf", pixmap_answer, 
+			       "pixbuf", pixmap_answer,
 			       "x", (double) ANSWER_X - ANSWER_WIDTH/2,
 			       "y", (double) current_y - ANSWER_HEIGHT/2,
 			       NULL);
@@ -424,7 +421,7 @@ static GnomeCanvasItem *enumerate_create_item(GnomeCanvasGroup *parent)
       answer_item_focus[i] = \
 	gnome_canvas_item_new (boardRootItem,
 			       gnome_canvas_pixbuf_get_type (),
-			       "pixbuf", pixmap_answer, 
+			       "pixbuf", pixmap_answer,
 			       "x", (double) ANSWER_X - ANSWER_WIDTH/2,
 			       "y", (double) current_y - ANSWER_HEIGHT/2,
 			       NULL);
@@ -434,12 +431,12 @@ static GnomeCanvasItem *enumerate_create_item(GnomeCanvasGroup *parent)
 
       item = gnome_canvas_item_new (boardRootItem,
 				    gnome_canvas_pixbuf_get_type (),
-				    "pixbuf", pixmap, 
+				    "pixbuf", pixmap,
 				    "x", (double) ANSWER_X,
 				    "y", (double) current_y,
 				    "width", (double) gdk_pixbuf_get_width(pixmap)*ANSWER_HEIGHT/gdk_pixbuf_get_height(pixmap),
 				    "height", (double) ANSWER_HEIGHT,
-				    "width_set", TRUE, 
+				    "width_set", TRUE,
 				    "height_set", TRUE,
 				    NULL);
 
@@ -449,7 +446,7 @@ static GnomeCanvasItem *enumerate_create_item(GnomeCanvasGroup *parent)
       gtk_signal_connect(GTK_OBJECT(item), "event",
 			 (GtkSignalFunc) gc_item_focus_event,
 			 NULL);
-      
+
       answer_item[i] = \
 	gnome_canvas_item_new (boardRootItem,
 			       gnome_canvas_text_get_type (),
@@ -492,7 +489,7 @@ static gint
 item_event_focus(GnomeCanvasItem *item, GdkEvent *event, guint index)
 {
 
-   switch (event->type) 
+   switch (event->type)
      {
      case GDK_BUTTON_PRESS:
        gnome_canvas_item_hide(answer_item_focus[current_focus]);
@@ -525,20 +522,20 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
     return FALSE;
 
 
-   switch (event->type) 
+   switch (event->type)
      {
      case GDK_BUTTON_PRESS:
-       switch(event->button.button) 
+       switch(event->button.button)
          {
          case 1:
 	   x = item_x;
 	   y = item_y;
-	   
+
 	   gnome_canvas_item_raise_to_top(item);
 
 	   fleur = gdk_cursor_new(GDK_FLEUR);
 	   gc_canvas_item_grab(item,
-				  GDK_POINTER_MOTION_MASK | 
+				  GDK_POINTER_MOTION_MASK |
 				  GDK_BUTTON_RELEASE_MASK,
 				  fleur,
 				  event->button.time);
@@ -564,11 +561,11 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
        break;
 
      case GDK_MOTION_NOTIFY:
-       if (dragging && (event->motion.state & GDK_BUTTON1_MASK)) 
+       if (dragging && (event->motion.state & GDK_BUTTON1_MASK))
          {
 	   double x1, x2, y1, y2;
 
-	   gnome_canvas_item_get_bounds(item,  &x1, &y1, &x2, &y2); 
+	   gnome_canvas_item_get_bounds(item,  &x1, &y1, &x2, &y2);
 
            new_x = item_x;
            new_y = item_y;
@@ -588,9 +585,9 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 	   y = new_y;
          }
        break;
-           
+
      case GDK_BUTTON_RELEASE:
-       if(dragging) 
+       if(dragging)
 	 {
 	   gc_canvas_item_ungrab(item, event->button.time);
 	   dragging = FALSE;
@@ -600,7 +597,7 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
      default:
        break;
      }
-  
+
   return FALSE;
 }
 

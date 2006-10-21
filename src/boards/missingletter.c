@@ -17,9 +17,6 @@
  *   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  */
 
-#include <ctype.h>
-#include <math.h>
-#include <assert.h>
 #include <string.h>
 
 #include "gcompris/gcompris.h"
@@ -171,7 +168,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       gcomprisBoard->sublevel=1;
       gcomprisBoard->number_of_sublevel=NUMBER_OF_SUBLEVELS; /* Go to next level after this number of 'play' */
       init_xml();
-      assert(NUMBER_OF_LEVELS*NUMBER_OF_SUBLEVELS == g_list_length(board_list));
+      g_assert(NUMBER_OF_LEVELS*NUMBER_OF_SUBLEVELS == g_list_length(board_list));
       gc_score_start(SCORESTYLE_NOTE,
 			   50,
 			   gcomprisBoard->height - 50,
@@ -277,9 +274,9 @@ static GnomeCanvasItem *missing_letter_create_item(GnomeCanvasGroup *parent)
 
   board_number = (gcomprisBoard->level-1) * NUMBER_OF_SUBLEVELS + gcomprisBoard->sublevel-1;
 
-  assert(board_number >= 0  && board_number < g_list_length(board_list));
+  g_assert(board_number >= 0  && board_number < g_list_length(board_list));
   place = ((int)(3.0*rand()/(RAND_MAX+1.0)));
-  assert(place >= 0  && place < 3);
+  g_assert(place >= 0  && place < 3);
 
   right_word = place+1;
 
@@ -292,7 +289,7 @@ static GnomeCanvasItem *missing_letter_create_item(GnomeCanvasGroup *parent)
   button_pixmap = gc_skin_pixmap_load("button.png");
   /* display the image */
   board = g_list_nth_data(board_list, board_number);
-  assert(board != NULL);
+  g_assert(board != NULL);
   str = g_strdup_printf("%s/%s", "imageid"/*gcomprisBoard->boarddir*/, board->pixmapfile);
   pixmap = gc_pixmap_load(str);
 
@@ -502,7 +499,7 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
       if (item == l3_item)
 	temp = button3;
 
-      assert(temp == button1 || temp == button2 || temp == button3);
+      g_assert(temp == button1 || temp == button2 || temp == button3);
 
       if ( ( temp == button1 && right_word == 1) ||
 	   ( temp == button2 && right_word == 2) ||
@@ -575,7 +572,7 @@ static void init_xml()
   filename = gc_file_find_absolute("%s/board1.xml",
 				   gcomprisBoard->boarddir);
 
-  assert(read_xml_file(filename)== TRUE);
+  g_assert(read_xml_file(filename)== TRUE);
 
   g_free(filename);
 }
@@ -625,7 +622,7 @@ static void add_xml_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child)
   l2 = all_answer[3];
   l3 = all_answer[4];
 
-  assert(l1 != NULL  && l2 != NULL && l3 != NULL && answer != NULL && question != NULL);
+  g_assert(l1 != NULL  && l2 != NULL && l3 != NULL && answer != NULL && question != NULL);
 
   board->pixmapfile = pixmapfile;
   board->question = g_strdup(question);
@@ -723,7 +720,7 @@ static void save_table (gpointer key,
 {
   gc_db_set_board_conf ( profile_conf,
 			    board_conf,
-			    (gchar *) key, 
+			    (gchar *) key,
 			    (gchar *) value);
 }
 
@@ -746,7 +743,7 @@ static GcomprisConfCallback conf_ok(GHashTable *table)
       config = gc_db_get_board_conf();
     else
       config = table;
-    
+
     gc_locale_set(g_hash_table_lookup( config, "locale"));
 
     if (profile_conf)
@@ -755,9 +752,9 @@ static GcomprisConfCallback conf_ok(GHashTable *table)
     destroy_board_list();
 
     init_xml();
-    
+
     missing_letter_next_level();
-    
+
   }
 
     board_conf = NULL;
@@ -777,7 +774,7 @@ config_start(GcomprisBoard *agcomprisBoard,
     pause_board(TRUE);
 
   gchar *label = g_strdup_printf("<b>%s</b> configuration\n for profile <b>%s</b>",
-				 agcomprisBoard->name, 
+				 agcomprisBoard->name,
 				 aProfile ? aProfile->name : "");
 
   gc_board_config_window_display( label,
@@ -789,16 +786,16 @@ config_start(GcomprisBoard *agcomprisBoard,
   GHashTable *config = gc_db_get_conf( profile_conf, board_conf);
 
   gchar *locale = g_hash_table_lookup( config, "locale");
-  
+
   gc_board_config_combo_locales( locale);
 
 }
 
-  
+
 /* ======================= */
 /* = config_stop        = */
 /* ======================= */
-static void 
+static void
 config_stop()
 {
 }

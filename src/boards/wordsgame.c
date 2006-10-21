@@ -19,8 +19,6 @@
  *   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  */
 
-#include <errno.h>
-#include <stdio.h>
 #include <string.h>
 
 #include "gcompris/gcompris.h"
@@ -325,7 +323,7 @@ static gint key_press(guint keyval, gchar *commit_str, gchar *preedit_str)
 	    g_static_rw_lock_reader_lock (&items_lock);
 	    item=g_ptr_array_index(items,i);
 	    g_static_rw_lock_reader_unlock (&items_lock);
-	    assert (item!=NULL);
+	    g_assert (item!=NULL);
 	    if (strcmp(item->letter,letter)==0)
 	      {
 		item_on_focus=item;
@@ -491,7 +489,7 @@ static void wordsgame_move_item(LettersItem *item)
  */
 static gint wordsgame_move_items (GtkWidget *widget, gpointer data)
 {
-  assert (items!=NULL);
+  g_assert (items!=NULL);
   gint i;
   LettersItem *item;
 
@@ -525,7 +523,7 @@ static gboolean wordsgame_destroy_items(GPtrArray *item_list)
 {
   LettersItem *item;
 
-  assert(item_list!=NULL);
+  g_assert(item_list!=NULL);
 
 
 
@@ -651,7 +649,7 @@ static GnomeCanvasItem *wordsgame_create_item(GnomeCanvasGroup *parent)
 static void wordsgame_add_new_item()
 {
 
-  assert(gcomprisBoard->canvas!=NULL);
+  g_assert(gcomprisBoard->canvas!=NULL);
   wordsgame_create_item(gnome_canvas_root(gcomprisBoard->canvas));
 
 }
@@ -674,7 +672,7 @@ static void player_win(LettersItem *item)
 
   gc_sound_play_ogg ("sounds/gobble.ogg", NULL);
 
-  assert(gcomprisBoard!=NULL);
+  g_assert(gcomprisBoard!=NULL);
 
   gcomprisBoard->sublevel++;
   gc_score_set(gcomprisBoard->sublevel);

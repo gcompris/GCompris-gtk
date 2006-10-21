@@ -3,7 +3,7 @@
  * Time-stamp: <2006/08/21 23:33:17 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
- * 
+ *
  *   This program is free software; you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
  *   the Free Software Foundation; either version 2 of the License, or
@@ -19,7 +19,6 @@
  *   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  */
 
-#include <ctype.h>
 #include <string.h>
 
 #include "gcompris/gcompris.h"
@@ -37,7 +36,7 @@ static gint drop_items_id = 0;
 
 /* Sublevels are now allocated dynamically
  * based on the number of chars at that level
- * Set DEFAULT_SUBLEVEL to the minimum 
+ * Set DEFAULT_SUBLEVEL to the minimum
  * number of sublevels you want
  */
 
@@ -65,14 +64,14 @@ static float dropRateBase = DROP_RATE_BASE;
 static float dropRateMult = DROP_RATE_MULT;
 
 /* both letters_array and keymap are read in
- * dynamically at run-time from files based on 
+ * dynamically at run-time from files based on
  * user locale
  */
 
 /* letters_array contains letters you want shown
  * on each play level
  * there can be an arbitrary number of levels,
- * but there are only graphics to level 9 
+ * but there are only graphics to level 9
  * so that's where we stop
  */
 
@@ -80,8 +79,8 @@ static float dropRateMult = DROP_RATE_MULT;
 static int maxLevel;
 static char *letters_array[MAXLEVEL];
 
-/* keymap contains pairs of chars. The first char is 
- * on the keyboard map, the second is the unichar that 
+/* keymap contains pairs of chars. The first char is
+ * on the keyboard map, the second is the unichar that
  * is also represented by that key.  That way, if there is more
  * than one character represented by a key, the user doesn't
  * have to use alternate input methods.
@@ -174,9 +173,9 @@ static void level_set_score() {
   l = g_utf8_strlen(letters_array[gcomprisBoard->level-1],-1)/3;
   gcomprisBoard->number_of_sublevel = (DEFAULT_SUBLEVEL>l?DEFAULT_SUBLEVEL:l);
 
-  gc_score_start(SCORESTYLE_NOTE, 
-		       gcomprisBoard->width - 220, 
-		       gcomprisBoard->height - 50, 
+  gc_score_start(SCORESTYLE_NOTE,
+		       gcomprisBoard->width - 220,
+		       gcomprisBoard->height - 50,
 		       gcomprisBoard->number_of_sublevel);
   gc_bar_set(GC_BAR_CONFIG|GC_BAR_LEVEL);
 }
@@ -226,17 +225,17 @@ int load_default_charset() {
 
   /* TRANSLATORS: Put here the numbers in your language */
   numbers=_("0123456789");
-  assert(g_utf8_validate(numbers,-1,NULL)); // require by all utf8-functions
-  
+  g_assert(g_utf8_validate(numbers,-1,NULL)); // require by all utf8-functions
+
   /* TRANSLATORS: Put here the alphabet lowercase in your language */
   alphabet_lowercase=_("abcdefghijklmnopqrstuvwxyz");
-  assert(g_utf8_validate(alphabet_lowercase,-1,NULL)); // require by all utf8-functions
-  
+  g_assert(g_utf8_validate(alphabet_lowercase,-1,NULL)); // require by all utf8-functions
+
   g_warning("Using lowercase %s", alphabet_lowercase);
-  
+
   /* TRANSLATORS: Put here the alphabet uppercase in your language */
   alphabet_uppercase=_("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
-  assert(g_utf8_validate(alphabet_uppercase,-1,NULL)); // require by all utf8-functions
+  g_assert(g_utf8_validate(alphabet_uppercase,-1,NULL)); // require by all utf8-functions
   g_warning("Using uppercase %s", alphabet_uppercase);
 
   letters_array[0] = g_strdup(alphabet_uppercase);
@@ -244,7 +243,7 @@ int load_default_charset() {
 				     alphabet_uppercase,
 				     numbers);
   if (!uppercase_only){
-  letters_array[2] = g_strdup(alphabet_lowercase); 
+  letters_array[2] = g_strdup(alphabet_lowercase);
   letters_array[3] = g_strdup_printf("%s%s",
 				     alphabet_lowercase,
 				     numbers);
@@ -252,12 +251,12 @@ int load_default_charset() {
 				     alphabet_lowercase,
 				     alphabet_uppercase);
   letters_array[5] = g_strdup_printf("%s%s%s",
-				     alphabet_lowercase, 
+				     alphabet_lowercase,
 				     alphabet_uppercase,
 				     numbers);
   } else{
     g_warning("Uppercase only is set");
-      letters_array[2] = g_strdup(alphabet_uppercase); 
+      letters_array[2] = g_strdup(alphabet_uppercase);
     letters_array[3] = g_strdup_printf("%s%s",
 				       alphabet_uppercase,
 				       numbers);
@@ -268,7 +267,7 @@ int load_default_charset() {
 				       alphabet_uppercase,
 				       numbers);
   }
-    
+
 
   keyMapSize = 0;
   maxLevel = 6;
@@ -336,10 +335,10 @@ end_board ()
       gc_score_end();
       gletters_destroy_all_items();
       g_message("freeing memory");
-      for (i = 0; i < maxLevel; i++) 
+      for (i = 0; i < maxLevel; i++)
 	g_free(letters_array[i]);
 
-      for (i = 0; i < keyMapSize; i++) 
+      for (i = 0; i < keyMapSize; i++)
 	g_free(keyMap[i]);
 
       g_free(keyMap);
@@ -376,7 +375,7 @@ gboolean unichar_comp(gpointer key,
   if (*((gunichar *)key) == *target)
     return TRUE;
 
-  return FALSE;    
+  return FALSE;
 }
 
 gint is_falling_letter(gunichar  unichar)
@@ -431,7 +430,7 @@ static gint key_press(guint keyval, gchar *commit_str, gchar *preedit_str) {
       level_uppercase = 3;
 
     /* for 2 (or all) first level don't care abour uppercase/lowercase */
-    if ((gcomprisBoard->level < level_uppercase) && 
+    if ((gcomprisBoard->level < level_uppercase) &&
 	(is_falling_letter(g_unichar_toupper(c)))){
       gc_im_reset();
       return TRUE;
@@ -439,7 +438,7 @@ static gint key_press(guint keyval, gchar *commit_str, gchar *preedit_str) {
 
     string_passed = g_utf8_next_char (string_passed);
   }
-  
+
   list_of_letters[0] = '\0';
 
   /* We have to loop to concat the letters */
@@ -478,7 +477,7 @@ is_our_board (GcomprisBoard *gcomprisBoard)
 /*-------------------------------------------------------------------------------*/
 
 /* set initial values for the next level */
-static void gletters_next_level() 
+static void gletters_next_level()
 {
 
   gamewon = FALSE;
@@ -506,7 +505,7 @@ static void gletters_move_item(GnomeCanvasItem *item)
 				   &y1,
 				   &x2,
 				   &y2);
-  
+
   if(y1>gcomprisBoard->height) {
     item2del_list = g_list_append (item2del_list, item);
     player_loose();
@@ -534,7 +533,7 @@ static void gletters_destroy_items()
 {
   GnomeCanvasItem *item;
 
-  while(g_list_length(item2del_list)>0) 
+  while(g_list_length(item2del_list)>0)
     {
       item = g_list_nth_data(item2del_list, 0);
       gletters_destroy_item(item);
@@ -547,7 +546,7 @@ static void gletters_destroy_all_items()
   GnomeCanvasItem *item;
 
   if(item_list)
-    while(g_list_length(item_list)>0) 
+    while(g_list_length(item_list)>0)
       {
 	item = g_list_nth_data(item_list, 0);
 	gletters_destroy_item(item);
@@ -571,7 +570,7 @@ static gint gletters_move_items (GtkWidget *widget, gpointer data)
   /* Destroy items that falls out of the canvas */
   gletters_destroy_items();
 
-  dummy_id = gtk_timeout_add (speed, 
+  dummy_id = gtk_timeout_add (speed,
 			      (GtkFunction) gletters_move_items, NULL);
 
   return(FALSE);
@@ -599,7 +598,7 @@ static GnomeCanvasItem *gletters_create_item(GnomeCanvasGroup *parent)
     }
 
   /* Beware, since we put the letters in a hash table, we do not allow the same
-   * letter to be displayed two times 
+   * letter to be displayed two times
    */
 
   g_warning("dump: %d, %s\n",gcomprisBoard->level,letters_array[gcomprisBoard->level-1]);
@@ -688,7 +687,7 @@ static GnomeCanvasItem *gletters_create_item(GnomeCanvasGroup *parent)
   return (item);
 }
 
-static void gletters_add_new_item() 
+static void gletters_add_new_item()
 {
   gletters_create_item(gnome_canvas_root(gcomprisBoard->canvas));
 }
@@ -769,7 +768,7 @@ item_find_by_title (const gunichar *title)
 {
   if (!letters_table)
     return NULL;
-  
+
   return g_hash_table_lookup (letters_table, title);
 }
 
@@ -792,7 +791,7 @@ static void save_table (gpointer key,
 {
   gc_db_set_board_conf ( profile_conf,
 			    board_conf,
-			    (gchar *) key, 
+			    (gchar *) key,
 			    (gchar *) value);
 }
 
@@ -805,9 +804,9 @@ static void conf_ok(GHashTable *table)
       pause_board(FALSE);
     return;
   }
-    
+
   g_hash_table_foreach(table, save_table, NULL);
-  
+
   if (gcomprisBoard){
     gc_locale_reset();
 
@@ -817,38 +816,38 @@ static void conf_ok(GHashTable *table)
       config = gc_db_get_board_conf();
     else
       config = table;
-    
+
     gc_locale_set(g_hash_table_lookup( config, "locale"));
-    
+
     gchar *up_init_str = g_hash_table_lookup( config, "uppercase_only");
-    
+
     if (up_init_str && (strcmp(up_init_str, "True")==0))
       uppercase_only = TRUE;
     else
       uppercase_only = FALSE;
 
     gchar *control_sound = g_hash_table_lookup( config, "with_sound");
-    
+
     if (control_sound && strcmp(g_hash_table_lookup( config, "with_sound"),"True")==0)
       with_sound = TRUE;
     else
       with_sound = FALSE;
-    
+
     if (profile_conf)
       g_hash_table_destroy(config);
 
-    load_default_charset();    
-    
+    load_default_charset();
+
     level_set_score();
     gletters_next_level();
-    
+
     pause_board(FALSE);
-    
+
   }
 
   board_conf = NULL;
   profile_conf = NULL;
- 
+
 }
 
 static void
@@ -862,7 +861,7 @@ gletter_config_start(GcomprisBoard *agcomprisBoard,
 
   if (gcomprisBoard)
     pause_board(TRUE);
-  
+
   label = g_strdup_printf("<b>%s</b> configuration\n for profile <b>%s</b>",
 			  agcomprisBoard->name, aProfile ? aProfile->name : "");
 
@@ -874,7 +873,7 @@ gletter_config_start(GcomprisBoard *agcomprisBoard,
   GHashTable *config = gc_db_get_conf( profile_conf, board_conf);
 
   gchar *locale = g_hash_table_lookup( config, "locale");
-  
+
   gc_board_config_combo_locales( locale);
 
   gboolean up_init = FALSE;
@@ -891,22 +890,22 @@ gletter_config_start(GcomprisBoard *agcomprisBoard,
     with_sound = TRUE;
   else
     with_sound = FALSE;
-  
+
   gc_board_config_boolean_box("Enable sounds", "with_sound", with_sound);
- 
+
   gc_board_conf_separator();
 
   gc_board_config_boolean_box(_("Uppercase only text"),
 		       "uppercase_only",
 		       up_init);
-  
+
 }
 
-  
+
 /* ======================= */
 /* = config_stop        = */
 /* ======================= */
-static void 
+static void
 gletter_config_stop()
 {
 }

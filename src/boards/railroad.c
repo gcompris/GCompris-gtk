@@ -17,10 +17,6 @@
  *   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  */
 
-#include <ctype.h>
-#include <math.h>
-#include <assert.h>
-
 #include "gcompris/gcompris.h"
 
 #define SOUNDLISTFILE PACKAGE
@@ -147,7 +143,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
   if(agcomprisBoard!=NULL)
     {
       gcomprisBoard=agcomprisBoard;
-      gc_set_background(gnome_canvas_root(gcomprisBoard->canvas), 
+      gc_set_background(gnome_canvas_root(gcomprisBoard->canvas),
 			      "railroad/railroad-bg.png");
 
       for (i=0; i<ENGINES; i++) {
@@ -271,7 +267,7 @@ static void railroad_next_level()
 
   reset_all_lists();
   // I have big troubles with the GList API : the worst I have ever seen !
-  assert(g_list_length(item_answer_list) == 0 && g_list_length(int_answer_list) == 0 && g_list_length(int_model_list) == 0);
+  g_assert(g_list_length(item_answer_list) == 0 && g_list_length(int_answer_list) == 0 && g_list_length(int_model_list) == 0);
 
   model_size = 0;
 
@@ -362,11 +358,11 @@ static GnomeCanvasItem *railroad_create_item(GnomeCanvasGroup *parent)
   // First the cars, depending of the level
   for (i=0; i<model_size-1; i++) {
     r = (int)(((float) WAGONS)*rand()/(RAND_MAX+1.0));
-    assert( r >=0 && r < WAGONS);
+    g_assert( r >=0 && r < WAGONS);
     // keep track of the answer
     int_model_list = g_list_append(int_model_list, GINT_TO_POINTER(r+ENGINES));
     pixmap = g_list_nth_data(listPixmapWagons, r);
-    assert(i >= 0 && i<MODEL_MAX_SIZE);
+    g_assert(i >= 0 && i<MODEL_MAX_SIZE);
     item_model[i] =gnome_canvas_item_new (modelRootItem,
 					  gnome_canvas_pixbuf_get_type (),
 					  "pixbuf",  pixmap,
@@ -378,7 +374,7 @@ static GnomeCanvasItem *railroad_create_item(GnomeCanvasGroup *parent)
 
   // Then the engine
   r = (int)(((float) ENGINES)*rand()/(RAND_MAX+1.0));
-  assert( r >=0 && r < ENGINES);
+  g_assert( r >=0 && r < ENGINES);
   // keep track of the answer
   int_model_list = g_list_append(int_model_list, GINT_TO_POINTER(r));
   pixmap = g_list_nth_data(listPixmapEngines, r);

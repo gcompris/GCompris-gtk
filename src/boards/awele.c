@@ -1,15 +1,15 @@
 /*
  * gcompris - awele.c Copyright (C) 2005 Frederic Mazzarol This program is
- * free software; you can redistribute it and/or modify it under the terms 
+ * free software; you can redistribute it and/or modify it under the terms
  * of the GNU General Public License as published by the Free Software
  * Foundation; either version 2 of the License, or (at your option) any
  * later version.  This program is distributed in the hope that it will
  * be useful, but WITHOUT ANY WARRANTY; without even the implied warranty
  * of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * General Public License for more details.  You should have received a
- * copy of the GNU General Public License along with this program; if not, 
+ * copy of the GNU General Public License along with this program; if not,
  * write to the Free Software Foundation, Inc., 59 Temple Place, Suite
- * 330, Boston, MA 02111-1307 USA 
+ * 330, Boston, MA 02111-1307 USA
  */
 
 #include "gcompris/gcompris.h"
@@ -52,7 +52,7 @@ static GcomprisAnimation *animation;
 static GcomprisAnimCanvasItem *anim_item;
 
 /*
- * Description of this plugin 
+ * Description of this plugin
  */
 static BoardPlugin menu_bp = {
 	NULL,
@@ -160,7 +160,7 @@ start_board (GcomprisBoard * agcomprisBoard)
 }
 
 /*
- * ======================================= 
+ * =======================================
  */
 static void
 end_board ()
@@ -182,7 +182,7 @@ is_our_board (GcomprisBoard * gcomprisBoard)
 		if (g_strcasecmp (gcomprisBoard->type, "awele") == 0)
 		{
 			/*
-			 * Set the plugin entry 
+			 * Set the plugin entry
 			 */
 			gcomprisBoard->plugin = &menu_bp;
 
@@ -225,7 +225,7 @@ set_level (guint level)
 	}
       }
       awele_next_level();
-      
+
     }
 }
 
@@ -233,7 +233,7 @@ set_level (guint level)
 /*-------------------------------------------------------------------------------*/
 /*-------------------------------------------------------------------------------*/
 /*
- * set initial values for the next level 
+ * set initial values for the next level
  */
 static void
 awele_next_level ()
@@ -252,10 +252,10 @@ awele_next_level ()
 	computer_turn = FALSE;
 
 	/*
-	 * Create the level 
+	 * Create the level
 	 */
 	awele_create_item (gnome_canvas_root (gcomprisBoard->canvas));
-	
+
 	if ((gcomprisBoard->level % 2) ==0){
 	  computer_turn = TRUE;
 	  staticAwale->player = HUMAN;
@@ -272,10 +272,10 @@ awele_next_level ()
 }
 
 /*
- * ==================================== 
+ * ====================================
  */
 /*
- * Destroy all the items 
+ * Destroy all the items
  */
 static void
 awele_destroy_all_items ()
@@ -302,7 +302,7 @@ awele_destroy_all_items ()
 }
 
 /*
- * ==================================== 
+ * ====================================
  */
 static GnomeCanvasItem *
 awele_create_item (GnomeCanvasGroup * parent)
@@ -323,7 +323,7 @@ awele_create_item (GnomeCanvasGroup * parent)
 				     (double) 0, "y", (double) 0, NULL));
 
 	/*
-	 * Load the cute frame 
+	 * Load the cute frame
 	 */
 	pixmap = gc_pixmap_load ("awele/awele_frame.png");
 
@@ -413,7 +413,7 @@ awele_create_item (GnomeCanvasGroup * parent)
 	graphsElt = (GRAPHICS_ELT *) g_malloc (sizeof (GRAPHICS_ELT));
 
 	/*
-	 * Boucle pour creer et positionner les boutons qui serviront 
+	 * Boucle pour creer et positionner les boutons qui serviront
 	 * a selectionner la case a jouer
 	 */
 	for (i = 0; i < NBHOLE / 2; i++)
@@ -493,11 +493,11 @@ awele_create_item (GnomeCanvasGroup * parent)
 		graphsElt->nbBeansHole[i] =
 			gnome_canvas_item_new (boardRootItem,
 					       gnome_canvas_text_get_type (),
-					       "text", buffer, "font",
-					       "12x24", "size", 14000, "x",
-					       (double) (caseCoord[i] + 45),
-					       "y",
-					       (double) ((i < 6) ? 378 : 94),
+					       "text", buffer,
+					       "font", "sans 12",
+					       "size", 14000,
+					       "x", (double) (caseCoord[i] + 45),
+					       "y", (double) ((i < 6) ? 378 : 94),
 					       "fill_color", "black", NULL);
 	}
 
@@ -518,7 +518,7 @@ awele_create_item (GnomeCanvasGroup * parent)
 								(), "text",
 								buffer,
 								"font",
-								"12x24",
+								"sans 12",
 								"size", 20000,
 								"x",
 								(double) x1,
@@ -551,7 +551,7 @@ awele_create_item (GnomeCanvasGroup * parent)
 	graphsElt->msg = gnome_canvas_item_new (boardRootItem,
 						gnome_canvas_text_get_type (),
 						"text", _("Choose a house"),
-						"font", "12x24",
+						"font", "sans 12",
 						"size", 20000,
 						"x", (double) 400,
 						"y", (double) 500,
@@ -564,33 +564,33 @@ awele_create_item (GnomeCanvasGroup * parent)
 
 
 /*
- * ==================================== 
+ * ====================================
  */
 static void
 game_won ()
 {
   if (sublevel_finished){
     gcomprisBoard->sublevel++;
-    
+
     if (gcomprisBoard->sublevel > gcomprisBoard->number_of_sublevel)
       {
 	/*
-	 * Try the next level 
+	 * Try the next level
 	 */
 	gcomprisBoard->sublevel = 1;
 	gcomprisBoard->level++;
 	if (gcomprisBoard->level > gcomprisBoard->maxlevel)
 	  {		// the
-			// current 
+			// current
 			// board
 			// is
-			// finished 
+			// finished
 			// : bail
 			// out
 	    gc_bonus_end_display (BOARD_FINISHED_RANDOM);
 	    return;
 	  }
-	
+
       }
   }
   sublevel_finished = FALSE;
@@ -612,7 +612,7 @@ initBoardGraphics (GRAPHICS_ELT * graphsElt)
 
 
 	//if (graphsElt->ptBeansHoleLink != NULL)
-	//      free(graphsElt->ptBeansHoleLink);       
+	//      free(graphsElt->ptBeansHoleLink);
 
 	graphsElt->ptBeansHoleLink =
 		(BEANHOLE_LINK *) malloc (NBTOTALBEAN *
@@ -687,7 +687,7 @@ static gboolean  to_computer(gpointer data)
       gc_bonus_display(TRUE, BONUS_FLOWER);
     }
   } else {
-    /* computer can't play. Why? human is hungry and i cannot give it 
+    /* computer can't play. Why? human is hungry and i cannot give it
        to eat */
     /* if human has 24 beans, it's draw (human win in gcompris) */
     /* if not, all staying are captured by computer and computer win */
@@ -695,7 +695,7 @@ static gboolean  to_computer(gpointer data)
     sublevel_finished = (staticAwale->CapturedBeans[HUMAN] ==  24);
     gc_bonus_display(sublevel_finished, BONUS_FLOWER);
   }
-  
+
   timeout = 0;
   return FALSE;
 }
@@ -741,7 +741,7 @@ buttonClick (GtkWidget * item, GdkEvent * event, gpointer data)
 			"pixbuf",
 			graphsElt->pixbufButtonClicked[numeroCase],
 			"y", (double) Y_BOUTONS + 3, NULL);
-	  
+
 	  g_object_set (graphsElt->msg, "text", "", NULL);
 
 	  AWALE *tmpaw = moveAwale (numeroCase, staticAwale);
@@ -765,7 +765,7 @@ buttonClick (GtkWidget * item, GdkEvent * event, gpointer data)
 							 animation );
 	      }
 	    }
-	  
+
 	  break;
 	case GDK_BUTTON_RELEASE:
 	  g_object_set (GTK_OBJECT
@@ -797,15 +797,15 @@ static BEANHOLE_LINK *
 updateNbBeans (int alpha)
 {
 
-  char buffer[3];		//Manipulation chaines de caracteres            
+  char buffer[3];		//Manipulation chaines de caracteres
   int i, j, k, idxTabBeans = 0;	//Compteur Boucle Manipulation Elements graphiques
   static short int nbActiveBean = NBTOTALBEAN;	//nbre graine restant sur plateau
   static short int nbOldActiveBean;	//nbre graine restant sur plateau au tour precedent
   BEANHOLE_LINK *ptBeansHoleLink = NULL;	//pointeur sur structures stockant les item graines et la case dans laquelle elles se trouvent.
-  
+
   /**
-   *	Sauvegarde du nombre de graines restantes sur le plateau de jeu 
-   *	pour le prochain appel a la fonction. 
+   *	Sauvegarde du nombre de graines restantes sur le plateau de jeu
+   *	pour le prochain appel a la fonction.
    *	Mise a jour de nbActiveBean avec nouvelle configuration du plateau de jeu.
    */
   if (alpha)
@@ -816,11 +816,11 @@ updateNbBeans (int alpha)
     {
       nbOldActiveBean = nbActiveBean;
     }
-  
+
   nbActiveBean =
     NBTOTALBEAN - (staticAwale->CapturedBeans[HUMAN] +
 		   staticAwale->CapturedBeans[COMPUTER]);
-  
+
   /**
    *	Destruction d'autant d'elements graphiques graines
    *	qu'il y a eu de captures pdt ce tour de jeu
@@ -830,21 +830,21 @@ updateNbBeans (int alpha)
     {
       gtk_object_destroy (GTK_OBJECT (ptBeansHoleLink->beanPixbuf));
     }
-  
-  
+
+
   /**
-   *	Allocation d'un nouvel espace memoire stockant les item graines 
-   *	et la case dans laquelle elles se trouvent. Puis liberation de la fin de 
+   *	Allocation d'un nouvel espace memoire stockant les item graines
+   *	et la case dans laquelle elles se trouvent. Puis liberation de la fin de
    *	l'ancien espace memoire.
    */
-  
+
   ptBeansHoleLink =
     (BEANHOLE_LINK *) realloc (graphsElt->ptBeansHoleLink,
 			       nbActiveBean *
 			       sizeof (BEANHOLE_LINK));
-  
+
   /**
-   *	Pour chaque case du plateau, mise a jour du nbre de graines qu'elle contient. 
+   *	Pour chaque case du plateau, mise a jour du nbre de graines qu'elle contient.
    *	Et pour chaque graine de cette case, deplacement d'un element graphique type graine
    *	dans cette case. Et mise a jour de l'information hole dans la structure BEANHOLE_LINK.
    */
@@ -852,14 +852,14 @@ updateNbBeans (int alpha)
     {
       sprintf (buffer, "%d", staticAwale->board[i]);
       gnome_canvas_item_set (graphsElt->nbBeansHole[i], "text", buffer, NULL);
-      
+
       for (j = 0;
 	   j < staticAwale->board[i] && idxTabBeans < nbActiveBean;
 	   j++, idxTabBeans++)
 	{
-	  
+
 	  k = 0 + rand () % 4;
-	  
+
 	  gnome_canvas_item_set (ptBeansHoleLink[idxTabBeans].
 				 beanPixbuf, "x",
 				 (double) caseCoord[i] +
@@ -867,16 +867,16 @@ updateNbBeans (int alpha)
 				 (double) (((i <
 					     6) ? 260 : 130) +
 					   rand () % 60), NULL);
-	  
+
 	  ptBeansHoleLink[idxTabBeans].hole = i;
 	}
-      
+
     }
-  
+
   /**
    *	Renvoi du pointeur sur la zone memoire retaillee (n'a probablement pas change d'adresse).
    */
-  
+
   graphsElt->ptBeansHoleLink = ptBeansHoleLink;
   return ptBeansHoleLink;
 }
@@ -900,11 +900,11 @@ updateCapturedBeans ()
 		sprintf (buffer, "%d", staticAwale->CapturedBeans[i]);
 		g_object_set (graphsElt->Captures[i], "text", buffer, NULL);
  		if (staticAwale->CapturedBeans[i] > 24)
- 		  { 
+ 		  {
  		    gamewon = TRUE;
 		    sublevel_finished = (i==0);
  		    gc_bonus_display(sublevel_finished, BONUS_FLOWER);
- 		  } 
+ 		  }
 	}
 }
 

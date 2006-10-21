@@ -17,9 +17,6 @@
  *   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  */
 
-#include <ctype.h>
-#include <assert.h>
-
 #include "gcompris/gcompris.h"
 
 #define SOUNDLISTFILE PACKAGE
@@ -152,7 +149,7 @@ static void start_board (GcomprisBoard *agcomprisBoard) {
 
     gcomprisBoard=agcomprisBoard;
     img = gc_skin_image_get("leftright-bg.jpg");
-    gc_set_background(gnome_canvas_root(gcomprisBoard->canvas), 
+    gc_set_background(gnome_canvas_root(gcomprisBoard->canvas),
 			    img);
     g_free(img);
     gcomprisBoard->level=1;
@@ -413,9 +410,9 @@ static gint item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data) {
           process_ok();
 	}
       }
-      
+
       break;
-      
+
     default:
       break;
     }

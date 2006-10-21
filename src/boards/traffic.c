@@ -3,7 +3,7 @@
  * Copyright (C) 2002 Bruno Coudoin
  *
  * Based on the original code from Geoff Reedy <vader21@imsa.edu>
- * Copyright (C) 2000 Geoff Reedy 
+ * Copyright (C) 2000 Geoff Reedy
  *
  *   This program is free software; you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
@@ -21,9 +21,6 @@
  */
 
 #include <string.h>
-#include <ctype.h>
-#include <math.h>
-#include <assert.h>
 
 #include "traffic.h"
 
@@ -155,9 +152,9 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       gcomprisBoard->maxlevel=8;
       gcomprisBoard->sublevel=1;
       gcomprisBoard->number_of_sublevel=5; /* Go to next level after this number of 'play' */
-      gc_score_start(SCORESTYLE_NOTE, 
-			   gcomprisBoard->width - 220, 
-			   gcomprisBoard->height - 50, 
+      gc_score_start(SCORESTYLE_NOTE,
+			   gcomprisBoard->width - 220,
+			   gcomprisBoard->height - 50,
 			   gcomprisBoard->number_of_sublevel);
 
       str = gc_skin_image_get("button_reload.png");
@@ -415,7 +412,7 @@ static int car_cb(GnomeCanvasItem *item, GdkEvent *event, car *thiscar)
 
     if (thiscar->orient==CAR_ORIENT_NS)
       cursor=gdk_cursor_new(GDK_SB_V_DOUBLE_ARROW);
-    else 
+    else
       cursor=gdk_cursor_new(GDK_SB_H_DOUBLE_ARROW);
     gc_canvas_item_grab(item,
 			   GDK_POINTER_MOTION_MASK | GDK_BUTTON_RELEASE_MASK,
@@ -494,7 +491,7 @@ static int car_cb(GnomeCanvasItem *item, GdkEvent *event, car *thiscar)
 	dy=CLAMP(item_y-start_y,-39,39);
 	dx=CLAMP(item_x-start_x,-39,39);
 
-	if (thiscar->goal && big_x==250+OFSET_X) { 
+	if (thiscar->goal && big_x==250+OFSET_X) {
 	  gc_canvas_item_ungrab(item,event->button.time);
 	  gnome_canvas_item_hide(item);
 	  moving=FALSE;
@@ -664,7 +661,7 @@ gint cars_from_strv(char *strv)
       else if (y == 'F') ccar->x = 5;
     }
 
-    if (id == 'X') 
+    if (id == 'X')
       {
 	ccar->color  = 0xFF0000FF;
 	ccar->goal   = 1;
@@ -684,7 +681,7 @@ gint cars_from_strv(char *strv)
     else if (id == 'P') ccar->color = 0xFF80FFFF;
     else if (id == 'Q') ccar->color = 0x0000FFFF;
     else if (id == 'R') ccar->color = 0x00FFFFFF;
-    
+
   }
   return number_of_cars;
 }

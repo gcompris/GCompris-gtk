@@ -175,7 +175,7 @@ install: all
 # BUILD EXE
 #
 
-$(TARGET).exe: $(EXE_OBJECTS)
+$(TARGET).exe: $(EXE_OBJECTS) ../boards/libboards.a
 	$(CC) $(LDFLAGS) $(EXE_OBJECTS) $(LIB_PATHS) $(EXE_LIBS) -o $(TARGET).exe
 
 ##

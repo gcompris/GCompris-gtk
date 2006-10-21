@@ -195,6 +195,31 @@ static BoardPlugin menu_bp =
    config_stop
 };
 
+/* Description of this plugin without configuration */
+static BoardPlugin menu_bp_no_config =
+{
+   NULL,
+   NULL,
+   "Make the puzzle",
+   "Drag and Drop the items to rebuild the object",
+   "Bruno Coudoin <bruno.coudoin@free.fr>",
+   NULL,
+   NULL,
+   NULL,
+   NULL,
+   start_board,
+   pause_board,
+   end_board,
+   is_our_board,
+   key_press,
+   process_ok,
+   set_level,
+   NULL,
+   NULL,
+   NULL,
+   NULL
+};
+
 /*
  * Main entry point mandatory for each Gcompris's game
  * ---------------------------------------------------
@@ -346,38 +371,12 @@ is_our_board (GcomprisBoard *gcomprisBoard)
     {
       if(g_strcasecmp(gcomprisBoard->type, "shapegame")==0)
 	{
-	  BoardPlugin *bp_board = g_malloc0(sizeof(BoardPlugin));
-
-	  bp_board->handle        = menu_bp.handle;
-	  bp_board->filename      = menu_bp.filename;
-	  bp_board->name          = menu_bp.name;
-	  bp_board->description   = menu_bp.description;
-	  bp_board->author        = menu_bp.author;
-	  bp_board->init          = menu_bp.init;
-	  bp_board->cleanup       = menu_bp.cleanup;
-	  bp_board->about         = menu_bp.about;
-	  bp_board->configure     = menu_bp.configure;
-	  bp_board->start_board   = menu_bp.start_board;
-	  bp_board->pause_board   = menu_bp.pause_board;
-	  bp_board->end_board     = menu_bp.end_board;
-	  bp_board->is_our_board  = menu_bp.is_our_board;
-	  bp_board->key_press     = menu_bp.key_press;
-	  bp_board->ok            = menu_bp.ok;
-	  bp_board->set_level     = menu_bp.set_level;
-	  bp_board->config        = menu_bp.config;
-	  bp_board->repeat        = menu_bp.repeat;
-
-	  if (strcmp(gcomprisBoard->name, "imagename")==0){
-	    bp_board->config_start  = menu_bp.config_start;
-	    bp_board->config_stop   = menu_bp.config_stop;
-	  } else {
-	    bp_board->config_start  = NULL;
-	    bp_board->config_stop   = NULL;
-	  }
-
-
 	  /* Set the plugin entry */
-	  gcomprisBoard->plugin = bp_board;
+	  if (strcmp(gcomprisBoard->name, "imagename")==0){
+	    gcomprisBoard->plugin = &menu_bp;
+	  } else {
+	    gcomprisBoard->plugin = &menu_bp_no_config;
+	  }
 
 	  return TRUE;
 	}

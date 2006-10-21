@@ -17,10 +17,6 @@
  *   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  */
 
-#include <ctype.h>
-#include <math.h>
-#include <assert.h>
-
 #include "gcompris/gcompris.h"
 
 #define SOUNDLISTFILE PACKAGE
@@ -289,7 +285,7 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, MachItem *machItem)
   if(board_paused)
     return FALSE;
 
-   switch (event->type) 
+   switch (event->type)
      {
 
      case GDK_BUTTON_PRESS:
@@ -303,12 +299,12 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, MachItem *machItem)
        machItem->vyo = ((item_y-y1)<width/2?(width/2-(item_y-y1))*20:-1*(width/2-(y2-item_y))*20);
        machItem->vxo = ((item_x-x1)<width/2?(width/2-(item_x-x1))*20:-1*(width/2-(x2-item_x))*20);
        break;
-       
+
      default:
        break;
      }
-   
-   
+
+
    return FALSE;
 }
 
@@ -341,7 +337,7 @@ static MachItem *create_machine_item(MachItemType machItemType, double x, double
 
   machItem->type	= machItemType;
 
-  switch (machItemType) 
+  switch (machItemType)
     {
     case MACH_HORZ_WALL:
       width = 100;
@@ -447,7 +443,7 @@ static MachItem *create_machine_item(MachItemType machItemType, double x, double
       gtk_signal_connect(GTK_OBJECT(machItem->item), "event",
 			 (GtkSignalFunc) item_event,
 			 machItem);
-     
+
       break;
     case MACH_FLYING_BALL:
       width = 40;
@@ -493,7 +489,7 @@ static MachItem *create_machine_item(MachItemType machItemType, double x, double
   return machItem;
 }
 
-/* 
+/*
  * Returns true if at least 3 corners of 's' rectangle are inside 'd' rectangle
  *
  */
@@ -503,7 +499,7 @@ static gint rectangle_in(double sx1, double sy1, double sx2, double sy2,
   guint corner_in = 0;
   //  printf("rectangle_in %10f %10f %10f %10f\n             %10f %10f %10f %10f\n", sx1,sy1,sx2,sy2,dx1,dy1,dx2,dy2);
 
-  if(sx1>dx1 && sx1<dx2 && sy1>dy1 && sy1<dy2) 
+  if(sx1>dx1 && sx1<dx2 && sy1>dy1 && sy1<dy2)
     corner_in++;
 
   if(sx2>dx1 && sx2<dx2 && sy2>dy1 && sy2<dy2)
@@ -543,7 +539,7 @@ static void minigolf_move(GList *item_list)
 	  gnome_canvas_item_get_bounds(item, &x1, &y1, &x2, &y2);
 
 	  machItem->times += times_inc;
-	  
+
 	  /* Collision detection */
 	  for(j=0; j<g_list_length(item_list); j++)
 	    {
@@ -555,7 +551,7 @@ static void minigolf_move(GList *item_list)
 
 	      if(collMachItem != machItem) {
 
-		if(rectangle_in(x1, y1, x2, y2, 
+		if(rectangle_in(x1, y1, x2, y2,
 				collMachItem->xpos,
 				collMachItem->ypos,
 				collMachItem->xpos + collMachItem->width,
@@ -564,7 +560,7 @@ static void minigolf_move(GList *item_list)
 		    //printf("!!! Collision detected with:\n");
 		    //dump_machItem(collMachItem);
 		    collision = TRUE;
-		    
+
 		    gamewon = TRUE;
 		    minigolf_destroy_all_items();
 		    gc_bonus_display(gamewon, BONUS_SMILEY);
@@ -573,8 +569,8 @@ static void minigolf_move(GList *item_list)
 	      }
 	    }
 
-	  ypos=machItem->yposo 
-	    + (machItem->vyo*machItem->times) 
+	  ypos=machItem->yposo
+	    + (machItem->vyo*machItem->times)
 	    + (.5*machItem->ay * (machItem->times*machItem->times));
 
 	  /* Simulate going slower */
@@ -585,8 +581,8 @@ static void minigolf_move(GList *item_list)
 	    machItem->vyo = 0;
 	  }
 
-	  xpos=machItem->xposo 
-	    + (machItem->vxo*machItem->times) 
+	  xpos=machItem->xposo
+	    + (machItem->vxo*machItem->times)
 	    + (.5*machItem->ax * (machItem->times*machItem->times));
 
 	  /* Simulate going slower */
@@ -603,7 +599,7 @@ static void minigolf_move(GList *item_list)
 	  /* v = u + at */
 	  machItem->vxo += (machItem->ax * machItem->times);
 	  machItem->vyo += (machItem->ay * machItem->times);
-	  
+
 	  if(machItem->ypos >= MIN_Y2 - machItem->height -1)
 	    machItem->ypos = MIN_Y2 - machItem->height;
 
@@ -618,7 +614,7 @@ static void minigolf_move(GList *item_list)
 
 
 	  gc_item_absolute_move(item, machItem->xpos, machItem->ypos);
-	  
+
 	  if((machItem->ypos>=MIN_Y2-machItem->height-BORDER && (y1 - machItem->ypos)<=0) || collision == TRUE)
 	    {
 	      machItem->vyo   = machItem->vyo * -0.5;
@@ -626,11 +622,11 @@ static void minigolf_move(GList *item_list)
 	      machItem->times = 0;
 	      machItem->yposo = machItem->ypos;
 	      machItem->xposo = machItem->xpos;
-	      
+
 	      /* Floor touch */
 	      //machItem->vxo *= 0.9;
 	    }
-	  
+
 	  if((y1<=MIN_Y1 && (y1 - machItem->ypos)>=0) || collision == TRUE)
 	    {
 	      machItem->vyo   = machItem->vyo * -0.5;

@@ -2967,12 +2967,12 @@ class DOMProcess(BaseProcess):
 ##############################################
 
 
-try:
-    import xml.parsers.expat
-except ImportError:
-    import pyexpat
+#try:
+#    import xml.parsers.expat
+#except ImportError:
+#    import pyexpat
 
-from xml.parsers import expat
+#from xml.parsers import expat
 
 def svg_to_anim2(filename):
     """Process command line parameters and run the conversion."""

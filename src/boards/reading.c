@@ -21,8 +21,6 @@
 
 // FIXME: Cleanup of LettersItem created struct is not done
 
-#include <errno.h>
-#include <stdio.h>
 #include <string.h>
 
 #include "gcompris/gcompris.h"
@@ -366,7 +364,7 @@ static GnomeCanvasItem *display_what_to_do(GnomeCanvasGroup *parent)
 
   textToFind = get_random_word(NULL);
 
-  assert(textToFind != NULL);
+  g_assert(textToFind != NULL);
 
   /* Decide now if this time we will display the text to find */
   /* Use this formula to have a better random number see 'man 3 rand' */
@@ -415,7 +413,7 @@ static gboolean reading_create_item(GnomeCanvasGroup *parent)
   gint   anchor = GTK_ANCHOR_CENTER;
   gchar *word;
 
-  assert(textToFind!=NULL);
+  g_assert(textToFind!=NULL);
 
   if(toDeleteFocus.rootItem)
     {
@@ -448,7 +446,7 @@ static gboolean reading_create_item(GnomeCanvasGroup *parent)
       word = g_strdup(textToFind);
     }
 
-  assert(word!=NULL);
+  g_assert(word!=NULL);
 
   if(textToFindIndex>=0)
     textToFindIndex--;

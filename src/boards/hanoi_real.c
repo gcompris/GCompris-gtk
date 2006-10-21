@@ -17,10 +17,6 @@
  *   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  */
 
-#include <ctype.h>
-#include <math.h>
-#include <assert.h>
-
 #include "gcompris/gcompris.h"
 
 #define SOUNDLISTFILE PACKAGE
@@ -207,7 +203,7 @@ static void hanoi_destroy_all_items()
   if(boardRootItem!=NULL)
     {
       gtk_object_destroy (GTK_OBJECT(boardRootItem));
-      
+
       /* Cleanup our memory structure */
       for(i=0; i<number_of_item_x; i++)
 	{
@@ -231,8 +227,8 @@ static void dump_solution()
     {
       for(j=0; j<number_of_item_y; j++)
 	{
-	  printf("(%d,%d= width=%d top=%d) ",  position[i][j]->i, position[i][j]->j, 
-		    position[i][j]->width, 
+	  printf("(%d,%d= width=%d top=%d) ",  position[i][j]->i, position[i][j]->j,
+		    position[i][j]->width,
 		    position[i][j]->on_top);
 	}
       printf("\n");
@@ -250,7 +246,7 @@ static GnomeCanvasItem *hanoi_create_item(GnomeCanvasGroup *parent)
   GnomeCanvasItem *item = NULL;
   GdkPixbuf *pixmap = NULL;
   gchar *filename;
-      
+
   boardRootItem = GNOME_CANVAS_GROUP(
 				     gnome_canvas_item_new (gnome_canvas_root(gcomprisBoard->canvas),
 							    gnome_canvas_group_get_type (),
@@ -262,7 +258,7 @@ static GnomeCanvasItem *hanoi_create_item(GnomeCanvasGroup *parent)
   if(pixmap) {
     gnome_canvas_item_new (boardRootItem,
 			   gnome_canvas_pixbuf_get_type (),
-			   "pixbuf", pixmap, 
+			   "pixbuf", pixmap,
 			   "x",	(double)BOARDWIDTH/2,
 			   "y",	(double)BOARDHEIGHT - 35,
 			   "width", (double) BOARDWIDTH - 20,
@@ -352,7 +348,7 @@ static GnomeCanvasItem *hanoi_create_item(GnomeCanvasGroup *parent)
 
       /* The disc support */
       pixmap = gc_pixmap_load ("images/disc_support.png");
-      
+
       item = gnome_canvas_item_new (boardRootItem,
 				    gnome_canvas_pixbuf_get_type (),
 				    "x", (double) item_width * i + item_width/2,
@@ -448,12 +444,12 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, PieceItem *data)
 
   if(!data->on_top)
     return FALSE;
-	  
+
   item_x = event->button.x;
   item_y = event->button.y;
   gnome_canvas_item_w2i(item->parent, &item_x, &item_y);
-  
-  switch (event->type) 
+
+  switch (event->type)
     {
     case GDK_ENTER_NOTIFY:
       gc_item_focus_set(item, TRUE);
@@ -462,18 +458,18 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, PieceItem *data)
       gc_item_focus_set(item, FALSE);
       break;
     case GDK_BUTTON_PRESS:
-      switch(event->button.button) 
+      switch(event->button.button)
 	{
 	case 1:
-	  
+
 	  x = item_x;
 	  y = item_y;
-	  
+
 	  gnome_canvas_item_raise_to_top(data->item);
-	  
+
 	  fleur = gdk_cursor_new(GDK_FLEUR);
 	  gc_canvas_item_grab(data->item,
-				 GDK_POINTER_MOTION_MASK | 
+				 GDK_POINTER_MOTION_MASK |
 				 GDK_BUTTON_RELEASE_MASK,
 				 fleur,
 				 event->button.time);
@@ -482,21 +478,21 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, PieceItem *data)
 	  break;
 	}
       break;
-      
+
     case GDK_MOTION_NOTIFY:
-      if (dragging && (event->motion.state & GDK_BUTTON1_MASK)) 
+      if (dragging && (event->motion.state & GDK_BUTTON1_MASK))
 	{
 	  new_x = item_x;
 	  new_y = item_y;
-	  
+
 	  gnome_canvas_item_move(data->item, new_x - x, new_y - y);
 	  x = new_x;
 	  y = new_y;
 	}
       break;
-      
+
     case GDK_BUTTON_RELEASE:
-      if(dragging) 
+      if(dragging)
 	{
 	  gint i;
 	  gint tmpi, tmpj;
@@ -512,12 +508,12 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, PieceItem *data)
 	  disc_w = gdk_pixbuf_get_width(pixmap)/2;
 	  disc_h = gdk_pixbuf_get_height(pixmap)/2;
 	  gdk_pixbuf_unref(pixmap);
-      
+
 	  gc_canvas_item_ungrab(data->item, event->button.time);
 	  dragging = FALSE;
-	  
+
 	  /* Search the column (x) where this item is ungrabbed */
-	  if(item_x > (position[number_of_item_x-1][0]->x 
+	  if(item_x > (position[number_of_item_x-1][0]->x
 		       - (position[number_of_item_x-1][0]->x - position[number_of_item_x-2][0]->x) / 2))
 	     col = number_of_item_x-1;
 	  else if(item_x < position[0][0]->x)
@@ -550,9 +546,9 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, PieceItem *data)
 	  for(i=number_of_item_y-1; i>=0; i--)
 	    if(position[col][i]->width == -1)
 	      line = i;
-	  
+
 	  /* Bad drop / Too many pieces here or larger disc is above */
-	  if(line > number_of_item_y || 
+	  if(line > number_of_item_y ||
 	     (line > 0 && position[col][line-1]->width != -1 && position[col][line-1]->width < data->width))
 	    {
 	      /* Return to the original position */
@@ -567,11 +563,11 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, PieceItem *data)
 	  /* Update ontop values for the piece under the grabbed one */
 	  if(data->j>0)
 	    position[data->i][data->j-1]->on_top = TRUE;
-	  
+
 	  /* Update ontop values for the piece under the ungrabbed one */
 	  if(line>0)
 	    position[col][line-1]->on_top = FALSE;
-	  
+
 	  /* Move the piece */
 	  piece_dst = position[col][line];
 	  piece_src = data;
@@ -579,7 +575,7 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, PieceItem *data)
 	  gc_item_absolute_move (data->item,
 			      piece_dst->x - disc_w,
 			      piece_dst->y - disc_h);
-	  
+
 	  /* FIXME : Workaround for bugged canvas */
 	  gnome_canvas_update_now(gcomprisBoard->canvas);
 
@@ -590,14 +586,14 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, PieceItem *data)
 	  piece_src->y = piece_dst->y;
 	  piece_dst->x = tmpx;
 	  piece_dst->y = tmpy;
-	  
+
 	  tmpi    = data->i;
 	  tmpj    = data->j;
 	  position[tmpi][tmpj]->i = piece_dst->i;
 	  position[tmpi][tmpj]->j = piece_dst->j;
 	  piece_dst->i  = tmpi;
 	  piece_dst->j  = tmpj;
-	  
+
 	  position[piece_src->i][piece_src->j] = piece_src;
 	  position[piece_dst->i][piece_dst->j] = piece_dst;
 
@@ -610,12 +606,12 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, PieceItem *data)
 	    }
 	}
       break;
-      
+
     default:
       break;
     }
-  
-  
+
+
   return FALSE;
 }
 

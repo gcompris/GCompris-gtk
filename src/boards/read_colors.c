@@ -17,8 +17,6 @@
  *   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  */
 
-#include <ctype.h>
-#include <assert.h>
 #include <string.h>
 
 /* libxml includes */
@@ -392,7 +390,7 @@ static gint item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data) {
 static void highlight_selected(int c) {
   int x, y;
 
-  assert(c>=0 && c<LAST_COLOR);
+  g_assert(c>=0 && c<LAST_COLOR);
 
   x = X[c];
   y = Y[c];
@@ -412,7 +410,7 @@ static void init_xml()
   filename = gc_file_find_absolute("%s/board1.xml",
 				   gcomprisBoard->boarddir);
 
-  assert(read_xml_file(filename)== TRUE);
+  g_assert(read_xml_file(filename)== TRUE);
 
   g_free(filename);
 }

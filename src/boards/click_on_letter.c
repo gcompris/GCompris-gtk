@@ -17,9 +17,6 @@
  *   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  */
 
-#include <ctype.h>
-#include <math.h>
-#include <assert.h>
 #include <glib.h>
 #include <string.h>
 
@@ -265,7 +262,7 @@ static gboolean sounds_are_fine()
 
   /* TRANSLATORS: Put here the alphabet in your language */
   alphabet=_("abcdefghijklmnopqrstuvwxyz");
-  assert(g_utf8_validate(alphabet, -1, NULL)); // require by all utf8-functions
+  g_assert(g_utf8_validate(alphabet, -1, NULL)); // require by all utf8-functions
 
   gchar *letter = g_new0(gchar, 8);
   g_unichar_to_utf8(g_utf8_get_char(alphabet), letter);
@@ -353,7 +350,7 @@ static GnomeCanvasItem *click_on_letter_create_item(GnomeCanvasGroup *parent)
   int numbers[number_of_letters];
 
   gchar *letters[number_of_letters];
-  assert(number_of_letters<=length_of_aphabet); // because we must set unique letter on every "vagon"
+  g_assert(number_of_letters<=length_of_aphabet); // because we must set unique letter on every "vagon"
 
   for (i=0;i<number_of_letters;i++){
     numbers[i]=((int)(((float)length_of_aphabet)*rand()/(RAND_MAX+1.0)));
@@ -391,7 +388,7 @@ static GnomeCanvasItem *click_on_letter_create_item(GnomeCanvasGroup *parent)
 
   /*  */
   right_position = ((int)(((float)number_of_letters)*rand()/(RAND_MAX+1.0)));
-  assert(right_position >= 0  && right_position < number_of_letters);
+  g_assert(right_position >= 0  && right_position < number_of_letters);
   right_letter = g_utf8_strdown(letters[right_position],-1);
 
   repeat();

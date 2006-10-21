@@ -17,9 +17,6 @@
  *   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  */
 
-#include <ctype.h>
-#include <assert.h>
-
 #include "gcompris/gcompris.h"
 
 #define SOUNDLISTFILE PACKAGE
@@ -98,7 +95,7 @@ static BoardPlugin menu_bp =
  *
  * =====================================================================*/
 GET_BPLUGIN_INFO(colors)
-     
+
 
 /* ======================= */
 /* = config_start        = */
@@ -113,7 +110,7 @@ static void save_table (gpointer key,
 {
   gc_db_set_board_conf ( profile_conf,
 			    board_conf,
-			    (gchar *) key, 
+			    (gchar *) key,
 			    (gchar *) value);
 }
 
@@ -127,10 +124,10 @@ conf_ok(GHashTable *table)
   }
 
   g_hash_table_foreach(table, (GHFunc) save_table, NULL);
-  
+
   if (gcomprisBoard){
     GHashTable *config = gc_db_get_board_conf();
-  
+
     if (profile_conf)
       config = gc_db_get_board_conf();
     else
@@ -138,17 +135,17 @@ conf_ok(GHashTable *table)
 
     gc_locale_reset();
     gc_locale_set(g_hash_table_lookup(config, "locale_sound"));
-  
+
     if (profile_conf)
       g_hash_table_destroy(config);
 
     colors_next_level();
 
     pause_board(FALSE);
-  
+
   }
   board_conf = NULL;
-  profile_conf = NULL;  
+  profile_conf = NULL;
 }
 
 static void
@@ -162,7 +159,7 @@ colors_config_start(GcomprisBoard *agcomprisBoard,
 
   if (gcomprisBoard)
     pause_board(TRUE);
-  
+
   label = g_strdup_printf("<b>%s</b> configuration\n for profile <b>%s</b>",
 			  agcomprisBoard->name, aProfile ? aProfile->name : "");
 
@@ -174,7 +171,7 @@ colors_config_start(GcomprisBoard *agcomprisBoard,
   GHashTable *config = gc_db_get_conf( profile_conf, board_conf);
 
   gchar *saved_locale_sound = g_hash_table_lookup( config, "locale_sound");
-  
+
   gc_board_config_combo_locales_asset( "Select sound locale", saved_locale_sound,
 				"sounds/$LOCALE/colors/purple.ogg");
 
@@ -182,11 +179,11 @@ colors_config_start(GcomprisBoard *agcomprisBoard,
 
 }
 
-  
+
 /* ======================= */
 /* = config_stop        = */
 /* ======================= */
-static void 
+static void
 colors_config_stop()
 {
 }
@@ -219,7 +216,7 @@ static void start_board (GcomprisBoard *agcomprisBoard) {
   GHashTable *config = gc_db_get_board_conf();
 
   gc_locale_set(g_hash_table_lookup(config, "locale_sound"));
-  
+
   g_hash_table_destroy(config);
 
   gc_sound_pause();
@@ -319,7 +316,7 @@ static void repeat (){
       else
 	{
 	  str = g_strdup_printf(gettext(colors[GPOINTER_TO_INT(g_list_nth_data(listColors, 0))*2+1]));
-	  
+
 	  gnome_canvas_item_new (boardRootItem,
 				 gnome_canvas_text_get_type (),
 				 "text", str,
@@ -329,7 +326,7 @@ static void repeat (){
 				 "anchor", GTK_ANCHOR_CENTER,
 				 "fill_color", "black",
 				 NULL);
-	  
+
 	  gnome_canvas_item_new (boardRootItem,
 				 gnome_canvas_text_get_type (),
 				 "text", str,
@@ -471,7 +468,7 @@ static gint item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data) {
 static void highlight_selected(int c) {
   int x, y;
 
-  assert(c>=0 && c<=9);
+  g_assert(c>=0 && c<=9);
 
   if (c<8) {
     x = (X[(c%4)*2] + X[(c%4)*2+1]) /2;

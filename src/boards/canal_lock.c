@@ -17,10 +17,6 @@
  *   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  */
 
-#include <ctype.h>
-#include <math.h>
-#include <assert.h>
-
 #include "gcompris/gcompris.h"
 
 #define SOUNDLISTFILE PACKAGE
@@ -276,7 +272,7 @@ static GnomeCanvasItem *canal_lock_create_item(GnomeCanvasGroup *parent)
 
   tuxboat_item = gnome_canvas_item_new (boardRootItem,
 					gnome_canvas_pixbuf_get_type (),
-					"pixbuf",  pixmap, 
+					"pixbuf",  pixmap,
 					"x", (double) (LEFT_CANAL_WIDTH - gdk_pixbuf_get_width(pixmap)) / 2,
 					"y", (double) BASE_LINE - LEFT_CANAL_HEIGHT - gdk_pixbuf_get_height(pixmap)*0.9,
 					NULL);
@@ -406,7 +402,7 @@ static GnomeCanvasItem *canal_lock_create_item(GnomeCanvasGroup *parent)
 			 NULL);
 
   /* And to finish, the 2 canal locks */
-  canallock_left_item = 
+  canallock_left_item =
     gnome_canvas_item_new (boardRootItem,
 			   gnome_canvas_rect_get_type (),
 			   "x1", (double) LEFT_CANAL_WIDTH + MIDDLE_CANAL_WIDTH * 0.1,
@@ -420,7 +416,7 @@ static GnomeCanvasItem *canal_lock_create_item(GnomeCanvasGroup *parent)
 		     (GtkSignalFunc) item_event,
 		     NULL);
 
-  canallock_right_item = 
+  canallock_right_item =
     gnome_canvas_item_new (boardRootItem,
 			   gnome_canvas_rect_get_type (),
 			   "x1", (double) LEFT_CANAL_WIDTH + MIDDLE_CANAL_WIDTH * 0.9,
@@ -498,7 +494,7 @@ static void move_boat()
       return;
     }
 
-  gnome_canvas_item_get_bounds(tuxboat_item, &timer_item_x1, &timer_item_y1, 
+  gnome_canvas_item_get_bounds(tuxboat_item, &timer_item_x1, &timer_item_y1,
 			       &timer_item_x2, &timer_item_y2);
 
   timer_item = tuxboat_item;
@@ -527,14 +523,14 @@ static void update_water()
       lock_water_low = !lock_water_low;
       y1 = BASE_LINE - RIGHT_CANAL_HEIGHT;
     }
-  else 
+  else
     {
       /* The water level is correct */
       animation = FALSE;
       return;
     }
 
-  gnome_canvas_item_get_bounds(canal_middle_item, &timer_item_x1, &timer_item_y1, 
+  gnome_canvas_item_get_bounds(canal_middle_item, &timer_item_x1, &timer_item_y1,
 			       &timer_item_x2, &timer_item_y2);
 
   timer_item = canal_middle_item;
@@ -560,7 +556,7 @@ static void toggle_lock(GnomeCanvasItem *item)
     return;
   animation = TRUE;
 
-  gnome_canvas_item_get_bounds(item, &timer_item_x1, &timer_item_y1, 
+  gnome_canvas_item_get_bounds(item, &timer_item_x1, &timer_item_y1,
 			       &timer_item_x2, &timer_item_y2);
 
   if(item == lock_left_item)
@@ -608,7 +604,7 @@ static void toggle_lock(GnomeCanvasItem *item)
 
 
 /* ==================================== */
-static gboolean animate_step() 
+static gboolean animate_step()
 {
 
   if(!gcomprisBoard)
@@ -618,12 +614,12 @@ static gboolean animate_step()
   timer_item_y1 += timer_step_y1;
 
   if(GNOME_IS_CANVAS_PIXBUF(timer_item))
-    gnome_canvas_item_set(timer_item, 
+    gnome_canvas_item_set(timer_item,
 			  "x", timer_item_x1,
 			  "y", timer_item_y1,
 			  NULL);
   else if(GNOME_IS_CANVAS_RECT(timer_item))
-    gnome_canvas_item_set(timer_item, 
+    gnome_canvas_item_set(timer_item,
 			  "x1", timer_item_x1,
 			  "y1", timer_item_y1,
 			  NULL);
@@ -633,10 +629,10 @@ static gboolean animate_step()
     {
       double item_x1, item_y1, item_x2, item_y2;
 
-      gnome_canvas_item_get_bounds(tuxboat_item, &item_x1, &item_y1, 
+      gnome_canvas_item_get_bounds(tuxboat_item, &item_x1, &item_y1,
 				   &item_x2, &item_y2);
 
-      gnome_canvas_item_set(tuxboat_item, 
+      gnome_canvas_item_set(tuxboat_item,
 			    "y", item_y1 + timer_step_y1,
 			    NULL);
     }
@@ -668,7 +664,7 @@ static gboolean animate_step()
 static void hightlight(GnomeCanvasItem *item, gboolean status)
 {
   guint color = 0;
-  
+
   /* This is an image, not a rectangle */
   if(item == tuxboat_item)
     return;
@@ -703,7 +699,7 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
   if(board_paused)
     return FALSE;
 
-  switch (event->type) 
+  switch (event->type)
     {
     case GDK_ENTER_NOTIFY:
       hightlight(item, TRUE);
@@ -716,7 +712,7 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
       /* If there is already an animation do nothing */
       if(animation)
 	return FALSE;
-	   
+
       if(item == lock_left_item)
 	{
 	  if(lock_water_low && canallock_right_up)

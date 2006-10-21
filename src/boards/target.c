@@ -17,10 +17,6 @@
  *   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  */
 
-#include <ctype.h>
-#include <math.h>
-#include <assert.h>
-
 #include "gcompris/gcompris.h"
 
 #define SOUNDLISTFILE PACKAGE
@@ -74,7 +70,7 @@ static void		animate_items(void);
 static void		launch_dart(double item_x, double item_y);
 
 /*
- * distance to target, min wind speed, max wind speed, target1 width(center), 
+ * distance to target, min wind speed, max wind speed, target1 width(center),
  * value1 (for target1), ... to target10, value10
  *
  * a target width of 0 means no such target
@@ -92,7 +88,7 @@ typedef struct {
 
 /*
  * Definition of targets one line by level based on TargetDefinition
- */ 
+ */
 static TargetDefinition targetDefinition[] =
 {
   { 3, 100, 2, 5,  { 40, 5 , 80, 3, 150, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
@@ -254,7 +250,7 @@ static gint key_press(guint keyval, gchar *commit_str, gchar *preedit_str)
     case GDK_Hyper_L:
     case GDK_Hyper_R:
     case GDK_Num_Lock:
-      return FALSE; 
+      return FALSE;
     case GDK_KP_Enter:
     case GDK_Return:
       process_ok();
@@ -271,7 +267,7 @@ static gint key_press(guint keyval, gchar *commit_str, gchar *preedit_str)
       break;
     }
 
-  c = tolower(keyval); 
+  c = tolower(keyval);
 
   /* Limit the user entry to 5 digits */
   if(c>='0' && c<='9' && answer_string_index<5)
@@ -447,10 +443,10 @@ static GnomeCanvasItem *target_create_item(GnomeCanvasGroup *parent)
 					"outline_color", "black",
 					"width_units", (double)1,
 					NULL);
-	  
+
 	  gnome_canvas_item_lower_to_bottom(item);
 	  gtk_signal_connect(GTK_OBJECT(item), "event", (GtkSignalFunc) item_event, NULL);
-	  
+
 	  /* Display the value for this target */
 	  tmpstr = g_strdup_printf("%d",
 				   targetDefinition[gcomprisBoard->level-1].target_width_value[i*2+1]);
@@ -464,7 +460,7 @@ static GnomeCanvasItem *target_create_item(GnomeCanvasGroup *parent)
 					"fill_color", "white",
 					NULL);
 	  g_free(tmpstr);
-	  
+
 	  gtk_signal_connect(GTK_OBJECT(item), "event", (GtkSignalFunc) item_event, NULL);
 	}
     }
@@ -511,7 +507,7 @@ static void process_ok()
   guint answer_points = atoi(answer_string);
 
   if(answer_item) {
-    
+
     if(answer_points == user_points)
       {
 	gamewon = TRUE;
@@ -542,7 +538,7 @@ static void request_score()
   button_pixmap = gc_skin_pixmap_load("button_large2.png");
   gnome_canvas_item_new (boardRootItem,
 			 gnome_canvas_pixbuf_get_type (),
-			 "pixbuf",  button_pixmap, 
+			 "pixbuf",  button_pixmap,
 			 "x", x_offset,
 			 "y", y_offset,
 			 NULL);
@@ -604,7 +600,7 @@ static void animate_items()
 			 "x2", (double)animate_item_x + animate_item_size,
 			 "y2", (double)animate_item_y + animate_item_size,
 			 NULL);
-  
+
   if(animate_item_size>MIN_DART_SIZE)
     animate_item_size--;
 
@@ -624,7 +620,7 @@ static void animate_items()
 }
 
 /*
- * 
+ *
  */
 static void launch_dart(double item_x, double item_y)
 {
@@ -651,7 +647,7 @@ static void launch_dart(double item_x, double item_y)
     {
       request_score();
     }
-  
+
 }
 
 /* ==================================== */
@@ -659,7 +655,7 @@ static gint
 item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 {
   double item_x, item_y;
-  
+
   if(board_paused)
     return FALSE;
 
@@ -667,10 +663,10 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
   if(number_of_arrow == 0 || animate_item)
     return FALSE;
 
-  switch (event->type) 
+  switch (event->type)
     {
     case GDK_BUTTON_PRESS:
-      switch(event->button.button) 
+      switch(event->button.button)
 	{
 	case 1:
 	case 2:

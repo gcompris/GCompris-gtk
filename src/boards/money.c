@@ -17,10 +17,6 @@
  *   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  */
 
-#include <ctype.h>
-#include <math.h>
-#include <assert.h>
-
 #include "gcompris/gcompris.h"
 #include "money_widget.h"
 
@@ -266,7 +262,7 @@ static void money_next_level()
 	  money_widget_add(tux_money, MONEY_EURO_COIN_1E);
 	  money_widget_add(tux_money, MONEY_EURO_COIN_1E);
 	  break;
-	case 3: 
+	case 3:
 	  number_of_item = 2;
 	  min_price      = 20;
 	  max_price      = 30;
@@ -478,11 +474,11 @@ static void money_next_level()
     gnome_canvas_item_new ( boardRootItem,
 			    gnome_canvas_pixbuf_get_type (),
 			    "pixbuf", pixmap,
-			    "x", (double) (i*BOARDWIDTH)/(number_of_item+1) 
+			    "x", (double) (i*BOARDWIDTH)/(number_of_item+1)
 			    - gdk_pixbuf_get_width(pixmap)/2,
 			    "y", (double) 200,
 			    NULL);
-    
+
     /* Diplay the price */
     object_price  = (double) RAND(min_price/number_of_item, max_price/number_of_item);
 

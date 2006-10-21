@@ -273,7 +273,7 @@ static GnomeCanvasItem *fifteen_create_item(GnomeCanvasGroup *parent)
     case 2:
       scramble(board, 50);
       break;
-    case 3: 
+    case 3:
     case 4:
       scramble(board, 100);
       break;
@@ -283,7 +283,7 @@ static GnomeCanvasItem *fifteen_create_item(GnomeCanvasGroup *parent)
     default:
       scramble(board, 256);
     }
-      
+
   return NULL;
 }
 /* ==================================== */
@@ -352,7 +352,6 @@ get_piece_color (int piece)
 static gint
 piece_event (GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 {
-  GnomeCanvas *canvas;
   GnomeCanvasItem **board;
   GnomeCanvasItem *text;
   int num, pos, newpos;
@@ -360,8 +359,7 @@ piece_event (GnomeCanvasItem *item, GdkEvent *event, gpointer data)
   double dx = 0.0, dy = 0.0;
   int move;
 
-  canvas = GNOME_CANVAS(item->parent);
-  board = g_object_get_data (G_OBJECT (canvas), "board");
+  board = g_object_get_data (G_OBJECT (item->parent), "board");
   num = GPOINTER_TO_INT (g_object_get_data (G_OBJECT (item), "piece_num"));
   pos = GPOINTER_TO_INT (g_object_get_data (G_OBJECT (item), "piece_pos"));
   text = g_object_get_data (G_OBJECT (item), "text");

@@ -17,9 +17,6 @@
  *   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  */
 
-#include <ctype.h>
-#include <math.h>
-#include <assert.h>
 #include <string.h>
 
 #include "gcompris/gcompris.h"
@@ -330,7 +327,7 @@ static GnomeCanvasItem *erase_create_item(int layer)
   GnomeCanvasItem *item = NULL;
   GdkPixbuf *pixmap[MAX_LAYERS];
 
-  assert(layer<=MAX_LAYERS);
+  g_assert(layer<=MAX_LAYERS);
 
   boardRootItem = GNOME_CANVAS_GROUP(
 				     gnome_canvas_item_new (gnome_canvas_root(gcomprisBoard->canvas),

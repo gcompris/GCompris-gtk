@@ -17,9 +17,6 @@
  *   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  */
 
-#include <ctype.h>
-#include <assert.h>
-
 #include "gcompris/gcompris.h"
 
 #define DEG_TO_RAD(x) M_PI*(x)/180.0
@@ -953,7 +950,7 @@ static gboolean update_timeout_slow() {
 
   if(board_paused)
     return FALSE;
- 
+
   /* speed : don't reach instantly the ordered speed */
   if (speed_ordered != submarine_horizontal_speed) {
     submarine_horizontal_speed += (speed_ordered-submarine_horizontal_speed)/10.0;
@@ -1494,7 +1491,7 @@ static void submarine_explosion() {
   /* display the boken submarine */
   str = g_strdup_printf("%s/%s", gcomprisBoard->boarddir, "submarine-broken.png");
   pixmap = gc_pixmap_load(str);
-  gnome_canvas_item_set(submarine_item, 
+  gnome_canvas_item_set(submarine_item,
 			"pixbuf", pixmap,
 			NULL);
   g_free(str);

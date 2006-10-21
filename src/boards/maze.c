@@ -17,10 +17,6 @@
  *   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  */
 
-#include <ctype.h>
-#include <assert.h>
-#include <math.h>
-
 #include "gcompris/gcompris.h"
 
 #define SOUNDLISTFILE PACKAGE
@@ -47,7 +43,7 @@ static int position[MAX_BREEDTE*MAX_HOOGTE][2];
 
 static int ind=0;
 static int begin;
-static int end; 
+static int end;
 static int breedte=10;
 static int hoogte=20;
 static int cellsize=20;
@@ -191,7 +187,7 @@ static void start_board (GcomprisBoard *agcomprisBoard) {
     gcomprisBoard->disable_im_context = TRUE;
 
     img = gc_skin_image_get("gcompris-bg.jpg");
-    gc_set_background(gnome_canvas_root(gcomprisBoard->canvas), 
+    gc_set_background(gnome_canvas_root(gcomprisBoard->canvas),
 			    img);
     g_free(img);
     gcomprisBoard->level=1;
@@ -277,7 +273,7 @@ static void maze_next_level() {
   gamewon = FALSE;
   initMaze();
   generateMaze((rand()%breedte),(rand()%hoogte));
-  removeSet();	
+  removeSet();
   /* Try the next level */
   maze_create_item(gnome_canvas_root(gcomprisBoard->canvas));
   draw_background(wallgroup);
@@ -310,17 +306,17 @@ static void maze_next_level() {
 
   position[ind][0]=0;
   position[ind][1]=begin;
-  Maze[0][begin]=Maze[0][begin]+SET;	
+  Maze[0][begin]=Maze[0][begin]+SET;
   viewing_direction=EAST;
   threeDactive=FALSE;
-	
+
   if (gcomprisBoard->level==1) run_fast=FALSE;
   if (gcomprisBoard->level==4) run_fast=TRUE;
 
   update_tux(viewing_direction);
 
   if(!modeIs2D)
-    threeDdisplay(); 
+    threeDdisplay();
 
 }
 /* ======================================= */
@@ -331,20 +327,20 @@ static void setlevelproperties(){
       hoogte=4;
       cellsize=70;
       buffer=8;
-		
+
       board_border_x=(int) (BASE_X2-breedte*cellsize)/2;
       board_border_y=(int) (BASE_Y2-hoogte*cellsize)/2;
     }
   else if (gcomprisBoard->level==2)
     {
-		
+
       breedte=9;
       hoogte=6;
       cellsize=70;
       buffer=7;
       board_border_x=(int) (BASE_X2-breedte*cellsize)/2;
-      board_border_y=(int) (BASE_Y2-hoogte*cellsize)/2;		
-    }	
+      board_border_y=(int) (BASE_Y2-hoogte*cellsize)/2;
+    }
   else if (gcomprisBoard->level==3)
     {
       breedte=13;
@@ -352,8 +348,8 @@ static void setlevelproperties(){
       cellsize=60;
       buffer=6;
       board_border_x=(int) (BASE_X2-breedte*cellsize)/2;
-      board_border_y=(int) (BASE_Y2-hoogte*cellsize)/2;		
-    }	
+      board_border_y=(int) (BASE_Y2-hoogte*cellsize)/2;
+    }
   else if (gcomprisBoard->level==4)
     {
       breedte=17;
@@ -361,49 +357,49 @@ static void setlevelproperties(){
       cellsize=45;
       buffer=5;
       board_border_x=(int) (BASE_X2-breedte*cellsize)/2;
-      board_border_y=(int) (BASE_Y2-hoogte*cellsize)/2;		
+      board_border_y=(int) (BASE_Y2-hoogte*cellsize)/2;
     }
   else if (gcomprisBoard->level==5)
     {
       breedte=21;
       hoogte=12;
-      cellsize=35;		
+      cellsize=35;
       buffer=4;
       board_border_x=(int) (BASE_X2-breedte*cellsize)/2;
-      board_border_y=(int) (BASE_Y2-hoogte*cellsize)/2;		
+      board_border_y=(int) (BASE_Y2-hoogte*cellsize)/2;
     }
   else if (gcomprisBoard->level==6)
     {
       breedte=25;
       hoogte=14;
-      cellsize=30;		
+      cellsize=30;
       board_border_x=(int) (BASE_X2-breedte*cellsize)/2;
       board_border_y=(int) (BASE_Y2-hoogte*cellsize)/2;
-    }	
+    }
   else if (gcomprisBoard->level==7)
     {
       breedte=29;
       hoogte=16;
-      cellsize=25;		
+      cellsize=25;
       board_border_x=(int) (BASE_X2-breedte*cellsize)/2;
-      board_border_y=(int) (BASE_Y2-hoogte*cellsize)/2;		
-    }	
+      board_border_y=(int) (BASE_Y2-hoogte*cellsize)/2;
+    }
   else if (gcomprisBoard->level==8)
     {
       breedte=33;
       hoogte=18;
-      cellsize=23;		
+      cellsize=23;
       board_border_x=(int) (BASE_X2-breedte*cellsize)/2;
-      board_border_y=(int) (BASE_Y2-hoogte*cellsize)/2;		
-    }	
+      board_border_y=(int) (BASE_Y2-hoogte*cellsize)/2;
+    }
   else if (gcomprisBoard->level==9)
     {
       breedte=37;
       hoogte=20;
-      cellsize=20;		
+      cellsize=20;
       board_border_x=(int) (BASE_X2-breedte*cellsize)/2;
-      board_border_y=(int) (BASE_Y2-hoogte*cellsize)/2;		
-    }		
+      board_border_y=(int) (BASE_Y2-hoogte*cellsize)/2;
+    }
 }
 
 /*
@@ -422,7 +418,7 @@ static void repeat () {
     } else {
       gnome_canvas_item_show(GNOME_CANVAS_ITEM(wallgroup));
       /* Display a warning that you can't move there */
-      gnome_canvas_item_show(warning_item);      
+      gnome_canvas_item_show(warning_item);
       mapActive = TRUE;
     }
   }
@@ -440,7 +436,7 @@ static void repeat () {
     twoDdisplay();
     /* Display a warning that you can't move there */
     gnome_canvas_item_show(warning_item);
-    
+
   } else {
 
     pixmap = gc_skin_pixmap_load("maze-2d-bubble.png");
@@ -588,12 +584,12 @@ static GnomeCanvasItem *draw_image(GnomeCanvasGroup *group, int x,int y, GdkPixb
 
   item = gnome_canvas_item_new (group,
 				gnome_canvas_pixbuf_get_type (),
-				"pixbuf", pixmap, 
+				"pixbuf", pixmap,
 				"x",	(double)x1+buffer,
 				"y",	(double)y1+buffer,
 				"width",	(double)cellsize-buffer*2,
 				"height",(double)cellsize-buffer*2,
-				"width_set", TRUE, 
+				"width_set", TRUE,
 				"height_set", TRUE,
 				NULL);
 
@@ -629,7 +625,7 @@ static void draw_combined_rect(GnomeCanvasGroup *group, int x1,int y1,int x2,int
     }
   else if (y1==y2 && x1>x2)
     {
-      draw_a_rect(group,xx2+cellsize-buffer,yy2+buffer,xx1+buffer,yy1+cellsize-buffer,color);		
+      draw_a_rect(group,xx2+cellsize-buffer,yy2+buffer,xx1+buffer,yy1+cellsize-buffer,color);
     }
   else if (x1==x2 && y1<y2)
     {
@@ -660,7 +656,7 @@ static int check(int x,int y)
     return 1;
   else return 0;
 }
-    
+
 static int* isPossible(int x, int y)
 {
   int wall=Maze[x][y];
@@ -745,7 +741,7 @@ static void generateMaze(int x, int y)
 	    break;
 	  case WEST:
 	    Maze[x][y]&=~WEST;
-	    Maze[x-1][y]&=~EAST;		
+	    Maze[x-1][y]&=~EAST;
 	    generateMaze(x-1,y);
 	    break;
 	  case NORTH:
@@ -753,7 +749,7 @@ static void generateMaze(int x, int y)
 	    Maze[x][y-1]&=~SOUTH;
 	    generateMaze(x,y-1);
 	    break;
-		
+
 	  }
       po=isPossible(x,y);
     }
@@ -817,7 +813,7 @@ static void movePos(int x1, int y1, int x2,int y2, int richting)
 	    {
 
 	      if(position[i][0]==x2 && position[i][1]==y2)
-		{	
+		{
 		  bo=0;
 		  move_image(mazegroup,x2,y2,tuxitem);
 		  //					draw_rect(mazegroup,x2,y2,"blue");
@@ -829,8 +825,8 @@ static void movePos(int x1, int y1, int x2,int y2, int richting)
 		  draw_combined_rect(mazegroup,position[i-1][0],position[i-1][1],position[i][0],position[i][1],"red");
 		  ind--;
 		}
-				
-				
+
+
 	    }
 	}
       else
@@ -868,7 +864,7 @@ static guint available_direction(guint last_step)
 }
 
 static void one_step(guint richting)
-{	
+{
   update_tux(richting);
 
   switch (richting)
@@ -878,7 +874,7 @@ static void one_step(guint richting)
     case EAST: movePos(position[ind][0],position[ind][1],position[ind][0]+1,position[ind][1],richting);
       return;
     case NORTH: movePos(position[ind][0],position[ind][1],position[ind][0],position[ind][1]-1,richting);
-      return;	
+      return;
     case SOUTH: movePos(position[ind][0],position[ind][1],position[ind][0],position[ind][1]+1,richting);
       return;
     }
@@ -904,26 +900,26 @@ static gint key_press(guint keyval, gchar *commit_str, gchar *preedit_str)
 
       richting=WEST;
       break;
-    case GDK_Right: 
+    case GDK_Right:
       /* When In 3D Mode, can't move tux in the 2D mode */
       if(!modeIs2D || mapActive)
 	return TRUE;
 
-      richting=EAST; 
+      richting=EAST;
       break;
-    case GDK_Up: 
+    case GDK_Up:
       /* When In 3D Mode, can't move tux in the 2D mode */
       if(!modeIs2D || mapActive)
 	return TRUE;
 
-      richting=NORTH; 
+      richting=NORTH;
       break;
-    case GDK_Down: 
+    case GDK_Down:
       /* When In 3D Mode, can't move tux in the 2D mode */
       if(!modeIs2D || mapActive)
 	return TRUE;
 
-      richting=SOUTH; 
+      richting=SOUTH;
       break;
     case GDK_3:
     case GDK_space:
@@ -936,14 +932,14 @@ static gint key_press(guint keyval, gchar *commit_str, gchar *preedit_str)
 	} else {
 	  gnome_canvas_item_show(GNOME_CANVAS_ITEM(wallgroup));
 	  /* Display a warning that you can't move there */
-	  gnome_canvas_item_show(warning_item);      
+	  gnome_canvas_item_show(warning_item);
 	  mapActive = TRUE;
 	}
       }
-      
+
       /* switch to 3D only if allowed in the mode */
       if(!modeIs2D)
-	threeDdisplay(); 
+	threeDdisplay();
       return TRUE;
     default: return FALSE;
     }
@@ -954,7 +950,7 @@ static gint key_press(guint keyval, gchar *commit_str, gchar *preedit_str)
   /* run until we come to a fork, (make sure to stop on next level!) */
   while (run_fast && (richting=available_direction(richting))
 	 && gcomprisBoard->level==level)
-    {	
+    {
       one_step(richting);
       viewing_direction=richting;
     }
@@ -985,20 +981,20 @@ static gint key_press_2D_relative(guint keyval, gchar *commit_str, gchar *preedi
   guint richting=0,level=gcomprisBoard->level;
 
   switch (keyval)
-    {	
-    case GDK_Left: viewing_direction=TURN_LEFT(viewing_direction); 
+    {
+    case GDK_Left: viewing_direction=TURN_LEFT(viewing_direction);
       update_tux(viewing_direction);
       return TRUE;
       break;
-    case GDK_Right: viewing_direction=TURN_RIGHT(viewing_direction); 
+    case GDK_Right: viewing_direction=TURN_RIGHT(viewing_direction);
       update_tux(viewing_direction);
       return TRUE;
       break;
     case GDK_Up: one_step(viewing_direction);
       break;
-    case GDK_Down: 
-      viewing_direction=TURN_RIGHT(viewing_direction); 
-      viewing_direction=TURN_RIGHT(viewing_direction); 
+    case GDK_Down:
+      viewing_direction=TURN_RIGHT(viewing_direction);
+      viewing_direction=TURN_RIGHT(viewing_direction);
       update_tux(viewing_direction);
       break;
     default: return FALSE;
@@ -1009,7 +1005,7 @@ static gint key_press_2D_relative(guint keyval, gchar *commit_str, gchar *preedi
   /* run until we come to a fork, (make sure to stop on next level!) */
   while (run_fast && (richting=available_direction(richting))
 	 && gcomprisBoard->level==level)
-    {	
+    {
       one_step(richting);
       viewing_direction=richting;
     }
@@ -1018,24 +1014,24 @@ static gint key_press_2D_relative(guint keyval, gchar *commit_str, gchar *preedi
 }
 
 static gint key_press_3D(guint keyval, gchar *commit_str, gchar *preedit_str)
-{	
+{
   switch (keyval)
-    {	
-    case GDK_Left: viewing_direction=TURN_LEFT(viewing_direction); 
+    {
+    case GDK_Left: viewing_direction=TURN_LEFT(viewing_direction);
       break;
-    case GDK_Right: viewing_direction=TURN_RIGHT(viewing_direction); 
+    case GDK_Right: viewing_direction=TURN_RIGHT(viewing_direction);
       break;
     case GDK_Up: one_step(viewing_direction);
       break;
     case GDK_Down:
-      viewing_direction=TURN_RIGHT(viewing_direction); 
-      viewing_direction=TURN_RIGHT(viewing_direction); 
+      viewing_direction=TURN_RIGHT(viewing_direction);
+      viewing_direction=TURN_RIGHT(viewing_direction);
       update_tux(viewing_direction);
       break;
-    case GDK_2: 
-    case GDK_space: 
+    case GDK_2:
+    case GDK_space:
       /* Display a warning that you can't move there */
-      gnome_canvas_item_show(warning_item);      
+      gnome_canvas_item_show(warning_item);
       twoDdisplay();
       return TRUE;
     case GDK_E: case GDK_e: eye_pos_y+=0.1; if (eye_pos_y>0.9) eye_pos_y=0.9; break;
@@ -1117,7 +1113,7 @@ static gboolean is_wall2(struct vector viewpos, int viewdir)
   */
 
 /* rotate a vector by specified amount */
-/* this corresponds to multiplying with ( cos a, -sin a ) 
+/* this corresponds to multiplying with ( cos a, -sin a )
    ( sin a, cos a  )  */
 
 static struct vector vector_turn(struct vector v,int angle) /* 1=90deg, 2=180deg */
@@ -1150,7 +1146,7 @@ static struct vector invert_y(struct vector v)
    screen and the labyrinth are left handed systems (unlike
    classical vector algebra) */
 
-static gboolean is_visible(struct vector viewpos, int viewdir, 
+static gboolean is_visible(struct vector viewpos, int viewdir,
 			   struct vector distance, gboolean left_side, gboolean *is_exit)
 {  struct vector where=vector_add(viewpos,invert_y(vector_turn(distance,angle(viewdir,NORTH))));
  gint direction=left_side ? TURN_LEFT(viewdir) : viewdir;
@@ -1158,7 +1154,7 @@ static gboolean is_visible(struct vector viewpos, int viewdir,
  if (is_wall2(where,direction))
    return TRUE;
  if ((where.x==breedte-2 && direction==EAST && where.y==end)
-     || (where.x==breedte-1 
+     || (where.x==breedte-1
 	 && (where.y==end
 	     || (direction==NORTH && where.y==end+1)
 	     || (direction==SOUTH && where.y==end-1))))
@@ -1201,7 +1197,7 @@ static int dx_left(struct screenparam sp, int xmin, int dy, gboolean left_side)
   else return dx_left(sp,xmin,dy-1,FALSE)+1;
   }
  return (int)(floorf(inverse_transform(sp.pos.x, sp.screendist.x, xmin,
-				       dy, eye_pos_x, eye_pos_z)));   
+				       dy, eye_pos_x, eye_pos_z)));
 }
 
 /* rightmost wall which ('s left edge) is visible */
@@ -1216,7 +1212,7 @@ static int dx_right(struct screenparam sp, int xmax, int dy, gboolean left_side)
  return (int)(ceilf(inverse_transform(sp.pos.x, sp.screendist.x, xmax,
 				      dy, eye_pos_x, eye_pos_z))) - 1;
 }
- 
+
 static struct Trapez wall_coords(struct screenparam sp, struct vector distance, gboolean left_side)
 {  struct Trapez r;
 
@@ -1263,9 +1259,9 @@ static struct Trapez wall_coords(struct screenparam sp, struct vector distance, 
    r.y_right_bottom=r.y_left_bottom;
    }
  test:
- assert(r.x_left<=r.x_right);
- assert(r.y_left_top<=r.y_left_bottom);
- assert(r.y_right_top<=r.y_right_bottom);
+ g_assert(r.x_left<=r.x_right);
+ g_assert(r.y_left_top<=r.y_left_bottom);
+ g_assert(r.y_right_top<=r.y_right_bottom);
  return r;
 }
 
@@ -1287,11 +1283,11 @@ static struct Trapez Trapez_hide(const struct Trapez t, int xmin, int xmax)
    r.y_right_bottom=t.y_right_bottom - (t.x_right-xmax)*(t.y_right_bottom-t.y_left_bottom)
      /(t.x_right-t.x_left);
    }
- assert(r.x_left<=r.x_right);
- assert(xmin<=r.x_left);
- assert(r.x_right<=xmax);
- assert(r.y_left_top<=r.y_left_bottom);
- assert(r.y_right_top<=r.y_right_bottom);
+ g_assert(r.x_left<=r.x_right);
+ g_assert(xmin<=r.x_left);
+ g_assert(r.x_right<=xmax);
+ g_assert(r.y_left_top<=r.y_left_bottom);
+ g_assert(r.y_right_top<=r.y_right_bottom);
  return r;
 }
 
@@ -1301,7 +1297,7 @@ static const char *color(int dir)
  return "light grey";
 }
 
-static void gcDisplay(struct vector position, int viewdir, 
+static void gcDisplay(struct vector position, int viewdir,
 		    struct screenparam sp, int xmin, int xmax, int dy, gboolean left_wall)
 {  int dxl=dx_left(sp,xmin,dy,left_wall),
      dxr=dx_right(sp,xmax,dy,left_wall),
@@ -1322,7 +1318,7 @@ static void gcDisplay(struct vector position, int viewdir,
      // right of it ...
      xmin=t.x_right+1;
    }
-   
+
  i=1;
  is_exit=FALSE;
  if (dxr>=1) // seek from the middle right for a wall
@@ -1349,7 +1345,7 @@ static void gcDisplay(struct vector position, int viewdir,
 
 static void Display3(struct vector position, int viewdir,
 		     struct screenparam sp)
-{  gcDisplay(position, viewdir, sp, sp.pos.x-sp.size.x, sp.pos.x+sp.size.x, 
+{  gcDisplay(position, viewdir, sp, sp.pos.x-sp.size.x, sp.pos.x+sp.size.x,
 	   0, TRUE);
 }
 
@@ -1387,7 +1383,7 @@ static void twoDdisplay()
   gc_set_background(gnome_canvas_root(gcomprisBoard->canvas), fileskin);
   g_free(fileskin);
 
-  if (threedgroup) 
+  if (threedgroup)
     gnome_canvas_item_hide(GNOME_CANVAS_ITEM(threedgroup));
   gnome_canvas_item_show(GNOME_CANVAS_ITEM(boardRootItem));
   threeDactive=FALSE;
@@ -1428,6 +1424,6 @@ static void update_tux(gint direction)
 			     NULL);
       gdk_pixbuf_unref(pixmap);
     }
-	
+
 
 }

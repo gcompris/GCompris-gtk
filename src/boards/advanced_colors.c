@@ -17,8 +17,6 @@
  *   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  */
 
-#include <ctype.h>
-#include <assert.h>
 #include <string.h>
 
 /* libxml includes */
@@ -429,7 +427,7 @@ static void update_clock() {
 static void highlight_selected(int c) {
   int x, y;
 
-  assert(c>=0 && c<8);
+  g_assert(c>=0 && c<8);
 
   x = (X[c*2] + X[c*2+1]) /2;
   y = (Y[(int)(c/4)*2] + Y[(int)(c/4)*2+1]) /2;
@@ -451,7 +449,7 @@ static void init_xml()
 			     gcomprisBoard->boarddir,
 			     gcomprisBoard->level);
 
-  assert(read_xml_file(filename)== TRUE);
+  g_assert(read_xml_file(filename)== TRUE);
 
   g_free(filename);
 }
