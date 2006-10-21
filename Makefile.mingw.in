@@ -18,12 +18,14 @@ LIBXML2_TOP :=		/libxml2
 SDL_TOP :=		/sdl
 CANVAS_TOP :=		/gnomecanvas
 GNUCHESS_TOP :=		/gnuchess
+GNUCAP_TOP :=		/gnucap
 
 MAKENSIS := "/c/Program Files/NSIS/makensis.exe"
 
 # These will be copied in the win32-install-dir ready to be packaged.
 NEEDED_DLLS =		$(GNUCHESS_TOP)/bin/pthreadGC.dll \
 			$(GNUCHESS_TOP)/bin/libreadline.dll \
+			$(GNUCAP_TOP)/src/MSW/gnucap.exe \
 			$(GTK_TOP)/bin/gspawn-win32-helper.exe \
 			$(GNUCHESS_TOP)/bin/gnuchess.exe \
 			$(GNUWIN32_TOP)/bin/popt1.dll \
@@ -101,6 +103,10 @@ prepack:
 	cp -r $(GTK_TOP)/lib/gtk-2.0 $(GCOMPRIS_INSTALL_DIR)/lib
 	cp -r $(GTK_TOP)/lib/pango $(GCOMPRIS_INSTALL_DIR)/lib
 
+python:
+	cp tools/py2exe/gcompris.py $(GCOMPRIS_INSTALL_DIR)
+	cp tools/py2exe/setup.py $(GCOMPRIS_INSTALL_DIR)
+	cd $(GCOMPRIS_INSTALL_DIR);/c/Python24/python.exe setup.py py2exe;cp dist/library.zip python24.zip;cp dist/*.pyd .;rm -rf dist build;rm -f gcompris.py*;cd ..
 
 installer:
 	$(MAKENSIS) gcompris-installer.nsi
@@ -129,4 +135,4 @@ prep:
 	mkdir $(GCOMPRIS_INSTALL_DIR)/share/pixmaps
 	cp gcompris.png $(GCOMPRIS_INSTALL_DIR)/share/pixmaps
 	@echo "Create the file gcompris-win-prepack.tar.gz"
-	tar -czf gcompris-win-prepack.tar.gz win32-install-dir nsis
+	tar -czf gcompris-win-prepack.tar.gz win32-install-dir nsis tools

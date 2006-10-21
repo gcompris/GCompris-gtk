@@ -69,6 +69,7 @@ GNUCHESS_TOP :=		/gnuchess
 * run: make -f Makefile.mingw from gcompris's top-level directory.  This will take a long time.
 * run: make -f Makefile.mingw prepack to include all necessary libraries in the installer directory
 * run: make -f Makefile.mingw install to include the generated code in the installer directory
+* run: make -f Makefile.mingw python to created an embedded python interpreter
 
 the win32-install-dir should contain anything needed to run and package GCompris.
 

@@ -1,3 +1,112 @@
+	*** RELEASE 8.2BETA1 ***
+
+2006-10-22  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	- fixed all boards/Makefile.am, the transformation for i18n was not good enough
+	  and was breaking the game missing_letter.
+	- added support for py2exe on windows which allow us to create an embedded package
+	  with python, pygtk and pycairo all together
+	- cleanup in boards/* to replace assert by g_assert and remove uneeded includes.
+	- fixed awele to run on windows replace font "12x24" by "sans 12"
+
+	* INSTALL:
+	* Makefile.mingw.in:
+	* README.mingw:
+	* boards/Makefile.am:
+	* boards/advanced_colors/Makefile.am:
+	* boards/babymatch/Makefile.am:
+	* boards/babyshapes/Makefile.am:
+	* boards/chronos/Makefile.am:
+	* boards/doubleentry/Makefile.am:
+	* boards/geography/Makefile.am:
+	* boards/imageid/Makefile.am:
+	* boards/imagename/Makefile.am:
+	* boards/missing_letter/Makefile.am:
+	* boards/paintings/Makefile.am:
+	* boards/read_colors/Makefile.am:
+	* boards/scales/Makefile.am:
+	* src/boards/advanced_colors.c: (highlight_selected), (init_xml):
+	* src/boards/algebra_guesscount.c: (token_result),
+	(generate_numbers), (oper_char_to_pixmap_index), (item_event_num):
+	* src/boards/awele.c: (is_our_board), (set_level),
+	(awele_next_level), (awele_create_item), (game_won),
+	(initBoardGraphics), (to_computer), (buttonClick), (updateNbBeans),
+	(updateCapturedBeans):
+	* src/boards/canal_lock.c: (canal_lock_create_item), (move_boat),
+	(update_water), (toggle_lock), (animate_step), (hightlight),
+	(item_event):
+	* src/boards/chess.c:
+	* src/boards/click_on_letter.c: (sounds_are_fine),
+	(click_on_letter_create_item):
+	* src/boards/colors.c: (save_table), (conf_ok),
+	(colors_config_start), (start_board), (repeat),
+	(highlight_selected):
+	* src/boards/crane.c: (start_board), (set_level), (arrow_event),
+	(draw_arrow), (draw_redhands), (shuffle_list), (select_item):
+	* src/boards/enumerate.c: (key_press), (enumerate_next_level),
+	(enumerate_create_item), (item_event_focus), (item_event):
+	* src/boards/erase.c: (erase_create_item):
+	* src/boards/fifteen.c: (fifteen_create_item), (piece_event):
+	* src/boards/gletters.c: (level_set_score), (load_default_charset),
+	(end_board), (unichar_comp), (key_press), (gletters_next_level),
+	(gletters_move_item), (gletters_destroy_items),
+	(gletters_destroy_all_items), (gletters_move_items),
+	(gletters_create_item), (gletters_add_new_item),
+	(item_find_by_title), (save_table), (conf_ok),
+	(gletter_config_start):
+	* src/boards/hanoi.c: (hanoi_next_level),
+	(hanoi_destroy_all_items), (dump_solution), (hanoi_create_item),
+	(item_event):
+	* src/boards/hanoi_real.c: (hanoi_destroy_all_items),
+	(dump_solution), (hanoi_create_item), (item_event):
+	* src/boards/imageid.c: (start_board), (end_board),
+	(imageid_create_item), (item_event), (init_xml), (save_table),
+	(conf_ok), (config_start):
+	* src/boards/leftright.c: (start_board), (item_event):
+	* src/boards/machpuzzle.c: (item_event), (create_machine_item),
+	(rectangle_in), (minigolf_move):
+	* src/boards/maze.c: (start_board), (maze_next_level),
+	(setlevelproperties), (repeat), (draw_image), (draw_combined_rect),
+	(generateMaze), (movePos), (one_step), (key_press),
+	(key_press_2D_relative), (key_press_3D), (is_visible), (dx_left),
+	(wall_coords), (Trapez_hide), (gcDisplay), (Display3),
+	(twoDdisplay), (update_tux):
+	* src/boards/memory.c: (get_random_token), (pause_board),
+	(start_board), (memory_next_level), (memory_destroy_all_items),
+	(get_image), (create_item), (hide_card), (check_win), (item_event),
+	(tux_play):
+	* src/boards/missingletter.c: (start_board),
+	(missing_letter_create_item), (item_event), (init_xml),
+	(add_xml_data), (save_table), (conf_ok), (config_start):
+	* src/boards/money.c: (money_next_level):
+	* src/boards/python.c: (pythonboard_is_our_board):
+	* src/boards/python/anim.py:
+	* src/boards/python/tuxpaint.py:
+	* src/boards/railroad.c: (start_board), (railroad_next_level),
+	(railroad_create_item):
+	* src/boards/read_colors.c: (highlight_selected), (init_xml):
+	* src/boards/reading.c: (display_what_to_do),
+	(reading_create_item):
+	* src/boards/reversecount.c:
+	* src/boards/shapegame.c: (is_our_board):
+	* src/boards/submarine.c: (update_timeout_slow),
+	(submarine_explosion):
+	* src/boards/superbrain.c: (superbrain_next_level),
+	(superbrain_create_item), (item_event), (mark_pieces):
+	* src/boards/target.c: (key_press), (target_create_item),
+	(process_ok), (request_score), (animate_items), (launch_dart),
+	(item_event):
+	* src/boards/traffic.c: (start_board), (car_cb), (cars_from_strv):
+	* src/boards/wordprocessor.c:
+	* src/boards/wordsgame.c: (key_press), (wordsgame_move_items),
+	(wordsgame_destroy_items), (wordsgame_add_new_item), (player_win):
+	* src/gcompris/Makefile.am:
+	* src/gcompris/Makefile.mingw:
+	* src/gcompris/menu.c: (gc_menu_board_free):
+	* tools/py2exe/README:
+	* tools/py2exe/gcompris.py:
+	* tools/py2exe/setup.py:
+
 2006-10-20  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	- Unexistant font on windows in gartoon/skin.xml makes it unstable.
