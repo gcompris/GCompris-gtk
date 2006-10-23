@@ -1,3 +1,16 @@
+2006-10-23  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	- more fixes for the windows install procedure
+	- connect4 has been fixed by Miguel to better manage the
+	  party end.
+
+	* Makefile.mingw.in:
+	* boards/connect4/back.png: one pixel fix
+	* configure.in:
+	* gcompris-installer.nsi.in:
+	* src/boards/python/connect4.py:
+	* tools/py2exe/setup.py:
+
 	*** RELEASE 8.2BETA1 ***
 
 2006-10-22  Bruno coudoin  <bruno.coudoin@free.fr>

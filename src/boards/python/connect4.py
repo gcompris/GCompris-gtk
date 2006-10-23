@@ -47,11 +47,9 @@ class Gcompris_connect4:
 
 
   def __init__(self, gcomprisBoard):
-    print("Gcompris_connect4 __init__.")
     self.gcomprisBoard = gcomprisBoard
 
   def start(self):
-    print "Gcompris_connect4_start."
     self.boardSize = 490.0
     self.nbColumns = 7
     self.nbLines = 6
@@ -69,6 +67,7 @@ class Gcompris_connect4:
     self.gcomprisBoard.maxlevel=9
     self.gcomprisBoard.sublevel=1
     self.gcomprisBoard.number_of_sublevel=1
+    self.winnercall = None
     gcompris.bar_set(gcompris.BAR_LEVEL)
     gcompris.bar_set_level(self.gcomprisBoard)
 
@@ -111,7 +110,6 @@ class Gcompris_connect4:
     self.newGame()
 
   def end(self):
-    print "Gcompris_connect4 end."
     if self.timerAnim:
       gtk.timeout_remove(self.timerAnim)
     if self.timerMachine:
@@ -125,31 +123,28 @@ class Gcompris_connect4:
 
 
   def ok(self):
-    print("Gcompris_connect4 ok.")
+    pass
 
   def repeat(self):
-    print("Gcompris_connect4 repeat.", self.humanVictory)
     if self.humanVictory >= self.maxVictory:
       if self.gcomprisBoard.level < self.maxLevel:
         self.set_level(self.gcomprisBoard.level+1)
       else:
-        print "Level max is reached!"
         self.end()
         gcompris.end_board()
     else:
       self.newGame()
 
   def config(self):
-    print("Gcompris_connect4 config.")
+    pass
 
 
   def key_press(self, keyval, commit_str, preedit_str):
-    print("Gcompris_connect4 key press. %i" % keyval)
     self.timericon.gnomecanvas.hide()
     return False
 
   def pause(self, pause):
-    print("Gcompris_connect4 pause.")
+    pass
 
   # Called by gcompris when the user click on the level icon
   def set_level(self, level):
@@ -177,6 +172,7 @@ class Gcompris_connect4:
     self.player2 = minmax.MinMax(self.gcomprisBoard.level, self.refreshScreen)
     self.board = board.Board()
     self.gamewon = False
+    self.machineHasPlayed = True
     self.winLine = None
     try:
       del self.redLine
@@ -189,11 +185,10 @@ class Gcompris_connect4:
     if event.type == gtk.gdk.BUTTON_PRESS:
       if event.button == 1 and self.gamewon == False and self.machineHasPlayed:
         column = int((event.x - (gcompris.BOARD_WIDTH-self.boardSize)/2.0) // self.stoneSize)
-        #print "columnItemEvent", column
         if not (column < 0 or column > (self.nbColumns-1)):
           gcompris.bar_hide(True)
           if self.play(self.player1, 1, column):
-            if self.gamewon == False:
+            if self.winnercall == None:
               self.timericon.gnomecanvas.show()
               self.endAnimCallback = self.machinePlay
               self.machineHasPlayed = False
@@ -207,9 +202,9 @@ class Gcompris_connect4:
       self.machinePlay()
 
   def machinePlay(self):
-    print "ai starts"
+    # ai starts
     self.play(self.player2, 2, 0)
-    print "ai ends"
+    # ai ends
     self.timericon.gnomecanvas.hide()
     self.prof.hide()
     self.endAnimCallback = self.machinePlayed
@@ -232,9 +227,9 @@ class Gcompris_connect4:
       self.winLine = rules.isWinner(self.board, numPlayer)
 
       if self.winLine:
-        self.winner(numPlayer)
+        self.winnercall = lambda : self.winner(numPlayer)
       elif rules.isBoardFull(self.board):
-        self.winner(0)
+        self.winnercall = lambda : self.winner(0)
       return True
 
     gcompris.bar_hide(False)
@@ -264,12 +259,15 @@ class Gcompris_connect4:
       self.stone.set_property('y', y + (self.boardSize/self.nbColumns))
       self.timerAnim = gtk.timeout_add(200, self.animTimer)
     else:
+      if self.winnercall:
+        self.winnercall()
+        self.winnercall=None
+        self.endAnimCallback=None
       if self.endAnimCallback:
         self.endAnimCallback()
 
   def winner(self, player):
     self.gamewon = True
-    print 'The winner is:', player
 
     # It's a draw, no line to draw
     if player == 0:

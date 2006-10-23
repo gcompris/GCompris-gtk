@@ -9,7 +9,6 @@ setup(
     windows = [
                   {
                       'script': 'gcompris.py',
-                      'icon_resources': [(1, "gcompris.ico")],
                   }
               ],
 

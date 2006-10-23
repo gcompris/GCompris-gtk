@@ -216,6 +216,15 @@ Section -SecUninstallOldGcompris
         ; Check if we have uninstall string..
         IfFileExists $R3 0 uninstall_problem
           ; Have uninstall string.. go ahead and uninstall.
+
+	  ; In this case just wipe out previous Gcompris install dir..
+	  ; We get here because versions 0.60a1 and 0.60a2 don't have versions set in the registry
+	  ; and versions 0.60 and lower did not correctly set the uninstall reg string
+	  ; (the string was set in quotes)
+          MessageBox MB_YESNO $(GCOMPRIS_PROMPT_WIPEOUT) IDYES do_wipeout IDNO cancel_install
+          cancel_install:
+            Quit
+
           SetOverwrite on
           ; Need to copy uninstaller outside of the install dir
           ClearErrors
@@ -239,9 +248,7 @@ Section -SecUninstallOldGcompris
 	  ; and versions 0.60 and lower did not correctly set the uninstall reg string
 	  ; (the string was set in quotes)
           IfSilent do_wipeout
-          MessageBox MB_YESNO $(GCOMPRIS_PROMPT_WIPEOUT) IDYES do_wipeout IDNO cancel_install
-          cancel_install:
-            Quit
+          MessageBox MB_YESNO "Uninstall previous version?" IDYES do_wipeout IDNO done
 
           do_wipeout:
             StrCmp $R0 "HKLM" gcompris_del_lm_reg gcompris_del_cu_reg
@@ -379,9 +386,62 @@ Section Uninstall
     RMDir /r "$INSTDIR\share"
     Delete "$INSTDIR\gcompris.exe"
     Delete "$INSTDIR\${GCOMPRIS_UNINST_EXE}"
+    Delete "$INSTDIR\COPYING"
+    Delete "$INSTDIR\Changelog"
+    Delete "$INSTDIR\README"
+    Delete "$INSTDIR\SDL.dll"
+    Delete "$INSTDIR\SDL_mixer.dll"
+    Delete "$INSTDIR\_cairo.pyd"
+    Delete "$INSTDIR\_gtk.pyd"
+    Delete "$INSTDIR\_socket.pyd"
+    Delete "$INSTDIR\_ssl.pyd"
+    Delete "$INSTDIR\_tkinter.pyd"
+    Delete "$INSTDIR\atk.pyd"
+    Delete "$INSTDIR\bz2.pyd"
+    Delete "$INSTDIR\freetype6.dll"
+    Delete "$INSTDIR\gnucap.exe"
+    Delete "$INSTDIR\gnuchess.exe"
+    Delete "$INSTDIR\gobject.pyd"
+    Delete "$INSTDIR\gspawn-win32-helper.exe"
+    Delete "$INSTDIR\iconv.dll"
+    Delete "$INSTDIR\intl.dll"
+    Delete "$INSTDIR\jpeg62.dll"
+    Delete "$INSTDIR\libart_lgpl_2-2.dll"
+    Delete "$INSTDIR\libatk-1.0-0.dll"
+    Delete "$INSTDIR\libcairo-2.dll"
+    Delete "$INSTDIR\libfontconfig-1.dll"
+    Delete "$INSTDIR\libgdk-win32-2.0-0.dll"
+    Delete "$INSTDIR\libgdk_pixbuf-2.0-0.dll"
+    Delete "$INSTDIR\libglib-2.0-0.dll"
+    Delete "$INSTDIR\libgmodule-2.0-0.dll"
+    Delete "$INSTDIR\libgnomecanvas-2-0.dll"
+    Delete "$INSTDIR\libgobject-2.0-0.dll"
+    Delete "$INSTDIR\libgthread-2.0-0.dll"
+    Delete "$INSTDIR\libgtk-win32-2.0-0.dll"
+    Delete "$INSTDIR\libiconv-2.dll"
+    Delete "$INSTDIR\libintl-2.dll"
+    Delete "$INSTDIR\libpango-1.0-0.dll"
+    Delete "$INSTDIR\libpangocairo-1.0-0.dll"
+    Delete "$INSTDIR\libpangoft2-1.0-0.dll"
+    Delete "$INSTDIR\libpangowin32-1.0-0.dll"
+    Delete "$INSTDIR\libpng13.dll"
+    Delete "$INSTDIR\libreadline.dll"
+    Delete "$INSTDIR\libxml2.dll"
+    Delete "$INSTDIR\pango.pyd"
+    Delete "$INSTDIR\pangocairo.pyd"
+    Delete "$INSTDIR\popt1.dll"
+    Delete "$INSTDIR\pthreadGC.dll"
+    Delete "$INSTDIR\python24.zip"
+    Delete "$INSTDIR\select.pyd"
+    Delete "$INSTDIR\setup.py"
+    Delete "$INSTDIR\unicodedata.pyd"
+    Delete "$INSTDIR\xmlparse.dll"
+    Delete "$INSTDIR\xmltok.dll"
+    Delete "$INSTDIR\zlib.pyd"
+    Delete "$INSTDIR\zlib1.dll"
 
     ;Try to remove Gcompris install dir .. if empty
-    RMDir /r "$INSTDIR"
+    RMDir "$INSTDIR"
 
     ; Shortcuts..
     RMDir /r "$SMPROGRAMS\Gcompris"
