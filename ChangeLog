@@ -1,3 +1,33 @@
+2006-10-24  Yves Combe  <yves@ycombe.net>
+
+	autotools croos compilation with mingw32
+	use glib headers instead of glibc (g_mkdir, g_unlink, g_stat)
+	NEED MORE WORK. cvs maybe broken now.
+
+	* Makefile.am:
+	* acinclude.m4:
+	* configure.in:
+	* cross-configure.sh: script to run configure. Look variables. 
+	* po/Makefile.in.in:
+	* src/boards/Makefile.am:
+	* src/boards/gtans.c:
+	* src/boards/gtans_support.c: (check_file_exists):
+	* src/boards/py-mod-gcompris.c: (py_gcompris_child_watch_add),
+	(py_gcompris_spawn_async):
+	* src/gcompris/Makefile.am:
+	* src/gcompris/binreloc.c: (_br_find_exe):
+	* src/gcompris/board.c:
+	* src/gcompris/board.h:
+	* src/gcompris/file_selector.c: (parse_doc):
+	* src/gcompris/gameutil.c: (gc_util_create_rootdir):
+	* src/gcompris/gcompris.c: (activation_done), (gc_init):
+	* src/gcompris/gcompris_db.c: (gc_db_init):
+	* src/gcompris/images_selector.c: (parse_doc):
+	* src/gcompris/menu.c: (gc_menu_load):
+	* src/gcompris/properties.c: (gc_prop_new):
+	* src/gcompris/sdlplayer.c: (errorv):
+	* src/gcompris/soundutil.c:
+
 2006-10-23  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	- more fixes for the windows install procedure

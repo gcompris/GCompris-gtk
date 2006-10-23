@@ -784,7 +784,7 @@ parse_doc(xmlDocPtr doc) {
 
   cur = xmlDocGetRootElement(doc);
   if (cur == NULL) {
-    fprintf(stderr,"empty document\n");
+    g_warning("empty document\n");
     xmlFreeDoc(doc);
     return;
   }

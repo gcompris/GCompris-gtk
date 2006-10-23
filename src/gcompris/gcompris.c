@@ -60,7 +60,7 @@ void gc_terminate(int signum);
 /*
  * For the Activation dialog
  */
-#ifdef WIN32
+#ifdef STATIC_MODULE
   /* List of keycodes */
   gchar *keycode[] =
     {
@@ -798,7 +798,7 @@ static void setup_window ()
 
 }
 
-#ifdef WIN32
+#ifdef STATIC_MODULE
 extern int gc_board_number_in_demo;
 /** Display the activation dialog for the windows version
  *
@@ -903,7 +903,7 @@ activation_done()
       (strcmp((char *)gtk_entry_get_text(GTK_ENTRY(widget_activation_entry)), "GOOD") != 0) &&
       (strcmp((char *)gtk_entry_get_text(GTK_ENTRY(widget_activation_entry)), "WRONG") != 0))
     {
-      activation_enter_callback(widget_activation_entry, NULL);
+      activation_enter_callback(GTK_WIDGET(widget_activation_entry), NULL);
     }
 
   gc_board_play(properties->menu_board);
@@ -1633,10 +1633,10 @@ gc_init (int argc, char *argv[])
 
   if(popt_web_only) {
     g_free(properties->package_data_dir);
-    properties->package_data_dir = g_strdup("");
+    properties->package_data_dir = "";
 
     g_free(properties->system_icon_dir);
-    properties->system_icon_dir = g_strdup("");
+    properties->system_icon_dir = "";
   }
 
   if (popt_server){

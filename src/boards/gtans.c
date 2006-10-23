@@ -20,19 +20,11 @@
 
 #include "gcompris/gcompris.h"
 
-#include <math.h>
-#include <stdio.h>
 #include <string.h>
 
 /* Added by Florian Ernst <florian_ernst@gmx.net> for lines 193 and 194 */
 //#include <string.h>
 /* End of added section */
-
-/* uniquement pour mkdir() */
-#include <sys/stat.h>
-#include <sys/types.h>
-#include <fcntl.h>
-#include <unistd.h> 
 
 #include "gtans.h"
 #include "gtans_interface.h"

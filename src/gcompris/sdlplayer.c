@@ -46,15 +46,15 @@ static gboolean sound_paused = FALSE;
 
 void errorv(char *str, va_list ap)
 {
-  vfprintf(stderr,str,ap);
+  //vfprintf(stderr,str,ap);
 
   if(strcmp(Mix_GetError(), "Unrecognized file type (not VOC)")==0) {
-    fprintf(stderr,"*** You need a version of \"SDL_mixer\" with OGG Vorbis supported ***\n");
+    g_warning("*** You need a version of \"SDL_mixer\" with OGG Vorbis supported ***\n");
     exit(EXIT_FAILURE);
   }
 
-  fprintf(stderr,": %s.\n", Mix_GetError());
-  fprintf(stderr,": %s.\n", SDL_GetError());
+  g_warning(": %s.\n", Mix_GetError());
+  g_warning(": %s.\n", SDL_GetError());
 
 }
 

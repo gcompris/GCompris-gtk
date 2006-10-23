@@ -128,7 +128,7 @@ gc_prop_new ()
   GScanner      *scanner;
   int		 filefd;
   gchar         *full_rootdir;
-  const gchar   *locale;
+  //const gchar   *locale;
   gchar         *user_dir;
 
   tmp = (GcomprisProperties *) malloc (sizeof (GcomprisProperties));
