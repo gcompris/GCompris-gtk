@@ -1,5 +1,11 @@
 2006-10-24  Yves Combe  <yves@ycombe.net>
 
+	Fix in non WIN32.
+
+	* src/gcompris/properties.c: (gc_prop_new):
+
+2006-10-24  Yves Combe  <yves@ycombe.net>
+
 	autotools croos compilation with mingw32
 	use glib headers instead of glibc (g_mkdir, g_unlink, g_stat)
 	NEED MORE WORK. cvs maybe broken now.

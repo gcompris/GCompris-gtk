@@ -128,7 +128,9 @@ gc_prop_new ()
   GScanner      *scanner;
   int		 filefd;
   gchar         *full_rootdir;
-  //const gchar   *locale;
+#ifndef WIN32
+  const gchar   *locale;
+#endif
   gchar         *user_dir;
 
   tmp = (GcomprisProperties *) malloc (sizeof (GcomprisProperties));
