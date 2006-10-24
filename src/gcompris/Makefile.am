@@ -27,25 +27,6 @@ endif
 #cairo_c =
 #endif
 
-if PLATFORM_WIN32
-no_undefined = -no-undefined
-shared = -shared
-else
-no_undefined =
-shared =
-endif
-
-if OS_WIN32
-install-libtool-import-lib:
-	$(INSTALL) .libs/libgcompris-1.dll.a $(DESTDIR)$(libdir)
-
-uninstall-libtool-import-lib:
-	-rm $(DESTDIR)$(libdir)/libgcompris-1.dll.a
-else
-install-libtool-import-lib:
-uninstall-libtool-import-lib:
-endif
-
 bin_PROGRAMS = gcompris
 
 INCLUDES = \
@@ -64,15 +45,16 @@ gcompris_SOURCES = \
 	main.c
 
 gcompris_LDFLAGS = \
-	-export-dynamic $(python_ldflags) $(cairo_ldflags)
+	-export-dynamic $(python_ldflags) $(SDL_LIBS) $(cairo_ldflags)
 
 
 gcompris_LDADD = \
-	$(top_builddir)/src/gcompris/libgcompris-1.la \
 	$(LIBICONV)		\
         $(INTLLIBS) \
 	$(python_ldadd) \
+	$(top_builddir)/src/gcompris/libgcompris-1.la \
 	$(LIBPOPT)
+
 
 #
 # Gcompris library
@@ -80,9 +62,9 @@ gcompris_LDADD = \
 lib_LTLIBRARIES = libgcompris-1.la
 
 libgcompris_1_la_LIBADD = \
-	$(GCOMPRIS_LIBS) $(sqlite_ldadd) $(XML_LIBS) $(GNET_LIBS) $(SDL_LIBS)
+	$(GCOMPRIS_LIBS) $(sqlite_ldadd) $(XML_LIBS) $(GNET_LIBS)
 
-libgcompris_1_la_LDFLAGS = $(shared) $(no_undefined) \
+libgcompris_1_la_LDFLAGS = $(no_undefined) \
 	-version-info $(LIBGCOMPRIS_CURRENT):$(LIBGCOMPRIS_REVISION):$(LIBGCOMPRIS_AGE)
 
 libgcomprisincludedir = $(includedir)/libgcompris-1.0/libgcompris
@@ -181,10 +163,6 @@ dist-hook:
 	for file in $(DONT_DIST_SOURCE) ; do \
 	    rm -f $(distdir)/$$file ; \
 	done
-
-install-data-local: install-libtool-import-lib
-
-uninstall-local: uninstall-libtool-import-lib
 
 clean-local:
 	rm -f $(marshal_sources)

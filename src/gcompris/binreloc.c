@@ -17,6 +17,7 @@
 
 #ifdef ENABLE_BINRELOC
 	#include <sys/types.h>
+	#include <sys/stat.h>
 	#include <unistd.h>
 #endif /* ENABLE_BINRELOC */
 #include <glib/gstdio.h>
@@ -85,7 +86,7 @@ _br_find_exe (GbrInitError *error)
 
 		/* Check whether the symlink's target is also a symlink.
 		 * We want to get the final target. */
-		i = g_stat (path, &stat_buf);
+		i = stat (path, &stat_buf);
 		if (i == -1) {
 			/* Error. */
 			g_free (path2);

@@ -671,7 +671,7 @@ py_gcompris_child_watch_add(PyObject *unused, PyObject *args, PyObject *kwargs)
     static char *kwlist[] = { "pid", "function", "data", "priority", NULL };
     guint id;
     gint priority = G_PRIORITY_DEFAULT;
-    GPid pid;
+    int pid;
     PyObject *func, *user_data = NULL;
     struct _PyGChildData *child_data;
 
@@ -738,7 +738,7 @@ py_gcompris_spawn_async(PyObject *unused, PyObject *args, PyObject *kwargs)
     gint *standard_input, *standard_output, *standard_error;
     struct _PyGChildSetupData *callback_data = NULL;
     GError *error = NULL;
-    GPid child_pid = (GPid) -1;
+    GPid child_pid = -1;
     int len, i;
 
     if (!PyArg_ParseTupleAndKeywords(args, kwargs, "O|OsiOOOOO:gcompris.spawn_async",

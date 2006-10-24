@@ -1,11 +1,7 @@
 ## Process this file with automake to produce Makefile.in
 
-if !BUILD_MINGW32
 if TEXINFO
 DOCS_SUBDIR=docs
-else
-DOCS_SUBDIR=
-endif
 else
 DOCS_SUBDIR=
 endif
@@ -15,22 +11,12 @@ SUBDIRS = po src boards $(DOCS_SUBDIR) autopackage
 icondir=$(datadir)/pixmaps
 icon_DATA = gcompris.png gcompris-edit.png
 
-if BUILD_MINGW32
-Applicationsdir = $(datadir)/
-Applications_in_files =
-Applications_DATA =
-
-Menudir=$(prefix)
-Menu_DATA=
-
-else
 Applicationsdir = $(datadir)/applications/
 Applications_in_files = gcompris.desktop.in gcompris-edit.desktop.in
 Applications_DATA = gcompris.desktop gcompris-edit.desktop
 
 Menudir=$(prefix)/lib/menu
 Menu_DATA=gcompris
-endif
 
 @INTLTOOL_DESKTOP_RULE@
 

@@ -63,24 +63,10 @@ AM_PROG_LIBTOOL
 
 dnl Check for SDL
 SDL_VERSION=1.2.3
-
-cflags_previous=$CFLAGS
-libs_previous=$LIBS
-
-if test "x$SDL_CFLAGS" = "x" -o "x$SDL_LIBS" = "x" ; then
-  AM_PATH_SDL($SDL_VERSION,
+AM_PATH_SDL($SDL_VERSION,
             :,
 	    AC_MSG_ERROR([*** SDL version $SDL_VERSION not found!])
-  )
-else
-  AC_SUBST(SDL_CFLAGS)
-  AC_SUBST(SDL_LIBS)
-  echo "*** Not checking SDL. Using existing SDL_FLAGS and SDL_LIBS ***" 
-fi
-
-dnl RESTAURE PREVIOUSLY SET VALUES
-CFLAGS=$cflags_previous
-LIBS=$libs_previous
+)
 
 dnl GNOME2 GNOME_X_CHECKS
 AM_PATH_GLIB_2_0
@@ -228,55 +214,27 @@ dnl
 dnl === DIRECTORY DEFINITIONS ===
 dnl
 
-if test "x$platform_win32" = "xno" ; then
+dnl Set PACKAGE_LOCALE_DIR in config.h.
+AC_DEFINE_UNQUOTED(PACKAGE_LOCALE_DIR, "${myprefix}/${DATADIRNAME}/locale", [GCompris locale directory])
 
-  dnl Set PACKAGE_LOCALE_DIR in config.h.
-  AC_DEFINE_UNQUOTED(PACKAGE_LOCALE_DIR, "${myprefix}/${DATADIRNAME}/locale", [GCompris locale directory])
+dnl Set PACKAGE_DATA_DIR
+PACKAGE_DATA_DIR="boards"
+AC_SUBST(PACKAGE_DATA_DIR)
+AC_DEFINE_UNQUOTED(PACKAGE_DATA_DIR, "${myprefix}/${DATADIRNAME}", [GCompris data directory])
 
-  dnl Set PACKAGE_DATA_DIR
-  PACKAGE_DATA_DIR="boards"
-  AC_SUBST(PACKAGE_DATA_DIR)
-  AC_DEFINE_UNQUOTED(PACKAGE_DATA_DIR, "${myprefix}/${DATADIRNAME}", [GCompris data directory])
+dnl Set PACKAGE_HELP_DIR
+PACKAGE_HELP_DIR="${myprefix}/${DATADIRNAME}/${PACKAGE}/help"
+AC_SUBST(PACKAGE_HELP_DIR)
 
-  dnl Set PACKAGE_HELP_DIR
-  PACKAGE_HELP_DIR="${myprefix}/${DATADIRNAME}/${PACKAGE}/help"
-  AC_SUBST(PACKAGE_HELP_DIR)
+dnl Plugin Directory
+my_libdir=`eval echo "${libdir}"`
+AC_DEFINE_UNQUOTED(PACKAGE_CLIB_DIR, "${my_libdir}", [Gcompris plugins directory])
+plugindir=$libdir/gcompris
+AC_SUBST(plugindir)
 
-  dnl Plugin Directory
-  my_libdir=`eval echo "${libdir}"`
-  AC_DEFINE_UNQUOTED(PACKAGE_CLIB_DIR, "${my_libdir}", [Gcompris plugins directory])
-  plugindir=$libdir/gcompris
-  AC_SUBST(plugindir)
-
-  dnl Python plugin Directory
-  PYTHON_PLUGIN_DIR="${myprefix}/${DATADIRNAME}/${PACKAGE}/python"
-  AC_SUBST(PYTHON_PLUGIN_DIR)
-
-else
-  DATADIRNAME="share"
-
-  dnl Set PACKAGE_LOCALE_DIR in config.h for WINDOWS
-  AC_DEFINE_UNQUOTED(PACKAGE_LOCALE_DIR, "../${DATADIRNAME}/locale", [GCompris locale directory])
-
-  dnl Set PACKAGE_DATA_DIR
-  PACKAGE_DATA_DIR="boards"
-  AC_SUBST(PACKAGE_DATA_DIR)
-  AC_DEFINE_UNQUOTED(PACKAGE_DATA_DIR, "../${DATADIRNAME}", [GCompris data directory])
-
-  dnl Set PACKAGE_HELP_DIR
-  PACKAGE_HELP_DIR="${myprefix}/${DATADIRNAME}/gnome/help/gcompris"
-  AC_SUBST(PACKAGE_HELP_DIR)
-
-  dnl Plugin Directory
-  AC_DEFINE_UNQUOTED(PACKAGE_CLIB_DIR, "../${DATADIRNAME}", [Gcompris plugins directory])
-  plugindir=${myprefix}/${DATADIRNAME}/gcompris
-  AC_SUBST(plugindir)
-
-  dnl Python plugin Directory
-  PYTHON_PLUGIN_DIR="${myprefix}/${DATADIRNAME}/gcompris/python"
-  AC_SUBST(PYTHON_PLUGIN_DIR)
-
-fi
+dnl Python plugin Directory
+PYTHON_PLUGIN_DIR="${myprefix}/${DATADIRNAME}/${PACKAGE}/python"
+AC_SUBST(PYTHON_PLUGIN_DIR)
 
 dnl Test for gnuchess
 AC_PATH_PROG(GNUCHESS, gnuchess,no,[/usr/bin:/usr/games:/usr/local/bin:$PATH])
@@ -333,7 +291,6 @@ else
 if test x$python_path != xnot ; then
 PYTHON=$python_path
 fi
-
 AM_PATH_PYTHON(2.2)
 AM_CHECK_PYTHON_HEADERS( [build_python_plugin="yes"], [build_python_plugin="no"] )
 
@@ -381,11 +338,10 @@ else
     AC_MSG_WARN([py-build-only: Do not forget to install pygtk, pysqlite2])
   fi
 
-fi
-
-if test x$with_sqlite = xyes; then
+  if test x$with_sqlite = xyes; then
     PKG_CHECK_MODULES(SQLITE3, sqlite3,, AC_MSG_ERROR([*** SQLITE3 not found!]))
     AC_DEFINE([USE_SQLITE], 1,[SQLITE Database, Profiles are enabled])
+  fi
 fi
 
 AM_CONDITIONAL(USE_SQLITE, test x$with_sqlite = xyes)
@@ -495,31 +451,7 @@ AC_SUBST(VERSION_VOICES_SV)
 VERSION_VOICES_TR=1.0
 AC_SUBST(VERSION_VOICES_TR)
 
-dnl mingw32 specific stuff.
-dnl use libgw32c
-dnl define __GW32__ and WIN32
-
-# Check platform - see if WinMain needed:
-AC_MSG_CHECKING([for native Win32])
-case "$host" in
-  *-*-mingw*)
-    native_win32=yes
-    ;;
-  *)
-    native_win32=no
-    ;;
-esac
-AC_MSG_RESULT([$native_win32])
-
-AM_CONDITIONAL(BUILD_MINGW32, test "$native_win32" = yes)
-if test "$native_win32" = yes; then
-   LIBS="$LIBS -luuid -lole32 -lwsock32 -mno-cygwin -mms-bitfields -mwindows"
-   #CFLAGS="$CFLAGS -D__GW32__ -DWIN32 -I$CROSS_ROOT/include -I$CROSS_ROOT/include/glibc"
-   #CFLAGS="$CFLAGS -DWIN32"
-fi
-
 AC_SUBST(CFLAGS)
-AC_SUBST(LIBS)
 
 dnl Autoconf output
 AC_OUTPUT([ gcompris.spec

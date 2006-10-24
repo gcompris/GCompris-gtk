@@ -633,13 +633,8 @@ void gc_menu_load()
       int db = (gc_profile_get_current() ? TRUE: FALSE);
       properties->reread_menu = TRUE;
       gc_menu_load_dir(properties->package_data_dir, db);
-
-      /* use GTimeVal for portability */
       GDate *today = g_date_new();
-      GTimeVal now;
-
-      g_get_current_time (&now);
-      g_date_set_time_val (today, &now);
+      g_date_set_time (today, time (NULL));
 
       gchar date[11];
       g_date_strftime (date, 11, "%F", today);

@@ -20,11 +20,6 @@
 #include "string.h"
 #include <unistd.h>		/* sleep */
 
-/* sleep missing in mingw headers */
-#ifdef __GW32__
-extern unsigned int sleep (unsigned int __seconds);
-#endif
-
 #ifdef __APPLE__
 #   include <sys/types.h>
 #endif

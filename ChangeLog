@@ -1,10 +1,6 @@
 2006-10-24  Yves Combe  <yves@ycombe.net>
 
-	Fix in non WIN32.
-
-	* src/gcompris/properties.c: (gc_prop_new):
-
-2006-10-24  Yves Combe  <yves@ycombe.net>
+	=== WARNING THIS PATCH SET HAS BEEN REVERTED ===
 
 	autotools croos compilation with mingw32
 	use glib headers instead of glibc (g_mkdir, g_unlink, g_stat)
@@ -13,7 +9,7 @@
 	* Makefile.am:
 	* acinclude.m4:
 	* configure.in:
-	* cross-configure.sh: script to run configure. Look variables. 
+	* cross-configure.sh: script to run configure. Look variables.
 	* po/Makefile.in.in:
 	* src/boards/Makefile.am:
 	* src/boards/gtans.c:
@@ -33,6 +29,9 @@
 	* src/gcompris/properties.c: (gc_prop_new):
 	* src/gcompris/sdlplayer.c: (errorv):
 	* src/gcompris/soundutil.c:
+
+
+	*** RELEASE 8.2BETA2 ***
 
 2006-10-23  Bruno coudoin  <bruno.coudoin@free.fr>
 

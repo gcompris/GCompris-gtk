@@ -43,25 +43,18 @@ AC_DEFUN([AM_CHECK_PYTHON_HEADERS],
 [AC_REQUIRE([AM_PATH_PYTHON])
 AC_MSG_CHECKING(for headers required to compile python extensions)
 dnl deduce PYTHON_CFLAGS
+py_prefix=`$PYTHON -c "import sys; print sys.prefix"`
+py_exec_prefix=`$PYTHON -c "import sys; print sys.exec_prefix"`
+PYTHON_CFLAGS="-I${py_prefix}/include/python${PYTHON_VERSION}"
 
-if test  "x$PYTHON_CFLAGS" = "x"  ; then
-   py_prefix=`$PYTHON -c "import sys; print sys.prefix"`
-   py_exec_prefix=`$PYTHON -c "import sys; print sys.exec_prefix"`
+python_link=`$PYTHON -c "import distutils.sysconfig ; print distutils.sysconfig.get_config_var(\"LIBRARY\")" | sed -e "s%lib\(.*\)\.[[a-zA-Z]]*$%-l\1%"`
 
-   PYTHON_CFLAGS="-I${py_prefix}/include/python${PYTHON_VERSION}"
+python_libdir=`$PYTHON -c "import distutils.sysconfig ; print distutils.sysconfig.get_config_var(\"LIBDIR\")"`
 
+PYTHON_LIBS="-L${python_libdir} ${python_link}"
 
-   if test "$py_prefix" != "$py_exec_prefix"; then
-      PYTHON_CFLAGS="$PYTHON_CFLAGS -I${py_exec_prefix}/include/python${PYTHON_VERSION}"
-   fi
-fi
-
-if test  "x$PYTHON_LIBS" = "x" ; then
-   python_link=`$PYTHON -c "import distutils.sysconfig ; print distutils.sysconfig.get_config_var(\"LIBRARY\")" | sed -e "s%lib\(.*\)\.[[a-zA-Z]]*$%-l\1%"`
-
-   python_libdir=`$PYTHON -c "import distutils.sysconfig ; print distutils.sysconfig.get_config_var(\"LIBDIR\")"`
-
-   PYTHON_LIBS="-L${python_libdir} ${python_link}"
+if test "$py_prefix" != "$py_exec_prefix"; then
+  PYTHON_CFLAGS="$PYTHON_CFLAGS -I${py_exec_prefix}/include/python${PYTHON_VERSION}"
 fi
 
 AC_SUBST(PYTHON_CFLAGS)
