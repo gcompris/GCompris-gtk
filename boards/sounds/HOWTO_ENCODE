@@ -14,7 +14,7 @@ Provide here voice translation in boards/sounds/my for each english sounds.
 It is best to choose somebody that speaks and articulate well your language.
 
 - Record with rec, grecord, bcast2000, gnoise, audacity
-  (mono wav 16bit/44100cwHz gives the best quality/space ratio)
+  (mono wav 16bit/44100Hz gives the best quality/space ratio)
 
   44100Hz is MANDATORY. On some system with bad supported sound card
   other frequency lead to major troubles.
@@ -44,12 +44,14 @@ tar -cvzf sounds_my.tgz my
 
 4) Integration
    -----------
-Change all .assetml.in file to include the locale name
-Change all the Makefile.am to reflect that change
-Add all the new Makefile in the configure.in in the AC_OUTPUT section
-rerun at top level:
-sh autogen.sh
-make
-make install
-
+Nothing has to be done.
 Run gcompris in your locale and you should ear your voices.
+
+5) Checking
+   --------
+At top level, run:
+./tools/check_missing_voices.pl <locale>
+
+With for example locale being fr for French.
+
+
