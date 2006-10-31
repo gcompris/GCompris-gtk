@@ -1,5 +1,12 @@
 2006-10-31  Bruno Coudoin
 
+	- Fixed unaligned in the main menu the strategy icon
+
+	* boards/boardicons/strategy.png:
+	* src/boards/menu2.c: (create_panel):
+
+2006-10-31  Bruno Coudoin
+
 	* src/gcompris/gcompris.c: (gc_locale_set): Fixed non relative call to bindtextdomain(). It was breaking translation with autopackage.
 	Need to be tested.
 

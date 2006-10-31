@@ -91,9 +91,9 @@ static double icon_size, icon_size_panel, icon_size_top, top_arrow_size;
 
 static gdouble get_ratio(GdkPixbuf *pixmap, gdouble size);
 
-#define P_X 10
+#define P_X 0
 #define P_Y 10
-#define P_W 90
+#define P_W 80
 #define P_H 480
 
 #define T_X 175
@@ -315,7 +315,7 @@ static void create_panel(GnomeCanvasGroup *parent)
 				  "height", (gdouble) gdk_pixbuf_get_height(pixmap)*ratio,
 				  "width-set", TRUE,
 				  "height-set", TRUE,
-				  "anchor", GTK_ANCHOR_NORTH,
+				  "anchor", GTK_ANCHOR_NW,
 				  NULL);
 
     gdk_pixbuf_unref(pixmap);
