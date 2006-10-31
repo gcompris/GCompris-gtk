@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-10-24 15:55+0300\n"
-"PO-Revision-Date: 2006-10-24 16:05+0300\n"
+"POT-Creation-Date: 2006-10-31 07:03+0300\n"
+"PO-Revision-Date: 2006-10-31 07:02+0300\n"
 "Last-Translator: Ilkka Tuohela <hile@iki.fi>\n"
 "Language-Team: Finnish <gnome-fi-laatu@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
@@ -1202,8 +1202,7 @@ msgstr "Yhdistä neljä"
 msgid ""
 "Create a line of 4 pieces either horizontally (lying down) or vertically "
 "(standing up)"
-msgstr ""
-"Luo neljän kappaleen pituinen viiva joko pysty- tai vaakasuoraan"
+msgstr "Luo neljän kappaleen pituinen viiva joko pysty- tai vaakasuoraan"
 
 #: ../boards/connect4.xml.in.h:5
 msgid ""
@@ -2340,8 +2339,8 @@ msgid ""
 msgstr ""
 "Pelin tarkoitus on siirtää koko pino muuhun tappiin, noudattaen seuraavia "
 "sääntöjä:\n"
-" * vain yhtä kiekkoa saa siirtää kerrallaan" 
-" * kiekkoa ei voi laittaa pienemmän kiekon päälle"
+" * vain yhtä kiekkoa saa siirtää kerrallaan * kiekkoa ei voi laittaa "
+"pienemmän kiekon päälle"
 
 #: ../boards/hanoi_real.xml.in.h:8
 msgid ""
@@ -2739,6 +2738,10 @@ msgid ""
 "the hat to close it. You have to count how many are still under the hat. "
 "Click on the bottom right area to answer."
 msgstr ""
+"Katso taikuria, joka kertoo kuinka monta tähteä taikurin hatun alla on. Avaa "
+"tämän jälkeen hattu napsauttamalla sitä, jolloin muutamia tähtiä karkaa. "
+"Sulje hattu napsauttamalla sitä uudestaan. Sinun täytyy laskea kuinka monta "
+"tähteä hattuun jäi. Syötä vastauksesi alhaalla oikealla olevaan kohtaan."
 
 #: ../boards/magic_hat_minus.xml.in.h:4 ../boards/memory_add_minus.xml.in.h:3
 #: ../boards/memory_add_minus_tux.xml.in.h:3 ../boards/memory_minus.xml.in.h:2
@@ -2918,6 +2921,25 @@ msgid ""
 "disappear! When you've made them all disappear, found all the sums, you've "
 "won the game! :)"
 msgstr ""
+"Näet kortteja mutta et näe mitä niiden toisella puolella on. Kukin kortti "
+"piilottaa yhteenlaskun tai vastauksen yhteenlaskuun.\n"
+"Yhteenlasku näyttää tältä: 2 + 2 = 4\n"
+"Yhtäsuuruusmerkin (=) toisella puolella olevien lukujen täytyy olla yhtä "
+"suuret kuin toisella puolella: esimerkiksi 2 (1, 2) ja 2 lisää (3, 4) saa "
+"tulokseksi 4. Laske ääneen tehdessäsi tätä ja laske lisäksi sormillasi, "
+"koska mitä useammalla tavalla teet asian, sitä paremmin muistat sen. Voit "
+"myös käyttää palikoita tai nappeja laskemiseen, tai vaikka koulussasi olevia "
+"lapsia. Laske paljon eri asioita ja sinusta tulee oikein hyvä laskija!\n"
+"\n"
+"Tässä pelissä kortit piilottavat yhteenlaskun kaksi osaa. Sinun täytyy "
+"löytää yhteenlaskun eri osat ja liittää ne uudestaan yhteen. Näytä kortin "
+"piilottama luku napsauttamalla sitä ja yritä sen jälkeen löytää toinen "
+"kortti, jonka kanssa se muodostaa halutun tuloksen. Voit kääntää vain kaksi "
+"korttia kerrallaan, joten sinun täytyy muistaa mitä numeroita korteissa on "
+"ja yhdistää ne kun löydät toisen kortin. Toimit tässä yhtäsuuruusmerkkinä, "
+"ja numerot täytyy liittää oikein, jotta oikea yhteenlasku toteutuu. Kun olet "
+"löytänyt oikean korttiparin, katoavat molemmat kortit pöydältä. Olet "
+"voittanut pelin, kun kaikki kortit ovat kadonneet!"
 
 #: ../boards/memory_add_minus.xml.in.h:1
 msgid "Addition and subtraction memory game"
@@ -2959,6 +2981,19 @@ msgid ""
 "proper equality. When you do that, both those cards disappear! When you've "
 "made them all disappear, found all the operations, you've won the game! :)"
 msgstr ""
+"Näet kortteja mutta et näe mitä niiden toisella puolella on. Kukin kortti "
+"piilottaa laskutoimituksen tai vastauksen siihen.\n"
+"\n"
+"Tässä pelissä kortit piilottavat laskutoimituksen kaksi osaa. Sinun täytyy "
+"löytää laskutoimituksen molemmat osat ja liittää ne uudestaan yhteen. Näytä "
+"kortin piilottama luku napsauttamalla sitä ja yritä sen jälkeen löytää "
+"toinen kortti, jonka kanssa se muodostaa halutun laskutoimituksen. Voit "
+"kääntää vain kaksi korttia kerrallaan, joten sinun täytyy muistaa mitä "
+"numeroita korteissa on ja yhdistää ne kun löydät toisen kortin. Toimit tässä "
+"yhteenlaskumerkkinä, ja numerot täytyy liittää oikein, jotta oikea "
+"laskutoimitus toteutuu. Kun olet löytänyt oikean korttiparin, katoavat "
+"molemmat kortit pöydältä. Olet voittanut pelin, kun kaikki kortit ovat "
+"kadonneet!"
 
 #: ../boards/memory_add_minus_mult_div.xml.in.h:1
 #: ../boards/memory_add_minus_mult_div_tux.xml.in.h:1
@@ -3044,6 +3079,8 @@ msgid ""
 "Turn the cards over to find two numbers which subtract the same, until all "
 "the cards are gone."
 msgstr ""
+"Käännä kortit ympäri siten, että löydät kaksi korttia jotka vähennetään "
+"samaan lukuun. Jatka kunnes kortteja ei enää ole."
 
 #: ../boards/memory_minus.xml.in.h:5 ../boards/memory_minus_tux.xml.in.h:5
 msgid ""
@@ -3069,6 +3106,25 @@ msgid ""
 "proper sum. When you do that, both those cards disappear! When you've made "
 "them all disappear, found all the subtracts, you've won the game! :)"
 msgstr ""
+"Näet kortteja mutta et näe mitä niiden toisella puolella on. Kukin kortti "
+"piilottaa vähennyslaskun tai vastauksen vähennyslaskuun.\n"
+"Vähennyslasku näyttää tältä: 3 - 1 = 2\n"
+"Yhtäsuuruusmerkin (=) toisella puolella olevien lukujen täytyy olla yhtä "
+"suuret kuin toisella puolella: esimerkiksi 3 (1, 2, 3) ja 1 pois(1) saa "
+"tulokseksi 2. Laske ääneen tehdessäsi tätä ja laske lisäksi sormillasi, "
+"koska mitä useammalla tavalla teet asian, sitä paremmin muistat sen. Voit "
+"myös käyttää palikoita tai nappeja laskemiseen, tai vaikka koulussasi olevia "
+"lapsia. Laske paljon eri asioita ja sinusta tulee oikein hyvä laskija!\n"
+"\n"
+"Tässä pelissä kortit piilottavat vähennyslaskun kaksi osaa. Sinun täytyy "
+"löytää vähennyslaskun eri osat ja liittää ne uudestaan yhteen. Näytä kortin "
+"piilottama luku napsauttamalla sitä ja yritä sen jälkeen löytää toinen "
+"kortti, jonka kanssa se muodostaa halutun tuloksen. Voit kääntää vain kaksi "
+"korttia kerrallaan, joten sinun täytyy muistaa mitä numeroita korteissa on "
+"ja yhdistää ne kun löydät toisen kortin. Toimit tässä yhtäsuuruusmerkkinä, "
+"ja numerot täytyy liittää oikein, jotta oikea vähennyslasku toteutuu. Kun "
+"olet löytänyt oikean korttiparin, katoavat molemmat kortit pöydältä. Olet "
+"voittanut pelin, kun kaikki kortit ovat kadonneet!"
 
 #: ../boards/memory_minus_tux.xml.in.h:3
 msgid "Subtraction memory game against Tux"
@@ -3091,10 +3147,12 @@ msgid ""
 "Turn the cards over to find two numbers which multiply the same, until all "
 "the cards are gone."
 msgstr ""
+"Käännä kortit ympäri siten, että löydät kaksi korttia jotka kerrotaan samaan "
+"lukuun. Jatka kunnes kortteja ei enää ole."
 
 #: ../boards/memory_mult_div.xml.in.h:1
 msgid "Multiplication and division memory game"
-msgstr ""
+msgstr "Kerto- ja jakolaskun muistipeli"
 
 #: ../boards/memory_mult_div.xml.in.h:2
 #: ../boards/memory_mult_div_tux.xml.in.h:2
@@ -4349,8 +4407,8 @@ msgid ""
 "sorry!"
 msgstr ""
 "Virhe: tämä osan käyttö vaatii että asennat ensin\n"
-"paketit, joissa on gcomprisin äänet kielelle \"%s\"."
-"Käytetään sen sijasta englantia!"
+"paketit, joissa on gcomprisin äänet kielelle \"%s\".Käytetään sen sijasta "
+"englantia!"
 
 #. toggle box
 #: ../src/boards/click_on_letter.c:646 ../src/boards/gletters.c:898
@@ -5059,8 +5117,7 @@ msgstr ""
 #: ../src/boards/python/oscar_and_friends.py:117
 msgid ""
 "They were all happy that the storms never reached all the way down to them."
-msgstr ""
-"He olivat tyytyväisiä, etteivät myrskyt koskaan saavuttaneet heitä."
+msgstr "He olivat tyytyväisiä, etteivät myrskyt koskaan saavuttaneet heitä."
 
 #: ../src/boards/python/oscar_and_friends.py:118
 msgid ""
@@ -5362,7 +5419,7 @@ msgstr ""
 "mukaisesti"
 
 #: ../src/gcompris/about.c:334 ../src/gcompris/about.c:344
-#: ../src/gcompris/config.c:464 ../src/gcompris/config.c:474
+#: ../src/gcompris/config.c:465 ../src/gcompris/config.c:475
 #: ../src/gcompris/dialog.c:97 ../src/gcompris/help.c:376
 #: ../src/gcompris/help.c:386 ../src/gcompris/images_selector.c:317
 msgid "OK"
@@ -5559,67 +5616,71 @@ msgid "Slovenian"
 msgstr "Slovenia"
 
 #: ../src/gcompris/config.c:101
+msgid "Somali"
+msgstr "Somali"
+
+#: ../src/gcompris/config.c:102
 msgid "Albanian"
 msgstr "Albania"
 
-#: ../src/gcompris/config.c:102
+#: ../src/gcompris/config.c:103
 msgid "Serbian (Latin)"
 msgstr "Serbia (latinalaiset aakkoset)"
 
-#: ../src/gcompris/config.c:103
+#: ../src/gcompris/config.c:104
 msgid "Serbian"
 msgstr "Serbi"
 
-#: ../src/gcompris/config.c:104
+#: ../src/gcompris/config.c:105
 msgid "Swedish"
 msgstr "Ruotsi"
 
 #. "ta_IN.UTF-8",	N_("Tamil"),
-#: ../src/gcompris/config.c:106
+#: ../src/gcompris/config.c:107
 msgid "Thai"
 msgstr "Thai"
 
-#: ../src/gcompris/config.c:107
+#: ../src/gcompris/config.c:108
 msgid "Turkish"
 msgstr "Turkki"
 
-#: ../src/gcompris/config.c:108
+#: ../src/gcompris/config.c:109
 msgid "Vietnamese"
 msgstr "Vietnam"
 
-#: ../src/gcompris/config.c:109
+#: ../src/gcompris/config.c:110
 msgid "Walloon"
 msgstr "Belgian hollanti"
 
-#: ../src/gcompris/config.c:110
+#: ../src/gcompris/config.c:111
 msgid "Chinese (Simplified)"
 msgstr "Kiina (yksinkertaistettu)"
 
-#: ../src/gcompris/config.c:111
+#: ../src/gcompris/config.c:112
 msgid "Chinese (Traditional)"
 msgstr "Kiina (perinteinen)"
 
-#: ../src/gcompris/config.c:116
+#: ../src/gcompris/config.c:117
 msgid "No time limit"
 msgstr "Ei aikarajaa"
 
-#: ../src/gcompris/config.c:117
+#: ../src/gcompris/config.c:118
 msgid "Slow timer"
 msgstr "Hidas kello"
 
-#: ../src/gcompris/config.c:118
+#: ../src/gcompris/config.c:119
 msgid "Normal timer"
 msgstr "Normaali kello"
 
-#: ../src/gcompris/config.c:119
+#: ../src/gcompris/config.c:120
 msgid "Fast timer"
 msgstr "Nopea kello"
 
-#: ../src/gcompris/config.c:124
+#: ../src/gcompris/config.c:125
 msgid "800x600 (Default for gcompris)"
 msgstr "800x600 (Gcomprisin oletus)"
 
-#: ../src/gcompris/config.c:129
+#: ../src/gcompris/config.c:130
 msgid ""
 "<i>Use Gcompris administration module\n"
 "to filter boards</i>"
@@ -5627,38 +5688,38 @@ msgstr ""
 "<i>Käytä GComprisin hallintaosaa\n"
 "tehtävien rajaamiseen</i>"
 
-#: ../src/gcompris/config.c:184 ../src/gcompris/config.c:194
+#: ../src/gcompris/config.c:185 ../src/gcompris/config.c:195
 msgid "GCompris Configuration"
 msgstr "GComprisin asetukset"
 
-#: ../src/gcompris/config.c:270
+#: ../src/gcompris/config.c:271
 msgid "Fullscreen"
 msgstr "Kokoruututila"
 
-#: ../src/gcompris/config.c:313
+#: ../src/gcompris/config.c:314
 msgid "Music"
 msgstr "Musiikki"
 
-#: ../src/gcompris/config.c:341
+#: ../src/gcompris/config.c:342
 msgid "Effect"
 msgstr "Tehosteet"
 
-#: ../src/gcompris/config.c:377
+#: ../src/gcompris/config.c:378
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "Pixmap-hakemistoa %s ei voi avata"
 
-#: ../src/gcompris/config.c:408 ../src/gcompris/config.c:842
-#: ../src/gcompris/config.c:856
+#: ../src/gcompris/config.c:409 ../src/gcompris/config.c:843
+#: ../src/gcompris/config.c:857
 #, c-format
 msgid "Skin : %s"
 msgstr "Teema: %s"
 
-#: ../src/gcompris/config.c:410
+#: ../src/gcompris/config.c:411
 msgid "SKINS NOT FOUND"
 msgstr "TEEMOJA EI LÖYTYNYT"
 
-#: ../src/gcompris/config.c:535
+#: ../src/gcompris/config.c:536
 msgid "English (United State)"
 msgstr "Englanti (Yhdysvallat)"
 
@@ -5736,9 +5797,8 @@ msgid ""
 "activities in the reading directory, -l /strategy/connect4 only the connect4 "
 "activity)"
 msgstr ""
-"Suorita gcompris paikallisella valikolla, esimerkiksi -l /reading "
-"antaa pelata vain lukutehtäviä, -l /boards/connect4 vain "
-"connect4-tehtävää."
+"Suorita gcompris paikallisella valikolla, esimerkiksi -l /reading antaa "
+"pelata vain lukutehtäviä, -l /boards/connect4 vain connect4-tehtävää."
 
 #: ../src/gcompris/gcompris.c:169
 msgid "Run GCompris with local activity directory added to menu"
@@ -5806,20 +5866,21 @@ msgid ""
 "GCompris will get images, sounds and activity data from this server if not "
 "found locally."
 msgstr ""
-"GCompris hakee kuvat, äänet ja tehtävätiedot tältä palvelimelta, jos "
-"niitä ei löydy paikallisesti."
+"GCompris hakee kuvat, äänet ja tehtävätiedot tältä palvelimelta, jos niitä "
+"ei löydy paikallisesti."
 
 #: ../src/gcompris/gcompris.c:214
 msgid ""
 "Only when --server is provided, disable check for local resource first. Data "
 "are always taken from the web server."
 msgstr ""
+"Poista paikallisten resurssien tarkistus käytöstä vain kun --server on "
+"annettu. Tällöin tiedot haetaan aina www-palvelimelta."
 
 #: ../src/gcompris/gcompris.c:218
 msgid ""
 "In server mode, specify the cache directory used to avoid useless downloads."
-msgstr ""
-"Määrittele palvelintilassa käytettävän välimuistihakemiston sijainti."
+msgstr "Määrittele palvelintilassa käytettävän välimuistihakemiston sijainti."
 
 #: ../src/gcompris/gcompris.c:858
 #, c-format
