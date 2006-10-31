@@ -1196,7 +1196,7 @@ gc_locale_set(gchar *locale)
 
   /* This does update gettext translation uppon next gettext call */
   /* Call for localization startup */
-  bindtextdomain (GETTEXT_PACKAGE, PACKAGE_LOCALE_DIR);
+  bindtextdomain (GETTEXT_PACKAGE, properties->package_locale_dir);
   bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
   textdomain (GETTEXT_PACKAGE);
 

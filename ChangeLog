@@ -1,3 +1,8 @@
+2006-10-31  Bruno Coudoin
+
+	* src/gcompris/gcompris.c: (gc_locale_set): Fixed non relative call to bindtextdomain(). It was breaking translation with autopackage.
+	Need to be tested.
+
 2006-10-28 Bruno coudoin  <bruno.coudoin@free.fr>  
 
 	- Added support for Somali
