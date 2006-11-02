@@ -1,3 +1,19 @@
+2006-11-02  Bruno Coudoin
+
+	- new date system, untested.
+	- Now in clockgame hours and minutes turns to the next one
+	  or previous one when dragging
+	  http://bugzilla.gnome.org/show_bug.cgi?id=368549
+	- In shapegame, the green dot is now resseted properly
+	  when the item is no more in sight (reported by Joshua N Pritikin)
+	
+	* configure.in:
+	* src/boards/clockgame.c: (display_hour), (item_event):
+	* src/boards/shapegame.c: (item_event):
+	* src/gcompris/board.c: (gc_board_init), (gc_board_check_file):
+	* src/gcompris/gcompris.c: (gc_activation_check),
+	(activation_enter_callback):
+
 2006-10-31  Bruno Coudoin
 
 	- Fixed unaligned in the main menu the strategy icon

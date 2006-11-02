@@ -29,7 +29,7 @@ static struct BoardPluginData *bp_data;
 static gboolean	 get_board_playing(void);
 
 #ifdef WIN32
-extern gchar *keycode[];
+int gc_activation_check(char *code);
 extern BoardPlugin * get_advanced_colors_bplugin_info();
 extern BoardPlugin * get_algebra_bplugin_info();
 extern BoardPlugin * get_algebra_guesscount_bplugin_info();
@@ -176,7 +176,7 @@ void gc_board_init(void)
 void gc_board_init(void)
 {
 
-  /* Fist make sure the module loading is supported on this platform */
+  /* First make sure the module loading is supported on this platform */
   if (!g_module_supported())
     g_error( _("Dynamic module loading is not supported. gcompris cannot load.\n") );
 
@@ -220,16 +220,10 @@ gc_board_check_file(GcomprisBoard *gcomprisBoard)
     return TRUE;
   }
 
-  while(keycode[i++])
-    {
-      if(strncmp(properties->key, keycode[i-1], 5) == 0)
-	{
-	  key_is_valid = 1;
-	}
-    }
+  key_is_valid = gc_activation_check(properties->key);
 
   i = 0;
-  if(key_is_valid)
+  if(key_is_valid == 1)
     {
       while(static_boards[i++] != NULL) {
 

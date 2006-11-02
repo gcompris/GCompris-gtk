@@ -297,6 +297,7 @@ static void display_hour(guint hour)
 
   currentTime.hour=hour;
   display_digital_time(digital_time_item, &currentTime);
+  display_digital_time(digital_time_item_s, &currentTime);
 }
 
 
@@ -691,12 +692,24 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 	  if(item==hour_item)
 	    display_hour(angle * 6 / M_PI);
 	  else if(item==minute_item)
-	  {
+	  {	
+	    if(currentTime.minute > 45 && angle * 30 / M_PI < 15)
+	      currentTime.hour++;
+
+	    if(currentTime.minute < 15 && angle * 30 / M_PI > 45)
+	      currentTime.hour--;
+
 	    display_minute(angle * 30 / M_PI);
 	    display_hour(currentTime.hour);
 	  }
 	  else if(item==second_item)
 	  {
+	    if(currentTime.second > 45 && angle * 30 / M_PI < 15)
+	      currentTime.minute++;
+
+	    if(currentTime.second < 15 && angle * 30 / M_PI > 45)
+	      currentTime.minute--;
+
 	    display_second(angle * 30 / M_PI);
 	    display_minute(currentTime.minute);
 	    display_hour(currentTime.hour);

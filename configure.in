@@ -122,6 +122,9 @@ AC_SUBST(GETTEXT_PACKAGE)
 AM_GLIB_GNU_GETTEXT
 AC_DEFINE_UNQUOTED(GETTEXT_PACKAGE,"$GETTEXT_PACKAGE", [Gettext package name])
 
+BUILD_DATE=`date +%y%m`
+AC_DEFINE_UNQUOTED(BUILD_DATE,"$BUILD_DATE", [Date at which GCompris has been built])
+
 dnl Define myprefix depending on wether our user gives us one or not
 if test "x${prefix}" = "xNONE"; then
   myprefix=${ac_default_prefix}

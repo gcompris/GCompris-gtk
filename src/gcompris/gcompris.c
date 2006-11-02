@@ -61,20 +61,6 @@ void gc_terminate(int signum);
  * For the Activation dialog
  */
 #ifdef WIN32
-  /* List of keycodes */
-  gchar *keycode[] =
-    {
-      "83640",
-      "33251",
-      "99301",
-      "71848",
-      "79657",
-      "47561",
-      "84175",
-      "15987",
-      NULL
-    };
-
 static void activation_enter_callback(GtkWidget *widget,
 				      GtkWidget *entry );
 static void activation_done();
@@ -861,6 +847,53 @@ display_activation_dialog()
   g_free(msg);
 }
 
+/**
+ * Return -1 if the code is not valid
+ *        0  if the code is valid but out of date
+ *        1  if the code is valid and under 2 years
+ */
+int gc_activation_check(char *code)
+{
+  int value = 0;
+  int i;
+  char crc1 = 0;
+  char crc2 = 0;
+  char codeddate[4];
+
+  if(strlen(code) != 6)
+    return -1;
+
+  for(i=3; i>=0; i--)
+    {
+      value |= code[i] & 0x07;
+      value = value << 3;
+      crc1 = crc1 ^ code[i] & 0x07;
+    }
+  value = value >> 3;
+  crc1 = 0x30 | crc1;
+  crc2 = 0x30 | (code[2] ^ code[3]);
+      
+  crc1 != code[4] ? return(-1);
+  crc2 != code[5] ? return(-1);
+
+  codeddate[3] = 0x30 | value & 0x000F;
+  value = value >> 4;
+      
+  codeddate[2] = 0x30 | value & 0x0001;
+  value = value >> 1;
+      
+  codeddate[1] = 0x30 | value & 0x000F;
+  value = value >> 4;
+      
+  codeddate[0] = 0x30 | value & 0x0003;
+  codeddate[4] = '\0';
+
+  if(atoi(codeddate) + 200 >= atoi(BUILD_DATE))
+    return(1);
+  else
+    return(0);
+}
+
 /* Check the activation code
  *
  */
@@ -868,29 +901,18 @@ static void
 activation_enter_callback( GtkWidget *entry,
 			   GtkWidget *notused )
 {
-  gchar *entry_text;
-
-  entry_text = (char *)gtk_entry_get_text(GTK_ENTRY(entry));
-
-  if(strlen(entry_text) == 5)
+  switch(gc_activation_check((char *)gtk_entry_get_text(GTK_ENTRY(entry))))
     {
-      int i = 0;
-      while(keycode[i++])
-	{
-	  if(strncmp(entry_text, keycode[i-1], 5) == 0)
-	    {
-	      g_free(properties->key);
-	      properties->key=strdup( keycode[i-1]);
-	      gc_prop_save(properties);
-	      gc_menu_load();
-
-	      gtk_entry_set_text(GTK_ENTRY(entry), "GOOD");
-	      return;
-	    }
-	}
+    case 1:
+      gtk_entry_set_text(GTK_ENTRY(entry), "GOOD");
+      break;
+    case 0:
+      gtk_entry_set_text(GTK_ENTRY(entry), "EXPIRE");
+      break;
+    case -1:
+      gtk_entry_set_text(GTK_ENTRY(entry), "WRONG");
+      break;
     }
-
-  gtk_entry_set_text(GTK_ENTRY(entry), "WRONG");
 }
 
 /* Callback for the activation dialog

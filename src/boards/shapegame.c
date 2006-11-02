@@ -31,7 +31,7 @@
 #define SOUNDLISTFILE PACKAGE
 
 #define UNDEFINED "Undefined"
-#define SQUARE_LIMIT_DISTANCE 50.0
+#define SQUARE_LIMIT_DISTANCE 100.0
 
 static int gamewon;
 
@@ -475,8 +475,6 @@ static gint key_press(guint keyval, gchar *commit_str, gchar *preedit_str)
 
   return TRUE;
 }
-
-
 
 /*-------------------------------------------------------------------------------*/
 /*-------------------------------------------------------------------------------*/
@@ -1158,6 +1156,19 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, Shape *shape)
 		 target_point_previous = targetshape->target_point;
 	       else
 		 target_point_previous = targetshape->targetitem;
+	     }
+	   else
+	     {
+	       if(target_point_previous)
+		 {
+		   if(strcmp(shape->targetfile, UNDEFINED)==0)
+		     gnome_canvas_item_set(GNOME_CANVAS_ITEM(target_point_previous),
+					   "fill_color_rgba", POINT_COLOR_OFF,
+					   NULL);
+		   else
+		     gc_item_focus_set(target_point_previous, FALSE);
+		 }
+	       target_point_previous = NULL;
 	     }
 	 }
        break;
