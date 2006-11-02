@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-10-04 00:57+0300\n"
-"PO-Revision-Date: 2006-10-04 01:38+0300\n"
+"POT-Creation-Date: 2006-11-02 09:25+0200\n"
+"PO-Revision-Date: 2006-11-01 17:03+0200\n"
 "Last-Translator: Yavor Doganov <yavor@doganov.org>\n"
 "Language-Team: Bulgarian <dict@fsa-bg.org>\n"
 "MIME-Version: 1.0\n"
@@ -778,7 +778,7 @@ msgstr "Вкарайте топката в целта"
 
 #: ../boards/billard.xml.in.h:3 ../boards/chess_computer.xml.in.h:2
 #: ../boards/chess_movelearn.xml.in.h:3 ../boards/chess_partyend.xml.in.h:2
-#: ../boards/clickgame.xml.in.h:16 ../boards/connect4.xml.in.h:7
+#: ../boards/clickgame.xml.in.h:16 ../boards/connect4.xml.in.h:6
 #: ../boards/erase.xml.in.h:3 ../boards/erase_clic.xml.in.h:6
 #: ../boards/erase_double_clic.xml.in.h:6 ../boards/fifteen.xml.in.h:2
 #: ../boards/hanoi.xml.in.h:3 ../boards/memory.xml.in.h:4
@@ -1206,13 +1206,13 @@ msgstr "Свързване на 4"
 
 #: ../boards/connect4.xml.in.h:4
 msgid ""
-"Create a line of 4 pieces either horizontally (lying down)\n"
-"or vertically (standing up)"
+"Create a line of 4 pieces either horizontally (lying down) or vertically "
+"(standing up)"
 msgstr ""
-"Създайте поредица от 4 парчета по хоризонтала\n"
-"или вертикала"
+"Създайте поредица от 4 парчета по хоризонтала (легнали) или вертикала "
+"(изправени)"
 
-#: ../boards/connect4.xml.in.h:6
+#: ../boards/connect4.xml.in.h:5
 msgid ""
 "Laurent Lacheny. Images and Artificial Intelligence taken from project "
 "4stattack by Jeroen Vloothuis. The original project can be found on &lt;"
@@ -1377,11 +1377,11 @@ msgstr ""
 "отговора с клавиатурата и натиснете бутона „Да“ или клавиша „Enter“."
 
 #: ../boards/enumerate.xml.in.h:4 ../boards/planegame.xml.in.h:5
-#: ../src/boards/enumerate.c:92
+#: ../src/boards/enumerate.c:89
 msgid "Numeration training"
 msgstr "Упражнения по броене"
 
-#: ../boards/enumerate.xml.in.h:5 ../src/boards/enumerate.c:93
+#: ../boards/enumerate.xml.in.h:5 ../src/boards/enumerate.c:90
 msgid "Place the items in the best way to count them"
 msgstr "Подредете обектите по възможно най-добрия начин, за да ги преброите"
 
@@ -1396,12 +1396,12 @@ msgstr ""
 "schmode.net&g;) и от Даниел Льо Бер. Те са дали разрешение да се използват в "
 "GCompris. Благодарим много и на двамата."
 
-#: ../boards/erase.xml.in.h:4 ../src/boards/erase.c:116
-#: ../src/boards/machpuzzle.c:92
+#: ../boards/erase.xml.in.h:4 ../src/boards/erase.c:113
+#: ../src/boards/machpuzzle.c:88
 msgid "Move the mouse"
 msgstr "Движете мишката"
 
-#: ../boards/erase.xml.in.h:5 ../src/boards/erase.c:117
+#: ../boards/erase.xml.in.h:5 ../src/boards/erase.c:114
 msgid "Move the mouse to erase the area and discover the background"
 msgstr "Движете мишката, за да изтриете зоната и разкриете фона"
 
@@ -1470,36 +1470,8 @@ msgid "Original code taken from the libgnomecanvas demo"
 msgstr "Оригиналният код е взет от демонстрацията на libgnomecanvas"
 
 #: ../boards/fifteen.xml.in.h:5
-msgid "Samuel Loyd"
-msgstr "Самюел Лойд"
-
-#: ../boards/fifteen.xml.in.h:6
 msgid "The fifteen game"
 msgstr "Игра „Петнадесет“"
-
-#: ../boards/fifteen.xml.in.h:7
-msgid "anticipate"
-msgstr "предчувствие"
-
-#: ../boards/fifteen.xml.in.h:8
-msgid "logical"
-msgstr "логично"
-
-#: ../boards/fifteen.xml.in.h:9
-msgid "move"
-msgstr "движение"
-
-#: ../boards/fifteen.xml.in.h:10
-msgid "puzzle"
-msgstr "пъзел"
-
-#: ../boards/fifteen.xml.in.h:11
-msgid "slide"
-msgstr "плъзгане"
-
-#: ../boards/fifteen.xml.in.h:12
-msgid "taquin"
-msgstr "Петнадесет"
 
 #: ../boards/followline.xml.in.h:1
 msgid "Control the hose-pipe"
@@ -1799,7 +1771,7 @@ msgstr "Хърватска"
 msgid "Cyprus"
 msgstr "Кипър"
 
-#: ../boards/geography/board3_1.xml.in.h:7 ../src/gcompris/config.c:70
+#: ../boards/geography/board3_1.xml.in.h:7 ../src/gcompris/config.c:65
 msgid "Czech Republic"
 msgstr "Чехия"
 
@@ -2140,11 +2112,11 @@ msgstr "Операции с клавиатурата"
 msgid "Letter association between the screen and the keyboard"
 msgstr "Разпознаване на букви на екрана и клавиатурата"
 
-#: ../boards/gletters.xml.in.h:3 ../src/boards/gletters.c:135
+#: ../boards/gletters.xml.in.h:3 ../src/boards/gletters.c:134
 msgid "Simple Letters"
 msgstr "Прости букви"
 
-#: ../boards/gletters.xml.in.h:4 ../src/boards/gletters.c:136
+#: ../boards/gletters.xml.in.h:4 ../src/boards/gletters.c:135
 msgid "Type the falling letters before they reach the ground"
 msgstr "Напишете падащите букви, преди да са достигнали земята"
 
@@ -2350,7 +2322,7 @@ msgstr ""
 "Изтегляйте и пускайте горните кръгчета само от едно колче на друго така, че "
 "да възпроизведете кулата вдясно в празното поле отляво."
 
-#: ../boards/hanoi.xml.in.h:4 ../src/boards/hanoi.c:101
+#: ../boards/hanoi.xml.in.h:4 ../src/boards/hanoi.c:97
 msgid "Reproduce the given tower"
 msgstr "Възпроизвеждане на зададената кула"
 
@@ -2358,7 +2330,7 @@ msgstr "Възпроизвеждане на зададената кула"
 msgid "Reproduce the tower on the right in the empty space on the left"
 msgstr "Възпроизведете кулата вдясно в празното пространство отляво"
 
-#: ../boards/hanoi.xml.in.h:6 ../src/boards/hanoi.c:100
+#: ../boards/hanoi.xml.in.h:6 ../src/boards/hanoi.c:96
 msgid "Simplified Tower of Hanoi"
 msgstr "Опростена „Кула на Ханой“"
 
@@ -2381,14 +2353,16 @@ msgstr "„Кула на Ханой“"
 #: ../boards/hanoi_real.xml.in.h:5
 msgid ""
 "The object of the game is to move the entire stack to another peg, obeying "
-"the following rules: * only one disc may be moved at a time * no disc may be "
-"placed atop a smaller disc"
+"the following rules:\n"
+"* only one disc may be moved at a time\n"
+"* no disc may be placed atop a smaller disc"
 msgstr ""
 "Целта на играта е да преместите целия куп на друго колче, като спазвате "
-"следните правила: * само един диск може да бъде местен по едно и също време "
+"следните правила:\n"
+"* само един диск може да бъде местен по едно и също време\n"
 "* не може да слагате по-голям диск върху по-малък"
 
-#: ../boards/hanoi_real.xml.in.h:6
+#: ../boards/hanoi_real.xml.in.h:8
 msgid ""
 "The puzzle was invented by the French mathematician Edouard Lucas in 1883. "
 "There is a legend about a Hindu temple whose priests were constantly engaged "
@@ -2434,7 +2408,7 @@ msgstr ""
 
 #: ../boards/imageid.xml.in.h:3 ../boards/imagename.xml.in.h:4
 #: ../boards/readingh.xml.in.h:4 ../boards/readingv.xml.in.h:4
-#: ../src/boards/imageid.c:106 ../src/boards/missingletter.c:104
+#: ../src/boards/imageid.c:103 ../src/boards/missingletter.c:101
 msgid "Reading"
 msgstr "Четене"
 
@@ -2754,7 +2728,7 @@ msgstr "Събиране"
 #: ../boards/magic_hat_plus.xml.in.h:2
 msgid ""
 "Click on the hat to open or close it. Under the hat, how many stars can you "
-"see moving around? Count carefully. :) Click in the bottom- right area to "
+"see moving around? Count carefully. :) Click in the bottom-right area to "
 "input your answer."
 msgstr ""
 "Натиснете шапката, за да я отворите или затворите. Колко звезди виждате под "
@@ -2813,7 +2787,7 @@ msgstr "Математика"
 msgid "Can use the keyboard arrow to move an object."
 msgstr "Можете да използвате клавиатурата, за да движите обект."
 
-#: ../boards/maze.xml.in.h:2 ../src/boards/maze.c:133
+#: ../boards/maze.xml.in.h:2 ../src/boards/maze.c:129
 msgid "Find your way out of the maze"
 msgstr "Намерете изхода от лабиринта"
 
@@ -2823,7 +2797,7 @@ msgid "Help Tux get out of this maze."
 msgstr "Помогнете на Тъкс да излезе от този лабиринт."
 
 #: ../boards/maze.xml.in.h:4 ../boards/maze2DRelative.xml.in.h:4
-#: ../boards/mazeInvisible.xml.in.h:4 ../src/boards/maze.c:132
+#: ../boards/mazeInvisible.xml.in.h:4 ../src/boards/maze.c:128
 msgid "Maze"
 msgstr "Лабиринт"
 
@@ -3351,7 +3325,7 @@ msgstr ""
 msgid "GCompris Main Menu"
 msgstr "Главно меню на GCompris"
 
-#: ../boards/menu.xml.in.h:16 ../src/boards/menu2.c:1008
+#: ../boards/menu.xml.in.h:16 ../src/boards/menu2.c:1009
 msgid ""
 "GCompris is a collection of educational games that provides different "
 "activities for children aged 2 and up."
@@ -4167,11 +4141,11 @@ msgstr ""
 "кутия. Може да използвате десния бутон на мишката, за да местите цветовете в "
 "обратен ред."
 
-#: ../boards/superbrain.xml.in.h:2 ../src/boards/superbrain.c:110
+#: ../boards/superbrain.xml.in.h:2 ../src/boards/superbrain.c:106
 msgid "Super Brain"
 msgstr "Свръхмозък"
 
-#: ../boards/superbrain.xml.in.h:3 ../src/boards/superbrain.c:111
+#: ../boards/superbrain.xml.in.h:3 ../src/boards/superbrain.c:107
 msgid "Tux has hidden several items. Find them again in the correct order"
 msgstr "Тъкс е скрил някои обекти. Намерете ги в правилна последователност."
 
@@ -4328,7 +4302,7 @@ msgstr ""
 "Тъкс се е върнал от продължителен риболов с лодката си. Задействайте водната "
 "система така, че да може да се изкъпе."
 
-#: ../boards/wordsgame.xml.in.h:1 ../src/boards/wordsgame.c:112
+#: ../boards/wordsgame.xml.in.h:1 ../src/boards/wordsgame.c:110
 msgid "Falling Words"
 msgstr "Падащи думи"
 
@@ -4340,7 +4314,7 @@ msgstr "Упражнения с клавиатурата"
 msgid "Type the complete word as it falls, before it reachs the ground"
 msgstr "Напишете пълната дума докато пада, преди да е достигнала земята"
 
-#: ../boards/wordsgame.xml.in.h:5 ../src/boards/wordsgame.c:113
+#: ../boards/wordsgame.xml.in.h:5 ../src/boards/wordsgame.c:111
 msgid "Type the falling words before they reach the ground"
 msgstr "Напишете падащите думи преди да достигнат земята"
 
@@ -4380,25 +4354,25 @@ msgstr "Ваш ред е..."
 msgid "Not allowed! Try again !"
 msgstr "Не е позволено! Опитайте отново!"
 
-#: ../src/boards/chess.c:183 ../src/boards/chess.c:1134
-msgid "Error: The external program gnuchess died unexpectingly"
+#: ../src/boards/chess.c:179
+msgid "Error: The external program gnuchess died unexpectedly"
 msgstr "Грешка: Външната програма „gnuchess“ загина неочаквано"
 
-#: ../src/boards/chess.c:198
+#: ../src/boards/chess.c:194
 msgid ""
-"Error: The external program gnuchess is mandatory\n"
+"Error: The external program gnuchess is required\n"
 "to play chess in gcompris.\n"
 "Find this program on http://www.rpmfind.net or in your\n"
 "GNU/Linux distribution\n"
 "And check it is located here: "
 msgstr ""
 "Грешка: Външната програма gnuchess е задължителна,\n"
-"за да играете шах в GCompris\n"
+"за да играете шах в GCompris.\n"
 "Можете да намерите програмата на http://www.rpmfind.net,\n"
-"http://packages.debian.org или във Вашата дистрибуция на GNU/Linux.\n"
-"И проверете дали я има в "
+"http://packages.debian.org или във Вашата дистрибуция на GNU/Линукс.\n"
+"И проверете дали я има тук: "
 
-#: ../src/boards/chess.c:240
+#: ../src/boards/chess.c:236
 msgid ""
 "Error: The external program gnuchess is mandatory\n"
 "to play chess in gcompris.\n"
@@ -4408,36 +4382,40 @@ msgstr ""
 "за да играете шах в GCompris.\n"
 "Първо я инсталирайте и проверете дали я има в "
 
-#: ../src/boards/chess.c:593
+#: ../src/boards/chess.c:579
 msgid "White's Turn"
 msgstr "Ред на белите"
 
-#: ../src/boards/chess.c:593
+#: ../src/boards/chess.c:579
 msgid "Black's Turn"
 msgstr "Ред на черните"
 
-#: ../src/boards/chess.c:737
+#: ../src/boards/chess.c:723
 msgid "White checks"
 msgstr "Шах на белите"
 
-#: ../src/boards/chess.c:739
+#: ../src/boards/chess.c:725
 msgid "Black checks"
 msgstr "Шах на черните"
 
-#: ../src/boards/chess.c:1096
+#: ../src/boards/chess.c:1082
 msgid "Black mates"
 msgstr "Мат на черните"
 
-#: ../src/boards/chess.c:1101
+#: ../src/boards/chess.c:1087
 msgid "White mates"
 msgstr "Мат на белите"
 
-#: ../src/boards/chess.c:1106 ../src/gcompris/bonus.c:342
+#: ../src/boards/chess.c:1092 ../src/gcompris/bonus.c:342
 #: ../src/gcompris/bonus.c:351
 msgid "Drawn game"
 msgstr "Равна игра"
 
-#: ../src/boards/click_on_letter.c:262 ../src/boards/memory.c:827
+#: ../src/boards/chess.c:1120
+msgid "Error: The external program gnuchess died unexpectingly"
+msgstr "Грешка: Външната програма „gnuchess“ загина неочаквано"
+
+#: ../src/boards/click_on_letter.c:259 ../src/boards/memory.c:827
 msgid ""
 "Error: this activity cannot be played with the\n"
 "sound effects disabled.\n"
@@ -4452,12 +4430,12 @@ msgstr ""
 #. TRANSLATORS: Put here the alphabet in your language
 #. require by all utf8-functions
 #. TRANSLATORS: Put here the alphabet lowercase in your language
-#: ../src/boards/click_on_letter.c:267 ../src/boards/gletters.c:232
+#: ../src/boards/click_on_letter.c:264 ../src/boards/gletters.c:231
 #: ../src/boards/memory.c:848
 msgid "abcdefghijklmnopqrstuvwxyz"
 msgstr "абвгдежзийклмнопрстуфхцчшщъьюя"
 
-#: ../src/boards/click_on_letter.c:289
+#: ../src/boards/click_on_letter.c:286
 #, c-format
 msgid ""
 "Error: this activity requires that you first install\n"
@@ -4466,7 +4444,7 @@ msgstr ""
 "Грешка: Това занимание изисква първо да инсталирате\n"
 "пакетите със звук за GCompris за локала „%s“ или „%s“"
 
-#: ../src/boards/click_on_letter.c:297
+#: ../src/boards/click_on_letter.c:294
 #, c-format
 msgid ""
 "Error: this activity requires that you first install\n"
@@ -4478,7 +4456,7 @@ msgstr ""
 "съжаление."
 
 #. toggle box
-#: ../src/boards/click_on_letter.c:649 ../src/boards/gletters.c:899
+#: ../src/boards/click_on_letter.c:646 ../src/boards/gletters.c:898
 #: ../src/boards/python/login.py:540
 msgid "Uppercase only text"
 msgstr "Само текст с главни букви"
@@ -4487,89 +4465,89 @@ msgstr "Само текст с главни букви"
 msgid "Set the watch to:"
 msgstr "Настройте часовника на:"
 
-#: ../src/boards/colors.c:57
+#: ../src/boards/colors.c:54
 msgid "Click on the blue duck"
 msgstr "Натиснете синята играчка"
 
-#: ../src/boards/colors.c:58
+#: ../src/boards/colors.c:55
 msgid "Click on the brown duck"
 msgstr "Натиснете кафявата играчка"
 
-#: ../src/boards/colors.c:59
+#: ../src/boards/colors.c:56
 msgid "Click on the green duck"
 msgstr "Натиснете зелената играчка"
 
-#: ../src/boards/colors.c:60
+#: ../src/boards/colors.c:57
 msgid "Click on the grey duck"
 msgstr "Натиснете сивата играчка"
 
-#: ../src/boards/colors.c:61
+#: ../src/boards/colors.c:58
 msgid "Click on the orange duck"
 msgstr "Натиснете оранжевата играчка"
 
-#: ../src/boards/colors.c:62
+#: ../src/boards/colors.c:59
 msgid "Click on the purple duck"
 msgstr "Натиснете лилавата играчка"
 
-#: ../src/boards/colors.c:63
+#: ../src/boards/colors.c:60
 msgid "Click on the red duck"
 msgstr "Натиснете червената играчка"
 
-#: ../src/boards/colors.c:64
+#: ../src/boards/colors.c:61
 msgid "Click on the yellow duck"
 msgstr "Натиснете жълтата играчка"
 
-#: ../src/boards/colors.c:65
+#: ../src/boards/colors.c:62
 msgid "Click on the black duck"
 msgstr "Натиснете черната играчка"
 
-#: ../src/boards/colors.c:66
+#: ../src/boards/colors.c:63
 msgid "Click on the white duck"
 msgstr "Натиснете бялата играчка"
 
 #. TRANSLATORS: Put here the numbers in your language
-#: ../src/boards/gletters.c:228 ../src/boards/memory.c:844
+#: ../src/boards/gletters.c:227 ../src/boards/memory.c:844
 msgid "0123456789"
 msgstr "0123456789"
 
 #. TRANSLATORS: Put here the alphabet uppercase in your language
-#: ../src/boards/gletters.c:238 ../src/boards/memory.c:854
+#: ../src/boards/gletters.c:237 ../src/boards/memory.c:854
 msgid "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 msgstr "АБВГДЕЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЬЮЯ"
 
-#: ../src/boards/hanoi.c:335 ../src/boards/hanoi.c:346
+#: ../src/boards/hanoi.c:332 ../src/boards/hanoi.c:343
 msgid ""
 "Build the same tower in the empty area as the one you see on the right-hand "
 "side."
 msgstr "Възпроизведете в празното пространство същата кула като тази вдясно"
 
-#: ../src/boards/hanoi_real.c:76
+#: ../src/boards/hanoi_real.c:72
 msgid "Tower of Hanoi"
 msgstr "„Кула на Ханой“"
 
-#: ../src/boards/hanoi_real.c:277 ../src/boards/hanoi_real.c:288
+#: ../src/boards/hanoi_real.c:273 ../src/boards/hanoi_real.c:284
 msgid "Move the entire stack to the right peg, one disc at a time"
 msgstr "Преместете целия куп на дясното колче, диск по диск"
 
-#: ../src/boards/imageid.c:107 ../src/boards/missingletter.c:105
+#: ../src/boards/imageid.c:104 ../src/boards/missingletter.c:102
 msgid "Learn how to read"
 msgstr "Научете се как да четете"
 
-#: ../src/boards/leftright.c:280 ../src/boards/leftright.c:290
+#: ../src/boards/leftright.c:277 ../src/boards/leftright.c:287
 #: ../src/boards/python/searace.py:428 ../src/boards/python/searace.py:453
 #: ../src/boards/python/searace.py:543 ../src/boards/python/searace.py:855
 #: ../src/boards/python/searace.py:888 ../src/boards/python/searace.py:985
 msgid "left"
 msgstr "лява"
 
-#: ../src/boards/leftright.c:300 ../src/boards/leftright.c:310
+#: ../src/boards/leftright.c:297 ../src/boards/leftright.c:307
 #: ../src/boards/python/searace.py:428 ../src/boards/python/searace.py:453
 #: ../src/boards/python/searace.py:552 ../src/boards/python/searace.py:857
 #: ../src/boards/python/searace.py:890 ../src/boards/python/searace.py:979
 msgid "right"
 msgstr "дясна"
 
-#: ../src/boards/maze.c:496
+#: ../src/boards/maze.c:492
 msgid ""
 "Look at your position, then switch back to invisible mode to continue your "
 "moves"
@@ -4577,7 +4555,7 @@ msgstr ""
 "Погледнете местоположението си и превключете обратно в невидим режим, за да "
 "се движите"
 
-#: ../src/boards/maze.c:498
+#: ../src/boards/maze.c:494
 msgid ""
 "Look at your position, then switch back to 3D mode to continue your moves"
 msgstr ""
@@ -4592,7 +4570,7 @@ msgstr "Памет"
 msgid "Find the matching pair"
 msgstr "Намерете съответстващата двойка"
 
-#. TRANSLATORS: Put here the mathematical operators "+-���" for  your language.
+#. TRANSLATORS: Put here the mathematical operators "+-��" for  your language.
 #: ../src/boards/memory.c:859
 msgid "+-×÷"
 msgstr "+-.:"
@@ -4606,12 +4584,12 @@ msgid "Select a Board"
 msgstr "Изберете игра"
 
 #. Set here the way to display money. Change only the money sign, and it's place, always keep %.2f, it will be replaced by 0,34 if decimal is ',' in your locale
-#: ../src/boards/money.c:492
+#: ../src/boards/money.c:488
 #, c-format
 msgid "$ %.2f"
 msgstr "$ %.2f"
 
-#: ../src/boards/money.c:505
+#: ../src/boards/money.c:501
 #, c-format
 msgid "$ %.0f"
 msgstr "$ %.0f"
@@ -4620,11 +4598,11 @@ msgstr "$ %.0f"
 msgid "Move the plane to catch the clouds in the correct order"
 msgstr "Движете самолета, за да хващате облаците в правилна последователност"
 
-#: ../src/boards/python.c:62
+#: ../src/boards/python.c:62 ../src/boards/python.c:86
 msgid "Python Board"
 msgstr "Дъска Питон"
 
-#: ../src/boards/python.c:63
+#: ../src/boards/python.c:63 ../src/boards/python.c:87
 msgid "Special board that embeds python into gcompris."
 msgstr "Специална дъска, която включва Питон в GCompris."
 
@@ -4895,7 +4873,7 @@ msgid "There is already a profile with this name"
 msgstr "Вече има профил с това име"
 
 #: ../src/boards/python/admin/profile_list.py:121
-#: ../src/gcompris/board_config.c:663 ../src/gcompris/board_config.c:827
+#: ../src/gcompris/board_config.c:668 ../src/gcompris/board_config.c:832
 msgid "Default"
 msgstr "По подразбиране"
 
@@ -4984,7 +4962,7 @@ msgstr "Предупреждение: следните изображения н
 msgid "The corresponding items have been skipped."
 msgstr "Съответстващите елементи се пропускат."
 
-#: ../src/boards/python/electric.py:95
+#: ../src/boards/python/electric.py:94
 msgid ""
 "Cannot find the 'gnucap' electric simulator.\n"
 "You can download and install it from:\n"
@@ -5350,15 +5328,15 @@ msgstr "Показване само на текст с главни букви"
 msgid "Disable stamps"
 msgstr "Изключване на печати"
 
-#: ../src/boards/railroad.c:95
+#: ../src/boards/railroad.c:91
 msgid "Memory game"
 msgstr "Игра на памет"
 
-#: ../src/boards/railroad.c:96
+#: ../src/boards/railroad.c:92
 msgid "Build a train according to the model"
 msgstr "Композирайте влак съгласно образеца"
 
-#: ../src/boards/reading.c:227 ../src/boards/wordsgame.c:207
+#: ../src/boards/reading.c:225 ../src/boards/wordsgame.c:205
 msgid ""
 "Error: We can't find\n"
 "a list of words to play this game.\n"
@@ -5366,42 +5344,42 @@ msgstr ""
 "Грешка: Неуспех при намирането\n"
 "на списък с думи за тази игра.\n"
 
-#: ../src/boards/reading.c:381
+#: ../src/boards/reading.c:379
 msgid "Please, check if the word"
 msgstr "Проверете дали думата"
 
-#: ../src/boards/reading.c:401
+#: ../src/boards/reading.c:399
 msgid "is being displayed"
 msgstr "е показана"
 
-#: ../src/boards/reading.c:575
+#: ../src/boards/reading.c:573
 msgid "I am Ready"
 msgstr "Готов(а) съм"
 
-#: ../src/boards/reading.c:615
+#: ../src/boards/reading.c:613
 msgid "Yes, I saw it"
 msgstr "Да, видях я"
 
-#: ../src/boards/reading.c:645
+#: ../src/boards/reading.c:643
 msgid "No, it was not there"
 msgstr "Не, нямаше я там"
 
 #. Report what was wrong in the log
-#: ../src/boards/reading.c:683
+#: ../src/boards/reading.c:681
 #, c-format
 msgid "The word to find was '%s'"
 msgstr "Думата за намиране е „%s“"
 
-#: ../src/boards/reading.c:686
+#: ../src/boards/reading.c:684
 msgid "But it was not displayed"
 msgstr "Но тя не беше показана"
 
-#: ../src/boards/reading.c:688
+#: ../src/boards/reading.c:686
 msgid "And it was displayed"
 msgstr "И тя беше показана"
 
 #. Enter Edit Mode
-#: ../src/boards/shapegame.c:431
+#: ../src/boards/shapegame.c:434
 msgid ""
 "You have entered Edit mode\n"
 "Move the puzzle items;\n"
@@ -5413,7 +5391,7 @@ msgstr ""
 "натиснете „s“, за да запишете и\n"
 "„d“, за да покажете всички форми."
 
-#: ../src/boards/shapegame.c:439
+#: ../src/boards/shapegame.c:442
 msgid ""
 "The data from this activity are saved under\n"
 "/tmp/gcompris-board.xml"
@@ -5421,20 +5399,20 @@ msgstr ""
 "Данните за това занимание са записани\n"
 "в /tmp/gcompris-board.xml."
 
-#: ../src/boards/submarine.c:201
+#: ../src/boards/submarine.c:198
 msgid "Submarine"
 msgstr "Подводница"
 
-#: ../src/boards/submarine.c:202
+#: ../src/boards/submarine.c:199
 msgid "Control the depth of a submarine"
 msgstr "Контролирайте дълбочината на подводницата"
 
-#: ../src/boards/target.c:285 ../src/boards/target.c:550
+#: ../src/boards/target.c:281 ../src/boards/target.c:546
 #, c-format
 msgid "Points = %s"
 msgstr "Точки = %s"
 
-#: ../src/boards/target.c:407
+#: ../src/boards/target.c:403
 #, c-format
 msgid ""
 "Wind speed = %d\n"
@@ -5443,12 +5421,12 @@ msgstr ""
 "Скорост на вятъра = %d\n"
 "километра в час"
 
-#: ../src/boards/target.c:474
+#: ../src/boards/target.c:470
 #, c-format
 msgid "Distance to target = %d meters"
 msgstr "Разстояние до целта = %d метра"
 
-#: ../src/gcompris/about.c:62
+#: ../src/gcompris/about.c:57
 msgid ""
 "Author: Bruno Coudoin\n"
 "Contribution: Pascal Georges, Jose Jorge\n"
@@ -5463,19 +5441,19 @@ msgstr ""
 "Музика за фон: Rico Da Halvarez\n"
 
 #. TRANSLATORS: Replace this string with your names, one name per line.
-#: ../src/gcompris/about.c:70
+#: ../src/gcompris/about.c:65
 msgid "translator_credits"
 msgstr "Явор Доганов <yavor@doganov.org>"
 
-#: ../src/gcompris/about.c:101 ../src/gcompris/about.c:111
+#: ../src/gcompris/about.c:96 ../src/gcompris/about.c:106
 msgid "About GCompris"
 msgstr "Относно GCompris"
 
-#: ../src/gcompris/about.c:122 ../src/gcompris/about.c:131
+#: ../src/gcompris/about.c:117 ../src/gcompris/about.c:126
 msgid "Translators:"
 msgstr "Преводач:"
 
-#: ../src/gcompris/about.c:254
+#: ../src/gcompris/about.c:249
 msgid ""
 "GCompris Home Page\n"
 "http://gcompris.net"
@@ -5483,7 +5461,7 @@ msgstr ""
 "Интернет страница на GCompris\n"
 "http://gcompris.net"
 
-#: ../src/gcompris/about.c:276
+#: ../src/gcompris/about.c:271
 msgid ""
 "This software is a GNU Package and is released under the GNU General Public "
 "License"
@@ -5491,36 +5469,36 @@ msgstr ""
 "Този софтуер е GNU пакет и се разпространява под условията на публичния "
 "лиценз на GNU"
 
-#: ../src/gcompris/about.c:339 ../src/gcompris/about.c:349
-#: ../src/gcompris/config.c:469 ../src/gcompris/config.c:479
-#: ../src/gcompris/dialog.c:101 ../src/gcompris/help.c:381
-#: ../src/gcompris/help.c:391 ../src/gcompris/images_selector.c:317
+#: ../src/gcompris/about.c:334 ../src/gcompris/about.c:344
+#: ../src/gcompris/config.c:465 ../src/gcompris/config.c:475
+#: ../src/gcompris/dialog.c:97 ../src/gcompris/help.c:376
+#: ../src/gcompris/help.c:386 ../src/gcompris/images_selector.c:317
 msgid "OK"
 msgstr "Да"
 
-#: ../src/gcompris/bar.c:567
+#: ../src/gcompris/bar.c:568
 msgid "GCompris confirmation"
 msgstr "Потвърждение на GCompris"
 
-#: ../src/gcompris/bar.c:568
+#: ../src/gcompris/bar.c:569
 msgid "Are you sure you want to quit?"
 msgstr "Сигурни ли сте, че искате да спрете програмата?"
 
-#: ../src/gcompris/bar.c:569
+#: ../src/gcompris/bar.c:570
 msgid "Yes, I am sure!"
 msgstr "Да, сигурен/сигурна съм!"
 
-#: ../src/gcompris/bar.c:570
+#: ../src/gcompris/bar.c:571
 msgid "No, I want to keep going"
 msgstr "Не, искам да продължа да се занимавам"
 
-#: ../src/gcompris/board.c:177
+#: ../src/gcompris/board.c:181
 msgid "Dynamic module loading is not supported. gcompris cannot load.\n"
 msgstr ""
 "Не се поддържа динамично зареждане на модули, GCompris не може да се "
 "зареди.\n"
 
-#: ../src/gcompris/board_config.c:695
+#: ../src/gcompris/board_config.c:700
 msgid ""
 "Select the language\n"
 " to use in the board"
@@ -5528,232 +5506,236 @@ msgstr ""
 "Изберете език\n"
 " за заниманието"
 
-#: ../src/gcompris/config.c:64
+#: ../src/gcompris/config.c:59
 msgid "Your system default"
 msgstr "По подразбиране за системата"
 
-#: ../src/gcompris/config.c:65
+#: ../src/gcompris/config.c:60
 msgid "Amharic"
 msgstr "амхарски"
 
-#: ../src/gcompris/config.c:66
+#: ../src/gcompris/config.c:61
 msgid "Arabic"
 msgstr "арабски"
 
-#: ../src/gcompris/config.c:67
+#: ../src/gcompris/config.c:62
 msgid "Turkish (Azerbaijan)"
 msgstr "турски (Азербайджан)"
 
-#: ../src/gcompris/config.c:68
+#: ../src/gcompris/config.c:63
 msgid "Bulgarian"
 msgstr "български"
 
-#: ../src/gcompris/config.c:69
+#: ../src/gcompris/config.c:64
 msgid "Catalan"
 msgstr "каталунски"
 
-#: ../src/gcompris/config.c:71
+#: ../src/gcompris/config.c:66
 msgid "Danish"
 msgstr "датски"
 
-#: ../src/gcompris/config.c:72
+#: ../src/gcompris/config.c:67
 msgid "German"
 msgstr "немски"
 
-#: ../src/gcompris/config.c:73
+#: ../src/gcompris/config.c:68
 msgid "Greek"
 msgstr "гръцки"
 
-#: ../src/gcompris/config.c:74
+#: ../src/gcompris/config.c:69
 msgid "English (Canada)"
 msgstr "канадски английски"
 
-#: ../src/gcompris/config.c:75
+#: ../src/gcompris/config.c:70
 msgid "English (Great Britain)"
 msgstr "британски английски"
 
-#: ../src/gcompris/config.c:76
+#: ../src/gcompris/config.c:71
 msgid "Spanish"
 msgstr "испански"
 
-#: ../src/gcompris/config.c:77
+#: ../src/gcompris/config.c:72
 msgid "Basque"
 msgstr "баски"
 
-#: ../src/gcompris/config.c:78
+#: ../src/gcompris/config.c:73
 msgid "Finnish"
 msgstr "финландски"
 
-#: ../src/gcompris/config.c:79
+#: ../src/gcompris/config.c:74
 msgid "French"
 msgstr "френски"
 
-#: ../src/gcompris/config.c:80
+#: ../src/gcompris/config.c:75
 msgid "Irish (Gaelic)"
 msgstr "ирландски (галски)"
 
-#: ../src/gcompris/config.c:81
+#: ../src/gcompris/config.c:76
 msgid "Hebrew"
 msgstr "иврит"
 
-#: ../src/gcompris/config.c:82
+#: ../src/gcompris/config.c:77
 msgid "Hindi"
 msgstr "хинди"
 
-#: ../src/gcompris/config.c:83
+#: ../src/gcompris/config.c:78
 msgid "Gujarati"
 msgstr "индийски (гуджарати)"
 
-#: ../src/gcompris/config.c:84
+#: ../src/gcompris/config.c:79
 msgid "Punjabi"
 msgstr "индийски (панджаби)"
 
-#: ../src/gcompris/config.c:85
+#: ../src/gcompris/config.c:80
 msgid "Hungarian"
 msgstr "унгарски"
 
-#: ../src/gcompris/config.c:86
+#: ../src/gcompris/config.c:81
 msgid "Croatian"
 msgstr "хърватски"
 
-#: ../src/gcompris/config.c:87
+#: ../src/gcompris/config.c:82
 msgid "Italian"
 msgstr "италиански"
 
-#: ../src/gcompris/config.c:88
+#: ../src/gcompris/config.c:83
 msgid "Georgian"
 msgstr "грузински"
 
-#: ../src/gcompris/config.c:89
+#: ../src/gcompris/config.c:84
 msgid "Lithuanian"
 msgstr "литовски"
 
-#: ../src/gcompris/config.c:90
+#: ../src/gcompris/config.c:85
 msgid "Macedonian"
 msgstr "македонски"
 
-#: ../src/gcompris/config.c:91
+#: ../src/gcompris/config.c:86
 msgid "Malayalam"
 msgstr "малаялам"
 
-#: ../src/gcompris/config.c:92
+#: ../src/gcompris/config.c:87
 msgid "Marathi"
 msgstr "маратхи"
 
-#: ../src/gcompris/config.c:93
+#: ../src/gcompris/config.c:88
 msgid "Malay"
 msgstr "малайски"
 
-#: ../src/gcompris/config.c:94
+#: ../src/gcompris/config.c:89
 msgid "Nepal"
 msgstr "непалски"
 
-#: ../src/gcompris/config.c:95
+#: ../src/gcompris/config.c:90
 msgid "Dutch"
 msgstr "холандски"
 
-#: ../src/gcompris/config.c:96
+#: ../src/gcompris/config.c:91
 msgid "Norwegian Bokmal"
 msgstr "норвежки (букмол)"
 
-#: ../src/gcompris/config.c:97
+#: ../src/gcompris/config.c:92
 msgid "Norwegian Nynorsk"
 msgstr "норвежки (ниношк)"
 
-#: ../src/gcompris/config.c:98
+#: ../src/gcompris/config.c:93
 msgid "Polish"
 msgstr "полски"
 
-#: ../src/gcompris/config.c:99
+#: ../src/gcompris/config.c:94
 msgid "Portuguese"
 msgstr "португалски"
 
-#: ../src/gcompris/config.c:100
+#: ../src/gcompris/config.c:95
 msgid "Portuguese (Brazil)"
 msgstr "португалски (Бразилия)"
 
-#: ../src/gcompris/config.c:101
+#: ../src/gcompris/config.c:96
 msgid "Romanian"
 msgstr "румънски"
 
-#: ../src/gcompris/config.c:102
+#: ../src/gcompris/config.c:97
 msgid "Russian"
 msgstr "руски"
 
-#: ../src/gcompris/config.c:103
+#: ../src/gcompris/config.c:98
 msgid "Kinyarwanda"
 msgstr "кинярванда"
 
-#: ../src/gcompris/config.c:104
+#: ../src/gcompris/config.c:99
 msgid "Slovak"
 msgstr "словашки"
 
-#: ../src/gcompris/config.c:105
+#: ../src/gcompris/config.c:100
 msgid "Slovenian"
 msgstr "словенски"
 
-#: ../src/gcompris/config.c:106
+#: ../src/gcompris/config.c:101
+msgid "Somali"
+msgstr "сомалийски"
+
+#: ../src/gcompris/config.c:102
 msgid "Albanian"
 msgstr "албански"
 
-#: ../src/gcompris/config.c:107
+#: ../src/gcompris/config.c:103
 msgid "Serbian (Latin)"
 msgstr "сръбски (латиница)"
 
-#: ../src/gcompris/config.c:108
+#: ../src/gcompris/config.c:104
 msgid "Serbian"
 msgstr "сръбски"
 
-#: ../src/gcompris/config.c:109
+#: ../src/gcompris/config.c:105
 msgid "Swedish"
 msgstr "шведски"
 
 #. "ta_IN.UTF-8",	N_("Tamil"),
-#: ../src/gcompris/config.c:111
+#: ../src/gcompris/config.c:107
 msgid "Thai"
 msgstr "тайландски"
 
-#: ../src/gcompris/config.c:112
+#: ../src/gcompris/config.c:108
 msgid "Turkish"
 msgstr "турски"
 
-#: ../src/gcompris/config.c:113
+#: ../src/gcompris/config.c:109
 msgid "Vietnamese"
 msgstr "виетнамски"
 
-#: ../src/gcompris/config.c:114
+#: ../src/gcompris/config.c:110
 msgid "Walloon"
 msgstr "валонски"
 
-#: ../src/gcompris/config.c:115
+#: ../src/gcompris/config.c:111
 msgid "Chinese (Simplified)"
 msgstr "китайски (опростен)"
 
-#: ../src/gcompris/config.c:116
+#: ../src/gcompris/config.c:112
 msgid "Chinese (Traditional)"
 msgstr "китайски (традиционен)"
 
-#: ../src/gcompris/config.c:121
+#: ../src/gcompris/config.c:117
 msgid "No time limit"
 msgstr "Без ограничение за време"
 
-#: ../src/gcompris/config.c:122
+#: ../src/gcompris/config.c:118
 msgid "Slow timer"
 msgstr "Показване на хронометър"
 
-#: ../src/gcompris/config.c:123
+#: ../src/gcompris/config.c:119
 msgid "Normal timer"
 msgstr "Нормален хронометър"
 
-#: ../src/gcompris/config.c:124
+#: ../src/gcompris/config.c:120
 msgid "Fast timer"
 msgstr "Бърз хронометър"
 
-#: ../src/gcompris/config.c:129
+#: ../src/gcompris/config.c:125
 msgid "800x600 (Default for gcompris)"
 msgstr "800x600 (стандартно за GCompris)"
 
-#: ../src/gcompris/config.c:134
+#: ../src/gcompris/config.c:130
 msgid ""
 "<i>Use Gcompris administration module\n"
 "to filter boards</i>"
@@ -5761,38 +5743,38 @@ msgstr ""
 "<i>Използвайте административния модул на GCompris\n"
 "за да филтрирате занимания</i>"
 
-#: ../src/gcompris/config.c:189 ../src/gcompris/config.c:199
+#: ../src/gcompris/config.c:185 ../src/gcompris/config.c:195
 msgid "GCompris Configuration"
 msgstr "Настройки на GCompris"
 
-#: ../src/gcompris/config.c:275
+#: ../src/gcompris/config.c:271
 msgid "Fullscreen"
 msgstr "На цял екран"
 
-#: ../src/gcompris/config.c:318
+#: ../src/gcompris/config.c:314
 msgid "Music"
 msgstr "Музика"
 
-#: ../src/gcompris/config.c:346
+#: ../src/gcompris/config.c:342
 msgid "Effect"
 msgstr "Ефекти"
 
-#: ../src/gcompris/config.c:382
+#: ../src/gcompris/config.c:378
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "Не може да бъде отворена папка с тема: %s"
 
-#: ../src/gcompris/config.c:415 ../src/gcompris/config.c:846
-#: ../src/gcompris/config.c:860
+#: ../src/gcompris/config.c:409 ../src/gcompris/config.c:843
+#: ../src/gcompris/config.c:857
 #, c-format
 msgid "Skin : %s"
 msgstr "Тема : %s"
 
-#: ../src/gcompris/config.c:417
+#: ../src/gcompris/config.c:411
 msgid "SKINS NOT FOUND"
 msgstr "ТЕМИТЕ НЕ СА ОТКРИТИ"
 
-#: ../src/gcompris/config.c:540
+#: ../src/gcompris/config.c:536
 msgid "English (United State)"
 msgstr "американски английски"
 
@@ -5824,47 +5806,47 @@ msgstr ""
 "Изход и докладване на\n"
 "проблема на авторите."
 
-#: ../src/gcompris/gcompris.c:127
+#: ../src/gcompris/gcompris.c:136
 msgid "run gcompris in fullscreen mode."
 msgstr "стартиране на GCompris на цял екран."
 
-#: ../src/gcompris/gcompris.c:130
+#: ../src/gcompris/gcompris.c:139
 msgid "run gcompris in window mode."
 msgstr "стартиране на GCompris в прозорец."
 
-#: ../src/gcompris/gcompris.c:133
+#: ../src/gcompris/gcompris.c:142
 msgid "run gcompris with sound enabled."
 msgstr "стартиране на GCompris с включен звук."
 
-#: ../src/gcompris/gcompris.c:136
+#: ../src/gcompris/gcompris.c:145
 msgid "run gcompris without sound."
 msgstr "стартиране на GCompris без звук."
 
-#: ../src/gcompris/gcompris.c:139
+#: ../src/gcompris/gcompris.c:148
 msgid "run gcompris with the default gnome cursor."
 msgstr "стартиране на Gcompris със стандартния курсор на GNOME."
 
-#: ../src/gcompris/gcompris.c:142
+#: ../src/gcompris/gcompris.c:151
 msgid "display only activities with this difficulty level."
 msgstr "показване на занимания само от това ниво на трудност."
 
-#: ../src/gcompris/gcompris.c:145
+#: ../src/gcompris/gcompris.c:154
 msgid "display debug informations on the console."
 msgstr "показване на информация за грешки в конзолата."
 
-#: ../src/gcompris/gcompris.c:148
+#: ../src/gcompris/gcompris.c:157
 msgid "Print the version of "
 msgstr "Отпечатване на версията на "
 
-#: ../src/gcompris/gcompris.c:151
+#: ../src/gcompris/gcompris.c:160
 msgid "Use the antialiased canvas (slower)."
 msgstr "Използване на платно със заглаждане (по-бавно)."
 
-#: ../src/gcompris/gcompris.c:154
+#: ../src/gcompris/gcompris.c:163
 msgid "Disable XF86VidMode (No screen resolution change)."
 msgstr "Изключване на XF86VidMode (без промяна на разделителната способност)."
 
-#: ../src/gcompris/gcompris.c:157
+#: ../src/gcompris/gcompris.c:166
 msgid ""
 "Run gcompris with local menu (e.g -l /reading will let you play only "
 "activities in the reading directory, -l /strategy/connect4 only the connect4 "
@@ -5874,41 +5856,41 @@ msgstr ""
 "само заниманията за четене, при „-l /boards/connect4“ само играта „Свързване "
 "на 4“)"
 
-#: ../src/gcompris/gcompris.c:160
+#: ../src/gcompris/gcompris.c:169
 msgid "Run GCompris with local activity directory added to menu"
 msgstr "Стартиране на GCompris с локална папка, добавена към менюто"
 
-#: ../src/gcompris/gcompris.c:163
+#: ../src/gcompris/gcompris.c:172
 msgid "Run GCompris in administration and user-management mode"
 msgstr "Стартиране на GCompris в административен режим"
 
-#: ../src/gcompris/gcompris.c:166
+#: ../src/gcompris/gcompris.c:175
 msgid "Use alternate database for profiles"
 msgstr "Използване на алтернативна база от данни за профилите"
 
-#: ../src/gcompris/gcompris.c:169
+#: ../src/gcompris/gcompris.c:178
 msgid "Use alternate database for logs"
 msgstr "Използване на алтернативна база от данни за дневниците"
 
-#: ../src/gcompris/gcompris.c:172
+#: ../src/gcompris/gcompris.c:181
 msgid "Create the alternate database for profiles"
 msgstr "Създаване на алтернативна база от данни за профили"
 
-#: ../src/gcompris/gcompris.c:175
+#: ../src/gcompris/gcompris.c:184
 msgid "Re-read XML Menus and store them in the database"
 msgstr "Препрочитане на менютата в XML и запазване в базата от данни"
 
-#: ../src/gcompris/gcompris.c:178
+#: ../src/gcompris/gcompris.c:187
 msgid "Set the profile to use. Use 'gcompris -a' to create profiles"
 msgstr "Настройте профила. Използвайте „gcompris -a“, за да създадете профили"
 
-#: ../src/gcompris/gcompris.c:181
+#: ../src/gcompris/gcompris.c:190
 msgid "List all available profiles. Use 'gcompris -a' to create profiles"
 msgstr ""
 "Списък с всички налични профили. Използвайте „gcompris -a“, за да създадете "
 "профили"
 
-#: ../src/gcompris/gcompris.c:184
+#: ../src/gcompris/gcompris.c:193
 msgid ""
 "Shared directory location, for profiles and board-configuration data: "
 "[$HOME/.gcompris/shared]"
@@ -5916,28 +5898,28 @@ msgstr ""
 "Споделена папка, за профили и конфигурационни данни за заниманията: [$HOME/."
 "gcompris/shared]"
 
-#: ../src/gcompris/gcompris.c:187
+#: ../src/gcompris/gcompris.c:196
 msgid "The location of user directories: [$HOME/.gcompris/users]"
 msgstr "Местоположение на потребителските директории: [$HOME/.gcompris/users]"
 
-#: ../src/gcompris/gcompris.c:190
+#: ../src/gcompris/gcompris.c:199
 msgid "Run the experimental activities"
 msgstr "Експериментални занимания"
 
-#: ../src/gcompris/gcompris.c:193
+#: ../src/gcompris/gcompris.c:202
 msgid "Disable the quit button"
 msgstr "Изключване на бутона за спиране на програмата"
 
-#: ../src/gcompris/gcompris.c:196
+#: ../src/gcompris/gcompris.c:205
 msgid "Disable the config button"
 msgstr "Изключване на бутона за настройване на програмата"
 
-#: ../src/gcompris/gcompris.c:199
+#: ../src/gcompris/gcompris.c:208
 msgid "Display the resources on stdout based on the selected activities"
 msgstr ""
 "Показване на ресурсите на стандартния изход, базирано на избраните занимания"
 
-#: ../src/gcompris/gcompris.c:202
+#: ../src/gcompris/gcompris.c:211
 msgid ""
 "GCompris will get images, sounds and activity data from this server if not "
 "found locally."
@@ -5945,7 +5927,7 @@ msgstr ""
 "GCompris ще вземе изображения, звуци и данни за заниманията от този сървър, "
 "в случай, че не могат да бъдат намерени локално."
 
-#: ../src/gcompris/gcompris.c:205
+#: ../src/gcompris/gcompris.c:214
 msgid ""
 "Only when --server is provided, disable check for local resource first. Data "
 "are always taken from the web server."
@@ -5953,14 +5935,14 @@ msgstr ""
 "Само когато е подадена опцията „--server“ се пропуска проверката за локални "
 "ресурси. Данните винаги се вземат от уеб-сървъра."
 
-#: ../src/gcompris/gcompris.c:209
+#: ../src/gcompris/gcompris.c:218
 msgid ""
-"In server mode, where is the cache directory to avoid useless downloads."
+"In server mode, specify the cache directory used to avoid useless downloads."
 msgstr ""
-"Къде е директорията за кеш в сървърен режим, за избягване на излишните "
-"изтегляния."
+"В сървърен режим, указва директорията за кеш, използвана за избягване на "
+"излишните изтегляния."
 
-#: ../src/gcompris/gcompris.c:811
+#: ../src/gcompris/gcompris.c:858
 #, c-format
 msgid ""
 "GCompris is free software released under the GPL License. In order to "
@@ -5977,14 +5959,14 @@ msgstr ""
 "подкрепите разработката му, версията за Windows осигурява само %d от %d-те "
 "занимания. Може да се сдобиете с пълната версия срещу малка такса на\n"
 "<http://gcompris.net>\n"
-"Версията за GNU/Linux няма такива ограничения. Забележете, че GCompris е "
+"Версията за GNU/Линукс няма такива ограничения. Забележете, че GCompris е "
 "разработен, за да освободи училищата от монополистични производители на "
 "софтуер. Ако Вие също вярвате, че трябва да учим децата на свобода, "
-"обмислете възможността да използвате GNU/Linux. Повече информация можете да "
+"обмислете възможността да използвате GNU/Линукс. Повече информация можете да "
 "намерите на страницата на Фондация „Свободен софтуер“:\n"
 "<http://www.fsf.org/philosophy>"
 
-#: ../src/gcompris/gcompris.c:1378
+#: ../src/gcompris/gcompris.c:1412
 #, c-format
 msgid ""
 "GCompris\n"
@@ -5998,17 +5980,17 @@ msgstr ""
 "Повече информация на http://gcompris.net\n"
 
 #. check the list of possible values for -l, then exit
-#: ../src/gcompris/gcompris.c:1464
+#: ../src/gcompris/gcompris.c:1501
 #, c-format
 msgid "Use -l to access an activity directly.\n"
 msgstr "Използвайте „-l“ за директен достъп до заниманието.\n"
 
-#: ../src/gcompris/gcompris.c:1465
+#: ../src/gcompris/gcompris.c:1502
 #, c-format
 msgid "The list of available activities is :\n"
 msgstr "Списъкът с наличните занимания е :\n"
 
-#: ../src/gcompris/gcompris.c:1629
+#: ../src/gcompris/gcompris.c:1672
 #, c-format
 msgid "The list of available profiles is:\n"
 msgstr "Списъкът с наличните профили е:\n"
@@ -6021,19 +6003,19 @@ msgstr "Не се влияе"
 msgid "Users without a class"
 msgstr "Потребители без клас"
 
-#: ../src/gcompris/help.c:199
+#: ../src/gcompris/help.c:194
 msgid "Prerequisite"
 msgstr "Предпоставка"
 
-#: ../src/gcompris/help.c:227
+#: ../src/gcompris/help.c:222
 msgid "Goal"
 msgstr "Цел"
 
-#: ../src/gcompris/help.c:255
+#: ../src/gcompris/help.c:250
 msgid "Manual"
 msgstr "Ръководство"
 
-#: ../src/gcompris/help.c:283
+#: ../src/gcompris/help.c:278
 msgid "Credit"
 msgstr "Заслуги"
 
