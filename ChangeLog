@@ -1,3 +1,15 @@
+2006-11-03  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	- Patch from Miguel that:
+	  - fixes the digital display in clockgame.
+	  - remove a momory leak in memory
+
+	* TODO:
+	* src/boards/clockgame.c: (start_board), (display_digital_time),
+	(display_hour), (display_minute), (display_second), (item_event),
+	(get_random_hour):
+	* src/boards/memory.c: (end_board), (create_item):
+
 2006-11-02  Bruno Coudoin
 
 	- new date system, untested.
@@ -6,7 +18,7 @@
 	  http://bugzilla.gnome.org/show_bug.cgi?id=368549
 	- In shapegame, the green dot is now resseted properly
 	  when the item is no more in sight (reported by Joshua N Pritikin)
-	
+
 	* configure.in:
 	* src/boards/clockgame.c: (display_hour), (item_event):
 	* src/boards/shapegame.c: (item_event):
@@ -26,10 +38,10 @@
 	* src/gcompris/gcompris.c: (gc_locale_set): Fixed non relative call to bindtextdomain(). It was breaking translation with autopackage.
 	Need to be tested.
 
-2006-10-28 Bruno coudoin  <bruno.coudoin@free.fr>  
+2006-10-28 Bruno coudoin  <bruno.coudoin@free.fr>
 
 	- Added support for Somali
-	
+
 	* boards/flags/so.png:
 	* configure.in:
 	* docs/gcompris2spip.pl:

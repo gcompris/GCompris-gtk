@@ -134,7 +134,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       gcomprisBoard=agcomprisBoard;
 
       img = gc_skin_image_get("clockgame-bg.jpg");
-      gc_set_background(gnome_canvas_root(gcomprisBoard->canvas), 
+      gc_set_background(gnome_canvas_root(gcomprisBoard->canvas),
 			      img);
       g_free(img);
 
@@ -248,6 +248,12 @@ destroy_all_items()
 static void display_digital_time(GnomeCanvasItem *item, GcomprisTime *time)
 {
   gchar *text = NULL;
+  int temps;
+
+  temps = (time->hour+12)*3600 + time->minute*60 + time->second;
+  time->hour = (temps / 3600) % 12;
+  time->minute = (temps / 60) % 60;
+  time->second = temps % 60;
 
   if(item==NULL)
     return;
@@ -269,7 +275,6 @@ static void display_hour(guint hour)
   double needle_size = clock_size*0.70;
   double ang;
   GnomeCanvasPoints *canvasPoints;
-  canvasPoints = gnome_canvas_points_new (2);
 
   if(hour_item==NULL)
     return;
@@ -279,6 +284,7 @@ static void display_hour(guint hour)
   ang += currentTime.minute * M_PI / 360;
   ang += currentTime.second * M_PI / 21600;
 
+  canvasPoints = gnome_canvas_points_new (2);
   canvasPoints->coords[0]=cx;
   canvasPoints->coords[1]=cy;
   canvasPoints->coords[2]=cx + needle_size * sin(ang);
@@ -300,13 +306,11 @@ static void display_hour(guint hour)
   display_digital_time(digital_time_item_s, &currentTime);
 }
 
-
 static void display_minute(guint minute)
 {
   double needle_size = clock_size;
   double ang;
   GnomeCanvasPoints *canvasPoints;
-  canvasPoints = gnome_canvas_points_new (2);
 
   if(minute_item==NULL)
     return;
@@ -314,6 +318,7 @@ static void display_minute(guint minute)
   ang = minute * M_PI / 30;
   ang += currentTime.second * M_PI / 1800;
 
+  canvasPoints = gnome_canvas_points_new (2);
   canvasPoints->coords[0]=cx;
   canvasPoints->coords[1]=cy;
   canvasPoints->coords[2]=cx + needle_size * sin(ang);
@@ -332,6 +337,7 @@ static void display_minute(guint minute)
 
   currentTime.minute=minute;
   display_digital_time(digital_time_item, &currentTime);
+  display_digital_time(digital_time_item_s, &currentTime);
 }
 
 static void display_second(guint second)
@@ -339,7 +345,6 @@ static void display_second(guint second)
   double needle_size = clock_size;
   double ang;
   GnomeCanvasPoints *canvasPoints;
-  canvasPoints = gnome_canvas_points_new (2);
 
   /* No seconds at first levels */
   if(second_item==NULL || gcomprisBoard->level<=2)
@@ -347,6 +352,7 @@ static void display_second(guint second)
 
   ang = second * M_PI / 30;
 
+  canvasPoints = gnome_canvas_points_new (2);
   canvasPoints->coords[0]=cx;
   canvasPoints->coords[1]=cy;
   canvasPoints->coords[2]=cx + needle_size * sin(ang);
@@ -365,6 +371,7 @@ static void display_second(guint second)
 
   currentTime.second=second;
   display_digital_time(digital_time_item, &currentTime);
+  display_digital_time(digital_time_item_s, &currentTime);
 }
 
 
@@ -692,7 +699,7 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 	  if(item==hour_item)
 	    display_hour(angle * 6 / M_PI);
 	  else if(item==minute_item)
-	  {	
+	  {
 	    if(currentTime.minute > 45 && angle * 30 / M_PI < 15)
 	      currentTime.hour++;
 
@@ -740,11 +747,11 @@ static void get_random_hour(GcomprisTime *time)
 {
 
   time->hour=rand()%12;
-  
+
   if(gcomprisBoard->level>3)
     time->second=rand()%60;
   else time->second=0;
-  
+
   time->minute=rand()%60;
 
   switch(gcomprisBoard->level)

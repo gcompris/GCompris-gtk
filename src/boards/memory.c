@@ -910,6 +910,11 @@ end_board ()
 	tux_memory = NULL;
       }
     }
+  g_free(op_add);
+  g_free(op_minus);
+  g_free(op_mult);
+  g_free(op_div);
+  
   gcomprisBoard = NULL;
 }
 
@@ -1222,7 +1227,8 @@ static void create_item(GnomeCanvasGroup *parent)
 				 "x", (double) 50,
 				 "y", (double) 20,
 				 NULL);
-
+    gdk_pixbuf_unref(pixmap_tux);
+    
     tux_score_s = gnome_canvas_item_new (GNOME_CANVAS_GROUP(parent),
 				       gnome_canvas_text_get_type (),
 				       "font", gc_skin_font_board_huge_bold,

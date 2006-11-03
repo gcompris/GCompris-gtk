@@ -8,7 +8,7 @@
 * Boards idea:
   - simple geometry: redo a symetrical drawing
 
-* Use thepixbuf animation feature for fishes instead of my own 
+* Use thepixbuf animation feature for fishes instead of my own
   animation implementation
 
 * GCompris editor : It will let teachers/educators to create their
@@ -17,7 +17,7 @@
 * More feedback
 
 * Add an independant server side software that can control gcompris
-  behaviour and record the student scoring. It must also include 
+  behaviour and record the student scoring. It must also include
   authentication. Already got a name for that : schoolbus
 
 * Add a board to set the current date on a calendar with date/month/year
@@ -31,7 +31,7 @@
 
 * Dynamic skin change
 
-* Remove the Gnome dependancy to use GTK only. The gnomecanvas itself do 
+* Remove the Gnome dependancy to use GTK only. The gnomecanvas itself do
   not require gnome. Less dependancy less install issues. Also could
   make porting easier.
 
@@ -65,7 +65,7 @@ ou autre)
 faire la construction par drag'n'drop.  Si il prend la bonne loco mais
 se trompe de wagon, il faut recommencer au début, c'est pas top.
 
-- Aussi, il y a un cas ou malgres qu'on mettes la bonne solution, 
+- Aussi, il y a un cas ou malgres qu'on mettes la bonne solution,
   il ne trouve pas que c'est OK.
 
 - si on ajoute beaucoup de wagons, ils dépassent de l'écran et on ne les
@@ -126,7 +126,7 @@ When a board is started it first check for a content
 in .gcompris/activities_data/<activity_name>/<profile>/
 if none avalaible here, then the default is usedhese new fatures are mandatory in gcompris is we want to go further,
 especialy in reading activities. There is many ideas we could implement
-easily in the reading area but we cannot until we have in place a goodowerfull and generic edition and profiling mecanism. 
+easily in the reading area but we cannot until we have in place a goodowerfull and generic edition and profiling mecanism.
 
 Teachers want to have some edit capability to adapt gcompris to their
 courses. We could make some dirty hack and go faster but in the end we
@@ -140,9 +140,10 @@ Then make a new release for the windows version. This is most important
 because it will make it easier to distribute updates (python activities
 only) to all our users, whatever the platform they use.
 
-This will allows us to make gcompris a complete, full featured 
+This will allows us to make gcompris a complete, full featured
 educational software that rivals many proprietary ones.
 
 If somebody want to work on the profile concept, we will be abble to
 provide these features at least 6 monthes earlier than what I can do.
 
+- Replace Soudan by Sudan in boards/geography/board4_2.xml.in
