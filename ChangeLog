@@ -1,3 +1,32 @@
+2006-11-04  Bruno coudoin  <bruno.coudoin@free.fr>
+
+
+	* src/boards/clickgame.c: (clickgame_pause),
+	(fish_reverse_direction), (fish_gobble), (canvas_event),
+	(item_event), (clickgame_start), (clickgame_end),
+	(clickgame_is_our_board), (clickgame_next_level),
+	(clickgame_animate_item), (clickgame_move_item),
+	(clickgame_destroy_item), (clickgame_destroy_all_items),
+	(clickgame_move_items), (load_random_fish),
+	(clickgame_create_item), (clickgame_drop_items):
+
+	Improved clickgame by Joshua N.Pritikin /jpritikin on pobox point com/
+	Return images from load_random_pixmap instead of via global imagelist.
+	Split the fish list into smallish and biggish.
+	Rename some globals for clarity.
+	Keep both normal and mirror'd fish in anticipation of direction reversal.
+	Clean up background setup code.
+	Add frighten and stun behaviors.
+	Trivial cleanups.
+	Put some fish on the screen immediately after starting.
+
+	* src/gcompris/config.c: (item_event_ok):
+	* src/gcompris/soundutil.c: (gc_sound_init), (scheduler_bgnd),
+	(gc_sound_play_ogg): Improved the management of the sound:
+	- shuffle the background musics on startup
+	- really close the audio device when sounds are deactivated in the config panel
+	- reopen the audio devide when sounds are activated in tha config panel
+
 2006-11-03  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	- Patch from Miguel that:

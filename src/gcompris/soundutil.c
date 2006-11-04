@@ -18,7 +18,6 @@
  */
 
 #include "string.h"
-#include <unistd.h>		/* sleep */
 
 #ifdef __APPLE__
 #   include <sys/types.h>
@@ -34,7 +33,6 @@ static gboolean	 sound_closed = FALSE;
 
 /* mutex */
 GMutex		*lock = NULL;
-GMutex		*lock_bg = NULL;
 GCond		*cond = NULL;
 
 /* Singleton */
@@ -61,6 +59,16 @@ void
 gc_sound_init()
 {
 
+  /* Check to run the init once only */
+  if(sound_init == 1)
+    {
+      if(sound_closed == TRUE)
+	gc_sound_reopen();
+
+	  return;
+    }
+  sound_init = 1;
+
   gc_sound_controller = g_object_new (GCOMPRIS_SOUND_TYPE, NULL);
 
   g_signal_connect( gc_sound_controller,
@@ -70,17 +78,10 @@ gc_sound_init()
 
   g_assert( gc_sound_controller != NULL );
 
-  /* Check to run the init once only */
-  if(sound_init == 1) {
-    return;
-  }
-  sound_init = 1;
-
   /* Initialize the thread system */
   if (!g_thread_supported ()) g_thread_init (NULL);
 
   lock = g_mutex_new ();
-  lock_bg = g_mutex_new ();
   cond = g_cond_new ();
 
   sound_policy = PLAY_AFTER_CURRENT;
@@ -102,35 +103,37 @@ gc_sound_init()
     perror("create failed for scheduler background");
 
 }
+
 void
 gc_sound_close()
 {
-  if ( ! ( sound_closed || ( ( gc_prop_get()->music ==  0 )
-			     && ( gc_prop_get()->fx   == 0) ) ) ){
-    g_mutex_lock(lock);
-    g_mutex_lock(lock_bg);
-    sdlplayer_close();
-    sound_closed = TRUE;
-  }
+  if ( !sound_closed )
+    {
+      g_mutex_lock(lock);
+      sdlplayer_close();
+      sound_closed = TRUE;
+    }
 }
 void
 gc_sound_reopen()
 {
-  if (sound_closed){
-    sdlplayer_reopen();
-    g_mutex_unlock(lock);
-    g_mutex_unlock(lock_bg);
-    sound_closed = FALSE;
-  }
+  if (sound_closed)
+    {
+      sdlplayer_reopen();
+      g_mutex_unlock(lock);
+      sound_closed = FALSE;
+    }
 }
 
 void
-gc_sound_pause(){
+gc_sound_pause()
+{
   sdlplayer_pause();
 }
 
 void
-gc_sound_resume(){
+gc_sound_resume()
+{
   sdlplayer_resume();
 }
 
@@ -168,16 +171,12 @@ scheduler_bgnd (gpointer user_data)
   gint i;
   gchar *str;
   gchar *music_dir;
-  GList *musiclist = NULL;
+  GSList *musiclist = NULL;
   GDir *dir;
   const gchar *one_dirent;
 
   /* Sleep to let gcompris intialisation and intro music to complete */
-#if defined WIN32
-  sleep(25000);
-#else
-  sleep(25);
-#endif
+  g_usleep(25000000);
 
   /* Load the Music directory file names */
   music_dir = g_strconcat(properties->package_data_dir, "/music/background", NULL);
@@ -191,18 +190,18 @@ scheduler_bgnd (gpointer user_data)
   }
 
   /* Fill up the music list */
-  while((one_dirent = g_dir_read_name(dir)) != NULL) {
-
-    if (strcmp(one_dirent, "COPYRIGHT")) {
-      str = g_strdup_printf("%s/%s", music_dir, one_dirent);
-
-      musiclist = g_list_append (musiclist, str);
+  while((one_dirent = g_dir_read_name(dir)) != NULL)
+    {
+      if (g_str_has_suffix(one_dirent, ".ogg"))
+	{
+	  str = g_strdup_printf("%s/%s", music_dir, one_dirent);
+	  musiclist = g_slist_insert (musiclist, str, RAND(0, g_slist_length(musiclist)));
+	}
     }
-  }
   g_dir_close(dir);
 
   /* No music no play */
-  if(g_list_length(musiclist)==0)
+  if(g_slist_length(musiclist)==0)
     {
       g_free(music_dir);
       return NULL;
@@ -211,27 +210,27 @@ scheduler_bgnd (gpointer user_data)
   /* Now loop over all our music files */
   while (TRUE)
     {
-      /* Music can be disabled at any time */
-      if ( !gc_prop_get()->music )
-	return NULL;
-
-      for(i=0; i<g_list_length(musiclist); i++)
+      for(i=0; i<g_slist_length(musiclist); i++)
 	{
+	  /* Music can be disabled at any time */
+	  if ( !gc_prop_get()->music )
+	    {
+	      g_usleep(5000000);
+	      continue;
+	    }
+
 	  /* WARNING Displaying stuff in a thread seems to make gcompris unstable */
 	  /*	  display_ogg_file_credits((char *)g_list_nth_data(musiclist, i)); */
 	  //	  if(decode_ogg_file((char *)g_list_nth_data(musiclist, i))!=0)
-	  if(sdlplayer_bg((char *)g_list_nth_data(musiclist, i), 128)!=0){
-	    g_warning("Stopping music, sdlplayer_bg failed");
-	    goto exit;
+	  if(sdlplayer_bg((char *)g_slist_nth_data(musiclist, i), 128)!=0){
+	    g_warning("Stopping music, sdlplayer_bg failed, try again in 5 seconds");
+	    g_usleep(5000000);
 	  }
-	  g_mutex_lock( lock_bg );
-	  g_mutex_unlock( lock_bg );
 	}
     }
 
-
- exit:
-  g_list_free(musiclist);
+  /* Never happen */
+  g_slist_free(musiclist);
   g_warning( "The background thread music is stopped now. "\
 	     "The files in %s are not ogg vorbis OR the sound output failed",
 	     music_dir);
@@ -355,7 +354,7 @@ gc_sound_play_ogg(const gchar *sound, ...)
   char* tmp = NULL;
   GList* list = NULL;
 
-  if(!sound)
+  if(!sound || !gc_prop_get()->fx)
     return;
 
   list = g_list_append(list, (gpointer)sound);

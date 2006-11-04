@@ -33,22 +33,25 @@
 
 static gboolean board_paused = TRUE;
 
-static GList *item_list = NULL;
+static GList *item_list = NULL;     // onscreen fish
 static GList *item2del_list = NULL;
 
 static GcomprisBoard *gcomprisBoard = NULL;
 
-static gint dummy_id = 0;
+static gulong event_handle_id;
+static gint move_items_id = 0;
 static gint animate_id = 0;
 static gint drop_items_id = 0;
 
-static  GList *imagelist = NULL;
-
 typedef struct {
   double speed;
+  gint fright;
+  gint stun;
   gint currentItem;
   GnomeCanvasItem *rootitem;
-  GList *item_list;
+  GSList *fwd_frames;
+  GSList *rev_frames;
+  GSList *cur_frames;  // points to fwd_frames or rev_frames
 } FishItem;
 
 static void	 clickgame_start (GcomprisBoard *agcomprisBoard);
@@ -58,57 +61,65 @@ static gboolean	 clickgame_is_our_board (GcomprisBoard *gcomprisBoard);
 static void	 clickgame_set_level (guint level);
 static void	 clickgame_config(void);
 
-static FishItem *clickgame_create_item(GnomeCanvasGroup *parent);
+static FishItem *clickgame_create_item();
 static gint	 clickgame_drop_items (GtkWidget *widget, gpointer data);
 static gint	 clickgame_move_items (GtkWidget *widget, gpointer data);
 static gint	 clickgame_animate_items (GtkWidget *widget, gpointer data);
 static void	 clickgame_destroy_item(FishItem *fishitem);
 static void	 clickgame_destroy_items(void);
 static void	 clickgame_destroy_all_items(void);
-static void	 setup_item(FishItem *fishitem);
-static void	 load_random_pixmap(void);
 static void	 clickgame_next_level(void);
 
 static int gamewon;
 static void	 game_won(void);
 
 static  guint32              fallSpeed = 0;
-static  double               speed = 0.0;
+static  double               moveSpeed = 0.0;
 static  double               imageZoom = 0.0;
 
-// List of images to use in the game
-static gchar *pixmapList[] =
+
+static const gchar *smallFish[] =
   {
-    "fishes/blueking2_%d.png",
-    "fishes/butfish_%d.png",
-    "fishes/cichlid1_%d.png",
-    "fishes/cichlid4_%d.png",
-    "fishes/collaris_%d.png",
-    "fishes/discus2_%d.png",
-    "fishes/discus3_%d.png",
-    "fishes/eel_%d.png",
-    "fishes/f00_%d.png",
-    "fishes/f01_%d.png",
-    "fishes/f02_%d.png",
-    "fishes/f03_%d.png",
-    "fishes/f04_%d.png",
-    "fishes/f05_%d.png",
-    "fishes/f06_%d.png",
-    "fishes/f07_%d.png",
-    "fishes/f08_%d.png",
-    "fishes/f09_%d.png",
-    "fishes/f10_%d.png",
-    "fishes/f11_%d.png",
-    "fishes/f12_%d.png",
-    "fishes/f13_%d.png",
-    "fishes/manta_%d.png",
-    "fishes/newf1_%d.png",
-    "fishes/QueenAngel_%d.png",
-    "fishes/shark1_%d.png",
-    "fishes/six_barred_%d.png",
-    "fishes/teeth_%d.png",
+    "%s/cichlid1_%d.png",
+    "%s/cichlid4_%d.png",
+    "%s/collaris_%d.png",
+    "%s/discus3_%d.png",
+    "%s/eel_%d.png",
+    "%s/teeth_%d.png",
+    "%s/f02_%d.png",
   };
-#define NUMBER_OF_IMAGES G_N_ELEMENTS(pixmapList)
+#define NUM_SMALLFISH G_N_ELEMENTS(smallFish)
+
+static const gchar *medFish[] =
+  {
+    "%s/f00_%d.png",
+    "%s/f01_%d.png",
+    "%s/f03_%d.png",
+    "%s/f04_%d.png",
+    "%s/f05_%d.png",
+    "%s/f06_%d.png",
+    "%s/f11_%d.png",
+    "%s/f12_%d.png",
+    "%s/f13_%d.png",
+    "%s/QueenAngel_%d.png",
+    "%s/six_barred_%d.png",
+    "%s/shark1_%d.png",
+  };
+#define NUM_MEDFISH G_N_ELEMENTS(medFish)
+
+static const gchar *bigFish[] =
+  {
+    "%s/blueking2_%d.png",
+    "%s/butfish_%d.png",
+    "%s/discus2_%d.png",
+    "%s/f07_%d.png",
+    "%s/f08_%d.png",
+    "%s/f09_%d.png",
+    "%s/f10_%d.png",
+    "%s/manta_%d.png",
+    "%s/newf1_%d.png",
+  };
+#define NUM_BIGFISH G_N_ELEMENTS(bigFish)
 
 /* Description of this plugin */
 static BoardPlugin menu_bp =
@@ -116,7 +127,7 @@ static BoardPlugin menu_bp =
    NULL,
    NULL,
    "Click On Me",
-   "Left-Click with the mouse on all swimming fish before they leave the fishtank",
+   "Click with the mouse on all swimming fish before they leave the fishtank",
    "Bruno Coudoin <bruno.coudoin@free.fr>",
    NULL,
    NULL,
@@ -159,9 +170,9 @@ static void clickgame_pause (gboolean pause)
 
   if(pause)
     {
-      if (dummy_id) {
-	gtk_timeout_remove (dummy_id);
-	dummy_id = 0;
+      if (move_items_id) {
+	gtk_timeout_remove (move_items_id);
+	move_items_id = 0;
       }
       if (animate_id) {
 	gtk_timeout_remove (animate_id);
@@ -178,8 +189,8 @@ static void clickgame_pause (gboolean pause)
 	drop_items_id = gtk_timeout_add (200,
 					 (GtkFunction) clickgame_drop_items, NULL);
       }
-      if(!dummy_id) {
-	dummy_id = gtk_timeout_add (200, (GtkFunction) clickgame_move_items, NULL);
+      if(!move_items_id) {
+	move_items_id = gtk_timeout_add (200, (GtkFunction) clickgame_move_items, NULL);
       }
       if(!animate_id) {
 	animate_id = gtk_timeout_add (200, (GtkFunction) clickgame_animate_items, NULL);
@@ -189,376 +200,108 @@ static void clickgame_pause (gboolean pause)
   board_paused = pause;
 }
 
-/*
- */
-static void clickgame_start (GcomprisBoard *agcomprisBoard)
+static void
+fish_reverse_direction (FishItem *fish)
 {
-  if(agcomprisBoard!=NULL)
-    {
-      gcomprisBoard = agcomprisBoard;
+  fish->speed = -fish->speed;
 
-      /* set initial values for this level */
-      gcomprisBoard->level = 1;
-      gcomprisBoard->maxlevel=6;
-      gcomprisBoard->number_of_sublevel=10; /* Go to next level after this number of 'play' */
-      gc_score_start(SCORESTYLE_NOTE,
-			   gcomprisBoard->width - 220,
-			   gcomprisBoard->height - 50,
-			   gcomprisBoard->number_of_sublevel);
-      gc_bar_set(GC_BAR_LEVEL);
+  gnome_canvas_item_hide(g_slist_nth_data(fish->cur_frames,
+					  fish->currentItem));
 
-      clickgame_next_level();
+  fish->cur_frames =
+    fish->speed<0? fish->rev_frames : fish->fwd_frames;
 
-      clickgame_pause(FALSE);
-
-    }
-
+  gnome_canvas_item_show(g_slist_nth_data(fish->cur_frames,
+					  fish->currentItem));
 }
 
 static void
-clickgame_end ()
+fish_gobble (FishItem *fishitem)
 {
-  if(gcomprisBoard!=NULL)
-    {
-      clickgame_pause(TRUE);
-      gc_score_end();
-      clickgame_destroy_all_items();
-      gcomprisBoard->level = 1;       // Restart this game to zero
-    }
-  gcomprisBoard = NULL;
-}
+  clickgame_destroy_item(fishitem);
+  gc_sound_play_ogg ("sounds/gobble.ogg", NULL);
 
-static void
-clickgame_set_level (guint level)
-{
-
-  if(gcomprisBoard!=NULL)
-    {
-      gcomprisBoard->level=level;
-      clickgame_next_level();
-    }
-}
-
-static gboolean
-clickgame_is_our_board (GcomprisBoard *gcomprisBoard)
-{
-  if (gcomprisBoard)
-    {
-      if(g_strcasecmp(gcomprisBoard->type, "clickgame")==0)
-	{
-	  /* Set the plugin entry */
-	  gcomprisBoard->plugin=&menu_bp;
-
-	  return TRUE;
-	}
-    }
-  return FALSE;
-}
-
-static void
-clickgame_config ()
-{
-  if(gcomprisBoard!=NULL)
-    {
-      clickgame_pause(TRUE);
-    }
-}
-
-/*-------------------------------------------------------------------------------*/
-/*-------------------------------------------------------------------------------*/
-/*-------------------------------------------------------------------------------*/
-/*-------------------------------------------------------------------------------*/
-
-/* set initial values for the next level */
-static void clickgame_next_level()
-{
-
-  switch(gcomprisBoard->level)
-    {
-    case 1:
-      gc_set_background(gnome_canvas_root(gcomprisBoard->canvas),
-			      "clickgame/nur00523.jpg");
-      break;
-    case 2:
-      gc_set_background(gnome_canvas_root(gcomprisBoard->canvas),
-      			      "clickgame/nur03006.jpg");
-      break;
-    case 3:
-      gc_set_background(gnome_canvas_root(gcomprisBoard->canvas),
-			      "clickgame/nur03011.jpg");
-      break;
-    case 4:
-      gc_set_background(gnome_canvas_root(gcomprisBoard->canvas),
-			      "clickgame/nur03010.jpg");
-      break;
-    case 5:
-      gc_set_background(gnome_canvas_root(gcomprisBoard->canvas),
-			      "clickgame/nur03013.jpg");
-      break;
-    default:
-      gc_set_background(gnome_canvas_root(gcomprisBoard->canvas),
-			      "clickgame/nur03505.jpg");
-    }
-
-  gc_bar_set_level(gcomprisBoard);
-
-  /* Try the next level */
-  speed=100+(40/(gcomprisBoard->level));
-  fallSpeed=5000-gcomprisBoard->level*200;
-  /* Make the images tend to 0.5 ratio */
-  imageZoom=0.5+(0.5/(gcomprisBoard->level));
-  gcomprisBoard->sublevel=0;
+  gcomprisBoard->sublevel++;
   gc_score_set(gcomprisBoard->sublevel);
 
-}
-
-
-static void clickgame_animate_item(FishItem *fishitem)
-{
-  gint currentItem;
-
-  /* Manage the animation */
-  currentItem = fishitem->currentItem;
-  fishitem->currentItem++;
-  if(fishitem->currentItem >= g_list_length(fishitem->item_list))
-    fishitem->currentItem=0;
-
-  gnome_canvas_item_show((GnomeCanvasItem *)g_list_nth_data(fishitem->item_list,
-							    fishitem->currentItem));
-
-  gnome_canvas_item_hide((GnomeCanvasItem *)g_list_nth_data(fishitem->item_list,
-							    currentItem));
-}
-
-static void clickgame_move_item(FishItem *fishitem)
-{
-  double x1, y1, x2, y2;
-
-  GnomeCanvasItem *item = fishitem->rootitem;
-
-  gnome_canvas_item_move(item, fishitem->speed, 0.0);
-
-
-  gnome_canvas_item_get_bounds    (item,
-				   &x1,
-				   &y1,
-				   &x2,
-				   &y2);
-
-  if(fishitem->speed>0)
-    {
-      if(x1>gcomprisBoard->width) {
-	item2del_list = g_list_append (item2del_list, fishitem);
-	gc_sound_play_ogg ("crash", NULL);
-      }
-    }
-  else
-    {
-      if(x2<0) {
-	item2del_list = g_list_append (item2del_list, fishitem);
-	gc_sound_play_ogg ("crash", NULL);
-      }
-    }
-
-}
-
-static void clickgame_destroy_item(FishItem *fishitem)
-{
-  GnomeCanvasItem *item = fishitem->rootitem;
-
-  item_list = g_list_remove (item_list, fishitem);
-  item2del_list = g_list_remove (item2del_list, fishitem);
-  gtk_object_destroy (GTK_OBJECT(item));
-
-  g_list_free(fishitem->item_list);
-  g_free(fishitem);
-}
-
-/* Destroy items that falls out of the canvas */
-static void clickgame_destroy_items()
-{
-  FishItem *fishitem;
-
-  while(g_list_length(item2del_list)>0)
-    {
-      fishitem = g_list_nth_data(item2del_list, 0);
-      clickgame_destroy_item(fishitem);
-    }
-}
-
-/* Destroy all the items */
-static void clickgame_destroy_all_items()
-{
-  FishItem *fishitem;
-
-  while(g_list_length(item_list)>0)
-    {
-      fishitem = g_list_nth_data(item_list, 0);
-      clickgame_destroy_item(fishitem);
-    }
-  if(item_list) {
-    g_list_free(item_list);
-    item_list = NULL;
-  }
-
-  if(imagelist) {
-    g_list_free(imagelist);
-    imagelist = NULL;
-  }
-}
-
-/*
- * This does the moves of the game items on the play canvas
- *
- */
-static gint clickgame_move_items (GtkWidget *widget, gpointer data)
-{
-  g_list_foreach (item_list, (GFunc) clickgame_move_item, NULL);
-
-  /* Destroy items that falls out of the canvas */
-  clickgame_destroy_items();
-
-  dummy_id = gtk_timeout_add (speed,
-			      (GtkFunction) clickgame_move_items, NULL);
-
-  return(FALSE);
-}
-
-/*
- * This does the icon animation
- *
- */
-static gint clickgame_animate_items (GtkWidget *widget, gpointer data)
-{
-  g_list_foreach (item_list, (GFunc) clickgame_animate_item, NULL);
-
-  animate_id = gtk_timeout_add (1000,
-			      (GtkFunction) clickgame_animate_items, NULL);
-
-  return(FALSE);
-}
-
-static FishItem *clickgame_create_item(GnomeCanvasGroup *parent)
-{
-  GdkPixbuf *pixmap = NULL;
-  GdkPixbuf *pixmap2 = NULL;
-  GnomeCanvasItem *rootitem, *item;
-  FishItem *fishitem;
-  double x;
-  gint i, length;
-
-  /* Avoid to have too much items displayed */
-  if(g_list_length(item_list)>5)
-    return NULL;
-
-  load_random_pixmap();
-
-  fishitem = g_malloc(sizeof(FishItem));
-  fishitem->currentItem   = 0;
-  fishitem->speed = (double)(rand()%(60))/10 - 3;
-  fishitem->item_list = NULL;
-
-  pixmap = (GdkPixbuf *)g_list_nth_data(imagelist, 0);
-
-  if(pixmap==NULL)
-    return NULL;
-
-  if(fishitem->speed<0)
-    {
-      x = (double) gcomprisBoard->width;
-      fishitem->speed=MIN(fishitem->speed, -1);
-    }
-  else
-    {
-      x = (double) -gdk_pixbuf_get_width(pixmap)*imageZoom;
-      fishitem->speed=MAX(fishitem->speed, 1);
-    }
-
-  rootitem = \
-    gnome_canvas_item_new (parent,
-			   gnome_canvas_group_get_type (),
-			   "x", x,
-			   "y", (double)(rand()%(gcomprisBoard->height-
-						 (guint)(gdk_pixbuf_get_height(pixmap)*
-							 imageZoom))),
-			   NULL);
-
-
-  fishitem->rootitem = rootitem;
-
-  length = g_list_length(imagelist);
-  for(i=0; i<length; i++)
-    {
-      pixmap = (GdkPixbuf *)g_list_nth_data(imagelist, i);
-
-      pixmap2 = pixbuf_copy_mirror(pixmap, (fishitem->speed<0?TRUE:FALSE), FALSE);
-
-      gdk_pixbuf_unref(pixmap);
-
-      item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
-				    gnome_canvas_pixbuf_get_type (),
-				    "pixbuf", pixmap2,
-				    "x", 0.0,
-				    "y", 0.0,
-				    "width", (double) gdk_pixbuf_get_width(pixmap)*imageZoom,
-				    "height", (double) gdk_pixbuf_get_height(pixmap)*imageZoom,
-				    "width_set", TRUE,
-				    "height_set", TRUE,
-				    NULL);
-      gdk_pixbuf_unref(pixmap2);
-
-      if(i==fishitem->currentItem)
-	gnome_canvas_item_show(item);
-      else
-	gnome_canvas_item_hide(item);
-
-      fishitem->item_list = g_list_append (fishitem->item_list, item);
-    }
-
-  for(i=0; i<length; i++)
-    {
-      pixmap = (GdkPixbuf *)g_list_nth_data(imagelist, 0);
-      imagelist = g_list_remove(imagelist, pixmap);
-    }
-  item_list = g_list_append (item_list, fishitem);
-
-  return (fishitem);
-}
-
-static void clickgame_add_new_item()
-{
-  setup_item (clickgame_create_item(gnome_canvas_root(gcomprisBoard->canvas)));
-}
-
-/*
- * This is called on a low frequency and is used to drop new items
- *
- */
-static gint clickgame_drop_items (GtkWidget *widget, gpointer data)
-{
-  clickgame_add_new_item();
-
-  drop_items_id = gtk_timeout_add (fallSpeed,
-				   (GtkFunction) clickgame_drop_items, NULL);
-  return (FALSE);
-}
-
-/* ==================================== */
-static void game_won()
-{
-  gcomprisBoard->sublevel++;
-
   if(gcomprisBoard->sublevel>=gcomprisBoard->number_of_sublevel) {
-    /* Try the next level */
-    gcomprisBoard->sublevel=0;
-    gcomprisBoard->level++;
-    if(gcomprisBoard->level>gcomprisBoard->maxlevel) { // the current board is finished : bail out
-      gc_bonus_end_display(BOARD_FINISHED_RANDOM);
-      return;
-    }
-    gc_sound_play_ogg ("sounds/bonus.ogg", NULL);
+    gamewon = TRUE;
+    clickgame_destroy_all_items();
+    gc_bonus_display(gamewon, BONUS_FLOWER);
+    return;
   }
-  clickgame_next_level();
+  /* Drop a new item now to speed up the game */
+  if(g_list_length(item_list)==0)
+    {
+      /* Remove any pending new item creation to sync the falls */
+      if (drop_items_id)
+	gtk_timeout_remove (drop_items_id);
+      drop_items_id =
+	gtk_timeout_add (0, (GtkFunction) clickgame_drop_items, NULL);
+    }
+}
+
+static gint
+canvas_event(GnomeCanvas *canvas, GdkEvent *event)
+{
+  FishItem *fish;
+  double mouse_x = event->button.x;
+  double mouse_y = event->button.y;
+  int ii;
+
+  switch (event->type)
+     {
+     case GDK_BUTTON_PRESS:
+       switch(event->button.button)
+         {
+         case 1:
+         case 2:
+         case 3:
+           if (gcomprisBoard->level >= 3 &&
+	       !(event->button.state & GDK_SHIFT_MASK)) {
+	     for (ii=0; (fish=g_list_nth_data(item_list, ii)); ii++) {
+	       double dx, dy, near;
+	       double x1,x2,y1,y2;
+	       int react;
+	       gnome_canvas_item_get_bounds (fish->rootitem, &x1, &y1, &x2, &y2);
+	       //printf("fish %d\n", ii);
+
+	       dy = (mouse_y - (y1 + (y2 - y1) / 2)) / ((y2 - y1) / 2);
+	       //printf("dy = %.2f\n", dy);
+	       if (fabs(dy) > 2) continue;
+
+	       dx = (mouse_x - (x1 + (x2 - x1) / 2)) / ((x2 - x1) / 2);
+	       //printf("dx = %.2f\n", dx);
+	       if (fabs(dx) > 2) continue;
+
+	       // 0 to .9
+	       near = (2.83 - sqrt(dx*dx + dy*dy)) / 3.15;
+	       //printf("near = %.2f\n", near);
+
+	       react = ((rand() % 1000 < near * 1000) +
+			(rand() % 1000 < near * 1000));
+	       if (react) {
+		 if (gnome_canvas_get_item_at (canvas, mouse_x, mouse_y) !=
+		     g_slist_nth_data (fish->cur_frames, fish->currentItem) &&
+		     (dx > 0) ^ (fish->speed < 0))
+		   fish_reverse_direction (fish);
+		 else
+		   react += 1;
+	       }
+	       if (react >= 2)
+		 fish->fright +=
+		   (1000 + rand() % (int)(near * 2000)) / moveSpeed;
+	     }
+	   }
+	   break;
+	 default: break;
+	 }
+       break;
+     default:
+       break;
+     }
+
+  return FALSE;
 }
 
 static gint
@@ -586,6 +329,8 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, FishItem *fishitem)
        switch(event->button.button)
          {
          case 1:
+         case 2:
+         case 3:
            if (event->button.state & GDK_SHIFT_MASK)
              {
                x = item_x;
@@ -602,50 +347,14 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, FishItem *fishitem)
              }
            else
              {
-	       clickgame_destroy_item(fishitem);
-	       gc_sound_play_ogg ("sounds/gobble.ogg", NULL);
-
-	       gcomprisBoard->sublevel++;
-	       gc_score_set(gcomprisBoard->sublevel);
-
-	       if(gcomprisBoard->sublevel>=gcomprisBoard->number_of_sublevel) {
-		 gamewon = TRUE;
-		 clickgame_destroy_all_items();
-		 gc_bonus_display(gamewon, BONUS_FLOWER);
-		 return FALSE;
+	       if (gcomprisBoard->level >= 5 && !fishitem->stun) {
+		 fishitem->stun = 500 * (1 + gcomprisBoard->maxlevel - gcomprisBoard->level) / moveSpeed;
+		 fishitem->fright += 500 / moveSpeed;
+	       } else {
+		 fish_gobble (fishitem);
 	       }
-	       /* Drop a new item now to speed up the game */
-	       if(g_list_length(item_list)==0)
-		 {
-		   if (drop_items_id) {
-		     /* Remove pending new item creation to sync the falls */
-		     gtk_timeout_remove (drop_items_id);
-		     drop_items_id = 0;
-		   }
-		   if(!drop_items_id) {
-		     drop_items_id = gtk_timeout_add (0,
-						      (GtkFunction) clickgame_drop_items,
-						      NULL);
-		   }
-		 }
              }
            break;
-
-         case 3:
-	   /* Speed up the fish */
-	   if(fishitem->speed>0)
-	     fishitem->speed = MAX(fishitem->speed+1 , 5);
-	   else
-	     fishitem->speed = MIN(fishitem->speed-1, -5);
-	   break;
-
-         case 2:
-	   /* Slow the fish */
-	   if(fishitem->speed>0)
-	     fishitem->speed = MAX(fishitem->speed-1, 1);
-	   else
-	     fishitem->speed = MIN(fishitem->speed+1, -1);
-	   break;
 
          case 4:
 	   /* fish up */
@@ -689,53 +398,444 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, FishItem *fishitem)
    return FALSE;
  }
 
-static void
-setup_item(FishItem *fishitem)
+/*
+ */
+static void clickgame_start (GcomprisBoard *agcomprisBoard)
 {
-  if(fishitem)
-      gtk_signal_connect(GTK_OBJECT(fishitem->rootitem), "event",
-			 (GtkSignalFunc) item_event,
-			 fishitem);
+  if (!agcomprisBoard)
+    return;
+
+  gcomprisBoard = agcomprisBoard;
+
+  /* set initial values for this level */
+  gcomprisBoard->level = 1;
+  gcomprisBoard->maxlevel=6;
+  gcomprisBoard->number_of_sublevel=10; /* Go to next level after this number of 'play' */
+  gc_score_start(SCORESTYLE_NOTE,
+		 gcomprisBoard->width - 220,
+		 gcomprisBoard->height - 50,
+		 gcomprisBoard->number_of_sublevel);
+  gc_bar_set(GC_BAR_LEVEL);
+
+  event_handle_id =
+    gtk_signal_connect(GTK_OBJECT(gcomprisBoard->canvas), "event",
+		       (GtkSignalFunc) canvas_event, 0);
+  clickgame_next_level();
+
+  {
+    int ii;
+    for (ii=0; ii < 3; ii++) {
+      FishItem *fish = clickgame_create_item();
+      if (!fish) continue;
+      gnome_canvas_item_move(fish->rootitem,
+			     fish->speed * (rand() % 200), 0.0);
+    }
+  }
+
+  clickgame_pause(FALSE);
 }
 
-/*
- * Return the list of pixmap in the global
- * imagelist
- */
-static void load_random_pixmap()
+static void
+clickgame_end ()
 {
-  GdkPixbuf *pixmap;
-  int i, j;
-  gchar *str = NULL;
-  gboolean cont = TRUE;
-
-  i=rand()%(NUMBER_OF_IMAGES);
-
-  /* First image */
-  j=0;
-
-  while(cont)
+  if(gcomprisBoard!=NULL)
     {
-      gchar *url;
-      str = g_strdup(pixmapList[i]);
+      clickgame_pause(TRUE);
+      gc_score_end();
+      clickgame_destroy_all_items();
+      gtk_signal_disconnect(GTK_OBJECT(gcomprisBoard->canvas),
+			    event_handle_id);
+      gcomprisBoard->level = 1;       // Restart this game to zero
+    }
+  gcomprisBoard = NULL;
+}
 
-      url = gc_file_find_absolute(str, j++);
+static void
+clickgame_set_level (guint level)
+{
 
-      if(!url)
+  if(gcomprisBoard!=NULL)
+    {
+      gcomprisBoard->level=level;
+      clickgame_next_level();
+    }
+}
+
+static gboolean
+clickgame_is_our_board (GcomprisBoard *board)
+{
+  if (board)
+    {
+      if(g_strcasecmp(board->type, "clickgame")==0)
 	{
-	  cont = FALSE;
-	}
-      else
-	{
-	  pixmap = gc_pixmap_load (str, j-1);
+	  /* Set the plugin entry */
+	  board->plugin=&menu_bp;
 
-	  if(pixmap) {
-	    imagelist = g_list_append (imagelist, pixmap);
-	  } else {
-	    cont = FALSE;
-	  }
+	  return TRUE;
 	}
-      g_free(str);
+    }
+  return FALSE;
+}
+
+static void
+clickgame_config ()
+{
+  if(gcomprisBoard!=NULL)
+    {
+      clickgame_pause(TRUE);
+    }
+}
+
+/*-------------------------------------------------------------------------------*/
+/*-------------------------------------------------------------------------------*/
+/*-------------------------------------------------------------------------------*/
+/*-------------------------------------------------------------------------------*/
+
+/* set initial values for the next level */
+static void clickgame_next_level()
+{
+  static /*const*/ gchar *bglist[] =
+    {
+      "clickgame/nur00523.jpg",
+      "clickgame/nur03006.jpg",
+      "clickgame/nur03011.jpg",
+      "clickgame/nur03010.jpg",
+      "clickgame/nur03013.jpg",
+      "clickgame/nur03505.jpg"
+    };
+
+  int bgx = gcomprisBoard->level - 1;
+
+  if (bgx < 0 || G_N_ELEMENTS(bglist) <= bgx)
+    bgx = G_N_ELEMENTS(bglist) - 1;
+
+  gc_set_background(gnome_canvas_root(gcomprisBoard->canvas), bglist[bgx]);
+
+  gc_bar_set_level(gcomprisBoard);
+
+  /* Try the next level */
+  moveSpeed=100+(40/(gcomprisBoard->level));
+  fallSpeed=5000-gcomprisBoard->level*200;
+  imageZoom = 0.75 + 0.25 * ((gcomprisBoard->maxlevel - gcomprisBoard->level + 1) / gcomprisBoard->maxlevel);
+  gcomprisBoard->sublevel=0;
+  gc_score_set(gcomprisBoard->sublevel);
+
+}
+
+
+static void clickgame_animate_item(FishItem *fishitem)
+{
+  gint currentItem;
+
+  /* Manage the animation */
+  currentItem = fishitem->currentItem;
+  fishitem->currentItem++;
+  if(fishitem->currentItem >= g_slist_length(fishitem->cur_frames))
+    fishitem->currentItem=0;
+
+  gnome_canvas_item_show((GnomeCanvasItem *)g_slist_nth_data(fishitem->cur_frames,
+							     fishitem->currentItem));
+
+  gnome_canvas_item_hide((GnomeCanvasItem *)g_slist_nth_data(fishitem->cur_frames,
+							     currentItem));
+}
+
+static void clickgame_move_item(FishItem *fishitem)
+{
+  double sp = fishitem->speed;
+  double x1, y1, x2, y2;
+
+  GnomeCanvasItem *item = fishitem->rootitem;
+
+  if (fishitem->stun) {
+    --fishitem->stun;
+    sp *= .1 + (rand() % 100) / 1000.0;
+  } else if (fishitem->fright) {
+    --fishitem->fright;
+    sp *= 3 + (rand() % 3000) / 1000.0;
+  }
+  gnome_canvas_item_move(item, sp, 0.0);
+
+
+  gnome_canvas_item_get_bounds    (item,
+				   &x1,
+				   &y1,
+				   &x2,
+				   &y2);
+
+  if(fishitem->speed>0)
+    {
+      if(x1>gcomprisBoard->width) {
+	item2del_list = g_list_append (item2del_list, fishitem);
+	gc_sound_play_ogg ("crash", NULL);
+      }
+    }
+  else
+    {
+      if(x2<0) {
+	item2del_list = g_list_append (item2del_list, fishitem);
+	gc_sound_play_ogg ("crash", NULL);
+      }
     }
 
 }
+
+static void clickgame_destroy_item(FishItem *fishitem)
+{
+  GnomeCanvasItem *item = fishitem->rootitem;
+
+  item_list = g_list_remove (item_list, fishitem);
+  item2del_list = g_list_remove (item2del_list, fishitem);
+  gtk_object_destroy (GTK_OBJECT(item));
+
+  g_slist_free (fishitem->fwd_frames);
+  g_slist_free (fishitem->rev_frames);
+  g_free(fishitem);
+}
+
+/* Destroy items that falls out of the canvas */
+static void clickgame_destroy_items()
+{
+  FishItem *fishitem;
+
+  while(g_list_length(item2del_list)>0)
+    {
+      fishitem = g_list_nth_data(item2del_list, 0);
+      clickgame_destroy_item(fishitem);
+    }
+}
+
+/* Destroy all the items */
+static void clickgame_destroy_all_items()
+{
+  while(item_list)
+    {
+      FishItem *fishitem = g_list_nth_data(item_list, 0);
+      clickgame_destroy_item(fishitem);
+    }
+}
+
+/*
+ * This does the moves of the game items on the play canvas
+ *
+ */
+static gint clickgame_move_items (GtkWidget *widget, gpointer data)
+{
+  g_list_foreach (item_list, (GFunc) clickgame_move_item, NULL);
+
+  /* Destroy items that falls out of the canvas */
+  clickgame_destroy_items();
+
+  move_items_id = gtk_timeout_add (moveSpeed,
+				   (GtkFunction) clickgame_move_items, NULL);
+
+  return(FALSE);
+}
+
+/*
+ * This does the icon animation
+ *
+ */
+static gint clickgame_animate_items (GtkWidget *widget, gpointer data)
+{
+  g_list_foreach (item_list, (GFunc) clickgame_animate_item, NULL);
+
+  animate_id = gtk_timeout_add (1000,
+			      (GtkFunction) clickgame_animate_items, NULL);
+
+  return(FALSE);
+}
+
+static GSList *load_random_fish(gboolean smallish)
+{
+  int fish;
+  const gchar **extraFish;
+  const gchar **surpriseFish;
+  int num_extra;
+  int num_surprise;
+
+  if (smallish) {
+    extraFish = smallFish;
+    num_extra = NUM_SMALLFISH;
+    surpriseFish = bigFish;
+    num_surprise = NUM_BIGFISH;
+  } else {
+    extraFish = bigFish;
+    num_extra = NUM_BIGFISH;
+    surpriseFish = smallFish;
+    num_surprise = NUM_SMALLFISH;
+  }
+
+  fish = rand() % (NUM_MEDFISH + num_extra + 2);
+
+  const gchar *path;
+  if (fish < NUM_MEDFISH) {
+    path = medFish[fish];
+  } else if (fish < NUM_MEDFISH + num_extra) {
+    path = extraFish[fish - NUM_MEDFISH];
+  } else {
+    fish = rand() % num_surprise;
+    path = surpriseFish[fish];
+  }
+
+  int frame = 0;
+  GSList *ilist = 0;
+  while(1)
+    {
+      if (frame) {
+	gchar *exists = gc_file_find_absolute (path, "fishes", frame);
+	g_free (exists);
+	if (!exists) break;
+      }
+
+      GdkPixbuf *pixmap = gc_pixmap_load (path, "fishes", frame);
+      if (!pixmap) break;
+
+      ilist = g_slist_prepend (ilist, pixmap);
+      ++frame;
+    }
+  return g_slist_reverse (ilist);
+}
+
+static FishItem *
+clickgame_create_item()
+{
+  GnomeCanvasGroup *parent = gnome_canvas_root(gcomprisBoard->canvas);
+  GdkPixbuf *pixmap = NULL;
+  GdkPixbuf *pixmap2 = NULL;
+  GnomeCanvasItem *rootitem;
+  FishItem *fishitem;
+  double x;
+  gint i, length;
+  GSList *ilist;
+
+  /* Avoid to have too much items displayed */
+  if(g_list_length(item_list)>5)
+    return NULL;
+
+  // select smallish fish on even levels, also see imageZoom
+  ilist = load_random_fish (!(gcomprisBoard->level & 1));
+
+  fishitem = g_malloc(sizeof(FishItem));
+  fishitem->currentItem   = 0;
+  fishitem->speed = (double)(rand()%(60))/10 - 3;
+  fishitem->fright = 0;
+  fishitem->stun = 0;
+  fishitem->fwd_frames = NULL;
+  fishitem->rev_frames = NULL;
+
+  pixmap = (GdkPixbuf *)g_slist_nth_data(ilist, 0);
+
+  if(pixmap==NULL)
+    return NULL;
+
+  if(fishitem->speed<0)
+    {
+      x = (double) gcomprisBoard->width;
+      fishitem->speed=MIN(fishitem->speed, -1);
+    }
+  else
+    {
+      x = (double) -gdk_pixbuf_get_width(pixmap)*imageZoom;
+      fishitem->speed=MAX(fishitem->speed, 1);
+    }
+
+  rootitem = \
+    gnome_canvas_item_new (parent,
+			   gnome_canvas_group_get_type (),
+			   "x", x,
+			   "y", (double)(rand()%(gcomprisBoard->height-
+						 (guint)(gdk_pixbuf_get_height(pixmap)*
+							 imageZoom))),
+			   NULL);
+
+  gtk_signal_connect(GTK_OBJECT(rootitem), "event",
+		     (GtkSignalFunc) item_event, fishitem);
+
+  fishitem->rootitem = rootitem;
+
+  length = g_slist_length(ilist);
+  for(i=0; i<length; i++)
+    {
+      GnomeCanvasItem *fwd, *rev;
+
+      pixmap = (GdkPixbuf *)g_slist_nth_data(ilist, i);
+      pixmap2 = pixbuf_copy_mirror(pixmap, TRUE, FALSE);
+
+      fwd = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
+				   gnome_canvas_pixbuf_get_type (),
+				   "pixbuf", pixmap,
+				   "x", 0.0,
+				   "y", 0.0,
+				   "width", (double) gdk_pixbuf_get_width(pixmap)*imageZoom,
+				   "height", (double) gdk_pixbuf_get_height(pixmap)*imageZoom,
+				   "width_set", TRUE,
+				   "height_set", TRUE,
+				   NULL);
+      rev = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
+				   gnome_canvas_pixbuf_get_type (),
+				   "pixbuf", pixmap2,
+				   "x", 0.0,
+				   "y", 0.0,
+				   "width", (double) gdk_pixbuf_get_width(pixmap2)*imageZoom,
+				   "height", (double) gdk_pixbuf_get_height(pixmap2)*imageZoom,
+				   "width_set", TRUE,
+				   "height_set", TRUE,
+				   NULL);
+      gdk_pixbuf_unref(pixmap);
+      gdk_pixbuf_unref(pixmap2);
+
+      fishitem->fwd_frames = g_slist_prepend (fishitem->fwd_frames, fwd);
+      fishitem->rev_frames = g_slist_prepend (fishitem->rev_frames, rev);
+
+      gnome_canvas_item_hide (fwd);
+      gnome_canvas_item_hide (rev);
+    }
+
+  g_slist_free (ilist);
+
+  fishitem->fwd_frames = g_slist_reverse (fishitem->fwd_frames);
+  fishitem->rev_frames = g_slist_reverse (fishitem->rev_frames);
+
+  fishitem->cur_frames =
+    fishitem->speed<0? fishitem->rev_frames : fishitem->fwd_frames;
+
+  gnome_canvas_item_show(g_slist_nth_data(fishitem->cur_frames,
+					  fishitem->currentItem));
+
+  item_list = g_list_append (item_list, fishitem);
+
+  return (fishitem);
+}
+
+/*
+ * This is called on a low frequency and is used to drop new items
+ *
+ */
+static gint clickgame_drop_items (GtkWidget *widget, gpointer data)
+{
+  clickgame_create_item();
+
+  drop_items_id = gtk_timeout_add (fallSpeed,
+				   (GtkFunction) clickgame_drop_items, NULL);
+  return (FALSE);
+}
+
+/* ==================================== */
+static void game_won()
+{
+  gcomprisBoard->sublevel++;
+
+  if(gcomprisBoard->sublevel>=gcomprisBoard->number_of_sublevel) {
+    /* Try the next level */
+    gcomprisBoard->sublevel=0;
+    gcomprisBoard->level++;
+    if(gcomprisBoard->level>gcomprisBoard->maxlevel) { // the current board is finished : bail out
+      gc_bonus_end_display(BOARD_FINISHED_RANDOM);
+      return;
+    }
+    gc_sound_play_ogg ("sounds/bonus.ogg", NULL);
+  }
+  clickgame_next_level();
+}
+

@@ -736,9 +736,11 @@ item_event_ok(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 	  gc_skin_load(properties->skin);
 	  gc_config_stop();
 
-	  if(properties->music || properties->fx) {
+	  if(properties->music || properties->fx)
 	    gc_sound_init();
-	  }
+
+	  if(!properties->music && !properties->fx)
+	    gc_sound_close();
 
 	  gc_prop_save(properties);
 	}
