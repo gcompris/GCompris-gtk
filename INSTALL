@@ -61,6 +61,13 @@ urpmi libsqlite3_0 libsqlite3_0-devel
 urpmi python-sqlite2
 urpmi libxxf86vm1-devel
 
+WARNING
+=======
+  We are using sqlite but it doesn't work on NFS mounted partitions.
+  If you home directory is on a remote server, then use run GCompris
+  with a local file for its database like:
+    gcompris --database=/tmp/gcompris.db
+
 Basic Installation
 ==================
 

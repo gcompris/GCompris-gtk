@@ -13,6 +13,7 @@ CPUArchitectures: x86
 AutopackageTarget: 1.2
 License: GNU General Public License (GPL)
 PackageFileName: gcompris-$SOFTWAREVERSION.x86.package
+PackageDesktop: share/applications/gcompris.desktop
 
 [BuildPrepare]
 # If you're using autotools, the default should be enough.
@@ -49,7 +50,6 @@ installLocale share/locale/
 # You probably need to change the category
 installMenuItem "Edutainment" share/applications/gcompris.desktop
 installMenuItem "Edutainment" share/applications/gcompris-edit.desktop
-PackageDesktop: share/applications/gcompris.desktop
 
 [Uninstall]
 # Leaving this at the default is safe unless you use custom commands in

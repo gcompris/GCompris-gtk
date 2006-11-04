@@ -1,5 +1,27 @@
 2006-11-04  Bruno coudoin  <bruno.coudoin@free.fr>
 
+	* INSTALL:
+	* autopackage/default.apspec.in: Support for autopackage 1.2
+
+	* src/boards/clickgame.c: (canvas_event), (clickgame_start),
+	(clickgame_next_level): A little bit speady, patched by Joshua
+
+	* src/gcompris/gcompris.c: (gc_activation_check), (gc_init):
+	changed the way --database and --create-db work. Now if the
+	file pointed to --database does not exist, it is created.
+	Now if --create-db is given and the base we point to already exist
+	we erase it first and recreate it.
+
+	* src/gcompris/sdlplayer.c: (sdlplayer_init), (sdlplayer_quit),
+	(sdlplayer_bg), (sdlplayer), (sdlplayer_halt), (sdlplayer_close),
+	(sdlplayer_reopen), (sdlplayer_pause), (sdlplayer_resume):
+	* src/gcompris/soundutil.c: (gc_sound_init), (gc_sound_close),
+	(gc_sound_reopen), (scheduler_bgnd), (thread_play_ogg):
+	* src/gcompris/soundutil.h: Fixed random freeze when unsetting
+	sounds in the config pannel.
+
+2006-11-04  Bruno coudoin  <bruno.coudoin@free.fr>
+
 	- Added Somali voices by M. I. Mursal
 
 	* boards/sounds/so/alphabet/10.ogg:

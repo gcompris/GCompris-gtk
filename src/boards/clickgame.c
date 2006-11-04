@@ -268,14 +268,14 @@ canvas_event(GnomeCanvas *canvas, GdkEvent *event)
 
 	       dy = (mouse_y - (y1 + (y2 - y1) / 2)) / ((y2 - y1) / 2);
 	       //printf("dy = %.2f\n", dy);
-	       if (fabs(dy) > 2) continue;
+	       if (fabs(dy) > 3) continue;
 
 	       dx = (mouse_x - (x1 + (x2 - x1) / 2)) / ((x2 - x1) / 2);
 	       //printf("dx = %.2f\n", dx);
-	       if (fabs(dx) > 2) continue;
+	       if (fabs(dx) > 3) continue;
 
 	       // 0 to .9
-	       near = (2.83 - sqrt(dx*dx + dy*dy)) / 3.15;
+	       near = (sqrt(2*3*3) - sqrt(dx*dx + dy*dy))/(1.11 * sqrt(2*3*3));
 	       //printf("near = %.2f\n", near);
 
 	       react = ((rand() % 1000 < near * 1000) +
@@ -422,16 +422,6 @@ static void clickgame_start (GcomprisBoard *agcomprisBoard)
 		       (GtkSignalFunc) canvas_event, 0);
   clickgame_next_level();
 
-  {
-    int ii;
-    for (ii=0; ii < 3; ii++) {
-      FishItem *fish = clickgame_create_item();
-      if (!fish) continue;
-      gnome_canvas_item_move(fish->rootitem,
-			     fish->speed * (rand() % 200), 0.0);
-    }
-  }
-
   clickgame_pause(FALSE);
 }
 
@@ -520,6 +510,12 @@ static void clickgame_next_level()
   gcomprisBoard->sublevel=0;
   gc_score_set(gcomprisBoard->sublevel);
 
+  while (g_list_length (item_list) < 3) {
+    FishItem *fish = clickgame_create_item();
+    if (!fish) break;
+    gnome_canvas_item_move(fish->rootitem,
+                          fish->speed * (rand() % 200), 0.0);
+  }
 }
 
 

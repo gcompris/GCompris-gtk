@@ -872,19 +872,19 @@ int gc_activation_check(char *code)
   value = value >> 3;
   crc1 = 0x30 | crc1;
   crc2 = 0x30 | (code[2] ^ code[3]);
-      
+
   crc1 != code[4] ? return(-1);
   crc2 != code[5] ? return(-1);
 
   codeddate[3] = 0x30 | value & 0x000F;
   value = value >> 4;
-      
+
   codeddate[2] = 0x30 | value & 0x0001;
   value = value >> 1;
-      
+
   codeddate[1] = 0x30 | value & 0x000F;
   value = value >> 4;
-      
+
   codeddate[0] = 0x30 | value & 0x0003;
   codeddate[4] = '\0';
 
@@ -1598,28 +1598,36 @@ gc_init (int argc, char *argv[])
 	     properties->users_dir,
 	     properties->database);
 
-  if (popt_database){
-    if (g_file_test(popt_database, G_FILE_TEST_EXISTS)) {
-      if (access(popt_database,R_OK)==-1){
-	g_warning("%s exists but is not readable or writable", popt_database);
-	exit(0);
-      } else {
-	g_warning("Using %s as database", popt_database);
-	properties->database = g_strdup(popt_database);
-      }
-    } else if (popt_create_db) {
-      gchar *dirname = g_path_get_dirname (popt_database);
-      if (access(dirname, W_OK)==-1){
-	g_warning("Cannot create %s : %s is not writable !", popt_database, dirname);
-	exit (0);
-      }
-      g_warning("Using %s as database.", popt_database);
+  if (popt_database)
+    {
       properties->database = g_strdup(popt_database);
-    } else {
-      g_warning("Alternate database %s does not exists.\n Use --create-db to force creation !", popt_database);
-      exit(0);
+
+      if (g_file_test(properties->database, G_FILE_TEST_EXISTS))
+	{
+	  if (access(properties->database, R_OK)==-1)
+	    {
+	      g_warning("%s exists but is not readable or writable", properties->database);
+	      exit(0);
+	    }
+	  else
+	    {
+	      g_warning("Using %s as database", properties->database);
+	    }
+	}
     }
-  }
+
+  if (popt_create_db)
+    {
+      gchar *dirname = g_path_get_dirname (properties->database);
+      if (access(dirname, W_OK)==-1)
+	{
+	  g_warning("Cannot create %s : %s is not writable !", properties->database, dirname);
+	  exit (0);
+	}
+      /* We really want to recreate it, erase the old one */
+      g_warning("Removing %s database.", properties->database);
+      unlink(properties->database);
+    }
 
   if (popt_administration){
     if (popt_database){

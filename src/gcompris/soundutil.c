@@ -33,6 +33,8 @@ static gboolean	 sound_closed = FALSE;
 
 /* mutex */
 GMutex		*lock = NULL;
+GMutex		*lock_music = NULL;
+GMutex		*lock_fx = NULL;
 GCond		*cond = NULL;
 
 /* Singleton */
@@ -82,6 +84,8 @@ gc_sound_init()
   if (!g_thread_supported ()) g_thread_init (NULL);
 
   lock = g_mutex_new ();
+  lock_music = g_mutex_new ();
+  lock_fx = g_mutex_new ();
   cond = g_cond_new ();
 
   sound_policy = PLAY_AFTER_CURRENT;
@@ -109,10 +113,13 @@ gc_sound_close()
 {
   if ( !sound_closed )
     {
-      g_mutex_lock(lock);
+      sdlplayer_halt();
+      g_mutex_lock(lock_fx);
+      g_mutex_lock(lock_music);
       sdlplayer_close();
       sound_closed = TRUE;
     }
+  printf("gc_sound_close done\n");
 }
 void
 gc_sound_reopen()
@@ -121,6 +128,7 @@ gc_sound_reopen()
     {
       sdlplayer_reopen();
       g_mutex_unlock(lock);
+      g_mutex_unlock(lock_music);
       sound_closed = FALSE;
     }
 }
@@ -222,10 +230,13 @@ scheduler_bgnd (gpointer user_data)
 	  /* WARNING Displaying stuff in a thread seems to make gcompris unstable */
 	  /*	  display_ogg_file_credits((char *)g_list_nth_data(musiclist, i)); */
 	  //	  if(decode_ogg_file((char *)g_list_nth_data(musiclist, i))!=0)
+	  g_mutex_lock(lock_music);
 	  if(sdlplayer_bg((char *)g_slist_nth_data(musiclist, i), 128)!=0){
 	    g_warning("Stopping music, sdlplayer_bg failed, try again in 5 seconds");
 	    g_usleep(5000000);
 	  }
+	  g_mutex_unlock(lock_music);
+
 	}
     }
 
@@ -282,7 +293,9 @@ thread_play_ogg (gchar *file)
     return NULL;
 
   g_warning("   Calling gcompris internal sdlplayer_file (%s)", absolute_file);
+  g_mutex_lock(lock_fx);
   sdlplayer(absolute_file, 128);
+  g_mutex_unlock(lock_fx);
   g_signal_emit (gc_sound_controller,
 		 GCOMPRIS_SOUND_GET_CLASS (gc_sound_controller)->sound_played_signal_id,
 		 0 /* details */,

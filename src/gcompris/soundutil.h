@@ -54,6 +54,7 @@ void	 display_ao_devices();
  */
 int	 sdlplayer_init();
 int	 sdlplayer_bg();
+void	 sdlplayer_halt();
 void	 sdlplayer_close();
 void	 sdlplayer_reopen();
 void	 sdlplayer_pause();
@@ -90,7 +91,7 @@ struct _GcomprisSound {
 
 struct _GcomprisSoundClass {
 	GObjectClass parent;
-        
+
         guint sound_played_signal_id;
         void (*sound_played) (GcomprisSound *self, gchar *file, gpointer user_data);
 };

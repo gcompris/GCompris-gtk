@@ -79,7 +79,7 @@ int sdlplayer_init()
   // initialize SDL for audio
   if(SDL_Init(SDL_INIT_AUDIO)<0)
     return(cleanExit("SDL_Init"));
-	
+
   // initialize sdl mixer, open up the audio device
   if(Mix_OpenAudio(44100,MIX_DEFAULT_FORMAT,2,audio_buffers)<0)
     return(cleanExit("Mix_OpenAudio"));
@@ -97,10 +97,10 @@ int sdlplayer_init()
 int sdlplayer_quit(Mix_Music *music)
 {
   // free & close
-  Mix_FreeMusic(music); 
-  Mix_CloseAudio(); 
-  g_warning("SDL PLAYER SDL_Quit\n"); 
-  SDL_Quit(); 
+  Mix_FreeMusic(music);
+  Mix_CloseAudio();
+  g_warning("SDL PLAYER SDL_Quit\n");
+  SDL_Quit();
 
   return 0;
 }
@@ -109,15 +109,15 @@ int sdlplayer_bg(char *filename, int volume)
 {
   Mix_Music *music;
 
-  while (sound_paused)
-    SDL_Delay(50);
+  if(sound_paused)
+    return(0);
 
   g_warning("sdlplayer_bg %s\n", filename);
 
   // load the song
   if(!(music=Mix_LoadMUS(filename)))
     return(cleanExit("Mix_LoadMUS(\"%s\")",filename));
-	
+
   if(Mix_PlayMusic(music, 1)==-1) {
     return(cleanExit("Mix_LoadMUS(0x%p,1)",music));
   }
@@ -129,7 +129,7 @@ int sdlplayer_bg(char *filename, int volume)
     {
       SDL_Delay(50);
     }
-	
+
   return(0);
 }
 
@@ -139,6 +139,9 @@ int sdlplayer(char *filename, int volume)
   static int channel;
 
   g_warning("sdlplayer %s\n", filename);
+
+  if(sound_paused)
+    return(0);
 
   Mix_PauseMusic();
 
@@ -158,13 +161,13 @@ int sdlplayer(char *filename, int volume)
     {
       SDL_Delay(50);
     }
-	
+
   // fade in music. Removed, eats too much CPU on low end PCs
   /*   for(i=32; i<=128; i+=10) { */
   /*     Mix_VolumeMusic(i); */
   /*     SDL_Delay(20); */
   /*   } */
-  
+
   // resume music playback
   if ((!sound_closed) && (!sound_paused))
     Mix_ResumeMusic();
@@ -177,23 +180,37 @@ int sdlplayer(char *filename, int volume)
 
   return(0);
 }
+
+void sdlplayer_halt()
+{
+  sound_paused = TRUE;
+  sound_closed = TRUE;
+
+  Mix_HaltMusic();
+  Mix_HaltChannel(-1);
+}
+
 void sdlplayer_close()
 {
-  Mix_HaltMusic();
-  SDL_PauseAudio(1);
-  Mix_CloseAudio();
+  sound_paused = TRUE;
   sound_closed = TRUE;
+
+  Mix_HaltMusic();
+  Mix_HaltChannel(-1);
+  Mix_CloseAudio();
 }
 void sdlplayer_reopen()
 {
   Mix_OpenAudio(44100,MIX_DEFAULT_FORMAT,2,audio_buffers);
-  SDL_PauseAudio(0);
+  Mix_ResumeMusic();
+  Mix_Resume(-1);
   sound_closed = FALSE;
   sound_paused = FALSE;
 }
 
 void sdlplayer_pause(){
   Mix_PauseMusic();
+  Mix_Pause(-1);
   sound_paused = TRUE;
 }
 
@@ -201,6 +218,7 @@ void sdlplayer_resume(){
   // resume music playback
   if (!sound_closed){
     Mix_ResumeMusic();
+    Mix_Resume(-1);
     sound_paused = FALSE;
   }
 }
