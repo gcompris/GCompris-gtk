@@ -10,19 +10,9 @@ Maintainer: Bruno Coudoin <bruno.coudoin@free.fr>
 Packager: Bruno Coudoin <bruno.coudoin@free.fr>
 PackageVersion: 1
 CPUArchitectures: x86
-AutopackageTarget: 1.0
+AutopackageTarget: 1.2
 License: GNU General Public License (GPL)
-
-[Description]
-Some of the activities are game orientated, but nonetheless still educational.
-Below you can find a list of categories with some of the activities available in that category:
--  computer discovery: keyboard, mouse, different mouse gesture, ...
--  algebra: table memory, enumeration, double entry table, mirror image, ...
--  science: the canal lock, the water cycle, the submarine, electric simulation ...
--  geography: place the country on the map
--  games: chess, memory, connect 4, oware, sudoku ...
--  reading: reading practice
--  other: learn to tell time, puzzle of famous paintings, vector drawing, cartoon making, ...
+PackageFileName: gcompris-$SOFTWAREVERSION.x86.package
 
 [BuildPrepare]
 # If you're using autotools, the default should be enough.
@@ -38,6 +28,8 @@ unprepareBuild
 [Globals]
 
 [Prepare]
+require @gtk.org/gtk 2.4
+removeOwningPackage $PREFIX/bin/gcompris
 
 [Imports]
 # This command will tell makeinstaller what to include in the package.
@@ -55,7 +47,9 @@ installData share/gcompris
 installIcon share/pixmaps/gcompris.*
 installLocale share/locale/
 # You probably need to change the category
-installDesktop "Edutainment" share/applications/gcompris.desktop
+installMenuItem "Edutainment" share/applications/gcompris.desktop
+installMenuItem "Edutainment" share/applications/gcompris-edit.desktop
+PackageDesktop: share/applications/gcompris.desktop
 
 [Uninstall]
 # Leaving this at the default is safe unless you use custom commands in
