@@ -574,6 +574,12 @@ static void clickgame_move_item(FishItem *fishitem)
       }
     }
 
+  while (g_list_length (item_list) < 3) {
+    FishItem *fish = clickgame_create_item();
+    if (!fish) break;
+    gnome_canvas_item_move(fish->rootitem,
+                          fish->speed * (rand() % 200), 0.0);
+  }
 }
 
 static void clickgame_destroy_item(FishItem *fishitem)
