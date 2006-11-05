@@ -61,6 +61,7 @@ void gc_terminate(int signum);
  * For the Activation dialog
  */
 #ifdef WIN32
+int gc_activation_check(char *code);
 static void activation_enter_callback(GtkWidget *widget,
 				      GtkWidget *entry );
 static void activation_done();
@@ -794,18 +795,11 @@ display_activation_dialog()
 {
   int board_count = 0;
   GList *list;
-  guint  i=0;
   guint  key_is_valid = 0;
 
-  while(keycode[i++])
-    {
-      if(strncmp(properties->key, keycode[i-1], 5) == 0)
-	{
-	  key_is_valid = 1;
-	}
-    }
+  key_is_valid = gc_activation_check(properties->key);
 
-  if(key_is_valid)
+  if(key_is_valid == 1)
     return;
 
   /* Count non menu boards */
@@ -820,7 +814,7 @@ display_activation_dialog()
 
   /* Entry area */
   widget_activation_entry = (GtkEntry *)gtk_entry_new();
-  gtk_entry_set_max_length(widget_activation_entry, 5);
+  gtk_entry_set_max_length(widget_activation_entry, 6);
   activation_item = \
     gnome_canvas_item_new (gnome_canvas_root(canvas),
 			   gnome_canvas_widget_get_type (),
@@ -867,25 +861,28 @@ int gc_activation_check(char *code)
     {
       value |= code[i] & 0x07;
       value = value << 3;
-      crc1 = crc1 ^ code[i] & 0x07;
+      crc1 = (crc1 ^ code[i]) & 0x07;
     }
   value = value >> 3;
   crc1 = 0x30 | crc1;
   crc2 = 0x30 | (code[2] ^ code[3]);
 
-  crc1 != code[4] ? return(-1);
-  crc2 != code[5] ? return(-1);
+  if(crc1 != code[4])
+    return(-1);
 
-  codeddate[3] = 0x30 | value & 0x000F;
+  if(crc2 != code[5])
+    return(-1);
+
+  codeddate[3] = 0x30 | (value & 0x000F);
   value = value >> 4;
 
-  codeddate[2] = 0x30 | value & 0x0001;
+  codeddate[2] = 0x30 | (value & 0x0001);
   value = value >> 1;
 
-  codeddate[1] = 0x30 | value & 0x000F;
+  codeddate[1] = 0x30 | (value & 0x000F);
   value = value >> 4;
 
-  codeddate[0] = 0x30 | value & 0x0003;
+  codeddate[0] = 0x30 | (value & 0x0003);
   codeddate[4] = '\0';
 
   if(atoi(codeddate) + 200 >= atoi(BUILD_DATE))
@@ -904,6 +901,8 @@ activation_enter_callback( GtkWidget *entry,
   switch(gc_activation_check((char *)gtk_entry_get_text(GTK_ENTRY(entry))))
     {
     case 1:
+      gc_prop_get()->key = strdup(gtk_entry_get_text(GTK_ENTRY(entry)));
+      gc_prop_save(properties);
       gtk_entry_set_text(GTK_ENTRY(entry), "GOOD");
       break;
     case 0:

@@ -1,3 +1,20 @@
+	*** RELEASE 8.2 ***
+
+2006-11-05  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	- Fixed new activation system to work on windows.
+	- Fixed Marathi voices by Anand Kulkarni
+
+	* README.mingw:
+	* boards/sounds/mr/geography/about.ogg:
+	* boards/sounds/mr/geography/configuration.ogg:
+	* boards/sounds/mr/misc/about.ogg:
+	* boards/sounds/mr/misc/configuration.ogg:
+	* config.h.mingw.in:
+	* configure.in:
+	* src/gcompris/gcompris.c: (display_activation_dialog),
+	(gc_activation_check), (activation_enter_callback):
+
 2006-11-05  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	- Updated Indian Marathi voices by Anand Kulkarni
