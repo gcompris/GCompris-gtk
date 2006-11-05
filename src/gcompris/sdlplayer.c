@@ -39,7 +39,6 @@ int len=4096, bits=0, which=0;
 int audio_buffers=2048;
 
 static gboolean sound_closed = FALSE;
-static gboolean sound_paused = FALSE;
 
 /******************************************************************************/
 /* some simple exit and error routines                                        */
@@ -89,7 +88,6 @@ int sdlplayer_init()
   bits=audio_format&0xFF;
   g_warning("Opened audio at %d Hz %d bit %s, %d bytes audio buffer\n", audio_rate,
 	    bits, audio_channels>1?"stereo":"mono", audio_buffers );
-  sound_paused = FALSE;
 
   return(0);
 }
@@ -105,12 +103,9 @@ int sdlplayer_quit(Mix_Music *music)
   return 0;
 }
 
-int sdlplayer_bg(char *filename, int volume)
+int sdlplayer_music(char *filename, int volume)
 {
   Mix_Music *music;
-
-  if(sound_paused)
-    return(0);
 
   g_warning("sdlplayer_bg %s\n", filename);
 
@@ -125,7 +120,7 @@ int sdlplayer_bg(char *filename, int volume)
   Mix_VolumeMusic(volume);
 
   // wait for the music to complete
-  while((Mix_PlayingMusic() || Mix_PausedMusic()))
+  while(Mix_PlayingMusic() || Mix_PausedMusic())
     {
       SDL_Delay(50);
     }
@@ -133,17 +128,12 @@ int sdlplayer_bg(char *filename, int volume)
   return(0);
 }
 
-int sdlplayer(char *filename, int volume)
+int sdlplayer_fx(char *filename, int volume)
 {
   Mix_Chunk *sample;
   static int channel;
 
   g_warning("sdlplayer %s\n", filename);
-
-  if(sound_paused)
-    return(0);
-
-  Mix_PauseMusic();
 
   sample=Mix_LoadWAV_RW(SDL_RWFromFile(filename, "rb"), 1);
   if(!sample) {
@@ -162,16 +152,6 @@ int sdlplayer(char *filename, int volume)
       SDL_Delay(50);
     }
 
-  // fade in music. Removed, eats too much CPU on low end PCs
-  /*   for(i=32; i<=128; i+=10) { */
-  /*     Mix_VolumeMusic(i); */
-  /*     SDL_Delay(20); */
-  /*   } */
-
-  // resume music playback
-  if ((!sound_closed) && (!sound_paused))
-    Mix_ResumeMusic();
-
   // free the sample
   // Mix_Chunk *sample;
   Mix_FreeChunk(sample);
@@ -181,20 +161,39 @@ int sdlplayer(char *filename, int volume)
   return(0);
 }
 
-void sdlplayer_halt()
+void sdlplayer_pause_music()
 {
-  sound_paused = TRUE;
-  sound_closed = TRUE;
+  if(!sound_closed && Mix_PlayingMusic())
+    Mix_PauseMusic();
+}
 
-  Mix_HaltMusic();
-  Mix_HaltChannel(-1);
+void sdlplayer_halt_music()
+{
+  if(!sound_closed)
+    Mix_HaltMusic();
+}
+
+void sdlplayer_halt_fx()
+{
+  if(!sound_closed)
+    Mix_HaltChannel(-1);
+}
+
+void sdlplayer_resume_music()
+{
+  if(!sound_closed)
+    Mix_ResumeMusic();
+}
+
+void sdlplayer_resume_fx()
+{
+  if(!sound_closed)
+    Mix_Resume(-1);
 }
 
 void sdlplayer_close()
 {
-  sound_paused = TRUE;
   sound_closed = TRUE;
-
   Mix_HaltMusic();
   Mix_HaltChannel(-1);
   Mix_CloseAudio();
@@ -202,23 +201,7 @@ void sdlplayer_close()
 void sdlplayer_reopen()
 {
   Mix_OpenAudio(44100,MIX_DEFAULT_FORMAT,2,audio_buffers);
+  sound_closed = FALSE;
   Mix_ResumeMusic();
   Mix_Resume(-1);
-  sound_closed = FALSE;
-  sound_paused = FALSE;
-}
-
-void sdlplayer_pause(){
-  Mix_PauseMusic();
-  Mix_Pause(-1);
-  sound_paused = TRUE;
-}
-
-void sdlplayer_resume(){
-  // resume music playback
-  if (!sound_closed){
-    Mix_ResumeMusic();
-    Mix_Resume(-1);
-    sound_paused = FALSE;
-  }
 }

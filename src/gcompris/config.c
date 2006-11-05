@@ -741,7 +741,18 @@ item_event_ok(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 
 	  if(!properties->music && !properties->fx)
 	    gc_sound_close();
+	  else
+	    {
+	      if(!properties->music)
+		sdlplayer_halt_music();
+	      else
+		sdlplayer_resume_music();
 
+	      if(!properties->fx)
+		sdlplayer_halt_fx();
+	      else
+		sdlplayer_resume_fx();
+	    }
 	  gc_prop_save(properties);
 	}
       else if(!strcmp((char *)data, "fullscreen"))
@@ -770,7 +781,15 @@ item_event_ok(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 	  gnome_canvas_item_set (item,
 				 "pixbuf", (properties->music ? pixmap_checked : pixmap_unchecked),
 				 NULL);
-
+	  if(!properties->music)
+	    {
+	      sdlplayer_halt_music();
+	    }
+	  else
+	    {
+	      gc_sound_init();
+	      sdlplayer_resume_music();
+	    }
 	}
       else if(!strcmp((char *)data, "effect"))
 	{

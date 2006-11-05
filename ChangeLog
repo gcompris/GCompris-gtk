@@ -1,3 +1,22 @@
+2006-11-05  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	- Large review of the way we handle sounds. Fixed the API names to better match what
+	  we are doing.
+	- Now the music on/off in the configure dialog acts in real time.
+	- Now if music and fx are disabled we close the audio output.
+	- Now we reopen the audio output properly if music or fx is selected again.
+
+	* src/gcompris/config.c: (item_event_ok):
+	* src/gcompris/sdlplayer.c: (sdlplayer_init), (sdlplayer_music),
+	(sdlplayer_fx), (sdlplayer_pause_music), (sdlplayer_halt_music),
+	(sdlplayer_halt_fx), (sdlplayer_resume_music),
+	(sdlplayer_resume_fx), (sdlplayer_close), (sdlplayer_reopen):
+	* src/gcompris/soundutil.c: (gc_sound_init), (gc_sound_close),
+	(gc_sound_reopen), (gc_sound_pause), (gc_sound_resume),
+	(scheduler_music), (scheduler_fx), (thread_play_ogg),
+	(gc_sound_play_ogg_list):
+	* src/gcompris/soundutil.h:
+
 2006-11-04  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* INSTALL:

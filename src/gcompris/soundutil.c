@@ -28,7 +28,7 @@
 
 static GList	*pending_queue = NULL;
 static int	 sound_policy;
-static gboolean	 is_playing;
+static gboolean	 music_paused = FALSE;
 static gboolean	 sound_closed = FALSE;
 
 /* mutex */
@@ -41,13 +41,13 @@ GCond		*cond = NULL;
 static guint	 sound_init = 0;
 
 /* Forward function declarations */
-GThread		*thread_scheduler, *thread_scheduler_bgnd;
+GThread		*thread_scheduler_fx, *thread_scheduler_music;
 
 static void	*thread_play_ogg (gchar *file);
 static char	*get_next_sound_to_play( );
 
-static gpointer  scheduler (gpointer user_data);
-static gpointer  scheduler_bgnd (gpointer user_data);
+static gpointer  scheduler_fx (gpointer user_data);
+static gpointer  scheduler_music (gpointer user_data);
 
 /* sound control */
 GObject *gc_sound_controller = NULL;
@@ -89,7 +89,6 @@ gc_sound_init()
   cond = g_cond_new ();
 
   sound_policy = PLAY_AFTER_CURRENT;
-  is_playing = FALSE;
 
   if(sdlplayer_init()!=0) {
     /* Sound init failed. Desactivate the sound */
@@ -98,13 +97,13 @@ gc_sound_init()
     return;
   }
 
-  thread_scheduler = g_thread_create((GThreadFunc)scheduler, NULL, FALSE, NULL);
-  if (thread_scheduler == NULL)
-    perror("create failed for scheduler");
+  thread_scheduler_fx = g_thread_create((GThreadFunc)scheduler_fx, NULL, FALSE, NULL);
+  if (thread_scheduler_fx == NULL)
+    perror("create failed for fx scheduler");
 
-  thread_scheduler_bgnd = g_thread_create((GThreadFunc)scheduler_bgnd, NULL, FALSE, NULL);
-  if (thread_scheduler_bgnd == NULL)
-    perror("create failed for scheduler background");
+  thread_scheduler_music = g_thread_create((GThreadFunc)scheduler_music, NULL, FALSE, NULL);
+  if (thread_scheduler_music == NULL)
+    perror("create failed for music scheduler");
 
 }
 
@@ -113,36 +112,41 @@ gc_sound_close()
 {
   if ( !sound_closed )
     {
-      sdlplayer_halt();
+      sdlplayer_halt_music();
+      sdlplayer_halt_fx();
       g_mutex_lock(lock_fx);
       g_mutex_lock(lock_music);
       sdlplayer_close();
       sound_closed = TRUE;
+      music_paused = FALSE;
     }
-  printf("gc_sound_close done\n");
 }
+
 void
 gc_sound_reopen()
 {
   if (sound_closed)
     {
       sdlplayer_reopen();
-      g_mutex_unlock(lock);
+      g_mutex_unlock(lock_fx);
       g_mutex_unlock(lock_music);
       sound_closed = FALSE;
+      music_paused = FALSE;
     }
 }
 
 void
 gc_sound_pause()
 {
-  sdlplayer_pause();
+  sdlplayer_pause_music();
+  music_paused = TRUE;
 }
 
 void
 gc_sound_resume()
 {
-  sdlplayer_resume();
+  sdlplayer_resume_music();
+  music_paused = FALSE;
 }
 
 /* =====================================================================
@@ -173,7 +177,7 @@ gc_sound_policy_get()
  *        in the gcompris music directory
  ======================================================================*/
 static gpointer
-scheduler_bgnd (gpointer user_data)
+scheduler_music (gpointer user_data)
 {
   GcomprisProperties *properties = gc_prop_get();
   gint i;
@@ -221,18 +225,15 @@ scheduler_bgnd (gpointer user_data)
       for(i=0; i<g_slist_length(musiclist); i++)
 	{
 	  /* Music can be disabled at any time */
-	  if ( !gc_prop_get()->music )
-	    {
-	      g_usleep(5000000);
-	      continue;
-	    }
+	  while(!gc_prop_get()->music || music_paused)
+	    g_usleep(1000000);
 
 	  /* WARNING Displaying stuff in a thread seems to make gcompris unstable */
 	  /*	  display_ogg_file_credits((char *)g_list_nth_data(musiclist, i)); */
 	  //	  if(decode_ogg_file((char *)g_list_nth_data(musiclist, i))!=0)
 	  g_mutex_lock(lock_music);
-	  if(sdlplayer_bg((char *)g_slist_nth_data(musiclist, i), 128)!=0){
-	    g_warning("Stopping music, sdlplayer_bg failed, try again in 5 seconds");
+	  if(sdlplayer_music((char *)g_slist_nth_data(musiclist, i), 128)!=0){
+	    g_warning("sdlplayer_music failed, try again in 5 seconds");
 	    g_usleep(5000000);
 	  }
 	  g_mutex_unlock(lock_music);
@@ -256,7 +257,7 @@ scheduler_bgnd (gpointer user_data)
  *	-	the thread never ends
  ======================================================================*/
 static gpointer
-scheduler (gpointer user_data)
+scheduler_fx (gpointer user_data)
 {
   char *sound = NULL;
 
@@ -266,7 +267,6 @@ scheduler (gpointer user_data)
 	{
 	  thread_play_ogg(sound);
 	  g_free(sound);
-	  is_playing = FALSE;
 	}
       else
 	{
@@ -294,13 +294,13 @@ thread_play_ogg (gchar *file)
 
   g_warning("   Calling gcompris internal sdlplayer_file (%s)", absolute_file);
   g_mutex_lock(lock_fx);
-  sdlplayer(absolute_file, 128);
+  sdlplayer_fx(absolute_file, 128);
   g_mutex_unlock(lock_fx);
   g_signal_emit (gc_sound_controller,
 		 GCOMPRIS_SOUND_GET_CLASS (gc_sound_controller)->sound_played_signal_id,
 		 0 /* details */,
 		 g_strdup(file));
-  g_warning("  sdlplayer_file(%s) ended.", absolute_file);
+  g_warning("  sdlplayer_fx(%s) ended.", absolute_file);
 
   g_free(absolute_file);
 
@@ -402,7 +402,7 @@ gc_sound_play_ogg_list( GList* files )
     return;
 
   if ( 	sound_policy == PLAY_ONLY_IF_IDLE &&
-	( is_playing == TRUE || g_list_length( pending_queue ) > 0 ) )
+        g_list_length( pending_queue ) > 0 )
     return;
 
   g_mutex_lock (lock);

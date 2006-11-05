@@ -53,13 +53,17 @@ void	 display_ao_devices();
  * SDL PLAYER
  */
 int	 sdlplayer_init();
-int	 sdlplayer_bg();
-void	 sdlplayer_halt();
 void	 sdlplayer_close();
 void	 sdlplayer_reopen();
-void	 sdlplayer_pause();
-void	 sdlplayer_resume();
-int	 sdlplayer(char *filename, int volume);
+
+int	 sdlplayer_music(char *filename, int volume);
+void	 sdlplayer_halt_music();
+void	 sdlplayer_pause_music();
+void	 sdlplayer_resume_music();
+
+void	 sdlplayer_halt_fx();
+void	 sdlplayer_resume_fx();
+int	 sdlplayer_fx(char *filename, int volume);
 
 gchar *gc_sound_alphabet(gchar *chars);
 
