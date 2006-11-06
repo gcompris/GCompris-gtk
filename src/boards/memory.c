@@ -276,8 +276,7 @@ static gchar *soundList[] =
 
 #define NUMBER_OF_SOUNDS G_N_ELEMENTS(soundList)
 
-
-
+static SoundPolicy sound_policy;
 
 /* Description of this plugin */
 static BoardPlugin menu_bp =
@@ -816,6 +815,12 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 	  GcomprisProperties	*properties = gc_prop_get();
 
 	  gc_sound_pause();
+
+	  /* initial state to restore */
+	  sound_policy = gc_sound_policy_get();
+
+	  gc_sound_policy_set(PLAY_AND_INTERRUPT);
+
 	  gc_set_background(gnome_canvas_root(gcomprisBoard->canvas), "images/gcompris_band.png");
 	  base_x1 = BASE_SOUND_X1;
 	  base_y1 = BASE_SOUND_Y1;
@@ -897,8 +902,10 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 static void
 end_board ()
 {
-  if (currentUiMode == UIMODE_SOUND)
+  if (currentUiMode == UIMODE_SOUND) {
+    gc_sound_policy_set(sound_policy);
     gc_sound_resume();
+  }
 
   if(gcomprisBoard!=NULL)
     {
@@ -1576,7 +1583,7 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, MemoryItem *memoryItem)
 
 	   if (playing_sound){
 	     g_warning("wait a minute, the sound is playing !");
-	     return FALSE;
+	     //return FALSE;
 	   }
 
 	   if(win_id)

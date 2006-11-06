@@ -31,6 +31,7 @@ typedef enum
 {
   PLAY_ONLY_IF_IDLE		= 0,
   PLAY_AFTER_CURRENT		= 1,
+  PLAY_AND_INTERRUPT		= 2,
 } SoundPolicy;
 
 typedef void (*GcomprisSoundCallback) (gchar *);

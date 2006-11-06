@@ -1,3 +1,14 @@
+2006-11-06  Yves Combe  <yves@ycombe.net>
+
+	New sound policy to halt previous sound before play.
+	Test in memo sound.
+
+	* po/Makefile.in.in:
+	* src/boards/memory.c: (start_board), (end_board), (item_event):
+	* src/gcompris/soundutil.c: (gc_sound_policy_set), (free_string),
+	(gc_sound_play_ogg_list):
+	* src/gcompris/soundutil.h:
+
 	*** RELEASE 8.2 ***
 
 2006-11-05  Bruno coudoin  <bruno.coudoin@free.fr>

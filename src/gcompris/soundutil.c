@@ -159,6 +159,7 @@ gc_sound_policy_set(int policy)
     {
     case PLAY_ONLY_IF_IDLE : sound_policy = PLAY_ONLY_IF_IDLE; break;
     case PLAY_AFTER_CURRENT : sound_policy = PLAY_AFTER_CURRENT; break;
+    case PLAY_AND_INTERRUPT : sound_policy = PLAY_AND_INTERRUPT; break;
     default : sound_policy = PLAY_AFTER_CURRENT;
     }
 }
@@ -393,10 +394,15 @@ gc_sound_play_ogg(const gchar *sound, ...)
  * If it doesn't exists, then the test is done with a music file:
  * music/<sound>
  =====================================================================*/
+void free_string(gpointer data,  gpointer user_data)
+{
+  g_free(data);
+}
 void
 gc_sound_play_ogg_list( GList* files )
 {
   GList* list;
+  char* tmpSound = NULL;
 
   if ( !gc_prop_get()->fx )
     return;
@@ -404,6 +410,17 @@ gc_sound_play_ogg_list( GList* files )
   if ( 	sound_policy == PLAY_ONLY_IF_IDLE &&
         g_list_length( pending_queue ) > 0 )
     return;
+
+  if ( sound_policy == PLAY_AND_INTERRUPT ) {
+    g_warning("halt music");
+    while ( g_list_length(pending_queue) > 0 )
+    {
+      tmpSound = g_list_nth_data( pending_queue, 0 );
+      pending_queue = g_list_remove( pending_queue, tmpSound );
+      g_free(tmpSound);
+    }
+    sdlplayer_halt_fx();
+  }
 
   g_mutex_lock (lock);
 
