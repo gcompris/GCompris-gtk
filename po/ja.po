@@ -1,0 +1,5215 @@
+# Japanese translation of gcompris.
+# Copyright (C) 2005,2006 Free Software Foundation,Inc.
+# This file is distributed under the same license as the gcompris package.
+# Yuko Hirata <r38495@st.takushoku-u.ac.jp>, 2006.
+msgid ""
+msgstr ""
+"Project-Id-Version: GCompris 8.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2006-10-18 02:35+0200\n"
+"PO-Revision-Date: 2006-11-06 22:34+0100\n"
+"Last-Translator: Bruno Coudoin <bruno.coudoin@free.fr>\n"
+"Language-Team: Japanese <translation@gnome.gr.jp>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../boards/administration.xml.in.h:1
+msgid ""
+"- In the 'Boards' section you can change the list of activities. Just untoggle them in the treeview. You can change the language used for reading, for example, then the language used for saying the names of colors.\n"
+"- You can save multiple configurations, and switch between them easily. In the 'Profile' section add a profile, then in the 'Board' section select the profile in the combobox, then select the boards you want to be active. You can add multiple profiles, with different lists of boards, and different languages. You set the default profile in the 'Profile' section, by choosing the profile you want, then clicking on the 'Default' button. You can also choose a profile from the command line.\n"
+"- You can add users, classes and for each class, you can create groups of users. Note that you can import users from a comma-separated file. Assign one or more groups to a profile, after which those new logins will appear after restarting GCompris. Being able to identify individual children in GCompris means we can provide individual reports. It also recognizes the children as individuals; they can learn to type in and recognize their own usernames (login is configurable)."
+msgstr ""
+"『ゲーム』のセクションでは、使用できるゲームをチェックボックスを用いて設定することができます.また、このセクションでは、使用する言語を変えることができます.例えば、色の名前を言うために使用される言語です.言語は複数の構成を保存することができて、簡単に変えることができます.\n"
+"『プロファイル』のセクションでは、プロファイルが追加できます.『ゲーム』のセクションの上部にあるコンボボックスから『プロファイル』で作成したプロファイルを選択し、実行したいと思うゲームを選んでください.また、ここではゲームリストや言語が異なる複合的なプロファイルも加えることができます.さらに、既に作成されたプロフィールから好きなものを選び、デフォルトボタンをクリックすることでデフォルトのプロファイルをセットすることができます.また、コマンドラインからプロファイルを選ぶことも可能です.\n"
+"『クラス』、『ユーザ』、ユーザーの『グループ』を作成することもできます.以下の点に注意してください：\n"
+"コンマ(,)で区切られたファイルからユーザを取り込むことができます.\n"
+"プロファイルには、一つ以上のグループを割り当ててください.グループのユーザの新しいログインはGComprisを再起動した後に反映されます.\n"
+"GComprisで個々の子供たちを特定できるということは、個々のレポートを提供することができることを意味します.そしてそれは個人として、子どもたちを認めるということです;子どもたちは、ログインを入力することでユーザ名が識別されていることを学ぶことができます（ログインは環境設定できます）."
+
+#: ../boards/administration.xml.in.h:4
+msgid "GCompris Administration Menu"
+msgstr "GCompris 管理メニュー"
+
+#: ../boards/administration.xml.in.h:5
+msgid "If you want to fine tune GCompris to your needs, you can use the administration module here. The ultimate goal is to provide child-specific reporting for parents and teacher who want to monitor the progress, strengths and needs of their children."
+msgstr "『GCompris』をカスタマイズしたい時はこの管理モジュールを使用します.この機能の目的は、子どもたちの進歩、強み、必要としているものをチェックしたい両親と教師に、子どもの詳細な報告を提供することです."
+
+#: ../boards/administration.xml.in.h:6
+msgid "Left-Click with the mouse to select an activity"
+msgstr "ゲームを選択するために、マウスを左クリックしてください."
+
+#: ../boards/advanced_colors.xml.in.h:1
+msgid "Advanced colors"
+msgstr "見慣れない色"
+
+#: ../boards/advanced_colors.xml.in.h:2
+#: ../boards/read_colors.xml.in.h:1
+msgid "Can read"
+msgstr "文字が読めること."
+
+#: ../boards/advanced_colors.xml.in.h:3
+msgid "Click on the correct color"
+msgstr "正しい色をクリックしてください"
+
+#: ../boards/advanced_colors.xml.in.h:4
+msgid "Click on the correct colored box."
+msgstr "正しい色の箱を選んで、クリックしてください"
+
+#: ../boards/advanced_colors.xml.in.h:5
+msgid "Learn to recognize unusual colors."
+msgstr "見慣れない色を学びましょう"
+
+#: ../boards/advanced_colors/board1.xml.in.h:1
+msgid "almond"
+msgstr "アーモンド"
+
+#: ../boards/advanced_colors/board1.xml.in.h:2
+msgid "chestnut"
+msgstr "くり色"
+
+#: ../boards/advanced_colors/board1.xml.in.h:3
+msgid "claret"
+msgstr "あかむらさき色"
+
+#: ../boards/advanced_colors/board1.xml.in.h:4
+msgid "cobalt"
+msgstr "コバルト"
+
+#: ../boards/advanced_colors/board1.xml.in.h:5
+msgid "coral"
+msgstr "サンゴ"
+
+#: ../boards/advanced_colors/board1.xml.in.h:6
+msgid "corn"
+msgstr "コーン"
+
+#: ../boards/advanced_colors/board1.xml.in.h:7
+msgid "cyan"
+msgstr "シアン"
+
+#: ../boards/advanced_colors/board1.xml.in.h:8
+msgid "sienna"
+msgstr "シエナ"
+
+#: ../boards/advanced_colors/board2.xml.in.h:1
+msgid "lime"
+msgstr "ライム"
+
+#: ../boards/advanced_colors/board2.xml.in.h:2
+msgid "sage"
+msgstr "セージ"
+
+#: ../boards/advanced_colors/board2.xml.in.h:3
+msgid "salmon"
+msgstr "サーモン"
+
+#: ../boards/advanced_colors/board2.xml.in.h:4
+msgid "sapphire"
+msgstr "るり色"
+
+#: ../boards/advanced_colors/board2.xml.in.h:5
+msgid "sepia"
+msgstr "セピア"
+
+#: ../boards/advanced_colors/board2.xml.in.h:6
+msgid "sulphur"
+msgstr "れもん色"
+
+#: ../boards/advanced_colors/board2.xml.in.h:7
+msgid "tea"
+msgstr "ちゃ色"
+
+#: ../boards/advanced_colors/board2.xml.in.h:8
+msgid "turquoise"
+msgstr "あおみどり色"
+
+#: ../boards/advanced_colors/board3.xml.in.h:1
+msgid "absinthe"
+msgstr "よもぎ色"
+
+#: ../boards/advanced_colors/board3.xml.in.h:2
+msgid "alabaster"
+msgstr "せっかせっこう色"
+
+#: ../boards/advanced_colors/board3.xml.in.h:3
+msgid "amber"
+msgstr "こはく色"
+
+#: ../boards/advanced_colors/board3.xml.in.h:4
+msgid "amethyst"
+msgstr "アメジスト"
+
+#: ../boards/advanced_colors/board3.xml.in.h:5
+msgid "anise"
+msgstr "アニス"
+
+#: ../boards/advanced_colors/board3.xml.in.h:6
+msgid "aquamarine"
+msgstr "アクアマリン"
+
+#: ../boards/advanced_colors/board3.xml.in.h:7
+msgid "mahogany"
+msgstr "マホガニー"
+
+#: ../boards/advanced_colors/board3.xml.in.h:8
+#: ../boards/advanced_colors/board8.xml.in.h:8
+msgid "vermilion"
+msgstr "しゅ色"
+
+#: ../boards/advanced_colors/board4.xml.in.h:1
+#: ../boards/advanced_colors/board5.xml.in.h:1
+msgid "aubergine"
+msgstr "なす紺色"
+
+#: ../boards/advanced_colors/board4.xml.in.h:2
+msgid "ceruse"
+msgstr "しろなまり色"
+
+#: ../boards/advanced_colors/board4.xml.in.h:3
+msgid "chartreuse"
+msgstr "青りんご色"
+
+#: ../boards/advanced_colors/board4.xml.in.h:4
+msgid "emerald"
+msgstr "エメラルド"
+
+#: ../boards/advanced_colors/board4.xml.in.h:5
+msgid "fawn"
+msgstr "淡い黄褐色"
+
+#: ../boards/advanced_colors/board4.xml.in.h:6
+msgid "fuchsia"
+msgstr "明るい紫紅色"
+
+#: ../boards/advanced_colors/board4.xml.in.h:7
+msgid "glaucous"
+msgstr "淡い青緑色"
+
+#: ../boards/advanced_colors/board4.xml.in.h:8
+msgid "ruby"
+msgstr "ルビー"
+
+#: ../boards/advanced_colors/board5.xml.in.h:2
+msgid "auburn"
+msgstr "とび色"
+
+#: ../boards/advanced_colors/board5.xml.in.h:3
+msgid "azure"
+msgstr "うすむらさき色"
+
+#: ../boards/advanced_colors/board5.xml.in.h:4
+msgid "bistre"
+msgstr "ビスタ"
+
+#: ../boards/advanced_colors/board5.xml.in.h:5
+msgid "celadon"
+msgstr "青磁色"
+
+#: ../boards/advanced_colors/board5.xml.in.h:6
+msgid "cerulean"
+msgstr "濃青色"
+
+#: ../boards/advanced_colors/board5.xml.in.h:7
+msgid "crimson"
+msgstr "深紅色"
+
+#: ../boards/advanced_colors/board5.xml.in.h:8
+msgid "greyish-brown"
+msgstr "ねずみ色がかったちゃ色"
+
+#: ../boards/advanced_colors/board6.xml.in.h:1
+msgid "dove"
+msgstr "はと色"
+
+#: ../boards/advanced_colors/board6.xml.in.h:2
+msgid "garnet"
+msgstr "ガーネット"
+
+#: ../boards/advanced_colors/board6.xml.in.h:3
+msgid "indigo"
+msgstr "インディゴ"
+
+#: ../boards/advanced_colors/board6.xml.in.h:4
+msgid "ivory"
+msgstr "アイボリー"
+
+#: ../boards/advanced_colors/board6.xml.in.h:5
+msgid "jade"
+msgstr "ひすい色"
+
+#: ../boards/advanced_colors/board6.xml.in.h:6
+msgid "lavender"
+msgstr "ふじ色"
+
+#: ../boards/advanced_colors/board6.xml.in.h:7
+msgid "lichen"
+msgstr "地衣色"
+
+#: ../boards/advanced_colors/board6.xml.in.h:8
+msgid "wine"
+msgstr "ワインレッド"
+
+#: ../boards/advanced_colors/board7.xml.in.h:1
+msgid "larch"
+msgstr "からまつ色"
+
+#: ../boards/advanced_colors/board7.xml.in.h:2
+msgid "lilac"
+msgstr "ライラック"
+
+#: ../boards/advanced_colors/board7.xml.in.h:3
+msgid "magenta"
+msgstr "マゼンタ"
+
+#: ../boards/advanced_colors/board7.xml.in.h:4
+msgid "malachite"
+msgstr "マカライトグリーン"
+
+#: ../boards/advanced_colors/board7.xml.in.h:5
+msgid "mimosa"
+msgstr "ミモザ"
+
+#: ../boards/advanced_colors/board7.xml.in.h:6
+msgid "navy"
+msgstr "ネイビーブルー"
+
+#: ../boards/advanced_colors/board7.xml.in.h:7
+msgid "ochre"
+msgstr "オークル"
+
+#: ../boards/advanced_colors/board7.xml.in.h:8
+msgid "olive"
+msgstr "オリーブ"
+
+#: ../boards/advanced_colors/board8.xml.in.h:1
+msgid "greyish blue"
+msgstr "ねずみ色がかった青色"
+
+#: ../boards/advanced_colors/board8.xml.in.h:2
+msgid "mauve"
+msgstr "モーブ"
+
+#: ../boards/advanced_colors/board8.xml.in.h:3
+msgid "opaline"
+msgstr "乳白色"
+
+#: ../boards/advanced_colors/board8.xml.in.h:4
+msgid "pistachio"
+msgstr "ピスタチオ"
+
+#: ../boards/advanced_colors/board8.xml.in.h:5
+msgid "platinum"
+msgstr "プラチナ"
+
+#: ../boards/advanced_colors/board8.xml.in.h:6
+msgid "purple"
+msgstr "むらさき色"
+
+#: ../boards/advanced_colors/board8.xml.in.h:7
+msgid "ultramarine"
+msgstr "ウルトラマリン"
+
+#: ../boards/advanced_colors/board9.xml.in.h:1
+msgid "dark purple"
+msgstr "濃いむらさき色"
+
+#: ../boards/advanced_colors/board9.xml.in.h:2
+msgid "plum"
+msgstr "すもも色"
+
+#: ../boards/advanced_colors/board9.xml.in.h:3
+msgid "prussian blue"
+msgstr "紺青色"
+
+#: ../boards/advanced_colors/board9.xml.in.h:4
+msgid "rust"
+msgstr "赤褐色"
+
+#: ../boards/advanced_colors/board9.xml.in.h:5
+msgid "saffron"
+msgstr "サフラン"
+
+#: ../boards/advanced_colors/board9.xml.in.h:6
+msgid "vanilla"
+msgstr "バニラ"
+
+#: ../boards/advanced_colors/board9.xml.in.h:7
+msgid "verdigris"
+msgstr "緑青色"
+
+#: ../boards/advanced_colors/board9.xml.in.h:8
+msgid "veronese"
+msgstr "ベローナ"
+
+#: ../boards/algebra_by.xml.in.h:1
+msgid "A multiplication of two numbers is displayed. At the right of the equals sign, give the answer, the product. Use the left and right arrows to modify your answer and press the Enter key to check if you've got it right. If not, just try again."
+msgstr "２つの数字のかけ算が表示されます.イコールの右側に答えとなる積を置き、左と右の矢印を使って、答えを修正して、答えが正しいか確かめるためにエンターキーを押してみよう!間違っていた場合は、もう一度チャレンジしてみよう！"
+
+#: ../boards/algebra_by.xml.in.h:2
+#: ../boards/algebra_minus.xml.in.h:2
+#: ../boards/algebra_plus.xml.in.h:2
+msgid "Answer some algebra questions"
+msgstr "代数学の質問に答えてください."
+
+#: ../boards/algebra_by.xml.in.h:3
+msgid "In a limited time, give the product of two numbers"
+msgstr "制限時間内に、２つの数字の積を答えてください."
+
+#: ../boards/algebra_by.xml.in.h:4
+msgid "Multiplication table"
+msgstr "かけ算九九の表"
+
+#: ../boards/algebra_by.xml.in.h:5
+msgid "Practice the multiplication operation"
+msgstr "かけ算の演算を練習しましょう."
+
+#: ../boards/algebra_group.xml.in.h:1
+msgid "Go to Algebra activities"
+msgstr "代数学のゲームへ"
+
+#: ../boards/algebra_group.xml.in.h:2
+#: ../boards/menu.xml.in.h:17
+msgid "Left-click the mouse on an activity to select it."
+msgstr "ゲームを選択するのために、マウスの左ボタンをクリックしてください."
+
+#: ../boards/algebra_guesscount.xml.in.h:1
+#: ../boards/erase_clic.xml.in.h:1
+#: ../boards/erase_double_clic.xml.in.h:1
+msgid "Animal pictures come from the Animal Photography Page of Ralf Schmode (http://schmode.net/). Ralf has kindly permitted Gcompris to include his pictures. Thanks a lot, Ralf."
+msgstr "動物の画像は'Ralf Schmode'の動物写真ページ(http://schmode.net/)から取得しています.RalfはGComprisに写真を使うことを親切に許可してくれました.Ralfに大変感謝します."
+
+#: ../boards/algebra_guesscount.xml.in.h:2
+msgid "At the top of the board area, choose the numbers and arithmetic operators that give the specified result. You can deselect a number or operator by clicking on it again."
+msgstr "ゲームのトップ画面で、指定された答えとなる数と算術演算子を選んでください.もう一度それらをクリックすることによって、数または演算子を選択しないことができます."
+
+#: ../boards/algebra_guesscount.xml.in.h:3
+msgid "Deploy a strategy to arrange a set of arithmetic operations to match a given value."
+msgstr "与えられた値に合う四則演算を並べて配置してください."
+
+#: ../boards/algebra_guesscount.xml.in.h:4
+msgid "Find the series of correct operations that matches the given answer"
+msgstr "与えられた答えに合う、正しい操作を見つけましょう！"
+
+#: ../boards/algebra_guesscount.xml.in.h:5
+msgid "The four arithmetic operations. Combine several arithmetic operations."
+msgstr "4つの四則演算.　いくつかの四則演算を結合してください."
+
+#: ../boards/algebra_guesscount.xml.in.h:6
+msgid "Work out the right combination of numbers and operations to match the given value"
+msgstr "指示された値に合う数と演算の正しい組合わせを解いてみましょう."
+
+#: ../boards/algebra_minus.xml.in.h:1
+msgid "A subtraction problem with two numbers is displayed. At the right of the equals sign, give the answer, the difference. Use the left and right arrows to modify your answer and press the Enter key to check if you've got it right. If not, just try again."
+msgstr "2つの数字の引き算の問題が表示されます.等号の右側に答えとなる差を与えてください.答えを修正するためには左右の矢印を使ってください.また、答えが正しいかったか確かめるにはエンターキーを押してください.間違っていた場合は、もう一度チャレンジしてみよう！"
+
+#: ../boards/algebra_minus.xml.in.h:3
+msgid "In a limited time, find the difference between two numbers"
+msgstr "制限時間内に、２つの数字の差を見付けましょう."
+
+#: ../boards/algebra_minus.xml.in.h:4
+msgid "Practice the subtraction operation"
+msgstr "ひき算の演算を練習しましょう"
+
+#: ../boards/algebra_minus.xml.in.h:5
+msgid "Simple subtraction"
+msgstr "簡単なひき算"
+
+#: ../boards/algebra_plus.xml.in.h:1
+msgid "An addition problem with two numbers is displayed. At the right of the equals sign, give the answer, the sum. Use the left and right arrows to modify your answer and press the Enter key to check if you've got it right. If not, just try again."
+msgstr "２つの数の足し算問題が表示されます.等号の右側に答えとなる合計を与えてください.答えを修正するためには左右の矢印を使ってください.また、答えが正しいかったか確かめるにはエンターキーを押してください.間違っていたら、もう一度チャレンジしてみよう!"
+
+#: ../boards/algebra_plus.xml.in.h:3
+msgid "In a limited time, find the sum of of two numbers. Introduction to simple in-line addition."
+msgstr "制限時間内に、２つの数の合計を見つけましょう.簡単な一列のたし算."
+
+#: ../boards/algebra_plus.xml.in.h:4
+msgid "Practice the addition operation"
+msgstr "たし算の演算をしましょう"
+
+#: ../boards/algebra_plus.xml.in.h:5
+msgid "Simple addition. Can recognize written numbers"
+msgstr "簡単なたし算.書かれた数字を認識することができる."
+
+#: ../boards/algebramenu.xml.in.h:1
+msgid "Go to calculation activities"
+msgstr "計算ゲームへ"
+
+#: ../boards/algebramenu.xml.in.h:2
+msgid "Various calculation activities."
+msgstr "さまざまな計算ゲーム"
+
+#: ../boards/algorithm.xml.in.h:1
+msgid "Complete a list of symbols"
+msgstr "シンボル(もの)のリストを完成させてね"
+
+#: ../boards/algorithm.xml.in.h:2
+msgid "Find the next symbol in a list."
+msgstr "テーブルの中から、次に置くシンボル(もの)を見つけましょう."
+
+#: ../boards/algorithm.xml.in.h:3
+msgid "Logic training activity"
+msgstr "論理学訓練のゲーム"
+
+#: ../boards/algorithm.xml.in.h:4
+#: ../boards/hexagon.xml.in.h:3
+#: ../boards/melody.xml.in.h:4
+msgid "Move and click the mouse"
+msgstr "マウスを動かしたり、クリックしましょう"
+
+#: ../boards/algorithm.xml.in.h:5
+msgid "algorithm"
+msgstr "アルゴリズム"
+
+#: ../boards/anim.xml.in.h:1
+msgid "Create a drawing or an animation"
+msgstr "スケッチやアニメーションを作ろう"
+
+#: ../boards/anim.xml.in.h:2
+msgid "Free drawing and animation tool."
+msgstr "スケッチとアニメーションのツール"
+
+#: ../boards/anim.xml.in.h:3
+msgid "In this game, children can draw freely. The goal is to discover how to create attractive drawings based on basic shapes: rectangles, ellipses and lines. To give children a wider range of choices, a set of images can also be used."
+msgstr "このゲームでは、子供逹が自由に絵を描くことができます.ゲームの目的は、基本的な形に基づく魅力的な図面を作成する方法を発見することです.例えば、長方形、楕円と線など.子どもたちに,より広い選択の範囲を与えるために,一組のイメージを使うこともできます."
+
+#: ../boards/anim.xml.in.h:4
+#: ../boards/draw.xml.in.h:4
+msgid "Needs to be capable of moving and clicking the mouse easily"
+msgstr "簡単にマウスを動かしたり、クリックすることができる."
+
+#: ../boards/anim.xml.in.h:5
+msgid "Select a drawing tool on the left, and a color down the bottom. Then click and drag in the white area to create a new shape. Once you've completed a drawing, you can take a snapshot of it with the 'camera' button. This creates a new image with the same content, a copy of your image. You can then edit it by moving objects a little bit or adding/deleting objects. When you create several drawings and then click on the 'film' button, you will see all your images in a continuous slide-show (an infinite loop pattern). You can also change the viewing speed in this mode. In viewing mode, click on the 'drawing' button to return to drawing mode. You can then edit each image in your animation, by using the image selector in the bottom-left corner of the screen. You can also save and reload your animations with the 'floppy disk' and 'folder' buttons."
+msgstr "左側にあるスケッチツールと、下にある色を選んでください.そして,新しいモノをつくる白いキャンバスでクリック＆ドラッグしてください.いったん絵が完成したら、『カメラ』ボタンを使って絵をスナップ写真として保存しておくことができます.スナップ写真は、同じ内容（絵のコピー）で、新しいイメージが作成されます.それから、少しものを動かしたり、ものを追加/削除するこのなど、スナップ写真を編集することができます.あなたがいくつかの絵を作成して、それから、『映画』ボタンをクリックすると、連続スライドショー（無限のループパターン）で全ての絵を見ることができます.また、このモードで、視聴速度を変えることもできます.視聴モード（スライドショー）の時、スケッチモード(白いキャンバス)に戻るには、『スケッチ』ボタンをクリックしてください.あなたは、スクリーンの左下角のイメージセレクターを用いて、あなたの作成したアニメーションの各々のイメージを編集することができます.また、『フロッピーディスク』と『フォルダ』のボタンで、あなたのアニメーションを保存することと、もう一度アニメーションを見直すこともできます."
+
+#: ../boards/awele.xml.in.h:1
+msgid "At the beginning of the game four seeds are placed in each house. Players take turns moving the seeds. In each turn, a player chooses one of the six houses under his or her control. The player removes all seeds from this house, and distributes them, dropping one in each house counter-clockwise from the original house, in a process called sowing. Seeds are not distributed into the end scoring houses, nor into the house drawn from. That is, the starting house is left empty; if it contained 12 seeds, it is skipped, and the twelfth seed is placed in the next house. After a turn, if the last seed was placed into an opponent's house and brought its total to two or three, all the seeds in that house are captured and placed in the player's scoring house (or set aside if the board has no scoring houses). If the previous-to-last seed also brought the total seeds in an opponent's house to two or three, these are captured as well, and so on. However, if a move would capture all an opponent's seeds, the capture is forfeited, and the seeds are instead left on the board, since this would prevent the opponent from continuing the game. The proscription against capturing all an opponent's seeds is related to a more general idea, that one ought to make a move that allows the opponent to continue playing. If an opponent's houses are all empty, the current player must make a move that gives the opponent seeds. If no such move is possible, the current player captures all seeds in his/her own territory, ending the game. (Source Wikipedia &lt;http://en.wikipedia.org/wiki/Oware&gt;)"
+msgstr "ゲームの始めに、4粒の種は、各々のくぼみに置かれています. プレーヤーは、交替で種を動かします.自分の番がきた時、プレーヤーは、コントローラーのもとで、6つのくぼみのうちの1つを選びます. プレーヤーは選んだくぼみから全ての種を移動させます,選んだくぼみから、反時計回りに各々のくぼみに1つずつ種を割り当てます.この手順は『種まき』と呼ばれます.種は、得点表には割り当てられないし、スタートしたくぼみにも割り当てられません.つまり、スタートしたくぼみは、空のままになります.また、くぼみに、12粒の種があるならば、（１周以上蒔く場合）選んだくぼみ自体は、スキップされます.そして、12番目の種は隣のくぼみに置かれます.自分の番の後、相手の陣地で蒔き終わりの種が２個または３個になったら、そのくぼみの全ての種を自分の得点表に入れます.（または、ボードが得点表を持っていないならば、わきに配置されます.）蒔き終わりの種から遡って敵陣で２個または３個が続いていたら、それも自分の得点表に入れます.しかし、この動きが全ての相手の種を得点としてしまうならば、この得点は、失われます.そして、これが相手がゲームを続けるのを防いでしまう時、種は、板の上に残されます.全ての敵の種を捕えることに対する禁止は、より大体の考えに関連があります、あれは、敵が遊び続けるのを許す行動を起こすべきです.相手のくぼみに種がなく、全てが空ならば、その時のプレーヤーは、相手に種が与えられる場合には種を送らなければなりません.そのようなことが可能でないならば、その時のプレーヤーは、自分のくぼみ、全ての種を得点できます.そして、ゲームは終了.(ウィキペディア（Wikipedia）&lt;http://en.wikipedia.org/wiki/Oware&gt;)"
+
+#: ../boards/awele.xml.in.h:2
+msgid "Oware"
+msgstr "マンカラ"
+
+#: ../boards/awele.xml.in.h:3
+msgid "Play the Oware strategy game against Tux"
+msgstr "タックスくんとマンカラで遊んでみよう"
+
+#: ../boards/awele.xml.in.h:4
+msgid "The object of the game is to capture more seeds than one's opponent. Since the game has only 48 seeds, capturing 25 is sufficient to accomplish this. Since there are an even number of seeds, it is possible for the game to end in a draw, where each player has captured 24. The game is over when one player has captured 25 or more stones, or both players have taken 24 stones each (draw). If both players agree that the game has been reduced to an endless cycle, each player captures the stones on their side of the board."
+msgstr "ゲームの目的は、敵より多くの種を捕えることです.ゲームでは48粒の種を使うので、25粒の種を捕えると、目的を達成するのに十分です.種は偶数個あるので、各々のプレーヤーが24個捕えると、ゲームが引き分けに終わることもあります."
+
+#: ../boards/babymatch.xml.in.h:1
+#: ../boards/babymatch/board1_0.xml.in.h:1
+#: ../boards/babymatch/board2_0.xml.in.h:1
+#: ../boards/babymatch/board3_0.xml.in.h:1
+#: ../boards/babymatch/board4_0.xml.in.h:1
+#: ../boards/babymatch/board5_0.xml.in.h:1
+#: ../boards/babymatch/board6_0.xml.in.h:1
+#: ../boards/babymatch/board7_0.xml.in.h:1
+msgid "Drag and Drop the items to make them match"
+msgstr "アイテムをドラッグ＆ドロップして、正しい組み合わせを見付けよう"
+
+#: ../boards/babymatch.xml.in.h:2
+msgid "In the main board area, a set of objects is displayed. In the vertical box (at the left of the main board) another set of objects is shown, each object in the group on the left matching exactly one object in the main board area. This game challenges you to find the logical link between these objects. How do they fit together? Drag each object to the correct red space in the main area."
+msgstr "メイン画面では、対象となるモノが表示されます.垂直なボックス（メイン画面の左側）では、別の物の集合が表示されます.そして、互いのモノは、左側にあるグループとメイン画面のあるモノが正確にかみ合います.このゲームは、それらのモノとの間の論理的関連を見つけるよう、あなたを試しています.どんな方法で、それらのモノを一緒に合わせるのか？は、メイン画面の正しい赤いスペースに、各々の物をドラッグしてください."
+
+#: ../boards/babymatch.xml.in.h:3
+msgid "Matching Items"
+msgstr "合っているアイテム"
+
+#: ../boards/babymatch.xml.in.h:4
+msgid "Motor coordination. Conceptual matching."
+msgstr "運動協調性.概念上のマッチング."
+
+#: ../boards/babymatch.xml.in.h:5
+msgid "Mouse manipulation: movement, drag and drop. Cultural references."
+msgstr "マウス操作：運動、ドラッグ＆ドロップ.文化的な引用."
+
+#: ../boards/babyshapes.xml.in.h:1
+msgid "Complete the puzzle"
+msgstr "パズルを完成させよう"
+
+#: ../boards/babyshapes.xml.in.h:2
+msgid "Complete the puzzle by dragging each piece from the set of pieces on the left, to the matching space in the puzzle."
+msgstr "正しい場所に、左側にあるパズルのピースのセットから各々のピースをドラッグしてパズルを完成させてください."
+
+#: ../boards/babyshapes.xml.in.h:3
+msgid "Drag and Drop the shapes on their respective targets"
+msgstr "パズルのピースをドラッグ&ドロップをして、完成させよう."
+
+#: ../boards/babyshapes.xml.in.h:4
+msgid "Good mouse-control"
+msgstr "良いマウス操作"
+
+#: ../boards/babyshapes.xml.in.h:5
+msgid "The dog is provided by Andre Connes and released under the GPL"
+msgstr "この犬は、アンドレコンヌ氏によって提供され、GPLのもとでリリースされています."
+
+#: ../boards/babyshapes/board5_0.xml.in.h:1
+msgid "Hello ! My name is Lock."
+msgstr "こんにちは！私の名前は、ロックです."
+
+#: ../boards/babyshapes/board6_0.xml.in.h:1
+msgid "Lock on the grass."
+msgstr "草の上のロックくん."
+
+#: ../boards/babyshapes/board7_0.xml.in.h:1
+msgid "Lock with colored shapes."
+msgstr "色のついた形とロックくん."
+
+#: ../boards/ballcatch.xml.in.h:1
+msgid "Make the ball go to Tux"
+msgstr "タックスくんにボールを渡してあげよう"
+
+#: ../boards/ballcatch.xml.in.h:2
+msgid "Press the two shift keys at the same time, to make the ball go in a straight line."
+msgstr "まっすぐにボールを投げるために、同時に2つのシフトキーを押してください."
+
+#: ../boards/bargame.xml.in.h:1
+msgid "Brain"
+msgstr "頭脳"
+
+#: ../boards/bargame.xml.in.h:2
+msgid "Don't use the last ball"
+msgstr "最後に残ったボールを使わないようにしよう！"
+
+#: ../boards/bargame.xml.in.h:3
+#: ../boards/hexagon.xml.in.h:2
+msgid "Logic-training activity"
+msgstr "論理トレーニング"
+
+#: ../boards/bargame.xml.in.h:4
+msgid "Place balls in the holes. You win if the computer has to place the last ball. If you want Tux to begin, just click on him."
+msgstr "各穴にボールを置いてください.コンピュータが最後のボールを置かなければならない時が、あなたの勝ちです.もう一度始めたい時は、タックスくんをクリックしてください."
+
+#: ../boards/bargame.xml.in.h:5
+msgid "bar game"
+msgstr "バーゲーム"
+
+#: ../boards/billard.xml.in.h:1
+msgid "Kick the ball into the black hole on the right"
+msgstr "右側にある黒い穴にボールをキックしてください."
+
+#: ../boards/billard.xml.in.h:2
+msgid "Kick the ball into the goal"
+msgstr "ゴールに、ボールを入れてみよう"
+
+#: ../boards/billard.xml.in.h:3
+#: ../boards/chess_computer.xml.in.h:2
+#: ../boards/chess_movelearn.xml.in.h:3
+#: ../boards/chess_partyend.xml.in.h:2
+#: ../boards/clickgame.xml.in.h:16
+#: ../boards/connect4.xml.in.h:7
+#: ../boards/erase.xml.in.h:3
+#: ../boards/erase_clic.xml.in.h:6
+#: ../boards/erase_double_clic.xml.in.h:6
+#: ../boards/fifteen.xml.in.h:2
+#: ../boards/hanoi.xml.in.h:3
+#: ../boards/memory.xml.in.h:4
+#: ../boards/tangram.xml.in.h:8
+msgid "Mouse-manipulation"
+msgstr "マウスの上手な操作"
+
+#: ../boards/billard.xml.in.h:4
+msgid "Point the mouse and click on the ball, to set the speed and direction of the ball. The closer you click to the centre, the slower the ball moves."
+msgstr "ボールの速度と方向を定めるために、マウスで示して、ボールをクリックしてください.クリックする部分がボールの中心に近づくほど、ボールはゆっくり動きます."
+
+#: ../boards/billard.xml.in.h:5
+msgid "The football game"
+msgstr "サッカーゲーム"
+
+#: ../boards/canal_lock.xml.in.h:1
+msgid "Operate a canal lock"
+msgstr "運河の門を操作してみよう"
+
+#: ../boards/canal_lock.xml.in.h:2
+msgid "Tux is in trouble, and needs to take his boat through a lock. Help Tux and find out how a canal lock works."
+msgstr "タックスくんは、運河の門を船で通りたくて困っています.タックスくんを助け、運河の門はどのようになっているか考えてみましょう."
+
+#: ../boards/canal_lock.xml.in.h:3
+msgid "You are in charge of the canal lock. Open the gates and the locks in the right order, so Tux can travel through the gates in both directions."
+msgstr "あなたは、運河の水門を担当しています.タックスくんが両方の方向へのゲートを通って旅行に行けるように、正しい順序で水門やロックを開けてください."
+
+#: ../boards/chess.xml.in.h:1
+#: ../boards/chess_computer.xml.in.h:3
+msgid "Play chess against the computer in a learning mode"
+msgstr "学習モードで、コンピュータとチェスが対戦できます."
+
+#: ../boards/chess.xml.in.h:2
+msgid "Practice chess"
+msgstr "チェス"
+
+#: ../boards/chess_computer.xml.in.h:1
+#: ../boards/chess_movelearn.xml.in.h:2
+#: ../boards/chess_partyend.xml.in.h:1
+msgid "Learning chess"
+msgstr "チェスの学習"
+
+#: ../boards/chess_computer.xml.in.h:4
+#: ../boards/chess_movelearn.xml.in.h:4
+#: ../boards/chess_partyend.xml.in.h:4
+msgid "The chess engine is from gnuchess."
+msgstr "チェスエンジンは『gnuchess』から来ています."
+
+#: ../boards/chess_movelearn.xml.in.h:1
+msgid "Chess training. Catch the computer's pawns."
+msgstr "チェスのトレーニング. コンピュータの駒を取りましょう."
+
+#: ../boards/chess_partyend.xml.in.h:3
+msgid "Play the end of the chess game against the computer"
+msgstr "コンピュータとつめチェスが対戦できます."
+
+#: ../boards/chronos.xml.in.h:1
+msgid "Chronos"
+msgstr "クロノス"
+
+#: ../boards/chronos.xml.in.h:2
+msgid "Drag and Drop the items to organize the story"
+msgstr "アイテムをドラッグ&ドロップして、物語りをつくろう."
+
+#: ../boards/chronos.xml.in.h:3
+msgid "Moon photo is copyright NASA. The space sounds come from Tuxpaint and Vegastrike which are released under the GPL license. The transportation images are copyright Franck Doucet. Dates of Transportation are based on those found in &lt;http://www.wikipedia.org&gt;."
+msgstr "月の写真の著作権は、ＮＡＳＡにあります.宇宙サウンドは、GPLライセンスの下でリリースされているTuxpaint と Vegastrike からきています.輸送イメージの著作権は、フランクドゥーセ氏にあります.輸送の日付は(http://www.wikipedia.org)に基づいています."
+
+#: ../boards/chronos.xml.in.h:4
+msgid "Pick from the pictures on the left and put them on the red dots"
+msgstr "左側にある絵を選んで赤いの点に置いてください."
+
+#: ../boards/chronos.xml.in.h:5
+msgid "Sort the pictures into the order that tells the story"
+msgstr "物語を話す順番に絵を分類してください."
+
+#: ../boards/chronos.xml.in.h:6
+msgid "Tell a short story"
+msgstr "短編を話してください."
+
+#: ../boards/chronos/board1_0.xml.in.h:1
+msgid "Moonwalker"
+msgstr "月面歩行者"
+
+#: ../boards/chronos/board1_1.xml.in.h:1
+msgid "Autumn"
+msgstr "秋"
+
+#: ../boards/chronos/board1_1.xml.in.h:2
+msgid "Spring"
+msgstr "春"
+
+#: ../boards/chronos/board1_1.xml.in.h:3
+msgid "Summer"
+msgstr "夏"
+
+#: ../boards/chronos/board1_1.xml.in.h:4
+msgid "The 4 Seasons"
+msgstr "四季"
+
+#: ../boards/chronos/board1_1.xml.in.h:5
+msgid "Winter"
+msgstr "冬"
+
+#: ../boards/chronos/board1_2.xml.in.h:1
+msgid "Gardening"
+msgstr "ガーデニング"
+
+#: ../boards/chronos/board2_0.xml.in.h:1
+msgid "Tux and the apple tree"
+msgstr "タックスくんとりんごの木"
+
+#: ../boards/chronos/board3_0.xml.in.h:1
+#: ../boards/chronos/board3_2.xml.in.h:1
+#: ../boards/chronos/board3_4.xml.in.h:1
+#: ../boards/chronos/board4_2.xml.in.h:1
+msgid "1769 Cugnot's fardier"
+msgstr "1769年 ニコラス・キュニョーのFardier vapeur(蒸気ワゴン)"
+
+#: ../boards/chronos/board3_0.xml.in.h:2
+#: ../boards/chronos/board3_3.xml.in.h:5
+#: ../boards/chronos/board3_4.xml.in.h:2
+msgid ""
+"1829 Stephenson's Rocket\n"
+"Steam locomotive"
+msgstr ""
+"1829年 ステフェンソンのロケット\n"
+"蒸気機関車"
+
+#: ../boards/chronos/board3_0.xml.in.h:4
+msgid ""
+"Place each image in the order and\n"
+"on the date it was invented.\n"
+"If not sure, research online at wikipedia:\n"
+"&lt;http://www.wikipedia.org&gt;"
+msgstr ""
+"順に各々のイメージを置いてください.\n"
+"そして、日付は各イメージが発明された年です.\n"
+"わからない場合は、ウィキペディア（Wikipedia）で検索してください.\n"
+"http://www.wikipedia.org;"
+
+#: ../boards/chronos/board3_0.xml.in.h:8
+#: ../boards/chronos/board3_1.xml.in.h:6
+#: ../boards/chronos/board3_2.xml.in.h:5
+#: ../boards/chronos/board3_3.xml.in.h:7
+#: ../boards/chronos/board3_4.xml.in.h:4
+msgid "Transportation"
+msgstr "輸送"
+
+#: ../boards/chronos/board3_1.xml.in.h:1
+#: ../boards/chronos/board3_3.xml.in.h:1
+msgid ""
+"1783 Montgolfier brothers'\n"
+"hot air balloon"
+msgstr ""
+"1783年 モンゴルフィエ兄弟\n"
+"の熱気球"
+
+#: ../boards/chronos/board3_1.xml.in.h:3
+#: ../boards/chronos/board3_2.xml.in.h:4
+#: ../boards/chronos/board3_4.xml.in.h:3
+#: ../boards/chronos/board4_0.xml.in.h:1
+msgid "1880 Clement Ader's Eole"
+msgstr "1880年 クレモン アデールのエオール"
+
+#: ../boards/chronos/board3_1.xml.in.h:4
+msgid ""
+"1906 Paul Cornu\n"
+"First helicopter flight"
+msgstr ""
+"1906年 ポール コルニュ\n"
+"最初のヘリコプター飛行　"
+
+#: ../boards/chronos/board3_2.xml.in.h:2
+#: ../boards/chronos/board3_3.xml.in.h:3
+msgid ""
+"1791 Comte de Sivrac's\n"
+"Celerifere"
+msgstr ""
+"1791年 ド・シブラツク伯爵\n"
+"セレリフェール(走る木馬)"
+
+#: ../boards/chronos/board4_0.xml.in.h:2
+msgid "1903 The Wright brothers' Flyer III"
+msgstr "1903年 ライト兄弟 フライヤー３"
+
+#: ../boards/chronos/board4_0.xml.in.h:3
+msgid ""
+"1909 Louis Bleriot crosses\n"
+"the English Channel"
+msgstr ""
+"1909年 ルイ ブレリオ\n"
+"イギリス海峡横断"
+
+#: ../boards/chronos/board4_0.xml.in.h:5
+#: ../boards/chronos/board4_1.xml.in.h:7
+msgid "Aviation"
+msgstr "航空"
+
+#: ../boards/chronos/board4_1.xml.in.h:1
+msgid ""
+"1927 Charles Lindbergh\n"
+"crosses the Atlantic Ocean"
+msgstr ""
+"1927年 チャールズリンドバーグ \n"
+"大西洋横断"
+
+#: ../boards/chronos/board4_1.xml.in.h:3
+msgid ""
+"1934 Helene Boucher's\n"
+"speed record of 444km/h"
+msgstr ""
+"1934年 ヘリーン・ブーシェ\n"
+"444km/hの最速記録"
+
+#: ../boards/chronos/board4_1.xml.in.h:5
+msgid ""
+"1947 Chuck Yeager\n"
+"breaks the sound-barrier"
+msgstr ""
+"1947年 チャック・イエーガー\n"
+"マッハの壁を破る"
+
+#: ../boards/chronos/board4_2.xml.in.h:2
+msgid "1878 Léon Bollé's\"La Mancelle\""
+msgstr "1878年 アメデー・ボレ\"ラ・マンセル\""
+
+#: ../boards/chronos/board4_2.xml.in.h:3
+msgid ""
+"1885 The first petrol\n"
+"car by Benz"
+msgstr ""
+"1885年 最初のガソリン車\n"
+"最初のガソリン車"
+
+#: ../boards/chronos/board4_2.xml.in.h:5
+msgid "The car"
+msgstr "車"
+
+#: ../boards/chronos/board4_3.xml.in.h:1
+msgid "1899 Renault \"voiturette\""
+msgstr "1899年 ルノー \"ヴォワチュレット\""
+
+#: ../boards/chronos/board4_3.xml.in.h:2
+msgid "1923 Lancia Lambda"
+msgstr "1923年 ランチ・ア・ラムダ"
+
+#: ../boards/chronos/board4_3.xml.in.h:3
+msgid "1955 Citroen ds 19"
+msgstr "1955年 シトロエン DS 19"
+
+#: ../boards/chronos/board4_3.xml.in.h:4
+msgid "Cars"
+msgstr "車"
+
+#: ../boards/click_on_letter.xml.in.h:1
+msgid "A letter is spoken. Click on the matching letter in the main area. You can listen to the letter again, by clicking on the mouth icon in the bottom box."
+msgstr "文字が発音されます.メイン画面で正しい文字をクリックしてください.下にあるくちの形をしたアイコンをクリックすると、もう一度アナウンスを聞くことができます."
+
+#: ../boards/click_on_letter.xml.in.h:2
+msgid "Click on a letter"
+msgstr "文字をクリックしよう"
+
+#: ../boards/click_on_letter.xml.in.h:3
+msgid "Letter-name recognition"
+msgstr "文字の名前の認識."
+
+#: ../boards/click_on_letter.xml.in.h:4
+msgid "Listen to a letter and click on the right one"
+msgstr "文字を聞いて、正しいものをクリックしてみよう."
+
+#: ../boards/click_on_letter.xml.in.h:5
+msgid "Visual letter-recognition. Can move the mouse."
+msgstr "視覚の文字認知. マウスを動かすことができる."
+
+#: ../boards/clickgame.xml.in.h:1
+msgid "Click On Me"
+msgstr "クリックしてね！"
+
+#: ../boards/clickgame.xml.in.h:2
+msgid ""
+"Fish are taken from the Unix utility xfishtank.\n"
+"Images are taken from the National Undersea Research Program (NURP) Collection\n"
+"at &lt;http://www.photolib.noaa.gov&gt;\n"
+"All image credits belong to the OAR/National Undersea Research Program (NURP),\n"
+"except for the first image, which is property of the University of North Carolina at Wilmington.\n"
+"The images used in each level are:\n"
+"Location: Tropical Atlantic Ocean, Florida Keys (image nur00523) Photographer: D. Kesling\n"
+"Location: Florida Keys (image nur03006)\n"
+"Location: Unknown (image nur03505)\n"
+"Location: Unknown (image nur03010)\n"
+"Location: Unknown (image nur03011)\n"
+"Location: Unknown (image nur03013)"
+msgstr ""
+"魚は、『the Unix utility xfishtank』から取得しています.イメージ画像は、海底研究計画（NURP）のコレクションから取得しています.(http://www.photolib.noaa.gov&gt)\n"
+"ウィルミントンのノースカロライナ大学の財産である最初のイメージを除いて,全てのイメージの帰属承認は、海底研究計画（NURP）に属しています.各々のレベルで使われるイメージは、以下の通りです.\n"
+"場所: 大西洋, フロリダキーズ (画像 nur00523) 写真家: D. Kesling\n"
+"場所: フロリダキーズ (画像 nur03006)\n"
+"場所: 無名 (画像 nur03505)\n"
+"場所: 無名 (画像 nur03010)\n"
+"場所: 無名 (画像 nur03011)\n"
+"場所: 無名 (画像 nur03013)"
+
+#: ../boards/clickgame.xml.in.h:14
+msgid "Left-Click with the mouse on all the swimming fish before they leave the fishtank"
+msgstr "水槽から魚達がいなくなる前に、全て泳いでいる魚達をマウスで左クリックしましょう."
+
+#: ../boards/clickgame.xml.in.h:15
+msgid "Motor coordination: moving and clicking the mouse."
+msgstr "運動協調性：マウスを動かして、クリックすること."
+
+#: ../boards/clickgame.xml.in.h:17
+msgid "Use the left mouse button to click on the moving fish."
+msgstr "移動する魚をクリックするために、マウスの左ボタンを使ってください."
+
+#: ../boards/clockgame.xml.in.h:1
+msgid "Distinguish between time-units (hour, minute and second). Set and display time on a clock."
+msgstr "時間と単位（時間、分、秒）を区別してください.時間を時計にセットして、表示してください."
+
+#: ../boards/clockgame.xml.in.h:2
+msgid "Learn how to tell the time"
+msgstr "時計の見方を学びましょう"
+
+#: ../boards/clockgame.xml.in.h:3
+msgid "Learning Clock"
+msgstr "時計の学習"
+
+#: ../boards/clockgame.xml.in.h:4
+msgid "Set the clock to the time given, in the time-units shown (hours:minutes or hours:minutes:seconds). Click on the different arrows, and move the mouse, to make the numbers go up or down."
+msgstr "時計に表示されている時間の単位(時間：分または時間：分：秒)で、時間をセットしてください.数字を増やしたり、減らしたりするために、二つの時計の針をクリックしながら、マウスを動かしてください."
+
+#: ../boards/clockgame.xml.in.h:5
+msgid "The concept of time. Reading the time."
+msgstr "時間の概念.時間を読むこと."
+
+#: ../boards/colors.xml.in.h:1
+msgid "Can move the mouse."
+msgstr "マウスを動かせること."
+
+#: ../boards/colors.xml.in.h:2
+msgid "Click on the right color"
+msgstr "正しい色をクリックしてください"
+
+#: ../boards/colors.xml.in.h:3
+msgid "Colors"
+msgstr "色"
+
+#: ../boards/colors.xml.in.h:4
+msgid "Listen to the color and click on the matching duck."
+msgstr "音声を聞いて、音声に合うアヒルをクリックしてください."
+
+#: ../boards/colors.xml.in.h:5
+msgid "This board teaches you to recognize different colors. When you hear the name of the color, click on the duck wearing it."
+msgstr "このゲームは、種々の色を教えてくれます. 色の名前を聞いた時、その色のアヒルをクリックしてください."
+
+#: ../boards/colors_group.xml.in.h:1
+msgid "Colors based activities."
+msgstr "色をもとにしたゲーム."
+
+#: ../boards/colors_group.xml.in.h:2
+msgid "Go to Color activities"
+msgstr "色のゲームへ"
+
+#: ../boards/computer.xml.in.h:1
+msgid "Discover the Computer"
+msgstr "コンピュータ"
+
+#: ../boards/computer.xml.in.h:2
+msgid "Play with computer peripherals."
+msgstr "コンピュータの周辺装置で遊ぼう."
+
+#: ../boards/connect4.xml.in.h:1
+msgid "Arrange four coins in a row"
+msgstr "縦または横に、4つのコインを並べる."
+
+#: ../boards/connect4.xml.in.h:2
+msgid "Click anywhere in the line where you want to drop a piece"
+msgstr "あなたがコインを落としたいと思うところをクリックしてください."
+
+#: ../boards/connect4.xml.in.h:3
+msgid "Connect 4"
+msgstr "コネクト 4"
+
+#: ../boards/connect4.xml.in.h:4
+msgid ""
+"Create a line of 4 pieces either horizontally (lying down)\n"
+"or vertically (standing up)"
+msgstr ""
+
+#: ../boards/connect4.xml.in.h:6
+msgid "Laurent Lacheny. Images and Artificial Intelligence taken from project 4stattack by Jeroen Vloothuis. The original project can be found on &lt;http://forcedattack.sourceforge.net&gt;"
+msgstr "ローランLacheny.イメージと人工知能は、イェルーン・Vloothuisのプロジェクト『4st アタック』から引用されています.プロジェクトは以下のアドレスで見付けられます.(http://forcedattack.sourceforge.net)"
+
+#: ../boards/crane.xml.in.h:1
+msgid "Build the same model"
+msgstr "同じモデルを作ってみよう"
+
+#: ../boards/crane.xml.in.h:2
+msgid "Drive the crane and copy the model"
+msgstr "クレーンを動かして、お手本と同じようにアイテムを並べてみよう"
+
+#: ../boards/crane.xml.in.h:3
+#: ../boards/erase.xml.in.h:2
+#: ../boards/erase_clic.xml.in.h:5
+#: ../boards/erase_double_clic.xml.in.h:5
+msgid "Motor-coordination"
+msgstr "運動神経"
+
+#: ../boards/crane.xml.in.h:4
+#: ../boards/hanoi_real.xml.in.h:2
+msgid "Mouse manipulation"
+msgstr "マウス操作ができること."
+
+#: ../boards/crane.xml.in.h:5
+msgid "Move the items in the bottom left frame to copy their position in the top right model. Below the crane itself, you will find four arrows that let you move items. To select the item to move, just click on it."
+msgstr "右上にあるお手本のように、アイテムを配置するために、左下のフレーム中のアイテムを移動させてください.クレーンを使って、アイテムを移動させる4本の矢印を見つけることができます.移動させるアイテムを選択するためには、アイテムをクリックしてください."
+
+#: ../boards/discovery.xml.in.h:1
+msgid "Colors, sounds, memory..."
+msgstr "色、音、記憶力..."
+
+#: ../boards/discovery.xml.in.h:2
+msgid "Go to discovery activities"
+msgstr "多様なゲームへ"
+
+#: ../boards/doubleentry.xml.in.h:1
+msgid "Basic counting skills"
+msgstr "基本的な数える技術"
+
+#: ../boards/doubleentry.xml.in.h:2
+msgid "Double-entry table"
+msgstr "複式記入テーブル"
+
+#: ../boards/doubleentry.xml.in.h:3
+msgid "Drag and Drop each proposed item on its destination"
+msgstr "ドラッグ&ドロップは、その目的地で各々アイテムを提案しました."
+
+#: ../boards/doubleentry.xml.in.h:4
+msgid "Drag and Drop the items in the double-entry table"
+msgstr "ドラッグ&ドロップして、複式記入テーブルにアイテムを入れましょう."
+
+#: ../boards/doubleentry.xml.in.h:5
+msgid "Move the items on the left to their proper position in the double-entry table."
+msgstr "複式記入法のテーブル中の適切な位置に、左側のアイテムを移動させます."
+
+#: ../boards/doubleentry/board3_0.xml.in.h:1
+msgid "Click on an item and listen to its target position"
+msgstr "アイテムをクリックして、アイテムが目標とする位置を聞いてください."
+
+#: ../boards/draw.xml.in.h:1
+msgid "A creative board where you can draw freely"
+msgstr "自由に絵を描くことができます."
+
+#: ../boards/draw.xml.in.h:2
+msgid "A simple vector-drawing tool"
+msgstr "シンプルなお絵書きツール"
+
+#: ../boards/draw.xml.in.h:3
+msgid "In this game, children can draw freely. The goal is to discover how to create attractive drawings based on basic shapes: rectangles, ellipses and lines."
+msgstr "このゲームで、子供達は自由に図を描くことができます.このゲームの目標は、基礎的な形に基づいた図面を作成する方法を発見することです:長方形、楕円および線."
+
+#: ../boards/draw.xml.in.h:5
+msgid "Select a drawing tool on the left, and a color down the bottom, then click and drag in the white area to create a new shape. To save time, you can click with the middle mouse button to delete an object."
+msgstr "まず、左側にある図面ツールおよび色のボタンを選択して、次に、新しい形を作成するために、白い部分までクリック・ドラッグしてください.オブジェクトを削除するためには中央のマウスボタンをクリックします."
+
+#: ../boards/electric.xml.in.h:1
+msgid "Create and simulate an electric schema"
+msgstr "電気の図式を作りましょう"
+
+#: ../boards/electric.xml.in.h:2
+msgid "Drag electrical components from the selector and drop them in the working area. Create wires by clicking on a connection spot, dragging the mouse to the next connection spot, and letting go. You can also move components by dragging them. You can delete wires by clicking on them. To delete a component, select the deletion tool on top of the component selector. You can click on the switch to open and close it. You can change the rheostat value by dragging its wiper. In order to simulate what happens when a bulb is blown, you can blown it by right-clicking on it. The simulation is updated in real time by any user action."
+msgstr "セレクターからの電気コンポーネントをドラッグして、作業領域にそれらをドロップしてください.接続点をクリックし、別の接続点にマウスをドラッグして放すことで、ワイヤーを作成してください.それらをドラッグすることにより、部品を移動させることができます.また、クリックするでワイヤーを削除することができます.部品を削除するためには、セレクター(部品)の上で、削除ツールを選択してください.セレクターを開閉するには、スイッチをクリックしてください.それをドラッグすることによりレオスタット価値を変更することができます.電球が膨れている場合、起こることをシミュレートするために、それをを右クリックすることによってシミュレーションは、どんなユーザーアクションでも、リアル・タイムで更新されます."
+
+#: ../boards/electric.xml.in.h:3
+msgid "Electricity"
+msgstr "電気"
+
+#: ../boards/electric.xml.in.h:4
+msgid "Freely create an electric schema with a real time simulation of it."
+msgstr "自由に、リアル・タイム・シミュレーションを備えた電気的な図表を作成してください."
+
+#: ../boards/electric.xml.in.h:5
+msgid "GCompris uses the Gnucap electric simulator as a backend. You can get more information on gnucap at &lt;http://geda.seul.org/tools/gnucap/&gt;."
+msgstr "GComprisは、バックエンドとして『Gnucap』の電気シミュレータを使用しています.サイト（http://geda.seul.org/tools/gnucap/&gt）で、『Gnucap』に関する詳細な情報を得ることができます."
+
+#: ../boards/electric.xml.in.h:6
+msgid "Requires some basic understanding of the concept of electricity."
+msgstr "電気の概念に関する基礎的な知識を必要とします."
+
+#: ../boards/enumerate.xml.in.h:1
+msgid "Basic enumeration"
+msgstr "基本的な数の数え上げ."
+
+#: ../boards/enumerate.xml.in.h:2
+msgid "Count the items"
+msgstr "アイテムを数えてみよう"
+
+#: ../boards/enumerate.xml.in.h:3
+msgid "First, properly organize the items so that you can count them. Then, select the item you want to answer in the bottom right area. Enter the answer with the keyboard and press the OK button or the 'Enter' key."
+msgstr "最初に、アイテムを数えられるように、適切にアイテムを整理してください.次に、あなたが右下エリアで答えたいアイテムを選択してください.キーボードで答えを入力し、OKボタンか『Enter』キーを押してください."
+
+#: ../boards/enumerate.xml.in.h:4
+#: ../boards/planegame.xml.in.h:5
+#: ../src/boards/enumerate.c:92
+msgid "Numeration training"
+msgstr "数えかたのトレーニング"
+
+#: ../boards/enumerate.xml.in.h:5
+#: ../src/boards/enumerate.c:93
+msgid "Place the items in the best way to count them"
+msgstr "一番数えやすい場所にアイテムを置きましょう."
+
+#: ../boards/erase.xml.in.h:1
+msgid "Animal pictures are taken from the Animal Photography Page of Ralf Schmode (&lt;http://schmode.net/&gt;) and from LE BERRE Daniel. These people kindly gave GCompris the authorization to include their pictures. Thanks a lot, both of you."
+msgstr "動物写真は、Ralf Schmodeの動物写真ページ(&lt; http://schmode.net/&gt;)とLE BERRE Danielから引用しています.親切にもGComprisに写真の使用を認可していただきました.大変感謝いたします."
+
+#: ../boards/erase.xml.in.h:4
+#: ../src/boards/erase.c:116
+#: ../src/boards/machpuzzle.c:92
+msgid "Move the mouse"
+msgstr "マウス"
+
+#: ../boards/erase.xml.in.h:5
+#: ../src/boards/erase.c:117
+msgid "Move the mouse to erase the area and discover the background"
+msgstr "絵がよく見えるように、マウスを動かしてみよう."
+
+#: ../boards/erase.xml.in.h:6
+msgid "Move the mouse until all the blocks disappear."
+msgstr "全てのブロックが消えるまで、マウスを動かしてください."
+
+#: ../boards/erase_clic.xml.in.h:2
+msgid "Click the mouse"
+msgstr "マウスをクリックしてみよう"
+
+#: ../boards/erase_clic.xml.in.h:3
+msgid "Click the mouse on rectangles until all the blocks disappear."
+msgstr "全てのブロックが消えるまで、長方形のブロック上でマウスをクリックしてください."
+
+#: ../boards/erase_clic.xml.in.h:4
+msgid "Click the mouse to erase the area and discover the background"
+msgstr "パネルを消すために、マウスをクリックしましょう.そして、写真を見れるようにしましょう."
+
+#: ../boards/erase_double_clic.xml.in.h:2
+msgid "Double-Click the mouse to erase the area and discover the background"
+msgstr "パネルを消すために、マウスをダブルクリックしましょう.そして、写真を見れるようにしましょう."
+
+#: ../boards/erase_double_clic.xml.in.h:3
+msgid "Double-click the mouse"
+msgstr "マウスをダブルクリックしてみよう"
+
+#: ../boards/erase_double_clic.xml.in.h:4
+msgid "Double-click the mouse on rectangles until all the blocks disappear."
+msgstr "全てのブロックが消えるまで、長方形のブロック上でマウスをダブルクリックしてください."
+
+#: ../boards/experience.xml.in.h:1
+msgid "Go to experiential activities"
+msgstr "経験をもとにしたゲームへ"
+
+#: ../boards/experience.xml.in.h:2
+msgid "Various activities based on physical movement."
+msgstr "物理的な運動をもとにしたさまざまなゲーム."
+
+#: ../boards/experimental.xml.in.h:1
+msgid "Go to Experimental activities"
+msgstr "実験をもとにしたゲームへ"
+
+#: ../boards/experimental.xml.in.h:2
+msgid "Run gcompris --experimental to see this menu."
+msgstr "GComprisを動作させる--このメニューを見るための実験."
+
+#: ../boards/fifteen.xml.in.h:1
+msgid "Click on any item that has a free block beside it, and it will be swapped with the empty block."
+msgstr ""
+
+#: ../boards/fifteen.xml.in.h:3
+msgid "Move each item to make an increasing series: from the smallest to the largest"
+msgstr "数字のパネルをひとつずつ動かして、数字を1から15まで整理しましょう."
+
+#: ../boards/fifteen.xml.in.h:4
+msgid "Original code taken from the libgnomecanvas demo"
+msgstr "オリジナルのコードは、libgnomecanvas のデモから引用されました."
+
+#: ../boards/fifteen.xml.in.h:5
+msgid "Samuel Loyd"
+msgstr "サムロイド"
+
+#: ../boards/fifteen.xml.in.h:6
+msgid "The fifteen game"
+msgstr "15 パズル(数字ならべゲーム)"
+
+#: ../boards/fifteen.xml.in.h:7
+msgid "anticipate"
+msgstr "予想する"
+
+#: ../boards/fifteen.xml.in.h:8
+msgid "logical"
+msgstr "論理的"
+
+#: ../boards/fifteen.xml.in.h:9
+msgid "move"
+msgstr "位置をかえる"
+
+#: ../boards/fifteen.xml.in.h:10
+msgid "puzzle"
+msgstr "パズル"
+
+#: ../boards/fifteen.xml.in.h:11
+msgid "slide"
+msgstr "スライド"
+
+#: ../boards/fifteen.xml.in.h:12
+msgid "taquin"
+msgstr "数字ならべゲーム"
+
+#: ../boards/followline.xml.in.h:1
+msgid "Control the hose-pipe"
+msgstr "ホースを操作しよう"
+
+#: ../boards/followline.xml.in.h:2
+msgid "Fine motor coordination"
+msgstr "すぐれた運動協調性"
+
+#: ../boards/followline.xml.in.h:3
+msgid "Move the mouse over the red part of the hose-pipe. This will move it, bringing it, part by part, up to the flowers. Be careful, if you move off the hose, the red part will go back down."
+msgstr "ホースの赤い部分の上で、マウスを動かしてください.赤い部分を花に向かって、一部ずつ動かしましょう.もしも、ホースから矢印を離してしまった時は、赤い部分はもとにもどってしまいます.注意してください."
+
+#: ../boards/followline.xml.in.h:4
+msgid "Tux needs to water the flowers, but the hose is blocked."
+msgstr "タックスくんは、お花を咲かせたいと思っていますしかし、ホースの水が止められていてお水がでません.タックスくんを助けてあげましょう"
+
+#: ../boards/fun.xml.in.h:1
+msgid "Go to Amusement activities"
+msgstr "アミューズメントゲーム"
+
+#: ../boards/fun.xml.in.h:2
+msgid "Various fun activities."
+msgstr "多様な楽しいゲーム"
+
+#: ../boards/gcompris/mimetypes/mime_type.xml.in.h:1
+msgid "gcompris animation"
+msgstr "GComprisのアニメーション"
+
+#: ../boards/gcompris/mimetypes/mime_type.xml.in.h:2
+msgid "gcompris drawing"
+msgstr "GComprisのお絵書き"
+
+#: ../boards/gcompris/mimetypes/mime_type.xml.in.h:3
+msgid "svg drawing"
+msgstr "SVGのお絵書き"
+
+#: ../boards/gcompris/mimetypes/mime_type.xml.in.h:4
+msgid "svg mozilla animation"
+msgstr "SVGもじらアニメーション"
+
+#: ../boards/geography.xml.in.h:1
+msgid "Drag and Drop the items to redraw the whole map"
+msgstr "アイテムをドラッグやドロップして、地図を完成させよう."
+
+#: ../boards/geography.xml.in.h:2
+msgid "Locate the countries"
+msgstr "それぞれの国を配置してみよう."
+
+#: ../boards/geography.xml.in.h:3
+msgid "Mouse manipulation: movement, drag and drop"
+msgstr "マウス操作：運動、ドラッグ&ドロップ."
+
+#: ../boards/geography.xml.in.h:4
+msgid "The map of Germany comes from Wikipedia and is released under the GNU Free Documentation License. Olaf Ronneberger and his children Lina and Julia Ronneberger created the German level."
+msgstr "ドイツの地図は、Wikipediaから、『GNU Free Documentation License』の下でリリースされています.Olaf Ronnebergerと彼の子供たち、Lina と Julia・Ronnebergerは、ドイツの地形を作製しました."
+
+#: ../boards/geography/board1_0.xml.in.h:1
+#: ../boards/geography/board4_2.xml.in.h:1
+msgid "Africa"
+msgstr "アフリカ"
+
+#: ../boards/geography/board1_0.xml.in.h:2
+msgid "America"
+msgstr "アメリカ"
+
+#: ../boards/geography/board1_0.xml.in.h:3
+msgid "Antartica"
+msgstr "南極大陸"
+
+#: ../boards/geography/board1_0.xml.in.h:4
+msgid "Asia"
+msgstr "アジア"
+
+#: ../boards/geography/board1_0.xml.in.h:5
+msgid "Continents"
+msgstr "大陸"
+
+#: ../boards/geography/board1_0.xml.in.h:6
+msgid "Europe"
+msgstr "ヨーロッパ"
+
+#: ../boards/geography/board1_0.xml.in.h:7
+msgid "Oceania"
+msgstr "オセアニア"
+
+#: ../boards/geography/board2_0.xml.in.h:1
+msgid "Alaska"
+msgstr "アラスカ"
+
+#: ../boards/geography/board2_0.xml.in.h:2
+msgid "Bahamas"
+msgstr "バハマ"
+
+#: ../boards/geography/board2_0.xml.in.h:3
+msgid "Canada"
+msgstr "カナダ"
+
+#: ../boards/geography/board2_0.xml.in.h:4
+msgid "Cuba"
+msgstr "キューバ"
+
+#: ../boards/geography/board2_0.xml.in.h:5
+msgid "Dominican Republic"
+msgstr "ドミニカの共和国"
+
+#: ../boards/geography/board2_0.xml.in.h:6
+msgid "Greenland"
+msgstr "グリーンランド"
+
+#: ../boards/geography/board2_0.xml.in.h:7
+msgid "Haiti"
+msgstr "ハイチ"
+
+#: ../boards/geography/board2_0.xml.in.h:8
+#: ../boards/geography/board3_0.xml.in.h:7
+msgid "Iceland"
+msgstr "アイスランド"
+
+#: ../boards/geography/board2_0.xml.in.h:9
+msgid "Jamaica"
+msgstr "ジャマイカ"
+
+#: ../boards/geography/board2_0.xml.in.h:10
+msgid "Mexico"
+msgstr "メキシコ"
+
+#: ../boards/geography/board2_0.xml.in.h:11
+msgid "North America"
+msgstr "北アメリカ"
+
+#: ../boards/geography/board2_0.xml.in.h:12
+msgid "United States of America"
+msgstr "アメリカ合衆国"
+
+#: ../boards/geography/board2_1.xml.in.h:1
+msgid "Argentina"
+msgstr "アルゼンチン"
+
+#: ../boards/geography/board2_1.xml.in.h:2
+msgid "Bolivia"
+msgstr "ボリビア"
+
+#: ../boards/geography/board2_1.xml.in.h:3
+msgid "Brazil"
+msgstr "ブラジル"
+
+#: ../boards/geography/board2_1.xml.in.h:4
+msgid "Chile"
+msgstr "チリ"
+
+#: ../boards/geography/board2_1.xml.in.h:5
+msgid "Colombia"
+msgstr "コロンビア"
+
+#: ../boards/geography/board2_1.xml.in.h:6
+msgid "Ecuador"
+msgstr "エクアドル"
+
+#: ../boards/geography/board2_1.xml.in.h:7
+msgid "French Guiana"
+msgstr "仏領ギアナ"
+
+#: ../boards/geography/board2_1.xml.in.h:8
+msgid "Guyana"
+msgstr "ガイアナ"
+
+#: ../boards/geography/board2_1.xml.in.h:9
+msgid "Panama"
+msgstr "パナマ"
+
+#: ../boards/geography/board2_1.xml.in.h:10
+msgid "Paraguay"
+msgstr "パラグアイ"
+
+#: ../boards/geography/board2_1.xml.in.h:11
+msgid "Peru"
+msgstr "ペルー"
+
+#: ../boards/geography/board2_1.xml.in.h:12
+msgid "South America"
+msgstr "南アメリカ"
+
+#: ../boards/geography/board2_1.xml.in.h:13
+msgid "Suriname"
+msgstr "スリナム"
+
+#: ../boards/geography/board2_1.xml.in.h:14
+msgid "Uruguay"
+msgstr "ウルグアイ"
+
+#: ../boards/geography/board2_1.xml.in.h:15
+msgid "Venezuela"
+msgstr "ベネズエラ"
+
+#: ../boards/geography/board3_0.xml.in.h:1
+msgid "Austria"
+msgstr "オーストリア"
+
+#: ../boards/geography/board3_0.xml.in.h:2
+msgid "Belgium"
+msgstr "ベルギー"
+
+#: ../boards/geography/board3_0.xml.in.h:3
+msgid "Denmark"
+msgstr "デンマーク"
+
+#: ../boards/geography/board3_0.xml.in.h:4
+msgid "Finland"
+msgstr "フィンランド"
+
+#: ../boards/geography/board3_0.xml.in.h:5
+msgid "France"
+msgstr "フランス"
+
+#: ../boards/geography/board3_0.xml.in.h:6
+msgid "Germany"
+msgstr "ドイツ"
+
+#: ../boards/geography/board3_0.xml.in.h:8
+msgid "Ireland"
+msgstr "アイルランド"
+
+#: ../boards/geography/board3_0.xml.in.h:9
+msgid "Italy"
+msgstr "イタリア"
+
+#: ../boards/geography/board3_0.xml.in.h:10
+msgid "Luxembourg"
+msgstr "ルクセンブルク"
+
+#: ../boards/geography/board3_0.xml.in.h:11
+msgid "Norway"
+msgstr "ノルウェー"
+
+#: ../boards/geography/board3_0.xml.in.h:12
+msgid "Portugal"
+msgstr "ポルトガル"
+
+#: ../boards/geography/board3_0.xml.in.h:13
+msgid "Spain"
+msgstr "スペイン"
+
+#: ../boards/geography/board3_0.xml.in.h:14
+msgid "Sweden"
+msgstr "スウェーデン"
+
+#: ../boards/geography/board3_0.xml.in.h:15
+msgid "Switzerland"
+msgstr "スイス"
+
+#: ../boards/geography/board3_0.xml.in.h:16
+msgid "The Netherlands"
+msgstr "オランダ"
+
+#: ../boards/geography/board3_0.xml.in.h:17
+msgid "United Kingdom"
+msgstr "イギリス"
+
+#: ../boards/geography/board3_0.xml.in.h:18
+msgid "Western Europe"
+msgstr "西ヨーロッパ"
+
+#: ../boards/geography/board3_1.xml.in.h:1
+msgid "Albania"
+msgstr "アルバニア"
+
+#: ../boards/geography/board3_1.xml.in.h:2
+msgid "Belarus"
+msgstr "ベラルーシ"
+
+#: ../boards/geography/board3_1.xml.in.h:3
+msgid "Bosnia Herzegovina"
+msgstr "ボスニアヘルツェゴビナ"
+
+#: ../boards/geography/board3_1.xml.in.h:4
+msgid "Bulgaria"
+msgstr "ブルガリア"
+
+#: ../boards/geography/board3_1.xml.in.h:5
+msgid "Croatia"
+msgstr "クロアチア"
+
+#: ../boards/geography/board3_1.xml.in.h:6
+msgid "Cyprus"
+msgstr "キプロス"
+
+#: ../boards/geography/board3_1.xml.in.h:7
+#: ../src/gcompris/config.c:70
+msgid "Czech Republic"
+msgstr "チェコ共和国"
+
+#: ../boards/geography/board3_1.xml.in.h:8
+msgid "Eastern Europe"
+msgstr "東ヨーロッパ"
+
+#: ../boards/geography/board3_1.xml.in.h:9
+msgid "Estonia"
+msgstr "エストニア"
+
+#: ../boards/geography/board3_1.xml.in.h:10
+msgid "Greece"
+msgstr "ギリシャ"
+
+#: ../boards/geography/board3_1.xml.in.h:11
+msgid "Hungary"
+msgstr "ハンガリー"
+
+#: ../boards/geography/board3_1.xml.in.h:12
+msgid "Latvia"
+msgstr "ラトビア"
+
+#: ../boards/geography/board3_1.xml.in.h:13
+msgid "Lithuania"
+msgstr "リトアニア"
+
+#: ../boards/geography/board3_1.xml.in.h:14
+msgid "Macedonia"
+msgstr "マケドニア"
+
+#: ../boards/geography/board3_1.xml.in.h:15
+msgid "Moldova"
+msgstr "モルドヴァ"
+
+#: ../boards/geography/board3_1.xml.in.h:16
+msgid "Poland"
+msgstr "ポーランド"
+
+#: ../boards/geography/board3_1.xml.in.h:17
+msgid "Romania"
+msgstr "ルーマニア"
+
+#: ../boards/geography/board3_1.xml.in.h:18
+msgid "Russia"
+msgstr "ロシア"
+
+#: ../boards/geography/board3_1.xml.in.h:19
+msgid "Serbia Montenegro"
+msgstr "セルビアモンテネグロ"
+
+#: ../boards/geography/board3_1.xml.in.h:20
+msgid "Slovak Republic"
+msgstr "スロバキア共和国"
+
+#: ../boards/geography/board3_1.xml.in.h:21
+msgid "Slovenia"
+msgstr "スロベニア"
+
+#: ../boards/geography/board3_1.xml.in.h:22
+msgid "Turkey"
+msgstr "トルコ"
+
+#: ../boards/geography/board3_1.xml.in.h:23
+msgid "Ukraine"
+msgstr "ウクライナ"
+
+#: ../boards/geography/board4_0.xml.in.h:1
+#: ../boards/geography/board4_2.xml.in.h:2
+msgid "Algeria"
+msgstr "アルジェリア"
+
+#: ../boards/geography/board4_0.xml.in.h:2
+#: ../boards/geography/board4_2.xml.in.h:4
+msgid "Benin"
+msgstr "ベナン"
+
+#: ../boards/geography/board4_0.xml.in.h:3
+#: ../boards/geography/board4_2.xml.in.h:6
+msgid "Burkina Faso"
+msgstr "ブルキナファソ"
+
+#: ../boards/geography/board4_0.xml.in.h:4
+#: ../boards/geography/board4_2.xml.in.h:7
+msgid "Cameroon"
+msgstr "カメルーン"
+
+#: ../boards/geography/board4_0.xml.in.h:5
+#: ../boards/geography/board4_2.xml.in.h:8
+msgid "Central African Republic"
+msgstr "中央アフリカ共和国"
+
+#: ../boards/geography/board4_0.xml.in.h:6
+#: ../boards/geography/board4_2.xml.in.h:9
+msgid "Chad"
+msgstr "チャド"
+
+#: ../boards/geography/board4_0.xml.in.h:7
+msgid "Djibouti"
+msgstr "ジブチ"
+
+#: ../boards/geography/board4_0.xml.in.h:8
+#: ../boards/geography/board4_2.xml.in.h:11
+msgid "Egypt"
+msgstr "エジプト"
+
+#: ../boards/geography/board4_0.xml.in.h:9
+#: ../boards/geography/board4_1.xml.in.h:5
+msgid "Equatorial Guinea"
+msgstr "赤道ギニア"
+
+#: ../boards/geography/board4_0.xml.in.h:10
+#: ../boards/geography/board4_2.xml.in.h:12
+msgid "Eritrea"
+msgstr "エリトレア"
+
+#: ../boards/geography/board4_0.xml.in.h:11
+#: ../boards/geography/board4_2.xml.in.h:13
+msgid "Ethiopia"
+msgstr "エチオピア"
+
+#: ../boards/geography/board4_0.xml.in.h:12
+#: ../boards/geography/board4_1.xml.in.h:6
+#: ../boards/geography/board4_2.xml.in.h:14
+msgid "Gabon"
+msgstr "ガボン"
+
+#: ../boards/geography/board4_0.xml.in.h:13
+msgid "Gambia"
+msgstr "ガンビア"
+
+#: ../boards/geography/board4_0.xml.in.h:14
+#: ../boards/geography/board4_2.xml.in.h:15
+msgid "Ghana"
+msgstr "ガーナ"
+
+#: ../boards/geography/board4_0.xml.in.h:15
+#: ../boards/geography/board4_2.xml.in.h:16
+msgid "Guinea"
+msgstr "ギニア"
+
+#: ../boards/geography/board4_0.xml.in.h:16
+msgid "Guinea Bissau"
+msgstr "ギニアビサウ"
+
+#: ../boards/geography/board4_0.xml.in.h:17
+#: ../boards/geography/board4_2.xml.in.h:17
+msgid "Ivory Coast"
+msgstr "コートジボワール共和国"
+
+#: ../boards/geography/board4_0.xml.in.h:18
+#: ../boards/geography/board4_2.xml.in.h:19
+msgid "Liberia"
+msgstr "リベリア"
+
+#: ../boards/geography/board4_0.xml.in.h:19
+#: ../boards/geography/board4_2.xml.in.h:20
+msgid "Libya"
+msgstr "リビア"
+
+#: ../boards/geography/board4_0.xml.in.h:20
+#: ../boards/geography/board4_2.xml.in.h:23
+msgid "Mali"
+msgstr "マリ"
+
+#: ../boards/geography/board4_0.xml.in.h:21
+#: ../boards/geography/board4_2.xml.in.h:24
+msgid "Mauritania"
+msgstr "モーリタニア"
+
+#: ../boards/geography/board4_0.xml.in.h:22
+#: ../boards/geography/board4_2.xml.in.h:25
+msgid "Morocco"
+msgstr "モロッコ"
+
+#: ../boards/geography/board4_0.xml.in.h:23
+#: ../boards/geography/board4_2.xml.in.h:28
+msgid "Niger"
+msgstr "ニジェール"
+
+#: ../boards/geography/board4_0.xml.in.h:24
+#: ../boards/geography/board4_2.xml.in.h:29
+msgid "Nigeria"
+msgstr "ナイジェリア"
+
+#: ../boards/geography/board4_0.xml.in.h:25
+msgid "Northern Africa"
+msgstr "北アフリカ"
+
+#: ../boards/geography/board4_0.xml.in.h:26
+#: ../boards/geography/board4_1.xml.in.h:14
+msgid "Rwanda"
+msgstr "ルワンダ"
+
+#: ../boards/geography/board4_0.xml.in.h:27
+#: ../boards/geography/board4_2.xml.in.h:30
+msgid "Senegal"
+msgstr "セネガル"
+
+#: ../boards/geography/board4_0.xml.in.h:28
+msgid "Sierra Leone"
+msgstr "シエラレオネ"
+
+#: ../boards/geography/board4_0.xml.in.h:29
+#: ../boards/geography/board4_2.xml.in.h:31
+msgid "Somalia"
+msgstr "ソマリア"
+
+#: ../boards/geography/board4_0.xml.in.h:30
+msgid "Sudan"
+msgstr "スーダン"
+
+#: ../boards/geography/board4_0.xml.in.h:31
+#: ../boards/geography/board4_2.xml.in.h:35
+msgid "Togo"
+msgstr "トーゴ"
+
+#: ../boards/geography/board4_0.xml.in.h:32
+#: ../boards/geography/board4_2.xml.in.h:36
+msgid "Tunisia"
+msgstr "チュニジア"
+
+#: ../boards/geography/board4_0.xml.in.h:33
+#: ../boards/geography/board4_1.xml.in.h:19
+#: ../boards/geography/board4_2.xml.in.h:37
+msgid "Uganda"
+msgstr "ウガンダ"
+
+#: ../boards/geography/board4_0.xml.in.h:34
+msgid "Western Sahara"
+msgstr "西サハラ"
+
+#: ../boards/geography/board4_1.xml.in.h:1
+#: ../boards/geography/board4_2.xml.in.h:3
+msgid "Angola"
+msgstr "アンゴラ"
+
+#: ../boards/geography/board4_1.xml.in.h:2
+#: ../boards/geography/board4_2.xml.in.h:5
+msgid "Botswana"
+msgstr "ボツワナ"
+
+#: ../boards/geography/board4_1.xml.in.h:3
+msgid "Burundi"
+msgstr "ブルンジ"
+
+#: ../boards/geography/board4_1.xml.in.h:4
+#: ../boards/geography/board4_2.xml.in.h:10
+msgid "Democratic Republic of Congo"
+msgstr "コンゴ民主共和国"
+
+#: ../boards/geography/board4_1.xml.in.h:7
+#: ../boards/geography/board4_2.xml.in.h:18
+msgid "Kenya"
+msgstr "ケニヤ"
+
+#: ../boards/geography/board4_1.xml.in.h:8
+msgid "Lesotho"
+msgstr "レソト"
+
+#: ../boards/geography/board4_1.xml.in.h:9
+#: ../boards/geography/board4_2.xml.in.h:21
+msgid "Madagascar"
+msgstr "マダガスカル"
+
+#: ../boards/geography/board4_1.xml.in.h:10
+#: ../boards/geography/board4_2.xml.in.h:22
+msgid "Malawi"
+msgstr "マラウイ"
+
+#: ../boards/geography/board4_1.xml.in.h:11
+#: ../boards/geography/board4_2.xml.in.h:26
+msgid "Mozambique"
+msgstr "モザンビーク"
+
+#: ../boards/geography/board4_1.xml.in.h:12
+#: ../boards/geography/board4_2.xml.in.h:27
+msgid "Namibia"
+msgstr "ナミビア"
+
+#: ../boards/geography/board4_1.xml.in.h:13
+msgid "Republic of Congo"
+msgstr "コンゴ共和国"
+
+#: ../boards/geography/board4_1.xml.in.h:15
+#: ../boards/geography/board4_2.xml.in.h:33
+msgid "South Africa"
+msgstr "南アフリカ"
+
+#: ../boards/geography/board4_1.xml.in.h:16
+msgid "Southern Africa"
+msgstr "南部アフリカ"
+
+#: ../boards/geography/board4_1.xml.in.h:17
+msgid "Swaziland"
+msgstr "スワジランド"
+
+#: ../boards/geography/board4_1.xml.in.h:18
+#: ../boards/geography/board4_2.xml.in.h:34
+msgid "Tanzania"
+msgstr "タンザニア"
+
+#: ../boards/geography/board4_1.xml.in.h:20
+#: ../boards/geography/board4_2.xml.in.h:38
+msgid "Zambia"
+msgstr "ザンビア"
+
+#: ../boards/geography/board4_1.xml.in.h:21
+#: ../boards/geography/board4_2.xml.in.h:39
+msgid "Zimbabwe"
+msgstr "ジンバブエ"
+
+#: ../boards/geography/board4_2.xml.in.h:32
+msgid "Soudan"
+msgstr "スーダン"
+
+#: ../boards/geography/board5_0.xml.in.h:1
+msgid "Regions of France"
+msgstr "フランスの地域"
+
+#: ../boards/geography/board6_0.xml.in.h:1
+msgid "Deutschland BundeslÃ¤nder"
+msgstr "北ドイツ連邦"
+
+#: ../boards/geometry.xml.in.h:1
+msgid "Geometry"
+msgstr "幾何学"
+
+#: ../boards/geometry.xml.in.h:2
+msgid "Geometry activities."
+msgstr "幾何学ゲーム"
+
+#: ../boards/gletters.xml.in.h:1
+#: ../boards/wordsgame.xml.in.h:2
+msgid "Keyboard manipulation"
+msgstr "キーボードの操作"
+
+#: ../boards/gletters.xml.in.h:2
+msgid "Letter association between the screen and the keyboard"
+msgstr "スクリーンとキーボード間の文字関係."
+
+#: ../boards/gletters.xml.in.h:3
+#: ../src/boards/gletters.c:135
+msgid "Simple Letters"
+msgstr "単純な文字"
+
+#: ../boards/gletters.xml.in.h:4
+#: ../src/boards/gletters.c:136
+msgid "Type the falling letters before they reach the ground"
+msgstr "文字が地面につく前に、落ちてくる文字をタイプしよう."
+
+#: ../boards/gnumch-equality.xml.in.h:1
+msgid "Equality Number Munchers"
+msgstr "等しい数字をむしゃむしゃ食べるマンチャーくん"
+
+#: ../boards/gnumch-equality.xml.in.h:2
+msgid "Guide the Number Muncher to the expressions that equal the number at the top of the screen."
+msgstr "パネルの数字と等しい数式まで、マンチャーくんを全て案内してあげよう."
+
+#: ../boards/gnumch-equality.xml.in.h:3
+msgid "Practice addition, multiplication, division and subtraction."
+msgstr "たし算、ひき算、かけ算とわり算の練習."
+
+#: ../boards/gnumch-equality.xml.in.h:4
+#: ../boards/gnumch-inequality.xml.in.h:4
+msgid "Use the arrow keys to navigate around the board and to avoid the Troggles. Press the spacebar to eat a number."
+msgstr "マンチャーくんを画面上で案内してあげたり、トグル達から避けるために、カーソルキーを使ってください.マンチャーくんに数を食べさせるには、スペースキーを押してください."
+
+#: ../boards/gnumch-factors.xml.in.h:1
+msgid "Factor Number Munchers"
+msgstr "因数をむしゃむしゃ食べるマンチャーくん"
+
+#: ../boards/gnumch-factors.xml.in.h:2
+msgid "Guide the Number Muncher to all the factors of the number at the top of the screen."
+msgstr "パネルの上にある数字と同じ数まで、マンチャーくんを全て案内してあげよう."
+
+#: ../boards/gnumch-factors.xml.in.h:3
+msgid "Learn about factors and multiples."
+msgstr "因数と倍数について学びましょう."
+
+#: ../boards/gnumch-factors.xml.in.h:4
+msgid "The factors of a number are all the numbers that divide that number evenly. For example, the factors of 6 are 1, 2, 3 and 6. 4 is not a factor of 6 because 6 cannot be divided into 4 equal pieces. If one number is a multiple of a second number, then the second number is a factor of the first number. You can think of multiples as families, and factors are the people in those families. So 1, 2, 3 and 6 all fit into the 6 family, but 4 belongs to another family. Use the arrow keys to navigate around the board and to avoid the Troggles. Press the spacebar to eat a number."
+msgstr "因数とは、ある数を等しくわることができる全ての数のことをいいます.たとえば、6の因数は、1、2、3と6です.6を4で等しく分けることはできないので、4は6の因数ではありません.ある数が次の数の倍数であるならば、２番目の数は最初の数の因数となります.あなたは、倍数を家族とみなして考えることができます.そして、因数は家族の人々と考えることができます.なので、1、2、3と6は全て6の家族にぴったりです.しかし、4は別の家族に属しているのです.マンチャーくんを画面上を案内してあげたり、トグル達から避けるためには、カーソルキーを使ってください.また、マンチャーくんに数を食べさせるには、スペースキーを押してください."
+
+#: ../boards/gnumch-inequality.xml.in.h:1
+msgid "Guide the Number Muncher to the all the expressions that do not equal the number at the top of the screen."
+msgstr "パネルの上の数字と等しくない数式まで、マンチャーくんを全て案内してあげよう."
+
+#: ../boards/gnumch-inequality.xml.in.h:2
+msgid "Inequality Number Munchers"
+msgstr "等しくない数をむしゃむしゃ食べるマンチャーくん"
+
+#: ../boards/gnumch-inequality.xml.in.h:3
+msgid "Practice addition, subtraction, multiplication and division."
+msgstr "たし算、ひき算、かけ算とわり算の練習."
+
+#: ../boards/gnumch-multiples.xml.in.h:1
+msgid "Guide the Number Muncher to all the multiples of the number at the top of the screen."
+msgstr "パネルの上の数字と同じ倍数まで、マンチャーくんを全て案内してあげよう."
+
+#: ../boards/gnumch-multiples.xml.in.h:2
+msgid "Learn about multiples and factors."
+msgstr "倍数と因数について学びましょう."
+
+#: ../boards/gnumch-multiples.xml.in.h:3
+msgid "Multiple Number Munchers"
+msgstr "倍数をむしゃむしゃ食べるマンチャーくん"
+
+#: ../boards/gnumch-multiples.xml.in.h:4
+msgid "The multiples of a number are all the numbers that are equal to the original number times another number. For example, 24, 36, 48 and 60 are all multiples of 12. 25 is not a multiple of 12 because there isn't any number that can be multiplied by 12 to get 25. If one number is a factor of a second number, then the second number is a multiple of the first number. Again, you can think of multiples as families, and factors are the people who belong to those families. The factor 5, has parents 10, grandparents 15, great-grandparents 20, great-great-grandparents 25, and every extra step of 5 is another great- in front! But the number 5 does not belong in the 8 or 23 families. You can't fit any number of 5s into 8 or 23 with nothing left over. So '8 isn't a multiple of 5, nor is 23. Only 5, 10, 15, 20, 25 ... are multiples (or families or steps) of 5. Use the arrow keys to navigate around the board and to avoid the Troggles. Press the spacebar to eat a number."
+msgstr "数の倍数は、元の数字かける他の数が等しくなる全ての数です.(整数aによって整数bが割り切れるとき、bはaの倍数である)たとえば、24、36、48と60は、全て12の倍数です.25を得るために、12をかけ算することでできる数がないので、25は12の倍数ではありません.ある数が次の数の要素であるならば、２番目の数は最初の数の倍数です.また、倍数を家族とみなして考えることができます、そして、素数はそれらの家族に属しています.素数5は、両親10、祖父母15、曾祖父母20、偉大な曾祖父母25を持っています.しかし、5は、8や23の家族には入りません.5の数達どれも、8や23にはめ込むことができません.なので、8は5の倍数でもないし、23も違います.5、10、15、20、25...が5の倍数です.マンチャーくんを画面上を案内してあげたり、トグル達から避けるためには、カーソルキーを使ってください.また、マンチャーくんに数を食べさせるには、スペースキーを押してください."
+
+#: ../boards/gnumch-primes.xml.in.h:1
+msgid "Guide the Number Muncher to all the prime numbers."
+msgstr "全ての素数に、マンチャーくんを案内してあげよう."
+
+#: ../boards/gnumch-primes.xml.in.h:2
+msgid "Learn about prime numbers"
+msgstr "素数について学びましょう."
+
+#: ../boards/gnumch-primes.xml.in.h:3
+msgid "Prime Number Munchers"
+msgstr "素数むしゃむしゃマンチャーくん"
+
+#: ../boards/gnumch-primes.xml.in.h:4
+msgid "Prime numbers are numbers that are only divisible by themselves and 1. For example, 3 is a prime number, but 4 isn't (because 4 is divisible by 2). You can think of prime numbers as very small families: they only ever have two people in them! Only themselves and 1. You can't fit any other numbers into them with nothing left over. 5 is one of these lonely numbers (only 5 × 1 = 5), but you can see that 6 has 2 and 3 in its family as well (6 × 1 = 6, 2 × 3 = 6). So 6 is not a prime number. Use the arrow keys to navigate around the board and to avoid the Troggles. Press the spacebar to eat a number."
+msgstr "素数とは、その数自身と1だけで割り切れる数です.たとえば、3は素数です.しかし、4は素数ではありません.（4は2で割り切れるので）素数を非常に小さな家族と考えることができます：彼ら(素数)には、彼らの中に2人だけです！彼ら自身と1だけ.他のどの数も素数にはめ込むことができません.5はひとりぼっちな数（5 × 1 = 5だけ）の1つです、しかし、6は家族に（6 × 1 = 6、2 × 3 = 6）2と3を持っているのがわかります.だから、6は素数ではありません.マンチャーくんを画面上を案内してあげたり、トグル達から避けるためには、カーソルキーを使ってください.また、マンチャーくんに数を食べさせるには、スペースキーを押してください."
+
+#: ../boards/gnumchmenu.xml.in.h:1
+msgid "Go to Number Munchers activities"
+msgstr "マンチャーのゲームへ"
+
+#: ../boards/gnumchmenu.xml.in.h:2
+msgid "Number Munchers are games to play with arithmetic."
+msgstr "マンチャーはさんすうで遊ぶゲームです"
+
+#: ../boards/guessnumber.xml.in.h:1
+msgid "Guess a number"
+msgstr "数字を推測してみよう."
+
+#: ../boards/guessnumber.xml.in.h:2
+msgid "Help Tux escape the cave. Tux hides a number for you to find."
+msgstr "あなたが、隠された数字を発見して.タックスくんを洞窟から脱出するのを助けてあげよう!"
+
+#: ../boards/guessnumber.xml.in.h:3
+msgid "Numbers from 1 to 1000 for the last level."
+msgstr "最終レベルのために1から1000までの数が数えられること."
+
+#: ../boards/guessnumber.xml.in.h:4
+msgid "Read the instructions that give you the range of the number to find. Enter a number in the top right blue entry box. Tux will tell you if your number is higher or lower. Then enter another number. The distance between Tux and the escape area on the right represents how far you are from the correct number. If Tux is over or under the escape area, it means your number is over or under the correct number."
+msgstr "数を見つけるために数の範囲が書いてある指示を読んでください.一番右上の青い入力ボックスに、数を入力してください.タックスくんは、あなたの番号がより高いか、より低いかどうかあなたに教えてくれます.他の数字を入力した時、タックスくんと脱出エリアとの間の距離が、正しい数字からどのくらいの離れているか正しく再演します.タックスくんが脱出エリアの上や下にいるなら、それはあなたの数が正確な数の上、または、の下にあることを意味します."
+
+#: ../boards/hanoi.xml.in.h:1
+msgid "Concept taken from EPI games."
+msgstr "EPIゲームから得られる概念."
+
+#: ../boards/hanoi.xml.in.h:2
+msgid "Drag and Drop one top piece at a time, from one peg to another, to reproduce the tower on the right in the empty space on the left."
+msgstr "左側の空いているスペースに、右側にある塔を再現するために、ある釘から別の釘まで、一番上のピースをドラッグ＆ドロップしましょう."
+
+#: ../boards/hanoi.xml.in.h:4
+#: ../src/boards/hanoi.c:101
+msgid "Reproduce the given tower"
+msgstr "塔を再現してみよう"
+
+#: ../boards/hanoi.xml.in.h:5
+msgid "Reproduce the tower on the right in the empty space on the left"
+msgstr "左側の空いているスペースに、右側にある塔を再現してください."
+
+#: ../boards/hanoi.xml.in.h:6
+#: ../src/boards/hanoi.c:100
+msgid "Simplified Tower of Hanoi"
+msgstr "簡単なハノイの塔"
+
+#: ../boards/hanoi_real.xml.in.h:1
+msgid "Drag and Drop the top pieces only from one peg to another, to reproduce the tower on the right in the empty space on the left."
+msgstr "左側の空いているスペースに、右側にある塔を再現するために、ある釘から別の釘まで、一番上のピースをドラッグ＆ドロップしましょう."
+
+#: ../boards/hanoi_real.xml.in.h:3
+msgid "Reproduce the tower on the right side"
+msgstr "あたえられた塔を右のスペースに再現してみよう."
+
+#: ../boards/hanoi_real.xml.in.h:4
+msgid "The Tower of Hanoi"
+msgstr "ハノイの塔"
+
+#: ../boards/hanoi_real.xml.in.h:5
+msgid "The object of the game is to move the entire stack to another peg, obeying the following rules: * only one disc may be moved at a time * no disc may be placed atop a smaller disc"
+msgstr "ゲームのゴールは、全てのスタックをもう一つの釘の方へ動かすことです.そして、それは以下の規則に従います： * 1枚のディスクだけ、1回動かすことができる. * ディスクがないところでは、より小さなディスクを上に置かなければいけません."
+
+#: ../boards/hanoi_real.xml.in.h:6
+msgid "The puzzle was invented by the French mathematician Edouard Lucas in 1883. There is a legend about a Hindu temple whose priests were constantly engaged in moving a set of 64 discs according to the rules of the Tower of Hanoi puzzle. According to the legend, the world would end when the priests finished their work. The puzzle is therefore also known as the Tower of Brahma puzzle. It is not clear whether Lucas invented this legend or was inspired by it. (source Wikipedia &lt;http://en.wikipedia.org/wiki/Tower_of_hanoi&gt;)"
+msgstr "パズルは、1883年にフランスの数学者E・リュカ(Edouard Lucas)によって発明されました.次のような伝説が、ヒンズー寺院についてあります.聖職者がハノイパズルタワーの原則に従って一組64枚のディスクを動かすことに絶えず従事していました.伝説によると、聖職者が仕事を終えたとき、世界は終わると言われています.パズルは、ブラフマーの塔としても知られています.リュカがこの伝説を創作したか、それの影響を受けたかどうかは、明らかではありません.(Wikipediaより" "http://en.wikipedia.org/wiki/Tower_of_hanoi)"
+
+#: ../boards/hexagon.xml.in.h:1
+msgid "Find the strawberry by clicking on the blue fields"
+msgstr "青いフィールドをクリックして、苺を見付けよう."
+
+#: ../boards/hexagon.xml.in.h:4
+msgid "Try to find the strawberry under the blue fields. The fields become redder as you get closer."
+msgstr "青いフィールドでイチゴを見つけてみましょう.あなたがイチゴに近づくと、フィールドは赤くなります."
+
+#: ../boards/hexagon.xml.in.h:5
+msgid "hexagon"
+msgstr "ヘキサゴン"
+
+#: ../boards/imageid.xml.in.h:1
+msgid "Click on the word corresponding to the printed image."
+msgstr "表示された画像と一致している語のクリックしましょう."
+
+#: ../boards/imageid.xml.in.h:2
+msgid "Practice reading by finding the word matching an image"
+msgstr "画像に合う単語を見つける練習."
+
+#: ../boards/imageid.xml.in.h:3
+#: ../boards/imagename.xml.in.h:4
+#: ../boards/readingh.xml.in.h:4
+#: ../boards/readingv.xml.in.h:4
+#: ../src/boards/imageid.c:106
+#: ../src/boards/missingletter.c:104
+msgid "Reading"
+msgstr "読むこと"
+
+#: ../boards/imageid.xml.in.h:4
+msgid "Reading practice"
+msgstr "読む練習"
+
+#: ../boards/imageid/board1.xml.in.h:1
+#: ../boards/imagename/board4_0.xml.in.h:2
+msgid "apple"
+msgstr "りんご"
+
+#: ../boards/imageid/board1.xml.in.h:2
+msgid "back"
+msgstr "せなか"
+
+#: ../boards/imageid/board1.xml.in.h:3
+msgid "bag"
+msgstr "バッグ"
+
+#: ../boards/imageid/board1.xml.in.h:4
+#: ../boards/imagename/board6_0.xml.in.h:2
+msgid "ball"
+msgstr "ボール"
+
+#: ../boards/imageid/board1.xml.in.h:5
+msgid "banana"
+msgstr "バナナ"
+
+#: ../boards/imageid/board1.xml.in.h:6
+msgid "bed"
+msgstr "ベッド"
+
+#: ../boards/imageid/board1.xml.in.h:7
+msgid "boat"
+msgstr "ボート"
+
+#: ../boards/imageid/board1.xml.in.h:8
+msgid "book"
+msgstr "ほん"
+
+#: ../boards/imageid/board1.xml.in.h:9
+#: ../boards/imagename/board2_0.xml.in.h:2
+msgid "bottle"
+msgstr "ビン"
+
+#: ../boards/imageid/board1.xml.in.h:10
+msgid "cake"
+msgstr "ケーキ"
+
+#: ../boards/imageid/board1.xml.in.h:11
+msgid "camel"
+msgstr "ラクダ"
+
+#: ../boards/imageid/board1.xml.in.h:12
+#: ../boards/imagename/board4_0.xml.in.h:4
+msgid "car"
+msgstr "くるま"
+
+#: ../boards/imageid/board1.xml.in.h:13
+msgid "cat"
+msgstr "ねこ"
+
+#: ../boards/imageid/board1.xml.in.h:14
+msgid "catch"
+msgstr "ホック"
+
+#: ../boards/imageid/board1.xml.in.h:15
+msgid "cheese"
+msgstr "チーズ"
+
+#: ../boards/imageid/board1.xml.in.h:16
+msgid "cow"
+msgstr "うし"
+
+#: ../boards/imageid/board1.xml.in.h:17
+msgid "dog"
+msgstr "いぬ"
+
+#: ../boards/imageid/board1.xml.in.h:18
+msgid "finish"
+msgstr "しっぽ"
+
+#: ../boards/imageid/board1.xml.in.h:19
+msgid "fish"
+msgstr "さかな"
+
+#: ../boards/imageid/board1.xml.in.h:20
+#: ../boards/imagename/board3_0.xml.in.h:2
+msgid "house"
+msgstr "おうち"
+
+#: ../boards/imageid/board1.xml.in.h:21
+msgid "pear"
+msgstr "洋なし"
+
+#: ../boards/imageid/board1.xml.in.h:22
+msgid "plane"
+msgstr "ひこうき"
+
+#: ../boards/imageid/board1.xml.in.h:23
+msgid "satchel"
+msgstr "学生かばん"
+
+#: ../boards/imagename.xml.in.h:1
+#: ../boards/imagename/board1_0.xml.in.h:1
+#: ../boards/imagename/board2_0.xml.in.h:1
+#: ../boards/imagename/board3_0.xml.in.h:1
+#: ../boards/imagename/board4_0.xml.in.h:1
+#: ../boards/imagename/board5_0.xml.in.h:1
+#: ../boards/imagename/board6_0.xml.in.h:1
+msgid "Drag and Drop each item onto its name"
+msgstr "ドラッグやドロップをして、名前の上にそれぞれのアイテムを置いてみよう."
+
+#: ../boards/imagename.xml.in.h:2
+msgid "Drag each image from the (vertical) box on the left to its (corresponding) name on the right. Click the OK button to check your answer."
+msgstr "右側でその（一致する）名前に、左で（垂直な）箱から、各々のイメージをドラッグしてください.答えを確認するためにOKボタンをクリックしてください."
+
+#: ../boards/imagename.xml.in.h:3
+msgid "Image Name"
+msgstr "物の名前"
+
+#: ../boards/imagename.xml.in.h:5
+msgid "Vocabulary and reading"
+msgstr "単語と読み"
+
+#: ../boards/imagename/board1_0.xml.in.h:2
+msgid "bulb"
+msgstr "電球"
+
+#: ../boards/imagename/board1_0.xml.in.h:3
+msgid "fishing boat"
+msgstr "魚つりボート"
+
+#: ../boards/imagename/board1_0.xml.in.h:4
+msgid "lamp"
+msgstr "ランプ"
+
+#: ../boards/imagename/board1_0.xml.in.h:5
+msgid "mail box"
+msgstr "郵便受け"
+
+#: ../boards/imagename/board1_0.xml.in.h:6
+#: ../boards/imagename/board5_0.xml.in.h:3
+msgid "postcard"
+msgstr "ポストカード"
+
+#: ../boards/imagename/board1_0.xml.in.h:7
+#: ../boards/imagename/board3_0.xml.in.h:5
+#: ../boards/imagename/board6_0.xml.in.h:7
+msgid "sailing boat"
+msgstr "ヨット"
+
+#: ../boards/imagename/board2_0.xml.in.h:3
+msgid "egg"
+msgstr "たまご"
+
+#: ../boards/imagename/board2_0.xml.in.h:4
+msgid "eggcup"
+msgstr "エッグカップ"
+
+#: ../boards/imagename/board2_0.xml.in.h:5
+msgid "flower"
+msgstr "おはな"
+
+#: ../boards/imagename/board2_0.xml.in.h:6
+msgid "glass"
+msgstr "コップ"
+
+#: ../boards/imagename/board2_0.xml.in.h:7
+msgid "vase"
+msgstr "かびん"
+
+#: ../boards/imagename/board3_0.xml.in.h:3
+msgid "light house"
+msgstr "おうち"
+
+#: ../boards/imagename/board3_0.xml.in.h:4
+msgid "rocket"
+msgstr "ロケット"
+
+#: ../boards/imagename/board3_0.xml.in.h:6
+msgid "sofa"
+msgstr "ソファー"
+
+#: ../boards/imagename/board3_0.xml.in.h:7
+#: ../boards/imagename/board5_0.xml.in.h:5
+msgid "star"
+msgstr "ほし"
+
+#: ../boards/imagename/board4_0.xml.in.h:3
+msgid "bicycle"
+msgstr "じてんしゃ"
+
+#: ../boards/imagename/board4_0.xml.in.h:5
+msgid "carrot"
+msgstr "にんじん"
+
+#: ../boards/imagename/board4_0.xml.in.h:6
+msgid "grater"
+msgstr "おろし金"
+
+#: ../boards/imagename/board4_0.xml.in.h:7
+msgid "tree"
+msgstr "木"
+
+#: ../boards/imagename/board5_0.xml.in.h:2
+msgid "pencil"
+msgstr "えんぴつ"
+
+#: ../boards/imagename/board5_0.xml.in.h:4
+msgid "spruce"
+msgstr "トウヒ"
+
+#: ../boards/imagename/board5_0.xml.in.h:6
+msgid "truck"
+msgstr "トラック"
+
+#: ../boards/imagename/board5_0.xml.in.h:7
+msgid "van"
+msgstr "小さいトラック"
+
+#: ../boards/imagename/board6_0.xml.in.h:3
+msgid "castle"
+msgstr "おしろ"
+
+#: ../boards/imagename/board6_0.xml.in.h:4
+msgid "crown"
+msgstr "王かん"
+
+#: ../boards/imagename/board6_0.xml.in.h:5
+msgid "flag"
+msgstr "はた"
+
+#: ../boards/imagename/board6_0.xml.in.h:6
+msgid "racket"
+msgstr "ラケット"
+
+#: ../boards/keyboard.xml.in.h:1
+msgid "Discover the keyboard."
+msgstr "キーボード"
+
+#: ../boards/keyboard.xml.in.h:2
+msgid "Keyboard-manipulation boards"
+msgstr "上手なキーボード操作"
+
+#: ../boards/leftright.xml.in.h:1
+msgid "Determine if a hand is a right or a left hand"
+msgstr "画面に表示された手が、右手か左手か当ててください."
+
+#: ../boards/leftright.xml.in.h:2
+msgid "Distinguish right and left hands from different points of view. Spatial representation"
+msgstr "いろいろな角度の写真から左右の手を見分けてください.空間的表現."
+
+#: ../boards/leftright.xml.in.h:3
+msgid "Find your left and right hands"
+msgstr "あなたの左手か右手か調べてみよう."
+
+#: ../boards/leftright.xml.in.h:4
+#: ../boards/railroad.xml.in.h:4
+msgid "None"
+msgstr "なし"
+
+#: ../boards/leftright.xml.in.h:5
+msgid "You can see a hand: is it a left hand or a right hand? Click on the red button on the left, or the green button on the right."
+msgstr "手を見ることができます: それは左手ですか? 右手ですか? 左手なら赤いボタン, 右手なら緑色のボタンをクリックしてください."
+
+#: ../boards/login.xml.in.h:1
+msgid "GCompris identifies each child, so we can provide child-specific reports."
+msgstr "GComprisは各々の子どもを特定するので、子どもに特有のレポートを提供することができます."
+
+#: ../boards/login.xml.in.h:2
+msgid "GCompris login screen"
+msgstr "GCompris ログイン画面"
+
+#: ../boards/login.xml.in.h:3
+msgid ""
+"In order to activate the login screen, you must \n"
+"first add users in the administration part of GCompris. \n"
+"You access Administration by running 'gcompris -a'.\n"
+"In Administration, you can create different profiles. In each profile,\n"
+"you can have a different set of users and select which activities are available to them.\n"
+"To run GCompris for a specific profile, you use 'gcompris -p profile' where 'profile'\n"
+"is the name of a profile as you created it in Administration."
+msgstr ""
+"ログイン画面を動作させるためには、GComprisの管理画面で、まず、ユーザーを加えなければなりません.コマンド『gcompris -a』を入力して、管理画面にアクセスします.管理画面では、別のプロフィールをつくることもできます.\n"
+"それぞれのプロフィールは、異なるユーザーを持つことができ、ユーザーが利用できるゲームを選べます.\n"
+"特定のプロフィールを使用して、GComprisを動作させるためには、『gcompris　-p　プロフィール』を実行してください.\n"
+"この『プロフィール』とは、管理画面でプロフィールを作成した時の、プロフィールの名前です."
+
+#: ../boards/login.xml.in.h:10
+msgid "Select or enter your name to log in to GCompris"
+msgstr "GComprisにログインするために、あなたの名前を入力するか、選んでください."
+
+#: ../boards/magic_hat_plus.xml.in.h:1
+#: ../boards/memory_add.xml.in.h:1
+msgid "Addition"
+msgstr "たし算"
+
+#: ../boards/magic_hat_plus.xml.in.h:2
+msgid "Click on the hat to open or close it. Under the hat, how many stars can you see moving around? Count carefully. :) Click in the bottom- right area to input your answer."
+msgstr "マジックハットを開けたり閉じたりするためには、マジックハットをクリックしてください.いくつの星が、帽子の下に移動したのか見ることができましたか?マジックハットに移動した星の数を慎重に数えてください. :) そして、正しい星の数をクリックして、答えを入力してください."
+
+#: ../boards/magic_hat_plus.xml.in.h:3
+msgid "Count how many items are under the magic hat"
+msgstr "マジックハットの下にいくつの星があるか数えてみましょう."
+
+#: ../boards/magic_hat_plus.xml.in.h:4
+msgid "Learn addition"
+msgstr "たし算を学びます."
+
+#: ../boards/magic_hat_plus.xml.in.h:5
+#: ../boards/magic_hat_minus.xml.in.h:5
+msgid "The magician hat"
+msgstr "マジックハット"
+
+#: ../boards/magic_hat_minus.xml.in.h:1
+msgid "Count how many items are under the magic hat after some have got away"
+msgstr "マジックハットから星が逃げた後、マジックハットの下にいくつの星があるのか数えてみましょう."
+
+#: ../boards/magic_hat_minus.xml.in.h:2
+msgid "Learn subtraction"
+msgstr "ひき算を学びます."
+
+#: ../boards/magic_hat_minus.xml.in.h:3
+msgid "Look at the magician, he tells the number of stars that are under his magic hat. Then, click on the hat to open it. A few stars escape. Click again on the hat to close it. You have to count how many are still under the hat. Click on the bottom right area to answer."
+msgstr "マジックハットの下にある星の数を教えます.その時、マジックハットを開けるためにマウスをクリックしてください.いくつかの星が逃げていきます.もう一度、クリックしてマジックハットを閉じます.マジックハットの下にいくつの星があるのか数えなければいけません.正しい星の数をクリックして、答えを入力してください."
+
+#: ../boards/magic_hat_minus.xml.in.h:4
+#: ../boards/memory_add_minus.xml.in.h:3
+#: ../boards/memory_add_minus_tux.xml.in.h:3
+#: ../boards/memory_minus.xml.in.h:2
+#: ../boards/memory_minus_tux.xml.in.h:2
+msgid "Subtraction"
+msgstr "ひき算"
+
+#: ../boards/math.xml.in.h:1
+msgid "Mathematical activities."
+msgstr "数理的なゲーム"
+
+#: ../boards/math.xml.in.h:2
+msgid "Mathematics"
+msgstr "さんすう"
+
+#: ../boards/maze.xml.in.h:1
+#: ../boards/maze2DRelative.xml.in.h:1
+#: ../boards/maze3D.xml.in.h:2
+#: ../boards/mazeInvisible.xml.in.h:1
+msgid "Can use the keyboard arrow to move an object."
+msgstr "タックスくんを動かすためにカーソルキーが使えること."
+
+#: ../boards/maze.xml.in.h:2
+#: ../src/boards/maze.c:133
+msgid "Find your way out of the maze"
+msgstr "迷路の出口を見つけてみよう"
+
+#: ../boards/maze.xml.in.h:3
+#: ../boards/maze2DRelative.xml.in.h:3
+#: ../boards/maze3D.xml.in.h:4
+#: ../boards/mazeInvisible.xml.in.h:3
+msgid "Help Tux get out of this maze."
+msgstr "タックスくんがこの迷路から脱出するのを手伝ってください."
+
+#: ../boards/maze.xml.in.h:4
+#: ../boards/maze2DRelative.xml.in.h:4
+#: ../boards/mazeInvisible.xml.in.h:4
+#: ../src/boards/maze.c:132
+msgid "Maze"
+msgstr "迷路"
+
+#: ../boards/maze.xml.in.h:5
+msgid "Use the keyboard arrows to move Tux up to the door."
+msgstr "ドアまでタックスくんを動かすために,キーボードのカーソルキーを使ってください."
+
+#: ../boards/maze2DRelative.xml.in.h:2
+msgid "Find your way out of the maze (Move is relative)"
+msgstr "迷路の出口を見つけてみよう(タックスくんの動かし方が変化します.)"
+
+#: ../boards/maze2DRelative.xml.in.h:5
+msgid "Use the keyboard arrows to move Tux up to the door. In this maze, the move is relative (first person). Use the up arrow to go forward. The other arrow let you turn Tux in another direction."
+msgstr "ドアまでタックスくんを動かすために、キーボードのカーソルキーを使ってください. この迷路では,タックスくんの動きが関連しています.タックスくんを進めるために、上矢印のカーソルキーを使ってください.他のカーソルキーは、別の方向にタックスくんを回転させます."
+
+#: ../boards/maze3D.xml.in.h:1
+msgid "3D Maze"
+msgstr "3D 迷路"
+
+#: ../boards/maze3D.xml.in.h:3
+msgid "Find your way out of the 3D maze"
+msgstr "3D迷路の出口を見つけてみよう"
+
+#: ../boards/maze3D.xml.in.h:5
+msgid "Use the keyboard arrows to move Tux up to the door. Use the spacebar to switch between 2D and 3D modes. 2D mode just gives you an indication of your position, like a map. You cannot move Tux in 2D mode."
+msgstr "ドアまでタックスくんを動かすために、キーボードのカーソルキーを使ってください. 2D(2次元) と 3D(3次元) の形式を切替えるためには,スペースキーを使ってください.2Dの形式は地図のようにタックスくんのいる位置を与えてくれます. しかし、2Dの形式ではタックスくんを動かすことはできません."
+
+#: ../boards/mazeInvisible.xml.in.h:2
+msgid "Find your way out of the invisible maze"
+msgstr "見えない迷路の出口を見つけてみよう"
+
+#: ../boards/mazeInvisible.xml.in.h:5
+msgid "Use the keyboard arrows to move Tux up to the door. Use the spacebar to switch between invisible and visible modes. Visible mode just gives you an indication of your position, like a map. You cannot move Tux in visible mode."
+msgstr "ドアまでタックスくんを動かすために,キーボードのカーソルキーを使ってください.迷路が見えないものと見えるものの形式を切替えるためには,スペースキーを使ってください. 迷路が見える形式は地図のようにタックスくんのいる位置を与えてくれます.しかし、迷路が見えるの形式ではタックスくんを動かすことはできません."
+
+#: ../boards/mazeMenu.xml.in.h:1
+msgid "Find your way out of different types of mazes"
+msgstr "違う形式の迷路の出口を見つけてみよう"
+
+#: ../boards/mazeMenu.xml.in.h:2
+msgid "Go to Maze activities"
+msgstr "迷路のゲームへ"
+
+#: ../boards/melody.xml.in.h:1
+msgid "Ear-training activity"
+msgstr "聴力のトレーニング"
+
+#: ../boards/melody.xml.in.h:2
+msgid "Listen to the sound sequence played, and repeat it by clicking on the elements. You can listen again by clicking on the repeat button."
+msgstr "連続する音の演奏を聞いて、楽器をクリックすることによって、再演してください.繰り返しボタンをクリックすることによって、もう一度、音楽を聞くことができます."
+
+#: ../boards/melody.xml.in.h:3
+msgid "Melody"
+msgstr "メロディー"
+
+#: ../boards/melody.xml.in.h:5
+msgid "Repeat a melody"
+msgstr "聞いたメロディーを繰り返してみよう"
+
+#: ../boards/memory.xml.in.h:1
+msgid "A set of blank cards is shown. Each card has a picture on the other side, and each picture card has a twin exactly the same. Click on a card to see its hidden picture, and try to match the twins. You can only turn over two cards at once, so you need to remember where a picture is, while you look for its twin. When you turn over the twins, they both disappear."
+msgstr "何も書いていない、カードの集合が示されます.各々のカードは、反対側に絵が書かれています、そして、それぞれの絵札はまったく同じ一対のカードになっています.隠れた絵を見るためにカードをクリックして、一対のカードを組み合わせてください.あなたは、2枚のカードだけひっくり返すことができるのでその一対のカードを探す間、絵がどこにあるか覚えている必要があります.一対のカードをひっくり返すと、両方のカードはなくなります."
+
+#: ../boards/memory.xml.in.h:2
+msgid "Flip the cards to find the matching pairs"
+msgstr "組み合わせが正しいカードをみつけよう."
+
+#: ../boards/memory.xml.in.h:3
+msgid "Memory Game with images"
+msgstr "記憶力ゲーム"
+
+#: ../boards/memory.xml.in.h:5
+#: ../boards/memory_tux.xml.in.h:4
+msgid "Train your memory and remove all the cards"
+msgstr "あなたの記憶を鍛えて、全てのカードを取ってください."
+
+#: ../boards/memory_add.xml.in.h:2
+msgid "Addition memory game"
+msgstr "たし算の記憶力ゲーム"
+
+#: ../boards/memory_add.xml.in.h:3
+#: ../boards/memory_add_tux.xml.in.h:3
+msgid "Practise adding up, until all the cards are gone."
+msgstr "全てのカードがなくなるまで、たし算を練習をしましょう."
+
+#: ../boards/memory_add.xml.in.h:4
+#: ../boards/memory_add_tux.xml.in.h:4
+msgid "Turn the cards over to find two numbers which add up the same, until all the cards are gone."
+msgstr "全てのカードがなくなるまで、同じたし算を表現している2つのカード(演算と合計の部分)を見つけるためにカードをひっくりかえしてください."
+
+#: ../boards/memory_add.xml.in.h:5
+#: ../boards/memory_add_tux.xml.in.h:5
+msgid ""
+"You can see some cards, but you can't see what's on the other side of them. Each card is hiding an adding-up sum, or the answer to the sum.\n"
+"An adding-up sum looks like this: 2 + 2 = 4\n"
+"The numbers on one side of the equals sign (=) have to be the same as the number on the other side. So 2 (1, 2) and 2 more (3, 4) makes 4. Count aloud when you work this out, and count on your fingers, because the more ways you do something, the better you remember it. You can also use blocks, or buttons, or anything you can count. If you have lots of brothers and sisters, you can count them! Or the kids in your class at school. Sing counting songs. Count lots of things, for practice, and you'll be very good at adding-up!\n"
+"\n"
+"In this game, these cards are hiding the two parts of an adding-up sum (also called an addition sum). You need to find the two parts of the sum, and bring them together again. Click on a card to see what number it's hiding, then try to find the other card that goes with it, to make a whole sum. You can only turn over two cards in one go, so you need to remember where the numbers are hiding, then you can match them when you find their other half. You're doing the job of the equals sign, and the numbers need you to put them together and make a proper sum. When you do that, both those cards disappear! When you've made them all disappear, found all the sums, you've won the game! :)"
+msgstr ""
+"あなたはいくつかのカードを見ることができます.しかし、カードの表が何か見ることができません.各々のカードは、たし算やたし算の答えが隠してあります.\n"
+"たし算がこのような時：2 + 2 = 4\n"
+"等号（=）の横にある数(右側にある数)は、反対側(左側にある式)と同じ数でなければなりません.なので、2（1、2）足す、2（3、4）は、4になります.あなたが、これを考え出すとき、声に出して数えてください.そして、指で数えてください.なぜなら、より多くの方法で何かにする方が、よく覚えているからです.また、あなたは、ブロックやボタン、あるいは、数えられるどんなのもでも使うことができます.たくさんの兄弟と姉妹がいるならば、彼らを数えることもできます！また、学校のクラスの友達を数えることもできます.数える歌を歌ってください.練習のためにたくさんのものを数えてください.そうすると、数える上げることが非常に得意になるでしょう！\n"
+"このゲームでは、各カードにたし算の2つの部分(計算と合計)が隠れています.あなたは、その2つを見つけてまとめます.各カードがどんな数を隠しているか見るためには、カードをクリックしてください.1回の順番につき、2枚のカードだけをひっくり返すことができるので、どこに何が隠れていたのか覚えている必要があります.そして、片割れを見つけた時、組み合わせることができます.あなたは、等号の仕事をしています.そして、2つのカードを一緒にして、正しい合計になるためにあなたを必要としています.あなたが、2つのカードを見付けた時に両方のカードは消えます！そして、カードを全て消して全ての合計を見つけた時、あなたはゲームに勝つことができます！"
+
+#: ../boards/memory_add_minus.xml.in.h:1
+msgid "Addition and subtraction memory game"
+msgstr "たし算とひき算の記憶力ゲーム."
+
+#: ../boards/memory_add_minus.xml.in.h:2
+#: ../boards/memory_add_minus_tux.xml.in.h:2
+msgid "Practise addition, subtraction, until all the cards are gone."
+msgstr "全てのカードがなくなるまで、たし算とひき算を練習をしましょう."
+
+#: ../boards/memory_add_minus.xml.in.h:4
+#: ../boards/memory_add_minus_tux.xml.in.h:4
+msgid "Turn the cards over to find two numbers which add or subtract the same, until all the cards are gone."
+msgstr "全てのカードがなくなるまで、同じたし算やひき算を表現している2つのカード(演算と合計の部分)を見つけるためにカードをひっくりかえしてください."
+
+#: ../boards/memory_add_minus.xml.in.h:5
+#: ../boards/memory_add_minus_mult_div.xml.in.h:5
+#: ../boards/memory_add_minus_mult_div_tux.xml.in.h:5
+#: ../boards/memory_add_minus_tux.xml.in.h:5
+#: ../boards/memory_div.xml.in.h:5
+#: ../boards/memory_div_tux.xml.in.h:5
+#: ../boards/memory_mult.xml.in.h:5
+#: ../boards/memory_mult_div.xml.in.h:5
+#: ../boards/memory_mult_div_tux.xml.in.h:5
+#: ../boards/memory_mult_tux.xml.in.h:5
+msgid ""
+"You can see some cards, but you can't see what's on the other side of them. Each card is hiding an operation, or the answer to it.\n"
+"\n"
+"In this game, these cards are hiding the two parts of an operation. You need to find the two parts of the operation, and bring them together again. Click on a card to see what number it's hiding, then try to find the other card that goes with it, to make a whole operation. You can only turn over two cards in one go, so you need to remember where the numbers are hiding, then you can match them when you find their other half. You're doing the job of the equals sign, and the numbers need you to put them together and make a proper equality. When you do that, both those cards disappear! When you've made them all disappear, found all the operations, you've won the game! :)"
+msgstr ""
+"あなたは、いくつかのカードを見ることができます.しかし、カードの表は見ることができません.各々のカードは、演算やそれに対する答えを隠しています.\n"
+"このゲームでは、これらのカードは、2つの部分の演算を隠しています.あなたは、演算の2つの部分を見つける必要があります.あなたは、その2つを見つけてまとめます.どんな数を隠しているか見るために、カードをクリックしてください.そして、全部の演算になるために、それに伴う他のカードを見つけてみてください.1回の順番につき、2枚のカードだけをひっくり返すことができるので、数がどこに隠れていたのか覚えている必要があります.そして、片割れを見つけた時、組み合わせることができます.あなたは、等号の仕事をしています.そして、2つのカードを一緒にして、正しい合計になるためにあなたを必要としています.あなたが、2つのカードを見付けたとき、両方のカードは消えます！そして、カードを全て消して全ての合計を見つけた時、あなたはゲームに勝つことができます！"
+
+#: ../boards/memory_add_minus_mult_div.xml.in.h:1
+#: ../boards/memory_add_minus_mult_div_tux.xml.in.h:1
+msgid "Addition, subtraction, multiplication, division"
+msgstr "たし算、ひき算、かけ算、わり算."
+
+#: ../boards/memory_add_minus_mult_div.xml.in.h:2
+msgid "All operations memory game"
+msgstr "全ての演算を含んだ神経衰弱"
+
+#: ../boards/memory_add_minus_mult_div.xml.in.h:3
+#: ../boards/memory_add_minus_mult_div_tux.xml.in.h:3
+msgid "Practise addition, subtraction, multiplication, division, until all the cards are gone."
+msgstr "全てのカードがなくなるまで、たし算、ひき算、かけ算、わり算の練習をしましょう."
+
+#: ../boards/memory_add_minus_mult_div.xml.in.h:4
+#: ../boards/memory_add_minus_mult_div_tux.xml.in.h:4
+#: ../boards/memory_div.xml.in.h:4
+#: ../boards/memory_div_tux.xml.in.h:4
+#: ../boards/memory_mult_div.xml.in.h:4
+#: ../boards/memory_mult_div_tux.xml.in.h:4
+#: ../boards/memory_mult_tux.xml.in.h:4
+msgid "Turn the cards over to find a matching operation, until all the cards are gone."
+msgstr "全てのカードがなくなるまで、合っている演算を見つけるためにカードをひっくりかえしてください."
+
+#: ../boards/memory_add_minus_mult_div_tux.xml.in.h:2
+msgid "All operations memory game against Tux"
+msgstr "タックスくんと全ての演算を含んだ神経衰弱"
+
+#: ../boards/memory_add_minus_tux.xml.in.h:1
+msgid "Addition and subtraction memory game against Tux"
+msgstr "タックスくんとたし算とひき算を含んだ神経衰弱"
+
+#: ../boards/memory_add_tux.xml.in.h:1
+msgid "Addition memory game against Tux"
+msgstr "タックスくんとたし算の神経衰弱"
+
+#: ../boards/memory_add_tux.xml.in.h:2
+#: ../boards/memory_mult_tux.xml.in.h:1
+msgid "Additions"
+msgstr "たし算"
+
+#: ../boards/memory_div.xml.in.h:1
+#: ../boards/memory_div_tux.xml.in.h:1
+msgid "Division"
+msgstr "わり算"
+
+#: ../boards/memory_div.xml.in.h:2
+msgid "Division memory game"
+msgstr "わり算の記憶力ゲーム"
+
+#: ../boards/memory_div.xml.in.h:3
+#: ../boards/memory_div_tux.xml.in.h:3
+msgid "Practise division, until all the cards are gone."
+msgstr "全てのカードがなくなるまで、わり算の練習をしましょう.."
+
+#: ../boards/memory_div_tux.xml.in.h:2
+msgid "Division memory game against Tux"
+msgstr "タクッスくんとわり算の神経衰弱"
+
+#: ../boards/memory_group.xml.in.h:1
+msgid "Go to Memory activities"
+msgstr "記憶力のゲームへ"
+
+#: ../boards/memory_group.xml.in.h:2
+msgid "Various memory activities (images, letters, sounds)."
+msgstr "さまざまな記憶力ゲーム (絵、文字、音)."
+
+#: ../boards/memory_minus.xml.in.h:1
+#: ../boards/memory_minus_tux.xml.in.h:1
+msgid "Practise subtraction, until all the cards are gone."
+msgstr "全てのカードがなくなるまで、ひき算の練習をしましょう.."
+
+#: ../boards/memory_minus.xml.in.h:3
+msgid "Subtraction memory game"
+msgstr "ひき算の記憶力ゲーム"
+
+#: ../boards/memory_minus.xml.in.h:4
+#: ../boards/memory_minus_tux.xml.in.h:4
+msgid "Turn the cards over to find two numbers which subtract the same, until all the cards are gone."
+msgstr "全てのカードがなくなるまで、同じひき算を表現している2つのカード(演算と合計の部分)を見つけるためにカードをひっくり返してください."
+
+#: ../boards/memory_minus.xml.in.h:5
+#: ../boards/memory_minus_tux.xml.in.h:5
+msgid ""
+"You can see some cards, but you can't see what's on the other side of them. Each card is hiding a subtraction, or the answer to it.\n"
+"A subtraction looks like this: 3 - 1 = 2\n"
+"The numbers on one side of the equals sign (=) have to be the same as the number on the other side. So 3 (1, 2, 3) less 1 (1) makes 2. Count aloud when you work this out, and count on your fingers, because the more ways you do something, the better you remember it. You can also use blocks, or buttons, or anything you can count. If you have lots of brothers and sisters, you can count them! Or the kids in your class at school. Sing counting songs. Count lots of things, for practice, and you'll be very good at adding-up!\n"
+"\n"
+"In this game, these cards are hiding the two parts of a subtraction. You need to find the two parts of the subraction, and bring them together again. Click on a card to see what number it's hiding, then try to find the other card that goes with it, to make a whole sum. You can only turn over two cards in one go, so you need to remember where the numbers are hiding, then you can match them when you find their other half. You're doing the job of the equals sign, and the numbers need you to put them together and make a proper sum. When you do that, both those cards disappear! When you've made them all disappear, found all the subtracts, you've won the game! :)"
+msgstr ""
+"あなたはいくつかのカードを見ることができます.しかし、カードの表が何か見ることができません.各々のカードには、ひき算やひき算の答えが隠してあります.\n"
+"ひき算がこのような時：3 - 1 = 2\n"
+"等号（=）の横にある数(右側にある数)は、反対側(左側にある式)と同じ数でなければなりません.なので、3（1、2、3）引く、1(1)は、2となります.あなたが、答えを考え出すとき、声に出して数えてください.そして、指で数えてください.なぜなら、より多くの方法で何かにするほど、よく覚えているからです.たくさんの兄弟と姉妹がいるならば、彼らを数えることもできます！また、学校のクラスの友達を数えることもできます.数える歌を歌ってください.練習のためには、たくさんのものを数えてください.そうすると、数える上げることが非常に得意になるでしょう！\n"
+"このゲームでは、各カードにひき算の2つの部分(計算と合計)が隠れています.あなたは、その2つのパートを見つけてまとめます.各カードがどんな数を隠しているか見るために、カードをクリックしてください.そして、全部の合計になるために、それに伴う他のカードを見つけてみてください.1回の順番につき、2枚のカードだけをひっくり返すことができるので、数がどこに隠れていたのか覚えている必要があります.そして、片割れを見つけた時、組み合わせることができます.あなたは、等号の仕事をしています.そして、数字は、2つのカードを一緒にするため、正しい合計になるために必要としています.あなたが、2つのカードを見付けたとき、両方のカードは、消えます！そして、カードを全て消して、全ての合計を見つけた時、あなたは、ゲームに勝つことができます！"
+
+#: ../boards/memory_minus_tux.xml.in.h:3
+msgid "Subtraction memory game against Tux"
+msgstr "タックスくんとひき算の神経衰弱"
+
+#: ../boards/memory_mult.xml.in.h:1
+msgid "Multiplication"
+msgstr "かけ算"
+
+#: ../boards/memory_mult.xml.in.h:2
+msgid "Multiplication memory game"
+msgstr "かけ算の記憶力ゲーム"
+
+#: ../boards/memory_mult.xml.in.h:3
+msgid "Practise multiplication, until all the cards are gone."
+msgstr "全てのカードがなくなるまで、かけ算の練習をしましょう."
+
+#: ../boards/memory_mult.xml.in.h:4
+msgid "Turn the cards over to find two numbers which multiply the same, until all the cards are gone."
+msgstr "全てのカードが無くなるまで、同じかけ算を表現している2つのカード(演算と合計の部分)を見つけるために、カードをひっくり返してください."
+
+#: ../boards/memory_mult_div.xml.in.h:1
+msgid "Multiplication and division memory game"
+msgstr "かけ算とわり算の記憶力ゲーム"
+
+#: ../boards/memory_mult_div.xml.in.h:2
+#: ../boards/memory_mult_div_tux.xml.in.h:2
+msgid "Multiplication, division"
+msgstr "かけ算、わり算"
+
+#: ../boards/memory_mult_div.xml.in.h:3
+#: ../boards/memory_mult_div_tux.xml.in.h:3
+msgid "Practise multiplication, division, until all the cards are gone."
+msgstr "全てのカードがなくなるまで、かけ算とわり算の練習をしましょう."
+
+#: ../boards/memory_mult_div_tux.xml.in.h:1
+msgid "Multiplication and division memory game against Tux"
+msgstr "タックスくんとかけ算とわり算の神経衰弱"
+
+#: ../boards/memory_mult_tux.xml.in.h:2
+msgid "Multiplication memory game against Tux"
+msgstr "タックスくんとかけ算の神経衰弱"
+
+#: ../boards/memory_mult_tux.xml.in.h:3
+msgid "Practise multiplication until all the cards are gone."
+msgstr "全てのカードがなくなるまで、かけ算の練習をしましょう."
+
+#: ../boards/memory_op_group.xml.in.h:1
+msgid "Go to mathematics memory activities"
+msgstr "#: ../boards/memory_op_group.xml.in.h:1"
+
+#: ../boards/memory_op_group.xml.in.h:2
+#: ../boards/memory_op_group_tux.xml.in.h:2
+msgid "Memory activities based on operations"
+msgstr "操作を基礎とした記憶力ゲーム"
+
+#: ../boards/memory_op_group_tux.xml.in.h:1
+msgid "Go to mathematics memory activities against Tux"
+msgstr "さんすうの記憶力ゲームでタックスくんと対戦"
+
+#: ../boards/memory_sound.xml.in.h:1
+#: ../boards/memory_sound_tux.xml.in.h:1
+msgid "A set of violinist Tux is shown. Each Tux has an associated sound, and each sound has a twin exactly the same. Click on a Tux to see its hidden sound, and try to match the twins. You can only activate two Tux at once, so you need to remember where a sound is, while you listen to its twin. When you turn over the twins, they both disappear."
+msgstr "バイオリニストのタックスくん達が見えます.互いのタックスくんは、関連した音を持っています.そして、互いの音は、正確に同じ音を持っています.隠されたサウンドを見付けるために、タックスくんをクリックしてください.そしてペアになるものを探しましょう. あなたは、2回だけ音を聞くことができます.なので、音を聞くのと同時に、どこのタックスくんの音だったかを思い出す必要があります.  ペアをひっくり返すことができると、両方とも消えてなくなります."
+
+#: ../boards/memory_sound.xml.in.h:2
+msgid "Audio memory game"
+msgstr "オーディオの記憶力ゲーム"
+
+#: ../boards/memory_sound.xml.in.h:3
+msgid "Click on Tux the violinist and listen to find the matching sounds"
+msgstr "バイオリニストのタックスくんをクリックして、調和している音をみつけてみよう"
+
+#: ../boards/memory_sound.xml.in.h:4
+#: ../boards/memory_sound_tux.xml.in.h:3
+#: ../boards/memory_tux.xml.in.h:3
+msgid "Mouse manipulation, Brain."
+msgstr "マウス操作, 知識."
+
+#: ../boards/memory_sound.xml.in.h:5
+#: ../boards/memory_sound_tux.xml.in.h:5
+msgid "Train your audio memory and remove all the violonists Tux."
+msgstr "あなたの音声記憶を鍛えて、全てのバイオリニストのタックスくんを消してください."
+
+#: ../boards/memory_sound_tux.xml.in.h:2
+msgid "Audio memory game against Tux"
+msgstr "音声記憶力ゲームでタックスくんと対戦"
+
+#: ../boards/memory_sound_tux.xml.in.h:4
+msgid "Play the audio memory game against Tux"
+msgstr "音声記憶力ゲームでタックスくんと遊びましょう."
+
+#: ../boards/memory_tux.xml.in.h:1
+msgid "Have a memory competition with Tux."
+msgstr "タックスくんと神経衰弱."
+
+#: ../boards/memory_tux.xml.in.h:2
+msgid "Memory Game with images, against Tux"
+msgstr "絵の記憶力ゲームでタックスくんと対戦"
+
+#: ../boards/memory_tux.xml.in.h:5
+msgid "You can see a set of cards that all look the same. Each card has a picture on the other side, and each picture has a twin somewhere in the set. You can only turn over two cards at once, so you need to remember where the pictures are until you can find the twin. When you turn over twins, they disappear! You take turns with Tux, and to win the game, you have to find more pairs of twins than he does."
+msgstr "まず、ゲームが始まると同じカードが並べられています.各々のカードには絵が描いてあります.そして、各々の絵はどこかに互いにペアを持っています.あなたは、2枚だけカードをひっくり返すことができます.ペアのカードが見つけられるまで、絵がどこにあるか覚えている必要があります.ペアのカードをひっくり返すと、カードは消えます！あなたは、タックスくんと交代でゲームを行います.タックスくんに勝つためには、タックスくんより多くのペアのカードを見つけなければなりません."
+
+#: ../boards/menu.xml.in.h:1
+msgid ""
+"A simple click on an icon brings you to an activity or a menu of activities.\n"
+"At the bottom of the screen is the gcompris control bar.\n"
+"The following icons are displayed from right to left.\n"
+"(note that each icon is displayed only if available in the current activity)\n"
+"    Home - Back to previous menu or exit gcompris if at the top\n"
+"    Thumb - OK. Confirm your answer\n"
+"    Dice - Display the current level. Click to select another level\n"
+"    Music note - Repeat the question\n"
+"    Question Mark - Help\n"
+"    Tool - The configuration menu\n"
+"    Tux Plane - About GCompris\n"
+"The stars show suitable age groups for each game:\n"
+"    1, 2 or 3 simple stars  - from 2 to 6 years old\n"
+"    1, 2 or 3 complex stars - 7 years and up"
+msgstr ""
+"アイコンをクリックするとゲームまたはゲームに関するメニュー移動します.\n"
+"スクリーンの下にGComprisの制御バーがあります.\n"
+"右から左へ以下のアイコンを表示します.\n"
+"(ゲームで利用可能である場合にだけ各アイコンが表示されるので注意してください.)\n"
+"    お家 - 前のメニューに戻るかトップ画面の時はgcomprisの終了確認の画面になります.\n"
+"    親指 - OK. このアイコンで答えを確認してください.\n"
+"    サイコロ - 現在のレベルを表示します.他のレベルを選ぶ時にはこのアイコンをクリックしてください.\n"
+"    音符 - もう一度問題を繰り返します.\n"
+"    はてなマーク - ヘルプ\n"
+"    工具 - 環境設定メニュー\n"
+"    タックスくんの飛行機 - ゲームについて\n"
+"星は、各々のゲームに適当な年齢層を示しています:\n"
+"    1, 2 または 3 単純な星  - 2才から6才\n"
+"    1, 2 または 3 複雑な星  - 7才からそれ以上 "
+
+#: ../boards/menu.xml.in.h:15
+msgid "GCompris Main Menu"
+msgstr "GCompris メインメニュー"
+
+#: ../boards/menu.xml.in.h:16
+#: ../src/boards/menu2.c:1009
+msgid "GCompris is a collection of educational games that provides different activities for children aged 2 and up."
+msgstr "GCompris は、様々な活動を２歳以上の子供達に提供する教育的なゲームのコレクションです."
+
+#: ../boards/menu.xml.in.h:18
+msgid "The goal of gcompris is to provide a free alternative to popular proprietary edutainment software"
+msgstr "GComprisの目標は、大衆向けエデュテインメントソフトウェアの所有権に無料の代替手段を提供することです."
+
+#: ../boards/miscelaneous.xml.in.h:1
+msgid "Miscellaneous activities"
+msgstr "多方面にわたるゲーム"
+
+#: ../boards/miscelaneous.xml.in.h:2
+msgid "Time, Geography, ..."
+msgstr "時間,地理,..."
+
+#: ../boards/missing_letter.xml.in.h:1
+msgid "An object is displayed in the main area, and an incomplete word is printed under the picture. Select the missing letter to complete the word."
+msgstr "ある物がメイン画面に表示されます.そして、不完全な言葉は絵の下に表示されます.単語を完成させるために欠けている文字を選んでください."
+
+#: ../boards/missing_letter.xml.in.h:2
+msgid "Fill in the missing letter"
+msgstr "欠けている文字を埋めてみよう"
+
+#: ../boards/missing_letter.xml.in.h:3
+msgid "Missing Letter"
+msgstr "欠けている文字"
+
+#: ../boards/missing_letter.xml.in.h:4
+msgid "Training reading skills"
+msgstr "文字を読むトレーニング"
+
+#: ../boards/missing_letter.xml.in.h:5
+msgid "Word reading"
+msgstr "単語の読み方"
+
+#: ../boards/missing_letter/board1.xml.in.h:1
+msgid "apple/_pple/a/i/o"
+msgstr "りんご/り_ご/ん/も/か"
+
+#: ../boards/missing_letter/board1.xml.in.h:2
+msgid "apple/app_e/l/h/n"
+msgstr "りんご/りん_/ご/り/く"
+
+#: ../boards/missing_letter/board1.xml.in.h:3
+msgid "apple/appl_/e/h/a"
+msgstr "りんご/_んご/り/だ/た"
+
+#: ../boards/missing_letter/board1.xml.in.h:4
+msgid "ball/_all/b/p/d"
+msgstr "ボール/_ール/ボ/ホ/コ"
+
+#: ../boards/missing_letter/board1.xml.in.h:5
+msgid "ball/b_ll/a/u/o"
+msgstr "ボール/ボ_ル/ー/ル/エ"
+
+#: ../boards/missing_letter/board1.xml.in.h:6
+msgid "ball/bal_/l/h/s"
+msgstr "ボール/ボー_/ル/ー/シ"
+
+#: ../boards/missing_letter/board1.xml.in.h:7
+msgid "banana/_anana/b/p/d"
+msgstr "バナナ/_ナナ/バ/パ/コ"
+
+#: ../boards/missing_letter/board1.xml.in.h:8
+msgid "banana/b_nana/a/o/i"
+msgstr "バナナ/バ_ナ/ナ/ハ/ル"
+
+#: ../boards/missing_letter/board1.xml.in.h:9
+msgid "banana/ba_ana/n/m/b"
+msgstr "バナナ/バナ_/ナ/パ/ム"
+
+#: ../boards/missing_letter/board1.xml.in.h:10
+msgid "bed/_ed/b/l/f"
+msgstr "ベッド/_ッド/ベ/ペ/ド"
+
+#: ../boards/missing_letter/board1.xml.in.h:11
+msgid "bed/b_d/e/a/i"
+msgstr "ベッド/ベ_ド/ッ/ィ/ョ"
+
+#: ../boards/missing_letter/board1.xml.in.h:12
+msgid "bed/be_/d/p/b"
+msgstr "ベッド/ベッ_/ド/ト/プ"
+
+#: ../boards/missing_letter/board1.xml.in.h:13
+msgid "bottle/_ottle/b/t/p"
+msgstr "ビン/_ン/ビ/カ/エ"
+
+#: ../boards/missing_letter/board1.xml.in.h:14
+msgid "bottle/b_ttle/o/u/d"
+msgstr "ビン/ビ_/ン/ル/ア"
+
+#: ../boards/missing_letter/board1.xml.in.h:15
+msgid "bottle/bott_e/l/y/r"
+msgstr "ビン/_ン/ビ/ピ/リ"
+
+#: ../boards/missing_letter/board1.xml.in.h:16
+msgid "cake/_ake/c/p/d"
+msgstr "ケーキ/_ーキ/ケ/マ/ト"
+
+#: ../boards/missing_letter/board1.xml.in.h:17
+msgid "cake/c_ke/a/o/e"
+msgstr "ケーキ/ケ_キ/ー/ッ/ィ"
+
+#: ../boards/missing_letter/board1.xml.in.h:18
+msgid "cake/ca_e/k/q/c"
+msgstr "ケーキ/ケー_/キ/コ/リ"
+
+#: ../boards/missing_letter/board1.xml.in.h:19
+msgid "car/_ar/c/k/b"
+msgstr "くるま/_るま/く/だ/け"
+
+#: ../boards/missing_letter/board1.xml.in.h:20
+msgid "car/c_r/a/k/o"
+msgstr "くるま/く_ま/る/く/ぬ"
+
+#: ../boards/missing_letter/board1.xml.in.h:21
+msgid "car/ca_/r/w/k"
+msgstr "くるま/くる_/ま/る/さ"
+
+#: ../boards/missing_letter/board1.xml.in.h:22
+msgid "dog/_og/d/p/q"
+msgstr "いぬ/_ぬ/い/た/ぱ"
+
+#: ../boards/missing_letter/board1.xml.in.h:23
+msgid "dog/d_g/o/g/a"
+msgstr "いぬ/い_/ぬ/ね/し"
+
+#: ../boards/missing_letter/board1.xml.in.h:24
+msgid "dog/do_/g/p/q"
+msgstr "いぬ/い_/ぬ/か/る"
+
+#: ../boards/missing_letter/board1.xml.in.h:25
+msgid "fish/_ish/f/h/l"
+msgstr "さかな/_かな/さ/お/か"
+
+#: ../boards/missing_letter/board1.xml.in.h:26
+msgid "fish/f_sh/i/u/l"
+msgstr "さかな/さ_な/か/ざ/ぶ"
+
+#: ../boards/missing_letter/board1.xml.in.h:27
+msgid "fish/fis_/h/o/i"
+msgstr "さかな/さか_/な/ら/し"
+
+#: ../boards/missing_letter/board1.xml.in.h:28
+msgid "house/_ouse/h/e/j"
+msgstr "おうち/_うち/お/う/か"
+
+#: ../boards/missing_letter/board1.xml.in.h:29
+msgid "house/h_use/o/f/u"
+msgstr "おうち/お_ち/う/か/り"
+
+#: ../boards/missing_letter/board1.xml.in.h:30
+msgid "house/hous_/e/a/i"
+msgstr "おうち/おう_/ち/お/し"
+
+#: ../boards/missing_letter/board1.xml.in.h:31
+msgid "plane/_lane/p/g/d"
+msgstr "ひこうき/_こうき/ひ/こ/た"
+
+#: ../boards/missing_letter/board1.xml.in.h:32
+msgid "plane/p_ane/l/j/i"
+msgstr "ひこうき/ひ_うき/こ/ひ/さ"
+
+#: ../boards/missing_letter/board1.xml.in.h:33
+msgid "plane/pl_ne/a/o/s"
+msgstr "ひこうき/ひこう_/き/し/か"
+
+#: ../boards/missing_letter/board1.xml.in.h:34
+msgid "satchel/_atchel/s/c/l"
+msgstr "かばん/_ばん/か/ば/ひ"
+
+#: ../boards/missing_letter/board1.xml.in.h:35
+msgid "satchel/s_tchel/a/o/i"
+msgstr "かばん/か_ん/ば/ぱ/か"
+
+#: ../boards/missing_letter/board1.xml.in.h:36
+msgid "satchel/sa_chel/t/p/c"
+msgstr "かばん/かば_/ん/ぷ/か"
+
+#: ../boards/money.xml.in.h:1
+#: ../boards/money_cents.xml.in.h:1
+msgid "Can count"
+msgstr "数えることができる"
+
+#: ../boards/money.xml.in.h:2
+#: ../boards/money_cents.xml.in.h:2
+msgid "Click on the coins or paper money at the bottom of the screen to pay. If you want to remove a coin or note, click on it on the upper screen area."
+msgstr "お金を支払うために、スクリーンの下部でコインまたは紙幣をクリックしてください.コインまたは紙幣を削除したい時は、スクリーン上部のボタンをクリックしてください."
+
+#: ../boards/money.xml.in.h:3
+#: ../boards/money_cents.xml.in.h:3
+msgid "Money"
+msgstr "お金"
+
+#: ../boards/money.xml.in.h:4
+msgid "Practice money usage"
+msgstr "お金の使い方の練習"
+
+#: ../boards/money.xml.in.h:5
+#: ../boards/money_cents.xml.in.h:5
+msgid "You must buy the different items and give the exact price. At higher levels, several items are displayed, and you must first calculate the total price."
+msgstr "あなたは異なるアイテムを買わなければいけません.そして、正確な価格を示してください.レベルがアップするといくつかのアイテムは示されます.そして、総価格を最初に計算しなければなりません."
+
+#: ../boards/money_cents.xml.in.h:4
+msgid "Practice money usage including cents"
+msgstr "セントを含めたお金の使い方の練習"
+
+#: ../boards/mosaic.xml.in.h:1
+msgid "Rebuild the mosaic"
+msgstr "モザイク模様を組み立てて見よう"
+
+#: ../boards/mouse.xml.in.h:1
+msgid "Mouse-manipulation activities."
+msgstr "マウス操作のゲーム"
+
+#: ../boards/mouse.xml.in.h:2
+msgid "Various mouse-based activities (clicking, moving)"
+msgstr "マウスをもとにしたゲーム(クリック、移動する)"
+
+#: ../boards/numeration.xml.in.h:1
+msgid "Numeration"
+msgstr "計算"
+
+#: ../boards/numeration.xml.in.h:2
+msgid "Numeration activities."
+msgstr "計算ゲーム"
+
+#: ../boards/oscar_and_friends.xml.in.h:1
+msgid "Improve reading skill and the ability to understand what is read."
+msgstr "読むことと読書を理解する能力を改善させる."
+
+#: ../boards/oscar_and_friends.xml.in.h:2
+msgid "Read and play with the story"
+msgstr "物語りを読んで楽しんでください."
+
+#: ../boards/oscar_and_friends.xml.in.h:3
+msgid "The story of Oscar and friend"
+msgstr "オスカーと友達のお話"
+
+#: ../boards/oscar_and_friends.xml.in.h:4
+msgid "reading"
+msgstr "読むこと"
+
+#: ../boards/paintings.xml.in.h:1
+msgid "Assemble the puzzle"
+msgstr "パズルを組み立ててよう"
+
+#: ../boards/paintings.xml.in.h:2
+msgid "Drag and Drop the items to rebuild the original paintings"
+msgstr "アイテムをドラッグ&ドロップして、パズルで絵を完成させてください."
+
+#: ../boards/paintings.xml.in.h:3
+msgid "Drag the image parts from the box on the left to create a painting on the main board."
+msgstr "メインボード上で絵を作成するために、左側のボックスからイメージ画像をドラッグしてください."
+
+#: ../boards/paintings.xml.in.h:4
+msgid "Mouse-manipulation: movement, drag and drop"
+msgstr "マウス操作：運動、ドラッグ＆ドロップ"
+
+#: ../boards/paintings.xml.in.h:5
+msgid "Spatial representation"
+msgstr "空間的な表現"
+
+#: ../boards/paintings/board1_0.xml.in.h:1
+msgid "Edgar Degas, The Dancing Class - 1873-75"
+msgstr "エドガー・ドガ, ダンス教室- 1873-75"
+
+#: ../boards/paintings/board2_0.xml.in.h:1
+msgid "Pierre-Auguste Renoir, Le Moulin de la Galette - 1876"
+msgstr "ピエール＝オーギュスト・ルノワール,ムーラン・ドゥ・ラ・ギャレット - 1876"
+
+#: ../boards/paintings/board3_0.xml.in.h:1
+msgid "Pierre-Auguste Renoir, Girls At The Piano - 1892"
+msgstr "ピエール＝オーギュスト・ルノワール,ピアノを弾く少女たち- 1892"
+
+#: ../boards/paintings/board3_1.xml.in.h:1
+msgid "Kandinsky, Wassily, Composition VIII - 1923"
+msgstr "ワシリー・カンディンスキー、コンポジションVIII - 1923"
+
+#: ../boards/paintings/board3_1.xml.in.h:2
+msgid "Oil on canvas, 140 x 201 cm; Solomon R. Guggenheim Museum, New York"
+msgstr "油絵のキャンバス（140×201cm）;ソロモン・R,グッゲンハイム美術館、ニューヨーク"
+
+#: ../boards/paintings/board4_0.xml.in.h:1
+msgid "Bazille, The Ramparts at Aigues-Mortes - 1867"
+msgstr "バジーユ、Aigues-Mortesの城壁 - 1867"
+
+#: ../boards/paintings/board5_0.xml.in.h:1
+msgid "Cassatt, Mary - Summertime - 1894"
+msgstr "メアリー・カサット, - サマータイム - 1894"
+
+#: ../boards/paintings/board6_0.xml.in.h:1
+msgid "Vincent Van Gogh, Village Street in Auvers - 1890"
+msgstr "フィンセント・ファン・ゴッホ,オーヴェールの道 - 1890"
+
+#: ../boards/paratrooper.xml.in.h:1
+msgid "Help Tux the parachutist land safely"
+msgstr "パラシュートで下降するタックスくんを無事に着陸させよう"
+
+#: ../boards/paratrooper.xml.in.h:2
+msgid "Hit any key or click on the plane to make Tux jump. Hit another key or click on Tux to open the parachute."
+msgstr "タックスくんをジャンプさせるためには、何かのキーを押すか飛行機をクリックしてください.パラシュートを開くためには、他のキーを押すかタックスくんをクリックしてください."
+
+#: ../boards/paratrooper.xml.in.h:3
+msgid "In this game, Tux the parachutist needs help to land safely on the fishing boat. He needs to allow for the wind direction and speed."
+msgstr "このゲームでは, パラシューターのタックスくんは漁船に着艦する助けを必要としています.タックスくんは、風向と速度を考慮する必要があります."
+
+#: ../boards/paratrooper.xml.in.h:4
+msgid "Parachutist"
+msgstr "パラシューター"
+
+#: ../boards/paratrooper.xml.in.h:5
+msgid "This board is game-oriented. No specific skills are needed to play."
+msgstr "このゲームは、タックスくんを方向づけるゲームです.特定のスキルは必要ありません."
+
+#: ../boards/planegame.xml.in.h:1
+msgid "Catch the numbers in increasing order, using the up, down, right and left arrows on the keyboard to move the helicopter."
+msgstr "ヘリコプターを動かすために、カーソルキーの上下左右を使用して増加する数をつかまえてください."
+
+#: ../boards/planegame.xml.in.h:2
+msgid "Move the helicopter to catch the clouds in the correct order"
+msgstr "正しい順番で曇を捕まえるためにヘリコプターを動かそう."
+
+#: ../boards/planegame.xml.in.h:3
+msgid "Number"
+msgstr "数"
+
+#: ../boards/planegame.xml.in.h:4
+#: ../src/boards/planegame.c:74
+msgid "Numbers in Order"
+msgstr "順序正しい数"
+
+#: ../boards/puzzle.xml.in.h:1
+msgid "Puzzles"
+msgstr "パズル"
+
+#: ../boards/puzzle.xml.in.h:2
+msgid "Various puzzles."
+msgstr "さまざまなパズル"
+
+#: ../boards/pythontest.xml.in.h:1
+msgid "Add a language-binding to gcompris."
+msgstr "拘束力のある言語をGcomprisに加えてください."
+
+#: ../boards/pythontest.xml.in.h:2
+msgid "Advanced Python Programmer :)"
+msgstr "先進のパイソンプログラマー :)"
+
+#: ../boards/pythontest.xml.in.h:3
+msgid "Python Test"
+msgstr "Python(パイソン)テスト"
+
+#: ../boards/pythontest.xml.in.h:4
+msgid "Test board for the python plugin"
+msgstr "パイソンプラグインのためのテストボード"
+
+#: ../boards/pythontest.xml.in.h:5
+msgid "Thanks to Guido van Rossum and the python team for this powerful language!"
+msgstr "グイード・バン・ロッスムとパイソンチームに感謝します!"
+
+#: ../boards/railroad.xml.in.h:1
+msgid "A memory game based on trains"
+msgstr "電車をもとにした記憶力ゲーム"
+
+#: ../boards/railroad.xml.in.h:2
+msgid "A train - a locomotive and carriage(s) - is displayed at the top of the main area for a few seconds. Rebuild it at the top of the screen by selecting the appropriate carriages and locomotive. Deselect an item by clicking on it again. Check your construction by clicking on the hand at the bottom."
+msgstr "電車ー機関車と車両は２、３秒の間メイン画面の最上位で示されます.適切な車両と機関車を選んでスクリーンの最上位でそれを作り直してください.もう一度、車両や機関車をクリックすることでアイテムを取り消すことができます.『手』のボタンをクリックすることにであなたの組み立てた車両や機関車をチェックしてください."
+
+#: ../boards/railroad.xml.in.h:3
+msgid "Memory-training"
+msgstr "記憶力のトレーニング"
+
+#: ../boards/railroad.xml.in.h:5
+msgid "Railway"
+msgstr "鉄道"
+
+#: ../boards/read_colors.xml.in.h:2
+msgid "Click on the correct colored object."
+msgstr "正しい色の物をクリックしてみよう"
+
+#: ../boards/read_colors.xml.in.h:3
+msgid "Click on the matching color"
+msgstr "合っている色をクリックしてみよう"
+
+#: ../boards/read_colors.xml.in.h:4
+msgid "Read the names of colors"
+msgstr "色の名前を読んでみよう"
+
+#: ../boards/read_colors.xml.in.h:5
+msgid "This board teaches basic colors."
+msgstr "このゲームでは基本的な色を教えてくれます"
+
+#: ../boards/read_colors/board1.xml.in.h:1
+msgid "black"
+msgstr "くろ色"
+
+#: ../boards/read_colors/board1.xml.in.h:2
+msgid "blue"
+msgstr "あお色"
+
+#: ../boards/read_colors/board1.xml.in.h:3
+msgid "brown"
+msgstr "ちゃ色"
+
+#: ../boards/read_colors/board1.xml.in.h:4
+msgid "green"
+msgstr "みどり色"
+
+#: ../boards/read_colors/board1.xml.in.h:5
+msgid "grey"
+msgstr "はい色"
+
+#: ../boards/read_colors/board1.xml.in.h:6
+msgid "orange"
+msgstr "おれんじ色"
+
+#: ../boards/read_colors/board1.xml.in.h:7
+msgid "pink"
+msgstr "ぴんく色"
+
+#: ../boards/read_colors/board1.xml.in.h:8
+msgid "red"
+msgstr "あか色"
+
+#: ../boards/read_colors/board1.xml.in.h:9
+msgid "violet"
+msgstr "すみれ色"
+
+#: ../boards/read_colors/board1.xml.in.h:10
+msgid "white"
+msgstr "しろ色"
+
+#: ../boards/read_colors/board1.xml.in.h:11
+msgid "yellow"
+msgstr "き色"
+
+#: ../boards/reading.xml.in.h:1
+msgid "Go to the Reading activities"
+msgstr "読解力のゲームへ"
+
+#: ../boards/reading.xml.in.h:2
+msgid "Reading activities."
+msgstr "読解力ゲーム"
+
+#: ../boards/readingh.xml.in.h:1
+#: ../boards/readingv.xml.in.h:1
+msgid "A word is shown at the top right of the board. A list of words will appear and disappear on the left. Does the given word belong to the list?"
+msgstr "単語は、ボードの右上で示されます.単語のリストは、左側で現れたり消えたりします.与えられた単語は、リストに属していますか？"
+
+#: ../boards/readingh.xml.in.h:2
+msgid "Horizontal reading practice"
+msgstr "横読みの練習"
+
+#: ../boards/readingh.xml.in.h:3
+msgid "Read a list of words and work out if a given word is in it"
+msgstr "単語リストを読んで、与えられた単語がリストの中にあるかどうか教えてください."
+
+#: ../boards/readingh.xml.in.h:5
+msgid "Reading training in a limited time"
+msgstr "制限時間内に読みの練習をしましょう."
+
+#: ../boards/readingv.xml.in.h:2
+msgid "Read a vertical list of words and work out if a given word is in it"
+msgstr "垂直な単語リストを読んで与えられた単語がリストの中にあるかどうか教えてください."
+
+#: ../boards/readingv.xml.in.h:3
+msgid "Read training in a limited time"
+msgstr "制限時間内に読みの練習をしましょう."
+
+#: ../boards/readingv.xml.in.h:5
+msgid "Vertical-reading practice"
+msgstr "たて読みの練習"
+
+#: ../boards/redraw.xml.in.h:1
+msgid "Copy a drawing from the box on the right into the box on the left."
+msgstr "右のボックスから左のボックスへ、デザインをコピーしてみましょう."
+
+#: ../boards/redraw.xml.in.h:2
+msgid "First, select the proper tool from the toolbar. Then drag the mouse to create objects. When you are done, click on the OK button. Errors will be marked with a little red cross. The order of objects (above/under) is not important but be careful not to end up with unwanted objects under others."
+msgstr "最初に、ツールバーから適当なツールを選んでください.それから、オブジェクトをつくるためにマウスをドラッグしてください.オブジェクトを作成した時、ＯＫボタンをクリックしてください.エラーは小さい赤十字で表示されます.オブジェクト（above/under）の命令は重要でなありません.しかし、不必要なオブジェクトで終わらないように注意してください."
+
+#: ../boards/redraw.xml.in.h:3
+msgid "Redraw the given item"
+msgstr "アイテムを描き直してみよう"
+
+#: ../boards/redraw_symmetrical.xml.in.h:1
+msgid "Copy the mirror image of an object from the box on the right into the box on the left."
+msgstr "アイテムの鏡像を、右のボックスから左のボックスへコピーしてみましょう."
+
+#: ../boards/redraw_symmetrical.xml.in.h:2
+msgid "First, select the proper tool from the toolbar. Then drag the mouse to create objects. When you are done, click on the OK button. A little red cross will show you where something isn't right yet. The order of objects (above/under) is not important but be careful not to end up with unwanted objects under others."
+msgstr "最初に、ツールバーから適当なツールを選んでください.それから、オブジェクトをつくるためにマウスをドラッグしてください.オブジェクトを作成した時、ＯＫボタンをクリックしてください.小さい赤十字は、どこで何が正しくないか示してくれます.オブジェクト（above/under）の命令は重要でなありません.しかし、不必要なオブジェクトで終わらないように注意してください."
+
+#: ../boards/redraw_symmetrical.xml.in.h:3
+msgid "Mirror the given item"
+msgstr "アイテムの鏡像"
+
+#: ../boards/reversecount.xml.in.h:1
+msgid "Can move the mouse, can read numbers and subtract numbers up to 10 for the first level"
+msgstr "マウスを動かせる.数字が読めて、 ゲームの最初のレベルのために10までの数字をひき算ができる."
+
+#: ../boards/reversecount.xml.in.h:2
+msgid "Click on the dice to show how many ice spots there are between Tux and the fish. Click the dice with the right mouse button to count backwards. When done, click on the OK button or hit the Enter key."
+msgstr "どれくらいの氷点がタックスくんと魚の間にあるかについて示すために、サイコロをクリックしてください.後方に数えるために、右のマウスボタンでサイコロをクリックしてください.その後、ＯＫボタンをクリックするかエンターキーを押してください."
+
+#: ../boards/reversecount.xml.in.h:3
+msgid "Practice subtraction with a fun game"
+msgstr "楽しいゲームをしながらのひき数を練習しましょう"
+
+#: ../boards/reversecount.xml.in.h:4
+msgid "Tux is hungry. Help him find fish by counting to the correct ice spot."
+msgstr "タックスくんはお腹が減っています.正しい氷りの場所を数えて、魚を見つけてタックスくんを手伝ってあげましょう."
+
+#: ../boards/scales/board1_0.xml.in.h:1
+#: ../boards/scales/board1_1.xml.in.h:1
+#: ../boards/scales/board1_2.xml.in.h:1
+#: ../boards/scales/board1_3.xml.in.h:1
+#: ../boards/scales/board1_4.xml.in.h:1
+#: ../boards/scales/board1_5.xml.in.h:1
+#: ../boards/scales/board2_0.xml.in.h:1
+#: ../boards/scales/board2_1.xml.in.h:1
+#: ../boards/scales/board2_2.xml.in.h:1
+#: ../boards/scales/board2_3.xml.in.h:1
+#: ../boards/scales/board2_4.xml.in.h:1
+#: ../boards/scales/board2_5.xml.in.h:1
+#: ../boards/scales/board3_0.xml.in.h:1
+#: ../boards/scales/board3_1.xml.in.h:1
+#: ../boards/scales/board3_2.xml.in.h:1
+#: ../boards/scales/board3_3.xml.in.h:1
+#: ../boards/scales/board3_4.xml.in.h:1
+#: ../boards/scales/board3_5.xml.in.h:1
+#: ../boards/scalesboard.xml.in.h:2
+msgid "Drag and Drop masses to balance the scales"
+msgstr "おもりをドラッグ&ドロップして、目盛りをつり合わせてみよう"
+
+#: ../boards/scalesboard.xml.in.h:1
+msgid "Balance the scales properly"
+msgstr "上手に目盛をつりあわせよう"
+
+#: ../boards/scalesboard.xml.in.h:3
+msgid "Mental calculation, arithmetic equality"
+msgstr "知的な計算、等式の計算."
+
+#: ../boards/scalesboard.xml.in.h:4
+msgid "The painting is an original painting created by Virginie MOREAU (virginie.moreau@free.fr) in 2001. Its name is 'Spices Seller in Egypt'. It is released under the GPL licence."
+msgstr "絵は、2001年にVirginie・MOREAU（virginie.moreau@free.fr）によって描かれた絵です.この名前は、『エジプトのスパイス屋』です.これは、GPLライセンスのもとに公開されています."
+
+#: ../boards/scalesboard.xml.in.h:5
+msgid "To balance the scales, move the masses on the left side. The masses can be arranged in any order."
+msgstr "目盛りを釣り合わせるために、左側におもりを動かしてください.おもりはどんな順序でも配置することができます."
+
+#: ../boards/searace.xml.in.h:1
+msgid "Direct your boat accurately to win the race."
+msgstr "レースに勝つために正確にボートを誘導してみよう."
+
+#: ../boards/searace.xml.in.h:2
+#: ../boards/searace1player.xml.in.h:2
+msgid "In the text entry, enter one command per line, to control your boat. Commands supported are displayed between the two entry areas. The 'left' and 'right' commands must be followed by an angle in degrees. The angle value is also called a 'parameter' to the left or right command. By default 45 degrees is used. The 'forward' command accepts a distance parameter. By default 1 is used. For example: left 90 => Make a perpendicular left turn forward 10 => Go forward for 10 units (as displayed on the ruler). The goal is to reach the right of the screen (the red line). When done, you can try to improve your program and start a new race with the same weather conditions by using the retry button. You can click and drag your mouse anywhere on the map to get a measurement in distance and angle. Going to the next level will give you more complex weather conditions."
+msgstr ""
+"あなたのボートを制御するために、テキスト入力において、入力するラインにつき、1つのコマンドを入力してください.サポートされたコマンドは、2つの入力するところの間に表示されます.『右』と『左』のコマンドは、角度が後に続かなければなりません.角度の値は、左または右のコマンドの『パラメータ』とも呼ばれています.初期値(デフォルト)は、45度が使われます.『前方』のコマンドは、距離のパラメータを受け入れます.初期値(デフォルト)は、1が使われます.\n"
+"例：左 90 => 垂直(90度)に左折をしてください.\n"
+"前方 10 =>　10単位分進んでください(定規に表示されます)\n"
+"ゴールは、スクリーンの右側(赤い線)に到着することです.ゲームをする時、あなたはプログラムを改良することができ、リトライボタンを使用することで、同じ気象状況で新しいレースを始めることができます.あなたは、距離と角度で測定値を得るために、地図上のどこでもマウスをクリックしてドラッグすることができます.次のレベルに行く進むと、より複雑な気象状況を与えられます."
+
+#: ../boards/searace.xml.in.h:3
+#: ../boards/searace1player.xml.in.h:3
+msgid "In this activity, you will learn how to enter commands into a computer. Even if the language is extremely basic, you learn here how to think ahead and construct a program. This activity can be used to introduce the programming concept to children."
+msgstr "このゲームでは、コマンドをコンピュータに入力する方法を学びます.たとえ言語がとても基本的であるとしても、どのように先に考えるかやプログラムの作り方をここで学ぶことができます.このゲームは、子ども達にプログラミングの概念を紹介することができます."
+
+#: ../boards/searace.xml.in.h:4
+msgid "Sea race (2 Players)"
+msgstr "海洋レース (2人用)"
+
+#: ../boards/searace1player.xml.in.h:1
+msgid "Give good instructions to your ship in order to be first in the race."
+msgstr "レースに勝つために正確にボートを誘導してみよう"
+
+#: ../boards/searace1player.xml.in.h:4
+msgid "Sea race (Single Player)"
+msgstr "海洋レース(1人用)"
+
+#: ../boards/smallnumbers.xml.in.h:1
+#: ../boards/smallnumbers2.xml.in.h:1
+msgid "Count the number of dots on dice before they reach the ground"
+msgstr "サイコロが地面に着く前にサイコロの点の数を数えましょう."
+
+#: ../boards/smallnumbers.xml.in.h:2
+#: ../boards/smallnumbers2.xml.in.h:2
+msgid "Counting skills"
+msgstr "数が数えられること"
+
+#: ../boards/smallnumbers.xml.in.h:3
+#: ../boards/smallnumbers2.xml.in.h:3
+msgid "In a limited time, count the number of dots"
+msgstr ""
+
+#: ../boards/smallnumbers.xml.in.h:4
+msgid "Numbers With Dice"
+msgstr ""
+
+#: ../boards/smallnumbers.xml.in.h:5
+#: ../boards/smallnumbers2.xml.in.h:5
+msgid "With the keyboard, type the number of dots you see on the falling dice."
+msgstr ""
+
+#: ../boards/smallnumbers2.xml.in.h:4
+msgid "Numbers with pairs of dice"
+msgstr ""
+
+#: ../boards/sound_group.xml.in.h:1
+msgid "Go to Sound activities"
+msgstr ""
+
+#: ../boards/sound_group.xml.in.h:2
+msgid "Sound based activities."
+msgstr ""
+
+#: ../boards/strategy.xml.in.h:1
+msgid "Strategy games"
+msgstr ""
+
+#: ../boards/strategy.xml.in.h:2
+msgid "Strategy games like chess, connect4, ..."
+msgstr ""
+
+#: ../boards/submarine.xml.in.h:1
+msgid "Click on different active elements : engine, rudders and air tanks, in order to navigate to the required depth."
+msgstr ""
+
+#: ../boards/submarine.xml.in.h:2
+msgid "Learn how a submarine works"
+msgstr ""
+
+#: ../boards/submarine.xml.in.h:3
+msgid "Physics basics"
+msgstr ""
+
+#: ../boards/submarine.xml.in.h:4
+msgid "Pilot a submarine"
+msgstr ""
+
+#: ../boards/submarine.xml.in.h:5
+msgid "Pilot a submarine using air tanks and dive rudders"
+msgstr ""
+
+#: ../boards/sudoku.xml.in.h:1
+msgid "Completing the puzzle requires patience and logical ability"
+msgstr ""
+
+#: ../boards/sudoku.xml.in.h:2
+msgid "For the first level with colored symbols, drag symbols on the left to their target position. For the higher levels, click on an empty square to give it the keyboard focus. Then enter a possible letter or number. GCompris will not let you enter invalid data."
+msgstr ""
+
+#: ../boards/sudoku.xml.in.h:3
+msgid "Sudoku, place unique symbols in a square."
+msgstr ""
+
+#: ../boards/sudoku.xml.in.h:4
+msgid "Symbols must be unique in a row, in a column, and (if defined) each region."
+msgstr ""
+
+#: ../boards/sudoku.xml.in.h:5
+msgid "The aim of the puzzle is to enter a symbol or numeral from 1 through 9 in each cell of a grid, most frequently a 9x9 grid made up of 3x3 subgrids (called 'regions'), starting with various symbols or numerals given in some cells (the 'givens'). Each row, column and region must contain only one instance of each symbol or numeral (Source &lt;http://en.wikipedia.org/wiki/Sudoku&gt;)."
+msgstr ""
+
+#: ../boards/superbrain.xml.in.h:1
+msgid "Click on the items until you find what you think is the correct answer. Then, click on the OK button in the control bar. In the lower levels, Tux gives you an indication if you found a hiding place by marking the item with a black box. You can use the right mouse button to flip the colors in the opposite order."
+msgstr ""
+
+#: ../boards/superbrain.xml.in.h:2
+#: ../src/boards/superbrain.c:110
+msgid "Super Brain"
+msgstr ""
+
+#: ../boards/superbrain.xml.in.h:3
+#: ../src/boards/superbrain.c:111
+msgid "Tux has hidden several items. Find them again in the correct order"
+msgstr ""
+
+#: ../boards/tangram.xml.in.h:1
+msgid ""
+"From Wikipedia, the free encyclopedia. Tangram (Chinese: literally \"seven boards of cunning\") is a Chinese puzzle. While the tangram is often said to be ancient, its existence has only been verified as far back as 1800. It consists of 7 pieces, called tans, which fit together to form a square; taking the square as the unit:\n"
+"\t* 5 right isosceles triangles\n"
+"\t\to 2 small (legs of 1)\n"
+"\t\to 1 medium size (legs of square root of 2)\n"
+"\t\to 2 large size (legs of 2)\n"
+"\t* 1 square (side of 1)\n"
+"\t* 1 parallelogram (sides of 1 and square root of 2)"
+msgstr ""
+
+#: ../boards/tangram.xml.in.h:9
+msgid "Select the tangram to form. Move a piece by dragging it. Right-click on it to create a symmetrical item. Select an item and drag around it to show the rotation you want. Once you've shown what shape you want, the computer will create it. If you need help, click on the shape button, and the border of the shape will be drawn."
+msgstr ""
+
+#: ../boards/tangram.xml.in.h:10
+msgid "The objective is to form a given shape with seven pieces"
+msgstr ""
+
+#: ../boards/tangram.xml.in.h:11
+msgid "The original code was written by Philippe Banwarth in 1999. It was ported to GCompris by Yves Combe in 2005."
+msgstr ""
+
+#: ../boards/tangram.xml.in.h:12
+msgid "The tangram puzzle game"
+msgstr ""
+
+#: ../boards/target.xml.in.h:1
+msgid "Can move the mouse, can read numbers and count up to 15 for the first level"
+msgstr ""
+
+#: ../boards/target.xml.in.h:2
+msgid "Check the wind speed and direction, and then click on the target to launch a dart. When you all your darts are thrown, a window appears asking you to count your score. Enter the score with the keyboard then press the Enter key or the OK button."
+msgstr ""
+
+#: ../boards/target.xml.in.h:3
+msgid "Hit the target and count your points"
+msgstr ""
+
+#: ../boards/target.xml.in.h:4
+msgid "Practice addition with a target game"
+msgstr ""
+
+#: ../boards/target.xml.in.h:5
+msgid "Throw darts at a target and count your score."
+msgstr ""
+
+#: ../boards/traffic.xml.in.h:1
+msgid "A sliding-block puzzle game"
+msgstr "スライドするブロックパズルゲーム"
+
+#: ../boards/traffic.xml.in.h:2
+msgid "Each car can only move either horizontally or vertically. You must make some room in order to let the red car move through the gate on the right."
+msgstr ""
+
+#: ../boards/traffic.xml.in.h:3
+msgid "Remove the red car from the parking lot through the gate on the right"
+msgstr "右の門を通しての駐車場から、赤い車を出してください.(それぞれのブロックを動かして、格子から赤いブロックを取り除きましょう)"
+
+#: ../boards/tuxpaint.xml.in.h:1
+msgid "Drawing activity (pixmap)"
+msgstr ""
+
+#: ../boards/tuxpaint.xml.in.h:2
+msgid "Launch Tuxpaint"
+msgstr ""
+
+#: ../boards/tuxpaint.xml.in.h:3
+msgid "Tuxpaint"
+msgstr "タックスペイント"
+
+#: ../boards/tuxpaint.xml.in.h:4
+msgid "Use Tuxpaint to draw. When Tuxpaint is finished this board will end."
+msgstr ""
+
+#: ../boards/tuxpaint.xml.in.h:5
+msgid "mouse and keyboard manipulation"
+msgstr ""
+
+#: ../boards/watercycle.xml.in.h:1
+msgid "Click on different active elements : sun, cloud, water pump station, and water cleanup station, in order to reactivate the entire water system. When the system is back up and Tux is in the shower, push the shower button for him."
+msgstr ""
+
+#: ../boards/watercycle.xml.in.h:2
+msgid "Learn about the water cycle"
+msgstr ""
+
+#: ../boards/watercycle.xml.in.h:3
+msgid "Learn the water cycle"
+msgstr ""
+
+#: ../boards/watercycle.xml.in.h:4
+msgid "Tux has come back from a long fishing party on his boat. Bring the water system back up so he can take a shower."
+msgstr ""
+
+#: ../boards/wordsgame.xml.in.h:1
+#: ../src/boards/wordsgame.c:112
+msgid "Falling Words"
+msgstr ""
+
+#: ../boards/wordsgame.xml.in.h:3
+msgid "Keyboard training"
+msgstr ""
+
+#: ../boards/wordsgame.xml.in.h:4
+msgid "Type the complete word as it falls, before it reachs the ground"
+msgstr ""
+
+#: ../boards/wordsgame.xml.in.h:5
+#: ../src/boards/wordsgame.c:113
+msgid "Type the falling words before they reach the ground"
+msgstr ""
+
+#: ../gcompris-edit.desktop.in.h:1
+msgid "Administration for gcompris"
+msgstr ""
+
+#: ../gcompris.desktop.in.h:1
+msgid "Educational game for ages 2 to 10"
+msgstr ""
+
+#: ../gcompris.desktop.in.h:2
+msgid "Educational suite GCompris"
+msgstr ""
+
+#: ../gcompris.desktop.in.h:3
+msgid "Multi-activity educational game"
+msgstr ""
+
+#: ../src/boards/awele.c:352
+#: ../src/boards/awele.c:362
+msgid "NORTH"
+msgstr ""
+
+#: ../src/boards/awele.c:374
+#: ../src/boards/awele.c:384
+msgid "SOUTH"
+msgstr ""
+
+#: ../src/boards/awele.c:553
+msgid "Choose a house"
+msgstr ""
+
+#: ../src/boards/awele.c:681
+msgid "Your turn to play ..."
+msgstr ""
+
+#: ../src/boards/awele.c:750
+msgid "Not allowed! Try again !"
+msgstr ""
+
+#: ../src/boards/chess.c:183
+#: ../src/boards/chess.c:1124
+msgid "Error: The external program gnuchess died unexpectingly"
+msgstr ""
+
+#: ../src/boards/chess.c:198
+msgid ""
+"Error: The external program gnuchess is mandatory\n"
+"to play chess in gcompris.\n"
+"Find this program on http://www.rpmfind.net or in your\n"
+"GNU/Linux distribution\n"
+"And check it is located here: "
+msgstr ""
+
+#: ../src/boards/chess.c:240
+msgid ""
+"Error: The external program gnuchess is mandatory\n"
+"to play chess in gcompris.\n"
+"First install it, and check it is in "
+msgstr ""
+
+#: ../src/boards/chess.c:583
+msgid "White's Turn"
+msgstr ""
+
+#: ../src/boards/chess.c:583
+msgid "Black's Turn"
+msgstr ""
+
+#: ../src/boards/chess.c:727
+msgid "White checks"
+msgstr ""
+
+#: ../src/boards/chess.c:729
+msgid "Black checks"
+msgstr ""
+
+#: ../src/boards/chess.c:1086
+msgid "Black mates"
+msgstr ""
+
+#: ../src/boards/chess.c:1091
+msgid "White mates"
+msgstr ""
+
+#: ../src/boards/chess.c:1096
+#: ../src/gcompris/bonus.c:342
+#: ../src/gcompris/bonus.c:351
+msgid "Drawn game"
+msgstr ""
+
+#: ../src/boards/click_on_letter.c:262
+#: ../src/boards/memory.c:827
+msgid ""
+"Error: this activity cannot be played with the\n"
+"sound effects disabled.\n"
+"Go to the configuration dialog to\n"
+"enable the sound"
+msgstr ""
+
+#. TRANSLATORS: Put here the alphabet in your language
+#. require by all utf8-functions
+#. TRANSLATORS: Put here the alphabet lowercase in your language
+#: ../src/boards/click_on_letter.c:267
+#: ../src/boards/gletters.c:232
+#: ../src/boards/memory.c:848
+msgid "abcdefghijklmnopqrstuvwxyz"
+msgstr ""
+
+#: ../src/boards/click_on_letter.c:289
+#, c-format
+msgid ""
+"Error: this activity requires that you first install\n"
+"the packages with gcompris voices for the locale '%s' or '%s'"
+msgstr ""
+
+#: ../src/boards/click_on_letter.c:297
+#, c-format
+msgid ""
+"Error: this activity requires that you first install\n"
+"the packages with GCompris voices for the locale '%s' ! Fallback to english, sorry!"
+msgstr ""
+
+#. toggle box
+#: ../src/boards/click_on_letter.c:649
+#: ../src/boards/gletters.c:899
+#: ../src/boards/python/login.py:540
+msgid "Uppercase only text"
+msgstr ""
+
+#: ../src/boards/clockgame.c:544
+#: ../src/boards/clockgame.c:554
+msgid "Set the watch to:"
+msgstr ""
+
+#: ../src/boards/colors.c:57
+msgid "Click on the blue duck"
+msgstr ""
+
+#: ../src/boards/colors.c:58
+msgid "Click on the brown duck"
+msgstr ""
+
+#: ../src/boards/colors.c:59
+msgid "Click on the green duck"
+msgstr ""
+
+#: ../src/boards/colors.c:60
+msgid "Click on the grey duck"
+msgstr ""
+
+#: ../src/boards/colors.c:61
+msgid "Click on the orange duck"
+msgstr ""
+
+#: ../src/boards/colors.c:62
+msgid "Click on the purple duck"
+msgstr ""
+
+#: ../src/boards/colors.c:63
+msgid "Click on the red duck"
+msgstr ""
+
+#: ../src/boards/colors.c:64
+msgid "Click on the yellow duck"
+msgstr ""
+
+#: ../src/boards/colors.c:65
+msgid "Click on the black duck"
+msgstr ""
+
+#: ../src/boards/colors.c:66
+msgid "Click on the white duck"
+msgstr ""
+
+#. TRANSLATORS: Put here the numbers in your language
+#: ../src/boards/gletters.c:228
+#: ../src/boards/memory.c:844
+msgid "0123456789"
+msgstr ""
+
+#. TRANSLATORS: Put here the alphabet uppercase in your language
+#: ../src/boards/gletters.c:238
+#: ../src/boards/memory.c:854
+msgid "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+msgstr ""
+
+#: ../src/boards/hanoi.c:336
+#: ../src/boards/hanoi.c:347
+msgid "Build the same tower in the empty area as the one you see on the right-hand side."
+msgstr ""
+
+#: ../src/boards/hanoi_real.c:76
+msgid "Tower of Hanoi"
+msgstr ""
+
+#: ../src/boards/hanoi_real.c:277
+#: ../src/boards/hanoi_real.c:288
+msgid "Move the entire stack to the right peg, one disc at a time"
+msgstr ""
+
+#: ../src/boards/imageid.c:107
+#: ../src/boards/missingletter.c:105
+msgid "Learn how to read"
+msgstr ""
+
+#: ../src/boards/leftright.c:280
+#: ../src/boards/leftright.c:290
+#: ../src/boards/python/searace.py:428
+#: ../src/boards/python/searace.py:453
+#: ../src/boards/python/searace.py:543
+#: ../src/boards/python/searace.py:855
+#: ../src/boards/python/searace.py:888
+#: ../src/boards/python/searace.py:985
+msgid "left"
+msgstr ""
+
+#: ../src/boards/leftright.c:300
+#: ../src/boards/leftright.c:310
+#: ../src/boards/python/searace.py:428
+#: ../src/boards/python/searace.py:453
+#: ../src/boards/python/searace.py:552
+#: ../src/boards/python/searace.py:857
+#: ../src/boards/python/searace.py:890
+#: ../src/boards/python/searace.py:979
+msgid "right"
+msgstr ""
+
+#: ../src/boards/maze.c:496
+msgid "Look at your position, then switch back to invisible mode to continue your moves"
+msgstr ""
+
+#: ../src/boards/maze.c:498
+msgid "Look at your position, then switch back to 3D mode to continue your moves"
+msgstr ""
+
+#: ../src/boards/memory.c:287
+msgid "Memory"
+msgstr ""
+
+#: ../src/boards/memory.c:288
+msgid "Find the matching pair"
+msgstr ""
+
+#. TRANSLATORS: Put here the mathematical operators "+-×÷" for  your language.
+#: ../src/boards/memory.c:859
+msgid "+-Ã—Ã·"
+msgstr ""
+
+#: ../src/boards/menu2.c:131
+msgid "Main Menu Second Version"
+msgstr ""
+
+#: ../src/boards/menu2.c:132
+msgid "Select a Board"
+msgstr ""
+
+#. Set here the way to display money. Change only the money sign, and it's place, always keep %.2f, it will be replaced by 0,34 if decimal is ',' in your locale
+#: ../src/boards/money.c:492
+#, c-format
+msgid "$ %.2f"
+msgstr ""
+
+#: ../src/boards/money.c:505
+#, c-format
+msgid "$ %.0f"
+msgstr ""
+
+#: ../src/boards/planegame.c:75
+msgid "Move the plane to catch the clouds in the correct order"
+msgstr ""
+
+#: ../src/boards/python.c:62
+msgid "Python Board"
+msgstr ""
+
+#: ../src/boards/python.c:63
+msgid "Special board that embeds python into gcompris."
+msgstr ""
+
+#: ../src/boards/python/admin/board_list.py:89
+msgid "Select a profile:"
+msgstr ""
+
+#: ../src/boards/python/admin/board_list.py:145
+msgid "Filter"
+msgstr ""
+
+#: ../src/boards/python/admin/board_list.py:150
+msgid "Select all"
+msgstr ""
+
+#: ../src/boards/python/admin/board_list.py:155
+msgid "Unselect all"
+msgstr ""
+
+#: ../src/boards/python/admin/board_list.py:160
+msgid "Locales"
+msgstr ""
+
+#: ../src/boards/python/admin/board_list.py:165
+msgid "Locales sound"
+msgstr ""
+
+#: ../src/boards/python/admin/board_list.py:170
+msgid "Wordlist"
+msgstr ""
+
+#: ../src/boards/python/admin/board_list.py:177
+#: ../src/boards/python/admin/group_user_list.py:144
+#: ../src/boards/python/admin/user_list.py:186
+msgid "Login"
+msgstr ""
+
+#: ../src/boards/python/admin/board_list.py:235
+msgid "Main menu"
+msgstr ""
+
+#. columns for Board name
+#. column_pref = gtk.TreeViewColumn(_('Conf'))
+#. image = gtk.image_new_from_stock(gtk.STOCK_PREFERENCES, gtk.ICON_SIZE_MENU)
+#. image.show()
+#. column_pref.set_widget(image)
+#: ../src/boards/python/admin/board_list.py:292
+msgid "Active"
+msgstr ""
+
+#: ../src/boards/python/admin/board_list.py:293
+msgid "Board title"
+msgstr ""
+
+#: ../src/boards/python/admin/board_list.py:409
+#, python-format
+msgid "Filter Boards difficulty for profile %s"
+msgstr ""
+
+#: ../src/boards/python/admin/board_list.py:440
+#, python-format
+msgid ""
+"<span size='x-large'> Select the difficulty range \n"
+"for profile <b>%s</b></span>"
+msgstr ""
+
+#. Init configuration window:
+#. all the configuration functions will use it
+#. all the configuration functions returns values for their key in
+#. the dict passed to the apply_callback
+#. the returned value is the main GtkVBox of the window,
+#. we can add what you want in it.
+#: ../src/boards/python/admin/board_list.py:631
+#: ../src/boards/python/admin/board_list.py:649
+#: ../src/boards/python/admin/wordlist.py:50
+#: ../src/boards/python/login.py:535
+#: ../src/boards/python/pythontest.py:409
+#: ../src/boards/python/tuxpaint.py:183
+#, python-format
+msgid ""
+"<b>%s</b> configuration\n"
+" for profile <b>%s</b>"
+msgstr ""
+
+#: ../src/boards/python/admin/board_list.py:661
+#: ../src/boards/python/pythontest.py:473
+msgid "Select sound locale"
+msgstr ""
+
+#: ../src/boards/python/admin/class_edit.py:60
+msgid "Editing a Class"
+msgstr ""
+
+#: ../src/boards/python/admin/class_edit.py:65
+msgid "Editing class: "
+msgstr ""
+
+#: ../src/boards/python/admin/class_edit.py:68
+msgid "Editing a new class"
+msgstr ""
+
+#: ../src/boards/python/admin/class_edit.py:90
+msgid "Class:"
+msgstr ""
+
+#. FIXME: How to remove the default selection
+#. Label and Entry for the teacher name
+#: ../src/boards/python/admin/class_edit.py:103
+msgid "Teacher:"
+msgstr ""
+
+#: ../src/boards/python/admin/class_edit.py:113
+msgid "Assign all the users belonging to this class"
+msgstr ""
+
+#: ../src/boards/python/admin/class_edit.py:253
+#: ../src/boards/python/admin/group_edit.py:265
+#: ../src/boards/python/admin/group_user_list.py:154
+#: ../src/boards/python/admin/user_list.py:196
+msgid "First Name"
+msgstr ""
+
+#: ../src/boards/python/admin/class_edit.py:264
+#: ../src/boards/python/admin/group_edit.py:276
+#: ../src/boards/python/admin/group_user_list.py:164
+#: ../src/boards/python/admin/user_list.py:206
+msgid "Last Name"
+msgstr ""
+
+#: ../src/boards/python/admin/class_edit.py:341
+msgid "You need to provide at least a name for your class"
+msgstr ""
+
+#: ../src/boards/python/admin/class_edit.py:387
+msgid "There is already a class with this name"
+msgstr ""
+
+#: ../src/boards/python/admin/class_list.py:169
+#: ../src/boards/python/admin/profile_edit.py:269
+#: ../src/boards/python/admin/profile_group_list.py:144
+msgid "Class"
+msgstr ""
+
+#: ../src/boards/python/admin/class_list.py:179
+msgid "Teacher"
+msgstr ""
+
+#: ../src/boards/python/admin/group_edit.py:60
+msgid "Editing a Group"
+msgstr ""
+
+#: ../src/boards/python/admin/group_edit.py:66
+msgid "Editing group: "
+msgstr ""
+
+#: ../src/boards/python/admin/group_edit.py:67
+msgid " for class: "
+msgstr ""
+
+#: ../src/boards/python/admin/group_edit.py:70
+msgid "Editing a new group"
+msgstr ""
+
+#: ../src/boards/python/admin/group_edit.py:90
+msgid "Group:"
+msgstr ""
+
+#. FIXME: How to remove the selection
+#. Label and Entry for the first name
+#: ../src/boards/python/admin/group_edit.py:102
+#: ../src/boards/python/admin/profile_edit.py:98
+msgid "Description:"
+msgstr ""
+
+#. Top message gives instructions
+#: ../src/boards/python/admin/group_edit.py:113
+msgid "Assign all the users belonging to this group"
+msgstr ""
+
+#: ../src/boards/python/admin/group_edit.py:359
+msgid "You need to provide at least a name for your group"
+msgstr ""
+
+#: ../src/boards/python/admin/group_edit.py:373
+msgid "There is already a group with this name"
+msgstr ""
+
+#: ../src/boards/python/admin/group_list.py:86
+msgid "Select a class:"
+msgstr ""
+
+#: ../src/boards/python/admin/group_list.py:214
+#: ../src/boards/python/admin/profile_edit.py:279
+#: ../src/boards/python/admin/profile_group_list.py:154
+msgid "Group"
+msgstr ""
+
+#: ../src/boards/python/admin/group_list.py:225
+#: ../src/boards/python/admin/profile_edit.py:289
+#: ../src/boards/python/admin/profile_group_list.py:164
+#: ../src/boards/python/admin/profile_list.py:198
+msgid "Description"
+msgstr ""
+
+#: ../src/boards/python/admin/group_list.py:322
+msgid "You must first select a group in the list"
+msgstr ""
+
+#: ../src/boards/python/admin/group_user_list.py:174
+#: ../src/boards/python/admin/user_list.py:216
+msgid "Birth Date"
+msgstr ""
+
+#: ../src/boards/python/admin/module_boards.py:42
+#: ../src/boards/python/admin/module_boards.py:62
+msgid "Boards"
+msgstr ""
+
+#: ../src/boards/python/admin/module_groups.py:40
+#: ../src/boards/python/admin/module_groups.py:66
+msgid "Groups"
+msgstr ""
+
+#: ../src/boards/python/admin/module_profiles.py:40
+#: ../src/boards/python/admin/module_profiles.py:65
+msgid "Profiles"
+msgstr ""
+
+#: ../src/boards/python/admin/module_users.py:41
+#: ../src/boards/python/admin/module_users.py:67
+msgid "Classes"
+msgstr ""
+
+#: ../src/boards/python/admin/module_users.py:41
+#: ../src/boards/python/admin/module_users.py:67
+msgid "Users"
+msgstr ""
+
+#: ../src/boards/python/admin/profile_edit.py:59
+msgid "Editing a Profile"
+msgstr ""
+
+#: ../src/boards/python/admin/profile_edit.py:64
+msgid "Editing profile: "
+msgstr ""
+
+#: ../src/boards/python/admin/profile_edit.py:67
+msgid "Editing a new profile"
+msgstr ""
+
+#: ../src/boards/python/admin/profile_edit.py:86
+msgid "Profile:"
+msgstr ""
+
+#. Top message gives instructions
+#: ../src/boards/python/admin/profile_edit.py:109
+msgid "Assign all the groups belonging to this profile"
+msgstr "このプロフィールに属している全てのグループを割り当ててください."
+
+#: ../src/boards/python/admin/profile_edit.py:377
+msgid "You need to provide at least a name for your profile"
+msgstr "あなたは、少なくとも名前をあなたのプロフィールに提供する必要があります."
+
+#: ../src/boards/python/admin/profile_edit.py:399
+msgid "There is already a profile with this name"
+msgstr "この名前のプロフィールがすでに存在します."
+
+#: ../src/boards/python/admin/profile_list.py:121
+#: ../src/gcompris/board_config.c:668
+#: ../src/gcompris/board_config.c:832
+msgid "Default"
+msgstr "デフォルト"
+
+#: ../src/boards/python/admin/profile_list.py:188
+msgid "Profile"
+msgstr "プロフィール"
+
+#: ../src/boards/python/admin/profile_list.py:315
+msgid "[Default]"
+msgstr "[デフォルト]"
+
+#: ../src/boards/python/admin/user_edit.py:50
+msgid "Editing a User"
+msgstr "ユーザーの編集"
+
+#: ../src/boards/python/admin/user_edit.py:55
+msgid "Editing a User "
+msgstr "ユーザーの編集"
+
+#: ../src/boards/python/admin/user_edit.py:61
+msgid "Editing a new user"
+msgstr "新しいユーザーの編集"
+
+#: ../src/boards/python/admin/user_edit.py:78
+msgid "Login:"
+msgstr "ログイン:"
+
+#. FIXME: How to remove the selection
+#. Label and Entry for the first name
+#: ../src/boards/python/admin/user_edit.py:89
+msgid "First name:"
+msgstr "名前:"
+
+#. Label and Entry for the last name
+#: ../src/boards/python/admin/user_edit.py:98
+msgid "Last name:"
+msgstr "名字:"
+
+#. Label and Entry for the birth date
+#: ../src/boards/python/admin/user_edit.py:107
+msgid "Birth date:"
+msgstr "誕生日:"
+
+#: ../src/boards/python/admin/user_edit.py:159
+msgid "You need to provide at least a login, first name and last name for your users"
+msgstr "あなたは少なくともログインの名前と名字をあなたのユーザーに提供する必要があります."
+
+#: ../src/boards/python/admin/user_edit.py:176
+msgid "There is already a user with this login"
+msgstr "すでにこのログインユーザーが存在します."
+
+#: ../src/boards/python/admin/user_list.py:291
+msgid ""
+"To import a user list from a file, first select a class.\n"
+"FILE FORMAT: Your file must be formatted like this:\n"
+"login;First name;Last name;Date of birth\n"
+"The separator is autodetected and can be one of ',', ';' or ':'"
+msgstr ""
+"ユーザーリストをファイルからインポートするために、最初にクラスを選んでください.\n"
+"ファイル形式：あなたのファイルは、このようにフォーマットされなければなりません：\n"
+"ログイン;名前;名字;誕生日\n"
+"セパレーターは検出され、『,』『;』『:』のうちのひとつが使用できます."
+
+#: ../src/boards/python/admin/user_list.py:370
+#, python-format
+msgid ""
+"One or more logins are not unique !\n"
+"You need to change them: %s !"
+msgstr ""
+"一つ以上のログインは唯一のものではありません！!\n"
+"あなたは、それらを変える必要があります: %s !"
+
+#: ../src/boards/python/anim.py:2208
+msgid "SVG is disabled. Install python xml module to enable it"
+msgstr "SVG は使用不可です.それを可能にするために、Python XMLモジュールをインストールしてください."
+
+#: ../src/boards/python/anim.py:2364
+msgid "Warning: the following images cannot be accessed on your system.\n"
+msgstr "警告：以下のイメージは、あなたのシステム上でアクセスすることができません.\n"
+
+#: ../src/boards/python/anim.py:2366
+msgid "The corresponding items have been skipped."
+msgstr "対応するアイテムは、スキップされました."
+
+#: ../src/boards/python/electric.py:94
+msgid ""
+"Cannot find the 'gnucap' electric simulator.\n"
+"You can download and install it from:\n"
+"<http://geda.seul.org/tools/gnucap/>\n"
+"To be detected, it must be installed in\n"
+"/usr/bin/gnucap or /usr/local/bin/gnucap.\n"
+"You can still use this activity to draw schematics without computer simulation."
+msgstr ""
+"『gnucap』電気シミュレーターを見つけることができません.\n"
+"以下のURLから『gnucap』をダウンロードし、\n"
+"インストールすることができます：\n"
+"<http://geda.seul.org/tools/gnucap/>\n"
+"『gnucap』が検出されるためには、/usr/bin/gnucap か\n"
+"/usr/local/bin/gnucap のディレクトリに\n"
+"インストールする必要があります.\n"
+"コンピュータシミュレーションなしで、\n"
+"概略図を描くゲームを使うことができます."
+
+#: ../src/boards/python/gnumch.py:94
+#, python-format
+msgid ", %d"
+msgstr "%d ,"
+
+#: ../src/boards/python/gnumch.py:95
+#, python-format
+msgid " and %d"
+msgstr "%d と"
+
+#: ../src/boards/python/gnumch.py:115
+#, python-format
+msgid "%d is divisible by %s."
+msgstr "%d は、%s によって割り切れます."
+
+#: ../src/boards/python/gnumch.py:119
+msgid "1 is not a prime number."
+msgstr "1は素数ではありません."
+
+#: ../src/boards/python/gnumch.py:129
+#, python-format
+msgid "Primes less than %d"
+msgstr "%d より少ない因数."
+
+#: ../src/boards/python/gnumch.py:150
+#, python-format
+msgid ""
+"Multiples of %d include %s,\n"
+"but %d is not a multiple of %d."
+msgstr ""
+"%d を含む %s の倍数,\n"
+"しかし、%d は %d の倍数ではありません."
+
+#: ../src/boards/python/gnumch.py:159
+#, python-format
+msgid "Factors of %d"
+msgstr "%d の因数"
+
+#: ../src/boards/python/gnumch.py:192
+#, python-format
+msgid "%s are the factors of %d."
+msgstr "%s は、%d の因数."
+
+#: ../src/boards/python/gnumch.py:204
+#, python-format
+msgid "Multiples of %d"
+msgstr "%d の倍数"
+
+#: ../src/boards/python/gnumch.py:238
+#, python-format
+msgid "%s = %d"
+msgstr "%s = %d"
+
+#: ../src/boards/python/gnumch.py:249
+#, python-format
+msgid "%d + %d"
+msgstr "%d + %d"
+
+#: ../src/boards/python/gnumch.py:254
+#, python-format
+msgid "%d - %d"
+msgstr "%d - %d"
+
+#: ../src/boards/python/gnumch.py:259
+#, python-format
+msgid "%d * %d"
+msgstr "%d * %d"
+
+#: ../src/boards/python/gnumch.py:263
+#, python-format
+msgid "%d / %d"
+msgstr "%d / %d"
+
+#: ../src/boards/python/gnumch.py:271
+#, python-format
+msgid "Equal to %d"
+msgstr "%d と等しくなるもの"
+
+#: ../src/boards/python/gnumch.py:292
+#, python-format
+msgid "Not equal to %d"
+msgstr "%d と等しくないもの"
+
+#: ../src/boards/python/gnumch.py:434
+msgid ""
+"You were eaten by a Troggle.\n"
+"Press <Return> to continue."
+msgstr ""
+"トグルによって食べられてしまいました.\n"
+"続けるためには<Return>を押してください."
+
+#: ../src/boards/python/gnumch.py:483
+msgid "You ate a wrong number.\n"
+msgstr "間違った数を食べてしまいました.\n"
+
+#: ../src/boards/python/gnumch.py:484
+msgid ""
+"\n"
+"Press <Return> to continue."
+msgstr ""
+"\n"
+"続けるためには<Return>を押してください."
+
+#: ../src/boards/python/gnumch.py:777
+msgid ""
+"T\n"
+"R\n"
+"O\n"
+"G\n"
+"G\n"
+"L\n"
+"E"
+msgstr ""
+"ト\n"
+"\n"
+"グ\n"
+"\n"
+"ル"
+
+#: ../src/boards/python/guessnumber.py:205
+#, python-format
+msgid "Guess a number between %d and %d"
+msgstr "%d と %d の間の数を推測してください."
+
+#: ../src/boards/python/guessnumber.py:318
+#: ../src/boards/python/guessnumber.py:319
+#, python-format
+msgid "Please enter a number between %d and %d"
+msgstr "%d と %d の間の数を入力してください."
+
+#: ../src/boards/python/guessnumber.py:324
+#: ../src/boards/python/guessnumber.py:325
+msgid "Out of range"
+msgstr "範囲から"
+
+#: ../src/boards/python/guessnumber.py:331
+#: ../src/boards/python/guessnumber.py:332
+msgid "Too high"
+msgstr "高過ぎます!"
+
+#: ../src/boards/python/guessnumber.py:334
+#: ../src/boards/python/guessnumber.py:335
+msgid "Too low"
+msgstr "低過ぎます!"
+
+#: ../src/boards/python/login.py:114
+msgid "Profile: "
+msgstr "プロフィール"
+
+#: ../src/boards/python/login.py:268
+#: ../src/boards/python/login.py:277
+msgid "Login: "
+msgstr "ログイン"
+
+#. toggle box
+#: ../src/boards/python/login.py:550
+msgid "Enter login to log in"
+msgstr "ログインを入力してください."
+
+#: ../src/boards/python/mosaic.py:193
+msgid "Rebuild the same mosaic on the right area"
+msgstr "右の空間に同じモザイク模様を組み立ててください."
+
+#: ../src/boards/python/melody.py:115
+msgid ""
+"Error: this activity cannot be played with the\n"
+"sound effects disabled.\n"
+"Go to the configuration dialogue to\n"
+"enable the sound"
+msgstr ""
+"エラー：このゲームは、サウンドエフェクトを使用不可にして\n"
+"遊ぶことができません.\n"
+"サウンドを使用するためには構成ダイアログへ行ってください."
+
+#: ../src/boards/python/oscar_and_friends.py:116
+msgid ""
+"Below the surface, Oscar the octopus and his friends sat on a rock,\n"
+"watching the bad weather above them."
+msgstr ""
+
+#: ../src/boards/python/oscar_and_friends.py:117
+msgid "They were all happy that the storms never reached all the way down to them."
+msgstr ""
+
+#: ../src/boards/python/oscar_and_friends.py:118
+msgid "No matter how bad it was up there, the bottom was always calm and quiet."
+msgstr ""
+
+#: ../src/boards/python/oscar_and_friends.py:119
+msgid "Oscar's best friends were Charlie the crab and Sandy the sea-star."
+msgstr "オスカーの親友はカニのチャーリー、そして、ヒトデのサンディです."
+
+#: ../src/boards/python/pythontest.py:148
+msgid ""
+"This is the first plugin in gcompris coded in the Python\n"
+"Programming language."
+msgstr ""
+"これは、パイソンプログラミング言語でコード化された\n"
+"Gcomprisの最初のプラグインです."
+
+#: ../src/boards/python/pythontest.py:157
+msgid ""
+"It is now possible to develop gcompris activities in C or in Python.\n"
+"Thanks to Olivier Samys who makes this possible."
+msgstr ""
+"C言語 または、Python(パイソン)言語でGcomprisのゲームを開発することができます.\n"
+"このことを可能にした、Olivier Samys氏に感謝します."
+
+#: ../src/boards/python/pythontest.py:166
+msgid "This activity is not playable, just a test"
+msgstr "このゲームはできません.テストを行っています."
+
+#. toggle box
+#: ../src/boards/python/pythontest.py:414
+msgid "Disable line drawing in circle"
+msgstr "円の線を使用不可にしてください."
+
+#. combo box
+#: ../src/boards/python/pythontest.py:423
+msgid "Color of the line"
+msgstr "線の色"
+
+#. spin button for int
+#: ../src/boards/python/pythontest.py:434
+msgid "Distance between circles"
+msgstr "円とのきょり."
+
+#. radio buttons for circle or rectangle
+#: ../src/boards/python/pythontest.py:445
+msgid "Use circles"
+msgstr "円を使用してください."
+
+#: ../src/boards/python/pythontest.py:446
+msgid "Use rectangles"
+msgstr "長方形を使用してください."
+
+#: ../src/boards/python/pythontest.py:449
+msgid "Choice of pattern"
+msgstr "パターンの選択"
+
+#: ../src/boards/python/redraw.py:347
+#: ../src/boards/python/redraw.py:357
+msgid "Level"
+msgstr "レベル"
+
+#: ../src/boards/python/redraw.py:901
+#: ../src/boards/python/redraw.py:904
+msgid "Coordinate"
+msgstr "座標"
+
+#: ../src/boards/python/searace.py:200
+#: ../src/boards/python/searace.py:205
+#: ../src/boards/python/searace.py:231
+msgid "The race is already being run"
+msgstr "レースは開始しています."
+
+#. Manage default cases (no params given)
+#. Final move, add an ofset because we loose space in abs()
+#: ../src/boards/python/searace.py:428
+#: ../src/boards/python/searace.py:453
+#: ../src/boards/python/searace.py:534
+#: ../src/boards/python/searace.py:853
+#: ../src/boards/python/searace.py:882
+#: ../src/boards/python/searace.py:977
+#: ../src/boards/python/searace.py:983
+#: ../src/boards/python/searace.py:991
+msgid "forward"
+msgstr "まえ"
+
+#: ../src/boards/python/searace.py:525
+msgid "COMMANDS ARE"
+msgstr "コマンドは"
+
+#. The two boat arrived in a close time frame (1s), it's a draw
+#: ../src/boards/python/searace.py:751
+msgid "This is a draw"
+msgstr "引き分け"
+
+#: ../src/boards/python/searace.py:758
+msgid "The Red boat has won"
+msgstr "赤色のボートの勝ち！"
+
+#: ../src/boards/python/searace.py:761
+msgid "The Green boat has won"
+msgstr "緑色のボートの勝ち！"
+
+#: ../src/boards/python/searace.py:779
+#: ../src/boards/python/searace.py:1021
+msgid "Angle:"
+msgstr "角度"
+
+#: ../src/boards/python/searace.py:779
+msgid "Wind:"
+msgstr "風"
+
+#: ../src/boards/python/searace.py:860
+msgid "Syntax error at line"
+msgstr "文法エラー"
+
+#: ../src/boards/python/searace.py:878
+msgid "The command"
+msgstr "コマンド"
+
+#: ../src/boards/python/searace.py:897
+msgid "Unknown command at line"
+msgstr "このコマンドは使用できません."
+
+#: ../src/boards/python/searace.py:1021
+msgid "Distance:"
+msgstr "きょり:"
+
+#: ../src/boards/python/tuxpaint.py:119
+msgid ""
+"Cannot find Tuxpaint.\n"
+"Install it to use this activity !"
+msgstr ""
+"タックスペイント(Tuxpaint)が見つかりません.\n"
+"このゲームを使用するにはタックスペイントをインストールしてください！"
+
+#: ../src/boards/python/tuxpaint.py:132
+msgid "Waiting for Tuxpaint to finish"
+msgstr "タックスペイント(Tuxpaint)が終了するまでしばらくお待ちください."
+
+#: ../src/boards/python/tuxpaint.py:187
+msgid "Inherit fullscreen setting from GCompris"
+msgstr "GComprisからフルスクリーンの設定を引き継いでください."
+
+#: ../src/boards/python/tuxpaint.py:191
+msgid "Inherit size setting from GCompris (800x600, 640x480)"
+msgstr "GComprisからスクリーンの設定を引き継いでください(800x600, 640x480)."
+
+#: ../src/boards/python/tuxpaint.py:195
+msgid "Disable shape rotation"
+msgstr "形状の回転を使用不可にしてください."
+
+#: ../src/boards/python/tuxpaint.py:199
+msgid "Show Uppercase text only"
+msgstr "大文字のテキストのみを表示してください."
+
+#: ../src/boards/python/tuxpaint.py:203
+msgid "Disable stamps"
+msgstr "スタンプを使用不可にしてください."
+
+#: ../src/boards/railroad.c:95
+msgid "Memory game"
+msgstr "記憶力ゲーム"
+
+#: ../src/boards/railroad.c:96
+msgid "Build a train according to the model"
+msgstr "お手本に従って、電車を組み立ててください."
+
+#: ../src/boards/reading.c:227
+#: ../src/boards/wordsgame.c:207
+msgid ""
+"Error: We can't find\n"
+"a list of words to play this game.\n"
+msgstr ""
+"エラー: このゲームで使用する単語のリストを\n"
+"見つけられませんでした.\n"
+
+#: ../src/boards/reading.c:381
+msgid "Please, check if the word"
+msgstr "単語をチェックしてください."
+
+#: ../src/boards/reading.c:401
+msgid "is being displayed"
+msgstr "を表示しています."
+
+#: ../src/boards/reading.c:575
+msgid "I am Ready"
+msgstr "準備完了です."
+
+#: ../src/boards/reading.c:615
+msgid "Yes, I saw it"
+msgstr "その単語を見つけました."
+
+#: ../src/boards/reading.c:645
+msgid "No, it was not there"
+msgstr "その単語はありませんでした."
+
+#. Report what was wrong in the log
+#: ../src/boards/reading.c:683
+#, c-format
+msgid "The word to find was '%s'"
+msgstr "見つける単語は'%s'です."
+
+#: ../src/boards/reading.c:686
+msgid "But it was not displayed"
+msgstr "その単語は表示されませんでした."
+
+#: ../src/boards/reading.c:688
+msgid "And it was displayed"
+msgstr "その単語は表示されました."
+
+#. Enter Edit Mode
+#: ../src/boards/shapegame.c:435
+msgid ""
+"You have entered Edit mode\n"
+"Move the puzzle items;\n"
+"type 's' to save, and\n"
+"'d' to display all the shapes"
+msgstr ""
+"『Edit』モードで入って\n"
+"パズルを動かしてください;\n"
+"保存するには's'を,\n"
+"全ての形を表示するには'd'をタイプしてください"
+
+#: ../src/boards/shapegame.c:443
+msgid ""
+"The data from this activity are saved under\n"
+"/tmp/gcompris-board.xml"
+msgstr ""
+"このゲームのデータは /tmp/gcompris-board.xmlの\n"
+"下に保存されます."
+
+#: ../src/boards/submarine.c:201
+msgid "Submarine"
+msgstr "せんすいかん"
+
+#: ../src/boards/submarine.c:202
+msgid "Control the depth of a submarine"
+msgstr "せんすいかんの水深を操作しましょう."
+
+#: ../src/boards/target.c:285
+#: ../src/boards/target.c:550
+#, c-format
+msgid "Points = %s"
+msgstr "ポイント = %s"
+
+#: ../src/boards/target.c:407
+#, c-format
+msgid ""
+"Wind speed = %d\n"
+"kilometers/hour"
+msgstr ""
+"風速 = %d\n"
+"キロメートル/時"
+
+#: ../src/boards/target.c:474
+#, c-format
+msgid "Distance to target = %d meters"
+msgstr "的までのきょり = %d メートル"
+
+#: ../src/gcompris/about.c:62
+msgid ""
+"Author: Bruno Coudoin\n"
+"Contribution: Pascal Georges, Jose Jorge\n"
+"Graphics: Renaud Blanchard, Franck Doucet\n"
+"Intro Music: Djilali Sebihi\n"
+"Background Music: Rico Da Halvarez\n"
+msgstr ""
+"著者: Bruno Coudoin\n"
+"寄付: Pascal Georges, Jose Jorge\n"
+"グラフィック: Renaud Blanchard, Franck Doucet\n"
+"イントロ: Djilali Sebihi\n"
+"音楽: Rico Da Halvarez\n"
+
+#. TRANSLATORS: Replace this string with your names, one name per line.
+#: ../src/gcompris/about.c:70
+msgid "translator_credits"
+msgstr "平田　優子"
+
+#: ../src/gcompris/about.c:101
+#: ../src/gcompris/about.c:111
+msgid "About GCompris"
+msgstr "GCompris について"
+
+#: ../src/gcompris/about.c:122
+#: ../src/gcompris/about.c:131
+msgid "Translators:"
+msgstr "翻訳者:"
+
+#: ../src/gcompris/about.c:254
+msgid ""
+"GCompris Home Page\n"
+"http://gcompris.net"
+msgstr ""
+"GCompris のホームページ\n"
+"http://gcompris.net"
+
+#: ../src/gcompris/about.c:276
+msgid "This software is a GNU Package and is released under the GNU General Public License"
+msgstr ""
+"このソフトウェアは GNUパッケージです.\n"
+" GNU eneral Public License(一般共有使用許諾)の下でリリースされます."
+
+#: ../src/gcompris/about.c:339
+#: ../src/gcompris/about.c:349
+#: ../src/gcompris/config.c:469
+#: ../src/gcompris/config.c:479
+#: ../src/gcompris/dialog.c:97
+#: ../src/gcompris/help.c:381
+#: ../src/gcompris/help.c:391
+#: ../src/gcompris/images_selector.c:317
+msgid "OK"
+msgstr "OK"
+
+#: ../src/gcompris/bar.c:568
+msgid "GCompris confirmation"
+msgstr "GCompris 終了の確認"
+
+#: ../src/gcompris/bar.c:569
+msgid "Are you sure you want to quit?"
+msgstr "終了してもいいですか?"
+
+#: ../src/gcompris/bar.c:570
+msgid "Yes, I am sure!"
+msgstr "はい"
+
+#: ../src/gcompris/bar.c:571
+msgid "No, I want to keep going"
+msgstr "いいえ、まだ、続けます！"
+
+#: ../src/gcompris/board.c:186
+msgid "Dynamic module loading is not supported. gcompris cannot load.\n"
+msgstr "動的なモジュールをロードしていますがサポートされていません.GComprisを読み込めません.\n"
+
+#: ../src/gcompris/board_config.c:700
+msgid ""
+"Select the language\n"
+" to use in the board"
+msgstr ""
+"ゲームで使用する言語を\n"
+"選択してください."
+
+#: ../src/gcompris/config.c:64
+msgid "Your system default"
+msgstr "あなたのシステムは初期設定です."
+
+#: ../src/gcompris/config.c:65
+msgid "Amharic"
+msgstr "アムハラ語"
+
+#: ../src/gcompris/config.c:66
+msgid "Arabic"
+msgstr "アラビア語"
+
+#: ../src/gcompris/config.c:67
+msgid "Turkish (Azerbaijan)"
+msgstr "トルコ語(アゼルバイジャン)"
+
+#: ../src/gcompris/config.c:68
+msgid "Bulgarian"
+msgstr "ブルガリア語"
+
+#: ../src/gcompris/config.c:69
+msgid "Catalan"
+msgstr "カタロニア語"
+
+#: ../src/gcompris/config.c:71
+msgid "Danish"
+msgstr "デンマーク語"
+
+#: ../src/gcompris/config.c:72
+msgid "German"
+msgstr "ドイツ語"
+
+#: ../src/gcompris/config.c:73
+msgid "Greek"
+msgstr "ギリシャ語"
+
+#: ../src/gcompris/config.c:74
+msgid "English (Canada)"
+msgstr "イギリス語(カナダ)"
+
+#: ../src/gcompris/config.c:75
+msgid "English (Great Britain)"
+msgstr "イギリス語(英国)"
+
+#: ../src/gcompris/config.c:76
+msgid "Spanish"
+msgstr "スペイン語"
+
+#: ../src/gcompris/config.c:77
+msgid "Basque"
+msgstr "バスク語"
+
+#: ../src/gcompris/config.c:78
+msgid "Finnish"
+msgstr "フィンランド語"
+
+#: ../src/gcompris/config.c:79
+msgid "French"
+msgstr "フランス語"
+
+#: ../src/gcompris/config.c:80
+msgid "Irish (Gaelic)"
+msgstr "アイルランド語(ゲール)"
+
+#: ../src/gcompris/config.c:81
+msgid "Hebrew"
+msgstr "ヘブライ語"
+
+#: ../src/gcompris/config.c:82
+msgid "Hindi"
+msgstr "ヒンズー語"
+
+#: ../src/gcompris/config.c:83
+msgid "Gujarati"
+msgstr "グジャラート語"
+
+#: ../src/gcompris/config.c:84
+msgid "Punjabi"
+msgstr "パンジャブ語"
+
+#: ../src/gcompris/config.c:85
+msgid "Hungarian"
+msgstr "ハンガリー語"
+
+#: ../src/gcompris/config.c:86
+msgid "Croatian"
+msgstr "クロチア語"
+
+#: ../src/gcompris/config.c:87
+msgid "Italian"
+msgstr "イタリア語"
+
+#: ../src/gcompris/config.c:88
+msgid "Georgian"
+msgstr "グルジア語"
+
+#: ../src/gcompris/config.c:89
+msgid "Lithuanian"
+msgstr "リトアニア語"
+
+#: ../src/gcompris/config.c:90
+msgid "Macedonian"
+msgstr "マケドニア語"
+
+#: ../src/gcompris/config.c:91
+msgid "Malayalam"
+msgstr "マラヤラム語"
+
+#: ../src/gcompris/config.c:92
+msgid "Marathi"
+msgstr "マラッタ語"
+
+#: ../src/gcompris/config.c:93
+msgid "Malay"
+msgstr "マレー語"
+
+#: ../src/gcompris/config.c:94
+msgid "Nepal"
+msgstr "ネパール語"
+
+#: ../src/gcompris/config.c:95
+msgid "Dutch"
+msgstr "オランダ語"
+
+#: ../src/gcompris/config.c:96
+msgid "Norwegian Bokmal"
+msgstr "ノルウェー語(ボカル)"
+
+#: ../src/gcompris/config.c:97
+msgid "Norwegian Nynorsk"
+msgstr "ノルウェー語(ニーノシュク)"
+
+#: ../src/gcompris/config.c:98
+msgid "Polish"
+msgstr "ポーランド語"
+
+#: ../src/gcompris/config.c:99
+msgid "Portuguese"
+msgstr "ポルトガル語"
+
+#: ../src/gcompris/config.c:100
+msgid "Portuguese (Brazil)"
+msgstr "ポルトガル語(ブラジル)"
+
+#: ../src/gcompris/config.c:101
+msgid "Romanian"
+msgstr "ルーマニア語"
+
+#: ../src/gcompris/config.c:102
+msgid "Russian"
+msgstr "ロシア語"
+
+#: ../src/gcompris/config.c:103
+msgid "Kinyarwanda"
+msgstr "キンヤルワンダ語"
+
+#: ../src/gcompris/config.c:104
+msgid "Slovak"
+msgstr "スロバキア語"
+
+#: ../src/gcompris/config.c:105
+msgid "Slovenian"
+msgstr "スロベニア語"
+
+#: ../src/gcompris/config.c:106
+msgid "Albanian"
+msgstr "アルバニア語"
+
+#: ../src/gcompris/config.c:107
+msgid "Serbian (Latin)"
+msgstr "セルビア語(ラテン)"
+
+#: ../src/gcompris/config.c:108
+msgid "Serbian"
+msgstr "セルビア語"
+
+#: ../src/gcompris/config.c:109
+msgid "Swedish"
+msgstr "スウェーデン語"
+
+#. "ta_IN.UTF-8",	N_("Tamil"),
+#: ../src/gcompris/config.c:111
+msgid "Thai"
+msgstr "タイ語"
+
+#: ../src/gcompris/config.c:112
+msgid "Turkish"
+msgstr "トルコ語"
+
+#: ../src/gcompris/config.c:113
+msgid "Vietnamese"
+msgstr "ベトナム語"
+
+#: ../src/gcompris/config.c:114
+msgid "Walloon"
+msgstr "ワロン語"
+
+#: ../src/gcompris/config.c:115
+msgid "Chinese (Simplified)"
+msgstr "中国語 (簡素化されたもの)"
+
+#: ../src/gcompris/config.c:116
+msgid "Chinese (Traditional)"
+msgstr "中国語 (伝統的)"
+
+#: ../src/gcompris/config.c:121
+msgid "No time limit"
+msgstr "時間制限なし"
+
+#: ../src/gcompris/config.c:122
+msgid "Slow timer"
+msgstr "遅いタイマー"
+
+#: ../src/gcompris/config.c:123
+msgid "Normal timer"
+msgstr "普通のタイマー"
+
+#: ../src/gcompris/config.c:124
+msgid "Fast timer"
+msgstr "早いタイマー"
+
+#: ../src/gcompris/config.c:129
+msgid "800x600 (Default for gcompris)"
+msgstr "800x600 (GComprisの初期設定)"
+
+#: ../src/gcompris/config.c:134
+msgid ""
+"<i>Use Gcompris administration module\n"
+"to filter boards</i>"
+msgstr ""
+"<i>Gcompris の管理モジュールを使用して、\n"
+"ゲームで使用する画面を設定してください.</i>"
+
+#: ../src/gcompris/config.c:189
+#: ../src/gcompris/config.c:199
+msgid "GCompris Configuration"
+msgstr "GCompris　設定メニュー"
+
+#: ../src/gcompris/config.c:275
+msgid "Fullscreen"
+msgstr "全画面表示"
+
+#: ../src/gcompris/config.c:318
+msgid "Music"
+msgstr "音楽"
+
+#: ../src/gcompris/config.c:346
+msgid "Effect"
+msgstr "音響"
+
+#: ../src/gcompris/config.c:382
+#, c-format
+msgid "Couldn't open skin dir: %s"
+msgstr "スキンディレクトリを開くことができませんでした: %s"
+
+#: ../src/gcompris/config.c:413
+#: ../src/gcompris/config.c:846
+#: ../src/gcompris/config.c:860
+#, c-format
+msgid "Skin : %s"
+msgstr "スキン : %s"
+
+#: ../src/gcompris/config.c:415
+msgid "SKINS NOT FOUND"
+msgstr "スキンが見つかりませんでした."
+
+#: ../src/gcompris/config.c:540
+msgid "English (United State)"
+msgstr "英語(アメリカ合衆国)"
+
+#: ../src/gcompris/file_selector.c:334
+msgid "CANCEL"
+msgstr "キャンセル"
+
+#: ../src/gcompris/file_selector.c:365
+msgid "LOAD"
+msgstr "読み込み"
+
+#: ../src/gcompris/file_selector.c:365
+msgid "SAVE"
+msgstr "保存"
+
+#: ../src/gcompris/gameutil.c:79
+msgid "Couldn't find or load the file"
+msgstr "ファイルを見つけることができなかったか、ロードすることができませんでした."
+
+#: ../src/gcompris/gameutil.c:81
+msgid "This activity is incomplete."
+msgstr "このゲームは不完全です."
+
+#: ../src/gcompris/gameutil.c:82
+msgid ""
+"Exit it and report\n"
+"the problem to the authors."
+msgstr "終了して、問題を著者に報告してください."
+
+#: ../src/gcompris/gcompris.c:141
+msgid "run gcompris in fullscreen mode."
+msgstr "フルスクリーンモードでGcomprisを動作させてください."
+
+#: ../src/gcompris/gcompris.c:144
+msgid "run gcompris in window mode."
+msgstr "ウィンドウモードでGcomprisを動作させてください."
+
+#: ../src/gcompris/gcompris.c:147
+msgid "run gcompris with sound enabled."
+msgstr "サウンドありでGcomprisを動作させてください."
+
+#: ../src/gcompris/gcompris.c:150
+msgid "run gcompris without sound."
+msgstr "サウンドなしでGcomprisを動作させてください."
+
+#: ../src/gcompris/gcompris.c:153
+msgid "run gcompris with the default gnome cursor."
+msgstr "デフォルトの gnome cursor でGcomprisを動作させてください."
+
+#: ../src/gcompris/gcompris.c:156
+msgid "display only activities with this difficulty level."
+msgstr "難しいレベルのゲームだけを表示してください."
+
+#: ../src/gcompris/gcompris.c:159
+msgid "display debug informations on the console."
+msgstr "デバッグの情報をコンソールに表示してください."
+
+#: ../src/gcompris/gcompris.c:162
+msgid "Print the version of "
+msgstr "のバージョンを印刷してください."
+
+#: ../src/gcompris/gcompris.c:165
+msgid "Use the antialiased canvas (slower)."
+msgstr "エイリアスでないキャンバスを使ってください(より遅い)."
+
+#: ../src/gcompris/gcompris.c:168
+msgid "Disable XF86VidMode (No screen resolution change)."
+msgstr "XF86Vidモードを無効にしてください(画面解像度変化なし)."
+
+#: ../src/gcompris/gcompris.c:171
+msgid "Run gcompris with local menu (e.g -l /reading will let you play only activities in the reading directory, -l /strategy/connect4 only the connect4 activity)"
+msgstr "ローカルメニューでGComprisを動作させてください.(e.g -l /reading は、reading ディレクトリの中のゲームだけを実行させます. -l /boards/connect4 では、ゲームコネクト４のみです.)"
+
+#: ../src/gcompris/gcompris.c:174
+msgid "Run GCompris with local activity directory added to menu"
+msgstr "特定のゲームディレクトリをメニューに加えてComprisを動作させてください."
+
+#: ../src/gcompris/gcompris.c:177
+msgid "Run GCompris in administration and user-management mode"
+msgstr "管理とユーザー管理モードでGComprisを動作させてください."
+
+#: ../src/gcompris/gcompris.c:180
+msgid "Use alternate database for profiles"
+msgstr "プロフィールのために交互のデータベースを使ってください."
+
+#: ../src/gcompris/gcompris.c:183
+msgid "Use alternate database for logs"
+msgstr "ログのために交互のデータベースを使ってください."
+
+#: ../src/gcompris/gcompris.c:186
+msgid "Create the alternate database for profiles"
+msgstr "プロフィールのために交互のデータベースを構築してください."
+
+#: ../src/gcompris/gcompris.c:189
+msgid "Re-read XML Menus and store them in the database"
+msgstr "XML メニューを再読してデータベースに保管してください."
+
+#: ../src/gcompris/gcompris.c:192
+msgid "Set the profile to use. Use 'gcompris -a' to create profiles"
+msgstr "使用するプロフィールを設定してください.プロフィールをつくるためには『gcompris -a』を使ってください."
+
+#: ../src/gcompris/gcompris.c:195
+msgid "List all available profiles. Use 'gcompris -a' to create profiles"
+msgstr "全ての利用できるプロフィールをリストしてください.プロフィールをつくるためには『gcompris -a』を使ってください."
+
+#: ../src/gcompris/gcompris.c:198
+msgid "Shared directory location, for profiles and board-configuration data: [$HOME/.gcompris/shared]"
+msgstr "共有ディレクトリの場所（プロフィールとゲーム構成データのための): [$HOME/.gcompris/shared]"
+
+#: ../src/gcompris/gcompris.c:201
+msgid "The location of user directories: [$HOME/.gcompris/users]"
+msgstr "ユーザディレクトリの位置: [$HOME/.gcompris/users]"
+
+#: ../src/gcompris/gcompris.c:204
+msgid "Run the experimental activities"
+msgstr "実験的なゲームを動作してください."
+
+#: ../src/gcompris/gcompris.c:207
+msgid "Disable the quit button"
+msgstr "終了ボタンを使用不可にしてください."
+
+#: ../src/gcompris/gcompris.c:210
+msgid "Disable the config button"
+msgstr "設定ボタンを使用不可にしてください."
+
+#: ../src/gcompris/gcompris.c:213
+msgid "Display the resources on stdout based on the selected activities"
+msgstr "選択したゲームで標準出力にもとづいたリソースを表示してください."
+
+#: ../src/gcompris/gcompris.c:216
+msgid "GCompris will get images, sounds and activity data from this server if not found locally."
+msgstr ""
+
+#: ../src/gcompris/gcompris.c:219
+msgid "Only when --server is provided, disable check for local resource first. Data are always taken from the web server."
+msgstr ""
+
+#: ../src/gcompris/gcompris.c:223
+msgid "In server mode, where is the cache directory to avoid useless downloads."
+msgstr ""
+
+#: ../src/gcompris/gcompris.c:863
+#, c-format
+msgid ""
+"GCompris is free software released under the GPL License. In order to support its development, the Windows version provides only %d of the %d activities. You can get the full version for a small fee at\n"
+"<http://gcompris.net>\n"
+"The Linux version does not have this restriction. Note that GCompris is being developed to free schools from monopolistic software vendors. If you also believe that we should teach freedom to children, please consider using GNU/Linux. Get more information at FSF:\n"
+"<http://www.fsf.org/philosophy>"
+msgstr ""
+"GComprisはGPL Licenseの下でリリースされたフリーソフトウェアです.開発をサポートするために、Windowsバージョンは%dのゲーム%dを唯一提供します.わずかな謝礼で完全なGComprisを手に入れることができます.\n"
+"<http://gcompris.net>\n"
+"Linuxバージョンには、このような制限はありません.GComprisは、学校を独占的なソフトウェア業者から解放するために開発されているということに注目してください.また、子供逹に自由を教えるべきであると信じているのなら、GNU/Linuxを使用するということをよく考慮してください.FSFで詳しい情報を入手することができます:\n"
+"<http://www.fsf.org/philosophy>"
+
+#: ../src/gcompris/gcompris.c:1417
+#, c-format
+msgid ""
+"GCompris\n"
+"Version: %s\n"
+"Licence: GPL\n"
+"More info at http://gcompris.net\n"
+msgstr ""
+"GCompris\n"
+"バージョン: %s\n"
+"ライセンス: GPL\n"
+" http://gcompris.net でより多くの情報得ることができます.\n"
+
+#. check the list of possible values for -l, then exit
+#: ../src/gcompris/gcompris.c:1506
+#, c-format
+msgid "Use -l to access an activity directly.\n"
+msgstr "『-l』を使用して、直接ゲームにアクセスしてください.\n"
+
+#: ../src/gcompris/gcompris.c:1507
+#, c-format
+msgid "The list of available activities is :\n"
+msgstr "利用可能なゲームのリストは:\n"
+
+#: ../src/gcompris/gcompris.c:1677
+#, c-format
+msgid "The list of available profiles is:\n"
+msgstr "利用可能なプロフィールのリストは:\n"
+
+#: ../src/gcompris/gcompris_db.c:250
+msgid "Unaffected"
+msgstr "変わらない"
+
+#: ../src/gcompris/gcompris_db.c:251
+msgid "Users without a class"
+msgstr "クラスのないユーザー"
+
+#: ../src/gcompris/help.c:199
+msgid "Prerequisite"
+msgstr "必須の条件"
+
+#: ../src/gcompris/help.c:227
+msgid "Goal"
+msgstr "ゴール"
+
+#: ../src/gcompris/help.c:255
+msgid "Manual"
+msgstr "マニュアル"
+
+#: ../src/gcompris/help.c:283
+msgid "Credit"
+msgstr "功績"
+
+#: ../src/gcompris/timer.c:250
+msgid "Time Elapsed"
+msgstr "時間がたちました."
+
+#: ../src/gcompris/timer.c:339
+#, c-format
+msgid "Remaining Time = %d"
+msgstr "残っている時間 = %d"
+
