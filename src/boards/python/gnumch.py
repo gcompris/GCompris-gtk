@@ -147,13 +147,16 @@ class FactorLevelset:
         self.nonfactors = []
 
     def getError(self, num):
-        fmt = _('Multiples of %d include %s,\nbut %d is not a multiple of %d.')
+        # Translators: You can swap %(x)y elements in the string.
+        fmt = _('Multiples of %(d1)d include %(s)s,\nbut %(d2)d is not a multiple of %(d3)d.')
         n = int(num.text)
         mults = []
         for i in range(2, 5):
             mults.append(n*i)
-        s = makeNumList(mults) % tuple(mults)
-        return fmt % (n, s, self.level_multiple[self.cur_sublevel-1], n)
+        return fmt % { 'd1': n,
+                       's': makeNumList(mults) % tuple(mults),
+                       'd2': self.level_multiple[self.cur_sublevel-1],
+                       'd3': n }
 
     def getTitle(self):
         return _('Factors of %d') % ( self.level_multiple[self.cur_sublevel-1] )

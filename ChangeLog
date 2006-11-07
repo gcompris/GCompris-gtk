@@ -1,3 +1,17 @@
+2006-11-07  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* TODO: Soudan typo is now fixed
+	* boards/flags/ja.png: created Japanese flag from wikipedia
+	* boards/geography/board4_2.xml.in: Soudan typo is now fixed
+	* boards/wordprocessor.xml.in: moved to /fun, out of experimental
+	* configure.in: added Japanese
+	* src/boards/py-mod-anim.c: (AnimCanvas_free): Fixed a Major bug in anim bindings.
+	  quiting the gnumch activity crash GCompris 1 times on 10 in my case.
+	  This seems to fix it and we should consider patching 8.2.1 with this.
+	* src/boards/python/gnumch.py: fixed a string to allow paramter swapping
+	for translations.
+	* src/gcompris/config.c: added japanese.
+
 2006-11-06  Yves Combe  <yves@ycombe.net>
 
 	New sound policy to halt previous sound before play.

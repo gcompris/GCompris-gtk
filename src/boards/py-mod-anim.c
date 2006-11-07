@@ -216,6 +216,7 @@ AnimCanvas_free(py_GcomprisAnimCanvas *self)
       g_warning("You should really call destroy() on an AnimCanvas "
                 "instead of relying on the refcounter\n");
       gc_anim_deactivate(self->item);
+      self->item = NULL;
       Py_DECREF(self->anim);
     }
   PyObject_DEL(self);
