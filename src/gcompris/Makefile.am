@@ -64,7 +64,7 @@ lib_LTLIBRARIES = libgcompris-1.la
 libgcompris_1_la_LIBADD = \
 	$(GCOMPRIS_LIBS) $(sqlite_ldadd) $(XML_LIBS) $(GNET_LIBS)
 
-libgcompris_1_la_LDFLAGS = $(no_undefined) \
+libgcompris_1_la_LDFLAGS = \
 	-version-info $(LIBGCOMPRIS_CURRENT):$(LIBGCOMPRIS_REVISION):$(LIBGCOMPRIS_AGE)
 
 libgcomprisincludedir = $(includedir)/libgcompris-1.0/libgcompris
