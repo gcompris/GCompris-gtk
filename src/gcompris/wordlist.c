@@ -126,7 +126,7 @@ GcomprisWordlist
   /* ok, we can process the wordlist */
   wordlist = g_malloc0(sizeof(GcomprisWordlist));
 
-  wordlist->filename = g_strdup(filename);
+  wordlist->filename = filename;
 
   /* Get name */
   text = xmlGetProp ( wlNode,

@@ -1,5 +1,38 @@
 2006-11-07  Bruno coudoin  <bruno.coudoin@free.fr>
 
+	- Patch by Miguel DE IZARRA
+	  Patch for memory leaks in shapegame, wordlist, missingletter and reading.
+
+	  With this patch, in shapegame, we can finish a puzzle without changing pages
+	  to find pieces.
+
+	- switch to a non-empty page when the current is empty
+	- when clicking in previous/next page, change only to non-empty pages.
+
+	* src/boards/missingletter.c: (add_xml_data):
+	* src/boards/reading.c: (start_board):
+	* src/boards/shapegame.c: (shapegame_next_level),
+	(shape_goes_back_to_list), (item_event),
+	(get_element_count_listgroup), (get_no_void_group),
+	(update_shapelist_item), (item_event_ok), (create_shape),
+	(read_xml_file):
+	* src/gcompris/wordlist.c: (gc_wordlist_get_from_file):
+
+2006-11-07  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	reviewed by: <delete if not using a buddy>
+
+	* src/boards/missingletter.c: (add_xml_data):
+	* src/boards/reading.c: (start_board):
+	* src/boards/shapegame.c: (shapegame_next_level),
+	(shape_goes_back_to_list), (item_event),
+	(get_element_count_listgroup), (get_no_void_group),
+	(update_shapelist_item), (item_event_ok), (create_shape),
+	(read_xml_file):
+	* src/gcompris/wordlist.c: (gc_wordlist_get_from_file):
+
+2006-11-07  Bruno coudoin  <bruno.coudoin@free.fr>
+
 	* TODO: Soudan typo is now fixed
 	* boards/flags/ja.png: created Japanese flag from wikipedia
 	* boards/geography/board4_2.xml.in: Soudan typo is now fixed

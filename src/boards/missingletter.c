@@ -615,6 +615,7 @@ static void add_xml_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child)
 		printf("Error sscanf result != 5 = %i\n",i);
 */
   gchar **all_answer = g_strsplit(data, "/", 5);
+  g_free(data);
 
   answer = all_answer[0];
   question = all_answer[1];

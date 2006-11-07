@@ -170,6 +170,8 @@ static void 		 create_title(char *name, double x, double y, GtkJustification jus
 static gint		 item_event_ok(GnomeCanvasItem *item, GdkEvent *event, gpointer data);
 static gint		 item_event_edition(GnomeCanvasItem *item, GdkEvent *event, Shape *shape);
 
+static void update_shapelist_item(void);
+
 /* Description of this plugin */
 static BoardPlugin menu_bp =
 {
@@ -512,7 +514,7 @@ static void shapegame_next_level()
   edit_mode = FALSE;
 
   shapegame_destroy_all_items();
-
+  next_shapelist_item = previous_shapelist_item = NULL;
   shapegame_init_canvas(gnome_canvas_root(gcomprisBoard->canvas));
 
   while( ((filename = gc_file_find_absolute("%s/board%d_%d.xml",
@@ -957,6 +959,7 @@ static void shape_goes_back_to_list(Shape *shape, GnomeCanvasItem *item)
       gnome_canvas_item_hide(item);
       gc_sound_play_ogg ("sounds/gobble.ogg", NULL);
     }
+  update_shapelist_item();
 }
 
 static gint
@@ -1289,6 +1292,7 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, Shape *shape)
 	       shape->target_shape->found = FALSE;
 	       dump_shape(shape);
 	       dump_shape(shape->target_shape);
+           update_shapelist_item();
 	     }
 	 }
        break;
@@ -1402,6 +1406,66 @@ item_event_edition(GnomeCanvasItem *item, GdkEvent *event, Shape *shape)
 
 }
 
+static int get_element_count_listgroup(int listgroup_index)
+{
+    int count=0, i;
+    Shape *sh;
+    for (i=0;i<g_list_length(shape_list);i++) {
+        sh = g_list_nth_data(shape_list,i);
+        if( sh->shapelistgroup_index == listgroup_index && 
+                sh->type == SHAPE_TARGET && ! sh->placed)
+            count ++;
+    }
+    return count;
+}
+
+static int get_no_void_group(int direction)
+{
+    int index = current_shapelistgroup_index;
+
+    direction = direction>0 ? 1 : -1;
+    
+    index += direction;
+    while(0 <= index && index < g_list_length(shape_list_group))
+    {
+        if(get_element_count_listgroup(index))
+            return index;
+        index += direction;
+    }
+    return current_shapelistgroup_index;
+}
+
+static void update_shapelist_item(void)
+{
+    if(! next_shapelist_item || !previous_shapelist_item)
+        return;
+    if(get_element_count_listgroup(current_shapelistgroup_index) ==0)
+    {
+        int index;
+        GnomeCanvasItem *root_item;
+        
+        index = get_no_void_group(-1);
+        if(index == current_shapelistgroup_index)
+            index = get_no_void_group(1);
+        if(index != current_shapelistgroup_index)
+        {
+            root_item = g_list_nth_data(shape_list_group, current_shapelistgroup_index);
+            gnome_canvas_item_hide(root_item);
+            root_item = g_list_nth_data(shape_list_group, index);
+            gnome_canvas_item_show(root_item);
+            current_shapelistgroup_index = index;
+        }
+    }
+    if(get_no_void_group(1) == current_shapelistgroup_index)
+        gnome_canvas_item_hide(next_shapelist_item);
+    else
+        gnome_canvas_item_show(next_shapelist_item);
+    if(get_no_void_group(-1) == current_shapelistgroup_index)
+        gnome_canvas_item_hide(previous_shapelist_item);
+    else
+        gnome_canvas_item_show(previous_shapelist_item);
+}
+
 /* Callback for the operations */
 static gint
 item_event_ok(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
@@ -1420,40 +1484,18 @@ item_event_ok(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
       g_warning(" item event current_shapelistgroup_index=%d\n", current_shapelistgroup_index);
       if(!strcmp((char *)data, "previous_shapelist"))
 	{
-
-	  if(current_shapelistgroup_index>0)
-	    {
-	      current_shapelistgroup_index--;
-	    }
-
-	  if(current_shapelistgroup_index == 0)
-	    {
-	      gc_item_focus_set(item, TRUE);
-	      gnome_canvas_item_hide(previous_shapelist_item);
-	    }
-
-	  gnome_canvas_item_show(next_shapelist_item);
-
+	    current_shapelistgroup_index = get_no_void_group(-1);
+        update_shapelist_item();
 	}
       else if(!strcmp((char *)data, "next_shapelist"))
 	{
-	  if(current_shapelistgroup_index<g_list_length(shape_list_group)-1)
-	    {
-	      current_shapelistgroup_index++;
-	    }
-
-	  if(current_shapelistgroup_index == g_list_length(shape_list_group)-1)
-	    {
-	      gc_item_focus_set(item, TRUE);
-	      gnome_canvas_item_hide(next_shapelist_item);
-	    }
-
-	  gnome_canvas_item_show(previous_shapelist_item);
-
+	    current_shapelistgroup_index = get_no_void_group(1);
+        update_shapelist_item();
 	}
 
       root_item = g_list_nth_data(shape_list_group, current_shapelistgroup_index);
       gnome_canvas_item_show(root_item);
+
 
       /* FIXME : Workaround for bugged canvas */
       //      gnome_canvas_update_now(gcomprisBoard->canvas);
@@ -1462,8 +1504,6 @@ item_event_ok(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
       break;
     }
   return FALSE;
-
-
 }
 
 static void
@@ -1636,7 +1676,7 @@ create_shape(ShapeType type, char *name, char *tooltip, char *pixmapfile, GnomeC
   Shape *shape;
 
   /* allocate a new shape */
-  shape = g_new(Shape,1);
+  shape = g_new0(Shape,1);
 
   shape->name = g_strdup(name);
   if(tooltip)
@@ -1970,7 +2010,6 @@ read_xml_file(char *fname)
 {
   /* pointer to the new doc */
   xmlDocPtr  doc;
-  gchar     *tmpstr;
 
   g_return_val_if_fail(fname!=NULL,FALSE);
 
@@ -1992,64 +2031,28 @@ read_xml_file(char *fname)
 
   /*--------------------------------------------------*/
   /* Read OkIfAddedName property */
-  tmpstr = (char *)xmlGetProp(doc->children, BAD_CAST "OkIfAddedName");
-  /* if unspecified, make it INT_MAX */
-  if(!tmpstr)
-      addedname = INT_MAX;
-  else
-      addedname = atoi(tmpstr);
+  addedname = xmlGetProp_Double(doc->children, BAD_CAST "OkIfAddedName", INT_MAX);
   g_warning("addedname=%d\n", addedname);
 
   /*--------------------------------------------------*/
   /* Read ShapeBox property */
-  tmpstr = (char *)xmlGetProp(doc->children, BAD_CAST "shapebox_x");
-  /* if unspecified, use the default value */
-  if(!tmpstr)
-      shapeBox.x = 15;
-  else
-    shapeBox.x = g_ascii_strtod(tmpstr, NULL);
+  shapeBox.x = xmlGetProp_Double(doc->children, BAD_CAST "shapebox_x", 15);
   g_warning("shapeBox.x=%f\n", shapeBox.x);
 
-  tmpstr = (char *)xmlGetProp(doc->children, BAD_CAST "shapebox_y");
-  /* if unspecified, use the default value */
-  if(!tmpstr)
-      shapeBox.y = 25;
-  else
-    shapeBox.y = g_ascii_strtod(tmpstr, NULL);
+  shapeBox.y = xmlGetProp_Double(doc->children, BAD_CAST "shapebox_y", 25);
   g_warning("shapeBox.y=%f\n", shapeBox.y);
 
-  tmpstr = (char *)xmlGetProp(doc->children, BAD_CAST "shapebox_w");
-  /* if unspecified, use the default value */
-  if(!tmpstr)
-      shapeBox.w = 80;
-  else
-    shapeBox.w = g_ascii_strtod(tmpstr, NULL);
+  shapeBox.w = xmlGetProp_Double(doc->children, BAD_CAST "shapebox_w", 80);
   g_warning("shapeBox.w=%f\n", shapeBox.w);
 
-  tmpstr = (char *)xmlGetProp(doc->children, BAD_CAST "shapebox_h");
-  /* if unspecified, use the default value */
-  if(!tmpstr)
-      shapeBox.h = 430;
-  else
-    shapeBox.h = g_ascii_strtod(tmpstr, NULL);
+  shapeBox.h = xmlGetProp_Double(doc->children, BAD_CAST "shapebox_h", 430);
   g_warning("shapeBox.h=%f\n", shapeBox.h);
 
-  tmpstr = (char *)xmlGetProp(doc->children, BAD_CAST "shapebox_nb_shape_x");
-  /* if unspecified, use the default value */
-  if(!tmpstr)
-      shapeBox.nb_shape_x = 1;
-  else
-      shapeBox.nb_shape_x = atoi(tmpstr);
+  shapeBox.nb_shape_x = xmlGetProp_Double(doc->children, BAD_CAST "shapebox_nb_shape_x", 1);
   g_warning("shapeBox.nb_shape_x=%d\n", shapeBox.nb_shape_x);
 
-  tmpstr = (char *)xmlGetProp(doc->children, BAD_CAST "shapebox_nb_shape_y");
-  /* if unspecified, use the default value */
-  if(!tmpstr)
-      shapeBox.nb_shape_y = 5;
-  else
-      shapeBox.nb_shape_y = atoi(tmpstr);
+  shapeBox.nb_shape_y = xmlGetProp_Double(doc->children, BAD_CAST "shapebox_nb_shape_y", 5);
   g_warning("shapeBox.nb_shape_y=%d\n", shapeBox.nb_shape_y);
-
 
   /* parse our document and replace old data */
   parse_doc(doc);

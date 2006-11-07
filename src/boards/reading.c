@@ -191,18 +191,22 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       gcomprisBoard->level = 1;
       gcomprisBoard->maxlevel = 9;
       gc_bar_set(GC_BAR_CONFIG|GC_BAR_LEVEL);
-
-      font_size = PANGO_PIXELS(pango_font_description_get_size (pango_font_description_from_string (gc_skin_font_board_medium)));
+      PangoFontDescription *font_medium = pango_font_description_from_string(gc_skin_font_board_medium);
+      font_size = PANGO_PIXELS(pango_font_description_get_size (font_medium));
       interline = (int) (1.5*font_size);
 
       PangoContext *pango_context = gtk_widget_get_pango_context  (GTK_WIDGET(agcomprisBoard->canvas));
 
       PangoFontMetrics* pango_metrics =  pango_context_get_metrics (pango_context,
-								    pango_font_description_from_string (gc_skin_font_board_medium),
+								    font_medium,
 								    pango_language_from_string   (gc_locale_get()));
+      pango_font_description_free(font_medium);
 
       int ascent = PANGO_PIXELS(pango_font_metrics_get_ascent (pango_metrics));
       int descent = PANGO_PIXELS(pango_font_metrics_get_descent (pango_metrics));
+
+      pango_font_metrics_unref(pango_metrics);
+
       interline = ascent + descent;
 
       g_warning ("Font to display words have size %d  ascent : %d, descent : %d.\n Set inerline to %d", font_size, ascent, descent, interline);
