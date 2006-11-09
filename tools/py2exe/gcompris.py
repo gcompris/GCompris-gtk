@@ -21,5 +21,8 @@ import cairo
 import pangocairo
 import atk
 import gobject
-
+# For tuxpaint launcher
+#import _winreg
+# For admin module
+#import pysqlite2
 print "Hello gcompris world now"
