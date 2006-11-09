@@ -19,6 +19,8 @@
  *   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  */
 
+#define G_STDIO_NO_WRAP_ON_UNIX
+
 #include <math.h>
 #include <string.h>
 #include <time.h>
