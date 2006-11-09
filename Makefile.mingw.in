@@ -136,7 +136,7 @@ prep:
 	@echo "Copy pixmap"
 	mkdir $(GCOMPRIS_INSTALL_DIR)/share/pixmaps
 	cp gcompris.png $(GCOMPRIS_INSTALL_DIR)/share/pixmaps
-	@remove tuxpaint activity
+	@echo remove tuxpaint activity
 	rm -f $(GCOMPRIS_INSTALL_DIR)/share/$(pkgdatadir)/boards/tuxpaint.xml
 	@echo "Create the file gcompris-win-prepack.tar.gz"
 	tar -czf gcompris-win-prepack.tar.gz win32-install-dir nsis tools
