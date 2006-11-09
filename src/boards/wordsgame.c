@@ -636,7 +636,7 @@ static GnomeCanvasItem *wordsgame_create_item(GnomeCanvasGroup *parent)
                                    &x2,
                                    &y2);
 
-  gnome_canvas_item_move (item->rootitem,(double) (rand()%(gcomprisBoard->width-(gint)(x2))),(double) 0);
+  gnome_canvas_item_move (item->rootitem,(double) (g_random_int()%(gcomprisBoard->width-(gint)(x2))),(double) 0);
 
 
   g_static_rw_lock_writer_lock (&items_lock);

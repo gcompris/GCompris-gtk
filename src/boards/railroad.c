@@ -357,7 +357,7 @@ static GnomeCanvasItem *railroad_create_item(GnomeCanvasGroup *parent)
   model_size = gcomprisBoard->level +1; // engine + cars
   // First the cars, depending of the level
   for (i=0; i<model_size-1; i++) {
-    r = (int)(((float) WAGONS)*rand()/(RAND_MAX+1.0));
+    r = g_random_int_range( 0, WAGONS);
     g_assert( r >=0 && r < WAGONS);
     // keep track of the answer
     int_model_list = g_list_append(int_model_list, GINT_TO_POINTER(r+ENGINES));
@@ -373,7 +373,7 @@ static GnomeCanvasItem *railroad_create_item(GnomeCanvasGroup *parent)
   }
 
   // Then the engine
-  r = (int)(((float) ENGINES)*rand()/(RAND_MAX+1.0));
+  r = g_random_int_range( 0, ENGINES);
   g_assert( r >=0 && r < ENGINES);
   // keep track of the answer
   int_model_list = g_list_append(int_model_list, GINT_TO_POINTER(r));

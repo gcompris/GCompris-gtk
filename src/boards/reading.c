@@ -362,7 +362,6 @@ static GnomeCanvasItem *display_what_to_do(GnomeCanvasGroup *parent)
 
   gint base_Y = 110;
   gint base_X = 580;
-  gint i;
 
   /* Load the text to find */
 
@@ -372,9 +371,8 @@ static GnomeCanvasItem *display_what_to_do(GnomeCanvasGroup *parent)
 
   /* Decide now if this time we will display the text to find */
   /* Use this formula to have a better random number see 'man 3 rand' */
-  i=((int)(2.0*rand()/(RAND_MAX+1.0)));
-  if(i==0)
-      textToFindIndex = rand() % numberOfLine;
+  if(g_random_boolean())
+      textToFindIndex = g_random_int_range(0, numberOfLine);
   else
     textToFindIndex = NOT_THERE;
 

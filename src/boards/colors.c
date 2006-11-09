@@ -211,7 +211,7 @@ static void start_board (GcomprisBoard *agcomprisBoard) {
   GcomprisProperties	*properties = gc_prop_get();
   GList * list = NULL;
   int * item;
-  int i;
+  int i, list_length;
 
   GHashTable *config = gc_db_get_board_conf();
 
@@ -239,8 +239,8 @@ static void start_board (GcomprisBoard *agcomprisBoard) {
     for (i=0; i<LAST_COLOR; i++)
       list = g_list_append(list, GINT_TO_POINTER(i));
 
-    while ((g_list_length(list) > 0)) {
-      i = RAND(0,g_list_length(list)-1);
+    while ((list_length = g_list_length(list))) {
+      i = list_length == 1 ? 0 : g_random_int_range(0,g_list_length(list)-1);
       item = g_list_nth_data(list, i);
       listColors = g_list_append(listColors, item);
       list = g_list_remove(list, item);

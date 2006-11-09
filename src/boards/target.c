@@ -362,12 +362,12 @@ static void display_windspeed()
 							   NULL));
 
   /* Speed orientation */
-  second = rand()%60;
+  second = g_random_int()%60;
   ang = second * M_PI / 30;
 
   /* Speed force */
   wind_speed = targetDefinition[gcomprisBoard->level-1].target_min_wind_speed \
-    + rand()%(targetDefinition[gcomprisBoard->level-1].target_max_wind_speed \
+    + g_random_int()%(targetDefinition[gcomprisBoard->level-1].target_max_wind_speed \
 	      - targetDefinition[gcomprisBoard->level-1].target_min_wind_speed);
 
   canvasPoints->coords[0]=SPEED_CENTER_X;

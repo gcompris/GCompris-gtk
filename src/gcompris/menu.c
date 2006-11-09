@@ -633,9 +633,19 @@ void gc_menu_load()
       int db = (gc_profile_get_current() ? TRUE: FALSE);
       properties->reread_menu = TRUE;
       gc_menu_load_dir(properties->package_data_dir, db);
-      GDate *today = g_date_new();
-      g_date_set_time (today, time (NULL));
 
+
+      /* use GTimeVal for portability */
+      GDate *today = g_date_new();
+
+#if  (GLIB_MAJOR_VERSION > 2) && (GLIB_MINOR_VERSION > 10)
+      GTimeVal now;
+
+      g_get_current_time (&now);
+      g_date_set_time_val (today, &now);
+#else
+      g_date_set_time (today, time (NULL));
+#endif
       gchar date[11];
       g_date_strftime (date, 11, "%F", today);
       gc_db_set_date(date);

@@ -212,19 +212,27 @@ gc_bonus_end_display(BoardFinishedList type) {
 void
 gc_bonus_display(BonusStatusList gamewon, BonusList bonus_id)
 {
+  g_warning("bonus display %d %d", (int) gamewon, (int) bonus_id); 
   gchar *absolute_file;
 
   g_assert(bonus_id < BONUS_LAST);
 
+  g_warning("bar_hide..."); 
   gc_bar_hide(TRUE);
+  g_warning("bar_hide... ok"); 
 
-  if (bonus_display_running)
+  if (bonus_display_running) {
+    g_warning("error bonus_display_running !"); 
     return;
+  }
   else
     bonus_display_running = TRUE;
   
   if(gamewon == BOARD_WIN || gamewon == BOARD_DRAW) {
+    g_warning("bonus absolute filename... "); 
     absolute_file = gc_file_find_absolute(greetingsList[RAND(0, NUMBER_OF_GREETINGS-1)]);
+
+    g_warning("bonus absolute filename: %s", absolute_file ); 
 
     if (absolute_file)
       {
@@ -247,7 +255,9 @@ gc_bonus_display(BonusStatusList gamewon, BonusList bonus_id)
   }
 
   /* First pause the board */
+  g_warning("Pausinng board ...");
   gc_board_pause(TRUE);
+  g_warning("Pausinng board ...ok");
 
   if(bonus_id==BONUS_RANDOM)
     bonus_id = RAND(1, BONUS_LAST-2);
@@ -278,7 +288,14 @@ bonus_image(char *image, BonusStatusList gamewon)
   char *str= NULL;
   int x,y;
   GdkPixbuf *pixmap = NULL;
+
+  g_warning("Bonus_image: gc_board_get_current...");
+
   GcomprisBoard *gcomprisBoard = gc_board_get_current();
+
+  g_assert(gcomprisBoard);
+
+  g_warning("Bonus_image: gc_board_get_current... ok");
 
   /* check that bonus_group is a singleton */
   if (bonus_group != NULL) {

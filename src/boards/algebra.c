@@ -709,7 +709,7 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 static gint get_operand()
 {
   gint j = 10;
-  gint i = (1+rand()%10);
+  gint i = (1+g_random_int()%10);
   
   // Get the next free slot
   while(operation_done[i]==TRUE && j>=0)
@@ -781,8 +781,8 @@ static void get_random_number(guint *first_operand, guint *second_operand)
 	  min = 1;
 	  max = 10;
 	}
-      *second_operand = (min+rand()%(max-min+1));
-      *first_operand  = *second_operand*(min+rand()%max);
+      *second_operand = (min+g_random_int()%(max-min+1));
+      *first_operand  = *second_operand*(min+g_random_int()%max);
       break;
     default:
       g_error("Bad Operation");

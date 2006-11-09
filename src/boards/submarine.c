@@ -779,8 +779,8 @@ static GnomeCanvasItem *submarine_create_item(GnomeCanvasGroup *parent) {
   // whale item
   str = g_strdup_printf("%s/%s", gcomprisBoard->boarddir, "whale.png");
   pixmap = gc_pixmap_load(str);
-  whale_x = RAND((int)(gdk_pixbuf_get_width(pixmap)), (int)(gcomprisBoard->width-gdk_pixbuf_get_width(pixmap)));
-  whale_y = RAND((int)(SURFACE_IN_BACKGROUND + gdk_pixbuf_get_height(pixmap)),(int)MAX_DEPTH);
+  whale_x = g_random_int_range((int)(gdk_pixbuf_get_width(pixmap)), (int)(gcomprisBoard->width-gdk_pixbuf_get_width(pixmap)));
+  whale_y = g_random_int_range((int)(SURFACE_IN_BACKGROUND + gdk_pixbuf_get_height(pixmap)),(int)MAX_DEPTH);
   whale = gnome_canvas_item_new (boardRootItem,
 				gnome_canvas_pixbuf_get_type (),
 				"pixbuf", pixmap,

@@ -33,7 +33,7 @@
 #include "soundutil.h"
 
 // returns a random integer in range [A,B]
-#define RAND(A,B) (A + (int)((float)(B-A+1)*rand()/(RAND_MAX+1.0)))
+#define RAND(A,B) (A == B ? A : g_random_int_range((guint32) A,(guint32) B))
 
 #ifndef MAX
 #define MAX(a,b) (((a) > (b)) ? (a) : (b))

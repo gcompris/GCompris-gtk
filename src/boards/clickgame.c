@@ -720,7 +720,7 @@ clickgame_create_item()
 
   fishitem = g_malloc(sizeof(FishItem));
   fishitem->currentItem   = 0;
-  fishitem->speed = (double)(rand()%(60))/10 - 3;
+  fishitem->speed = (double)(g_random_int()%(60))/10 - 3;
   fishitem->fright = 0;
   fishitem->stun = 0;
   fishitem->fwd_frames = NULL;
@@ -746,7 +746,7 @@ clickgame_create_item()
     gnome_canvas_item_new (parent,
 			   gnome_canvas_group_get_type (),
 			   "x", x,
-			   "y", (double)(rand()%(gcomprisBoard->height-
+			   "y", (double)(g_random_int()%(gcomprisBoard->height-
 						 (guint)(gdk_pixbuf_get_height(pixmap)*
 							 imageZoom))),
 			   NULL);
@@ -840,4 +840,3 @@ static void game_won()
   }
   clickgame_next_level();
 }
-

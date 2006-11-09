@@ -1,0 +1,39 @@
+How to cross compile GCompris for windows with mingw on GNU/Linux
+
+You need:
+========
+You need cross version of mingw, wich is available in all good distribution. 
+You have to install all mingw/windows version of your dev librairies somewhere.
+You have to adapt cross-configure.sh with the places where you put this libs.
+
+The scripts:
+============
+There is two script: cross-configure.sh and cross-make.sh. They are stolen from libsdl version: http://www.libsdl.org/extras/win32/cross/README.txt
+
+You can use them as configure and make, but you need to adapt them in your configuration. cross-configure.sh has a couple of lines for each library.
+Check TARGET too, TARGET is used tu set name of your compilators (gcc is i586-mingw32msvc-gcc when TARGET=i586-mingw32msvc)
+
+You have to set the PREFIX in cross-configure.sh to indicate where to install all the stuff. 
+
+Library warning
+===============
+You need lib*.a version of libraries if you want compile with -shared modules. You can make them from dll/def/lib using pexport/dlltool (i586-mingw32msvc-dlltool) if they are missing (e.g. sqlite.org gives only dll and def).
+Read http://www.go-evolution.org/Building_Evolution_on_Windows#libxml2 for an exemple with libxml2
+
+Libxml2
+=======
+The windows dev version is missing pc file for pkg-config. 
+Read that: http://www.go-evolution.org/Building_Evolution_on_Windows#libxml2
+I have wrote a pc file for it :
+--------------------------
+prefix=/home/ycombe/Win32/98/libxml2-2.6.26.win32
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name: libXML
+Version: 2.6.26
+Description: libXML library version 2.
+Requires:
+Libs: -L${libdir} -llibxml2  -lz
+--------------------------

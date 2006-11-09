@@ -18,7 +18,7 @@ LIBXML2_TOP :=		/libxml2
 SDL_TOP :=		/sdl
 CANVAS_TOP :=		/gnomecanvas
 GNUCHESS_TOP :=		/gnuchess
-PYTHON_DLL :=		/c/WINDOWS/system32/python24.dll
+PYTHON_TOP :=		/c/WINDOWS/system32/python24.dll
 GNUCAP_TOP :=		/gnucap
 
 MAKENSIS := "/c/Program Files/NSIS/makensis.exe"
@@ -26,7 +26,7 @@ MAKENSIS := "/c/Program Files/NSIS/makensis.exe"
 # These will be copied in the win32-install-dir ready to be packaged.
 NEEDED_DLLS =		$(GNUCHESS_TOP)/bin/pthreadGC.dll \
 			$(GNUCHESS_TOP)/bin/libreadline.dll \
-			$(PYTHON_DLL) \
+			$(PYTHON_TOP)/python24.dll \
 			$(GNUCAP_TOP)/src/MSW/gnucap.exe \
 			$(GTK_TOP)/bin/gspawn-win32-helper.exe \
 			$(GNUCHESS_TOP)/bin/gnuchess.exe \
@@ -136,7 +136,7 @@ prep:
 	@echo "Copy pixmap"
 	mkdir $(GCOMPRIS_INSTALL_DIR)/share/pixmaps
 	cp gcompris.png $(GCOMPRIS_INSTALL_DIR)/share/pixmaps
-	@echo remove tuxpaint activity
+	@remove tuxpaint activity
 	rm -f $(GCOMPRIS_INSTALL_DIR)/share/$(pkgdatadir)/boards/tuxpaint.xml
 	@echo "Create the file gcompris-win-prepack.tar.gz"
 	tar -czf gcompris-win-prepack.tar.gz win32-install-dir nsis tools

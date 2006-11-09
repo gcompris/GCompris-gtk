@@ -487,8 +487,8 @@ void shuffle_image_list(char *list[], int size)
 
   for(i=0; i<size; i++)
     {
-      int random1 = RAND(0, size-1);
-      int random2 = RAND(0, size-1);
+      int random1 = g_random_int_range(0, size-1);
+      int random2 = g_random_int_range(0, size-1);
       char *olditem;
 
       olditem = list[random2];

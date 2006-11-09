@@ -314,7 +314,7 @@ static GnomeCanvasItem *leftright_create_item(GnomeCanvasGroup *parent) {
 
   // make sure that next hand is not the same as previous
   do {
-    i = RAND(0,gcomprisBoard->level*8-1);
+    i = g_random_int_range(0,gcomprisBoard->level*8-1);
   } while ( i == last_hand );
 
   last_hand = i;

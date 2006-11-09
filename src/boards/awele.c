@@ -16,8 +16,6 @@
 #include <awele_utils.h>
 #include <awele.h>
 #include <string.h>
-#include <unistd.h>
-
 
 static GcomprisBoard *gcomprisBoard = NULL;
 static gboolean board_paused = TRUE;
@@ -624,17 +622,17 @@ initBoardGraphics (GRAPHICS_ELT * graphsElt)
 		     j < staticAwale->board[i] && idxTabBeans < NBTOTALBEAN;
 		     j++, idxTabBeans++)
 		{
-			k = 0 + rand () % 4;
+			k = 0 + g_random_int() % 4;
 			graphsElt->ptBeansHoleLink[idxTabBeans].beanPixbuf =
 				gnome_canvas_item_new (boardRootItem,
 						       gnome_canvas_pixbuf_get_type
 						       (), "x",
 						       (double) caseCoord[i] +
-						       rand () % 50, "y",
+						       g_random_int() % 50, "y",
 						       (double) (((i <
 								   6) ? 260 :
 								  130) +
-								 rand () %
+								 g_random_int() %
 								 60),
 						       "pixbuf",
 						       graphsElt->
@@ -858,15 +856,15 @@ updateNbBeans (int alpha)
 	   j++, idxTabBeans++)
 	{
 
-	  k = 0 + rand () % 4;
+	  k = 0 + g_random_int() % 4;
 
 	  gnome_canvas_item_set (ptBeansHoleLink[idxTabBeans].
 				 beanPixbuf, "x",
 				 (double) caseCoord[i] +
-				 rand () % 50, "y",
+				 g_random_int() % 50, "y",
 				 (double) (((i <
 					     6) ? 260 : 130) +
-					   rand () % 60), NULL);
+					   g_random_int() % 60), NULL);
 
 	  ptBeansHoleLink[idxTabBeans].hole = i;
 	}

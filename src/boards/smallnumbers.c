@@ -376,9 +376,9 @@ static void smallnumbers_create_item(GnomeCanvasGroup *parent)
 
     /* Take care not to go above 9 anyway */
     if(total_number==0) {
-      i=rand()%6;
+      i=g_random_int()%6;
     } else {
-      int rando = rand()%(9-total_number);
+      int rando = g_random_int()%(9-total_number);
       i=MIN(rando, 5);
     }
 
@@ -434,7 +434,7 @@ static void smallnumbers_create_item(GnomeCanvasGroup *parent)
 
     if(x==0.0)
       {
-	x = (double)(rand()%(gcomprisBoard->width-
+	x = (double)(g_random_int()%(gcomprisBoard->width-
 			     (guint)(gdk_pixbuf_get_width(smallnumbers_pixmap)* imageZoom)*2));
       }
     else

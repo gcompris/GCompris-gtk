@@ -23,10 +23,8 @@
 #include <string.h>
 #include <time.h>
 
-/* for gc_util_create_rootdir */
-#include <unistd.h>
-#include <sys/types.h>
-#include <sys/stat.h>
+/* g_mkdir */
+#include <glib/gstdio.h>
 
 /* libxml includes */
 #include <libxml/parserInternals.h>
@@ -630,16 +628,13 @@ gc_util_create_rootdir (gchar *rootdir)
 
   /* Case where ~/.gcompris already exist as a file. We remove it */
   if(g_file_test(rootdir, G_FILE_TEST_IS_REGULAR)) {
-    unlink(rootdir);
+    g_unlink(rootdir);
   }
 
   if(g_file_test(rootdir, G_FILE_TEST_IS_DIR)) {
     return 0;
   }
 
-#if defined WIN32
-  return(mkdir(rootdir));
-#else
-  return(mkdir(rootdir, 0755));
-#endif
+  return(g_mkdir(rootdir, 0755));
+
 }

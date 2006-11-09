@@ -334,7 +334,7 @@ static int generate_numbers() {
   gboolean minus, divide;
 
   for (i=0; i<gcomprisBoard->level+1; i++) {
-    j = RAND(0,NUM_VALUES-1);
+    j = g_random_int_range(0,NUM_VALUES-1);
     answer_num_index[i] = j;
   }
 
@@ -350,7 +350,7 @@ static int generate_numbers() {
     }
     r = 2 + minus + divide;
 
-    switch (RAND(1,r)) {
+    switch (g_random_int_range(1,r)) {
     case 1 :
       answer_oper[i] = '+';
       result += num_values[answer_num_index[i+1]];
@@ -377,7 +377,7 @@ static int generate_numbers() {
       }
       break;
     case 4 :
-      if ( RAND(0,1) == 0) {
+      if ( g_random_int_range(0,1) == 0) {
 	answer_oper[i] = '-';
 	result -= num_values[answer_num_index[i+1]];
 	g_assert(result >= 0);

@@ -196,7 +196,7 @@ static gboolean is_our_board (GcomprisBoard *gcomprisBoard) {
  * =====================================================================*/
 static void colors_next_level() {
   gchar *str = NULL;
-  int i;
+  int i, list_length;
   GList * list = NULL;
   int * item;
 
@@ -215,8 +215,8 @@ static void colors_next_level() {
     for (i=0; i<LAST_COLOR; i++)
       list = g_list_append(list, GINT_TO_POINTER(i));
 
-    while ((g_list_length(list) > 0)) {
-      i = RAND(0,g_list_length(list)-1);
+    while((list_length = g_list_length(list))) {
+      i = list_length == 1 ? 0 : g_random_int_range(0,g_list_length(list)-1);
       item = g_list_nth_data(list, i);
       listColors = g_list_append(listColors, item);
       list = g_list_remove(list, item);
@@ -288,7 +288,7 @@ static GnomeCanvasItem *colors_create_item(GnomeCanvasGroup *parent) {
 
   g_free(str);
   gnome_canvas_item_hide(highlight_image_item);
-  i = RAND(0,LAST_COLOR);
+  i = g_random_int_range(0,LAST_COLOR);
 
   gdk_pixbuf_unref(highlight_pixmap);
 

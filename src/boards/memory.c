@@ -522,7 +522,7 @@ void get_random_token(int token_type, gint *returned_type, gchar **string, gchar
 
   g_assert(max_token >0);
 
-  i = rand()%max_token;
+  i = g_random_int()%max_token;
 
   for (list = data; list != NULL; list = list->next)
     if ( i < ((DATUM *)list->data)->bound)
@@ -1175,8 +1175,8 @@ static void get_image(MemoryItem *memoryItem, guint x, guint y)
 
 
   // Randomly set the pair
-  rx = (int)(numberOfColumn*((double)rand()/RAND_MAX));
-  ry = (int)(numberOfLine*((double)rand()/RAND_MAX));
+  rx = g_random_int_range( 0, numberOfColumn);
+  ry = g_random_int_range(0, numberOfLine);
 
   while(memoryArray[rx][ry])
     {
@@ -1744,8 +1744,8 @@ static gint tux_play(){
   }
 
   // Randomly set the pair
-  rx = (int)(numberOfColumn*((double)rand()/RAND_MAX));
-  ry = (int)(numberOfLine*((double)rand()/RAND_MAX));
+  rx = g_random_int_range( 0, numberOfColumn);
+  ry = g_random_int_range(0, numberOfLine);
 
   gboolean  stay_unknown = (remainingCards > (g_queue_get_length (tux_memory)
 					      + (firstCard ? 1 : 0)));

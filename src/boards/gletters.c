@@ -611,7 +611,7 @@ static GnomeCanvasItem *gletters_create_item(GnomeCanvasGroup *parent)
     {
       attempt++;
       str_p = letters_array[gcomprisBoard->level-1];
-      i = (int)((float)k*rand()/(RAND_MAX+1.0));
+      i = g_random_int_range(0,k);
 
       for(j = 0; j < i; j++)
 	{
@@ -651,7 +651,7 @@ static GnomeCanvasItem *gletters_create_item(GnomeCanvasGroup *parent)
 			   "y", (double) -12,
 			   NULL);
 
-  x = 80 + (int)((float)(gcomprisBoard->width-160)*rand()/(RAND_MAX+1.0));
+  x = g_random_int_range( 80, gcomprisBoard->width-160);
   gnome_canvas_item_new (GNOME_CANVAS_GROUP(item),
 			 gnome_canvas_text_get_type (),
 			 "text", letter,

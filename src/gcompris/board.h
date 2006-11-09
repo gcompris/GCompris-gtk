@@ -23,9 +23,9 @@
 /**
  * Handles plugins initialization
  *
- * WIN32 = Static module, else it's dynamic
+ * STATIC_MODULE = Static module, else it's dynamic
  */
-#if defined WIN32
+#if defined STATIC_MODULE
 #define GET_BPLUGIN_INFO(pluginname) \
   BoardPlugin \
   *get_##pluginname##_bplugin_info(void) \
@@ -34,8 +34,16 @@
   } \
   BoardPlugin * _##pluginname##_menu_bp = &menu_bp;
 #else
+
+#ifdef BOARD_DLL_EXPORT
+// the dll exports
+#  define EXPORT __declspec(dllexport)
+#else
+#    define EXPORT
+#endif
+
 #define GET_BPLUGIN_INFO(pluginname) \
-  BoardPlugin			     \
+EXPORT  BoardPlugin			     \
   *get_bplugin_info(void) \
   { \
     return &menu_bp; \

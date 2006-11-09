@@ -1,3 +1,83 @@
+2006-11-09  Yves Combe  <yves@ycombe.net>
+
+	Landing of GCOMPRIS_8_2_CROSSCOMPIL branch.
+	Allow cross compilation for win32 with mingw/Linux.
+	Use GLib functions instead of unix one .
+
+	Adapt Tuxpaint launcher to make it work on Windows.
+
+	* Makefile.am:
+	* Makefile.mingw.in:
+	* README.mingw-cross:
+	* acinclude.m4:
+	* configure.in:
+	* cross-configure.sh:
+	* cross-make.sh:
+	* gcompris-installer.nsi.in:
+	* po/Makefile.in.in:
+	* src/boards/Makefile.am:
+	* src/boards/Makefile.mingw:
+	* src/boards/advanced_colors.c: (colors_next_level),
+	(colors_create_item):
+	* src/boards/algebra.c: (get_operand), (get_random_number):
+	* src/boards/algebra_guesscount.c: (generate_numbers):
+	* src/boards/awele.c: (initBoardGraphics), (updateNbBeans):
+	* src/boards/awele_alphaBeta.c: (firstChild):
+	* src/boards/awele_utils.c: (randplay):
+	* src/boards/click_on_letter.c: (click_on_letter_create_item):
+	* src/boards/clickgame.c: (clickgame_create_item), (game_won):
+	* src/boards/clockgame.c: (get_random_hour):
+	* src/boards/colors.c: (start_board):
+	* src/boards/crane.c: (shuffle_list):
+	* src/boards/enumerate.c: (enumerate_create_item):
+	* src/boards/erase.c: (shuffle_image_list):
+	* src/boards/fifteen.c: (scramble):
+	* src/boards/gletters.c: (gletters_create_item):
+	* src/boards/gtans.c:
+	* src/boards/gtans_support.c: (check_file_exists):
+	* src/boards/hanoi.c: (hanoi_create_item):
+	* src/boards/imageid.c: (imageid_create_item):
+	* src/boards/leftright.c: (leftright_create_item):
+	* src/boards/machpuzzle.c: (minigolf_create_item):
+	* src/boards/magic_hat.c: (magic_hat_create_item):
+	* src/boards/maze.c: (maze_next_level), (generateMaze):
+	* src/boards/memory.c: (get_random_token), (get_image), (tux_play):
+	* src/boards/missingletter.c: (missing_letter_create_item):
+	* src/boards/money.c: (money_next_level):
+	* src/boards/paratrooper.c: (paratrooper_next_level),
+	(paratrooper_create_cloud):
+	* src/boards/planegame.c: (planegame_create_item):
+	* src/boards/py-mod-gcompris.c: (py_gcompris_child_watch_add),
+	(py_gcompris_spawn_async):
+	* src/boards/python/tuxpaint.py:
+	* src/boards/railroad.c: (railroad_create_item):
+	* src/boards/read_colors.c: (start_board):
+	* src/boards/reading.c: (display_what_to_do):
+	* src/boards/reversecount.c: (display_random_fish):
+	* src/boards/shapegame.c: (parse_doc):
+	* src/boards/smallnumbers.c: (smallnumbers_create_item):
+	* src/boards/submarine.c: (submarine_create_item):
+	* src/boards/superbrain.c: (superbrain_next_level):
+	* src/boards/target.c: (display_windspeed):
+	* src/boards/wordsgame.c: (wordsgame_create_item):
+	* src/gcompris/Makefile.am:
+	* src/gcompris/Makefile.mingw:
+	* src/gcompris/binreloc.c: (_br_find_exe):
+	* src/gcompris/board.c: (gc_board_pause):
+	* src/gcompris/board.h:
+	* src/gcompris/bonus.c: (gc_bonus_display), (bonus_image):
+	* src/gcompris/file_selector.c: (parse_doc):
+	* src/gcompris/gameutil.c: (gc_util_create_rootdir):
+	* src/gcompris/gameutil.h:
+	* src/gcompris/gcompris.c: (activation_done), (load_properties),
+	(gc_init):
+	* src/gcompris/gcompris_db.c: (gc_db_init):
+	* src/gcompris/images_selector.c: (parse_doc):
+	* src/gcompris/menu.c: (gc_menu_load):
+	* src/gcompris/properties.c: (gc_prop_user_root_directory_get),
+	(gc_prop_config_file_get), (gc_prop_new):
+	* src/gcompris/sdlplayer.c: (errorv):
+
 2006-11-07  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	- Removed unused `no_undefined'

@@ -469,7 +469,7 @@ static void money_next_level()
     double object_price;
     gchar *text;
 
-    pixmap = gc_pixmap_load(imageList[RAND(0, NUMBER_OF_IMAGES-1)]);
+    pixmap = gc_pixmap_load(imageList[g_random_int_range(0, NUMBER_OF_IMAGES-1)]);
 
     gnome_canvas_item_new ( boardRootItem,
 			    gnome_canvas_pixbuf_get_type (),
@@ -480,7 +480,7 @@ static void money_next_level()
 			    NULL);
 
     /* Diplay the price */
-    object_price  = (double) RAND(min_price/number_of_item, max_price/number_of_item);
+    object_price  = (double) g_random_int_range(min_price/number_of_item, max_price/number_of_item);
 
     if(currentMode==WITH_CENTS)
       {
@@ -489,11 +489,11 @@ static void money_next_level()
 	/* Add random cents */
 	if(gcomprisBoard->level == 1)
 	  {
-	    object_price += (double)((double) RAND(1, 9))/10.0;
+	    object_price += (double)((double) g_random_int_range(1, 9))/10.0;
 	  }
 	else
 	  {
-	    object_price += (double)((double) RAND(1, 99))/100.0;
+	    object_price += (double)((double) g_random_int_range(1, 99))/100.0;
 	  }
       }
     else

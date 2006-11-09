@@ -570,13 +570,13 @@ static void display_random_fish()
 {
 
   fish_index = tux_index +
-    rand()%(max_dice_number*number_of_dices) + 1;
+    g_random_int()%(max_dice_number*number_of_dices) + 1;
 
   // Wrapping
   if(fish_index >= number_of_item)
     fish_index = fish_index - (number_of_item);
 
-  fishItem = display_item_at(fishList[rand()%NUMBER_OF_FISHES],
+  fishItem = display_item_at(fishList[g_random_int()%NUMBER_OF_FISHES],
 			     fish_index, -1);
 }
 

@@ -60,7 +60,7 @@ void gc_terminate(int signum);
 /*
  * For the Activation dialog
  */
-#ifdef WIN32
+#ifdef STATIC_MODULE
 int gc_activation_check(char *code);
 static void activation_enter_callback(GtkWidget *widget,
 				      GtkWidget *entry );
@@ -785,7 +785,7 @@ static void setup_window ()
 
 }
 
-#ifdef WIN32
+#ifdef STATIC_MODULE
 extern int gc_board_number_in_demo;
 /** Display the activation dialog for the windows version
  *
@@ -924,7 +924,7 @@ activation_done()
       (strcmp((char *)gtk_entry_get_text(GTK_ENTRY(widget_activation_entry)), "GOOD") != 0) &&
       (strcmp((char *)gtk_entry_get_text(GTK_ENTRY(widget_activation_entry)), "WRONG") != 0))
     {
-      activation_enter_callback(widget_activation_entry, NULL);
+      activation_enter_callback(GTK_WIDGET(widget_activation_entry), NULL);
     }
 
   gc_board_play(properties->menu_board);
@@ -1119,12 +1119,12 @@ static void load_properties ()
   g_free(prefix_dir);
 
 
-  /* Display the directory value we have */
+  /* Display the directory and database value we have */
   printf("package_data_dir         = %s\n", properties->package_data_dir);
   printf("package_locale_dir       = %s\n", properties->package_locale_dir);
   printf("package_plugin_dir       = %s\n", properties->package_plugin_dir);
   printf("package_python_plugin_dir= %s\n", properties->package_python_plugin_dir);
-
+  printf("database                 = %s\n", properties->database);
 }
 
 GcomprisProperties *gc_prop_get ()
@@ -1393,7 +1393,7 @@ gc_init (int argc, char *argv[])
   textdomain (GETTEXT_PACKAGE);
 
   /* To have some real random behaviour */
-  srand (time (NULL));
+  g_random_set_seed     (time (NULL));
 
   /* Default difficulty filter: non specified */
   popt_difficulty_filter = -1;
@@ -1662,10 +1662,10 @@ gc_init (int argc, char *argv[])
 
   if(popt_web_only) {
     g_free(properties->package_data_dir);
-    properties->package_data_dir = g_strdup("");
+    properties->package_data_dir = "";
 
     g_free(properties->system_icon_dir);
-    properties->system_icon_dir = g_strdup("");
+    properties->system_icon_dir = "";
   }
 
   if (popt_server){

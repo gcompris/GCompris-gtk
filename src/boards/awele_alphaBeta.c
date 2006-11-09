@@ -73,7 +73,7 @@ GNode *firstChild(GNode *node)
     return NULL;
 
   gint i;
-  rand_play = RAND(1, 5);
+  rand_play = g_random_int_range(1, 5);
 
   for (i = 0 ; i < 6; i++)
     {

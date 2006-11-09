@@ -469,7 +469,7 @@ static GnomeCanvasItem *planegame_create_item(GnomeCanvasGroup *parent)
   CloudItem *clouditem;
 
   /* Random cloud number */
-  if(rand()%2==0)
+  if(g_random_int()%2==0)
     {
       /* Put the target */
       i = plane_target;
@@ -477,7 +477,7 @@ static GnomeCanvasItem *planegame_create_item(GnomeCanvasGroup *parent)
   else
     {
       min = MAX(1, plane_target - 1);
-      i   = min + rand()%(plane_target - min + 3);
+      i   = min + g_random_int()%(plane_target - min + 3);
     }
   number = g_strdup_printf("%d", i);
 
@@ -487,7 +487,7 @@ static GnomeCanvasItem *planegame_create_item(GnomeCanvasGroup *parent)
     gnome_canvas_item_new (parent,
 			   gnome_canvas_group_get_type (),
 			   "x", (double) gcomprisBoard->width,
-			   "y", (double)(rand()%(gcomprisBoard->height-
+			   "y", (double)(g_random_int()%(gcomprisBoard->height-
 						 (guint)(gdk_pixbuf_get_height(pixmap)*
 							 imageZoom))),
 			   NULL);

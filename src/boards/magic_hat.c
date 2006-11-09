@@ -363,9 +363,9 @@ static GnomeCanvasItem *magic_hat_create_item()
 
 	// Frame 1
 	if (board_mode == MODE_MINUS)
-		frame1.nb_stars[i] = RAND(2, (1 + (step * nb_list()))); // Minimum 2 to avoid '0' value (which is not easy to understand for kids)
+		frame1.nb_stars[i] = g_random_int_range(2, (1 + (step * nb_list()))); // Minimum 2 to avoid '0' value (which is not easy to understand for kids)
 	else
-		frame1.nb_stars[i] = RAND(1, (step * nb_list()));
+		frame1.nb_stars[i] = g_random_int_range(1, (step * nb_list()));
 
 	for (j = 0 ; j < frame1.nb_stars[i] ; j++) frame1.array_star_type[i][j] = i;
 	for ( ; j < MAX_ITEM ; j++) frame1.array_star_type[i][j] = -1;
@@ -373,9 +373,9 @@ static GnomeCanvasItem *magic_hat_create_item()
 
 	// Frame 2
 	if (board_mode == MODE_MINUS)
-		frame2.nb_stars[i] = RAND(1, (frame1.nb_stars[i]) - 1);	// Minimum 1 to avoid '0'
+		frame2.nb_stars[i] = g_random_int_range(1, (frame1.nb_stars[i]) - 1);	// Minimum 1 to avoid '0'
 	else
-		frame2.nb_stars[i] = RAND(1, ((step * nb_list()) - frame1.nb_stars[i] + 1));
+		frame2.nb_stars[i] = g_random_int_range(1, ((step * nb_list()) - frame1.nb_stars[i] + 1));
 
 	for (j = 0 ; j < frame2.nb_stars[i] ; j++) frame2.array_star_type[i][j] = i;
 	for ( ; j < MAX_ITEM ; j++) frame2.array_star_type[i][j] = -1;

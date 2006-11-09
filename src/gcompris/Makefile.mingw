@@ -29,7 +29,7 @@ TARGET = gcompris
 
 # Compiler and Linker Options
 
-CFLAGS =
+CFLAGS = -DSTATIC_MODULE
 
 DEFINES =
 

@@ -377,15 +377,15 @@ static GnomeCanvasItem *enumerate_create_item(GnomeCanvasGroup *parent)
 
       pixmap = gc_pixmap_load(imageList[i]);
 
-      answer_to_find[i] = RAND(1, number_of_item_max);
+      answer_to_find[i] = g_random_int_range(1, number_of_item_max);
       answer[i] = 0;
 
       for(j=0; j<answer_to_find[i]; j++)
 	{
 	  guint x, y;
 
-	  x = RAND(0, ANSWER_X-gdk_pixbuf_get_width(pixmap)-ANSWER_WIDTH);
-	  y = RAND(0, BOARDHEIGHT-gdk_pixbuf_get_height(pixmap));
+	  x = g_random_int_range(0, ANSWER_X-gdk_pixbuf_get_width(pixmap)-ANSWER_WIDTH);
+	  y = g_random_int_range(0, BOARDHEIGHT-gdk_pixbuf_get_height(pixmap));
 
 	  item = gnome_canvas_item_new (boardRootItem,
 					gnome_canvas_pixbuf_get_type (),

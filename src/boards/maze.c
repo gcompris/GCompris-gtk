@@ -272,7 +272,7 @@ static void maze_next_level() {
 
   gamewon = FALSE;
   initMaze();
-  generateMaze((rand()%breedte),(rand()%hoogte));
+  generateMaze((g_random_int()%breedte),(g_random_int()%hoogte));
   removeSet();
   /* Try the next level */
   maze_create_item(gnome_canvas_root(gcomprisBoard->canvas));
@@ -283,8 +283,8 @@ static void maze_next_level() {
   }
 
   /* make a new group for the items */
-  begin=rand()%hoogte;
-  end=rand()%hoogte;
+  begin=g_random_int()%hoogte;
+  end=g_random_int()%hoogte;
 
   /* Draw the tux */
   pixmap = gc_pixmap_load("gcompris/misc/tux_top_east.png");
@@ -723,7 +723,7 @@ static void generateMaze(int x, int y)
     {
       int nr = *po;
       int ran, in;
-      in=(rand()%nr)+1;
+      in=(g_random_int()%nr)+1;
       //printf("random: %d en %d mogelijkheden\n", in, *po);
       ran=*(po + in);
       if (nr>=1)

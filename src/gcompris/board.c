@@ -28,7 +28,7 @@ static struct BoardPluginData *bp_data;
 
 static gboolean	 get_board_playing(void);
 
-#ifdef WIN32
+#ifdef STATIC_MODULE
 int gc_activation_check(char *code);
 extern BoardPlugin * get_advanced_colors_bplugin_info();
 extern BoardPlugin * get_algebra_bplugin_info();
@@ -79,7 +79,7 @@ static BoardPlugin *static_boards[MAX_NUMBER_OF_BOARDS];
 
 #endif
 
-#ifdef WIN32
+#ifdef STATIC_MODULE
 int gc_board_number_in_demo;
 void gc_board_init(void)
 {
@@ -203,7 +203,7 @@ void gc_board_set_current(GcomprisBoard * gcomprisBoard)
   bp_data->current_gcompris_board = gcomprisBoard;
 }
 
-#ifdef WIN32
+#ifdef STATIC_MODULE
 gboolean
 gc_board_check_file(GcomprisBoard *gcomprisBoard)
 {
@@ -380,6 +380,7 @@ gc_board_pause(int pause)
       if(gc_board_get_current_board_plugin()->pause_board)
 	gc_board_get_current_board_plugin()->pause_board(pause);
     }
+  else g_warning ("No boards to pause ?");
 }
 
 void

@@ -696,8 +696,8 @@ void shuffle_list(int list[], int size) {
 
   for (i = 0 ; i < size ; i++) {
 
-	rand1 = RAND(0, size-1);
-	rand2 = RAND(0, size-1);
+	rand1 = g_random_int_range(0, size-1);
+	rand2 = g_random_int_range(0, size-1);
 
 	buffer = list[rand2];
 	list[rand2] = list[rand1];

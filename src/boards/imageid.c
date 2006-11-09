@@ -266,7 +266,7 @@ static GnomeCanvasItem *imageid_create_item(GnomeCanvasGroup *parent)
       board_number = g_list_length(board_list)-1;
   */
   g_assert(board_number >= 0  && board_number < g_list_length(board_list));
-  place = ((int)(3.0*rand()/(RAND_MAX+1.0)));
+  place = g_random_int_range( 0, 3);
   g_assert(place >= 0  && place < 3);
 
   right_word = place+1;

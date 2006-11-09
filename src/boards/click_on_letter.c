@@ -353,7 +353,7 @@ static GnomeCanvasItem *click_on_letter_create_item(GnomeCanvasGroup *parent)
   g_assert(number_of_letters<=length_of_aphabet); // because we must set unique letter on every "vagon"
 
   for (i=0;i<number_of_letters;i++){
-    numbers[i]=((int)(((float)length_of_aphabet)*rand()/(RAND_MAX+1.0)));
+    numbers[i]= g_random_int_range(0, number_of_letters);
 
     // check that the letter has not been taken yet
     for(j=0;j<i;j++){
@@ -378,7 +378,7 @@ static GnomeCanvasItem *click_on_letter_create_item(GnomeCanvasGroup *parent)
       case 2  : letters[i]=g_strndup(copy_from,copy_to-copy_from); break;
       case 3  : letters[i]=g_utf8_strup(copy_from,copy_to-copy_from); break;
       default :
-	if ( rand() > (RAND_MAX/2) )
+	if ( g_random_boolean() )
 	  letters[i]=g_strndup(copy_from,copy_to-copy_from);
 	else
 	  letters[i]=g_utf8_strup(copy_from,copy_to-copy_from);
@@ -387,7 +387,7 @@ static GnomeCanvasItem *click_on_letter_create_item(GnomeCanvasGroup *parent)
   }
 
   /*  */
-  right_position = ((int)(((float)number_of_letters)*rand()/(RAND_MAX+1.0)));
+  right_position = g_random_int_range(0,number_of_letters);
   g_assert(right_position >= 0  && right_position < number_of_letters);
   right_letter = g_utf8_strdown(letters[right_position],-1);
 

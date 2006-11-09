@@ -337,8 +337,8 @@ static void paratrooper_next_level()
 		     NULL);
   gdk_pixbuf_unref(pixmap);
  
-  windspeed = (3 + rand()%gcomprisBoard->level);
-  if(rand()%2==0)
+  windspeed = (3 + g_random_int()%gcomprisBoard->level);
+  if(g_random_int()%2==0)
     windspeed *= -1;
 
   /* Drop a cloud */
@@ -620,7 +620,7 @@ static GnomeCanvasItem *paratrooper_create_cloud(GnomeCanvasGroup *parent)
     gnome_canvas_item_new (parent,
 			   gnome_canvas_group_get_type (),
 			   "x", (double) x,
-			   "y", (double)(rand()%(gcomprisBoard->height-200-
+			   "y", (double)(g_random_int()%(gcomprisBoard->height-200-
 						 (guint)(gdk_pixbuf_get_height(pixmap)*
 							 imageZoom))),
 			   NULL);

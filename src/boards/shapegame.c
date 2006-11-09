@@ -1954,6 +1954,7 @@ parse_doc(xmlDocPtr doc)
   xmlNodePtr node;
   GList *list;
   GnomeCanvasItem *item;
+  int list_length, i;
 
   /* find <Shape> nodes and add them to the list, this just
      loops through all the children of the root of the document */
@@ -1966,11 +1967,12 @@ parse_doc(xmlDocPtr doc)
   shape_list = g_list_copy(shape_list_init);
 
   /* Insert each of the shapes randomly */
-  while(g_list_length(shape_list_init)>0)
+  while((list_length = g_list_length(shape_list_init)))
     {
       Shape *shape;
 
-      shape = g_list_nth_data(shape_list_init, RAND(0, (g_list_length(shape_list_init)-1)));
+      i = list_length == 1 ? 0 : g_random_int_range(0, g_list_length(shape_list_init)-1);
+      shape = g_list_nth_data(shape_list_init, i);
       add_shape_to_canvas(shape);
 
       shape_list_init = g_list_remove (shape_list_init, shape);

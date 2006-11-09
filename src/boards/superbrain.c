@@ -258,9 +258,9 @@ static void superbrain_next_level()
     {
       guint j;
 
-      j = (guint)RAND(1, number_of_color);
+      j = (guint)g_random_int_range(1, number_of_color);
       while(selected_color[j])
-	j = (guint)RAND(1, number_of_color);
+	j = (guint)g_random_int_range(1, number_of_color);
 
       solution[i] = j;
       selected_color[j] = TRUE;

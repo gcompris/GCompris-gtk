@@ -431,7 +431,8 @@ scramble (GnomeCanvasItem **board, guint number_of_scrambles)
   int dir;
   int x, y;
 
-  srand (time (NULL));
+  /* g_random are initialised in gcompris launch */
+  /* srand (time (NULL)); */
 
   /* First, find the blank spot */
 
@@ -443,7 +444,7 @@ scramble (GnomeCanvasItem **board, guint number_of_scrambles)
 
   for (i = 0; i < number_of_scrambles; i++) {
   retry_scramble:
-    dir = rand () % 4;
+    dir = g_random_int () % 4;
 
     x = y = 0;
 

@@ -371,7 +371,7 @@ static GnomeCanvasItem *hanoi_create_item(GnomeCanvasGroup *parent)
   /* Initialize a random goal and store the color index in position[number_of_item_x] */
   for(i=0; i<(number_of_item_y); i++)
     {
-      guint color = (guint)RAND(0, NUMBER_OF_COLOR-1);
+      guint color = (guint)g_random_int_range(0, NUMBER_OF_COLOR-1);
       position[number_of_item_x+1][i]->color = color;
       used_colors[color] = TRUE;
 
@@ -386,10 +386,10 @@ static GnomeCanvasItem *hanoi_create_item(GnomeCanvasGroup *parent)
 	{
 	  done = FALSE;
 
-	  i = (guint)RAND(0, number_of_item_x-2);
+	  i = (guint)g_random_int_range(0, number_of_item_x-2);
 
 	  /* Restrict the goal to lowest items */
-	  j = (guint)RAND(0, 2);
+	  j = (guint)g_random_int_range(0, 2);
 
 	  if(position[i][j]->color == -1)
 	    {
@@ -408,7 +408,7 @@ static GnomeCanvasItem *hanoi_create_item(GnomeCanvasGroup *parent)
 	  if(position[i][j]->color == -1)
 	    {
 	      /* Take only a color that is not part of the goal */
-	      guint color = (guint)RAND(0, NUMBER_OF_COLOR-1);
+	      guint color = (guint)g_random_int_range(0, NUMBER_OF_COLOR-1);
 	      //printf(" i,j=%d,%d random color = %d used_colors[color]=%d\n", i,j,color, used_colors[color]);
 	      while(used_colors[color])
 		{

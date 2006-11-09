@@ -746,21 +746,21 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 static void get_random_hour(GcomprisTime *time)
 {
 
-  time->hour=rand()%12;
-
+  time->hour=g_random_int()%12;
+  
   if(gcomprisBoard->level>3)
-    time->second=rand()%60;
+    time->second=g_random_int()%60;
   else time->second=0;
-
-  time->minute=rand()%60;
+  
+  time->minute=g_random_int()%60;
 
   switch(gcomprisBoard->level)
     {
     case 1:
-      time->minute=rand()%4*15;
+      time->minute=g_random_int()%4*15;
       break;
     case 2:
-      time->minute=rand()%12*5;
+      time->minute=g_random_int()%12*5;
       break;
     default:
       break;

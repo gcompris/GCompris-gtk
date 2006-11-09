@@ -19,6 +19,7 @@
  * Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
+#define G_STDIO_NO_WRAP_ON_UNIX
 #include <glib/gstdio.h>
 #include <fcntl.h>
 #include <string.h>
@@ -78,9 +79,11 @@ gc_prop_user_root_directory_get ()
 {
   G_CONST_RETURN gchar *home_dir = g_get_home_dir();
 
-  if (home_dir == NULL) /* Win9x */
-    return g_strdup("gcompris");
+#ifdef WIN32
+  if ( ! G_WIN32_IS_NT_BASED() ) /* Win9x */
+    return g_strdup("../gcompris");
   else
+#endif
     return g_strconcat(home_dir, "/.gcompris", NULL);
 }
 
@@ -97,11 +100,13 @@ gc_prop_config_file_get()
     return(config_file);
   dir = gc_prop_user_root_directory_get();
   /* Was never called, must calculate it */
-  if (g_get_home_dir()==NULL) {
+#ifdef WIN32
+  if (! G_WIN32_IS_NT_BASED() ) {
     config_file = g_strconcat(dir, "/gcompris.cfg", NULL);
-  } else {
+  } else 
+#endif
     config_file = g_strconcat(dir, "/gcompris.conf", NULL);
-  }
+
   g_free(dir);
    return(config_file);
 }
@@ -128,7 +133,9 @@ gc_prop_new ()
   GScanner      *scanner;
   int		 filefd;
   gchar         *full_rootdir;
+#ifndef WIN32
   const gchar   *locale;
+#endif
   gchar         *user_dir;
 
   tmp = (GcomprisProperties *) malloc (sizeof (GcomprisProperties));

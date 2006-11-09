@@ -139,7 +139,7 @@ short int randplay(AWALE * a)
     AWALE *tmp = NULL;
 
     do {
-	i = 6 + rand() % 6;
+	i = 6 + g_random_int() % 6;
     } while (a->board[i] == 0 && !(tmp = moveAwale(i, a)));
 
     g_free(tmp);
