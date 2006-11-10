@@ -1,3 +1,15 @@
+2006-11-10  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	- Removed Ofset Logo. GCompris is no more an Ofset project.
+
+	* boards/skins/gartoon/ofsetlogo.png:
+	* src/gcompris/about.c: (gc_about_start):
+
+
+	* src/gcompris/gameutil.c: Fixed to add G_STDIO_NO_WRAP_ON_UNIX
+	* src/gcompris/gcompris.c: (gc_fullscreen_set): Applied a patch from Karl Tomlinson
+
+
 2006-11-10  Yves Combe  <yves@ycombe.net>
 
 	Add python binding for sound policy (gcompris.sound).

@@ -116,30 +116,12 @@ void gc_about_start ()
 			 gnome_canvas_text_get_type (),
 			 "text", _("Translators:"),
 			 "font", gc_skin_font_subtitle,
-			 "x", (double) BOARDWIDTH/2-320 + 1.0,
-			 "y", (double) y_start + 90 + 1.0,
-			 "anchor", GTK_ANCHOR_NORTH_WEST,
-			 "fill_color_rgba", gc_skin_color_shadow,
-			 NULL);
-  gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
-			 gnome_canvas_text_get_type (),
-			 "text", _("Translators:"),
-			 "font", gc_skin_font_subtitle,
 			 "x", (double) BOARDWIDTH/2-320,
 			 "y", (double) y_start + 90,
 			 "anchor", GTK_ANCHOR_NORTH_WEST,
 			 "fill_color_rgba", gc_skin_color_subtitle,
 			 NULL);
 
-  gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
-			 gnome_canvas_text_get_type (),
-			 "text", translators,
-			 "font", gc_skin_font_content,
-			 "x", (double)  BOARDWIDTH/2-320 + 1.0,
-			 "y", (double)  y_start + 120 + 1.0,
-			 "anchor", GTK_ANCHOR_NORTH_WEST,
-			 "fill_color_rgba", gc_skin_color_shadow,
-			 NULL);
   gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 			 gnome_canvas_text_get_type (),
 			 "text", translators,
@@ -156,62 +138,24 @@ void gc_about_start ()
 			 gnome_canvas_text_get_type (),
 			 "text", "GCompris V" VERSION,
 			 "font", gc_skin_font_title,
-			 "x", (double)  BOARDWIDTH/2 + 1.0,
-			 "y", (double)  y_start + 1.0,
-			 "anchor", GTK_ANCHOR_CENTER,
-			 "fill_color_rgba", gc_skin_color_shadow,
-			 NULL);
-  gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
-			 gnome_canvas_text_get_type (),
-			 "text", "GCompris V" VERSION,
-			 "font", gc_skin_font_title,
 			 "x", (double)  BOARDWIDTH/2,
 			 "y", (double)  y_start,
 			 "anchor", GTK_ANCHOR_CENTER,
 			 "fill_color_rgba", gc_skin_color_subtitle,
 			 NULL);
 
-  y_start += 180;
+  y_start += 140;
   gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 			 gnome_canvas_text_get_type (),
 			 "text", gettext(content),
 			 "font", gc_skin_font_content,
-			 "x", (double)  BOARDWIDTH*0.45 + 1.0,
-			 "y", (double)  y_start + 1.0,
-			 "anchor", GTK_ANCHOR_CENTER,
-			 "fill_color_rgba", gc_skin_color_shadow,
-			 NULL);
-  gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
-			 gnome_canvas_text_get_type (),
-			 "text", gettext(content),
-			 "font", gc_skin_font_content,
-			 "x", (double)  BOARDWIDTH*0.45,
+			 "x", (double) BOARDWIDTH/2-320,
 			 "y", (double)  y_start,
-			 "anchor", GTK_ANCHOR_CENTER,
+			 "anchor", GTK_ANCHOR_NORTH_WEST,
 			 "fill_color_rgba", gc_skin_color_content,
 			 NULL);
 
-  // Ofset Reference
-  pixmap = gc_skin_pixmap_load("ofsetlogo.png");
-  item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
-				gnome_canvas_pixbuf_get_type (),
-				"pixbuf", pixmap,
-				"x", (double) (BOARDWIDTH*0.15) - gdk_pixbuf_get_width(pixmap)/2,
-				"y", (double) y_start - gdk_pixbuf_get_height(pixmap)/2,
-				NULL);
-
-  gdk_pixbuf_unref(pixmap);
-
-  item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
-				gnome_canvas_text_get_type (),
-				"text", "OFSET\nhttp://ofset.org",
-				"font", gc_skin_font_content,
-				"x", (double)  (BOARDWIDTH*0.15),
-				"y", (double)  y_start + 80,
-				"anchor", GTK_ANCHOR_CENTER,
-				"fill_color_rgba",gc_skin_color_subtitle,
-				NULL);
-
+  y_start += 40;
   // FSF Reference
   pixmap = gc_skin_pixmap_load("fsflogo.png");
   item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
@@ -233,12 +177,12 @@ void gc_about_start ()
 				NULL);
 
   // GCompris Reference
-  y_start += 70;
+  y_start += 80;
   pixmap = gc_skin_pixmap_load("gcomprislogo.png");
   item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				gnome_canvas_pixbuf_get_type (),
 				"pixbuf", pixmap,
-				"x", (double) (BOARDWIDTH*0.5) - gdk_pixbuf_get_width(pixmap)/2 -50,
+				"x", (double) (BOARDWIDTH*0.3) - gdk_pixbuf_get_width(pixmap)/2 -50,
 				"y", (double) y_start - gdk_pixbuf_get_height(pixmap)/2,
 				NULL);
 
@@ -248,9 +192,9 @@ void gc_about_start ()
 				gnome_canvas_text_get_type (),
 				"text", _("GCompris Home Page\nhttp://gcompris.net"),
 				"font", gc_skin_font_content,
-				"x", (double)  (BOARDWIDTH*0.5) - 50,
-				"y", (double)  y_start + 30,
-				"anchor", GTK_ANCHOR_CENTER,
+				"x", (double) BOARDWIDTH/2-320,
+				"y", (double)  y_start + 5,
+				"anchor", GTK_ANCHOR_NORTH_WEST,
 				"fill_color_rgba", gc_skin_color_subtitle,
 				NULL);
 
