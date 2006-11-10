@@ -48,6 +48,9 @@ class Gcompris_melody:
 
 
   def start(self):
+    self.saved_policy = gcompris.sound.policy_get()
+    gcompris.sound.policy_set(gcompris.sound.PLAY_AND_INTERRUPT)
+
     self.gcomprisBoard.level=1
     self.gcomprisBoard.sublevel=1
     self.gcomprisBoard.number_of_sublevel=1
@@ -117,6 +120,7 @@ class Gcompris_melody:
   def end(self):
     self.cleanup()
     print("Gcompris_melody end.")
+    gcompris.sound.policy_set(self.saved_policy)
     gcompris.sound.resume()
 
 

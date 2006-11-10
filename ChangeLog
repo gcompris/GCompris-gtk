@@ -1,3 +1,13 @@
+2006-11-10  Yves Combe  <yves@ycombe.net>
+
+	Add python binding for sound policy (gcompris.sound).
+	Modify Melody to use it.
+
+	* po/Makefile.in.in:
+	* src/boards/py-mod-sound.c: (py_gc_sound_policy_set),
+	(py_gc_sound_policy_get), (python_gcompris_sound_module_init):
+	* src/boards/python/melody.py:
+
 2006-11-09  Yves Combe  <yves@ycombe.net>
 
 	Landing of GCOMPRIS_8_2_CROSSCOMPIL branch.
