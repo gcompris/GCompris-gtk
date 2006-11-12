@@ -115,7 +115,6 @@ _add_xml_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child,
       {
 	title = (char *)xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 0);
 	gcomprisBoard->title = reactivate_newline(gettext(title));
-	g_free(title);
       }
 
     /* get the description of the board */
@@ -123,7 +122,6 @@ _add_xml_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child,
       {
 	description = (char *)xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 0);
 	gcomprisBoard->description = reactivate_newline(gettext(description));
-	g_free(description);
       }
 
     /* get the help prerequisite help of the board */
@@ -134,7 +132,6 @@ _add_xml_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child,
 
 	prerequisite = (char *)xmlNodeListGetString(doc,  xmlnode->xmlChildrenNode, 0);
 	gcomprisBoard->prerequisite = reactivate_newline(gettext(prerequisite));
-    g_free(prerequisite);
       }
 
     /* get the help goal of the board */
@@ -145,7 +142,6 @@ _add_xml_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child,
 
 	goal = (char *)xmlNodeListGetString(doc,  xmlnode->xmlChildrenNode, 0);
 	gcomprisBoard->goal = reactivate_newline(gettext(goal));
-    g_free(goal);
       }
 
     /* get the help user manual of the board */
@@ -156,7 +152,6 @@ _add_xml_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child,
 
 	manual = (char *)xmlNodeListGetString(doc,  xmlnode->xmlChildrenNode, 0);
 	gcomprisBoard->manual = reactivate_newline(gettext(manual));
-    g_free(manual);
       }
 
     /* get the help user credit of the board */
@@ -167,7 +162,6 @@ _add_xml_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child,
 
 	credit =(char *) xmlNodeListGetString(doc,  xmlnode->xmlChildrenNode, 0);
 	gcomprisBoard->credit = reactivate_newline(gettext(credit));
-    g_free(credit);
       }
 
     /* Display the resource on stdout */
@@ -209,18 +203,28 @@ _add_xml_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child,
 			gcomprisBoard->mandatory_sound_file,
 			gcomprisBoard->mandatory_sound_dataset,
 			gcomprisBoard->filename,
-			gcomprisBoard->title,
-			gcomprisBoard->description,
-			gcomprisBoard->prerequisite,
-			gcomprisBoard->goal,
-			gcomprisBoard->manual,
-			gcomprisBoard->credit
+			/* Don't put translated text in the base */
+			title,
+			description,
+			prerequisite,
+			goal,
+			manual,
+			credit
 			);
 
     g_warning("db board written %d in %d  %s/%s",
 	      gcomprisBoard->board_id, gcomprisBoard->section_id,
 	      gcomprisBoard->section, gcomprisBoard->name);
+
+
   }
+
+  g_free(title);
+  g_free(description);
+  g_free(prerequisite);
+  g_free(goal);
+  g_free(manual);
+  g_free(credit);
 
 }
 
