@@ -32,6 +32,7 @@ xml_in_files = \
 	colors.xml.in \
 	computer.xml.in \
 	connect4.xml.in \
+	connect4-2players.xml.in \
 	crane.xml.in \
 	discovery.xml.in \
 	doubleentry.xml.in \

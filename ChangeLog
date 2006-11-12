@@ -1,5 +1,15 @@
 2006-11-12  Bruno coudoin  <bruno.coudoin@free.fr>
 
+	- By Miguel DE IZARRA, added a 2 player mode in connect4.
+
+	* boards/Makefile.am:
+	* boards/connect4-2players.xml.in:
+	* boards/connect4.xml.in:
+	* po/POTFILES.in:
+	* src/boards/python/connect4.py:
+
+2006-11-12  Bruno coudoin  <bruno.coudoin@free.fr>
+
 	* src/gcompris/menu.c: (_add_xml_to_data): no more save translated text in the base.
 	 save the english version instead.
 
