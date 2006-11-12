@@ -1,3 +1,17 @@
+2006-11-12  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	- Added support for sqlite compilation under windows
+
+	* Makefile.mingw.in:
+	* src/boards/Makefile.mingw:
+	* src/boards/python/melody.py: removed printout
+	* src/gcompris/Makefile.mingw:
+	* tools/py2exe/gcompris.py:
+
+2006-11-12  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* src/boards/erase.c: (erase_create_item): fixed out of bounds image
+
 2006-11-10  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	- Removed Ofset Logo. GCompris is no more an Ofset project.
@@ -150,7 +164,7 @@
 	* src/boards/py-mod-anim.c: (AnimCanvas_free): Fixed a Major bug in anim bindings.
 	  quiting the gnumch activity crash GCompris 1 times on 10 in my case.
 	  This seems to fix it and we should consider patching 8.2.1 with this.
-	* src/boards/python/gnumch.py: fixed a string to allow paramter swapping
+	* src/boards/python/gnumch.py: fixed a string to allow parameter swapping
 	for translations.
 	* src/gcompris/config.c: added japanese.
 

@@ -19,6 +19,7 @@ CANVAS_TOP :=		/gnomecanvas
 PYTHON_TOP :=		/c/Python24
 CAIRO_TOP :=		/cairo
 GCOMPRIS_INSTALL_DIR :=	$(GCOMPRIS_TOP)/win32-install-dir
+SQLITE_TOP := /sqlite
 
 ##
 ## VARIABLE DEFINITIONS
@@ -26,7 +27,7 @@ GCOMPRIS_INSTALL_DIR :=	$(GCOMPRIS_TOP)/win32-install-dir
 
 # Compiler Options
 
-CFLAGS = -DSTATIC_MODULE
+CFLAGS =
 
 DEFINES =
 
@@ -61,7 +62,8 @@ INCLUDE_PATHS +=	-I$(GCOMPRIS_PLUGINS) \
 			-I$(GCOMPRIS_TOP)/src \
 			-I$(CAIRO_TOP)/include/cairo \
 			-I$(PYTHON_TOP)/include \
-			-I$(PYTHON_TOP)/include/pygtk-2.0
+			-I$(PYTHON_TOP)/include/pygtk-2.0 \
+			-I$(SQLITE_TOP)
 
 
 

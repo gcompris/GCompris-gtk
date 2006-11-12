@@ -271,7 +271,7 @@ static void erase_next_level()
   gc_set_background(gnome_canvas_root(gcomprisBoard->canvas),
 			  imageList[current_image++]);
 
-  if(current_image>NUMBER_OF_IMAGES)
+  if(current_image>=NUMBER_OF_IMAGES)
     current_image=0;
 
   gc_bar_set_level(gcomprisBoard);

@@ -20,6 +20,7 @@ CAIRO_TOP :=		/cairo
 GCOMPRIS_TOP :=		../..
 GCOMPRIS_SRC :=		.
 GCOMPRIS_INSTALL_DIR :=	$(GCOMPRIS_TOP)/win32-install-dir
+SQLITE_TOP :=		/sqlite
 
 ##
 ## VARIABLE DEFINITIONS
@@ -29,7 +30,7 @@ TARGET = gcompris
 
 # Compiler and Linker Options
 
-CFLAGS = -DSTATIC_MODULE
+CFLAGS =
 
 DEFINES =
 
@@ -64,6 +65,7 @@ INCLUDE_PATHS +=	-I$(INCLUDE_DIR) \
 			-I$(LIBXML2_TOP)/include \
 			-I$(GNUWIN32_TOP)/include \
 			-I$(CAIRO_TOP)/include/cairo \
+			-I$(SQLITE_TOP) \
 			-I$(GCOMPRIS_TOP) \
 			-I$(GCOMPRIS_TOP)/src/boards
 
@@ -75,6 +77,7 @@ LIB_PATHS =		-L$(GTK_TOP)/lib \
 			-L$(SDL_TOP)/lib \
 			-L$(CANVAS_TOP)/lib \
 			-L$(PYTHON_TOP)/libs \
+			-L$(SQLITE_TOP) \
 			-L$(GCOMPRIS_TOP)/src/gcompris
 
 
@@ -144,7 +147,8 @@ EXE_LIBS =		../boards/libboards.a \
 			-lart_lgpl_2 \
 			-lpangoft2-1.0 \
 			-liconv \
-			-lpython24
+			-lpython24 \
+			-lsqlite3
 
 
 
