@@ -23,7 +23,6 @@
 #include <glib/gstdio.h>
 #include <fcntl.h>
 #include <string.h>
-#include <unistd.h>
 
 #include "gcompris.h"
 
@@ -103,7 +102,7 @@ gc_prop_config_file_get()
 #ifdef WIN32
   if (! G_WIN32_IS_NT_BASED() ) {
     config_file = g_strconcat(dir, "/gcompris.cfg", NULL);
-  } else 
+  } else
 #endif
     config_file = g_strconcat(dir, "/gcompris.conf", NULL);
 
@@ -131,7 +130,8 @@ gc_prop_new ()
   GcomprisProperties *tmp;
   char          *config_file = gc_prop_config_file_get();
   GScanner      *scanner;
-  int		 filefd;
+  gchar		*content;
+  gsize		length;
   gchar         *full_rootdir;
 #ifndef WIN32
   const gchar   *locale;
@@ -204,15 +204,16 @@ gc_prop_new ()
 
   g_warning("config_file %s", config_file);
 
-  filefd = open(config_file, O_RDONLY);
-
-  if(filefd > 0) {
+  if(g_file_get_contents(config_file,
+			 &content,
+			 &length,
+			 NULL)) {
 
     /* create a new scanner */
     scanner = g_scanner_new(NULL);
 
     /* set up the scanner to read from the file */
-    g_scanner_input_file(scanner, filefd);
+    g_scanner_input_text(scanner, content, length);
 
     /* while the next token is something else other than end of file */
     while(g_scanner_peek_next_token(scanner) != G_TOKEN_EOF) {
@@ -286,9 +287,7 @@ gc_prop_new ()
 
     /* destroy the scanner */
     g_scanner_destroy(scanner);
-
-    close(filefd);
-
+    g_free(content);
   }
 
   /*

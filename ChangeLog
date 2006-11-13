@@ -1,3 +1,9 @@
+2006-11-13  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* src/gcompris/properties.c: (gc_prop_config_file_get),
+	(gc_prop_new): changed to no more use open. open is not portable
+	and it fails to open file with utf8 characters on windows.
+
 2006-11-12  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	- By Miguel DE IZARRA, added a 2 player mode in connect4.
