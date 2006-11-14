@@ -546,7 +546,8 @@ display_style_selector(GnomeCanvasGroup *boardRootItem)
   gtk_combo_filetypes = gtk_combo_box_new_text();
 
   while (i < NUMBER_OF_DOCTYPE)
-    gtk_combo_box_append_text(GTK_COMBO_BOX(gtk_combo_filetypes), doctype_list[i++]->name);
+    gtk_combo_box_append_text(GTK_COMBO_BOX(gtk_combo_filetypes),
+			      gettext(doctype_list[i++]->name));
 
   gnome_canvas_item_new (GNOME_CANVAS_GROUP(boardRootItem),
 			 gnome_canvas_widget_get_type (),
@@ -580,7 +581,8 @@ display_color_style_selector(GnomeCanvasGroup *boardRootItem)
   gtk_combo_filetypes = gtk_combo_box_new_text();
 
   while (i < NUMBER_OF_COLOR_STYLE)
-    gtk_combo_box_append_text(GTK_COMBO_BOX(gtk_combo_filetypes), color_style_list[i++][0]);
+    gtk_combo_box_append_text(GTK_COMBO_BOX(gtk_combo_filetypes),
+			      gettext(color_style_list[i++][0]));
 
   gnome_canvas_item_new (GNOME_CANVAS_GROUP(boardRootItem),
 			 gnome_canvas_widget_get_type (),
@@ -632,7 +634,7 @@ item_event_style_selection (GtkComboBox *widget,
   for(i=0; i<NUMBER_OF_DOCTYPE; i++)
     {
       printf("  trying i=%d  %s\n", i, doctype_list[i]->name);
-      if(strcmp(doctype_list[i]->name, style_str)==0)
+      if(strcmp(gettext(doctype_list[i]->name), style_str)==0)
 	{
 	  /* Change the tag */
 	  int j = 0;
@@ -666,7 +668,7 @@ item_event_color_style_selection (GtkComboBox *widget,
   for(i=0; i<NUMBER_OF_COLOR_STYLE; i++)
     {
       printf("  trying i=%d  %s\n", i, color_style_list[i][0]);
-      if(strcmp(color_style_list[i][0], style_str)==0)
+      if(strcmp(gettext(color_style_list[i][0]), style_str)==0)
 	{
 	  int j;
 	  /* Change the color */
