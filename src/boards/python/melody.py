@@ -148,6 +148,8 @@ class Gcompris_melody:
                             self.melodylist[self.theme][0]['background'])
     gcompris.bar_set_level(self.gcomprisBoard)
 
+    gcompris.sound.policy_set(gcompris.sound.PLAY_AND_INTERRUPT)
+
     # Create our rootitem. We put each canvas item in it so at the end we
     # only have to kill it. The canvas deletes all the items it contains automaticaly.
     self.rootitem = self.gcomprisBoard.canvas.root().add(
@@ -206,6 +208,7 @@ class Gcompris_melody:
     if self.kidstry == self.solution :
       if (self.increment_level() == 1):
         self.gamewon = 1
+        gcompris.sound.policy_set(self.saved_policy)
         gcompris.bonus.display(1, gcompris.bonus.FLOWER)
 
 
