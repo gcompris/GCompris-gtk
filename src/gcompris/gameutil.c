@@ -139,7 +139,7 @@ do_colorshift (GdkPixbuf *dest, GdkPixbuf *src, int shift)
 
 
 
-static GdkPixbuf *
+GdkPixbuf *
 make_hc_pixbuf(GdkPixbuf *pb, gint val)
 {
   GdkPixbuf *new;

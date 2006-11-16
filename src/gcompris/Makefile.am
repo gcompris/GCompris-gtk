@@ -112,6 +112,7 @@ libgcomprisinclude_HEADERS =			\
 	skin.h \
 	soundutil.h \
 	timer.h \
+	drag.h \
 	$(cairo_h)
 
 libgcompris_1_la_SOURCES =			\
@@ -148,6 +149,7 @@ libgcompris_1_la_SOURCES =			\
 	soundutil.c \
 	timer.c \
 	wordlist.c \
+	drag.c \
         $(profile_c) \
 	$(cairo_c)
 

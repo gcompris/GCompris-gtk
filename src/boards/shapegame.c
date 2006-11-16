@@ -19,6 +19,8 @@
  *   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  */
 
+#define SHADOW 0
+
 /* libxml includes */
 #include <libxml/tree.h>
 #include <libxml/parser.h>
@@ -27,15 +29,18 @@
 #include <string.h>
 
 #include "gcompris/gcompris.h"
+#include "gcompris/drag.h"
+
+#include "gcompris/gameutil.h"
+
+extern GdkPixbuf *
+make_hc_pixbuf(GdkPixbuf *pb, gint val);    // should be in pixbuf_util.c ?
 
 #define SOUNDLISTFILE PACKAGE
 
-#define UNDEFINED "Undefined"
 #define SQUARE_LIMIT_DISTANCE 100.0
 
 static int gamewon;
-
-static gboolean edit_mode = FALSE;
 
 static gint addedname;	/* Defined the rules to apply to determine if the
 			   board is done.
@@ -56,7 +61,6 @@ typedef enum
   SHAPE_DUMMY_TARGET	= 1 << 1,
   SHAPE_ICON		= 1 << 2,
   SHAPE_BACKGROUND	= 1 << 3,
-  SHAPE_COLORLIST	= 1 << 4
 } ShapeType;
 
 /* Let's define the structure for a single shape */
@@ -84,30 +88,15 @@ struct _Shape {
   guint shapelistgroup_index;	  	/* Root index which this item is in the shapelist */
   Shape *icon_shape;			/* Temporary Canvas icon shape for this shape */
   Shape *target_shape;			/* If this is an icon shape then point to its shape */
-  GnomeCanvasItem *bad_item;		/* Temporary bad placed Canvas item for this shape */
 
-  gboolean found;			/* The user found this item */
-  gboolean placed;			/* The user placed this item */
   GnomeCanvasItem *target_point;       	/* Target point item for this shape */
   GnomeCanvasItem *targetitem;       	/* Target item for this shape (if targetfile is defined) */
+  double offset_x, offset_y;
+  Shape *shape_place;       /* the shape place in this place */
+  Shape *placed ;           /* where is place this shape */
 };
 
-gchar *colorlist [] =
-  {
-    "black",
-    "brown",
-    "red",
-    "orange",
-    "yellow",
-    "green",
-    "blue",
-    "purple",
-    "grey",
-    "white",
-  };
-
 /* This is the list of shape for the current game */
-static GList *shape_list_init	= NULL;
 static GList *shape_list	= NULL;
 static GList *shape_list_group	= NULL;
 static int current_shapelistgroup_index	= -1;
@@ -158,7 +147,6 @@ static void 		 shapegame_destroy_all_items(void);
 static void 		 setup_item(GnomeCanvasItem *item, Shape *shape);
 static void 		 shapegame_next_level(void);
 static gboolean 	 read_xml_file(char *fname);
-static gboolean 	 write_xml_file(char *fname);
 static Shape 		*find_closest_shape(double x, double y, double limit);
 static Shape 		*create_shape(ShapeType type, char *name, char *tooltip,
 				      char *pixmapfile,  GnomeCanvasPoints* points,
@@ -168,8 +156,11 @@ static gboolean 	 increment_sublevel(void);
 static void 		 create_title(char *name, double x, double y, GtkJustification justification,
 				      guint32 color_rgba);
 static gint		 item_event_ok(GnomeCanvasItem *item, GdkEvent *event, gpointer data);
-static gint		 item_event_edition(GnomeCanvasItem *item, GdkEvent *event, Shape *shape);
-
+static gint item_event_drag(GnomeCanvasItem *item, GdkEvent *event, gpointer data);
+#if DEBUG
+static void dump_shapes(void);
+static void dump_shape(Shape *shape);
+#endif
 static void update_shapelist_item(void);
 
 /* Description of this plugin */
@@ -324,7 +315,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 				  img);
 	  g_free(img);
 	}
-
+      gc_drag_start(gnome_canvas_root(gcomprisBoard->canvas), (gc_Drag_Func) item_event_drag);
       shapegame_next_level();
 
       pause_board(FALSE);
@@ -332,7 +323,6 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       gc_cursor_set(GCOMPRIS_LINE_CURSOR);
 
     }
-
 }
 
 static void
@@ -342,6 +332,7 @@ end_board ()
   if(gcomprisBoard!=NULL)
     {
       pause_board(TRUE);
+      gc_drag_stop(gnome_canvas_root(gcomprisBoard->canvas));
       shapegame_destroy_all_items();
       gcomprisBoard->level = 1;       // Restart this game to zero
     }
@@ -391,8 +382,6 @@ is_our_board (GcomprisBoard *gcomprisBoard)
  */
 static gint key_press(guint keyval, gchar *commit_str, gchar *preedit_str)
 {
-  guint c;
-
   if(!gcomprisBoard)
     return FALSE;
 
@@ -424,54 +413,6 @@ static gint key_press(guint keyval, gchar *commit_str, gchar *preedit_str)
     case GDK_Delete:
     case GDK_BackSpace:
     case GDK_Left:
-      break;
-    }
-
-  c = tolower(keyval);
-
-  switch (c)
-    {
-    case 'e':
-      /* Enter Edit Mode */
-      gc_dialog(_("You have entered Edit mode\nMove the puzzle items;\ntype 's' to save, and\n'd' to display all the shapes"), NULL);
-      edit_mode = TRUE;
-      break;
-    case 's':
-      /* Save the current board */
-      if(edit_mode)
-	{
-	  write_xml_file("/tmp/gcompris-board.xml");
-	  gc_dialog(_("The data from this activity are saved under\n/tmp/gcompris-board.xml"), NULL);
-	}
-      break;
-    case 'd':
-      /* Display all the shapes */
-      if(edit_mode)
-	{
-	  GList *list;
-
-	  /* loop through all our shapes */
-	  for(list = shape_list; list != NULL; list = list->next) {
-	    Shape *shape = list->data;
-
-	    if(shape->type==SHAPE_TARGET)
-	      {
-		   /* You got it right perfect */
-		   if(shape->bad_item!=NULL)
-		     {
-		       gnome_canvas_item_hide(shape->bad_item);
-		       gtk_object_destroy (GTK_OBJECT(shape->bad_item));
-		       shape->bad_item=NULL;
-		     }
-		   shape->found  = TRUE;
-		   gnome_canvas_item_show(shape->item);
-		   gnome_canvas_item_raise_to_top(shape->item);
-		   gnome_canvas_item_raise_to_top(shape->target_point);
-	      }
-	  }
-	}
-      break;
-    default:
       break;
     }
 
@@ -511,7 +452,6 @@ static void shapegame_next_level()
   char *filename;
 
   gamewon = FALSE;
-  edit_mode = FALSE;
 
   shapegame_destroy_all_items();
   next_shapelist_item = previous_shapelist_item = NULL;
@@ -552,13 +492,13 @@ static void process_ok()
 
       /* Loop through all the shapes to find if all target are found */
       for(list = shape_list; list != NULL; list = list->next) {
-	Shape *shape = list->data;
+          Shape *shape = list->data;
 
-	if(shape->type==SHAPE_TARGET)
-	  {
-	    if(shape->found==FALSE)
-	      done=FALSE;
-	  }
+          if(shape->type==SHAPE_TARGET)
+          {
+              if(shape->placed!=shape)
+                  done=FALSE;
+          }
       }
     }
   else
@@ -573,7 +513,7 @@ static void process_ok()
 	gint   intname = 0;
 
 	g_warning("   shape = %s\n", shape->name);
-	if(shape->type==SHAPE_TARGET && shape->placed==TRUE)
+	if(shape->type==SHAPE_TARGET && shape->placed)
 	  {
 	    intname = atoi(shape->name);
 	    total += intname;
@@ -665,8 +605,6 @@ static void shapegame_init_canvas(GnomeCanvasGroup *parent)
 			   "y", (double)0,
 			   NULL);
 
-  /* Create the tooltip area */
-  pixmap = gc_skin_pixmap_load("button_large.png");
   tooltip_root_item = GNOME_CANVAS_GROUP(
 					 gnome_canvas_item_new (parent,
 								gnome_canvas_group_get_type (),
@@ -675,6 +613,8 @@ static void shapegame_init_canvas(GnomeCanvasGroup *parent)
 								NULL)
 					 );
 
+  /* Create the tooltip area */
+  pixmap = gc_skin_pixmap_load("button_large.png");
   tooltip_bg_item = \
     gnome_canvas_item_new (GNOME_CANVAS_GROUP(tooltip_root_item),
 			   gnome_canvas_pixbuf_get_type (),
@@ -833,7 +773,7 @@ add_shape_to_list_of_shapes(Shape *shape)
       /* So this shape is not yet in, let's put it in now */
       g_hash_table_insert (shapelist_table, shape->pixmapfile, shape);
 
-      if(strcmp(shape->pixmapfile, UNDEFINED)!=0)
+      if(shape->pixmapfile)
 	{
 	  pixmap = gc_pixmap_load(shape->pixmapfile);
 	  if(pixmap)
@@ -851,7 +791,6 @@ add_shape_to_list_of_shapes(Shape *shape)
 		  h = ICON_HEIGHT;
 		  w = gdk_pixbuf_get_width(pixmap) * ( h / gdk_pixbuf_get_height(pixmap));
 		}
-
 	      item = gnome_canvas_item_new (shape_list_group_root,
 					    gnome_canvas_pixbuf_get_type (),
 					    "pixbuf", pixmap,
@@ -866,12 +805,13 @@ add_shape_to_list_of_shapes(Shape *shape)
 
 	      icon_shape = create_shape(SHAPE_ICON, shape->name, shape->tooltip,
 					shape->pixmapfile, shape->points, shape->targetfile,
-					(double)0, (double)y_offset,
+					(double)x_offset -w/2, (double)y_offset -h/2,
 					(double)w, (double)h,
 					(double)shape->zoomx, (double)shape->zoomy,
 					0, shape->soundfile);
 	      icon_shape->item = item;
 	      icon_shape->target_shape = shape;
+          shape->icon_shape = icon_shape;
 	      icon_shape->shapelistgroup_index = current_shapelistgroup_index;
 	      shape->shapelistgroup_index = current_shapelistgroup_index;
 	      g_warning(" creation shape=%s shape->shapelistgroup_index=%d current_shapelistgroup_index=%d\n",
@@ -917,61 +857,236 @@ static Shape *find_closest_shape(double x, double y, double limit)
   return candidateShape;
 }
 
-//#if 0
+#if DEBUG
+
+static void dump_shapes(void)
+{
+    GList *list;
+
+    printf("---- Shapes ----\n");
+    for(list = shape_list; list ; list = list->next)
+    {
+        Shape * s = list->data;
+        if(s->type == SHAPE_TARGET || s->type == SHAPE_ICON)
+            dump_shape(s);
+    }
+}
+
 static void dump_shape(Shape *shape)
 {
-  g_warning("dump_shape name=%s found=%d type=%d ", shape->name, shape->found, shape->type);
-  if(shape->bad_item)
-    g_warning("bad_item=TRUE ");
-  if(shape->icon_shape)
-    g_warning("icon_shape=%s", shape->icon_shape->name);
-  g_warning("\n");
-}
-//#endif
-
-/*
- * Given the shape, if it has an icon, it puts it back to
- * the list of shapes
- */
-static void shape_goes_back_to_list(Shape *shape, GnomeCanvasItem *item)
-{
-  g_warning("shape_goes_back_to_list shape=%s shape->shapelistgroup_index=%d current_shapelistgroup_index=%d\n", shape->name, shape->shapelistgroup_index, current_shapelistgroup_index);
-
-  if(shape->icon_shape!=NULL)
+    if(shape->type == SHAPE_TARGET && (shape->placed || shape->shape_place))
     {
-      if(shape->icon_shape->target_shape)
-	{
-	  shape->icon_shape->target_shape->placed = FALSE;
-	  g_warning("shape_goes_back_to_list setting shape->name=%s to placed=%d\n",
-		 shape->icon_shape->target_shape->name,
-		 shape->icon_shape->target_shape->placed);
-	}
-
-      /* There was a previous icon here, put it back to the list */
-      gnome_canvas_item_move(shape->icon_shape->item,
-			     shape->icon_shape->x - shape->x,
-			     shape->icon_shape->y - shape->y);
-      gnome_canvas_item_show(shape->icon_shape->item);
-
-      gc_item_focus_set(shape->icon_shape->item, TRUE);
-      shape->icon_shape=NULL;
-
-      gnome_canvas_item_hide(item);
-      gc_sound_play_ogg ("sounds/gobble.ogg", NULL);
+        printf("%s :", shape->name);
+        if(shape->placed)
+            printf(" %s -> %s", shape->name, shape->placed->name);
+        else
+            printf("       ");
+        if(shape->shape_place)
+            printf(" %s -> %s", shape->shape_place->name, shape->name);
+        printf("\n");
     }
-  update_shapelist_item();
+}
+#endif
+
+/* it puts a shape back to the list of shapes */
+static void shape_goes_back_to_list(Shape *shape)
+{
+    if(shape -> type == SHAPE_ICON)
+        shape = shape -> target_shape;
+
+    gnome_canvas_item_hide(shape->item);
+    /* replace the icon */
+    gnome_canvas_item_set(shape->icon_shape->item,
+            "x", shape->icon_shape->x,
+            "y", shape->icon_shape->y, NULL);
+    gnome_canvas_item_show(shape->icon_shape->item);
+    gc_item_focus_set(shape->icon_shape->item, TRUE);
+    
+    if(shape->placed)
+    {
+        shape->placed->shape_place = NULL;
+        shape->placed = NULL;
+    }
+
+    update_shapelist_item();
+
+    gc_sound_play_ogg ("sounds/gobble.ogg", NULL);
+}
+
+static Shape * item_to_shape(GnomeCanvasItem *item)
+{
+    GList *list;
+    for(list = shape_list; list ; list = list -> next)
+    {
+        Shape *s = list -> data;
+        if( s-> item  == item)
+            return s;
+    }
+    g_warning("Can't find the shape for item %p", item);
+    return NULL;
+}
+
+/* switch off all point, and switch on this point 
+    if shape is NULL, switch off all */
+void target_point_switch_on(Shape *shape_on)
+{
+    GList *list;
+    Shape *shape;
+
+    for(list = shape_list; list ; list = list ->next)
+    {
+        shape = list -> data;
+        if(shape->type == SHAPE_TARGET)
+            gnome_canvas_item_set(shape->target_point,
+                    "fill_color_rgba", 
+                    shape == shape_on ? POINT_COLOR_ON : POINT_COLOR_OFF,
+                    NULL);
+    }
+}
+
+static gint item_event_drag(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
+{
+#if SHADOW
+    static GnomeCanvasItem *shadow_item;
+#endif
+    double item_x, item_y;
+    Shape *shape, *found_shape;
+
+    if(board_paused)
+        return FALSE;
+
+    shape = item_to_shape(item);
+    switch(event->type)
+    {
+        case GDK_BUTTON_PRESS:
+            switch(shape -> type)
+            {
+                case SHAPE_ICON:
+                    gc_drag_offset_save(event);
+                    gc_drag_offset_get(&shape->offset_x, &shape->offset_y);
+                    if (shape->soundfile)
+                    {
+                        /* If the soundfile has space ' ' in it, then it is assumed that it is a list
+                         * of sound rather than a single one */
+                        char *p = NULL;
+                        char *soundfile = g_strdup(shape->soundfile);
+
+                        while ((p = strstr (soundfile, " ")))
+                        {
+                            *p='\0';
+                            gc_sound_play_ogg(soundfile, NULL);
+                            soundfile=p+1;
+                            g_warning("soundfile = %s\n", soundfile);
+                        }
+
+                        gc_sound_play_ogg(soundfile, NULL);
+                    }
+                    break;
+                case SHAPE_TARGET:
+                    gnome_canvas_item_hide(shape->item);
+                    
+                    // unplace this shape
+                    shape->placed->shape_place= NULL;
+                    shape->placed = NULL;
+                    
+                    shape = shape -> icon_shape;
+                    gc_drag_offset_set( shape->offset_x, shape->offset_y);
+                    gnome_canvas_item_show(shape->item);
+                    gc_drag_item_set(shape->item);
+                    break;
+                default:
+                    break;
+            }
+#if SHADOW
+            if(shadow_item)
+                gtk_object_destroy(GTK_OBJECT(shadow_item));
+            {   // initialise shadow shape
+                GdkPixbuf *pixmap, *dest;
+                g_object_get(shape->target_shape->item, "pixbuf", &pixmap, NULL);
+
+                dest = make_hc_pixbuf(pixmap, 30);
+                shadow_item = gnome_canvas_item_new(GNOME_CANVAS_GROUP(shape_root_item),
+                        gnome_canvas_pixbuf_get_type(),
+                        "pixbuf", dest,
+                        NULL);
+                gnome_canvas_item_hide(shadow_item);
+                gdk_pixbuf_unref(dest);
+                gdk_pixbuf_unref(pixmap);
+            }
+#endif
+            gnome_canvas_item_reparent(shape->item, GNOME_CANVAS_GROUP(shape_list_root_item->parent));
+            gnome_canvas_item_raise_to_top(shape->item);
+            gc_drag_item_move(event);
+            break;
+        case GDK_MOTION_NOTIFY:
+            gc_drag_item_move(event);
+
+            item_x = event->button.x;
+            item_y = event->button.y;
+            gnome_canvas_item_w2i(item->parent, &item_x, &item_y);
+            
+            found_shape = find_closest_shape( item_x, item_y, SQUARE_LIMIT_DISTANCE);
+#if SHADOW
+            if(found_shape)
+            {
+                gnome_canvas_item_set(shadow_item,
+                        "x", found_shape->x - shape->target_shape->w/2,
+                        "y", found_shape->y - shape->target_shape->h/2,
+                        NULL);
+                gnome_canvas_item_show(shadow_item);
+            }
+            else
+                gnome_canvas_item_hide(shadow_item);
+#endif 
+            target_point_switch_on(found_shape);
+            break;
+        case GDK_BUTTON_RELEASE:
+            item_x = event->button.x;
+            item_y = event->button.y;
+            gnome_canvas_item_w2i(item->parent, &item_x, &item_y);
+
+#if SHADOW
+            if(shadow_item)
+            {
+                gtk_object_destroy(GTK_OBJECT(shadow_item));
+                shadow_item = NULL;
+            }
+#endif
+            target_point_switch_on(NULL);
+            gnome_canvas_item_reparent(shape->item, shape->shape_list_group_root);
+
+            found_shape = find_closest_shape( item_x, item_y, SQUARE_LIMIT_DISTANCE);
+            if(found_shape)
+            {
+                if(found_shape->shape_place)
+                    shape_goes_back_to_list(found_shape->shape_place);
+                /* place the target item */
+                gnome_canvas_item_set(shape->target_shape->item,
+                        "x", found_shape->x - shape->target_shape->w/2,
+                        "y", found_shape->y - shape->target_shape->h/2,
+                        NULL);
+                gnome_canvas_item_show(shape->target_shape->item);
+                gnome_canvas_item_raise_to_top(shape->target_shape->item);
+                gnome_canvas_item_hide(shape->item);
+
+                shape -> target_shape -> placed = found_shape;
+                found_shape -> shape_place = shape -> target_shape;
+                update_shapelist_item();
+            }
+            else
+            {
+                shape_goes_back_to_list(shape);
+            }
+            break;
+        default:
+            break;
+    }
+    return FALSE;
 }
 
 static gint
 item_event(GnomeCanvasItem *item, GdkEvent *event, Shape *shape)
 {
-   static double x, y;
-   static double offset_x, offset_y;
-   double new_x, new_y;
-   GdkCursor *fleur;
-   static int dragging;
-   double item_x, item_y;
-   static GnomeCanvasItem *target_point_previous;
 
   if(!gcomprisBoard)
     return FALSE;
@@ -984,19 +1099,6 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, Shape *shape)
      g_warning("Shape is NULL : Should not happen");
      return FALSE;
    }
-
-   /* This event is a non sense in the edit mode. Also, it will crash since the data structure are */
-   /* filled differently in edit mode                                                              */
-   /* Redirect this event to the edit mode one so that the user can drag the object directly       */
-   if(edit_mode)
-     {
-       item_event_edition(item, event, shape);
-       return FALSE;
-     }
-
-   item_x = event->button.x;
-   item_y = event->button.y;
-   gnome_canvas_item_w2i(item->parent, &item_x, &item_y);
 
    switch (event->type)
      {
@@ -1021,390 +1123,14 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, Shape *shape)
        	 gnome_canvas_item_hide(GNOME_CANVAS_ITEM(tooltip_root_item));
        break;
      case GDK_BUTTON_PRESS:
-       switch(event->button.button)
-         {
-         case 1:
-           if (event->button.state & GDK_SHIFT_MASK)
-             {
-	     }
-	   else
-	     {
-	       target_point_previous = NULL;
-
-	       x = item_x;
-	       y = item_y;
-
-	       item_x = shape->x;
-	       item_y = shape->y;
-
-	       switch(shape->type)
-		 {
-		 case SHAPE_TARGET:
-		   gnome_canvas_item_hide(GNOME_CANVAS_ITEM(item));
-		   gc_item_focus_set(item, FALSE);
-
-		   if( shape->icon_shape!=NULL)
-		     {
-		       item = shape->icon_shape->item;
-		       item_x = x - (x - shape->x) * shape->icon_shape->w /
-			  shape->w;
-		       item_y = y - (y - shape->y) * shape->icon_shape->h /
-			  shape->h;
-		       gnome_canvas_item_move( item,
-					       item_x - shape->x,
-					       item_y - shape->y );
-		       gnome_canvas_item_show( item );
-		       gc_item_focus_set(item, TRUE);
-		       shape->icon_shape=NULL;
-		     }
-		   break;
-		 case SHAPE_ICON:
-		   if (strcmp(shape->soundfile,UNDEFINED) != 0)
-		   {
-		     /* If the soundfile has space ' ' in it, then it is assumed that it is a list
-		      * of sound rather than a single one
-		      */
-
-		     char *p = NULL;
-		     char *soundfile = g_strdup(shape->soundfile);
-
-		     while ((p = strstr (soundfile, " ")))
-		       {
-			 *p='\0';
-			 gc_sound_play_ogg(soundfile, NULL);
-			 soundfile=p+1;
-			 g_warning("soundfile = %s\n", soundfile);
-		       }
-
-		     gc_sound_play_ogg(soundfile, NULL);
-
-		   }
-		   break;
-		 default:
-		   break;
-		 }
-	       /* This records the offset between the mouse pointer and the grabbed item center */
-	       offset_x = x - item_x;
-	       offset_y = y - item_y;
-	       g_warning("offsetx=%f offsetx=%f\n", offset_x, offset_y);
-	       if(item==NULL)
-		 return FALSE;
-
-	       fleur = gdk_cursor_new(GDK_FLEUR);
-
-	       /* Make sure this item is on top */
-	       gnome_canvas_item_raise_to_top(shape_list_root_item);
-	       gnome_canvas_item_raise_to_top(item);
-
-	       gc_canvas_item_grab(item,
-				      GDK_POINTER_MOTION_MASK |
-				      GDK_BUTTON_RELEASE_MASK,
-				      fleur,
-				      event->button.time);
-	       gdk_cursor_destroy(fleur);
-	       dragging = TRUE;
-	     }
-	   break;
-
-         case 3:
-	   /* If There was a previous icon here, put it back to the list */
-	   shape_goes_back_to_list(shape, item);
-	   /* Mark it not found */
-	   shape->found = FALSE;
-	   break;
-
-         default:
-           break;
-         }
-       break;
-
-     case GDK_MOTION_NOTIFY:
-       if (dragging && (event->motion.state & GDK_BUTTON1_MASK))
-         {
-	   Shape *targetshape = NULL;
-	   new_x = item_x;
-	   new_y = item_y;
-
-	   gnome_canvas_item_move(item, new_x - x, new_y - y);
-
-	   x = new_x;
-	   y = new_y;
-
-	   targetshape = find_closest_shape(item_x - offset_x,
-					    item_y - offset_y,
-					    SQUARE_LIMIT_DISTANCE);
-	   if(targetshape!=NULL)
-	     {
-	       if(target_point_previous)
-		 {
-		   if(strcmp(shape->targetfile, UNDEFINED)==0)
-		     {
-		       gnome_canvas_item_set(GNOME_CANVAS_ITEM(target_point_previous),
-					     "fill_color_rgba", POINT_COLOR_OFF,
-					     NULL);
-
-		       gnome_canvas_item_set(GNOME_CANVAS_ITEM(targetshape->target_point),
-					     "fill_color_rgba", POINT_COLOR_ON,
-					     NULL);
-		     }
-		   else
-		     {
-		       gc_item_focus_set(target_point_previous, FALSE);
-		       gc_item_focus_set(targetshape->targetitem, TRUE);
-		       target_point_previous = targetshape->targetitem;
-		     }
-		 }
-
-	       if(strcmp(shape->targetfile, UNDEFINED)==0)
-		 target_point_previous = targetshape->target_point;
-	       else
-		 target_point_previous = targetshape->targetitem;
-	     }
-	   else
-	     {
-	       if(target_point_previous)
-		 {
-		   if(strcmp(shape->targetfile, UNDEFINED)==0)
-		     gnome_canvas_item_set(GNOME_CANVAS_ITEM(target_point_previous),
-					   "fill_color_rgba", POINT_COLOR_OFF,
-					   NULL);
-		   else
-		     gc_item_focus_set(target_point_previous, FALSE);
-		 }
-	       target_point_previous = NULL;
-	     }
-	 }
-       break;
-
-     case GDK_BUTTON_RELEASE:
-       if(dragging)
-	 {
-	   Shape *targetshape = NULL;
-
-	   gc_canvas_item_ungrab(item, event->button.time);
-	   dragging = FALSE;
-
-	   if(target_point_previous)
-	     {
-	       if(strcmp(shape->targetfile, UNDEFINED)==0)
-		 gnome_canvas_item_set(GNOME_CANVAS_ITEM(target_point_previous),
-				       "fill_color_rgba", POINT_COLOR_OFF,
-				       NULL);
-	       else
-		 gc_item_focus_set(target_point_previous, FALSE);
-	     }
-	   target_point_previous = NULL;
-
-	   targetshape = find_closest_shape(item_x - offset_x,
-					    item_y - offset_y,
-					    SQUARE_LIMIT_DISTANCE);
-	   if(targetshape!=NULL)
-	     {
-	       /* Finish the placement of the grabbed item anyway */
-	       gnome_canvas_item_move(item,
-				      targetshape->x - x + offset_x,
-				      targetshape->y - y + offset_y);
-	       /* Hide it */
-	       gnome_canvas_item_hide(item);
-
-	       if(strcmp(targetshape->name, shape->name)==0)
-		 {
-		   /* You got it right perfect */
-		   if(targetshape->bad_item!=NULL)
-		     {
-		       gnome_canvas_item_hide(targetshape->bad_item);
-		       gtk_object_destroy (GTK_OBJECT(targetshape->bad_item));
-		       targetshape->bad_item=NULL;
-		     }
-		   targetshape->found  = TRUE;
-		   shape->target_shape->placed = TRUE;
-		   g_warning("setting shape->name=%s to placed=%d\n", shape->target_shape->name,
-			  shape->target_shape->placed);
-		   gnome_canvas_item_show(targetshape->item);
-		   gnome_canvas_item_raise_to_top(targetshape->item);
-		 }
-	       else
-		 {
-		   /* Oups wrong position, create the wrong pixmap item */
-		   GdkPixbuf *pixmap;
-		   GnomeCanvasItem *item;
-
-		   targetshape->found = FALSE;
-		   shape->target_shape->placed = TRUE;
-		   g_warning("setting shape->name=%s to placed=%d\n", shape->target_shape->name,
-			  shape->target_shape->placed);
-		   gnome_canvas_item_hide(targetshape->item);
-
-		   /* There is already a bad item, delete it */
-		   if(targetshape->bad_item!=NULL)
-		     gtk_object_destroy (GTK_OBJECT(targetshape->bad_item));
-
-		   pixmap = gc_pixmap_load(shape->pixmapfile);
-		   item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(shape_root_item),
-						 gnome_canvas_pixbuf_get_type (),
-						 "pixbuf", pixmap,
-						 "x", (double)targetshape->x - (gdk_pixbuf_get_width(pixmap)
-										* shape->zoomx)/2,
-						 "y", (double)targetshape->y - (gdk_pixbuf_get_height(pixmap)
-										* shape->zoomy/2),
-						 "width", (double) gdk_pixbuf_get_width(pixmap) * shape->zoomx,
-						 "height", (double) gdk_pixbuf_get_height(pixmap) * shape->zoomy,
-						 "width_set", TRUE,
-						 "height_set", TRUE,
-						 NULL);
-		   gdk_pixbuf_unref(pixmap);
-
-		   targetshape->bad_item = item;
-		   setup_item(item, targetshape);
-		 }
-
-	       /* If There was a previous icon here, put it back to the list */
-	       shape_goes_back_to_list(targetshape, item);
-
-	       /* Set the icon item */
-	       targetshape->icon_shape=shape;
-
-	     }
-	   else
-	     {
-	       /* The item has no close position */
-	       switch(shape->type)
-		 {
-		 case SHAPE_TARGET:
-		   gnome_canvas_item_hide(item);
-		   if( shape->icon_shape!=NULL)
-		     {
-		       item = shape->icon_shape->item;
-		       gnome_canvas_item_show(item);
-		     }
-		   break;
-		 case SHAPE_ICON:
-		   break;
-		 default:
-		   break;
-		 }
-	       /* Move back the item home */
-	       gnome_canvas_item_move(item,
-				      shape->x - x + offset_x,
-				      shape->y - y + offset_y);
-	       shape->target_shape->placed = FALSE;
-	       /* Mark it not found */
-	       shape->target_shape->found = FALSE;
-	       dump_shape(shape);
-	       dump_shape(shape->target_shape);
-           update_shapelist_item();
-	     }
-	 }
-       break;
-
+       if(event->button.button == 3)
+           shape_goes_back_to_list(shape);
      default:
        break;
      }
 
    return FALSE;
  }
-
-/*
- * Special mode to edit the board by moving the target point
- */
-static gint
-item_event_edition(GnomeCanvasItem *item, GdkEvent *event, Shape *shape)
-{
-   static double x, y;
-   double new_x, new_y;
-   GdkCursor *fleur;
-   static int dragging;
-   double item_x, item_y;
-
-  if(!gcomprisBoard)
-    return FALSE;
-
-  if(!edit_mode)
-    return FALSE;
-
-   if(shape==NULL) {
-     g_warning("Shape is NULL : Should not happen");
-     return FALSE;
-   }
-
-   if(shape->type != SHAPE_TARGET)
-     return FALSE;
-
-   item_x = event->button.x;
-   item_y = event->button.y;
-   gnome_canvas_item_w2i(item->parent, &item_x, &item_y);
-
-   switch (event->type)
-     {
-     case GDK_BUTTON_PRESS:
-       switch(event->button.button)
-         {
-         case 1:
-           if (event->button.state & GDK_SHIFT_MASK)
-             {
-	       /* Cheat code to save an XML file */
-	       write_xml_file("/tmp/gcompris-board.xml");
-	     }
-	   else
-	     {
-	       x = item_x;
-	       y = item_y;
-
-	       item = shape->target_point;
-
-	       fleur = gdk_cursor_new(GDK_FLEUR);
-
-	       gc_canvas_item_grab(item,
-				      GDK_POINTER_MOTION_MASK |
-				      GDK_BUTTON_RELEASE_MASK,
-				      fleur,
-				      event->button.time);
-	       gdk_cursor_destroy(fleur);
-	       dragging = TRUE;
-	     }
-	   break;
-
-         default:
-           break;
-         }
-       break;
-
-     case GDK_MOTION_NOTIFY:
-       if (dragging && (event->motion.state & GDK_BUTTON1_MASK))
-         {
-	   new_x = item_x;
-	   new_y = item_y;
-
-	   gnome_canvas_item_move(item, new_x - x, new_y - y);
-	   gnome_canvas_item_move(shape->item, new_x - x, new_y - y);
-
-	   // Update the shape's coordinate
-	   shape->x = shape->x + new_x - x;
-	   shape->y = shape->y + new_y - y;
-
-	   x = new_x;
-	   y = new_y;
-         }
-       break;
-
-     case GDK_BUTTON_RELEASE:
-       if(dragging)
-	 {
-
-	   gc_canvas_item_ungrab(item, event->button.time);
-	   gnome_canvas_item_raise_to_top(item);
-	   dragging = FALSE;
-
-	 }
-       break;
-
-     default:
-       break;
-     }
-
-   return FALSE;
-
-}
 
 static int get_element_count_listgroup(int listgroup_index)
 {
@@ -1464,6 +1190,9 @@ static void update_shapelist_item(void)
         gnome_canvas_item_hide(previous_shapelist_item);
     else
         gnome_canvas_item_show(previous_shapelist_item);
+#if DEBUG
+    dump_shapes();
+#endif
 }
 
 /* Callback for the operations */
@@ -1512,6 +1241,8 @@ setup_item(GnomeCanvasItem *item, Shape *shape)
   gtk_signal_connect(GTK_OBJECT(item), "event",
 		     (GtkSignalFunc) item_event,
 		     shape);
+  gtk_signal_connect(GTK_OBJECT(item), "event",
+          (GtkSignalFunc) gc_drag_event, NULL);
 }
 
 /*
@@ -1533,7 +1264,7 @@ add_shape_to_canvas(Shape *shape)
 
   if(shape->type==SHAPE_TARGET)
     {
-      if(strcmp(shape->targetfile, UNDEFINED)!=0)
+      if(shape->targetfile)
 	{
 	  targetpixmap = gc_pixmap_load(shape->targetfile);
 	  shape->w = (double)gdk_pixbuf_get_width(targetpixmap) * shape->zoomx;
@@ -1555,7 +1286,6 @@ add_shape_to_canvas(Shape *shape)
       else
 	{
 	  int point_size = 6;
-
 	  /* Display a point to highlight the target location of this shape */
 	  item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(shape_root_item),
 					gnome_canvas_ellipse_get_type(),
@@ -1568,9 +1298,6 @@ add_shape_to_canvas(Shape *shape)
 					"width_pixels", 2,
 					NULL);
 	  shape->target_point = item;
-	  gtk_signal_connect(GTK_OBJECT(item), "event",
-			     (GtkSignalFunc) item_event_edition,
-			     shape);
 	}
       gnome_canvas_item_lower_to_bottom(item);
     }
@@ -1589,7 +1316,7 @@ add_shape_to_canvas(Shape *shape)
   else
     {
       g_warning("it's an image ? shape->pixmapfile=%s\n", shape->pixmapfile);
-      if(strcmp(shape->pixmapfile, UNDEFINED)!=0)
+      if(shape->pixmapfile)
 	{
 	  g_warning("  Yes it is an image \n");
 	  pixmap = gc_pixmap_load(shape->pixmapfile);
@@ -1697,13 +1424,6 @@ create_shape(ShapeType type, char *name, char *tooltip, char *pixmapfile, GnomeC
   shape->type = type;
   shape->soundfile = g_strdup(soundfile);
 
-  shape->bad_item = NULL;
-  shape->icon_shape = NULL;
-  shape->target_shape = NULL;
-
-  shape->found  = FALSE;
-  shape->placed = FALSE;
-
   /* add the shape to the list */
   shape_list = g_list_append(shape_list, shape);
 
@@ -1738,7 +1458,7 @@ xmlGetProp_Double(xmlNodePtr node, xmlChar *prop, double def_value)
 }
 
 static void
-add_xml_shape_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child)
+add_xml_shape_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child, GList **list)
 {
   char *name, *cd ,*ctype, *justification;
   char *tooltip;
@@ -1788,14 +1508,10 @@ add_xml_shape_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child)
   /* FIXME : The implementation is incomplete, a point still needs to be added
      to shapelist and add management for it's x/y coordinates */
   cd = (char *)xmlGetProp(xmlnode, BAD_CAST "points");
-  if(!cd)
-    {
-      cd = "";
-    }
-  else
+  if(cd)
     {
       d = g_strsplit(cd, " ", 64);
-
+      xmlFree(cd);
       j=0;
       while(d[j]!=NULL)
 	{
@@ -1846,8 +1562,6 @@ add_xml_shape_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child)
         type = SHAPE_DUMMY_TARGET;
       else if (g_strcasecmp(ctype,"SHAPE_BACKGROUND")==0)
         type = SHAPE_BACKGROUND;
-      else if (g_strcasecmp(ctype,"SHAPE_COLORLIST")==0)
-        type = SHAPE_COLORLIST;
    xmlFree(ctype);
   }
   else
@@ -1914,19 +1628,18 @@ add_xml_shape_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child)
   if(!name)
     name = (char *)xmlGetProp(xmlnode, BAD_CAST "name");
 
-
   if(g_strcasecmp((char *)xmlnode->name, "Shape")==0)
     {
       /* add the shape to the database */
       /* WARNING : I do not initialize the width and height since I don't need them */
-      shape = create_shape(type, name, tooltip, pixmapfile ? pixmapfile : UNDEFINED, points,
-                targetfile ? targetfile : UNDEFINED, x, y,
+      shape = create_shape(type, name, tooltip, pixmapfile , points,
+                targetfile, x, y,
 			   (double)0, (double)0,
 			   zoomx, zoomy, position,
-               soundfile ? soundfile : UNDEFINED);
+               soundfile);
 
       /* add the shape to the list */
-      shape_list_init = g_list_append(shape_list_init, shape);
+      *list = g_list_append(*list, shape);
     }
   else if (g_strcasecmp((char *)xmlnode->name, "Title")==0)
     {
@@ -1951,6 +1664,7 @@ add_xml_shape_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child)
 static void
 parse_doc(xmlDocPtr doc)
 {
+  GList *shape_list_init = NULL;
   xmlNodePtr node;
   GList *list;
   GnomeCanvasItem *item;
@@ -1961,7 +1675,7 @@ parse_doc(xmlDocPtr doc)
   for(node = doc->children->children; node != NULL; node = node->next) {
     /* add the shape to the list, there are no children so
        we pass NULL as the node of the child */
-    add_xml_shape_to_data(doc, node, NULL);
+    add_xml_shape_to_data(doc, node, NULL, &shape_list_init);
   }
 
   shape_list = g_list_copy(shape_list_init);
@@ -2063,85 +1777,6 @@ read_xml_file(char *fname)
 
   return TRUE;
 }
-
-/* add a shape to xmlnode from node */
-static void
-write_shape_to_xml(xmlNodePtr xmlnode, Shape *shape)
-{
-  xmlNodePtr newxml;
-  gchar *tmp;
-
-  g_return_if_fail(xmlnode!=NULL);
-  g_return_if_fail(shape!=NULL);
-
-  /* make a new xml node (as a child of xmlnode) with an
-     empty content */
-  newxml = xmlNewChild(xmlnode,NULL, BAD_CAST "Shape",NULL);
-  /* set properties on it */
-  xmlSetProp(newxml, BAD_CAST "name", BAD_CAST shape->name);
-  if(shape->tooltip)
-    xmlSetProp(newxml, BAD_CAST "tooltip", BAD_CAST shape->tooltip);
-  xmlSetProp(newxml, BAD_CAST "pixmapfile", BAD_CAST shape->pixmapfile);
-  xmlSetProp(newxml, BAD_CAST "sound", BAD_CAST shape->soundfile);
-
-  tmp = g_strdup_printf("%f", shape->x);
-  xmlSetProp(newxml, BAD_CAST "x", BAD_CAST tmp);
-  g_free(tmp);
-
-  tmp = g_strdup_printf("%f", shape->y);
-  xmlSetProp(newxml, BAD_CAST "y", BAD_CAST tmp);
-  g_free(tmp);
-
-  tmp = g_strdup_printf("%f", shape->zoomx);
-  xmlSetProp(newxml, BAD_CAST "zoomx", BAD_CAST tmp);
-  g_free(tmp);
-
-  tmp = g_strdup_printf("%f", shape->zoomy);
-  xmlSetProp(newxml, BAD_CAST "zoomy", BAD_CAST tmp);
-  g_free(tmp);
-
-  tmp = g_strdup_printf("%d", shape->position);
-  xmlSetProp(newxml, BAD_CAST "position", BAD_CAST tmp);
-  g_free(tmp);
-
-}
-
-/* write an xml file
- * This is used only for creating shapegame boards
- */
-static gboolean
-write_xml_file(char *fname)
-{
-  /* pointer to the new doc */
-  xmlDocPtr doc;
-  GList *list;
-
-  g_return_val_if_fail(fname!=NULL,FALSE);
-
-  /* create new xml document with version 1.0 */
-  doc = xmlNewDoc( BAD_CAST "1.0");
-  /* create a new root node "ShapeGame" */
-  doc->children = xmlNewDocNode(doc, NULL, BAD_CAST "ShapeGame", NULL);
-
-  /* loop through all our shapes */
-  for(list = shape_list; list != NULL; list = list->next) {
-    Shape *shape = list->data;
-    if(shape->type!=SHAPE_ICON)
-      write_shape_to_xml(doc->children, shape);
-  }
-
-  /* try to save the file */
-  if(xmlSaveFile(fname,doc) == -1) {
-    xmlFreeDoc(doc);
-    return FALSE;
-  }
-
-  xmlFreeDoc(doc);
-
-  return TRUE;
-}
-
-
 
 /* ************************************* */
 /* *            Configuration          * */

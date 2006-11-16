@@ -1,3 +1,29 @@
+2006-11-16  Yves Combe  <yves@ycombe.net>
+
+	Patch by Miguel DE IZARRA, added a fake (2clicks) dnd in GCompris.
+
+	Modifications to shapegame:
+	- suppress edit mode
+	- 2 types of dnd.
+	- fix placement bug when piece is re-moved.
+	- dsplay icone even if it's not in current page.
+
+	* src/boards/shapegame.c: (start_board), (end_board), (key_press),
+	(shapegame_next_level), (process_ok), (shapegame_init_canvas),
+	(add_shape_to_list_of_shapes), (dump_shapes), (dump_shape),
+	(shape_goes_back_to_list), (item_to_shape),
+	(target_point_switch_on), (item_event_drag), (item_event),
+	(update_shapelist_item), (setup_item), (add_shape_to_canvas),
+	(create_shape), (add_xml_shape_to_data), (parse_doc),
+	(read_xml_file):
+	* src/gcompris/Makefile.am:
+	* src/gcompris/drag.c: (gc_drag_item_get), (gc_drag_item_set),
+	(gc_drag_item_move), (gc_drag_offset_get), (gc_drag_offset_set),
+	(gc_drag_offset_save), (gc_drag_event), (gc_drag_event_root),
+	(gc_drag_start), (gc_drag_stop):
+	* src/gcompris/drag.h:
+	* src/gcompris/gameutil.c:
+
 2006-11-15  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* src/boards/wordprocessor.c: (display_style_selector),
