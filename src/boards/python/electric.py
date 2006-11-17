@@ -343,8 +343,6 @@ class Gcompris_electric:
     for component in self.components:
       if component.is_connected():
         thisgnucap = component.to_gnucap("")
-        print thisgnucap[0]
-        print thisgnucap[1]
         gnucap += thisgnucap[0]
         gnucap_print += thisgnucap[1]
 
