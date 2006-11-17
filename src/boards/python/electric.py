@@ -339,11 +339,16 @@ class Gcompris_electric:
         break
     gnucap += " 1f\n"
 
+    gnucap_print = ""
     for component in self.components:
       if component.is_connected():
         thisgnucap = component.to_gnucap("")
-        gnucap += thisgnucap
+        print thisgnucap[0]
+        print thisgnucap[1]
+        gnucap += thisgnucap[0]
+        gnucap_print += thisgnucap[1]
 
+    gnucap += gnucap_print
     gnucap += ".dc\n"
     gnucap += ".end\n"
     if debug: print gnucap
@@ -863,9 +868,8 @@ class Component(object):
       gnucap += str(self.gnucap_value)
       gnucap += "\n"
       gnucap += model
-      gnucap += ".print dc + v(%s) i(%s)\n" %(self.gnucap_name, self.gnucap_name)
 
-      return gnucap
+      return [gnucap, ".print dc + v(%s) i(%s)\n" %(self.gnucap_name, self.gnucap_name)]
 
     # Callback event to move the component
     def component_move(self, widget, event, component):
@@ -992,8 +996,8 @@ class Diode(Component):
     model = ".model  ddd  d  ( is= 50.u  rs= 0.  n= 0.072  tt= 0.  cjo= 1.p  vj= 1.  m= 0.5\n"
     model += "+ eg= 1.11  xti= 3.  kf= 0.  af= 1.  fc= 0.5  bv= 0.  ibv= 0.001 )\n"
 
-    gnucap = ""
-    gnucap += super(Diode, self).to_gnucap(model)
+    gnucap = []
+    gnucap = super(Diode, self).to_gnucap(model)
     return gnucap
 
 # ----------------------------------------
@@ -1176,15 +1180,14 @@ class Switch2(Component):
     gnucap += " "
     gnucap += str(gnucap_value)
     gnucap += "\n"
-    gnucap += ".print dc + v(%s) i(%s)\n" %(gnucap_name, gnucap_name)
 
-    return gnucap
+    return [gnucap, ".print dc + v(%s) i(%s)\n" %(gnucap_name, gnucap_name)]
 
   # Return the gnucap definition for this component
   # depending of the connected nodes, it create one or two resistor
   def to_gnucap(self, model):
 
-    gnucap = ""
+    gnucap = ["", ""]
 
     # reset set_voltage_intensity counter
     self.gnucap_current_resistor = 0
@@ -1193,18 +1196,22 @@ class Switch2(Component):
     # top resistor
     if self.nodes[0].get_wires() and \
        self.nodes[1].get_wires():
-      gnucap  += self.to_gnucap_res(self.gnucap_name + "_top", 0, 1,
-                                    self.value_top)
+      gnucap_resp = self.to_gnucap_res(self.gnucap_name + "_top", 0, 1,
+                                        self.value_top)
+      gnucap[0] += gnucap_resp[0]
+      gnucap[1] += gnucap_resp[1]
       self.gnucap_nb_resistor += 1
 
     # bottom resistor
     if self.nodes[0].get_wires() and \
        self.nodes[2].get_wires():
-      gnucap += self.to_gnucap_res(self.gnucap_name + "_bot", 0, 2,
-                                     self.value_bottom)
+      gnucap_resp = self.to_gnucap_res(self.gnucap_name + "_bot", 0, 2,
+                                       self.value_bottom)
+      gnucap[0] += gnucap_resp[0]
+      gnucap[1] += gnucap_resp[1]
       self.gnucap_nb_resistor += 1
 
-    return gnucap
+    return [gnucap[0], gnucap[1]]
 
   # Return False if we need more value to complete our component
   # This is usefull in case where one Component is made of several gnucap component
@@ -1347,7 +1354,7 @@ class Rheostat(Component):
       node = self.nodes[i]
       if not node.get_wires():
         gnucap = "* %s: component ignored: not connected\n" %(gnucap_name)
-        return gnucap
+        return [gnucap, ""]
 
     gnucap = gnucap_name
     gnucap += " "
@@ -1362,15 +1369,14 @@ class Rheostat(Component):
     gnucap += " "
     gnucap += str(gnucap_value)
     gnucap += "\n"
-    gnucap += ".print dc + v(%s) i(%s)\n" %(gnucap_name, gnucap_name)
 
-    return gnucap
+    return [gnucap, ".print dc + v(%s) i(%s)\n" %(gnucap_name, gnucap_name)]
 
   # Return the gnucap definition for this component
   # depending of the connected nodes, it create one or two resistor
   def to_gnucap(self, model):
 
-    gnucap = ""
+    gnucap = ["", ""]
 
     # reset set_voltage_intensity counter
     self.gnucap_current_resistor = 0
@@ -1384,9 +1390,11 @@ class Rheostat(Component):
        not self.nodes[1].get_wires() and \
        self.nodes[2].get_wires():
       self.gnucap_nb_resistor = 1
-      gnucap += self.to_gnucap_res(self.gnucap_name + "_all", 0, 2,
-                                   self.resitance)
-      return gnucap
+      gnucap_resp = self.to_gnucap_res(self.gnucap_name + "_all", 0, 2,
+                                       self.resitance)
+      gnucap[0] += gnucap_resp[0]
+      gnucap[1] += gnucap_resp[1]
+      return [gnucap[0], gnucap[1]]
 
 
     self.gnucap_nb_resistor = 0
@@ -1395,17 +1403,21 @@ class Rheostat(Component):
     if self.nodes[0].get_wires() and \
        self.nodes[1].get_wires():
       self.gnucap_nb_resistor += 1
-      gnucap  += self.to_gnucap_res(self.gnucap_name + "_top", 0, 1,
-                                    gnucap_value)
+      gnucap_resp  = self.to_gnucap_res(self.gnucap_name + "_top", 0, 1,
+                                        gnucap_value)
+      gnucap[0] += gnucap_resp[0]
+      gnucap[1] += gnucap_resp[1]
 
     # bottom resistor
     if self.nodes[1].get_wires() and \
        self.nodes[2].get_wires():
       self.gnucap_nb_resistor += 1
-      gnucap += self.to_gnucap_res(self.gnucap_name + "_bot", 1, 2,
-                                     self.resitance - gnucap_value)
+      gnucap_resp = self.to_gnucap_res(self.gnucap_name + "_bot", 1, 2,
+                                       self.resitance - gnucap_value)
+      gnucap[0] += gnucap_resp[0]
+      gnucap[1] += gnucap_resp[1]
 
-    return gnucap
+    return [gnucap[0], gnucap[1]]
 
   # Return False if we need more value to complete our component
   # This is usefull in case one Component is made of several gnucap component
