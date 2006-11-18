@@ -202,6 +202,7 @@ void sdlplayer_reopen()
 {
   Mix_OpenAudio(44100,MIX_DEFAULT_FORMAT,2,audio_buffers);
   sound_closed = FALSE;
-  Mix_ResumeMusic();
-  Mix_Resume(-1);
+  //Mix_ResumeMusic();
+  //Mix_Resume(-1);
+  
 }

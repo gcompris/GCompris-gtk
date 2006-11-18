@@ -112,27 +112,32 @@ gc_sound_close()
 {
   if ( !sound_closed )
     {
+      sound_closed = TRUE;
+      if ( music_paused ) {
+         music_paused = FALSE;
+	gc_sound_resume();
+         }
+      g_mutex_lock(lock_fx);
       sdlplayer_halt_music();
       sdlplayer_halt_fx();
-      g_mutex_lock(lock_fx);
       g_mutex_lock(lock_music);
       sdlplayer_close();
-      sound_closed = TRUE;
-      music_paused = FALSE;
     }
 }
 
 void
 gc_sound_reopen()
 {
-  if (sound_closed)
-    {
-      sdlplayer_reopen();
-      g_mutex_unlock(lock_fx);
-      g_mutex_unlock(lock_music);
-      sound_closed = FALSE;
-      music_paused = FALSE;
-    }
+  if (gc_prop_get()->fx || gc_prop_get()->music) {
+    if (sound_closed)
+      {
+	sdlplayer_reopen();
+	g_mutex_unlock(lock_fx);
+	g_mutex_unlock(lock_music);
+	sound_closed = FALSE;
+	music_paused = FALSE;
+      }
+  }
 }
 
 void
@@ -226,7 +231,7 @@ scheduler_music (gpointer user_data)
       for(i=0; i<g_slist_length(musiclist); i++)
 	{
 	  /* Music can be disabled at any time */
-	  while(!gc_prop_get()->music || music_paused)
+	  while(!gc_prop_get()->music || music_paused || sound_closed)
 	    g_usleep(1000000);
 
 	  /* WARNING Displaying stuff in a thread seems to make gcompris unstable */

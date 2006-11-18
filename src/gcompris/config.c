@@ -746,13 +746,9 @@ item_event_ok(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 	    {
 	      if(!properties->music)
 		sdlplayer_halt_music();
-	      else
-		sdlplayer_resume_music();
 
 	      if(!properties->fx)
 		sdlplayer_halt_fx();
-	      else
-		sdlplayer_resume_fx();
 	    }
 	  gc_prop_save(properties);
 	}

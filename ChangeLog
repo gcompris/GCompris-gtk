@@ -1,3 +1,13 @@
+2006-11-18  Yves Combe  <yves@ycombe.net>
+
+	Fix (hope it's fixed !) crash related to sound_reopen.
+	Fix delay launching tuxpaint.
+
+	* src/gcompris/config.c: (item_event_ok):
+	* src/gcompris/sdlplayer.c: (sdlplayer_reopen):
+	* src/gcompris/soundutil.c: (gc_sound_close), (gc_sound_reopen),
+	(scheduler_music):
+
 2006-11-18  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* INSTALL:
