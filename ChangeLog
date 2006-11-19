@@ -1,3 +1,11 @@
+2006-11-19  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	- Improved parachutist activity. It is now more fun to play
+	  and more realistic. Thanks to Joshua N Pritikin.
+
+	* src/boards/paratrooper.c: (key_press), (paratrooper_next_level),
+	(paratrooper_move_tux), (paratrooper_create_cloud), (next_state):
+
 2006-11-18  Yves Combe  <yves@ycombe.net>
 
 	Fix (hope it's fixed !) crash related to sound_reopen.
