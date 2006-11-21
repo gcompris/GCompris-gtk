@@ -21,11 +21,17 @@
 #define GCOMPIRS_DRAG_H
 #include "gcompris.h"
 
+typedef enum { 
+    GC_DRAG_MODE_GRAB = 1, 
+    GC_DRAG_MODE_2CLICKS = 2,
+    GC_DRAG_MODE_BOTH = 3
+} gc_drag_mode_type;
+
 typedef gint (*gc_Drag_Func) (GnomeCanvasItem *item, GdkEvent *event, gpointer data);
 
 gint gc_drag_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data);
 
-void gc_drag_start(GnomeCanvasGroup *root_item, gc_Drag_Func function);
+void gc_drag_start(GnomeCanvasGroup *root_item, gc_Drag_Func function, gc_drag_mode_type mode);
 void gc_drag_stop(GnomeCanvasGroup *root_item);
 
 GnomeCanvasItem * gc_drag_item_get(void);

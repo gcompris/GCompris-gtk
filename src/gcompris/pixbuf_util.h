@@ -17,5 +17,6 @@
 
 GdkPixbuf *pixbuf_copy_mirror(GdkPixbuf *src, gint mirror, gint flip);
 
+void pixbuf_add_transparent (GdkPixbuf *pixbuf,guint alpha);
 
 #endif

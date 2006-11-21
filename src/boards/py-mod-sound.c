@@ -51,11 +51,11 @@ py_gc_sound_play_ogg(PyObject* self, PyObject* args)
     item = PyTuple_GetItem(args, i);
     list = g_list_append(list, PyString_AsString(item));
   }
-  
+
   /* Call the corresponding C function */
   gc_sound_play_ogg_list(list);
   g_list_free(list);
-    
+
   /* Create and return the result */
   Py_INCREF(Py_None);
   return Py_None;
@@ -151,7 +151,7 @@ void pyGcomprisSoundCallback(gchar *file){
   result = PyObject_CallFunction(py_cb, "O", PyString_FromString(file));
 
   // This callback can be called multiple time ?
-  
+
   Py_DECREF(py_cb);
 
   if(result==NULL){
@@ -170,7 +170,7 @@ py_gc_sound_play_ogg_cb(PyObject* self, PyObject* args)
 {
   gchar *file;
   PyObject* pyCallback;
-  
+
   /* Parse arguments */
   if(!PyArg_ParseTuple(args,
 		       "sO:gc_sound_play_ogg_cb",

@@ -19,7 +19,7 @@
  *   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  */
 
-#define SHADOW 0
+#define SHADOW 1
 
 /* libxml includes */
 #include <libxml/tree.h>
@@ -30,8 +30,7 @@
 
 #include "gcompris/gcompris.h"
 #include "gcompris/drag.h"
-
-#include "gcompris/gameutil.h"
+#include "gcompris/pixbuf_util.h"
 
 extern GdkPixbuf *
 make_hc_pixbuf(GdkPixbuf *pb, gint val);    // should be in pixbuf_util.c ?
@@ -315,7 +314,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 				  img);
 	  g_free(img);
 	}
-      gc_drag_start(gnome_canvas_root(gcomprisBoard->canvas), (gc_Drag_Func) item_event_drag);
+      gc_drag_start(gnome_canvas_root(gcomprisBoard->canvas), (gc_Drag_Func) item_event_drag, GC_DRAG_MODE_BOTH);
       shapegame_next_level();
 
       pause_board(FALSE);
@@ -331,8 +330,8 @@ end_board ()
 
   if(gcomprisBoard!=NULL)
     {
-      pause_board(TRUE);
       gc_drag_stop(gnome_canvas_root(gcomprisBoard->canvas));
+      pause_board(TRUE);
       shapegame_destroy_all_items();
       gcomprisBoard->level = 1;       // Restart this game to zero
     }
@@ -901,7 +900,7 @@ static void shape_goes_back_to_list(Shape *shape)
             "y", shape->icon_shape->y, NULL);
     gnome_canvas_item_show(shape->icon_shape->item);
     gc_item_focus_set(shape->icon_shape->item, TRUE);
-    
+
     if(shape->placed)
     {
         shape->placed->shape_place = NULL;
@@ -926,7 +925,7 @@ static Shape * item_to_shape(GnomeCanvasItem *item)
     return NULL;
 }
 
-/* switch off all point, and switch on this point 
+/* switch off all point, and switch on this point
     if shape is NULL, switch off all */
 void target_point_switch_on(Shape *shape_on)
 {
@@ -936,9 +935,9 @@ void target_point_switch_on(Shape *shape_on)
     for(list = shape_list; list ; list = list ->next)
     {
         shape = list -> data;
-        if(shape->type == SHAPE_TARGET)
+        if(shape->type == SHAPE_TARGET && ! shape->targetfile)
             gnome_canvas_item_set(shape->target_point,
-                    "fill_color_rgba", 
+                    "fill_color_rgba",
                     shape == shape_on ? POINT_COLOR_ON : POINT_COLOR_OFF,
                     NULL);
     }
@@ -984,11 +983,11 @@ static gint item_event_drag(GnomeCanvasItem *item, GdkEvent *event, gpointer dat
                     break;
                 case SHAPE_TARGET:
                     gnome_canvas_item_hide(shape->item);
-                    
+
                     // unplace this shape
                     shape->placed->shape_place= NULL;
                     shape->placed = NULL;
-                    
+
                     shape = shape -> icon_shape;
                     gc_drag_offset_set( shape->offset_x, shape->offset_y);
                     gnome_canvas_item_show(shape->item);
@@ -1004,7 +1003,8 @@ static gint item_event_drag(GnomeCanvasItem *item, GdkEvent *event, gpointer dat
                 GdkPixbuf *pixmap, *dest;
                 g_object_get(shape->target_shape->item, "pixbuf", &pixmap, NULL);
 
-                dest = make_hc_pixbuf(pixmap, 30);
+                dest = gdk_pixbuf_copy(pixmap);
+                pixbuf_add_transparent(dest, 100);
                 shadow_item = gnome_canvas_item_new(GNOME_CANVAS_GROUP(shape_root_item),
                         gnome_canvas_pixbuf_get_type(),
                         "pixbuf", dest,
@@ -1024,7 +1024,7 @@ static gint item_event_drag(GnomeCanvasItem *item, GdkEvent *event, gpointer dat
             item_x = event->button.x;
             item_y = event->button.y;
             gnome_canvas_item_w2i(item->parent, &item_x, &item_y);
-            
+
             found_shape = find_closest_shape( item_x, item_y, SQUARE_LIMIT_DISTANCE);
 #if SHADOW
             if(found_shape)
@@ -1037,7 +1037,7 @@ static gint item_event_drag(GnomeCanvasItem *item, GdkEvent *event, gpointer dat
             }
             else
                 gnome_canvas_item_hide(shadow_item);
-#endif 
+#endif
             target_point_switch_on(found_shape);
             break;
         case GDK_BUTTON_RELEASE:
@@ -1138,7 +1138,7 @@ static int get_element_count_listgroup(int listgroup_index)
     Shape *sh;
     for (i=0;i<g_list_length(shape_list);i++) {
         sh = g_list_nth_data(shape_list,i);
-        if( sh->shapelistgroup_index == listgroup_index && 
+        if( sh->shapelistgroup_index == listgroup_index &&
                 sh->type == SHAPE_TARGET && ! sh->placed)
             count ++;
     }
@@ -1150,7 +1150,7 @@ static int get_no_void_group(int direction)
     int index = current_shapelistgroup_index;
 
     direction = direction>0 ? 1 : -1;
-    
+
     index += direction;
     while(0 <= index && index < g_list_length(shape_list_group))
     {
@@ -1169,7 +1169,7 @@ static void update_shapelist_item(void)
     {
         int index;
         GnomeCanvasItem *root_item;
-        
+
         index = get_no_void_group(-1);
         if(index == current_shapelistgroup_index)
             index = get_no_void_group(1);
@@ -1368,7 +1368,7 @@ static void create_title(char *name, double x, double y, GtkJustification justif
   item = \
     gnome_canvas_item_new (GNOME_CANVAS_GROUP(shape_root_item),
 			   gnome_canvas_text_get_type (),
-			   "text", name,
+			   "text", gettext(name),
 			   "font", gc_skin_font_board_medium,
 			   "x", x + 1.0,
 			   "y", y + 1.0,
@@ -1382,7 +1382,7 @@ static void create_title(char *name, double x, double y, GtkJustification justif
   item = \
     gnome_canvas_item_new (GNOME_CANVAS_GROUP(shape_root_item),
 			   gnome_canvas_text_get_type (),
-			   "text", name,
+			   "text", gettext(name),
 			   "font", gc_skin_font_board_medium,
 			   "x", x,
 			   "y", y,

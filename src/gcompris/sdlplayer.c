@@ -31,12 +31,14 @@
 
 #include <glib.h>
 
+#include "soundutil.h"
+
 Sint16 stream[2][4096];
 int len=4096, bits=0, which=0;
 
 // set this to any of 512,1024,2048,4096
 // the higher it is, the more FPS shown and CPU needed
-int audio_buffers=2048;
+#define AUDIO_BUFFERS 2048
 
 static gboolean sound_closed = FALSE;
 
@@ -80,15 +82,14 @@ int sdlplayer_init()
     return(cleanExit("SDL_Init"));
 
   // initialize sdl mixer, open up the audio device
-  if(Mix_OpenAudio(44100,MIX_DEFAULT_FORMAT,2,audio_buffers)<0)
+  if(Mix_OpenAudio(44100,MIX_DEFAULT_FORMAT,2,AUDIO_BUFFERS)<0)
     return(cleanExit("Mix_OpenAudio"));
 
   // print out some info on the audio device and stream
   Mix_QuerySpec(&audio_rate, &audio_format, &audio_channels);
   bits=audio_format&0xFF;
   g_warning("Opened audio at %d Hz %d bit %s, %d bytes audio buffer\n", audio_rate,
-	    bits, audio_channels>1?"stereo":"mono", audio_buffers );
-
+	    bits, audio_channels>1?"stereo":"mono", AUDIO_BUFFERS );
   return(0);
 }
 
@@ -198,11 +199,12 @@ void sdlplayer_close()
   Mix_HaltChannel(-1);
   Mix_CloseAudio();
 }
+
 void sdlplayer_reopen()
 {
-  Mix_OpenAudio(44100,MIX_DEFAULT_FORMAT,2,audio_buffers);
+  Mix_OpenAudio(44100,MIX_DEFAULT_FORMAT,2,AUDIO_BUFFERS);
   sound_closed = FALSE;
   //Mix_ResumeMusic();
   //Mix_Resume(-1);
-  
+
 }

@@ -52,7 +52,7 @@ class Gcompris_tuxpaint:
   def start(self):
     progname='tuxpaint'
     tuxpaint_dir = None
-    flags = gobject.SPAWN_DO_NOT_REAP_CHILD | gobject.SPAWN_SEARCH_PATH 
+    flags = gobject.SPAWN_DO_NOT_REAP_CHILD | gobject.SPAWN_SEARCH_PATH
 
     print platform.platform(), platform.platform().split('-')[0]
     if (platform.platform().split('-')[0] == 'Windows'):
@@ -61,7 +61,7 @@ class Gcompris_tuxpaint:
       try:
          import _winreg
 
-         tuxpaint_key = _winreg.OpenKey( _winreg.HKEY_LOCAL_MACHINE, 
+         tuxpaint_key = _winreg.OpenKey( _winreg.HKEY_LOCAL_MACHINE,
                                          "Software\\TuxPaint" )
          tuxpaint_dir, type = _winreg.QueryValueEx(tuxpaint_key, "Install_Dir")
          flags = gobject.SPAWN_DO_NOT_REAP_CHILD
@@ -131,13 +131,13 @@ class Gcompris_tuxpaint:
        # bug in working_directory=None ?
        if (tuxpaint_dir):
           pid, stdin, stdout, stderr = gobject.spawn_async(
-            argv=options, 
+            argv=options,
             flags=flags,
             working_directory=tuxpaint_dir)
 
        else:
           pid, stdin, stdout, stderr = gobject.spawn_async(
-            argv=options, 
+            argv=options,
             flags=flags)
 
     except:
@@ -189,11 +189,9 @@ class Gcompris_tuxpaint:
     pass
 
   def config(self):
-    print "Config"
     pass
 
   def config_stop(self):
-    print "config_stop", self
     pass
 
   def config_start(self, profile):
@@ -235,7 +233,6 @@ class Gcompris_tuxpaint:
     self.stamps_control.set_sensitive(not button.get_active())
 
   def apply_callback(self,table):
-    print table
     for key,value in table.iteritems():
       gcompris.set_board_conf(self.configure_profile, self.gcomprisBoard, key, value)
 
@@ -259,8 +256,6 @@ def child_callback(fd,  cond, data):
     if (gtk.gtk_version <= (2,6,10)):
        data.window.unfullscreen()
        data.window.fullscreen()
-
-  gcompris.sound.reopen()
 
   global pid
   pid = None

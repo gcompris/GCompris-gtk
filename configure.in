@@ -2,7 +2,7 @@ dnl Process this file with autoconf to produce a configure script.
 
 AC_INIT(src/gcompris/gcompris.c)
 AC_CANONICAL_TARGET
-AM_INIT_AUTOMAKE(gcompris, 8.2)
+AM_INIT_AUTOMAKE(gcompris, 8.3BETA1)
 AM_CONFIG_HEADER(config.h)
 AM_MAINTAINER_MODE
 
@@ -75,7 +75,7 @@ if test "x$SDL_CFLAGS" = "x" -o "x$SDL_LIBS" = "x" ; then
 else
   AC_SUBST(SDL_CFLAGS)
   AC_SUBST(SDL_LIBS)
-  echo "*** Not checking SDL. Using existing SDL_FLAGS and SDL_LIBS ***" 
+  echo "*** Not checking SDL. Using existing SDL_FLAGS and SDL_LIBS ***"
 fi
 
 dnl RESTAURE PREVIOUSLY SET VALUES

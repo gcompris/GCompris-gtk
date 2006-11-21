@@ -1,3 +1,37 @@
+2006-11-21  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* configure.in: renamed release 8.3BETA1
+	* src/boards/python/tuxpaint.py: removed a double call to gcompris.sound.reopen
+
+
+	A patch from Miguel:
+	in drag :
+	- fix problem when we leave an activity during a drag and drop (in 2 clicks mode)
+	- activities can choose the drag mode (grab, 2clicks or both)
+
+	in shapegame:
+
+	- shadow pieces are semi-transparent
+	- remove gnome canvas warning when targetfile is used
+
+	in pixbuf_util;
+	- add pixbuf_add_transparent function for shadow pieces
+
+	* src/boards/shapegame.c: (start_board), (end_board),
+	(shape_goes_back_to_list), (target_point_switch_on),
+	(item_event_drag), (get_element_count_listgroup),
+	(get_no_void_group), (update_shapelist_item), (create_title):
+	* src/gcompris/drag.c: (gc_drag_item_move), (gc_drag_event),
+	(gc_drag_event_root), (gc_drag_start), (gc_drag_stop):
+	* src/gcompris/drag.h:
+	* src/gcompris/pixbuf_util.c: (pixbuf_add_transparent):
+	* src/gcompris/pixbuf_util.h:
+
+	* src/gcompris/about.c: added Yves Combe in the contributor list.
+	  Not everybody is in it but Yves really deserve it.
+	* src/gcompris/sdlplayer.c: (sdlplayer_init), (sdlplayer_reopen): minor reformating
+
+
 2006-11-19  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	- Improved parachutist activity. It is now more fun to play

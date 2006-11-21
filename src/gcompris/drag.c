@@ -27,6 +27,7 @@ static int gc_drag_status;
     1 - follow mouse pointer
     2 - follow mouse pointer and waiting for a BUTTON_RELEASE */
 
+static gc_drag_mode_type gc_drag_mode;
 static GnomeCanvasItem *gc_drag_item;
 static double gc_drag_offset_x, gc_drag_offset_y;
 
@@ -54,8 +55,6 @@ void gc_drag_item_move(GdkEvent *event)
     gnome_canvas_item_set(gc_drag_item, 
             "x", item_x - gc_drag_offset_x, 
             "y", item_y - gc_drag_offset_y, NULL);
-
-
 }
 
 void gc_drag_offset_get(double *x, double *y)
@@ -91,7 +90,11 @@ gint gc_drag_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
             if(gc_drag_status ==0 && event->button.button == 1)
             {
                 gc_drag_item = item;
-                gc_drag_status = 1;
+                if(gc_drag_mode == GC_DRAG_MODE_GRAB)
+                    gc_drag_status = 2;
+                else
+                    gc_drag_status = 1;
+
                 gc_drag_func(item, event, data);
             }
             break;
@@ -102,6 +105,8 @@ gint gc_drag_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
                 gc_drag_status = 0;
                 gc_drag_item = NULL;
             }
+            else if (gc_drag_status == 1 && gc_drag_mode & GC_DRAG_MODE_2CLICKS)
+                gc_drag_status = 2;
             break;
         default:
             break;
@@ -116,7 +121,7 @@ gint gc_drag_event_root(GnomeCanvasItem * item, GdkEvent *event, gpointer data)
         case GDK_MOTION_NOTIFY:
             if(gc_drag_status > 0)
             {
-                if(gc_drag_status==1)
+                if(gc_drag_status==1 && gc_drag_mode & GC_DRAG_MODE_GRAB)
                     gc_drag_status=2;
                 gc_drag_func(gc_drag_item, event, data);
             }
@@ -127,7 +132,7 @@ gint gc_drag_event_root(GnomeCanvasItem * item, GdkEvent *event, gpointer data)
     return FALSE;
 }
 
-void gc_drag_start(GnomeCanvasGroup *root_item, gc_Drag_Func function)
+void gc_drag_start(GnomeCanvasGroup *root_item, gc_Drag_Func function, gc_drag_mode_type mode)
 {
     gtk_signal_connect(GTK_OBJECT(root_item), "event", 
             (GtkSignalFunc) gc_drag_event_root, NULL);
@@ -135,14 +140,24 @@ void gc_drag_start(GnomeCanvasGroup *root_item, gc_Drag_Func function)
     gc_drag_status = 0;
     gc_drag_item = NULL;
     gc_drag_offset_x = gc_drag_offset_y = 0;
+    gc_drag_mode = mode;
 }
 
 void gc_drag_stop(GnomeCanvasGroup *root_item)
 {
+    if(gc_drag_status>0)
+    {
+        GdkEvent event;
+        event.type = GDK_BUTTON_RELEASE;
+        event.button.x = event.button.y =0;
+        event.button.button = 1;
+        gc_drag_func(gc_drag_item, &event, NULL);
+    }
     gtk_signal_disconnect_by_func(GTK_OBJECT(root_item),
             (GtkSignalFunc) gc_drag_event_root, NULL);
     gc_drag_func = NULL;
     gc_drag_status = -1;
     gc_drag_item = NULL;
+    gc_drag_mode = 0;
 }
 

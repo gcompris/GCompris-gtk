@@ -55,7 +55,7 @@ void gc_about_start ()
   GnomeCanvasItem *item, *item2;
   static gchar *content =
     N_("Author: Bruno Coudoin\n"
-       "Contribution: Pascal Georges, Jose Jorge\n"
+       "Contribution: Pascal Georges, Jose Jorge, Yves Combe\n"
        "Graphics: Renaud Blanchard, Franck Doucet\n"
        "Intro Music: Djilali Sebihi\n"
        "Background Music: Rico Da Halvarez\n"
