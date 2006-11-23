@@ -730,6 +730,100 @@ gc_board_config_combo_locales(gchar *init)
 
 }
 
+void 
+gc_board_config_combo_drag_changed(GtkComboBox *combobox,
+			       gpointer key)
+{
+  gchar *the_key = g_strdup((gchar *)key);
+  gchar *value;
+  gint index = gtk_combo_box_get_active (combobox);
+
+  if (index == 0)
+    /* Default value of gcompris selected */
+    value = g_strdup ("NULL");
+  else
+    value = g_strdup_printf("%d", index);
+
+  g_hash_table_replace(hash_conf, (gpointer) the_key, (gpointer) value);
+}
+
+/* key = "locale" */
+GtkComboBox*
+gc_board_config_combo_drag(gint init)
+{
+
+  GtkWidget *combobox;
+  GtkWidget *hbox = gtk_hbox_new (FALSE, 8);
+  GList *list, *strings;
+  GtkWidget *label_combo;
+  gint init_index;
+
+  strings = NULL;
+  
+  strings = g_list_prepend( strings, _("Global GCompris mode"));
+  strings = g_list_append( strings, _("Normal"));
+  strings = g_list_append( strings, _("2 clicks"));
+  strings = g_list_append( strings, _("both modes"));
+
+  if (init < 0)
+    init_index =0;
+  else
+    init_index = init;
+  
+  gtk_widget_show(hbox);
+  
+  gtk_box_pack_start (GTK_BOX(main_conf_box),
+		      hbox,
+		      FALSE,
+		      FALSE,
+		      0);
+
+  /* Label */
+  label_combo = gtk_label_new ((gchar *)NULL);
+  gtk_widget_show(label_combo);
+  gtk_box_pack_start (GTK_BOX(hbox),
+		      label_combo,
+		      FALSE,
+		      FALSE,
+		      0);
+
+  gtk_label_set_justify (GTK_LABEL(label_combo),
+			 GTK_JUSTIFY_RIGHT);
+
+  gtk_label_set_markup (GTK_LABEL(label_combo),
+                        _("Select the drag and drop mode\n to use in the board"));
+
+  combobox = gtk_combo_box_new_text();
+
+  gtk_widget_show(combobox);
+
+  gtk_box_pack_start (GTK_BOX(hbox),
+		      combobox,
+		      FALSE,
+		      FALSE,
+		      0);
+
+
+  for (list = strings; list != NULL; list = list->next)
+    gtk_combo_box_append_text       (GTK_COMBO_BOX(combobox),
+				     list->data);
+
+  if (g_list_length(strings) > COMBOBOX_COL_MAX)
+    gtk_combo_box_set_wrap_width    (GTK_COMBO_BOX(combobox),
+  	     g_list_length(strings) / COMBOBOX_COL_MAX +1 );
+  
+  gtk_combo_box_set_active (GTK_COMBO_BOX(combobox),
+			    init_index);
+  
+  g_signal_connect(G_OBJECT(combobox),
+		   "changed",
+		   G_CALLBACK(gc_board_config_combo_drag_changed),
+		   "drag_mode");
+
+  return GTK_COMBO_BOX(combobox);
+
+}
+
 static gchar *current_locale = NULL;
 void
 gc_locale_change(gchar *locale)

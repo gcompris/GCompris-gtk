@@ -1,3 +1,19 @@
+2006-11-24  Yves Combe  <yves@ycombe.net>
+
+	add a GC_DRAG_MODE_DEFAULT and gc_drag_change_mode in drag API.
+	add a combo_drag in board_config api.
+	modify shapegame to use that.
+	TODO: python bindings.
+
+	* po/Makefile.in.in:
+	* src/boards/shapegame.c: (start_board), (is_our_board), (conf_ok),
+	(config_start):
+	* src/gcompris/board_config.c:
+	(gc_board_config_combo_drag_changed), (gc_board_config_combo_drag):
+	* src/gcompris/board_config.h:
+	* src/gcompris/drag.c: (gc_drag_start), (gc_drag_change_mode):
+	* src/gcompris/drag.h:
+
 2006-11-21  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	Updated french sounds by J.P. Ayanides

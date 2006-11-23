@@ -22,6 +22,7 @@
 #include "gcompris.h"
 
 typedef enum { 
+    GC_DRAG_MODE_DEFAULT = 0, 
     GC_DRAG_MODE_GRAB = 1, 
     GC_DRAG_MODE_2CLICKS = 2,
     GC_DRAG_MODE_BOTH = 3
@@ -41,6 +42,8 @@ void gc_drag_item_move(GdkEvent *event);
 void gc_drag_offset_save(GdkEvent *event);
 void gc_drag_offset_get(double *x, double *y);
 void gc_drag_offset_set(double x, double y);
+
+void gc_drag_change_mode (gc_drag_mode_type mode);
 
 #endif
 

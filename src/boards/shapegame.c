@@ -162,6 +162,7 @@ static void dump_shape(Shape *shape);
 #endif
 static void update_shapelist_item(void);
 
+static gint drag_mode;
 /* Description of this plugin */
 static BoardPlugin menu_bp =
 {
@@ -188,29 +189,29 @@ static BoardPlugin menu_bp =
 };
 
 /* Description of this plugin without configuration */
-static BoardPlugin menu_bp_no_config =
-{
-   NULL,
-   NULL,
-   "Make the puzzle",
-   "Drag and Drop the items to rebuild the object",
-   "Bruno Coudoin <bruno.coudoin@free.fr>",
-   NULL,
-   NULL,
-   NULL,
-   NULL,
-   start_board,
-   pause_board,
-   end_board,
-   is_our_board,
-   key_press,
-   process_ok,
-   set_level,
-   NULL,
-   NULL,
-   NULL,
-   NULL
-};
+/* static BoardPlugin menu_bp_no_config = */
+/* { */
+/*    NULL, */
+/*    NULL, */
+/*    "Make the puzzle", */
+/*    "Drag and Drop the items to rebuild the object", */
+/*    "Bruno Coudoin <bruno.coudoin@free.fr>", */
+/*    NULL, */
+/*    NULL, */
+/*    NULL, */
+/*    NULL, */
+/*    start_board, */
+/*    pause_board, */
+/*    end_board, */
+/*    is_our_board, */
+/*    key_press, */
+/*    process_ok, */
+/*    set_level, */
+/*    NULL, */
+/*    NULL, */
+/*    NULL, */
+/*    NULL */
+/* }; */
 
 /*
  * Main entry point mandatory for each Gcompris's game
@@ -246,13 +247,20 @@ static void start_board (GcomprisBoard *agcomprisBoard)
   gchar *filename = NULL;
   gboolean default_background = TRUE;
 
+  GHashTable *config = gc_db_get_board_conf();
+
   if (strcmp(agcomprisBoard->name, "imagename")==0){
-    GHashTable *config = gc_db_get_board_conf();
-
     gc_locale_set(g_hash_table_lookup( config, "locale"));
-
-    g_hash_table_destroy(config);
   }
+
+  gchar *drag_mode_str = g_hash_table_lookup( config, "drag_mode");
+
+  if (drag_mode_str && (strcmp (drag_mode_str, "NULL") != 0))
+    drag_mode = (gint ) g_ascii_strtoll(drag_mode_str, NULL, 10);
+  else
+    drag_mode = 0;
+
+  g_hash_table_destroy(config);
 
   if(agcomprisBoard!=NULL)
     {
@@ -282,7 +290,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       if (strcmp(gcomprisBoard->name, "imagename")==0){
 	gc_bar_set(GC_BAR_CONFIG|GC_BAR_LEVEL|GC_BAR_OK);
       } else
-	gc_bar_set(GC_BAR_LEVEL|GC_BAR_OK);
+	gc_bar_set(GC_BAR_CONFIG|GC_BAR_LEVEL|GC_BAR_OK);
 
 
       gcomprisBoard->sublevel = 0;
@@ -314,7 +322,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 				  img);
 	  g_free(img);
 	}
-      gc_drag_start(gnome_canvas_root(gcomprisBoard->canvas), (gc_Drag_Func) item_event_drag, GC_DRAG_MODE_BOTH);
+      gc_drag_start(gnome_canvas_root(gcomprisBoard->canvas), (gc_Drag_Func) item_event_drag, drag_mode);
       shapegame_next_level();
 
       pause_board(FALSE);
@@ -367,7 +375,8 @@ is_our_board (GcomprisBoard *gcomprisBoard)
 	  if (strcmp(gcomprisBoard->name, "imagename")==0){
 	    gcomprisBoard->plugin = &menu_bp;
 	  } else {
-	    gcomprisBoard->plugin = &menu_bp_no_config;
+	    //gcomprisBoard->plugin = &menu_bp_no_config;
+	    gcomprisBoard->plugin = &menu_bp;
 	  }
 
 	  return TRUE;
@@ -1810,7 +1819,8 @@ static void conf_ok(GHashTable *table)
 
   g_hash_table_foreach(table, (GHFunc) save_table, NULL);
 
-  if ((gcomprisBoard) && (strcmp(gcomprisBoard->name, "imagename")==0)){
+  //if ((gcomprisBoard) && (strcmp(gcomprisBoard->name, "imagename")==0)){
+  if (gcomprisBoard){
     GHashTable *config;
 
     if (profile_conf)
@@ -1822,8 +1832,17 @@ static void conf_ok(GHashTable *table)
 
     gc_locale_set(g_hash_table_lookup( config, "locale"));
 
+    gchar *drag_mode_str = g_hash_table_lookup( config, "drag_mode");
+    
+    if (drag_mode_str && (strcmp (drag_mode_str, "NULL") != 0))
+      drag_mode = (gint ) g_ascii_strtoll(drag_mode_str, NULL, 10);
+    else
+      drag_mode = 0;
+
     if (profile_conf)
       g_hash_table_destroy(config);
+
+    gc_drag_change_mode( drag_mode);
 
     shapegame_next_level();
 
@@ -1860,6 +1879,16 @@ config_start(GcomprisBoard *agcomprisBoard,
   gchar *locale = g_hash_table_lookup( config, "locale");
 
   gc_board_config_combo_locales( locale);
+
+  gchar *drag_mode_str = g_hash_table_lookup( config, "drag_mode");
+  gint drag_previous;
+
+  if (drag_mode_str && (strcmp (drag_mode_str, "NULL") != 0))
+    drag_previous = (gint ) g_ascii_strtoll(drag_mode_str, NULL, 10);
+  else
+    drag_previous = 0;
+  
+  gc_board_config_combo_drag( drag_mode);
 
 }
 

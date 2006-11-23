@@ -66,6 +66,8 @@ GList *gc_locale_gets_list();
 
 GtkComboBox *gc_board_config_combo_locales( gchar *init);
 
+GtkComboBox *gc_board_config_combo_drag( gint init);
+
 void gc_locale_change(gchar *locale);
 
 void gc_locale_reset();
