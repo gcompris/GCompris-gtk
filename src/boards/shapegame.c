@@ -19,8 +19,6 @@
  *   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  */
 
-#define SHADOW 1
-
 /* libxml includes */
 #include <libxml/tree.h>
 #include <libxml/parser.h>
@@ -30,9 +28,6 @@
 
 #include "gcompris/gcompris.h"
 #include "gcompris/pixbuf_util.h"
-
-extern GdkPixbuf *
-make_hc_pixbuf(GdkPixbuf *pb, gint val);    // should be in pixbuf_util.c ?
 
 #define SOUNDLISTFILE PACKAGE
 
@@ -49,6 +44,7 @@ static gint addedname;	/* Defined the rules to apply to determine if the
 
 static GcomprisBoard *gcomprisBoard = NULL;
 static gboolean board_paused = TRUE;
+static gboolean shadow_enable;
 
 #define POINT_COLOR_OFF 0xEf000080
 #define POINT_COLOR_ON  0x00EF0080
@@ -255,7 +251,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
   gchar *drag_mode_str = g_hash_table_lookup( config, "drag_mode");
 
   if (drag_mode_str && (strcmp (drag_mode_str, "NULL") != 0))
-    drag_mode = (gint ) g_ascii_strtoll(drag_mode_str, NULL, 10);
+    drag_mode = g_ascii_strtod(drag_mode_str, NULL);
   else
     drag_mode = 0;
 
@@ -286,10 +282,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       /**/
       gcomprisBoard->maxlevel--;
 
-      if (strcmp(gcomprisBoard->name, "imagename")==0){
-	gc_bar_set(GC_BAR_CONFIG|GC_BAR_LEVEL|GC_BAR_OK);
-      } else
-	gc_bar_set(GC_BAR_CONFIG|GC_BAR_LEVEL|GC_BAR_OK);
+      gc_bar_set(GC_BAR_CONFIG|GC_BAR_LEVEL|GC_BAR_OK);
 
 
       gcomprisBoard->sublevel = 0;
@@ -370,13 +363,7 @@ is_our_board (GcomprisBoard *gcomprisBoard)
     {
       if(g_strcasecmp(gcomprisBoard->type, "shapegame")==0)
 	{
-	  /* Set the plugin entry */
-	  if (strcmp(gcomprisBoard->name, "imagename")==0){
-	    gcomprisBoard->plugin = &menu_bp;
-	  } else {
-	    //gcomprisBoard->plugin = &menu_bp_no_config;
-	    gcomprisBoard->plugin = &menu_bp;
-	  }
+        gcomprisBoard->plugin = &menu_bp;
 
 	  return TRUE;
 	}
@@ -797,7 +784,36 @@ add_shape_to_list_of_shapes(Shape *shape)
 		{
 		  h = ICON_HEIGHT;
 		  w = gdk_pixbuf_get_width(pixmap) * ( h / gdk_pixbuf_get_height(pixmap));
-		}
+        }
+        if(h < 20 || w < 20 )
+        {
+            GdkPixbuf *scale, *hand;
+            
+            scale = gdk_pixbuf_scale_simple(pixmap, w, h, GDK_INTERP_BILINEAR);
+            gdk_pixbuf_unref(pixmap);
+
+            pixmap = gdk_pixbuf_new( GDK_COLORSPACE_RGB, TRUE, 8, 
+                    ICON_WIDTH, ICON_HEIGHT);
+            gdk_pixbuf_fill(pixmap,0xffffff00);
+            // add the shape
+            gdk_pixbuf_copy_area( scale, 0, 0, w, h,
+                    pixmap, (ICON_WIDTH-w )/2, (ICON_HEIGHT-h)/2 );
+            gdk_pixbuf_unref(scale);
+    
+            // add the hand
+            hand = gc_pixmap_load("boardicons/leftright.png");
+            h = ICON_HEIGHT/3;
+            w = gdk_pixbuf_get_width(hand) * h / gdk_pixbuf_get_height(hand);
+            scale = gdk_pixbuf_scale_simple(hand, w, h, GDK_INTERP_BILINEAR);
+            gdk_pixbuf_copy_area(scale, 0, 0, w, h,
+                    pixmap, ICON_WIDTH-w,0);
+            gdk_pixbuf_unref(hand);
+            gdk_pixbuf_unref(scale);
+
+            w=ICON_WIDTH;
+            h=ICON_HEIGHT;
+        }
+
 	      item = gnome_canvas_item_new (shape_list_group_root,
 					    gnome_canvas_pixbuf_get_type (),
 					    "pixbuf", pixmap,
@@ -953,9 +969,7 @@ void target_point_switch_on(Shape *shape_on)
 
 static gint item_event_drag(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 {
-#if SHADOW
-    static GnomeCanvasItem *shadow_item;
-#endif
+    static GnomeCanvasItem *shadow_item=NULL;
     double item_x, item_y;
     Shape *shape, *found_shape;
 
@@ -1004,10 +1018,11 @@ static gint item_event_drag(GnomeCanvasItem *item, GdkEvent *event, gpointer dat
                 default:
                     break;
             }
-#if SHADOW
-            if(shadow_item)
-                gtk_object_destroy(GTK_OBJECT(shadow_item));
-            {   // initialise shadow shape
+            if(shadow_enable)
+            {
+                if(shadow_item)
+                    gtk_object_destroy(GTK_OBJECT(shadow_item));
+                // initialise shadow shape
                 GdkPixbuf *pixmap, *dest;
                 g_object_get(shape->target_shape->item, "pixbuf", &pixmap, NULL);
 
@@ -1021,7 +1036,6 @@ static gint item_event_drag(GnomeCanvasItem *item, GdkEvent *event, gpointer dat
                 gdk_pixbuf_unref(dest);
                 gdk_pixbuf_unref(pixmap);
             }
-#endif
             gnome_canvas_item_reparent(shape->item, GNOME_CANVAS_GROUP(shape_list_root_item->parent));
             gnome_canvas_item_raise_to_top(shape->item);
             gc_drag_item_move(event);
@@ -1034,18 +1048,20 @@ static gint item_event_drag(GnomeCanvasItem *item, GdkEvent *event, gpointer dat
             gnome_canvas_item_w2i(item->parent, &item_x, &item_y);
 
             found_shape = find_closest_shape( item_x, item_y, SQUARE_LIMIT_DISTANCE);
-#if SHADOW
-            if(found_shape)
+            if(shadow_enable)
             {
-                gnome_canvas_item_set(shadow_item,
-                        "x", found_shape->x - shape->target_shape->w/2,
-                        "y", found_shape->y - shape->target_shape->h/2,
-                        NULL);
-                gnome_canvas_item_show(shadow_item);
+                if(found_shape)
+                {
+                    gnome_canvas_item_set(shadow_item,
+                            "x", found_shape->x - shape->target_shape->w/2,
+                            "y", found_shape->y - shape->target_shape->h/2,
+                            NULL);
+                    gnome_canvas_item_show(shadow_item);
+                }
+                else
+                    gnome_canvas_item_hide(shadow_item);
             }
-            else
-                gnome_canvas_item_hide(shadow_item);
-#endif
+
             target_point_switch_on(found_shape);
             break;
         case GDK_BUTTON_RELEASE:
@@ -1053,13 +1069,12 @@ static gint item_event_drag(GnomeCanvasItem *item, GdkEvent *event, gpointer dat
             item_y = event->button.y;
             gnome_canvas_item_w2i(item->parent, &item_x, &item_y);
 
-#if SHADOW
-            if(shadow_item)
+            if(shadow_enable && shadow_item)
             {
                 gtk_object_destroy(GTK_OBJECT(shadow_item));
                 shadow_item = NULL;
             }
-#endif
+
             target_point_switch_on(NULL);
             gnome_canvas_item_reparent(shape->item, shape->shape_list_group_root);
 
@@ -1778,6 +1793,9 @@ read_xml_file(char *fname)
   shapeBox.nb_shape_y = xmlGetProp_Double(doc->children, BAD_CAST "shapebox_nb_shape_y", 5);
   g_warning("shapeBox.nb_shape_y=%d\n", shapeBox.nb_shape_y);
 
+  /* Read shadow enable property */
+  shadow_enable = xmlGetProp_Double(doc->children, BAD_CAST "shadow_enable", 1);
+
   /* parse our document and replace old data */
   parse_doc(doc);
 
@@ -1818,7 +1836,6 @@ static void conf_ok(GHashTable *table)
 
   g_hash_table_foreach(table, (GHFunc) save_table, NULL);
 
-  //if ((gcomprisBoard) && (strcmp(gcomprisBoard->name, "imagename")==0)){
   if (gcomprisBoard){
     GHashTable *config;
 
@@ -1836,7 +1853,7 @@ static void conf_ok(GHashTable *table)
     gchar *drag_mode_str = g_hash_table_lookup( config, "drag_mode");
     
     if (drag_mode_str && (strcmp (drag_mode_str, "NULL") != 0))
-      drag_mode = (gint ) g_ascii_strtoll(drag_mode_str, NULL, 10);
+      drag_mode = (gint ) g_ascii_strtod(drag_mode_str, NULL);
     else
       drag_mode = 0;
 
@@ -1887,7 +1904,7 @@ config_start(GcomprisBoard *agcomprisBoard,
   gint drag_previous;
 
   if (drag_mode_str && (strcmp (drag_mode_str, "NULL") != 0))
-    drag_previous = (gint ) g_ascii_strtoll(drag_mode_str, NULL, 10);
+    drag_previous = (gint ) g_ascii_strtod(drag_mode_str, NULL);
   else
     drag_previous = 0;
   
