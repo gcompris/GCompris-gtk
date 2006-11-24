@@ -64,6 +64,7 @@ typedef struct {
   gint         experimental;
   gchar        *menu_position;
   gchar        *server;
+  gint  drag_mode;
 } GcomprisProperties;
 
 GcomprisProperties	*gc_prop_get (void);

@@ -55,6 +55,8 @@
 #include "gcompris_im.h"
 #include "gcompris_alphabeta.h"
 
+#include "drag.h"
+
 #ifdef USE_CAIRO
 #include "gcompris-cairo.h"
 #endif

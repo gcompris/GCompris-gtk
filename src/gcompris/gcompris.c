@@ -117,6 +117,7 @@ static int  popt_display_resource  = FALSE;
 static char *popt_server            = NULL;
 static int  *popt_web_only          = NULL;
 static char *popt_cache_dir         = NULL;
+static char *popt_drag_mode         = NULL;
 
 static struct poptOption options[] = {
   {"fullscreen", 'f', POPT_ARG_NONE, &popt_fullscreen, 0,
@@ -203,6 +204,8 @@ static struct poptOption options[] = {
 
   {"cache-dir", '\0', POPT_ARG_STRING, &popt_cache_dir, 0,
    N_("In server mode, specify the cache directory used to avoid useless downloads."), NULL},
+  {"drag-mode", 'g', POPT_ARG_STRING, &popt_drag_mode, 0,
+   N_("Default global drag and drop mode: normal, 2clicks, both. Default mode is normal."), NULL},
 
 #ifndef WIN32	/* Not supported on windows */
   POPT_AUTOHELP
@@ -1676,6 +1679,20 @@ gc_init (int argc, char *argv[])
 
   if (popt_server){
       properties->cache_dir = g_strdup(popt_cache_dir);
+  }
+
+  if (popt_drag_mode){
+    if (strcmp(popt_drag_mode, "default") == 0)
+      properties->drag_mode = GC_DRAG_MODE_GRAB;
+    else {
+      if (strcmp(popt_drag_mode, "2clicks") == 0)
+	properties->drag_mode = GC_DRAG_MODE_2CLICKS;
+      else {
+	if (strcmp(popt_drag_mode, "both") == 0)
+	  properties->drag_mode = GC_DRAG_MODE_BOTH;
+	else g_warning("Unknown drag mode ! Valids modes are \"normal\", \"2clicks\" and \"both\"");
+      }
+    }
   }
 
   /*

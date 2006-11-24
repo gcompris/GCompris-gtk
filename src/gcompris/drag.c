@@ -141,7 +141,7 @@ void gc_drag_start(GnomeCanvasGroup *root_item, gc_Drag_Func function, gc_drag_m
     gc_drag_item = NULL;
     gc_drag_offset_x = gc_drag_offset_y = 0;
     if (mode == GC_DRAG_MODE_DEFAULT)
-      gc_drag_mode = GC_DRAG_MODE_GRAB;
+      gc_drag_mode = gc_prop_get()->drag_mode;
     else
       gc_drag_mode = mode;
 }
@@ -170,7 +170,7 @@ void gc_drag_change_mode (gc_drag_mode_type mode)
         g_warning("Don't use gc_change_mode during a dragging");
     else {
       if (mode == GC_DRAG_MODE_DEFAULT)
-	gc_drag_mode = GC_DRAG_MODE_GRAB;
+	gc_drag_mode = gc_prop_get()->drag_mode;
       else
 	gc_drag_mode = mode;
     }

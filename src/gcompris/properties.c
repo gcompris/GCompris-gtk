@@ -172,6 +172,7 @@ gc_prop_new ()
   tmp->package_python_plugin_dir  = NULL;
   tmp->system_icon_dir            = NULL;
   tmp->cache_dir                  = NULL;
+  tmp->drag_mode                  = GC_DRAG_MODE_GRAB;
 
   user_dir = gc_prop_user_root_directory_get() ;
   gc_util_create_rootdir( user_dir );

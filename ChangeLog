@@ -1,5 +1,17 @@
 2006-11-24  Yves Combe  <yves@ycombe.net>
 
+	add command line option to set global drag_mode.
+	global drag_mode stored in properties.
+
+	* src/boards/shapegame.c:
+	* src/gcompris/drag.c: (gc_drag_start), (gc_drag_change_mode):
+	* src/gcompris/gcompris.c: (gc_init):
+	* src/gcompris/gcompris.h:
+	* src/gcompris/properties.c: (gc_prop_new):
+	* src/gcompris/properties.h:
+
+2006-11-24  Yves Combe  <yves@ycombe.net>
+
 	clean shapegame to not config locale if board is not "imagename". 
 
 	* src/boards/shapegame.c: (conf_ok), (config_start):

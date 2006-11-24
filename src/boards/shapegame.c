@@ -29,7 +29,6 @@
 #include <string.h>
 
 #include "gcompris/gcompris.h"
-#include "gcompris/drag.h"
 #include "gcompris/pixbuf_util.h"
 
 extern GdkPixbuf *
