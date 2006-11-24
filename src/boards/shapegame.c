@@ -1828,9 +1828,11 @@ static void conf_ok(GHashTable *table)
     else
       config = table;
 
-    gc_locale_reset();
+    if (strcmp(gcomprisBoard->name, "imagename")==0){
+      gc_locale_reset();
 
-    gc_locale_set(g_hash_table_lookup( config, "locale"));
+      gc_locale_set(g_hash_table_lookup( config, "locale"));
+    }
 
     gchar *drag_mode_str = g_hash_table_lookup( config, "drag_mode");
     
@@ -1876,9 +1878,11 @@ config_start(GcomprisBoard *agcomprisBoard,
   /* init the combo to previously saved value */
   GHashTable *config = gc_db_get_conf( profile_conf, board_conf);
 
-  gchar *locale = g_hash_table_lookup( config, "locale");
+  if (strcmp(gcomprisBoard->name, "imagename")==0){
+    gchar *locale = g_hash_table_lookup( config, "locale");
 
-  gc_board_config_combo_locales( locale);
+    gc_board_config_combo_locales( locale);
+  }
 
   gchar *drag_mode_str = g_hash_table_lookup( config, "drag_mode");
   gint drag_previous;

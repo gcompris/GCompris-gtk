@@ -1,5 +1,11 @@
 2006-11-24  Yves Combe  <yves@ycombe.net>
 
+	clean shapegame to not config locale if board is not "imagename". 
+
+	* src/boards/shapegame.c: (conf_ok), (config_start):
+
+2006-11-24  Yves Combe  <yves@ycombe.net>
+
 	add a GC_DRAG_MODE_DEFAULT and gc_drag_change_mode in drag API.
 	add a combo_drag in board_config api.
 	modify shapegame to use that.
