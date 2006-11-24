@@ -1,5 +1,11 @@
 2006-11-24  Yves Combe  <yves@ycombe.net>
 
+	fix stupid bug, crash of shapegame in admin mode.
+
+	* src/boards/shapegame.c: (config_start):
+
+2006-11-24  Yves Combe  <yves@ycombe.net>
+
 	add command line option to set global drag_mode.
 	global drag_mode stored in properties.
 

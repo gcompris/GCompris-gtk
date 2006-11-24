@@ -1877,7 +1877,7 @@ config_start(GcomprisBoard *agcomprisBoard,
   /* init the combo to previously saved value */
   GHashTable *config = gc_db_get_conf( profile_conf, board_conf);
 
-  if (strcmp(gcomprisBoard->name, "imagename")==0){
+  if (strcmp(agcomprisBoard->name, "imagename")==0){
     gchar *locale = g_hash_table_lookup( config, "locale");
 
     gc_board_config_combo_locales( locale);
