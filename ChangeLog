@@ -1,5 +1,17 @@
 2006-11-25  Bruno coudoin  <bruno.coudoin@free.fr>
 
+	- Patch by Joshua N Pritikin for parachute activity.
+	  Now an explanation is given at level 2 that up/down keys does control the falling speed.
+	  Added focus on plane and tux to show active objects.
+
+	* src/boards/paratrooper.c: (key_press), (paratrooper_next_level),
+	(paratrooper_move_plane), (paratrooper_move_cloud),
+	(paratrooper_destroy_items), (paratrooper_destroy_all_items),
+	(paratrooper_move_tux), (paratrooper_create_cloud),
+	(paratrooper_add_new_item), (next_state), (item_event):
+
+2006-11-25  Bruno coudoin  <bruno.coudoin@free.fr>
+
 	- Patch from Patrick GOLDBRONN, replaced water drop in erase
 	  because they are deleted too easily.
 	  2 more level were the children must pass several times.
