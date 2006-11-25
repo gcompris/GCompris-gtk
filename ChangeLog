@@ -1,10 +1,27 @@
+2006-11-25  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	- Patch from Patrick GOLDBRONN, replaced water drop in erase
+	  because they are deleted too easily.
+	  2 more level were the children must pass several times.
+
+	* boards/images/transparent_square_green.png:
+	* boards/images/transparent_square_yellow.png:
+	* src/boards/erase.c: (start_board), (erase_next_level),
+	(erase_create_item), (item_event):
+
+	* src/gcompris/gcompris.c: (gc_init): added the display of wether or not xvidmode
+	  was compiled in.
+
+	* src/gcompris/help.c: (gc_help_start), (item_event_help),
+	(event_disable_right_click_popup): the GTK right click copy/paste menu is disabled now.
+
 2006-11-24  Yves Combe  <yves@ycombe.net>
 
 	By Miguel DE IZARRA:
 	- shadow mode can be unset in board xml file (shapegame).
 	- little hand to help pick up shape in geography.
 	- cleanup.
-	
+
 	* boards/babyshapes/board1_0.xml.in:
 	* boards/babyshapes/board2_0.xml.in:
 	* boards/babyshapes/board3_0.xml.in:
@@ -36,7 +53,7 @@
 
 2006-11-24  Yves Combe  <yves@ycombe.net>
 
-	clean shapegame to not config locale if board is not "imagename". 
+	clean shapegame to not config locale if board is not "imagename".
 
 	* src/boards/shapegame.c: (conf_ok), (config_start):
 

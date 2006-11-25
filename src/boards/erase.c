@@ -24,6 +24,8 @@
 #define SOUNDLISTFILE PACKAGE
 #define MAX_LAYERS 3
 
+typedef struct  {gint count; gint max;} counter;
+
 static GcomprisBoard *gcomprisBoard = NULL;
 static gboolean board_paused = TRUE;
 
@@ -182,8 +184,10 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 	board_mode = DOUBLECLIC;
       else if (strcmp(gcomprisBoard->mode,"clic")==0)
 	board_mode = CLIC;
-      else
+      else {
 	board_mode = NORMAL;
+	gcomprisBoard->maxlevel=8;
+      }
 
       if (board_mode == DOUBLECLIC){
 	GtkSettings *DefaultsGtkSettings = gtk_settings_get_default ();
@@ -292,7 +296,9 @@ static void erase_next_level()
   /* Select the number of layer depending on the level */
 
   if (board_mode != DOUBLECLIC){
-    if(gcomprisBoard->level>4)
+    if(gcomprisBoard->level>6)
+      layers = 4;
+    else if(gcomprisBoard->level>4)
       layers = 3;
     else if(gcomprisBoard->level>2)
       layers = 2;
@@ -326,8 +332,9 @@ static GnomeCanvasItem *erase_create_item(int layer)
   int ix, jy;
   GnomeCanvasItem *item = NULL;
   GdkPixbuf *pixmap[MAX_LAYERS];
+  counter *c;
 
-  g_assert(layer<=MAX_LAYERS);
+/*   g_assert(layer<=MAX_LAYERS); */
 
   boardRootItem = GNOME_CANVAS_GROUP(
 				     gnome_canvas_item_new (gnome_canvas_root(gcomprisBoard->canvas),
@@ -345,24 +352,26 @@ static GnomeCanvasItem *erase_create_item(int layer)
     pixmap[0] = gc_pixmap_load("images/transparent_square.png");
 
   if(layer>1)
-    pixmap[1] = gc_pixmap_load("images/water_spot.png");
+    pixmap[1] = gc_pixmap_load("images/transparent_square_green.png");
 
   if(layer>2)
-    pixmap[2] = gc_pixmap_load("images/water_drop.png");
+    pixmap[2] = gc_pixmap_load("images/transparent_square_yellow.png");
 
   for(i=0,ix=0; i<BOARDWIDTH; i+=BOARDWIDTH/number_of_item_x, ix++)
     {
       for(j=0, jy=0; j<BOARDHEIGHT; j+=BOARDHEIGHT/number_of_item_y, jy++)
 	{
 	  int current_layer = layer;
+	  if (layer == 4)
+	    current_layer = 1 ;
 
 	  if ((board_mode != NORMAL) && ((ix+jy) %2 == 0))
 	    continue;
 
 	  while(current_layer--)
 	    {
-	      double w = (BOARDWIDTH/number_of_item_x) *  (1.0 - (0.3 * current_layer));
-	      double h = (BOARDHEIGHT/number_of_item_y) * (1.0 - (0.3 * current_layer));
+	      double w = (BOARDWIDTH/number_of_item_x) ;
+	      double h = (BOARDHEIGHT/number_of_item_y) ;
 	      double x = i + ((BOARDWIDTH/number_of_item_x)  - w) / 2;
 	      double y = j + ((BOARDHEIGHT/number_of_item_y) - h) / 2;
 
@@ -377,8 +386,14 @@ static GnomeCanvasItem *erase_create_item(int layer)
 					    "height_set", TRUE,
 					    "anchor", GTK_ANCHOR_NW,
 					    NULL);
-
-	      gtk_signal_connect(GTK_OBJECT(item), "event", (GtkSignalFunc) item_event, NULL);
+	      c = malloc( sizeof(counter));
+	      c->count = 0 ;
+	      c->max = 0 ;
+	      /* if item is not first, it must be keep first time mouse pass over in normal mode or in layer 4 */
+	      if ((current_layer > 0) || (layer == 4))
+		c->max = 1 ;
+		
+	      gtk_signal_connect(GTK_OBJECT(item), "event", (GtkSignalFunc) item_event, (gpointer)c);
 	      number_of_item++;
 	    }
 	}
@@ -430,17 +445,23 @@ static void game_won()
 static gint
 item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 {
-
+  counter *c = (counter *) data;
   if(board_paused)
     return FALSE;
 
   if (event->type == GDK_MOTION_NOTIFY)
     return FALSE;
 
-  if (board_mode == NORMAL)
+  if (board_mode == NORMAL) {
     if (event->type != GDK_ENTER_NOTIFY)
       return FALSE;
-
+    else {
+      if (c->count < c->max){
+	c->count++ ;
+	return FALSE ;
+      }
+    }
+  }
   if (board_mode == CLIC)
     if (event->type != GDK_BUTTON_PRESS)
       return FALSE;
@@ -461,6 +482,8 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
     }
   }
 
+  /* free allocated counter */
+  free(c) ;
   gtk_object_destroy(GTK_OBJECT(item));
 
   if(--number_of_item == 0)

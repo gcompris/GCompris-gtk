@@ -205,7 +205,7 @@ static struct poptOption options[] = {
   {"cache-dir", '\0', POPT_ARG_STRING, &popt_cache_dir, 0,
    N_("In server mode, specify the cache directory used to avoid useless downloads."), NULL},
   {"drag-mode", 'g', POPT_ARG_STRING, &popt_drag_mode, 0,
-   N_("Default global drag and drop mode: normal, 2clicks, both. Default mode is normal."), NULL},
+   N_("Global drag and drop mode: normal, 2clicks, both. Default mode is normal."), NULL},
 
 #ifndef WIN32	/* Not supported on windows */
   POPT_AUTOHELP
@@ -1392,6 +1392,12 @@ gc_init (int argc, char *argv[])
   /* First, Remove the gnome crash dialog because it locks the user when in full screen */
   signal(SIGSEGV, gc_terminate);
   signal(SIGINT, gc_terminate);
+
+#ifdef XF86_VIDMODE
+  printf("XF86VidMode: Compiled with XF86VidMode.\nIf you have problems starting GCompris in fullscreen, try the -x option to disable XF86VidMode.\n");
+#else
+  printf("XF86VidMode: Not compiled with XVIDMODE\n");
+#endif
 
   load_properties();
 

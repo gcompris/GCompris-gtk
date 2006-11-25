@@ -33,6 +33,7 @@
 #define GAP_TO_BUTTON -20
 
 static gint	 item_event_help(GnomeCanvasItem *item, GdkEvent *event, gpointer data);
+static int	 event_disable_right_click_popup(GtkWidget *w, GdkEvent *event, gpointer data);
 static void	 select_item(GnomeCanvasItem *item, GnomeCanvasItem *item_text);
 static void	 set_content(char *text);
 
@@ -324,6 +325,9 @@ void gc_help_start (GcomprisBoard *gcomprisBoard)
   gtk_text_view_set_editable(GTK_TEXT_VIEW (view), FALSE);
   gtk_text_view_set_cursor_visible(GTK_TEXT_VIEW (view), FALSE);
 
+  gtk_signal_connect(GTK_OBJECT(view), "button-press-event",
+		     (GtkSignalFunc) event_disable_right_click_popup, NULL);
+
   PangoFontDescription *font_desc;
   font_desc = pango_font_description_from_string (gc_skin_font_content);
   gtk_widget_modify_font (view, font_desc);
@@ -513,4 +517,13 @@ item_event_help(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
     }
   return FALSE;
 
+}
+
+/* Textview have a popup on right click to copy/paste. We don't want it */
+static int
+event_disable_right_click_popup(GtkWidget *w, GdkEvent *event, gpointer data)
+{
+  if(event->button.button == 3)
+    return TRUE;
+  return FALSE;
 }
