@@ -93,7 +93,6 @@ libgcomprisinclude_HEADERS =			\
 	binreloc.h \
 	bonus.h \
 	gc_core.h \
-	cursor.h \
 	gameutil.h \
 	gc_net.h \
 	gcompris.h \
@@ -125,7 +124,6 @@ libgcompris_1_la_SOURCES =			\
 	board_config.h board_config.c \
 	bonus.c \
 	config.c \
-	cursor.c \
 	dialog.c \
 	file_selector.c \
 	gameutil.c \

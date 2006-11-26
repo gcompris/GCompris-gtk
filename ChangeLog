@@ -1,3 +1,28 @@
+2006-11-27  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	- Changed tha way we manage cursors. Now use the
+	  gdk_cursor_new_from_pixbuf() which allow us to use regular png
+	  images.
+	- removed unused bird icon
+
+	* boards/skins/gartoon/cursor_circle.png:
+	* boards/skins/gartoon/cursor_default.png:
+	* boards/skins/gartoon/cursor_del.png:
+	* boards/skins/gartoon/cursor_fill.png:
+	* boards/skins/gartoon/cursor_fillcircle.png:
+	* boards/skins/gartoon/cursor_fillrect.png:
+	* boards/skins/gartoon/cursor_line.png:
+	* boards/skins/gartoon/cursor_rect.png:
+	* boards/skins/gartoon/cursor_select.png:
+	* docs/C/python.xml: removed unused BIRD icon
+	* src/boards/py-mod-gcompris.c: (python_gcompris_module_init):
+	* src/gcompris/Makefile.am:
+	* src/gcompris/Makefile.mingw:
+	* src/gcompris/cursor.c: removed
+	* src/gcompris/cursor.h: removed
+	* src/gcompris/gcompris.c: (gc_cursor_set):
+	* src/gcompris/gcompris.h:
+
 2006-11-25  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	- Patch by Joshua N Pritikin for parachute activity.

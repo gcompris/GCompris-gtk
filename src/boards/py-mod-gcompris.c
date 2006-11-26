@@ -1660,7 +1660,6 @@ void python_gcompris_module_init(void)
   /* Cursors constants */
   PyModule_AddIntConstant(gcomprisModule, "CURSOR_FIRST_CUSTOM",  GCOMPRIS_FIRST_CUSTOM_CURSOR);
   PyModule_AddIntConstant(gcomprisModule, "CURSOR_BIG_RED_ARROW", GCOMPRIS_BIG_RED_ARROW_CURSOR);
-  PyModule_AddIntConstant(gcomprisModule, "CURSOR_BIRD",          GCOMPRIS_BIRD_CURSOR);
   PyModule_AddIntConstant(gcomprisModule, "CURSOR_LINE",          GCOMPRIS_LINE_CURSOR);
   PyModule_AddIntConstant(gcomprisModule, "CURSOR_FILLRECT",      GCOMPRIS_FILLRECT_CURSOR);
   PyModule_AddIntConstant(gcomprisModule, "CURSOR_RECT",          GCOMPRIS_RECT_CURSOR);

@@ -126,13 +126,13 @@ gchar		*gc_locale_get_name(gchar *locale);
 void		 gc_cursor_set(guint gdk_cursor_type);
 
 typedef void     (*ImageSelectorCallBack)     (gchar* image);
-void		 gc_selector_images_start (GcomprisBoard *gcomprisBoard, 
-						 gchar *dataset, 
+void		 gc_selector_images_start (GcomprisBoard *gcomprisBoard,
+						 gchar *dataset,
 						 ImageSelectorCallBack imscb);
 void		 gc_selector_images_stop (void);
 
 typedef void     (*FileSelectorCallBack)     (gchar *file, gchar *file_type); /* file_type is one string from file_types in the save */
-void		 gc_selector_file_load (GcomprisBoard *gcomprisBoard, 
+void		 gc_selector_file_load (GcomprisBoard *gcomprisBoard,
 					      gchar *rootdir,
 					      gchar *file_types, /* A Comma separated text explaining the different file types */
 					      FileSelectorCallBack fscb);
@@ -152,7 +152,7 @@ void		 gc_dialog_close();
 /* Confirm box */
 typedef void     (*ConfirmCallBack)     (gboolean answer);
 
-void		 gc_confirm_box (gchar *title, 
+void		 gc_confirm_box (gchar *title,
 				 gchar *question_text,
 				 gchar *yes_text,
 				 gchar *no_text,
@@ -173,7 +173,7 @@ void		 gc_canvas_item_ungrab (GnomeCanvasItem *item, guint32 etime);
 #define GCOMPRIS_LOG_STATUS_COMPLETED "COMPLETED"
 
 /* Use it to tell the teacher where the kid failed */
-void		 gc_log_set_comment (GcomprisBoard *gcomprisBoard, gchar *expected, gchar* got); 
+void		 gc_log_set_comment (GcomprisBoard *gcomprisBoard, gchar *expected, gchar* got);
 
 /* Do not use it if you use the bonus API in your board */
 void		 gc_log_end (GcomprisBoard *gcomprisBoard, gchar *status);
@@ -214,8 +214,7 @@ GList           *gc_menu_get_boards();
 // These are gcompris defined cursors
 // cursor defines must be over the last gnome cursor defined in gdkcursors.h
 #define GCOMPRIS_FIRST_CUSTOM_CURSOR	1000
-#define GCOMPRIS_BIG_RED_ARROW_CURSOR	1001
-#define GCOMPRIS_BIRD_CURSOR		1002
+#define GCOMPRIS_DEFAULT_CURSOR		1001
 #define GCOMPRIS_LINE_CURSOR		1003
 #define GCOMPRIS_FILLRECT_CURSOR	1004
 #define GCOMPRIS_RECT_CURSOR		1005
@@ -224,7 +223,5 @@ GList           *gc_menu_get_boards();
 #define GCOMPRIS_DEL_CURSOR		1008
 #define GCOMPRIS_FILL_CURSOR		1009
 #define GCOMPRIS_SELECT_CURSOR		1010
-
-#define GCOMPRIS_DEFAULT_CURSOR		GCOMPRIS_BIG_RED_ARROW_CURSOR
 
 #endif
