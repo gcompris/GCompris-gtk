@@ -606,6 +606,8 @@ static void animate_items()
 
   if(animate_item_distance-- == 0)
     {
+      gc_sound_play_ogg ("sounds/brick.wav", NULL);
+
       gtk_timeout_remove (animate_id);
       animate_id = 0;
       animate_item = NULL;
@@ -629,6 +631,8 @@ static void launch_dart(double item_x, double item_y)
   animate_item_y	= item_y;
   animate_item_size	= MAX_DART_SIZE;
   animate_item_distance	= targetDefinition[gcomprisBoard->level-1].target_distance/10;
+
+  gc_sound_play_ogg ("sounds/line_end.wav", NULL);
 
   animate_item = gnome_canvas_item_new (boardRootItem,
 					gnome_canvas_ellipse_get_type(),

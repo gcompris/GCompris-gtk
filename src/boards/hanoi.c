@@ -386,7 +386,7 @@ static GnomeCanvasItem *hanoi_create_item(GnomeCanvasGroup *parent)
 	{
 	  done = FALSE;
 
-	  i = (guint)g_random_int_range(0, number_of_item_x-2);
+	  i = (guint)g_random_int_range(0, number_of_item_x);
 
 	  /* Restrict the goal to lowest items */
 	  j = (guint)g_random_int_range(0, 2);

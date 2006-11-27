@@ -65,7 +65,8 @@ NEEDED_DLLS =		$(GNUCHESS_TOP)/bin/pthreadGC.dll \
 			$(GTK_TOP)/bin/intl.dll \
 			$(GTK_TOP)/bin/libpng13.dll \
 			$(GTK_TOP)/bin/jpeg62.dll \
-			$(SQLITE_TOP)/sqlite3.dll
+			$(SQLITE_TOP)/sqlite3.dll \
+			/c/WINDOWS/system32/msvcr71.dll
 
 NEEDED_FILES =		README \
 			COPYING \

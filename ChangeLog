@@ -1,5 +1,17 @@
 2006-11-27  Bruno coudoin  <bruno.coudoin@free.fr>
 
+
+	* Makefile.mingw.in: added msvcr71.dll, not all windows have it.
+	* boards/sounds/README: imported sounds from Tuxpaint.
+	* boards/sounds/brick.wav:
+	* boards/sounds/line_end.wav:
+	* src/boards/py-mod-gcompris.c: (python_gcompris_module_init):
+	* src/boards/target.c: (animate_items), (launch_dart): added sounds.
+	* src/boards/hanoi.c: (animate_items), (launch_dart): fixed bad index, was bringing
+	  GC in an infinite loop.
+
+2006-11-27  Bruno coudoin  <bruno.coudoin@free.fr>
+
 	- Changed tha way we manage cursors. Now use the
 	  gdk_cursor_new_from_pixbuf() which allow us to use regular png
 	  images.
