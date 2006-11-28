@@ -1,3 +1,30 @@
+2006-11-29  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	- Added Audio effects on more activities.
+	  sounds taken from tuxpaint.
+
+	* boards/sounds/bleep.wav:
+	* boards/sounds/bubble.wav:
+	* boards/sounds/darken.wav:
+	* boards/sounds/drip.wav:
+	* boards/sounds/flip.wav:
+	* boards/sounds/smudge.wav:
+	* boards/sounds/tuxok.wav:
+	* boards/sounds/youcannot.wav:
+	* src/boards/clickgame.c: (fish_gobble), (canvas_event):
+	* src/boards/erase.c: (start_board), (end_board),
+	(erase_create_item), (item_event):
+	* src/boards/gletters.c: (gletters_drop_items), (player_win):
+	* src/boards/menu2.c: (item_event):
+	* src/boards/python/ballcatch.py:
+	* src/boards/python/followline.py:
+	* src/boards/smallnumbers.c: (start_board), (key_press),
+	(smallnumbers_next_level), (smallnumbers_gotkey_item),
+	(smallnumbers_move_item), (smallnumbers_move_items),
+	(smallnumbers_create_item), (smallnumbers_drop_items),
+	(player_win), (save_table), (conf_ok), (smallnumber_config_start):
+	* src/boards/wordsgame.c: (wordsgame_drop_items), (player_win):
+
 2006-11-27  Bruno coudoin  <bruno.coudoin@free.fr>
 
 

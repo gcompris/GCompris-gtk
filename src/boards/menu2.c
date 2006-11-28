@@ -652,7 +652,7 @@ item_event(GnomeCanvasItem *item, GdkEvent *event,  MenuItems *menuitems)
       if(!menu_displayed)
 	return TRUE;
 
-      gc_sound_play_ogg ("sounds/gobble.ogg", NULL);
+      gc_sound_play_ogg ("sounds/bleep.wav", NULL);
 
       if (strcmp(board->type,"menu")==0){
 	gchar *path = g_strdup_printf("%s/%s",board->section, board->name);

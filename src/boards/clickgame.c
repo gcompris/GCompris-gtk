@@ -219,7 +219,7 @@ static void
 fish_gobble (FishItem *fishitem)
 {
   clickgame_destroy_item(fishitem);
-  gc_sound_play_ogg ("sounds/gobble.ogg", NULL);
+  gc_sound_play_ogg ("sounds/bubble.wav", NULL);
 
   gcomprisBoard->sublevel++;
   gc_score_set(gcomprisBoard->sublevel);
@@ -284,7 +284,10 @@ canvas_event(GnomeCanvas *canvas, GdkEvent *event)
 		 if (gnome_canvas_get_item_at (canvas, mouse_x, mouse_y) !=
 		     g_slist_nth_data (fish->cur_frames, fish->currentItem) &&
 		     (dx > 0) ^ (fish->speed < 0))
-		   fish_reverse_direction (fish);
+		   {
+		     fish_reverse_direction (fish);
+		     gc_sound_play_ogg ("sounds/drip.wav", NULL);
+		   }
 		 else
 		   react += 1;
 	       }

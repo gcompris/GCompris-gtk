@@ -698,6 +698,7 @@ static void gletters_add_new_item()
  */
 static gint gletters_drop_items (GtkWidget *widget, gpointer data)
 {
+  gc_sound_play_ogg ("sounds/bleep.wav", NULL);
   gletters_add_new_item();
 
   drop_items_id = gtk_timeout_add (fallSpeed,
@@ -710,7 +711,7 @@ static void player_win(GnomeCanvasItem *item)
   g_message("in player_win\n");
 
   gletters_destroy_item(item);
-  gc_sound_play_ogg ("sounds/gobble.ogg", NULL);
+  gc_sound_play_ogg ("sounds/flip.wav", NULL);
 
   gcomprisBoard->sublevel++;
 

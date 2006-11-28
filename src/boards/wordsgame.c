@@ -660,6 +660,7 @@ static void wordsgame_add_new_item()
  */
 static gint wordsgame_drop_items (GtkWidget *widget, gpointer data)
 {
+  gc_sound_play_ogg ("sounds/bleep.wav", NULL);
   wordsgame_add_new_item();
   g_source_remove(drop_items_id);
   drop_items_id = g_timeout_add (fallSpeed,(GtkFunction) wordsgame_drop_items, NULL);
@@ -670,7 +671,7 @@ static gint wordsgame_drop_items (GtkWidget *widget, gpointer data)
 static void player_win(LettersItem *item)
 {
 
-  gc_sound_play_ogg ("sounds/gobble.ogg", NULL);
+  gc_sound_play_ogg ("sounds/flip.wav", NULL);
 
   g_assert(gcomprisBoard!=NULL);
 

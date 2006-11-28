@@ -28,6 +28,8 @@ typedef struct  {gint count; gint max;} counter;
 
 static GcomprisBoard *gcomprisBoard = NULL;
 static gboolean board_paused = TRUE;
+static SoundPolicy sound_policy;
+
 
 static void	 start_board (GcomprisBoard *agcomprisBoard);
 static void	 pause_board (gboolean pause);
@@ -213,6 +215,10 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 
       gamewon = FALSE;
       pause_board(FALSE);
+
+      /* initial state to restore */
+      sound_policy = gc_sound_policy_get();
+      gc_sound_policy_set(PLAY_AND_INTERRUPT);
     }
 }
 /* ======================================= */
@@ -230,6 +236,7 @@ static void end_board ()
       erase_destroy_all_items();
     }
   gcomprisBoard = NULL;
+  gc_sound_policy_set(sound_policy);
 }
 
 /* ======================================= */
@@ -392,7 +399,7 @@ static GnomeCanvasItem *erase_create_item(int layer)
 	      /* if item is not first, it must be keep first time mouse pass over in normal mode or in layer 4 */
 	      if ((current_layer > 0) || (layer == 4))
 		c->max = 1 ;
-		
+
 	      gtk_signal_connect(GTK_OBJECT(item), "event", (GtkSignalFunc) item_event, (gpointer)c);
 	      number_of_item++;
 	    }
@@ -485,6 +492,7 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
   /* free allocated counter */
   free(c) ;
   gtk_object_destroy(GTK_OBJECT(item));
+  gc_sound_play_ogg ("sounds/darken.wav", NULL);
 
   if(--number_of_item == 0)
     {

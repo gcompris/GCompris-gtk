@@ -1,3 +1,21 @@
+#  gcompris - administration.py
+#
+# Copyright (C) 2005 Bruno Coudoin
+#
+#   This program is free software; you can redistribute it and/or modify
+#   it under the terms of the GNU General Public License as published by
+#   the Free Software Foundation; either version 2 of the License, or
+#   (at your option) any later version.
+#
+#   This program is distributed in the hope that it will be useful,
+#   but WITHOUT ANY WARRANTY; without even the implied warranty of
+#   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#   GNU General Public License for more details.
+#
+#   You should have received a copy of the GNU General Public License
+#   along with this program; if not, write to the Free Software
+#   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+#
 # Follow Line Board module
 import gobject
 import gnomecanvas
@@ -5,6 +23,7 @@ import gcompris
 import gcompris.skin
 import gcompris.bonus
 import gcompris.utils
+import gcompris.sound
 import gtk
 import gtk.gdk
 import random
@@ -37,6 +56,9 @@ class Gcompris_followline:
 
 
   def start(self):
+    self.saved_policy = gcompris.sound.policy_get()
+    gcompris.sound.policy_set(gcompris.sound.PLAY_AND_INTERRUPT)
+
     self.gcomprisBoard.level=1
     self.gcomprisBoard.maxlevel=9
     self.gcomprisBoard.sublevel=1
@@ -60,6 +82,8 @@ class Gcompris_followline:
 
     # Disconnect from the background item
     self.background_item.disconnect(self.background_item_connect_id)
+
+    gcompris.sound.policy_set(self.saved_policy)
 
   def ok(self):
     print("Gcompris_followline ok.")
@@ -261,10 +285,15 @@ class Gcompris_followline:
           item.set_data("gotit", False)
           previous_item.set_data("iamnext", True);
 
+        else:
+          self.state = "Ready"
+
         return
 
       previous_item = item
 
+  def lauch_bonus(self):
+    gcompris.bonus.display(gcompris.bonus.WIN, gcompris.bonus.FLOWER)
 
   def is_done(self):
     done = True
@@ -273,13 +302,14 @@ class Gcompris_followline:
         done = False
 
     if(done):
+      gcompris.sound.play_ogg("sounds/bubble.wav")
       # This is a win
       if (self.increment_level() == 1):
         self.state = "Done"
         self.gamewon = 1
         self.water_spot.raise_to_top()
         self.water_spot.show()
-        gcompris.bonus.display(gcompris.bonus.WIN, gcompris.bonus.FLOWER)
+        gtk.timeout_add(1500, self.lauch_bonus)
 
     return done
 
@@ -287,6 +317,7 @@ class Gcompris_followline:
     if(self.state == "Started"):
       self.loosing_count += 1
       if(self.loosing_count % 10):
+        gcompris.sound.play_ogg("sounds/smudge.wav")
         self.highlight_previous_line()
     return False
 
@@ -294,6 +325,7 @@ class Gcompris_followline:
   def line_item_event(self, widget, event=None):
     if not self.board_paused and widget.get_data("iamnext") == True:
       # The first line touch means the game is started
+      gcompris.sound.play_ogg("sounds/drip.wav")
       self.state = "Started"
       widget.set(
         fill_color_rgba = self.color_full,

@@ -3,7 +3,7 @@
  * Time-stamp: <2006/08/21 23:36:29 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
- * 
+ *
  *   This program is free software; you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
  *   the Free Software Foundation; either version 2 of the License, or
@@ -164,9 +164,9 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       gcomprisBoard->level = 1;
       gcomprisBoard->maxlevel = 9;
       gcomprisBoard->number_of_sublevel=10;
-      gc_score_start(SCORESTYLE_NOTE, 
-			   gcomprisBoard->width - 220, 
-			   gcomprisBoard->height - 50, 
+      gc_score_start(SCORESTYLE_NOTE,
+			   gcomprisBoard->width - 220,
+			   gcomprisBoard->height - 50,
 			   gcomprisBoard->number_of_sublevel);
       gc_bar_set(GC_BAR_CONFIG|GC_BAR_LEVEL);
 
@@ -236,14 +236,14 @@ static gint key_press(guint keyval, gchar *commit_str, gchar *preedit_str)
     case GDK_Mode_switch:
     case GDK_dead_circumflex:
     case GDK_Num_Lock:
-      return FALSE; 
+      return FALSE;
     }
 
   sprintf(str, "%c", keyval);
 
   keyval = atoi(str);
 
-  g_list_foreach(GNOME_CANVAS_GROUP(boardRootItem)->item_list, 
+  g_list_foreach(GNOME_CANVAS_GROUP(boardRootItem)->item_list,
 		 (GFunc) smallnumbers_gotkey_item,
 		 GINT_TO_POINTER(keyval));
 
@@ -273,7 +273,7 @@ is_our_board (GcomprisBoard *gcomprisBoard)
 /*-------------------------------------------------------------------------------*/
 
 /* set initial values for the next level */
-static void smallnumbers_next_level() 
+static void smallnumbers_next_level()
 {
 
   gamewon = FALSE;
@@ -310,7 +310,7 @@ static void smallnumbers_destroy_all_items()
 static void smallnumbers_gotkey_item(GnomeCanvasItem *item, guint key)
 {
   guint number;
-  
+
   if(G_OBJECT (item)) {
     number = GPOINTER_TO_INT (g_object_get_data (G_OBJECT (item), "dice_number"));
 
@@ -330,7 +330,7 @@ static void smallnumbers_move_item(GnomeCanvasItem *item)
 				&y1,
 				&x2,
 				&y2);
-  
+
   if(y1>gcomprisBoard->height) {
     player_loose();
     gtk_object_destroy (GTK_OBJECT(item));
@@ -347,7 +347,7 @@ static gint smallnumbers_move_items (GtkWidget *widget, gpointer data)
   /* For each item we need to move */
   g_list_foreach(GNOME_CANVAS_GROUP(boardRootItem)->item_list, (GFunc) smallnumbers_move_item, NULL);
 
-  dummy_id = gtk_timeout_add (speed, 
+  dummy_id = gtk_timeout_add (speed,
 			      (GtkFunction) smallnumbers_move_items, NULL);
 
   return(FALSE);
@@ -444,12 +444,12 @@ static void smallnumbers_create_item(GnomeCanvasGroup *parent)
 
     item = gnome_canvas_item_new (group_item,
 				  gnome_canvas_pixbuf_get_type (),
-				  "pixbuf", smallnumbers_pixmap, 
+				  "pixbuf", smallnumbers_pixmap,
 				  "x", x,
 				  "y", (double) -gdk_pixbuf_get_height(smallnumbers_pixmap)*imageZoom,
 				  "width", (double) gdk_pixbuf_get_width(smallnumbers_pixmap)*imageZoom,
 				  "height", (double) gdk_pixbuf_get_height(smallnumbers_pixmap)*imageZoom,
-				  "width_set", TRUE, 
+				  "width_set", TRUE,
 				  "height_set", TRUE,
 				  NULL);
     gdk_pixbuf_unref(smallnumbers_pixmap);
@@ -464,6 +464,7 @@ static void smallnumbers_create_item(GnomeCanvasGroup *parent)
  */
 static gint smallnumbers_drop_items (GtkWidget *widget, gpointer data)
 {
+  gc_sound_play_ogg ("sounds/bleep.wav", NULL);
   smallnumbers_create_item(boardRootItem);
 
   drop_items_id = gtk_timeout_add (fallSpeed,
@@ -474,7 +475,7 @@ static gint smallnumbers_drop_items (GtkWidget *widget, gpointer data)
 static void player_win(GnomeCanvasItem *item)
 {
   gtk_object_destroy (GTK_OBJECT(item));
-  gc_sound_play_ogg ("sounds/gobble.ogg", NULL);
+  gc_sound_play_ogg ("sounds/flip.wav", NULL);
 
   gcomprisBoard->sublevel++;
   gc_score_set(gcomprisBoard->sublevel);
@@ -517,7 +518,7 @@ static GHFunc save_table (gpointer key,
 {
   gc_db_set_board_conf ( profile_conf,
 			    board_conf,
-			    (gchar *) key, 
+			    (gchar *) key,
 			    (gchar *) value);
 
   return NULL;
@@ -540,19 +541,19 @@ static void conf_ok(GHashTable *table)
       config = gc_db_get_board_conf();
     else
       config = table;
-    
+
     if (locale_sound)
       g_free(locale_sound);
 
     locale_sound = g_strdup(g_hash_table_lookup( config, "locale_sound"));
-    
+
     gchar *control_sound = g_hash_table_lookup( config, "with_sound");
-    
+
     if (control_sound && strcmp(g_hash_table_lookup( config, "with_sound"),"True")==0)
       with_sound = TRUE;
     else
       with_sound = FALSE;
-    
+
     if (profile_conf)
       g_hash_table_destroy(config);
 
@@ -585,7 +586,7 @@ smallnumber_config_start(GcomprisBoard *agcomprisBoard,
     pause_board(TRUE);
 
   gchar *label;
-  
+
   label = g_strdup_printf("<b>%s</b> configuration\n for profile <b>%s</b>",
 			  agcomprisBoard->name, aProfile ? aProfile->name : "");
 
@@ -605,24 +606,24 @@ smallnumber_config_start(GcomprisBoard *agcomprisBoard,
     with_sound = FALSE;
 
   GtkCheckButton  *sound_control = gc_board_config_boolean_box("Enable sounds", "with_sound", with_sound);
-  
+
   GtkComboBox *sound_box = gc_board_config_combo_locales_asset( "Select sound locale",
 							 saved_locale_sound,
 							 "sounds/$LOCALE/colors/purple.ogg");
 
   gtk_widget_set_sensitive(GTK_WIDGET(sound_box), with_sound);
 
-  g_signal_connect(G_OBJECT(sound_control), "toggled", 
+  g_signal_connect(G_OBJECT(sound_control), "toggled",
 		   G_CALLBACK(sound_control_box_toggled),
 		   sound_box);
 
   g_hash_table_destroy(config);
 
-}  
+}
 /* ======================= */
 /* = config_stop        = */
 /* ======================= */
-static void 
+static void
 smallnumber_config_stop()
 {
 }

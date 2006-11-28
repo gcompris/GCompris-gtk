@@ -5,6 +5,7 @@ import gcompris
 import gcompris.utils
 import gcompris.skin
 import gcompris.bonus
+import gcompris.sound
 import gtk
 import gtk.gdk
 from gettext import gettext as _
@@ -222,6 +223,7 @@ class Gcompris_ballcatch:
     if(self.left_continue or self.right_continue):
       self.timer_inc  = gtk.timeout_add(self.timerinc, self.timer_inc_display)
     else:
+      gcompris.sound.play_ogg("sounds/brick.wav")
       # Send the ball now
       self.timer_diff = self.counter_right/1000 - self.counter_left/1000
       # Make some adjustment so that it cannot be too or too far close from the target
@@ -263,10 +265,12 @@ class Gcompris_ballcatch:
       if(self.counter_left == self.counter_right):
         # This is a win
         if (self.increment_level() == 1):
+          gcompris.sound.play_ogg("sounds/tuxok.wav")
           self.gamewon = 1
           gcompris.bonus.display(gcompris.bonus.WIN, gcompris.bonus.TUX)
       else:
         # This is a loose
+        gcompris.sound.play_ogg("sounds/youcannot.wav")
         self.gamewon = 0
         gcompris.bonus.display(gcompris.bonus.LOOSE, gcompris.bonus.TUX)
 
