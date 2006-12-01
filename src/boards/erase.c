@@ -50,6 +50,7 @@ static void		 shuffle_image_list(char *list[], int size);
 static int number_of_item = 0;
 static int number_of_item_x = 0;
 static int number_of_item_y = 0;
+static guint normal_delay_id = 0;
 
 static gint timer_id = 0;
 
@@ -322,6 +323,11 @@ static void erase_next_level()
 /* Destroy all the items */
 static void erase_destroy_all_items()
 {
+  if (normal_delay_id) {
+    g_source_remove (normal_delay_id);
+    normal_delay_id = 0;
+  }
+
   if (timer_id) {
     gtk_timeout_remove (timer_id);
     timer_id = 0;
@@ -393,14 +399,16 @@ static GnomeCanvasItem *erase_create_item(int layer)
 					    "height_set", TRUE,
 					    "anchor", GTK_ANCHOR_NW,
 					    NULL);
-	      c = malloc( sizeof(counter));
+	      c = g_new (counter, 1);
 	      c->count = 0 ;
 	      c->max = 0 ;
-	      /* if item is not first, it must be keep first time mouse pass over in normal mode or in layer 4 */
+	      /* if item is not first, it must be keep first time mouse
+	       * pass over in normal mode or in layer 4 */
 	      if ((current_layer > 0) || (layer == 4))
 		c->max = 1 ;
 
-	      gtk_signal_connect(GTK_OBJECT(item), "event", (GtkSignalFunc) item_event, (gpointer)c);
+	      g_signal_connect_data (item, "event", (GCallback) item_event, (gpointer)c,
+				     (GClosureNotify) g_free, 0);
 	      number_of_item++;
 	    }
 	}
@@ -448,6 +456,23 @@ static void game_won()
   erase_next_level();
 }
 
+static gboolean
+erase_one_item (GnomeCanvasItem *item)
+{
+  gtk_object_destroy(GTK_OBJECT(item));
+
+  gc_sound_play_ogg ("sounds/darken.wav", NULL);
+
+  if(--number_of_item == 0)
+    {
+      gamewon = TRUE;
+      erase_destroy_all_items();
+      timer_id = gtk_timeout_add (4000, (GtkFunction) bonus, NULL);
+    }
+  normal_delay_id = 0;
+  return FALSE;
+}
+
 /* ==================================== */
 static gint
 item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
@@ -460,14 +485,22 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
     return FALSE;
 
   if (board_mode == NORMAL) {
-    if (event->type != GDK_ENTER_NOTIFY)
-      return FALSE;
-    else {
+    if (event->type == GDK_ENTER_NOTIFY) {
       if (c->count < c->max){
 	c->count++ ;
 	return FALSE ;
       }
+      /* Are enter & leave always sent in pairs? Don't assume. */
+      if (normal_delay_id)
+	g_source_remove (normal_delay_id);
+      normal_delay_id
+	= g_timeout_add (50, (GSourceFunc) erase_one_item, item);
+    } else if (event->type == GDK_LEAVE_NOTIFY) {
+      if (normal_delay_id)
+	g_source_remove (normal_delay_id);
+      normal_delay_id = 0;
     }
+    return FALSE;
   }
   if (board_mode == CLIC)
     if (event->type != GDK_BUTTON_PRESS)
@@ -489,17 +522,7 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
     }
   }
 
-  /* free allocated counter */
-  free(c) ;
-  gtk_object_destroy(GTK_OBJECT(item));
-  gc_sound_play_ogg ("sounds/darken.wav", NULL);
-
-  if(--number_of_item == 0)
-    {
-      gamewon = TRUE;
-      erase_destroy_all_items();
-      timer_id = gtk_timeout_add (4000, (GtkFunction) bonus, NULL);
-    }
+  erase_one_item (item);
 
   return FALSE;
 }

@@ -1,3 +1,15 @@
+2006-12-01  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* src/boards/erase.c: (erase_destroy_all_items),
+	(erase_create_item), (erase_one_item), (item_event): Feature enhancement by Joshua N Pritikin
+	now there is a miminum time to spend on each block to avoid children to move the mouse rapidly
+	and not focusing on their gesture.
+	The problem we observe at our school is that some young children (mostly
+	boys) think that the way to win the normal mode of the erase game is the
+	move the mouse as fast as possible. The attached patch adds a speed
+	limit. The mouse must remain over the item for 50ms before the item is
+	removed.
+
 2006-11-29  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	- Added Audio effects on more activities.
