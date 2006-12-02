@@ -1,0 +1,6156 @@
+# Korean translation.
+# Copyright (C) 2004 THE gcompris COPYRIGHT HOLDER
+# This file is distributed under the same license as the gcompris package.
+# Gareth Owen <gowen72@yahoo.com>, 2004.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: gcompris\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2006-11-10 23:44+0900\n"
+"PO-Revision-Date: 2006-09-14 07:04-0000\n"
+"Last-Translator: David Lodge <dave@cirt.net>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../boards/administration.xml.in.h:1
+msgid ""
+"- In the 'Boards' section you can change the list of activities. Just "
+"untoggle them in the treeview. You can change the language used for reading, "
+"for example, then the language used for saying the names of colors.\n"
+"- You can save multiple configurations, and switch between them easily. In "
+"the 'Profile' section add a profile, then in the 'Board' section select the "
+"profile in the combobox, then select the boards you want to be active. You "
+"can add multiple profiles, with different lists of boards, and different "
+"languages. You set the default profile in the 'Profile' section, by choosing "
+"the profile you want, then clicking on the 'Default' button. You can also "
+"choose a profile from the command line.\n"
+"- You can add users, classes and for each class, you can create groups of "
+"users. Note that you can import users from a comma-separated file. Assign "
+"one or more groups to a profile, after which those new logins will appear "
+"after restarting GCompris. Being able to identify individual children in "
+"GCompris means we can provide individual reports. It also recognizes the "
+"children as individuals; they can learn to type in and recognize their own "
+"usernames (login is configurable)."
+msgstr ""
+"- In the 'Boards' section you can change the list of activities. Just "
+"untoggle them in the treeview. You can change the language used for reading, "
+"for example, then the language used for saying the names of colours.\n"
+"- You can save multiple configurations, and switch between them easily. In "
+"the 'Profile' section add a profile, then in the 'Board' section select the "
+"profile in the combobox, then select the boards you want to be active. You "
+"can add multiple profiles, with different lists of boards, and different "
+"languages. You set the default profile in the 'Profile' section, by choosing "
+"the profile you want, then clicking on the 'Default' button. You can also "
+"choose a profile from the command line.\n"
+"- You can add users, classes. For each class, you can create groups of "
+"users. Note that you can import users from a comma-separated file. Assign "
+"one or more groups to a profile, after which those new logins will appear "
+"after restarting GCompris. Being able to identify individual children in "
+"GCompris means we can provide individual reports. It also recognises the "
+"children as individuals; they can learn to type in and recognise their own "
+"usernames (login is configurable)."
+
+#: ../boards/administration.xml.in.h:4
+msgid "GCompris Administration Menu"
+msgstr "GCompris 관리자 메뉴"
+
+#: ../boards/administration.xml.in.h:5
+msgid ""
+"If you want to fine tune GCompris to your needs, you can use the "
+"administration module here. The ultimate goal is to provide child-specific "
+"reporting for parents and teacher who want to monitor the progress, "
+"strengths and needs of their children."
+msgstr ""
+"If you want to fine tune GCompris to your needs, you can use the "
+"administration module here. The ultimate goal is to provide child-specific "
+"reporting for parents and teacher who want to monitor the progress, "
+"strengths and needs of their children."
+
+#: ../boards/administration.xml.in.h:6
+msgid "Left-Click with the mouse to select an activity"
+msgstr "마우스 오른쪽 버튼을 클릭해서 행동을 선택하세요"
+
+#: ../boards/advanced_colors.xml.in.h:1
+msgid "Advanced colors"
+msgstr "어려운 색깔 맞추기"
+
+#: ../boards/advanced_colors.xml.in.h:2 ../boards/read_colors.xml.in.h:1
+msgid "Can read"
+msgstr "읽을 수 있다"
+
+#: ../boards/advanced_colors.xml.in.h:3
+msgid "Click on the correct color"
+msgstr "알맞는 색깔을 클릭하세요"
+
+#: ../boards/advanced_colors.xml.in.h:4
+msgid "Click on the correct colored box."
+msgstr "알맞는 색깔의 상자를 선택하세요."
+
+#: ../boards/advanced_colors.xml.in.h:5
+msgid "Learn to recognize unusual colors."
+msgstr "색깔 구별하는법 배우기."
+
+#: ../boards/advanced_colors/board1.xml.in.h:1
+msgid "almond"
+msgstr "연한 갈색"
+
+#: ../boards/advanced_colors/board1.xml.in.h:2
+msgid "chestnut"
+msgstr "밤색"
+
+#: ../boards/advanced_colors/board1.xml.in.h:3
+msgid "claret"
+msgstr "자주색"
+
+#: ../boards/advanced_colors/board1.xml.in.h:4
+msgid "cobalt"
+msgstr "청색"
+
+#: ../boards/advanced_colors/board1.xml.in.h:5
+msgid "coral"
+msgstr "분홍색"
+
+#: ../boards/advanced_colors/board1.xml.in.h:6
+msgid "corn"
+msgstr "곡물"
+
+#: ../boards/advanced_colors/board1.xml.in.h:7
+msgid "cyan"
+msgstr "청록색"
+
+#: ../boards/advanced_colors/board1.xml.in.h:8
+msgid "sienna"
+msgstr "황갈색"
+
+#: ../boards/advanced_colors/board2.xml.in.h:1
+msgid "lime"
+msgstr "석회"
+
+#: ../boards/advanced_colors/board2.xml.in.h:2
+msgid "sage"
+msgstr "살비아"
+
+#: ../boards/advanced_colors/board2.xml.in.h:3
+msgid "salmon"
+msgstr "연어색"
+
+#: ../boards/advanced_colors/board2.xml.in.h:4
+msgid "sapphire"
+msgstr "사파이어색"
+
+#: ../boards/advanced_colors/board2.xml.in.h:5
+msgid "sepia"
+msgstr "갈색"
+
+#: ../boards/advanced_colors/board2.xml.in.h:6
+msgid "sulphur"
+msgstr "유황색"
+
+#: ../boards/advanced_colors/board2.xml.in.h:7
+msgid "tea"
+msgstr "차색"
+
+#: ../boards/advanced_colors/board2.xml.in.h:8
+msgid "turquoise"
+msgstr "터키옥색"
+
+#: ../boards/advanced_colors/board3.xml.in.h:1
+msgid "absinthe"
+msgstr "쑥색"
+
+#: ../boards/advanced_colors/board3.xml.in.h:2
+msgid "alabaster"
+msgstr "석고색"
+
+#: ../boards/advanced_colors/board3.xml.in.h:3
+msgid "amber"
+msgstr "감색"
+
+#: ../boards/advanced_colors/board3.xml.in.h:4
+msgid "amethyst"
+msgstr "자수정색"
+
+#: ../boards/advanced_colors/board3.xml.in.h:5
+msgid "anise"
+msgstr "아니스색"
+
+#: ../boards/advanced_colors/board3.xml.in.h:6
+msgid "aquamarine"
+msgstr "아쿠아마린"
+
+#: ../boards/advanced_colors/board3.xml.in.h:7
+msgid "mahogany"
+msgstr "마호가니색"
+
+#: ../boards/advanced_colors/board3.xml.in.h:8
+#: ../boards/advanced_colors/board8.xml.in.h:8
+msgid "vermilion"
+msgstr "주홍색"
+
+#: ../boards/advanced_colors/board4.xml.in.h:1
+#: ../boards/advanced_colors/board5.xml.in.h:1
+msgid "aubergine"
+msgstr "암자색"
+
+#: ../boards/advanced_colors/board4.xml.in.h:2
+msgid "ceruse"
+msgstr "연백색"
+
+#: ../boards/advanced_colors/board4.xml.in.h:3
+msgid "chartreuse"
+msgstr "연황록색"
+
+#: ../boards/advanced_colors/board4.xml.in.h:4
+msgid "emerald"
+msgstr "에메랄드"
+
+#: ../boards/advanced_colors/board4.xml.in.h:5
+msgid "fawn"
+msgstr "엷은황갈색"
+
+#: ../boards/advanced_colors/board4.xml.in.h:6
+msgid "fuchsia"
+msgstr "자홍색"
+
+#: ../boards/advanced_colors/board4.xml.in.h:7
+msgid "glaucous"
+msgstr "연한청록색"
+
+#: ../boards/advanced_colors/board4.xml.in.h:8
+msgid "ruby"
+msgstr "루비"
+
+#: ../boards/advanced_colors/board5.xml.in.h:2
+msgid "auburn"
+msgstr "적갈색"
+
+#: ../boards/advanced_colors/board5.xml.in.h:3
+msgid "azure"
+msgstr "담청색"
+
+#: ../boards/advanced_colors/board5.xml.in.h:4
+msgid "bistre"
+msgstr "암갈색"
+
+#: ../boards/advanced_colors/board5.xml.in.h:5
+msgid "celadon"
+msgstr "청자색"
+
+#: ../boards/advanced_colors/board5.xml.in.h:6
+msgid "cerulean"
+msgstr "짙은청색"
+
+#: ../boards/advanced_colors/board5.xml.in.h:7
+msgid "crimson"
+msgstr "진홍색"
+
+#: ../boards/advanced_colors/board5.xml.in.h:8
+msgid "greyish-brown"
+msgstr "회갈색"
+
+#: ../boards/advanced_colors/board6.xml.in.h:1
+msgid "dove"
+msgstr "밝은회색"
+
+#: ../boards/advanced_colors/board6.xml.in.h:2
+msgid "garnet"
+msgstr "심홍색"
+
+#: ../boards/advanced_colors/board6.xml.in.h:3
+msgid "indigo"
+msgstr "쪽빛남색"
+
+#: ../boards/advanced_colors/board6.xml.in.h:4
+msgid "ivory"
+msgstr "아이보리"
+
+#: ../boards/advanced_colors/board6.xml.in.h:5
+msgid "jade"
+msgstr "비취색"
+
+#: ../boards/advanced_colors/board6.xml.in.h:6
+msgid "lavender"
+msgstr "라벤더"
+
+#: ../boards/advanced_colors/board6.xml.in.h:7
+msgid "lichen"
+msgstr "라이켄"
+
+#: ../boards/advanced_colors/board6.xml.in.h:8
+msgid "wine"
+msgstr "와인"
+
+#: ../boards/advanced_colors/board7.xml.in.h:1
+msgid "larch"
+msgstr "라치"
+
+#: ../boards/advanced_colors/board7.xml.in.h:2
+msgid "lilac"
+msgstr "엷은자색"
+
+#: ../boards/advanced_colors/board7.xml.in.h:3
+msgid "magenta"
+msgstr "자홍색"
+
+#: ../boards/advanced_colors/board7.xml.in.h:4
+msgid "malachite"
+msgstr "말라카이트"
+
+#: ../boards/advanced_colors/board7.xml.in.h:5
+msgid "mimosa"
+msgstr "미모사꽃색"
+
+#: ../boards/advanced_colors/board7.xml.in.h:6
+msgid "navy"
+msgstr "짙은남색"
+
+#: ../boards/advanced_colors/board7.xml.in.h:7
+msgid "ochre"
+msgstr "오커색"
+
+#: ../boards/advanced_colors/board7.xml.in.h:8
+msgid "olive"
+msgstr "올리브색"
+
+#: ../boards/advanced_colors/board8.xml.in.h:1
+msgid "greyish blue"
+msgstr "회청색"
+
+#: ../boards/advanced_colors/board8.xml.in.h:2
+msgid "mauve"
+msgstr "담자색"
+
+#: ../boards/advanced_colors/board8.xml.in.h:3
+msgid "opaline"
+msgstr "유백색"
+
+#: ../boards/advanced_colors/board8.xml.in.h:4
+msgid "pistachio"
+msgstr "담황록색"
+
+#: ../boards/advanced_colors/board8.xml.in.h:5
+msgid "platinum"
+msgstr "백금색"
+
+#: ../boards/advanced_colors/board8.xml.in.h:6
+msgid "purple"
+msgstr "보라색"
+
+#: ../boards/advanced_colors/board8.xml.in.h:7
+msgid "ultramarine"
+msgstr "군청색"
+
+#: ../boards/advanced_colors/board9.xml.in.h:1
+msgid "dark purple"
+msgstr "암자색"
+
+#: ../boards/advanced_colors/board9.xml.in.h:2
+msgid "plum"
+msgstr "진보라색"
+
+#: ../boards/advanced_colors/board9.xml.in.h:3
+msgid "prussian blue"
+msgstr "진청색"
+
+#: ../boards/advanced_colors/board9.xml.in.h:4
+msgid "rust"
+msgstr "녹빛색"
+
+#: ../boards/advanced_colors/board9.xml.in.h:5
+msgid "saffron"
+msgstr "샤프란색"
+
+#: ../boards/advanced_colors/board9.xml.in.h:6
+msgid "vanilla"
+msgstr "바닐라색"
+
+#: ../boards/advanced_colors/board9.xml.in.h:7
+msgid "verdigris"
+msgstr "녹청색"
+
+#: ../boards/advanced_colors/board9.xml.in.h:8
+msgid "veronese"
+msgstr "베로나색"
+
+#: ../boards/algebra_by.xml.in.h:1
+msgid ""
+"A multiplication of two numbers is displayed. At the right of the equals "
+"sign, give the answer, the product. Use the left and right arrows to modify "
+"your answer and press the Enter key to check if you've got it right. If not, "
+"just try again."
+msgstr ""
+"두 수의 곱이 출력됩니다. 부호의 오른쪽에 답을 표시하십시요. 답을 확인 하기위"
+"해 좌/우 화살표를 이용해서 답을 고치고 엔터키를 누르세요. 만약 틀렸다면 다시 "
+"시도하세요"
+
+#: ../boards/algebra_by.xml.in.h:2 ../boards/algebra_minus.xml.in.h:2
+#: ../boards/algebra_plus.xml.in.h:2
+msgid "Answer some algebra questions"
+msgstr "문제에 답하세요"
+
+#: ../boards/algebra_by.xml.in.h:3
+msgid "In a limited time, give the product of two numbers"
+msgstr "제한된 시간동안 두 수의 곱을 구하세요"
+
+#: ../boards/algebra_by.xml.in.h:4
+msgid "Multiplication table"
+msgstr "곱셈표"
+
+#: ../boards/algebra_by.xml.in.h:5
+msgid "Practice the multiplication operation"
+msgstr "곱하기를 연습합니다"
+
+#: ../boards/algebra_group.xml.in.h:1
+msgid "Go to Algebra activities"
+msgstr "사칙 연산 게임"
+
+#: ../boards/algebra_group.xml.in.h:2 ../boards/menu.xml.in.h:17
+msgid "Left-click the mouse on an activity to select it."
+msgstr "마우스 왼쪽 버튼을 이용해 활동들을 고르세요"
+
+#: ../boards/algebra_guesscount.xml.in.h:1 ../boards/erase_clic.xml.in.h:1
+#: ../boards/erase_double_clic.xml.in.h:1
+msgid ""
+"Animal pictures come from the Animal Photography Page of Ralf Schmode "
+"(http://schmode.net/). Ralf has kindly permitted Gcompris to include his "
+"pictures. Thanks a lot, Ralf."
+msgstr ""
+"동물 사진들은 동물 사진작가 Ralf Schmode (http://schmode.net/) 홈페이지에서 "
+"가지고 왔습니다.. Ralf 는 친철하게 저희에게 그의 사진을 이용할수 있게해주었습"
+"니다. 감사해요 Ralf."
+
+#: ../boards/algebra_guesscount.xml.in.h:2
+msgid ""
+"At the top of the board area, choose the numbers and arithmetic operators "
+"that give the specified result. You can deselect a number or operator by "
+"clicking on it again."
+msgstr ""
+"판의 위쪽 부분에서 특정 결과가 나오는 숫자와 수의 연산자들을 고르세요. 다시 "
+"클릭하는 것으로 선택을 해제할 수 있습니다."
+
+#: ../boards/algebra_guesscount.xml.in.h:3
+msgid ""
+"Deploy a strategy to arrange a set of arithmetic operations to match a given "
+"value."
+msgstr "주어진 값에 맞도록 수의 연산자를 배열하는 법을 생각해보세요"
+
+#: ../boards/algebra_guesscount.xml.in.h:4
+msgid "Find the series of correct operations that matches the given answer"
+msgstr "주어진 값과 맞는 수와 연산자들을 찾으세요"
+
+#: ../boards/algebra_guesscount.xml.in.h:5
+msgid "The four arithmetic operations. Combine several arithmetic operations."
+msgstr "4개의 수의 연산자가 있습니다. 이 연산자들을 섞어보세요."
+
+#: ../boards/algebra_guesscount.xml.in.h:6
+msgid ""
+"Work out the right combination of numbers and operations to match the given "
+"value"
+msgstr "오른쪽의 숫자와 연산자의 조합을 주어진 값에 맞게 골라보세요"
+
+#: ../boards/algebra_minus.xml.in.h:1
+#, fuzzy
+msgid ""
+"A subtraction problem with two numbers is displayed. At the right of the "
+"equals sign, give the answer, the difference. Use the left and right arrows "
+"to modify your answer and press the Enter key to check if you've got it "
+"right. If not, just try again."
+msgstr ""
+"두 수의 차가 출력됩니다. 부호의 오른쪽에 답을 표시하십시요. 답을 확인 하기위"
+"해 좌/우 화살표를 이용해서 답을 고치고 엔터키를 누르세요. 만약 틀렸다면 다시 "
+"시도하세요."
+
+#: ../boards/algebra_minus.xml.in.h:3
+msgid "In a limited time, find the difference between two numbers"
+msgstr "제한된 시간동안 두 수의 차를 구하세요"
+
+#: ../boards/algebra_minus.xml.in.h:4
+msgid "Practice the subtraction operation"
+msgstr "빼기를 연습합니다."
+
+#: ../boards/algebra_minus.xml.in.h:5
+msgid "Simple subtraction"
+msgstr "간단한 뺄셈"
+
+#: ../boards/algebra_plus.xml.in.h:1
+msgid ""
+"An addition problem with two numbers is displayed. At the right of the "
+"equals sign, give the answer, the sum. Use the left and right arrows to "
+"modify your answer and press the Enter key to check if you've got it right. "
+"If not, just try again."
+msgstr ""
+"두 수의 합이 출력됩니다. 부호의 오른쪽에 답을 표시하십시요. 답을 확인 하기위"
+"해 좌/우 화살표를 이용해서 답을 고치고 엔터키를 누르세요. 만약 틀렸다면 다시 "
+"시도하세요."
+
+#: ../boards/algebra_plus.xml.in.h:3
+#, fuzzy
+msgid ""
+"In a limited time, find the sum of of two numbers. Introduction to simple in-"
+"line addition."
+msgstr "제한된 시간동안 두 수의 차를 구하세요."
+
+#: ../boards/algebra_plus.xml.in.h:4
+msgid "Practice the addition operation"
+msgstr "더하기를 연습합니다"
+
+#: ../boards/algebra_plus.xml.in.h:5
+msgid "Simple addition. Can recognize written numbers"
+msgstr "간단한 추가문제. 씌여 있는 숫자를 인지하세요"
+
+#: ../boards/algebramenu.xml.in.h:1
+msgid "Go to calculation activities"
+msgstr "계산 활동"
+
+#: ../boards/algebramenu.xml.in.h:2
+msgid "Various calculation activities."
+msgstr "다양한 계산 활동들."
+
+#: ../boards/algorithm.xml.in.h:1
+msgid "Complete a list of symbols"
+msgstr "심볼들의 리스트를 완성하세요"
+
+#: ../boards/algorithm.xml.in.h:2
+msgid "Find the next symbol in a list."
+msgstr "리스트에 있는 다음 심볼을 찾으세요."
+
+#: ../boards/algorithm.xml.in.h:3
+msgid "Logic training activity"
+msgstr "논리 훈련 활동"
+
+#: ../boards/algorithm.xml.in.h:4 ../boards/hexagon.xml.in.h:3
+#: ../boards/melody.xml.in.h:4
+msgid "Move and click the mouse"
+msgstr "마우스를 움직여서 클릭하세요"
+
+#: ../boards/algorithm.xml.in.h:5
+msgid "algorithm"
+msgstr "알고리즘"
+
+#: ../boards/anim.xml.in.h:1
+msgid "Create a drawing or an animation"
+msgstr "애니메이션이나 그림을 창작하세요"
+
+#: ../boards/anim.xml.in.h:2
+msgid "Free drawing and animation tool."
+msgstr "자유로운 그림 & 애니메이션 도구"
+
+#: ../boards/anim.xml.in.h:3
+msgid ""
+"In this game, children can draw freely. The goal is to discover how to "
+"create attractive drawings based on basic shapes: rectangles, ellipses and "
+"lines. To give children a wider range of choices, a set of images can also "
+"be used."
+msgstr ""
+"이 게임에서 어린이들은 자유롭게 그릴 수 있습니다. 목표는 어떻게 하면 사각형, "
+"곡선, 직선들을 이용해 멋진 그림을 그릴 수 있는 것을 발견하는 것입니다. 어린이"
+"들에게 좀더 많은 선택을 위해서, 그림들을 이용할수도 있습니다."
+
+#: ../boards/anim.xml.in.h:4 ../boards/draw.xml.in.h:4
+msgid "Needs to be capable of moving and clicking the mouse easily"
+msgstr "마우스를 쉽게 움직이고 클릭할수 있는게 요구됩니다."
+
+#: ../boards/anim.xml.in.h:5
+msgid ""
+"Select a drawing tool on the left, and a color down the bottom. Then click "
+"and drag in the white area to create a new shape. Once you've completed a "
+"drawing, you can take a snapshot of it with the 'camera' button. This "
+"creates a new image with the same content, a copy of your image. You can "
+"then edit it by moving objects a little bit or adding/deleting objects. When "
+"you create several drawings and then click on the 'film' button, you will "
+"see all your images in a continuous slide-show (an infinite loop pattern). "
+"You can also change the viewing speed in this mode. In viewing mode, click "
+"on the 'drawing' button to return to drawing mode. You can then edit each "
+"image in your animation, by using the image selector in the bottom-left "
+"corner of the screen. You can also save and reload your animations with the "
+"'floppy disk' and 'folder' buttons."
+msgstr ""
+"왼쪽의 그리기 도구를 선택하고, 아래 쪽에서 색상을 선택하세요. 그리고 새로운 "
+"모양을 하얀 지역에 클릭 & 드래그로 그리세요. 한번 그리기를 완료하면, 당신은 "
+"'카메라' 버튼을 이용해 스냅 샷을 찍을수 있답니다. 당신의 이미지와 똑같은 이미"
+"지를 생성하게 됩니다. 그리고 물체를 추가하거나 제거, 또는 움직여서 그림을 수"
+"정할수 있습니다. 여러가지 그림을 그리고 '필름' 버튼을 클릭하면, 당신은 모든 "
+"이미지를 연속적인 슬라이드 쇼(무한 반복 패턴의)로 볼수 있습니다. 그리고 슬라"
+"이드의 속도로 조절할수 있습니다. 슬라이드를 보는 중에 '드로잉'버튼을 누르면 "
+"그림 그리는 모드로 돌아갈수 있습니다. 좌측 하단의 이미지 선택기를 이용하여 당"
+"신의 애니메이션 속의 각각의 이미지들을 수정할수 있습니다. 물론 애니메이션을 "
+"'플로피 디스크' 와 '폴더' 버튼을 통해서 저장하거나 불러오는 것도 가능합니다."
+
+#: ../boards/awele.xml.in.h:1
+msgid ""
+"At the beginning of the game four seeds are placed in each house. Players "
+"take turns moving the seeds. In each turn, a player chooses one of the six "
+"houses under his or her control. The player removes all seeds from this "
+"house, and distributes them, dropping one in each house counter-clockwise "
+"from the original house, in a process called sowing. Seeds are not "
+"distributed into the end scoring houses, nor into the house drawn from. That "
+"is, the starting house is left empty; if it contained 12 seeds, it is "
+"skipped, and the twelfth seed is placed in the next house. After a turn, if "
+"the last seed was placed into an opponent's house and brought its total to "
+"two or three, all the seeds in that house are captured and placed in the "
+"player's scoring house (or set aside if the board has no scoring houses). If "
+"the previous-to-last seed also brought the total seeds in an opponent's "
+"house to two or three, these are captured as well, and so on. However, if a "
+"move would capture all an opponent's seeds, the capture is forfeited, and "
+"the seeds are instead left on the board, since this would prevent the "
+"opponent from continuing the game. The proscription against capturing all an "
+"opponent's seeds is related to a more general idea, that one ought to make a "
+"move that allows the opponent to continue playing. If an opponent's houses "
+"are all empty, the current player must make a move that gives the opponent "
+"seeds. If no such move is possible, the current player captures all seeds in "
+"his/her own territory, ending the game. (Source Wikipedia &lt;http://en."
+"wikipedia.org/wiki/Oware&gt;)"
+msgstr ""
+"게임이 시작할때는 4개의 씨앗이 각각의 집에 위치해 있습니다. 유저는 각 턴마다 "
+"씨앗을 움직일수 있습니다. 각 턴마다 유저는 6개의 자신의 집 중에 하나를 선택합"
+"니다. 유저는 이 집에서 모든 씨앗을 제거하고,  원래 집으로부터 시계방향으로 각"
+"각의 집에 하나씩 씨앗을 떨어뜨려 분배해야합니다. 씨앗은 끝의 기록하는 집이"
+"나, 뽑아진 집에는 분배되어서는 절대로 안됩니다. 이 말은 출발점의 집은 빈 상태"
+"로 남아 있어야하고, 만약 그 것이 12개의 씨앗을 포함하고 있었다면, 12번째 씨앗"
+"은 처음 출발한 집이 아니라 그 다음집에 분배되어야 합니다. 한턴이 지나고, 만"
+"약 남은 씨앗이 상대방의 집에 있거나, 모든 씨앗이 기록하는 집(또는 만약 기록하"
+"는 집이 없다면 따론 남겨둔)에 남아있다면 ,또한 마지막 바로 전 씨앗이 앞에서 "
+"얘기 했던 상황이라면, 이것들은 잘 잡힌 겁니다. 하지만, 만약 모든 상대방의 씨"
+"앗을 잡는다면 기권되어 집니다, 그리고 씨앗들은 상대방의 게임 진행을 막기 위해"
+"서 보드의 왼쪽에 위치되어 집니다. 상대방이 계속 게임을 하게 하는 것과 상대방"
+"의 씨앗을 잡는 것은 더욱 일반적인 생각과 관계가 있습니다. 만약 상대방의 집이 "
+"모두 비여 있다면, 현재의 플레이어는 상대방의 씨앗을 주는 움직임을 취해야 합니"
+"다. 만약 그런 움직임이 불가능하다면, 자신의 영토의 모든 씨앗을 잡아서 게임을 "
+"끝내야 합니다. (출처 Wikipedia &lt;http://en.wikipedia.org/wiki/Oware&gt;)"
+
+#: ../boards/awele.xml.in.h:2
+msgid "Oware"
+msgstr "오웨어(Oware)게임"
+
+#: ../boards/awele.xml.in.h:3
+msgid "Play the Oware strategy game against Tux"
+msgstr "Tux를 상대로 오웨어(Oware)게임을 하자."
+
+#: ../boards/awele.xml.in.h:4
+msgid ""
+"The object of the game is to capture more seeds than one's opponent. Since "
+"the game has only 48 seeds, capturing 25 is sufficient to accomplish this. "
+"Since there are an even number of seeds, it is possible for the game to end "
+"in a draw, where each player has captured 24. The game is over when one "
+"player has captured 25 or more stones, or both players have taken 24 stones "
+"each (draw). If both players agree that the game has been reduced to an "
+"endless cycle, each player captures the stones on their side of the board."
+msgstr ""
+"게임의 목표는 상대방 보다 많은 씨앗을 가지는 것입니다.. 게임에서는 48개의 씨"
+"앗이 있으므로 25개만 가져도 충분합니다. 각각의 플레이어가 24개씩 잡는다면 게"
+"임은 비기기게 됩니다. 게임은 한명이 25개 이상의 씨앗을 가지거나, 두명 모두 24"
+"개(비기는 경우)를 가진경우 끝나게 됩니다. 만약 두명 모두 게임이 끝나지 않는다"
+"고 생각한다면, 각자 보드의 옆에 씨앗을 놓으면 됩니다."
+
+#: ../boards/babymatch.xml.in.h:1 ../boards/babymatch/board1_0.xml.in.h:1
+#: ../boards/babymatch/board2_0.xml.in.h:1
+#: ../boards/babymatch/board3_0.xml.in.h:1
+#: ../boards/babymatch/board4_0.xml.in.h:1
+#: ../boards/babymatch/board5_0.xml.in.h:1
+#: ../boards/babymatch/board6_0.xml.in.h:1
+#: ../boards/babymatch/board7_0.xml.in.h:1
+msgid "Drag and Drop the items to make them match"
+msgstr "왼쪽의 그림을 알맞는 그림 아래의 점에 끌어 놓기"
+
+#: ../boards/babymatch.xml.in.h:2
+msgid ""
+"In the main board area, a set of objects is displayed. In the vertical box "
+"(at the left of the main board) another set of objects is shown, each object "
+"in the group on the left matching exactly one object in the main board area. "
+"This game challenges you to find the logical link between these objects. How "
+"do they fit together? Drag each object to the correct red space in the main "
+"area."
+msgstr ""
+"메인 보드 지역에서 물체들이 표시됩니다. 메인 보드 왼쪽의 세로 모양 박스에는 "
+"다른 물체들이 표시됩니다. 왼쪽의 각 물체들은 정확이 메인 보드 지역의 한물체"
+"와 짝이 맞습니다. 이 게임은 당신에서 물체사이의 논리적인 관계를 찾게 합니다. "
+"어떻게 맞출까요? 각 물체를 끌어서 메인 지역의 적절한 빨간 공간에 놓으세요."
+
+#: ../boards/babymatch.xml.in.h:3
+msgid "Matching Items"
+msgstr "서로 맞는 아이템들"
+
+#: ../boards/babymatch.xml.in.h:4
+msgid "Motor coordination. Conceptual matching."
+msgstr "모터 대등관계. 개념적 알맞음."
+
+#: ../boards/babymatch.xml.in.h:5
+msgid "Mouse manipulation: movement, drag and drop. Cultural references."
+msgstr "마우스 조작: 움직임, 끌어서 놓기. "
+
+#: ../boards/babyshapes.xml.in.h:1
+msgid "Complete the puzzle"
+msgstr "퍼즐을 완성하세요"
+
+#: ../boards/babyshapes.xml.in.h:2
+msgid ""
+"Complete the puzzle by dragging each piece from the set of pieces on the "
+"left, to the matching space in the puzzle."
+msgstr "왼쪽의 조각을 알맞은 퍼즐의 조작에 끌어놓아서 퍼즐을 푸세요."
+
+#: ../boards/babyshapes.xml.in.h:3
+msgid "Drag and Drop the shapes on their respective targets"
+msgstr "모양들을 각자의 표적에 끌어놓으세요."
+
+#: ../boards/babyshapes.xml.in.h:4
+msgid "Good mouse-control"
+msgstr "좋은 마우스 조작"
+
+#: ../boards/babyshapes.xml.in.h:5
+msgid "The dog is provided by Andre Connes and released under the GPL"
+msgstr "개는 Andre Connes의해 제공되고 GPL 아래 풀러집니다."
+
+#: ../boards/babyshapes/board5_0.xml.in.h:1
+msgid "Hello ! My name is Lock."
+msgstr "안녕! 내 이름은 락이야."
+
+#: ../boards/babyshapes/board6_0.xml.in.h:1
+msgid "Lock on the grass."
+msgstr "잔디위의 자동추적."
+
+#: ../boards/babyshapes/board7_0.xml.in.h:1
+msgid "Lock with colored shapes."
+msgstr "색칠된 모양을 잡으세요."
+
+#: ../boards/ballcatch.xml.in.h:1
+msgid "Make the ball go to Tux"
+msgstr "공이 Tux에게 가도록 하세요."
+
+#: ../boards/ballcatch.xml.in.h:2
+msgid ""
+"Press the two shift keys at the same time, to make the ball go in a straight "
+"line."
+msgstr "두 개의 Shift키를 동시에 누르면, 공을 직선으로 가게 할수 있습니다."
+
+#: ../boards/bargame.xml.in.h:1
+msgid "Brain"
+msgstr "뇌"
+
+#: ../boards/bargame.xml.in.h:2
+msgid "Don't use the last ball"
+msgstr "마지막 공을 사용하지마세요"
+
+#: ../boards/bargame.xml.in.h:3 ../boards/hexagon.xml.in.h:2
+msgid "Logic-training activity"
+msgstr "논리 훈련 활동"
+
+#: ../boards/bargame.xml.in.h:4
+msgid ""
+"Place balls in the holes. You win if the computer has to place the last "
+"ball. If you want Tux to begin, just click on him."
+msgstr ""
+"공을 구멍에 넣으세요. 당신은 컴퓨터가 마지막 공을 위치하게 되면 이깁니다. 만"
+"약 Tux가 시작하길 원하면, 그를 클릭하세요"
+
+#: ../boards/bargame.xml.in.h:5
+msgid "bar game"
+msgstr "바 게임"
+
+#: ../boards/billard.xml.in.h:1
+msgid "Kick the ball into the black hole on the right"
+msgstr "공을 오른쪽의 검은 구멍에 넣으세요"
+
+#: ../boards/billard.xml.in.h:2
+msgid "Kick the ball into the goal"
+msgstr "골에 공을 넣으세요"
+
+#: ../boards/billard.xml.in.h:3 ../boards/chess_computer.xml.in.h:2
+#: ../boards/chess_movelearn.xml.in.h:3 ../boards/chess_partyend.xml.in.h:2
+#: ../boards/clickgame.xml.in.h:16 ../boards/connect4.xml.in.h:6
+#: ../boards/erase.xml.in.h:3 ../boards/erase_clic.xml.in.h:6
+#: ../boards/erase_double_clic.xml.in.h:6 ../boards/fifteen.xml.in.h:2
+#: ../boards/hanoi.xml.in.h:3 ../boards/memory.xml.in.h:4
+#: ../boards/tangram.xml.in.h:8
+msgid "Mouse-manipulation"
+msgstr "마우스 조작"
+
+#: ../boards/billard.xml.in.h:4
+msgid ""
+"Point the mouse and click on the ball, to set the speed and direction of the "
+"ball. The closer you click to the centre, the slower the ball moves."
+msgstr ""
+"Point the mouse and click on the ball, to set the speed and direction of the "
+"ball. The closer you click to the centre, the slower the ball moves."
+
+#: ../boards/billard.xml.in.h:5
+msgid "The football game"
+msgstr "축구게임"
+
+#: ../boards/canal_lock.xml.in.h:1
+msgid "Operate a canal lock"
+msgstr "운하의 수문을 조정하세요"
+
+#: ../boards/canal_lock.xml.in.h:2
+msgid ""
+"Tux is in trouble, and needs to take his boat through a lock. Help Tux and "
+"find out how a canal lock works."
+msgstr ""
+"Tux에게 문제가 생겼습니다. 그의 보트는 수문을 통해 지나가야 합니다. Tux를 도와주"
+"고 어떻게 수문이 동작하는지 알아내세요."
+
+#: ../boards/canal_lock.xml.in.h:3
+msgid ""
+"You are in charge of the canal lock. Open the gates and the locks in the "
+"right order, so Tux can travel through the gates in both directions."
+msgstr ""
+"당신은 수문 담당입니다. 수문을 바른 순서대로 열어서 Tux가 여행할수 있게 만드"
+"세요"
+
+#: ../boards/chess.xml.in.h:1 ../boards/chess_computer.xml.in.h:3
+msgid "Play chess against the computer in a learning mode"
+msgstr "연습 모드에서 컴퓨터와 체스를 하세요"
+
+#: ../boards/chess.xml.in.h:2
+msgid "Practice chess"
+msgstr "연습 체스"
+
+#: ../boards/chess_computer.xml.in.h:1 ../boards/chess_movelearn.xml.in.h:2
+#: ../boards/chess_partyend.xml.in.h:1
+msgid "Learning chess"
+msgstr "체스 배우기"
+
+#: ../boards/chess_computer.xml.in.h:4 ../boards/chess_movelearn.xml.in.h:4
+#: ../boards/chess_partyend.xml.in.h:4
+msgid "The chess engine is from gnuchess."
+msgstr "체스 엔진은 GNU체스에서 왔습니다."
+
+#: ../boards/chess_movelearn.xml.in.h:1
+msgid "Chess training. Catch the computer's pawns."
+msgstr "체스 트레이닝. 컴퓨터의 폰을 잡으세요"
+
+#: ../boards/chess_partyend.xml.in.h:3
+msgid "Play the end of the chess game against the computer"
+msgstr "컴퓨터를 상대로 체스게임을 끝내세요"
+
+#: ../boards/chronos.xml.in.h:1
+msgid "Chronos"
+msgstr "그림으로 이야기 만들기"
+
+#: ../boards/chronos.xml.in.h:2
+msgid "Drag and Drop the items to organize the story"
+msgstr "아이템을 이야기를 만들기 위해 끌어놓으세요"
+
+#: ../boards/chronos.xml.in.h:3
+msgid ""
+"Moon photo is copyright NASA. The space sounds come from Tuxpaint and "
+"Vegastrike which are released under the GPL license. The transportation "
+"images are copyright Franck Doucet. Dates of Transportation are based on "
+"those found in &lt;http://www.wikipedia.org&gt;."
+msgstr ""
+"달의 사진은 NASA에 저작권이 있습니다. 우주소리는 GPL라이센스하에 있습니다.운"
+"송 수단이미지는 Franck Doucet에 저작권이 있습니다.. 운송의 날짜는 http://www."
+"wikipedia.org에서 왔습니다."
+
+#: ../boards/chronos.xml.in.h:4
+msgid "Pick from the pictures on the left and put them on the red dots"
+msgstr "왼쪽의 그림에서 꺼내서 빨간 점위에 놓으세요"
+
+#: ../boards/chronos.xml.in.h:5
+msgid "Sort the pictures into the order that tells the story"
+msgstr "이야기의 순서에 맞게 그림을 배열하세요"
+
+#: ../boards/chronos.xml.in.h:6
+msgid "Tell a short story"
+msgstr "짧은 이야기를 말해주세요"
+
+#: ../boards/chronos/board1_0.xml.in.h:1
+msgid "Moonwalker"
+msgstr "달을 걷는 사람"
+
+#: ../boards/chronos/board1_1.xml.in.h:1
+msgid "Autumn"
+msgstr "가을"
+
+#: ../boards/chronos/board1_1.xml.in.h:2
+msgid "Spring"
+msgstr "봄"
+
+#: ../boards/chronos/board1_1.xml.in.h:3
+msgid "Summer"
+msgstr "여름"
+
+#: ../boards/chronos/board1_1.xml.in.h:4
+msgid "The 4 Seasons"
+msgstr "사계절"
+
+#: ../boards/chronos/board1_1.xml.in.h:5
+msgid "Winter"
+msgstr "겨울"
+
+#: ../boards/chronos/board1_2.xml.in.h:1
+msgid "Gardening"
+msgstr "정원손질"
+
+#: ../boards/chronos/board2_0.xml.in.h:1
+msgid "Tux and the apple tree"
+msgstr "Tux와 사과나무"
+
+#: ../boards/chronos/board3_0.xml.in.h:1 ../boards/chronos/board3_2.xml.in.h:1
+#: ../boards/chronos/board3_4.xml.in.h:1 ../boards/chronos/board4_2.xml.in.h:1
+msgid "1769 Cugnot's fardier"
+msgstr "1769 년 퀴뇨의 발명품 "
+
+#: ../boards/chronos/board3_0.xml.in.h:2 ../boards/chronos/board3_3.xml.in.h:5
+#: ../boards/chronos/board3_4.xml.in.h:2
+msgid ""
+"1829 Stephenson's Rocket\n"
+"Steam locomotive"
+msgstr ""
+"1829년 스테펜손의 로켓\n"
+"증기 기관차"
+
+#: ../boards/chronos/board3_0.xml.in.h:4
+msgid ""
+"Place each image in the order and\n"
+"on the date it was invented.\n"
+"If not sure, research online at wikipedia:\n"
+"&lt;http://www.wikipedia.org&gt;"
+msgstr ""
+"각각의 이미지를 순서에 맞게 놓으세요\n"
+"발명된 순서를 따라서\n"
+"확실하지 않다면 위키피디아에서 찾아보세요\n"
+"&lt;http://www.wikipedia.org&gt;"
+
+#: ../boards/chronos/board3_0.xml.in.h:8 ../boards/chronos/board3_1.xml.in.h:6
+#: ../boards/chronos/board3_2.xml.in.h:5 ../boards/chronos/board3_3.xml.in.h:7
+#: ../boards/chronos/board3_4.xml.in.h:4
+msgid "Transportation"
+msgstr "운송"
+
+#: ../boards/chronos/board3_1.xml.in.h:1 ../boards/chronos/board3_3.xml.in.h:1
+msgid ""
+"1783 Montgolfier brothers'\n"
+"hot air balloon"
+msgstr ""
+"1783년 몬트골피아 형제의'\n"
+"열기구"
+
+#: ../boards/chronos/board3_1.xml.in.h:3 ../boards/chronos/board3_2.xml.in.h:4
+#: ../boards/chronos/board3_4.xml.in.h:3 ../boards/chronos/board4_0.xml.in.h:1
+msgid "1880 Clement Ader's Eole"
+msgstr "1880년 아데르의 에올레 단엽기"
+
+#: ../boards/chronos/board3_1.xml.in.h:4
+msgid ""
+"1906 Paul Cornu\n"
+"First helicopter flight"
+msgstr ""
+"1906년 폴 크르누의\n"
+"첫 번째 헬리콥터 비행"
+
+#: ../boards/chronos/board3_2.xml.in.h:2 ../boards/chronos/board3_3.xml.in.h:3
+msgid ""
+"1791 Comte de Sivrac's\n"
+"Celerifere"
+msgstr ""
+"1791년 시브락의\n"
+"자전거"
+
+#: ../boards/chronos/board4_0.xml.in.h:2
+msgid "1903 The Wright brothers' Flyer III"
+msgstr "1903년 라이트 형제의 플라이어 3"
+
+#: ../boards/chronos/board4_0.xml.in.h:3
+msgid ""
+"1909 Louis Bleriot crosses\n"
+"the English Channel"
+msgstr ""
+"1909년 루이스의\n"
+"영국 해협 횡단"
+
+#: ../boards/chronos/board4_0.xml.in.h:5 ../boards/chronos/board4_1.xml.in.h:7
+msgid "Aviation"
+msgstr "항공"
+
+#: ../boards/chronos/board4_1.xml.in.h:1
+msgid ""
+"1927 Charles Lindbergh\n"
+"crosses the Atlantic Ocean"
+msgstr ""
+"1927년 찰리 린드버그의\n"
+"대서양 횡단"
+
+#: ../boards/chronos/board4_1.xml.in.h:3
+#, fuzzy
+msgid ""
+"1934 Helene Boucher's\n"
+"speed record of 444km/h"
+msgstr ""
+"1934년 브처의\n"
+"444km/h 속도 신기록"
+
+#: ../boards/chronos/board4_1.xml.in.h:5
+msgid ""
+"1947 Chuck Yeager\n"
+"breaks the sound-barrier"
+msgstr ""
+"1947년 이거의\n"
+"음속 돌파"
+
+#: ../boards/chronos/board4_2.xml.in.h:2
+#, fuzzy
+msgid "1878 Leon Bolle's \"La Mancelle\""
+msgstr "1878년 La mancelle"
+
+#: ../boards/chronos/board4_2.xml.in.h:3
+msgid ""
+"1885 The first petrol\n"
+"car by Benz"
+msgstr "1885 최초의 순찰 벤츠가 만든 차"
+
+#: ../boards/chronos/board4_2.xml.in.h:5
+msgid "The car"
+msgstr "자동차"
+
+#: ../boards/chronos/board4_3.xml.in.h:1
+msgid "1899 Renault \"voiturette\""
+msgstr "1899년 르노의 \"소형차\""
+
+#: ../boards/chronos/board4_3.xml.in.h:2
+msgid "1923 Lancia Lambda"
+msgstr "1923년 란시아의 람다"
+
+#: ../boards/chronos/board4_3.xml.in.h:3
+#, fuzzy
+msgid "1955 Citroen ds 19"
+msgstr "1955 시트로앵의 19"
+
+#: ../boards/chronos/board4_3.xml.in.h:4
+msgid "Cars"
+msgstr "차들"
+
+#: ../boards/click_on_letter.xml.in.h:1
+msgid ""
+"A letter is spoken. Click on the matching letter in the main area. You can "
+"listen to the letter again, by clicking on the mouth icon in the bottom box."
+msgstr ""
+"단어가 말해집니다. 메인 지역에서 맞는 글씨를 선택하세요. 당신은 아래쪽 박스"
+"의 입 아이콘을 클릭해서 다시 들을수 있습니다."
+
+#: ../boards/click_on_letter.xml.in.h:2
+msgid "Click on a letter"
+msgstr "글씨를 클릭하세요"
+
+#: ../boards/click_on_letter.xml.in.h:3
+msgid "Letter-name recognition"
+msgstr "글씨-이름 인식"
+
+#: ../boards/click_on_letter.xml.in.h:4
+msgid "Listen to a letter and click on the right one"
+msgstr "글자를 듣고 오른쪽에 있는 것을 클릭하세요"
+
+#: ../boards/click_on_letter.xml.in.h:5
+msgid "Visual letter-recognition. Can move the mouse."
+msgstr "시각적 글씨 인식. 마우스를 움직일수 있습니다."
+
+#: ../boards/clickgame.xml.in.h:1
+msgid "Click On Me"
+msgstr "물고기 클릭하기"
+
+#: ../boards/clickgame.xml.in.h:2
+msgid ""
+"Fish are taken from the Unix utility xfishtank.\n"
+"Images are taken from the National Undersea Research Program (NURP) "
+"Collection\n"
+"at &lt;http://www.photolib.noaa.gov&gt;\n"
+"All image credits belong to the OAR/National Undersea Research Program "
+"(NURP),\n"
+"except for the first image, which is property of the University of North "
+"Carolina at Wilmington.\n"
+"The images used in each level are:\n"
+"Location: Tropical Atlantic Ocean, Florida Keys (image nur00523) "
+"Photographer: D. Kesling\n"
+"Location: Florida Keys (image nur03006)\n"
+"Location: Unknown (image nur03505)\n"
+"Location: Unknown (image nur03010)\n"
+"Location: Unknown (image nur03011)\n"
+"Location: Unknown (image nur03013)"
+msgstr ""
+"물고기는 유닉스 유틸리티인 xfishtank에서 왔습니다..\n"
+"그림들은 NURP Collection에서 왔습니다.\n"
+"at &lt;http://www.photolib.noaa.gov&gt;\n"
+"모든 이미지는 NURP에 속합니다.\n"
+"the University of North Carolina at Wilmington의 소유의 첫번째 그림은 NURP에 "
+"속하지 않습니다.\n"
+"각 레벨에 사용된 이미지:\n"
+"위치: 열대 대서양 (image nur00523) 사진작가: D. Kesling\n"
+"위치: 플로리다  (image nur03006)\n"
+"위치: 알려지지 않음 (image nur03505)\n"
+"위치: 알려지지 않음 (image nur03010)\n"
+"위치: 알려지지 않음 (image nur03011)\n"
+"위치: 알려지지 않음 (image nur03013)"
+
+#: ../boards/clickgame.xml.in.h:14
+msgid ""
+"Left-Click with the mouse on all the swimming fish before they leave the "
+"fishtank"
+msgstr "물고기들이 화면을 나가기 전에 왼쪽 버튼을 클릭하세요"
+
+#: ../boards/clickgame.xml.in.h:15
+msgid "Motor coordination: moving and clicking the mouse."
+msgstr "움직이고 클릭하세요."
+
+#: ../boards/clickgame.xml.in.h:17
+msgid "Use the left mouse button to click on the moving fish."
+msgstr "움직이는 고기를 잡기위해 왼쪽 마우스 버튼을 이용해서 클릭하세요."
+
+#: ../boards/clockgame.xml.in.h:1
+msgid ""
+"Distinguish between time-units (hour, minute and second). Set and display "
+"time on a clock."
+msgstr "시간의 단위(시, 분 그리고 초). 시간을 맞춰서 표시하세요."
+
+#: ../boards/clockgame.xml.in.h:2
+msgid "Learn how to tell the time"
+msgstr "시계의 시침과 분침을 알맞는 시간에 맞춥니다"
+
+#: ../boards/clockgame.xml.in.h:3
+msgid "Learning Clock"
+msgstr "시간 맞추기"
+
+#: ../boards/clockgame.xml.in.h:4
+msgid ""
+"Set the clock to the time given, in the time-units shown (hours:minutes or "
+"hours:minutes:seconds). Click on the different arrows, and move the mouse, "
+"to make the numbers go up or down."
+msgstr ""
+"시계를 주어진 시간(시,분,초)에 맞추세요). 다른 바늘과을 클릭하고 시간을 맞추"
+"기 위해 마우스를 움직이세요."
+
+#: ../boards/clockgame.xml.in.h:5
+msgid "The concept of time. Reading the time."
+msgstr "시간의 개념. 시간을 읽으세요."
+
+#: ../boards/colors.xml.in.h:1
+msgid "Can move the mouse."
+msgstr "마우스를 움직일수 있습니다."
+
+#: ../boards/colors.xml.in.h:2
+msgid "Click on the right color"
+msgstr "소리를 듣고 알맞는 색을 클릭하세요"
+
+#: ../boards/colors.xml.in.h:3
+msgid "Colors"
+msgstr "색깔을 듣고 맞추기"
+
+#: ../boards/colors.xml.in.h:4
+msgid "Listen to the color and click on the matching duck."
+msgstr "컬러를 듣고 대응되는 오리를 클릭하세요."
+
+#: ../boards/colors.xml.in.h:5
+msgid ""
+"This board teaches you to recognize different colors. When you hear the name "
+"of the color, click on the duck wearing it."
+msgstr ""
+"이 보드는 당신에게 다른 컬러를 인지하는 것을 가르쳐줄 것입니다. 컬러를 들은 "
+"다음에 오리가 입고 있는 것을 클릭하세요."
+
+#: ../boards/colors_group.xml.in.h:1
+msgid "Colors based activities."
+msgstr "색에 기반한 활동들"
+
+#: ../boards/colors_group.xml.in.h:2
+msgid "Go to Color activities"
+msgstr "색깔을 이용한 놀이"
+
+#: ../boards/computer.xml.in.h:1
+msgid "Discover the Computer"
+msgstr "기본장치를 이용한 간단한 게임"
+
+#: ../boards/computer.xml.in.h:2
+msgid "Play with computer peripherals."
+msgstr "키보드와 마우스를 이용한 게임."
+
+#: ../boards/connect4.xml.in.h:1
+msgid "Arrange four coins in a row"
+msgstr "4개의 코인을 행에 배열하세요"
+
+#: ../boards/connect4.xml.in.h:2
+msgid "Click anywhere in the line where you want to drop a piece"
+msgstr "어디든지 당신이 놓고 싶은 곳을 클릭하세요"
+
+#: ../boards/connect4.xml.in.h:3
+msgid "Connect 4"
+msgstr "연결 4"
+
+#: ../boards/connect4.xml.in.h:4
+#, fuzzy
+msgid ""
+"Create a line of 4 pieces either horizontally (lying down) or vertically "
+"(standing up)"
+msgstr ""
+"4개의 조각으로 이뤄진 수평줄을 만드세요\n"
+"아니면 수직줄"
+
+#: ../boards/connect4.xml.in.h:5
+msgid ""
+"Laurent Lacheny. Images and Artificial Intelligence taken from project "
+"4stattack by Jeroen Vloothuis. The original project can be found on &lt;"
+"http://forcedattack.sourceforge.net&gt;"
+msgstr ""
+"이 컨텐츠는 다음 사이트에서 유래했습니다. &lt;http://forcedattack."
+"sourceforge.net&gt;"
+
+#: ../boards/crane.xml.in.h:1
+msgid "Build the same model"
+msgstr "같은 모양 만들기"
+
+#: ../boards/crane.xml.in.h:2
+msgid "Drive the crane and copy the model"
+msgstr "크래인을 조종해서 같은 모양을 만드세요"
+
+#: ../boards/crane.xml.in.h:3 ../boards/erase.xml.in.h:2
+#: ../boards/erase_clic.xml.in.h:5 ../boards/erase_double_clic.xml.in.h:5
+msgid "Motor-coordination"
+msgstr "모터 코디네이션"
+
+#: ../boards/crane.xml.in.h:4 ../boards/hanoi_real.xml.in.h:2
+msgid "Mouse manipulation"
+msgstr "마우스 조작"
+
+#: ../boards/crane.xml.in.h:5
+msgid ""
+"Move the items in the bottom left frame to copy their position in the top "
+"right model. Below the crane itself, you will find four arrows that let you "
+"move items. To select the item to move, just click on it."
+msgstr ""
+"아이템을 왼쪽 아래에서 위쪽 오른쪽으로 옮기세요. 크레인 밑에서 당신은 4개의 "
+"아이템을 움직일수 있는 화살표를 발견하실수 있을겁니다. 움직일 아이템을 선택할"
+"려면 그냥 누르면 됩니다."
+
+#: ../boards/discovery.xml.in.h:1
+msgid "Colors, sounds, memory..."
+msgstr "색깔, 소리, 기억..."
+
+#: ../boards/discovery.xml.in.h:2
+msgid "Go to discovery activities"
+msgstr "탐구 활동"
+
+#: ../boards/doubleentry.xml.in.h:1
+msgid "Basic counting skills"
+msgstr "기본 계산 기술"
+
+#: ../boards/doubleentry.xml.in.h:2
+msgid "Double-entry table"
+msgstr "표 채우기"
+
+#: ../boards/doubleentry.xml.in.h:3
+msgid "Drag and Drop each proposed item on its destination"
+msgstr "아이템을 목적지에 끌어 놓으세요"
+
+#: ../boards/doubleentry.xml.in.h:4
+msgid "Drag and Drop the items in the double-entry table"
+msgstr "그림을 표의 알맞은 위치에 끌어 놓으세요"
+
+#: ../boards/doubleentry.xml.in.h:5
+msgid ""
+"Move the items on the left to their proper position in the double-entry "
+"table."
+msgstr "아이템을 복식 기장표에 알맞은 위치에 놓기위해 움직이세요."
+
+#: ../boards/doubleentry/board3_0.xml.in.h:1
+msgid "Click on an item and listen to its target position"
+msgstr "아이템을 누르고, 그 목적지를 귀로 들으세요."
+
+#: ../boards/draw.xml.in.h:1
+msgid "A creative board where you can draw freely"
+msgstr "당신이 자유롭게 그릴수 있는 판."
+
+#: ../boards/draw.xml.in.h:2
+msgid "A simple vector-drawing tool"
+msgstr "기본 벡터 그리기 도구"
+
+#: ../boards/draw.xml.in.h:3
+msgid ""
+"In this game, children can draw freely. The goal is to discover how to "
+"create attractive drawings based on basic shapes: rectangles, ellipses and "
+"lines."
+msgstr ""
+"이 게임에서 아이들은 자유롭게 그릴 수 있습니다. 목표는 어떻게  기본도형(직사"
+"각형, 곡선, 직선등)을 이용해 아름다운 그림을 그리는 것 입니다."
+
+#: ../boards/draw.xml.in.h:5
+msgid ""
+"Select a drawing tool on the left, and a color down the bottom, then click "
+"and drag in the white area to create a new shape. To save time, you can "
+"click with the middle mouse button to delete an object."
+msgstr ""
+"왼쪽의 그리기 도구에서 도구를, 밑에서 색깔을 선택한뒤에 판에 그리세요. 시간 "
+"절약을 위해서 마우스 가운데 버튼을 도형을 지우는데 사용할수 있습니다."
+
+#: ../boards/electric.xml.in.h:1
+msgid "Create and simulate an electric schema"
+msgstr "전기 회로의 개략적인 모습을 만들고, 테스트 하세요."
+
+#: ../boards/electric.xml.in.h:2
+msgid ""
+"Drag electrical components from the selector and drop them in the working "
+"area. Create wires by clicking on a connection spot, dragging the mouse to "
+"the next connection spot, and letting go. You can also move components by "
+"dragging them. You can delete wires by clicking on them. To delete a "
+"component, select the deletion tool on top of the component selector. You "
+"can click on the switch to open and close it. You can change the rheostat "
+"value by dragging its wiper. In order to simulate what happens when a bulb "
+"is blown, you can blown it by right-clicking on it. The simulation is "
+"updated in real time by any user action."
+msgstr ""
+"전기 회로 구성품을 끌어서 떨어뜨리세요. 연결 점을 선택한 후 다른 점에 연결에"
+"서 도선을 만드세요. 당신은 역시 끌어당겨서도 움직일 수 있습니다. 도선도 클릭"
+"으로 지울수 있습니다. 회로 구성품은 구성품 도구 위쪽의 제거 도구를 이용해서 "
+"지울 수 있습니다. 클릭으로 스위치를 열고 닫을 수 있습니다. . 저항의 세기는 화"
+"살표를 끌어당김으로서 조절할수 있습니다. 회로를 시험하기 위해서 오른쪽 클릭"
+"을 하면 됩니다.테스트는 사용자의 반응에 실시간으로 변합니다."
+
+#: ../boards/electric.xml.in.h:3
+msgid "Electricity"
+msgstr "전기"
+
+#: ../boards/electric.xml.in.h:4
+msgid "Freely create an electric schema with a real time simulation of it."
+msgstr "자유롭게 전기 회로를 만들고 테스트 할수 있습니다."
+
+#: ../boards/electric.xml.in.h:5
+msgid ""
+"GCompris uses the Gnucap electric simulator as a backend. You can get more "
+"information on gnucap at &lt;http://geda.seul.org/tools/gnucap/&gt;."
+msgstr ""
+"GCompris는 GNUCAP의 전기 회로 시뮬레이터를 기반으로 합니다.  더 많은 정보는 "
+"이 곳에서 얻을 수 있습니다.&lt;http://geda.seul.org/tools/gnucap/&gt;."
+
+#: ../boards/electric.xml.in.h:6
+msgid "Requires some basic understanding of the concept of electricity."
+msgstr "전기에 대한 기초적인 이해를 필요로 합니다."
+
+#: ../boards/enumerate.xml.in.h:1
+msgid "Basic enumeration"
+msgstr "기초 계산"
+
+#: ../boards/enumerate.xml.in.h:2
+msgid "Count the items"
+msgstr "아이템을 세기"
+
+#: ../boards/enumerate.xml.in.h:3
+msgid ""
+"First, properly organize the items so that you can count them. Then, select "
+"the item you want to answer in the bottom right area. Enter the answer with "
+"the keyboard and press the OK button or the 'Enter' key."
+msgstr ""
+"먼저, 당신이 셀수 있는 아이템을 조직하세요. 그리고 오른쪽 아래에서 답하고 싶"
+"은 아이템을 선택하세요. 키보드로 답을 치고 엔터를 누르거나 OK버튼을 누르세요."
+
+#: ../boards/enumerate.xml.in.h:4 ../boards/planegame.xml.in.h:5
+#: ../src/boards/enumerate.c:89
+msgid "Numeration training"
+msgstr "계산 훈련"
+
+#: ../boards/enumerate.xml.in.h:5 ../src/boards/enumerate.c:90
+msgid "Place the items in the best way to count them"
+msgstr "세기에 제일 적당한 방법으로 아이템을 위치시키세요"
+
+#: ../boards/erase.xml.in.h:1
+msgid ""
+"Animal pictures are taken from the Animal Photography Page of Ralf Schmode "
+"(&lt;http://schmode.net/&gt;) and from LE BERRE Daniel. These people kindly "
+"gave GCompris the authorization to include their pictures. Thanks a lot, "
+"both of you."
+msgstr ""
+"동물 사진은 동물 사진가 Ralf Schmode의 웹사이트 (&lt;http://schmode.net/&gt;)"
+"에서 인용했습니다. 감사합니다."
+
+#: ../boards/erase.xml.in.h:4 ../src/boards/erase.c:113
+#: ../src/boards/machpuzzle.c:88
+msgid "Move the mouse"
+msgstr "마우스를 움직이세요"
+
+#: ../boards/erase.xml.in.h:5 ../src/boards/erase.c:114
+msgid "Move the mouse to erase the area and discover the background"
+msgstr "블럭을 지우고 배경을 보기위해 마우스를 움직이세요"
+
+#: ../boards/erase.xml.in.h:6
+msgid "Move the mouse until all the blocks disappear."
+msgstr "모든 블럭이 사라질때까지 마우스를 움직이세요."
+
+#: ../boards/erase_clic.xml.in.h:2
+msgid "Click the mouse"
+msgstr "마우스를 클릭하세요"
+
+#: ../boards/erase_clic.xml.in.h:3
+msgid "Click the mouse on rectangles until all the blocks disappear."
+msgstr "직사각형을 모든 블록이 없어질때까지 클릭하세요."
+
+#: ../boards/erase_clic.xml.in.h:4
+msgid "Click the mouse to erase the area and discover the background"
+msgstr "블럭을 지우고 배경을 보기위해 마우스 왼쪽버튼으로 하얀 블럭들을 클릭하세요."
+
+#: ../boards/erase_double_clic.xml.in.h:2
+msgid "Double-Click the mouse to erase the area and discover the background"
+msgstr "블럭을 지우고 배경을 보기위해 마우스를 더블 클릭하세요."
+
+#: ../boards/erase_double_clic.xml.in.h:3
+msgid "Double-click the mouse"
+msgstr "마우스를 더블 클릭하세요."
+
+#: ../boards/erase_double_clic.xml.in.h:4
+msgid "Double-click the mouse on rectangles until all the blocks disappear."
+msgstr "모든 블럭이 없어질때까지 직사각형을 더블 클릭하세요"
+
+#: ../boards/experience.xml.in.h:1
+msgid "Go to experiential activities"
+msgstr "실험 활동"
+
+#: ../boards/experience.xml.in.h:2
+msgid "Various activities based on physical movement."
+msgstr "물리적 움직임을 따르는 다양한 활동."
+
+#: ../boards/experimental.xml.in.h:1
+msgid "Go to Experimental activities"
+msgstr "실험 활동으로 갑니다."
+
+#: ../boards/experimental.xml.in.h:2
+msgid "Run gcompris --experimental to see this menu."
+msgstr "이 메뉴를 보기위한 실험을 하기위해 gcompris구동하세요."
+
+#: ../boards/fifteen.xml.in.h:1
+msgid ""
+"Click on any item that has a free block beside it, and it will be swapped "
+"with the empty block."
+msgstr "옆에 자유로운 블록이 있는 블록을 클릭해서, 빈 곳과 으로 보내세요."
+
+#: ../boards/fifteen.xml.in.h:3
+msgid ""
+"Move each item to make an increasing series: from the smallest to the largest"
+msgstr "아이템들을 증가하는 순서대로 움직이세요."
+
+#: ../boards/fifteen.xml.in.h:4
+msgid "Original code taken from the libgnomecanvas demo"
+msgstr "원본 코드는 llibnomecanvas demo에서 왔습니다."
+
+#: ../boards/fifteen.xml.in.h:5
+msgid "The fifteen game"
+msgstr "숫자 배열 게임"
+
+#: ../boards/followline.xml.in.h:1
+msgid "Control the hose-pipe"
+msgstr "호스-파이프를 조절하세요"
+
+#: ../boards/followline.xml.in.h:2
+msgid "Fine motor coordination"
+msgstr "좋은 모터 코디네이션"
+
+#: ../boards/followline.xml.in.h:3
+msgid ""
+"Move the mouse over the red part of the hose-pipe. This will move it, "
+"bringing it, part by part, up to the flowers. Be careful, if you move off "
+"the hose, the red part will go back down."
+msgstr ""
+"호스-파이프의 붉은 부분에 마우스를 움직이세요. 이 것이 움직일 것입니다. 조심"
+"하세요. 당신이 호스를 떠나면 붉은 부분이 내려갈겁니다."
+
+#: ../boards/followline.xml.in.h:4
+msgid "Tux needs to water the flowers, but the hose is blocked."
+msgstr "Tux는 꽃을 위해서 물이 필요합니다. 하지만 호스가 막혔습니다."
+
+#: ../boards/fun.xml.in.h:1
+msgid "Go to Amusement activities"
+msgstr "오락 활동"
+
+#: ../boards/fun.xml.in.h:2
+msgid "Various fun activities."
+msgstr "다양한 즐거운 활동들."
+
+#: ../boards/gcompris/mimetypes/mime_type.xml.in.h:1
+msgid "gcompris animation"
+msgstr "gcompris 애니메이션"
+
+#: ../boards/gcompris/mimetypes/mime_type.xml.in.h:2
+msgid "gcompris drawing"
+msgstr "gcompris 그리기"
+
+#: ../boards/gcompris/mimetypes/mime_type.xml.in.h:3
+msgid "svg drawing"
+msgstr "svg 그리기"
+
+#: ../boards/gcompris/mimetypes/mime_type.xml.in.h:4
+msgid "svg mozilla animation"
+msgstr "svg 모질라 애니메이션"
+
+#: ../boards/geography.xml.in.h:1
+msgid "Drag and Drop the items to redraw the whole map"
+msgstr "지형들을 전체 지도를 완성하기 위해 끌어 놓으세요"
+
+#: ../boards/geography.xml.in.h:2
+msgid "Locate the countries"
+msgstr "지형 맞추기 게임"
+
+#: ../boards/geography.xml.in.h:3
+msgid "Mouse manipulation: movement, drag and drop"
+msgstr "마우스 조작: 움직임, 끌어 놓기."
+
+#: ../boards/geography.xml.in.h:4
+msgid ""
+"The map of Germany comes from Wikipedia and is released under the GNU Free "
+"Documentation License. Olaf Ronneberger and his children Lina and Julia "
+"Ronneberger created the German level."
+msgstr "독일 지도는 위키피디아에서 왔습니다."
+
+#: ../boards/geography/board1_0.xml.in.h:1
+#: ../boards/geography/board4_2.xml.in.h:1
+msgid "Africa"
+msgstr "아프리카"
+
+#: ../boards/geography/board1_0.xml.in.h:2
+msgid "America"
+msgstr "아메리카"
+
+#: ../boards/geography/board1_0.xml.in.h:3
+msgid "Antartica"
+msgstr "남극"
+
+#: ../boards/geography/board1_0.xml.in.h:4
+msgid "Asia"
+msgstr "아시아"
+
+#: ../boards/geography/board1_0.xml.in.h:5
+msgid "Continents"
+msgstr "대륙들"
+
+#: ../boards/geography/board1_0.xml.in.h:6
+msgid "Europe"
+msgstr "유럽"
+
+#: ../boards/geography/board1_0.xml.in.h:7
+msgid "Oceania"
+msgstr "오세아니아"
+
+#: ../boards/geography/board2_0.xml.in.h:1
+msgid "Alaska"
+msgstr "알라스카"
+
+#: ../boards/geography/board2_0.xml.in.h:2
+msgid "Bahamas"
+msgstr "바하마스"
+
+#: ../boards/geography/board2_0.xml.in.h:3
+msgid "Canada"
+msgstr "캐나다"
+
+#: ../boards/geography/board2_0.xml.in.h:4
+msgid "Cuba"
+msgstr "쿠바"
+
+#: ../boards/geography/board2_0.xml.in.h:5
+msgid "Dominican Republic"
+msgstr "도미니칸 공화국"
+
+#: ../boards/geography/board2_0.xml.in.h:6
+msgid "Greenland"
+msgstr "그린랜드"
+
+#: ../boards/geography/board2_0.xml.in.h:7
+msgid "Haiti"
+msgstr "하이티"
+
+#: ../boards/geography/board2_0.xml.in.h:8
+#: ../boards/geography/board3_0.xml.in.h:7
+msgid "Iceland"
+msgstr "아이스랜드"
+
+#: ../boards/geography/board2_0.xml.in.h:9
+msgid "Jamaica"
+msgstr "자메이카"
+
+#: ../boards/geography/board2_0.xml.in.h:10
+msgid "Mexico"
+msgstr "멕시코"
+
+#: ../boards/geography/board2_0.xml.in.h:11
+msgid "North America"
+msgstr "북 아메리카"
+
+#: ../boards/geography/board2_0.xml.in.h:12
+msgid "United States of America"
+msgstr "미국"
+
+#: ../boards/geography/board2_1.xml.in.h:1
+msgid "Argentina"
+msgstr "아르헨티나"
+
+#: ../boards/geography/board2_1.xml.in.h:2
+msgid "Bolivia"
+msgstr "볼리비아"
+
+#: ../boards/geography/board2_1.xml.in.h:3
+msgid "Brazil"
+msgstr "브라질"
+
+#: ../boards/geography/board2_1.xml.in.h:4
+msgid "Chile"
+msgstr "칠레"
+
+#: ../boards/geography/board2_1.xml.in.h:5
+msgid "Colombia"
+msgstr "콜럼비아"
+
+#: ../boards/geography/board2_1.xml.in.h:6
+msgid "Ecuador"
+msgstr "에콰도르"
+
+#: ../boards/geography/board2_1.xml.in.h:7
+msgid "French Guiana"
+msgstr "기아나"
+
+#: ../boards/geography/board2_1.xml.in.h:8
+msgid "Guyana"
+msgstr "가이아나"
+
+#: ../boards/geography/board2_1.xml.in.h:9
+msgid "Panama"
+msgstr "파나마"
+
+#: ../boards/geography/board2_1.xml.in.h:10
+msgid "Paraguay"
+msgstr "파라과이"
+
+#: ../boards/geography/board2_1.xml.in.h:11
+msgid "Peru"
+msgstr "페루"
+
+#: ../boards/geography/board2_1.xml.in.h:12
+msgid "South America"
+msgstr "남 아메리카"
+
+#: ../boards/geography/board2_1.xml.in.h:13
+msgid "Suriname"
+msgstr "수리남"
+
+#: ../boards/geography/board2_1.xml.in.h:14
+msgid "Uruguay"
+msgstr "우루과이"
+
+#: ../boards/geography/board2_1.xml.in.h:15
+msgid "Venezuela"
+msgstr "베네수엘라"
+
+#: ../boards/geography/board3_0.xml.in.h:1
+msgid "Austria"
+msgstr "오스트리아"
+
+#: ../boards/geography/board3_0.xml.in.h:2
+msgid "Belgium"
+msgstr "벨기에"
+
+#: ../boards/geography/board3_0.xml.in.h:3
+msgid "Denmark"
+msgstr "덴마크"
+
+#: ../boards/geography/board3_0.xml.in.h:4
+msgid "Finland"
+msgstr "핀란드"
+
+#: ../boards/geography/board3_0.xml.in.h:5
+msgid "France"
+msgstr "프랑스"
+
+#: ../boards/geography/board3_0.xml.in.h:6
+msgid "Germany"
+msgstr "독일"
+
+#: ../boards/geography/board3_0.xml.in.h:8
+msgid "Ireland"
+msgstr "아일랜드"
+
+#: ../boards/geography/board3_0.xml.in.h:9
+msgid "Italy"
+msgstr "이탈리아"
+
+#: ../boards/geography/board3_0.xml.in.h:10
+msgid "Luxembourg"
+msgstr "룩셈부르크"
+
+#: ../boards/geography/board3_0.xml.in.h:11
+msgid "Norway"
+msgstr "노르웨이"
+
+#: ../boards/geography/board3_0.xml.in.h:12
+msgid "Portugal"
+msgstr "포르투갈"
+
+#: ../boards/geography/board3_0.xml.in.h:13
+msgid "Spain"
+msgstr "스페인"
+
+#: ../boards/geography/board3_0.xml.in.h:14
+msgid "Sweden"
+msgstr "스웨덴"
+
+#: ../boards/geography/board3_0.xml.in.h:15
+msgid "Switzerland"
+msgstr "스위스"
+
+#: ../boards/geography/board3_0.xml.in.h:16
+msgid "The Netherlands"
+msgstr "네덜란드"
+
+#: ../boards/geography/board3_0.xml.in.h:17
+msgid "United Kingdom"
+msgstr "영국"
+
+#: ../boards/geography/board3_0.xml.in.h:18
+msgid "Western Europe"
+msgstr "서유럽"
+
+#: ../boards/geography/board3_1.xml.in.h:1
+msgid "Albania"
+msgstr "알바니아"
+
+#: ../boards/geography/board3_1.xml.in.h:2
+msgid "Belarus"
+msgstr "벨로루시"
+
+#: ../boards/geography/board3_1.xml.in.h:3
+msgid "Bosnia Herzegovina"
+msgstr "보스니아 헤르체고비나"
+
+#: ../boards/geography/board3_1.xml.in.h:4
+msgid "Bulgaria"
+msgstr "불가리아"
+
+#: ../boards/geography/board3_1.xml.in.h:5
+msgid "Croatia"
+msgstr "크로아티아"
+
+#: ../boards/geography/board3_1.xml.in.h:6
+msgid "Cyprus"
+msgstr "키프로스"
+
+#: ../boards/geography/board3_1.xml.in.h:7 ../src/gcompris/config.c:65
+msgid "Czech Republic"
+msgstr "체코"
+
+#: ../boards/geography/board3_1.xml.in.h:8
+msgid "Eastern Europe"
+msgstr "동유럽"
+
+#: ../boards/geography/board3_1.xml.in.h:9
+msgid "Estonia"
+msgstr "에스토니아"
+
+#: ../boards/geography/board3_1.xml.in.h:10
+msgid "Greece"
+msgstr "그리스"
+
+#: ../boards/geography/board3_1.xml.in.h:11
+msgid "Hungary"
+msgstr "헝가리"
+
+#: ../boards/geography/board3_1.xml.in.h:12
+msgid "Latvia"
+msgstr "라트비아"
+
+#: ../boards/geography/board3_1.xml.in.h:13
+msgid "Lithuania"
+msgstr "리투아니아"
+
+#: ../boards/geography/board3_1.xml.in.h:14
+msgid "Macedonia"
+msgstr "마케도니아"
+
+#: ../boards/geography/board3_1.xml.in.h:15
+msgid "Moldova"
+msgstr "몰도바"
+
+#: ../boards/geography/board3_1.xml.in.h:16
+msgid "Poland"
+msgstr "폴란드"
+
+#: ../boards/geography/board3_1.xml.in.h:17
+msgid "Romania"
+msgstr "로마니아"
+
+#: ../boards/geography/board3_1.xml.in.h:18
+msgid "Russia"
+msgstr "러시아"
+
+#: ../boards/geography/board3_1.xml.in.h:19
+msgid "Serbia Montenegro"
+msgstr "시베리아 몽테그로"
+
+#: ../boards/geography/board3_1.xml.in.h:20
+msgid "Slovak Republic"
+msgstr "슬로바키아"
+
+#: ../boards/geography/board3_1.xml.in.h:21
+msgid "Slovenia"
+msgstr "슬로베니아"
+
+#: ../boards/geography/board3_1.xml.in.h:22
+msgid "Turkey"
+msgstr "터키"
+
+#: ../boards/geography/board3_1.xml.in.h:23
+msgid "Ukraine"
+msgstr "우크라이나"
+
+#: ../boards/geography/board4_0.xml.in.h:1
+#: ../boards/geography/board4_2.xml.in.h:2
+msgid "Algeria"
+msgstr "알제리"
+
+#: ../boards/geography/board4_0.xml.in.h:2
+#: ../boards/geography/board4_2.xml.in.h:4
+msgid "Benin"
+msgstr "베닌"
+
+#: ../boards/geography/board4_0.xml.in.h:3
+#: ../boards/geography/board4_2.xml.in.h:6
+msgid "Burkina Faso"
+msgstr "부르키나 파소"
+
+#: ../boards/geography/board4_0.xml.in.h:4
+#: ../boards/geography/board4_2.xml.in.h:7
+msgid "Cameroon"
+msgstr "카메론"
+
+#: ../boards/geography/board4_0.xml.in.h:5
+#: ../boards/geography/board4_2.xml.in.h:8
+msgid "Central African Republic"
+msgstr "중앙 아프리카 공화국"
+
+#: ../boards/geography/board4_0.xml.in.h:6
+#: ../boards/geography/board4_2.xml.in.h:9
+msgid "Chad"
+msgstr "차드"
+
+#: ../boards/geography/board4_0.xml.in.h:7
+msgid "Djibouti"
+msgstr "지부티"
+
+#: ../boards/geography/board4_0.xml.in.h:8
+#: ../boards/geography/board4_2.xml.in.h:11
+msgid "Egypt"
+msgstr "이집트"
+
+#: ../boards/geography/board4_0.xml.in.h:9
+#: ../boards/geography/board4_1.xml.in.h:5
+msgid "Equatorial Guinea"
+msgstr "적도 기니"
+
+#: ../boards/geography/board4_0.xml.in.h:10
+#: ../boards/geography/board4_2.xml.in.h:12
+msgid "Eritrea"
+msgstr "에리트레아"
+
+#: ../boards/geography/board4_0.xml.in.h:11
+#: ../boards/geography/board4_2.xml.in.h:13
+msgid "Ethiopia"
+msgstr "에티오피아"
+
+#: ../boards/geography/board4_0.xml.in.h:12
+#: ../boards/geography/board4_1.xml.in.h:6
+#: ../boards/geography/board4_2.xml.in.h:14
+msgid "Gabon"
+msgstr "가봉"
+
+#: ../boards/geography/board4_0.xml.in.h:13
+msgid "Gambia"
+msgstr "감비아"
+
+#: ../boards/geography/board4_0.xml.in.h:14
+#: ../boards/geography/board4_2.xml.in.h:15
+msgid "Ghana"
+msgstr "가나"
+
+#: ../boards/geography/board4_0.xml.in.h:15
+#: ../boards/geography/board4_2.xml.in.h:16
+msgid "Guinea"
+msgstr "기니"
+
+#: ../boards/geography/board4_0.xml.in.h:16
+msgid "Guinea Bissau"
+msgstr "기니비사우"
+
+#: ../boards/geography/board4_0.xml.in.h:17
+#: ../boards/geography/board4_2.xml.in.h:17
+msgid "Ivory Coast"
+msgstr "코트디부아르"
+
+#: ../boards/geography/board4_0.xml.in.h:18
+#: ../boards/geography/board4_2.xml.in.h:19
+msgid "Liberia"
+msgstr "라이베리아"
+
+#: ../boards/geography/board4_0.xml.in.h:19
+#: ../boards/geography/board4_2.xml.in.h:20
+msgid "Libya"
+msgstr "리비야"
+
+#: ../boards/geography/board4_0.xml.in.h:20
+#: ../boards/geography/board4_2.xml.in.h:23
+msgid "Mali"
+msgstr "말리"
+
+#: ../boards/geography/board4_0.xml.in.h:21
+#: ../boards/geography/board4_2.xml.in.h:24
+msgid "Mauritania"
+msgstr "모리타니아"
+
+#: ../boards/geography/board4_0.xml.in.h:22
+#: ../boards/geography/board4_2.xml.in.h:25
+msgid "Morocco"
+msgstr "모로코"
+
+#: ../boards/geography/board4_0.xml.in.h:23
+#: ../boards/geography/board4_2.xml.in.h:28
+msgid "Niger"
+msgstr "니제르"
+
+#: ../boards/geography/board4_0.xml.in.h:24
+#: ../boards/geography/board4_2.xml.in.h:29
+msgid "Nigeria"
+msgstr "나이지리아"
+
+#: ../boards/geography/board4_0.xml.in.h:25
+msgid "Northern Africa"
+msgstr "북 아프리카"
+
+#: ../boards/geography/board4_0.xml.in.h:26
+#: ../boards/geography/board4_1.xml.in.h:14
+msgid "Rwanda"
+msgstr "르완다"
+
+#: ../boards/geography/board4_0.xml.in.h:27
+#: ../boards/geography/board4_2.xml.in.h:30
+msgid "Senegal"
+msgstr "세네갈"
+
+#: ../boards/geography/board4_0.xml.in.h:28
+msgid "Sierra Leone"
+msgstr "시에라 리온"
+
+#: ../boards/geography/board4_0.xml.in.h:29
+#: ../boards/geography/board4_2.xml.in.h:31
+msgid "Somalia"
+msgstr "소말리아"
+
+#: ../boards/geography/board4_0.xml.in.h:30
+msgid "Sudan"
+msgstr "수단"
+
+#: ../boards/geography/board4_0.xml.in.h:31
+#: ../boards/geography/board4_2.xml.in.h:35
+msgid "Togo"
+msgstr "토고"
+
+#: ../boards/geography/board4_0.xml.in.h:32
+#: ../boards/geography/board4_2.xml.in.h:36
+msgid "Tunisia"
+msgstr "튀니지"
+
+#: ../boards/geography/board4_0.xml.in.h:33
+#: ../boards/geography/board4_1.xml.in.h:19
+#: ../boards/geography/board4_2.xml.in.h:37
+msgid "Uganda"
+msgstr "우간다"
+
+#: ../boards/geography/board4_0.xml.in.h:34
+msgid "Western Sahara"
+msgstr "서 사하라"
+
+#: ../boards/geography/board4_1.xml.in.h:1
+#: ../boards/geography/board4_2.xml.in.h:3
+msgid "Angola"
+msgstr "앙골라"
+
+#: ../boards/geography/board4_1.xml.in.h:2
+#: ../boards/geography/board4_2.xml.in.h:5
+msgid "Botswana"
+msgstr "보츠와나"
+
+#: ../boards/geography/board4_1.xml.in.h:3
+msgid "Burundi"
+msgstr "부룬디"
+
+#: ../boards/geography/board4_1.xml.in.h:4
+#: ../boards/geography/board4_2.xml.in.h:10
+msgid "Democratic Republic of Congo"
+msgstr "콩고"
+
+#: ../boards/geography/board4_1.xml.in.h:7
+#: ../boards/geography/board4_2.xml.in.h:18
+msgid "Kenya"
+msgstr "케냐"
+
+#: ../boards/geography/board4_1.xml.in.h:8
+msgid "Lesotho"
+msgstr "레소토"
+
+#: ../boards/geography/board4_1.xml.in.h:9
+#: ../boards/geography/board4_2.xml.in.h:21
+msgid "Madagascar"
+msgstr "마다가스카르"
+
+#: ../boards/geography/board4_1.xml.in.h:10
+#: ../boards/geography/board4_2.xml.in.h:22
+msgid "Malawi"
+msgstr "말라위"
+
+#: ../boards/geography/board4_1.xml.in.h:11
+#: ../boards/geography/board4_2.xml.in.h:26
+msgid "Mozambique"
+msgstr "모잠비크"
+
+#: ../boards/geography/board4_1.xml.in.h:12
+#: ../boards/geography/board4_2.xml.in.h:27
+msgid "Namibia"
+msgstr "나미비아"
+
+#: ../boards/geography/board4_1.xml.in.h:13
+msgid "Republic of Congo"
+msgstr "콩고"
+
+#: ../boards/geography/board4_1.xml.in.h:15
+#: ../boards/geography/board4_2.xml.in.h:33
+msgid "South Africa"
+msgstr "남 아프리카"
+
+#: ../boards/geography/board4_1.xml.in.h:16
+msgid "Southern Africa"
+msgstr "남쪽 아프리카"
+
+#: ../boards/geography/board4_1.xml.in.h:17
+msgid "Swaziland"
+msgstr "스와질랜드"
+
+#: ../boards/geography/board4_1.xml.in.h:18
+#: ../boards/geography/board4_2.xml.in.h:34
+msgid "Tanzania"
+msgstr "탄자니아"
+
+#: ../boards/geography/board4_1.xml.in.h:20
+#: ../boards/geography/board4_2.xml.in.h:38
+msgid "Zambia"
+msgstr "잠비아"
+
+#: ../boards/geography/board4_1.xml.in.h:21
+#: ../boards/geography/board4_2.xml.in.h:39
+msgid "Zimbabwe"
+msgstr "짐배브위"
+
+#: ../boards/geography/board4_2.xml.in.h:32
+msgid "Soudan"
+msgstr "수단"
+
+#: ../boards/geography/board5_0.xml.in.h:1
+msgid "Regions of France"
+msgstr "프랑스령"
+
+#: ../boards/geography/board6_0.xml.in.h:1
+#, fuzzy
+msgid "Deutschland Bundeslander"
+msgstr "도이칠란드"
+
+#: ../boards/geometry.xml.in.h:1
+msgid "Geometry"
+msgstr "기하학"
+
+#: ../boards/geometry.xml.in.h:2
+msgid "Geometry activities."
+msgstr "기하학 활동."
+
+#: ../boards/gletters.xml.in.h:1 ../boards/wordsgame.xml.in.h:2
+msgid "Keyboard manipulation"
+msgstr "키보드 조작"
+
+#: ../boards/gletters.xml.in.h:2
+msgid "Letter association between the screen and the keyboard"
+msgstr "키보드와 모니터 사이의 글씨 조합"
+
+#: ../boards/gletters.xml.in.h:3 ../src/boards/gletters.c:134
+msgid "Simple Letters"
+msgstr "떨어지는 알파벳"
+
+#: ../boards/gletters.xml.in.h:4 ../src/boards/gletters.c:135
+msgid "Type the falling letters before they reach the ground"
+msgstr "땅에 닿기 전에 떨어지는 글자들을 치세요"
+
+#: ../boards/gnumch-equality.xml.in.h:1
+msgid "Equality Number Munchers"
+msgstr "같은 숫자 먹기"
+
+#: ../boards/gnumch-equality.xml.in.h:2
+msgid ""
+"Guide the Number Muncher to the expressions that equal the number at the top "
+"of the screen."
+msgstr "화면 위쪽의 숫자와 같은 수를 제시하세요."
+
+#: ../boards/gnumch-equality.xml.in.h:3
+msgid "Practice addition, multiplication, division and subtraction."
+msgstr "4칙 연산 연습."
+
+#: ../boards/gnumch-equality.xml.in.h:4 ../boards/gnumch-inequality.xml.in.h:4
+msgid ""
+"Use the arrow keys to navigate around the board and to avoid the Troggles. "
+"Press the spacebar to eat a number."
+msgstr "괴물을 피하기 위해 화살표로 움직이세요. 스페이스바로 숫자를 먹으세요."
+
+#: ../boards/gnumch-factors.xml.in.h:1
+msgid "Factor Number Munchers"
+msgstr "약수 먹기"
+
+#: ../boards/gnumch-factors.xml.in.h:2
+msgid ""
+"Guide the Number Muncher to all the factors of the number at the top of the "
+"screen."
+msgstr "화면 위쪽의 숫자의 약수를 제시하세요."
+
+#: ../boards/gnumch-factors.xml.in.h:3
+msgid "Learn about factors and multiples."
+msgstr "약수와 곱하기에 대해서 배웁니다."
+
+#: ../boards/gnumch-factors.xml.in.h:4
+msgid ""
+"The factors of a number are all the numbers that divide that number evenly. "
+"For example, the factors of 6 are 1, 2, 3 and 6. 4 is not a factor of 6 "
+"because 6 cannot be divided into 4 equal pieces. If one number is a multiple "
+"of a second number, then the second number is a factor of the first number. "
+"You can think of multiples as families, and factors are the people in those "
+"families. So 1, 2, 3 and 6 all fit into the 6 family, but 4 belongs to "
+"another family. Use the arrow keys to navigate around the board and to avoid "
+"the Troggles. Press the spacebar to eat a number."
+msgstr ""
+"약수는 원래 수를 나눌수 있는 수 입니다. 6의 약수로는 1,2,3,6 이 있고, 4는 약"
+"수가 아닙니다. If one number is a multiple of a second number, then the "
+"second number is a factor of the first number. You can think of multiples as "
+"families, and factors are the people in those families. So 1, 2, 3 and 6 all "
+"fit into the 6 family, but 4 belongs to another family. Use the arrow keys "
+"to navigate around the board and to avoid the Troggles. Press the spacebar "
+"to eat a number."
+
+#: ../boards/gnumch-inequality.xml.in.h:1
+msgid ""
+"Guide the Number Muncher to the all the expressions that do not equal the "
+"number at the top of the screen."
+msgstr "화면 위쪽의 숫자와 같지 않은 모든 표현을 제시하세요.."
+
+#: ../boards/gnumch-inequality.xml.in.h:2
+msgid "Inequality Number Munchers"
+msgstr "등식에 맞는 수 먹기"
+
+#: ../boards/gnumch-inequality.xml.in.h:3
+msgid "Practice addition, subtraction, multiplication and division."
+msgstr "4칙 연산 연습."
+
+#: ../boards/gnumch-multiples.xml.in.h:1
+msgid ""
+"Guide the Number Muncher to all the multiples of the number at the top of "
+"the screen."
+msgstr "화면 위쪽 숫자의 모든 곱을 제시하세요."
+
+#: ../boards/gnumch-multiples.xml.in.h:2
+msgid "Learn about multiples and factors."
+msgstr "약수와 곱하기에 대해서 배웁니다.."
+
+#: ../boards/gnumch-multiples.xml.in.h:3
+msgid "Multiple Number Munchers"
+msgstr "곱하는 수 먹기"
+
+#: ../boards/gnumch-multiples.xml.in.h:4
+msgid ""
+"The multiples of a number are all the numbers that are equal to the original "
+"number times another number. For example, 24, 36, 48 and 60 are all "
+"multiples of 12. 25 is not a multiple of 12 because there isn't any number "
+"that can be multiplied by 12 to get 25. If one number is a factor of a "
+"second number, then the second number is a multiple of the first number. "
+"Again, you can think of multiples as families, and factors are the people "
+"who belong to those families. The factor 5, has parents 10, grandparents 15, "
+"great-grandparents 20, great-great-grandparents 25, and every extra step of "
+"5 is another great- in front! But the number 5 does not belong in the 8 or "
+"23 families. You can't fit any number of 5s into 8 or 23 with nothing left "
+"over. So '8 isn't a multiple of 5, nor is 23. Only 5, 10, 15, 20, 25 ... are "
+"multiples (or families or steps) of 5. Use the arrow keys to navigate around "
+"the board and to avoid the Troggles. Press the spacebar to eat a number."
+msgstr ""
+"곱해진 수는 원래 수로 나눠집니다. 예를 들면 24,48, 그리고 60은 12로 나눠집니"
+"다. 25는 12로 나눠지기 때문에 곱해진 수가 아닙니다. 하나 씩 더해보면 그 곱해"
+"진 수가 나옵니다. 괴물을 피하면서 스페이스 바를 이용해 먹으세요."
+
+#: ../boards/gnumch-primes.xml.in.h:1
+msgid "Guide the Number Muncher to all the prime numbers."
+msgstr "모든 소수에 대한 것을 제시하세요."
+
+#: ../boards/gnumch-primes.xml.in.h:2
+msgid "Learn about prime numbers"
+msgstr "소수에 대해서 배웁니다."
+
+#: ../boards/gnumch-primes.xml.in.h:3
+msgid "Prime Number Munchers"
+msgstr "소수를 먹기"
+
+#: ../boards/gnumch-primes.xml.in.h:4
+#, fuzzy
+msgid ""
+"Prime numbers are numbers that are only divisible by themselves and 1. For "
+"example, 3 is a prime number, but 4 isn't (because 4 is divisible by 2). You "
+"can think of prime numbers as very small families: they only ever have two "
+"people in them! Only themselves and 1. You can't fit any other numbers into "
+"them with nothing left over. 5 is one of these lonely numbers (only 5 × 1 = "
+"5), but you can see that 6 has 2 and 3 in its family as well (6 × 1 = 6, 2 × "
+"3 = 6). So 6 is not a prime number. Use the arrow keys to navigate around "
+"the board and to avoid the Troggles. Press the spacebar to eat a number."
+msgstr ""
+"소수는 자기 자신과 1로만 나눠지는 수입니다. 예를 들면 3은 소수지만 4는 소수"
+"가 아닙니다. 5도 소수지만 6은 소수가 아닙니다. 화살표를 이용해 괴물을 피하면"
+"서 소수를 스페이스 바로 먹으세요."
+
+#: ../boards/gnumchmenu.xml.in.h:1
+msgid "Go to Number Munchers activities"
+msgstr "숫자 먹기 활동으로 갑니다."
+
+#: ../boards/gnumchmenu.xml.in.h:2
+msgid "Number Munchers are games to play with arithmetic."
+msgstr "숫자 먹기는 계산으로 이루어 집니다.."
+
+#: ../boards/guessnumber.xml.in.h:1
+msgid "Guess a number"
+msgstr "숫자를 추측하세요"
+
+#: ../boards/guessnumber.xml.in.h:2
+msgid "Help Tux escape the cave. Tux hides a number for you to find."
+msgstr ""
+"Tux를 동굴 밖에서 나가도록 도와주세요. Tux는 당신이 찾을 숫자를 숨겼습니다."
+
+#: ../boards/guessnumber.xml.in.h:3
+msgid "Numbers from 1 to 1000 for the last level."
+msgstr "마지막 레벨을 위한 1부터 1000까지의 숫자 "
+
+#: ../boards/guessnumber.xml.in.h:4
+msgid ""
+"Read the instructions that give you the range of the number to find. Enter a "
+"number in the top right blue entry box. Tux will tell you if your number is "
+"higher or lower. Then enter another number. The distance between Tux and the "
+"escape area on the right represents how far you are from the correct number. "
+"If Tux is over or under the escape area, it means your number is over or "
+"under the correct number."
+msgstr ""
+"당신이 찾을 수의 범위를 지정해주는 가이드를 읽으세요. 숫자를 오른쪽 위의 파"
+"란 박스에 넣으세요. Tux가 찾는 수보다 큰지, 작은지 가르쳐 줄것입니다. 그럼 다"
+"른 숫자를 넣으세요. Tux와 탈출 지역의 거리는 당신이 얼마나 그 숫자에 가까운지"
+"와 같습니다. Tux가 탈출 지역 위 또는 아래에 있다면 당신의 수가 찾는 수보다 "
+"위 또는 아래에 있다는 것입니다."
+
+#: ../boards/hanoi.xml.in.h:1
+msgid "Concept taken from EPI games."
+msgstr "개념은 EPI 게임에서 왔습니다."
+
+#: ../boards/hanoi.xml.in.h:2
+msgid ""
+"Drag and Drop one top piece at a time, from one peg to another, to reproduce "
+"the tower on the right in the empty space on the left."
+msgstr ""
+"한 번에 위쪽에 있는 조각을 끌어 놓으십시오. 오른쪽에 있는 탑을 왼쪽의 빈공간"
+"으로 옮기기 위해서."
+
+#: ../boards/hanoi.xml.in.h:4 ../src/boards/hanoi.c:97
+msgid "Reproduce the given tower"
+msgstr "주어진 탑을 옮기세요."
+
+#: ../boards/hanoi.xml.in.h:5
+msgid "Reproduce the tower on the right in the empty space on the left"
+msgstr "오른쪽의 탑을 왼쪽의 빈공간으로 옮기세요."
+
+#: ../boards/hanoi.xml.in.h:6 ../src/boards/hanoi.c:96
+msgid "Simplified Tower of Hanoi"
+msgstr "간단한 하노이 탑"
+
+#: ../boards/hanoi_real.xml.in.h:1
+msgid ""
+"Drag and Drop the top pieces only from one peg to another, to reproduce the "
+"tower on the right in the empty space on the left."
+msgstr "탑의 위쪽 조각을 왼쪽의 빈공간으로 옮기기 위해 끌어놓으세요."
+
+#: ../boards/hanoi_real.xml.in.h:3
+msgid "Reproduce the tower on the right side"
+msgstr "탑을 오른쪽으로 옮기세요"
+
+#: ../boards/hanoi_real.xml.in.h:4
+msgid "The Tower of Hanoi"
+msgstr "하노이의 탑"
+
+#: ../boards/hanoi_real.xml.in.h:5
+#, fuzzy
+msgid ""
+"The object of the game is to move the entire stack to another peg, obeying "
+"the following rules:\n"
+"* only one disc may be moved at a time\n"
+"* no disc may be placed atop a smaller disc"
+msgstr ""
+"게임의 목적은 모든 조각을 다른 곳으로 옮기는 것입니다. 다음의 규칙을 지키세"
+"요 * 한번에 한 판만을 옮기세요 * 작은 조각보다 위에 있을수 없습니다."
+
+#: ../boards/hanoi_real.xml.in.h:8
+msgid ""
+"The puzzle was invented by the French mathematician Edouard Lucas in 1883. "
+"There is a legend about a Hindu temple whose priests were constantly engaged "
+"in moving a set of 64 discs according to the rules of the Tower of Hanoi "
+"puzzle. According to the legend, the world would end when the priests "
+"finished their work. The puzzle is therefore also known as the Tower of "
+"Brahma puzzle. It is not clear whether Lucas invented this legend or was "
+"inspired by it. (source Wikipedia &lt;http://en.wikipedia.org/wiki/"
+"Tower_of_hanoi&gt;)"
+msgstr ""
+"퍼즐은 프랑스 수학자 Edouard Lucas에 의해 1883년에 발명되었습니다. 힌두교의 "
+"전설에 따르면 64의 판으로 된 하노이의 탑이 있습니다. 전설에 따르면 이 탑이 "
+"다 옮겨지면 세상이 끝난다고 합니다. 브라마의 퍼즐 탑으로도 알려져 있습니다. "
+"(원본 위키피디아 &lt;http://en.wikipedia.org/wiki/Tower_of_hanoi&gt;)"
+
+#: ../boards/hexagon.xml.in.h:1
+msgid "Find the strawberry by clicking on the blue fields"
+msgstr "파란 곳을 클릭해서 딸기를 찾으세요."
+
+#: ../boards/hexagon.xml.in.h:4
+msgid ""
+"Try to find the strawberry under the blue fields. The fields become redder "
+"as you get closer."
+msgstr ""
+"파란 곳을 클릭해서 딸기를 찾으세요. 가까워 질수록 빨간 색이 될것 입니다."
+
+#: ../boards/hexagon.xml.in.h:5
+msgid "hexagon"
+msgstr "6각형"
+
+#: ../boards/imageid.xml.in.h:1
+msgid "Click on the word corresponding to the printed image."
+msgstr "프린트된 이미지와 상응하는 단어를 클릭하세요."
+
+#: ../boards/imageid.xml.in.h:2
+msgid "Practice reading by finding the word matching an image"
+msgstr "이미지와 맞는 단어를 이용해 읽기를 연습합니다."
+
+#: ../boards/imageid.xml.in.h:3 ../boards/imagename.xml.in.h:4
+#: ../boards/readingh.xml.in.h:4 ../boards/readingv.xml.in.h:4
+#: ../src/boards/imageid.c:103 ../src/boards/missingletter.c:101
+msgid "Reading"
+msgstr "읽기"
+
+#: ../boards/imageid.xml.in.h:4
+msgid "Reading practice"
+msgstr "읽기 연습"
+
+#: ../boards/imageid/board1.xml.in.h:1 ../boards/imagename/board4_0.xml.in.h:2
+msgid "apple"
+msgstr "사과"
+
+#: ../boards/imageid/board1.xml.in.h:2
+msgid "back"
+msgstr "뒤"
+
+#: ../boards/imageid/board1.xml.in.h:3
+msgid "bag"
+msgstr "가방"
+
+#: ../boards/imageid/board1.xml.in.h:4 ../boards/imagename/board6_0.xml.in.h:2
+msgid "ball"
+msgstr "공"
+
+#: ../boards/imageid/board1.xml.in.h:5
+msgid "banana"
+msgstr "바나나"
+
+#: ../boards/imageid/board1.xml.in.h:6
+msgid "bed"
+msgstr "침대"
+
+#: ../boards/imageid/board1.xml.in.h:7
+msgid "boat"
+msgstr "배"
+
+#: ../boards/imageid/board1.xml.in.h:8
+msgid "book"
+msgstr "책"
+
+#: ../boards/imageid/board1.xml.in.h:9 ../boards/imagename/board2_0.xml.in.h:2
+msgid "bottle"
+msgstr "병"
+
+#: ../boards/imageid/board1.xml.in.h:10
+msgid "cake"
+msgstr "케잌"
+
+#: ../boards/imageid/board1.xml.in.h:11
+msgid "camel"
+msgstr "낙타"
+
+#: ../boards/imageid/board1.xml.in.h:12
+#: ../boards/imagename/board4_0.xml.in.h:4
+msgid "car"
+msgstr "차"
+
+#: ../boards/imageid/board1.xml.in.h:13
+msgid "cat"
+msgstr "고양이"
+
+#: ../boards/imageid/board1.xml.in.h:14
+msgid "catch"
+msgstr "잡다"
+
+#: ../boards/imageid/board1.xml.in.h:15
+msgid "cheese"
+msgstr "치즈"
+
+#: ../boards/imageid/board1.xml.in.h:16
+msgid "cow"
+msgstr "소"
+
+#: ../boards/imageid/board1.xml.in.h:17
+msgid "dog"
+msgstr "개"
+
+#: ../boards/imageid/board1.xml.in.h:18
+msgid "finish"
+msgstr "마침"
+
+#: ../boards/imageid/board1.xml.in.h:19
+msgid "fish"
+msgstr "물고기"
+
+#: ../boards/imageid/board1.xml.in.h:20
+#: ../boards/imagename/board3_0.xml.in.h:2
+msgid "house"
+msgstr "집"
+
+#: ../boards/imageid/board1.xml.in.h:21
+msgid "pear"
+msgstr "배"
+
+#: ../boards/imageid/board1.xml.in.h:22
+msgid "plane"
+msgstr "평면"
+
+#: ../boards/imageid/board1.xml.in.h:23
+msgid "satchel"
+msgstr "학생가방"
+
+#: ../boards/imagename.xml.in.h:1 ../boards/imagename/board1_0.xml.in.h:1
+#: ../boards/imagename/board2_0.xml.in.h:1
+#: ../boards/imagename/board3_0.xml.in.h:1
+#: ../boards/imagename/board4_0.xml.in.h:1
+#: ../boards/imagename/board5_0.xml.in.h:1
+#: ../boards/imagename/board6_0.xml.in.h:1
+msgid "Drag and Drop each item onto its name"
+msgstr "그림을 이름위로 옮겨 놓으세요."
+
+#: ../boards/imagename.xml.in.h:2
+msgid ""
+"Drag each image from the (vertical) box on the left to its (corresponding) "
+"name on the right. Click the OK button to check your answer."
+msgstr ""
+"세로 박스의 이미지를 오른쪽의 상응하는 단어에 올려놓으시고, 답을 확인 하기 위"
+"해 OK버튼을 누르세요."
+
+#: ../boards/imagename.xml.in.h:3
+msgid "Image Name"
+msgstr "그림 이름"
+
+#: ../boards/imagename.xml.in.h:5
+msgid "Vocabulary and reading"
+msgstr "단어와 읽기"
+
+#: ../boards/imagename/board1_0.xml.in.h:2
+msgid "bulb"
+msgstr "전구"
+
+#: ../boards/imagename/board1_0.xml.in.h:3
+msgid "fishing boat"
+msgstr "고깃 배"
+
+#: ../boards/imagename/board1_0.xml.in.h:4
+msgid "lamp"
+msgstr "램프"
+
+#: ../boards/imagename/board1_0.xml.in.h:5
+msgid "mail box"
+msgstr "우체통"
+
+#: ../boards/imagename/board1_0.xml.in.h:6
+#: ../boards/imagename/board5_0.xml.in.h:3
+msgid "postcard"
+msgstr "우편엽서"
+
+#: ../boards/imagename/board1_0.xml.in.h:7
+#: ../boards/imagename/board3_0.xml.in.h:5
+#: ../boards/imagename/board6_0.xml.in.h:7
+msgid "sailing boat"
+msgstr "항해용 배"
+
+#: ../boards/imagename/board2_0.xml.in.h:3
+msgid "egg"
+msgstr "달걀"
+
+#: ../boards/imagename/board2_0.xml.in.h:4
+msgid "eggcup"
+msgstr "달걀컵"
+
+#: ../boards/imagename/board2_0.xml.in.h:5
+msgid "flower"
+msgstr "꽃"
+
+#: ../boards/imagename/board2_0.xml.in.h:6
+msgid "glass"
+msgstr "유리잔"
+
+#: ../boards/imagename/board2_0.xml.in.h:7
+msgid "vase"
+msgstr "도자기"
+
+#: ../boards/imagename/board3_0.xml.in.h:3
+msgid "light house"
+msgstr "등대"
+
+#: ../boards/imagename/board3_0.xml.in.h:4
+msgid "rocket"
+msgstr "로켓"
+
+#: ../boards/imagename/board3_0.xml.in.h:6
+msgid "sofa"
+msgstr "소파"
+
+#: ../boards/imagename/board3_0.xml.in.h:7
+#: ../boards/imagename/board5_0.xml.in.h:5
+msgid "star"
+msgstr "별"
+
+#: ../boards/imagename/board4_0.xml.in.h:3
+msgid "bicycle"
+msgstr "자전거"
+
+#: ../boards/imagename/board4_0.xml.in.h:5
+msgid "carrot"
+msgstr "당근"
+
+#: ../boards/imagename/board4_0.xml.in.h:6
+msgid "grater"
+msgstr "강판"
+
+#: ../boards/imagename/board4_0.xml.in.h:7
+msgid "tree"
+msgstr "나무"
+
+#: ../boards/imagename/board5_0.xml.in.h:2
+msgid "pencil"
+msgstr "연필"
+
+#: ../boards/imagename/board5_0.xml.in.h:4
+msgid "spruce"
+msgstr "전나무"
+
+#: ../boards/imagename/board5_0.xml.in.h:6
+msgid "truck"
+msgstr "트럭"
+
+#: ../boards/imagename/board5_0.xml.in.h:7
+msgid "van"
+msgstr "밴"
+
+#: ../boards/imagename/board6_0.xml.in.h:3
+msgid "castle"
+msgstr "성"
+
+#: ../boards/imagename/board6_0.xml.in.h:4
+msgid "crown"
+msgstr "왕관"
+
+#: ../boards/imagename/board6_0.xml.in.h:5
+msgid "flag"
+msgstr "깃발"
+
+#: ../boards/imagename/board6_0.xml.in.h:6
+msgid "racket"
+msgstr "라켓"
+
+#: ../boards/keyboard.xml.in.h:1
+msgid "Discover the keyboard."
+msgstr "키보드를 이용하세요."
+
+#: ../boards/keyboard.xml.in.h:2
+msgid "Keyboard-manipulation boards"
+msgstr "키보드를 이용한 게임"
+
+#: ../boards/leftright.xml.in.h:1
+msgid "Determine if a hand is a right or a left hand"
+msgstr "오른쪽 손인지 왼쪽 손이지 정하세요."
+
+#: ../boards/leftright.xml.in.h:2
+msgid ""
+"Distinguish right and left hands from different points of view. Spatial "
+"representation"
+msgstr "다른 시점에서 오른손인지, 왼손인지 구분하세요."
+
+#: ../boards/leftright.xml.in.h:3
+msgid "Find your left and right hands"
+msgstr "오른손과 왼손 구별하기"
+
+#: ../boards/leftright.xml.in.h:4 ../boards/railroad.xml.in.h:4
+msgid "None"
+msgstr "없음"
+
+#: ../boards/leftright.xml.in.h:5
+msgid ""
+"You can see a hand: is it a left hand or a right hand? Click on the red "
+"button on the left, or the green button on the right."
+msgstr ""
+"당신은 손을 볼수 있습니다.: 오른손입니까? 왼손입니까? 왼쪽의 빨간버튼, 또는 "
+"오른쪽의 녹색 버튼을 클릭하세요."
+
+#: ../boards/login.xml.in.h:1
+msgid ""
+"GCompris identifies each child, so we can provide child-specific reports."
+msgstr " GCompris는 각각의 아이들을 구분해서, 자세한 리포트를 제공합니다."
+
+#: ../boards/login.xml.in.h:2
+msgid "GCompris login screen"
+msgstr "GCompris 로그인 화면"
+
+#: ../boards/login.xml.in.h:3
+msgid ""
+"In order to activate the login screen, you must \n"
+"first add users in the administration part of GCompris. \n"
+"You access Administration by running 'gcompris -a'.\n"
+"In Administration, you can create different profiles. In each profile,\n"
+"you can have a different set of users and select which activities are "
+"available to them.\n"
+"To run GCompris for a specific profile, you use 'gcompris -p profile' where "
+"'profile'\n"
+"is the name of a profile as you created it in Administration."
+msgstr ""
+"로그인 화면을 활성화 시키기 위해 당신은 꼭 \n"
+"GCompris의 관리자 부분에 사용자를 추가합니다.. \n"
+"'gcompris -a'로 엑세스 합니다.\n"
+"관리 모드에서는 다른 사용자를 만들수 있습니다.,\n"
+"당신은 다른 종류의 사용자와 그 사용자가 이용가능한 것을 선택할 수 있습니다.\n"
+"특정 프로파일을 구동시키기 위해\n"
+"관리자 모드에서 만든 계정을 선택하세요"
+
+#: ../boards/login.xml.in.h:10
+msgid "Select or enter your name to log in to GCompris"
+msgstr "GCompris에 로그인 하기 위한 이름을 치거나, 선택하세요."
+
+#: ../boards/magic_hat_plus.xml.in.h:1 ../boards/memory_add.xml.in.h:1
+msgid "Addition"
+msgstr "추가"
+
+#: ../boards/magic_hat_plus.xml.in.h:2
+#, fuzzy
+msgid ""
+"Click on the hat to open or close it. Under the hat, how many stars can you "
+"see moving around? Count carefully. :) Click in the bottom-right area to "
+"input your answer."
+msgstr ""
+"모자를 쓰거나 벗기 위해 클릭하세요. 모자 밑에 얼마나 많은 별이 움직이는 것을 "
+"볼수 있습니까? 신중하게 세어 보세요^^. 오른쪽 하단을 답을 쓰기위해 클릭하세"
+"요."
+
+#: ../boards/magic_hat_plus.xml.in.h:3
+msgid "Count how many items are under the magic hat"
+msgstr "마법 모자밑에 얼마나 많은 별이 있는지 세어보세요."
+
+#: ../boards/magic_hat_plus.xml.in.h:4
+msgid "Learn addition"
+msgstr "덧셈을 배웁니다."
+
+#: ../boards/magic_hat_plus.xml.in.h:5 ../boards/magic_hat_minus.xml.in.h:5
+msgid "The magician hat"
+msgstr "마법의 모자"
+
+#: ../boards/magic_hat_minus.xml.in.h:1
+msgid "Count how many items are under the magic hat after some have got away"
+msgstr ""
+"몇개가 없어진 뒤에 얼마나 많은 별이 마법의 모자 밑에 있는지 세세요."
+
+#: ../boards/magic_hat_minus.xml.in.h:2
+msgid "Learn subtraction"
+msgstr "뺄셈을 배웁니다."
+
+#: ../boards/magic_hat_minus.xml.in.h:3
+msgid ""
+"Look at the magician, he tells the number of stars that are under his magic "
+"hat. Then, click on the hat to open it. A few stars escape. Click again on "
+"the hat to close it. You have to count how many are still under the hat. "
+"Click on the bottom right area to answer."
+msgstr ""
+"마법사를 보세요, 그가 그의 마법의 모자 밑에 있는 별의 갯수를 말해줄 것 입니"
+"다. 그리고 모자를 클릭해서 여세요. 몇개의 별이 없어집니다. 모자를 닫기위해 다"
+"시 클릭하세요. 다시 별의 숫자를 세고, 답하기 위해 오른쪽 하단을 클릭하세요."
+
+#: ../boards/magic_hat_minus.xml.in.h:4 ../boards/memory_add_minus.xml.in.h:3
+#: ../boards/memory_add_minus_tux.xml.in.h:3 ../boards/memory_minus.xml.in.h:2
+#: ../boards/memory_minus_tux.xml.in.h:2
+msgid "Subtraction"
+msgstr "뺄셈"
+
+#: ../boards/math.xml.in.h:1
+msgid "Mathematical activities."
+msgstr "수학적 활동."
+
+#: ../boards/math.xml.in.h:2
+msgid "Mathematics"
+msgstr "수학"
+
+#: ../boards/maze.xml.in.h:1 ../boards/maze2DRelative.xml.in.h:1
+#: ../boards/maze3D.xml.in.h:2 ../boards/mazeInvisible.xml.in.h:1
+msgid "Can use the keyboard arrow to move an object."
+msgstr "화살표를 물건을 움직이는데 사용할수 있습니다."
+
+#: ../boards/maze.xml.in.h:2 ../src/boards/maze.c:129
+msgid "Find your way out of the maze"
+msgstr "미로를 나가는 길을 찾으세요."
+
+#: ../boards/maze.xml.in.h:3 ../boards/maze2DRelative.xml.in.h:3
+#: ../boards/maze3D.xml.in.h:4 ../boards/mazeInvisible.xml.in.h:3
+msgid "Help Tux get out of this maze."
+msgstr "Tux가 미로를 나가는 것을 도와주세요."
+
+#: ../boards/maze.xml.in.h:4 ../boards/maze2DRelative.xml.in.h:4
+#: ../boards/mazeInvisible.xml.in.h:4 ../src/boards/maze.c:128
+msgid "Maze"
+msgstr "미로"
+
+#: ../boards/maze.xml.in.h:5
+msgid "Use the keyboard arrows to move Tux up to the door."
+msgstr "키보드 화살표를 이용해서 Tux를 문까지 움직이세요."
+
+#: ../boards/maze2DRelative.xml.in.h:2
+msgid "Find your way out of the maze (Move is relative)"
+msgstr "미로에서 나가는 길을 찾으세요."
+
+#: ../boards/maze2DRelative.xml.in.h:5
+msgid ""
+"Use the keyboard arrows to move Tux up to the door. In this maze, the move "
+"is relative (first person). Use the up arrow to go forward. The other arrow "
+"let you turn Tux in another direction."
+msgstr ""
+"키보드 화살표를 이용해서 Tux를 문까지 움직이세요. 이 미로에서 움직임은 상대적"
+"입니다. 앞으로 가기위에서 윗쪽 화살표를 이용하세요. 다른 화살표는 Tux가 다른 "
+"방향으로 도는데 쓰입니다."
+
+#: ../boards/maze3D.xml.in.h:1
+msgid "3D Maze"
+msgstr "삼차원 미로"
+
+#: ../boards/maze3D.xml.in.h:3
+msgid "Find your way out of the 3D maze"
+msgstr "삼차원 미로 밖으로 나가는 길을 찾으세요"
+
+#: ../boards/maze3D.xml.in.h:5
+msgid ""
+"Use the keyboard arrows to move Tux up to the door. Use the spacebar to "
+"switch between 2D and 3D modes. 2D mode just gives you an indication of your "
+"position, like a map. You cannot move Tux in 2D mode."
+msgstr ""
+"키보드 화살표를 이용해서 Tux를 문까지 움직이세요. 스페이스 바로 2차원과 3차"
+"원 모드를 전환합니다. 2차원 모드는 단지 위치를 표시해줍니다. 당신은 Tux를 2차"
+"원 모드에서는 움직일 수 없습니다."
+
+#: ../boards/mazeInvisible.xml.in.h:2
+msgid "Find your way out of the invisible maze"
+msgstr "안보이는 미로에서 밖으로 나가는 길을 찾으세요"
+
+#: ../boards/mazeInvisible.xml.in.h:5
+msgid ""
+"Use the keyboard arrows to move Tux up to the door. Use the spacebar to "
+"switch between invisible and visible modes. Visible mode just gives you an "
+"indication of your position, like a map. You cannot move Tux in visible mode."
+msgstr ""
+"키보드 화살표를 이용해서 Tux를 문까지 움직이세요. 스페이스 바로 보이는 모드"
+"와 안보이는 모드를 전환합니다. 보이는 모드는 단지 위치를 표시해줍니다. 당신"
+"은 Tux를 보이는 모드에서는 움직일 수 없습니다."
+
+#: ../boards/mazeMenu.xml.in.h:1
+msgid "Find your way out of different types of mazes"
+msgstr "다른 종류들의 미로에서 나가는 길을 찾으세요."
+
+#: ../boards/mazeMenu.xml.in.h:2
+msgid "Go to Maze activities"
+msgstr "미로 게임"
+
+#: ../boards/melody.xml.in.h:1
+msgid "Ear-training activity"
+msgstr "귀 훈력 활동"
+
+#: ../boards/melody.xml.in.h:2
+msgid ""
+"Listen to the sound sequence played, and repeat it by clicking on the "
+"elements. You can listen again by clicking on the repeat button."
+msgstr ""
+"소리를 듣고 순서대로 클릭하세요. 반복 버튼을 이용해 다시 들을수 있습니다."
+
+#: ../boards/melody.xml.in.h:3
+msgid "Melody"
+msgstr "멜로디"
+
+#: ../boards/melody.xml.in.h:5
+msgid "Repeat a melody"
+msgstr "멜로디를 반복합니다."
+
+#: ../boards/memory.xml.in.h:1
+msgid ""
+"A set of blank cards is shown. Each card has a picture on the other side, "
+"and each picture card has a twin exactly the same. Click on a card to see "
+"its hidden picture, and try to match the twins. You can only turn over two "
+"cards at once, so you need to remember where a picture is, while you look "
+"for its twin. When you turn over the twins, they both disappear."
+msgstr ""
+"빈 카드의 집합이 보여 집니다. 각 카드는 반대 쪽에 그림을 포함하고 있습니다. "
+"그리고 그림 카드는 똑같은 짝을 가지고 있습니다. 당신은 두 카드를 한번만 뒤집"
+"을 수 있습니다, 따라서 당신은 어디에 뭐가 있는지 기억해야 합니다. 짝이 맞는 "
+"카드를 한번에 뒤집으면 사라집니다."
+
+#: ../boards/memory.xml.in.h:2
+msgid "Flip the cards to find the matching pairs"
+msgstr "맞는 짝을 찾기 위해서 카드를 뒤집으세요."
+
+#: ../boards/memory.xml.in.h:3
+msgid "Memory Game with images"
+msgstr "그림 기억 게임"
+
+#: ../boards/memory.xml.in.h:5 ../boards/memory_tux.xml.in.h:4
+msgid "Train your memory and remove all the cards"
+msgstr "기억력을 훈련하기 위해 모든 카드를 제거하세요."
+
+#: ../boards/memory_add.xml.in.h:2
+msgid "Addition memory game"
+msgstr "덧셈 기억 게임"
+
+#: ../boards/memory_add.xml.in.h:3 ../boards/memory_add_tux.xml.in.h:3
+msgid "Practise adding up, until all the cards are gone."
+msgstr "모든 카드가 없어질 때까지 더하기를 연습하세요."
+
+#: ../boards/memory_add.xml.in.h:4 ../boards/memory_add_tux.xml.in.h:4
+msgid ""
+"Turn the cards over to find two numbers which add up the same, until all the "
+"cards are gone."
+msgstr ""
+"카드가 없어 질때까지 더하면 같게 되는 두 숫자를 찾아서 카드를 뒤집으세요."
+
+#: ../boards/memory_add.xml.in.h:5 ../boards/memory_add_tux.xml.in.h:5
+msgid ""
+"You can see some cards, but you can't see what's on the other side of them. "
+"Each card is hiding an adding-up sum, or the answer to the sum.\n"
+"An adding-up sum looks like this: 2 + 2 = 4\n"
+"The numbers on one side of the equals sign (=) have to be the same as the "
+"number on the other side. So 2 (1, 2) and 2 more (3, 4) makes 4. Count aloud "
+"when you work this out, and count on your fingers, because the more ways you "
+"do something, the better you remember it. You can also use blocks, or "
+"buttons, or anything you can count. If you have lots of brothers and "
+"sisters, you can count them! Or the kids in your class at school. Sing "
+"counting songs. Count lots of things, for practice, and you'll be very good "
+"at adding-up!\n"
+"\n"
+"In this game, these cards are hiding the two parts of an adding-up sum (also "
+"called an addition sum). You need to find the two parts of the sum, and "
+"bring them together again. Click on a card to see what number it's hiding, "
+"then try to find the other card that goes with it, to make a whole sum. You "
+"can only turn over two cards in one go, so you need to remember where the "
+"numbers are hiding, then you can match them when you find their other half. "
+"You're doing the job of the equals sign, and the numbers need you to put "
+"them together and make a proper sum. When you do that, both those cards "
+"disappear! When you've made them all disappear, found all the sums, you've "
+"won the game! :)"
+msgstr ""
+"몇개의 카드가 보입니다. 그러나 다른쪽 편에 무엇이 있는지 볼수 없습니다. 그리"
+"고 각각의 카드는 두 숫자의 덧셈 또는 합에 대한 답이 있습니다.\n"
+"두 숫자의 덧셈은 이와 같이 생겼습니다: 2 + 2 = 4\n"
+"등호가 있는쪽의 숫자는 다른쪽에 있는 숫자와 반드시 같아야 합니다. 그래서  "
+"(1, 2) 그리고 (3, 4)는 4를 만들게 됩니다. 숫자를 소리내어 세어보세요 그리고 "
+"손가락으로 세어보세요. 왜냐하면 여러가지 방법으로 할수록 기억하기 더 쉽기 때"
+"문입니다. 블럭이나 버튼 또는 셀수있는 어떤것을 사용해도 좋습니다. 만약 형이"
+"나 누나들이 많이 있다면, 형이나 누나들을 세어도 됩니다! 혹은 같은반에 있는 아"
+"이들을 세어도 됩니다. 숫자를 세는 노래를 불러보세요. 여러가지 물건들을 연습삼"
+"아 세어보세요. 그러면 숫자를 더하는것을 아주 잘하게 될것입니다!\n"
+"\n"
+"이 게임에서는 카드들이 숫자의 합을 가진 두가지 부분을 숨기고 있습니다. 합이 "
+"있는 두 면을 찾아야하고, 그것들을 다시 모아야 합니다. 카드를 클릭해서 어떤 숫"
+"자를 숨기고 있는지 보세요, 그리고 전체 합을 만들기 위해 그 카드에 맞는 다른 "
+"카드를 찾아보세요. 한번에 두장의 카드만 뒤집어 볼수 있습니다, 그러므로 숫자들"
+"이 어디에 숨어있는지 기억하세요, 그러면 다른 한짝을 찾아서 카드를 맞출수 있습"
+"니다. 지금 등호와 숫자를 가지고 적절한 합을 찾는 일을 하고 있습니다. 이것을 "
+"성공했을 때는 두 카드가 모두 사라집니다! 모든 카드를 사라지게 만들었을때, 모"
+"든 합을 찾은것이고 게임을 이기게 됩니다! :)"
+
+#: ../boards/memory_add_minus.xml.in.h:1
+msgid "Addition and subtraction memory game"
+msgstr "덧셈, 뺄셈 기억 게임"
+
+#: ../boards/memory_add_minus.xml.in.h:2
+#: ../boards/memory_add_minus_tux.xml.in.h:2
+msgid "Practise addition, subtraction, until all the cards are gone."
+msgstr "모든 카드가 사라질때까지 덧셈, 뺄셈을 연습하세요."
+
+#: ../boards/memory_add_minus.xml.in.h:4
+#: ../boards/memory_add_minus_tux.xml.in.h:4
+msgid ""
+"Turn the cards over to find two numbers which add or subtract the same, "
+"until all the cards are gone."
+msgstr ""
+"모든 카드가 사라질때까지 카드를 뒤집고 덧셈과 뺄셈의 결과가 같은 두 숫자를 찾"
+"으세요."
+
+#: ../boards/memory_add_minus.xml.in.h:5
+#: ../boards/memory_add_minus_mult_div.xml.in.h:5
+#: ../boards/memory_add_minus_mult_div_tux.xml.in.h:5
+#: ../boards/memory_add_minus_tux.xml.in.h:5 ../boards/memory_div.xml.in.h:5
+#: ../boards/memory_div_tux.xml.in.h:5 ../boards/memory_mult.xml.in.h:5
+#: ../boards/memory_mult_div.xml.in.h:5
+#: ../boards/memory_mult_div_tux.xml.in.h:5
+#: ../boards/memory_mult_tux.xml.in.h:5
+msgid ""
+"You can see some cards, but you can't see what's on the other side of them. "
+"Each card is hiding an operation, or the answer to it.\n"
+"\n"
+"In this game, these cards are hiding the two parts of an operation. You need "
+"to find the two parts of the operation, and bring them together again. Click "
+"on a card to see what number it's hiding, then try to find the other card "
+"that goes with it, to make a whole operation. You can only turn over two "
+"cards in one go, so you need to remember where the numbers are hiding, then "
+"you can match them when you find their other half. You're doing the job of "
+"the equals sign, and the numbers need you to put them together and make a "
+"proper equality. When you do that, both those cards disappear! When you've "
+"made them all disappear, found all the operations, you've won the game! :)"
+msgstr ""
+"몇개의 카드를 불 수 있습니다. 하지만 다른편에 무엇이 있는지 볼 수 없습니다. "
+"각각의 카드는 수학기호나 답을 숨기고 있습니다.\n"
+"\n"
+"이 게임에서는 카드들이 식의 두 부분을 숨기고 있습니다. 두 부분을 찾고, 그것들"
+"을 모으세요. 숫자를 보기위해 카드를 클릭하고 전체 식이 성립하도록 그것에 맞"
+"는 다른 숫자를 가진 카드를 찾으세요. 한번에 두장의 카드만을 넘길수 있기때문"
+"에 숫자가 어디에 숨겨져 있는지 기억해야 다른 한짝의 카드를 찾을 수 있습니다."
+"지금 등호와 숫자를 가지고 적절한 합을 찾는 일을 하고 있습니다. 이것을 성공했"
+"을 때는 두 카드가 모두 사라집니다! 모든 카드를 사라지게 만들었을때 모든 식을 "
+"찾은것이고 게임에서 이기게 됩니다! :)"
+
+#: ../boards/memory_add_minus_mult_div.xml.in.h:1
+#: ../boards/memory_add_minus_mult_div_tux.xml.in.h:1
+msgid "Addition, subtraction, multiplication, division"
+msgstr "덧셈, 뺄셈, 곱셈, 나눗셈"
+
+#: ../boards/memory_add_minus_mult_div.xml.in.h:2
+msgid "All operations memory game"
+msgstr "모든 연산 기억 게임"
+
+#: ../boards/memory_add_minus_mult_div.xml.in.h:3
+#: ../boards/memory_add_minus_mult_div_tux.xml.in.h:3
+msgid ""
+"Practise addition, subtraction, multiplication, division, until all the "
+"cards are gone."
+msgstr "카드가 모두 사라질때까지 덧셈, 뻴셈, 곱셈, 나눗셈을 연습하세요."
+
+#: ../boards/memory_add_minus_mult_div.xml.in.h:4
+#: ../boards/memory_add_minus_mult_div_tux.xml.in.h:4
+#: ../boards/memory_div.xml.in.h:4 ../boards/memory_div_tux.xml.in.h:4
+#: ../boards/memory_mult_div.xml.in.h:4
+#: ../boards/memory_mult_div_tux.xml.in.h:4
+#: ../boards/memory_mult_tux.xml.in.h:4
+msgid ""
+"Turn the cards over to find a matching operation, until all the cards are "
+"gone."
+msgstr "모든 카드가 사라질때까지 카드를 뒤집어서 알맞는 수학 기호를 찾으세요."
+
+#: ../boards/memory_add_minus_mult_div_tux.xml.in.h:2
+msgid "All operations memory game against Tux"
+msgstr "Tux와 함께하는 모든 연산 기억 게임"
+
+#: ../boards/memory_add_minus_tux.xml.in.h:1
+msgid "Addition and subtraction memory game against Tux"
+msgstr "Tux와 함께하는 덧셈과 뺄셈 기억하기 게임"
+
+#: ../boards/memory_add_tux.xml.in.h:1
+msgid "Addition memory game against Tux"
+msgstr "Tux와 함께하는 덧셈 기억 게임"
+
+#: ../boards/memory_add_tux.xml.in.h:2 ../boards/memory_mult_tux.xml.in.h:1
+#, fuzzy
+msgid "Additions"
+msgstr "덧셈"
+
+#: ../boards/memory_div.xml.in.h:1 ../boards/memory_div_tux.xml.in.h:1
+msgid "Division"
+msgstr "나눗셈"
+
+#: ../boards/memory_div.xml.in.h:2
+msgid "Division memory game"
+msgstr "나눗셈 기억 게임"
+
+#: ../boards/memory_div.xml.in.h:3 ../boards/memory_div_tux.xml.in.h:3
+msgid "Practise division, until all the cards are gone."
+msgstr "카드가 모두 사라질때까지 나눗셈을 연습하세요."
+
+#: ../boards/memory_div_tux.xml.in.h:2
+msgid "Division memory game against Tux"
+msgstr "Tux와 함께하는 나눗셈 기억 게임"
+
+#: ../boards/memory_group.xml.in.h:1
+msgid "Go to Memory activities"
+msgstr "기억하기 게임"
+
+#: ../boards/memory_group.xml.in.h:2
+msgid "Various memory activities (images, letters, sounds)."
+msgstr "여러가지 기억하기 게임(그림, 문자, 소리)."
+
+#: ../boards/memory_minus.xml.in.h:1 ../boards/memory_minus_tux.xml.in.h:1
+msgid "Practise subtraction, until all the cards are gone."
+msgstr "카드가 모두 사라질때까지 뺄셈을 연습하세요."
+
+#: ../boards/memory_minus.xml.in.h:3
+msgid "Subtraction memory game"
+msgstr "뺄셈 기억 게임"
+
+#: ../boards/memory_minus.xml.in.h:4 ../boards/memory_minus_tux.xml.in.h:4
+msgid ""
+"Turn the cards over to find two numbers which subtract the same, until all "
+"the cards are gone."
+msgstr ""
+"모든 카드가 사라질때까지, 두개의 카드를 뒤집어서 뺄셈이 같은 것을 찾으세요."
+
+#: ../boards/memory_minus.xml.in.h:5 ../boards/memory_minus_tux.xml.in.h:5
+msgid ""
+"You can see some cards, but you can't see what's on the other side of them. "
+"Each card is hiding a subtraction, or the answer to it.\n"
+"A subtraction looks like this: 3 - 1 = 2\n"
+"The numbers on one side of the equals sign (=) have to be the same as the "
+"number on the other side. So 3 (1, 2, 3) less 1 (1) makes 2. Count aloud "
+"when you work this out, and count on your fingers, because the more ways you "
+"do something, the better you remember it. You can also use blocks, or "
+"buttons, or anything you can count. If you have lots of brothers and "
+"sisters, you can count them! Or the kids in your class at school. Sing "
+"counting songs. Count lots of things, for practice, and you'll be very good "
+"at adding-up!\n"
+"\n"
+"In this game, these cards are hiding the two parts of a subtraction. You "
+"need to find the two parts of the subraction, and bring them together again. "
+"Click on a card to see what number it's hiding, then try to find the other "
+"card that goes with it, to make a whole sum. You can only turn over two "
+"cards in one go, so you need to remember where the numbers are hiding, then "
+"you can match them when you find their other half. You're doing the job of "
+"the equals sign, and the numbers need you to put them together and make a "
+"proper sum. When you do that, both those cards disappear! When you've made "
+"them all disappear, found all the subtracts, you've won the game! :)"
+msgstr ""
+"같은 카드를 볼 수 있습니다. 하지만 다른쪽에 무엇이 있는지는 볼 수 없습니다. "
+"각각의 카드는 뺄셈식이나 답을 숨기고 잇습니다.\n"
+"뺄셈식은 이와 같습니다: 3 - 1 = 2\n"
+"등호가 있는 쪽의 숫자들은 다른 한쪽에 있는 숫자와 같아야 합니다. 그러므로 3 "
+"빼기 1은 2를 만들게 됩니다. 이것을 할때 숫자를 소리내어 읽고 손가락으로 세어"
+"보세요. 여러가지 방법으로 하는것이 기억하기에 더 좋기 때문입니다. 블럭이나 버"
+"튼 또는 셀수있는 어떤것을 사용해도 됩니다. 만약 형이나 누나가 많다면 형이나 "
+"누나를 세어도 됩니다! 또는 같은반의 친구들을 세어도 됩니다. 숫자세기 노래를 "
+"불러보세요. 여러가지 물건들을 연습삼아 세어보세요, 그러면 숫자세기를 잘하게 "
+"될겁니다!\n"
+"\n"
+"이 게임에서는 카드들이 뺄셈식의 두 부분을 숨기고 있습니다. 그 두 부분을 찾아"
+"야 하고, 그것들을 다시 모아 보세요. 숨겨진 숫자를 보려면 카드를 클릭하세요. "
+"그리고 전체를 완성시키기 위해 그 카드에 맞는 다른 카드를 찾아보세요. 한번에 "
+"두장의 카드만 뒤집을 수 있으므로 숫자가 어디에 숨겨져 있는지 기억해야 알맞는 "
+"다른 짝을 찾을 수 있습니다. 지금 등호와 숫자를 조합해서 적절한 합을 찾는 놀이"
+"를 하고 있습니다. 이것을 성공 했을때는 두개의 카드가 사라집니다! 모든 카드를 "
+"사라지게 만들었을때, 뺄셈을 모두 완성한것이고, 게임을 이기게 됩니다! :)"
+
+#: ../boards/memory_minus_tux.xml.in.h:3
+msgid "Subtraction memory game against Tux"
+msgstr "Tux와 함께하는 뺄셈 기억 게임"
+
+#: ../boards/memory_mult.xml.in.h:1
+msgid "Multiplication"
+msgstr "곱셈"
+
+#: ../boards/memory_mult.xml.in.h:2
+msgid "Multiplication memory game"
+msgstr "곱셈 기억 게임"
+
+#: ../boards/memory_mult.xml.in.h:3
+msgid "Practise multiplication, until all the cards are gone."
+msgstr "모든 카드가 사라질때까지 곱셈을 연습하세요."
+
+#: ../boards/memory_mult.xml.in.h:4
+msgid ""
+"Turn the cards over to find two numbers which multiply the same, until all "
+"the cards are gone."
+msgstr ""
+"카드가 모두 사라질때까지, 카드를 뒤집어서 곱이 같은 두 숫자를 찾으세요."
+
+#: ../boards/memory_mult_div.xml.in.h:1
+msgid "Multiplication and division memory game"
+msgstr "곱셈과 나눗셈 기억 게임"
+
+#: ../boards/memory_mult_div.xml.in.h:2
+#: ../boards/memory_mult_div_tux.xml.in.h:2
+msgid "Multiplication, division"
+msgstr "곱셈, 나눗셈"
+
+#: ../boards/memory_mult_div.xml.in.h:3
+#: ../boards/memory_mult_div_tux.xml.in.h:3
+msgid "Practise multiplication, division, until all the cards are gone."
+msgstr "카드가 모두 사라질때까지 곱셈과 나눗셈을 연습하세요."
+
+#: ../boards/memory_mult_div_tux.xml.in.h:1
+msgid "Multiplication and division memory game against Tux"
+msgstr "Tux와 함께하는 곱셈과 나눗셈 기억 게임"
+
+#: ../boards/memory_mult_tux.xml.in.h:2
+msgid "Multiplication memory game against Tux"
+msgstr "Tux와 함께하는 곱셈 기억하기 게임"
+
+#: ../boards/memory_mult_tux.xml.in.h:3
+msgid "Practise multiplication until all the cards are gone."
+msgstr "모든 카드가 사라질때까지 곱셈을 연습하세요."
+
+#: ../boards/memory_op_group.xml.in.h:1
+msgid "Go to mathematics memory activities"
+msgstr "수식 기억하기 게임"
+
+#: ../boards/memory_op_group.xml.in.h:2
+#: ../boards/memory_op_group_tux.xml.in.h:2
+msgid "Memory activities based on operations"
+msgstr "수식을 이용해서 기억하기"
+
+#: ../boards/memory_op_group_tux.xml.in.h:1
+msgid "Go to mathematics memory activities against Tux"
+msgstr "Tux 와 함께하는 수식 기억하기 게임"
+
+#: ../boards/memory_sound.xml.in.h:1 ../boards/memory_sound_tux.xml.in.h:1
+msgid ""
+"A set of violinist Tux is shown. Each Tux has an associated sound, and each "
+"sound has a twin exactly the same. Click on a Tux to see its hidden sound, "
+"and try to match the twins. You can only activate two Tux at once, so you "
+"need to remember where a sound is, while you listen to its twin. When you "
+"turn over the twins, they both disappear."
+msgstr ""
+"바이올린 연주자 Tux들이 보입니다. 각각의 Tux들은 그에 맞는 소리를 냅니다. 그"
+"리고 각 소리들은 똑같은 소리가 있습니다. 소리를 들으려면 Tux를 클릭하세요 그"
+"리고 같은 소리를 찾아보세요. 한번에 두개의 Tux만 선택할수있으므로 소리를 찾는"
+"동안 소리가 어디에 있었는지 기억해야합니다. 똑같은 다른 소리를 찾는다면 두 개"
+"가 모두 사라집니다."
+
+#: ../boards/memory_sound.xml.in.h:2
+msgid "Audio memory game"
+msgstr "소리 기억 게임"
+
+#: ../boards/memory_sound.xml.in.h:3
+msgid "Click on Tux the violinist and listen to find the matching sounds"
+msgstr "바이올린 연주자 Tux를 클릭하고 알맞는 소리를 찾아 들어보세요"
+
+#: ../boards/memory_sound.xml.in.h:4 ../boards/memory_sound_tux.xml.in.h:3
+#: ../boards/memory_tux.xml.in.h:3
+msgid "Mouse manipulation, Brain."
+msgstr "마우스 다루기, 두뇌."
+
+#: ../boards/memory_sound.xml.in.h:5 ../boards/memory_sound_tux.xml.in.h:5
+msgid "Train your audio memory and remove all the violonists Tux."
+msgstr "소리 기억을 연습하고 바이올린 연주자 Tux를 모두 없어지게 하세요."
+
+#: ../boards/memory_sound_tux.xml.in.h:2
+msgid "Audio memory game against Tux"
+msgstr "Tux와 소리 기억게임 하기"
+
+#: ../boards/memory_sound_tux.xml.in.h:4
+msgid "Play the audio memory game against Tux"
+msgstr "Tux와 소리 기억 게임 시작하기"
+
+#: ../boards/memory_tux.xml.in.h:1
+msgid "Have a memory competition with Tux."
+msgstr "Tux와 기억력을 겨루어 보세요."
+
+#: ../boards/memory_tux.xml.in.h:2
+msgid "Memory Game with images, against Tux"
+msgstr "Tux와 그림 기억게임 하기"
+
+#: ../boards/memory_tux.xml.in.h:5
+msgid ""
+"You can see a set of cards that all look the same. Each card has a picture "
+"on the other side, and each picture has a twin somewhere in the set. You can "
+"only turn over two cards at once, so you need to remember where the pictures "
+"are until you can find the twin. When you turn over twins, they disappear! "
+"You take turns with Tux, and to win the game, you have to find more pairs of "
+"twins than he does."
+msgstr ""
+"똑같아 보이는 카드들을 볼 수 있습니다. 각각의 카드는 다른편에 그림을 숨기고 "
+"있습니다. 그리고 각각의 그림과 똑같은 그림이 다른 카드에 있습니다. 한번에 두"
+"개의 카드만 볼수 있으므로 알맞는 카드를 찾을때까지 그림이 어디에 있었는지 기"
+"억해야합니다. 똑같은 그림을 찾았을때, 그 두개의 카드가 사라집니다! Tux와 함"
+"께 게임을 할 수 있고 게임을 이기려면 Tux보다 많은 짝을 찾으세요."
+
+#: ../boards/menu.xml.in.h:1
+msgid ""
+"A simple click on an icon brings you to an activity or a menu of "
+"activities.\n"
+"At the bottom of the screen is the gcompris control bar.\n"
+"The following icons are displayed from right to left.\n"
+"(note that each icon is displayed only if available in the current "
+"activity)\n"
+"    Home - Back to previous menu or exit gcompris if at the top\n"
+"    Thumb - OK. Confirm your answer\n"
+"    Dice - Display the current level. Click to select another level\n"
+"    Music note - Repeat the question\n"
+"    Question Mark - Help\n"
+"    Tool - The configuration menu\n"
+"    Tux Plane - About GCompris\n"
+"The stars show suitable age groups for each game:\n"
+"    1, 2 or 3 simple stars  - from 2 to 6 years old\n"
+"    1, 2 or 3 complex stars - 7 years and up"
+msgstr ""
+"아이콘을 클릭하면 메뉴의 활동을 할 수 있습니다.\n"
+"화면 아래쪽에 gcompris 제어 대가 있습니다.\n"
+"다음 아이콘들은 오른쪽에서 왼쪽으로 표시됩니다.\n"
+"(각각의 아이콘들은 각 활동에서 사용될때만 활성화 됩니다)\n"
+"    홈 - 이젠 매뉴로 가기 도는 gcompris 를 빠져나와서 초기화면으로 가기\n"
+"    엄지손가락 - 정답 정하기\n"
+"    주사위 - 현제 레벨 표시하기. 다른 레벨을 선택하려면 클릭하세요\n"
+"    음악 공책 - 질문 한번더 하기\n"
+"    물음표 - 도움말\n"
+"    연장 - 구성 매뉴\n"
+"    Tux 비행기- GCompris 정보\n"
+"별은 각각의 게임에 적절한 나이를 알려줍니다:\n"
+"    1, 2, 3 개 단순한 별 - 2~6세\n"
+"    1, 2, 3 개 복잡한 별 - 7세 이상"
+
+#: ../boards/menu.xml.in.h:15
+msgid "GCompris Main Menu"
+msgstr "GCompris 메인 매뉴"
+
+#: ../boards/menu.xml.in.h:16 ../src/boards/menu2.c:1009
+msgid ""
+"GCompris is a collection of educational games that provides different "
+"activities for children aged 2 and up."
+msgstr ""
+"GCompris는 2세 이상의 어린이를 위한 활동들을 모아 놓은 교육 게임입니다."
+
+#: ../boards/menu.xml.in.h:18
+msgid ""
+"The goal of gcompris is to provide a free alternative to popular proprietary "
+"edutainment software"
+msgstr ""
+"gcompris의 목적은 대중 교육 소프트웨어 무료 대체물을 제공하는것 입니다."
+
+#: ../boards/miscelaneous.xml.in.h:1
+msgid "Miscellaneous activities"
+msgstr "여러가지 놀이"
+
+#: ../boards/miscelaneous.xml.in.h:2
+msgid "Time, Geography, ..."
+msgstr "시간, 지리, ..."
+
+#: ../boards/missing_letter.xml.in.h:1
+msgid ""
+"An object is displayed in the main area, and an incomplete word is printed "
+"under the picture. Select the missing letter to complete the word."
+msgstr ""
+"대상이 화면에 표시가 됩니다 그리고 그림의 아래에 완전하지 않은 단어가 있습니"
+"다. 빠진 글자를 찾아서 단어를 완성하세요."
+
+#: ../boards/missing_letter.xml.in.h:2
+msgid "Fill in the missing letter"
+msgstr "빠진 글자를 채워 넣으세요"
+
+#: ../boards/missing_letter.xml.in.h:3
+msgid "Missing Letter"
+msgstr "빠진 글자"
+
+#: ../boards/missing_letter.xml.in.h:4
+msgid "Training reading skills"
+msgstr "읽기 기술 연습"
+
+#: ../boards/missing_letter.xml.in.h:5
+msgid "Word reading"
+msgstr "단어 읽기"
+
+#: ../boards/missing_letter/board1.xml.in.h:1
+msgid "apple/_pple/a/i/o"
+msgstr "apple/_pple/a/i/o"
+
+#: ../boards/missing_letter/board1.xml.in.h:2
+msgid "apple/app_e/l/h/n"
+msgstr "apple/app_e/l/h/n"
+
+#: ../boards/missing_letter/board1.xml.in.h:3
+msgid "apple/appl_/e/h/a"
+msgstr "apple/appl_/e/h/a"
+
+#: ../boards/missing_letter/board1.xml.in.h:4
+msgid "ball/_all/b/p/d"
+msgstr "ball/_all/b/p/d"
+
+#: ../boards/missing_letter/board1.xml.in.h:5
+msgid "ball/b_ll/a/u/o"
+msgstr "ball/b_ll/a/u/o"
+
+#: ../boards/missing_letter/board1.xml.in.h:6
+msgid "ball/bal_/l/h/s"
+msgstr "ball/bal_/l/h/s"
+
+#: ../boards/missing_letter/board1.xml.in.h:7
+msgid "banana/_anana/b/p/d"
+msgstr "banana/_anana/b/p/d"
+
+#: ../boards/missing_letter/board1.xml.in.h:8
+msgid "banana/b_nana/a/o/i"
+msgstr "banana/b_nana/a/o/i"
+
+#: ../boards/missing_letter/board1.xml.in.h:9
+msgid "banana/ba_ana/n/m/b"
+msgstr "banana/ba_ana/n/m/b"
+
+#: ../boards/missing_letter/board1.xml.in.h:10
+msgid "bed/_ed/b/l/f"
+msgstr "bed/_ed/b/l/f"
+
+#: ../boards/missing_letter/board1.xml.in.h:11
+msgid "bed/b_d/e/a/i"
+msgstr "bed/b_d/e/a/i"
+
+#: ../boards/missing_letter/board1.xml.in.h:12
+msgid "bed/be_/d/p/b"
+msgstr "bed/be_/d/p/b"
+
+#: ../boards/missing_letter/board1.xml.in.h:13
+msgid "bottle/_ottle/b/t/p"
+msgstr "bottle/_ottle/b/t/p"
+
+#: ../boards/missing_letter/board1.xml.in.h:14
+msgid "bottle/b_ttle/o/u/d"
+msgstr "bottle/b_ttle/o/u/d"
+
+#: ../boards/missing_letter/board1.xml.in.h:15
+msgid "bottle/bott_e/l/y/r"
+msgstr "bottle/bott_e/l/y/r"
+
+#: ../boards/missing_letter/board1.xml.in.h:16
+msgid "cake/_ake/c/p/d"
+msgstr "cake/_ake/c/p/d"
+
+#: ../boards/missing_letter/board1.xml.in.h:17
+msgid "cake/c_ke/a/o/e"
+msgstr "cake/c_ke/a/o/e"
+
+#: ../boards/missing_letter/board1.xml.in.h:18
+msgid "cake/ca_e/k/q/c"
+msgstr "cake/ca_e/k/q/c"
+
+#: ../boards/missing_letter/board1.xml.in.h:19
+msgid "car/_ar/c/k/b"
+msgstr "car/_ar/c/k/b"
+
+#: ../boards/missing_letter/board1.xml.in.h:20
+msgid "car/c_r/a/k/o"
+msgstr "car/c_r/a/k/o"
+
+#: ../boards/missing_letter/board1.xml.in.h:21
+msgid "car/ca_/r/w/k"
+msgstr "car/ca_/r/w/k"
+
+#: ../boards/missing_letter/board1.xml.in.h:22
+msgid "dog/_og/d/p/q"
+msgstr "dog/_og/d/p/q"
+
+#: ../boards/missing_letter/board1.xml.in.h:23
+msgid "dog/d_g/o/g/a"
+msgstr "dog/d_g/o/g/a"
+
+#: ../boards/missing_letter/board1.xml.in.h:24
+msgid "dog/do_/g/p/q"
+msgstr "dog/do_/g/p/q"
+
+#: ../boards/missing_letter/board1.xml.in.h:25
+msgid "fish/_ish/f/h/l"
+msgstr "fish/_ish/f/h/l"
+
+#: ../boards/missing_letter/board1.xml.in.h:26
+msgid "fish/f_sh/i/u/l"
+msgstr "fish/f_sh/i/u/l"
+
+#: ../boards/missing_letter/board1.xml.in.h:27
+msgid "fish/fis_/h/o/i"
+msgstr "fish/fis_/h/o/i"
+
+#: ../boards/missing_letter/board1.xml.in.h:28
+msgid "house/_ouse/h/e/j"
+msgstr "house/_ouse/h/e/j"
+
+#: ../boards/missing_letter/board1.xml.in.h:29
+msgid "house/h_use/o/f/u"
+msgstr "house/h_use/o/f/u"
+
+#: ../boards/missing_letter/board1.xml.in.h:30
+msgid "house/hous_/e/a/i"
+msgstr "house/hous_/e/a/i"
+
+#: ../boards/missing_letter/board1.xml.in.h:31
+msgid "plane/_lane/p/g/d"
+msgstr "plane/_lane/p/g/d"
+
+#: ../boards/missing_letter/board1.xml.in.h:32
+msgid "plane/p_ane/l/j/i"
+msgstr "plane/p_ane/l/j/i"
+
+#: ../boards/missing_letter/board1.xml.in.h:33
+msgid "plane/pl_ne/a/o/s"
+msgstr "plane/pl_ne/a/o/s"
+
+#: ../boards/missing_letter/board1.xml.in.h:34
+msgid "satchel/_atchel/s/c/l"
+msgstr "satchel/_atchel/s/c/l"
+
+#: ../boards/missing_letter/board1.xml.in.h:35
+msgid "satchel/s_tchel/a/o/i"
+msgstr "satchel/s_tchel/a/o/i"
+
+#: ../boards/missing_letter/board1.xml.in.h:36
+msgid "satchel/sa_chel/t/p/c"
+msgstr "satchel/sa_chel/t/p/c"
+
+#: ../boards/money.xml.in.h:1 ../boards/money_cents.xml.in.h:1
+msgid "Can count"
+msgstr "셀 수 있다"
+
+#: ../boards/money.xml.in.h:2 ../boards/money_cents.xml.in.h:2
+msgid ""
+"Click on the coins or paper money at the bottom of the screen to pay. If you "
+"want to remove a coin or note, click on it on the upper screen area."
+msgstr ""
+"지불하려면 화면 아래의 동전이나 지폐를 클릭하세요. 동전이나 노트를 없애고 싶"
+"으면 화면 위에 있는것을 클릭하세요."
+
+#: ../boards/money.xml.in.h:3 ../boards/money_cents.xml.in.h:3
+msgid "Money"
+msgstr "돈"
+
+#: ../boards/money.xml.in.h:4
+msgid "Practice money usage"
+msgstr "돈 사용 연습"
+
+#: ../boards/money.xml.in.h:5 ../boards/money_cents.xml.in.h:5
+msgid ""
+"You must buy the different items and give the exact price. At higher levels, "
+"several items are displayed, and you must first calculate the total price."
+msgstr ""
+"다른 물건을 사야만 하고 정확한 값을 지불해야합니다. 더 높은 단계 에서는 몇가"
+"지 물건들이 표시되고 합한 값을 계산해야합니다."
+
+#: ../boards/money_cents.xml.in.h:4
+msgid "Practice money usage including cents"
+msgstr "센트를 포함한 돈 사용 연습하기"
+
+#: ../boards/mosaic.xml.in.h:1
+msgid "Rebuild the mosaic"
+msgstr "모자이크 완성하기"
+
+#: ../boards/mouse.xml.in.h:1
+msgid "Mouse-manipulation activities."
+msgstr "마우스를 이용한 게임"
+
+#: ../boards/mouse.xml.in.h:2
+msgid "Various mouse-based activities (clicking, moving)"
+msgstr "여러가지 마우스 를 이용한 게임 (클릭, 움직이기)"
+
+#: ../boards/numeration.xml.in.h:1
+msgid "Numeration"
+msgstr "숫자세기"
+
+#: ../boards/numeration.xml.in.h:2
+msgid "Numeration activities."
+msgstr "숫자세기 놀이."
+
+#: ../boards/oscar_and_friends.xml.in.h:1
+msgid "Improve reading skill and the ability to understand what is read."
+msgstr "읽기 능력과 내용 이해 능력 향상시키기."
+
+#: ../boards/oscar_and_friends.xml.in.h:2
+msgid "Read and play with the story"
+msgstr "글을 읽고 그 내용 연극하기"
+
+#: ../boards/oscar_and_friends.xml.in.h:3
+msgid "The story of Oscar and friend"
+msgstr "오스카와 친구들 이야기"
+
+#: ../boards/oscar_and_friends.xml.in.h:4
+msgid "reading"
+msgstr "읽기"
+
+#: ../boards/paintings.xml.in.h:1
+msgid "Assemble the puzzle"
+msgstr "퍼즐 맞추기"
+
+#: ../boards/paintings.xml.in.h:2
+msgid "Drag and Drop the items to rebuild the original paintings"
+msgstr "원래의 그림을 완성하기위해서 그림을 끌어서 놓으세요"
+
+#: ../boards/paintings.xml.in.h:3
+msgid ""
+"Drag the image parts from the box on the left to create a painting on the "
+"main board."
+msgstr "박스에서 그림을 끌어 와서 보드에 그림을 만들어 보세요."
+
+#: ../boards/paintings.xml.in.h:4
+msgid "Mouse-manipulation: movement, drag and drop"
+msgstr "마우스 다루기: 이동, 끌어서 놓기"
+
+#: ../boards/paintings.xml.in.h:5
+msgid "Spatial representation"
+msgstr "공간적 표현"
+
+#: ../boards/paintings/board1_0.xml.in.h:1
+msgid "Edgar Degas, The Dancing Class - 1873-75"
+msgstr "에드가 데가스, 댄스 수업 - 1873-75"
+
+#: ../boards/paintings/board2_0.xml.in.h:1
+msgid "Pierre-Auguste Renoir, Le Moulin de la Galette - 1876"
+msgstr "Pierre-Auguste Renoir, Le Moulin de la Galette - 1876"
+
+#: ../boards/paintings/board3_0.xml.in.h:1
+msgid "Pierre-Auguste Renoir, Girls At The Piano - 1892"
+msgstr "Pierre-Auguste Renoir, Girls At The Piano - 1892"
+
+#: ../boards/paintings/board3_1.xml.in.h:1
+msgid "Kandinsky, Wassily, Composition VIII - 1923"
+msgstr "Kandinsky, Wassily, Composition VIII - 1923"
+
+#: ../boards/paintings/board3_1.xml.in.h:2
+msgid "Oil on canvas, 140 x 201 cm; Solomon R. Guggenheim Museum, New York"
+msgstr "Oil on canvas, 140 x 201 cm; Solomon R. Guggenheim Museum, New York"
+
+#: ../boards/paintings/board4_0.xml.in.h:1
+msgid "Bazille, The Ramparts at Aigues-Mortes - 1867"
+msgstr "Bazille, The Ramparts at Aigues-Mortes - 1867"
+
+#: ../boards/paintings/board5_0.xml.in.h:1
+msgid "Cassatt, Mary - Summertime - 1894"
+msgstr "Cassatt, Mary - Summertime - 1894"
+
+#: ../boards/paintings/board6_0.xml.in.h:1
+msgid "Vincent Van Gogh, Village Street in Auvers - 1890"
+msgstr "Vincent Van Gogh, Village Street in Auvers - 1890"
+
+#: ../boards/paratrooper.xml.in.h:1
+msgid "Help Tux the parachutist land safely"
+msgstr "Tux가 낙하산으로 안전하게 착지하도록 도와주세요"
+
+#: ../boards/paratrooper.xml.in.h:2
+msgid ""
+"Hit any key or click on the plane to make Tux jump. Hit another key or click "
+"on Tux to open the parachute."
+msgstr ""
+"Tux가 점프하게 하려면 아무 키나 누르거나 클릭을 하세요. Tux가 낙하산을 펴게 "
+"하려면 키를 누르거나 클릭을 하세요."
+
+#: ../boards/paratrooper.xml.in.h:3
+msgid ""
+"In this game, Tux the parachutist needs help to land safely on the fishing "
+"boat. He needs to allow for the wind direction and speed."
+msgstr ""
+"이 게임에서는 Tux가 낙하산으로 낚시배에 안전하게 착지하도록 도우는 것입니다. "
+"바람의 방향과 속도에 맞추어야 합니다."
+
+#: ../boards/paratrooper.xml.in.h:4
+msgid "Parachutist"
+msgstr "낙하산 타는 펭귄"
+
+#: ../boards/paratrooper.xml.in.h:5
+msgid "This board is game-oriented. No specific skills are needed to play."
+msgstr "이 보드는 게임을 하기 위한것이고 다른 기술은 필요 없습니다."
+
+#: ../boards/planegame.xml.in.h:1
+msgid ""
+"Catch the numbers in increasing order, using the up, down, right and left "
+"arrows on the keyboard to move the helicopter."
+msgstr ""
+"키보드의 위, 아래, 오른쪽, 왼쪽 화살표를 이용해 헬리콥터를 움직여서 숫자가 커"
+"지는 순서대로 숫자를 잡으세요."
+
+#: ../boards/planegame.xml.in.h:2
+msgid "Move the helicopter to catch the clouds in the correct order"
+msgstr "헬리콥터를 움직여서 알맞는 순서의 구름을 잡으세요"
+
+#: ../boards/planegame.xml.in.h:3
+msgid "Number"
+msgstr "숫자"
+
+#: ../boards/planegame.xml.in.h:4 ../src/boards/planegame.c:74
+msgid "Numbers in Order"
+msgstr "헬기"
+
+#: ../boards/puzzle.xml.in.h:1
+msgid "Puzzles"
+msgstr "퍼즐"
+
+#: ../boards/puzzle.xml.in.h:2
+msgid "Various puzzles."
+msgstr "여러가지 퍼즐."
+
+#: ../boards/pythontest.xml.in.h:1
+msgid "Add a language-binding to gcompris."
+msgstr "Add a language-binding to gcompris."
+
+#: ../boards/pythontest.xml.in.h:2
+msgid "Advanced Python Programmer :)"
+msgstr "Advanced Python Programmer :)"
+
+#: ../boards/pythontest.xml.in.h:3
+msgid "Python Test"
+msgstr "Python 테스트"
+
+#: ../boards/pythontest.xml.in.h:4
+msgid "Test board for the python plugin"
+msgstr "phthon 플러그인 테스트 보드"
+
+#: ../boards/pythontest.xml.in.h:5
+msgid ""
+"Thanks to Guido van Rossum and the python team for this powerful language!"
+msgstr "이러한 강력한 언어에 Guido van Rossum과 python 팀에게 감사합니다!"
+
+#: ../boards/railroad.xml.in.h:1
+msgid "A memory game based on trains"
+msgstr "기차로 하는 기억 게임"
+
+#: ../boards/railroad.xml.in.h:2
+msgid ""
+"A train - a locomotive and carriage(s) - is displayed at the top of the main "
+"area for a few seconds. Rebuild it at the top of the screen by selecting the "
+"appropriate carriages and locomotive. Deselect an item by clicking on it "
+"again. Check your construction by clicking on the hand at the bottom."
+msgstr ""
+"기차 - 기관차와 객차(들) - 는 주 영역의 윗쪽에 몇초간 표시됩니다.  알맞는 기"
+"관차와 객차를 선택해서 화면 위에 재 배열 하세요. 한번더 클릭해서 다시 선택할 "
+"수 있습니다. 아래에 있는 손 모양을 클릭해서 조합을 시험 해 보세요."
+
+#: ../boards/railroad.xml.in.h:3
+msgid "Memory-training"
+msgstr "기억 훈련"
+
+#: ../boards/railroad.xml.in.h:5
+msgid "Railway"
+msgstr "철도"
+
+#: ../boards/read_colors.xml.in.h:2
+msgid "Click on the correct colored object."
+msgstr "알맞는 색깔의 대상을 클릭하세요."
+
+#: ../boards/read_colors.xml.in.h:3
+msgid "Click on the matching color"
+msgstr "알맞는 색깔을 클릭하세요"
+
+#: ../boards/read_colors.xml.in.h:4
+msgid "Read the names of colors"
+msgstr "색깔의 이름을 읽어보세요"
+
+#: ../boards/read_colors.xml.in.h:5
+msgid "This board teaches basic colors."
+msgstr "이 보드는 기본 색깔을 가르쳐 줍니다."
+
+#: ../boards/read_colors/board1.xml.in.h:1
+msgid "black"
+msgstr "검정"
+
+#: ../boards/read_colors/board1.xml.in.h:2
+msgid "blue"
+msgstr "파랑"
+
+#: ../boards/read_colors/board1.xml.in.h:3
+msgid "brown"
+msgstr "갈색"
+
+#: ../boards/read_colors/board1.xml.in.h:4
+msgid "green"
+msgstr "초록"
+
+#: ../boards/read_colors/board1.xml.in.h:5
+msgid "grey"
+msgstr "회색"
+
+#: ../boards/read_colors/board1.xml.in.h:6
+msgid "orange"
+msgstr "오렌지색"
+
+#: ../boards/read_colors/board1.xml.in.h:7
+msgid "pink"
+msgstr "분홍"
+
+#: ../boards/read_colors/board1.xml.in.h:8
+msgid "red"
+msgstr "빨강"
+
+#: ../boards/read_colors/board1.xml.in.h:9
+msgid "violet"
+msgstr "보라"
+
+#: ../boards/read_colors/board1.xml.in.h:10
+msgid "white"
+msgstr "흰색"
+
+#: ../boards/read_colors/board1.xml.in.h:11
+msgid "yellow"
+msgstr "노랑"
+
+#: ../boards/reading.xml.in.h:1
+msgid "Go to the Reading activities"
+msgstr "읽기 놀이"
+
+#: ../boards/reading.xml.in.h:2
+msgid "Reading activities."
+msgstr "읽기 놀이"
+
+#: ../boards/readingh.xml.in.h:1 ../boards/readingv.xml.in.h:1
+msgid ""
+"A word is shown at the top right of the board. A list of words will appear "
+"and disappear on the left. Does the given word belong to the list?"
+msgstr ""
+"단어가 보드의 오른쪽 위에 보입니다. 단어의 목록이 왼쪽에 생겼다가 사라질 것 "
+"입니다. 주어진 단어가 목록에 포함되어 있나요?"
+
+#: ../boards/readingh.xml.in.h:2
+msgid "Horizontal reading practice"
+msgstr "수평 읽기 연습"
+
+#: ../boards/readingh.xml.in.h:3
+msgid "Read a list of words and work out if a given word is in it"
+msgstr "단어의 목록을 읽고 단어가 목록에 속해 있는지 알아보세요"
+
+#: ../boards/readingh.xml.in.h:5
+msgid "Reading training in a limited time"
+msgstr "제한된 시간에 읽기 연습"
+
+#: ../boards/readingv.xml.in.h:2
+msgid "Read a vertical list of words and work out if a given word is in it"
+msgstr "수직 단어 목록을 읽고 주어진 단어가 목록에 있는지 알아보세요"
+
+#: ../boards/readingv.xml.in.h:3
+msgid "Read training in a limited time"
+msgstr "제한된 시간에 읽기 훈련"
+
+#: ../boards/readingv.xml.in.h:5
+msgid "Vertical-reading practice"
+msgstr "수직 읽기 연습"
+
+#: ../boards/redraw.xml.in.h:1
+msgid "Copy a drawing from the box on the right into the box on the left."
+msgstr ""
+"오른쪽 상자에서 그림을 복사해서 왼쪽 상자에 넣으세요."
+
+#: ../boards/redraw.xml.in.h:2
+msgid ""
+"First, select the proper tool from the toolbar. Then drag the mouse to "
+"create objects. When you are done, click on the OK button. Errors will be "
+"marked with a little red cross. The order of objects (above/under) is not "
+"important but be careful not to end up with unwanted objects under others."
+msgstr ""
+"첫번째로, 알맞는 도구상자에서 알맞는 도구를 선택하세요. 그리고 마우스를 끌어"
+"서 대상을 만드세요. 그리기를 끝마쳤으면 OK 버튼을 누르세요. 작은 빨간 줄로 오"
+"류가 표시될것입니다. 순서(위/아래)는 중요하지 않지만 적절하지 않은 것이 들어"
+"가지 않도록 주의하세요."
+
+#: ../boards/redraw.xml.in.h:3
+msgid "Redraw the given item"
+msgstr "주어진 것을 다시 그리세요"
+
+#: ../boards/redraw_symmetrical.xml.in.h:1
+msgid ""
+"Copy the mirror image of an object from the box on the right into the box on "
+"the left."
+msgstr "거울속 그림을 오른쪽 상자에서 복사해서 왼쪽 박스에 넣으세요."
+
+#: ../boards/redraw_symmetrical.xml.in.h:2
+msgid ""
+"First, select the proper tool from the toolbar. Then drag the mouse to "
+"create objects. When you are done, click on the OK button. A little red "
+"cross will show you where something isn't right yet. The order of objects "
+"(above/under) is not important but be careful not to end up with unwanted "
+"objects under others."
+msgstr ""
+"첫번째로, 알맞는 도구를 도구상자에서 선택하세요. 그리고 마우스를 끌어서 첫번"
+"째로, 알맞는 도구상자에서 알맞는 도구를 선택하세요. 그리고 마우스를 끌어서 대"
+"상을 만드세요. 그리기를 끝마쳤으면 OK 버튼을 누르세요. 작은 빨간 줄로 오류가 "
+"표시될것입니다. 순서(위/아래)는 중요하지 않지만 적절하지 않은 것이 들어가지 "
+"않도록 주의하세요."
+
+#: ../boards/redraw_symmetrical.xml.in.h:3
+msgid "Mirror the given item"
+msgstr "주어진 것을 반사하세요"
+
+#: ../boards/reversecount.xml.in.h:1
+msgid ""
+"Can move the mouse, can read numbers and subtract numbers up to 10 for the "
+"first level"
+msgstr "첫 단계로 마우스를 움직이고 숫자를 읽어서 10 이상의 숫자를 빼세요"
+
+#: ../boards/reversecount.xml.in.h:2
+msgid ""
+"Click on the dice to show how many ice spots there are between Tux and the "
+"fish. Click the dice with the right mouse button to count backwards. When "
+"done, click on the OK button or hit the Enter key."
+msgstr ""
+"Tux와 물고기 사이에 몇개의 눈이 있는지 보이기 위해서 주사위를 클릭하세요. 주"
+"사위를 마우스 오른족 버튼으로 클릭해서 숫자를 뒤로 세세요. 다 했다면, OK 버튼"
+"을 클릭하거나 엔터키를 치세요."
+
+#: ../boards/reversecount.xml.in.h:3
+msgid "Practice subtraction with a fun game"
+msgstr "물고기 먹기"
+
+#: ../boards/reversecount.xml.in.h:4
+msgid "Tux is hungry. Help him find fish by counting to the correct ice spot."
+msgstr ""
+"Tux는 배가 고파요. 알맞는 주사위의 점의 갯수를 세어서 물고기를 찾아 Tux를 도와주세"
+"요."
+
+#: ../boards/scales/board1_0.xml.in.h:1 ../boards/scales/board1_1.xml.in.h:1
+#: ../boards/scales/board1_2.xml.in.h:1 ../boards/scales/board1_3.xml.in.h:1
+#: ../boards/scales/board1_4.xml.in.h:1 ../boards/scales/board1_5.xml.in.h:1
+#: ../boards/scales/board2_0.xml.in.h:1 ../boards/scales/board2_1.xml.in.h:1
+#: ../boards/scales/board2_2.xml.in.h:1 ../boards/scales/board2_3.xml.in.h:1
+#: ../boards/scales/board2_4.xml.in.h:1 ../boards/scales/board2_5.xml.in.h:1
+#: ../boards/scales/board3_0.xml.in.h:1 ../boards/scales/board3_1.xml.in.h:1
+#: ../boards/scales/board3_2.xml.in.h:1 ../boards/scales/board3_3.xml.in.h:1
+#: ../boards/scales/board3_4.xml.in.h:1 ../boards/scales/board3_5.xml.in.h:1
+#: ../boards/scalesboard.xml.in.h:2
+msgid "Drag and Drop masses to balance the scales"
+msgstr "물건들을 끌어 놓아서 저울의 균형을 맞추세요"
+
+#: ../boards/scalesboard.xml.in.h:1
+msgid "Balance the scales properly"
+msgstr "저울의 균형을 맞추세요"
+
+#: ../boards/scalesboard.xml.in.h:3
+msgid "Mental calculation, arithmetic equality"
+msgstr "암산, 등식"
+
+#: ../boards/scalesboard.xml.in.h:4
+msgid ""
+"The painting is an original painting created by Virginie MOREAU (virginie."
+"moreau@free.fr) in 2001. Its name is 'Spices Seller in Egypt'. It is "
+"released under the GPL licence."
+msgstr ""
+"이 그림은 Virginie MOREAU (virginie.moreau@free.fr)이 2001년에 만든 원본 입니"
+"다. 그림의 이름은 '이집트의 향신료 파는사람' 입니다. 이것은 GPL 라이센스로 발"
+"간되었습니다"
+
+#: ../boards/scalesboard.xml.in.h:5
+msgid ""
+"To balance the scales, move the masses on the left side. The masses can be "
+"arranged in any order."
+msgstr ""
+"저울의 균형을 맞추려면 왼쪽의 물건들을 움직이세요. 물건들의 순서는 상관없습니"
+"다."
+
+#: ../boards/searace.xml.in.h:1
+msgid "Direct your boat accurately to win the race."
+msgstr "보트를 정확하게 향해서 경주를 이기세요."
+
+#: ../boards/searace.xml.in.h:2 ../boards/searace1player.xml.in.h:2
+msgid ""
+"In the text entry, enter one command per line, to control your boat. "
+"Commands supported are displayed between the two entry areas. The 'left' and "
+"'right' commands must be followed by an angle in degrees. The angle value is "
+"also called a 'parameter' to the left or right command. By default 45 "
+"degrees is used. The 'forward' command accepts a distance parameter. By "
+"default 1 is used. For example: left 90 => Make a perpendicular left turn "
+"forward 10 => Go forward for 10 units (as displayed on the ruler). The goal "
+"is to reach the right of the screen (the red line). When done, you can try "
+"to improve your program and start a new race with the same weather "
+"conditions by using the retry button. You can click and drag your mouse "
+"anywhere on the map to get a measurement in distance and angle. Going to the "
+"next level will give you more complex weather conditions."
+msgstr ""
+"보트를 조종하려면 텍스트 목록에서 한줄에 한개씩 명령어를 입력하세요 실행되는 "
+"명령들은 목록영역 사이에 표시뒵니다. '왼쪽'과 '오른쪽' 명령은 각도에 따라야 "
+"합니다. 각도값은 왼쪽과 오른쪽 명령에 대해 '변수'입니다. 초기값은 45도 입니"
+"다. '앞으로' 명령은 거리 변수를 받습니다. 초기값은 1 입니다. 예: 왼쪽 90 => "
+"수직 왼쪽 회전하기 앞으로 10 => 앞으로 10 유닛(자에 나타난것에 따라) 가기. 목"
+"표는 화면의 오른쪽에 도달하는것 입니다(빨간줄). 도달되면, 프로그램을 향상시킬"
+"수 있고 재시작 버튼을 이용해서 같은 환경에서 게임을 다시 할 수 있습니다. 각도"
+"와 거리를 조절하기 위해서 마우스는 어디서나 클릭하고 드래그 할수있습니다. 다"
+"음 단계로 가면 더 복잡한 환경에서 게임을 하게 됩니다."
+
+#: ../boards/searace.xml.in.h:3 ../boards/searace1player.xml.in.h:3
+msgid ""
+"In this activity, you will learn how to enter commands into a computer. Even "
+"if the language is extremely basic, you learn here how to think ahead and "
+"construct a program. This activity can be used to introduce the programming "
+"concept to children."
+msgstr ""
+"이번에는, 컴퓨터에 어떻게 명령을 넣는지 배우게 됩니다. 언어가 매우 단순하더라"
+"도 어떻게 생각하고 프로그램을 만드는지 배우게 됩니다. 이 활동은 아이들에게 프"
+"로그래밍의 개념을 소개하는데 사용 될 수 있습니다."
+
+#: ../boards/searace.xml.in.h:4
+msgid "Sea race (2 Players)"
+msgstr "바다 경주 (2명)"
+
+#: ../boards/searace1player.xml.in.h:1
+msgid "Give good instructions to your ship in order to be first in the race."
+msgstr "경주에 이기려면 자기 배를 잘 조종하세요."
+
+#: ../boards/searace1player.xml.in.h:4
+msgid "Sea race (Single Player)"
+msgstr "바다 경주 (1명)"
+
+#: ../boards/smallnumbers.xml.in.h:1 ../boards/smallnumbers2.xml.in.h:1
+msgid "Count the number of dots on dice before they reach the ground"
+msgstr "땅에 닿기전에 주사위에 있는 점의 갯수를 입력하세요"
+
+#: ../boards/smallnumbers.xml.in.h:2 ../boards/smallnumbers2.xml.in.h:2
+msgid "Counting skills"
+msgstr "숫자세기 기술"
+
+#: ../boards/smallnumbers.xml.in.h:3 ../boards/smallnumbers2.xml.in.h:3
+msgid "In a limited time, count the number of dots"
+msgstr "제한된 시간에 점의 갯수를 세세요"
+
+#: ../boards/smallnumbers.xml.in.h:4
+msgid "Numbers With Dice"
+msgstr "주사위 점세기"
+
+#: ../boards/smallnumbers.xml.in.h:5 ../boards/smallnumbers2.xml.in.h:5
+msgid "With the keyboard, type the number of dots you see on the falling dice."
+msgstr "키보드로 떨어지는 주사위에서 본 점의 갯수를 적으세요."
+
+#: ../boards/smallnumbers2.xml.in.h:4
+msgid "Numbers with pairs of dice"
+msgstr "두 주사위에 있는 점의 갯수 세기"
+
+#: ../boards/sound_group.xml.in.h:1
+msgid "Go to Sound activities"
+msgstr "소리 놀이로 가기"
+
+#: ../boards/sound_group.xml.in.h:2
+msgid "Sound based activities."
+msgstr "소리로 하는 놀이들."
+
+#: ../boards/strategy.xml.in.h:1
+msgid "Strategy games"
+msgstr "전략 게임"
+
+#: ../boards/strategy.xml.in.h:2
+msgid "Strategy games like chess, connect4, ..."
+msgstr "전술 게임(체스, connect4, ..."
+
+#: ../boards/submarine.xml.in.h:1
+msgid ""
+"Click on different active elements : engine, rudders and air tanks, in order "
+"to navigate to the required depth."
+msgstr ""
+"요구되는 깊이까지 가기 위해서 다른 추진 요소를 클릭하세요 : 엔진, 방향키, 공"
+"기탱크."
+
+#: ../boards/submarine.xml.in.h:2
+msgid "Learn how a submarine works"
+msgstr "잠수함이 어떻게 동작하는지 배우기"
+
+#: ../boards/submarine.xml.in.h:3
+msgid "Physics basics"
+msgstr "물리 기초"
+
+#: ../boards/submarine.xml.in.h:4
+msgid "Pilot a submarine"
+msgstr "잠수함을 조종하세요"
+
+#: ../boards/submarine.xml.in.h:5
+msgid "Pilot a submarine using air tanks and dive rudders"
+msgstr "공기탱크와 엔진을 조작하여 잠수함 조정하기"
+
+#: ../boards/sudoku.xml.in.h:1
+msgid "Completing the puzzle requires patience and logical ability"
+msgstr "퍼즐맞추기 경기는 인내와 논리적 능력을 요구합니다"
+
+#: ../boards/sudoku.xml.in.h:2
+msgid ""
+"For the first level with colored symbols, drag symbols on the left to their "
+"target position. For the higher levels, click on an empty square to give it "
+"the keyboard focus. Then enter a possible letter or number. GCompris will "
+"not let you enter invalid data."
+msgstr ""
+"첫번째 단계에서는 색깔 표본을 왼쪽 목표물까지 끌고가세요. 더 높은 단계에서는 "
+"빈공간을 클릭해서 키보드의 촛점을 맞추세요. 그래서 가능한 글자나 숫자를 넣으"
+"세요. GCompris 는 알맞지 않은 정보를 입력 할 수 없습니다."
+
+#: ../boards/sudoku.xml.in.h:3
+msgid "Sudoku, place unique symbols in a square."
+msgstr "수도쿠, 특정한 표본을 사각형 않에 넣으세요."
+
+#: ../boards/sudoku.xml.in.h:4
+msgid ""
+"Symbols must be unique in a row, in a column, and (if defined) each region."
+msgstr ""
+"표본들은 줄과 열, 또는 각각의 영역(표시되었다면) 에서 하나이어야 합니다."
+
+#: ../boards/sudoku.xml.in.h:5
+msgid ""
+"The aim of the puzzle is to enter a symbol or numeral from 1 through 9 in "
+"each cell of a grid, most frequently a 9x9 grid made up of 3x3 subgrids "
+"(called 'regions'), starting with various symbols or numerals given in some "
+"cells (the 'givens'). Each row, column and region must contain only one "
+"instance of each symbol or numeral (Source &lt;http://en.wikipedia.org/wiki/"
+"Sudoku&gt;)."
+msgstr ""
+"퍼즐의 목표는 기호나 숫자(1~9)를 격자 안에 집어 넣는 것입니다. 3x3 작은 격자"
+"로 구성된 주어진 칸에 여러가지 기호와 숫자로 구성된 9x9격자가 많습니다. 각각"
+"의 줄, 열, 지역은 오직 하나의 기호나 숫자만을 포함해야합니다. (Source &lt;"
+"http://en.wikipedia.org/wiki/Sudoku&gt;)."
+
+#: ../boards/superbrain.xml.in.h:1
+msgid ""
+"Click on the items until you find what you think is the correct answer. "
+"Then, click on the OK button in the control bar. In the lower levels, Tux "
+"gives you an indication if you found a hiding place by marking the item with "
+"a black box. You can use the right mouse button to flip the colors in the "
+"opposite order."
+msgstr ""
+"생각했던 것이 알맞는 답일때까지 아이템을 클릭하세요. 그다음, 컨트롤바에 있는 "
+"OK버튼을 클릭하세요. 낮은 단계에서는, 숨겨진 장소를 찾아서 검은 상자로 표시했"
+"을때 Tux가 지시를 할것입니다. 반대쪽에 있는 숫자를 바꾸기 위해서 마우스 오른"
+"쪽 버튼을 사용할 수 있습니다."
+
+#: ../boards/superbrain.xml.in.h:2 ../src/boards/superbrain.c:106
+msgid "Super Brain"
+msgstr "슈퍼 두뇌"
+
+#: ../boards/superbrain.xml.in.h:3 ../src/boards/superbrain.c:107
+msgid "Tux has hidden several items. Find them again in the correct order"
+msgstr ""
+"Tux가 몇가지 아이템을 숨기고 있습니다. 알맞는 순서로 그것들을 다시 찾으세요"
+
+#: ../boards/tangram.xml.in.h:1
+msgid ""
+"From Wikipedia, the free encyclopedia. Tangram (Chinese: literally \"seven "
+"boards of cunning\") is a Chinese puzzle. While the tangram is often said to "
+"be ancient, its existence has only been verified as far back as 1800. It "
+"consists of 7 pieces, called tans, which fit together to form a square; "
+"taking the square as the unit:\n"
+"\t* 5 right isosceles triangles\n"
+"\t\to 2 small (legs of 1)\n"
+"\t\to 1 medium size (legs of square root of 2)\n"
+"\t\to 2 large size (legs of 2)\n"
+"\t* 1 square (side of 1)\n"
+"\t* 1 parallelogram (sides of 1 and square root of 2)"
+msgstr ""
+"Wikipedia 백과사전에서 Tangram(중국어: \"일곱 보드 컨닝\")은 중국 퍼즐이라고 "
+"나와 있습니다. tangram은 고전으로 불리고 있지만 이것은 1800년대 이후에서나 존"
+"재한다고 합니다. 이것은 7개의 tan이라고 불리는 조각들로 이루어 져 있고 모여"
+"서 정 사각형을 만듭들어 하나의 개체를 형성합니다:\n"
+"\t* 5개 직각 이등변 삼각형\n"
+"\t\to 2개 작은것(변중 하나)\n"
+"\t\to 1개 중간 크기의것(두개의 제곱근인 변)\n"
+"\t\to 2개 큰것(2 변)\n"
+"\t* 1개 정사각형(1쪽 면)\n"
+"\t* 1개 평행사변형 ( 1의 한면, 2의 제곱근)"
+
+#: ../boards/tangram.xml.in.h:9
+msgid ""
+"Select the tangram to form. Move a piece by dragging it. Right-click on it "
+"to create a symmetrical item. Select an item and drag around it to show the "
+"rotation you want. Once you've shown what shape you want, the computer will "
+"create it. If you need help, click on the shape button, and the border of "
+"the shape will be drawn."
+msgstr ""
+"tangram 을 선택하세요. 드래그 해서 한 조각을 선택하세요. 오른쪽 클릭으로 대칭"
+"으로 만들수 있습니다. 하나를 선택해서 원하는 회전을 보이려면 그것을 드래그하"
+"세요. 원하는 모양을 보였다면, 컴퓨터가 그것을 만들것입니다. 도움이 필요하다"
+"면 모양 버튼을 클릭하세요 그러면 그 모양의 가장자리가 그려질것입니다."
+
+#: ../boards/tangram.xml.in.h:10
+msgid "The objective is to form a given shape with seven pieces"
+msgstr "일곱조각으로 주어진 모양을 만드는 것입니다"
+
+#: ../boards/tangram.xml.in.h:11
+msgid ""
+"The original code was written by Philippe Banwarth in 1999. It was ported to "
+"GCompris by Yves Combe in 2005."
+msgstr ""
+"오리지날 코드는 Philippe Banwarth 에 의해서 1999에 쓰여졌습니다. 이것은 "
+"GCompris 로 Yves Combe에 의해 2005년에 이전되었습니다."
+
+#: ../boards/tangram.xml.in.h:12
+msgid "The tangram puzzle game"
+msgstr "tangram 퍼즐 게임"
+
+#: ../boards/target.xml.in.h:1
+msgid ""
+"Can move the mouse, can read numbers and count up to 15 for the first level"
+msgstr "첫 단계에서는 마우스를 움직일수 있고 숫자를 15 이상 읽을 수 있습니다"
+
+#: ../boards/target.xml.in.h:2
+msgid ""
+"Check the wind speed and direction, and then click on the target to launch a "
+"dart. When you all your darts are thrown, a window appears asking you to "
+"count your score. Enter the score with the keyboard then press the Enter key "
+"or the OK button."
+msgstr ""
+"바람의 속도와 방향을 고려하고, 다트를 맞출 목표를 클릭하세요. 만약 다트를 다 "
+"던졋다면 점수를 세는 창이 나타날 것 입니다.  키보드로 점수를 입력하고 엔터키"
+"를 치거나 OK버튼을 누르세요."
+
+#: ../boards/target.xml.in.h:3
+msgid "Hit the target and count your points"
+msgstr "목표물을 맞추고 점수를 세어보세요"
+
+#: ../boards/target.xml.in.h:4
+msgid "Practice addition with a target game"
+msgstr "목표물 맞추기로 덧셈 연습하기"
+
+#: ../boards/target.xml.in.h:5
+msgid "Throw darts at a target and count your score."
+msgstr "목표물을 향해 다트를 던지고 점수를 세어보세요."
+
+#: ../boards/traffic.xml.in.h:1
+msgid "A sliding-block puzzle game"
+msgstr "주차장 게임"
+
+#: ../boards/traffic.xml.in.h:2
+msgid ""
+"Each car can only move either horizontally or vertically. You must make some "
+"room in order to let the red car move through the gate on the right."
+msgstr ""
+"각각의 차는 수평이나 수직으로만 움직일 수 있습니다. 빨간 차가 오른쪽의 통로"
+"로 나가게 하려면 공간을 만들어야 합니다."
+
+#: ../boards/traffic.xml.in.h:3
+msgid "Remove the red car from the parking lot through the gate on the right"
+msgstr "오른쪽의 통로를 통해서 주차장에 있는 빨간 차를 빼내세요"
+
+#: ../boards/tuxpaint.xml.in.h:1
+msgid "Drawing activity (pixmap)"
+msgstr "그리기 활동(pixmap)"
+
+#: ../boards/tuxpaint.xml.in.h:2
+msgid "Launch Tuxpaint"
+msgstr "Tuxpaint 실행"
+
+#: ../boards/tuxpaint.xml.in.h:3
+msgid "Tuxpaint"
+msgstr "Tuxpaint"
+
+#: ../boards/tuxpaint.xml.in.h:4
+msgid "Use Tuxpaint to draw. When Tuxpaint is finished this board will end."
+msgstr ""
+"그리기를 하려면 Tuxpaint를 사용하세요. 이 보드가 끝나면 Tuxpaint도 종료됩니"
+"다."
+
+#: ../boards/tuxpaint.xml.in.h:5
+msgid "mouse and keyboard manipulation"
+msgstr "마우스와 키보드 다루기"
+
+#: ../boards/watercycle.xml.in.h:1
+msgid ""
+"Click on different active elements : sun, cloud, water pump station, and "
+"water cleanup station, in order to reactivate the entire water system. When "
+"the system is back up and Tux is in the shower, push the shower button for "
+"him."
+msgstr ""
+"물 공급 시스템을 다시 활성화 시키려면 다른 활동 요소를 클릭하세요 : 해, 구"
+"름, 물펌프장, 물세탁장. 시스템이 활성화되고 Tux가 샤워를 하려면 샤워 버튼을 "
+"누르세요."
+
+#: ../boards/watercycle.xml.in.h:2
+msgid "Learn about the water cycle"
+msgstr "물의 순환 배우기"
+
+#: ../boards/watercycle.xml.in.h:3
+msgid "Learn the water cycle"
+msgstr "물의 순환 배우기"
+
+#: ../boards/watercycle.xml.in.h:4
+msgid ""
+"Tux has come back from a long fishing party on his boat. Bring the water "
+"system back up so he can take a shower."
+msgstr ""
+"Tux가 보트에서 긴 낚시를 끝내고 돌아왔습니다. 수도 시스템을 활성화 시켜서 샤"
+"워를 할수 있도록 하세요."
+
+#: ../boards/wordsgame.xml.in.h:1 ../src/boards/wordsgame.c:110
+msgid "Falling Words"
+msgstr "떨어지는 단어"
+
+#: ../boards/wordsgame.xml.in.h:3
+msgid "Keyboard training"
+msgstr "키보드 훈련"
+
+#: ../boards/wordsgame.xml.in.h:4
+msgid "Type the complete word as it falls, before it reachs the ground"
+msgstr "떨어지는 단어를 땅에 닿기 전에 정확히 입력하세요"
+
+#: ../boards/wordsgame.xml.in.h:5 ../src/boards/wordsgame.c:111
+msgid "Type the falling words before they reach the ground"
+msgstr "떨어지는 단어를 땅에 닿기 전에 입력하세요"
+
+#: ../gcompris-edit.desktop.in.h:1
+msgid "Administration for gcompris"
+msgstr "gcompris 관리"
+
+#: ../gcompris.desktop.in.h:1
+msgid "Educational game for ages 2 to 10"
+msgstr "2~10세 아이들의 위한 교육 게임"
+
+#: ../gcompris.desktop.in.h:2
+msgid "Educational suite GCompris"
+msgstr "교육 도우미 GCompris"
+
+#: ../gcompris.desktop.in.h:3
+msgid "Multi-activity educational game"
+msgstr "여러가지 교육 활동 게임"
+
+#: ../src/boards/awele.c:352 ../src/boards/awele.c:362
+msgid "NORTH"
+msgstr "북쪽"
+
+#: ../src/boards/awele.c:374 ../src/boards/awele.c:384
+msgid "SOUTH"
+msgstr "남쪽"
+
+#: ../src/boards/awele.c:553
+msgid "Choose a house"
+msgstr "집을 선택하세요"
+
+#: ../src/boards/awele.c:681
+msgid "Your turn to play ..."
+msgstr "당신이 할 차례 입니다"
+
+#: ../src/boards/awele.c:750
+msgid "Not allowed! Try again !"
+msgstr "안됩니다! 다시 해보세요 !"
+
+#: ../src/boards/chess.c:179
+msgid "Error: The external program gnuchess died unexpectedly"
+msgstr ""
+
+#: ../src/boards/chess.c:194
+#, fuzzy
+msgid ""
+"Error: The external program gnuchess is required\n"
+"to play chess in gcompris.\n"
+"Find this program on http://www.rpmfind.net or in your\n"
+"GNU/Linux distribution\n"
+"And check it is located here: "
+msgstr ""
+"오류:  The external program gnuchess is mandatory\n"
+"gcompris에서 체스 게임하기.\n"
+"http://www.rpmfind.net 에서 이 프로그램을 찾으세요\n"
+"GNU/Linux 배포\n"
+"그리고 이곳에 있는지 확인해 보세요: "
+
+#: ../src/boards/chess.c:236
+#, fuzzy
+msgid ""
+"Error: The external program gnuchess is mandatory\n"
+"to play chess in gcompris.\n"
+"First install it, and check it is in "
+msgstr ""
+"Error: The external program gnuchess is mandatory\n"
+"gcompris에서 체스게임 하기.\n"
+"http://www.rpmfind.net 에서 이 프로그램을 찾으세요\n"
+"GNU/Linux 배포\n"
+"그리고 이곳에 있는지 확인해 보세요: "
+
+#: ../src/boards/chess.c:579
+msgid "White's Turn"
+msgstr "흰색 차례"
+
+#: ../src/boards/chess.c:579
+msgid "Black's Turn"
+msgstr "검은색 차례"
+
+#: ../src/boards/chess.c:723
+msgid "White checks"
+msgstr "흰색 체크"
+
+#: ../src/boards/chess.c:725
+msgid "Black checks"
+msgstr "검은색 체크"
+
+#: ../src/boards/chess.c:1082
+msgid "Black mates"
+msgstr "검은색 체크당함"
+
+#: ../src/boards/chess.c:1087
+msgid "White mates"
+msgstr "흰색 체크당함"
+
+#: ../src/boards/chess.c:1092 ../src/gcompris/bonus.c:342
+#: ../src/gcompris/bonus.c:351
+msgid "Drawn game"
+msgstr "그리기 게임"
+
+#: ../src/boards/chess.c:1120
+msgid "Error: The external program gnuchess died unexpectingly"
+msgstr ""
+
+#: ../src/boards/click_on_letter.c:259 ../src/boards/memory.c:827
+msgid ""
+"Error: this activity cannot be played with the\n"
+"sound effects disabled.\n"
+"Go to the configuration dialog to\n"
+"enable the sound"
+msgstr ""
+"오류: 이 활동은 같이 할 수 없습니다\n"
+"음향 효과 사라짐.\n"
+"조합 대화창으로 가기\n"
+"소리 켜기"
+
+#. TRANSLATORS: Put here the alphabet in your language
+#. require by all utf8-functions
+#. TRANSLATORS: Put here the alphabet lowercase in your language
+#: ../src/boards/click_on_letter.c:264 ../src/boards/gletters.c:231
+#: ../src/boards/memory.c:848
+msgid "abcdefghijklmnopqrstuvwxyz"
+msgstr "abcdefghijklmnopqrstuvwxyz"
+
+#: ../src/boards/click_on_letter.c:286
+#, c-format
+msgid ""
+"Error: this activity requires that you first install\n"
+"the packages with gcompris voices for the locale '%s' or '%s'"
+msgstr ""
+"오류: 이 활동은 처음 설치한것이 필요합니다\n"
+"gcompris 소리 꾸러미의 위치는 '%s' or '%s'입니다."
+
+#: ../src/boards/click_on_letter.c:294
+#, c-format
+msgid ""
+"Error: this activity requires that you first install\n"
+"the packages with GCompris voices for the locale '%s' ! Fallback to english, "
+"sorry!"
+msgstr ""
+"오류: 이 활동은 처음 설치한 것이 필요합니다\n"
+"gcompris 소리 꾸러미의 위치는 '%s'입니다! 영어로 돌아가세요, 죄송합니다"
+
+#. toggle box
+#: ../src/boards/click_on_letter.c:646 ../src/boards/gletters.c:898
+#: ../src/boards/python/login.py:540
+msgid "Uppercase only text"
+msgstr "대문자만 있는 글"
+
+#: ../src/boards/clockgame.c:552 ../src/boards/clockgame.c:562
+msgid "Set the watch to:"
+msgstr "시계를 맞추세요:"
+
+#: ../src/boards/colors.c:54
+msgid "Click on the blue duck"
+msgstr "파란 오리를 클릭하세요"
+
+#: ../src/boards/colors.c:55
+msgid "Click on the brown duck"
+msgstr "갈색 오리를 클릭하세요"
+
+#: ../src/boards/colors.c:56
+msgid "Click on the green duck"
+msgstr "초록색 오리를 클릭하세요"
+
+#: ../src/boards/colors.c:57
+msgid "Click on the grey duck"
+msgstr "회색 오리를 클릭하세요"
+
+#: ../src/boards/colors.c:58
+msgid "Click on the orange duck"
+msgstr "오랜지색 오리를 클릭하세요"
+
+#: ../src/boards/colors.c:59
+msgid "Click on the purple duck"
+msgstr "보라색 오리를 클릭하세요"
+
+#: ../src/boards/colors.c:60
+msgid "Click on the red duck"
+msgstr "빨간 오리를 클릭하세요"
+
+#: ../src/boards/colors.c:61
+msgid "Click on the yellow duck"
+msgstr "노란 오리를 클릭하세요"
+
+#: ../src/boards/colors.c:62
+msgid "Click on the black duck"
+msgstr "검은 오리를 클릭하세요"
+
+#: ../src/boards/colors.c:63
+msgid "Click on the white duck"
+msgstr "흰색 오리를 클릭하세요"
+
+#. TRANSLATORS: Put here the numbers in your language
+#: ../src/boards/gletters.c:227 ../src/boards/memory.c:844
+msgid "0123456789"
+msgstr "0123456789"
+
+#. TRANSLATORS: Put here the alphabet uppercase in your language
+#: ../src/boards/gletters.c:237 ../src/boards/memory.c:854
+msgid "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+msgstr "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+
+#: ../src/boards/hanoi.c:332 ../src/boards/hanoi.c:343
+msgid ""
+"Build the same tower in the empty area as the one you see on the right-hand "
+"side."
+msgstr "오른쪽에서 본 것과 같은 탑을 빈 공간에 지으세요."
+
+#: ../src/boards/hanoi_real.c:72
+msgid "Tower of Hanoi"
+msgstr "하노이 탑"
+
+#: ../src/boards/hanoi_real.c:273 ../src/boards/hanoi_real.c:284
+msgid "Move the entire stack to the right peg, one disc at a time"
+msgstr "쌓은것 모두를 오른쪽 쐐기 디스크에 한번에 옮기세요"
+
+#: ../src/boards/imageid.c:104 ../src/boards/missingletter.c:102
+msgid "Learn how to read"
+msgstr "읽는법 배우기"
+
+#: ../src/boards/leftright.c:277 ../src/boards/leftright.c:287
+#: ../src/boards/python/searace.py:428 ../src/boards/python/searace.py:453
+#: ../src/boards/python/searace.py:543 ../src/boards/python/searace.py:855
+#: ../src/boards/python/searace.py:888 ../src/boards/python/searace.py:985
+msgid "left"
+msgstr "왼쪽"
+
+#: ../src/boards/leftright.c:297 ../src/boards/leftright.c:307
+#: ../src/boards/python/searace.py:428 ../src/boards/python/searace.py:453
+#: ../src/boards/python/searace.py:552 ../src/boards/python/searace.py:857
+#: ../src/boards/python/searace.py:890 ../src/boards/python/searace.py:979
+msgid "right"
+msgstr "오른쪽"
+
+#: ../src/boards/maze.c:492
+msgid ""
+"Look at your position, then switch back to invisible mode to continue your "
+"moves"
+msgstr "자기의 위치를 보고 계속 움직이기 위해 안보이는 상태로 전환 하세요"
+
+#: ../src/boards/maze.c:494
+msgid ""
+"Look at your position, then switch back to 3D mode to continue your moves"
+msgstr "자기의 위치를 보고 계속 움직이기 위해 3D 상태로 전환하세요"
+
+#: ../src/boards/memory.c:287
+msgid "Memory"
+msgstr "기억"
+
+#: ../src/boards/memory.c:288
+msgid "Find the matching pair"
+msgstr "알맞는 짝을 찾으세요"
+
+#. TRANSLATORS: Put here the mathematical operators "+-?" for  your language.
+#: ../src/boards/memory.c:859
+msgid "+-×÷"
+msgstr ""
+
+#: ../src/boards/menu2.c:131
+msgid "Main Menu Second Version"
+msgstr "메인 메뉴 두번째 버젼"
+
+#: ../src/boards/menu2.c:132
+msgid "Select a Board"
+msgstr "보드를 선택하세요"
+
+#. Set here the way to display money. Change only the money sign, and it's place, always keep %.2f, it will be replaced by 0,34 if decimal is ',' in your locale
+#: ../src/boards/money.c:488
+#, c-format
+msgid "$ %.2f"
+msgstr "$ %.2f"
+
+#: ../src/boards/money.c:501
+#, c-format
+msgid "$ %.0f"
+msgstr "$ %.0f"
+
+#: ../src/boards/planegame.c:75
+msgid "Move the plane to catch the clouds in the correct order"
+msgstr "알맞는 순서로 구름을 잡기 위해 비행기를 움직이세요"
+
+#: ../src/boards/python.c:62 ../src/boards/python.c:86
+msgid "Python Board"
+msgstr "비단뱀 보드"
+
+#: ../src/boards/python.c:63 ../src/boards/python.c:87
+msgid "Special board that embeds python into gcompris."
+msgstr "비단뱀 보드를 gcompris에 포함하는 특별한 보드"
+
+#: ../src/boards/python/admin/board_list.py:89
+msgid "Select a profile:"
+msgstr "윤곽을 선택하세요:"
+
+#: ../src/boards/python/admin/board_list.py:145
+msgid "Filter"
+msgstr "필터"
+
+#: ../src/boards/python/admin/board_list.py:150
+msgid "Select all"
+msgstr "전체 선택"
+
+#: ../src/boards/python/admin/board_list.py:155
+msgid "Unselect all"
+msgstr "전체 선택 해제"
+
+#: ../src/boards/python/admin/board_list.py:160
+msgid "Locales"
+msgstr "장소"
+
+#: ../src/boards/python/admin/board_list.py:165
+msgid "Locales sound"
+msgstr "현장 소리"
+
+#: ../src/boards/python/admin/board_list.py:170
+msgid "Wordlist"
+msgstr "단어목록"
+
+#: ../src/boards/python/admin/board_list.py:177
+#: ../src/boards/python/admin/group_user_list.py:144
+#: ../src/boards/python/admin/user_list.py:186
+msgid "Login"
+msgstr "로그인"
+
+#: ../src/boards/python/admin/board_list.py:235
+msgid "Main menu"
+msgstr "메인 매뉴"
+
+#. columns for Board name
+#. column_pref = gtk.TreeViewColumn(_('Conf'))
+#. image = gtk.image_new_from_stock(gtk.STOCK_PREFERENCES, gtk.ICON_SIZE_MENU)
+#. image.show()
+#. column_pref.set_widget(image)
+#: ../src/boards/python/admin/board_list.py:292
+msgid "Active"
+msgstr "활동적"
+
+#: ../src/boards/python/admin/board_list.py:293
+msgid "Board title"
+msgstr "보드 제목"
+
+#: ../src/boards/python/admin/board_list.py:409
+#, python-format
+msgid "Filter Boards difficulty for profile %s"
+msgstr "윤곽에서 필터보드의 난이도 %s"
+
+#: ../src/boards/python/admin/board_list.py:440
+#, python-format
+msgid ""
+"<span size='x-large'> Select the difficulty range \n"
+"for profile <b>%s</b></span>"
+msgstr ""
+"<span size='x-large'> 난이도 범위를 선택하세요 \n"
+"윤곽 에서 <b>%s</b></span>"
+
+#. Init configuration window:
+#. all the configuration functions will use it
+#. all the configuration functions returns values for their key in
+#. the dict passed to the apply_callback
+#. the returned value is the main GtkVBox of the window,
+#. we can add what you want in it.
+#: ../src/boards/python/admin/board_list.py:631
+#: ../src/boards/python/admin/board_list.py:649
+#: ../src/boards/python/admin/wordlist.py:50 ../src/boards/python/login.py:535
+#: ../src/boards/python/pythontest.py:409 ../src/boards/python/tuxpaint.py:183
+#, python-format
+msgid ""
+"<b>%s</b> configuration\n"
+" for profile <b>%s</b>"
+msgstr ""
+"<b>%s</b> 조합\n"
+" for profile <b>%s</b>"
+
+#: ../src/boards/python/admin/board_list.py:661
+#: ../src/boards/python/pythontest.py:473
+msgid "Select sound locale"
+msgstr "소리의 위치를 선택하세요"
+
+#: ../src/boards/python/admin/class_edit.py:60
+msgid "Editing a Class"
+msgstr "반 편집"
+
+#: ../src/boards/python/admin/class_edit.py:65
+msgid "Editing class: "
+msgstr "반 편집: "
+
+#: ../src/boards/python/admin/class_edit.py:68
+msgid "Editing a new class"
+msgstr "새 반 편집하기"
+
+#: ../src/boards/python/admin/class_edit.py:90
+msgid "Class:"
+msgstr "반:"
+
+#. FIXME: How to remove the default selection
+#. Label and Entry for the teacher name
+#: ../src/boards/python/admin/class_edit.py:103
+msgid "Teacher:"
+msgstr "선생님:"
+
+#: ../src/boards/python/admin/class_edit.py:113
+msgid "Assign all the users belonging to this class"
+msgstr "모든 사용자들을 이 반에 속하도록 지정하세요"
+
+#: ../src/boards/python/admin/class_edit.py:253
+#: ../src/boards/python/admin/group_edit.py:265
+#: ../src/boards/python/admin/group_user_list.py:154
+#: ../src/boards/python/admin/user_list.py:196
+msgid "First Name"
+msgstr "이름"
+
+#: ../src/boards/python/admin/class_edit.py:264
+#: ../src/boards/python/admin/group_edit.py:276
+#: ../src/boards/python/admin/group_user_list.py:164
+#: ../src/boards/python/admin/user_list.py:206
+msgid "Last Name"
+msgstr "성"
+
+#: ../src/boards/python/admin/class_edit.py:341
+msgid "You need to provide at least a name for your class"
+msgstr "반에 이름을 알려 주어야 합니다"
+
+#: ../src/boards/python/admin/class_edit.py:387
+msgid "There is already a class with this name"
+msgstr "같은 이름의 반이  있습니다"
+
+#: ../src/boards/python/admin/class_list.py:169
+#: ../src/boards/python/admin/profile_edit.py:269
+#: ../src/boards/python/admin/profile_group_list.py:144
+msgid "Class"
+msgstr "반"
+
+#: ../src/boards/python/admin/class_list.py:179
+msgid "Teacher"
+msgstr "선생님"
+
+#: ../src/boards/python/admin/group_edit.py:60
+msgid "Editing a Group"
+msgstr "그룹 편집하기"
+
+#: ../src/boards/python/admin/group_edit.py:66
+msgid "Editing group: "
+msgstr "그룹 편집: "
+
+#: ../src/boards/python/admin/group_edit.py:67
+msgid " for class: "
+msgstr " 반: "
+
+#: ../src/boards/python/admin/group_edit.py:70
+msgid "Editing a new group"
+msgstr "새 그룹 편집하기"
+
+#: ../src/boards/python/admin/group_edit.py:90
+msgid "Group:"
+msgstr "그룹:"
+
+#. FIXME: How to remove the selection
+#. Label and Entry for the first name
+#: ../src/boards/python/admin/group_edit.py:102
+#: ../src/boards/python/admin/profile_edit.py:98
+msgid "Description:"
+msgstr "설명:"
+
+#. Top message gives instructions
+#: ../src/boards/python/admin/group_edit.py:113
+msgid "Assign all the users belonging to this group"
+msgstr "모든 사용자들을 이 그룹에 속하도록 지정하세요"
+
+#: ../src/boards/python/admin/group_edit.py:359
+msgid "You need to provide at least a name for your group"
+msgstr "그룹에 이름 하나를 알려 주어야 합니다"
+
+#: ../src/boards/python/admin/group_edit.py:373
+msgid "There is already a group with this name"
+msgstr "같은 이름의 그룹이 이미 있습니다"
+
+#: ../src/boards/python/admin/group_list.py:86
+msgid "Select a class:"
+msgstr "반을 선택하세요:"
+
+#: ../src/boards/python/admin/group_list.py:214
+#: ../src/boards/python/admin/profile_edit.py:279
+#: ../src/boards/python/admin/profile_group_list.py:154
+msgid "Group"
+msgstr "그룹"
+
+#: ../src/boards/python/admin/group_list.py:225
+#: ../src/boards/python/admin/profile_edit.py:289
+#: ../src/boards/python/admin/profile_group_list.py:164
+#: ../src/boards/python/admin/profile_list.py:198
+msgid "Description"
+msgstr "설명"
+
+#: ../src/boards/python/admin/group_list.py:322
+msgid "You must first select a group in the list"
+msgstr "먼저 목록에 있는 그룹을 선택해야 합니다"
+
+#: ../src/boards/python/admin/group_user_list.py:174
+#: ../src/boards/python/admin/user_list.py:216
+msgid "Birth Date"
+msgstr "생일"
+
+#: ../src/boards/python/admin/module_boards.py:42
+#: ../src/boards/python/admin/module_boards.py:62
+msgid "Boards"
+msgstr "보드"
+
+#: ../src/boards/python/admin/module_groups.py:40
+#: ../src/boards/python/admin/module_groups.py:66
+msgid "Groups"
+msgstr "그룹"
+
+#: ../src/boards/python/admin/module_profiles.py:40
+#: ../src/boards/python/admin/module_profiles.py:65
+msgid "Profiles"
+msgstr "프로필"
+
+#: ../src/boards/python/admin/module_users.py:41
+#: ../src/boards/python/admin/module_users.py:67
+msgid "Classes"
+msgstr "반"
+
+#: ../src/boards/python/admin/module_users.py:41
+#: ../src/boards/python/admin/module_users.py:67
+msgid "Users"
+msgstr "사용자"
+
+#: ../src/boards/python/admin/profile_edit.py:59
+msgid "Editing a Profile"
+msgstr "프로필 편집하기"
+
+#: ../src/boards/python/admin/profile_edit.py:64
+msgid "Editing profile: "
+msgstr "프로필 편집: "
+
+#: ../src/boards/python/admin/profile_edit.py:67
+msgid "Editing a new profile"
+msgstr "새 프로필 편집하기"
+
+#: ../src/boards/python/admin/profile_edit.py:86
+msgid "Profile:"
+msgstr "프로필:"
+
+#. Top message gives instructions
+#: ../src/boards/python/admin/profile_edit.py:109
+msgid "Assign all the groups belonging to this profile"
+msgstr "모든 그룹을 이 프로필에 속하도록 지정하세요"
+
+#: ../src/boards/python/admin/profile_edit.py:377
+msgid "You need to provide at least a name for your profile"
+msgstr "프로필에 하나의 이름은 제공 해야 합니다"
+
+#: ../src/boards/python/admin/profile_edit.py:399
+msgid "There is already a profile with this name"
+msgstr "같은 이름의 프로필이 이미 있습니다."
+
+#: ../src/boards/python/admin/profile_list.py:121
+#: ../src/gcompris/board_config.c:668 ../src/gcompris/board_config.c:832
+msgid "Default"
+msgstr "초기값"
+
+#: ../src/boards/python/admin/profile_list.py:188
+msgid "Profile"
+msgstr "프로필"
+
+#: ../src/boards/python/admin/profile_list.py:315
+msgid "[Default]"
+msgstr "[초기값]"
+
+#: ../src/boards/python/admin/user_edit.py:50
+msgid "Editing a User"
+msgstr "사용자 편집하기"
+
+#: ../src/boards/python/admin/user_edit.py:55
+msgid "Editing a User "
+msgstr "사용자 편집하기 "
+
+#: ../src/boards/python/admin/user_edit.py:61
+msgid "Editing a new user"
+msgstr "새 사용자 편집하기"
+
+#: ../src/boards/python/admin/user_edit.py:78
+msgid "Login:"
+msgstr "로그인:"
+
+#. FIXME: How to remove the selection
+#. Label and Entry for the first name
+#: ../src/boards/python/admin/user_edit.py:89
+msgid "First name:"
+msgstr "이름:"
+
+#. Label and Entry for the last name
+#: ../src/boards/python/admin/user_edit.py:98
+msgid "Last name:"
+msgstr "성:"
+
+#. Label and Entry for the birth date
+#: ../src/boards/python/admin/user_edit.py:107
+msgid "Birth date:"
+msgstr "생일:"
+
+#: ../src/boards/python/admin/user_edit.py:159
+msgid ""
+"You need to provide at least a login, first name and last name for your users"
+msgstr "당신의 유저를 위해서 한번의 로그인과 성과 이름을 제공해야 합니다."
+
+#: ../src/boards/python/admin/user_edit.py:176
+msgid "There is already a user with this login"
+msgstr "같은 로그인을 한 유저가 이미 있습니다"
+
+#: ../src/boards/python/admin/user_list.py:291
+msgid ""
+"To import a user list from a file, first select a class.\n"
+"FILE FORMAT: Your file must be formatted like this:\n"
+"login;First name;Last name;Date of birth\n"
+"The separator is autodetected and can be one of ',', ';' or ':'"
+msgstr ""
+"파일에서 유저 목록을 불러오려면 먼저 반을 선택하세요.\n"
+"파일 형식: 파일은 이러한 형식이어야 합니다:\n"
+"로그인;이름;성;생일\n"
+"분리 기호는 자동으로 인식되고 ',', ';' 또는 ':'도 됩니다"
+
+#: ../src/boards/python/admin/user_list.py:370
+#, python-format
+msgid ""
+"One or more logins are not unique !\n"
+"You need to change them: %s !"
+msgstr ""
+"하나 또는 그이상의 로그인이 특정하지 않습니다 !\n"
+"그것들을 바꾸어 주어야 합니다: %s !"
+
+#: ../src/boards/python/anim.py:2208
+msgid "SVG is disabled. Install python xml module to enable it"
+msgstr "SVG가 손상되었습니다. python xml 모듈을 설치해서 복구하세요"
+
+#: ../src/boards/python/anim.py:2364
+msgid "Warning: the following images cannot be accessed on your system.\n"
+msgstr "경고: 다음 이미지들은 이 시스템에서 접근 될 수 없습니다.\n"
+
+#: ../src/boards/python/anim.py:2366
+msgid "The corresponding items have been skipped."
+msgstr "다음 아이템들을 건너뛰었습니다."
+
+#: ../src/boards/python/electric.py:94
+msgid ""
+"Cannot find the 'gnucap' electric simulator.\n"
+"You can download and install it from:\n"
+"<http://geda.seul.org/tools/gnucap/>\n"
+"To be detected, it must be installed in\n"
+"/usr/bin/gnucap or /usr/local/bin/gnucap.\n"
+"You can still use this activity to draw schematics without computer "
+"simulation."
+msgstr ""
+"'gnucap' 전자 시뮬레이터를 찾을 수 없습니다.\n"
+"이곳에서 gnucap을 다운로드하여 설치할 수 있습니다:\n"
+"<http://geda.seul.org/tools/gnucap/>\n"
+"설치가 되어야 발견이 됩니다\n"
+"/usr/bin/gnucap 또는 /usr/local/bin/gnucap.\n"
+"이 작업을 이용해서 컴퓨터 시뮬레이션 없이 개요를 그릴 수 있습니다."
+
+#: ../src/boards/python/gnumch.py:94
+#, python-format
+msgid ", %d"
+msgstr ", %d"
+
+#: ../src/boards/python/gnumch.py:95
+#, python-format
+msgid " and %d"
+msgstr " 그리고 %d"
+
+#: ../src/boards/python/gnumch.py:115
+#, python-format
+msgid "%d is divisible by %s."
+msgstr "%d 는 %s로 나누어 집니다."
+
+#: ../src/boards/python/gnumch.py:119
+msgid "1 is not a prime number."
+msgstr "1은 소수가 아닙니다."
+
+#: ../src/boards/python/gnumch.py:129
+#, python-format
+msgid "Primes less than %d"
+msgstr "%d보다 작은 소수"
+
+#: ../src/boards/python/gnumch.py:150
+#, python-format
+msgid ""
+"Multiples of %d include %s,\n"
+"but %d is not a multiple of %d."
+msgstr ""
+"%d의 곱은 %s를 포함합니다,\n"
+"그러나 %d는 %d의 곱이 아닙니다."
+
+#: ../src/boards/python/gnumch.py:159
+#, python-format
+msgid "Factors of %d"
+msgstr "%d의 인수"
+
+#: ../src/boards/python/gnumch.py:192
+#, python-format
+msgid "%s are the factors of %d."
+msgstr "%s는 %d의 인수가 아닙니다."
+
+#: ../src/boards/python/gnumch.py:204
+#, python-format
+msgid "Multiples of %d"
+msgstr "%d의 배수"
+
+#: ../src/boards/python/gnumch.py:238
+#, python-format
+msgid "%s = %d"
+msgstr "%s = %d"
+
+#: ../src/boards/python/gnumch.py:249
+#, python-format
+msgid "%d + %d"
+msgstr "%d + %d"
+
+#: ../src/boards/python/gnumch.py:254
+#, fuzzy, python-format
+msgid "%d ? %d"
+msgstr "%d + %d"
+
+#: ../src/boards/python/gnumch.py:259
+#, fuzzy, python-format
+msgid "%d × %d"
+msgstr "%d + %d"
+
+#: ../src/boards/python/gnumch.py:263
+#, fuzzy, python-format
+msgid "%d ÷ %d"
+msgstr "%d + %d"
+
+#: ../src/boards/python/gnumch.py:271
+#, python-format
+msgid "Equal to %d"
+msgstr "%d와 같습니다"
+
+#: ../src/boards/python/gnumch.py:292
+#, python-format
+msgid "Not equal to %d"
+msgstr "%d와 같지 않습니다"
+
+#: ../src/boards/python/gnumch.py:434
+msgid ""
+"You were eaten by a Troggle.\n"
+"Press <Return> to continue."
+msgstr ""
+"Troggle에 의해 당신이 먹히고 있습니다.\n"
+"계속 하기위해 <Return>을 누르세요."
+
+#: ../src/boards/python/gnumch.py:483
+msgid "You ate a wrong number.\n"
+msgstr "잘못된 숫자를 먹었습니다.\n"
+
+#: ../src/boards/python/gnumch.py:484
+msgid ""
+"\n"
+"Press <Return> to continue."
+msgstr ""
+"\n"
+"계속하려면 <Return>을 누르세요."
+
+#: ../src/boards/python/gnumch.py:777
+msgid ""
+"T\n"
+"R\n"
+"O\n"
+"G\n"
+"G\n"
+"L\n"
+"E"
+msgstr ""
+"T\n"
+"R\n"
+"O\n"
+"G\n"
+"G\n"
+"L\n"
+"E"
+
+#: ../src/boards/python/guessnumber.py:205
+#, python-format
+msgid "Guess a number between %d and %d"
+msgstr "%d 와 %d 사이의 숫자를 생각하세요"
+
+#: ../src/boards/python/guessnumber.py:318
+#: ../src/boards/python/guessnumber.py:319
+#, python-format
+msgid "Please enter a number between %d and %d"
+msgstr "%d 와 %d사이의 숫자를 입력하세요"
+
+#: ../src/boards/python/guessnumber.py:324
+#: ../src/boards/python/guessnumber.py:325
+msgid "Out of range"
+msgstr "범위 초과"
+
+#: ../src/boards/python/guessnumber.py:331
+#: ../src/boards/python/guessnumber.py:332
+msgid "Too high"
+msgstr "너무 큽니다"
+
+#: ../src/boards/python/guessnumber.py:334
+#: ../src/boards/python/guessnumber.py:335
+msgid "Too low"
+msgstr "너무 작습니다"
+
+#: ../src/boards/python/login.py:114
+msgid "Profile: "
+msgstr "프로필: "
+
+#: ../src/boards/python/login.py:268 ../src/boards/python/login.py:277
+msgid "Login: "
+msgstr "로그인: "
+
+#. toggle box
+#: ../src/boards/python/login.py:550
+msgid "Enter login to log in"
+msgstr "로그인 하려면 login을 입력하세요"
+
+#: ../src/boards/python/mosaic.py:193
+msgid "Rebuild the same mosaic on the right area"
+msgstr "오른쪽에 있는것과 똑같은 모자이크를 다시 만드세요"
+
+#: ../src/boards/python/melody.py:115
+msgid ""
+"Error: this activity cannot be played with the\n"
+"sound effects disabled.\n"
+"Go to the configuration dialogue to\n"
+"enable the sound"
+msgstr ""
+"오류: 이 활동은 실행될 수 없습니다\n"
+"음향 효과 장애.\n"
+"Go to the configuration dialogue to\n"
+"소리 활성화"
+
+#: ../src/boards/python/oscar_and_friends.py:116
+msgid ""
+"Below the surface, Oscar the octopus and his friends sat on a rock,\n"
+"watching the bad weather above them."
+msgstr ""
+"수면 아래에, 오스카 문어와 친구들이 바위 위에 앉아 있습니다,\n"
+"좋지 않은 날씨를 보면서."
+
+#: ../src/boards/python/oscar_and_friends.py:117
+msgid ""
+"They were all happy that the storms never reached all the way down to them."
+msgstr ""
+"태풍이 절대 그들에게까지 내려오지 않았기 때문에 그들은 모두 행복했습니다."
+
+#: ../src/boards/python/oscar_and_friends.py:118
+msgid ""
+"No matter how bad it was up there, the bottom was always calm and quiet."
+msgstr ""
+"위의 날씨가 좋지 않더라도 상관없이, 아래 바닥은 항상 고요하고 조용했습니다."
+
+#: ../src/boards/python/oscar_and_friends.py:119
+msgid "Oscar's best friends were Charlie the crab and Sandy the sea-star."
+msgstr "오스카의 절친한 친구는 찰리라는 게와 샌디라는 불가사리 입니다."
+
+#: ../src/boards/python/pythontest.py:148
+msgid ""
+"This is the first plugin in gcompris coded in the Python\n"
+"Programming language."
+msgstr ""
+"이것이 python으로 코딩된 첫번째 gcompris 플러그인 입니다\n"
+"프로그래밍 언어."
+
+#: ../src/boards/python/pythontest.py:157
+msgid ""
+"It is now possible to develop gcompris activities in C or in Python.\n"
+"Thanks to Olivier Samys who makes this possible."
+msgstr ""
+"이제 C나 Python으로 gcompris 활동을 향상시키는 것이 가능합니다.\n"
+"이것을 가능하게 한 Olivier Samys에게 감사합니다."
+
+#: ../src/boards/python/pythontest.py:166
+msgid "This activity is not playable, just a test"
+msgstr "이 활동은 할 수 없습니다, 테스트용 입니다"
+
+#. toggle box
+#: ../src/boards/python/pythontest.py:414
+msgid "Disable line drawing in circle"
+msgstr "원 안에 선 긋기 할 수 없음"
+
+#. combo box
+#: ../src/boards/python/pythontest.py:423
+msgid "Color of the line"
+msgstr "선 색깔"
+
+#. spin button for int
+#: ../src/boards/python/pythontest.py:434
+msgid "Distance between circles"
+msgstr "원들 사이의 거리"
+
+#. radio buttons for circle or rectangle
+#: ../src/boards/python/pythontest.py:445
+msgid "Use circles"
+msgstr "원들을 이용하세요"
+
+#: ../src/boards/python/pythontest.py:446
+msgid "Use rectangles"
+msgstr "네모들을 이용하세요"
+
+#: ../src/boards/python/pythontest.py:449
+msgid "Choice of pattern"
+msgstr "무늬 선택"
+
+#: ../src/boards/python/redraw.py:347 ../src/boards/python/redraw.py:357
+msgid "Level"
+msgstr "레벨"
+
+#: ../src/boards/python/redraw.py:901 ../src/boards/python/redraw.py:904
+msgid "Coordinate"
+msgstr "좌표"
+
+#: ../src/boards/python/searace.py:200 ../src/boards/python/searace.py:205
+#: ../src/boards/python/searace.py:231
+msgid "The race is already being run"
+msgstr "경주가 이미 진행중입니다"
+
+#. Manage default cases (no params given)
+#. Final move, add an ofset because we loose space in abs()
+#: ../src/boards/python/searace.py:428 ../src/boards/python/searace.py:453
+#: ../src/boards/python/searace.py:534 ../src/boards/python/searace.py:853
+#: ../src/boards/python/searace.py:882 ../src/boards/python/searace.py:977
+#: ../src/boards/python/searace.py:983 ../src/boards/python/searace.py:991
+msgid "forward"
+msgstr "앞으로"
+
+#: ../src/boards/python/searace.py:525
+msgid "COMMANDS ARE"
+msgstr "COMMANDS ARE"
+
+#. The two boat arrived in a close time frame (1s), it's a draw
+#: ../src/boards/python/searace.py:751
+msgid "This is a draw"
+msgstr "비겼습니다"
+
+#: ../src/boards/python/searace.py:758
+msgid "The Red boat has won"
+msgstr "빨간 보트가 이겼습니다"
+
+#: ../src/boards/python/searace.py:761
+msgid "The Green boat has won"
+msgstr "초록색 보트가 이겼습니다"
+
+#: ../src/boards/python/searace.py:779 ../src/boards/python/searace.py:1021
+msgid "Angle:"
+msgstr "각도:"
+
+#: ../src/boards/python/searace.py:779
+msgid "Wind:"
+msgstr "바람:"
+
+#: ../src/boards/python/searace.py:860
+msgid "Syntax error at line"
+msgstr "줄에 문법 오류가 있습니다"
+
+#: ../src/boards/python/searace.py:878
+msgid "The command"
+msgstr "명령"
+
+#: ../src/boards/python/searace.py:897
+msgid "Unknown command at line"
+msgstr "알려지지 않은 명령어가 줄에 있습니다"
+
+#: ../src/boards/python/searace.py:1021
+msgid "Distance:"
+msgstr "거리:"
+
+#: ../src/boards/python/tuxpaint.py:119
+msgid ""
+"Cannot find Tuxpaint.\n"
+"Install it to use this activity !"
+msgstr ""
+"Tuxpaint를 찾을 수 없습니다.\n"
+"이 활동을 하려면 Tuxpaint를 설치 하세요 !"
+
+#: ../src/boards/python/tuxpaint.py:132
+msgid "Waiting for Tuxpaint to finish"
+msgstr "끝내기 위해 Tuxpaint를 기다리는중"
+
+#: ../src/boards/python/tuxpaint.py:187
+msgid "Inherit fullscreen setting from GCompris"
+msgstr "GCompris로부터 전체화면 설정을 이어받기"
+
+#: ../src/boards/python/tuxpaint.py:191
+msgid "Inherit size setting from GCompris (800x600, 640x480)"
+msgstr "크기 설정을 GCompris로 이어받기 (800x600, 640x480)"
+
+#: ../src/boards/python/tuxpaint.py:195
+msgid "Disable shape rotation"
+msgstr "모양 회전 할 수 없음"
+
+#: ../src/boards/python/tuxpaint.py:199
+msgid "Show Uppercase text only"
+msgstr "대문자만 있는 글 보이기"
+
+#: ../src/boards/python/tuxpaint.py:203
+msgid "Disable stamps"
+msgstr "도장 안됨"
+
+#: ../src/boards/railroad.c:91
+msgid "Memory game"
+msgstr "기억 게임"
+
+#: ../src/boards/railroad.c:92
+msgid "Build a train according to the model"
+msgstr "모델에 따라서 기차를 만드세요"
+
+#: ../src/boards/reading.c:225 ../src/boards/wordsgame.c:205
+msgid ""
+"Error: We can't find\n"
+"a list of words to play this game.\n"
+msgstr ""
+"오류: 찾을 수 없습니다\n"
+"이 게임을 하기 위한 목록.\n"
+
+#: ../src/boards/reading.c:379
+msgid "Please, check if the word"
+msgstr "체크하세요, 단어"
+
+#: ../src/boards/reading.c:399
+msgid "is being displayed"
+msgstr "가 표시 되어 있는지"
+
+#: ../src/boards/reading.c:573
+msgid "I am Ready"
+msgstr "나는 준비 되었습니다"
+
+#: ../src/boards/reading.c:613
+msgid "Yes, I saw it"
+msgstr "네, 보았습니다"
+
+#: ../src/boards/reading.c:643
+msgid "No, it was not there"
+msgstr "아니오, 그것은 그곳에 있지 않습니다"
+
+#. Report what was wrong in the log
+#: ../src/boards/reading.c:681
+#, c-format
+msgid "The word to find was '%s'"
+msgstr "찾아야 할 단어는 '%s'"
+
+#: ../src/boards/reading.c:684
+msgid "But it was not displayed"
+msgstr "그러나 그것은 나타나 있지 않습니다"
+
+#: ../src/boards/reading.c:686
+msgid "And it was displayed"
+msgstr "그리고 그것은 표기 되어 있습니다"
+
+#. Enter Edit Mode
+#: ../src/boards/shapegame.c:434
+msgid ""
+"You have entered Edit mode\n"
+"Move the puzzle items;\n"
+"type 's' to save, and\n"
+"'d' to display all the shapes"
+msgstr ""
+"편집 모드로 들어왔습니다\n"
+"퍼즐을 움직이세요;\n"
+"저장하려면 's'를 입력하세요 그리고\n"
+"모든 모양을 보이기 위해서는 'd'를 입력하세요"
+
+#: ../src/boards/shapegame.c:442
+msgid ""
+"The data from this activity are saved under\n"
+"/tmp/gcompris-board.xml"
+msgstr ""
+"이 활동에서의 기록은 이곳에 저장됩니다\n"
+"/tmp/gcompris-board.xml"
+
+#: ../src/boards/submarine.c:198
+msgid "Submarine"
+msgstr "잠수함"
+
+#: ../src/boards/submarine.c:199
+msgid "Control the depth of a submarine"
+msgstr "잠수함의 깊이를 조정하세요"
+
+#: ../src/boards/target.c:281 ../src/boards/target.c:546
+#, c-format
+msgid "Points = %s"
+msgstr "포인트 = %s"
+
+#: ../src/boards/target.c:403
+#, c-format
+msgid ""
+"Wind speed = %d\n"
+"kilometers/hour"
+msgstr ""
+"바람 속도 = %d\n"
+"킬로미터/시"
+
+#: ../src/boards/target.c:470
+#, c-format
+msgid "Distance to target = %d meters"
+msgstr "목표물 까지 거리 = %d 미터"
+
+#: ../src/gcompris/about.c:57
+msgid ""
+"Author: Bruno Coudoin\n"
+"Contribution: Pascal Georges, Jose Jorge\n"
+"Graphics: Renaud Blanchard, Franck Doucet\n"
+"Intro Music: Djilali Sebihi\n"
+"Background Music: Rico Da Halvarez\n"
+msgstr ""
+"저자: 브루노 코도인\n"
+"기여: 파스칼 조지, 조스 조지\n"
+"그래픽: 르나우드 블랜처드, 프랭크 더우셋\n"
+"인트로 음악: 드짖라리 세비히\n"
+"배경 음악: 리코 다 하바레즈\n"
+
+#. TRANSLATORS: Replace this string with your names, one name per line.
+#: ../src/gcompris/about.c:65
+msgid "translator_credits"
+msgstr ""
+"Abigail Brady <morwen@evilmagi_c.org>\n"
+"Bastien Nocera <hadess@hadess.net>\n"
+"Gareth Owen <gowen72@yahoo.com>"
+
+#: ../src/gcompris/about.c:96 ../src/gcompris/about.c:106
+msgid "About GCompris"
+msgstr "GCompris 정보"
+
+#: ../src/gcompris/about.c:117 ../src/gcompris/about.c:126
+msgid "Translators:"
+msgstr "번역자:"
+
+#: ../src/gcompris/about.c:249
+msgid ""
+"GCompris Home Page\n"
+"http://gcompris.net"
+msgstr ""
+"GCompris 홈페이지\n"
+"http://gcompris.net"
+
+#: ../src/gcompris/about.c:271
+msgid ""
+"This software is a GNU Package and is released under the GNU General Public "
+"License"
+msgstr ""
+"이 소프트웨어는 GNU 꾸러미 입니다 그리고 GNU General Public License에 의해 발"
+"간 되었습니다"
+
+#: ../src/gcompris/about.c:334 ../src/gcompris/about.c:344
+#: ../src/gcompris/config.c:465 ../src/gcompris/config.c:475
+#: ../src/gcompris/dialog.c:97 ../src/gcompris/help.c:376
+#: ../src/gcompris/help.c:386 ../src/gcompris/images_selector.c:317
+msgid "OK"
+msgstr "OK"
+
+#: ../src/gcompris/bar.c:568
+msgid "GCompris confirmation"
+msgstr "GCompris 확인"
+
+#: ../src/gcompris/bar.c:569
+msgid "Are you sure you want to quit?"
+msgstr "정말 나가겠습니까?"
+
+#: ../src/gcompris/bar.c:570
+msgid "Yes, I am sure!"
+msgstr "예!"
+
+#: ../src/gcompris/bar.c:571
+msgid "No, I want to keep going"
+msgstr "아니오, 계속하겠습니다"
+
+#: ../src/gcompris/board.c:181
+msgid "Dynamic module loading is not supported. gcompris cannot load.\n"
+msgstr "동적 모듈 로딩이 지원되지 않습니다. gcompris는 로드할 수 없습니다.\n"
+
+#: ../src/gcompris/board_config.c:700
+msgid ""
+"Select the language\n"
+" to use in the board"
+msgstr ""
+"언어를 선택하세요\n"
+" 보드를 사용하기 위해서"
+
+#: ../src/gcompris/config.c:59
+msgid "Your system default"
+msgstr "시스템 초기값"
+
+#: ../src/gcompris/config.c:60
+msgid "Amharic"
+msgstr "암하라어"
+
+#: ../src/gcompris/config.c:61
+msgid "Arabic"
+msgstr "아랍어"
+
+#: ../src/gcompris/config.c:62
+msgid "Turkish (Azerbaijan)"
+msgstr "터키어 (아르제바이잔)"
+
+#: ../src/gcompris/config.c:63
+msgid "Bulgarian"
+msgstr "불가리아어"
+
+#: ../src/gcompris/config.c:64
+msgid "Catalan"
+msgstr "카탈로니아어"
+
+#
+#: ../src/gcompris/config.c:66
+msgid "Danish"
+msgstr "덴마크어"
+
+#: ../src/gcompris/config.c:67
+msgid "German"
+msgstr "독일어"
+
+#: ../src/gcompris/config.c:68
+msgid "Greek"
+msgstr "그리스어"
+
+#: ../src/gcompris/config.c:69
+msgid "English (Canada)"
+msgstr "영어 (캐나다)"
+
+#: ../src/gcompris/config.c:70
+msgid "English (Great Britain)"
+msgstr "영어 (영국)"
+
+#: ../src/gcompris/config.c:71
+msgid "Spanish"
+msgstr "스페인어"
+
+#: ../src/gcompris/config.c:72
+msgid "Basque"
+msgstr "바스크어"
+
+#: ../src/gcompris/config.c:73
+msgid "Finnish"
+msgstr "핀란드어"
+
+#: ../src/gcompris/config.c:74
+msgid "French"
+msgstr "프랑스어"
+
+#: ../src/gcompris/config.c:75
+msgid "Irish (Gaelic)"
+msgstr "아일랜드어 (게일어)"
+
+#: ../src/gcompris/config.c:76
+msgid "Hebrew"
+msgstr "히브리어"
+
+#: ../src/gcompris/config.c:77
+msgid "Hindi"
+msgstr "힌디어"
+
+#: ../src/gcompris/config.c:78
+msgid "Gujarati"
+msgstr "과라니어"
+
+#: ../src/gcompris/config.c:79
+msgid "Punjabi"
+msgstr "펀자브어"
+
+#: ../src/gcompris/config.c:80
+msgid "Hungarian"
+msgstr "헝가리어"
+
+#: ../src/gcompris/config.c:81
+msgid "Croatian"
+msgstr "크로아티아어"
+
+#: ../src/gcompris/config.c:82
+msgid "Italian"
+msgstr "이탈리아어"
+
+#: ../src/gcompris/config.c:83
+msgid "Georgian"
+msgstr "그루지야어"
+
+#: ../src/gcompris/config.c:84
+msgid "Lithuanian"
+msgstr "리투아니아어"
+
+#: ../src/gcompris/config.c:85
+msgid "Macedonian"
+msgstr "마케도니아어"
+
+#: ../src/gcompris/config.c:86
+msgid "Malayalam"
+msgstr "말라얄람어"
+
+#: ../src/gcompris/config.c:87
+msgid "Marathi"
+msgstr "마라티어"
+
+#: ../src/gcompris/config.c:88
+msgid "Malay"
+msgstr "말레이어"
+
+#: ../src/gcompris/config.c:89
+msgid "Nepal"
+msgstr "네팔어"
+
+#: ../src/gcompris/config.c:90
+msgid "Dutch"
+msgstr "네덜란드어"
+
+#: ../src/gcompris/config.c:91
+msgid "Norwegian Bokmal"
+msgstr "노르웨이 부크말어"
+
+#: ../src/gcompris/config.c:92
+msgid "Norwegian Nynorsk"
+msgstr "노르웨이 뉘노르스크어"
+
+#: ../src/gcompris/config.c:93
+msgid "Polish"
+msgstr "폴란드어"
+
+#: ../src/gcompris/config.c:94
+msgid "Portuguese"
+msgstr "포르투갈어"
+
+#: ../src/gcompris/config.c:95
+msgid "Portuguese (Brazil)"
+msgstr "포르투갈어 (브라질)"
+
+#: ../src/gcompris/config.c:96
+msgid "Romanian"
+msgstr "루마니아어"
+
+#: ../src/gcompris/config.c:97
+msgid "Russian"
+msgstr "러시아어"
+
+#: ../src/gcompris/config.c:98
+msgid "Kinyarwanda"
+msgstr "Kinyarwanda"
+
+#: ../src/gcompris/config.c:99
+msgid "Slovak"
+msgstr "슬로바키아어"
+
+#: ../src/gcompris/config.c:100
+msgid "Slovenian"
+msgstr "슬로베니아어"
+
+#: ../src/gcompris/config.c:101
+#, fuzzy
+msgid "Somali"
+msgstr "소말리아"
+
+#: ../src/gcompris/config.c:102
+msgid "Albanian"
+msgstr "알바니아어"
+
+#: ../src/gcompris/config.c:103
+msgid "Serbian (Latin)"
+msgstr "세르비아어 (라틴)"
+
+#: ../src/gcompris/config.c:104
+msgid "Serbian"
+msgstr "세르비아어"
+
+#: ../src/gcompris/config.c:105
+msgid "Swedish"
+msgstr "스웨덴어"
+
+#. "ta_IN.UTF-8",	N_("Tamil"),
+#: ../src/gcompris/config.c:107
+msgid "Thai"
+msgstr "타이어"
+
+#: ../src/gcompris/config.c:108
+msgid "Turkish"
+msgstr "터키어"
+
+#: ../src/gcompris/config.c:109
+msgid "Vietnamese"
+msgstr "베트남어"
+
+#: ../src/gcompris/config.c:110
+msgid "Walloon"
+msgstr "왈론어"
+
+#: ../src/gcompris/config.c:111
+msgid "Chinese (Simplified)"
+msgstr "중국어 (간체)"
+
+#: ../src/gcompris/config.c:112
+msgid "Chinese (Traditional)"
+msgstr "중국어 (전통)"
+
+#: ../src/gcompris/config.c:117
+msgid "No time limit"
+msgstr "시간 제한 없음"
+
+#: ../src/gcompris/config.c:118
+msgid "Slow timer"
+msgstr "늦은 타이머"
+
+#: ../src/gcompris/config.c:119
+msgid "Normal timer"
+msgstr "보통 타이머"
+
+#: ../src/gcompris/config.c:120
+msgid "Fast timer"
+msgstr "빠른 타이머"
+
+#: ../src/gcompris/config.c:125
+msgid "800x600 (Default for gcompris)"
+msgstr "800x600 (초기 gcompris)"
+
+#: ../src/gcompris/config.c:130
+msgid ""
+"<i>Use Gcompris administration module\n"
+"to filter boards</i>"
+msgstr ""
+"<i>Gcompris 관리 모듈을 사용하세요\n"
+"필터 보드를 위해</i>"
+
+#: ../src/gcompris/config.c:185 ../src/gcompris/config.c:195
+msgid "GCompris Configuration"
+msgstr "GCompris 설정"
+
+#: ../src/gcompris/config.c:271
+msgid "Fullscreen"
+msgstr "전체화면"
+
+#: ../src/gcompris/config.c:314
+msgid "Music"
+msgstr "음악"
+
+#: ../src/gcompris/config.c:342
+msgid "Effect"
+msgstr "효과"
+
+#: ../src/gcompris/config.c:378
+#, c-format
+msgid "Couldn't open skin dir: %s"
+msgstr "스킨 디렉토리를 열 수없습니다: %s"
+
+#: ../src/gcompris/config.c:409 ../src/gcompris/config.c:864
+#: ../src/gcompris/config.c:878
+#, c-format
+msgid "Skin : %s"
+msgstr "스킨 : %s"
+
+#: ../src/gcompris/config.c:411
+msgid "SKINS NOT FOUND"
+msgstr "스킨 찾을 수 없음"
+
+#: ../src/gcompris/config.c:536
+msgid "English (United State)"
+msgstr "영어 (미국)"
+
+#: ../src/gcompris/file_selector.c:334
+msgid "CANCEL"
+msgstr "취소"
+
+#: ../src/gcompris/file_selector.c:365
+msgid "LOAD"
+msgstr "로드"
+
+#: ../src/gcompris/file_selector.c:365
+msgid "SAVE"
+msgstr "저장"
+
+#: ../src/gcompris/gameutil.c:79
+msgid "Couldn't find or load the file"
+msgstr "파일을 찾을 수 없거나 불러 올 수 없습니다"
+
+#: ../src/gcompris/gameutil.c:81
+msgid "This activity is incomplete."
+msgstr "활동이 완전 하지 않습니다."
+
+#: ../src/gcompris/gameutil.c:82
+msgid ""
+"Exit it and report\n"
+"the problem to the authors."
+msgstr ""
+"빠져나와서 보고하기\n"
+"문제를 저자에게"
+
+#: ../src/gcompris/gcompris.c:123
+msgid "run gcompris in fullscreen mode."
+msgstr "gcompris를 전체화면에서 실행하기."
+
+#: ../src/gcompris/gcompris.c:126
+msgid "run gcompris in window mode."
+msgstr "gcompris를 윈도우 모드로 실행하기."
+
+#: ../src/gcompris/gcompris.c:129
+msgid "run gcompris with sound enabled."
+msgstr "gcompris를 소리를 켜서 실행하기."
+
+#: ../src/gcompris/gcompris.c:132
+msgid "run gcompris without sound."
+msgstr "gcompris 를 소리 없이 실행하기."
+
+#: ../src/gcompris/gcompris.c:135
+msgid "run gcompris with the default gnome cursor."
+msgstr "gcompris를 초기 gnome 커서를 이용해서 실행하기."
+
+#: ../src/gcompris/gcompris.c:138
+msgid "display only activities with this difficulty level."
+msgstr "이 난이도의 활동만 보여주기."
+
+#: ../src/gcompris/gcompris.c:141
+msgid "display debug informations on the console."
+msgstr "콘솔에 디버그 정보를 보이기."
+
+#: ../src/gcompris/gcompris.c:144
+msgid "Print the version of "
+msgstr "버젼 출력"
+
+#: ../src/gcompris/gcompris.c:147
+msgid "Use the antialiased canvas (slower)."
+msgstr "Use the antialiased canvas (slower)."
+
+#: ../src/gcompris/gcompris.c:150
+msgid "Disable XF86VidMode (No screen resolution change)."
+msgstr "XF86VidMode 끄세요 (스크린 해상도 변화 없음)."
+
+#: ../src/gcompris/gcompris.c:153
+msgid ""
+"Run gcompris with local menu (e.g -l /reading will let you play only "
+"activities in the reading directory, -l /strategy/connect4 only the connect4 "
+"activity)"
+msgstr ""
+"gcompris를 로컬 메뉴로 실행하세요(예 -l /읽기는 읽기 디렉토리에서만 동작하도"
+"록 한다, -l /strategy/connect4 는 connect4 활동만 동작)"
+
+#: ../src/gcompris/gcompris.c:156
+msgid "Run GCompris with local activity directory added to menu"
+msgstr "GCompris를 메뉴에 추가된 로컬 활동 디렉토리로 실행하세요"
+
+#: ../src/gcompris/gcompris.c:159
+msgid "Run GCompris in administration and user-management mode"
+msgstr "GCompris를 관리자, 사용자 관리 모드로 실행하세요"
+
+#: ../src/gcompris/gcompris.c:162
+msgid "Use alternate database for profiles"
+msgstr "프로필을 위해 다른 데이터배이스를 쓰세요"
+
+#: ../src/gcompris/gcompris.c:165
+msgid "Use alternate database for logs"
+msgstr "로그를 위해 다른 데이터베이스를 쓰세요"
+
+#: ../src/gcompris/gcompris.c:168
+msgid "Create the alternate database for profiles"
+msgstr "프로필을 위해 다른 데이터 배이스를 생성하세요"
+
+#: ../src/gcompris/gcompris.c:171
+msgid "Re-read XML Menus and store them in the database"
+msgstr "XML 메뉴를 다시 읽어서 데이터 베이스에 저장하세요"
+
+#: ../src/gcompris/gcompris.c:174
+msgid "Set the profile to use. Use 'gcompris -a' to create profiles"
+msgstr "사용할 프로필을 설정하세요. 프로필을 만들때 'gcompris -a'를 사용하세요"
+
+#: ../src/gcompris/gcompris.c:177
+msgid "List all available profiles. Use 'gcompris -a' to create profiles"
+msgstr ""
+"유효한 프로필을 목록으로 만드세요. 프로필을 만들려면 'gcompris -a'를 사용하세"
+"요"
+
+#: ../src/gcompris/gcompris.c:180
+msgid ""
+"Shared directory location, for profiles and board-configuration data: "
+"[$HOME/.gcompris/shared]"
+msgstr ""
+"프로필과 보드 설정 데이터를 위한 공유된 디렉토리 위치: [$HOME/.gcompris/"
+"shared]"
+
+#: ../src/gcompris/gcompris.c:183
+msgid "The location of user directories: [$HOME/.gcompris/users]"
+msgstr "유저 디렉토리 위치: [$HOME/.gcompris/users]"
+
+#: ../src/gcompris/gcompris.c:186
+msgid "Run the experimental activities"
+msgstr "실험 활동을 실행하세요"
+
+#: ../src/gcompris/gcompris.c:189
+msgid "Disable the quit button"
+msgstr "나가기 버튼을 끄세요"
+
+#: ../src/gcompris/gcompris.c:192
+msgid "Disable the config button"
+msgstr "설정 버튼을 끄세요"
+
+#: ../src/gcompris/gcompris.c:195
+msgid "Display the resources on stdout based on the selected activities"
+msgstr "Display the resources on stdout based on the selected activities"
+
+#: ../src/gcompris/gcompris.c:198
+msgid ""
+"GCompris will get images, sounds and activity data from this server if not "
+"found locally."
+msgstr ""
+"만약 개별적으로 발견되지 않으면 GCompris 는 이미지와 소리, 활동 데이터를 서버"
+"로 부터 얻을 것 입니다."
+
+#: ../src/gcompris/gcompris.c:201
+msgid ""
+"Only when --server is provided, disable check for local resource first. Data "
+"are always taken from the web server."
+msgstr ""
+"서버가 제공되었을 때만 지역 자원의 기능 억제가 체크됩니다. 데이터는 항상 웹 "
+"서버에서 부터 얻어집니다."
+
+#: ../src/gcompris/gcompris.c:205
+#, fuzzy
+msgid ""
+"In server mode, specify the cache directory used to avoid useless downloads."
+msgstr ""
+"서버 모드에서는 캐쉬 디렉토리가 불필요한 다운로드를 방지하기위해 사용됩니다."
+
+#: ../src/gcompris/gcompris.c:838
+#, c-format
+msgid ""
+"GCompris is free software released under the GPL License. In order to "
+"support its development, the Windows version provides only %d of the %d "
+"activities. You can get the full version for a small fee at\n"
+"<http://gcompris.net>\n"
+"The Linux version does not have this restriction. Note that GCompris is "
+"being developed to free schools from monopolistic software vendors. If you "
+"also believe that we should teach freedom to children, please consider using "
+"GNU/Linux. Get more information at FSF:\n"
+"<http://www.fsf.org/philosophy>"
+msgstr ""
+"GCompris는 GPL 라이센스에 의한 무료 소프트웨어 입니다. 이것의 발전을 돕기 위"
+"해서 윈도우 버젼은 n provides only %d of the %d activities. You can get the "
+"full version for a small fee at\n"
+"<http://gcompris.net>\n"
+"리눅스 버젼은 이러한 제한이 없습니다. GCompris는 공개로 개발되고 있습니다. 만"
+"약 우리가 아이들에게 공개를 가르쳐야 한다고 생각한다면, GNU/Linux사용을 고려"
+"해보세요. FSF에서 더 많은 정보를 얻을 수 있습니다.:\n"
+"<http://www.fsf.org/philosophy>"
+
+#: ../src/gcompris/gcompris.c:1433
+#, c-format
+msgid ""
+"GCompris\n"
+"Version: %s\n"
+"Licence: GPL\n"
+"More info at http://gcompris.net\n"
+msgstr ""
+"GCompris\n"
+"버젼: %s\n"
+"라이센스: GPL\n"
+"정보 http://gcompris.net\n"
+
+#. check the list of possible values for -l, then exit
+#: ../src/gcompris/gcompris.c:1522
+#, c-format
+msgid "Use -l to access an activity directly.\n"
+msgstr "-l을 사용하세요, 활동 디렉토리에 접근하기하고 싶다면.\n"
+
+#: ../src/gcompris/gcompris.c:1523
+#, c-format
+msgid "The list of available activities is :\n"
+msgstr "가능한 활동 목록 :\n"
+
+#: ../src/gcompris/gcompris.c:1701
+#, c-format
+msgid "The list of available profiles is:\n"
+msgstr "가능한 프로필 목록:\n"
+
+#: ../src/gcompris/gcompris_db.c:250
+msgid "Unaffected"
+msgstr "변하지않음"
+
+#: ../src/gcompris/gcompris_db.c:251
+msgid "Users without a class"
+msgstr "반이 없는 사용자들"
+
+#: ../src/gcompris/help.c:194
+msgid "Prerequisite"
+msgstr "필수적인것"
+
+#: ../src/gcompris/help.c:222
+msgid "Goal"
+msgstr "목표"
+
+#: ../src/gcompris/help.c:250
+msgid "Manual"
+msgstr "안내서"
+
+#: ../src/gcompris/help.c:278
+msgid "Credit"
+msgstr "학점"
+
+#: ../src/gcompris/timer.c:250
+msgid "Time Elapsed"
+msgstr "시간이 경과되었음"
+
+#: ../src/gcompris/timer.c:339
+#, c-format
+msgid "Remaining Time = %d"
+msgstr "남은 시간 = %d"
+
+#~ msgid "Samuel Loyd"
+#~ msgstr "사무엘 로이드"
+
+#~ msgid "anticipate"
+#~ msgstr "참가"
+
+#~ msgid "logical"
+#~ msgstr "논리적"
+
+#~ msgid "move"
+#~ msgstr "움직이세요"
+
+#~ msgid "puzzle"
+#~ msgstr "퍼즐"
+
+#~ msgid "slide"
+#~ msgstr "밀기"
+
+#~ msgid "taquin"
+#~ msgstr "타퀸"
+
+#~ msgid "+-횞첨"
+#~ msgstr "+-횞첨"
+
+#~ msgid ""
+#~ "Python xml module not found. SVG is disabled. Install the python xml "
+#~ "module to enable SVG Save/restore."
+#~ msgstr ""
+#~ "Python xml 모듈이 발견되지 않았습니다. SVG가 손상되었습니다. python xml 모"
+#~ "듈을 설치해서 SVG 저장 기능을 복구 하세요."
+
+#~ msgid "%d ??%d"
+#~ msgstr "%d ??%d"
+
+#~ msgid "%d 횞 %d"
+#~ msgstr "%d 횞 %d"
+
+#~ msgid "%d 첨 %d"
+#~ msgstr "%d 첨 %d"
+
+#~ msgid "Cannot open file of words for your locale"
+#~ msgstr "이 위치에서 단어 파일을 열 수 없습니다"
+
+#~ msgid ""
+#~ "A addition problem with two numbers is displayed. At the right of the "
+#~ "equal sign, give the sum. Use the left and right arrows to modify the "
+#~ "sum, and the Enter key to check your answer."
+#~ msgstr ""
+#~ "두개의 숫자로 이루어진 덧셈 문제가 있습니다. 오른쪽의 등호는 합을 가리킵니"
+#~ "다. 합을 고치기 위해서 오른쪽이나 왼쪽 화살표를 사용하세요답을 정하려면 엔"
+#~ "터 키를 사용하세요"
+
+#~ msgid "Needs to handle the mouse with the click easily"
+#~ msgstr "쉽게 클릭하려면 마우스를 사용해야 합니다"
+
+#~ msgid "The game of billiards"
+#~ msgstr "당구 게임"
+
+#~ msgid ""
+#~ "For each printed hour (hours:minutes or hours:minutes:seconds) click the "
+#~ "corresponding arrow to set the clock time to match the given hour. The "
+#~ "different arrows can be turned by selecting them and moving the mouse"
+#~ msgstr ""
+#~ "각각 출력된 시간에 대해 (시간:분 또는 시간:분:초) 클릭하세요일치하는 화살"
+#~ "표를 알맞는 시간으로 조절하려면.다른 화살표는 그것들을 선택하고 마우스를 "
+#~ "움직여서 바뀔 수 있습니다"
+
+#~ msgid ""
+#~ "This board teaches color recognition. Select the spoken color from the "
+#~ "set of colored toons."
+#~ msgstr ""
+#~ "이 보드는 색깔 구별법을 가르쳐 줍니다. 색깔을 선택하세요 색깔이 있는 만화."
+
+#~ msgid "Move the items one by one to reorder them in the increasing number"
+#~ msgstr "아이템을 한번에 하나씩 움직여서 커지는 순서대로 숫자를 정렬하세요"
+
+#~ msgid "Place the lands"
+#~ msgstr "땅을 배치하세요"
+
+#~ msgid "Czech"
+#~ msgstr "체코"
+
+#~ msgid "Make the puzzle"
+#~ msgstr "퍼즐을 만드세요"
+
+#~ msgid "Parachute jumper"
+#~ msgstr "낙하산 점프"
+
+#~ msgid ""
+#~ "Use the up, down, right and left keyboard keys to move the helicopter to "
+#~ "catch the numbers in increasing order."
+#~ msgstr ""
+#~ "헬리콥터를 움직이려면 위, 아래, 오른쪽, 왼쪽 키를 사용하세요숫자를 커지는 "
+#~ "순서대로 잡으려면"
+
+#~ msgid "Railroad"
+#~ msgstr "철도"
+
+#~ msgid "Drag and Drop masses to equilibrate the scales"
+#~ msgstr "저울의 균형을 맞추기 위해서 물건들을 끌어서 놓으세요"
+
+#~ msgid "Numbers With 2 Dices"
+#~ msgstr "2개 주사위의 숫자"
+
+#~ msgid "Couldn't find file %s !"
+#~ msgstr "파일 %s를 찾을 수 없습니다 !"
+
+#~ msgid "find file %s !"
+#~ msgstr "파일 %s를 찾았음 !"
+
+#~ msgid "Guess operations"
+#~ msgstr "수식을 추측해보세요"
+
+#~ msgid ""
+#~ "Tux is in trouble in his ship. He needs to take it through a lock.\n"
+#~ "Help Tux and understand how a canal lock works."
+#~ msgstr ""
+#~ "Tux는 배에서 사고를 당했습니다. Tux는 정체된 곳을 빠져나가야 합니다.\n"
+#~ "Tux를 돕고 수로 정체가 어떻게 작용하는지 이해하세요"
+
+#~ msgid "Learning Chess"
+#~ msgstr "체스 배우기"
+
+#~ msgid "Play chess against tux in a learning mode"
+#~ msgstr "배우기 모드로 tux를 상대로 체스 하기"
+
+#~ msgid ""
+#~ "Error: /usr/bin/gnuchessx is installed\n"
+#~ "which means you have an old version\n"
+#~ "of gnuchess.\n"
+#~ "Please upgrade to gnuchess 5 or above."
+#~ msgstr ""
+#~ "오류: /usr/bin/gnuchessx 가 설치되었습니다\n"
+#~ "당신은 오래된 버젼을 설치하고 있습니다\n"
+#~ "gnuchess.\n"
+#~ "gnuchess 5 또는 더 최신 버젼으로 업그래이드 해주세요."
+
+#~ msgid "Read a letter"
+#~ msgstr "글자를 읽으세요"
+
+#~ msgid "Learn to recognize letters"
+#~ msgstr "글자 구별하는법을 배우세요"
+
+#~ msgid "Couldn't open dir: %s"
+#~ msgstr "디렉토리를 열 수 없습니다: %s"
+
+#~ msgid "Couldn't get GTK settings"
+#~ msgstr "GTK 설정을 얻을 수 없습니다"
+
+#~ msgid "Double clic default value %d."
+#~ msgstr "더블 클릭 초기값 %d."
+
+#~ msgid "Double clic value is now %d."
+#~ msgstr "현재 더블 클릭 값은 %d입니다."
+
+#~ msgid "Move the items one by one to rearrange them in increasing order"
+#~ msgstr "아이템을 한번에 하나씩 움직여서 커지는 순서로 재배열 하세요"
+
+#~ msgid "Given pictures of hands, find if it's a right or left one"
+#~ msgstr "손의 그림을 보고 오른손인지 왼손인지 맞춰 보세요"
+
+#~ msgid "Pratice money usage"
+#~ msgstr "돈 사용 연습"
+
+#~ msgid "Paratrooper"
+#~ msgstr "낙하산병"
+
+#~ msgid "Direct the paratrooper to help him land safely"
+#~ msgstr "낙하산병을 조종해서 안전하게 착지할 수 있게 하세요"
+
+#~ msgid "You need the python xml module. Disabling SVG."
+#~ msgstr "python xml 모듈이 필요합니다. SVG를 끕니다."
+
+#~ msgid "Read Colors"
+#~ msgstr "색깔을 읽으세요"
+
+#~ msgid "Click on the corresponding color"
+#~ msgstr "일치하는 색깔을 클릭하세요"
+
+#~ msgid "Read a list of words and then tell if the given word is in it"
+#~ msgstr "단어의 목록을 읽고 주어진 단어가 목록 안에 있는지 말하세요"
+
+#~ msgid "Reverse count"
+#~ msgstr "역으로 숫자세기"
+
+#~ msgid "Drag and Drop the items to rebuild the object"
+#~ msgstr "대상을 다시 만들려면 아이템을 끌어서 놓으세요"
+
+#~ msgid "Numbers With Dices"
+#~ msgstr "주사위의 숫자들"
+
+#~ msgid "Type the keyboard number 1 to 9 before the dice reaches the ground"
+#~ msgstr "주사위가 땅에 떨어지기전까지 키보드로 1에서 9까지 숫자를 입력하세요"
+
+#~ msgid "Fully type the falling words before they reach the ground"
+#~ msgstr "단어가 땅에 떨어질때까지 그 단어를 완전히 입력하세요"
+
+#~ msgid "Help"
+#~ msgstr "도움"
+
+#~ msgid "Azerbaijani Turkic"
+#~ msgstr "아제르바이잔 튀르크어"
+
+#~ msgid "Indian (Hindi)"
+#~ msgstr "인도어 (힌디)"
+
+#~ msgid "Brazil Portuguese"
+#~ msgstr "브라질 포르투칼어"
+
+#~ msgid "Only this level"
+#~ msgstr "이 단계만"
+
+#~ msgid "Up to this level"
+#~ msgstr "이 단계 위로"
+
+#~ msgid "This level and above"
+#~ msgstr "이 단계와 높은 단계"
+
+#~ msgid "No skin found in %s\n"
+#~ msgstr "%s에 스킨이 없습니다\n"
+
+#~ msgid "dataset %s is a directory. Trying to read xml "
+#~ msgstr "데이터셋 %s는 디렉토리 입니다. xml을 읽으세요 "
+
+#~ msgid ""
+#~ "In ImageSet %s, home pathname %s is not found. Skipping ImageSet...\n"
+#~ msgstr "이미지셋 %s에 홈 경로 %s는 없습니다. 이미지셋 넘어감...\n"
+
+#~ msgid "In ImageSet %s, an image is not found. Skipping ImageSet...\n"
+#~ msgstr "이미지셋 %s에 이미지가 없습니다. 이미지셋 넘어감...\n"
+
+#~ msgid ""
+#~ "In ImageSet %s, directory %s is not found. Skipping all the ImageSet...\n"
+#~ msgstr "이미지셋 %s에 디렉토리 %s가 없습니다. 모든 이미지셋 넘어감...\n"
+
+#~ msgid "Gcompris Editor"
+#~ msgstr "Gcompris 편집기"
+
+#~ msgid "Icon"
+#~ msgstr "아이콘"
+
+#~ msgid "Name"
+#~ msgstr "이름"
+
+#~ msgid "Type"
+#~ msgstr "종류"
+
+#~ msgid "Difficulty"
+#~ msgstr "난이도"
+
+#~ msgid "Author"
+#~ msgstr "저자"
+
+#~ msgid "Directory"
+#~ msgstr "디렉토리"
+
+#~ msgid "Title"
+#~ msgstr "제목"
+
+#~ msgid "Released under GPL"
+#~ msgstr "GPL로 발매 됨"
+
+#~ msgid "Couldn't open music dir: %s"
+#~ msgstr "음악 디렉토리 열수 없음: %s"
+
+#~ msgid ""
+#~ "The background thread music is stopped now. The files in %s are not ogg "
+#~ "vorbis OR the sound output failed"
+#~ msgstr ""
+#~ "배경 스레드 음악이 멈췄습니다. %s 에 있는 파일들이 ogg 형식이 아닙니다"
+#~ "vorbis 혹은 소리재생에 실패했습니다"
+
+#~ msgid "Couldn't find pixmap file: %s"
+#~ msgstr "pixmap 파일을 찾을 수 없습니다: %s"
+
