@@ -380,6 +380,7 @@ static GnomeCanvasItem *hanoi_create_item(GnomeCanvasGroup *parent)
   /* Randomly place the solution */
   for (color_to_place=0; color_to_place<number_of_item_y; color_to_place++)
     {
+      printf("color_to_place %d \n", color_to_place);
       gboolean done;
 
       do
@@ -390,6 +391,8 @@ static GnomeCanvasItem *hanoi_create_item(GnomeCanvasGroup *parent)
 
 	  /* Restrict the goal to lowest items */
 	  j = (guint)g_random_int_range(0, 2);
+
+	  printf("color_to_place %d i = %d, j= %d postition->color %d\n", color_to_place, i, j, position[i][j]->color);
 
 	  if(position[i][j]->color == -1)
 	    {

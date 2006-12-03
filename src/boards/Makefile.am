@@ -80,6 +80,7 @@ lib_LTLIBRARIES = \
 	libread_colors.la \
 	libdraw.la \
 	libwordprocessor.la \
+	libscale.la \
 	$(python_plugin)
 
 libdir = $(plugindir)
@@ -274,6 +275,9 @@ libwordprocessor_la_LDFLAGS = $(shared) $(no_undefined) -module -avoid-version $
 libwordprocessor_la_LIBADD = $(top_builddir)/src/gcompris/libgcompris-1.la
 libwordprocessor_la_SOURCES = wordprocessor.c
 
+libscale_la_LDFLAGS = $(shared) $(no_undefined) -module -avoid-version $(gc_libs)
+libscale_la_LIBADD = $(top_builddir)/src/gcompris/libgcompris-1.la
+libscale_la_SOURCES = scale.c
 
 libpython_la_LDFLAGS = -export-dynamic $(shared) $(no_undefined) -module -avoid-version $(gc_libs) $(PYTHON_LIBS)
 libpython_la_LIBADD = $(top_builddir)/src/gcompris/libgcompris-1.la

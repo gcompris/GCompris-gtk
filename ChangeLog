@@ -1,3 +1,22 @@
+2006-12-03  Yves Combe  <yves@ycombe.net>
+
+	By Miguel DE IZARRA:
+	- shapegame: fix zommx/zoomy pb.
+	- scale.c: new version of scale game
+
+	* boards/scales/balance.png:
+	* boards/scales/bras.png:
+	* boards/scales/plateau.png:
+	* boards/scalesboard.xml.in:
+	* src/boards/Makefile.am:
+	* src/boards/hanoi.c: (hanoi_create_item):
+	* src/boards/scale.c: (pause_board), (start_board), (end_board),
+	(set_level), (is_our_board), (get_total_weight),
+	(scale_anim_plateau), (scale_item_event), (scale_list_add_weight),
+	(scale_next_level), (scale_destroy_all_items), (game_won),
+	(process_ok):
+	* src/boards/shapegame.c: (item_event_drag):
+
 2006-12-01  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* src/boards/erase.c: (erase_destroy_all_items),

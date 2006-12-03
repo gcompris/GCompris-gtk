@@ -1031,6 +1031,10 @@ static gint item_event_drag(GnomeCanvasItem *item, GdkEvent *event, gpointer dat
                 shadow_item = gnome_canvas_item_new(GNOME_CANVAS_GROUP(shape_root_item),
                         gnome_canvas_pixbuf_get_type(),
                         "pixbuf", dest,
+                        "width", shape->target_shape->w,
+                        "height", shape->target_shape->h,
+                        "width_set", TRUE,
+                        "height_set", TRUE,
                         NULL);
                 gnome_canvas_item_hide(shadow_item);
                 gdk_pixbuf_unref(dest);
