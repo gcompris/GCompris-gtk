@@ -319,8 +319,6 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 
       pause_board(FALSE);
 
-      gc_cursor_set(GCOMPRIS_LINE_CURSOR);
-
     }
 }
 
@@ -341,7 +339,6 @@ end_board ()
   }
 
   gcomprisBoard = NULL;
-  gc_cursor_set(GCOMPRIS_DEFAULT_CURSOR);
 }
 
 static void
@@ -788,18 +785,18 @@ add_shape_to_list_of_shapes(Shape *shape)
         if(h < 20 || w < 20 )
         {
             GdkPixbuf *scale, *hand;
-            
+
             scale = gdk_pixbuf_scale_simple(pixmap, w, h, GDK_INTERP_BILINEAR);
             gdk_pixbuf_unref(pixmap);
 
-            pixmap = gdk_pixbuf_new( GDK_COLORSPACE_RGB, TRUE, 8, 
+            pixmap = gdk_pixbuf_new( GDK_COLORSPACE_RGB, TRUE, 8,
                     ICON_WIDTH, ICON_HEIGHT);
             gdk_pixbuf_fill(pixmap,0xffffff00);
             // add the shape
             gdk_pixbuf_copy_area( scale, 0, 0, w, h,
                     pixmap, (ICON_WIDTH-w )/2, (ICON_HEIGHT-h)/2 );
             gdk_pixbuf_unref(scale);
-    
+
             // add the hand
             hand = gc_pixmap_load("boardicons/leftright.png");
             h = ICON_HEIGHT/3;
@@ -1855,7 +1852,7 @@ static void conf_ok(GHashTable *table)
     }
 
     gchar *drag_mode_str = g_hash_table_lookup( config, "drag_mode");
-    
+
     if (drag_mode_str && (strcmp (drag_mode_str, "NULL") != 0))
       drag_mode = (gint ) g_ascii_strtod(drag_mode_str, NULL);
     else
@@ -1911,7 +1908,7 @@ config_start(GcomprisBoard *agcomprisBoard,
     drag_previous = (gint ) g_ascii_strtod(drag_mode_str, NULL);
   else
     drag_previous = 0;
-  
+
   gc_board_config_combo_drag( drag_mode);
 
 }

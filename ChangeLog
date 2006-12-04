@@ -1,5 +1,16 @@
 2006-12-04  Bruno coudoin  <bruno.coudoin@free.fr>
 
+	- Added eraser sounds from tuxpaint.
+	- shapegame now uses the default cursor
+
+	* boards/sounds/eraser1.wav:
+	* boards/sounds/eraser2.wav:
+	* src/boards/erase.c: (erase_one_item):
+	* src/boards/shapegame.c: (start_board), (end_board),
+	(add_shape_to_list_of_shapes), (conf_ok), (config_start):
+
+2006-12-04  Bruno coudoin  <bruno.coudoin@free.fr>
+
 	- Added Korean support
 	- Now fullscreen no more the default.
 

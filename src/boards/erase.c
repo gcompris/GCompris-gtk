@@ -461,7 +461,10 @@ erase_one_item (GnomeCanvasItem *item)
 {
   gtk_object_destroy(GTK_OBJECT(item));
 
-  gc_sound_play_ogg ("sounds/darken.wav", NULL);
+  if(number_of_item%2)
+    gc_sound_play_ogg ("sounds/eraser1.wav", NULL);
+  else
+    gc_sound_play_ogg ("sounds/eraser2.wav", NULL);
 
   if(--number_of_item == 0)
     {
