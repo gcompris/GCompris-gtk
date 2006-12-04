@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GCompris>
-  <Board 
+  <Board
 	 name="clickgame"
-	 type="clickgame" 
+	 type="clickgame"
 	 section="/computer/mouse"
-	 icon="boardicons/clickgame.png" 
+	 icon="boardicons/clickgame.png"
 	 difficulty="1"
 	 author="Bruno Coudoin (bruno.coudoin@free.fr)"
 	 boarddir="fishes">
@@ -13,18 +13,7 @@
 	<_prerequisite>Mouse-manipulation</_prerequisite>
 	<_goal>Motor coordination: moving and clicking the mouse.</_goal>
 	<_manual>Use the left mouse button to click on the moving fish.</_manual>
-	<_credit xml:space="preserve">Fish are taken from the Unix utility xfishtank.
-Images are taken from the National Undersea Research Program (NURP) Collection
-at &lt;http://www.photolib.noaa.gov&gt;
-All image credits belong to the OAR/National Undersea Research Program (NURP),
-except for the first image, which is property of the University of North Carolina at Wilmington.
-The images used in each level are:
-Location: Tropical Atlantic Ocean, Florida Keys (image nur00523) Photographer: D. Kesling
-Location: Florida Keys (image nur03006)
-Location: Unknown (image nur03505)
-Location: Unknown (image nur03010)
-Location: Unknown (image nur03011)
-Location: Unknown (image nur03013)</_credit>
+	<_credit>Fish are taken from the Unix utility xfishtank. All image credits belong to Guillaume Rousse.</_credit>
 	<resource>clickgame</resource>
 	<resource>fishes</resource>
   </Board>
