@@ -142,7 +142,7 @@ gc_prop_new ()
   tmp->music		 = 1;
   tmp->fx		 = 1;
   tmp->screensize	 = 1;
-  tmp->fullscreen	 = 1;
+  tmp->fullscreen	 = 0;
   tmp->noxf86vm		 = FALSE;
   tmp->timer		 = 1;
   tmp->skin		 = g_strdup("babytoy");

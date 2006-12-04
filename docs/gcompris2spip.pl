@@ -8,7 +8,7 @@ use Data::Dumper;
 #  Copyright (C) 2004-2005 Bruno Coudoin.
 #
 #  gcompris2spip is free software; you can redistribute it and/or
-#  modify it under the terms of the GNU General Public License 
+#  modify it under the terms of the GNU General Public License
 #  version 2 published by the Free Software Foundation.
 #
 #  Intltool is distributed in the hope that it will be useful,
@@ -64,6 +64,7 @@ my %sections = (
 		"hu", 121,
 		"it", 60,
 		"ka", 0,
+		"ko", 0,
 		"lt", 0,
 		"mk", 0,
 		"ml", 0,
@@ -123,6 +124,7 @@ my %rubriques = (
 		 "hu", 123,
 		 "it", 66,
 		 "ka", 0,
+		 "ko", 0,
 		 "lt", 0,
 		 "mk", 0,
 		 "ml", 0,
@@ -183,6 +185,7 @@ my %rubriques_all = (
 		 "hu", 124,
 		 "it", 67,
 		 "ka", 0,
+		 "ko", 0,
 		 "lt", 0,
 		 "mk", 0,
 		 "ml", 0,

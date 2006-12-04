@@ -125,7 +125,7 @@ fi
 LDFLAGS="${LDFLAGS} ${XF86VM_LIBS}"
 
 dnl Add the languages which your application supports here.
-ALL_LINGUAS="am ar az bg ca cs da de el en_CA en_GB es et eu fi fr ga gu he hi hr hu it ja ka lt mk ml mr ms nb ne nl nn pa pl pt pt_BR ro ru rw sk sl so sq sr sr@Latn sv th tr vi wa zh_CN zh_TW"
+ALL_LINGUAS="am ar az bg ca cs da de el en_CA en_GB es et eu fi fr ga gu he hi hr hu it ja ka ko lt mk ml mr ms nb ne nl nn pa pl pt pt_BR ro ru rw sk sl so sq sr sr@Latn sv th tr vi wa zh_CN zh_TW"
 
 dnl GCompris needs to know which locale are supported
 AC_SUBST(ALL_LINGUAS)
