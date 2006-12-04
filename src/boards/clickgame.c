@@ -539,6 +539,18 @@ static void clickgame_animate_item(FishItem *fishitem)
 							     currentItem));
 }
 
+static void
+fish_escape (FishItem *fishitem)
+{
+  item2del_list = g_list_append (item2del_list, fishitem);
+  gc_sound_play_ogg ("sounds/youcannot.wav", NULL);
+
+  if (gcomprisBoard->sublevel) {
+    --gcomprisBoard->sublevel;
+    gc_score_set(gcomprisBoard->sublevel);
+  }
+}
+
 static void clickgame_move_item(FishItem *fishitem)
 {
   double sp = fishitem->speed;
@@ -564,17 +576,13 @@ static void clickgame_move_item(FishItem *fishitem)
 
   if(fishitem->speed>0)
     {
-      if(x1>gcomprisBoard->width) {
-	item2del_list = g_list_append (item2del_list, fishitem);
-	gc_sound_play_ogg ("crash", NULL);
-      }
+      if(x1>gcomprisBoard->width)
+	fish_escape (fishitem);
     }
   else
     {
-      if(x2<0) {
-	item2del_list = g_list_append (item2del_list, fishitem);
-	gc_sound_play_ogg ("crash", NULL);
-      }
+      if(x2<0)
+	fish_escape (fishitem);
     }
 
   while (g_list_length (item_list) < 3) {

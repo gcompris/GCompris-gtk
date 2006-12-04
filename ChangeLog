@@ -1,5 +1,12 @@
 2006-12-04  Bruno coudoin  <bruno.coudoin@free.fr>
 
+	- Improved by Joshua, on a suggestion of Jose.
+	  Now the fish count is decreased when one fish escapes the children.
+
+	* src/boards/clickgame.c: (fish_escape), (clickgame_move_item):
+
+2006-12-04  Bruno coudoin  <bruno.coudoin@free.fr>
+
 	- New images from Guillaume Rousse (released under GPL) are
 	  replacing all undersea images for clickgame.
 
