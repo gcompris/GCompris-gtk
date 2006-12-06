@@ -1,6 +1,14 @@
+2006-12-06  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	- Fixed 2 annoying bug in anim/draw:
+	  It's now easy to move text by using it's anchor
+	  The DEL key works now.
+
+	* src/boards/python/anim.py:
+
 2006-12-06  Yves Combe  <yves@ycombe.net>
 
-	Change sounds to csound made sounds. 
+	Change sounds to csound made sounds.
 
 	* boards/sounds/melody/guitar/son1.ogg:
 	* boards/sounds/melody/guitar/son2.ogg:
