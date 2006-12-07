@@ -461,6 +461,7 @@ static gint item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data) {
     {
     case GDK_BUTTON_PRESS:
       g_warning("GDK_BUTTON_PRESS item %d\tlength answer = %d\n",item_number,g_list_length(item_answer_list));
+      gc_sound_play_ogg ("sounds/bleep.wav", NULL);
       xOffset = 0;
       for (i=0; i<g_list_length(item_answer_list); i++) {
 	gnome_canvas_item_get_bounds(g_list_nth_data(item_answer_list,i), &dx1, &dy1, &dx2, &dy2);
@@ -509,6 +510,7 @@ static gint answer_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data) 
   switch (event->type)
     {
     case GDK_BUTTON_PRESS:
+      gc_sound_play_ogg ("sounds/smudge.wav", NULL);
       g_warning("Deleting %d\n",item_number);
       local_item = g_list_nth_data(item_answer_list,item_number);
       item_answer_list = g_list_remove( item_answer_list, local_item );

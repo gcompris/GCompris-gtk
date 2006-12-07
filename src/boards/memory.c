@@ -921,7 +921,7 @@ end_board ()
   g_free(op_minus);
   g_free(op_mult);
   g_free(op_div);
-  
+
   gcomprisBoard = NULL;
 }
 
@@ -1235,7 +1235,7 @@ static void create_item(GnomeCanvasGroup *parent)
 				 "y", (double) 20,
 				 NULL);
     gdk_pixbuf_unref(pixmap_tux);
-    
+
     tux_score_s = gnome_canvas_item_new (GNOME_CANVAS_GROUP(parent),
 				       gnome_canvas_text_get_type (),
 				       "font", gc_skin_font_board_huge_bold,
@@ -1543,7 +1543,7 @@ static void check_win()
 
   // Check win
   if (compare_card((gpointer) firstCard, (gpointer) secondCard) == 0) {
-    gc_sound_play_ogg ("sounds/gobble.ogg", NULL);
+    gc_sound_play_ogg ("sounds/flip.wav", NULL);
     win_id = g_timeout_add (timeout,
 			    (GSourceFunc) hide_card, NULL);
     return;
@@ -1588,6 +1588,9 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, MemoryItem *memoryItem)
 
 	   if(win_id)
 	     return FALSE;
+
+	   if (currentUiMode == UIMODE_NORMAL)
+	     gc_sound_play_ogg ("sounds/bleep.wav", NULL);
 
 	   if(secondCard)
 	     {
@@ -1735,7 +1738,7 @@ static gint tux_play(){
       if (currentUiMode == UIMODE_SOUND)
 	return FALSE;
       else {
-	gc_sound_play_ogg ("sounds/gobble.ogg", NULL);
+	gc_sound_play_ogg ("sounds/flip.wav", NULL);
 	win_id = g_timeout_add (1000,
 				(GSourceFunc) hide_card, NULL);
 	return TRUE;
@@ -1789,7 +1792,7 @@ static gint tux_play(){
       return FALSE;
     else {
       if (compare_card(firstCard, secondCard)==0){
-	gc_sound_play_ogg ("sounds/gobble.ogg", NULL);
+	gc_sound_play_ogg ("sounds/flip.wav", NULL);
 	g_warning("Now tux win !");
 	win_id = g_timeout_add (1000,
 				(GSourceFunc) hide_card, NULL);

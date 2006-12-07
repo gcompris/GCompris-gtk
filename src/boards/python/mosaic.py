@@ -23,6 +23,7 @@ import gcompris.utils
 import gcompris.skin
 import gcompris.admin
 import gcompris.bonus
+import gcompris.sound
 import gtk
 import gtk.gdk
 import random
@@ -342,6 +343,7 @@ class Gcompris_mosaic:
 
     if event.type == gtk.gdk.BUTTON_PRESS:
       # A color is selected
+      gcompris.sound.play_ogg("sounds/bleep.wav");
       if(self.current_index_x >= 0):
 
         image = palette.subpixbuf(self.current_index_x * self.palette_item_width,
@@ -363,6 +365,7 @@ class Gcompris_mosaic:
   def set_color_item_event(self, item, event, data):
 
     if event.type == gtk.gdk.BUTTON_PRESS:
+      gcompris.sound.play_ogg("sounds/paint1.wav");
       (box_item, color_index_x, color_index_y, coord_x, coord_y) = data
 
       self.current_index_x = color_index_x

@@ -804,9 +804,14 @@ static void movePos(int x1, int y1, int x2,int y2, int richting)
   int ret,wall,i,bo=1;
   ret=1;
   wall=Maze[x1][y1];
-  if (wall&richting) ret=0;
+  if (wall&richting)
+    {
+      gc_sound_play_ogg ("sounds/brick.wav", NULL);
+      ret=0;
+    }
   if (ret)
     {
+      gc_sound_play_ogg ("sounds/prompt.wav", NULL);
       if (Maze[x2][y2]&SET)
 	{
 	  for (i=(ind); i>=0 && bo; i--)
@@ -924,6 +929,7 @@ static gint key_press(guint keyval, gchar *commit_str, gchar *preedit_str)
     case GDK_3:
     case GDK_space:
       if(modeIsInvisible) {
+	gc_sound_play_ogg ("sounds/flip.wav", NULL);
 	if(mapActive) {
 	  gnome_canvas_item_hide(GNOME_CANVAS_ITEM(wallgroup));
 	  /* Hide the warning */
@@ -943,7 +949,11 @@ static gint key_press(guint keyval, gchar *commit_str, gchar *preedit_str)
       return TRUE;
     default: return FALSE;
     }
-  if (Maze[position[ind][0]][position[ind][1]]&richting) return TRUE;
+  if (Maze[position[ind][0]][position[ind][1]]&richting)
+    {
+      gc_sound_play_ogg ("sounds/brick.wav", NULL);
+      return TRUE;
+    }
   one_step(richting);
   viewing_direction=richting;
 
@@ -983,16 +993,19 @@ static gint key_press_2D_relative(guint keyval, gchar *commit_str, gchar *preedi
   switch (keyval)
     {
     case GDK_Left: viewing_direction=TURN_LEFT(viewing_direction);
+      gc_sound_play_ogg ("sounds/grow.wav", NULL);
       update_tux(viewing_direction);
       return TRUE;
       break;
     case GDK_Right: viewing_direction=TURN_RIGHT(viewing_direction);
+      gc_sound_play_ogg ("sounds/grow.wav", NULL);
       update_tux(viewing_direction);
       return TRUE;
       break;
     case GDK_Up: one_step(viewing_direction);
       break;
     case GDK_Down:
+      gc_sound_play_ogg ("sounds/grow.wav", NULL);
       viewing_direction=TURN_RIGHT(viewing_direction);
       viewing_direction=TURN_RIGHT(viewing_direction);
       update_tux(viewing_direction);
@@ -1018,15 +1031,17 @@ static gint key_press_3D(guint keyval, gchar *commit_str, gchar *preedit_str)
   switch (keyval)
     {
     case GDK_Left: viewing_direction=TURN_LEFT(viewing_direction);
+      gc_sound_play_ogg ("sounds/grow.wav", NULL);
       break;
     case GDK_Right: viewing_direction=TURN_RIGHT(viewing_direction);
+      gc_sound_play_ogg ("sounds/grow.wav", NULL);
       break;
     case GDK_Up: one_step(viewing_direction);
       break;
     case GDK_Down:
       viewing_direction=TURN_RIGHT(viewing_direction);
       viewing_direction=TURN_RIGHT(viewing_direction);
-      update_tux(viewing_direction);
+      gc_sound_play_ogg ("sounds/grow.wav", NULL);
       break;
     case GDK_2:
     case GDK_space:
@@ -1379,6 +1394,7 @@ static void draw3D()
 static void twoDdisplay()
 {
   char *fileskin;
+  gc_sound_play_ogg ("sounds/flip.wav", NULL);
   fileskin = gc_skin_image_get("gcompris-bg.jpg");
   gc_set_background(gnome_canvas_root(gcomprisBoard->canvas), fileskin);
   g_free(fileskin);
@@ -1391,6 +1407,7 @@ static void twoDdisplay()
 
 static void threeDdisplay()
 {
+  gc_sound_play_ogg ("sounds/flip.wav", NULL);
   gc_set_background(gnome_canvas_root(gcomprisBoard->canvas), "images/maze-bg.jpg");
   gnome_canvas_item_hide(GNOME_CANVAS_ITEM(boardRootItem));
   threeDactive=TRUE;
@@ -1424,6 +1441,4 @@ static void update_tux(gint direction)
 			     NULL);
       gdk_pixbuf_unref(pixmap);
     }
-
-
 }

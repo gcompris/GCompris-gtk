@@ -930,7 +930,7 @@ static void shape_goes_back_to_list(Shape *shape)
 
     update_shapelist_item();
 
-    gc_sound_play_ogg ("sounds/gobble.ogg", NULL);
+    gc_sound_play_ogg ("sounds/flip.wav", NULL);
 }
 
 static Shape * item_to_shape(GnomeCanvasItem *item)
@@ -977,6 +977,7 @@ static gint item_event_drag(GnomeCanvasItem *item, GdkEvent *event, gpointer dat
     switch(event->type)
     {
         case GDK_BUTTON_PRESS:
+	    gc_sound_play_ogg ("sounds/bleep.wav", NULL);
             switch(shape -> type)
             {
                 case SHAPE_ICON:
@@ -1084,6 +1085,9 @@ static gint item_event_drag(GnomeCanvasItem *item, GdkEvent *event, gpointer dat
             {
                 if(found_shape->shape_place)
                     shape_goes_back_to_list(found_shape->shape_place);
+
+		gc_sound_play_ogg ("sounds/line_end.wav", NULL);
+
                 /* place the target item */
                 gnome_canvas_item_set(shape->target_shape->item,
                         "x", found_shape->x - shape->target_shape->w/2,
@@ -1231,6 +1235,7 @@ item_event_ok(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
   switch (event->type)
     {
     case GDK_BUTTON_PRESS:
+      gc_sound_play_ogg ("sounds/bleep.wav", NULL);
       root_item = g_list_nth_data(shape_list_group, current_shapelistgroup_index);
       gnome_canvas_item_hide(root_item);
 

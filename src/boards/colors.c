@@ -449,6 +449,7 @@ static gint item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data) {
 	clicked = 9;
 
       if (clicked >= 0) {
+	gc_sound_play_ogg ("sounds/bleep.wav", NULL);
 	board_paused = TRUE;
 	highlight_selected(clicked);
 	gamewon = (clicked == GPOINTER_TO_INT(g_list_nth_data(listColors,0)));

@@ -25,6 +25,13 @@ to upgrade to newer versions, and (2) they show up as /opt/gtk, /opt/libxml,
 and so on from msys, which is reasonably clear.  If you choose a different
 hierarchy make sure to tweak your Makefile.mingw.
 
+WARNING: Library Microsoft mscrt71.dll.
+This library is needed only due to python.
+Based on microsoft wev site, it is freely redistributable if you get
+the free Microsoft Visual C++ 2005 Express Edition:
+http://support.microsoft.com/kb/326922/fr
+This library is not free software.
+
 2.1 GTK
 =======
 + gcompris needs gtk to run.
