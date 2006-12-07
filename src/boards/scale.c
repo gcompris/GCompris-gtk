@@ -28,6 +28,7 @@ static void pause_board (gboolean pause);
 static void end_board (void);
 static gboolean is_our_board (GcomprisBoard *gcomprisBoard);
 static void set_level (guint level);
+static gint key_press(guint keyval, gchar *commit_str, gchar *preedit_str);
 static void process_ok(void);
 static int gamewon;
 static void game_won(void);
@@ -35,6 +36,8 @@ static void game_won(void);
 static GnomeCanvasGroup *boardRootItem = NULL;
 static GnomeCanvasGroup *group_g = NULL, *group_d= NULL;
 static GnomeCanvasItem *bras = NULL;
+static GnomeCanvasItem *answer_item = NULL;
+GString *answer_string = NULL;
 
 static void scale_destroy_all_items(void);
 static void scale_next_level(void);
@@ -66,6 +69,17 @@ typedef struct {
 static GList *item_list = NULL;
 static int total_weight = 0;
 
+static const char *imageList[] = {
+    "gcompris/food/chocolate_cake.png",
+    "gcompris/food/pear.png",
+    "gcompris/food/orange.png",
+    "gcompris/food/suggar_box.png",
+    "gcompris/misc/flowerpot.png",
+    "gcompris/misc/glass.png"
+};
+
+static const int imageListCount = G_N_ELEMENTS(imageList);
+
 /* Description of this plugin */
 static BoardPlugin menu_bp =
 {
@@ -82,7 +96,7 @@ static BoardPlugin menu_bp =
     pause_board,
     end_board,
     is_our_board,
-    NULL,
+    key_press,
     process_ok,
     set_level,
     NULL,
@@ -123,7 +137,8 @@ static void start_board (GcomprisBoard *agcomprisBoard)
         gcomprisBoard=agcomprisBoard;
         gcomprisBoard->level=1;
         gcomprisBoard->sublevel=1;
-        gcomprisBoard->number_of_sublevel=10; /* Go to next level after this number of 'play' */
+        gcomprisBoard->number_of_sublevel=3; /* Go to next level after this number of 'play' */
+        gcomprisBoard->maxlevel = 3;
         gc_bar_set(GC_BAR_LEVEL|GC_BAR_OK);
         
         scale_next_level();
@@ -168,6 +183,64 @@ gboolean is_our_board (GcomprisBoard *gcomprisBoard)
     return FALSE;
 }
 
+/* ======================================= */
+static gint key_press(guint keyval, gchar *commit_str, gchar *preedit_str)
+{
+    if(!gcomprisBoard)
+        return FALSE;
+
+    /* Add some filter for control and shift key */
+    switch (keyval)
+    {
+        /* Avoid all this keys to be interpreted by this game */
+        case GDK_Shift_L:
+        case GDK_Shift_R:
+        case GDK_Control_L:
+        case GDK_Control_R:
+        case GDK_Caps_Lock:
+        case GDK_Shift_Lock:
+        case GDK_Meta_L:
+        case GDK_Meta_R:
+        case GDK_Alt_L:
+        case GDK_Alt_R:
+        case GDK_Super_L:
+        case GDK_Super_R:
+        case GDK_Hyper_L:
+        case GDK_Hyper_R:
+        case GDK_Num_Lock:
+            return FALSE;
+        case GDK_KP_Enter:
+        case GDK_Return:
+            process_ok();
+            return TRUE;
+        case GDK_Right:
+        case GDK_Left:
+            break;
+        case GDK_BackSpace:
+            if(answer_string)
+                g_string_truncate(answer_string, answer_string->len -1);
+            break;
+    }
+
+    if(answer_string)
+    {
+        gchar *tmpstr;
+        gchar c = commit_str ? commit_str[0] : 0;
+
+        /* Limit the user entry to 5 digits */
+        if(c>='0' && c<='9' && answer_string->len < 5)
+            answer_string = g_string_append_c(answer_string, c);
+
+        tmpstr = g_strdup_printf(_("Weight = %s"), answer_string->str);
+        gnome_canvas_item_set(answer_item,
+                "text", tmpstr,
+                NULL);
+        g_free(tmpstr);
+    }
+
+    return TRUE;
+}
+
 int get_total_weight(void)
 {
     GList *list;
@@ -208,6 +281,32 @@ void scale_anim_plateau(void)
     gnome_canvas_item_affine_absolute(GNOME_CANVAS_ITEM(group_d), affine);
 
     gc_item_rotate_with_center(bras, -angle, 138, 84);
+
+    if(diff ==0 && gcomprisBoard->level == 2)
+    {
+        GdkPixbuf *button_pixmap;
+        double x_offset = 40, y_offset = 150;
+
+        button_pixmap = gc_skin_pixmap_load("button_large2.png");
+        gnome_canvas_item_new (boardRootItem,
+                gnome_canvas_pixbuf_get_type (),
+                "pixbuf",  button_pixmap,
+                "x", x_offset,
+                "y", y_offset,
+                NULL);
+        answer_item = gnome_canvas_item_new(boardRootItem,
+                gnome_canvas_text_get_type(),
+                "font", gc_skin_font_board_title_bold,
+                "x", x_offset + gdk_pixbuf_get_width(button_pixmap)/2,
+                "y", y_offset + gdk_pixbuf_get_height(button_pixmap)/2,
+                "anchor", GTK_ANCHOR_CENTER,
+                "fill_color", "white",
+                NULL);
+        gdk_pixbuf_unref(button_pixmap);
+
+        answer_string = g_string_new(NULL);
+        key_press(0,NULL,NULL);
+    }
 }
 
 int scale_item_event(GnomeCanvasItem *w, GdkEvent *event, ScaleItem *item)
@@ -221,7 +320,9 @@ int scale_item_event(GnomeCanvasItem *w, GdkEvent *event, ScaleItem *item)
         return FALSE;
     if(event->button.button != 1)
         return FALSE;
-    
+    if(answer_string)   // disable, waiting a answer
+        return FALSE;
+
     if(item->plateau_index == -1)
     {
         // find the first free place
@@ -325,8 +426,8 @@ static void scale_next_level()
 
     // create the balance
     pixmap = gc_pixmap_load("scales/balance.png");
-    balance_x = (800 - gdk_pixbuf_get_width(pixmap))/2;
-    balance_y = (520 - gdk_pixbuf_get_height(pixmap))/2;
+    balance_x = (BOARDWIDTH - gdk_pixbuf_get_width(pixmap))/2;
+    balance_y = (BOARDHEIGHT - gdk_pixbuf_get_height(pixmap))/2;
 
     boardRootItem = GNOME_CANVAS_GROUP(gnome_canvas_item_new (gnome_canvas_root(gcomprisBoard->canvas),
                 gnome_canvas_group_get_type (),
@@ -370,6 +471,15 @@ static void scale_next_level()
     gdk_pixbuf_unref(pixmap);
     gdk_pixbuf_unref(pixmap2);
 
+    pixmap = gc_pixmap_load(imageList[g_random_int_range(0,imageListCount)]);
+    item = gnome_canvas_item_new(group_d,
+            gnome_canvas_pixbuf_get_type(),
+            "pixbuf", pixmap,
+            "x", ((double)PLATEAU_SIZE * ITEM_W - gdk_pixbuf_get_width(pixmap))/2.0,
+            "y", PLATEAU_Y + 5 - gdk_pixbuf_get_height(pixmap), NULL);
+    gnome_canvas_item_lower_to_bottom(item);
+    gdk_pixbuf_unref(pixmap);
+
     pixmap = gc_pixmap_load("scales/bras.png");
     bras = item = gnome_canvas_item_new(boardRootItem,
             gnome_canvas_pixbuf_get_type(),
@@ -380,6 +490,8 @@ static void scale_next_level()
     gdk_pixbuf_unref(pixmap);
     gnome_canvas_item_raise_to_top(balance);
 
+    // calc the total weight
+    total_weight = g_random_int_range(5,20);
     scale_list_add_weight(1);
     scale_list_add_weight(2);
     scale_list_add_weight(2);
@@ -389,7 +501,34 @@ static void scale_next_level()
     scale_list_add_weight(10);
     scale_list_add_weight(10);
 
-    total_weight = g_random_int_range(5,20);
+    if(gcomprisBoard->level == 1)
+    {   // display the object weight
+        double x,y;
+        gchar * text;
+        
+        x = PLATEAU_SIZE * ITEM_W * .5;
+        y = PLATEAU_Y - 10.0;
+        text = g_strdup_printf("%d", total_weight);
+        gnome_canvas_item_new(group_d,
+                gnome_canvas_text_get_type(),
+                "text", text,
+                "font", gc_skin_font_board_medium,
+                "x", x + 1.0,
+                "y", y + 1.0,
+                "anchor", GTK_ANCHOR_CENTER,
+                "fill_color_rgba", gc_skin_color_shadow,
+                NULL);
+        gnome_canvas_item_new(group_d,
+                gnome_canvas_text_get_type(),
+                "text", text,
+                "font", gc_skin_font_board_medium,
+                "x", x,
+                "y", y,
+                "anchor", GTK_ANCHOR_CENTER,
+                "fill_color_rgba", gc_skin_color_content,
+                NULL);
+        g_free(text);
+    }
     scale_anim_plateau();
 }
 
@@ -407,6 +546,11 @@ static void scale_destroy_all_items()
             g_free(list->data);
         g_list_free(item_list);
         item_list = NULL;
+    }
+    if(answer_string)
+    {
+        g_string_free(answer_string, TRUE);
+        answer_string = NULL;
     }
 }
 
@@ -430,10 +574,18 @@ static void game_won()
 /* ==================================== */
 static void process_ok()
 {
+    gboolean good_answer = TRUE;
+
     if(board_paused)
         return;
 
-    if(total_weight == get_total_weight())
+    if(answer_string)
+    {
+        gint answer_weight ;
+        answer_weight = g_strtod(answer_string->str, NULL);
+        good_answer = answer_weight == total_weight;
+    }
+    if(total_weight == get_total_weight() && good_answer)
     {
         gamewon = TRUE;
         scale_destroy_all_items();

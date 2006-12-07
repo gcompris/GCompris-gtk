@@ -920,7 +920,6 @@ static void shape_goes_back_to_list(Shape *shape)
             "x", shape->icon_shape->x,
             "y", shape->icon_shape->y, NULL);
     gnome_canvas_item_show(shape->icon_shape->item);
-    gc_item_focus_set(shape->icon_shape->item, TRUE);
 
     if(shape->placed)
     {
