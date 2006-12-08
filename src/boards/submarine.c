@@ -1106,18 +1106,21 @@ static gboolean update_timeout_very_slow() {
        ( ballast_av_chasse_open && ballast_av_air == MAX_BALLAST ) ) {
     gc_item_absolute_move( bubbling[0], submarine_x-30.0, depth-50.0);
     gnome_canvas_item_show( bubbling[0] );
+    gc_sound_play_ogg ("sounds/bubble.wav", NULL);
   } else
     gnome_canvas_item_hide( bubbling[0] );
 
   if ( (ballast_ar_purge_open && ballast_ar_air > 0.0) ||
        ( ballast_ar_chasse_open && ballast_ar_air == MAX_BALLAST ) ) {
     gc_item_absolute_move( bubbling[2], submarine_x - SUBMARINE_WIDTH , depth-30.0);
+    gc_sound_play_ogg ("sounds/bubble.wav", NULL);
     gnome_canvas_item_show( bubbling[2] );
   } else
     gnome_canvas_item_hide( bubbling[2] );
 
   if (regleur_purge_open && regleur < MAX_REGLEUR) {
     gc_item_absolute_move( bubbling[1], submarine_x - SUBMARINE_WIDTH/2 -30.0, depth-30.0);
+    gc_sound_play_ogg ("sounds/bubble.wav", NULL);
     gnome_canvas_item_show( bubbling[1] );
   } else
     gnome_canvas_item_hide( bubbling[1] );
@@ -1169,6 +1172,7 @@ static gint ballast_av_purge_event(GnomeCanvasItem *item, GdkEvent *event, gpoin
   switch (event->type)
     {
     case GDK_BUTTON_PRESS:
+      gc_sound_play_ogg ("sounds/bleep.wav", NULL);
       ballast_av_purge_open = !ballast_av_purge_open;
       if (ballast_av_purge_open)
 	gc_item_rotate(item, 90.0);
@@ -1192,6 +1196,7 @@ static gint ballast_ar_purge_event(GnomeCanvasItem *item, GdkEvent *event, gpoin
   switch (event->type)
     {
     case GDK_BUTTON_PRESS:
+      gc_sound_play_ogg ("sounds/bleep.wav", NULL);
       ballast_ar_purge_open = !ballast_ar_purge_open;
       if (ballast_ar_purge_open)
 	gc_item_rotate(item, 90.0);
@@ -1236,6 +1241,7 @@ static gint ballast_ar_chasse_event(GnomeCanvasItem *item, GdkEvent *event, gpoi
   switch (event->type)
     {
     case GDK_BUTTON_PRESS:
+      gc_sound_play_ogg ("sounds/bleep.wav", NULL);
       ballast_ar_chasse_open = !ballast_ar_chasse_open;
       if (ballast_ar_chasse_open)
 	gc_item_rotate(item, 90.0);
@@ -1258,6 +1264,7 @@ static gint ballast_av_chasse_event(GnomeCanvasItem *item, GdkEvent *event, gpoi
   switch (event->type)
     {
     case GDK_BUTTON_PRESS:
+      gc_sound_play_ogg ("sounds/bleep.wav", NULL);
       ballast_av_chasse_open = !ballast_av_chasse_open;
       if (ballast_av_chasse_open)
 	gc_item_rotate(item, 90.0);
@@ -1280,6 +1287,7 @@ static gint regleur_chasse_event(GnomeCanvasItem *item, GdkEvent *event, gpointe
   switch (event->type)
     {
     case GDK_BUTTON_PRESS:
+      gc_sound_play_ogg ("sounds/bleep.wav", NULL);
       regleur_chasse_open = !regleur_chasse_open;
       if (regleur_chasse_open)
 	gc_item_rotate(item, 90.0);
@@ -1304,6 +1312,7 @@ static gint barre_av_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data
   switch (event->type)
     {
     case GDK_BUTTON_PRESS:
+      gc_sound_play_ogg ("sounds/bleep.wav", NULL);
       if (d == UP && barre_av_angle < RUDDER_MAX) {
         barre_av_angle += RUDDER_STEP;
         gc_item_rotate_with_center( barre_av_item, barre_av_angle,RUDDER_CENTER_X,RUDDER_CENTER_Y);
@@ -1331,6 +1340,7 @@ static gint barre_ar_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data
   switch (event->type)
     {
     case GDK_BUTTON_PRESS:
+      gc_sound_play_ogg ("sounds/bleep.wav", NULL);
       if (d == UP && barre_ar_angle < RUDDER_MAX) {
         barre_ar_angle += RUDDER_STEP;
         gc_item_rotate_with_center( barre_ar_item, barre_ar_angle,RUDDER_CENTER_X,RUDDER_CENTER_Y);
@@ -1358,6 +1368,7 @@ static gint engine_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data) 
   switch (event->type)
     {
     case GDK_BUTTON_PRESS:
+      gc_sound_play_ogg ("sounds/bleep.wav", NULL);
       if (d == UP) {
         speed_ordered += SPEED_STEP;
       }
@@ -1385,6 +1396,7 @@ static gint air_compressor_event(GnomeCanvasItem *item, GdkEvent *event, gpointe
   switch (event->type)
     {
     case GDK_BUTTON_PRESS:
+      gc_sound_play_ogg ("sounds/bleep.wav", NULL);
       if (air_charging)
       	air_charging = FALSE;
       else
@@ -1406,6 +1418,7 @@ static gint battery_charger_event(GnomeCanvasItem *item, GdkEvent *event, gpoint
   switch (event->type)
     {
     case GDK_BUTTON_PRESS:
+      gc_sound_play_ogg ("sounds/bleep.wav", NULL);
       if (battery_charging)
       	battery_charging = FALSE;
       else

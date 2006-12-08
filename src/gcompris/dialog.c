@@ -161,6 +161,8 @@ item_event_ok(GnomeCanvasItem *item, GdkEvent *event, DialogBoxCallBack dbcb)
       if(rootDialogItem)
 	gc_dialog_close();
 
+      gc_sound_play_ogg ("sounds/bleep.wav", NULL);
+
       /* restart the board */
       gc_board_pause(FALSE);
 

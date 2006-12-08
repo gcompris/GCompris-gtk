@@ -608,7 +608,6 @@ static gint paratrooper_move_tux (GtkWidget *widget, gpointer data)
 	{
 	  gnome_canvas_item_hide(paratrooperItem.parachute);
 	  paratrooperItem.status = TUX_LANDED;
-	  gc_sound_play_ogg ("sounds/bonus.ogg", NULL);
 	  next_state();
 	}
       else
@@ -620,7 +619,6 @@ static gint paratrooper_move_tux (GtkWidget *widget, gpointer data)
 	    {
 	      gnome_canvas_item_hide(paratrooperItem.parachute);
 	      paratrooperItem.status = TUX_CRASHED;
-	      gc_sound_play_ogg ("sounds/crash.ogg", NULL);
 	      next_state();
 	    }
 	}
@@ -714,6 +712,7 @@ void next_state()
   switch(paratrooperItem.status)
     {
     case TUX_INPLANE:
+      gc_sound_play_ogg ("sounds/wahoo.ogg", NULL);
       gnome_canvas_item_move(paratrooperItem.rootitem, plane_x+100, 0);
       paratrooperItem.x += plane_x+100;
       gnome_canvas_item_show(paratrooperItem.paratrooper);
@@ -722,6 +721,7 @@ void next_state()
       drop_tux_id = gtk_timeout_add (10, (GtkFunction) paratrooper_move_tux, NULL);
       break;
     case TUX_DROPPING:
+      gc_sound_play_ogg ("sounds/eraser2.wav", NULL);
       gnome_canvas_item_lower_to_bottom(paratrooperItem.parachute);
       gnome_canvas_item_show(paratrooperItem.parachute);
       paratrooperItem.status = TUX_FLYING;
@@ -732,12 +732,14 @@ void next_state()
       }
       break;
     case TUX_LANDED:
+      gc_sound_play_ogg ("sounds/tuxok.wav", NULL);
       gnome_canvas_item_hide (paratrooperItem.instruct);
       gamewon = TRUE;
       gc_bonus_display(gamewon, BONUS_TUX);
       break;
     case TUX_CRASHED:
       /* Restart */
+      gc_sound_play_ogg ("sounds/bubble.wav", NULL);
       gnome_canvas_item_hide (paratrooperItem.instruct);
       gnome_canvas_item_move(paratrooperItem.rootitem, -paratrooperItem.x, -paratrooperItem.y+60);
       paratrooperItem.status	= TUX_INPLANE;

@@ -38,7 +38,7 @@
 
 #define LOCK_WIDTH		20
 #define LOCK_HEIGHT_MAX		(RIGHT_CANAL_HEIGHT + 40)
-#define LOCK_HEIGHT_MIN		20
+#define LOCK_HEIGHT_MIN		60
 
 #define SUBCANAL_BASE_LINE	(BASE_LINE + 80)
 #define SUBCANAL_HEIGHT		40
@@ -494,6 +494,8 @@ static void move_boat()
       return;
     }
 
+  gc_sound_play_ogg ("sounds/eraser2.wav", NULL);
+
   gnome_canvas_item_get_bounds(tuxboat_item, &timer_item_x1, &timer_item_y1,
 			       &timer_item_x2, &timer_item_y2);
 
@@ -555,6 +557,8 @@ static void toggle_lock(GnomeCanvasItem *item)
   if(animation)
     return;
   animation = TRUE;
+
+  gc_sound_play_ogg ("sounds/bleep.wav", NULL);
 
   gnome_canvas_item_get_bounds(item, &timer_item_x1, &timer_item_y1,
 			       &timer_item_x2, &timer_item_y2);

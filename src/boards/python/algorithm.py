@@ -24,6 +24,7 @@ import gcompris.utils
 import gcompris.skin
 import gcompris.bonus
 import gcompris.score
+import gcompris.sound
 import gtk
 import gtk.gdk
 import random
@@ -204,6 +205,7 @@ class Gcompris_algorithm:
   def apple_click (self, widget, event=None, index=0):
     if event.type == gtk.gdk.BUTTON_PRESS and event.button == 1:
      if index == self.random_index[self.algo(self.place)]:
+      gcompris.sound.play_ogg("sounds/bleep.wav")
       self.qm.destroy()
       self.paint_image(index, self.place, 147)
       self.place +=1
@@ -211,5 +213,8 @@ class Gcompris_algorithm:
         gcompris.bonus.display(gcompris.bonus.WIN, gcompris.bonus.TUX)
         return
       self.paint_qm ()
+     else:
+       gcompris.sound.play_ogg("sounds/brick.wav")
+
 
 

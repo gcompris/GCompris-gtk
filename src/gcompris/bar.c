@@ -488,6 +488,7 @@ item_event_bar(GnomeCanvasItem *item, GdkEvent *event, gchar *data)
       break;
     case GDK_BUTTON_PRESS:
       bar_reset_sound_id();
+      gc_sound_play_ogg ("sounds/bleep.wav", NULL);
 
       /* This is not perfect clean but it makes it easy to remove the help window
 	 by clicking on any button in the bar */

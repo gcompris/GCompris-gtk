@@ -488,6 +488,7 @@ item_event_help(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
     case GDK_LEAVE_NOTIFY:
       break;
     case GDK_BUTTON_PRESS:
+      gc_sound_play_ogg ("sounds/bleep.wav", NULL);
       if(!strcmp((char *)data, "ok"))
 	{
 	  gc_help_stop();
