@@ -177,7 +177,7 @@ class Gcompris_electric:
     self.gamewon = False
 
     if self.gnucap_timer :
-      gtk.timeout_remove(self.gnucap_timer)
+      gobject.source_remove(self.gnucap_timer)
       self.gnucap_timer = 0
 
     # remove the appended items from our tools

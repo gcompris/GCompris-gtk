@@ -1667,10 +1667,10 @@ gc_init (int argc, char *argv[])
 
   if(popt_web_only) {
     g_free(properties->package_data_dir);
-    properties->package_data_dir = "";
+    properties->package_data_dir = g_strdup("");
 
     g_free(properties->system_icon_dir);
-    properties->system_icon_dir = "";
+    properties->system_icon_dir = g_strdup("");
   }
 
   if (popt_server){

@@ -20,6 +20,7 @@ xml_in_files = \
 	bargame.xml.in \
 	billard.xml.in \
 	canal_lock.xml.in \
+	chat.xml.in \
 	chess_computer.xml.in \
 	chess_movelearn.xml.in \
 	chess_partyend.xml.in \

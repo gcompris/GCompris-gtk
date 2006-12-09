@@ -1,7 +1,19 @@
+2006-12-09  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	- Created a new activity, a mini local chat based on multicast.
+	  It does not require a server.
+
+	* boards/Makefile.am:
+	* boards/chat.xml.in:
+	* src/boards/python/chat.py:
+
+	* src/boards/python/electric.py: used gobject.source_remove() instead of GTK API
+
+	* src/gcompris/gcompris.c: (gc_init): fixed static init where it needs allocated memory.
+
 2006-12-08  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	- Added more sound effects. All taken from tuxpaints.
-
 
 	* src/boards/canal_lock.c: (move_boat), (toggle_lock):
 	* src/boards/clockgame.c: (start_board), (item_event),
