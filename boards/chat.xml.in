@@ -3,13 +3,14 @@
   <Board
         name="chat"
         type="python:chat"
-        section="/experimental"
-        icon="boardicons/python.png"
-        difficulty="1"
+        section="/fun"
+        icon="boardicons/chat.png"
+        difficulty="3"
         author="Bruno coudoin (bruno.coudoin@free.fr)"
         boarddir="">
         <_title>Chat with your friends</_title>
-        <_description>Chat on the local network</_description>
+        <_description>This chat works only on the local network</_description>
+        <_manual>This chat activity only work with other GCompris user on your local network, not the Internet. To use it, just type in messages and hit enter. Your message is broacasted on the local network and any GCompris running the chat activity will receive and display the message.</_manual>
   </Board>
   <Data directory=""/>
 </GCompris>

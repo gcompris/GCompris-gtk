@@ -8,6 +8,7 @@ dist_python_DATA= \
 	anim.py \
 	ballcatch.py \
 	bargame.py \
+	chat.py \
 	connect4.py \
 	electric.py \
 	followline.py \

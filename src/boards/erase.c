@@ -178,9 +178,9 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       gcomprisBoard->sublevel=1;
       gcomprisBoard->number_of_sublevel=10; /* Go to next level after this number of 'play' */
       gc_score_start(SCORESTYLE_NOTE,
-			   gcomprisBoard->width - 220,
-			   gcomprisBoard->height - 50,
-			   gcomprisBoard->number_of_sublevel);
+		     gcomprisBoard->width - 220,
+		     gcomprisBoard->height - 50,
+		     gcomprisBoard->number_of_sublevel);
       gc_bar_set(GC_BAR_LEVEL);
 
       if (strcmp(gcomprisBoard->mode,"double_clic")==0)
@@ -220,11 +220,15 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       /* initial state to restore */
       sound_policy = gc_sound_policy_get();
       gc_sound_policy_set(PLAY_AND_INTERRUPT);
+
+      gc_cursor_set(GCOMPRIS_DEL_CURSOR);
+
     }
 }
 /* ======================================= */
 static void end_board ()
 {
+  gc_cursor_set(GCOMPRIS_DEFAULT_CURSOR);
   if (board_mode == DOUBLECLIC){
     gdk_display_set_double_click_time( gdk_display_get_default(),
 					   DefaultDoubleClicDistance);

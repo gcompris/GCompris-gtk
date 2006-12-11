@@ -1,3 +1,30 @@
+2006-12-11  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	- Moved chat out of experimental. It has an icon now
+	  created from the xchat icon of the gartoon theme.
+	  More help displayed.
+	  Scrolling now follow the last text message
+	- Replaced cursors by a new cursor set from Franck.
+	- Now erase uses the sponge cursor.
+
+	* INSTALL:
+	* boards/boardicons/chat.png:
+	* boards/chat.xml.in:
+	* boards/skins/gartoon/cursor_circle.png:
+	* boards/skins/gartoon/cursor_default.png:
+	* boards/skins/gartoon/cursor_del.png:
+	* boards/skins/gartoon/cursor_fill.png:
+	* boards/skins/gartoon/cursor_fillcircle.png:
+	* boards/skins/gartoon/cursor_fillrect.png:
+	* boards/skins/gartoon/cursor_line.png:
+	* boards/skins/gartoon/cursor_rect.png:
+	* boards/skins/gartoon/cursor_select.png:
+	* po/POTFILES.in:
+	* src/boards/clockgame.c: (end_board):
+	* src/boards/erase.c: (start_board), (end_board):
+	* src/boards/python/Makefile.am:
+	* src/boards/python/chat.py:
+
 2006-12-09  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	- Created a new activity, a mini local chat based on multicast.

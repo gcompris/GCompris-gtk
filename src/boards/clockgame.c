@@ -173,7 +173,6 @@ end_board ()
       destroy_all_items();
     }
   gcomprisBoard = NULL;
-  gc_cursor_set(GCOMPRIS_DEFAULT_CURSOR);
 }
 
 static void
