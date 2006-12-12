@@ -1219,6 +1219,7 @@ static gint regleur_purge_event(GnomeCanvasItem *item, GdkEvent *event, gpointer
   switch (event->type)
     {
     case GDK_BUTTON_PRESS:
+      gc_sound_play_ogg ("sounds/bleep.wav", NULL);
       regleur_purge_open = !regleur_purge_open;
       if (regleur_purge_open)
 	gc_item_rotate(item, 90.0);

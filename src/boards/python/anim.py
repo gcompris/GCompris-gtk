@@ -33,6 +33,7 @@ import gcompris
 import gcompris.utils
 import gcompris.skin
 import gcompris.bonus
+import gcompris.sound
 import gtk
 import gtk.gdk
 import gtk.keysyms
@@ -587,6 +588,7 @@ class Gcompris_anim:
 
     if event.type == gtk.gdk.BUTTON_PRESS:
       if event.button == 1:
+        gcompris.sound.play_ogg("sounds/bleep.wav")
         # Some button have instant effects
         if (self.tools[tool][0] == "SAVE"):
 #          self.Anim2Shot()
@@ -694,6 +696,7 @@ class Gcompris_anim:
       return
 
     if event.type == gtk.gdk.BUTTON_PRESS:
+      gcompris.sound.play_ogg("sounds/drip.wav")
       if event.button == 1:
         # Deactivate old button
         self.old_color_item.set(width_units = 0.0,
@@ -824,6 +827,7 @@ class Gcompris_anim:
 
   def stop_event(self, item, event, up):
     if event.type == gtk.gdk.BUTTON_PRESS:
+      gcompris.sound.play_ogg("sounds/bleep.wav")
       self.playing_stop()
 
   def playing_stop(self):
@@ -834,6 +838,7 @@ class Gcompris_anim:
   def speed_event(self, item, event, up):
 
     if event.type == gtk.gdk.BUTTON_PRESS:
+      gcompris.sound.play_ogg("sounds/bleep.wav")
       if up:
         if self.anim_speed==25:
           return
@@ -948,6 +953,7 @@ class Gcompris_anim:
 
     if event.type == gtk.gdk.BUTTON_PRESS and event.button == 1:
       if event.button == 1:
+        gcompris.sound.play_ogg("sounds/bleep.wav")
         self.unselect()
 
     #
@@ -1022,6 +1028,7 @@ class Gcompris_anim:
   def fillin_item_event(self, item, event):
     if event.type == gtk.gdk.BUTTON_PRESS:
       if event.button == 1:
+        gcompris.sound.play_ogg("sounds/paint1.wav")
         if self.tools[self.current_tool][0] == "FILL":
           item.set(fill_color_rgba=self.colors[self.current_color])
           return True
@@ -1031,6 +1038,7 @@ class Gcompris_anim:
   def fillout_item_event(self, item, event):
     if event.type == gtk.gdk.BUTTON_PRESS:
       if event.button == 1:
+        gcompris.sound.play_ogg("sounds/paint1.wav")
         if self.tools[self.current_tool][0] == "FILL":
           item.set(outline_color_rgba=self.colors[self.current_color])
           return True
@@ -1046,6 +1054,8 @@ class Gcompris_anim:
     if event.type == gtk.gdk.BUTTON_PRESS:
       if event.button == 1:
         if self.tools[self.current_tool][0] == "DEL":
+          gcompris.sound.play_ogg("sounds/eraser1.wav",
+                                  "sounds/eraser2.wav")
           self.del_item(item);
           return True
     return False
@@ -1075,6 +1085,7 @@ class Gcompris_anim:
     if event.type == gtk.gdk.BUTTON_PRESS:
 
       if event.button == 1:
+        gcompris.sound.play_ogg("sounds/bleep.wav")
         self.newitem = None
         print "----------------------------------------"
         print "Current image = " + str(self.current_frame)
@@ -2042,7 +2053,7 @@ class Gcompris_anim:
     self.z_reinit()
     self.item_frame_counter.set(text=self.current_frame + 1)
     # print self.current_frame + 1
-    gtk.timeout_add(500, self.run_flash)
+    gobject.timeout_add(500, self.run_flash)
 
   def z_find_index(self, anAnimItem):
     def f(x): return x < anAnimItem.z

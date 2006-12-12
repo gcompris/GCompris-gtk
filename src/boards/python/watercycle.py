@@ -18,11 +18,13 @@
 #   along with this program; if not, write to the Free Software
 #   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 #
+import gobject
 import gnomecanvas
 import gcompris
 import gcompris.utils
 import gcompris.anim
 import gcompris.skin
+import gcompris.sound
 import gtk
 import gtk.gdk
 
@@ -59,6 +61,8 @@ class Gcompris_watercycle:
     gcompris.set_background(self.gcomprisBoard.canvas.root(),
                             "watercycle/background.png")
     gcompris.bar_set_level(self.gcomprisBoard)
+
+    gcompris.sound.play_ogg("sounds/Harbor1.wav", "sounds/Harbor3.wav")
 
     # Create our rootitem. We put each canvas item in it so at the end we
     # only have to kill it. The canvas deletes all the items it contains automaticaly.
@@ -256,7 +260,7 @@ class Gcompris_watercycle:
     self.waterlevel_max = 65
     self.waterlevel_min = 85
     self.waterlevel     = self.waterlevel_min
-    self.waterlevel_timer = gtk.timeout_add(1000, self.update_waterlevel)
+    self.waterlevel_timer = gobject.timeout_add(1000, self.update_waterlevel)
 
     self.waterlevel_item = self.rootitem.add(
           gnomecanvas.CanvasLine,
@@ -279,15 +283,15 @@ class Gcompris_watercycle:
   def end(self):
     # Remove all the timer first
     if self.boat_timer :
-      gtk.timeout_remove(self.boat_timer)
+      gobject.source_remove(self.boat_timer)
     if self.sun_timer :
-      gtk.timeout_remove(self.sun_timer)
+      gobject.source_remove(self.sun_timer)
     if self.vapor_timer :
-      gtk.timeout_remove(self.vapor_timer)
+      gobject.source_remove(self.vapor_timer)
     if self.cloud_timer :
-      gtk.timeout_remove(self.cloud_timer)
+      gobject.source_remove(self.cloud_timer)
     if self.waterlevel_timer :
-      gtk.timeout_remove(self.waterlevel_timer)
+      gobject.source_remove(self.waterlevel_timer)
 
     # Remove the root item removes all the others inside it
     self.rootitem.destroy()
@@ -340,7 +344,7 @@ class Gcompris_watercycle:
       self.showerbutton = 0
       self.shower_water_update()
 
-    self.waterlevel_timer = gtk.timeout_add(1000, self.update_waterlevel)
+    self.waterlevel_timer = gobject.timeout_add(1000, self.update_waterlevel)
 
 
   def set_cleanwater(self, status):
@@ -362,13 +366,13 @@ class Gcompris_watercycle:
         self.boat_timerinc+=50
 
       self.tuxboatcanvas.move(2, 0)
-      self.boat_timer = gtk.timeout_add(self.boat_timerinc, self.move_boat)
+      self.boat_timer = gobject.timeout_add(self.boat_timerinc, self.move_boat)
     else:
       if self.tuxboatcanvas.get_bounds()[2] < 800 :
         # Park the boat
         self.tuxboatcanvas.move(0.7, -0.7)
         self.tuxboatitem.setState(1)
-        self.boat_timer = gtk.timeout_add(self.timerinc, self.move_boat)
+        self.boat_timer = gobject.timeout_add(self.timerinc, self.move_boat)
       else :
         # We are parked, change the boat to remove tux
         #self.tuxboatcanvas.set(
@@ -379,6 +383,7 @@ class Gcompris_watercycle:
         #  height_set = 1,
         #  )
         self.tuxboatitem.setState(2)
+        gcompris.sound.play_ogg("sounds/Harbor3.wav")
 
         # Now display tux in the shower
         self.tuxshoweritem.show()
@@ -414,7 +419,7 @@ class Gcompris_watercycle:
       self.clouditem.hide()
       self.rainitem.hide()
     else:
-      self.cloud_timer = gtk.timeout_add(self.timerinc, self.move_cloud)
+      self.cloud_timer = gobject.timeout_add(self.timerinc, self.move_cloud)
 
   def init_vapor(self):
     self.vapor_on = 1
@@ -426,24 +431,24 @@ class Gcompris_watercycle:
     if( self.vaporitem.get_bounds()[1] < 20 ) :
       self.vaporitem.move(0, +100);
 
-    self.vapor_timer = gtk.timeout_add(self.timerinc, self.move_vapor)
+    self.vapor_timer = gobject.timeout_add(self.timerinc, self.move_vapor)
 
   def move_sun(self):
     self.sunitem.move(0, self.sun_direction);
     if( (self.sunitem.get_bounds()[1] > 0 and
          self.sunitem.get_bounds()[1] < 70 ) ) :
-      self.sun_timer = gtk.timeout_add(self.timerinc, self.move_sun)
+      self.sun_timer = gobject.timeout_add(self.timerinc, self.move_sun)
     else :
       # The sun is at is top
       if(self.sun_direction < 0) :
         # Stop the sun
-        self.sun_timer = gtk.timeout_add(15000, self.move_sun)
+        self.sun_timer = gobject.timeout_add(15000, self.move_sun)
         # Start the vapor
-        self.vapor_timer = gtk.timeout_add(5000 , self.init_vapor)
+        self.vapor_timer = gobject.timeout_add(5000 , self.init_vapor)
         self.vapor_on = 1
         # Start the cloud
         if(not self.cloud_on):
-          self.cloud_timer = gtk.timeout_add(10000, self.move_cloud)
+          self.cloud_timer = gobject.timeout_add(10000, self.move_cloud)
           self.cloud_on = 1
         # Remove the snow
         self.snowitem.hide()
@@ -467,7 +472,8 @@ class Gcompris_watercycle:
     if event.type == gtk.gdk.BUTTON_PRESS:
       if event.button == 1:
         if not self.sun_on :
-          self.sun_timer = gtk.timeout_add(self.timerinc, self.move_sun)
+          gcompris.sound.play_ogg("sounds/bleep.wav")
+          self.sun_timer = gobject.timeout_add(self.timerinc, self.move_sun)
           self.sun_on = 1
         return True
     return False
@@ -475,6 +481,7 @@ class Gcompris_watercycle:
   def cloud_item_event(self, widget, event=None):
     if event.type == gtk.gdk.BUTTON_PRESS:
       if event.button == 1:
+        gcompris.sound.play_ogg("sounds/Water5.wav")
         self.rain_on = 1
         return True
     return False
@@ -483,6 +490,7 @@ class Gcompris_watercycle:
     if event.type == gtk.gdk.BUTTON_PRESS:
       if event.button == 1:
         if self.riverfull:
+          gcompris.sound.play_ogg("sounds/bubble.wav")
           self.waterpump_on = 1
           self.pumpwateritem.set(pixbuf = gcompris.utils.load_pixmap("watercycle/pumpwater.png"));
         return True
@@ -492,6 +500,7 @@ class Gcompris_watercycle:
     if event.type == gtk.gdk.BUTTON_PRESS:
       if event.button == 1:
         if self.waterpump_on:
+          gcompris.sound.play_ogg("sounds/bubble.wav")
           self.watercleaning_on = 1
           self.badwateritem.set(pixbuf = gcompris.utils.load_pixmap("watercycle/badwater.png"));
         return True
@@ -524,9 +533,11 @@ class Gcompris_watercycle:
     if event.type == gtk.gdk.BUTTON_PRESS:
       if event.button == 1:
         if self.showerbutton:
+          gcompris.sound.play_ogg("sounds/bleep.wav")
           self.showerbuttonitem_on.hide()
           self.showerbuttonitem_off.show()
         else:
+          gcompris.sound.play_ogg("sounds/apert2.wav")
           self.showerbuttonitem_on.show()
           self.showerbuttonitem_off.hide()
 

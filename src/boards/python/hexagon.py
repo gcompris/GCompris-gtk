@@ -23,6 +23,7 @@ import gcompris
 import gcompris.utils
 import gcompris.bonus
 import gcompris.skin
+import gcompris.sound
 import gtk
 import gtk.gdk
 import random
@@ -147,16 +148,20 @@ class Gcompris_hexagon:
   def on_click (self, widget, event=None, x=0, y=0):
     if event.type == gtk.gdk.BUTTON_PRESS and event.button == 1 :
 
-     catdistance = self.distance_cat(x,y)
-     #print self.random_catx, self.random_caty,x,y,catdistance
+      catdistance = self.distance_cat(x,y)
+      #print self.random_catx, self.random_caty,x,y,catdistance
 
-     if catdistance<0.1:
-      self.paint_cat()
-      self.gamewon       = True;
-      gcompris.bonus.display(gcompris.bonus.WIN, gcompris.bonus.GNU)
-     else:
-       color = self.coloring (catdistance/30.0)
-       widget.set(fill_color_rgba=color);
+      if catdistance<0.1:
+        gcompris.sound.play_ogg("sounds/smudge.wav")
+
+        self.paint_cat()
+        self.gamewon       = True;
+        gcompris.bonus.display(gcompris.bonus.WIN, gcompris.bonus.GNU)
+      else:
+        gcompris.sound.play_ogg("sounds/bleep.wav")
+
+        color = self.coloring (catdistance/30.0)
+        widget.set(fill_color_rgba=color);
 
 
   def paint_cat(self):

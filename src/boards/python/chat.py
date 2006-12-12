@@ -22,6 +22,7 @@ import gcompris
 import gcompris.utils
 import gcompris.bonus
 import gcompris.skin
+import gcompris.sound
 import gtk
 import gtk.gdk
 import gobject
@@ -253,6 +254,8 @@ class Gcompris_chat:
       friends = friends.join(self.friend_list)
       self.friend_area_tb.set_text(friends)
 
+      gcompris.sound.play_ogg("sounds/receive.wav")
+
       # Display the message
       self.global_area_tb.insert(self.global_area_tb.get_end_iter(),
                                  textl[2] + " => " + textl[3] + "\n")
@@ -265,6 +268,7 @@ class Gcompris_chat:
       return False
 
   def enter_callback(self, widget, entry):
+      gcompris.sound.play_ogg("sounds/bleep.wav")
       entry_text = entry.get_text()
       sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM,
                            socket.IPPROTO_UDP)

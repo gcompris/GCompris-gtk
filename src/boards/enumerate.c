@@ -402,7 +402,7 @@ static GnomeCanvasItem *enumerate_create_item(GnomeCanvasGroup *parent)
       /* Display the answer area */
       current_y -= ANSWER_HEIGHT*2;
 
-      pixmap_answer = gc_pixmap_load("images/enumerate_answer.png");
+      pixmap_answer = gc_pixmap_load("images/enumerate_answer_focus.png");
 
       item = \
 	gnome_canvas_item_new (boardRootItem,
@@ -416,7 +416,7 @@ static GnomeCanvasItem *enumerate_create_item(GnomeCanvasGroup *parent)
 
       gdk_pixbuf_unref(pixmap_answer);
 
-      pixmap_answer = gc_pixmap_load("images/enumerate_answer_focus.png");
+      pixmap_answer = gc_pixmap_load("images/enumerate_answer.png");
 
       answer_item_focus[i] = \
 	gnome_canvas_item_new (boardRootItem,
@@ -492,6 +492,7 @@ item_event_focus(GnomeCanvasItem *item, GdkEvent *event, guint index)
    switch (event->type)
      {
      case GDK_BUTTON_PRESS:
+       gc_sound_play_ogg ("sounds/prompt.wav", NULL);
        gnome_canvas_item_hide(answer_item_focus[current_focus]);
        current_focus = index;
        gnome_canvas_item_show(answer_item_focus[current_focus]);
@@ -528,6 +529,7 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
        switch(event->button.button)
          {
          case 1:
+	   gc_sound_play_ogg ("sounds/bleep.wav", NULL);
 	   x = item_x;
 	   y = item_y;
 

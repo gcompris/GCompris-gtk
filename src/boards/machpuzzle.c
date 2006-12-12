@@ -289,6 +289,7 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, MachItem *machItem)
      {
 
      case GDK_BUTTON_PRESS:
+       gc_sound_play_ogg ("sounds/brick.wav", NULL);
        width = x2-x1;
 
        //       machItem->vyo   = (y1 - machItem->ypos) * machItem->elasticity;
@@ -559,6 +560,7 @@ static void minigolf_move(GList *item_list)
 		  {
 		    //printf("!!! Collision detected with:\n");
 		    //dump_machItem(collMachItem);
+		    gc_sound_play_ogg ("sounds/flip.wav", NULL);
 		    collision = TRUE;
 
 		    gamewon = TRUE;

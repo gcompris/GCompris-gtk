@@ -586,6 +586,7 @@ static gint item_event_oper(GnomeCanvasItem *item, GdkEvent *event, gpointer dat
 
   switch (event->type) {
   case GDK_BUTTON_PRESS:
+    gc_sound_play_ogg ("sounds/flip.wav", NULL);
     ptr_token_selected[token_count] = t;
     tmp_item = gnome_canvas_item_new (boardRootItem,
 				      gnome_canvas_pixbuf_get_type (),
@@ -613,6 +614,7 @@ static gint item_event_oper_moved(GnomeCanvasItem *item, GdkEvent *event, gpoint
   // we only allow the undo of an operation if it is the last element displayed
   switch (event->type) {
   case GDK_BUTTON_PRESS:
+    gc_sound_play_ogg ("sounds/flip.wav", NULL);
     if (count == token_count) {
       gtk_object_destroy (GTK_OBJECT(item));
       token_count--;
@@ -633,6 +635,7 @@ static gint item_event_num(GnomeCanvasItem *item, GdkEvent *event, gpointer data
 
   switch (event->type){
   case GDK_BUTTON_PRESS:
+    gc_sound_play_ogg ("sounds/bleep.wav", NULL);
     if (t->isMoved) {
       if (item != ptr_token_selected[token_count-1]->item)
 	return FALSE;

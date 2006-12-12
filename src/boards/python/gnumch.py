@@ -20,6 +20,7 @@
 #   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 #
 
+import gobject
 import gnomecanvas
 import gcompris
 import gcompris.utils
@@ -27,6 +28,7 @@ import gcompris.skin
 import gcompris.bonus
 import gcompris.score
 import gcompris.anim
+import gcompris.sound
 import gobject
 import gtk
 import gtk.gdk
@@ -324,10 +326,10 @@ class Player(object):
 
     def die(self):
         if self.movestep_timer != 0:
-            gtk.timeout_remove(self.movestep_timer)
+            gobject.source_remove(self.movestep_timer)
             self.movestep_timer = 0
         if self.munch_timer != 0:
-            gtk.timeout_remove(self.munch_timer)
+            gobject.source_remove(self.munch_timer)
             self.munch_timer = 0
 
     def getEaten(self):
@@ -362,6 +364,7 @@ class Player(object):
         return ret
 
     def move(self, x_old, y_old, x, y):
+        gcompris.sound.play_ogg("sounds/smudge.wav")
         self.x_old = x_old
         self.y_old = y_old
         self.x = x
@@ -379,6 +382,7 @@ class Player(object):
             self.stop()
 
     def startMunching(self):
+        gcompris.sound.play_ogg("sounds/eat.wav")
         self.anim.setState(2)
         self.munch_timer = game.timeout_add(game.munch_time, self.stopMunching)
         return False
@@ -544,7 +548,7 @@ class Troggle(Player):
         self.nextspawn_timer = game.timeout_add( time + game.trogwarn_time, self.spawn )
         self.warn_timer = game.timeout_add( time, game.show_trogwarning )
         if self.nextmove_timer != 0:
-            gtk.timeout_remove(self.nextmove_timer)
+            gobject.source_remove(self.nextmove_timer)
             self.nextmove_timer = 0
 
     def getEaten(self):
@@ -848,14 +852,14 @@ class Gcompris_gnumch:
     def stopGame(self):
         self.stopped = 1
         if self.muncher.munch_timer != 0:
-            gtk.timeout_remove(self.muncher.munch_timer)
+            gobject.source_remove(self.muncher.munch_timer)
         if self.muncher.movestep_timer != 0:
-            gtk.timeout_remove(self.muncher.movestep_timer)
+            gobject.source_remove(self.muncher.movestep_timer)
 
         for t in self.troggles:
             for timer in [t.munch_timer, t.movestep_timer, t.nextmove_timer, t.nextspawn_timer, t.warn_timer]:
                 if timer != 0:
-                    gtk.timeout_remove(timer)
+                    gobject.source_remove(timer)
 
     def startGame(self):
         self.stopped = 0
@@ -916,7 +920,7 @@ class Gcompris_gnumch:
 
     def timeout_add(self, t, fn):
         if not self.paused and not self.stopped:
-            return gtk.timeout_add(t, fn)
+            return gobject.timeout_add(t, fn)
         else:
             return 0
 
