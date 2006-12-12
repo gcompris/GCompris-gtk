@@ -35,13 +35,6 @@
 
 static int gamewon;
 
-static gint addedname;	/* Defined the rules to apply to determine if the
-			   board is done.
-			   - by default it is puzzle like, each piece at its place
-			   - If addedname is set, then this value is compared to the
-			     sum of each xml name value of the placed pieces
-			*/
-
 static GcomprisBoard *gcomprisBoard = NULL;
 static gboolean board_paused = TRUE;
 static gboolean shadow_enable;
@@ -474,51 +467,16 @@ static void process_ok()
   GList *list;
   gboolean done = TRUE;
 
-  /*
-   * Here I implements the resolving rules.
-   */
-  if(addedname == INT_MAX)
-    {
-      /* - Default is to be puzzle like. Check that each piece is at its place */
+  /* Loop through all the shapes to find if all target are found */
+  for(list = shape_list; list != NULL; list = list->next) {
+      Shape *shape = list->data;
 
-      /* Loop through all the shapes to find if all target are found */
-      for(list = shape_list; list != NULL; list = list->next) {
-          Shape *shape = list->data;
-
-          if(shape->type==SHAPE_TARGET)
-          {
-              if(shape->placed!=shape)
-                  done=FALSE;
-          }
+      if(shape->type==SHAPE_TARGET)
+      {
+          if(shape->placed!=shape)
+              done=FALSE;
       }
-    }
-  else
-    {
-      /* - if addedname is set, then adding int name field of placed piece must
-       *   equals addedname
-       */
-      gint total = 0;
-
-      for(list = shape_list; list != NULL; list = list->next) {
-	Shape *shape = list->data;
-	gint   intname = 0;
-
-	g_warning("   shape = %s\n", shape->name);
-	if(shape->type==SHAPE_TARGET && shape->placed)
-	  {
-	    intname = atoi(shape->name);
-	    total += intname;
-	    g_warning("      shape = %s   placed=TRUE\n", shape->name);
-	  }
-
-      }
-
-      if(total != addedname)
-	done = FALSE;
-
-      g_warning("checking for addedname=%d done=%d total=%d\n", addedname, done, total);
-    }
-
+  }
 
   if(done)
     {
@@ -1772,11 +1730,6 @@ read_xml_file(char *fname)
     xmlFreeDoc(doc);
     return FALSE;
   }
-
-  /*--------------------------------------------------*/
-  /* Read OkIfAddedName property */
-  addedname = xmlGetProp_Double(doc->children, BAD_CAST "OkIfAddedName", INT_MAX);
-  g_warning("addedname=%d\n", addedname);
 
   /*--------------------------------------------------*/
   /* Read ShapeBox property */

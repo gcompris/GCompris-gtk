@@ -1,3 +1,46 @@
+2006-12-12  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	- Improvement in the new scale activity my Miguel.
+	  removed deprecated code from shapegame.
+	  removed old scale activity based on the puzzle code.
+	  rescaled the tabepice.jpg image to better suit the new scale.
+
+	* boards/Makefile.am:
+	* boards/scales/Makefile.am:
+	* boards/scales/balance.png:
+	* boards/scales/board1_0.xml.in:
+	* boards/scales/board1_1.xml.in:
+	* boards/scales/board1_2.xml.in:
+	* boards/scales/board1_3.xml.in:
+	* boards/scales/board1_4.xml.in:
+	* boards/scales/board1_5.xml.in:
+	* boards/scales/board2_0.xml.in:
+	* boards/scales/board2_1.xml.in:
+	* boards/scales/board2_2.xml.in:
+	* boards/scales/board2_3.xml.in:
+	* boards/scales/board2_4.xml.in:
+	* boards/scales/board2_5.xml.in:
+	* boards/scales/board3_0.xml.in:
+	* boards/scales/board3_1.xml.in:
+	* boards/scales/board3_2.xml.in:
+	* boards/scales/board3_3.xml.in:
+	* boards/scales/board3_4.xml.in:
+	* boards/scales/board3_5.xml.in:
+	* boards/scales/bras.png:
+	* boards/scales/plateau.png:
+	* boards/scales/scales.png:
+	* boards/scales/tabepice.jpg:
+	* configure.in:
+	* docs/C/python.html:
+	* docs/C/python.xml:
+	* src/boards/scale.c: (start_board), (end_board),
+	(get_weight_plateau), (scale_anim_plateau), (scale_item_move_to),
+	(scale_item_event), (scale_drag_event), (scale_list_add_weight),
+	(scale_list_add_object), (test_addition), (scale_make_level),
+	(scale_next_level), (process_ok), (save_table), (conf_ok),
+	(config_start), (config_stop):
+	* src/boards/shapegame.c: (process_ok), (read_xml_file):
+
 2006-12-11  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	- Moved chat out of experimental. It has an icon now

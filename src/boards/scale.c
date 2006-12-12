@@ -18,6 +18,8 @@
  */
 
 #include "gcompris/gcompris.h"
+#include <string.h> // for strcmp
+
 #define SOUNDLISTFILE PACKAGE
 
 static GcomprisBoard *gcomprisBoard = NULL;
@@ -27,6 +29,9 @@ static void start_board (GcomprisBoard *agcomprisBoard);
 static void pause_board (gboolean pause);
 static void end_board (void);
 static gboolean is_our_board (GcomprisBoard *gcomprisBoard);
+static void config_start(GcomprisBoard *agcomprisBoard,
+        GcomprisProfile *aProfile);
+static void config_stop();
 static void set_level (guint level);
 static gint key_press(guint keyval, gchar *commit_str, gchar *preedit_str);
 static void process_ok(void);
@@ -53,6 +58,7 @@ static void scale_next_level(void);
 #define PLATEAU_X2 246.0
 #define PLATEAU_Y 33.0
 #define PLATEAU_Y_DELTA 15.0
+#define PLATEAU_W 190.0
 
 #define BRAS_X 55.0
 #define BRAS_Y -6.0
@@ -62,13 +68,15 @@ static void scale_next_level(void);
 typedef struct {
     GnomeCanvasItem * item;
     double x, y;
-    int plateau_index;  // position in the plateau or -1 if not in the plateau
+    int plateau;        // 0 not place, 1 in plateau_g, -1 in plateau_d
+    int plateau_index;  // position in the plateau
     int weight;
 } ScaleItem;
 
 static GList *item_list = NULL;
-static int total_weight = 0;
+static int objet_weight = 0;
 
+static gint drag_mode;
 static const char *imageList[] = {
     "gcompris/food/chocolate_cake.png",
     "gcompris/food/pear.png",
@@ -79,6 +87,8 @@ static const char *imageList[] = {
 };
 
 static const int imageListCount = G_N_ELEMENTS(imageList);
+
+static int scale_drag_event(GnomeCanvasItem *w, GdkEvent *event, ScaleItem *item);
 
 /* Description of this plugin */
 static BoardPlugin menu_bp =
@@ -101,8 +111,8 @@ static BoardPlugin menu_bp =
     set_level,
     NULL,
     NULL,
-    NULL,
-    NULL
+    config_start,
+    config_stop
 };
 
 /*
@@ -137,14 +147,28 @@ static void start_board (GcomprisBoard *agcomprisBoard)
         gcomprisBoard=agcomprisBoard;
         gcomprisBoard->level=1;
         gcomprisBoard->sublevel=1;
-        gcomprisBoard->number_of_sublevel=3; /* Go to next level after this number of 'play' */
-        gcomprisBoard->maxlevel = 3;
-        gc_bar_set(GC_BAR_LEVEL|GC_BAR_OK);
-        
+        gcomprisBoard->number_of_sublevel=9; /* Go to next level after this number of 'play' */
+        gcomprisBoard->maxlevel = 4;
+        gc_bar_set(GC_BAR_LEVEL|GC_BAR_OK|GC_BAR_CONFIG);
+
         scale_next_level();
 
         gamewon = FALSE;
         pause_board(FALSE);
+
+        GHashTable *config = gc_db_get_board_conf();
+        gchar *drag_mode_str = g_hash_table_lookup( config, "drag_mode");
+
+        if (drag_mode_str && (strcmp (drag_mode_str, "NULL") != 0))
+            drag_mode = g_ascii_strtod(drag_mode_str, NULL);
+        else
+            drag_mode = 0;
+
+	gc_set_background(gnome_canvas_root(gcomprisBoard->canvas),
+			  "scales/tabepice.jpg");
+
+        gc_drag_start(gnome_canvas_root(gcomprisBoard->canvas),
+                (gc_Drag_Func)scale_drag_event, drag_mode);
     }
 }
 
@@ -152,6 +176,7 @@ static void end_board ()
 {
     if(gcomprisBoard!=NULL)
     {
+        gc_drag_stop(gnome_canvas_root(gcomprisBoard->canvas));
         pause_board(TRUE);
         scale_destroy_all_items();
     }
@@ -241,7 +266,10 @@ static gint key_press(guint keyval, gchar *commit_str, gchar *preedit_str)
     return TRUE;
 }
 
-int get_total_weight(void)
+// plateau = 1 plateau g
+// plateau = -1 plateau d
+// plateau = 0 plateau g - plateau d
+int get_weight_plateau(int plateau)
 {
     GList *list;
     ScaleItem *item;
@@ -250,11 +278,13 @@ int get_total_weight(void)
     for(list = item_list; list; list=list->next)
     {
         item = list->data;
-        if(item->plateau_index != -1)
+        if(item->plateau == plateau || plateau==0)
         {
-            result+= item->weight;
+            result+= item->weight * item->plateau;
         }
     }
+    if(plateau==-1)
+        result = -result;
     return result;
 }
 
@@ -265,24 +295,24 @@ void scale_anim_plateau(void)
     double angle;
     int diff;
 
-    diff = get_total_weight() - total_weight;
+    diff = get_weight_plateau(0);
     delta_y = CLAMP(PLATEAU_Y_DELTA / 10.0 * diff,
             -PLATEAU_Y_DELTA, PLATEAU_Y_DELTA);
-    if(get_total_weight()==0)
+    if(get_weight_plateau(1)==0)
         delta_y = -PLATEAU_Y_DELTA;
     angle = tan(delta_y / 138) * 180 / M_PI;
-    
+
     gtk_object_get (GTK_OBJECT (group_g), "x", &x, NULL);
     art_affine_translate(affine, x, delta_y);
     gnome_canvas_item_affine_absolute(GNOME_CANVAS_ITEM(group_g), affine);
-    
+
     gtk_object_get (GTK_OBJECT (group_d), "x", &x, NULL);
     art_affine_translate(affine, x, -delta_y);
     gnome_canvas_item_affine_absolute(GNOME_CANVAS_ITEM(group_d), affine);
 
     gc_item_rotate_with_center(bras, -angle, 138, 84);
 
-    if(diff ==0 && gcomprisBoard->level == 2)
+    if(diff ==0 && (gcomprisBoard->level == 2 || gcomprisBoard->level == 4))
     {
         GdkPixbuf *button_pixmap;
         double x_offset = 40, y_offset = 150;
@@ -300,7 +330,7 @@ void scale_anim_plateau(void)
                 "x", x_offset + gdk_pixbuf_get_width(button_pixmap)/2,
                 "y", y_offset + gdk_pixbuf_get_height(button_pixmap)/2,
                 "anchor", GTK_ANCHOR_CENTER,
-                "fill_color", "white",
+                "fill_color", "black",
                 NULL);
         gdk_pixbuf_unref(button_pixmap);
 
@@ -309,54 +339,109 @@ void scale_anim_plateau(void)
     }
 }
 
-int scale_item_event(GnomeCanvasItem *w, GdkEvent *event, ScaleItem *item)
+// if plateau = 1 , move to plateau g
+// if plateau = -1, move to plateau d
+// if plateau = 0 , move to the item list
+void scale_item_move_to(ScaleItem *item, int plateau)
 {
     ScaleItem *scale;
     GList *list;
     gboolean found;
     int index;
 
-    if(event->type != GDK_BUTTON_PRESS)
-        return FALSE;
-    if(event->button.button != 1)
-        return FALSE;
-    if(answer_string)   // disable, waiting a answer
-        return FALSE;
-
-    if(item->plateau_index == -1)
+    if(plateau!=0)
     {
-        // find the first free place
+        if(item->plateau)
+            item->plateau_index = -1;
+        // find the first free place in the plateau
         for(index=0; index < PLATEAU_SIZE; index ++)
         {
             found = FALSE;
             for(list = item_list; list; list = list->next)
             {
                 scale = list->data;
-                if(scale->plateau_index == index)
+                if(scale->plateau_index == index && scale->plateau == plateau)
                     found=TRUE;
             }
             if(!found)
             {   // move to the plateau
+                item->plateau = plateau;
                 item->plateau_index=index;
-                gnome_canvas_item_reparent(item->item, group_g);
+                gnome_canvas_item_reparent(item->item, plateau == 1 ? group_g : group_d);
                 gnome_canvas_item_set(item->item,
                         "x", (double)index * ITEM_W,
                         "y", (double)PLATEAU_Y-ITEM_H + 5,
                         NULL);
-                scale_anim_plateau();
                 break;
             }
         }
+        if(found)   // can't find place
+            plateau=0;
     }
-    else
+    if(plateau==0)
     {   // move the item to the list
-        item->plateau_index = -1;
+        item->plateau = 0;
         gnome_canvas_item_reparent(item->item, boardRootItem);
         gnome_canvas_item_set(item->item,
                 "x", item->x,
                 "y", item->y, NULL);
-        scale_anim_plateau();
     }
+    scale_anim_plateau();
+}
+
+static int scale_item_event(GnomeCanvasItem *w, GdkEvent *event, ScaleItem *scale)
+{
+    if(answer_string)
+        return FALSE;
+
+    if(event->type == GDK_BUTTON_PRESS && event->button.button==3)
+                scale_item_move_to(scale, 0);
+    return FALSE;
+}
+
+static int scale_drag_event(GnomeCanvasItem *w, GdkEvent *event, ScaleItem *scale)
+{
+    int plateau=0;
+    double x,y;
+
+    if(answer_string)   // disable, waiting a answer
+        return FALSE;
+
+    switch(event->type)
+    {
+        case GDK_BUTTON_PRESS:
+            gc_drag_offset_save(event);
+            g_object_get(G_OBJECT(scale->item), "x", &x, "y", &y, NULL);
+            gnome_canvas_item_i2w(scale->item, &x,&y);
+            gnome_canvas_item_reparent(scale->item,boardRootItem);
+            gnome_canvas_item_w2i(scale->item, &x, &y);
+            gnome_canvas_item_set(scale->item, "x", x, "y", y, NULL);
+            break;
+        case GDK_MOTION_NOTIFY:
+            gc_drag_item_move(event);
+            break;
+        case GDK_BUTTON_RELEASE:
+            x=event->button.x;
+            y=event->button.y;
+            gnome_canvas_item_w2i(GNOME_CANVAS_ITEM(group_g), &x, &y);
+            if(-ITEM_W < x && x < PLATEAU_W + ITEM_W && abs(y-PLATEAU_Y) < ITEM_H)
+                plateau = 1;
+            else
+            {
+                x=event->button.x;
+                y=event->button.y;
+                gnome_canvas_item_w2i(GNOME_CANVAS_ITEM(group_d), &x, &y);
+                if(-ITEM_W < x && x < PLATEAU_W + ITEM_W && abs(y-PLATEAU_Y) < ITEM_H)
+                    plateau = -1;
+                else
+                    plateau=0;
+            }
+            scale_item_move_to(scale, plateau);
+            break;
+        default:
+            break;
+    }
+
     return FALSE;
 }
 
@@ -367,7 +452,7 @@ static ScaleItem * scale_list_add_weight(gint weight)
     gchar *filename;
     double x, y;
     GList *last;
-    
+
     last=g_list_last(item_list);
     if(last)
     {
@@ -387,13 +472,12 @@ static ScaleItem * scale_list_add_weight(gint weight)
         x = ITEM_X_MIN;
         y = ITEM_Y_MIN;
     }
-    
+
     new_item = g_new0(ScaleItem, 1);
     new_item->x = x;
     new_item->y = y;
-    new_item->plateau_index = -1;
     new_item->weight = weight;
-    
+
     filename = g_strdup_printf("scales/masse%d.png", weight);
     pixmap = gc_pixmap_load(filename);
     new_item->item = gnome_canvas_item_new(boardRootItem,
@@ -403,112 +487,35 @@ static ScaleItem * scale_list_add_weight(gint weight)
             "y", new_item->y, NULL);
     g_free(filename);
     gdk_pixbuf_unref(pixmap);
-    
+
     g_signal_connect(new_item->item, "event", (GtkSignalFunc)gc_item_focus_event, NULL);
-    g_signal_connect(new_item->item, "event", (GtkSignalFunc)scale_item_event, new_item);
-    
+    g_signal_connect(new_item->item, "event", (GtkSignalFunc)gc_drag_event, new_item);
+    g_signal_connect(new_item->item, "event", (GtkSignalFunc) scale_item_event, new_item);
+
     item_list = g_list_append(item_list, new_item);
     return new_item;
 }
 
-static void scale_next_level()
+static ScaleItem * scale_list_add_object(GdkPixbuf *pixmap, int weight, int plateau, gboolean show_weight)
 {
-    GdkPixbuf *pixmap, *pixmap2;
-    GnomeCanvasItem *item, *balance;
-    double balance_x, balance_y;
+    GnomeCanvasItem *item;
+    ScaleItem * new_item;
 
-    item = gc_set_background(gnome_canvas_root(gcomprisBoard->canvas), 
-        "scales/tabepice.jpg");
-    gc_bar_set_level(gcomprisBoard);
-
-    scale_destroy_all_items();
-    gamewon = FALSE;
-
-    // create the balance
-    pixmap = gc_pixmap_load("scales/balance.png");
-    balance_x = (BOARDWIDTH - gdk_pixbuf_get_width(pixmap))/2;
-    balance_y = (BOARDHEIGHT - gdk_pixbuf_get_height(pixmap))/2;
-
-    boardRootItem = GNOME_CANVAS_GROUP(gnome_canvas_item_new (gnome_canvas_root(gcomprisBoard->canvas),
-                gnome_canvas_group_get_type (),
-                "x", balance_x,
-                "y", balance_y,
-                NULL));
-
-    balance = item = gnome_canvas_item_new(boardRootItem, 
-            gnome_canvas_pixbuf_get_type(),
-            "pixbuf", pixmap,
-            "x", (double)0,
-            "y", (double)0,
-            NULL);
-    gdk_pixbuf_unref(pixmap);
-    
-    // create plateau gauche
-    group_g = GNOME_CANVAS_GROUP(gnome_canvas_item_new(boardRootItem,
-                gnome_canvas_group_get_type(),
-                "x", PLATEAU_X1,
-                "y", 0.0,
-                NULL));
-    pixmap = gc_pixmap_load("scales/plateau.png");
-    item = gnome_canvas_item_new(group_g,
-            gnome_canvas_pixbuf_get_type(),
-            "pixbuf", pixmap,
-            "x", 0.0, "y", PLATEAU_Y, NULL);
-    gdk_pixbuf_unref(pixmap);
-    
-    // create plateau droit
-    group_d = GNOME_CANVAS_GROUP(gnome_canvas_item_new(boardRootItem,
-                gnome_canvas_group_get_type(),
-                "x", PLATEAU_X2,
-                "y", 0.0,
-                NULL));
-    pixmap = gc_pixmap_load("scales/plateau.png");
-    pixmap2 = gdk_pixbuf_flip(pixmap, TRUE);
-    item = gnome_canvas_item_new(group_d,
-            gnome_canvas_pixbuf_get_type(),
-            "pixbuf", pixmap2,
-            "x", 0.0, "y", PLATEAU_Y, NULL);
-    gdk_pixbuf_unref(pixmap);
-    gdk_pixbuf_unref(pixmap2);
-
-    pixmap = gc_pixmap_load(imageList[g_random_int_range(0,imageListCount)]);
     item = gnome_canvas_item_new(group_d,
             gnome_canvas_pixbuf_get_type(),
             "pixbuf", pixmap,
             "x", ((double)PLATEAU_SIZE * ITEM_W - gdk_pixbuf_get_width(pixmap))/2.0,
             "y", PLATEAU_Y + 5 - gdk_pixbuf_get_height(pixmap), NULL);
     gnome_canvas_item_lower_to_bottom(item);
-    gdk_pixbuf_unref(pixmap);
 
-    pixmap = gc_pixmap_load("scales/bras.png");
-    bras = item = gnome_canvas_item_new(boardRootItem,
-            gnome_canvas_pixbuf_get_type(),
-            "pixbuf", pixmap,
-            "x", BRAS_X,
-            "y", BRAS_Y,
-            NULL);
-    gdk_pixbuf_unref(pixmap);
-    gnome_canvas_item_raise_to_top(balance);
-
-    // calc the total weight
-    total_weight = g_random_int_range(5,20);
-    scale_list_add_weight(1);
-    scale_list_add_weight(2);
-    scale_list_add_weight(2);
-    scale_list_add_weight(5);
-    scale_list_add_weight(5);
-    scale_list_add_weight(10);
-    scale_list_add_weight(10);
-    scale_list_add_weight(10);
-
-    if(gcomprisBoard->level == 1)
+    if(show_weight)
     {   // display the object weight
         double x,y;
         gchar * text;
-        
+
         x = PLATEAU_SIZE * ITEM_W * .5;
-        y = PLATEAU_Y - 10.0;
-        text = g_strdup_printf("%d", total_weight);
+        y = PLATEAU_Y - 20.0;
+        text = g_strdup_printf("%d", objet_weight);
         gnome_canvas_item_new(group_d,
                 gnome_canvas_text_get_type(),
                 "text", text,
@@ -529,6 +536,160 @@ static void scale_next_level()
                 NULL);
         g_free(text);
     }
+
+    new_item = g_new0(ScaleItem, 1);
+    new_item->weight = weight;
+    new_item->plateau = plateau;
+    new_item->plateau_index = -1;
+    new_item->item = item;
+
+    item_list = g_list_append(item_list, new_item);
+    return new_item;
+}
+
+// test if adding elements in table can produce total
+static gboolean test_addition(int total, int *table, int len)
+{
+    int i;
+
+    if(total == 0)
+        return TRUE;
+
+    for(i=0; i<len; i++)
+    {
+        if(table[i] <= total && table[i] != 0)
+        {
+            gboolean result;
+            int cur;
+            cur = table[i];
+            table[i] = 0;
+            result = test_addition(total-cur, table, len);
+            table[i] = cur;
+            if(result)
+                return TRUE;
+        }
+    }
+    return FALSE;
+}
+
+static void scale_make_level()
+{
+    GdkPixbuf *pixmap;
+    gboolean show_weight=FALSE;
+    const int default_list_weight[10] = { 1,2,2,5,5,10,10};
+    int list_weight[10]= {0};
+    int i, tmp[5];
+
+    switch(gcomprisBoard->level)
+    {
+        case 1:
+        case 2:
+            objet_weight = g_random_int_range(5,20);
+            for(i=0;i<10; i++)
+                list_weight[i] = default_list_weight[i];
+            show_weight = gcomprisBoard->level == 1;
+            break;
+        case 3:
+        case 4:
+            while(1)
+            {
+                for(i=0; i< 5; i++)
+                    do
+                        tmp[i] = default_list_weight[g_random_int_range(0,10)];
+                    while(tmp[i]==0);
+
+                objet_weight=0;
+                for(i=0; i<5; i++)
+                    objet_weight += g_random_int_range(-1,2) * tmp[i];
+                objet_weight = abs(objet_weight);
+
+                if(!test_addition(objet_weight, tmp, 5))
+                    break;
+            }
+            for(i=0;i<5; i++)
+                list_weight[i] = tmp[i];
+            show_weight = gcomprisBoard->level == 3;
+            break;
+    }
+
+    for(i=0; list_weight[i] ; i++)
+        scale_list_add_weight(list_weight[i]);
+
+    pixmap = gc_pixmap_load(imageList[g_random_int_range(0,imageListCount)]);
+    scale_list_add_object(pixmap, objet_weight,-1, show_weight);
+    gdk_pixbuf_unref(pixmap);
+}
+
+
+static void scale_next_level()
+{
+    GdkPixbuf *pixmap, *pixmap2;
+    GnomeCanvasItem *item, *balance;
+    double balance_x, balance_y;
+
+    gc_bar_set_level(gcomprisBoard);
+
+    scale_destroy_all_items();
+    gamewon = FALSE;
+
+    // create the balance
+    pixmap = gc_pixmap_load("scales/balance.png");
+    balance_x = (BOARDWIDTH - gdk_pixbuf_get_width(pixmap))/2;
+    balance_y = (BOARDHEIGHT - gdk_pixbuf_get_height(pixmap))/2;
+
+    boardRootItem = GNOME_CANVAS_GROUP(gnome_canvas_item_new (gnome_canvas_root(gcomprisBoard->canvas),
+                gnome_canvas_group_get_type (),
+                "x", balance_x,
+                "y", balance_y,
+                NULL));
+
+    balance = item = gnome_canvas_item_new(boardRootItem,
+            gnome_canvas_pixbuf_get_type(),
+            "pixbuf", pixmap,
+            "x", (double)0,
+            "y", (double)0,
+            NULL);
+    gdk_pixbuf_unref(pixmap);
+
+    // create plateau gauche
+    group_g = GNOME_CANVAS_GROUP(gnome_canvas_item_new(boardRootItem,
+                gnome_canvas_group_get_type(),
+                "x", PLATEAU_X1,
+                "y", 0.0,
+                NULL));
+    pixmap = gc_pixmap_load("scales/plateau.png");
+    item = gnome_canvas_item_new(group_g,
+            gnome_canvas_pixbuf_get_type(),
+            "pixbuf", pixmap,
+            "x", 0.0, "y", PLATEAU_Y, NULL);
+    gdk_pixbuf_unref(pixmap);
+
+    // create plateau droit
+    group_d = GNOME_CANVAS_GROUP(gnome_canvas_item_new(boardRootItem,
+                gnome_canvas_group_get_type(),
+                "x", PLATEAU_X2,
+                "y", 0.0,
+                NULL));
+    pixmap = gc_pixmap_load("scales/plateau.png");
+    pixmap2 = gdk_pixbuf_flip(pixmap, TRUE);
+    item = gnome_canvas_item_new(group_d,
+            gnome_canvas_pixbuf_get_type(),
+            "pixbuf", pixmap2,
+            "x", 0.0, "y", PLATEAU_Y, NULL);
+    gdk_pixbuf_unref(pixmap);
+    gdk_pixbuf_unref(pixmap2);
+
+    pixmap = gc_pixmap_load("scales/bras.png");
+    bras = item = gnome_canvas_item_new(boardRootItem,
+            gnome_canvas_pixbuf_get_type(),
+            "pixbuf", pixmap,
+            "x", BRAS_X,
+            "y", BRAS_Y,
+            NULL);
+    gdk_pixbuf_unref(pixmap);
+    gnome_canvas_item_raise_to_top(balance);
+
+    scale_make_level();
     scale_anim_plateau();
 }
 
@@ -583,9 +744,9 @@ static void process_ok()
     {
         gint answer_weight ;
         answer_weight = g_strtod(answer_string->str, NULL);
-        good_answer = answer_weight == total_weight;
+        good_answer = answer_weight == objet_weight;
     }
-    if(total_weight == get_total_weight() && good_answer)
+    if(get_weight_plateau(0)==0 && good_answer)
     {
         gamewon = TRUE;
         scale_destroy_all_items();
@@ -594,3 +755,108 @@ static void process_ok()
     else
         gc_bonus_display(gamewon, BONUS_SMILEY);
 }
+
+/* ************************************* */
+/* *            Configuration          * */
+/* ************************************* */
+
+
+/* ======================= */
+/* = config_start        = */
+/* ======================= */
+
+static GcomprisProfile *profile_conf;
+static GcomprisBoard   *board_conf;
+
+static void save_table (gpointer key,
+			gpointer value,
+			gpointer user_data)
+{
+  gc_db_set_board_conf ( profile_conf,
+			    board_conf,
+			    (gchar *) key,
+			    (gchar *) value);
+}
+
+static void conf_ok(GHashTable *table)
+{
+  if (!table){
+    if (gcomprisBoard)
+      pause_board(FALSE);
+    return;
+  }
+
+  g_hash_table_foreach(table, (GHFunc) save_table, NULL);
+
+  if (gcomprisBoard){
+    GHashTable *config;
+
+    if (profile_conf)
+      config = gc_db_get_board_conf();
+    else
+      config = table;
+
+    gchar *drag_mode_str = g_hash_table_lookup( config, "drag_mode");
+
+    if (drag_mode_str && (g_strcasecmp (drag_mode_str, "NULL") != 0))
+      drag_mode = (gint ) g_ascii_strtod(drag_mode_str, NULL);
+    else
+      drag_mode = 0;
+
+    if (profile_conf)
+      g_hash_table_destroy(config);
+
+    gc_drag_change_mode( drag_mode);
+
+    scale_next_level();
+
+    pause_board(FALSE);
+  }
+
+  board_conf = NULL;
+  profile_conf = NULL;
+
+}
+
+static void
+config_start(GcomprisBoard *agcomprisBoard,
+		    GcomprisProfile *aProfile)
+{
+  board_conf = agcomprisBoard;
+  profile_conf = aProfile;
+
+  if (gcomprisBoard)
+    pause_board(TRUE);
+
+  gchar * label = g_strdup_printf("<b>%s</b> configuration\n for profile <b>%s</b>",
+				  agcomprisBoard->name,
+				  aProfile? aProfile->name : "");
+
+  gc_board_config_window_display( label,
+				 (GcomprisConfCallback )conf_ok);
+
+  g_free(label);
+
+  /* init the combo to previously saved value */
+  GHashTable *config = gc_db_get_conf( profile_conf, board_conf);
+
+  gchar *drag_mode_str = g_hash_table_lookup( config, "drag_mode");
+  gint drag_previous;
+
+  if (drag_mode_str && (strcmp (drag_mode_str, "NULL") != 0))
+    drag_previous = (gint ) g_ascii_strtod(drag_mode_str, NULL);
+  else
+    drag_previous = 0;
+
+  gc_board_config_combo_drag( drag_mode);
+
+}
+
+
+/* ======================= */
+/* = config_stop        = */
+/* ======================= */
+static void config_stop()
+{
+}
+
