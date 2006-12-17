@@ -1,3 +1,27 @@
+2006-12-17  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* boards/clickgame/README: add where to find source images
+	* boards/submarine/README:
+	* boards/submarine/sub_bg.jpg: recreated based on guillaume rousse pictures.
+	* src/boards/erase.c: (start_board), (end_board),
+	(erase_next_level), (game_won): removed score display
+	* src/boards/python/chat.py: changed port
+	* src/boards/python/electric.py: fixed a bug when there is no wire on the first
+	  component and first node of it.
+	* src/boards/submarine.c: (start_board), (end_board), (set_level),
+	(submarine_next_level), (submarine_destroy_all_items),
+	(submarine_create_item), (update_timeout), (update_timeout_slow),
+	(update_timeout_very_slow), (game_won), (quit_after_delay),
+	(ballast_av_purge_event), (ballast_ar_purge_event),
+	(regleur_purge_event), (ballast_ar_chasse_event),
+	(ballast_av_chasse_event), (regleur_chasse_event),
+	(barre_av_event), (barre_ar_event), (engine_event),
+	(air_compressor_event), (battery_charger_event),
+	(submarine_explosion): reworked this activity to include a goal (a gate on the right)
+	* src/gcompris/file_selector.c: (display_file_selector): fixed entry size. no more limit
+	  in read. This fixes a bug in which you cannot reload a file created at it's maximun file
+	  length we support.
+
 2006-12-13  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	- Added more sound effects to many activities

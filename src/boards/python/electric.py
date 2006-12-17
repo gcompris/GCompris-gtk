@@ -333,10 +333,15 @@ class Gcompris_electric:
     # Ugly hack: connect a 0 ohm (1 fempto) resistor between net 0
     # and first net found
     gnucap += "R999999999 0 "
+    found = False
     for component in self.components:
       if component.is_connected():
-        gnucap += str(component.get_nodes()[0].get_wires()[0].get_wire_id())
-        break
+        for node in component.get_nodes():
+          if(node.get_wires()):
+            gnucap += str(node.get_wires()[0].get_wire_id())
+            found = True
+            break
+      if found: break
     gnucap += " 1f\n"
 
     gnucap_print = ""

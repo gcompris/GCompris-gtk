@@ -42,8 +42,9 @@ class Gcompris_chat:
     self.gcomprisBoard = gcomprisBoard
     self.rootitem = None
 
-    # Randon adress
+    # Randon adress and port
     self.mcast_adress = "227.234.253.9"
+    self.port = 15922
 
     # These are used to let us restart only after the bonus is displayed.
     # When the bonus is displayed, it call us first with pause(1) and then with pause(0)
@@ -158,7 +159,7 @@ class Gcompris_chat:
     # Start the server
     self.sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM, socket.IPPROTO_UDP)
     self.sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
-    self.sock.bind(('', 6543))
+    self.sock.bind(('', self.port))
     mreq = struct.pack('4sl', socket.inet_aton(self.mcast_adress), socket.INADDR_ANY)
 
     self.sock.setsockopt(socket.IPPROTO_IP, socket.IP_ADD_MEMBERSHIP, mreq)
@@ -276,6 +277,6 @@ class Gcompris_chat:
 
       # format the message
       entry_text = "GCOMPRIS:CHAT:" + gethostname() + ":" + entry_text
-      sock.sendto(entry_text, (self.mcast_adress, 6543))
+      sock.sendto(entry_text, (self.mcast_adress, self.port))
       entry.set_text("")
       sock.close()

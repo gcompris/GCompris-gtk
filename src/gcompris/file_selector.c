@@ -233,7 +233,8 @@ display_file_selector(int the_mode,
 
   /* Entry area */
   widget_entry = (GtkEntry *)gtk_entry_new ();
-  gtk_entry_set_max_length(widget_entry, 30);
+  if(mode==MODE_SAVE)
+    gtk_entry_set_max_length(widget_entry, 30);
   item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				gnome_canvas_widget_get_type (),
 				"widget", GTK_WIDGET(widget_entry),
