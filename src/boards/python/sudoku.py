@@ -114,7 +114,6 @@ class Gcompris_sudoku:
 
 
   def end(self):
-
     # Remove the root item removes all the others inside it
     self.rootitem.destroy()
     self.rootitem = None
@@ -623,17 +622,20 @@ class Gcompris_sudoku:
         # For low levels, we symbolize the letters
         if(self.gcomprisBoard.level<self.symbolize_level_max):
           pixmap = self.get_pixmap_symbol(self.valid_chars, text)
-          zoom = (square_width*0.8) / pixmap.get_width()
+          zoom = (square_width*0.835) / pixmap.get_width()
+
           item = self.root_sudo.add(
             gnomecanvas.CanvasPixbuf,
             pixbuf = pixmap,
-            x= x_init + square_width * x + square_width/2,
-            y= y_init + square_height * y + square_height/2,
+            x= x_init + square_width * x + square_width/2
+            - (pixmap.get_width() * zoom)/2,
+            y= y_init + square_height * y + square_height/2
+            - (pixmap.get_height() * zoom)/2,
             width= pixmap.get_width() * zoom,
             height= pixmap.get_height() * zoom,
             width_set=True,
             height_set=True,
-            anchor=gtk.ANCHOR_CENTER
+            anchor=gtk.ANCHOR_NW
             )
           line_symbol.append(item)
 
