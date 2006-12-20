@@ -318,11 +318,11 @@ static GnomeCanvasItem *hanoi_create_item(GnomeCanvasGroup *parent)
     gnome_canvas_item_new (boardRootItem,
 			   gnome_canvas_pixbuf_get_type (),
 			   "pixbuf", pixmap,
-			   "x",	(double)BOARDWIDTH/2,
-			   "y",	(double)BOARDHEIGHT - 35,
+			   "x",	(double)10,
+			   "y",	(double)BOARDHEIGHT - 60,
 			   "width", (double) BOARDWIDTH - 20,
 			   "width_set", TRUE,
-			   "anchor", GTK_ANCHOR_CENTER,
+			   "anchor", GTK_ANCHOR_NW,
 			   NULL);
     gdk_pixbuf_unref(pixmap);
   }
@@ -380,7 +380,6 @@ static GnomeCanvasItem *hanoi_create_item(GnomeCanvasGroup *parent)
   /* Randomly place the solution */
   for (color_to_place=0; color_to_place<number_of_item_y; color_to_place++)
     {
-      printf("color_to_place %d \n", color_to_place);
       gboolean done;
 
       do
@@ -391,8 +390,6 @@ static GnomeCanvasItem *hanoi_create_item(GnomeCanvasGroup *parent)
 
 	  /* Restrict the goal to lowest items */
 	  j = (guint)g_random_int_range(0, 2);
-
-	  printf("color_to_place %d i = %d, j= %d postition->color %d\n", color_to_place, i, j, position[i][j]->color);
 
 	  if(position[i][j]->color == -1)
 	    {
@@ -412,13 +409,11 @@ static GnomeCanvasItem *hanoi_create_item(GnomeCanvasGroup *parent)
 	    {
 	      /* Take only a color that is not part of the goal */
 	      guint color = (guint)g_random_int_range(0, NUMBER_OF_COLOR-1);
-	      //printf(" i,j=%d,%d random color = %d used_colors[color]=%d\n", i,j,color, used_colors[color]);
 	      while(used_colors[color])
 		{
-		  //printf("  used_colors[%d]=%d\n", color, used_colors[color]);
-        color++;
-		if(color >= NUMBER_OF_COLOR)
-		  color = 0;
+		  color++;
+		  if(color >= NUMBER_OF_COLOR)
+		    color = 0;
 		}
 
 	      position[i][j]->color = color;
@@ -638,6 +633,7 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, PieceItem *data)
       switch(event->button.button)
 	{
 	case 1:
+	  gc_sound_play_ogg ("sounds/bleep.wav", NULL);
 
 	  x = item_x;
 	  y = item_y;
@@ -693,6 +689,8 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, PieceItem *data)
 	  /* Bad drop / On the same column */
 	  if(col<0 || col > number_of_item_x || col == data->i)
 	    {
+	      gc_sound_play_ogg ("sounds/eraser2.wav", NULL);
+
 	      /* Return to the original position */
 	      gc_item_absolute_move (data->item     , data->x , data->y);
 	      gc_item_absolute_move (data->item_text, data->xt, data->yt);
@@ -713,6 +711,8 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, PieceItem *data)
 	  /* Bad drop / Too many pieces here */
 	  if(line >= number_of_item_y)
 	    {
+	      gc_sound_play_ogg ("sounds/eraser2.wav", NULL);
+
 	      /* Return to the original position */
 	      gc_item_absolute_move (data->item     , data->x , data->y);
 	      gc_item_absolute_move (data->item_text, data->xt, data->yt);
@@ -736,6 +736,8 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, PieceItem *data)
 	  piece_src = data;
 	  gc_item_absolute_move (data->item     , piece_dst->x , piece_dst->y);
 	  gc_item_absolute_move (data->item_text, piece_dst->xt, piece_dst->yt);
+
+	  gc_sound_play_ogg ("sounds/scroll.wav", NULL);
 
 	  /* FIXME : Workaround for bugged canvas */
 	  gnome_canvas_update_now(gcomprisBoard->canvas);

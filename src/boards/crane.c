@@ -129,7 +129,7 @@ static gint		 arrow_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 static guint		 smooth_move(move_object *);
 static int		 is_allowed_move (double, double, int);
 static void		 shuffle_list(int list[], int);
-static void		 select_item(GnomeCanvasItem *, int);
+static void		 select_item(GnomeCanvasItem *);
 static int		 get_item_index (double, double);
 
 static void draw_arrow(void);
@@ -382,7 +382,10 @@ static gint item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data) {
 
   // Select item if left click on it
   if (event->type == GDK_BUTTON_PRESS && event->button.button == 1)
-	select_item(item, TRUE);
+    {
+      gc_sound_play_ogg ("sounds/bleep.wav", NULL);
+      select_item(item);
+    }
 
   return FALSE;
 }
@@ -414,6 +417,7 @@ static gint arrow_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data) {
 
   // Left click on an arrow move the selected item
   if (event->type == GDK_BUTTON_PRESS && event->button.button == 1) {
+        gc_sound_play_ogg ("sounds/scroll.wav", NULL);
 	x = event->button.x;
 	y = event->button.y;
 
@@ -635,7 +639,7 @@ static void place_item(int x, int y, int active) {
 
   // 'Focus' given to the last one
   if (active)
-	select_item(item_image, FALSE);
+	select_item(item_image);
 
 }
 
@@ -705,7 +709,7 @@ void shuffle_list(int list[], int size) {
   }
 }
 
-static void select_item(GnomeCanvasItem *item, int sound) {
+static void select_item(GnomeCanvasItem *item) {
 
   double dx1, dy1, dx2, dy2;
 
@@ -731,8 +735,6 @@ static void select_item(GnomeCanvasItem *item, int sound) {
   gnome_canvas_item_set (crane_rope_item,
 			 "points", crane_rope,
 			 NULL);
-
-  if (sound) gc_sound_play_ogg ("sounds/gobble.ogg", NULL);
 
   selected_item = item;
 }

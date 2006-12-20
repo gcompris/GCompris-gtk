@@ -83,7 +83,7 @@ on_wdrawareagrande_configure_event     (GtkWidget       *widget,
 				 widget->allocation.width,
 				 widget->allocation.height,
 				 -1);
-   
+
   if ( !editmode ){
     izoom=(widgetgrande->allocation.width*figgrande.zoom);
     piecepos=figgrande.piecepos;
@@ -116,7 +116,7 @@ on_wdrawareagrande_button_press_event  (GtkWidget       *widget,
 
   if (!selpossible || event->type!=GDK_BUTTON_PRESS)     /* double-click ou deja trouve */
     return TRUE;
-  
+
   if (actiongrande != AN_none)      /* le button release event a ete avale */
     tanreleaseifrot();
 
@@ -143,17 +143,17 @@ on_wdrawareagrande_button_press_event  (GtkWidget       *widget,
 	yoth=yold=y;
 	rotact=tanangle((double)(xact-x),(double)(y-yact));
 	rotold=0;
-	
+
 	invx2=x;
 	invy2=y;
 	gdk_draw_line (widgetgrande->window,
 		       invertgc,
 		       xact,yact,invx2,invy2);
-	
+
       }
     }
   }
-  
+
   if (event->button==3 && selectedgrande==TRUE){
     if (figgrande.piecepos[PIECENBR-1].type==3)
       figgrande.piecepos[PIECENBR-1].flipped^=1;
@@ -252,7 +252,7 @@ on_wdrawareapetite_configure_event     (GtkWidget       *widget,
 
   if (pixmappetite!=NULL)
     gdk_pixmap_unref(pixmappetite);
-  
+
   pixmappetite = gdk_pixmap_new(widget->window,
 				widget->allocation.width,
 				widget->allocation.height,
@@ -284,13 +284,14 @@ on_wdrawareapetite_expose_event        (GtkWidget       *widget,
 gboolean
 on_arrow_clicked (GnomeCanvasItem *item, GdkEvent *event, gpointer user_data)
 {
-  if ((event->type == GDK_BUTTON_PRESS)  
+  if ((event->type == GDK_BUTTON_PRESS)
       && (event->button.button == 1)) {
+    gc_sound_play_ogg ("sounds/bleep.wav", NULL);
     change_figure((gboolean) GPOINTER_TO_INT(user_data));
     return TRUE;
   }
   return FALSE;
-  
+
 }
 
 
@@ -299,11 +300,12 @@ on_show_clicked (GnomeCanvasItem *canvasitem,
 		  GdkEvent *event,
 		  gpointer user_data)
 {
-  if ((event->type == GDK_BUTTON_PRESS)  
+  if ((event->type == GDK_BUTTON_PRESS)
       && (event->button.button == 1)) {
-  helptanset = (helptanset+1)%PIECENBR;
-  tanredrawpetite();
-  return TRUE;
+    gc_sound_play_ogg ("sounds/bleep.wav", NULL);
+    helptanset = (helptanset+1)%PIECENBR;
+    tanredrawpetite();
+    return TRUE;
   }
   return FALSE;
 }
@@ -313,8 +315,9 @@ on_outline_clicked (GnomeCanvasItem *canvasitem,
 		  GdkEvent *event,
 		  gpointer user_data)
 {
-  if ((event->type == GDK_BUTTON_PRESS)  
+  if ((event->type == GDK_BUTTON_PRESS)
       && (event->button.button == 1)) {
+    gc_sound_play_ogg ("sounds/bleep.wav", NULL);
     if(!helpoutset){
       helpoutset = TRUE;
       tanredrawgrande();
@@ -329,8 +332,9 @@ on_symetry_clicked (GnomeCanvasItem *canvasitem,
 		  GdkEvent *event,
 		  gpointer user_data)
 {
-  if ((event->type == GDK_BUTTON_PRESS)  
+  if ((event->type == GDK_BUTTON_PRESS)
       && (event->button.button == 1)) {
+    gc_sound_play_ogg ("sounds/flip.wav", NULL);
     if (selectedgrande==TRUE){
       if (figgrande.piecepos[PIECENBR-1].type==3)
 	figgrande.piecepos[PIECENBR-1].flipped^=1;
@@ -348,8 +352,9 @@ on_rotation_clicked (GnomeCanvasItem *canvasitem,
 		  GdkEvent *event,
 		  gpointer user_data)
 {
-  if ((event->type == GDK_BUTTON_PRESS)  
+  if ((event->type == GDK_BUTTON_PRESS)
       && (event->button.button == 1)) {
+    gc_sound_play_ogg ("sounds/scroll.wav", NULL);
     gint angle = 0;
 
     if (selectedgrande==TRUE){

@@ -1563,9 +1563,9 @@ gc_init (int argc, char *argv[])
       exit(0);
     }
     else {
-    g_warning("Using menu %s as root.", popt_root_menu);
-    properties->root_menu = g_strdup(popt_root_menu);
-    properties->menu_position = g_strdup(popt_root_menu);
+      g_warning("Using menu %s as root.", popt_root_menu);
+      properties->root_menu = g_strdup(popt_root_menu);
+      properties->menu_position = g_strdup(popt_root_menu);
     }
   }
 
@@ -1757,10 +1757,14 @@ gc_init (int argc, char *argv[])
 
   gtk_widget_show_all (window);
 
-  if (properties->music)
-    gc_sound_play_ogg("music/intro.ogg", "sounds/$LOCALE/misc/welcome.ogg", NULL);
-  else
-    gc_sound_play_ogg("sounds/$LOCALE/misc/welcome.ogg", NULL);
+  /* If a specific activity is selected, skeep the intro music */
+  if(!popt_root_menu)
+    {
+      if (properties->music)
+	gc_sound_play_ogg("music/intro.ogg", "sounds/$LOCALE/misc/welcome.ogg", NULL);
+      else
+	gc_sound_play_ogg("sounds/$LOCALE/misc/welcome.ogg", NULL);
+    }
 
   gtk_main ();
   return 0;

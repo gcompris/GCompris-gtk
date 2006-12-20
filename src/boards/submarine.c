@@ -116,6 +116,7 @@ static void game_won();
 
 #define FRIGATE_SPEED 5.0
 #define WHALE_DETECTION_RADIUS 30.0
+#define TREASURE_DETECTION_RADIUS 30.0
 
 #define UPDATE_DELAY 200
 #define UPDATE_DELAY_SLOW 300
@@ -134,6 +135,7 @@ gboolean ballast_av_purge_open, ballast_ar_purge_open, regleur_purge_open;
 gboolean ballast_av_chasse_open, ballast_ar_chasse_open, regleur_chasse_open;
 gboolean air_charging, battery_charging;
 gboolean submarine_destroyed;
+gboolean treasure_captured;
 
 static GnomeCanvasItem *barre_av_item, *barre_ar_item,
   *barre_av_up_item, *barre_av_down_item, *barre_ar_up_item, *barre_ar_down_item,
@@ -147,7 +149,7 @@ static GnomeCanvasItem *barre_av_item, *barre_ar_item,
   *ballast_ar_air_item_back, *ballast_ar_air_item_front,
   *ballast_av_air_item_rect, *ballast_ar_air_item_rect,
   *air_compressor_item, *battery_charger_item, *alert_submarine,
-  *bubbling[3], *frigate_item, *big_explosion, *whale;
+  *bubbling[3], *frigate_item, *big_explosion, *whale, *treasure, *top_gate_item;
 
 /* submarine parameters */
 static double barre_av_angle, barre_ar_angle, depth, weight, resulting_weight, submarine_x, air, battery, regleur;
@@ -155,10 +157,11 @@ static double submarine_horizontal_speed, submarine_vertical_speed, speed_ordere
 static double ballast_av_air, ballast_ar_air;
 
 static double whale_x, whale_y;
+static double treasure_x, treasure_y;
 static guint schema_x, schema_y;
 
 /* Defines the right gate */
-static guint gate_top_y, gate_bottom_y;
+static guint gate_top_y, gate_bottom_y, gate_top_current_y;
 
 /* updated from submarine.png */
 static guint submarine_width;
@@ -187,6 +190,7 @@ static void setBallastAV(double value);
 static void setBallastAR(double value);
 
 static void submarine_explosion();
+static void open_door();
 
 static gboolean update_timeout();
 static gboolean update_timeout_slow();
@@ -312,6 +316,7 @@ static void submarine_next_level()
   ballast_av_air = ballast_ar_air = MAX_BALLAST/10.0;
   assiette = 0.0;
   submarine_destroyed = FALSE;
+  treasure_captured = FALSE;
 
   submarine_destroy_all_items();
   gamewon = FALSE;
@@ -819,6 +824,23 @@ static GnomeCanvasItem *submarine_create_item(GnomeCanvasGroup *parent) {
 
   gdk_pixbuf_unref(pixmap);
 
+  // treasure item
+  pixmap = gc_pixmap_load("gcompris/misc/crown.png");
+  treasure_x = (gcomprisBoard->width*3)/4;
+  treasure_y = MAX_DEPTH;
+  treasure = gnome_canvas_item_new (boardRootItem,
+				    gnome_canvas_pixbuf_get_type (),
+				    "pixbuf", pixmap,
+				    "x", (double) treasure_x,
+				    "y", (double) treasure_y,
+				    "width", (double) gdk_pixbuf_get_width(pixmap)/2,
+				    "height", (double) gdk_pixbuf_get_height(pixmap)/2,
+				    "width_set", TRUE,
+				    "height_set", TRUE,
+				    "anchor", GTK_ANCHOR_CENTER,
+				    NULL);
+  gdk_pixbuf_unref(pixmap);
+
   // the triggers for air compressor and battery charger
   pixmap = gc_pixmap_load("submarine/manette.png");
   air_compressor_item = gnome_canvas_item_new (boardRootItem,
@@ -885,16 +907,19 @@ static GnomeCanvasItem *submarine_create_item(GnomeCanvasGroup *parent) {
       break;
     }
 
-  gnome_canvas_item_new (boardRootItem,
-			 gnome_canvas_rect_get_type (),
-			 "x1", (double) BOARDWIDTH - 25,
-			 "y1", (double) 40,
-			 "x2", (double) BOARDWIDTH + 2,
-			 "y2", (double) gate_top_y,
-			 "fill_color_rgba", 0x036ED8FF,
-			 "outline_color", "white",
-			 "width_pixels", 2,
-			 NULL);
+  /* At startup, the gate is closed */
+  gate_top_current_y = gate_bottom_y;
+  top_gate_item = gnome_canvas_item_new \
+    (boardRootItem,
+     gnome_canvas_rect_get_type (),
+     "x1", (double) BOARDWIDTH - 25,
+     "y1", (double) 40,
+     "x2", (double) BOARDWIDTH + 2,
+     "y2", (double) gate_top_current_y,
+     "fill_color_rgba", 0x036ED8FF,
+     "outline_color", "white",
+     "width_pixels", 2,
+     NULL);
 
   gnome_canvas_item_new (boardRootItem,
 			 gnome_canvas_rect_get_type (),
@@ -1066,7 +1091,7 @@ static gboolean update_timeout_slow() {
 
       gnome_canvas_item_get_bounds (submarine_item, &x1, &y1, &x2, &y2);
 
-      if(y1<gate_top_y ||
+      if(y1<gate_top_current_y ||
 	 y2>gate_bottom_y)
 	{
 	  /* It's a crash */
@@ -1083,6 +1108,10 @@ static gboolean update_timeout_slow() {
 	    submarine_x = submarine_width/2.0;
 	}
     }
+
+  /* Open the door */
+  if(treasure_captured && gate_top_current_y > gate_top_y)
+    open_door();
 
   { /* display the submarine */
     double r[6],t1[6], t2[6];
@@ -1126,6 +1155,24 @@ static gboolean update_timeout_slow() {
       gnome_canvas_item_hide(whale);
       gnome_canvas_item_show(big_explosion);
       submarine_explosion();
+    }
+  }
+
+  /* treasure detection */
+  {
+    double dist1, dist2, dist3;
+    dist1 = hypot( submarine_x -submarine_width/2 -treasure_x, depth+SURFACE_IN_BACKGROUND-treasure_y);
+    dist2 = hypot(submarine_x - submarine_width - treasure_x, depth+SURFACE_IN_BACKGROUND-treasure_y);
+    dist3 = hypot(submarine_x - treasure_x, depth+SURFACE_IN_BACKGROUND-treasure_y);
+    /* magnetic detection (dist1) or collision with the treasure (dist2 & dist3) */
+    if ( (dist1 < TREASURE_DETECTION_RADIUS
+	  || dist2 < TREASURE_DETECTION_RADIUS
+	  || dist3 < TREASURE_DETECTION_RADIUS)
+	 && !treasure_captured ) {
+      gc_sound_play_ogg("sounds/tuxok.wav", NULL);
+      gnome_canvas_item_hide(treasure);
+      treasure_captured = TRUE;
+      open_door();
     }
   }
 
@@ -1565,6 +1612,15 @@ static void setBallastAR(double value) {
 
 }
 /* =====================================================================
+ *	Submarine explosion
+ * =====================================================================*/
+static void open_door()
+{
+  gnome_canvas_item_set(top_gate_item,
+			"y2", (double)gate_top_current_y--,
+			NULL);
+}
+  /* =====================================================================
  *	Submarine explosion
  * =====================================================================*/
 static void submarine_explosion() {

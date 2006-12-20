@@ -1,3 +1,22 @@
+2006-12-21  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* boards/sounds/scroll.wav: added from Tuxpaint
+	* src/boards/crane.c: (item_event), (arrow_event), (place_item),
+	(select_item): added audio effects
+	* src/boards/gtans_callbacks.c:
+	(on_wdrawareagrande_configure_event),
+	(on_wdrawareagrande_button_press_event),
+	(on_wdrawareapetite_configure_event), (on_arrow_clicked),
+	(on_show_clicked), (on_outline_clicked), (on_symetry_clicked),
+	(on_rotation_clicked): added audio effects
+	* src/boards/hanoi.c: (hanoi_create_item), (item_event): added audio effects
+	  fixed non centered title background area.
+	* src/boards/submarine.c: (submarine_next_level),
+	(submarine_create_item), (update_timeout_slow), (open_door): added a treasure
+	 that you must pickup first, then the door open itself.
+	* src/gcompris/gcompris.c: (gc_init): now intro sounds are not played is a specific
+	activity is requested.
+
 2006-12-20  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* boards/submarine.xml.in: Improved manual to include the new gate
