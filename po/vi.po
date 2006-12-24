@@ -6,8 +6,8 @@ msgid ""
 ""
 msgstr "Project-Id-Version: gcompris Gnome HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-10-18 02:35+0200\n"
-"PO-Revision-Date: 2006-10-18 17:19+0930\n"
+"POT-Creation-Date: 2006-12-23 20:10+0100\n"
+"PO-Revision-Date: 2006-12-24 13:58+1030\n"
 "Last-Translator: Clytie Siddall <clytie@riverland.net.au>\n"
 "Language-Team: Vietnamese <gnomevi-list@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
@@ -768,8 +768,9 @@ msgstr "Đá bóng vào khung thành gồm."
 #: ../boards/chess_computer.xml.in.h:2
 #: ../boards/chess_movelearn.xml.in.h:3
 #: ../boards/chess_partyend.xml.in.h:2
-#: ../boards/clickgame.xml.in.h:16
-#: ../boards/connect4.xml.in.h:7
+#: ../boards/clickgame.xml.in.h:5
+#: ../boards/connect4.xml.in.h:6
+#: ../boards/connect4-2players.xml.in.h:5
 #: ../boards/erase.xml.in.h:3
 #: ../boards/erase_clic.xml.in.h:6
 #: ../boards/erase_double_clic.xml.in.h:6
@@ -808,6 +809,22 @@ msgid ""
 "right order, so Tux can travel through the gates in both directions."
 msgstr "Cháu có phụ trách cửa cổng sông đào. Hãy mở các cửa và cửa cổng theo thứ tự "
 "đúng, thì Thâch-x có thể dụ lịch qua về cả hai hướng."
+
+#: ../boards/chat.xml.in.h:1
+msgid "Chat with your friends"
+msgstr "Trờ chuyện với bạn bè"
+
+#: ../boards/chat.xml.in.h:2
+msgid ""
+"This chat activity only work with other GCompris user on your local network, "
+"not the Internet. To use it, just type in messages and hit enter. Your "
+"message is broacasted on the local network and any GCompris running the chat "
+"activity will receive and display the message."
+msgstr "Hoạt động trò chuyện này chỉ hoạt động với các người dùng GCompris khác nằm trên cùng mạng cục bộ, không phải lên Mạng. Để sử dụng nó, chỉ hãy gõ tin nhẳn rồi bấm vào phím Enter. Tin nhẳn của bạn thì được quảng bá qua mạng cục bộ, và bất cứ chương trình GCompris nào cũng đang chạy hoạt động trò chuyện này sẽ nhận và hiển thị tin nhẳn đó."
+
+#: ../boards/chat.xml.in.h:3
+msgid "This chat works only on the local network"
+msgstr "Khả năng trò chuyện này chỉ hoạt động trên mạng cục bộ (không phải lên Mạng)."
 
 #: ../boards/chess.xml.in.h:1
 #: ../boards/chess_computer.xml.in.h:3
@@ -1078,44 +1095,21 @@ msgstr "Nhắp vào tôi"
 
 #: ../boards/clickgame.xml.in.h:2
 msgid ""
-"Fish are taken from the Unix utility xfishtank.\n"
-"Images are taken from the National Undersea Research Program (NURP) "
-"Collection\n"
-"at &lt;http://www.photolib.noaa.gov&gt;\n"
-"All image credits belong to the OAR/National Undersea Research Program "
-"(NURP),\n"
-"except for the first image, which is property of the University of North "
-"Carolina at Wilmington.\n"
-"The images used in each level are:\n"
-"Location: Tropical Atlantic Ocean, Florida Keys (image nur00523) "
-"Photographer: D. Kesling\n"
-"Location: Florida Keys (image nur03006)\n"
-"Location: Unknown (image nur03505)\n"
-"Location: Unknown (image nur03010)\n"
-"Location: Unknown (image nur03011)\n"
-"Location: Unknown (image nur03013)"
-msgstr "Các cá này thuộc về tiện ích Unix tên « xfishtank ».\n"
-"Tập hợp của Chương trình Nghiên cứu Dưới mặt Biển Quốc gia tại\n"
-"<http://www.photolib.noaa.gov>\n"
-"cung cấp các ảnh, thì nó giữ mọi quyền sử dụng ảnh này, trừ ảnh thứ nhất mà "
-"thuộc về Đại học North Carolina tại phố Wilmington, Mỹ.\n"
-"Những ảnh trong mỗi cấp là:\n"
-"• ảnh nur00523 — quần đảo Keys của Florida trong Đại Tây Dương Nhiệt đới "
-"(nhà nhiếp ảnh là D. Kesling)\n"
-"• ảnh nur03006 — cũng tại quần đảo Keys của Florida\n"
-"• các ảnh nur03505, nur03010, nur03011 và nur03013 đều từ địa điểm không rõ."
+"Fish are taken from the Unix utility xfishtank. All image credits belong to "
+"Guillaume Rousse."
+msgstr "Các con cá thuộc về tiện ích UNIX xfishtank. Mọi công trạng ảnh thuộc về Guillaume Rousse."
 
-#: ../boards/clickgame.xml.in.h:14
+#: ../boards/clickgame.xml.in.h:3
 msgid ""
 "Left-Click with the mouse on all the swimming fish before they leave the "
 "fishtank"
 msgstr "Nhắp-trái chuột vào mỗi con cá đang bơi, trước khi nó rời thùng."
 
-#: ../boards/clickgame.xml.in.h:15
+#: ../boards/clickgame.xml.in.h:4
 msgid "Motor coordination: moving and clicking the mouse."
 msgstr "Phối hợp vận động: di chuyển và nhắp con chuột."
 
-#: ../boards/clickgame.xml.in.h:17
+#: ../boards/clickgame.xml.in.h:6
 msgid "Use the left mouse button to click on the moving fish."
 msgstr "Cháu hãy nhắp nút chuột trái vào cá đang bơi."
 
@@ -1187,24 +1181,30 @@ msgid "Play with computer peripherals."
 msgstr "Chơi với phần ngoại vi của máy tính."
 
 #: ../boards/connect4.xml.in.h:1
+#: ../boards/connect4-2players.xml.in.h:1
 msgid "Arrange four coins in a row"
 msgstr "Xếp bốn cái tiền theo hàng"
 
 #: ../boards/connect4.xml.in.h:2
-msgid "Click anywhere in the line where you want to drop a piece"
-msgstr "Nhắp vào chỗ nào trong dòng cháu muốn thả một cái."
+#: ../boards/connect4-2players.xml.in.h:2
+msgid ""
+"Click anywhere in the line where you want to drop a piece. Alternatively, "
+"you can use the arrow keys to move and the down, or space key to drop a "
+"piece."
+msgstr "Nhấn vào nơi nào trên dòng để thả một cái. Hoặc bạn có thể sử dụng những phím mũi tên để di chuyển lên và xuống, hoặc sử dụng phím dài để thả một khối."
 
 #: ../boards/connect4.xml.in.h:3
 msgid "Connect 4"
 msgstr "Kết nối Bốn Cái"
 
 #: ../boards/connect4.xml.in.h:4
+#: ../boards/connect4-2players.xml.in.h:4
 msgid ""
-"Create a line of 4 pieces either horizontally (lying down)\n"
-"or vertically (standing up)"
+"Create a line of 4 pieces either horizontally (lying down) or vertically "
+"(standing up)"
 msgstr "Hãy xếp 4 cái trong một dòng, hoặc hàng ngang hoặc hàng dọc"
 
-#: ../boards/connect4.xml.in.h:6
+#: ../boards/connect4.xml.in.h:5
 msgid ""
 "Laurent Lacheny. Images and Artificial Intelligence taken from project "
 "4stattack by Jeroen Vloothuis. The original project can be found on &lt;"
@@ -1212,6 +1212,18 @@ msgid ""
 msgstr "Laurent Lacheny. Các ảnh và trí khôn nhân tạo thuộc về dự án 4stattack của "
 "Jeroen Vloothuis. Có thể tìm thấy dự án gốc tại <http://forcedattack."
 "sourceforge.net>."
+
+#: ../boards/connect4-2players.xml.in.h:3
+msgid "Connect 4 (2 Players)"
+msgstr "Kết nối 4 (2 người chơi)"
+
+#: ../boards/connect4-2players.xml.in.h:6
+msgid ""
+"The original code was written in 2005 by Laurent Lacheny. In 2006, Miguel de "
+"Izarra made the two players game. Images and Artificial Intelligence taken "
+"from project 4stattack by Jeroen Vloothuis. The original project can be "
+"found on &lt;http://forcedattack.sourceforge.net&gt;"
+msgstr "Mã nguồn gốc đã được ghi trong năm 2005 bởi Laurent Lacheny. Trong năm 2006, Miguel de Izarra đã tạo cuộc chơi cho hai người. Các ảnh và khả năng trí tuệ thuộc về dự án 4stattack của Jeroen Vloothuis. Dự án gốc nằm ở &lt;http://forcedattack.sourceforge.net&gt;"
 
 #: ../boards/crane.xml.in.h:1
 msgid "Build the same model"
@@ -1363,12 +1375,12 @@ msgstr "Trước hết, cháu cần tổ chức các mục, để đếm chúng 
 
 #: ../boards/enumerate.xml.in.h:4
 #: ../boards/planegame.xml.in.h:5
-#: ../src/boards/enumerate.c:92
+#: ../src/boards/enumerate.c:89
 msgid "Numeration training"
 msgstr "Dạy dỗ đếm"
 
 #: ../boards/enumerate.xml.in.h:5
-#: ../src/boards/enumerate.c:93
+#: ../src/boards/enumerate.c:90
 msgid "Place the items in the best way to count them"
 msgstr "Hãy tổ chức các mục bằng cách tốt nhất để đếm hết."
 
@@ -1383,13 +1395,13 @@ msgstr "Các ảnh thú vật thuộc về Trang Chụp ảnh Thú vật của R
 "này. Rất cám ơn các anh."
 
 #: ../boards/erase.xml.in.h:4
-#: ../src/boards/erase.c:116
-#: ../src/boards/machpuzzle.c:92
+#: ../src/boards/erase.c:118
+#: ../src/boards/machpuzzle.c:88
 msgid "Move the mouse"
 msgstr "Di chuyển con chuột"
 
 #: ../boards/erase.xml.in.h:5
-#: ../src/boards/erase.c:117
+#: ../src/boards/erase.c:119
 msgid "Move the mouse to erase the area and discover the background"
 msgstr "Cháu hãy di chuyển con chuột, để xóa hết thì khám phá ảnh nền."
 
@@ -1454,36 +1466,8 @@ msgid "Original code taken from the libgnomecanvas demo"
 msgstr "Mã gốc thuộc về chứng minh của trình libgnomecanvas."
 
 #: ../boards/fifteen.xml.in.h:5
-msgid "Samuel Loyd"
-msgstr "Samuel Loyd"
-
-#: ../boards/fifteen.xml.in.h:6
 msgid "The fifteen game"
 msgstr "Trò chơi mười năm"
-
-#: ../boards/fifteen.xml.in.h:7
-msgid "anticipate"
-msgstr "đoán trước"
-
-#: ../boards/fifteen.xml.in.h:8
-msgid "logical"
-msgstr "hợp lý"
-
-#: ../boards/fifteen.xml.in.h:9
-msgid "move"
-msgstr "lần đi"
-
-#: ../boards/fifteen.xml.in.h:10
-msgid "puzzle"
-msgstr "câu đố"
-
-#: ../boards/fifteen.xml.in.h:11
-msgid "slide"
-msgstr "trượt"
-
-#: ../boards/fifteen.xml.in.h:12
-msgid "taquin"
-msgstr "taquin"
 
 #: ../boards/followline.xml.in.h:1
 msgid "Control the hose-pipe"
@@ -1782,7 +1766,7 @@ msgid "Cyprus"
 msgstr "Síp"
 
 #: ../boards/geography/board3_1.xml.in.h:7
-#: ../src/gcompris/config.c:70
+#: ../src/gcompris/config.c:65
 msgid "Czech Republic"
 msgstr "Cộng hòa Tiếp Khắc"
 
@@ -1992,6 +1976,7 @@ msgid "Somalia"
 msgstr "Xo-ma-li-a"
 
 #: ../boards/geography/board4_0.xml.in.h:30
+#: ../boards/geography/board4_2.xml.in.h:33
 msgid "Sudan"
 msgstr "Xu-đăng"
 
@@ -2068,7 +2053,7 @@ msgid "Republic of Congo"
 msgstr "Cộng hoà Công-gô"
 
 #: ../boards/geography/board4_1.xml.in.h:15
-#: ../boards/geography/board4_2.xml.in.h:33
+#: ../boards/geography/board4_2.xml.in.h:32
 msgid "South Africa"
 msgstr "Nam Phi"
 
@@ -2094,10 +2079,6 @@ msgstr "Dăm-bi-a"
 #: ../boards/geography/board4_2.xml.in.h:39
 msgid "Zimbabwe"
 msgstr "Dim-ba-bu-ê"
-
-#: ../boards/geography/board4_2.xml.in.h:32
-msgid "Soudan"
-msgstr "Xu-đăng"
 
 #: ../boards/geography/board5_0.xml.in.h:1
 msgid "Regions of France"
@@ -2125,12 +2106,12 @@ msgid "Letter association between the screen and the keyboard"
 msgstr "Liên quan chữ giữa màn hình và bàn phím."
 
 #: ../boards/gletters.xml.in.h:3
-#: ../src/boards/gletters.c:135
+#: ../src/boards/gletters.c:134
 msgid "Simple Letters"
 msgstr "Chữ đơn giản"
 
 #: ../boards/gletters.xml.in.h:4
-#: ../src/boards/gletters.c:136
+#: ../src/boards/gletters.c:135
 msgid "Type the falling letters before they reach the ground"
 msgstr "Cháu hãy gõ mỗi chữ đang rơi xuống, trước khi nó trên đất."
 
@@ -2357,7 +2338,7 @@ msgstr "Cháu hãy Kéo và Thả chỉ phần đầu, từ một cái chốt đ
 "tháp bên phải trong vùng trống bên trái."
 
 #: ../boards/hanoi.xml.in.h:4
-#: ../src/boards/hanoi.c:101
+#: ../src/boards/hanoi.c:97
 msgid "Reproduce the given tower"
 msgstr "Tạo lại tháp đã cho"
 
@@ -2366,7 +2347,7 @@ msgid "Reproduce the tower on the right in the empty space on the left"
 msgstr "Tạo lại tháp bên phải trong vùng trống bên trái."
 
 #: ../boards/hanoi.xml.in.h:6
-#: ../src/boards/hanoi.c:100
+#: ../src/boards/hanoi.c:96
 msgid "Simplified Tower of Hanoi"
 msgstr "Tháp của Hà Nội đơn giản"
 
@@ -2388,14 +2369,15 @@ msgstr "Tháp Hà Nội"
 #: ../boards/hanoi_real.xml.in.h:5
 msgid ""
 "The object of the game is to move the entire stack to another peg, obeying "
-"the following rules: * only one disc may be moved at a time * no disc may be "
-"placed atop a smaller disc"
+"the following rules:\n"
+"* only one disc may be moved at a time\n"
+"* no disc may be placed atop a smaller disc"
 msgstr "Mục tiêu của trò chơi là di chuyển toàn bộ đống sang một cái móc khác, theo "
-"những quy tắc theo đây:\n"
+"những quy tắc này\n"
 " • có thể di chuyển chỉ một đĩa trong một lúc\n"
 " • không thể để đĩa nào trên đĩa nhỏ hơn"
 
-#: ../boards/hanoi_real.xml.in.h:6
+#: ../boards/hanoi_real.xml.in.h:8
 msgid ""
 "The puzzle was invented by the French mathematician Edouard Lucas in 1883. "
 "There is a legend about a Hindu temple whose priests were constantly engaged "
@@ -2439,8 +2421,8 @@ msgstr "Thức hành đọc bằng cách tìm từ khớp với ảnh."
 #: ../boards/imagename.xml.in.h:4
 #: ../boards/readingh.xml.in.h:4
 #: ../boards/readingv.xml.in.h:4
-#: ../src/boards/imageid.c:106
-#: ../src/boards/missingletter.c:104
+#: ../src/boards/imageid.c:103
+#: ../src/boards/missingletter.c:101
 msgid "Reading"
 msgstr "Đọc"
 
@@ -2763,10 +2745,10 @@ msgstr "Phép cộng"
 #: ../boards/magic_hat_plus.xml.in.h:2
 msgid ""
 "Click on the hat to open or close it. Under the hat, how many stars can you "
-"see moving around? Count carefully. :) Click in the bottom- right area to "
+"see moving around? Count carefully. :) Click in the bottom-right area to "
 "input your answer."
-msgstr "Nhắp vào cái mũ để mở hoặc đóng nó. Dưới cái mũ, cháu có thể thấy bao nhiều "
-"sao đi chung quanh? Đếm cẩn thận nhé. :)  Nhắp vào vùng bên phải, góc dưới "
+msgstr "Nhấn vào cái mũ để mở hoặc đóng nó. Dưới cái mũ, cháu có thể thấy bao nhiều "
+"sao đi chung quanh? Đếm cẩn thận nhé. :)  Nhấn vào vùng bên phải, góc dưới "
 "để nhập trả lời."
 
 #: ../boards/magic_hat_plus.xml.in.h:3
@@ -2825,7 +2807,7 @@ msgid "Can use the keyboard arrow to move an object."
 msgstr "Có thể sử dụng phím mũi tên để di chuyển đối tượng."
 
 #: ../boards/maze.xml.in.h:2
-#: ../src/boards/maze.c:133
+#: ../src/boards/maze.c:129
 msgid "Find your way out of the maze"
 msgstr "Cháu có thể tìm đường ra mê lộ chưa?"
 
@@ -2839,7 +2821,7 @@ msgstr "Thâch-x cần cháu giúp đỡ ta ra mê lộ này."
 #: ../boards/maze.xml.in.h:4
 #: ../boards/maze2DRelative.xml.in.h:4
 #: ../boards/mazeInvisible.xml.in.h:4
-#: ../src/boards/maze.c:132
+#: ../src/boards/maze.c:128
 msgid "Maze"
 msgstr "Mê lộ"
 
@@ -3955,31 +3937,13 @@ msgid "Tux is hungry. Help him find fish by counting to the correct ice spot."
 msgstr "Thâch-x cảm thấy đói. Cháu hãy giúp đỡ ta tìm cá, bằng cách đếm đến điểm "
 "nước đá đúng."
 
-#: ../boards/scales/board1_0.xml.in.h:1
-#: ../boards/scales/board1_1.xml.in.h:1
-#: ../boards/scales/board1_2.xml.in.h:1
-#: ../boards/scales/board1_3.xml.in.h:1
-#: ../boards/scales/board1_4.xml.in.h:1
-#: ../boards/scales/board1_5.xml.in.h:1
-#: ../boards/scales/board2_0.xml.in.h:1
-#: ../boards/scales/board2_1.xml.in.h:1
-#: ../boards/scales/board2_2.xml.in.h:1
-#: ../boards/scales/board2_3.xml.in.h:1
-#: ../boards/scales/board2_4.xml.in.h:1
-#: ../boards/scales/board2_5.xml.in.h:1
-#: ../boards/scales/board3_0.xml.in.h:1
-#: ../boards/scales/board3_1.xml.in.h:1
-#: ../boards/scales/board3_2.xml.in.h:1
-#: ../boards/scales/board3_3.xml.in.h:1
-#: ../boards/scales/board3_4.xml.in.h:1
-#: ../boards/scales/board3_5.xml.in.h:1
-#: ../boards/scalesboard.xml.in.h:2
-msgid "Drag and Drop masses to balance the scales"
-msgstr "Kéo và Thả khối lượng để làm cho cái cân là cân bằng"
-
 #: ../boards/scalesboard.xml.in.h:1
 msgid "Balance the scales properly"
 msgstr "Hãy làm cho cái cân là cân bằng chính xác"
+
+#: ../boards/scalesboard.xml.in.h:2
+msgid "Drag and Drop masses to balance the scales"
+msgstr "Kéo và Thả khối lượng để làm cho cái cân là cân bằng"
 
 #: ../boards/scalesboard.xml.in.h:3
 msgid "Mental calculation, arithmetic equality"
@@ -4114,9 +4078,10 @@ msgstr "Trò chơi chiến lược như cờ, kết nối 4, ..."
 #: ../boards/submarine.xml.in.h:1
 msgid ""
 "Click on different active elements : engine, rudders and air tanks, in order "
-"to navigate to the required depth."
-msgstr "Hãy nhắp vào phần tử hoạt động khác nhau : máy động cơ, bánh lái và thùng "
-"khí, để lái xuống độ sâu đã ra lệnh."
+"to navigate to the required depth. There is a gate on the right. Pass "
+"through it to reach the next level."
+msgstr "Hãy nhấn vào mỗi phần tử hoạt động riêng (máy động cơ, bánh lái và thùng "
+"khí), để lái xuống độ sâu cần thiết. Có một cửa bên phải. Đi qua nó để tới lớp kế tiếp."
 
 #: ../boards/submarine.xml.in.h:2
 msgid "Learn how a submarine works"
@@ -4187,12 +4152,12 @@ msgstr "Hãy nhắp vào những mục đến khi cháu tìm lời giải đúng
 "Cháu có thể sử dụng nút phải trên chuột để lật màu theo thứ tự ngược."
 
 #: ../boards/superbrain.xml.in.h:2
-#: ../src/boards/superbrain.c:110
+#: ../src/boards/superbrain.c:106
 msgid "Super Brain"
 msgstr "Siêu trí nhớ"
 
 #: ../boards/superbrain.xml.in.h:3
-#: ../src/boards/superbrain.c:111
+#: ../src/boards/superbrain.c:107
 msgid "Tux has hidden several items. Find them again in the correct order"
 msgstr "Thâch-x đã ẩn vài lần. Cháu hãy tìm ta theo thứ tự đúng."
 
@@ -4338,7 +4303,7 @@ msgstr "Thâch-x mới về sau một cuộc đi đánh cá lâu trên tàu th�
 "thống nước, để cho phép Thâch-x đi tắm."
 
 #: ../boards/wordsgame.xml.in.h:1
-#: ../src/boards/wordsgame.c:112
+#: ../src/boards/wordsgame.c:110
 msgid "Falling Words"
 msgstr "Từ đang rời xuống"
 
@@ -4351,9 +4316,17 @@ msgid "Type the complete word as it falls, before it reachs the ground"
 msgstr "Hãy gõ toàn từ trong khi nó rời xuống, trước khi nó xuống đất."
 
 #: ../boards/wordsgame.xml.in.h:5
-#: ../src/boards/wordsgame.c:113
+#: ../src/boards/wordsgame.c:111
 msgid "Type the falling words before they reach the ground"
 msgstr "Hãy gõ những từ rời xuống, trước khi chúng xuống đất."
+
+#: ../boards/wordprocessor.xml.in.h:1
+msgid "A simple word processor to enter and save any text"
+msgstr "Một trình xử lý từ đơn giản để gõ và lưu văn bản"
+
+#: ../boards/wordprocessor.xml.in.h:2
+msgid "Your word processor"
+msgstr "Trình xử lý từ của cháu"
 
 #: ../gcompris-edit.desktop.in.h:1
 msgid "Administration for gcompris"
@@ -4371,45 +4344,47 @@ msgstr "Bộ trình giáo dục GCompris"
 msgid "Multi-activity educational game"
 msgstr "Trò chơi giáo dục đa hoạt động"
 
-#: ../src/boards/awele.c:352
-#: ../src/boards/awele.c:362
+#: ../src/boards/awele.c:350
+#: ../src/boards/awele.c:360
 msgid "NORTH"
 msgstr "BẮC"
 
-#: ../src/boards/awele.c:374
-#: ../src/boards/awele.c:384
+#: ../src/boards/awele.c:372
+#: ../src/boards/awele.c:382
 msgid "SOUTH"
 msgstr "NAM"
 
-#: ../src/boards/awele.c:553
+#: ../src/boards/awele.c:551
 msgid "Choose a house"
 msgstr "Chọn một nhà"
 
-#: ../src/boards/awele.c:681
+#: ../src/boards/awele.c:679
 msgid "Your turn to play ..."
 msgstr "Cháu đi ..."
 
-#: ../src/boards/awele.c:750
+#: ../src/boards/awele.c:748
 msgid "Not allowed! Try again !"
 msgstr "Không cho phép. Cháu thử lại. :)"
 
-#: ../src/boards/chess.c:183
-#: ../src/boards/chess.c:1124
-msgid "Error: The external program gnuchess died unexpectingly"
+#: ../src/boards/chess.c:179
+msgid "Error: The external program gnuchess died unexpectedly"
 msgstr "Lỗi: chương trình bên ngoài GnuChess đã chết bất thường"
 
-#: ../src/boards/chess.c:198
+#: ../src/boards/chess.c:194
 msgid ""
-"Error: The external program gnuchess is mandatory\n"
+"Error: The external program gnuchess is required\n"
 "to play chess in gcompris.\n"
 "Find this program on http://www.rpmfind.net or in your\n"
 "GNU/Linux distribution\n"
 "And check it is located here: "
-msgstr "Lỗi: phải cài đặt chương trình bên ngoài gnuchess, để đánh cờ trong "
-"GCompris. Bạn có thể tìm chương trình gnuchess tại <http://www.rpmfind.net> "
-"hay trong bản phát hành GNU/LInux của bạn. Cũng hãy kiểm tra nó có trong"
+msgstr "Lỗi: cần phải cài đặt chương trình bên ngoài gnuchess,\n"
+"để đánh cờ trong GCompris.\n"
+"Cháu có thể tìm chương trình gnuchess tại:\n"
+"« http://www.rpmfind.net »"
+"hay trong bản phát hành GNU/LInux của cháu.\n"
+"Cũng hãy kiểm tra nó ở :"
 
-#: ../src/boards/chess.c:240
+#: ../src/boards/chess.c:236
 msgid ""
 "Error: The external program gnuchess is mandatory\n"
 "to play chess in gcompris.\n"
@@ -4418,38 +4393,42 @@ msgstr "Lỗi: chương trình bên ngoài gnuchess cần thiết\n"
 "để đánh cờ trong GCompris.\n"
 "Trước tiên, hãy co sở dữ liệu nó, rồi kiểm tra nó nằm trong"
 
-#: ../src/boards/chess.c:583
+#: ../src/boards/chess.c:579
 msgid "White's Turn"
 msgstr "Lượt của Trắng"
 
-#: ../src/boards/chess.c:583
+#: ../src/boards/chess.c:579
 msgid "Black's Turn"
 msgstr "Lượt của Đen"
 
-#: ../src/boards/chess.c:727
+#: ../src/boards/chess.c:723
 msgid "White checks"
 msgstr "Trắng chiếu"
 
-#: ../src/boards/chess.c:729
+#: ../src/boards/chess.c:725
 msgid "Black checks"
 msgstr "Đen chiếu"
 
-#: ../src/boards/chess.c:1086
+#: ../src/boards/chess.c:1082
 msgid "Black mates"
 msgstr "Đen chiếu hết"
 
-#: ../src/boards/chess.c:1091
+#: ../src/boards/chess.c:1087
 msgid "White mates"
 msgstr "Trắng chiếu hết"
 
-#: ../src/boards/chess.c:1096
-#: ../src/gcompris/bonus.c:342
-#: ../src/gcompris/bonus.c:351
+#: ../src/boards/chess.c:1092
+#: ../src/gcompris/bonus.c:359
+#: ../src/gcompris/bonus.c:368
 msgid "Drawn game"
 msgstr "Trận đấu hoà"
 
-#: ../src/boards/click_on_letter.c:262
-#: ../src/boards/memory.c:827
+#: ../src/boards/chess.c:1120
+msgid "Error: The external program gnuchess died unexpectingly"
+msgstr "Lỗi: chương trình bên ngoài GnuChess đã chết bất thường"
+
+#: ../src/boards/click_on_letter.c:259
+#: ../src/boards/memory.c:832
 msgid ""
 "Error: this activity cannot be played with the\n"
 "sound effects disabled.\n"
@@ -4462,13 +4441,13 @@ msgstr "Lỗi: không thể chơi hoạt động này\n"
 #.TRANSLATORS: Put here the alphabet in your language
 #.require by all utf8-functions
 #.TRANSLATORS: Put here the alphabet lowercase in your language
-#: ../src/boards/click_on_letter.c:267
-#: ../src/boards/gletters.c:232
-#: ../src/boards/memory.c:848
+#: ../src/boards/click_on_letter.c:264
+#: ../src/boards/gletters.c:231
+#: ../src/boards/memory.c:853
 msgid "abcdefghijklmnopqrstuvwxyz"
 msgstr "aăâbcdđeêghiklmnoôơpqrstuưvxy"
 
-#: ../src/boards/click_on_letter.c:289
+#: ../src/boards/click_on_letter.c:286
 #, c-format
 msgid ""
 "Error: this activity requires that you first install\n"
@@ -4477,7 +4456,7 @@ msgstr "Lỗi: hoạt động này cần thiết bạn đầu tiên\n"
 "cài đặt các gói chứa giọng nói gcompris\n"
 "cho miền địa phương « %s » hay « %s »"
 
-#: ../src/boards/click_on_letter.c:297
+#: ../src/boards/click_on_letter.c:294
 #, c-format
 msgid ""
 "Error: this activity requires that you first install\n"
@@ -4489,92 +4468,92 @@ msgstr "Lỗi: hoạt động này cần thiết bạn đầu tiên\n"
 "rất tiếc là trình này phải dùng tiếng Anh."
 
 #.toggle box
-#: ../src/boards/click_on_letter.c:649
+#: ../src/boards/click_on_letter.c:646
 #: ../src/boards/gletters.c:899
 #: ../src/boards/python/login.py:540
 msgid "Uppercase only text"
 msgstr "Chỉ chữ hoa"
 
-#: ../src/boards/clockgame.c:544
-#: ../src/boards/clockgame.c:554
+#: ../src/boards/clockgame.c:550
+#: ../src/boards/clockgame.c:560
 msgid "Set the watch to:"
 msgstr "Để lại đồng hồ đeo tay là:"
 
-#: ../src/boards/colors.c:57
+#: ../src/boards/colors.c:54
 msgid "Click on the blue duck"
 msgstr "Nhắp vào con vịt màu xanh dương"
 
-#: ../src/boards/colors.c:58
+#: ../src/boards/colors.c:55
 msgid "Click on the brown duck"
 msgstr "Nhắp vào con vịt màu nâu"
 
-#: ../src/boards/colors.c:59
+#: ../src/boards/colors.c:56
 msgid "Click on the green duck"
 msgstr "Nhắp vào con vịt màu xanh lá cây"
 
-#: ../src/boards/colors.c:60
+#: ../src/boards/colors.c:57
 msgid "Click on the grey duck"
 msgstr "Nhắp vào con vịt màu xám"
 
-#: ../src/boards/colors.c:61
+#: ../src/boards/colors.c:58
 msgid "Click on the orange duck"
 msgstr "Nhắp vào con vịt màu cam"
 
-#: ../src/boards/colors.c:62
+#: ../src/boards/colors.c:59
 msgid "Click on the purple duck"
 msgstr "Nhắp vào con vịt màu tím"
 
-#: ../src/boards/colors.c:63
+#: ../src/boards/colors.c:60
 msgid "Click on the red duck"
 msgstr "Nhắp vào con vịt màu đỏ"
 
-#: ../src/boards/colors.c:64
+#: ../src/boards/colors.c:61
 msgid "Click on the yellow duck"
 msgstr "Nhắp vào con vịt màu vàng"
 
-#: ../src/boards/colors.c:65
+#: ../src/boards/colors.c:62
 msgid "Click on the black duck"
 msgstr "Nhắp vào con vịt màu đen"
 
-#: ../src/boards/colors.c:66
+#: ../src/boards/colors.c:63
 msgid "Click on the white duck"
 msgstr "Nhắp vào con vịt màu trắng"
 
 #.TRANSLATORS: Put here the numbers in your language
-#: ../src/boards/gletters.c:228
-#: ../src/boards/memory.c:844
+#: ../src/boards/gletters.c:227
+#: ../src/boards/memory.c:849
 msgid "0123456789"
 msgstr "0123456789"
 
 #.TRANSLATORS: Put here the alphabet uppercase in your language
-#: ../src/boards/gletters.c:238
-#: ../src/boards/memory.c:854
+#: ../src/boards/gletters.c:237
+#: ../src/boards/memory.c:859
 msgid "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 msgstr "AĂÂBCDĐEÊGHIKLMNOÔƠPQRSTUƯVXY"
 
-#: ../src/boards/hanoi.c:336
-#: ../src/boards/hanoi.c:347
+#: ../src/boards/hanoi.c:332
+#: ../src/boards/hanoi.c:343
 msgid ""
 "Build the same tower in the empty area as the one you see on the right-hand "
 "side."
 msgstr "Hãy tạo lại trong vùng trống cùng một tháp với điều bên phải."
 
-#: ../src/boards/hanoi_real.c:76
+#: ../src/boards/hanoi_real.c:72
 msgid "Tower of Hanoi"
 msgstr "Tháp Hà Nội"
 
-#: ../src/boards/hanoi_real.c:277
-#: ../src/boards/hanoi_real.c:288
+#: ../src/boards/hanoi_real.c:273
+#: ../src/boards/hanoi_real.c:284
 msgid "Move the entire stack to the right peg, one disc at a time"
 msgstr "Di chuyển toàn bộ đống sang cái móc bên phải, một đĩa mỗi lần."
 
-#: ../src/boards/imageid.c:107
-#: ../src/boards/missingletter.c:105
+#: ../src/boards/imageid.c:104
+#: ../src/boards/missingletter.c:102
 msgid "Learn how to read"
 msgstr "Học biết cách đọc"
 
-#: ../src/boards/leftright.c:280
-#: ../src/boards/leftright.c:290
+#: ../src/boards/leftright.c:277
+#: ../src/boards/leftright.c:287
 #: ../src/boards/python/searace.py:428
 #: ../src/boards/python/searace.py:453
 #: ../src/boards/python/searace.py:543
@@ -4584,8 +4563,8 @@ msgstr "Học biết cách đọc"
 msgid "left"
 msgstr "trái"
 
-#: ../src/boards/leftright.c:300
-#: ../src/boards/leftright.c:310
+#: ../src/boards/leftright.c:297
+#: ../src/boards/leftright.c:307
 #: ../src/boards/python/searace.py:428
 #: ../src/boards/python/searace.py:453
 #: ../src/boards/python/searace.py:552
@@ -4595,29 +4574,29 @@ msgstr "trái"
 msgid "right"
 msgstr "phải"
 
-#: ../src/boards/maze.c:496
+#: ../src/boards/maze.c:492
 msgid ""
 "Look at your position, then switch back to invisible mode to continue your "
 "moves"
 msgstr "Hãy kiểm tra xem vị trí, rồi chuyển đổi về chế độ vô hình để tiếp tục di "
 "chuyển."
 
-#: ../src/boards/maze.c:498
+#: ../src/boards/maze.c:494
 msgid ""
 "Look at your position, then switch back to 3D mode to continue your moves"
 msgstr "Hãy kiểm tra xem vị trí, rồi chuyển đổi về chế độ ba chiều để tiếp tục di "
 "chuyển."
 
-#: ../src/boards/memory.c:287
+#: ../src/boards/memory.c:286
 msgid "Memory"
 msgstr "Trí nhớ"
 
-#: ../src/boards/memory.c:288
+#: ../src/boards/memory.c:287
 msgid "Find the matching pair"
 msgstr "Dò cặp ảnh khớp"
 
 #.TRANSLATORS: Put here the mathematical operators "+-��" for  your language.
-#: ../src/boards/memory.c:859
+#: ../src/boards/memory.c:864
 msgid "+-×÷"
 msgstr "+-×÷"
 
@@ -4630,25 +4609,31 @@ msgid "Select a Board"
 msgstr "Chọn bảng"
 
 #.Set here the way to display money. Change only the money sign, and it's place, always keep %.2f, it will be replaced by 0,34 if decimal is ',' in your locale
-#: ../src/boards/money.c:492
+#: ../src/boards/money.c:488
 #, c-format
 msgid "$ %.2f"
 msgstr "₫ %.2f"
 
-#: ../src/boards/money.c:505
+#: ../src/boards/money.c:501
 #, c-format
 msgid "$ %.0f"
 msgstr "₫ %.0f"
+
+#: ../src/boards/paratrooper.c:437
+msgid "Control fall speed with up and down arrow keys."
+msgstr "Điều khiển tốc độ rơi bằng phím mũi tên lên và xuống"
 
 #: ../src/boards/planegame.c:75
 msgid "Move the plane to catch the clouds in the correct order"
 msgstr "Di chuyển máy bay để bắt các mây theo thứ tự đúng."
 
 #: ../src/boards/python.c:62
+#: ../src/boards/python.c:86
 msgid "Python Board"
 msgstr "Bảng Python"
 
 #: ../src/boards/python.c:63
+#: ../src/boards/python.c:87
 msgid "Special board that embeds python into gcompris."
 msgstr "Bảng đặc biệt có nhúng Python vào GCompris."
 
@@ -4726,7 +4711,7 @@ msgstr "<span size='x-large'> Chọn phạm vi khó cho xác lập <b>%s</b></sp
 #: ../src/boards/python/admin/wordlist.py:50
 #: ../src/boards/python/login.py:535
 #: ../src/boards/python/pythontest.py:409
-#: ../src/boards/python/tuxpaint.py:183
+#: ../src/boards/python/tuxpaint.py:206
 #, python-format
 msgid ""
 "<b>%s</b> configuration\n"
@@ -4917,8 +4902,9 @@ msgid "There is already a profile with this name"
 msgstr "Xác lập tên này đã có."
 
 #: ../src/boards/python/admin/profile_list.py:121
+#: ../src/boards/wordprocessor.c:53
 #: ../src/gcompris/board_config.c:668
-#: ../src/gcompris/board_config.c:832
+#: ../src/gcompris/board_config.c:926
 msgid "Default"
 msgstr "Mặc định"
 
@@ -4992,17 +4978,29 @@ msgid ""
 msgstr "Một hay nhiều thông tin đăng nhập không phải là duy nhất.\n"
 "Bạn cần phải thay đổi chúng: %s."
 
-#: ../src/boards/python/anim.py:2208
+#: ../src/boards/python/anim.py:2220
 msgid "SVG is disabled. Install python xml module to enable it"
 msgstr "SVG bị vô hiệu hóa. Bạn hãy cài đặt mô-đun XML Python để hiệu lực nó."
 
-#: ../src/boards/python/anim.py:2364
+#: ../src/boards/python/anim.py:2376
 msgid "Warning: the following images cannot be accessed on your system.\n"
 msgstr "Cảnh báo: trong hệ thống bạn, không thể truy cập những ảnh theo đây:\n"
 
-#: ../src/boards/python/anim.py:2366
+#: ../src/boards/python/anim.py:2378
 msgid "The corresponding items have been skipped."
 msgstr "Những mục tượng ứng đã bị bỏ qua."
+
+#: ../src/boards/python/chat.py:81
+msgid "All messages will be displayed here.\n"
+msgstr "Mọi tin nhẳn sẽ được hiển thị ở đây.\n"
+
+#: ../src/boards/python/chat.py:131
+msgid "Your Friends"
+msgstr "Bạn bè"
+
+#: ../src/boards/python/chat.py:157
+msgid "Type here you message to GCompris users in your local network."
+msgstr "Ở đây cháu hãy gõ tin nhẳn để gửi cho các người dùng GCompris khác cũng nằm trên mạng cục bộ này."
 
 #: ../src/boards/python/electric.py:94
 msgid ""
@@ -5025,113 +5023,114 @@ msgstr "Không tìm thấy bộ mô phỏng điện « gnucap ».\n"
 "không có mô phỏng máy tính,\n"
 "khi không có bộ mô phỏng gnucap."
 
-#: ../src/boards/python/gnumch.py:94
+#: ../src/boards/python/gnumch.py:96
 #, python-format
 msgid ", %d"
 msgstr ", %d"
 
-#: ../src/boards/python/gnumch.py:95
+#: ../src/boards/python/gnumch.py:97
 #, python-format
 msgid " and %d"
 msgstr " và %d"
 
-#: ../src/boards/python/gnumch.py:115
+#: ../src/boards/python/gnumch.py:117
 #, python-format
 msgid "%d is divisible by %s."
 msgstr "%d có thể được chia cho %s."
 
-#: ../src/boards/python/gnumch.py:119
+#: ../src/boards/python/gnumch.py:121
 msgid "1 is not a prime number."
 msgstr "1 không phải là số nguyên tố."
 
-#: ../src/boards/python/gnumch.py:129
+#: ../src/boards/python/gnumch.py:131
 #, python-format
 msgid "Primes less than %d"
 msgstr "Số nguyên tố nhỏ hơn %d"
 
-#: ../src/boards/python/gnumch.py:150
+#.Translators: You can swap %(x)y elements in the string.
+#: ../src/boards/python/gnumch.py:153
 #, python-format
 msgid ""
-"Multiples of %d include %s,\n"
-"but %d is not a multiple of %d."
-msgstr "Các bội số của %d gồm %s,\n"
-"nhưng %d không phải là\n"
-"bội số của %d."
+"Multiples of %(d1)d include %(s)s,\n"
+"but %(d2)d is not a multiple of %(d3)d."
+msgstr "Các bội của %(d1)d gồm %(s)s,\n"
+"nhưng %(d2)d không phải là\n"
+"bội của %(d3)d."
 
-#: ../src/boards/python/gnumch.py:159
+#: ../src/boards/python/gnumch.py:164
 #, python-format
 msgid "Factors of %d"
 msgstr "Các hệ số của %d"
 
-#: ../src/boards/python/gnumch.py:192
+#: ../src/boards/python/gnumch.py:197
 #, python-format
 msgid "%s are the factors of %d."
 msgstr "%s là các hệ số của %d."
 
-#: ../src/boards/python/gnumch.py:204
+#: ../src/boards/python/gnumch.py:209
 #, python-format
 msgid "Multiples of %d"
 msgstr "Các bội số của %d"
 
 # Variable: do not translate/ biến: đừng dịch
-#: ../src/boards/python/gnumch.py:238
+#: ../src/boards/python/gnumch.py:243
 #, python-format
 msgid "%s = %d"
 msgstr "%s = %d"
 
 # Variable: don't translate / Biến: đừng dịch
-#: ../src/boards/python/gnumch.py:249
+#: ../src/boards/python/gnumch.py:254
 #, python-format
 msgid "%d + %d"
 msgstr "%d + %d"
 
 # Variable: don't translate / Biến: đừng dịch
-#: ../src/boards/python/gnumch.py:254
+#: ../src/boards/python/gnumch.py:259
 #, python-format
 msgid "%d − %d"
 msgstr "%d - %d"
 
 # Variable: don't translate / Biến: đừng dịch
-#: ../src/boards/python/gnumch.py:259
+#: ../src/boards/python/gnumch.py:264
 #, python-format
 msgid "%d × %d"
 msgstr "%d × %d"
 
 # Variable: don't translate / Biến: đừng dịch
-#: ../src/boards/python/gnumch.py:263
+#: ../src/boards/python/gnumch.py:268
 #, python-format
 msgid "%d ÷ %d"
 msgstr "%d ÷ %d"
 
-#: ../src/boards/python/gnumch.py:271
+#: ../src/boards/python/gnumch.py:276
 #, python-format
 msgid "Equal to %d"
 msgstr "Bằng %d"
 
-#: ../src/boards/python/gnumch.py:292
+#: ../src/boards/python/gnumch.py:297
 #, python-format
 msgid "Not equal to %d"
 msgstr "Không phải bằng %d"
 
-#: ../src/boards/python/gnumch.py:434
+#: ../src/boards/python/gnumch.py:441
 msgid ""
 "You were eaten by a Troggle.\n"
 "Press <Return> to continue."
 msgstr "Ồ, cháu bị ăn bởi Tốc-u.\n"
 "Hãy bấm phím Return để tiếp tục."
 
-#: ../src/boards/python/gnumch.py:483
+#: ../src/boards/python/gnumch.py:490
 msgid "You ate a wrong number.\n"
 msgstr "Ồ, cháu mới ăn số không đúng.\n"
 
-#: ../src/boards/python/gnumch.py:484
+#: ../src/boards/python/gnumch.py:491
 msgid ""
 "\n"
 "Press <Return> to continue."
 msgstr "\n"
 "Hãy bấm phím Return để tiếp tục."
 
-#: ../src/boards/python/gnumch.py:777
+#: ../src/boards/python/gnumch.py:784
 msgid ""
 "T\n"
 "R\n"
@@ -5186,11 +5185,11 @@ msgstr "Đăng nhập: "
 msgid "Enter login to log in"
 msgstr "Hãy gõ tên đăng nhập để đăng nhập"
 
-#: ../src/boards/python/mosaic.py:193
+#: ../src/boards/python/mosaic.py:194
 msgid "Rebuild the same mosaic on the right area"
 msgstr "Xây dựng cùng một khảm trong vùng đúng"
 
-#: ../src/boards/python/melody.py:115
+#: ../src/boards/python/melody.py:118
 msgid ""
 "Error: this activity cannot be played with the\n"
 "sound effects disabled.\n"
@@ -5339,47 +5338,47 @@ msgstr "Gặp lệnh lạ tại dòng"
 msgid "Distance:"
 msgstr "Khoảng cách:"
 
-#: ../src/boards/python/tuxpaint.py:119
+#: ../src/boards/python/tuxpaint.py:144
 msgid ""
 "Cannot find Tuxpaint.\n"
 "Install it to use this activity !"
 msgstr "Không thể tìm trình Tuxpaint (Sơn Thâch-x).\n"
 "Hãy cài đặt nó để sử dụng hoạt động này."
 
-#: ../src/boards/python/tuxpaint.py:132
+#: ../src/boards/python/tuxpaint.py:157
 msgid "Waiting for Tuxpaint to finish"
 msgstr "Đang đợi Sơn Thâch-x chạy xong"
 
-#: ../src/boards/python/tuxpaint.py:187
+#: ../src/boards/python/tuxpaint.py:210
 msgid "Inherit fullscreen setting from GCompris"
 msgstr "Kế thừa thiết lập toàn màn hình từ trình GCompris"
 
-#: ../src/boards/python/tuxpaint.py:191
+#: ../src/boards/python/tuxpaint.py:214
 msgid "Inherit size setting from GCompris (800x600, 640x480)"
 msgstr "Kế thừa thiết lập kích cỡ từ trình GCompris (800x600, 640x480)"
 
-#: ../src/boards/python/tuxpaint.py:195
+#: ../src/boards/python/tuxpaint.py:218
 msgid "Disable shape rotation"
 msgstr "Vô hiệu hóa khả năng xoay hình"
 
-#: ../src/boards/python/tuxpaint.py:199
+#: ../src/boards/python/tuxpaint.py:222
 msgid "Show Uppercase text only"
 msgstr "Hiển thị chỉ chữ hoa"
 
-#: ../src/boards/python/tuxpaint.py:203
+#: ../src/boards/python/tuxpaint.py:226
 msgid "Disable stamps"
 msgstr "Vô hiệu hóa dấu hình"
 
-#: ../src/boards/railroad.c:95
+#: ../src/boards/railroad.c:91
 msgid "Memory game"
 msgstr "Trò chơi trí nhớ"
 
-#: ../src/boards/railroad.c:96
+#: ../src/boards/railroad.c:92
 msgid "Build a train according to the model"
 msgstr "Xâu dụng một xe lửa tùy theo mô hình"
 
-#: ../src/boards/reading.c:227
-#: ../src/boards/wordsgame.c:207
+#: ../src/boards/reading.c:229
+#: ../src/boards/wordsgame.c:205
 msgid ""
 "Error: We can't find\n"
 "a list of words to play this game.\n"
@@ -5420,40 +5419,18 @@ msgstr "Nhưng mà chưa hiển thị nó."
 msgid "And it was displayed"
 msgstr "Và nó đã được hiển thị."
 
-#.Enter Edit Mode
-#: ../src/boards/shapegame.c:435
-msgid ""
-"You have entered Edit mode\n"
-"Move the puzzle items;\n"
-"type 's' to save, and\n"
-"'d' to display all the shapes"
-msgstr "Cháu mới vào chế độ Sửa đổi.\n"
-"Hãy di chuyển mục câu đố;\n"
-"gõ chữ « s » để lưu câu này,\n"
-"và « d » để hiển thị tất cả hình."
+#: ../src/boards/scale.c:259
+#, c-format
+msgid "Weight = %s"
+msgstr "Độ đậm = %s"
 
-#: ../src/boards/shapegame.c:443
-msgid ""
-"The data from this activity are saved under\n"
-"/tmp/gcompris-board.xml"
-msgstr "Dữ liệu từ hoạt động này được lưu dưới\n"
-"</tmp/gcompris-board.xml>."
-
-#: ../src/boards/submarine.c:201
-msgid "Submarine"
-msgstr "Tàu ngầm"
-
-#: ../src/boards/submarine.c:202
-msgid "Control the depth of a submarine"
-msgstr "Điều kiện độ sâu của tàu ngầm/"
-
-#: ../src/boards/target.c:285
-#: ../src/boards/target.c:550
+#: ../src/boards/target.c:281
+#: ../src/boards/target.c:546
 #, c-format
 msgid "Points = %s"
 msgstr "Điểm = %s"
 
-#: ../src/boards/target.c:407
+#: ../src/boards/target.c:403
 #, c-format
 msgid ""
 "Wind speed = %d\n"
@@ -5461,81 +5438,128 @@ msgid ""
 msgstr "Tốc độ gió = %d\n"
 "cây số / giờ"
 
-#: ../src/boards/target.c:474
+#: ../src/boards/target.c:470
 #, c-format
 msgid "Distance to target = %d meters"
 msgstr "Khoảng cách tới đích = %d mét"
 
-#: ../src/gcompris/about.c:62
+#: ../src/boards/wordprocessor.c:64
+msgid "Letter"
+msgstr "Chữ"
+
+#: ../src/boards/wordprocessor.c:75
+msgid "Small"
+msgstr "Nhỏ"
+
+#: ../src/boards/wordprocessor.c:86
+msgid "Text"
+msgstr "Văn bản"
+
+#: ../src/boards/wordprocessor.c:97
+msgid "Big"
+msgstr "Lớn"
+
+#: ../src/boards/wordprocessor.c:114
+msgid "Black"
+msgstr "Đen"
+
+#: ../src/boards/wordprocessor.c:115
+msgid "Red"
+msgstr "Đỏ"
+
+#: ../src/boards/wordprocessor.c:116
+msgid "Blue"
+msgstr "Xanh"
+
+#: ../src/boards/wordprocessor.c:117
+msgid "Pink"
+msgstr "Hồng"
+
+#: ../src/boards/wordprocessor.c:354
+msgid "TITLE"
+msgstr "TỰA"
+
+#: ../src/boards/wordprocessor.c:355
+msgid "TITLE 1"
+msgstr "TỰA 1"
+
+#: ../src/boards/wordprocessor.c:356
+msgid "TITLE 2"
+msgstr "TỰA 2"
+
+#: ../src/boards/wordprocessor.c:357
+msgid "TEXT"
+msgstr "VĂN BẢN"
+
+#: ../src/gcompris/about.c:57
 msgid ""
 "Author: Bruno Coudoin\n"
-"Contribution: Pascal Georges, Jose Jorge\n"
+"Contribution: Pascal Georges, Jose Jorge, Yves Combe\n"
 "Graphics: Renaud Blanchard, Franck Doucet\n"
 "Intro Music: Djilali Sebihi\n"
 "Background Music: Rico Da Halvarez\n"
 msgstr "Tác giả: Bruno Coudoin\n"
-"Đóng góp: Pascal Georges, Jose Jorge\n"
+"Đóng góp: Pascal Georges, Jose Jorge, Yves Combe\n"
 "Đồ họa: Renaud Blanchard, Franck Doucet\n"
 "Nhạc giới thiệu: Djilali Sebihi\n"
 "Nhạc nền: Rico Da Halvarez\n"
 
 #.TRANSLATORS: Replace this string with your names, one name per line.
-#: ../src/gcompris/about.c:70
+#: ../src/gcompris/about.c:65
 msgid "translator_credits"
 msgstr "Nhóm Việt hóa Gnome <gnomevi-list@lists.sourceforge.net>"
 
-#: ../src/gcompris/about.c:101
-#: ../src/gcompris/about.c:111
+#: ../src/gcompris/about.c:96
+#: ../src/gcompris/about.c:106
 msgid "About GCompris"
 msgstr "Giới thiệu GCompris"
 
-#: ../src/gcompris/about.c:122
-#: ../src/gcompris/about.c:131
+#: ../src/gcompris/about.c:117
 msgid "Translators:"
 msgstr "Người dịch:"
 
-#: ../src/gcompris/about.c:254
+#: ../src/gcompris/about.c:193
 msgid ""
 "GCompris Home Page\n"
 "http://gcompris.net"
 msgstr "Trang chủ của GCompris\n"
 "<http://gcompris.net/>"
 
-#: ../src/gcompris/about.c:276
+#: ../src/gcompris/about.c:215
 msgid ""
 "This software is a GNU Package and is released under the GNU General Public "
 "License"
 msgstr "Phần mềm là một gói GNU, và được phát hành với điều kiện của Quyền Công "
 "Chung Gnu (GPL)."
 
-#: ../src/gcompris/about.c:339
-#: ../src/gcompris/about.c:349
-#: ../src/gcompris/config.c:469
-#: ../src/gcompris/config.c:479
+#: ../src/gcompris/about.c:278
+#: ../src/gcompris/about.c:288
+#: ../src/gcompris/config.c:467
+#: ../src/gcompris/config.c:477
 #: ../src/gcompris/dialog.c:97
-#: ../src/gcompris/help.c:381
-#: ../src/gcompris/help.c:391
+#: ../src/gcompris/help.c:380
+#: ../src/gcompris/help.c:390
 #: ../src/gcompris/images_selector.c:317
 msgid "OK"
 msgstr "Được"
 
-#: ../src/gcompris/bar.c:568
+#: ../src/gcompris/bar.c:569
 msgid "GCompris confirmation"
 msgstr "Xác nhận GCompris"
 
-#: ../src/gcompris/bar.c:569
+#: ../src/gcompris/bar.c:570
 msgid "Are you sure you want to quit?"
 msgstr "Cháu có chắc muốn thoát không?"
 
-#: ../src/gcompris/bar.c:570
+#: ../src/gcompris/bar.c:571
 msgid "Yes, I am sure!"
 msgstr "Chắc rồi."
 
-#: ../src/gcompris/bar.c:571
+#: ../src/gcompris/bar.c:572
 msgid "No, I want to keep going"
 msgstr "Không, tôi muốn tiếp tục"
 
-#: ../src/gcompris/board.c:186
+#: ../src/gcompris/board.c:181
 msgid "Dynamic module loading is not supported. gcompris cannot load.\n"
 msgstr "Không hỗ trợ khả năng tải mô-đun một cách động nên không thể tải GCompris.\n"
 
@@ -5546,342 +5570,377 @@ msgid ""
 msgstr "Hãy chọn ngôn ngữ\n"
 "cần dùng trong bảng này."
 
-#: ../src/gcompris/config.c:64
+#: ../src/gcompris/board_config.c:763
+msgid "Global GCompris mode"
+msgstr "Chế độ toàn cục GCompris"
+
+#: ../src/gcompris/board_config.c:764
+msgid "Normal"
+msgstr "Chuẩn"
+
+#: ../src/gcompris/board_config.c:765
+msgid "2 clicks"
+msgstr "2 cú nhấn"
+
+#: ../src/gcompris/board_config.c:766
+msgid "both modes"
+msgstr "cả hai chế độ"
+
+#: ../src/gcompris/board_config.c:794
+msgid ""
+"Select the drag and drop mode\n"
+" to use in the board"
+msgstr "Hãy chọn chế độ kéo và thả\n"
+"cần dùng trên bảng"
+
+#: ../src/gcompris/config.c:59
 msgid "Your system default"
 msgstr "Giá trị mặc định của hệ thống bạn"
 
-#: ../src/gcompris/config.c:65
+#: ../src/gcompris/config.c:60
 msgid "Amharic"
 msgstr "Am-ha-ri"
 
-#: ../src/gcompris/config.c:66
+#: ../src/gcompris/config.c:61
 msgid "Arabic"
 msgstr "Ả Rập"
 
-#: ../src/gcompris/config.c:67
+#: ../src/gcompris/config.c:62
 msgid "Turkish (Azerbaijan)"
 msgstr "Thổ-nhĩ-kỳ (A-dợ-bai-sanh)"
 
-#: ../src/gcompris/config.c:68
+#: ../src/gcompris/config.c:63
 msgid "Bulgarian"
 msgstr "Bảo Gai Lơi"
 
-#: ../src/gcompris/config.c:69
+#: ../src/gcompris/config.c:64
 msgid "Catalan"
 msgstr "Ca-ta-lan"
 
-#: ../src/gcompris/config.c:71
+#: ../src/gcompris/config.c:66
 msgid "Danish"
 msgstr "Đan mạch"
 
-#: ../src/gcompris/config.c:72
+#: ../src/gcompris/config.c:67
 msgid "German"
 msgstr "Đức"
 
-#: ../src/gcompris/config.c:73
+#: ../src/gcompris/config.c:68
 msgid "Greek"
 msgstr "Hy Lạp"
 
-#: ../src/gcompris/config.c:74
+#: ../src/gcompris/config.c:69
 msgid "English (Canada)"
 msgstr "Anh (Ca-na-đa)"
 
-#: ../src/gcompris/config.c:75
+#: ../src/gcompris/config.c:70
 msgid "English (Great Britain)"
 msgstr "Anh (quốc Anh)"
 
-#: ../src/gcompris/config.c:76
+#: ../src/gcompris/config.c:71
 msgid "Spanish"
 msgstr "Tây Ban Nha"
 
-#: ../src/gcompris/config.c:77
+#: ../src/gcompris/config.c:72
 msgid "Basque"
 msgstr "Baxcơ"
 
-#: ../src/gcompris/config.c:78
+#: ../src/gcompris/config.c:73
 msgid "Finnish"
 msgstr "Phần Lan"
 
-#: ../src/gcompris/config.c:79
+#: ../src/gcompris/config.c:74
 msgid "French"
 msgstr "Pháp"
 
-#: ../src/gcompris/config.c:80
+#: ../src/gcompris/config.c:75
 msgid "Irish (Gaelic)"
 msgstr "Ái-nhĩ-lan (Xen-tơ)"
 
-#: ../src/gcompris/config.c:81
+#: ../src/gcompris/config.c:76
 msgid "Hebrew"
 msgstr "Do Thái"
 
-#: ../src/gcompris/config.c:82
+#: ../src/gcompris/config.c:77
 msgid "Hindi"
 msgstr "Hinh-đi"
 
-#: ../src/gcompris/config.c:83
+#: ../src/gcompris/config.c:78
+msgid "Japanese"
+msgstr "Nhật"
+
+#: ../src/gcompris/config.c:79
 msgid "Gujarati"
 msgstr "Gu-gia-ra-ti"
 
-#: ../src/gcompris/config.c:84
+#: ../src/gcompris/config.c:80
 msgid "Punjabi"
 msgstr "Pun-cha-bi"
 
-#: ../src/gcompris/config.c:85
+#: ../src/gcompris/config.c:81
 msgid "Hungarian"
 msgstr "Hung Gia Lợi"
 
-#: ../src/gcompris/config.c:86
+#: ../src/gcompris/config.c:82
 msgid "Croatian"
 msgstr "Cợ-rô-a-ti-a"
 
-#: ../src/gcompris/config.c:87
+#: ../src/gcompris/config.c:83
 msgid "Italian"
 msgstr "Ý"
 
-#: ../src/gcompris/config.c:88
+#: ../src/gcompris/config.c:84
 msgid "Georgian"
 msgstr "Gi-oa-gi-a"
 
-#: ../src/gcompris/config.c:89
+#: ../src/gcompris/config.c:85
+msgid "Korean"
+msgstr "Hàn Quốc"
+
+#: ../src/gcompris/config.c:86
 msgid "Lithuanian"
 msgstr "Li-tu-a-ni"
 
-#: ../src/gcompris/config.c:90
+#: ../src/gcompris/config.c:87
 msgid "Macedonian"
 msgstr "Ma-xê-đô-ni"
 
-#: ../src/gcompris/config.c:91
+#: ../src/gcompris/config.c:88
 msgid "Malayalam"
 msgstr "Ma-lay-am"
 
-#: ../src/gcompris/config.c:92
+#: ../src/gcompris/config.c:89
 msgid "Marathi"
 msgstr "Ma-ra-ti"
 
-#: ../src/gcompris/config.c:93
+#: ../src/gcompris/config.c:90
 msgid "Malay"
 msgstr "Mã lai"
 
-#: ../src/gcompris/config.c:94
+#: ../src/gcompris/config.c:91
 msgid "Nepal"
 msgstr "Nê-pan"
 
-#: ../src/gcompris/config.c:95
+#: ../src/gcompris/config.c:92
 msgid "Dutch"
 msgstr "Hoà lan"
 
-#: ../src/gcompris/config.c:96
+#: ../src/gcompris/config.c:93
 msgid "Norwegian Bokmal"
 msgstr "Na-uy (Bokh-man)"
 
-#: ../src/gcompris/config.c:97
+#: ../src/gcompris/config.c:94
 msgid "Norwegian Nynorsk"
 msgstr "Na-uy (Ny-noa-x-kh)"
 
-#: ../src/gcompris/config.c:98
+#: ../src/gcompris/config.c:95
 msgid "Polish"
 msgstr "Ba-lan"
 
-#: ../src/gcompris/config.c:99
+#: ../src/gcompris/config.c:96
 msgid "Portuguese"
 msgstr "Bồ-đào-nha"
 
-#: ../src/gcompris/config.c:100
+#: ../src/gcompris/config.c:97
 msgid "Portuguese (Brazil)"
 msgstr "Bồ-đào-nha (Bra-xin)"
 
-#: ../src/gcompris/config.c:101
+#: ../src/gcompris/config.c:98
 msgid "Romanian"
 msgstr "Lỗ-má-ni"
 
-#: ../src/gcompris/config.c:102
+#: ../src/gcompris/config.c:99
 msgid "Russian"
 msgstr "Nga"
 
-#: ../src/gcompris/config.c:103
+#: ../src/gcompris/config.c:100
 msgid "Kinyarwanda"
 msgstr "Kin-ia-ouanh-đa"
 
-#: ../src/gcompris/config.c:104
+#: ../src/gcompris/config.c:101
 msgid "Slovak"
 msgstr "Xlô-vác"
 
-#: ../src/gcompris/config.c:105
+#: ../src/gcompris/config.c:102
 msgid "Slovenian"
 msgstr "Xlô-ven"
 
-#: ../src/gcompris/config.c:106
+#: ../src/gcompris/config.c:103
+msgid "Somali"
+msgstr "Xo-ma-li"
+
+#: ../src/gcompris/config.c:104
 msgid "Albanian"
 msgstr "An-ba-ni"
 
-#: ../src/gcompris/config.c:107
+#: ../src/gcompris/config.c:105
 msgid "Serbian (Latin)"
 msgstr "Xéc-bi (La-tinh)"
 
-#: ../src/gcompris/config.c:108
+#: ../src/gcompris/config.c:106
 msgid "Serbian"
 msgstr "Xéc-bi"
 
-#: ../src/gcompris/config.c:109
+#: ../src/gcompris/config.c:107
 msgid "Swedish"
 msgstr "Thụy Điển"
 
 #."ta_IN.UTF-8",	N_("Tamil"),
-#: ../src/gcompris/config.c:111
+#: ../src/gcompris/config.c:109
 msgid "Thai"
 msgstr "Thái"
 
-#: ../src/gcompris/config.c:112
+#: ../src/gcompris/config.c:110
 msgid "Turkish"
 msgstr "Thổ Nhĩ Kỳ"
 
-#: ../src/gcompris/config.c:113
+#: ../src/gcompris/config.c:111
 msgid "Vietnamese"
 msgstr "Việt"
 
-#: ../src/gcompris/config.c:114
+#: ../src/gcompris/config.c:112
 msgid "Walloon"
 msgstr "Oua-lon"
 
-#: ../src/gcompris/config.c:115
+#: ../src/gcompris/config.c:113
 msgid "Chinese (Simplified)"
 msgstr "Tiếng Hoa (phổ thông)"
 
-#: ../src/gcompris/config.c:116
+#: ../src/gcompris/config.c:114
 msgid "Chinese (Traditional)"
 msgstr "Hoà (truyền thống)"
 
-#: ../src/gcompris/config.c:121
+#: ../src/gcompris/config.c:119
 msgid "No time limit"
 msgstr "Thời gian vô hạn"
 
-#: ../src/gcompris/config.c:122
+#: ../src/gcompris/config.c:120
 msgid "Slow timer"
 msgstr "Bộ đếm thời gian chậm"
 
-#: ../src/gcompris/config.c:123
+#: ../src/gcompris/config.c:121
 msgid "Normal timer"
 msgstr "Bộ đếm thời gian bình thường"
 
-#: ../src/gcompris/config.c:124
+#: ../src/gcompris/config.c:122
 msgid "Fast timer"
 msgstr "Bộ đếm thời gian nhanh"
 
-#: ../src/gcompris/config.c:129
+#: ../src/gcompris/config.c:127
 msgid "800x600 (Default for gcompris)"
 msgstr "800 × 600 (mặc định cho GCompris)"
 
-#: ../src/gcompris/config.c:134
+#: ../src/gcompris/config.c:132
 msgid ""
 "<i>Use Gcompris administration module\n"
 "to filter boards</i>"
 msgstr "<i>Sử dụng mô-đun quản lý của GCompris để lọc bảng</i>"
 
-#: ../src/gcompris/config.c:189
-#: ../src/gcompris/config.c:199
+#: ../src/gcompris/config.c:187
+#: ../src/gcompris/config.c:197
 msgid "GCompris Configuration"
 msgstr "Cấu hình GCompris"
 
-#: ../src/gcompris/config.c:275
+#: ../src/gcompris/config.c:273
 msgid "Fullscreen"
 msgstr "Toàn màn hình"
 
-#: ../src/gcompris/config.c:318
+#: ../src/gcompris/config.c:316
 msgid "Music"
 msgstr "Nhạc"
 
-#: ../src/gcompris/config.c:346
+#: ../src/gcompris/config.c:344
 msgid "Effect"
 msgstr "Hiệu ứng"
 
-#: ../src/gcompris/config.c:382
+#: ../src/gcompris/config.c:380
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "Không mở được thư mục sắc thái: %s"
 
-#: ../src/gcompris/config.c:413
-#: ../src/gcompris/config.c:846
-#: ../src/gcompris/config.c:860
+#: ../src/gcompris/config.c:411
+#: ../src/gcompris/config.c:862
+#: ../src/gcompris/config.c:876
 #, c-format
 msgid "Skin : %s"
 msgstr "Sắc thái: %s"
 
-#: ../src/gcompris/config.c:415
+#: ../src/gcompris/config.c:413
 msgid "SKINS NOT FOUND"
 msgstr "KHÔNG TÌM THẤY SẮC THÁI"
 
-#: ../src/gcompris/config.c:540
+#: ../src/gcompris/config.c:538
 msgid "English (United State)"
 msgstr "Anh (Mỹ)"
 
-#: ../src/gcompris/file_selector.c:334
+#: ../src/gcompris/file_selector.c:335
 msgid "CANCEL"
 msgstr "THÔI"
 
-#: ../src/gcompris/file_selector.c:365
+#: ../src/gcompris/file_selector.c:366
 msgid "LOAD"
 msgstr "TẢI"
 
-#: ../src/gcompris/file_selector.c:365
+#: ../src/gcompris/file_selector.c:366
 msgid "SAVE"
 msgstr "LƯU"
 
-#: ../src/gcompris/gameutil.c:79
+#: ../src/gcompris/gameutil.c:80
 msgid "Couldn't find or load the file"
 msgstr "Không tìm thấy hoặc tải tập tin"
 
-#: ../src/gcompris/gameutil.c:81
+#: ../src/gcompris/gameutil.c:82
 msgid "This activity is incomplete."
 msgstr "Chưa hoàn thành hoạt động này."
 
-#: ../src/gcompris/gameutil.c:82
+#: ../src/gcompris/gameutil.c:83
 msgid ""
 "Exit it and report\n"
 "the problem to the authors."
 msgstr "Hãy thoát khỏi nó,\n"
 "rồi thông báo lỗi này cho tác giả."
 
-#: ../src/gcompris/gcompris.c:141
+#: ../src/gcompris/gcompris.c:122
 msgid "run gcompris in fullscreen mode."
 msgstr "chạy GCompris trong chế độ toàn màn hình."
 
-#: ../src/gcompris/gcompris.c:144
+#: ../src/gcompris/gcompris.c:125
 msgid "run gcompris in window mode."
 msgstr "chạy GCompris trong chế độ cửa sổ."
 
-#: ../src/gcompris/gcompris.c:147
+#: ../src/gcompris/gcompris.c:128
 msgid "run gcompris with sound enabled."
 msgstr "chạy GCompris có âm thanh được bật."
 
-#: ../src/gcompris/gcompris.c:150
+#: ../src/gcompris/gcompris.c:131
 msgid "run gcompris without sound."
 msgstr "chạy GCompris không có âm thanh."
 
-#: ../src/gcompris/gcompris.c:153
+#: ../src/gcompris/gcompris.c:134
 msgid "run gcompris with the default gnome cursor."
 msgstr "chạy GCompris với con trỏ Gnome mặc định."
 
-#: ../src/gcompris/gcompris.c:156
+#: ../src/gcompris/gcompris.c:137
 msgid "display only activities with this difficulty level."
 msgstr "hiển thị chỉ những hoạt động tại cấp khó này."
 
-#: ../src/gcompris/gcompris.c:159
+#: ../src/gcompris/gcompris.c:140
 msgid "display debug informations on the console."
 msgstr "hiển thị thông tin gỡ lỗi trên bàn giao tiếp."
 
-#: ../src/gcompris/gcompris.c:162
+#: ../src/gcompris/gcompris.c:143
 msgid "Print the version of "
 msgstr "In ra phiên bản của "
 
-#: ../src/gcompris/gcompris.c:165
+#: ../src/gcompris/gcompris.c:146
 msgid "Use the antialiased canvas (slower)."
 msgstr "Dùng khung vẽ trơn (chậm hơn)."
 
-#: ../src/gcompris/gcompris.c:168
+#: ../src/gcompris/gcompris.c:149
 msgid "Disable XF86VidMode (No screen resolution change)."
 msgstr "Tắt XF86VidMode (không thay đổi độ phân giải màn hình)."
 
-#: ../src/gcompris/gcompris.c:171
+#: ../src/gcompris/gcompris.c:152
 msgid ""
 "Run gcompris with local menu (e.g -l /reading will let you play only "
 "activities in the reading directory, -l /strategy/connect4 only the connect4 "
@@ -5890,86 +5949,91 @@ msgstr "Chạy GCompris với trình đơn cục bộ (v.d.  « -l /reading » s
 "năng chơi chỉ thư mục hoạt động đọc, « -l /strategy/connect4 » chỉ hoạt động "
 "kết nối 4)."
 
-#: ../src/gcompris/gcompris.c:174
+#: ../src/gcompris/gcompris.c:155
 msgid "Run GCompris with local activity directory added to menu"
 msgstr "Chạy GCompris với thư mục hoạt động cục bộ được thêm vào trình đơn"
 
-#: ../src/gcompris/gcompris.c:177
+#: ../src/gcompris/gcompris.c:158
 msgid "Run GCompris in administration and user-management mode"
 msgstr "Chạy GCompris trong chế độ quản trị  (hệ thống và người dùng)"
 
-#: ../src/gcompris/gcompris.c:180
+#: ../src/gcompris/gcompris.c:161
 msgid "Use alternate database for profiles"
 msgstr "Dùng cơ sở dữ liệu thay thế cho xác lập."
 
-#: ../src/gcompris/gcompris.c:183
+#: ../src/gcompris/gcompris.c:164
 msgid "Use alternate database for logs"
 msgstr "Dùng cơ sở dữ liệu thay thế cho bản ghi."
 
-#: ../src/gcompris/gcompris.c:186
+#: ../src/gcompris/gcompris.c:167
 msgid "Create the alternate database for profiles"
 msgstr "Tạo cơ sở dữ liệu thay thế cho xác lập."
 
-#: ../src/gcompris/gcompris.c:189
+#: ../src/gcompris/gcompris.c:170
 msgid "Re-read XML Menus and store them in the database"
 msgstr "Đọc lại các trình đơn XML và lưu chúng vào cơ sở dữ liệu."
 
-#: ../src/gcompris/gcompris.c:192
+#: ../src/gcompris/gcompris.c:173
 msgid "Set the profile to use. Use 'gcompris -a' to create profiles"
 msgstr "Đặt xác lập cần dùng. Sử dụng lệnh « gcompris -a » để tẠo xÁc lẬp."
 
-#: ../src/gcompris/gcompris.c:195
+#: ../src/gcompris/gcompris.c:176
 msgid "List all available profiles. Use 'gcompris -a' to create profiles"
 msgstr "Liệt kê mọi xác lập sẵn sàng. Sử dụng lệnh « gcompris -a » để tạo xác lập"
 
-#: ../src/gcompris/gcompris.c:198
+#: ../src/gcompris/gcompris.c:179
 msgid ""
 "Shared directory location, for profiles and board-configuration data: "
 "[$HOME/.gcompris/shared]"
 msgstr "Địa điểm thư mục dùng chung, cho xác lập và dữ liệu cấu hình bảng: <$HOME/."
 "gcompris/shared>."
 
-#: ../src/gcompris/gcompris.c:201
+#: ../src/gcompris/gcompris.c:182
 msgid "The location of user directories: [$HOME/.gcompris/users]"
 msgstr "Địa điểm của thư mục người dùng: <$HOME/.gcompris/users>."
 
-#: ../src/gcompris/gcompris.c:204
+#: ../src/gcompris/gcompris.c:185
 msgid "Run the experimental activities"
 msgstr "Chạy hoạt động đựa trên kinh nghiệm"
 
-#: ../src/gcompris/gcompris.c:207
+#: ../src/gcompris/gcompris.c:188
 msgid "Disable the quit button"
 msgstr "Tắt cái nút Thoát"
 
-#: ../src/gcompris/gcompris.c:210
+#: ../src/gcompris/gcompris.c:191
 msgid "Disable the config button"
 msgstr "Tắt cái nút Cấu hình"
 
-#: ../src/gcompris/gcompris.c:213
+#: ../src/gcompris/gcompris.c:194
 msgid "Display the resources on stdout based on the selected activities"
 msgstr "Hiển thị các tài nguyên trên thiết bị xuất chuẩn dựa vào những hoạt động đã "
 "chọn"
 
-#: ../src/gcompris/gcompris.c:216
+#: ../src/gcompris/gcompris.c:197
 msgid ""
 "GCompris will get images, sounds and activity data from this server if not "
 "found locally."
 msgstr "Trình GCompris sẽ lấy các ảnh, âm thanh và dữ liệu hoạt động đều từ máy phục "
 "vụ này nếu không tìm thấy cục bộ."
 
-#: ../src/gcompris/gcompris.c:219
+#: ../src/gcompris/gcompris.c:200
 msgid ""
 "Only when --server is provided, disable check for local resource first. Data "
 "are always taken from the web server."
 msgstr "Chỉ khi « --server » được cung cấp, hãy tắt khả năng kiểm tra trước tiên tìm "
 "tài nguyên cục bộ. Dữ liệu luôn được lấy từ máy phục vụ Mạng."
 
-#: ../src/gcompris/gcompris.c:223
+#: ../src/gcompris/gcompris.c:204
 msgid ""
-"In server mode, where is the cache directory to avoid useless downloads."
-msgstr "Trong chế độ máy phục vụ, thư mục nhớ tạm (để tránh nhiều việc tải xuống vô ích) ở đâu."
+"In server mode, specify the cache directory used to avoid useless downloads."
+msgstr "Trong chế độ máy phục vụ, hãy ghi rõ thư mục nhớ tạm dùng để tránh nhiều việc tải xuống vô ích."
 
-#: ../src/gcompris/gcompris.c:863
+#: ../src/gcompris/gcompris.c:206
+msgid ""
+"Global drag and drop mode: normal, 2clicks, both. Default mode is normal."
+msgstr "Chế độ kéo và thả toàn cục: chuẩn, 2nhấn, cả hai. Chế độ mặc định là « chuẩn »."
+
+#: ../src/gcompris/gcompris.c:831
 #, c-format
 msgid ""
 "GCompris is free software released under the GPL License. In order to "
@@ -5994,7 +6058,7 @@ msgstr "GCompris là phần mềm tự do được phát hành với điều ki�
 "nghĩ sử dụng hệ điều hành GNU/Linux. Có thể tìm thông tin thêm tại <http://"
 "www.fsf.org/philosophy>."
 
-#: ../src/gcompris/gcompris.c:1417
+#: ../src/gcompris/gcompris.c:1438
 #, c-format
 msgid ""
 "GCompris\n"
@@ -6007,42 +6071,42 @@ msgstr "GCompris\n"
 "Thông tin thêm tại <http://gcompris.net/>\n"
 
 #.check the list of possible values for -l, then exit
-#: ../src/gcompris/gcompris.c:1506
+#: ../src/gcompris/gcompris.c:1527
 #, c-format
 msgid "Use -l to access an activity directly.\n"
 msgstr "Sử dụng lệnh « -l » để truy cập một hoạt động nào đó một cách trực tiếp.\n"
 
-#: ../src/gcompris/gcompris.c:1507
+#: ../src/gcompris/gcompris.c:1528
 #, c-format
 msgid "The list of available activities is :\n"
 msgstr "Danh sách các hoạt động sẵn sàng:\n"
 
-#: ../src/gcompris/gcompris.c:1677
+#: ../src/gcompris/gcompris.c:1720
 #, c-format
 msgid "The list of available profiles is:\n"
 msgstr "Danh sách các xác lập sẵn sàng là:\n"
 
-#: ../src/gcompris/gcompris_db.c:250
+#: ../src/gcompris/gcompris_db.c:255
 msgid "Unaffected"
 msgstr "Không có tác động."
 
-#: ../src/gcompris/gcompris_db.c:251
+#: ../src/gcompris/gcompris_db.c:256
 msgid "Users without a class"
 msgstr "Người dùng chưa có lớp"
 
-#: ../src/gcompris/help.c:199
+#: ../src/gcompris/help.c:195
 msgid "Prerequisite"
 msgstr "Cần thiết"
 
-#: ../src/gcompris/help.c:227
+#: ../src/gcompris/help.c:223
 msgid "Goal"
 msgstr "Mục đích"
 
-#: ../src/gcompris/help.c:255
+#: ../src/gcompris/help.c:251
 msgid "Manual"
 msgstr "Sổ hướng dẫn"
 
-#: ../src/gcompris/help.c:283
+#: ../src/gcompris/help.c:279
 msgid "Credit"
 msgstr "Công trạng"
 
