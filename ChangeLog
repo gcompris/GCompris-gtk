@@ -1,3 +1,9 @@
+2007-01-01  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	Removed dependancie on libpopt, use glib's GOption instead
+	* configure.in
+	* src/gcompris/gcompris.c
+
 2006-12-21  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* boards/sounds/scroll.wav: added from Tuxpaint

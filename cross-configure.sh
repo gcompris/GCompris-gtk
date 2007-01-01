@@ -69,10 +69,6 @@ LDFLAGS="-L$CROSS_DEV/lib $SDL_MIXER_LDFLAGS"
 ###########################################
 # These libs do not use pkg-config !
 
-# popt
-CFLAGS="$CFLAGS -I$CROSS_DEV/popt/include"
-LDFLAGS="$LDFLAGS -L$CROSS_DEV/popt/lib"
-
 # sqlite3
 CFLAGS="$CFLAGS -I$CROSS_DEV/sqlite/include"
 LDFLAGS="$LDFLAGS -L$CROSS_DEV/sqlite/lib"

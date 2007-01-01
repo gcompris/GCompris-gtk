@@ -71,8 +71,7 @@ gcompris_LDADD = \
 	$(top_builddir)/src/gcompris/libgcompris-1.la \
 	$(LIBICONV)		\
         $(INTLLIBS) \
-	$(python_ldadd) \
-	$(LIBPOPT)
+	$(python_ldadd)
 
 #
 # Gcompris library
