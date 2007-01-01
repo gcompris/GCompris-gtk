@@ -18,7 +18,6 @@
  */
 
 #include <signal.h>
-#include <popt.h>
 
 #include <sys/types.h>
 #include <sys/stat.h>
@@ -87,136 +86,126 @@ static gboolean		gc_debug = FALSE;
 /* Command line params */
 
 /*** gcompris-popttable */
-static int popt_fullscreen	   = FALSE;
-static int popt_window		   = FALSE;
-static int popt_sound		   = FALSE;
-static int popt_mute		   = FALSE;
-static int popt_cursor		   = FALSE;
-static int popt_version		   = FALSE;
-static int popt_aalias		   = FALSE;
-static int popt_difficulty_filter  = FALSE;
-static int popt_debug		   = FALSE;
-static int popt_noxf86vm	   = FALSE;
-static char *popt_root_menu        = NULL;
-static char *popt_local_activity   = NULL;
-static int popt_administration	   = FALSE;
-static char *popt_database         = NULL;
-static char *popt_logs_database    = NULL;
-static int popt_create_db   	   = FALSE;
-static int popt_reread_menu   	   = FALSE;
-static char *popt_profile	   = NULL;
-static int *popt_profile_list	   = FALSE;
-static char *popt_shared_dir	   = NULL;
-static char *popt_users_dir	   = NULL;
-static int  popt_experimental      = FALSE;
-static int  popt_no_quit	   = FALSE;
-static int  popt_no_config         = FALSE;
-static int  popt_display_resource  = FALSE;
-static char *popt_server            = NULL;
-static int  *popt_web_only          = NULL;
-static char *popt_cache_dir         = NULL;
-static char *popt_drag_mode         = NULL;
+static gint popt_fullscreen	   = FALSE;
+static gint popt_window		   = FALSE;
+static gint popt_sound		   = FALSE;
+static gint popt_mute		   = FALSE;
+static gint popt_cursor		   = FALSE;
+static gint popt_version	   = FALSE;
+static gint popt_aalias		   = FALSE;
+static gint popt_difficulty_filter = FALSE;
+static gint popt_debug		   = FALSE;
+static gint popt_noxf86vm	   = FALSE;
+static gchar *popt_root_menu       = NULL;
+static gchar *popt_local_activity  = NULL;
+static gint popt_administration	   = FALSE;
+static gchar *popt_database        = NULL;
+static gchar *popt_logs_database   = NULL;
+static gint popt_create_db   	   = FALSE;
+static gint popt_reread_menu   	   = FALSE;
+static gchar *popt_profile	   = NULL;
+static gint *popt_profile_list	   = FALSE;
+static gchar *popt_shared_dir	   = NULL;
+static gchar *popt_users_dir	   = NULL;
+static gint  popt_experimental     = FALSE;
+static gint  popt_no_quit	   = FALSE;
+static gint  popt_no_config        = FALSE;
+static gint  popt_display_resource = FALSE;
+static gchar *popt_server          = NULL;
+static gint  *popt_web_only        = NULL;
+static gchar *popt_cache_dir       = NULL;
+static gchar *popt_drag_mode       = NULL;
 
-static struct poptOption options[] = {
-  {"fullscreen", 'f', POPT_ARG_NONE, &popt_fullscreen, 0,
+static GOptionEntry options[] = {
+  {"fullscreen", 'f', 0, G_OPTION_ARG_NONE, &popt_fullscreen,
    N_("run gcompris in fullscreen mode."), NULL},
 
-  {"window", 'w', POPT_ARG_NONE, &popt_window, 0,
+  {"window", 'w', 0, G_OPTION_ARG_NONE, &popt_window,
    N_("run gcompris in window mode."), NULL},
 
-  {"sound", 's', POPT_ARG_NONE, &popt_sound, 0,
+  {"sound", 's', 0, G_OPTION_ARG_NONE, &popt_sound,
    N_("run gcompris with sound enabled."), NULL},
 
-  {"mute", 'm', POPT_ARG_NONE, &popt_mute, 0,
+  {"mute", 'm', 0, G_OPTION_ARG_NONE, &popt_mute,
    N_("run gcompris without sound."), NULL},
 
-  {"cursor", 'c', POPT_ARG_NONE, &popt_cursor, 0,
+  {"cursor", 'c', 0, G_OPTION_ARG_NONE, &popt_cursor,
    N_("run gcompris with the default gnome cursor."), NULL},
 
-  {"difficulty", 'd', POPT_ARG_INT, &popt_difficulty_filter, 0,
+  {"difficulty", 'd', 0, G_OPTION_ARG_INT, &popt_difficulty_filter,
    N_("display only activities with this difficulty level."), NULL},
 
-  {"debug", 'D', POPT_ARG_NONE, &popt_debug, 0,
+  {"debug", 'D', 0, G_OPTION_ARG_NONE, &popt_debug,
    N_("display debug informations on the console."), NULL},
 
-  {"version", 'v', POPT_ARG_NONE, &popt_version, 0,
+  {"version", 'v', 0, G_OPTION_ARG_NONE, &popt_version,
    N_("Print the version of " PACKAGE), NULL},
 
-  {"antialiased", '\0', POPT_ARG_NONE, &popt_aalias, 0,
+  {"antialiased", '\0', 0, G_OPTION_ARG_NONE, &popt_aalias,
    N_("Use the antialiased canvas (slower)."), NULL},
 
-  {"noxf86vm", 'x', POPT_ARG_NONE, &popt_noxf86vm, 0,
+  {"noxf86vm", 'x', 0, G_OPTION_ARG_NONE, &popt_noxf86vm,
    N_("Disable XF86VidMode (No screen resolution change)."), NULL},
 
-  {"root-menu", 'l', POPT_ARG_STRING, &popt_root_menu, 0,
+  {"root-menu", 'l', 0, G_OPTION_ARG_STRING, &popt_root_menu,
    N_("Run gcompris with local menu (e.g -l /reading will let you play only activities in the reading directory, -l /strategy/connect4 only the connect4 activity)"), NULL},
 
-  {"local-activity", 'L', POPT_ARG_STRING, &popt_local_activity, 0,
+  {"local-activity", 'L', 0, G_OPTION_ARG_STRING, &popt_local_activity,
    N_("Run GCompris with local activity directory added to menu"), NULL},
 
-  {"administration", 'a', POPT_ARG_NONE, &popt_administration, 0,
+  {"administration", 'a', 0, G_OPTION_ARG_NONE, &popt_administration,
    N_("Run GCompris in administration and user-management mode"), NULL},
 
-  {"database", 'b', POPT_ARG_STRING, &popt_database, 0,
+  {"database", 'b', 0, G_OPTION_ARG_STRING, &popt_database,
    N_("Use alternate database for profiles"), NULL},
 
-  {"logs", 'j', POPT_ARG_STRING, &popt_logs_database, 0,
+  {"logs", 'j', 0, G_OPTION_ARG_STRING, &popt_logs_database,
    N_("Use alternate database for logs"), NULL},
 
-  {"create-db",'\0', POPT_ARG_NONE, &popt_create_db, 0,
+  {"create-db",'\0', 0, G_OPTION_ARG_NONE, &popt_create_db,
    N_("Create the alternate database for profiles"), NULL},
 
-  {"reread-menu",'\0', POPT_ARG_NONE, &popt_reread_menu, 0,
+  {"reread-menu",'\0', 0, G_OPTION_ARG_NONE, &popt_reread_menu,
    N_("Re-read XML Menus and store them in the database"), NULL},
 
-  {"profile",'p', POPT_ARG_STRING, &popt_profile, 0,
+  {"profile",'p', 0, G_OPTION_ARG_STRING, &popt_profile,
    N_("Set the profile to use. Use 'gcompris -a' to create profiles"), NULL},
 
-  {"profile-list",'\0', POPT_ARG_NONE, &popt_profile_list, 0,
+  {"profile-list",'\0', 0, G_OPTION_ARG_NONE, &popt_profile_list,
    N_("List all available profiles. Use 'gcompris -a' to create profiles"), NULL},
 
-  {"shared-dir",'\0', POPT_ARG_STRING, &popt_shared_dir, 0,
+  {"shared-dir",'\0', 0, G_OPTION_ARG_STRING, &popt_shared_dir,
    N_("Shared directory location, for profiles and board-configuration data: [$HOME/.gcompris/shared]"), NULL},
 
-  {"users-dir",'\0', POPT_ARG_STRING, &popt_users_dir, 0,
+  {"users-dir",'\0', 0, G_OPTION_ARG_STRING, &popt_users_dir,
    N_("The location of user directories: [$HOME/.gcompris/users]"), NULL},
 
-  {"experimental",'\0', POPT_ARG_NONE, &popt_experimental, 0,
+  {"experimental",'\0', 0, G_OPTION_ARG_NONE, &popt_experimental,
    N_("Run the experimental activities"), NULL},
 
-  {"disable-quit",'\0', POPT_ARG_NONE, &popt_no_quit, 0,
+  {"disable-quit",'\0', 0, G_OPTION_ARG_NONE, &popt_no_quit,
    N_("Disable the quit button"), NULL},
 
-  {"disable-config",'\0', POPT_ARG_NONE, &popt_no_config, 0,
+  {"disable-config",'\0', 0, G_OPTION_ARG_NONE, &popt_no_config,
    N_("Disable the config button"), NULL},
 
-  {"display-resource",'\0', POPT_ARG_NONE, &popt_display_resource, 0,
+  {"display-resource",'\0', 0, G_OPTION_ARG_NONE, &popt_display_resource,
    N_("Display the resources on stdout based on the selected activities"), NULL},
 
-  {"server", '\0', POPT_ARG_STRING, &popt_server, 0,
+  {"server", '\0', 0, G_OPTION_ARG_STRING, &popt_server,
    N_("GCompris will get images, sounds and activity data from this server if not found locally."), NULL},
 
-  {"web-only", '\0', POPT_ARG_NONE, &popt_web_only, 0,
+  {"web-only", '\0', 0, G_OPTION_ARG_NONE, &popt_web_only,
    N_("Only when --server is provided, disable check for local resource first."
       " Data are always taken from the web server."), NULL},
 
-  {"cache-dir", '\0', POPT_ARG_STRING, &popt_cache_dir, 0,
+  {"cache-dir", '\0', 0, G_OPTION_ARG_STRING, &popt_cache_dir,
    N_("In server mode, specify the cache directory used to avoid useless downloads."), NULL},
-  {"drag-mode", 'g', POPT_ARG_STRING, &popt_drag_mode, 0,
+
+  {"drag-mode", 'g', 0, G_OPTION_ARG_STRING, &popt_drag_mode,
    N_("Global drag and drop mode: normal, 2clicks, both. Default mode is normal."), NULL},
 
-#ifndef WIN32	/* Not supported on windows */
-  POPT_AUTOHELP
-#endif
-  {
-    NULL,
-    '\0',
-    0,
-    NULL,
-    0,
-    NULL,
-    NULL
-  }
+  { NULL }
 };
 
 /* Fullscreen Stuff */
@@ -1376,8 +1365,8 @@ static gint xf86_focus_changed(GtkWindow *window,
 int
 gc_init (int argc, char *argv[])
 {
-  poptContext pctx;
-  int popt_option;
+  GError *error = NULL;
+  GOptionContext *context;
 
   /* First, Remove the gnome crash dialog because it locks the user when in full screen */
   signal(SIGSEGV, gc_terminate);
@@ -1405,10 +1394,11 @@ gc_init (int argc, char *argv[])
 
   gtk_init (&argc, &argv);
 
-  pctx = poptGetContext (PACKAGE, argc, (const char **)argv, options, 0);
-
   /* Argument parsing */
-  popt_option = poptGetNextOpt (pctx);
+  context = g_option_context_new("GCompris");
+  g_option_context_add_main_entries (context, options, GETTEXT_PACKAGE);
+  g_option_context_add_group (context, gtk_get_option_group (TRUE));
+  g_option_context_parse (context, &argc, &argv, &error);
 
   // Set the default gcompris cursor
   properties->defaultcursor = GCOMPRIS_DEFAULT_CURSOR;
@@ -1738,7 +1728,6 @@ gc_init (int argc, char *argv[])
     exit(0);
   }
 
-  poptFreeContext(pctx);
   /*------------------------------------------------------------*/
 
   if(properties->music || properties->fx)

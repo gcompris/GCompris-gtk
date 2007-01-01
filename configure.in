@@ -93,10 +93,6 @@ AC_SUBST(XML_LIBS)
 dnl glib-genmarshal
 AC_PATH_PROG(GLIB_GENMARSHAL, glib-genmarshal)
 
-dnl popt
-AC_CHECK_LIB(popt, poptDupArgv,,
-AC_MSG_ERROR([You must have popt 1.5 or newer to compile gcompris.]))
-
 AM_ICONV
 
 dnl XF86VidMode allows us to set the screen resolution dynamically
