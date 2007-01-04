@@ -154,7 +154,7 @@ class Gcompris_chat:
       size_pixels=False)
 
     entry.show()
-    entry.set_text(_("Type here you message to GCompris users in your local network."))
+    entry.set_text(_("Type your message here, to send to other GCompris users on your local network."))
 
     # Start the server
     self.sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM, socket.IPPROTO_UDP)
