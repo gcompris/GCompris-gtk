@@ -509,9 +509,19 @@ item_event_bar(GnomeCanvasItem *item, GdkEvent *event, gchar *data)
 	{
 	  gint tmp = current_level;
 
-	  current_level++;
-	  if(current_level>gcomprisBoard->maxlevel)
-	    current_level=1;
+	  if(event->button.button == 1)
+	    {
+	      current_level++;
+	      if(current_level>gcomprisBoard->maxlevel)
+		current_level=1;
+	    }
+	  else
+	    {
+	      /* Decrease the level */
+	      current_level--;
+	      if(current_level<1)
+		current_level=1;
+	    }
 
 	  if(tmp!=current_level)
 	    {
@@ -527,11 +537,11 @@ item_event_bar(GnomeCanvasItem *item, GdkEvent *event, gchar *data)
 
 	      g_free(str_number);
 	      g_free(current_level_str);
-	    }
 
-	  if(gcomprisBoard->plugin->set_level != NULL)
-	    {
-	      gcomprisBoard->plugin->set_level(current_level);
+	      if(gcomprisBoard->plugin->set_level != NULL)
+		{
+		  gcomprisBoard->plugin->set_level(current_level);
+		}
 	    }
 	}
       else if(!strcmp((char *)data, "back"))
