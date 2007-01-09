@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-01-03 20:09+0000\n"
-"PO-Revision-Date: 2007-01-03 20:11-0000\n"
+"POT-Creation-Date: 2007-01-09 06:49+0000\n"
+"PO-Revision-Date: 2007-01-09 06:50-0000\n"
 "Last-Translator: David Lodge <dave@cirt.net>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -634,12 +634,12 @@ msgid "Chat with your friends"
 msgstr "Chat with your friends"
 
 #: ../boards/chat.xml.in.h:2
-msgid "This chat activity only work with other GCompris user on your local network, not the Internet. To use it, just type in messages and hit enter. Your message is broacasted on the local network and any GCompris running the chat activity will receive and display the message."
-msgstr "This chat activity only work with other GCompris user on your local network, not the Internet. To use it, just type in messages and hit enter. Your message is broacasted on the local network and any GCompris running the chat activity will receive and display the message."
+msgid "This chat activity only works on the local network"
+msgstr "This chat activity only works on the local network"
 
 #: ../boards/chat.xml.in.h:3
-msgid "This chat works only on the local network"
-msgstr "This chat works only on the local network"
+msgid "This chat activity will only work with other GCompris users on your local network, not on the Internet. To use it, just type in your message and hit Enter. Your message is then broadcast on the local network, and any GCompris program running the chat activity on that local network will receive and display your message."
+msgstr "This chat activity will only work with other GCompris users on your local network, not on the Internet. To use it, just type in your message and hit Enter. Your message is then broadcast on the local network, and any GCompris program running the chat activity on that local network will receive and display your message."
 
 #: ../boards/chess.xml.in.h:1
 #: ../boards/chess_computer.xml.in.h:3
@@ -972,8 +972,8 @@ msgstr "Arrange four coins in a row"
 
 #: ../boards/connect4.xml.in.h:2
 #: ../boards/connect4-2players.xml.in.h:2
-msgid "Click anywhere in the line where you want to drop a piece. Alternatively, you can use the arrow keys to move and the down, or space key to drop a piece."
-msgstr "Click anywhere in the line where you want to drop a piece. Alternatively, you can use the arrow keys to move and the down, or space key to drop a piece."
+msgid "Click the position in the line where you want to drop a piece. You can also use the arrow keys to move the piece left or right, and the down or space key to drop a piece."
+msgstr "Click the position in the line where you want to drop a piece. You can also use the arrow keys to move the piece left or right, and the down or space key to drop a piece."
 
 #: ../boards/connect4.xml.in.h:3
 msgid "Connect 4"
@@ -4198,8 +4198,8 @@ msgid "Your Friends"
 msgstr "Your Friends"
 
 #: ../src/boards/python/chat.py:157
-msgid "Type here you message to GCompris users in your local network."
-msgstr "Type here you message to GCompris users in your local network."
+msgid "Type your message here, to send to other GCompris users on your local network."
+msgstr "Type your message here, to send to other GCompris users on your local network."
 
 #: ../src/boards/python/electric.py:94
 msgid ""
@@ -4744,19 +4744,19 @@ msgstr "This software is a GNU Package and is released under the GNU General Pub
 msgid "OK"
 msgstr "OK"
 
-#: ../src/gcompris/bar.c:569
+#: ../src/gcompris/bar.c:579
 msgid "GCompris confirmation"
 msgstr "GCompris confirmation"
 
-#: ../src/gcompris/bar.c:570
+#: ../src/gcompris/bar.c:580
 msgid "Are you sure you want to quit?"
 msgstr "Are you sure you want to quit?"
 
-#: ../src/gcompris/bar.c:571
+#: ../src/gcompris/bar.c:581
 msgid "Yes, I am sure!"
 msgstr "Yes, I am sure!"
 
-#: ../src/gcompris/bar.c:572
+#: ../src/gcompris/bar.c:582
 msgid "No, I want to keep going"
 msgstr "No, I want to keep going"
 
