@@ -524,7 +524,7 @@ static void menu_create_item(GnomeCanvasGroup *parent, MenuItems *menuitems, Gco
 
       /* We search a fixed path sound file */
       soundfile = gc_file_find_absolute(board->mandatory_sound_file);
-      g_warning("Checking mandatory_sound_file %s\n", soundfile);
+      g_warning("Checking mandatory_sound_file %s\n", board->mandatory_sound_file);
 
       if (!soundfile || !gc_prop_get()->fx)
 	{
