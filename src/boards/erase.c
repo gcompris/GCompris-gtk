@@ -217,7 +217,18 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       sound_policy = gc_sound_policy_get();
       gc_sound_policy_set(PLAY_AND_INTERRUPT);
 
-      gc_cursor_set(GCOMPRIS_DEL_CURSOR);
+      GdkPixbuf *cursor_pixbuf = gc_pixmap_load("images/sponge.png");
+      if(cursor_pixbuf)
+	{
+	  GdkCursor *cursor = NULL;
+	  cursor = gdk_cursor_new_from_pixbuf(gdk_display_get_default(),
+					      cursor_pixbuf,
+					      gdk_pixbuf_get_width(cursor_pixbuf)/2,
+					      gdk_pixbuf_get_height(cursor_pixbuf)/2);
+	  gdk_window_set_cursor(gc_get_window()->window, cursor);
+	  gdk_cursor_unref(cursor);
+	  gdk_pixbuf_unref(cursor_pixbuf);
+	}
 
     }
 }

@@ -25,6 +25,7 @@ import gcompris
 import gcompris.utils
 import gcompris.skin
 import gcompris.bonus
+import gcompris.sound
 import gtk
 import gtk.gdk
 import copy
@@ -407,6 +408,7 @@ class Gcompris_redraw:
   def tool_item_event(self, item, event, tool):
     if event.type == gtk.gdk.BUTTON_PRESS:
       if event.button == 1:
+        gcompris.sound.play_ogg("sounds/bleep.wav")
         # Deactivate old button
         self.old_tool_item.set(pixbuf = gcompris.utils.load_pixmap(self.tools[self.current_tool][1]))
 
@@ -455,6 +457,7 @@ class Gcompris_redraw:
   def color_item_event(self, item, event, color):
     if event.type == gtk.gdk.BUTTON_PRESS:
       if event.button == 1:
+        gcompris.sound.play_ogg("sounds/drip.wav")
         # Deactivate old button
         self.old_color_item.set(width_units = 0.0,
                                 outline_color_rgba= 0x144B9DFFL)
@@ -771,6 +774,7 @@ class Gcompris_redraw:
         # Reset thein_select_ofx ofset
         self.in_select_ofx = -1
         self.in_select_ofy = -1
+        gcompris.sound.play_ogg("sounds/smudge.wav")
 
         return True
 
@@ -786,6 +790,7 @@ class Gcompris_redraw:
 
       # Save the ofset between the mouse pointer and the upper left corner of the object
       if(self.in_select_ofx == -1):
+        gcompris.sound.play_ogg("sounds/smudge.wav")
         self.in_select_ofx = x-bounds[0]
         self.in_select_ofy = y-bounds[1]
 
@@ -846,6 +851,7 @@ class Gcompris_redraw:
           item.set(fill_color_rgba=self.colors[self.current_color])
           # Reset the item to our list
           self.current_drawing[drawing_item_index]['fill_color_rgba'] = self.colors[self.current_color]
+          gcompris.sound.play_ogg("sounds/paint1.wav")
           return True
     return False
 
@@ -857,6 +863,7 @@ class Gcompris_redraw:
           item.set(outline_color_rgba=self.colors[self.current_color])
           # Reset the item to our list
           self.current_drawing[drawing_item_index]['outline_color_rgba'] = self.colors[self.current_color]
+          gcompris.sound.play_ogg("sounds/paint1.wav")
           return True
     return False
 
@@ -872,6 +879,8 @@ class Gcompris_redraw:
       if event.button == 1:
         if self.tools[self.current_tool][0] == "DEL":
           self.del_item(item, drawing_item_index);
+          gcompris.sound.play_ogg("sounds/eraser1.wav",
+                                  "sounds/eraser2.wav")
           return True
     return False
 
@@ -942,6 +951,8 @@ class Gcompris_redraw:
 
         elif self.tools[self.current_tool][0] == "LINE":
 
+          gcompris.sound.play_ogg("sounds/bleep.wav")
+
           x,y = self.snap_to_grid(event.x,event.y)
           self.pos_x = x
           self.pos_y = y
@@ -962,6 +973,8 @@ class Gcompris_redraw:
                                         'width_units':8.0})
 
         elif self.tools[self.current_tool][0] == "RECT":
+
+          gcompris.sound.play_ogg("sounds/bleep.wav")
 
           x,y = self.snap_to_grid(event.x,event.y)
           self.pos_x = x
@@ -989,6 +1002,8 @@ class Gcompris_redraw:
                                        'width_units':4.0})
 
         elif self.tools[self.current_tool][0] == "FILL_RECT":
+
+          gcompris.sound.play_ogg("sounds/bleep.wav")
 
           x,y = self.snap_to_grid(event.x,event.y)
           self.pos_x = x
@@ -1019,6 +1034,8 @@ class Gcompris_redraw:
 
         elif self.tools[self.current_tool][0] == "CIRCLE":
 
+          gcompris.sound.play_ogg("sounds/bleep.wav")
+
           x,y = self.snap_to_grid(event.x,event.y)
           self.pos_x = x
           self.pos_y = y
@@ -1045,6 +1062,8 @@ class Gcompris_redraw:
                                        'width_units':5.0})
 
         elif self.tools[self.current_tool][0] == "FILL_CIRCLE":
+
+          gcompris.sound.play_ogg("sounds/bleep.wav")
 
           x,y = self.snap_to_grid(event.x,event.y)
           self.pos_x = x
@@ -1125,6 +1144,7 @@ class Gcompris_redraw:
             # Oops, empty line
             self.del_item(self.newitem, len(self.current_drawing)-1)
           else:
+            gcompris.sound.play_ogg("sounds/line_end.wav")
             # We need to reord the coord in increasing order to allow later comparison
             # I use a trick, I do x1*x1+y1 and x2*x2+y2, put the lower as the A point
             i = bounds[0]*bounds[0] + bounds[1]
@@ -1149,6 +1169,7 @@ class Gcompris_redraw:
             # Oups, empty rect
             self.del_item(self.newitem, len(self.current_drawing)-1)
           else:
+            gcompris.sound.play_ogg("sounds/line_end.wav")
             # We need to reord the coord in increasing order to allow later comparison
             x1, y1, x2, y2 = self.reorder_coord(x1, y1, x2, y2)
             self.current_drawing[len(self.current_drawing)-1]['x1'] = x1

@@ -352,7 +352,10 @@ void scale_item_move_to(ScaleItem *item, int plateau)
     if(plateau!=0)
     {
         if(item->plateau)
-            item->plateau_index = -1;
+	  item->plateau_index = -1;
+	else
+	  gc_sound_play_ogg ("sounds/eraser1.wav", NULL);
+
         // find the first free place in the plateau
         for(index=0; index < PLATEAU_SIZE; index ++)
         {
@@ -380,12 +383,15 @@ void scale_item_move_to(ScaleItem *item, int plateau)
     }
     if(plateau==0)
     {   // move the item to the list
+	if(item->plateau)
+	  gc_sound_play_ogg ("sounds/eraser1.wav", NULL);
         item->plateau = 0;
         gnome_canvas_item_reparent(item->item, boardRootItem);
         gnome_canvas_item_set(item->item,
                 "x", item->x,
                 "y", item->y, NULL);
     }
+
     scale_anim_plateau();
 }
 

@@ -289,7 +289,7 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, MachItem *machItem)
      {
 
      case GDK_BUTTON_PRESS:
-       gc_sound_play_ogg ("sounds/brick.wav", NULL);
+       gc_sound_play_ogg ("sounds/scroll.wav", NULL);
        width = x2-x1;
 
        //       machItem->vyo   = (y1 - machItem->ypos) * machItem->elasticity;
@@ -603,16 +603,24 @@ static void minigolf_move(GList *item_list)
 	  machItem->vyo += (machItem->ay * machItem->times);
 
 	  if(machItem->ypos >= MIN_Y2 - machItem->height -1)
-	    machItem->ypos = MIN_Y2 - machItem->height;
+	    {
+	      machItem->ypos = MIN_Y2 - machItem->height;
+	    }
 
 	  if(machItem->ypos < MIN_Y1)
-	    machItem->ypos = MIN_Y1;
+	    {
+	      machItem->ypos = MIN_Y1;
+	    }
 
 	  if(machItem->xpos < MIN_X1)
-	    machItem->xpos = MIN_X1;
+	    {
+	      machItem->xpos = MIN_X1;
+	    }
 
 	  if(machItem->xpos > MIN_X2)
-	    machItem->xpos = MIN_X2;
+	    {
+	      machItem->xpos = MIN_X2;
+	    }
 
 
 	  gc_item_absolute_move(item, machItem->xpos, machItem->ypos);
@@ -627,6 +635,7 @@ static void minigolf_move(GList *item_list)
 
 	      /* Floor touch */
 	      //machItem->vxo *= 0.9;
+	      gc_sound_play_ogg ("sounds/line_end.wav", NULL);
 	    }
 
 	  if((y1<=MIN_Y1 && (y1 - machItem->ypos)>=0) || collision == TRUE)
@@ -636,6 +645,7 @@ static void minigolf_move(GList *item_list)
 	      machItem->times=0;
 	      machItem->yposo=machItem->ypos;
 	      machItem->xposo=machItem->xpos;
+	      gc_sound_play_ogg ("sounds/line_end.wav", NULL);
 	    }
 
 	  //	  if(x1<=5 && (x1 - machItem->xpos)>0 || collision == TRUE)
@@ -646,6 +656,7 @@ static void minigolf_move(GList *item_list)
 	      machItem->times=0;
 	      machItem->yposo=machItem->ypos;
 	      machItem->xposo=machItem->xpos;
+	      gc_sound_play_ogg ("sounds/line_end.wav", NULL);
 	    }
 
 	  if((x2>=MIN_X2 && machItem->vxo>0) || collision == TRUE)
@@ -655,6 +666,7 @@ static void minigolf_move(GList *item_list)
 	      machItem->times=0;
 	      machItem->yposo=machItem->ypos;
 	      machItem->xposo=machItem->xpos;
+	      gc_sound_play_ogg ("sounds/line_end.wav", NULL);
 	    }
 
 	}
