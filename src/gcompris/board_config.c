@@ -48,7 +48,7 @@ gc_board_config_start(GcomprisBoard *aBoard, GcomprisProfile *aProfile)
 }
 
 
-  
+
 void
 gc_board_config_stop()
 {
@@ -157,15 +157,14 @@ GtkVBox *
 gc_board_config_window_display(gchar *label, GcomprisConfCallback callback)
 {
   GtkWidget *header;
- 
+
   /* init static values or callbacks */
   Confcallback = callback;
   hash_conf = g_hash_table_new_full(g_str_hash, g_str_equal, g_free, g_free);
-  
+
   /* Creating a config window will cause our main window to loose focus,
      this tells the main window to ignore the next focus out event (and thus
      stay in fullscreen mode if we're fullscreen). */
-  gc_ignore_next_focus_out();
 
   /* main configuration window */
   conf_window = \
@@ -177,12 +176,12 @@ gc_board_config_window_display(gchar *label, GcomprisConfCallback callback)
 					    GTK_STOCK_APPLY,
 					    GTK_RESPONSE_APPLY,
 					    NULL));
-  
+
 
   /* parameters */
 #ifdef XF86_VIDMODE
   if (gc_prop_get()->fullscreen &&
-      !gc_prop_get()->noxf86vm)   
+      !gc_prop_get()->noxf86vm)
     {
       memset(&last_configure_event, 0, sizeof(GdkEventConfigure));
       gtk_widget_add_events(GTK_WIDGET(conf_window), GDK_STRUCTURE_MASK);
@@ -206,7 +205,7 @@ gc_board_config_window_display(gchar *label, GcomprisConfCallback callback)
   /* main vbox in window */
   main_conf_box = GTK_VBOX(GTK_DIALOG(conf_window)->vbox);
 
-  g_signal_connect(G_OBJECT(conf_window), 
+  g_signal_connect(G_OBJECT(conf_window),
 		   "response",
 		   G_CALLBACK(_response_board_conf),
 		   NULL);
@@ -216,7 +215,7 @@ gc_board_config_window_display(gchar *label, GcomprisConfCallback callback)
 		    G_CALLBACK(gc_board_conf_close),
 		    NULL);
 
-  
+
 
   /* Label header */
   header = gtk_label_new ((gchar *)NULL);
@@ -229,28 +228,28 @@ gc_board_config_window_display(gchar *label, GcomprisConfCallback callback)
 
   gtk_label_set_justify (GTK_LABEL(header),
 			 GTK_JUSTIFY_CENTER);
-  
+
   label_markup = g_strdup_printf("<span size='large'>%s</span>",label);
   gtk_label_set_markup (GTK_LABEL(header),
                         (const gchar *)label_markup);
 
   gc_board_conf_separator();
-  
+
   return main_conf_box;
 }
 
-void 
+void
 gc_board_conf_boolean_box_toggled (GtkToggleButton *togglebutton,
 			      gpointer key)
 {
   gchar *the_key = g_strdup((gchar *)key);
   gchar *value;
-  
+
   if (gtk_toggle_button_get_active (togglebutton))
     value = g_strdup("True");
   else
     value = g_strdup("False");
-  
+
   g_hash_table_replace(hash_conf, (gpointer) the_key, (gpointer) value);
 }
 
@@ -292,7 +291,7 @@ _get_active_text (GtkComboBox *combo_box)
   g_return_val_if_fail (GTK_IS_LIST_STORE (gtk_combo_box_get_model (combo_box)), NULL);
 
   if (gtk_combo_box_get_active_iter (combo_box, &iter))
-    gtk_tree_model_get (gtk_combo_box_get_model (combo_box), &iter, 
+    gtk_tree_model_get (gtk_combo_box_get_model (combo_box), &iter,
 			0, &text, -1);
 
   return text;
@@ -305,7 +304,7 @@ _combo_box_changed(GtkComboBox *combobox,
   gchar *the_key = g_strdup((gchar *)key);
 
   gchar *value = g_strdup_printf("%s", _get_active_text (combobox));
-  
+
   g_hash_table_replace(hash_conf, (gpointer) the_key, (gpointer) value);
 }
 
@@ -324,12 +323,12 @@ GtkComboBox *gc_board_config_combo_box(const gchar *label, GList *strings, gchar
 
   if (init)
     init_index =  g_list_position ( strings, g_list_find_custom ( strings,(gconstpointer)  init, (GCompareFunc) my_strcmp));
-  
+
   if (init_index < 0)
     init_index=0;
 
   gtk_widget_show(hbox);
-  
+
   gtk_box_pack_start (GTK_BOX(main_conf_box),
 		      hbox,
 		      FALSE,
@@ -370,10 +369,10 @@ GtkComboBox *gc_board_config_combo_box(const gchar *label, GList *strings, gchar
   if (g_list_length(strings) > COMBOBOX_COL_MAX)
     gtk_combo_box_set_wrap_width    (GTK_COMBO_BOX(combobox),
   	     g_list_length(strings) / COMBOBOX_COL_MAX +1 );
-  
+
   gtk_combo_box_set_active (GTK_COMBO_BOX(combobox),
 			    init_index);
-  
+
   g_signal_connect(G_OBJECT(combobox),
 		   "changed",
 		   G_CALLBACK(_combo_box_changed),
@@ -414,21 +413,21 @@ create_radio_buttons(gpointer key,
 						  (const gchar *) g_strdup(value));
 
   gtk_box_pack_start (GTK_BOX (radio_box), radio_button, TRUE, TRUE, 2);
-  
+
   gtk_widget_show (GTK_WIDGET (radio_button));
-  
+
   radio_group = gtk_radio_button_get_group (GTK_RADIO_BUTTON (radio_button));
-  
+
   key_copy = g_strdup ((gchar *)key);
 
   if (strcmp( key_copy, radio_init)==0)
     gtk_toggle_button_set_active    (GTK_TOGGLE_BUTTON(radio_button),TRUE);
 
-  g_signal_connect(G_OBJECT(radio_button), 
-		   "toggled", 
-		   G_CALLBACK(radio_changed), 
+  g_signal_connect(G_OBJECT(radio_button),
+		   "toggled",
+		   G_CALLBACK(radio_changed),
 		   (gpointer) key_copy);
-  
+
   g_hash_table_replace ( hash_radio, (gpointer) key_copy, (gpointer) radio_button);
 }
 
@@ -478,7 +477,7 @@ gc_board_config_radio_buttons(const gchar *label,
 
   gtk_label_set_justify (GTK_LABEL(radio_label),
 			 GTK_JUSTIFY_CENTER);
-  
+
   radio_text = g_strdup(label);
   gtk_label_set_markup (GTK_LABEL(radio_label),
                         (const gchar *)radio_text);
@@ -486,7 +485,7 @@ gc_board_config_radio_buttons(const gchar *label,
   radio_key = g_strdup(key);
   radio_init = g_strdup(init);
 
-  g_hash_table_foreach( buttons_label, 
+  g_hash_table_foreach( buttons_label,
 			(GHFunc) create_radio_buttons,
 			(gpointer) buttons);
 
@@ -553,7 +552,7 @@ gc_board_config_spin_int(const gchar *label, gchar *key, gint min, gint max, gin
 
   gtk_spin_button_set_value ( GTK_SPIN_BUTTON(spin), (gdouble) init);
 
-  g_signal_connect (G_OBJECT(spin), 
+  g_signal_connect (G_OBJECT(spin),
 		    "value-changed",
 		    G_CALLBACK(spin_changed),
 		    key);
@@ -611,7 +610,7 @@ gc_locale_gets_list(){
   const gchar *fname;
   gchar *fname_abs;
   gchar *catalog;
-  
+
   while ((fname = g_dir_read_name(textdomain_dir))) {
     fname_abs = g_strdup_printf("%s/%s", properties->package_locale_dir, fname);
     if (!g_file_test(fname_abs, G_FILE_TEST_IS_DIR))
@@ -635,7 +634,7 @@ gc_locale_gets_list(){
 }
 
 
-void 
+void
 gc_board_config_combo_locales_changed(GtkComboBox *combobox,
 			       gpointer key)
 {
@@ -675,9 +674,9 @@ gc_board_config_combo_locales(gchar *init)
 
   if (init_index < 0)
     init_index=0;
-  
+
   gtk_widget_show(hbox);
-  
+
   gtk_box_pack_start (GTK_BOX(main_conf_box),
 		      hbox,
 		      FALSE,
@@ -717,10 +716,10 @@ gc_board_config_combo_locales(gchar *init)
   if (g_list_length(strings) > COMBOBOX_COL_MAX)
     gtk_combo_box_set_wrap_width    (GTK_COMBO_BOX(combobox),
   	     g_list_length(strings) / COMBOBOX_COL_MAX +1 );
-  
+
   gtk_combo_box_set_active (GTK_COMBO_BOX(combobox),
 			    init_index);
-  
+
   g_signal_connect(G_OBJECT(combobox),
 		   "changed",
 		   G_CALLBACK(gc_board_config_combo_locales_changed),
@@ -730,7 +729,7 @@ gc_board_config_combo_locales(gchar *init)
 
 }
 
-void 
+void
 gc_board_config_combo_drag_changed(GtkComboBox *combobox,
 			       gpointer key)
 {
@@ -759,7 +758,7 @@ gc_board_config_combo_drag(gint init)
   gint init_index;
 
   strings = NULL;
-  
+
   strings = g_list_prepend( strings, _("Global GCompris mode"));
   strings = g_list_append( strings, _("Normal"));
   strings = g_list_append( strings, _("2 clicks"));
@@ -769,9 +768,9 @@ gc_board_config_combo_drag(gint init)
     init_index =0;
   else
     init_index = init;
-  
+
   gtk_widget_show(hbox);
-  
+
   gtk_box_pack_start (GTK_BOX(main_conf_box),
 		      hbox,
 		      FALSE,
@@ -811,10 +810,10 @@ gc_board_config_combo_drag(gint init)
   if (g_list_length(strings) > COMBOBOX_COL_MAX)
     gtk_combo_box_set_wrap_width    (GTK_COMBO_BOX(combobox),
   	     g_list_length(strings) / COMBOBOX_COL_MAX +1 );
-  
+
   gtk_combo_box_set_active (GTK_COMBO_BOX(combobox),
 			    init_index);
-  
+
   g_signal_connect(G_OBJECT(combobox),
 		   "changed",
 		   G_CALLBACK(gc_board_config_combo_drag_changed),
@@ -871,7 +870,7 @@ gc_locale_gets_asset_list(const gchar *filename)
   locales = gc_locale_gets_list();
 
   for (list = locales; list != NULL; list = list->next)
-    { 
+    {
       gchar **tmp;
 
       /* Check there is a $LOCALE to replace */
@@ -904,7 +903,7 @@ gc_locale_gets_asset_list(const gchar *filename)
 	locales_asset = g_list_append(locales_asset, list->data);
 
     }
-  
+
 
   return locales_asset;
 }
@@ -935,9 +934,9 @@ GtkComboBox *gc_board_config_combo_locales_asset(const gchar *label,
 
   if (init_index < 0)
     init_index=0;
-  
+
   gtk_widget_show(hbox);
-  
+
   gtk_box_pack_start (GTK_BOX(main_conf_box),
 		      hbox,
 		      FALSE,
@@ -977,10 +976,10 @@ GtkComboBox *gc_board_config_combo_locales_asset(const gchar *label,
   if (g_list_length(strings) > COMBOBOX_COL_MAX)
     gtk_combo_box_set_wrap_width(GTK_COMBO_BOX(combobox),
 				 g_list_length(strings) / COMBOBOX_COL_MAX +1 );
-  
+
   gtk_combo_box_set_active (GTK_COMBO_BOX(combobox),
 			    init_index);
-  
+
   g_signal_connect(G_OBJECT(combobox),
 		   "changed",
 		   G_CALLBACK(gc_board_config_combo_locales_changed),
@@ -1041,14 +1040,14 @@ _textview_yes (GtkButton *button,
 
   gtk_text_buffer_get_end_iter  (text_buffer,
 				 &end_iter);
-    
+
   /* has this to be freed ? */
   gchar *text = gtk_text_buffer_get_slice (text_buffer,
 					   &start_iter,
 					   &end_iter,
 					   TRUE);
 
-  
+
 
   gchar *in_memoriam_text = g_strdup (text);
   gchar *in_memoriam_key = g_strdup (key);
@@ -1068,10 +1067,10 @@ _textview_yes (GtkButton *button,
 }
 
 GtkTextView *
-gc_board_config_textview(const gchar *label, 
+gc_board_config_textview(const gchar *label,
 		  gchar *key,
-		  const gchar*description, 
-		  gchar *init_text, 
+		  const gchar*description,
+		  gchar *init_text,
 		  GcomprisTextCallback validate)
 {
   GtkWidget*frame =  gtk_frame_new ("GCompris text tool");
@@ -1082,9 +1081,9 @@ gc_board_config_textview(const gchar *label,
 		      FALSE,
 		      FALSE,
 		      8);
-  
 
-  
+
+
   /* Main vbox for all our widegt */
   GtkWidget *textVbox = gtk_vbox_new ( FALSE, 8);
   gtk_widget_show(textVbox);
@@ -1103,11 +1102,11 @@ gc_board_config_textview(const gchar *label,
 
   gtk_label_set_justify (GTK_LABEL(title),
 			 GTK_JUSTIFY_CENTER);
-  
+
   gchar *title_text = g_strdup(label);
   gtk_label_set_markup (GTK_LABEL(title),
                         (const gchar *)title_text);
- 
+
   GtkWidget *separator = gtk_hseparator_new ();
 
   gtk_widget_show(separator);
@@ -1136,10 +1135,10 @@ gc_board_config_textview(const gchar *label,
   gchar *desc_text = g_strdup(description);
   gtk_label_set_markup (GTK_LABEL(desc),
                         (const gchar *)desc_text);
- 
+
   GtkWidget *scroll = gtk_scrolled_window_new ( NULL, NULL);
 
-  
+
   gtk_scrolled_window_set_policy  (GTK_SCROLLED_WINDOW(scroll),
 				   GTK_POLICY_AUTOMATIC,
 				   GTK_POLICY_AUTOMATIC);
@@ -1190,12 +1189,12 @@ gc_board_config_textview(const gchar *label,
 		      FALSE,
 		      FALSE,
 		      0);
-  
+
   gtk_label_set_justify (GTK_LABEL(title),
 			 GTK_JUSTIFY_FILL);
-  
+
   gtk_label_set_line_wrap(GTK_LABEL(feedback), TRUE);
-  
+
   user_param_type *user_param = g_malloc0(sizeof(user_param_type));
 
   user_param->key = g_strdup(key);
@@ -1224,18 +1223,18 @@ gc_board_config_textview(const gchar *label,
 		    FALSE,
 		    0);
 
-  g_signal_connect(G_OBJECT(button), 
+  g_signal_connect(G_OBJECT(button),
 		   "clicked",
 		   G_CALLBACK(_textview_yes),
 		   (gpointer) user_param);
 
 
-  g_signal_connect(G_OBJECT(button), 
+  g_signal_connect(G_OBJECT(button),
 		   "destroy",
 		   G_CALLBACK(_textview_destroy),
 		   (gpointer) user_param);
 
-  g_signal_connect(G_OBJECT(user_param->TextBuffer), 
+  g_signal_connect(G_OBJECT(user_param->TextBuffer),
 		   "changed",
 		   G_CALLBACK(_textbuffer_changed),
 		   (gpointer) button);

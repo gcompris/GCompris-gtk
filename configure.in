@@ -587,6 +587,7 @@ echo "XF86VM option  (--enable-xf86vidmode)    = $found_xf86vidmode"
 echo "SQLITE database (--enable-sqlite)        = $with_sqlite (profiles depend on this)"
 
 echo "GNET Networking (--enable-gnet)          = $with_gnet (networking depends on this)"
+echo "BINRELOC (--enable-binreloc)             = $enable_binreloc"
 
 echo
 echo gcompris will be installed in ${prefix}

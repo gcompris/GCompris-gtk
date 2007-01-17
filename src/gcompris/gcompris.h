@@ -116,7 +116,6 @@ void		 gc_bar_hide (gboolean hide);
 /* General */
 GnomeCanvas     *gc_get_canvas(void);
 GtkWidget	*gc_get_window(void);
-void		gc_ignore_next_focus_out(void);
 
 const gchar	*gc_locale_get(void);
 void		 gc_locale_set(gchar *locale);

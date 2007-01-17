@@ -219,8 +219,7 @@ static struct
   int window_x;
   int window_y;
   gboolean fullscreen_active;
-  int ignore_focus_out;
-} XF86VidModeData = { { 0 }, { 0 }, 0, 0, 0, 0, FALSE, 0 };
+} XF86VidModeData = { { 0 }, { 0 }, 0, 0, 0, 0, FALSE };
 
 static void xf86_vidmode_init( void );
 static void xf86_vidmode_set_fullscreen( int state );
@@ -365,13 +364,6 @@ GnomeCanvas *gc_get_canvas()
 GtkWidget *gc_get_window()
 {
   return window;
-}
-
-void gc_ignore_next_focus_out()
-{
-#ifdef XF86_VIDMODE
-  XF86VidModeData.ignore_focus_out++;
-#endif
 }
 
 GnomeCanvasItem *gc_set_background(GnomeCanvasGroup *parent, gchar *file)
@@ -1347,10 +1339,9 @@ static gint xf86_window_configured(GtkWindow *window,
 static gint xf86_focus_changed(GtkWindow *window,
   GdkEventFocus *event, gpointer param)
 {
-  if (!event->in && XF86VidModeData.ignore_focus_out)
-    XF86VidModeData.ignore_focus_out--;
-  else if (properties->fullscreen)
-    xf86_vidmode_set_fullscreen(event->in);
+  if(properties->fullscreen)
+    gdk_pointer_grab(event->window, TRUE, 0, event->window, NULL,
+		     GDK_CURRENT_TIME);
   /* Act as if we aren't there / aren't hooked up */
   return FALSE;
 }
