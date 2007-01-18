@@ -49,6 +49,8 @@ static gint item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data);
 static int highlight_width, highlight_height;
 static GList * listColors = NULL;
 
+static SoundPolicy sound_policy;
+
 #define LAST_COLOR 10
 static gchar *colors[LAST_COLOR*2] = {
   "blue", 	N_("Click on the blue duck"),
@@ -229,6 +231,11 @@ static void start_board (GcomprisBoard *agcomprisBoard) {
 
     if(properties->fx) {
       gc_bar_set(GC_BAR_CONFIG|GC_BAR_REPEAT);
+
+      /* initial state to restore */
+      sound_policy = gc_sound_policy_get();
+      gc_sound_policy_set(PLAY_AND_INTERRUPT);
+
     } else {
       gc_bar_set(GC_BAR_CONFIG);
     }
@@ -259,6 +266,8 @@ static void start_board (GcomprisBoard *agcomprisBoard) {
 static void end_board () {
 
   if(gcomprisBoard!=NULL){
+    GcomprisProperties	*properties = gc_prop_get();
+
     pause_board(TRUE);
     gc_score_end();
     colors_destroy_all_items();
@@ -267,6 +276,11 @@ static void end_board () {
       listColors = g_list_remove(listColors, g_list_nth_data(listColors,0));
     g_list_free(listColors);
     listColors=NULL;
+
+    if(properties->fx) {
+      gc_sound_policy_set(sound_policy);
+    }
+
   }
   gc_locale_reset();
   gcomprisBoard = NULL;
