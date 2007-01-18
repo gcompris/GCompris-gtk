@@ -1,5 +1,16 @@
 2007-01-16  Bruno coudoin  <bruno.coudoin@free.fr>
 
+	* src/gcompris/board_config.c: removed gc_ignore_next_focus_out support
+	  now pop up windows like in the wordprocessor combo no more switch GCompris
+	  out of fullscreen.
+	* src/gcompris/gcompris.c: -
+	* src/gcompris/gcompris.h: -
+	* configure.in: display binreloc compilation status in the summary
+	* boards/colors/colors_bg.png: the white duck was too white on LCD screens
+	 Jose reworked it.
+
+2007-01-16  Bruno coudoin  <bruno.coudoin@free.fr>
+
 	* boards/skins/gartoon/cursor_del.png: now as an arrow
 	* boards/images/sponge.png: added from Franck art work
 	* src/boards/python/redraw.py: Added audio feedback
