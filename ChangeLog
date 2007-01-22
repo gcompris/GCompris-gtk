@@ -1,3 +1,16 @@
+2007-01-22  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	Added the save feature to the wordprocessor. It saves an html file.
+	For now, only the color style is exported as a css html.
+
+	* boards/gcompris/mimetypes/icons/gnome-mime-text.svg: taken from openclipart.org
+	* src/gcompris/gcompris.c: Replaced LC_MESSAGES by LC_CTYPE. It fixes an openbsd bug.
+	* src/boards/python/anim.py: now the tool buttons have focus highlights
+	* src/boards/wordprocessor.c: Added the save feature.
+	* src/boards/gtans.c: use g_fopen instead of fopen
+	* boards/gcompris/mimetypes/mime_type.xml.in: added wordprocessor mime type
+
+
 2007-01-17  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* src/boards/colors.c: now interrupt playing sounds if any

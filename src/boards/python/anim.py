@@ -569,6 +569,7 @@ class Gcompris_anim:
         y=y
         )
       item.connect("event", self.tool_item_event, i)
+      item.connect("event", gcompris.utils.item_event_focus)
       if i%2:
         y += stepy
 
@@ -593,11 +594,11 @@ class Gcompris_anim:
         if (self.tools[tool][0] == "SAVE"):
 #          self.Anim2Shot()
           gcompris.file_selector_save( self.gcomprisBoard, self.selector_section, self.file_type, general_save)
-          return True
+          return False
 
         elif (self.tools[tool][0] == "LOAD"):
           gcompris.file_selector_load( self.gcomprisBoard, self.selector_section, self.file_type, general_restore)
-          return True
+          return False
 
         elif (self.tools[tool][0] == "IMAGE"):
           self.pos_x = gcompris.BOARD_WIDTH/2
@@ -606,23 +607,23 @@ class Gcompris_anim:
           gcompris.images_selector_start(self.gcomprisBoard,
                                          "dataset",
                                          image_selected);
-          return True
+          return False
 
         elif (self.tools[tool][0] == "PICTURE"):
           self.Anim2Shot()
-          return True
+          return False
 
         elif (self.tools[tool][0] == "MOVIE"):
           if self.frames_total == 0:
             print 'Mmm... Need to make shots before run anim !!'
-            return True
+            return False
 
           if not self.running:
             # unselect object if necessary
             self.unselect()
 
             self.playing_start()
-            return True
+            return False
 
         elif (self.tools[tool][0] != "SELECT") and (self.selected != None):
           self.unselect()

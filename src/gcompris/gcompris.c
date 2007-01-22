@@ -1136,7 +1136,7 @@ const gchar *gc_locale_get()
 
   locale = g_getenv("LC_ALL");
   if(locale == NULL)
-    locale = g_getenv("LC_MESSAGES");
+    locale = g_getenv("LC_CTYPE");
   if(locale == NULL)
     locale = g_getenv("LANG");
 
@@ -1177,7 +1177,7 @@ gc_locale_set(gchar *locale)
   setlocale(LC_MESSAGES, locale);
   setlocale(LC_ALL, locale);
 #else
-  gc_locale = g_strdup(setlocale(LC_MESSAGES, locale));
+  gc_locale = g_strdup(setlocale(LC_CTYPE, locale));
   if (!gc_locale)
     gc_locale = g_strdup(locale);
 #endif
@@ -1191,7 +1191,7 @@ gc_locale_set(gchar *locale)
   /* Override the env locale to what the user requested */
   /* This makes gettext to give us the new locale text  */
   gc_setenv ("LC_ALL", gc_locale_get());
-  gc_setenv ("LC_MESSAGES", gc_locale_get());
+  gc_setenv ("LC_CTYPE", gc_locale_get());
   gc_setenv ("LANGUAGE", gc_locale_get());
   gc_setenv ("LANG", gc_locale_get());
 
@@ -1404,7 +1404,7 @@ gc_init (int argc, char *argv[])
     gc_locale_set(properties->locale);
   }
 #else
-  gc_user_default_locale = g_strdup(setlocale(LC_MESSAGES, NULL));
+  gc_user_default_locale = g_strdup(setlocale(LC_CTYPE, NULL));
   // Set the user's choice locale
   gc_locale_set(properties->locale);
 #endif

@@ -20,6 +20,7 @@
 
 #include "gcompris/gcompris.h"
 
+#include <glib/gstdio.h>
 #include <string.h>
 
 /* Added by Florian Ernst <florian_ernst@gmx.net> for lines 193 and 194 */
@@ -150,13 +151,13 @@ static void pause_board (gboolean pause)
     if (pause) {
       gtk_widget_hide(widgetgrande);
       gtk_widget_hide(widgetpetite);
-    
+
     } else {
       gtk_widget_show(widgetgrande);
       gtk_widget_show(widgetpetite);
     }
   }
-    
+
 }
 
 void change_figure(gboolean next){
@@ -264,7 +265,7 @@ void tanspinsetvalmax (int val){
     else{
       tansetnewfigurepart1(0);
       tansetnewfigurepart2();
-    }      
+    }
   } else
     {
       tansetnewfigurepart1(0);
@@ -289,11 +290,11 @@ void tanallocname (char **pnt, char *name){
 /********************************/
 /* maintien les pieces dans les limites */
 void tanclampgrandefig (void){
-  
+
   tanpiecepos *piecepos;
   int i;
   double dumzoom;
-  
+
   dumzoom = 1.0/figgrande.zoom;
   piecepos = figgrande.piecepos;
   for (i = 0; i<PIECENBR; i++){
@@ -301,7 +302,7 @@ void tanclampgrandefig (void){
     piecepos->posy = CLAMP(piecepos->posy, 0.0, dumzoom);
     piecepos++;
   }
-  
+
   return;
 }
 
@@ -341,7 +342,7 @@ gboolean tantinytabcompare (tantinytri *tinys1, tantinytri *tinys2, int accuracy
     flaccur = 2.0;
     drotmax = (int)(TOUR/64)+1;
   }
-  
+
   /* drotmax=figpetite.drotmax; */
   mindistmax=pow(figpetite.distmax*0.10*flaccur,2);
 
@@ -426,7 +427,7 @@ void tanmaketinytabnotr (tanfigure *figure, tantinytri *tinys){
 	lx2=-lx2;
 	rottri=TOUR+6*HT-rottri;
       }
-      
+
       small->posx=piecepos->posx+lx2*cosrot+ly*sinrot;
       small->posy=piecepos->posy+ly*cosrot-lx2*sinrot;
       small->rot=(rottri+rot)%TOUR;
@@ -471,12 +472,12 @@ void tanreleaseifrot (void){
     gdk_draw_line (widgetgrande->window,
 		   invertgc,
 		   xact,yact,invx2,invy2);
-    
+
     figgrande.piecepos[PIECENBR-1].rot=(rotnew+TOUR*5)%TOUR;
   }
-  
+
   actiongrande = AN_none;
-  
+
   return;
 }
 
@@ -644,7 +645,7 @@ void tancolle (tanfigure *figure, double seuil){
 	piecepos[j].posx+=dxtot/nbrcommun;
 	piecepos[j].posy+=dytot/nbrcommun;
       }
-      
+
       pntnbr2=tanplacepiecefloat(&piecepos[j],pnts2,1);
       nbrcommun=0;
       dxtot=dytot=0;
@@ -677,7 +678,7 @@ void tancolle (tanfigure *figure, double seuil){
 	  }         */
 	}
       }
-      
+
       if (nbrcommun){
 	piecepos[j].posx+=dxtot/nbrcommun;
 	piecepos[j].posy+=dytot/nbrcommun;
@@ -792,8 +793,8 @@ void tandrawfloat (GdkPixmap *pixmap, gboolean isoutline){
   tanfpnt *figfpnts;
   double zoom;
   tanpolytype polytype;
-  
-  
+
+
   if (isoutline){
     zoom = widgetgrande->allocation.width*figgrande.zoom;
     dx=dxout;
@@ -803,8 +804,8 @@ void tandrawfloat (GdkPixmap *pixmap, gboolean isoutline){
     zoom = widgetpetite->allocation.width*figpetite.zoom;
     dx=dxpetite;
     dy=dypetite;
-  }  
-  
+  }
+
   flpiecenbr = flfig->flpiecenbr;
   for (i = 0; i<flpiecenbr; i++){
     figfpnts = flfig->flpieces[i].flpnts;
@@ -830,7 +831,7 @@ void tandrawfloat (GdkPixmap *pixmap, gboolean isoutline){
 /********************************/
 /* affiche le fond de la widgetgrande */
 void tandrawbgndgr (GdkPixmap *pixmap){
-  
+
 
   gdk_draw_rectangle (pixmap,
 		      tabgc[GCPIECEBG],
@@ -885,7 +886,7 @@ void tandrawselect(int dx, int dy, int drot){
 
   selpiece=&(figgrande.piecepos[PIECENBR-1]);
   zoom=widgetgrande->allocation.width*figgrande.zoom;
-  
+
   selposxnc += dx/zoom;
   selposync += dy/zoom;
 
@@ -937,7 +938,7 @@ void tanredrawgrande (void){
     rect.height=widget->allocation.height;
     gtk_widget_draw (widget, &rect);
   }
-  
+
 }
 
 
@@ -946,7 +947,7 @@ void tanclearreussinr (int fignr){
 
   if ( fignr>= 0 && fignr<figtabsize )
     (figtab+fignr)->reussi = FALSE;
-  
+
 }
 
 
@@ -956,7 +957,7 @@ void tansetreussiactual (void){
   figpetite.reussi = TRUE;
   if ( figactualnr>= 0 && figactualnr<figtabsize )
     (figtab+figactualnr)->reussi = TRUE;
-  
+
 }
 
 
@@ -1001,7 +1002,7 @@ void tanredrawpetite (void){
 
 /********************************/
 void tanunselect (void){
-  
+
   if (selectedgrande){
     selectedgrande=FALSE;
     tanredrawgrande();
@@ -1015,18 +1016,18 @@ void tanloadfigstatus (char *name, tanfigure *nfigtab, int nfigsize){
   int i;
   FILE *hand=NULL;
   gchar *statusfilename;
-  
+
   statusfilename = g_strconcat(usergtdir, G_DIR_SEPARATOR_S, g_basename(name), ".status", NULL);
-  
-  if ( (hand = fopen(statusfilename, "r"))!=NULL ){
+
+  if ( (hand = g_fopen(statusfilename, "r"))!=NULL ){
     for (i=0; i<nfigsize; i++)
       if ( fgetc(hand)=='y' )
 	(nfigtab+i)->reussi = TRUE;
     fclose(hand);
   }
-  
+
   g_free(statusfilename);
-  
+
 }
 
 
@@ -1036,11 +1037,11 @@ void tansavefigstatus (char *name, tanfigure *nfigtab, int nfigsize){
   int i;
   FILE *hand=NULL;
   gchar *statusfilename;
-  
+
   if(figtabsize){
     statusfilename = g_strconcat(usergtdir, G_DIR_SEPARATOR_S, g_basename(name), ".status", NULL);
-    
-    if ( (hand = fopen(statusfilename, "w"))!=NULL ){
+
+    if ( (hand = g_fopen(statusfilename, "w"))!=NULL ){
       for (i=0; i<nfigsize; i++)
 	if ( (nfigtab+i)->reussi )
 	  fputc ('y', hand);
@@ -1048,7 +1049,7 @@ void tansavefigstatus (char *name, tanfigure *nfigtab, int nfigsize){
 	  fputc ('n', hand);
       fclose(hand);
     }
-    
+
     g_free(statusfilename);
   }
 }
@@ -1085,7 +1086,7 @@ gboolean tanloadfigtab (char *name){
 
  lres=0;
 
- if ( (hand = fopen(name, "r"))!=NULL &&
+ if ( (hand = g_fopen(name, "r"))!=NULL &&
       fscanf(hand, "gTans v1.0 %d \n", &newfigtabsize)==1 &&
       (newfigtab = (tanfigure *)g_malloc(sizeof(tanfigure)*newfigtabsize))!=NULL ){
 
@@ -1110,7 +1111,7 @@ gboolean tanloadfigtab (char *name){
    }
  } else
       g_warning("Opening file %s fails",name);
- 
+
  if (hand!=NULL)
    fclose(hand);
 
@@ -1119,10 +1120,10 @@ gboolean tanloadfigtab (char *name){
    succes=TRUE;
 
    tansavefigstatus(figfilename, figtab, figtabsize);
-   
+
    if(figtab!=NULL)
      g_free(figtab);
-   
+
    tanloadfigstatus(name, newfigtab, newfigtabsize);
 
    figtab=newfigtab;
@@ -1138,7 +1139,7 @@ gboolean tanloadfigtab (char *name){
 
  if (succes || figfilename==NULL)
    tanallocname(&figfilename, name);
- 
+
  return(succes);
 
 }
@@ -1152,7 +1153,7 @@ gboolean tansetpixmapmode(GtkWidget *widget, char *aname, int gcnbr){
   GdkGC *gc;
   char *pname;
   gboolean ret;
-  
+
 
   pixmap=tabpxpx[gcnbr];
   pname=tabpxnam[gcnbr];
@@ -1162,10 +1163,10 @@ gboolean tansetpixmapmode(GtkWidget *widget, char *aname, int gcnbr){
     gdk_colormap_free_colors (gdk_colormap_get_system(), &colortab[gcnbr], 1);
     tabcolalloc[gcnbr] = FALSE;
   }
-  
+
   if (pixmap!=NULL)
     gdk_pixmap_unref(pixmap);
-  
+
   ret=FALSE;
   if ( (pixmap=gdk_pixmap_create_from_xpm (widget->window, NULL, NULL, aname))!=NULL ){
     tanallocname(&pname,aname);
@@ -1173,19 +1174,19 @@ gboolean tansetpixmapmode(GtkWidget *widget, char *aname, int gcnbr){
     gdk_gc_set_tile (gc, pixmap);
     ret=TRUE;
   }
-  
+
   if (pname==NULL)
     tanallocname(&pname,"LoadPixmapFailed");
-  
+
   tabpxpx[gcnbr] = pixmap;
   tabpxnam[gcnbr] = pname;
   tabpxpixmode[gcnbr] = ret;
 
   if (!ret)
     tansetcolormode(&colortab[gcnbr],gcnbr);
-  
+
   return (ret);
-  
+
 }
 
 
@@ -1197,29 +1198,29 @@ void tansetcolormode(GdkColor *acolor, int gcnbr){
   GdkGC *gc;
   GdkColor *pcolor;
   GdkColormap *syscmap;
-  
+
   gc = tabgc[gcnbr];
   pcolor = &colortab[gcnbr];
   syscmap = gdk_colormap_get_system();
 
   if (tabcolalloc[gcnbr])
     gdk_colormap_free_colors (syscmap, pcolor, 1);
-  
+
   if ( gcnbr>=PXSTART && gcnbr<PXSTART+PXNBR ){
     tabpxpixmode[gcnbr] = FALSE;
     if ( (pixmap = tabpxpx[gcnbr])!=NULL ){
       tabpxpx[gcnbr] = NULL;
       gdk_pixmap_unref(pixmap);
-    }  
+    }
   }
-  
+
   pcolor->red = acolor->red;
   pcolor->green = acolor->green;
   pcolor->blue = acolor->blue;
   tabcolalloc[gcnbr] = gdk_colormap_alloc_color (syscmap, pcolor, FALSE, TRUE);
   gdk_gc_set_fill (gc, GDK_SOLID);
   gdk_gc_set_foreground (gc, pcolor);
-  
+
 }
 
 /********************************/
@@ -1260,10 +1261,10 @@ void tansetdefconfig (void){
   colortab[GCPETITEHLP].red = (colortab[GCPETITEFG].red+colortab[GCPETITEBG].red)/2;
   colortab[GCPETITEHLP].green = (colortab[GCPETITEFG].green+colortab[GCPETITEBG].green)/2;
   colortab[GCPETITEHLP].blue = (colortab[GCPETITEFG].blue+colortab[GCPETITEBG].blue)/2;
-  
+
   /* Gcompris */
   GcomprisProperties	*properties = gc_prop_get();
-  gchar *deffigfile = g_strconcat(properties->package_data_dir,"/gtans/figures/default.figures", NULL); 
+  gchar *deffigfile = g_strconcat(properties->package_data_dir,"/gtans/figures/default.figures", NULL);
 
   tanallocname(&figfilename, deffigfile);
 
@@ -1286,7 +1287,7 @@ gboolean tanremsame(tanflfig *flfig, tanpoly *polys, int *pntsuiv, tanfpnt *fpnt
   int polynbr;
   int act;
   int suiv;
-  
+
   polynbr = flfig->flpiecenbr;
 
   ret = FALSE;
@@ -1308,7 +1309,7 @@ gboolean tanremsame(tanflfig *flfig, tanpoly *polys, int *pntsuiv, tanfpnt *fpnt
       }
     }
   }
-  
+
   return (ret);
 }
 
@@ -1327,7 +1328,7 @@ gboolean tanajoute(tanflfig *flfig,
   int polynbr;
   int act1, act2;
   int suiv1, suiv2;
-  
+
   polynbr = flfig->flpiecenbr;
 
   ret = FALSE;
@@ -1366,11 +1367,11 @@ gboolean tanajoute(tanflfig *flfig,
       }
     }
   }
-  
+
   flfig->flpiecenbr = polynbr;
 
   return (ret);
-}  
+}
 
 
 /* "tasse" les fpnt et recree la floatfig */
@@ -1384,7 +1385,7 @@ int tantasse(tanflfig *flfig,
   int i, j;
   int act, pntnbr;
   tanfpnt *fpnts;
-  
+
   fpnts=fpntscop;
   for (i = 0; i<flfig->flpiecenbr; i++){
     pntnbr = polys[i].pntnbr;
@@ -1425,7 +1426,7 @@ gboolean tanalign(tanflfig *flfig, tanpoly *polys, int *pntsuiv, tanfpnt *fpnts)
   int suiva,suivb;
   int diract,dirsuiv;
   int dumi;
-  
+
   polynbr = flfig->flpiecenbr;
 
   ret = FALSE;
@@ -1453,7 +1454,7 @@ gboolean tanalign(tanflfig *flfig, tanpoly *polys, int *pntsuiv, tanfpnt *fpnts)
       }
     }
   }
-  
+
   return (ret);
 }
 
@@ -1465,7 +1466,7 @@ gboolean tanconseq(tanflfig *flfig, tanpoly *polys, int *pntsuiv, tanfpnt *fpnts
   int polynbr;
   int act;
   int suiva,suivb;
-  
+
   polynbr = flfig->flpiecenbr;
 
   ret = FALSE;
@@ -1487,7 +1488,7 @@ gboolean tanconseq(tanflfig *flfig, tanpoly *polys, int *pntsuiv, tanfpnt *fpnts
       }
     }
   }
-  
+
   return (ret);
 }
 
@@ -1499,7 +1500,7 @@ gboolean tanconcat(tanflfig *flfig, tanpoly *polys, int *pntsuiv, tanfpnt *fpnts
   int polynbr;
   int act1,act2;
   int suiv1,suiv2;
-  
+
   polynbr = flfig->flpiecenbr;
 
   ret = FALSE;
@@ -1536,7 +1537,7 @@ gboolean tanconcat(tanflfig *flfig, tanpoly *polys, int *pntsuiv, tanfpnt *fpnts
   flfig->flpiecenbr = polynbr;
 
   return (ret);
-}  
+}
 
 
 /* detecte les poly "inclus" */
@@ -1552,7 +1553,7 @@ gboolean taninclus(tanflfig *flfig, tanpoly *polys, int *pntsuiv, tanfpnt *fpnts
   tanpoly dumpoly;
   double dumposxmin;
   int dumpntposxmin = 0;
-  
+
   polynbr = flfig->flpiecenbr;
 
   trouve = ret = FALSE;
@@ -1578,36 +1579,36 @@ gboolean taninclus(tanflfig *flfig, tanpoly *polys, int *pntsuiv, tanfpnt *fpnts
 	suiv2 = pntsuiv[act2];
 	if ( tandistcar(&fpnts[act1],&fpnts[suiv2])<seuil &&
 	     tandistcar(&fpnts[suiv1],&fpnts[act2])<seuil ){
-	  
+
 	  pntsuiv[act1] = pntsuiv[suiv2];
 	  pntsuiv[act2] = pntsuiv[suiv1];
-	  
+
 	  dumpoly = polys[i];
 	  for (n = i; n<polynbr-1; n++)
 	    polys[n] = polys[n+1];
-	  
+
 	  polynbr--;
-	  
+
 	  for (m = 0; polys[m].polytype==TAN_POLYBACK && m<polynbr; m++);
-	  
+
 	  /*	  printf("inclusion trouvee\n");*/
 
 	  for (n = polynbr+1; n>m+1; n--)
 	    polys[n] = polys[n-2];
-	  
+
 	  dumpoly.pntnbr -= l-k+1;
 	  dumpoly.firstpnt = act1;
 	  if (dumpoly.polytype!=TAN_POLYON)
 	    dumpoly.polytype = TAN_POLYBACK;
 	  else
 	    dumpoly.polytype = TAN_POLYON;
-	  
+
 	  polys[m] = dumpoly;
-	  
-	  polys[m+1].pntnbr = l-k-1; 
+
+	  polys[m+1].pntnbr = l-k-1;
 	  polys[m+1].firstpnt = act2;
 	  polys[m+1].polytype = TAN_POLYON;
-	  
+
 	  polynbr += 2;
 
 	  trouve = ret = TRUE;
@@ -1619,12 +1620,12 @@ gboolean taninclus(tanflfig *flfig, tanpoly *polys, int *pntsuiv, tanfpnt *fpnts
       act1 = suiv1;
     }
   }
-  
-  
+
+
   flfig->flpiecenbr = polynbr;
 
   return (ret);
-}  
+}
 
 
 /* change de petite figure */
@@ -1683,8 +1684,8 @@ void tansetnewfigurepart1(int nrfig){
 
     tanplacepiecefloat(&figure->piecepos[i], fpnts,1);
     fpnts += polypntnbr+1;
-  }  
-  
+  }
+
   tanconcat(flfig, polys, pntsuivants, dumfpnts, seuil);
   tanconseq(flfig, polys, pntsuivants, dumfpnts, seuil);
 
@@ -1696,7 +1697,7 @@ void tansetnewfigurepart1(int nrfig){
     taninclus(flfig, polys, pntsuivants, dumfpnts, seuil);
   tanalign(flfig, polys, pntsuivants, dumfpnts);
   tanremsame(flfig, polys, pntsuivants, dumfpnts, seuil);
-  
+
   pntnew = tantasse(flfig, polys, pntsuivants, dumfpnts, fpntspetite);
   tanajoute(flfig, polys, pntsuivants, dumfpnts, seuil, pntnew);
   tanconcat(flfig, polys, pntsuivants, dumfpnts, seuil);
@@ -1724,14 +1725,14 @@ void tansetnewfigurepart1(int nrfig){
 	ymin=fpnts[j].posy;
     }
   }
-  
+
   figpetite.zoom = 1/(( (xmax-xmin)>(ymax-ymin) ? (xmax-xmin) : (ymax-ymin) )+0.25);
   dxpetite = 0.5*(xmax+xmin)-(0.5/figpetite.zoom);
   dypetite = 0.5*(ymax+ymin)-(0.5/figpetite.zoom);
-  
+
   dxout = 0.5*(xmax+xmin)-(0.5/figgrande.zoom);    /* cf tanrecentreout pour correction */
   dyout = 0.5*(ymax+ymin)-(0.5/figgrande.zoom);
-  
+
   /* centrage des pieces petite */
   piecepos=figpetite.piecepos;
   for (i=0; i<PIECENBR; i++){
@@ -1749,7 +1750,7 @@ void tanrecentreout(double oldzoom, double newzoom){
   tanpiecepos *piecepos;
   int i;
   double correction;
-  
+
   correction = 0.5*(1/oldzoom-1/newzoom);
 
   dxout += correction;
@@ -1761,7 +1762,7 @@ void tanrecentreout(double oldzoom, double newzoom){
     piecepos->posy -= correction;
     piecepos++;
   }
-  
+
   return;
 }
 
@@ -1769,7 +1770,7 @@ void tanrecentreout(double oldzoom, double newzoom){
 /********************************/
 /* change de petite figure */
 void tansetnewfigurepart2(void){
-  
+
   if (selectedgrande){
     helpoutset=FALSE;
     tanunselect();
@@ -1793,7 +1794,7 @@ void spesavefig (void){
  int j;
  tanfigure *fig=NULL; /*juste pour eviter un warning*/
 
- if ( (hand=fopen("pouet.fig", "w"))!=NULL){
+ if ( (hand=g_fopen("pouet.fig", "w"))!=NULL){
 
    fprintf(hand, "gTans v1.0 %d \n",figtabsize);
 
@@ -1829,7 +1830,7 @@ void taninitstart(void){
 
   for (i = 0; i<GCNBR; i++)
     tabcolalloc[i] = FALSE;
-  
+
   editmode = FALSE;
   figgrande = figuredebut;
   figtabsize = 0;
@@ -1891,7 +1892,7 @@ void tanend(void){
 
   if (figtab!=NULL)
     g_free(figtab);
-  
+
   if (pixmappetite!=NULL)
     gdk_pixmap_unref(pixmappetite);
   if (pixmapgrande1!=NULL)
@@ -1904,7 +1905,7 @@ void tanend(void){
     gdk_pixmap_unref(pixmappiece2);
   if (pixmapfond!=NULL)
     gdk_pixmap_unref(pixmapfond);
-  
+
   for (i=PXSTART; i<PXSTART+PXNBR; i++){
     if (tabpxpx[i]!=NULL)
       gdk_pixmap_unref(tabpxpx[i]);
@@ -1917,7 +1918,7 @@ void tanend(void){
       gdk_gc_unref(tabgc[i]);
     if (tabcolalloc[i])
       gdk_colormap_free_colors (syscmap, &colortab[i], 1);
-  }  
+  }
 
   gdk_gc_unref(invertgc);
 
@@ -1996,7 +1997,7 @@ gboolean tanpntisinpiece(int x, int y, tanpiecepos *piecepos){
   gboolean in;
   GdkPoint pnt[PNTNBRMAX+2];
   int nbrpnt;
-  
+
   nbrpnt=tanplacepiece(piecepos,pnt,widgetgrande->allocation.width*figgrande.zoom);
   pnt[nbrpnt]=pnt[0];
 
@@ -2021,7 +2022,7 @@ gboolean tanpntisinpiece(int x, int y, tanpiecepos *piecepos){
 /********************************/
 /* determine dans quelle piece se trouve le point (-1=aucune) */
 int tanwichisselect(int x, int y){
-  
+
   int i;
   gboolean trouve;
 
