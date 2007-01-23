@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-01-09 06:49+0000\n"
-"PO-Revision-Date: 2007-01-09 06:50-0000\n"
+"POT-Creation-Date: 2007-01-23 07:30+0000\n"
+"PO-Revision-Date: 2007-01-23 07:30-0000\n"
 "Last-Translator: David Lodge <dave@cirt.net>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -1229,6 +1229,10 @@ msgstr "svg drawing"
 #: ../boards/gcompris/mimetypes/mime_type.xml.in.h:4
 msgid "svg mozilla animation"
 msgstr "svg mozilla animation"
+
+#: ../boards/gcompris/mimetypes/mime_type.xml.in.h:5
+msgid "wordprocessor text"
+msgstr "wordprocessor text"
 
 #: ../boards/geography.xml.in.h:1
 msgid "Drag and Drop the items to redraw the whole map"
@@ -3683,43 +3687,43 @@ msgstr "Uppercase only text"
 msgid "Set the watch to:"
 msgstr "Set the watch to:"
 
-#: ../src/boards/colors.c:54
+#: ../src/boards/colors.c:56
 msgid "Click on the blue duck"
 msgstr "Click on the blue duck"
 
-#: ../src/boards/colors.c:55
+#: ../src/boards/colors.c:57
 msgid "Click on the brown duck"
 msgstr "Click on the brown duck"
 
-#: ../src/boards/colors.c:56
+#: ../src/boards/colors.c:58
 msgid "Click on the green duck"
 msgstr "Click on the green duck"
 
-#: ../src/boards/colors.c:57
+#: ../src/boards/colors.c:59
 msgid "Click on the grey duck"
 msgstr "Click on the grey duck"
 
-#: ../src/boards/colors.c:58
+#: ../src/boards/colors.c:60
 msgid "Click on the orange duck"
 msgstr "Click on the orange duck"
 
-#: ../src/boards/colors.c:59
+#: ../src/boards/colors.c:61
 msgid "Click on the purple duck"
 msgstr "Click on the purple duck"
 
-#: ../src/boards/colors.c:60
+#: ../src/boards/colors.c:62
 msgid "Click on the red duck"
 msgstr "Click on the red duck"
 
-#: ../src/boards/colors.c:61
+#: ../src/boards/colors.c:63
 msgid "Click on the yellow duck"
 msgstr "Click on the yellow duck"
 
-#: ../src/boards/colors.c:62
+#: ../src/boards/colors.c:64
 msgid "Click on the black duck"
 msgstr "Click on the black duck"
 
-#: ../src/boards/colors.c:63
+#: ../src/boards/colors.c:65
 msgid "Click on the white duck"
 msgstr "Click on the white duck"
 
@@ -4102,9 +4106,9 @@ msgid "There is already a profile with this name"
 msgstr "There is already a profile with this name"
 
 #: ../src/boards/python/admin/profile_list.py:121
-#: ../src/boards/wordprocessor.c:53
-#: ../src/gcompris/board_config.c:668
-#: ../src/gcompris/board_config.c:926
+#: ../src/boards/wordprocessor.c:54
+#: ../src/gcompris/board_config.c:667
+#: ../src/gcompris/board_config.c:925
 msgid "Default"
 msgstr "Default"
 
@@ -4177,15 +4181,15 @@ msgstr ""
 "One or more logins are not unique !\n"
 "You need to change them: %s !"
 
-#: ../src/boards/python/anim.py:2220
+#: ../src/boards/python/anim.py:2221
 msgid "SVG is disabled. Install python xml module to enable it"
 msgstr "SVG is disabled. Install python xml module to enable it"
 
-#: ../src/boards/python/anim.py:2376
+#: ../src/boards/python/anim.py:2377
 msgid "Warning: the following images cannot be accessed on your system.\n"
 msgstr "Warning: the following images cannot be accessed on your system.\n"
 
-#: ../src/boards/python/anim.py:2378
+#: ../src/boards/python/anim.py:2379
 msgid "The corresponding items have been skipped."
 msgstr "The corresponding items have been skipped."
 
@@ -4463,13 +4467,13 @@ msgstr "Use rectangles"
 msgid "Choice of pattern"
 msgstr "Choice of pattern"
 
-#: ../src/boards/python/redraw.py:347
-#: ../src/boards/python/redraw.py:357
+#: ../src/boards/python/redraw.py:348
+#: ../src/boards/python/redraw.py:358
 msgid "Level"
 msgstr "Level"
 
-#: ../src/boards/python/redraw.py:901
-#: ../src/boards/python/redraw.py:904
+#: ../src/boards/python/redraw.py:910
+#: ../src/boards/python/redraw.py:913
 msgid "Coordinate"
 msgstr "Coordinate"
 
@@ -4642,51 +4646,51 @@ msgstr ""
 msgid "Distance to target = %d meters"
 msgstr "Distance to target = %d metres"
 
-#: ../src/boards/wordprocessor.c:64
+#: ../src/boards/wordprocessor.c:65
 msgid "Letter"
 msgstr "Letter"
 
-#: ../src/boards/wordprocessor.c:75
+#: ../src/boards/wordprocessor.c:76
 msgid "Small"
 msgstr "Small"
 
-#: ../src/boards/wordprocessor.c:86
+#: ../src/boards/wordprocessor.c:87
 msgid "Text"
 msgstr "Text"
 
-#: ../src/boards/wordprocessor.c:97
+#: ../src/boards/wordprocessor.c:98
 msgid "Big"
 msgstr "Big"
 
-#: ../src/boards/wordprocessor.c:114
+#: ../src/boards/wordprocessor.c:115
 msgid "Black"
 msgstr "Black"
 
-#: ../src/boards/wordprocessor.c:115
+#: ../src/boards/wordprocessor.c:116
 msgid "Red"
 msgstr "Red"
 
-#: ../src/boards/wordprocessor.c:116
+#: ../src/boards/wordprocessor.c:117
 msgid "Blue"
 msgstr "Blue"
 
-#: ../src/boards/wordprocessor.c:117
+#: ../src/boards/wordprocessor.c:118
 msgid "Pink"
 msgstr "Pink"
 
-#: ../src/boards/wordprocessor.c:354
+#: ../src/boards/wordprocessor.c:389
 msgid "TITLE"
 msgstr "TITLE"
 
-#: ../src/boards/wordprocessor.c:355
+#: ../src/boards/wordprocessor.c:390
 msgid "TITLE 1"
 msgstr "TITLE 1"
 
-#: ../src/boards/wordprocessor.c:356
+#: ../src/boards/wordprocessor.c:391
 msgid "TITLE 2"
 msgstr "TITLE 2"
 
-#: ../src/boards/wordprocessor.c:357
+#: ../src/boards/wordprocessor.c:392
 msgid "TEXT"
 msgstr "TEXT"
 
@@ -4764,7 +4768,7 @@ msgstr "No, I want to keep going"
 msgid "Dynamic module loading is not supported. gcompris cannot load.\n"
 msgstr "Dynamic module loading is not supported. gcompris cannot load.\n"
 
-#: ../src/gcompris/board_config.c:700
+#: ../src/gcompris/board_config.c:699
 msgid ""
 "Select the language\n"
 " to use in the board"
@@ -4772,23 +4776,23 @@ msgstr ""
 "Select the language\n"
 " to use in the board"
 
-#: ../src/gcompris/board_config.c:763
+#: ../src/gcompris/board_config.c:762
 msgid "Global GCompris mode"
 msgstr "Global GCompris mode"
 
-#: ../src/gcompris/board_config.c:764
+#: ../src/gcompris/board_config.c:763
 msgid "Normal"
 msgstr "Normal"
 
-#: ../src/gcompris/board_config.c:765
+#: ../src/gcompris/board_config.c:764
 msgid "2 clicks"
 msgstr "2 clicks"
 
-#: ../src/gcompris/board_config.c:766
+#: ../src/gcompris/board_config.c:765
 msgid "both modes"
 msgstr "both modes"
 
-#: ../src/gcompris/board_config.c:794
+#: ../src/gcompris/board_config.c:793
 msgid ""
 "Select the drag and drop mode\n"
 " to use in the board"
@@ -5227,7 +5231,7 @@ msgstr "In server mode, specify the cache directory used to avoid useless downlo
 msgid "Global drag and drop mode: normal, 2clicks, both. Default mode is normal."
 msgstr "Global drag and drop mode: normal, 2clicks, both. Default mode is normal."
 
-#: ../src/gcompris/gcompris.c:820
+#: ../src/gcompris/gcompris.c:812
 #, c-format
 msgid ""
 "GCompris is free software released under the GPL License. In order to support its development, the Windows version provides only %d of the %d activities. You can get the full version for a small fee at\n"
@@ -5240,7 +5244,7 @@ msgstr ""
 "The Linux version does not have this restriction. Note that GCompris is being developed to free schools from monopolistic software vendors. If you also believe that we should teach freedom to children, please consider using GNU/Linux. Get more information at FSF:\n"
 "<http://www.fsf.org/philosophy>"
 
-#: ../src/gcompris/gcompris.c:1428
+#: ../src/gcompris/gcompris.c:1419
 #, c-format
 msgid ""
 "GCompris\n"
@@ -5254,17 +5258,17 @@ msgstr ""
 "More info at http://gcompris.net\n"
 
 #. check the list of possible values for -l, then exit
-#: ../src/gcompris/gcompris.c:1517
+#: ../src/gcompris/gcompris.c:1508
 #, c-format
 msgid "Use -l to access an activity directly.\n"
 msgstr "Use -l to access an activity directly.\n"
 
-#: ../src/gcompris/gcompris.c:1518
+#: ../src/gcompris/gcompris.c:1509
 #, c-format
 msgid "The list of available activities is :\n"
 msgstr "The list of available activities is :\n"
 
-#: ../src/gcompris/gcompris.c:1710
+#: ../src/gcompris/gcompris.c:1701
 #, c-format
 msgid "The list of available profiles is:\n"
 msgstr "The list of available profiles is:\n"
