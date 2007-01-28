@@ -1,3 +1,45 @@
+2007-01-22  Yves Combe <yves@ycombe.net>
+
+	MyPaint 0.42 source import.
+	Not yet fonctionnel, but python module compiles and installs in gcompris.
+
+        * src/boards/mypaint/mypaint
+        * src/boards/mypaint/rename_brushes.py
+        * src/boards/mypaint/helpers.py
+        * src/boards/mypaint/PLAN
+        * src/boards/mypaint/brushsettings.py
+        * src/boards/mypaint/caller_owns_return.py
+        * src/boards/mypaint/mydrawwidgetmodule.c
+        * src/boards/mypaint/brushselectionwindow.py
+        * src/boards/mypaint/COPYING
+        * src/boards/mypaint/mypaint.py
+        * src/boards/mypaint/brush_dab.c
+        * src/boards/mypaint/brush.py
+        * src/boards/mypaint/resu
+        * src/boards/mypaint/brush_dab.h
+        * src/boards/mypaint/gtkmybrush.c
+        * src/boards/mypaint/generate.py
+        * src/boards/mypaint/helpers.c
+        * src/boards/mypaint/brushsettingswindow.py
+        * src/boards/mypaint/infinitemydrawwidget.py
+        * src/boards/mypaint/mydrawwidget.override
+        * src/boards/mypaint/gtkmybrush.h
+        * src/boards/mypaint/helpers.h
+        * src/boards/mypaint/application.py
+        * src/boards/mypaint/README
+        * src/boards/mypaint/gtkmydrawwidget.c
+        * src/boards/mypaint/colorselectionwindow.py
+        * src/boards/mypaint/gtkmydrawwidget.h
+        * src/boards/mypaint/functionwindow.py
+        * src/boards/mypaint/Makefile.am
+        * src/boards/mypaint/surface.c
+        * src/boards/mypaint/drawwindow.py
+        * src/boards/mypaint/surface.h
+        * src/boards/py-gcompris-properties.c
+        * src/boards/Makefile.am
+        * configure.in
+
+	
 2007-01-22  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	Added the save feature to the wordprocessor. It saves an html file.

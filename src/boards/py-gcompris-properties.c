@@ -97,6 +97,8 @@ pyGcomprisPropertiesType_getattr(pyGcomprisPropertiesObject *self, char *name)
     if(strcmp(name,"root_menu")==0) return Py_BuildValue("s", self->cdata->root_menu);
     if(strcmp(name,"local_directory")==0) return Py_BuildValue("s", self->cdata->local_directory);
     if(strcmp(name,"package_data_dir")==0) return Py_BuildValue("s", self->cdata->package_data_dir);
+    if(strcmp(name,"package_plugin_dir")==0) return Py_BuildValue("s", self->cdata->package_plugin_dir);
+    if(strcmp(name,"package_python_plugin_dir")==0) return Py_BuildValue("s", self->cdata->package_python_plugin_dir);
     if(strcmp(name,"locale")==0) return Py_BuildValue("s", self->cdata->locale);
     if(strcmp(name,"skin")==0) return Py_BuildValue("s", self->cdata->skin);
     if(strcmp(name,"shared_dir")==0) return Py_BuildValue("s", self->cdata->shared_dir);

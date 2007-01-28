@@ -118,7 +118,8 @@ if test "x$USE_XF86VM" == "xyes" ; then
   fi
 fi
 
-LDFLAGS="${LDFLAGS} ${XF86VM_LIBS}"
+LDFLAGS="-Wl,--as-needed ${LDFLAGS} ${XF86VM_LIBS}"
+#LDFLAGS="${LDFLAGS} ${XF86VM_LIBS}"
 
 dnl Add the languages which your application supports here.
 ALL_LINGUAS="am ar az bg ca cs da de el en_CA en_GB es et eu fi fr ga gu he hi hr hu it ja ka ko lt mk ml mr ms nb ne nl nn pa pl pt pt_BR ro ru rw sk sl so sq sr sr@Latn sv th tr vi wa zh_CN zh_TW"
@@ -129,7 +130,9 @@ AC_DEFINE_UNQUOTED(ALL_LINGUAS, "${ALL_LINGUAS}", [Supported languages])
 
 GETTEXT_PACKAGE=gcompris
 AC_SUBST(GETTEXT_PACKAGE)
+
 AM_GLIB_GNU_GETTEXT
+
 AC_DEFINE_UNQUOTED(GETTEXT_PACKAGE,"$GETTEXT_PACKAGE", [Gettext package name])
 
 BUILD_DATE=`date +%y%m`
@@ -355,6 +358,23 @@ if test x$build_python_plugin = xno; then
 else
   dnl Python interpreter is available so check for pygtk
   PKG_CHECK_MODULES(PYGTK, pygtk-2.0)
+
+  AC_MSG_CHECKING([for pygtk defs])
+  PYGTK_DEFSDIR=`$PKG_CONFIG --variable=defsdir pygtk-2.0`
+  AC_MSG_RESULT([$PYGTK_DEFSDIR])
+
+  AC_MSG_CHECKING([for pygtk codegen])
+  PYGTK_CODEGEN="$PYTHON `$PKG_CONFIG --variable=codegendir pygtk-2.0`/codegen.py"
+  AC_MSG_RESULT([$PYGTK_CODEGEN])
+
+  AC_MSG_CHECKING([for pygtk h2def])
+  PYGTK_H2DEF="$PYTHON `$PKG_CONFIG --variable=codegendir pygtk-2.0`/h2def.py"
+  AC_MSG_RESULT([$PYGTK_H2DEF])
+
+  AC_SUBST([PYGTK_DEFSDIR])
+  AC_SUBST([PYGTK_CODEGEN])
+  AC_SUBST([PYGTK_H2DEF])
+
   if test x$py_build_only = xno; then
     AM_CHECK_PYMOD(gtk,,,AC_MSG_ERROR([*** pygtk installed but not visible from python ]))
     dnl AM_CHECK_PYMOD(xml.dom.DOMImplementation,,,AC_MSG_WARN([*** pyxml missing ]))
@@ -374,7 +394,6 @@ else
 	AM_CHECK_PYMOD(pysqlite2,,,AC_MSG_ERROR([*** pysqlite2 missing ]))
 	REQUIRE_PYTHON="$REQUIRE_PYTHON python-sqlite2"
     fi
-
 
   else
     AC_MSG_WARN([py-build-only: Skipping python modules dependancies])
@@ -521,6 +540,12 @@ fi
 AC_SUBST(CFLAGS)
 AC_SUBST(LIBS)
 
+#mypaint
+PKG_CHECK_MODULES(MYPAINT,[
+        glib-2.0 >= 2.6.0
+        gtk+-2.0 >= 2.6.0
+        ])
+
 dnl Autoconf output
 AC_OUTPUT([ gcompris.spec
 Makefile.mingw
@@ -534,6 +559,7 @@ src/gcompris/Makefile
 src/gcompris/libgcompris-1.0.pc
 src/gcompris/libgcompris-1.0-uninstalled.pc
 src/boards/Makefile
+src/boards/mypaint/Makefile
 src/boards/python/Makefile
 src/boards/python/gcompris/Makefile
 src/boards/python/gcompris/admin/Makefile

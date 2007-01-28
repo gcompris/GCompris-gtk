@@ -1,6 +1,6 @@
 if PYTHON_PLUGIN
 python_plugin = libpython.la
-python_subdir = python
+python_subdir = python mypaint
 else
 python_plugin =
 python_subdir =
