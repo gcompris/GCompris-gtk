@@ -1,3 +1,14 @@
+2007-01-30  Yves Combe <yves@ycombe.net>
+
+	GCompris no more use a library libgcompris
+
+	* src/gcompris/libgcompris-1.0-uninstalled.pc.in: deleted
+	* src/gcompris/Makefile.am
+	* src/gcompris/libgcompris-1.0.pc.in: deleted
+	* boards/ballcatch.xml.in
+	* configure.in
+
+
 2007-01-22  Yves Combe <yves@ycombe.net>
 
 	MyPaint 0.42 source import.
@@ -39,7 +50,7 @@
         * src/boards/Makefile.am
         * configure.in
 
-	
+
 2007-01-22  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	Added the save feature to the wordprocessor. It saves an html file.

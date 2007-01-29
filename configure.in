@@ -10,32 +10,7 @@ AM_MAINTAINER_MODE
 # From http://autopackage.org/docs/binreloc/
 AM_BINRELOC
 
-# Making releases:
-#   LIBGCOMPRIS_MICRO_VERSION += 1;
-#   LIBGCOMPRIS_INTERFACE_AGE += 1;
-# if any functions have been added, set LIBGCOMPRIS_INTERFACE_AGE to 0.
-# if backwards compatibility has been broken,
-# set LIBGCOMPRIS_BINARY_AGE and LIBGCOMPRIS_INTERFACE_AGE to 0.
-#
-LIBGCOMPRIS_MAJOR_VERSION=1
-LIBGCOMPRIS_MINOR_VERSION=0
-LIBGCOMPRIS_MICRO_VERSION=0
-LIBGCOMPRIS_INTERFACE_AGE=0
-# If you need a modifier for the version number.
-# Normally empty, but can be used to make "fixup" releases.
-LIBGCOMPRIS_EXTRAVERSION=
-
 dnl libtool versioning from libgnome
-
-LIBGCOMPRIS_CURRENT=`expr 100 '*' $LIBGCOMPRIS_MINOR_VERSION + $LIBGCOMPRIS_MICRO_VERSION - $LIBGCOMPRIS_INTERFACE_AGE`
-LIBGCOMPRIS_BINARY_AGE=`expr 100 '*' $LIBGCOMPRIS_MINOR_VERSION + $LIBGCOMPRIS_MICRO_VERSION`
-LIBGCOMPRIS_REVISION=$LIBGCOMPRIS_INTERFACE_AGE
-LIBGCOMPRIS_AGE=`expr $LIBGCOMPRIS_BINARY_AGE - $LIBGCOMPRIS_INTERFACE_AGE`
-LIBGCOMPRIS_VERSION=$LIBGCOMPRIS_MAJOR_VERSION.$LIBGCOMPRIS_MINOR_VERSION.$LIBGCOMPRIS_MICRO_VERSION$LIBGCOMPRIS_EXTRAVERSION
-
-AC_SUBST(LIBGCOMPRIS_CURRENT)
-AC_SUBST(LIBGCOMPRIS_REVISION)
-AC_SUBST(LIBGCOMPRIS_AGE)
 
 AC_ISC_POSIX
 
@@ -556,8 +531,6 @@ autopackage/Makefile
 autopackage/default.apspec
 src/Makefile
 src/gcompris/Makefile
-src/gcompris/libgcompris-1.0.pc
-src/gcompris/libgcompris-1.0-uninstalled.pc
 src/boards/Makefile
 src/boards/mypaint/Makefile
 src/boards/python/Makefile

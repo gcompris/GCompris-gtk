@@ -35,17 +35,6 @@ no_undefined =
 shared =
 endif
 
-if OS_WIN32
-install-libtool-import-lib:
-	$(INSTALL) .libs/libgcompris-1.dll.a $(DESTDIR)$(libdir)
-
-uninstall-libtool-import-lib:
-	-rm $(DESTDIR)$(libdir)/libgcompris-1.dll.a
-else
-install-libtool-import-lib:
-uninstall-libtool-import-lib:
-endif
-
 bin_PROGRAMS = gcompris
 
 INCLUDES = \
@@ -61,129 +50,75 @@ INCLUDES = \
 	$(cairo_cflags)
 
 gcompris_SOURCES = \
-	main.c
+	$(cairo_c) \
+	$(cairo_h) \
+	about.c \
+	about.h \
+	anim.c \
+	anim.h \
+	bar.c \
+	binreloc.c \
+	binreloc.h \
+	board.h board.c \
+	board_config.h \
+	board_config.h board_config.c \
+	bonus.c \
+	bonus.h \
+	cache.c \
+	config.c \
+	dialog.c \
+	drag.c \
+	drag.h \
+	file_selector.c \
+	gameutil.c \
+	gameutil.h \
+	gc_core.h \
+	gc_net.c \
+	gc_net.h \
+	gcompris-board.h \
+	gcompris.c \
+	gcompris.h \
+	gcompris_alphabeta.c \
+	gcompris_alphabeta.h \
+	gcompris_config.h \
+	gcompris_confirm.c \
+	gcompris_db.c \
+	gcompris_db.h \
+	gcompris_im.c \
+	gcompris_im.h \
+	help.c \
+	images_selector.c \
+	log.c \
+	main.c \
+	menu.c \
+	pixbuf_util.c \
+	pixbuf_util.h \
+	plugin.h \
+	profile.c \
+	profile.h \
+	properties.c \
+	properties.h \
+	score.c \
+	score.h \
+	sdlplayer.c \
+	skin.c \
+	skin.h \
+	soundutil.c \
+	soundutil.h \
+	timer.c \
+	timer.h \
+	wordlist.c \
+	wordlist.h
 
 gcompris_LDFLAGS = \
 	-export-dynamic $(python_ldflags) $(cairo_ldflags)
 
 
 gcompris_LDADD = \
-	$(top_builddir)/src/gcompris/libgcompris-1.la \
-	$(LIBICONV)		\
+	$(GCOMPRIS_LIBS) $(sqlite_ldadd) $(XML_LIBS) $(GNET_LIBS) $(SDL_LIBS) \
+	$(LIBICONV) \
         $(INTLLIBS) \
 	$(python_ldadd)
 
-#
-# Gcompris library
-#
-lib_LTLIBRARIES = libgcompris-1.la
-
-libgcompris_1_la_LIBADD = \
-	$(GCOMPRIS_LIBS) $(sqlite_ldadd) $(XML_LIBS) $(GNET_LIBS) $(SDL_LIBS)
-
-libgcompris_1_la_LDFLAGS = $(shared) $(no_undefined) \
-	-version-info $(LIBGCOMPRIS_CURRENT):$(LIBGCOMPRIS_REVISION):$(LIBGCOMPRIS_AGE)
-
-libgcomprisincludedir = $(includedir)/libgcompris-1.0/libgcompris
-
-libgcomprisinclude_HEADERS =			\
-	about.h \
-	anim.h \
-	binreloc.h \
-	bonus.h \
-	gc_core.h \
-	gameutil.h \
-	gc_net.h \
-	gcompris.h \
-	gcompris-board.h \
-	board_config.h \
-	gcompris_alphabeta.h \
-	gcompris_config.h \
-	gcompris_db.h \
-	gcompris_im.h \
-	wordlist.h \
-	pixbuf_util.h \
-	plugin.h \
-	profile.h \
-	properties.h \
-	score.h \
-	skin.h \
-	soundutil.h \
-	timer.h \
-	drag.h \
-	$(cairo_h)
-
-libgcompris_1_la_SOURCES =			\
-	$(libgcomprisinclude_HEADERS)	\
-	about.c \
-	anim.c \
-	bar.c \
-	binreloc.c \
-	board.h board.c \
-	board_config.h board_config.c \
-	bonus.c \
-	config.c \
-	dialog.c \
-	file_selector.c \
-	gameutil.c \
-	gc_net.c \
-	cache.c \
-	gcompris.c \
-	gcompris_alphabeta.c \
-	gcompris_confirm.c \
-	gcompris_db.c \
-	gcompris_im.c \
-	help.c \
-	images_selector.c \
-	log.c \
-	menu.c \
-	pixbuf_util.c \
-	profile.c \
-	properties.c \
-	score.c \
-	sdlplayer.c \
-	skin.c \
-	soundutil.c \
-	timer.c \
-	wordlist.c \
-	drag.c \
-        $(profile_c) \
-	$(cairo_c)
-
-$(libgcompris_1_la_OBJECTS): $(marshal_sources)
-
-marshal_sources =				\
-	gcompris-marshal.c			\
-	gcompris-marshal.h
-
-BUILT_SOURCES =					\
-	$(marshal_sources)
-
-gcompris-marshal.h: gcompris-marshal.list $(GLIB_GENMARSHAL)
-	$(GLIB_GENMARSHAL) $< --header --prefix=gnome_canvas_marshal > $@
-gcompris-marshal.c: gcompris-marshal.list $(GLIB_GENMARSHAL)
-	$(GLIB_GENMARSHAL) $< --body --prefix=gnome_canvas_marshal > $@
-
 EXTRA_DIST = \
-	gcompris-marshal.list	\
-	libgcompris-1.0.pc.in	\
-	libgcompris-1.0-uninstalled.pc.in \
 	Makefile.mingw gcomprisrc.rc
-
-
-pkgconfigdir = $(libdir)/pkgconfig
-pkgconfig_DATA = libgcompris-1.0.pc
-
-DONT_DIST_SOURCE = $(marshal_sources)
-
-dist-hook:
-	for file in $(DONT_DIST_SOURCE) ; do \
-	    rm -f $(distdir)/$$file ; \
-	done
-
-install-data-local: install-libtool-import-lib
-
-uninstall-local: uninstall-libtool-import-lib
-
-clean-local:
-	rm -f $(marshal_sources)
