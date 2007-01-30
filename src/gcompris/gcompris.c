@@ -1069,18 +1069,18 @@ static void load_properties ()
   prefix_dir = gbr_find_prefix(NULL);
 
   /* Check if we are in the source code (developper usage) */
-  tmpstr = g_strconcat(prefix_dir, "/gcompris.c", NULL);
+  tmpstr = g_strconcat(prefix_dir, "/gcompris/gcompris.c", NULL);
   if(g_file_test(tmpstr, G_FILE_TEST_EXISTS))
     {
       /* Set all directory to get data from the source code we are run in */
-      properties->package_data_dir = g_strconcat(prefix_dir, "/../../boards", NULL);
+      properties->package_data_dir = g_strconcat(prefix_dir, "/../boards", NULL);
 
       /* In source code, locale mo files are not generated, use the installed one */
       properties->package_locale_dir = g_strdup(PACKAGE_LOCALE_DIR);
 
-      properties->package_plugin_dir = g_strconcat(prefix_dir, "/../boards/.libs", NULL);
-      properties->package_python_plugin_dir = g_strconcat(prefix_dir, "/../boards/python", NULL);
-      properties->system_icon_dir = g_strconcat(prefix_dir, "/../..", NULL);
+      properties->package_plugin_dir = g_strconcat(prefix_dir, "/boards/.libs", NULL);
+      properties->package_python_plugin_dir = g_strconcat(prefix_dir, "/boards/python", NULL);
+      properties->system_icon_dir = g_strconcat(prefix_dir, "/..", NULL);
     }
   else
     {

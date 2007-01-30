@@ -1,5 +1,13 @@
 2007-01-30  Bruno coudoin  <bruno.coudoin@free.fr>
 
+	* src/boards/memory.c: (start_board): Fixed bug#401817
+	A comment for TRANSLATORS in memory.c contains non UTF-8 chars, that disturbs
+	opening the file with some editors. Removed UTF-8 from comments.
+	* src/gcompris/gcompris.c: (load_properties): fixed to work again when running
+	the binary in the source.
+
+2007-01-30  Bruno coudoin  <bruno.coudoin@free.fr>
+
 	* src/boards/Makefile.am: Now the boards no more link with the libgcompris which
 	has been removed anyway.
 
