@@ -1,5 +1,10 @@
 2007-01-30  Bruno coudoin  <bruno.coudoin@free.fr>
 
+	* src/boards/Makefile.am: Now the boards no more link with the libgcompris which
+	has been removed anyway.
+
+2007-01-30  Bruno coudoin  <bruno.coudoin@free.fr>
+
 	* prepare-ChangeLog.pl: imported new one to support svn, taken from
 	http://www.gnome.org/~fherrera/patches/prepare-ChangeLog.pl
 
