@@ -46,11 +46,34 @@ use strict;
 use English;
 use Text::Wrap;
 
+# Check for cvs or svn system
+my $command;
+if (-e "CVS/Root")
+  {
+    $command = "cvs";
+  }
+elsif (-e ".svn/README.txt")
+  {
+    $command = "svn";
+  }
+else
+  {
+    die "There is not known revision system.\n"
+  }
+
 # Read the old change log file.
 # It's less efficient to read the whole thing into memory than it would be
 # to read it while we prepend to it later, but I like doing this part first.
-print STDERR "  Updating ChangeLog from cvs repository.\n";
-open ERRORS, "cvs update ChangeLog |" or die "The cvs update of ChangeLog failed: $OS_ERROR.\n";
+if ($command eq "cvs")
+  {
+     print STDERR "  Updating ChangeLog from cvs repository.\n";
+     open ERRORS, "cvs update ChangeLog |" or die "The cvs update of ChangeLog failed: $OS_ERROR.\n";
+  }
+else
+  {
+     print STDERR "  Updating ChangeLog from svn repository.\n";
+     open ERRORS, "svn update ChangeLog |" or die "The cvs update of ChangeLog failed: $OS_ERROR.\n";
+  }
 print STDERR "    $ARG" while <ERRORS>;
 close ERRORS;
 open OLD_CHANGE_LOG, "ChangeLog" or die "Could not open ChangeLog file: $OS_ERROR.\n";
@@ -59,10 +82,19 @@ close OLD_CHANGE_LOG;
 
 # For each file, build a list of modified lines.
 # Use line numbers from the "after" side of each diff.
-print STDERR "  Running cvs diff to find changes.\n";
 my %changed_line_ranges;
 my $file;
-open DIFF, "cvs -fq diff -N |" or die "The cvs diff failed: $OS_ERROR.\n";
+if ($command eq "cvs")
+  {
+    print STDERR "  Running cvs diff to find changes.\n";
+    open DIFF, "cvs -fq diff -N |" or die "The cvs diff failed: $OS_ERROR.\n";
+  }
+else
+  {
+    print STDERR "  Running svn diff to find changes.\n";
+    open DIFF, "svn --non-interactive diff --diff-cmd diff -x \"-b\" |" or die "The cvs diff failed: $OS_ERROR.\n";
+  }
+
 while (<DIFF>)
   {
     $file = $1 if /^Index: (\S+)$/;
@@ -89,7 +121,7 @@ foreach my $file (keys %changed_line_ranges)
     $function_lists{$file} = "";
 
     # Only look for function names in .c files.
-    next unless $file =~ /\.(c|java)/;
+    next unless $file =~ /\.(c|java|cs)/;
 
     # Find all the functions in the file.
     open SOURCE, $file or next;
@@ -169,6 +201,9 @@ sub get_function_line_ranges
     if ($file_name =~ /\.c$/) {
         return get_function_line_ranges_for_c ($file_handle, $file_name);
     } elsif ($file_name =~ /\.java$/) {
+        return get_function_line_ranges_for_java ($file_handle, $file_name);
+    } elsif ($file_name =~ /\.cs$/) {
+	#FIXME write a function to extract from .cs files
         return get_function_line_ranges_for_java ($file_handle, $file_name);
     }
     return ();
