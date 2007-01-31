@@ -860,7 +860,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       g_assert(g_utf8_validate(alphabet_uppercase,-1,NULL)); // require by all utf8-functions
       g_warning("Using uppercase %s", alphabet_uppercase);
 
-      /* TRANSLATORS: Put here the mathematical operators "+-*/" for  your language. */
+      /* TRANSLATORS: Put here the mathematical operators '+-x/' for  your language. */
       operators=_("+-×÷");
       g_assert(g_utf8_validate(operators,-1,NULL)); // require by all utf8-functions
       g_warning("Using operators %s", operators);
