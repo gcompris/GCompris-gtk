@@ -103,6 +103,7 @@ xml_in_files = \
 	money.xml.in \
 	mosaic.xml.in \
 	mouse.xml.in \
+	mypaint.xml.in \
 	numeration.xml.in \
 	oscar_and_friends.xml.in \
 	paintings.xml.in \

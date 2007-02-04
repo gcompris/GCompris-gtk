@@ -1,3 +1,68 @@
+2007-02-04  Yves Combe <yves@ycombe.net>
+
+	add MyPaint brushes and wml.in
+
+	* boards/Makefile.am:
+	* boards/mypaint.xml.in:
+	* boards/mypaint/brushes/b003.myb:
+	* boards/mypaint/brushes/b004.myb:
+	* boards/mypaint/brushes/b008.myb:
+	* boards/mypaint/brushes/b016.myb:
+	* boards/mypaint/brushes/basic.myb:
+	* boards/mypaint/brushes/blur.myb:
+	* boards/mypaint/brushes/bulk.myb:
+	* boards/mypaint/brushes/charcoal.myb:
+	* boards/mypaint/brushes/ink.myb:
+	* boards/mypaint/brushes/loosedots.myb:
+	* boards/mypaint/brushes/o000.myb:
+	* boards/mypaint/brushes/o001.myb:
+	* boards/mypaint/brushes/o005.myb:
+	* boards/mypaint/brushes/o006.myb:
+	* boards/mypaint/brushes/o007.myb:
+	* boards/mypaint/brushes/o009.myb:
+	* boards/mypaint/brushes/o011.myb:
+	* boards/mypaint/brushes/o012.myb:
+	* boards/mypaint/brushes/o013.myb:
+	* boards/mypaint/brushes/o014.myb:
+	* boards/mypaint/brushes/o015.myb:
+	* boards/mypaint/brushes/o017.myb:
+	* boards/mypaint/brushes/o018.myb:
+	* boards/mypaint/brushes/o019.myb:
+	* boards/mypaint/brushes/o020.myb:
+	* boards/mypaint/brushes/o021.myb:
+	* boards/mypaint/brushes/o022.myb:
+	* boards/mypaint/brushes/o023.myb:
+	* boards/mypaint/brushes/o024.myb:
+	* boards/mypaint/brushes/o025.myb:
+	* boards/mypaint/brushes/o026.myb:
+	* boards/mypaint/brushes/o028.myb:
+	* boards/mypaint/brushes/o029.myb:
+	* boards/mypaint/brushes/o031.myb:
+	* boards/mypaint/brushes/o032.myb:
+	* boards/mypaint/brushes/o033.myb:
+	* boards/mypaint/brushes/o036.myb:
+	* boards/mypaint/brushes/o037.myb:
+	* boards/mypaint/brushes/o038.myb:
+	* boards/mypaint/brushes/o039.myb:
+	* boards/mypaint/brushes/o041.myb:
+	* boards/mypaint/brushes/o043.myb:
+	* boards/mypaint/brushes/o398.myb:
+	* boards/mypaint/brushes/o501.myb:
+	* boards/mypaint/brushes/o512.myb:
+	* boards/mypaint/brushes/o519.myb:
+	* boards/mypaint/brushes/o665.myb:
+	* boards/mypaint/brushes/o945.myb:
+	* boards/mypaint/brushes/old_b000.myb:
+	* boards/mypaint/brushes/old_b003.myb:
+	* boards/mypaint/brushes/old_b004.myb:
+	* boards/mypaint/brushes/old_b008.myb:
+	* boards/mypaint/brushes/old_b024.myb:
+	* boards/mypaint/brushes/order.conf:
+	* boards/mypaint/brushes/pencil.myb:
+	* boards/mypaint/brushes/s000.myb:
+	* boards/mypaint/brushes/smudge.myb:
+	* po/POTFILES.in:
+
 2007-02-04  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	Rework of the way we manage the config and user data directory.
