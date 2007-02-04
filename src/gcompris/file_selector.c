@@ -382,7 +382,7 @@ display_file_selector(int the_mode,
 
   file_selector_displayed = TRUE;
 
-  full_rootdir = g_strconcat(gc_prop_current_user_dirname_get(), "/", rootdir, NULL);
+  full_rootdir = g_strconcat(gc_prop_get()->user_dir, "/", rootdir, NULL);
   gc_util_create_rootdir(full_rootdir);
 
   current_rootdir = full_rootdir;

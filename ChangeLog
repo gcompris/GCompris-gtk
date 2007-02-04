@@ -1,3 +1,42 @@
+2007-02-04  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	Rework of the way we manage the config and user data directory.
+	Now we respect the freedesktop and save our config file in
+	$XDG_CONFIG_HOME (~/.config/gcompris)
+	In this directory we save the files:
+	gcompris.conf  gcompris.log  gcompris_sqlite.db
+
+	The data file are now in a directory ~/My GCompris
+	This contains the Images directory. The children can put image in
+	them, they will be selectable in the anim and drawing activity.
+	The directories 'anim2  draw2 wordprocessor' contains the children
+	creation for each of these activities.
+
+	It is possible to change the base of these directory with the command line
+	switch --config-dir and --user-dir
+	(Does not work yet).
+
+	* src/boards/gtans.c: (tanloadfigtab), (taninitstart), (tanend):
+	* src/boards/menu2.c: (menu_start), (item_event):
+	* src/boards/py-gcompris-properties.c:
+	(pyGcomprisPropertiesType_getattr):
+	* src/boards/py-mod-gcompris.c:
+	* src/boards/python/pythontest.py:
+	* src/gcompris/Makefile.am:
+	* src/gcompris/file_selector.c: (display_file_selector):
+	* src/gcompris/gameutil.c: (gc_file_find_absolute),
+	(gc_util_create_rootdir):
+	* src/gcompris/gcompris.c: (load_properties), (main):
+	* src/gcompris/gcompris_db.c: (gc_db_init):
+	* src/gcompris/main.c:
+	* src/gcompris/properties.c:
+	(gc_prop_default_config_directory_get),
+	(gc_prop_default_user_directory_get), (gc_prop_config_file_get),
+	(gc_prop_new), (old_config_migration), (gc_prop_load),
+	(gc_prop_activate), (gc_prop_destroy), (gc_prop_save):
+	* src/gcompris/properties.h:
+	* src/gcompris/soundutil.c:
+
 2007-01-30  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* src/boards/memory.c: (start_board): Fixed bug#401817

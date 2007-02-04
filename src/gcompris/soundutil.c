@@ -514,7 +514,12 @@ struct _GcomprisSoundPrivate
 {
 };
 
-#include "gcompris-marshal.h"
+/* "gcompris-marshal.h" */
+
+#include	<glib-object.h>
+
+/* VOID:POINTER (gcompris-marshal.list:3) */
+#define gnome_canvas_marshal_VOID__POINTER	g_cclosure_marshal_VOID__POINTER
 
 static void
 gc_sound_instance_init (GTypeInstance   *instance,

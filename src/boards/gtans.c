@@ -241,7 +241,6 @@ gboolean editmode;
 static gboolean dumtabpxpixmode[3],*tabpxpixmode=dumtabpxpixmode-PXSTART; /* mode VOULU */
 static gboolean tabcolalloc[GCNBR];   /* couleur allouee ? */
 static gchar *userconf=NULL;          /* nom complet du fichier de config local */
-static gchar *usergtdir=NULL;         /* nom du home directory local */
 static tanflfig flfigpetite;
 static tanfpnt fpntspetite[FLPNTMAX];
 
@@ -1011,51 +1010,6 @@ void tanunselect (void){
 
 
 /********************************/
-void tanloadfigstatus (char *name, tanfigure *nfigtab, int nfigsize){
-
-  int i;
-  FILE *hand=NULL;
-  gchar *statusfilename;
-
-  statusfilename = g_strconcat(usergtdir, G_DIR_SEPARATOR_S, g_basename(name), ".status", NULL);
-
-  if ( (hand = g_fopen(statusfilename, "r"))!=NULL ){
-    for (i=0; i<nfigsize; i++)
-      if ( fgetc(hand)=='y' )
-	(nfigtab+i)->reussi = TRUE;
-    fclose(hand);
-  }
-
-  g_free(statusfilename);
-
-}
-
-
-/********************************/
-void tansavefigstatus (char *name, tanfigure *nfigtab, int nfigsize){
-
-  int i;
-  FILE *hand=NULL;
-  gchar *statusfilename;
-
-  if(figtabsize){
-    statusfilename = g_strconcat(usergtdir, G_DIR_SEPARATOR_S, g_basename(name), ".status", NULL);
-
-    if ( (hand = g_fopen(statusfilename, "w"))!=NULL ){
-      for (i=0; i<nfigsize; i++)
-	if ( (nfigtab+i)->reussi )
-	  fputc ('y', hand);
-	else
-	  fputc ('n', hand);
-      fclose(hand);
-    }
-
-    g_free(statusfilename);
-  }
-}
-
-
-/********************************/
 gdouble tanreadfloat(FILE *fhd, int *lres)
 {
   gdouble pouet;
@@ -1119,12 +1073,8 @@ gboolean tanloadfigtab (char *name){
  if (lres==1){
    succes=TRUE;
 
-   tansavefigstatus(figfilename, figtab, figtabsize);
-
    if(figtab!=NULL)
      g_free(figtab);
-
-   tanloadfigstatus(name, newfigtab, newfigtabsize);
 
    figtab=newfigtab;
    figtabsize=newfigtabsize;
@@ -1821,8 +1771,6 @@ void taninitstart(void){
   int i;
   char* accurstr;
 
-  usergtdir = gc_prop_current_board_dirname_get();
-
   for (i = PXSTART; i<PXNBR+PXSTART; i++){
     tabpxnam[i] = NULL;
     tabpxpx[i] = NULL;
@@ -1878,11 +1826,6 @@ void tanend(void){
   GdkColormap *syscmap;
 
   syscmap = gdk_colormap_get_system();
-
-  tansavefigstatus(figfilename, figtab, figtabsize);
-
-  if (usergtdir!=NULL)
-    g_free(usergtdir);
 
   if (userconf!=NULL)
     g_free(userconf);

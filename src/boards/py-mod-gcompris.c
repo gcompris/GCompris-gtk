@@ -1451,70 +1451,6 @@ py_gc_board_config_textview(PyObject* self, PyObject* args){
 
 
 static PyObject*
-py_gc_prop_user_dirname_get (PyObject* self, PyObject* args)
-{
-  PyObject* pyUser;
-  pyGcomprisUserObject* pyGcomprisUser;
-  GcomprisUser* cGcomprisUser;
-
-  /* Parse arguments */
-  if(!PyArg_ParseTuple(args, "O:gcompris.get_user_dirname", &pyUser))
-    return NULL;
-
-  pyGcomprisUser = (pyGcomprisUserObject *) pyUser;
-
-  cGcomprisUser = pyGcomprisUser->cdata;
-
-  /* Call the corresponding C function */
-  return PyString_FromString(gc_prop_user_dirname_get(cGcomprisUser));
-
-}
-
-static PyObject*
-py_gc_prop_board_dirname_get (PyObject* self, PyObject* args)
-{
-  PyObject* pyBoard;
-  pyGcomprisBoardObject* pyGcomprisBoard;
-  GcomprisBoard* cGcomprisBoard;
-
-  /* Parse arguments */
-  if(!PyArg_ParseTuple(args, "O:gcompris.get_board_dirname", &pyBoard))
-    return NULL;
-
-  pyGcomprisBoard = (pyGcomprisBoardObject *) pyBoard;
-
-  cGcomprisBoard = pyGcomprisBoard->cdata;
-
-  /* Call the corresponding C function */
-  return PyString_FromString(gc_prop_board_dirname_get(cGcomprisBoard));
-
-}
-
-static PyObject*
-py_gc_prop_current_user_dirname_get (PyObject* self, PyObject* args)
-{
-  /* Parse arguments */
-  if(!PyArg_ParseTuple(args, ":gcompris.get_current_user_dirname"))
-    return NULL;
-
-  /* Call the corresponding C function */
-  return PyString_FromString(gc_prop_current_user_dirname_get());
-
-}
-
-static PyObject*
-py_gc_prop_current_board_dirname_get (PyObject* self, PyObject* args)
-{
-  /* Parse arguments */
-  if(!PyArg_ParseTuple(args, ":gcompris.get_current_board_dirname"))
-    return NULL;
-
-  /* Call the corresponding C function */
-  return PyString_FromString(gc_prop_current_board_dirname_get());
-
-}
-
-static PyObject*
 py_gcompris_wordlist_get_from_file (PyObject* self, PyObject* args)
 {
   GcomprisWordlist *result;
@@ -1602,10 +1538,6 @@ static PyMethodDef PythonGcomprisModule[] = {
   { "combo_locales_asset",  py_gc_board_config_combo_locales_asset, METH_VARARGS, "gc_board_config_combo_locales_asset" },
   { "get_locales_asset_list",  py_gc_locale_gets_asset_list, METH_VARARGS, "gc_locale_gets_asset_list" },
   { "textview",  py_gc_board_config_textview, METH_VARARGS, "gc_board_config_textview" },
-  { "get_user_dirname",  py_gc_prop_user_dirname_get, METH_VARARGS, "gc_prop_user_dirname_get" },
-  { "get_current_user_dirname",  py_gc_prop_current_user_dirname_get, METH_VARARGS, "gc_prop_current_user_dirname_get" },
-  { "get_board_dirname",  py_gc_prop_board_dirname_get, METH_VARARGS, "gc_prop_board_dirname_get" },
-  { "get_current_board_dirname",  py_gc_prop_current_board_dirname_get, METH_VARARGS, "gc_prop_current_board_dirname_get" },
   { "get_wordlist",  py_gcompris_wordlist_get_from_file, METH_VARARGS, "gcompris_wordlist_get_from_file" },
   { "im_reset",  py_gc_im_reset, METH_VARARGS, "gc_im_reset" },
   { NULL, NULL, 0, NULL}

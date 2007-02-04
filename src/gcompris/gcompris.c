@@ -25,6 +25,8 @@
 #include <time.h>
 #include <string.h>
 
+#include <glib/gstdio.h>
+
 #include "gcompris.h"
 #include "gc_core.h"
 #include "gcompris_config.h"
@@ -105,8 +107,8 @@ static gint popt_create_db   	   = FALSE;
 static gint popt_reread_menu   	   = FALSE;
 static gchar *popt_profile	   = NULL;
 static gint *popt_profile_list	   = FALSE;
-static gchar *popt_shared_dir	   = NULL;
-static gchar *popt_users_dir	   = NULL;
+static gchar *popt_config_dir	   = NULL;
+static gchar *popt_user_dir	   = NULL;
 static gint  popt_experimental     = FALSE;
 static gint  popt_no_quit	   = FALSE;
 static gint  popt_no_config        = FALSE;
@@ -174,11 +176,11 @@ static GOptionEntry options[] = {
   {"profile-list",'\0', 0, G_OPTION_ARG_NONE, &popt_profile_list,
    N_("List all available profiles. Use 'gcompris -a' to create profiles"), NULL},
 
-  {"shared-dir",'\0', 0, G_OPTION_ARG_STRING, &popt_shared_dir,
-   N_("Shared directory location, for profiles and board-configuration data: [$HOME/.gcompris/shared]"), NULL},
+  {"config-dir",'\0', 0, G_OPTION_ARG_STRING, &popt_config_dir,
+   N_("Config directory location: [$HOME/.config/gcompris]"), NULL},
 
-  {"users-dir",'\0', 0, G_OPTION_ARG_STRING, &popt_users_dir,
-   N_("The location of user directories: [$HOME/.gcompris/users]"), NULL},
+  {"users-dir",'\0', 0, G_OPTION_ARG_STRING, &popt_user_dir,
+   N_("The location of user directories: [$HOME/My GCompris]"), NULL},
 
   {"experimental",'\0', 0, G_OPTION_ARG_NONE, &popt_experimental,
    N_("Run the experimental activities"), NULL},
@@ -1099,12 +1101,11 @@ static void load_properties ()
   g_free(prefix_dir);
 
 
-  /* Display the directory and database value we have */
+  /* Display the directory value we have */
   printf("package_data_dir         = %s\n", properties->package_data_dir);
   printf("package_locale_dir       = %s\n", properties->package_locale_dir);
   printf("package_plugin_dir       = %s\n", properties->package_plugin_dir);
   printf("package_python_plugin_dir= %s\n", properties->package_python_plugin_dir);
-  printf("database                 = %s\n", properties->database);
 }
 
 GcomprisProperties *gc_prop_get ()
@@ -1354,7 +1355,7 @@ static gint xf86_focus_changed(GtkWindow *window,
  */
 
 int
-gc_init (int argc, char *argv[])
+main (int argc, char *argv[])
 {
   GError *error = NULL;
   GOptionContext *context;
@@ -1426,6 +1427,21 @@ gc_init (int argc, char *argv[])
     {
       gc_debug = TRUE;
     }
+
+  if (popt_config_dir){
+    if ((!g_file_test(popt_config_dir, G_FILE_TEST_IS_DIR)) ||
+	(g_access(popt_config_dir, popt_administration? W_OK : R_OK ) == -1)){
+      printf("%s does not exists or is not %s", popt_config_dir,
+	     popt_administration? "writable" : "readable"	);
+      exit(0);
+    }
+    else {
+      g_warning("Using %s as config directory.", popt_config_dir);
+      properties->config_dir = g_strdup(popt_config_dir);
+    }
+  }
+  /* Now we know where our config file is, load the saved config */
+  gc_prop_load(properties);
 
   if (popt_fullscreen)
     {
@@ -1507,7 +1523,6 @@ gc_init (int argc, char *argv[])
       /* check the list of possible values for -l, then exit */
       printf(_("Use -l to access an activity directly.\n"));
       printf(_("The list of available activities is :\n"));
-      properties->root_menu = "/";
 
       gc_db_init();
 
@@ -1545,66 +1560,49 @@ gc_init (int argc, char *argv[])
     }
     else {
       g_warning("Using menu %s as root.", popt_root_menu);
+      g_free(properties->root_menu);
       properties->root_menu = g_strdup(popt_root_menu);
-      properties->menu_position = g_strdup(popt_root_menu);
     }
   }
 
-  if (popt_users_dir){
-    if ((!g_file_test(popt_users_dir, G_FILE_TEST_IS_DIR)) ||
-	(access(popt_users_dir, popt_administration? R_OK : W_OK ) == -1)){
-	g_warning("%s does not exists or is not %s ", popt_users_dir,
+  if (popt_user_dir){
+    if ((!g_file_test(popt_user_dir, G_FILE_TEST_IS_DIR)) ||
+	(g_access(popt_user_dir, popt_administration? R_OK : W_OK ) == -1)){
+	g_warning("%s does not exists or is not %s ", popt_user_dir,
 		  popt_administration? "readable" : "writable");
 	exit(0);
     } else {
-      g_warning("Using %s as users directory.", popt_users_dir);
-      properties->users_dir = g_strdup(popt_users_dir);
+      g_warning("Using %s as users directory.", popt_user_dir);
+      g_free(properties->user_dir);
+      properties->user_dir = g_strdup(popt_user_dir);
     }
   }
-
-  if (popt_shared_dir){
-    if ((!g_file_test(popt_shared_dir, G_FILE_TEST_IS_DIR)) ||
-	(access(popt_shared_dir, popt_administration? W_OK : R_OK ) == -1)){
-      g_warning("%s does not exists or is not %s", popt_shared_dir,
-		popt_administration? "writable" : "readable"	);
-      exit(0);
-    }
-    else {
-      g_warning("Using %s as shared directory.", popt_shared_dir);
-      properties->shared_dir = g_strdup(popt_shared_dir);
-    }
-  }
-
-  /* shared_dir initialised, now we can set the default */
-  g_free(properties->database);
-  properties->database = gc_prop_default_database_name_get ( properties->shared_dir );
-  g_warning( "Infos:\n   Shared dir '%s'\n   Users dir '%s'\n   Database '%s'\n",
-	     properties->shared_dir,
-	     properties->users_dir,
-	     properties->database);
 
   if (popt_database)
     {
+      g_free(properties->database);
       properties->database = g_strdup(popt_database);
 
       if (g_file_test(properties->database, G_FILE_TEST_EXISTS))
 	{
-	  if (access(properties->database, R_OK)==-1)
+	  if (g_access(properties->database, R_OK)==-1)
 	    {
-	      g_warning("%s exists but is not readable or writable", properties->database);
+	      printf("%s exists but is not readable or writable", properties->database);
 	      exit(0);
-	    }
-	  else
-	    {
-	      g_warning("Using %s as database", properties->database);
 	    }
 	}
     }
 
+  /* config_dir initialised, now we can set the default */
+  printf("Infos:\n   Config dir '%s'\n   Users dir '%s'\n   Database '%s'\n",
+	 properties->config_dir,
+	 properties->user_dir,
+	 properties->database);
+
   if (popt_create_db)
     {
       gchar *dirname = g_path_get_dirname (properties->database);
-      if (access(dirname, W_OK)==-1)
+      if (g_access(dirname, W_OK)==-1)
 	{
 	  g_warning("Cannot create %s : %s is not writable !", properties->database, dirname);
 	  exit (0);
@@ -1616,7 +1614,7 @@ gc_init (int argc, char *argv[])
 
   if (popt_administration){
     if (popt_database){
-      if (access(popt_database,R_OK|W_OK)==-1){
+      if (g_access(popt_database,R_OK|W_OK)==-1){
 	g_warning("%s exists but is not writable", popt_database);
 	exit(0);
       }
@@ -1631,7 +1629,7 @@ gc_init (int argc, char *argv[])
 
   if (popt_reread_menu){
     g_warning("Rebuild db from xml files");
-    if (access(properties->database, W_OK)==-1)
+    if (g_access(properties->database, W_OK)==-1)
       g_warning("Cannot reread menu when database is read-only !");
     else
       properties->reread_menu = TRUE;
@@ -1671,6 +1669,8 @@ gc_init (int argc, char *argv[])
       }
     }
   }
+
+  gc_prop_activate(properties);
 
   /*
    * Database init MUST BE after properties

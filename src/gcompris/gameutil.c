@@ -530,7 +530,6 @@ gc_file_find_absolute(const gchar *format, ...)
    */
 
   dir_to_search[i++] = properties->package_data_dir;
-  dir_to_search[i++] = properties->user_data_dir;
   dir_to_search[i++] = NULL;
 
   absolute_filename = g_strdup(filename);
@@ -619,7 +618,6 @@ gc_file_find_absolute(const gchar *format, ...)
 }
 
 /** Create a directory if needed.
- *  If a file is given, it is removed and a directory is created instead.
  *
  * \param rootdir: the directory to create
  *
@@ -629,15 +627,9 @@ int
 gc_util_create_rootdir (gchar *rootdir)
 {
 
-  /* Case where ~/.gcompris already exist as a file. We remove it */
-  if(g_file_test(rootdir, G_FILE_TEST_IS_REGULAR)) {
-    g_unlink(rootdir);
-  }
-
   if(g_file_test(rootdir, G_FILE_TEST_IS_DIR)) {
     return 0;
   }
 
   return(g_mkdir(rootdir, 0755));
-
 }

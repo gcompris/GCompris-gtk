@@ -47,6 +47,8 @@ static MenuItems *menuitems;
 static GcomprisBoard *gcomprisBoard = NULL;
 static gboolean board_paused = TRUE;
 
+static gchar *menu_position = NULL;
+
 /* We don't wan't the callback on boards to be accepted until the menu is fully displayed */
 static gboolean menu_displayed = FALSE;
 
@@ -175,8 +177,6 @@ static void menu_pause (gboolean pause)
 static void menu_start (GcomprisBoard *agcomprisBoard)
 {
 
-  GcomprisProperties	*properties = gc_prop_get();
-
   current_x = 0.0;
   current_y = 0.0;
 
@@ -242,8 +242,8 @@ static void menu_start (GcomprisBoard *agcomprisBoard)
 
       create_panel(boardRootItem);
 
-      if (properties->menu_position){
-	display_section(properties->menu_position);
+      if (menu_position){
+	display_section(menu_position);
       }
       else
 	display_welcome();
@@ -656,14 +656,13 @@ item_event(GnomeCanvasItem *item, GdkEvent *event,  MenuItems *menuitems)
 
       if (strcmp(board->type,"menu")==0){
 	gchar *path = g_strdup_printf("%s/%s",board->section, board->name);
-	GcomprisProperties	*properties = gc_prop_get();
 
 	display_section(path);
 
-	if (properties->menu_position)
-	  g_free(properties->menu_position);
+	if (menu_position)
+	  g_free(menu_position);
 
-	properties->menu_position = path;
+	menu_position = path;
 
       }
       else

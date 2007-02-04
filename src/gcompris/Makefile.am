@@ -89,7 +89,6 @@ gcompris_SOURCES = \
 	help.c \
 	images_selector.c \
 	log.c \
-	main.c \
 	menu.c \
 	pixbuf_util.c \
 	pixbuf_util.h \

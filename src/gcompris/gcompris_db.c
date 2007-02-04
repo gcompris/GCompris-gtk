@@ -149,7 +149,7 @@ int gc_db_init()
 
   rc = sqlite3_open(properties->database, &gcompris_db);
   if( rc ){
-    g_error("Can't open database %s : %s\n", properties->database, sqlite3_errmsg(gcompris_db));
+    g_warning("Can't open database %s : %s\n", properties->database, sqlite3_errmsg(gcompris_db));
     sqlite3_close(gcompris_db);
     exit(1);
   }

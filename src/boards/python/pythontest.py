@@ -56,9 +56,6 @@ class Gcompris_pythontest:
 #    print wordlist.words
 
 
-    print gcompris.get_current_user_dirname()
-    print gcompris.get_current_board_dirname()
-
     if logged:
       print "User Logged in:"
       print "   ", logged.login, logged.firstname, logged.lastname

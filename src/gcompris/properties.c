@@ -34,7 +34,8 @@
 # include <windows.h>
 #endif
 
-static gchar *config_file = NULL;
+/* get the default database name */
+#define DEFAULT_DATABASE "gcompris_sqlite.db"
 
 /*
  * return 1 if parsing OK, 0 otherwise
@@ -69,74 +70,81 @@ scan_get_string(GScanner *scanner) {
 }
 
 
-/* get the gcompris user directory name */
-/* Architecture dependant: "gcompris" in Win9x, */
-/* "/.gcompris" in POSIX compliant systems */
-
-gchar *
-gc_prop_user_root_directory_get ()
+/* get the gcompris config directory name
+ *
+ * \return a newly allocated string
+ *
+ * \warning Architecture dependant: "gcompris" in Win9x,
+ * "/.gcompris" in POSIX compliant systems
+ */
+static gchar *
+gc_prop_default_config_directory_get ()
 {
-  G_CONST_RETURN gchar *home_dir = g_get_home_dir();
 
 #ifdef WIN32
   if ( ! G_WIN32_IS_NT_BASED() ) /* Win9x */
     return g_strdup("../gcompris");
   else
 #endif
-    return g_strconcat(home_dir, "/.gcompris", NULL);
+    {
+      const gchar *home_dir = g_get_home_dir();
+      const gchar *xdg_config_home = g_getenv("XDG_CONFIG_HOME");
+
+      if(xdg_config_home)
+	return g_strconcat(xdg_config_home, "/.gcompris", NULL);
+
+
+      return g_strconcat(home_dir, "/.config/gcompris", NULL);
+    }
+}
+
+/* get the gcompris data directory name
+ *
+ * \return a newly allocated string
+ *
+ * \warning Architecture dependant: "gcompris" in Win9x,
+ * "/MyGCompris" in POSIX compliant systems
+ */
+static gchar *
+gc_prop_default_user_directory_get ()
+{
+  char *name = "My GCompris";
+#ifdef WIN32
+  if ( ! G_WIN32_IS_NT_BASED() ) /* Win9x */
+    return g_strconcat("../", name, NULL);
+  else
+#endif
+    {
+      const gchar *home_dir = g_get_home_dir();
+      return g_strconcat(home_dir, "/", name, NULL);
+    }
 }
 
 /** return the name of the configuration file used.
- *  the name has the full path and is platform dependant
- *  must not be freed by the caller.
+ * must not be freed.
  *
  */
-gchar *
+static const gchar *
 gc_prop_config_file_get()
 {
-  gchar *dir;
-  if(config_file)
-    return(config_file);
-  dir = gc_prop_user_root_directory_get();
   /* Was never called, must calculate it */
 #ifdef WIN32
   if (! G_WIN32_IS_NT_BASED() ) {
-    config_file = g_strconcat(dir, "/gcompris.cfg", NULL);
+    return("gcompris.cfg");
   } else
 #endif
-    config_file = g_strconcat(dir, "/gcompris.conf", NULL);
-
-  g_free(dir);
-   return(config_file);
+    return("gcompris.conf");
 }
 
-/* get the default database name */
-#define DEFAULT_DATABASE "gcompris_sqlite.db"
-#define PROFILES_ROOT "profiles"
-
-gchar *
-gc_prop_default_database_name_get (gchar *shared_dir)
-{
-  gchar *dir_base = g_strconcat( shared_dir, "/",  PROFILES_ROOT, NULL);
-  gc_util_create_rootdir(dir_base);
-  g_free(dir_base);
-  return g_strconcat( shared_dir, "/",  PROFILES_ROOT, "/",  DEFAULT_DATABASE, NULL);
-
-}
-
+/** Create a new GcomprisProperties struct with it's default values
+ *
+ *
+ * \return a newly allocated GcomprisProperties
+ */
 GcomprisProperties *
 gc_prop_new ()
 {
   GcomprisProperties *tmp;
-  char          *config_file = gc_prop_config_file_get();
-  GScanner      *scanner;
-  gchar		*content;
-  gsize		length;
-  gchar         *full_rootdir;
-#ifndef WIN32
-  const gchar   *locale;
-#endif
-  gchar         *user_dir;
 
   tmp = (GcomprisProperties *) malloc (sizeof (GcomprisProperties));
   tmp->music		 = 1;
@@ -154,7 +162,7 @@ gc_prop_new ()
   tmp->disable_quit      = 0;				/* Used to remove the quit button from the bar. Use it for kiosk mode */
   tmp->disable_config    = 0;				/* Used to remove the config button from the bar. Use it for kiosk mode */
   tmp->display_resource  = 0;
-  tmp->root_menu         = "/";
+  tmp->root_menu         = g_strdup("/");
   tmp->local_directory   = NULL;
   tmp->profile           = NULL;
   tmp->logged_user       = NULL;
@@ -162,7 +170,6 @@ gc_prop_new ()
   tmp->administration    = FALSE;
   tmp->reread_menu       = FALSE;
   tmp->experimental      = FALSE;
-  tmp->menu_position     = NULL;
 
   tmp->server            = NULL;
 
@@ -174,41 +181,181 @@ gc_prop_new ()
   tmp->cache_dir                  = NULL;
   tmp->drag_mode                  = GC_DRAG_MODE_GRAB;
 
-  user_dir = gc_prop_user_root_directory_get() ;
-  gc_util_create_rootdir( user_dir );
+  tmp->config_dir = gc_prop_default_config_directory_get();
+  tmp->user_dir = gc_prop_default_user_directory_get();
+  tmp->database = g_strconcat(tmp->config_dir, "/", DEFAULT_DATABASE, NULL);
 
-  tmp->shared_dir        = g_strconcat(user_dir, "/shared", NULL);
-  gc_util_create_rootdir( tmp->shared_dir );
+  return (tmp);
+}
 
-  tmp->users_dir        = g_strconcat(user_dir, "/users", NULL);
-  gc_util_create_rootdir( tmp->users_dir );
+void old_config_migration(GcomprisProperties *props)
+{
+  char *old;
+  char *new;
 
-  tmp->user_data_dir	= g_strconcat(user_dir, "/Plugins/boards", NULL);
-  gc_util_create_rootdir( tmp->user_data_dir );
+  new = g_strconcat(props->config_dir, "/", gc_prop_config_file_get(), NULL);
 
-  /* Needs to be set after command line parsing */
-  tmp->database          = NULL;
+  if (!g_file_test(new, G_FILE_TEST_IS_REGULAR))
+    {
+      old = g_strconcat(g_get_home_dir(), "/.gcompris/gcompris.conf", NULL);
+      if (g_file_test(old, G_FILE_TEST_IS_REGULAR))
+	{
+	  printf("Config file migration '%s' -> '%s'\n",
+		 old, new);
+	  if (!g_file_test(props->config_dir, G_FILE_TEST_IS_DIR))
+	    gc_util_create_rootdir(props->config_dir);
 
-  full_rootdir = g_strconcat(user_dir, "/user_data", NULL);
-  gc_util_create_rootdir(full_rootdir);
-  g_free(full_rootdir);
+	  g_rename(old, new);
+	}
+      g_free(old);
+    }
+  g_free(new);
 
-  full_rootdir = g_strconcat(user_dir, "/user_data/images", NULL);
-  gc_util_create_rootdir(full_rootdir);
-  g_free(full_rootdir);
+  /* DATA BASE FILE MIGRATION */
+  new = g_strconcat(props->config_dir, "/", DEFAULT_DATABASE, NULL);
 
-  full_rootdir = g_strconcat(user_dir, "/", PROFILES_ROOT, NULL);
-  gc_util_create_rootdir(full_rootdir);
-  g_free(full_rootdir);
+  if (!g_file_test(new, G_FILE_TEST_IS_REGULAR))
+    {
+      old = g_strconcat(g_get_home_dir(),
+			"/.gcompris/shared/profiles/gcompris_sqlite.db",
+			NULL);
 
-  g_free(user_dir);
+      if (g_file_test(old, G_FILE_TEST_IS_REGULAR))
+	{
+	  printf("Database migration '%s' -> '%s'\n",
+		 old, new);
+	  g_rename(old, new);
+	}
+      g_free(old);
+    }
+  g_free(new);
 
-  g_warning("config_file %s", config_file);
+  /* LOG FILE MIGRATION */
+  new = g_strconcat(props->config_dir,
+		    "/gcompris.log",
+		    NULL);
+  if (!g_file_test(new, G_FILE_TEST_IS_REGULAR))
+    {
+      old = g_strconcat(g_get_home_dir(),
+			"/.gcompris/gcompris.log",
+			NULL);
+      if (g_file_test(old, G_FILE_TEST_IS_REGULAR))
+	{
+	  printf("Logs migration '%s' -> '%s'\n",
+		 old, new);
+	  g_rename(old, new);
+	}
+      g_free(old);
+    }
+  g_free(new);
+
+
+  /* User Images Migration */
+  new = g_strconcat(props->user_dir,
+		    NULL);
+  if (!g_file_test(new, G_FILE_TEST_IS_DIR))
+    gc_util_create_rootdir(new);
+  g_free(new);
+
+  new = g_strconcat(props->user_dir,
+		    "/Images",
+		    NULL);
+  if (!g_file_test(new, G_FILE_TEST_IS_DIR))
+    {
+      old = g_strconcat(g_get_home_dir(),
+			"/.gcompris/user_data/images",
+			NULL);
+      if (g_file_test(old, G_FILE_TEST_IS_DIR))
+	{
+	  int retval = g_rename(old, new);
+	  printf("Image directory migration (%d) '%s' -> '%s'\n",
+		 retval, old, new);
+	}
+      g_free(old);
+    }
+  g_free(new);
+
+  /* User Activity Data Migration */
+  old = g_strconcat(g_get_home_dir(),
+		    "/.gcompris/users",
+		    NULL);
+  if (g_file_test(old, G_FILE_TEST_IS_DIR))
+    {
+      GDir *diruser = g_dir_open(old, 0, NULL);
+      const gchar *user;
+
+      while((user = g_dir_read_name(diruser)))
+	{
+	  char *old2 = g_strconcat(old, "/", user, NULL);
+	  GDir *diractivity = g_dir_open(old2, 0, NULL);
+
+	  const gchar *activity;
+
+	  while((activity = g_dir_read_name(diractivity)))
+	    {
+	      char *old3 = g_strconcat(old, "/", user, "/", activity, NULL);
+	      GDir *dirfile = g_dir_open(old3, 0, NULL);
+
+	      const gchar *file;
+	      while((file = g_dir_read_name(dirfile)))
+		{
+		  gchar *oldfullfile = g_strconcat(old3, "/", file, NULL);
+		  gchar *newfulldir = g_strconcat(props->user_dir, "/", activity, NULL);
+		  gchar *newfullfile = g_strconcat(props->user_dir, "/", activity, "/", file, NULL);
+
+		  gc_util_create_rootdir(newfulldir);
+
+		  /* Oops, the file already exists, prepend the user name */
+		  if(g_file_test(newfullfile, G_FILE_TEST_IS_REGULAR))
+		    {
+		      g_free(newfullfile);
+		      newfullfile = g_strconcat(props->user_dir, "/", activity, "/", user, "_", file, NULL);
+		      printf("Duplicate file, prepending user name %s\n", newfullfile);
+		    }
+		  int retval = g_rename(oldfullfile, newfullfile);
+		  printf("Data file migration (%d) '%s' -> '%s'\n",
+			 retval, oldfullfile, newfullfile);
+
+		  g_free(oldfullfile);
+		  g_free(newfulldir);
+		  g_free(newfullfile);
+		}
+
+	      g_free(old3);
+	      g_dir_close(dirfile);
+	    }
+
+	  g_dir_close(diractivity);
+	  g_free(old2);
+	}
+      g_dir_close(diruser);
+    }
+  g_free(old);
+
+}
+
+
+void
+gc_prop_load (GcomprisProperties *props)
+{
+  char          *config_file;
+  GScanner      *scanner;
+  gchar		*content;
+  gsize		length;
+#ifndef WIN32
+  const gchar   *locale;
+#endif
+
+  config_file = g_strconcat(props->config_dir, "/", gc_prop_config_file_get(), NULL);
+
+  old_config_migration(props);
 
   if(g_file_get_contents(config_file,
 			 &content,
 			 &length,
 			 NULL)) {
+
+    g_warning("Loading config file '%s'", config_file);
 
     /* create a new scanner */
     scanner = g_scanner_new(NULL);
@@ -229,53 +376,48 @@ gc_prop_new ()
 	token = g_strdup(value.v_identifier);
 
 	if(!strcmp(value.v_identifier, "music")) {
-	  if(!scan_get_int(scanner, &tmp->music))
+	  if(!scan_get_int(scanner, &props->music))
 	    g_warning("Config file parsing error on token %s", token);
 	} else if(!strcmp(value.v_identifier, "fx")) {
-	  if(!scan_get_int(scanner, &tmp->fx))
+	  if(!scan_get_int(scanner, &props->fx))
 	    g_warning("Config file parsing error on token %s", token);
 	} else if(!strcmp(value.v_identifier, "screensize")) {
-	  if(!scan_get_int(scanner, &tmp->screensize))
+	  if(!scan_get_int(scanner, &props->screensize))
 	    g_warning("Config file parsing error on token %s", token);
 	} else if(!strcmp(value.v_identifier, "fullscreen")) {
-	  if(!scan_get_int(scanner, &tmp->fullscreen))
+	  if(!scan_get_int(scanner, &props->fullscreen))
 	    g_warning("Config file parsing error on token %s", token);
 	} else if(!strcmp(value.v_identifier, "noxf86vm")) {
-	  if(!scan_get_int(scanner, &tmp->noxf86vm))
+	  if(!scan_get_int(scanner, &props->noxf86vm))
 	    g_warning("Config file parsing error on token %s", token);
 	} else if(!strcmp(value.v_identifier, "timer")) {
-	  if(!scan_get_int(scanner, &tmp->timer))
+	  if(!scan_get_int(scanner, &props->timer))
 	    g_warning("Config file parsing error on token %s", token);
 	} else if(!strcmp(value.v_identifier, "difficulty_filter")) {
-	  if(!scan_get_int(scanner, &tmp->difficulty_filter))
+	  if(!scan_get_int(scanner, &props->difficulty_filter))
 	    g_warning("Config file parsing error on token %s", token);
 	} else if(!strcmp(value.v_identifier, "disable_quit")) {
-	  if(!scan_get_int(scanner, &tmp->disable_quit))
+	  if(!scan_get_int(scanner, &props->disable_quit))
 	    g_warning("Config file parsing error on token %s", token);
 	} else if(!strcmp(value.v_identifier, "disable_config")) {
-	  if(!scan_get_int(scanner, &tmp->disable_config))
+	  if(!scan_get_int(scanner, &props->disable_config))
 	    g_warning("Config file parsing error on token %s", token);
 	} else if(!strcmp(value.v_identifier, "filter_style")) {
-	  if(!scan_get_int(scanner, &tmp->filter_style))
+	  if(!scan_get_int(scanner, &props->filter_style))
 	    g_warning("Config file parsing error on token %s", token);
 	} else if(!strcmp(value.v_identifier, "skin")) {
-        g_free(tmp->skin);
-	  tmp->skin = scan_get_string(scanner);
-	  if(!tmp->skin)
+        g_free(props->skin);
+	  props->skin = scan_get_string(scanner);
+	  if(!props->skin)
 	    g_warning("Config file parsing error on token %s", token);
 	} else if(!strcmp(value.v_identifier, "locale")) {
-	  tmp->locale = scan_get_string(scanner);
-	  if(!tmp->locale)
+	  props->locale = scan_get_string(scanner);
+	  if(!props->locale)
 	    g_warning("Config file parsing error on token %s", token);
 	} else if(!strcmp(value.v_identifier, "key")) {
-      g_free(tmp->key);
-	  tmp->key = scan_get_string(scanner);
-	  if(!tmp->key)
-	    g_warning("Config file parsing error on token %s", token);
-	}
-	else if(!strcmp(value.v_identifier, "database")) {
-	  tmp->database = scan_get_string(scanner);
-	  if(!tmp->database)
+	  g_free(props->key);
+	  props->key = scan_get_string(scanner);
+	  if(!props->key)
 	    g_warning("Config file parsing error on token %s", token);
 	}
 	g_free(token);
@@ -295,30 +437,69 @@ gc_prop_new ()
    * Warning, gcompris need a proper locale prefix to find suitable dataset
    * Some system use LOCALE 'C' for english. We have to set it explicitly
    */
-  if(!tmp->locale) {
+  if(!props->locale) {
 
 #if defined WIN32
-    tmp->locale = g_win32_getlocale();
+    props->locale = g_win32_getlocale();
 #else
     locale = g_getenv("LC_ALL");
     if(locale == NULL)
-      locale = g_getenv("LC_MESSAGES");
+      locale = g_getenv("LC_CTYPE");
     if(locale == NULL)
       locale = g_getenv("LANG");
 
     if (locale != NULL && !strcmp(locale, "C"))
       {
-	tmp->locale		= "en_US.UTF-8";
+	props->locale		= "en_US.UTF-8";
       }
 #endif
   }
 
-  if(!tmp->locale) {
+  if(!props->locale) {
     /* No user specified locale = '' */
-    tmp->locale		= strdup("");
+    props->locale = strdup("");
   }
 
-  return (tmp);
+  g_free(config_file);
+
+}
+
+/** \brief One the properties have been loaded and overloaded by the user params
+ * call this function to create the directory structure mandatory to make GCompris
+ * works.
+ *
+ */
+void gc_prop_activate(GcomprisProperties *props)
+{
+  char *tmp;
+
+  if (!g_file_test(props->config_dir, G_FILE_TEST_IS_DIR))
+    gc_util_create_rootdir(props->config_dir);
+
+  if (!g_file_test(props->user_dir, G_FILE_TEST_IS_DIR))
+    gc_util_create_rootdir(props->user_dir);
+
+  tmp = g_strconcat(props->user_dir, "/Images", NULL);
+  if (!g_file_test(tmp, G_FILE_TEST_IS_DIR))
+    gc_util_create_rootdir(tmp);
+  g_free(tmp);
+
+  tmp = g_strconcat(props->user_dir, "/", _("readme"), ".txt", NULL);
+  g_file_set_contents(tmp,
+		      _("This directory contains the files you create with the GCompris educational suite\n"),
+		      -1,
+		      NULL);
+  g_free(tmp);
+
+  tmp = g_strconcat(props->user_dir, "/Images/", _("readme"), ".txt", NULL);
+  g_file_set_contents(tmp,
+		      _("Put any numer of images in this directory.\n"
+			"You can include these images in your drawings and animations.\n"
+			"The image format supported are jpeg, png and svg.\n"),
+		      -1,
+		      NULL);
+  g_free(tmp);
+
 }
 
 void
@@ -326,7 +507,6 @@ gc_prop_destroy (GcomprisProperties *props)
 {
   if(!props)
     return;
-  g_free(props->user_data_dir);
   g_free(props->package_data_dir);
   g_free(props->package_locale_dir);
   g_free(props->package_plugin_dir);
@@ -339,18 +519,18 @@ gc_prop_destroy (GcomprisProperties *props)
   gc_profile_destroy(props->profile);
   gc_user_destroy(props->logged_user);
   g_free(props->database);
-  g_free(props->shared_dir);
-  g_free(props->users_dir);
-  g_free(props->menu_position);
+  g_free(props->config_dir);
+  g_free(props->user_dir);
   g_free(props->server);
-  g_free (props);
+  g_free(props);
   g_warning("properties free");
 }
 
 void
 gc_prop_save (GcomprisProperties *props)
 {
-  char *config_file = gc_prop_config_file_get();
+  char *config_file = g_strconcat(props->config_dir, "/", gc_prop_config_file_get(),
+				  NULL);
   FILE *filefd;
 
   filefd = g_fopen(config_file, "w+");
@@ -370,53 +550,10 @@ gc_prop_save (GcomprisProperties *props)
   fprintf(filefd, "%s=\"%s\"\n", "locale",		props->locale);
   fprintf(filefd, "%s=\"%s\"\n", "key",			props->key);
 
-  fprintf(filefd, "%s=\"%s\"\n", "database",		props->database);
-
   fclose(filefd);
+
+  g_free(config_file);
 }
-
-gchar*
-gc_prop_user_dirname_get(GcomprisUser *user)
-{
-  GcomprisProperties	*properties = gc_prop_get ();
-
-  gchar *user_dirname = g_strconcat (properties->users_dir,
-				     "/",
-				     user->login,
-				     NULL);
-
-  gc_util_create_rootdir(user_dirname);
-
-  return user_dirname;
-}
-
-gchar*
-gc_prop_current_user_dirname_get()
-{
-  return gc_prop_user_dirname_get(gc_profile_get_current_user());
-}
-
-gchar*
-gc_prop_board_dirname_get(GcomprisBoard *board)
-{
-  GcomprisProperties	*properties = gc_prop_get ();
-
-  gchar *board_main = g_strconcat (properties->shared_dir, "/boards", NULL);
-  gc_util_create_rootdir(board_main);
-
-  gchar *board_dirname = g_strconcat (board_main, "/", board->name, NULL);
-  gc_util_create_rootdir(board_dirname);
-
-  g_free(board_main);
-  return board_dirname;
-}
-
-gchar*
-gc_prop_current_board_dirname_get()
-{
-  return gc_prop_board_dirname_get(gc_board_get_current());
-}
-
 
 int
 gc_setenv (const char * name, const char * value) {
