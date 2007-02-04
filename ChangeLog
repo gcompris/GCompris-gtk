@@ -1,3 +1,10 @@
+2007-02-04  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* Makefile.am: replace CVS by .svn
+	* boards/mypaint.xml.in: Improved help
+	* src/gcompris/gcompris.c: (main): fixed support for --config-dir and --user-dir
+	* src/gcompris/properties.c: (gc_prop_new), (old_config_migration): -
+
 2007-02-04  Yves Combe <yves@ycombe.net>
 
 	add MyPaint brushes and wml.in

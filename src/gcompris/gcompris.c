@@ -43,6 +43,9 @@
 #include <X11/extensions/xf86vmode.h>
 #endif
 
+/* get the default database name */
+#define DEFAULT_DATABASE "gcompris_sqlite.db"
+
 static GtkWidget *window;
 static GnomeCanvas *canvas;
 static GnomeCanvas *canvas_bar;
@@ -159,7 +162,7 @@ static GOptionEntry options[] = {
    N_("Run GCompris in administration and user-management mode"), NULL},
 
   {"database", 'b', 0, G_OPTION_ARG_STRING, &popt_database,
-   N_("Use alternate database for profiles"), NULL},
+   N_("Use alternate database for profiles [$HOME/.config/gcompris/gcompris_sqlite.db]"), NULL},
 
   {"logs", 'j', 0, G_OPTION_ARG_STRING, &popt_logs_database,
    N_("Use alternate database for logs"), NULL},
@@ -177,9 +180,9 @@ static GOptionEntry options[] = {
    N_("List all available profiles. Use 'gcompris -a' to create profiles"), NULL},
 
   {"config-dir",'\0', 0, G_OPTION_ARG_STRING, &popt_config_dir,
-   N_("Config directory location: [$HOME/.config/gcompris]"), NULL},
+   N_("Config directory location: [$HOME/.config/gcompris]. Alternate is to set $XDG_CONFIG_HOME."), NULL},
 
-  {"users-dir",'\0', 0, G_OPTION_ARG_STRING, &popt_user_dir,
+  {"user-dir",'\0', 0, G_OPTION_ARG_STRING, &popt_user_dir,
    N_("The location of user directories: [$HOME/My GCompris]"), NULL},
 
   {"experimental",'\0', 0, G_OPTION_ARG_NONE, &popt_experimental,
@@ -1428,18 +1431,24 @@ main (int argc, char *argv[])
       gc_debug = TRUE;
     }
 
-  if (popt_config_dir){
-    if ((!g_file_test(popt_config_dir, G_FILE_TEST_IS_DIR)) ||
-	(g_access(popt_config_dir, popt_administration? W_OK : R_OK ) == -1)){
-      printf("%s does not exists or is not %s", popt_config_dir,
-	     popt_administration? "writable" : "readable"	);
-      exit(0);
+  if (popt_config_dir)
+    {
+      printf("popt_config_dir\n");
+      if ((!g_file_test(popt_config_dir, G_FILE_TEST_IS_DIR)) ||
+	  (g_access(popt_config_dir, popt_administration? W_OK : R_OK ) == -1))
+	{
+	  printf("%s does not exists or is not %s", popt_config_dir,
+		 popt_administration? "writable" : "readable"	);
+	  exit(0);
+	}
+      else
+	{
+	  g_warning("Using %s as config directory.", popt_config_dir);
+	  g_free(properties->config_dir);
+	  properties->config_dir = g_strdup(popt_config_dir);
+	}
     }
-    else {
-      g_warning("Using %s as config directory.", popt_config_dir);
-      properties->config_dir = g_strdup(popt_config_dir);
-    }
-  }
+
   /* Now we know where our config file is, load the saved config */
   gc_prop_load(properties);
 
@@ -1565,22 +1574,25 @@ main (int argc, char *argv[])
     }
   }
 
-  if (popt_user_dir){
-    if ((!g_file_test(popt_user_dir, G_FILE_TEST_IS_DIR)) ||
-	(g_access(popt_user_dir, popt_administration? R_OK : W_OK ) == -1)){
-	g_warning("%s does not exists or is not %s ", popt_user_dir,
-		  popt_administration? "readable" : "writable");
-	exit(0);
-    } else {
-      g_warning("Using %s as users directory.", popt_user_dir);
-      g_free(properties->user_dir);
-      properties->user_dir = g_strdup(popt_user_dir);
+  if (popt_user_dir)
+    {
+      if ((!g_file_test(popt_user_dir, G_FILE_TEST_IS_DIR)) ||
+	  (g_access(popt_user_dir, popt_administration? R_OK : W_OK ) == -1))
+	{
+	  g_warning("%s does not exists or is not %s ", popt_user_dir,
+		    popt_administration? "readable" : "writable");
+	  exit(0);
+	}
+      else
+	{
+	  g_warning("Using %s as user directory.", popt_user_dir);
+	  g_free(properties->user_dir);
+	  properties->user_dir = g_strdup(popt_user_dir);
+	}
     }
-  }
 
   if (popt_database)
     {
-      g_free(properties->database);
       properties->database = g_strdup(popt_database);
 
       if (g_file_test(properties->database, G_FILE_TEST_EXISTS))
@@ -1591,6 +1603,12 @@ main (int argc, char *argv[])
 	      exit(0);
 	    }
 	}
+    }
+  else
+    {
+      /* Init the default database location */
+      properties->database = g_strconcat(properties->config_dir,
+					 "/", DEFAULT_DATABASE, NULL);
     }
 
   /* config_dir initialised, now we can set the default */

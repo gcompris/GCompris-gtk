@@ -34,9 +34,6 @@
 # include <windows.h>
 #endif
 
-/* get the default database name */
-#define DEFAULT_DATABASE "gcompris_sqlite.db"
-
 /*
  * return 1 if parsing OK, 0 otherwise
  * the return value is returned in retval
@@ -183,7 +180,7 @@ gc_prop_new ()
 
   tmp->config_dir = gc_prop_default_config_directory_get();
   tmp->user_dir = gc_prop_default_user_directory_get();
-  tmp->database = g_strconcat(tmp->config_dir, "/", DEFAULT_DATABASE, NULL);
+  tmp->database = NULL;
 
   return (tmp);
 }
@@ -212,7 +209,7 @@ void old_config_migration(GcomprisProperties *props)
   g_free(new);
 
   /* DATA BASE FILE MIGRATION */
-  new = g_strconcat(props->config_dir, "/", DEFAULT_DATABASE, NULL);
+  new = g_strconcat(props->config_dir, "/gcompris_sqlite.db", NULL);
 
   if (!g_file_test(new, G_FILE_TEST_IS_REGULAR))
     {
