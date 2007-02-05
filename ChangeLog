@@ -1,3 +1,11 @@
+2007-02-05  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	- Improved the wordprocessor to save as xhtml instead of html
+
+	* boards/gcompris/mimetypes/mime_type.xml.in:
+	* src/boards/wordprocessor.c: (display_style_buttons),
+	(save_buffer), (save_event):
+
 2007-02-04  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* Makefile.am: replace CVS by .svn
@@ -1885,7 +1893,7 @@
 
 2006-10-10  Bruno coudoin  <bruno.coudoin@free.fr>
 
-	- Jos� JORGE created a new set of icons that were missing for the memory
+	- José JORGE created a new set of icons that were missing for the memory
 
 	* board/boardicons/mem_solo_calc.png
 	* board/boardicons/mem_solo_all.png
@@ -2412,7 +2420,7 @@
 
 2006-09-14  Bruno coudoin  <bruno.coudoin@free.fr>
 
-	- Added Turk voices by Meltem Turhan Y�ndem
+	- Added Turk voices by Meltem Turhan Yöndem
 	- Added Turk internal geography maps (3 maps)
 	- Fixed reading activity, now it uses the wordlist API
 	- fixed desktop file category to suit freedesktop list.
@@ -5063,7 +5071,7 @@
 
 2006-04-26  bruno
 
-	* boards/geography/board5_0.xml.in: Fixed a typo, Franche Compt�
+	* boards/geography/board5_0.xml.in: Fixed a typo, Franche Compté
 
 2006-04-26  bruno
 
@@ -8448,7 +8456,7 @@ xc2006-03-14  Bruno coudoin  <bruno.coudoin@free.fr>
 	* boards/memory_sound_tux.xml.in: Updated  board description, documentation
 	* po/POTFILES.in: added memory_sound
 	* src/boards/memory.c: (update_scores), (create_item): added a text shadow
-	* src/boards/money.c: (money_next_level): Now the money format is I18N (to Use $�...)
+	* src/boards/money.c: (money_next_level): Now the money format is I18N (to Use $£...)
 	* src/gcompris/gameutil.c: (gcompris_find_absolute_filename): removed debug printout
 	* src/gcompris/gcompris.c: (init_background), (gcompris_init): Moved the xrandr fullscreen set at
 	                           the end of the initialisation to avoid flickering.
@@ -11723,7 +11731,7 @@ xc2006-03-14  Bruno coudoin  <bruno.coudoin@free.fr>
 	* boards/fifteen.xml.in: Changed the difficulty from 1 to 5
 	* boards/sudoku.xml.in: updated help
 	* src/boards/python/sudoku.py: completed, now work in drag and drop mode
-	* src/boards/railroad.c: (reposition_model): fix by Fran�ois Gannaz
+	* src/boards/railroad.c: (reposition_model): fix by François Gannaz
 	  the original position was not resetted on repeat button
 
 2005-08-24  Yves Combe  <yves@ycombe.net>
@@ -12168,7 +12176,7 @@ xc2006-03-14  Bruno coudoin  <bruno.coudoin@free.fr>
 
 2005-08-16  Yves Combe  <yves@ycombe.net>
 
-	Patch to fix compilation (libdir and X path) in x86_64, by G�ran Uddeborg, thanks. Python need another check.
+	Patch to fix compilation (libdir and X path) in x86_64, by Göran Uddeborg, thanks. Python need another check.
 
 	* configure.in:
 
@@ -12563,7 +12571,7 @@ xc2006-03-14  Bruno coudoin  <bruno.coudoin@free.fr>
 
 2005-07-21  Yves Combe  <yves@ycombe.net>
 
-	Finished board s�lection by profile in board_list.py
+	Finished board sélection by profile in board_list.py
 	Put board->board_id python binding to board.board_id (was board.id)
 
 	* src/boards/py-gcompris-board.c: (pyGcomprisBoardType_getattr):
@@ -15948,7 +15956,7 @@ After level 5, 2 dices fall with total numbers up to 9. With the simplistic entr
 	* configure.in: changed to LIBGNOMECANVAS_REQUIRED=2.3.6
 	* src/gcompris/gameutil.c: (gcompris_dialog_close),
 	(gcompris_dialog): fixed richtext canvas instability with
-	workaround from Jean Br�fort
+	workaround from Jean Bréfort
 	* src/gcompris/help.c: (gcompris_help_stop): -
 
 2004-09-29  Bruno coudoin  <bruno.coudoin@free.fr>
@@ -15956,7 +15964,7 @@ After level 5, 2 dices fall with total numbers up to 9. With the simplistic entr
 	* configure.in: adjusted dependancy version
 	* gcompris.spec.in: adjusted dependancy version, added libgnomecanvas
 	* src/boards/menu.c: (menu_start): re-added forced update
-	* src/boards/python/anim.py: fixed bug reported by Jos� JORGE. When re-edited, new shots are not editable.
+	* src/boards/python/anim.py: fixed bug reported by José JORGE. When re-edited, new shots are not editable.
 
 2004-09-28  Bruno coudoin  <bruno.coudoin@free.fr>
 
@@ -16621,7 +16629,7 @@ After level 5, 2 dices fall with total numbers up to 9. With the simplistic entr
 
 	* boards/flags/sq.png: created from CIA world fact book.
 	* boards/geography/Makefile.am: changed to include world map
-	* boards/geography/board1_0.xml.in: added worldmap by Jos� Jorges
+	* boards/geography/board1_0.xml.in: added worldmap by José Jorges
 	* boards/geography/board2_0.xml.in: changed the maps ordering
 	* boards/geography/board2_1.xml.in:
 	* boards/geography/board3_1.xml.in:
@@ -18511,7 +18519,7 @@ wrapped some new functions
 	* src/gcompris/oggplayer.c: (display_ogg_file_credits),
 	(item_event_ogginfo): now display less information but better looking.
 
-2003-09-19  Danilo Šegan  <dsegan@gmx.net>
+2003-09-19  Danilo Å egan  <dsegan@gmx.net>
 
 	* configure.in: Added "sr" and "sr@Latn" to ALL_LINGUAS.
 
@@ -19607,7 +19615,7 @@ wrapped some new functions
 
 2002-03-12 Bruno Coudoin <bruno.coudoin@free.fr>
 
-	* po/sk.po: Zdeno Podobn?½ <zdpo@mailbox.sk> created
+	* po/sk.po: Zdeno Podobn?Â½ <zdpo@mailbox.sk> created
 	the slovak translation.
 	* configure.in: added sk to all-lang
 
@@ -19973,7 +19981,7 @@ wrapped some new functions
 2001-11-25 Pascal Georges <pascal.georges1@free.fr>
         * src/gcompris/gameutil.c : added convertUTF8Toisolat1 function
 
-2001-11-23 Reinhard M?¼ller <reinhard.mueller@bytewise.at>
+2001-11-23 Reinhard M?Â¼ller <reinhard.mueller@bytewise.at>
         * src/boards/algebra.c change operation order and other fix
 
 2001-11-17 Renaud Blanchard <kisukama@chez.com>
@@ -20020,7 +20028,7 @@ wrapped some new functions
 
         * configure.in: Sorted ALL_LINGUAS and added "sv" to it.
 
-2001-10-31  Carlos Perell?³ Mar?­n <carlos@gnome-db.org>
+2001-10-31  Carlos Perell?Â³ Mar?Â­n <carlos@gnome-db.org>
 
         * gcompris.desktop: converted to use xml-i18n-tools.
 
@@ -20273,8 +20281,8 @@ wrapped some new functions
 
 2001-02-18  Bruno Coudoin  <bruno.coudoin@free.fr>
         * GCompris : Release 0.4.1
-        * pt_BR.po: Created by Isa?­as V. Prestes <isix@uol.com.br>
-        * wordslevel*.pt_BR: Created by Isa?­as V. Prestes <isix@uol.com.br>
+        * pt_BR.po: Created by Isa?Â­as V. Prestes <isix@uol.com.br>
+        * wordslevel*.pt_BR: Created by Isa?Â­as V. Prestes <isix@uol.com.br>
         * wordslevel*.de: Created by Gerhard Dieringer
         * shapegame.c: Created by bruno. This is a new board in the puzzle style.
         * wordsgame.c (get_wordfile): Replaced malloc by g_strdup_printf

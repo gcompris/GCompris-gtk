@@ -36,7 +36,7 @@ typedef struct {
   gint pixels_below_lines;
 } style_t;
 
-#define NUMBER_OF_STYLE 4 /* H1 H2 H3 P */
+#define NUMBER_OF_STYLE 4 /* h1 h2 h3 p */
 
 static GtkTextTag *tag_list[NUMBER_OF_STYLE];
 
@@ -53,10 +53,10 @@ doctype_t type_normal =
   {
     .name = N_("Default"),
     .style = {
-      { "H1", "Serif 30", PANGO_WEIGHT_ULTRABOLD,  GTK_JUSTIFY_CENTER, 0,  40, 20 },
-      { "H2", "Serif 26", PANGO_WEIGHT_BOLD,       GTK_JUSTIFY_LEFT,   0,  30, 15 },
-      { "H3", "Serif 20", PANGO_WEIGHT_SEMIBOLD,   GTK_JUSTIFY_LEFT,   0,  20, 12 },
-      { "P",  "Serif 16", PANGO_WEIGHT_NORMAL,     GTK_JUSTIFY_LEFT,   30, 3,  3 }
+      { "h1", "Serif 30", PANGO_WEIGHT_ULTRABOLD,  GTK_JUSTIFY_CENTER, 0,  40, 20 },
+      { "h2", "Serif 26", PANGO_WEIGHT_BOLD,       GTK_JUSTIFY_LEFT,   0,  30, 15 },
+      { "h3", "Serif 20", PANGO_WEIGHT_SEMIBOLD,   GTK_JUSTIFY_LEFT,   0,  20, 12 },
+      { "p",  "Serif 16", PANGO_WEIGHT_NORMAL,     GTK_JUSTIFY_LEFT,   30, 3,  3 }
     }
   };
 
@@ -64,10 +64,10 @@ doctype_t type_letter =
   {
     .name = N_("Letter"),
     .style = {
-      { "H1", "Serif 26", PANGO_WEIGHT_ULTRABOLD,  GTK_JUSTIFY_CENTER, 0,  40, 20 },
-      { "H2", "Serif 20", PANGO_WEIGHT_BOLD,       GTK_JUSTIFY_LEFT,   0,  30, 15 },
-      { "H3", "Serif 16", PANGO_WEIGHT_SEMIBOLD,   GTK_JUSTIFY_LEFT,   0,  20, 12 },
-      { "P",  "Serif 14", PANGO_WEIGHT_NORMAL,     GTK_JUSTIFY_LEFT,   30, 3,  3 }
+      { "h1", "Serif 26", PANGO_WEIGHT_ULTRABOLD,  GTK_JUSTIFY_CENTER, 0,  40, 20 },
+      { "h2", "Serif 20", PANGO_WEIGHT_BOLD,       GTK_JUSTIFY_LEFT,   0,  30, 15 },
+      { "h3", "Serif 16", PANGO_WEIGHT_SEMIBOLD,   GTK_JUSTIFY_LEFT,   0,  20, 12 },
+      { "p",  "Serif 14", PANGO_WEIGHT_NORMAL,     GTK_JUSTIFY_LEFT,   30, 3,  3 }
     },
   };
 
@@ -75,10 +75,10 @@ doctype_t type_small =
   {
     .name = N_("Small"),
     .style = {
-      { "H1", "Serif 18", PANGO_WEIGHT_ULTRABOLD,  GTK_JUSTIFY_CENTER, 0,  40, 20 },
-      { "H2", "Serif 16", PANGO_WEIGHT_BOLD,       GTK_JUSTIFY_LEFT,   0,  30, 15 },
-      { "H3", "Serif 14", PANGO_WEIGHT_SEMIBOLD,   GTK_JUSTIFY_LEFT,   0,  20, 12 },
-      { "P",  "Serif 12", PANGO_WEIGHT_NORMAL,     GTK_JUSTIFY_LEFT,   30, 3,  3 }
+      { "h1", "Serif 18", PANGO_WEIGHT_ULTRABOLD,  GTK_JUSTIFY_CENTER, 0,  40, 20 },
+      { "h2", "Serif 16", PANGO_WEIGHT_BOLD,       GTK_JUSTIFY_LEFT,   0,  30, 15 },
+      { "h3", "Serif 14", PANGO_WEIGHT_SEMIBOLD,   GTK_JUSTIFY_LEFT,   0,  20, 12 },
+      { "p",  "Serif 12", PANGO_WEIGHT_NORMAL,     GTK_JUSTIFY_LEFT,   30, 3,  3 }
     },
   };
 
@@ -86,10 +86,10 @@ doctype_t type_text =
   {
     .name = N_("Text"),
     .style = {
-      { "H1", "Serif 12", PANGO_WEIGHT_ULTRABOLD,  GTK_JUSTIFY_CENTER, 0,  40, 20 },
-      { "H2", "Serif 12", PANGO_WEIGHT_BOLD,       GTK_JUSTIFY_LEFT,   0,  30, 15 },
-      { "H3", "Serif 12", PANGO_WEIGHT_SEMIBOLD,   GTK_JUSTIFY_LEFT,   0,  20, 12 },
-      { "P",  "Serif 12", PANGO_WEIGHT_NORMAL,     GTK_JUSTIFY_LEFT,   30, 3,  3 }
+      { "h1", "Serif 12", PANGO_WEIGHT_ULTRABOLD,  GTK_JUSTIFY_CENTER, 0,  40, 20 },
+      { "h2", "Serif 12", PANGO_WEIGHT_BOLD,       GTK_JUSTIFY_LEFT,   0,  30, 15 },
+      { "h3", "Serif 12", PANGO_WEIGHT_SEMIBOLD,   GTK_JUSTIFY_LEFT,   0,  20, 12 },
+      { "p",  "Serif 12", PANGO_WEIGHT_NORMAL,     GTK_JUSTIFY_LEFT,   30, 3,  3 }
     },
   };
 
@@ -97,10 +97,10 @@ doctype_t type_big =
   {
     .name = N_("Big"),
     .style = {
-      { "H1", "Serif 34", PANGO_WEIGHT_ULTRABOLD,  GTK_JUSTIFY_CENTER, 0,  40, 20 },
-      { "H2", "Serif 30", PANGO_WEIGHT_BOLD,       GTK_JUSTIFY_LEFT,   0,  30, 15 },
-      { "H3", "Serif 26", PANGO_WEIGHT_SEMIBOLD,   GTK_JUSTIFY_LEFT,   0,  20, 12 },
-      { "P",  "Serif 18", PANGO_WEIGHT_NORMAL,     GTK_JUSTIFY_LEFT,   30, 3,  3 }
+      { "h1", "Serif 34", PANGO_WEIGHT_ULTRABOLD,  GTK_JUSTIFY_CENTER, 0,  40, 20 },
+      { "h2", "Serif 30", PANGO_WEIGHT_BOLD,       GTK_JUSTIFY_LEFT,   0,  30, 15 },
+      { "h3", "Serif 26", PANGO_WEIGHT_SEMIBOLD,   GTK_JUSTIFY_LEFT,   0,  20, 12 },
+      { "p",  "Serif 18", PANGO_WEIGHT_NORMAL,     GTK_JUSTIFY_LEFT,   30, 3,  3 }
     },
   };
 #define NUMBER_OF_DOCTYPE 5
@@ -113,8 +113,8 @@ static doctype_t *doctype_list[NUMBER_OF_DOCTYPE];
 static gchar *color_style_list[NUMBER_OF_COLOR_STYLE][NUMBER_OF_STYLE+1] =
 {
   {N_("Black"), "black",  "black",  "black",  "black"},
-  {N_("Red"), "red",  "blue",  "light blue",  "black"},
-  {N_("Blue"), "blue",  "red",  "light blue",  "black"},
+  {N_("Red"), "red",  "blue",  "lightblue",  "black"},
+  {N_("Blue"), "blue",  "red",  "lightblue",  "black"},
   {N_("Pink"), "DeepPink",  "HotPink",  "MediumOrchid",  "black"},
 };
 
@@ -386,10 +386,10 @@ static void display_style_buttons(GnomeCanvasGroup *boardRootItem,
   GdkPixbuf *pixmap;
   int offset_y, text_x, text_y;
   int i = 0;
-  gchar *styles_tab[] = { _("TITLE"), "H1",
-			  _("TITLE 1"), "H2",
-			  _( "TITLE 2"), "H3",
-			  _("TEXT"), "P",
+  gchar *styles_tab[] = { _("TITLE"), "h1",
+			  _("TITLE 1"), "h2",
+			  _( "TITLE 2"), "h3",
+			  _("TEXT"), "p",
 			  NULL, NULL };
 
   pixmap = gc_skin_pixmap_load("button_small.png");
@@ -792,12 +792,14 @@ save_buffer(gchar *file, gchar *file_type)
   filefd = g_fopen(file, "w+");
 
   /*
-   * HTML Header
+   * XHTML Header
    */
   fprintf(filefd,
-	  "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01//EN\" \"http://www.w3.org/TR/html4/strict.dtd\">\n"
-	  "<html>\n"
+	  "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+	  "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n"
+	  "<html xmlns=\"http://www.w3.org/1999/xhtml\">\n"
 	  "<head>\n"
+	  "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" />"
 	  "<title>GCompris</title>\n");
 
   /*
@@ -810,27 +812,36 @@ save_buffer(gchar *file, gchar *file_type)
     int style_index = get_style_index();
     int color_index = get_color_style_index();
     int i;
+    int font_size[NUMBER_OF_STYLE] = { 28, 22, 16, 12 };
+    char *align[NUMBER_OF_STYLE] = { "center", "left", "left", "justify" };
+    int indent[NUMBER_OF_STYLE] = { 0, 10, 20, 30 };
 
     for(i=0; i<NUMBER_OF_STYLE; i++)
       {
 	style_t style = doctype_list[style_index]->style[i];
 	fprintf(filefd,
 		"%s {\n"
-		"color : %s;"
-		"\n}\n",
+		"  color : %s;\n"
+		"  font-size : %dpx;\n"
+		"  text-align : %s;\n"
+		"  margin-left : %dpx;\n"
+		"}\n",
 		style.name,
-		color_style_list[color_index][i+1]);
+		color_style_list[color_index][i+1],
+		font_size[i],
+		align[i],
+		indent[i]);
       }
 
   }
   fprintf(filefd,
-	  "</style>\n");
+	  "</style>\n"
+	  "</head>\n");
 
   /*
    * Header end
    */
   fprintf(filefd,
-	  "</head>\n"
 	  "<body>\n");
 
   gtk_text_buffer_get_iter_at_offset(buffer,
@@ -898,7 +909,7 @@ save_event(GnomeCanvasItem *item, GdkEvent *event, void *unused)
 
   gc_selector_file_save(gcomprisBoard,
 			"wordprocessor",
-			"wordprocessor/html",
+			"wordprocessor/xhtml",
 			save_buffer);
 
   return FALSE;
