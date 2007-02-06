@@ -1,3 +1,11 @@
+2007-02-07  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* boards/connect4-2players.xml.in: added diagonal in the help
+	* boards/connect4.xml.in: -
+	* src/boards/wordprocessor.c: (wordprocessor_create),
+	(display_style_buttons), (display_style_selector),
+	(display_color_style_selector), (save_buffer): improved. better layout, better save.
+
 2007-02-05  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	- Improved the wordprocessor to save as xhtml instead of html

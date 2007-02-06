@@ -51,7 +51,7 @@ typedef struct {
 
 doctype_t type_normal =
   {
-    .name = N_("Default"),
+    .name = N_("Research"),
     .style = {
       { "h1", "Serif 30", PANGO_WEIGHT_ULTRABOLD,  GTK_JUSTIFY_CENTER, 0,  40, 20 },
       { "h2", "Serif 26", PANGO_WEIGHT_BOLD,       GTK_JUSTIFY_LEFT,   0,  30, 15 },
@@ -62,7 +62,7 @@ doctype_t type_normal =
 
 doctype_t type_letter =
   {
-    .name = N_("Letter"),
+    .name = N_("Sentimental"),
     .style = {
       { "h1", "Serif 26", PANGO_WEIGHT_ULTRABOLD,  GTK_JUSTIFY_CENTER, 0,  40, 20 },
       { "h2", "Serif 20", PANGO_WEIGHT_BOLD,       GTK_JUSTIFY_LEFT,   0,  30, 15 },
@@ -73,7 +73,7 @@ doctype_t type_letter =
 
 doctype_t type_small =
   {
-    .name = N_("Small"),
+    .name = N_("Official"),
     .style = {
       { "h1", "Serif 18", PANGO_WEIGHT_ULTRABOLD,  GTK_JUSTIFY_CENTER, 0,  40, 20 },
       { "h2", "Serif 16", PANGO_WEIGHT_BOLD,       GTK_JUSTIFY_LEFT,   0,  30, 15 },
@@ -95,7 +95,7 @@ doctype_t type_text =
 
 doctype_t type_big =
   {
-    .name = N_("Big"),
+    .name = N_("Flyer"),
     .style = {
       { "h1", "Serif 34", PANGO_WEIGHT_ULTRABOLD,  GTK_JUSTIFY_CENTER, 0,  40, 20 },
       { "h2", "Serif 30", PANGO_WEIGHT_BOLD,       GTK_JUSTIFY_LEFT,   0,  30, 15 },
@@ -112,10 +112,10 @@ static doctype_t *doctype_list[NUMBER_OF_DOCTYPE];
 #define NUMBER_OF_COLOR_STYLE 4
 static gchar *color_style_list[NUMBER_OF_COLOR_STYLE][NUMBER_OF_STYLE+1] =
 {
-  {N_("Black"), "black",  "black",  "black",  "black"},
-  {N_("Red"), "red",  "blue",  "lightblue",  "black"},
-  {N_("Blue"), "blue",  "red",  "lightblue",  "black"},
-  {N_("Pink"), "DeepPink",  "HotPink",  "MediumOrchid",  "black"},
+  {N_("Spring"), "red",  "blue",  "lightblue",  "black"},
+  {N_("Summer"), "DeepPink",  "HotPink",  "MediumOrchid",  "black"},
+  {N_("Autumn"), "blue",  "red",  "lightblue",  "black"},
+  {N_("Winter"), "black",  "black",  "black",  "black"},
 };
 
 static GcomprisBoard	*gcomprisBoard = NULL;
@@ -137,30 +137,28 @@ static GnomeCanvasGroup *boardRootItem = NULL;
 static GnomeCanvasItem	*wordprocessor_create(void);
 static void		 wordprocessor_destroy_all_items(void);
 static gint		 item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data);
-static void		 display_style_buttons(GnomeCanvasGroup *boardRootItem,
+static int		 display_style_buttons(GnomeCanvasGroup *boardRootItem,
 					       int x,
 					       int y);
 static void		 create_tags (GtkTextBuffer *buffer, doctype_t *doctype);
 static void		 set_default_style (GtkTextBuffer *buffer, style_t *style);
-static void		 display_style_selector(GnomeCanvasGroup *boardRootItem);
-static void		 display_color_style_selector(GnomeCanvasGroup *boardRootItem);
+static void		 display_style_selector(GnomeCanvasGroup *boardRootItem, double y);
+static void		 display_color_style_selector(GnomeCanvasGroup *boardRootItem, double y);
 static void		 item_event_style_selection (GtkComboBox *widget, void *data);
 static void		 item_event_color_style_selection (GtkComboBox *widget, void *data);
 static gint		 save_event(GnomeCanvasItem *item, GdkEvent *event,
 				    void *unused);
 
 #define word_area_x1 120
-#define word_area_y1 80
-#define word_area_width 580
-#define word_area_height 420
+#define word_area_y1 20
+#define word_area_width 650
+#define word_area_height 480
 
-#define combo_style_x1 300
-#define combo_style_y1 20
-#define combo_style_width 200
+#define combo_style_x1 20
+#define combo_style_width 80
 
-#define combo_color_style_x1 500
-#define combo_color_style_y1 20
-#define combo_color_style_width 200
+#define combo_color_style_x1 20
+#define combo_color_style_width 80
 
 static style_t *current_style_default;
 static doctype_t *current_doctype_default;
@@ -300,6 +298,7 @@ static GnomeCanvasItem *wordprocessor_create()
 {
   GnomeCanvasItem *item = NULL;
   GdkPixbuf *pixmap;
+  double y;
 
   boardRootItem = GNOME_CANVAS_GROUP(
 				     gnome_canvas_item_new (gnome_canvas_root(gcomprisBoard->canvas),
@@ -338,32 +337,26 @@ static GnomeCanvasItem *wordprocessor_create()
   /*
    * Create the default style tags
    */
-  doctype_list[0] = &type_normal;
-  doctype_list[1] = &type_letter;
-  doctype_list[2] = &type_small;
-  doctype_list[3] = &type_text;
+  doctype_list[0] = &type_text;
+  doctype_list[1] = &type_normal;
+  doctype_list[2] = &type_letter;
+  doctype_list[3] = &type_small;
   doctype_list[4] = &type_big;
 
   current_doctype_default = doctype_list[0];
   create_tags(buffer, current_doctype_default);
 
+  y = 20.0;
   /*
-   * Display the style buttons
+   * The save button
    */
-  display_style_buttons(boardRootItem,
-			word_area_x1 + word_area_width + 10,
-			word_area_y1);
-
-  display_style_selector(boardRootItem);
-  display_color_style_selector(boardRootItem);
-
   pixmap = gc_pixmap_load("draw/tool-save.png");
   item = \
     gnome_canvas_item_new (boardRootItem,
 			   gnome_canvas_pixbuf_get_type(),
 			   "pixbuf", pixmap,
 			   "x", 20.0,
-			   "y", 25.0,
+			   "y", y,
 			   "anchor", GTK_ANCHOR_NW,
 			   NULL);
   gdk_pixbuf_unref(pixmap);
@@ -373,22 +366,39 @@ static GnomeCanvasItem *wordprocessor_create()
 		     (GtkSignalFunc) gc_item_focus_event,
 		     NULL);
 
+  y += 45;
+  /*
+   * Display the style buttons
+   */
+  y = display_style_buttons(boardRootItem,
+			    20.0,
+			    y);
+
+  y += 20;
+  display_style_selector(boardRootItem, y);
+
+  y += 40;
+  display_color_style_selector(boardRootItem, y);
+
   return NULL;
 }
 
 /*
  * Display the style buttons
+ *
+ * \return the new y coordinate
  */
-static void display_style_buttons(GnomeCanvasGroup *boardRootItem,
-				  int x,
-				  int y)
+static int
+display_style_buttons(GnomeCanvasGroup *boardRootItem,
+		      int x,
+		      int y)
 {
   GdkPixbuf *pixmap;
   int offset_y, text_x, text_y;
   int i = 0;
   gchar *styles_tab[] = { _("TITLE"), "h1",
-			  _("TITLE 1"), "h2",
-			  _( "TITLE 2"), "h3",
+			  _("HEADING 1"), "h2",
+			  _("HEADING 2"), "h3",
 			  _("TEXT"), "p",
 			  NULL, NULL };
 
@@ -416,22 +426,11 @@ static void display_style_buttons(GnomeCanvasGroup *boardRootItem,
       item = gnome_canvas_item_new (boardRootItem,
 				    gnome_canvas_text_get_type (),
 				    "text", styles_tab[i],
-				    "font", gc_skin_font_board_medium,
-				    "x", (double) x + text_x + 1,
-				    "y", (double) y + text_y + 1,
-				    "anchor", GTK_ANCHOR_CENTER,
-				    "fill_color_rgba", gc_skin_color_shadow,
-				    NULL);
-      gtk_signal_connect(GTK_OBJECT(item), "event", (GtkSignalFunc) item_event, styles_tab[i+1] );
-
-      item = gnome_canvas_item_new (boardRootItem,
-				    gnome_canvas_text_get_type (),
-				    "text", styles_tab[i],
-				    "font", gc_skin_font_board_medium,
+				    "font", gc_skin_font_board_tiny,
 				    "x", (double) x + text_x,
 				    "y", (double) y + text_y,
 				    "anchor", GTK_ANCHOR_CENTER,
-				    "fill_color_rgba", gc_skin_color_text_button,
+				    "fill_color_rgba", gc_skin_color_title,
 				    NULL);
       gtk_signal_connect(GTK_OBJECT(item), "event", (GtkSignalFunc) item_event, styles_tab[i+1] );
 
@@ -441,6 +440,8 @@ static void display_style_buttons(GnomeCanvasGroup *boardRootItem,
     }
 
   gdk_pixbuf_unref(pixmap);
+
+  return(y);
 }
 
 /* ==================================== */
@@ -574,7 +575,7 @@ set_default_style (GtkTextBuffer *buffer, style_t *style)
  * --------------------------------
  */
 static void
-display_style_selector(GnomeCanvasGroup *boardRootItem)
+display_style_selector(GnomeCanvasGroup *boardRootItem, double y)
 {
   int i = 0;
 
@@ -588,7 +589,7 @@ display_style_selector(GnomeCanvasGroup *boardRootItem)
 			 gnome_canvas_widget_get_type (),
 			 "widget", GTK_WIDGET(gtk_combo_styles),
 			 "x", (double) combo_style_x1,
-			 "y", (double) combo_style_y1,
+			 "y", y,
 			 "width", (double) combo_style_width,
 			 "height", 35.0,
 			 "anchor", GTK_ANCHOR_NW,
@@ -609,7 +610,7 @@ display_style_selector(GnomeCanvasGroup *boardRootItem)
  * --------------------------------------
  */
 static void
-display_color_style_selector(GnomeCanvasGroup *boardRootItem)
+display_color_style_selector(GnomeCanvasGroup *boardRootItem, double y)
 {
   int i = 0;
 
@@ -623,7 +624,7 @@ display_color_style_selector(GnomeCanvasGroup *boardRootItem)
 			 gnome_canvas_widget_get_type (),
 			 "widget", GTK_WIDGET(gtk_combo_colors),
 			 "x", (double) combo_color_style_x1,
-			 "y", (double) combo_color_style_y1,
+			 "y", y,
 			 "width", (double) combo_color_style_width,
 			 "height", 35.0,
 			 "anchor", GTK_ANCHOR_NW,
@@ -853,6 +854,9 @@ save_buffer(gchar *file, gchar *file_type)
       iter_end = iter_start;
       gtk_text_iter_forward_to_line_end(&iter_end);
 
+      if(gtk_text_iter_ends_line(&iter_start))
+	continue;
+
       tags = gtk_text_iter_get_tags (&iter_start);
       if(g_slist_length(tags) == 0)
 	{
@@ -861,13 +865,14 @@ save_buffer(gchar *file, gchar *file_type)
 	  gtk_text_iter_forward_char (&iter_end);
 	}
 
+      tag_name = "p";
       for (tagp = tags;  tagp != NULL;  tagp = tagp->next)
 	{
 	  GtkTextTag *tag = tagp->data;
 	  g_object_get (G_OBJECT (tag), "name", &tag_name, NULL);
 
-	  fprintf(filefd, "<%s>", tag_name);
 	}
+      fprintf(filefd, "<%s>", tag_name);
 
       fprintf(filefd, "%s", gtk_text_buffer_get_text(buffer,
 						     &iter_start,
@@ -878,8 +883,8 @@ save_buffer(gchar *file, gchar *file_type)
 	  GtkTextTag *tag = tagp->data;
 	  g_object_get (G_OBJECT (tag), "name", &tag_name, NULL);
 
-	  fprintf(filefd, "</%s>\n", tag_name);
 	}
+      fprintf(filefd, "</%s>\n", tag_name);
 
       if (tags)
 	g_slist_free (tags);
