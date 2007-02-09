@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-01-23 07:30+0000\n"
-"PO-Revision-Date: 2007-01-23 07:30-0000\n"
+"POT-Creation-Date: 2007-02-09 13:10+0000\n"
+"PO-Revision-Date: 2007-02-09 13:11-0000\n"
 "Last-Translator: David Lodge <dave@cirt.net>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -699,14 +699,17 @@ msgid "Moonwalker"
 msgstr "Moonwalker"
 
 #: ../boards/chronos/board1_1.xml.in.h:1
+#: ../src/boards/wordprocessor.c:117
 msgid "Autumn"
 msgstr "Autumn"
 
 #: ../boards/chronos/board1_1.xml.in.h:2
+#: ../src/boards/wordprocessor.c:115
 msgid "Spring"
 msgstr "Spring"
 
 #: ../boards/chronos/board1_1.xml.in.h:3
+#: ../src/boards/wordprocessor.c:116
 msgid "Summer"
 msgstr "Summer"
 
@@ -715,6 +718,7 @@ msgid "The 4 Seasons"
 msgstr "The 4 Seasons"
 
 #: ../boards/chronos/board1_1.xml.in.h:5
+#: ../src/boards/wordprocessor.c:118
 msgid "Winter"
 msgstr "Winter"
 
@@ -980,9 +984,8 @@ msgid "Connect 4"
 msgstr "Connect 4"
 
 #: ../boards/connect4.xml.in.h:4
-#: ../boards/connect4-2players.xml.in.h:4
-msgid "Create a line of 4 pieces either horizontally (lying down) or vertically (standing up)"
-msgstr "Create a line of 4 pieces either horizontally (lying down) or vertically (standing up)"
+msgid "Create a line of 4 pieces either horizontally (lying down), vertically (standing up) or diagonally."
+msgstr "Create a line of 4 pieces either horizontally (lying down), vertically (standing up) or diagonally."
 
 #: ../boards/connect4.xml.in.h:5
 msgid "Laurent Lacheny. Images and Artificial Intelligence taken from project 4stattack by Jeroen Vloothuis. The original project can be found on &lt;http://forcedattack.sourceforge.net&gt;"
@@ -991,6 +994,10 @@ msgstr "Laurent Lacheny. Images and Artificial Intelligence taken from project 4
 #: ../boards/connect4-2players.xml.in.h:3
 msgid "Connect 4 (2 Players)"
 msgstr "Connect 4 (2 Players)"
+
+#: ../boards/connect4-2players.xml.in.h:4
+msgid "Create a line of 4 pieces either horizontally (lying down) or vertically (standing up) or diagonally."
+msgstr "Create a line of 4 pieces either horizontally (lying down) or vertically (standing up) or diagonally."
 
 #: ../boards/connect4-2players.xml.in.h:6
 msgid "The original code was written in 2005 by Laurent Lacheny. In 2006, Miguel de Izarra made the two players game. Images and Artificial Intelligence taken from project 4stattack by Jeroen Vloothuis. The original project can be found on &lt;http://forcedattack.sourceforge.net&gt;"
@@ -2749,7 +2756,7 @@ msgid "GCompris Main Menu"
 msgstr "GCompris Main Menu"
 
 #: ../boards/menu.xml.in.h:16
-#: ../src/boards/menu2.c:1009
+#: ../src/boards/menu2.c:1008
 msgid "GCompris is a collection of educational games that provides different activities for children aged 2 and up."
 msgstr "GCompris is a collection of educational games that provides different activities for children aged 2 and up."
 
@@ -2968,6 +2975,26 @@ msgstr "Mouse-manipulation activities."
 #: ../boards/mouse.xml.in.h:2
 msgid "Various mouse-based activities (clicking, moving)"
 msgstr "Various mouse-based activities (clicking, moving)"
+
+#: ../boards/mypaint.xml.in.h:1
+msgid "Choose brush and colors and draw. have fun!"
+msgstr "Choose brush and colours and draw. have fun!"
+
+#: ../boards/mypaint.xml.in.h:2
+msgid "MyPaint"
+msgstr "MyPaint"
+
+#: ../boards/mypaint.xml.in.h:3
+msgid "Painting activity. Uses pressure device if any."
+msgstr "Painting activity. Uses pressure device if any."
+
+#: ../boards/mypaint.xml.in.h:4
+msgid "Painting application"
+msgstr "Painting application"
+
+#: ../boards/mypaint.xml.in.h:5
+msgid "mouse manipulation"
+msgstr "mouse manipulation"
 
 #: ../boards/numeration.xml.in.h:1
 msgid "Numeration"
@@ -3796,15 +3823,16 @@ msgstr "Memory"
 msgid "Find the matching pair"
 msgstr "Find the matching pair"
 
+#. TRANSLATORS: Put here the mathematical operators '+-x/' for  your language.
 #: ../src/boards/memory.c:864
 msgid "+-×÷"
 msgstr "+-×÷"
 
-#: ../src/boards/menu2.c:131
+#: ../src/boards/menu2.c:133
 msgid "Main Menu Second Version"
 msgstr "Main Menu Second Version"
 
-#: ../src/boards/menu2.c:132
+#: ../src/boards/menu2.c:134
 msgid "Select a Board"
 msgstr "Select a Board"
 
@@ -3912,7 +3940,7 @@ msgstr ""
 #: ../src/boards/python/admin/board_list.py:649
 #: ../src/boards/python/admin/wordlist.py:50
 #: ../src/boards/python/login.py:535
-#: ../src/boards/python/pythontest.py:409
+#: ../src/boards/python/pythontest.py:406
 #: ../src/boards/python/tuxpaint.py:206
 #, python-format
 msgid ""
@@ -3923,7 +3951,7 @@ msgstr ""
 " for profile <b>%s</b>"
 
 #: ../src/boards/python/admin/board_list.py:661
-#: ../src/boards/python/pythontest.py:473
+#: ../src/boards/python/pythontest.py:470
 msgid "Select sound locale"
 msgstr "Select sound locale"
 
@@ -4106,7 +4134,6 @@ msgid "There is already a profile with this name"
 msgstr "There is already a profile with this name"
 
 #: ../src/boards/python/admin/profile_list.py:121
-#: ../src/boards/wordprocessor.c:54
 #: ../src/gcompris/board_config.c:667
 #: ../src/gcompris/board_config.c:925
 msgid "Default"
@@ -4419,7 +4446,7 @@ msgstr "No matter how bad it was up there, the bottom was always calm and quiet.
 msgid "Oscar's best friends were Charlie the crab and Sandy the sea-star."
 msgstr "Oscar's best friends were Charlie the crab and Sandy the sea-star."
 
-#: ../src/boards/python/pythontest.py:148
+#: ../src/boards/python/pythontest.py:145
 msgid ""
 "This is the first plugin in gcompris coded in the Python\n"
 "Programming language."
@@ -4427,7 +4454,7 @@ msgstr ""
 "This is the first plugin in gcompris coded in the Python\n"
 "Programming language."
 
-#: ../src/boards/python/pythontest.py:157
+#: ../src/boards/python/pythontest.py:154
 msgid ""
 "It is now possible to develop gcompris activities in C or in Python.\n"
 "Thanks to Olivier Samys who makes this possible."
@@ -4435,35 +4462,35 @@ msgstr ""
 "It is now possible to develop gcompris activities in C or in Python.\n"
 "Thanks to Olivier Samys who makes this possible."
 
-#: ../src/boards/python/pythontest.py:166
+#: ../src/boards/python/pythontest.py:163
 msgid "This activity is not playable, just a test"
 msgstr "This activity is not playable, just a test"
 
 #. toggle box
-#: ../src/boards/python/pythontest.py:414
+#: ../src/boards/python/pythontest.py:411
 msgid "Disable line drawing in circle"
 msgstr "Disable line drawing in circle"
 
 #. combo box
-#: ../src/boards/python/pythontest.py:423
+#: ../src/boards/python/pythontest.py:420
 msgid "Color of the line"
 msgstr "Colour of the line"
 
 #. spin button for int
-#: ../src/boards/python/pythontest.py:434
+#: ../src/boards/python/pythontest.py:431
 msgid "Distance between circles"
 msgstr "Distance between circles"
 
 #. radio buttons for circle or rectangle
-#: ../src/boards/python/pythontest.py:445
+#: ../src/boards/python/pythontest.py:442
 msgid "Use circles"
 msgstr "Use circles"
 
-#: ../src/boards/python/pythontest.py:446
+#: ../src/boards/python/pythontest.py:443
 msgid "Use rectangles"
 msgstr "Use rectangles"
 
-#: ../src/boards/python/pythontest.py:449
+#: ../src/boards/python/pythontest.py:446
 msgid "Choice of pattern"
 msgstr "Choice of pattern"
 
@@ -4646,51 +4673,39 @@ msgstr ""
 msgid "Distance to target = %d meters"
 msgstr "Distance to target = %d metres"
 
+#: ../src/boards/wordprocessor.c:54
+msgid "Research"
+msgstr "Research"
+
 #: ../src/boards/wordprocessor.c:65
-msgid "Letter"
-msgstr "Letter"
+msgid "Sentimental"
+msgstr "Sentimental"
 
 #: ../src/boards/wordprocessor.c:76
-msgid "Small"
-msgstr "Small"
+msgid "Official"
+msgstr "Official"
 
 #: ../src/boards/wordprocessor.c:87
 msgid "Text"
 msgstr "Text"
 
 #: ../src/boards/wordprocessor.c:98
-msgid "Big"
-msgstr "Big"
+msgid "Flyer"
+msgstr "Flyer"
 
-#: ../src/boards/wordprocessor.c:115
-msgid "Black"
-msgstr "Black"
-
-#: ../src/boards/wordprocessor.c:116
-msgid "Red"
-msgstr "Red"
-
-#: ../src/boards/wordprocessor.c:117
-msgid "Blue"
-msgstr "Blue"
-
-#: ../src/boards/wordprocessor.c:118
-msgid "Pink"
-msgstr "Pink"
-
-#: ../src/boards/wordprocessor.c:389
+#: ../src/boards/wordprocessor.c:399
 msgid "TITLE"
 msgstr "TITLE"
 
-#: ../src/boards/wordprocessor.c:390
-msgid "TITLE 1"
-msgstr "TITLE 1"
+#: ../src/boards/wordprocessor.c:400
+msgid "HEADING 1"
+msgstr "HEADING 1"
 
-#: ../src/boards/wordprocessor.c:391
-msgid "TITLE 2"
-msgstr "TITLE 2"
+#: ../src/boards/wordprocessor.c:401
+msgid "HEADING 2"
+msgstr "HEADING 2"
 
-#: ../src/boards/wordprocessor.c:392
+#: ../src/boards/wordprocessor.c:402
 msgid "TEXT"
 msgstr "TEXT"
 
@@ -5115,123 +5130,123 @@ msgstr ""
 "Exit it and report\n"
 "the problem to the authors"
 
-#: ../src/gcompris/gcompris.c:121
+#: ../src/gcompris/gcompris.c:126
 msgid "run gcompris in fullscreen mode."
 msgstr "run gcompris in fullscreen mode."
 
-#: ../src/gcompris/gcompris.c:124
+#: ../src/gcompris/gcompris.c:129
 msgid "run gcompris in window mode."
 msgstr "run gcompris in window mode."
 
-#: ../src/gcompris/gcompris.c:127
+#: ../src/gcompris/gcompris.c:132
 msgid "run gcompris with sound enabled."
 msgstr "run gcompris with sound enabled."
 
-#: ../src/gcompris/gcompris.c:130
+#: ../src/gcompris/gcompris.c:135
 msgid "run gcompris without sound."
 msgstr "run gcompris without sound."
 
-#: ../src/gcompris/gcompris.c:133
+#: ../src/gcompris/gcompris.c:138
 msgid "run gcompris with the default gnome cursor."
 msgstr "run gcompris with the default gnome cursor."
 
-#: ../src/gcompris/gcompris.c:136
+#: ../src/gcompris/gcompris.c:141
 msgid "display only activities with this difficulty level."
 msgstr "display only activities with this difficulty level."
 
-#: ../src/gcompris/gcompris.c:139
+#: ../src/gcompris/gcompris.c:144
 msgid "display debug informations on the console."
 msgstr "display debug informations on the console."
 
-#: ../src/gcompris/gcompris.c:142
+#: ../src/gcompris/gcompris.c:147
 msgid "Print the version of "
 msgstr "Print the version of "
 
-#: ../src/gcompris/gcompris.c:145
+#: ../src/gcompris/gcompris.c:150
 msgid "Use the antialiased canvas (slower)."
 msgstr "Use the antialiased canvas (slower)."
 
-#: ../src/gcompris/gcompris.c:148
+#: ../src/gcompris/gcompris.c:153
 msgid "Disable XF86VidMode (No screen resolution change)."
 msgstr "Disable XF86VidMode (No screen resolution change)."
 
-#: ../src/gcompris/gcompris.c:151
+#: ../src/gcompris/gcompris.c:156
 msgid "Run gcompris with local menu (e.g -l /reading will let you play only activities in the reading directory, -l /strategy/connect4 only the connect4 activity)"
 msgstr "Run gcompris with local menu (e.g -l /reading will let you play only activities in the reading directory, -l /strategy/connect4 only the connect4 activity)"
 
-#: ../src/gcompris/gcompris.c:154
+#: ../src/gcompris/gcompris.c:159
 msgid "Run GCompris with local activity directory added to menu"
 msgstr "Run GCompris with local activity directory added to menu"
 
-#: ../src/gcompris/gcompris.c:157
+#: ../src/gcompris/gcompris.c:162
 msgid "Run GCompris in administration and user-management mode"
 msgstr "Run GCompris in administration and user-management mode"
 
-#: ../src/gcompris/gcompris.c:160
-msgid "Use alternate database for profiles"
-msgstr "Use alternate database for profiles"
+#: ../src/gcompris/gcompris.c:165
+msgid "Use alternate database for profiles [$HOME/.config/gcompris/gcompris_sqlite.db]"
+msgstr "Use alternate database for profiles [$HOME/.config/gcompris/gcompris_sqlite.db]"
 
-#: ../src/gcompris/gcompris.c:163
+#: ../src/gcompris/gcompris.c:168
 msgid "Use alternate database for logs"
 msgstr "Use alternate database for logs"
 
-#: ../src/gcompris/gcompris.c:166
+#: ../src/gcompris/gcompris.c:171
 msgid "Create the alternate database for profiles"
 msgstr "Create the alternate database for profiles"
 
-#: ../src/gcompris/gcompris.c:169
+#: ../src/gcompris/gcompris.c:174
 msgid "Re-read XML Menus and store them in the database"
 msgstr "Re-read XML Menus and store them in the database"
 
-#: ../src/gcompris/gcompris.c:172
+#: ../src/gcompris/gcompris.c:177
 msgid "Set the profile to use. Use 'gcompris -a' to create profiles"
 msgstr "Set the profile to use. Use 'gcompris -a' to create profiles"
 
-#: ../src/gcompris/gcompris.c:175
+#: ../src/gcompris/gcompris.c:180
 msgid "List all available profiles. Use 'gcompris -a' to create profiles"
 msgstr "List all available profiles. Use 'gcompris -a' to create profiles"
 
-#: ../src/gcompris/gcompris.c:178
-msgid "Shared directory location, for profiles and board-configuration data: [$HOME/.gcompris/shared]"
-msgstr "Shared directory location, for profiles and board-configuration data: [$HOME/.gcompris/shared]"
+#: ../src/gcompris/gcompris.c:183
+msgid "Config directory location: [$HOME/.config/gcompris]. Alternate is to set $XDG_CONFIG_HOME."
+msgstr "Config directory location: [$HOME/.config/gcompris]. Alternate is to set $XDG_CONFIG_HOME."
 
-#: ../src/gcompris/gcompris.c:181
-msgid "The location of user directories: [$HOME/.gcompris/users]"
-msgstr "The location of user directories: [$HOME/.gcompris/users]"
+#: ../src/gcompris/gcompris.c:186
+msgid "The location of user directories: [$HOME/My GCompris]"
+msgstr "The location of user directories: [$HOME/My GCompris]"
 
-#: ../src/gcompris/gcompris.c:184
+#: ../src/gcompris/gcompris.c:189
 msgid "Run the experimental activities"
 msgstr "Run the experimental activities"
 
-#: ../src/gcompris/gcompris.c:187
+#: ../src/gcompris/gcompris.c:192
 msgid "Disable the quit button"
 msgstr "Disable the quit button"
 
-#: ../src/gcompris/gcompris.c:190
+#: ../src/gcompris/gcompris.c:195
 msgid "Disable the config button"
 msgstr "Disable the configuration button"
 
-#: ../src/gcompris/gcompris.c:193
+#: ../src/gcompris/gcompris.c:198
 msgid "Display the resources on stdout based on the selected activities"
 msgstr "Display the resources on stdout based on the selected activities"
 
-#: ../src/gcompris/gcompris.c:196
+#: ../src/gcompris/gcompris.c:201
 msgid "GCompris will get images, sounds and activity data from this server if not found locally."
 msgstr "GCompris will get images, sounds and activity data from this server if not found locally."
 
-#: ../src/gcompris/gcompris.c:199
+#: ../src/gcompris/gcompris.c:204
 msgid "Only when --server is provided, disable check for local resource first. Data are always taken from the web server."
 msgstr "Only when --server is provided, disable check for local resource first. Data is always taken from the web server."
 
-#: ../src/gcompris/gcompris.c:203
+#: ../src/gcompris/gcompris.c:208
 msgid "In server mode, specify the cache directory used to avoid useless downloads."
 msgstr "In server mode, specify the cache directory used to avoid useless downloads."
 
-#: ../src/gcompris/gcompris.c:206
+#: ../src/gcompris/gcompris.c:211
 msgid "Global drag and drop mode: normal, 2clicks, both. Default mode is normal."
 msgstr "Global drag and drop mode: normal, 2clicks, both. Default mode is normal."
 
-#: ../src/gcompris/gcompris.c:812
+#: ../src/gcompris/gcompris.c:817
 #, c-format
 msgid ""
 "GCompris is free software released under the GPL License. In order to support its development, the Windows version provides only %d of the %d activities. You can get the full version for a small fee at\n"
@@ -5244,7 +5259,7 @@ msgstr ""
 "The Linux version does not have this restriction. Note that GCompris is being developed to free schools from monopolistic software vendors. If you also believe that we should teach freedom to children, please consider using GNU/Linux. Get more information at FSF:\n"
 "<http://www.fsf.org/philosophy>"
 
-#: ../src/gcompris/gcompris.c:1419
+#: ../src/gcompris/gcompris.c:1423
 #, c-format
 msgid ""
 "GCompris\n"
@@ -5258,17 +5273,17 @@ msgstr ""
 "More info at http://gcompris.net\n"
 
 #. check the list of possible values for -l, then exit
-#: ../src/gcompris/gcompris.c:1508
+#: ../src/gcompris/gcompris.c:1533
 #, c-format
 msgid "Use -l to access an activity directly.\n"
 msgstr "Use -l to access an activity directly.\n"
 
-#: ../src/gcompris/gcompris.c:1509
+#: ../src/gcompris/gcompris.c:1534
 #, c-format
 msgid "The list of available activities is :\n"
 msgstr "The list of available activities is :\n"
 
-#: ../src/gcompris/gcompris.c:1701
+#: ../src/gcompris/gcompris.c:1719
 #, c-format
 msgid "The list of available profiles is:\n"
 msgstr "The list of available profiles is:\n"
@@ -5297,6 +5312,25 @@ msgstr "Manual"
 msgid "Credit"
 msgstr "Credit"
 
+#: ../src/gcompris/properties.c:484
+#: ../src/gcompris/properties.c:491
+msgid "readme"
+msgstr "readme"
+
+#: ../src/gcompris/properties.c:486
+msgid "This directory contains the files you create with the GCompris educational suite\n"
+msgstr "This directory contains the files you create with the GCompris educational suite\n"
+
+#: ../src/gcompris/properties.c:493
+msgid ""
+"Put any numer of images in this directory.\n"
+"You can include these images in your drawings and animations.\n"
+"The image format supported are jpeg, png and svg.\n"
+msgstr ""
+"Put any number of images in this directory.\n"
+"You can include these images in your drawings and animations.\n"
+"The image format supported are jpeg, png and svg.\n"
+
 #: ../src/gcompris/timer.c:250
 msgid "Time Elapsed"
 msgstr "Time Elapsed"
@@ -5306,6 +5340,30 @@ msgstr "Time Elapsed"
 msgid "Remaining Time = %d"
 msgstr "Remaining Time = %d"
 
+#~ msgid "Letter"
+#~ msgstr "Letter"
+#~ msgid "Small"
+#~ msgstr "Small"
+#~ msgid "Big"
+#~ msgstr "Big"
+#~ msgid "Black"
+#~ msgstr "Black"
+#~ msgid "Red"
+#~ msgstr "Red"
+#~ msgid "Blue"
+#~ msgstr "Blue"
+#~ msgid "Pink"
+#~ msgstr "Pink"
+#~ msgid "TITLE 1"
+#~ msgstr "TITLE 1"
+#~ msgid "TITLE 2"
+#~ msgstr "TITLE 2"
+#~ msgid ""
+#~ "Shared directory location, for profiles and board-configuration data: "
+#~ "[$HOME/.gcompris/shared]"
+#~ msgstr ""
+#~ "Shared directory location, for profiles and board-configuration data: "
+#~ "[$HOME/.gcompris/shared]"
 #~ msgid ""
 #~ "Fish are taken from the Unix utility xfishtank.\n"
 #~ "Images are taken from the National Undersea Research Program (NURP) "
