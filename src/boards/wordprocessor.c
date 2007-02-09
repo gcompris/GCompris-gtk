@@ -1,6 +1,6 @@
 /* gcompris - wordprocessor.c
  *
- * Copyright (C) 2006 Bruno Coudoin
+ * Copyright (C) 2006-2007 Bruno Coudoin
  *
  *   This program is free software; you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
@@ -19,6 +19,7 @@
 
 #include <string.h>
 #include <glib/gstdio.h>
+#include <libxml/HTMLparser.h>
 
 #include "gcompris/gcompris.h"
 
@@ -122,6 +123,7 @@ static GcomprisBoard	*gcomprisBoard = NULL;
 static gboolean		 board_paused = TRUE;
 static GtkWidget	*gtk_combo_styles = NULL;
 static GtkWidget	*gtk_combo_colors = NULL;
+static GtkWidget	*gtk_button_style[NUMBER_OF_STYLE];
 static GtkWidget	*sw = NULL;
 
 static void	 start_board (GcomprisBoard *agcomprisBoard);
@@ -136,7 +138,7 @@ static GnomeCanvasGroup *boardRootItem = NULL;
 
 static GnomeCanvasItem	*wordprocessor_create(void);
 static void		 wordprocessor_destroy_all_items(void);
-static gint		 item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data);
+static void		 item_event(GtkWidget *item, gchar *data);
 static int		 display_style_buttons(GnomeCanvasGroup *boardRootItem,
 					       int x,
 					       int y);
@@ -154,11 +156,8 @@ static gint		 save_event(GnomeCanvasItem *item, GdkEvent *event,
 #define word_area_width 650
 #define word_area_height 480
 
-#define combo_style_x1 20
-#define combo_style_width 80
-
-#define combo_color_style_x1 20
-#define combo_color_style_width 80
+#define combo_style_x1 5
+#define combo_style_width 105
 
 static style_t *current_style_default;
 static doctype_t *current_doctype_default;
@@ -204,6 +203,8 @@ GET_BPLUGIN_INFO(wordprocessor)
  */
 static void pause_board (gboolean pause)
 {
+  int i;
+
   if(gcomprisBoard==NULL)
     return;
 
@@ -213,12 +214,16 @@ static void pause_board (gboolean pause)
       gtk_widget_hide(GTK_WIDGET(sw));
       gtk_widget_hide(GTK_WIDGET(gtk_combo_styles));
       gtk_widget_hide(GTK_WIDGET(gtk_combo_colors));
+      for(i=0; i<NUMBER_OF_STYLE; i++)
+	gtk_widget_hide(gtk_button_style[i]);
     }
   else
     {
       gtk_widget_show(GTK_WIDGET(sw));
       gtk_widget_show(GTK_WIDGET(gtk_combo_styles));
       gtk_widget_show(GTK_WIDGET(gtk_combo_colors));
+      for(i=0; i<NUMBER_OF_STYLE; i++)
+	gtk_widget_show(gtk_button_style[i]);
     }
 
   board_paused = pause;
@@ -393,53 +398,36 @@ display_style_buttons(GnomeCanvasGroup *boardRootItem,
 		      int x,
 		      int y)
 {
-  GdkPixbuf *pixmap;
-  int offset_y, text_x, text_y;
+  int offset_y = 40;
   int i = 0;
-  gchar *styles_tab[] = { _("TITLE"), "h1",
-			  _("HEADING 1"), "h2",
-			  _("HEADING 2"), "h3",
-			  _("TEXT"), "p",
-			  NULL, NULL };
+  static gchar *styles_tab[] = { "TITLE", "h1",
+				 "HEADING 1", "h2",
+				 "HEADING 2", "h3",
+				 "TEXT", "p",
+				 NULL, NULL };
 
-  pixmap = gc_skin_pixmap_load("button_small.png");
-
-  offset_y = gdk_pixbuf_get_height(pixmap) + 10;
-  text_x   = gdk_pixbuf_get_width(pixmap) / 2;
-  text_y   = gdk_pixbuf_get_height(pixmap) / 2;
-
-  while(styles_tab[i])
+  while(styles_tab[i*2])
     {
-      GnomeCanvasItem *item;
+      gtk_button_style[i] = gtk_button_new_with_label(gettext(styles_tab[i*2]));
 
-      item = gnome_canvas_item_new (boardRootItem,
-				    gnome_canvas_pixbuf_get_type (),
-				    "pixbuf", pixmap,
-				    "x", (double) x,
-				    "y", (double) y,
-				    "anchor", GTK_ANCHOR_NW,
-				    NULL);
+      gnome_canvas_item_new (boardRootItem,
+			     gnome_canvas_widget_get_type (),
+			     "widget", GTK_WIDGET(gtk_button_style[i]),
+			     "x", (double) combo_style_x1,
+			     "y", (double) y,
+			     "width", (double) combo_style_width,
+			     "height", 35.0,
+			     "anchor", GTK_ANCHOR_NW,
+			     "size_pixels", FALSE,
+			     NULL);
 
-      gtk_signal_connect(GTK_OBJECT(item), "event", (GtkSignalFunc) item_event, styles_tab[i+1] );
-      gtk_signal_connect(GTK_OBJECT(item), "event", (GtkSignalFunc) gc_item_focus_event, NULL);
-
-      item = gnome_canvas_item_new (boardRootItem,
-				    gnome_canvas_text_get_type (),
-				    "text", styles_tab[i],
-				    "font", gc_skin_font_board_tiny,
-				    "x", (double) x + text_x,
-				    "y", (double) y + text_y,
-				    "anchor", GTK_ANCHOR_CENTER,
-				    "fill_color_rgba", gc_skin_color_title,
-				    NULL);
-      gtk_signal_connect(GTK_OBJECT(item), "event", (GtkSignalFunc) item_event, styles_tab[i+1] );
+      gtk_signal_connect(GTK_OBJECT(gtk_button_style[i]), "pressed",
+			 (GtkSignalFunc)item_event, styles_tab[i*2+1] );
 
       y += offset_y;
 
-      i += 2;
+      i++;
     }
-
-  gdk_pixbuf_unref(pixmap);
 
   return(y);
 }
@@ -447,53 +435,37 @@ display_style_buttons(GnomeCanvasGroup *boardRootItem,
 /* ==================================== */
 
 /* ==================================== */
-static gint
-item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
+static void
+item_event(GtkWidget *button, gchar *data)
 {
+  GtkTextIter    iter_start, iter_end;
+  gchar *current_style_name;
 
   if(board_paused)
-    return FALSE;
+    return;
 
-  switch (event->type)
-    {
-    case GDK_BUTTON_PRESS:
-      switch(event->button.button)
-	{
-	case 1:
-	case 2:
-	case 3:
-	  {
-	    GtkTextIter    iter_start, iter_end;
-	    gchar *current_style_name;
+  current_style_name = (char *)data;
 
-	    current_style_name = (char *)data;
+  gtk_text_buffer_get_iter_at_mark(buffer,
+				   &iter_start,
+				   gtk_text_buffer_get_insert (buffer));
+  gtk_text_iter_set_line_offset(&iter_start, 0);
 
-	    gtk_text_buffer_get_iter_at_mark(buffer,
-					     &iter_start,
-					     gtk_text_buffer_get_insert (buffer));
-	    gtk_text_iter_set_line_offset(&iter_start, 0);
+  iter_end = iter_start;
+  gtk_text_iter_forward_to_line_end(&iter_end);
 
-	    iter_end = iter_start;
-	    gtk_text_iter_forward_to_line_end(&iter_end);
+  gtk_text_buffer_remove_all_tags(buffer,
+				  &iter_start,
+				  &iter_end);
 
-	    gtk_text_buffer_remove_all_tags(buffer,
-					    &iter_start,
-					    &iter_end);
+  gtk_text_buffer_apply_tag_by_name(buffer,
+				    current_style_name,
+				    &iter_start,
+				    &iter_end);
 
-	    gtk_text_buffer_apply_tag_by_name(buffer,
-					      current_style_name,
-					      &iter_start,
-					      &iter_end);
-	  }
-	  break;
-	default:
-	  break;
-	}
-    default:
-      break;
-    }
+  gtk_widget_grab_focus(view);
 
-  return FALSE;
+  return;
 }
 
 /* Create a bunch of tags. Note that it's also possible to
@@ -623,9 +595,9 @@ display_color_style_selector(GnomeCanvasGroup *boardRootItem, double y)
   gnome_canvas_item_new (GNOME_CANVAS_GROUP(boardRootItem),
 			 gnome_canvas_widget_get_type (),
 			 "widget", GTK_WIDGET(gtk_combo_colors),
-			 "x", (double) combo_color_style_x1,
+			 "x", (double) combo_style_x1,
 			 "y", y,
-			 "width", (double) combo_color_style_width,
+			 "width", (double) combo_style_width,
 			 "height", 35.0,
 			 "anchor", GTK_ANCHOR_NW,
 			 "size_pixels", FALSE,
@@ -683,6 +655,8 @@ item_event_style_selection (GtkComboBox *widget,
 
   for(j=0; j<NUMBER_OF_STYLE; j++)
     tag_style_set(j, doctype_list[i]);
+
+  gtk_widget_grab_focus(view);
 }
 
 int
@@ -715,6 +689,7 @@ item_event_color_style_selection (GtkComboBox *widget,
     g_object_set(tag_list[j],
 		 "foreground",color_style_list[i][j+1],
 		 NULL);
+  gtk_widget_grab_focus(view);
 }
 
 
@@ -780,6 +755,39 @@ key_press_event (GtkWidget *text_view,
   }
 
   return FALSE;
+}
+
+// assumes UTF-8 or UTF-16 as encoding,
+char *
+escape(const char *input)
+{
+  gsize size = strlen(input)*6; /* 6 is the most increase we can get */
+  gchar *result = g_malloc(size);
+  int i;
+  int o = 0;
+
+  result[0] = '\0';
+
+  for(i = 0; i < strlen(input); i++)
+    {
+      char c = input[i];
+      if(c == '<')
+	o = g_strlcat(result, "&lt;", size);
+      else if(c == '>')
+	o = g_strlcat(result, "&gt;", size);
+      else if(c == '&')
+	o = g_strlcat(result, "&amp;", size);
+      else if(c == '"')
+	o = g_strlcat(result, "&quot;", size);
+      else if(c == '\'')
+	o = g_strlcat(result, "&apos;", size);
+      else
+	{
+	  result[o++] = c;
+	  result[o+1] = '\0';
+	}
+    }
+  return result;
 }
 
 static void
@@ -874,17 +882,19 @@ save_buffer(gchar *file, gchar *file_type)
 	}
       fprintf(filefd, "<%s>", tag_name);
 
-      fprintf(filefd, "%s", gtk_text_buffer_get_text(buffer,
+      char *result = escape(gtk_text_buffer_get_text(buffer,
 						     &iter_start,
 						     &iter_end,
 						     0));
+
       for (tagp = tags;  tagp != NULL;  tagp = tagp->next)
 	{
 	  GtkTextTag *tag = tagp->data;
 	  g_object_get (G_OBJECT (tag), "name", &tag_name, NULL);
 
 	}
-      fprintf(filefd, "</%s>\n", tag_name);
+      fprintf(filefd, "%s</%s>\n", result, tag_name);
+      g_free(result);
 
       if (tags)
 	g_slist_free (tags);
