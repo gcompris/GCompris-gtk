@@ -150,6 +150,8 @@ static void		 item_event_style_selection (GtkComboBox *widget, void *data);
 static void		 item_event_color_style_selection (GtkComboBox *widget, void *data);
 static gint		 save_event(GnomeCanvasItem *item, GdkEvent *event,
 				    void *unused);
+static gint		 load_event(GnomeCanvasItem *item, GdkEvent *event,
+				    void *unused);
 
 #define word_area_x1 120
 #define word_area_y1 20
@@ -360,13 +362,32 @@ static GnomeCanvasItem *wordprocessor_create()
     gnome_canvas_item_new (boardRootItem,
 			   gnome_canvas_pixbuf_get_type(),
 			   "pixbuf", pixmap,
-			   "x", 20.0,
+			   "x", 17.0,
 			   "y", y,
 			   "anchor", GTK_ANCHOR_NW,
 			   NULL);
   gdk_pixbuf_unref(pixmap);
   gtk_signal_connect(GTK_OBJECT(item), "event",
 		     (GtkSignalFunc) save_event, buffer);
+  gtk_signal_connect(GTK_OBJECT(item), "event",
+		     (GtkSignalFunc) gc_item_focus_event,
+		     NULL);
+
+  /*
+   * The load button
+   */
+  pixmap = gc_pixmap_load("draw/tool-load.png");
+  item = \
+    gnome_canvas_item_new (boardRootItem,
+			   gnome_canvas_pixbuf_get_type(),
+			   "pixbuf", pixmap,
+			   "x", 60.0,
+			   "y", y,
+			   "anchor", GTK_ANCHOR_NW,
+			   NULL);
+  gdk_pixbuf_unref(pixmap);
+  gtk_signal_connect(GTK_OBJECT(item), "event",
+		     (GtkSignalFunc) load_event, buffer);
   gtk_signal_connect(GTK_OBJECT(item), "event",
 		     (GtkSignalFunc) gc_item_focus_event,
 		     NULL);
@@ -926,6 +947,96 @@ save_event(GnomeCanvasItem *item, GdkEvent *event, void *unused)
 			"wordprocessor",
 			"wordprocessor/xhtml",
 			save_buffer);
+
+  return FALSE;
+}
+
+static void
+load_buffer(gchar *file, gchar *file_type)
+{
+  GtkTextBuffer *buffer = gtk_text_view_get_buffer (GTK_TEXT_VIEW (view));
+  xmlDocPtr doc;
+  xmlNodePtr node;
+  GtkTextIter iter_start, iter_end;
+
+  /* parse the new file and put the result into newdoc */
+  doc = gc_net_load_xml(file);
+
+  /* in case something went wrong */
+  if(!doc)
+    return;
+
+  /*Get the root element node */
+  node = xmlDocGetRootElement(doc);
+
+  for(node = node; node != NULL; node = node->next)
+    if ( g_strcasecmp((char *)node->name, "html") == 0 &&
+	 node->children )
+      break;
+
+  if(!node)
+    goto done;
+
+  for(node = node->children; node != NULL; node = node->next)
+    if ( g_strcasecmp((char *)node->name, "body") == 0 &&
+	 node->children )
+      break;
+
+  if(!node)
+    goto done;
+
+  gtk_text_buffer_get_start_iter(buffer,
+				 &iter_start);
+  gtk_text_buffer_get_end_iter(buffer,
+			       &iter_end);
+  gtk_text_buffer_delete(buffer,
+			 &iter_start,
+			 &iter_end);
+
+  gtk_text_buffer_get_start_iter(buffer,
+				 &iter_start);
+
+  for(node = node->children; node != NULL; node = node->next)
+    {
+
+      if ( g_strcasecmp((char *)node->name, "h1") == 0 ||
+	   g_strcasecmp((char *)node->name, "h2") == 0 ||
+	   g_strcasecmp((char *)node->name, "h3") == 0 ||
+	   g_strcasecmp((char *)node->name, "p") == 0 )
+	{
+	  gtk_text_buffer_insert_with_tags_by_name(buffer,
+						   &iter_start,
+						   (char *)xmlNodeGetContent(node),
+						   strlen((char *)xmlNodeGetContent(node)),
+						   (char *)node->name,
+						   NULL);
+	  gtk_text_buffer_get_end_iter(buffer,
+				       &iter_start);
+	  gtk_text_buffer_insert(buffer,&iter_start, "\n", 1);
+
+	  gtk_text_buffer_get_end_iter(buffer,
+					 &iter_start);
+
+	}
+
+    }
+
+ done:
+  xmlFreeDoc(doc);
+}
+
+static gint
+load_event(GnomeCanvasItem *item, GdkEvent *event, void *unused)
+{
+  if (event->type != GDK_BUTTON_PRESS || event->button.button != 1)
+    return FALSE;
+
+  pause_board(TRUE);
+
+  gc_selector_file_load(gcomprisBoard,
+			"wordprocessor",
+			"wordprocessor/xhtml",
+			load_buffer);
 
   return FALSE;
 }
