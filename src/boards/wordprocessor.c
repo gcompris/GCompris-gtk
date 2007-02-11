@@ -157,6 +157,8 @@ static int		 get_style_current_index();
 static gint		 get_color_style_index(gchar *color_style);
 static gint		 get_color_style_current_index();
 static GtkTextTag       *get_tag_from_name(gchar *name);
+static void		 apply_style(int style_index);
+static void		 apply_color_style(int style_index);
 
 #define word_area_x1 120
 #define word_area_y1 20
@@ -166,7 +168,6 @@ static GtkTextTag       *get_tag_from_name(gchar *name);
 #define combo_style_x1 5
 #define combo_style_width 105
 
-static doctype_t *current_doctype_default;
 static GtkTextBuffer *buffer;
 static GtkWidget *view;
 GtkTextTag *selected_tag;
@@ -358,8 +359,6 @@ static GnomeCanvasItem *wordprocessor_create()
   doctype_list[3] = &type_small;
   doctype_list[4] = &type_big;
 
-  current_doctype_default = doctype_list[0];
-
   y = 20.0;
   /*
    * The save button
@@ -414,7 +413,7 @@ static GnomeCanvasItem *wordprocessor_create()
   display_color_style_selector(boardRootItem, y);
 
   /* Now we can create the tags */
-  create_tags(buffer, current_doctype_default);
+  create_tags(buffer, doctype_list[0]);
 
   return NULL;
 }
@@ -431,10 +430,10 @@ display_style_buttons(GnomeCanvasGroup *boardRootItem,
 {
   int offset_y = 40;
   int i = 0;
-  static gchar *styles_tab[] = { "TITLE", "h1",
-				 "HEADING 1", "h2",
-				 "HEADING 2", "h3",
-				 "TEXT", "p",
+  static gchar *styles_tab[] = { N_("Title"), "h1",
+				 N_("Heading 1"), "h2",
+				 N_("Heading 2"), "h3",
+				 N_("Text"), "p",
 				 NULL, NULL };
 
   while(styles_tab[i*2])
@@ -689,6 +688,25 @@ get_style_current_index()
   return( get_style_index(gtk_combo_box_get_active_text(GTK_COMBO_BOX(gtk_combo_styles))) );
 }
 
+static void
+apply_style(int style_index)
+{
+  int i = style_index;
+  int j;
+
+  for(j=0; j<NUMBER_OF_STYLE; j++)
+    {
+      g_object_set(tag_list[j],
+		   "weight", doctype_list[i]->style[j].weight,
+		   "font", doctype_list[i]->style[j].font,
+		   "justification", doctype_list[i]->style[j].justification,
+		   "left-margin", doctype_list[i]->style[j].left_margin,
+		   "pixels-above-lines", doctype_list[i]->style[j].pixels_above_lines,
+		   "pixels-below-lines", doctype_list[i]->style[j].pixels_below_lines,
+		   NULL);
+    }
+}
+
 /* Set a new style from the combo box selection
  *
  */
@@ -696,22 +714,8 @@ static void
 item_event_style_selection (GtkComboBox *widget,
 			    void *data)
 {
-  int i = get_style_current_index();
 
-  /* Change the tag */
-  int j = 0;
-
-  for(j=0; j<NUMBER_OF_STYLE; j++)
-    {
-        g_object_set(tag_list[j],
-		     "weight", doctype_list[i]->style[j].weight,
-		     "font", doctype_list[i]->style[j].font,
-		     "justification", doctype_list[i]->style[j].justification,
-		     "left-margin", doctype_list[i]->style[j].left_margin,
-		     "pixels-above-lines", doctype_list[i]->style[j].pixels_above_lines,
-		     "pixels-below-lines", doctype_list[i]->style[j].pixels_below_lines,
-		     NULL);
-    }
+  apply_style(get_style_current_index());
 
   gtk_widget_grab_focus(view);
 }
@@ -735,6 +739,19 @@ get_color_style_current_index()
   return( get_color_style_index(gtk_combo_box_get_active_text(GTK_COMBO_BOX(gtk_combo_colors))) );
 }
 
+static void
+apply_color_style(int color_style_index)
+{
+  int i = color_style_index;
+  int j;
+
+  /* Change the color */
+  for(j=0; j<NUMBER_OF_STYLE; j++)
+    g_object_set(tag_list[j],
+		 "foreground",color_style_list[i][j+1],
+		 NULL);
+}
+
 /* Set a new color style from the combo box selection
  *
  */
@@ -742,13 +759,7 @@ static void
 item_event_color_style_selection (GtkComboBox *widget,
 				  void *data)
 {
-  int i = get_color_style_current_index();
-  int j;
-  /* Change the color */
-  for(j=0; j<NUMBER_OF_STYLE; j++)
-    g_object_set(tag_list[j],
-		 "foreground",color_style_list[i][j+1],
-		 NULL);
+  apply_color_style(get_color_style_current_index());
   gtk_widget_grab_focus(view);
 }
 
@@ -881,8 +892,12 @@ save_buffer(gchar *file, gchar *file_type)
 	  "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n"
 	  "<html xmlns=\"http://www.w3.org/1999/xhtml\">\n"
 	  "<head>\n"
-	  "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" id=\"%d %d\" />"
-	  "<title>GCompris</title>\n", style_index, color_index);
+	  "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" />\n"
+	  "<meta http-equiv=\"GCompris-doctype\" content=\"%s\" />\n"
+	  "<meta http-equiv=\"GCompris-color-style\" content=\"%s\" />\n"
+	  "<title>GCompris</title>\n",
+	  doctype_list[style_index]->name,
+	  color_style_list[color_index][0]);
 
   /*
    * HTML Style
@@ -1028,9 +1043,46 @@ load_buffer(gchar *file, gchar *file_type)
     goto done;
 
   for(node = node->children; node != NULL; node = node->next)
-    if ( g_strcasecmp((char *)node->name, "body") == 0 &&
-	 node->children )
-      break;
+    {
+      if ( g_strcasecmp((char *)node->name, "head") == 0 &&
+	   node->children )
+	{
+	  /* Search and apply the saved style in the META */
+	  xmlNodePtr snode;
+	  for(snode = node->children; snode != NULL; snode = snode->next)
+	    {
+	      if ( ( g_strcasecmp((char *)snode->name, "meta") == 0 ) &&
+		   xmlHasProp(snode, BAD_CAST "http-equiv") )
+		{
+		  xmlChar *key = xmlGetProp(snode, BAD_CAST "http-equiv");
+		  xmlChar *content = xmlGetProp(snode, BAD_CAST "content");
+
+		  if(g_strcasecmp((char *)key, "GCompris-doctype") == 0)
+		    {
+		      int style_index = get_style_index(gettext((char *)content));
+		      apply_style(style_index);
+		      gtk_combo_box_set_active(GTK_COMBO_BOX(gtk_combo_styles),
+					       style_index);
+		    }
+
+		  if(g_strcasecmp((char *)key, "GCompris-color-style") == 0)
+		    {
+		      int cstyle_index = get_color_style_index(gettext((char *)content));
+		      apply_color_style(cstyle_index);
+		      gtk_combo_box_set_active(GTK_COMBO_BOX(gtk_combo_colors),
+					       cstyle_index);
+		    }
+
+		  xmlFree(key);
+		  xmlFree(content);
+		}
+	    }
+	}
+
+      if ( g_strcasecmp((char *)node->name, "body") == 0 &&
+	   node->children )
+	break;
+    }
 
   if(!node)
     goto done;

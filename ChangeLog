@@ -1,5 +1,15 @@
 2007-02-11  Bruno coudoin  <bruno.coudoin@free.fr>
 
+	Completed the wordprocessor, this commit make the styles selector
+	to switch to the style we read in the loaded file.
+
+	* src/boards/wordprocessor.c: (wordprocessor_create),
+	(display_style_buttons), (apply_style),
+	(item_event_style_selection), (apply_color_style),
+	(item_event_color_style_selection), (save_buffer), (load_buffer):
+
+2007-02-11  Bruno coudoin  <bruno.coudoin@free.fr>
+
 	Improved the wordprocessor, default selection is better managed.
 
 	* src/boards/wordprocessor.c: (wordprocessor_create), (item_event),
