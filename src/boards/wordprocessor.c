@@ -32,7 +32,7 @@ typedef struct {
   gchar *font;
   PangoWeight weight;
   GtkJustification justification;
-  gint indent;
+  gint left_margin;
   gint pixels_above_lines;
   gint pixels_below_lines;
 } style_t;
@@ -56,7 +56,7 @@ doctype_t type_normal =
     .style = {
       { "h1", "Serif 30", PANGO_WEIGHT_ULTRABOLD,  GTK_JUSTIFY_CENTER, 0,  40, 20 },
       { "h2", "Serif 26", PANGO_WEIGHT_BOLD,       GTK_JUSTIFY_LEFT,   0,  30, 15 },
-      { "h3", "Serif 20", PANGO_WEIGHT_SEMIBOLD,   GTK_JUSTIFY_LEFT,   0,  20, 12 },
+      { "h3", "Serif 20", PANGO_WEIGHT_SEMIBOLD,   GTK_JUSTIFY_LEFT,   15,  20, 12 },
       { "p",  "Serif 16", PANGO_WEIGHT_NORMAL,     GTK_JUSTIFY_LEFT,   30, 3,  3 }
     }
   };
@@ -67,7 +67,7 @@ doctype_t type_letter =
     .style = {
       { "h1", "Serif 26", PANGO_WEIGHT_ULTRABOLD,  GTK_JUSTIFY_CENTER, 0,  40, 20 },
       { "h2", "Serif 20", PANGO_WEIGHT_BOLD,       GTK_JUSTIFY_LEFT,   0,  30, 15 },
-      { "h3", "Serif 16", PANGO_WEIGHT_SEMIBOLD,   GTK_JUSTIFY_LEFT,   0,  20, 12 },
+      { "h3", "Serif 16", PANGO_WEIGHT_SEMIBOLD,   GTK_JUSTIFY_LEFT,   10, 20, 12 },
       { "p",  "Serif 14", PANGO_WEIGHT_NORMAL,     GTK_JUSTIFY_LEFT,   30, 3,  3 }
     },
   };
@@ -78,7 +78,7 @@ doctype_t type_small =
     .style = {
       { "h1", "Serif 18", PANGO_WEIGHT_ULTRABOLD,  GTK_JUSTIFY_CENTER, 0,  40, 20 },
       { "h2", "Serif 16", PANGO_WEIGHT_BOLD,       GTK_JUSTIFY_LEFT,   0,  30, 15 },
-      { "h3", "Serif 14", PANGO_WEIGHT_SEMIBOLD,   GTK_JUSTIFY_LEFT,   0,  20, 12 },
+      { "h3", "Serif 14", PANGO_WEIGHT_SEMIBOLD,   GTK_JUSTIFY_LEFT,   10, 20, 12 },
       { "p",  "Serif 12", PANGO_WEIGHT_NORMAL,     GTK_JUSTIFY_LEFT,   30, 3,  3 }
     },
   };
@@ -89,7 +89,7 @@ doctype_t type_text =
     .style = {
       { "h1", "Serif 12", PANGO_WEIGHT_ULTRABOLD,  GTK_JUSTIFY_CENTER, 0,  40, 20 },
       { "h2", "Serif 12", PANGO_WEIGHT_BOLD,       GTK_JUSTIFY_LEFT,   0,  30, 15 },
-      { "h3", "Serif 12", PANGO_WEIGHT_SEMIBOLD,   GTK_JUSTIFY_LEFT,   0,  20, 12 },
+      { "h3", "Serif 12", PANGO_WEIGHT_SEMIBOLD,   GTK_JUSTIFY_LEFT,   15, 20, 12 },
       { "p",  "Serif 12", PANGO_WEIGHT_NORMAL,     GTK_JUSTIFY_LEFT,   30, 3,  3 }
     },
   };
@@ -100,7 +100,7 @@ doctype_t type_big =
     .style = {
       { "h1", "Serif 34", PANGO_WEIGHT_ULTRABOLD,  GTK_JUSTIFY_CENTER, 0,  40, 20 },
       { "h2", "Serif 30", PANGO_WEIGHT_BOLD,       GTK_JUSTIFY_LEFT,   0,  30, 15 },
-      { "h3", "Serif 26", PANGO_WEIGHT_SEMIBOLD,   GTK_JUSTIFY_LEFT,   0,  20, 12 },
+      { "h3", "Serif 26", PANGO_WEIGHT_SEMIBOLD,   GTK_JUSTIFY_LEFT,   15, 20, 12 },
       { "p",  "Serif 18", PANGO_WEIGHT_NORMAL,     GTK_JUSTIFY_LEFT,   30, 3,  3 }
     },
   };
@@ -131,8 +131,8 @@ static void	 pause_board (gboolean pause);
 static void	 end_board (void);
 static gboolean	 is_our_board (GcomprisBoard *gcomprisBoard);
 static void	 set_level (guint level);
-static gboolean  key_press_event (GtkWidget *text_view,
-				  GdkEventKey *event);
+static gboolean  key_release_event (GtkWidget *text_view,
+				    GdkEventKey *event);
 
 static GnomeCanvasGroup *boardRootItem = NULL;
 
@@ -143,7 +143,7 @@ static int		 display_style_buttons(GnomeCanvasGroup *boardRootItem,
 					       int x,
 					       int y);
 static void		 create_tags (GtkTextBuffer *buffer, doctype_t *doctype);
-static void		 set_default_style (GtkTextBuffer *buffer, style_t *style);
+static void		 set_default_tag (GtkTextBuffer *buffer, GtkTextTag *tag);
 static void		 display_style_selector(GnomeCanvasGroup *boardRootItem, double y);
 static void		 display_color_style_selector(GnomeCanvasGroup *boardRootItem, double y);
 static void		 item_event_style_selection (GtkComboBox *widget, void *data);
@@ -152,6 +152,11 @@ static gint		 save_event(GnomeCanvasItem *item, GdkEvent *event,
 				    void *unused);
 static gint		 load_event(GnomeCanvasItem *item, GdkEvent *event,
 				    void *unused);
+static int		 get_style_index(gchar *style);
+static int		 get_style_current_index();
+static gint		 get_color_style_index(gchar *color_style);
+static gint		 get_color_style_current_index();
+static GtkTextTag       *get_tag_from_name(gchar *name);
 
 #define word_area_x1 120
 #define word_area_y1 20
@@ -161,10 +166,10 @@ static gint		 load_event(GnomeCanvasItem *item, GdkEvent *event,
 #define combo_style_x1 5
 #define combo_style_width 105
 
-static style_t *current_style_default;
 static doctype_t *current_doctype_default;
 static GtkTextBuffer *buffer;
 static GtkWidget *view;
+GtkTextTag *selected_tag;
 
 /* Description of this plugin */
 static BoardPlugin menu_bp =
@@ -314,10 +319,13 @@ static GnomeCanvasItem *wordprocessor_create()
 							    "y", (double) 0,
 							    NULL));
 
+  selected_tag = NULL;
   view = gtk_text_view_new ();
   gtk_text_view_set_wrap_mode (GTK_TEXT_VIEW (view), GTK_WRAP_WORD);
+  /* Change left margin throughout the widget */
+  gtk_text_view_set_left_margin (GTK_TEXT_VIEW (view), 1);
   g_signal_connect (view, "key-release-event",
-		    G_CALLBACK (key_press_event), NULL);
+		    G_CALLBACK (key_release_event), NULL);
 
   buffer = gtk_text_view_get_buffer (GTK_TEXT_VIEW (view));
 
@@ -351,7 +359,6 @@ static GnomeCanvasItem *wordprocessor_create()
   doctype_list[4] = &type_big;
 
   current_doctype_default = doctype_list[0];
-  create_tags(buffer, current_doctype_default);
 
   y = 20.0;
   /*
@@ -406,6 +413,9 @@ static GnomeCanvasItem *wordprocessor_create()
   y += 40;
   display_color_style_selector(boardRootItem, y);
 
+  /* Now we can create the tags */
+  create_tags(buffer, current_doctype_default);
+
   return NULL;
 }
 
@@ -453,9 +463,10 @@ display_style_buttons(GnomeCanvasGroup *boardRootItem,
   return(y);
 }
 
-/* ==================================== */
-
-/* ==================================== */
+/* \brief callback on a style button (h1, h2, h3, p)
+ *
+ *
+ */
 static void
 item_event(GtkWidget *button, gchar *data)
 {
@@ -466,6 +477,9 @@ item_event(GtkWidget *button, gchar *data)
     return;
 
   current_style_name = (char *)data;
+
+  selected_tag = get_tag_from_name(current_style_name);
+  set_default_tag(buffer, selected_tag);
 
   gtk_text_buffer_get_iter_at_mark(buffer,
 				   &iter_start,
@@ -512,6 +526,7 @@ static void
 create_tags (GtkTextBuffer *buffer, doctype_t *doctype)
 {
   gint i;
+  gint c = get_color_style_current_index();
 
   for(i=0; i<NUMBER_OF_STYLE; i++)
     {
@@ -521,9 +536,10 @@ create_tags (GtkTextBuffer *buffer, doctype_t *doctype)
 					"weight", doctype->style[i].weight,
 					"font", doctype->style[i].font,
 					"justification", doctype->style[i].justification,
-					"indent", doctype->style[i].indent,
+					"left-margin", doctype->style[i].left_margin,
 					"pixels-above-lines", doctype->style[i].pixels_above_lines,
 					"pixels-below-lines", doctype->style[i].pixels_below_lines,
+					"foreground",color_style_list[c][i+1],
 					NULL);
       tag_list[i] = tag;
       g_object_set_data (G_OBJECT (tag), "style", &doctype->style[i]);
@@ -532,36 +548,57 @@ create_tags (GtkTextBuffer *buffer, doctype_t *doctype)
   /* Point to the last style */
   i--;
 
-  current_style_default = &doctype->style[i];
-  set_default_style(buffer, current_style_default);
+  set_default_tag(buffer, tag_list[i]);
 }
 
 /*
  * Set the default style
  */
 static void
-set_default_style (GtkTextBuffer *buffer, style_t *style)
+set_default_tag (GtkTextBuffer *buffer, GtkTextTag *tag)
 {
   PangoFontDescription *font_desc;
-  GdkColor color;
+  GdkColor *color = (GdkColor *)g_malloc(sizeof(GdkColor));
+  int val;
+  GtkJustification justification;
 
-  //printf("set_default_style %s\n", style->name);
-  /* Change default font throughout the widget */
-  font_desc = pango_font_description_from_string (style->font);
+  if(!tag)
+    return;
+
+  g_object_get (G_OBJECT (tag), "foreground-gdk", &color, NULL);
+  g_object_get (G_OBJECT (tag), "font-desc", &font_desc, NULL);
+
   gtk_widget_modify_font (view, font_desc);
-  pango_font_description_free (font_desc);
+  gtk_widget_modify_text (view, GTK_STATE_NORMAL, color);
 
-  /* Change default color throughout the widget */
-  gdk_color_parse ("black", &color);
-  gtk_widget_modify_text (view, GTK_STATE_NORMAL, &color);
+  g_object_get (G_OBJECT (tag), "left-margin", &val, NULL);
+  gtk_text_view_set_left_margin (GTK_TEXT_VIEW (view), val);
 
-  /* Change left margin, justification, ... throughout the widget */
-  gtk_text_view_set_indent (GTK_TEXT_VIEW (view), style->indent);
-  gtk_text_view_set_justification(GTK_TEXT_VIEW (view), style->justification);
-  gtk_text_view_set_pixels_below_lines(GTK_TEXT_VIEW (view), style->pixels_below_lines);
-  gtk_text_view_set_pixels_above_lines(GTK_TEXT_VIEW (view), style->pixels_above_lines);
+  g_object_get (G_OBJECT (tag), "justification", &justification, NULL);
+  gtk_text_view_set_justification(GTK_TEXT_VIEW (view), justification);
+
+  g_object_get (G_OBJECT (tag), "pixels-below-lines", &val, NULL);
+  gtk_text_view_set_pixels_below_lines(GTK_TEXT_VIEW (view), val);
+
+  g_object_get (G_OBJECT (tag), "pixels-above-lines", &val, NULL);
+  gtk_text_view_set_pixels_above_lines(GTK_TEXT_VIEW (view), val);
 }
 
+static GtkTextTag *
+get_tag_from_name(gchar *tag_name)
+{
+  gint i;
+
+  for(i=0; i<NUMBER_OF_STYLE; i++)
+    {
+      gchar *name;
+      g_object_get(G_OBJECT (tag_list[i]), "name", &name, NULL);
+      if(strcmp(name, tag_name)==0)
+	return(tag_list[i]);
+
+    }
+  return(tag_list[i-1]);
+}
 
 /*
  * Create the combo with the styles
@@ -633,33 +670,23 @@ display_color_style_selector(GnomeCanvasGroup *boardRootItem, double y)
 		   NULL);
 }
 
-static void tag_style_set(int i, doctype_t *doctype)
+static int
+get_style_index(gchar *style)
 {
-  //printf("Setting style %s tag %s\n", doctype->name, doctype->style[i].name);
-  g_object_set(tag_list[i],
-	       "weight", doctype->style[i].weight,
-	       "font", doctype->style[i].font,
-	       "justification", doctype->style[i].justification,
-	       "indent", doctype->style[i].indent,
-	       "pixels-above-lines", doctype->style[i].pixels_above_lines,
-	       "pixels-below-lines", doctype->style[i].pixels_below_lines,
-	       NULL);
-}
-
-int
-get_style_index()
-{
-  gchar *style_str;
   int i;
-
-  style_str = gtk_combo_box_get_active_text(GTK_COMBO_BOX(gtk_combo_styles));
 
   /* Search the doctype */
   for(i=0; i<NUMBER_OF_DOCTYPE; i++)
-    if(strcmp(gettext(doctype_list[i]->name), style_str)==0)
+    if(strcmp(gettext(doctype_list[i]->name), style)==0)
       return(i);
 
   return(0);
+}
+
+static int
+get_style_current_index()
+{
+  return( get_style_index(gtk_combo_box_get_active_text(GTK_COMBO_BOX(gtk_combo_styles))) );
 }
 
 /* Set a new style from the combo box selection
@@ -669,31 +696,43 @@ static void
 item_event_style_selection (GtkComboBox *widget,
 			    void *data)
 {
-  int i = get_style_index();
+  int i = get_style_current_index();
 
   /* Change the tag */
   int j = 0;
 
   for(j=0; j<NUMBER_OF_STYLE; j++)
-    tag_style_set(j, doctype_list[i]);
+    {
+        g_object_set(tag_list[j],
+		     "weight", doctype_list[i]->style[j].weight,
+		     "font", doctype_list[i]->style[j].font,
+		     "justification", doctype_list[i]->style[j].justification,
+		     "left-margin", doctype_list[i]->style[j].left_margin,
+		     "pixels-above-lines", doctype_list[i]->style[j].pixels_above_lines,
+		     "pixels-below-lines", doctype_list[i]->style[j].pixels_below_lines,
+		     NULL);
+    }
 
   gtk_widget_grab_focus(view);
 }
 
-int
-get_color_style_index()
+static gint
+get_color_style_index(gchar *color_style)
 {
-  gchar *style_str;
   int i;
-
-  style_str = gtk_combo_box_get_active_text(GTK_COMBO_BOX(gtk_combo_colors));
 
   /* Search the color style */
   for(i=0; i<NUMBER_OF_COLOR_STYLE; i++)
-    if(strcmp(gettext(color_style_list[i][0]), style_str)==0)
+    if(strcmp(gettext(color_style_list[i][0]), color_style)==0)
       return(i);
 
   return(0);
+}
+
+static gint
+get_color_style_current_index()
+{
+  return( get_color_style_index(gtk_combo_box_get_active_text(GTK_COMBO_BOX(gtk_combo_colors))) );
 }
 
 /* Set a new color style from the combo box selection
@@ -703,7 +742,7 @@ static void
 item_event_color_style_selection (GtkComboBox *widget,
 				  void *data)
 {
-  int i = get_color_style_index();
+  int i = get_color_style_current_index();
   int j;
   /* Change the color */
   for(j=0; j<NUMBER_OF_STYLE; j++)
@@ -718,8 +757,8 @@ item_event_color_style_selection (GtkComboBox *widget,
  *
  */
 static gboolean
-key_press_event (GtkWidget *text_view,
-		 GdkEventKey *event)
+key_release_event (GtkWidget *text_view,
+		   GdkEventKey *event)
 {
   GtkTextIter iter_start, iter_end;
   GtkTextBuffer *buffer;
@@ -738,13 +777,12 @@ key_press_event (GtkWidget *text_view,
     gtk_text_iter_forward_to_line_end(&iter_end);
 
     tags = gtk_text_iter_get_tags (&iter_start);
-    //printf("length %d\n", g_slist_length(tags));
+
     if(g_slist_length(tags) == 0)
       {
 	gtk_text_iter_backward_char (&iter_end);
 	tags = gtk_text_iter_get_tags (&iter_end);
 	gtk_text_iter_forward_char (&iter_end);
-	//printf("2 length %d\n", g_slist_length(tags));
       }
 
     for (tagp = tags;  tagp != NULL;  tagp = tagp->next)
@@ -752,14 +790,13 @@ key_press_event (GtkWidget *text_view,
 	GtkTextTag *tag = tagp->data;
 	gchar *name;
 	g_object_get (G_OBJECT (tag), "name", &name, NULL);
-	style_t *style = g_object_get_data (G_OBJECT (tag), "style");
 
-	//printf("name=%s  style=%s\n", name, style->name);
-	set_default_style(buffer, style);
+	set_default_tag(buffer, tag);
 	gtk_text_buffer_apply_tag_by_name(buffer,
 					  name,
 					  &iter_start,
 					  &iter_end);
+	selected_tag = NULL;
       }
 
     if (tags)
@@ -767,11 +804,24 @@ key_press_event (GtkWidget *text_view,
     else
       {
 	/* Set the default style */
-	set_default_style(buffer, current_style_default);
-	gtk_text_buffer_apply_tag_by_name(buffer,
-					  current_style_default->name,
-					  &iter_start,
-					  &iter_end);
+	if(selected_tag)
+	  {
+	    set_default_tag(buffer, selected_tag);
+
+	    gtk_text_buffer_apply_tag(buffer,
+				      selected_tag,
+				      &iter_start,
+				      &iter_end);
+	  }
+	else
+	  {
+	    set_default_tag(buffer, tag_list[NUMBER_OF_STYLE-1]);
+
+	    gtk_text_buffer_apply_tag(buffer,
+				      tag_list[NUMBER_OF_STYLE-1],
+				      &iter_start,
+				      &iter_end);
+	  }
       }
   }
 
@@ -818,6 +868,8 @@ save_buffer(gchar *file, gchar *file_type)
   GSList *tags = NULL, *tagp = NULL;
   gchar *tag_name;
   FILE *filefd;
+  int style_index = get_style_current_index();
+  int color_index = get_color_style_current_index();
 
   filefd = g_fopen(file, "w+");
 
@@ -829,8 +881,8 @@ save_buffer(gchar *file, gchar *file_type)
 	  "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n"
 	  "<html xmlns=\"http://www.w3.org/1999/xhtml\">\n"
 	  "<head>\n"
-	  "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" />"
-	  "<title>GCompris</title>\n");
+	  "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" id=\"%d %d\" />"
+	  "<title>GCompris</title>\n", style_index, color_index);
 
   /*
    * HTML Style
@@ -839,12 +891,10 @@ save_buffer(gchar *file, gchar *file_type)
 	  "<style type=\"text/css\">\n");
 
   {
-    int style_index = get_style_index();
-    int color_index = get_color_style_index();
     int i;
     int font_size[NUMBER_OF_STYLE] = { 28, 22, 16, 12 };
     char *align[NUMBER_OF_STYLE] = { "center", "left", "left", "justify" };
-    int indent[NUMBER_OF_STYLE] = { 0, 10, 20, 30 };
+    int left_margin[NUMBER_OF_STYLE] = { 0, 10, 20, 30 };
 
     for(i=0; i<NUMBER_OF_STYLE; i++)
       {
@@ -860,7 +910,7 @@ save_buffer(gchar *file, gchar *file_type)
 		color_style_list[color_index][i+1],
 		font_size[i],
 		align[i],
-		indent[i]);
+		left_margin[i]);
       }
 
   }
@@ -966,7 +1016,7 @@ load_buffer(gchar *file, gchar *file_type)
   if(!doc)
     return;
 
-  /*Get the root element node */
+  /* Get the root element node */
   node = xmlDocGetRootElement(doc);
 
   for(node = node; node != NULL; node = node->next)

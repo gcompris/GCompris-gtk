@@ -1,3 +1,15 @@
+2007-02-11  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	Improved the wordprocessor, default selection is better managed.
+
+	* src/boards/wordprocessor.c: (wordprocessor_create), (item_event),
+	(create_tags), (set_default_tag), (get_tag_from_name),
+	(get_style_index), (get_style_current_index),
+	(item_event_style_selection), (get_color_style_index),
+	(get_color_style_current_index),
+	(item_event_color_style_selection), (key_release_event),
+	(save_buffer), (load_buffer):
+
 2007-02-09  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	- Replaced pixmap with GTK buttons for the Headings.
