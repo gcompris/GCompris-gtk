@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-02-09 13:10+0000\n"
-"PO-Revision-Date: 2007-02-09 13:11-0000\n"
+"POT-Creation-Date: 2007-02-16 23:40+0000\n"
+"PO-Revision-Date: 2007-02-16 23:40-0000\n"
 "Last-Translator: David Lodge <dave@cirt.net>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -699,17 +699,17 @@ msgid "Moonwalker"
 msgstr "Moonwalker"
 
 #: ../boards/chronos/board1_1.xml.in.h:1
-#: ../src/boards/wordprocessor.c:117
+#: ../src/boards/wordprocessor.c:118
 msgid "Autumn"
 msgstr "Autumn"
 
 #: ../boards/chronos/board1_1.xml.in.h:2
-#: ../src/boards/wordprocessor.c:115
+#: ../src/boards/wordprocessor.c:116
 msgid "Spring"
 msgstr "Spring"
 
 #: ../boards/chronos/board1_1.xml.in.h:3
-#: ../src/boards/wordprocessor.c:116
+#: ../src/boards/wordprocessor.c:117
 msgid "Summer"
 msgstr "Summer"
 
@@ -718,7 +718,7 @@ msgid "The 4 Seasons"
 msgstr "The 4 Seasons"
 
 #: ../boards/chronos/board1_1.xml.in.h:5
-#: ../src/boards/wordprocessor.c:118
+#: ../src/boards/wordprocessor.c:119
 msgid "Winter"
 msgstr "Winter"
 
@@ -4673,41 +4673,38 @@ msgstr ""
 msgid "Distance to target = %d meters"
 msgstr "Distance to target = %d metres"
 
-#: ../src/boards/wordprocessor.c:54
+#: ../src/boards/wordprocessor.c:55
 msgid "Research"
 msgstr "Research"
 
-#: ../src/boards/wordprocessor.c:65
+#: ../src/boards/wordprocessor.c:66
 msgid "Sentimental"
 msgstr "Sentimental"
 
-#: ../src/boards/wordprocessor.c:76
+#: ../src/boards/wordprocessor.c:77
 msgid "Official"
 msgstr "Official"
 
-#: ../src/boards/wordprocessor.c:87
+#: ../src/boards/wordprocessor.c:88
+#: ../src/boards/wordprocessor.c:436
 msgid "Text"
 msgstr "Text"
 
-#: ../src/boards/wordprocessor.c:98
+#: ../src/boards/wordprocessor.c:99
 msgid "Flyer"
 msgstr "Flyer"
 
-#: ../src/boards/wordprocessor.c:399
-msgid "TITLE"
-msgstr "TITLE"
+#: ../src/boards/wordprocessor.c:433
+msgid "Title"
+msgstr "Title"
 
-#: ../src/boards/wordprocessor.c:400
-msgid "HEADING 1"
-msgstr "HEADING 1"
+#: ../src/boards/wordprocessor.c:434
+msgid "Heading 1"
+msgstr "Heading 1"
 
-#: ../src/boards/wordprocessor.c:401
-msgid "HEADING 2"
-msgstr "HEADING 2"
-
-#: ../src/boards/wordprocessor.c:402
-msgid "TEXT"
-msgstr "TEXT"
+#: ../src/boards/wordprocessor.c:435
+msgid "Heading 2"
+msgstr "Heading 2"
 
 #: ../src/gcompris/about.c:57
 msgid ""
@@ -5340,6 +5337,14 @@ msgstr "Time Elapsed"
 msgid "Remaining Time = %d"
 msgstr "Remaining Time = %d"
 
+#~ msgid "TITLE"
+#~ msgstr "TITLE"
+#~ msgid "HEADING 1"
+#~ msgstr "HEADING 1"
+#~ msgid "HEADING 2"
+#~ msgstr "HEADING 2"
+#~ msgid "TEXT"
+#~ msgstr "TEXT"
 #~ msgid "Letter"
 #~ msgstr "Letter"
 #~ msgid "Small"
@@ -5602,8 +5607,6 @@ msgstr "Remaining Time = %d"
 #~ msgstr "Author"
 #~ msgid "Directory"
 #~ msgstr "Directory"
-#~ msgid "Title"
-#~ msgstr "Title"
 #~ msgid "Released under GPL"
 #~ msgstr "Released under GPL"
 #~ msgid "Couldn't open music dir: %s"
