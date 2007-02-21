@@ -35,14 +35,13 @@ import constants
 # Log Management
 (
   COLUMN_DATE,
-  COLUMN_DURATION,
   COLUMN_USER,
   COLUMN_BOARD,
   COLUMN_LEVEL,
   COLUMN_SUBLEVEL,
+  COLUMN_DURATION,
   COLUMN_STATUS,
-  COLUMN_COMMENT
-) = range(8)
+) = range(7)
 
 class Log_list:
   """GCompris Log List Table"""
@@ -65,12 +64,11 @@ class Log_list:
       # create tree model
       self.log_model = gtk.ListStore(
           gobject.TYPE_STRING,
-          gobject.TYPE_INT,
           gobject.TYPE_STRING,
           gobject.TYPE_STRING,
           gobject.TYPE_INT,
           gobject.TYPE_INT,
-          gobject.TYPE_STRING,
+          gobject.TYPE_INT,
           gobject.TYPE_STRING)
 
       # Main box is vertical
@@ -146,7 +144,14 @@ class Log_list:
       self.button_remove.connect("clicked", self.on_remove_log_clicked, treeview_log)
       vbox_button.pack_start(self.button_remove, False, False, 0)
       self.button_remove.show()
-      self.button_remove.set_sensitive(False)
+      self.button_remove.set_sensitive(True)
+
+      # Add buttons
+      self.button_refresh = gtk.Button(stock='gtk-refresh')
+      self.button_refresh.connect("clicked", self.on_refresh_log_clicked)
+      vbox_button.pack_start(self.button_refresh, False, False, 0)
+      self.button_refresh.show()
+      self.button_refresh.set_sensitive(True)
 
       # Load lists
       self.class_changed_cb(self.combo_class)
@@ -163,11 +168,10 @@ class Log_list:
     self.log_model.clear()
 
     # Grab the log data
-    self.cur.execute('SELECT * FROM logs ORDER BY date')
+    self.cur.execute('SELECT date, user_id, board_id, level, sublevel, duration, status FROM logs ORDER BY date')
     self.log_data = self.cur.fetchall()
 
     for alog in self.log_data:
-      print alog
       self.add_log_in_model(self.log_model, alog)
 
 
@@ -182,17 +186,7 @@ class Log_list:
                                 text=COLUMN_DATE)
     column.set_sort_column_id(COLUMN_DATE)
     column.set_sizing(gtk.TREE_VIEW_COLUMN_FIXED)
-    column.set_fixed_width(constants.COLUMN_WIDTH_LOGIN)
-    treeview.append_column(column)
-
-    # columns for duration
-    renderer = gtk.CellRendererText()
-    renderer.set_data("column", COLUMN_DURATION)
-    column = gtk.TreeViewColumn(_('Duration'), renderer,
-                                text=COLUMN_DURATION)
-    column.set_sort_column_id(COLUMN_DURATION)
-    column.set_sizing(gtk.TREE_VIEW_COLUMN_FIXED)
-    column.set_fixed_width(constants.COLUMN_WIDTH_BIRTHDATE)
+    column.set_fixed_width(constants.COLUMN_WIDTH_DATE)
     treeview.append_column(column)
 
     # columns for USER
@@ -222,7 +216,7 @@ class Log_list:
                                 text=COLUMN_LEVEL)
     column.set_sort_column_id(COLUMN_LEVEL)
     column.set_sizing(gtk.TREE_VIEW_COLUMN_FIXED)
-    column.set_fixed_width(constants.COLUMN_WIDTH_BIRTHDATE)
+    column.set_fixed_width(constants.COLUMN_WIDTH_NUMBER)
     treeview.append_column(column)
 
     # columns for SUBLEVEL
@@ -232,7 +226,17 @@ class Log_list:
                                 text=COLUMN_SUBLEVEL)
     column.set_sort_column_id(COLUMN_SUBLEVEL)
     column.set_sizing(gtk.TREE_VIEW_COLUMN_FIXED)
-    column.set_fixed_width(constants.COLUMN_WIDTH_BIRTHDATE)
+    column.set_fixed_width(constants.COLUMN_WIDTH_NUMBER)
+    treeview.append_column(column)
+
+    # columns for duration
+    renderer = gtk.CellRendererText()
+    renderer.set_data("column", COLUMN_DURATION)
+    column = gtk.TreeViewColumn(_('Duration'), renderer,
+                                text=COLUMN_DURATION)
+    column.set_sort_column_id(COLUMN_DURATION)
+    column.set_sizing(gtk.TREE_VIEW_COLUMN_FIXED)
+    column.set_fixed_width(constants.COLUMN_WIDTH_NUMBER)
     treeview.append_column(column)
 
     # columns for STATUS
@@ -244,17 +248,6 @@ class Log_list:
     column.set_sizing(gtk.TREE_VIEW_COLUMN_FIXED)
     column.set_fixed_width(constants.COLUMN_WIDTH_LOGIN)
     treeview.append_column(column)
-
-    # columns for COMMENT
-    renderer = gtk.CellRendererText()
-    renderer.set_data("column", COLUMN_COMMENT)
-    column = gtk.TreeViewColumn(_('Comment'), renderer,
-                                text=COLUMN_COMMENT)
-    column.set_sort_column_id(COLUMN_COMMENT)
-    column.set_sizing(gtk.TREE_VIEW_COLUMN_FIXED)
-    column.set_fixed_width(constants.COLUMN_WIDTH_BIRTHDATE)
-    treeview.append_column(column)
-
 
   # Add log in the model
   def add_log_in_model(self, model, alog):
@@ -268,15 +261,26 @@ class Log_list:
     elif  alog[COLUMN_STATUS] == gcompris.bonus.COMPLETED:
         status = "Compl."
 
+    login = _("Default")
+    self.cur.execute('SELECT login FROM users WHERE user_id=?', (alog[COLUMN_USER],))
+    result = self.cur.fetchall()
+    if(result):
+        login = result[0][0]
+
+    board = ""
+    self.cur.execute('SELECT name FROM boards WHERE board_id=?', (alog[COLUMN_BOARD],))
+    result = self.cur.fetchall()
+    if(result):
+        board = result[0][0]
+
     model.set (iter,
                COLUMN_DATE,     alog[COLUMN_DATE],
-               COLUMN_DURATION, alog[COLUMN_DURATION],
-               COLUMN_USER,     alog[COLUMN_USER],
-               COLUMN_BOARD,    alog[COLUMN_BOARD],
+               COLUMN_USER,     login,
+               COLUMN_BOARD,    board,
                COLUMN_LEVEL,    alog[COLUMN_LEVEL],
                COLUMN_SUBLEVEL, alog[COLUMN_SUBLEVEL],
+               COLUMN_DURATION, alog[COLUMN_DURATION],
                COLUMN_STATUS,   status,
-               COLUMN_COMMENT,  alog[COLUMN_COMMENT],
                )
 
 
@@ -287,7 +291,11 @@ class Log_list:
       self.cur.execute('delete from logs')
       self.con.commit()
 
-      self.log_user.clear()
+      self.log_model.clear()
+
+  def on_refresh_log_clicked(self, button):
+
+      self.reload_log()
 
   def class_changed_cb(self, combobox):
     active = combobox.get_active()

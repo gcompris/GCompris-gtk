@@ -1639,8 +1639,9 @@ main (int argc, char *argv[])
     }
     g_warning("Running in administration mode");
     properties->administration = TRUE;
-    g_warning("Background music disabled");
+    g_warning("Music disabled");
     properties->music = FALSE;
+    properties->fx = FALSE;
     g_warning("Fullscreen and cursor is disabled");
     properties->fullscreen = FALSE;
     properties->defaultcursor = GDK_LEFT_PTR;

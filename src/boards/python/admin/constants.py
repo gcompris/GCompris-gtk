@@ -1,21 +1,21 @@
 #  gcompris - constants.py
-# 
+#
 # Copyright (C) 2005 Bruno Coudoin and Yves Combe
-# 
+#
 #   This program is free software; you can redistribute it and/or modify
 #   it under the terms of the GNU General Public License as published by
 #   the Free Software Foundation; either version 2 of the License, or
 #   (at your option) any later version.
-# 
+#
 #   This program is distributed in the hope that it will be useful,
 #   but WITHOUT ANY WARRANTY; without even the implied warranty of
 #   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 #   GNU General Public License for more details.
-# 
+#
 #   You should have received a copy of the GNU General Public License
 #   along with this program; if not, write to the Free Software
 #   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
-# 
+#
 
 
 # Some common constants for the administration
@@ -35,6 +35,8 @@ COLUMN_WIDTH_GROUPDESCRIPTION_EDIT   = 150
 COLUMN_WIDTH_PROFILENAME             = 100
 COLUMN_WIDTH_PROFILEDESCRIPTION      = 300
 
+COLUMN_WIDTH_DATE                    = 140
+COLUMN_WIDTH_NUMBER                  = 50
 #
 # Some utility method
 # -------------------
@@ -44,12 +46,12 @@ COLUMN_WIDTH_PROFILEDESCRIPTION      = 300
 def get_next_class_id(con, cur):
     cur.execute('select max(class_id) from class')
     class_id = cur.fetchone()[0]
-    
+
     if(class_id == None):
         class_id=0
     else:
         class_id += 1
-      
+
     return class_id
 
 
@@ -59,12 +61,12 @@ def get_next_class_id(con, cur):
 def get_next_group_id(con, cur):
     cur.execute('select max(group_id) from groups')
     group_id = cur.fetchone()[0]
-    
+
     if(group_id == None):
         group_id=0
     else:
         group_id += 1
-      
+
     return group_id
 
 
@@ -73,12 +75,12 @@ def get_next_group_id(con, cur):
 def get_next_profile_id(con, cur):
     cur.execute('select max(profile_id) from profiles')
     profile_id = cur.fetchone()[0]
-    
+
     if(profile_id == None):
         profile_id=0
     else:
         profile_id += 1
-        
+
     return profile_id
 
 
@@ -97,7 +99,7 @@ def get_wholegroup_id(con, cur, class_id):
 def get_class_name_for_group_id(con, cur, group_id):
 
     class_name = ""
-    
+
     # Extract the class name of this group
     cur.execute('SELECT class_id FROM groups WHERE group_id=?',
                      (group_id,))
