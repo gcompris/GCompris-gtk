@@ -1398,34 +1398,11 @@ main (int argc, char *argv[])
   // Set the default gcompris cursor
   properties->defaultcursor = GCOMPRIS_DEFAULT_CURSOR;
 
-  /* Save the default locale */
-#if defined WIN32
-  gc_user_default_locale = g_win32_getlocale();
-  // Set the user's choice locale
-  if(properties->locale[0]=='\0') {
-    gc_locale_set(gc_user_default_locale);
-  } else {
-    gc_locale_set(properties->locale);
-  }
-#else
-  gc_user_default_locale = g_strdup(setlocale(LC_CTYPE, NULL));
-  // Set the user's choice locale
-  gc_locale_set(properties->locale);
-#endif
-
   /* Set the default message handler, it avoids message with option -D */
   g_log_set_handler (NULL, G_LOG_LEVEL_MESSAGE | G_LOG_LEVEL_WARNING | G_LOG_LEVEL_DEBUG | G_LOG_FLAG_FATAL
 		     | G_LOG_FLAG_RECURSION, gc_log_handler, NULL);
 
   /*------------------------------------------------------------*/
-  if (popt_version)
-    {
-      printf (_("GCompris\nVersion: %s\nLicence: GPL\n"
-		"More info at http://gcompris.net\n"),
-	      VERSION);
-      exit (0);
-    }
-
   if (popt_debug)
     {
       gc_debug = TRUE;
@@ -1451,6 +1428,29 @@ main (int argc, char *argv[])
 
   /* Now we know where our config file is, load the saved config */
   gc_prop_load(properties);
+
+  /* Set the locale */
+#if defined WIN32
+  gc_user_default_locale = g_win32_getlocale();
+  // Set the user's choice locale
+  if(properties->locale[0]=='\0') {
+    gc_locale_set(gc_user_default_locale);
+  } else {
+    gc_locale_set(properties->locale);
+  }
+#else
+  gc_user_default_locale = g_strdup(setlocale(LC_CTYPE, NULL));
+  // Set the user's choice locale
+  gc_locale_set(properties->locale);
+#endif
+
+  if (popt_version)
+    {
+      printf (_("GCompris\nVersion: %s\nLicence: GPL\n"
+		"More info at http://gcompris.net\n"),
+	      VERSION);
+      exit (0);
+    }
 
   if (popt_fullscreen)
     {

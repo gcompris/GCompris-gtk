@@ -1,5 +1,14 @@
 2007-02-21  Bruno coudoin  <bruno.coudoin@free.fr>
 
+	* src/boards/python/ballcatch.py: Changed by Jose Jorge to have 4
+	different backgrounds. Bruno fixed a timer issue that was not deleted.
+	clicking on next and exiting this activity was crashing it.
+
+	* src/gcompris/gcompris.c: (main): Moved back local apply after the property
+	is loaded.
+
+2007-02-21  Bruno coudoin  <bruno.coudoin@free.fr>
+
 	- Reworked the log API. Now the logs are saved within our sqlite
 	  database. Added a minimal module in the admin to display the log.
 

@@ -27,8 +27,6 @@ class Gcompris_ballcatch:
     self.board_paused  = 0;
     self.gamewon       = 0;
 
-    print("Gcompris_ballcatch __init__.")
-
 
   def start(self):
     self.gcomprisBoard.level=1
@@ -36,8 +34,7 @@ class Gcompris_ballcatch:
     self.gcomprisBoard.sublevel=1
     self.gcomprisBoard.number_of_sublevel=1
     gcompris.bar_set(gcompris.BAR_LEVEL)
-    gcompris.set_background(self.gcomprisBoard.canvas.root(),
-                            "images/beach.png")
+    gcompris.set_background(self.gcomprisBoard.canvas.root(),"images/beach1.png")
     gcompris.bar_set_level(self.gcomprisBoard)
 
 
@@ -115,34 +112,30 @@ class Gcompris_ballcatch:
     self.counter_left  = 0
     self.counter_right = 0
 
-    self.timer_inc  = gtk.timeout_add(self.timerinc, self.timer_inc_display)
-
-    print("Gcompris_ballcatch start.")
-
+    self.timer_inc  = gobject.timeout_add(self.timerinc,
+                                          self.timer_inc_display)
 
   def end(self):
+
+    if self.timer_inc:
+      gobject.source_remove(self.timer_inc)
 
     # Remove the root item removes all the others inside it
     self.rootitem.destroy()
 
-    if self.timer_inc :
-      gtk.timeout_remove(self.timer_inc)
-
-
   def ok(self):
-    print("Gcompris_ballcatch ok.")
+    pass
 
 
   def repeat(self):
-    print("Gcompris_ballcatch repeat.")
+    pass
 
 
   def config(self):
-    print("Gcompris_ballcatch config.")
+    pass
 
 
   def key_press(self, keyval, commit_str, preedit_str):
-    print("Gcompris_ballcatch key press. %i" % keyval)
 
     if (keyval == gtk.keysyms.Shift_L):
       self.left_continue  = False
@@ -179,27 +172,33 @@ class Gcompris_ballcatch:
 
     # Set the level in the control bar
     gcompris.bar_set_level(self.gcomprisBoard);
-
     self.init_balloon()
     self.left_continue  = True
     self.right_continue = True
     self.counter_left  = 0
     self.counter_right = 0
+    if self.timer_inc:
+      gobject.source_remove(self.timer_inc)
+    self.timer_inc = 0
 
     if(self.gcomprisBoard.level == 1):
       self.timerinc = 900
+      gcompris.set_background(self.gcomprisBoard.canvas.root(),"images/beach1.png")
     elif(self.gcomprisBoard.level == 2):
       self.timerinc = 350
     elif(self.gcomprisBoard.level == 3):
       self.timerinc = 300
+      gcompris.set_background(self.gcomprisBoard.canvas.root(),"images/beach2.png")
     elif(self.gcomprisBoard.level == 4):
       self.timerinc = 200
     elif(self.gcomprisBoard.level == 5):
       self.timerinc = 150
+      gcompris.set_background(self.gcomprisBoard.canvas.root(),"images/beach3.png")
     elif(self.gcomprisBoard.level == 6):
       self.timerinc = 100
     elif(self.gcomprisBoard.level == 7):
       self.timerinc = 60
+      gcompris.set_background(self.gcomprisBoard.canvas.root(),"images/beach4.png")
     elif(self.gcomprisBoard.level == 8):
       self.timerinc = 30
     elif(self.gcomprisBoard.level == 9):
@@ -209,7 +208,8 @@ class Gcompris_ballcatch:
       self.timerinc = 1
 
     # Restart the timer
-    self.timer_inc  = gtk.timeout_add(self.timerinc, self.timer_inc_display)
+    self.timer_inc  = gobject.timeout_add(self.timerinc,
+                                          self.timer_inc_display)
 
 
   def timer_inc_display(self):
@@ -221,14 +221,14 @@ class Gcompris_ballcatch:
       self.counter_right += self.timer_inc
 
     if(self.left_continue or self.right_continue):
-      self.timer_inc  = gtk.timeout_add(self.timerinc, self.timer_inc_display)
+      self.timer_inc  = gobject.timeout_add(self.timerinc,
+                                            self.timer_inc_display)
     else:
       gcompris.sound.play_ogg("sounds/brick.wav")
       # Send the ball now
       self.timer_diff = self.counter_right/1000 - self.counter_left/1000
       # Make some adjustment so that it cannot be too or too far close from the target
       # In between, the calculated value stay proportional to the error.
-      print self.timer_diff
       if(self.timer_diff < -6):
         self.timer_diff = -6
       elif(self.timer_diff > 6):
@@ -238,7 +238,7 @@ class Gcompris_ballcatch:
       elif(self.timer_diff < 1.5 and self.timer_diff > 0 ):
         self.timer_diff = 1.5
 
-      self.timer_inc  = gtk.timeout_add(self.ballinc, self.ball_move)
+      self.timer_inc = gobject.timeout_add(self.ballinc, self.ball_move)
 
   def ball_move(self):
 
@@ -259,7 +259,8 @@ class Gcompris_ballcatch:
       )
 
     if(self.balloon_size>48):
-      self.timer_inc  = gtk.timeout_add(self.ballinc, self.ball_move)
+      self.timer_inc  = gobject.timeout_add(self.ballinc,
+                                            self.ball_move)
     else:
       # We are done with the ballon move
       if(self.counter_left == self.counter_right):
