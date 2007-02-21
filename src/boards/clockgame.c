@@ -621,7 +621,7 @@ static void game_won()
     gcomprisBoard->sublevel=1;
     gcomprisBoard->level++;
     if(gcomprisBoard->level>gcomprisBoard->maxlevel) { // the current board is finished : bail out
-      gc_bonus_end_display(BOARD_FINISHED_RANDOM);
+      gc_bonus_end_display(GC_BOARD_FINISHED_RANDOM);
       return;
     }
     gc_sound_play_ogg ("sounds/bonus.ogg", NULL);
@@ -641,7 +641,7 @@ static void process_ok()
       /* Oups, you're wrong */
       gamewon = FALSE;
     }
-  gc_bonus_display(gamewon, BONUS_FLOWER);
+  gc_bonus_display(gamewon, GC_BONUS_FLOWER);
 }
 
 

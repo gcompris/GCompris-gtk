@@ -37,6 +37,7 @@
 #include <string.h>
 
 #include <gcompris.h>
+#include "gcompris_db.h"
 #include "profile.h"
 
 #define KEYLOG_MAX 256
@@ -70,7 +71,7 @@ void gc_log_start (GcomprisBoard *gcomprisBoard) {
   gethostname(hostname, 256);
 #endif
 
-  comment_set = "";
+  comment_set = strdup("");
   keylog[0]   = '\0';
 }
 
@@ -82,9 +83,9 @@ void gc_log_start (GcomprisBoard *gcomprisBoard) {
  * Note: Do not include the charater ';' in expected or got
  *
  */
-void gc_log_set_comment (GcomprisBoard *gcomprisBoard, gchar *expected, gchar *got) {
-
-  printf("gc_log_set_comment %s %s\n", expected, got);
+void
+gc_log_set_comment(GcomprisBoard *gcomprisBoard, gchar *expected, gchar *got)
+{
   if(gcomprisBoard_set != gcomprisBoard) {
     return;
   }
@@ -95,58 +96,16 @@ void gc_log_set_comment (GcomprisBoard *gcomprisBoard, gchar *expected, gchar *g
   if(got==NULL)
     got="";
 
-  /* If We already had a comment, log the previous one */
-  if(comment_set[0] != '\0') {
-    gc_log_end(gcomprisBoard, GCOMPRIS_LOG_STATUS_FAILED);
-  }
-
+  g_free(comment_set);
   comment_set = g_strdup_printf("%s;%s", expected, got);
-}
-
-/** gc_log_key
- * \param GcomprisBoard *gcomprisBoard: the board for which the event happen
- * \param key: a keyval as defined by gtk
- *
- */
-void gc_log_set_key (GcomprisBoard *gcomprisBoard, guint keyval) {
-  char utf8char[6];
-  int i;
-  /* get the current time from the Unix kernel */
-  time_t end_time = time(NULL);
-  double duration = difftime(end_time,start_time_key);
-
-  if(!g_unichar_isalnum (gdk_keyval_to_unicode (keyval)))
-    return;
-
-  /* Reset the timer */
-  start_time_key = end_time;
-
-  /* Should be an easier way to get the UTF-8 code in our string */
-  for(i=0; i<6; i++)
-    utf8char[i] = '\0';
-
-  sprintf(utf8char, "%c", gdk_keyval_to_unicode(keyval));
-
-  g_unichar_to_utf8 (gdk_keyval_to_unicode(keyval),
-  		     utf8char);
-
-  if(strlen(keylog)<(KEYLOG_MAX-10)) {
-    strcat(keylog, utf8char);
-    printf(" 1 gc_log_set_key %s\n", keylog);
-    sprintf(keylog+strlen(keylog), "/%d:", (guint)duration);
-    printf(" 2 gc_log_set_key %s\n", keylog);
-  }
-
 }
 
 /** gc_log_end
  * \param GcomprisBoard *gcomprisBoard: the board for which the event happen
- * \param status: a string representing the status like PASSED, FAILED.
+ * \param status
  *
  */
-void gc_log_end (GcomprisBoard *gcomprisBoard, gchar *status) {
-  FILE *flog;
-  gchar *file;
+void gc_log_end (GcomprisBoard *gcomprisBoard, GCBonusStatusList status) {
 
   /* Prepare our log */
 
@@ -162,13 +121,10 @@ void gc_log_end (GcomprisBoard *gcomprisBoard, gchar *status) {
   struct tm *tp;
 
   GcomprisUser *gcomprisUser = gc_profile_get_current_user();
-  const char *username = g_get_user_name();
 
+  /* A board change in between doesn't make sense */
   if(gcomprisBoard_set != gcomprisBoard)
     return;
-
-  if(gcomprisUser && gcomprisUser->login)
-    username = gcomprisUser->login;
 
   /* and convert it to UTC or local time representation */
   if (USE_UTC)
@@ -179,39 +135,12 @@ void gc_log_end (GcomprisBoard *gcomprisBoard, gchar *status) {
   /* convert the time to a string according to the format specification in fmt */
   strftime(buf, sizeof(buf), fmt, tp);
 
-  /* Print it out */
-  if(g_get_home_dir()) {
-    file = g_strconcat(g_get_home_dir(), "/.gcompris/gcompris.log", NULL);
-  } else {
-    /* On WIN98, No home dir */
-    file = g_strdup("gcompris.log");
-  }
 
-  flog = g_fopen(file,"a");
-
-  /* date,computer,user,board,level,sublevel,status, duration,comment */
-  if(flog)
-    fprintf(flog, "%s;%s;%s;gcompris;%s;%d;%d;%s;%d;%s;%s\n", buf, hostname, username,
-	    gcomprisBoard->name,
+  gc_db_log(buf, (guint)duration,
+	    gcomprisUser->user_id, gcomprisBoard->board_id,
 	    gcomprisBoard->level, gcomprisBoard->sublevel,
-	    status,
-	    (guint)duration,
-	    comment_set,
-	    keylog);
-  else
-    g_warning("Failed to save the log in file '%s'", file);
+	    status, comment_set);
 
-  g_warning("%s;%s;%s;gcompris;%s;%d;%d;%s;%d;%s;%s\n", buf, hostname, username,
-	    gcomprisBoard->name,
-	    gcomprisBoard->level, gcomprisBoard->sublevel,
-	    status,
-	    (guint)duration,
-	    comment_set,
-	    keylog);
-
-  if(flog)
-    fclose(flog);
-
-  g_free(file);
+  g_free(comment_set);
 }
 

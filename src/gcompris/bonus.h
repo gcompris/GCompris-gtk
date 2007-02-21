@@ -23,7 +23,7 @@
 #define BONUS_H
 
 /* The time, in ms, between the click of the player, making a choice
- * and the moment the bonus appears. Only used when there is no thumb 
+ * and the moment the bonus appears. Only used when there is no thumb
  * in the board */
 #define TIME_CLICK_TO_BONUS 800
 
@@ -31,35 +31,36 @@
 
 typedef enum
 {
-  BONUS_RANDOM,
-  BONUS_SMILEY,
-  BONUS_FLOWER,
-  BONUS_TUX,
-  BONUS_GNU,
-  BONUS_LAST
-} BonusList;
+  GC_BONUS_RANDOM,
+  GC_BONUS_SMILEY,
+  GC_BONUS_FLOWER,
+  GC_BONUS_TUX,
+  GC_BONUS_GNU,
+  GC_BONUS_LAST
+} GCBonusList;
 
 typedef enum
 {
-  BOARD_FINISHED_RANDOM,
-  BOARD_FINISHED_TUXPLANE,
-  BOARD_FINISHED_TUXLOCO,
-  BOARD_FINISHED_TOOMANYERRORS,
-  BOARD_FINISHED_LAST
-} BoardFinishedList;
+  GC_BOARD_FINISHED_RANDOM,
+  GC_BOARD_FINISHED_TUXPLANE,
+  GC_BOARD_FINISHED_TUXLOCO,
+  GC_BOARD_FINISHED_TOOMANYERRORS,
+  GC_BOARD_FINISHED_LAST
+} GCBoardFinishedList;
 
 typedef enum
 {
-  BOARD_LOOSE,
-  BOARD_WIN,
-  BOARD_DRAW,
-} BonusStatusList;
+  GC_BOARD_LOOSE,
+  GC_BOARD_WIN,
+  GC_BOARD_DRAW,
+  GC_BOARD_COMPLETED,
+} GCBonusStatusList;
 
 /*
  * Public BONUS API Entry
  * ----------------------
  */
-void	 gc_bonus_display(BonusStatusList, BonusList);
-void	 gc_bonus_end_display(BoardFinishedList);
+void	 gc_bonus_display(GCBonusStatusList, GCBonusList);
+void	 gc_bonus_end_display(GCBoardFinishedList);
 
 #endif

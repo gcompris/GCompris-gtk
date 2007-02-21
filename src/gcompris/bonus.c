@@ -26,7 +26,7 @@
 #include <math.h>
 
 #define SOUNDLISTFILE PACKAGE
-#define BONUS_DURATION 2000
+#define GC_BONUS_DURATION 2000
 #define TUX_TIME_STEP 300
 
 static GnomeCanvasGroup *bonus_group   = NULL;
@@ -67,7 +67,7 @@ static gchar *loosingList[] =
  * Function definition
  * -------------------
  */
-static void	 bonus_image(char *,BonusStatusList);
+static void	 bonus_image(char *,GCBonusStatusList);
 static void	 end_bonus(void);
 
 
@@ -100,7 +100,7 @@ end_gc_bonus_end_display() {
   tuxplane_item = NULL;
 
   gc_bonus_end_display_running = FALSE;
-  
+
   gc_bar_hide(FALSE);
 
   // go back to previous board layout
@@ -111,14 +111,14 @@ end_gc_bonus_end_display() {
 /* ==================================== */
 #define OFFSET 100
 void
-gc_bonus_end_display(BoardFinishedList type) {
+gc_bonus_end_display(GCBoardFinishedList type) {
   GcomprisBoard *gcomprisBoard = gc_board_get_current();
 
   int x,y;
   GdkPixbuf *pixmap_door1 = NULL,*pixmap_door2 = NULL,*pixmap_tuxplane = NULL;
   char * str = NULL;
 
-  g_assert(type < BOARD_FINISHED_LAST);
+  g_assert(type < GC_BOARD_FINISHED_LAST);
 
   gc_bar_hide(TRUE);
 
@@ -130,21 +130,21 @@ gc_bonus_end_display(BoardFinishedList type) {
   /* First pause the board */
   gc_board_pause(TRUE);
 
-  /* WARNING: I remove 1 to the BOARD_FINISHED_LAST because RANDOM is for GOOD end only */
-  if(type==BOARD_FINISHED_RANDOM)
-    type = RAND(1,BOARD_FINISHED_LAST-2);
+  /* WARNING: I remove 1 to the GC_BOARD_FINISHED_LAST because RANDOM is for GOOD end only */
+  if(type==GC_BOARD_FINISHED_RANDOM)
+    type = RAND(1,GC_BOARD_FINISHED_LAST-2);
 
   /* Record the end of board */
-  gc_log_end (gcomprisBoard, GCOMPRIS_LOG_STATUS_COMPLETED);
+  gc_log_end (gcomprisBoard, GC_BOARD_COMPLETED);
 
   switch (type) {
-	case BOARD_FINISHED_TUXPLANE :
+	case GC_BOARD_FINISHED_TUXPLANE :
 		str = g_strdup_printf("gcompris/misc/tuxplane.png");
 		break;
-	case BOARD_FINISHED_TUXLOCO :
+	case GC_BOARD_FINISHED_TUXLOCO :
 		str = g_strdup_printf("gcompris/misc/tuxloco.png");
 		break;
-	case BOARD_FINISHED_TOOMANYERRORS :
+	case GC_BOARD_FINISHED_TOOMANYERRORS :
 		str = g_strdup_printf("gcompris/misc/toomanyerrors.png");
 		break;
 	default :
@@ -210,29 +210,29 @@ gc_bonus_end_display(BoardFinishedList type) {
 
 /* ==================================== */
 void
-gc_bonus_display(BonusStatusList gamewon, BonusList bonus_id)
+gc_bonus_display(GCBonusStatusList gamewon, GCBonusList bonus_id)
 {
-  g_warning("bonus display %d %d", (int) gamewon, (int) bonus_id); 
+  g_warning("bonus display %d %d", (int) gamewon, (int) bonus_id);
   gchar *absolute_file;
 
-  g_assert(bonus_id < BONUS_LAST);
+  g_assert(bonus_id < GC_BONUS_LAST);
 
-  g_warning("bar_hide..."); 
+  g_warning("bar_hide...");
   gc_bar_hide(TRUE);
-  g_warning("bar_hide... ok"); 
+  g_warning("bar_hide... ok");
 
   if (bonus_display_running) {
-    g_warning("error bonus_display_running !"); 
+    g_warning("error bonus_display_running !");
     return;
   }
   else
     bonus_display_running = TRUE;
-  
-  if(gamewon == BOARD_WIN || gamewon == BOARD_DRAW) {
-    g_warning("bonus absolute filename... "); 
+
+  if(gamewon == GC_BOARD_WIN || gamewon == GC_BOARD_DRAW) {
+    g_warning("bonus absolute filename... ");
     absolute_file = gc_file_find_absolute(greetingsList[RAND(0, NUMBER_OF_GREETINGS-1)]);
 
-    g_warning("bonus absolute filename: %s", absolute_file ); 
+    g_warning("bonus absolute filename: %s", absolute_file );
 
     if (absolute_file)
       {
@@ -259,20 +259,20 @@ gc_bonus_display(BonusStatusList gamewon, BonusList bonus_id)
   gc_board_pause(TRUE);
   g_warning("Pausinng board ...ok");
 
-  if(bonus_id==BONUS_RANDOM)
-    bonus_id = RAND(1, BONUS_LAST-2);
+  if(bonus_id==GC_BONUS_RANDOM)
+    bonus_id = RAND(1, GC_BONUS_LAST-2);
 
   switch(bonus_id) {
-  case BONUS_SMILEY :
+  case GC_BONUS_SMILEY :
     bonus_image("smiley",gamewon);
     break;
-  case BONUS_FLOWER :
+  case GC_BONUS_FLOWER :
     bonus_image("flower",gamewon);
     break;
-  case BONUS_TUX :
+  case GC_BONUS_TUX :
     bonus_image("tux",gamewon);
     break;
-  case BONUS_GNU :
+  case GC_BONUS_GNU :
     bonus_image("gnu",gamewon);
     break;
   default :
@@ -283,7 +283,7 @@ gc_bonus_display(BonusStatusList gamewon, BonusList bonus_id)
 
 /* ==================================== */
 static void
-bonus_image(char *image, BonusStatusList gamewon)
+bonus_image(char *image, GCBonusStatusList gamewon)
 {
   char *str= NULL;
   int x,y;
@@ -305,23 +305,25 @@ bonus_image(char *image, BonusStatusList gamewon)
 
 
   switch (gamewon) {
-  case BOARD_WIN :
+  case GC_BOARD_WIN :
     str = g_strdup_printf("%s%s%s", "gcompris/bonus/",image,"_good.png");
     /* Record the end of board */
-    gc_log_end (gcomprisBoard, GCOMPRIS_LOG_STATUS_PASSED);
+    gc_log_end (gcomprisBoard, gamewon);
     break;
-  case BOARD_LOOSE :
+  case GC_BOARD_LOOSE :
     str = g_strdup_printf("%s%s%s", "gcompris/bonus/",image,"_bad.png");
     /* Record the end of board */
-    gc_log_end (gcomprisBoard, GCOMPRIS_LOG_STATUS_FAILED);
+    gc_log_end (gcomprisBoard, gamewon);
     break;
-  case BOARD_DRAW :
+  case GC_BOARD_DRAW :
     /* We do not have draw image so a text message is displayed bellow under the
      * win image
      */
     str = g_strdup_printf("%s%s%s", "gcompris/bonus/",image,"_good.png");
     /* Record the end of board */
-    gc_log_end (gcomprisBoard, GCOMPRIS_LOG_STATUS_DRAW);
+    gc_log_end (gcomprisBoard, gamewon);
+    break;
+  case GC_BOARD_COMPLETED:
     break;
   }
 
@@ -353,7 +355,7 @@ bonus_image(char *image, BonusStatusList gamewon)
 			 NULL);
 
 
-  if(gamewon==BOARD_DRAW) {
+  if(gamewon==GC_BOARD_DRAW) {
     gnome_canvas_item_new (bonus_group,
 			   gnome_canvas_text_get_type (),
 			   "text", _("Drawn game"),
@@ -377,7 +379,7 @@ bonus_image(char *image, BonusStatusList gamewon)
   gdk_pixbuf_unref(pixmap);
 
   g_free(str);
-  end_bonus_id = gtk_timeout_add (BONUS_DURATION, (GtkFunction) end_bonus, NULL);
+  end_bonus_id = gtk_timeout_add (GC_BONUS_DURATION, (GtkFunction) end_bonus, NULL);
 }
 
 /* ==================================== */

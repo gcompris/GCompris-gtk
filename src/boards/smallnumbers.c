@@ -486,12 +486,12 @@ static void player_win(GnomeCanvasItem *item)
       gcomprisBoard->level++;
       if(gcomprisBoard->level>gcomprisBoard->maxlevel) { // the current board is finished : bail out
 	gc_score_end();
-	gc_bonus_end_display(BOARD_FINISHED_RANDOM);
+	gc_bonus_end_display(GC_BOARD_FINISHED_RANDOM);
 	return;
       }
       gamewon = TRUE;
       smallnumbers_destroy_all_items();
-      gc_bonus_display(gamewon, BONUS_SMILEY);
+      gc_bonus_display(gamewon, GC_BONUS_SMILEY);
     }
   else
     {

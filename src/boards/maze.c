@@ -516,7 +516,7 @@ static void game_won() {
   /* Try the next level */
   gcomprisBoard->level++;
   if(gcomprisBoard->level>gcomprisBoard->maxlevel) { // the current board is finished : bail out
-    gc_bonus_end_display(BOARD_FINISHED_RANDOM);
+    gc_bonus_end_display(GC_BOARD_FINISHED_RANDOM);
     return;
   }
   maze_next_level();

@@ -399,7 +399,7 @@ static void game_won()
     gcomprisBoard->sublevel=1;
     gcomprisBoard->level++;
     if(gcomprisBoard->level>gcomprisBoard->maxlevel) { // the current board is finished : bail out
-      gc_bonus_end_display(BOARD_FINISHED_RANDOM);
+      gc_bonus_end_display(GC_BOARD_FINISHED_RANDOM);
       return;
     }
     gc_sound_play_ogg ("sounds/bonus.ogg", NULL);
@@ -434,7 +434,7 @@ static void process_ok()
   for (i=0; i<g_list_length(int_model_list); i++)
     g_warning(" i = \t%d val = \t%d\n", i, GPOINTER_TO_INT(g_list_nth_data(int_model_list,i)) );
 
-  gc_bonus_display(gamewon, BONUS_FLOWER);
+  gc_bonus_display(gamewon, GC_BONUS_FLOWER);
 }
 /* ==================================== */
 static gint item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data) {

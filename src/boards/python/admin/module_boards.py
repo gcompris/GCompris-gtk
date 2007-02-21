@@ -41,6 +41,11 @@ class Boards(module.Module):
     print("Gcompris_administration __init__ boards panel.")
     module.Module.__init__(self, canvas, "boards", _("Boards"))
 
+  # Return the position it must have in the administration menu
+  # The smaller number is the highest.
+  def position(self):
+    return 3
+
   def start(self, area):
     print "starting boards panel"
 

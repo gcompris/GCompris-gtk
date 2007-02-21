@@ -421,7 +421,7 @@ static gboolean increment_sublevel()
     gcomprisBoard->sublevel=0;
 
     if(gcomprisBoard->level>gcomprisBoard->maxlevel) { // the current board is finished : bail out
-      gc_bonus_end_display(BOARD_FINISHED_RANDOM);
+      gc_bonus_end_display(GC_BOARD_FINISHED_RANDOM);
       return FALSE;
     }
 
@@ -481,11 +481,11 @@ static void process_ok()
   if(done)
     {
       gamewon = TRUE;
-      gc_bonus_display(gamewon, BONUS_FLOWER);
+      gc_bonus_display(gamewon, GC_BONUS_FLOWER);
     }
   else
     {
-      gc_bonus_display(gamewon, BONUS_FLOWER);
+      gc_bonus_display(gamewon, GC_BONUS_FLOWER);
     }
 
 }

@@ -306,7 +306,7 @@ static void game_won()
     gcomprisBoard->sublevel=1;
     gcomprisBoard->level++;
     if(gcomprisBoard->level>gcomprisBoard->maxlevel) { // the current board is finished : bail out
-      gc_bonus_end_display(BOARD_FINISHED_RANDOM);
+      gc_bonus_end_display(GC_BOARD_FINISHED_RANDOM);
       return;
     }
     gc_sound_play_ogg ("sounds/bonus.ogg", NULL);
@@ -497,7 +497,7 @@ static int car_cb(GnomeCanvasItem *item, GdkEvent *event, car *thiscar)
 	  moving=FALSE;
 
 	  gamewon = TRUE;
-	  gc_bonus_display(gamewon, BONUS_SMILEY);
+	  gc_bonus_display(gamewon, GC_BONUS_SMILEY);
 
 	}
 

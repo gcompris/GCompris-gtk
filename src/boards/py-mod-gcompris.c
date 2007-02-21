@@ -416,17 +416,17 @@ py_gc_log_set_comment(PyObject* self, PyObject* args)
 }
 
 
-/* void gc_log_end (GcomprisBoard *gcomprisBoard, gchar *status); */
+/* void gc_log_end (GcomprisBoard *gcomprisBoard, BonusStatusList status); */
 static PyObject*
 py_gc_log_end(PyObject* self, PyObject* args)
 {
   PyObject* pyGcomprisBoard;
   GcomprisBoard* cGcomprisBoard;
-  gchar* status;
+  int status;
 
   /* Parse arguments */
   if(!PyArg_ParseTuple(args,
-		       "Os:gc_log_end",
+		       "Oi:gc_log_end",
 		       &pyGcomprisBoard,
 		       &status))
     return NULL;
@@ -434,7 +434,7 @@ py_gc_log_end(PyObject* self, PyObject* args)
 
   /* Call the corresponding C function */
   gc_log_end(cGcomprisBoard,
-		   status);
+	     status);
 
   /* Create and return the result */
   Py_INCREF(Py_None);

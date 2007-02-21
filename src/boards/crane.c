@@ -341,7 +341,7 @@ static GnomeCanvasItem *crane_create_item()
 // Display an happy face for end of level
 static void bonus() {
 
-  gc_bonus_display(gamewon, BONUS_SMILEY);
+  gc_bonus_display(gamewon, GC_BONUS_SMILEY);
   gc_sound_play_ogg ("sounds/bonus.ogg", NULL);
   timer_id = 0;
 }
@@ -349,7 +349,7 @@ static void bonus() {
 // Display a 'end of game' animation
 static void finished() {
 
-  gc_bonus_end_display(BOARD_FINISHED_RANDOM);
+  gc_bonus_end_display(GC_BOARD_FINISHED_RANDOM);
   timer_id = 0;
 }
 

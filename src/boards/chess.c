@@ -59,8 +59,8 @@ static void	 display_white_turn  (gboolean whiteturn);
 static void	 display_info	     (gchar *info);
 static int	 get_square_from_coord (double x, double y);
 
-#define CHESSBOARD_X	50
-#define CHESSBOARD_Y	20
+#define CHESSGC_BOARD_X	50
+#define CHESSGC_BOARD_Y	20
 #define SQUARE_WIDTH	60
 #define SQUARE_HEIGHT	60
 #define WHITE_COLOR	0xFFFF99FF
@@ -68,8 +68,8 @@ static int	 get_square_from_coord (double x, double y);
 #define WHITE_COLOR_H	0x99FF99FF
 #define BLACK_COLOR_H	0x99FF99FF
 
-#define TURN_X		(BOARDWIDTH-(BOARDWIDTH-(CHESSBOARD_X+(SQUARE_WIDTH*8)))/2)
-#define TURN_Y		(CHESSBOARD_Y+15)
+#define TURN_X		(BOARDWIDTH-(BOARDWIDTH-(CHESSGC_BOARD_X+(SQUARE_WIDTH*8)))/2)
+#define TURN_Y		(CHESSGC_BOARD_Y+15)
 
 #define INFO_X		TURN_X
 #define INFO_Y		(TURN_Y+40)
@@ -427,10 +427,10 @@ chess_create_item(GnomeCanvasGroup *parent)
 
       item  = gnome_canvas_item_new (boardRootItem,
 				     gnome_canvas_rect_get_type (),
-				     "x1", (double) CHESSBOARD_X + (x * SQUARE_WIDTH),
-				     "y1", (double) CHESSBOARD_Y + ((7-y) * SQUARE_HEIGHT),
-				     "x2", (double) CHESSBOARD_X + (x * SQUARE_WIDTH) + SQUARE_WIDTH -1,
-				     "y2", (double)  CHESSBOARD_Y + ((7-y) * SQUARE_HEIGHT) + SQUARE_HEIGHT -1,
+				     "x1", (double) CHESSGC_BOARD_X + (x * SQUARE_WIDTH),
+				     "y1", (double) CHESSGC_BOARD_Y + ((7-y) * SQUARE_HEIGHT),
+				     "x2", (double) CHESSGC_BOARD_X + (x * SQUARE_WIDTH) + SQUARE_WIDTH -1,
+				     "y2", (double)  CHESSGC_BOARD_Y + ((7-y) * SQUARE_HEIGHT) + SQUARE_HEIGHT -1,
 				     "fill_color_rgba", color,
 				     "outline_color", "black",
 				     "width_units", (double)2,
@@ -515,9 +515,9 @@ chess_create_item(GnomeCanvasGroup *parent)
 	    item = gnome_canvas_item_new (boardRootItem,
 					  gnome_canvas_pixbuf_get_type (),
 					  "pixbuf", pixmap,
-					  "x", (double)CHESSBOARD_X + (x * SQUARE_WIDTH) +
+					  "x", (double)CHESSGC_BOARD_X + (x * SQUARE_WIDTH) +
 					  (guint)((SQUARE_WIDTH-gdk_pixbuf_get_width(pixmap))/2),
-					  "y", (double) CHESSBOARD_Y + ((7-y) * SQUARE_HEIGHT) +
+					  "y", (double) CHESSGC_BOARD_Y + ((7-y) * SQUARE_HEIGHT) +
 					  (guint)((SQUARE_HEIGHT-gdk_pixbuf_get_height(pixmap))/2),
 					  NULL);
 
@@ -551,7 +551,7 @@ static void game_won()
     gcomprisBoard->sublevel=1;
     gcomprisBoard->level++;
     if(gcomprisBoard->level>gcomprisBoard->maxlevel) { // the current board is finished : bail out
-      gc_bonus_end_display(BOARD_FINISHED_RANDOM);
+      gc_bonus_end_display(GC_BOARD_FINISHED_RANDOM);
       return;
     }
     gc_sound_play_ogg ("sounds/bonus.ogg", NULL);
@@ -681,8 +681,8 @@ static void move_piece_to(Square from, Square to)
 				 &y2);
 
 
-  ofset_x = (CHESSBOARD_X + SQUARE_WIDTH  * (x-1)) - x1 + (SQUARE_WIDTH  - (x2-x1))/2;
-  ofset_y = (CHESSBOARD_Y + SQUARE_HEIGHT * (8-y)) - y1 + (SQUARE_HEIGHT - (y2-y1))/2;
+  ofset_x = (CHESSGC_BOARD_X + SQUARE_WIDTH  * (x-1)) - x1 + (SQUARE_WIDTH  - (x2-x1))/2;
+  ofset_y = (CHESSGC_BOARD_Y + SQUARE_HEIGHT * (8-y)) - y1 + (SQUARE_HEIGHT - (y2-y1))/2;
 
   gnome_canvas_item_move(item, ofset_x, ofset_y);
 
@@ -735,8 +735,8 @@ static int
 get_square_from_coord (double x, double y)
 {
 
-  return (A1 + (Square) ((x - CHESSBOARD_X) / SQUARE_WIDTH)
-	  + 10 * (7 - (Square)((y - CHESSBOARD_Y) / SQUARE_HEIGHT)));
+  return (A1 + (Square) ((x - CHESSGC_BOARD_X) / SQUARE_WIDTH)
+	  + 10 * (7 - (Square)((y - CHESSGC_BOARD_Y) / SQUARE_HEIGHT)));
 
 }
 
@@ -874,8 +874,8 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 	   if (to) {
 	     position_move (position, gsquare->square, to);
 
-	     x = 1 + (event->button.x - CHESSBOARD_X) / SQUARE_WIDTH;
-	     y = 1 + (event->button.y - CHESSBOARD_Y) / SQUARE_HEIGHT;
+	     x = 1 + (event->button.x - CHESSGC_BOARD_X) / SQUARE_WIDTH;
+	     y = 1 + (event->button.y - CHESSGC_BOARD_Y) / SQUARE_HEIGHT;
 	     move_to_ascii((char *)&pos, gsquare->square, to);
 
 	     /* Tell gnuchess what our move is */
@@ -897,8 +897,8 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 	       x = gsquare->square % 10;
 	       y = gsquare->square / 10 -1;
 
-	       ofset_x = (CHESSBOARD_X + SQUARE_WIDTH  * (x-1)) - x1 + (SQUARE_WIDTH  - (x2-x1))/2;
-	       ofset_y = (CHESSBOARD_Y + SQUARE_HEIGHT * (8-y)) - y1 + (SQUARE_HEIGHT - (y2-y1))/2;
+	       ofset_x = (CHESSGC_BOARD_X + SQUARE_WIDTH  * (x-1)) - x1 + (SQUARE_WIDTH  - (x2-x1))/2;
+	       ofset_y = (CHESSGC_BOARD_Y + SQUARE_HEIGHT * (8-y)) - y1 + (SQUARE_HEIGHT - (y2-y1))/2;
 	       g_warning("ofset = x=%f y=%f\n", ofset_x, ofset_y);
 
 	       gnome_canvas_item_move(item, ofset_x, ofset_y);

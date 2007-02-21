@@ -585,7 +585,7 @@ game_won ()
 			// finished
 			// : bail
 			// out
-	    gc_bonus_end_display (BOARD_FINISHED_RANDOM);
+	    gc_bonus_end_display (GC_BOARD_FINISHED_RANDOM);
 	    return;
 	  }
 
@@ -682,7 +682,7 @@ static gboolean  to_computer(gpointer data)
       /* Human player win by catching all the beans left. */
       gamewon = TRUE;
       sublevel_finished = TRUE;
-      gc_bonus_display(TRUE, BONUS_FLOWER);
+      gc_bonus_display(TRUE, GC_BONUS_FLOWER);
     }
   } else {
     /* computer can't play. Why? human is hungry and i cannot give it
@@ -691,7 +691,7 @@ static gboolean  to_computer(gpointer data)
     /* if not, all staying are captured by computer and computer win */
     gamewon = TRUE;
     sublevel_finished = (staticAwale->CapturedBeans[HUMAN] ==  24);
-    gc_bonus_display(sublevel_finished, BONUS_FLOWER);
+    gc_bonus_display(sublevel_finished, GC_BONUS_FLOWER);
   }
 
   timeout = 0;
@@ -901,7 +901,7 @@ updateCapturedBeans ()
  		  {
  		    gamewon = TRUE;
 		    sublevel_finished = (i==0);
- 		    gc_bonus_display(sublevel_finished, BONUS_FLOWER);
+ 		    gc_bonus_display(sublevel_finished, GC_BONUS_FLOWER);
  		  }
 	}
 }

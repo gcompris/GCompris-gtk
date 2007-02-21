@@ -35,10 +35,10 @@
 /* heuristic : evaluation function of game. */
 /* depth is max depth of recursion */
 
-typedef gint         (*EvalFunction)              (gpointer treeGame); 
-typedef gboolean     (*LeafFunction)              (gpointer treeGame); 
-typedef gpointer     (*FirstChildGameFunction)    (gpointer treeGame); 
-typedef gpointer     (*NextSiblingGameFunction)     (gpointer treeGame); 
+typedef gint         (*EvalFunction)              (gpointer treeGame);
+typedef gboolean     (*LeafFunction)              (gpointer treeGame);
+typedef gpointer     (*FirstChildGameFunction)    (gpointer treeGame);
+typedef gpointer     (*NextSiblingGameFunction)     (gpointer treeGame);
 
 gint gc_alphabeta (gboolean maximize,
 		   gpointer treeGame,
@@ -52,11 +52,3 @@ gint gc_alphabeta (gboolean maximize,
 		   );
 
 #endif
-
-/* Local Variables: */
-/* mode:c */
-/* eval:(load-library "time-stamp") */
-/* eval:(make-local-variable 'write-file-hooks) */
-/* eval:(add-hook 'write-file-hooks 'time-stamp) */
-/* eval:(setq time-stamp-format '(time-stamp-yyyy/mm/dd time-stamp-hh:mm:ss user-login-name)) */
-/* End: */

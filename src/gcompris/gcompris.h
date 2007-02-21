@@ -162,20 +162,14 @@ void		 gc_confirm_box_stop (void);
 /* Use these instead of the gnome_canvas ones for proper fullscreen mousegrab
    handling. */
 int		 gc_canvas_item_grab (GnomeCanvasItem *item, unsigned int event_mask,
-					    GdkCursor *cursor, guint32 etime);
+				      GdkCursor *cursor, guint32 etime);
 void		 gc_canvas_item_ungrab (GnomeCanvasItem *item, guint32 etime);
-
-/* Trace Log */
-#define GCOMPRIS_LOG_STATUS_PASSED    "PASSED"
-#define GCOMPRIS_LOG_STATUS_FAILED    "FAILED"
-#define GCOMPRIS_LOG_STATUS_DRAW      "DRAW"
-#define GCOMPRIS_LOG_STATUS_COMPLETED "COMPLETED"
 
 /* Use it to tell the teacher where the kid failed */
 void		 gc_log_set_comment (GcomprisBoard *gcomprisBoard, gchar *expected, gchar* got);
 
 /* Do not use it if you use the bonus API in your board */
-void		 gc_log_end (GcomprisBoard *gcomprisBoard, gchar *status);
+void		 gc_log_end (GcomprisBoard *gcomprisBoard, GCBonusStatusList status);
 
 /* For menu type activity */
 GList		*gc_menu_getlist(gchar *section);

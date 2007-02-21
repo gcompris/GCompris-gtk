@@ -44,6 +44,8 @@ static sqlite3 *gcompris_db=NULL;
   "CREATE TABLE board_profile_conf (profile_id INT, board_id INT, conf_key TEXT, conf_value TEXT ); "
 #define CREATE_TABLE_BOARDS						\
   "CREATE TABLE boards (board_id INT UNIQUE, name TEXT, section_id INT, section TEXT, author TEXT, type TEXT, mode TEXT, difficulty INT, icon TEXT, boarddir TEXT, mandatory_sound_file TEXT, mandatory_sound_dataset TEXT, filename TEXT, title TEXT, description TEXT, prerequisite TEXT, goal TEXT, manual TEXT, credit TEXT);"
+#define CREATE_TABLE_LOGS						\
+  "CREATE TABLE logs (date TEXT, duration INT, user_id INT, board_id INT, level INT, sublevel INT, status INT, comment TEXT);"
 
 #define CREATE_TABLE_INFO						\
   "CREATE TABLE informations (gcompris_version TEXT UNIQUE, init_date TEXTUNIQUE, profile_id INT UNIQUE ); "
@@ -195,6 +197,10 @@ int gc_db_init()
       g_error("SQL error: %s\n", zErrMsg);
     }
     rc = sqlite3_exec(gcompris_db,CREATE_TABLE_INFO, NULL,  0, &zErrMsg);
+    if( rc!=SQLITE_OK ){
+      g_error("SQL error: %s\n", zErrMsg);
+    }
+    rc = sqlite3_exec(gcompris_db,CREATE_TABLE_LOGS, NULL,  0, &zErrMsg);
     if( rc!=SQLITE_OK ){
       g_error("SQL error: %s\n", zErrMsg);
     }
@@ -416,10 +422,10 @@ gboolean gc_db_check_boards()
 }
 
 
-#define BOARD_INSERT							\
+#define GC_BOARD_INSERT							\
   "INSERT OR REPLACE INTO boards VALUES (%d, %Q, %d, %Q, %Q, %Q, %Q, %d, %Q, %Q, %Q, %Q, %Q, %Q, %Q, %Q, %Q, %Q, %Q);"
 
-#define MAX_BOARD_ID				\
+#define MAX_GC_BOARD_ID				\
   "SELECT MAX(board_id) FROM boards;"
 
 #define SECTION_ID(s)						\
@@ -494,7 +500,7 @@ gc_db_board_update(guint *board_id,
 
       /* get last board_id written */
       rc = sqlite3_get_table(gcompris_db,
-			     MAX_BOARD_ID,
+			     MAX_GC_BOARD_ID,
 			     &result,
 			     &nrow,
 			     &ncolumn,
@@ -560,7 +566,7 @@ gc_db_board_update(guint *board_id,
     sqlite3_free_table(result);
   }
 
-  request = sqlite3_mprintf( BOARD_INSERT,
+  request = sqlite3_mprintf( GC_BOARD_INSERT,
 			     *board_id,
 			     name,
 			     *section_id,
@@ -694,7 +700,7 @@ GList *gc_db_read_board_from_section(gchar *section)
 }
 
 
-#define BOARD_ID_READ				\
+#define GC_BOARD_ID_READ				\
   "SELECT board_id FROM boards;"
 
 GList *gc_db_get_board_id(GList *list)
@@ -711,7 +717,7 @@ GList *gc_db_get_board_id(GList *list)
   int i;
 
   rc = sqlite3_get_table(gcompris_db,
-			 BOARD_ID_READ,
+			 GC_BOARD_ID_READ,
 			 &result,
 			 &nrow,
 			 &ncolumn,
@@ -1874,5 +1880,30 @@ int gc_db_is_activity_in_profile(GcomprisProfile *profile, char *activity_name)
 
 #else
   return TRUE;
+#endif
+}
+
+/** \brief insert a new log in the database
+ *
+ */
+void gc_db_log(gchar *date, int duration,
+	       int user_id, int board_id,
+	       int level, int sublevel,
+	       int status, gchar *comment)
+{
+#ifdef USE_SQLITE
+  char *zErrMsg;
+  int rc;
+  gchar *request;
+
+  request = g_strdup_printf("INSERT INTO logs (date, duration, user_id, board_id, level, sublevel, status, comment)"
+			    "VALUES ( \'%s\', %d,  %d,  %d,  %d,  %d,  %d,  \'%s\');",
+			    date, duration, user_id, board_id, level, sublevel, status, comment);
+
+  rc = sqlite3_exec(gcompris_db, request, NULL,  0, &zErrMsg);
+  if( rc!=SQLITE_OK ){
+    g_error("SQL error: %s\n", zErrMsg);
+  }
+
 #endif
 }

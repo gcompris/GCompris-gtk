@@ -430,12 +430,12 @@ static GnomeCanvasItem *erase_create_item(int layer)
 }
 
 static void bonus() {
-  gc_bonus_display(gamewon, BONUS_SMILEY);
+  gc_bonus_display(gamewon, GC_BONUS_SMILEY);
   timer_id = 0;
 }
 
 static void finished() {
-  gc_bonus_end_display(BOARD_FINISHED_RANDOM);
+  gc_bonus_end_display(GC_BOARD_FINISHED_RANDOM);
   timer_id = 0;
 }
 

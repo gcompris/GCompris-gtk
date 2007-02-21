@@ -451,7 +451,7 @@ static void game_won() {
     gcomprisBoard->sublevel=1;
     gcomprisBoard->level++;
     if(gcomprisBoard->level>gcomprisBoard->maxlevel) {
-	gc_bonus_end_display(BOARD_FINISHED_TUXPLANE);
+	gc_bonus_end_display(GC_BOARD_FINISHED_TUXPLANE);
 	return;
     }
   }
@@ -460,7 +460,7 @@ static void game_won() {
 
 /* ==================================== */
 static gboolean process_ok_timeout() {
-  gc_bonus_display(gamewon, BONUS_FLOWER);
+  gc_bonus_display(gamewon, GC_BONUS_FLOWER);
   return FALSE;
 }
 

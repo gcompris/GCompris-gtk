@@ -315,7 +315,7 @@ static void game_won() {
   listColors = g_list_remove(listColors, g_list_nth_data(listColors,0));
 
   if( g_list_length(listColors) <= 0 ) { // the current board is finished : bail out
-    gc_bonus_end_display(BOARD_FINISHED_TUXLOCO);
+    gc_bonus_end_display(GC_BOARD_FINISHED_TUXLOCO);
     return;
   }
 
@@ -325,7 +325,7 @@ static void game_won() {
  *
  * =====================================================================*/
 static gboolean process_ok_timeout() {
-  gc_bonus_display(gamewon, BONUS_SMILEY);
+  gc_bonus_display(gamewon, GC_BONUS_SMILEY);
   if (!gamewon)
     errors--;
   if (errors <1)
@@ -333,7 +333,7 @@ static gboolean process_ok_timeout() {
   update_clock();
 
   if (errors <= 1) {
-    gc_bonus_end_display(BOARD_FINISHED_TOOMANYERRORS);
+    gc_bonus_end_display(GC_BOARD_FINISHED_TOOMANYERRORS);
   }
 
 	return FALSE;

@@ -350,7 +350,7 @@ static void planegame_cloud_colision(CloudItem *clouditem)
 	      /* Try the next level */
 	      gcomprisBoard->level++;
 	      if(gcomprisBoard->level>gcomprisBoard->maxlevel) { // the current board is finished : bail out
-		gc_bonus_end_display(BOARD_FINISHED_RANDOM);
+		gc_bonus_end_display(GC_BOARD_FINISHED_RANDOM);
 		return;
 	      }
 	      planegame_next_level();

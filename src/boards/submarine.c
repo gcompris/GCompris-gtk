@@ -1103,7 +1103,7 @@ static gboolean update_timeout_slow() {
 	  gamewon = TRUE;
 	  /* Let the user play indefinitly at level 3 */
 	  if(gcomprisBoard->level<3)
-	    gc_bonus_display(gamewon, BONUS_SMILEY);
+	    gc_bonus_display(gamewon, GC_BONUS_SMILEY);
 	  else
 	    submarine_x = submarine_width/2.0;
 	}
@@ -1251,7 +1251,7 @@ static void game_won() {
     gcomprisBoard->sublevel=1;
     gcomprisBoard->level++;
     if(gcomprisBoard->level>gcomprisBoard->maxlevel) { // the current board is finished : bail out
-      gc_bonus_end_display(BOARD_FINISHED_RANDOM);
+      gc_bonus_end_display(GC_BOARD_FINISHED_RANDOM);
       return;
     }
   }
@@ -1267,7 +1267,7 @@ static gboolean quit_after_delay() {
 }
 
 static gboolean ok_timeout() {
-  gc_bonus_display(gamewon, BONUS_SMILEY);
+  gc_bonus_display(gamewon, GC_BONUS_SMILEY);
   g_timeout_add(TIME_CLICK_TO_BONUS*5, quit_after_delay, NULL);
   return FALSE;
 }

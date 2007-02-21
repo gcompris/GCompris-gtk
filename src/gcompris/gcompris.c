@@ -1641,8 +1641,9 @@ main (int argc, char *argv[])
     properties->administration = TRUE;
     g_warning("Background music disabled");
     properties->music = FALSE;
-    g_warning("Fullscreen is disabled");
+    g_warning("Fullscreen and cursor is disabled");
     properties->fullscreen = FALSE;
+    properties->defaultcursor = GDK_LEFT_PTR;
   }
 
   if (popt_reread_menu){

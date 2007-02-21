@@ -539,7 +539,7 @@ static void game_won() {
     gcomprisBoard->level++;
 
     if(gcomprisBoard->level>gcomprisBoard->maxlevel) {
-      gc_bonus_end_display(BOARD_FINISHED_TUXPLANE);
+      gc_bonus_end_display(GC_BOARD_FINISHED_TUXPLANE);
       return;
     }
     gc_set_background(gnome_canvas_root(gcomprisBoard->canvas),background_images[gcomprisBoard->level-1]);
@@ -558,7 +558,7 @@ static void process_time(){
     gtk_timeout_remove (process_time_id);
     process_time_id = 0;
   }
-  gc_bonus_display(gamewon, BONUS_RANDOM);
+  gc_bonus_display(gamewon, GC_BONUS_RANDOM);
 }
 /* ==================================== */
 static int oper_char_to_pixmap_index(char oper) {

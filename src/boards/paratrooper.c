@@ -157,7 +157,7 @@ static void pause_board (gboolean pause)
 	{
 	  gcomprisBoard->level++;
 	  if(gcomprisBoard->level>gcomprisBoard->maxlevel) { // the current board is finished : bail out
-	    gc_bonus_end_display(BOARD_FINISHED_RANDOM);
+	    gc_bonus_end_display(GC_BOARD_FINISHED_RANDOM);
 	    return;
 	  }
 	  printf("paratrooper pause start next level\n");
@@ -735,7 +735,7 @@ void next_state()
       gc_sound_play_ogg ("sounds/tuxok.wav", NULL);
       gnome_canvas_item_hide (paratrooperItem.instruct);
       gamewon = TRUE;
-      gc_bonus_display(gamewon, BONUS_TUX);
+      gc_bonus_display(gamewon, GC_BONUS_TUX);
       break;
     case TUX_CRASHED:
       /* Restart */

@@ -228,7 +228,7 @@ static void process_ok() {
 	gc_sound_play_ogg ("sounds/bonus.ogg", NULL);
   }
 
-  gc_bonus_display(gamewon, BONUS_FLOWER);
+  gc_bonus_display(gamewon, GC_BONUS_FLOWER);
 
 }
 
@@ -405,7 +405,7 @@ static GnomeCanvasItem *magic_hat_create_item()
 // Display a 'end of game' animation
 static void finished() {
 
-  gc_bonus_end_display(BOARD_FINISHED_RANDOM);
+  gc_bonus_end_display(GC_BOARD_FINISHED_RANDOM);
   timer_id = 0;
 }
 

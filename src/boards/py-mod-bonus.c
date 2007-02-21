@@ -60,23 +60,24 @@ void python_gcompris_bonus_module_init(void)
   /* Misc constants */
   PyModule_AddIntConstant(module, "TIME_CLICK_TO", TIME_CLICK_TO_BONUS );
 
-  /* BonusList constants */
-  PyModule_AddIntConstant(module, "RANDOM", BONUS_RANDOM );
-  PyModule_AddIntConstant(module, "SMILEY", BONUS_SMILEY );
-  PyModule_AddIntConstant(module, "FLOWER", BONUS_FLOWER );
-  PyModule_AddIntConstant(module, "TUX",    BONUS_TUX );
-  PyModule_AddIntConstant(module, "GNU",    BONUS_GNU );
+  /* GCBonusList constants */
+  PyModule_AddIntConstant(module, "RANDOM", GC_BONUS_RANDOM );
+  PyModule_AddIntConstant(module, "SMILEY", GC_BONUS_SMILEY );
+  PyModule_AddIntConstant(module, "FLOWER", GC_BONUS_FLOWER );
+  PyModule_AddIntConstant(module, "TUX",    GC_BONUS_TUX );
+  PyModule_AddIntConstant(module, "GNU",    GC_BONUS_GNU );
 
   /* BonusFinishedList constants */
-  PyModule_AddIntConstant(module, "FINISHED_RANDOM", BOARD_FINISHED_RANDOM );
-  PyModule_AddIntConstant(module, "FINISHED_TUXPLANE", BOARD_FINISHED_TUXPLANE );
-  PyModule_AddIntConstant(module, "FINISHED_TUXLOCO", BOARD_FINISHED_TUXLOCO );
-  PyModule_AddIntConstant(module, "FINISHED_TOOMANYERRORS", BOARD_FINISHED_TOOMANYERRORS );
+  PyModule_AddIntConstant(module, "FINISHED_RANDOM", GC_BOARD_FINISHED_RANDOM );
+  PyModule_AddIntConstant(module, "FINISHED_TUXPLANE", GC_BOARD_FINISHED_TUXPLANE );
+  PyModule_AddIntConstant(module, "FINISHED_TUXLOCO", GC_BOARD_FINISHED_TUXLOCO );
+  PyModule_AddIntConstant(module, "FINISHED_TOOMANYERRORS", GC_BOARD_FINISHED_TOOMANYERRORS );
 
-  /* BonusStatusList constants */
-  PyModule_AddIntConstant(module, "LOOSE", BOARD_LOOSE );
-  PyModule_AddIntConstant(module, "WIN",   BOARD_WIN );
-  PyModule_AddIntConstant(module, "DRAW",  BOARD_DRAW );
+  /* GCBonusStatusList constants */
+  PyModule_AddIntConstant(module, "LOOSE", GC_BOARD_LOOSE );
+  PyModule_AddIntConstant(module, "WIN",   GC_BOARD_WIN );
+  PyModule_AddIntConstant(module, "DRAW",  GC_BOARD_DRAW );
+  PyModule_AddIntConstant(module, "COMPLETED", GC_BOARD_COMPLETED );
 }
 
 /* Some usefull code parts ... */

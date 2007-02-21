@@ -322,7 +322,7 @@ static void game_won() {
     gcomprisBoard->level++;
     gcomprisBoard->sublevel = 1;
     if (gcomprisBoard->level > gcomprisBoard->maxlevel) {
-      gc_bonus_end_display(BOARD_FINISHED_TUXLOCO);
+      gc_bonus_end_display(GC_BOARD_FINISHED_TUXLOCO);
       return;
     }
 
@@ -338,7 +338,7 @@ static void game_won() {
  * =====================================================================*/
 static gboolean ok_timeout() {
   g_warning("+++ ok_timeout errors = %d\n", errors);
-  gc_bonus_display(gamewon, BONUS_SMILEY);
+  gc_bonus_display(gamewon, GC_BONUS_SMILEY);
   if (!gamewon)
     errors--;
   if (errors <1)
@@ -346,7 +346,7 @@ static gboolean ok_timeout() {
   update_clock();
 
   if (errors <= 1) {
-    gc_bonus_end_display(BOARD_FINISHED_TOOMANYERRORS);
+    gc_bonus_end_display(GC_BOARD_FINISHED_TOOMANYERRORS);
   }
 
   return FALSE;

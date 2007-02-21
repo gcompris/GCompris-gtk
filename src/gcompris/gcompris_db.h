@@ -1,6 +1,6 @@
 /* gcompris - gcompris_db.h
  *
- * Time-stamp: <2006/07/10 00:48:16 bruno>
+ * Time-stamp: <2007/02/13 23:03:39 bruno>
  *
  * Copyright (C) 2005 Bruno Coudoin
  *
@@ -37,23 +37,23 @@ void gc_db_set_date(gchar *date);
 
 void gc_db_set_version(gchar *version);
 
-void gc_db_board_update(guint *board_id, 
-			      guint *section_id, 
-			      gchar *name, 
-			      gchar *section, 
-			      gchar *author, 
-			      gchar *type, 
-			      gchar *mode, 
-			      int difficulty, 
-			      gchar *icon, 
+void gc_db_board_update(guint *board_id,
+			      guint *section_id,
+			      gchar *name,
+			      gchar *section,
+			      gchar *author,
+			      gchar *type,
+			      gchar *mode,
+			      int difficulty,
+			      gchar *icon,
 			      gchar *boarddir,
 			      gchar *mandatory_sound_file,
 			      gchar *mandatory_sound_dataset,
 			      gchar *filename,
-			      gchar *title, 
-			      gchar *description, 
-			      gchar *prerequisite, 
-			      gchar *goal, 
+			      gchar *title,
+			      gchar *description,
+			      gchar *prerequisite,
+			      gchar *goal,
 			      gchar *manual,
 			      gchar *credit
 			      );
@@ -99,9 +99,9 @@ GcomprisProfile *gc_db_get_profile();
 
 GList *gc_db_users_from_group_get(gint group_id);
 
-void gc_db_set_board_conf(GcomprisProfile *profile, 
-			     GcomprisBoard  *board, 
-			     gchar *key, 
+void gc_db_set_board_conf(GcomprisProfile *profile,
+			     GcomprisBoard  *board,
+			     gchar *key,
 			     gchar *value);
 
 
@@ -120,12 +120,9 @@ GcomprisBoard *gc_db_get_board_from_id(int board_id);
 
 int gc_db_is_activity_in_profile(GcomprisProfile *profile, char *activity_name);
 
+void gc_db_log(gchar *date, int duration,
+	       int user_id, int board_id,
+	       int level, int sublevel,
+	       int status, gchar *comment);
+
 #endif
-
-/* Local Variables: */
-/* mode:c */
-/* eval:(load-library "time-stamp") */
-/* eval:(make-local-variable 'write-file-hooks) */
-/* eval:(add-hook 'write-file-hooks 'time-stamp) */
-/* eval:(setq time-stamp-format '(time-stamp-yyyy/mm/dd time-stamp-hh:mm:ss user-login-name)) */
-/* End: */
