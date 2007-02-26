@@ -1,5 +1,12 @@
 2007-02-27  Bruno coudoin  <bruno.coudoin@free.fr>
 
+	Crash fix, removed an extra free in missing letter game. It crashed the game
+	when starting it.
+
+	* src/boards/missingletter.c: (add_xml_data):
+
+2007-02-27  Bruno coudoin  <bruno.coudoin@free.fr>
+
 	Added support for indonesian.
 
 	* src/gcompris/config.c:
