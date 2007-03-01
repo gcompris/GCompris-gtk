@@ -1,3 +1,12 @@
+2007-03-01  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	Added support for Dzongkha language.
+
+	* boards/flags/dz.png: created from wikipedia
+	* boards/miscelaneous.xml.in: removed an extra space that made gettext fail.
+	* src/gcompris/config.c: Added support for Dzongkha language.
+	* src/gcompris/images_selector.c: Skip the README file
+
 2007-02-28  Pema Geyleg  <pema.geyleg@gmail.com>
 
 	* configure.in: Added 'dz' to ALL_LINGUAS.

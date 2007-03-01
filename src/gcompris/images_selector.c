@@ -668,7 +668,7 @@ parseImage (xmlDocPtr doc, xmlNodePtr cur) {
     pathname = (gchar *)xmlGetProp(cur, BAD_CAST "PathName");
     havePathName = TRUE;
   }
-  if (havePathName && pathname[0] == '~'){
+  if (havePathName && pathname[0] == '~' && g_get_home_dir()) {
     /* replace '~' by home dir */
     pathname = g_strdup_printf("%s%s",g_get_home_dir(), pathname+1);
     if (!g_file_test ((pathname), G_FILE_TEST_IS_DIR)){
@@ -732,13 +732,19 @@ parseImage (xmlDocPtr doc, xmlNodePtr cur) {
       g_free(pathname);
       pathname = tmpdir;
       if (!g_file_test ((pathname), G_FILE_TEST_IS_DIR)){
-        g_warning("In ImageSet %s, directory %s is not found. Skipping all the ImageSet...", absolutepath, pathname);
+        g_warning("In ImageSet %s, directory %s is not found. Skipping all the ImageSet...",
+		  absolutepath, pathname);
         return;
       }
     }
     imageset_directory = g_dir_open (pathname, 0, NULL);
     const gchar * onefile;
-    while ((onefile = g_dir_read_name(imageset_directory))){
+    while ((onefile = g_dir_read_name(imageset_directory))) {
+
+      /* Skip README file */
+      if(g_ascii_strcasecmp (onefile, "readme") == 0)
+	continue;
+
       if ((g_ascii_strcasecmp (type,"lsdir") != 0) &&
 	  (!g_str_has_suffix (onefile, type))){
 	continue;
@@ -886,7 +892,7 @@ read_dataset_directory(gchar *dataset_dir)
       g_free(absolute_fname);
       continue;
     }
-    
+
     if(/* if there is no root element */
        !doc->children ||
        /* if it doesn't have a name */
