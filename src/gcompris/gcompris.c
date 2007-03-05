@@ -101,6 +101,7 @@ static gint popt_aalias		   = FALSE;
 static gint popt_difficulty_filter = FALSE;
 static gint popt_debug		   = FALSE;
 static gint popt_noxf86vm	   = FALSE;
+static gint popt_nobackimg	   = FALSE;
 static gchar *popt_root_menu       = NULL;
 static gchar *popt_local_activity  = NULL;
 static gint popt_administration	   = FALSE;
@@ -209,6 +210,9 @@ static GOptionEntry options[] = {
 
   {"drag-mode", 'g', 0, G_OPTION_ARG_STRING, &popt_drag_mode,
    N_("Global drag and drop mode: normal, 2clicks, both. Default mode is normal."), NULL},
+
+  {"nobackimg", '\0', 0, G_OPTION_ARG_NONE, &popt_nobackimg,
+   N_("Do not display the background images of activites."), NULL},
 
   { NULL }
 };
@@ -374,8 +378,17 @@ GtkWidget *gc_get_window()
 GnomeCanvasItem *gc_set_background(GnomeCanvasGroup *parent, gchar *file)
 {
   GdkPixbuf *background_pixmap = NULL;
+  gchar *img = NULL;
 
-  background_pixmap = gc_pixmap_load (file);
+  printf("backimg=%s\n", file);
+  if(popt_nobackimg)
+    {
+      img = gc_skin_image_get("gcompris-bg.jpg");
+      background_pixmap = gc_pixmap_load (img);
+      g_free(img);
+    }
+  else
+    background_pixmap = gc_pixmap_load (file);
 
   if(backgroundimg)
       gnome_canvas_item_set (backgroundimg,

@@ -1,3 +1,16 @@
+2007-03-06  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* src/boards/hanoi_real.c: (hanoi_create_item): realigned title background
+	* src/boards/python/admin/Makefile.am: added missing  log module
+	* src/boards/reading.c: (display_what_to_do): better text color and size
+	* src/boards/wordprocessor.c: minor
+	* src/gcompris/gcompris.c: (gc_set_background): added and experimental --nobackimg option
+	  this disable the load and display of the background image of all activities. This need to
+	  be improved so that we can differentiate optional one and mandotary one.
+	* src/gcompris/gcompris_db.c: (gc_db_log), (escape_quote): fixed a bug in reading and potantialy other
+	  activity, missing double quoting ' in sqlite.
+	* src/gcompris/log.c: (gc_log_set_comment): minor
+
 2007-03-04  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	Added missing file. Closes bug#414240

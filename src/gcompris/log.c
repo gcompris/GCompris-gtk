@@ -80,8 +80,6 @@ void gc_log_start (GcomprisBoard *gcomprisBoard) {
  * \param expected: string describing what was expected. This string is copied.
  * \param got: string describing what we got from the user. This string is copied.
  *
- * Note: Do not include the charater ';' in expected or got
- *
  */
 void
 gc_log_set_comment(GcomprisBoard *gcomprisBoard, gchar *expected, gchar *got)
@@ -97,7 +95,7 @@ gc_log_set_comment(GcomprisBoard *gcomprisBoard, gchar *expected, gchar *got)
     got="";
 
   g_free(comment_set);
-  comment_set = g_strdup_printf("%s;%s", expected, got);
+  comment_set = g_strdup_printf("%s;%s.", expected, got);
 }
 
 /** gc_log_end

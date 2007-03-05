@@ -259,11 +259,11 @@ static GnomeCanvasItem *hanoi_create_item(GnomeCanvasGroup *parent)
     gnome_canvas_item_new (boardRootItem,
 			   gnome_canvas_pixbuf_get_type (),
 			   "pixbuf", pixmap,
-			   "x",	(double)BOARDWIDTH/2,
-			   "y",	(double)BOARDHEIGHT - 35,
+			   "x",	(double)10,
+			   "y",	(double)BOARDHEIGHT - 60,
 			   "width", (double) BOARDWIDTH - 20,
 			   "width_set", TRUE,
-			   "anchor", GTK_ANCHOR_CENTER,
+			   "anchor", GTK_ANCHOR_NW,
 			   NULL);
     gdk_pixbuf_unref(pixmap);
   }

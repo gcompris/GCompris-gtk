@@ -361,7 +361,7 @@ static GnomeCanvasItem *display_what_to_do(GnomeCanvasGroup *parent)
 {
 
   gint base_Y = 110;
-  gint base_X = 580;
+  gint base_X = 570;
 
   /* Load the text to find */
 
@@ -379,11 +379,11 @@ static GnomeCanvasItem *display_what_to_do(GnomeCanvasGroup *parent)
   gnome_canvas_item_new (parent,
 			 gnome_canvas_text_get_type (),
 			 "text", _("Please, check if the word"),
-			 "font", gc_skin_font_board_big,
+			 "font", gc_skin_font_board_medium,
 			 "x", (double) base_X,
 			 "y", (double) base_Y,
 			 "anchor", GTK_ANCHOR_CENTER,
-			 "fill_color", "white",
+			 "fill_color", "black",
 			 NULL);
 
   gnome_canvas_item_new (parent,
@@ -399,11 +399,11 @@ static GnomeCanvasItem *display_what_to_do(GnomeCanvasGroup *parent)
   gnome_canvas_item_new (parent,
 			 gnome_canvas_text_get_type (),
 			 "text", _("is being displayed"),
-			 "font", gc_skin_font_board_big,
+			 "font", gc_skin_font_board_medium,
 			 "x", (double) base_X,
 			 "y", (double) base_Y + 60,
 			 "anchor", GTK_ANCHOR_CENTER,
-			 "fill_color", "white",
+			 "fill_color", "black",
 			 NULL);
 
 

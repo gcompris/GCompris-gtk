@@ -840,7 +840,7 @@ key_release_event (GtkWidget *text_view,
 }
 
 // assumes UTF-8 or UTF-16 as encoding,
-char *
+static char *
 escape(const char *input)
 {
   gsize size = strlen(input)*6; /* 6 is the most increase we can get */

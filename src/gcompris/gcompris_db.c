@@ -22,6 +22,8 @@
 #include "gcompris.h"
 #include <glib/gstdio.h>
 
+static char *escape_quote(const char *input);
+
 #ifdef USE_SQLITE
 static sqlite3 *gcompris_db=NULL;
 #endif
@@ -1895,15 +1897,47 @@ void gc_db_log(gchar *date, int duration,
   char *zErrMsg;
   int rc;
   gchar *request;
+  gchar *comment_quoted = escape_quote(comment);
 
   request = g_strdup_printf("INSERT INTO logs (date, duration, user_id, board_id, level, sublevel, status, comment)"
 			    "VALUES ( \'%s\', %d,  %d,  %d,  %d,  %d,  %d,  \'%s\');",
-			    date, duration, user_id, board_id, level, sublevel, status, comment);
+			    date, duration, user_id, board_id, level, sublevel, status, comment_quoted);
 
+  printf("request='%s'\n", request);
   rc = sqlite3_exec(gcompris_db, request, NULL,  0, &zErrMsg);
   if( rc!=SQLITE_OK ){
     g_error("SQL error: %s\n", zErrMsg);
   }
 
+  if(comment)
+    g_free(comment_quoted);
 #endif
 }
+
+/* \brief SQL Requires single ' to be replaced by ''
+ *
+ */
+static char *
+escape_quote(const char *input)
+{
+  gsize size = strlen(input)*2+1; /* 2 is the most increase we can get */
+  gchar *result = g_malloc(size);
+  int i;
+  int o = 0;
+
+  result[0] = '\0';
+
+  for(i = 0; i < strlen(input); i++)
+    {
+      char c = input[i];
+      if(c == '\'')
+	o = g_strlcat(result, "''", size);
+      else
+	{
+	  result[o++] = c;
+	  result[o+1] = '\0';
+	}
+    }
+  return result;
+}
+
