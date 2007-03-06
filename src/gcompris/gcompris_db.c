@@ -55,6 +55,9 @@ static sqlite3 *gcompris_db=NULL;
 #define PRAGMA_INTEGRITY			\
   "PRAGMA integrity_check; "
 
+#define PRAGMA_SCHEMA_VERSION			\
+  "PRAGMA schema_version; "
+
 /* WARNING: template for g_strdup_printf */
 #define SET_VERSION(v)							\
   "INSERT INTO informations (gcompris_version) VALUES(\'%s\'); ", v
@@ -290,8 +293,10 @@ int gc_db_init()
     if( rc!=SQLITE_OK ){
       g_error("SQL error: %s\n", zErrMsg);
     }
+
     if (!(strcmp(result[1],"ok")==0))
       g_error("DATABASE integrity check returns %s \n", result[1]);
+
     g_warning("Database Integrity ok");
     sqlite3_free_table(result);
 
@@ -307,8 +312,30 @@ int gc_db_init()
     }
 
     if (strcmp(result[1],VERSION)!=0)
-      g_warning("Running GCompris is %s, but databse vrsion is %s", VERSION, result[1]);
+      g_warning("Running GCompris is %s, but database version is %s", VERSION, result[1]);
     sqlite3_free_table(result);
+
+    /* Schema upgrade */
+    rc = sqlite3_get_table(gcompris_db,
+			   PRAGMA_SCHEMA_VERSION,
+			   &result,
+			   &nrow,
+			   &ncolumn,
+			   &zErrMsg
+			   );
+    if( rc!=SQLITE_OK ){
+      g_error("SQL error: %s\n", zErrMsg);
+    }
+
+    int version = atoi(result[1]);
+    if(version <= 16)
+      {
+	g_warning("Upgrading from <16 schema version\n");
+	rc = sqlite3_exec(gcompris_db,CREATE_TABLE_LOGS, NULL,  0, &zErrMsg);
+	if( rc!=SQLITE_OK ) {
+	  g_error("SQL error: %s\n", zErrMsg);
+	}
+      }
   }
 
   return TRUE;
@@ -1903,7 +1930,6 @@ void gc_db_log(gchar *date, int duration,
 			    "VALUES ( \'%s\', %d,  %d,  %d,  %d,  %d,  %d,  \'%s\');",
 			    date, duration, user_id, board_id, level, sublevel, status, comment_quoted);
 
-  printf("request='%s'\n", request);
   rc = sqlite3_exec(gcompris_db, request, NULL,  0, &zErrMsg);
   if( rc!=SQLITE_OK ){
     g_error("SQL error: %s\n", zErrMsg);
