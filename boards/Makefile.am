@@ -41,7 +41,6 @@ xml_in_files = \
 	electric.xml.in \
 	enumerate.xml.in \
 	erase_clic.xml.in \
-	erase_double_clic.xml.in \
 	erase.xml.in \
 	experience.xml.in \
 	experimental.xml.in \

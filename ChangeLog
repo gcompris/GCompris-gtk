@@ -1,5 +1,22 @@
 2007-03-06  Bruno coudoin  <bruno.coudoin@free.fr>
 
+	Removed erase doubleclick activity, the fish activity play this role now.
+	Joshua N Pritikin improved erase activity, implements this idea:
+	The erase game in NORMAL mode ignores clicks. I think it would be better to
+	unerase on click. That way kids get immediate feedback about what
+	action they are suppose to be doing. Otherwise they seem confused about
+	whether the movement or clicking is doing something.
+
+	* boards/Makefile.am:
+	* boards/erase_double_clic.xml.in:
+	* po/POTFILES.in:
+	* src/boards/erase.c: (start_board), (end_board), (set_level),
+	(get_num_layers), (erase_next_level), (erase_destroy_all_items),
+	(add_one_item), (erase_create_item), (game_won), (erase_one_item),
+	(item_event), (canvas_event), (shuffle_image_list):
+
+2007-03-06  Bruno coudoin  <bruno.coudoin@free.fr>
+
 	* src/boards/hanoi_real.c: (hanoi_create_item): realigned title background
 	* src/boards/python/admin/Makefile.am: added missing  log module
 	* src/boards/reading.c: (display_what_to_do): better text color and size
