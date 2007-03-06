@@ -269,11 +269,12 @@ display_file_selector(int the_mode,
     if(mimeType) {
       result = strdup(gettext(mimeType->description));
     } else {
-      result = str;
+      result = strdup(str);
     }
 
 
     gtk_combo_box_append_text(GTK_COMBO_BOX(gtk_combo_filetypes), result);
+    g_free(result);
 
     while ( (sub_string=(char *)strtok(NULL, " ")) != NULL)
       {
@@ -282,10 +283,11 @@ display_file_selector(int the_mode,
 	if(mimeType) {
 	  result = strdup(gettext(mimeType->description));
 	} else {
-	  result = str;
+	  result = strdup(str);
 	}
 
 	gtk_combo_box_append_text(GTK_COMBO_BOX(gtk_combo_filetypes), result);
+	g_free(result);
       }
 
     gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
@@ -772,9 +774,10 @@ item_event_file_selector(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 	  }
 
 	  /* DO NOT FREE RESULT OR PYTHON SIDE WILL BE IN TROUBLE */
-	  //	  if(result) {
-	  //	    g_free(result);
-	  //	  }
+	  /* ADDENDUM: DOES NOT HURT ANYMORE, WHY ? */
+	  if(result) {
+	    g_free(result);
+	  }
 	}
 	gc_selector_file_stop();
       } else if(!strcmp((char *)data, "/cancel/")) {

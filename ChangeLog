@@ -1,5 +1,16 @@
 2007-03-06  Bruno coudoin  <bruno.coudoin@free.fr>
 
+	Fixed several memory leaks Miguel DE IZARRA:
+
+	* src/boards/wordprocessor.c: (key_release_event), (escape),
+	(load_buffer):
+	* src/gcompris/file_selector.c: (display_file_selector),
+	(item_event_file_selector):
+	* src/gcompris/gcompris.c: (gc_set_background), (main):
+	* src/gcompris/properties.c: (gc_prop_destroy):
+
+2007-03-06  Bruno coudoin  <bruno.coudoin@free.fr>
+
 	Removed erase doubleclick activity, the fish activity play this role now.
 	Joshua N Pritikin improved erase activity, implements this idea:
 	The erase game in NORMAL mode ignores clicks. I think it would be better to

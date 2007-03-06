@@ -519,6 +519,7 @@ gc_prop_destroy (GcomprisProperties *props)
   g_free(props->config_dir);
   g_free(props->user_dir);
   g_free(props->server);
+  g_free(props->root_menu);
   g_free(props);
   g_warning("properties free");
 }

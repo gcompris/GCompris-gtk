@@ -807,6 +807,7 @@ key_release_event (GtkWidget *text_view,
 					  name,
 					  &iter_start,
 					  &iter_end);
+	g_free(name);
 	selected_tag = NULL;
       }
 
@@ -841,7 +842,7 @@ key_release_event (GtkWidget *text_view,
 
 // assumes UTF-8 or UTF-16 as encoding,
 static char *
-escape(const char *input)
+escape(char *input)
 {
   gsize size = strlen(input)*6; /* 6 is the most increase we can get */
   gchar *result = g_malloc(size);
@@ -869,6 +870,7 @@ escape(const char *input)
 	  result[o+1] = '\0';
 	}
     }
+  g_free(input);
   return result;
 }
 
@@ -1106,12 +1108,15 @@ load_buffer(gchar *file, gchar *file_type)
 	   g_strcasecmp((char *)node->name, "h3") == 0 ||
 	   g_strcasecmp((char *)node->name, "p") == 0 )
 	{
+	  xmlChar *content;
+	  content = xmlNodeGetContent(node);
 	  gtk_text_buffer_insert_with_tags_by_name(buffer,
 						   &iter_start,
-						   (char *)xmlNodeGetContent(node),
-						   strlen((char *)xmlNodeGetContent(node)),
+						   (char *)content,
+						   strlen((char *)content),
 						   (char *)node->name,
 						   NULL);
+	  xmlFree(content);
 	  gtk_text_buffer_get_end_iter(buffer,
 				       &iter_start);
 	  gtk_text_buffer_insert(buffer,&iter_start, "\n", 1);

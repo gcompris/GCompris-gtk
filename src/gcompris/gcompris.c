@@ -380,7 +380,6 @@ GnomeCanvasItem *gc_set_background(GnomeCanvasGroup *parent, gchar *file)
   GdkPixbuf *background_pixmap = NULL;
   gchar *img = NULL;
 
-  printf("backimg=%s\n", file);
   if(popt_nobackimg)
     {
       img = gc_skin_image_get("gcompris-bg.jpg");
@@ -1407,6 +1406,7 @@ main (int argc, char *argv[])
   g_option_context_add_main_entries (context, options, GETTEXT_PACKAGE);
   g_option_context_add_group (context, gtk_get_option_group (TRUE));
   g_option_context_parse (context, &argc, &argv, &error);
+  g_option_context_free(context);
 
   // Set the default gcompris cursor
   properties->defaultcursor = GCOMPRIS_DEFAULT_CURSOR;
