@@ -20,10 +20,10 @@
  */
 
 
-/* Trace formating
- * date,computer,user,board,level,sublevel,status, duration,comment
+/* Trace formating are saved in our sqlite database with the fields
+ * date,user,activity,level,sublevel,status,duration,comment
  *
- * status can be : PASSED or FAILED
+ * status can be : PASSED or FAILED or COMPLETED
  * comment is a free optional string that can describe what went wrong. For
  * example, in a reading activity, you could write here the word that make the
  * kid fail. It may be usefull for the teacher.

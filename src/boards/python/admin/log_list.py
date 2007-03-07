@@ -53,9 +53,9 @@ class Log_list:
       self.cur = db_cursor
       self.con = db_connect
 
-      # The class_id to work on
-      self.current_class_id = 0
-      self.class_list = []
+      # The user_id to work on
+      self.current_user_id = 0
+      self.user_list = []
 
       # ---------------
       # Log Management
@@ -88,22 +88,42 @@ class Log_list:
       class_box.show()
       label_box.pack_start(class_box, False, False, 0)
 
-      class_label = gtk.Label(_('Select a class:'))
-      class_label.show()
-      label_box.pack_start(class_label, False, False, 0)
+      user_label = gtk.Label(_('Select a user:'))
+      user_label.show()
+      label_box.pack_start(user_label, False, False, 0)
 
-      self.cur.execute('SELECT * FROM class WHERE class_id>1 ORDER BY name')
-      class_list = self.cur.fetchall()
+      self.cur.execute('SELECT DISTINCT user_id FROM logs')
+      user_list = self.cur.fetchall()
 
-      self.combo_class = gtk.combo_box_new_text()
-      self.combo_class.show()
-      for aclass in class_list:
-        self.combo_class.append_text(aclass[1])
-        # Save in a list the combo index => the class_id
-        self.class_list.append(aclass[0])
+      self.combo_user = gtk.combo_box_new_text()
+      self.combo_user.show()
 
-      self.combo_class.set_active(self.current_class_id)
-      label_box.pack_end(self.combo_class, True, True, 0)
+      # Insert the ALL option (HACK, use the user_id -2 to indicate ALL)
+      self.combo_user.append_text(_("All users"))
+      self.user_list.append(-2)
+
+      for auser in user_list:
+
+        if(auser[0] == -1):
+          self.combo_user.append_text(_("Default"))
+          self.user_list.append(-1)
+          continue
+
+        self.cur.execute('SELECT login, firstname, lastname FROM users WHERE user_id=?',
+                         (auser[0],) )
+        oneuser = self.cur.fetchall()
+
+        self.combo_user.append_text( (oneuser[0][0] + ' ' +
+                                      oneuser[0][1] + ' ' +
+                                      oneuser[0][2]))
+        # Save in a list the combo index => the user_id
+        self.user_list.append(auser[0])
+
+      self.combo_user.set_active(self.current_user_id)
+      label_box.pack_end(self.combo_user, True, True, 0)
+
+      # update the combobox
+      self.combo_user.connect('changed', self.user_changed_cb)
 
       # Second line logs and button
       log_hbox = gtk.HBox(False, 8)
@@ -135,7 +155,6 @@ class Log_list:
 
       loglist_box.pack_start(sw, True, True, 0)
 
-
       # add columns to the tree view
       self.__add_columns_log(treeview_log)
 
@@ -154,7 +173,7 @@ class Log_list:
       self.button_refresh.set_sensitive(True)
 
       # Load lists
-      self.class_changed_cb(self.combo_class)
+      self.user_changed_cb(self.combo_user)
       self.reload_log()
 
   # -------------------
@@ -168,7 +187,11 @@ class Log_list:
     self.log_model.clear()
 
     # Grab the log data
-    self.cur.execute('SELECT date, user_id, board_id, level, sublevel, duration, status FROM logs ORDER BY date')
+    if self.current_user_id == -2:
+      self.cur.execute('SELECT date, user_id, board_id, level, sublevel, duration, status FROM logs ORDER BY date')
+    else:
+      self.cur.execute('SELECT date, user_id, board_id, level, sublevel, duration, status FROM logs ' +
+                       'WHERE user_id=? ORDER BY date', (self.current_user_id, ) )
     self.log_data = self.cur.fetchall()
 
     for alog in self.log_data:
@@ -297,9 +320,9 @@ class Log_list:
 
       self.reload_log()
 
-  def class_changed_cb(self, combobox):
+  def user_changed_cb(self, combobox):
     active = combobox.get_active()
     if active >= 0:
-        self.current_class_id = self.class_list[active]
+        self.current_user_id = self.user_list[active]
         self.reload_log()
 

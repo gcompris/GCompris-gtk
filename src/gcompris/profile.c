@@ -66,6 +66,7 @@ gc_profile_set_current_user(GcomprisUser *user)
 
     sys_user->firstname = g_strdup("Unknown");
     sys_user->birthdate = g_strdup("");
+    sys_user->user_id = -1;
 
     properties->logged_user = sys_user;
   }
