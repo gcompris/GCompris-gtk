@@ -212,7 +212,7 @@ static GOptionEntry options[] = {
    N_("Global drag and drop mode: normal, 2clicks, both. Default mode is normal."), NULL},
 
   {"nobackimg", '\0', 0, G_OPTION_ARG_NONE, &popt_nobackimg,
-   N_("Do not display the background images of activites."), NULL},
+   N_("Do not display the background images of activities."), NULL},
 
   { NULL }
 };
@@ -380,7 +380,7 @@ GnomeCanvasItem *gc_set_background(GnomeCanvasGroup *parent, gchar *file)
   GdkPixbuf *background_pixmap = NULL;
   gchar *img = NULL;
 
-  if(popt_nobackimg)
+  if ( popt_nobackimg && (strncmp(file, "opt/", 4) == 0) )
     {
       img = gc_skin_image_get("gcompris-bg.jpg");
       background_pixmap = gc_pixmap_load (img);
