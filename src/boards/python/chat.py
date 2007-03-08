@@ -49,7 +49,6 @@ class Gcompris_chat:
     # These are used to let us restart only after the bonus is displayed.
     # When the bonus is displayed, it call us first with pause(1) and then with pause(0)
     self.board_paused  = 0;
-    self.gamewon       = False;
 
 
   def start(self):
@@ -100,7 +99,7 @@ class Gcompris_chat:
     self.friend_area_sw.set_shadow_type(gtk.SHADOW_ETCHED_OUT)
 
     w = 160.0
-    h = gcompris.BOARD_HEIGHT - 100.0
+    h = gcompris.BOARD_HEIGHT - 200.0
     y = 20.0 # The upper limit of the text boxes
     x = gcompris.BOARD_WIDTH - w - 20.0
 
@@ -135,17 +134,17 @@ class Gcompris_chat:
       anchor=gtk.ANCHOR_CENTER,
       )
 
-    # the entry area
-    entry = gtk.Entry()
-    entry.connect("activate", self.enter_callback, entry)
-    w = gcompris.BOARD_WIDTH - 240
+    # The channel area
+    # ---------------
+    self.channel = gtk.Entry()
+    w = 160.0
     h = 30.0
-    y = gcompris.BOARD_HEIGHT - 60.0
-    x = 20.0
+    y = gcompris.BOARD_HEIGHT - 140.0
+    x = x
 
     self.rootitem.add(
       gnomecanvas.CanvasWidget,
-      widget=entry,
+      widget=self.channel,
       x=x,
       y=y,
       width=w,
@@ -153,8 +152,40 @@ class Gcompris_chat:
       anchor=gtk.ANCHOR_NW,
       size_pixels=False)
 
-    entry.show()
-    entry.set_text(_("Type your message here, to send to other GCompris users on your local network."))
+    self.channel.show()
+    self.channel.set_text("")
+
+
+    # A label for the channel area
+    self.rootitem.add(
+      gnomecanvas.CanvasText,
+      text=_("Your Channel"),
+      font = gcompris.skin.get_font("gcompris/board/medium"),
+      x=x+(w/2),
+      y=y+h+15,
+      anchor=gtk.ANCHOR_CENTER,
+      )
+
+    # the entry area
+    self.entry = gtk.Entry()
+    self.entry.connect("activate", self.enter_callback, self.entry)
+    x = 20.0
+    w = gcompris.BOARD_WIDTH - x * 2
+    h = 30.0
+    y = gcompris.BOARD_HEIGHT - 60.0
+
+    self.rootitem.add(
+      gnomecanvas.CanvasWidget,
+      widget=self.entry,
+      x=x,
+      y=y,
+      width=w,
+      height= h,
+      anchor=gtk.ANCHOR_NW,
+      size_pixels=False)
+
+    self.entry.show()
+    self.entry.set_text(_("Type your message here, to send to other GCompris users on your local network."))
 
     # Start the server
     self.sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM, socket.IPPROTO_UDP)
@@ -184,11 +215,22 @@ class Gcompris_chat:
 
     self.board_paused = pause
 
-    # When the bonus is displayed, it call us first with pause(1) and then with pause(0)
-    # the game is won
-    if(pause == 0 and self.gamewon):
-      self.finished()
-      self.gamewon = 0
+    # There is a problem with GTK widgets, they are not covered by the help
+    # We hide/show them here
+    if(pause):
+      self.global_area_tv.hide()
+      self.global_area_sw.hide()
+      self.friend_area_tv.hide()
+      self.friend_area_sw.hide()
+      self.entry.hide()
+      self.channel.hide()
+    else:
+      self.global_area_tv.show()
+      self.global_area_sw.show()
+      self.friend_area_tv.show()
+      self.friend_area_sw.show()
+      self.entry.show()
+      self.channel.show()
 
     return
 
@@ -199,8 +241,6 @@ class Gcompris_chat:
 
 
   def cleanup(self):
-
-    self.gamewon       = False;
 
     if self.mcast_timer :
       gobject.source_remove(self.mcast_timer)
@@ -214,8 +254,16 @@ class Gcompris_chat:
      self.rootitem = None
 
 
-  def finished(self):
-    gcompris.bonus.board_finished(gcompris.bonus.FINISHED_RANDOM)
+  def display_message(self, nick, message):
+
+    self.global_area_tb.insert(self.global_area_tb.get_end_iter(),
+                               nick + " => " + message + "\n")
+
+    self.global_area_tv.scroll_to_iter(self.global_area_tb.get_end_iter(),
+                                       0.0,
+                                       True,
+                                       0,
+                                       0)
 
   def mcast_read(self):
 
@@ -232,7 +280,7 @@ class Gcompris_chat:
           return
 
       # Parse it
-      textl = text.split(":", 3)
+      textl = text.split(":", 4)
 
       # Is this a message for us
       if(textl[0] != "GCOMPRIS"):
@@ -241,14 +289,17 @@ class Gcompris_chat:
       if(textl[1] != "CHAT"):
           return
 
+      if(textl[2] != self.channel.get_text()):
+          return
+
       # Build the friend list
       gotit = False
       for name in self.friend_list:
-          if name == textl[2]:
+          if name == textl[3]:
               gotit = True
 
       if not gotit:
-          self.friend_list.append(textl[2])
+          self.friend_list.append(textl[3])
           self.friend_list.sort()
 
       friends="\n"
@@ -258,25 +309,32 @@ class Gcompris_chat:
       gcompris.sound.play_ogg("sounds/receive.wav")
 
       # Display the message
-      self.global_area_tb.insert(self.global_area_tb.get_end_iter(),
-                                 textl[2] + " => " + textl[3] + "\n")
+      self.display_message(textl[3], textl[4])
 
-      self.global_area_tv.scroll_to_iter(self.global_area_tb.get_end_iter(),
-                                         0.0,
-                                         True,
-                                         0,
-                                         0)
       return False
 
   def enter_callback(self, widget, entry):
       gcompris.sound.play_ogg("sounds/bleep.wav")
+
+      if(not self.channel.get_text()):
+        self.display_message(
+          "GCompris",
+          _("You must set a channel in your channel entry box first.\n" +
+            "Your friends must set the same channel in order to communicate with you") )
+        return
+
       entry_text = entry.get_text()
       sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM,
                            socket.IPPROTO_UDP)
       sock.setsockopt(socket.IPPROTO_IP, socket.IP_MULTICAST_TTL, 2)
 
+      Prop = gcompris.get_properties()
+
       # format the message
-      entry_text = "GCOMPRIS:CHAT:" + gethostname() + ":" + entry_text
+      entry_text = ( "GCOMPRIS:CHAT:" +
+                     self.channel.get_text() + ":" +
+                      Prop.logged_user.login + ":" + entry_text )
       sock.sendto(entry_text, (self.mcast_adress, self.port))
       entry.set_text("")
       sock.close()
+
