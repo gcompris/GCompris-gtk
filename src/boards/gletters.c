@@ -313,7 +313,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
     {
       gcomprisBoard=agcomprisBoard;
       load_default_charset();
-      gc_set_background(gnome_canvas_root(gcomprisBoard->canvas), "images/scenery_background.png");
+      gc_set_background(gnome_canvas_root(gcomprisBoard->canvas), "opt/scenery_background.png");
       gcomprisBoard->maxlevel=maxLevel;
       gcomprisBoard->level = 1;
       level_set_score();

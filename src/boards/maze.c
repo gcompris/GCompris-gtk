@@ -1408,7 +1408,7 @@ static void twoDdisplay()
 static void threeDdisplay()
 {
   gc_sound_play_ogg ("sounds/flip.wav", NULL);
-  gc_set_background(gnome_canvas_root(gcomprisBoard->canvas), "images/maze-bg.jpg");
+  gc_set_background(gnome_canvas_root(gcomprisBoard->canvas), "opt/maze-bg.jpg");
   gnome_canvas_item_hide(GNOME_CANVAS_ITEM(boardRootItem));
   threeDactive=TRUE;
   draw3D();

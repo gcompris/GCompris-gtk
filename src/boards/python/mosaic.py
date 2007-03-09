@@ -95,7 +95,7 @@ class Gcompris_mosaic:
     gcompris.bar_set_level(self.gcomprisBoard)
 
     gcompris.set_background(self.gcomprisBoard.canvas.root(),
-                            "images/mosaic_bg.png")
+                            "opt/mosaic_bg.png")
 
     self.display_game()
 

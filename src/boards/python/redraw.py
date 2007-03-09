@@ -262,14 +262,13 @@ class Gcompris_redraw:
     self.display_current_level()
 
   def repeat(self):
-    print("Gcompris_redraw repeat.")
+    pass
 
 
   def config(self):
-    print("Gcompris_redraw config.")
+    pass
 
   def key_press(self, keyval, commit_str, preedit_str):
-    print("got key %i" % keyval)
     return False
 
   # Erase any displayed items (drawing and target)
@@ -1337,6 +1336,4 @@ class Gcompris_redraw:
     # No more than 9 level allowed in gcompris
     self.gcomprisBoard.number_of_sublevel=math.ceil(len(self.drawlist)/9.0)
     self.gcomprisBoard.maxlevel=min(9, math.ceil(float(len(self.drawlist))/self.gcomprisBoard.number_of_sublevel))
-    print "Number of target=", len(self.drawlist)
-    print "Maxlevel=", self.gcomprisBoard.maxlevel, " sublevel=", self.gcomprisBoard.number_of_sublevel
 

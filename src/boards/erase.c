@@ -66,42 +66,42 @@ static gint board_mode =  NORMAL;
 // List of images to use in the game
 static gchar *imageList[] =
   {
-    "gcompris/animals/bear001.jpg",
-    "gcompris/animals/black-headed-gull.jpg",
-    "gcompris/animals/butterfly.jpg",
-    "gcompris/animals/donkey.jpg",
-    "gcompris/animals/elephanteauxgc.jpg",
-    "gcompris/animals/flamentrosegc.jpg",
-    "gcompris/animals/girafegc.jpg",
-    "gcompris/animals/hypogc.jpg",
-    "gcompris/animals/joybear001.jpg",
-    "gcompris/animals/joybear002.jpg",
-    "gcompris/animals/jumentmulassieregc.jpg",
-    "gcompris/animals/malaybear002.jpg",
-    "gcompris/animals/pigeon.jpg",
-    "gcompris/animals/polabear011.jpg",
-    "gcompris/animals/polarbear001.jpg",
-    "gcompris/animals/poolbears001.jpg",
-    "gcompris/animals/rhinogc.jpg",
-    "gcompris/animals/singegc.jpg",
-    "gcompris/animals/spectbear001.jpg",
-    "gcompris/animals/tetegorillegc.jpg",
-    "gcompris/animals/tiger1_by_Ralf_Schmode.jpg",
-    "gcompris/animals/tigercub003.jpg",
-    "gcompris/animals/tigerdrink001.jpg",
-    "gcompris/animals/tigerplay001.jpg",
-    "gcompris/animals/horses.jpg",
-    "gcompris/animals/horses2.jpg",
-    "gcompris/animals/squirrel.jpg",
-    "gcompris/animals/sheep_irish.jpg",
-    "gcompris/animals/sheep_irish2.jpg",
-    "gcompris/animals/cow.jpg",
-    "gcompris/animals/maki1.jpg",
-    "gcompris/animals/maki2.jpg",
-    "gcompris/animals/maki3.jpg",
-    "gcompris/animals/maki4.jpg",
-    "gcompris/animals/maki5.jpg",
-    "gcompris/animals/maki6.jpg",
+    "opt/animals/bear001.jpg",
+    "opt/animals/black-headed-gull.jpg",
+    "opt/animals/butterfly.jpg",
+    "opt/animals/donkey.jpg",
+    "opt/animals/elephanteauxgc.jpg",
+    "opt/animals/flamentrosegc.jpg",
+    "opt/animals/girafegc.jpg",
+    "opt/animals/hypogc.jpg",
+    "opt/animals/joybear001.jpg",
+    "opt/animals/joybear002.jpg",
+    "opt/animals/jumentmulassieregc.jpg",
+    "opt/animals/malaybear002.jpg",
+    "opt/animals/pigeon.jpg",
+    "opt/animals/polabear011.jpg",
+    "opt/animals/polarbear001.jpg",
+    "opt/animals/poolbears001.jpg",
+    "opt/animals/rhinogc.jpg",
+    "opt/animals/singegc.jpg",
+    "opt/animals/spectbear001.jpg",
+    "opt/animals/tetegorillegc.jpg",
+    "opt/animals/tiger1_by_Ralf_Schmode.jpg",
+    "opt/animals/tigercub003.jpg",
+    "opt/animals/tigerdrink001.jpg",
+    "opt/animals/tigerplay001.jpg",
+    "opt/animals/horses.jpg",
+    "opt/animals/horses2.jpg",
+    "opt/animals/squirrel.jpg",
+    "opt/animals/sheep_irish.jpg",
+    "opt/animals/sheep_irish2.jpg",
+    "opt/animals/cow.jpg",
+    "opt/animals/maki1.jpg",
+    "opt/animals/maki2.jpg",
+    "opt/animals/maki3.jpg",
+    "opt/animals/maki4.jpg",
+    "opt/animals/maki5.jpg",
+    "opt/animals/maki6.jpg",
   };
 #define NUMBER_OF_IMAGES G_N_ELEMENTS(imageList)
 
@@ -356,10 +356,10 @@ static void add_one_item(int i, int j, int protect)
 
   if ((board_mode != NORMAL) && ((item_x+item_y) %2 == 0))
     return;
-  
+
   if (current_layer == 4)
     current_layer = 1;
-  
+
   while(current_layer--)
     {
       assert(CoverPixmap[current_layer]);
@@ -385,7 +385,7 @@ static void add_one_item(int i, int j, int protect)
        * pass over in normal mode or in layer 4 */
       if (current_layer > 0 || get_num_layers() == 4)
 	c->max += 1;
-      
+
       g_signal_connect_data (item, "event", (GCallback) item_event,(gpointer)c,
 			     (GClosureNotify) g_free, 0);
       number_of_items++;

@@ -29,10 +29,10 @@ import gtk.gdk
 import random
 import math
 
-backgrounds = [ 'images/school_bg1.jpg',
-                'images/school_bg2.jpg',
-                'images/school_bg3.jpg',
-                'images/school_bg4.jpg'
+backgrounds = [ 'opt/school_bg1.jpg',
+                'opt/school_bg2.jpg',
+                'opt/school_bg3.jpg',
+                'opt/school_bg4.jpg'
                 ]
 
 profs = [ 'images/tux.png',

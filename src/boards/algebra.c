@@ -158,7 +158,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       /* disable im_context */
       gcomprisBoard->disable_im_context = TRUE;
 
-      gc_set_background(gnome_canvas_root(gcomprisBoard->canvas), "images/scenery2_background.png");
+      gc_set_background(gnome_canvas_root(gcomprisBoard->canvas), "opt/scenery2_background.png");
 
       /* set initial values for this level */
       gcomprisBoard->level=1;

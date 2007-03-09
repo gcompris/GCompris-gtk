@@ -1,3 +1,81 @@
+2007-03-09  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	- Implemented the --nobackimg option. With it all background
+	images that are not mandatory to play an activity are not
+	displayed. All images in boards/opt are skipped if loaded
+	with the set_background() API and the --nobackimg is set.
+
+	* boards/clickgame/README:
+	* boards/gcompris/animals/readme.txt:
+	* boards/imageid.xml.in:
+	* boards/imageid/board1.xml.in:
+	* boards/missing_letter/board1.xml.in:
+	* boards/opt/README:
+	* src/boards/algebra.c: (start_board):
+	* src/boards/algebra_guesscount.c: (start_board):
+	* src/boards/click_on_letter.c: (start_board):
+	* src/boards/clickgame.c: (clickgame_next_level):
+	* src/boards/enumerate.c: (start_board), (process_ok):
+	* src/boards/erase.c:
+	* src/boards/gletters.c: (start_board):
+	* src/boards/gtans.c: (start_board):
+	* src/boards/hanoi_real.c: (start_board):
+	* src/boards/imageid.c: (start_board), (imageid_create_item):
+	* src/boards/machpuzzle.c: (minigolf_next_level):
+	* src/boards/maze.c: (threeDdisplay):
+	* src/boards/memory.c: (start_board):
+	* src/boards/missingletter.c: (start_board),
+	(missing_letter_create_item):
+	* src/boards/paratrooper.c: (start_board):
+	* src/boards/planegame.c: (start_board):
+	* src/boards/python/algorithm.py:
+	* src/boards/python/ballcatch.py:
+	* src/boards/python/bargame.py:
+	* src/boards/python/followline.py:
+	* src/boards/python/guessnumber.py:
+	* src/boards/python/login.py:
+	* src/boards/python/mosaic.py:
+	* src/boards/python/redraw.py:
+	* src/boards/railroad.c: (start_board):
+	* src/boards/reversecount.c:
+	* src/boards/scale.c: (start_board):
+	* src/boards/smallnumbers.c: (start_board):
+	* src/boards/superbrain.c: (superbrain_next_level):
+	* src/boards/target.c: (start_board):
+	* src/boards/wordsgame.c: (start_board):
+
+2007-03-08  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	Added a channel box. The channel is used to avoid anybody to
+	talk with anybody without a prior consent on the channel to use.
+
+	* src/boards/python/chat.py:
+
+2007-03-08  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	Implemented filtering in the administration log report
+	filter is based on the user and is selectable in a combo.
+	changed profile.c to make the default user the user_id -1
+	instead of 0. 0 was confusing because the first created user
+	is not the same as the default user (no internal login).
+
+	* src/boards/python/admin/log_list.py:
+	* src/gcompris/log.c:
+	* src/gcompris/profile.c: (gc_profile_set_current_user):
+
+2007-03-07  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	Fixed typo from bug#415652
+
+	* boards/wordprocessor.xml.in:
+	* src/gcompris/gcompris.c: (gc_set_background):
+
+2007-03-07  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* boards/wordprocessor.xml.in: added documentation
+	* src/gcompris/gcompris_db.c: (gc_db_init), (gc_db_log): added auto
+	  upgrade of the base to include the log table in previous bases.
+
 2007-03-06  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	Fixed several memory leaks Miguel DE IZARRA:

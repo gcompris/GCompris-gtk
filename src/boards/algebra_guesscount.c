@@ -61,10 +61,10 @@ static void		 destroy_board(void);
 #define HORIZONTAL_SEPARATION 20
 #define VERTICAL_SEPARATION 20
 
-static char* background_images[] = {"gcompris/animals/tiger1_by_Ralf_Schmode",
-				    "gcompris/animals/tigerdrink001.jpg",
-				    "gcompris/animals/tigercub003.jpg",
-				    "gcompris/animals/tigerplay001.jpg"};
+static char* background_images[] = {"opt/animals/tiger1_by_Ralf_Schmode",
+				    "opt/animals/tigerdrink001.jpg",
+				    "opt/animals/tigercub003.jpg",
+				    "opt/animals/tigerplay001.jpg"};
 static const char  oper_values[] = {'+', '-', 'x', ':', '='};
 static const char *oper_images[] = {"plus", "minus", "by", "div", "equal"};
 static const int   num_values[] = {1,2,3,4,5,6,7,8,9,10,25,50,100};
@@ -202,7 +202,7 @@ static void start_board (GcomprisBoard *agcomprisBoard) {
     button_pixmap = gc_pixmap_load(str);
     g_free(str);
 
-    gc_set_background(gnome_canvas_root(gcomprisBoard->canvas),"gcompris/animals/tiger1_by_Ralf_Schmode.jpg");
+    gc_set_background(gnome_canvas_root(gcomprisBoard->canvas),"opt/animals/tiger1_by_Ralf_Schmode.jpg");
     gcomprisBoard->level=1;
     gcomprisBoard->maxlevel=NUMBER_OF_LEVELS;
     gcomprisBoard->sublevel=1;

@@ -194,7 +194,8 @@ static gboolean is_our_board (GcomprisBoard *gcomprisBoard)
 static void minigolf_next_level()
 {
 
-  gc_set_background(gnome_canvas_root(gcomprisBoard->canvas),"images/foot_background.png");
+  gc_set_background(gnome_canvas_root(gcomprisBoard->canvas),
+		    "opt/foot_background.png");
 
   gc_bar_set_level(gcomprisBoard);
 

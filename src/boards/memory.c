@@ -821,7 +821,8 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 
 	  gc_sound_policy_set(PLAY_AND_INTERRUPT);
 
-	  gc_set_background(gnome_canvas_root(gcomprisBoard->canvas), "images/gcompris_band.png");
+	  gc_set_background(gnome_canvas_root(gcomprisBoard->canvas),
+			    "opt/gcompris_band.png");
 	  base_x1 = BASE_SOUND_X1;
 	  base_y1 = BASE_SOUND_Y1;
 	  base_x2 = BASE_SOUND_X2;
@@ -836,7 +837,8 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 	}
       else
 	{
-	  gc_set_background(gnome_canvas_root(gcomprisBoard->canvas), "images/scenery_background.png");
+	  gc_set_background(gnome_canvas_root(gcomprisBoard->canvas),
+			    "opt/scenery_background.png");
 	  base_x1 = BASE_CARD_X1;
 	  base_y1 = BASE_CARD_Y1;
 	  base_x2 = BASE_CARD_X2;

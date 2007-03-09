@@ -150,7 +150,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       gc_bar_set(GC_BAR_LEVEL|GC_BAR_OK);
 
       gc_set_background(gnome_canvas_root(gcomprisBoard->canvas),
-			      "images/enumerate_background.png");
+			      "opt/enumerate_background.png");
 
       enumerate_next_level();
 
@@ -610,7 +610,6 @@ static void process_ok()
 
   for(i=0; i<number_of_item_type; i++)
     {
-      printf("answer[%d]=%d answer_to_find[%d]=%d\n",i,  answer[i], i, answer_to_find[i]);
       if(answer[i] != answer_to_find[i])
 	win = FALSE;
     }

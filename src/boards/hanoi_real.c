@@ -121,6 +121,8 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 
   if(agcomprisBoard!=NULL)
     {
+      gchar *img;
+
       gcomprisBoard=agcomprisBoard;
       gcomprisBoard->level=1;
       gcomprisBoard->maxlevel=2;
@@ -128,8 +130,10 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       gcomprisBoard->number_of_sublevel=1; /* Go to next level after this number of 'play' */
       gc_bar_set(GC_BAR_LEVEL);
 
+      img = gc_skin_image_get("gcompris-bg.jpg");
       gc_set_background(gnome_canvas_root(gcomprisBoard->canvas),
-			      gc_skin_image_get("gcompris-bg.jpg"));
+			img);
+      g_free(img);
 
       boardRootItem = NULL;
 

@@ -65,7 +65,7 @@ class Gcompris_followline:
     self.gcomprisBoard.number_of_sublevel=1
     gcompris.bar_set(gcompris.BAR_LEVEL)
     self.background_item = gcompris.set_background(self.gcomprisBoard.canvas.root(),
-                                                   "images/followline.png")
+                                                   "opt/followline.png")
     self.background_item_connect_id = self.background_item.connect("event", self.loosing_item_event)
 
     gcompris.bar_set_level(self.gcomprisBoard)

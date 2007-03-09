@@ -81,13 +81,13 @@ static GnomeCanvasItem *clock_image_item;
 // List of images to use in the game
 static gchar *imageList[] =
 {
-  "reversecount/baleine.png",
-  "reversecount/phoque.png",
-  "reversecount/ourspolaire.png",
-  "reversecount/morse.png",
-  "reversecount/elephant_mer.png",
-  "reversecount/epaulard.png",
-  "reversecount/narval.png",
+  "opt/baleine.png",
+  "opt/phoque.png",
+  "opt/ourspolaire.png",
+  "opt/morse.png",
+  "opt/elephant_mer.png",
+  "opt/epaulard.png",
+  "opt/narval.png",
 };
 #define NUMBER_OF_IMAGES 10
 

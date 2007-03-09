@@ -68,7 +68,7 @@ class Gcompris_algorithm:
   def start(self):
     gcompris.bar_set (0)
     gcompris.set_background(self.gcomprisBoard.canvas.root(),
-                            "images/scenery5_background.png")
+                            "opt/scenery5_background.png")
     self.gcomprisBoard.level=1
     self.gcomprisBoard.sublevel=1
     self.gcomprisBoard.number_of_sublevel=5

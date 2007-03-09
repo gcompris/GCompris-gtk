@@ -158,7 +158,8 @@ static void start_board (GcomprisBoard *agcomprisBoard)
   if(agcomprisBoard!=NULL)
     {
       gcomprisBoard=agcomprisBoard;
-      gc_set_background(gnome_canvas_root(gcomprisBoard->canvas), "imageid/imageid-bg.jpg");
+      gc_set_background(gnome_canvas_root(gcomprisBoard->canvas),
+			"opt/imageid-bg.jpg");
       gcomprisBoard->level=1;
       gcomprisBoard->maxlevel=NUMBER_OF_LEVELS;
       gcomprisBoard->sublevel=1;
@@ -258,7 +259,6 @@ static GnomeCanvasItem *imageid_create_item(GnomeCanvasGroup *parent)
   int x, y, xp, yp, place;
   GdkPixbuf *pixmap = NULL;
   GdkPixbuf *button_pixmap = NULL;
-  char *str = NULL;
   Board * board;
 
   board_number = (gcomprisBoard->level-1) * NUMBER_OF_SUBLEVELS + gcomprisBoard->sublevel-1;
@@ -283,8 +283,7 @@ static GnomeCanvasItem *imageid_create_item(GnomeCanvasGroup *parent)
   board = g_list_nth_data(board_list, board_number);
   g_assert(board != NULL);
 
-  str = g_strdup_printf("%s/%s", gcomprisBoard->boarddir, board->pixmapfile);
-  pixmap = gc_pixmap_load(str);
+  pixmap = gc_pixmap_load(board->pixmapfile);
 
   x = IMAGE_AREA_X1 + ( IMAGE_AREA_X2 - IMAGE_AREA_X1 - gdk_pixbuf_get_width(pixmap))/2;
   y = IMAGE_AREA_Y1 + ( IMAGE_AREA_Y2 - IMAGE_AREA_Y1 - gdk_pixbuf_get_height(pixmap))/2;
@@ -301,7 +300,6 @@ static GnomeCanvasItem *imageid_create_item(GnomeCanvasGroup *parent)
 				      NULL);
 
   gdk_pixbuf_unref(pixmap);
-  g_free(str);
 
   /* display the 3 words */
   /* the right word is at position 0 : it is swapped with any position depending of place value */

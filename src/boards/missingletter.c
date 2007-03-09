@@ -157,12 +157,9 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 
   if(agcomprisBoard!=NULL)
     {
-      gchar *img;
       gcomprisBoard=agcomprisBoard;
-      img = gc_skin_image_get("missingletter-bg.jpg");
       gc_set_background(gnome_canvas_root(gcomprisBoard->canvas),
-			      img);
-      g_free(img);
+			"opt/missingletter-bg.jpg");
       gcomprisBoard->level=1;
       gcomprisBoard->maxlevel=NUMBER_OF_LEVELS;
       gcomprisBoard->sublevel=1;
@@ -260,7 +257,6 @@ static GnomeCanvasItem *missing_letter_create_item(GnomeCanvasGroup *parent)
   double dx1, dy1, dx2, dy2;
   GdkPixbuf *button_pixmap = NULL;
   GdkPixbuf *pixmap = NULL;
-  char *str = NULL;
 
   /* This are the values of the area in which we must display the image */
   gint img_area_x = 290;
@@ -290,8 +286,7 @@ static GnomeCanvasItem *missing_letter_create_item(GnomeCanvasGroup *parent)
   /* display the image */
   board = g_list_nth_data(board_list, board_number);
   g_assert(board != NULL);
-  str = g_strdup_printf("%s/%s", "imageid"/*gcomprisBoard->boarddir*/, board->pixmapfile);
-  pixmap = gc_pixmap_load(str);
+  pixmap = gc_pixmap_load(board->pixmapfile);
 
   yOffset = (gcomprisBoard->height - gdk_pixbuf_get_height(button_pixmap) - gdk_pixbuf_get_height(pixmap) - 2*VERTICAL_SEPARATION)/2;
 
@@ -329,7 +324,7 @@ static GnomeCanvasItem *missing_letter_create_item(GnomeCanvasGroup *parent)
 				      NULL);
   gtk_signal_connect(GTK_OBJECT(image_item), "event", (GtkSignalFunc) item_event, NULL);
   gdk_pixbuf_unref(pixmap);
-  g_free(str);
+
   /* display the 3 words */
   /* the right word is at position 0 : it is swapped with any position depending of place value */
 

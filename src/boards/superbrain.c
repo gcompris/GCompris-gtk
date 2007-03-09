@@ -224,7 +224,7 @@ static void superbrain_next_level()
   gboolean selected_color[MAX_COLORS];
 
   gc_set_background(gnome_canvas_root(gcomprisBoard->canvas),
-			  "images/superbrain_background.jpg");
+			  "opt/superbrain_background.jpg");
 
   gc_bar_set_level(gcomprisBoard);
 

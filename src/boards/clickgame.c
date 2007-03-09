@@ -489,12 +489,12 @@ static void clickgame_next_level()
 {
   static /*const*/ gchar *bglist[] =
     {
-      "clickgame/sea1.jpg",
-      "clickgame/sea2.jpg",
-      "clickgame/sea3.jpg",
-      "clickgame/sea4.jpg",
-      "clickgame/sea5.jpg",
-      "clickgame/sea6.jpg"
+      "opt/sea1.jpg",
+      "opt/sea2.jpg",
+      "opt/sea3.jpg",
+      "opt/sea4.jpg",
+      "opt/sea5.jpg",
+      "opt/sea6.jpg"
     };
 
   int bgx = gcomprisBoard->level - 1;

@@ -165,7 +165,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
             drag_mode = 0;
 
 	gc_set_background(gnome_canvas_root(gcomprisBoard->canvas),
-			  "scales/tabepice.jpg");
+			  "opt/tabepice.jpg");
 
         gc_drag_start(gnome_canvas_root(gcomprisBoard->canvas),
                 (gc_Drag_Func)scale_drag_event, drag_mode);
