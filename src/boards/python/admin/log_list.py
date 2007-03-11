@@ -158,14 +158,14 @@ class Log_list:
       # add columns to the tree view
       self.__add_columns_log(treeview_log)
 
-      # Add buttons
+      # Reset buttons
       self.button_remove = gtk.Button(_('Reset'))
       self.button_remove.connect("clicked", self.on_remove_log_clicked, treeview_log)
       vbox_button.pack_start(self.button_remove, False, False, 0)
       self.button_remove.show()
       self.button_remove.set_sensitive(True)
 
-      # Add buttons
+      # Refresh buttons
       self.button_refresh = gtk.Button(stock='gtk-refresh')
       self.button_refresh.connect("clicked", self.on_refresh_log_clicked)
       vbox_button.pack_start(self.button_refresh, False, False, 0)
