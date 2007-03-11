@@ -159,7 +159,7 @@ class Log_list:
       self.__add_columns_log(treeview_log)
 
       # Add buttons
-      self.button_remove = gtk.Button(stock='gtk-remove')
+      self.button_remove = gtk.Button(_('Reset'))
       self.button_remove.connect("clicked", self.on_remove_log_clicked, treeview_log)
       vbox_button.pack_start(self.button_remove, False, False, 0)
       self.button_remove.show()

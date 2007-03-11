@@ -1,3 +1,23 @@
+	*** RELEASE 8.3BETA1 ***
+
+
+2007-03-11  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* boards/menu.xml.in: Fixed help
+	* src/boards/python/admin/log_list.py: Fixed button Reset name
+	* src/boards/python/admin/module.py: removed a debug print
+	* src/boards/python/pythontest.py: changed colors
+
+	Reverted to original sound from Jose that sounds better.
+	* boards/sounds/melody/guitar/son1.ogg
+	* boards/sounds/melody/guitar/son2.ogg
+	* boards/sounds/melody/guitar/son3.ogg
+	* boards/sounds/melody/guitar/son4.ogg
+	* boards/sounds/melody/xylofon/son1.ogg
+	* boards/sounds/melody/xylofon/son2.ogg
+	* boards/sounds/melody/xylofon/son3.ogg
+	* boards/sounds/melody/xylofon/son4.ogg
+
 2007-03-09  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	- Implemented the --nobackimg option. With it all background
@@ -552,7 +572,7 @@
 	* src/boards/submarine.c: (submarine_next_level),
 	(submarine_create_item), (update_timeout_slow), (open_door): added a treasure
 	 that you must pickup first, then the door open itself.
-	* src/gcompris/gcompris.c: (gc_init): now intro sounds are not played is a specific
+	* src/gcompris/gcompris.c: (gc_init): now intro sounds are not played if a specific
 	activity is requested.
 
 2006-12-20  Bruno coudoin  <bruno.coudoin@free.fr>
@@ -1259,19 +1279,6 @@
 
 	- switch to a non-empty page when the current is empty
 	- when clicking in previous/next page, change only to non-empty pages.
-
-	* src/boards/missingletter.c: (add_xml_data):
-	* src/boards/reading.c: (start_board):
-	* src/boards/shapegame.c: (shapegame_next_level),
-	(shape_goes_back_to_list), (item_event),
-	(get_element_count_listgroup), (get_no_void_group),
-	(update_shapelist_item), (item_event_ok), (create_shape),
-	(read_xml_file):
-	* src/gcompris/wordlist.c: (gc_wordlist_get_from_file):
-
-2006-11-07  Bruno coudoin  <bruno.coudoin@free.fr>
-
-	reviewed by: <delete if not using a buddy>
 
 	* src/boards/missingletter.c: (add_xml_data):
 	* src/boards/reading.c: (start_board):

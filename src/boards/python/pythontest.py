@@ -143,7 +143,7 @@ class Gcompris_pythontest:
       x=400.0,
       y=100.0,
       text=_("This is the first plugin in gcompris coded in the Python\nProgramming language."),
-      fill_color="white",
+      fill_color="black",
       justification=gtk.JUSTIFY_CENTER
       )
 
@@ -152,7 +152,7 @@ class Gcompris_pythontest:
       x=400.0,
       y=140.0,
       text=_("It is now possible to develop gcompris activities in C or in Python.\nThanks to Olivier Samys who makes this possible."),
-      fill_color="white",
+      fill_color="black",
       justification=gtk.JUSTIFY_CENTER
       )
 
@@ -161,7 +161,7 @@ class Gcompris_pythontest:
       x=400.0,
       y=250.0,
       text=_("This activity is not playable, just a test"),
-      fill_color="white",
+      fill_color="black",
       justification=gtk.JUSTIFY_CENTER
       )
 
@@ -174,8 +174,8 @@ class Gcompris_pythontest:
           y1=gcompris.BOARD_HEIGHT-180,
           x2=gcompris.BOARD_WIDTH-20,
           y2=gcompris.BOARD_HEIGHT-10,
-          fill_color_rgba=0x101077FFL,
-          outline_color_rgba=0x07A3E080L,
+          fill_color_rgba=0xe0ecfaFFL,
+          outline_color_rgba=0xc3d9f1FFL,
           width_units=2.0)
 
     # For the game status WIN/LOOSE
@@ -184,7 +184,7 @@ class Gcompris_pythontest:
       x=gcompris.BOARD_WIDTH / 2,
       y=gcompris.BOARD_HEIGHT - 40,
       font=gcompris.skin.get_font("gcompris/content"),
-      fill_color_rgba=0x123456FFL,
+      fill_color_rgba=0x102010FFL,
       justification=gtk.JUSTIFY_CENTER
       )
 
@@ -193,7 +193,7 @@ class Gcompris_pythontest:
       x=400.0,
       y=400.0,
       text=("Test your reflex with the counter. Hit the 2 shifts key together.\nHit space to reset the counter and increase the speed.\nBackspace to reset the speed"),
-      fill_color="white",
+      fill_color="black",
       justification=gtk.JUSTIFY_CENTER
       )
 
@@ -211,7 +211,7 @@ class Gcompris_pythontest:
       y=gcompris.BOARD_HEIGHT - 80,
       font=gcompris.skin.get_font("gcompris/content"),
       text="Speed="+str(self.timerinc)+" ms",
-      fill_color="white",
+      fill_color="black",
       justification=gtk.JUSTIFY_CENTER
       )
 
