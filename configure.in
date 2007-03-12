@@ -48,6 +48,8 @@ case "$host" in
 esac
 AC_MSG_RESULT([$native_osx])
 
+sdl_mixer_framework="no"
+sdl_framework="no"
 
 if test "x$native_osx" = "xyes"; then
    AC_CHECK_HEADER(SDL/SDL.h, sdl_framework="yes" , sdl_framework="no")
