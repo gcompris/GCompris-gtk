@@ -31,22 +31,13 @@
  *
  */
 
-#include <unistd.h>
-#include <glib/gstdio.h>
 #include <time.h>
-#include <string.h>
 
 #include <gcompris.h>
 #include "gcompris_db.h"
 #include "profile.h"
 
 #define KEYLOG_MAX 256
-
-#ifdef WIN32
-static gchar hostname[256]="unknown";
-#else
-static gchar hostname[256];
-#endif
 
 static gchar		*comment_set;
 static gchar		 keylog[KEYLOG_MAX];
@@ -67,11 +58,7 @@ void gc_log_start (GcomprisBoard *gcomprisBoard) {
   start_time     = time(NULL);
   start_time_key = time(NULL);
 
-#ifndef WIN32
-  gethostname(hostname, 256);
-#endif
-
-  comment_set = strdup("");
+  comment_set = g_strdup("");
   keylog[0]   = '\0';
 }
 

@@ -24,15 +24,20 @@ mydrawwidget_la_LIBADD = $(MYPAINT_LIBS) $(PYTHON_LIBS)
 
 nodist_mydrawwidget_la_CFLAGS = $(MYPAINT_CFLAGS)
 nodist_mydrawwidget_la_SOURCES = \
-	mydrawwidget.defs.c 
+	mydrawwidget.defs.c
 
 mydrawwidget_la_SOURCES = \
-	mydrawwidgetmodule.c \
-	gtkmydrawwidget.c \
-	surface.c \
-	gtkmybrush.c \
 	brush_dab.c \
-	helpers.c 
+	brush_dab.h \
+	gtkmybrush.c \
+	gtkmybrush.h \
+	gtkmydrawwidget.c \
+	gtkmydrawwidget.h \
+	helpers.c \
+	helpers.h \
+	mydrawwidgetmodule.c \
+	surface.c \
+	surface.h
 
 CLEANFILES = mydrawwidget.c mydrawwidget.defs mydrawwidget.defs.c brushsettings.h $(wildcard *.pyc)
 
@@ -44,7 +49,7 @@ pyboard_SCRIPTS = mypaint.py
 
 mypaintlibdir = $(PYTHON_PLUGIN_DIR)/mypaint
 
-EXTRA_DIST += caller_owns_return.py generate.py mypaint
+EXTRA_DIST += caller_owns_return.py generate.py mypaint mypaint.py
 
 mypaintlib_PYTHON = \
 	application.py \

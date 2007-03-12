@@ -127,3 +127,9 @@
 /* Date at which GCompris has been built */
 #define BUILD_DATE "@BUILD_DATE@"
 
+/* don't build dynamic modules on windows */
+#define STATIC_MODULE 1
+
+/* SQLITE Database, Profiles are enabled */
+#define USE_SQLITE 1
+

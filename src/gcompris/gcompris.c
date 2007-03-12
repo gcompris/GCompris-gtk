@@ -108,7 +108,6 @@ static gchar *popt_root_menu       = NULL;
 static gchar *popt_local_activity  = NULL;
 static gint popt_administration	   = FALSE;
 static gchar *popt_database        = NULL;
-static gchar *popt_logs_database   = NULL;
 static gint popt_create_db   	   = FALSE;
 static gint popt_reread_menu   	   = FALSE;
 static gchar *popt_profile	   = NULL;
@@ -166,9 +165,6 @@ static GOptionEntry options[] = {
 
   {"database", 'b', 0, G_OPTION_ARG_STRING, &popt_database,
    N_("Use alternate database for profiles [$HOME/.config/gcompris/gcompris_sqlite.db]"), NULL},
-
-  {"logs", 'j', 0, G_OPTION_ARG_STRING, &popt_logs_database,
-   N_("Use alternate database for logs"), NULL},
 
   {"create-db",'\0', 0, G_OPTION_ARG_NONE, &popt_create_db,
    N_("Create the alternate database for profiles"), NULL},
@@ -1380,7 +1376,7 @@ main (int argc, char *argv[])
   /* usefull for OSX bundle app */
   if (g_path_is_absolute (argv[0])) {
     const gchar *dirname = g_path_get_dirname((const gchar *)argv[0]);
-    exec_prefix = g_build_filename (dirname, "..", NULL); 
+    exec_prefix = g_build_filename (dirname, "..", NULL);
     printf("dirname %s\n", dirname);
     printf("exec_prefix %s\n", exec_prefix);
   }

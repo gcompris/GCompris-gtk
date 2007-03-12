@@ -1,6 +1,26 @@
+2007-03-12  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	Fixed translation issue
+	* boards/chronos/board4_0.xml.in:
+	* boards/hanoi.xml.in:
+	* boards/paintings/board3_0.xml.in:
+
+	Fixed for windows compilation:
+	* config.h.mingw.in:
+	* src/boards/Makefile.mingw:
+	* src/gcompris/Makefile.mingw:
+	* src/gcompris/board.c: (gc_board_init):
+	* src/gcompris/help.c: (gc_help_has_board):
+	* src/gcompris/log.c: (gc_log_start):
+
+
+	Added missing .h and mypaint.py
+	* src/boards/mypaint/Makefile.am:
+
+
 2007-03-12  Yves Combe <yves@ycombe.net>
 
-	fix configure.in error on non OSX 
+	fix configure.in error on non OSX
 
 	* configure.in:
 	* src/boards/mypaint/brush.py:
@@ -12,7 +32,7 @@
 	Prepared for OSX bundlisation.
 
 	* acinclude.m4: add SDL.m4 inside. NEEDS cleaning (probably), we don't need that on OSX.
-	* configure.in: detect apple darwin platform. Detect SDL and SDL_mixer frameworks. 
+	* configure.in: detect apple darwin platform. Detect SDL and SDL_mixer frameworks.
 	* src/boards/chess.c: (start_board): check for gnuchess in same bin/
 	* src/boards/mypaint/mydrawwidget.override: NO_IMPORT_PYGOBJECT
 	* src/boards/py-gcompris-board.c: NO_IMPORT_PYGOBJECT
@@ -39,7 +59,6 @@
 	* src/gcompris/sdlplayer.c: get SDL eand SDL_mixer from frameworks if detected.
 
 	*** RELEASE 8.3BETA1 ***
-
 
 2007-03-11  Bruno coudoin  <bruno.coudoin@free.fr>
 

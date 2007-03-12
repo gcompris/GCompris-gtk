@@ -64,6 +64,7 @@ extern BoardPlugin * get_railroad_bplugin_info();
 extern BoardPlugin * get_read_colors_bplugin_info();
 extern BoardPlugin * get_reading_bplugin_info();
 extern BoardPlugin * get_reversecount_bplugin_info();
+extern BoardPlugin * get_scale_bplugin_info();
 extern BoardPlugin * get_shapegame_bplugin_info();
 extern BoardPlugin * get_smallnumbers_bplugin_info();
 extern BoardPlugin * get_submarine_bplugin_info();
@@ -72,6 +73,7 @@ extern BoardPlugin * get_target_bplugin_info();
 extern BoardPlugin * get_traffic_bplugin_info();
 extern BoardPlugin * get_wordsgame_bplugin_info();
 extern BoardPlugin * get_python_bplugin_info();
+extern BoardPlugin * get_wordprocessor_bplugin_info();
 
 #define MAX_NUMBER_OF_BOARDS 200
 static BoardPlugin *static_boards_demo[MAX_NUMBER_OF_BOARDS];
@@ -105,20 +107,22 @@ void gc_board_init(void)
   static_boards_demo[i++] = get_menu_bplugin_info();
   static_boards_demo[i++] = get_money_bplugin_info();
   static_boards_demo[i++] = get_reading_bplugin_info();
+  static_boards_demo[i++] = get_scale_bplugin_info();
   static_boards_demo[i++] = get_submarine_bplugin_info();
   static_boards_demo[i++] = get_superbrain_bplugin_info();
   static_boards_demo[i++] = get_target_bplugin_info();
+  static_boards_demo[i++] = get_wordprocessor_bplugin_info();
   static_boards_demo[i++] = NULL;
 
   gc_board_number_in_demo = i - 2;
 
   i=0;
 
-  static_boards[i++] = get_awele_bplugin_info();
   static_boards[i++] = get_advanced_colors_bplugin_info();
   static_boards[i++] = get_algebra_bplugin_info();
   static_boards[i++] = get_algebra_bplugin_info();
   static_boards[i++] = get_algebra_guesscount_bplugin_info();
+  static_boards[i++] = get_awele_bplugin_info();
   static_boards[i++] = get_canal_lock_bplugin_info();
   static_boards[i++] = get_chess_bplugin_info();
   static_boards[i++] = get_click_on_letter_bplugin_info();
@@ -145,18 +149,20 @@ void gc_board_init(void)
   static_boards[i++] = get_money_bplugin_info();
   static_boards[i++] = get_paratrooper_bplugin_info();
   static_boards[i++] = get_planegame_bplugin_info();
+  static_boards[i++] = get_python_bplugin_info();
   static_boards[i++] = get_railroad_bplugin_info();
   static_boards[i++] = get_read_colors_bplugin_info();
   static_boards[i++] = get_reading_bplugin_info();
   static_boards[i++] = get_reversecount_bplugin_info();
+  static_boards[i++] = get_scale_bplugin_info();
   static_boards[i++] = get_shapegame_bplugin_info();
   static_boards[i++] = get_smallnumbers_bplugin_info();
   static_boards[i++] = get_submarine_bplugin_info();
   static_boards[i++] = get_superbrain_bplugin_info();
   static_boards[i++] = get_target_bplugin_info();
   static_boards[i++] = get_traffic_bplugin_info();
+  static_boards[i++] = get_wordprocessor_bplugin_info();
   static_boards[i++] = get_wordsgame_bplugin_info();
-  static_boards[i++] = get_python_bplugin_info();
   static_boards[i++] = NULL;
 
   i=0;

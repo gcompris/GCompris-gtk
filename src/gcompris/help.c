@@ -72,6 +72,8 @@ static GtkTextBuffer   *buffer_content;
  */
 gboolean gc_help_has_board (GcomprisBoard *gcomprisBoard)
 {
+  if(!gcomprisBoard)
+    return FALSE;
 
   prerequisite	= gcomprisBoard->prerequisite;
   goal		= gcomprisBoard->goal;
