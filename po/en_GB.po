@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-03-10 16:32+0000\n"
-"PO-Revision-Date: 2007-03-10 16:34-0000\n"
+"POT-Creation-Date: 2007-03-12 22:16+0000\n"
+"PO-Revision-Date: 2007-03-12 22:20-0000\n"
 "Last-Translator: David Lodge <dave@cirt.net>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -367,7 +367,7 @@ msgid "Go to Algebra activities"
 msgstr "Go to Maths activities"
 
 #: ../boards/algebra_group.xml.in.h:2
-#: ../boards/menu.xml.in.h:17
+#: ../boards/menu.xml.in.h:18
 msgid "Left-click the mouse on an activity to select it."
 msgstr "Left-click the mouse on an activity to select it."
 
@@ -2710,13 +2710,14 @@ msgid ""
 "At the bottom of the screen is the gcompris control bar.\n"
 "The following icons are displayed from right to left.\n"
 "(note that each icon is displayed only if available in the current activity)\n"
-"    Home - Back to previous menu or exit gcompris if at the top\n"
+"    Home - Exit an activity, go back to menu\n"
 "    Thumb - OK. Confirm your answer\n"
 "    Dice - Display the current level. Click to select another level\n"
-"    Music note - Repeat the question\n"
+"    Lips - Repeat the question\n"
 "    Question Mark - Help\n"
 "    Tool - The configuration menu\n"
 "    Tux Plane - About GCompris\n"
+"    Night - Quit GCompris\n"
 "The stars show suitable age groups for each game:\n"
 "    1, 2 or 3 simple stars  - from 2 to 6 years old\n"
 "    1, 2 or 3 complex stars - 7 years and up"
@@ -2725,27 +2726,28 @@ msgstr ""
 "At the bottom of the screen is the gcompris control bar.\n"
 "The following icons are displayed from right to left.\n"
 "(note that each icon is displayed only if available in the current activity)\n"
-"    Home - Back to previous menu or exit gcompris if at the top\n"
+"    Home - Exit an activity, go back to menu\n"
 "    Thumb - OK. Confirm your answer\n"
 "    Dice - Display the current level. Click to select another level\n"
-"    Music note - Repeat the question\n"
+"    Lips - Repeat the question\n"
 "    Question Mark - Help\n"
 "    Tool - The configuration menu\n"
 "    Tux Plane - About GCompris\n"
+"    Night - Quit GCompris\n"
 "The stars show suitable age groups for each game:\n"
 "    1, 2 or 3 simple stars  - from 2 to 6 years old\n"
 "    1, 2 or 3 complex stars - 7 years and up"
 
-#: ../boards/menu.xml.in.h:15
+#: ../boards/menu.xml.in.h:16
 msgid "GCompris Main Menu"
 msgstr "GCompris Main Menu"
 
-#: ../boards/menu.xml.in.h:16
+#: ../boards/menu.xml.in.h:17
 #: ../src/boards/menu2.c:1008
 msgid "GCompris is a collection of educational games that provides different activities for children aged 2 and up."
 msgstr "GCompris is a collection of educational games that provides different activities for children aged 2 and up."
 
-#: ../boards/menu.xml.in.h:18
+#: ../boards/menu.xml.in.h:19
 msgid "The goal of gcompris is to provide a free alternative to popular proprietary edutainment software"
 msgstr "The goal of gcompris is to provide a free alternative to popular proprietary edutainment software"
 
@@ -3601,7 +3603,7 @@ msgstr "Not allowed! Try again !"
 msgid "Error: The external program gnuchess died unexpectedly"
 msgstr "Error: The external program gnuchess died unexpectedly"
 
-#: ../src/boards/chess.c:194
+#: ../src/boards/chess.c:199
 msgid ""
 "Error: The external program gnuchess is required\n"
 "to play chess in gcompris.\n"
@@ -3615,7 +3617,7 @@ msgstr ""
 "GNU/Linux distribution\n"
 "And check it is located here: "
 
-#: ../src/boards/chess.c:236
+#: ../src/boards/chess.c:244
 msgid ""
 "Error: The external program gnuchess is mandatory\n"
 "to play chess in gcompris.\n"
@@ -3625,37 +3627,37 @@ msgstr ""
 "to play chess in gcompris.\n"
 "First install it, and check it is in "
 
-#: ../src/boards/chess.c:579
+#: ../src/boards/chess.c:587
 msgid "White's Turn"
 msgstr "White's Turn"
 
-#: ../src/boards/chess.c:579
+#: ../src/boards/chess.c:587
 msgid "Black's Turn"
 msgstr "Black's Turn"
 
-#: ../src/boards/chess.c:723
+#: ../src/boards/chess.c:731
 msgid "White checks"
 msgstr "White checks"
 
-#: ../src/boards/chess.c:725
+#: ../src/boards/chess.c:733
 msgid "Black checks"
 msgstr "Black checks"
 
-#: ../src/boards/chess.c:1082
+#: ../src/boards/chess.c:1090
 msgid "Black mates"
 msgstr "Black mates"
 
-#: ../src/boards/chess.c:1087
+#: ../src/boards/chess.c:1095
 msgid "White mates"
 msgstr "White mates"
 
-#: ../src/boards/chess.c:1092
+#: ../src/boards/chess.c:1100
 #: ../src/gcompris/bonus.c:361
 #: ../src/gcompris/bonus.c:370
 msgid "Drawn game"
 msgstr "Drawn game"
 
-#: ../src/boards/chess.c:1120
+#: ../src/boards/chess.c:1128
 msgid "Error: The external program gnuchess died unexpectingly"
 msgstr "Error: The external program gnuchess died unexpectingly"
 
@@ -3852,13 +3854,13 @@ msgstr "Control fall speed with up and down arrow keys."
 msgid "Move the plane to catch the clouds in the correct order"
 msgstr "Move the plane to catch the clouds in the correct order"
 
-#: ../src/boards/python.c:62
-#: ../src/boards/python.c:86
+#: ../src/boards/python.c:63
+#: ../src/boards/python.c:87
 msgid "Python Board"
 msgstr "Python Board"
 
-#: ../src/boards/python.c:63
-#: ../src/boards/python.c:87
+#: ../src/boards/python.c:64
+#: ../src/boards/python.c:88
 msgid "Special board that embeds python into gcompris."
 msgstr "Special board that embeds python into gcompris."
 
@@ -4093,6 +4095,11 @@ msgstr "All users"
 msgid "Default"
 msgstr "Default"
 
+#. Reset buttons
+#: ../src/boards/python/admin/log_list.py:162
+msgid "Reset"
+msgstr "Reset"
+
 #: ../src/boards/python/admin/log_list.py:208
 msgid "Date"
 msgstr "Date"
@@ -4288,7 +4295,7 @@ msgstr "You must set a channel in your channel entry box first.\n"
 msgid "Your friends must set the same channel in order to communicate with you"
 msgstr "Your friends must set the same channel in order to communicate with you"
 
-#: ../src/boards/python/electric.py:94
+#: ../src/boards/python/electric.py:95
 msgid ""
 "Cannot find the 'gnucap' electric simulator.\n"
 "You can download and install it from:\n"
@@ -5186,127 +5193,127 @@ msgstr ""
 "Exit it and report\n"
 "the problem to the authors"
 
-#: ../src/gcompris/gcompris.c:127
+#: ../src/gcompris/gcompris.c:129
 msgid "run gcompris in fullscreen mode."
 msgstr "run gcompris in fullscreen mode."
 
-#: ../src/gcompris/gcompris.c:130
+#: ../src/gcompris/gcompris.c:132
 msgid "run gcompris in window mode."
 msgstr "run gcompris in window mode."
 
-#: ../src/gcompris/gcompris.c:133
+#: ../src/gcompris/gcompris.c:135
 msgid "run gcompris with sound enabled."
 msgstr "run gcompris with sound enabled."
 
-#: ../src/gcompris/gcompris.c:136
+#: ../src/gcompris/gcompris.c:138
 msgid "run gcompris without sound."
 msgstr "run gcompris without sound."
 
-#: ../src/gcompris/gcompris.c:139
+#: ../src/gcompris/gcompris.c:141
 msgid "run gcompris with the default gnome cursor."
 msgstr "run gcompris with the default gnome cursor."
 
-#: ../src/gcompris/gcompris.c:142
+#: ../src/gcompris/gcompris.c:144
 msgid "display only activities with this difficulty level."
 msgstr "display only activities with this difficulty level."
 
-#: ../src/gcompris/gcompris.c:145
+#: ../src/gcompris/gcompris.c:147
 msgid "display debug informations on the console."
 msgstr "display debug informations on the console."
 
-#: ../src/gcompris/gcompris.c:148
+#: ../src/gcompris/gcompris.c:150
 msgid "Print the version of "
 msgstr "Print the version of "
 
-#: ../src/gcompris/gcompris.c:151
+#: ../src/gcompris/gcompris.c:153
 msgid "Use the antialiased canvas (slower)."
 msgstr "Use the antialiased canvas (slower)."
 
-#: ../src/gcompris/gcompris.c:154
+#: ../src/gcompris/gcompris.c:156
 msgid "Disable XF86VidMode (No screen resolution change)."
 msgstr "Disable XF86VidMode (No screen resolution change)."
 
-#: ../src/gcompris/gcompris.c:157
+#: ../src/gcompris/gcompris.c:159
 msgid "Run gcompris with local menu (e.g -l /reading will let you play only activities in the reading directory, -l /strategy/connect4 only the connect4 activity)"
 msgstr "Run gcompris with local menu (e.g -l /reading will let you play only activities in the reading directory, -l /strategy/connect4 only the connect4 activity)"
 
-#: ../src/gcompris/gcompris.c:160
+#: ../src/gcompris/gcompris.c:162
 msgid "Run GCompris with local activity directory added to menu"
 msgstr "Run GCompris with local activity directory added to menu"
 
-#: ../src/gcompris/gcompris.c:163
+#: ../src/gcompris/gcompris.c:165
 msgid "Run GCompris in administration and user-management mode"
 msgstr "Run GCompris in administration and user-management mode"
 
-#: ../src/gcompris/gcompris.c:166
+#: ../src/gcompris/gcompris.c:168
 msgid "Use alternate database for profiles [$HOME/.config/gcompris/gcompris_sqlite.db]"
 msgstr "Use alternate database for profiles [$HOME/.config/gcompris/gcompris_sqlite.db]"
 
-#: ../src/gcompris/gcompris.c:169
+#: ../src/gcompris/gcompris.c:171
 msgid "Use alternate database for logs"
 msgstr "Use alternate database for logs"
 
-#: ../src/gcompris/gcompris.c:172
+#: ../src/gcompris/gcompris.c:174
 msgid "Create the alternate database for profiles"
 msgstr "Create the alternate database for profiles"
 
-#: ../src/gcompris/gcompris.c:175
+#: ../src/gcompris/gcompris.c:177
 msgid "Re-read XML Menus and store them in the database"
 msgstr "Re-read XML Menus and store them in the database"
 
-#: ../src/gcompris/gcompris.c:178
+#: ../src/gcompris/gcompris.c:180
 msgid "Set the profile to use. Use 'gcompris -a' to create profiles"
 msgstr "Set the profile to use. Use 'gcompris -a' to create profiles"
 
-#: ../src/gcompris/gcompris.c:181
+#: ../src/gcompris/gcompris.c:183
 msgid "List all available profiles. Use 'gcompris -a' to create profiles"
 msgstr "List all available profiles. Use 'gcompris -a' to create profiles"
 
-#: ../src/gcompris/gcompris.c:184
+#: ../src/gcompris/gcompris.c:186
 msgid "Config directory location: [$HOME/.config/gcompris]. Alternate is to set $XDG_CONFIG_HOME."
 msgstr "Config directory location: [$HOME/.config/gcompris]. Alternate is to set $XDG_CONFIG_HOME."
 
-#: ../src/gcompris/gcompris.c:187
+#: ../src/gcompris/gcompris.c:189
 msgid "The location of user directories: [$HOME/My GCompris]"
 msgstr "The location of user directories: [$HOME/My GCompris]"
 
-#: ../src/gcompris/gcompris.c:190
+#: ../src/gcompris/gcompris.c:192
 msgid "Run the experimental activities"
 msgstr "Run the experimental activities"
 
-#: ../src/gcompris/gcompris.c:193
+#: ../src/gcompris/gcompris.c:195
 msgid "Disable the quit button"
 msgstr "Disable the quit button"
 
-#: ../src/gcompris/gcompris.c:196
+#: ../src/gcompris/gcompris.c:198
 msgid "Disable the config button"
 msgstr "Disable the configuration button"
 
-#: ../src/gcompris/gcompris.c:199
+#: ../src/gcompris/gcompris.c:201
 msgid "Display the resources on stdout based on the selected activities"
 msgstr "Display the resources on stdout based on the selected activities"
 
-#: ../src/gcompris/gcompris.c:202
+#: ../src/gcompris/gcompris.c:204
 msgid "GCompris will get images, sounds and activity data from this server if not found locally."
 msgstr "GCompris will get images, sounds and activity data from this server if not found locally."
 
-#: ../src/gcompris/gcompris.c:205
+#: ../src/gcompris/gcompris.c:207
 msgid "Only when --server is provided, disable check for local resource first. Data are always taken from the web server."
 msgstr "Only when --server is provided, disable check for local resource first. Data is always taken from the web server."
 
-#: ../src/gcompris/gcompris.c:209
+#: ../src/gcompris/gcompris.c:211
 msgid "In server mode, specify the cache directory used to avoid useless downloads."
 msgstr "In server mode, specify the cache directory used to avoid useless downloads."
 
-#: ../src/gcompris/gcompris.c:212
+#: ../src/gcompris/gcompris.c:214
 msgid "Global drag and drop mode: normal, 2clicks, both. Default mode is normal."
 msgstr "Global drag and drop mode: normal, 2clicks, both. Default mode is normal."
 
-#: ../src/gcompris/gcompris.c:215
+#: ../src/gcompris/gcompris.c:217
 msgid "Do not display the background images of activities."
 msgstr "Do not display the background images of activities."
 
-#: ../src/gcompris/gcompris.c:829
+#: ../src/gcompris/gcompris.c:831
 #, c-format
 msgid ""
 "GCompris is free software released under the GPL License. In order to support its development, the Windows version provides only %d of the %d activities. You can get the full version for a small fee at\n"
@@ -5319,7 +5326,7 @@ msgstr ""
 "The GNU/Linux version does not have this restriction. Note that GCompris is being developed to free schools from monopolistic software vendors. If you also believe that we should teach freedom to children, please consider using GNU/Linux. Get more information at FSF:\n"
 "<http://www.fsf.org/philosophy>"
 
-#: ../src/gcompris/gcompris.c:1462
+#: ../src/gcompris/gcompris.c:1472
 #, c-format
 msgid ""
 "GCompris\n"
@@ -5333,17 +5340,17 @@ msgstr ""
 "More info at http://gcompris.net\n"
 
 #. check the list of possible values for -l, then exit
-#: ../src/gcompris/gcompris.c:1546
+#: ../src/gcompris/gcompris.c:1556
 #, c-format
 msgid "Use -l to access an activity directly.\n"
 msgstr "Use -l to access an activity directly.\n"
 
-#: ../src/gcompris/gcompris.c:1547
+#: ../src/gcompris/gcompris.c:1557
 #, c-format
 msgid "The list of available activities is :\n"
 msgstr "The list of available activities is :\n"
 
-#: ../src/gcompris/gcompris.c:1734
+#: ../src/gcompris/gcompris.c:1744
 #, c-format
 msgid "The list of available profiles is:\n"
 msgstr "The list of available profiles is:\n"
