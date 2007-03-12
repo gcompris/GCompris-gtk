@@ -444,13 +444,14 @@ gchar *
 gbr_find_prefix (const gchar *default_prefix)
 {
 	gchar *dir1, *dir2;
+	extern gchar *exec_prefix;
 
 	if (exe == NULL) {
 		/* BinReloc not initialized. */
 		if (default_prefix != NULL)
 			return g_strdup (default_prefix);
 		else
-			return NULL;
+			return g_strdup (exec_prefix);
 	}
 
 	dir1 = g_path_get_dirname (exe);

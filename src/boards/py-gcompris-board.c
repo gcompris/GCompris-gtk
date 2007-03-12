@@ -1,4 +1,5 @@
 #include "py-gcompris-board.h"
+#define NO_IMPORT_PYGOBJECT 1
 #include <pygobject.h>
 
 staticforward PyTypeObject pyGcomprisBoardType;

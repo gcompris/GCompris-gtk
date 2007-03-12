@@ -1,3 +1,35 @@
+2007-03-12  Yves Combe <yves@ycombe.net>
+
+	OSX support. No universal binary yet.
+	Prepared for OSX bundlisation.
+
+	* acinclude.m4: add SDL.m4 inside. NEEDS cleaning (probably), we don't need that on OSX.
+	* configure.in: detect apple darwin platform. Detect SDL and SDL_mixer frameworks. 
+	* src/boards/chess.c: (start_board): check for gnuchess in same bin/
+	* src/boards/mypaint/mydrawwidget.override: NO_IMPORT_PYGOBJECT
+	* src/boards/py-gcompris-board.c: NO_IMPORT_PYGOBJECT
+	* src/boards/py-gcompris-class.c: NO_IMPORT_PYGOBJECT
+	* src/boards/py-gcompris-group.c: NO_IMPORT_PYGOBJECT
+	* src/boards/py-gcompris-profile.c: NO_IMPORT_PYGOBJECT
+	* src/boards/py-gcompris-properties.c: NO_IMPORT_PYGOBJECT
+	* src/boards/py-gcompris-user.c: NO_IMPORT_PYGOBJECT
+	* src/boards/py-gcompris-wordlist.c: NO_IMPORT_PYGOBJECT
+	* src/boards/py-mod-admin.c: NO_IMPORT_PYGOBJECT
+	* src/boards/py-mod-anim.c: NO_IMPORT_PYGOBJECT
+	* src/boards/py-mod-bonus.c: NO_IMPORT_PYGOBJECT
+	* src/boards/py-mod-gcompris.c: NO_IMPORT_PYGOBJECT
+	* src/boards/py-mod-score.c: NO_IMPORT_PYGOBJECT
+	* src/boards/py-mod-skin.c: NO_IMPORT_PYGOBJECT
+	* src/boards/py-mod-sound.c: NO_IMPORT_PYGOBJECT
+	* src/boards/py-mod-timer.c: NO_IMPORT_PYGOBJECT
+	* src/boards/py-mod-utils.c: NO_IMPORT_PYGOBJECT
+	* src/boards/python.c: NO_IMPORT_PYGOBJECT
+	* src/boards/python/electric.py: check gnucap in same bin/
+	* src/gcompris/Makefile.am: suppress python flags, unused here.
+	* src/gcompris/binreloc.c: (gbr_find_prefix): get prefix from argv[0] if full path (bundlisation).
+	* src/gcompris/gcompris.c: (main): get prefix from argv[0] if full path (bundlisation).
+	* src/gcompris/sdlplayer.c: get SDL eand SDL_mixer from frameworks if detected.
+
 	*** RELEASE 8.3BETA1 ***
 
 

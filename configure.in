@@ -19,7 +19,6 @@ GDK_PIXBUF_REQUIRED=2.4.0
 LIBGNOMECANVAS_REQUIRED=2.3.6
 
 PKG_CHECK_MODULES(GCOMPRIS, gtk+-2.0 >= $GTK_REQUIRED gdk-pixbuf-2.0 >= $GDK_PIXBUF_REQUIRED libgnomecanvas-2.0 >= $LIBGNOMECANVAS_REQUIRED gthread-2.0)
-AC_CHECK_LIB(SDL_mixer, Mix_OpenAudio,, AC_MSG_ERROR([*** SDL_mixer not found. Visit http://www.libsdl.org and get it]))
 
 AC_SUBST(GCOMPRIS_CFLAGS)
 AC_SUBST(GCOMPRIS_LIBS)
@@ -36,22 +35,56 @@ AM_DISABLE_STATIC
 AC_LIBTOOL_WIN32_DLL
 AM_PROG_LIBTOOL
 
-dnl Check for SDL
-SDL_VERSION=1.2.3
 
-cflags_previous=$CFLAGS
-libs_previous=$LIBS
+dnl OSX Specifics
+AC_MSG_CHECKING([for OSX])
+case "$host" in
+  *-apple-darwin*)
+    native_osx=yes
+    ;;
+  *)
+    native_osx=no
+    ;;
+esac
+AC_MSG_RESULT([$native_osx])
 
-if test "x$SDL_CFLAGS" = "x" -o "x$SDL_LIBS" = "x" ; then
-  AM_PATH_SDL($SDL_VERSION,
+
+if test "x$native_osx" = "xyes"; then
+   AC_CHECK_HEADER(SDL/SDL.h, sdl_framework="yes" , sdl_framework="no")
+   if test "$sdl_framework" = "yes"; then
+      AC_CHECK_HEADER(SDL_mixer/SDL_mixer.h, sdl_mixer_framework="yes" , sdl_mixer_framework="no")
+   fi
+fi
+
+if test "x$sdl_mixer_framework" = "xno"; then
+    AC_CHECK_LIB(SDL_mixer, Mix_OpenAudio,, AC_MSG_ERROR([*** SDL_mixer not found. Visit http://www.libsdl.org and get it]))
+
+   dnl Check for SDL
+   SDL_VERSION=1.2.3
+
+   cflags_previous=$CFLAGS
+   libs_previous=$LIBS
+
+   if test "x$SDL_CFLAGS" = "x" -o "x$SDL_LIBS" = "x" ; then
+      AM_PATH_SDL($SDL_VERSION,
             :,
 	    AC_MSG_ERROR([*** SDL version $SDL_VERSION not found!])
-  )
+	    )
+      else
+      AC_SUBST(SDL_CFLAGS)
+      AC_SUBST(SDL_LIBS)
+      echo "*** Not checking SDL. Using existing SDL_FLAGS and SDL_LIBS ***"
+    fi
+dnl check n
 else
-  AC_SUBST(SDL_CFLAGS)
-  AC_SUBST(SDL_LIBS)
-  echo "*** Not checking SDL. Using existing SDL_FLAGS and SDL_LIBS ***"
+  SDL_CFLAGS=
+  SDL_LIBS="-Xlinker -framework -Xlinker SDL -Xlinker -framework -Xlinker SDL_mixer" 
+  AC_MSG_CHECKING([flags for SDL and SDL_mixer frameworks])
+  AC_MSG_RESULT($SDL_LIBS)
+  AC_DEFINE_UNQUOTED(SDL_FRAMEWORKS, 1, [ Define to 1 if compile for OSX with SDL and SDL_mixer frameworks ])
 fi
+
+
 
 dnl RESTAURE PREVIOUSLY SET VALUES
 CFLAGS=$cflags_previous
@@ -93,8 +126,8 @@ if test "x$USE_XF86VM" == "xyes" ; then
   fi
 fi
 
-LDFLAGS="-Wl,--as-needed ${LDFLAGS} ${XF86VM_LIBS}"
-#LDFLAGS="${LDFLAGS} ${XF86VM_LIBS}"
+#LDFLAGS="-Wl,--as-needed ${LDFLAGS} ${XF86VM_LIBS}"
+LDFLAGS="${LDFLAGS} ${XF86VM_LIBS}"
 
 dnl Add the languages which your application supports here.
 ALL_LINGUAS="am ar az bg ca cs da de dz el en_CA en_GB es et eu fi fr ga gu he hi hr hu id it ja ka ko lt mk ml mr ms nb ne nl nn pa pl pt pt_BR ro ru rw sk sl so sq sr sr@Latn sv th tr vi wa zh_CN zh_TW"

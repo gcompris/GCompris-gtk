@@ -110,14 +110,16 @@ gcompris_SOURCES = \
 	wordlist.h
 
 gcompris_LDFLAGS = \
-	-export-dynamic $(python_ldflags) $(cairo_ldflags)
+	-export-dynamic $(cairo_ldflags)
 
 
 gcompris_LDADD = \
 	$(GCOMPRIS_LIBS) $(sqlite_ldadd) $(XML_LIBS) $(GNET_LIBS) $(SDL_LIBS) \
-	$(LIBICONV) \
-        $(INTLLIBS) \
-	$(python_ldadd)
+        $(INTLLIBS)
+
+
+#	$(LIBICONV) 
+
 
 EXTRA_DIST = \
 	Makefile.mingw gcomprisrc.rc

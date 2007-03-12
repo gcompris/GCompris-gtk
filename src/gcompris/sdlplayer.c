@@ -18,10 +18,20 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
+#include "soundutil.h"
+
+#ifndef SDL_FRAMEWORKS
 #include "SDL.h"
 #include "SDL_thread.h"
 #include "SDL_mixer.h"
 #include "SDL_audio.h"
+#else
+/* we use SDL and SDL_mixer framework */
+#include <SDL/SDL.h>
+#include <SDL/SDL_thread.h>
+#include <SDL_mixer/SDL_mixer.h>
+#include <SDL/SDL_audio.h>
+#endif
 
 #include <stdarg.h>
 #include <unistd.h>
@@ -30,8 +40,6 @@
 #include <stdio.h>
 
 #include <glib.h>
-
-#include "soundutil.h"
 
 Sint16 stream[2][4096];
 int len=4096, bits=0, which=0;

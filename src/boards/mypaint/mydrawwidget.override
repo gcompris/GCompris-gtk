@@ -1,6 +1,7 @@
 %%
 headers
 #include <Python.h>
+#define NO_IMPORT_PYGOBJECT 1
 #include "pygobject.h"
 #include "gtkmydrawwidget.h"
 #include "gtkmybrush.h"

@@ -20,6 +20,7 @@
  */
 
 #include <Python.h>
+#define NO_IMPORT_PYGOBJECT 1
 #include <pygobject.h>
 #include "gcompris/gcompris.h"
 #include "py-mod-gcompris.h"

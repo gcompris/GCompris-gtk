@@ -1,4 +1,5 @@
 #include "py-gcompris-profile.h"
+#define NO_IMPORT_PYGOBJECT 1
 #include <pygobject.h>
 
 staticforward PyTypeObject pyGcomprisGroupType;

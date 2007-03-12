@@ -185,18 +185,26 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 {
 
   gnuchess_pid = 0;
+  gchar *gnuchess_bin = GNUCHESS;
 
 #ifndef WIN32
   signal(SIGTRAP, gnuchess_died);
   signal(SIGPIPE, gnuchess_died);
-  if (!g_file_test (GNUCHESS, G_FILE_TEST_EXISTS))
+  if (!g_file_test (gnuchess_bin, G_FILE_TEST_EXISTS))
     {
-    gc_dialog(_("Error: The external program gnuchess is required\nto play chess in gcompris.\n"
-		"Find this program on http://www.rpmfind.net or in your\nGNU/Linux distribution\n"
-		"And check it is located here: "GNUCHESS),
-	      gc_board_stop);
-    return;
+      /* check in same bin/ as we are */
+      extern gchar *exec_prefix;
+      gnuchess_bin = g_build_filename( exec_prefix, "bin", "gnuchess", NULL);
+      if (!g_file_test (gnuchess_bin, G_FILE_TEST_EXISTS)) {
+	gc_dialog(_("Error: The external program gnuchess is required\nto play chess in gcompris.\n"
+		    "Find this program on http://www.rpmfind.net or in your\nGNU/Linux distribution\n"
+		    "And check it is located here: "GNUCHESS),
+		  gc_board_stop);
+	return;
+      }
   }
+
+  g_warning("GNUCHESS found %s", gnuchess_bin);
 #endif
 
   if(agcomprisBoard!=NULL)
@@ -230,7 +238,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 	  gc_bar_set(0);
 	}
 
-      if(start_child (GNUCHESS, &read_chan,
+      if(start_child (gnuchess_bin, &read_chan,
 		      &write_chan, &gnuchess_pid)==FALSE)
 	{
 	  gc_dialog(_("Error: The external program gnuchess is mandatory\n"

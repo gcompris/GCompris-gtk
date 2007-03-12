@@ -85,7 +85,8 @@ class Gcompris_electric:
     #
     for binary in ("/usr/bin/gnucap",
                    "/usr/local/bin/gnucap",
-                   "gnucap.exe"):
+                   "gnucap.exe",
+		   os.path.join(gcompris.DATA_DIR, '..' , '..', '..', 'bin', 'gnucap')):
       if(os.path.exists(binary)):
         self.gnucap_binary = binary
         break

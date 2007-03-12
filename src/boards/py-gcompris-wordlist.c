@@ -1,4 +1,5 @@
 #include "py-gcompris-wordlist.h"
+#define NO_IMPORT_PYGOBJECT 1
 #include <pygobject.h>
 #include "py-gcompris-profile.h"
 #include "py-gcompris-board.h"

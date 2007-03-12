@@ -51,6 +51,8 @@ static GnomeCanvas *canvas;
 static GnomeCanvas *canvas_bar;
 static GnomeCanvas *canvas_bg;
 
+gchar * exec_prefix = NULL;
+
 //static gint pause_board_cb (GtkWidget *widget, gpointer data);
 static void quit_cb (GtkWidget *widget, gpointer data);
 static void map_cb  (GtkWidget *widget, gpointer data);
@@ -1374,6 +1376,14 @@ main (int argc, char *argv[])
 {
   GError *error = NULL;
   GOptionContext *context;
+
+  /* usefull for OSX bundle app */
+  if (g_path_is_absolute (argv[0])) {
+    const gchar *dirname = g_path_get_dirname((const gchar *)argv[0]);
+    exec_prefix = g_build_filename (dirname, "..", NULL); 
+    printf("dirname %s\n", dirname);
+    printf("exec_prefix %s\n", exec_prefix);
+  }
 
   /* First, Remove the gnome crash dialog because it locks the user when in full screen */
   signal(SIGSEGV, gc_terminate);

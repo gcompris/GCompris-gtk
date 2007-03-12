@@ -1,4 +1,5 @@
 #include <Python.h>
+#define NO_IMPORT_PYGOBJECT 1
 #include <pygobject.h>
 #include <stdarg.h>
 #include "gcompris/gcompris.h"
