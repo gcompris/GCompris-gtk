@@ -193,8 +193,11 @@ static GOptionEntry options[] = {
   {"disable-config",'\0', 0, G_OPTION_ARG_NONE, &popt_no_config,
    N_("Disable the config button"), NULL},
 
+#if 0 /* Never completed, this option means we should document resources
+	    of each activities which is boring to do */
   {"display-resource",'\0', 0, G_OPTION_ARG_NONE, &popt_display_resource,
    N_("Display the resources on stdout based on the selected activities"), NULL},
+#endif
 
   {"server", '\0', 0, G_OPTION_ARG_STRING, &popt_server,
    N_("GCompris will get images, sounds and activity data from this server if not found locally."), NULL},

@@ -294,8 +294,12 @@ void scale_anim_plateau(void)
     double delta_y, x;
     double angle;
     int diff;
+    static int last_diff=0;
 
     diff = get_weight_plateau(0);
+    if(last_diff != diff)
+    {
+    last_diff = diff;
     delta_y = CLAMP(PLATEAU_Y_DELTA / 10.0 * diff,
             -PLATEAU_Y_DELTA, PLATEAU_Y_DELTA);
     if(get_weight_plateau(1)==0)
@@ -311,7 +315,7 @@ void scale_anim_plateau(void)
     gnome_canvas_item_affine_absolute(GNOME_CANVAS_ITEM(group_d), affine);
 
     gc_item_rotate_with_center(bras, -angle, 138, 84);
-
+    }
     if(diff ==0 && (gcomprisBoard->level == 2 || gcomprisBoard->level == 4))
     {
         GdkPixbuf *button_pixmap;

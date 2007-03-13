@@ -1089,7 +1089,6 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, Shape *shape)
      {
      case GDK_ENTER_NOTIFY:
        if(shape->tooltip && shape->type == SHAPE_ICON) {
-	 gnome_canvas_item_raise_to_top(GNOME_CANVAS_ITEM(tooltip_root_item));
 	 /* WARNING: This should not be needed but if I don't do it, it's not refreshed */
 	 gnome_canvas_item_set(GNOME_CANVAS_ITEM(tooltip_bg_item),
 			       "y", 0.0,

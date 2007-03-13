@@ -1,3 +1,32 @@
+2007-03-13  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* boards/clickgame.xml.in: minor, removed resource definition
+	* boards/menu.xml.in:
+	* src/gcompris/gcompris.c:
+
+	* boards/Makefile.am: splitted geography and geography_country
+	* boards/geography.xml.in:
+	* boards/geography/Makefile.am:
+	* boards/geography/board10_0.xml.in:
+	* boards/geography/board5_0.xml.in:
+	* boards/geography/board6_0.xml.in:
+	* boards/geography/board7_0.xml.in:
+	* boards/geography/board8_0.xml.in:
+	* boards/geography/board9_0.xml.in:
+	* boards/geography/board9_1.xml.in:
+	* boards/geography/board9_2.xml.in:
+	* boards/geography_country/Makefile.am:
+	* configure.in:
+	* po/POTFILES.in:
+
+	* boards/scalesboard.xml.in: fixed documentation
+
+	* src/boards/scale.c: (scale_anim_plateau): fixed fuzzy plate by Miguel.
+
+	* src/boards/shapegame.c: (item_event): fixed freeze in dragging in the
+	  tooltip by Miguel.
+
+
 2007-03-13  Yves Combe <yves@ycombe.net>
 
 	Add ScriptExec source (derived from Platipus by inkscape).

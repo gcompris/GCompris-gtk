@@ -1,4 +1,4 @@
-SUBDIRS = gcompris read_colors advanced_colors babymatch babyshapes imageid imagename missing_letter paintings doubleentry geography chronos
+SUBDIRS = gcompris read_colors advanced_colors babymatch babyshapes imageid imagename missing_letter paintings doubleentry geography geography_country chronos
 
 xmldir = $(pkgdatadir)/@PACKAGE_DATA_DIR@
 
@@ -48,6 +48,7 @@ xml_in_files = \
 	followline.xml.in \
 	fun.xml.in \
 	geography.xml.in \
+	geography_country.xml.in \
 	geometry.xml.in \
 	gletters.xml.in \
 	gnumch-equality.xml.in \

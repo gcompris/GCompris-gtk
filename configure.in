@@ -41,7 +41,7 @@ AC_MSG_CHECKING([for OSX])
 case "$host" in
   *-apple-darwin*)
     native_osx=yes
-    OSX_CFLAGS="$CFLAGS -arch i386 -arch ppc "    
+    OSX_CFLAGS="$CFLAGS -arch i386 -arch ppc "
     ;;
   *)
     native_osx=no
@@ -84,7 +84,7 @@ if test "x$sdl_mixer_framework" = "xno"; then
 dnl check n
 else
   SDL_CFLAGS=
-  SDL_LIBS="-Xlinker -framework -Xlinker SDL -Xlinker -framework -Xlinker SDL_mixer" 
+  SDL_LIBS="-Xlinker -framework -Xlinker SDL -Xlinker -framework -Xlinker SDL_mixer"
   AC_MSG_CHECKING([flags for SDL and SDL_mixer frameworks])
   AC_MSG_RESULT($SDL_LIBS)
   AC_DEFINE_UNQUOTED(SDL_FRAMEWORKS, 1, [ Define to 1 if compile for OSX with SDL and SDL_mixer frameworks ])
@@ -598,6 +598,7 @@ boards/doubleentry/Makefile
 boards/gcompris/Makefile
 boards/gcompris/mimetypes/Makefile
 boards/geography/Makefile
+boards/geography_country/Makefile
 boards/imageid/Makefile
 boards/imagename/Makefile
 boards/missing_letter/Makefile
