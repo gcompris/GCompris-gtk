@@ -324,34 +324,31 @@ static void repeat (){
 
       /* If we don't find a sound in our locale or the sounds are disabled */
       if(str && properties->fx)
-	{
-	  gc_sound_play_ogg(str, NULL);
-	}
-      else
-	{
-	  str = g_strdup_printf(gettext(colors[GPOINTER_TO_INT(g_list_nth_data(listColors, 0))*2+1]));
+	gc_sound_play_ogg(str, NULL);
 
-	  gnome_canvas_item_new (boardRootItem,
-				 gnome_canvas_text_get_type (),
-				 "text", str,
-				 "font", gc_skin_font_board_huge_bold,
-				 "x", (double) BOARDWIDTH/2+2,
-				 "y", (double) BOARDHEIGHT-25+2,
-				 "anchor", GTK_ANCHOR_CENTER,
-				 "fill_color", "black",
-				 NULL);
+      g_free(str);
 
-	  gnome_canvas_item_new (boardRootItem,
-				 gnome_canvas_text_get_type (),
-				 "text", str,
-				 "font", gc_skin_font_board_huge_bold,
-				 "x", (double) BOARDWIDTH/2,
-				 "y", (double) BOARDHEIGHT-25,
-				 "anchor", GTK_ANCHOR_CENTER,
-				 "fill_color", "blue",
-				 NULL);
-	}
+      str = g_strdup_printf(gettext(colors[GPOINTER_TO_INT(g_list_nth_data(listColors, 0))*2+1]));
 
+      gnome_canvas_item_new (boardRootItem,
+			     gnome_canvas_text_get_type (),
+			     "text", str,
+			     "font", gc_skin_font_board_huge_bold,
+			     "x", (double) BOARDWIDTH/2+2,
+			     "y", (double) BOARDHEIGHT-25+2,
+			     "anchor", GTK_ANCHOR_CENTER,
+			     "fill_color", "black",
+			     NULL);
+
+      gnome_canvas_item_new (boardRootItem,
+			     gnome_canvas_text_get_type (),
+			     "text", str,
+			     "font", gc_skin_font_board_huge_bold,
+			     "x", (double) BOARDWIDTH/2,
+			     "y", (double) BOARDHEIGHT-25,
+			     "anchor", GTK_ANCHOR_CENTER,
+			     "fill_color", "blue",
+			     NULL);
       g_free(str);
     }
 }

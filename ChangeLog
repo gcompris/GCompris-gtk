@@ -1,3 +1,14 @@
+2007-03-13  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* src/boards/algebra_guesscount.c: (start_board),
+	(update_line_calcul), (item_event_num): no more need to hit Enter.
+	* src/boards/colors.c: (repeat): now display the text all the time, even if
+	  sound is there.
+	* boards/geography/Makefile.am:
+	* boards/geography/board10_0.xml.in:
+	* boards/geography/norway_counties: Added norway country in geography by
+	  Karl Ove Hufthammer
+
 2007-03-12  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	Fixed translation issue

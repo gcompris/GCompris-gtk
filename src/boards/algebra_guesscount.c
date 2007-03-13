@@ -31,7 +31,6 @@ static void		 set_level (guint level);
 static int gamewon;
 static gint process_time_id = 0;
 
-static void		 process_ok(void);
 static void		 process_time(void);
 static void		 game_won(void);
 static void		 destroy_board(void);
@@ -149,7 +148,7 @@ static BoardPlugin menu_bp =
     end_board,
     is_our_board,
     NULL,
-    process_ok,
+    NULL,
     set_level,
     NULL,
     NULL,
@@ -211,7 +210,7 @@ static void start_board (GcomprisBoard *agcomprisBoard) {
 			 50,
 			 gcomprisBoard->height - 50,
 			 gcomprisBoard->number_of_sublevel);
-    gc_bar_set(GC_BAR_LEVEL|GC_BAR_OK);
+    gc_bar_set(GC_BAR_LEVEL);
 
     algebra_guesscount_next_level();
 
@@ -327,6 +326,7 @@ static void update_line_calcul() {
     gnome_canvas_item_set(calcul_line_item[line*2+1],      "text", BLANK, NULL);
     gnome_canvas_item_set(calcul_line_item_back[line*2+1], "text", BLANK, NULL);
   }
+
 }
 /* ==================================== */
 static int generate_numbers() {
@@ -548,11 +548,6 @@ static void game_won() {
 }
 
 /* ==================================== */
-static void process_ok(){
-  gamewon = (result_to_find == token_result());
-  process_time_id = gtk_timeout_add (50, (GtkFunction) process_time, NULL);
-}
-/* ==================================== */
 static void process_time(){
   if (process_time_id) {
     gtk_timeout_remove (process_time_id);
@@ -669,6 +664,12 @@ static gint item_event_num(GnomeCanvasItem *item, GdkEvent *event, gpointer data
 	  gnome_canvas_item_set(calcul_line_item[token_count-2], "text", str, NULL);
 	  gnome_canvas_item_set(calcul_line_item_back[token_count-2], "text", str, NULL);
 	}
+
+	gamewon = (result_to_find == token_result());
+	if(gamewon)
+	  process_time_id = gtk_timeout_add (2000, (GtkFunction) process_time, NULL);
+
+
       }
     }
     break;
