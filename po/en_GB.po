@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-03-12 22:16+0000\n"
-"PO-Revision-Date: 2007-03-12 22:20-0000\n"
+"POT-Creation-Date: 2007-03-14 06:55+0000\n"
+"PO-Revision-Date: 2007-03-14 06:55-0000\n"
 "Last-Translator: David Lodge <dave@cirt.net>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -1235,12 +1235,9 @@ msgid "Locate the countries"
 msgstr "Locate the countries"
 
 #: ../boards/geography.xml.in.h:3
+#: ../boards/geography_country.xml.in.h:3
 msgid "Mouse manipulation: movement, drag and drop"
 msgstr "Mouse manipulation: movement, drag and drop"
-
-#: ../boards/geography.xml.in.h:4
-msgid "The map of Germany comes from Wikipedia and is released under the GNU Free Documentation License. Olaf Ronneberger and his children Lina and Julia Ronneberger created the German level."
-msgstr "The map of Germany comes from Wikipedia and is released under the GNU Free Documentation License. Olaf Ronneberger and his children Lina and Julia Ronneberger created the German level."
 
 #: ../boards/geography/board1_0.xml.in.h:1
 #: ../boards/geography/board4_2.xml.in.h:1
@@ -1787,13 +1784,29 @@ msgstr "Zambia"
 msgid "Zimbabwe"
 msgstr "Zimbabwe"
 
-#: ../boards/geography/board5_0.xml.in.h:1
+#: ../boards/geography_country.xml.in.h:1
+msgid "Drag and Drop the regions to redraw the whole country"
+msgstr "Drag and Drop the regions to redraw the whole country"
+
+#: ../boards/geography_country.xml.in.h:2
+msgid "Locate the region"
+msgstr "Locate the region"
+
+#: ../boards/geography_country.xml.in.h:4
+msgid "The map of Germany comes from Wikipedia and is released under the GNU Free Documentation License. Olaf Ronneberger and his children Lina and Julia Ronneberger created the German level."
+msgstr "The map of Germany comes from Wikipedia and is released under the GNU Free Documentation License. Olaf Ronneberger and his children Lina and Julia Ronneberger created the German level."
+
+#: ../boards/geography_country/board1_0.xml.in.h:1
 msgid "Regions of France"
 msgstr "Regions of France"
 
-#: ../boards/geography/board6_0.xml.in.h:1
+#: ../boards/geography_country/board2_0.xml.in.h:1
 msgid "Deutschland Bundesländer"
 msgstr "Deutschland Bundesländer"
+
+#: ../boards/geography_country/board6_0.xml.in.h:1
+msgid "Counties of Norway"
+msgstr "Counties of Norway"
 
 #: ../boards/geometry.xml.in.h:1
 msgid "Geometry"
@@ -3294,8 +3307,8 @@ msgid "The painting is an original painting created by Virginie MOREAU (virginie
 msgstr "The painting is an original painting created by Virginie MOREAU (virginie.moreau@free.fr) in 2001. Its name is 'Spices Seller in Egypt'. It is released under the GPL licence."
 
 #: ../boards/scalesboard.xml.in.h:5
-msgid "To balance the scales, move the masses on the left side. The masses can be arranged in any order."
-msgstr "To balance the scales, move the masses on the left side. The masses can be arranged in any order."
+msgid "To balance the scales, move the masses on the left or the right side. The masses can be arranged in any order."
+msgstr "To balance the scales, move the masses on the left or the right side. The masses can be arranged in any order."
 
 #: ../boards/searace.xml.in.h:1
 msgid "Direct your boat accurately to win the race."
@@ -4812,8 +4825,8 @@ msgstr "This software is a GNU Package and is released under the GNU General Pub
 #: ../src/gcompris/config.c:470
 #: ../src/gcompris/config.c:480
 #: ../src/gcompris/dialog.c:97
-#: ../src/gcompris/help.c:380
-#: ../src/gcompris/help.c:390
+#: ../src/gcompris/help.c:382
+#: ../src/gcompris/help.c:392
 #: ../src/gcompris/images_selector.c:317
 msgid "OK"
 msgstr "OK"
@@ -4834,7 +4847,7 @@ msgstr "Yes, I am sure!"
 msgid "No, I want to keep going"
 msgstr "No, I want to keep going"
 
-#: ../src/gcompris/board.c:181
+#: ../src/gcompris/board.c:187
 msgid "Dynamic module loading is not supported. gcompris cannot load.\n"
 msgstr "Dynamic module loading is not supported. gcompris cannot load.\n"
 
@@ -5193,127 +5206,123 @@ msgstr ""
 "Exit it and report\n"
 "the problem to the authors"
 
-#: ../src/gcompris/gcompris.c:129
+#: ../src/gcompris/gcompris.c:128
 msgid "run gcompris in fullscreen mode."
 msgstr "run gcompris in fullscreen mode."
 
-#: ../src/gcompris/gcompris.c:132
+#: ../src/gcompris/gcompris.c:131
 msgid "run gcompris in window mode."
 msgstr "run gcompris in window mode."
 
-#: ../src/gcompris/gcompris.c:135
+#: ../src/gcompris/gcompris.c:134
 msgid "run gcompris with sound enabled."
 msgstr "run gcompris with sound enabled."
 
-#: ../src/gcompris/gcompris.c:138
+#: ../src/gcompris/gcompris.c:137
 msgid "run gcompris without sound."
 msgstr "run gcompris without sound."
 
-#: ../src/gcompris/gcompris.c:141
+#: ../src/gcompris/gcompris.c:140
 msgid "run gcompris with the default gnome cursor."
 msgstr "run gcompris with the default gnome cursor."
 
-#: ../src/gcompris/gcompris.c:144
+#: ../src/gcompris/gcompris.c:143
 msgid "display only activities with this difficulty level."
 msgstr "display only activities with this difficulty level."
 
-#: ../src/gcompris/gcompris.c:147
+#: ../src/gcompris/gcompris.c:146
 msgid "display debug informations on the console."
 msgstr "display debug informations on the console."
 
-#: ../src/gcompris/gcompris.c:150
+#: ../src/gcompris/gcompris.c:149
 msgid "Print the version of "
 msgstr "Print the version of "
 
-#: ../src/gcompris/gcompris.c:153
+#: ../src/gcompris/gcompris.c:152
 msgid "Use the antialiased canvas (slower)."
 msgstr "Use the antialiased canvas (slower)."
 
-#: ../src/gcompris/gcompris.c:156
+#: ../src/gcompris/gcompris.c:155
 msgid "Disable XF86VidMode (No screen resolution change)."
 msgstr "Disable XF86VidMode (No screen resolution change)."
 
-#: ../src/gcompris/gcompris.c:159
+#: ../src/gcompris/gcompris.c:158
 msgid "Run gcompris with local menu (e.g -l /reading will let you play only activities in the reading directory, -l /strategy/connect4 only the connect4 activity)"
 msgstr "Run gcompris with local menu (e.g -l /reading will let you play only activities in the reading directory, -l /strategy/connect4 only the connect4 activity)"
 
-#: ../src/gcompris/gcompris.c:162
+#: ../src/gcompris/gcompris.c:161
 msgid "Run GCompris with local activity directory added to menu"
 msgstr "Run GCompris with local activity directory added to menu"
 
-#: ../src/gcompris/gcompris.c:165
+#: ../src/gcompris/gcompris.c:164
 msgid "Run GCompris in administration and user-management mode"
 msgstr "Run GCompris in administration and user-management mode"
 
-#: ../src/gcompris/gcompris.c:168
+#: ../src/gcompris/gcompris.c:167
 msgid "Use alternate database for profiles [$HOME/.config/gcompris/gcompris_sqlite.db]"
 msgstr "Use alternate database for profiles [$HOME/.config/gcompris/gcompris_sqlite.db]"
 
-#: ../src/gcompris/gcompris.c:171
-msgid "Use alternate database for logs"
-msgstr "Use alternate database for logs"
-
-#: ../src/gcompris/gcompris.c:174
+#: ../src/gcompris/gcompris.c:170
 msgid "Create the alternate database for profiles"
 msgstr "Create the alternate database for profiles"
 
-#: ../src/gcompris/gcompris.c:177
+#: ../src/gcompris/gcompris.c:173
 msgid "Re-read XML Menus and store them in the database"
 msgstr "Re-read XML Menus and store them in the database"
 
-#: ../src/gcompris/gcompris.c:180
+#: ../src/gcompris/gcompris.c:176
 msgid "Set the profile to use. Use 'gcompris -a' to create profiles"
 msgstr "Set the profile to use. Use 'gcompris -a' to create profiles"
 
-#: ../src/gcompris/gcompris.c:183
+#: ../src/gcompris/gcompris.c:179
 msgid "List all available profiles. Use 'gcompris -a' to create profiles"
 msgstr "List all available profiles. Use 'gcompris -a' to create profiles"
 
-#: ../src/gcompris/gcompris.c:186
+#: ../src/gcompris/gcompris.c:182
 msgid "Config directory location: [$HOME/.config/gcompris]. Alternate is to set $XDG_CONFIG_HOME."
 msgstr "Config directory location: [$HOME/.config/gcompris]. Alternate is to set $XDG_CONFIG_HOME."
 
-#: ../src/gcompris/gcompris.c:189
+#: ../src/gcompris/gcompris.c:185
 msgid "The location of user directories: [$HOME/My GCompris]"
 msgstr "The location of user directories: [$HOME/My GCompris]"
 
-#: ../src/gcompris/gcompris.c:192
+#: ../src/gcompris/gcompris.c:188
 msgid "Run the experimental activities"
 msgstr "Run the experimental activities"
 
-#: ../src/gcompris/gcompris.c:195
+#: ../src/gcompris/gcompris.c:191
 msgid "Disable the quit button"
 msgstr "Disable the quit button"
 
-#: ../src/gcompris/gcompris.c:198
+#: ../src/gcompris/gcompris.c:194
 msgid "Disable the config button"
 msgstr "Disable the configuration button"
 
-#: ../src/gcompris/gcompris.c:201
+#: ../src/gcompris/gcompris.c:199
 msgid "Display the resources on stdout based on the selected activities"
 msgstr "Display the resources on stdout based on the selected activities"
 
-#: ../src/gcompris/gcompris.c:204
+#: ../src/gcompris/gcompris.c:203
 msgid "GCompris will get images, sounds and activity data from this server if not found locally."
 msgstr "GCompris will get images, sounds and activity data from this server if not found locally."
 
-#: ../src/gcompris/gcompris.c:207
+#: ../src/gcompris/gcompris.c:206
 msgid "Only when --server is provided, disable check for local resource first. Data are always taken from the web server."
 msgstr "Only when --server is provided, disable check for local resource first. Data is always taken from the web server."
 
-#: ../src/gcompris/gcompris.c:211
+#: ../src/gcompris/gcompris.c:210
 msgid "In server mode, specify the cache directory used to avoid useless downloads."
 msgstr "In server mode, specify the cache directory used to avoid useless downloads."
 
-#: ../src/gcompris/gcompris.c:214
+#: ../src/gcompris/gcompris.c:213
 msgid "Global drag and drop mode: normal, 2clicks, both. Default mode is normal."
 msgstr "Global drag and drop mode: normal, 2clicks, both. Default mode is normal."
 
-#: ../src/gcompris/gcompris.c:217
+#: ../src/gcompris/gcompris.c:216
 msgid "Do not display the background images of activities."
 msgstr "Do not display the background images of activities."
 
-#: ../src/gcompris/gcompris.c:831
+#: ../src/gcompris/gcompris.c:830
 #, c-format
 msgid ""
 "GCompris is free software released under the GPL License. In order to support its development, the Windows version provides only %d of the %d activities. You can get the full version for a small fee at\n"
@@ -5326,7 +5335,7 @@ msgstr ""
 "The GNU/Linux version does not have this restriction. Note that GCompris is being developed to free schools from monopolistic software vendors. If you also believe that we should teach freedom to children, please consider using GNU/Linux. Get more information at FSF:\n"
 "<http://www.fsf.org/philosophy>"
 
-#: ../src/gcompris/gcompris.c:1472
+#: ../src/gcompris/gcompris.c:1471
 #, c-format
 msgid ""
 "GCompris\n"
@@ -5340,17 +5349,17 @@ msgstr ""
 "More info at http://gcompris.net\n"
 
 #. check the list of possible values for -l, then exit
-#: ../src/gcompris/gcompris.c:1556
+#: ../src/gcompris/gcompris.c:1555
 #, c-format
 msgid "Use -l to access an activity directly.\n"
 msgstr "Use -l to access an activity directly.\n"
 
-#: ../src/gcompris/gcompris.c:1557
+#: ../src/gcompris/gcompris.c:1556
 #, c-format
 msgid "The list of available activities is :\n"
 msgstr "The list of available activities is :\n"
 
-#: ../src/gcompris/gcompris.c:1744
+#: ../src/gcompris/gcompris.c:1743
 #, c-format
 msgid "The list of available profiles is:\n"
 msgstr "The list of available profiles is:\n"
@@ -5363,19 +5372,19 @@ msgstr "Unaffected"
 msgid "Users without a class"
 msgstr "Users without a class"
 
-#: ../src/gcompris/help.c:195
+#: ../src/gcompris/help.c:197
 msgid "Prerequisite"
 msgstr "Prerequisite"
 
-#: ../src/gcompris/help.c:223
+#: ../src/gcompris/help.c:225
 msgid "Goal"
 msgstr "Goal"
 
-#: ../src/gcompris/help.c:251
+#: ../src/gcompris/help.c:253
 msgid "Manual"
 msgstr "Manual"
 
-#: ../src/gcompris/help.c:279
+#: ../src/gcompris/help.c:281
 msgid "Credit"
 msgstr "Credit"
 
@@ -5407,6 +5416,8 @@ msgstr "Time Elapsed"
 msgid "Remaining Time = %d"
 msgstr "Remaining Time = %d"
 
+#~ msgid "Use alternate database for logs"
+#~ msgstr "Use alternate database for logs"
 #~ msgid "Double-Click the mouse to erase the area and discover the background"
 #~ msgstr ""
 #~ "Double-Click the mouse to erase the area and discover the background"
