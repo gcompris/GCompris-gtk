@@ -28,8 +28,8 @@
 
 
 #define SOUNDLISTFILE PACKAGE
-#define MAX_MEMORY_WIDTH  7
-#define MAX_MEMORY_HEIGHT 6
+#define MAX_MEMORY_WIDTH  8
+#define MAX_MEMORY_HEIGHT 4
 
 //#define TEXT_FONT gc_skin_font_board_huge_bold
 #define TEXT_FONT "Serif bold 28"
@@ -167,11 +167,11 @@ static guint levelDescription[] =
   3,2,
   4,2,
   4,3,
-  4,4,
+  6,3,
   4,4,
   5,4,
   6,4,
-  6,5,
+  7,4,
   MAX_MEMORY_WIDTH,MAX_MEMORY_HEIGHT
 };
 
@@ -180,51 +180,31 @@ static MemoryItem *memoryArray[MAX_MEMORY_WIDTH][MAX_MEMORY_HEIGHT];
 /* List of images to use in the memory */
 static gchar *imageList[] =
 {
-  "gcompris/misc/apple.png",
-  "gcompris/misc/bicycle.png",
-  "gcompris/misc/bottle.png",
-  "gcompris/misc/carot.png",
-  "gcompris/misc/car.png",
-  "gcompris/misc/castle.png",
-  "gcompris/misc/cerise.png",
-  "gcompris/misc/cocotier.png",
-  "gcompris/misc/crown.png",
-  "gcompris/misc/egg.png",
-  "gcompris/misc/eggpot.png",
-  "gcompris/misc/fishingboat.png",
-  "gcompris/misc/flower.png",
-  "gcompris/misc/flowerpot.png",
-  "gcompris/misc/football.png",
-  "gcompris/misc/fusee.png",
-  "gcompris/misc/glass.png",
-  "gcompris/misc/house.png",
-  "gcompris/misc/lamp.png",
-  "gcompris/misc/lighthouse.png",
-  "gcompris/misc/light.png",
-  "gcompris/misc/minivan.png",
-  "gcompris/misc/peer.png",
-  "gcompris/misc/pencil.png",
-  "gcompris/misc/plane.png",
-  "gcompris/misc/postcard.png",
-  "gcompris/misc/postpoint.png",
-  "gcompris/misc/rape.png",
-  "gcompris/misc/raquette.png",
-  "gcompris/misc/sailingboat.png",
-  "gcompris/misc/sapin.png",
-  "gcompris/misc/sofa.png",
-  "gcompris/misc/star.png",
-  "gcompris/misc/strawberry.png",
-  "gcompris/misc/tree.png",
-  "gcompris/misc/truck.png",
-  "gcompris/misc/tuxplane.png",
-  "gcompris/misc/tux.png",
-  "gcompris/misc/windflag0.png",
-  "gcompris/misc/windflag4.png",
-  "gcompris/misc/windflag5.png",
+  "cardimage/01_cat.png",
+  "cardimage/02_pig.png",
+  "cardimage/03_bear.png",
+  "cardimage/04_hippopotamus.png",
+  "cardimage/05_penguin.png",
+  "cardimage/06_cow.png",
+  "cardimage/07_sheep.png",
+  "cardimage/08_turtle.png",
+  "cardimage/09_panda.png",
+  "cardimage/10_chicken.png",
+  "cardimage/11_redbird.png",
+  "cardimage/12_wolf.png",
+  "cardimage/13_monkey.png",
+  "cardimage/14_fox.png",
+  "cardimage/15_bluebirds.png",
+  "cardimage/16_elephant.png",
+  "cardimage/17_lion.png",
+  "cardimage/18_gnu.png",
+  "cardimage/19_bluebaby.png",
+  "cardimage/20_greenbaby.png",
+  "cardimage/21_frog.png",
 };
 #define NUMBER_OF_IMAGES G_N_ELEMENTS(imageList)
 
-/* List of images to use in the memory */
+/* List of sounds to use in the memory */
 static gchar *soundList[] =
 {
    "sounds/LuneRouge/animaux/LRRain_in_garden_01_by_Lionel_Allorge_cut.ogg",
@@ -1203,13 +1183,16 @@ static void create_item(GnomeCanvasGroup *parent)
   gint height, width;
   gint height2, width2;
   GdkPixbuf *pixmap = NULL;
-  double xratio = 0;
-  double yratio = 0;
-  double card_shadow_w, card_shadow_h;
 
   // Calc width and height of one card
   width  = (base_x2-(currentMode == MODE_TUX ? base_x1_tux : base_x1))/numberOfColumn;
   height = (base_y2-base_y1)/numberOfLine;
+
+  // Respect the card ratio
+  if( width * 1.418 > height)
+    width = height * 0.704;
+  else
+    height = width * 1.418;
 
   /* Remove a little bit of space for the card shadow */
   height2 = height * 0.95;
@@ -1292,7 +1275,7 @@ static void create_item(GnomeCanvasGroup *parent)
 	  if (currentUiMode == UIMODE_SOUND)
 	    pixmap = gc_pixmap_load("gcompris/misc/Tux_mute.png");
 	  else
-	    pixmap = gc_pixmap_load("gcompris/misc/backcard.png");
+	    pixmap = gc_pixmap_load("cardimage/backcard.png");
 
 	  memoryItem->backcardItem = \
 	    gnome_canvas_item_new (GNOME_CANVAS_GROUP(memoryItem->rootItem),
@@ -1308,7 +1291,7 @@ static void create_item(GnomeCanvasGroup *parent)
 	  gdk_pixbuf_unref(pixmap);
 
 	  if (currentUiMode != UIMODE_SOUND){
-	    pixmap = gc_pixmap_load("gcompris/misc/emptycard.png");
+	    pixmap = gc_pixmap_load("cardimage/emptycard.png");
 	    memoryItem->framecardItem = \
 	      gnome_canvas_item_new (GNOME_CANVAS_GROUP(memoryItem->rootItem),
 				     gnome_canvas_pixbuf_get_type (),
@@ -1347,24 +1330,16 @@ static void create_item(GnomeCanvasGroup *parent)
 	    if(memoryItem->type == TYPE_IMAGE) {
 	      pixmap = gc_pixmap_load(memoryItem->data);
 
-	      yratio=(height2*0.8)/(float)gdk_pixbuf_get_height(pixmap);
-	      xratio=(width2*0.8)/(float)gdk_pixbuf_get_width(pixmap);
-	      yratio=xratio=MIN(xratio, yratio);
-	      card_shadow_w = width*0.05;
-	      card_shadow_h = height*0.05;
-
 	      memoryItem->frontcardItem =	\
 		gnome_canvas_item_new (GNOME_CANVAS_GROUP(memoryItem->rootItem),
 				       gnome_canvas_pixbuf_get_type (),
 				       "pixbuf", pixmap,
-				       "x", (double) ((width2)-
-						      gdk_pixbuf_get_width(pixmap)*xratio*0.8)/2 -
-				       card_shadow_w,
-				       "y", (double) ((height2)-
-						      gdk_pixbuf_get_height(pixmap)*yratio*0.8)/2 -
-				       card_shadow_h,
-				       "width", (double) gdk_pixbuf_get_width(pixmap)*xratio*0.8,
-				       "height", (double) gdk_pixbuf_get_height(pixmap)*yratio*0.8,
+				       "x", (double) (width2-
+						      gdk_pixbuf_get_width(pixmap))/2,
+				       "y", (double) (height2-
+						      gdk_pixbuf_get_height(pixmap))/2,
+				       "width", (double) gdk_pixbuf_get_width(pixmap),
+				       "height", (double) gdk_pixbuf_get_height(pixmap),
 				       "width_set", TRUE,
 				       "height_set", TRUE,
 				       NULL);
@@ -1382,10 +1357,10 @@ static void create_item(GnomeCanvasGroup *parent)
 				       gnome_canvas_text_get_type (),
 				       "text", memoryItem->data,
 				       "font", font,
-				       "x", (double) (width2*0.9)/2,
-				       "y", (double) (height2*0.9)/2,
+				       "x", (double) (width2)/2,
+				       "y", (double) (height2)/2,
 				       "anchor", GTK_ANCHOR_CENTER,
-				       "fill_color_rgba", 0x559ADDFF,
+				       "fill_color_rgba", 0x225AFFFF,
 				       NULL);
 
 	    }

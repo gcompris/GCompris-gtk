@@ -54,22 +54,22 @@ static void scale_next_level(void);
 #define ITEM_W 45
 #define ITEM_H 70
 
-#define PLATEAU_X1 -40.0
-#define PLATEAU_X2 246.0
-#define PLATEAU_Y 33.0
-#define PLATEAU_Y_DELTA 15.0
-#define PLATEAU_W 190.0
+#define PLATE_X1 -40.0
+#define PLATE_X2 246.0
+#define PLATE_Y 33.0
+#define PLATE_Y_DELTA 15.0
+#define PLATE_W 190.0
 
 #define BRAS_X 55.0
 #define BRAS_Y -6.0
 
-#define PLATEAU_SIZE 4 // number of place in the plateau
+#define PLATE_SIZE 4 // number of place in the plate
 
 typedef struct {
     GnomeCanvasItem * item;
     double x, y;
-    int plateau;        // 0 not place, 1 in plateau_g, -1 in plateau_d
-    int plateau_index;  // position in the plateau
+    int plate;        // 0 not place, 1 in plate_g, -1 in plate_d
+    int plate_index;  // position in the plate
     int weight;
 } ScaleItem;
 
@@ -266,10 +266,10 @@ static gint key_press(guint keyval, gchar *commit_str, gchar *preedit_str)
     return TRUE;
 }
 
-// plateau = 1 plateau g
-// plateau = -1 plateau d
-// plateau = 0 plateau g - plateau d
-int get_weight_plateau(int plateau)
+// plate = 1 plate g
+// plate = -1 plate d
+// plate = 0 plate g - plate d
+int get_weight_plate(int plate)
 {
     GList *list;
     ScaleItem *item;
@@ -278,17 +278,17 @@ int get_weight_plateau(int plateau)
     for(list = item_list; list; list=list->next)
     {
         item = list->data;
-        if(item->plateau == plateau || plateau==0)
+        if(item->plate == plate || plate==0)
         {
-            result+= item->weight * item->plateau;
+            result+= item->weight * item->plate;
         }
     }
-    if(plateau==-1)
+    if(plate==-1)
         result = -result;
     return result;
 }
 
-void scale_anim_plateau(void)
+void scale_anim_plate(void)
 {
     double affine[6];
     double delta_y, x;
@@ -296,14 +296,14 @@ void scale_anim_plateau(void)
     int diff;
     static int last_diff=0;
 
-    diff = get_weight_plateau(0);
+    diff = get_weight_plate(0);
     if(last_diff != diff)
     {
     last_diff = diff;
-    delta_y = CLAMP(PLATEAU_Y_DELTA / 10.0 * diff,
-            -PLATEAU_Y_DELTA, PLATEAU_Y_DELTA);
-    if(get_weight_plateau(1)==0)
-        delta_y = -PLATEAU_Y_DELTA;
+    delta_y = CLAMP(PLATE_Y_DELTA / 10.0 * diff,
+            -PLATE_Y_DELTA, PLATE_Y_DELTA);
+    if(get_weight_plate(1)==0)
+        delta_y = -PLATE_Y_DELTA;
     angle = tan(delta_y / 138) * 180 / M_PI;
 
     gtk_object_get (GTK_OBJECT (group_g), "x", &x, NULL);
@@ -343,60 +343,60 @@ void scale_anim_plateau(void)
     }
 }
 
-// if plateau = 1 , move to plateau g
-// if plateau = -1, move to plateau d
-// if plateau = 0 , move to the item list
-void scale_item_move_to(ScaleItem *item, int plateau)
+// if plate = 1 , move to plate g
+// if plate = -1, move to plate d
+// if plate = 0 , move to the item list
+void scale_item_move_to(ScaleItem *item, int plate)
 {
     ScaleItem *scale;
     GList *list;
     gboolean found;
     int index;
 
-    if(plateau!=0)
+    if(plate!=0)
     {
-        if(item->plateau)
-	  item->plateau_index = -1;
+        if(item->plate)
+	  item->plate_index = -1;
 	else
 	  gc_sound_play_ogg ("sounds/eraser1.wav", NULL);
 
-        // find the first free place in the plateau
-        for(index=0; index < PLATEAU_SIZE; index ++)
+        // find the first free place in the plate
+        for(index=0; index < PLATE_SIZE; index ++)
         {
             found = FALSE;
             for(list = item_list; list; list = list->next)
             {
                 scale = list->data;
-                if(scale->plateau_index == index && scale->plateau == plateau)
+                if(scale->plate_index == index && scale->plate == plate)
                     found=TRUE;
             }
             if(!found)
-            {   // move to the plateau
-                item->plateau = plateau;
-                item->plateau_index=index;
-                gnome_canvas_item_reparent(item->item, plateau == 1 ? group_g : group_d);
+            {   // move to the plate
+                item->plate = plate;
+                item->plate_index=index;
+                gnome_canvas_item_reparent(item->item, plate == 1 ? group_g : group_d);
                 gnome_canvas_item_set(item->item,
                         "x", (double)index * ITEM_W,
-                        "y", (double)PLATEAU_Y-ITEM_H + 5,
+                        "y", (double)PLATE_Y-ITEM_H + 5,
                         NULL);
                 break;
             }
         }
         if(found)   // can't find place
-            plateau=0;
+            plate=0;
     }
-    if(plateau==0)
+    if(plate==0)
     {   // move the item to the list
-	if(item->plateau)
+	if(item->plate)
 	  gc_sound_play_ogg ("sounds/eraser1.wav", NULL);
-        item->plateau = 0;
+        item->plate = 0;
         gnome_canvas_item_reparent(item->item, boardRootItem);
         gnome_canvas_item_set(item->item,
                 "x", item->x,
                 "y", item->y, NULL);
     }
 
-    scale_anim_plateau();
+    scale_anim_plate();
 }
 
 static int scale_item_event(GnomeCanvasItem *w, GdkEvent *event, ScaleItem *scale)
@@ -411,7 +411,7 @@ static int scale_item_event(GnomeCanvasItem *w, GdkEvent *event, ScaleItem *scal
 
 static int scale_drag_event(GnomeCanvasItem *w, GdkEvent *event, ScaleItem *scale)
 {
-    int plateau=0;
+    int plate=0;
     double x,y;
 
     if(answer_string)   // disable, waiting a answer
@@ -434,19 +434,19 @@ static int scale_drag_event(GnomeCanvasItem *w, GdkEvent *event, ScaleItem *scal
             x=event->button.x;
             y=event->button.y;
             gnome_canvas_item_w2i(GNOME_CANVAS_ITEM(group_g), &x, &y);
-            if(-ITEM_W < x && x < PLATEAU_W + ITEM_W && abs(y-PLATEAU_Y) < ITEM_H)
-                plateau = 1;
+            if(-ITEM_W < x && x < PLATE_W + ITEM_W && abs(y-PLATE_Y) < ITEM_H)
+                plate = 1;
             else
             {
                 x=event->button.x;
                 y=event->button.y;
                 gnome_canvas_item_w2i(GNOME_CANVAS_ITEM(group_d), &x, &y);
-                if(-ITEM_W < x && x < PLATEAU_W + ITEM_W && abs(y-PLATEAU_Y) < ITEM_H)
-                    plateau = -1;
+                if(-ITEM_W < x && x < PLATE_W + ITEM_W && abs(y-PLATE_Y) < ITEM_H)
+                    plate = -1;
                 else
-                    plateau=0;
+                    plate=0;
             }
-            scale_item_move_to(scale, plateau);
+            scale_item_move_to(scale, plate);
             break;
         default:
             break;
@@ -506,7 +506,7 @@ static ScaleItem * scale_list_add_weight(gint weight)
     return new_item;
 }
 
-static ScaleItem * scale_list_add_object(GdkPixbuf *pixmap, int weight, int plateau, gboolean show_weight)
+static ScaleItem * scale_list_add_object(GdkPixbuf *pixmap, int weight, int plate, gboolean show_weight)
 {
     GnomeCanvasItem *item;
     ScaleItem * new_item;
@@ -514,8 +514,8 @@ static ScaleItem * scale_list_add_object(GdkPixbuf *pixmap, int weight, int plat
     item = gnome_canvas_item_new(group_d,
             gnome_canvas_pixbuf_get_type(),
             "pixbuf", pixmap,
-            "x", ((double)PLATEAU_SIZE * ITEM_W - gdk_pixbuf_get_width(pixmap))/2.0,
-            "y", PLATEAU_Y + 5 - gdk_pixbuf_get_height(pixmap), NULL);
+            "x", ((double)PLATE_SIZE * ITEM_W - gdk_pixbuf_get_width(pixmap))/2.0,
+            "y", PLATE_Y + 5 - gdk_pixbuf_get_height(pixmap), NULL);
     gnome_canvas_item_lower_to_bottom(item);
 
     if(show_weight)
@@ -523,8 +523,8 @@ static ScaleItem * scale_list_add_object(GdkPixbuf *pixmap, int weight, int plat
         double x,y;
         gchar * text;
 
-        x = PLATEAU_SIZE * ITEM_W * .5;
-        y = PLATEAU_Y - 20.0;
+        x = PLATE_SIZE * ITEM_W * .5;
+        y = PLATE_Y - 20.0;
         text = g_strdup_printf("%d", objet_weight);
         gnome_canvas_item_new(group_d,
                 gnome_canvas_text_get_type(),
@@ -549,8 +549,8 @@ static ScaleItem * scale_list_add_object(GdkPixbuf *pixmap, int weight, int plat
 
     new_item = g_new0(ScaleItem, 1);
     new_item->weight = weight;
-    new_item->plateau = plateau;
-    new_item->plateau_index = -1;
+    new_item->plate = plate;
+    new_item->plate_index = -1;
     new_item->item = item;
 
     item_list = g_list_append(item_list, new_item);
@@ -661,23 +661,23 @@ static void scale_next_level()
             NULL);
     gdk_pixbuf_unref(pixmap);
 
-    // create plateau gauche
+    // create plate left
     group_g = GNOME_CANVAS_GROUP(gnome_canvas_item_new(boardRootItem,
                 gnome_canvas_group_get_type(),
-                "x", PLATEAU_X1,
+                "x", PLATE_X1,
                 "y", 0.0,
                 NULL));
     pixmap = gc_pixmap_load("scales/plateau.png");
     item = gnome_canvas_item_new(group_g,
             gnome_canvas_pixbuf_get_type(),
             "pixbuf", pixmap,
-            "x", 0.0, "y", PLATEAU_Y, NULL);
+            "x", 0.0, "y", PLATE_Y, NULL);
     gdk_pixbuf_unref(pixmap);
 
-    // create plateau droit
+    // create plate right
     group_d = GNOME_CANVAS_GROUP(gnome_canvas_item_new(boardRootItem,
                 gnome_canvas_group_get_type(),
-                "x", PLATEAU_X2,
+                "x", PLATE_X2,
                 "y", 0.0,
                 NULL));
     pixmap = gc_pixmap_load("scales/plateau.png");
@@ -685,7 +685,7 @@ static void scale_next_level()
     item = gnome_canvas_item_new(group_d,
             gnome_canvas_pixbuf_get_type(),
             "pixbuf", pixmap2,
-            "x", 0.0, "y", PLATEAU_Y, NULL);
+            "x", 0.0, "y", PLATE_Y, NULL);
     gdk_pixbuf_unref(pixmap);
     gdk_pixbuf_unref(pixmap2);
 
@@ -699,8 +699,20 @@ static void scale_next_level()
     gdk_pixbuf_unref(pixmap);
     gnome_canvas_item_raise_to_top(balance);
 
+    /* display some hint */
+    if(gcomprisBoard->level == 2)
+      gnome_canvas_item_new(boardRootItem,
+			    gnome_canvas_text_get_type(),
+			    "text", _("Take care, you can drop masses on both sides of the scale."),
+			    "font", gc_skin_font_board_medium,
+			    "x", 200.0,
+			    "y", 220.0,
+			    "anchor", GTK_ANCHOR_CENTER,
+			    "fill_color", "darkblue",
+			    NULL);
+
     scale_make_level();
-    scale_anim_plateau();
+    scale_anim_plate();
 }
 
 static void scale_destroy_all_items()
@@ -756,7 +768,7 @@ static void process_ok()
         answer_weight = g_strtod(answer_string->str, NULL);
         good_answer = answer_weight == objet_weight;
     }
-    if(get_weight_plateau(0)==0 && good_answer)
+    if(get_weight_plate(0)==0 && good_answer)
     {
         gamewon = TRUE;
         scale_destroy_all_items();

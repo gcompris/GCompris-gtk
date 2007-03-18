@@ -1,3 +1,15 @@
+2007-03-18  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* boards/cardimage/*: New image set for the memory cards. The images are from
+	                      Mathieu Ignacio (mignacio at april point org).
+	                      They are released under the GPL.
+	* src/boards/memory.c: (create_item): fixed to use new image set.
+
+	* src/boards/scale.c: (get_weight_plate), (scale_anim_plate),
+	(scale_item_move_to), (scale_drag_event), (scale_list_add_object),
+	(scale_next_level), (process_ok): Added a warning at level 2:
+	                                  Take care, you can drop masses on both sides of the scale.
+
 2007-03-13  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* boards/clickgame.xml.in: minor, removed resource definition
