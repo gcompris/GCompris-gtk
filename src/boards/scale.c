@@ -294,16 +294,17 @@ void scale_anim_plate(void)
     double delta_y, x;
     double angle;
     int diff;
-    static int last_diff=0;
+    static double last_delta=0;
 
     diff = get_weight_plate(0);
-    if(last_diff != diff)
-    {
-    last_diff = diff;
     delta_y = CLAMP(PLATE_Y_DELTA / 10.0 * diff,
             -PLATE_Y_DELTA, PLATE_Y_DELTA);
     if(get_weight_plate(1)==0)
         delta_y = -PLATE_Y_DELTA;
+    if(last_delta != delta_y)
+    {
+    last_delta = delta_y;
+    
     angle = tan(delta_y / 138) * 180 / M_PI;
 
     gtk_object_get (GTK_OBJECT (group_g), "x", &x, NULL);
