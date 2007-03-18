@@ -1,3 +1,9 @@
+2007-03-19  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* src/boards/python/searace.py: does instant rotation now. improved the parameters
+	  to make it more realistic. Now a straigh line won't win all time.
+	  It's now possible to change the level or reset the race even when it is started.
+
 2007-03-18  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* src/boards/algebra.c: (start_board), (end_board),

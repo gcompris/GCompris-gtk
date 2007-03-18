@@ -18,6 +18,7 @@
 #   along with this program; if not, write to the Free Software
 #   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 #
+import gobject
 import gnomecanvas
 import gcompris
 import gcompris.utils
@@ -153,18 +154,8 @@ class Gcompris_searace:
 
 
   def end(self):
-    # Remove all the timer first
-    if self.timer1 :
-      gtk.timeout_remove(self.timer1)
 
-    if self.timer2 :
-      gtk.timeout_remove(self.timer2)
-
-    if self.left_boat.timer :
-      gtk.timeout_remove(self.left_boat.timer)
-
-    if self.right_boat.timer :
-      gtk.timeout_remove(self.right_boat.timer)
+    self.stop_race()
 
     # Remove the root item removes all the others inside it
     self.rootitem.destroy()
@@ -201,49 +192,63 @@ class Gcompris_searace:
 
   # Called by gcompris when the user click on the level icon
   def set_level(self, level):
-    if(self.left_boat.timer or self.right_boat.timer):
-      self.statusitem.set(text=_("The race is already being run"))
-    else:
-      self.gcomprisBoard.level=level;
-      self.gcomprisBoard.sublevel=1;
+    self.stop_race()
+    self.gcomprisBoard.level=level;
+    self.gcomprisBoard.sublevel=1;
 
-      # Set the level in the control bar
-      gcompris.bar_set_level(self.gcomprisBoard);
+    # Set the level in the control bar
+    gcompris.bar_set_level(self.gcomprisBoard);
 
-      # Remove the root item removes all the others inside it
-      self.root_weather_item.destroy()
+    # Remove the root item removes all the others inside it
+    self.root_weather_item.destroy()
 
-      self.root_weather_item = self.rootitem.add(
-        gnomecanvas.CanvasGroup,
-        x=0.0,
-        y=0.0
-        )
+    self.root_weather_item = self.rootitem.add(
+      gnomecanvas.CanvasGroup,
+      x=0.0,
+      y=0.0
+      )
 
-      # Display the weather now
-      self.display_weather()
+    # Display the weather now
+    self.display_weather()
 
-      self.init_boats()
+    self.init_boats()
 
 
   def repeat(self):
     # Want to rerun it
-    if(self.left_boat.timer or self.right_boat.timer):
-      self.statusitem.set(text=_("The race is already being run"))
-    else:
-      self.init_boats()
+    self.stop_race()
+    self.init_boats()
 
 
   def config(self):
-    #print("Gcompris_searace config.")
     return
 
   def key_press(self, keyval, commit_str, preedit_str):
-    #print("got key %i" % keyval)
     return False
 
   # ----------------------------------------------------------------------
   # ----------------------------------------------------------------------
   # ----------------------------------------------------------------------
+
+  def stop_race(self):
+    # Remove all the timers
+    if self.timer1 :
+      gobject.source_remove(self.timer1)
+      self.timer1 = 0
+
+    if self.timer2 :
+      gobject.source_remove(self.timer2)
+      self.timer2 = 0
+
+    if self.left_boat.timer :
+      gobject.source_remove(self.left_boat.timer)
+      self.left_boat.timer = 0
+
+    if self.right_boat.timer :
+      gobject.source_remove(self.right_boat.timer)
+      self.right_boat.timer = 0
+
+
 
   # Set the initial coordinates of the boats and display them
   def init_boats(self):
@@ -704,7 +709,7 @@ class Gcompris_searace:
     cx = math.cos(angle_pi)
     penalty=3
     if(cx<0):
-      penalty*=2
+      penalty*=4
 
     return(cx*condition[1]*-1*penalty)
 
@@ -742,8 +747,8 @@ class Gcompris_searace:
     elif(x>self.sea_area[2]):
       boat.arrived     = True
       boat.finish_time = time.time()
-      print "self.left_boat.finish_time" + str(self.left_boat.finish_time)
-      print "self.right_boat.finish_time" + str(self.right_boat.finish_time)
+      #print "self.left_boat.finish_time" + str(self.left_boat.finish_time)
+      #print "self.right_boat.finish_time" + str(self.right_boat.finish_time)
       if(not self.left_boat.won and not self.right_boat.won):
         boat.won = True
       elif(abs(self.left_boat.finish_time - self.right_boat.finish_time) < 1):
@@ -777,7 +782,7 @@ class Gcompris_searace:
     if(angle>180):
       angle = abs(angle-360)
     boat.speeditem.set(text = _("Angle:") + str(angle) + " " + _("Wind:") + str(int(wind)*-1))
-    boat.timer = gtk.timeout_add(int(self.timerinc+wind), self.cmd_forward, boat, value)
+    boat.timer = gobject.timeout_add(int(self.timerinc+wind), self.cmd_forward, boat, value)
 
 
 
@@ -796,9 +801,7 @@ class Gcompris_searace:
       boat.timer = 0
       return
 
-    turn = 1
-    if value > 0:
-      turn = -1
+    turn = -value
 
     boat.angle += turn
     if(boat.angle>360):
@@ -806,10 +809,9 @@ class Gcompris_searace:
     elif(boat.angle<360):
       boat.angle+=360
 
-    value    += turn
-
+    value = 0
     gcompris.utils.item_rotate_relative(boat.item, turn);
-    boat.timer = gtk.timeout_add(self.timer_turn, self.cmd_turn_left, boat, value)
+    boat.timer = gobject.timeout_add(self.timer_turn, self.cmd_turn_left, boat, value)
 
   # Run the race
   def race_one_command(self, boat):
@@ -832,7 +834,7 @@ class Gcompris_searace:
       boat.line+=1
       if(cmd and cmd[0] == "\n"):
         boat.line+=1
-      print "Processing cmd = " + cmd
+      # Processing cmd
       cmd   = cmd.strip("\n\t ")
       if(cmd != "" and cmd[0] != "#"):
         valid_cmd = True
@@ -884,11 +886,11 @@ class Gcompris_searace:
       value *= self.sea_ratio
 
       # Initialize the move
-      boat.timer = gtk.timeout_add(self.timerinc, self.cmd_forward, boat, value)
+      boat.timer = gobject.timeout_add(self.timerinc, self.cmd_forward, boat, value)
     elif( cmd.startswith(_("left"))):
-      boat.timer = gtk.timeout_add(self.timerinc, self.cmd_turn_left, boat, value)
+      boat.timer = gobject.timeout_add(self.timerinc, self.cmd_turn_left, boat, value)
     elif( cmd.startswith(_("right"))):
-      boat.timer = gtk.timeout_add(self.timerinc, self.cmd_turn_left, boat, value*-1)
+      boat.timer = gobject.timeout_add(self.timerinc, self.cmd_turn_left, boat, value*-1)
     else:
       # Let the user enter commands
       boat.tv.set_editable(True)
