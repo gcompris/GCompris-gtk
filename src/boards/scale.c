@@ -304,7 +304,7 @@ void scale_anim_plate(void)
     if(last_delta != delta_y)
     {
     last_delta = delta_y;
-    
+
     angle = tan(delta_y / 138) * 180 / M_PI;
 
     gtk_object_get (GTK_OBJECT (group_g), "x", &x, NULL);
@@ -335,7 +335,7 @@ void scale_anim_plate(void)
                 "x", x_offset + gdk_pixbuf_get_width(button_pixmap)/2,
                 "y", y_offset + gdk_pixbuf_get_height(button_pixmap)/2,
                 "anchor", GTK_ANCHOR_CENTER,
-                "fill_color", "black",
+                "fill_color", "white",
                 NULL);
         gdk_pixbuf_unref(button_pixmap);
 
