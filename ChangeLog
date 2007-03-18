@@ -1,5 +1,10 @@
 2007-03-18  Bruno coudoin  <bruno.coudoin@free.fr>
 
+	* src/boards/algebra.c: (start_board), (end_board),
+	(algebra_create_item): fixed to use translated operators for +-x/
+
+2007-03-18  Bruno coudoin  <bruno.coudoin@free.fr>
+
 	* gcompris/bonus/lion_good.png: new bonus from Mathieu Ignacio. Released under GPL.
 	* gcompris/bonus/lion_bad.png:
 	* docs/C/python.xml:

@@ -32,6 +32,12 @@
 #define BYSIGNFILE     'x'
 #define DIVIDESIGNFILE ':'
 
+static gchar *operators;
+static gchar *op_add;
+static gchar *op_minus;
+static gchar *op_mult;
+static gchar *op_div;
+
 /* Some constants for the numbers layout */
 #define NUMBERSWIDTH       45
 
@@ -69,6 +75,7 @@ static ToBeFoundItem *currentToBeFoundItem = NULL;
 static GnomeCanvasGroup *boardRootItem = NULL;
 
 static char currentOperation[2];
+static gchar *currentOperationText;
 
 static void		 start_board (GcomprisBoard *agcomprisBoard);
 static void		 pause_board (gboolean pause);
@@ -81,9 +88,9 @@ static void		 process_ok(void);
 static GnomeCanvasItem	*algebra_create_item(GnomeCanvasGroup *parent);
 static void		 algebra_destroy_item(GnomeCanvasItem *item);
 static void		 algebra_destroy_all_items(void);
-static void		 display_operand(GnomeCanvasGroup *parent, 
+static void		 display_operand(GnomeCanvasGroup *parent,
 					 double x_align,
-					 double y, 
+					 double y,
 					 char *operand_str,
 					 gboolean masked);
 static void		 get_random_number(guint *first_operand, guint *second_operand);
@@ -165,25 +172,57 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       gcomprisBoard->maxlevel=9;
       gcomprisBoard->sublevel=1;
       gcomprisBoard->number_of_sublevel=10; /* Go to next level after this number of 'play' */
-      gc_score_start(SCORESTYLE_NOTE, 
-			   gcomprisBoard->width - 220, 
-			   gcomprisBoard->height - 50, 
+      gc_score_start(SCORESTYLE_NOTE,
+			   gcomprisBoard->width - 220,
+			   gcomprisBoard->height - 50,
 			   gcomprisBoard->number_of_sublevel);
       gc_bar_set(GC_BAR_LEVEL|GC_BAR_OK);
+
+      /* TRANSLATORS: Put here the mathematical operators '+-x/' for  your language. */
+      operators=_("+-×÷");
+      g_assert(g_utf8_validate(operators,-1,NULL)); // require by all utf8-functions
+      g_warning("Using operators %s", operators);
+
+      op_add = g_malloc0(2*sizeof(gunichar));
+      g_utf8_strncpy(op_add, g_utf8_offset_to_pointer (operators,0),1);
+
+      op_minus = g_malloc0(2*sizeof(gunichar));
+      g_utf8_strncpy(op_minus, g_utf8_offset_to_pointer (operators,1),1);
+
+      op_mult = g_malloc0(2*sizeof(gunichar));
+      g_utf8_strncpy(op_mult, g_utf8_offset_to_pointer (operators,2),1);
+
+      op_div = g_malloc0(2*sizeof(gunichar));
+      g_utf8_strncpy(op_div, g_utf8_offset_to_pointer (operators,3),1);
 
       /* The mode defines the operation */
 
       /* Default mode */
       if(!gcomprisBoard->mode)
-	currentOperation[0]=PLUSSIGNFILE;
+	{
+	  currentOperation[0]=PLUSSIGNFILE;
+	  currentOperationText = op_add;
+	}
       else if(g_strncasecmp(gcomprisBoard->mode, "+", 1)==0)
-	currentOperation[0]=PLUSSIGNFILE;
+	{
+	  currentOperation[0]=PLUSSIGNFILE;
+	  currentOperationText = op_add;
+	}
       else if(g_strncasecmp(gcomprisBoard->mode, "-", 1)==0)
-	currentOperation[0]=MINUSSIGNFILE;
+	{
+	  currentOperation[0]=MINUSSIGNFILE;
+	  currentOperationText = op_minus;
+	}
       else if(g_strncasecmp(gcomprisBoard->mode, "*", 1)==0)
-	currentOperation[0]=BYSIGNFILE;
+	{
+	  currentOperation[0]=BYSIGNFILE;
+	  currentOperationText = op_mult;
+	}
       else if(g_strncasecmp(gcomprisBoard->mode, "/", 1)==0)
-	currentOperation[0]=DIVIDESIGNFILE;
+	{
+	  currentOperation[0]=DIVIDESIGNFILE;
+	  currentOperationText = op_div;
+	}
       currentOperation[1]='\0';
 
       init_operation();
@@ -206,6 +245,11 @@ end_board ()
       algebra_destroy_all_items();
     }
   gcomprisBoard = NULL;
+
+  g_free(op_add);
+  g_free(op_minus);
+  g_free(op_mult);
+  g_free(op_div);
 }
 
 static void
@@ -248,7 +292,7 @@ static gint key_press(guint keyval, gchar *commit_str, gchar *preedit_str)
     case GDK_Hyper_L:
     case GDK_Hyper_R:
     case GDK_Num_Lock:
-      return FALSE; 
+      return FALSE;
     case GDK_KP_Enter:
     case GDK_Return:
       process_ok();
@@ -273,7 +317,7 @@ static gint key_press(guint keyval, gchar *commit_str, gchar *preedit_str)
       return TRUE;
     }
 
-  c = tolower(keyval); 
+  c = tolower(keyval);
 
   if(currentToBeFoundItem!=NULL &&
      keyval>=GDK_0 && keyval<=GDK_9)
@@ -345,7 +389,7 @@ static void timer_end()
 
 
 /* set initial values for the next level */
-static void algebra_next_level() 
+static void algebra_next_level()
 {
 
   gc_bar_set_level(gcomprisBoard);
@@ -361,7 +405,7 @@ static void algebra_next_level()
 							    NULL));
 
   maxtime = 20;
-  gc_timer_display(TIMER_X, TIMER_Y, 
+  gc_timer_display(TIMER_X, TIMER_Y,
 			 GCOMPRIS_TIMER_BALLOON, maxtime, timer_end);
 
   /* Try the next level */
@@ -384,7 +428,7 @@ static void algebra_destroy_all_items()
 
   gc_timer_end();
 
-  while(g_list_length(item_list)>0) 
+  while(g_list_length(item_list)>0)
     {
       item = g_list_nth_data(item_list, 0);
       algebra_destroy_item(item);
@@ -399,13 +443,13 @@ static void algebra_destroy_all_items()
 
   if(boardRootItem!=NULL)
     gtk_object_destroy (GTK_OBJECT(boardRootItem));
-  
+
   boardRootItem=NULL;
 }
 
-static void display_operand(GnomeCanvasGroup *parent, 
+static void display_operand(GnomeCanvasGroup *parent,
 			    double x_align,
-			    double y, 
+			    double y,
 			    char *operand_str,
 			    gboolean masked)
 {
@@ -420,10 +464,10 @@ static void display_operand(GnomeCanvasGroup *parent,
 
       if(!masked)
 	operand[0] = operand_str[i];
-      
+
       item = gnome_canvas_item_new (parent,
 				    gnome_canvas_text_get_type (),
-				    "text", &operand, 
+				    "text", &operand,
 				    "font", gc_skin_font_board_huge_bold,
 				    "anchor", GTK_ANCHOR_CENTER,
 				    "x", x_align-((strlen(operand_str)-i)*NUMBERSWIDTH),
@@ -432,7 +476,7 @@ static void display_operand(GnomeCanvasGroup *parent,
 				    NULL);
       item_list = g_list_append (item_list, item);
 
-      if(masked) 
+      if(masked)
 	{
 	  focus_item = gnome_canvas_item_new (parent,
 					      gnome_canvas_text_get_type (),
@@ -461,7 +505,7 @@ static void display_operand(GnomeCanvasGroup *parent,
 
 	}
 
-      if(masked) 
+      if(masked)
 	{
 	  toBeFoundItem = malloc(sizeof(ToBeFoundItem));
 	  toBeFoundItem->bad_item=bad_item;
@@ -536,7 +580,7 @@ static GnomeCanvasItem *algebra_create_item(GnomeCanvasGroup *parent)
   y=(double) y_firstline;
   item = gnome_canvas_item_new (parent,
 				gnome_canvas_text_get_type (),
-				"text", currentOperation, 
+				"text", currentOperationText,
 				"font", gc_skin_font_board_huge_bold,
 				"x", x,
 				"y", y,
@@ -548,7 +592,7 @@ static GnomeCanvasItem *algebra_create_item(GnomeCanvasGroup *parent)
   /* Now the equal sign*/
   item = gnome_canvas_item_new (parent,
 				gnome_canvas_text_get_type (),
-				"text", "=", 
+				"text", "=",
 				"font", gc_skin_font_board_huge_bold,
 				"x", x_align + NUMBERSWIDTH*(strlen(second_operand_str)+1),
 				"y", y,
@@ -583,7 +627,7 @@ static GnomeCanvasItem *algebra_create_item(GnomeCanvasGroup *parent)
   display_operand(parent, x_align + NUMBERSWIDTH*(strlen(second_operand_str)+
 						  strlen(expected_result)+2),
 		  y_firstline, expected_result, TRUE);
-  
+
 
   {
     gchar *str1 = NULL;
@@ -639,7 +683,7 @@ static void process_ok()
     {
       currentToBeFoundItem=(ToBeFoundItem *)currentToBeFoundItem->previous;
     }
-  
+
   toBeFoundItem=currentToBeFoundItem;
   /* Check the numbers one by one and redline errors */
   while(currentToBeFoundItem!=NULL)
@@ -654,7 +698,7 @@ static void process_ok()
       currentToBeFoundItem=(ToBeFoundItem *)currentToBeFoundItem->next;
     }
   currentToBeFoundItem=toBeFoundItem;
-  
+
   if(hasfail==NULL)
     {
       game_won();
@@ -677,7 +721,7 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
   if(board_paused)
     return FALSE;
 
-  switch (event->type) 
+  switch (event->type)
     {
     case GDK_ENTER_NOTIFY:
       break;
@@ -695,7 +739,7 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 
       gc_sound_play_ogg ("sounds/gobble.ogg", NULL);
       break;
-      
+
     default:
       break;
     }
@@ -710,7 +754,7 @@ static gint get_operand()
 {
   gint j = 10;
   gint i = (1+g_random_int()%10);
-  
+
   // Get the next free slot
   while(operation_done[i]==TRUE && j>=0)
     {
