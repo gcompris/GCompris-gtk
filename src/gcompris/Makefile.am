@@ -35,6 +35,14 @@ no_undefined =
 shared =
 endif
 
+if WITH_NSBUNDLE
+gcompris_nsbundle_m = gcompris-nsbundle.m
+gcompris_nsbundle_h = gcompris-nsbundle.h
+else
+gcompris_nsbundle_m =
+gcompris_nsbundle_h =
+endif
+
 bin_PROGRAMS = gcompris
 
 INCLUDES = \
@@ -47,11 +55,14 @@ INCLUDES = \
 	-DGNOME_DISABLE_DEPRECATED \
         $(sqlite_cflags) \
 	$(GNET_CFLAGS) \
-	$(cairo_cflags)
+	$(cairo_cflags) \
+	$(NSBUNDLE_CPPFLAGS)
 
 gcompris_SOURCES = \
 	$(cairo_c) \
 	$(cairo_h) \
+	$(gcompris_nsbundle_h) \
+	$(gcompris_nsbundle_m) \
 	about.c \
 	about.h \
 	anim.c \
@@ -115,8 +126,7 @@ gcompris_LDFLAGS = \
 
 gcompris_LDADD = \
 	$(GCOMPRIS_LIBS) $(sqlite_ldadd) $(XML_LIBS) $(GNET_LIBS) $(SDL_LIBS) \
-        $(INTLLIBS)
-
+        $(INTLLIBS) $(NSBUNDLE_LDFLAGS)
 
 #	$(LIBICONV) 
 

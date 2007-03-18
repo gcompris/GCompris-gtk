@@ -1,3 +1,16 @@
+2007-03-19  Yves Combe <yves@ycombe.net>
+
+	Add --enable-nsbundle to configure.in, with foundation/Foundation.h check.
+	Add NSBundle usage to reloc in this case
+	Add NSBundle construction target in Makefile.am
+
+	* Makefile.am:
+	* configure.in:
+	* src/gcompris/Makefile.am:
+	* src/gcompris/gcompris-nsbundle.h:
+	* src/gcompris/gcompris-nsbundle.m:
+	* src/gcompris/gcompris.c: (main):
+
 2007-03-19  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* src/boards/python/searace.py: does instant rotation now. improved the parameters

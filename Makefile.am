@@ -73,6 +73,7 @@ CLEANFILES = core-translation-report gcompris.desktop gcompris-edit.desktop gcom
 
 clean-local:
 	rm -f intltool-extract intltool-merge intltool-update
+	-rm -fr $(BUNDLE_APPDIR)
 
 # Creates separates distribution files for the sounds by locale
 dist-sounds:
@@ -90,3 +91,27 @@ all-local:
 
 
 ACLOCAL_AMFLAGS =
+
+if OS_MACOSX
+BUNDLE_RESOURCES_DIR=$(BUNDLE_APPDIR)/Contents/Resources
+BUNDLE_EXEC_DIR=$(BUNDLE_APPDIR)/Contents/MacOS
+else
+BUNDLE_RESOURCES_DIR=$(BUNDLE_APPDIR)/Resources
+BUNDLE_EXEC_DIR=$(BUNDLE_APPDIR)
+endif
+
+if WITH_NSBUNDLE
+nsbundle:
+	$(INSTALL) -d $(BUNDLE_RESOURCES_DIR)
+	$(INSTALL) -d $(BUNDLE_EXEC_DIR)
+
+	make install prefix=$(BUNDLE_RESOURCES_DIR) \
+		     exec_prefix=$(BUNDLE_RESOURCES_DIR) \
+	             bindir=$(BUNDLE_EXEC_DIR) \
+	             PYTHON_PLUGIN_DIR=$(BUNDLE_RESOURCES_DIR)/share/gcompris/python 
+
+	mv $(BUNDLE_EXEC_DIR)/gcompris $(BUNDLE_EXEC_DIR)/$(BUNDLE_NAME)
+# check info.plist instead.
+endif
+
+

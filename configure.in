@@ -6,10 +6,6 @@ AM_INIT_AUTOMAKE(gcompris, 8.3BETA1)
 AM_CONFIG_HEADER(config.h)
 AM_MAINTAINER_MODE
 
-# Provide relocatable API from autopackage
-# From http://autopackage.org/docs/binreloc/
-AM_BINRELOC
-
 dnl libtool versioning from libgnome
 
 AC_ISC_POSIX
@@ -51,6 +47,75 @@ esac
 AC_MSG_RESULT([$native_osx])
 
 AM_CONDITIONAL(OS_MACOSX, test "$native_osx" = yes)
+
+# nsbundle default is no even for osx
+nsbundle="no"
+
+AC_ARG_ENABLE(nsbundle,
+          AC_HELP_STRING(
+          [--enable-nsbundle],
+          [Turn on nsbundle packaging (needs Cocoa/GNUstep)]),
+          nsbundle="$enableval", nsbundle="no")
+
+NSBUNDLE_CPPFLAGS=
+NSBUNDLE_LDFLAGS=
+
+#check header for nsbundle
+if test "x$nsbundle" = "xyes"; then
+   AC_PROG_OBJC
+   AC_PROG_OBJCPP
+   _AM_DEPENDENCIES([OBJC])
+   if test "x$native_osx" = "xyes"; then
+      AC_LANG_PUSH([Objective C])
+      AC_CHECK_HEADER(Foundation/Foundation.h, NSFoundation="yes" , NSFoundation="no")
+      if test "x$NSFoundation" = "x$no"; then
+	 AC_MSG_ERROR([You need development tools to use nsbundle. Make sure XCode is installed." ])
+      fi
+      NSBUNDLE_LDFLAGS="-framework Cocoa "
+      AC_LANG_POP([Objective C])
+   else
+      AC_LANG_PUSH([Objective C])
+      saved_CPPFLAGS="$CPPFLAGS"
+      if test "x$GNUSTEP_SYSTEM_ROOT" != "x"; then
+         CPPFLAGS="$CPPFLAGS -I$GNUSTEP_SYSTEM_ROOT/Library/Headers "
+      fi
+      AC_CHECK_HEADER(Foundation/Foundation.h, NSFoundation="yes" , NSFoundation="no")
+      if test "x$NSFoundation" = "xno"; then
+         AC_MSG_ERROR([You need GNUstep dev to use nsbundle. Make sure GNUSTEP_SYSTEM_ROOT is set." ])
+      fi
+      CPPFLAGS="$saved_CPPFLAGS"
+      NSBUNDLE_CPPFLAGS=" -I$GNUSTEP_SYSTEM_ROOT/Library/Headers "
+      NSBUNDLE_LDFLAGS="-rdynamic -fgnu-runtime -L$GNUSTEP_SYSTEM_ROOT/Library/Libraries -lgnustep-base"
+      AC_LANG_POP([Objective C])
+   fi
+fi
+
+AC_SUBST(NSBUNDLE_CPPFLAGS)
+AC_SUBST(NSBUNDLE_LDFLAGS)
+
+# Todo: add a AC_ARG_WITH to allow change.
+bundlename=GCompris
+
+
+nsbundledir=$(pwd)"/$bundlename.app"
+BUNDLE_APPDIR="$nsbundledir"
+BUNDLE_NAME="$bundlename"
+AC_SUBST(BUNDLE_APPDIR)
+AC_SUBST(BUNDLE_NAME)
+
+AC_DEFINE_UNQUOTED(NSBUNDLE, 1, [ Define to 1 to use NSBundle for relocation (OSX/GNUstep) ])
+
+AM_CONDITIONAL(WITH_NSBUNDLE, test "$nsbundle" = yes)
+
+
+# Provide relocatable API from autopackage
+# From http://autopackage.org/docs/binreloc/
+if test x"$nsbundle" = "xyes" ; then
+enable_binreloc=no
+AC_MSG_NOTICE([binreloc disabled by nsbundle])
+fi
+
+AM_BINRELOC
 
 sdl_mixer_framework="no"
 sdl_framework="no"
@@ -628,6 +693,8 @@ echo "SQLITE database (--enable-sqlite)        = $with_sqlite (profiles depend o
 
 echo "GNET Networking (--enable-gnet)          = $with_gnet (networking depends on this)"
 echo "BINRELOC (--enable-binreloc)             = $enable_binreloc"
+echo "NSBundle (--enable-nsbundle)             = $nsbundle"
+
 
 echo
 echo gcompris will be installed in ${prefix}
