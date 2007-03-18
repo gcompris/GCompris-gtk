@@ -67,6 +67,7 @@ void python_gcompris_bonus_module_init(void)
   PyModule_AddIntConstant(module, "FLOWER", GC_BONUS_FLOWER );
   PyModule_AddIntConstant(module, "TUX",    GC_BONUS_TUX );
   PyModule_AddIntConstant(module, "GNU",    GC_BONUS_GNU );
+  PyModule_AddIntConstant(module, "GNU",    GC_BONUS_LION );
 
   /* BonusFinishedList constants */
   PyModule_AddIntConstant(module, "FINISHED_RANDOM", GC_BOARD_FINISHED_RANDOM );

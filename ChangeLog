@@ -1,5 +1,15 @@
 2007-03-18  Bruno coudoin  <bruno.coudoin@free.fr>
 
+	* gcompris/bonus/lion_good.png: new bonus from Mathieu Ignacio. Released under GPL.
+	* gcompris/bonus/lion_bad.png:
+	* docs/C/python.xml:
+	* src/boards/memory.c: (player_win):
+	* src/boards/py-mod-bonus.c: (python_gcompris_bonus_module_init):
+	* src/gcompris/bonus.c: (gc_bonus_display):
+	* src/gcompris/bonus.h:
+
+2007-03-18  Bruno coudoin  <bruno.coudoin@free.fr>
+
 	* boards/imageid.xml.in: reverted stupid change in r2503, the boarddir needs to be set
 	* src/boards/scale.c: (scale_anim_plate): changed the color of the text.
 

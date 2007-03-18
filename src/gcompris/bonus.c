@@ -255,12 +255,12 @@ gc_bonus_display(GCBonusStatusList gamewon, GCBonusList bonus_id)
   }
 
   /* First pause the board */
-  g_warning("Pausinng board ...");
+  g_warning("Pausing board ...");
   gc_board_pause(TRUE);
-  g_warning("Pausinng board ...ok");
+  g_warning("Pausing board ...ok");
 
   if(bonus_id==GC_BONUS_RANDOM)
-    bonus_id = RAND(1, GC_BONUS_LAST-2);
+    bonus_id = RAND(1, GC_BONUS_LAST);
 
   switch(bonus_id) {
   case GC_BONUS_SMILEY :
@@ -274,6 +274,9 @@ gc_bonus_display(GCBonusStatusList gamewon, GCBonusList bonus_id)
     break;
   case GC_BONUS_GNU :
     bonus_image("gnu",gamewon);
+    break;
+  case GC_BONUS_LION :
+    bonus_image("lion",gamewon);
     break;
   default :
     bonus_image("smiley",gamewon);

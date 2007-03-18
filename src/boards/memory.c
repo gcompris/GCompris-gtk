@@ -1387,7 +1387,7 @@ static void player_win()
     gc_bonus_end_display(GC_BOARD_FINISHED_RANDOM);
     return;
   }
-  gc_bonus_display((tux_pairs <= player_pairs), GC_BONUS_RANDOM);
+  gc_bonus_display((tux_pairs <= player_pairs), GC_BONUS_LION);
 
 }
 
