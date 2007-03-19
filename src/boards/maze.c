@@ -497,7 +497,7 @@ static GnomeCanvasItem *maze_create_item(GnomeCanvasGroup *parent) {
   warning_item = gnome_canvas_item_new (boardRootItem,
 					gnome_canvas_text_get_type (),
 					"text", message,
-					"font", gc_skin_font_board_big,
+					"font", gc_skin_font_board_small,
 					"x", (double) BOARDWIDTH/2,
 					"y", (double) BOARDHEIGHT-20,
 					"anchor", GTK_ANCHOR_CENTER,
@@ -512,13 +512,14 @@ static GnomeCanvasItem *maze_create_item(GnomeCanvasGroup *parent) {
  * =====================================================================*/
 static void game_won() {
   twoDdisplay();
-  gc_sound_play_ogg ("sounds/bonus.ogg", NULL);
   /* Try the next level */
   gcomprisBoard->level++;
-  if(gcomprisBoard->level>gcomprisBoard->maxlevel) { // the current board is finished : bail out
+  if(gcomprisBoard->level > gcomprisBoard->maxlevel) { // the current board is finished : bail out
     gc_bonus_end_display(GC_BOARD_FINISHED_RANDOM);
     return;
   }
+  gc_sound_play_ogg ("sounds/bonus.ogg", NULL);
+
   maze_next_level();
 }
 /* =====================================================================
@@ -841,7 +842,11 @@ static void movePos(int x1, int y1, int x2,int y2, int richting)
 	  position[ind][1]=y2;
 	  Maze[x2][y2]|=SET;
 	  if (position[ind][0]==(breedte-1) && position[ind][1]==(end))
-	    game_won();
+	    {
+	      gamewon = TRUE;
+	      twoDdisplay();
+	      gc_bonus_display(gamewon, GC_BONUS_LION);
+	    }
 	  else
 	    {
 	      move_image(mazegroup,x2,y2,tuxitem);
@@ -1163,8 +1168,9 @@ static struct vector invert_y(struct vector v)
 
 static gboolean is_visible(struct vector viewpos, int viewdir,
 			   struct vector distance, gboolean left_side, gboolean *is_exit)
-{  struct vector where=vector_add(viewpos,invert_y(vector_turn(distance,angle(viewdir,NORTH))));
- gint direction=left_side ? TURN_LEFT(viewdir) : viewdir;
+{
+  struct vector where=vector_add(viewpos,invert_y(vector_turn(distance,angle(viewdir,NORTH))));
+  gint direction=left_side ? TURN_LEFT(viewdir) : viewdir;
 
  if (is_wall2(where,direction))
    return TRUE;
@@ -1173,8 +1179,9 @@ static gboolean is_visible(struct vector viewpos, int viewdir,
 	 && (where.y==end
 	     || (direction==NORTH && where.y==end+1)
 	     || (direction==SOUTH && where.y==end-1))))
-   {  *is_exit=TRUE;
-   return TRUE;
+   {
+     *is_exit=TRUE;
+     return TRUE;
    }
  return FALSE;
 }
@@ -1314,10 +1321,11 @@ static const char *color(int dir)
 
 static void gcDisplay(struct vector position, int viewdir,
 		    struct screenparam sp, int xmin, int xmax, int dy, gboolean left_wall)
-{  int dxl=dx_left(sp,xmin,dy,left_wall),
-     dxr=dx_right(sp,xmax,dy,left_wall),
-     i=0;
- gboolean is_exit=FALSE;
+{
+  int dxl=dx_left(sp,xmin,dy,left_wall),
+    dxr=dx_right(sp,xmax,dy,left_wall),
+    i=0;
+  gboolean is_exit=FALSE;
 
  if (dxl<=0) // seek from the middle left for a wall
    {  if (dxr<i) i=dxr;
@@ -1342,16 +1350,17 @@ static void gcDisplay(struct vector position, int viewdir,
      ++i;
    }
  if (i<=dxr) // wall found
-   {  struct Trapez t=Trapez_hide(wall_coords(sp,vector_ctor(i,dy),left_wall),xmin,xmax);
-   draw_Trapez(threedgroup,t,is_exit?"green":color(left_wall?TURN_RIGHT(viewdir):viewdir),"black");
-   // draw right of it
-   if (t.x_right+1<xmax)
-     gcDisplay(position,viewdir,sp,t.x_right+1,xmax,dy,left_wall);
-   // draw right of it
-   if (t.x_right+1<xmax)
-     gcDisplay(position,viewdir,sp,t.x_right+1,xmax,dy,left_wall);
-   // left of it ...
-   xmax=t.x_left-1;
+   {
+     struct Trapez t=Trapez_hide(wall_coords(sp,vector_ctor(i,dy),left_wall),xmin,xmax);
+     draw_Trapez(threedgroup,t,is_exit?"green":color(left_wall?TURN_RIGHT(viewdir):viewdir),"black");
+     // draw right of it
+     if (t.x_right+1<xmax)
+       gcDisplay(position,viewdir,sp,t.x_right+1,xmax,dy,left_wall);
+     // draw right of it
+     if (t.x_right+1<xmax)
+       gcDisplay(position,viewdir,sp,t.x_right+1,xmax,dy,left_wall);
+     // left of it ...
+     xmax=t.x_left-1;
    }
 
  if (xmin<=xmax) // draw in the middle (no wall there)
@@ -1360,8 +1369,9 @@ static void gcDisplay(struct vector position, int viewdir,
 
 static void Display3(struct vector position, int viewdir,
 		     struct screenparam sp)
-{  gcDisplay(position, viewdir, sp, sp.pos.x-sp.size.x, sp.pos.x+sp.size.x,
-	   0, TRUE);
+{
+  gcDisplay(position, viewdir, sp, sp.pos.x-sp.size.x, sp.pos.x+sp.size.x,
+	    0, TRUE);
 }
 
 static struct screenparam screenparam_ctor(int px,int py,int sx,int sy,int sdx,int sdy)

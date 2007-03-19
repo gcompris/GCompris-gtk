@@ -1,3 +1,10 @@
+2007-03-19  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* configure.in: set _AM_DEPENDENCIES([OBJC]) or we get error
+	 am__fastdepOBJC does not appear in AM_CONDITIONAL
+	* src/boards/maze.c: (maze_create_item), (game_won), (movePos),
+	(is_visible), (gcDisplay), (Display3): added bonus display.
+
 2007-03-19  Yves Combe <yves@ycombe.net>
 
 	Add --enable-nsbundle to configure.in, with foundation/Foundation.h check.

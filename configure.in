@@ -60,11 +60,11 @@ AC_ARG_ENABLE(nsbundle,
 NSBUNDLE_CPPFLAGS=
 NSBUNDLE_LDFLAGS=
 
+_AM_DEPENDENCIES([OBJC])
 #check header for nsbundle
 if test "x$nsbundle" = "xyes"; then
-   AC_PROG_OBJC
-   AC_PROG_OBJCPP
-   _AM_DEPENDENCIES([OBJC])
+   AC_PROG_OBJC([gcc])
+   AC_PROG_OBJCPP([gcc])
    if test "x$native_osx" = "xyes"; then
       AC_LANG_PUSH([Objective C])
       AC_CHECK_HEADER(Foundation/Foundation.h, NSFoundation="yes" , NSFoundation="no")
