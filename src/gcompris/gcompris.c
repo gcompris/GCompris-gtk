@@ -44,7 +44,9 @@
 #endif
 
 /* for NSBUNDLE */
+#ifdef NSBUNDLE
 #include "gcompris-nsbundle.h"
+#endif
 
 /* get the default database name */
 #define DEFAULT_DATABASE "gcompris_sqlite.db"
@@ -1380,8 +1382,13 @@ main (int argc, char *argv[])
   GOptionContext *context;
 
   /* usefull for OSX bundle app */
+#ifdef NSBUNDLE
   exec_prefix = gcompris_nsbundle_resource ();
   printf("exec_prefix %s\n", exec_prefix);
+#else
+  exec_prefix = NULL;
+  printf("exec_prefix NULL\n");
+#endif
 
   /* First, Remove the gnome crash dialog because it locks the user when in full screen */
   signal(SIGSEGV, gc_terminate);

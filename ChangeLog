@@ -1,3 +1,10 @@
+2007-03-19  Yves Combe <yves@ycombe.net>
+
+	fix compilation problem without --enable-nsbundle
+
+	* configure.in:
+	* src/gcompris/gcompris.c: (main):
+
 2007-03-19  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* configure.in: set _AM_DEPENDENCIES([OBJC]) or we get error
