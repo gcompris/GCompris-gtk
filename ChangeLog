@@ -1,3 +1,13 @@
+2007-03-20  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* boards/boardicons/*: moved in boards/skins/gartoon/
+	* boards/boardicons/README: updated to reference Mathieu
+	* src/boards/menu2.c: (create_panel), (menu_create_item),
+	(create_top): updated to use icons from the skin directory
+	* src/gcompris/gcompris.c: (main): moved gc_skin_load() down in the
+	startup process. The gartoon skin style was never used, even when gartoon
+	was selected.
+
 2007-03-19  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	These Images are an original creation of Mathieu Ignacio. Released under GPL.

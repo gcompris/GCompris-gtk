@@ -93,8 +93,8 @@ static double icon_size, icon_size_panel, icon_size_top, top_arrow_size;
 
 static gdouble get_ratio(GdkPixbuf *pixmap, gdouble size);
 
-#define P_X 0
-#define P_Y 10
+#define P_X 15
+#define P_Y 35
 #define P_W 80
 #define P_H 480
 
@@ -270,7 +270,6 @@ static void create_panel(GnomeCanvasGroup *parent)
   GcomprisBoard *board;
   GdkPixbuf *pixmap = NULL;
   GnomeCanvasItem *item;
-  gdouble ratio;
 
   gdouble x, y;
   gint int_y;
@@ -302,20 +301,16 @@ static void create_panel(GnomeCanvasGroup *parent)
   for (list = panelBoards; list != NULL; list = list->next){
     board = (GcomprisBoard *) list->data;
 
-    pixmap = gc_pixmap_load(board->icon_name);
-
-    ratio = get_ratio( pixmap, icon_size_panel);
+    pixmap = gc_skin_pixmap_load(board->icon_name);
 
     item = gnome_canvas_item_new (parent,
 				  gnome_canvas_pixbuf_get_type (),
 				  "pixbuf", pixmap,
 				  "x", x,
 				  "y", y,
-				  "width", (gdouble)  gdk_pixbuf_get_width(pixmap)*ratio,
-				  "height", (gdouble) gdk_pixbuf_get_height(pixmap)*ratio,
-				  "width-set", TRUE,
-				  "height-set", TRUE,
-				  "anchor", GTK_ANCHOR_NW,
+				  "width", (gdouble)  gdk_pixbuf_get_width(pixmap),
+				  "height", (gdouble) gdk_pixbuf_get_height(pixmap),
+				  "anchor", GTK_ANCHOR_CENTER,
 				  NULL);
 
     gdk_pixbuf_unref(pixmap);
@@ -483,7 +478,7 @@ static void menu_create_item(GnomeCanvasGroup *parent, MenuItems *menuitems, Gco
    */
   tmp_board_dir = gcomprisBoard->board_dir;
   gcomprisBoard->board_dir = board->board_dir;
-  menu_pixmap = gc_pixmap_load(board->icon_name);
+  menu_pixmap = gc_skin_pixmap_load(board->icon_name);
   gcomprisBoard->board_dir = tmp_board_dir;
 
   ratio = get_ratio (menu_pixmap, icon_size);
@@ -899,7 +894,7 @@ static void create_top(GnomeCanvasGroup *parent, gchar *path)
 
       if (current_top_x == 0.0){
 	current_top_x = top_x;
-	current_top_y = top_y + top_h/2.0;
+	current_top_y = top_y;
       } else {
 	pixmap = gc_skin_pixmap_load("button_forward.png");
 	ratio = get_ratio(pixmap, top_arrow_size);
@@ -908,12 +903,12 @@ static void create_top(GnomeCanvasGroup *parent, gchar *path)
 			       gnome_canvas_pixbuf_get_type (),
 			       "pixbuf", pixmap,
 			       "x", current_top_x,
-			       "y", current_top_y,
+			       "y", current_top_y + top_arrow_size / 2,
 			       "width", (gdouble)  gdk_pixbuf_get_width(pixmap)*ratio,
 			       "height", (gdouble) gdk_pixbuf_get_height(pixmap)*ratio,
 			       "width-set", TRUE,
 			       "height-set", TRUE,
-			       "anchor", GTK_ANCHOR_WEST,
+			       "anchor", GTK_ANCHOR_NW,
 			       NULL);
 
 	gdk_pixbuf_unref(pixmap);
@@ -924,7 +919,7 @@ static void create_top(GnomeCanvasGroup *parent, gchar *path)
 
       board = gc_menu_section_get(path1);
 
-      pixmap = gc_pixmap_load(board->icon_name);
+      pixmap = gc_skin_pixmap_load(board->icon_name);
 
       ratio = get_ratio( pixmap, icon_size_top);
 
@@ -937,7 +932,7 @@ static void create_top(GnomeCanvasGroup *parent, gchar *path)
 				    "height", (gdouble) gdk_pixbuf_get_height(pixmap)*ratio,
 				    "width-set", TRUE,
 				    "height-set", TRUE,
-				    "anchor", GTK_ANCHOR_WEST,
+				    "anchor", GTK_ANCHOR_NW,
 				    NULL);
 
       gdk_pixbuf_unref(pixmap);

@@ -1402,8 +1402,6 @@ main (int argc, char *argv[])
 
   load_properties();
 
-  gc_skin_load(properties->skin);
-
   bindtextdomain (GETTEXT_PACKAGE, properties->package_locale_dir);
   bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
   textdomain (GETTEXT_PACKAGE);
@@ -1768,6 +1766,8 @@ main (int argc, char *argv[])
   }
 
   /*------------------------------------------------------------*/
+
+  gc_skin_load(properties->skin);
 
   if(properties->music || properties->fx)
     gc_sound_init();
