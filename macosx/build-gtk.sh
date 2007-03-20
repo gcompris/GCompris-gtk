@@ -36,7 +36,7 @@ version=1.3.1-inkscape
 
 SCRIPTDIR=`dirname $0`
 
-export PREFIX=${PREFIX-~/opt/gtk-UB}
+export PREFIX=${PREFIX-~/opt/gtk_UB2}
 export PATH=$PREFIX/bin:/usr/bin:$PATH
 #export PATH=$PREFIX/bin:/bin:/sbin:/usr/bin:/usr/sbin:/usr/X11R6/bin:
 export LIBTOOLIZE=$PREFIX/bin/libtoolize
@@ -97,42 +97,7 @@ if [ "x$UNIVERSAL_BUILD" = "xYes" ]; then
     CONFIGURE_fontconfig="--disable-dependency-tracking --disable-docs"
     POSTCONFIGURE_fontconfig="eval cd fc-arch && make all && cd .. && perl -pi~ -e 's|#define FC_ARCHITECTURE \"x86\"|#ifdef __ppc__\n#define FC_ARCHITECTURE \"ppc\"\n#else\n#define FC_ARCHITECTURE \"x86\"\n#endif|g' fc-arch/fcarch.h"
 
-    PRECONFIGURE_cairo="export ax_cv_c_float_words_bigendian=no"
-    CONFIGURE_cairo="--disable-dependency-tracking --enable-shared --enable-quartz --disable-atsui --disable-glitz ax_cv_c_float_words_bigendian=no"
-    POSTCONFIGURE_cairo="eval patch_libtool_dylib && export ax_cv_c_float_words_bigendian='' && perl -pi~ -e 's|/\* #undef FLOAT_WORDS_BIGENDIAN \*/|#ifdef __ppc__\n#define FLOAT_WORDS_BIGENDIAN 1\n#endif|g;s|/\* #undef WORDS_BIGENDIAN \*/|#ifdef __ppc__\n#define WORDS_BIGENDIAN 1\n#endif|g' config.h && perl -pi~ -e 's|DIST_SUBDIRS = pixman src boilerplate test perf doc|DIST_SUBDIRS = pixman src test perf doc|g;s|am__append_1 = boilerplate test|am__append_1 = test|g' Makefile"
-    
-    CONFIGURE_glitz="--disable-dependency-tracking"
-
-    CONFIGURE_lcms="--disable-dependency-tracking"
-    
-    CONFIGURE_glib="$COMMON_OPTIONS"
-    POSTCONFIGURE_glib="eval make glibconfig.h config.h && cp $DIRNAME/{glib,}config.h ."
-    #POSTCONFIGURE_glib="eval make glibconfig.h && perl -pi~ -e 's|#define G_BYTE_ORDER G_LITTLE_ENDIAN|#include <machine/endian.h>\n#define G_BYTE_ORDER __DARWIN_BYTE_ORDER|g' glibconfig.h"
-    
-    CONFIGURE_pango="$COMMON_OPTIONS"
-    POSTCONFIGURE_pango="eval perl -pi~ -e 's|SUBDIRS = pango modules examples docs tools tests|SUBDIRS = pango modules docs tools tests|g' Makefile && perl -pi~ -e 's|harfbuzz_dump_LDADD = |harfbuzz_dump_LDADD = -Xlinker -framework -Xlinker CoreServices -Xlinker -framework -Xlinker ApplicationServices|g' pango/opentype/Makefile"
-    
-    CONFIGURE_gtk="$COMMON_OPTIONS --enable-explicit-deps=yes"
-    POSTCONFIGURE_gtk="patch_libtool_dylib"
-
-    CONFIGURE_atk="$COMMON_OPTIONS"
-    
-    CONFIGURE_libxml2="$COMMON_OPTIONS"
-    
-    CONFIGURE_libsigc="$COMMON_OPTIONS"
-    POSTCONFIGURE_libsigc="patch_libtool_dylib"
-    
-    CONFIGURE_glibmm="$COMMON_OPTIONS"
-    
-    CONFIGURE_cairomm="$COMMON_OPTIONS"
-    
-    CONFIGURE_gtkmm="$COMMON_OPTIONS --disable-examples --disable-demos"
-    POSTCONFIGURE_gtkmm="patch_libtool_dylib"
-    
-    CONFIGURE_libxslt="$COMMON_OPTIONS"
-    
-    CONFIGURE_popt="$COMMON_OPTIONS"
-    POSTCONFIGURE_popt="patch_libtool_dylib"
+    PRECONFIGURE_gtk="eval  perl -pi~ -e 's|-framework Cocoa|-framework Cocoa -framework Carbon|g' configure.in"
 
     POSTCONFIGURE_pygtk="eval  perl -pi~ -e 's|SUBDIRS = (.*) docs|SUBDIRS =  \$1|g' Makefile"
 
@@ -189,7 +154,7 @@ if [ -x $PREFIX/bin/install-check ]; then
 fi
 
 
-SOURCE=${SOURCE-$HOME/Source/gtk_UB}
+SOURCE=${SOURCE-$HOME/Source/gtk_UB2}
 CAIROCVSROOT=${CAIROCVSROOT-:pserver:anoncvs@cvs.freedesktop.org:/cvs/cairo}
 INKSCAPESVNURL="https://svn.sourceforge.net/svnroot/inkscape"
 GNOMESVNURL=${GNOMESVNURL-https://svn.gnome.org/svn}
@@ -207,7 +172,7 @@ if [ $# -eq 0 -o "x`echo "$*" | grep shell`" = xshell ]; then
     exit 0
 fi
 
-CORE_MODULES="cairo gnome-common glib pango atk gtk+"
+CORE_MODULES="cairo glib pango atk gtk+"
 EXTRA_MODULES="libxml2 libxslt loudmouth libglade gossip gtk-engines"
 PYGTK_MODULES=" pycairo pygobject pygtk"
 INKSCAPE_MODULES="$CORE_MODULES libxml2 libxslt gc lcms libsigc++ doxygen glibmm cairomm gtkmm popt inkscape"
@@ -511,9 +476,8 @@ function svn_get_and_build
     fi
     
     echo "./autogen.sh $COMMON_OPTIONS $3"
-    echo "POSTCONF $POSTCONFIGURE $UNDERSCORENAME" 
     #(./autogen.sh $COMMON_OPTIONS $3 && ./configure --prefix=$PREFIX $COMMON_OPTIONS $3 && make && make install)
-    (./autogen.sh $COMMON_OPTIONS $3 && $POSTCONFIGURE && make && make install)
+    ($PRECONFIGURE && ./autogen.sh $COMMON_OPTIONS $3 && $POSTCONFIGURE && make && make install)
 }
 
 function set_automake
