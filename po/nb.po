@@ -5,16 +5,16 @@
 # translation of gcompris.6.5.po to Norwegian Bokmål <
 # translation of nb.po to Norwegian Bokmål <
 # Norwegian (bokmål) translation of GCompris.
-# Copyright (C) 2000-2004, 2005, 2006 Free Software Foundation, Inc.
+# Copyright (C) 2000-2004, 2005, 2006, 2007 Free Software Foundation, Inc.
 # Kjartan Maraas <kmaraas@gnome.org>, 2000-2005.
-# Klaus Ade Johnstad <klaus@skolelinux.no>, 2004, 2005, 2006.
+# Klaus Ade Johnstad <klaus@skolelinux.no>, 2004, 2005, 2006, 2007.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: nb\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-04-12 11:48+0200\n"
-"PO-Revision-Date: 2006-05-04 22:49+0200\n"
+"POT-Creation-Date: 2007-02-17 12:03+0100\n"
+"PO-Revision-Date: 2007-03-20 19:37+0100\n"
 "Last-Translator: Klaus Ade Johnstad <klaus@skolelinux.no>\n"
 "Language-Team: Norwegian Bokmål < <i18n-nb@lister.ping.uio.no>\n"
 "MIME-Version: 1.0\n"
@@ -42,6 +42,18 @@ msgid ""
 "children as individuals; they can learn to type in and recognize their own "
 "usernames (login is configurable)."
 msgstr ""
+"– I brettmenyen kan du skru av og på de ulike aktivitetene. Du kan også endre "
+"navnet som er brukt i lese- og fargeaktivitetene.\n"
+"– Du kan lagre flere oppsett, og enkelt bytte mellom dem. I profilmenyen kan "
+"du legge til profiler og så tilpasse brettene for hver profil i brettmenyen. "
+"Du kan legge til mange ulike profiler, med ulike sammensetninger av brett og "
+"språk. Du kan velge standardprofil i profilmenyen ved å trykke «Standard». "
+"Du kan også velge profil fra kommandolinja.\n"
+"– Du kan legge til brukere, klasser og grupper av brukere for hver "
+"klasse. Merk at du kan importere brukere fra en kommaseparert tekstfil. Du kan "
+"tildele en eller flere grupper til en profil, som så blir tilgjengelig "
+"når du starter GCompris. Fordi du kan skille brukerene av GCompris, kan du "
+"få individuell rapport for hver elev."
 
 #: ../boards/administration.xml.in.h:4
 msgid "GCompris Administration Menu"
@@ -54,8 +66,8 @@ msgid ""
 "reporting for parents and teacher who want to monitor the progress, "
 "strengths and needs of their children."
 msgstr ""
-"Du kan fininnstille GCompris ved å benytte denne administrasjonsmodulen. "
-"Det endelige målet med denne modulen er å kunne tilby lærere og foreldre "
+"Du kan fininnstille GCompris ved å benytte denne administrasjonsmodulen. Det "
+"endelige målet med denne modulen er å kunne tilby lærere og foreldre "
 "muligheten til å følge med på barnets utvikling, styrke og svakheter "
 "innenfor de forskjellige emnene i GCompris.i"
 
@@ -398,7 +410,6 @@ msgid "Go to Algebra activities"
 msgstr "Aktiviteter med algebra"
 
 #: ../boards/algebra_group.xml.in.h:2 ../boards/menu.xml.in.h:17
-#: ../boards/menu2.xml.in.h:17
 msgid "Left-click the mouse on an activity to select it."
 msgstr "Venstreklikk med musen på en aktivitet for å velge den."
 
@@ -526,11 +537,11 @@ msgstr "algoritme"
 
 #: ../boards/anim.xml.in.h:1
 msgid "Create a drawing or an animation"
-msgstr "Verktøy for frihåndstegning og animasjon"
+msgstr "Lag en tegning"
 
 #: ../boards/anim.xml.in.h:2
 msgid "Free drawing and animation tool."
-msgstr "Verktøy for frihåndstegning og animasjon."
+msgstr "Lag tegninger og tegnefilmer"
 
 #: ../boards/anim.xml.in.h:3
 msgid ""
@@ -604,11 +615,11 @@ msgstr ""
 
 #: ../boards/awele.xml.in.h:2
 msgid "Oware"
-msgstr ""
+msgstr "Oware"
 
 #: ../boards/awele.xml.in.h:3
 msgid "Play the Oware strategy game against Tux"
-msgstr ""
+msgstr "Spill strategispillet Oware mot Tux."
 
 #: ../boards/awele.xml.in.h:4
 msgid ""
@@ -620,6 +631,12 @@ msgid ""
 "each (draw). If both players agree that the game has been reduced to an "
 "endless cycle, each player captures the stones on their side of the board."
 msgstr ""
+"Målet med spillet er å få flere frø enn motstanderen. Siden spillet bare har "
+"48 frø, så holder det at du klarer å få 25 stykk for å vinne. Og siden tallet på "
+"frø er et partall, kan det ende uavgjort, der begge spillerene får 24 frø. Spillet "
+"er slutt når en har klart å få 25 eller flere frø, eller begge har fått "
+"24. Hvis begge spillerene er enige om at ingen kan vinne, så tar hver spiller "
+"frøene på sin side av brettet."
 
 #: ../boards/babymatch.xml.in.h:1 ../boards/babymatch/board1_0.xml.in.h:1
 #: ../boards/babymatch/board2_0.xml.in.h:1
@@ -640,6 +657,10 @@ msgid ""
 "do they fit together? Drag each object to the correct red space in the main "
 "area."
 msgstr ""
+"Midt på skjermen, og i feltet til venstre, så ligger det noen gjenstander. Hver "
+"av gjenstandene til venstre hører på en eller annen måte sammen med en av "
+"gjenstandene i midten. Finn denne sammenhengen, og flytt så gjenstanden fra "
+"venstrefeltet og til rett rød prikk midt på skjermen."
 
 #: ../boards/babymatch.xml.in.h:3
 msgid "Matching Items"
@@ -671,7 +692,7 @@ msgstr "Dra og plasser figurene på riktig plass"
 
 #: ../boards/babyshapes.xml.in.h:4
 msgid "Good mouse-control"
-msgstr "God muskontroll"
+msgstr "God kontroll på musen"
 
 #: ../boards/babyshapes.xml.in.h:5
 msgid "The dog is provided by Andre Connes and released under the GPL"
@@ -697,7 +718,7 @@ msgstr "Kast ballen til Tux"
 msgid ""
 "Press the two shift keys at the same time, to make the ball go in a straight "
 "line."
-msgstr "Trykk ned Shift-knappene samtidig for å sende ballen rett avgårde"
+msgstr "Send ballen rett avgårde"
 
 #: ../boards/bargame.xml.in.h:1
 msgid "Brain"
@@ -705,7 +726,7 @@ msgstr "Hjerne"
 
 #: ../boards/bargame.xml.in.h:2
 msgid "Don't use the last ball"
-msgstr "Ikke bruk den siste ballen"
+msgstr "Ikke vær den som legger den siste ballen"
 
 #: ../boards/bargame.xml.in.h:3 ../boards/hexagon.xml.in.h:2
 msgid "Logic-training activity"
@@ -733,7 +754,7 @@ msgstr "Skyt ballen i mål"
 
 #: ../boards/billard.xml.in.h:3 ../boards/chess_computer.xml.in.h:2
 #: ../boards/chess_movelearn.xml.in.h:3 ../boards/chess_partyend.xml.in.h:2
-#: ../boards/clickgame.xml.in.h:16 ../boards/connect4.xml.in.h:7
+#: ../boards/clickgame.xml.in.h:16 ../boards/connect4.xml.in.h:6
 #: ../boards/erase.xml.in.h:3 ../boards/erase_clic.xml.in.h:6
 #: ../boards/erase_double_clic.xml.in.h:6 ../boards/fifteen.xml.in.h:2
 #: ../boards/hanoi.xml.in.h:3 ../boards/memory.xml.in.h:4
@@ -761,9 +782,7 @@ msgstr "Betjene en kanalsluse"
 msgid ""
 "Tux is in trouble, and needs to take his boat through a lock. Help Tux and "
 "find out how a canal lock works."
-msgstr ""
-"Tux er i trøbbel med skipet sitt. Han må føre det gjennom en kanalsluse. "
-"Hjelp Tux med å forstå hvordan en sluselås fungerer."
+msgstr "Hjelp Tux med å forstå hvordan en sluselås fungerer."
 
 #: ../boards/canal_lock.xml.in.h:3
 msgid ""
@@ -805,7 +824,7 @@ msgstr "Kronologi"
 
 #: ../boards/chronos.xml.in.h:2
 msgid "Drag and Drop the items to organize the story"
-msgstr "Dra og plasser bildene i riktig rekkefølge, slik at de forteller en historie"
+msgstr "Dra og plasser bildene i riktig rekkefølge"
 
 #: ../boards/chronos.xml.in.h:3
 msgid ""
@@ -868,7 +887,6 @@ msgid "1769 Cugnot's fardier"
 msgstr "1769 Cugnot's fardier"
 
 #: ../boards/chronos/board3_0.xml.in.h:2 ../boards/chronos/board3_3.xml.in.h:5
-#: ../boards/chronos/board3_4.xml.in.h:2
 msgid ""
 "1829 Stephenson's Rocket\n"
 "Steam locomotive"
@@ -914,7 +932,7 @@ msgid ""
 "First helicopter flight"
 msgstr ""
 "1906 Paul Cornu\n"
-"Første helikopterflygning"
+"Første helikopterflyving"
 
 #: ../boards/chronos/board3_2.xml.in.h:2 ../boards/chronos/board3_3.xml.in.h:3
 msgid ""
@@ -923,6 +941,10 @@ msgid ""
 msgstr ""
 "1791 Comte de Sivrac's\n"
 "Celerifere"
+
+#: ../boards/chronos/board3_4.xml.in.h:2
+msgid "1829 Stephenson's Rocket\\nSteam locomotive"
+msgstr "1829 Stephenson's Rocket\\nDamplokomotiv"
 
 #: ../boards/chronos/board4_0.xml.in.h:2
 msgid "1903 The Wright brothers' Flyer III"
@@ -1014,7 +1036,7 @@ msgstr "Gjenkjenning av bokstavnavn"
 
 #: ../boards/click_on_letter.xml.in.h:4
 msgid "Listen to a letter and click on the right one"
-msgstr "Hør en bokstav bli lest opp og trykk på den bokstaven du hørte"
+msgstr "Hør på bokstaver bli lest opp"
 
 #: ../boards/click_on_letter.xml.in.h:5
 msgid "Visual letter-recognition. Can move the mouse."
@@ -1063,7 +1085,7 @@ msgstr ""
 msgid ""
 "Left-Click with the mouse on all the swimming fish before they leave the "
 "fishtank"
-msgstr "Klikk på fiskene med venstre museknapp før de svømmer ut av akvariumet"
+msgstr "Fang fisker i akvariumet"
 
 #: ../boards/clickgame.xml.in.h:15
 msgid "Motor coordination: moving and clicking the mouse."
@@ -1083,7 +1105,7 @@ msgstr "Se forskjell på time, minutt og sekunder. Still inn en tid på klokka."
 
 #: ../boards/clockgame.xml.in.h:2
 msgid "Learn how to tell the time"
-msgstr "Lær å lese klokken"
+msgstr "Lær klokken"
 
 #: ../boards/clockgame.xml.in.h:3
 msgid "Learning Clock"
@@ -1154,13 +1176,11 @@ msgstr "Fire på rad"
 
 #: ../boards/connect4.xml.in.h:4
 msgid ""
-"Create a line of 4 pieces either horizontally (lying down)\n"
-"or vertically (standing up)"
-msgstr ""
-"Prøv å få fire på rad, enten vannrett (liggende)\n"
-"eller loddrett (stående)"
+"Create a line of 4 pieces either horizontally (lying down) or vertically "
+"(standing up)"
+msgstr "Prøv å få fire på rad, enten vannrett (liggende) eller loddrett (stående)"
 
-#: ../boards/connect4.xml.in.h:6
+#: ../boards/connect4.xml.in.h:5
 msgid ""
 "Laurent Lacheny. Images and Artificial Intelligence taken from project "
 "4stattack by Jeroen Vloothuis. The original project can be found on &lt;"
@@ -1193,6 +1213,9 @@ msgid ""
 "right model. Below the crane itself, you will find four arrows that let you "
 "move items. To select the item to move, just click on it."
 msgstr ""
+"Flytt gjenstandene nede til høyre slik at de har samme plassering som i ruta "
+"oppe til høyre. Under kranen finner du fire piler som du kan bruke til å styre "
+"kranen, du trykker på gjenstandene for å velge dem."
 
 #: ../boards/discovery.xml.in.h:1
 msgid "Colors, sounds, memory..."
@@ -1257,7 +1280,7 @@ msgstr ""
 
 #: ../boards/electric.xml.in.h:1
 msgid "Create and simulate an electric schema"
-msgstr "Lag og simulert en elektrisk krets"
+msgstr "Lag og simuler en elektrisk krets"
 
 #: ../boards/electric.xml.in.h:2
 msgid ""
@@ -1271,6 +1294,15 @@ msgid ""
 "is blown, you can blown it by right-clicking on it. The simulation is "
 "updated in real time by any user action."
 msgstr ""
+"Dra de elektriske komponentene fra feltet til venstre og over til "
+"arbeidsområdet. Lag ledninger ved å trykke på et kontaktpunkt, dra musa "
+"over til et annet kontaktpunkt, og så slippe museknappen. Du kan også flytte "
+"på komponenter ved å dra dem. Du kan fjerne ledninger ved å trykke på dem, "
+"men for å slette en komponent må du bruke sletteverktøyet som du finner øverst "
+"til venstre. Du kan trykke på bryteren for å åpne eller lukke den. Du kan "
+"også endre motstandsverdien på en motstand ved å dra skyvefeltet. For å "
+"simulere hva som skjer når en lyspære er ødelagt, kan du høyreklikke på den. "
+"Simuleringen blir automatisk oppdatert når du flytter rundt på komponentene."
 
 #: ../boards/electric.xml.in.h:3
 msgid "Electricity"
@@ -1278,13 +1310,16 @@ msgstr "Elektrisitet"
 
 #: ../boards/electric.xml.in.h:4
 msgid "Freely create an electric schema with a real time simulation of it."
-msgstr ""
+msgstr "Lag strømkretser og se simuleringen av dem."
 
 #: ../boards/electric.xml.in.h:5
 msgid ""
 "GCompris uses the Gnucap electric simulator as a backend. You can get more "
 "information on gnucap at &lt;http://geda.seul.org/tools/gnucap/&gt;."
 msgstr ""
+"GCompris bruker elektrisitetssimulatoren Gnucap til å utføre simuleringene. "
+"Du finner mer informasjon om Gnucap på &lt;http://geda.seul.org/tools/gnucap/"
+"&gt;."
 
 #: ../boards/electric.xml.in.h:6
 msgid "Requires some basic understanding of the concept of electricity."
@@ -1310,11 +1345,11 @@ msgstr ""
 "Enter knappen."
 
 #: ../boards/enumerate.xml.in.h:4 ../boards/planegame.xml.in.h:5
-#: ../src/boards/enumerate.c:92
+#: ../src/boards/enumerate.c:89
 msgid "Numeration training"
 msgstr "Telling"
 
-#: ../boards/enumerate.xml.in.h:5 ../src/boards/enumerate.c:93
+#: ../boards/enumerate.xml.in.h:5 ../src/boards/enumerate.c:90
 msgid "Place the items in the best way to count them"
 msgstr "Plasser gjenstandene slik at det er lettest å telle dem"
 
@@ -1327,16 +1362,16 @@ msgid ""
 msgstr ""
 "Dyrebildene er tatt fra Ralf Schmode's side med dyrebilder (&lt;http://"
 "schmode.net/&gt;) og fra LE BERRE Daniel. De har latt GCompris bruke bildene "
-"dems. Mange takk."
+"deres. Mange takk."
 
 #: ../boards/erase.xml.in.h:4 ../src/boards/erase.c:113
-#: ../src/boards/machpuzzle.c:92
+#: ../src/boards/machpuzzle.c:88
 msgid "Move the mouse"
 msgstr "Beveg musen"
 
 #: ../boards/erase.xml.in.h:5 ../src/boards/erase.c:114
 msgid "Move the mouse to erase the area and discover the background"
-msgstr "Beveg musa slik at bakgrunnen blir skrapt frem"
+msgstr "Beveg musa for å skrape frem bildet"
 
 #: ../boards/erase.xml.in.h:6
 msgid "Move the mouse until all the blocks disappear."
@@ -1352,11 +1387,11 @@ msgstr "Klikk på rektanglene med musa helt til alle har blitt borte."
 
 #: ../boards/erase_clic.xml.in.h:4
 msgid "Click the mouse to erase the area and discover the background"
-msgstr "Klikk med musa for å skrape frem bakgrunnen"
+msgstr "Klikk med musa for å skrape frem bildet"
 
 #: ../boards/erase_double_clic.xml.in.h:2
 msgid "Double-Click the mouse to erase the area and discover the background"
-msgstr "Dobbeltklikk med musa slik at bakgrunnen blir skrapt frem"
+msgstr "Dobbeltklikk med musa for å skrape frem bildet"
 
 #: ../boards/erase_double_clic.xml.in.h:3
 msgid "Double-click the mouse"
@@ -1392,43 +1427,15 @@ msgstr ""
 
 #: ../boards/fifteen.xml.in.h:3
 msgid "Move each item to make an increasing series: from the smallest to the largest"
-msgstr "Flytt tallene slik at de står i rekkefølge, fra laveste til høyeste."
+msgstr "Plasser tallene i rekkefølge"
 
 #: ../boards/fifteen.xml.in.h:4
 msgid "Original code taken from the libgnomecanvas demo"
 msgstr "Den opprinnelige koden er tatt fra demonstrasjonen til libgnomecanvas"
 
 #: ../boards/fifteen.xml.in.h:5
-msgid "Samuel Loyd"
-msgstr "Samuel Loyd"
-
-#: ../boards/fifteen.xml.in.h:6
 msgid "The fifteen game"
 msgstr "Femtenspillet"
-
-#: ../boards/fifteen.xml.in.h:7
-msgid "anticipate"
-msgstr "forutse"
-
-#: ../boards/fifteen.xml.in.h:8
-msgid "logical"
-msgstr "logisk"
-
-#: ../boards/fifteen.xml.in.h:9
-msgid "move"
-msgstr "flytt"
-
-#: ../boards/fifteen.xml.in.h:10
-msgid "puzzle"
-msgstr "puslespill"
-
-#: ../boards/fifteen.xml.in.h:11
-msgid "slide"
-msgstr "gli"
-
-#: ../boards/fifteen.xml.in.h:12
-msgid "taquin"
-msgstr ""
 
 #: ../boards/followline.xml.in.h:1
 msgid "Control the hose-pipe"
@@ -1450,7 +1457,7 @@ msgstr ""
 
 #: ../boards/followline.xml.in.h:4
 msgid "Tux needs to water the flowers, but the hose is blocked."
-msgstr "Tux må vanne blomstene, men vannslangen virker ikke."
+msgstr "Hjelp Tux med å vanne blomstene"
 
 #: ../boards/fun.xml.in.h:1
 msgid "Go to Amusement activities"
@@ -1494,6 +1501,9 @@ msgid ""
 "Documentation License. Olaf Ronneberger and his children Lina and Julia "
 "Ronneberger created the German level."
 msgstr ""
+"Kartet over Tyskland kommer fra Wikipedia, og er tilgjengelig under GNU Free "
+"Documentation License. Olaf Ronneberger og ungene hans, Lina og Julia "
+"Ronneberger, har lagd det tyske brettet."
 
 #: ../boards/geography/board1_0.xml.in.h:1
 #: ../boards/geography/board4_2.xml.in.h:1
@@ -1725,7 +1735,7 @@ msgstr "Kroatia"
 msgid "Cyprus"
 msgstr "Kypros"
 
-#: ../boards/geography/board3_1.xml.in.h:7 ../src/gcompris/config.c:69
+#: ../boards/geography/board3_1.xml.in.h:7 ../src/gcompris/config.c:65
 msgid "Czech Republic"
 msgstr "Den Tsjekkiske republikk"
 
@@ -1809,153 +1819,152 @@ msgid "Burkina Faso"
 msgstr "Burkina Faso"
 
 #: ../boards/geography/board4_0.xml.in.h:4
-#: ../boards/geography/board4_2.xml.in.h:8
+#: ../boards/geography/board4_2.xml.in.h:7
 msgid "Cameroon"
 msgstr "Kamerun"
 
 #: ../boards/geography/board4_0.xml.in.h:5
-#: ../boards/geography/board4_2.xml.in.h:9
+#: ../boards/geography/board4_2.xml.in.h:8
 msgid "Central African Republic"
 msgstr "Sentralafrikanske Republikk"
 
 #: ../boards/geography/board4_0.xml.in.h:6
-#: ../boards/geography/board4_2.xml.in.h:10
+#: ../boards/geography/board4_2.xml.in.h:9
 msgid "Chad"
 msgstr "Tsjad"
 
 #: ../boards/geography/board4_0.xml.in.h:7
-#: ../boards/geography/board4_2.xml.in.h:12
 msgid "Djibouti"
 msgstr "Djibouti"
 
 #: ../boards/geography/board4_0.xml.in.h:8
-#: ../boards/geography/board4_2.xml.in.h:13
+#: ../boards/geography/board4_2.xml.in.h:11
 msgid "Egypt"
 msgstr "Egypt"
 
 #: ../boards/geography/board4_0.xml.in.h:9
 #: ../boards/geography/board4_1.xml.in.h:5
-#: ../boards/geography/board4_2.xml.in.h:14
 msgid "Equatorial Guinea"
 msgstr "Ekvatorial-Guinea"
 
 #: ../boards/geography/board4_0.xml.in.h:10
-#: ../boards/geography/board4_2.xml.in.h:16
+#: ../boards/geography/board4_2.xml.in.h:12
+msgid "Eritrea"
+msgstr "Eritrea"
+
+#: ../boards/geography/board4_0.xml.in.h:11
+#: ../boards/geography/board4_2.xml.in.h:13
 msgid "Ethiopia"
 msgstr "Etiopia"
 
-#: ../boards/geography/board4_0.xml.in.h:11
+#: ../boards/geography/board4_0.xml.in.h:12
 #: ../boards/geography/board4_1.xml.in.h:6
-#: ../boards/geography/board4_2.xml.in.h:17
+#: ../boards/geography/board4_2.xml.in.h:14
 msgid "Gabon"
 msgstr "Gabon"
 
-#: ../boards/geography/board4_0.xml.in.h:12
-#: ../boards/geography/board4_2.xml.in.h:18
+#: ../boards/geography/board4_0.xml.in.h:13
 msgid "Gambia"
 msgstr "Gambia"
 
-#: ../boards/geography/board4_0.xml.in.h:13
-#: ../boards/geography/board4_2.xml.in.h:19
+#: ../boards/geography/board4_0.xml.in.h:14
+#: ../boards/geography/board4_2.xml.in.h:15
 msgid "Ghana"
 msgstr "Ghana"
 
-#: ../boards/geography/board4_0.xml.in.h:14
-#: ../boards/geography/board4_2.xml.in.h:20
+#: ../boards/geography/board4_0.xml.in.h:15
+#: ../boards/geography/board4_2.xml.in.h:16
 msgid "Guinea"
 msgstr "Guinea"
 
-#: ../boards/geography/board4_0.xml.in.h:15
-#: ../boards/geography/board4_2.xml.in.h:21
+#: ../boards/geography/board4_0.xml.in.h:16
 msgid "Guinea Bissau"
 msgstr "Guinea-Bissau"
 
-#: ../boards/geography/board4_0.xml.in.h:16
-#: ../boards/geography/board4_2.xml.in.h:22
+#: ../boards/geography/board4_0.xml.in.h:17
+#: ../boards/geography/board4_2.xml.in.h:17
 msgid "Ivory Coast"
 msgstr "Elfenbenskysten"
 
-#: ../boards/geography/board4_0.xml.in.h:17
-#: ../boards/geography/board4_2.xml.in.h:25
+#: ../boards/geography/board4_0.xml.in.h:18
+#: ../boards/geography/board4_2.xml.in.h:19
 msgid "Liberia"
 msgstr "Liberia"
 
-#: ../boards/geography/board4_0.xml.in.h:18
-#: ../boards/geography/board4_2.xml.in.h:26
+#: ../boards/geography/board4_0.xml.in.h:19
+#: ../boards/geography/board4_2.xml.in.h:20
 msgid "Libya"
 msgstr "Libya"
 
-#: ../boards/geography/board4_0.xml.in.h:19
-#: ../boards/geography/board4_2.xml.in.h:29
+#: ../boards/geography/board4_0.xml.in.h:20
+#: ../boards/geography/board4_2.xml.in.h:23
 msgid "Mali"
 msgstr "Mali"
 
-#: ../boards/geography/board4_0.xml.in.h:20
-#: ../boards/geography/board4_2.xml.in.h:30
+#: ../boards/geography/board4_0.xml.in.h:21
+#: ../boards/geography/board4_2.xml.in.h:24
 msgid "Mauritania"
 msgstr "Mauritania"
 
-#: ../boards/geography/board4_0.xml.in.h:21
-#: ../boards/geography/board4_2.xml.in.h:31
+#: ../boards/geography/board4_0.xml.in.h:22
+#: ../boards/geography/board4_2.xml.in.h:25
 msgid "Morocco"
 msgstr "Marokko"
 
-#: ../boards/geography/board4_0.xml.in.h:22
-#: ../boards/geography/board4_2.xml.in.h:34
+#: ../boards/geography/board4_0.xml.in.h:23
+#: ../boards/geography/board4_2.xml.in.h:28
 msgid "Niger"
 msgstr "Niger"
 
-#: ../boards/geography/board4_0.xml.in.h:23
-#: ../boards/geography/board4_2.xml.in.h:35
+#: ../boards/geography/board4_0.xml.in.h:24
+#: ../boards/geography/board4_2.xml.in.h:29
 msgid "Nigeria"
 msgstr "Nigeria"
 
-#: ../boards/geography/board4_0.xml.in.h:24
+#: ../boards/geography/board4_0.xml.in.h:25
 msgid "Northern Africa"
 msgstr "Nord-Afrika"
 
-#: ../boards/geography/board4_0.xml.in.h:25
+#: ../boards/geography/board4_0.xml.in.h:26
 #: ../boards/geography/board4_1.xml.in.h:14
-#: ../boards/geography/board4_2.xml.in.h:36
 msgid "Rwanda"
 msgstr "Rwanda"
 
-#: ../boards/geography/board4_0.xml.in.h:26
-#: ../boards/geography/board4_2.xml.in.h:37
+#: ../boards/geography/board4_0.xml.in.h:27
+#: ../boards/geography/board4_2.xml.in.h:30
 msgid "Senegal"
 msgstr "Senegal"
 
-#: ../boards/geography/board4_0.xml.in.h:27
-#: ../boards/geography/board4_2.xml.in.h:38
+#: ../boards/geography/board4_0.xml.in.h:28
 msgid "Sierra Leone"
 msgstr "Sierra Leone"
 
-#: ../boards/geography/board4_0.xml.in.h:28
-#: ../boards/geography/board4_2.xml.in.h:39
+#: ../boards/geography/board4_0.xml.in.h:29
+#: ../boards/geography/board4_2.xml.in.h:31
 msgid "Somalia"
 msgstr "Somalia"
 
-#: ../boards/geography/board4_0.xml.in.h:29
+#: ../boards/geography/board4_0.xml.in.h:30
 msgid "Sudan"
 msgstr "Sudan"
 
-#: ../boards/geography/board4_0.xml.in.h:30
-#: ../boards/geography/board4_2.xml.in.h:43
+#: ../boards/geography/board4_0.xml.in.h:31
+#: ../boards/geography/board4_2.xml.in.h:35
 msgid "Togo"
 msgstr "Togo"
 
-#: ../boards/geography/board4_0.xml.in.h:31
-#: ../boards/geography/board4_2.xml.in.h:44
+#: ../boards/geography/board4_0.xml.in.h:32
+#: ../boards/geography/board4_2.xml.in.h:36
 msgid "Tunisia"
 msgstr "Tunisia"
 
-#: ../boards/geography/board4_0.xml.in.h:32
+#: ../boards/geography/board4_0.xml.in.h:33
 #: ../boards/geography/board4_1.xml.in.h:19
-#: ../boards/geography/board4_2.xml.in.h:45
+#: ../boards/geography/board4_2.xml.in.h:37
 msgid "Uganda"
 msgstr "Uganda"
 
-#: ../boards/geography/board4_0.xml.in.h:33
+#: ../boards/geography/board4_0.xml.in.h:34
 msgid "Western Sahara"
 msgstr "Vest-Sahara"
 
@@ -1970,42 +1979,40 @@ msgid "Botswana"
 msgstr "Botswana"
 
 #: ../boards/geography/board4_1.xml.in.h:3
-#: ../boards/geography/board4_2.xml.in.h:7
 msgid "Burundi"
 msgstr "Burundi"
 
 #: ../boards/geography/board4_1.xml.in.h:4
-#: ../boards/geography/board4_2.xml.in.h:11
+#: ../boards/geography/board4_2.xml.in.h:10
 msgid "Democratic Republic of Congo"
 msgstr "Kongo, den demokratiske republikk"
 
 #: ../boards/geography/board4_1.xml.in.h:7
-#: ../boards/geography/board4_2.xml.in.h:23
+#: ../boards/geography/board4_2.xml.in.h:18
 msgid "Kenya"
 msgstr "Kenya"
 
 #: ../boards/geography/board4_1.xml.in.h:8
-#: ../boards/geography/board4_2.xml.in.h:24
 msgid "Lesotho"
 msgstr "Lesotho"
 
 #: ../boards/geography/board4_1.xml.in.h:9
-#: ../boards/geography/board4_2.xml.in.h:27
+#: ../boards/geography/board4_2.xml.in.h:21
 msgid "Madagascar"
 msgstr "Madagaskar"
 
 #: ../boards/geography/board4_1.xml.in.h:10
-#: ../boards/geography/board4_2.xml.in.h:28
+#: ../boards/geography/board4_2.xml.in.h:22
 msgid "Malawi"
 msgstr "Malawi"
 
 #: ../boards/geography/board4_1.xml.in.h:11
-#: ../boards/geography/board4_2.xml.in.h:32
+#: ../boards/geography/board4_2.xml.in.h:26
 msgid "Mozambique"
 msgstr "Mosambik"
 
 #: ../boards/geography/board4_1.xml.in.h:12
-#: ../boards/geography/board4_2.xml.in.h:33
+#: ../boards/geography/board4_2.xml.in.h:27
 msgid "Namibia"
 msgstr "Namibia"
 
@@ -2014,7 +2021,7 @@ msgid "Republic of Congo"
 msgstr "Kongo, den demokratiske republikk"
 
 #: ../boards/geography/board4_1.xml.in.h:15
-#: ../boards/geography/board4_2.xml.in.h:40
+#: ../boards/geography/board4_2.xml.in.h:33
 msgid "South Africa"
 msgstr "Sør-Afrika"
 
@@ -2023,28 +2030,27 @@ msgid "Southern Africa"
 msgstr "Sør-Afrika"
 
 #: ../boards/geography/board4_1.xml.in.h:17
-#: ../boards/geography/board4_2.xml.in.h:41
 msgid "Swaziland"
 msgstr "Swaziland"
 
 #: ../boards/geography/board4_1.xml.in.h:18
-#: ../boards/geography/board4_2.xml.in.h:42
+#: ../boards/geography/board4_2.xml.in.h:34
 msgid "Tanzania"
 msgstr "Tanzania"
 
 #: ../boards/geography/board4_1.xml.in.h:20
-#: ../boards/geography/board4_2.xml.in.h:46
+#: ../boards/geography/board4_2.xml.in.h:38
 msgid "Zambia"
 msgstr "Zambia"
 
 #: ../boards/geography/board4_1.xml.in.h:21
-#: ../boards/geography/board4_2.xml.in.h:47
+#: ../boards/geography/board4_2.xml.in.h:39
 msgid "Zimbabwe"
 msgstr "Zimbabwe"
 
-#: ../boards/geography/board4_2.xml.in.h:15
-msgid "Eritrea"
-msgstr "Eritrea"
+#: ../boards/geography/board4_2.xml.in.h:32
+msgid "Soudan"
+msgstr "Sudan"
 
 #: ../boards/geography/board5_0.xml.in.h:1
 msgid "Regions of France"
@@ -2108,14 +2114,15 @@ msgstr "Faktor-tallmumser"
 msgid ""
 "Guide the Number Muncher to all the factors of the number at the top of the "
 "screen."
-msgstr "Hjelp tallmumseren med å finne faktorene til tallet som står øverst på skjermen."
+msgstr ""
+"Hjelp tallmumseren med å finne faktorene til tallet som står øverst på "
+"skjermen."
 
 #: ../boards/gnumch-factors.xml.in.h:3
 msgid "Learn about factors and multiples."
 msgstr "Lære om faktorer og multiplum."
 
 #: ../boards/gnumch-factors.xml.in.h:4
-#, fuzzy
 msgid ""
 "The factors of a number are all the numbers that divide that number evenly. "
 "For example, the factors of 6 are 1, 2, 3 and 6. 4 is not a factor of 6 "
@@ -2128,8 +2135,9 @@ msgid ""
 msgstr ""
 "Faktorene til et tall er de tallene som går opp i tallet. For eksempel er "
 "faktorene til tallet 6 tallene 1, 2, 3 og 6. Men 4 er ikke en faktor, da du "
-"ikke kan dele 6 i 4 like store deler. Viss et tall er et multiplum av et "
-"annet tall, så er dette andre tallet en faktor i det første tallet. Bruk "
+"ikke kan dele 6 i 4 like store deler. Hvis et tall er et multiplum av et "
+"annet tall, så er dette andre tallet en faktor i det første tallet. "
+"Du kan tenke på multiplene som familier, og faktorene som familiemedlemmer. Så 1, 2, 3 og 6 er alle medlemmer av 6-familien, mens 4 tilhører en annen familie. Bruk "
 "piltastene til å styra tallmumseren rundt på brettet, og unngå Trogglene. "
 "Trykk på mellomromstasten for å spise tallene."
 
@@ -2153,7 +2161,7 @@ msgstr "Du skal øve på å legge til, gange, dele og trekke fra."
 msgid ""
 "Guide the Number Muncher to all the multiples of the number at the top of "
 "the screen."
-msgstr "Hjelp tallmumseren fram til alle multipluma av tallet øverst på skjermen."
+msgstr "Hjelp tallmumseren fram til alle multiplum av tallet øverst på skjermen."
 
 #: ../boards/gnumch-multiples.xml.in.h:2
 msgid "Learn about multiples and factors."
@@ -2180,11 +2188,11 @@ msgid ""
 "multiples (or families or steps) of 5. Use the arrow keys to navigate around "
 "the board and to avoid the Troggles. Press the spacebar to eat a number."
 msgstr ""
-"Multipluma av et tall er de tallene som lik det opprinnelige tallet ganger "
+"Multiplumene av et tall er de tallene som lik det opprinnelige tallet ganger "
 "et annet heltall. For eksempel er 24, 36, 48 og 60 alle multiplum av 12. Men "
 "25 er ikke et multiplum, da det ikke finnes noe heltall som kan ganges med "
-"12 for å få 25. Viss et tall er en faktor til et annet tall, så er dette "
-"andre talet et multiplum av det første tallet. Bruk piltastene til å styra "
+"12 for å få 25. Hvis et tall er en faktor til et annet tall, så er dette "
+"andre talet et multiplum av det første tallet. Bruk piltastene for å styre "
 "tallmumseren rundt på brettet, og unngå Trogglene. Trykk på mellomromstasten "
 "for å spise tallene."
 
@@ -2218,7 +2226,7 @@ msgstr "Gå til aktivitet med tallmumsing"
 
 #: ../boards/gnumchmenu.xml.in.h:2
 msgid "Number Munchers are games to play with arithmetic."
-msgstr ""
+msgstr "Tallmumsere er spill med aritmetikk."
 
 #: ../boards/guessnumber.xml.in.h:1
 msgid "Guess a number"
@@ -2241,6 +2249,11 @@ msgid ""
 "If Tux is over or under the escape area, it means your number is over or "
 "under the correct number."
 msgstr ""
+"Les instruksjonene som forteller deg hvilke to tall tallet ligger imellom. Gjett på ett tall, og skriv det inn øverst til høyre. Tux vil så fortelle deg om tallet du "
+"gjettet på er for høyt eller for lavt. Skriv så inn et nytt tall. Avstanden "
+"mellom Tux og utgangen til høyre viser hvor langt vekk du er fra det riktige tallet. "
+"Hvis Tux er over eller under utgangen, er tallet ditt høyere eller lavere enn det "
+"riktige talet."
 
 #: ../boards/hanoi.xml.in.h:1
 msgid "Concept taken from EPI games."
@@ -2254,15 +2267,15 @@ msgstr ""
 "Dra og flytt toppstykkene fra et tårn til et annet, slik at tårnet i det "
 "venstre feltet blir likt det som står i det høyre feltet."
 
-#: ../boards/hanoi.xml.in.h:4 ../src/boards/hanoi.c:101
+#: ../boards/hanoi.xml.in.h:4 ../src/boards/hanoi.c:97
 msgid "Reproduce the given tower"
 msgstr "Gjenskap tårnet"
 
 #: ../boards/hanoi.xml.in.h:5
 msgid "Reproduce the tower on the right in the empty space on the left"
-msgstr "Gjenskap tårnet på høyre i feltet til venstre"
+msgstr "Gjenskap tårnet"
 
-#: ../boards/hanoi.xml.in.h:6 ../src/boards/hanoi.c:100
+#: ../boards/hanoi.xml.in.h:6 ../src/boards/hanoi.c:96
 msgid "Simplified Tower of Hanoi"
 msgstr "Enkel versjon av Tårnet i Hanoi"
 
@@ -2285,14 +2298,16 @@ msgstr "Tårnet i Hanoi"
 #: ../boards/hanoi_real.xml.in.h:5
 msgid ""
 "The object of the game is to move the entire stack to another peg, obeying "
-"the following rules: * only one disc may be moved at a time * no disc may be "
-"placed atop a smaller disc"
+"the following rules:\n"
+"* only one disc may be moved at a time\n"
+"* no disc may be placed atop a smaller disc"
 msgstr ""
 "Du må klare å flytte hele stabelen fra den ene pinnen over på den andre "
-"pinnen, den helt til høyre. Følgende regler gjelder; *du kan kun flytte en "
-"skive om gangen *du kan kun plassere en mindre skive oppå en annen skive."
+"pinnen, den helt til høyre. Følgende regler gjelder: \n"
+"*du kan kun flytte en skive omgangen\n "
+"*du kan kun plassere en mindre skive oppå en annen skive"
 
-#: ../boards/hanoi_real.xml.in.h:6
+#: ../boards/hanoi_real.xml.in.h:8
 msgid ""
 "The puzzle was invented by the French mathematician Edouard Lucas in 1883. "
 "There is a legend about a Hindu temple whose priests were constantly engaged "
@@ -2303,10 +2318,19 @@ msgid ""
 "inspired by it. (source Wikipedia &lt;http://en.wikipedia.org/wiki/"
 "Tower_of_hanoi&gt;)"
 msgstr ""
+"Tårnet i Hanoi ble oppfunnet av den franske matematikeren François Édouard "
+"Anatole Lucas i 1883. Det finnes en gammel legende om et hindutempel der "
+"prestene holdt på å flytta 64 skiver etter reglene i dette spillet. Legenden "
+"sier at verden går under når de er ferdig. Men dette ville ta veldig lang "
+"tid (mye lengre tid enn universet vårt har eksistert til nå), selv om de "
+"klarte å flytte så mye som én skive i sekundet, og brukte den optimale "
+"flyttestrategien. Det er ikke klart om Lucas fant på legenden selv, eller "
+"om han bare var inspirert av den. (Kilde: &lt;http://en.wikipedia.org/wiki/"
+"Tower_of_Hanoi&gt;)"
 
 #: ../boards/hexagon.xml.in.h:1
 msgid "Find the strawberry by clicking on the blue fields"
-msgstr "Finn jordbæret ved å trykke på de blå feltene"
+msgstr "Lek tampen brenner, finn jordbæret"
 
 #: ../boards/hexagon.xml.in.h:4
 msgid ""
@@ -2326,11 +2350,11 @@ msgstr "Klikk på ordet som passer til bildet som vises."
 
 #: ../boards/imageid.xml.in.h:2
 msgid "Practice reading by finding the word matching an image"
-msgstr "Øv på å lese ved å finne ordet som tilhører bildet."
+msgstr "Finn ordet som tilhører bildet"
 
 #: ../boards/imageid.xml.in.h:3 ../boards/imagename.xml.in.h:4
 #: ../boards/readingh.xml.in.h:4 ../boards/readingv.xml.in.h:4
-#: ../src/boards/imageid.c:112 ../src/boards/missingletter.c:104
+#: ../src/boards/imageid.c:103 ../src/boards/missingletter.c:101
 msgid "Reading"
 msgstr "Lesing"
 
@@ -2614,7 +2638,6 @@ msgid "GCompris login screen"
 msgstr "Innloggingsskjerm for GCompris"
 
 #: ../boards/login.xml.in.h:3
-#, fuzzy
 msgid ""
 "In order to activate the login screen, you must \n"
 "first add users in the administration part of GCompris. \n"
@@ -2628,7 +2651,7 @@ msgid ""
 msgstr ""
 "For å ta i bruk innloggingsskjermen, må du først \n"
 "legge til brukere i administratorgrensesnittet til GCompris. \n"
-"Du får tilgang til dette grensesnittet fra «gcompris -a».\n"
+"Du får tilgang til dette grensesnittet ved å kjøre «gcompris -a».\n"
 "Her kan du lage forskjellige profiler. I hver profil kan du\n"
 "ha forskjellige sett med brukere, og velge hvilke aktiviteter\n"
 "som skal være tilgjengelige for dem.\n"
@@ -2647,13 +2670,15 @@ msgstr "Addisjon"
 #: ../boards/magic_hat_plus.xml.in.h:2
 msgid ""
 "Click on the hat to open or close it. Under the hat, how many stars can you "
-"see moving around? Count carefully. :) Click in the bottom- right area to "
+"see moving around? Count carefully. :) Click in the bottom-right area to "
 "input your answer."
 msgstr ""
+"Trykk på hatten for å løfte eller sette ned hatten. Hvor mange stjerner ser "
+"du under hatten? Tell nøye etter. I området nede til høyre på skjermen så trykker du på så mange stjerner som er riktig svar."
 
 #: ../boards/magic_hat_plus.xml.in.h:3
 msgid "Count how many items are under the magic hat"
-msgstr "Tell hvor mange gjenstander som er under den magiske hatten"
+msgstr "Tell hvor mange stjerner som er under den magiske hatten"
 
 #: ../boards/magic_hat_plus.xml.in.h:4
 msgid "Learn addition"
@@ -2665,7 +2690,7 @@ msgstr "Den magiske hatten"
 
 #: ../boards/magic_hat_minus.xml.in.h:1
 msgid "Count how many items are under the magic hat after some have got away"
-msgstr "Tell hvor mange gjenstander som er under den magiske hatten etter at noen er tatt bort"
+msgstr "Tell hvor mange stjerner som er under den magiske hatten"
 
 #: ../boards/magic_hat_minus.xml.in.h:2
 msgid "Learn subtraction"
@@ -2678,6 +2703,10 @@ msgid ""
 "the hat to close it. You have to count how many are still under the hat. "
 "Click on the bottom right area to answer."
 msgstr ""
+"Se på trollmannen. Han forteller deg hvor mange stjerner han har under hatten "
+"sin. Trykk så på hatten for å løfte den. Noen av stjernene rømmer da. Trykk "
+"så på hatten for å sette den ned. Du må nå telle etter hvor mange stjerner "
+"som fremdeles er under hatten. I området nede til høyre på skjermen så trykker du på så mange stjerner som er riktig svar."
 
 #: ../boards/magic_hat_minus.xml.in.h:4 ../boards/memory_add_minus.xml.in.h:3
 #: ../boards/memory_add_minus_tux.xml.in.h:3 ../boards/memory_minus.xml.in.h:2
@@ -2698,7 +2727,7 @@ msgstr "Matematikk"
 msgid "Can use the keyboard arrow to move an object."
 msgstr "Kunne bruke piltastene for å bevege et objekt."
 
-#: ../boards/maze.xml.in.h:2 ../src/boards/maze.c:133
+#: ../boards/maze.xml.in.h:2 ../src/boards/maze.c:129
 msgid "Find your way out of the maze"
 msgstr "Finn veien ut av labyrinten"
 
@@ -2708,7 +2737,7 @@ msgid "Help Tux get out of this maze."
 msgstr "Hjelp Tux med å komme seg ut av labyrinten."
 
 #: ../boards/maze.xml.in.h:4 ../boards/maze2DRelative.xml.in.h:4
-#: ../boards/mazeInvisible.xml.in.h:4 ../src/boards/maze.c:132
+#: ../boards/mazeInvisible.xml.in.h:4 ../src/boards/maze.c:128
 msgid "Maze"
 msgstr "Labyrint"
 
@@ -2789,7 +2818,7 @@ msgstr "Melodi"
 
 #: ../boards/melody.xml.in.h:5
 msgid "Repeat a melody"
-msgstr "Gjenta en melodi"
+msgstr "Spill melodien du hørte"
 
 #: ../boards/memory.xml.in.h:1
 msgid ""
@@ -2818,19 +2847,20 @@ msgstr "Tren din hukommelse og fjern alle kortene"
 
 #: ../boards/memory_add.xml.in.h:2
 msgid "Addition memory game"
-msgstr ""
+msgstr "Hukommelsesspill med addisjon."
 
 #: ../boards/memory_add.xml.in.h:3 ../boards/memory_add_tux.xml.in.h:3
 msgid "Practise adding up, until all the cards are gone."
-msgstr ""
+msgstr "Øv på å legge til, helt til du har fått vekk alle kortene."
 
 #: ../boards/memory_add.xml.in.h:4 ../boards/memory_add_tux.xml.in.h:4
 msgid ""
 "Turn the cards over to find two numbers which add up the same, until all the "
 "cards are gone."
-msgstr ""
+msgstr "Snu kortene slik at du finner to med samme sum, helt til du har fått vekk alle kortene."
 
 #: ../boards/memory_add.xml.in.h:5 ../boards/memory_add_tux.xml.in.h:5
+#, fuzzy
 msgid ""
 "You can see some cards, but you can't see what's on the other side of them. "
 "Each card is hiding an adding-up sum, or the answer to the sum.\n"
@@ -2855,22 +2885,26 @@ msgid ""
 "disappear! When you've made them all disappear, found all the sums, you've "
 "won the game! :)"
 msgstr ""
+"Du ser en del kort, men du kan ikke se baksiden på dem. "
+"Hvert kort skjuler et regnestykke, eller svaret på et regnestykke.\n"
+"Et regnestykke kan f.eks se slik ut: 2 + 2 = 4\n"
+"Tallene på den ene siden av likhetstegnet (=) må "
 
 #: ../boards/memory_add_minus.xml.in.h:1
 msgid "Addition and subtraction memory game"
-msgstr ""
+msgstr "Hukommelsesspill med addisjon og subtraksjon."
 
 #: ../boards/memory_add_minus.xml.in.h:2
 #: ../boards/memory_add_minus_tux.xml.in.h:2
 msgid "Practise addition, subtraction, until all the cards are gone."
-msgstr ""
+msgstr "Øv på å legge til og å trekke i fra, helt til du har fått vekk alle kortene."
 
 #: ../boards/memory_add_minus.xml.in.h:4
 #: ../boards/memory_add_minus_tux.xml.in.h:4
 msgid ""
 "Turn the cards over to find two numbers which add or subtract the same, "
 "until all the cards are gone."
-msgstr ""
+msgstr "Snu kortene slik at du finner to med samme sum eller differanse, helt til du har fått vekk alle kortene."
 
 #: ../boards/memory_add_minus.xml.in.h:5
 #: ../boards/memory_add_minus_mult_div.xml.in.h:5
@@ -2894,6 +2928,9 @@ msgid ""
 "proper equality. When you do that, both those cards disappear! When you've "
 "made them all disappear, found all the operations, you've won the game! :)"
 msgstr ""
+"Du ser kortene, men du ser ikke hva som er på baksiden av dem. På baksiden av hvert kort er det en regneoperasjon, eller svaret på det.\n"
+"\n"
+"I dette spillet skal du finne kortparene hvor det ene kortet skjuler regneoperasjonen og det andre kortet skjuler svaret. Du kan bare se på 2 kort omgangen, så du må huske hvor kortene ligger."
 
 #: ../boards/memory_add_minus_mult_div.xml.in.h:1
 #: ../boards/memory_add_minus_mult_div_tux.xml.in.h:1
@@ -2902,14 +2939,16 @@ msgstr "Legge til, gange, dele og trekke fra."
 
 #: ../boards/memory_add_minus_mult_div.xml.in.h:2
 msgid "All operations memory game"
-msgstr ""
+msgstr "Hukommelsesspill med alle aritmetiske operasjoner"
 
 #: ../boards/memory_add_minus_mult_div.xml.in.h:3
 #: ../boards/memory_add_minus_mult_div_tux.xml.in.h:3
 msgid ""
 "Practise addition, subtraction, multiplication, division, until all the "
 "cards are gone."
-msgstr "Du skal øve på å legge til, gange, dele og trekke fra, helt til alle kortene har forsvunnet."
+msgstr ""
+"Du skal øve på å legge til, gange, dele og trekke fra, helt til alle kortene "
+"har forsvunnet."
 
 #: ../boards/memory_add_minus_mult_div.xml.in.h:4
 #: ../boards/memory_add_minus_mult_div_tux.xml.in.h:4
@@ -2921,18 +2960,20 @@ msgid ""
 "Turn the cards over to find a matching operation, until all the cards are "
 "gone."
 msgstr ""
+"Snu kortene slik at du finner to med samme svar, helt til du har fått vekk alle "
+"kortene."
 
 #: ../boards/memory_add_minus_mult_div_tux.xml.in.h:2
 msgid "All operations memory game against Tux"
-msgstr ""
+msgstr "Hukommelsesspill med alle aritmetiske operasjoner, mot Tux"
 
 #: ../boards/memory_add_minus_tux.xml.in.h:1
 msgid "Addition and subtraction memory game against Tux"
-msgstr ""
+msgstr "Hukommelsesspill med addisjon og subtraksjon, mot Tux"
 
 #: ../boards/memory_add_tux.xml.in.h:1
 msgid "Addition memory game against Tux"
-msgstr ""
+msgstr "Hukommelsesspill med addisjon, mot Tux"
 
 #: ../boards/memory_add_tux.xml.in.h:2 ../boards/memory_mult_tux.xml.in.h:1
 msgid "Additions"
@@ -2944,7 +2985,7 @@ msgstr "Deling"
 
 #: ../boards/memory_div.xml.in.h:2
 msgid "Division memory game"
-msgstr ""
+msgstr "Hukommelsesspill med deling"
 
 #: ../boards/memory_div.xml.in.h:3 ../boards/memory_div_tux.xml.in.h:3
 msgid "Practise division, until all the cards are gone."
@@ -2952,7 +2993,7 @@ msgstr "Øv på addisjon, helt til alle kortene har forsvunnet."
 
 #: ../boards/memory_div_tux.xml.in.h:2
 msgid "Division memory game against Tux"
-msgstr ""
+msgstr "Hukommelsesspill med deling, mot Tux"
 
 #: ../boards/memory_group.xml.in.h:1
 msgid "Go to Memory activities"
@@ -2968,13 +3009,15 @@ msgstr "Øv på subtraksjon, helt til alle kortene har forsvunnet."
 
 #: ../boards/memory_minus.xml.in.h:3
 msgid "Subtraction memory game"
-msgstr ""
+msgstr "Hukommelsesspill med subtraksjon"
 
 #: ../boards/memory_minus.xml.in.h:4 ../boards/memory_minus_tux.xml.in.h:4
 msgid ""
 "Turn the cards over to find two numbers which subtract the same, until all "
 "the cards are gone."
 msgstr ""
+"Snu kortene slik at du finner to med samme differanse, helt til du har fått vekk "
+"alle kortene."
 
 #: ../boards/memory_minus.xml.in.h:5 ../boards/memory_minus_tux.xml.in.h:5
 msgid ""
@@ -3003,7 +3046,7 @@ msgstr ""
 
 #: ../boards/memory_minus_tux.xml.in.h:3
 msgid "Subtraction memory game against Tux"
-msgstr ""
+msgstr "Hukommelsesspill med subtraksjon, mot Tux"
 
 #: ../boards/memory_mult.xml.in.h:1
 msgid "Multiplication"
@@ -3011,7 +3054,7 @@ msgstr "Gangetabellen"
 
 #: ../boards/memory_mult.xml.in.h:2
 msgid "Multiplication memory game"
-msgstr ""
+msgstr "Hukommelsesspill med multiplikasjon"
 
 #: ../boards/memory_mult.xml.in.h:3
 msgid "Practise multiplication, until all the cards are gone."
@@ -3021,11 +3064,11 @@ msgstr "Øv på gangetabellen, helt til alle kortene har forsvunnet."
 msgid ""
 "Turn the cards over to find two numbers which multiply the same, until all "
 "the cards are gone."
-msgstr ""
+msgstr "Snu kortene slik at du finner to med samme produkt, helt til du har fått vekk alle kortene."
 
 #: ../boards/memory_mult_div.xml.in.h:1
 msgid "Multiplication and division memory game"
-msgstr ""
+msgstr "Hukommelsesspill med multiplikasjon og divisjon"
 
 #: ../boards/memory_mult_div.xml.in.h:2
 #: ../boards/memory_mult_div_tux.xml.in.h:2
@@ -3039,11 +3082,11 @@ msgstr "Du skal øve på å gange og dele, helt til alle kortene har forsvunnet.
 
 #: ../boards/memory_mult_div_tux.xml.in.h:1
 msgid "Multiplication and division memory game against Tux"
-msgstr ""
+msgstr "Hukommelsesspill med multiplikasjon og divisjon, mot Tux"
 
 #: ../boards/memory_mult_tux.xml.in.h:2
 msgid "Multiplication memory game against Tux"
-msgstr ""
+msgstr "Hukommelsesspill med multiplikasjon, mot Tux"
 
 #: ../boards/memory_mult_tux.xml.in.h:3
 msgid "Practise multiplication until all the cards are gone."
@@ -3056,14 +3099,13 @@ msgstr "Aktiviteter med hukommelsestrening"
 #: ../boards/memory_op_group.xml.in.h:2
 #: ../boards/memory_op_group_tux.xml.in.h:2
 msgid "Memory activities based on operations"
-msgstr ""
+msgstr "Hukommelsesspill basert på matematikk"
 
 #: ../boards/memory_op_group_tux.xml.in.h:1
 msgid "Go to mathematics memory activities against Tux"
-msgstr ""
+msgstr "Spill hukommelsesspill med matematikk mot Tux"
 
 #: ../boards/memory_sound.xml.in.h:1 ../boards/memory_sound_tux.xml.in.h:1
-#, fuzzy
 msgid ""
 "A set of violinist Tux is shown. Each Tux has an associated sound, and each "
 "sound has a twin exactly the same. Click on a Tux to see its hidden sound, "
@@ -3071,10 +3113,11 @@ msgid ""
 "need to remember where a sound is, while you listen to its twin. When you "
 "turn over the twins, they both disappear."
 msgstr ""
-"Et sett med kort er lagt på bordet. Alle kortene finnes i par. Klikk på et "
-"kort for å se baksiden av det. Du kan kun se baksiden på to kort samtidig. "
-"Du må huske hvor de forskjellige kortene ligger. Målet er å åpne to like "
-"samtidig, da forsvinner dette paret, til slutt skal alle kortene være borte."
+"En del Tux-fiolinister blir vist. Hver av dem har sin egen lyd, og noen "
+"av dem er tvillinger, med samme lyd. Trykk på en Tux for å høre lyden hans, "
+"og prøv så å finne tvillingen hans. Du kan bare høre på to Tux-er om "
+"gangen, så du må huske lydene de spiller. Når du hører på to tvillinger "
+"samtidig, så forsvinner de."
 
 #: ../boards/memory_sound.xml.in.h:2
 msgid "Audio memory game"
@@ -3082,7 +3125,7 @@ msgstr "Lydhukommelsespill"
 
 #: ../boards/memory_sound.xml.in.h:3
 msgid "Click on Tux the violinist and listen to find the matching sounds"
-msgstr "Klikk på fiolinspilleren Tux, og lytt for å finne den andre som spiller likt."
+msgstr "Finn de to som spiller samme melodi"
 
 #: ../boards/memory_sound.xml.in.h:4 ../boards/memory_sound_tux.xml.in.h:3
 #: ../boards/memory_tux.xml.in.h:3
@@ -3103,14 +3146,13 @@ msgstr "Spill lydhukommelsesspill mot Tux"
 
 #: ../boards/memory_tux.xml.in.h:1
 msgid "Have a memory competition with Tux."
-msgstr ""
+msgstr "Spill et hukommelsesspil mot Tux."
 
 #: ../boards/memory_tux.xml.in.h:2
 msgid "Memory Game with images, against Tux"
 msgstr "Hukommelsesspill med bilder, spill mot Tux"
 
 #: ../boards/memory_tux.xml.in.h:5
-#, fuzzy
 msgid ""
 "You can see a set of cards that all look the same. Each card has a picture "
 "on the other side, and each picture has a twin somewhere in the set. You can "
@@ -3122,10 +3164,9 @@ msgstr ""
 "Et sett med kort er lagt på bordet. Alle kortene finnes i par. Klikk på et "
 "kort for å se baksiden av det. Du kan kun se baksiden på to kort samtidig. "
 "Du må huske hvor de forskjellige kortene ligger. Målet er å åpne to like "
-"samtidig, da forsvinner dette paret, til slutt skal alle kortene være borte."
+"samtidig, da forsvinner dette paret, når alle kortene er borte, har du vunnet."
 
 #: ../boards/menu.xml.in.h:1
-#, fuzzy
 msgid ""
 "A simple click on an icon brings you to an activity or a menu of "
 "activities.\n"
@@ -3152,7 +3193,7 @@ msgstr ""
 "brettet:\n"
 " Merk at ikonene forandrer seg ettersom du bruker andre temaer enn det som "
 "er standard i GCompris\n"
-" Hjem - tar deg tilbake til den forrige menyen, eller avslutter GCompris "
+" Hjem (hus) - tar deg tilbake til den forrige menyen, eller avslutter GCompris "
 "hvis du befinner deg i åpningsmenyen.n\\  Tommelen - Greit/OK Sjekker om "
 "svaret ditt er riktig.\n"
 " Terning - Viser på hvilket vanskelighetsnivå du spiller. Trykk på den for å "
@@ -3167,75 +3208,25 @@ msgstr ""
 " 3 stjerner - 6 til 7 år\n"
 " God natt / ut av døra  - avslutter GCompris"
 
-#: ../boards/menu.xml.in.h:15 ../boards/menu2.xml.in.h:15
+#: ../boards/menu.xml.in.h:15
 msgid "GCompris Main Menu"
 msgstr "GCompris hovedmeny"
 
-#: ../boards/menu.xml.in.h:16 ../src/boards/menu2.c:1006
+#: ../boards/menu.xml.in.h:16 ../src/boards/menu2.c:1009
 msgid ""
 "GCompris is a collection of educational games that provides different "
 "activities for children aged 2 and up."
 msgstr ""
-"GCompris er en samling av spill som gir pedagogiske aktiviteter for barn i "
+"GCompris er en samling «pedagogiske» spill for barn i "
 "alderen 3 til 8 år, og opptil 99 år."
 
-#: ../boards/menu.xml.in.h:18 ../boards/menu2.xml.in.h:18
+#: ../boards/menu.xml.in.h:18
 msgid ""
 "The goal of gcompris is to provide a free alternative to popular proprietary "
 "edutainment software"
 msgstr ""
 "Målet til GCompris er å tilby et fritt alternativ til de proprietære lek og "
 "lær programmene."
-
-#: ../boards/menu2.xml.in.h:1
-msgid ""
-"A simple click on an icon brings you to an activity or a menu of "
-"activities.\n"
-"At the bottom of the screen is the gcompris control bar.\n"
-"The following icons are displayed from right to left.\n"
-"(note that each icon is displayed only if available in the current "
-"activity)\n"
-"    Home - Back to previous menu or exit gcompris if at the top\n"
-"    Thumb - OK. Confirm your answer\n"
-"    Dice - Display the current level. Click to select another level\n"
-"    Music note - Repeat the question\n"
-"    Question Mark - Help\n"
-"    Tool - The configuration menu\n"
-"    Tux Plane - About game\n"
-"The stars, show suitable age groups for each game:\n"
-"    1, 2 or 3 simple stars  - 2 to 6 years old\n"
-"    1, 2 or 3 complex stars - From 7 years old"
-msgstr ""
-"Et enkelt klikk på et ikon fører deg til en enkel aktivitet, eller en meny "
-"med flere aktiviteter.\n"
-" På bunnen av hvert brett finner du verktøylinja til GCompris.\n"
-" Følgende ikoner befinner seg på denne verktøylinja, fra høyre mot venstre-\n"
-" Merk at et ikon kun vises hvis det er tilgjengelig fra det aktuelle "
-"brettet:\n"
-" Merk at ikonene forandrer seg ettersom du bruker andre temaer enn det som "
-"er standard i GCompris\n"
-" Hjem - tar deg tilbake til den forrige menyen, eller avslutter GCompris "
-"hvis du befinner deg i åpningsmenyen.n\\  Tommelen - Greit/OK Sjekker om "
-"svaret ditt er riktig.\n"
-" Terning - Viser på hvilket vanskelighetsnivå du spiller. Trykk på den for å "
-"endre nivå.\n"
-" Musikk note - gjentar spørsmålet\n"
-" Spørsmålstegn - Hjelp\n"
-" Verktøy - konfigurasjons menyen\n"
-" Tux flyet - Om GCompris\n"
-" Stjernene betyr:\n"
-" 1 stjerne - 2 til 3 år\n"
-" 2 stjerner - 4 til 5 år\n"
-" 3 stjerner - 6 til 7 år\n"
-" God natt / ut av døra  - avslutter GCompris"
-
-#: ../boards/menu2.xml.in.h:16
-msgid ""
-"GCompris is a collection of educational games that provides for children "
-"from 2 years old with different activities."
-msgstr ""
-"GCompris er en samling av spill som gir pedagogiske aktiviteter for barn i "
-"alderen 3 til 8 år, og opptil 99 år. "
 
 #: ../boards/miscelaneous.xml.in.h:1
 msgid "Miscellaneous activities"
@@ -3457,7 +3448,7 @@ msgstr "Aktiviteter med øving på bruk av mus"
 
 #: ../boards/mouse.xml.in.h:2
 msgid "Various mouse-based activities (clicking, moving)"
-msgstr "Forskjellige aktiviteter med bruk av mus (klikk og pek)"
+msgstr "Lær å bruke mus"
 
 #: ../boards/numeration.xml.in.h:1
 msgid "Numeration"
@@ -3467,13 +3458,29 @@ msgstr "Telling"
 msgid "Numeration activities."
 msgstr "Aktiviteter med telling."
 
+#: ../boards/oscar_and_friends.xml.in.h:1
+msgid "Improve reading skill and the ability to understand what is read."
+msgstr "Bli bedre på å lese, og å forstå hva som blir lest."
+
+#: ../boards/oscar_and_friends.xml.in.h:2
+msgid "Read and play with the story"
+msgstr "Les og lek med historien"
+
+#: ../boards/oscar_and_friends.xml.in.h:3
+msgid "The story of Oscar and friend"
+msgstr "Historien om Benny og hans venner"
+
+#: ../boards/oscar_and_friends.xml.in.h:4
+msgid "reading"
+msgstr "lesing"
+
 #: ../boards/paintings.xml.in.h:1
 msgid "Assemble the puzzle"
 msgstr "Sett sammen puslespillet"
 
 #: ../boards/paintings.xml.in.h:2
 msgid "Drag and Drop the items to rebuild the original paintings"
-msgstr "Sett bitene sammen slik at det originale bilde blir gjenskapt"
+msgstr "Legg et puslespill"
 
 #: ../boards/paintings.xml.in.h:3
 msgid ""
@@ -3570,7 +3577,7 @@ msgstr "Beveg helikopteret opp og ned for å fange skyene i riktig rekkefølge"
 msgid "Number"
 msgstr "Tall"
 
-#: ../boards/planegame.xml.in.h:4 ../src/boards/planegame.c:77
+#: ../boards/planegame.xml.in.h:4 ../src/boards/planegame.c:74
 msgid "Numbers in Order"
 msgstr "Tall i rekkefølge"
 
@@ -3580,7 +3587,7 @@ msgstr "Puslespill"
 
 #: ../boards/puzzle.xml.in.h:2
 msgid "Various puzzles."
-msgstr "Forskjellige puslespill."
+msgstr "Forskjellige puslespill"
 
 #: ../boards/pythontest.xml.in.h:1
 msgid "Add a language-binding to gcompris."
@@ -3711,7 +3718,7 @@ msgstr "Horisontal lesing"
 
 #: ../boards/readingh.xml.in.h:3
 msgid "Read a list of words and work out if a given word is in it"
-msgstr "Les en liste med ord, og avgjør om et bestemt ord var blant dem"
+msgstr "Finn et bestemt ord"
 
 #: ../boards/readingh.xml.in.h:5
 msgid "Reading training in a limited time"
@@ -3719,7 +3726,7 @@ msgstr "Lesetrening på begrenset tid"
 
 #: ../boards/readingv.xml.in.h:2
 msgid "Read a vertical list of words and work out if a given word is in it"
-msgstr "Les en vertikal liste med ord, og avgjør om et bestemt ord var blant dem"
+msgstr "Finn et bestemt ord i en lang liste"
 
 #: ../boards/readingv.xml.in.h:3
 msgid "Read training in a limited time"
@@ -3756,7 +3763,6 @@ msgid ""
 msgstr "Kopier det speilvendte bilde fra feltet til høyre over i feltet til venstre."
 
 #: ../boards/redraw_symmetrical.xml.in.h:2
-#, fuzzy
 msgid ""
 "First, select the proper tool from the toolbar. Then drag the mouse to "
 "create objects. When you are done, click on the OK button. A little red "
@@ -3765,9 +3771,7 @@ msgid ""
 "objects under others."
 msgstr ""
 "Først velger du et verktøy fra verktøylinja. Deretter bruker du musa for å "
-"lage objektet. Når du er ferdig, så sjekker du svaret ditt. Feil vil bli "
-"merket med små røde kryss. Rekkefølgen (over/under) er ikke viktig, men pass "
-"på at du ikke har med objekter som ikke hører til under andre objekter."
+"lage samme form som i vinduet til høyre. Når du er ferdig, så sjekker du svaret ditt. Feil vil bli merket med små røde kryss."
 
 #: ../boards/redraw_symmetrical.xml.in.h:3
 msgid "Mirror the given item"
@@ -3797,9 +3801,7 @@ msgstr "Øv på subtraksjon ved hjelp av at morsomt spill"
 
 #: ../boards/reversecount.xml.in.h:4
 msgid "Tux is hungry. Help him find fish by counting to the correct ice spot."
-msgstr ""
-"Tux er sulten. Hjelp han med å fange fisk ved å stille inn \n"
-"terningen slik at han hopper ditt hvor fisken er."
+msgstr "Hjelp Tux med å fange fisk"
 
 #: ../boards/scales/board1_0.xml.in.h:1 ../boards/scales/board1_1.xml.in.h:1
 #: ../boards/scales/board1_2.xml.in.h:1 ../boards/scales/board1_3.xml.in.h:1
@@ -3841,7 +3843,7 @@ msgstr ""
 
 #: ../boards/searace.xml.in.h:1
 msgid "Direct your boat accurately to win the race."
-msgstr "Styr båten din slik at du vinner."
+msgstr "Styr båten din slik at du vinner"
 
 #: ../boards/searace.xml.in.h:2 ../boards/searace1player.xml.in.h:2
 msgid ""
@@ -3890,7 +3892,7 @@ msgstr "Sjøkamp (2 spillere)"
 
 #: ../boards/searace1player.xml.in.h:1
 msgid "Give good instructions to your ship in order to be first in the race."
-msgstr "Gi ditt skip gode instrukser slik at ditt skip kommer først."
+msgstr "Styr båten din slik at du vinner"
 
 #: ../boards/searace1player.xml.in.h:4
 msgid "Sea race (Single Player)"
@@ -3898,7 +3900,7 @@ msgstr "Sjøkamp (1 spiller)"
 
 #: ../boards/smallnumbers.xml.in.h:1 ../boards/smallnumbers2.xml.in.h:1
 msgid "Count the number of dots on dice before they reach the ground"
-msgstr "Tell antall prikker på terningen før den treffer bakken."
+msgstr "Tell antall prikker på terningen"
 
 #: ../boards/smallnumbers.xml.in.h:2 ../boards/smallnumbers2.xml.in.h:2
 msgid "Counting skills"
@@ -3930,11 +3932,11 @@ msgstr "Aktiviteter med lyd."
 
 #: ../boards/strategy.xml.in.h:1
 msgid "Strategy games"
-msgstr "Stragegispill"
+msgstr "Strategispill"
 
 #: ../boards/strategy.xml.in.h:2
 msgid "Strategy games like chess, connect4, ..."
-msgstr "Strategispill som sjakk, Fire på rad, ..."
+msgstr "Sjakk, Fire på rad, ..."
 
 #: ../boards/submarine.xml.in.h:1
 msgid ""
@@ -3958,7 +3960,7 @@ msgstr "Styr en undervannsbåt"
 
 #: ../boards/submarine.xml.in.h:5
 msgid "Pilot a submarine using air tanks and dive rudders"
-msgstr "Styr en undervannsbåt ved hjelp av dens lufttanker og styrepinner"
+msgstr "Styr en undervannsbåt"
 
 #: ../boards/sudoku.xml.in.h:1
 msgid "Completing the puzzle requires patience and logical ability"
@@ -3980,13 +3982,11 @@ msgstr ""
 
 #: ../boards/sudoku.xml.in.h:3
 msgid "Sudoku, place unique symbols in a square."
-msgstr "Sudoku, plasser unike siffer i firkanter."
+msgstr "Sudoku"
 
 #: ../boards/sudoku.xml.in.h:4
 msgid "Symbols must be unique in a row, in a column, and (if defined) each region."
-msgstr ""
-"Alle symboler/siffer må være unike i hver rad og i hver kolonne, og i hvert "
-"område."
+msgstr "Finn den riktige plassen"
 
 #: ../boards/sudoku.xml.in.h:5
 msgid ""
@@ -3997,6 +3997,11 @@ msgid ""
 "instance of each symbol or numeral (Source &lt;http://en.wikipedia.org/wiki/"
 "Sudoku&gt;)."
 msgstr ""
+"Sudoku er et slags kryssord, der du skal plassere figurer eller siffer inne "
+"i et rutenett. Du må passe på at hver figur (eller hvert siffer) bare står "
+"én gang i hver rad og i hver kolonne. På noen brett er også rutenettet delt "
+"inn mindre områder. Da skal hver figur (eller hvert siffer) bare brukest én "
+"gang i hvert område, samtidig som den vanlige regelen fremdeles gjelder."
 
 #: ../boards/superbrain.xml.in.h:1
 msgid ""
@@ -4013,13 +4018,13 @@ msgstr ""
 "med en hvit firkant. Hvis du bruker høyre museknapp, så kommer fargene frem "
 "i omvendt rekkefølge."
 
-#: ../boards/superbrain.xml.in.h:2 ../src/boards/superbrain.c:110
+#: ../boards/superbrain.xml.in.h:2 ../src/boards/superbrain.c:106
 msgid "Super Brain"
 msgstr "Mesterhjerne"
 
-#: ../boards/superbrain.xml.in.h:3 ../src/boards/superbrain.c:111
+#: ../boards/superbrain.xml.in.h:3 ../src/boards/superbrain.c:107
 msgid "Tux has hidden several items. Find them again in the correct order"
-msgstr "Tux har gjemt flere ting. Finn dem i riktig rekkefølge og riktig farge"
+msgstr "Finn den hemmelige koden"
 
 #: ../boards/tangram.xml.in.h:1
 msgid ""
@@ -4035,6 +4040,14 @@ msgid ""
 "\t* 1 square (side of 1)\n"
 "\t* 1 parallelogram (sides of 1 and square root of 2)"
 msgstr ""
+"Hentet fra Wikipedia: Tangram er et kinesisk puslespill. Det blir ofte sagt "
+"at tangram er et veldig gammelt spill. Et tangrampuslespill er satt sammen av 7 biter, tan-er, som til sammen danner et kvadrat. De 7 bitene er:\n"
+"\t– 5 likebeinte trekanter:l\n"
+"\t\t– 2 små (sidekanter lengd 1)\n"
+"\t\t– 1 middels stor (sidekanter lengde √2)\n"
+"\t\t– 2 store (sidekanter lengde 2)\n"
+"\t– 1 kvadrat (sidekant lengde 1)\n"
+"\t– 1 parallellogram (sidekanter lengder 1 og √2)"
 
 #: ../boards/tangram.xml.in.h:9
 msgid ""
@@ -4044,6 +4057,10 @@ msgid ""
 "create it. If you need help, click on the shape button, and the border of "
 "the shape will be drawn."
 msgstr ""
+"Velg først hvilket tangram du vil lage. Flytt så en brikke ved å dra den til der "
+"du vil ha den. Du kan høyreklikke på brikkene for å snu dem, eller klikke "
+"rundt dem for å rotere dem fritt. Om du senest det er vanskelig, kan du "
+"trykka på omrissknappen for å se et omriss av tangrampuslespillet."
 
 #: ../boards/tangram.xml.in.h:10
 msgid "The objective is to form a given shape with seven pieces"
@@ -4094,10 +4111,16 @@ msgid "A sliding-block puzzle game"
 msgstr "Et spill med blokker"
 
 #: ../boards/traffic.xml.in.h:2
-msgid "Remove all the red cars from the parking lot through the gate on the right"
+msgid ""
+"Each car can only move either horizontally or vertically. You must make some "
+"room in order to let the red car move through the gate on the right."
 msgstr ""
-"Fjern alle de røde bilene fra parkeringsplassen ved å få dem ut gjennom "
-"porten på høyre side."
+"Bilene kan bare kjøre til venstre eller til høyre, eller opp og ned. Du må "
+"lage plass slik at den røde bilen kan kjøre ut utgangen til høyre."
+
+#: ../boards/traffic.xml.in.h:3
+msgid "Remove the red car from the parking lot through the gate on the right"
+msgstr "Fjern den røde bilen fra parkeringsplassen"
 
 #: ../boards/tuxpaint.xml.in.h:1
 msgid "Drawing activity (pixmap)"
@@ -4105,7 +4128,7 @@ msgstr "Tegneaktivitet (pixmap)"
 
 #: ../boards/tuxpaint.xml.in.h:2
 msgid "Launch Tuxpaint"
-msgstr "Start Tuxpaint"
+msgstr "Start male- og tegneprogrammet Tuxpaint"
 
 #: ../boards/tuxpaint.xml.in.h:3
 msgid "Tuxpaint"
@@ -4148,7 +4171,7 @@ msgstr ""
 "Tux har kommet tilbake fra en lang fisketur. Hjelp han med å starte "
 "vannsystemet slik at han kan ta seg en dusj."
 
-#: ../boards/wordsgame.xml.in.h:1 ../src/boards/wordsgame.c:113
+#: ../boards/wordsgame.xml.in.h:1 ../src/boards/wordsgame.c:110
 msgid "Falling Words"
 msgstr "Fallende ord"
 
@@ -4160,7 +4183,7 @@ msgstr "Tastaturtrening"
 msgid "Type the complete word as it falls, before it reachs the ground"
 msgstr "Skriv inn ordene før de rekker å treffe bakken"
 
-#: ../boards/wordsgame.xml.in.h:5 ../src/boards/wordsgame.c:114
+#: ../boards/wordsgame.xml.in.h:5 ../src/boards/wordsgame.c:111
 msgid "Type the falling words before they reach the ground"
 msgstr "Skriv inn ordene før de rekker å treffe bakken"
 
@@ -4173,12 +4196,12 @@ msgid "Educational game for ages 2 to 10"
 msgstr "Pedagogiske spill for alderen 2 til 10 år"
 
 #: ../gcompris.desktop.in.h:2
-msgid "Educational suite gcompris"
+msgid "Educational suite GCompris"
 msgstr "Pedagogisk programpakke GCompris"
 
 #: ../gcompris.desktop.in.h:3
-msgid "Multiple activities for kids"
-msgstr "Flere aktiviteter for barn"
+msgid "Multi-activity educational game"
+msgstr "Et lek og lær-spill med mange aktiviteter"
 
 #: ../src/boards/awele.c:352 ../src/boards/awele.c:362
 msgid "NORTH"
@@ -4200,9 +4223,13 @@ msgstr "Din turn til å spille ..."
 msgid "Not allowed! Try again !"
 msgstr "Ikke tillatt. Prøv igjen."
 
-#: ../src/boards/chess.c:189
+#: ../src/boards/chess.c:179
+msgid "Error: The external program gnuchess died unexpectedly"
+msgstr "Feil: Det eksterne programmet Gnuchess stoppet helt uventet."
+
+#: ../src/boards/chess.c:194
 msgid ""
-"Error: The external program gnuchess is mandatory\n"
+"Error: The external program gnuchess is required\n"
 "to play chess in gcompris.\n"
 "Find this program on http://www.rpmfind.net or in your\n"
 "GNU/Linux distribution\n"
@@ -4214,13 +4241,11 @@ msgstr ""
 "eller vha din GNU/Linux distribusjon sitt pakkesystem.\n"
 "Og sjekk at den er i: "
 
-#: ../src/boards/chess.c:228
+#: ../src/boards/chess.c:236
 msgid ""
 "Error: The external program gnuchess is mandatory\n"
 "to play chess in gcompris.\n"
-"Find this program on http://www.rpmfind.net or in your\n"
-"GNU/Linux distribution\n"
-"And check it is in "
+"First install it, and check it is in "
 msgstr ""
 "Feil: Du må ha programmet Gnuchess installert for\n"
 "å kunne spille sjakk i GCompris.\n"
@@ -4228,66 +4253,44 @@ msgstr ""
 "eller vha din GNU/Linux distribusjon sitt pakkesystem.\n"
 "Og sjekk at det er i"
 
-#: ../src/boards/chess.c:572
+#: ../src/boards/chess.c:579
 msgid "White's Turn"
 msgstr "Hvit spiller sitt trekk"
 
-#: ../src/boards/chess.c:572
+#: ../src/boards/chess.c:579
 msgid "Black's Turn"
 msgstr "Sort spiller sitt trekk"
 
-#: ../src/boards/chess.c:716
+#: ../src/boards/chess.c:723
 msgid "White checks"
 msgstr "Hvit sjakk"
 
-#: ../src/boards/chess.c:718
+#: ../src/boards/chess.c:725
 msgid "Black checks"
 msgstr "Sort sjakk"
 
-#: ../src/boards/chess.c:1055
+#: ../src/boards/chess.c:1082
 msgid "Black mates"
 msgstr "Sort matt"
 
-#: ../src/boards/chess.c:1060
+#: ../src/boards/chess.c:1087
 msgid "White mates"
 msgstr "Hvit matt"
 
-#: ../src/boards/chess.c:1065 ../src/gcompris/bonus.c:312
-#: ../src/gcompris/bonus.c:321
+#: ../src/boards/chess.c:1092 ../src/gcompris/bonus.c:342
+#: ../src/gcompris/bonus.c:351
 msgid "Drawn game"
 msgstr "Trukket spill"
 
-#. TRANSLATORS: Put here the alphabet in your language
-#. require by all utf8-functions
-#. TRANSLATORS: Put here the alphabet lowercase in your language
-#: ../src/boards/click_on_letter.c:252 ../src/boards/click_on_letter.c:269
-#: ../src/boards/gletters.c:230 ../src/boards/memory.c:840
-msgid "abcdefghijklmnopqrstuvwxyz"
-msgstr "abcdefghijklmnopqrstuvwxyz"
+#: ../src/boards/chess.c:1120
+msgid "Error: The external program gnuchess died unexpectingly"
+msgstr "Feil: Det eksterne programmet Gnuchess stoppet helt uventet"
 
-#: ../src/boards/click_on_letter.c:281
-#, c-format
-msgid ""
-"Error: this activity requires that you first install\n"
-"the packages assetml-voices-alphabet-%s or %s"
-msgstr ""
-"Feil: Denne aktiviteten krever at du har installert\n"
-"pakken assetml-voices-alphabet-%s eller %s"
-
-#: ../src/boards/click_on_letter.c:288
-#, c-format
-msgid ""
-"Error: this activity requires that you first install\n"
-"the packages assetml-voices-alphabet-%s ! Fallback to english, sorry!"
-msgstr ""
-"Feil: Denne aktiviteten krever at du har installert\n"
-"pakken assetml-voices-alphabet-%s. Bruker istedenfor engelsk som språk."
-
-#: ../src/boards/click_on_letter.c:296 ../src/boards/python/melody.py:116
+#: ../src/boards/click_on_letter.c:259 ../src/boards/memory.c:832
 msgid ""
 "Error: this activity cannot be played with the\n"
 "sound effects disabled.\n"
-"Go to the configuration dialogue to\n"
+"Go to the configuration dialog to\n"
 "enable the sound"
 msgstr ""
 "Feil: denne aktiviteten kan ikke spilles når\n"
@@ -4295,192 +4298,214 @@ msgstr ""
 "Gå inn i konfigurasjonsmenyen og skru på\n"
 "lydeffekter"
 
+#. TRANSLATORS: Put here the alphabet in your language
+#. require by all utf8-functions
+#. TRANSLATORS: Put here the alphabet lowercase in your language
+#: ../src/boards/click_on_letter.c:264 ../src/boards/gletters.c:231
+#: ../src/boards/memory.c:853
+msgid "abcdefghijklmnopqrstuvwxyz"
+msgstr "abcdefghijklmnopqrstuvwxyz"
+
+#: ../src/boards/click_on_letter.c:286
+#, c-format
+msgid ""
+"Error: this activity requires that you first install\n"
+"the packages with gcompris voices for the locale '%s' or '%s'"
+msgstr ""
+"Feil: Denne aktiviteten krever at du har installert\n"
+"lydpakken for språket '%s' eller '%s'"
+
+#: ../src/boards/click_on_letter.c:294
+#, c-format
+msgid ""
+"Error: this activity requires that you first install\n"
+"the packages with GCompris voices for the locale '%s' ! Fallback to english, "
+"sorry!"
+msgstr ""
+"Feil: Denne aktiviteten krever at du har installert\n"
+"lydpakken for språket '%s'. Bruker istedenfor engelsk som språk."
+
 #. toggle box
-#: ../src/boards/click_on_letter.c:653 ../src/boards/gletters.c:882
-#: ../src/boards/python/login.py:535
+#: ../src/boards/click_on_letter.c:646 ../src/boards/gletters.c:898
+#: ../src/boards/python/login.py:540
 msgid "Uppercase only text"
 msgstr "Kun tekst med store bokstaver"
 
-#: ../src/boards/clickgame.c:178
-#, c-format
-msgid "Couldn't open dir: %s"
-msgstr "Kunne ikke åpne katalog: %s"
-
-#: ../src/boards/clockgame.c:544 ../src/boards/clockgame.c:554
+#: ../src/boards/clockgame.c:552 ../src/boards/clockgame.c:562
 msgid "Set the watch to:"
 msgstr "Still klokken til:"
 
-#: ../src/boards/colors.c:57
+#: ../src/boards/colors.c:54
 msgid "Click on the blue duck"
 msgstr "Klikk på den blå anden"
 
-#: ../src/boards/colors.c:58
+#: ../src/boards/colors.c:55
 msgid "Click on the brown duck"
 msgstr "Klikk på den brune anden"
 
-#: ../src/boards/colors.c:59
+#: ../src/boards/colors.c:56
 msgid "Click on the green duck"
 msgstr "Klikk på grønne anden"
 
-#: ../src/boards/colors.c:60
+#: ../src/boards/colors.c:57
 msgid "Click on the grey duck"
 msgstr "Klikk på den grå anden"
 
-#: ../src/boards/colors.c:61
+#: ../src/boards/colors.c:58
 msgid "Click on the orange duck"
 msgstr "Klikk på den oransje anden"
 
-#: ../src/boards/colors.c:62
+#: ../src/boards/colors.c:59
 msgid "Click on the purple duck"
 msgstr "Klikk på den lilla anden"
 
-#: ../src/boards/colors.c:63
+#: ../src/boards/colors.c:60
 msgid "Click on the red duck"
 msgstr "Klikk på den røde anden"
 
-#: ../src/boards/colors.c:64
+#: ../src/boards/colors.c:61
 msgid "Click on the yellow duck"
 msgstr "Klikk på gule anden"
 
-#: ../src/boards/colors.c:65
+#: ../src/boards/colors.c:62
 msgid "Click on the black duck"
 msgstr "Klikk på sorte anden"
 
-#: ../src/boards/colors.c:66
+#: ../src/boards/colors.c:63
 msgid "Click on the white duck"
 msgstr "Klikk på den hvite anden"
 
 #. TRANSLATORS: Put here the numbers in your language
-#: ../src/boards/gletters.c:226 ../src/boards/memory.c:836
+#: ../src/boards/gletters.c:227 ../src/boards/memory.c:849
 msgid "0123456789"
 msgstr "0123456789"
 
 #. TRANSLATORS: Put here the alphabet uppercase in your language
-#: ../src/boards/gletters.c:236 ../src/boards/memory.c:846
+#: ../src/boards/gletters.c:237 ../src/boards/memory.c:859
 msgid "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 msgstr "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
-#: ../src/boards/hanoi.c:335 ../src/boards/hanoi.c:346
+#: ../src/boards/hanoi.c:332 ../src/boards/hanoi.c:343
 msgid ""
 "Build the same tower in the empty area as the one you see on the right-hand "
 "side."
 msgstr "Gjenskap i det tomme feltet det samme tårnet som du ser i feltet til høyre."
 
-#: ../src/boards/hanoi_real.c:76
+#: ../src/boards/hanoi_real.c:72
 msgid "Tower of Hanoi"
 msgstr "Tårnet i Hanoi"
 
-#: ../src/boards/hanoi_real.c:277 ../src/boards/hanoi_real.c:288
+#: ../src/boards/hanoi_real.c:273 ../src/boards/hanoi_real.c:284
 msgid "Move the entire stack to the right peg, one disc at a time"
 msgstr "Flytt hele stabelen over til pinnen på høyre side, en skive om gangen"
 
-#: ../src/boards/imageid.c:113 ../src/boards/missingletter.c:105
+#: ../src/boards/imageid.c:104 ../src/boards/missingletter.c:102
 msgid "Learn how to read"
 msgstr "Lær å lese"
 
-#: ../src/boards/leftright.c:280 ../src/boards/leftright.c:290
-#: ../src/boards/python/searace.py:429 ../src/boards/python/searace.py:454
-#: ../src/boards/python/searace.py:544 ../src/boards/python/searace.py:856
-#: ../src/boards/python/searace.py:889 ../src/boards/python/searace.py:986
+#: ../src/boards/leftright.c:277 ../src/boards/leftright.c:287
+#: ../src/boards/python/searace.py:428 ../src/boards/python/searace.py:453
+#: ../src/boards/python/searace.py:543 ../src/boards/python/searace.py:855
+#: ../src/boards/python/searace.py:888 ../src/boards/python/searace.py:985
 msgid "left"
 msgstr "venstre"
 
-#: ../src/boards/leftright.c:300 ../src/boards/leftright.c:310
-#: ../src/boards/python/searace.py:429 ../src/boards/python/searace.py:454
-#: ../src/boards/python/searace.py:553 ../src/boards/python/searace.py:858
-#: ../src/boards/python/searace.py:891 ../src/boards/python/searace.py:980
+#: ../src/boards/leftright.c:297 ../src/boards/leftright.c:307
+#: ../src/boards/python/searace.py:428 ../src/boards/python/searace.py:453
+#: ../src/boards/python/searace.py:552 ../src/boards/python/searace.py:857
+#: ../src/boards/python/searace.py:890 ../src/boards/python/searace.py:979
 msgid "right"
 msgstr "høyre"
 
-#: ../src/boards/maze.c:496
+#: ../src/boards/maze.c:492
 msgid ""
 "Look at your position, then switch back to invisible mode to continue your "
 "moves"
 msgstr "Se på din posisjon og bytt tilbake til usynlig modus for å bevege deg videre"
 
-#: ../src/boards/maze.c:498
+#: ../src/boards/maze.c:494
 msgid "Look at your position, then switch back to 3D mode to continue your moves"
 msgstr "Se på din posisjon og bytt tilbake til 3D modus for å bevege deg videre"
 
-#: ../src/boards/memory.c:287
+#: ../src/boards/memory.c:286
 msgid "Memory"
 msgstr "Hukommelse"
 
-#: ../src/boards/memory.c:288
+#: ../src/boards/memory.c:287
 msgid "Find the matching pair"
 msgstr "Finn like kort"
 
 #. TRANSLATORS: Put here the mathematical operators "+-�" for  your language.
-#: ../src/boards/memory.c:851
+#: ../src/boards/memory.c:864
 msgid "+-×÷"
 msgstr "+-×÷"
 
-#: ../src/boards/menu2.c:128
+#: ../src/boards/menu2.c:131
 msgid "Main Menu Second Version"
 msgstr "Hovedmeny, andre versjon"
 
-#: ../src/boards/menu2.c:129
+#: ../src/boards/menu2.c:132
 msgid "Select a Board"
 msgstr "Velg et brett"
 
 #. Set here the way to display money. Change only the money sign, and it's place, always keep %.2f, it will be replaced by 0,34 if decimal is ',' in your locale
-#: ../src/boards/money.c:492
+#: ../src/boards/money.c:488
 #, c-format
 msgid "$ %.2f"
 msgstr "$ %.2f"
 
-#: ../src/boards/money.c:505
+#: ../src/boards/money.c:501
 #, c-format
 msgid "$ %.0f"
 msgstr "$ %.0f"
 
-#: ../src/boards/planegame.c:78
+#: ../src/boards/planegame.c:75
 msgid "Move the plane to catch the clouds in the correct order"
 msgstr "Flytt flyet slik at det fanger skyene i riktig rekkefølge"
 
-#: ../src/boards/python.c:62
+#: ../src/boards/python.c:62 ../src/boards/python.c:86
 msgid "Python Board"
 msgstr "Python Brett"
 
-#: ../src/boards/python.c:63
+#: ../src/boards/python.c:63 ../src/boards/python.c:87
 msgid "Special board that embeds python into gcompris."
 msgstr "Et spesielt brett som inkluderer Python i GCompris"
 
-#: ../src/boards/python/admin/board_list.py:90
+#: ../src/boards/python/admin/board_list.py:89
 msgid "Select a profile:"
 msgstr "Velg en profil:"
 
-#: ../src/boards/python/admin/board_list.py:146
+#: ../src/boards/python/admin/board_list.py:145
 msgid "Filter"
 msgstr "Filter"
 
-#: ../src/boards/python/admin/board_list.py:151
+#: ../src/boards/python/admin/board_list.py:150
 msgid "Select all"
 msgstr "Velg alt"
 
-#: ../src/boards/python/admin/board_list.py:156
+#: ../src/boards/python/admin/board_list.py:155
 msgid "Unselect all"
 msgstr "Fravelg alt"
 
-#: ../src/boards/python/admin/board_list.py:161
+#: ../src/boards/python/admin/board_list.py:160
 msgid "Locales"
 msgstr "Ditt språk"
 
-#: ../src/boards/python/admin/board_list.py:166
+#: ../src/boards/python/admin/board_list.py:165
 msgid "Locales sound"
 msgstr "Lyder på ditt språk"
 
-#: ../src/boards/python/admin/board_list.py:171
+#: ../src/boards/python/admin/board_list.py:170
 msgid "Wordlist"
 msgstr "Ordliste"
 
-#: ../src/boards/python/admin/board_list.py:178
-#: ../src/boards/python/admin/group_user_list.py:145
-#: ../src/boards/python/admin/user_list.py:187
+#: ../src/boards/python/admin/board_list.py:177
+#: ../src/boards/python/admin/group_user_list.py:144
+#: ../src/boards/python/admin/user_list.py:186
 msgid "Login"
 msgstr "Login"
 
-#: ../src/boards/python/admin/board_list.py:236
+#: ../src/boards/python/admin/board_list.py:235
 msgid "Main menu"
 msgstr "Hovedmeny"
 
@@ -4489,20 +4514,20 @@ msgstr "Hovedmeny"
 #. image = gtk.image_new_from_stock(gtk.STOCK_PREFERENCES, gtk.ICON_SIZE_MENU)
 #. image.show()
 #. column_pref.set_widget(image)
-#: ../src/boards/python/admin/board_list.py:293
+#: ../src/boards/python/admin/board_list.py:292
 msgid "Active"
 msgstr "Aktiv"
 
-#: ../src/boards/python/admin/board_list.py:294
+#: ../src/boards/python/admin/board_list.py:293
 msgid "Board title"
 msgstr "Tittel på brett"
 
-#: ../src/boards/python/admin/board_list.py:410
+#: ../src/boards/python/admin/board_list.py:409
 #, python-format
 msgid "Filter Boards difficulty for profile %s"
 msgstr "Filtrer brettvanskelighetsgraden for profilen %s"
 
-#: ../src/boards/python/admin/board_list.py:441
+#: ../src/boards/python/admin/board_list.py:440
 #, python-format
 msgid ""
 "<span size='x-large'> Select the difficulty range \n"
@@ -4517,10 +4542,10 @@ msgstr ""
 #. the dict passed to the apply_callback
 #. the returned value is the main GtkVBox of the window,
 #. we can add what you want in it.
-#: ../src/boards/python/admin/board_list.py:632
-#: ../src/boards/python/admin/board_list.py:650
-#: ../src/boards/python/admin/wordlist.py:51 ../src/boards/python/login.py:530
-#: ../src/boards/python/pythontest.py:410 ../src/boards/python/tuxpaint.py:179
+#: ../src/boards/python/admin/board_list.py:631
+#: ../src/boards/python/admin/board_list.py:649
+#: ../src/boards/python/admin/wordlist.py:50 ../src/boards/python/login.py:535
+#: ../src/boards/python/pythontest.py:409 ../src/boards/python/tuxpaint.py:183
 #, python-format
 msgid ""
 "<b>%s</b> configuration\n"
@@ -4529,8 +4554,8 @@ msgstr ""
 "<b>%s</b>-oppsett\n"
 " for profilen <b>%s</b>"
 
-#: ../src/boards/python/admin/board_list.py:662
-#: ../src/boards/python/pythontest.py:474
+#: ../src/boards/python/admin/board_list.py:661
+#: ../src/boards/python/pythontest.py:473
 msgid "Select sound locale"
 msgstr "Velg lydspråk"
 
@@ -4562,15 +4587,15 @@ msgstr "Tildel alle brukere som hører til denne klassen"
 
 #: ../src/boards/python/admin/class_edit.py:253
 #: ../src/boards/python/admin/group_edit.py:265
-#: ../src/boards/python/admin/group_user_list.py:155
-#: ../src/boards/python/admin/user_list.py:197
+#: ../src/boards/python/admin/group_user_list.py:154
+#: ../src/boards/python/admin/user_list.py:196
 msgid "First Name"
 msgstr "Fornavn"
 
 #: ../src/boards/python/admin/class_edit.py:264
 #: ../src/boards/python/admin/group_edit.py:276
-#: ../src/boards/python/admin/group_user_list.py:165
-#: ../src/boards/python/admin/user_list.py:207
+#: ../src/boards/python/admin/group_user_list.py:164
+#: ../src/boards/python/admin/user_list.py:206
 msgid "Last Name"
 msgstr "Etternavn"
 
@@ -4582,13 +4607,13 @@ msgstr "Du må gi klassen et navn"
 msgid "There is already a class with this name"
 msgstr "Det finnes allerede en klasse med dette navnet"
 
-#: ../src/boards/python/admin/class_list.py:170
+#: ../src/boards/python/admin/class_list.py:169
 #: ../src/boards/python/admin/profile_edit.py:269
-#: ../src/boards/python/admin/profile_group_list.py:145
+#: ../src/boards/python/admin/profile_group_list.py:144
 msgid "Class"
 msgstr "Klasse"
 
-#: ../src/boards/python/admin/class_list.py:180
+#: ../src/boards/python/admin/class_list.py:179
 msgid "Teacher"
 msgstr "Lærer"
 
@@ -4632,29 +4657,29 @@ msgstr "Du må i det minste gi gruppen et navn"
 msgid "There is already a group with this name"
 msgstr "Det finnes allerede en gruppe med dette navnet"
 
-#: ../src/boards/python/admin/group_list.py:87
+#: ../src/boards/python/admin/group_list.py:86
 msgid "Select a class:"
 msgstr "Velg en klasse:"
 
-#: ../src/boards/python/admin/group_list.py:215
+#: ../src/boards/python/admin/group_list.py:214
 #: ../src/boards/python/admin/profile_edit.py:279
-#: ../src/boards/python/admin/profile_group_list.py:155
+#: ../src/boards/python/admin/profile_group_list.py:154
 msgid "Group"
 msgstr "Gruppe"
 
-#: ../src/boards/python/admin/group_list.py:226
+#: ../src/boards/python/admin/group_list.py:225
 #: ../src/boards/python/admin/profile_edit.py:289
-#: ../src/boards/python/admin/profile_group_list.py:165
-#: ../src/boards/python/admin/profile_list.py:199
+#: ../src/boards/python/admin/profile_group_list.py:164
+#: ../src/boards/python/admin/profile_list.py:198
 msgid "Description"
 msgstr "Beskrivelse"
 
-#: ../src/boards/python/admin/group_list.py:323
+#: ../src/boards/python/admin/group_list.py:322
 msgid "You must first select a group in the list"
 msgstr "Du må først velge en gruppe fra lista"
 
-#: ../src/boards/python/admin/group_user_list.py:175
-#: ../src/boards/python/admin/user_list.py:217
+#: ../src/boards/python/admin/group_user_list.py:174
+#: ../src/boards/python/admin/user_list.py:216
 msgid "Birth Date"
 msgstr "Fødselsdato"
 
@@ -4663,23 +4688,23 @@ msgstr "Fødselsdato"
 msgid "Boards"
 msgstr "Brett"
 
-#: ../src/boards/python/admin/module_groups.py:41
-#: ../src/boards/python/admin/module_groups.py:67
+#: ../src/boards/python/admin/module_groups.py:40
+#: ../src/boards/python/admin/module_groups.py:66
 msgid "Groups"
 msgstr "Grupper"
 
-#: ../src/boards/python/admin/module_profiles.py:41
-#: ../src/boards/python/admin/module_profiles.py:66
+#: ../src/boards/python/admin/module_profiles.py:40
+#: ../src/boards/python/admin/module_profiles.py:65
 msgid "Profiles"
 msgstr "Profiler"
 
-#: ../src/boards/python/admin/module_users.py:42
-#: ../src/boards/python/admin/module_users.py:68
+#: ../src/boards/python/admin/module_users.py:41
+#: ../src/boards/python/admin/module_users.py:67
 msgid "Classes"
 msgstr "Klasser"
 
-#: ../src/boards/python/admin/module_users.py:42
-#: ../src/boards/python/admin/module_users.py:68
+#: ../src/boards/python/admin/module_users.py:41
+#: ../src/boards/python/admin/module_users.py:67
 msgid "Users"
 msgstr "Brukere"
 
@@ -4712,16 +4737,16 @@ msgstr "Du må i det minste gi profilen et navn"
 msgid "There is already a profile with this name"
 msgstr "Det finnes allerede en profil med dette navnet"
 
-#: ../src/boards/python/admin/profile_list.py:122
-#: ../src/gcompris/board_config.c:587 ../src/gcompris/board_config.c:717
+#: ../src/boards/python/admin/profile_list.py:121
+#: ../src/gcompris/board_config.c:668 ../src/gcompris/board_config.c:832
 msgid "Default"
 msgstr "Standard"
 
-#: ../src/boards/python/admin/profile_list.py:189
+#: ../src/boards/python/admin/profile_list.py:188
 msgid "Profile"
 msgstr "Profil"
 
-#: ../src/boards/python/admin/profile_list.py:316
+#: ../src/boards/python/admin/profile_list.py:315
 msgid "[Default]"
 msgstr "[Standard]"
 
@@ -4758,7 +4783,6 @@ msgid "Birth date:"
 msgstr "Fødselsdato:"
 
 #: ../src/boards/python/admin/user_edit.py:159
-#, fuzzy
 msgid "You need to provide at least a login, first name and last name for your users"
 msgstr "Du må som et minimum oppgi brukernavn, fornavn og etternavn på dine brukere"
 
@@ -4766,7 +4790,7 @@ msgstr "Du må som et minimum oppgi brukernavn, fornavn og etternavn på dine br
 msgid "There is already a user with this login"
 msgstr "Det finnes allerede en bruker med dette brukernavnet"
 
-#: ../src/boards/python/admin/user_list.py:292
+#: ../src/boards/python/admin/user_list.py:291
 msgid ""
 "To import a user list from a file, first select a class.\n"
 "FILE FORMAT: Your file must be formatted like this:\n"
@@ -4778,7 +4802,7 @@ msgstr ""
 "brukernavn;Fornavn;Etternavn;Fødselsdato\n"
 "Skilletegnet blir automatisk kjennkjent, og kan være ',', ';' eller ':'"
 
-#: ../src/boards/python/admin/user_list.py:371
+#: ../src/boards/python/admin/user_list.py:370
 #, python-format
 msgid ""
 "One or more logins are not unique !\n"
@@ -4787,30 +4811,17 @@ msgstr ""
 "En eller flere brukernavn er ikke unike.\n"
 "Du må endre dem: %s ."
 
-#: ../src/boards/python/anim.py:59
-msgid "You need the python xml module. Disabling SVG."
-msgstr "Du trenger Python xml modulen. Skrur av støtte for SVG."
-
-#. gcompris.utils.dialog(_('Python xml module bot found. SVG is disabled. Install the python xml module to enable SVG Save/restore.'), None)
-#: ../src/boards/python/anim.py:417
-msgid ""
-"Python xml module not found. SVG is disabled. Install the python xml module "
-"to enable SVG Save/restore."
-msgstr ""
-"Python xml modulen ble ikke funnet. Støtte for SVG er skrudd av.  For å "
-"kunne lage/gjenopprette i SVG, så må du installere Python xml modulen."
-
-#: ../src/boards/python/anim.py:2206
+#: ../src/boards/python/anim.py:2209
 msgid "SVG is disabled. Install python xml module to enable it"
 msgstr ""
 "Støtte for SVG er skrudd av. Installer Python xml modulen for å få støtte "
 "for SVG "
 
-#: ../src/boards/python/anim.py:2362
+#: ../src/boards/python/anim.py:2365
 msgid "Warning: the following images cannot be accessed on your system.\n"
 msgstr "Advarsel: disse bildene ble ikke funnet på ditt system.\n"
 
-#: ../src/boards/python/anim.py:2364
+#: ../src/boards/python/anim.py:2367
 msgid "The corresponding items have been skipped."
 msgstr "De tilsvarende gjenstandene har blitt utelatt."
 
@@ -4824,32 +4835,40 @@ msgid ""
 "You can still use this activity to draw schematics without computer "
 "simulation."
 msgstr ""
+"Fant ikke elektrisitetssimulatoren Gnucap.\n"
+"Du kan laste ned og installere den fra\n"
+"<http://geda.seul.org/tools/gnucap/>.\n"
+"For at GCompris skal finne den, så må den\n"
+"være installert i enten «/usr/bin/gnucap»\n"
+"eller «/usr/local/bin/gnucap».\n"
+"Du kan allikevel bruke denne aktiviteten til\n"
+"å tegne strømkretser uten simulering."
 
-#: ../src/boards/python/gnumch.py:95
+#: ../src/boards/python/gnumch.py:94
 #, python-format
 msgid ", %d"
 msgstr ", %d"
 
-#: ../src/boards/python/gnumch.py:96
+#: ../src/boards/python/gnumch.py:95
 #, python-format
 msgid " and %d"
 msgstr " og %d"
 
-#: ../src/boards/python/gnumch.py:116
+#: ../src/boards/python/gnumch.py:115
 #, python-format
 msgid "%d is divisible by %s."
 msgstr "%d er delelig på %s."
 
-#: ../src/boards/python/gnumch.py:120
+#: ../src/boards/python/gnumch.py:119
 msgid "1 is not a prime number."
 msgstr "1 er ikke et primtall."
 
-#: ../src/boards/python/gnumch.py:130
+#: ../src/boards/python/gnumch.py:129
 #, python-format
 msgid "Primes less than %d"
 msgstr "Primtall mindre enn %d"
 
-#: ../src/boards/python/gnumch.py:151
+#: ../src/boards/python/gnumch.py:150
 #, python-format
 msgid ""
 "Multiples of %d include %s,\n"
@@ -4858,57 +4877,57 @@ msgstr ""
 "Multipler av %d inkluderer %s, \n"
 "men %d er ikke en multippel av %d."
 
-#: ../src/boards/python/gnumch.py:160
+#: ../src/boards/python/gnumch.py:159
 #, python-format
 msgid "Factors of %d"
 msgstr "Faktorene til %d"
 
-#: ../src/boards/python/gnumch.py:193
+#: ../src/boards/python/gnumch.py:192
 #, python-format
 msgid "%s are the factors of %d."
 msgstr "%s er faktorene til %d."
 
-#: ../src/boards/python/gnumch.py:205
+#: ../src/boards/python/gnumch.py:204
 #, python-format
 msgid "Multiples of %d"
 msgstr "Multipler av %d"
 
-#: ../src/boards/python/gnumch.py:239
+#: ../src/boards/python/gnumch.py:238
 #, python-format
 msgid "%s = %d"
 msgstr "%s = %d"
 
-#: ../src/boards/python/gnumch.py:250
+#: ../src/boards/python/gnumch.py:249
 #, python-format
 msgid "%d + %d"
 msgstr "%d + %d"
 
-#: ../src/boards/python/gnumch.py:255
+#: ../src/boards/python/gnumch.py:254
 #, python-format
 msgid "%d − %d"
 msgstr "%d − %d"
 
-#: ../src/boards/python/gnumch.py:260
+#: ../src/boards/python/gnumch.py:259
 #, python-format
 msgid "%d × %d"
 msgstr "%d × %d"
 
-#: ../src/boards/python/gnumch.py:264
-#, fuzzy, python-format
+#: ../src/boards/python/gnumch.py:263
+#, python-format
 msgid "%d ÷ %d"
-msgstr "%d × %d"
+msgstr "%d : %d"
 
-#: ../src/boards/python/gnumch.py:272
+#: ../src/boards/python/gnumch.py:271
 #, python-format
 msgid "Equal to %d"
 msgstr "Likt med %d"
 
-#: ../src/boards/python/gnumch.py:293
+#: ../src/boards/python/gnumch.py:292
 #, python-format
 msgid "Not equal to %d"
 msgstr "Ikke likt med %d"
 
-#: ../src/boards/python/gnumch.py:435
+#: ../src/boards/python/gnumch.py:434
 msgid ""
 "You were eaten by a Troggle.\n"
 "Press <Return> to continue."
@@ -4916,11 +4935,11 @@ msgstr ""
 "Du ble spist av en Troggle.\n"
 "Trykk <Enter> for å fortsette."
 
-#: ../src/boards/python/gnumch.py:484
+#: ../src/boards/python/gnumch.py:483
 msgid "You ate a wrong number.\n"
 msgstr "Du spiste feil tall.\n"
 
-#: ../src/boards/python/gnumch.py:485
+#: ../src/boards/python/gnumch.py:484
 msgid ""
 "\n"
 "Press <Return> to continue."
@@ -4928,7 +4947,7 @@ msgstr ""
 "\n"
 "Trykk <Enter> for å fortsette."
 
-#: ../src/boards/python/gnumch.py:778
+#: ../src/boards/python/gnumch.py:777
 msgid ""
 "T\n"
 "R\n"
@@ -4946,50 +4965,84 @@ msgstr ""
 "L\n"
 "E"
 
-#: ../src/boards/python/guessnumber.py:222
+#: ../src/boards/python/guessnumber.py:205
 #, python-format
 msgid "Guess a number between %d and %d"
 msgstr "Gjett et tall mellom %d og %d"
 
-#: ../src/boards/python/guessnumber.py:335
-#: ../src/boards/python/guessnumber.py:336
+#: ../src/boards/python/guessnumber.py:318
+#: ../src/boards/python/guessnumber.py:319
 #, python-format
 msgid "Please enter a number between %d and %d"
 msgstr "Skriv inn et tall mellom %d og %d"
 
-#: ../src/boards/python/guessnumber.py:341
-#: ../src/boards/python/guessnumber.py:342
+#: ../src/boards/python/guessnumber.py:324
+#: ../src/boards/python/guessnumber.py:325
 msgid "Out of range"
 msgstr "ugyldig"
 
-#: ../src/boards/python/guessnumber.py:348
-#: ../src/boards/python/guessnumber.py:349
+#: ../src/boards/python/guessnumber.py:331
+#: ../src/boards/python/guessnumber.py:332
 msgid "Too high"
 msgstr "For høyt"
 
-#: ../src/boards/python/guessnumber.py:351
-#: ../src/boards/python/guessnumber.py:352
+#: ../src/boards/python/guessnumber.py:334
+#: ../src/boards/python/guessnumber.py:335
 msgid "Too low"
 msgstr "For lavt"
 
-#: ../src/boards/python/login.py:115
+#: ../src/boards/python/login.py:114
 msgid "Profile: "
 msgstr "Profil: "
 
-#: ../src/boards/python/login.py:263 ../src/boards/python/login.py:272
+#: ../src/boards/python/login.py:268 ../src/boards/python/login.py:277
 msgid "Login: "
 msgstr "Login: "
 
 #. toggle box
-#: ../src/boards/python/login.py:545
+#: ../src/boards/python/login.py:550
 msgid "Enter login to log in"
 msgstr "Skriv inn brukernavnet"
 
-#: ../src/boards/python/mosaic.py:210
+#: ../src/boards/python/mosaic.py:193
 msgid "Rebuild the same mosaic on the right area"
 msgstr "Bygg opp mosaikken i feltet på høyre side"
 
-#: ../src/boards/python/pythontest.py:149
+#: ../src/boards/python/melody.py:118
+msgid ""
+"Error: this activity cannot be played with the\n"
+"sound effects disabled.\n"
+"Go to the configuration dialogue to\n"
+"enable the sound"
+msgstr ""
+"Feil: denne aktiviteten kan ikke spilles når\n"
+"lydeffekter er skrudd av.\n"
+"Gå inn i konfigurasjonsmenyen og skru på\n"
+"lydeffekter"
+
+#: ../src/boards/python/oscar_and_friends.py:116
+msgid ""
+"Below the surface, Oscar the octopus and his friends sat on a rock,\n"
+"watching the bad weather above them."
+msgstr ""
+"Blekkspruten Benny og vennene hans satt på en stein, \n "
+"og kikket på uværet over dem."
+
+#: ../src/boards/python/oscar_and_friends.py:117
+msgid "They were all happy that the storms never reached all the way down to them."
+msgstr "De var veldig glade for at stormene aldri nådde helt ned til dem."
+
+#: ../src/boards/python/oscar_and_friends.py:118
+msgid "No matter how bad it was up there, the bottom was always calm and quiet."
+msgstr ""
+"Uansett hvor ille været der oppe var, så er det alltid stille og rolig her på "
+"havbunnen."
+
+#: ../src/boards/python/oscar_and_friends.py:119
+msgid "Oscar's best friends were Charlie the crab and Sandy the sea-star."
+msgstr "De beste vennene til Benny var krabben Kennet og sjøstjernen Synnøve."
+
+#: ../src/boards/python/pythontest.py:148
 msgid ""
 "This is the first plugin in gcompris coded in the Python\n"
 "Programming language."
@@ -4997,7 +5050,7 @@ msgstr ""
 "Dette er den første plugin i GCompris som benytter seg av Python\n"
 "programerings språket."
 
-#: ../src/boards/python/pythontest.py:158
+#: ../src/boards/python/pythontest.py:157
 msgid ""
 "It is now possible to develop gcompris activities in C or in Python.\n"
 "Thanks to Olivier Samys who makes this possible."
@@ -5005,102 +5058,102 @@ msgstr ""
 "Det er nå mulig å utvikle GCompris aktiviteter i C eller Python.\n"
 " Takk til Olivier Samys som har gjort dette mulig."
 
-#: ../src/boards/python/pythontest.py:167
+#: ../src/boards/python/pythontest.py:166
 msgid "This activity is not playable, just a test"
 msgstr "Denne aktiviteten er ikke ferdig ennå, dette er kun en test"
 
 #. toggle box
-#: ../src/boards/python/pythontest.py:415
+#: ../src/boards/python/pythontest.py:414
 msgid "Disable line drawing in circle"
 msgstr "Slå av linjetegning i sirkel"
 
 #. combo box
-#: ../src/boards/python/pythontest.py:424
+#: ../src/boards/python/pythontest.py:423
 msgid "Color of the line"
 msgstr "Farge på linjen"
 
 #. spin button for int
-#: ../src/boards/python/pythontest.py:435
+#: ../src/boards/python/pythontest.py:434
 msgid "Distance between circles"
 msgstr "Avstand mellom sirkler"
 
 #. radio buttons for circle or rectangle
-#: ../src/boards/python/pythontest.py:446
+#: ../src/boards/python/pythontest.py:445
 msgid "Use circles"
 msgstr "Bruk sirkler"
 
-#: ../src/boards/python/pythontest.py:447
+#: ../src/boards/python/pythontest.py:446
 msgid "Use rectangles"
 msgstr "Bruk rektangler"
 
-#: ../src/boards/python/pythontest.py:450
+#: ../src/boards/python/pythontest.py:449
 msgid "Choice of pattern"
 msgstr "Valg av mønster"
 
-#: ../src/boards/python/redraw.py:348 ../src/boards/python/redraw.py:358
+#: ../src/boards/python/redraw.py:347 ../src/boards/python/redraw.py:357
 msgid "Level"
 msgstr "Nivå"
 
-#: ../src/boards/python/redraw.py:902 ../src/boards/python/redraw.py:905
+#: ../src/boards/python/redraw.py:901 ../src/boards/python/redraw.py:904
 msgid "Coordinate"
 msgstr "Koordinat"
 
-#: ../src/boards/python/searace.py:201 ../src/boards/python/searace.py:206
-#: ../src/boards/python/searace.py:232
+#: ../src/boards/python/searace.py:200 ../src/boards/python/searace.py:205
+#: ../src/boards/python/searace.py:231
 msgid "The race is already being run"
 msgstr "En konkurranse er allerede startet"
 
 #. Manage default cases (no params given)
 #. Final move, add an ofset because we loose space in abs()
-#: ../src/boards/python/searace.py:429 ../src/boards/python/searace.py:454
-#: ../src/boards/python/searace.py:535 ../src/boards/python/searace.py:854
-#: ../src/boards/python/searace.py:883 ../src/boards/python/searace.py:978
-#: ../src/boards/python/searace.py:984 ../src/boards/python/searace.py:992
+#: ../src/boards/python/searace.py:428 ../src/boards/python/searace.py:453
+#: ../src/boards/python/searace.py:534 ../src/boards/python/searace.py:853
+#: ../src/boards/python/searace.py:882 ../src/boards/python/searace.py:977
+#: ../src/boards/python/searace.py:983 ../src/boards/python/searace.py:991
 msgid "forward"
 msgstr "forover"
 
-#: ../src/boards/python/searace.py:526
+#: ../src/boards/python/searace.py:525
 msgid "COMMANDS ARE"
 msgstr "KOMMANDOER ER"
 
 #. The two boat arrived in a close time frame (1s), it's a draw
-#: ../src/boards/python/searace.py:752
+#: ../src/boards/python/searace.py:751
 msgid "This is a draw"
 msgstr "Det ble uavgjort"
 
-#: ../src/boards/python/searace.py:759
+#: ../src/boards/python/searace.py:758
 msgid "The Red boat has won"
 msgstr "Den røde båten har vunnet"
 
-#: ../src/boards/python/searace.py:762
+#: ../src/boards/python/searace.py:761
 msgid "The Green boat has won"
 msgstr "Den grønne båten har vunnet"
 
-#: ../src/boards/python/searace.py:780 ../src/boards/python/searace.py:1022
+#: ../src/boards/python/searace.py:779 ../src/boards/python/searace.py:1021
 msgid "Angle:"
 msgstr "Vinkel:"
 
-#: ../src/boards/python/searace.py:780
+#: ../src/boards/python/searace.py:779
 msgid "Wind:"
 msgstr "Vind:"
 
-#: ../src/boards/python/searace.py:861
+#: ../src/boards/python/searace.py:860
 msgid "Syntax error at line"
 msgstr "Syntaksfeil på linje"
 
-#: ../src/boards/python/searace.py:879
+#: ../src/boards/python/searace.py:878
 msgid "The command"
 msgstr "Kommandoen"
 
-#: ../src/boards/python/searace.py:898
+#: ../src/boards/python/searace.py:897
 msgid "Unknown command at line"
 msgstr "Ukjent kommando på linje"
 
-#: ../src/boards/python/searace.py:1022
+#: ../src/boards/python/searace.py:1021
 msgid "Distance:"
 msgstr "Avstand:"
 
-#: ../src/boards/python/tuxpaint.py:115
+#: ../src/boards/python/tuxpaint.py:119
 msgid ""
 "Cannot find Tuxpaint.\n"
 "Install it to use this activity !"
@@ -5108,78 +5161,82 @@ msgstr ""
 "Kan ikke finne Tuxpaint. \n"
 "Installer Tuxpaint for å bruke dette brettet. "
 
-#: ../src/boards/python/tuxpaint.py:128
+#: ../src/boards/python/tuxpaint.py:132
 msgid "Waiting for Tuxpaint to finish"
 msgstr "Venter på at du skal bli ferdig å bruke Tuxpaint"
 
-#: ../src/boards/python/tuxpaint.py:183
+#: ../src/boards/python/tuxpaint.py:187
 msgid "Inherit fullscreen setting from GCompris"
 msgstr "Bruk fullskjerm innstillingen fra GCompris"
 
-#: ../src/boards/python/tuxpaint.py:187
+#: ../src/boards/python/tuxpaint.py:191
 msgid "Inherit size setting from GCompris (800x600, 640x480)"
 msgstr "Bruk skjermstørrelse innstillingen fra GCompris (800x600, 640x480)"
 
-#: ../src/boards/python/tuxpaint.py:191
+#: ../src/boards/python/tuxpaint.py:195
 msgid "Disable shape rotation"
 msgstr "Skru av rotasjon av former"
 
-#: ../src/boards/python/tuxpaint.py:195
+#: ../src/boards/python/tuxpaint.py:199
 msgid "Show Uppercase text only"
 msgstr "Hvis kun store bokstaver"
 
-#: ../src/boards/python/tuxpaint.py:199
+#: ../src/boards/python/tuxpaint.py:203
 msgid "Disable stamps"
 msgstr "Skru av stempler"
 
-#: ../src/boards/railroad.c:95
+#: ../src/boards/railroad.c:91
 msgid "Memory game"
 msgstr "Hukommelsespill"
 
-#: ../src/boards/railroad.c:96
+#: ../src/boards/railroad.c:92
 msgid "Build a train according to the model"
 msgstr "Bygg et tog lik modellen"
 
-#: ../src/boards/reading.c:370
+#: ../src/boards/reading.c:225 ../src/boards/wordsgame.c:205
+msgid ""
+"Error: We can't find\n"
+"a list of words to play this game.\n"
+msgstr ""
+"Feil: Finner ikke ordlisten\n"
+"for å spille dette spillet.\n"
+
+#: ../src/boards/reading.c:379
 msgid "Please, check if the word"
 msgstr "Vennligst sjekk om ordet"
 
-#: ../src/boards/reading.c:390
+#: ../src/boards/reading.c:399
 msgid "is being displayed"
 msgstr "vises"
 
-#: ../src/boards/reading.c:561
+#: ../src/boards/reading.c:573
 msgid "I am Ready"
 msgstr "Jeg er klar"
 
-#: ../src/boards/reading.c:601
+#: ../src/boards/reading.c:613
 msgid "Yes, I saw it"
 msgstr "Ja, jeg så det"
 
-#: ../src/boards/reading.c:631
+#: ../src/boards/reading.c:643
 msgid "No, it was not there"
 msgstr "Nei, det var ikke der"
 
 #. Report what was wrong in the log
-#: ../src/boards/reading.c:669
+#: ../src/boards/reading.c:681
 #, c-format
 msgid "The word to find was '%s'"
 msgstr "Ordet som skulle finnes var '%s'"
 
-#: ../src/boards/reading.c:672
+#: ../src/boards/reading.c:684
 msgid "But it was not displayed"
 msgstr "Men det ble ikke vist"
 
-#: ../src/boards/reading.c:674
+#: ../src/boards/reading.c:686
 msgid "And it was displayed"
 msgstr "Ordet ble vist"
 
-#: ../src/boards/reading.c:777 ../src/boards/wordsgame.c:776
-msgid "Cannot open file of words for your locale"
-msgstr "Kunne ikke åpne filen med ord for ditt språk"
-
 #. Enter Edit Mode
-#: ../src/boards/shapegame.c:433
+#: ../src/boards/shapegame.c:434
 msgid ""
 "You have entered Edit mode\n"
 "Move the puzzle items;\n"
@@ -5191,7 +5248,7 @@ msgstr ""
 "på 's' for å lagre, og\n"
 "'d' for å vise alle figurene"
 
-#: ../src/boards/shapegame.c:441
+#: ../src/boards/shapegame.c:442
 msgid ""
 "The data from this activity are saved under\n"
 "/tmp/gcompris-board.xml"
@@ -5199,20 +5256,20 @@ msgstr ""
 "Dataene fra dette brettet blir lagret i\n"
 "/tmp/gcompris-board.xml"
 
-#: ../src/boards/submarine.c:201
+#: ../src/boards/submarine.c:198
 msgid "Submarine"
 msgstr "Undervannsbåt"
 
-#: ../src/boards/submarine.c:202
+#: ../src/boards/submarine.c:199
 msgid "Control the depth of a submarine"
 msgstr "Kontroller dybden til undervannsbåten"
 
-#: ../src/boards/target.c:285 ../src/boards/target.c:540
+#: ../src/boards/target.c:281 ../src/boards/target.c:546
 #, c-format
 msgid "Points = %s"
 msgstr "Poeng = %s"
 
-#: ../src/boards/target.c:405
+#: ../src/boards/target.c:403
 #, c-format
 msgid ""
 "Wind speed = %d\n"
@@ -5221,12 +5278,12 @@ msgstr ""
 "Vindens fart = %d\n"
 "kilometer/timen"
 
-#: ../src/boards/target.c:467
+#: ../src/boards/target.c:470
 #, c-format
 msgid "Distance to target = %d meters"
 msgstr "Avstand til målet = %d meter"
 
-#: ../src/gcompris/about.c:65
+#: ../src/gcompris/about.c:57
 msgid ""
 "Author: Bruno Coudoin\n"
 "Contribution: Pascal Georges, Jose Jorge\n"
@@ -5241,19 +5298,19 @@ msgstr ""
 "Bakgrunnsmusikk: Rico Da Halvarez\n"
 
 #. TRANSLATORS: Replace this string with your names, one name per line.
-#: ../src/gcompris/about.c:73
+#: ../src/gcompris/about.c:65
 msgid "translator_credits"
 msgstr "Klaus Ade Johnstad <klaus@inout.no> <klaus@skolelinux.no>"
 
-#: ../src/gcompris/about.c:105 ../src/gcompris/about.c:114
+#: ../src/gcompris/about.c:96 ../src/gcompris/about.c:106
 msgid "About GCompris"
 msgstr "Om GCompris"
 
-#: ../src/gcompris/about.c:124 ../src/gcompris/about.c:133
+#: ../src/gcompris/about.c:117
 msgid "Translators:"
 msgstr "Oversettere:"
 
-#: ../src/gcompris/about.c:256
+#: ../src/gcompris/about.c:193
 msgid ""
 "GCompris Home Page\n"
 "http://gcompris.net"
@@ -5261,7 +5318,7 @@ msgstr ""
 "GCompris hjemmeside\n"
 "http://gcompris.net"
 
-#: ../src/gcompris/about.c:278
+#: ../src/gcompris/about.c:215
 msgid ""
 "This software is a GNU Package and is released under the GNU General Public "
 "License"
@@ -5269,34 +5326,34 @@ msgstr ""
 "Denne programvaren er en GNU pakke, og er frigitt med en GNU General Public "
 "License"
 
-#: ../src/gcompris/about.c:341 ../src/gcompris/about.c:350
-#: ../src/gcompris/config.c:222 ../src/gcompris/config.c:231
-#: ../src/gcompris/gameutil.c:1174 ../src/gcompris/help.c:382
-#: ../src/gcompris/help.c:391 ../src/gcompris/images_selector.c:263
+#: ../src/gcompris/about.c:278 ../src/gcompris/about.c:288
+#: ../src/gcompris/config.c:465 ../src/gcompris/config.c:475
+#: ../src/gcompris/dialog.c:97 ../src/gcompris/help.c:376
+#: ../src/gcompris/help.c:386 ../src/gcompris/images_selector.c:317
 msgid "OK"
 msgstr "Greit"
 
-#: ../src/gcompris/bar.c:571
+#: ../src/gcompris/bar.c:568
 msgid "GCompris confirmation"
 msgstr "Avslutte GCompris"
 
-#: ../src/gcompris/bar.c:572
-msgid "Sure you want to quit ?"
+#: ../src/gcompris/bar.c:569
+msgid "Are you sure you want to quit?"
 msgstr "Er du virkelig sikker på at du vil avslutte?"
 
-#: ../src/gcompris/bar.c:573
-msgid "Yes, I am sure !"
+#: ../src/gcompris/bar.c:570
+msgid "Yes, I am sure!"
 msgstr "Ja, jeg vil virkelig avslutte."
 
-#: ../src/gcompris/bar.c:574
+#: ../src/gcompris/bar.c:571
 msgid "No, I want to keep going"
 msgstr "Nei, jeg vil fortsette."
 
-#: ../src/gcompris/board.c:182
+#: ../src/gcompris/board.c:181
 msgid "Dynamic module loading is not supported. gcompris cannot load.\n"
 msgstr "Dynamisk lasting av moduler er ikke støttet. GCompris kan ikke starte.\n"
 
-#: ../src/gcompris/board_config.c:617
+#: ../src/gcompris/board_config.c:700
 msgid ""
 "Select the language\n"
 " to use in the board"
@@ -5304,181 +5361,194 @@ msgstr ""
 "Velg språk som skal brukes\n"
 " i dette brettet"
 
-#: ../src/gcompris/config.c:63
+#: ../src/gcompris/config.c:59
 msgid "Your system default"
 msgstr "Standard for ditt system"
 
-#: ../src/gcompris/config.c:64
+#: ../src/gcompris/config.c:60
 msgid "Amharic"
 msgstr "Amharisk"
 
-#: ../src/gcompris/config.c:65
+#: ../src/gcompris/config.c:61
 msgid "Arabic"
 msgstr "Arabisk"
 
-#: ../src/gcompris/config.c:66
+#: ../src/gcompris/config.c:62
 msgid "Turkish (Azerbaijan)"
 msgstr "Tyrkisk (Aserbaidjan)"
 
-#: ../src/gcompris/config.c:67
+#: ../src/gcompris/config.c:63
 msgid "Bulgarian"
 msgstr "Bulgarer"
 
-#: ../src/gcompris/config.c:68
+#: ../src/gcompris/config.c:64
 msgid "Catalan"
 msgstr "Katalansk"
 
-#: ../src/gcompris/config.c:70
+#: ../src/gcompris/config.c:66
 msgid "Danish"
 msgstr "Dansk"
 
-#: ../src/gcompris/config.c:71
+#: ../src/gcompris/config.c:67
 msgid "German"
 msgstr "Tysk"
 
-#: ../src/gcompris/config.c:72
+#: ../src/gcompris/config.c:68
 msgid "Greek"
 msgstr "Gresk"
 
-#: ../src/gcompris/config.c:73
+#: ../src/gcompris/config.c:69
 msgid "English (Canada)"
 msgstr "Engelsk (Kanadisk)"
 
-#: ../src/gcompris/config.c:74
+#: ../src/gcompris/config.c:70
 msgid "English (Great Britain)"
 msgstr "Engelsk (Storbritannia)"
 
-#: ../src/gcompris/config.c:75
+#: ../src/gcompris/config.c:71
 msgid "Spanish"
 msgstr "Spansk"
 
-#: ../src/gcompris/config.c:76
+#: ../src/gcompris/config.c:72
 msgid "Basque"
 msgstr "Baskisk"
 
-#: ../src/gcompris/config.c:77
+#: ../src/gcompris/config.c:73
 msgid "Finnish"
 msgstr "Finsk"
 
-#: ../src/gcompris/config.c:78
+#: ../src/gcompris/config.c:74
 msgid "French"
 msgstr "Fransk"
 
-#: ../src/gcompris/config.c:79
+#: ../src/gcompris/config.c:75
 msgid "Irish (Gaelic)"
 msgstr "Irsk (Gaelic)"
 
-#: ../src/gcompris/config.c:80
+#: ../src/gcompris/config.c:76
 msgid "Hebrew"
 msgstr "Hebraisk"
 
-#: ../src/gcompris/config.c:81
+#: ../src/gcompris/config.c:77
 msgid "Hindi"
 msgstr "Hindi"
 
-#: ../src/gcompris/config.c:82
+#: ../src/gcompris/config.c:78
 msgid "Gujarati"
 msgstr "Indisk (Gujarati)"
 
-#: ../src/gcompris/config.c:83
+#: ../src/gcompris/config.c:79
 msgid "Punjabi"
 msgstr "Indisk (Punjab)"
 
-#: ../src/gcompris/config.c:84
+#: ../src/gcompris/config.c:80
 msgid "Hungarian"
 msgstr "Ungarsk"
 
-#: ../src/gcompris/config.c:85
+#: ../src/gcompris/config.c:81
 msgid "Croatian"
 msgstr "Kroatisk"
 
-#: ../src/gcompris/config.c:86
+#: ../src/gcompris/config.c:82
 msgid "Italian"
 msgstr "Italiensk"
 
-#: ../src/gcompris/config.c:87
+#: ../src/gcompris/config.c:83
 msgid "Georgian"
 msgstr "Georgisk"
 
-#: ../src/gcompris/config.c:88
+#: ../src/gcompris/config.c:84
 msgid "Lithuanian"
 msgstr "Litauisk"
 
-#: ../src/gcompris/config.c:89
+#: ../src/gcompris/config.c:85
 msgid "Macedonian"
 msgstr "Makedonsk"
 
-#: ../src/gcompris/config.c:90
+#: ../src/gcompris/config.c:86
 msgid "Malayalam"
 msgstr "Malayalam"
 
-#: ../src/gcompris/config.c:91
+#: ../src/gcompris/config.c:87
+msgid "Marathi"
+msgstr "Marathi"
+
+#: ../src/gcompris/config.c:88
 msgid "Malay"
 msgstr "Malayisk"
 
-#: ../src/gcompris/config.c:92
+#: ../src/gcompris/config.c:89
 msgid "Nepal"
 msgstr "Nepal"
 
-#: ../src/gcompris/config.c:93
+#: ../src/gcompris/config.c:90
 msgid "Dutch"
 msgstr "Nederlandsk"
 
-#: ../src/gcompris/config.c:94
+#: ../src/gcompris/config.c:91
 msgid "Norwegian Bokmal"
 msgstr "Norsk (bokmål)"
 
-#: ../src/gcompris/config.c:95
+#: ../src/gcompris/config.c:92
 msgid "Norwegian Nynorsk"
 msgstr "Norsk (nynorsk)"
 
-#: ../src/gcompris/config.c:96
+#: ../src/gcompris/config.c:93
 msgid "Polish"
 msgstr "Polsk"
 
-#: ../src/gcompris/config.c:97
+#: ../src/gcompris/config.c:94
 msgid "Portuguese"
 msgstr "Portugisisk"
 
-#: ../src/gcompris/config.c:98
+#: ../src/gcompris/config.c:95
 msgid "Portuguese (Brazil)"
 msgstr "Portugisisk"
 
-#: ../src/gcompris/config.c:99
+#: ../src/gcompris/config.c:96
 msgid "Romanian"
 msgstr "Rumensk"
 
-#: ../src/gcompris/config.c:100
+#: ../src/gcompris/config.c:97
 msgid "Russian"
 msgstr "Russisk"
 
-#: ../src/gcompris/config.c:101
+#: ../src/gcompris/config.c:98
 msgid "Kinyarwanda"
 msgstr "Kinyarwanda"
 
-#: ../src/gcompris/config.c:102
+#: ../src/gcompris/config.c:99
 msgid "Slovak"
 msgstr "Slovakisk"
 
-#: ../src/gcompris/config.c:103
+#: ../src/gcompris/config.c:100
 msgid "Slovenian"
 msgstr "Slovensk"
 
-#: ../src/gcompris/config.c:104
+#: ../src/gcompris/config.c:101
+msgid "Somali"
+msgstr "Somalisk"
+
+#: ../src/gcompris/config.c:102
 msgid "Albanian"
 msgstr "Albansk"
 
-#: ../src/gcompris/config.c:105
+#: ../src/gcompris/config.c:103
 msgid "Serbian (Latin)"
 msgstr "Serbisk (Latin)"
 
-#: ../src/gcompris/config.c:106
+#: ../src/gcompris/config.c:104
 msgid "Serbian"
 msgstr "Serbisk"
 
-#: ../src/gcompris/config.c:107
+#: ../src/gcompris/config.c:105
 msgid "Swedish"
 msgstr "Svensk"
+
+#. "ta_IN.UTF-8",	N_("Tamil"),
+#: ../src/gcompris/config.c:107
+msgid "Thai"
+msgstr "Thailandsk"
 
 #: ../src/gcompris/config.c:108
 msgid "Turkish"
@@ -5528,54 +5598,62 @@ msgstr ""
 "<i>Bruk GCompris administrasjonsmodul\n"
 "for å filtrere spillebrett</i>"
 
-#: ../src/gcompris/config.c:187 ../src/gcompris/config.c:196
+#: ../src/gcompris/config.c:185 ../src/gcompris/config.c:195
 msgid "GCompris Configuration"
 msgstr "Konfigurasjon av GCompris"
 
-#: ../src/gcompris/config.c:314
+#: ../src/gcompris/config.c:271
 msgid "Fullscreen"
 msgstr "Hele skjermen"
 
-#: ../src/gcompris/config.c:357
+#: ../src/gcompris/config.c:314
 msgid "Music"
 msgstr "Musikk"
 
-#: ../src/gcompris/config.c:385
+#: ../src/gcompris/config.c:342
 msgid "Effect"
 msgstr "Effekter"
 
-#: ../src/gcompris/config.c:418
+#: ../src/gcompris/config.c:378
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "Kunne ikke åpne katalog for tema: %s"
 
-#: ../src/gcompris/config.c:454 ../src/gcompris/config.c:818
-#: ../src/gcompris/config.c:829
+#: ../src/gcompris/config.c:409 ../src/gcompris/config.c:864
+#: ../src/gcompris/config.c:878
 #, c-format
 msgid "Skin : %s"
 msgstr "Tema : %s"
 
-#: ../src/gcompris/file_selector.c:341
+#: ../src/gcompris/config.c:411
+msgid "SKINS NOT FOUND"
+msgstr "Fant intet tema"
+
+#: ../src/gcompris/config.c:536
+msgid "English (United State)"
+msgstr "Engelsk (USA)"
+
+#: ../src/gcompris/file_selector.c:334
 msgid "CANCEL"
 msgstr "Avbryt"
 
-#: ../src/gcompris/file_selector.c:372
+#: ../src/gcompris/file_selector.c:365
 msgid "LOAD"
 msgstr "Hent opp"
 
-#: ../src/gcompris/file_selector.c:372
+#: ../src/gcompris/file_selector.c:365
 msgid "SAVE"
 msgstr "Lagre"
 
-#: ../src/gcompris/gameutil.c:190
-msgid "Couldn't find file"
-msgstr "Kunne ikke finne filen"
+#: ../src/gcompris/gameutil.c:78
+msgid "Couldn't find or load the file"
+msgstr "Kunne ikke finne filen, eller åpne den"
 
-#: ../src/gcompris/gameutil.c:192
+#: ../src/gcompris/gameutil.c:80
 msgid "This activity is incomplete."
 msgstr "Denne aktiviteten er ennå ikke ferdig."
 
-#: ../src/gcompris/gameutil.c:193
+#: ../src/gcompris/gameutil.c:81
 msgid ""
 "Exit it and report\n"
 "the problem to the authors."
@@ -5583,11 +5661,11 @@ msgstr ""
 "Avslutt og rapporter\n"
 "problemet til forfatteren."
 
-#: ../src/gcompris/gcompris.c:125
+#: ../src/gcompris/gcompris.c:123
 msgid "run gcompris in fullscreen mode."
 msgstr "kjør GCompris i fullskjermmodus."
 
-#: ../src/gcompris/gcompris.c:127
+#: ../src/gcompris/gcompris.c:126
 msgid "run gcompris in window mode."
 msgstr "kjør GCompris i vindusmodus."
 
@@ -5595,99 +5673,123 @@ msgstr "kjør GCompris i vindusmodus."
 msgid "run gcompris with sound enabled."
 msgstr "kjør GCompris med lyd skrudd på."
 
-#: ../src/gcompris/gcompris.c:131
+#: ../src/gcompris/gcompris.c:132
 msgid "run gcompris without sound."
 msgstr "kjør GCompris med lyd skrudd av."
 
-#: ../src/gcompris/gcompris.c:133
+#: ../src/gcompris/gcompris.c:135
 msgid "run gcompris with the default gnome cursor."
 msgstr "kjør GCompris med standard musepeker."
 
-#: ../src/gcompris/gcompris.c:135
+#: ../src/gcompris/gcompris.c:138
 msgid "display only activities with this difficulty level."
 msgstr "vis kun aktiviteter med dette vanskelighetsnivået."
 
-#: ../src/gcompris/gcompris.c:137
+#: ../src/gcompris/gcompris.c:141
 msgid "display debug informations on the console."
 msgstr "vis feilsøkings informasjon på konsollen."
 
-#: ../src/gcompris/gcompris.c:139
+#: ../src/gcompris/gcompris.c:144
 msgid "Print the version of "
 msgstr "Skriv ut versjonen av "
 
-#: ../src/gcompris/gcompris.c:141
+#: ../src/gcompris/gcompris.c:147
 msgid "Use the antialiased canvas (slower)."
 msgstr "Bruk utjevnet kanvas (tregere)."
 
-#: ../src/gcompris/gcompris.c:143
-msgid "Disable XRANDR (No screen resolution change)."
-msgstr "Skru av støtte for XRANDR (Ingen mulighet for å endre oppløsningen)."
+#: ../src/gcompris/gcompris.c:150
+msgid "Disable XF86VidMode (No screen resolution change)."
+msgstr "Ikke bruk XF86VidMode (ikke bytt skjermoppløsing)."
 
-#: ../src/gcompris/gcompris.c:145
+#: ../src/gcompris/gcompris.c:153
 msgid ""
 "Run gcompris with local menu (e.g -l /reading will let you play only "
-"activities in the reading directory, -l /boards/connect4 only the connect4 "
+"activities in the reading directory, -l /strategy/connect4 only the connect4 "
 "activity)"
 msgstr ""
 "Start GCompris med et begrenset utvalg aktiviteter (f.eks vil -l /reading "
 "kun bruke brett med leseaktiviteter, -l /boards/connect4 vil kun starte med "
 "4 på rad), -l list vil vise alle mulige menyer og aktiviteter"
 
-#: ../src/gcompris/gcompris.c:147
+#: ../src/gcompris/gcompris.c:156
 msgid "Run GCompris with local activity directory added to menu"
 msgstr "Start GCompris med ekstra lokal aktivitet lagt til"
 
-#: ../src/gcompris/gcompris.c:149
+#: ../src/gcompris/gcompris.c:159
 msgid "Run GCompris in administration and user-management mode"
 msgstr "Kjør GCompris i administrasjons og brukerhåndterer modus"
 
-#: ../src/gcompris/gcompris.c:151
+#: ../src/gcompris/gcompris.c:162
 msgid "Use alternate database for profiles"
 msgstr "Bruk en alternativ database for profiler"
 
-#: ../src/gcompris/gcompris.c:153
+#: ../src/gcompris/gcompris.c:165
 msgid "Use alternate database for logs"
 msgstr "Bruk en alternativ database for loggene"
 
-#: ../src/gcompris/gcompris.c:155
+#: ../src/gcompris/gcompris.c:168
 msgid "Create the alternate database for profiles"
 msgstr "Lag en alternativ database for profiler"
 
-#: ../src/gcompris/gcompris.c:157
+#: ../src/gcompris/gcompris.c:171
 msgid "Re-read XML Menus and store them in the database"
 msgstr "Les XML-menyer på nytt, og lagre de i databasen"
 
-#: ../src/gcompris/gcompris.c:159
+#: ../src/gcompris/gcompris.c:174
 msgid "Set the profile to use. Use 'gcompris -a' to create profiles"
 msgstr "Velg hvilken profil som skal brukes. Bruk 'gcompris -a' for å lage en profil"
 
-#: ../src/gcompris/gcompris.c:161
+#: ../src/gcompris/gcompris.c:177
 msgid "List all available profiles. Use 'gcompris -a' to create profiles"
 msgstr "Vis alle tilgjengelige profiler. Bruk 'gcompris -a' for å lage profiler."
 
-#: ../src/gcompris/gcompris.c:163
+#: ../src/gcompris/gcompris.c:180
 msgid ""
 "Shared directory location, for profiles and board-configuration data: "
 "[$HOME/.gcompris/shared]"
 msgstr "Delt mappe-plassering. For profiler og brettoppsett: [$HOME/.gcompris/shared]"
 
-#: ../src/gcompris/gcompris.c:165
+#: ../src/gcompris/gcompris.c:183
 msgid "The location of user directories: [$HOME/.gcompris/users]"
 msgstr "Brukermappeplassering. [$HOME/.gcompris/users] "
 
-#: ../src/gcompris/gcompris.c:167
+#: ../src/gcompris/gcompris.c:186
 msgid "Run the experimental activities"
 msgstr "Aktiviteter med eksperimenter"
 
-#: ../src/gcompris/gcompris.c:169
+#: ../src/gcompris/gcompris.c:189
 msgid "Disable the quit button"
 msgstr "Skru av bruken av avslutt-knappen"
 
-#: ../src/gcompris/gcompris.c:171
+#: ../src/gcompris/gcompris.c:192
 msgid "Disable the config button"
 msgstr "Skru av konfigurasjons-knappen"
 
-#: ../src/gcompris/gcompris.c:788
+#: ../src/gcompris/gcompris.c:195
+msgid "Display the resources on stdout based on the selected activities"
+msgstr "Vis resursene på stdout basert på valgte aktiviteter."
+
+#: ../src/gcompris/gcompris.c:198
+msgid ""
+"GCompris will get images, sounds and activity data from this server if not "
+"found locally."
+msgstr ""
+"GCompris vil hente bilder, lyder og aktivitetsdata fra denne serveren om de "
+"ikke blir funnet lokalt."
+
+#: ../src/gcompris/gcompris.c:201
+msgid ""
+"Only when --server is provided, disable check for local resource first. Data "
+"are always taken from the web server."
+msgstr ""
+"Bare når «--server» blir brukt. Slå av leting etter lokale resurser først. "
+"Alle data blir hentet fra webserveren."
+
+#: ../src/gcompris/gcompris.c:205
+msgid "In server mode, specify the cache directory used to avoid useless downloads."
+msgstr "I servermodus, oppgi lokasjonen til mellomlagermappen som kan brukes for å unngå unødvendig nedlasting."
+
+#: ../src/gcompris/gcompris.c:838
 #, c-format
 msgid ""
 "GCompris is free software released under the GPL License. In order to "
@@ -5700,8 +5802,17 @@ msgid ""
 "GNU/Linux. Get more information at FSF:\n"
 "<http://www.fsf.org/philosophy>"
 msgstr ""
+"GCompris er fri programvare tilgjengelig under GNU GPL-lisensen. For å "
+"støtte utviklingen er bare %d av %d aktiviteter tilgjengelig i Windows-"
+"versjonen. Du kan få hele versjonen for et lite vederlag på\n"
+"<http://gcompris.net/>.\n"
+"Linux-utgaven har ikke denne begrensningen. Merk at GCompris er utviklet for å "
+"fri skoler fra monopolistiske programvareleverandører. Om du mener vi bør "
+"lære ungene om frihet, så vurder om ikke du også vil bruke GNU/Linux. Du finner "
+"mer informasjon på nettsiden til FDF, på\n"
+"<http://www.fsf.org/philosophy/>."
 
-#: ../src/gcompris/gcompris.c:1172
+#: ../src/gcompris/gcompris.c:1439
 #, c-format
 msgid ""
 "GCompris\n"
@@ -5715,50 +5826,50 @@ msgstr ""
 "Mer informasjon på http://gcompris.net\n"
 
 #. check the list of possible values for -l, then exit
-#: ../src/gcompris/gcompris.c:1258
+#: ../src/gcompris/gcompris.c:1528
 #, c-format
 msgid "Use -l to access an activity directly.\n"
 msgstr "Bruk -l aktivitet for å gå rett til denne aktiviteten.\n"
 
-#: ../src/gcompris/gcompris.c:1259
+#: ../src/gcompris/gcompris.c:1529
 #, c-format
 msgid "The list of available activities is :\n"
 msgstr "Liste med tilgjengelige aktiviteter er :\n"
 
-#: ../src/gcompris/gcompris.c:1403
+#: ../src/gcompris/gcompris.c:1707
 #, c-format
 msgid "The list of available profiles is:\n"
 msgstr "Liste med tilgjengelige profiler:\n"
 
-#: ../src/gcompris/gcompris_db.c:253
+#: ../src/gcompris/gcompris_db.c:250
 msgid "Unaffected"
 msgstr "Ikke berørt"
 
-#: ../src/gcompris/gcompris_db.c:254
+#: ../src/gcompris/gcompris_db.c:251
 msgid "Users without a class"
 msgstr "Brukere uten klassetilhørighet"
 
-#: ../src/gcompris/help.c:200
+#: ../src/gcompris/help.c:194
 msgid "Prerequisite"
 msgstr "Forhåndskrav"
 
-#: ../src/gcompris/help.c:228
+#: ../src/gcompris/help.c:222
 msgid "Goal"
 msgstr "Mål"
 
-#: ../src/gcompris/help.c:256
+#: ../src/gcompris/help.c:250
 msgid "Manual"
 msgstr "Håndbok"
 
-#: ../src/gcompris/help.c:284
+#: ../src/gcompris/help.c:278
 msgid "Credit"
 msgstr "Bidragsyter"
 
-#: ../src/gcompris/timer.c:235
+#: ../src/gcompris/timer.c:250
 msgid "Time Elapsed"
 msgstr "Medgått tid"
 
-#: ../src/gcompris/timer.c:321
+#: ../src/gcompris/timer.c:339
 #, c-format
 msgid "Remaining Time = %d"
 msgstr "Gjenværende tid = %d"
