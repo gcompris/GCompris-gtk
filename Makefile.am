@@ -101,17 +101,20 @@ BUNDLE_EXEC_DIR=$(BUNDLE_APPDIR)
 endif
 
 if WITH_NSBUNDLE
-nsbundle:
+nsbundle: 
 	$(INSTALL) -d $(BUNDLE_RESOURCES_DIR)
 	$(INSTALL) -d $(BUNDLE_EXEC_DIR)
-
+	$(INSTALL) -d $(BUNDLE_EXEC_DIR)/$(NSBUNDLE_GTK_DIR)
 	make install prefix=$(BUNDLE_RESOURCES_DIR) \
 		     exec_prefix=$(BUNDLE_RESOURCES_DIR) \
 	             bindir=$(BUNDLE_EXEC_DIR) \
 	             PYTHON_PLUGIN_DIR=$(BUNDLE_RESOURCES_DIR)/share/gcompris/python 
-
 	mv $(BUNDLE_EXEC_DIR)/gcompris $(BUNDLE_EXEC_DIR)/$(BUNDLE_NAME)
-# check info.plist instead.
+	for f in $$(otool -L $(BUNDLE_EXEC_DIR)/$(BUNDLE_NAME) | grep $(prefix) | sed -e 's,^.*$(prefix)/\(.*.dylib\).*$$,\1,' ); do \
+               ls -L  $(prefix)/$$f; \
+                cp -Lv $(prefix)/$$f $(BUNDLE_EXEC_DIR)/$(NSBUNDLE_GTK_DIR)/$f ;\
+                install_name_tool -change $(prefix)/$$f @executable_path/$(NSBUNDLE_GTK_DIR)/$$f $(BUNDLE_EXEC_DIR)/$(BUNDLE_NAME) ; \
+          done; 
 endif
 
 

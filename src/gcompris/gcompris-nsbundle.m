@@ -12,7 +12,7 @@ gchar *gcompris_nsbundle_resource(void)
 
   printf("NSBundle resourcePath %s\n", resourcePath);
 
-  RELEASE(pool);
+  [pool release];
   return resourcePath;
 #else
   return NULL;
