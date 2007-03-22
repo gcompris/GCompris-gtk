@@ -118,9 +118,10 @@ nsbundle:
 	             PYTHON_PLUGIN_DIR=$(BUNDLE_RESOURCES_DIR)/share/gcompris/python 
 	mv $(BUNDLE_EXEC_DIR)/gcompris $(BUNDLE_EXEC_DIR)/$(BUNDLE_NAME)
 if OS_MACOSX
+	$(INSTALL) -d $(BUNDLE_EXEC_DIR)/$(NSBUNDLE_GTK_DIR)/lib
 	for f in $$(otool -L $(BUNDLE_EXEC_DIR)/$(BUNDLE_NAME) | grep $(prefix) | sed -e 's,^.*$(prefix)/\(.*.dylib\).*$$,\1,' ); do \
                ls -L  $(prefix)/$$f; \
-                cp -Lv $(prefix)/$$f $(BUNDLE_EXEC_DIR)/$(NSBUNDLE_GTK_DIR)/$f ;\
+                cp -Lv $(prefix)/$$f $(BUNDLE_EXEC_DIR)/$(NSBUNDLE_GTK_DIR)/$$f ;\
                install_name_tool -change $(prefix)/$$f @executable_path/$(NSBUNDLE_GTK_DIR)/$$f $(BUNDLE_EXEC_DIR)/$(BUNDLE_NAME) ; \
           done;
 endif
