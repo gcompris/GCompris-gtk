@@ -45,18 +45,18 @@ void gcompris_fix_gtk_etc (void)
   NSString *pango_modules = @"/pango.modules";
   NSString *pangorc = @"/pangorc";
 
-  printf("NSBundle executablePath %s\n", [gtk_path UTF8String]);
+  printf("NSBundle executablePath %s\n\n", [gtk_path UTF8String]);
 
   // first is to suppress last component (executable name)
   [gtk_path appendString: base_dir];
   [gtk_path appendString: gtk_dir];
   [gtk_path stringCleanPath];
 
-  printf("NSBundle Gtk Dir Path %s\n", [gtk_path UTF8String]);
+  printf("NSBundle Gtk Dir Path %s\n\n", [gtk_path UTF8String]);
 
   // Get the temporary filenames
-  NSString *tmp_dir = [NSTemporaryDirectory() autorelease];
-  printf("Temporary directory %s\n", [tmp_dir UTF8String]);
+  NSString *tmp_dir = NSTemporaryDirectory();
+  printf("Temporary directory %s\n\n", [tmp_dir UTF8String]);
 
   set_prefix( gtk_conf_dir, 
 	      gtk_immodules, 
@@ -88,33 +88,29 @@ void gcompris_fix_gtk_etc (void)
 
   [[NSFileManager defaultManager] copyPath: pango_rc toPath: tmp_pango_rc handler: nil];
 
-  printf("Copy %s file to %s\n", [pango_rc UTF8String], [tmp_pango_rc  UTF8String]);
+  printf("Copy  %s\n   to %s\n", [pango_rc UTF8String], [tmp_pango_rc  UTF8String]);
   // PANGO_RC_FILE gives path to pango.modules
   setenv ("PANGO_RC_FILE", g_strdup([tmp_pango_rc UTF8String]), TRUE);
+  printf ("PANGO_RC_FILE   environnemnt set to %s\n\n", getenv("PANGO_RC_FILE"));
 
   //Now we just need to adjust some environnement variables
   setenv ("GTK_EXE_PREFIX", g_strdup([gtk_path UTF8String]), TRUE);
   setenv ("GTK_DATA_PREFIX", g_strdup([gtk_path UTF8String]), TRUE);
-
-
-  printf ("GTK environnemnt set to %s\n", getenv("GTK_EXE_PREFIX"));
+  printf ("GTK_EXE_PREFIX  environnemnt set to %s\n", getenv("GTK_EXE_PREFIX"));
+  printf ("GTK_DATA_PREFIX environnemnt set to %s\n", getenv("GTK_DATA_PREFIX"));
 
   // Unused ?
   NSMutableString *gtk_rc = [[gtk_path mutableCopy] autorelease];
   [gtk_rc appendString: gtk_conf_dir];
   [gtk_rc appendString: @"/gtkrc"];
   setenv ("GTK2_RC_FILES", g_strdup([gtk_rc UTF8String]), TRUE);
-
-  printf ("GTK environnemnt set to %s\n", getenv("GTK2_RC_FILES"));
+  printf ("GTK2_RC_FILES   environnemnt set to %s\n", getenv("GTK2_RC_FILES"));
 
   // is that usefull for GCompris ?
   NSMutableString *fontconfig_path = [[gtk_path mutableCopy] autorelease];
   [fontconfig_path appendString: @"/etc/fonts"];
   setenv ("FONTCONFIG_PATH", g_strdup([fontconfig_path UTF8String]), TRUE);
-
-  printf ("FC environnemnt set to %s\n", getenv("FONTCONFIG_PATH"));
-
-  printf ("GTK environnemnt set to %s\n", getenv("GTK_EXE_PREFIX"));
+  printf ("FONTCONFIG_PATH environnemnt set %s\n", getenv("FONTCONFIG_PATH"));
   
 }
 
@@ -139,10 +135,13 @@ void set_prefix( NSString *source_dir,
 	    range: NSMakeRange(0, [file_content length])];
   [file_content writeToFile: tmp_file atomically: NO ];
 
-  printf("Write %s file to %s\n", [source_file UTF8String], [tmp_file  UTF8String]);
+  printf("Write %s\n   to %s\n", [source_file UTF8String], [tmp_file  UTF8String]);
 
-  if (var)
+  if (var) {
     setenv(var, g_strdup([tmp_file UTF8String]), 1);
+    printf ("%s environnemnt set to %s\n\n", var, getenv(var));
+  }
+  
 }
 
 
@@ -152,7 +151,7 @@ void set_prefix( NSString *source_dir,
 - (id) stringCleanPath
 {
   NSMutableArray *tmpPath;
-  uint index =1;
+  uint index = 1;
 
   tmpPath = [[[self pathComponents] mutableCopy] autorelease];
 
@@ -177,7 +176,7 @@ void set_prefix( NSString *source_dir,
       [tmpPath replaceObjectAtIndex: 0 withObject: @""];
     }
 
-  [self setString:[[NSString pathWithComponents: tmpPath] autorelease]] ;
+  [self setString: [NSString pathWithComponents: tmpPath]] ;
 
   return self;
 }
