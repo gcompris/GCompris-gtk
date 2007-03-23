@@ -109,6 +109,8 @@ PANGO_CONF_FILES=pango.modules
 FONTCONFIG_PATH=etc/fonts
 GTK_MODULES_PATH=lib/gtk-2.0
 EXTERN_BIN= gnuchess gnucap
+PYTHON_MODULES_PATH_ORIG=lib/python$(PYTHON_VERSION)
+PYTHON_MODULES_PATH_DEST=lib/python
 
 nsbundle: 
 	$(INSTALL) -d $(BUNDLE_RESOURCES_DIR)
@@ -145,7 +147,9 @@ endif
 	$(INSTALL) -d $(BUNDLE_EXEC_DIR)/$(NSBUNDLE_GTK_DIR)/$(FONTCONFIG_PATH)
 	(cd $(prefix)/$(FONTCONFIG_PATH) ; tar cf - * )| ( cd $(BUNDLE_EXEC_DIR)/$(NSBUNDLE_GTK_DIR)/$(FONTCONFIG_PATH); tar xf -)
 	$(INSTALL) -d $(BUNDLE_EXEC_DIR)/$(NSBUNDLE_GTK_DIR)/$(GTK_MODULES_PATH)
+	$(INSTALL) -d $(BUNDLE_EXEC_DIR)/$(NSBUNDLE_GTK_DIR)/$(PYTHON_MODULES_PATH_DEST)
 	(cd $(prefix)/$(GTK_MODULES_PATH) ; tar cf - --exclude include * )| ( cd $(BUNDLE_EXEC_DIR)/$(NSBUNDLE_GTK_DIR)/$(GTK_MODULES_PATH); tar xf -)
+	(cd $(prefix)/$(PYTHON_MODULES_PATH_ORIG) ; tar cf - --exclude include * )| ( cd $(BUNDLE_EXEC_DIR)/$(NSBUNDLE_GTK_DIR)/$(PYTHON_MODULES_PATH_DEST); tar xf -)
 	$(INSTALL) -d $(BUNDLE_EXEC_DIR)/$(NSBUNDLE_GTK_DIR)/bin
 	for f in $(EXTERN_BIN); do \
 	   cp -v  $(prefix)/bin/$$f $(BUNDLE_EXEC_DIR)/$(NSBUNDLE_GTK_DIR)/bin/$$f; \

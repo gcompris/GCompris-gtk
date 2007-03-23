@@ -44,6 +44,8 @@ void gcompris_fix_gtk_etc (void)
   NSString *gdk_pixbuf_loaders =  @"/gdk-pixbuf.loaders";
   NSString *pango_modules = @"/pango.modules";
   NSString *pangorc = @"/pangorc";
+  NSString *pythonpath1 = @"/lib/python/site-packages:";
+  NSString *pythonpath2 = @"/lib/python/site-packages/gtk-2.0";
 
   printf("NSBundle executablePath %s\n\n", [gtk_path UTF8String]);
 
@@ -111,6 +113,13 @@ void gcompris_fix_gtk_etc (void)
   [fontconfig_path appendString: @"/etc/fonts"];
   setenv ("FONTCONFIG_PATH", g_strdup([fontconfig_path UTF8String]), TRUE);
   printf ("FONTCONFIG_PATH environnemnt set %s\n", getenv("FONTCONFIG_PATH"));
+
+  NSMutableString *python_modules_path = [[gtk_path mutableCopy] autorelease];
+  [python_modules_path appendString: pythonpath1];
+  [python_modules_path appendString: gtk_path];
+  [python_modules_path appendString: pythonpath2];
+  setenv ("PYTHONPATH", g_strdup([python_modules_path UTF8String]), TRUE);
+  printf ("PYTHONPATH      environnemnt set %s\n", getenv("PYTHONPATH"));
   
 }
 
@@ -171,7 +180,7 @@ void set_prefix( NSString *source_dir,
 
   // this is to make +[NSString pathWithComponents:] construct
   // an absolute path if necessary
-  if ([super isAbsolutePath] == YES)
+  if ([self isAbsolutePath] == YES)
     {
       [tmpPath replaceObjectAtIndex: 0 withObject: @""];
     }

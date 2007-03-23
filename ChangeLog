@@ -1,5 +1,14 @@
 2007-03-23  Yves Combe <yves@ycombe.net>
 
+	add python modules in bundle.
+	TODO: install_tool_name as to be ru on lib/lib* too.
+
+	* Makefile.am:
+	* macosx/build-gtk.sh:
+	* src/gcompris/gcompris-nsbundle.m:
+
+2007-03-23  Yves Combe <yves@ycombe.net>
+
 	segfault fixed.
 
 	* src/gcompris/gcompris-nsbundle.m:

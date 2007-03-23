@@ -79,7 +79,7 @@ if [ "x$UNIVERSAL_BUILD" = "xYes" ]; then
     export CFLAGS="-isysroot ${SDK} -arch ppc -arch i386"
     export CXXFLAGS="-isysroot ${SDK} -arch ppc -arch i386"
 
-    CONFIGURE_pkg_config="--with-pc-path=$PREFIX/lib/pkgconfig:/usr/lib/pkgconfig --enable-indirect-deps --disable-dependency-tracking"
+    CONFIGURE_pkg_config="--with-pc-path=$PREFIX/lib/pkgconfig --enable-indirect-deps --disable-dependency-tracking"
 
     CONFIGURE_libpng="--disable-dependency-tracking"
     PRECONFIGURE_libpng="eval CPPFLAGS='$CPPFLAGS -DPNG_NO_ASSEMBLER_CODE'"
@@ -102,6 +102,9 @@ if [ "x$UNIVERSAL_BUILD" = "xYes" ]; then
     POSTCONFIGURE_pygtk="eval  perl -pi~ -e 's|SUBDIRS = (.*) docs|SUBDIRS =  \$1|g' Makefile"
 
     POSTCONFIGURE_gnuchess="eval perl -pi~ -e 's|static pthread_t input_thread;|pthread_t input_thread;|g' src/input.c"
+
+    POSTCONFIGURE_sqlite="patch_libtool_dylib"
+    CONFIGURE_sqlite="--disable-tcl"
 
 elif [ "x$STABLE_BUILD" = "xYes" ]; then
     COMMON_OPTIONS="$COMMON_OPTIONS --disable-dependency-tracking"
@@ -176,7 +179,7 @@ CORE_MODULES="cairo glib pango atk gtk+"
 EXTRA_MODULES="libxml2 libxslt loudmouth libglade gossip gtk-engines"
 PYGTK_MODULES=" pycairo pygobject pygtk"
 INKSCAPE_MODULES="$CORE_MODULES libxml2 libxslt gc lcms libsigc++ doxygen glibmm cairomm gtkmm popt inkscape"
-GCOMPRIS_DEPS_MODULES="libart_lgpl libglade libgnomecanvas pysqlite gnuchess  gnucap"
+GCOMPRIS_DEPS_MODULES="libart_lgpl libxml2 libglade libgnomecanvas sqlite pysqlite gnuchess  gnucap"
 
 # Could add those (orbit requires popt though)
 MORE_MODULES="libIDL ORBit2 gconf"
@@ -631,6 +634,8 @@ function process_modules()
     svn_get_and_build $GNOMESVNURL libgnomecanvas "--disable-docs" || exit 1
     tarball_get_and_build http://www.geda.seul.org/dist/gnucap-0.35.tar.gz  || exit 1
     tarball_get_and_build http://ftp.gnu.org/pub/gnu/chess/gnuchess-5.07.tar.gz || exit 1
+
+    tarball_get_and_build http://www.sqlite.org/sqlite-3.3.13.tar.gz || exit 1
 
     python_tarball_get_and_build http://initd.org/pub/software/pysqlite/releases/2.3/2.3.3/pysqlite-2.3.3.tar.gz || exit 1
 
