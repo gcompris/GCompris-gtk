@@ -105,8 +105,10 @@ if WITH_NSBUNDLE
 ETC_PANGO=etc/pango
 ETC_GTK=etc/gtk-2.0
 GTK_CONF_FILES=gtk.immodules gdk-pixbuf.loaders im-multipress.conf
+PANGO_CONF_FILES=pango.modules
 FONTCONFIG_PATH=etc/fonts
 GTK_MODULES_PATH=lib/gtk-2.0
+EXTERN_BIN= gnuchess gnucap
 
 nsbundle: 
 	$(INSTALL) -d $(BUNDLE_RESOURCES_DIR)
@@ -117,24 +119,37 @@ nsbundle:
 	             bindir=$(BUNDLE_EXEC_DIR) \
 	             PYTHON_PLUGIN_DIR=$(BUNDLE_RESOURCES_DIR)/share/gcompris/python 
 	mv $(BUNDLE_EXEC_DIR)/gcompris $(BUNDLE_EXEC_DIR)/$(BUNDLE_NAME)
-if OS_MACOSX
 	$(INSTALL) -d $(BUNDLE_EXEC_DIR)/$(NSBUNDLE_GTK_DIR)/lib
+if OS_MACOSX
 	for f in $$(otool -L $(BUNDLE_EXEC_DIR)/$(BUNDLE_NAME) | grep $(prefix) | sed -e 's,^.*$(prefix)/\(.*.dylib\).*$$,\1,' ); do \
                ls -L  $(prefix)/$$f; \
                 cp -Lv $(prefix)/$$f $(BUNDLE_EXEC_DIR)/$(NSBUNDLE_GTK_DIR)/$$f ;\
                install_name_tool -change $(prefix)/$$f @executable_path/$(NSBUNDLE_GTK_DIR)/$$f $(BUNDLE_EXEC_DIR)/$(BUNDLE_NAME) ; \
           done;
+else
+	for f in $$(ldd $(BUNDLE_EXEC_DIR)/$(BUNDLE_NAME)| grep $(prefix) | sed -e 's,^.*$(prefix)/\(.*\) (.*$$,\1,' ); do \
+           ls -L  $(prefix)/$$f; \
+           cp -Lv $(prefix)/$$f $(BUNDLE_EXEC_DIR)/$(NSBUNDLE_GTK_DIR)/$$f ;\
+	done
 endif
-	$(INSTALL) -d $(BUNDLE_EXEC_DIR)/$(NSBUNDLE_GTK_DIR)/$(ETC_PANGO)
 	$(INSTALL) -d $(BUNDLE_EXEC_DIR)/$(NSBUNDLE_GTK_DIR)/$(ETC_GTK)
 #sed -e 's,$(prefix),@{prefix},g' $(prefix)/$(ETC_PANGO)/pangorc > $(BUNDLE_EXEC_DIR)/$(NSBUNDLE_GTK_DIR)/$(ETC_PANGO)/pangord
 	for f in $(GTK_CONF_FILES); do\
 	    sed -e 's,$(prefix),@{prefix},g' $(prefix)/$(ETC_GTK)/$$f > $(BUNDLE_EXEC_DIR)/$(NSBUNDLE_GTK_DIR)/$(ETC_GTK)/$$f ;\
         done
+	$(INSTALL) -d $(BUNDLE_EXEC_DIR)/$(NSBUNDLE_GTK_DIR)/$(ETC_PANGO)
+	for f in $(PANGO_CONF_FILES); do\
+	    sed -e 's,$(prefix),@{prefix},g' $(prefix)/$(ETC_PANGO)/$$f > $(BUNDLE_EXEC_DIR)/$(NSBUNDLE_GTK_DIR)/$(ETC_PANGO)/$$f ;\
+        done
+	$(INSTALL) $(top_srcdir)/macosx/pangorc $(BUNDLE_EXEC_DIR)/$(NSBUNDLE_GTK_DIR)/$(ETC_PANGO)/pangorc
 	$(INSTALL) -d $(BUNDLE_EXEC_DIR)/$(NSBUNDLE_GTK_DIR)/$(FONTCONFIG_PATH)
 	(cd $(prefix)/$(FONTCONFIG_PATH) ; tar cf - * )| ( cd $(BUNDLE_EXEC_DIR)/$(NSBUNDLE_GTK_DIR)/$(FONTCONFIG_PATH); tar xf -)
 	$(INSTALL) -d $(BUNDLE_EXEC_DIR)/$(NSBUNDLE_GTK_DIR)/$(GTK_MODULES_PATH)
 	(cd $(prefix)/$(GTK_MODULES_PATH) ; tar cf - --exclude include * )| ( cd $(BUNDLE_EXEC_DIR)/$(NSBUNDLE_GTK_DIR)/$(GTK_MODULES_PATH); tar xf -)
+	$(INSTALL) -d $(BUNDLE_EXEC_DIR)/$(NSBUNDLE_GTK_DIR)/bin
+	for f in $(EXTERN_BIN); do \
+	   cp -v  $(prefix)/bin/$$f $(BUNDLE_EXEC_DIR)/$(NSBUNDLE_GTK_DIR)/bin/$$f; \
+	done
 
 endif
 

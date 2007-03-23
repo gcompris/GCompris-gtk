@@ -133,3 +133,6 @@ gcompris_LDADD = \
 
 EXTRA_DIST = \
 	Makefile.mingw gcomprisrc.rc
+
+
+gcompris_nsbundle_CPPFLAGS = -fconstant-string-class=NSConstantString

@@ -1,3 +1,13 @@
+2007-03-23  Yves Combe <yves@ycombe.net>
+
+	Set GTK to run from bundle. TODO: fix segfault.
+
+	* Makefile.am:
+	* configure.in:
+	* macosx/pangorc:
+	* src/gcompris/Makefile.am:
+	* src/gcompris/gcompris-nsbundle.m:
+
 2007-03-22  Yves Combe <yves@ycombe.net>
 
 	fix and continue osx bundle creation
