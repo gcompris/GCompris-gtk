@@ -112,6 +112,8 @@ PANGO_MODULES_PATH=lib/pango
 EXTERN_BIN= gnuchess gnucap
 PYTHON_MODULES_PATH_ORIG=lib/python$(PYTHON_VERSION)
 PYTHON_MODULES_PATH_DEST=lib/python
+PLIST=Info.plist
+ICON=gcompris.svg
 
 nsbundle: 
 	$(INSTALL) -d $(BUNDLE_RESOURCES_DIR)
@@ -158,7 +160,8 @@ endif
 	for f in $(EXTERN_BIN); do \
 	   cp -v  $(prefix)/bin/$$f $(BUNDLE_RESOURCES_DIR)/bin/$$f; \
 	done
-
+	$(INSTALL) $(top_srcdir)/macosx/Info.plist $(BUNDLE_RESOURCES_DIR)/
+	$(INSTALL) $(top_srcdir)/macosx/gcompris.svg $(BUNDLE_RESOURCES_DIR)/
 endif
 
 
