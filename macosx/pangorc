@@ -4,7 +4,7 @@
 #
 
 [Pango]
-ModuleFiles = ./pango.modules
+ModuleFiles = @{prefix}/pango.modules
 
 [PangoX]
-AliasFiles = ./pangox.aliases
+AliasFiles = @{prefix}/pangox.aliases

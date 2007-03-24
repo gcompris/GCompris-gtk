@@ -108,6 +108,7 @@ GTK_CONF_FILES=gtk.immodules gdk-pixbuf.loaders im-multipress.conf
 PANGO_CONF_FILES=pango.modules
 FONTCONFIG_PATH=etc/fonts
 GTK_MODULES_PATH=lib/gtk-2.0
+PANGO_MODULES_PATH=lib/pango
 EXTERN_BIN= gnuchess gnucap
 PYTHON_MODULES_PATH_ORIG=lib/python$(PYTHON_VERSION)
 PYTHON_MODULES_PATH_DEST=lib/python
@@ -146,13 +147,16 @@ endif
 	$(INSTALL) $(top_srcdir)/macosx/pangorc $(BUNDLE_EXEC_DIR)/$(NSBUNDLE_GTK_DIR)/$(ETC_PANGO)/pangorc
 	$(INSTALL) -d $(BUNDLE_EXEC_DIR)/$(NSBUNDLE_GTK_DIR)/$(FONTCONFIG_PATH)
 	(cd $(prefix)/$(FONTCONFIG_PATH) ; tar cf - * )| ( cd $(BUNDLE_EXEC_DIR)/$(NSBUNDLE_GTK_DIR)/$(FONTCONFIG_PATH); tar xf -)
+	cp -vf macosx/fonts.conf $(BUNDLE_EXEC_DIR)/$(NSBUNDLE_GTK_DIR)/$(FONTCONFIG_PATH)
 	$(INSTALL) -d $(BUNDLE_EXEC_DIR)/$(NSBUNDLE_GTK_DIR)/$(GTK_MODULES_PATH)
+		$(INSTALL) -d $(BUNDLE_EXEC_DIR)/$(NSBUNDLE_GTK_DIR)/$(PANGO_MODULES_PATH)
 	$(INSTALL) -d $(BUNDLE_EXEC_DIR)/$(NSBUNDLE_GTK_DIR)/$(PYTHON_MODULES_PATH_DEST)
 	(cd $(prefix)/$(GTK_MODULES_PATH) ; tar cf - --exclude include * )| ( cd $(BUNDLE_EXEC_DIR)/$(NSBUNDLE_GTK_DIR)/$(GTK_MODULES_PATH); tar xf -)
+	(cd $(prefix)/$(PANGO_MODULES_PATH) ; tar cf - --exclude include * )| ( cd $(BUNDLE_EXEC_DIR)/$(NSBUNDLE_GTK_DIR)/$(PANGO_MODULES_PATH); tar xf -)
 	(cd $(prefix)/$(PYTHON_MODULES_PATH_ORIG) ; tar cf - --exclude include * )| ( cd $(BUNDLE_EXEC_DIR)/$(NSBUNDLE_GTK_DIR)/$(PYTHON_MODULES_PATH_DEST); tar xf -)
-	$(INSTALL) -d $(BUNDLE_EXEC_DIR)/$(NSBUNDLE_GTK_DIR)/bin
+	$(INSTALL) -d $(BUNDLE_RESOURCES_DIR)/bin
 	for f in $(EXTERN_BIN); do \
-	   cp -v  $(prefix)/bin/$$f $(BUNDLE_EXEC_DIR)/$(NSBUNDLE_GTK_DIR)/bin/$$f; \
+	   cp -v  $(prefix)/bin/$$f $(BUNDLE_RESOURCES_DIR)/bin/$$f; \
 	done
 
 endif

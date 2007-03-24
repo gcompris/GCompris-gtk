@@ -9,10 +9,11 @@
 
 void gcompris_fix_gtk_etc (void);
 
-void set_prefix( NSString *source_dir, 
-		      NSString *filename, 
-		      NSString *tmp_dir,
-		      NSString *prefix,
+void set_prefix( NSString *prefix_source_dir,
+		 NSString *source_dir, 
+		 NSString *filename, 
+		 NSString *tmp_dir,
+		 NSString *prefix,
 		 const char *var);
 
 gchar *gcompris_nsbundle_resource(void)
@@ -60,40 +61,35 @@ void gcompris_fix_gtk_etc (void)
   NSString *tmp_dir = NSTemporaryDirectory();
   printf("Temporary directory %s\n\n", [tmp_dir UTF8String]);
 
-  set_prefix( gtk_conf_dir, 
+  set_prefix( gtk_path,
+	      gtk_conf_dir, 
 	      gtk_immodules, 
 	      tmp_dir,
 	      gtk_path,
 	      "GTK_IM_MODULE_FILE");
 
 
-  set_prefix( gtk_conf_dir, 
+  set_prefix( gtk_path,
+	      gtk_conf_dir, 
 	      gdk_pixbuf_loaders, 
 	      tmp_dir,
 	      gtk_path,
 	      "GDK_PIXBUF_MODULE_FILE");
 
-  set_prefix( pango_conf_dir, 
+  set_prefix( gtk_path,
+	      pango_conf_dir, 
 	      pango_modules, 
 	      tmp_dir,
 	      gtk_path,
 	      NULL);
 
-
-  // just copy the pangorc file
-  NSMutableString *pango_rc = [[gtk_path mutableCopy] autorelease];
-  [pango_rc appendString: pango_conf_dir];
-  [pango_rc appendString: pangorc];
-
-  NSMutableString *tmp_pango_rc = [[tmp_dir mutableCopy] autorelease];
-  [tmp_pango_rc appendString: pangorc];
-
-  [[NSFileManager defaultManager] copyPath: pango_rc toPath: tmp_pango_rc handler: nil];
-
-  printf("Copy  %s\n   to %s\n", [pango_rc UTF8String], [tmp_pango_rc  UTF8String]);
-  // PANGO_RC_FILE gives path to pango.modules
-  setenv ("PANGO_RC_FILE", g_strdup([tmp_pango_rc UTF8String]), TRUE);
-  printf ("PANGO_RC_FILE   environnemnt set to %s\n\n", getenv("PANGO_RC_FILE"));
+  // Warning -> the tmp_dir because the files are in tmp directory too !!!
+  set_prefix( gtk_path,
+	      pango_conf_dir, 
+	      pangorc, 
+	      tmp_dir,
+	      tmp_dir,
+	      "PANGO_RC_FILE");
 
   //Now we just need to adjust some environnement variables
   setenv ("GTK_EXE_PREFIX", g_strdup([gtk_path UTF8String]), TRUE);
@@ -124,13 +120,14 @@ void gcompris_fix_gtk_etc (void)
 }
 
 
-void set_prefix( NSString *source_dir, 
-		      NSString *filename, 
-		      NSString *tmp_dir,
-		      NSString *prefix,
-		      const char *var)
+void set_prefix( NSString *prefix_source_dir,
+		 NSString *source_dir, 
+		 NSString *filename, 
+		 NSString *tmp_dir,
+		 NSString *prefix,
+		 const char *var)
 {
-  NSMutableString *source_file = [[prefix mutableCopy] autorelease];
+  NSMutableString *source_file = [[prefix_source_dir mutableCopy] autorelease];
   [source_file appendString: source_dir];
   [source_file appendString: filename];
 
