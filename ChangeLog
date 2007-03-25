@@ -1,5 +1,11 @@
 2007-03-25  Yves Combe <yves@ycombe.net>
 
+	Try to fix the recursion needed by install_name_tool for osx. Untested.
+
+	* Makefile.am:
+
+2007-03-25  Yves Combe <yves@ycombe.net>
+
 	clean ObjC code using standard openstep functions.
 
 	* Makefile.am:

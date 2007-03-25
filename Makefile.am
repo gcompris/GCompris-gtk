@@ -113,7 +113,32 @@ EXTERN_BIN= gnuchess gnucap
 PYTHON_MODULES_PATH_ORIG=lib/python$(PYTHON_VERSION)
 PYTHON_MODULES_PATH_DEST=lib/python
 PLIST=Info.plist
-ICON=gcompris.svg
+ICON=gcompris.png
+
+FCT_CP_TAR=function cp_tar { \
+	$(INSTALL) -d $$2 ; \
+	(cd $$1 ; tar cf - $$3 * )| ( cd $$2; tar xf -) ; \
+	}
+
+FCT_LDD_CP=function ldd_cp { \
+	for f in $$(ldd $$1 | grep $$2 | eval "sed -e 's,^.*$$2/\(.*\) (.*$$,\1,' " ); do \
+           if test ! -f $$3/$$f ; then \
+                echo $(INSTALL) -D $$2/$$f $$3/$$f ; \
+                $(INSTALL) -D $$2/$$f $$3/$$f ;\
+	        ldd_cp $$3/$$f  $$2 $$3;\
+           fi \
+        done ; } 
+
+FCT_OTOOL_CP=function otool_cp { \
+	for f in $$(otool -L $$1 | grep $$2 | eval "sed -e 's,^.*$$2/\(.*.dylib\).*$$,\1,' " ); do \
+	    install_name_tool -change $$2/$$f @executable_path$$4/$$f ;\
+	    if test ! -f $$3/$$f ; then \
+		echo $(INSTALL) -D $$2/$$f $$3/$$f ; \
+		$(INSTALL) -D $$2/$$f $$3/$$f ;\
+	        otool_cp $$3/$$f $$2 $$3 $$4 ;\
+            fi \
+          done; \
+	}
 
 nsbundle: 
 	$(INSTALL) -d $(BUNDLE_RESOURCES_DIR)
@@ -124,18 +149,10 @@ nsbundle:
 	             bindir=$(BUNDLE_EXEC_DIR) \
 	             PYTHON_PLUGIN_DIR=$(BUNDLE_RESOURCES_DIR)/share/gcompris/python 
 	mv $(BUNDLE_EXEC_DIR)/gcompris $(BUNDLE_EXEC_DIR)/$(BUNDLE_NAME)
-	$(INSTALL) -d $(BUNDLE_EXEC_DIR)$(NSBUNDLE_GTK_DIR)/lib
 if OS_MACOSX
-	for f in $$(otool -L $(BUNDLE_EXEC_DIR)/$(BUNDLE_NAME) | grep $(prefix) | sed -e 's,^.*$(prefix)/\(.*.dylib\).*$$,\1,' ); do \
-               ls -L  $(prefix)/$$f; \
-                cp -Lv $(prefix)/$$f $(BUNDLE_EXEC_DIR)$(NSBUNDLE_GTK_DIR)/$$f ;\
-               install_name_tool -change $(prefix)/$$f @executable_path$(NSBUNDLE_GTK_DIR)/$$f $(BUNDLE_EXEC_DIR)/$(BUNDLE_NAME) ; \
-          done;
+	$(FCT_OTOOL_CP) otool_cp $(BUNDLE_EXEC_DIR)/$(BUNDLE_NAME) $(prefix) $(BUNDLE_EXEC_DIR)$(NSBUNDLE_GTK_DIR) $(NSBUNDLE_GTK_DIR)
 else
-	for f in $$(ldd $(BUNDLE_EXEC_DIR)/$(BUNDLE_NAME)| grep $(prefix) | sed -e 's,^.*$(prefix)/\(.*\) (.*$$,\1,' ); do \
-           ls -L  $(prefix)/$$f; \
-           cp -Lv $(prefix)/$$f $(BUNDLE_EXEC_DIR)$(NSBUNDLE_GTK_DIR)/$$f ;\
-	done
+	$(FCT_LDD_CP); ldd_cp $(BUNDLE_EXEC_DIR)/$(BUNDLE_NAME) $(prefix) $(BUNDLE_EXEC_DIR)$(NSBUNDLE_GTK_DIR)
 endif
 	$(INSTALL) -d $(BUNDLE_EXEC_DIR)$(NSBUNDLE_GTK_DIR)/$(ETC_GTK)
 #sed -e 's,$(prefix),@{prefix},g' $(prefix)/$(ETC_PANGO)/pangorc > $(BUNDLE_EXEC_DIR)$(NSBUNDLE_GTK_DIR)/$(ETC_PANGO)/pangord
@@ -148,20 +165,16 @@ endif
         done
 	$(INSTALL) $(top_srcdir)/macosx/pangorc $(BUNDLE_EXEC_DIR)$(NSBUNDLE_GTK_DIR)/$(ETC_PANGO)/pangorc
 	$(INSTALL) -d $(BUNDLE_EXEC_DIR)$(NSBUNDLE_GTK_DIR)/$(FONTCONFIG_PATH)
-	(cd $(prefix)/$(FONTCONFIG_PATH) ; tar cf - * )| ( cd $(BUNDLE_EXEC_DIR)$(NSBUNDLE_GTK_DIR)/$(FONTCONFIG_PATH); tar xf -)
-	cp -vf macosx/fonts.conf $(BUNDLE_EXEC_DIR)$(NSBUNDLE_GTK_DIR)/$(FONTCONFIG_PATH)
-	$(INSTALL) -d $(BUNDLE_EXEC_DIR)$(NSBUNDLE_GTK_DIR)/$(GTK_MODULES_PATH)
-		$(INSTALL) -d $(BUNDLE_EXEC_DIR)$(NSBUNDLE_GTK_DIR)/$(PANGO_MODULES_PATH)
-	$(INSTALL) -d $(BUNDLE_EXEC_DIR)$(NSBUNDLE_GTK_DIR)/$(PYTHON_MODULES_PATH_DEST)
-	(cd $(prefix)/$(GTK_MODULES_PATH) ; tar cf - --exclude include * )| ( cd $(BUNDLE_EXEC_DIR)$(NSBUNDLE_GTK_DIR)/$(GTK_MODULES_PATH); tar xf -)
-	(cd $(prefix)/$(PANGO_MODULES_PATH) ; tar cf - --exclude include * )| ( cd $(BUNDLE_EXEC_DIR)$(NSBUNDLE_GTK_DIR)/$(PANGO_MODULES_PATH); tar xf -)
-	(cd $(prefix)/$(PYTHON_MODULES_PATH_ORIG) ; tar cf - --exclude include * )| ( cd $(BUNDLE_EXEC_DIR)$(NSBUNDLE_GTK_DIR)/$(PYTHON_MODULES_PATH_DEST); tar xf -)
-	$(INSTALL) -d $(BUNDLE_RESOURCES_DIR)/bin
+	$(FCT_CP_TAR); cp_tar $(prefix)/$(FONTCONFIG_PATH) $(BUNDLE_EXEC_DIR)$(NSBUNDLE_GTK_DIR)/$(FONTCONFIG_PATH)
+	$(INSTALL) macosx/fonts.conf $(BUNDLE_EXEC_DIR)$(NSBUNDLE_GTK_DIR)/$(FONTCONFIG_PATH)
+	$(FCT_CP_TAR); cp_tar $(prefix)/$(GTK_MODULES_PATH)  $(BUNDLE_EXEC_DIR)$(NSBUNDLE_GTK_DIR)/$(GTK_MODULES_PATH) "--exclude include"
+	$(FCT_CP_TAR); cp_tar $(prefix)/$(PANGO_MODULES_PATH) $(BUNDLE_EXEC_DIR)$(NSBUNDLE_GTK_DIR)/$(PANGO_MODULES_PATH)
+	$(FCT_CP_TAR); cp_tar $(prefix)/$(PYTHON_MODULES_PATH_ORIG) $(BUNDLE_EXEC_DIR)$(NSBUNDLE_GTK_DIR)/$(PYTHON_MODULES_PATH_DEST)
 	for f in $(EXTERN_BIN); do \
-	   cp -v  $(prefix)/bin/$$f $(BUNDLE_RESOURCES_DIR)/bin/$$f; \
+	   $(INSTALL) -D  $(prefix)/bin/$$f $(BUNDLE_RESOURCES_DIR)/bin/$$f; \
 	done
 	$(INSTALL) $(top_srcdir)/macosx/Info.plist $(BUNDLE_RESOURCES_DIR)/
 	$(INSTALL) $(top_srcdir)/macosx/gcompris.svg $(BUNDLE_RESOURCES_DIR)/
+	$(INSTALL) $(top_srcdir)/macosx/gcompris.png $(BUNDLE_RESOURCES_DIR)/
 endif
-
 
