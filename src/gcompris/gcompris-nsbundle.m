@@ -3,10 +3,6 @@
 
 #include "config.h"
 
-@interface NSMutableString (Perso)
-- (id) stringCleanPath; 
-@end
-
 void gcompris_fix_gtk_etc (void);
 
 void set_prefix( NSString *prefix_source_dir,
@@ -35,9 +31,8 @@ gchar *gcompris_nsbundle_resource(void)
 
 void gcompris_fix_gtk_etc (void)
 {
-  NSMutableString *gtk_path = [[[[NSBundle mainBundle] executablePath] mutableCopy] autorelease] ;
+  NSMutableString *gtk_path = [[[[[NSBundle mainBundle] executablePath] stringByDeletingLastPathComponent] mutableCopy] autorelease] ;
 
-  NSString *base_dir = @"/../";
   NSString *gtk_dir = @NSBUNDLE_GTK_DIR ;
   NSString *gtk_conf_dir = @"/etc/gtk-2.0";
   NSString *pango_conf_dir = @"/etc/pango";
@@ -51,9 +46,8 @@ void gcompris_fix_gtk_etc (void)
   printf("NSBundle executablePath %s\n\n", [gtk_path UTF8String]);
 
   // first is to suppress last component (executable name)
-  [gtk_path appendString: base_dir];
   [gtk_path appendString: gtk_dir];
-  [gtk_path stringCleanPath];
+  gtk_path = [gtk_path  stringByStandardizingPath];
 
   printf("NSBundle Gtk Dir Path %s\n\n", [gtk_path UTF8String]);
 
@@ -150,40 +144,3 @@ void set_prefix( NSString *prefix_source_dir,
   
 }
 
-
-@implementation NSMutableString (Perso)
-
-// suppress '..' and component just before.
-- (id) stringCleanPath
-{
-  NSMutableArray *tmpPath;
-  uint index = 1;
-
-  tmpPath = [[[self pathComponents] mutableCopy] autorelease];
-
-  while (index < [tmpPath count]) {
-    if ([[tmpPath objectAtIndex: index] isEqualToString: @".."]) {
-      if ( index == 0)
-	return self;
-      else {
-        index--;
-	[tmpPath removeObjectAtIndex: index];
-	[tmpPath removeObjectAtIndex: index];
-      }
-    }
-    else
-      index++;
-  }
-
-  // this is to make +[NSString pathWithComponents:] construct
-  // an absolute path if necessary
-  if ([self isAbsolutePath] == YES)
-    {
-      [tmpPath replaceObjectAtIndex: 0 withObject: @""];
-    }
-
-  [self setString: [NSString pathWithComponents: tmpPath]] ;
-
-  return self;
-}
-@end

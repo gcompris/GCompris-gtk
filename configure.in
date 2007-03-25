@@ -72,7 +72,7 @@ if test "x$nsbundle" = "xyes"; then
       if test "x$NSFoundation" = "x$no"; then
 	 AC_MSG_ERROR([You need development tools to use nsbundle. Make sure XCode is installed." ])
       fi
-      NSBUNDLE_GTK_DIR="../GTK"
+      NSBUNDLE_GTK_DIR="/../GTK"
       NSBUNDLE_LDFLAGS="-framework Cocoa "
       AC_LANG_POP([Objective C])
    else
@@ -87,7 +87,7 @@ if test "x$nsbundle" = "xyes"; then
       fi
       CPPFLAGS="$saved_CPPFLAGS"
       OBJCFLAGS=" -DGNUSTEP -DGNUSTEP_BASE_LIBRARY=1 -DGNU_GUI_LIBRARY=1 -DGNU_RUNTIME=1 -DGNUSTEP_BASE_LIBRARY=1 -fconstant-string-class=NSConstantString -I$GNUSTEP_SYSTEM_ROOT/Library/Headers "
-      NSBUNDLE_GTK_DIR="GTK"
+      NSBUNDLE_GTK_DIR="/GTK"
       NSBUNDLE_LDFLAGS="-rdynamic -fgnu-runtime -L$GNUSTEP_SYSTEM_ROOT/Library/Libraries -lgnustep-base -Wl,-rpath=\\\$\$ORIGIN/$NSBUNDLE_GTK_DIR/lib "
       AC_LANG_POP([Objective C])
    fi
