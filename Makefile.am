@@ -132,7 +132,7 @@ FCT_LDD_CP=function ldd_cp { \
 FCT_OTOOL_CP=function otool_cp { \
 	for f in $$(otool -L $$1 | grep $$2 | eval "sed -e 's,^.*$$2/\(.*.dylib\).*$$,\1,' " ); do \
             echo install_name_tool -change $$2/$$f @executable_path$$4/$$f  $$1;\
-	    install_name_tool -change $$2/$$f @executable_path$$4/$$f $$1 ; \ 
+	    install_name_tool -change $$2/$$f @executable_path$$4/$$f $$1 ; \
 	    if test ! -f $$3/$$f ; then \
 		echo "$(INSTALL) -d $$(dirname $$3/$$f)"; \
 		echo "$(INSTALL) $$2/$$f $$3/$$f "; \
@@ -184,16 +184,22 @@ endif
 	for f in $(EXTERN_BIN); do \
 	   $(INSTALL_D)  $(prefix)/bin/$$f $(BUNDLE_RESOURCES_DIR)/bin/$$f; \
 	done
-	$(INSTALL) $(top_srcdir)/macosx/Info.plist $(BUNDLE_RESOURCES_DIR)/
-	$(INSTALL) $(top_srcdir)/macosx/gcompris.svg $(BUNDLE_RESOURCES_DIR)/
-	$(INSTALL) $(top_srcdir)/macosx/gcompris.png $(BUNDLE_RESOURCES_DIR)/
 if OS_MACOSX
+	$(INSTALL) $(top_srcdir)/macosx/Info.plist $(BUNDLE_RESOURCES_DIR)/../
+	$(INSTALL) $(top_srcdir)/macosx/PkgInfo $(BUNDLE_RESOURCES_DIR)/../
+	$(INSTALL) $(top_srcdir)/macosx/GCompris.icns $(BUNDLE_RESOURCES_DIR)/
 	$(FCT_OTOOL_CP) ; for s in $$(find  $(BUNDLE_EXEC_DIR)$(NSBUNDLE_GTK_DIR)/ -name '*.so') ; do \
 		otool_cp $$s $(prefix) $(BUNDLE_EXEC_DIR)$(NSBUNDLE_GTK_DIR) $(NSBUNDLE_GTK_DIR) ; \
 	done 
 	$(FCT_OTOOL_CP) ; for s in $$(find  $(BUNDLE_RESOURCES_DIR) -name '*.so') ; do \
 		otool_cp $$s $(prefix) $(BUNDLE_EXEC_DIR)$(NSBUNDLE_GTK_DIR) $(NSBUNDLE_GTK_DIR) ; \
 	done
+	echo WARNING ! I suppose SDL Framewroks installed in /Library/Frameworks
+	$(FCT_CP_TAR); cp_tar /Library/Frameworks/SDL.framework $(BUNDLE_EXEC_DIR)/../Frameworks/SDL.framework
+	$(FCT_CP_TAR); cp_tar /Library/Frameworks/SDL_mixer.framework $(BUNDLE_EXEC_DIR)/../Frameworks/SDL_mixer.framework
+else
+	$(INSTALL) $(top_srcdir)/macosx/gcompris.png $(BUNDLE_RESOURCES_DIR)/
+	$(INSTALL) $(top_srcdir)/macosx/Info-gnustep.plist $(BUNDLE_RESOURCES_DIR)/
 endif 
 
 endif
