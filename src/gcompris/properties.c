@@ -89,7 +89,10 @@ gc_prop_default_config_directory_get ()
 
       if(xdg_config_home)
 	return g_strconcat(xdg_config_home, "/.gcompris", NULL);
-
+      
+      gchar *xdg_config= g_strconcat(home_dir, "/.config", NULL);
+      gc_util_create_rootdir(xdg_config);
+      g_free(xdg_config);
 
       return g_strconcat(home_dir, "/.config/gcompris", NULL);
     }

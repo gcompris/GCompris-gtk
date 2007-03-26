@@ -4,6 +4,7 @@
 #include "config.h"
 
 void gcompris_fix_gtk_etc (void);
+void gcompris_fix_lang(void);
 
 void set_prefix( NSString *prefix_source_dir,
 		 NSString *source_dir, 
@@ -25,8 +26,21 @@ gchar *gcompris_nsbundle_resource(void)
 
   gcompris_fix_gtk_etc ();
 
+  gcompris_fix_lang();
+
   [pool release];
   return resourcePath;
+}
+
+void gcompris_fix_lang (void)
+{
+  NSUserDefaults* defs = [NSUserDefaults standardUserDefaults];
+  NSString* locale = [defs objectForKey:@"AppleLocale"];
+
+  if (locale != nil) {
+     printf ("Language %s\n", [locale UTF8String]);
+     setenv("LANG", [locale UTF8String], 0);
+  }
 }
 
 void gcompris_fix_gtk_etc (void)

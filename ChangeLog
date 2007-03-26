@@ -1,5 +1,15 @@
 2007-03-26  Yves Combe <yves@ycombe.net>
 
+	Continue work on OSX:
+	- fix .config not created (oups).
+	- fix Lang in OSX case.
+
+	* src/gcompris/gcompris-nsbundle.m:
+	* src/gcompris/properties.c:
+	(gc_prop_default_config_directory_get):
+
+2007-03-26  Yves Combe <yves@ycombe.net>
+
 	continue wrok on NSBundle for OSX.
 	works on osX.
 	- TODO: fix it does not create .config and sqlite fails.
