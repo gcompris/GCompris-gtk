@@ -187,12 +187,14 @@ endif
 	$(INSTALL) $(top_srcdir)/macosx/Info.plist $(BUNDLE_RESOURCES_DIR)/
 	$(INSTALL) $(top_srcdir)/macosx/gcompris.svg $(BUNDLE_RESOURCES_DIR)/
 	$(INSTALL) $(top_srcdir)/macosx/gcompris.png $(BUNDLE_RESOURCES_DIR)/
+if OS_MACOSX
 	$(FCT_OTOOL_CP) ; for s in $$(find  $(BUNDLE_EXEC_DIR)$(NSBUNDLE_GTK_DIR)/ -name '*.so') ; do \
 		otool_cp $$s $(prefix) $(BUNDLE_EXEC_DIR)$(NSBUNDLE_GTK_DIR) $(NSBUNDLE_GTK_DIR) ; \
 	done 
 	$(FCT_OTOOL_CP) ; for s in $$(find  $(BUNDLE_RESOURCES_DIR) -name '*.so') ; do \
 		otool_cp $$s $(prefix) $(BUNDLE_EXEC_DIR)$(NSBUNDLE_GTK_DIR) $(NSBUNDLE_GTK_DIR) ; \
-	done 
+	done
+endif 
 
 endif
 
