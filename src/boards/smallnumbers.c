@@ -587,7 +587,7 @@ smallnumber_config_start(GcomprisBoard *agcomprisBoard,
 
   gchar *label;
 
-  label = g_strdup_printf("<b>%s</b> configuration\n for profile <b>%s</b>",
+  label = g_strdup_printf(_("<b>%s</b> configuration\n for profile <b>%s</b>"),
 			  agcomprisBoard->name, aProfile ? aProfile->name : "");
 
   gc_board_config_window_display(label, (GcomprisConfCallback )conf_ok);
@@ -605,9 +605,9 @@ smallnumber_config_start(GcomprisBoard *agcomprisBoard,
   else
     with_sound = FALSE;
 
-  GtkCheckButton  *sound_control = gc_board_config_boolean_box("Enable sounds", "with_sound", with_sound);
+  GtkCheckButton  *sound_control = gc_board_config_boolean_box(_("Enable sounds"), "with_sound", with_sound);
 
-  GtkComboBox *sound_box = gc_board_config_combo_locales_asset( "Select sound locale",
+  GtkComboBox *sound_box = gc_board_config_combo_locales_asset( _("Select sound locale"),
 							 saved_locale_sound,
 							 "sounds/$LOCALE/colors/purple.ogg");
 

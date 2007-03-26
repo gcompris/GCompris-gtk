@@ -863,7 +863,7 @@ gletter_config_start(GcomprisBoard *agcomprisBoard,
   if (gcomprisBoard)
     pause_board(TRUE);
 
-  label = g_strdup_printf("<b>%s</b> configuration\n for profile <b>%s</b>",
+  label = g_strdup_printf(_("<b>%s</b> configuration\n for profile <b>%s</b>"),
 			  agcomprisBoard->name, aProfile ? aProfile->name : "");
 
   gc_board_config_window_display(label, (GcomprisConfCallback )conf_ok);
@@ -892,7 +892,7 @@ gletter_config_start(GcomprisBoard *agcomprisBoard,
   else
     with_sound = FALSE;
 
-  gc_board_config_boolean_box("Enable sounds", "with_sound", with_sound);
+  gc_board_config_boolean_box(_("Enable sounds"), "with_sound", with_sound);
 
   gc_board_conf_separator();
 

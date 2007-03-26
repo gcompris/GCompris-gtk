@@ -830,7 +830,7 @@ reading_config_start(GcomprisBoard *agcomprisBoard,
   if (gcomprisBoard)
     pause_board(TRUE);
 
-  gchar *label = g_strdup_printf("<b>%s</b> configuration\n for profile <b>%s</b>",
+  gchar *label = g_strdup_printf(_("<b>%s</b> configuration\n for profile <b>%s</b>"),
 				 agcomprisBoard->name,
 				 aProfile? aProfile->name: "");
 

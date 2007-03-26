@@ -1,5 +1,19 @@
 2007-03-27  Bruno coudoin  <bruno.coudoin@free.fr>
 
+	Added missing translation strings.
+
+	* src/boards/click_on_letter.c: (config_start):
+	* src/boards/colors.c: (colors_config_start):
+	* src/boards/gletters.c: (gletter_config_start):
+	* src/boards/imageid.c: (config_start):
+	* src/boards/missingletter.c: (config_start):
+	* src/boards/reading.c: (reading_config_start):
+	* src/boards/scale.c: (config_start):
+	* src/boards/shapegame.c: (config_start):
+	* src/boards/smallnumbers.c: (smallnumber_config_start):
+
+2007-03-27  Bruno coudoin  <bruno.coudoin@free.fr>
+
 	* src/boards/maze.c: (draw3D): fixed a crash when the exit is found in 3D maze
 	by Miguel.
 	* src/boards/shapegame.c: (add_shape_to_list_of_shapes): fixed missing image

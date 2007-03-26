@@ -168,7 +168,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
         gc_drag_start(gnome_canvas_root(gcomprisBoard->canvas),
                 (gc_Drag_Func)scale_drag_event, drag_mode);
 
-	gc_score_start(SCORESTYLE_NOTE, 
+	gc_score_start(SCORESTYLE_NOTE,
 		gcomprisBoard->width - 220,
 		450 ,
 		gcomprisBoard->number_of_sublevel);
@@ -858,7 +858,7 @@ config_start(GcomprisBoard *agcomprisBoard,
   if (gcomprisBoard)
     pause_board(TRUE);
 
-  gchar * label = g_strdup_printf("<b>%s</b> configuration\n for profile <b>%s</b>",
+  gchar * label = g_strdup_printf(_("<b>%s</b> configuration\n for profile <b>%s</b>"),
 				  agcomprisBoard->name,
 				  aProfile? aProfile->name : "");
 

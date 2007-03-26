@@ -162,7 +162,7 @@ colors_config_start(GcomprisBoard *agcomprisBoard,
   if (gcomprisBoard)
     pause_board(TRUE);
 
-  label = g_strdup_printf("<b>%s</b> configuration\n for profile <b>%s</b>",
+  label = g_strdup_printf(_("<b>%s</b> configuration\n for profile <b>%s</b>"),
 			  agcomprisBoard->name, aProfile ? aProfile->name : "");
 
   gc_board_config_window_display(label, conf_ok);
@@ -174,7 +174,7 @@ colors_config_start(GcomprisBoard *agcomprisBoard,
 
   gchar *saved_locale_sound = g_hash_table_lookup( config, "locale_sound");
 
-  gc_board_config_combo_locales_asset( "Select sound locale", saved_locale_sound,
+  gc_board_config_combo_locales_asset( _("Select sound locale"), saved_locale_sound,
 				"sounds/$LOCALE/colors/purple.ogg");
 
   g_hash_table_destroy(config);
