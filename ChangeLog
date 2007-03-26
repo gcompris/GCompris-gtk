@@ -1,5 +1,12 @@
 2007-03-27  Bruno coudoin  <bruno.coudoin@free.fr>
 
+	* src/boards/maze.c: (draw3D): fixed a crash when the exit is found in 3D maze
+	by Miguel.
+	* src/boards/shapegame.c: (add_shape_to_list_of_shapes): fixed missing image
+	boardicons/leftright.png in some activity (when there are small icons)
+
+2007-03-27  Bruno coudoin  <bruno.coudoin@free.fr>
+
 	A patch from Miguel.
 
 	* src/boards/scale.c: (start_board), (end_board),

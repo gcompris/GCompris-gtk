@@ -757,7 +757,7 @@ add_shape_to_list_of_shapes(Shape *shape)
             gdk_pixbuf_unref(scale);
 
             // add the hand
-            hand = gc_pixmap_load("boardicons/leftright.png");
+            hand = gc_skin_pixmap_load("boardicons/leftright.png");
             h = ICON_HEIGHT/3;
             w = gdk_pixbuf_get_width(hand) * h / gdk_pixbuf_get_height(hand);
             scale = gdk_pixbuf_scale_simple(hand, w, h, GDK_INTERP_BILINEAR);

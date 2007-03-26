@@ -1390,7 +1390,10 @@ static void draw3D()
 #define MAINSY 240
 
   if (threedgroup!=NULL)
+  {
     gtk_object_destroy(GTK_OBJECT(threedgroup));
+    threedgroup = NULL;
+  }
   if (!threeDactive) return;
   threedgroup=GNOME_CANVAS_GROUP(gnome_canvas_item_new(gnome_canvas_root(gcomprisBoard->canvas),
 						       gnome_canvas_group_get_type(),
