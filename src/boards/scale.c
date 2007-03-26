@@ -147,11 +147,9 @@ static void start_board (GcomprisBoard *agcomprisBoard)
         gcomprisBoard=agcomprisBoard;
         gcomprisBoard->level=1;
         gcomprisBoard->sublevel=1;
-        gcomprisBoard->number_of_sublevel=9; /* Go to next level after this number of 'play' */
+        gcomprisBoard->number_of_sublevel=5; /* Go to next level after this number of 'play' */
         gcomprisBoard->maxlevel = 4;
         gc_bar_set(GC_BAR_LEVEL|GC_BAR_OK|GC_BAR_CONFIG);
-
-        scale_next_level();
 
         gamewon = FALSE;
         pause_board(FALSE);
@@ -169,6 +167,13 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 
         gc_drag_start(gnome_canvas_root(gcomprisBoard->canvas),
                 (gc_Drag_Func)scale_drag_event, drag_mode);
+
+	gc_score_start(SCORESTYLE_NOTE, 
+		gcomprisBoard->width - 220,
+		450 ,
+		gcomprisBoard->number_of_sublevel);
+        scale_next_level();
+
     }
 }
 
@@ -179,6 +184,7 @@ static void end_board ()
         gc_drag_stop(gnome_canvas_root(gcomprisBoard->canvas));
         pause_board(TRUE);
         scale_destroy_all_items();
+	gc_score_end();
     }
     gcomprisBoard = NULL;
 }
@@ -335,7 +341,7 @@ void scale_anim_plate(void)
                 "x", x_offset + gdk_pixbuf_get_width(button_pixmap)/2,
                 "y", y_offset + gdk_pixbuf_get_height(button_pixmap)/2,
                 "anchor", GTK_ANCHOR_CENTER,
-                "fill_color", "white",
+                "fill_color", "black",
                 NULL);
         gdk_pixbuf_unref(button_pixmap);
 
@@ -643,6 +649,7 @@ static void scale_next_level()
     scale_destroy_all_items();
     gamewon = FALSE;
 
+	gc_score_set(gcomprisBoard->sublevel);
     // create the balance
     pixmap = gc_pixmap_load("scales/balance.png");
     balance_x = (BOARDWIDTH - gdk_pixbuf_get_width(pixmap))/2;
@@ -701,7 +708,7 @@ static void scale_next_level()
     gnome_canvas_item_raise_to_top(balance);
 
     /* display some hint */
-    if(gcomprisBoard->level == 2)
+    if(gcomprisBoard->level > 2)
       gnome_canvas_item_new(boardRootItem,
 			    gnome_canvas_text_get_type(),
 			    "text", _("Take care, you can drop masses on both sides of the scale."),

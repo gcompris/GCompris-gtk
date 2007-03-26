@@ -328,6 +328,7 @@ int gc_db_init()
     }
 
     int version = atoi(result[1]);
+    sqlite3_free_table(result);
     if(version <= 16)
       {
 	g_warning("Upgrading from <16 schema version\n");

@@ -149,6 +149,7 @@ static void dump_shapes(void);
 static void dump_shape(Shape *shape);
 #endif
 static void update_shapelist_item(void);
+static void auto_process(void);
 
 static gint drag_mode;
 /* Description of this plugin */
@@ -275,7 +276,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       /**/
       gcomprisBoard->maxlevel--;
 
-      gc_bar_set(GC_BAR_CONFIG|GC_BAR_LEVEL|GC_BAR_OK);
+      gc_bar_set(GC_BAR_CONFIG|GC_BAR_LEVEL);
 
 
       gcomprisBoard->sublevel = 0;
@@ -1056,6 +1057,7 @@ static gint item_event_drag(GnomeCanvasItem *item, GdkEvent *event, gpointer dat
 
                 shape -> target_shape -> placed = found_shape;
                 found_shape -> shape_place = shape -> target_shape;
+		auto_process();
                 update_shapelist_item();
             }
             else
@@ -1143,6 +1145,25 @@ static int get_no_void_group(int direction)
         index += direction;
     }
     return current_shapelistgroup_index;
+}
+
+static void auto_process(void)
+{
+  GList *list;
+  gboolean done = TRUE;
+
+  /* Loop through all the shapes to find if all target are in place */
+  for(list = shape_list; list != NULL; list = list->next) {
+      Shape *shape = list->data;
+
+      if(shape->type==SHAPE_TARGET)
+      {
+          if(shape->placed==NULL)
+              done=FALSE;
+      }
+  }
+  if(done)
+  	process_ok();
 }
 
 static void update_shapelist_item(void)

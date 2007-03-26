@@ -1,3 +1,14 @@
+2007-03-27  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	A patch from Miguel.
+
+	* src/boards/scale.c: (start_board), (end_board),
+	(scale_anim_plate), (scale_next_level): added the display of the current sublevel.
+	* src/boards/shapegame.c: (item_event_drag), (auto_process): added auto process,
+	it's no more needed to click OK.
+	* src/gcompris/gcompris_db.c: (gc_db_init): fixed a mamory leak
+	* boards/sounds/en/geography/finland.ogg: deleted, it was the wrong one.
+
 2007-03-27  Yves Combe <yves@ycombe.net>
 
 	Add SDL* frameworks copy in bundle.
@@ -29,7 +40,7 @@
 	works on osX.
 	- TODO: fix it does not create .config and sqlite fails.
 	- TODO: LANG does not work.
-	
+
 	* Makefile.am:
 	* macosx/PkgInfo:
 
