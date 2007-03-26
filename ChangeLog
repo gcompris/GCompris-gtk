@@ -1,3 +1,13 @@
+2007-03-26  Yves Combe <yves@ycombe.net>
+
+	continue wrok on NSBundle for OSX.
+	works on osX.
+	- TODO: fix it does not create .config and sqlite fails.
+	- TODO: LANG does not work.
+	
+	* Makefile.am:
+	* macosx/PkgInfo:
+
 2007-03-25  Yves Combe <yves@ycombe.net>
 
 	Try to fix the recursion needed by install_name_tool for osx. Untested.

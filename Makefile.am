@@ -123,22 +123,33 @@ FCT_CP_TAR=function cp_tar { \
 FCT_LDD_CP=function ldd_cp { \
 	for f in $$(ldd $$1 | grep $$2 | eval "sed -e 's,^.*$$2/\(.*\) (.*$$,\1,' " ); do \
            if test ! -f $$3/$$f ; then \
-                echo $(INSTALL) -D $$2/$$f $$3/$$f ; \
-                $(INSTALL) -D $$2/$$f $$3/$$f ;\
+                echo $(INSTALL_D)  $$2/$$f $$3/$$f ; \
+                $(INSTALL_D)  $$2/$$f $$3/$$f ;\
 	        ldd_cp $$3/$$f  $$2 $$3;\
            fi \
         done ; } 
 
 FCT_OTOOL_CP=function otool_cp { \
 	for f in $$(otool -L $$1 | grep $$2 | eval "sed -e 's,^.*$$2/\(.*.dylib\).*$$,\1,' " ); do \
-	    install_name_tool -change $$2/$$f @executable_path$$4/$$f ;\
+            echo install_name_tool -change $$2/$$f @executable_path$$4/$$f  $$1;\
+	    install_name_tool -change $$2/$$f @executable_path$$4/$$f $$1 ; \ 
 	    if test ! -f $$3/$$f ; then \
-		echo $(INSTALL) -D $$2/$$f $$3/$$f ; \
-		$(INSTALL) -D $$2/$$f $$3/$$f ;\
+		echo "$(INSTALL) -d $$(dirname $$3/$$f)"; \
+		echo "$(INSTALL) $$2/$$f $$3/$$f "; \
+		$(INSTALL) -d $$(dirname $$3/$$f); \
+		$(INSTALL) $$2/$$f $$3/$$f ;\
+		echo "install_name_tool -id @executable_path$$4/$$f $$3/$$f";\
+		install_name_tool -id @executable_path$$4/$$f $$3/$$f;\
 	        otool_cp $$3/$$f $$2 $$3 $$4 ;\
             fi \
           done; \
 	}
+
+if OS_MACOSX
+INSTALL_D=function install_d { $(INSTALL) -d $$(dirname $$2); $(INSTALL) $$1 $$2 ;}; install_d
+else
+INSTALL_D=$(INSTALL) -D
+endif
 
 nsbundle: 
 	$(INSTALL) -d $(BUNDLE_RESOURCES_DIR)
@@ -150,7 +161,7 @@ nsbundle:
 	             PYTHON_PLUGIN_DIR=$(BUNDLE_RESOURCES_DIR)/share/gcompris/python 
 	mv $(BUNDLE_EXEC_DIR)/gcompris $(BUNDLE_EXEC_DIR)/$(BUNDLE_NAME)
 if OS_MACOSX
-	$(FCT_OTOOL_CP) otool_cp $(BUNDLE_EXEC_DIR)/$(BUNDLE_NAME) $(prefix) $(BUNDLE_EXEC_DIR)$(NSBUNDLE_GTK_DIR) $(NSBUNDLE_GTK_DIR)
+	$(FCT_OTOOL_CP); otool_cp $(BUNDLE_EXEC_DIR)/$(BUNDLE_NAME) $(prefix) $(BUNDLE_EXEC_DIR)$(NSBUNDLE_GTK_DIR) $(NSBUNDLE_GTK_DIR)
 else
 	$(FCT_LDD_CP); ldd_cp $(BUNDLE_EXEC_DIR)/$(BUNDLE_NAME) $(prefix) $(BUNDLE_EXEC_DIR)$(NSBUNDLE_GTK_DIR)
 endif
@@ -171,10 +182,17 @@ endif
 	$(FCT_CP_TAR); cp_tar $(prefix)/$(PANGO_MODULES_PATH) $(BUNDLE_EXEC_DIR)$(NSBUNDLE_GTK_DIR)/$(PANGO_MODULES_PATH)
 	$(FCT_CP_TAR); cp_tar $(prefix)/$(PYTHON_MODULES_PATH_ORIG) $(BUNDLE_EXEC_DIR)$(NSBUNDLE_GTK_DIR)/$(PYTHON_MODULES_PATH_DEST)
 	for f in $(EXTERN_BIN); do \
-	   $(INSTALL) -D  $(prefix)/bin/$$f $(BUNDLE_RESOURCES_DIR)/bin/$$f; \
+	   $(INSTALL_D)  $(prefix)/bin/$$f $(BUNDLE_RESOURCES_DIR)/bin/$$f; \
 	done
 	$(INSTALL) $(top_srcdir)/macosx/Info.plist $(BUNDLE_RESOURCES_DIR)/
 	$(INSTALL) $(top_srcdir)/macosx/gcompris.svg $(BUNDLE_RESOURCES_DIR)/
 	$(INSTALL) $(top_srcdir)/macosx/gcompris.png $(BUNDLE_RESOURCES_DIR)/
+	$(FCT_OTOOL_CP) ; for s in $$(find  $(BUNDLE_EXEC_DIR)$(NSBUNDLE_GTK_DIR)/ -name '*.so') ; do \
+		otool_cp $$s $(prefix) $(BUNDLE_EXEC_DIR)$(NSBUNDLE_GTK_DIR) $(NSBUNDLE_GTK_DIR) ; \
+	done 
+	$(FCT_OTOOL_CP) ; for s in $$(find  $(BUNDLE_RESOURCES_DIR) -name '*.so') ; do \
+		otool_cp $$s $(prefix) $(BUNDLE_EXEC_DIR)$(NSBUNDLE_GTK_DIR) $(NSBUNDLE_GTK_DIR) ; \
+	done 
+
 endif
 
