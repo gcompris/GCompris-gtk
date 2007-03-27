@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-03-14 06:55+0000\n"
-"PO-Revision-Date: 2007-03-14 06:55-0000\n"
+"POT-Creation-Date: 2007-03-27 06:55+0100\n"
+"PO-Revision-Date: 2007-03-27 07:03-0000\n"
 "Last-Translator: David Lodge <dave@cirt.net>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -2756,7 +2756,7 @@ msgid "GCompris Main Menu"
 msgstr "GCompris Main Menu"
 
 #: ../boards/menu.xml.in.h:17
-#: ../src/boards/menu2.c:1008
+#: ../src/boards/menu2.c:1003
 msgid "GCompris is a collection of educational games that provides different activities for children aged 2 and up."
 msgstr "GCompris is a collection of educational games that provides different activities for children aged 2 and up."
 
@@ -3590,6 +3590,12 @@ msgstr "Educational suite GCompris"
 msgid "Multi-activity educational game"
 msgstr "Multi-activity educational game"
 
+#. TRANSLATORS: Put here the mathematical operators '+-x/' for  your language.
+#: ../src/boards/algebra.c:182
+#: ../src/boards/memory.c:846
+msgid "+-×÷"
+msgstr "+-×÷"
+
 #: ../src/boards/awele.c:350
 #: ../src/boards/awele.c:360
 msgid "NORTH"
@@ -3665,8 +3671,8 @@ msgid "White mates"
 msgstr "White mates"
 
 #: ../src/boards/chess.c:1100
-#: ../src/gcompris/bonus.c:361
-#: ../src/gcompris/bonus.c:370
+#: ../src/gcompris/bonus.c:364
+#: ../src/gcompris/bonus.c:373
 msgid "Drawn game"
 msgstr "Drawn game"
 
@@ -3675,7 +3681,7 @@ msgid "Error: The external program gnuchess died unexpectingly"
 msgstr "Error: The external program gnuchess died unexpectingly"
 
 #: ../src/boards/click_on_letter.c:259
-#: ../src/boards/memory.c:833
+#: ../src/boards/memory.c:813
 msgid ""
 "Error: this activity cannot be played with the\n"
 "sound effects disabled.\n"
@@ -3692,7 +3698,7 @@ msgstr ""
 #. TRANSLATORS: Put here the alphabet lowercase in your language
 #: ../src/boards/click_on_letter.c:264
 #: ../src/boards/gletters.c:231
-#: ../src/boards/memory.c:855
+#: ../src/boards/memory.c:835
 msgid "abcdefghijklmnopqrstuvwxyz"
 msgstr "abcdefghijklmnopqrstuvwxyz"
 
@@ -3713,6 +3719,35 @@ msgid ""
 msgstr ""
 "Error: this activity requires that you first install\n"
 "the packages with GCompris voices for the locale '%s' ! Fallback to english, sorry!"
+
+#. Init configuration window:
+#. all the configuration functions will use it
+#. all the configuration functions returns values for their key in
+#. the dict passed to the apply_callback
+#. the returned value is the main GtkVBox of the window,
+#. we can add what you want in it.
+#: ../src/boards/click_on_letter.c:623
+#: ../src/boards/colors.c:165
+#: ../src/boards/gletters.c:866
+#: ../src/boards/imageid.c:749
+#: ../src/boards/missingletter.c:772
+#: ../src/boards/python/admin/board_list.py:631
+#: ../src/boards/python/admin/board_list.py:649
+#: ../src/boards/python/admin/wordlist.py:50
+#: ../src/boards/python/login.py:535
+#: ../src/boards/python/pythontest.py:406
+#: ../src/boards/python/tuxpaint.py:206
+#: ../src/boards/reading.c:833
+#: ../src/boards/scale.c:861
+#: ../src/boards/shapegame.c:1863
+#: ../src/boards/smallnumbers.c:590
+#, c-format, python-format
+msgid ""
+"<b>%s</b> configuration\n"
+" for profile <b>%s</b>"
+msgstr ""
+"<b>%s</b> configuration\n"
+" for profile <b>%s</b>"
 
 #. toggle box
 #: ../src/boards/click_on_letter.c:646
@@ -3766,17 +3801,29 @@ msgstr "Click on the black duck"
 msgid "Click on the white duck"
 msgstr "Click on the white duck"
 
+#: ../src/boards/colors.c:177
+#: ../src/boards/python/admin/board_list.py:661
+#: ../src/boards/python/pythontest.py:470
+#: ../src/boards/smallnumbers.c:610
+msgid "Select sound locale"
+msgstr "Select sound locale"
+
 #. TRANSLATORS: Put here the numbers in your language
 #: ../src/boards/gletters.c:227
-#: ../src/boards/memory.c:851
+#: ../src/boards/memory.c:831
 msgid "0123456789"
 msgstr "0123456789"
 
 #. TRANSLATORS: Put here the alphabet uppercase in your language
 #: ../src/boards/gletters.c:237
-#: ../src/boards/memory.c:861
+#: ../src/boards/memory.c:841
 msgid "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 msgstr "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+
+#: ../src/boards/gletters.c:895
+#: ../src/boards/smallnumbers.c:608
+msgid "Enable sounds"
+msgstr "Enable sounds"
 
 #: ../src/boards/hanoi.c:332
 #: ../src/boards/hanoi.c:343
@@ -3799,23 +3846,23 @@ msgstr "Learn how to read"
 
 #: ../src/boards/leftright.c:277
 #: ../src/boards/leftright.c:287
-#: ../src/boards/python/searace.py:428
-#: ../src/boards/python/searace.py:453
-#: ../src/boards/python/searace.py:543
-#: ../src/boards/python/searace.py:855
-#: ../src/boards/python/searace.py:888
-#: ../src/boards/python/searace.py:985
+#: ../src/boards/python/searace.py:433
+#: ../src/boards/python/searace.py:458
+#: ../src/boards/python/searace.py:548
+#: ../src/boards/python/searace.py:857
+#: ../src/boards/python/searace.py:890
+#: ../src/boards/python/searace.py:987
 msgid "left"
 msgstr "left"
 
 #: ../src/boards/leftright.c:297
 #: ../src/boards/leftright.c:307
-#: ../src/boards/python/searace.py:428
-#: ../src/boards/python/searace.py:453
-#: ../src/boards/python/searace.py:552
-#: ../src/boards/python/searace.py:857
-#: ../src/boards/python/searace.py:890
-#: ../src/boards/python/searace.py:979
+#: ../src/boards/python/searace.py:433
+#: ../src/boards/python/searace.py:458
+#: ../src/boards/python/searace.py:557
+#: ../src/boards/python/searace.py:859
+#: ../src/boards/python/searace.py:892
+#: ../src/boards/python/searace.py:981
 msgid "right"
 msgstr "right"
 
@@ -3827,18 +3874,13 @@ msgstr "Look at your position, then switch back to invisible mode to continue yo
 msgid "Look at your position, then switch back to 3D mode to continue your moves"
 msgstr "Look at your position, then switch back to 3D mode to continue your moves"
 
-#: ../src/boards/memory.c:286
+#: ../src/boards/memory.c:266
 msgid "Memory"
 msgstr "Memory"
 
-#: ../src/boards/memory.c:287
+#: ../src/boards/memory.c:267
 msgid "Find the matching pair"
 msgstr "Find the matching pair"
-
-#. TRANSLATORS: Put here the mathematical operators '+-x/' for  your language.
-#: ../src/boards/memory.c:866
-msgid "+-×÷"
-msgstr "+-×÷"
 
 #: ../src/boards/menu2.c:133
 msgid "Main Menu Second Version"
@@ -3941,31 +3983,6 @@ msgid ""
 msgstr ""
 "<span size='x-large'> Select the difficulty range \n"
 "for profile <b>%s</b></span>"
-
-#. Init configuration window:
-#. all the configuration functions will use it
-#. all the configuration functions returns values for their key in
-#. the dict passed to the apply_callback
-#. the returned value is the main GtkVBox of the window,
-#. we can add what you want in it.
-#: ../src/boards/python/admin/board_list.py:631
-#: ../src/boards/python/admin/board_list.py:649
-#: ../src/boards/python/admin/wordlist.py:50
-#: ../src/boards/python/login.py:535
-#: ../src/boards/python/pythontest.py:406
-#: ../src/boards/python/tuxpaint.py:206
-#, python-format
-msgid ""
-"<b>%s</b> configuration\n"
-" for profile <b>%s</b>"
-msgstr ""
-"<b>%s</b> configuration\n"
-" for profile <b>%s</b>"
-
-#: ../src/boards/python/admin/board_list.py:661
-#: ../src/boards/python/pythontest.py:470
-msgid "Select sound locale"
-msgstr "Select sound locale"
 
 #: ../src/boards/python/admin/class_edit.py:60
 msgid "Editing a Class"
@@ -4575,64 +4592,62 @@ msgstr "Choice of pattern"
 msgid "Coordinate"
 msgstr "Coordinate"
 
-#: ../src/boards/python/searace.py:200
-#: ../src/boards/python/searace.py:205
-#: ../src/boards/python/searace.py:231
+#: ../src/boards/python/searace.py:191
 msgid "The race is already being run"
 msgstr "The race is already being run"
 
 #. Manage default cases (no params given)
 #. Final move, add an ofset because we loose space in abs()
-#: ../src/boards/python/searace.py:428
-#: ../src/boards/python/searace.py:453
-#: ../src/boards/python/searace.py:534
-#: ../src/boards/python/searace.py:853
-#: ../src/boards/python/searace.py:882
-#: ../src/boards/python/searace.py:977
-#: ../src/boards/python/searace.py:983
-#: ../src/boards/python/searace.py:991
+#: ../src/boards/python/searace.py:433
+#: ../src/boards/python/searace.py:458
+#: ../src/boards/python/searace.py:539
+#: ../src/boards/python/searace.py:855
+#: ../src/boards/python/searace.py:884
+#: ../src/boards/python/searace.py:979
+#: ../src/boards/python/searace.py:985
+#: ../src/boards/python/searace.py:993
 msgid "forward"
 msgstr "forward"
 
-#: ../src/boards/python/searace.py:525
+#: ../src/boards/python/searace.py:530
 msgid "COMMANDS ARE"
 msgstr "COMMANDS ARE"
 
 #. The two boat arrived in a close time frame (1s), it's a draw
-#: ../src/boards/python/searace.py:751
+#: ../src/boards/python/searace.py:756
 msgid "This is a draw"
 msgstr "This is a draw"
 
-#: ../src/boards/python/searace.py:758
+#: ../src/boards/python/searace.py:763
 msgid "The Red boat has won"
 msgstr "The Red boat has won"
 
-#: ../src/boards/python/searace.py:761
+#: ../src/boards/python/searace.py:766
 msgid "The Green boat has won"
 msgstr "The Green boat has won"
 
-#: ../src/boards/python/searace.py:779
-#: ../src/boards/python/searace.py:1021
+#: ../src/boards/python/searace.py:784
+#: ../src/boards/python/searace.py:1023
 msgid "Angle:"
 msgstr "Angle:"
 
-#: ../src/boards/python/searace.py:779
+#: ../src/boards/python/searace.py:784
 msgid "Wind:"
 msgstr "Wind:"
 
-#: ../src/boards/python/searace.py:860
+#: ../src/boards/python/searace.py:862
 msgid "Syntax error at line"
 msgstr "Syntax error at line"
 
-#: ../src/boards/python/searace.py:878
+#: ../src/boards/python/searace.py:880
 msgid "The command"
 msgstr "The command"
 
-#: ../src/boards/python/searace.py:897
+#: ../src/boards/python/searace.py:899
 msgid "Unknown command at line"
 msgstr "Unknown command at line"
 
-#: ../src/boards/python/searace.py:1021
+#: ../src/boards/python/searace.py:1023
 msgid "Distance:"
 msgstr "Distance:"
 
@@ -4719,10 +4734,14 @@ msgstr "But it was not displayed"
 msgid "And it was displayed"
 msgstr "And it was displayed"
 
-#: ../src/boards/scale.c:259
+#: ../src/boards/scale.c:265
 #, c-format
 msgid "Weight = %s"
 msgstr "Weight = %s"
+
+#: ../src/boards/scale.c:714
+msgid "Take care, you can drop masses on both sides of the scale."
+msgstr "Take care, you can drop masses on both sides of the scale."
 
 #: ../src/boards/target.c:281
 #: ../src/boards/target.c:546
@@ -5206,123 +5225,123 @@ msgstr ""
 "Exit it and report\n"
 "the problem to the authors"
 
-#: ../src/gcompris/gcompris.c:128
+#: ../src/gcompris/gcompris.c:133
 msgid "run gcompris in fullscreen mode."
 msgstr "run gcompris in fullscreen mode."
 
-#: ../src/gcompris/gcompris.c:131
+#: ../src/gcompris/gcompris.c:136
 msgid "run gcompris in window mode."
 msgstr "run gcompris in window mode."
 
-#: ../src/gcompris/gcompris.c:134
+#: ../src/gcompris/gcompris.c:139
 msgid "run gcompris with sound enabled."
 msgstr "run gcompris with sound enabled."
 
-#: ../src/gcompris/gcompris.c:137
+#: ../src/gcompris/gcompris.c:142
 msgid "run gcompris without sound."
 msgstr "run gcompris without sound."
 
-#: ../src/gcompris/gcompris.c:140
+#: ../src/gcompris/gcompris.c:145
 msgid "run gcompris with the default gnome cursor."
 msgstr "run gcompris with the default gnome cursor."
 
-#: ../src/gcompris/gcompris.c:143
+#: ../src/gcompris/gcompris.c:148
 msgid "display only activities with this difficulty level."
 msgstr "display only activities with this difficulty level."
 
-#: ../src/gcompris/gcompris.c:146
+#: ../src/gcompris/gcompris.c:151
 msgid "display debug informations on the console."
 msgstr "display debug informations on the console."
 
-#: ../src/gcompris/gcompris.c:149
+#: ../src/gcompris/gcompris.c:154
 msgid "Print the version of "
 msgstr "Print the version of "
 
-#: ../src/gcompris/gcompris.c:152
+#: ../src/gcompris/gcompris.c:157
 msgid "Use the antialiased canvas (slower)."
 msgstr "Use the antialiased canvas (slower)."
 
-#: ../src/gcompris/gcompris.c:155
+#: ../src/gcompris/gcompris.c:160
 msgid "Disable XF86VidMode (No screen resolution change)."
 msgstr "Disable XF86VidMode (No screen resolution change)."
 
-#: ../src/gcompris/gcompris.c:158
+#: ../src/gcompris/gcompris.c:163
 msgid "Run gcompris with local menu (e.g -l /reading will let you play only activities in the reading directory, -l /strategy/connect4 only the connect4 activity)"
 msgstr "Run gcompris with local menu (e.g -l /reading will let you play only activities in the reading directory, -l /strategy/connect4 only the connect4 activity)"
 
-#: ../src/gcompris/gcompris.c:161
+#: ../src/gcompris/gcompris.c:166
 msgid "Run GCompris with local activity directory added to menu"
 msgstr "Run GCompris with local activity directory added to menu"
 
-#: ../src/gcompris/gcompris.c:164
+#: ../src/gcompris/gcompris.c:169
 msgid "Run GCompris in administration and user-management mode"
 msgstr "Run GCompris in administration and user-management mode"
 
-#: ../src/gcompris/gcompris.c:167
+#: ../src/gcompris/gcompris.c:172
 msgid "Use alternate database for profiles [$HOME/.config/gcompris/gcompris_sqlite.db]"
 msgstr "Use alternate database for profiles [$HOME/.config/gcompris/gcompris_sqlite.db]"
 
-#: ../src/gcompris/gcompris.c:170
+#: ../src/gcompris/gcompris.c:175
 msgid "Create the alternate database for profiles"
 msgstr "Create the alternate database for profiles"
 
-#: ../src/gcompris/gcompris.c:173
+#: ../src/gcompris/gcompris.c:178
 msgid "Re-read XML Menus and store them in the database"
 msgstr "Re-read XML Menus and store them in the database"
 
-#: ../src/gcompris/gcompris.c:176
+#: ../src/gcompris/gcompris.c:181
 msgid "Set the profile to use. Use 'gcompris -a' to create profiles"
 msgstr "Set the profile to use. Use 'gcompris -a' to create profiles"
 
-#: ../src/gcompris/gcompris.c:179
+#: ../src/gcompris/gcompris.c:184
 msgid "List all available profiles. Use 'gcompris -a' to create profiles"
 msgstr "List all available profiles. Use 'gcompris -a' to create profiles"
 
-#: ../src/gcompris/gcompris.c:182
+#: ../src/gcompris/gcompris.c:187
 msgid "Config directory location: [$HOME/.config/gcompris]. Alternate is to set $XDG_CONFIG_HOME."
 msgstr "Config directory location: [$HOME/.config/gcompris]. Alternate is to set $XDG_CONFIG_HOME."
 
-#: ../src/gcompris/gcompris.c:185
+#: ../src/gcompris/gcompris.c:190
 msgid "The location of user directories: [$HOME/My GCompris]"
 msgstr "The location of user directories: [$HOME/My GCompris]"
 
-#: ../src/gcompris/gcompris.c:188
+#: ../src/gcompris/gcompris.c:193
 msgid "Run the experimental activities"
 msgstr "Run the experimental activities"
 
-#: ../src/gcompris/gcompris.c:191
+#: ../src/gcompris/gcompris.c:196
 msgid "Disable the quit button"
 msgstr "Disable the quit button"
 
-#: ../src/gcompris/gcompris.c:194
+#: ../src/gcompris/gcompris.c:199
 msgid "Disable the config button"
 msgstr "Disable the configuration button"
 
-#: ../src/gcompris/gcompris.c:199
+#: ../src/gcompris/gcompris.c:204
 msgid "Display the resources on stdout based on the selected activities"
 msgstr "Display the resources on stdout based on the selected activities"
 
-#: ../src/gcompris/gcompris.c:203
+#: ../src/gcompris/gcompris.c:208
 msgid "GCompris will get images, sounds and activity data from this server if not found locally."
 msgstr "GCompris will get images, sounds and activity data from this server if not found locally."
 
-#: ../src/gcompris/gcompris.c:206
+#: ../src/gcompris/gcompris.c:211
 msgid "Only when --server is provided, disable check for local resource first. Data are always taken from the web server."
 msgstr "Only when --server is provided, disable check for local resource first. Data is always taken from the web server."
 
-#: ../src/gcompris/gcompris.c:210
+#: ../src/gcompris/gcompris.c:215
 msgid "In server mode, specify the cache directory used to avoid useless downloads."
 msgstr "In server mode, specify the cache directory used to avoid useless downloads."
 
-#: ../src/gcompris/gcompris.c:213
+#: ../src/gcompris/gcompris.c:218
 msgid "Global drag and drop mode: normal, 2clicks, both. Default mode is normal."
 msgstr "Global drag and drop mode: normal, 2clicks, both. Default mode is normal."
 
-#: ../src/gcompris/gcompris.c:216
+#: ../src/gcompris/gcompris.c:221
 msgid "Do not display the background images of activities."
 msgstr "Do not display the background images of activities."
 
-#: ../src/gcompris/gcompris.c:830
+#: ../src/gcompris/gcompris.c:835
 #, c-format
 msgid ""
 "GCompris is free software released under the GPL License. In order to support its development, the Windows version provides only %d of the %d activities. You can get the full version for a small fee at\n"
@@ -5335,7 +5354,7 @@ msgstr ""
 "The GNU/Linux version does not have this restriction. Note that GCompris is being developed to free schools from monopolistic software vendors. If you also believe that we should teach freedom to children, please consider using GNU/Linux. Get more information at FSF:\n"
 "<http://www.fsf.org/philosophy>"
 
-#: ../src/gcompris/gcompris.c:1471
+#: ../src/gcompris/gcompris.c:1475
 #, c-format
 msgid ""
 "GCompris\n"
@@ -5349,17 +5368,17 @@ msgstr ""
 "More info at http://gcompris.net\n"
 
 #. check the list of possible values for -l, then exit
-#: ../src/gcompris/gcompris.c:1555
+#: ../src/gcompris/gcompris.c:1559
 #, c-format
 msgid "Use -l to access an activity directly.\n"
 msgstr "Use -l to access an activity directly.\n"
 
-#: ../src/gcompris/gcompris.c:1556
+#: ../src/gcompris/gcompris.c:1560
 #, c-format
 msgid "The list of available activities is :\n"
 msgstr "The list of available activities is :\n"
 
-#: ../src/gcompris/gcompris.c:1743
+#: ../src/gcompris/gcompris.c:1747
 #, c-format
 msgid "The list of available profiles is:\n"
 msgstr "The list of available profiles is:\n"
@@ -5388,16 +5407,16 @@ msgstr "Manual"
 msgid "Credit"
 msgstr "Credit"
 
-#: ../src/gcompris/properties.c:484
-#: ../src/gcompris/properties.c:491
+#: ../src/gcompris/properties.c:487
+#: ../src/gcompris/properties.c:494
 msgid "readme"
 msgstr "readme"
 
-#: ../src/gcompris/properties.c:486
+#: ../src/gcompris/properties.c:489
 msgid "This directory contains the files you create with the GCompris educational suite\n"
 msgstr "This directory contains the files you create with the GCompris educational suite\n"
 
-#: ../src/gcompris/properties.c:493
+#: ../src/gcompris/properties.c:496
 msgid ""
 "Put any numer of images in this directory.\n"
 "You can include these images in your drawings and animations.\n"
