@@ -74,6 +74,7 @@ if test "x$nsbundle" = "xyes"; then
       fi
       NSBUNDLE_GTK_DIR="/../GTK"
       NSBUNDLE_LDFLAGS="-framework Cocoa "
+      OBJCFLAGS="$OBJCFLAGS $CFLAGS"
       AC_LANG_POP([Objective C])
    else
       AC_LANG_PUSH([Objective C])
@@ -86,7 +87,7 @@ if test "x$nsbundle" = "xyes"; then
          AC_MSG_ERROR([You need GNUstep dev to use nsbundle. Make sure GNUSTEP_SYSTEM_ROOT is set." ])
       fi
       CPPFLAGS="$saved_CPPFLAGS"
-      OBJCFLAGS=" -DGNUSTEP -DGNUSTEP_BASE_LIBRARY=1 -DGNU_GUI_LIBRARY=1 -DGNU_RUNTIME=1 -DGNUSTEP_BASE_LIBRARY=1 -fconstant-string-class=NSConstantString -I$GNUSTEP_SYSTEM_ROOT/Library/Headers "
+      OBJCFLAGS="$OBJCFLAGS $CFLAGS -DGNUSTEP -DGNUSTEP_BASE_LIBRARY=1 -DGNU_GUI_LIBRARY=1 -DGNU_RUNTIME=1 -DGNUSTEP_BASE_LIBRARY=1 -fconstant-string-class=NSConstantString -I$GNUSTEP_SYSTEM_ROOT/Library/Headers "
       NSBUNDLE_GTK_DIR="/GTK"
       NSBUNDLE_LDFLAGS="-rdynamic -fgnu-runtime -L$GNUSTEP_SYSTEM_ROOT/Library/Libraries -lgnustep-base -Wl,-rpath=\\\$\$ORIGIN/$NSBUNDLE_GTK_DIR/lib "
       AC_LANG_POP([Objective C])
