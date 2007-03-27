@@ -101,6 +101,7 @@ if [ "x$UNIVERSAL_BUILD" = "xYes" ]; then
 
     POSTCONFIGURE_pygtk="eval  perl -pi~ -e 's|SUBDIRS = (.*) docs|SUBDIRS =  \$1|g' Makefile"
 
+    CONFIGURE_gnuchess="--without-readline"
     POSTCONFIGURE_gnuchess="eval perl -pi~ -e 's|static pthread_t input_thread;|pthread_t input_thread;|g' src/input.c"
 
     POSTCONFIGURE_sqlite="patch_libtool_dylib"
