@@ -1,3 +1,4 @@
+# translation of id.po to Bahasa Indonesia
 # translation of gcompris-baru.po to Bahasa Indonesia
 # translation of gcompris.po to Bahasa Indonesia
 # translation of gcompris.HEAD.po to Bahasa Indonesia
@@ -7,12 +8,12 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: gcompris\n"
+"Project-Id-Version: id\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-03-20 10:01+0200\n"
-"PO-Revision-Date: 2007-03-01 21:24+0700\n"
+"POT-Creation-Date: 2007-03-29 11:47+0700\n"
+"PO-Revision-Date: 2007-03-29 12:26+0700\n"
 "Last-Translator: Umar Said <umarsaid@gmail.com>\n"
-"Language-Team: Bahasa Indonesia\n"
+"Language-Team: Bahasa Indonesia <umarsaid@gmail.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -74,7 +75,7 @@ msgstr ""
 
 #: ../boards/administration.xml.in.h:6
 msgid "Left-Click with the mouse to select an activity"
-msgstr "Klik kiri untuk memilih kegiatan"
+msgstr "Klik kiri untuk memilih kegiatan."
 
 #: ../boards/advanced_colors.xml.in.h:1
 msgid "Advanced colors"
@@ -456,8 +457,7 @@ msgstr "Empat operasi aritmetik. Gabungkan beberapa operasi aritmetik."
 msgid ""
 "Work out the right combination of numbers and operations to match the given "
 "value"
-msgstr ""
-"Cari kombinasi nomor dan operasi agar cocok dengan nilai yang diberikan."
+msgstr "Cari kombinasi nomor dan operasi agar cocok dengan nilai yang diberikan."
 
 #: ../boards/algebra_minus.xml.in.h:1
 msgid ""
@@ -562,8 +562,7 @@ msgstr ""
 
 #: ../boards/anim.xml.in.h:4 ../boards/draw.xml.in.h:4
 msgid "Needs to be capable of moving and clicking the mouse easily"
-msgstr ""
-"Perlu kecakapan menggerakkan dan mengeklik tetikus (mouse) dengan mudah"
+msgstr "Perlu kecakapan menggerakkan dan mengeklik tetikus (mouse) dengan mudah"
 
 #: ../boards/anim.xml.in.h:5
 msgid ""
@@ -641,7 +640,7 @@ msgstr ""
 
 #: ../boards/awele.xml.in.h:2
 msgid "Oware"
-msgstr "Oware"
+msgstr "Oware (congklak)"
 
 #: ../boards/awele.xml.in.h:3
 msgid "Play the Oware strategy game against Tux"
@@ -769,11 +768,11 @@ msgid ""
 "ball. If you want Tux to begin, just click on him."
 msgstr ""
 "Taruh bola ke dalam lubang. Kamu menang jika komputer yang menaruh terakhir. "
-"Jika ingin Tux main duluan, klik dia."
+"Jika ingin agar Tux main duluan, klik dia."
 
 #: ../boards/bargame.xml.in.h:5
 msgid "bar game"
-msgstr "Permainan congklak"
+msgstr "Mengisi batang"
 
 #: ../boards/billard.xml.in.h:1
 msgid "Kick the ball into the black hole on the right"
@@ -1123,8 +1122,7 @@ msgstr "Koordinasi motorik: menggerakkan dan mengeklik tetikus (mouse)."
 
 #: ../boards/clickgame.xml.in.h:6
 msgid "Use the left mouse button to click on the moving fish."
-msgstr ""
-"Gunakan tombol kiri tetikus (mouse) untuk mengeklik ikan yang bergerak."
+msgstr "Gunakan tombol kiri tetikus (mouse) untuk mengeklik ikan yang bergerak."
 
 #: ../boards/clockgame.xml.in.h:1
 msgid ""
@@ -1311,8 +1309,7 @@ msgstr "Seret dan Jatuhkan item di dalam tabel pemasukan ganda"
 msgid ""
 "Move the items on the left to their proper position in the double-entry "
 "table."
-msgstr ""
-"Pindahkan item di kiri ke posisinya yang sesuai di tabel pemasukan ganda"
+msgstr "Pindahkan item di kiri ke posisinya yang sesuai di tabel pemasukan ganda"
 
 #: ../boards/doubleentry/board3_0.xml.in.h:1
 msgid "Click on an item and listen to its target position"
@@ -1438,8 +1435,7 @@ msgstr "Gerakkan tetikus (mouse)"
 
 #: ../boards/erase.xml.in.h:5 ../src/boards/erase.c:117
 msgid "Move the mouse to erase the area and discover the background"
-msgstr ""
-"Gerakkan tetikus (mouse) untuk menghapus kotak dan menemukan latar belakang."
+msgstr "Gerakkan tetikus (mouse) untuk menghapus kotak dan menemukan latar belakang."
 
 #: ../boards/erase.xml.in.h:6
 msgid "Move the mouse until all the blocks disappear."
@@ -1455,8 +1451,7 @@ msgstr "Klik tetikus (mouse) pada kotak sampai semua kotak hilang."
 
 #: ../boards/erase_clic.xml.in.h:4
 msgid "Click the mouse to erase the area and discover the background"
-msgstr ""
-"Klik tetikus (mouse) untuk menghapus kotak dan menemukan latar belakang."
+msgstr "Klik tetikus (mouse) untuk menghapus kotak dan menemukan latar belakang."
 
 #: ../boards/experience.xml.in.h:1
 msgid "Go to experiential activities"
@@ -1483,8 +1478,7 @@ msgstr ""
 "kita klik tersebut akan bertukar tempat dengan ruang kosong tadi."
 
 #: ../boards/fifteen.xml.in.h:3
-msgid ""
-"Move each item to make an increasing series: from the smallest to the largest"
+msgid "Move each item to make an increasing series: from the smallest to the largest"
 msgstr ""
 "Pindahkan tiap item untuk membuat urutan menaik: dari terkecil sampai "
 "terbesar"
@@ -2131,9 +2125,22 @@ msgstr "Wilayah Prancis"
 msgid "Deutschland Bundesländer"
 msgstr "Deutschland Bundesländer"
 
+#: ../boards/geography_country/board3_0.xml.in.h:1
+#, fuzzy
+msgid "Provincias Argentinas"
+msgstr "Argentina"
+
+#: ../boards/geography_country/board4_0.xml.in.h:1
+msgid "Polish Voivodship"
+msgstr "Polish Voivodship"
+
+#: ../boards/geography_country/board5_0.xml.in.h:1
+msgid "Districts of Turkey"
+msgstr "Districts of Turkey"
+
 #: ../boards/geography_country/board6_0.xml.in.h:1
 msgid "Counties of Norway"
-msgstr ""
+msgstr "Counties of Norway"
 
 #: ../boards/geometry.xml.in.h:1
 msgid "Geometry"
@@ -2634,7 +2641,7 @@ msgid "sofa"
 msgstr "sofa"
 
 #: ../boards/imagename/board3_0.xml.in.h:7
-#: ../boards/imagename/board5_0.xml.in.h:5
+#: ../boards/imagename/board5_0.xml.in.h:4
 msgid "star"
 msgstr "bintang"
 
@@ -2651,16 +2658,13 @@ msgid "grater"
 msgstr "parut"
 
 #: ../boards/imagename/board4_0.xml.in.h:7
+#: ../boards/imagename/board5_0.xml.in.h:5
 msgid "tree"
 msgstr "pohon"
 
 #: ../boards/imagename/board5_0.xml.in.h:2
 msgid "pencil"
 msgstr "pensil"
-
-#: ../boards/imagename/board5_0.xml.in.h:4
-msgid "spruce"
-msgstr "cemara"
 
 #: ../boards/imagename/board5_0.xml.in.h:6
 msgid "truck"
@@ -2702,8 +2706,7 @@ msgstr "Tentukan apakah gambar tangan kiri atau kanan"
 msgid ""
 "Distinguish right and left hands from different points of view. Spatial "
 "representation"
-msgstr ""
-"Membedakan tangan kiri dan kanan menurut sudut pandang. Representasi ruang."
+msgstr "Membedakan tangan kiri dan kanan menurut sudut pandang. Representasi ruang."
 
 #: ../boards/leftright.xml.in.h:3
 msgid "Find your left and right hands"
@@ -2722,8 +2725,7 @@ msgstr ""
 "jika kanan."
 
 #: ../boards/login.xml.in.h:1
-msgid ""
-"GCompris identifies each child, so we can provide child-specific reports."
+msgid "GCompris identifies each child, so we can provide child-specific reports."
 msgstr ""
 "GCompris mengenali tiap anak, sehingga kita bisa menyediakan laporan khusus "
 "tentang anak."
@@ -3050,7 +3052,7 @@ msgid ""
 "the equals sign, and the numbers need you to put them together and make a "
 "proper equality. When you do that, both those cards disappear! When you've "
 "made them all disappear, found all the operations, you've won the game! :)"
-msgstr ""
+msgstr "Di balik kartu ada sebuah operasi matematika atau jawabannya. Kartu yang berisi operasi matematika berpasangan dengan kartu yang berisi jawabannya. Kamu hanya dapat membalik 2 kartu pada saat bersamaan. Oleh karena itu, ingat baik-baik kartu itu untuk mencocokkannya dengan kartu pasangannya. Setiap 2 kartu yang cocok, kartu tersebut akan menghilang. Jika kartunya cocok semua, maka kartu akan menghilang semua dan itu berarti kamu menang."
 
 #: ../boards/memory_add_minus_mult_div.xml.in.h:1
 #: ../boards/memory_add_minus_mult_div_tux.xml.in.h:1
@@ -3079,8 +3081,7 @@ msgstr ""
 msgid ""
 "Turn the cards over to find a matching operation, until all the cards are "
 "gone."
-msgstr ""
-"Balik kartu untuk menemukan operasi yang cocok, sampai semua kartu menghilang"
+msgstr "Balik kartu untuk menemukan operasi yang cocok, sampai semua kartu menghilang"
 
 #: ../boards/memory_add_minus_mult_div_tux.xml.in.h:2
 msgid "All operations memory game against Tux"
@@ -3161,7 +3162,7 @@ msgid ""
 "the equals sign, and the numbers need you to put them together and make a "
 "proper sum. When you do that, both those cards disappear! When you've made "
 "them all disappear, found all the subtracts, you've won the game! :)"
-msgstr ""
+msgstr "Di balik kartu ada operasi pengurangan atau jawabannya. Setiap kartu yang berisi operasi pengurangan berpasangan dengan kartu lainnya yang berisi jawabannya. Kamu hanya dapat membalik 2 kartu sekaligus. Oleh karena itu kamu harus mengingat baik-baik kartu tersebut. Setiap 2 kartu yang cocok, kartu akan menghilang. Jika kartu cocok semua dan habis, itu berarti kamu menang."
 
 #: ../boards/memory_minus_tux.xml.in.h:3
 msgid "Subtraction memory game against Tux"
@@ -3246,8 +3247,7 @@ msgstr "Permainan mengingat bunyi (audio)"
 
 #: ../boards/memory_sound.xml.in.h:3
 msgid "Click on Tux the violinist and listen to find the matching sounds"
-msgstr ""
-"Klik Tux sang pemain biola dan dengarkan untuk mencari bunyi yang cocok"
+msgstr "Klik Tux sang pemain biola dan dengarkan untuk mencari bunyi yang cocok"
 
 #: ../boards/memory_sound.xml.in.h:4 ../boards/memory_sound_tux.xml.in.h:3
 #: ../boards/memory_tux.xml.in.h:3
@@ -3623,8 +3623,7 @@ msgstr "Seret dan jatuhkan pecahan gambar untuk menyusun gambar aslinya"
 msgid ""
 "Drag the image parts from the box on the left to create a painting on the "
 "main board."
-msgstr ""
-"Seret pecahan gambar di kotak kiri untuk membuat gambar di papan utama."
+msgstr "Seret pecahan gambar di kotak kiri untuk membuat gambar di papan utama."
 
 #: ../boards/paintings.xml.in.h:4
 msgid "Mouse-manipulation: movement, drag and drop"
@@ -3742,8 +3741,7 @@ msgid "Test board for the python plugin"
 msgstr "Papan tes untuk plugin python"
 
 #: ../boards/pythontest.xml.in.h:5
-msgid ""
-"Thanks to Guido van Rossum and the python team for this powerful language!"
+msgid "Thanks to Guido van Rossum and the python team for this powerful language!"
 msgstr ""
 "Terima kasih pada Guido van Rossum dan tim python untuk bahasa yang hebat "
 "ini!"
@@ -3866,8 +3864,7 @@ msgstr "Kemampuan membaca pada waktu terbatas"
 
 #: ../boards/readingv.xml.in.h:2
 msgid "Read a vertical list of words and work out if a given word is in it"
-msgstr ""
-"Baca daftar kata dan tentukan apakah kata yang diberikan termasuk ke dalamnya"
+msgstr "Baca daftar kata dan tentukan apakah kata yang diberikan termasuk ke dalamnya"
 
 #: ../boards/readingv.xml.in.h:3
 msgid "Read training in a limited time"
@@ -4134,8 +4131,7 @@ msgid "Sudoku, place unique symbols in a square."
 msgstr "Sudoku, taruh simbol yang unik ke dalam kotak."
 
 #: ../boards/sudoku.xml.in.h:4
-msgid ""
-"Symbols must be unique in a row, in a column, and (if defined) each region."
+msgid "Symbols must be unique in a row, in a column, and (if defined) each region."
 msgstr ""
 "Simbol harus unik (tidak ada yang menyamai) di tiap baris, kolom, atau "
 "daerah."
@@ -4193,6 +4189,13 @@ msgid ""
 "\t* 1 square (side of 1)\n"
 "\t* 1 parallelogram (sides of 1 and square root of 2)"
 msgstr ""
+"Dari Wikipedia, ensiklopedi bebas. Tangram (dalam bahasa Cina berarti \"tujuh papan kecerdikan\") adalah teka-teki Cina. Meskipun sering dianggap kuno, keberadaannya dibuktikan sekitar tahun 1800. Tangram berisi 7 potong, yang disebut tan, yang cocok jika digabungkan membentuk kotak yang dianggap sebagai satu unit: "
+"\t* 5 segitiga sama kaki\n"
+"\t\to 2 kecil (kaki 1)\n"
+"\t\to 1 menengah (kaki akar kuadrat dari 2)\n"
+"\t\to 2 besar (kaki 2)\n"
+"\t* 1 bujur sangkar (sisi 1)\n"
+"\t* 1 jajaran genjang (sisi 1 dan akar kuadrat dari 2)"
 
 #: ../boards/tangram.xml.in.h:9
 msgid ""
@@ -4201,7 +4204,7 @@ msgid ""
 "rotation you want. Once you've shown what shape you want, the computer will "
 "create it. If you need help, click on the shape button, and the border of "
 "the shape will be drawn."
-msgstr ""
+msgstr "Pilih tangram untuk membuat bentuk. Pindahkan tiap potong dengan menyeretnya. Klik kanan untuk mencerminkannya. Pilih potongan lalu klik di bagian luarnya sambil ditarik, untuk memutar potongan tersebut. Kalau bentuk yang diinginkan sudah jadi, komputer akan mengetahuinya. Jika butuh panduan, klik tombol yang seperti burung. Jika tombol tersebut diklik, polanya akan muncul."
 
 #: ../boards/tangram.xml.in.h:10
 msgid "The objective is to form a given shape with seven pieces"
@@ -4220,8 +4223,7 @@ msgid "The tangram puzzle game"
 msgstr "Teka-teki tangram"
 
 #: ../boards/target.xml.in.h:1
-msgid ""
-"Can move the mouse, can read numbers and count up to 15 for the first level"
+msgid "Can move the mouse, can read numbers and count up to 15 for the first level"
 msgstr ""
 "Dapat menggunakan tetikus (mouse), dapat membaca bilangan dan menghitung "
 "sampai 15 untuk tingkat pertama."
@@ -4265,8 +4267,7 @@ msgstr ""
 
 #: ../boards/traffic.xml.in.h:3
 msgid "Remove the red car from the parking lot through the gate on the right"
-msgstr ""
-"Keluarkan mobil merah dari tempat parkir melalu gerbang di sebelah kanan"
+msgstr "Keluarkan mobil merah dari tempat parkir melalu gerbang di sebelah kanan"
 
 #: ../boards/tuxpaint.xml.in.h:1
 msgid "Drawing activity (pixmap)"
@@ -4345,7 +4346,7 @@ msgid ""
 "The first 4 buttons let you select the style of the line on which your "
 "insert cursor is. The 2 others buttons with multiple choices let you select "
 "from a predefined document and color theme."
-msgstr ""
+msgstr "Di pengolah kata ini, kamu dapat mengetikkan teks yang kamu inginkan, menyimpan, dan membukanya kembali. Kamu dapat menambah beberapa gaya (style) terhadap teksmu menggunakan tombol di sebelah kiri. Gunakan 4 tombol pertama untuk memilih gaya baris pada posisi kursor. Gunakan 2 tombol lainnya dengan banyak pilihan untuk memilih contoh dokumen dan tema warna."
 
 #: ../boards/wordprocessor.xml.in.h:3
 msgid ""
@@ -4353,11 +4354,11 @@ msgid ""
 "that it enforces the use of styles. This way, the children will understand "
 "their benefit when moving to more feature full wordprocessor like OpenOffice."
 "org."
-msgstr ""
+msgstr "Pelajari bagaimana cara memasukkan teks di pengolah kata. Ini adalah pengolah kata khusus yang mengharuskan penggunaan gaya (style). Dengan begini, anak-anak akan memahami kelebihannya ketika pindah ke pengolah kata yang penuh fitur seperti OpenOffice.org."
 
 #: ../boards/wordprocessor.xml.in.h:4
 msgid "The children can type their own text or copy one given by the teacher."
-msgstr ""
+msgstr "Anak-anak dapat mengetik teks mereka sendiri atau menyalin dari guru."
 
 #: ../boards/wordprocessor.xml.in.h:5
 msgid "Your word processor"
@@ -4505,6 +4506,29 @@ msgstr ""
 "paket dengan suara gcompris untuk daerah '%s' !\n"
 "Maaf, kembali ke bahasa Inggris!"
 
+#. Init configuration window:
+#. all the configuration functions will use it
+#. all the configuration functions returns values for their key in
+#. the dict passed to the apply_callback
+#. the returned value is the main GtkVBox of the window,
+#. we can add what you want in it.
+#: ../src/boards/click_on_letter.c:623 ../src/boards/colors.c:165
+#: ../src/boards/gletters.c:866 ../src/boards/imageid.c:749
+#: ../src/boards/missingletter.c:772
+#: ../src/boards/python/admin/board_list.py:631
+#: ../src/boards/python/admin/board_list.py:649
+#: ../src/boards/python/admin/wordlist.py:50 ../src/boards/python/login.py:535
+#: ../src/boards/python/pythontest.py:406 ../src/boards/python/tuxpaint.py:206
+#: ../src/boards/reading.c:833 ../src/boards/scale.c:861
+#: ../src/boards/shapegame.c:1863 ../src/boards/smallnumbers.c:590
+#, c-format, python-format
+msgid ""
+"<b>%s</b> configuration\n"
+" for profile <b>%s</b>"
+msgstr ""
+"konfigurasi <b>%s</b>\n"
+" untuk profil <b>%s</b>"
+
 #. toggle box
 #: ../src/boards/click_on_letter.c:646 ../src/boards/gletters.c:899
 #: ../src/boards/python/login.py:540
@@ -4517,43 +4541,48 @@ msgstr "Atur jam menjadi:"
 
 #: ../src/boards/colors.c:56
 msgid "Click on the blue duck"
-msgstr "Klik pada boneka biru"
+msgstr "Klik pada bebek biru"
 
 #: ../src/boards/colors.c:57
 msgid "Click on the brown duck"
-msgstr "Klik pada boneka coklat"
+msgstr "Klik pada bebek coklat"
 
 #: ../src/boards/colors.c:58
 msgid "Click on the green duck"
-msgstr "Klik pada boneka hijau"
+msgstr "Klik pada bebek hijau"
 
 #: ../src/boards/colors.c:59
 msgid "Click on the grey duck"
-msgstr "Klik pada boneka abu-abu"
+msgstr "Klik pada bebek abu-abu"
 
 #: ../src/boards/colors.c:60
 msgid "Click on the orange duck"
-msgstr "Klik pada boneka oranye"
+msgstr "Klik pada bebek oranye"
 
 #: ../src/boards/colors.c:61
 msgid "Click on the purple duck"
-msgstr "Klik pada boneka ungu"
+msgstr "Klik pada bebek ungu"
 
 #: ../src/boards/colors.c:62
 msgid "Click on the red duck"
-msgstr "Klik pada boneka merah"
+msgstr "Klik pada bebek merah"
 
 #: ../src/boards/colors.c:63
 msgid "Click on the yellow duck"
-msgstr "Klik pada boneka kuning"
+msgstr "Klik pada bebek kuning"
 
 #: ../src/boards/colors.c:64
 msgid "Click on the black duck"
-msgstr "Klik pada boneka hitam"
+msgstr "Klik pada bebek hitam"
 
 #: ../src/boards/colors.c:65
 msgid "Click on the white duck"
-msgstr "Klik pada boneka putih"
+msgstr "Klik pada bebek putih"
+
+#: ../src/boards/colors.c:177 ../src/boards/python/admin/board_list.py:661
+#: ../src/boards/python/pythontest.py:470 ../src/boards/smallnumbers.c:610
+msgid "Select sound locale"
+msgstr "Pilih suara daerah"
 
 #. TRANSLATORS: Put here the numbers in your language
 #: ../src/boards/gletters.c:227 ../src/boards/memory.c:831
@@ -4565,12 +4594,16 @@ msgstr "0123456789"
 msgid "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 msgstr "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
+#: ../src/boards/gletters.c:895 ../src/boards/smallnumbers.c:608
+#, fuzzy
+msgid "Enable sounds"
+msgstr "Suara daerah"
+
 #: ../src/boards/hanoi.c:332 ../src/boards/hanoi.c:343
 msgid ""
 "Build the same tower in the empty area as the one you see on the right-hand "
 "side."
-msgstr ""
-"Bangun menara yang sama di daerah kosong seperti yang di sebelah kanan."
+msgstr "Bangun menara yang sama di daerah kosong seperti yang di sebelah kanan."
 
 #: ../src/boards/hanoi_real.c:72
 msgid "Tower of Hanoi"
@@ -4605,8 +4638,7 @@ msgid ""
 msgstr "Lihat posisimu, lalu kembali ke mode tak tampak untuk melanjutkan"
 
 #: ../src/boards/maze.c:494
-msgid ""
-"Look at your position, then switch back to 3D mode to continue your moves"
+msgid "Look at your position, then switch back to 3D mode to continue your moves"
 msgstr "Lihat posisimu, lalu kembali ke mode 3 dimensi untuk melanjutkan"
 
 #: ../src/boards/memory.c:266
@@ -4716,29 +4748,6 @@ msgid ""
 msgstr ""
 "<span size='x-large'> Pilih jangkauan kesulitan \n"
 "untuk profil <b>%s</b></span>"
-
-#. Init configuration window:
-#. all the configuration functions will use it
-#. all the configuration functions returns values for their key in
-#. the dict passed to the apply_callback
-#. the returned value is the main GtkVBox of the window,
-#. we can add what you want in it.
-#: ../src/boards/python/admin/board_list.py:631
-#: ../src/boards/python/admin/board_list.py:649
-#: ../src/boards/python/admin/wordlist.py:50 ../src/boards/python/login.py:535
-#: ../src/boards/python/pythontest.py:406 ../src/boards/python/tuxpaint.py:206
-#, python-format
-msgid ""
-"<b>%s</b> configuration\n"
-" for profile <b>%s</b>"
-msgstr ""
-"konfigurasi <b>%s</b>\n"
-" untuk profil <b>%s</b>"
-
-#: ../src/boards/python/admin/board_list.py:661
-#: ../src/boards/python/pythontest.py:470
-msgid "Select sound locale"
-msgstr "Pilih suara daerah"
 
 #: ../src/boards/python/admin/class_edit.py:60
 msgid "Editing a Class"
@@ -4872,7 +4881,7 @@ msgstr "Pilih kelas:"
 #. Insert the ALL option (HACK, use the user_id -2 to indicate ALL)
 #: ../src/boards/python/admin/log_list.py:102
 msgid "All users"
-msgstr ""
+msgstr "Semua pengguna"
 
 #: ../src/boards/python/admin/log_list.py:108
 #: ../src/boards/python/admin/log_list.py:287
@@ -4919,7 +4928,7 @@ msgstr "Urutan"
 
 #: ../src/boards/python/admin/log_list.py:268
 msgid "Status"
-msgstr ""
+msgstr "Status"
 
 #: ../src/boards/python/admin/module_boards.py:42
 #: ../src/boards/python/admin/module_boards.py:67
@@ -4939,7 +4948,7 @@ msgstr "Profil"
 #: ../src/boards/python/admin/module_reports.py:41
 #: ../src/boards/python/admin/module_reports.py:67
 msgid "Reports"
-msgstr ""
+msgstr "Laporan"
 
 #: ../src/boards/python/admin/module_reports.py:67
 #: ../src/boards/python/admin/module_users.py:41
@@ -5022,8 +5031,7 @@ msgid "Birth date:"
 msgstr "Tanggal lahir:"
 
 #: ../src/boards/python/admin/user_edit.py:159
-msgid ""
-"You need to provide at least a login, first name and last name for your users"
+msgid "You need to provide at least a login, first name and last name for your users"
 msgstr ""
 "Anda perlu memasukkan paling tidak satu login, nama awal atau akhir untuk "
 "pengguna anda"
@@ -5076,7 +5084,7 @@ msgstr "Teman Anda"
 
 #: ../src/boards/python/chat.py:162
 msgid "Your Channel"
-msgstr ""
+msgstr "Kanalmu"
 
 #: ../src/boards/python/chat.py:188
 msgid ""
@@ -5088,7 +5096,11 @@ msgstr ""
 
 #: ../src/boards/python/chat.py:322
 msgid "You must set a channel in your channel entry box first.\n"
-msgstr ""
+msgstr "Kamu harus mengeset kanal lebih dulu di kotak masukan kanal.\n"
+
+#: ../src/boards/python/chat.py:323
+msgid "Your friends must set the same channel in order to communicate with you"
+msgstr "Temanmu harus mengeset nama kanal yang sama denganmu agar bisa berkomunikasi denganmu."
 
 #: ../src/boards/python/electric.py:95
 msgid ""
@@ -5294,13 +5306,11 @@ msgstr ""
 "di batu karang, sedang melihat cuaca buruk di atas mereka."
 
 #: ../src/boards/python/oscar_and_friends.py:117
-msgid ""
-"They were all happy that the storms never reached all the way down to them."
+msgid "They were all happy that the storms never reached all the way down to them."
 msgstr "Mereka senang badai tidak ke bawah menjangkau mereka."
 
 #: ../src/boards/python/oscar_and_friends.py:118
-msgid ""
-"No matter how bad it was up there, the bottom was always calm and quiet."
+msgid "No matter how bad it was up there, the bottom was always calm and quiet."
 msgstr "Betapa buruknya di atas sana, di bawah selalu kalem dan tenang."
 
 #: ../src/boards/python/oscar_and_friends.py:119
@@ -5497,12 +5507,12 @@ msgstr "Tapi tidak muncul"
 msgid "And it was displayed"
 msgstr "Dan muncul"
 
-#: ../src/boards/scale.c:259
+#: ../src/boards/scale.c:265
 #, c-format
 msgid "Weight = %s"
 msgstr "Berat = %s"
 
-#: ../src/boards/scale.c:707
+#: ../src/boards/scale.c:714
 #, fuzzy
 msgid "Take care, you can drop masses on both sides of the scale."
 msgstr "Taruh anak timbangan untuk menyeimbangkan timbangan"
@@ -5544,7 +5554,7 @@ msgstr "Teks"
 
 #: ../src/boards/wordprocessor.c:99
 msgid "Flyer"
-msgstr ""
+msgstr "Selebaran"
 
 #: ../src/boards/wordprocessor.c:433
 msgid "Title"
@@ -5626,8 +5636,7 @@ msgstr "Tidak, saya ingin melanjutkan"
 
 #: ../src/gcompris/board.c:187
 msgid "Dynamic module loading is not supported. gcompris cannot load.\n"
-msgstr ""
-"Pemuatan modul dinamis tidak didukung. Gcompris tidak akan dapat memuat.\n"
+msgstr "Pemuatan modul dinamis tidak didukung. Gcompris tidak akan dapat memuat.\n"
 
 #: ../src/gcompris/board_config.c:699
 msgid ""
@@ -5719,7 +5728,7 @@ msgstr "Basque"
 
 #: ../src/gcompris/config.c:74
 msgid "Dzongkha"
-msgstr ""
+msgstr "Dzongkha"
 
 #: ../src/gcompris/config.c:75
 msgid "Finnish"
@@ -6057,13 +6066,11 @@ msgstr "Baca kembali menu XML dan simpan di dalam basisdata"
 
 #: ../src/gcompris/gcompris.c:181
 msgid "Set the profile to use. Use 'gcompris -a' to create profiles"
-msgstr ""
-"Atur profil yang akan digunakan. Gunakan 'gcompris -a' untuk membuat profil"
+msgstr "Atur profil yang akan digunakan. Gunakan 'gcompris -a' untuk membuat profil"
 
 #: ../src/gcompris/gcompris.c:184
 msgid "List all available profiles. Use 'gcompris -a' to create profiles"
-msgstr ""
-"Lihat semua profil yang tersedia. Gunakan 'gcompris -a' untuk membuat profil"
+msgstr "Lihat semua profil yang tersedia. Gunakan 'gcompris -a' untuk membuat profil"
 
 #: ../src/gcompris/gcompris.c:187
 msgid ""
@@ -6110,22 +6117,20 @@ msgstr ""
 "lokal sebagai yang pertama. Data selalu diambil dari server web."
 
 #: ../src/gcompris/gcompris.c:215
-msgid ""
-"In server mode, specify the cache directory used to avoid useless downloads."
+msgid "In server mode, specify the cache directory used to avoid useless downloads."
 msgstr ""
 "Di mode server, tentukan direktori tembolok/singgahan (cache) yang digunakan "
 "untuk menghindari unduhan (download) yang sia-sia."
 
 #: ../src/gcompris/gcompris.c:218
-msgid ""
-"Global drag and drop mode: normal, 2clicks, both. Default mode is normal."
+msgid "Global drag and drop mode: normal, 2clicks, both. Default mode is normal."
 msgstr ""
 "Mode seret dan jatuhkan global: normal, 2klik, keduanya. Mode standar adalah "
 "normal."
 
 #: ../src/gcompris/gcompris.c:221
 msgid "Do not display the background images of activities."
-msgstr ""
+msgstr "Jangan tampilkan gambar latar belakang aktivitas."
 
 #: ../src/gcompris/gcompris.c:835
 #, fuzzy, c-format
@@ -6204,11 +6209,11 @@ msgstr "Petunjuk penggunaan"
 msgid "Credit"
 msgstr "Tokoh"
 
-#: ../src/gcompris/properties.c:484 ../src/gcompris/properties.c:491
+#: ../src/gcompris/properties.c:487 ../src/gcompris/properties.c:494
 msgid "readme"
 msgstr "baca dulu"
 
-#: ../src/gcompris/properties.c:486
+#: ../src/gcompris/properties.c:489
 msgid ""
 "This directory contains the files you create with the GCompris educational "
 "suite\n"
@@ -6216,7 +6221,7 @@ msgstr ""
 "Direktori ini berisi berkas (file) yang anda buat dengan seperangkat alat "
 "pendidikan GCompris\n"
 
-#: ../src/gcompris/properties.c:493
+#: ../src/gcompris/properties.c:496
 msgid ""
 "Put any numer of images in this directory.\n"
 "You can include these images in your drawings and animations.\n"
@@ -6235,16 +6240,3 @@ msgstr "Waktu Berjalan"
 msgid "Remaining Time = %d"
 msgstr "Sisa Waktu = %d"
 
-#~ msgid "Double-Click the mouse to erase the area and discover the background"
-#~ msgstr ""
-#~ "Klik ganda tetikus (mouse) untuk menghapus daerah dan menemukan latar "
-#~ "belakang."
-
-#~ msgid "Double-click the mouse"
-#~ msgstr "Klik ganda tetikus (mouse)"
-
-#~ msgid "Double-click the mouse on rectangles until all the blocks disappear."
-#~ msgstr "Klik ganda tetikus (mouse) pada kotak sampai semua kotak hilang."
-
-#~ msgid "Use alternate database for logs"
-#~ msgstr "Gunakan basisdata alternatif untuk log (pencatatan)"
