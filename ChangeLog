@@ -1,3 +1,12 @@
+2007-04-01  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	Added support for no double instance run.
+	Now by default GCompris won't run again if started less than 30
+	seconds after a previous one.
+	This can be disable with --nolockcheck
+
+	* src/gcompris/gcompris.c: (main):
+
 2007-03-30  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	Added Indonesian voices by Dessy Widyasari - cidut_dsy on yahoo : com

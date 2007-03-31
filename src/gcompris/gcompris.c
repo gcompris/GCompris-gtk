@@ -51,6 +51,11 @@
 /* get the default database name */
 #define DEFAULT_DATABASE "gcompris_sqlite.db"
 
+/* Multiple instance check */
+static gchar *lock_file;
+#define GC_LOCK_FILE "gcompris.lock"
+#define GC_LOCK_LIMIT 30 /* seconds */
+
 static GtkWidget *window;
 static GnomeCanvas *canvas;
 static GnomeCanvas *canvas_bar;
@@ -109,6 +114,7 @@ static gint popt_difficulty_filter = FALSE;
 static gint popt_debug		   = FALSE;
 static gint popt_noxf86vm	   = FALSE;
 static gint popt_nobackimg	   = FALSE;
+static gint popt_nolockcheck	   = FALSE;
 static gchar *popt_root_menu       = NULL;
 static gchar *popt_local_activity  = NULL;
 static gint popt_administration	   = FALSE;
@@ -219,6 +225,9 @@ static GOptionEntry options[] = {
 
   {"nobackimg", '\0', 0, G_OPTION_ARG_NONE, &popt_nobackimg,
    N_("Do not display the background images of activities."), NULL},
+
+  {"nolockcheck", '\0', 0, G_OPTION_ARG_NONE, &popt_nolockcheck,
+   N_("Do not avoid the execution of multiple instances of GCompris."), NULL},
 
   { NULL }
 };
@@ -1024,6 +1033,7 @@ static void cleanup()
   gc_fullscreen_set(FALSE);
   gc_menu_destroy();
   gc_prop_destroy(gc_prop_get());
+  g_unlink(lock_file);
 }
 
 void gc_exit()
@@ -1455,6 +1465,41 @@ main (int argc, char *argv[])
   /* Now we know where our config file is, load the saved config */
   gc_prop_load(properties);
 
+  /* Single instance Check */
+  lock_file = g_strdup_printf("%s/%s", properties->config_dir, GC_LOCK_FILE);
+  if(!popt_nolockcheck)
+    {
+      GTimeVal current_time;
+      g_get_current_time(&current_time);
+
+      if (g_file_test (lock_file, G_FILE_TEST_EXISTS))
+	{
+	  char *result;
+	  gsize length;
+	  glong seconds;
+	  /* Read it's content */
+	  g_file_get_contents(lock_file,
+			      &result,
+			      &length,
+			      NULL);
+	  sscanf(result, "%ld", &seconds);
+
+	  if(current_time.tv_sec - seconds < GC_LOCK_LIMIT)
+	    exit(0);
+	}
+
+      {
+	/* Update the date in it (in seconds) */
+	char date_str[64];
+	sprintf(date_str, "%ld", current_time.tv_sec);
+	g_file_set_contents(lock_file,
+			    date_str,
+			    strlen(date_str),
+			    NULL);
+      }
+    }
+
+
   /* Set the locale */
 #if defined WIN32
   gc_user_default_locale = g_win32_getlocale();
@@ -1795,5 +1840,6 @@ main (int argc, char *argv[])
     }
 
   gtk_main ();
-  return 0;
+
+  return(0);
 }
