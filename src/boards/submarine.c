@@ -916,8 +916,8 @@ static GnomeCanvasItem *submarine_create_item(GnomeCanvasGroup *parent) {
      "y1", (double) 40,
      "x2", (double) BOARDWIDTH + 2,
      "y2", (double) gate_top_current_y,
-     "fill_color_rgba", 0x036ED8FF,
-     "outline_color", "white",
+     "fill_color_rgba", 0x989677FF,
+     "outline_color", "black",
      "width_pixels", 2,
      NULL);
 
@@ -927,8 +927,8 @@ static GnomeCanvasItem *submarine_create_item(GnomeCanvasGroup *parent) {
 			 "y1", (double) gate_bottom_y,
 			 "x2", (double) BOARDWIDTH + 2,
 			 "y2", (double) schema_y,
-			 "fill_color_rgba", 0x036ED8FF,
-			 "outline_color", "white",
+			 "fill_color_rgba", 0x989677FF,
+			 "outline_color", "black",
 			 "width_pixels", 2,
 			 NULL);
 
@@ -947,8 +947,11 @@ static gboolean update_timeout() {
   gboolean regleur_dirty = FALSE;
   gboolean air_dirty = FALSE;
 
-  if(board_paused || !boardRootItem)
+  if(!boardRootItem)
     return FALSE;
+
+  if(board_paused)
+    return TRUE;
 
   /* air in ballasts */
   if (ballast_av_purge_open) {
@@ -1019,8 +1022,11 @@ static gboolean update_timeout() {
 static gboolean update_timeout_slow() {
   double delta_assiette;
 
-  if(board_paused || !boardRootItem)
+  if(!boardRootItem)
     return FALSE;
+
+  if(board_paused)
+    return TRUE;
 
   /* speed : don't reach instantly the ordered speed */
   if (speed_ordered != submarine_horizontal_speed) {
@@ -1095,7 +1101,6 @@ static gboolean update_timeout_slow() {
 	 y2>gate_bottom_y)
 	{
 	  /* It's a crash */
-	  gc_sound_play_ogg("sounds/crash.ogg", NULL);
 	  submarine_explosion();
 	}
       else
@@ -1151,7 +1156,6 @@ static gboolean update_timeout_slow() {
     /* magnetic detection (dist1) or collision with the whale (dist2 & dist3) */
     if ( (dist1 < WHALE_DETECTION_RADIUS || dist2 < WHALE_DETECTION_RADIUS ||dist3 < WHALE_DETECTION_RADIUS)
 	 && !submarine_destroyed ) {
-      gc_sound_play_ogg("sounds/crash.ogg", NULL);
       gnome_canvas_item_hide(whale);
       gnome_canvas_item_show(big_explosion);
       submarine_explosion();
@@ -1184,8 +1188,11 @@ static gboolean update_timeout_slow() {
 static gboolean update_timeout_very_slow() {
   /* charging */
 
-  if(board_paused || !boardRootItem)
+  if(!boardRootItem)
     return FALSE;
+
+  if(board_paused)
+    return TRUE;
 
   if (air_charging && depth < SURFACE_DEPTH+5.0) {
     air += 100.0*UPDATE_DELAY_VERY_SLOW/1000.0;
@@ -1262,7 +1269,15 @@ static void game_won() {
  *
  * =====================================================================*/
 static gboolean quit_after_delay() {
+
+  if(!boardRootItem)
+    return FALSE;
+
+  if(board_paused)
+    return TRUE;
+
   submarine_next_level();
+  gc_bar_hide(FALSE);
   return FALSE;
 }
 
@@ -1273,6 +1288,7 @@ static gboolean ok_timeout() {
 }
 
 static void ok() {
+  gc_bar_hide(TRUE);
   // leave time to display the right answer
   g_timeout_add(TIME_CLICK_TO_BONUS, ok_timeout, NULL);
 }

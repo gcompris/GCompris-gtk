@@ -319,8 +319,8 @@ class Gcompris_chat:
       if(not self.channel.get_text()):
         self.display_message(
           "GCompris",
-          _("You must set a channel in your channel entry box first.\n" +
-            "Your friends must set the same channel in order to communicate with you") )
+          _("You must set a channel in your channel entry box first.\n") +
+          _("Your friends must set the same channel in order to communicate with you") )
         return
 
       entry_text = entry.get_text()

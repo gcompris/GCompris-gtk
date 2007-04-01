@@ -1,3 +1,13 @@
+2007-04-01  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* src/boards/python/anim.py: fixed missing pixmap
+	* src/boards/python/chat.py: fixed missing translation
+	* src/boards/python/redraw.py: fixed missing pixmap
+	* src/boards/submarine.c: (submarine_create_item),
+	(update_timeout), (update_timeout_slow),
+	(update_timeout_very_slow), (quit_after_delay), (ok): Fixed to properly pause
+	when entering the help, even when the bonus is gone and the submarine sinks.
+
 2007-04-01  Yves Combe <yves@ycombe.net>
 
 	interact with NS main menu. untested yet.

@@ -819,7 +819,7 @@ class Gcompris_anim:
     # And finaly a STOP icon
     run = self.root_playingitem.add(
       gnomecanvas.CanvasPixbuf,
-      pixbuf = gcompris.utils.load_pixmap("boardicons/draw.png"),
+      pixbuf = gcompris.utils.load_pixmap(gcompris.skin.image_to_skin("boardicons/draw.png")),
       x = 16,
       y = 110,
       )
