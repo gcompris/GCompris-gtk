@@ -1,5 +1,13 @@
 2007-04-01  Bruno coudoin  <bruno.coudoin@free.fr>
 
+	Fixed bad formatted strings that breaks translation.
+
+	* boards/algebra_guesscount.xml.in:
+	* boards/searace.xml.in:
+	* boards/searace1player.xml.in:
+
+2007-04-01  Bruno coudoin  <bruno.coudoin@free.fr>
+
 	* src/boards/magic_hat.c: (magic_hat_create_item): fixed a bug that was creating a
 	GLib-CRITICAL **: g_rand_int_range: assertion `end > begin' failed
 
