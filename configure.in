@@ -89,7 +89,7 @@ if test "x$nsbundle" = "xyes"; then
       CPPFLAGS="$saved_CPPFLAGS"
       OBJCFLAGS="$OBJCFLAGS $CFLAGS -DGNUSTEP -DGNUSTEP_BASE_LIBRARY=1 -DGNU_GUI_LIBRARY=1 -DGNU_RUNTIME=1 -DGNUSTEP_BASE_LIBRARY=1 -fconstant-string-class=NSConstantString -I$GNUSTEP_SYSTEM_ROOT/Library/Headers "
       NSBUNDLE_GTK_DIR="/GTK"
-      NSBUNDLE_LDFLAGS="-rdynamic -fgnu-runtime -L$GNUSTEP_SYSTEM_ROOT/Library/Libraries -lgnustep-base -Wl,-rpath=\\\$\$ORIGIN/$NSBUNDLE_GTK_DIR/lib "
+      NSBUNDLE_LDFLAGS="-rdynamic -fgnu-runtime -L$GNUSTEP_SYSTEM_ROOT/Library/Libraries -lgnustep-base -lgnustep-gui -Wl,-rpath=\\\$\$ORIGIN/$NSBUNDLE_GTK_DIR/lib "
       AC_LANG_POP([Objective C])
    fi
    AC_DEFINE_UNQUOTED(NSBUNDLE, 1, [ Define to 1 to use NSBundle for relocation (OSX/GNUstep) ])

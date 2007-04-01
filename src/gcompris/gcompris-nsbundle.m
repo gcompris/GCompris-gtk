@@ -1,4 +1,6 @@
 #include <Foundation/Foundation.h>
+#include <AppKit/AppKit.h>
+
 #include "gcompris.h"
 
 #include "config.h"
@@ -13,12 +15,22 @@ void set_prefix( NSString *prefix_source_dir,
 		 NSString *prefix,
 		 const char *var);
 
+
+@interface GComprisController : NSObject
+- (void) quit: (id)sender;
+- (void) applicationWillFinishLaunching: (NSNotification *)not;
+@end
+
+
 gchar *gcompris_nsbundle_resource(void)
 {
-  gchar *resourcePath = NULL;
-
   NSAutoreleasePool *pool;
   pool = [NSAutoreleasePool new];
+
+  [NSApplication sharedApplication];
+  [NSApp setDelegate: [GComprisController new]];
+
+  gchar *resourcePath = NULL;
   
   resourcePath = g_strdup_printf("%s",[[[NSBundle mainBundle] resourcePath] UTF8String]);
 
@@ -158,3 +170,27 @@ void set_prefix( NSString *prefix_source_dir,
   
 }
 
+@implementation GComprisController : NSObject 
+
+- (void) quit: (id)sender
+{
+  printf ("Received Quit from NSMenu!\n");
+
+  [NSApp terminate: self];
+  gc_exit();
+}
+
+- (void) applicationWillFinishLaunching: (NSNotification *)not
+{
+  NSMenu *menu;
+
+  menu = AUTORELEASE ([NSMenu new]);
+
+  [menu addItemWithTitle: @"Quit"  
+        action: @selector (quit:)  
+        keyEquivalent: @"q"];
+
+  [NSApp setMainMenu: menu];
+}
+
+@end
