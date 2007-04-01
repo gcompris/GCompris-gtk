@@ -1,5 +1,10 @@
 2007-04-01  Bruno coudoin  <bruno.coudoin@free.fr>
 
+	* src/boards/magic_hat.c: (magic_hat_create_item): fixed a bug that was creating a
+	GLib-CRITICAL **: g_rand_int_range: assertion `end > begin' failed
+
+2007-04-01  Bruno coudoin  <bruno.coudoin@free.fr>
+
 	* src/boards/python/anim.py: fixed missing pixmap
 	* src/boards/python/chat.py: fixed missing translation
 	* src/boards/python/redraw.py: fixed missing pixmap

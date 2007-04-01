@@ -23,11 +23,11 @@
 #define MH_FRAME1_X 420		// Coordonates for the first frame (first operand of the operation)
 #define MH_FRAME1_Y 60
 #define MH_FRAME2_X 420		// Coordonates for the second frame (second operand of the operation)
-#define MH_FRAME2_Y 200 
+#define MH_FRAME2_Y 200
 #define MH_FRAME_PLAYER_X 420	// Coordonates for the 'player' frame
 #define MH_FRAME_PLAYER_Y 380
 
-#define MH_HAT_X	190	// Coordonates for the hat	
+#define MH_HAT_X	190	// Coordonates for the hat
 #define MH_HAT_Y	90
 #define MH_HAT_HEIGHT	250
 #define MH_HAT_WIDTH	130
@@ -50,9 +50,9 @@
 
 // Types
 
-// This structure describes a frame (there are 3 of them on the board) 
+// This structure describes a frame (there are 3 of them on the board)
 typedef struct {
-  int		id;		
+  int		id;
   double	coord_x;
   double	coord_y;
   int		nb_stars[MAX_LIST];
@@ -236,7 +236,7 @@ static void process_ok() {
 static void set_level (guint level) {
 
   if (gcomprisBoard != NULL) {
-	  
+
       gcomprisBoard->level = level;
       gcomprisBoard->sublevel = 1;
       magic_hat_next_level();
@@ -271,7 +271,7 @@ static void magic_hat_next_level() {
   /* Try the next level */
   magic_hat_create_item();
 }
-  
+
 /* ==================================== */
 /* Destroy all the items */
 static void magic_hat_destroy_all_items()
@@ -356,7 +356,7 @@ static GnomeCanvasItem *magic_hat_create_item()
   // Level 7 : three lists (yellow, green and blue stars), from 2 to 4 for the total
   // Level 8 : three lists (yellow, green and blue stars), from 2 to 7 for the total
   // Level 9 : three lists (yellow, green and blue stars), from 2 to 10 for the total
-  
+
   step = 3;
 
   for (i = 0 ; i < nb_list() ; i++) {
@@ -373,7 +373,7 @@ static GnomeCanvasItem *magic_hat_create_item()
 
 	// Frame 2
 	if (board_mode == MODE_MINUS)
-		frame2.nb_stars[i] = g_random_int_range(1, (frame1.nb_stars[i]) - 1);	// Minimum 1 to avoid '0'
+		frame2.nb_stars[i] = g_random_int_range(1, frame1.nb_stars[i]);	// Minimum 1 to avoid '0'
 	else
 		frame2.nb_stars[i] = g_random_int_range(1, ((step * nb_list()) - frame1.nb_stars[i] + 1));
 
@@ -585,8 +585,8 @@ static void place_item(frame * my_frame, int type) {
 		}
 
 		if (type == DYNAMIC)
-			gtk_signal_connect(GTK_OBJECT(item), "event", 
-					   (GtkSignalFunc) item_event, 
+			gtk_signal_connect(GTK_OBJECT(item), "event",
+					   (GtkSignalFunc) item_event,
 					   GINT_TO_POINTER(MAX_ITEM * i + j));
 
 		if (type == UNDERHAT || type == NORMAL)
@@ -616,7 +616,7 @@ static gint item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data) {
 
 		if (frame_player.array_star_type[index / MAX_ITEM][index % MAX_ITEM] >= 0) {
 		  GdkPixbuf *pixmap;
-			
+
 		  // Desactivate the star
 		  frame_player.nb_stars[index / MAX_ITEM]--;
 		  frame_player.array_star_type[index / MAX_ITEM][index % MAX_ITEM] = -1;
@@ -646,7 +646,7 @@ static gint item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data) {
 		}
 		gc_sound_play_ogg ("sounds/gobble.ogg", NULL);
 	}
-	
+
 	return FALSE;
 }
 
@@ -698,7 +698,7 @@ static gint move_stars(frame *my_frame) {
 
   int i, j;
   move_object *my_move = NULL;
-  
+
   for (i = 0 ; i < nb_list() ; i++) {
 	for (j = 0 ; j < my_frame->nb_stars[i] ; j++) {
 		if ((my_move = g_malloc(sizeof(move_object))) == NULL) {        // Freed in function smooth_move
@@ -749,9 +749,9 @@ static gint smooth_move(move_object *my_move) {
   }
 
   if (my_move->frame == 1)
-	gnome_canvas_item_move(frame1.array_item[my_move->i][my_move->j], my_move->dx, my_move->dy); 
+	gnome_canvas_item_move(frame1.array_item[my_move->i][my_move->j], my_move->dx, my_move->dy);
   else
-	gnome_canvas_item_move(frame2.array_item[my_move->i][my_move->j], my_move->dx, my_move->dy); 
+	gnome_canvas_item_move(frame2.array_item[my_move->i][my_move->j], my_move->dx, my_move->dy);
 
   return TRUE;
 
