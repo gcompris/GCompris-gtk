@@ -1,3 +1,16 @@
+	*** RELEASE 8.3BETA2 ***
+
+2007-04-02  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* configure.in:
+	* src/gcompris/gcompris.c: (xf86_vidmode_init): now in fullscreen, follow the
+	user prefered screensize. If the select screensize is 1024x768, then we fullscreen
+	in this resolution. Before this fix, it was bugged since we were always setting
+	on 800x600 in fullscreen, even is our current resolution was bigger, resulting in
+	a virtual screen.
+	Updated nowegian sounds by Johnstad/Gabor 2007 / GPL
+	* boards/sounds/nb/*
+
 2007-04-01  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	Added nowegian sounds by Johnstad/Gabor 2007 / GPL

@@ -1282,10 +1282,29 @@ xf86_vidmode_init ( void )
         gdk_screen_get_default()), &mode_count, &modes))
     properties->noxf86vm = TRUE;
   else {
+    unsigned short hdisplay;
+    unsigned short vdisplay;
+
+    /* Follow the use choice in the screen size resolution */
+    switch(properties->screensize)
+      {
+      case 0:
+	hdisplay = BOARDWIDTH * 0.8;
+	vdisplay = (BOARDHEIGHT+BARHEIGHT) * 0.8;
+	break;
+      case 2:
+	hdisplay = BOARDWIDTH * 1.28;
+	vdisplay = (BOARDHEIGHT+BARHEIGHT) * 1.28;
+	break;
+      default:
+	hdisplay = BOARDWIDTH;
+	vdisplay = BOARDHEIGHT+BARHEIGHT;
+	break;
+      }
     for (i = 0; i < mode_count; i++)
       {
-        if ((modes[i]->hdisplay == BOARDWIDTH) &&
-            (modes[i]->vdisplay == BOARDHEIGHT+BARHEIGHT))
+        if ((modes[i]->hdisplay == hdisplay) &&
+            (modes[i]->vdisplay == vdisplay))
           {
             XF86VidModeData.fs_mode = *modes[i];
             break;
