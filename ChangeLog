@@ -1,5 +1,19 @@
 	*** RELEASE 8.3BETA2 ***
 
+2007-04-03  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	Added new activity by Olivier Ponchaut (opvg at edpnet on be)
+
+	* boards/Makefile.am:
+	* boards/clickanddraw.xml.in:
+	* boards/drawnumber.xml.in:
+	* po/POTFILES.in:
+	* src/boards/python/Makefile.am:
+	* src/boards/python/anim.py: fixed crash when clicking end while a picture is taken
+	* src/boards/python/clickanddraw.py:
+	* src/boards/python/drawnumber.py:
+	* src/boards/python/followline.py: fixed crash when clicking end just before the bonus display
+
 2007-04-02  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* configure.in:

@@ -42,8 +42,8 @@ class Gcompris_followline:
 
     # These are used to let us restart only after the bonus is displayed.
     # When the bonus is displayed, it call us first with pause(1) and then with pause(0)
-    self.board_paused  = 0;
-    self.gamewon       = 0;
+    self.board_paused  = 0
+    self.gamewon       = 0
 
     self.loosing_count = 0
 
@@ -51,6 +51,8 @@ class Gcompris_followline:
     self.color_full    = 0x1a24cbffL
     self.color_target  = 0xFF0000FFL
     self.color_border  = 0x101010FFL
+
+    self.timeout       = 0
 
     print("Gcompris_followline __init__.")
 
@@ -84,6 +86,10 @@ class Gcompris_followline:
     self.background_item.disconnect(self.background_item_connect_id)
 
     gcompris.sound.policy_set(self.saved_policy)
+
+    if self.timeout:
+      gobject.source_remove(self.timeout)
+    self.timeout = 0
 
   def ok(self):
     print("Gcompris_followline ok.")
@@ -309,7 +315,7 @@ class Gcompris_followline:
         self.gamewon = 1
         self.water_spot.raise_to_top()
         self.water_spot.show()
-        gtk.timeout_add(1500, self.lauch_bonus)
+        self.timeout = gobject.timeout_add(1500, self.lauch_bonus)
 
     return done
 

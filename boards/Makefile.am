@@ -26,6 +26,7 @@ xml_in_files = \
 	chess_partyend.xml.in \
 	chess.xml.in \
 	chronos.xml.in \
+	clickanddraw.xml.in \
 	clickgame.xml.in \
 	click_on_letter.xml.in \
 	clockgame.xml.in \
@@ -38,6 +39,7 @@ xml_in_files = \
 	discovery.xml.in \
 	doubleentry.xml.in \
 	draw.xml.in \
+	drawnumber.xml.in \
 	electric.xml.in \
 	enumerate.xml.in \
 	erase_clic.xml.in \

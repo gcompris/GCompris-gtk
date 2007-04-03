@@ -9,7 +9,9 @@ dist_python_DATA= \
 	ballcatch.py \
 	bargame.py \
 	chat.py \
+	clickanddraw.py \
 	connect4.py \
+	drawnumber.py \
 	electric.py \
 	followline.py \
 	guessnumber.py \

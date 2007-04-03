@@ -425,6 +425,10 @@ class Gcompris_anim:
     if self.running:
       self.playing_stop()
 
+    if self.timeout:
+      gobject.source_remove(self.timeout)
+    self.timeout = 0
+
     # Remove the root item removes all the others inside it
     gcompris.set_cursor(gcompris.CURSOR_DEFAULT);
     self.rootitem.destroy()
@@ -2054,7 +2058,7 @@ class Gcompris_anim:
     self.z_reinit()
     self.item_frame_counter.set(text=self.current_frame + 1)
     # print self.current_frame + 1
-    gobject.timeout_add(500, self.run_flash)
+    self.timeout = gobject.timeout_add(500, self.run_flash)
 
   def z_find_index(self, anAnimItem):
     def f(x): return x < anAnimItem.z
