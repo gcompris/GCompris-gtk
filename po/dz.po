@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris.head.pot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-02-12 04:30+0000\n"
-"PO-Revision-Date: 2007-02-23 15:57+0530\n"
-"Last-Translator: sonam pelden <sonaa_peldn@yahoo.com>\n"
+"POT-Creation-Date: 2007-03-29 03:27+0100\n"
+"PO-Revision-Date: 2007-04-02 21:31+0530\n"
+"Last-Translator: Tshewang Norbu <bumthap2006@hotmail.com>\n"
 "Language-Team: Dzongkha <pgeyleg@dit.gov.bt>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -371,13 +371,12 @@ msgid "Go to Algebra activities"
 msgstr "གྲངས་ཚབ་རྩི་རིགས་ཀྱི་ལཱ་ལུ་སོང་"
 
 #: ../boards/algebra_group.xml.in.h:2
-#: ../boards/menu.xml.in.h:17
+#: ../boards/menu.xml.in.h:18
 msgid "Left-click the mouse on an activity to select it."
 msgstr "སེལ་འཐུ་འབད་ནི་ལུ་  ལཱ་གུ་ཡོད་པའི་མཱའུསི་འདི་གཡོན་ཨེབ་གཏང་འབད།"
 
 #: ../boards/algebra_guesscount.xml.in.h:1
 #: ../boards/erase_clic.xml.in.h:1
-#: ../boards/erase_double_clic.xml.in.h:1
 msgid "Animal pictures come from the Animal Photography Page of Ralf Schmode (http://schmode.net/). Ralf has kindly permitted Gcompris to include his pictures. Thanks a lot, Ralf."
 msgstr "སེམས་ཅན་པར་ཚུ་  རེལཕ་ཨེསི་སི་ཨེཆ་མོཌི་(http://schmode.net/) གི་སེམས་ཅན་པར་བཏབ་ལཱ་གི་ལོག་ལེབ་ལས་འོངམ་ཨིན།  རེལཕ་དེ་གིས་ ཇི་ཀམ་པེརེསི་གི་པར་ཚུ་གྲངས་སུ་བཙུགས་བཅུག་ནུག། བཀྲིན་ཆེ་ རེལཕ།"
 
@@ -605,7 +604,6 @@ msgstr "རྩེད་རིལ་འདི་སྒོའི་ནང་རྡ
 #: ../boards/connect4-2players.xml.in.h:5
 #: ../boards/erase.xml.in.h:3
 #: ../boards/erase_clic.xml.in.h:6
-#: ../boards/erase_double_clic.xml.in.h:6
 #: ../boards/fifteen.xml.in.h:2
 #: ../boards/hanoi.xml.in.h:3
 #: ../boards/memory.xml.in.h:4
@@ -1018,7 +1016,6 @@ msgstr "དོས་འདྲེན་འཕྲུལ་འཁོར་གཏང
 #: ../boards/crane.xml.in.h:3
 #: ../boards/erase.xml.in.h:2
 #: ../boards/erase_clic.xml.in.h:5
-#: ../boards/erase_double_clic.xml.in.h:5
 msgid "Motor-coordination"
 msgstr "མོ་ཊོ་-མཉམ་འབྲེལ་"
 
@@ -1131,13 +1128,13 @@ msgid "Animal pictures are taken from the Animal Photography Page of Ralf Schmod
 msgstr "སེམས་ཅན་གྱི་པར་ཚུ་  རེལཕ་ཨེསི་སི་ཨེཆ་མོཌི་(&lt;http://schmode.net/&gt;)དང་ལི་བིརི་ ཌེ་ནེལ་ གྱི་སེམས་ཅན་པར་རིས་ཤོག་ལེབ་ལས་སྟོན་ཡོདཔ་ཨིན།  མི་དེ་ཚུ་གིས་ཇི་ཀམ་པེརེསི་ལུ་  དེ་ཚའི་པར་གྲངས་སུ་བརྩི་ནི་ལུ་དབང་སྤྲོད་བྱིན་ཡོདཔ་ཨིན།  ཁྱོད་གཉིས་ཆ་རང་བཀྲིན་ཆེ།"
 
 #: ../boards/erase.xml.in.h:4
-#: ../src/boards/erase.c:118
+#: ../src/boards/erase.c:116
 #: ../src/boards/machpuzzle.c:88
 msgid "Move the mouse"
 msgstr "མཱའུསི་སྤོ་བཤུད་འབད་"
 
 #: ../boards/erase.xml.in.h:5
-#: ../src/boards/erase.c:119
+#: ../src/boards/erase.c:117
 msgid "Move the mouse to erase the area and discover the background"
 msgstr "མངའ་ཁོངས་ཀྲེག་གཏང་ནི་དང་རྒྱབ་གཞི་གསར་རྙེད་འབད་ནི་ལུ་  མཱའུསི་སྤོ་བཤུད་འབད་"
 
@@ -1156,18 +1153,6 @@ msgstr "བཀག་ཆ་ཚུ་ཆ་མཉམ་མ་ཡལ་ཚུན་
 #: ../boards/erase_clic.xml.in.h:4
 msgid "Click the mouse to erase the area and discover the background"
 msgstr "མངའ་ཁོངས་ཀྲེག་གཏང་ནི་དང་རྒྱབ་གཞི་གསར་རྙེད་འབད་ནི་ལུ་  མཱའུསི་འདི་ཨེབ་གཏང་འབད་"
-
-#: ../boards/erase_double_clic.xml.in.h:2
-msgid "Double-Click the mouse to erase the area and discover the background"
-msgstr "མངའ་ཁོངས་འདི་ཀྲེག་གཏང་ནི་དང་  རྒྱབ་གཞི་གསར་རྙེད་འབད་ནི་ལུ་  མཱའུསི་འདི་ལུ་ཨེབ་གཏང་ཐེང་གཉིས་"
-
-#: ../boards/erase_double_clic.xml.in.h:3
-msgid "Double-click the mouse"
-msgstr "མཱའུསི་འདི་ཨེབ་གཏང་ཐེང་གཉིས་"
-
-#: ../boards/erase_double_clic.xml.in.h:4
-msgid "Double-click the mouse on rectangles until all the blocks disappear."
-msgstr "བཀག་ཆ་ཚུ་ཡལ་མ་འགྱོ་ཚུན་ཚོད་མཱའུསི་འདི་ཨེབ་གཏང་ཐེང་གཉིས།"
 
 #: ../boards/experience.xml.in.h:1
 msgid "Go to experiential activities"
@@ -1254,12 +1239,9 @@ msgid "Locate the countries"
 msgstr "རྒྱལ་ཁབ་ཚུ་ག་ཡོད་འཚོལ་"
 
 #: ../boards/geography.xml.in.h:3
+#: ../boards/geography_country.xml.in.h:3
 msgid "Mouse manipulation: movement, drag and drop"
 msgstr "མཱའུསི་ལག་ལེན་བསྟར་བ: བགུལ་བསྐྱོད་  འདྲུད་ནི་དང་བཞག་ནི་"
-
-#: ../boards/geography.xml.in.h:4
-msgid "The map of Germany comes from Wikipedia and is released under the GNU Free Documentation License. Olaf Ronneberger and his children Lina and Julia Ronneberger created the German level."
-msgstr "ཇར་མ་ནི་གི་ས་ཁྲ་འདི་  ཝི་ཀི་པི་ཌི་ཡ་ལས་ཨིནམ་དང་  ཇི་ཨེན་ཡུ་རང་དབང་ཡིག་ཐོག་བཀོད་པའི་ཆོག་ཐམ་གྱི་འོག་ལུ་གསར་བཏོན་འབད་དེ་ཡོདཔ་ཨིན།  ཨོ་ལཕ་ རོ་ནི་བར་གར་དང་ཁོ་རའི་ཨ་ལོ་ ལི་ན་དང་ཇུ་ལི་ཡ་ རོ་ནི་བར་གར་གྱིས་  ཇར་མཱན་གནས་རིམ་གསར་བསྐྲུན་འབད་དེ་ཡོདཔ་ཨིན།"
 
 #: ../boards/geography/board1_0.xml.in.h:1
 #: ../boards/geography/board4_2.xml.in.h:1
@@ -1806,13 +1788,41 @@ msgstr "ཛམ་བི་ཡ།"
 msgid "Zimbabwe"
 msgstr "ཛིམ་བབ་ཝི།"
 
-#: ../boards/geography/board5_0.xml.in.h:1
+#: ../boards/geography_country.xml.in.h:1
+msgid "Drag and Drop the regions to redraw the whole country"
+msgstr "རྒྱལ་ཁབ་ཧྲིལ་བུ་སྦེ་འཐེན་ནི་ལུ་ལུང་ཕྱོགས་ཚུ་འདྲུད་ནི་དང་བཞག་ནི་"
+
+#: ../boards/geography_country.xml.in.h:2
+msgid "Locate the region"
+msgstr "ལུ་ཕྱོགས་ག་ཡོད་འཚོལ་"
+
+#: ../boards/geography_country.xml.in.h:4
+msgid "The map of Germany comes from Wikipedia and is released under the GNU Free Documentation License. Olaf Ronneberger and his children Lina and Julia Ronneberger created the German level."
+msgstr "ཇར་མ་ནི་གི་ས་ཁྲ་འདི་  ཝི་ཀི་པི་ཌི་ཡ་ལས་ཨིནམ་དང་  ཇི་ཨེན་ཡུ་རང་དབང་ཡིག་ཐོག་བཀོད་པའི་ཆོག་ཐམ་གྱི་འོག་ལུ་གསར་བཏོན་འབད་དེ་ཡོདཔ་ཨིན།  ཨོ་ལཕ་ རོ་ནི་བར་གར་དང་ཁོ་རའི་ཨ་ལོ་ ལི་ན་དང་ཇུ་ལི་ཡ་ རོ་ནི་བར་གར་གྱིས་  ཇར་མཱན་གནས་རིམ་གསར་བསྐྲུན་འབད་དེ་ཡོདཔ་ཨིན།"
+
+#: ../boards/geography_country/board1_0.xml.in.h:1
 msgid "Regions of France"
 msgstr "ཕརཱནསི་གི་ལུང་ཕྱོགས།"
 
-#: ../boards/geography/board6_0.xml.in.h:1
+#: ../boards/geography_country/board2_0.xml.in.h:1
 msgid "Deutschland Bundesländer"
 msgstr "ཌིའུཆ་ལེནཌི་ བཱན་ཌེསི་ལེན་ཌར།"
+
+#: ../boards/geography_country/board3_0.xml.in.h:1
+msgid "Provincias Argentinas"
+msgstr "པརའུ་ཝིཤཨའིསི ཨར་ཇེན་ཊི་ནསི"
+
+#: ../boards/geography_country/board4_0.xml.in.h:1
+msgid "Polish Voivodship"
+msgstr "པོ་ལིཤ ཝོའི་ཝོཌི་ཤིཔ"
+
+#: ../boards/geography_country/board5_0.xml.in.h:1
+msgid "Districts of Turkey"
+msgstr "ཊར་ཀི་གི་ཌིསི་ཀྲིཀསི"
+
+#: ../boards/geography_country/board6_0.xml.in.h:1
+msgid "Counties of Norway"
+msgstr "ནོར་ཝེ་གི་ཀོན་ཊིསི་"
 
 #: ../boards/geometry.xml.in.h:1
 msgid "Geometry"
@@ -2202,7 +2212,7 @@ msgid "sofa"
 msgstr "འབོལ་ཁྲི་"
 
 #: ../boards/imagename/board3_0.xml.in.h:7
-#: ../boards/imagename/board5_0.xml.in.h:5
+#: ../boards/imagename/board5_0.xml.in.h:4
 msgid "star"
 msgstr "སྐར་མ་"
 
@@ -2219,16 +2229,13 @@ msgid "grater"
 msgstr "གེརེ་ཊར་"
 
 #: ../boards/imagename/board4_0.xml.in.h:7
+#: ../boards/imagename/board5_0.xml.in.h:5
 msgid "tree"
 msgstr "ཤིང་"
 
 #: ../boards/imagename/board5_0.xml.in.h:2
 msgid "pencil"
 msgstr "ས་སྨྱུག་"
-
-#: ../boards/imagename/board5_0.xml.in.h:4
-msgid "spruce"
-msgstr "ནགས་ཤིང་"
 
 #: ../boards/imagename/board5_0.xml.in.h:6
 msgid "truck"
@@ -2729,13 +2736,14 @@ msgid ""
 "At the bottom of the screen is the gcompris control bar.\n"
 "The following icons are displayed from right to left.\n"
 "(note that each icon is displayed only if available in the current activity)\n"
-"    Home - Back to previous menu or exit gcompris if at the top\n"
+"    Home - Exit an activity, go back to menu\n"
 "    Thumb - OK. Confirm your answer\n"
 "    Dice - Display the current level. Click to select another level\n"
-"    Music note - Repeat the question\n"
+"    Lips - Repeat the question\n"
 "    Question Mark - Help\n"
 "    Tool - The configuration menu\n"
 "    Tux Plane - About GCompris\n"
+"    Night - Quit GCompris\n"
 "The stars show suitable age groups for each game:\n"
 "    1, 2 or 3 simple stars  - from 2 to 6 years old\n"
 "    1, 2 or 3 complex stars - 7 years and up"
@@ -2751,20 +2759,21 @@ msgstr ""
 "དྲི་བའི་རྟགས - གྲོགས་རམ\n"
 "ལག་ཆས - རིམ་སྒྲིག་དཀར་ཆག\n"
 "ཊི་ཡུ་ཨེགསི་པེལེན - ཇི་ཀམ་པེརེསི་གི་སྐོར་ལས\n"
-"སྐར་མ་ཚུ་གིས་  རྩེདམོ་རེ་རེ་གི་དོན་ལུ་ལོ་འོས་འབབ་ལྡནམ་སྦེ་སྟོནམ་ཨིན: \n"
+"ནུབ་མོ     -ཇི་ཀམ་པེརེསི\n"
+" སྤང་སྐར་མ་ཚུ་གིས་  རྩེདམོ་རེ་རེ་གི་དོན་ལུ་ལོ་འོས་འབབ་ལྡནམ་སྦེ་སྟོནམ་ཨིན: \n"
 "༡, ༢ ཡང་ན་ ༣ སྐར་མ་འཇམ་སམ་  - ལོ་ ༢ ལས་ ༦ ཚུན་\n"
 "    ༡, ༢ ཡང་ན་ ༣ གོ་དཀའ་བའི་སྐར་མ་ཚུ་ - ལོ་ ༧་ ལས་ཡན་ཆད།"
 
-#: ../boards/menu.xml.in.h:15
+#: ../boards/menu.xml.in.h:16
 msgid "GCompris Main Menu"
 msgstr "ཇི་ཀམ་པེརེསི་དཀར་ཆག་ངོ་མ་"
 
-#: ../boards/menu.xml.in.h:16
-#: ../src/boards/menu2.c:1008
+#: ../boards/menu.xml.in.h:17
+#: ../src/boards/menu2.c:1003
 msgid "GCompris is a collection of educational games that provides different activities for children aged 2 and up."
 msgstr "ཇི་ཀམ་པེརེསི་ཟེར་མི་འདི་  ཨ་ལུ་ལོ་ ༢་ ལས་ཡན་ཆད་འབད་མི་གི་དོན་ལུ་  ལཱ་སོ་སོ་བྱིན་མི་ཤེས་རིག་གི་རྩེདམོ་གི་བསྡུ་གསོག་ཨིན།"
 
-#: ../boards/menu.xml.in.h:18
+#: ../boards/menu.xml.in.h:19
 msgid "The goal of gcompris is to provide a free alternative to popular proprietary edutainment software"
 msgstr "ཇི་ཀམ་པེརེསི་གི་དམིགས་ཡུལ་འདི་  ཐབས་གཞན་རང་དབང་འདི་  ཨི་ཌུ་ཊེན་མེནཊི་མཉེན་ཆས་ཡོངས་གྲགས་ཅན་ཚོང་བདག་ལུ་བྱིན་ནི་འདི་ཨིན།"
 
@@ -3311,8 +3320,8 @@ msgid "The painting is an original painting created by Virginie MOREAU (virginie
 msgstr "ཚོན་གཏང་ནི་འདི་  ཝར་ཇི་ནིའི་ མོ་རིའོ་ (virginie.moreau@free.fr) གིས་ ༢༠༠༡་ ནང་ཚོན་གཏང་ཡོད་མི་ངོ་མ་ཅིག་ཨིན་མས།  དེ་གི་མིང་འདི་ 'ཨི་ཇིཔཊི་ནང་སྣ་ཚོགས་བཙོང་མི་ཨིན'  ཇི་པི་ཨེལ་མཆོག་ཐམ་གྱི་འོག་ལུ་གསར་སྟོན་འབད་ཡོདཔ་ཨིན།"
 
 #: ../boards/scalesboard.xml.in.h:5
-msgid "To balance the scales, move the masses on the left side. The masses can be arranged in any order."
-msgstr "ཚད་ཤིང་ཚད་སྙོམས་འབད་ནི་ལུ་  རྒྱ་ཆེ་བ་ཚུ་གཡོན་ཁ་ཐུག་ལུ་སྤོ་བཤུད་འབད།  རྒྱ་ཆེ་བ་ཚུ་རིམ་པ་གང་རུང་ནང་བདེ་སྒྲིག་འབད་ཚུགས།"
+msgid "To balance the scales, move the masses on the left or the right side. The masses can be arranged in any order."
+msgstr "ཚད་ཤིང་ཚད་སྙོམས་འབད་ནི་ལུ་  རྒྱ་ཆེ་བ་ཚུ་གཡོན་་ཡང་ན་གཡས་ཁ་ཐུག་ལུ་སྤོ་བཤུད་འབད།  རྒྱ་ཆེ་བ་ཚུ་རིམ་པ་གང་རུང་ནང་བདེ་སྒྲིག་འབད་ཚུགས།"
 
 #: ../boards/searace.xml.in.h:1
 msgid "Direct your boat accurately to win the race."
@@ -3563,6 +3572,18 @@ msgid "A simple word processor to enter and save any text"
 msgstr "ཚིག་ཡིག་གང་རུང་ཅིག་ཐོ་བཀོད་འབད་ནི་དང་སྲུང་ནི་ལུ་  མིང་ཚིགི་ལས་སྦྱོར་འཕྲུལ་ཆས་འཇམ་སམ་ཅིག་"
 
 #: ../boards/wordprocessor.xml.in.h:2
+msgid "In this wordprocessor you can type the text you want, save and get it back later. You can add some style to your text by using the buttons on the left. The first 4 buttons let you select the style of the line on which your insert cursor is. The 2 others buttons with multiple choices let you select from a predefined document and color theme."
+msgstr "ཡིག་སྦྱོར་འདི་ནང་ཁྱོད་ཀྱིས་ཁྱོད་ར་ལུ་དགོ་པའི་ཚིག་ཡིག་ཚུ་ཡིག་དཔར་རྐྱབས་ སྲུང་བཞག་འབད་དེ་ལས་ཤུལ་ལས་ལོག་ལེེན ཁྱོད་ཀྱི་ས་ཁྱོད་རའི་ཚིག་ཡིག་ནང་གཡོན་པའི་ཨེབ་རྟ་ལག་ལེན་འཐབ་ཐོག་ལས་རྣམ་འགྱུར་ལ་ལོ་ཅིག་ཁ་སྐོང་རྐྱབས ཨེབ་རྟ་དང་པ་བཞི་གིས་ཁྱོད་རའི་བཙུགས་ནིའི་འོད་རྟགས་ཡོད་པའི་གྱལ་གུ་ཁྱོད་ཀྱིས་རྣམ་འགྱུར་སེལ་འཐུ་འབད་བཅུག་འོང་ སྣ་མང་གདམ་ཁ་ཡོད་པའི་ཨེབ་རྟ་༢་ཀྱིིས་སྔ་གོང་ངེས་འཛིན་འབད་ཡོད་པའི་ཡིག་ཆ་དང་ཚོས་གཞི་བརྗོད་དོན་ནང་ལས་སེལ་འཐུ་འབད་བཅུག་འོང་"
+
+#: ../boards/wordprocessor.xml.in.h:3
+msgid "Learn how to enter text in a wordprocessor. This wordprocessor is special in that it enforces the use of styles. This way, the children will understand their benefit when moving to more feature full wordprocessor like OpenOffice.org."
+msgstr "ཚིག་ཡིག་ཚུ་ཡིག་སྦྱོར་ནང་ག་དེ་སྦེ་བཙུགས་ན་ལྷབ ཡིག་སྦྱོར་འདི་དམིགས་བསལ་གྱི་བཟོ་རྣམ་ལག་ལེན་འཐབ་ནིལུ་བེད་སྤྱོད་གཏང་ནི་ཡོད ཐབས་ལམ་འདི་ལས་ཨ་ལོ་ཚུ་གིས་་ཨི་ཕིསི་ཨོ་ཨར་ཇི་བཟུམ་ཡིག་སྦྱོར་་ཨོ་པཱན་ཁྱད་རྣམ་གངམ་ལེ་ཤ་སྤོ་བའི་སྒང་་ཁོང་་རའི་ཁྱད་ཕན་ཚུ་ཧ་གོ་ཡོད།"
+
+#: ../boards/wordprocessor.xml.in.h:4
+msgid "The children can type their own text or copy one given by the teacher."
+msgstr "ཨ་ལོ་ཚུ་གིས་ཁོང་རའི་ཚིག་ཡིག་ ཡིག་དཔར་རྐྱབས་ཚུགས་ཡང་ན་སློབ་དཔོན་གྱིས་གྲ་སྒྲིག་འབད་ཡོད་མི་གཅིག་འདྲ་བཤུས་རྐྱབས་ཚུགས"
+
+#: ../boards/wordprocessor.xml.in.h:5
 msgid "Your word processor"
 msgstr "ཁྱོད་རའི་མིང་ཚིག་ལས་སྦྱོར་འཕྲུལ་ཆས་"
 
@@ -3581,6 +3602,12 @@ msgstr "ཤེས་ཡོན་གྱི་ཆ་ཚང་ཇི་ཀམ་པ
 #: ../gcompris.desktop.in.h:3
 msgid "Multi-activity educational game"
 msgstr "སྣ་མང་-ལཱ་གི་ཤེས་ཡོན་རྩེདམོ་"
+
+#. TRANSLATORS: Put here the mathematical operators '+-x/' for  your language.
+#: ../src/boards/algebra.c:182
+#: ../src/boards/memory.c:846
+msgid "+-×÷"
+msgstr "+-×÷"
 
 #: ../src/boards/awele.c:350
 #: ../src/boards/awele.c:360
@@ -3608,7 +3635,7 @@ msgstr "མི་མཆོག! སླར་འབད་རྩོལ་བསྐ�
 msgid "Error: The external program gnuchess died unexpectedly"
 msgstr "འཛོལ་བ: ཕྱིའི་ལས་རིམ་ཇི་ཨེན་ཡུ་ཅེསི་འདི་ རེ་བ་མེད་པར་མེདཔ་ཐལ་སོང་ནུག་"
 
-#: ../src/boards/chess.c:194
+#: ../src/boards/chess.c:199
 msgid ""
 "Error: The external program gnuchess is required\n"
 "to play chess in gcompris.\n"
@@ -3622,7 +3649,7 @@ msgstr ""
 "ཇི་ཨེན་ཡུ་ལི་ནགསི་བཀྲམ་སྤེལ་ནང་འཚོལ་ནི་དང་\n"
 "ནཱ་ལུ་གནས་ཡོདཔ་སྦེ་ཞིབ་དཔྱད་འབད:"
 
-#: ../src/boards/chess.c:236
+#: ../src/boards/chess.c:244
 msgid ""
 "Error: The external program gnuchess is mandatory\n"
 "to play chess in gcompris.\n"
@@ -3632,42 +3659,42 @@ msgstr ""
 "ངེས་མཁོ་ཅིག་ཨིན།\n"
 "དང་པ་རང་གཞི་བཙུགས་འབད་ནི་དང་ ཞིབ་དཔྱད་འབད་ "
 
-#: ../src/boards/chess.c:579
+#: ../src/boards/chess.c:587
 msgid "White's Turn"
 msgstr "དཀརཔོ་གི་སྐོར་རྒྱབ་"
 
-#: ../src/boards/chess.c:579
+#: ../src/boards/chess.c:587
 msgid "Black's Turn"
 msgstr "གནགཔོ་གི་སྐོར་རྒྱབ་"
 
-#: ../src/boards/chess.c:723
+#: ../src/boards/chess.c:731
 msgid "White checks"
 msgstr "དཀརཔོ་གི་ཞིབ་དཔྱད་"
 
-#: ../src/boards/chess.c:725
+#: ../src/boards/chess.c:733
 msgid "Black checks"
 msgstr "གནགཔོ་གི་ཞིབ་དཔྱད་"
 
-#: ../src/boards/chess.c:1082
+#: ../src/boards/chess.c:1090
 msgid "Black mates"
 msgstr "གནགཔོ་གི་ཆ་རོགས་"
 
-#: ../src/boards/chess.c:1087
+#: ../src/boards/chess.c:1095
 msgid "White mates"
 msgstr "དཀརཔོ་གི་ཆ་རོགས་"
 
-#: ../src/boards/chess.c:1092
-#: ../src/gcompris/bonus.c:359
-#: ../src/gcompris/bonus.c:368
+#: ../src/boards/chess.c:1100
+#: ../src/gcompris/bonus.c:364
+#: ../src/gcompris/bonus.c:373
 msgid "Drawn game"
 msgstr "རྩེདམོ་རྒྱལ་ཕམ་འདྲ་མཉམ་"
 
-#: ../src/boards/chess.c:1120
+#: ../src/boards/chess.c:1128
 msgid "Error: The external program gnuchess died unexpectingly"
 msgstr "འཛོལ་བ: ཕྱིའི་ལས་རིམ་ཇི་ཨེན་ཡུ་ཅེསི་འདི་རེ་བ་མེདཔ་སྦེ་མེདཔ་ཐལ་ཡི་"
 
 #: ../src/boards/click_on_letter.c:259
-#: ../src/boards/memory.c:832
+#: ../src/boards/memory.c:813
 msgid ""
 "Error: this activity cannot be played with the\n"
 "sound effects disabled.\n"
@@ -3684,7 +3711,7 @@ msgstr ""
 #. TRANSLATORS: Put here the alphabet lowercase in your language
 #: ../src/boards/click_on_letter.c:264
 #: ../src/boards/gletters.c:231
-#: ../src/boards/memory.c:853
+#: ../src/boards/memory.c:835
 msgid "abcdefghijklmnopqrstuvwxyz"
 msgstr "abcdefghijklmnopqrstuvwxyz"
 
@@ -3705,6 +3732,35 @@ msgid ""
 msgstr ""
 "འཛོལ་བ: ལཱ་འདི་ལུ་ ལོ་ཀེལ་ '%s' གི་དོན་ལུ་  ཇི་ཀམ་པེརེསི་དང་ཅིག་ཁར་ \n"
 "ཁྱོད་ཀྱིས་དང་པ་རང་ཐུམ་སྒྲིལ་འདི་གཞི་བཙུགས་འབད་དགོཔ་ ! ཨིང་ལིཤ་ལུ་གློ་བུར་རྒྱབ་ཐག་, དགོངསམ་མ་ཁྲེལ!"
+
+#. Init configuration window:
+#. all the configuration functions will use it
+#. all the configuration functions returns values for their key in
+#. the dict passed to the apply_callback
+#. the returned value is the main GtkVBox of the window,
+#. we can add what you want in it.
+#: ../src/boards/click_on_letter.c:623
+#: ../src/boards/colors.c:165
+#: ../src/boards/gletters.c:866
+#: ../src/boards/imageid.c:749
+#: ../src/boards/missingletter.c:772
+#: ../src/boards/python/admin/board_list.py:631
+#: ../src/boards/python/admin/board_list.py:649
+#: ../src/boards/python/admin/wordlist.py:50
+#: ../src/boards/python/login.py:535
+#: ../src/boards/python/pythontest.py:406
+#: ../src/boards/python/tuxpaint.py:206
+#: ../src/boards/reading.c:833
+#: ../src/boards/scale.c:861
+#: ../src/boards/shapegame.c:1863
+#: ../src/boards/smallnumbers.c:590
+#, c-format, python-format
+msgid ""
+"<b>%s</b> configuration\n"
+" for profile <b>%s</b>"
+msgstr ""
+"<b>%s</b> གསལ་སྡུད་ཀྱི་དོན་ལུ་\n"
+" རིམ་སྒྲིག་ <b>%s</b>"
 
 #. toggle box
 #: ../src/boards/click_on_letter.c:646
@@ -3758,17 +3814,29 @@ msgstr "འདམ་བྱ་གནགཔོ་གུ་ཨེབ་གཏང་
 msgid "Click on the white duck"
 msgstr "འདམ་བྱ་དཀརཔོ་གུ་ཨེབ་གཏང་"
 
+#: ../src/boards/colors.c:177
+#: ../src/boards/python/admin/board_list.py:661
+#: ../src/boards/python/pythontest.py:470
+#: ../src/boards/smallnumbers.c:610
+msgid "Select sound locale"
+msgstr "སྒྲ་སྐད་ལོ་ཀེལ་སེལ་འཐུ་འབད་"
+
 #. TRANSLATORS: Put here the numbers in your language
 #: ../src/boards/gletters.c:227
-#: ../src/boards/memory.c:849
+#: ../src/boards/memory.c:831
 msgid "0123456789"
 msgstr "༠༡༢༣༤༥༦༧༨༩་"
 
 #. TRANSLATORS: Put here the alphabet uppercase in your language
 #: ../src/boards/gletters.c:237
-#: ../src/boards/memory.c:859
+#: ../src/boards/memory.c:841
 msgid "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 msgstr "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+
+#: ../src/boards/gletters.c:895
+#: ../src/boards/smallnumbers.c:608
+msgid "Enable sounds"
+msgstr "ལྕོགས་ཅན་བཟོ་ནི་སྒྲ་སྐད་"
 
 #: ../src/boards/hanoi.c:332
 #: ../src/boards/hanoi.c:343
@@ -3779,8 +3847,8 @@ msgstr "ཁྱོད་ཀྱིས་ལགཔ་གཡས་གུ་མཐོ
 msgid "Tower of Hanoi"
 msgstr "ཧེ་ནོའེ་གི་ཀ་ཁྱིམ་"
 
-#: ../src/boards/hanoi_real.c:273
-#: ../src/boards/hanoi_real.c:284
+#: ../src/boards/hanoi_real.c:277
+#: ../src/boards/hanoi_real.c:288
 msgid "Move the entire stack to the right peg, one disc at a time"
 msgstr "དུས་ཡུན་ཅིག་ལུ་ཌིཀསི་གཅིག་འབད་  བརྩེགས་ཕུང་ཧྲིལ་བུ་གཡས་པེག་ལུ་སྤོ་བཤུད་འབད་"
 
@@ -3791,23 +3859,23 @@ msgstr "ག་དེ་སྦེ་ལྷག་ནི་ཨིན་ན་ལྷ
 
 #: ../src/boards/leftright.c:277
 #: ../src/boards/leftright.c:287
-#: ../src/boards/python/searace.py:428
-#: ../src/boards/python/searace.py:453
-#: ../src/boards/python/searace.py:543
-#: ../src/boards/python/searace.py:855
-#: ../src/boards/python/searace.py:888
-#: ../src/boards/python/searace.py:985
+#: ../src/boards/python/searace.py:433
+#: ../src/boards/python/searace.py:458
+#: ../src/boards/python/searace.py:548
+#: ../src/boards/python/searace.py:857
+#: ../src/boards/python/searace.py:890
+#: ../src/boards/python/searace.py:987
 msgid "left"
 msgstr "གཡོན་"
 
 #: ../src/boards/leftright.c:297
 #: ../src/boards/leftright.c:307
-#: ../src/boards/python/searace.py:428
-#: ../src/boards/python/searace.py:453
-#: ../src/boards/python/searace.py:552
-#: ../src/boards/python/searace.py:857
-#: ../src/boards/python/searace.py:890
-#: ../src/boards/python/searace.py:979
+#: ../src/boards/python/searace.py:433
+#: ../src/boards/python/searace.py:458
+#: ../src/boards/python/searace.py:557
+#: ../src/boards/python/searace.py:859
+#: ../src/boards/python/searace.py:892
+#: ../src/boards/python/searace.py:981
 msgid "right"
 msgstr "གཡས་"
 
@@ -3819,18 +3887,13 @@ msgstr "ཁྱོད་རའི་གནས་ས་ལུ་བལྟ་  ད�
 msgid "Look at your position, then switch back to 3D mode to continue your moves"
 msgstr "ཁྱོད་རའི་གནས་ས་ལུ་བལྟ་ནི་  དེ་ལས་  ཁྱོད་རའི་སྤོ་བཤུད་ཚུ་འཕྲོ་མཐུད་ནི་ལུ་  ༣ཌི་ཐབས་ལམ་ལུ་ལོག་གློག་རྟ་བཀལ་"
 
-#: ../src/boards/memory.c:286
+#: ../src/boards/memory.c:266
 msgid "Memory"
 msgstr "དྲན་ཚད་"
 
-#: ../src/boards/memory.c:287
+#: ../src/boards/memory.c:267
 msgid "Find the matching pair"
 msgstr "མཐུན་པའི་ཆ་འཚོལ་"
-
-#. TRANSLATORS: Put here the mathematical operators '+-x/' for  your language.
-#: ../src/boards/memory.c:864
-msgid "+-×÷"
-msgstr "+-×÷"
 
 #: ../src/boards/menu2.c:133
 msgid "Main Menu Second Version"
@@ -3859,13 +3922,13 @@ msgstr "མགྱོགས་ཚད་མར་ཕབ་འདི་  ཡར་�
 msgid "Move the plane to catch the clouds in the correct order"
 msgstr "ས་སྨུག་ཚུ་ནོར་བ་མེད་པའི་རིམ་པ་ནངའཛིན་བཟུང་འབད་ནི་ལུ་  གནམ་གྲུ་འདི་སྤོ་བཤུད་འབད་"
 
-#: ../src/boards/python.c:62
-#: ../src/boards/python.c:86
+#: ../src/boards/python.c:63
+#: ../src/boards/python.c:87
 msgid "Python Board"
 msgstr "པ་ཡི་ཐཱོན་རྩེད་པང་"
 
-#: ../src/boards/python.c:63
-#: ../src/boards/python.c:87
+#: ../src/boards/python.c:64
+#: ../src/boards/python.c:88
 msgid "Special board that embeds python into gcompris."
 msgstr "པ་ཡི་ཐཱོན་འདི་ཇི་ཀམ་པེརེསི་ནང་གནས་འདྲེན་མི་  དམིགས་བསལ་གྱི་རྩེད་པང་།"
 
@@ -3933,31 +3996,6 @@ msgid ""
 msgstr ""
 "<span size='x-large'> གསལ་སྡུད་ཀྱི་དོན་ལུ་ \n"
 "དཀའ་ངལ་ཡོད་པའི་ཁྱབ་ཚད་འདི་སེལ་འཐུ་འབད་ <b>%s</b></span>"
-
-#. Init configuration window:
-#. all the configuration functions will use it
-#. all the configuration functions returns values for their key in
-#. the dict passed to the apply_callback
-#. the returned value is the main GtkVBox of the window,
-#. we can add what you want in it.
-#: ../src/boards/python/admin/board_list.py:631
-#: ../src/boards/python/admin/board_list.py:649
-#: ../src/boards/python/admin/wordlist.py:50
-#: ../src/boards/python/login.py:535
-#: ../src/boards/python/pythontest.py:406
-#: ../src/boards/python/tuxpaint.py:206
-#, python-format
-msgid ""
-"<b>%s</b> configuration\n"
-" for profile <b>%s</b>"
-msgstr ""
-"<b>%s</b> གསལ་སྡུད་ཀྱི་དོན་ལུ་\n"
-" རིམ་སྒྲིག་ <b>%s</b>"
-
-#: ../src/boards/python/admin/board_list.py:661
-#: ../src/boards/python/pythontest.py:470
-msgid "Select sound locale"
-msgstr "སྒྲ་སྐད་ལོ་ཀེལ་སེལ་འཐུ་འབད་"
 
 #: ../src/boards/python/admin/class_edit.py:60
 msgid "Editing a Class"
@@ -4083,8 +4121,60 @@ msgstr "ཁྱོད་ཀྱིས་དང་པ་རང་ཐོ་ཡིག
 msgid "Birth Date"
 msgstr "སྐྱེས་ཚེས་"
 
+#: ../src/boards/python/admin/log_list.py:91
+msgid "Select a user:"
+msgstr "ལག་ལེན་པ་ཅིག་སེལ་འཐུ་འབད:"
+
+#. Insert the ALL option (HACK, use the user_id -2 to indicate ALL)
+#: ../src/boards/python/admin/log_list.py:102
+msgid "All users"
+msgstr "ལག་ལེན་པ་ཆ་མཉམ"
+
+#: ../src/boards/python/admin/log_list.py:108
+#: ../src/boards/python/admin/log_list.py:287
+#: ../src/boards/python/admin/profile_list.py:121
+#: ../src/gcompris/board_config.c:667
+#: ../src/gcompris/board_config.c:925
+msgid "Default"
+msgstr "སྔོན་སྒྲིག་"
+
+#. Reset buttons
+#: ../src/boards/python/admin/log_list.py:162
+msgid "Reset"
+msgstr "སླར་སྒྲིག"
+
+#: ../src/boards/python/admin/log_list.py:208
+msgid "Date"
+msgstr "ཚེས་གྲངས"
+
+#: ../src/boards/python/admin/log_list.py:218
+msgid "User"
+msgstr "ལག་ལེན་པ"
+
+#: ../src/boards/python/admin/log_list.py:228
+msgid "Board"
+msgstr "རྩེད་པང་"
+
+#: ../src/boards/python/admin/log_list.py:238
+#: ../src/boards/python/redraw.py:347
+#: ../src/boards/python/redraw.py:357
+msgid "Level"
+msgstr "གནས་རིམ་"
+
+#: ../src/boards/python/admin/log_list.py:248
+msgid "Sublevel"
+msgstr "གནས་རིམ"
+
+#: ../src/boards/python/admin/log_list.py:258
+msgid "Duration"
+msgstr "དུས་ཡུན"
+
+#: ../src/boards/python/admin/log_list.py:268
+msgid "Status"
+msgstr "གནས་ཚད"
+
 #: ../src/boards/python/admin/module_boards.py:42
-#: ../src/boards/python/admin/module_boards.py:62
+#: ../src/boards/python/admin/module_boards.py:67
 msgid "Boards"
 msgstr "རྩེད་པང་ཚུ་"
 
@@ -4098,15 +4188,21 @@ msgstr "སྡེ་ཚན་ཚུ་"
 msgid "Profiles"
 msgstr "གསལ་སྡུད་ཚུ་"
 
-#: ../src/boards/python/admin/module_users.py:41
-#: ../src/boards/python/admin/module_users.py:67
-msgid "Classes"
-msgstr "དབྱེ་རིགས་ཚུ་"
+#: ../src/boards/python/admin/module_reports.py:41
+#: ../src/boards/python/admin/module_reports.py:67
+msgid "Reports"
+msgstr "སྙན་ཞུ་ཚུ"
 
+#: ../src/boards/python/admin/module_reports.py:67
 #: ../src/boards/python/admin/module_users.py:41
 #: ../src/boards/python/admin/module_users.py:67
 msgid "Users"
 msgstr "ལག་ལེན་པ་ཚུ་"
+
+#: ../src/boards/python/admin/module_users.py:41
+#: ../src/boards/python/admin/module_users.py:67
+msgid "Classes"
+msgstr "དབྱེ་རིགས་ཚུ་"
 
 #: ../src/boards/python/admin/profile_edit.py:59
 msgid "Editing a Profile"
@@ -4136,12 +4232,6 @@ msgstr "ཁྱོད་རའི་གསལ་སྡུད་ཀྱི་དོ
 #: ../src/boards/python/admin/profile_edit.py:399
 msgid "There is already a profile with this name"
 msgstr "མིང་འདི་དང་ཅིག་ཁར་ཧེ་མ་ལས་རང་གསལ་སྡུད་འདུག་"
-
-#: ../src/boards/python/admin/profile_list.py:121
-#: ../src/gcompris/board_config.c:667
-#: ../src/gcompris/board_config.c:925
-msgid "Default"
-msgstr "སྔོན་སྒྲིག་"
 
 #: ../src/boards/python/admin/profile_list.py:188
 msgid "Profile"
@@ -4224,19 +4314,31 @@ msgstr "ཉེན་བརྡ: འོག་གི་གཟུགས་བརྙ�
 msgid "The corresponding items have been skipped."
 msgstr "ཆ་མཉམ་པའི་རྣམ་གྲངས་ཚུ་གོམ་འགྱོ་ཡོདཔ།"
 
-#: ../src/boards/python/chat.py:81
+#: ../src/boards/python/chat.py:80
 msgid "All messages will be displayed here.\n"
 msgstr "འཕྲིན་དོན་ཚུ་ཆ་མཉམ་ནཱ་ལུ་བཀྲམ་སྟོན་འབད་ནི་ཨིན། \n"
 
-#: ../src/boards/python/chat.py:131
+#: ../src/boards/python/chat.py:130
 msgid "Your Friends"
 msgstr "ཁྱོད་རའི་ཆ་རོགས་ཚུ་"
 
-#: ../src/boards/python/chat.py:157
+#: ../src/boards/python/chat.py:162
+msgid "Your Channel"
+msgstr "ཁྱོད་རའི་རྒྱུ་ལམ"
+
+#: ../src/boards/python/chat.py:188
 msgid "Type your message here, to send to other GCompris users on your local network."
 msgstr "ཁྱོད་རའི་ཉེ་གནས་ཡོངས་འབྲེལ་གུ་ཡོད་པའི་   ཇི་ཀམ་པེརེསི་ལག་ལེན་པ་ཚུ་ལུ་གཏང་ནིའི་དོན་ལུ་  ཁྱོད་རའི་འཕྲིན་དོན་འདི་ནཱ་ལུ་ཡིག་དཔར་བརྐྱབ།"
 
-#: ../src/boards/python/electric.py:94
+#: ../src/boards/python/chat.py:322
+msgid "You must set a channel in your channel entry box first.\n"
+msgstr "ཁྱོད་ཀྱིས་དང་པ་ཁྱོད་རའི་རྒྱུ་ལམ་མཐོ་བཀོད་སྒྲོམ་ནང་རྒྱུ་ལམ་གཞི་སྒྲིག་འབད།\n"
+
+#: ../src/boards/python/chat.py:323
+msgid "Your friends must set the same channel in order to communicate with you"
+msgstr "ཁྱོད་དང་གཅིག་ཁར་བརྡ་སྤྲོད་འབད་ནི་ལུ་ ཁྱོད་ཀྱི་ཆ་རོགས་གིས་རྒྱུ་ལམ་གཅིགཔ་ནང་གཞི་སྒྲིག་འབད་དགོ"
+
+#: ../src/boards/python/electric.py:95
 msgid ""
 "Cannot find the 'gnucap' electric simulator.\n"
 "You can download and install it from:\n"
@@ -4498,74 +4600,67 @@ msgstr "གྲུ་བཞི་ཚུ་ལག་ལེན་འཐབ་"
 msgid "Choice of pattern"
 msgstr "དཔེ་གཞི་གི་གདམ་ཁ་"
 
-#: ../src/boards/python/redraw.py:348
-#: ../src/boards/python/redraw.py:358
-msgid "Level"
-msgstr "གནས་རིམ་"
-
-#: ../src/boards/python/redraw.py:910
-#: ../src/boards/python/redraw.py:913
+#: ../src/boards/python/redraw.py:909
+#: ../src/boards/python/redraw.py:912
 msgid "Coordinate"
 msgstr "ཆ་སྙོམ་"
 
-#: ../src/boards/python/searace.py:200
-#: ../src/boards/python/searace.py:205
-#: ../src/boards/python/searace.py:231
+#: ../src/boards/python/searace.py:191
 msgid "The race is already being run"
 msgstr "རྒྱུག་འགྲན་འདི་ཧེ་མ་ལས་རང་རྒྱུད་ནུག་"
 
 #. Manage default cases (no params given)
 #. Final move, add an ofset because we loose space in abs()
-#: ../src/boards/python/searace.py:428
-#: ../src/boards/python/searace.py:453
-#: ../src/boards/python/searace.py:534
-#: ../src/boards/python/searace.py:853
-#: ../src/boards/python/searace.py:882
-#: ../src/boards/python/searace.py:977
-#: ../src/boards/python/searace.py:983
-#: ../src/boards/python/searace.py:991
+#: ../src/boards/python/searace.py:433
+#: ../src/boards/python/searace.py:458
+#: ../src/boards/python/searace.py:539
+#: ../src/boards/python/searace.py:855
+#: ../src/boards/python/searace.py:884
+#: ../src/boards/python/searace.py:979
+#: ../src/boards/python/searace.py:985
+#: ../src/boards/python/searace.py:993
 msgid "forward"
 msgstr "གདོང་བསྐྱོད་"
 
-#: ../src/boards/python/searace.py:525
+#: ../src/boards/python/searace.py:530
 msgid "COMMANDS ARE"
 msgstr "བརྡ་བཀོད་ཚུ་"
 
 #. The two boat arrived in a close time frame (1s), it's a draw
-#: ../src/boards/python/searace.py:751
+#: ../src/boards/python/searace.py:756
 msgid "This is a draw"
 msgstr "འདི་རྒྱལ་ཕབ་འདྲ་མཉམ་ཨིན་"
 
-#: ../src/boards/python/searace.py:758
+#: ../src/boards/python/searace.py:763
 msgid "The Red boat has won"
 msgstr "གྲུ་དམརཔོ་དེ་གིས་རྒྱལ་ཁ་ཐོབ་ཡོད་"
 
-#: ../src/boards/python/searace.py:761
+#: ../src/boards/python/searace.py:766
 msgid "The Green boat has won"
 msgstr "གྲུ་ལྗང་ཁུ་དེ་གིས་རྒྱལ་ཁ་ཐོབ་ནུག་"
 
-#: ../src/boards/python/searace.py:779
-#: ../src/boards/python/searace.py:1021
+#: ../src/boards/python/searace.py:784
+#: ../src/boards/python/searace.py:1023
 msgid "Angle:"
 msgstr "གྲུ་ཟུར:"
 
-#: ../src/boards/python/searace.py:779
+#: ../src/boards/python/searace.py:784
 msgid "Wind:"
 msgstr "རླུང་མ:"
 
-#: ../src/boards/python/searace.py:860
+#: ../src/boards/python/searace.py:862
 msgid "Syntax error at line"
 msgstr "གྲལ་ཐིག་གུ་ཚིག་སྦྱོར་འཛོལ་བ་"
 
-#: ../src/boards/python/searace.py:878
+#: ../src/boards/python/searace.py:880
 msgid "The command"
 msgstr "བརྡ་བཀོད་"
 
-#: ../src/boards/python/searace.py:897
+#: ../src/boards/python/searace.py:899
 msgid "Unknown command at line"
 msgstr "གྲལ་ཐིག་གུ་མ་ཤེས་པའི་བརྡ་བཀོད་"
 
-#: ../src/boards/python/searace.py:1021
+#: ../src/boards/python/searace.py:1023
 msgid "Distance:"
 msgstr "གྱང་ཚད:"
 
@@ -4652,10 +4747,14 @@ msgstr "དེ་འབདཝ་ད་བཀྲམ་སྟོན་མ་འབ
 msgid "And it was displayed"
 msgstr "དང་དེ་བཀྲམ་སྟོན་འབད་ནུག་"
 
-#: ../src/boards/scale.c:259
+#: ../src/boards/scale.c:265
 #, c-format
 msgid "Weight = %s"
 msgstr "ལྗིད་ཚད་ = %s"
+
+#: ../src/boards/scale.c:714
+msgid "Take care, you can drop masses on both sides of the scale."
+msgstr "དྲན་སྟོན་ ཁྱོད་ཀྱི་རྒྱ་ཆེ་བ་ཚུ་ཚད་ཤིང་གི་ཟུར་གཉིས་ཆ་རང་ན་བཀོག་བཞག་"
 
 #: ../src/boards/target.c:281
 #: ../src/boards/target.c:546
@@ -4752,11 +4851,11 @@ msgstr "མཉེན་ཆས་འདི་ཇི་ཨེན་ཡུ་ཐུ
 
 #: ../src/gcompris/about.c:278
 #: ../src/gcompris/about.c:288
-#: ../src/gcompris/config.c:468
-#: ../src/gcompris/config.c:478
+#: ../src/gcompris/config.c:470
+#: ../src/gcompris/config.c:480
 #: ../src/gcompris/dialog.c:97
-#: ../src/gcompris/help.c:380
-#: ../src/gcompris/help.c:390
+#: ../src/gcompris/help.c:382
+#: ../src/gcompris/help.c:392
 #: ../src/gcompris/images_selector.c:317
 msgid "OK"
 msgstr "བཏུབ་"
@@ -4777,7 +4876,7 @@ msgstr "ཨིན་, ང་ངེས་བདེན་ཨིན!"
 msgid "No, I want to keep going"
 msgstr "མེན་, ང་འགྱོ་སྡོད་ནི་"
 
-#: ../src/gcompris/board.c:181
+#: ../src/gcompris/board.c:187
 msgid "Dynamic module loading is not supported. gcompris cannot load.\n"
 msgstr "ནུས་ཅན་ཚད་གཞི་མངོན་གསལ་འདི་རྒྱབ་སྐྱོར་མ་འབད་བས།  ཇི་ཀམ་པེརེསི་མངོན་གསལ་འབད་མི་ཚུགས། \n"
 
@@ -4870,191 +4969,199 @@ msgid "Basque"
 msgstr "བཱགསིཀ།"
 
 #: ../src/gcompris/config.c:74
+msgid "Dzongkha"
+msgstr "རྫོང་ཁ"
+
+#: ../src/gcompris/config.c:75
 msgid "Finnish"
 msgstr "ཕིན་ནིཤ།"
 
-#: ../src/gcompris/config.c:75
+#: ../src/gcompris/config.c:76
 msgid "French"
 msgstr "ཕིརེནཆི།"
 
-#: ../src/gcompris/config.c:76
+#: ../src/gcompris/config.c:77
 msgid "Irish (Gaelic)"
 msgstr " ཨའི་རིཤ། (གེ་ལིཀ་)"
 
-#: ../src/gcompris/config.c:77
+#: ../src/gcompris/config.c:78
 msgid "Hebrew"
 msgstr "ཧེབ་བིརིའུ།"
 
-#: ../src/gcompris/config.c:78
+#: ../src/gcompris/config.c:79
 msgid "Hindi"
 msgstr "ཧིན་དི།"
 
-#: ../src/gcompris/config.c:79
+#: ../src/gcompris/config.c:80
+msgid "Indonesian"
+msgstr "ཨིན་ཌོ་ཎེ་ཤི་ཡ"
+
+#: ../src/gcompris/config.c:81
 msgid "Japanese"
 msgstr "ཇ་པ་ནིསི།"
 
-#: ../src/gcompris/config.c:80
+#: ../src/gcompris/config.c:82
 msgid "Gujarati"
 msgstr "གུ་ཇ་ར་ཏི།"
 
-#: ../src/gcompris/config.c:81
+#: ../src/gcompris/config.c:83
 msgid "Punjabi"
 msgstr "པཱན་ཇ་བི།"
 
-#: ../src/gcompris/config.c:82
+#: ../src/gcompris/config.c:84
 msgid "Hungarian"
 msgstr "ཧང་ག་རི་ཡཱན།"
 
-#: ../src/gcompris/config.c:83
+#: ../src/gcompris/config.c:85
 msgid "Croatian"
 msgstr "ཀོརོ་ཤི་ཡཱན།"
 
-#: ../src/gcompris/config.c:84
+#: ../src/gcompris/config.c:86
 msgid "Italian"
 msgstr "ཨི་ཊ་ལི་ཡཱན།"
 
-#: ../src/gcompris/config.c:85
+#: ../src/gcompris/config.c:87
 msgid "Georgian"
 msgstr "ཇིའོར་ཇི་ཡཱན།"
 
-#: ../src/gcompris/config.c:86
+#: ../src/gcompris/config.c:88
 msgid "Korean"
 msgstr "ཀོ་རི་ཡའི།"
 
-#: ../src/gcompris/config.c:87
+#: ../src/gcompris/config.c:89
 msgid "Lithuanian"
 msgstr "ལི་ཐུ་འ་ནི་ཡཱན།"
 
-#: ../src/gcompris/config.c:88
+#: ../src/gcompris/config.c:90
 msgid "Macedonian"
 msgstr "མེ་སི་ཌོ་ནི་ཡཱན།"
 
-#: ../src/gcompris/config.c:89
+#: ../src/gcompris/config.c:91
 msgid "Malayalam"
 msgstr "མ་ལ་ཡ་ལམ།"
 
-#: ../src/gcompris/config.c:90
+#: ../src/gcompris/config.c:92
 msgid "Marathi"
 msgstr "མ་ར་ཐི།"
 
-#: ../src/gcompris/config.c:91
+#: ../src/gcompris/config.c:93
 msgid "Malay"
 msgstr "མ་ལེ།"
 
-#: ../src/gcompris/config.c:92
+#: ../src/gcompris/config.c:94
 msgid "Nepal"
 msgstr "ནེ་པཱལ།"
 
-#: ../src/gcompris/config.c:93
+#: ../src/gcompris/config.c:95
 msgid "Dutch"
 msgstr "ཌཆ།"
 
-#: ../src/gcompris/config.c:94
+#: ../src/gcompris/config.c:96
 msgid "Norwegian Bokmal"
 msgstr "ནོར་ཝེ་ཇི་ཡཱན་བོག་མཱལ།"
 
-#: ../src/gcompris/config.c:95
+#: ../src/gcompris/config.c:97
 msgid "Norwegian Nynorsk"
 msgstr "ནོར་ཝེ་ཇི་ཡཱན་ནི་ནོརསིཀ།"
 
-#: ../src/gcompris/config.c:96
+#: ../src/gcompris/config.c:98
 msgid "Polish"
 msgstr "པོ་ལིཤ།"
 
-#: ../src/gcompris/config.c:97
+#: ../src/gcompris/config.c:99
 msgid "Portuguese"
 msgstr "པོར་ཊུ་གིསི། "
 
-#: ../src/gcompris/config.c:98
+#: ../src/gcompris/config.c:100
 msgid "Portuguese (Brazil)"
 msgstr " པོར་ཊུ་གིསི།་(བ་ར་ཛིལ)"
 
-#: ../src/gcompris/config.c:99
+#: ../src/gcompris/config.c:101
 msgid "Romanian"
 msgstr "རོ་མ་ནི་ཡཱན། "
 
-#: ../src/gcompris/config.c:100
+#: ../src/gcompris/config.c:102
 msgid "Russian"
 msgstr "ར་ཤི་ཡཱན།"
 
-#: ../src/gcompris/config.c:101
+#: ../src/gcompris/config.c:103
 msgid "Kinyarwanda"
 msgstr "ཀིན་ཡར་ཝན་ཌ།"
 
-#: ../src/gcompris/config.c:102
+#: ../src/gcompris/config.c:104
 msgid "Slovak"
 msgstr "སོལོ་བཱཀ།"
 
-#: ../src/gcompris/config.c:103
+#: ../src/gcompris/config.c:105
 msgid "Slovenian"
 msgstr "སོལོ་བི་ནི་ཡཱན།"
 
-#: ../src/gcompris/config.c:104
+#: ../src/gcompris/config.c:106
 msgid "Somali"
 msgstr "སོ་མ་ལི།"
 
-#: ../src/gcompris/config.c:105
+#: ../src/gcompris/config.c:107
 msgid "Albanian"
 msgstr "ཨཱལ་བཱ་ནི་ཡཱན།"
 
-#: ../src/gcompris/config.c:106
+#: ../src/gcompris/config.c:108
 msgid "Serbian (Latin)"
 msgstr "སར་བི་ཡཱན། (ལེ་ཊིན)"
 
-#: ../src/gcompris/config.c:107
+#: ../src/gcompris/config.c:109
 msgid "Serbian"
 msgstr "སར་བི་ཡཱན།"
 
-#: ../src/gcompris/config.c:108
+#: ../src/gcompris/config.c:110
 msgid "Swedish"
 msgstr "སུའི་ཌིཤི།"
 
 #. "ta_IN.UTF-8",	N_("Tamil"),
-#: ../src/gcompris/config.c:110
+#: ../src/gcompris/config.c:112
 msgid "Thai"
 msgstr "ཐཱའི།"
 
-#: ../src/gcompris/config.c:111
+#: ../src/gcompris/config.c:113
 msgid "Turkish"
 msgstr "ཊར་ཀིཤ།"
 
-#: ../src/gcompris/config.c:112
+#: ../src/gcompris/config.c:114
 msgid "Vietnamese"
 msgstr "ཝེཊི་ན་མིསི།"
 
-#: ../src/gcompris/config.c:113
+#: ../src/gcompris/config.c:115
 msgid "Walloon"
 msgstr "ཝེལ་ལཱུན།"
 
-#: ../src/gcompris/config.c:114
+#: ../src/gcompris/config.c:116
 msgid "Chinese (Simplified)"
 msgstr "རྒྱ་ནག་གི།(འཇམ་བཟོས་) "
 
-#: ../src/gcompris/config.c:115
+#: ../src/gcompris/config.c:117
 msgid "Chinese (Traditional)"
 msgstr "རྒྱ་ནག་གི་(སྔོན་སྲོལ)"
 
-#: ../src/gcompris/config.c:120
+#: ../src/gcompris/config.c:122
 msgid "No time limit"
 msgstr "དུས་ཡུན་མ་ལངམ་མེད་"
 
-#: ../src/gcompris/config.c:121
+#: ../src/gcompris/config.c:123
 msgid "Slow timer"
 msgstr "དུས་ཚོད་འཛིན་ཆས་ལྷོད་ཆ་"
 
-#: ../src/gcompris/config.c:122
+#: ../src/gcompris/config.c:124
 msgid "Normal timer"
 msgstr "དུས་ཚོད་འཛིན་ཆས་སྤྱིར་གཏང་"
 
-#: ../src/gcompris/config.c:123
+#: ../src/gcompris/config.c:125
 msgid "Fast timer"
 msgstr "དུས་ཚོད་འཛིན་ཆས་མགྱོགས་དྲགས་"
 
-#: ../src/gcompris/config.c:128
+#: ../src/gcompris/config.c:130
 msgid "800x600 (Default for gcompris)"
 msgstr "༨༠༠x༦༠༠ (ཇི་ཀམ་པེརེསི་གི་དོན་ལུ་སྔོན་སྒྲིག)"
 
-#: ../src/gcompris/config.c:133
+#: ../src/gcompris/config.c:135
 msgid ""
 "<i>Use Gcompris administration module\n"
 "to filter boards</i>"
@@ -5062,52 +5169,52 @@ msgstr ""
 "<i>རྩེད་པང་ཚུ་བཙགས་ནི་ལུ་\n"
 "ཇི་ཀམ་པེརེསི་བདག་སྐྱོང་པའི་ཐབས་ལམ་ལག་ལེན་འཐབ་</i>"
 
-#: ../src/gcompris/config.c:188
-#: ../src/gcompris/config.c:198
+#: ../src/gcompris/config.c:190
+#: ../src/gcompris/config.c:200
 msgid "GCompris Configuration"
 msgstr "ཇི་ཀམ་པེརེསི་རིམ་སྒྲིག་"
 
-#: ../src/gcompris/config.c:274
+#: ../src/gcompris/config.c:276
 msgid "Fullscreen"
 msgstr "གསལ་གཞི་གངམ་"
 
-#: ../src/gcompris/config.c:317
+#: ../src/gcompris/config.c:319
 msgid "Music"
 msgstr "སྙན་ཆ་"
 
-#: ../src/gcompris/config.c:345
+#: ../src/gcompris/config.c:347
 msgid "Effect"
 msgstr "ནུས་པ་"
 
-#: ../src/gcompris/config.c:381
+#: ../src/gcompris/config.c:383
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "ཕྱི་ལྤགས་སྣོད་ཐོ་ཁ་ཕྱེ་མ་ཚུགས: %s"
 
-#: ../src/gcompris/config.c:412
-#: ../src/gcompris/config.c:863
-#: ../src/gcompris/config.c:877
+#: ../src/gcompris/config.c:414
+#: ../src/gcompris/config.c:865
+#: ../src/gcompris/config.c:879
 #, c-format
 msgid "Skin : %s"
 msgstr "ཕྱི་ལྤགས : %s"
 
-#: ../src/gcompris/config.c:414
+#: ../src/gcompris/config.c:416
 msgid "SKINS NOT FOUND"
 msgstr "ཕྱི་ལྤགས་མ་ཐོབ་"
 
-#: ../src/gcompris/config.c:539
+#: ../src/gcompris/config.c:541
 msgid "English (United State)"
 msgstr "ཨིང་ལིཤ་ (ཡུ་ན་ཡེ་ཊེཊི་ སིཊེཊིསི།)"
 
-#: ../src/gcompris/file_selector.c:335
+#: ../src/gcompris/file_selector.c:337
 msgid "CANCEL"
 msgstr "ཆ་མེད་གཏང་"
 
-#: ../src/gcompris/file_selector.c:366
+#: ../src/gcompris/file_selector.c:368
 msgid "LOAD"
 msgstr "མངོན་གསལ་འབད་"
 
-#: ../src/gcompris/file_selector.c:366
+#: ../src/gcompris/file_selector.c:368
 msgid "SAVE"
 msgstr "སྲུང་"
 
@@ -5127,136 +5234,136 @@ msgstr ""
 "ཕྱིར་ཐོན་ཞིནམ་ལས་\n"
 "དཀའ་ངལ་འདི་རྩོམ་པ་པོ་ལུ་སྙན་ཞུ་འབད།"
 
-#: ../src/gcompris/gcompris.c:126
+#: ../src/gcompris/gcompris.c:133
 msgid "run gcompris in fullscreen mode."
 msgstr "ཇི་ཀམ་པེརེསི་འདི་གསལ་གཞི་གངམ་ཐབས་ལམ་ནང་གཡོག་བཀོལ།"
 
-#: ../src/gcompris/gcompris.c:129
+#: ../src/gcompris/gcompris.c:136
 msgid "run gcompris in window mode."
 msgstr "སྒོ་སྒྲིག་ཐབས་ལམ་ནང་ཇི་ཀམ་པེརེསི་གཡོག་བཀོལ།"
 
-#: ../src/gcompris/gcompris.c:132
+#: ../src/gcompris/gcompris.c:139
 msgid "run gcompris with sound enabled."
 msgstr "སྒྲ་སྐད་ལྕོགས་ཅན་དང་ཅིག་ཁར་ཇི་ཀམ་པེརེསི་གཡོག་བཀོལ།"
 
-#: ../src/gcompris/gcompris.c:135
+#: ../src/gcompris/gcompris.c:142
 msgid "run gcompris without sound."
 msgstr "སྒྲ་སྐད་མེད་པར་ཇི་ཀམ་པེརེསི་གཡོག་བཀོལ།"
 
-#: ../src/gcompris/gcompris.c:138
+#: ../src/gcompris/gcompris.c:145
 msgid "run gcompris with the default gnome cursor."
 msgstr "སྔོན་སྒྲིག་ཇི་ནོམ་འོད་རྟགས་འདི་དང་ཅིག་ཁར་ཇི་ཀམ་པེརེསི་གཡོག་བཀོལ།"
 
-#: ../src/gcompris/gcompris.c:141
+#: ../src/gcompris/gcompris.c:148
 msgid "display only activities with this difficulty level."
 msgstr "དཀའ་ངལ་གནས་རིམ་འདི་དང་ཅིག་ཁར་ལཱ་རྐྱངམ་ཅིག་བཀྲམ་སྟོན་འབད།"
 
-#: ../src/gcompris/gcompris.c:144
+#: ../src/gcompris/gcompris.c:151
 msgid "display debug informations on the console."
 msgstr "མ་སྒྲོམ་གུ་རྐྱེན་སེལ་བརྡ་དོན་ཚུ་བཀྲམ་སྟོན་འབད།"
 
-#: ../src/gcompris/gcompris.c:147
+#: ../src/gcompris/gcompris.c:154
 msgid "Print the version of "
 msgstr "ཐོན་རིམ་དཔར་བསྐྲུན་འབད་"
 
-#: ../src/gcompris/gcompris.c:150
+#: ../src/gcompris/gcompris.c:157
 msgid "Use the antialiased canvas (slower)."
 msgstr "ཨེན་ཊི་ཨེ་ལའིསི་འབྲི་གཞི་(ལྷོད་ཆ་)འདི་ལག་ལེན་འཐབ།"
 
-#: ../src/gcompris/gcompris.c:153
+#: ../src/gcompris/gcompris.c:160
 msgid "Disable XF86VidMode (No screen resolution change)."
 msgstr "XF86VidMode (གསལ་གཞི་ཧུམ་ཆ་བསྒྱུར་བཅོས་མེད)ལྕོགས་མིན་བཟོ།"
 
-#: ../src/gcompris/gcompris.c:156
+#: ../src/gcompris/gcompris.c:163
 msgid "Run gcompris with local menu (e.g -l /reading will let you play only activities in the reading directory, -l /strategy/connect4 only the connect4 activity)"
 msgstr "ཉེ་གནས་དཀར་ཆག་ (e.g -l /ལྷག་ནི་དེ་གིས་  ལྷག་པའི་སྣོད་ཐོ་ནང་ལཱ་རྐྱངམ་ཅིག་རྩེ་བཅུགཔ་ཨིན་, -l /ཐབས་འཇུས་/༤་མཐུད་ནི་ ༤་མཐུད་ལཱ་རྐྱངམ་ཅིག་) དང་ཅིག་ཁར་ ཇི་ཀམ་པེརེསི་གཡོག་བཀོལ་"
 
-#: ../src/gcompris/gcompris.c:159
+#: ../src/gcompris/gcompris.c:166
 msgid "Run GCompris with local activity directory added to menu"
 msgstr "དཀར་ཆག་ལུ་ཁ་སྐོང་བརྐྱབ་ཡོད་པའི་ཉེ་གནས་སྣོད་ཐོའི་ལཱ་དང་ཅིག་ཁར་ ཇི་ཀམ་པེརེསི་གཡོག་བཀོལ་"
 
-#: ../src/gcompris/gcompris.c:162
+#: ../src/gcompris/gcompris.c:169
 msgid "Run GCompris in administration and user-management mode"
 msgstr "བདག་སྐྱོང་དང་ལག་ལེན་པའི་-འཛིན་སྐྱོང་ཐབས་ལམ་ནང་ ཇི་ཀམ་པེརེསི་གཡོག་བཀོལ་"
 
-#: ../src/gcompris/gcompris.c:165
+#: ../src/gcompris/gcompris.c:172
 msgid "Use alternate database for profiles [$HOME/.config/gcompris/gcompris_sqlite.db]"
 msgstr "གསལ་སྡུད་ [$HOME/.config/gcompris/gcompris_sqlite.db] ཚུ་གི་དོན་ལུ་ སྤེལ་མ་གནས་སྡུད་གཞི་རྟེན་ལག་ལེན་འཐབ་"
 
-#: ../src/gcompris/gcompris.c:168
-msgid "Use alternate database for logs"
-msgstr "དྲན་དེབ་ཚུ་གི་དོན་ལུ་ སྤེལ་མའི་གནས་སྡུད་གཞི་རྟེན་ལག་ལེན་འཐབ་"
-
-#: ../src/gcompris/gcompris.c:171
+#: ../src/gcompris/gcompris.c:175
 msgid "Create the alternate database for profiles"
 msgstr "གསལ་སྡུད་ཚུ་གི་དོན་ལུ་ སྤེལ་མའི་གནས་སྡུད་གཞི་རྟེན་འདི་གསར་བསྐྲུན་འབད་"
 
-#: ../src/gcompris/gcompris.c:174
+#: ../src/gcompris/gcompris.c:178
 msgid "Re-read XML Menus and store them in the database"
 msgstr "ཨེགསི་ཨེམ་ཨེལ་དཀར་ཆག་ཚུ་ལོག་ལྷག་ནི་དང་ དེ་ཚུ་གནས་སྡུད་གཞི་རྟེན་ནང་གསོག་འཇོག་འབད་"
 
-#: ../src/gcompris/gcompris.c:177
+#: ../src/gcompris/gcompris.c:181
 msgid "Set the profile to use. Use 'gcompris -a' to create profiles"
 msgstr "ལག་ལེན་འཐབ་ནི་ལུ་གསལ་སྡུད་གཞི་སྒྲིག་འབད།  གསལ་སྡུད་ཚུ་གསར་བསྐྲུན་འབད་ནི་ལུ་ 'gcompris -a' ལག་ལེན་འཐབ་"
 
-#: ../src/gcompris/gcompris.c:180
+#: ../src/gcompris/gcompris.c:184
 msgid "List all available profiles. Use 'gcompris -a' to create profiles"
 msgstr "ཐོབ་ཚུགས་པའི་གསལ་སྡུད་ཚུ་ཆ་མཉམ་ཐོ་ཡིག་བརྐྱབ།  གསལ་སྡུད་ཚུ་གསར་བསྐྲུན་འབད་ནི་ལུ་ 'gcompris -a' ལག་ལེན་འཐབ་"
 
-#: ../src/gcompris/gcompris.c:183
+#: ../src/gcompris/gcompris.c:187
 msgid "Config directory location: [$HOME/.config/gcompris]. Alternate is to set $XDG_CONFIG_HOME."
 msgstr "སྣོད་ཐོའི་གནས་ཁོངས་རིམ་སྒྲིག་འབད:  [$HOME/.config/gcompris]  སྤེལ་མ་འདི་ $XDG_CONFIG_HOME གཞི་སྒྲིག་འབད་ནི་འདི་ཨིན།"
 
-#: ../src/gcompris/gcompris.c:186
+#: ../src/gcompris/gcompris.c:190
 msgid "The location of user directories: [$HOME/My GCompris]"
 msgstr "ལག་ལེན་པའི་སྣོད་ཐོ་ཚུ་གི་གནས་ཁོངས: [$HOME/My GCompris]"
 
-#: ../src/gcompris/gcompris.c:189
+#: ../src/gcompris/gcompris.c:193
 msgid "Run the experimental activities"
 msgstr "མོ་བཏབ་ཀྱི་ལཱ་ཚུ་གཡོག་བཀོལ་"
 
-#: ../src/gcompris/gcompris.c:192
+#: ../src/gcompris/gcompris.c:196
 msgid "Disable the quit button"
 msgstr "སྤང་བཞག་གི་ཨེབ་རྟ་འདི་ལྕོགས་མིན་བཟོ་"
 
-#: ../src/gcompris/gcompris.c:195
+#: ../src/gcompris/gcompris.c:199
 msgid "Disable the config button"
 msgstr "རིམ་སྒྲིག་ཨེབ་རྟ་འདི་ལྕོགས་མིན་བཟོ་"
 
-#: ../src/gcompris/gcompris.c:198
+#: ../src/gcompris/gcompris.c:204
 msgid "Display the resources on stdout based on the selected activities"
 msgstr "སེལ་འཐུ་འབད་དེ་ཡོད་པའི་ལཱ་གུ་གཞི་བཞག་སྟེ་  ཨེསི་ཊི་ཌི་ཨའོཊི་གུ་ བྱུང་ཁུངས་འདི་བཀྲམ་སྟོན་འབད་"
 
-#: ../src/gcompris/gcompris.c:201
+#: ../src/gcompris/gcompris.c:208
 msgid "GCompris will get images, sounds and activity data from this server if not found locally."
 msgstr "ཉེ་གནས་ལུ་མ་ཐོབ་པ་ཅིན་  ཇི་ཀམ་པེརེསི་དེ་གིས་གཟུགས་བརྙན་ཚུ་ སྒྲ་སྐད་ཚུ་དང་ལཱའི་གནས་སྡུད་ཚུ་ སར་བར་ལས་ལེནམ་ཨིན།"
 
-#: ../src/gcompris/gcompris.c:204
+#: ../src/gcompris/gcompris.c:211
 msgid "Only when --server is provided, disable check for local resource first. Data are always taken from the web server."
 msgstr "--སར་བར་འདི་བྱིནམ་ད་རྐྱངམ་ཅིག་  ཉེ་གནས་བྱུང་ཁུངས་ཀྱི་དོན་ལུ་ཞིབ་དཔྱད་ལྕོགས་མིན་བཟོ།  གནས་སྡུད་ཚུ་ཨ་རྟག་རང་ཝེབ་སར་བར་ལས་ལེན་ཏེ་ཡོདཔ་ཨིན།"
 
-#: ../src/gcompris/gcompris.c:208
+#: ../src/gcompris/gcompris.c:215
 msgid "In server mode, specify the cache directory used to avoid useless downloads."
 msgstr "སར་བར་ཐབས་ལམ་ནང་  དགོ་མཁོ་མེད་པའི་ཕབ་ལེན་ཚུ་སྤང་ནི་ལུ་ལག་ལེན་འཐབ་སྟེ་ཡོད་པའི་  འདྲ་མཛོད་སྣོད་ཐོ་འདི་གསལ་བཀོད་འབད།"
 
-#: ../src/gcompris/gcompris.c:211
+#: ../src/gcompris/gcompris.c:218
 msgid "Global drag and drop mode: normal, 2clicks, both. Default mode is normal."
 msgstr "སྤྱི་ཁྱབ་འདྲུད་ནི་དང་བཞག་ནིའི་ཐབས་ལམ:  སྤྱིར་གཏང་ ༢་ཨེབ་གཏང་ གཉིས་ཆ་རང་།  སྔོན་སྒྲིག་ཐབས་ལམ་འདི་བཏང་ཨིན།"
 
-#: ../src/gcompris/gcompris.c:817
+#: ../src/gcompris/gcompris.c:221
+msgid "Do not display the background images of activities."
+msgstr "ལཱ་གི་རྒྱབ་གཞི་གཟུགས་བརྙན་ཚུ་བཀྲམ་སྟོན་མ་འབད"
+
+#: ../src/gcompris/gcompris.c:835
 #, c-format
 msgid ""
 "GCompris is free software released under the GPL License. In order to support its development, the Windows version provides only %d of the %d activities. You can get the full version for a small fee at\n"
 "<http://gcompris.net>\n"
-"The Linux version does not have this restriction. Note that GCompris is being developed to free schools from monopolistic software vendors. If you also believe that we should teach freedom to children, please consider using GNU/Linux. Get more information at FSF:\n"
+"The GNU/Linux version does not have this restriction. Note that GCompris is being developed to free schools from monopolistic software vendors. If you also believe that we should teach freedom to children, please consider using GNU/Linux. Get more information at FSF:\n"
 "<http://www.fsf.org/philosophy>"
 msgstr ""
 "ཇི་ཀམ་པེརེསི་འདི་  ཇི་པི་ཨེལ་ཆོག་ཐམ་འོག་ལུ་གསར་སྟོན་འབད་ཡོད་པའི་རང་དབང་མཉེན་ཆས་ཨིན།  དེའི་གོང་འཕེལ་རྒྱབ་སྐྱོར་འབད་ནི་ལུ་  ཝིན་ཌོསི་ཐོན་རིམ་དེ་གིས་%dལཱ་ཚུ་གི་  %d རྐྱངམ་ཅིག་བྱིནམ་ཨིན།  ཐོན་རིམ་ཆ་ཚང་འདི་ ཁྱོད་ཀྱིས་ \n"
 "<http://gcompris.net>ལུ་ཐོབ་ཚུགསཔ་ཨིན།\n"
-"ལི་ནགསི་ཐོན་རིམ་དེ་ལུ་  བཀག་དམ་མེདཔ་ཨིན།  ཇི་ཀམ་པེརེསི་འདི་གཅིག་དབང་བཟུང་མི་མཉེན་ཆས་བཙོང་མི་ལས་  རང་དབང་སློབ་གྲྭ་ཚུ་ནང་གོང་འཕེལ་གཏངམ་ཨིན་ཟེར་དྲན་འཛིན་འབད།  རང་དབང་ཟེར་མི་འདི་སློབ་གྲྭའི་ཨ་ལུ་ཚུ་ལུ་སྟོན་དགོ་པས་ཟེར་  ཁྱོད་ཀྱིས་ཡང་མནོ་བ་ཅིན་  ཇི་ཨེན་ཡུ/ལི་ནགསི་ལག་ལེན་འཐབ་ནི་འདི་ཆ་འཇོག་འབད་དགོ།  FSF:\n"
+"ཇི་ཨེན་ཡུ་/ལི་ནགསི་ཐོན་རིམ་དེ་ལུ་  བཀག་དམ་མེདཔ་ཨིན།  ཇི་ཀམ་པེརེསི་འདི་གཅིག་དབང་བཟུང་མི་མཉེན་ཆས་བཙོང་མི་ལས་  རང་དབང་སློབ་གྲྭ་ཚུ་ནང་གོང་འཕེལ་གཏངམ་ཨིན་ཟེར་དྲན་འཛིན་འབད།  རང་དབང་ཟེར་མི་འདི་སློབ་གྲྭའི་ཨ་ལུ་ཚུ་ལུ་སྟོན་དགོ་པས་ཟེར་  ཁྱོད་ཀྱིས་ཡང་མནོ་བ་ཅིན་  ཇི་ཨེན་ཡུ/ལི་ནགསི་ལག་ལེན་འཐབ་ནི་འདི་ཆ་འཇོག་འབད་དགོ།  FSF:\n"
 "<http://www.fsf.org/philosophy>ལུ་བརྡ་དོན་ཧེང་སྐལ་ལེན།"
 
-#: ../src/gcompris/gcompris.c:1423
+#: ../src/gcompris/gcompris.c:1475
 #, c-format
 msgid ""
 "GCompris\n"
@@ -5270,55 +5377,55 @@ msgstr ""
 " http://gcompris.netལུ་བརྡ་དོན་ཧེང་སྐལ།\n"
 
 #. check the list of possible values for -l, then exit
-#: ../src/gcompris/gcompris.c:1533
+#: ../src/gcompris/gcompris.c:1559
 #, c-format
 msgid "Use -l to access an activity directly.\n"
 msgstr "ལཱ་འདི་ཐད་ཀར་དུ་འཛུལ་སྤྱོད་འབད་ནི་ལུ་ -l ལག་ལེན་འཐབ།\n"
 
-#: ../src/gcompris/gcompris.c:1534
+#: ../src/gcompris/gcompris.c:1560
 #, c-format
 msgid "The list of available activities is :\n"
 msgstr "ཐོབ་ཚུགས་པའི་ལཱ་ཚུ་གི་ཐོ་ཡིག་འདི:\n"
 
-#: ../src/gcompris/gcompris.c:1719
+#: ../src/gcompris/gcompris.c:1747
 #, c-format
 msgid "The list of available profiles is:\n"
 msgstr "ཐོབ་ཚུགས་པའི་གསལ་སྡུད་ཀྱི་ཐོ་ཡིག་འདི:\n"
 
-#: ../src/gcompris/gcompris_db.c:255
+#: ../src/gcompris/gcompris_db.c:266
 msgid "Unaffected"
 msgstr "གནོད་སྐྱོན་མ་བྱུང་མི་"
 
-#: ../src/gcompris/gcompris_db.c:256
+#: ../src/gcompris/gcompris_db.c:267
 msgid "Users without a class"
 msgstr "དབྱེ་རིགས་ཅིག་མེད་པའི་ལག་ལེན་པ་ཚུ་"
 
-#: ../src/gcompris/help.c:195
+#: ../src/gcompris/help.c:197
 msgid "Prerequisite"
 msgstr "ངེས་ཚང་དགོཔ་"
 
-#: ../src/gcompris/help.c:223
+#: ../src/gcompris/help.c:225
 msgid "Goal"
 msgstr "དམིགས་ཡུལ་"
 
-#: ../src/gcompris/help.c:251
+#: ../src/gcompris/help.c:253
 msgid "Manual"
 msgstr "ལག་དེབ་"
 
-#: ../src/gcompris/help.c:279
+#: ../src/gcompris/help.c:281
 msgid "Credit"
 msgstr "ངོ་བསྟོད་"
 
-#: ../src/gcompris/properties.c:484
-#: ../src/gcompris/properties.c:491
+#: ../src/gcompris/properties.c:487
+#: ../src/gcompris/properties.c:494
 msgid "readme"
 msgstr "ང་ལྷག་"
 
-#: ../src/gcompris/properties.c:486
+#: ../src/gcompris/properties.c:489
 msgid "This directory contains the files you create with the GCompris educational suite\n"
 msgstr "སྣོད་ཐོ་དེ་གིས་  ཁྱོད་ཀྱིས་  ཇི་ཀམ་པེརེསི་ཤེས་རིག་གི་ཆ་ཚང་དང་ཅིག་ཁར་གསར་བསྐྲུན་འབད་དེ་ཡོད་པའི་ཡིག་སྣོད་ཚུ་ཡོདཔ་ཨིན།\n"
 
-#: ../src/gcompris/properties.c:493
+#: ../src/gcompris/properties.c:496
 msgid ""
 "Put any numer of images in this directory.\n"
 "You can include these images in your drawings and animations.\n"
@@ -5336,4 +5443,16 @@ msgstr "དུས་ཚོན་འབྱིད་འགྱོ་ནུག་"
 #, c-format
 msgid "Remaining Time = %d"
 msgstr "ལྷག་ལུས་པའི་དུས་ཚོད = %d"
+
+#~ msgid "Double-Click the mouse to erase the area and discover the background"
+#~ msgstr ""
+#~ "མངའ་ཁོངས་འདི་ཀྲེག་གཏང་ནི་དང་  རྒྱབ་གཞི་གསར་རྙེད་འབད་ནི་ལུ་  མཱའུསི་འདི་ལུ་ཨེབ་གཏང་ཐེང་གཉིས་"
+#~ msgid "Double-click the mouse"
+#~ msgstr "མཱའུསི་འདི་ཨེབ་གཏང་ཐེང་གཉིས་"
+#~ msgid "Double-click the mouse on rectangles until all the blocks disappear."
+#~ msgstr "བཀག་ཆ་ཚུ་ཡལ་མ་འགྱོ་ཚུན་ཚོད་མཱའུསི་འདི་ཨེབ་གཏང་ཐེང་གཉིས།"
+#~ msgid "spruce"
+#~ msgstr "ནགས་ཤིང་"
+#~ msgid "Use alternate database for logs"
+#~ msgstr "དྲན་དེབ་ཚུ་གི་དོན་ལུ་ སྤེལ་མའི་གནས་སྡུད་གཞི་རྟེན་ལག་ལེན་འཐབ་"
 
