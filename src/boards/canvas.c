@@ -2,7 +2,10 @@
 
 #include <Python.h>
 
-
+#if PY_VERSION_HEX < 0x02050000
+/* use int based index for python 2.4 and below */
+typedef int Py_ssize_t;
+#endif
 
 #line 4 "canvas.override"
 #include <Python.h>
@@ -28,7 +31,7 @@ gnomecanvasaffine_to_value(PyObject *py_affine, double affine[6])
 	if (sitem)
 	    affine[i] = PyFloat_AsDouble(sitem);
 	else {
-	    PyErr_Clear();
+    PyErr_Clear();
 	    PyErr_SetString(PyExc_TypeError, "sequence item not a float");
 	    return -1;
 	}
@@ -554,7 +557,7 @@ _wrap_gnome_canvas_item_set (PyGObject *self, PyObject *args,
     GType              type;
     GnomeCanvasItem   *item;
     GObjectClass      *class;
-    gint              pos = 0;
+    Py_ssize_t         pos = 0;
     PyObject          *value;
     PyObject          *key;
 
@@ -944,7 +947,7 @@ _wrap_gnome_canvas_item_new (PyGObject *self, PyObject *args,
     GType              type;
     GnomeCanvasItem   *item;
     GObjectClass      *class;
-    gint              pos;
+    Py_ssize_t         pos;
     PyObject          *value;
     PyObject          *key;
 

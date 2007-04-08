@@ -20,7 +20,7 @@ PackageDesktop: share/applications/gcompris.desktop
 # prepareBuild will set up apbuild and run configure for you. If you
 # need to pass arguments to configure, just add them to prepareBuild:
 # prepareBuild --enable-foo --disable-bar
-prepareBuild
+prepareBuild --enable-binreloc
 
 [BuildUnprepare]
 # If you're using prepareBuild above, there is no need to change this!
@@ -41,9 +41,7 @@ echo '*' | import
 [Install]
 # See http://www.autopackage.org/api/ for details
 installExe bin/*
-installLib lib/*.so.*
 copyFiles lib/gcompris/* "$PREFIX/lib/gcompris"
-installMan 6 man/man6/*
 installData share/gcompris
 installIcon share/pixmaps/gcompris.*
 installLocale share/locale/

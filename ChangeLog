@@ -1,3 +1,19 @@
+2007-04-08  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* autopackage/default.apspec.in: force --enable-binreloc
+
+	* configure.in: enable_binreloc is again the default
+
+	* src/boards/canvas.c: (_wrap_gnome_canvas_item_set),
+	(_wrap_gnome_canvas_item_new):
+	* src/boards/py-mod-gcompris.c: (py_gc_board_config_radio_buttons):
+	Now use Py_ssize_t when available instead of int. This makes GCompris
+	compiles on 64bits platforms on python >= 2.5.
+
+
+	* src/boards/scale.c: (scale_anim_plate), (scale_next_level):
+	Fix by Miguel, clicking on level, the scale is now unbalanced.
+
 	*** RELEASE 8.3BETA2 ***
 
 2007-04-03  Bruno coudoin  <bruno.coudoin@free.fr>

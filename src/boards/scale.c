@@ -294,13 +294,13 @@ int get_weight_plate(int plate)
     return result;
 }
 
+static double last_delta=0;
 void scale_anim_plate(void)
 {
     double affine[6];
     double delta_y, x;
     double angle;
     int diff;
-    static double last_delta=0;
 
     diff = get_weight_plate(0);
     delta_y = CLAMP(PLATE_Y_DELTA / 10.0 * diff,
@@ -720,6 +720,7 @@ static void scale_next_level()
 			    NULL);
 
     scale_make_level();
+    last_delta=0;
     scale_anim_plate();
 }
 

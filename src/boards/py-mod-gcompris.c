@@ -18,8 +18,13 @@
  *   along with this program; if not, write to the Free Software
  *   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  */
-
 #include <Python.h>
+
+#if PY_VERSION_HEX < 0x02050000
+/* use int based index for python 2.4 and below */
+typedef int Py_ssize_t;
+#endif
+
 #define NO_IMPORT_PYGOBJECT 1
 #include <pygobject.h>
 #include "gcompris/gcompris.h"
@@ -1179,7 +1184,7 @@ py_gc_board_config_radio_buttons(PyObject* self, PyObject* args)
   }
 
   PyObject *pykey, *pyvalue;
-  int pos = 0;
+  Py_ssize_t pos = 0;
 
   buttons_label = g_hash_table_new_full (g_str_hash,
 				    g_str_equal,

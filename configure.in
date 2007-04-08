@@ -120,6 +120,7 @@ AM_CONDITIONAL(WITH_NSBUNDLE, test "$nsbundle" = yes)
 
 # Provide relocatable API from autopackage
 # From http://autopackage.org/docs/binreloc/
+enable_binreloc=yes
 if test x"$nsbundle" = "xyes" ; then
 enable_binreloc=no
 AC_MSG_NOTICE([binreloc disabled by nsbundle])
