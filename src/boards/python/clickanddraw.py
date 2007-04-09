@@ -53,7 +53,7 @@ class Gcompris_clickanddraw(Gcompris_drawnumber) :
 
     #Display actual sublevel and number of sublevel of this level
     self.gcomprisBoard.sublevel=sublevel
-    self.gcomprisBoard.number_of_sublevel=self.data[0]
+    self.gcomprisBoard.number_of_sublevel=len(self.data)
     #Display of score
     gcompris.score.start(gcompris.score.STYLE_NOTE, 10, 485,self.gcomprisBoard.number_of_sublevel)
     gcompris.score.set(self.gcomprisBoard.sublevel)
