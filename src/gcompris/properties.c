@@ -89,7 +89,7 @@ gc_prop_default_config_directory_get ()
 
       if(xdg_config_home)
 	return g_strconcat(xdg_config_home, "/.gcompris", NULL);
-      
+
       gchar *xdg_config= g_strconcat(home_dir, "/.config", NULL);
       gc_util_create_rootdir(xdg_config);
       g_free(xdg_config);
@@ -493,9 +493,9 @@ void gc_prop_activate(GcomprisProperties *props)
 
   tmp = g_strconcat(props->user_dir, "/Images/", _("readme"), ".txt", NULL);
   g_file_set_contents(tmp,
-		      _("Put any numer of images in this directory.\n"
+		      _("Put any number of images in this directory.\n"
 			"You can include these images in your drawings and animations.\n"
-			"The image format supported are jpeg, png and svg.\n"),
+			"The image formats supported are jpeg, png and svg.\n"),
 		      -1,
 		      NULL);
   g_free(tmp);

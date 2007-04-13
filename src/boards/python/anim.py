@@ -72,6 +72,7 @@ class Gcompris_anim:
   def __init__(self, gcomprisBoard):
 
     self.gcomprisBoard = gcomprisBoard
+    self.timeout = 0
 
     # There is two board in the same code
     # here the diff in parameters

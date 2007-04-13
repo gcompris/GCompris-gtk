@@ -239,17 +239,27 @@ class Board_list:
       else:
         row_dict['%s/%s' % (board_cell[1].section,board_cell[1].name)] = \
                          model.append(row_dict[board_cell[1].section],
-                                      [self.pixbuf_at_height(board_cell[1].icon_name, height),
+                                      [self.pixbuf_skin_at_height(board_cell[1].icon_name, height),
                                        _(board_cell[1].title) + '\n' + '%s/%s' % (board_cell[1].section,board_cell[1].name),
                                        not board_cell[1].board_id in self.out_dict[self.active_profile.profile_id],
                                        '%s/%s' % (board_cell[1].section,board_cell[1].name), self.pixbuf_configurable(board_cell[1])])
 
 
-  def pixbuf_at_height(self,file, height):
+  def pixbuf_skin_at_height(self, file, height):
+    pixbuf = gcompris.skin.load_pixmap(file)
+    width = pixbuf.get_width()* height / pixbuf.get_height()
+    del pixbuf
+    pixbuf = gtk.gdk.pixbuf_new_from_file_at_size(gcompris.DATA_DIR + '/' +
+                                                  gcompris.skin.image_to_skin(file),
+                                                  width, height)
+    return pixbuf
+
+  def pixbuf_at_height(self, file, height):
     pixbuf = gcompris.utils.load_pixmap(file)
     width = pixbuf.get_width()* height / pixbuf.get_height()
     del pixbuf
-    pixbuf = gtk.gdk.pixbuf_new_from_file_at_size(gcompris.DATA_DIR + '/' + file, width, height)
+    pixbuf = gtk.gdk.pixbuf_new_from_file_at_size(gcompris.DATA_DIR + '/' + file,
+                                                  width, height)
     return pixbuf
 
   def __create_model(self):

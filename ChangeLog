@@ -1,3 +1,11 @@
+2007-04-13  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* src/boards/Makefile.mingw: added wordprocessor
+	* src/boards/python/admin/board_list.py: fixed to search board icons in the skin directory.
+	* src/boards/python/anim.py: fixed missing self.timeout initialization. It was crashing when quitting
+	  this activity while no photos had been taken.
+	* src/gcompris/properties.c: (gc_prop_activate): fixed an english string.
+
 2007-04-10  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	Fixed bad ending tag that brokes gettext.

@@ -478,8 +478,8 @@ attribute is readeable and/or writable.</para>
 		<entry>return a string</entry>
 	      </row>
 	      <row>
-		<entry>gcompris.utils.load_skin_pixmap(pixmapfile)</entry>
-		<entry>GdkPixbuf *gcompris_skin_pixmap_load(char *pixmapfile)</entry>
+		<entry>gcompris.skin.load_pixmap(pixmapfile)</entry>
+		<entry>GdkPixbuf *gc_skin_pixmap_load(char *pixmapfile)</entry>
 		<entry>return a gtk.gdk.Pixbuf</entry>
 	      </row>
 	      <row>
