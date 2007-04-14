@@ -49,7 +49,7 @@ EXTRA_DIST = \
 	intltool-update.in \
 	gnome2-macros \
 	README.mingw README.translators README.windows \
-	config.h.mingw Makefile.mingw global_win32.mak gcompris.ico gcompris-uninstal.ico \
+	config.h.mingw Makefile.mingw global_win32.mak gcompris.ico gc_admin.ico gcompris-uninstal.ico \
 	gcompris-installer.nsi
 
 
@@ -127,7 +127,7 @@ FCT_LDD_CP=function ldd_cp { \
                 $(INSTALL_D)  $$2/$$f $$3/$$f ;\
 	        ldd_cp $$3/$$f  $$2 $$3;\
            fi \
-        done ; } 
+        done ; }
 
 FCT_OTOOL_CP=function otool_cp { \
 	for f in $$(otool -L $$1 | grep $$2 | eval "sed -e 's,^.*$$2/\(.*.dylib\).*$$,\1,' " ); do \
@@ -151,14 +151,14 @@ else
 INSTALL_D=$(INSTALL) -D
 endif
 
-nsbundle: 
+nsbundle:
 	$(INSTALL) -d $(BUNDLE_RESOURCES_DIR)
 	$(INSTALL) -d $(BUNDLE_EXEC_DIR)
 	$(INSTALL) -d $(BUNDLE_EXEC_DIR)$(NSBUNDLE_GTK_DIR)
 	make install prefix=$(BUNDLE_RESOURCES_DIR) \
 		     exec_prefix=$(BUNDLE_RESOURCES_DIR) \
 	             bindir=$(BUNDLE_EXEC_DIR) \
-	             PYTHON_PLUGIN_DIR=$(BUNDLE_RESOURCES_DIR)/share/gcompris/python 
+	             PYTHON_PLUGIN_DIR=$(BUNDLE_RESOURCES_DIR)/share/gcompris/python
 	mv $(BUNDLE_EXEC_DIR)/gcompris $(BUNDLE_EXEC_DIR)/$(BUNDLE_NAME)
 if OS_MACOSX
 	$(FCT_OTOOL_CP); otool_cp $(BUNDLE_EXEC_DIR)/$(BUNDLE_NAME) $(prefix) $(BUNDLE_EXEC_DIR)$(NSBUNDLE_GTK_DIR) $(NSBUNDLE_GTK_DIR)
@@ -190,7 +190,7 @@ if OS_MACOSX
 	$(INSTALL) $(top_srcdir)/macosx/GCompris.icns $(BUNDLE_RESOURCES_DIR)/
 	$(FCT_OTOOL_CP) ; for s in $$(find  $(BUNDLE_EXEC_DIR)$(NSBUNDLE_GTK_DIR)/ -name '*.so') ; do \
 		otool_cp $$s $(prefix) $(BUNDLE_EXEC_DIR)$(NSBUNDLE_GTK_DIR) $(NSBUNDLE_GTK_DIR) ; \
-	done 
+	done
 	$(FCT_OTOOL_CP) ; for s in $$(find  $(BUNDLE_RESOURCES_DIR) -name '*.so') ; do \
 		otool_cp $$s $(prefix) $(BUNDLE_EXEC_DIR)$(NSBUNDLE_GTK_DIR) $(NSBUNDLE_GTK_DIR) ; \
 	done
@@ -200,7 +200,7 @@ if OS_MACOSX
 else
 	$(INSTALL) $(top_srcdir)/macosx/gcompris.png $(BUNDLE_RESOURCES_DIR)/
 	$(INSTALL) $(top_srcdir)/macosx/Info-gnustep.plist $(BUNDLE_RESOURCES_DIR)/
-endif 
+endif
 
 endif
 

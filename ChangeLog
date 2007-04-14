@@ -1,3 +1,16 @@
+2007-04-14  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	Added admin icon on windows.
+	Added Occitan support
+
+	* Makefile.am:
+	* configure.in:
+	* docs/gcompris2spip.pl:
+	* gcompris-installer.nsi.in:
+	* src/gcompris/config.c:
+	* src/gcompris/gcomprisrc.rc:
+	* gc_admin.ico: created
+
 2007-04-13  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* src/boards/Makefile.mingw: added wordprocessor

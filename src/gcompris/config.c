@@ -95,6 +95,7 @@ static gchar *linguas[] = {
   "nl_NL.UTF-8",	N_("Dutch"),
   "nb_NO.UTF-8",	N_("Norwegian Bokmal"),
   "nn_NO.UTF-8",	N_("Norwegian Nynorsk"),
+  "oc_FR.UTF-8",	N_("Occitan (languedocien)"),
   "pl_PL.UTF-8",	N_("Polish"),
   "pt_PT.UTF-8",	N_("Portuguese"),
   "pt_BR.UTF-8",	N_("Portuguese (Brazil)"),

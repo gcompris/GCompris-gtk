@@ -25,8 +25,8 @@ OutFile "gcompris-${GCOMPRIS_VERSION}.exe"
 UninstallIcon ".\gcompris-uninstal.ico"
 
 SetCompressor lzma
-ShowInstDetails show
-ShowUninstDetails show
+ShowInstDetails hide
+ShowUninstDetails hide
 SetDateSave on
 
 ; $name and $INSTDIR are set in .onInit function..
@@ -321,6 +321,8 @@ Section $(GCOMPRIS_SECTION_TITLE) SecGcompris
     CreateDirectory "$SMPROGRAMS\Gcompris"
     CreateShortCut "$SMPROGRAMS\Gcompris\Gcompris.lnk" "$INSTDIR\gcompris.exe"
     CreateShortCut "$DESKTOP\Gcompris.lnk" "$INSTDIR\gcompris.exe"
+    CreateShortCut "$SMPROGRAMS\Gcompris\Gcompris Admin.lnk" "$INSTDIR\gcompris.exe" `-a` "$INSTDIR\gcompris.exe" 1
+    CreateShortCut "$DESKTOP\Gcompris Admin.lnk" "$INSTDIR\gcompris.exe" `-a` "$INSTDIR\gcompris.exe" 1
     SetOutPath "$INSTDIR"
 
     ; If we don't have install rights.. we're done
@@ -395,6 +397,7 @@ Section Uninstall
     Delete "$INSTDIR\_gtk.pyd"
     Delete "$INSTDIR\_socket.pyd"
     Delete "$INSTDIR\_ssl.pyd"
+    Delete "$INSTDIR\_sqlite.pyd"
     Delete "$INSTDIR\_tkinter.pyd"
     Delete "$INSTDIR\atk.pyd"
     Delete "$INSTDIR\bz2.pyd"
@@ -427,17 +430,21 @@ Section Uninstall
     Delete "$INSTDIR\libpng13.dll"
     Delete "$INSTDIR\libreadline.dll"
     Delete "$INSTDIR\libxml2.dll"
+    Delete "$INSTDIR\msvcr71.dll"
     Delete "$INSTDIR\pango.pyd"
     Delete "$INSTDIR\pangocairo.pyd"
     Delete "$INSTDIR\pthreadGC.dll"
+    Delete "$INSTDIR\python24.dll"
     Delete "$INSTDIR\python24.zip"
     Delete "$INSTDIR\select.pyd"
     Delete "$INSTDIR\setup.py"
+    Delete "$INSTDIR\sqlite3.dll"
     Delete "$INSTDIR\unicodedata.pyd"
     Delete "$INSTDIR\xmlparse.dll"
     Delete "$INSTDIR\xmltok.dll"
     Delete "$INSTDIR\zlib.pyd"
     Delete "$INSTDIR\zlib1.dll"
+    Delete "$INSTDIR\README.mingw"
 
     ;Try to remove Gcompris install dir .. if empty
     RMDir "$INSTDIR"
@@ -445,6 +452,7 @@ Section Uninstall
     ; Shortcuts..
     RMDir /r "$SMPROGRAMS\Gcompris"
     Delete "$DESKTOP\Gcompris.lnk"
+    Delete "$DESKTOP\Gcompris Admin.lnk"
 
     Goto done
 
