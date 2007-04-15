@@ -132,7 +132,7 @@ clean:
 prep:
 	mkdir $(GCOMPRIS_INSTALL_DIR)
 	mkdir -p $(GCOMPRIS_INSTALL_DIR)/share/$(pkgdatadir)/boards
-	cd boards ; tar cf -  --exclude "Makefile.in" --exclude "*.in" --exclude "*~" --exclude "Makefile" --exclude "Makefile.am" --exclude CVS --exclude .xvpics * | ( cd ../$(GCOMPRIS_INSTALL_DIR)/share/$(pkgdatadir)/boards ; tar xf -) ; cd .. ;
+	cd boards ; tar cf -  --exclude "Makefile.in" --exclude "*.in" --exclude "*~" --exclude "Makefile" --exclude "Makefile.am" --exclude .svn --exclude .xvpics * | ( cd ../$(GCOMPRIS_INSTALL_DIR)/share/$(pkgdatadir)/boards ; tar xf -) ; cd .. ;
 	@echo "-------------------------------------------------------------------------------"
 	@echo " WARNING: MAKE SURE TO HAVE RUN A MAKE INSTALL OF GCOMPRIS IN /USR/LOCAL FIRST"
 	@echo "-------------------------------------------------------------------------------"
@@ -146,4 +146,4 @@ prep:
 	@echo remove tuxpaint activity
 	rm -f $(GCOMPRIS_INSTALL_DIR)/share/$(pkgdatadir)/boards/tuxpaint.xml
 	@echo "Create the file gcompris-win-prepack.tar.gz"
-	tar -czf gcompris-win-prepack.tar.gz win32-install-dir nsis tools
+	tar --exclude "Makefile.in" --exclude "*.in" --exclude "*~" --exclude "Makefile" --exclude "Makefile.am" --exclude .svn --exclude .xvpics -czf gcompris-win-prepack.tar.gz win32-install-dir nsis tools

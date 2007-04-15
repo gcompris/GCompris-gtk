@@ -1,4 +1,5 @@
 # PythonTest Board module
+import gobject
 import gnomecanvas
 import gcompris
 import gcompris.utils
@@ -47,8 +48,10 @@ class Gcompris_pythontest:
   def start(self):
     logged = gcompris.admin.get_current_user()
 
-    wordlist = gcompris.get_wordlist('wordslevel_max_pt_BR')
-    print wordlist
+    # API Test, return the absolute path to this file
+    print gcompris.utils.find_file_absolute("sounds/bleep.wav")
+#    wordlist = gcompris.get_wordlist('wordslevel_max_pt_BR')
+#    print wordlist
 #    print wordlist.filename
 #    print wordlist.level
 #    print wordlist.locale
@@ -200,7 +203,7 @@ class Gcompris_pythontest:
     # The basic tick for object moves
     self.timerinc = 1000
 
-    self.timer_inc  = gtk.timeout_add(self.timerinc, self.timer_inc_display)
+    self.timer_inc  = gobject.timeout_add(self.timerinc, self.timer_inc_display)
 
     self.counter_left  = 0
     self.counter_right = 0
@@ -220,7 +223,7 @@ class Gcompris_pythontest:
       font=gcompris.skin.get_font("gcompris/content"),
       x=gcompris.BOARD_WIDTH / 3,
       y=gcompris.BOARD_HEIGHT - 40,
-      fill_color_rgba=0xFFFFFFFFL
+      fill_color_rgba=0xFF000FFFL
       )
 
     self.textitem_right = self.rootitem.add(
@@ -228,7 +231,7 @@ class Gcompris_pythontest:
       font=gcompris.skin.get_font("gcompris/content"),
       x=gcompris.BOARD_WIDTH / 1.5,
       y=gcompris.BOARD_HEIGHT - 40,
-      fill_color_rgba=0xFFFFFFFFL
+      fill_color_rgba=0xFF000FFFL
       )
 
     self.left_continue  = True
@@ -245,7 +248,7 @@ class Gcompris_pythontest:
     self.rootitem.destroy()
 
     if self.timer_inc :
-      gtk.timeout_remove(self.timer_inc)
+      gobject.source_remove(self.timer_inc)
 
 
   def ok(self):
@@ -341,7 +344,7 @@ class Gcompris_pythontest:
       self.textitem_right.set(text=str(self.counter_right))
       self.counter_right += self.timer_inc
 
-    self.timer_inc  = gtk.timeout_add(self.timerinc, self.timer_inc_display)
+    self.timer_inc  = gobject.timeout_add(self.timerinc, self.timer_inc_display)
 
   def circle_item_event(self, widget, event=None):
     if eval(self.config_dict['disable_line']):

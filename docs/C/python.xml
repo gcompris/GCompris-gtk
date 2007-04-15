@@ -488,6 +488,11 @@ attribute is readeable and/or writable.</para>
 		<entry>return a gtk.gdk.Pixbuf</entry>
 	      </row>
 	      <row>
+		<entry>gcompris.utils.find_file_absolute(file)</entry>
+		<entry>char *gc_file_find_absolute(char *file)</entry>
+		<entry>return a string</entry>
+	      </row>
+	      <row>
 		<entry>gcompris.utils.set_image_focus(item, focus)</entry>
 		<entry>void gc_item_focus_set(GnomeCanvasItem *item, gboolean focus)</entry>
 		<entry></entry>

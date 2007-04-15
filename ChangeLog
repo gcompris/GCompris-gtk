@@ -1,3 +1,13 @@
+2007-04-15  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	- Added py_gc_file_find_absolute() in the python bindings.
+	  It's not needed yet but was missing anyway.
+
+	* Makefile.mingw.in:
+	* docs/C/python.xml:
+	* src/boards/py-mod-utils.c: (py_gc_file_find_absolute):
+	* src/boards/python/pythontest.py:
+
 	*** RELEASE 8.3BETA3 ***
 
 2007-04-15  Bruno coudoin  <bruno.coudoin@free.fr>

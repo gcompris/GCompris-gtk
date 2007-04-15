@@ -36,6 +36,25 @@ py_gc_pixmap_load(PyObject* self, PyObject* args)
 
 }
 
+/* gchar *gc_file_find_absolute(gchar *file); */
+static PyObject*
+py_gc_file_find_absolute(PyObject* self, PyObject* args)
+{
+  char* file;
+  gchar* result;
+
+  /* Parse arguments */
+  if(!PyArg_ParseTuple(args, "s:gc_db_get_filename", &file))
+    return NULL;
+
+  /* Call the corresponding C function */
+  result = (gchar*)gc_file_find_absolute(file);
+
+  /* Create and return the result */
+  return Py_BuildValue("s", result);
+}
+
+
 
 /* void	gc_item_focus_set(GnomeCanvasItem *item, gboolean focus); */
 static PyObject*
@@ -352,6 +371,7 @@ py_gcompris_canvas_get_property(PyObject* self, PyObject* args)
 
 static PyMethodDef PythonGcomprisUtilsModule[] = {
   { "load_pixmap",  py_gc_pixmap_load, METH_VARARGS, "gc_pixmap_load" },
+  { "find_file_absolute",  py_gc_file_find_absolute, METH_VARARGS, "gc_file_find_absolute" },
   { "set_image_focus",  py_gc_item_focus_set, METH_VARARGS, "gc_item_focus_set" },
   { "item_event_focus",  py_gc_item_focus_event, METH_VARARGS, "gc_item_focus_event" },
   { "item_absolute_move",  py_gc_item_absolute_move, METH_VARARGS, "gc_item_absolute_move" },
