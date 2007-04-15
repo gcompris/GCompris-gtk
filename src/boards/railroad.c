@@ -402,7 +402,7 @@ static void game_won()
       gc_bonus_end_display(GC_BOARD_FINISHED_RANDOM);
       return;
     }
-    gc_sound_play_ogg ("sounds/bonus.ogg", NULL);
+    gc_sound_play_ogg ("sounds/bonus.wav", NULL);
   }
   railroad_next_level();
 }
@@ -617,7 +617,7 @@ static void animate_model() {
   animation_pending = TRUE;
   animation_count = 0;
 
-  gc_sound_play_ogg( "sounds/train.ogg", NULL );
+  gc_sound_play_ogg( "sounds/train.wav", NULL );
 
   // warning : if timeout is too low, the model will not be displayed
   timer_id = gtk_timeout_add (100, (GtkFunction) animate_step, NULL);

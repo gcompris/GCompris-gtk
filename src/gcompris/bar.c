@@ -1,6 +1,6 @@
 /* gcompris - bar.c
  *
- * Time-stamp: <2006/08/21 23:27:39 bruno>
+ * Time-stamp: <2007-04-15 21:03:40 bruno>
  *
  * Copyright (C) 2000-2003 Bruno Coudoin
  *
@@ -546,13 +546,11 @@ item_event_bar(GnomeCanvasItem *item, GdkEvent *event, gchar *data)
 	}
       else if(!strcmp((char *)data, "back"))
 	{
-	  gc_sound_play_ogg ("gobble", NULL);
 	  gc_bar_hide (TRUE);
 	  gc_board_stop();
 	}
       else if(!strcmp((char *)data, "help"))
 	{
-	  gc_sound_play_ogg ("gobble", NULL);
 	  gc_help_start(gcomprisBoard);
 	}
       else if(!strcmp((char *)data, "repeat"))

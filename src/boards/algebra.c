@@ -737,7 +737,7 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 
       currentToBeFoundItem=toBeFoundItem;
 
-      gc_sound_play_ogg ("sounds/gobble.ogg", NULL);
+      gc_sound_play_ogg ("sounds/gobble.wav", NULL);
       break;
 
     default:

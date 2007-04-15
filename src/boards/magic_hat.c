@@ -225,7 +225,7 @@ static void process_ok() {
 
   if (ok) {
 	gamewon = TRUE;
-	gc_sound_play_ogg ("sounds/bonus.ogg", NULL);
+	gc_sound_play_ogg ("sounds/bonus.wav", NULL);
   }
 
   gc_bonus_display(gamewon, GC_BONUS_FLOWER);
@@ -644,7 +644,7 @@ static gint item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data) {
 
 		  gdk_pixbuf_unref(pixmap);
 		}
-		gc_sound_play_ogg ("sounds/gobble.ogg", NULL);
+		gc_sound_play_ogg ("sounds/bleep.wav", NULL);
 	}
 
 	return FALSE;
@@ -698,6 +698,8 @@ static gint move_stars(frame *my_frame) {
 
   int i, j;
   move_object *my_move = NULL;
+
+  gc_sound_play_ogg ("sounds/level.wav", NULL);
 
   for (i = 0 ; i < nb_list() ; i++) {
 	for (j = 0 ; j < my_frame->nb_stars[i] ; j++) {

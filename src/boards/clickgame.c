@@ -847,7 +847,7 @@ static void game_won()
       gc_bonus_end_display(GC_BOARD_FINISHED_RANDOM);
       return;
     }
-    gc_sound_play_ogg ("sounds/bonus.ogg", NULL);
+    gc_sound_play_ogg ("sounds/bonus.wav", NULL);
   }
   clickgame_next_level();
 }

@@ -336,7 +336,7 @@ static void planegame_cloud_colision(CloudItem *clouditem)
     {
       if(plane_target == clouditem->number)
 	{
-	  gc_sound_play_ogg ("sounds/gobble.ogg", NULL);
+	  gc_sound_play_ogg ("sounds/gobble.wav", NULL);
 	  item2del_list = g_list_append (item2del_list, clouditem);
 	  plane_target++;
 
@@ -354,7 +354,7 @@ static void planegame_cloud_colision(CloudItem *clouditem)
 		return;
 	      }
 	      planegame_next_level();
-	      gc_sound_play_ogg ("sounds/bonus.ogg", NULL);
+	      gc_sound_play_ogg ("sounds/bonus.wav", NULL);
 	    }
 	}
     }

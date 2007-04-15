@@ -440,7 +440,7 @@ static void game_won()
       timer_id = gtk_timeout_add (2000, (GtkFunction) finished, NULL);
       return;
     }
-    gc_sound_play_ogg ("sounds/bonus.ogg", NULL);
+    gc_sound_play_ogg ("sounds/bonus.wav", NULL);
   }
   erase_next_level();
 }

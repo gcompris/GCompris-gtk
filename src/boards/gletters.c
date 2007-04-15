@@ -1,6 +1,6 @@
 /* gcompris - gletters.c
  *
- * Time-stamp: <2006/08/21 23:33:17 bruno>
+ * Time-stamp: <2007-04-15 21:15:19 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -523,7 +523,6 @@ static void gletters_destroy_item(GnomeCanvasItem *item)
   item2del_list = g_list_remove (item2del_list, item);
 
   /* Remove old letter; this destroy the canvas item  */
-  g_warning("destroying %d", *key);
   g_hash_table_remove (letters_table, key);
 
 }
@@ -682,8 +681,6 @@ static GnomeCanvasItem *gletters_create_item(GnomeCanvasGroup *parent)
 
   g_free(letter);
 
-  g_warning("done\n");
-
   return (item);
 }
 
@@ -698,7 +695,7 @@ static void gletters_add_new_item()
  */
 static gint gletters_drop_items (GtkWidget *widget, gpointer data)
 {
-  gc_sound_play_ogg ("sounds/bleep.wav", NULL);
+  gc_sound_play_ogg ("sounds/level.wav", NULL);
   gletters_add_new_item();
 
   drop_items_id = gtk_timeout_add (fallSpeed,
@@ -708,8 +705,6 @@ static gint gletters_drop_items (GtkWidget *widget, gpointer data)
 
 static void player_win(GnomeCanvasItem *item)
 {
-  g_message("in player_win\n");
-
   gletters_destroy_item(item);
   gc_sound_play_ogg ("sounds/flip.wav", NULL);
 
@@ -747,15 +742,11 @@ static void player_win(GnomeCanvasItem *item)
 	  }
 	}
     }
-  g_warning("leaving player_win\n");
 }
 
 static void player_loose()
 {
-  g_warning("entering player_loose\n");
-
-  gc_sound_play_ogg ("sounds/crash.ogg", NULL);
-  g_warning("leaving player_loose\n");
+  gc_sound_play_ogg ("sounds/crash.wav", NULL);
 }
 
 static gunichar *

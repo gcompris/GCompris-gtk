@@ -342,7 +342,7 @@ static GnomeCanvasItem *crane_create_item()
 static void bonus() {
 
   gc_bonus_display(gamewon, GC_BONUS_SMILEY);
-  gc_sound_play_ogg ("sounds/bonus.ogg", NULL);
+  gc_sound_play_ogg ("sounds/bonus.wav", NULL);
   timer_id = 0;
 }
 

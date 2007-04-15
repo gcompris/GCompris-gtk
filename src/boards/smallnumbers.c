@@ -1,6 +1,6 @@
 /* gcompris - smallnumbers.c
  *
- * Time-stamp: <2006/08/21 23:36:29 bruno>
+ * Time-stamp: <2007-04-15 21:17:41 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -464,7 +464,7 @@ static void smallnumbers_create_item(GnomeCanvasGroup *parent)
  */
 static gint smallnumbers_drop_items (GtkWidget *widget, gpointer data)
 {
-  gc_sound_play_ogg ("sounds/bleep.wav", NULL);
+  gc_sound_play_ogg ("sounds/level.wav", NULL);
   smallnumbers_create_item(boardRootItem);
 
   drop_items_id = gtk_timeout_add (fallSpeed,

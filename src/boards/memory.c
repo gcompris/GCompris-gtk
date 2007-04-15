@@ -1379,7 +1379,7 @@ static void create_item(GnomeCanvasGroup *parent)
 
 static void player_win()
 {
-  gc_sound_play_ogg ("sounds/bonus.ogg", NULL);
+  gc_sound_play_ogg ("sounds/bonus.wav", NULL);
   /* Try the next level */
   if (tux_pairs <= player_pairs)
     gcomprisBoard->level++;
@@ -1795,7 +1795,7 @@ static void sound_callback(gchar *file)
     if (to_tux) {
       if (firstCard && secondCard){
 	if (compare_card(firstCard, secondCard)==0){
-	  gc_sound_play_ogg ("sounds/gobble.ogg", NULL);
+	  gc_sound_play_ogg ("sounds/gobble.wav", NULL);
 	  win_id = g_timeout_add (1000,
 				  (GSourceFunc) hide_card, NULL);
 	  tux_id = g_timeout_add (2000,

@@ -1,6 +1,6 @@
 /* gcompris - menu2.c
  *
- * Time-stamp: <2006/08/21 23:34:21 bruno>
+ * Time-stamp: <2007-04-15 21:19:36 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -647,21 +647,25 @@ item_event(GnomeCanvasItem *item, GdkEvent *event,  MenuItems *menuitems)
       if(!menu_displayed)
 	return TRUE;
 
-      gc_sound_play_ogg ("sounds/bleep.wav", NULL);
 
-      if (strcmp(board->type,"menu")==0){
-	gchar *path = g_strdup_printf("%s/%s",board->section, board->name);
+      if (strcmp(board->type,"menu")==0)
+	{
+	  gchar *path = g_strdup_printf("%s/%s",board->section, board->name);
 
-	display_section(path);
+	  gc_sound_play_ogg ("sounds/bleep.wav", NULL);
+	  display_section(path);
 
-	if (menu_position)
-	  g_free(menu_position);
+	  if (menu_position)
+	    g_free(menu_position);
 
-	menu_position = path;
+	  menu_position = path;
 
-      }
+	}
       else
-	gc_board_run_next (board);
+	{
+	  gc_sound_play_ogg ("sounds/level.wav", NULL);
+	  gc_board_run_next (board);
+	}
 
       break;
 

@@ -1,5 +1,49 @@
 	*** RELEASE 8.3BETA3 ***
 
+2007-04-15  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	Converted .ogg sounds (not voices) to be all in wav.
+	sound effects in ogg are bad because they are too slow to start.
+	Changed a few activity to use the level.wav sound that were unused
+
+	* .cvsignore:
+	* po/.cvsignore:
+	* src/boards/algebra.c: (item_event):
+	* src/boards/canal_lock.c: (game_won):
+	* src/boards/chess.c: (game_won):
+	* src/boards/clickgame.c: (game_won):
+	* src/boards/clockgame.c: (game_won):
+	* src/boards/crane.c: (bonus):
+	* src/boards/enumerate.c: (game_won):
+	* src/boards/erase.c: (game_won):
+	* src/boards/fifteen.c: (game_won):
+	* src/boards/gletters.c: (gletters_destroy_item),
+	(gletters_create_item), (gletters_drop_items), (player_win),
+	(player_loose):
+	* src/boards/hanoi.c: (game_won):
+	* src/boards/hanoi_real.c: (game_won):
+	* src/boards/machpuzzle.c: (game_won):
+	* src/boards/magic_hat.c: (process_ok), (item_event), (move_stars):
+	* src/boards/maze.c: (game_won):
+	* src/boards/memory.c: (player_win), (sound_callback):
+	* src/boards/menu2.c: (item_event):
+	* src/boards/money.c: (game_won):
+	* src/boards/paratrooper.c: (next_state):
+	* src/boards/planegame.c: (planegame_cloud_colision):
+	* src/boards/railroad.c: (game_won), (animate_model):
+	* src/boards/reversecount.c: (process_error), (game_won),
+	(animate_tux):
+	* src/boards/scale.c: (game_won):
+	* src/boards/smallnumbers.c: (smallnumbers_drop_items):
+	* src/boards/submarine.c: (submarine_explosion):
+	* src/boards/superbrain.c: (game_won):
+	* src/boards/target.c: (game_won):
+	* src/boards/traffic.c: (game_won):
+	* src/boards/wordsgame.c: (wordsgame_drop_items), (player_win),
+	(player_loose):
+	* src/gcompris/bar.c: (item_event_bar):
+	* src/gcompris/bonus.c: (gc_bonus_display):
+
 2007-04-14  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	Added admin icon on windows.

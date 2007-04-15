@@ -1,6 +1,6 @@
 /* gcompris - wordsgame.c
  *
- * Time-stamp: <2006/08/22 02:23:24 bruno>
+ * Time-stamp: <2007-04-15 21:17:08 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -660,7 +660,7 @@ static void wordsgame_add_new_item()
  */
 static gint wordsgame_drop_items (GtkWidget *widget, gpointer data)
 {
-  gc_sound_play_ogg ("sounds/bleep.wav", NULL);
+  gc_sound_play_ogg ("sounds/level.wav", NULL);
   wordsgame_add_new_item();
   g_source_remove(drop_items_id);
   drop_items_id = g_timeout_add (fallSpeed,(GtkFunction) wordsgame_drop_items, NULL);
@@ -702,7 +702,7 @@ static void player_win(LettersItem *item)
 	return;
       }
       wordsgame_next_level();
-      gc_sound_play_ogg ("sounds/bonus.ogg", NULL);
+      gc_sound_play_ogg ("sounds/bonus.wav", NULL);
     }
   else
     {
@@ -738,5 +738,5 @@ static void player_win(LettersItem *item)
 
 static void player_loose()
 {
-  gc_sound_play_ogg ("sounds/crash.ogg", NULL);
+  gc_sound_play_ogg ("sounds/crash.wav", NULL);
 }

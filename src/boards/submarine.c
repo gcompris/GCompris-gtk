@@ -1644,7 +1644,7 @@ static void submarine_explosion() {
 
   submarine_destroyed = TRUE;
   gamewon = FALSE;
-  gc_sound_play_ogg("sounds/crash.ogg", NULL);
+  gc_sound_play_ogg("sounds/crash.wav", NULL);
   /* make the submarine die */
   setSpeed(speed_ordered = submarine_horizontal_speed = 0.0);
   setBattery(battery = 0.0);
