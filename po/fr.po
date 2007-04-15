@@ -14,8 +14,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-04-12 12:10+0200\n"
-"PO-Revision-Date: 2007-04-12 14:18+0200\n"
+"POT-Creation-Date: 2007-04-15 21:43+0200\n"
+"PO-Revision-Date: 2007-04-15 21:47+0200\n"
 "Last-Translator: Jean-Philippe Ayanides <jp.ayanides@free.fr>\n"
 "Language-Team: GNOME French Team <gnomefr@traduc.org>\n"
 "MIME-Version: 1.0\n"
@@ -3484,7 +3484,7 @@ msgstr ""
 msgid "GCompris Main Menu"
 msgstr "Menu principal de GCompris"
 
-#: ../boards/menu.xml.in.h:17 ../src/boards/menu2.c:1003
+#: ../boards/menu.xml.in.h:17 ../src/boards/menu2.c:1007
 msgid ""
 "GCompris is a collection of educational games that provides different "
 "activities for children aged 2 and up."
@@ -4765,10 +4765,10 @@ msgstr ""
 #. the returned value is the main GtkVBox of the window,
 #. we can add what you want in it.
 #: ../src/boards/click_on_letter.c:623 ../src/boards/colors.c:165
-#: ../src/boards/gletters.c:866 ../src/boards/imageid.c:749
+#: ../src/boards/gletters.c:857 ../src/boards/imageid.c:749
 #: ../src/boards/missingletter.c:772
-#: ../src/boards/python/admin/board_list.py:631
-#: ../src/boards/python/admin/board_list.py:649
+#: ../src/boards/python/admin/board_list.py:641
+#: ../src/boards/python/admin/board_list.py:659
 #: ../src/boards/python/admin/wordlist.py:50 ../src/boards/python/login.py:535
 #: ../src/boards/python/pythontest.py:406 ../src/boards/python/tuxpaint.py:206
 #: ../src/boards/reading.c:833 ../src/boards/scale.c:862
@@ -4782,7 +4782,7 @@ msgstr ""
 " pour le profil <b>%s</b>"
 
 #. toggle box
-#: ../src/boards/click_on_letter.c:646 ../src/boards/gletters.c:899
+#: ../src/boards/click_on_letter.c:646 ../src/boards/gletters.c:890
 #: ../src/boards/python/login.py:540
 msgid "Uppercase only text"
 msgstr "Texte en capitales uniquement"
@@ -4831,7 +4831,7 @@ msgstr "Clique sur le canard noir"
 msgid "Click on the white duck"
 msgstr "Clique sur le canard blanc"
 
-#: ../src/boards/colors.c:177 ../src/boards/python/admin/board_list.py:661
+#: ../src/boards/colors.c:177 ../src/boards/python/admin/board_list.py:671
 #: ../src/boards/python/pythontest.py:470 ../src/boards/smallnumbers.c:610
 msgid "Select sound locale"
 msgstr "Sélectionne la langue des sons"
@@ -4846,7 +4846,7 @@ msgstr "0123456789"
 msgid "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 msgstr "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
-#: ../src/boards/gletters.c:895 ../src/boards/smallnumbers.c:608
+#: ../src/boards/gletters.c:886 ../src/boards/smallnumbers.c:608
 msgid "Enable sounds"
 msgstr "Activer les sons"
 
@@ -4983,20 +4983,20 @@ msgstr "Menu principal"
 #. image = gtk.image_new_from_stock(gtk.STOCK_PREFERENCES, gtk.ICON_SIZE_MENU)
 #. image.show()
 #. column_pref.set_widget(image)
-#: ../src/boards/python/admin/board_list.py:292
+#: ../src/boards/python/admin/board_list.py:302
 msgid "Active"
 msgstr "Actif"
 
-#: ../src/boards/python/admin/board_list.py:293
+#: ../src/boards/python/admin/board_list.py:303
 msgid "Board title"
 msgstr "Titre activité"
 
-#: ../src/boards/python/admin/board_list.py:409
+#: ../src/boards/python/admin/board_list.py:419
 #, python-format
 msgid "Filter Boards difficulty for profile %s"
 msgstr "Filtre la difficulté des activités pour le profil %s"
 
-#: ../src/boards/python/admin/board_list.py:440
+#: ../src/boards/python/admin/board_list.py:450
 #, python-format
 msgid ""
 "<span size='x-large'> Select the difficulty range \n"
@@ -5312,16 +5312,16 @@ msgstr ""
 "Un ou plusieurs identifiants ne sont pas uniques !\n"
 "Vous devez les modifier : %s !"
 
-#: ../src/boards/python/anim.py:2225
+#: ../src/boards/python/anim.py:2226
 msgid "SVG is disabled. Install python xml module to enable it"
 msgstr "SVG est désactivé. Installez le module python xml pour l'activer"
 
-#: ../src/boards/python/anim.py:2381
+#: ../src/boards/python/anim.py:2382
 msgid "Warning: the following images cannot be accessed on your system.\n"
 msgstr ""
 "Attention: les images suivantes ne peuvent être trouvées sur votre système.\n"
 
-#: ../src/boards/python/anim.py:2383
+#: ../src/boards/python/anim.py:2384
 msgid "The corresponding items have been skipped."
 msgstr "Les éléments suivants ont été enlevés."
 
@@ -5875,25 +5875,25 @@ msgstr ""
 "GNU (GPL)."
 
 #: ../src/gcompris/about.c:278 ../src/gcompris/about.c:288
-#: ../src/gcompris/config.c:470 ../src/gcompris/config.c:480
+#: ../src/gcompris/config.c:471 ../src/gcompris/config.c:481
 #: ../src/gcompris/dialog.c:97 ../src/gcompris/help.c:382
 #: ../src/gcompris/help.c:392 ../src/gcompris/images_selector.c:317
 msgid "OK"
 msgstr "Valider"
 
-#: ../src/gcompris/bar.c:579
+#: ../src/gcompris/bar.c:577
 msgid "GCompris confirmation"
 msgstr "Gcompris : confirmation"
 
-#: ../src/gcompris/bar.c:580
+#: ../src/gcompris/bar.c:578
 msgid "Are you sure you want to quit?"
 msgstr "Veux-tu vraiment quitter ?"
 
-#: ../src/gcompris/bar.c:581
+#: ../src/gcompris/bar.c:579
 msgid "Yes, I am sure!"
 msgstr "Oui, je suis sûr !"
 
-#: ../src/gcompris/bar.c:582
+#: ../src/gcompris/bar.c:580
 msgid "No, I want to keep going"
 msgstr "Non, non, laisse-moi rester encore !"
 
@@ -6087,103 +6087,107 @@ msgid "Norwegian Nynorsk"
 msgstr "Norvégien Nynorsk"
 
 #: ../src/gcompris/config.c:98
+msgid "Occitan (languedocien)"
+msgstr "Occitan (languedocien)"
+
+#: ../src/gcompris/config.c:99
 msgid "Polish"
 msgstr "Polonais"
 
-#: ../src/gcompris/config.c:99
+#: ../src/gcompris/config.c:100
 msgid "Portuguese"
 msgstr "Portugais"
 
-#: ../src/gcompris/config.c:100
+#: ../src/gcompris/config.c:101
 msgid "Portuguese (Brazil)"
 msgstr "Portugais (Brésil)"
 
-#: ../src/gcompris/config.c:101
+#: ../src/gcompris/config.c:102
 msgid "Romanian"
 msgstr "Roumain"
 
-#: ../src/gcompris/config.c:102
+#: ../src/gcompris/config.c:103
 msgid "Russian"
 msgstr "Russe"
 
-#: ../src/gcompris/config.c:103
+#: ../src/gcompris/config.c:104
 msgid "Kinyarwanda"
 msgstr "Kinyarwandais"
 
-#: ../src/gcompris/config.c:104
+#: ../src/gcompris/config.c:105
 msgid "Slovak"
 msgstr "Slovaque"
 
-#: ../src/gcompris/config.c:105
+#: ../src/gcompris/config.c:106
 msgid "Slovenian"
 msgstr "Slovène"
 
-#: ../src/gcompris/config.c:106
+#: ../src/gcompris/config.c:107
 msgid "Somali"
 msgstr "Somali"
 
-#: ../src/gcompris/config.c:107
+#: ../src/gcompris/config.c:108
 msgid "Albanian"
 msgstr "Albanais"
 
-#: ../src/gcompris/config.c:108
+#: ../src/gcompris/config.c:109
 msgid "Serbian (Latin)"
 msgstr "Serbe (Latin)"
 
-#: ../src/gcompris/config.c:109
+#: ../src/gcompris/config.c:110
 msgid "Serbian"
 msgstr "Serbe"
 
-#: ../src/gcompris/config.c:110
+#: ../src/gcompris/config.c:111
 msgid "Swedish"
 msgstr "Suédois"
 
 #. "ta_IN.UTF-8",	N_("Tamil"),
-#: ../src/gcompris/config.c:112
+#: ../src/gcompris/config.c:113
 msgid "Thai"
 msgstr "Thaï"
 
-#: ../src/gcompris/config.c:113
+#: ../src/gcompris/config.c:114
 msgid "Turkish"
 msgstr "Turc"
 
-#: ../src/gcompris/config.c:114
+#: ../src/gcompris/config.c:115
 msgid "Vietnamese"
 msgstr "Vietnamien"
 
-#: ../src/gcompris/config.c:115
+#: ../src/gcompris/config.c:116
 msgid "Walloon"
 msgstr "Wallon"
 
-#: ../src/gcompris/config.c:116
+#: ../src/gcompris/config.c:117
 msgid "Chinese (Simplified)"
 msgstr "Chinois (simplifié)"
 
-#: ../src/gcompris/config.c:117
+#: ../src/gcompris/config.c:118
 msgid "Chinese (Traditional)"
 msgstr "Chinois (traditionnel)"
 
-#: ../src/gcompris/config.c:122
+#: ../src/gcompris/config.c:123
 msgid "No time limit"
 msgstr "Sans limite de temps"
 
-#: ../src/gcompris/config.c:123
+#: ../src/gcompris/config.c:124
 msgid "Slow timer"
 msgstr "Compteur lent"
 
-#: ../src/gcompris/config.c:124
+#: ../src/gcompris/config.c:125
 msgid "Normal timer"
 msgstr "Compteur normal"
 
-#: ../src/gcompris/config.c:125
+#: ../src/gcompris/config.c:126
 msgid "Fast timer"
 msgstr "Compteur rapide"
 
-#: ../src/gcompris/config.c:130
+#: ../src/gcompris/config.c:131
 msgid "800x600 (Default for gcompris)"
 msgstr "800x600 (par défaut pour GCompris)"
 
-#: ../src/gcompris/config.c:135
+#: ../src/gcompris/config.c:136
 msgid ""
 "<i>Use Gcompris administration module\n"
 "to filter boards</i>"
@@ -6191,38 +6195,38 @@ msgstr ""
 "<i>Utilisez le module d'administration de\n"
 "GCompris pour filtrer les activités</i>"
 
-#: ../src/gcompris/config.c:190 ../src/gcompris/config.c:200
+#: ../src/gcompris/config.c:191 ../src/gcompris/config.c:201
 msgid "GCompris Configuration"
 msgstr "Configuration de GCompris"
 
-#: ../src/gcompris/config.c:276
+#: ../src/gcompris/config.c:277
 msgid "Fullscreen"
 msgstr "Plein écran"
 
-#: ../src/gcompris/config.c:319
+#: ../src/gcompris/config.c:320
 msgid "Music"
 msgstr "Musique"
 
-#: ../src/gcompris/config.c:347
+#: ../src/gcompris/config.c:348
 msgid "Effect"
 msgstr "Effet"
 
-#: ../src/gcompris/config.c:383
+#: ../src/gcompris/config.c:384
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "Impossible d'ouvrir le répertoire de thèmes : %s"
 
-#: ../src/gcompris/config.c:414 ../src/gcompris/config.c:865
-#: ../src/gcompris/config.c:879
+#: ../src/gcompris/config.c:415 ../src/gcompris/config.c:866
+#: ../src/gcompris/config.c:880
 #, c-format
 msgid "Skin : %s"
 msgstr "Thème : %s"
 
-#: ../src/gcompris/config.c:416
+#: ../src/gcompris/config.c:417
 msgid "SKINS NOT FOUND"
 msgstr "THÈMES INTROUVABLES"
 
-#: ../src/gcompris/config.c:541
+#: ../src/gcompris/config.c:542
 msgid "English (United State)"
 msgstr "Anglais (États-Unis)"
 
@@ -6503,9 +6507,9 @@ msgstr ""
 
 #: ../src/gcompris/properties.c:496
 msgid ""
-"Put any numer of images in this directory.\n"
+"Put any number of images in this directory.\n"
 "You can include these images in your drawings and animations.\n"
-"The image format supported are jpeg, png and svg.\n"
+"The image formats supported are jpeg, png and svg.\n"
 msgstr ""
 "Placez autant d'images que vous le souhaitez dans ce répertoire.\n"
 "Vous pouvez inclure ces images dans vos dessins et vos animations.\n"
