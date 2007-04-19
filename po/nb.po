@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: nb\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2007-03-21 17:11+0100\n"
-"PO-Revision-Date: 2007-03-22 17:34+0100\n"
+"PO-Revision-Date: 2007-04-19 07:30+0200\n"
 "Last-Translator: Klaus Ade Johnstad <klaus@skolelinux.no>\n"
 "Language-Team: Norwegian Bokmål < <i18n-nb@lister.ping.uio.no>\n"
 "MIME-Version: 1.0\n"
@@ -806,7 +806,7 @@ msgid ""
 "Enter. Your message is then broadcast on the local network, and any GCompris "
 "program running the chat activity on that local network will receive and "
 "display your message."
-msgstr ""
+msgstr "Chaten virker bare på skolen mellom de som bruker Gcompris, ikke på Internett. For å bruke chat, så skriv inn din melding og trykk på Enter, din melding sendes da til alle som sitter på skolen og bruker chat i Gcompris."
 
 #: ../boards/chess.xml.in.h:1 ../boards/chess_computer.xml.in.h:3
 msgid "Play chess against the computer in a learning mode"
@@ -1155,7 +1155,7 @@ msgid ""
 "Click the position in the line where you want to drop a piece. You can also "
 "use the arrow keys to move the piece left or right, and the down or space "
 "key to drop a piece."
-msgstr ""
+msgstr "Klikk på linja der du vil plassere brikken din. Du kan bruke musa, eller en av piltastene som peker til høyre eller venstre, og så bruke mellomromsknappen for å slippe brikken ned."
 
 #: ../boards/connect4.xml.in.h:3
 msgid "Connect 4"
@@ -2179,7 +2179,6 @@ msgid "Multiple Number Munchers"
 msgstr "Multiplum-tallmumser"
 
 #: ../boards/gnumch-multiples.xml.in.h:4
-#, fuzzy
 msgid ""
 "The multiples of a number are all the numbers that are equal to the original "
 "number times another number. For example, 24, 36, 48 and 60 are all "
@@ -2195,13 +2194,6 @@ msgid ""
 "multiples (or families or steps) of 5. Use the arrow keys to navigate around "
 "the board and to avoid the Troggles. Press the spacebar to eat a number."
 msgstr ""
-"Multiplumene av et tall er de tallene som lik det opprinnelige tallet ganger "
-"et annet heltall. For eksempel er 24, 36, 48 og 60 alle multiplum av 12. Men "
-"25 er ikke et multiplum, da det ikke finnes noe heltall som kan ganges med "
-"12 for å få 25. Hvis et tall er en faktor til et annet tall, så er dette "
-"andre talet et multiplum av det første tallet. Bruk piltastene for å styre "
-"tallmumseren rundt på brettet, og unngå Trogglene. Trykk på mellomromstasten "
-"for å spise tallene."
 
 #: ../boards/gnumch-primes.xml.in.h:1
 msgid "Guide the Number Muncher to all the prime numbers."
@@ -5457,7 +5449,7 @@ msgstr ""
 #. TRANSLATORS: Replace this string with your names, one name per line.
 #: ../src/gcompris/about.c:65
 msgid "translator_credits"
-msgstr "Klaus Ade Johnstad <klaus@inout.no> <klaus@skolelinux.no>"
+msgstr "Klaus Ade Johnstad <klaus@skolelinux.no>"
 
 #: ../src/gcompris/about.c:96 ../src/gcompris/about.c:106
 msgid "About GCompris"
