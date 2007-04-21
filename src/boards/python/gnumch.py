@@ -763,7 +763,7 @@ class Gcompris_gnumch:
         # the board title
         self.title = self.rootitem.add(gnomecanvas.CanvasText,
                                        text = "",
-                                       font = gcompris.skin.get_font("gcompris/board/huge bold"),
+                                       font = gcompris.skin.get_font("gcompris/board/title bold"),
                                        x = self.scrw/2,
                                        y = self.top/2)
 
@@ -774,7 +774,7 @@ class Gcompris_gnumch:
         self.message = self.rootitem.add(gnomecanvas.CanvasText,
                                         text = "",
                                         justification = gtk.JUSTIFY_CENTER,
-                                        font = gcompris.skin.get_font("gcompris/board/huge bold"),
+                                        font = gcompris.skin.get_font("gcompris/board/title bold"),
                                         x = self.scrw/2,
                                         y = self.scrh/2)
         self.message.hide()
@@ -783,7 +783,7 @@ class Gcompris_gnumch:
         self.trogwarning = self.rootitem.add(gnomecanvas.CanvasText,
                                         text = _("T\nR\nO\nG\nG\nL\nE"),
                                         justification = gtk.JUSTIFY_CENTER,
-                                        font = gcompris.skin.get_font("gcompris/board/huge bold"),
+                                        font = gcompris.skin.get_font("gcompris/board/title bold"),
                                         x = self.left/2,
                                         y = self.scrh/2)
         self.trogwarning.hide()

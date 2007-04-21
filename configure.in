@@ -567,10 +567,10 @@ AC_SUBST(CFLAGS)
 AC_SUBST(LIBS)
 
 #mypaint
-PKG_CHECK_MODULES(MYPAINT,[
-        glib-2.0 >= 2.6.0
-        gtk+-2.0 >= 2.6.0
-        ])
+#PKG_CHECK_MODULES(MYPAINT,[
+#        glib-2.0 >= 2.6.0
+#        gtk+-2.0 >= 2.6.0
+#        ])
 
 dnl Autoconf output
 AC_OUTPUT([ gcompris.spec
@@ -583,7 +583,6 @@ autopackage/default.apspec
 src/Makefile
 src/gcompris/Makefile
 src/boards/Makefile
-src/boards/mypaint/Makefile
 src/boards/python/Makefile
 src/boards/python/gcompris/Makefile
 src/boards/python/gcompris/admin/Makefile

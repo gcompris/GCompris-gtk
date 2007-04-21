@@ -941,12 +941,6 @@ class Gcompris_searace:
           score = wind
           coord = (x, y, boat_angle, step_x, line_style) # x y angle distance line_style
 
-        self.root_weather_item.add(
-          gnomecanvas.CanvasText, text=int(wind),
-          y=y, x=x,
-          fill_color_rgba=0xFF0000FFL,
-          )
-
       # ----------
       self.root_weather_item.add(
         gnomecanvas.CanvasLine,

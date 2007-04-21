@@ -1,3 +1,11 @@
+2007-04-21  Bruno coudoin  <bruno.coudoin@free.fr>
+
+
+	* boards/mypaint.xml.in: removed mypaint, we will add it back when completed
+	* configure.in: removed mypaint
+	* src/boards/python/gnumch.py: set to a smaller font
+	* src/boards/python/searace.py: removed on screen debug numbers
+
 2007-04-15  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	- Added py_gc_file_find_absolute() in the python bindings.
