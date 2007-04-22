@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-03-27 06:55+0100\n"
-"PO-Revision-Date: 2007-03-27 07:03-0000\n"
+"POT-Creation-Date: 2007-04-22 19:52+0100\n"
+"PO-Revision-Date: 2007-04-22 19:54-0000\n"
 "Last-Translator: David Lodge <dave@cirt.net>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -750,18 +750,18 @@ msgid ""
 "Place each image in the order and\n"
 "on the date it was invented.\n"
 "If not sure, research online at wikipedia:\n"
-"&lt;http://www.wikipedia.org&gt;"
+"http://www.wikipedia.org"
 msgstr ""
 "Place each image in the order and\n"
 "on the date it was invented.\n"
 "If not sure, research online at wikipedia:\n"
-"&lt;http://www.wikipedia.org&gt;"
+"http://www.wikipedia.org"
 
 #: ../boards/chronos/board3_0.xml.in.h:8
 #: ../boards/chronos/board3_1.xml.in.h:6
 #: ../boards/chronos/board3_2.xml.in.h:5
 #: ../boards/chronos/board3_3.xml.in.h:7
-#: ../boards/chronos/board3_4.xml.in.h:4
+#: ../boards/chronos/board3_4.xml.in.h:5
 msgid "Transportation"
 msgstr "Transportation"
 
@@ -776,7 +776,7 @@ msgstr ""
 
 #: ../boards/chronos/board3_1.xml.in.h:3
 #: ../boards/chronos/board3_2.xml.in.h:4
-#: ../boards/chronos/board3_4.xml.in.h:3
+#: ../boards/chronos/board3_4.xml.in.h:4
 #: ../boards/chronos/board4_0.xml.in.h:1
 msgid "1880 Clement Ader's Eole"
 msgstr "1880 Clement Ader's Eole"
@@ -870,6 +870,18 @@ msgstr "1955 Citroën ds 19"
 #: ../boards/chronos/board4_3.xml.in.h:4
 msgid "Cars"
 msgstr "Cars"
+
+#: ../boards/clickanddraw.xml.in.h:1
+msgid "Click and draw"
+msgstr "Click and draw"
+
+#: ../boards/clickanddraw.xml.in.h:2
+msgid "Draw the picture by clicking on each blue point in sequence."
+msgstr "Draw the picture by clicking on each blue point in sequence."
+
+#: ../boards/clickanddraw.xml.in.h:3
+msgid "Draw the picture by clicking on the blue points."
+msgstr "Draw the picture by clicking on the blue points."
 
 #: ../boards/click_on_letter.xml.in.h:1
 msgid "A letter is spoken. Click on the matching letter in the main area. You can listen to the letter again, by clicking on the mouth icon in the bottom box."
@@ -1072,6 +1084,22 @@ msgstr "In this game, children can draw freely. The goal is to discover how to c
 msgid "Select a drawing tool on the left, and a color down the bottom, then click and drag in the white area to create a new shape. To save time, you can click with the middle mouse button to delete an object."
 msgstr "Select a drawing tool on the left, and a colour down the bottom, then click and drag in the white area to create a new shape. To save time, you can click with the middle mouse button to delete an object."
 
+#: ../boards/drawnumber.xml.in.h:1
+msgid "Can count from 1 to 50."
+msgstr "Can count from 1 to 50."
+
+#: ../boards/drawnumber.xml.in.h:2
+msgid "Draw Number"
+msgstr "Draw Number"
+
+#: ../boards/drawnumber.xml.in.h:3
+msgid "Draw the picture by clicking on each numbers in the right order."
+msgstr "Draw the picture by clicking on each of the numbers in the right order."
+
+#: ../boards/drawnumber.xml.in.h:4
+msgid "Draw the picture by following numbers"
+msgstr "Draw the picture by following numbers"
+
 #: ../boards/electric.xml.in.h:1
 msgid "Create and simulate an electric schema"
 msgstr "Create and simulate an electric schema"
@@ -1124,13 +1152,13 @@ msgid "Animal pictures are taken from the Animal Photography Page of Ralf Schmod
 msgstr "Animal pictures are taken from the Animal Photography Page of Ralf Schmode (&lt;http://schmode.net/&gt;) and from LE BERRE Daniel. These people kindly gave GCompris the authorisation to include their pictures. Thanks a lot, both of you."
 
 #: ../boards/erase.xml.in.h:4
-#: ../src/boards/erase.c:116
+#: ../src/boards/erase.c:118
 #: ../src/boards/machpuzzle.c:88
 msgid "Move the mouse"
 msgstr "Move the mouse"
 
 #: ../boards/erase.xml.in.h:5
-#: ../src/boards/erase.c:117
+#: ../src/boards/erase.c:119
 msgid "Move the mouse to erase the area and discover the background"
 msgstr "Move the mouse to erase the area and discover the background"
 
@@ -1804,6 +1832,23 @@ msgstr "Regions of France"
 msgid "Deutschland Bundesländer"
 msgstr "Deutschland Bundesländer"
 
+#: ../boards/geography_country/board3_0.xml.in.h:1
+msgid "Provincias Argentinas"
+msgstr "Provincias Argentinas"
+
+#: ../boards/geography_country/board4_0.xml.in.h:1
+msgid "Polish Voivodship"
+msgstr "Polish Voivodship"
+
+#: ../boards/geography_country/board5_0.xml.in.h:1
+#: ../boards/geography_country/board5_2.xml.in.h:1
+msgid "Districts of Turkey"
+msgstr "Districts of Turkey"
+
+#: ../boards/geography_country/board5_1.xml.in.h:1
+msgid "Eastern Districts of Turkey"
+msgstr "Eastern Districts of Turkey"
+
 #: ../boards/geography_country/board6_0.xml.in.h:1
 msgid "Counties of Norway"
 msgstr "Counties of Norway"
@@ -2196,7 +2241,7 @@ msgid "sofa"
 msgstr "sofa"
 
 #: ../boards/imagename/board3_0.xml.in.h:7
-#: ../boards/imagename/board5_0.xml.in.h:5
+#: ../boards/imagename/board5_0.xml.in.h:4
 msgid "star"
 msgstr "star"
 
@@ -2213,16 +2258,13 @@ msgid "grater"
 msgstr "grater"
 
 #: ../boards/imagename/board4_0.xml.in.h:7
+#: ../boards/imagename/board5_0.xml.in.h:5
 msgid "tree"
 msgstr "tree"
 
 #: ../boards/imagename/board5_0.xml.in.h:2
 msgid "pencil"
 msgstr "pencil"
-
-#: ../boards/imagename/board5_0.xml.in.h:4
-msgid "spruce"
-msgstr "spruce"
 
 #: ../boards/imagename/board5_0.xml.in.h:6
 msgid "truck"
@@ -2756,7 +2798,7 @@ msgid "GCompris Main Menu"
 msgstr "GCompris Main Menu"
 
 #: ../boards/menu.xml.in.h:17
-#: ../src/boards/menu2.c:1003
+#: ../src/boards/menu2.c:1007
 msgid "GCompris is a collection of educational games that provides different activities for children aged 2 and up."
 msgstr "GCompris is a collection of educational games that provides different activities for children aged 2 and up."
 
@@ -2975,26 +3017,6 @@ msgstr "Mouse-manipulation activities."
 #: ../boards/mouse.xml.in.h:2
 msgid "Various mouse-based activities (clicking, moving)"
 msgstr "Various mouse-based activities (clicking, moving)"
-
-#: ../boards/mypaint.xml.in.h:1
-msgid "Choose brush and colors and draw. have fun!"
-msgstr "Choose brush and colours and draw. have fun!"
-
-#: ../boards/mypaint.xml.in.h:2
-msgid "MyPaint"
-msgstr "MyPaint"
-
-#: ../boards/mypaint.xml.in.h:3
-msgid "Painting activity. Uses pressure device if any."
-msgstr "Painting activity. Uses pressure device if any."
-
-#: ../boards/mypaint.xml.in.h:4
-msgid "Painting application"
-msgstr "Painting application"
-
-#: ../boards/mypaint.xml.in.h:5
-msgid "mouse manipulation"
-msgstr "mouse manipulation"
 
 #: ../boards/numeration.xml.in.h:1
 msgid "Numeration"
@@ -3315,16 +3337,27 @@ msgid "Direct your boat accurately to win the race."
 msgstr "Direct your boat accurately to win the race."
 
 #: ../boards/searace.xml.in.h:2
-#: ../boards/searace1player.xml.in.h:2
-msgid "In the text entry, enter one command per line, to control your boat. Commands supported are displayed between the two entry areas. The 'left' and 'right' commands must be followed by an angle in degrees. The angle value is also called a 'parameter' to the left or right command. By default 45 degrees is used. The 'forward' command accepts a distance parameter. By default 1 is used. For example: left 90 => Make a perpendicular left turn forward 10 => Go forward for 10 units (as displayed on the ruler). The goal is to reach the right of the screen (the red line). When done, you can try to improve your program and start a new race with the same weather conditions by using the retry button. You can click and drag your mouse anywhere on the map to get a measurement in distance and angle. Going to the next level will give you more complex weather conditions."
-msgstr "In the text entry, enter one command per line, to control your boat. Commands supported are displayed between the two entry areas. The 'left' and 'right' commands must be followed by an angle in degrees. The angle value is also called a 'parameter' to the left or right command. By default 45 degrees is used. The 'forward' command accepts a distance parameter. By default 1 is used. For example: left 90 => Make a perpendicular left turn forward 10 => Go forward for 10 units (as displayed on the ruler). The goal is to reach the right of the screen (the red line). When done, you can try to improve your program and start a new race with the same weather conditions by using the retry button. You can click and drag your mouse anywhere on the map to get a measurement in distance and angle. Going to the next level will give you more complex weather conditions."
+msgid ""
+"In the text entry, enter one command per line, to control your boat.\n"
+"Commands supported are displayed between the two entry areas. The 'left' and 'right' commands must be followed by an angle in degrees. The angle value is also called a 'parameter' to the left or right command. By default 45 degrees is used. The 'forward' command accepts a distance parameter. By default 1 is used.\n"
+"For example:\n"
+"- left 90: Make a perpendicular left turn\n"
+"- forward 10: Go forward for 10 units (as displayed on the ruler).\n"
+"The goal is to reach the right of the screen (the red line). When done, you can try to improve your program and start a new race with the same weather conditions by using the retry button. You can click and drag your mouse anywhere on the map to get a measurement in distance and angle. Going to the next level will give you more complex weather conditions."
+msgstr ""
+"In the text entry, enter one command per line, to control your boat.\n"
+"Commands supported are displayed between the two entry areas. The 'left' and 'right' commands must be followed by an angle in degrees. The angle value is also called a 'parameter' to the left or right command. By default 45 degrees is used. The 'forward' command accepts a distance parameter. By default 1 is used.\n"
+"For example:\n"
+"- left 90: Make a perpendicular left turn\n"
+"- forward 10: Go forward for 10 units (as displayed on the ruler).\n"
+"The goal is to reach the right of the screen (the red line). When done, you can try to improve your program and start a new race with the same weather conditions by using the retry button. You can click and drag your mouse anywhere on the map to get a measurement in distance and angle. Going to the next level will give you more complex weather conditions."
 
-#: ../boards/searace.xml.in.h:3
-#: ../boards/searace1player.xml.in.h:3
+#: ../boards/searace.xml.in.h:8
+#: ../boards/searace1player.xml.in.h:7
 msgid "In this activity, you will learn how to enter commands into a computer. Even if the language is extremely basic, you learn here how to think ahead and construct a program. This activity can be used to introduce the programming concept to children."
 msgstr "In this activity, you will learn how to enter commands into a computer. Even if the language is extremely basic, you learn here how to think ahead and construct a program. This activity can be used to introduce the programming concept to children."
 
-#: ../boards/searace.xml.in.h:4
+#: ../boards/searace.xml.in.h:9
 msgid "Sea race (2 Players)"
 msgstr "Sea race (2 Players)"
 
@@ -3332,7 +3365,21 @@ msgstr "Sea race (2 Players)"
 msgid "Give good instructions to your ship in order to be first in the race."
 msgstr "Give good instructions to your ship in order to be first in the race."
 
-#: ../boards/searace1player.xml.in.h:4
+#: ../boards/searace1player.xml.in.h:2
+msgid ""
+"In the text entry, enter one command per line, to control your boat. Commands supported are displayed between the two entry areas. The 'left' and 'right' commands must be followed by an angle in degrees. The angle value is also called a 'parameter' to the left or right command. By default 45 degrees is used. The 'forward' command accepts a distance parameter. By default 1 is used.\n"
+"For example:\n"
+"- left 90: Make a perpendicular left turn\n"
+"- forward 10: Go forward for 10 units (as displayed on the ruler).\n"
+"The goal is to reach the right of the screen (the red line). When done, you can try to improve your program and start a new race with the same weather conditions by using the retry button. You can click and drag your mouse anywhere on the map to get a measurement in distance and angle. Going to the next level will give you more complex weather conditions."
+msgstr ""
+"In the text entry, enter one command per line, to control your boat. Commands supported are displayed between the two entry areas. The 'left' and 'right' commands must be followed by an angle in degrees. The angle value is also called a 'parameter' to the left or right command. By default 45 degrees is used. The 'forward' command accepts a distance parameter. By default 1 is used.\n"
+"For example:\n"
+"- left 90: Make a perpendicular left turn\n"
+"- forward 10: Go forward for 10 units (as displayed on the ruler).\n"
+"The goal is to reach the right of the screen (the red line). When done, you can try to improve your program and start a new race with the same weather conditions by using the retry button. You can click and drag your mouse anywhere on the map to get a measurement in distance and angle. Going to the next level will give you more complex weather conditions."
+
+#: ../boards/searace1player.xml.in.h:8
 msgid "Sea race (Single Player)"
 msgstr "Sea race (Single Player)"
 
@@ -3381,8 +3428,8 @@ msgid "Strategy games like chess, connect4, ..."
 msgstr "Strategy games like chess, connect4, ..."
 
 #: ../boards/submarine.xml.in.h:1
-msgid "Click on different active elements : engine, rudders and air tanks, in order to navigate to the required depth. There is a gate on the right. Pass through it to reach the next level."
-msgstr "Click on different active elements : engine, rudders and air tanks, in order to navigate to the required depth. There is a gate on the right. Pass through it to reach the next level."
+msgid "Click on different active elements : engine, rudders and air tanks, in order to navigate to the required depth. There is a close gate on the right. Catch the jewel to open it, then pass through it to reach the next level."
+msgstr "Click on different active elements : engine, rudders and air tanks, in order to navigate to the required depth. There is a close gate on the right. Catch the jewel to open it, then pass through it to reach the next level."
 
 #: ../boards/submarine.xml.in.h:2
 msgid "Learn how a submarine works"
@@ -3728,17 +3775,17 @@ msgstr ""
 #. we can add what you want in it.
 #: ../src/boards/click_on_letter.c:623
 #: ../src/boards/colors.c:165
-#: ../src/boards/gletters.c:866
+#: ../src/boards/gletters.c:857
 #: ../src/boards/imageid.c:749
 #: ../src/boards/missingletter.c:772
-#: ../src/boards/python/admin/board_list.py:631
-#: ../src/boards/python/admin/board_list.py:649
+#: ../src/boards/python/admin/board_list.py:641
+#: ../src/boards/python/admin/board_list.py:659
 #: ../src/boards/python/admin/wordlist.py:50
 #: ../src/boards/python/login.py:535
-#: ../src/boards/python/pythontest.py:406
+#: ../src/boards/python/pythontest.py:409
 #: ../src/boards/python/tuxpaint.py:206
 #: ../src/boards/reading.c:833
-#: ../src/boards/scale.c:861
+#: ../src/boards/scale.c:862
 #: ../src/boards/shapegame.c:1863
 #: ../src/boards/smallnumbers.c:590
 #, c-format, python-format
@@ -3751,7 +3798,7 @@ msgstr ""
 
 #. toggle box
 #: ../src/boards/click_on_letter.c:646
-#: ../src/boards/gletters.c:899
+#: ../src/boards/gletters.c:890
 #: ../src/boards/python/login.py:540
 msgid "Uppercase only text"
 msgstr "Uppercase only text"
@@ -3802,8 +3849,8 @@ msgid "Click on the white duck"
 msgstr "Click on the white duck"
 
 #: ../src/boards/colors.c:177
-#: ../src/boards/python/admin/board_list.py:661
-#: ../src/boards/python/pythontest.py:470
+#: ../src/boards/python/admin/board_list.py:671
+#: ../src/boards/python/pythontest.py:473
 #: ../src/boards/smallnumbers.c:610
 msgid "Select sound locale"
 msgstr "Select sound locale"
@@ -3820,7 +3867,7 @@ msgstr "0123456789"
 msgid "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 msgstr "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
-#: ../src/boards/gletters.c:895
+#: ../src/boards/gletters.c:886
 #: ../src/boards/smallnumbers.c:608
 msgid "Enable sounds"
 msgstr "Enable sounds"
@@ -3851,7 +3898,7 @@ msgstr "Learn how to read"
 #: ../src/boards/python/searace.py:548
 #: ../src/boards/python/searace.py:857
 #: ../src/boards/python/searace.py:890
-#: ../src/boards/python/searace.py:987
+#: ../src/boards/python/searace.py:981
 msgid "left"
 msgstr "left"
 
@@ -3862,7 +3909,7 @@ msgstr "left"
 #: ../src/boards/python/searace.py:557
 #: ../src/boards/python/searace.py:859
 #: ../src/boards/python/searace.py:892
-#: ../src/boards/python/searace.py:981
+#: ../src/boards/python/searace.py:975
 msgid "right"
 msgstr "right"
 
@@ -3962,20 +4009,20 @@ msgstr "Main menu"
 #. image = gtk.image_new_from_stock(gtk.STOCK_PREFERENCES, gtk.ICON_SIZE_MENU)
 #. image.show()
 #. column_pref.set_widget(image)
-#: ../src/boards/python/admin/board_list.py:292
+#: ../src/boards/python/admin/board_list.py:302
 msgid "Active"
 msgstr "Active"
 
-#: ../src/boards/python/admin/board_list.py:293
+#: ../src/boards/python/admin/board_list.py:303
 msgid "Board title"
 msgstr "Board title"
 
-#: ../src/boards/python/admin/board_list.py:409
+#: ../src/boards/python/admin/board_list.py:419
 #, python-format
 msgid "Filter Boards difficulty for profile %s"
 msgstr "Filter Boards difficulty for profile %s"
 
-#: ../src/boards/python/admin/board_list.py:440
+#: ../src/boards/python/admin/board_list.py:450
 #, python-format
 msgid ""
 "<span size='x-large'> Select the difficulty range \n"
@@ -4289,15 +4336,15 @@ msgstr ""
 "One or more logins are not unique !\n"
 "You need to change them: %s !"
 
-#: ../src/boards/python/anim.py:2221
+#: ../src/boards/python/anim.py:2226
 msgid "SVG is disabled. Install python xml module to enable it"
 msgstr "SVG is disabled. Install python xml module to enable it"
 
-#: ../src/boards/python/anim.py:2377
+#: ../src/boards/python/anim.py:2382
 msgid "Warning: the following images cannot be accessed on your system.\n"
 msgstr "Warning: the following images cannot be accessed on your system.\n"
 
-#: ../src/boards/python/anim.py:2379
+#: ../src/boards/python/anim.py:2384
 msgid "The corresponding items have been skipped."
 msgstr "The corresponding items have been skipped."
 
@@ -4539,7 +4586,7 @@ msgstr "No matter how bad it was up there, the bottom was always calm and quiet.
 msgid "Oscar's best friends were Charlie the crab and Sandy the sea-star."
 msgstr "Oscar's best friends were Charlie the crab and Sandy the sea-star."
 
-#: ../src/boards/python/pythontest.py:145
+#: ../src/boards/python/pythontest.py:148
 msgid ""
 "This is the first plugin in gcompris coded in the Python\n"
 "Programming language."
@@ -4547,7 +4594,7 @@ msgstr ""
 "This is the first plugin in gcompris coded in the Python\n"
 "Programming language."
 
-#: ../src/boards/python/pythontest.py:154
+#: ../src/boards/python/pythontest.py:157
 msgid ""
 "It is now possible to develop gcompris activities in C or in Python.\n"
 "Thanks to Olivier Samys who makes this possible."
@@ -4555,35 +4602,35 @@ msgstr ""
 "It is now possible to develop gcompris activities in C or in Python.\n"
 "Thanks to Olivier Samys who makes this possible."
 
-#: ../src/boards/python/pythontest.py:163
+#: ../src/boards/python/pythontest.py:166
 msgid "This activity is not playable, just a test"
 msgstr "This activity is not playable, just a test"
 
 #. toggle box
-#: ../src/boards/python/pythontest.py:411
+#: ../src/boards/python/pythontest.py:414
 msgid "Disable line drawing in circle"
 msgstr "Disable line drawing in circle"
 
 #. combo box
-#: ../src/boards/python/pythontest.py:420
+#: ../src/boards/python/pythontest.py:423
 msgid "Color of the line"
 msgstr "Colour of the line"
 
 #. spin button for int
-#: ../src/boards/python/pythontest.py:431
+#: ../src/boards/python/pythontest.py:434
 msgid "Distance between circles"
 msgstr "Distance between circles"
 
 #. radio buttons for circle or rectangle
-#: ../src/boards/python/pythontest.py:442
+#: ../src/boards/python/pythontest.py:445
 msgid "Use circles"
 msgstr "Use circles"
 
-#: ../src/boards/python/pythontest.py:443
+#: ../src/boards/python/pythontest.py:446
 msgid "Use rectangles"
 msgstr "Use rectangles"
 
-#: ../src/boards/python/pythontest.py:446
+#: ../src/boards/python/pythontest.py:449
 msgid "Choice of pattern"
 msgstr "Choice of pattern"
 
@@ -4603,9 +4650,9 @@ msgstr "The race is already being run"
 #: ../src/boards/python/searace.py:539
 #: ../src/boards/python/searace.py:855
 #: ../src/boards/python/searace.py:884
+#: ../src/boards/python/searace.py:973
 #: ../src/boards/python/searace.py:979
-#: ../src/boards/python/searace.py:985
-#: ../src/boards/python/searace.py:993
+#: ../src/boards/python/searace.py:987
 msgid "forward"
 msgstr "forward"
 
@@ -4627,7 +4674,7 @@ msgid "The Green boat has won"
 msgstr "The Green boat has won"
 
 #: ../src/boards/python/searace.py:784
-#: ../src/boards/python/searace.py:1023
+#: ../src/boards/python/searace.py:1017
 msgid "Angle:"
 msgstr "Angle:"
 
@@ -4647,7 +4694,7 @@ msgstr "The command"
 msgid "Unknown command at line"
 msgstr "Unknown command at line"
 
-#: ../src/boards/python/searace.py:1023
+#: ../src/boards/python/searace.py:1017
 msgid "Distance:"
 msgstr "Distance:"
 
@@ -4841,8 +4888,8 @@ msgstr "This software is a GNU Package and is released under the GNU General Pub
 
 #: ../src/gcompris/about.c:278
 #: ../src/gcompris/about.c:288
-#: ../src/gcompris/config.c:470
-#: ../src/gcompris/config.c:480
+#: ../src/gcompris/config.c:471
+#: ../src/gcompris/config.c:481
 #: ../src/gcompris/dialog.c:97
 #: ../src/gcompris/help.c:382
 #: ../src/gcompris/help.c:392
@@ -4850,19 +4897,19 @@ msgstr "This software is a GNU Package and is released under the GNU General Pub
 msgid "OK"
 msgstr "OK"
 
-#: ../src/gcompris/bar.c:579
+#: ../src/gcompris/bar.c:577
 msgid "GCompris confirmation"
 msgstr "GCompris confirmation"
 
-#: ../src/gcompris/bar.c:580
+#: ../src/gcompris/bar.c:578
 msgid "Are you sure you want to quit?"
 msgstr "Are you sure you want to quit?"
 
-#: ../src/gcompris/bar.c:581
+#: ../src/gcompris/bar.c:579
 msgid "Yes, I am sure!"
 msgstr "Yes, I am sure!"
 
-#: ../src/gcompris/bar.c:582
+#: ../src/gcompris/bar.c:580
 msgid "No, I want to keep going"
 msgstr "No, I want to keep going"
 
@@ -5056,103 +5103,107 @@ msgid "Norwegian Nynorsk"
 msgstr "Norwegian Nynorsk"
 
 #: ../src/gcompris/config.c:98
+msgid "Occitan (languedocien)"
+msgstr "Occitan (languedocien)"
+
+#: ../src/gcompris/config.c:99
 msgid "Polish"
 msgstr "Polish"
 
-#: ../src/gcompris/config.c:99
+#: ../src/gcompris/config.c:100
 msgid "Portuguese"
 msgstr "Portuguese"
 
-#: ../src/gcompris/config.c:100
+#: ../src/gcompris/config.c:101
 msgid "Portuguese (Brazil)"
 msgstr "Portuguese (Brazil)"
 
-#: ../src/gcompris/config.c:101
+#: ../src/gcompris/config.c:102
 msgid "Romanian"
 msgstr "Romanian"
 
-#: ../src/gcompris/config.c:102
+#: ../src/gcompris/config.c:103
 msgid "Russian"
 msgstr "Russian"
 
-#: ../src/gcompris/config.c:103
+#: ../src/gcompris/config.c:104
 msgid "Kinyarwanda"
 msgstr "Kinyarwanda"
 
-#: ../src/gcompris/config.c:104
+#: ../src/gcompris/config.c:105
 msgid "Slovak"
 msgstr "Slovak"
 
-#: ../src/gcompris/config.c:105
+#: ../src/gcompris/config.c:106
 msgid "Slovenian"
 msgstr "Slovenian"
 
-#: ../src/gcompris/config.c:106
+#: ../src/gcompris/config.c:107
 msgid "Somali"
 msgstr "Somali"
 
-#: ../src/gcompris/config.c:107
+#: ../src/gcompris/config.c:108
 msgid "Albanian"
 msgstr "Albanian"
 
-#: ../src/gcompris/config.c:108
+#: ../src/gcompris/config.c:109
 msgid "Serbian (Latin)"
 msgstr "Serbian (Latin)"
 
-#: ../src/gcompris/config.c:109
+#: ../src/gcompris/config.c:110
 msgid "Serbian"
 msgstr "Serbian"
 
-#: ../src/gcompris/config.c:110
+#: ../src/gcompris/config.c:111
 msgid "Swedish"
 msgstr "Swedish"
 
 #. "ta_IN.UTF-8",	N_("Tamil"),
-#: ../src/gcompris/config.c:112
+#: ../src/gcompris/config.c:113
 msgid "Thai"
 msgstr "Thai"
 
-#: ../src/gcompris/config.c:113
+#: ../src/gcompris/config.c:114
 msgid "Turkish"
 msgstr "Turkish"
 
-#: ../src/gcompris/config.c:114
+#: ../src/gcompris/config.c:115
 msgid "Vietnamese"
 msgstr "Vietnamese"
 
-#: ../src/gcompris/config.c:115
+#: ../src/gcompris/config.c:116
 msgid "Walloon"
 msgstr "Walloon"
 
-#: ../src/gcompris/config.c:116
+#: ../src/gcompris/config.c:117
 msgid "Chinese (Simplified)"
 msgstr "Chinese (Simplified)"
 
-#: ../src/gcompris/config.c:117
+#: ../src/gcompris/config.c:118
 msgid "Chinese (Traditional)"
 msgstr "Chinese (Traditional)"
 
-#: ../src/gcompris/config.c:122
+#: ../src/gcompris/config.c:123
 msgid "No time limit"
 msgstr "No time limit"
 
-#: ../src/gcompris/config.c:123
+#: ../src/gcompris/config.c:124
 msgid "Slow timer"
 msgstr "Slow timer"
 
-#: ../src/gcompris/config.c:124
+#: ../src/gcompris/config.c:125
 msgid "Normal timer"
 msgstr "Normal timer"
 
-#: ../src/gcompris/config.c:125
+#: ../src/gcompris/config.c:126
 msgid "Fast timer"
 msgstr "Fast timer"
 
-#: ../src/gcompris/config.c:130
+#: ../src/gcompris/config.c:131
 msgid "800x600 (Default for gcompris)"
 msgstr "800x600 (Default for gcompris)"
 
-#: ../src/gcompris/config.c:135
+#: ../src/gcompris/config.c:136
 msgid ""
 "<i>Use Gcompris administration module\n"
 "to filter boards</i>"
@@ -5160,40 +5211,40 @@ msgstr ""
 "<i>Use Gcompris administration module\n"
 "to filter boards</i>"
 
-#: ../src/gcompris/config.c:190
-#: ../src/gcompris/config.c:200
+#: ../src/gcompris/config.c:191
+#: ../src/gcompris/config.c:201
 msgid "GCompris Configuration"
 msgstr "GCompris Configuration"
 
-#: ../src/gcompris/config.c:276
+#: ../src/gcompris/config.c:277
 msgid "Fullscreen"
 msgstr "Fullscreen"
 
-#: ../src/gcompris/config.c:319
+#: ../src/gcompris/config.c:320
 msgid "Music"
 msgstr "Music"
 
-#: ../src/gcompris/config.c:347
+#: ../src/gcompris/config.c:348
 msgid "Effect"
 msgstr "Effect"
 
-#: ../src/gcompris/config.c:383
+#: ../src/gcompris/config.c:384
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "Couldn't open skin dir: %s"
 
-#: ../src/gcompris/config.c:414
-#: ../src/gcompris/config.c:865
-#: ../src/gcompris/config.c:879
+#: ../src/gcompris/config.c:415
+#: ../src/gcompris/config.c:866
+#: ../src/gcompris/config.c:880
 #, c-format
 msgid "Skin : %s"
 msgstr "Skin : %s"
 
-#: ../src/gcompris/config.c:416
+#: ../src/gcompris/config.c:417
 msgid "SKINS NOT FOUND"
 msgstr "SKINS NOT FOUND"
 
-#: ../src/gcompris/config.c:541
+#: ../src/gcompris/config.c:542
 msgid "English (United State)"
 msgstr "English (United States)"
 
@@ -5225,123 +5276,127 @@ msgstr ""
 "Exit it and report\n"
 "the problem to the authors"
 
-#: ../src/gcompris/gcompris.c:133
+#: ../src/gcompris/gcompris.c:139
 msgid "run gcompris in fullscreen mode."
 msgstr "run gcompris in fullscreen mode."
 
-#: ../src/gcompris/gcompris.c:136
+#: ../src/gcompris/gcompris.c:142
 msgid "run gcompris in window mode."
 msgstr "run gcompris in window mode."
 
-#: ../src/gcompris/gcompris.c:139
+#: ../src/gcompris/gcompris.c:145
 msgid "run gcompris with sound enabled."
 msgstr "run gcompris with sound enabled."
 
-#: ../src/gcompris/gcompris.c:142
+#: ../src/gcompris/gcompris.c:148
 msgid "run gcompris without sound."
 msgstr "run gcompris without sound."
 
-#: ../src/gcompris/gcompris.c:145
+#: ../src/gcompris/gcompris.c:151
 msgid "run gcompris with the default gnome cursor."
 msgstr "run gcompris with the default gnome cursor."
 
-#: ../src/gcompris/gcompris.c:148
+#: ../src/gcompris/gcompris.c:154
 msgid "display only activities with this difficulty level."
 msgstr "display only activities with this difficulty level."
 
-#: ../src/gcompris/gcompris.c:151
+#: ../src/gcompris/gcompris.c:157
 msgid "display debug informations on the console."
 msgstr "display debug informations on the console."
 
-#: ../src/gcompris/gcompris.c:154
+#: ../src/gcompris/gcompris.c:160
 msgid "Print the version of "
 msgstr "Print the version of "
 
-#: ../src/gcompris/gcompris.c:157
+#: ../src/gcompris/gcompris.c:163
 msgid "Use the antialiased canvas (slower)."
 msgstr "Use the antialiased canvas (slower)."
 
-#: ../src/gcompris/gcompris.c:160
+#: ../src/gcompris/gcompris.c:166
 msgid "Disable XF86VidMode (No screen resolution change)."
 msgstr "Disable XF86VidMode (No screen resolution change)."
 
-#: ../src/gcompris/gcompris.c:163
+#: ../src/gcompris/gcompris.c:169
 msgid "Run gcompris with local menu (e.g -l /reading will let you play only activities in the reading directory, -l /strategy/connect4 only the connect4 activity)"
 msgstr "Run gcompris with local menu (e.g -l /reading will let you play only activities in the reading directory, -l /strategy/connect4 only the connect4 activity)"
 
-#: ../src/gcompris/gcompris.c:166
+#: ../src/gcompris/gcompris.c:172
 msgid "Run GCompris with local activity directory added to menu"
 msgstr "Run GCompris with local activity directory added to menu"
 
-#: ../src/gcompris/gcompris.c:169
+#: ../src/gcompris/gcompris.c:175
 msgid "Run GCompris in administration and user-management mode"
 msgstr "Run GCompris in administration and user-management mode"
 
-#: ../src/gcompris/gcompris.c:172
+#: ../src/gcompris/gcompris.c:178
 msgid "Use alternate database for profiles [$HOME/.config/gcompris/gcompris_sqlite.db]"
 msgstr "Use alternate database for profiles [$HOME/.config/gcompris/gcompris_sqlite.db]"
 
-#: ../src/gcompris/gcompris.c:175
+#: ../src/gcompris/gcompris.c:181
 msgid "Create the alternate database for profiles"
 msgstr "Create the alternate database for profiles"
 
-#: ../src/gcompris/gcompris.c:178
+#: ../src/gcompris/gcompris.c:184
 msgid "Re-read XML Menus and store them in the database"
 msgstr "Re-read XML Menus and store them in the database"
 
-#: ../src/gcompris/gcompris.c:181
+#: ../src/gcompris/gcompris.c:187
 msgid "Set the profile to use. Use 'gcompris -a' to create profiles"
 msgstr "Set the profile to use. Use 'gcompris -a' to create profiles"
 
-#: ../src/gcompris/gcompris.c:184
+#: ../src/gcompris/gcompris.c:190
 msgid "List all available profiles. Use 'gcompris -a' to create profiles"
 msgstr "List all available profiles. Use 'gcompris -a' to create profiles"
 
-#: ../src/gcompris/gcompris.c:187
+#: ../src/gcompris/gcompris.c:193
 msgid "Config directory location: [$HOME/.config/gcompris]. Alternate is to set $XDG_CONFIG_HOME."
 msgstr "Config directory location: [$HOME/.config/gcompris]. Alternate is to set $XDG_CONFIG_HOME."
 
-#: ../src/gcompris/gcompris.c:190
+#: ../src/gcompris/gcompris.c:196
 msgid "The location of user directories: [$HOME/My GCompris]"
 msgstr "The location of user directories: [$HOME/My GCompris]"
 
-#: ../src/gcompris/gcompris.c:193
+#: ../src/gcompris/gcompris.c:199
 msgid "Run the experimental activities"
 msgstr "Run the experimental activities"
 
-#: ../src/gcompris/gcompris.c:196
+#: ../src/gcompris/gcompris.c:202
 msgid "Disable the quit button"
 msgstr "Disable the quit button"
 
-#: ../src/gcompris/gcompris.c:199
+#: ../src/gcompris/gcompris.c:205
 msgid "Disable the config button"
 msgstr "Disable the configuration button"
 
-#: ../src/gcompris/gcompris.c:204
+#: ../src/gcompris/gcompris.c:210
 msgid "Display the resources on stdout based on the selected activities"
 msgstr "Display the resources on stdout based on the selected activities"
 
-#: ../src/gcompris/gcompris.c:208
+#: ../src/gcompris/gcompris.c:214
 msgid "GCompris will get images, sounds and activity data from this server if not found locally."
 msgstr "GCompris will get images, sounds and activity data from this server if not found locally."
 
-#: ../src/gcompris/gcompris.c:211
+#: ../src/gcompris/gcompris.c:217
 msgid "Only when --server is provided, disable check for local resource first. Data are always taken from the web server."
 msgstr "Only when --server is provided, disable check for local resource first. Data is always taken from the web server."
 
-#: ../src/gcompris/gcompris.c:215
+#: ../src/gcompris/gcompris.c:221
 msgid "In server mode, specify the cache directory used to avoid useless downloads."
 msgstr "In server mode, specify the cache directory used to avoid useless downloads."
 
-#: ../src/gcompris/gcompris.c:218
+#: ../src/gcompris/gcompris.c:224
 msgid "Global drag and drop mode: normal, 2clicks, both. Default mode is normal."
 msgstr "Global drag and drop mode: normal, 2clicks, both. Default mode is normal."
 
-#: ../src/gcompris/gcompris.c:221
+#: ../src/gcompris/gcompris.c:227
 msgid "Do not display the background images of activities."
 msgstr "Do not display the background images of activities."
 
-#: ../src/gcompris/gcompris.c:835
+#: ../src/gcompris/gcompris.c:230
+msgid "Do not avoid the execution of multiple instances of GCompris."
+msgstr "Do not avoid the execution of multiple instances of GCompris."
+
+#: ../src/gcompris/gcompris.c:844
 #, c-format
 msgid ""
 "GCompris is free software released under the GPL License. In order to support its development, the Windows version provides only %d of the %d activities. You can get the full version for a small fee at\n"
@@ -5354,7 +5409,7 @@ msgstr ""
 "The GNU/Linux version does not have this restriction. Note that GCompris is being developed to free schools from monopolistic software vendors. If you also believe that we should teach freedom to children, please consider using GNU/Linux. Get more information at FSF:\n"
 "<http://www.fsf.org/philosophy>"
 
-#: ../src/gcompris/gcompris.c:1475
+#: ../src/gcompris/gcompris.c:1539
 #, c-format
 msgid ""
 "GCompris\n"
@@ -5368,17 +5423,17 @@ msgstr ""
 "More info at http://gcompris.net\n"
 
 #. check the list of possible values for -l, then exit
-#: ../src/gcompris/gcompris.c:1559
+#: ../src/gcompris/gcompris.c:1623
 #, c-format
 msgid "Use -l to access an activity directly.\n"
 msgstr "Use -l to access an activity directly.\n"
 
-#: ../src/gcompris/gcompris.c:1560
+#: ../src/gcompris/gcompris.c:1624
 #, c-format
 msgid "The list of available activities is :\n"
 msgstr "The list of available activities is :\n"
 
-#: ../src/gcompris/gcompris.c:1747
+#: ../src/gcompris/gcompris.c:1811
 #, c-format
 msgid "The list of available profiles is:\n"
 msgstr "The list of available profiles is:\n"
@@ -5418,13 +5473,13 @@ msgstr "This directory contains the files you create with the GCompris education
 
 #: ../src/gcompris/properties.c:496
 msgid ""
-"Put any numer of images in this directory.\n"
+"Put any number of images in this directory.\n"
 "You can include these images in your drawings and animations.\n"
-"The image format supported are jpeg, png and svg.\n"
+"The image formats supported are jpeg, png and svg.\n"
 msgstr ""
 "Put any number of images in this directory.\n"
 "You can include these images in your drawings and animations.\n"
-"The image format supported are jpeg, png and svg.\n"
+"The image formats supported are jpeg, png and svg.\n"
 
 #: ../src/gcompris/timer.c:250
 msgid "Time Elapsed"
@@ -5435,6 +5490,18 @@ msgstr "Time Elapsed"
 msgid "Remaining Time = %d"
 msgstr "Remaining Time = %d"
 
+#~ msgid "spruce"
+#~ msgstr "spruce"
+#~ msgid "Choose brush and colors and draw. have fun!"
+#~ msgstr "Choose brush and colours and draw. have fun!"
+#~ msgid "MyPaint"
+#~ msgstr "MyPaint"
+#~ msgid "Painting activity. Uses pressure device if any."
+#~ msgstr "Painting activity. Uses pressure device if any."
+#~ msgid "Painting application"
+#~ msgstr "Painting application"
+#~ msgid "mouse manipulation"
+#~ msgstr "mouse manipulation"
 #~ msgid "Use alternate database for logs"
 #~ msgstr "Use alternate database for logs"
 #~ msgid "Double-Click the mouse to erase the area and discover the background"
