@@ -59,6 +59,7 @@ static gchar *linguas[] = {
   "",			N_("Your system default"),
   "am_ET.UTF-8", 	N_("Amharic"),
   "ar_AE.UTF-8", 	N_("Arabic"),
+  "ar_TN.UTF-8", 	N_("Arabic (Tunisia)"),
   "az_AZ.UTF-8", 	N_("Turkish (Azerbaijan)"),
   "bg_BG.UTF-8",	N_("Bulgarian"),
   "ca_ES.UTF-8",	N_("Catalan"),

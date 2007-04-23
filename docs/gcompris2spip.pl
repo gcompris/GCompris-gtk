@@ -28,6 +28,10 @@ use Data::Dumper;
 #  Authors: Bruno Coudoin <bruno.coudoin@free.fr>
 #
 
+# Prerequisite: We need to have the translation in the xml files in order
+#               for this script to work.
+#               activate @INTLTOOL_XML_RULE@ in boards/Makefile.am
+
 # -----------------------------------------------------------------------------------------
 # USAGE:
 # This tool requires no parameters. It must be run withing the gcompris/docs directory
@@ -41,12 +45,14 @@ use Data::Dumper;
 my %sections = (
 		"am", 0,
 		"ar", 0,
+		"ar_TN", 0,
 		"az", 0,
 		"bg", 0,
 		"ca", 0,
 		"cs", 0,
 		"da", 37,
 		"de", 54,
+		"dz", 0,
 		"el", 0,
 		"en", 2,
 		"en_CA", 0,
@@ -57,12 +63,15 @@ my %sections = (
 		"fi", 36,
 		"fr", 1,
 		"ga", 0,
+		"gl", 0,
 		"gu", 0,
 		"he", 0,
 		"hi", 0,
 		"hr", 0,
 		"hu", 121,
+		"id", 0,
 		"it", 60,
+		"ja", 0,
 		"ka", 0,
 		"ko", 0,
 		"lt", 0,
@@ -102,12 +111,14 @@ my %sections = (
 my %rubriques = (
 		 "am", 0,
 		 "ar", 0,
+		 "ar_TN", 0,
 		 "az", 0,
 		 "bg", 0,
 		 "ca", 0,
 		 "cs", 0,
 		 "da", 61,
 		 "de", 64,
+		 "dz", 0,
 		 "el", 0,
 		 "en", 12,
 		 "en_CA", 0,
@@ -118,12 +129,15 @@ my %rubriques = (
 		 "fi", 73,
 		 "fr", 6,
 		 "ga", 0,
+		 "gl", 0,
 		 "gu", 0,
 		 "he", 0,
 		 "hi", 0,
 		 "hr", 0,
 		 "hu", 123,
+		 "id", 0,
 		 "it", 66,
+		 "ja", 0,
 		 "ka", 0,
 		 "ko", 0,
 		 "lt", 0,
@@ -164,12 +178,14 @@ my %rubriques = (
 my %rubriques_all = (
 		 "am", 0,
 		 "ar", 0,
+		 "ar_TN", 0,
 		 "az", 0,
 		 "bg", 0,
 		 "ca", 0,
 		 "cs", 0,
 		 "da", 62,
 		 "de", 65,
+		 "dz", 0,
 		 "el", 0,
 		 "en", 68,
 		 "en_CA", 0,
@@ -181,11 +197,14 @@ my %rubriques_all = (
 		 "fr", 63,
 		 "ga", 0,
 		 "gu", 0,
+		 "gl", 0,
 		 "he", 0,
 		 "hi", 0,
 		 "hr", 0,
 		 "hu", 124,
+		 "id", 0,
 		 "it", 67,
+		 "ja", 0,
 		 "ka", 0,
 		 "ko", 0,
 		 "lt", 0,
@@ -317,7 +336,7 @@ foreach my $board (@files) {
   my $board_section;
   my $board_name;
   my $board_type;
-  read(BOARD, $board_content, 65535);
+  read(BOARD, $board_content, 165535);
 
   $board_section = ($board_content =~ /section=\"([a-zA-Z\/\._]+)\"/)[0];
   $board_name    = ($board_content =~ /name=\"([a-zA-Z\/\.\:_]+)\"/)[0];
