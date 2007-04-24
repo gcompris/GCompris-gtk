@@ -1,17 +1,17 @@
 # Bulgarian translation of gcompris.
-# Copyright (C) 2005, 2006, Free Software Foundation, Inc
+# Copyright (C) 2005, 2006, 2007 Free Software Foundation, Inc
 # This file is distributed under the same license as the gcompris package.
-# Yavor Doganov <yavor@doganov.org>, 2005, 2006.
+# Yavor Doganov <yavor@gnu.org>, 2005, 2006, 2007.
 #
 #
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: gcompris HEAD\n"
+"Project-Id-Version: gcompris trunk\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-11-02 09:25+0200\n"
-"PO-Revision-Date: 2006-11-01 17:03+0200\n"
-"Last-Translator: Yavor Doganov <yavor@doganov.org>\n"
+"POT-Creation-Date: 2007-04-24 18:28+0300\n"
+"PO-Revision-Date: 2007-04-24 18:27+0300\n"
+"Last-Translator: Yavor Doganov <yavor@gnu.org>\n"
 "Language-Team: Bulgarian <dict@fsa-bg.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -412,12 +412,11 @@ msgstr "Упражнения по умножение"
 msgid "Go to Algebra activities"
 msgstr "Задачи по алгебра"
 
-#: ../boards/algebra_group.xml.in.h:2 ../boards/menu.xml.in.h:17
+#: ../boards/algebra_group.xml.in.h:2 ../boards/menu.xml.in.h:18
 msgid "Left-click the mouse on an activity to select it."
 msgstr "Натиснете с левия бутон на мишката, за да изберете задача."
 
 #: ../boards/algebra_guesscount.xml.in.h:1 ../boards/erase_clic.xml.in.h:1
-#: ../boards/erase_double_clic.xml.in.h:1
 msgid ""
 "Animal pictures come from the Animal Photography Page of Ralf Schmode "
 "(http://schmode.net/). Ralf has kindly permitted Gcompris to include his "
@@ -778,9 +777,9 @@ msgstr "Вкарайте топката в целта"
 
 #: ../boards/billard.xml.in.h:3 ../boards/chess_computer.xml.in.h:2
 #: ../boards/chess_movelearn.xml.in.h:3 ../boards/chess_partyend.xml.in.h:2
-#: ../boards/clickgame.xml.in.h:16 ../boards/connect4.xml.in.h:6
-#: ../boards/erase.xml.in.h:3 ../boards/erase_clic.xml.in.h:6
-#: ../boards/erase_double_clic.xml.in.h:6 ../boards/fifteen.xml.in.h:2
+#: ../boards/clickgame.xml.in.h:5 ../boards/connect4.xml.in.h:6
+#: ../boards/connect4-2players.xml.in.h:5 ../boards/erase.xml.in.h:3
+#: ../boards/erase_clic.xml.in.h:6 ../boards/fifteen.xml.in.h:2
 #: ../boards/hanoi.xml.in.h:3 ../boards/memory.xml.in.h:4
 #: ../boards/tangram.xml.in.h:8
 msgid "Mouse-manipulation"
@@ -817,6 +816,28 @@ msgid ""
 msgstr ""
 "Отговаряте за шлюз в канал. Отворете вратите и камерите в правилна "
 "последователност, така че Тъкс да може да се движи и в двете посоки."
+
+#: ../boards/chat.xml.in.h:1
+msgid "Chat with your friends"
+msgstr "Разговаряйте с приятели"
+
+#: ../boards/chat.xml.in.h:2
+msgid "This chat activity only works on the local network"
+msgstr "Това занимание работи само за разговори в локалната мрежа"
+
+#: ../boards/chat.xml.in.h:3
+msgid ""
+"This chat activity will only work with other GCompris users on your local "
+"network, not on the Internet. To use it, just type in your message and hit "
+"Enter. Your message is then broadcast on the local network, and any GCompris "
+"program running the chat activity on that local network will receive and "
+"display your message."
+msgstr ""
+"Това занимание за разговори ще работи само с други потребители на GCompris в "
+"локалната мрежа, а не в Интернет. За да го използвате, просто напишете "
+"съобщението си натиснете „Enter“. Съобщението ще се излъчи в локалната мрежа "
+"и всяка програма GCompris, която изпълнява това занимание на друга машина, "
+"ще получи и покаже вашето съобщение."
 
 #: ../boards/chess.xml.in.h:1 ../boards/chess_computer.xml.in.h:3
 msgid "Play chess against the computer in a learning mode"
@@ -880,15 +901,15 @@ msgstr "Разкажете кратка история"
 msgid "Moonwalker"
 msgstr "Човек на луната"
 
-#: ../boards/chronos/board1_1.xml.in.h:1
+#: ../boards/chronos/board1_1.xml.in.h:1 ../src/boards/wordprocessor.c:118
 msgid "Autumn"
 msgstr "Есен"
 
-#: ../boards/chronos/board1_1.xml.in.h:2
+#: ../boards/chronos/board1_1.xml.in.h:2 ../src/boards/wordprocessor.c:116
 msgid "Spring"
 msgstr "Пролет"
 
-#: ../boards/chronos/board1_1.xml.in.h:3
+#: ../boards/chronos/board1_1.xml.in.h:3 ../src/boards/wordprocessor.c:117
 msgid "Summer"
 msgstr "Лято"
 
@@ -896,7 +917,7 @@ msgstr "Лято"
 msgid "The 4 Seasons"
 msgstr "Четирите сезона"
 
-#: ../boards/chronos/board1_1.xml.in.h:5
+#: ../boards/chronos/board1_1.xml.in.h:5 ../src/boards/wordprocessor.c:119
 msgid "Winter"
 msgstr "Зима"
 
@@ -927,16 +948,16 @@ msgid ""
 "Place each image in the order and\n"
 "on the date it was invented.\n"
 "If not sure, research online at wikipedia:\n"
-"&lt;http://www.wikipedia.org&gt;"
+"http://www.wikipedia.org"
 msgstr ""
 "Поставете всяко изображение\n"
 "по реда и датата на изобретението.\n"
 "Ако не сте сигурни, проверете в Уикипедия:\n"
-"&lt;http://wikipedia.org&gt;"
+"http://wikipedia.org"
 
 #: ../boards/chronos/board3_0.xml.in.h:8 ../boards/chronos/board3_1.xml.in.h:6
 #: ../boards/chronos/board3_2.xml.in.h:5 ../boards/chronos/board3_3.xml.in.h:7
-#: ../boards/chronos/board3_4.xml.in.h:4
+#: ../boards/chronos/board3_4.xml.in.h:5
 msgid "Transportation"
 msgstr "Транспорт"
 
@@ -949,7 +970,7 @@ msgstr ""
 "на братя Монголфие от 1783 г."
 
 #: ../boards/chronos/board3_1.xml.in.h:3 ../boards/chronos/board3_2.xml.in.h:4
-#: ../boards/chronos/board3_4.xml.in.h:3 ../boards/chronos/board4_0.xml.in.h:1
+#: ../boards/chronos/board3_4.xml.in.h:4 ../boards/chronos/board4_0.xml.in.h:1
 msgid "1880 Clement Ader's Eole"
 msgstr "Еолът на Клемент Адер от 1880 г."
 
@@ -1027,7 +1048,7 @@ msgstr "Автомобилът"
 
 #: ../boards/chronos/board4_3.xml.in.h:1
 msgid "1899 Renault \"voiturette\""
-msgstr "„Трикоклата“ на Рено от 1899 г."
+msgstr "„Триколката“ на Рено от 1899 г."
 
 #: ../boards/chronos/board4_3.xml.in.h:2
 msgid "1923 Lancia Lambda"
@@ -1040,6 +1061,18 @@ msgstr "Ситроен „ds 19“ от 1955 г."
 #: ../boards/chronos/board4_3.xml.in.h:4
 msgid "Cars"
 msgstr "Автомобили"
+
+#: ../boards/clickanddraw.xml.in.h:1
+msgid "Click and draw"
+msgstr "Натиснете и рисувайте"
+
+#: ../boards/clickanddraw.xml.in.h:2
+msgid "Draw the picture by clicking on each blue point in sequence."
+msgstr "Нарисувайте рисунката като натискате последователно всяка синя точка."
+
+#: ../boards/clickanddraw.xml.in.h:3
+msgid "Draw the picture by clicking on the blue points."
+msgstr "Нарисувайте рисунката, натискайки сините точки."
 
 #: ../boards/click_on_letter.xml.in.h:1
 msgid ""
@@ -1072,41 +1105,13 @@ msgstr "Натисни ме"
 
 #: ../boards/clickgame.xml.in.h:2
 msgid ""
-"Fish are taken from the Unix utility xfishtank.\n"
-"Images are taken from the National Undersea Research Program (NURP) "
-"Collection\n"
-"at &lt;http://www.photolib.noaa.gov&gt;\n"
-"All image credits belong to the OAR/National Undersea Research Program "
-"(NURP),\n"
-"except for the first image, which is property of the University of North "
-"Carolina at Wilmington.\n"
-"The images used in each level are:\n"
-"Location: Tropical Atlantic Ocean, Florida Keys (image nur00523) "
-"Photographer: D. Kesling\n"
-"Location: Florida Keys (image nur03006)\n"
-"Location: Unknown (image nur03505)\n"
-"Location: Unknown (image nur03010)\n"
-"Location: Unknown (image nur03011)\n"
-"Location: Unknown (image nur03013)"
+"Fish are taken from the Unix utility xfishtank. All image credits belong to "
+"Guillaume Rousse."
 msgstr ""
-"Рибите са взети от програмата за Unix xfishtank.\n"
-"Снимките са взети от Националната програма за подводни изследвания (NURP), "
-"колекцията\n"
-"се намира на &lt;http://www.photolib.noaa.gov&gt;.\n"
-"Всички заслуги за снимките са на OAR/Националната програма за подводни "
-"изследвания (NURP),\n"
-"освен първата снимка, която е собственост на Университета на Северна "
-"Каролина в Уилмингтън.\n"
-"Снимките, използвани за всяко ниво, са: \n"
-"Място: Тропически Атлантически океан, архипелаг „Флорида кийз“ (nur00523) "
-"Фотограф: Д. Кеслинг\n"
-"Място: архипелаг „Флорида кийз“ (nur03006)\n"
-"Място: неизвестно (nur03505)\n"
-"Място: неизвестно (nur03010)\n"
-"Място: неизвестно (nur03011)\n"
-"Място: неизвестно (nur03013)"
+"Рибите са взети от програмата за „Юникс“ xfishtank. Приносът за "
+"изображенията е на Гийом Рус."
 
-#: ../boards/clickgame.xml.in.h:14
+#: ../boards/clickgame.xml.in.h:3
 msgid ""
 "Left-Click with the mouse on all the swimming fish before they leave the "
 "fishtank"
@@ -1114,11 +1119,11 @@ msgstr ""
 "Натиснете с левия бутон на мишката всички плуващи риби, преди да са "
 "напуснали аквариума."
 
-#: ../boards/clickgame.xml.in.h:15
+#: ../boards/clickgame.xml.in.h:4
 msgid "Motor coordination: moving and clicking the mouse."
 msgstr "Двигателна координация: движение на мишката и натискане."
 
-#: ../boards/clickgame.xml.in.h:17
+#: ../boards/clickgame.xml.in.h:6
 msgid "Use the left mouse button to click on the moving fish."
 msgstr "Натиснете движещата се риба с левия бутон на мишката."
 
@@ -1192,13 +1197,19 @@ msgstr "Опознаване на компютъра"
 msgid "Play with computer peripherals."
 msgstr "Игра с периферните устройства на компютъра."
 
-#: ../boards/connect4.xml.in.h:1
+#: ../boards/connect4.xml.in.h:1 ../boards/connect4-2players.xml.in.h:1
 msgid "Arrange four coins in a row"
-msgstr "Подредете четири монети в един ред"
+msgstr "Подредете четири пула в един ред"
 
-#: ../boards/connect4.xml.in.h:2
-msgid "Click anywhere in the line where you want to drop a piece"
-msgstr "Натиснете където и да е в реда, в който искате да пуснете парче"
+#: ../boards/connect4.xml.in.h:2 ../boards/connect4-2players.xml.in.h:2
+msgid ""
+"Click the position in the line where you want to drop a piece. You can also "
+"use the arrow keys to move the piece left or right, and the down or space "
+"key to drop a piece."
+msgstr ""
+"Натиснете върху колоната, където искате да пуснете пула. Може да използвате "
+"и стрелките на клавиатурата, за да го движите наляво или надясно, и долната "
+"стрелка или интервала, за да го пуснете."
 
 #: ../boards/connect4.xml.in.h:3
 msgid "Connect 4"
@@ -1206,11 +1217,11 @@ msgstr "Свързване на 4"
 
 #: ../boards/connect4.xml.in.h:4
 msgid ""
-"Create a line of 4 pieces either horizontally (lying down) or vertically "
-"(standing up)"
+"Create a line of 4 pieces either horizontally (lying down), vertically "
+"(standing up) or diagonally."
 msgstr ""
-"Създайте поредица от 4 парчета по хоризонтала (легнали) или вертикала "
-"(изправени)"
+"Създайте поредица от 4 пула по хоризонтала (легнали), вертикала (изправени) "
+"или диагонално."
 
 #: ../boards/connect4.xml.in.h:5
 msgid ""
@@ -1222,6 +1233,30 @@ msgstr ""
 "4stattack от Жерон Вльотюи. Оригиналният проект може да бъде намерен на &lt;"
 "http://forcedattack.sourceforge.net&gt;"
 
+#: ../boards/connect4-2players.xml.in.h:3
+msgid "Connect 4 (2 Players)"
+msgstr "Свързване на 4 (2 играчи)"
+
+#: ../boards/connect4-2players.xml.in.h:4
+msgid ""
+"Create a line of 4 pieces either horizontally (lying down) or vertically "
+"(standing up) or diagonally."
+msgstr ""
+"Създайте поредица от 4 пула по хоризонтала (легнали), вертикала (изправени) "
+"или диагонално."
+
+#: ../boards/connect4-2players.xml.in.h:6
+msgid ""
+"The original code was written in 2005 by Laurent Lacheny. In 2006, Miguel de "
+"Izarra made the two players game. Images and Artificial Intelligence taken "
+"from project 4stattack by Jeroen Vloothuis. The original project can be "
+"found on &lt;http://forcedattack.sourceforge.net&gt;"
+msgstr ""
+"Оригиналният код е написан през 2005 г. от Лоран Лашени. През 2006 г. Мигел "
+"де Изара направи играта за двама играчи. Изображенията и „изкуствения "
+"интелект“ са взети от проекта 4stattack от Жерон Вльотюи. Оригиналният "
+"проект може да бъде намерен на &lt;http://forcedattack.sourceforge.net&gt;"
+
 #: ../boards/crane.xml.in.h:1
 msgid "Build the same model"
 msgstr "Постройте същия модел"
@@ -1231,7 +1266,7 @@ msgid "Drive the crane and copy the model"
 msgstr "Карайте крана и копирайте образеца"
 
 #: ../boards/crane.xml.in.h:3 ../boards/erase.xml.in.h:2
-#: ../boards/erase_clic.xml.in.h:5 ../boards/erase_double_clic.xml.in.h:5
+#: ../boards/erase_clic.xml.in.h:5
 msgid "Motor-coordination"
 msgstr "Двигателна координация"
 
@@ -1310,6 +1345,22 @@ msgstr ""
 "Изберете инструмент за рисуване и цвят от долната част. След това натискайте "
 "и местете в бялата зона, за да създадете нова форма. За да спестите време, "
 "може да използвате средния бутон на мишката за изтриване на обекти."
+
+#: ../boards/drawnumber.xml.in.h:1
+msgid "Can count from 1 to 50."
+msgstr "Можете да броите от 1 до 50."
+
+#: ../boards/drawnumber.xml.in.h:2
+msgid "Draw Number"
+msgstr "Рисувайте с число"
+
+#: ../boards/drawnumber.xml.in.h:3
+msgid "Draw the picture by clicking on each numbers in the right order."
+msgstr "Нарисувайте картината като натискате всяко от числата в правилния ред."
+
+#: ../boards/drawnumber.xml.in.h:4
+msgid "Draw the picture by following numbers"
+msgstr "Нарисувайте картината като следвате числата"
 
 #: ../boards/electric.xml.in.h:1
 msgid "Create and simulate an electric schema"
@@ -1392,16 +1443,16 @@ msgid ""
 "gave GCompris the authorization to include their pictures. Thanks a lot, "
 "both of you."
 msgstr ""
-"Снимките на животните са взети от страницата на Рал Шмоде (&lt;http://"
+"Снимките на животните са взети от страницата на Ралф Шмоде (&lt;http://"
 "schmode.net&g;) и от Даниел Льо Бер. Те са дали разрешение да се използват в "
 "GCompris. Благодарим много и на двамата."
 
-#: ../boards/erase.xml.in.h:4 ../src/boards/erase.c:113
+#: ../boards/erase.xml.in.h:4 ../src/boards/erase.c:118
 #: ../src/boards/machpuzzle.c:88
 msgid "Move the mouse"
 msgstr "Движете мишката"
 
-#: ../boards/erase.xml.in.h:5 ../src/boards/erase.c:114
+#: ../boards/erase.xml.in.h:5 ../src/boards/erase.c:119
 msgid "Move the mouse to erase the area and discover the background"
 msgstr "Движете мишката, за да изтриете зоната и разкриете фона"
 
@@ -1421,20 +1472,6 @@ msgstr ""
 #: ../boards/erase_clic.xml.in.h:4
 msgid "Click the mouse to erase the area and discover the background"
 msgstr "Натиснете с мишката, за да изтриете зоната и разкриете фона"
-
-#: ../boards/erase_double_clic.xml.in.h:2
-msgid "Double-Click the mouse to erase the area and discover the background"
-msgstr "Натискайте два пъти с мишката, за да изтриете зоната и разкриете фона"
-
-#: ../boards/erase_double_clic.xml.in.h:3
-msgid "Double-click the mouse"
-msgstr "Двойно натискане с мишката"
-
-#: ../boards/erase_double_clic.xml.in.h:4
-msgid "Double-click the mouse on rectangles until all the blocks disappear."
-msgstr ""
-"Натискайте два пъти с мишката по правоъгълниците, докато всички плочки "
-"изчезнат."
 
 #: ../boards/experience.xml.in.h:1
 msgid "Go to experiential activities"
@@ -1519,6 +1556,10 @@ msgstr "рисунка, формат „SVG“"
 msgid "svg mozilla animation"
 msgstr "анимация на Mozilla, формат „SVG“"
 
+#: ../boards/gcompris/mimetypes/mime_type.xml.in.h:5
+msgid "wordprocessor text"
+msgstr "текст от текстообработваща програма"
+
 #: ../boards/geography.xml.in.h:1
 msgid "Drag and Drop the items to redraw the whole map"
 msgstr "Влачете и пускайте обекти, за да попълните цялата карта"
@@ -1527,19 +1568,9 @@ msgstr "Влачете и пускайте обекти, за да попълн�
 msgid "Locate the countries"
 msgstr "Посочете страните"
 
-#: ../boards/geography.xml.in.h:3
+#: ../boards/geography.xml.in.h:3 ../boards/geography_country.xml.in.h:3
 msgid "Mouse manipulation: movement, drag and drop"
 msgstr "Управление на мишката: движение, изтегляне и пускане"
-
-#: ../boards/geography.xml.in.h:4
-msgid ""
-"The map of Germany comes from Wikipedia and is released under the GNU Free "
-"Documentation License. Olaf Ronneberger and his children Lina and Julia "
-"Ronneberger created the German level."
-msgstr ""
-"Картата на Германия е от Уикипедия и е издадена под Лиценза за свободна "
-"документация на GNU. Олаф Ронебергер и децата му Лина и Джулия Ронебергер са "
-"създали немското ниво."
 
 #: ../boards/geography/board1_0.xml.in.h:1
 #: ../boards/geography/board4_2.xml.in.h:1
@@ -1677,7 +1708,7 @@ msgstr "Уругвай"
 
 #: ../boards/geography/board2_1.xml.in.h:15
 msgid "Venezuela"
-msgstr "Венесуела"
+msgstr "Венецуела"
 
 #: ../boards/geography/board3_0.xml.in.h:1
 msgid "Austria"
@@ -1771,7 +1802,7 @@ msgstr "Хърватска"
 msgid "Cyprus"
 msgstr "Кипър"
 
-#: ../boards/geography/board3_1.xml.in.h:7 ../src/gcompris/config.c:65
+#: ../boards/geography/board3_1.xml.in.h:7 ../src/gcompris/config.c:66
 msgid "Czech Republic"
 msgstr "Чехия"
 
@@ -1981,6 +2012,7 @@ msgid "Somalia"
 msgstr "Сомалия"
 
 #: ../boards/geography/board4_0.xml.in.h:30
+#: ../boards/geography/board4_2.xml.in.h:33
 msgid "Sudan"
 msgstr "Судан"
 
@@ -2012,7 +2044,7 @@ msgstr "Ангола"
 #: ../boards/geography/board4_1.xml.in.h:2
 #: ../boards/geography/board4_2.xml.in.h:5
 msgid "Botswana"
-msgstr "Ботсуана"
+msgstr "Ботсвана"
 
 #: ../boards/geography/board4_1.xml.in.h:3
 msgid "Burundi"
@@ -2057,7 +2089,7 @@ msgid "Republic of Congo"
 msgstr "Република Конго"
 
 #: ../boards/geography/board4_1.xml.in.h:15
-#: ../boards/geography/board4_2.xml.in.h:33
+#: ../boards/geography/board4_2.xml.in.h:32
 msgid "South Africa"
 msgstr "Южна Африка"
 
@@ -2084,17 +2116,52 @@ msgstr "Замбия"
 msgid "Zimbabwe"
 msgstr "Зимбабве"
 
-#: ../boards/geography/board4_2.xml.in.h:32
-msgid "Soudan"
-msgstr "Судан"
+#: ../boards/geography_country.xml.in.h:1
+msgid "Drag and Drop the regions to redraw the whole country"
+msgstr "Влачете и пускайте областите, за да попълните цялата страна"
 
-#: ../boards/geography/board5_0.xml.in.h:1
+#: ../boards/geography_country.xml.in.h:2
+msgid "Locate the region"
+msgstr "Посочете областта"
+
+#: ../boards/geography_country.xml.in.h:4
+msgid ""
+"The map of Germany comes from Wikipedia and is released under the GNU Free "
+"Documentation License. Olaf Ronneberger and his children Lina and Julia "
+"Ronneberger created the German level."
+msgstr ""
+"Картата на Германия е от Уикипедия и е издадена под Лиценза за свободна "
+"документация на GNU. Олаф Ронебергер и децата му Лина и Джулия Ронебергер са "
+"създали немското ниво."
+
+#: ../boards/geography_country/board1_0.xml.in.h:1
 msgid "Regions of France"
 msgstr "Области във Франция"
 
-#: ../boards/geography/board6_0.xml.in.h:1
+#: ../boards/geography_country/board2_0.xml.in.h:1
 msgid "Deutschland Bundesländer"
 msgstr "Области в Германия"
+
+#: ../boards/geography_country/board3_0.xml.in.h:1
+msgid "Provincias Argentinas"
+msgstr "Провинции на Аржентина"
+
+#: ../boards/geography_country/board4_0.xml.in.h:1
+msgid "Polish Voivodship"
+msgstr "Области в Полша"
+
+#: ../boards/geography_country/board5_0.xml.in.h:1
+#: ../boards/geography_country/board5_2.xml.in.h:1
+msgid "Districts of Turkey"
+msgstr "Околии в Турция"
+
+#: ../boards/geography_country/board5_1.xml.in.h:1
+msgid "Eastern Districts of Turkey"
+msgstr "Източни околии в Турция"
+
+#: ../boards/geography_country/board6_0.xml.in.h:1
+msgid "Counties of Norway"
+msgstr "Графства в Норвегия"
 
 #: ../boards/geometry.xml.in.h:1
 msgid "Geometry"
@@ -2596,7 +2663,7 @@ msgid "sofa"
 msgstr "диван"
 
 #: ../boards/imagename/board3_0.xml.in.h:7
-#: ../boards/imagename/board5_0.xml.in.h:5
+#: ../boards/imagename/board5_0.xml.in.h:4
 msgid "star"
 msgstr "звезда"
 
@@ -2613,16 +2680,13 @@ msgid "grater"
 msgstr "ренде"
 
 #: ../boards/imagename/board4_0.xml.in.h:7
+#: ../boards/imagename/board5_0.xml.in.h:5
 msgid "tree"
 msgstr "дърво"
 
 #: ../boards/imagename/board5_0.xml.in.h:2
 msgid "pencil"
 msgstr "молив"
-
-#: ../boards/imagename/board5_0.xml.in.h:4
-msgid "spruce"
-msgstr "смърч"
 
 #: ../boards/imagename/board5_0.xml.in.h:6
 msgid "truck"
@@ -3293,13 +3357,14 @@ msgid ""
 "The following icons are displayed from right to left.\n"
 "(note that each icon is displayed only if available in the current "
 "activity)\n"
-"    Home - Back to previous menu or exit gcompris if at the top\n"
+"    Home - Exit an activity, go back to menu\n"
 "    Thumb - OK. Confirm your answer\n"
 "    Dice - Display the current level. Click to select another level\n"
-"    Music note - Repeat the question\n"
+"    Lips - Repeat the question\n"
 "    Question Mark - Help\n"
 "    Tool - The configuration menu\n"
 "    Tux Plane - About GCompris\n"
+"    Night - Quit GCompris\n"
 "The stars show suitable age groups for each game:\n"
 "    1, 2 or 3 simple stars  - from 2 to 6 years old\n"
 "    1, 2 or 3 complex stars - 7 years and up"
@@ -3307,25 +3372,25 @@ msgstr ""
 "Натискането върху някоя от иконите води към занимание или меню от "
 "занимания.\n"
 "В долната част на екрана е лентата за управление на GCompris.\n"
-"Изобразени са следните икони отляво надясно:\n"
+"Изобразени са следните икони отдясно наляво:\n"
 "(Забележете, че всяка от иконите се показва само ако е налична в текущото "
 "занимание)\n"
-"    Къща - Връщане към предното меню или изход от GCompris\n"
+"    Къща - Спиране на заниманието, връщане към менюто\n"
 "    Палец - Да. Потвърждаване на отговора\n"
 "    Зар - Показване на текущото ниво. Натиснете, за да изберете друго ниво\n"
-"    Музикална нота - Повтаряне на въпроса\n"
+"    Устни - Повтаряне на въпроса\n"
 "    Въпросителен знак - Помощ\n"
 "    Инструмент - Меню за настройки\n"
-"    Самолета на Тъкс - Относно GCompris\n"
-"Звездите край иконата на заниманието означават нивото на трудност:\n"
-"    1, 2 или 3 обикновени  звезди - за деца от 2 до 6 годишна възраст\n"
+"    Самолетът на Тъкс - Относно GCompris\n"
+"Звездите означават нивото на трудност за всяко занимание:\n"
+"    1, 2 или 3 обикновени звезди - за деца от 2 до 6 годишна възраст\n"
 "    1, 2 или 3 сложни звезди - за деца от 7 годишна възраст и по-големи"
 
-#: ../boards/menu.xml.in.h:15
+#: ../boards/menu.xml.in.h:16
 msgid "GCompris Main Menu"
 msgstr "Главно меню на GCompris"
 
-#: ../boards/menu.xml.in.h:16 ../src/boards/menu2.c:1009
+#: ../boards/menu.xml.in.h:17 ../src/boards/menu2.c:1007
 msgid ""
 "GCompris is a collection of educational games that provides different "
 "activities for children aged 2 and up."
@@ -3333,7 +3398,7 @@ msgstr ""
 "GCompris е колекция от образователни игри, които предоставят различни "
 "занимания за деца от 2 годишна възраст нагоре."
 
-#: ../boards/menu.xml.in.h:18
+#: ../boards/menu.xml.in.h:19
 msgid ""
 "The goal of gcompris is to provide a free alternative to popular proprietary "
 "edutainment software"
@@ -3921,22 +3986,13 @@ msgstr ""
 "Тъкс е гладен. Помогнете му да намери рибата, като броите до правилния леден "
 "блок."
 
-#: ../boards/scales/board1_0.xml.in.h:1 ../boards/scales/board1_1.xml.in.h:1
-#: ../boards/scales/board1_2.xml.in.h:1 ../boards/scales/board1_3.xml.in.h:1
-#: ../boards/scales/board1_4.xml.in.h:1 ../boards/scales/board1_5.xml.in.h:1
-#: ../boards/scales/board2_0.xml.in.h:1 ../boards/scales/board2_1.xml.in.h:1
-#: ../boards/scales/board2_2.xml.in.h:1 ../boards/scales/board2_3.xml.in.h:1
-#: ../boards/scales/board2_4.xml.in.h:1 ../boards/scales/board2_5.xml.in.h:1
-#: ../boards/scales/board3_0.xml.in.h:1 ../boards/scales/board3_1.xml.in.h:1
-#: ../boards/scales/board3_2.xml.in.h:1 ../boards/scales/board3_3.xml.in.h:1
-#: ../boards/scales/board3_4.xml.in.h:1 ../boards/scales/board3_5.xml.in.h:1
-#: ../boards/scalesboard.xml.in.h:2
-msgid "Drag and Drop masses to balance the scales"
-msgstr "Влачете тежестите, за да уравновесите кантара"
-
 #: ../boards/scalesboard.xml.in.h:1
 msgid "Balance the scales properly"
 msgstr "Добро уравновесяване на кантара"
+
+#: ../boards/scalesboard.xml.in.h:2
+msgid "Drag and Drop masses to balance the scales"
+msgstr "Влачете тежестите, за да уравновесите кантара"
 
 #: ../boards/scalesboard.xml.in.h:3
 msgid "Mental calculation, arithmetic equality"
@@ -3954,46 +4010,50 @@ msgstr ""
 
 #: ../boards/scalesboard.xml.in.h:5
 msgid ""
-"To balance the scales, move the masses on the left side. The masses can be "
-"arranged in any order."
+"To balance the scales, move the masses on the left or the right side. The "
+"masses can be arranged in any order."
 msgstr ""
-"За да уравновесите кантара, движете тежестите от лявата страна. Те могат да "
-"се подреждат във всякакъв ред."
+"За да уравновесите кантара, движете тежестите от лявата страна или дясната "
+"страна. Те могат да се подреждат във всякакъв ред."
 
 #: ../boards/searace.xml.in.h:1
 msgid "Direct your boat accurately to win the race."
 msgstr "Насочвайте лодката внимателно за да спечелите играта."
 
-#: ../boards/searace.xml.in.h:2 ../boards/searace1player.xml.in.h:2
+#: ../boards/searace.xml.in.h:2
 msgid ""
-"In the text entry, enter one command per line, to control your boat. "
+"In the text entry, enter one command per line, to control your boat.\n"
 "Commands supported are displayed between the two entry areas. The 'left' and "
 "'right' commands must be followed by an angle in degrees. The angle value is "
 "also called a 'parameter' to the left or right command. By default 45 "
 "degrees is used. The 'forward' command accepts a distance parameter. By "
-"default 1 is used. For example: left 90 => Make a perpendicular left turn "
-"forward 10 => Go forward for 10 units (as displayed on the ruler). The goal "
-"is to reach the right of the screen (the red line). When done, you can try "
-"to improve your program and start a new race with the same weather "
+"default 1 is used.\n"
+"For example:\n"
+"- left 90: Make a perpendicular left turn\n"
+"- forward 10: Go forward for 10 units (as displayed on the ruler).\n"
+"The goal is to reach the right of the screen (the red line). When done, you "
+"can try to improve your program and start a new race with the same weather "
 "conditions by using the retry button. You can click and drag your mouse "
 "anywhere on the map to get a measurement in distance and angle. Going to the "
 "next level will give you more complex weather conditions."
 msgstr ""
-"Въведете ред по ред командите, които да управляват лодката. Поддържаните "
-"команди са показани между двете зони за въвеждане на текст. Командите „ляво“ "
-"и „дясно“ трябва да бъдат последвани от ъгъл в градуси. Стойността на ъгъла "
-"се нарича „параметър“ на командата. По подразбиране се използва ъгъл от 45 "
-"градуса. Командата „напред“ приема и параметър за разстояние. По "
-"подразбиране се използва 1. Например: ляво 90 => Правене на перпендикулярно "
-"завъртане наляво; напред 10 => Придвижване напред с 10 единици (както е "
-"показано на линията). Целта е да се достигне дясната част на екрана "
-"(червената линия). Когато сте готови, можете да подобрите програмата си и да "
-"започнете ново състезание при същите атмосферни условия, натискайки бутона "
-"„повторение“. Можете да натискате и изтегляте с мишката навсякъде по "
-"картата, за да измервате разстоянието и ъгъла. Придвижването към следващо "
-"ниво дава по-сложна метеорологична обстановка."
+"Въведете ред по ред командите, които да управляват лодката.\n"
+"Поддържаните команди са показани между двете зони за въвеждане на текст. "
+"Командите „ляво“ и „дясно“ трябва да бъдат последвани от ъгъл в градуси. "
+"Стойността на ъгъла се нарича „параметър“ на командата „ляво“ или „дясно“. "
+"По подразбиране се използва ъгъл от 45 градуса. Командата „напред“ приема и "
+"параметър за разстояние. По подразбиране се използва 1. \n"
+"Например:\n"
+"- ляво 90: Перпендикулярно завъртане наляво\n"
+"- напред 10: Придвижване напред с 10 единици (както е показано на линията).\n"
+"Целта е да се достигне дясната част на екрана (червената линия). Когато сте "
+"готови, можете да подобрите програмата си и да започнете ново състезание при "
+"същите атмосферни условия, натискайки бутона „повторение“. Можете да "
+"натискате и изтегляте с мишката навсякъде по картата, за да измервате "
+"разстоянието и ъгъла. Придвижването към следващо ниво дава по-сложна "
+"метеорологична обстановка."
 
-#: ../boards/searace.xml.in.h:3 ../boards/searace1player.xml.in.h:3
+#: ../boards/searace.xml.in.h:8 ../boards/searace1player.xml.in.h:7
 msgid ""
 "In this activity, you will learn how to enter commands into a computer. Even "
 "if the language is extremely basic, you learn here how to think ahead and "
@@ -4005,7 +4065,7 @@ msgstr ""
 "съставяте програма. Това занимание може да се използва за въвеждане на "
 "децата в понятието програмиране."
 
-#: ../boards/searace.xml.in.h:4
+#: ../boards/searace.xml.in.h:9
 msgid "Sea race (2 Players)"
 msgstr "Морско състезание (2 играчи)"
 
@@ -4014,7 +4074,40 @@ msgid "Give good instructions to your ship in order to be first in the race."
 msgstr ""
 "Дайте правилни инструкции на кораба, така че да бъде първи в състезанието."
 
-#: ../boards/searace1player.xml.in.h:4
+#: ../boards/searace1player.xml.in.h:2
+msgid ""
+"In the text entry, enter one command per line, to control your boat. "
+"Commands supported are displayed between the two entry areas. The 'left' and "
+"'right' commands must be followed by an angle in degrees. The angle value is "
+"also called a 'parameter' to the left or right command. By default 45 "
+"degrees is used. The 'forward' command accepts a distance parameter. By "
+"default 1 is used.\n"
+"For example:\n"
+"- left 90: Make a perpendicular left turn\n"
+"- forward 10: Go forward for 10 units (as displayed on the ruler).\n"
+"The goal is to reach the right of the screen (the red line). When done, you "
+"can try to improve your program and start a new race with the same weather "
+"conditions by using the retry button. You can click and drag your mouse "
+"anywhere on the map to get a measurement in distance and angle. Going to the "
+"next level will give you more complex weather conditions."
+msgstr ""
+"Въведете ред по ред командите, които да управляват лодката. Поддържаните "
+"команди са показани между двете зони за въвеждане на текст. Командите „ляво“ "
+"и „дясно“ трябва да бъдат последвани от ъгъл в градуси. Стойността на ъгъла "
+"се нарича „параметър“ на командата „ляво“ или „дясно“. По подразбиране се "
+"използва ъгъл от 45 градуса. Командата „напред“ приема и параметър за "
+"разстояние. По подразбиране се използва 1.\n"
+"Например:\n"
+"- ляво 90: Перпендикулярно завъртане наляво\n"
+"- напред 10: Придвижване напред с 10 единици (както е показано на линията).\n"
+"Целта е да се достигне дясната част на екрана (червената линия). Когато сте "
+"готови, можете да подобрите програмата си и да започнете ново състезание при "
+"същите атмосферни условия, натискайки бутона „повторение“. Можете да "
+"натискате и изтегляте с мишката навсякъде по картата, за да измервате "
+"разстоянието и ъгъла. Придвижването към следващо ниво дава по-сложна "
+"метеорологична обстановка."
+
+#: ../boards/searace1player.xml.in.h:8
 msgid "Sea race (Single Player)"
 msgstr "Морско състезание (1 играч)"
 
@@ -4063,10 +4156,13 @@ msgstr "Стратегически игри като шах, „Свързван
 #: ../boards/submarine.xml.in.h:1
 msgid ""
 "Click on different active elements : engine, rudders and air tanks, in order "
-"to navigate to the required depth."
+"to navigate to the required depth. There is a close gate on the right. Catch "
+"the jewel to open it, then pass through it to reach the next level."
 msgstr ""
 "Натискайте по различните активни елементи: двигател, рулове и въздушни "
-"танкове, за да достигнете исканата дълбочина."
+"танкове, за да достигнете исканата дълбочина. Има изходен шлюз вдясно. "
+"Вземете бижуто, за да го отворите и преминете през него, за да достигнете "
+"следващото ниво."
 
 #: ../boards/submarine.xml.in.h:2
 msgid "Learn how a submarine works"
@@ -4143,7 +4239,7 @@ msgstr ""
 
 #: ../boards/superbrain.xml.in.h:2 ../src/boards/superbrain.c:106
 msgid "Super Brain"
-msgstr "Свръхмозък"
+msgstr "Свръх-мозък"
 
 #: ../boards/superbrain.xml.in.h:3 ../src/boards/superbrain.c:107
 msgid "Tux has hidden several items. Find them again in the correct order"
@@ -4318,6 +4414,47 @@ msgstr "Напишете пълната дума докато пада, пред
 msgid "Type the falling words before they reach the ground"
 msgstr "Напишете падащите думи преди да достигнат земята"
 
+#: ../boards/wordprocessor.xml.in.h:1
+msgid "A simple word processor to enter and save any text"
+msgstr "Опростена текстообработваща програма за въвеждане и запазване на текст"
+
+#: ../boards/wordprocessor.xml.in.h:2
+msgid ""
+"In this wordprocessor you can type the text you want, save and get it back "
+"later. You can add some style to your text by using the buttons on the left. "
+"The first 4 buttons let you select the style of the line on which your "
+"insert cursor is. The 2 others buttons with multiple choices let you select "
+"from a predefined document and color theme."
+msgstr ""
+"В този текстов редактор може да пишете текст по желание, да го запазвате и "
+"отваряте наново. Може да добавяте стил към текста, използвайки бутоните "
+"вляво. Първите четири бутона позволяват избор на стил за реда, където се "
+"намира курсора. Останалите два бутона с много възможности за избор ви "
+"предоставят възможността да избирате от предварително дефиниран документ и "
+"цветова тема."
+
+#: ../boards/wordprocessor.xml.in.h:3
+msgid ""
+"Learn how to enter text in a wordprocessor. This wordprocessor is special in "
+"that it enforces the use of styles. This way, the children will understand "
+"their benefit when moving to more feature full wordprocessor like OpenOffice."
+"org."
+msgstr ""
+"Да се научи въвеждането на текст с текстообработваща програма. Тази програма "
+"е специална, понеже налага използването на стилове. По този начин, децата ще "
+"разберат ползата от тях, когато преминат към по-богата на функционалност "
+"текстообработваща програма като OpenOffice.org."
+
+#: ../boards/wordprocessor.xml.in.h:4
+msgid "The children can type their own text or copy one given by the teacher."
+msgstr ""
+"Децата могат да въвеждат техен собствен текст или да преписват предоставен "
+"им от учителя."
+
+#: ../boards/wordprocessor.xml.in.h:5
+msgid "Your word processor"
+msgstr "Вашата текстообработваща програма"
+
 #: ../gcompris-edit.desktop.in.h:1
 msgid "Administration for gcompris"
 msgstr "Администриране на GCompris"
@@ -4334,23 +4471,28 @@ msgstr "Образователна серия GCompris"
 msgid "Multi-activity educational game"
 msgstr "Игра с много занимания с образователна цел"
 
-#: ../src/boards/awele.c:352 ../src/boards/awele.c:362
+#. TRANSLATORS: Put here the mathematical operators '+-x/' for  your language.
+#: ../src/boards/algebra.c:182 ../src/boards/memory.c:846
+msgid "+-×÷"
+msgstr "+-.:"
+
+#: ../src/boards/awele.c:350 ../src/boards/awele.c:360
 msgid "NORTH"
 msgstr "СЕВЕР"
 
-#: ../src/boards/awele.c:374 ../src/boards/awele.c:384
+#: ../src/boards/awele.c:372 ../src/boards/awele.c:382
 msgid "SOUTH"
 msgstr "ЮГ"
 
-#: ../src/boards/awele.c:553
+#: ../src/boards/awele.c:551
 msgid "Choose a house"
 msgstr "Изберете къща"
 
-#: ../src/boards/awele.c:681
+#: ../src/boards/awele.c:679
 msgid "Your turn to play ..."
 msgstr "Ваш ред е..."
 
-#: ../src/boards/awele.c:750
+#: ../src/boards/awele.c:748
 msgid "Not allowed! Try again !"
 msgstr "Не е позволено! Опитайте отново!"
 
@@ -4358,7 +4500,7 @@ msgstr "Не е позволено! Опитайте отново!"
 msgid "Error: The external program gnuchess died unexpectedly"
 msgstr "Грешка: Външната програма „gnuchess“ загина неочаквано"
 
-#: ../src/boards/chess.c:194
+#: ../src/boards/chess.c:199
 msgid ""
 "Error: The external program gnuchess is required\n"
 "to play chess in gcompris.\n"
@@ -4372,7 +4514,7 @@ msgstr ""
 "http://packages.debian.org или във Вашата дистрибуция на GNU/Линукс.\n"
 "И проверете дали я има тук: "
 
-#: ../src/boards/chess.c:236
+#: ../src/boards/chess.c:244
 msgid ""
 "Error: The external program gnuchess is mandatory\n"
 "to play chess in gcompris.\n"
@@ -4382,40 +4524,40 @@ msgstr ""
 "за да играете шах в GCompris.\n"
 "Първо я инсталирайте и проверете дали я има в "
 
-#: ../src/boards/chess.c:579
+#: ../src/boards/chess.c:587
 msgid "White's Turn"
 msgstr "Ред на белите"
 
-#: ../src/boards/chess.c:579
+#: ../src/boards/chess.c:587
 msgid "Black's Turn"
 msgstr "Ред на черните"
 
-#: ../src/boards/chess.c:723
+#: ../src/boards/chess.c:731
 msgid "White checks"
 msgstr "Шах на белите"
 
-#: ../src/boards/chess.c:725
+#: ../src/boards/chess.c:733
 msgid "Black checks"
 msgstr "Шах на черните"
 
-#: ../src/boards/chess.c:1082
+#: ../src/boards/chess.c:1090
 msgid "Black mates"
 msgstr "Мат на черните"
 
-#: ../src/boards/chess.c:1087
+#: ../src/boards/chess.c:1095
 msgid "White mates"
 msgstr "Мат на белите"
 
-#: ../src/boards/chess.c:1092 ../src/gcompris/bonus.c:342
-#: ../src/gcompris/bonus.c:351
+#: ../src/boards/chess.c:1100 ../src/gcompris/bonus.c:364
+#: ../src/gcompris/bonus.c:373
 msgid "Drawn game"
 msgstr "Равна игра"
 
-#: ../src/boards/chess.c:1120
+#: ../src/boards/chess.c:1128
 msgid "Error: The external program gnuchess died unexpectingly"
 msgstr "Грешка: Външната програма „gnuchess“ загина неочаквано"
 
-#: ../src/boards/click_on_letter.c:259 ../src/boards/memory.c:827
+#: ../src/boards/click_on_letter.c:259 ../src/boards/memory.c:813
 msgid ""
 "Error: this activity cannot be played with the\n"
 "sound effects disabled.\n"
@@ -4431,7 +4573,7 @@ msgstr ""
 #. require by all utf8-functions
 #. TRANSLATORS: Put here the alphabet lowercase in your language
 #: ../src/boards/click_on_letter.c:264 ../src/boards/gletters.c:231
-#: ../src/boards/memory.c:848
+#: ../src/boards/memory.c:835
 msgid "abcdefghijklmnopqrstuvwxyz"
 msgstr "абвгдежзийклмнопрстуфхцчшщъьюя"
 
@@ -4455,65 +4597,97 @@ msgstr ""
 "пакетите със звук за GCompris за локала „%s“! Стартиране на английски, за "
 "съжаление."
 
+#. Init configuration window:
+#. all the configuration functions will use it
+#. all the configuration functions returns values for their key in
+#. the dict passed to the apply_callback
+#. the returned value is the main GtkVBox of the window,
+#. we can add what you want in it.
+#: ../src/boards/click_on_letter.c:623 ../src/boards/colors.c:165
+#: ../src/boards/gletters.c:857 ../src/boards/imageid.c:749
+#: ../src/boards/missingletter.c:772
+#: ../src/boards/python/admin/board_list.py:641
+#: ../src/boards/python/admin/board_list.py:659
+#: ../src/boards/python/admin/wordlist.py:50 ../src/boards/python/login.py:535
+#: ../src/boards/python/pythontest.py:409 ../src/boards/python/tuxpaint.py:206
+#: ../src/boards/reading.c:833 ../src/boards/scale.c:862
+#: ../src/boards/shapegame.c:1863 ../src/boards/smallnumbers.c:590
+#, c-format, python-format
+msgid ""
+"<b>%s</b> configuration\n"
+" for profile <b>%s</b>"
+msgstr ""
+"<b>%s</b> конфигурация\n"
+" за профил <b>%s</b>"
+
 #. toggle box
-#: ../src/boards/click_on_letter.c:646 ../src/boards/gletters.c:898
+#: ../src/boards/click_on_letter.c:646 ../src/boards/gletters.c:890
 #: ../src/boards/python/login.py:540
 msgid "Uppercase only text"
 msgstr "Само текст с главни букви"
 
-#: ../src/boards/clockgame.c:544 ../src/boards/clockgame.c:554
+#: ../src/boards/clockgame.c:550 ../src/boards/clockgame.c:560
 msgid "Set the watch to:"
 msgstr "Настройте часовника на:"
 
-#: ../src/boards/colors.c:54
+#: ../src/boards/colors.c:56
 msgid "Click on the blue duck"
 msgstr "Натиснете синята играчка"
 
-#: ../src/boards/colors.c:55
+#: ../src/boards/colors.c:57
 msgid "Click on the brown duck"
 msgstr "Натиснете кафявата играчка"
 
-#: ../src/boards/colors.c:56
+#: ../src/boards/colors.c:58
 msgid "Click on the green duck"
 msgstr "Натиснете зелената играчка"
 
-#: ../src/boards/colors.c:57
+#: ../src/boards/colors.c:59
 msgid "Click on the grey duck"
 msgstr "Натиснете сивата играчка"
 
-#: ../src/boards/colors.c:58
+#: ../src/boards/colors.c:60
 msgid "Click on the orange duck"
 msgstr "Натиснете оранжевата играчка"
 
-#: ../src/boards/colors.c:59
+#: ../src/boards/colors.c:61
 msgid "Click on the purple duck"
 msgstr "Натиснете лилавата играчка"
 
-#: ../src/boards/colors.c:60
+#: ../src/boards/colors.c:62
 msgid "Click on the red duck"
 msgstr "Натиснете червената играчка"
 
-#: ../src/boards/colors.c:61
+#: ../src/boards/colors.c:63
 msgid "Click on the yellow duck"
 msgstr "Натиснете жълтата играчка"
 
-#: ../src/boards/colors.c:62
+#: ../src/boards/colors.c:64
 msgid "Click on the black duck"
 msgstr "Натиснете черната играчка"
 
-#: ../src/boards/colors.c:63
+#: ../src/boards/colors.c:65
 msgid "Click on the white duck"
 msgstr "Натиснете бялата играчка"
 
+#: ../src/boards/colors.c:177 ../src/boards/python/admin/board_list.py:671
+#: ../src/boards/python/pythontest.py:473 ../src/boards/smallnumbers.c:610
+msgid "Select sound locale"
+msgstr "Изберете локал за звука"
+
 #. TRANSLATORS: Put here the numbers in your language
-#: ../src/boards/gletters.c:227 ../src/boards/memory.c:844
+#: ../src/boards/gletters.c:227 ../src/boards/memory.c:831
 msgid "0123456789"
 msgstr "0123456789"
 
 #. TRANSLATORS: Put here the alphabet uppercase in your language
-#: ../src/boards/gletters.c:237 ../src/boards/memory.c:854
+#: ../src/boards/gletters.c:237 ../src/boards/memory.c:841
 msgid "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 msgstr "АБВГДЕЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЬЮЯ"
+
+#: ../src/boards/gletters.c:886 ../src/boards/smallnumbers.c:608
+msgid "Enable sounds"
+msgstr "Активиране на звуците"
 
 #: ../src/boards/hanoi.c:332 ../src/boards/hanoi.c:343
 msgid ""
@@ -4525,7 +4699,7 @@ msgstr "Възпроизведете в празното пространств�
 msgid "Tower of Hanoi"
 msgstr "„Кула на Ханой“"
 
-#: ../src/boards/hanoi_real.c:273 ../src/boards/hanoi_real.c:284
+#: ../src/boards/hanoi_real.c:277 ../src/boards/hanoi_real.c:288
 msgid "Move the entire stack to the right peg, one disc at a time"
 msgstr "Преместете целия куп на дясното колче, диск по диск"
 
@@ -4534,16 +4708,16 @@ msgid "Learn how to read"
 msgstr "Научете се как да четете"
 
 #: ../src/boards/leftright.c:277 ../src/boards/leftright.c:287
-#: ../src/boards/python/searace.py:428 ../src/boards/python/searace.py:453
-#: ../src/boards/python/searace.py:543 ../src/boards/python/searace.py:855
-#: ../src/boards/python/searace.py:888 ../src/boards/python/searace.py:985
+#: ../src/boards/python/searace.py:433 ../src/boards/python/searace.py:458
+#: ../src/boards/python/searace.py:548 ../src/boards/python/searace.py:857
+#: ../src/boards/python/searace.py:890 ../src/boards/python/searace.py:981
 msgid "left"
 msgstr "лява"
 
 #: ../src/boards/leftright.c:297 ../src/boards/leftright.c:307
-#: ../src/boards/python/searace.py:428 ../src/boards/python/searace.py:453
-#: ../src/boards/python/searace.py:552 ../src/boards/python/searace.py:857
-#: ../src/boards/python/searace.py:890 ../src/boards/python/searace.py:979
+#: ../src/boards/python/searace.py:433 ../src/boards/python/searace.py:458
+#: ../src/boards/python/searace.py:557 ../src/boards/python/searace.py:859
+#: ../src/boards/python/searace.py:892 ../src/boards/python/searace.py:975
 msgid "right"
 msgstr "дясна"
 
@@ -4562,24 +4736,19 @@ msgstr ""
 "Погледнете местоположението си и превключете обратно в триизмерен режим, за "
 "да се движите"
 
-#: ../src/boards/memory.c:287
+#: ../src/boards/memory.c:266
 msgid "Memory"
 msgstr "Памет"
 
-#: ../src/boards/memory.c:288
+#: ../src/boards/memory.c:267
 msgid "Find the matching pair"
 msgstr "Намерете съответстващата двойка"
 
-#. TRANSLATORS: Put here the mathematical operators "+-��" for  your language.
-#: ../src/boards/memory.c:859
-msgid "+-×÷"
-msgstr "+-.:"
-
-#: ../src/boards/menu2.c:131
+#: ../src/boards/menu2.c:133
 msgid "Main Menu Second Version"
 msgstr "Втора версия на главното меню"
 
-#: ../src/boards/menu2.c:132
+#: ../src/boards/menu2.c:134
 msgid "Select a Board"
 msgstr "Изберете игра"
 
@@ -4594,15 +4763,19 @@ msgstr "$ %.2f"
 msgid "$ %.0f"
 msgstr "$ %.0f"
 
+#: ../src/boards/paratrooper.c:437
+msgid "Control fall speed with up and down arrow keys."
+msgstr "Контролирайте скоростта на падане с долната и горната стрелка."
+
 #: ../src/boards/planegame.c:75
 msgid "Move the plane to catch the clouds in the correct order"
 msgstr "Движете самолета, за да хващате облаците в правилна последователност"
 
-#: ../src/boards/python.c:62 ../src/boards/python.c:86
+#: ../src/boards/python.c:63 ../src/boards/python.c:87
 msgid "Python Board"
 msgstr "Дъска Питон"
 
-#: ../src/boards/python.c:63 ../src/boards/python.c:87
+#: ../src/boards/python.c:64 ../src/boards/python.c:88
 msgid "Special board that embeds python into gcompris."
 msgstr "Специална дъска, която включва Питон в GCompris."
 
@@ -4649,20 +4822,20 @@ msgstr "Главно меню"
 #. image = gtk.image_new_from_stock(gtk.STOCK_PREFERENCES, gtk.ICON_SIZE_MENU)
 #. image.show()
 #. column_pref.set_widget(image)
-#: ../src/boards/python/admin/board_list.py:292
+#: ../src/boards/python/admin/board_list.py:302
 msgid "Active"
 msgstr "Активно"
 
-#: ../src/boards/python/admin/board_list.py:293
+#: ../src/boards/python/admin/board_list.py:303
 msgid "Board title"
 msgstr "Заглавие на заниманието"
 
-#: ../src/boards/python/admin/board_list.py:409
+#: ../src/boards/python/admin/board_list.py:419
 #, python-format
 msgid "Filter Boards difficulty for profile %s"
 msgstr "Филтриране на нива на трудност на заниманията за профил „%s“"
 
-#: ../src/boards/python/admin/board_list.py:440
+#: ../src/boards/python/admin/board_list.py:450
 #, python-format
 msgid ""
 "<span size='x-large'> Select the difficulty range \n"
@@ -4670,29 +4843,6 @@ msgid ""
 msgstr ""
 "<span size='x-large'> Изберете ниво на трудност\n"
 "за профил <b>%s</b></span>"
-
-#. Init configuration window:
-#. all the configuration functions will use it
-#. all the configuration functions returns values for their key in
-#. the dict passed to the apply_callback
-#. the returned value is the main GtkVBox of the window,
-#. we can add what you want in it.
-#: ../src/boards/python/admin/board_list.py:631
-#: ../src/boards/python/admin/board_list.py:649
-#: ../src/boards/python/admin/wordlist.py:50 ../src/boards/python/login.py:535
-#: ../src/boards/python/pythontest.py:409 ../src/boards/python/tuxpaint.py:183
-#, python-format
-msgid ""
-"<b>%s</b> configuration\n"
-" for profile <b>%s</b>"
-msgstr ""
-"<b>%s</b> конфигурация\n"
-" за профил <b>%s</b>"
-
-#: ../src/boards/python/admin/board_list.py:661
-#: ../src/boards/python/pythontest.py:473
-msgid "Select sound locale"
-msgstr "Изберете локал за звука"
 
 #: ../src/boards/python/admin/class_edit.py:60
 msgid "Editing a Class"
@@ -4818,8 +4968,58 @@ msgstr "Трябва да изберете група от списъка"
 msgid "Birth Date"
 msgstr "Дата на раждане"
 
+#: ../src/boards/python/admin/log_list.py:91
+msgid "Select a user:"
+msgstr "Изберете потребител:"
+
+#. Insert the ALL option (HACK, use the user_id -2 to indicate ALL)
+#: ../src/boards/python/admin/log_list.py:102
+msgid "All users"
+msgstr "Всички потребители"
+
+#: ../src/boards/python/admin/log_list.py:108
+#: ../src/boards/python/admin/log_list.py:287
+#: ../src/boards/python/admin/profile_list.py:121
+#: ../src/gcompris/board_config.c:667 ../src/gcompris/board_config.c:925
+msgid "Default"
+msgstr "По подразбиране"
+
+#. Reset buttons
+#: ../src/boards/python/admin/log_list.py:162
+msgid "Reset"
+msgstr "Анулиране"
+
+#: ../src/boards/python/admin/log_list.py:208
+msgid "Date"
+msgstr "Дата"
+
+#: ../src/boards/python/admin/log_list.py:218
+msgid "User"
+msgstr "Потребител"
+
+#: ../src/boards/python/admin/log_list.py:228
+msgid "Board"
+msgstr "Занимание"
+
+#: ../src/boards/python/admin/log_list.py:238
+#: ../src/boards/python/redraw.py:347 ../src/boards/python/redraw.py:357
+msgid "Level"
+msgstr "Ниво"
+
+#: ../src/boards/python/admin/log_list.py:248
+msgid "Sublevel"
+msgstr "Под-ниво"
+
+#: ../src/boards/python/admin/log_list.py:258
+msgid "Duration"
+msgstr "Времетраене"
+
+#: ../src/boards/python/admin/log_list.py:268
+msgid "Status"
+msgstr "Състояние"
+
 #: ../src/boards/python/admin/module_boards.py:42
-#: ../src/boards/python/admin/module_boards.py:62
+#: ../src/boards/python/admin/module_boards.py:67
 msgid "Boards"
 msgstr "Занимания"
 
@@ -4833,15 +5033,21 @@ msgstr "Групи"
 msgid "Profiles"
 msgstr "Профили"
 
-#: ../src/boards/python/admin/module_users.py:41
-#: ../src/boards/python/admin/module_users.py:67
-msgid "Classes"
-msgstr "Класове"
+#: ../src/boards/python/admin/module_reports.py:41
+#: ../src/boards/python/admin/module_reports.py:67
+msgid "Reports"
+msgstr "Доклади"
 
+#: ../src/boards/python/admin/module_reports.py:67
 #: ../src/boards/python/admin/module_users.py:41
 #: ../src/boards/python/admin/module_users.py:67
 msgid "Users"
 msgstr "Потребители"
+
+#: ../src/boards/python/admin/module_users.py:41
+#: ../src/boards/python/admin/module_users.py:67
+msgid "Classes"
+msgstr "Класове"
 
 #: ../src/boards/python/admin/profile_edit.py:59
 msgid "Editing a Profile"
@@ -4871,11 +5077,6 @@ msgstr "Трябва да укажете име на профила"
 #: ../src/boards/python/admin/profile_edit.py:399
 msgid "There is already a profile with this name"
 msgstr "Вече има профил с това име"
-
-#: ../src/boards/python/admin/profile_list.py:121
-#: ../src/gcompris/board_config.c:668 ../src/gcompris/board_config.c:832
-msgid "Default"
-msgstr "По подразбиране"
 
 #: ../src/boards/python/admin/profile_list.py:188
 msgid "Profile"
@@ -4948,21 +5149,50 @@ msgstr ""
 "Едно или повече потребителски имена съвпадат!\n"
 "Трябва да ги промените: %s!"
 
-#: ../src/boards/python/anim.py:2208
+#: ../src/boards/python/anim.py:2226
 msgid "SVG is disabled. Install python xml module to enable it"
 msgstr ""
 "Поддръжката на SVG е изключена. Инсталирайте модула на Питон за XML, за да я "
 "включите."
 
-#: ../src/boards/python/anim.py:2364
+#: ../src/boards/python/anim.py:2382
 msgid "Warning: the following images cannot be accessed on your system.\n"
 msgstr "Предупреждение: следните изображения не са достъпни в системата.\n"
 
-#: ../src/boards/python/anim.py:2366
+#: ../src/boards/python/anim.py:2384
 msgid "The corresponding items have been skipped."
 msgstr "Съответстващите елементи се пропускат."
 
-#: ../src/boards/python/electric.py:94
+#: ../src/boards/python/chat.py:80
+msgid "All messages will be displayed here.\n"
+msgstr "Всички съобщения ще бъдат показвани тук.\n"
+
+#: ../src/boards/python/chat.py:130
+msgid "Your Friends"
+msgstr "Вашите приятели"
+
+#: ../src/boards/python/chat.py:162
+msgid "Your Channel"
+msgstr "Вашият канал"
+
+#: ../src/boards/python/chat.py:188
+msgid ""
+"Type your message here, to send to other GCompris users on your local "
+"network."
+msgstr ""
+"Въведете съобщението си тук, за да го изпратите до други потребители на "
+"GCompris в локалната мрежа."
+
+#: ../src/boards/python/chat.py:322
+msgid "You must set a channel in your channel entry box first.\n"
+msgstr "Първо трябва да зададете канал.\n"
+
+#: ../src/boards/python/chat.py:323
+msgid "Your friends must set the same channel in order to communicate with you"
+msgstr ""
+"Приятелите ви трябва да зададат същия канал, за да могат да комуникират с вас"
+
+#: ../src/boards/python/electric.py:95
 msgid ""
 "Cannot find the 'gnucap' electric simulator.\n"
 "You can download and install it from:\n"
@@ -4980,90 +5210,91 @@ msgstr ""
 "Все пак може да ползвате това занимание, за да съставяте схеми, но без "
 "компютърна симулация."
 
-#: ../src/boards/python/gnumch.py:94
+#: ../src/boards/python/gnumch.py:96
 #, python-format
 msgid ", %d"
 msgstr ", %d"
 
-#: ../src/boards/python/gnumch.py:95
+#: ../src/boards/python/gnumch.py:97
 #, python-format
 msgid " and %d"
 msgstr " и %d"
 
-#: ../src/boards/python/gnumch.py:115
+#: ../src/boards/python/gnumch.py:117
 #, python-format
 msgid "%d is divisible by %s."
 msgstr "%d е делимо на %s."
 
-#: ../src/boards/python/gnumch.py:119
+#: ../src/boards/python/gnumch.py:121
 msgid "1 is not a prime number."
 msgstr "1 не е просто число"
 
-#: ../src/boards/python/gnumch.py:129
+#: ../src/boards/python/gnumch.py:131
 #, python-format
 msgid "Primes less than %d"
 msgstr "Простите са по-малки от %d"
 
-#: ../src/boards/python/gnumch.py:150
+#. Translators: You can swap %(x)y elements in the string.
+#: ../src/boards/python/gnumch.py:153
 #, python-format
 msgid ""
-"Multiples of %d include %s,\n"
-"but %d is not a multiple of %d."
+"Multiples of %(d1)d include %(s)s,\n"
+"but %(d2)d is not a multiple of %(d3)d."
 msgstr ""
-"Кратните на %d включват %s,\n"
-"но %d не е кратно на %d."
+"Кратните на %(d1)d включват %(s)s,\n"
+"но %(d2)d не е кратно на %(d3)d."
 
-#: ../src/boards/python/gnumch.py:159
+#: ../src/boards/python/gnumch.py:164
 #, python-format
 msgid "Factors of %d"
 msgstr "Делими на %d"
 
-#: ../src/boards/python/gnumch.py:192
+#: ../src/boards/python/gnumch.py:197
 #, python-format
 msgid "%s are the factors of %d."
 msgstr "%s са делими на %d."
 
-#: ../src/boards/python/gnumch.py:204
+#: ../src/boards/python/gnumch.py:209
 #, python-format
 msgid "Multiples of %d"
 msgstr "Кратни на %d"
 
-#: ../src/boards/python/gnumch.py:238
+#: ../src/boards/python/gnumch.py:243
 #, python-format
 msgid "%s = %d"
 msgstr "%s = %d"
 
-#: ../src/boards/python/gnumch.py:249
+#: ../src/boards/python/gnumch.py:254
 #, python-format
 msgid "%d + %d"
 msgstr "%d + %d"
 
-#: ../src/boards/python/gnumch.py:254
+#: ../src/boards/python/gnumch.py:259
 #, python-format
 msgid "%d − %d"
 msgstr "%d - %d"
 
-#: ../src/boards/python/gnumch.py:259
+#: ../src/boards/python/gnumch.py:264
 #, python-format
 msgid "%d × %d"
 msgstr "%d × %d"
 
-#: ../src/boards/python/gnumch.py:263
+#: ../src/boards/python/gnumch.py:268
 #, python-format
 msgid "%d ÷ %d"
 msgstr "%d ÷ %d"
 
-#: ../src/boards/python/gnumch.py:271
+#: ../src/boards/python/gnumch.py:276
 #, python-format
 msgid "Equal to %d"
 msgstr "Равно на %d"
 
-#: ../src/boards/python/gnumch.py:292
+#: ../src/boards/python/gnumch.py:297
 #, python-format
 msgid "Not equal to %d"
 msgstr "Не е равно на %d"
 
-#: ../src/boards/python/gnumch.py:434
+#: ../src/boards/python/gnumch.py:441
 msgid ""
 "You were eaten by a Troggle.\n"
 "Press <Return> to continue."
@@ -5071,11 +5302,11 @@ msgstr ""
 "Бяхте изядени от Трогъл.\n"
 "Натиснете „Enter“, за да продължите."
 
-#: ../src/boards/python/gnumch.py:483
+#: ../src/boards/python/gnumch.py:490
 msgid "You ate a wrong number.\n"
 msgstr "Изядохте грешно число\n"
 
-#: ../src/boards/python/gnumch.py:484
+#: ../src/boards/python/gnumch.py:491
 msgid ""
 "\n"
 "Press <Return> to continue."
@@ -5083,7 +5314,7 @@ msgstr ""
 "\n"
 "Натиснете „Enter“, за да продължите."
 
-#: ../src/boards/python/gnumch.py:777
+#: ../src/boards/python/gnumch.py:784
 msgid ""
 "T\n"
 "R\n"
@@ -5140,11 +5371,11 @@ msgstr "Потребителски име: "
 msgid "Enter login to log in"
 msgstr "Въведете потребителско име"
 
-#: ../src/boards/python/mosaic.py:193
+#: ../src/boards/python/mosaic.py:194
 msgid "Rebuild the same mosaic on the right area"
 msgstr "Постройте наново цялата мозайка в дясната част"
 
-#: ../src/boards/python/melody.py:115
+#: ../src/boards/python/melody.py:118
 msgid ""
 "Error: this activity cannot be played with the\n"
 "sound effects disabled.\n"
@@ -5231,70 +5462,65 @@ msgstr "Използване на правоъгълници"
 msgid "Choice of pattern"
 msgstr "Избор на шаблон"
 
-#: ../src/boards/python/redraw.py:347 ../src/boards/python/redraw.py:357
-msgid "Level"
-msgstr "Ниво"
-
-#: ../src/boards/python/redraw.py:901 ../src/boards/python/redraw.py:904
+#: ../src/boards/python/redraw.py:909 ../src/boards/python/redraw.py:912
 msgid "Coordinate"
 msgstr "Координати"
 
-#: ../src/boards/python/searace.py:200 ../src/boards/python/searace.py:205
-#: ../src/boards/python/searace.py:231
+#: ../src/boards/python/searace.py:191
 msgid "The race is already being run"
 msgstr "Състезанието вече е започнало"
 
 #. Manage default cases (no params given)
 #. Final move, add an ofset because we loose space in abs()
-#: ../src/boards/python/searace.py:428 ../src/boards/python/searace.py:453
-#: ../src/boards/python/searace.py:534 ../src/boards/python/searace.py:853
-#: ../src/boards/python/searace.py:882 ../src/boards/python/searace.py:977
-#: ../src/boards/python/searace.py:983 ../src/boards/python/searace.py:991
+#: ../src/boards/python/searace.py:433 ../src/boards/python/searace.py:458
+#: ../src/boards/python/searace.py:539 ../src/boards/python/searace.py:855
+#: ../src/boards/python/searace.py:884 ../src/boards/python/searace.py:973
+#: ../src/boards/python/searace.py:979 ../src/boards/python/searace.py:987
 msgid "forward"
 msgstr "напред"
 
-#: ../src/boards/python/searace.py:525
+#: ../src/boards/python/searace.py:530
 msgid "COMMANDS ARE"
 msgstr "КОМАНДИТЕ СА"
 
 #. The two boat arrived in a close time frame (1s), it's a draw
-#: ../src/boards/python/searace.py:751
+#: ../src/boards/python/searace.py:756
 msgid "This is a draw"
 msgstr "Равенство"
 
-#: ../src/boards/python/searace.py:758
+#: ../src/boards/python/searace.py:763
 msgid "The Red boat has won"
 msgstr "Победител е червената лодка"
 
-#: ../src/boards/python/searace.py:761
+#: ../src/boards/python/searace.py:766
 msgid "The Green boat has won"
 msgstr "Победител е зелената лодка"
 
-#: ../src/boards/python/searace.py:779 ../src/boards/python/searace.py:1021
+#: ../src/boards/python/searace.py:784 ../src/boards/python/searace.py:1017
 msgid "Angle:"
 msgstr "Ъгъл:"
 
-#: ../src/boards/python/searace.py:779
+#: ../src/boards/python/searace.py:784
 msgid "Wind:"
 msgstr "Вятър:"
 
-#: ../src/boards/python/searace.py:860
+#: ../src/boards/python/searace.py:862
 msgid "Syntax error at line"
 msgstr "Синтактична грешка в ред"
 
-#: ../src/boards/python/searace.py:878
+#: ../src/boards/python/searace.py:880
 msgid "The command"
 msgstr "Командата"
 
-#: ../src/boards/python/searace.py:897
+#: ../src/boards/python/searace.py:899
 msgid "Unknown command at line"
 msgstr "Непозната команда на ред"
 
-#: ../src/boards/python/searace.py:1021
+#: ../src/boards/python/searace.py:1017
 msgid "Distance:"
 msgstr "Разстояние:"
 
-#: ../src/boards/python/tuxpaint.py:119
+#: ../src/boards/python/tuxpaint.py:144
 msgid ""
 "Cannot find Tuxpaint.\n"
 "Install it to use this activity !"
@@ -5302,29 +5528,29 @@ msgstr ""
 "Неуспех при намирането на Tuxpaint.\n"
 "Инсталирайте го, за да използвате това занимание!"
 
-#: ../src/boards/python/tuxpaint.py:132
+#: ../src/boards/python/tuxpaint.py:157
 msgid "Waiting for Tuxpaint to finish"
 msgstr "Изчакване спирането на Tuxpaint"
 
-#: ../src/boards/python/tuxpaint.py:187
+#: ../src/boards/python/tuxpaint.py:210
 msgid "Inherit fullscreen setting from GCompris"
 msgstr "Наследяване на настройките за пълен екран от GCompris"
 
-#: ../src/boards/python/tuxpaint.py:191
+#: ../src/boards/python/tuxpaint.py:214
 msgid "Inherit size setting from GCompris (800x600, 640x480)"
 msgstr ""
 "Наследяване на настройките за разделителна способност от GCompris (800x600, "
 "640x480)"
 
-#: ../src/boards/python/tuxpaint.py:195
+#: ../src/boards/python/tuxpaint.py:218
 msgid "Disable shape rotation"
 msgstr "Изключване на ротацията на форми"
 
-#: ../src/boards/python/tuxpaint.py:199
+#: ../src/boards/python/tuxpaint.py:222
 msgid "Show Uppercase text only"
 msgstr "Показване само на текст с главни букви"
 
-#: ../src/boards/python/tuxpaint.py:203
+#: ../src/boards/python/tuxpaint.py:226
 msgid "Disable stamps"
 msgstr "Изключване на печати"
 
@@ -5336,7 +5562,7 @@ msgstr "Игра на памет"
 msgid "Build a train according to the model"
 msgstr "Композирайте влак съгласно образеца"
 
-#: ../src/boards/reading.c:225 ../src/boards/wordsgame.c:205
+#: ../src/boards/reading.c:229 ../src/boards/wordsgame.c:205
 msgid ""
 "Error: We can't find\n"
 "a list of words to play this game.\n"
@@ -5344,68 +5570,49 @@ msgstr ""
 "Грешка: Неуспех при намирането\n"
 "на списък с думи за тази игра.\n"
 
-#: ../src/boards/reading.c:379
+#: ../src/boards/reading.c:381
 msgid "Please, check if the word"
 msgstr "Проверете дали думата"
 
-#: ../src/boards/reading.c:399
+#: ../src/boards/reading.c:401
 msgid "is being displayed"
 msgstr "е показана"
 
-#: ../src/boards/reading.c:573
+#: ../src/boards/reading.c:575
 msgid "I am Ready"
 msgstr "Готов(а) съм"
 
-#: ../src/boards/reading.c:613
+#: ../src/boards/reading.c:615
 msgid "Yes, I saw it"
 msgstr "Да, видях я"
 
-#: ../src/boards/reading.c:643
+#: ../src/boards/reading.c:645
 msgid "No, it was not there"
 msgstr "Не, нямаше я там"
 
 #. Report what was wrong in the log
-#: ../src/boards/reading.c:681
+#: ../src/boards/reading.c:683
 #, c-format
 msgid "The word to find was '%s'"
 msgstr "Думата за намиране е „%s“"
 
-#: ../src/boards/reading.c:684
+#: ../src/boards/reading.c:686
 msgid "But it was not displayed"
 msgstr "Но тя не беше показана"
 
-#: ../src/boards/reading.c:686
+#: ../src/boards/reading.c:688
 msgid "And it was displayed"
 msgstr "И тя беше показана"
 
-#. Enter Edit Mode
-#: ../src/boards/shapegame.c:434
-msgid ""
-"You have entered Edit mode\n"
-"Move the puzzle items;\n"
-"type 's' to save, and\n"
-"'d' to display all the shapes"
+#: ../src/boards/scale.c:265
+#, c-format
+msgid "Weight = %s"
+msgstr "Тегло = %s"
+
+#: ../src/boards/scale.c:714
+msgid "Take care, you can drop masses on both sides of the scale."
 msgstr ""
-"Вие сте в режим на редактиране\n"
-"Движете частите на пъзела и\n"
-"натиснете „s“, за да запишете и\n"
-"„d“, за да покажете всички форми."
-
-#: ../src/boards/shapegame.c:442
-msgid ""
-"The data from this activity are saved under\n"
-"/tmp/gcompris-board.xml"
-msgstr ""
-"Данните за това занимание са записани\n"
-"в /tmp/gcompris-board.xml."
-
-#: ../src/boards/submarine.c:198
-msgid "Submarine"
-msgstr "Подводница"
-
-#: ../src/boards/submarine.c:199
-msgid "Control the depth of a submarine"
-msgstr "Контролирайте дълбочината на подводницата"
+"Обърнете внимание, че може да слагате тежести и на двете страни на кантара."
 
 #: ../src/boards/target.c:281 ../src/boards/target.c:546
 #, c-format
@@ -5426,16 +5633,48 @@ msgstr ""
 msgid "Distance to target = %d meters"
 msgstr "Разстояние до целта = %d метра"
 
+#: ../src/boards/wordprocessor.c:55
+msgid "Research"
+msgstr "Изследване"
+
+#: ../src/boards/wordprocessor.c:66
+msgid "Sentimental"
+msgstr "Сантиментално"
+
+#: ../src/boards/wordprocessor.c:77
+msgid "Official"
+msgstr "Официално"
+
+#: ../src/boards/wordprocessor.c:88 ../src/boards/wordprocessor.c:436
+msgid "Text"
+msgstr "Текст"
+
+#: ../src/boards/wordprocessor.c:99
+msgid "Flyer"
+msgstr "Летящ"
+
+#: ../src/boards/wordprocessor.c:433
+msgid "Title"
+msgstr "Заглавие"
+
+#: ../src/boards/wordprocessor.c:434
+msgid "Heading 1"
+msgstr "Подзаглавие 1"
+
+#: ../src/boards/wordprocessor.c:435
+msgid "Heading 2"
+msgstr "Подзаглавие 2"
+
 #: ../src/gcompris/about.c:57
 msgid ""
 "Author: Bruno Coudoin\n"
-"Contribution: Pascal Georges, Jose Jorge\n"
+"Contribution: Pascal Georges, Jose Jorge, Yves Combe\n"
 "Graphics: Renaud Blanchard, Franck Doucet\n"
 "Intro Music: Djilali Sebihi\n"
 "Background Music: Rico Da Halvarez\n"
 msgstr ""
 "Автор: Bruno Coudoin\n"
-"Принос: Pascal Georges, Jose Jorge\n"
+"Принос: Pascal Georges, Jose Jorge, Yves Combe\n"
 "Графика: Renaud Blanchard, Franck Doucet\n"
 "Начална музика: Djilali Sebihi\n"
 "Музика за фон: Rico Da Halvarez\n"
@@ -5443,67 +5682,91 @@ msgstr ""
 #. TRANSLATORS: Replace this string with your names, one name per line.
 #: ../src/gcompris/about.c:65
 msgid "translator_credits"
-msgstr "Явор Доганов <yavor@doganov.org>"
+msgstr "Явор Доганов <yavor@gnu.org>"
 
 #: ../src/gcompris/about.c:96 ../src/gcompris/about.c:106
 msgid "About GCompris"
 msgstr "Относно GCompris"
 
-#: ../src/gcompris/about.c:117 ../src/gcompris/about.c:126
+#: ../src/gcompris/about.c:117
 msgid "Translators:"
 msgstr "Преводач:"
 
-#: ../src/gcompris/about.c:249
+#: ../src/gcompris/about.c:193
 msgid ""
 "GCompris Home Page\n"
 "http://gcompris.net"
 msgstr ""
-"Интернет страница на GCompris\n"
+"Страница на GCompris\n"
 "http://gcompris.net"
 
-#: ../src/gcompris/about.c:271
+#: ../src/gcompris/about.c:215
 msgid ""
 "This software is a GNU Package and is released under the GNU General Public "
 "License"
 msgstr ""
-"Този софтуер е GNU пакет и се разпространява под условията на публичния "
-"лиценз на GNU"
+"Този софтуер е пакет на GNU и се разпространява под условията на Общия "
+"публичен лиценз на GNU (GNU GPL)"
 
-#: ../src/gcompris/about.c:334 ../src/gcompris/about.c:344
-#: ../src/gcompris/config.c:465 ../src/gcompris/config.c:475
-#: ../src/gcompris/dialog.c:97 ../src/gcompris/help.c:376
-#: ../src/gcompris/help.c:386 ../src/gcompris/images_selector.c:317
+#: ../src/gcompris/about.c:278 ../src/gcompris/about.c:288
+#: ../src/gcompris/config.c:472 ../src/gcompris/config.c:482
+#: ../src/gcompris/dialog.c:97 ../src/gcompris/help.c:382
+#: ../src/gcompris/help.c:392 ../src/gcompris/images_selector.c:317
 msgid "OK"
 msgstr "Да"
 
-#: ../src/gcompris/bar.c:568
+#: ../src/gcompris/bar.c:577
 msgid "GCompris confirmation"
 msgstr "Потвърждение на GCompris"
 
-#: ../src/gcompris/bar.c:569
+#: ../src/gcompris/bar.c:578
 msgid "Are you sure you want to quit?"
 msgstr "Сигурни ли сте, че искате да спрете програмата?"
 
-#: ../src/gcompris/bar.c:570
+#: ../src/gcompris/bar.c:579
 msgid "Yes, I am sure!"
 msgstr "Да, сигурен/сигурна съм!"
 
-#: ../src/gcompris/bar.c:571
+#: ../src/gcompris/bar.c:580
 msgid "No, I want to keep going"
 msgstr "Не, искам да продължа да се занимавам"
 
-#: ../src/gcompris/board.c:181
+#: ../src/gcompris/board.c:187
 msgid "Dynamic module loading is not supported. gcompris cannot load.\n"
 msgstr ""
 "Не се поддържа динамично зареждане на модули, GCompris не може да се "
 "зареди.\n"
 
-#: ../src/gcompris/board_config.c:700
+#: ../src/gcompris/board_config.c:699
 msgid ""
 "Select the language\n"
 " to use in the board"
 msgstr ""
 "Изберете език\n"
+" за заниманието"
+
+#: ../src/gcompris/board_config.c:762
+msgid "Global GCompris mode"
+msgstr "Общ режим на GCompris"
+
+#: ../src/gcompris/board_config.c:763
+msgid "Normal"
+msgstr "Нормален"
+
+#: ../src/gcompris/board_config.c:764
+msgid "2 clicks"
+msgstr "2 натискания"
+
+#: ../src/gcompris/board_config.c:765
+msgid "both modes"
+msgstr "двата режима"
+
+#: ../src/gcompris/board_config.c:793
+msgid ""
+"Select the drag and drop mode\n"
+" to use in the board"
+msgstr ""
+"Изберете режим\n"
 " за заниманието"
 
 #: ../src/gcompris/config.c:59
@@ -5519,223 +5782,251 @@ msgid "Arabic"
 msgstr "арабски"
 
 #: ../src/gcompris/config.c:62
+msgid "Arabic (Tunisia)"
+msgstr "арабски (Тунис)"
+
+#: ../src/gcompris/config.c:63
 msgid "Turkish (Azerbaijan)"
 msgstr "турски (Азербайджан)"
 
-#: ../src/gcompris/config.c:63
+#: ../src/gcompris/config.c:64
 msgid "Bulgarian"
 msgstr "български"
 
-#: ../src/gcompris/config.c:64
+#: ../src/gcompris/config.c:65
 msgid "Catalan"
 msgstr "каталунски"
 
-#: ../src/gcompris/config.c:66
+#: ../src/gcompris/config.c:67
 msgid "Danish"
 msgstr "датски"
 
-#: ../src/gcompris/config.c:67
+#: ../src/gcompris/config.c:68
 msgid "German"
 msgstr "немски"
 
-#: ../src/gcompris/config.c:68
+#: ../src/gcompris/config.c:69
 msgid "Greek"
 msgstr "гръцки"
 
-#: ../src/gcompris/config.c:69
+#: ../src/gcompris/config.c:70
 msgid "English (Canada)"
 msgstr "канадски английски"
 
-#: ../src/gcompris/config.c:70
+#: ../src/gcompris/config.c:71
 msgid "English (Great Britain)"
 msgstr "британски английски"
 
-#: ../src/gcompris/config.c:71
+#: ../src/gcompris/config.c:72
+msgid "English (United States)"
+msgstr "американски английски"
+
+#: ../src/gcompris/config.c:73
 msgid "Spanish"
 msgstr "испански"
 
-#: ../src/gcompris/config.c:72
+#: ../src/gcompris/config.c:74
 msgid "Basque"
 msgstr "баски"
 
-#: ../src/gcompris/config.c:73
+#: ../src/gcompris/config.c:75
+msgid "Dzongkha"
+msgstr "дзонгкха"
+
+#: ../src/gcompris/config.c:76
 msgid "Finnish"
 msgstr "финландски"
 
-#: ../src/gcompris/config.c:74
+#: ../src/gcompris/config.c:77
 msgid "French"
 msgstr "френски"
 
-#: ../src/gcompris/config.c:75
+#: ../src/gcompris/config.c:78
 msgid "Irish (Gaelic)"
 msgstr "ирландски (галски)"
 
-#: ../src/gcompris/config.c:76
+#: ../src/gcompris/config.c:79
 msgid "Hebrew"
 msgstr "иврит"
 
-#: ../src/gcompris/config.c:77
+#: ../src/gcompris/config.c:80
 msgid "Hindi"
 msgstr "хинди"
 
-#: ../src/gcompris/config.c:78
+#: ../src/gcompris/config.c:81
+msgid "Indonesian"
+msgstr "индонезийски"
+
+#: ../src/gcompris/config.c:82
+msgid "Japanese"
+msgstr "японски"
+
+#: ../src/gcompris/config.c:83
 msgid "Gujarati"
 msgstr "индийски (гуджарати)"
 
-#: ../src/gcompris/config.c:79
+#: ../src/gcompris/config.c:84
 msgid "Punjabi"
 msgstr "индийски (панджаби)"
 
-#: ../src/gcompris/config.c:80
+#: ../src/gcompris/config.c:85
 msgid "Hungarian"
 msgstr "унгарски"
 
-#: ../src/gcompris/config.c:81
+#: ../src/gcompris/config.c:86
 msgid "Croatian"
 msgstr "хърватски"
 
-#: ../src/gcompris/config.c:82
+#: ../src/gcompris/config.c:87
 msgid "Italian"
 msgstr "италиански"
 
-#: ../src/gcompris/config.c:83
+#: ../src/gcompris/config.c:88
 msgid "Georgian"
 msgstr "грузински"
 
-#: ../src/gcompris/config.c:84
+#: ../src/gcompris/config.c:89
+msgid "Korean"
+msgstr "корейски"
+
+#: ../src/gcompris/config.c:90
 msgid "Lithuanian"
 msgstr "литовски"
 
-#: ../src/gcompris/config.c:85
+#: ../src/gcompris/config.c:91
 msgid "Macedonian"
 msgstr "македонски"
 
-#: ../src/gcompris/config.c:86
+#: ../src/gcompris/config.c:92
 msgid "Malayalam"
 msgstr "малаялам"
 
-#: ../src/gcompris/config.c:87
+#: ../src/gcompris/config.c:93
 msgid "Marathi"
 msgstr "маратхи"
 
-#: ../src/gcompris/config.c:88
+#: ../src/gcompris/config.c:94
 msgid "Malay"
 msgstr "малайски"
 
-#: ../src/gcompris/config.c:89
+#: ../src/gcompris/config.c:95
 msgid "Nepal"
 msgstr "непалски"
 
-#: ../src/gcompris/config.c:90
+#: ../src/gcompris/config.c:96
 msgid "Dutch"
 msgstr "холандски"
 
-#: ../src/gcompris/config.c:91
+#: ../src/gcompris/config.c:97
 msgid "Norwegian Bokmal"
 msgstr "норвежки (букмол)"
 
-#: ../src/gcompris/config.c:92
+#: ../src/gcompris/config.c:98
 msgid "Norwegian Nynorsk"
 msgstr "норвежки (ниношк)"
 
-#: ../src/gcompris/config.c:93
+#: ../src/gcompris/config.c:99
+msgid "Occitan (languedocien)"
+msgstr "окситански"
+
+#: ../src/gcompris/config.c:100
 msgid "Polish"
 msgstr "полски"
 
-#: ../src/gcompris/config.c:94
+#: ../src/gcompris/config.c:101
 msgid "Portuguese"
 msgstr "португалски"
 
-#: ../src/gcompris/config.c:95
+#: ../src/gcompris/config.c:102
 msgid "Portuguese (Brazil)"
 msgstr "португалски (Бразилия)"
 
-#: ../src/gcompris/config.c:96
+#: ../src/gcompris/config.c:103
 msgid "Romanian"
 msgstr "румънски"
 
-#: ../src/gcompris/config.c:97
+#: ../src/gcompris/config.c:104
 msgid "Russian"
 msgstr "руски"
 
-#: ../src/gcompris/config.c:98
+#: ../src/gcompris/config.c:105
 msgid "Kinyarwanda"
 msgstr "кинярванда"
 
-#: ../src/gcompris/config.c:99
+#: ../src/gcompris/config.c:106
 msgid "Slovak"
 msgstr "словашки"
 
-#: ../src/gcompris/config.c:100
+#: ../src/gcompris/config.c:107
 msgid "Slovenian"
 msgstr "словенски"
 
-#: ../src/gcompris/config.c:101
+#: ../src/gcompris/config.c:108
 msgid "Somali"
 msgstr "сомалийски"
 
-#: ../src/gcompris/config.c:102
+#: ../src/gcompris/config.c:109
 msgid "Albanian"
 msgstr "албански"
 
-#: ../src/gcompris/config.c:103
+#: ../src/gcompris/config.c:110
 msgid "Serbian (Latin)"
 msgstr "сръбски (латиница)"
 
-#: ../src/gcompris/config.c:104
+#: ../src/gcompris/config.c:111
 msgid "Serbian"
 msgstr "сръбски"
 
-#: ../src/gcompris/config.c:105
+#: ../src/gcompris/config.c:112
 msgid "Swedish"
 msgstr "шведски"
 
 #. "ta_IN.UTF-8",	N_("Tamil"),
-#: ../src/gcompris/config.c:107
+#: ../src/gcompris/config.c:114
 msgid "Thai"
 msgstr "тайландски"
 
-#: ../src/gcompris/config.c:108
+#: ../src/gcompris/config.c:115
 msgid "Turkish"
 msgstr "турски"
 
-#: ../src/gcompris/config.c:109
+#: ../src/gcompris/config.c:116
 msgid "Vietnamese"
 msgstr "виетнамски"
 
-#: ../src/gcompris/config.c:110
+#: ../src/gcompris/config.c:117
 msgid "Walloon"
 msgstr "валонски"
 
-#: ../src/gcompris/config.c:111
+#: ../src/gcompris/config.c:118
 msgid "Chinese (Simplified)"
 msgstr "китайски (опростен)"
 
-#: ../src/gcompris/config.c:112
+#: ../src/gcompris/config.c:119
 msgid "Chinese (Traditional)"
 msgstr "китайски (традиционен)"
 
-#: ../src/gcompris/config.c:117
+#: ../src/gcompris/config.c:124
 msgid "No time limit"
 msgstr "Без ограничение за време"
 
-#: ../src/gcompris/config.c:118
+#: ../src/gcompris/config.c:125
 msgid "Slow timer"
 msgstr "Показване на хронометър"
 
-#: ../src/gcompris/config.c:119
+#: ../src/gcompris/config.c:126
 msgid "Normal timer"
 msgstr "Нормален хронометър"
 
-#: ../src/gcompris/config.c:120
+#: ../src/gcompris/config.c:127
 msgid "Fast timer"
 msgstr "Бърз хронометър"
 
-#: ../src/gcompris/config.c:125
+#: ../src/gcompris/config.c:132
 msgid "800x600 (Default for gcompris)"
 msgstr "800x600 (стандартно за GCompris)"
 
-#: ../src/gcompris/config.c:130
+#: ../src/gcompris/config.c:137
 msgid ""
 "<i>Use Gcompris administration module\n"
 "to filter boards</i>"
@@ -5743,62 +6034,62 @@ msgstr ""
 "<i>Използвайте административния модул на GCompris\n"
 "за да филтрирате занимания</i>"
 
-#: ../src/gcompris/config.c:185 ../src/gcompris/config.c:195
+#: ../src/gcompris/config.c:192 ../src/gcompris/config.c:202
 msgid "GCompris Configuration"
 msgstr "Настройки на GCompris"
 
-#: ../src/gcompris/config.c:271
+#: ../src/gcompris/config.c:278
 msgid "Fullscreen"
 msgstr "На цял екран"
 
-#: ../src/gcompris/config.c:314
+#: ../src/gcompris/config.c:321
 msgid "Music"
 msgstr "Музика"
 
-#: ../src/gcompris/config.c:342
+#: ../src/gcompris/config.c:349
 msgid "Effect"
 msgstr "Ефекти"
 
-#: ../src/gcompris/config.c:378
+#: ../src/gcompris/config.c:385
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "Не може да бъде отворена папка с тема: %s"
 
-#: ../src/gcompris/config.c:409 ../src/gcompris/config.c:843
-#: ../src/gcompris/config.c:857
+#: ../src/gcompris/config.c:416 ../src/gcompris/config.c:867
+#: ../src/gcompris/config.c:881
 #, c-format
 msgid "Skin : %s"
 msgstr "Тема : %s"
 
-#: ../src/gcompris/config.c:411
+#: ../src/gcompris/config.c:418
 msgid "SKINS NOT FOUND"
 msgstr "ТЕМИТЕ НЕ СА ОТКРИТИ"
 
-#: ../src/gcompris/config.c:536
+#: ../src/gcompris/config.c:543
 msgid "English (United State)"
 msgstr "американски английски"
 
-#: ../src/gcompris/file_selector.c:334
+#: ../src/gcompris/file_selector.c:337
 msgid "CANCEL"
 msgstr "ОТКАЗ"
 
-#: ../src/gcompris/file_selector.c:365
+#: ../src/gcompris/file_selector.c:368
 msgid "LOAD"
 msgstr "ЗАРЕЖДАНЕ"
 
-#: ../src/gcompris/file_selector.c:365
+#: ../src/gcompris/file_selector.c:368
 msgid "SAVE"
 msgstr "ЗАПАЗВАНЕ"
 
-#: ../src/gcompris/gameutil.c:79
+#: ../src/gcompris/gameutil.c:80
 msgid "Couldn't find or load the file"
 msgstr "Неуспех при намирането или зареждането на файла"
 
-#: ../src/gcompris/gameutil.c:81
+#: ../src/gcompris/gameutil.c:82
 msgid "This activity is incomplete."
 msgstr "Това занимание не е завършено."
 
-#: ../src/gcompris/gameutil.c:82
+#: ../src/gcompris/gameutil.c:83
 msgid ""
 "Exit it and report\n"
 "the problem to the authors."
@@ -5806,71 +6097,78 @@ msgstr ""
 "Изход и докладване на\n"
 "проблема на авторите."
 
-#: ../src/gcompris/gcompris.c:136
+#: ../src/gcompris/gcompris.c:139
 msgid "run gcompris in fullscreen mode."
 msgstr "стартиране на GCompris на цял екран."
 
-#: ../src/gcompris/gcompris.c:139
+#: ../src/gcompris/gcompris.c:142
 msgid "run gcompris in window mode."
 msgstr "стартиране на GCompris в прозорец."
 
-#: ../src/gcompris/gcompris.c:142
+#: ../src/gcompris/gcompris.c:145
 msgid "run gcompris with sound enabled."
 msgstr "стартиране на GCompris с включен звук."
 
-#: ../src/gcompris/gcompris.c:145
+#: ../src/gcompris/gcompris.c:148
 msgid "run gcompris without sound."
 msgstr "стартиране на GCompris без звук."
 
-#: ../src/gcompris/gcompris.c:148
-msgid "run gcompris with the default gnome cursor."
-msgstr "стартиране на Gcompris със стандартния курсор на GNOME."
-
 #: ../src/gcompris/gcompris.c:151
+msgid "run gcompris with the default gnome cursor."
+msgstr ""
+"стартиране на GCompris със стандартния курсор на\n"
+"\t\t\t   GNOME."
+
+#: ../src/gcompris/gcompris.c:154
 msgid "display only activities with this difficulty level."
 msgstr "показване на занимания само от това ниво на трудност."
 
-#: ../src/gcompris/gcompris.c:154
+#: ../src/gcompris/gcompris.c:157
 msgid "display debug informations on the console."
 msgstr "показване на информация за грешки в конзолата."
 
-#: ../src/gcompris/gcompris.c:157
+#: ../src/gcompris/gcompris.c:160
 msgid "Print the version of "
 msgstr "Отпечатване на версията на "
 
-#: ../src/gcompris/gcompris.c:160
+#: ../src/gcompris/gcompris.c:163
 msgid "Use the antialiased canvas (slower)."
 msgstr "Използване на платно със заглаждане (по-бавно)."
 
-#: ../src/gcompris/gcompris.c:163
-msgid "Disable XF86VidMode (No screen resolution change)."
-msgstr "Изключване на XF86VidMode (без промяна на разделителната способност)."
-
 #: ../src/gcompris/gcompris.c:166
+msgid "Disable XF86VidMode (No screen resolution change)."
+msgstr ""
+"Изключване на XF86VidMode (без промяна на\n"
+"\t\t\t   разделителната способност)."
+
+#: ../src/gcompris/gcompris.c:169
 msgid ""
 "Run gcompris with local menu (e.g -l /reading will let you play only "
 "activities in the reading directory, -l /strategy/connect4 only the connect4 "
 "activity)"
 msgstr ""
-"Стартиране на GCompris с локално меню (т.е. при „-l /reading“ ще играете "
-"само заниманията за четене, при „-l /boards/connect4“ само играта „Свързване "
-"на 4“)"
-
-#: ../src/gcompris/gcompris.c:169
-msgid "Run GCompris with local activity directory added to menu"
-msgstr "Стартиране на GCompris с локална папка, добавена към менюто"
+"Стартиране на GCompris с локално меню (т.е. при \n"
+"\t\t\t   „-l /reading“ ще играете само заниманията за четене,\n"
+"\t\t\t   при „-l /boards/connect4“ само играта „Свързване\n"
+"\t\t\t   на 4“)"
 
 #: ../src/gcompris/gcompris.c:172
+msgid "Run GCompris with local activity directory added to menu"
+msgstr ""
+"Стартиране на GCompris с локална папка със занимания,\n"
+"\t\t\t   добавена към менюто"
+
+#: ../src/gcompris/gcompris.c:175
 msgid "Run GCompris in administration and user-management mode"
 msgstr "Стартиране на GCompris в административен режим"
 
-#: ../src/gcompris/gcompris.c:175
-msgid "Use alternate database for profiles"
-msgstr "Използване на алтернативна база от данни за профилите"
-
 #: ../src/gcompris/gcompris.c:178
-msgid "Use alternate database for logs"
-msgstr "Използване на алтернативна база от данни за дневниците"
+msgid ""
+"Use alternate database for profiles [$HOME/.config/gcompris/gcompris_sqlite."
+"db]"
+msgstr ""
+"Използване на алтернативна база от данни за профилите\n"
+"\t\t\t   [$HOME/.config/gcompris/gcompris_sqlite.db]"
 
 #: ../src/gcompris/gcompris.c:181
 msgid "Create the alternate database for profiles"
@@ -5878,29 +6176,35 @@ msgstr "Създаване на алтернативна база от данн�
 
 #: ../src/gcompris/gcompris.c:184
 msgid "Re-read XML Menus and store them in the database"
-msgstr "Препрочитане на менютата в XML и запазване в базата от данни"
+msgstr ""
+"Препрочитане на менютата в XML и запазване в базата\n"
+"\t\t\t   от данни"
 
 #: ../src/gcompris/gcompris.c:187
 msgid "Set the profile to use. Use 'gcompris -a' to create profiles"
-msgstr "Настройте профила. Използвайте „gcompris -a“, за да създадете профили"
+msgstr ""
+"Задаване на профила. Използвайте „gcompris -a“,\n"
+"\t\t\t   за да създадете профили"
 
 #: ../src/gcompris/gcompris.c:190
 msgid "List all available profiles. Use 'gcompris -a' to create profiles"
 msgstr ""
-"Списък с всички налични профили. Използвайте „gcompris -a“, за да създадете "
-"профили"
+"Списък с всички налични профили. Използвайте\n"
+"\t\t\t   „gcompris -a“, за да създадете профили"
 
 #: ../src/gcompris/gcompris.c:193
 msgid ""
-"Shared directory location, for profiles and board-configuration data: "
-"[$HOME/.gcompris/shared]"
+"Config directory location: [$HOME/.config/gcompris]. Alternate is to set "
+"$XDG_CONFIG_HOME."
 msgstr ""
-"Споделена папка, за профили и конфигурационни данни за заниманията: [$HOME/."
-"gcompris/shared]"
+"Директория с конфигурацията: [$HOME/.config/gcompris]\n"
+"\t\t\t   Алтернативно може да се зададе $XDG_CONFIG_HOME."
 
 #: ../src/gcompris/gcompris.c:196
-msgid "The location of user directories: [$HOME/.gcompris/users]"
-msgstr "Местоположение на потребителските директории: [$HOME/.gcompris/users]"
+msgid "The location of user directories: [$HOME/My GCompris]"
+msgstr ""
+"Местоположение на потребителските директории:\n"
+"\t\t\t   [$HOME/My GCompris]"
 
 #: ../src/gcompris/gcompris.c:199
 msgid "Run the experimental activities"
@@ -5914,59 +6218,78 @@ msgstr "Изключване на бутона за спиране на прог
 msgid "Disable the config button"
 msgstr "Изключване на бутона за настройване на програмата"
 
-#: ../src/gcompris/gcompris.c:208
+#: ../src/gcompris/gcompris.c:210
 msgid "Display the resources on stdout based on the selected activities"
 msgstr ""
 "Показване на ресурсите на стандартния изход, базирано на избраните занимания"
 
-#: ../src/gcompris/gcompris.c:211
+#: ../src/gcompris/gcompris.c:214
 msgid ""
 "GCompris will get images, sounds and activity data from this server if not "
 "found locally."
 msgstr ""
-"GCompris ще вземе изображения, звуци и данни за заниманията от този сървър, "
-"в случай, че не могат да бъдат намерени локално."
+"GCompris ще вземе изображения, звуци и данни\n"
+"\t\t\t   за заниманията от този сървър, в случай, че не могат\n"
+"\t\t\t   да бъдат намерени локално."
 
-#: ../src/gcompris/gcompris.c:214
+#: ../src/gcompris/gcompris.c:217
 msgid ""
 "Only when --server is provided, disable check for local resource first. Data "
 "are always taken from the web server."
 msgstr ""
-"Само когато е подадена опцията „--server“ се пропуска проверката за локални "
-"ресурси. Данните винаги се вземат от уеб-сървъра."
+"Само когато е подадена опцията „--server“ се пропуска\n"
+"\t\t\t   проверката за локални ресурси. Данните винаги се\n"
+"\t\t\t   вземат от уеб-сървъра."
 
-#: ../src/gcompris/gcompris.c:218
+#: ../src/gcompris/gcompris.c:221
 msgid ""
 "In server mode, specify the cache directory used to avoid useless downloads."
 msgstr ""
-"В сървърен режим, указва директорията за кеш, използвана за избягване на "
-"излишните изтегляния."
+"В сървърен режим, указва директорията за кеш,\n"
+"\t\t\t   използвана за избягване на излишните изтегляния."
 
-#: ../src/gcompris/gcompris.c:858
+#: ../src/gcompris/gcompris.c:224
+msgid ""
+"Global drag and drop mode: normal, 2clicks, both. Default mode is normal."
+msgstr ""
+"Общ режим за провлачване и пускане: нормален, две\n"
+"\t\t\t   натискания, и двете. Стандартният режим е нормален."
+
+#: ../src/gcompris/gcompris.c:227
+msgid "Do not display the background images of activities."
+msgstr "Без фонови изображения на заниманията."
+
+#: ../src/gcompris/gcompris.c:230
+msgid "Do not avoid the execution of multiple instances of GCompris."
+msgstr ""
+"Да не се избягва изпълнението на множество инстанции\n"
+"\t\t\t   на GCompris."
+
+#: ../src/gcompris/gcompris.c:844
 #, c-format
 msgid ""
 "GCompris is free software released under the GPL License. In order to "
 "support its development, the Windows version provides only %d of the %d "
 "activities. You can get the full version for a small fee at\n"
 "<http://gcompris.net>\n"
-"The Linux version does not have this restriction. Note that GCompris is "
+"The GNU/Linux version does not have this restriction. Note that GCompris is "
 "being developed to free schools from monopolistic software vendors. If you "
 "also believe that we should teach freedom to children, please consider using "
 "GNU/Linux. Get more information at FSF:\n"
 "<http://www.fsf.org/philosophy>"
 msgstr ""
 "GCompris е свободен софтуер, разпространяван под лиценза GPL. За да "
-"подкрепите разработката му, версията за Windows осигурява само %d от %d-те "
+"подкрепите разработката му, версията за „Уиндоус“ осигурява само %d от %d-те "
 "занимания. Може да се сдобиете с пълната версия срещу малка такса на\n"
 "<http://gcompris.net>\n"
 "Версията за GNU/Линукс няма такива ограничения. Забележете, че GCompris е "
 "разработен, за да освободи училищата от монополистични производители на "
-"софтуер. Ако Вие също вярвате, че трябва да учим децата на свобода, "
-"обмислете възможността да използвате GNU/Линукс. Повече информация можете да "
-"намерите на страницата на Фондация „Свободен софтуер“:\n"
-"<http://www.fsf.org/philosophy>"
+"софтуер. Ако вие също вярвате, че трябва да учим децата на свобода, "
+"обмислете възможността да използвате GNU/Линукс. Може да намерите повече "
+"информация на страниците на проекта GNU:\n"
+"<http://www.gnu.org/philosophy/philosophy.bg.html>"
 
-#: ../src/gcompris/gcompris.c:1412
+#: ../src/gcompris/gcompris.c:1539
 #, c-format
 msgid ""
 "GCompris\n"
@@ -5980,44 +6303,66 @@ msgstr ""
 "Повече информация на http://gcompris.net\n"
 
 #. check the list of possible values for -l, then exit
-#: ../src/gcompris/gcompris.c:1501
+#: ../src/gcompris/gcompris.c:1623
 #, c-format
 msgid "Use -l to access an activity directly.\n"
 msgstr "Използвайте „-l“ за директен достъп до заниманието.\n"
 
-#: ../src/gcompris/gcompris.c:1502
+#: ../src/gcompris/gcompris.c:1624
 #, c-format
 msgid "The list of available activities is :\n"
 msgstr "Списъкът с наличните занимания е :\n"
 
-#: ../src/gcompris/gcompris.c:1672
+#: ../src/gcompris/gcompris.c:1811
 #, c-format
 msgid "The list of available profiles is:\n"
 msgstr "Списъкът с наличните профили е:\n"
 
-#: ../src/gcompris/gcompris_db.c:250
+#: ../src/gcompris/gcompris_db.c:266
 msgid "Unaffected"
 msgstr "Не се влияе"
 
-#: ../src/gcompris/gcompris_db.c:251
+#: ../src/gcompris/gcompris_db.c:267
 msgid "Users without a class"
 msgstr "Потребители без клас"
 
-#: ../src/gcompris/help.c:194
+#: ../src/gcompris/help.c:197
 msgid "Prerequisite"
 msgstr "Предпоставка"
 
-#: ../src/gcompris/help.c:222
+#: ../src/gcompris/help.c:225
 msgid "Goal"
 msgstr "Цел"
 
-#: ../src/gcompris/help.c:250
+#: ../src/gcompris/help.c:253
 msgid "Manual"
 msgstr "Ръководство"
 
-#: ../src/gcompris/help.c:278
+#: ../src/gcompris/help.c:281
 msgid "Credit"
 msgstr "Заслуги"
+
+#: ../src/gcompris/properties.c:487 ../src/gcompris/properties.c:494
+msgid "readme"
+msgstr "прочети_ме"
+
+#: ../src/gcompris/properties.c:489
+msgid ""
+"This directory contains the files you create with the GCompris educational "
+"suite\n"
+msgstr ""
+"Тази директория съдържа файловете, които създавате с образователната серия "
+"GCompris\n"
+
+#: ../src/gcompris/properties.c:496
+msgid ""
+"Put any number of images in this directory.\n"
+"You can include these images in your drawings and animations.\n"
+"The image formats supported are jpeg, png and svg.\n"
+msgstr ""
+"Записвайте всякакъв вид изображения в тази директория.\n"
+"Може да ги включвате във вашите рисунки и анимации.\n"
+"Поддържаните формати за изображения са JPEG, PNG и SVG.\n"
 
 #: ../src/gcompris/timer.c:250
 msgid "Time Elapsed"
