@@ -144,11 +144,11 @@ xml_DATA = $(xml_in_files:.xml.in=.xml)
 # in the file themselves. GCompris pick the translations from the po file at
 # runtime.
 #
-#$(xml_DATA): %.xml: %.xml.in
-#	sed -e "s/\(<\{1\}\/*\)_/\1/g" $< > $@
+$(xml_DATA): %.xml: %.xml.in
+	sed -e "s/\(<\{1\}\/*\)_/\1/g" $< > $@
 
 # Use this directive and instead of the one above to embed the translations
 # in the xml files directly, this is needed for the tool gcompris2spip
-@INTLTOOL_XML_RULE@
+#@INTLTOOL_XML_RULE@
 
 CLEANFILES = $(xml_DATA)

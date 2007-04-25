@@ -10,7 +10,7 @@ else
 DOCS_SUBDIR=
 endif
 
-SUBDIRS = po src boards $(DOCS_SUBDIR) autopackage
+SUBDIRS = po src boards $(DOCS_SUBDIR) autopackage macosx
 
 #if OS_MACOSX
 #SUBDIRS += macosx
