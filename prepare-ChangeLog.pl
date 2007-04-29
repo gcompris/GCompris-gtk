@@ -52,7 +52,7 @@ if (-e "CVS/Root")
   {
     $command = "cvs";
   }
-elsif (-e ".svn/README.txt")
+elsif (-e ".svn/text-base/README.svn-base")
   {
     $command = "svn";
   }
