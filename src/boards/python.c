@@ -170,7 +170,9 @@ pythonboard_init (GcomprisBoard *agcomprisBoard){
   } else {
     /* Add the python plugins dir to the python's search path */
 #ifndef DISABLE_USER_PLUGIN_DIR
-    userplugindir = g_strconcat(g_get_home_dir(), "/.gcompris/Plugins/", NULL);
+    userplugindir = g_strconcat(g_get_home_dir(), properties->config_dir,
+				"/Plugins/",
+				NULL);
     execstr = g_strdup_printf("import sys; sys.path.append('%s/python'); sys.path.append('%s')",
 			      userplugindir, properties->package_python_plugin_dir);
     g_free(userplugindir);
@@ -220,9 +222,10 @@ pythonboard_init (GcomprisBoard *agcomprisBoard){
 
 	    /* Test if board come with -L option */
 
-	    g_warning("board_dir: %s package_data_dir %s",
+	    g_warning("board_dir: '%s' package_data_dir '%s' file_name '%s'",
 		      board->board_dir,
-		      properties->package_python_plugin_dir);
+		      properties->package_python_plugin_dir,
+		      board_file_name);
 
 	    if (strcmp(board->board_dir, properties->package_python_plugin_dir)!=0){
 	      boarddir = g_strdup_printf("sys.path.append('%s/')", board->board_dir);

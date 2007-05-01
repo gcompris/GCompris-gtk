@@ -10,11 +10,11 @@ else
 DOCS_SUBDIR=
 endif
 
-SUBDIRS = po src boards $(DOCS_SUBDIR) autopackage macosx
+SUBDIRS = po src boards $(DOCS_SUBDIR) autopackage
 
-#if OS_MACOSX
-#SUBDIRS += macosx
-#endif
+if OS_MACOSX
+SUBDIRS += macosx
+endif
 
 
 icondir=$(datadir)/pixmaps
@@ -47,7 +47,13 @@ EXTRA_DIST = \
 	intltool-extract.in \
 	intltool-merge.in \
 	intltool-update.in \
-	gnome2-macros \
+	gnome2-macros/autogen.sh \
+	gnome2-macros/compiler-flags.m4 \
+	gnome2-macros/curses.m4 \
+	gnome2-macros/gnome2-macros.dep \
+	gnome2-macros/gnome-autogen.sh \
+	gnome2-macros/gnome-common.m4 \
+	gnome2-macros/gnome-deprecated-macros.m4 \
 	README.mingw README.translators README.windows \
 	config.h.mingw Makefile.mingw global_win32.mak gcompris.ico gc_admin.ico gcompris-uninstal.ico \
 	gcompris-installer.nsi

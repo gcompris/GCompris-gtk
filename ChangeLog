@@ -1,3 +1,29 @@
+2007-05-02  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	Integrated the writing tutor activity from Jozef Cerven jcmail80 on gmail / com.
+
+	* Makefile.am:
+	* boards/Makefile.am:
+	* boards/writing_tutor.xml.in:
+	* boards/writing_tutor/anim_pen.txt:
+	* boards/writing_tutor_image_match.xml.in:
+	* boards/writing_tutor_missing_match.xml.in:
+	* boards/writing_tutor_pattern_admin.xml.in:
+	* boards/writing_tutor_template_match.xml.in:
+	* configure.in:
+	* gcompris-edit.desktop.in:
+	* macosx/Makefile.am:
+	* src/boards/python.c: (pythonboard_init):
+	* src/boards/python/DTW/Makefile.am:
+	* src/boards/python/DTW/dtw.py:
+	* src/boards/python/Makefile.am:
+	* src/boards/python/writing_tutor_common.py:
+	* src/boards/python/writing_tutor_image_match.py:
+	* src/boards/python/writing_tutor_missing_match.py:
+	* src/boards/python/writing_tutor_pattern_admin.py:
+	* src/boards/python/writing_tutor_template_match.py:
+	* src/gcompris/config.c:
+
 	*** RELEASE 8.3.1 ***
 
 2007-04-29  Bruno coudoin  <bruno.coudoin@free.fr>
