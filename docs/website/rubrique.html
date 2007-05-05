@@ -1,144 +1,146 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html lang="fr">
+<BOUCLE_rubrique_principalh(RUBRIQUES) {id_rubrique}>
+  <html dir="#LANG_DIR" lang="#LANG">
+</BOUCLE_rubrique_principalh>
 
-  <head>
-    <INCLURE(meta.php3)>
+<head>
+  <INCLURE(meta.php3)>
 
-      <script language="JavaScript" type="text/JavaScript">
-	<!--
-	function MM_reloadPage(init) {  //reloads the window if Nav4 resized
-	if (init==true) with (navigator) {if ((appName=="Netscape")&&(parseInt(appVersion)==4)) {
-	document.MM_pgW=innerWidth; document.MM_pgH=innerHeight; onresize=MM_reloadPage; }}
-	else if (innerWidth!=document.MM_pgW || innerHeight!=document.MM_pgH) location.reload();
-	}
-	MM_reloadPage(true);
-	//-->
-      </script>
-      <link href="gcompris.css" rel="stylesheet" type="text/css">
-  </head>
+    <script language="JavaScript" type="text/JavaScript">
+      <!--
+	  function MM_reloadPage(init) {  //reloads the window if Nav4 resized
+	  if (init==true) with (navigator) {if ((appName=="Netscape")&&(parseInt(appVersion)==4)) {
+	  document.MM_pgW=innerWidth; document.MM_pgH=innerHeight; onresize=MM_reloadPage; }}
+	  else if (innerWidth!=document.MM_pgW || innerHeight!=document.MM_pgH) location.reload();
+	  }
+	  MM_reloadPage(true);
+	  //-->
+    </script>
+    <link href="gcompris.css" rel="stylesheet" type="text/css">
+</head>
 
-  <body>
-    <!-- Titre du site et lien vers l'accueil -->
-    <div>
-      <INCLURE(header.php3)>
-    </div>
+<body>
+  <!-- Titre du site et lien vers l'accueil -->
+  <div>
+    <INCLURE(header.php3)>
+  </div>
 
-    <div id="MENU"> 
+  <div id="MENU">
 
-      <BOUCLE_rubriquemenu(RUBRIQUES){id_rubrique}>
-	<!--Menu de navigation -->
-	<INCLURE(menu.php3){id_rubrique}>
-      </BOUCLE_rubriquemenu>
-    </div>
-    
-    <div id="MAIN"> 
-      <BOUCLE_rubrique_principal(RUBRIQUES) {id_rubrique}>
-	[<p class="texterub"> (#DESCRIPTIF) </p>]
-	<p>
-	  <span class="titre">[(#TITRE|supprimer_numero)]</span><BR>
-	  <:dernier_ajout:>:&nbsp;[(#DATE|nom_jour)] [(#DATE|affdate).]
-	</p>
-	
-	<B_breves>
+    <BOUCLE_rubriquemenu(RUBRIQUES){id_rubrique}>
+      <!--Menu de navigation -->
+      <INCLURE(menu.php3){id_rubrique}>
+    </BOUCLE_rubriquemenu>
+  </div>
+
+  <div id="MAIN">
+    <BOUCLE_rubrique_principal(RUBRIQUES) {id_rubrique}>
+      [<p class="texterub"> (#DESCRIPTIF) </p>]
+      <p>
+	<span class="titre">[(#TITRE|supprimer_numero)]</span><BR>
+	<:dernier_ajout:>:&nbsp;[(#DATE|nom_jour)] [(#DATE|affdate).]
+      </p>
+
+      <B_breves>
 	<div class="date">
 	  <:breves:> <br>
-	<BOUCLE_breves(BREVES) {id_secteur} {par date} {inverse} {0,5}>
-	  <li class="grasbeige"> <i>[(#DATE|affdate)]</i>: <a href="#URL_BREVE" class="highlight">#TITRE</a> 
-	  </li>
-	</BOUCLE_breves>
-    </div>
-  </B_breves>
+	    <BOUCLE_breves(BREVES) {id_secteur} {par date} {inverse} {0,5}>
+	      <li class="grasbeige"> <i>[(#DATE|affdate)]</i>: <a href="#URL_BREVE" class="highlight">#TITRE</a>
+	      </li>
+	    </BOUCLE_breves>
+	</div>
+      </B_breves>
 
-    <div>
-      <BOUCLE_art_de_la_rub(ARTICLES){id_rubrique}{par num titre}{lang}>
+      <div>
+	<BOUCLE_art_de_la_rub(ARTICLES){id_rubrique}{par num titre}{lang}>
 
-	<div class="rubriquesummary"> 
-	  <div class="titrearticle">
-	    <div class="date"><:par_auteur:>
-	<BOUCLE4(AUTEURS){id_article}>
-	  <a href="auteur.php3?id_auteur=#ID_AUTEUR?id_rubrique=#ID_SECTEUR" class="highlight">#NOM</a>
-	</BOUCLE4>
-    </div>
-    <div class="titrearticlepuce">[(#LOGO_ARTICLE|right)] <a href="#URL_ARTICLE" class="highlight">[(#TITRE|supprimer_numero)]</a></div>
-  </div>
-    <div class="soustitre">
-      [(#SOUSTITRE)]
-    </div>
-    <br>
-    <div class="contenu">#TEXTE</div>
-
-    [<div class="titre3"><br><a href="forum.php3?(#PARAMETRES_FORUM)" class="highlight"><:repondre_article:></a></div>]
-    <br>
-
-  </div>
-    <!-- affichage du forum de l'article -->
-
-    <div> 
-      <B_forums>
-	<BOUCLE_forums(FORUMS){id_article}{par date}{inverse}>
 	  <div class="rubriquesummary">
-	    <div class="forum-fil"> 
-	      <div class="forum"> <a name="forum#ID_FORUM"></a> 
-		<div class="forum-chapo"> 
-		  <div class="titrearticle">#TITRE</div>
-		  [(#DATE|affdate)][, <:par_auteur:> (#NOM)] </div>
-		<div class="forum-item"> [(#TEXTE)]
-		  [
-		  <div>Site : <a href="#URL_SITE" class="highlight">(#NOM_SITE)</a></div>]
-
-		</div>
+	    <div class="titrearticle">
+	      <div class="date"><:par_auteur:>
+		  <BOUCLE4(AUTEURS){id_article}>
+		    <a href="auteur.php3?id_auteur=#ID_AUTEUR?id_rubrique=#ID_SECTEUR" class="highlight">#NOM</a>
+		  </BOUCLE4>
 	      </div>
-	      <B_forums_fils>
-	      <ul>
-	  <BOUCLE_forums_fils(FORUMS){id_parent}{par date}>
-	    <li> 
-	      <div class="forum"> <a name="forum#ID_FORUM"></a> 
-		<div class="forum-chapo"> 
-		  <div class="forum-titre">#TITRE</div>
-		  [(#DATE|affdate)][, par <A HREF="mailto:#EMAIL" class="highlight">(#NOM)</A>] 
+	      <div class="titrearticlepuce">[(#LOGO_ARTICLE|right)] <a href="#URL_ARTICLE" class="highlight">[(#TITRE|supprimer_numero)]</a></div>
+	    </div>
+	    <div class="soustitre">
+	      [(#SOUSTITRE)]
+	    </div>
+	    <br>
+	    <div class="contenu">#TEXTE</div>
+
+	    [<div class="titre3"><br><a href="forum.php3?(#PARAMETRES_FORUM)" class="highlight"><:repondre_article:></a></div>]
+	    <br>
+
+	  </div>
+	  <!-- affichage du forum de l'article -->
+
+	  <div>
+	    <B_forums>
+	      <BOUCLE_forums(FORUMS){id_article}{par date}{inverse}>
+		<div class="rubriquesummary">
+		  <div class="forum-fil">
+		    <div class="forum"> <a name="forum#ID_FORUM"></a>
+		      <div class="forum-chapo">
+			<div class="titrearticle">#TITRE</div>
+			[(#DATE|affdate)][, <:par_auteur:> (#NOM)] </div>
+		      <div class="forum-item"> [(#TEXTE)]
+			[
+			<div>Site : <a href="#URL_SITE" class="highlight">(#NOM_SITE)</a></div>]
+
+		      </div>
+		    </div>
+		    <B_forums_fils>
+		      <ul>
+			<BOUCLE_forums_fils(FORUMS){id_parent}{par date}>
+			  <li>
+			    <div class="forum"> <a name="forum#ID_FORUM"></a>
+			      <div class="forum-chapo">
+				<div class="forum-titre">#TITRE</div>
+				[(#DATE|affdate)][, par <A HREF="mailto:#EMAIL" class="highlight">(#NOM)</A>]
+			      </div>
+			      <div class="forum-item"> [(#TEXTE)]
+				[
+				<div>Site : <a href="#URL_SITE" class="highlight">(#NOM_SITE)</a></div>]
+
+			      </div>
+			    </div>
+			    <BOUCLE_Forums_Boucle(boucle_forums_fils)>
+			    </BOUCLE_Forums_Boucle>
+			  </li>
+			</BOUCLE_forums_fils>
+		      </ul>
+		    </B_forums_fils>
+		  </div>
 		</div>
-		<div class="forum-item"> [(#TEXTE)]
-		  [
-		  <div>Site : <a href="#URL_SITE" class="highlight">(#NOM_SITE)</a></div>]
-
-		</div>
-	      </div>
-	    <BOUCLE_Forums_Boucle(boucle_forums_fils)>
-	    </BOUCLE_Forums_Boucle>
-	  </li>
-	  </BOUCLE_forums_fils>
-	</ul>
-      </B_forums_fils>
-    </div>
-  </div>
-  </BOUCLE_forums>
-  </B_forums>
-  </div>
+	      </BOUCLE_forums>
+	    </B_forums>
+	  </div>
 
 
-  </BOUCLE_art_de_la_rub>
-  </div>
-
-    <BOUCLE_site(SITES){id_rubrique}>
-      <div class="rubriquesummary"> 
-        <span>[<a href="#URL_SITE" class="highlight">(#LOGO_SITE|left)</a>]</span>
-        <span>
-	<div class="titre">[<a href="#URL_SITE" class="highlight">(#NOM_SITE)</a>]</div>
-	<div class="soustitre">[(#DESCRIPTIF)]</div>
-      </span>
+	</BOUCLE_art_de_la_rub>
       </div>
-    </BOUCLE_site>
 
-    
-    <div class="copyright"> 
-      <INCLURE(footer.html)>
-    </div>
+      <BOUCLE_site(SITES){id_rubrique}>
+	<div class="rubriquesummary">
+          <span>[<a href="#URL_SITE" class="highlight">(#LOGO_SITE|left)</a>]</span>
+          <span>
+	    <div class="titre">[<a href="#URL_SITE" class="highlight">(#NOM_SITE)</a>]</div>
+	    <div class="soustitre">[(#DESCRIPTIF)]</div>
+	  </span>
+	</div>
+      </BOUCLE_site>
 
-    <!-- Formulaire administrateur -->
-    <div> [(#FORMULAIRE_ADMIN)] </div>
 
-  </BOUCLE_rubrique_principal>
+      <div class="copyright">
+	<INCLURE(footer.html)>
+      </div>
+
+      <!-- Formulaire administrateur -->
+      <div> [(#FORMULAIRE_ADMIN)] </div>
+
+    </BOUCLE_rubrique_principal>
   </div>
-    
-  </body>
+
+</body>
 </html>

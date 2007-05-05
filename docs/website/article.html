@@ -1,180 +1,181 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html lang="fr">
-  <head>
-    <INCLURE(meta.php3)>
-      <link href="gcompris.css" rel="stylesheet" type="text/css">
+<BOUCLE_article_principalh(ARTICLES) {id_article}>
+  <html dir="#LANG_DIR" lang="#LANG">
+</BOUCLE_article_principalh>
+<head>
+  <INCLURE(meta.php3)>
+    <link href="gcompris.css" rel="stylesheet" type="text/css">
 
-      <script language="JavaScript" type="text/JavaScript">
-	<!--
-	function MM_reloadPage(init) {  //reloads the window if Nav4 resized
-	if (init==true) with (navigator) {if ((appName=="Netscape")&&(parseInt(appVersion)==4)) {
-	document.MM_pgW=innerWidth; document.MM_pgH=innerHeight; onresize=MM_reloadPage; }}
-	else if (innerWidth!=document.MM_pgW || innerHeight!=document.MM_pgH) location.reload();
-	}
-	MM_reloadPage(true);
-	//-->
-      </script>
+    <script language="JavaScript" type="text/JavaScript">
+      <!--
+	  function MM_reloadPage(init) {  //reloads the window if Nav4 resized
+	  if (init==true) with (navigator) {if ((appName=="Netscape")&&(parseInt(appVersion)==4)) {
+	  document.MM_pgW=innerWidth; document.MM_pgH=innerHeight; onresize=MM_reloadPage; }}
+	  else if (innerWidth!=document.MM_pgW || innerHeight!=document.MM_pgH) location.reload();
+	  }
+	  MM_reloadPage(true);
+	  //-->
+    </script>
 
-  </head>
+</head>
 
-  <body>
-    <!-- Titre du site et lien vers l'accueil -->
-    <div>
-      <INCLURE(header.php3)>
-    </div>
+<body>
+  <!-- Titre du site et lien vers l'accueil -->
+  <div>
+    <INCLURE(header.php3)>
+  </div>
 
-    <div id="MENU"> 
-      <BOUCLE_rubriquemenu(ARTICLES){id_article}>
-	<!--Menu de navigation -->
-	<INCLURE(menu.php3){id_rubrique}>
-      </BOUCLE_rubriquemenu>
-    </div>
-    
-    <div id="MAIN"> 
-      
-      
-      <BOUCLE_article_principal(ARTICLES) {id_article}>
+  <div id="MENU">
+    <BOUCLE_rubriquemenu(ARTICLES){id_article}>
+      <!--Menu de navigation -->
+      <INCLURE(menu.php3){id_rubrique}>
+    </BOUCLE_rubriquemenu>
+  </div>
 
-	<p class="menunav">
-	  <:navigation:>:
-	<BOUCLE_chemin(HIERARCHIE){" -> "}>
-	  [<a href="#URL_RUBRIQUE">[(#TITRE|supprimer_numero)]</a>] 
-	</BOUCLE_chemin>
-	<a HREF="#" class="imprimer" onClick="window.open('./imprimer.php3?id_article=#ID_ARTICLE','_blank','toolbar=0, location=0, directories=0, status=0, scrollbars=1, resizable=0, copyhistory=0, menuBar=0, width=800, height=600');return(false)"> 
-	  <img src="NAVPICS/i-printer.gif" alt="print" width="48" height="48" border="0"> 
-	</a>
+  <div id="MAIN">
+
+
+    <BOUCLE_article_principal(ARTICLES) {id_article}>
+
+      <p class="menunav">
+	<:navigation:>:
+	  <BOUCLE_chemin(HIERARCHIE){" -> "}>
+	    [<a href="#URL_RUBRIQUE">[(#TITRE|supprimer_numero)]</a>]
+	  </BOUCLE_chemin>
+	  <a HREF="#" class="imprimer" onClick="window.open('./imprimer.php3?id_article=#ID_ARTICLE','_blank','toolbar=0, location=0, directories=0, status=0, scrollbars=1, resizable=0, copyhistory=0, menuBar=0, width=800, height=600');return(false)">
+	    <img src="NAVPICS/i-printer.gif" alt="print" width="48" height="48" border="0">
+	  </a>
       </p>
 
-	<B_traductions>
-	  <select onchange="location.href='article.php3?id_article='+this.options[this.selectedIndex].value" class="formulaire">
-	    <option>Language</option>
-	<BOUCLE_traductions(ARTICLES){traduction}{exclus}>
-	  [<option value="#ID_ARTICLE" dir="#LANG_DIR">(#LANG|traduire_nom_langue)</option>]
-	</BOUCLE_traductions>
-      </select>
+      <B_traductions>
+	<select onchange="location.href='article.php3?id_article='+this.options[this.selectedIndex].value" class="formulaire">
+	  <option>Language</option>
+	  <BOUCLE_traductions(ARTICLES){traduction}{exclus}>
+	    [<option value="#ID_ARTICLE" dir="#LANG_DIR">(#LANG|traduire_nom_langue)</option>]
+	  </BOUCLE_traductions>
+	</select>
       </B_traductions>
 
 
-	[<p class="texterub"> (#DESCRIPTIF) </p>]
+      [<p class="texterub"> (#DESCRIPTIF) </p>]
 
-	<div class="rubriquesummary"> 
-	  <div class="titrearticle">
-	    <div class="surtitre">[(#SURTITRE)]</div>
-	    <div class="titrearticlepuce"> [(#LOGO_ARTICLE|left)] [(#TITRE|supprimer_numero)]</div>
-	    <div class="soustitre">[(#SOUSTITRE)]</div>
-	    <div class="chapo">[(#CHAPO)]</div>
-	  </div>
-	  [<div class="date">(#FORMULAIRE_SIGNATURE)</div>]
-	  <div class="contenu">[(#TEXTE)]</div>
+      <div class="rubriquesummary">
+	<div class="titrearticle">
+	  <div class="surtitre">[(#SURTITRE)]</div>
+	  <div class="titrearticlepuce"> [(#LOGO_ARTICLE|left)] [(#TITRE|supprimer_numero)]</div>
+	  <div class="soustitre">[(#SOUSTITRE)]</div>
+	  <div class="chapo">[(#CHAPO)]</div>
+	</div>
+	[<div class="date">(#FORMULAIRE_SIGNATURE)</div>]
+	<div class="contenu">[(#TEXTE)]</div>
 
-	  <B_auteurs>
+	<B_auteurs>
 	  <div class="lesauteurs">
 	    <span class="grasorange"><:par_auteur:>:
-	<BOUCLE_auteurs(AUTEURS){id_article}>
-	  [<a href="auteur.php3?id_auteur=#ID_AUTEUR?id_rubrique=#ID_SECTEUR">(#LOGO_AUTEUR)</a><br>]	  
-	  [<a href="auteur.php3?id_auteur=#ID_AUTEUR?id_rubrique=#ID_SECTEUR"><B>(#NOM)</B></a><br>]
-	  [#PUCE<A HREF="#URL_SITE">Site web&nbsp;: (#NOM_SITE)</A></font>]        
-	</BOUCLE_auteurs>
-      </span>
-    </div>
-  </B_auteurs>
+		<BOUCLE_auteurs(AUTEURS){id_article}>
+		  [<a href="auteur.php3?id_auteur=#ID_AUTEUR?id_rubrique=#ID_SECTEUR">(#LOGO_AUTEUR)</a><br>]
+		  [<a href="auteur.php3?id_auteur=#ID_AUTEUR?id_rubrique=#ID_SECTEUR"><B>(#NOM)</B></a><br>]
+		  [#PUCE<A HREF="#URL_SITE">Site web&nbsp;: (#NOM_SITE)</A></font>]
+</BOUCLE_auteurs>
+</span>
+</div>
+</B_auteurs>
 
-    [<div class="titre3"><br><a href="forum.php3?(#PARAMETRES_FORUM)"><:repondre_article:></a></div>]
+[<div class="titre3"><br><a href="forum.php3?(#PARAMETRES_FORUM)"><:repondre_article:></a></div>]
 
-  </div>
+</div>
 
 
 
-    <div class="ps">[(#PS)]</div>
-    [<div class="notes">(#NOTES)</div>
-    ]						
-    <br> 
-    <BOUCLE_documents_joints(DOCUMENTS) {id_article} {mode=document} {doublons} {"<br>
-      "}><span class="titre3">Documents joints &agrave; l'article </span><br> [(#LOGO_DOCUMENT|#URL_DOCUMENT)][<br>
-      (#TITRE)][ - (#DESCRIPTIF)]
-    </BOUCLE_documents_joints>
-    <br>
+<div class="ps">[(#PS)]</div>
+[<div class="notes">(#NOTES)</div>]
+<br>
+<BOUCLE_documents_joints(DOCUMENTS) {id_article} {mode=document} {doublons} {"<br>
+									      "}><span class="titre3">Documents joints &agrave; l'article </span><br> [(#LOGO_DOCUMENT|#URL_DOCUMENT)][<br>
+  (#TITRE)][ - (#DESCRIPTIF)]
+</BOUCLE_documents_joints>
+<br>
 
-    <!-- Signatures petition -->
-    <BOUCLE_signatures_decompte(SIGNATURES) {id_article}>
-      [ 
-      <div>(#TOTAL_BOUCLE) <span class="titre2">signatures 
-	  &agrave; cette p&eacute;tition</span></div>
+<!-- Signatures petition -->
+<BOUCLE_signatures_decompte(SIGNATURES) {id_article}>
+  [
+  <div>(#TOTAL_BOUCLE) <span class="titre2">signatures
+      &agrave; cette p&eacute;tition</span></div>
 
-      <table>
-	<thead>
-	  <tr>
-	    <td>Date</td>
-	    <td>Nom et site Web</td>
-	    <td>Message</td>
-	  </tr>
-	</thead>
-	<tbody>]
-	  <//B_signatures_decompte>
-	  <BOUCLE_signatures(SIGNATURES) {id_article} {par date} {inverse} {0,30}>
-	    <tr>
-	      <td>[(#DATE|affdate_court)]</td>
-	      <td>#NOM[<br><a href="#URL_SITE">(#NOM_SITE)</a>]</td>
-	    [<td>(#MESSAGE)</td>]
-	  </tr>
-	  </BOUCLE_signatures>
-	</tbody>
-      </table>
+  <table>
+    <thead>
+      <tr>
+	<td>Date</td>
+	<td>Nom et site Web</td>
+	<td>Message</td>
+      </tr>
+    </thead>
+    <tbody>]
+<//B_signatures_decompte>
+<BOUCLE_signatures(SIGNATURES) {id_article} {par date} {inverse} {0,30}>
+  <tr>
+    <td>[(#DATE|affdate_court)]</td>
+    <td>#NOM[<br><a href="#URL_SITE">(#NOM_SITE)</a>]</td>
+    [<td>(#MESSAGE)</td>]
+  </tr>
+</BOUCLE_signatures>
+</tbody>
+</table>
 
-    </BOUCLE_signatures_decompte>
+</BOUCLE_signatures_decompte>
 
-    <!-- affichage du forum de l'article -->
+<!-- affichage du forum de l'article -->
 
-    <div> 
-      <B_forums>
-	<BOUCLE_forums(FORUMS){id_article}{par date}{inverse}>
-	  <div class="rubriquesummary">
-	    <div class="forum-fil"> 
-	      <div class="forum"> <a name="forum#ID_FORUM"></a> 
-		<div class="forum-chapo"> 
-		  <div class="titrearticle">#TITRE</div>
-		  [(#DATE|affdate)][, par <A HREF="mailto:#EMAIL">(#NOM)</A>] </div>
-		<div class="forum-item"> [(#TEXTE)] 
-		  [
-		  <div>Site : <a href="#URL_SITE">(#NOM_SITE)</a></div>]
+<div>
+  <B_forums>
+    <BOUCLE_forums(FORUMS){id_article}{par date}{inverse}>
+      <div class="rubriquesummary">
+	<div class="forum-fil">
+	  <div class="forum"> <a name="forum#ID_FORUM"></a>
+	    <div class="forum-chapo">
+	      <div class="titrearticle">#TITRE</div>
+	      [(#DATE|affdate)][, par <A HREF="mailto:#EMAIL">(#NOM)</A>] </div>
+	    <div class="forum-item"> [(#TEXTE)]
+	      [
+	      <div>Site : <a href="#URL_SITE">(#NOM_SITE)</a></div>]
 
-		</div>
-	      </div>
-	      <B_forums_fils>
-	      <ul>
-	  <BOUCLE_forums_fils(FORUMS){id_parent}{par date}>
-	    <li> 
-	      <div class="forum"> <a name="forum#ID_FORUM"></a> 
-		<div class="forum-chapo"> 
-		  <div class="forum-titre">#TITRE</div>
-		  [(#DATE|affdate)][, par <A HREF="mailto:#EMAIL">(#NOM)</A>] 
-		</div>
-		<div class="forum-item"> [(#TEXTE)] 
-		  [
-		  <div>Site : <a href="#URL_SITE">(#NOM_SITE)</a></div>]
+	    </div>
+	  </div>
+	  <B_forums_fils>
+	    <ul>
+	      <BOUCLE_forums_fils(FORUMS){id_parent}{par date}>
+		<li>
+		  <div class="forum"> <a name="forum#ID_FORUM"></a>
+		    <div class="forum-chapo">
+		      <div class="forum-titre">#TITRE</div>
+		      [(#DATE|affdate)][, par <A HREF="mailto:#EMAIL">(#NOM)</A>]
+		    </div>
+		    <div class="forum-item"> [(#TEXTE)]
+		      [
+		      <div>Site : <a href="#URL_SITE">(#NOM_SITE)</a></div>]
 
-		</div>
-	      </div>
-	    <BOUCLE_Forums_Boucle(boucle_forums_fils)>
-	    </BOUCLE_Forums_Boucle>
-	  </li>
-	  </BOUCLE_forums_fils>
-	</ul>
-      </B_forums_fils>
-    </div>
-  </div>
-  </BOUCLE_forums>
+		    </div>
+		  </div>
+		  <BOUCLE_Forums_Boucle(boucle_forums_fils)>
+		  </BOUCLE_Forums_Boucle>
+		</li>
+	      </BOUCLE_forums_fils>
+	    </ul>
+	  </B_forums_fils>
+	</div>
+      </div>
+    </BOUCLE_forums>
   </B_forums>
-  </div>
+</div>
 
-    <div class="copyright">
-      <INCLURE(footer.php3)>
-    </div>
+<div class="copyright">
+  <INCLURE(footer.php3)>
+</div>
 
-  </BOUCLE_article_principal>
-    <!-- Formulaire administrateur -->
-    <div> [(#FORMULAIRE_ADMIN)]</div>
-  </div>
-    
-  </body>
+</BOUCLE_article_principal>
+<!-- Formulaire administrateur -->
+<div> [(#FORMULAIRE_ADMIN)]</div>
+</div>
+
+</body>
 </html>

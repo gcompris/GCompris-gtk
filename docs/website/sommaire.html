@@ -1,60 +1,60 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html lang="fr">
+<html lang="en">
 
-<head>
-<INCLURE(meta.php3)>
+  <head>
+    <INCLURE(meta.php3)>
 
-<link href="gcompris.css" rel="stylesheet" type="text/css">
+      <link href="gcompris.css" rel="stylesheet" type="text/css">
 
-<script language="JavaScript" type="text/JavaScript">
-<!--
-function MM_reloadPage(init) {  //reloads the window if Nav4 resized
-  if (init==true) with (navigator) {if ((appName=="Netscape")&&(parseInt(appVersion)==4)) {
-    document.MM_pgW=innerWidth; document.MM_pgH=innerHeight; onresize=MM_reloadPage; }}
-  else if (innerWidth!=document.MM_pgW || innerHeight!=document.MM_pgH) location.reload();
-}
-MM_reloadPage(true);
-//-->
-</script>
+      <script language="JavaScript" type="text/JavaScript">
+	<!--
+	    function MM_reloadPage(init) {  //reloads the window if Nav4 resized
+	    if (init==true) with (navigator) {if ((appName=="Netscape")&&(parseInt(appVersion)==4)) {
+	    document.MM_pgW=innerWidth; document.MM_pgH=innerHeight; onresize=MM_reloadPage; }}
+	    else if (innerWidth!=document.MM_pgW || innerHeight!=document.MM_pgH) location.reload();
+	    }
+	    MM_reloadPage(true);
+	    //-->
+      </script>
 
-</head>
+  </head>
 
-<body>
+  <body>
 
-<!-- Titre du site et lien vers l'accueil -->
-<div>
-	 <INCLURE (header.php3)>	
-</div>
+    <!-- Titre du site et lien vers l'accueil -->
+    <div>
+      <INCLURE (header.php3)>
+    </div>
 
-<div id="MENU"> 
-  <!--Menu de navigation -->
-<img src="IMG/mini-poster.jpg" alt="gcompris poster" width="200">
-</div>
- 
-<div id="MAIN"> 
-  <div class="intro"><B>Welcome to #NOM_SITE_SPIP. Please, select your language...  </B> 
+    <div id="MENU">
+      <!--Menu de navigation -->
+      <img src="IMG/mini-poster.jpg" alt="gcompris poster" width="200">
+    </div>
+
+    <div id="MAIN">
+      <div class="intro"><B>Welcome to #NOM_SITE_SPIP. Please, select your language...  </B>
 	<br>
-Please, note that the GCompris game is translated in more than 40 languages. The Web site is translated only in a few of them, except for the activity screenshots pages.
+	Please, note that the GCompris game is translated in more than 40 languages. The Web site is translated only in a few of them, except for the activity screenshots pages.
 	<br>
-  </div>
+      </div>
 
-  <div class="conteneur">
+      <div class="conteneur">
   	<BOUCLE_locale(RUBRIQUES){racine}>
-	    <p class="flottante">
-             <a href="#URL_RUBRIQUE">[(#LOGO_RUBRIQUE)]</a><br>
-             <a href="#URL_RUBRIQUE">[(#DESCRIPTIF)]</a>
-	    </p>
-  	</BOUCLE_locale> 
+	  <p class="flottante">
+            <a href="#URL_RUBRIQUE">[(#LOGO_RUBRIQUE)]</a><br>
+            <a href="#URL_RUBRIQUE">[(#DESCRIPTIF)]</a>
+	  </p>
+  	</BOUCLE_locale>
 	<div class="spacer">&nbsp;</div>
-  </div>
-  
-  <div class="copyright"> 
-   <INCLURE (footer.php3)>
-  </div>
-  
-  <!-- Formulaire administrateur -->
-  <div> [(#FORMULAIRE_ADMIN)] </div>
-</div>
- 
-</body>
+      </div>
+
+      <div class="copyright">
+	<INCLURE (footer.php3)>
+      </div>
+
+      <!-- Formulaire administrateur -->
+      <div> [(#FORMULAIRE_ADMIN)] </div>
+    </div>
+
+  </body>
 </html>
