@@ -44,7 +44,7 @@ use Data::Dumper;
 # We do not detect which locale sections are. They are hardcoded here.
 my %sections = (
 		"am", 0,
-		"ar", 0,
+		"ar", 176,
 		"ar_TN", 0,
 		"az", 0,
 		"bg", 0,
@@ -110,7 +110,7 @@ my %sections = (
 
 my %rubriques = (
 		 "am", 0,
-		 "ar", 0,
+		 "ar", 177,
 		 "ar_TN", 0,
 		 "az", 0,
 		 "bg", 0,
@@ -177,7 +177,7 @@ my %rubriques = (
 
 my %rubriques_all = (
 		 "am", 0,
-		 "ar", 0,
+		 "ar", 178,
 		 "ar_TN", 0,
 		 "az", 0,
 		 "bg", 0,

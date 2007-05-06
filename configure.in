@@ -189,7 +189,7 @@ dnl XF86VidMode allows us to set the screen resolution dynamically
 AC_PATH_X
 
 XLIBADD=
-if "x$x_libraries" != "x"; then
+if test "x$x_libraries" != "x"; then
   XLIBADD=" -L$x_libraries "
 fi
 
