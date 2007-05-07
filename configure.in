@@ -120,7 +120,7 @@ AM_CONDITIONAL(WITH_NSBUNDLE, test "$nsbundle" = yes)
 
 # Provide relocatable API from autopackage
 # From http://autopackage.org/docs/binreloc/
-enable_binreloc=yes
+enable_binreloc=auto
 if test x"$nsbundle" = "xyes" ; then
 enable_binreloc=no
 AC_MSG_NOTICE([binreloc disabled by nsbundle])
@@ -639,7 +639,7 @@ echo "XF86VM option  (--enable-xf86vidmode)    = $found_xf86vidmode"
 echo "SQLITE database (--enable-sqlite)        = $with_sqlite (profiles depend on this)"
 
 echo "GNET Networking (--enable-gnet)          = $with_gnet (networking depends on this)"
-echo "BINRELOC (--enable-binreloc)             = $enable_binreloc"
+echo "BINRELOC (--enable-binreloc)             = $br_cv_binreloc"
 echo "NSBundle (--enable-nsbundle)             = $nsbundle"
 
 

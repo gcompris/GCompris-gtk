@@ -1,3 +1,12 @@
+2007-05-07  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	Included the latest binreloc detection code from autopackage svn.
+	Now binreloc detection works again, it follow the user choice
+	and is on auto by default.
+
+	* acinclude.m4:
+	* configure.in:
+
 2007-05-06  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* configure.in: fixed a bad test around XLIBADD (by Manfred Tremmel)
