@@ -84,7 +84,7 @@ end_gc_bonus_end_display() {
   }
 
   if (gc_bonus_end_display_id) {
-    gtk_timeout_remove(gc_bonus_end_display_id);
+    g_source_remove(gc_bonus_end_display_id);
     gc_bonus_end_display_id = 0;
   }
 
@@ -390,7 +390,7 @@ static void
 end_bonus()
 {
   if (end_bonus_id) {
-    gtk_timeout_remove (end_bonus_id);
+    g_source_remove (end_bonus_id);
     end_bonus_id = 0;
   }
 

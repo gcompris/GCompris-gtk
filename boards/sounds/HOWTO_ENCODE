@@ -28,13 +28,20 @@ It is best to choose somebody that speaks and articulate well your language.
 	done
 - Transforming stereo to mono if needed
         sox y.wav -c 1 y2.wav
+
+- Transforming to 44100 Hz if needed
+        sox y.ogg -r 44100 y2.ogg
+
 - In the directory where WAV files are run i
         oggenc -c "Copyright 2002 (name of author). This file is distributed under the terms of the GNU General Public License, either version 2 or ( at your option) any later version. See the file COPYING for details." *.wav
 	if ogginfo doesn't show you the comment, replace the -c to -a to store
 	the copyright in the author field
+
 - Copy OGG files in the corresponding directory
 
-Note that you won't be abble to test them until the integration with gcompris is comptete (step 4).
+- Normalize them so that the all have the same volume level (replace ll by your locale)
+        cd boards/sounds/
+        normalize-ogg ll/*/*.ogg
 
 3) Shipping
    --------
@@ -44,7 +51,8 @@ tar -cvzf sounds_my.tgz my
 
 4) Integration
    -----------
-Nothing has to be done.
+Nothing has to be done, just run 'make install' at GCompris to level. The sounds
+will be installed in the proper directory and GCompris will play them.
 Run gcompris in your locale and you should ear your voices.
 
 5) Checking

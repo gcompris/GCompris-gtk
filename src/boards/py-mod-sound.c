@@ -102,7 +102,7 @@ py_gc_sound_pause(PyObject* self, PyObject* args)
     return NULL;
 
   /* Call the corresponding C function */
-  gc_sound_pause();
+  gc_sound_bg_pause();
 
   /* Create and return the result */
   Py_INCREF(Py_None);
@@ -117,7 +117,7 @@ py_gc_sound_resume(PyObject* self, PyObject* args)
     return NULL;
 
   /* Call the corresponding C function */
-  gc_sound_resume();
+  gc_sound_bg_resume();
 
   /* Create and return the result */
   Py_INCREF(Py_None);

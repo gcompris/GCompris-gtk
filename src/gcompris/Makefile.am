@@ -51,7 +51,6 @@ INCLUDES = \
 	$(GCOMPRIS_CFLAGS) \
 	$(GNOME_INCLUDEDIR) \
 	$(XML_CFLAGS) \
-	$(SDL_CFLAGS) \
 	-DGNOME_DISABLE_DEPRECATED \
         $(sqlite_cflags) \
 	$(GNET_CFLAGS) \
@@ -110,7 +109,6 @@ gcompris_SOURCES = \
 	properties.h \
 	score.c \
 	score.h \
-	sdlplayer.c \
 	skin.c \
 	skin.h \
 	soundutil.c \
@@ -125,10 +123,10 @@ gcompris_LDFLAGS = \
 
 
 gcompris_LDADD = \
-	$(GCOMPRIS_LIBS) $(sqlite_ldadd) $(XML_LIBS) $(GNET_LIBS) $(SDL_LIBS) \
+	$(GCOMPRIS_LIBS) $(sqlite_ldadd) $(XML_LIBS) $(GNET_LIBS) \
         $(INTLLIBS) $(NSBUNDLE_LDFLAGS)
 
-#	$(LIBICONV) 
+#	$(LIBICONV)
 
 
 EXTRA_DIST = \

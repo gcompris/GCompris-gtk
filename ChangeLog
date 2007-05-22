@@ -1,3 +1,177 @@
+2007-05-22  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	Synced with trunk r2649. Especially the gstreamer code is there now.
+
+	* Makefile.am:
+	* boards/melody.xml.in:
+	* boards/sounds/HOWTO_ENCODE:
+	* configure.in:
+	* po/ChangeLog:
+	* po/ar.po:
+	* po/ca.po:
+	* po/el.po:
+	* po/en_GB.po:
+	* po/sr.po:
+	* po/sr@Latn.po:
+	* src/boards/canvas.c: (pygdk_rectangle_from_pyobject),
+	(_wrap_gnome_canvas_root),
+	(_wrap_gnome_canvas_set_pixels_per_unit),
+	(_wrap_gnome_canvas_set_scroll_region),
+	(_wrap_gnome_canvas_get_center_scroll_region),
+	(_wrap_gnome_canvas_set_center_scroll_region),
+	(_wrap_gnome_canvas_scroll_to), (_wrap_gnome_canvas_update_now),
+	(_wrap_gnome_canvas_get_item_at), (_wrap_gnome_canvas_get_color),
+	(_wrap_gnome_canvas_get_color_pixel),
+	(_wrap_gnome_canvas_set_dither), (_wrap_gnome_canvas_get_dither),
+	(_wrap_gnome_canvas_item_move), (_wrap_gnome_canvas_item_raise),
+	(_wrap_gnome_canvas_item_lower),
+	(_wrap_gnome_canvas_item_raise_to_top),
+	(_wrap_gnome_canvas_item_lower_to_bottom),
+	(_wrap_gnome_canvas_item_show), (_wrap_gnome_canvas_item_hide),
+	(_wrap_gnome_canvas_item_reparent),
+	(_wrap_gnome_canvas_item_grab_focus),
+	(_wrap_gnome_canvas_rich_text_cut_clipboard),
+	(_wrap_gnome_canvas_rich_text_copy_clipboard),
+	(_wrap_gnome_canvas_rich_text_paste_clipboard),
+	(_wrap_gnome_canvas_rich_text_set_buffer),
+	(_wrap_gnome_canvas_rich_text_get_buffer),
+	(_wrap_gnome_canvas_rich_text_get_iter_location),
+	(_wrap_gnome_canvas_rich_text_get_iter_at_location),
+	(pycanvas_register_classes):
+	* src/boards/click_on_letter.c: (start_board), (end_board):
+	* src/boards/colors.c: (start_board), (end_board):
+	* src/boards/memory.c: (start_board), (end_board):
+	* src/boards/py-mod-sound.c: (py_gc_sound_pause),
+	(py_gc_sound_resume):
+	* src/boards/python/melody.py:
+	* src/boards/wordsgame.c: (start_board), (key_press),
+	(wordsgame_create_item):
+	* src/gcompris/Makefile.am:
+	* src/gcompris/bonus.c: (end_gc_bonus_end_display), (end_bonus):
+	* src/gcompris/config.c: (item_event_ok):
+	* src/gcompris/gcompris.c: (start_bg_music), (main):
+	* src/gcompris/sdlplayer.c:
+	* src/gcompris/soundutil.c: (gc_sound_init), (fx_bus), (bg_bus),
+	(gc_sound_close), (gc_sound_bg_close), (gc_sound_fx_close),
+	(gc_sound_bg_reopen), (gc_sound_fx_reopen), (gc_sound_reopen),
+	(gc_sound_bg_pause), (gc_sound_bg_resume), (gc_sound_fx_pause),
+	(gc_sound_fx_resume), (bg_build_music_list), (bg_play), (fx_play),
+	(get_next_sound_to_play), (gc_sound_play_ogg_cb),
+	(gc_sound_play_ogg_list), (gc_sound_callback):
+	* src/gcompris/soundutil.h:
+
+2007-05-22  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	- Switched melody sounds to wav, easier to manage and less startup delay
+	- Improved the gstreamer based code to interrupt also the playing sound
+
+	* boards/melody.xml.in:
+	* src/boards/python/melody.py:
+	* src/boards/wordsgame.c: (wordsgame_create_item):
+	* src/gcompris/soundutil.c: (fx_bus), (bg_bus),
+	(gc_sound_bg_close), (gc_sound_fx_close), (gc_sound_bg_reopen),
+	(gc_sound_bg_resume), (gc_sound_fx_resume), (bg_play), (fx_play),
+	(gc_sound_play_ogg_list):
+	* src/gcompris/soundutil.h:
+
+2007-05-22  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	Fixed falling words for arabic (and Right To Left languages)
+	Bug reported by Khaled Hosny.
+
+	* src/boards/wordsgame.c: (wordsgame_create_item):
+
+2007-05-20  Bruno Coudoin,,,  <set EMAIL_ADDRESS environment variable>
+
+	Improved the background music. Now the music is started when
+	the welcome sound is played using the callback api.
+	Now better respect for the PLAY_AND_INTERRUPT flag. It's
+	still not perfect, the sound being currently played is not
+	interrupted, only the queue is cleaned up.
+
+	* src/boards/wordsgame.c: (start_board), (key_press):
+	* src/gcompris/gcompris.c: (start_bg_music), (main):
+	* src/gcompris/soundutil.c: (gc_sound_init), (fx_bus),
+	(gc_sound_fx_close), (bg_build_music_list), (bg_play), (fx_play),
+	(gc_sound_play_ogg_list):
+
+2007-05-20  Danilo Šegan  <danilo@gnome.org>
+
+	* boards/sounds/sr/*: Added Serbian sounds by Mihailo and Slobodan
+	Simic.
+
+2007-05-17  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	Implemented sound callback API. Melody works again but
+	there are a bug somewhere, sometimes sounds are missed.
+
+	* src/boards/python/melody.py:
+	* src/gcompris/soundutil.c: (gc_sound_init), (fx_bus), (fx_play),
+	(gc_sound_play_ogg_cb), (gc_sound_callback):
+	* src/gcompris/soundutil.h:
+
+2007-05-16  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	Based on the work of Terje Bergström <terje on terje point fi>
+	replaced sdl_mixer by gstreamer.
+	initial commit. at least, the synchrone mode with callback is not implemented
+	regular feature is in place, there is no more threads in this code.
+	there is a need for cleanup.
+
+	* configure.in:
+	* src/boards/canvas.c: (pygdk_rectangle_from_pyobject),
+	(_wrap_gnome_canvas_root),
+	(_wrap_gnome_canvas_set_pixels_per_unit),
+	(_wrap_gnome_canvas_set_scroll_region),
+	(_wrap_gnome_canvas_get_center_scroll_region),
+	(_wrap_gnome_canvas_set_center_scroll_region),
+	(_wrap_gnome_canvas_scroll_to), (_wrap_gnome_canvas_update_now),
+	(_wrap_gnome_canvas_get_item_at), (_wrap_gnome_canvas_get_color),
+	(_wrap_gnome_canvas_get_color_pixel),
+	(_wrap_gnome_canvas_set_dither), (_wrap_gnome_canvas_get_dither),
+	(_wrap_gnome_canvas_item_move), (_wrap_gnome_canvas_item_raise),
+	(_wrap_gnome_canvas_item_lower),
+	(_wrap_gnome_canvas_item_raise_to_top),
+	(_wrap_gnome_canvas_item_lower_to_bottom),
+	(_wrap_gnome_canvas_item_show), (_wrap_gnome_canvas_item_hide),
+	(_wrap_gnome_canvas_item_reparent),
+	(_wrap_gnome_canvas_item_grab_focus),
+	(_wrap_gnome_canvas_rich_text_cut_clipboard),
+	(_wrap_gnome_canvas_rich_text_copy_clipboard),
+	(_wrap_gnome_canvas_rich_text_paste_clipboard),
+	(_wrap_gnome_canvas_rich_text_set_buffer),
+	(_wrap_gnome_canvas_rich_text_get_buffer),
+	(_wrap_gnome_canvas_rich_text_get_iter_location),
+	(_wrap_gnome_canvas_rich_text_get_iter_at_location),
+	(pycanvas_register_classes):
+	* src/boards/click_on_letter.c: (start_board), (end_board):
+	* src/boards/colors.c: (start_board), (end_board):
+	* src/boards/memory.c: (start_board), (end_board):
+	* src/boards/py-mod-sound.c: (py_gc_sound_pause),
+	(py_gc_sound_resume):
+	* src/gcompris/Makefile.am:
+	* src/gcompris/bonus.c: (end_gc_bonus_end_display), (end_bonus):
+	* src/gcompris/config.c: (item_event_ok):
+	* src/gcompris/soundutil.c: (gc_sound_init), (fx_bus), (bg_bus),
+	(gc_sound_close), (gc_sound_bg_close), (gc_sound_fx_close),
+	(gc_sound_bg_reopen), (gc_sound_fx_reopen), (gc_sound_reopen),
+	(gc_sound_bg_pause), (gc_sound_bg_resume), (gc_sound_fx_pause),
+	(gc_sound_fx_resume), (bg_build_music_list), (bg_play), (fx_play),
+	(get_next_sound_to_play), (gc_sound_play_ogg_list):
+	* src/gcompris/soundutil.h:
+	* src/gcompris/sdlplayer.c: removed.
+
+2007-05-13  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* boards/sounds/HOWTO_ENCODE: added a howto reformat to 44100Hz and normalize-ogg
+	* boards/sounds/*.ogg: passed normalize-ogg on all locale sounds
+	                       fixed many sounds that were stereo
+	                       fixed many sounds that were not to 44100Hz
+
+2007-05-13  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* Makefile.am: removed files having a .in from the tarball
+
 2007-05-07  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	Included the latest binreloc detection code from autopackage svn.

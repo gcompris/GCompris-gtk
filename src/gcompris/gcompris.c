@@ -1399,6 +1399,13 @@ static gint xf86_focus_changed(GtkWindow *window,
 
 #endif
 
+static void
+start_bg_music (gchar *file)
+{
+  g_warning ("start_bg_music %s", file);
+  gc_sound_bg_reopen();
+}
+
 /*****************************************
  * Main
  *
@@ -1853,7 +1860,12 @@ main (int argc, char *argv[])
   if(!popt_root_menu)
     {
       if (properties->music)
-	gc_sound_play_ogg("music/intro.ogg", "sounds/$LOCALE/misc/welcome.ogg", NULL);
+	{
+	  gc_sound_play_ogg("music/intro.ogg",
+			    NULL);
+	  gc_sound_play_ogg_cb("sounds/$LOCALE/misc/welcome.ogg",
+			       start_bg_music);
+	}
       else
 	gc_sound_play_ogg("sounds/$LOCALE/misc/welcome.ogg", NULL);
     }

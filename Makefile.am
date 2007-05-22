@@ -43,7 +43,7 @@ EXTRA_DIST = \
 	$(Applications_in_files) \
 	$(icon_DATA) \
 	$(Menu_DATA) \
-	gcompris.spec \
+	gcompris.spec.in \
 	intltool-extract.in \
 	intltool-merge.in \
 	intltool-update.in \
@@ -55,8 +55,8 @@ EXTRA_DIST = \
 	gnome2-macros/gnome-common.m4 \
 	gnome2-macros/gnome-deprecated-macros.m4 \
 	README.mingw README.translators README.windows \
-	config.h.mingw Makefile.mingw global_win32.mak gcompris.ico gc_admin.ico gcompris-uninstal.ico \
-	gcompris-installer.nsi
+	config.h.mingw.in Makefile.mingw.in global_win32.mak gcompris.ico gc_admin.ico gcompris-uninstal.ico \
+	gcompris-installer.nsi.in
 
 
 distcore = $(PACKAGE)-core-$(VERSION)

@@ -751,10 +751,10 @@ item_event_ok(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 	  else
 	    {
 	      if(!properties->music)
-		sdlplayer_halt_music();
+		gc_sound_bg_close();
 
 	      if(!properties->fx)
-		sdlplayer_halt_fx();
+		gc_sound_fx_close();
 	    }
 	  gc_prop_save(properties);
 	}
@@ -786,12 +786,11 @@ item_event_ok(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 				 NULL);
 	  if(!properties->music)
 	    {
-	      sdlplayer_halt_music();
+	      gc_sound_bg_close();
 	    }
 	  else
 	    {
-	      gc_sound_init();
-	      sdlplayer_resume_music();
+	      gc_sound_bg_reopen();
 	    }
 	}
       else if(!strcmp((char *)data, "effect"))

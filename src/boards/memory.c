@@ -794,7 +794,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 	{
 	  GcomprisProperties	*properties = gc_prop_get();
 
-	  gc_sound_pause();
+	  gc_sound_bg_pause();
 
 	  /* initial state to restore */
 	  sound_policy = gc_sound_policy_get();
@@ -886,7 +886,7 @@ end_board ()
 {
   if (currentUiMode == UIMODE_SOUND) {
     gc_sound_policy_set(sound_policy);
-    gc_sound_resume();
+    gc_sound_bg_resume();
   }
 
   if(gcomprisBoard!=NULL)

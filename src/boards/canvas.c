@@ -1,11 +1,20 @@
 /* -- THIS FILE IS GENERATED - DO NOT EDIT *//* -*- Mode: C; c-basic-offset: 4 -*- */
 
+#define PY_SSIZE_T_CLEAN
 #include <Python.h>
 
+
+
+
 #if PY_VERSION_HEX < 0x02050000
-/* use int based index for python 2.4 and below */
 typedef int Py_ssize_t;
+#define PY_SSIZE_T_MAX INT_MAX
+#define PY_SSIZE_T_MIN INT_MIN
+typedef inquiry lenfunc;
+typedef intargfunc ssizeargfunc;
+typedef intobjargproc ssizeobjargproc;
 #endif
+
 
 #line 4 "canvas.override"
 #include <Python.h>
@@ -19,7 +28,7 @@ static int
 gnomecanvasaffine_to_value(PyObject *py_affine, double affine[6])
 {
     int i;
-
+    
     if (PySequence_Length(py_affine) != 6) {
 	PyErr_SetString(PyExc_TypeError, "argument must be a 6 tuple of floats.");
 	return -1;
@@ -31,7 +40,7 @@ gnomecanvasaffine_to_value(PyObject *py_affine, double affine[6])
 	if (sitem)
 	    affine[i] = PyFloat_AsDouble(sitem);
 	else {
-    PyErr_Clear();
+	    PyErr_Clear();
 	    PyErr_SetString(PyExc_TypeError, "sequence item not a float");
 	    return -1;
 	}
@@ -53,7 +62,7 @@ static GType
 gnome_canvas_path_def_get_type(void)
 {
     static GType type = 0;
-
+	
     if (type == 0)
 	type = g_boxed_type_register_static
 	    ("GnomeCanvasPathDef",
@@ -66,7 +75,26 @@ gnome_canvas_path_def_get_type(void)
 
 #endif
 
-#line 67 "canvas.c"
+gboolean
+static pygdk_rectangle_from_pyobject(PyObject *object, GdkRectangle *rectangle)
+{
+    g_return_val_if_fail(rectangle != NULL, FALSE);
+
+    if (pyg_boxed_check(object, GDK_TYPE_RECTANGLE)) {
+	*rectangle = *pyg_boxed_get(object, GdkRectangle);
+	return TRUE;
+    }
+    if (PyArg_ParseTuple(object, "iiii", &rectangle->x, &rectangle->y,
+				&rectangle->width, &rectangle->height)) {
+	return TRUE;
+    }
+    PyErr_Clear();
+    PyErr_SetString(PyExc_TypeError, "could not convert to GdkRectangle");
+    return FALSE;
+}
+
+
+#line 98 "canvas.c"
 
 
 /* ---------- types from other modules ---------- */
@@ -76,25 +104,30 @@ static PyTypeObject *_PyGtkLayout_Type;
 #define PyGtkLayout_Type (*_PyGtkLayout_Type)
 static PyTypeObject *_PyGtkObject_Type;
 #define PyGtkObject_Type (*_PyGtkObject_Type)
+static PyTypeObject *_PyGtkTextBuffer_Type;
+#define PyGtkTextBuffer_Type (*_PyGtkTextBuffer_Type)
 
 
 /* ---------- forward type declarations ---------- */
-PyTypeObject PyGnomeCanvasPathDef_Type;
-PyTypeObject PyGnomeCanvas_Type;
-PyTypeObject PyGnomeCanvasItem_Type;
-PyTypeObject PyGnomeCanvasGroup_Type;
-PyTypeObject PyGnomeCanvasClipgroup_Type;
-PyTypeObject PyGnomeCanvasLine_Type;
-PyTypeObject PyGnomeCanvasPixbuf_Type;
-PyTypeObject PyGnomeCanvasRichText_Type;
-PyTypeObject PyGnomeCanvasShape_Type;
-PyTypeObject PyGnomeCanvasRE_Type;
-PyTypeObject PyGnomeCanvasRect_Type;
-PyTypeObject PyGnomeCanvasEllipse_Type;
-PyTypeObject PyGnomeCanvasPolygon_Type;
-PyTypeObject PyGnomeCanvasBpath_Type;
-PyTypeObject PyGnomeCanvasText_Type;
-PyTypeObject PyGnomeCanvasWidget_Type;
+PyTypeObject G_GNUC_INTERNAL PyGnomeCanvasPathDef_Type;
+PyTypeObject G_GNUC_INTERNAL PyGnomeCanvas_Type;
+PyTypeObject G_GNUC_INTERNAL PyGnomeCanvasItem_Type;
+PyTypeObject G_GNUC_INTERNAL PyGnomeCanvasGroup_Type;
+PyTypeObject G_GNUC_INTERNAL PyGnomeCanvasClipgroup_Type;
+PyTypeObject G_GNUC_INTERNAL PyGnomeCanvasLine_Type;
+PyTypeObject G_GNUC_INTERNAL PyGnomeCanvasPixbuf_Type;
+PyTypeObject G_GNUC_INTERNAL PyGnomeCanvasRichText_Type;
+PyTypeObject G_GNUC_INTERNAL PyGnomeCanvasShape_Type;
+PyTypeObject G_GNUC_INTERNAL PyGnomeCanvasRE_Type;
+PyTypeObject G_GNUC_INTERNAL PyGnomeCanvasRect_Type;
+PyTypeObject G_GNUC_INTERNAL PyGnomeCanvasEllipse_Type;
+PyTypeObject G_GNUC_INTERNAL PyGnomeCanvasPolygon_Type;
+PyTypeObject G_GNUC_INTERNAL PyGnomeCanvasBpath_Type;
+PyTypeObject G_GNUC_INTERNAL PyGnomeCanvasText_Type;
+PyTypeObject G_GNUC_INTERNAL PyGnomeCanvasWidget_Type;
+
+#line 130 "canvas.c"
+
 
 
 /* ----------- GnomeCanvasPathDef ----------- */
@@ -109,45 +142,45 @@ pygobject_no_constructor(PyObject *self, PyObject *args, PyObject *kwargs)
     return -1;
 }
 
-PyTypeObject PyGnomeCanvasPathDef_Type = {
+PyTypeObject G_GNUC_INTERNAL PyGnomeCanvasPathDef_Type = {
     PyObject_HEAD_INIT(NULL)
-    0,					/* ob_size */
-    "gnome.canvas.CanvasPathDef",			/* tp_name */
-    sizeof(PyGBoxed),	        /* tp_basicsize */
-    0,					/* tp_itemsize */
+    0,                                 /* ob_size */
+    "gnome.canvas.CanvasPathDef",                   /* tp_name */
+    sizeof(PyGBoxed),          /* tp_basicsize */
+    0,                                 /* tp_itemsize */
     /* methods */
-    (destructor)0,	/* tp_dealloc */
-    (printfunc)0,			/* tp_print */
-    (getattrfunc)0,	/* tp_getattr */
-    (setattrfunc)0,	/* tp_setattr */
-    (cmpfunc)0,		/* tp_compare */
-    (reprfunc)0,		/* tp_repr */
+    (destructor)0,        /* tp_dealloc */
+    (printfunc)0,                      /* tp_print */
+    (getattrfunc)0,       /* tp_getattr */
+    (setattrfunc)0,       /* tp_setattr */
+    (cmpfunc)0,           /* tp_compare */
+    (reprfunc)0,             /* tp_repr */
     (PyNumberMethods*)0,     /* tp_as_number */
     (PySequenceMethods*)0, /* tp_as_sequence */
     (PyMappingMethods*)0,   /* tp_as_mapping */
-    (hashfunc)0,		/* tp_hash */
-    (ternaryfunc)0,		/* tp_call */
-    (reprfunc)0,		/* tp_str */
-    (getattrofunc)0,	/* tp_getattro */
-    (setattrofunc)0,	/* tp_setattro */
-    (PyBufferProcs*)0,	/* tp_as_buffer */
+    (hashfunc)0,             /* tp_hash */
+    (ternaryfunc)0,          /* tp_call */
+    (reprfunc)0,              /* tp_str */
+    (getattrofunc)0,     /* tp_getattro */
+    (setattrofunc)0,     /* tp_setattro */
+    (PyBufferProcs*)0,  /* tp_as_buffer */
     Py_TPFLAGS_DEFAULT | Py_TPFLAGS_BASETYPE,                      /* tp_flags */
-    NULL, 				/* Documentation string */
-    (traverseproc)0,	/* tp_traverse */
-    (inquiry)0,		/* tp_clear */
-    (richcmpfunc)0,	/* tp_richcompare */
+    NULL,                        /* Documentation string */
+    (traverseproc)0,     /* tp_traverse */
+    (inquiry)0,             /* tp_clear */
+    (richcmpfunc)0,   /* tp_richcompare */
     0,             /* tp_weaklistoffset */
-    (getiterfunc)0,		/* tp_iter */
-    (iternextfunc)0,	/* tp_iternext */
-    NULL,			/* tp_methods */
-    0,					/* tp_members */
-    0,		       	/* tp_getset */
-    NULL,				/* tp_base */
-    NULL,				/* tp_dict */
-    (descrgetfunc)0,	/* tp_descr_get */
-    (descrsetfunc)0,	/* tp_descr_set */
+    (getiterfunc)0,          /* tp_iter */
+    (iternextfunc)0,     /* tp_iternext */
+    (struct PyMethodDef*)NULL, /* tp_methods */
+    (struct PyMemberDef*)0,              /* tp_members */
+    (struct PyGetSetDef*)0,  /* tp_getset */
+    NULL,                              /* tp_base */
+    NULL,                              /* tp_dict */
+    (descrgetfunc)0,    /* tp_descr_get */
+    (descrsetfunc)0,    /* tp_descr_set */
     0,                 /* tp_dictoffset */
-    (initproc)pygobject_no_constructor,		/* tp_init */
+    (initproc)pygobject_no_constructor,             /* tp_init */
     (allocfunc)0,           /* tp_alloc */
     (newfunc)0,               /* tp_new */
     (freefunc)0,             /* tp_free */
@@ -158,7 +191,7 @@ PyTypeObject PyGnomeCanvasPathDef_Type = {
 
 /* ----------- GnomeCanvas ----------- */
 
-#line 262 "canvas.override"
+#line 282 "canvas.override"
 static int
 _wrap_gnome_canvas_new(PyGObject *self, PyObject *args, PyObject *kwargs)
 {
@@ -171,7 +204,7 @@ _wrap_gnome_canvas_new(PyGObject *self, PyObject *args, PyObject *kwargs)
         return -1;
 
     self->obj = g_object_new(obj_type, "aa", aa, NULL);
-
+    
     if (!self->obj) {
         PyErr_SetString(PyExc_RuntimeError, "could not create GnomeCanvas object");
         return -1;
@@ -181,7 +214,7 @@ _wrap_gnome_canvas_new(PyGObject *self, PyObject *args, PyObject *kwargs)
     pygobject_register_wrapper((PyObject *)self);
     return 0;
 }
-#line 182 "canvas.c"
+#line 218 "canvas.c"
 
 
 static PyObject *
@@ -189,7 +222,9 @@ _wrap_gnome_canvas_root(PyGObject *self)
 {
     GnomeCanvasGroup *ret;
 
+    
     ret = gnome_canvas_root(GNOME_CANVAS(self->obj));
+    
     /* pygobject_new handles NULL checking */
     return pygobject_new((GObject *)ret);
 }
@@ -200,9 +235,11 @@ _wrap_gnome_canvas_set_pixels_per_unit(PyGObject *self, PyObject *args, PyObject
     static char *kwlist[] = { "n", NULL };
     double n;
 
-    if (!PyArg_ParseTupleAndKeywords(args, kwargs, "d:GnomeCanvas.set_pixels_per_unit", kwlist, &n))
+    if (!PyArg_ParseTupleAndKeywords(args, kwargs,"d:GnomeCanvas.set_pixels_per_unit", kwlist, &n))
         return NULL;
+    
     gnome_canvas_set_pixels_per_unit(GNOME_CANVAS(self->obj), n);
+    
     Py_INCREF(Py_None);
     return Py_None;
 }
@@ -213,25 +250,27 @@ _wrap_gnome_canvas_set_scroll_region(PyGObject *self, PyObject *args, PyObject *
     static char *kwlist[] = { "x1", "y1", "x2", "y2", NULL };
     double x1, y1, x2, y2;
 
-    if (!PyArg_ParseTupleAndKeywords(args, kwargs, "dddd:GnomeCanvas.set_scroll_region", kwlist, &x1, &y1, &x2, &y2))
+    if (!PyArg_ParseTupleAndKeywords(args, kwargs,"dddd:GnomeCanvas.set_scroll_region", kwlist, &x1, &y1, &x2, &y2))
         return NULL;
+    
     gnome_canvas_set_scroll_region(GNOME_CANVAS(self->obj), x1, y1, x2, y2);
+    
     Py_INCREF(Py_None);
     return Py_None;
 }
 
-#line 237 "canvas.override"
+#line 257 "canvas.override"
 static PyObject *
 _wrap_gnome_canvas_get_scroll_region(PyGObject *self, PyObject *args)
 {
     double x1, y1, x2, y2;
-
+    
     gnome_canvas_get_scroll_region(GNOME_CANVAS(self->obj),
 				   &x1, &y1, &x2, &y2);
-
+    
     return Py_BuildValue("(dddd)", x1, y1, x2, y2);
 }
-#line 232 "canvas.c"
+#line 274 "canvas.c"
 
 
 static PyObject *
@@ -239,7 +278,9 @@ _wrap_gnome_canvas_get_center_scroll_region(PyGObject *self)
 {
     int ret;
 
+    
     ret = gnome_canvas_get_center_scroll_region(GNOME_CANVAS(self->obj));
+    
     return PyBool_FromLong(ret);
 
 }
@@ -250,9 +291,11 @@ _wrap_gnome_canvas_set_center_scroll_region(PyGObject *self, PyObject *args, PyO
     static char *kwlist[] = { "center_scroll_region", NULL };
     int center_scroll_region;
 
-    if (!PyArg_ParseTupleAndKeywords(args, kwargs, "i:GnomeCanvas.set_center_scroll_region", kwlist, &center_scroll_region))
+    if (!PyArg_ParseTupleAndKeywords(args, kwargs,"i:GnomeCanvas.set_center_scroll_region", kwlist, &center_scroll_region))
         return NULL;
+    
     gnome_canvas_set_center_scroll_region(GNOME_CANVAS(self->obj), center_scroll_region);
+    
     Py_INCREF(Py_None);
     return Py_None;
 }
@@ -263,14 +306,16 @@ _wrap_gnome_canvas_scroll_to(PyGObject *self, PyObject *args, PyObject *kwargs)
     static char *kwlist[] = { "cx", "cy", NULL };
     int cx, cy;
 
-    if (!PyArg_ParseTupleAndKeywords(args, kwargs, "ii:GnomeCanvas.scroll_to", kwlist, &cx, &cy))
+    if (!PyArg_ParseTupleAndKeywords(args, kwargs,"ii:GnomeCanvas.scroll_to", kwlist, &cx, &cy))
         return NULL;
+    
     gnome_canvas_scroll_to(GNOME_CANVAS(self->obj), cx, cy);
+    
     Py_INCREF(Py_None);
     return Py_None;
 }
 
-#line 249 "canvas.override"
+#line 269 "canvas.override"
 static PyObject *
 _wrap_gnome_canvas_get_scroll_offsets(PyGObject *self, PyObject *args)
 {
@@ -280,13 +325,15 @@ _wrap_gnome_canvas_get_scroll_offsets(PyGObject *self, PyObject *args)
 
     return Py_BuildValue("(ii)", cx, cy);
 }
-#line 281 "canvas.c"
+#line 329 "canvas.c"
 
 
 static PyObject *
 _wrap_gnome_canvas_update_now(PyGObject *self)
 {
+    
     gnome_canvas_update_now(GNOME_CANVAS(self->obj));
+    
     Py_INCREF(Py_None);
     return Py_None;
 }
@@ -298,14 +345,16 @@ _wrap_gnome_canvas_get_item_at(PyGObject *self, PyObject *args, PyObject *kwargs
     double x, y;
     GnomeCanvasItem *ret;
 
-    if (!PyArg_ParseTupleAndKeywords(args, kwargs, "dd:GnomeCanvas.get_item_at", kwlist, &x, &y))
+    if (!PyArg_ParseTupleAndKeywords(args, kwargs,"dd:GnomeCanvas.get_item_at", kwlist, &x, &y))
         return NULL;
+    
     ret = gnome_canvas_get_item_at(GNOME_CANVAS(self->obj), x, y);
+    
     /* pygobject_new handles NULL checking */
     return pygobject_new((GObject *)ret);
 }
 
-#line 440 "canvas.override"
+#line 460 "canvas.override"
 static PyObject *
 _wrap_gnome_canvas_w2c_affine(PyGObject *self, PyObject *args) {
     PyObject *py_affine;
@@ -320,10 +369,10 @@ _wrap_gnome_canvas_w2c_affine(PyGObject *self, PyObject *args) {
 
     return gnomecanvasaffine_from_value(affine);
 }
-#line 321 "canvas.c"
+#line 373 "canvas.c"
 
 
-#line 286 "canvas.override"
+#line 306 "canvas.override"
 static PyObject *
 _wrap_gnome_canvas_w2c(PyGObject *self, PyObject *args, PyObject *kwargs)
 {
@@ -338,10 +387,10 @@ _wrap_gnome_canvas_w2c(PyGObject *self, PyObject *args, PyObject *kwargs)
 
     return Py_BuildValue("(ii)", cx, cy);
 }
-#line 339 "canvas.c"
+#line 391 "canvas.c"
 
 
-#line 302 "canvas.override"
+#line 322 "canvas.override"
 static PyObject *
 _wrap_gnome_canvas_w2c_d(PyGObject *self, PyObject *args, PyObject *kwargs)
 {
@@ -356,10 +405,10 @@ _wrap_gnome_canvas_w2c_d(PyGObject *self, PyObject *args, PyObject *kwargs)
 
     return Py_BuildValue("(dd)", cx, cy);
 }
-#line 357 "canvas.c"
+#line 409 "canvas.c"
 
 
-#line 318 "canvas.override"
+#line 338 "canvas.override"
 static PyObject *
 _wrap_gnome_canvas_c2w(PyGObject *self, PyObject *args, PyObject *kwargs)
 {
@@ -374,10 +423,10 @@ _wrap_gnome_canvas_c2w(PyGObject *self, PyObject *args, PyObject *kwargs)
 
     return Py_BuildValue("(dd)", wx, wy);
 }
-#line 375 "canvas.c"
+#line 427 "canvas.c"
 
 
-#line 334 "canvas.override"
+#line 354 "canvas.override"
 static PyObject *
 _wrap_gnome_canvas_window_to_world(PyGObject *self, PyObject *args,
 				   PyObject *kwargs)
@@ -394,10 +443,10 @@ _wrap_gnome_canvas_window_to_world(PyGObject *self, PyObject *args,
 
     return Py_BuildValue("(dd)", worldx, worldy);
 }
-#line 395 "canvas.c"
+#line 447 "canvas.c"
 
 
-#line 352 "canvas.override"
+#line 372 "canvas.override"
 static PyObject *
 _wrap_gnome_canvas_world_to_window(PyGObject *self, PyObject *args,
 				   PyObject *kwargs)
@@ -414,7 +463,7 @@ _wrap_gnome_canvas_world_to_window(PyGObject *self, PyObject *args,
 
     return Py_BuildValue("(dd)", winx, winy);
 }
-#line 415 "canvas.c"
+#line 467 "canvas.c"
 
 
 static PyObject *
@@ -426,7 +475,7 @@ _wrap_gnome_canvas_get_color(PyGObject *self, PyObject *args, PyObject *kwargs)
     int ret;
     GdkColor *color = NULL;
 
-    if (!PyArg_ParseTupleAndKeywords(args, kwargs, "sO:GnomeCanvas.get_color", kwlist, &spec, &py_color))
+    if (!PyArg_ParseTupleAndKeywords(args, kwargs,"sO:GnomeCanvas.get_color", kwlist, &spec, &py_color))
         return NULL;
     if (pyg_boxed_check(py_color, GDK_TYPE_COLOR))
         color = pyg_boxed_get(py_color, GdkColor);
@@ -434,7 +483,9 @@ _wrap_gnome_canvas_get_color(PyGObject *self, PyObject *args, PyObject *kwargs)
         PyErr_SetString(PyExc_TypeError, "color should be a GdkColor");
         return NULL;
     }
+    
     ret = gnome_canvas_get_color(GNOME_CANVAS(self->obj), spec, color);
+    
     return PyInt_FromLong(ret);
 }
 
@@ -442,13 +493,27 @@ static PyObject *
 _wrap_gnome_canvas_get_color_pixel(PyGObject *self, PyObject *args, PyObject *kwargs)
 {
     static char *kwlist[] = { "rgba", NULL };
+    PyObject *py_rgba = NULL;
     gulong ret;
-    guint rgba;
+    guint rgba = 0;
 
-    if (!PyArg_ParseTupleAndKeywords(args, kwargs, "I:GnomeCanvas.get_color_pixel", kwlist, &rgba))
+    if (!PyArg_ParseTupleAndKeywords(args, kwargs,"O:GnomeCanvas.get_color_pixel", kwlist, &py_rgba))
         return NULL;
+    if (py_rgba) {
+        if (PyLong_Check(py_rgba))
+            rgba = PyLong_AsUnsignedLong(py_rgba);
+        else if (PyInt_Check(py_rgba))
+            rgba = PyInt_AsLong(py_rgba);
+        else
+            PyErr_SetString(PyExc_TypeError, "Parameter 'rgba' must be an int or a long");
+        if (PyErr_Occurred())
+            return NULL;
+    }
+    
     ret = gnome_canvas_get_color_pixel(GNOME_CANVAS(self->obj), rgba);
+    
     return PyLong_FromUnsignedLong(ret);
+
 }
 
 static PyObject *
@@ -458,11 +523,13 @@ _wrap_gnome_canvas_set_dither(PyGObject *self, PyObject *args, PyObject *kwargs)
     PyObject *py_dither = NULL;
     GdkRgbDither dither;
 
-    if (!PyArg_ParseTupleAndKeywords(args, kwargs, "O:GnomeCanvas.set_dither", kwlist, &py_dither))
+    if (!PyArg_ParseTupleAndKeywords(args, kwargs,"O:GnomeCanvas.set_dither", kwlist, &py_dither))
         return NULL;
-    if (pyg_enum_get_value(GDK_TYPE_RGB_DITHER, py_dither, (gint *)&dither))
+    if (pyg_enum_get_value(GDK_TYPE_RGB_DITHER, py_dither, (gpointer)&dither))
         return NULL;
+    
     gnome_canvas_set_dither(GNOME_CANVAS(self->obj), dither);
+    
     Py_INCREF(Py_None);
     return Py_None;
 }
@@ -472,73 +539,95 @@ _wrap_gnome_canvas_get_dither(PyGObject *self)
 {
     gint ret;
 
+    
     ret = gnome_canvas_get_dither(GNOME_CANVAS(self->obj));
+    
     return pyg_enum_from_gtype(GDK_TYPE_RGB_DITHER, ret);
 }
 
-static PyMethodDef _PyGnomeCanvas_methods[] = {
-    { "root", (PyCFunction)_wrap_gnome_canvas_root, METH_NOARGS },
-    { "set_pixels_per_unit", (PyCFunction)_wrap_gnome_canvas_set_pixels_per_unit, METH_VARARGS|METH_KEYWORDS },
-    { "set_scroll_region", (PyCFunction)_wrap_gnome_canvas_set_scroll_region, METH_VARARGS|METH_KEYWORDS },
-    { "get_scroll_region", (PyCFunction)_wrap_gnome_canvas_get_scroll_region, METH_NOARGS },
-    { "get_center_scroll_region", (PyCFunction)_wrap_gnome_canvas_get_center_scroll_region, METH_NOARGS },
-    { "set_center_scroll_region", (PyCFunction)_wrap_gnome_canvas_set_center_scroll_region, METH_VARARGS|METH_KEYWORDS },
-    { "scroll_to", (PyCFunction)_wrap_gnome_canvas_scroll_to, METH_VARARGS|METH_KEYWORDS },
-    { "get_scroll_offsets", (PyCFunction)_wrap_gnome_canvas_get_scroll_offsets, METH_NOARGS },
-    { "update_now", (PyCFunction)_wrap_gnome_canvas_update_now, METH_NOARGS },
-    { "get_item_at", (PyCFunction)_wrap_gnome_canvas_get_item_at, METH_VARARGS|METH_KEYWORDS },
-    { "w2c_affine", (PyCFunction)_wrap_gnome_canvas_w2c_affine, METH_VARARGS },
-    { "w2c", (PyCFunction)_wrap_gnome_canvas_w2c, METH_VARARGS|METH_KEYWORDS },
-    { "w2c_d", (PyCFunction)_wrap_gnome_canvas_w2c_d, METH_VARARGS|METH_KEYWORDS },
-    { "c2w", (PyCFunction)_wrap_gnome_canvas_c2w, METH_VARARGS|METH_KEYWORDS },
-    { "window_to_world", (PyCFunction)_wrap_gnome_canvas_window_to_world, METH_VARARGS|METH_KEYWORDS },
-    { "world_to_window", (PyCFunction)_wrap_gnome_canvas_world_to_window, METH_VARARGS|METH_KEYWORDS },
-    { "get_color", (PyCFunction)_wrap_gnome_canvas_get_color, METH_VARARGS|METH_KEYWORDS },
-    { "get_color_pixel", (PyCFunction)_wrap_gnome_canvas_get_color_pixel, METH_VARARGS|METH_KEYWORDS },
-    { "set_dither", (PyCFunction)_wrap_gnome_canvas_set_dither, METH_VARARGS|METH_KEYWORDS },
-    { "get_dither", (PyCFunction)_wrap_gnome_canvas_get_dither, METH_NOARGS },
-    { NULL, NULL, 0 }
+static const PyMethodDef _PyGnomeCanvas_methods[] = {
+    { "root", (PyCFunction)_wrap_gnome_canvas_root, METH_NOARGS,
+      NULL },
+    { "set_pixels_per_unit", (PyCFunction)_wrap_gnome_canvas_set_pixels_per_unit, METH_VARARGS|METH_KEYWORDS,
+      NULL },
+    { "set_scroll_region", (PyCFunction)_wrap_gnome_canvas_set_scroll_region, METH_VARARGS|METH_KEYWORDS,
+      NULL },
+    { "get_scroll_region", (PyCFunction)_wrap_gnome_canvas_get_scroll_region, METH_NOARGS,
+      NULL },
+    { "get_center_scroll_region", (PyCFunction)_wrap_gnome_canvas_get_center_scroll_region, METH_NOARGS,
+      NULL },
+    { "set_center_scroll_region", (PyCFunction)_wrap_gnome_canvas_set_center_scroll_region, METH_VARARGS|METH_KEYWORDS,
+      NULL },
+    { "scroll_to", (PyCFunction)_wrap_gnome_canvas_scroll_to, METH_VARARGS|METH_KEYWORDS,
+      NULL },
+    { "get_scroll_offsets", (PyCFunction)_wrap_gnome_canvas_get_scroll_offsets, METH_NOARGS,
+      NULL },
+    { "update_now", (PyCFunction)_wrap_gnome_canvas_update_now, METH_NOARGS,
+      NULL },
+    { "get_item_at", (PyCFunction)_wrap_gnome_canvas_get_item_at, METH_VARARGS|METH_KEYWORDS,
+      NULL },
+    { "w2c_affine", (PyCFunction)_wrap_gnome_canvas_w2c_affine, METH_VARARGS,
+      NULL },
+    { "w2c", (PyCFunction)_wrap_gnome_canvas_w2c, METH_VARARGS|METH_KEYWORDS,
+      NULL },
+    { "w2c_d", (PyCFunction)_wrap_gnome_canvas_w2c_d, METH_VARARGS|METH_KEYWORDS,
+      NULL },
+    { "c2w", (PyCFunction)_wrap_gnome_canvas_c2w, METH_VARARGS|METH_KEYWORDS,
+      NULL },
+    { "window_to_world", (PyCFunction)_wrap_gnome_canvas_window_to_world, METH_VARARGS|METH_KEYWORDS,
+      NULL },
+    { "world_to_window", (PyCFunction)_wrap_gnome_canvas_world_to_window, METH_VARARGS|METH_KEYWORDS,
+      NULL },
+    { "get_color", (PyCFunction)_wrap_gnome_canvas_get_color, METH_VARARGS|METH_KEYWORDS,
+      NULL },
+    { "get_color_pixel", (PyCFunction)_wrap_gnome_canvas_get_color_pixel, METH_VARARGS|METH_KEYWORDS,
+      NULL },
+    { "set_dither", (PyCFunction)_wrap_gnome_canvas_set_dither, METH_VARARGS|METH_KEYWORDS,
+      NULL },
+    { "get_dither", (PyCFunction)_wrap_gnome_canvas_get_dither, METH_NOARGS,
+      NULL },
+    { NULL, NULL, 0, NULL }
 };
 
-PyTypeObject PyGnomeCanvas_Type = {
+PyTypeObject G_GNUC_INTERNAL PyGnomeCanvas_Type = {
     PyObject_HEAD_INIT(NULL)
-    0,					/* ob_size */
-    "gnome.canvas.Canvas",			/* tp_name */
-    sizeof(PyGObject),	        /* tp_basicsize */
-    0,					/* tp_itemsize */
+    0,                                 /* ob_size */
+    "gnome.canvas.Canvas",                   /* tp_name */
+    sizeof(PyGObject),          /* tp_basicsize */
+    0,                                 /* tp_itemsize */
     /* methods */
-    (destructor)0,	/* tp_dealloc */
-    (printfunc)0,			/* tp_print */
-    (getattrfunc)0,	/* tp_getattr */
-    (setattrfunc)0,	/* tp_setattr */
-    (cmpfunc)0,		/* tp_compare */
-    (reprfunc)0,		/* tp_repr */
+    (destructor)0,        /* tp_dealloc */
+    (printfunc)0,                      /* tp_print */
+    (getattrfunc)0,       /* tp_getattr */
+    (setattrfunc)0,       /* tp_setattr */
+    (cmpfunc)0,           /* tp_compare */
+    (reprfunc)0,             /* tp_repr */
     (PyNumberMethods*)0,     /* tp_as_number */
     (PySequenceMethods*)0, /* tp_as_sequence */
     (PyMappingMethods*)0,   /* tp_as_mapping */
-    (hashfunc)0,		/* tp_hash */
-    (ternaryfunc)0,		/* tp_call */
-    (reprfunc)0,		/* tp_str */
-    (getattrofunc)0,	/* tp_getattro */
-    (setattrofunc)0,	/* tp_setattro */
-    (PyBufferProcs*)0,	/* tp_as_buffer */
+    (hashfunc)0,             /* tp_hash */
+    (ternaryfunc)0,          /* tp_call */
+    (reprfunc)0,              /* tp_str */
+    (getattrofunc)0,     /* tp_getattro */
+    (setattrofunc)0,     /* tp_setattro */
+    (PyBufferProcs*)0,  /* tp_as_buffer */
     Py_TPFLAGS_DEFAULT | Py_TPFLAGS_BASETYPE,                      /* tp_flags */
-    NULL, 				/* Documentation string */
-    (traverseproc)0,	/* tp_traverse */
-    (inquiry)0,		/* tp_clear */
-    (richcmpfunc)0,	/* tp_richcompare */
+    NULL,                        /* Documentation string */
+    (traverseproc)0,     /* tp_traverse */
+    (inquiry)0,             /* tp_clear */
+    (richcmpfunc)0,   /* tp_richcompare */
     offsetof(PyGObject, weakreflist),             /* tp_weaklistoffset */
-    (getiterfunc)0,		/* tp_iter */
-    (iternextfunc)0,	/* tp_iternext */
-    _PyGnomeCanvas_methods,			/* tp_methods */
-    0,					/* tp_members */
-    0,		       	/* tp_getset */
-    NULL,				/* tp_base */
-    NULL,				/* tp_dict */
-    (descrgetfunc)0,	/* tp_descr_get */
-    (descrsetfunc)0,	/* tp_descr_set */
+    (getiterfunc)0,          /* tp_iter */
+    (iternextfunc)0,     /* tp_iternext */
+    (struct PyMethodDef*)_PyGnomeCanvas_methods, /* tp_methods */
+    (struct PyMemberDef*)0,              /* tp_members */
+    (struct PyGetSetDef*)0,  /* tp_getset */
+    NULL,                              /* tp_base */
+    NULL,                              /* tp_dict */
+    (descrgetfunc)0,    /* tp_descr_get */
+    (descrsetfunc)0,    /* tp_descr_set */
     offsetof(PyGObject, inst_dict),                 /* tp_dictoffset */
-    (initproc)_wrap_gnome_canvas_new,		/* tp_init */
+    (initproc)_wrap_gnome_canvas_new,             /* tp_init */
     (allocfunc)0,           /* tp_alloc */
     (newfunc)0,               /* tp_new */
     (freefunc)0,             /* tp_free */
@@ -549,7 +638,7 @@ PyTypeObject PyGnomeCanvas_Type = {
 
 /* ----------- GnomeCanvasItem ----------- */
 
-#line 140 "canvas.override"
+#line 160 "canvas.override"
 static PyObject *
 _wrap_gnome_canvas_item_set (PyGObject *self, PyObject *args,
 			     PyObject *kwargs)
@@ -564,7 +653,7 @@ _wrap_gnome_canvas_item_set (PyGObject *self, PyObject *args,
     item = GNOME_CANVAS_ITEM(self->obj);
     type = G_OBJECT_TYPE(item);
     class = G_OBJECT_GET_CLASS(item);
-
+    
     g_object_freeze_notify (G_OBJECT(item));
 
     while (kwargs && PyDict_Next (kwargs, &pos, &key, &value)) {
@@ -603,7 +692,7 @@ _wrap_gnome_canvas_item_set (PyGObject *self, PyObject *args,
     Py_INCREF(Py_None);
     return Py_None;
 }
-#line 604 "canvas.c"
+#line 696 "canvas.c"
 
 
 static PyObject *
@@ -612,14 +701,16 @@ _wrap_gnome_canvas_item_move(PyGObject *self, PyObject *args, PyObject *kwargs)
     static char *kwlist[] = { "dx", "dy", NULL };
     double dx, dy;
 
-    if (!PyArg_ParseTupleAndKeywords(args, kwargs, "dd:GnomeCanvasItem.move", kwlist, &dx, &dy))
+    if (!PyArg_ParseTupleAndKeywords(args, kwargs,"dd:GnomeCanvasItem.move", kwlist, &dx, &dy))
         return NULL;
+    
     gnome_canvas_item_move(GNOME_CANVAS_ITEM(self->obj), dx, dy);
+    
     Py_INCREF(Py_None);
     return Py_None;
 }
 
-#line 389 "canvas.override"
+#line 409 "canvas.override"
 static PyObject *
 _wrap_gnome_canvas_item_affine_relative(PyGObject *self, PyObject *args) {
     PyObject *py_affine;
@@ -631,16 +722,16 @@ _wrap_gnome_canvas_item_affine_relative(PyGObject *self, PyObject *args) {
 
     if ((gnomecanvasaffine_to_value(py_affine, affine)) == -1)
 	return NULL;
-
+    
     gnome_canvas_item_affine_relative(GNOME_CANVAS_ITEM(self->obj), affine);
 
     Py_INCREF(Py_None);
     return Py_None;
 }
-#line 638 "canvas.c"
+#line 732 "canvas.c"
 
 
-#line 370 "canvas.override"
+#line 390 "canvas.override"
 static PyObject *
 _wrap_gnome_canvas_item_affine_absolute(PyGObject *self, PyObject *args) {
     PyObject *py_affine;
@@ -658,7 +749,7 @@ _wrap_gnome_canvas_item_affine_absolute(PyGObject *self, PyObject *args) {
     Py_INCREF(Py_None);
     return Py_None;
 }
-#line 659 "canvas.c"
+#line 753 "canvas.c"
 
 
 static PyObject *
@@ -667,9 +758,11 @@ _wrap_gnome_canvas_item_raise(PyGObject *self, PyObject *args, PyObject *kwargs)
     static char *kwlist[] = { "positions", NULL };
     int positions;
 
-    if (!PyArg_ParseTupleAndKeywords(args, kwargs, "i:GnomeCanvasItem.raise", kwlist, &positions))
+    if (!PyArg_ParseTupleAndKeywords(args, kwargs,"i:GnomeCanvasItem.raise", kwlist, &positions))
         return NULL;
+    
     gnome_canvas_item_raise(GNOME_CANVAS_ITEM(self->obj), positions);
+    
     Py_INCREF(Py_None);
     return Py_None;
 }
@@ -680,9 +773,11 @@ _wrap_gnome_canvas_item_lower(PyGObject *self, PyObject *args, PyObject *kwargs)
     static char *kwlist[] = { "positions", NULL };
     int positions;
 
-    if (!PyArg_ParseTupleAndKeywords(args, kwargs, "i:GnomeCanvasItem.lower", kwlist, &positions))
+    if (!PyArg_ParseTupleAndKeywords(args, kwargs,"i:GnomeCanvasItem.lower", kwlist, &positions))
         return NULL;
+    
     gnome_canvas_item_lower(GNOME_CANVAS_ITEM(self->obj), positions);
+    
     Py_INCREF(Py_None);
     return Py_None;
 }
@@ -690,7 +785,9 @@ _wrap_gnome_canvas_item_lower(PyGObject *self, PyObject *args, PyObject *kwargs)
 static PyObject *
 _wrap_gnome_canvas_item_raise_to_top(PyGObject *self)
 {
+    
     gnome_canvas_item_raise_to_top(GNOME_CANVAS_ITEM(self->obj));
+    
     Py_INCREF(Py_None);
     return Py_None;
 }
@@ -698,7 +795,9 @@ _wrap_gnome_canvas_item_raise_to_top(PyGObject *self)
 static PyObject *
 _wrap_gnome_canvas_item_lower_to_bottom(PyGObject *self)
 {
+    
     gnome_canvas_item_lower_to_bottom(GNOME_CANVAS_ITEM(self->obj));
+    
     Py_INCREF(Py_None);
     return Py_None;
 }
@@ -706,7 +805,9 @@ _wrap_gnome_canvas_item_lower_to_bottom(PyGObject *self)
 static PyObject *
 _wrap_gnome_canvas_item_show(PyGObject *self)
 {
+    
     gnome_canvas_item_show(GNOME_CANVAS_ITEM(self->obj));
+    
     Py_INCREF(Py_None);
     return Py_None;
 }
@@ -714,12 +815,14 @@ _wrap_gnome_canvas_item_show(PyGObject *self)
 static PyObject *
 _wrap_gnome_canvas_item_hide(PyGObject *self)
 {
+    
     gnome_canvas_item_hide(GNOME_CANVAS_ITEM(self->obj));
+    
     Py_INCREF(Py_None);
     return Py_None;
 }
 
-#line 195 "canvas.override"
+#line 215 "canvas.override"
 static PyObject *
 _wrap_gnome_canvas_item_w2i(PyGObject *self, PyObject *args,
 			    PyObject *kwargs)
@@ -733,10 +836,10 @@ _wrap_gnome_canvas_item_w2i(PyGObject *self, PyObject *args,
 
     return Py_BuildValue("(dd)", x, y);
 }
-#line 734 "canvas.c"
+#line 840 "canvas.c"
 
 
-#line 210 "canvas.override"
+#line 230 "canvas.override"
 static PyObject *
 _wrap_gnome_canvas_item_i2w(PyGObject *self, PyObject *args,
 			    PyObject *kwargs)
@@ -750,10 +853,10 @@ _wrap_gnome_canvas_item_i2w(PyGObject *self, PyObject *args,
 
     return Py_BuildValue("(dd)", x, y);
 }
-#line 751 "canvas.c"
+#line 857 "canvas.c"
 
 
-#line 424 "canvas.override"
+#line 444 "canvas.override"
 static PyObject *
 _wrap_gnome_canvas_item_i2w_affine(PyGObject *self, PyObject *args) {
     PyObject *py_affine;
@@ -768,10 +871,10 @@ _wrap_gnome_canvas_item_i2w_affine(PyGObject *self, PyObject *args) {
 
     return gnomecanvasaffine_from_value(affine);
 }
-#line 769 "canvas.c"
+#line 875 "canvas.c"
 
 
-#line 408 "canvas.override"
+#line 428 "canvas.override"
 static PyObject *
 _wrap_gnome_canvas_item_i2c_affine(PyGObject *self, PyObject *args) {
     PyObject *py_affine;
@@ -786,7 +889,7 @@ _wrap_gnome_canvas_item_i2c_affine(PyGObject *self, PyObject *args) {
 
     return gnomecanvasaffine_from_value(affine);
 }
-#line 787 "canvas.c"
+#line 893 "canvas.c"
 
 
 static PyObject *
@@ -795,14 +898,16 @@ _wrap_gnome_canvas_item_reparent(PyGObject *self, PyObject *args, PyObject *kwar
     static char *kwlist[] = { "new_group", NULL };
     PyGObject *new_group;
 
-    if (!PyArg_ParseTupleAndKeywords(args, kwargs, "O!:GnomeCanvasItem.reparent", kwlist, &PyGnomeCanvasGroup_Type, &new_group))
+    if (!PyArg_ParseTupleAndKeywords(args, kwargs,"O!:GnomeCanvasItem.reparent", kwlist, &PyGnomeCanvasGroup_Type, &new_group))
         return NULL;
+    
     gnome_canvas_item_reparent(GNOME_CANVAS_ITEM(self->obj), GNOME_CANVAS_GROUP(new_group->obj));
+    
     Py_INCREF(Py_None);
     return Py_None;
 }
 
-#line 581 "canvas.override"
+#line 601 "canvas.override"
 static PyObject *
 _wrap_gnome_canvas_item_grab(PyGObject *self, PyObject *args,
 			     PyObject *kwargs)
@@ -813,7 +918,7 @@ _wrap_gnome_canvas_item_grab(PyGObject *self, PyObject *args,
     unsigned int event_mask = 0;
     guint32 etime = GDK_CURRENT_TIME;
     int retval;
-
+    
     if (!PyArg_ParseTupleAndKeywords(args, kwargs,
 				     "|OOO!:GnomeCanvasItem.grab", kwlist,
 				     &py_event_mask,
@@ -832,7 +937,7 @@ _wrap_gnome_canvas_item_grab(PyGObject *self, PyObject *args,
         PyErr_SetString(PyExc_TypeError, "cursor should be a GdkCursor or None");
         return NULL;
     }
-
+    
     if (py_time)
         etime = PyLong_AsUnsignedLong(py_time);
 
@@ -841,18 +946,20 @@ _wrap_gnome_canvas_item_grab(PyGObject *self, PyObject *args,
 
     return PyInt_FromLong(retval);
 }
-#line 842 "canvas.c"
+#line 950 "canvas.c"
 
 
 static PyObject *
 _wrap_gnome_canvas_item_grab_focus(PyGObject *self)
 {
+    
     gnome_canvas_item_grab_focus(GNOME_CANVAS_ITEM(self->obj));
+    
     Py_INCREF(Py_None);
     return Py_None;
 }
 
-#line 225 "canvas.override"
+#line 245 "canvas.override"
 static PyObject *
 _wrap_gnome_canvas_item_get_bounds(PyGObject *self, PyObject *args)
 {
@@ -863,70 +970,88 @@ _wrap_gnome_canvas_item_get_bounds(PyGObject *self, PyObject *args)
 
     return Py_BuildValue("(dddd)", x1, y1, x2, y2);
 }
-#line 864 "canvas.c"
+#line 974 "canvas.c"
 
 
-static PyMethodDef _PyGnomeCanvasItem_methods[] = {
-    { "set", (PyCFunction)_wrap_gnome_canvas_item_set, METH_VARARGS|METH_KEYWORDS },
-    { "move", (PyCFunction)_wrap_gnome_canvas_item_move, METH_VARARGS|METH_KEYWORDS },
-    { "affine_relative", (PyCFunction)_wrap_gnome_canvas_item_affine_relative, METH_VARARGS },
-    { "affine_absolute", (PyCFunction)_wrap_gnome_canvas_item_affine_absolute, METH_VARARGS },
-    { "raise_", (PyCFunction)_wrap_gnome_canvas_item_raise, METH_VARARGS|METH_KEYWORDS },
-    { "lower", (PyCFunction)_wrap_gnome_canvas_item_lower, METH_VARARGS|METH_KEYWORDS },
-    { "raise_to_top", (PyCFunction)_wrap_gnome_canvas_item_raise_to_top, METH_NOARGS },
-    { "lower_to_bottom", (PyCFunction)_wrap_gnome_canvas_item_lower_to_bottom, METH_NOARGS },
-    { "show", (PyCFunction)_wrap_gnome_canvas_item_show, METH_NOARGS },
-    { "hide", (PyCFunction)_wrap_gnome_canvas_item_hide, METH_NOARGS },
-    { "w2i", (PyCFunction)_wrap_gnome_canvas_item_w2i, METH_VARARGS|METH_KEYWORDS },
-    { "i2w", (PyCFunction)_wrap_gnome_canvas_item_i2w, METH_VARARGS|METH_KEYWORDS },
-    { "i2w_affine", (PyCFunction)_wrap_gnome_canvas_item_i2w_affine, METH_VARARGS },
-    { "i2c_affine", (PyCFunction)_wrap_gnome_canvas_item_i2c_affine, METH_VARARGS },
-    { "reparent", (PyCFunction)_wrap_gnome_canvas_item_reparent, METH_VARARGS|METH_KEYWORDS },
-    { "grab", (PyCFunction)_wrap_gnome_canvas_item_grab, METH_VARARGS|METH_KEYWORDS },
-    { "grab_focus", (PyCFunction)_wrap_gnome_canvas_item_grab_focus, METH_NOARGS },
-    { "get_bounds", (PyCFunction)_wrap_gnome_canvas_item_get_bounds, METH_NOARGS },
-    { NULL, NULL, 0 }
+static const PyMethodDef _PyGnomeCanvasItem_methods[] = {
+    { "set", (PyCFunction)_wrap_gnome_canvas_item_set, METH_VARARGS|METH_KEYWORDS,
+      NULL },
+    { "move", (PyCFunction)_wrap_gnome_canvas_item_move, METH_VARARGS|METH_KEYWORDS,
+      NULL },
+    { "affine_relative", (PyCFunction)_wrap_gnome_canvas_item_affine_relative, METH_VARARGS,
+      NULL },
+    { "affine_absolute", (PyCFunction)_wrap_gnome_canvas_item_affine_absolute, METH_VARARGS,
+      NULL },
+    { "raise_", (PyCFunction)_wrap_gnome_canvas_item_raise, METH_VARARGS|METH_KEYWORDS,
+      NULL },
+    { "lower", (PyCFunction)_wrap_gnome_canvas_item_lower, METH_VARARGS|METH_KEYWORDS,
+      NULL },
+    { "raise_to_top", (PyCFunction)_wrap_gnome_canvas_item_raise_to_top, METH_NOARGS,
+      NULL },
+    { "lower_to_bottom", (PyCFunction)_wrap_gnome_canvas_item_lower_to_bottom, METH_NOARGS,
+      NULL },
+    { "show", (PyCFunction)_wrap_gnome_canvas_item_show, METH_NOARGS,
+      NULL },
+    { "hide", (PyCFunction)_wrap_gnome_canvas_item_hide, METH_NOARGS,
+      NULL },
+    { "w2i", (PyCFunction)_wrap_gnome_canvas_item_w2i, METH_VARARGS|METH_KEYWORDS,
+      NULL },
+    { "i2w", (PyCFunction)_wrap_gnome_canvas_item_i2w, METH_VARARGS|METH_KEYWORDS,
+      NULL },
+    { "i2w_affine", (PyCFunction)_wrap_gnome_canvas_item_i2w_affine, METH_VARARGS,
+      NULL },
+    { "i2c_affine", (PyCFunction)_wrap_gnome_canvas_item_i2c_affine, METH_VARARGS,
+      NULL },
+    { "reparent", (PyCFunction)_wrap_gnome_canvas_item_reparent, METH_VARARGS|METH_KEYWORDS,
+      NULL },
+    { "grab", (PyCFunction)_wrap_gnome_canvas_item_grab, METH_VARARGS|METH_KEYWORDS,
+      NULL },
+    { "grab_focus", (PyCFunction)_wrap_gnome_canvas_item_grab_focus, METH_NOARGS,
+      NULL },
+    { "get_bounds", (PyCFunction)_wrap_gnome_canvas_item_get_bounds, METH_NOARGS,
+      NULL },
+    { NULL, NULL, 0, NULL }
 };
 
-PyTypeObject PyGnomeCanvasItem_Type = {
+PyTypeObject G_GNUC_INTERNAL PyGnomeCanvasItem_Type = {
     PyObject_HEAD_INIT(NULL)
-    0,					/* ob_size */
-    "gnome.canvas.CanvasItem",			/* tp_name */
-    sizeof(PyGObject),	        /* tp_basicsize */
-    0,					/* tp_itemsize */
+    0,                                 /* ob_size */
+    "gnome.canvas.CanvasItem",                   /* tp_name */
+    sizeof(PyGObject),          /* tp_basicsize */
+    0,                                 /* tp_itemsize */
     /* methods */
-    (destructor)0,	/* tp_dealloc */
-    (printfunc)0,			/* tp_print */
-    (getattrfunc)0,	/* tp_getattr */
-    (setattrfunc)0,	/* tp_setattr */
-    (cmpfunc)0,		/* tp_compare */
-    (reprfunc)0,		/* tp_repr */
+    (destructor)0,        /* tp_dealloc */
+    (printfunc)0,                      /* tp_print */
+    (getattrfunc)0,       /* tp_getattr */
+    (setattrfunc)0,       /* tp_setattr */
+    (cmpfunc)0,           /* tp_compare */
+    (reprfunc)0,             /* tp_repr */
     (PyNumberMethods*)0,     /* tp_as_number */
     (PySequenceMethods*)0, /* tp_as_sequence */
     (PyMappingMethods*)0,   /* tp_as_mapping */
-    (hashfunc)0,		/* tp_hash */
-    (ternaryfunc)0,		/* tp_call */
-    (reprfunc)0,		/* tp_str */
-    (getattrofunc)0,	/* tp_getattro */
-    (setattrofunc)0,	/* tp_setattro */
-    (PyBufferProcs*)0,	/* tp_as_buffer */
+    (hashfunc)0,             /* tp_hash */
+    (ternaryfunc)0,          /* tp_call */
+    (reprfunc)0,              /* tp_str */
+    (getattrofunc)0,     /* tp_getattro */
+    (setattrofunc)0,     /* tp_setattro */
+    (PyBufferProcs*)0,  /* tp_as_buffer */
     Py_TPFLAGS_DEFAULT | Py_TPFLAGS_BASETYPE,                      /* tp_flags */
-    NULL, 				/* Documentation string */
-    (traverseproc)0,	/* tp_traverse */
-    (inquiry)0,		/* tp_clear */
-    (richcmpfunc)0,	/* tp_richcompare */
+    NULL,                        /* Documentation string */
+    (traverseproc)0,     /* tp_traverse */
+    (inquiry)0,             /* tp_clear */
+    (richcmpfunc)0,   /* tp_richcompare */
     offsetof(PyGObject, weakreflist),             /* tp_weaklistoffset */
-    (getiterfunc)0,		/* tp_iter */
-    (iternextfunc)0,	/* tp_iternext */
-    _PyGnomeCanvasItem_methods,			/* tp_methods */
-    0,					/* tp_members */
-    0,		       	/* tp_getset */
-    NULL,				/* tp_base */
-    NULL,				/* tp_dict */
-    (descrgetfunc)0,	/* tp_descr_get */
-    (descrsetfunc)0,	/* tp_descr_set */
+    (getiterfunc)0,          /* tp_iter */
+    (iternextfunc)0,     /* tp_iternext */
+    (struct PyMethodDef*)_PyGnomeCanvasItem_methods, /* tp_methods */
+    (struct PyMemberDef*)0,              /* tp_members */
+    (struct PyGetSetDef*)0,  /* tp_getset */
+    NULL,                              /* tp_base */
+    NULL,                              /* tp_dict */
+    (descrgetfunc)0,    /* tp_descr_get */
+    (descrsetfunc)0,    /* tp_descr_set */
     offsetof(PyGObject, inst_dict),                 /* tp_dictoffset */
-    (initproc)0,		/* tp_init */
+    (initproc)0,             /* tp_init */
     (allocfunc)0,           /* tp_alloc */
     (newfunc)0,               /* tp_new */
     (freefunc)0,             /* tp_free */
@@ -937,7 +1062,7 @@ PyTypeObject PyGnomeCanvasItem_Type = {
 
 /* ----------- GnomeCanvasGroup ----------- */
 
-#line 73 "canvas.override"
+#line 93 "canvas.override"
 static PyObject *
 _wrap_gnome_canvas_item_new (PyGObject *self, PyObject *args,
 			     PyObject *kwargs)
@@ -955,7 +1080,7 @@ _wrap_gnome_canvas_item_new (PyGObject *self, PyObject *args,
 			   &pytype)) {
 	return NULL;
     }
-
+	
     type = pyg_type_from_object (pytype);
     item = gnome_canvas_item_new (GNOME_CANVAS_GROUP (self->obj), type, NULL);
     if (!item) {
@@ -1003,15 +1128,16 @@ _wrap_gnome_canvas_item_new (PyGObject *self, PyObject *args,
 
     return pygobject_new ((GObject *)item);
 }
-#line 1004 "canvas.c"
+#line 1132 "canvas.c"
 
 
-static PyMethodDef _PyGnomeCanvasGroup_methods[] = {
-    { "add", (PyCFunction)_wrap_gnome_canvas_item_new, METH_VARARGS|METH_KEYWORDS },
-    { NULL, NULL, 0 }
+static const PyMethodDef _PyGnomeCanvasGroup_methods[] = {
+    { "add", (PyCFunction)_wrap_gnome_canvas_item_new, METH_VARARGS|METH_KEYWORDS,
+      NULL },
+    { NULL, NULL, 0, NULL }
 };
 
-#line 456 "canvas.override"
+#line 476 "canvas.override"
 static PyObject *
 _wrap_gnome_canvas_group__get_item_list(PyGObject *self, void *closure)
 {
@@ -1028,53 +1154,53 @@ _wrap_gnome_canvas_group__get_item_list(PyGObject *self, void *closure)
     return list;
 }
 
-#line 1029 "canvas.c"
+#line 1158 "canvas.c"
 
 
-static PyGetSetDef gnome_canvas_group_getsets[] = {
+static const PyGetSetDef gnome_canvas_group_getsets[] = {
     { "item_list", (getter)_wrap_gnome_canvas_group__get_item_list, (setter)0 },
     { NULL, (getter)0, (setter)0 },
 };
 
-PyTypeObject PyGnomeCanvasGroup_Type = {
+PyTypeObject G_GNUC_INTERNAL PyGnomeCanvasGroup_Type = {
     PyObject_HEAD_INIT(NULL)
-    0,					/* ob_size */
-    "gnome.canvas.CanvasGroup",			/* tp_name */
-    sizeof(PyGObject),	        /* tp_basicsize */
-    0,					/* tp_itemsize */
+    0,                                 /* ob_size */
+    "gnome.canvas.CanvasGroup",                   /* tp_name */
+    sizeof(PyGObject),          /* tp_basicsize */
+    0,                                 /* tp_itemsize */
     /* methods */
-    (destructor)0,	/* tp_dealloc */
-    (printfunc)0,			/* tp_print */
-    (getattrfunc)0,	/* tp_getattr */
-    (setattrfunc)0,	/* tp_setattr */
-    (cmpfunc)0,		/* tp_compare */
-    (reprfunc)0,		/* tp_repr */
+    (destructor)0,        /* tp_dealloc */
+    (printfunc)0,                      /* tp_print */
+    (getattrfunc)0,       /* tp_getattr */
+    (setattrfunc)0,       /* tp_setattr */
+    (cmpfunc)0,           /* tp_compare */
+    (reprfunc)0,             /* tp_repr */
     (PyNumberMethods*)0,     /* tp_as_number */
     (PySequenceMethods*)0, /* tp_as_sequence */
     (PyMappingMethods*)0,   /* tp_as_mapping */
-    (hashfunc)0,		/* tp_hash */
-    (ternaryfunc)0,		/* tp_call */
-    (reprfunc)0,		/* tp_str */
-    (getattrofunc)0,	/* tp_getattro */
-    (setattrofunc)0,	/* tp_setattro */
-    (PyBufferProcs*)0,	/* tp_as_buffer */
+    (hashfunc)0,             /* tp_hash */
+    (ternaryfunc)0,          /* tp_call */
+    (reprfunc)0,              /* tp_str */
+    (getattrofunc)0,     /* tp_getattro */
+    (setattrofunc)0,     /* tp_setattro */
+    (PyBufferProcs*)0,  /* tp_as_buffer */
     Py_TPFLAGS_DEFAULT | Py_TPFLAGS_BASETYPE,                      /* tp_flags */
-    NULL, 				/* Documentation string */
-    (traverseproc)0,	/* tp_traverse */
-    (inquiry)0,		/* tp_clear */
-    (richcmpfunc)0,	/* tp_richcompare */
+    NULL,                        /* Documentation string */
+    (traverseproc)0,     /* tp_traverse */
+    (inquiry)0,             /* tp_clear */
+    (richcmpfunc)0,   /* tp_richcompare */
     offsetof(PyGObject, weakreflist),             /* tp_weaklistoffset */
-    (getiterfunc)0,		/* tp_iter */
-    (iternextfunc)0,	/* tp_iternext */
-    _PyGnomeCanvasGroup_methods,			/* tp_methods */
-    0,					/* tp_members */
-    gnome_canvas_group_getsets,		       	/* tp_getset */
-    NULL,				/* tp_base */
-    NULL,				/* tp_dict */
-    (descrgetfunc)0,	/* tp_descr_get */
-    (descrsetfunc)0,	/* tp_descr_set */
+    (getiterfunc)0,          /* tp_iter */
+    (iternextfunc)0,     /* tp_iternext */
+    (struct PyMethodDef*)_PyGnomeCanvasGroup_methods, /* tp_methods */
+    (struct PyMemberDef*)0,              /* tp_members */
+    (struct PyGetSetDef*)gnome_canvas_group_getsets,  /* tp_getset */
+    NULL,                              /* tp_base */
+    NULL,                              /* tp_dict */
+    (descrgetfunc)0,    /* tp_descr_get */
+    (descrsetfunc)0,    /* tp_descr_set */
     offsetof(PyGObject, inst_dict),                 /* tp_dictoffset */
-    (initproc)0,		/* tp_init */
+    (initproc)0,             /* tp_init */
     (allocfunc)0,           /* tp_alloc */
     (newfunc)0,               /* tp_new */
     (freefunc)0,             /* tp_free */
@@ -1085,45 +1211,45 @@ PyTypeObject PyGnomeCanvasGroup_Type = {
 
 /* ----------- GnomeCanvasClipgroup ----------- */
 
-PyTypeObject PyGnomeCanvasClipgroup_Type = {
+PyTypeObject G_GNUC_INTERNAL PyGnomeCanvasClipgroup_Type = {
     PyObject_HEAD_INIT(NULL)
-    0,					/* ob_size */
-    "gnome.canvas.CanvasClipgroup",			/* tp_name */
-    sizeof(PyGObject),	        /* tp_basicsize */
-    0,					/* tp_itemsize */
+    0,                                 /* ob_size */
+    "gnome.canvas.CanvasClipgroup",                   /* tp_name */
+    sizeof(PyGObject),          /* tp_basicsize */
+    0,                                 /* tp_itemsize */
     /* methods */
-    (destructor)0,	/* tp_dealloc */
-    (printfunc)0,			/* tp_print */
-    (getattrfunc)0,	/* tp_getattr */
-    (setattrfunc)0,	/* tp_setattr */
-    (cmpfunc)0,		/* tp_compare */
-    (reprfunc)0,		/* tp_repr */
+    (destructor)0,        /* tp_dealloc */
+    (printfunc)0,                      /* tp_print */
+    (getattrfunc)0,       /* tp_getattr */
+    (setattrfunc)0,       /* tp_setattr */
+    (cmpfunc)0,           /* tp_compare */
+    (reprfunc)0,             /* tp_repr */
     (PyNumberMethods*)0,     /* tp_as_number */
     (PySequenceMethods*)0, /* tp_as_sequence */
     (PyMappingMethods*)0,   /* tp_as_mapping */
-    (hashfunc)0,		/* tp_hash */
-    (ternaryfunc)0,		/* tp_call */
-    (reprfunc)0,		/* tp_str */
-    (getattrofunc)0,	/* tp_getattro */
-    (setattrofunc)0,	/* tp_setattro */
-    (PyBufferProcs*)0,	/* tp_as_buffer */
+    (hashfunc)0,             /* tp_hash */
+    (ternaryfunc)0,          /* tp_call */
+    (reprfunc)0,              /* tp_str */
+    (getattrofunc)0,     /* tp_getattro */
+    (setattrofunc)0,     /* tp_setattro */
+    (PyBufferProcs*)0,  /* tp_as_buffer */
     Py_TPFLAGS_DEFAULT | Py_TPFLAGS_BASETYPE,                      /* tp_flags */
-    NULL, 				/* Documentation string */
-    (traverseproc)0,	/* tp_traverse */
-    (inquiry)0,		/* tp_clear */
-    (richcmpfunc)0,	/* tp_richcompare */
+    NULL,                        /* Documentation string */
+    (traverseproc)0,     /* tp_traverse */
+    (inquiry)0,             /* tp_clear */
+    (richcmpfunc)0,   /* tp_richcompare */
     offsetof(PyGObject, weakreflist),             /* tp_weaklistoffset */
-    (getiterfunc)0,		/* tp_iter */
-    (iternextfunc)0,	/* tp_iternext */
-    NULL,			/* tp_methods */
-    0,					/* tp_members */
-    0,		       	/* tp_getset */
-    NULL,				/* tp_base */
-    NULL,				/* tp_dict */
-    (descrgetfunc)0,	/* tp_descr_get */
-    (descrsetfunc)0,	/* tp_descr_set */
+    (getiterfunc)0,          /* tp_iter */
+    (iternextfunc)0,     /* tp_iternext */
+    (struct PyMethodDef*)NULL, /* tp_methods */
+    (struct PyMemberDef*)0,              /* tp_members */
+    (struct PyGetSetDef*)0,  /* tp_getset */
+    NULL,                              /* tp_base */
+    NULL,                              /* tp_dict */
+    (descrgetfunc)0,    /* tp_descr_get */
+    (descrsetfunc)0,    /* tp_descr_set */
     offsetof(PyGObject, inst_dict),                 /* tp_dictoffset */
-    (initproc)0,		/* tp_init */
+    (initproc)0,             /* tp_init */
     (allocfunc)0,           /* tp_alloc */
     (newfunc)0,               /* tp_new */
     (freefunc)0,             /* tp_free */
@@ -1134,45 +1260,45 @@ PyTypeObject PyGnomeCanvasClipgroup_Type = {
 
 /* ----------- GnomeCanvasLine ----------- */
 
-PyTypeObject PyGnomeCanvasLine_Type = {
+PyTypeObject G_GNUC_INTERNAL PyGnomeCanvasLine_Type = {
     PyObject_HEAD_INIT(NULL)
-    0,					/* ob_size */
-    "gnome.canvas.CanvasLine",			/* tp_name */
-    sizeof(PyGObject),	        /* tp_basicsize */
-    0,					/* tp_itemsize */
+    0,                                 /* ob_size */
+    "gnome.canvas.CanvasLine",                   /* tp_name */
+    sizeof(PyGObject),          /* tp_basicsize */
+    0,                                 /* tp_itemsize */
     /* methods */
-    (destructor)0,	/* tp_dealloc */
-    (printfunc)0,			/* tp_print */
-    (getattrfunc)0,	/* tp_getattr */
-    (setattrfunc)0,	/* tp_setattr */
-    (cmpfunc)0,		/* tp_compare */
-    (reprfunc)0,		/* tp_repr */
+    (destructor)0,        /* tp_dealloc */
+    (printfunc)0,                      /* tp_print */
+    (getattrfunc)0,       /* tp_getattr */
+    (setattrfunc)0,       /* tp_setattr */
+    (cmpfunc)0,           /* tp_compare */
+    (reprfunc)0,             /* tp_repr */
     (PyNumberMethods*)0,     /* tp_as_number */
     (PySequenceMethods*)0, /* tp_as_sequence */
     (PyMappingMethods*)0,   /* tp_as_mapping */
-    (hashfunc)0,		/* tp_hash */
-    (ternaryfunc)0,		/* tp_call */
-    (reprfunc)0,		/* tp_str */
-    (getattrofunc)0,	/* tp_getattro */
-    (setattrofunc)0,	/* tp_setattro */
-    (PyBufferProcs*)0,	/* tp_as_buffer */
+    (hashfunc)0,             /* tp_hash */
+    (ternaryfunc)0,          /* tp_call */
+    (reprfunc)0,              /* tp_str */
+    (getattrofunc)0,     /* tp_getattro */
+    (setattrofunc)0,     /* tp_setattro */
+    (PyBufferProcs*)0,  /* tp_as_buffer */
     Py_TPFLAGS_DEFAULT | Py_TPFLAGS_BASETYPE,                      /* tp_flags */
-    NULL, 				/* Documentation string */
-    (traverseproc)0,	/* tp_traverse */
-    (inquiry)0,		/* tp_clear */
-    (richcmpfunc)0,	/* tp_richcompare */
+    NULL,                        /* Documentation string */
+    (traverseproc)0,     /* tp_traverse */
+    (inquiry)0,             /* tp_clear */
+    (richcmpfunc)0,   /* tp_richcompare */
     offsetof(PyGObject, weakreflist),             /* tp_weaklistoffset */
-    (getiterfunc)0,		/* tp_iter */
-    (iternextfunc)0,	/* tp_iternext */
-    NULL,			/* tp_methods */
-    0,					/* tp_members */
-    0,		       	/* tp_getset */
-    NULL,				/* tp_base */
-    NULL,				/* tp_dict */
-    (descrgetfunc)0,	/* tp_descr_get */
-    (descrsetfunc)0,	/* tp_descr_set */
+    (getiterfunc)0,          /* tp_iter */
+    (iternextfunc)0,     /* tp_iternext */
+    (struct PyMethodDef*)NULL, /* tp_methods */
+    (struct PyMemberDef*)0,              /* tp_members */
+    (struct PyGetSetDef*)0,  /* tp_getset */
+    NULL,                              /* tp_base */
+    NULL,                              /* tp_dict */
+    (descrgetfunc)0,    /* tp_descr_get */
+    (descrsetfunc)0,    /* tp_descr_set */
     offsetof(PyGObject, inst_dict),                 /* tp_dictoffset */
-    (initproc)0,		/* tp_init */
+    (initproc)0,             /* tp_init */
     (allocfunc)0,           /* tp_alloc */
     (newfunc)0,               /* tp_new */
     (freefunc)0,             /* tp_free */
@@ -1183,45 +1309,45 @@ PyTypeObject PyGnomeCanvasLine_Type = {
 
 /* ----------- GnomeCanvasPixbuf ----------- */
 
-PyTypeObject PyGnomeCanvasPixbuf_Type = {
+PyTypeObject G_GNUC_INTERNAL PyGnomeCanvasPixbuf_Type = {
     PyObject_HEAD_INIT(NULL)
-    0,					/* ob_size */
-    "gnome.canvas.CanvasPixbuf",			/* tp_name */
-    sizeof(PyGObject),	        /* tp_basicsize */
-    0,					/* tp_itemsize */
+    0,                                 /* ob_size */
+    "gnome.canvas.CanvasPixbuf",                   /* tp_name */
+    sizeof(PyGObject),          /* tp_basicsize */
+    0,                                 /* tp_itemsize */
     /* methods */
-    (destructor)0,	/* tp_dealloc */
-    (printfunc)0,			/* tp_print */
-    (getattrfunc)0,	/* tp_getattr */
-    (setattrfunc)0,	/* tp_setattr */
-    (cmpfunc)0,		/* tp_compare */
-    (reprfunc)0,		/* tp_repr */
+    (destructor)0,        /* tp_dealloc */
+    (printfunc)0,                      /* tp_print */
+    (getattrfunc)0,       /* tp_getattr */
+    (setattrfunc)0,       /* tp_setattr */
+    (cmpfunc)0,           /* tp_compare */
+    (reprfunc)0,             /* tp_repr */
     (PyNumberMethods*)0,     /* tp_as_number */
     (PySequenceMethods*)0, /* tp_as_sequence */
     (PyMappingMethods*)0,   /* tp_as_mapping */
-    (hashfunc)0,		/* tp_hash */
-    (ternaryfunc)0,		/* tp_call */
-    (reprfunc)0,		/* tp_str */
-    (getattrofunc)0,	/* tp_getattro */
-    (setattrofunc)0,	/* tp_setattro */
-    (PyBufferProcs*)0,	/* tp_as_buffer */
+    (hashfunc)0,             /* tp_hash */
+    (ternaryfunc)0,          /* tp_call */
+    (reprfunc)0,              /* tp_str */
+    (getattrofunc)0,     /* tp_getattro */
+    (setattrofunc)0,     /* tp_setattro */
+    (PyBufferProcs*)0,  /* tp_as_buffer */
     Py_TPFLAGS_DEFAULT | Py_TPFLAGS_BASETYPE,                      /* tp_flags */
-    NULL, 				/* Documentation string */
-    (traverseproc)0,	/* tp_traverse */
-    (inquiry)0,		/* tp_clear */
-    (richcmpfunc)0,	/* tp_richcompare */
+    NULL,                        /* Documentation string */
+    (traverseproc)0,     /* tp_traverse */
+    (inquiry)0,             /* tp_clear */
+    (richcmpfunc)0,   /* tp_richcompare */
     offsetof(PyGObject, weakreflist),             /* tp_weaklistoffset */
-    (getiterfunc)0,		/* tp_iter */
-    (iternextfunc)0,	/* tp_iternext */
-    NULL,			/* tp_methods */
-    0,					/* tp_members */
-    0,		       	/* tp_getset */
-    NULL,				/* tp_base */
-    NULL,				/* tp_dict */
-    (descrgetfunc)0,	/* tp_descr_get */
-    (descrsetfunc)0,	/* tp_descr_set */
+    (getiterfunc)0,          /* tp_iter */
+    (iternextfunc)0,     /* tp_iternext */
+    (struct PyMethodDef*)NULL, /* tp_methods */
+    (struct PyMemberDef*)0,              /* tp_members */
+    (struct PyGetSetDef*)0,  /* tp_getset */
+    NULL,                              /* tp_base */
+    NULL,                              /* tp_dict */
+    (descrgetfunc)0,    /* tp_descr_get */
+    (descrsetfunc)0,    /* tp_descr_set */
     offsetof(PyGObject, inst_dict),                 /* tp_dictoffset */
-    (initproc)0,		/* tp_init */
+    (initproc)0,             /* tp_init */
     (allocfunc)0,           /* tp_alloc */
     (newfunc)0,               /* tp_new */
     (freefunc)0,             /* tp_free */
@@ -1232,45 +1358,165 @@ PyTypeObject PyGnomeCanvasPixbuf_Type = {
 
 /* ----------- GnomeCanvasRichText ----------- */
 
-PyTypeObject PyGnomeCanvasRichText_Type = {
+static PyObject *
+_wrap_gnome_canvas_rich_text_cut_clipboard(PyGObject *self)
+{
+    
+    gnome_canvas_rich_text_cut_clipboard(GNOME_CANVAS_RICH_TEXT(self->obj));
+    
+    Py_INCREF(Py_None);
+    return Py_None;
+}
+
+static PyObject *
+_wrap_gnome_canvas_rich_text_copy_clipboard(PyGObject *self)
+{
+    
+    gnome_canvas_rich_text_copy_clipboard(GNOME_CANVAS_RICH_TEXT(self->obj));
+    
+    Py_INCREF(Py_None);
+    return Py_None;
+}
+
+static PyObject *
+_wrap_gnome_canvas_rich_text_paste_clipboard(PyGObject *self)
+{
+    
+    gnome_canvas_rich_text_paste_clipboard(GNOME_CANVAS_RICH_TEXT(self->obj));
+    
+    Py_INCREF(Py_None);
+    return Py_None;
+}
+
+static PyObject *
+_wrap_gnome_canvas_rich_text_set_buffer(PyGObject *self, PyObject *args, PyObject *kwargs)
+{
+    static char *kwlist[] = { "buffer", NULL };
+    PyGObject *buffer;
+
+    if (!PyArg_ParseTupleAndKeywords(args, kwargs,"O!:GnomeCanvasRichText.set_buffer", kwlist, &PyGtkTextBuffer_Type, &buffer))
+        return NULL;
+    
+    gnome_canvas_rich_text_set_buffer(GNOME_CANVAS_RICH_TEXT(self->obj), GTK_TEXT_BUFFER(buffer->obj));
+    
+    Py_INCREF(Py_None);
+    return Py_None;
+}
+
+static PyObject *
+_wrap_gnome_canvas_rich_text_get_buffer(PyGObject *self)
+{
+    GtkTextBuffer *ret;
+
+    
+    ret = gnome_canvas_rich_text_get_buffer(GNOME_CANVAS_RICH_TEXT(self->obj));
+    
+    /* pygobject_new handles NULL checking */
+    return pygobject_new((GObject *)ret);
+}
+
+static PyObject *
+_wrap_gnome_canvas_rich_text_get_iter_location(PyGObject *self, PyObject *args, PyObject *kwargs)
+{
+    static char *kwlist[] = { "iter", "location", NULL };
+    PyObject *py_iter, *py_location;
+    GdkRectangle location = { 0, 0, 0, 0 };
+    GtkTextIter *iter = NULL;
+
+    if (!PyArg_ParseTupleAndKeywords(args, kwargs,"OO:GnomeCanvasRichText.get_iter_location", kwlist, &py_iter, &py_location))
+        return NULL;
+    if (pyg_boxed_check(py_iter, GTK_TYPE_TEXT_ITER))
+        iter = pyg_boxed_get(py_iter, GtkTextIter);
+    else {
+        PyErr_SetString(PyExc_TypeError, "iter should be a GtkTextIter");
+        return NULL;
+    }
+    if (!pygdk_rectangle_from_pyobject(py_location, &location))
+        return NULL;
+    
+    gnome_canvas_rich_text_get_iter_location(GNOME_CANVAS_RICH_TEXT(self->obj), iter, &location);
+    
+    Py_INCREF(Py_None);
+    return Py_None;
+}
+
+#line 641 "canvas.override"
+static PyObject *
+_wrap_gnome_canvas_rich_text_get_iter_at_location(PyGObject *self, PyObject *args, PyObject *kwargs)
+{
+    static char *kwlist[] = { "x", "y", NULL };
+    PyObject *py_iter;
+    int x, y;
+    GtkTextIter iter = {0,};
+
+    if (!PyArg_ParseTupleAndKeywords(args, kwargs,"Oii:GnomeCanvasRichText.get_iter_at_location", kwlist, &x, &y))
+        return NULL;
+    gnome_canvas_rich_text_get_iter_at_location(GNOME_CANVAS_RICH_TEXT(self->obj), &iter, x, y);
+
+    py_iter = pyg_boxed_new(GTK_TYPE_TEXT_ITER, &iter, TRUE, TRUE);
+    return py_iter;
+}
+
+#line 1461 "canvas.c"
+
+
+static const PyMethodDef _PyGnomeCanvasRichText_methods[] = {
+    { "cut_clipboard", (PyCFunction)_wrap_gnome_canvas_rich_text_cut_clipboard, METH_NOARGS,
+      NULL },
+    { "copy_clipboard", (PyCFunction)_wrap_gnome_canvas_rich_text_copy_clipboard, METH_NOARGS,
+      NULL },
+    { "paste_clipboard", (PyCFunction)_wrap_gnome_canvas_rich_text_paste_clipboard, METH_NOARGS,
+      NULL },
+    { "set_buffer", (PyCFunction)_wrap_gnome_canvas_rich_text_set_buffer, METH_VARARGS|METH_KEYWORDS,
+      NULL },
+    { "get_buffer", (PyCFunction)_wrap_gnome_canvas_rich_text_get_buffer, METH_NOARGS,
+      NULL },
+    { "get_iter_location", (PyCFunction)_wrap_gnome_canvas_rich_text_get_iter_location, METH_VARARGS|METH_KEYWORDS,
+      NULL },
+    { "get_iter_at_location", (PyCFunction)_wrap_gnome_canvas_rich_text_get_iter_at_location, METH_VARARGS|METH_KEYWORDS,
+      NULL },
+    { NULL, NULL, 0, NULL }
+};
+
+PyTypeObject G_GNUC_INTERNAL PyGnomeCanvasRichText_Type = {
     PyObject_HEAD_INIT(NULL)
-    0,					/* ob_size */
-    "gnome.canvas.CanvasRichText",			/* tp_name */
-    sizeof(PyGObject),	        /* tp_basicsize */
-    0,					/* tp_itemsize */
+    0,                                 /* ob_size */
+    "gnome.canvas.CanvasRichText",                   /* tp_name */
+    sizeof(PyGObject),          /* tp_basicsize */
+    0,                                 /* tp_itemsize */
     /* methods */
-    (destructor)0,	/* tp_dealloc */
-    (printfunc)0,			/* tp_print */
-    (getattrfunc)0,	/* tp_getattr */
-    (setattrfunc)0,	/* tp_setattr */
-    (cmpfunc)0,		/* tp_compare */
-    (reprfunc)0,		/* tp_repr */
+    (destructor)0,        /* tp_dealloc */
+    (printfunc)0,                      /* tp_print */
+    (getattrfunc)0,       /* tp_getattr */
+    (setattrfunc)0,       /* tp_setattr */
+    (cmpfunc)0,           /* tp_compare */
+    (reprfunc)0,             /* tp_repr */
     (PyNumberMethods*)0,     /* tp_as_number */
     (PySequenceMethods*)0, /* tp_as_sequence */
     (PyMappingMethods*)0,   /* tp_as_mapping */
-    (hashfunc)0,		/* tp_hash */
-    (ternaryfunc)0,		/* tp_call */
-    (reprfunc)0,		/* tp_str */
-    (getattrofunc)0,	/* tp_getattro */
-    (setattrofunc)0,	/* tp_setattro */
-    (PyBufferProcs*)0,	/* tp_as_buffer */
+    (hashfunc)0,             /* tp_hash */
+    (ternaryfunc)0,          /* tp_call */
+    (reprfunc)0,              /* tp_str */
+    (getattrofunc)0,     /* tp_getattro */
+    (setattrofunc)0,     /* tp_setattro */
+    (PyBufferProcs*)0,  /* tp_as_buffer */
     Py_TPFLAGS_DEFAULT | Py_TPFLAGS_BASETYPE,                      /* tp_flags */
-    NULL, 				/* Documentation string */
-    (traverseproc)0,	/* tp_traverse */
-    (inquiry)0,		/* tp_clear */
-    (richcmpfunc)0,	/* tp_richcompare */
+    NULL,                        /* Documentation string */
+    (traverseproc)0,     /* tp_traverse */
+    (inquiry)0,             /* tp_clear */
+    (richcmpfunc)0,   /* tp_richcompare */
     offsetof(PyGObject, weakreflist),             /* tp_weaklistoffset */
-    (getiterfunc)0,		/* tp_iter */
-    (iternextfunc)0,	/* tp_iternext */
-    NULL,			/* tp_methods */
-    0,					/* tp_members */
-    0,		       	/* tp_getset */
-    NULL,				/* tp_base */
-    NULL,				/* tp_dict */
-    (descrgetfunc)0,	/* tp_descr_get */
-    (descrsetfunc)0,	/* tp_descr_set */
+    (getiterfunc)0,          /* tp_iter */
+    (iternextfunc)0,     /* tp_iternext */
+    (struct PyMethodDef*)_PyGnomeCanvasRichText_methods, /* tp_methods */
+    (struct PyMemberDef*)0,              /* tp_members */
+    (struct PyGetSetDef*)0,  /* tp_getset */
+    NULL,                              /* tp_base */
+    NULL,                              /* tp_dict */
+    (descrgetfunc)0,    /* tp_descr_get */
+    (descrsetfunc)0,    /* tp_descr_set */
     offsetof(PyGObject, inst_dict),                 /* tp_dictoffset */
-    (initproc)0,		/* tp_init */
+    (initproc)0,             /* tp_init */
     (allocfunc)0,           /* tp_alloc */
     (newfunc)0,               /* tp_new */
     (freefunc)0,             /* tp_free */
@@ -1281,45 +1527,45 @@ PyTypeObject PyGnomeCanvasRichText_Type = {
 
 /* ----------- GnomeCanvasShape ----------- */
 
-PyTypeObject PyGnomeCanvasShape_Type = {
+PyTypeObject G_GNUC_INTERNAL PyGnomeCanvasShape_Type = {
     PyObject_HEAD_INIT(NULL)
-    0,					/* ob_size */
-    "gnome.canvas.CanvasShape",			/* tp_name */
-    sizeof(PyGObject),	        /* tp_basicsize */
-    0,					/* tp_itemsize */
+    0,                                 /* ob_size */
+    "gnome.canvas.CanvasShape",                   /* tp_name */
+    sizeof(PyGObject),          /* tp_basicsize */
+    0,                                 /* tp_itemsize */
     /* methods */
-    (destructor)0,	/* tp_dealloc */
-    (printfunc)0,			/* tp_print */
-    (getattrfunc)0,	/* tp_getattr */
-    (setattrfunc)0,	/* tp_setattr */
-    (cmpfunc)0,		/* tp_compare */
-    (reprfunc)0,		/* tp_repr */
+    (destructor)0,        /* tp_dealloc */
+    (printfunc)0,                      /* tp_print */
+    (getattrfunc)0,       /* tp_getattr */
+    (setattrfunc)0,       /* tp_setattr */
+    (cmpfunc)0,           /* tp_compare */
+    (reprfunc)0,             /* tp_repr */
     (PyNumberMethods*)0,     /* tp_as_number */
     (PySequenceMethods*)0, /* tp_as_sequence */
     (PyMappingMethods*)0,   /* tp_as_mapping */
-    (hashfunc)0,		/* tp_hash */
-    (ternaryfunc)0,		/* tp_call */
-    (reprfunc)0,		/* tp_str */
-    (getattrofunc)0,	/* tp_getattro */
-    (setattrofunc)0,	/* tp_setattro */
-    (PyBufferProcs*)0,	/* tp_as_buffer */
+    (hashfunc)0,             /* tp_hash */
+    (ternaryfunc)0,          /* tp_call */
+    (reprfunc)0,              /* tp_str */
+    (getattrofunc)0,     /* tp_getattro */
+    (setattrofunc)0,     /* tp_setattro */
+    (PyBufferProcs*)0,  /* tp_as_buffer */
     Py_TPFLAGS_DEFAULT | Py_TPFLAGS_BASETYPE,                      /* tp_flags */
-    NULL, 				/* Documentation string */
-    (traverseproc)0,	/* tp_traverse */
-    (inquiry)0,		/* tp_clear */
-    (richcmpfunc)0,	/* tp_richcompare */
+    NULL,                        /* Documentation string */
+    (traverseproc)0,     /* tp_traverse */
+    (inquiry)0,             /* tp_clear */
+    (richcmpfunc)0,   /* tp_richcompare */
     offsetof(PyGObject, weakreflist),             /* tp_weaklistoffset */
-    (getiterfunc)0,		/* tp_iter */
-    (iternextfunc)0,	/* tp_iternext */
-    NULL,			/* tp_methods */
-    0,					/* tp_members */
-    0,		       	/* tp_getset */
-    NULL,				/* tp_base */
-    NULL,				/* tp_dict */
-    (descrgetfunc)0,	/* tp_descr_get */
-    (descrsetfunc)0,	/* tp_descr_set */
+    (getiterfunc)0,          /* tp_iter */
+    (iternextfunc)0,     /* tp_iternext */
+    (struct PyMethodDef*)NULL, /* tp_methods */
+    (struct PyMemberDef*)0,              /* tp_members */
+    (struct PyGetSetDef*)0,  /* tp_getset */
+    NULL,                              /* tp_base */
+    NULL,                              /* tp_dict */
+    (descrgetfunc)0,    /* tp_descr_get */
+    (descrsetfunc)0,    /* tp_descr_set */
     offsetof(PyGObject, inst_dict),                 /* tp_dictoffset */
-    (initproc)0,		/* tp_init */
+    (initproc)0,             /* tp_init */
     (allocfunc)0,           /* tp_alloc */
     (newfunc)0,               /* tp_new */
     (freefunc)0,             /* tp_free */
@@ -1330,45 +1576,45 @@ PyTypeObject PyGnomeCanvasShape_Type = {
 
 /* ----------- GnomeCanvasRE ----------- */
 
-PyTypeObject PyGnomeCanvasRE_Type = {
+PyTypeObject G_GNUC_INTERNAL PyGnomeCanvasRE_Type = {
     PyObject_HEAD_INIT(NULL)
-    0,					/* ob_size */
-    "gnome.canvas.CanvasRE",			/* tp_name */
-    sizeof(PyGObject),	        /* tp_basicsize */
-    0,					/* tp_itemsize */
+    0,                                 /* ob_size */
+    "gnome.canvas.CanvasRE",                   /* tp_name */
+    sizeof(PyGObject),          /* tp_basicsize */
+    0,                                 /* tp_itemsize */
     /* methods */
-    (destructor)0,	/* tp_dealloc */
-    (printfunc)0,			/* tp_print */
-    (getattrfunc)0,	/* tp_getattr */
-    (setattrfunc)0,	/* tp_setattr */
-    (cmpfunc)0,		/* tp_compare */
-    (reprfunc)0,		/* tp_repr */
+    (destructor)0,        /* tp_dealloc */
+    (printfunc)0,                      /* tp_print */
+    (getattrfunc)0,       /* tp_getattr */
+    (setattrfunc)0,       /* tp_setattr */
+    (cmpfunc)0,           /* tp_compare */
+    (reprfunc)0,             /* tp_repr */
     (PyNumberMethods*)0,     /* tp_as_number */
     (PySequenceMethods*)0, /* tp_as_sequence */
     (PyMappingMethods*)0,   /* tp_as_mapping */
-    (hashfunc)0,		/* tp_hash */
-    (ternaryfunc)0,		/* tp_call */
-    (reprfunc)0,		/* tp_str */
-    (getattrofunc)0,	/* tp_getattro */
-    (setattrofunc)0,	/* tp_setattro */
-    (PyBufferProcs*)0,	/* tp_as_buffer */
+    (hashfunc)0,             /* tp_hash */
+    (ternaryfunc)0,          /* tp_call */
+    (reprfunc)0,              /* tp_str */
+    (getattrofunc)0,     /* tp_getattro */
+    (setattrofunc)0,     /* tp_setattro */
+    (PyBufferProcs*)0,  /* tp_as_buffer */
     Py_TPFLAGS_DEFAULT | Py_TPFLAGS_BASETYPE,                      /* tp_flags */
-    NULL, 				/* Documentation string */
-    (traverseproc)0,	/* tp_traverse */
-    (inquiry)0,		/* tp_clear */
-    (richcmpfunc)0,	/* tp_richcompare */
+    NULL,                        /* Documentation string */
+    (traverseproc)0,     /* tp_traverse */
+    (inquiry)0,             /* tp_clear */
+    (richcmpfunc)0,   /* tp_richcompare */
     offsetof(PyGObject, weakreflist),             /* tp_weaklistoffset */
-    (getiterfunc)0,		/* tp_iter */
-    (iternextfunc)0,	/* tp_iternext */
-    NULL,			/* tp_methods */
-    0,					/* tp_members */
-    0,		       	/* tp_getset */
-    NULL,				/* tp_base */
-    NULL,				/* tp_dict */
-    (descrgetfunc)0,	/* tp_descr_get */
-    (descrsetfunc)0,	/* tp_descr_set */
+    (getiterfunc)0,          /* tp_iter */
+    (iternextfunc)0,     /* tp_iternext */
+    (struct PyMethodDef*)NULL, /* tp_methods */
+    (struct PyMemberDef*)0,              /* tp_members */
+    (struct PyGetSetDef*)0,  /* tp_getset */
+    NULL,                              /* tp_base */
+    NULL,                              /* tp_dict */
+    (descrgetfunc)0,    /* tp_descr_get */
+    (descrsetfunc)0,    /* tp_descr_set */
     offsetof(PyGObject, inst_dict),                 /* tp_dictoffset */
-    (initproc)0,		/* tp_init */
+    (initproc)0,             /* tp_init */
     (allocfunc)0,           /* tp_alloc */
     (newfunc)0,               /* tp_new */
     (freefunc)0,             /* tp_free */
@@ -1379,45 +1625,45 @@ PyTypeObject PyGnomeCanvasRE_Type = {
 
 /* ----------- GnomeCanvasRect ----------- */
 
-PyTypeObject PyGnomeCanvasRect_Type = {
+PyTypeObject G_GNUC_INTERNAL PyGnomeCanvasRect_Type = {
     PyObject_HEAD_INIT(NULL)
-    0,					/* ob_size */
-    "gnome.canvas.CanvasRect",			/* tp_name */
-    sizeof(PyGObject),	        /* tp_basicsize */
-    0,					/* tp_itemsize */
+    0,                                 /* ob_size */
+    "gnome.canvas.CanvasRect",                   /* tp_name */
+    sizeof(PyGObject),          /* tp_basicsize */
+    0,                                 /* tp_itemsize */
     /* methods */
-    (destructor)0,	/* tp_dealloc */
-    (printfunc)0,			/* tp_print */
-    (getattrfunc)0,	/* tp_getattr */
-    (setattrfunc)0,	/* tp_setattr */
-    (cmpfunc)0,		/* tp_compare */
-    (reprfunc)0,		/* tp_repr */
+    (destructor)0,        /* tp_dealloc */
+    (printfunc)0,                      /* tp_print */
+    (getattrfunc)0,       /* tp_getattr */
+    (setattrfunc)0,       /* tp_setattr */
+    (cmpfunc)0,           /* tp_compare */
+    (reprfunc)0,             /* tp_repr */
     (PyNumberMethods*)0,     /* tp_as_number */
     (PySequenceMethods*)0, /* tp_as_sequence */
     (PyMappingMethods*)0,   /* tp_as_mapping */
-    (hashfunc)0,		/* tp_hash */
-    (ternaryfunc)0,		/* tp_call */
-    (reprfunc)0,		/* tp_str */
-    (getattrofunc)0,	/* tp_getattro */
-    (setattrofunc)0,	/* tp_setattro */
-    (PyBufferProcs*)0,	/* tp_as_buffer */
+    (hashfunc)0,             /* tp_hash */
+    (ternaryfunc)0,          /* tp_call */
+    (reprfunc)0,              /* tp_str */
+    (getattrofunc)0,     /* tp_getattro */
+    (setattrofunc)0,     /* tp_setattro */
+    (PyBufferProcs*)0,  /* tp_as_buffer */
     Py_TPFLAGS_DEFAULT | Py_TPFLAGS_BASETYPE,                      /* tp_flags */
-    NULL, 				/* Documentation string */
-    (traverseproc)0,	/* tp_traverse */
-    (inquiry)0,		/* tp_clear */
-    (richcmpfunc)0,	/* tp_richcompare */
+    NULL,                        /* Documentation string */
+    (traverseproc)0,     /* tp_traverse */
+    (inquiry)0,             /* tp_clear */
+    (richcmpfunc)0,   /* tp_richcompare */
     offsetof(PyGObject, weakreflist),             /* tp_weaklistoffset */
-    (getiterfunc)0,		/* tp_iter */
-    (iternextfunc)0,	/* tp_iternext */
-    NULL,			/* tp_methods */
-    0,					/* tp_members */
-    0,		       	/* tp_getset */
-    NULL,				/* tp_base */
-    NULL,				/* tp_dict */
-    (descrgetfunc)0,	/* tp_descr_get */
-    (descrsetfunc)0,	/* tp_descr_set */
+    (getiterfunc)0,          /* tp_iter */
+    (iternextfunc)0,     /* tp_iternext */
+    (struct PyMethodDef*)NULL, /* tp_methods */
+    (struct PyMemberDef*)0,              /* tp_members */
+    (struct PyGetSetDef*)0,  /* tp_getset */
+    NULL,                              /* tp_base */
+    NULL,                              /* tp_dict */
+    (descrgetfunc)0,    /* tp_descr_get */
+    (descrsetfunc)0,    /* tp_descr_set */
     offsetof(PyGObject, inst_dict),                 /* tp_dictoffset */
-    (initproc)0,		/* tp_init */
+    (initproc)0,             /* tp_init */
     (allocfunc)0,           /* tp_alloc */
     (newfunc)0,               /* tp_new */
     (freefunc)0,             /* tp_free */
@@ -1428,45 +1674,45 @@ PyTypeObject PyGnomeCanvasRect_Type = {
 
 /* ----------- GnomeCanvasEllipse ----------- */
 
-PyTypeObject PyGnomeCanvasEllipse_Type = {
+PyTypeObject G_GNUC_INTERNAL PyGnomeCanvasEllipse_Type = {
     PyObject_HEAD_INIT(NULL)
-    0,					/* ob_size */
-    "gnome.canvas.CanvasEllipse",			/* tp_name */
-    sizeof(PyGObject),	        /* tp_basicsize */
-    0,					/* tp_itemsize */
+    0,                                 /* ob_size */
+    "gnome.canvas.CanvasEllipse",                   /* tp_name */
+    sizeof(PyGObject),          /* tp_basicsize */
+    0,                                 /* tp_itemsize */
     /* methods */
-    (destructor)0,	/* tp_dealloc */
-    (printfunc)0,			/* tp_print */
-    (getattrfunc)0,	/* tp_getattr */
-    (setattrfunc)0,	/* tp_setattr */
-    (cmpfunc)0,		/* tp_compare */
-    (reprfunc)0,		/* tp_repr */
+    (destructor)0,        /* tp_dealloc */
+    (printfunc)0,                      /* tp_print */
+    (getattrfunc)0,       /* tp_getattr */
+    (setattrfunc)0,       /* tp_setattr */
+    (cmpfunc)0,           /* tp_compare */
+    (reprfunc)0,             /* tp_repr */
     (PyNumberMethods*)0,     /* tp_as_number */
     (PySequenceMethods*)0, /* tp_as_sequence */
     (PyMappingMethods*)0,   /* tp_as_mapping */
-    (hashfunc)0,		/* tp_hash */
-    (ternaryfunc)0,		/* tp_call */
-    (reprfunc)0,		/* tp_str */
-    (getattrofunc)0,	/* tp_getattro */
-    (setattrofunc)0,	/* tp_setattro */
-    (PyBufferProcs*)0,	/* tp_as_buffer */
+    (hashfunc)0,             /* tp_hash */
+    (ternaryfunc)0,          /* tp_call */
+    (reprfunc)0,              /* tp_str */
+    (getattrofunc)0,     /* tp_getattro */
+    (setattrofunc)0,     /* tp_setattro */
+    (PyBufferProcs*)0,  /* tp_as_buffer */
     Py_TPFLAGS_DEFAULT | Py_TPFLAGS_BASETYPE,                      /* tp_flags */
-    NULL, 				/* Documentation string */
-    (traverseproc)0,	/* tp_traverse */
-    (inquiry)0,		/* tp_clear */
-    (richcmpfunc)0,	/* tp_richcompare */
+    NULL,                        /* Documentation string */
+    (traverseproc)0,     /* tp_traverse */
+    (inquiry)0,             /* tp_clear */
+    (richcmpfunc)0,   /* tp_richcompare */
     offsetof(PyGObject, weakreflist),             /* tp_weaklistoffset */
-    (getiterfunc)0,		/* tp_iter */
-    (iternextfunc)0,	/* tp_iternext */
-    NULL,			/* tp_methods */
-    0,					/* tp_members */
-    0,		       	/* tp_getset */
-    NULL,				/* tp_base */
-    NULL,				/* tp_dict */
-    (descrgetfunc)0,	/* tp_descr_get */
-    (descrsetfunc)0,	/* tp_descr_set */
+    (getiterfunc)0,          /* tp_iter */
+    (iternextfunc)0,     /* tp_iternext */
+    (struct PyMethodDef*)NULL, /* tp_methods */
+    (struct PyMemberDef*)0,              /* tp_members */
+    (struct PyGetSetDef*)0,  /* tp_getset */
+    NULL,                              /* tp_base */
+    NULL,                              /* tp_dict */
+    (descrgetfunc)0,    /* tp_descr_get */
+    (descrsetfunc)0,    /* tp_descr_set */
     offsetof(PyGObject, inst_dict),                 /* tp_dictoffset */
-    (initproc)0,		/* tp_init */
+    (initproc)0,             /* tp_init */
     (allocfunc)0,           /* tp_alloc */
     (newfunc)0,               /* tp_new */
     (freefunc)0,             /* tp_free */
@@ -1477,45 +1723,45 @@ PyTypeObject PyGnomeCanvasEllipse_Type = {
 
 /* ----------- GnomeCanvasPolygon ----------- */
 
-PyTypeObject PyGnomeCanvasPolygon_Type = {
+PyTypeObject G_GNUC_INTERNAL PyGnomeCanvasPolygon_Type = {
     PyObject_HEAD_INIT(NULL)
-    0,					/* ob_size */
-    "gnome.canvas.CanvasPolygon",			/* tp_name */
-    sizeof(PyGObject),	        /* tp_basicsize */
-    0,					/* tp_itemsize */
+    0,                                 /* ob_size */
+    "gnome.canvas.CanvasPolygon",                   /* tp_name */
+    sizeof(PyGObject),          /* tp_basicsize */
+    0,                                 /* tp_itemsize */
     /* methods */
-    (destructor)0,	/* tp_dealloc */
-    (printfunc)0,			/* tp_print */
-    (getattrfunc)0,	/* tp_getattr */
-    (setattrfunc)0,	/* tp_setattr */
-    (cmpfunc)0,		/* tp_compare */
-    (reprfunc)0,		/* tp_repr */
+    (destructor)0,        /* tp_dealloc */
+    (printfunc)0,                      /* tp_print */
+    (getattrfunc)0,       /* tp_getattr */
+    (setattrfunc)0,       /* tp_setattr */
+    (cmpfunc)0,           /* tp_compare */
+    (reprfunc)0,             /* tp_repr */
     (PyNumberMethods*)0,     /* tp_as_number */
     (PySequenceMethods*)0, /* tp_as_sequence */
     (PyMappingMethods*)0,   /* tp_as_mapping */
-    (hashfunc)0,		/* tp_hash */
-    (ternaryfunc)0,		/* tp_call */
-    (reprfunc)0,		/* tp_str */
-    (getattrofunc)0,	/* tp_getattro */
-    (setattrofunc)0,	/* tp_setattro */
-    (PyBufferProcs*)0,	/* tp_as_buffer */
+    (hashfunc)0,             /* tp_hash */
+    (ternaryfunc)0,          /* tp_call */
+    (reprfunc)0,              /* tp_str */
+    (getattrofunc)0,     /* tp_getattro */
+    (setattrofunc)0,     /* tp_setattro */
+    (PyBufferProcs*)0,  /* tp_as_buffer */
     Py_TPFLAGS_DEFAULT | Py_TPFLAGS_BASETYPE,                      /* tp_flags */
-    NULL, 				/* Documentation string */
-    (traverseproc)0,	/* tp_traverse */
-    (inquiry)0,		/* tp_clear */
-    (richcmpfunc)0,	/* tp_richcompare */
+    NULL,                        /* Documentation string */
+    (traverseproc)0,     /* tp_traverse */
+    (inquiry)0,             /* tp_clear */
+    (richcmpfunc)0,   /* tp_richcompare */
     offsetof(PyGObject, weakreflist),             /* tp_weaklistoffset */
-    (getiterfunc)0,		/* tp_iter */
-    (iternextfunc)0,	/* tp_iternext */
-    NULL,			/* tp_methods */
-    0,					/* tp_members */
-    0,		       	/* tp_getset */
-    NULL,				/* tp_base */
-    NULL,				/* tp_dict */
-    (descrgetfunc)0,	/* tp_descr_get */
-    (descrsetfunc)0,	/* tp_descr_set */
+    (getiterfunc)0,          /* tp_iter */
+    (iternextfunc)0,     /* tp_iternext */
+    (struct PyMethodDef*)NULL, /* tp_methods */
+    (struct PyMemberDef*)0,              /* tp_members */
+    (struct PyGetSetDef*)0,  /* tp_getset */
+    NULL,                              /* tp_base */
+    NULL,                              /* tp_dict */
+    (descrgetfunc)0,    /* tp_descr_get */
+    (descrsetfunc)0,    /* tp_descr_set */
     offsetof(PyGObject, inst_dict),                 /* tp_dictoffset */
-    (initproc)0,		/* tp_init */
+    (initproc)0,             /* tp_init */
     (allocfunc)0,           /* tp_alloc */
     (newfunc)0,               /* tp_new */
     (freefunc)0,             /* tp_free */
@@ -1526,7 +1772,7 @@ PyTypeObject PyGnomeCanvasPolygon_Type = {
 
 /* ----------- GnomeCanvasBpath ----------- */
 
-#line 560 "canvas.override"
+#line 580 "canvas.override"
 static PyObject *
 _wrap_gnome_canvas_bpath_set_bpath(PyGObject *self, PyObject *args, PyObject *kwargs)
 {
@@ -1546,53 +1792,54 @@ _wrap_gnome_canvas_bpath_set_bpath(PyGObject *self, PyObject *args, PyObject *kw
     Py_INCREF(Py_None);
     return Py_None;
 }
-#line 1547 "canvas.c"
+#line 1796 "canvas.c"
 
 
-static PyMethodDef _PyGnomeCanvasBpath_methods[] = {
-    { "set_bpath", (PyCFunction)_wrap_gnome_canvas_bpath_set_bpath, METH_VARARGS|METH_KEYWORDS },
-    { NULL, NULL, 0 }
+static const PyMethodDef _PyGnomeCanvasBpath_methods[] = {
+    { "set_bpath", (PyCFunction)_wrap_gnome_canvas_bpath_set_bpath, METH_VARARGS|METH_KEYWORDS,
+      NULL },
+    { NULL, NULL, 0, NULL }
 };
 
-PyTypeObject PyGnomeCanvasBpath_Type = {
+PyTypeObject G_GNUC_INTERNAL PyGnomeCanvasBpath_Type = {
     PyObject_HEAD_INIT(NULL)
-    0,					/* ob_size */
-    "gnome.canvas.CanvasBpath",			/* tp_name */
-    sizeof(PyGObject),	        /* tp_basicsize */
-    0,					/* tp_itemsize */
+    0,                                 /* ob_size */
+    "gnome.canvas.CanvasBpath",                   /* tp_name */
+    sizeof(PyGObject),          /* tp_basicsize */
+    0,                                 /* tp_itemsize */
     /* methods */
-    (destructor)0,	/* tp_dealloc */
-    (printfunc)0,			/* tp_print */
-    (getattrfunc)0,	/* tp_getattr */
-    (setattrfunc)0,	/* tp_setattr */
-    (cmpfunc)0,		/* tp_compare */
-    (reprfunc)0,		/* tp_repr */
+    (destructor)0,        /* tp_dealloc */
+    (printfunc)0,                      /* tp_print */
+    (getattrfunc)0,       /* tp_getattr */
+    (setattrfunc)0,       /* tp_setattr */
+    (cmpfunc)0,           /* tp_compare */
+    (reprfunc)0,             /* tp_repr */
     (PyNumberMethods*)0,     /* tp_as_number */
     (PySequenceMethods*)0, /* tp_as_sequence */
     (PyMappingMethods*)0,   /* tp_as_mapping */
-    (hashfunc)0,		/* tp_hash */
-    (ternaryfunc)0,		/* tp_call */
-    (reprfunc)0,		/* tp_str */
-    (getattrofunc)0,	/* tp_getattro */
-    (setattrofunc)0,	/* tp_setattro */
-    (PyBufferProcs*)0,	/* tp_as_buffer */
+    (hashfunc)0,             /* tp_hash */
+    (ternaryfunc)0,          /* tp_call */
+    (reprfunc)0,              /* tp_str */
+    (getattrofunc)0,     /* tp_getattro */
+    (setattrofunc)0,     /* tp_setattro */
+    (PyBufferProcs*)0,  /* tp_as_buffer */
     Py_TPFLAGS_DEFAULT | Py_TPFLAGS_BASETYPE,                      /* tp_flags */
-    NULL, 				/* Documentation string */
-    (traverseproc)0,	/* tp_traverse */
-    (inquiry)0,		/* tp_clear */
-    (richcmpfunc)0,	/* tp_richcompare */
+    NULL,                        /* Documentation string */
+    (traverseproc)0,     /* tp_traverse */
+    (inquiry)0,             /* tp_clear */
+    (richcmpfunc)0,   /* tp_richcompare */
     offsetof(PyGObject, weakreflist),             /* tp_weaklistoffset */
-    (getiterfunc)0,		/* tp_iter */
-    (iternextfunc)0,	/* tp_iternext */
-    _PyGnomeCanvasBpath_methods,			/* tp_methods */
-    0,					/* tp_members */
-    0,		       	/* tp_getset */
-    NULL,				/* tp_base */
-    NULL,				/* tp_dict */
-    (descrgetfunc)0,	/* tp_descr_get */
-    (descrsetfunc)0,	/* tp_descr_set */
+    (getiterfunc)0,          /* tp_iter */
+    (iternextfunc)0,     /* tp_iternext */
+    (struct PyMethodDef*)_PyGnomeCanvasBpath_methods, /* tp_methods */
+    (struct PyMemberDef*)0,              /* tp_members */
+    (struct PyGetSetDef*)0,  /* tp_getset */
+    NULL,                              /* tp_base */
+    NULL,                              /* tp_dict */
+    (descrgetfunc)0,    /* tp_descr_get */
+    (descrsetfunc)0,    /* tp_descr_set */
     offsetof(PyGObject, inst_dict),                 /* tp_dictoffset */
-    (initproc)0,		/* tp_init */
+    (initproc)0,             /* tp_init */
     (allocfunc)0,           /* tp_alloc */
     (newfunc)0,               /* tp_new */
     (freefunc)0,             /* tp_free */
@@ -1603,45 +1850,45 @@ PyTypeObject PyGnomeCanvasBpath_Type = {
 
 /* ----------- GnomeCanvasText ----------- */
 
-PyTypeObject PyGnomeCanvasText_Type = {
+PyTypeObject G_GNUC_INTERNAL PyGnomeCanvasText_Type = {
     PyObject_HEAD_INIT(NULL)
-    0,					/* ob_size */
-    "gnome.canvas.CanvasText",			/* tp_name */
-    sizeof(PyGObject),	        /* tp_basicsize */
-    0,					/* tp_itemsize */
+    0,                                 /* ob_size */
+    "gnome.canvas.CanvasText",                   /* tp_name */
+    sizeof(PyGObject),          /* tp_basicsize */
+    0,                                 /* tp_itemsize */
     /* methods */
-    (destructor)0,	/* tp_dealloc */
-    (printfunc)0,			/* tp_print */
-    (getattrfunc)0,	/* tp_getattr */
-    (setattrfunc)0,	/* tp_setattr */
-    (cmpfunc)0,		/* tp_compare */
-    (reprfunc)0,		/* tp_repr */
+    (destructor)0,        /* tp_dealloc */
+    (printfunc)0,                      /* tp_print */
+    (getattrfunc)0,       /* tp_getattr */
+    (setattrfunc)0,       /* tp_setattr */
+    (cmpfunc)0,           /* tp_compare */
+    (reprfunc)0,             /* tp_repr */
     (PyNumberMethods*)0,     /* tp_as_number */
     (PySequenceMethods*)0, /* tp_as_sequence */
     (PyMappingMethods*)0,   /* tp_as_mapping */
-    (hashfunc)0,		/* tp_hash */
-    (ternaryfunc)0,		/* tp_call */
-    (reprfunc)0,		/* tp_str */
-    (getattrofunc)0,	/* tp_getattro */
-    (setattrofunc)0,	/* tp_setattro */
-    (PyBufferProcs*)0,	/* tp_as_buffer */
+    (hashfunc)0,             /* tp_hash */
+    (ternaryfunc)0,          /* tp_call */
+    (reprfunc)0,              /* tp_str */
+    (getattrofunc)0,     /* tp_getattro */
+    (setattrofunc)0,     /* tp_setattro */
+    (PyBufferProcs*)0,  /* tp_as_buffer */
     Py_TPFLAGS_DEFAULT | Py_TPFLAGS_BASETYPE,                      /* tp_flags */
-    NULL, 				/* Documentation string */
-    (traverseproc)0,	/* tp_traverse */
-    (inquiry)0,		/* tp_clear */
-    (richcmpfunc)0,	/* tp_richcompare */
+    NULL,                        /* Documentation string */
+    (traverseproc)0,     /* tp_traverse */
+    (inquiry)0,             /* tp_clear */
+    (richcmpfunc)0,   /* tp_richcompare */
     offsetof(PyGObject, weakreflist),             /* tp_weaklistoffset */
-    (getiterfunc)0,		/* tp_iter */
-    (iternextfunc)0,	/* tp_iternext */
-    NULL,			/* tp_methods */
-    0,					/* tp_members */
-    0,		       	/* tp_getset */
-    NULL,				/* tp_base */
-    NULL,				/* tp_dict */
-    (descrgetfunc)0,	/* tp_descr_get */
-    (descrsetfunc)0,	/* tp_descr_set */
+    (getiterfunc)0,          /* tp_iter */
+    (iternextfunc)0,     /* tp_iternext */
+    (struct PyMethodDef*)NULL, /* tp_methods */
+    (struct PyMemberDef*)0,              /* tp_members */
+    (struct PyGetSetDef*)0,  /* tp_getset */
+    NULL,                              /* tp_base */
+    NULL,                              /* tp_dict */
+    (descrgetfunc)0,    /* tp_descr_get */
+    (descrsetfunc)0,    /* tp_descr_set */
     offsetof(PyGObject, inst_dict),                 /* tp_dictoffset */
-    (initproc)0,		/* tp_init */
+    (initproc)0,             /* tp_init */
     (allocfunc)0,           /* tp_alloc */
     (newfunc)0,               /* tp_new */
     (freefunc)0,             /* tp_free */
@@ -1652,45 +1899,45 @@ PyTypeObject PyGnomeCanvasText_Type = {
 
 /* ----------- GnomeCanvasWidget ----------- */
 
-PyTypeObject PyGnomeCanvasWidget_Type = {
+PyTypeObject G_GNUC_INTERNAL PyGnomeCanvasWidget_Type = {
     PyObject_HEAD_INIT(NULL)
-    0,					/* ob_size */
-    "gnome.canvas.CanvasWidget",			/* tp_name */
-    sizeof(PyGObject),	        /* tp_basicsize */
-    0,					/* tp_itemsize */
+    0,                                 /* ob_size */
+    "gnome.canvas.CanvasWidget",                   /* tp_name */
+    sizeof(PyGObject),          /* tp_basicsize */
+    0,                                 /* tp_itemsize */
     /* methods */
-    (destructor)0,	/* tp_dealloc */
-    (printfunc)0,			/* tp_print */
-    (getattrfunc)0,	/* tp_getattr */
-    (setattrfunc)0,	/* tp_setattr */
-    (cmpfunc)0,		/* tp_compare */
-    (reprfunc)0,		/* tp_repr */
+    (destructor)0,        /* tp_dealloc */
+    (printfunc)0,                      /* tp_print */
+    (getattrfunc)0,       /* tp_getattr */
+    (setattrfunc)0,       /* tp_setattr */
+    (cmpfunc)0,           /* tp_compare */
+    (reprfunc)0,             /* tp_repr */
     (PyNumberMethods*)0,     /* tp_as_number */
     (PySequenceMethods*)0, /* tp_as_sequence */
     (PyMappingMethods*)0,   /* tp_as_mapping */
-    (hashfunc)0,		/* tp_hash */
-    (ternaryfunc)0,		/* tp_call */
-    (reprfunc)0,		/* tp_str */
-    (getattrofunc)0,	/* tp_getattro */
-    (setattrofunc)0,	/* tp_setattro */
-    (PyBufferProcs*)0,	/* tp_as_buffer */
+    (hashfunc)0,             /* tp_hash */
+    (ternaryfunc)0,          /* tp_call */
+    (reprfunc)0,              /* tp_str */
+    (getattrofunc)0,     /* tp_getattro */
+    (setattrofunc)0,     /* tp_setattro */
+    (PyBufferProcs*)0,  /* tp_as_buffer */
     Py_TPFLAGS_DEFAULT | Py_TPFLAGS_BASETYPE,                      /* tp_flags */
-    NULL, 				/* Documentation string */
-    (traverseproc)0,	/* tp_traverse */
-    (inquiry)0,		/* tp_clear */
-    (richcmpfunc)0,	/* tp_richcompare */
+    NULL,                        /* Documentation string */
+    (traverseproc)0,     /* tp_traverse */
+    (inquiry)0,             /* tp_clear */
+    (richcmpfunc)0,   /* tp_richcompare */
     offsetof(PyGObject, weakreflist),             /* tp_weaklistoffset */
-    (getiterfunc)0,		/* tp_iter */
-    (iternextfunc)0,	/* tp_iternext */
-    NULL,			/* tp_methods */
-    0,					/* tp_members */
-    0,		       	/* tp_getset */
-    NULL,				/* tp_base */
-    NULL,				/* tp_dict */
-    (descrgetfunc)0,	/* tp_descr_get */
-    (descrsetfunc)0,	/* tp_descr_set */
+    (getiterfunc)0,          /* tp_iter */
+    (iternextfunc)0,     /* tp_iternext */
+    (struct PyMethodDef*)NULL, /* tp_methods */
+    (struct PyMemberDef*)0,              /* tp_members */
+    (struct PyGetSetDef*)0,  /* tp_getset */
+    NULL,                              /* tp_base */
+    NULL,                              /* tp_dict */
+    (descrgetfunc)0,    /* tp_descr_get */
+    (descrsetfunc)0,    /* tp_descr_set */
     offsetof(PyGObject, inst_dict),                 /* tp_dictoffset */
-    (initproc)0,		/* tp_init */
+    (initproc)0,             /* tp_init */
     (allocfunc)0,           /* tp_alloc */
     (newfunc)0,               /* tp_new */
     (freefunc)0,             /* tp_free */
@@ -1701,7 +1948,7 @@ PyTypeObject PyGnomeCanvasWidget_Type = {
 
 /* ----------- functions ----------- */
 
-#line 474 "canvas.override"
+#line 494 "canvas.override"
 static PyObject *
 _wrap_gnome_canvas_path_def_new(PyObject *self, PyObject *args)
 {
@@ -1786,12 +2033,13 @@ _wrap_gnome_canvas_path_def_new(PyObject *self, PyObject *args)
     return pyg_boxed_new(GNOME_TYPE_CANVAS_PATH_DEF, path, TRUE, TRUE);
 }
 
-#line 1787 "canvas.c"
+#line 2037 "canvas.c"
 
 
-PyMethodDef pycanvas_functions[] = {
-    { "path_def_new", (PyCFunction)_wrap_gnome_canvas_path_def_new, METH_VARARGS },
-    { NULL, NULL, 0 }
+const PyMethodDef pycanvas_functions[] = {
+    { "path_def_new", (PyCFunction)_wrap_gnome_canvas_path_def_new, METH_VARARGS,
+      NULL },
+    { NULL, NULL, 0, NULL }
 };
 
 /* initialise stuff extension classes */
@@ -1801,42 +2049,50 @@ pycanvas_register_classes(PyObject *d)
     PyObject *module;
 
     if ((module = PyImport_ImportModule("gobject")) != NULL) {
-        PyObject *moddict = PyModule_GetDict(module);
-
-        _PyGObject_Type = (PyTypeObject *)PyDict_GetItemString(moddict, "GObject");
+        _PyGObject_Type = (PyTypeObject *)PyObject_GetAttrString(module, "GObject");
         if (_PyGObject_Type == NULL) {
             PyErr_SetString(PyExc_ImportError,
                 "cannot import name GObject from gobject");
-            return;
+            return ;
         }
     } else {
         PyErr_SetString(PyExc_ImportError,
             "could not import gobject");
-        return;
+        return ;
+    }
+    if ((module = PyImport_ImportModule("gtk")) != NULL) {
+        _PyGtkTextBuffer_Type = (PyTypeObject *)PyObject_GetAttrString(module, "TextBuffer");
+        if (_PyGtkTextBuffer_Type == NULL) {
+            PyErr_SetString(PyExc_ImportError,
+                "cannot import name TextBuffer from gtk");
+            return ;
+        }
+    } else {
+        PyErr_SetString(PyExc_ImportError,
+            "could not import gtk");
+        return ;
     }
     if ((module = PyImport_ImportModule("gtk._gtk")) != NULL) {
-        PyObject *moddict = PyModule_GetDict(module);
-
-        _PyGtkLayout_Type = (PyTypeObject *)PyDict_GetItemString(moddict, "Layout");
+        _PyGtkLayout_Type = (PyTypeObject *)PyObject_GetAttrString(module, "Layout");
         if (_PyGtkLayout_Type == NULL) {
             PyErr_SetString(PyExc_ImportError,
                 "cannot import name Layout from gtk._gtk");
-            return;
+            return ;
         }
-        _PyGtkObject_Type = (PyTypeObject *)PyDict_GetItemString(moddict, "Object");
+        _PyGtkObject_Type = (PyTypeObject *)PyObject_GetAttrString(module, "Object");
         if (_PyGtkObject_Type == NULL) {
             PyErr_SetString(PyExc_ImportError,
                 "cannot import name Object from gtk._gtk");
-            return;
+            return ;
         }
     } else {
         PyErr_SetString(PyExc_ImportError,
             "could not import gtk._gtk");
-        return;
+        return ;
     }
 
 
-#line 1837 "canvas.c"
+#line 2096 "canvas.c"
     pyg_register_boxed(d, "CanvasPathDef", GNOME_TYPE_CANVAS_PATH_DEF, &PyGnomeCanvasPathDef_Type);
     pygobject_register_class(d, "GnomeCanvas", GNOME_TYPE_CANVAS, &PyGnomeCanvas_Type, Py_BuildValue("(O)", &PyGtkLayout_Type));
     pygobject_register_class(d, "GnomeCanvasItem", GNOME_TYPE_CANVAS_ITEM, &PyGnomeCanvasItem_Type, Py_BuildValue("(O)", &PyGtkObject_Type));

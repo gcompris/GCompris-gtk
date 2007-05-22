@@ -18,6 +18,7 @@
 #   along with this program; if not, write to the Free Software
 #   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 #
+import gobject
 import gnomecanvas
 import gcompris
 import gcompris.utils
@@ -73,26 +74,26 @@ class Gcompris_melody:
       # xylophon
       [
       {'theme': "xylofon", 'background': "melody/xylofon/background.png", 'hittool': "melody/xylofon/cursor.png", 'hitofset_x': 50, 'hitofset_y': 50},
-      [ {'x': 150.0, 'y': 101.0,  'image': "melody/xylofon/son1.png", 'sound': "sounds/melody/xylofon/son1.ogg"},
-        {'x': 284.0, 'y': 118.0,  'image': "melody/xylofon/son2.png", 'sound': "sounds/melody/xylofon/son2.ogg"},
-        {'x': 412.0, 'y': 140.0, 'image': "melody/xylofon/son3.png", 'sound': "sounds/melody/xylofon/son3.ogg"},
-        {'x': 546.0, 'y': 157.0, 'image': "melody/xylofon/son4.png", 'sound': "sounds/melody/xylofon/son4.ogg"} ] ],
+      [ {'x': 150.0, 'y': 101.0,  'image': "melody/xylofon/son1.png", 'sound': "sounds/melody/xylofon/son1.wav"},
+        {'x': 284.0, 'y': 118.0,  'image': "melody/xylofon/son2.png", 'sound': "sounds/melody/xylofon/son2.wav"},
+        {'x': 412.0, 'y': 140.0, 'image': "melody/xylofon/son3.png", 'sound': "sounds/melody/xylofon/son3.wav"},
+        {'x': 546.0, 'y': 157.0, 'image': "melody/xylofon/son4.png", 'sound': "sounds/melody/xylofon/son4.wav"} ] ],
 
       # guitar
       [
       {'theme': "guitar", 'background': "melody/guitar/background.jpg", 'hittool': "melody/guitar/cursor.png", 'hitofset_x': 400, 'hitofset_y': -5},
-      [ {'x': 0, 'y': 170.0,  'image': "melody/guitar/son1.png", 'sound': "sounds/melody/guitar/son1.ogg"},
-        {'x': 0, 'y': 230.0,  'image': "melody/guitar/son2.png", 'sound': "sounds/melody/guitar/son2.ogg"},
-        {'x': 0, 'y': 290.0, 'image': "melody/guitar/son3.png", 'sound': "sounds/melody/guitar/son3.ogg"},
-        {'x': 0, 'y': 350.0, 'image': "melody/guitar/son4.png", 'sound': "sounds/melody/guitar/son4.ogg"} ] ],
+      [ {'x': 0, 'y': 170.0,  'image': "melody/guitar/son1.png", 'sound': "sounds/melody/guitar/son1.wav"},
+        {'x': 0, 'y': 230.0,  'image': "melody/guitar/son2.png", 'sound': "sounds/melody/guitar/son2.wav"},
+        {'x': 0, 'y': 290.0, 'image': "melody/guitar/son3.png", 'sound': "sounds/melody/guitar/son3.wav"},
+        {'x': 0, 'y': 350.0, 'image': "melody/guitar/son4.png", 'sound': "sounds/melody/guitar/son4.wav"} ] ],
 
       # Kitchen
       [
       {'theme': "tachos", 'background': "melody/tachos/background.jpg", 'hittool': "melody/tachos/cursor.png", 'hitofset_x': 50, 'hitofset_y': 50},
-      [ {'x': 150.0, 'y': 50.0,  'image': "melody/tachos/son1.png", 'sound': "sounds/melody/tachos/son1.ogg"},
-        {'x': 550.0, 'y': 50.0,  'image': "melody/tachos/son2.png", 'sound': "sounds/melody/tachos/son2.ogg"},
-        {'x': 150.0, 'y': 250.0, 'image': "melody/tachos/son3.png", 'sound': "sounds/melody/tachos/son3.ogg"},
-        {'x': 550.0, 'y': 250.0, 'image': "melody/tachos/son4.png", 'sound': "sounds/melody/tachos/son4.ogg"} ] ] ]
+      [ {'x': 150.0, 'y': 50.0,  'image': "melody/tachos/son1.png", 'sound': "sounds/melody/tachos/son1.wav"},
+        {'x': 550.0, 'y': 50.0,  'image': "melody/tachos/son2.png", 'sound': "sounds/melody/tachos/son2.wav"},
+        {'x': 150.0, 'y': 250.0, 'image': "melody/tachos/son3.png", 'sound': "sounds/melody/tachos/son3.wav"},
+        {'x': 550.0, 'y': 250.0, 'image': "melody/tachos/son4.png", 'sound': "sounds/melody/tachos/son4.wav"} ] ] ]
 
     self.maxtheme = len(self.melodylist)-1
     self.gcomprisBoard.maxlevel = 9
@@ -110,7 +111,8 @@ class Gcompris_melody:
     self.display_current_level()
 
     # Play an intro sound
-    gcompris.sound.play_ogg_cb("sounds/melody/" + self.melodylist[self.theme][0]['theme'] + "/melody.ogg", self.intro_cb)
+    gcompris.sound.play_ogg_cb("sounds/melody/" + self.melodylist[self.theme][0]['theme'] + "/melody.wav",
+                               self.intro_cb)
 
     Prop = gcompris.get_properties()
 
@@ -132,7 +134,7 @@ class Gcompris_melody:
 
     # Clear all timer
     for i in self.timers :
-      gtk.timeout_remove(i)
+      gobject.source_remove(i)
 
     self.timers = []
 
@@ -245,7 +247,7 @@ class Gcompris_melody:
   def repeat(self):
     #print("Gcompris_melody repeat.")
     # Important to use a timer here to keep self.timers up todate
-    self.timers.append(gtk.timeout_add(50, self.repeat_it))
+    self.timers.append(gobject.timeout_add(50, self.repeat_it))
 
   def repeat_it(self):
     #print("Gcompris_melody repeat it.")
@@ -262,12 +264,12 @@ class Gcompris_melody:
     timer = 0
 
     for i in self.solution:
-      self.timers.append(gtk.timeout_add(timer, self.show_bang, i))
+      self.timers.append(gobject.timeout_add(timer, self.show_bang, i))
       timer = timer + 1000
-      self.timers.append(gtk.timeout_add(timer, self.show_bang_stop, i))
+      self.timers.append(gobject.timeout_add(timer, self.show_bang_stop, i))
       timer = timer + 500
 
-    self.timers.append(gtk.timeout_add(timer, self.ready))
+    self.timers.append(gobject.timeout_add(timer, self.ready))
 
 
   def config(self):
@@ -282,7 +284,7 @@ class Gcompris_melody:
     for i in range(self.gcomprisBoard.level+2):
       self.solution.append(sound_struct[random.randint(0,len(sound_struct)-1)])
 
-    self.timers.append(gtk.timeout_add(1300, self.repeat_it))
+    self.timers.append(gobject.timeout_add(1300, self.repeat_it))
 
   def key_press(self, keyval, commit_str, preedit_str):
     #print("got key %i" % keyval)

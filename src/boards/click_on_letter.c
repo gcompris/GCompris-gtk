@@ -154,7 +154,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 
   ready = sounds_are_fine();
 
-  gc_sound_pause();
+  gc_sound_bg_pause();
 
   if (agcomprisBoard!=NULL)
     {
@@ -197,7 +197,7 @@ static void end_board ()
     }
   gc_locale_reset();
   gcomprisBoard = NULL;
-  gc_sound_resume();
+  gc_sound_bg_resume();
 }
 
 /* ======================================= */

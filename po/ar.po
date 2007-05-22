@@ -11,15 +11,14 @@ msgstr ""
 "Project-Id-Version: gcompris.HEAD.ar\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2007-05-04 16:27+0100\n"
-"PO-Revision-Date: 2007-05-04 08:28+0300\n"
+"PO-Revision-Date: 2007-05-17 10:04+0300\n"
 "Last-Translator: Khaled Hosny <khaledhosny@eglug.org>\n"
 "Language-Team: Arabic <doc@arabeyes.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.11.4\n"
-"Plural-Forms: nplurals=4; plural=n==1 ? 0 : n==2 ? 1 : n>=3 && n<=10 ? 2 : "
-"3\n"
+"Plural-Forms: nplurals=4; plural=n==1 ? 0 : n==2 ? 1 : n>=3 && n<=10 ? 2 : 3\n"
 
 #: ../boards/administration.xml.in.h:1
 msgid ""
@@ -450,8 +449,7 @@ msgstr "العمليات الحسابية الأربع. ادمج عدة عملي
 msgid ""
 "Work out the right combination of numbers and operations to match the given "
 "value"
-msgstr ""
-"استنبط التركيبة الصحيحة من الأعداد والعمليات للحصول على النتيجة المبينة"
+msgstr "استنبط التركيبة الصحيحة من الأعداد والعمليات للحصول على النتيجة المبينة"
 
 #: ../boards/algebra_minus.xml.in.h:1
 msgid ""
@@ -491,8 +489,7 @@ msgstr ""
 msgid ""
 "In a limited time, find the sum of of two numbers. Introduction to simple in-"
 "line addition."
-msgstr ""
-"أعط نتيجة عملية جمع عددين في وقت محدود. مقدمة إلى عمليات الجمع البسيطة."
+msgstr "أعط نتيجة عملية جمع عددين في وقت محدود. مقدمة إلى عمليات الجمع البسيطة."
 
 #: ../boards/algebra_plus.xml.in.h:4
 msgid "Practice the addition operation"
@@ -822,7 +819,7 @@ msgid ""
 msgstr ""
 "نشاط الدردشة هذا سوف يعمل فقط مع مستخدمي «فهمت» الآخرين في شبكتك المحلية، "
 "وليس على الإنترنت. لاستخدامه، اكتب رسالتك ثم اضغط زر الإدخال. ستُبث رسالتك "
-"على الشبكة المحلية، وأي برنامج GCompis على شبكتك المحلية يشغل نشاط الدردشة "
+"على الشبكة المحلية، وأي برنامج «فهمت» على شبكتك المحلية يشغل نشاط الدردشة "
 "في هذا الوقت سيمكنه التقاط رسالتك وعرضها."
 
 #: ../boards/chess.xml.in.h:1 ../boards/chess_computer.xml.in.h:3
@@ -1463,8 +1460,7 @@ msgid ""
 msgstr "انقر على أي عنصر وراءه كتلة فارغة، سيُبادل بالكتلة الفارغة"
 
 #: ../boards/fifteen.xml.in.h:3
-msgid ""
-"Move each item to make an increasing series: from the smallest to the largest"
+msgid "Move each item to make an increasing series: from the smallest to the largest"
 msgstr "انقل كل عنصر لصنع سلسلة تصاعدية: من الأصغر إلى الأكبر"
 
 #: ../boards/fifteen.xml.in.h:4
@@ -2208,8 +2204,7 @@ msgstr ""
 msgid ""
 "Guide the Number Muncher to the all the expressions that do not equal the "
 "number at the top of the screen."
-msgstr ""
-"أرشد آكل الأعداد إلى جميع المعادلات التي لا تساوي العدد في أعلى الشاشة."
+msgstr "أرشد آكل الأعداد إلى جميع المعادلات التي لا تساوي العدد في أعلى الشاشة."
 
 #: ../boards/gnumch-inequality.xml.in.h:2
 msgid "Inequality Number Munchers"
@@ -2690,8 +2685,7 @@ msgstr ""
 "يسرى، أو الأخضر على اليمين إن كانت يمنى."
 
 #: ../boards/login.xml.in.h:1
-msgid ""
-"GCompris identifies each child, so we can provide child-specific reports."
+msgid "GCompris identifies each child, so we can provide child-specific reports."
 msgstr "يميز «فهمت» الأطفال عن بعضهم، لذا يمكن الحصول على تقرير خاص بكل ولد."
 
 #: ../boards/login.xml.in.h:2
@@ -3288,14 +3282,14 @@ msgstr ""
 
 #: ../boards/menu.xml.in.h:16
 msgid "GCompris Main Menu"
-msgstr "القائمة الرئيسية لـ «فهمت»"
+msgstr "قائمة «فهمت» الرئيسية"
 
 #: ../boards/menu.xml.in.h:17 ../src/boards/menu2.c:1007
 msgid ""
 "GCompris is a collection of educational games that provides different "
 "activities for children aged 2 and up."
 msgstr ""
-"«فهمت» لعبة تربوية تحتوي على مجموعة من الأنشطة مناسبة لأطفال عمرهم سنتان فما "
+"«فهمت» (GCompris) لعبة تربوية تحتوي على مجموعة من الأنشطة مناسبة لأطفال عمرهم سنتان فما "
 "فوق "
 
 #: ../boards/menu.xml.in.h:19
@@ -3338,147 +3332,147 @@ msgstr "قراءة الكلمات"
 
 #: ../boards/missing_letter/board1.xml.in.h:1
 msgid "apple/_pple/a/i/o"
-msgstr "أرنب/أ_نب/ر/ز/ث"
+msgstr "تفاحة/_فاحة/ت/ن/ب"
 
 #: ../boards/missing_letter/board1.xml.in.h:2
 msgid "apple/app_e/l/h/n"
-msgstr "أرنب/أر_ب/ن/ت/ب"
+msgstr "تفاحة/تفاحة/ح/خ/ج"
 
 #: ../boards/missing_letter/board1.xml.in.h:3
 msgid "apple/appl_/e/h/a"
-msgstr "أرنب/أرن_/ب/ت/ر"
+msgstr "تفاحة/تفاح_/ة/ه/ت"
 
 #: ../boards/missing_letter/board1.xml.in.h:4
 msgid "ball/_all/b/p/d"
-msgstr "بطة/_طة/ب/ت/ث"
+msgstr "كرة/_رة/ك/ل/ب"
 
 #: ../boards/missing_letter/board1.xml.in.h:5
 msgid "ball/b_ll/a/u/o"
-msgstr "بطة/ب_ة/ط/ظ/ض"
+msgstr "كرة/ك_ة/ر/ز/و"
 
 #: ../boards/missing_letter/board1.xml.in.h:6
 msgid "ball/bal_/l/h/s"
-msgstr "بطة/بط_/ة/ه/ف"
+msgstr "كرة/كر_ة/كر_/ة/ه/ت"
 
 #: ../boards/missing_letter/board1.xml.in.h:7
 msgid "banana/_anana/b/p/d"
-msgstr "بقرة/ب_رة/ق/ف/ع"
+msgstr "موزة/_وزة/م/ن/و"
 
 #: ../boards/missing_letter/board1.xml.in.h:8
 msgid "banana/b_nana/a/o/i"
-msgstr "بقرة/_قرة/ب/ت/ث"
+msgstr "موزة/م_زة/و/ز/ر"
 
 #: ../boards/missing_letter/board1.xml.in.h:9
 msgid "banana/ba_ana/n/m/b"
-msgstr "بقرة/بق_ة/ر/ز/و"
+msgstr "موزة/مو_ة/ز/ر/و"
 
 #: ../boards/missing_letter/board1.xml.in.h:10
 msgid "bed/_ed/b/l/f"
-msgstr "تفاحة/_فاحة/ت/ن/ي"
+msgstr "سرير/_رير/س/ش/ص"
 
 #: ../boards/missing_letter/board1.xml.in.h:11
 msgid "bed/b_d/e/a/i"
-msgstr "تفاحة/ت_احة/ف/ق/م"
+msgstr "سرير/سر_ر/ي/ب/ت"
 
 #: ../boards/missing_letter/board1.xml.in.h:12
 msgid "bed/be_/d/p/b"
-msgstr "تفاحة/تفا_ة/ح/خ/ج"
+msgstr "سرير/سري_/ر/ز/و"
 
 #: ../boards/missing_letter/board1.xml.in.h:13
 msgid "bottle/_ottle/b/t/p"
-msgstr "ثعلب/_علب/ث/ت/ن"
+msgstr "زجاجة/ز_اجة/ج/ح/خ"
 
 #: ../boards/missing_letter/board1.xml.in.h:14
 msgid "bottle/b_ttle/o/u/d"
-msgstr "ثعلب/ث_لب/ع/غ/ف"
+msgstr "زجاجة/زج_جة/ا/ل/ك"
 
 #: ../boards/missing_letter/board1.xml.in.h:15
 msgid "bottle/bott_e/l/y/r"
-msgstr "ثعلب/ثع_ب/ل/ا/ك"
+msgstr "زجاجة/زجاج_/ة/ه/ق"
 
 #: ../boards/missing_letter/board1.xml.in.h:16
 msgid "cake/_ake/c/p/d"
-msgstr "جزرة/_زرة/ج/ح/خ"
+msgstr "كعكة/ك_كة/ع/غ/ف"
 
 #: ../boards/missing_letter/board1.xml.in.h:17
 msgid "cake/c_ke/a/o/e"
-msgstr "جزرة/ج_رة/ز/ر/و"
+msgstr "كعكة/_عكة/ك/ق/ل"
 
 #: ../boards/missing_letter/board1.xml.in.h:18
 msgid "cake/ca_e/k/q/c"
-msgstr "جزرة/جز_ة/ر/ز/و"
+msgstr "كعكة/كع_كة/ك/ق/ل"
 
 #: ../boards/missing_letter/board1.xml.in.h:19
 msgid "car/_ar/c/k/b"
-msgstr "جمل/ج_ل/م/ل/ف"
+msgstr "سيارة/_يارة/س/ش/ص"
 
 #: ../boards/missing_letter/board1.xml.in.h:20
 msgid "car/c_r/a/k/o"
-msgstr "جمل/جم_/ل/ا/ط"
+msgstr "سيارة/س_ارة/ي/ب/ت"
 
 #: ../boards/missing_letter/board1.xml.in.h:21
 msgid "car/ca_/r/w/k"
-msgstr "جمل/_مل/ج/ح/خ"
+msgstr "سيارة/سي_رة/ا/ل/ب"
 
 #: ../boards/missing_letter/board1.xml.in.h:22
 msgid "dog/_og/d/p/q"
-msgstr "حصان/ح_ان/ص/ض/ط"
+msgstr "كلب/كل_/ب/ت/ث"
 
 #: ../boards/missing_letter/board1.xml.in.h:23
 msgid "dog/d_g/o/g/a"
-msgstr "حصان/حصا_/ن/ب/ت"
+msgstr "كلب/ك_ب/ل/ا/ن"
 
 #: ../boards/missing_letter/board1.xml.in.h:24
 msgid "dog/do_/g/p/q"
-msgstr "حصان/حص_ن/ا/ل/ط"
+msgstr "كلب/_لب/ك/ق/ف"
 
 #: ../boards/missing_letter/board1.xml.in.h:25
 msgid "fish/_ish/f/h/l"
-msgstr "خروف/خر_ف/و/ز/ر"
+msgstr "سمكة/س_كة/م/ف/و"
 
 #: ../boards/missing_letter/board1.xml.in.h:26
 msgid "fish/f_sh/i/u/l"
-msgstr "خروف/خرو_/ف/ق/ن"
+msgstr "سمكة/_مكة/س/ش/ط"
 
 #: ../boards/missing_letter/board1.xml.in.h:27
 msgid "fish/fis_/h/o/i"
-msgstr "خروف/خر_ف/و/ز/ر"
+msgstr "سمكة/سم_ة/ك/م/س"
 
 #: ../boards/missing_letter/board1.xml.in.h:28
 msgid "house/_ouse/h/e/j"
-msgstr "دبابة/دبا_ة/ب/ت/ن"
+msgstr "منزل/م_زل/ن/ت/ث"
 
 #: ../boards/missing_letter/board1.xml.in.h:29
 msgid "house/h_use/o/f/u"
-msgstr "دبابة/_بابة/د/ذ/ر"
+msgstr "منزل/_نزل/م/ن/ف"
 
 #: ../boards/missing_letter/board1.xml.in.h:30
 msgid "house/hous_/e/a/i"
-msgstr "ذيل/ذ_ل/ي/ن/ب"
+msgstr "منزل/من_ل/ز/ر/و"
 
 #: ../boards/missing_letter/board1.xml.in.h:31
 msgid "plane/_lane/p/g/d"
-msgstr "ذيل/ذيل/ل/ا/ك"
+msgstr "طائرة/_ائرة/ط/ظ/ض"
 
 #: ../boards/missing_letter/board1.xml.in.h:32
 msgid "plane/p_ane/l/j/i"
-msgstr "رمانة/رما_ة/ن/ب/ت"
+msgstr "طائرة/طائ_ة/ر/و/ز"
 
 #: ../boards/missing_letter/board1.xml.in.h:33
 msgid "plane/pl_ne/a/o/s"
-msgstr "رمانة/_مانة/ر/ز/و"
+msgstr "طائرة/ط_ئرة/ا/و/ل"
 
 #: ../boards/missing_letter/board1.xml.in.h:34
 msgid "satchel/_atchel/s/c/l"
-msgstr "زرافة/زر_فة/ا/ل/ط"
+msgstr "حقيبة/_قيبة/ح/ج/خ"
 
 #: ../boards/missing_letter/board1.xml.in.h:35
 msgid "satchel/s_tchel/a/o/i"
-msgstr "زرافة/زراف_/ة/ه/م"
+msgstr "حقيبة/ح_يبة/ق/ف/غ"
 
 #: ../boards/missing_letter/board1.xml.in.h:36
 msgid "satchel/sa_chel/t/p/c"
-msgstr "زرافة/زرا_ة/ف/ق/ن"
+msgstr "حقيبة/حقي_ة/ب/ن/ت"
 
 #: ../boards/money.xml.in.h:1 ../boards/money_cents.xml.in.h:1
 msgid "Can count"
@@ -3676,8 +3670,7 @@ msgid "Test board for the python plugin"
 msgstr "لوحة الاختبار لإضافات بايثون"
 
 #: ../boards/pythontest.xml.in.h:5
-msgid ""
-"Thanks to Guido van Rossum and the python team for this powerful language!"
+msgid "Thanks to Guido van Rossum and the python team for this powerful language!"
 msgstr "شكراً لـ غيدو فان روسوم وفريق بايثون على هذه اللغة القوية والجميلة!"
 
 #: ../boards/railroad.xml.in.h:1
@@ -3850,8 +3843,7 @@ msgstr "اعكس الشكل "
 msgid ""
 "Can move the mouse, can read numbers and subtract numbers up to 10 for the "
 "first level"
-msgstr ""
-"تحريك الفأرة، قراءة الأعداد، وطرح حتى الرقم 10 من الأعداد للمرحلة الأولى"
+msgstr "تحريك الفأرة، قراءة الأعداد، وطرح حتى الرقم 10 من الأعداد للمرحلة الأولى"
 
 #: ../boards/reversecount.xml.in.h:2
 msgid ""
@@ -4005,8 +3997,7 @@ msgstr "أرقام مع النرد"
 
 #: ../boards/smallnumbers.xml.in.h:5 ../boards/smallnumbers2.xml.in.h:5
 msgid "With the keyboard, type the number of dots you see on the falling dice."
-msgstr ""
-"أدخل العدد الصحيح للنقط الموجودة على المكعب الساقط باستخدام لوحة المفاتيح."
+msgstr "أدخل العدد الصحيح للنقط الموجودة على المكعب الساقط باستخدام لوحة المفاتيح."
 
 #: ../boards/smallnumbers2.xml.in.h:4
 msgid "Numbers with pairs of dice"
@@ -4074,8 +4065,7 @@ msgid "Sudoku, place unique symbols in a square."
 msgstr "سودوكو، ضع رموزاً فريدة في مربع."
 
 #: ../boards/sudoku.xml.in.h:4
-msgid ""
-"Symbols must be unique in a row, in a column, and (if defined) each region."
+msgid "Symbols must be unique in a row, in a column, and (if defined) each region."
 msgstr "الرموز يجب أن تكون فريدة في كل عمود، في كل صف، وفي (إن حُدد) كل منطقة."
 
 #: ../boards/sudoku.xml.in.h:5
@@ -4168,8 +4158,7 @@ msgid "The tangram puzzle game"
 msgstr "لغز التانغرام"
 
 #: ../boards/target.xml.in.h:1
-msgid ""
-"Can move the mouse, can read numbers and count up to 15 for the first level"
+msgid "Can move the mouse, can read numbers and count up to 15 for the first level"
 msgstr "تحريك الفأرة، قراءة الأعداد والعد حتى 15 للمرحلة الأولى"
 
 #: ../boards/target.xml.in.h:2
@@ -4579,8 +4568,7 @@ msgid ""
 msgstr "انظر إلى موقعك، ثم حول إلى النمط غير المرئي لمتابعة تحركك"
 
 #: ../src/boards/maze.c:494
-msgid ""
-"Look at your position, then switch back to 3D mode to continue your moves"
+msgid "Look at your position, then switch back to 3D mode to continue your moves"
 msgstr "انظر إلى موقعك، ثم حول إلى النمط الثلاثي الأبعاد لمتابعة تحركك"
 
 #: ../src/boards/memory.c:266
@@ -4966,8 +4954,7 @@ msgid "Birth date:"
 msgstr "تاريخ الولادة:"
 
 #: ../src/boards/python/admin/user_edit.py:159
-msgid ""
-"You need to provide at least a login, first name and last name for your users"
+msgid "You need to provide at least a login, first name and last name for your users"
 msgstr "عليك أن تعطي على الأقل اسم ولوج، اسم وكنية كل مستخدم"
 
 #: ../src/boards/python/admin/user_edit.py:176
@@ -5231,13 +5218,11 @@ msgstr ""
 "ويشاهدون الطقس السيء فوقهم."
 
 #: ../src/boards/python/oscar_and_friends.py:117
-msgid ""
-"They were all happy that the storms never reached all the way down to them."
+msgid "They were all happy that the storms never reached all the way down to them."
 msgstr "سيكونون سعداء عندما لا تستطيع العاصفة بلوغ الطريق المؤدي إليهم."
 
 #: ../src/boards/python/oscar_and_friends.py:118
-msgid ""
-"No matter how bad it was up there, the bottom was always calm and quiet."
+msgid "No matter how bad it was up there, the bottom was always calm and quiet."
 msgstr "لا يهم كم الطقس رديء في الأعلى، المكان في الأسفل هادئ وساكن."
 
 #: ../src/boards/python/oscar_and_friends.py:119
@@ -5525,7 +5510,7 @@ msgid ""
 "GCompris Home Page\n"
 "http://gcompris.net"
 msgstr ""
-"الصفحة الرئيسية ل«فهمت» \n"
+"صفحة «فهمت» الرئيسية\n"
 "http://gcompris.net"
 
 #: ../src/gcompris/about.c:215
@@ -5606,9 +5591,8 @@ msgid "Arabic"
 msgstr "عربي"
 
 #: ../src/gcompris/config.c:62
-#, fuzzy
 msgid "Arabic (Tunisia)"
-msgstr "تونس"
+msgstr "عربي (تونس)"
 
 #: ../src/gcompris/config.c:63
 msgid "Turkish (Azerbaijan)"
@@ -5807,9 +5791,8 @@ msgid "Swedish"
 msgstr "سويدي"
 
 #: ../src/gcompris/config.c:113
-#, fuzzy
 msgid "Tamil"
-msgstr "تايلاندي"
+msgstr "تاميل"
 
 #: ../src/gcompris/config.c:114
 msgid "Thai"
@@ -6008,8 +5991,7 @@ msgstr ""
 
 #: ../src/gcompris/gcompris.c:190
 msgid "List all available profiles. Use 'gcompris -a' to create profiles"
-msgstr ""
-"اسرد كل الملفات الشخصية المتاحة. استخدم 'gcompris -a' لإنشاء الملفات الشخصية"
+msgstr "اسرد كل الملفات الشخصية المتاحة. استخدم 'gcompris -a' لإنشاء الملفات الشخصية"
 
 #: ../src/gcompris/gcompris.c:193
 msgid ""
@@ -6056,16 +6038,12 @@ msgstr ""
 "البيانات دائماً من خادم الوِب."
 
 #: ../src/gcompris/gcompris.c:221
-msgid ""
-"In server mode, specify the cache directory used to avoid useless downloads."
-msgstr ""
-"في نمط الخادم، حدد مجلد الذاكرة المخبأة المستخدم لتلافي التحميل المكرر."
+msgid "In server mode, specify the cache directory used to avoid useless downloads."
+msgstr "في نمط الخادم، حدد مجلد الذاكرة المخبأة المستخدم لتلافي التحميل المكرر."
 
 #: ../src/gcompris/gcompris.c:224
-msgid ""
-"Global drag and drop mode: normal, 2clicks, both. Default mode is normal."
-msgstr ""
-"نمط السحب والإفلات العام: عادي، نقرتان، كلاهما. النمط الافتراضي هو عادي."
+msgid "Global drag and drop mode: normal, 2clicks, both. Default mode is normal."
+msgstr "نمط السحب والإفلات العام: عادي، نقرتان، كلاهما. النمط الافتراضي هو عادي."
 
 #: ../src/gcompris/gcompris.c:227
 msgid "Do not display the background images of activities."
@@ -6179,17 +6157,3 @@ msgstr "انتهى الوقت"
 msgid "Remaining Time = %d"
 msgstr "الوقت المتبقي = %d"
 
-#~ msgid "Choose brush and colors and draw. have fun!"
-#~ msgstr "اختر الفرشاة والألوان، ثم لون. استمتع بوقتك!"
-
-#~ msgid "MyPaint"
-#~ msgstr "تلويني"
-
-#~ msgid "Painting activity. Uses pressure device if any."
-#~ msgstr "نشاط التلوين. يستخدم أجهزة الضغط إن وُجدت."
-
-#~ msgid "Painting application"
-#~ msgstr "تطبيقات التلوين"
-
-#~ msgid "mouse manipulation"
-#~ msgstr "استعمال الفأرة"

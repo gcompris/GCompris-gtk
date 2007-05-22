@@ -14,7 +14,18 @@ GTK_REQUIRED=2.4.0
 GDK_PIXBUF_REQUIRED=2.4.0
 LIBGNOMECANVAS_REQUIRED=2.3.6
 
-PKG_CHECK_MODULES(GCOMPRIS, gtk+-2.0 >= $GTK_REQUIRED gdk-pixbuf-2.0 >= $GDK_PIXBUF_REQUIRED libgnomecanvas-2.0 >= $LIBGNOMECANVAS_REQUIRED gthread-2.0)
+dnl
+dnl Start of pkg-config checks
+dnl
+
+PKG_PROG_PKG_CONFIG()
+
+PKG_CHECK_MODULES(GCOMPRIS, dnl
+ [gtk+-2.0 >= $GTK_REQUIRED dnl
+  gdk-pixbuf-2.0 >= $GDK_PIXBUF_REQUIRED dnl
+  libgnomecanvas-2.0 >= $LIBGNOMECANVAS_REQUIRED dnl
+   gthread-2.0
+   gstreamer-0.10])
 
 AC_SUBST(GCOMPRIS_CFLAGS)
 AC_SUBST(GCOMPRIS_LIBS)
@@ -127,46 +138,6 @@ AC_MSG_NOTICE([binreloc disabled by nsbundle])
 fi
 
 AM_BINRELOC
-
-sdl_mixer_framework="no"
-sdl_framework="no"
-
-if test "x$native_osx" = "xyes"; then
-   AC_CHECK_HEADER(SDL/SDL.h, sdl_framework="yes" , sdl_framework="no")
-   if test "$sdl_framework" = "yes"; then
-      AC_CHECK_HEADER(SDL_mixer/SDL_mixer.h, sdl_mixer_framework="yes" , sdl_mixer_framework="no")
-   fi
-fi
-
-if test "x$sdl_mixer_framework" = "xno"; then
-    AC_CHECK_LIB(SDL_mixer, Mix_OpenAudio,, AC_MSG_ERROR([*** SDL_mixer not found. Visit http://www.libsdl.org and get it]))
-
-   dnl Check for SDL
-   SDL_VERSION=1.2.3
-
-   cflags_previous=$CFLAGS
-   libs_previous=$LIBS
-
-   if test "x$SDL_CFLAGS" = "x" -o "x$SDL_LIBS" = "x" ; then
-      AM_PATH_SDL($SDL_VERSION,
-            :,
-	    AC_MSG_ERROR([*** SDL version $SDL_VERSION not found!])
-	    )
-      else
-      AC_SUBST(SDL_CFLAGS)
-      AC_SUBST(SDL_LIBS)
-      echo "*** Not checking SDL. Using existing SDL_FLAGS and SDL_LIBS ***"
-    fi
-dnl check n
-else
-  SDL_CFLAGS=
-  SDL_LIBS="-Xlinker -framework -Xlinker SDL -Xlinker -framework -Xlinker SDL_mixer"
-  AC_MSG_CHECKING([flags for SDL and SDL_mixer frameworks])
-  AC_MSG_RESULT($SDL_LIBS)
-  AC_DEFINE_UNQUOTED(SDL_FRAMEWORKS, 1, [ Define to 1 if compile for OSX with SDL and SDL_mixer frameworks ])
-fi
-
-
 
 dnl RESTAURE PREVIOUSLY SET VALUES
 CFLAGS=$cflags_previous
@@ -378,7 +349,7 @@ else
 fi
 
 dnl Test for gnuchess
-AC_PATH_PROG(GNUCHESS, gnuchess,no,[/usr/bin:/usr/games:/usr/local/bin:$PATH])
+AC_PATH_PROGS(GNUCHESS, gnuchess, gnome-gnuchess,[/usr/bin:/usr/games:/usr/local/bin:$PATH])
 
 if test x$GNUCHESS = xno; then
   AC_MSG_ERROR(Couldn't find gnuchess, please install the gnuchess package version 5 or above)
@@ -627,12 +598,6 @@ echo with options:
 
 echo "Force python (--enable-py-build-only)    = $py_build_only"
 echo "Python plugin                            = $build_python_plugin"
-
-if test -x "${SDL_LIBS}"; then
-echo "SDL LIBS  (--with-sdl-prefix)            = NOT DETECTED (install sdl-devel)"
-else
-echo "SDL LIBS                                 = found"
-fi
 
 echo "XF86VM option  (--enable-xf86vidmode)    = $found_xf86vidmode"
 
