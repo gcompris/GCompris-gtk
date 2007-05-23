@@ -48,6 +48,7 @@ bin_PROGRAMS = gcompris
 INCLUDES = \
 	-I$(top_srcdir)/intl \
 	-DDATADIR=\""$(datadir)"\" \
+	-I$(top_srcdir)/src \
 	$(GCOMPRIS_CFLAGS) \
 	$(GNOME_INCLUDEDIR) \
 	$(XML_CFLAGS) \
@@ -119,7 +120,9 @@ gcompris_SOURCES = \
 	wordlist.h
 
 gcompris_LDFLAGS = \
-	-export-dynamic $(cairo_ldflags)
+	-export-dynamic $(cairo_ldflags) \
+	$(top_builddir)/src/libgnomecanvas/libgnomecanvas-2.a \
+	$(top_builddir)/src/libart_lgpl/libart_lgpl_2.a
 
 
 gcompris_LDADD = \

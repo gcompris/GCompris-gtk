@@ -74,26 +74,26 @@ class Gcompris_melody:
       # xylophon
       [
       {'theme': "xylofon", 'background': "melody/xylofon/background.png", 'hittool': "melody/xylofon/cursor.png", 'hitofset_x': 50, 'hitofset_y': 50},
-      [ {'x': 150.0, 'y': 101.0,  'image': "melody/xylofon/son1.png", 'sound': "sounds/melody/xylofon/son1.wav"},
-        {'x': 284.0, 'y': 118.0,  'image': "melody/xylofon/son2.png", 'sound': "sounds/melody/xylofon/son2.wav"},
-        {'x': 412.0, 'y': 140.0, 'image': "melody/xylofon/son3.png", 'sound': "sounds/melody/xylofon/son3.wav"},
-        {'x': 546.0, 'y': 157.0, 'image': "melody/xylofon/son4.png", 'sound': "sounds/melody/xylofon/son4.wav"} ] ],
+      [ {'x': 150.0, 'y': 101.0,  'image': "melody/xylofon/son1.png", 'sound': "sounds/melody/xylofon/son1.ogg"},
+        {'x': 284.0, 'y': 118.0,  'image': "melody/xylofon/son2.png", 'sound': "sounds/melody/xylofon/son2.ogg"},
+        {'x': 412.0, 'y': 140.0, 'image': "melody/xylofon/son3.png", 'sound': "sounds/melody/xylofon/son3.ogg"},
+        {'x': 546.0, 'y': 157.0, 'image': "melody/xylofon/son4.png", 'sound': "sounds/melody/xylofon/son4.ogg"} ] ],
 
       # guitar
       [
       {'theme': "guitar", 'background': "melody/guitar/background.jpg", 'hittool': "melody/guitar/cursor.png", 'hitofset_x': 400, 'hitofset_y': -5},
-      [ {'x': 0, 'y': 170.0,  'image': "melody/guitar/son1.png", 'sound': "sounds/melody/guitar/son1.wav"},
-        {'x': 0, 'y': 230.0,  'image': "melody/guitar/son2.png", 'sound': "sounds/melody/guitar/son2.wav"},
-        {'x': 0, 'y': 290.0, 'image': "melody/guitar/son3.png", 'sound': "sounds/melody/guitar/son3.wav"},
-        {'x': 0, 'y': 350.0, 'image': "melody/guitar/son4.png", 'sound': "sounds/melody/guitar/son4.wav"} ] ],
+      [ {'x': 0, 'y': 170.0,  'image': "melody/guitar/son1.png", 'sound': "sounds/melody/guitar/son1.ogg"},
+        {'x': 0, 'y': 230.0,  'image': "melody/guitar/son2.png", 'sound': "sounds/melody/guitar/son2.ogg"},
+        {'x': 0, 'y': 290.0, 'image': "melody/guitar/son3.png", 'sound': "sounds/melody/guitar/son3.ogg"},
+        {'x': 0, 'y': 350.0, 'image': "melody/guitar/son4.png", 'sound': "sounds/melody/guitar/son4.ogg"} ] ],
 
       # Kitchen
       [
       {'theme': "tachos", 'background': "melody/tachos/background.jpg", 'hittool': "melody/tachos/cursor.png", 'hitofset_x': 50, 'hitofset_y': 50},
-      [ {'x': 150.0, 'y': 50.0,  'image': "melody/tachos/son1.png", 'sound': "sounds/melody/tachos/son1.wav"},
-        {'x': 550.0, 'y': 50.0,  'image': "melody/tachos/son2.png", 'sound': "sounds/melody/tachos/son2.wav"},
-        {'x': 150.0, 'y': 250.0, 'image': "melody/tachos/son3.png", 'sound': "sounds/melody/tachos/son3.wav"},
-        {'x': 550.0, 'y': 250.0, 'image': "melody/tachos/son4.png", 'sound': "sounds/melody/tachos/son4.wav"} ] ] ]
+      [ {'x': 150.0, 'y': 50.0,  'image': "melody/tachos/son1.png", 'sound': "sounds/melody/tachos/son1.ogg"},
+        {'x': 550.0, 'y': 50.0,  'image': "melody/tachos/son2.png", 'sound': "sounds/melody/tachos/son2.ogg"},
+        {'x': 150.0, 'y': 250.0, 'image': "melody/tachos/son3.png", 'sound': "sounds/melody/tachos/son3.ogg"},
+        {'x': 550.0, 'y': 250.0, 'image': "melody/tachos/son4.png", 'sound': "sounds/melody/tachos/son4.ogg"} ] ] ]
 
     self.maxtheme = len(self.melodylist)-1
     self.gcomprisBoard.maxlevel = 9
@@ -111,8 +111,7 @@ class Gcompris_melody:
     self.display_current_level()
 
     # Play an intro sound
-    gcompris.sound.play_ogg_cb("sounds/melody/" + self.melodylist[self.theme][0]['theme'] + "/melody.wav",
-                               self.intro_cb)
+    gcompris.sound.play_ogg_cb("sounds/melody/" + self.melodylist[self.theme][0]['theme'] + "/melody.ogg", self.intro_cb)
 
     Prop = gcompris.get_properties()
 

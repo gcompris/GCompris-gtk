@@ -340,9 +340,18 @@ static gint key_press(guint keyval, gchar *commit_str, gchar *preedit_str)
 
 	if(strcmp(item_on_focus->letter, letter)==0)
 	  {
+	    gchar *tmpstr;
 	    item_on_focus->count++;
 	    g_free(item_on_focus->overword);
-	    item_on_focus->overword=g_utf8_strndup(item_on_focus->word,item_on_focus->count);
+	    tmpstr = g_utf8_strndup(item_on_focus->word,
+				    item_on_focus->count);
+	    /* Add the ZERO WIDTH JOINER to force joined char in Arabic and Hangul
+	     *  http://en.wikipedia.org/wiki/Zero-width_joiner
+	     */
+	    item_on_focus->overword = g_strdup_printf("%s%2c",
+						      tmpstr,
+						      0x200D);
+	    g_free(tmpstr);
 	    gnome_canvas_item_set (item_on_focus->overwriteItem,
 				   "text", item_on_focus->overword,
 				   NULL);
@@ -583,7 +592,6 @@ static GnomeCanvasItem *wordsgame_create_item(GnomeCanvasGroup *parent)
   GnomeCanvasItem *item2;
   LettersItem *item;
   gchar *word = gc_wordlist_random_word_get(gc_wordlist, gcomprisBoard->level);
-  GtkAnchorType direction_anchor = GTK_ANCHOR_NW;
 
   if(!word)
     /* Should display the dialog box here */
@@ -595,10 +603,7 @@ static GnomeCanvasItem *wordsgame_create_item(GnomeCanvasGroup *parent)
   item->overword=g_strdup("");
   item->count=0;
   item->letter=g_utf8_strndup(item->word,1);
-  item->pos=g_utf8_find_next_char(item->word, NULL);
-
-  if (pango_unichar_direction(g_utf8_get_char(item->word)))
-    direction_anchor = GTK_ANCHOR_NE;
+  item->pos=g_utf8_find_next_char(item->word,NULL);
 
   item->rootitem = \
     gnome_canvas_item_new (parent,
@@ -616,7 +621,7 @@ static GnomeCanvasItem *wordsgame_create_item(GnomeCanvasGroup *parent)
 			   "font", gc_skin_font_board_huge_bold,
 			   "x", (double) 0,
 			   "y", (double) 0,
-			   "anchor", direction_anchor,
+			   "anchor", GTK_ANCHOR_NW,
 			   "fill_color_rgba", 0xba00ffff,
 			   NULL);
 
@@ -627,7 +632,7 @@ static GnomeCanvasItem *wordsgame_create_item(GnomeCanvasGroup *parent)
 			   "font", gc_skin_font_board_huge_bold,
 			   "x", (double) 0,
 			   "y", (double) 0,
-			   "anchor", direction_anchor,
+			   "anchor", GTK_ANCHOR_NW,
 			   "fill_color", "blue",
 			   NULL);
 
@@ -642,10 +647,8 @@ static GnomeCanvasItem *wordsgame_create_item(GnomeCanvasGroup *parent)
                                    &x2,
                                    &y2);
 
-  if(direction_anchor == GTK_ANCHOR_NW)
-    gnome_canvas_item_move (item->rootitem,(double) (g_random_int()%(gcomprisBoard->width-(gint)(x2))),(double) 0);
-  else
-    gnome_canvas_item_move (item->rootitem,(double) (g_random_int()%(gcomprisBoard->width+(gint)(x2))),(double) 0);
+  gnome_canvas_item_move (item->rootitem,(double) (g_random_int()%(gcomprisBoard->width-(gint)(x2))),(double) 0);
+
 
   g_static_rw_lock_writer_lock (&items_lock);
   g_ptr_array_add(items, item);

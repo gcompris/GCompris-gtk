@@ -1,64 +1,13 @@
-2007-05-22  Bruno coudoin  <bruno.coudoin@free.fr>
+2007-05-23  Bruno coudoin  <bruno.coudoin@free.fr>
 
-	Synced with trunk r2649. Especially the gstreamer code is there now.
+	- Syncing with trunk
+	- major packaging change, imported libart_lgpl and libgnomecanvas
+	  from gnome svn (trunk). We now build them as static library.
+	  Packager change, you no more need them in GCompris require's.
+	- bug reported by Khaled, in arabic wordsgame is missing the character
+	  ZERO WIDTH JOINER to force joined char in Arabic and Hangul
+          see http://en.wikipedia.org/wiki/Zero-width_joiner
 
-	* Makefile.am:
-	* boards/melody.xml.in:
-	* boards/sounds/HOWTO_ENCODE:
-	* configure.in:
-	* po/ChangeLog:
-	* po/ar.po:
-	* po/ca.po:
-	* po/el.po:
-	* po/en_GB.po:
-	* po/sr.po:
-	* po/sr@Latn.po:
-	* src/boards/canvas.c: (pygdk_rectangle_from_pyobject),
-	(_wrap_gnome_canvas_root),
-	(_wrap_gnome_canvas_set_pixels_per_unit),
-	(_wrap_gnome_canvas_set_scroll_region),
-	(_wrap_gnome_canvas_get_center_scroll_region),
-	(_wrap_gnome_canvas_set_center_scroll_region),
-	(_wrap_gnome_canvas_scroll_to), (_wrap_gnome_canvas_update_now),
-	(_wrap_gnome_canvas_get_item_at), (_wrap_gnome_canvas_get_color),
-	(_wrap_gnome_canvas_get_color_pixel),
-	(_wrap_gnome_canvas_set_dither), (_wrap_gnome_canvas_get_dither),
-	(_wrap_gnome_canvas_item_move), (_wrap_gnome_canvas_item_raise),
-	(_wrap_gnome_canvas_item_lower),
-	(_wrap_gnome_canvas_item_raise_to_top),
-	(_wrap_gnome_canvas_item_lower_to_bottom),
-	(_wrap_gnome_canvas_item_show), (_wrap_gnome_canvas_item_hide),
-	(_wrap_gnome_canvas_item_reparent),
-	(_wrap_gnome_canvas_item_grab_focus),
-	(_wrap_gnome_canvas_rich_text_cut_clipboard),
-	(_wrap_gnome_canvas_rich_text_copy_clipboard),
-	(_wrap_gnome_canvas_rich_text_paste_clipboard),
-	(_wrap_gnome_canvas_rich_text_set_buffer),
-	(_wrap_gnome_canvas_rich_text_get_buffer),
-	(_wrap_gnome_canvas_rich_text_get_iter_location),
-	(_wrap_gnome_canvas_rich_text_get_iter_at_location),
-	(pycanvas_register_classes):
-	* src/boards/click_on_letter.c: (start_board), (end_board):
-	* src/boards/colors.c: (start_board), (end_board):
-	* src/boards/memory.c: (start_board), (end_board):
-	* src/boards/py-mod-sound.c: (py_gc_sound_pause),
-	(py_gc_sound_resume):
-	* src/boards/python/melody.py:
-	* src/boards/wordsgame.c: (start_board), (key_press),
-	(wordsgame_create_item):
-	* src/gcompris/Makefile.am:
-	* src/gcompris/bonus.c: (end_gc_bonus_end_display), (end_bonus):
-	* src/gcompris/config.c: (item_event_ok):
-	* src/gcompris/gcompris.c: (start_bg_music), (main):
-	* src/gcompris/sdlplayer.c:
-	* src/gcompris/soundutil.c: (gc_sound_init), (fx_bus), (bg_bus),
-	(gc_sound_close), (gc_sound_bg_close), (gc_sound_fx_close),
-	(gc_sound_bg_reopen), (gc_sound_fx_reopen), (gc_sound_reopen),
-	(gc_sound_bg_pause), (gc_sound_bg_resume), (gc_sound_fx_pause),
-	(gc_sound_fx_resume), (bg_build_music_list), (bg_play), (fx_play),
-	(get_next_sound_to_play), (gc_sound_play_ogg_cb),
-	(gc_sound_play_ogg_list), (gc_sound_callback):
-	* src/gcompris/soundutil.h:
 
 2007-05-22  Bruno coudoin  <bruno.coudoin@free.fr>
 

@@ -30,8 +30,8 @@ libpython2.4-devel
 python-base
 python-sqlite2 (if it's not packaged, download and install it from http://initd.org/tracker/pysqlite)
 
-Now that the sound is managed internally, you also need:
-libSDL libSDL-mixer
+For the sound managed internally, you also need gstreamer:
+libgstreamer0.10-0 libgstreamer0.10-dev
 
 On Mandriva, you will need to install their -devel counterpart package in
 order to be abble to compile it plus  intltool, tetex.
@@ -44,9 +44,9 @@ urpmi gettext-devel
 urpmi intltool
 urpmi automake1.7
 urpmi libglib2.0_0-devel
-urpmi libgnomecanvas2_0-devel libgdk_pixbuf2.0_0-devel
+urpmi libgdk_pixbuf2.0_0-devel
 urpmi libgnomeui2_0-devel
-urpmi libSDL_mixer1.2-devel libSDL1.2-devel
+urpmi libgstreamer libgstreamer-devel (Unchecked)
 urpmi python-gtk-devel
 urpmi libpython2.4-devel
 urpmi pygtk2.0-devel

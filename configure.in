@@ -12,7 +12,6 @@ AC_ISC_POSIX
 
 GTK_REQUIRED=2.4.0
 GDK_PIXBUF_REQUIRED=2.4.0
-LIBGNOMECANVAS_REQUIRED=2.3.6
 
 dnl
 dnl Start of pkg-config checks
@@ -23,8 +22,6 @@ PKG_PROG_PKG_CONFIG()
 PKG_CHECK_MODULES(GCOMPRIS, dnl
  [gtk+-2.0 >= $GTK_REQUIRED dnl
   gdk-pixbuf-2.0 >= $GDK_PIXBUF_REQUIRED dnl
-  libgnomecanvas-2.0 >= $LIBGNOMECANVAS_REQUIRED dnl
-   gthread-2.0
    gstreamer-0.10])
 
 AC_SUBST(GCOMPRIS_CFLAGS)
@@ -42,6 +39,9 @@ AM_DISABLE_STATIC
 AC_LIBTOOL_WIN32_DLL
 AM_PROG_LIBTOOL
 
+dnl for libart_lgpl
+AC_FUNC_ALLOCA
+AC_C_BIGENDIAN
 
 dnl OSX Specifics
 AC_MSG_CHECKING([for OSX])
@@ -567,6 +567,8 @@ src/boards/python/gcompris/timer/Makefile
 src/boards/python/gcompris/utils/Makefile
 src/boards/python/connect4p/Makefile
 src/boards/python/admin/Makefile
+src/libart_lgpl/Makefile
+src/libgnomecanvas/Makefile
 po/Makefile.in
 docs/Makefile
 docs/C/Makefile
