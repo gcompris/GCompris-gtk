@@ -1,9 +1,9 @@
-/* this file is part of libccc, criawips' cairo-based canvas
+/* this file is part of libccc
  *
  * AUTHORS
  *       Sven Herzberg        <herzi@gnome-de.org>
  *
- * Copyright (C) 2005,2006 Sven Herzberg
+ * Copyright (C) 2005,2006,2007 Sven Herzberg
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public License as
@@ -41,6 +41,8 @@ struct CcViewWidgetPrivate {
 	gint       updates, requests;
 #endif
 };
+
+#define P(i) (G_TYPE_INSTANCE_GET_PRIVATE ((i), CC_TYPE_VIEW_WIDGET, struct CcViewWidgetPrivate))
 
 /**
  * cc_view_widget_get_center_view:
@@ -103,7 +105,10 @@ cc_view_widget_new_root(CcItem* root) {
 }
 
 static gboolean
-cvw_redraw_timeout(CcViewWidget* self) {
+cvw_redraw_timeout (CcViewWidget* self)
+{
+	g_return_val_if_fail (GTK_IS_WIDGET (self), TRUE);
+
 	gdk_window_invalidate_region(GTK_WIDGET(self)->window, self->priv->dirty_region, FALSE);
 
 	gdk_region_destroy(self->priv->dirty_region);
@@ -281,7 +286,6 @@ cvw_update_adjustment_allocation(GtkAdjustment* adjustment, gdouble size, gboole
 		     "page-size",      size,
 		     "page-increment", size,
 		     "step-increment", size > 20 ? 10.0 : 1.0,
-#warning "FIXME: let this scale up to bigger values"
 		     NULL);
 
 	if(update_adjustment) {
@@ -367,20 +371,22 @@ cc_view_widget_init(CcViewWidget* self) {
 }
 
 static void
-cvw_dispose(GObject* object) {
-	CcViewWidget* self = CC_VIEW_WIDGET(object);
-	if(self->disposed) {
-		return;
-	}
-	self->disposed = TRUE;
-
-	if(self->root) {
-		cc_item_view_unregister(CC_ITEM_VIEW(self), self->root);
-		g_object_unref(self->root);
-		self->root = NULL;
-	}
+cvw_dispose (GObject* object)
+{
+	cc_view_set_root (CC_VIEW (object), NULL);
 
 	G_OBJECT_CLASS(cc_view_widget_parent_class)->dispose(object);
+}
+
+static void
+view_widget_finalize (GObject* object)
+{
+	if (P(object)->redraw_timeout) {
+		g_source_remove (P(object)->redraw_timeout);
+		P(object)->redraw_timeout = 0;
+	}
+
+	G_OBJECT_CLASS (cc_view_widget_parent_class)->finalize (object);
 }
 
 static void
@@ -500,7 +506,9 @@ cvw_update_vadjustment_root(CcViewWidget* self, gboolean update_adjustment) {
 }
 
 static void
-cvw_set_scrolled_region(CcViewWidget* self, CcDRect* scrolled_region) {
+cvw_set_scrolled_region(CcViewWidget * self,
+			CcDRect const* scrolled_region)
+{
 	if(self->scrolled_region == scrolled_region) {
 		return;
 	}
@@ -591,7 +599,7 @@ cvw_event(GtkWidget* widget, GdkEvent* event) {
 		if(self->grabbed) {
 			item = self->grabbed;
 		} else {
-			cc_item_distance(self->root, item_event->button.x, item_event->button.y, &item);
+			cc_item_distance(self->root, CC_VIEW (self), item_event->button.x, item_event->button.y, &item);
 		}
 		if(item) {
 			g_signal_emit_by_name(item, "event", view, item_event, &retval);
@@ -627,7 +635,7 @@ cvw_event(GtkWidget* widget, GdkEvent* event) {
 
 			cc_view_window_to_world(CC_VIEW(self), &item_event->motion.x, &item_event->motion.y);
 			if(self->grabbed) {
-				if(0.0 < cc_item_distance(self->grabbed, item_event->motion.x, item_event->motion.y, &item)) {
+				if(0.0 < cc_item_distance(self->grabbed, CC_VIEW (self), item_event->motion.x, item_event->motion.y, &item)) {
 					if(self->over_grabbed) {
 						g_signal_emit_by_name(self->grabbed, "event", view, &cr, &retval2);
 						self->over_grabbed = FALSE;
@@ -641,7 +649,7 @@ cvw_event(GtkWidget* widget, GdkEvent* event) {
 				}
 				item = self->grabbed;
 			} else {
-				cc_item_distance(self->root, item_event->motion.x, item_event->motion.y, &item);
+				cc_item_distance(self->root, CC_VIEW (self), item_event->motion.x, item_event->motion.y, &item);
 				if(item != self->current) {
 					cc_view_window_to_world(CC_VIEW(self), &cr.x, &cr.y);
 					if(self->current) {
@@ -786,7 +794,7 @@ cvw_size_request(GtkWidget* widget, GtkRequisition* requisition) {
 	if(!self->v_adjustment && all_bounds) {
 		requisition->height = self->zoom * all_bounds->y2 + 1.0;
 	} else {
-		requisition->width = 0.0;
+		requisition->height = 0.0;
 	}
 }
 
@@ -816,8 +824,7 @@ cvw_set_adjustment(CcViewWidget* self, GtkAdjustment* new_adjustment, GtkAdjustm
 			g_object_unref(*old_adjustment);
 		}
 
-		*old_adjustment = g_object_ref(new_adjustment);
-		gtk_object_sink(GTK_OBJECT(*old_adjustment));
+		*old_adjustment = g_object_ref_sink (new_adjustment);
 
 		g_signal_connect_swapped(*old_adjustment, "changed",
 					 G_CALLBACK(cvw_update_matrix), self);
@@ -861,6 +868,7 @@ cc_view_widget_class_init(CcViewWidgetClass* self_class) {
 	/* GObjectClass */
 	go_class = G_OBJECT_CLASS(self_class);
 	go_class->dispose      = cvw_dispose;
+	go_class->finalize     = view_widget_finalize;
 	go_class->get_property = cvw_get_property;
 	go_class->set_property = cvw_set_property;
 
@@ -990,7 +998,10 @@ cvw_ungrab_item(CcView* view, CcItem* item, guint32 time) {
 }
 
 static void
-cvw_window_to_world(CcView* view, gdouble* x, gdouble* y) {
+cvw_window_to_world(CcView const* view,
+		    gdouble     * x,
+		    gdouble     * y)
+{
 	cairo_matrix_t inverse;
 
 	memcpy(&inverse, &CC_VIEW_WIDGET(view)->display_matrix, sizeof(cairo_matrix_t));
@@ -1000,13 +1011,18 @@ cvw_window_to_world(CcView* view, gdouble* x, gdouble* y) {
 }
 
 static void
-cvw_world_to_window(CcView* view, gdouble* x, gdouble* y) {
+cvw_world_to_window(CcView const* view,
+		    gdouble     * x,
+		    gdouble     * y)
+{
 	gdouble tx, ty;
 	cairo_matrix_transform_point(&CC_VIEW_WIDGET(view)->display_matrix, x ? x : &tx, y ? y : &ty);
 }
 
 static void
-cvw_world_to_window_distance(CcView* view, gdouble* x, gdouble* y) {
+cvw_world_to_window_distance(CcView const* view,
+			     gdouble     * x,
+			     gdouble     * y) {
 	gdouble tx, ty;
 	cairo_matrix_transform_distance(&CC_VIEW_WIDGET(view)->display_matrix, x ? x : &tx, y ? y : &ty);
 }

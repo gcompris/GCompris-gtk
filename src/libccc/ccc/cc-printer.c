@@ -24,7 +24,7 @@
 #include "cc-printer.h"
 
 #ifdef HAVE_CONFIG_H
-# include <cc-config.h>
+# include <config.h>
 #endif /* HAVE_CONFIG_H */
 
 #include <glib/gi18n-lib.h>

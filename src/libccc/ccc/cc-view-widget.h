@@ -1,9 +1,9 @@
-/* this file is part of libccc, criawips' cairo-based canvas
+/* this file is part of libccc
  *
  * AUTHORS
  *       Sven Herzberg        <herzi@gnome-de.org>
  *
- * Copyright (C) 2005,2006 Sven Herzberg
+ * Copyright (C) 2005,2006,2007 Sven Herzberg
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public License as
@@ -55,7 +55,6 @@ void       cc_view_widget_set_zoom_mode  (CcViewWidget      * self,
 
 struct _CcViewWidget {
 	GtkDrawingArea  base_instance;
-	gboolean        disposed;
 
 	CcDRect       * scrolled_region;
 	gdouble         zoom;

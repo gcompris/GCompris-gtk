@@ -26,20 +26,26 @@
 
 #include <ccc/cc-brush.h>
 #include <ccc/cc-brush-color.h>
+#include <ccc/cc-cairo.h>
 #include <ccc/cc-camera.h>
+#include <ccc/cc-caret.h>
 #include <ccc/cc-circle.h>
 #include <ccc/cc-color.h>
 #include <ccc/cc-d-rect.h>
+#include <ccc/cc-gradient.h>
 #include <ccc/cc-enumerations.h>
 #include <ccc/cc-item.h>
 #include <ccc/cc-item-view.h>
 #include <ccc/cc-line.h>
+#include <ccc/cc-linear-gradient.h>
 #include <ccc/cc-pixbuf.h>
 #include <ccc/cc-printer.h>
+#include <ccc/cc-radial-gradient.h>
 #include <ccc/cc-rectangle.h>
 #include <ccc/cc-rounded-rectangle.h>
 #include <ccc/cc-text.h>
 #include <ccc/cc-shape.h>
+#include <ccc/cc-simple-item.h>
 #include <ccc/cc-utils.h>
 #include <ccc/cc-view.h>
 #include <ccc/cc-view-cell-renderer.h>

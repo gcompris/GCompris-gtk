@@ -46,8 +46,14 @@ GType    cc_color_get_type    (void);
 GType    cc_color_hsv_get_type(void);
 GType    cc_color_rgb_get_type(void);
 
-void     cc_color_apply   (CcColor* self,
-			   cairo_t* cr);
+void     cc_color_apply   (CcColor const  * self,
+			   gdouble        * red,
+			   gdouble        * green,
+			   gdouble        * blue,
+			   gdouble        * alpha);
+void     cc_color_stop    (CcColor const  * self,
+			   cairo_pattern_t* pattern,
+			   gdouble          offset);
 CcColor* cc_color_new_rgb (gdouble  red,
 			   gdouble  green,
 			   gdouble  blue);
@@ -73,7 +79,10 @@ struct _CcColorClass {
 
 	/* vtable */
 	void (*apply) (CcColor const* self,
-		       cairo_t      * cr);
+		       gdouble      * red,
+		       gdouble      * green,
+		       gdouble      * blue,
+		       gdouble      * alpha);
 };
 
 G_END_DECLS

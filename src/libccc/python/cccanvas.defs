@@ -1,24 +1,55 @@
 ;; -*- scheme -*-
 ; object definitions ...
-(define-object Brush
+(define-interface Brush
   (in-module "Cc")
-  (parent "GObject")
   (c-name "CcBrush")
   (gtype-id "CC_TYPE_BRUSH")
 )
 
-(define-object BrushColor
+(define-object Gradient
   (in-module "Cc")
-  (parent "CcBrush")
-  (c-name "CcBrushColor")
-  (gtype-id "CC_TYPE_BRUSH_COLOR")
+  (parent "GObject")
+  (c-name "CcGradient")
+  (gtype-id "CC_TYPE_GRADIENT")
+  (implements "CcBrush")
 )
+
+(define-object RadialGradient
+  (in-module "Cc")
+  (parent "GObject")
+  (c-name "CcRadialGradient")
+  (gtype-id "CC_TYPE_RADIAL_GRADIENT")
+  (implements "CcBrush")
+  )
+
+(define-object LinearGradient
+  (in-module "Cc")
+  (parent "GObject")
+  (c-name "CcLinearGradient")
+  (gtype-id "CC_TYPE_LINEAR_GRADIENT")
+  (implements "CcBrush")
+  )
 
 (define-object Color
   (in-module "Cc")
   (parent "GObject")
   (c-name "CcColor")
   (gtype-id "CC_TYPE_COLOR")
+  (implements "CcBrush")  
+)
+
+(define-object ColorRgb
+  (in-module "Cc")
+  (parent "CcColor")
+  (c-name "CcColorRgb")
+  (gtype-id "CC_TYPE_COLOR_RGB")
+)
+
+(define-object ColorHsv
+  (in-module "Cc")
+  (parent "CcColor")
+  (c-name "CcColorHsv")
+  (gtype-id "CC_TYPE_COLOR_HSV")
 )
 
 (define-object Item
@@ -26,12 +57,19 @@
   (parent "GObject")
   (c-name "CcItem")
   (gtype-id "CC_TYPE_ITEM")
+  (implements "CcItemView")
 )
 
-(define-object ItemView
+(define-interface ItemView
   (in-module "Cc")
   (c-name "CcItemView")
   (gtype-id "CC_TYPE_ITEM_VIEW")
+)
+
+(define-interface View
+  (in-module "Cc")
+  (c-name "CcView")
+  (gtype-id "CC_TYPE_VIEW")
 )
 
 (define-object Pixbuf
@@ -41,11 +79,14 @@
   (gtype-id "CC_TYPE_PIXBUF")
 )
 
+
 (define-object Printer
   (in-module "Cc")
   (parent "GObject")
   (c-name "CcPrinter")
   (gtype-id "CC_TYPE_PRINTER")
+  (implements "CcItemView")
+  (implements "CcView")
 )
 
 (define-object Shape
@@ -85,21 +126,9 @@
 
 (define-object Text
   (in-module "Cc")
-  (parent "CcItem")
+  (parent "CcShape")
   (c-name "CcText")
   (gtype-id "CC_TYPE_TEXT")
-)
-
-;(define-interface View
-;  (in-module "Cc")
-;  (c-name "CcView")
-;  (gtype-id "CC_TYPE_VIEW")
-;)
-
-(define-object View
-  (in-module "Cc")
-  (c-name "CcView")
-  (gtype-id "CC_TYPE_VIEW")
 )
 
 (define-object ViewCellRenderer
@@ -107,6 +136,7 @@
   (parent "GtkCellRenderer")
   (c-name "CcViewCellRenderer")
   (gtype-id "CC_TYPE_VIEW_CELL_RENDERER")
+  (implements "CcItemView")
   (implements "CcView")
 )
 
@@ -115,6 +145,7 @@
   (parent "GObject")
   (c-name "CcViewPNG")
   (gtype-id "CC_TYPE_VIEW_PNG")
+  (implements "CcItemView")
   (implements "CcView")
 )
 
@@ -123,6 +154,23 @@
   (parent "GtkDrawingArea")
   (c-name "CcViewWidget")
   (gtype-id "CC_TYPE_VIEW_WIDGET")
+  (implements "CcItemView")
+  (implements "CcView")
+)
+
+(define-object Caret
+  (in-module "Cc")
+  (parent "CcLine")
+  (c-name "CcCaret")
+  (gtype-id "CC_TYPE_CARET")
+)
+
+(define-object Camera
+  (in-module "Cc")
+  (parent "CcItem")
+  (c-name "CcCamera")
+  (gtype-id "CC_TYPE_CAMERA")
+  (implements "CcItemView")
   (implements "CcView")
 )
 
@@ -136,7 +184,17 @@
     '("can-focus" "CC_CAN_FOCUS")
     '("disposed" "CC_DISPOSED")
     '("grid-aligned" "CC_GRID_ALIGNED")
-    '("no-search-children" "CC_NO_SEARCH_CHILDREN")
+  )
+)
+
+(define-enum Unit
+  (in-module "Cc")
+  (c-name "CcUnit")
+  (gtype-id "CC_TYPE_UNIT")
+  (values
+    '("display-pixel" "CC_UNIT_DISPLAY_PIXEL")
+    '("point" "CC_UNIT_POINT")
+    '("pt" "CC_UNIT_PT")
   )
 )
 
@@ -155,20 +213,13 @@
 
 ;; From ../ccc/cc-brush-color.h
 
-(define-function cc_brush_color_get_type
-  (in-module "Cc")
-  (c-name "cc_brush_color_get_type")
-  (return-type "GType")
-)
-
-(define-function cc_brush_color_new
+(define-function brush_color_new
   (in-module "Cc")
   (c-name "cc_brush_color_new")
   (is-constructor-of "CcBrushColor")
-  (caller-owns-return #f)
   (return-type "CcBrush*")
-  (parameters
-    '("CcColor*" "color")
+  (properties
+    '("color" (argname "color") (optional)) 
   )
 )
 
@@ -188,24 +239,59 @@
 )
 
 
+;; From ../ccc/cc-camera.h
 
-;; From ../ccc/cc-brush.h
-
-(define-function cc_brush_get_type
-  (c-name "cc_brush_get_type")
-  (return-type "GType")
+(define-function camera_new
+  (in-module "Cc")
+  (c-name "cc_camera_new")
+  (is-constructor-of "CcCamera")
+  (return-type "CcItem*")
 )
 
-(define-method apply
-  (of-object "CcBrush")
-  (c-name "cc_brush_apply")
+(define-function camera_new_root
+  (in-module "Cc")
+  (c-name "cc_camera_new_root")
+  (return-type "CcItem*")
+  (parameters
+    '("CcItem*" "root")
+  )
+  (caller-owns-return #t)
+)
+
+(define-method set_root
+  (of-object "CcCamera")
+  (c-name "cc_camera_set_root")
   (return-type "none")
   (parameters
-    '("cairo_t*" "cr")
+    '("CcItem*" "root")
   )
 )
 
+(define-method get_root
+  (of-object "CcCamera")
+  (c-name "cc_camera_get_root")
+  (return-type "CcItem*")
+)
 
+;; From ../ccc/cc-caret.h
+
+(define-function caret_new
+  (c-name "cc_caret_new")
+  (is-constructor-of "CcCaret")
+  (return-type "CcItem*")
+)
+
+(define-method set_position
+  (of-object "CcCaret")
+  (c-name "cc_caret_set_position")
+  (return-type "none")
+  (parameters
+    '("gdouble" "x1")
+    '("gdouble" "y1")
+    '("gdouble" "x2")
+    '("gdouble" "y2")
+  )
+)
 
 ;; From ../ccc/ccc.h
 
@@ -213,15 +299,10 @@
 
 ;; From ../ccc/cc-circle.h
 
-(define-function cc_circle_get_type
-  (c-name "cc_circle_get_type")
-  (return-type "GType")
-)
-
-(define-function cc_circle_new
+(define-function circle_new
+  (in-module "Cc")  
   (c-name "cc_circle_new")
   (is-constructor-of "CcCircle")
-  (caller-owns-return #f)
   (return-type "CcItem*")
 )
 
@@ -248,67 +329,72 @@
 
 ;; From ../ccc/cc-color.h
 
-(define-function cc_color_get_type
-  (c-name "cc_color_get_type")
-  (return-type "GType")
-)
-
-(define-method apply
-  (of-object "CcColor")
-  (c-name "cc_color_apply")
-  (return-type "none")
-  (parameters
-    '("cairo_t*" "cr")
-  )
-)
-
-(define-function color_new_rgb
-  (in-module "Cc")
-  (c-name "cc_color_new_rgb")
-  (return-type "CcColor*")
-  (parameters
-    '("gdouble" "red")
-    '("gdouble" "green")
-    '("gdouble" "blue")
-  )
-)
-
 (define-function color_new_rgba
   (in-module "Cc")
   (c-name "cc_color_new_rgba")
+  (is-constructor-of "CcColorRgb")
   (return-type "CcColor*")
-  (parameters
-    '("gdouble" "red")
-    '("gdouble" "green")
-    '("gdouble" "blue")
-    '("gdouble" "alpha")
-  )
-)
-
-(define-function color_new_hsv
-  (in-module "Cc")
-  (c-name "cc_color_new_hsv")
-  (return-type "CcColor*")
-  (parameters
-    '("gdouble" "hue")
-    '("gdouble" "saturation")
-    '("gdouble" "value")
+  (properties
+    '("red" (argname "red"))
+    '("green" (argname "green"))
+    '("blue" (argname "blue"))
+    '("alpha" (argname "alpha"))
   )
 )
 
 (define-function color_new_hsva
   (in-module "Cc")
   (c-name "cc_color_new_hsva")
+  (is-constructor-of "CcColorHsv")
   (return-type "CcColor*")
-  (parameters
-    '("gdouble" "hue")
-    '("gdouble" "saturation")
-    '("gdouble" "value")
-    '("gdouble" "alpha")
+  (properties
+    '("hue" (argname "hue"))
+    '("saturation" (argname "saturation"))
+    '("value" (argname "value"))
+    '("alpha" (argname "alpha"))
+  )
+)
+
+;; From ../ccc/cc-unit.h
+
+(define-enum Unit
+  (in-module "Cc")
+  (c-name "CcUnit")
+  (gtype-id "CC_TYPE_UNIT")
+  (values
+    '("display-pixel" "CC_UNIT_DISPLAY_PIXEL")
+    '("point" "CC_UNIT_POINT")
+    '("pt" "CC_UNIT_PT")
   )
 )
 
 
+(define-boxed Distance
+  (in-module "Cc")
+  (c-name "CcDistance")
+  (gtype-id "CC_TYPE_DISTANCE")
+  (release-func cc_distance_free)
+  (fields
+    '("gdouble" "value")
+    '("CcUnit" "unit")
+  )
+ )
+
+(define-function cc_distance_new
+  (c-name "cc_distance_new")
+  (is-constructor-of "CcDistance")
+  (return-type "CcDistance*")
+  (parameters
+    '("gdouble" "value")
+    '("CcUnit" "unit")
+  )
+)
+
+(define-method copy
+  (of-object "CcDistance")
+  (c-name "cc_distance_copy")
+  (return-type "CcDistance*")
+)
 
 ;; From ../ccc/cc-d-rect.h
 
@@ -325,7 +411,7 @@
   )
  )
 
-(define-function cc_d_rect_new
+(define-function d_rect_new
   (c-name "cc_d_rect_new")
   (is-constructor-of "CcDRect")
   (caller-owns-return #f)
@@ -337,11 +423,6 @@
     '("gdouble" "y2")
     )
   )
-
-(define-function cc_d_rect_get_type
-  (c-name "cc_d_rect_get_type")
-  (return-type "GType")
-)
 
 (define-method copy
   (of-object "CcDRect")
@@ -377,23 +458,28 @@
   )
 )
 
-
+(define-method get_as_tuple
+  (of-object "CcDRect")
+  (c-name "cc_d_rect_get_as_tuple")
+  (return-type "gint")
+  )
 
 ;; From ../ccc/cc-enumerations.h
 
-(define-function cc_item_flags_get_type
-  (c-name "cc_item_flags_get_type")
-  (return-type "GType")
+;; From ../ccc/cc-gradient.h
+
+(define-method add_stop
+  (of-object "CcGradient")
+  (c-name "cc_gradient_add_stop")
+  (return-type "none")
+  (parameters
+    '("gdouble" "offset")
+    '("CcColor*" "color")
+  )
 )
-
-(define-function cc_zoom_mode_get_type
-  (c-name "cc_zoom_mode_get_type")
-  (return-type "GType")
-)
-
-
 
 ;; From ../ccc/cc-item.h
+
 (define-method SET_FLAGS
   (of-object "CcItem")
   (c-name "CC_ITEM_SET_FLAGS")
@@ -403,10 +489,9 @@
   )
 )
 
-(define-function cc_item_new
+(define-function item_new
   (c-name "cc_item_new")
   (is-constructor-of "CcItem")
-  (caller-owns-return #f)
   (return-type "CcItem*")
 )
 
@@ -417,6 +502,13 @@
   (parameters
     '("CcItem*" "child")
   )
+)
+
+;; will be in override
+(define-method set
+  (of-object "CcItem")
+  (c-name "cc_item_set")
+  (return-type "none")
 )
 
 (define-method bounds_changed
@@ -443,9 +535,10 @@
   (c-name "cc_item_distance")
   (return-type "gdouble")
   (parameters
+    '("CcView*" "view")
     '("gdouble" "x")
     '("gdouble" "y")
-;    '("CcItem*" "found")
+    '("CcItem**" "found")
   )
 )
 
@@ -454,8 +547,8 @@
   (c-name "cc_item_foreach_view")
   (return-type "none")
   (parameters
-    '("CcItem*" "func")
-    '("int" "data")
+    '("CcItemFunc" "func")
+    '("gpointer" "data")
   )
 )
 
@@ -515,6 +608,24 @@
   )
 )
 
+(define-method update_bounds
+  (of-object "CcItem")
+  (c-name "cc_item_update_bounds")
+  (return-type "none")
+  (parameters
+    '("gpointer" "data")
+  )
+)
+
+(define-method update_bounds_for_view
+  (of-object "CcItem")
+  (c-name "cc_item_update_bounds_for_view")
+  (return-type "none")
+  (parameters
+    '("CcView*" "view")
+  )
+)
+
 (define-method add_view
   (of-object "CcItem")
   (c-name "cc_item_add_view")
@@ -533,14 +644,63 @@
   )
 )
 
+(define-method set_position
+  (of-object "CcItem")
+  (c-name "cc_item_set_position")
+  (return-type "none")
+  (parameters
+    '("CcItem*" "parent")
+    '("gint" "position")
+  )
+)
+
+(define-method raise_to_top
+  (of-object "CcItem")
+  (c-name "cc_item_raise_to_top")
+  (return-type "none")
+  (parameters
+    '("CcItem*" "parent")
+  )
+)
+
+(define-method raise
+  (of-object "CcItem")
+  (c-name "cc_item_raise")
+  (return-type "none")
+  (parameters
+    '("CcItem*" "parent")
+  )
+)
+
+(define-method lower
+  (of-object "CcItem")
+  (c-name "cc_item_lower")
+  (return-type "none")
+  (parameters
+    '("CcItem*" "parent")
+  )
+)
+
+(define-method lower_to_bottom
+  (of-object "CcItem")
+  (c-name "cc_item_lower_to_bottom")
+  (return-type "none")
+  (parameters
+    '("CcItem*" "parent")
+  )
+)
+
+(define-method get_all_bounds
+  (of-object "CcItem")
+  (c-name "cc_item_get_all_bounds")
+  (return-type "CcDRect*")
+  (parameters
+   '("CcView*" "view")
+   )
+  )
 
 
 ;; From ../ccc/cc-item-view.h
-
-(define-function cc_item_view_get_type
-  (c-name "cc_item_view_get_type")
-  (return-type "GType")
-)
 
 (define-method register
   (of-object "CcItemView")
@@ -562,18 +722,33 @@
 
 
 
-;; From ../ccc/cc-line.h
+;; From ../ccc/cc-linear-gradient.h
 
-(define-function cc_line_get_type
-  (c-name "cc_line_get_type")
-  (return-type "GType")
+(define-function linear_gradient_new
+  (in-module "Cc")
+  (c-name "cc_linear_gradient_new")
+  (is-constructor-of "CcLinearGradient")
+  (return-type "CcBrush*")
+  (properties
+    '("x1" (argname "x1"))
+    '("y1" (argname "y1"))
+    '("x2" (argname "x2"))
+    '("y2" (argname "y2"))
+  )
 )
 
-(define-function cc_line_new
+;; From ../ccc/cc-line.h
+
+(define-function line_new
   (c-name "cc_line_new")
   (is-constructor-of "CcLine")
-  (caller-owns-return #f)
   (return-type "CcItem*")
+)
+
+(define-method clear
+  (of-object "CcLine")
+  (c-name "cc_line_clear")
+  (return-type "none")
 )
 
 (define-method line
@@ -596,6 +771,33 @@
   )
 )
 
+(define-method get_num_data
+  (of-object "CcLine")
+  (c-name "cc_line_get_num_data")
+  (return-type "guint")
+)
+
+(define-method data_set_position
+  (of-object "CcLine")
+  (c-name "cc_line_data_set_position")
+  (return-type "none")
+  (parameters
+    '("guint" "index")
+    '("gdouble" "x")
+    '("gdouble" "y")
+  )
+)
+
+(define-method data_get_position
+  (of-object "CcLine")
+  (c-name "cc_line_data_get_position")
+  (return-type "none")
+  (parameters
+    '("guint" "index")
+    '("gdouble*" "x")
+    '("gdouble*" "y")
+  )
+)
 
 
 ;; From ../ccc/cc-marshallers.h
@@ -604,15 +806,10 @@
 
 ;; From ../ccc/cc-pixbuf.h
 
-(define-function cc_pixbuf_get_type
-  (c-name "cc_pixbuf_get_type")
-  (return-type "GType")
-)
-
-(define-function cc_pixbuf_new
+(define-function pixbuf_new
+  (in-module "Cc")
   (c-name "cc_pixbuf_new")
   (is-constructor-of "CcPixbuf")
-  (caller-owns-return #f)
   (return-type "CcItem*")
 )
 
@@ -637,22 +834,49 @@
   )
 )
 
+(define-method set_position_x
+  (of-object "CcPixbuf")
+  (c-name "cc_pixbuf_set_position_x")
+  (return-type "none")
+  (parameters
+    '("gdouble" "pos_x")
+  )
+)
+
+(define-method set_position_y
+  (of-object "CcPixbuf")
+  (c-name "cc_pixbuf_set_position_y")
+  (return-type "none")
+  (parameters
+    '("gdouble" "pos_y")
+  )
+)
+
+(define-method get_rotation
+  (of-object "CcPixbuf")
+  (c-name "cc_pixbuf_get_rotation")
+  (return-type "gdouble")
+)
+
+(define-method set_rotation
+  (of-object "CcPixbuf")
+  (c-name "cc_pixbuf_set_rotation")
+  (return-type "none")
+  (parameters
+    '("gdouble" "rotation")
+  )
+)
+
 
 
 ;; From ../ccc/cc-printer.h
 
-(define-function cc_printer_get_type
-  (c-name "cc_printer_get_type")
-  (return-type "GType")
-)
-
-(define-function cc_printer_new
+(define-function printer_new
   (c-name "cc_printer_new")
   (is-constructor-of "CcPrinter")
-  (caller-owns-return #f)
   (return-type "CcPrinter*")
-  (parameters
-    '("const-gchar*" "filename")
+  (properties
+    '("filename" (argname "filename"))
   )
 )
 
@@ -662,19 +886,25 @@
   (return-type "none")
 )
 
+;; From ../ccc/cc-radial-gradient.h
 
+(define-function radial_gradient_new
+  (in-module "Cc")
+  (c-name "cc_radial_gradient_new")
+  (is-constructor-of "CcRadialGradient")
+  (return-type "CcBrush*")
+  (properties
+    '("x" (argname "x"))
+    '("x" (argname "y"))
+    '("x" (argname "radius"))
+  )
+)
 
 ;; From ../ccc/cc-rectangle.h
 
-(define-function cc_rectangle_get_type
-  (c-name "cc_rectangle_get_type")
-  (return-type "GType")
-)
-
-(define-function cc_rectangle_new
+(define-function rectangle_new
   (c-name "cc_rectangle_new")
   (is-constructor-of "CcRectangle")
-  (caller-owns-return #f)
   (return-type "CcItem*")
 )
 
@@ -730,19 +960,23 @@
 
 ;; From ../ccc/cc-rounded-rectangle.h
 
-(define-function cc_rounded_rectangle_get_type
-  (c-name "cc_rounded_rectangle_get_type")
-  (return-type "GType")
+(define-function rounded_rectangle_new
+  (in-module "Cc")
+  (c-name "cc_rounded_rectangle_new")
+  (is-constructor-of "CcRoundedRectangle")
+  (return-type "CcItem*")
 )
 
-
+(define-method set_radius
+  (of-object "CcRoundedRectangle")
+  (c-name "cc_rounded_rectangle_set_radius")
+  (return-type "none")
+  (parameters
+    '("gdouble" "radius")
+  )
+)
 
 ;; From ../ccc/cc-shape.h
-
-(define-function cc_shape_get_type
-  (c-name "cc_shape_get_type")
-  (return-type "GType")
-)
 
 (define-method get_brush_border
   (of-object "CcShape")
@@ -783,6 +1017,15 @@
   )
 )
 
+(define-method set_line_width
+  (of-object "CcShape")
+  (c-name "cc_shape_set_line_width")
+  (return-type "none")
+  (parameters
+    '("CcDistance*" "width")
+  )
+)
+
 (define-method set_width_pixels
   (of-object "CcShape")
   (c-name "cc_shape_set_width_pixels")
@@ -801,22 +1044,15 @@
   )
 )
 
-
-
 ;; From ../ccc/cc-text.h
 
-(define-function cc_text_get_type
-  (c-name "cc_text_get_type")
-  (return-type "GType")
-)
-
-(define-function cc_text_new
+(define-function text_new
+  (in-module "Cc")
   (c-name "cc_text_new")
   (is-constructor-of "CcText")
-  (caller-owns-return #f)
   (return-type "CcItem*")
-  (parameters
-    '("const-gchar*" "text" (null-ok))
+  (properties
+    '("text" (argname "text"))
   )
 )
 
@@ -845,6 +1081,15 @@
   )
 )
 
+(define-method set_attributes
+  (of-object "CcText")
+  (c-name "cc_text_set_attributes")
+  (return-type "none")
+  (parameters
+    '("PangoAttrList*" "attrs")
+  )
+)
+
 (define-method set_editable
   (of-object "CcText")
   (c-name "cc_text_set_editable")
@@ -868,7 +1113,7 @@
   (c-name "cc_text_set_markup")
   (return-type "none")
   (parameters
-    '("const-gchar*" "text")
+    '("gchar*" "markup")
   )
 )
 
@@ -896,21 +1141,35 @@
   (return-type "const-gchar*")
 )
 
-
-
 ;; From ../ccc/cc-utils.h
+
+(define-function accumulator_boolean
+  (in-module "Cc")
+  (c-name "cc_accumulator_boolean")
+  (return-type "gboolean")
+  (parameters
+    '("GSignalInvocationHint*" "hint")
+    '("GValue*" "return_accu")
+    '("GValue*" "handler_return")
+    '("gpointer" "data")
+  )
+)
+
+(define-function point_grid_align
+  (c-name "cc_point_grid_align")
+  (return-type "none")
+  (parameters
+    '("gdouble*" "x")
+    '("gdouble*" "y")
+    '("gdouble*" "width")
+  )
+)
 
 ;; From ../ccc/cc-view-cell-renderer.h
 
-(define-function cc_view_cell_renderer_get_type
-  (c-name "cc_view_cell_renderer_get_type")
-  (return-type "GType")
-)
-
-(define-function cc_view_cell_renderer_new
+(define-function view_cell_renderer_new
   (c-name "cc_view_cell_renderer_new")
   (is-constructor-of "CcViewCellRenderer")
-  (caller-owns-return #f)
   (return-type "GtkCellRenderer*")
 )
 
@@ -1000,33 +1259,33 @@
   )
 )
 
-(define-method window_to_world
-  (of-object "CcView")
+(define-function view_window_to_world
   (c-name "cc_view_window_to_world")
   (return-type "none")
   (parameters
-    '("gdouble" "x")
-    '("gdouble" "y")
+    '("CcView*" "self")
+    '("gdouble*" "x")
+    '("gdouble*" "y")
   )
 )
 
-(define-method world_to_window
-  (of-object "CcView")
+(define-function view_world_to_window
   (c-name "cc_view_world_to_window")
   (return-type "none")
   (parameters
-    '("gdouble" "x")
-    '("gdouble" "y")
+    '("CcView*" "self")
+    '("gdouble*" "x")
+    '("gdouble*" "y")
   )
 )
 
-(define-method world_to_window_distance
-  (of-object "CcView")
+(define-function view_world_to_window_distance
   (c-name "cc_view_world_to_window_distance")
   (return-type "none")
   (parameters
-    '("gdouble" "x")
-    '("gdouble" "y")
+    '("CcView*" "self")
+    '("gdouble*" "x")
+    '("gdouble*" "y")
   )
 )
 
@@ -1034,18 +1293,13 @@
 
 ;; From ../ccc/cc-view-png.h
 
-(define-function cc_view_png_get_type
-  (c-name "cc_view_png_get_type")
-  (return-type "GType")
-)
-
-(define-function cc_view_png_new
+(define-function view_png_new
+  (in-module "Cc")
   (c-name "cc_view_png_new")
   (is-constructor-of "CcViewPng")
-  (caller-owns-return #f)
   (return-type "CcView*")
   (parameters
-    '("const-gchar*" "filename")
+    '("gchar*" "filename")
   )
 )
 
@@ -1053,15 +1307,10 @@
 
 ;; From ../ccc/cc-view-widget.h
 
-(define-function cc_view_widget_get_type
-  (c-name "cc_view_widget_get_type")
-  (return-type "GType")
-)
-
-(define-function cc_view_widget_new
+(define-function view_widget_new
+  (in-module "Cc")
   (c-name "cc_view_widget_new")
   (is-constructor-of "CcViewWidget")
-  (caller-owns-return #f)
   (return-type "GtkWidget*")
 )
 
@@ -1070,12 +1319,12 @@
   (c-name "cc_view_widget_new_root")
   (return-type "GtkWidget*")
   (parameters
-    '("CcItem*" "root")
+    '("CcItem*" "root" null-ok)
   )
 )
 
 (define-method get_center_view
-  (of-object "CcView")
+  (of-object "CcViewWidget")  
   (c-name "cc_view_widget_get_center_view")
   (return-type "gboolean")
 )
@@ -1103,3 +1352,4 @@
     '("CcZoomMode" "zoom_mode")
   )
 )
+

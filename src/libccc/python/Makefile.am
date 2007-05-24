@@ -1,4 +1,4 @@
-INCLUDES = $(PYTHON_INCLUDES) $(PYGTK_CFLAGS)
+INCLUDES = $(PYTHON_CFLAGS) $(PYGTK_CFLAGS)
 
 defsdir = $(datadir)/pygtk/2.0/defs
 defs_DATA = cccanvas.defs
@@ -12,10 +12,10 @@ common_ldflags = -module -avoid-version
 
 # libcccanvas binding
 pkgpyexec_LTLIBRARIES = cccanvas.la
-cccanvas_la_CFLAGS = $(LIBCCC_CFLAGS) $(CCC_CFLAGS) $(PYCAIRO_CFLAGS) -I../ccc
+cccanvas_la_CFLAGS = $(LIBCCC_CFLAGS) $(CCC_CFLAGS) $(PYCAIRO_CFLAGS) -I.. -I../ccc
 cccanvas_la_LDFLAGS = $(common_ldflags) -export-symbols-regex initcccanvas
 cccanvas_la_LIBADD = $(CCCANVAS_LIBS) $(CCC_LIBS) $(PYCAIRO_LIBS) -L../ccc/.libs -lccc-0.1
-nodist_cccanvas_la_CFLAGS = $(LIBCCC_CFLAGS) $(CCC_CFLAGS) $(PYCAIRO_CFLAGS) -I../ccc
+nodist_cccanvas_la_CFLAGS = $(LIBCCC_CFLAGS) $(CCC_CFLAGS) $(PYCAIRO_CFLAGS) -I.. -I../ccc
 cccanvas_la_SOURCES = cccanvasmodule.c
 nodist_cccanvas_la_SOURCES = cccanvas.c
 CLEANFILES = cccanvas.c

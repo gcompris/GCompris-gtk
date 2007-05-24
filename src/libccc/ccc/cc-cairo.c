@@ -1,9 +1,9 @@
-/* this file is part of libccc, criawips' cairo-based canvas
+/* This file is part of libccc
  *
  * AUTHORS
- *       Sven Herzberg        <herzi@gnome-de.org>
+ *     Sven Herzberg  <herzi@gnome-de.org>
  *
- * Copyright (C) 2005 Sven Herzberg
+ * Copyright (C) 2007  Sven Herzberg
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public License as
@@ -21,34 +21,10 @@
  * USA
  */
 
-#ifndef CC_D_RECT_H
-#define CC_D_RECT_H
+#include "cc-cairo.h"
 
-#include <glib-object.h>
+#include <cairo.h>
+#include <gobject-helpers.h>
 
-G_BEGIN_DECLS
-
-typedef struct {
-	gdouble x1;
-	gdouble y1;
-	gdouble x2;
-	gdouble y2;
-} CcDRect;
-
-#define CC_TYPE_D_RECT (cc_d_rect_get_type())
-
-GType cc_d_rect_get_type(void);
-
-CcDRect* cc_d_rect_copy     (CcDRect const* one);
-gboolean cc_d_rect_equal    (CcDRect  one,
-			     CcDRect  two);
-gboolean cc_d_rect_intersect(CcDRect  one,
-			     CcDRect  two);
-void     cc_d_rect_union    (CcDRect  one,
-			     CcDRect  two,
-			     CcDRect* merged);
-
-G_END_DECLS
-
-#endif /* !CC_D_RECT_H */
+G_DEFINE_BOXED_TYPE_FULL (CcCairo, cc_cairo, cairo_reference, cairo_destroy);
 

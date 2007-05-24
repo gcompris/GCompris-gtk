@@ -3,7 +3,7 @@
  * AUTHORS
  *     Sven Herzberg  <herzi@gnome-de.org>
  *
- * Copyright (C) 2006  Sven Herzberg <herzi@gnome-de.org>
+ * Copyright (C) 2006,2007  Sven Herzberg <herzi@gnome-de.org>
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public License as
@@ -28,40 +28,35 @@
 
 G_BEGIN_DECLS
 
-typedef struct _CCHashMap      CCHashMap;
-typedef struct _CCHashMapClass CCHashMapClass;
-typedef struct _CCHashMap      CcHashMap;
+typedef struct _CcHashMap CcHashMap;
+typedef GObjectClass CcHashMapClass;
 
 #define CC_TYPE_HASH_MAP         (cc_hash_map_get_type())
-#define CC_HASH_MAP(i)           (G_TYPE_CHECK_INSTANCE_CAST((i), CC_TYPE_HASH_MAP, CCHashMap))
-#define CC_HASH_MAP_CLASS(c)     (G_TYPE_CHECK_CLASS_CAST((c), CC_TYPE_HASH_MAP, CCHashMapClass))
+#define CC_HASH_MAP(i)           (G_TYPE_CHECK_INSTANCE_CAST((i), CC_TYPE_HASH_MAP, CcHashMap))
+#define CC_HASH_MAP_CLASS(c)     (G_TYPE_CHECK_CLASS_CAST((c), CC_TYPE_HASH_MAP, CcHashMapClass))
 #define CC_IS_HASH_MAP(i)        (G_TYPE_CHECK_INSTANCE_TYPE((i), CC_TYPE_HASH_MAP))
 #define CC_IS_HASH_MAP_CLASS(c)  (G_TYPE_CHECK_CLASS_TYPE((c), CC_TYPE_HASH_MAP))
-#define CC_HASH_MAP_GET_CLASS(i) (G_TYPE_INSTANCE_GET_CLASS((i), CC_TYPE_HASH_MAP, CCHashMapClass))
+#define CC_HASH_MAP_GET_CLASS(i) (G_TYPE_INSTANCE_GET_CLASS((i), CC_TYPE_HASH_MAP, CcHashMapClass))
 
 GType cc_hash_map_get_type(void);
 
-CcHashMap* cc_hash_map_new   (GType content_type);
-void              cc_hash_map_insert(CCHashMap* self,
-					    gpointer          key,
-					    gpointer          data);
-gpointer          cc_hash_map_lookup(CcHashMap    * self,
-				     gconstpointer  key);
-void              cc_hash_map_remove(CCHashMap* self,
-					    gconstpointer     key);
-void              cc_hash_map_foreach(CcHashMap* self,
-				      GHFunc     func,
-				      gpointer   user_data);
+CcHashMap* cc_hash_map_new    (GType content_type);
+void       cc_hash_map_insert (CcHashMap* self,
+			       gpointer          key,
+			       gpointer          data);
+gpointer   cc_hash_map_lookup (CcHashMap    * self,
+			       gconstpointer  key);
+void       cc_hash_map_remove (CcHashMap* self,
+			       gconstpointer     key);
+void       cc_hash_map_foreach(CcHashMap* self,
+			       GHFunc     func,
+			       gpointer   user_data);
 
-struct _CCHashMap {
+struct _CcHashMap {
 	GObject     base_instance;
 	GType       fundamental;
 	GType       content;
 	GHashTable* hash_table;
-};
-
-struct _CCHashMapClass {
-	GObjectClass base_class;
 };
 
 G_END_DECLS

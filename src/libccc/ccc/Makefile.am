@@ -8,23 +8,31 @@ main_HEADERS=\
 maindir=$(includedir)/ccc-$(MILESTONE)
 
 static_headers=\
+	cdebug.h \
 	cc-brush.h \
 	cc-brush-color.h \
+	cc-cairo.h \
 	cc-camera.h \
 	cc-color.h \
 	cc-color-rgb.c \
+	cc-caret.h \
 	cc-circle.h \
 	cc-d-rect.h \
+	cc-gradient.h \
 	cc-hash-map.h \
 	cc-item.h \
 	cc-item-view.h \
 	cc-line.h \
+	cc-linear-gradient.h \
 	cc-pixbuf.h \
 	cc-printer.h \
+	cc-radial-gradient.h \
 	cc-rectangle.h \
 	cc-rounded-rectangle.h \
 	cc-shape.h \
+	cc-simple-item.h \
 	cc-text.h \
+	cc-unit.h \
 	cc-utils.h \
 	cc-view.h \
 	cc-view-cell-renderer.h \
@@ -49,23 +57,31 @@ BUILT_SOURCES=\
 libccc_0_1_la_SOURCES=\
 	$(ccc_HEADERS) \
 	$(BUILT_SOURCES) \
+	cdebug.c \
 	cc-brush.c \
 	cc-brush-color.c \
+	cc-cairo.c \
 	cc-camera.c \
+	cc-caret.c \
 	cc-color.c \
 	cc-color-hsv.c \
 	cc-circle.c \
 	cc-d-rect.c \
+	cc-gradient.c \
 	cc-hash-map.c \
 	cc-item.c \
 	cc-item-view.c \
 	cc-line.c \
+	cc-linear-gradient.c \
 	cc-pixbuf.c \
 	cc-printer.c \
+	cc-radial-gradient.c \
 	cc-rectangle.c \
 	cc-rounded-rectangle.c \
 	cc-shape.c \
+	cc-simple-item.c \
 	cc-text.c \
+	cc-unit.c \
 	cc-utils.c \
 	cc-view.c \
 	cc-view-cell-renderer.c \
@@ -79,7 +95,6 @@ libccc_0_1_la_SOURCES=\
 	$(NULL)
 libccc_0_1_la_LIBADD=\
 	$(CCC_LIBS) \
-	$(top_builddir)/cdebug/libcdebug.la \
 	$(NULL)
 
 cc-marshallers.h: $(srcdir)/marshallers.list $(srcdir)/Makefile
@@ -118,7 +133,7 @@ CLEANFILES=\
 AM_CPPFLAGS=\
 	$(CCC_CFLAGS) \
 	-std=c99 \
-	-I$(top_builddir) \
-	-I$(top_srcdir) \
+	-I$(top_builddir)/src/libccc \
+	-I$(top_srcdir)/src/libccc \
 	$(NULL)
 

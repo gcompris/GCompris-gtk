@@ -97,3 +97,32 @@ cc_accumulator_boolean(GSignalInvocationHint* hint, GValue* return_accu, GValue 
 	return !retval;
 }
 
+/* dot product of vector v and w */
+gdouble math_dot_product(gdouble xv,
+				  gdouble yv,
+				  gdouble xw,
+				  gdouble yw) {
+	return xv*xw + yv*yw;
+}
+
+/* distance frome M (xm, ym) to [AB] A(xa, ya) & B(xb,yb) */
+gdouble math_distance_point_segment(gdouble xm,
+				    gdouble ym,
+				    gdouble xa,
+				    gdouble ya,
+				    gdouble xb,
+				    gdouble yb) {
+	/* angle BAM > 90° : AM.AB < 0 =>  distance = MA */
+	if (math_dot_product(xm-xa, ym-ya, xb-xa, yb-ya) <= 0.0) {
+		return hypot(xm-xa, ym-ya);
+	}
+
+	/* angle ABM > 90° : BM.BA < 0 => distance = MB */
+	if (math_dot_product(xm-xb, ym-yb, xa-xb, ya-yb) <= 0.0) {
+		return hypot(xm-xb, ym-yb);
+	}
+
+	/* now distance point segment is same as distance point line */
+	/* it's based on a vector orthogonal with AB: (yb-ya, xa-xb) */
+	return fabs (math_dot_product(xm-xa,ym-ya, yb-ya, xa-xb)) / hypot(xa-xb, ya-yb);
+}

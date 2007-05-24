@@ -3,7 +3,7 @@
  * AUTHORS
  *       Sven Herzberg        <herzi@gnome-de.org>
  *
- * Copyright (C) 2005 Sven Herzberg
+ * Copyright (C) 2005,2007 Sven Herzberg
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public License as
@@ -33,6 +33,7 @@ typedef struct _CcItemViewIface CcItemViewIface;
 
 #define CC_TYPE_ITEM_VIEW         (cc_item_view_get_type())
 #define CC_ITEM_VIEW(i)           (G_TYPE_CHECK_INSTANCE_CAST((i), CC_TYPE_ITEM_VIEW, CcItemView))
+#define CC_ITEM_VIEW_IFACE(c)     ((CcItemViewIface*)g_type_interface_peek ((c), CC_TYPE_ITEM_VIEW))
 #define CC_IS_ITEM_VIEW(i)        (G_TYPE_CHECK_INSTANCE_TYPE((i), CC_TYPE_ITEM_VIEW))
 #define CC_ITEM_VIEW_GET_CLASS(i) (G_TYPE_INSTANCE_GET_INTERFACE((i), CC_TYPE_ITEM_VIEW, CcItemViewIface))
 

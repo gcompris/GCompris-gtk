@@ -50,7 +50,7 @@ pango_layout_new_cairo(void) {
 	layout   = pango_layout_new(context);
 
 	g_object_unref(context);
-	
+
 	return layout;
 }
 

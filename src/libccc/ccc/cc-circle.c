@@ -24,6 +24,9 @@
 #include "cc-circle.h"
 
 #include <math.h>
+#include <ccc/cc-brush.h>
+#include <ccc/cc-brush-color.h>
+#include <ccc/cc-color.h>
 
 CcItem*
 cc_circle_new(void) {
@@ -46,27 +49,34 @@ cc_circle_set_anchor(CcCircle* self, gdouble x, gdouble y) {
 	g_object_notify(G_OBJECT(self), "anchor");
 }
 
+/**
+ * cc_circle_set_radius:
+ * @self: a #CcCircle
+ * @radius: the new radius
+ *
+ * Specifies the radius of the circle.
+ */
 void
-cc_circle_set_radius(CcCircle* self, gdouble radius) {
-	CcDRect dirty;
+cc_circle_set_radius (CcCircle* self,
+		      gdouble   radius)
+{
 	CcItem* item;
 
 	g_return_if_fail(CC_IS_CIRCLE(self));
+
+	item = CC_ITEM(self);
 
 	if(self->radius == radius) {
 		return;
 	}
 
-	item = CC_ITEM(self);
-	dirty.x1 = self->x - MAX(radius, self->radius);
-	dirty.y1 = self->y - MAX(radius, self->radius);
-	dirty.x2 = self->x + MAX(radius, self->radius);
-	dirty.y2 = self->y + MAX(radius, self->radius);
 	self->radius = radius;
 
-	g_object_notify(G_OBJECT(self), "radius");
-	cc_item_dirty(item, NULL, dirty);
-	cc_item_update_bounds(item, NULL);
+	cc_item_repaint (item);
+	cc_item_update_bounds (item, NULL);
+	cc_item_repaint (item);
+
+	g_object_notify (G_OBJECT(self), "radius");
 }
 
 /* GType */
@@ -112,34 +122,62 @@ cc_set_property(GObject* object, guint prop_id, GValue const* value, GParamSpec*
 }
 
 static gdouble
-cc_distance(CcItem* item, gdouble x, gdouble y, CcItem** found) {
-	gdouble   distance = 0.0;
-	CcCircle* self = NULL;
+cc_distance (CcItem      * item,
+	     CcView const* view,
+	     gdouble       x,
+	     gdouble       y,
+	     CcItem      **found)
+{
+	gdouble   tmp_distance = 0.0, distance;
+	CcShape* self = NULL;
+	gdouble half_width, max_radius;
 
+	g_return_val_if_fail(CC_IS_CIRCLE(item), G_MAXDOUBLE);
+	g_return_val_if_fail(CC_IS_VIEW(view), G_MAXDOUBLE);
+	
 	// search the children first
-	distance = CC_ITEM_CLASS(cc_circle_parent_class)->distance(item, x, y, found);
+	distance = CC_ITEM_CLASS(cc_circle_parent_class)->distance(item, view, x, y, found);
 
 	if(*found) {
 		return distance;
 	}
 
-	self = CC_CIRCLE(item);
-	distance = sqrt(pow(x - self->x, 2.0) + pow(y - self->y, 2));
+	self = CC_SHAPE(item);
+	
+	/* nothing to catch */
+	if ((!self->brush_border) && (!self->brush_content))
+		return G_MAXDOUBLE;
+	
+	tmp_distance = sqrt(pow(x - CC_CIRCLE(self)->x, 2.0) + pow(y - CC_CIRCLE(self)->y, 2));
+	half_width = ceil(cc_shape_get_width(self, view) / 2.0);
+	max_radius = CC_CIRCLE(self)->radius + half_width;
 
-	if(distance <= self->radius + 0.5 * CC_SHAPE(self)->width) {
-		distance = 0.0;
+	/* points outside the circle */
+	if (self->brush_border && (tmp_distance > max_radius ))
+		distance = tmp_distance  - max_radius;
+	else if (self->brush_content && (tmp_distance > CC_CIRCLE(self)->radius ))
+		distance = tmp_distance - CC_CIRCLE(self)->radius;
+
+	/* points inside the circle */
+	else if (self->brush_content) {
 		*found = item;
+		distance = 0.0;
 	} else {
-		distance -= self->radius;
+		distance = CC_CIRCLE(self)->radius - half_width - tmp_distance;
+		/* points on the empty content circle */
+		if (distance <= 0.0) {
+			*found = item;
+			distance = 0.0;	
+		}
 	}
-
+	
 	return distance;
 }
 
 static void
 cc_update_bounds(CcItem* item, CcView const* view, gpointer data) {
 	CcCircle* self = CC_CIRCLE(item);
-	gdouble w_2 = 0.5 * CC_SHAPE(self)->width;
+	gdouble w_2 = 0.5 * cc_shape_get_width (CC_SHAPE (self), view);
 	CcDRect new_bounds = {
 		self->x - self->radius - w_2,
 		self->y - self->radius - w_2,

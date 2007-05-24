@@ -1,9 +1,9 @@
-/* this file is part of libccc, criawips' cairo-based canvas
+/* this file is part of libccc
  *
  * AUTHORS
  *       Sven Herzberg        <herzi@gnome-de.org>
  *
- * Copyright (C) 2005 Sven Herzberg
+ * Copyright (C) 2005,2007 Sven Herzberg
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public License as
@@ -20,6 +20,8 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307
  * USA
  */
+
+#ifndef CCC_DISABLE_DEPRECATED
 
 #ifndef CC_BRUSH_COLOR_H
 #define CC_BRUSH_COLOR_H
@@ -47,16 +49,17 @@ void           cc_brush_color_set_color(CcBrushColor* self,
 					CcColor     * color);
 
 struct _CcBrushColor {
-	CcBrush   base;
-	gboolean  disposed;
+	GInitiallyUnowned base_instance;
 	CcColor * color;
 };
 
 struct _CcBrushColorClass {
-	CcBrushClass base_class;
+	GInitiallyUnownedClass base_class;
 };
 
 G_END_DECLS
 
 #endif /* !CC_BRUSH_COLOR_H */
+
+#endif /* !CCC_DISABLE_DEPRECATED */
 

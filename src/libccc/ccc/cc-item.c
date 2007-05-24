@@ -1,9 +1,9 @@
-/* this file is part of libccc, criawips' cairo-based canvas
+/* this file is part of libccc
  *
  * AUTHORS
  *       Sven Herzberg        <herzi@gnome-de.org>
  *
- * Copyright (C) 2005 Sven Herzberg
+ * Copyright (C) 2005,2006,2007 Sven Herzberg
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public License as
@@ -31,8 +31,37 @@
 #include <ccc/cc-item-view.h>
 #include <ccc/cc-utils.h>
 #define CDEBUG_TYPE cc_item_get_type
-#include <cdebug/cdebug.h>
 #include "glib-helpers.h"
+#include "cdebug.h"
+
+/* Copied from glib/trunk/gobject/gtype.c:
+ * FIXME: report a bug against GLib to make these macros visible
+ * --------------8<------------ */
+/* The 2*sizeof(size_t) alignment here is borrowed from
+ * GNU libc, so it should be good most everywhere.
+ * It is more conservative than is needed on some 64-bit
+ * platforms, but ia64 does require a 16-byte alignment.
+ * The SIMD extensions for x86 and ppc32 would want a
+ * larger alignment than this, but we don't need to
+ * do better than malloc.
+ */
+#define STRUCT_ALIGNMENT (2 * sizeof (gsize))
+#define ALIGN_STRUCT(offset) \
+	      ((offset + (STRUCT_ALIGNMENT - 1)) & -STRUCT_ALIGNMENT)
+/* --------------8<------------ */
+
+typedef struct {
+	CcHashMap* view_data;
+} CcItemPrivate;
+
+#define P(i) (G_TYPE_INSTANCE_GET_PRIVATE ((i), CC_TYPE_ITEM, CcItemPrivate))
+
+typedef struct {
+	CcDRect* all_bounds;
+	CcDRect* children_bounds;
+} CcItemViewData;
+
+#define V(i,v) (CC_ITEM_GET_VIEW_DATA ((i), (v), CC_TYPE_ITEM, CcItemViewData))
 
 enum {
 	ALL_BOUNDS_CHANGED,
@@ -58,7 +87,7 @@ enum {
 	N_SIGNALS
 };
 
-guint cc_item_signals[N_SIGNALS] = {0};
+static guint cc_item_signals[N_SIGNALS] = {0};
 
 static void ci_init_item_view(CcItemViewIface* iface);
 
@@ -118,6 +147,35 @@ G_DEFINE_TYPE_WITH_CODE(CcItem, cc_item, G_TYPE_INITIALLY_UNOWNED,
  */
 
 /**
+ * cc_item_class_add_view_data:
+ * @item_class: a #CcItemClass
+ * @view_data_size: the size to be allocated for the view data
+ *
+ * Registers the size of view data for a certain item class. See also
+ * <xref linkend="ccc-View-Specific-Data"/>.
+ */
+void
+cc_item_class_add_view_data (gpointer item_class,
+			     gsize    view_data_size)
+{
+	CcItemClass* self_class;
+
+	g_return_if_fail (CC_IS_ITEM_CLASS (item_class));
+
+	self_class = CC_ITEM_CLASS (item_class);
+
+	if (G_OBJECT_CLASS_TYPE (self_class) != CC_TYPE_ITEM) {
+		CcItemClass* parent_class = g_type_class_peek_parent (self_class);
+		if (self_class->view_data_size != parent_class->view_data_size) {
+			g_warning ("cc_item_class_add_view_data() called multiple times for the same type");
+			return;
+		}
+	}
+
+	self_class->view_data_size = ALIGN_STRUCT(self_class->view_data_size) + view_data_size;
+}
+
+/**
  * cc_item_new:
  *
  * Create a new #CcItem that can be used to group several items together.
@@ -154,13 +212,16 @@ cc_item_append(CcItem* self, CcItem* child) {
  * cc_item_view_register() instead.
  */
 void
-cc_item_add_view(CcItem* self, CcView* view) {
+cc_item_add_view (CcItem* self,
+		  CcView* view)
+{
 	g_return_if_fail(CC_IS_ITEM(self));
 	g_return_if_fail(CC_IS_VIEW(view));
 
 	self->views = g_list_prepend(self->views, view);
 	// FIXME: add a weak reference on the view, and then add a FIXME for
 	// removal in _remove_view()
+//#warning  "FIXME: register the memory for the view and implement quick-lookup for the last view that was looked for in CcHashMap"
 	g_signal_emit(self, cc_item_signals[VIEW_REGISTER], 0, view);
 }
 
@@ -188,28 +249,28 @@ cc_item_remove_view(CcItem* self, CcView* view) {
 
 static void
 ci_update_all_bounds(CcView const* view, CcItem* self) {
-	CcDRect const* all_bounds      = cc_item_get_all_bounds(self, view);
-	CcDRect const* bounds          = cc_hash_map_lookup(self->bounds, view);
-	CcDRect const* children_bounds = cc_hash_map_lookup(self->children_bounds, view);
+	CcItemViewData* view_data = V(self, view);
+	CcDRect const* bounds     = cc_hash_map_lookup(self->bounds, view);
 
 	g_return_if_fail(CC_IS_VIEW(view));
 
-	if(G_UNLIKELY(!bounds && !children_bounds && all_bounds)) {
-		cc_hash_map_remove(self->all_bounds, self);
+	if(G_UNLIKELY(!bounds && !view_data->children_bounds && view_data->all_bounds)) {
+		g_free (view_data->all_bounds);
+		view_data->all_bounds = NULL;
 		g_signal_emit(self, cc_item_signals[ALL_BOUNDS_CHANGED], 0, view, NULL);
-	} else if(G_LIKELY(bounds || children_bounds)) {
+	} else if(G_LIKELY(bounds || view_data->children_bounds)) {
 		CcDRect new_bounds;
-		if(bounds && children_bounds) {
-			cc_d_rect_union(*bounds, *children_bounds, &new_bounds);
+		if(bounds && view_data->children_bounds) {
+			cc_d_rect_union(*bounds, *view_data->children_bounds, &new_bounds);
 		} else if(bounds) {
 			new_bounds = *bounds;
 		} else {
-			new_bounds = *children_bounds;
+			new_bounds = *view_data->children_bounds;
 		}
 
-		if(!all_bounds || !cc_d_rect_equal(*all_bounds, new_bounds)) {
-			cc_hash_map_remove(self->all_bounds, view);
-			cc_hash_map_insert(self->all_bounds, (gpointer)view, cc_d_rect_copy(&new_bounds));
+		if(!view_data->all_bounds || !cc_d_rect_equal(*view_data->all_bounds, new_bounds)) {
+			g_free (view_data->all_bounds);
+			view_data->all_bounds = cc_d_rect_copy (&new_bounds);
 			g_signal_emit(self, cc_item_signals[ALL_BOUNDS_CHANGED], 0, view, &new_bounds);
 		}
 	}
@@ -221,6 +282,29 @@ cc_item_bounds_changed(CcItem* self, CcView const* view) {
 	g_return_if_fail(CC_IS_VIEW(view));
 
 	ci_update_all_bounds(view, self);
+}
+
+static void
+item_repaint_cb (CcItem* item,
+		 CcView* view)
+{
+	CcDRect* bounds = cc_hash_map_lookup (item->bounds, view);
+
+	if (bounds) {
+		cc_item_dirty (item, view, *bounds);
+	}
+}
+
+/**
+ * cc_item_repaint:
+ * @self: a #CcItem
+ *
+ * Request a redraw operation for all the views.
+ */
+void
+cc_item_repaint (CcItem* item)
+{
+	cc_item_foreach_view (item, CC_ITEM_FUNC (item_repaint_cb), NULL);
 }
 
 /**
@@ -239,6 +323,7 @@ cc_item_dirty(CcItem* self, CcView const* view, CcDRect dirty_region) {
 /**
  * cc_item_distance:
  * @self: a #CcItem
+ * @view: a #CcView
  * @x: the x coordinate to query for
  * @y: the y coordinate to query for
  * @found: the return location for a found #CcItem
@@ -249,19 +334,30 @@ cc_item_dirty(CcItem* self, CcView const* view, CcDRect dirty_region) {
  * Returns the distance between @self (or one of its children) to (@x,@y).
  */
 gdouble
-cc_item_distance(CcItem* self, gdouble x, gdouble y, CcItem** found) {
+cc_item_distance (CcItem      * self,
+		  CcView const* view,
+		  gdouble       x,
+		  gdouble       y,
+		  CcItem      **found)
+{
 	gdouble distance = 0.0;
 	g_return_val_if_fail(CC_IS_ITEM(self), G_MAXDOUBLE);
 	g_return_val_if_fail(CC_ITEM_GET_CLASS(self)->distance, G_MAXDOUBLE);
 	g_return_val_if_fail(found, G_MAXDOUBLE);
 	g_return_val_if_fail(!CC_IS_ITEM(*found), G_MAXDOUBLE);
 
-	distance = CC_ITEM_GET_CLASS(self)->distance(self, x, y, found);
-#if 1
+	distance = CC_ITEM_GET_CLASS(self)->distance(self, view, x, y, found);
+
+#ifndef G_DISABLE_CHECKS
 	// enable this on experimental builds, but not on performance builds
 	if(distance <= 0.0 && !CC_IS_ITEM(*found)) {
-		g_warning("%sClass->distance() should set *found", G_OBJECT_TYPE_NAME(self));
+		g_warning("%sClass->distance() should set *found if the returned distance is <= 0.0",
+			  G_OBJECT_TYPE_NAME(self));
 		*found = self;
+	} else if(distance > 0 && CC_IS_ITEM(*found)) {
+		g_warning("%sClass->distance() should not set *found if distance is larger than 0.0",
+			  G_OBJECT_TYPE_NAME(self));
+		*found = NULL;
 	}
 #endif
 
@@ -301,7 +397,45 @@ cc_item_get_all_bounds(CcItem const* self, CcView const* view) {
 	g_return_val_if_fail(CC_IS_ITEM(self), NULL);
 	g_return_val_if_fail(CC_IS_VIEW(view), NULL);
 
-	return cc_hash_map_lookup(self->all_bounds, view);
+	return V(self, view)->all_bounds;
+}
+
+/**
+ * cc_item_get_view_data:
+ * @self: a #CcItem
+ * @type: the #GType of @self which should be searched for the view
+ * @view: a #CcView
+ *
+ * Get a pointer to the view data for @view in @self. See also
+ * <xref linkend="ccc-View-Specific-Data"/>.
+ *
+ * Returns a pointer to the requested memory.
+ */
+gpointer
+cc_item_get_view_data (CcItem const* self,
+		       CcView const* view,
+		       GType         self_type)
+{
+	gpointer view_data = NULL;
+
+	g_return_val_if_fail (CC_IS_ITEM (self), NULL);
+	g_return_val_if_fail (CC_IS_VIEW (view), NULL);
+	g_return_val_if_fail (g_type_is_a (self_type, CC_TYPE_ITEM), NULL);
+
+	cdebug ("get_view_data()", "for %s in %s",
+		G_OBJECT_TYPE_NAME (view),
+		G_OBJECT_TYPE_NAME (self));
+	view_data = cc_hash_map_lookup (P(self)->view_data, view);
+
+	if (G_UNLIKELY (!view_data)) {
+		g_warning ("Didn't find data for view %p (%s) in %p (%s).",
+			   view, G_OBJECT_TYPE_NAME (view),
+			   self, G_OBJECT_TYPE_NAME (self));
+	} else if (self_type != CC_TYPE_ITEM) {
+		CcItemClass* parent_class = g_type_class_peek_parent (CC_ITEM_GET_CLASS (self));
+		view_data = ((gchar*)view_data) + ALIGN_STRUCT (parent_class->view_data_size);
+	}
+	return view_data;
 }
 
 void
@@ -346,9 +480,12 @@ cc_item_insert(CcItem* self, CcItem* child, gint position) {
 
 	self->children = g_list_insert(self->children, g_object_ref_sink(child), position);
 	child->parent = self;
-	cc_item_view_register(CC_ITEM_VIEW(self), child);
 	position = g_list_index(self->children, child);
 	cc_item_foreach_view(self, ci_add_parent_view_to_child, child);
+
+	// FIXME: let's have a test case that makes sure that the views are registered before
+	// the item registers with the child
+	cc_item_view_register(CC_ITEM_VIEW(self), child);
 
 	g_signal_emit(self, cc_item_signals[ITEM_ADDED], 0, position, child);
 }
@@ -478,6 +615,133 @@ cc_item_update_bounds_for_view(CcItem* self, CcView* view) {
 	ci_update_bounds_per_view(view, self_and_data);
 }
 
+static void
+ci_update_view(CcItem* self, CcView* view, gpointer data) {
+	CcDRect const *dirty_region = cc_item_get_all_bounds(self, view);
+	g_return_if_fail(dirty_region != NULL);
+	cc_item_dirty(self, view, *dirty_region);
+}
+
+/**
+ * cc_item_set_position:
+ * @child: a #CcItem
+ * @parent: another #CcItem, parent of @child
+ * @position: the new position of the #CcItem (0 means at the bottom,
+ * bigger numbers mean higher layers, -1 means top layer)
+ *
+ * Changes the position of @child relative to @parent.
+ */
+void
+cc_item_set_position(CcItem* child, CcItem* parent, gint position)
+{
+	g_return_if_fail(CC_IS_ITEM(child));
+	g_return_if_fail(CC_IS_ITEM(parent));
+	g_return_if_fail(cc_item_is_child_of(child, parent));
+
+	parent->children = g_list_remove(parent->children, child);
+	parent->children = g_list_insert(parent->children, child, position);
+	cc_item_foreach_view(child, ci_update_view, NULL);
+}
+
+/**
+ * cc_item_raise_to_top:
+ * @child: a #CcItem
+ * @parent: another #CcItem, parent of @child
+ *
+ * Raises an @child to the top. It will be displayed over all of the other
+ * children of @parent.
+ */
+void
+cc_item_raise_to_top(CcItem* child, CcItem* parent)
+{
+	g_return_if_fail(CC_IS_ITEM(child));
+	g_return_if_fail(CC_IS_ITEM(parent));
+	g_return_if_fail(cc_item_is_child_of(child, parent));
+
+	if(child == CC_ITEM(g_list_last(parent->children)->data)) {
+		return;
+	}
+
+	parent->children = g_list_remove(parent->children, child);
+	parent->children = g_list_append(parent->children, child);
+	cc_item_foreach_view(child, ci_update_view, NULL);
+}
+
+/**
+ * cc_item_raise:
+ * @child: a #CcItem
+ * @parent: another #CcItem, parent of @child
+ *
+ * Raises @child by one level.
+ */
+void
+cc_item_raise(CcItem* child, CcItem* parent)
+{
+	gint position;
+
+	g_return_if_fail(CC_IS_ITEM(child));
+	g_return_if_fail(CC_IS_ITEM(parent));
+	g_return_if_fail(cc_item_is_child_of(child, parent));
+
+	if(child == CC_ITEM(g_list_last(parent->children)->data)) {
+		return;
+	}
+
+	position = g_list_index(parent->children, child);
+	parent->children = g_list_remove(parent->children, child);
+	parent->children = g_list_insert(parent->children, child, position+1);
+	cc_item_foreach_view(child, ci_update_view, NULL);
+}
+
+/**
+ * cc_item_lower:
+ * @child: a #CcItem
+ * @parent: another #CcItem, parent of @child
+ *
+ * Lowers @child by one level.
+ */
+void
+cc_item_lower(CcItem* child, CcItem* parent)
+{
+	gint position;
+
+	g_return_if_fail(CC_IS_ITEM(child));
+	g_return_if_fail(CC_IS_ITEM(parent));
+	g_return_if_fail(cc_item_is_child_of(child, parent));
+
+	if(child == CC_ITEM(parent->children->data)) {
+		return;
+	}
+
+	position = g_list_index(parent->children, child);
+	parent->children = g_list_remove(parent->children, child);
+	parent->children = g_list_insert(parent->children, child, position-1);
+	cc_item_foreach_view(child, ci_update_view, NULL);
+}
+
+/**
+ * cc_item_lower_to_bottom:
+ * @child: a #CcItem
+ * @parent: another #CcItem, parent of @child
+ *
+ * Lowers @child to be displayed behind all the other children of @parent.
+ */
+void
+cc_item_lower_to_bottom(CcItem* child, CcItem* parent)
+{
+	g_return_if_fail(CC_IS_ITEM(child));
+	g_return_if_fail(CC_IS_ITEM(parent));
+	g_return_if_fail(cc_item_is_child_of(child, parent));
+
+	if(child == CC_ITEM(parent->children->data)) {
+		return;
+	}
+
+	parent->children = g_list_remove(parent->children, child);
+	parent->children = g_list_prepend(parent->children, child);
+	cc_item_foreach_view(child, ci_update_view, NULL);
+}
+
 /* GType stuff */
 enum {
 	PROP_0,
@@ -490,9 +754,8 @@ static void
 cc_item_init(CcItem* self) {
 	self->parent = NULL;
 
-	self->all_bounds      = cc_hash_map_new(CC_TYPE_D_RECT);
+	P(self)->view_data    = cc_hash_map_new (G_TYPE_POINTER);
 	self->bounds          = cc_hash_map_new(CC_TYPE_D_RECT);
-	self->children_bounds = cc_hash_map_new(CC_TYPE_D_RECT);
 }
 
 static void
@@ -501,38 +764,31 @@ ci_remove_swapped(CcItem* child, CcItem* self) {
 }
 
 static void
-ci_dispose(GObject* object) {
-	CcItem* self = CC_ITEM(object);
+ci_dispose (GObject* object)
+{
+	CcItem* self = CC_ITEM (object);
 
-	if(CC_ITEM_DISPOSED(self)) {
-		return;
-	}
-	CC_ITEM_SET_FLAGS(self, CC_DISPOSED);
+	CC_ITEM_SET_FLAGS (self, CC_DISPOSED);
 
-	g_list_foreach(self->children, G_FUNC(ci_remove_swapped), self);
+	g_list_foreach (self->children, G_FUNC (ci_remove_swapped), self);
 	// self->children is NULL now
 
-	g_object_unref(self->bounds);
-	g_object_unref(self->all_bounds);
-	g_object_unref(self->children_bounds);
+	if (P(self)->view_data) {
+		g_object_unref (P(self)->view_data);
+		P(self)->view_data = NULL;
+	}
 
-	G_OBJECT_CLASS(cc_item_parent_class)->dispose(object);
+	if (self->bounds) {
+		g_object_unref(self->bounds);
+		self->bounds = NULL;
+	}
+
+	G_OBJECT_CLASS(cc_item_parent_class)->dispose (object);
 }
 
 static void
 ci_get_property(GObject* object, guint prop_id, GValue* value, GParamSpec* pspec) {
-	CcItem* self = CC_ITEM(object);
-
 	switch(prop_id) {
-	case PROP_ALL_BOUNDS:
-		g_value_set_boxed(value, self->all_bounds);
-		break;
-	case PROP_BOUNDS:
-		g_value_set_boxed(value, self->bounds);
-		break;
-	case PROP_CHILDREN_BOUNDS:
-		g_value_set_boxed(value, self->children_bounds);
-		break;
 	default:
 		G_OBJECT_WARN_INVALID_PROPERTY_ID(object, prop_id, pspec);
 		break;
@@ -540,70 +796,89 @@ ci_get_property(GObject* object, guint prop_id, GValue* value, GParamSpec* pspec
 }
 
 static gdouble
-ci_distance(CcItem* self, gdouble x, gdouble y, CcItem** found) {
+item_distance(CcItem      * self,
+	      CcView const* view,
+	      gdouble       x,
+	      gdouble       y,
+	      CcItem      **found)
+{
 	gdouble  distance = G_MAXDOUBLE;
 	GList  * child;
 	CcItem * child_found = NULL;
 
+	g_return_val_if_fail(CC_IS_ITEM(self), distance);
 	g_return_val_if_fail(found && !CC_IS_ITEM(*found), distance);
 
-	for(child = g_list_last(self->children); child ; child = child->prev) {
-	  child_found = NULL;
-	  gdouble new_dist = cc_item_distance(CC_ITEM(child->data), x, y, &child_found);
-	  //distance = MIN(distance, new_dist);
+	cdebug("distance()", "start on %p", self);
 
-	  if (distance > new_dist){
-	    distance = new_dist;
-	    if (child_found)
-	      *found = child_found;
-	    else
-	      *found = CC_ITEM(child->data);
-	  }
+	for(child = g_list_last(self->children); child ; child = child->prev, child_found = NULL) {
+		gdouble new_dist = cc_item_distance(CC_ITEM(child->data), view, x, y, &child_found);
+
+		if(distance > new_dist) {
+			distance = new_dist;
+			if (child_found) {
+				*found = child_found;
+			}
+		}
 	}
 
+	cdebug("distance()", "end: distance to %s (%p) is %f",
+	       *found ? G_OBJECT_TYPE_NAME(*found) : "NULL",
+	       *found, distance);
 	return distance;
 }
 
 static gboolean
-ci_event(CcItem* self, CcView* view, GdkEvent* ev) {
+item_event(CcItem  * self,
+	   CcView  * view,
+	   GdkEvent* event)
+{
 	gboolean retval = FALSE;
 
 	g_return_val_if_fail(CC_IS_ITEM(self), FALSE);
 	g_return_val_if_fail(CC_IS_VIEW(view), FALSE);
 
-	switch(ev->type) {
+	CDEBUG(GEnumClass* clss = g_type_class_ref(GDK_TYPE_EVENT_TYPE);
+	       cdebug("event()", "%s (%p) received an event of type \"%s\": %p",
+		      G_OBJECT_TYPE_NAME(self), self,
+		      g_enum_get_value(clss, event->type)->value_name,
+		      event);
+	       g_type_class_unref(clss);
+	);
+
+	switch(event->type) {
 	case GDK_BUTTON_PRESS:
 	case GDK_2BUTTON_PRESS:
 	case GDK_3BUTTON_PRESS:
-		g_signal_emit(self, cc_item_signals[BUTTON_PRESS_EVENT], 0, view, ev, &retval);
+		g_signal_emit(self, cc_item_signals[BUTTON_PRESS_EVENT], 0, view, event, &retval);
 		break;
 	case GDK_BUTTON_RELEASE:
-		g_signal_emit(self, cc_item_signals[BUTTON_RELEASE_EVENT], 0, view, ev, &retval);
+		g_signal_emit(self, cc_item_signals[BUTTON_RELEASE_EVENT], 0, view, event, &retval);
 		break;
 	case GDK_MOTION_NOTIFY:
-		g_signal_emit(self, cc_item_signals[MOTION_NOTIFY_EVENT], 0, view, ev, &retval);
+		g_signal_emit(self, cc_item_signals[MOTION_NOTIFY_EVENT], 0, view, event, &retval);
 		break;
 	case GDK_ENTER_NOTIFY:
-		g_signal_emit(self, cc_item_signals[ENTER_NOTIFY_EVENT], 0, view, ev, &retval);
+		g_signal_emit(self, cc_item_signals[ENTER_NOTIFY_EVENT], 0, view, event, &retval);
 		break;
 	case GDK_LEAVE_NOTIFY:
-		g_signal_emit(self, cc_item_signals[LEAVE_NOTIFY_EVENT], 0, view, ev, &retval);
+		g_signal_emit(self, cc_item_signals[LEAVE_NOTIFY_EVENT], 0, view, event, &retval);
 		break;
 	case GDK_KEY_PRESS:
-		g_signal_emit(self, cc_item_signals[KEY_PRESS_EVENT], 0, view, ev, &retval);
+		g_signal_emit(self, cc_item_signals[KEY_PRESS_EVENT], 0, view, event, &retval);
 		break;
 	case GDK_KEY_RELEASE:
-		g_signal_emit(self, cc_item_signals[KEY_RELEASE_EVENT], 0, view, ev, &retval);
+		g_signal_emit(self, cc_item_signals[KEY_RELEASE_EVENT], 0, view, event, &retval);
 		break;
 	case GDK_FOCUS_CHANGE:
-		if(!ev->focus_change.in) {
-			g_signal_emit(self, cc_item_signals[FOCUS_LEAVE], 0, view, ev, &retval);
+		if(!event->focus_change.in) {
+			g_signal_emit(self, cc_item_signals[FOCUS_LEAVE], 0, view, event, &retval);
 		}
 		break;
 	default:
 		{
 			GEnumClass* klass = g_type_class_ref(GDK_TYPE_EVENT_TYPE);
-			GEnumValue* value = g_enum_get_value(klass, ev->type);
+			GEnumValue* value = g_enum_get_value(klass, event->type);
 			g_type_class_unref(klass);
 
 			g_message("CcItem::event(): got an unhandled '%s' event", value->value_name);
@@ -613,7 +888,7 @@ ci_event(CcItem* self, CcView* view, GdkEvent* ev) {
 
 	if(!retval && self->parent) {
 		// FIXME: make sure item->parent is displayed in view
-		g_signal_emit(self->parent, cc_item_signals[EVENT], 0, view, ev, &retval);
+		g_signal_emit(self->parent, cc_item_signals[EVENT], 0, view, event, &retval);
 	}
 
 	return retval;
@@ -676,22 +951,30 @@ ci_render(CcItem* self, CcView* view, cairo_t* cr) {
 
 static void
 ci_merge_child_bounds(CcItem* child, gpointer rect_and_view[2]) {
-	CcDRect* all_bounds = cc_hash_map_lookup(child->all_bounds, rect_and_view[1]);
-	if(all_bounds) {
+	CcDRect      * all_bounds = V(child, rect_and_view[1])->all_bounds;
+
+	if (all_bounds) {
 		CcDRect* rect = rect_and_view[0];
 		cc_d_rect_union(*all_bounds, *rect, rect);
 	}
 }
 
 static void
-ci_notify_child_bounds_real(CcItem* self, CcItem* child, CcView* view, CcDRect const* bounds) {
+ci_notify_child_bounds_real(CcItem       * self,
+			    CcItem       * child,
+			    CcView       * view,
+			    CcDRect const* bounds)
+{
+	CcItemViewData* view_data;
 	GList   * it = self->children;
+
+	view_data = V(self, view);
 
 	if(G_UNLIKELY(!bounds && self->bounds)) {
 		bounds = cc_hash_map_lookup(self->bounds, view);
 	} else if(G_UNLIKELY(!bounds)) {
 		for(it = self->children; it; it = it->next) {
-			bounds = cc_hash_map_lookup(CC_ITEM(it->data)->all_bounds, view);
+			bounds = V(it->data, view)->all_bounds;
 			if(bounds) {
 				it = it->next;
 				break;
@@ -701,17 +984,17 @@ ci_notify_child_bounds_real(CcItem* self, CcItem* child, CcView* view, CcDRect c
 
 	if(G_LIKELY(bounds)) {
 		CcDRect drect = *bounds;
-		CcDRect* children_bounds = cc_hash_map_lookup(self->children_bounds, view);
 		gpointer rect_and_view[] = {&drect, view};
 		g_list_foreach(it, G_FUNC(ci_merge_child_bounds), rect_and_view);
 
-		if(!children_bounds || !cc_d_rect_equal(*children_bounds, drect)) {
-			cc_hash_map_remove(self->children_bounds, view);
-			cc_hash_map_insert(self->children_bounds, view, cc_d_rect_copy(&drect));
+		if(!view_data->children_bounds || !cc_d_rect_equal(*view_data->children_bounds, drect)) {
+			g_free (view_data->children_bounds);
+			view_data->children_bounds = cc_d_rect_copy(&drect);
 			ci_update_all_bounds(view, self);
 		}
 	} else {
-		cc_hash_map_remove(self->children_bounds, view);
+		g_free (view_data->children_bounds);
+		view_data->children_bounds = NULL;
 		ci_update_all_bounds(view, self);
 	}
 }
@@ -723,6 +1006,12 @@ ci_child_emit_view_register(CcItem* item, CcView* view) {
 
 static void
 ci_view_register(CcItem* self, CcView* view) {
+	gpointer view_data = NULL;
+	cdebug ("view_register()", "for %s in %s",
+		G_OBJECT_TYPE_NAME (view),
+		G_OBJECT_TYPE_NAME (self));
+	view_data = g_slice_alloc0 (CC_ITEM_GET_CLASS(self)->view_data_size);
+	cc_hash_map_insert (P(self)->view_data, view, view_data);
 	g_list_foreach(self->children, G_FUNC(ci_child_emit_view_register), view);
 }
 
@@ -733,10 +1022,25 @@ ci_child_emit_view_unregister(CcItem* item, CcView* view) {
 
 static void
 ci_view_unregister(CcItem* self, CcView* view) {
-	if(cc_item_get_all_bounds(self, view)) {
-		cc_item_dirty(self, view, *cc_item_get_all_bounds(self, view));
-	}
+	CcItemViewData* view_data = V(self, view);
 	g_list_foreach(self->children, G_FUNC(ci_child_emit_view_unregister), view);
+	if(view_data->all_bounds) {
+		cc_item_dirty(self, view, *view_data->all_bounds);
+		g_free (view_data->all_bounds);
+		view_data->all_bounds = NULL;
+	}
+
+	if (view_data->children_bounds) {
+		g_free (view_data->children_bounds);
+		view_data->children_bounds = NULL;
+	}
+
+	g_slice_free1 (CC_ITEM_GET_CLASS(self)->view_data_size, view_data);
+	cc_hash_map_remove (P(self)->view_data, view);
+	cc_hash_map_remove (self->bounds, view);
+	cdebug ("view_unregister()", "for %s in %s",
+		G_OBJECT_TYPE_NAME (view),
+		G_OBJECT_TYPE_NAME (self));
 }
 
 static void
@@ -748,6 +1052,15 @@ cc_item_class_init(CcItemClass* self_class) {
 	go_class->dispose      = ci_dispose;
 	go_class->get_property = ci_get_property;
 
+	/**
+	 * CcItem::all-bounds-changed
+	 * @self: a #Ccitem
+	 * @view: the #CcView belonging to this event
+	 * @box: a #CcDRect specifying the new bounding box
+	 *
+	 * This signal gets emitted when the total bounding box of an item
+	 * changed. See also <xref linkend="ccc-Bounds-Handling"/>.
+	 */
 	cc_item_signals[ALL_BOUNDS_CHANGED] =
 		g_signal_new("all-bounds-changed", CC_TYPE_ITEM,
 			     0,0, NULL, NULL,
@@ -862,6 +1175,17 @@ cc_item_class_init(CcItemClass* self_class) {
 			     cc_marshal_BOOLEAN__OBJECT_ENUM,
 			     G_TYPE_BOOLEAN, 2,
 			     CC_TYPE_VIEW, GTK_TYPE_DIRECTION_TYPE);
+	/**
+	 * CcItem::focus-enter
+	 * @self: a #CcItem
+	 * @view: a #CcView
+	 * @event: a #GdkEventFocus
+	 *
+	 * This signal gets emitted when the focus enters this item.
+	 *
+	 * Returns %TRUE to stop other signal handlers, %FALSE to allow their
+	 * execution.
+	 */
 	cc_item_signals[FOCUS_ENTER] =
 		g_signal_new("focus-enter", CC_TYPE_ITEM,
 			     G_SIGNAL_RUN_LAST, G_STRUCT_OFFSET(CcItemClass, focus_enter),
@@ -869,6 +1193,17 @@ cc_item_class_init(CcItemClass* self_class) {
 			     cc_marshal_BOOLEAN__OBJECT_BOXED,
 			     G_TYPE_BOOLEAN, 2,
 			     CC_TYPE_VIEW, GDK_TYPE_EVENT | G_SIGNAL_TYPE_STATIC_SCOPE);
+	/**
+	 * CcItem::focus-leave
+	 * @self: a #CcItem
+	 * @view: a #CcView
+	 * @event: a #GdkEventFocus
+	 *
+	 * This signal gets emitted when the focus leaves this item.
+	 *
+	 * Returns %TRUE to stop other signal handlers, %FALSE to allow their
+	 * execution.
+	 */
 	cc_item_signals[FOCUS_LEAVE] =
 		g_signal_new("focus-leave", CC_TYPE_ITEM,
 			     G_SIGNAL_RUN_LAST, G_STRUCT_OFFSET(CcItemClass, focus_leave),
@@ -876,6 +1211,17 @@ cc_item_class_init(CcItemClass* self_class) {
 			     cc_marshal_BOOLEAN__OBJECT_BOXED,
 			     G_TYPE_BOOLEAN, 2,
 			     CC_TYPE_VIEW, GDK_TYPE_EVENT | G_SIGNAL_TYPE_STATIC_SCOPE);
+	/**
+	 * CcItem::key-press-event
+	 * @self: a #CcItem
+	 * @view: a #CcView
+	 * @event: a #GdkEventKey
+	 *
+	 * This signal gets emitted when a key gets pressed.
+	 *
+	 * Returns %TRUE to stop other signal handlers, %FALSE to allow their
+	 * execution.
+	 */
 	cc_item_signals[KEY_PRESS_EVENT] =
 		g_signal_new("key-press-event", CC_TYPE_ITEM,
 			     G_SIGNAL_RUN_LAST, G_STRUCT_OFFSET(CcItemClass, key_press_event),
@@ -883,6 +1229,17 @@ cc_item_class_init(CcItemClass* self_class) {
 			     cc_marshal_BOOLEAN__OBJECT_BOXED,
 			     G_TYPE_BOOLEAN, 2,
 			     CC_TYPE_VIEW, GDK_TYPE_EVENT | G_SIGNAL_TYPE_STATIC_SCOPE);
+	/**
+	 * CcItem::key-release-event
+	 * @self: a #CcItem
+	 * @view: a #CcView
+	 * @event: a #GdkEventKey
+	 *
+	 * This signal gets emitted when a key gets released.
+	 *
+	 * Returns %TRUE to stop other signal handlers, %FALSE to allow their
+	 * execution.
+	 */
 	cc_item_signals[KEY_RELEASE_EVENT] =
 		g_signal_new("key-release-event", CC_TYPE_ITEM,
 			     G_SIGNAL_RUN_LAST, G_STRUCT_OFFSET(CcItemClass, key_release_event),
@@ -988,15 +1345,20 @@ cc_item_class_init(CcItemClass* self_class) {
 			     G_TYPE_NONE, 1,
 			     CC_TYPE_VIEW);
 
-	/* CriaItemClass */
-	self_class->distance            = ci_distance;
-	self_class->event               = ci_event;
+	/* CcItemClass */
+	self_class->distance            = item_distance;
+	self_class->event               = item_event;
 	self_class->focus               = ci_focus;
 	self_class->render              = ci_render;
 	self_class->notify_child_bounds = ci_notify_child_bounds_real;
 
 	self_class->view_register       = ci_view_register;
 	self_class->view_unregister     = ci_view_unregister;
+
+	self_class->view_data_size      = 0;
+	cc_item_class_add_view_data (self_class, sizeof (CcItemViewData));
+
+	g_type_class_add_private (self_class, sizeof (CcItemPrivate));
 }
 
 /* CcItemViewIface */

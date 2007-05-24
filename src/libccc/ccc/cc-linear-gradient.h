@@ -1,9 +1,9 @@
-/* this file is part of libccc, criawips' cairo-based canvas
+/* This file is part of CCC
  *
  * AUTHORS
- *       Sven Herzberg        <herzi@gnome-de.org>
+ *     Sven Herzberg  <herzi@gnome-de.org>
  *
- * Copyright (C) 2005 Sven Herzberg
+ * Copyright (C) 2006  Sven Herzberg
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public License as
@@ -21,34 +21,24 @@
  * USA
  */
 
-#ifndef CC_D_RECT_H
-#define CC_D_RECT_H
+#ifndef CC_LINEAR_GRADIENT_H
+#define CC_LINEAR_GRADIENT_H
 
-#include <glib-object.h>
+#include <ccc/cc-gradient.h>
 
 G_BEGIN_DECLS
 
-typedef struct {
-	gdouble x1;
-	gdouble y1;
-	gdouble x2;
-	gdouble y2;
-} CcDRect;
+typedef CcGradient      CcLinearGradient;
+typedef CcGradientClass CcLinearGradientClass;
 
-#define CC_TYPE_D_RECT (cc_d_rect_get_type())
+#define CC_TYPE_LINEAR_GRADIENT         (cc_linear_gradient_get_type())
 
-GType cc_d_rect_get_type(void);
-
-CcDRect* cc_d_rect_copy     (CcDRect const* one);
-gboolean cc_d_rect_equal    (CcDRect  one,
-			     CcDRect  two);
-gboolean cc_d_rect_intersect(CcDRect  one,
-			     CcDRect  two);
-void     cc_d_rect_union    (CcDRect  one,
-			     CcDRect  two,
-			     CcDRect* merged);
+GType    cc_linear_gradient_get_type(void);
+CcBrush* cc_linear_gradient_new(gdouble x1,
+				gdouble y1,
+				gdouble x2,
+				gdouble y2);
 
 G_END_DECLS
 
-#endif /* !CC_D_RECT_H */
-
+#endif /* !CC_LINEAR_GRADIENT_H */

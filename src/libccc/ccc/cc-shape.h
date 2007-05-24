@@ -26,6 +26,7 @@
 
 #include <ccc/cc-brush.h>
 #include <ccc/cc-item.h>
+#include <ccc/cc-unit.h>
 
 G_BEGIN_DECLS
 
@@ -48,7 +49,9 @@ CcBrush* cc_shape_get_brush_content(CcShape* self);
 void     cc_shape_set_brush_content(CcShape* self,
 				    CcBrush* brush);
 gdouble  cc_shape_get_width        (CcShape* shape,
-				    CcView * view);
+				    CcView const* view);
+void     cc_shape_set_line_width   (CcShape     * shape,
+				    CcDistance  * width);
 void     cc_shape_set_width_pixels (CcShape* self,
 				    gdouble  width);
 void     cc_shape_set_width_units  (CcShape* self,
@@ -59,9 +62,6 @@ struct _CcShape {
 
 	CcBrush * brush_border;
 	CcBrush * brush_content;
-
-	gdouble   width;
-	gboolean  width_units;
 };
 
 struct _CcShapeClass {

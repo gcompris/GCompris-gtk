@@ -35,6 +35,16 @@ cc_rectangle_new(void) {
 	return g_object_new(CC_TYPE_RECTANGLE, NULL);
 }
 
+/**
+ * cc_rectangle_set_position:
+ * @self: a #CcRectangle
+ * @x: the horizontal position
+ * @y: the vertical position
+ * @w: the width of the rectangle
+ * @h: the eight of the rectangle
+ *
+ * Specify the position of a rectangle.
+ */
 void
 cc_rectangle_set_position(CcRectangle* self, gdouble x, gdouble y, gdouble w, gdouble h) {
 	g_object_set(self,
@@ -164,7 +174,12 @@ cr_set_property(GObject* object, guint prop_id, GValue const* value, GParamSpec*
 }
 
 static gdouble
-cr_distance(CcItem* item, gdouble x, gdouble y, CcItem** found) {
+cr_distance(CcItem      * item,
+	    CcView const* view,
+	    gdouble       x,
+	    gdouble       y,
+	    CcItem      **found)
+{
 	CcRectangle* self = CC_RECTANGLE(item);
 	gdouble      distance = G_MAXDOUBLE;
 
@@ -172,42 +187,68 @@ cr_distance(CcItem* item, gdouble x, gdouble y, CcItem** found) {
 	g_return_val_if_fail(!CC_IS_ITEM(*found), distance);
 
 	// search the children first
-	distance = CC_ITEM_CLASS(cc_rectangle_parent_class)->distance(item, x, y, found);
+	distance = CC_ITEM_CLASS(cc_rectangle_parent_class)->distance(item, view, x, y, found);
 
 	if(CC_IS_ITEM(*found)) {
 		return distance;
 	}
 
-	if(self->x <= x && x <= self->x + self->w &&
-	   self->y <= y && y <= self->y + self->h) {
-		distance = 0.0;
-		if(found) {
-			*found = item;
+	if (!CC_SHAPE(self)->brush_content && !CC_SHAPE(self)->brush_border)
+		return MIN(distance, G_MAXDOUBLE);
+
+	gdouble half_width = cc_shape_get_width (CC_SHAPE (self), view);
+	gdouble delta_width = CC_SHAPE(self)->brush_border ? half_width : 0;
+
+	if(( self->x - delta_width <= x )  && ( x <= self->x + self->w +  + delta_width ) &&
+	   ( self->y - delta_width <= y && y <= self->y + self->h + delta_width )) {
+		if (CC_SHAPE(self)->brush_content) {
+			distance = 0.0;
+			if(found) {
+				*found = item;
+			}
+		} else {
+			/* border is present, but no content */
+			gdouble new_dist = MAX(
+					       MIN(
+						   MIN(x - self->x - delta_width,
+						       self->x + self->w - x - delta_width),
+						   MIN(y - self->y - delta_width,
+						       self->y + self->h - y - delta_width)),
+					       0.0
+					       );
+
+			if (new_dist == 0.0) {
+				if(found) {
+					*found = item;
+				}
+			}
+			distance = MIN(new_dist, distance);
+			
 		}
 	} else {
 		// calculate the distance
-		if(self->x <= x && x <= self->x + self->w) {
+		if((self->x - delta_width <= x) && (x <= self->x + self->w + delta_width)) {
 			// point differs only in y
 			if(y < self->y) {
-				distance = self->y - y;
+				distance = self->y - y - delta_width;
 			} else {
-				distance = y - self->y - self->h;
+				distance = y - self->y - self->h -delta_width;
 			}
-		} else if(self->y <= y && y <= self->y + self->h) {
+		} else if((self->y -delta_width) <= y && y <= (self->y + self->h + delta_width)) {
 			// point differs only in x
 			if(x < self->x) {
-				distance = self->x - x;
+				distance = self->x - x - delta_width;
 			} else {
-				distance = x - self->x - self->w;
+				distance = x - self->x - self->w - delta_width;
 			}
 		} else {
 			// point is completely out of the rect area
-			gdouble new_dist = sqrt(pow(MAX(self->x - x, x - self->x - self->w), 2.0) +
-					        pow(MAX(self->y - y, y - self->y - self->h),2.0));
+			gdouble new_dist = sqrt(pow(MAX(self->x - x - delta_width, x - self->x - self->w -delta_width), 2.0) +
+						pow(MAX(self->y - y - delta_width, y - self->y - self->h - delta_width),2.0));
 			distance = MIN(distance, new_dist);
 		}
+		
 	}
-
 	return distance;
 }
 

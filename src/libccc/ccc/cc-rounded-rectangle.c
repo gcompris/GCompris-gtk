@@ -26,6 +26,17 @@
 #include <math.h>
 #include <ccc/cc-utils.h>
 
+struct CcRoundedRectanglePrivate {
+	gdouble radius;
+};
+#define P(i) (G_TYPE_INSTANCE_GET_PRIVATE((i), CC_TYPE_ROUNDED_RECTANGLE, struct CcRoundedRectanglePrivate))
+
+CcItem*
+cc_rounded_rectangle_new(void)
+{
+	return g_object_new(CC_TYPE_ROUNDED_RECTANGLE, NULL);
+}
+
 /* GType stuff */
 G_DEFINE_TYPE(CcRoundedRectangle, cc_rounded_rectangle, CC_TYPE_RECTANGLE);
 
@@ -36,7 +47,7 @@ enum {
 
 static void
 cc_rounded_rectangle_init(CcRoundedRectangle* self) {
-	self->corner_radius = 5.0;
+	P(self)->radius = 5.0;
 }
 
 static void
@@ -45,7 +56,7 @@ crr_get_property(GObject* object, guint prop_id, GValue* value, GParamSpec* pspe
 
 	switch(prop_id) {
 	case PROP_RADIUS:
-		g_value_set_double(value, self->corner_radius);
+		g_value_set_double(value, P(self)->radius);
 		break;
 	default:
 		G_OBJECT_WARN_INVALID_PROPERTY_ID(object, prop_id, pspec);
@@ -59,16 +70,17 @@ crr_dirty_corners(CcRectangle* self, CcView* view, gdouble* old_radius) {
 	cc_item_dirty(CC_ITEM(self), view, dirty);
 }
 
-static void
-crr_set_radius(CcRoundedRectangle* self, gdouble radius) {
+void
+cc_rounded_rectangle_set_radius(CcRoundedRectangle* self,
+				gdouble             radius) {
 	CcItem * item;
 	gdouble old_radius;
-	if(self->corner_radius == radius) {
+	if(P(self)->radius == radius) {
 		return;
 	}
 
-	old_radius = self->corner_radius;
-	self->corner_radius = radius;
+	old_radius = P(self)->radius;
+	P(self)->radius = radius;
 
 	item = CC_ITEM(self);
 	cc_item_foreach_view(item, CC_ITEM_FUNC(crr_dirty_corners), &old_radius);
@@ -82,7 +94,7 @@ crr_set_property(GObject* object, guint prop_id, GValue const* value, GParamSpec
 
 	switch(prop_id) {
 	case PROP_RADIUS:
-		crr_set_radius(self, g_value_get_double(value));
+		cc_rounded_rectangle_set_radius(self, g_value_get_double(value));
 		break;
 	default:
 		G_OBJECT_WARN_INVALID_PROPERTY_ID(object, prop_id, pspec);
@@ -95,21 +107,19 @@ crr_path(CcShape* shape, CcView* view, cairo_t* cr) {
 	CcRectangle* rect = CC_RECTANGLE(shape);
 	CcRoundedRectangle* self = CC_ROUNDED_RECTANGLE(shape);
 	gdouble width  = cc_shape_get_width(shape, view);
-	gdouble radius = self->corner_radius;
-	gdouble null   = 0.0;
+	gdouble radius = P(self)->radius;
 	gdouble points[][2] = {
-		{rect->x + radius,           rect->y},
-		{rect->x + rect->w - radius, rect->y + radius},
-		{rect->x + rect->w,          rect->y + rect->h - radius}
+		{rect->x + radius, rect->y + rect->h - radius},
+		{rect->x + rect->w - radius, rect->y + radius}
 	};
 	guint i;
 
 	cairo_set_line_join(cr, CAIRO_LINE_JOIN_ROUND);
 
-	cc_view_world_to_window(view, &radius, NULL);
-	cc_view_world_to_window(view, &null, NULL);
-	radius -= null;
-	cc_point_grid_align(NULL, NULL, &radius);
+	cc_view_world_to_window_distance(view, &radius, NULL);
+	if(CC_ITEM_GRID_ALIGNED(shape)) {
+		cc_point_grid_align(NULL, NULL, &radius);
+	}
 
 	for(i = 0; i < G_N_ELEMENTS(points); i++) {
 		cc_view_world_to_window(view, &points[i][0], &points[i][1]);
@@ -118,10 +128,10 @@ crr_path(CcShape* shape, CcView* view, cairo_t* cr) {
 		}
 	}
 
-	cairo_arc    (cr, points[1][0], points[1][1], radius, G_PI/-2.0, 0.0);
-	cairo_arc    (cr, points[1][0], points[2][1], radius, 0.0,       G_PI/2.0);
-	cairo_arc    (cr, points[0][0], points[2][1], radius, G_PI/2.0,  G_PI);
-	cairo_arc    (cr, points[0][0], points[1][1], radius, G_PI,      G_PI/-2.0);
+	cairo_arc(cr, points[1][0], points[1][1], radius, G_PI/-2.0, 0.0);
+	cairo_arc(cr, points[1][0], points[0][1], radius, 0.0,       G_PI/2.0);
+	cairo_arc(cr, points[0][0], points[0][1], radius, G_PI/2.0,  G_PI);
+	cairo_arc(cr, points[0][0], points[1][1], radius, G_PI,      G_PI/-2.0);
 	cairo_close_path(cr);
 }
 
@@ -149,5 +159,8 @@ cc_rounded_rectangle_class_init(CcRoundedRectangleClass* self_class) {
 	/* CcShapeClass */
 	cs_class = CC_SHAPE_CLASS(self_class);
 	cs_class->path = crr_path;
+
+	/* CcRoundedRectangleClass */
+	g_type_class_add_private(self_class, sizeof(struct CcRoundedRectanglePrivate));
 }
 

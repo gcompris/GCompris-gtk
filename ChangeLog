@@ -1,3 +1,146 @@
+2007-05-25  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	Added the libccc library by Sven Herzberg.
+	the original code is imported in gcompris/vendor/libccc/0.0.4/
+	the sven repository is in http://www.blaubeermuffin.de/svn/libccc/trunk
+
+	Included the patches from Yves to make the python demo work and much more.
+
+	* configure.in:
+	* src/Makefile.am:
+	* src/libccc/Makefile.am:
+	* src/libccc/ccc/Makefile.am:
+	* src/libccc/ccc/Makefile.in:
+	* src/libccc/ccc/cc-brush-color.c: (cbc_dispose), (cbc_apply),
+	(cc_brush_color_class_init), (brush_color_implement_brush):
+	* src/libccc/ccc/cc-brush-color.h:
+	* src/libccc/ccc/cc-brush.c: (cc_brush_apply):
+	* src/libccc/ccc/cc-brush.h:
+	* src/libccc/ccc/cc-cairo.c:
+	* src/libccc/ccc/cc-cairo.h:
+	* src/libccc/ccc/cc-camera.c: (camera_set_zoom), (camera_render),
+	(camera_init_matrix), (camera_world_to_window),
+	(camera_world_to_window_distance), (camera_item_added),
+	(camera_item_removed), (camera_item_dirty),
+	(camera_notify_all_bounds), (camera_implement_item_view):
+	* src/libccc/ccc/cc-caret.c: (cc_caret_new),
+	(cc_caret_set_position), (cc_caret_init), (cc_caret_class_init):
+	* src/libccc/ccc/cc-caret.h:
+	* src/libccc/ccc/cc-circle.c: (cc_circle_set_radius),
+	(cc_distance), (cc_update_bounds):
+	* src/libccc/ccc/cc-color-hsv.c: (color_hsv_apply),
+	(cc_color_hsv_class_init):
+	* src/libccc/ccc/cc-color-rgb.c: (color_rgb_apply),
+	(cc_color_rgb_class_init):
+	* src/libccc/ccc/cc-color.c: (cc_color_apply), (cc_color_stop),
+	(color_apply), (cc_color_class_init), (color_apply_brush),
+	(color_implement_brush):
+	* src/libccc/ccc/cc-color.h:
+	* src/libccc/ccc/cc-d-rect.c: (cc_d_rect_copy):
+	* src/libccc/ccc/cc-d-rect.h:
+	* src/libccc/ccc/cc-enumerations.c.in:
+	* src/libccc/ccc/cc-gradient.c: (gradient_compare_stops),
+	(cc_gradient_add_stop), (cc_gradient_create_pattern),
+	(cc_gradient_init), (gradient_apply), (cc_gradient_class_init),
+	(gradient_implement_brush):
+	* src/libccc/ccc/cc-gradient.h:
+	* src/libccc/ccc/cc-hash-map.c: (cc_hash_map_insert),
+	(cc_hash_map_init), (mhm_constructor), (mhm_finalize),
+	(mhm_get_property), (mhm_set_property), (cc_hash_map_class_init):
+	* src/libccc/ccc/cc-hash-map.h:
+	* src/libccc/ccc/cc-item-view.c: (civ_notify_all_bounds),
+	(emit_notify_all_bounds), (cc_item_view_register):
+	* src/libccc/ccc/cc-item-view.h:
+	* src/libccc/ccc/cc-item.c: (cc_item_class_add_view_data),
+	(cc_item_add_view), (ci_update_all_bounds), (item_repaint_cb),
+	(cc_item_repaint), (cc_item_distance), (cc_item_get_all_bounds),
+	(cc_item_get_view_data), (cc_item_insert), (ci_update_view),
+	(cc_item_set_position), (cc_item_raise_to_top), (cc_item_raise),
+	(cc_item_lower), (cc_item_lower_to_bottom), (cc_item_init),
+	(ci_dispose), (ci_get_property), (item_distance), (item_event),
+	(ci_merge_child_bounds), (ci_notify_child_bounds_real),
+	(ci_view_register), (ci_view_unregister), (cc_item_class_init):
+	* src/libccc/ccc/cc-item.h:
+	* src/libccc/ccc/cc-line.c: (cc_line_clear),
+	(update_mathematicals_bounds), (set_dirty_rect_for_view),
+	(cc_line_line), (cc_line_move), (cc_line_get_num_data),
+	(cc_line_data_set_position), (cc_line_data_get_position),
+	(cc_line_init), (cl_distance), (cl_update_bounds),
+	(cc_line_class_init):
+	* src/libccc/ccc/cc-line.h:
+	* src/libccc/ccc/cc-linear-gradient.c: (cc_linear_gradient_new),
+	(cc_linear_gradient_init), (linear_gradient_get_property),
+	(linear_gradient_set_property), (linear_gradient_create_pattern),
+	(cc_linear_gradient_class_init):
+	* src/libccc/ccc/cc-linear-gradient.h:
+	* src/libccc/ccc/cc-pixbuf.c: (cc_pixbuf_set_position),
+	(pixbuf_set_dirty), (cp_dispose), (cp_get_property),
+	(cp_set_property), (cp_render), (cp_update_bounds), (cp_distance),
+	(cc_pixbuf_class_init):
+	* src/libccc/ccc/cc-printer.c:
+	* src/libccc/ccc/cc-radial-gradient.c: (cc_radial_gradient_new),
+	(radial_gradient_get_property), (radial_gradient_set_property),
+	(cc_radial_gradient_init), (radial_gradient_create_pattern),
+	(cc_radial_gradient_class_init):
+	* src/libccc/ccc/cc-radial-gradient.h:
+	* src/libccc/ccc/cc-rectangle.c: (cr_distance):
+	* src/libccc/ccc/cc-rounded-rectangle.c:
+	(cc_rounded_rectangle_new), (cc_rounded_rectangle_init),
+	(crr_get_property), (cc_rounded_rectangle_set_radius),
+	(crr_set_property), (crr_path), (cc_rounded_rectangle_class_init):
+	* src/libccc/ccc/cc-rounded-rectangle.h:
+	* src/libccc/ccc/cc-shape.c: (cc_shape_get_width),
+	(cc_shape_set_line_width), (cc_shape_set_width_pixels),
+	(cc_shape_set_width_units), (cc_shape_init), (cs_dispose),
+	(shape_finalize), (cs_get_property), (cs_set_property),
+	(cs_render_border), (cs_render_content), (cc_shape_class_init):
+	* src/libccc/ccc/cc-shape.h:
+	* src/libccc/ccc/cc-simple-item.c: (cc_simple_item_init),
+	(simple_item_distance), (simple_item_render),
+	(simple_item_update_bounds), (cc_simple_item_class_init),
+	(cc_simple_item_new):
+	* src/libccc/ccc/cc-simple-item.h:
+	* src/libccc/ccc/cc-text.c: (cc_text_set_anchor),
+	(cc_text_set_anchor_type), (cc_text_set_attributes),
+	(cc_text_set_editable), (cc_text_set_font_description),
+	(text_update_caret), (cc_text_set_text), (cc_text_init),
+	(ct_dispose), (ct_path), (ct_get_property), (ct_set_property),
+	(ct_update_bounds), (ct_key_press_event), (ct_view_register),
+	(ct_view_unregister), (cc_text_class_init):
+	* src/libccc/ccc/cc-text.h:
+	* src/libccc/ccc/cc-unit.c: (cc_distance_new), (cc_distance_copy),
+	(cc_distance_free):
+	* src/libccc/ccc/cc-unit.h:
+	* src/libccc/ccc/cc-utils.c: (math_dot_product),
+	(math_distance_point_segment):
+	* src/libccc/ccc/cc-utils.h:
+	* src/libccc/ccc/cc-view-cell-renderer.c: (cvcr_dispose),
+	(cell_renderer_world_to_window):
+	* src/libccc/ccc/cc-view-cell-renderer.h:
+	* src/libccc/ccc/cc-view-widget.c: (cvw_redraw_timeout),
+	(cvw_update_adjustment_allocation), (cvw_dispose),
+	(view_widget_finalize), (cvw_set_scrolled_region), (cvw_event),
+	(cvw_size_request), (cvw_set_adjustment),
+	(cc_view_widget_class_init), (cvw_window_to_world),
+	(cvw_world_to_window), (cvw_world_to_window_distance):
+	* src/libccc/ccc/cc-view-widget.h:
+	* src/libccc/ccc/cc-view.c: (cc_view_set_scrolled_region),
+	(cc_view_window_to_world), (cc_view_world_to_window),
+	(cc_view_world_to_window_distance), (cc_view_iface_init):
+	* src/libccc/ccc/cc-view.h:
+	* src/libccc/ccc/ccc.h:
+	* src/libccc/ccc/cdebug.c: (cdebug), (cdebug_init),
+	(cdebug_shutdown), (cdebugv), (cdebugv2), (cdebugc), (cdebugo),
+	(cdebugt):
+	* src/libccc/ccc/cdebug.h:
+	* src/libccc/ccc/gobject-helpers.h:
+	* src/libccc/ccc/marshallers.list:
+	* src/libccc/python/Makefile.am:
+	* src/libccc/python/Makefile.in:
+	* src/libccc/python/cccanvas.defs:
+	* src/libccc/python/cccanvas.override:
+	* src/libccc/python/cccanvasmodule.c: (sink_obj), (initcccanvas):
+
 2007-05-23  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	- Syncing with trunk

@@ -3,7 +3,7 @@
  * AUTHORS
  *       Sven Herzberg        <herzi@gnome-de.org>
  *
- * Copyright (C) 2005 Sven Herzberg
+ * Copyright (C) 2005,2007 Sven Herzberg
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public License as
@@ -51,6 +51,8 @@ void         cc_text_set_anchor          (CcText              * self,
 			                  gdouble               y);
 void         cc_text_set_anchor_type     (CcText              * self,
 				          GtkAnchorType         anchor);
+void         cc_text_set_attributes      (CcText              * self,
+					  PangoAttrList       * attrs);
 void         cc_text_set_editable        (CcText              * self,
 				          gboolean              editable);
 void         cc_text_set_font_description(CcText              * self,
@@ -77,7 +79,6 @@ struct _CcText {
 	gboolean       editable;
 	gint           cursor,
 		       cursor_trail;
-	CcHashMap    * im_contexts;
 };
 
 struct _CcTextClass {

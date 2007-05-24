@@ -29,8 +29,23 @@
 G_DEFINE_IFACE(CcItemView, cc_item_view, G_TYPE_INTERFACE);
 
 static void
-civ_notify_all_bounds(CcItemView* self, CcView* view, CcDRect* rect, CcItem* item) {
+civ_notify_all_bounds (CcItemView   * self,
+		       CcView       * view,
+		       CcDRect const* rect,
+		       CcItem       * item)
+{
 	CC_ITEM_VIEW_GET_CLASS(self)->notify_all_bounds(self, item, view, rect);
+}
+
+static void
+emit_notify_all_bounds (CcItem* parent,
+			CcView* view,
+			CcItem* item)
+{
+	civ_notify_all_bounds (CC_ITEM_VIEW (parent),
+			       view,
+			       cc_item_get_all_bounds (item, view),
+			       item);
 }
 
 static void
@@ -74,7 +89,7 @@ cc_item_view_register(CcItemView* self, CcItem* item) {
 		if(CC_IS_VIEW(self)) {
 			civ_update_all_bounds(item, CC_VIEW(self));
 		} else if(CC_IS_ITEM(self)) {
-			cc_item_update_bounds(item, NULL);
+			cc_item_foreach_view (CC_ITEM (self), CC_ITEM_FUNC (emit_notify_all_bounds), item);
 		}
 	}
 

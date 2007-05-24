@@ -1,9 +1,9 @@
-/* this file is part of libccc, criawips' cairo-based canvas
+/* this file is part of libccc
  *
  * AUTHORS
  *       Sven Herzberg        <herzi@gnome-de.org>
  *
- * Copyright (C) 2005 Sven Herzberg
+ * Copyright (C) 2005,2007 Sven Herzberg
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public License as
@@ -25,34 +25,32 @@
 #define CC_BRUSH_H
 
 #include <cairo.h>
-#include <glib-object.h>
+#include <ccc/cc-view.h>
 
 G_BEGIN_DECLS
 
 typedef struct _CcBrush      CcBrush;
-typedef struct _CcBrushClass CcBrushClass;
+typedef struct _CcBrushIface CcBrushIface;
 
 #define CC_TYPE_BRUSH         (cc_brush_get_type())
-#define CC_BRUSH(i)           (G_TYPE_CHECK_INSTANCE_CAST((i), CC_TYPE_BRUSH, CcBrush))
-#define CC_BRUSH_CLASS(c)     (G_TYPE_CHECK_CLASS_CAST((c), CC_TYPE_BRUSH, CcBrushClass))
-#define CC_IS_BRUSH(i)        (G_TYPE_CHECK_INSTANCE_TYPE((i), CC_TYPE_BRUSH))
-#define CC_IS_BRUSH_CLASS(c)  (G_TYPE_CHECK_CLASS_CAST((c), CC_TYPE_BRUSH))
-#define CC_BRUSH_GET_CLASS(i) (G_TYPE_INSTANCE_GET_CLASS((i), CC_TYPE_BRUSH, CcBrushClass))
+#define CC_BRUSH(i)           (G_TYPE_CHECK_INSTANCE_CAST ((i), CC_TYPE_BRUSH, CcBrush))
+#define CC_IS_BRUSH(i)        (G_TYPE_CHECK_INSTANCE_TYPE ((i), CC_TYPE_BRUSH))
+#define CC_BRUSH_GET_CLASS(i) (G_TYPE_INSTANCE_GET_INTERFACE ((i), CC_TYPE_BRUSH, CcBrushIface))
 
 GType cc_brush_get_type(void);
 
 void cc_brush_apply(CcBrush* self,
+		    CcView * view,
+		    CcItem * item,
 		    cairo_t* cr);
 
-struct _CcBrush {
-	GInitiallyUnowned      base;
-};
-
-struct _CcBrushClass {
-	GInitiallyUnownedClass base_class;
+struct _CcBrushIface {
+	GTypeInterface base_interface;
 
 	/* vtable */
 	void (*apply) (CcBrush* brush,
+		       CcView * view,
+		       CcItem * item,
 		       cairo_t* cr);
 };
 

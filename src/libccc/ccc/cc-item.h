@@ -1,9 +1,9 @@
-/* this file is part of libccc, criawips' cairo-based canvas
+/* this file is part of libccc
  *
  * AUTHORS
  *       Sven Herzberg        <herzi@gnome-de.org>
  *
- * Copyright (C) 2005 Sven Herzberg
+ * Copyright (C) 2005,2006,2007 Sven Herzberg
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public License as
@@ -43,7 +43,9 @@ G_BEGIN_DECLS
 
 typedef enum {
 	CC_CAN_FOCUS          = 1 << 1,
+#ifndef CCC_DISABLE_DEPRECATED
 	CC_DISPOSED           = 1 << 2,
+#endif
 	CC_GRID_ALIGNED       = 1 << 3,
 } CcItemFlags;
 
@@ -61,7 +63,9 @@ typedef void (*CcItemFunc) (CcItem* item, CcView* view, gpointer data);
 #define CC_ITEM_UNSET_FLAGS(i,m) G_STMT_START{ (CC_ITEM_FLAGS(i) &= ~(m)); }G_STMT_END
 
 #define CC_ITEM_CAN_FOCUS(i)          ((CC_ITEM_FLAGS(i) & CC_CAN_FOCUS) != 0)
+#ifndef CCC_DISABLE_DEPRECATED
 #define CC_ITEM_DISPOSED(i)           ((CC_ITEM_FLAGS(i) & CC_DISPOSED) != 0)
+#endif
 #define CC_ITEM_GRID_ALIGNED(i)       ((CC_ITEM_FLAGS(i) & CC_GRID_ALIGNED) != 0)
 
 #define CC_ITEM_FUNC(f) ((CcItemFunc)(f))
@@ -73,10 +77,12 @@ void          cc_item_append          (CcItem      * self,
 		                       CcItem      * child);
 void          cc_item_bounds_changed  (CcItem      * self,
 				       CcView const* view);
+void          cc_item_repaint         (CcItem      * self);
 void          cc_item_dirty           (CcItem      * self,
 				       CcView const* view,
 				       CcDRect       dirty_region);
 gdouble       cc_item_distance        (CcItem      * self,
+				       CcView const* view,
 				       gdouble       x,
 				       gdouble       y,
 				       CcItem      **found);
@@ -108,15 +114,31 @@ void          cc_item_add_view              (CcItem* self,
 					     CcView* view);
 void          cc_item_remove_view           (CcItem* self,
 					     CcView* view);
+void          cc_item_set_position          (CcItem* child,
+					     CcItem* parent,
+					     gint    position);
+void          cc_item_raise_to_top          (CcItem* child,
+					     CcItem* parent);
+void          cc_item_raise                 (CcItem* child,
+					     CcItem* parent);
+void          cc_item_lower                 (CcItem* child,
+					     CcItem* parent);
+void          cc_item_lower_to_bottom       (CcItem* child,
+					     CcItem* parent);
+
+#define CC_ITEM_GET_VIEW_DATA(i,v,t,ctype) ((ctype*) cc_item_get_view_data (i, v, t))
+gpointer      cc_item_get_view_data         (CcItem const* self,
+					     CcView const* view,
+					     GType         type);
+void          cc_item_class_add_view_data   (gpointer item_class,
+					     gsize    view_data_size);
 
 struct _CcItem {
 	GInitiallyUnowned      base_instance;
 	CcItem     * parent;
 	CcItemFlags  flags;
 
-	CcHashMap  * all_bounds;
 	CcHashMap  * bounds;
-	CcHashMap  * children_bounds;
 
 	GList      * children;
 	GList      * views;
@@ -127,6 +149,7 @@ struct _CcItemClass {
 
 	/* vtable */
 	gdouble (*distance)             (CcItem         * self,
+					 CcView const   * view,
 				         gdouble          x,
 				         gdouble          y,
 				         CcItem         **found);
@@ -187,6 +210,9 @@ struct _CcItemClass {
 					 CcView          * view);
 	void     (*view_unregister)     (CcItem          * self,
 					 CcView          * view);
+
+	/*< private >*/
+	gsize view_data_size; // never EVER read from or write to this field directly
 };
 
 G_END_DECLS

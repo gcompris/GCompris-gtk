@@ -106,7 +106,6 @@ void
 cc_pixbuf_set_position(CcPixbuf* self, gdouble x, gdouble y, gdouble w, gdouble h) {
 	g_return_if_fail(CC_IS_PIXBUF(self));
 
-#warning "FIXME: complete..."
 	g_object_set(self,
 		     "position-x", x,
 		     "position-y", y,
@@ -128,7 +127,7 @@ pixbuf_set_dirty(CcItem  * item,
 		 CcView  * view,
 		 gpointer  unused G_GNUC_UNUSED)
 {
-	CcDRect* bbox = cc_item_get_all_bounds(item, view);
+	CcDRect const* bbox = cc_item_get_all_bounds(item, view);
 	if(bbox) {
 		cc_item_dirty(item, view, *bbox);
 	}
@@ -171,11 +170,8 @@ cc_pixbuf_init(CcPixbuf* self) {
 }
 
 static void
-cp_dispose(GObject* object) {
-	if(CC_ITEM_DISPOSED(object)) {
-		return;
-	}
-
+cp_dispose (GObject* object)
+{
 	if(P(object)->pixbuf) {
 		g_object_unref(P(object)->pixbuf);
 		P(object)->pixbuf = NULL;
@@ -193,25 +189,25 @@ cp_get_property(GObject* object, guint prop_id, GValue* value, GParamSpec* pspec
 		g_value_set_object(value, P(self)->pixbuf);
 		break;
 	case PROP_POS_X:
-#warning "implement"
+		g_value_set_double(value, P(self)->pos_x);
 		break;
 	case PROP_POS_Y:
-#warning "implement"
+		g_value_set_double(value, P(self)->pos_y);
 		break;
 	case PROP_POS_W:
 		g_value_set_double(value, P(self)->width);
 		break;
 	case PROP_POS_W_SET:
-#warning "implement"
+		g_value_set_boolean(value, P(self)->width_set);
 		break;
 	case PROP_POS_H:
 		g_value_set_double(value, P(self)->height);
 		break;
 	case PROP_POS_H_SET:
-#warning "implement"
+		g_value_set_boolean(value, P(self)->height_set);
 		break;
 	case PROP_ROTATION:
-#warning "implement"
+		g_value_set_double(value, P(self)->rotation);
 		break;
 	default:
 		G_OBJECT_WARN_INVALID_PROPERTY_ID(object, prop_id, pspec);
@@ -278,25 +274,25 @@ cp_set_property(GObject* object, guint prop_id, GValue const* value, GParamSpec*
 		cc_pixbuf_set_pixbuf(self, g_value_get_object(value));
 		break;
 	case PROP_POS_X:
-#warning "implement"
+		cc_pixbuf_set_position_x(self, g_value_get_double(value));
 		break;
 	case PROP_POS_Y:
-#warning "implement"
+		cc_pixbuf_set_position_y(self, g_value_get_double(value));
 		break;
 	case PROP_POS_W:
 		cp_set_width(self, g_value_get_double(value));
 		break;
 	case PROP_POS_W_SET:
-#warning "implement"
+		pixbuf_set_width_set(self, g_value_get_boolean(value));
 		break;
 	case PROP_POS_H:
 		cp_set_height(self, g_value_get_double(value));
 		break;
 	case PROP_POS_H_SET:
-#warning "implement"
+		pixbuf_set_height_set(self, g_value_get_boolean(value));
 		break;
 	case PROP_ROTATION:
-#warning "implement"
+	  cc_pixbuf_set_rotation(self, g_value_get_double(value));
 		break;
 	default:
 		G_OBJECT_WARN_INVALID_PROPERTY_ID(object, prop_id, pspec);
@@ -320,7 +316,7 @@ cp_render(CcItem* item, CcView* view, cairo_t* cr) {
 			width = gdk_pixbuf_get_width(P(self)->pixbuf);
 		}
 		if(!P(item)->height_set) {
-			height = gdk_pixbuf_get_width(P(self)->pixbuf);
+			height = gdk_pixbuf_get_height(P(self)->pixbuf);
 		}
 		cc_view_world_to_window(view, &x, &y);
 		bounds = cc_d_rect_copy(cc_item_get_all_bounds(item, view));
@@ -370,9 +366,13 @@ cp_update_bounds(CcItem* item, CcView const* view, gpointer user_data) {
 			CcDRect temp;
 			CcDRect temp2;
 			cairo_matrix_t matrix;
-			cairo_matrix_init_translate(&matrix, new_bounds_.x2 / 2, new_bounds_.y2 / 2);
+			cairo_matrix_init_translate(&matrix,
+						    (new_bounds_.x1 + new_bounds_.x2 )/ 2,
+						    (new_bounds_.y1 + new_bounds_.y2 )/ 2);
 			cairo_matrix_rotate(&matrix, P(self)->rotation);
-			cairo_matrix_translate(&matrix, new_bounds_.x2 / -2, new_bounds_.y2 / -2);
+			cairo_matrix_translate(&matrix,
+					       - ( new_bounds_.x1 + new_bounds_.x2 )/ 2,
+					       - ( new_bounds_.y1 + new_bounds_.y2 )/ 2);
 			temp = new_bounds_;
 			cairo_matrix_transform_point(&matrix, &temp.x1, &temp.y1);
 			cairo_matrix_transform_point(&matrix, &temp.x2, &temp.y2);
@@ -398,6 +398,63 @@ cp_update_bounds(CcItem* item, CcView const* view, gpointer user_data) {
 			cc_item_bounds_changed(item, view);
 		}
 	}
+}
+
+static gdouble
+cp_distance(CcItem      * item,
+	    CcView const* view,
+	    gdouble       x,
+	    gdouble       y,
+	    CcItem      **found)
+{
+	CcPixbuf* self = CC_PIXBUF(item);
+	gdouble   distance = G_MAXDOUBLE;
+
+	g_return_val_if_fail(found, distance);
+	g_return_val_if_fail(!CC_IS_ITEM(*found), distance);
+
+	// search the children first
+	distance = CC_ITEM_CLASS(cc_pixbuf_parent_class)->distance(item, view, x, y, found);
+
+	if(CC_IS_ITEM(*found)) {
+		return distance;
+	}
+
+	gdouble c_x, c_y;
+	gdouble t_x = x, t_y = y;
+
+	if(P(self)->pixbuf) {
+		if(!P(self)->width_set) {
+			c_x = P(self)->pos_x + gdk_pixbuf_get_width(P(self)->pixbuf)/2.0;
+		}
+		else {
+			c_x = P(self)->pos_x + P(item)->width/2.0;
+		}
+		if(!P(self)->height_set) {
+			c_y = P(self)->pos_y + gdk_pixbuf_get_height(P(self)->pixbuf)/2.0;
+		}
+		else {
+			c_y = P(self)->pos_y + P(item)->height/2.0;
+		}
+
+		if(P(self)->rotation != 0.0) {
+			cairo_matrix_t matrix;
+			cairo_matrix_init_translate(&matrix, c_x, c_y );
+			cairo_matrix_rotate(&matrix, -P(self)->rotation);
+			cairo_matrix_translate(&matrix, -c_x, -c_y);
+			cairo_matrix_transform_point(&matrix, &t_x, &t_y);
+		}
+
+		if ((t_x >= P(self)->pos_x) && (t_x <= P(self)->pos_x + gdk_pixbuf_get_width(P(self)->pixbuf)) && (t_y >= P(self)->pos_y) && (t_y <= P(self)->pos_y + gdk_pixbuf_get_height(P(self)->pixbuf))) {
+			*found = self;
+			return 0.0;
+		} else {
+			// FIXME: calculate the distance
+			return 1.0;
+		}
+			
+	} else
+		return G_MAXDOUBLE;
 }
 
 static void
@@ -472,7 +529,7 @@ cc_pixbuf_class_init(CcPixbufClass* self_class) {
 
 	/* CcItemClass */
 	ci_class = CC_ITEM_CLASS(self_class);
-	// FIXME: implement distance
+	ci_class->distance      = cp_distance;
 	ci_class->render        = cp_render;
 	ci_class->update_bounds = cp_update_bounds;
 

@@ -103,8 +103,17 @@ ccr_set_property(GObject* object, guint prop_id, GValue const* value, GParamSpec
 }
 
 static void
-ccr_apply(CcColor const* color, cairo_t* cr) {
-	cairo_set_source_rgba(cr, P(color)->red, P(color)->green, P(color)->blue, color->alpha);
+color_rgb_apply(CcColor const* color,
+		gdouble      * red,
+		gdouble      * green,
+		gdouble      * blue,
+		gdouble      * alpha)
+{
+	*red = P(color)->red;
+	*green = P(color)->green;
+	*blue = P(color)->blue;
+
+	CC_COLOR_CLASS(cc_color_rgb_parent_class)->apply(color, red, green, blue, alpha);
 }
 
 static void
@@ -147,7 +156,7 @@ cc_color_rgb_class_init(CcColorRgbClass* self_class) {
 
 	/* CcColorClass */
 	cc_class = CC_COLOR_CLASS(self_class);
-	cc_class->apply = ccr_apply;
+	cc_class->apply = color_rgb_apply;
 
 	g_type_class_add_private(self_class, sizeof(struct CcColorRgbPrivate));
 }

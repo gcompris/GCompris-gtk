@@ -3,7 +3,7 @@
  * AUTHORS
  *     Sven Herzberg  <herzi@gnome-de.org>
  *
- * Copyright (C) 2006  Sven Herzberg
+ * Copyright (C) 2006,2007  Sven Herzberg
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public License as
@@ -27,6 +27,7 @@
 
 struct CcCameraPrivate {
 	CcItem* root;
+	gdouble zoom;
 };
 #define P(i) (G_TYPE_INSTANCE_GET_PRIVATE((i), CC_TYPE_CAMERA, struct CcCameraPrivate))
 
@@ -90,7 +91,9 @@ enum {
 	PROP_ZOOM
 };
 static void camera_implement_view(CcViewIface* iface);
+static void camera_implement_item_view(CcItemViewIface* iface);
 G_DEFINE_TYPE_WITH_CODE(CcCamera, cc_camera, CC_TYPE_ITEM,
+			G_IMPLEMENT_INTERFACE (CC_TYPE_ITEM_VIEW, camera_implement_item_view);
 			G_IMPLEMENT_INTERFACE(CC_TYPE_VIEW, camera_implement_view));
 
 static void
@@ -119,7 +122,13 @@ static void
 camera_set_zoom(CcCamera* self,
 		gdouble   zoom)
 {
-	// FIXME: implement
+	if(P(self)->zoom == zoom) {
+		return;
+	}
+
+	P(self)->zoom = zoom;
+	g_object_notify(G_OBJECT(self), "zoom");
+	// FIXME: queue draw
 }
 
 static void
@@ -168,13 +177,12 @@ camera_render(CcItem * item,
 
 	surface = cairo_surface_create_similar(cairo_get_target(cr),
 					       CAIRO_CONTENT_COLOR_ALPHA,
-					       101, 101);
+					       100, 100);
 	surface_cr = cairo_create(surface);
 	cairo_save(surface_cr);
 	  cairo_rectangle(surface_cr, 0.0, 0.0, 101.0, 101.0);
 	  cairo_set_source_rgba(surface_cr, 0.0, 0.0, 0.0, 0.5);
 	  cairo_fill(surface_cr);
-	  // FIXME: render the canvas
 	  cc_item_render(P(item)->root, CC_VIEW(item), surface_cr);
 	cairo_restore(surface_cr);
 	cairo_destroy(surface_cr);
@@ -214,22 +222,22 @@ cc_camera_class_init(CcCameraClass* self_class)
 
 /* CcViewIface */
 static void
-camera_init_matrix(cairo_matrix_t* matrix)
+camera_init_matrix(CcCamera* self, cairo_matrix_t* matrix)
 {
 	cairo_matrix_init_translate(matrix, 0.0, 0.0);
-	cairo_matrix_init_scale(matrix, 0.25, 0.25);
+	cairo_matrix_init_scale(matrix, P(self)->zoom, P(self)->zoom);
 }
 
 static void
-camera_world_to_window(CcView * view,
-		       gdouble* x,
-		       gdouble* y)
+camera_world_to_window(CcView const* view,
+		       gdouble     * x,
+		       gdouble     * y)
 {
 	cairo_matrix_t matrix;
 	gdouble real_x = x ? *x : 0.0,
 		real_y = y ? *y : 0.0;
 
-	camera_init_matrix(&matrix);
+	camera_init_matrix(CC_CAMERA(view), &matrix);
 	cairo_matrix_transform_point(&matrix, &real_x, &real_y);
 
 	if(x) {
@@ -241,14 +249,14 @@ camera_world_to_window(CcView * view,
 }
 
 static void
-camera_world_to_window_distance(CcView * view,
-				gdouble* x,
-				gdouble* y)
+camera_world_to_window_distance(CcView const* view,
+				gdouble     * x,
+				gdouble     * y)
 {
 	cairo_matrix_t matrix;
 	gdouble real_x = x ? *x : 0.0,
 		real_y = y ? *y : 0.0;
-	camera_init_matrix(&matrix);
+	camera_init_matrix(CC_CAMERA(view), &matrix);
 	cairo_matrix_transform_distance(&matrix, &real_x, &real_y);
 	if(x) {
 		*x = real_x;
@@ -263,5 +271,75 @@ camera_implement_view(CcViewIface* iface)
 {
 	iface->world_to_window          = camera_world_to_window;
 	iface->world_to_window_distance = camera_world_to_window_distance;
+}
+
+/* CcItemViewIface */
+/* IMPLEMENTATION NOTE:
+ * CcCamera inherits from CcItem. So it already implements CcItemView. This is
+ * the desired behavior but leads to a simple problem:
+ *
+ * When the bounding box of the root changes, the default implementation for
+ * "child-bounds-changed" gets called. As this behavior isn't desired for the
+ * root item, we filter out the root item from the forwarded calls here:
+ *
+ * if (child != root) {
+ *   default_implementation ();
+ * } else {
+ *   camera_implementation ();
+ * }
+ */
+static void
+camera_item_added (CcItemView* iview,
+		   CcItem    * item,
+		   gint        position,
+		   CcItem    * child)
+{
+	if (CC_ITEM_VIEW_IFACE (cc_camera_parent_class)->item_added) {
+		CC_ITEM_VIEW_IFACE (cc_camera_parent_class)->item_added (iview, item, position, child);
+	}
+}
+
+static void
+camera_item_removed (CcItemView* iview,
+		     CcItem    * item,
+		     gint        position,
+		     CcItem    * child)
+{
+	if (CC_ITEM_VIEW_IFACE (cc_camera_parent_class)->item_removed) {
+		CC_ITEM_VIEW_IFACE (cc_camera_parent_class)->item_removed (iview, item, position, child);
+	}
+}
+
+static void
+camera_item_dirty (CcItemView   * iview,
+		   CcItem       * item,
+		   CcView const * view,
+		   CcDRect const* dirty)
+{
+	if (CC_ITEM_VIEW_IFACE (cc_camera_parent_class)->item_dirty) {
+		CC_ITEM_VIEW_IFACE (cc_camera_parent_class)->item_dirty (iview, item, view, dirty);
+	}
+}
+
+static void
+camera_notify_all_bounds (CcItemView   * iview,
+			  CcItem       * item,
+			  CcView       * view,
+			  CcDRect const* all_bounds)
+{
+	if (G_LIKELY (CC_IS_CAMERA (view) && CC_CAMERA (iview) == CC_CAMERA (view) && item == P(iview)->root)) {
+		// it's the root item
+	} else if (CC_ITEM_VIEW_IFACE (cc_camera_parent_class)->notify_all_bounds) {
+		CC_ITEM_VIEW_IFACE (cc_camera_parent_class)->notify_all_bounds (iview, item, view, all_bounds);
+	}
+}
+
+static void
+camera_implement_item_view(CcItemViewIface* iface)
+{
+	iface->item_added        = camera_item_added;
+	iface->item_removed      = camera_item_removed;
+	iface->item_dirty        = camera_item_dirty;
+	iface->notify_all_bounds = camera_notify_all_bounds;
 }
 

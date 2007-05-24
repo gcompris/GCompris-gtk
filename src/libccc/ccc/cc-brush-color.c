@@ -1,9 +1,9 @@
-/* this file is part of libccc, criawips' cairo-based canvas
+/* this file is part of libccc
  *
  * AUTHORS
  *       Sven Herzberg        <herzi@gnome-de.org>
  *
- * Copyright (C) 2005 Sven Herzberg
+ * Copyright (C) 2005,2007 Sven Herzberg
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public License as
@@ -23,8 +23,16 @@
 
 #include <ccc/cc-brush-color.h>
 
-G_DEFINE_TYPE(CcBrushColor, cc_brush_color, CC_TYPE_BRUSH);
+static void brush_color_implement_brush (CcBrushIface* iface);
+G_DEFINE_TYPE_WITH_CODE (CcBrushColor, cc_brush_color, G_TYPE_INITIALLY_UNOWNED,
+			 G_IMPLEMENT_INTERFACE (CC_TYPE_BRUSH, brush_color_implement_brush));
 
+/**
+ * cc_brush_color_new:
+ *
+ * Deprecated: #CcBrushColor is deprecated since 0.0.6. See also <xref
+ * linkend="ccc-Porting-0.0.6-CcBrushColor"/>.
+ */
 CcBrush*
 cc_brush_color_new(CcColor* color) {
 	g_return_val_if_fail(color, NULL);
@@ -32,6 +40,12 @@ cc_brush_color_new(CcColor* color) {
 	return g_object_new(CC_TYPE_BRUSH_COLOR, "color", color, NULL);
 }
 
+/**
+ * cc_brush_color_get_color:
+ *
+ * Deprecated: #CcBrushColor is deprecated since 0.0.6. See also <xref
+ * linkend="ccc-Porting-0.0.6-CcBrushColor"/>.
+ */
 CcColor*
 cc_brush_color_get_color(CcBrushColor* self) {
 	g_return_val_if_fail(CC_IS_BRUSH_COLOR(self), NULL);
@@ -39,6 +53,12 @@ cc_brush_color_get_color(CcBrushColor* self) {
 	return self->color;
 }
 
+/**
+ * cc_brush_color_set_color:
+ *
+ * Deprecated: #CcBrushColor is deprecated since 0.0.6. See also <xref
+ * linkend="ccc-Porting-0.0.6-CcBrushColor"/>.
+ */
 void
 cc_brush_color_set_color(CcBrushColor* self, CcColor* color) {
 	g_return_if_fail(CC_IS_BRUSH_COLOR(self));
@@ -70,15 +90,9 @@ static void
 cc_brush_color_init(CcBrushColor* self) {}
 
 static void
-cbc_dispose(GObject* object) {
-	CcBrushColor* self = CC_BRUSH_COLOR(object);
-	if(self->disposed) {
-		return;
-	}
-	self->disposed = TRUE;
-
-	g_object_unref(self->color);
-	self->color = NULL;
+cbc_dispose (GObject* object)
+{
+	cc_brush_color_set_color (CC_BRUSH_COLOR (object), NULL);
 
 	G_OBJECT_CLASS(cc_brush_color_parent_class)->dispose(object);
 }
@@ -112,18 +126,23 @@ cbc_set_property(GObject* object, guint prop_id, GValue const* value, GParamSpec
 }
 
 static void
-cbc_apply(CcBrush* brush, cairo_t* cr) {
+cbc_apply(CcBrush* brush,
+	  CcView * view G_GNUC_UNUSED,
+	  CcItem * item G_GNUC_UNUSED,
+	  cairo_t* cr)
+{
 	CcBrushColor* self = CC_BRUSH_COLOR(brush);
 
 	if(CC_IS_COLOR(self->color)) {
-		cc_color_apply(self->color, cr);
+		gdouble red, green, blue, alpha;
+		cc_color_apply(self->color, &red, &green, &blue, &alpha);
+		cairo_set_source_rgba(cr, red, green, blue, alpha);
 	}
 }
 
 static void
 cc_brush_color_class_init(CcBrushColorClass* self_class) {
 	GObjectClass* go_class;
-	CcBrushClass* cb_class;
 
 	/* GObjectClass */
 	go_class = G_OBJECT_CLASS(self_class);
@@ -138,9 +157,11 @@ cc_brush_color_class_init(CcBrushColorClass* self_class) {
 							    "The color",
 							    CC_TYPE_COLOR,
 							    G_PARAM_READWRITE | G_PARAM_CONSTRUCT));
+}
 
-	/* CcBrushClass */
-	cb_class = CC_BRUSH_CLASS(self_class);
-	cb_class->apply = cbc_apply;
+static void
+brush_color_implement_brush (CcBrushIface* iface)
+{
+	iface->apply = cbc_apply;
 }
 

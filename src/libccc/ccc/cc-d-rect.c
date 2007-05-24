@@ -26,7 +26,7 @@
 #include "gobject-helpers.h"
 
 CcDRect*
-cc_d_rect_copy(CcDRect* one) {
+cc_d_rect_copy(CcDRect const* one) {
 	CcDRect* eva;
 
 	g_return_val_if_fail(one, NULL);

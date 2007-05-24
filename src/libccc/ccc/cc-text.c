@@ -1,9 +1,9 @@
-/* this file is part of libccc, criawips' cairo-based canvas
+/* this file is part of libccc
  *
  * AUTHORS
  *       Sven Herzberg        <herzi@gnome-de.org>
  *
- * Copyright (C) 2005 Sven Herzberg
+ * Copyright (C) 2005,2007 Sven Herzberg
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public License as
@@ -29,13 +29,17 @@
 #include <gdk/gdkkeysyms.h>
 #include <gtk/gtk.h>
 #include <ccc/cc-brush-color.h>
+#include <ccc/cc-caret.h>
 #include <ccc/cc-line.h>
 #include <ccc/cc-utils.h>
 
 #include "glib-helpers.h"
 #include "pango-helpers.h"
 
-#include <cc-config.h>
+#define CDEBUG_TYPE cc_text_get_type
+#include <cdebug.h>
+
+#include <config.h>
 #include <glib/gi18n-lib.h>
 
 static GQuark ct_quark = 0;
@@ -44,6 +48,11 @@ struct CcTextPrivate {
 	CcItem* caret;
 };
 #define P(i) (G_TYPE_INSTANCE_GET_PRIVATE((i), CC_TYPE_TEXT, struct CcTextPrivate))
+
+typedef struct {
+	GtkIMContext* im_context;
+} CcTextViewData;
+#define V(i,v) (CC_ITEM_GET_VIEW_DATA ((i), (v), CC_TYPE_TEXT, CcTextViewData))
 
 CcItem*
 cc_text_new(gchar const* text) {
@@ -102,18 +111,46 @@ ct_get_y_offset(CcText* self, gdouble y, gdouble height) {
 	}
 }
 
+/**
+ * cc_text_set_anchor:
+ * @self: a #CcText
+ * @x: the horizontal position of the anchor point
+ * @y: the vertical position of the anchor point
+ *
+ * Specify the location of the anchor point of the text item.
+ */
 void
-cc_text_set_anchor(CcText* self, gdouble x, gdouble y) {
-	CcItem* item = CC_ITEM(self);
+cc_text_set_anchor(CcText * self,
+		   gdouble  x,
+		   gdouble  y)
+{
+	g_return_if_fail(CC_IS_TEXT(self));
+
+	// FIXME: add some necessity check
 
 	self->x = x;
 	self->y = y;
 
-	cc_item_update_bounds(item, NULL);
+	cc_item_update_bounds(CC_ITEM(self), NULL);
+	// FIXME: add some notification
 }
 
+/**
+ * cc_text_set_anchor_type:
+ * @self: a #CcText
+ * @anchor: the anchor type to be specified
+ *
+ * Set the anchor type of the text item. It specifies the location of the
+ * anchor point relative to the text (so that north-west would become the
+ * top-left corner).
+ */
 void
-cc_text_set_anchor_type(CcText* self, GtkAnchorType anchor) {
+cc_text_set_anchor_type(CcText       * self,
+			GtkAnchorType  anchor)
+{
+	g_return_if_fail(CC_IS_TEXT(self));
+	// FIXME: check enum value
+
 	if(self->anchor == anchor) {
 		return;
 	}
@@ -122,6 +159,21 @@ cc_text_set_anchor_type(CcText* self, GtkAnchorType anchor) {
 	cc_item_update_bounds(CC_ITEM(self), NULL);
 
 	g_object_notify(G_OBJECT(self), "anchor");
+}
+
+void
+cc_text_set_attributes(CcText       * self,
+		       PangoAttrList* attrs)
+{
+	g_return_if_fail(CC_IS_TEXT(self));
+
+	cdebug("set_attributes()", "pango_layout_set_attributes()");
+	pango_layout_set_attributes(self->layout, attrs);
+	cc_item_update_bounds(CC_ITEM(self), NULL);
+	// FIXME: mark dirty
+
+	g_object_notify(G_OBJECT(self), "attributes");
+
 }
 
 void
@@ -134,7 +186,7 @@ cc_text_set_editable(CcText* self, gboolean editable) {
 
 	self->editable = editable;
 
-	// FIXME: request a redraw for each view, the cursor has (dis)appeared
+	cc_item_update_bounds(CC_ITEM(self), NULL);
 	g_object_notify(G_OBJECT(self), "editable");
 }
 
@@ -147,6 +199,7 @@ cc_text_set_editable(CcText* self, gboolean editable) {
  */
 void
 cc_text_set_font_description(CcText* self, PangoFontDescription* desc) {
+	cdebug("set_font_description()", "pango_layout_set_font_description()");
 	pango_layout_set_font_description(self->layout, desc);
 	// FIXME: forward the description-changed signal
 	cc_item_update_bounds(CC_ITEM(self), NULL);
@@ -187,36 +240,6 @@ cc_text_set_size_pixels(CcText* self, gboolean size_pixels) {
 	cc_item_update_bounds(CC_ITEM(self), NULL);
 }
 
-/**
- * cc_text_set_text:
- * @self: a #CcText
- * @text: the text to be set
- *
- * Set the text to be displayed by a #CcText item.
- */
-void
-cc_text_set_text(CcText* self, gchar const* text) {
-	g_return_if_fail(CC_IS_TEXT(self));
-
-	pango_layout_set_text(self->layout, text, -1);
-	cc_item_update_bounds(CC_ITEM(self), NULL);
-
-	g_object_notify(G_OBJECT(self), "text");
-}
-
-/* GType stuff */
-G_DEFINE_TYPE(CcText, cc_text, CC_TYPE_SHAPE);
-
-enum {
-	PROP_0,
-	PROP_ANCHOR,
-	PROP_BRUSH_CARET,
-	PROP_CURSOR,
-	PROP_EDITABLE,
-	PROP_SIZE_PIXELS,
-	PROP_TEXT
-};
-
 static void
 text_update_caret(CcText* self)
 {
@@ -229,9 +252,7 @@ text_update_caret(CcText* self)
 	dr.y1 = /*y +*/ (ink.y + cursor.y) / PANGO_SCALE;
 	dr.x2 = dr.x1 + cursor.width / PANGO_SCALE;
 	dr.y2 = dr.y1 + cursor.height / PANGO_SCALE;
-	cc_line_clear(CC_LINE(P(self)->caret));
-	cc_line_move(CC_LINE(P(self)->caret), dr.x1, dr.y1);
-	cc_line_line(CC_LINE(P(self)->caret), dr.x2, dr.y2);
+	cc_caret_set_position(CC_CARET(P(self)->caret), dr.x1, dr.y1, dr.x2, dr.y2);
 	cc_item_update_bounds(CC_ITEM(self), NULL);
 }
 
@@ -264,6 +285,43 @@ ct_move_cursor(CcText* self, CcView* view, gint direction) {
 	}
 }
 
+/**
+ * cc_text_set_text:
+ * @self: a #CcText
+ * @text: the text to be set
+ *
+ * Set the text to be displayed by a #CcText item.
+ */
+void
+cc_text_set_text(CcText* self, gchar const* text) {
+	g_return_if_fail(CC_IS_TEXT(self));
+#if 0
+	while(P(self)->cursor, P(self)->cursor_trail) {
+		ct_move_cursor();
+	}
+#endif
+	cdebug("set_text()", "pango_layout_set_text()");
+	pango_layout_set_text (self->layout, text, -1);
+	cc_item_update_bounds (CC_ITEM(self), NULL);
+	cc_item_repaint (CC_ITEM (self));
+
+	g_object_notify(G_OBJECT(self), "text");
+}
+
+/* GType stuff */
+G_DEFINE_TYPE(CcText, cc_text, CC_TYPE_SHAPE);
+
+enum {
+	PROP_0,
+	PROP_ANCHOR,
+	PROP_ATTRIBUTES,
+	PROP_BRUSH_CARET,
+	PROP_CURSOR,
+	PROP_EDITABLE,
+	PROP_SIZE_PIXELS,
+	PROP_TEXT
+};
+
 static void
 ct_insert_and_move_cursor(CcText* self, CcView* view, gchar const* text) {
 	gsize i = self->cursor;
@@ -288,11 +346,10 @@ cc_text_init(CcText* self)
 {
 	CcBrush* brush;
 
+	//cdebug("init()", "pango_layout_new_cairo()");
 	self->layout = pango_layout_new_cairo();
 
-	self->im_contexts = cc_hash_map_new(GTK_TYPE_IM_CONTEXT);
-
-	P(self)->caret = cc_line_new();
+	P(self)->caret = cc_caret_new();
 	cc_item_set_grid_aligned(P(self)->caret, TRUE);
 	brush = cc_brush_color_new(cc_color_new_rgb(0.0, 0.0, 0.0));
 	cc_shape_set_brush_border(CC_SHAPE(P(self)->caret), brush);
@@ -301,12 +358,9 @@ cc_text_init(CcText* self)
 }
 
 static void
-ct_dispose(GObject* object) {
+ct_dispose (GObject* object)
+{
 	CcText* self = CC_TEXT(object);
-
-	if(CC_ITEM_DISPOSED(self)) {
-		return;
-	}
 
 	if(P(self)->caret) {
 		g_object_unref(P(self)->caret);
@@ -317,9 +371,6 @@ ct_dispose(GObject* object) {
 		g_object_unref(self->layout);
 		self->layout = NULL;
 	}
-
-	g_object_unref(self->im_contexts);
-	self->im_contexts = NULL;
 
 	G_OBJECT_CLASS(cc_text_parent_class)->dispose(object);
 }
@@ -335,7 +386,10 @@ ct_render(CcItem* item, CcView* view, cairo_t* cr) {
 }
 
 static void
-ct_path(CcShape* shape, CcView* view, cairo_t* cr) {
+ct_path(CcShape* shape,
+	CcView * view,
+	cairo_t* cr)
+{
 	CcText     * self   = CC_TEXT(shape);
 	PangoLayout* layout = self->layout;
 	CcDRect    * bounds;
@@ -367,6 +421,7 @@ ct_path(CcShape* shape, CcView* view, cairo_t* cr) {
 			pango_font_description_set_size(desc_new, new_size);
 		}
 
+		//cdebug("path()", "pango_layout_set_font_description()");
 		pango_layout_set_font_description(layout, desc_new);
 	}
 
@@ -376,7 +431,9 @@ ct_path(CcShape* shape, CcView* view, cairo_t* cr) {
 	}
 
 	cairo_move_to(cr, x, y);
+	//cdebug("path()", "pango_cairo_update_layout()");
 	pango_cairo_update_layout(cr, layout);
+	//cdebug("path()", "pango_cairo_layout_path()");
 	pango_cairo_layout_path(cr, layout);
 
 	if(!self->size_pixels) {
@@ -394,6 +451,9 @@ ct_get_property(GObject* object, guint prop_id, GValue* value, GParamSpec* pspec
 	switch(prop_id) {
 	case PROP_ANCHOR:
 		g_value_set_enum(value, self->anchor);
+		break;
+	case PROP_ATTRIBUTES:
+		g_value_set_boxed(value, pango_layout_get_attributes(self->layout));
 		break;
 	case PROP_BRUSH_CARET:
 		g_value_set_object(value, cc_shape_get_brush_border(CC_SHAPE(P(object)->caret)));
@@ -421,6 +481,9 @@ ct_set_property(GObject* object, guint prop_id, GValue const* value, GParamSpec*
 	case PROP_ANCHOR:
 		cc_text_set_anchor_type(self, g_value_get_enum(value));
 		break;
+	case PROP_ATTRIBUTES:
+		cc_text_set_attributes(self, g_value_get_boxed(value));
+		break;
 	case PROP_BRUSH_CARET:
 		cc_shape_set_brush_border(CC_SHAPE(P(object)->caret), g_value_get_object(value));
 		break;
@@ -445,7 +508,7 @@ ct_update_bounds(CcItem* item, CcView const* view, gpointer data) {
 	CcDRect new_bounds;
 	CcText* self = CC_TEXT(item);
 	CcDRect* bounds = cc_hash_map_lookup(item->bounds, view);
-	CcDRect const* caret = cc_item_get_all_bounds(item, view);
+	CcDRect const* caret = cc_item_get_all_bounds(P(item)->caret, view);
 
 	pango_layout_get_extents(self->layout, NULL, &rect);
 
@@ -585,11 +648,15 @@ ct_move_forward_end(CcText* self, CcView* view) {
 }
 
 static gboolean
-ct_key_press_event(CcItem* item, CcView* view, GdkEventKey* ev) {
+ct_key_press_event (CcItem     * item,
+		    CcView     * view,
+		    GdkEventKey* ev)
+{
+	CcTextViewData* view_data = V(item, view);
 	CcText * self = CC_TEXT(item);
 	gboolean retval = FALSE;
 
-	if(gtk_im_context_filter_keypress(cc_hash_map_lookup(self->im_contexts, view), ev)) {
+	if (gtk_im_context_filter_keypress (view_data->im_context, ev)) {
 		return TRUE;
 	}
 
@@ -665,40 +732,49 @@ ct_im_context_commit(CcText* self, gchar const* text, GtkIMContext* context) {
 }
 
 static void
-ct_view_register(CcItem* item, CcView* view) {
-	CcText      * self = CC_TEXT(item);
-	GtkIMContext* imc = NULL;
+ct_view_register (CcItem* item,
+		  CcView* view)
+{
+	CcTextViewData* view_data;
+	CcText        * self = CC_TEXT(item);
 
 	if(CC_ITEM_CLASS(cc_text_parent_class)->view_register) {
 		CC_ITEM_CLASS(cc_text_parent_class)->view_register(item, view);
 	}
 
+	view_data = V(item, view);
+
 	// set up the data for this view
-	imc = gtk_im_multicontext_new();
-	g_object_set_qdata(G_OBJECT(imc), ct_quark, view);
+	view_data->im_context = gtk_im_multicontext_new();
+	g_object_set_qdata(G_OBJECT(view_data->im_context), ct_quark, view);
 	// FIXME: maybe try to set the GdkWindow of the im_context
 	// FIXME: set the view as a data pointer
-	g_signal_connect_swapped(imc, "commit",
+	g_signal_connect_swapped(view_data->im_context, "commit",
 				 G_CALLBACK(ct_im_context_commit), self);
-	cc_hash_map_insert(self->im_contexts, view, imc);
 
 	/* register caret */
 	cc_item_add_view(P(item)->caret, view);
 }
 
 static void
-ct_view_unregister(CcItem* item, CcView* view) {
+ct_view_unregister (CcItem* item,
+		    CcView* view)
+{
+	CcTextViewData* view_data;
 	CcText      * self = CC_TEXT(item);
-	GtkIMContext* imc = cc_hash_map_lookup(self->im_contexts, view);
+
+	view_data = V(item, view);
 
 	/* caret cleanup */
-	cc_item_add_view(P(item)->caret, view);
+	cc_item_remove_view(P(item)->caret, view);
 
 	// remove the data for this view
 	// FIXME: make sure the signal handler gets disconnected
 	// FIXME: make sure the connected data gets deleted
-	g_signal_handlers_disconnect_by_func(imc, ct_im_context_commit, self);
-	cc_hash_map_remove(self->im_contexts, view);
+
+	g_signal_handlers_disconnect_by_func(view_data->im_context, ct_im_context_commit, self);
+	g_object_unref (view_data->im_context);
+	view_data->im_context = NULL;
 
 	if(CC_ITEM_CLASS(cc_text_parent_class)->view_unregister) {
 		CC_ITEM_CLASS(cc_text_parent_class)->view_unregister(item, view);
@@ -740,11 +816,18 @@ cc_text_class_init(CcTextClass* self_class) {
 	g_object_class_install_property(go_class,
 					PROP_ANCHOR,
 					g_param_spec_enum("anchor",
-							  "Anchor",
-							  "The location of the anchor point of the text element",
+							  _("Anchor"),
+							  _("The location of the anchor point of the text element"),
 							  GTK_TYPE_ANCHOR_TYPE,
 							  GTK_ANCHOR_NW,
 							  G_PARAM_READWRITE | G_PARAM_CONSTRUCT));
+	g_object_class_install_property(go_class,
+					PROP_ATTRIBUTES,
+					g_param_spec_boxed("attributes",
+							   _("Attributes"),
+							   _("The PangoAttrList that specifies the "),
+							   PANGO_TYPE_ATTR_LIST,
+							   G_PARAM_READWRITE));
 	g_object_class_install_property(go_class,
 					PROP_BRUSH_CARET,
 					g_param_spec_object("brush-caret",
@@ -800,6 +883,7 @@ cc_text_class_init(CcTextClass* self_class) {
 	self_class->insert = ct_insert;
 	self_class->remove = ct_delete;
 
+	cc_item_class_add_view_data (self_class, sizeof (CcTextViewData));
 	g_type_class_add_private(self_class, sizeof(struct CcTextPrivate));
 }
 

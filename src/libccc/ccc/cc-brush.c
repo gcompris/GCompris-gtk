@@ -23,41 +23,35 @@
 
 #include <ccc/cc-brush.h>
 
-G_DEFINE_ABSTRACT_TYPE(CcBrush, cc_brush, G_TYPE_INITIALLY_UNOWNED);
+#include <ccc/cc-utils.h>
+#include "gobject-helpers.h"
+
+G_DEFINE_IFACE (CcBrush, cc_brush, G_TYPE_INTERFACE);
 
 /**
  * cc_brush_apply:
  * @self: a #CcBrush
+ * @view: a #CcView
+ * @item: a #CcItem
  * @cr: a cairo context
  *
- * Apply a brush to a cairo context. This is usually used from item
- * implementations while rendering to a context.
+ * Apply a brush to a cairo context. The brush will be used to display @item in
+ * @view.
+ *
+ * This is usually used from item implementations while rendering to a context.
  */
 void
-cc_brush_apply(CcBrush* self, cairo_t* cr) {
+cc_brush_apply(CcBrush* self,
+	       CcView * view,
+	       CcItem * item,
+	       cairo_t* cr)
+{
 	g_return_if_fail(CC_IS_BRUSH(self));
 	g_return_if_fail(cr);
 
-	g_return_if_fail(CC_BRUSH_GET_CLASS(self)->apply);
+	cc_return_if_unimplemented_code(CC_BRUSH_GET_CLASS(self), apply,
+					cairo_set_source_rgba(cr, 0.0, 0.0, 0.0, 0.0));
 
-	CC_BRUSH_GET_CLASS(self)->apply(self, cr);
-}
-
-/* GType stuff */
-static void
-cc_brush_init(CcBrush* self)
-{
-}
-
-/**
- * CcBrushClass:
- * @base_class: the parent class for GType
- * @apply: the virtual function that's called from cc_brush_apply()
- *
- * A brush class.
- */
-static void
-cc_brush_class_init(CcBrushClass* self_class)
-{
+	CC_BRUSH_GET_CLASS(self)->apply(self, view, item, cr);
 }
 

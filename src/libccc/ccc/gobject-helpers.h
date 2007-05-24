@@ -3,7 +3,7 @@
  * AUTHORS
  *	Sven Herzberg		<herzi@gnome-de.org>
  *
- * Copyright (C) 2005		Sven Herzberg
+ * Copyright (C) 2005, 2007	Sven Herzberg
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public License as
@@ -33,6 +33,28 @@
 #ifndef G_BOXED_FREE_FUNC
 #define G_BOXED_FREE_FUNC(f) (GBoxedFreeFunc)(f)
 #endif /* !G_BOXED_FREE_FUNC */
+
+#ifndef G_DEFINE_BOXED_TYPE_FULL
+#define G_DEFINE_BOXED_TYPE_FULL(TypeName, type_name, copy_func, free_func) \
+GType \
+type_name##_get_type (void) \
+{ \
+	static GType type = 0; \
+\
+	if (G_UNLIKELY (!type)) { \
+		type = g_boxed_type_register_static (#TypeName, \
+						     G_BOXED_COPY_FUNC (copy_func), \
+						     G_BOXED_FREE_FUNC (free_func)); \
+	} \
+\
+	return type; \
+}
+#endif
+
+#ifndef G_DEFINE_BOXED_TYPE
+#define G_DEFINE_BOXED_TYPE(TypeName, type_name) \
+	G_DEFINE_BOXED_TYPE_FULL(TypeName, type_name, type_name##_copy, type_name##_free)
+#endif
 
 #ifndef g_signal_connect_swapped_after
 #define g_signal_connect_swapped_after(instance, detailed_signal, callback, data) \
@@ -69,6 +91,13 @@ static void type_name##_iface_init(gpointer iface); \
 G_DEFINE_IFACE_EXTENDED(TypeName, type_name, parent, type_name##_iface_init, {})
 
 #endif /* not defined any of the G_DEFINE_IFACE macros */
+
+#ifndef _G_TYPE_CGI
+#define _G_TYPE_CGI(cp, gt, ct)         ((ct*) g_type_interface_peek (((GTypeClass*)cp), gt))
+#endif
+#ifndef G_TYPE_CLASS_GET_INTERFACE
+#define G_TYPE_CLASS_GET_INTERFACE(clss, type, ctype) _G_TYPE_CGI(clss, type, ctype)
+#endif
 
 #endif /* GOBJECT_HELPERS_H */
 

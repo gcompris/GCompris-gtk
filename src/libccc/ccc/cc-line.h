@@ -49,6 +49,19 @@ void    cc_line_move (CcLine * self,
 		      gdouble  x,
 		      gdouble  y);
 
+guint   cc_line_get_num_data(CcLine * self);
+
+void    cc_line_data_set_position (CcLine *self,
+				   guint index,
+				   gdouble x,
+				   gdouble y);
+
+void    cc_line_data_get_position (CcLine *self,
+				   guint index,
+				   gdouble *x,
+				   gdouble *y);
+
+
 G_END_DECLS
 
 #endif /* !CC_LINE_H */

@@ -17,6 +17,12 @@ void pycccanvas_register_classes(PyObject *d);
 
 void py_foreach_func(CcItem* item, CcView* view, gpointer data);
 
+#define CC_TYPE_COLOR_HSV (cc_color_hsv_get_type())
+#define CC_COLOR_HSV(i)   (G_TYPE_CHECK_INSTANCE_CAST((i), CC_TYPE_COLOR_HSV, CcColorHsv))
+
+#define CC_TYPE_COLOR_RGB (cc_color_rgb_get_type())
+#define CC_COLOR_RGB(i)   (G_TYPE_CHECK_INSTANCE_CAST((i), CC_TYPE_COLOR_RGB, CcColorRgb))
+
 %%
 modulename ccc                
 %%
@@ -31,6 +37,7 @@ ignore-glob
   cc_item_render
   cc_brush_apply
   cc_color_apply
+  cc_color_stop
 %%
 override cc_d_rect_new kwargs
 CcDRect *cc_d_rect_new (gdouble x1, gdouble y1, gdouble x2, gdouble y2) {
@@ -166,12 +173,13 @@ _wrap_cc_item_distance(PyGObject *self, PyObject *args, PyObject *kwargs)
 {
     static char *kwlist[] = { "x", "y", NULL };
     PyObject *pyfound;
+    PyObject *pyview;
     CcItem *found = NULL;
     double x, y, ret;
 
-    if (!PyArg_ParseTupleAndKeywords(args, kwargs, "dd!:CcItem.distance", kwlist, &x, &y))
+    if (!PyArg_ParseTupleAndKeywords(args, kwargs, "Odd!:CcItem.distance", kwlist, &pyview, &x, &y))
         return NULL;
-    ret = cc_item_distance(CC_ITEM(self->obj), x, y, &found);
+    ret = cc_item_distance(CC_ITEM(self->obj), (CcView const*) CC_VIEW(pyview),  x, y, &found);
 
     pyfound = pygobject_new(G_OBJECT(found));
 
@@ -376,25 +384,107 @@ _wrap_cc_view_widget_get_center_view(PyGObject *self)
     return PyBool_FromLong(ret);
 
 }
+
 %%
-override cc_text_new kwargs
-static int
-_wrap_cc_text_new(PyGObject *self, PyObject *args, PyObject *kwargs)
+override cc_line_data_get_position
+
+
+static PyObject *
+_wrap_cc_line_data_get_position(PyGObject *self, PyObject *args, PyObject *kwargs)
 {
-    static char *kwlist[] = { "text", NULL };
-    char *text = "";
+    static char *kwlist[] = { "index", NULL };
+    PyObject *py_index = NULL;
+    double x, y;
+    guint index = 0;
 
-    if (!PyArg_ParseTupleAndKeywords(args, kwargs, "|z:CcText.__init__", kwlist, &text))
-        return -1;
-
-    self->obj = (GObject *)cc_text_new(text);
-
-    if (!self->obj) {
-        PyErr_SetString(PyExc_RuntimeError, "could not create CcText object");
-        return -1;
+    if (!PyArg_ParseTupleAndKeywords(args, kwargs,"O:CcLine.data_set_position", kwlist, &py_index, &x, &y))
+        return NULL;
+    if (py_index) {
+        if (PyLong_Check(py_index))
+            index = PyLong_AsUnsignedLong(py_index);
+        else if (PyInt_Check(py_index))
+            index = PyInt_AsLong(py_index);
+        else
+            PyErr_SetString(PyExc_TypeError, "Parameter 'index' must be an int or a long");
+        if (PyErr_Occurred())
+            return NULL;
     }
-    g_object_ref(self->obj);
-    pygobject_register_wrapper((PyObject *)self);
-    return 0;
+    
+    cc_line_data_get_position(CC_LINE(self->obj), index, &x, &y);
+
+    PyObject *py_tuple = Py_BuildValue("(dd)", x, y);
+    
+    Py_INCREF(py_tuple);
+    return py_tuple;
 }
 
+%%
+override cc_d_rect_get_as_tuple
+
+static PyObject *
+_wrap_cc_d_rect_get_as_tuple(PyObject *self)
+{
+	PyObject *py_tuple;
+	CcDRect *rect = pyg_boxed_get(self, CcDRect);
+
+	py_tuple = Py_BuildValue("(dddd)", rect->x1, rect->y1, rect->x2, rect->y2);
+	Py_INCREF(py_tuple);
+	return py_tuple;
+}
+
+%%
+override cc_item_set kwargs
+
+static PyObject *
+_wrap_cc_item_set (PyGObject *self, PyObject *args,
+			     PyObject *kwargs)
+{
+    GType              type;
+    CcItem   *item;
+    GObjectClass      *class;
+    Py_ssize_t         pos = 0;
+    PyObject          *value;
+    PyObject          *key;
+
+    item = CC_ITEM(self->obj);
+    type = G_OBJECT_TYPE(item);
+    class = G_OBJECT_GET_CLASS(item);
+
+    g_object_freeze_notify (G_OBJECT(item));
+
+    while (kwargs && PyDict_Next (kwargs, &pos, &key, &value)) {
+	gchar *key_str = PyString_AsString (key);
+	GParamSpec *pspec;
+	GValue gvalue ={ 0, };
+
+	pspec = g_object_class_find_property (class, key_str);
+	if (!pspec) {
+	    gchar buf[512];
+
+	    g_snprintf(buf, sizeof(buf),
+		       "canvas item `%s' doesn't support property `%s'",
+		       g_type_name(type), key_str);
+	    PyErr_SetString(PyExc_TypeError, buf);
+	    g_object_thaw_notify (G_OBJECT(item));
+	    return NULL;
+	}
+
+	g_value_init(&gvalue, G_PARAM_SPEC_VALUE_TYPE(pspec));
+	if (pyg_value_from_pyobject(&gvalue, value)) {
+	    gchar buf[512];
+
+	    g_snprintf(buf, sizeof(buf),
+		       "could not convert value for property `%s'", key_str);
+	    PyErr_SetString(PyExc_TypeError, buf);
+	    g_object_thaw_notify (G_OBJECT(item));
+	    return NULL;
+	}
+	g_object_set_property(G_OBJECT(item), key_str, &gvalue);
+	cc_item_repaint(item);
+	g_value_unset(&gvalue);
+    }
+    g_object_thaw_notify (G_OBJECT(item));
+
+    Py_INCREF(Py_None);
+    return Py_None;
+}

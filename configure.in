@@ -537,6 +537,14 @@ fi
 AC_SUBST(CFLAGS)
 AC_SUBST(LIBS)
 
+dnl libccc package dependencies
+
+PKG_CHECK_MODULES(CCC,[
+	glib-2.0 >= 2.10.0
+	gtk+-2.0 >= 2.8.0
+	])
+
+
 #mypaint
 #PKG_CHECK_MODULES(MYPAINT,[
 #        glib-2.0 >= 2.6.0
@@ -569,6 +577,9 @@ src/boards/python/connect4p/Makefile
 src/boards/python/admin/Makefile
 src/libart_lgpl/Makefile
 src/libgnomecanvas/Makefile
+src/libccc/Makefile
+src/libccc/ccc/Makefile
+src/libccc/python/Makefile
 po/Makefile.in
 docs/Makefile
 docs/C/Makefile

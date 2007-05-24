@@ -1,9 +1,9 @@
-/* this file is part of libccc, criawips' cairo-based canvas
+/* this file is part of libccc
  *
  * AUTHORS
  *       Sven Herzberg        <herzi@gnome-de.org>
  *
- * Copyright (C) 2005,2006 Sven Herzberg
+ * Copyright (C) 2005,2006,2007 Sven Herzberg
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public License as
@@ -32,6 +32,14 @@ struct CcViewCellRendererPrivate {
 };
 #define P(i) (G_TYPE_INSTANCE_GET_PRIVATE((i), CC_TYPE_VIEW_CELL_RENDERER, struct CcViewCellRendererPrivate))
 
+/**
+ * cc_view_cell_renderer_new:
+ *
+ * Creates a #GtkCellRenderer that can be used to display a canvas in a
+ * #GtkCellLayout (like #GtkTreeView or #GtkComboBox).
+ *
+ * Returns a new instance of #CcViewCellRenderer.
+ */
 GtkCellRenderer*
 cc_view_cell_renderer_new(void) {
 	return g_object_new(CC_TYPE_VIEW_CELL_RENDERER, NULL);
@@ -57,19 +65,9 @@ static void
 cc_view_cell_renderer_init(CcViewCellRenderer* self) {}
 
 static void
-cvcr_dispose(GObject* object) {
-	CcViewCellRenderer* self = CC_VIEW_CELL_RENDERER(object);
-
-	if(self->disposed) {
-		return;
-	}
-	self->disposed = TRUE;
-
-	if(P(self)->root) {
-#warning "use set_root()"
-		g_object_unref(P(self)->root);
-		P(self)->root = NULL;
-	}
+cvcr_dispose (GObject* object)
+{
+	cc_view_set_root(CC_VIEW(object), NULL);
 
 	G_OBJECT_CLASS(cc_view_cell_renderer_parent_class)->dispose(object);
 }
@@ -202,9 +200,9 @@ cell_render_implement_item_view(CcItemViewIface* iface G_GNUC_UNUSED)
 
 /* CcViewIface */
 static void
-cell_renderer_world_to_window(CcView * view,
-			      gdouble* x,
-			      gdouble* y)
+cell_renderer_world_to_window(CcView const* view,
+			      gdouble     * x,
+			      gdouble     * y)
 {
 	cairo_matrix_transform_point(&P(view)->matrix, x, y);
 }

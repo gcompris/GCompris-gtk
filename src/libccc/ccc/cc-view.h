@@ -58,8 +58,8 @@ void    cc_view_set_focus               (CcView      * self,
 					 CcItem      * focus);
 void    cc_view_set_root                (CcView * self,
 			                 CcItem * root);
-void    cc_view_set_scrolled_region     (CcView      * self,
-					 CcDRect     * scrolled_region);
+void    cc_view_set_scrolled_region     (CcView       * self,
+					 CcDRect const* scrolled_region);
 void    cc_view_set_zoom                (CcView      * self,
 				         gdouble       zoom);
 gint    cc_view_grab_item               (CcView      * self,
@@ -70,15 +70,15 @@ gint    cc_view_grab_item               (CcView      * self,
 void    cc_view_ungrab_item             (CcView      * self,
 					 CcItem      * item,
 					 guint32       time);
-void    cc_view_window_to_world         (CcView      * self,
+void    cc_view_window_to_world         (CcView const* self,
 				         gdouble     * x,
 				         gdouble     * y);
-void    cc_view_world_to_window         (CcView * self,
-				         gdouble* x,
-				         gdouble* y);
-void    cc_view_world_to_window_distance(CcView * self,
-					 gdouble* x,
-					 gdouble* y);
+void    cc_view_world_to_window         (CcView const* self,
+				         gdouble     * x,
+				         gdouble     * y);
+void    cc_view_world_to_window_distance(CcView const* self,
+					 gdouble     * x,
+					 gdouble     * y);
 
 struct _CcViewIface {
 	GTypeInterface base_iface;
@@ -92,13 +92,13 @@ struct _CcViewIface {
 	void          (*ungrab_item)             (CcView      * self,
 					          CcItem      * item,
 					          guint32       time);
-	void          (*window_to_world)         (CcView      * self,
+	void          (*window_to_world)         (CcView const* self,
 				                  gdouble     * x,
 				                  gdouble     * y);
-	void          (*world_to_window)         (CcView      * self,
+	void          (*world_to_window)         (CcView const* self,
 				                  gdouble     * x,
 				                  gdouble     * y);
-	void          (*world_to_window_distance)(CcView      * self,
+	void          (*world_to_window_distance)(CcView const* self,
 					          gdouble     * x,
 					          gdouble     * y);
 };

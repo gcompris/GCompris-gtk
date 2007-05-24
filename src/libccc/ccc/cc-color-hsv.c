@@ -89,11 +89,14 @@ cch_set_property(GObject* object, guint prop_id, GValue const* value, GParamSpec
 }
 
 static void
-cch_apply(CcColor const* color, cairo_t* cr) {
-	gdouble r, g, b;
-
+color_hsv_apply(CcColor const* color,
+		gdouble      * red,
+		gdouble      * green,
+		gdouble      * blue,
+		gdouble      * alpha)
+{
 	if(P(color)->saturation == 0.0) {
-		r = g = b = P(color)->value;
+		*red = *green = *blue = P(color)->value;
 	} else {
 		gdouble hue = P(color)->hue * 6.0,
 			f, p, q, t;
@@ -107,29 +110,30 @@ cch_apply(CcColor const* color, cairo_t* cr) {
 
 		switch((int)hue) {
 		case 0:
-			r = P(color)->value; g = t; b = p;
+			*red = P(color)->value; *green = t; *blue = p;
 			break;
 		case 1:
-			r = q; g = P(color)->value; b = p;
+			*red = q; *green = P(color)->value; *blue = p;
 			break;
 		case 2:
-			r = p; g = P(color)->value; b = t;
+			*red = p; *green = P(color)->value; *blue = t;
 			break;
 		case 3:
-			r = p; g = q; b = P(color)->value;
+			*red = p; *green = q; *blue = P(color)->value;
 			break;
 		case 4:
-			r = t; g = p; b = P(color)->value;
+			*red = t; *green = p; *blue = P(color)->value;
 			break;
 		case 5:
-			r = P(color)->value; g = p; b = q;
+			*red = P(color)->value; *green = p; *blue = q;
 			break;
 		default:
 			g_warning("hue should not be bigger than 5");
 			break;
 		};
 	}
-	cairo_set_source_rgba(cr, r, g, b, color->alpha);
+
+	CC_COLOR_CLASS(cc_color_hsv_parent_class)->apply(color, red, green, blue, alpha);
 }
 
 static void
@@ -169,7 +173,7 @@ cc_color_hsv_class_init(CcColorHsvClass* self_class) {
 
 	/* CcColorClass */
 	cc_class = CC_COLOR_CLASS(self_class);
-	cc_class->apply = cch_apply;
+	cc_class->apply = color_hsv_apply;
 
 	/* CcColorHsvClass */
 	g_type_class_add_private(self_class, sizeof(struct CcColorHsvPrivate));

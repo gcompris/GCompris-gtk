@@ -28,8 +28,8 @@
 
 G_BEGIN_DECLS
 
-typedef struct _CcRoundedRectangle      CcRoundedRectangle;
-typedef struct _CcRoundedRectangleClass CcRoundedRectangleClass;
+typedef CcRectangle      CcRoundedRectangle;
+typedef CcRectangleClass CcRoundedRectangleClass;
 
 #define CC_TYPE_ROUNDED_RECTANGLE         (cc_rounded_rectangle_get_type())
 #define CC_ROUNDED_RECTANGLE(i)           (G_TYPE_CHECK_INSTANCE_CAST((i), CC_TYPE_ROUNDED_RECTANGLE, CcRoundedRectangle))
@@ -38,17 +38,10 @@ typedef struct _CcRoundedRectangleClass CcRoundedRectangleClass;
 #define CC_IS_ROUNDED_RECTANGLE_CLASS(c)  (G_TYPE_CHECK_CLASS_TYPE((c), CC_TYPE_ROUNDED_RECTANGLE))
 #define CC_ROUNDED_RECTANGLE_GET_CLASS(i) (G_TYPE_INSTANCE_GET_CLASS((i), CC_TYPE_ROUNDED_RECTANGLE, CcRoundedRectangleClass))
 
-GType cc_rounded_rectangle_get_type(void);
-
-struct _CcRoundedRectangle {
-	CcRectangle base_instance;
-
-	gdouble corner_radius;
-};
-
-struct _CcRoundedRectangleClass {
-	CcRectangleClass base_class;
-};
+GType   cc_rounded_rectangle_get_type  (void);
+CcItem* cc_rounded_rectangle_new       (void);
+void    cc_rounded_rectangle_set_radius(CcRoundedRectangle* self,
+					gdouble             radius);
 
 G_END_DECLS
 

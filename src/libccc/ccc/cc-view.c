@@ -146,7 +146,9 @@ cc_view_set_root(CcView* self, CcItem* new_root) {
  * scrollbars.
  */
 void
-cc_view_set_scrolled_region(CcView* self, CcDRect* scrolled_region) {
+cc_view_set_scrolled_region(CcView       * self,
+			    CcDRect const* scrolled_region)
+{
 	g_return_if_fail(CC_IS_VIEW(self));
 	g_object_set(self, "scrolled-region", scrolled_region, NULL);
 }
@@ -173,7 +175,10 @@ cc_view_set_zoom(CcView* self, gdouble zoom) {
  * Convert @window_x and @window_y to @world_x and @world_y if given.
  */
 void
-cc_view_window_to_world(CcView* self, gdouble* x, gdouble* y) {
+cc_view_window_to_world(CcView const* self,
+			gdouble     * x,
+			gdouble     * y)
+{
 	g_return_if_fail(CC_VIEW_GET_CLASS(self)->window_to_world);
 
 	CC_VIEW_GET_CLASS(self)->window_to_world(self, x, y);
@@ -188,7 +193,10 @@ cc_view_window_to_world(CcView* self, gdouble* x, gdouble* y) {
  * Convert @x and @y to window coordinates if given.
  */
 void
-cc_view_world_to_window(CcView* self, gdouble* x, gdouble* y) {
+cc_view_world_to_window(CcView const* self,
+			gdouble     * x,
+			gdouble     * y)
+{
 	cc_return_if_unimplemented(CC_VIEW_GET_CLASS(self), world_to_window);
 
 	CC_VIEW_GET_CLASS(self)->world_to_window(self, x, y);
@@ -203,7 +211,10 @@ cc_view_world_to_window(CcView* self, gdouble* x, gdouble* y) {
  * Convert @x and @y to window coordinates
  */
 void
-cc_view_world_to_window_distance(CcView* self, gdouble* x, gdouble* y) {
+cc_view_world_to_window_distance(CcView const* self,
+				 gdouble     * x,
+				 gdouble     * y)
+{
 	g_return_if_fail(CC_VIEW_GET_CLASS(self)->world_to_window_distance);
 
 	CC_VIEW_GET_CLASS(self)->world_to_window_distance(self, x, y);
@@ -237,6 +248,7 @@ cc_view_iface_init(gpointer iface) {
 								"The root element of this canvas",
 								CC_TYPE_ITEM,
 								G_PARAM_READWRITE));
+//#warning  "FIXME: rename scrolled region"
 	g_object_interface_install_property(iface,
 					    g_param_spec_boxed("scrolled-region",
 							       "scrolled-region",
