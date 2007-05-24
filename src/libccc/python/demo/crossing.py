@@ -19,16 +19,8 @@ class Crossing(page.Page):
     def __init__(self):
         self.title = 'Crossing'
         
-        self.colors = [ cccanvas.color_new_rgb(0.0,0.0,0.0),
-                        cccanvas.color_new_rgb(1.0,0.0,0.0) ]
-
-        self.brushs = []
-        
-        self.brushs.append(cccanvas.BrushColor(self.colors[0]))
-        self.brushs.append(cccanvas.BrushColor(self.colors[1]))
-
-        #self.brushs = [ cccanvas.BrushColor(self.colors[0]),
-        #                cccanvas.BrushColor(self.colors[1]) ]
+        self.colors = [ cccanvas.ColorRgb(0.0,0.0,0.0,1.0),
+                        cccanvas.ColorRgb(1.0,0.0,0.0,1.0) ]
 
         # main widget
         self.widget = gtk.VBox(False, 6)
@@ -72,7 +64,7 @@ class Crossing(page.Page):
                 circle.set_anchor( center + (radius - out) * sin(2.0*pi*i/n_circles),
                                    center - (radius - out) * cos(2.0*pi*i/n_circles))
                 circle.set_radius( r_el );
-                circle.set_brush_border (self.brushs[0])
+                circle.set_brush_border (self.colors[0])
                 
                 circle.connect("enter-notify-event", self.enter_callback)
                 circle.connect("leave-notify-event", self.leave_callback)
@@ -83,10 +75,10 @@ class Crossing(page.Page):
 
         
     def enter_callback(self, shape, view, event):
-        shape.set_brush_border (self.brushs[1])
+        shape.set_brush_border (self.colors[1])
         return False
         
     def leave_callback(self, shape, view, event):
-        shape.set_brush_border (self.brushs[0])
+        shape.set_brush_border (self.colors[0])
         return False
         

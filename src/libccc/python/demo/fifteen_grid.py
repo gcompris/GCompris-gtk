@@ -21,10 +21,9 @@ class FifteenGrid(cccanvas.Rectangle):
         self.elements = []
         self.font_description = font_desc
 
-        color = cccanvas.color_new_rgb(0,0,0)
-        brush = cccanvas.BrushColor(color)
+        color = cccanvas.ColorRgb(0,0,0,1)
 
-        self.set_brush_border (brush)
+        self.set_brush_border (color)
 
         self.set_position (0.0, 0.0, 4*TILE_SIZE, 4*TILE_SIZE)
         
@@ -34,7 +33,7 @@ class FifteenGrid(cccanvas.Rectangle):
             self.elements.append(fifteen_item.FifteenItem(i+1))
 
             self.elements[i].set_grid_aligned(True)
-            self.elements[i].set_brush_border (brush)
+            self.elements[i].set_brush_border (color)
             self.append(self.elements[i])
             
             self.elements[i].move(i, TILE_SIZE)

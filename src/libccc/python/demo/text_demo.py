@@ -69,7 +69,7 @@ class TextDemo(page.Page):
         self.widget = gtk.VBox(False, 6)
 
         self.root = cc.Item()
-        self.text = cc.Text()
+        self.text = cc.Text('')
 
         self.text.SET_FLAGS(cc.CAN_FOCUS)
 
@@ -91,9 +91,9 @@ class TextDemo(page.Page):
 
         self.root.append(self.arrow)
         self.arrow.set_brush_border(
-            cc.BrushColor(cc.color_new_rgba(0.0, 0.0, 1.0, 0.5)))
+            cc.ColorRgb(0.0, 0.0, 1.0, 0.5))
         self.rect.set_brush_border(
-            cc.BrushColor(cc.color_new_rgba(1.0, 0.0, 0.0, 0.5)))
+            cc.ColorRgb(1.0, 0.0, 0.0, 0.5))
         
         self.text.connect("all-bounds-changed", self.update_bounds, self.rect)
 

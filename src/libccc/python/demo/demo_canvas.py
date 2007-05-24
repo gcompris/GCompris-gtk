@@ -20,18 +20,16 @@ class Canvas(cc.Item):
         center = demo_canvas_center
         radius = 125.0
 
-        color_border = cc.color_new_rgb(0.0, 0.0, 0.0)
-        brush_border = cc.BrushColor(color_border)
+        color_border = cc.ColorRgb(0.0, 0.0, 0.0, 1.0)
             
         for i in range(12):
             item = cc.Rectangle()
             item.set_grid_aligned(True)
 
-            item.set_brush_border(brush_border)
+            item.set_brush_border(color_border)
             
-            color = cc.color_new_hsva(1.0 * i / 12, 0.75, 1.0, 0.5)
-            brush = cc.BrushColor(color)
-            item.set_brush_content(brush)
+            color = cc.ColorHsv(1.0 * i / 12, 0.75, 1.0, 0.5)
+            item.set_brush_content(color)
             
             self.append(item)
 

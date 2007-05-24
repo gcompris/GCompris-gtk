@@ -12,10 +12,9 @@ class FifteenItem(cccanvas.Rectangle):
     def __init__(self, index):
         cccanvas.Rectangle.__init__(self)
 
-        color = cccanvas.color_new_hsva(1.0 * index / 15, 0.75, 1.0, 0.5)
-        brush = cccanvas.BrushColor(color)
+        color = cccanvas.ColorHsv(1.0 * index / 15, 0.75, 1.0, 0.5)
 
-        self.set_brush_content(brush)
+        self.set_brush_content(color)
 
         self.index = index
         self.text = cccanvas.Text('%d' % index)
