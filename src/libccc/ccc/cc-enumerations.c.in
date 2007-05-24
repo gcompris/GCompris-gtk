@@ -1,0 +1,38 @@
+/*** BEGIN file-header ***/
+#include <ccc/cc-enumerations.h>
+
+#ifdef HAVE_CONFIG_H
+# include <cc-config.h>
+#endif
+
+#include <glib/gi18n.h>
+/*** END file-header ***/
+
+/*** BEGIN file-production ***/
+/* enumerations from "@filename@" */
+#include "@filename@"
+/*** END file-production ***/
+
+/*** BEGIN value-header ***/
+GType
+@enum_name@_get_type(void) {
+	static GType etype = 0;
+	if(!etype) {
+		static const G@Type@Value values[] = {
+/*** END value-header ***/
+
+/*** BEGIN value-production ***/
+			{@VALUENAME@, "@VALUENAME@", N_("@valuenick@")},
+/*** END value-production ***/
+
+/*** BEGIN value-tail ***/
+			{0, NULL, NULL}
+		};
+
+		etype = g_@type@_register_static("@EnumName@", values);
+	}
+
+	return etype;
+}
+/*** END value-tail ***/
+
