@@ -1,0 +1,1105 @@
+;; -*- scheme -*-
+; object definitions ...
+(define-object Brush
+  (in-module "Cc")
+  (parent "GObject")
+  (c-name "CcBrush")
+  (gtype-id "CC_TYPE_BRUSH")
+)
+
+(define-object BrushColor
+  (in-module "Cc")
+  (parent "CcBrush")
+  (c-name "CcBrushColor")
+  (gtype-id "CC_TYPE_BRUSH_COLOR")
+)
+
+(define-object Color
+  (in-module "Cc")
+  (parent "GObject")
+  (c-name "CcColor")
+  (gtype-id "CC_TYPE_COLOR")
+)
+
+(define-object Item
+  (in-module "Cc")
+  (parent "GObject")
+  (c-name "CcItem")
+  (gtype-id "CC_TYPE_ITEM")
+)
+
+(define-object ItemView
+  (in-module "Cc")
+  (c-name "CcItemView")
+  (gtype-id "CC_TYPE_ITEM_VIEW")
+)
+
+(define-object Pixbuf
+  (in-module "Cc")
+  (parent "CcItem")
+  (c-name "CcPixbuf")
+  (gtype-id "CC_TYPE_PIXBUF")
+)
+
+(define-object Printer
+  (in-module "Cc")
+  (parent "GObject")
+  (c-name "CcPrinter")
+  (gtype-id "CC_TYPE_PRINTER")
+)
+
+(define-object Shape
+  (in-module "Cc")
+  (parent "CcItem")
+  (c-name "CcShape")
+  (gtype-id "CC_TYPE_SHAPE")
+)
+
+(define-object Rectangle
+  (in-module "Cc")
+  (parent "CcShape")
+  (c-name "CcRectangle")
+  (gtype-id "CC_TYPE_RECTANGLE")
+)
+
+(define-object RoundedRectangle
+  (in-module "Cc")
+  (parent "CcRectangle")
+  (c-name "CcRoundedRectangle")
+  (gtype-id "CC_TYPE_ROUNDED_RECTANGLE")
+)
+
+(define-object Line
+  (in-module "Cc")
+  (parent "CcShape")
+  (c-name "CcLine")
+  (gtype-id "CC_TYPE_LINE")
+)
+
+(define-object Circle
+  (in-module "Cc")
+  (parent "CcShape")
+  (c-name "CcCircle")
+  (gtype-id "CC_TYPE_CIRCLE")
+)
+
+(define-object Text
+  (in-module "Cc")
+  (parent "CcItem")
+  (c-name "CcText")
+  (gtype-id "CC_TYPE_TEXT")
+)
+
+;(define-interface View
+;  (in-module "Cc")
+;  (c-name "CcView")
+;  (gtype-id "CC_TYPE_VIEW")
+;)
+
+(define-object View
+  (in-module "Cc")
+  (c-name "CcView")
+  (gtype-id "CC_TYPE_VIEW")
+)
+
+(define-object ViewCellRenderer
+  (in-module "Cc")
+  (parent "GtkCellRenderer")
+  (c-name "CcViewCellRenderer")
+  (gtype-id "CC_TYPE_VIEW_CELL_RENDERER")
+  (implements "CcView")
+)
+
+(define-object ViewPNG
+  (in-module "Cc")
+  (parent "GObject")
+  (c-name "CcViewPNG")
+  (gtype-id "CC_TYPE_VIEW_PNG")
+  (implements "CcView")
+)
+
+(define-object ViewWidget
+  (in-module "Cc")
+  (parent "GtkDrawingArea")
+  (c-name "CcViewWidget")
+  (gtype-id "CC_TYPE_VIEW_WIDGET")
+  (implements "CcView")
+)
+
+;; Enumerations and flags ...
+
+(define-flags ItemFlags
+  (in-module "Cc")
+  (c-name "CcItemFlags")
+  (gtype-id "CC_TYPE_ITEM_FLAGS")
+  (values
+    '("can-focus" "CC_CAN_FOCUS")
+    '("disposed" "CC_DISPOSED")
+    '("grid-aligned" "CC_GRID_ALIGNED")
+    '("no-search-children" "CC_NO_SEARCH_CHILDREN")
+  )
+)
+
+(define-enum ZoomMode
+  (in-module "Cc")
+  (c-name "CcZoomMode")
+  (gtype-id "CC_TYPE_ZOOM_MODE")
+  (values
+    '("pixels" "CC_ZOOM_PIXELS")
+    '("width" "CC_ZOOM_WIDTH")
+    '("height" "CC_ZOOM_HEIGHT")
+    '("auto" "CC_ZOOM_AUTO")
+  )
+)
+
+
+;; From ../ccc/cc-brush-color.h
+
+(define-function cc_brush_color_get_type
+  (in-module "Cc")
+  (c-name "cc_brush_color_get_type")
+  (return-type "GType")
+)
+
+(define-function cc_brush_color_new
+  (in-module "Cc")
+  (c-name "cc_brush_color_new")
+  (is-constructor-of "CcBrushColor")
+  (caller-owns-return #f)
+  (return-type "CcBrush*")
+  (parameters
+    '("CcColor*" "color")
+  )
+)
+
+(define-method get_color
+  (of-object "CcBrushColor")
+  (c-name "cc_brush_color_get_color")
+  (return-type "CcColor*")
+)
+
+(define-method set_color
+  (of-object "CcBrushColor")
+  (c-name "cc_brush_color_set_color")
+  (return-type "none")
+  (parameters
+    '("CcColor*" "color")
+  )
+)
+
+
+
+;; From ../ccc/cc-brush.h
+
+(define-function cc_brush_get_type
+  (c-name "cc_brush_get_type")
+  (return-type "GType")
+)
+
+(define-method apply
+  (of-object "CcBrush")
+  (c-name "cc_brush_apply")
+  (return-type "none")
+  (parameters
+    '("cairo_t*" "cr")
+  )
+)
+
+
+
+;; From ../ccc/ccc.h
+
+
+
+;; From ../ccc/cc-circle.h
+
+(define-function cc_circle_get_type
+  (c-name "cc_circle_get_type")
+  (return-type "GType")
+)
+
+(define-function cc_circle_new
+  (c-name "cc_circle_new")
+  (is-constructor-of "CcCircle")
+  (caller-owns-return #f)
+  (return-type "CcItem*")
+)
+
+(define-method set_anchor
+  (of-object "CcCircle")
+  (c-name "cc_circle_set_anchor")
+  (return-type "none")
+  (parameters
+    '("gdouble" "x")
+    '("gdouble" "y")
+  )
+)
+
+(define-method set_radius
+  (of-object "CcCircle")
+  (c-name "cc_circle_set_radius")
+  (return-type "none")
+  (parameters
+    '("gdouble" "radius")
+  )
+)
+
+
+
+;; From ../ccc/cc-color.h
+
+(define-function cc_color_get_type
+  (c-name "cc_color_get_type")
+  (return-type "GType")
+)
+
+(define-method apply
+  (of-object "CcColor")
+  (c-name "cc_color_apply")
+  (return-type "none")
+  (parameters
+    '("cairo_t*" "cr")
+  )
+)
+
+(define-function color_new_rgb
+  (in-module "Cc")
+  (c-name "cc_color_new_rgb")
+  (return-type "CcColor*")
+  (parameters
+    '("gdouble" "red")
+    '("gdouble" "green")
+    '("gdouble" "blue")
+  )
+)
+
+(define-function color_new_rgba
+  (in-module "Cc")
+  (c-name "cc_color_new_rgba")
+  (return-type "CcColor*")
+  (parameters
+    '("gdouble" "red")
+    '("gdouble" "green")
+    '("gdouble" "blue")
+    '("gdouble" "alpha")
+  )
+)
+
+(define-function color_new_hsv
+  (in-module "Cc")
+  (c-name "cc_color_new_hsv")
+  (return-type "CcColor*")
+  (parameters
+    '("gdouble" "hue")
+    '("gdouble" "saturation")
+    '("gdouble" "value")
+  )
+)
+
+(define-function color_new_hsva
+  (in-module "Cc")
+  (c-name "cc_color_new_hsva")
+  (return-type "CcColor*")
+  (parameters
+    '("gdouble" "hue")
+    '("gdouble" "saturation")
+    '("gdouble" "value")
+    '("gdouble" "alpha")
+  )
+)
+
+
+
+;; From ../ccc/cc-d-rect.h
+
+(define-boxed DRect
+  (in-module "Cc")
+  (c-name "CcDRect")
+  (gtype-id "CC_TYPE_D_RECT")
+  (release-func g_free)
+  (fields
+    '("gdouble" "x1")
+    '("gdouble" "y1")
+    '("gdouble" "x2")
+    '("gdouble" "y2")
+  )
+ )
+
+(define-function cc_d_rect_new
+  (c-name "cc_d_rect_new")
+  (is-constructor-of "CcDRect")
+  (caller-owns-return #f)
+  (return-type "CCDRect")
+  (parameters
+    '("gdouble" "x1")
+    '("gdouble" "x2")
+    '("gdouble" "y1")
+    '("gdouble" "y2")
+    )
+  )
+
+(define-function cc_d_rect_get_type
+  (c-name "cc_d_rect_get_type")
+  (return-type "GType")
+)
+
+(define-method copy
+  (of-object "CcDRect")
+  (c-name "cc_d_rect_copy")
+  (return-type "CcDRect*")
+)
+
+(define-method equal
+  (of-object "CcDRect")
+  (c-name "cc_d_rect_equal")
+  (return-type "gboolean")
+  (parameters
+    '("CcDRect" "two")
+  )
+)
+
+(define-method intersect
+  (of-object "CcDRect")
+  (c-name "cc_d_rect_intersect")
+  (return-type "gboolean")
+  (parameters
+    '("CcDRect" "two")
+  )
+)
+
+(define-method union
+  (of-object "CcDRect")
+  (c-name "cc_d_rect_union")
+  (return-type "none")
+  (parameters
+    '("CcDRect" "two")
+    '("CcDRect*" "merged")
+  )
+)
+
+
+
+;; From ../ccc/cc-enumerations.h
+
+(define-function cc_item_flags_get_type
+  (c-name "cc_item_flags_get_type")
+  (return-type "GType")
+)
+
+(define-function cc_zoom_mode_get_type
+  (c-name "cc_zoom_mode_get_type")
+  (return-type "GType")
+)
+
+
+
+;; From ../ccc/cc-item.h
+(define-method SET_FLAGS
+  (of-object "CcItem")
+  (c-name "CC_ITEM_SET_FLAGS")
+  (return-type "none")
+  (parameters
+    '("CcItemFlags" "flags")
+  )
+)
+
+(define-function cc_item_new
+  (c-name "cc_item_new")
+  (is-constructor-of "CcItem")
+  (caller-owns-return #f)
+  (return-type "CcItem*")
+)
+
+(define-method append
+  (of-object "CcItem")
+  (c-name "cc_item_append")
+  (return-type "none")
+  (parameters
+    '("CcItem*" "child")
+  )
+)
+
+(define-method bounds_changed
+  (of-object "CcItem")
+  (c-name "cc_item_bounds_changed")
+  (return-type "none")
+  (parameters
+    '("CcView*" "view")
+  )
+)
+
+(define-method dirty
+  (of-object "CcItem")
+  (c-name "cc_item_dirty")
+  (return-type "none")
+  (parameters
+    '("CcView*" "view")
+    '("CcDRect" "dirty_region")
+  )
+)
+
+(define-method distance
+  (of-object "CcItem")
+  (c-name "cc_item_distance")
+  (return-type "gdouble")
+  (parameters
+    '("gdouble" "x")
+    '("gdouble" "y")
+;    '("CcItem*" "found")
+  )
+)
+
+(define-method foreach_view
+  (of-object "CcItem")
+  (c-name "cc_item_foreach_view")
+  (return-type "none")
+  (parameters
+    '("CcItem*" "func")
+    '("int" "data")
+  )
+)
+
+(define-method grab_focus
+  (of-object "CcItem")
+  (c-name "cc_item_grab_focus")
+  (return-type "none")
+  (parameters
+    '("CcView*" "view")
+  )
+)
+
+(define-method insert
+  (of-object "CcItem")
+  (c-name "cc_item_insert")
+  (return-type "none")
+  (parameters
+    '("CcItem*" "child")
+    '("gint" "position")
+  )
+)
+
+(define-method is_child_of
+  (of-object "CcItem")
+  (c-name "cc_item_is_child_of")
+  (return-type "gboolean")
+  (parameters
+    '("CcItem*" "parent")
+  )
+)
+
+(define-method remove
+  (of-object "CcItem")
+  (c-name "cc_item_remove")
+  (return-type "none")
+  (parameters
+    '("CcItem*" "child")
+  )
+)
+
+(define-method render
+  (of-object "CcItem")
+  (c-name "cc_item_render")
+  (return-type "none")
+  (parameters
+    '("CcView*" "view")
+    '("cairo_t*" "cr")
+  )
+)
+
+(define-method set_grid_aligned
+  (of-object "CcItem")
+  (c-name "cc_item_set_grid_aligned")
+  (return-type "none")
+  (parameters
+    '("gboolean" "grid_aligned")
+  )
+)
+
+(define-method add_view
+  (of-object "CcItem")
+  (c-name "cc_item_add_view")
+  (return-type "none")
+  (parameters
+    '("CcView*" "view")
+  )
+)
+
+(define-method remove_view
+  (of-object "CcItem")
+  (c-name "cc_item_remove_view")
+  (return-type "none")
+  (parameters
+    '("CcView*" "view")
+  )
+)
+
+
+
+;; From ../ccc/cc-item-view.h
+
+(define-function cc_item_view_get_type
+  (c-name "cc_item_view_get_type")
+  (return-type "GType")
+)
+
+(define-method register
+  (of-object "CcItemView")
+  (c-name "cc_item_view_register")
+  (return-type "none")
+  (parameters
+    '("CcItem*" "item")
+  )
+)
+
+(define-method unregister
+  (of-object "CcItemView")
+  (c-name "cc_item_view_unregister")
+  (return-type "none")
+  (parameters
+    '("CcItem*" "item")
+  )
+)
+
+
+
+;; From ../ccc/cc-line.h
+
+(define-function cc_line_get_type
+  (c-name "cc_line_get_type")
+  (return-type "GType")
+)
+
+(define-function cc_line_new
+  (c-name "cc_line_new")
+  (is-constructor-of "CcLine")
+  (caller-owns-return #f)
+  (return-type "CcItem*")
+)
+
+(define-method line
+  (of-object "CcLine")
+  (c-name "cc_line_line")
+  (return-type "none")
+  (parameters
+    '("gdouble" "x")
+    '("gdouble" "y")
+  )
+)
+
+(define-method move
+  (of-object "CcLine")
+  (c-name "cc_line_move")
+  (return-type "none")
+  (parameters
+    '("gdouble" "x")
+    '("gdouble" "y")
+  )
+)
+
+
+
+;; From ../ccc/cc-marshallers.h
+
+
+
+;; From ../ccc/cc-pixbuf.h
+
+(define-function cc_pixbuf_get_type
+  (c-name "cc_pixbuf_get_type")
+  (return-type "GType")
+)
+
+(define-function cc_pixbuf_new
+  (c-name "cc_pixbuf_new")
+  (is-constructor-of "CcPixbuf")
+  (caller-owns-return #f)
+  (return-type "CcItem*")
+)
+
+(define-method set_pixbuf
+  (of-object "CcPixbuf")
+  (c-name "cc_pixbuf_set_pixbuf")
+  (return-type "none")
+  (parameters
+    '("GdkPixbuf*" "pixbuf")
+  )
+)
+
+(define-method set_position
+  (of-object "CcPixbuf")
+  (c-name "cc_pixbuf_set_position")
+  (return-type "none")
+  (parameters
+    '("gdouble" "x")
+    '("gdouble" "y")
+    '("gdouble" "w")
+    '("gdouble" "h")
+  )
+)
+
+
+
+;; From ../ccc/cc-printer.h
+
+(define-function cc_printer_get_type
+  (c-name "cc_printer_get_type")
+  (return-type "GType")
+)
+
+(define-function cc_printer_new
+  (c-name "cc_printer_new")
+  (is-constructor-of "CcPrinter")
+  (caller-owns-return #f)
+  (return-type "CcPrinter*")
+  (parameters
+    '("const-gchar*" "filename")
+  )
+)
+
+(define-method print_page
+  (of-object "CcPrinter")
+  (c-name "cc_printer_print_page")
+  (return-type "none")
+)
+
+
+
+;; From ../ccc/cc-rectangle.h
+
+(define-function cc_rectangle_get_type
+  (c-name "cc_rectangle_get_type")
+  (return-type "GType")
+)
+
+(define-function cc_rectangle_new
+  (c-name "cc_rectangle_new")
+  (is-constructor-of "CcRectangle")
+  (caller-owns-return #f)
+  (return-type "CcItem*")
+)
+
+(define-method set_position
+  (of-object "CcRectangle")
+  (c-name "cc_rectangle_set_position")
+  (return-type "none")
+  (parameters
+    '("gdouble" "x")
+    '("gdouble" "y")
+    '("gdouble" "w")
+    '("gdouble" "h")
+  )
+)
+
+(define-method set_x
+  (of-object "CcRectangle")
+  (c-name "cc_rectangle_set_x")
+  (return-type "none")
+  (parameters
+    '("gdouble" "x")
+  )
+)
+
+(define-method set_y
+  (of-object "CcRectangle")
+  (c-name "cc_rectangle_set_y")
+  (return-type "none")
+  (parameters
+    '("gdouble" "y")
+  )
+)
+
+(define-method set_width
+  (of-object "CcRectangle")
+  (c-name "cc_rectangle_set_width")
+  (return-type "none")
+  (parameters
+    '("gdouble" "width")
+  )
+)
+
+(define-method set_height
+  (of-object "CcRectangle")
+  (c-name "cc_rectangle_set_height")
+  (return-type "none")
+  (parameters
+    '("gdouble" "height")
+  )
+)
+
+
+
+;; From ../ccc/cc-rounded-rectangle.h
+
+(define-function cc_rounded_rectangle_get_type
+  (c-name "cc_rounded_rectangle_get_type")
+  (return-type "GType")
+)
+
+
+
+;; From ../ccc/cc-shape.h
+
+(define-function cc_shape_get_type
+  (c-name "cc_shape_get_type")
+  (return-type "GType")
+)
+
+(define-method get_brush_border
+  (of-object "CcShape")
+  (c-name "cc_shape_get_brush_border")
+  (return-type "CcBrush*")
+)
+
+(define-method set_brush_border
+  (of-object "CcShape")
+  (c-name "cc_shape_set_brush_border")
+  (return-type "none")
+  (parameters
+    '("CcBrush*" "brush")
+  )
+)
+
+(define-method get_brush_content
+  (of-object "CcShape")
+  (c-name "cc_shape_get_brush_content")
+  (return-type "CcBrush*")
+)
+
+(define-method set_brush_content
+  (of-object "CcShape")
+  (c-name "cc_shape_set_brush_content")
+  (return-type "none")
+  (parameters
+    '("CcBrush*" "brush")
+  )
+)
+
+(define-method get_width
+  (of-object "CcShape")
+  (c-name "cc_shape_get_width")
+  (return-type "gdouble")
+  (parameters
+    '("CcView*" "view")
+  )
+)
+
+(define-method set_width_pixels
+  (of-object "CcShape")
+  (c-name "cc_shape_set_width_pixels")
+  (return-type "none")
+  (parameters
+    '("gdouble" "width")
+  )
+)
+
+(define-method set_width_units
+  (of-object "CcShape")
+  (c-name "cc_shape_set_width_units")
+  (return-type "none")
+  (parameters
+    '("gdouble" "width")
+  )
+)
+
+
+
+;; From ../ccc/cc-text.h
+
+(define-function cc_text_get_type
+  (c-name "cc_text_get_type")
+  (return-type "GType")
+)
+
+(define-function cc_text_new
+  (c-name "cc_text_new")
+  (is-constructor-of "CcText")
+  (caller-owns-return #f)
+  (return-type "CcItem*")
+  (parameters
+    '("const-gchar*" "text" (null-ok))
+  )
+)
+
+(define-method is_editable
+  (of-object "CcText")
+  (c-name "cc_text_is_editable")
+  (return-type "gboolean")
+)
+
+(define-method set_anchor
+  (of-object "CcText")
+  (c-name "cc_text_set_anchor")
+  (return-type "none")
+  (parameters
+    '("gdouble" "x")
+    '("gdouble" "y")
+  )
+)
+
+(define-method set_anchor_type
+  (of-object "CcText")
+  (c-name "cc_text_set_anchor_type")
+  (return-type "none")
+  (parameters
+    '("GtkAnchorType" "anchor")
+  )
+)
+
+(define-method set_editable
+  (of-object "CcText")
+  (c-name "cc_text_set_editable")
+  (return-type "none")
+  (parameters
+    '("gboolean" "editable")
+  )
+)
+
+(define-method set_font_description
+  (of-object "CcText")
+  (c-name "cc_text_set_font_description")
+  (return-type "none")
+  (parameters
+    '("PangoFontDescription*" "desc")
+  )
+)
+
+(define-method set_markup
+  (of-object "CcText")
+  (c-name "cc_text_set_markup")
+  (return-type "none")
+  (parameters
+    '("const-gchar*" "text")
+  )
+)
+
+(define-method set_size_pixels
+  (of-object "CcText")
+  (c-name "cc_text_set_size_pixels")
+  (return-type "none")
+  (parameters
+    '("gboolean" "size_pixels")
+  )
+)
+
+(define-method set_text
+  (of-object "CcText")
+  (c-name "cc_text_set_text")
+  (return-type "none")
+  (parameters
+    '("const-gchar*" "text")
+  )
+)
+
+(define-method get_text
+  (of-object "CcText")
+  (c-name "cc_text_get_text")
+  (return-type "const-gchar*")
+)
+
+
+
+;; From ../ccc/cc-utils.h
+
+;; From ../ccc/cc-view-cell-renderer.h
+
+(define-function cc_view_cell_renderer_get_type
+  (c-name "cc_view_cell_renderer_get_type")
+  (return-type "GType")
+)
+
+(define-function cc_view_cell_renderer_new
+  (c-name "cc_view_cell_renderer_new")
+  (is-constructor-of "CcViewCellRenderer")
+  (caller-owns-return #f)
+  (return-type "GtkCellRenderer*")
+)
+
+
+
+;; From ../ccc/cc-view.h
+
+(define-method get_focus
+  (of-object "CcView")
+  (c-name "cc_view_get_focus")
+  (return-type "CcItem*")
+)
+
+(define-method get_root
+  (of-object "CcView")
+  (c-name "cc_view_get_root")
+  (return-type "CcItem*")
+)
+
+(define-method get_scrolled_region
+  (of-object "CcView")
+  (c-name "cc_view_get_scrolled_region")
+  (return-type "CcDRect*")
+)
+
+(define-method get_zoom
+  (of-object "CcView")
+  (c-name "cc_view_get_zoom")
+  (return-type "gdouble")
+)
+
+(define-method set_focus
+  (of-object "CcView")
+  (c-name "cc_view_set_focus")
+  (return-type "none")
+  (parameters
+    '("CcItem*" "focus")
+  )
+)
+
+(define-method set_root
+  (of-object "CcView")
+  (c-name "cc_view_set_root")
+  (return-type "none")
+  (parameters
+    '("CcItem*" "root")
+  )
+)
+
+(define-method set_scrolled_region
+  (of-object "CcView")
+  (c-name "cc_view_set_scrolled_region")
+  (return-type "none")
+  (parameters
+    '("CcDRect*" "scrolled_region" (null-ok))
+  )
+)
+
+(define-method set_zoom
+  (of-object "CcView")
+  (c-name "cc_view_set_zoom")
+  (return-type "none")
+  (parameters
+    '("gdouble" "zoom")
+  )
+)
+
+(define-method grab_item
+  (of-object "CcView")
+  (c-name "cc_view_grab_item")
+  (return-type "gint")
+  (parameters
+    '("CcItem*" "item")
+    '("GdkEventMask" "mask")
+    '("GdkCursor*" "cursor")
+    '("guint32" "time")
+  )
+)
+
+(define-method ungrab_item
+  (of-object "CcView")
+  (c-name "cc_view_ungrab_item")
+  (return-type "none")
+  (parameters
+    '("CcItem*" "item")
+    '("guint32" "time")
+  )
+)
+
+(define-method window_to_world
+  (of-object "CcView")
+  (c-name "cc_view_window_to_world")
+  (return-type "none")
+  (parameters
+    '("gdouble" "x")
+    '("gdouble" "y")
+  )
+)
+
+(define-method world_to_window
+  (of-object "CcView")
+  (c-name "cc_view_world_to_window")
+  (return-type "none")
+  (parameters
+    '("gdouble" "x")
+    '("gdouble" "y")
+  )
+)
+
+(define-method world_to_window_distance
+  (of-object "CcView")
+  (c-name "cc_view_world_to_window_distance")
+  (return-type "none")
+  (parameters
+    '("gdouble" "x")
+    '("gdouble" "y")
+  )
+)
+
+
+
+;; From ../ccc/cc-view-png.h
+
+(define-function cc_view_png_get_type
+  (c-name "cc_view_png_get_type")
+  (return-type "GType")
+)
+
+(define-function cc_view_png_new
+  (c-name "cc_view_png_new")
+  (is-constructor-of "CcViewPng")
+  (caller-owns-return #f)
+  (return-type "CcView*")
+  (parameters
+    '("const-gchar*" "filename")
+  )
+)
+
+
+
+;; From ../ccc/cc-view-widget.h
+
+(define-function cc_view_widget_get_type
+  (c-name "cc_view_widget_get_type")
+  (return-type "GType")
+)
+
+(define-function cc_view_widget_new
+  (c-name "cc_view_widget_new")
+  (is-constructor-of "CcViewWidget")
+  (caller-owns-return #f)
+  (return-type "GtkWidget*")
+)
+
+(define-function view_widget_new_root
+  (in-module "Cc")
+  (c-name "cc_view_widget_new_root")
+  (return-type "GtkWidget*")
+  (parameters
+    '("CcItem*" "root")
+  )
+)
+
+(define-method get_center_view
+  (of-object "CcView")
+  (c-name "cc_view_widget_get_center_view")
+  (return-type "gboolean")
+)
+
+(define-method set_center_view
+  (of-object "CcViewWidget")
+  (c-name "cc_view_widget_set_center_view")
+  (return-type "none")
+  (parameters
+    '("gboolean" "center_view")
+  )
+)
+
+(define-method get_zoom_mode
+  (of-object "CcViewWidget")
+  (c-name "cc_view_widget_get_zoom_mode")
+  (return-type "CcZoomMode")
+)
+
+(define-method set_zoom_mode
+  (of-object "CcViewWidget")
+  (c-name "cc_view_widget_set_zoom_mode")
+  (return-type "none")
+  (parameters
+    '("CcZoomMode" "zoom_mode")
+  )
+)

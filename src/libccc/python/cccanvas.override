@@ -1,0 +1,400 @@
+%%
+headers
+#include <Python.h>
+#include <stdio.h>
+
+#include "pygobject.h"  
+#include <gtk/gtk.h>
+#include "ccc.h"
+
+#include <pango/pangocairo.h>
+
+#define CC_D_RECT(i) ((CcDRect *)i)
+CcDRect *cc_d_rect_new (gdouble x1, gdouble y1, gdouble x2, gdouble y2);
+
+void pycccanvas_add_constants(PyObject *module, const gchar *strip_prefix);
+void pycccanvas_register_classes(PyObject *d);
+
+void py_foreach_func(CcItem* item, CcView* view, gpointer data);
+
+%%
+modulename ccc                
+%%
+import gobject.GObject as PyGObject_Type
+import gtk.gdk.Pixbuf as PyGdkPixbuf_Type
+import gtk._gtk.CellRenderer as PyGtkCellRenderer_Type
+import gtk._gtk.DrawingArea as PyGtkDrawingArea_Type
+
+%%
+ignore-glob
+  *_get_type
+  cc_item_render
+  cc_brush_apply
+  cc_color_apply
+%%
+override cc_d_rect_new kwargs
+CcDRect *cc_d_rect_new (gdouble x1, gdouble y1, gdouble x2, gdouble y2) {
+   CcDRect *ret = g_new(CcDRect, 1);
+
+   ret->x1 = x1;
+   ret->y1 = y1;
+   ret->x2 = x2;
+   ret->y2 = y2;
+
+   return ret;
+}
+
+static int
+_wrap_cc_d_rect_new(PyGBoxed *self, PyObject *args, PyObject *kwargs)
+{
+    static char *kwlist[] = { "x1", "x2", "y1", "y2", NULL };
+    double x1, x2, y1, y2;
+
+    if (!PyArg_ParseTupleAndKeywords(args, kwargs, "dddd:CcDRect.__init__", kwlist, &x1, &x2, &y1, &y2))
+        return -1;
+    self->gtype = CC_TYPE_D_RECT;
+    self->free_on_dealloc = FALSE;
+    self->boxed = cc_d_rect_new(x1, x2, y1, y2);
+
+    if (!self->boxed) {
+        PyErr_SetString(PyExc_RuntimeError, "could not create CcDRect object");
+        return -1;
+    }
+    self->free_on_dealloc = TRUE;
+    return 0;
+}
+
+
+%%
+override cc_d_rect_equal kwargs
+static PyObject *
+_wrap_cc_d_rect_equal(PyObject *self, PyObject *args, PyObject *kwargs)
+{
+    static char *kwlist[] = { "two", NULL };
+    PyObject *py_two;
+    int ret;
+    CcDRect *two = NULL;
+
+    if (!PyArg_ParseTupleAndKeywords(args, kwargs, "O:CcDRect.equal", kwlist, &py_two))
+        return NULL;
+    if (pyg_boxed_check(py_two, CC_TYPE_D_RECT))
+        two = pyg_boxed_get(py_two, CcDRect);
+    else {
+        PyErr_SetString(PyExc_TypeError, "two should be a CcDRect");
+        return NULL;
+    }
+    ret = cc_d_rect_equal(*pyg_boxed_get(self, CcDRect), *two);
+    return PyBool_FromLong(ret);
+
+}
+%%
+override cc_d_rect_intersect kwargs
+static PyObject *
+_wrap_cc_d_rect_intersect(PyObject *self, PyObject *args, PyObject *kwargs)
+{
+    static char *kwlist[] = { "two", NULL };
+    PyObject *py_two;
+    int ret;
+    CcDRect *two = NULL;
+
+    if (!PyArg_ParseTupleAndKeywords(args, kwargs, "O:CcDRect.intersect", kwlist, &py_two))
+        return NULL;
+    if (pyg_boxed_check(py_two, CC_TYPE_D_RECT))
+        two = pyg_boxed_get(py_two, CcDRect);
+    else {
+        PyErr_SetString(PyExc_TypeError, "two should be a CcDRect");
+        return NULL;
+    }
+    ret = cc_d_rect_intersect(*pyg_boxed_get(self, CcDRect), *two);
+    return PyBool_FromLong(ret);
+
+}
+
+%%
+override cc_d_rect_union kwargs
+static PyObject *
+_wrap_cc_d_rect_union(PyObject *self, PyObject *args, PyObject *kwargs)
+{
+    static char *kwlist[] = { "two", NULL };
+    PyObject *py_two, *py_merged;
+    CcDRect *two = NULL, *merged = g_new(CcDRect, 1);
+
+    if (!PyArg_ParseTupleAndKeywords(args, kwargs, "OO:CcDRect.union", kwlist, &py_two, &py_merged))
+        return NULL;
+    if (pyg_boxed_check(py_two, CC_TYPE_D_RECT))
+        two = pyg_boxed_get(py_two, CcDRect);
+    else {
+        PyErr_SetString(PyExc_TypeError, "two should be a CcDRect");
+        return NULL;
+    }
+    if (pyg_boxed_check(py_merged, CC_TYPE_D_RECT))
+        merged = pyg_boxed_get(py_merged, CcDRect);
+    else {
+        PyErr_SetString(PyExc_TypeError, "merged should be a CcDRect");
+        return NULL;
+    }
+    cc_d_rect_union(*pyg_boxed_get(self, CcDRect), *two, merged);
+
+    return pyg_boxed_new(CC_TYPE_D_RECT, merged, FALSE, TRUE);
+}
+%%
+override cc_item_dirty kwargs
+static PyObject *
+_wrap_cc_item_dirty(PyGObject *self, PyObject *args, PyObject *kwargs)
+{
+    static char *kwlist[] = { "view", "dirty_region", NULL };
+    PyGObject *view;
+    PyObject *py_dirty_region;
+    CcDRect *dirty_region = NULL;
+
+    if (!PyArg_ParseTupleAndKeywords(args, kwargs, "O!O:CcItem.dirty", kwlist, &PyCcView_Type, &view, &py_dirty_region))
+        return NULL;
+    if (pyg_boxed_check(py_dirty_region, CC_TYPE_D_RECT))
+        dirty_region = pyg_boxed_get(py_dirty_region, CcDRect);
+    else {
+        PyErr_SetString(PyExc_TypeError, "dirty_region should be a CcDRect");
+        return NULL;
+    }
+    cc_item_dirty(CC_ITEM(self->obj), CC_VIEW(view->obj), *dirty_region);
+    Py_INCREF(Py_None);
+    return Py_None;
+}
+%%
+override cc_item_distance kwargs
+static PyObject *
+_wrap_cc_item_distance(PyGObject *self, PyObject *args, PyObject *kwargs)
+{
+    static char *kwlist[] = { "x", "y", NULL };
+    PyObject *pyfound;
+    CcItem *found = NULL;
+    double x, y, ret;
+
+    if (!PyArg_ParseTupleAndKeywords(args, kwargs, "dd!:CcItem.distance", kwlist, &x, &y))
+        return NULL;
+    ret = cc_item_distance(CC_ITEM(self->obj), x, y, &found);
+
+    pyfound = pygobject_new(G_OBJECT(found));
+
+    PyObject *pylist = PyList_New(2);
+
+    PyList_SetItem(pylist, 0, PyFloat_FromDouble(ret));
+    PyList_SetItem(pylist, 1, (PyObject *)pyfound);
+
+    return pylist;
+}
+%%
+override cc_item_foreach_view
+
+typedef struct {
+PyObject *data;
+PyObject *func;
+int count_views;
+} CallBackData;
+
+void py_foreach_func(CcItem* item, CcView* view, gpointer data){
+	CallBackData *cb_data = (CallBackData*) data;
+
+	PyObject *pydata = cb_data->data;
+	PyObject *pyfunc = cb_data->func;
+	PyObject *arg;
+
+	printf(" View %p\n", view);
+
+	int i, n_args = PyTuple_Size(pydata);
+
+	PyObject *args = PyTuple_New(2+n_args);
+	
+	PyTuple_SetItem( args, 0, pygobject_new(G_OBJECT(item)));
+	PyTuple_SetItem( args, 1, pygobject_new(G_OBJECT(view)));
+
+	for (i = 0; i < n_args; i++){
+	    arg = PyTuple_GetItem(pydata, i);
+	    Py_INCREF(arg);
+            PyTuple_SetItem( args, i+2, arg);
+	}
+
+	PyObject *ret = PyObject_CallObject( pyfunc, args); 
+
+	/* Check last view */
+	//printf("view countdown %d\n", cb_data->count_views);
+
+	if (cb_data->count_views == 1){
+           g_free (cb_data);
+	   Py_DECREF(pyfunc);
+	   Py_DECREF(pydata);
+	}
+	else 
+	   cb_data->count_views--;
+
+	Py_DECREF(args);
+
+
+	if (ret == NULL)
+           return;
+
+	Py_DECREF(ret);
+
+	return;
+}
+
+static PyObject *
+_wrap_cc_item_foreach_view(PyGObject *self, PyObject *args)
+{
+    PyObject *pydata, *pyfunc;
+    PyObject *arg;
+    CcItem *item;
+    CallBackData *cb_data = g_malloc0( sizeof(CallBackData));
+
+    int i, n_args = PyTuple_Size(args);
+
+    if (n_args < 1){
+        PyErr_SetString(PyExc_SyntaxError, "CcItem.foreach_view take at least a callback function argument");
+	return NULL;
+	}
+
+    pyfunc = PyTuple_GetItem(	args, 0);
+
+    if (!PyCallable_Check( pyfunc)){
+        PyErr_SetString(PyExc_TypeError, "CcItem.foreach_view first argument must be a callable function");
+	return NULL;
+	}
+
+    pydata = PyTuple_New(n_args-1);
+
+    for (i = 1; i< n_args; i++){
+	arg = PyTuple_GetItem(args, i);
+	Py_INCREF(arg);
+	PyTuple_SetItem(pydata, i-1, PyTuple_GetItem(args, i));
+	}
+
+    cb_data->data = pydata;
+    cb_data->func = pyfunc;	
+
+    Py_INCREF(cb_data->func);
+
+    /* need to know how views are been called 
+       to free correctly the data */
+    int n_views = 0;
+
+    for (item = CC_ITEM(self->obj); item; item = item->parent)
+	n_views += g_list_length(item->views);
+
+    //printf("Will call %d views\n",n_views);
+
+    cb_data->count_views = n_views;
+
+    cc_item_foreach_view(CC_ITEM(self->obj), py_foreach_func, (gpointer) cb_data);
+
+    Py_INCREF(Py_None);
+    return Py_None;
+}
+%%
+override cc_view_window_to_world kwargs
+static PyObject *
+_wrap_cc_view_window_to_world(PyGObject *self, PyObject *args, PyObject *kwargs)
+{
+    static char *kwlist[] = { "x", "y", NULL };
+    double x, y;
+    gdouble local_x, local_y;
+    PyObject *ret;
+
+    if (!PyArg_ParseTupleAndKeywords(args, kwargs, "dd:CcView.window_to_world", kwlist, &x, &y))
+        return NULL;
+
+    local_x = x;
+    local_y = y;
+
+    cc_view_window_to_world(CC_VIEW(self->obj), &local_x,  &local_y);
+
+    ret = PyTuple_New(2);
+
+    PyTuple_SetItem(ret, 0, PyLong_FromDouble(local_x));
+    PyTuple_SetItem(ret, 1, PyLong_FromDouble(local_y));
+
+    return ret;
+}
+%%
+override cc_view_world_to_window kwargs
+static PyObject *
+_wrap_cc_view_world_to_window(PyGObject *self, PyObject *args, PyObject *kwargs)
+{
+    static char *kwlist[] = { "x", "y", NULL };
+    double x, y;
+    gdouble local_x, local_y;
+    PyObject *ret;
+
+    if (!PyArg_ParseTupleAndKeywords(args, kwargs, "dd:CcView.world_to_window", kwlist, &x, &y))
+        return NULL;
+
+    local_x = x;
+    local_y = y;
+
+    cc_view_world_to_window(CC_VIEW(self->obj), &local_x, &local_y);
+
+    ret = PyTuple_New(2);
+
+    PyTuple_SetItem(ret, 0, PyLong_FromDouble(local_x));
+    PyTuple_SetItem(ret, 1, PyLong_FromDouble(local_y));
+
+    return ret;
+}
+%%
+override cc_view_world_to_window_distance kwargs
+
+static PyObject *
+_wrap_cc_view_world_to_window_distance(PyGObject *self, PyObject *args, PyObject *kwargs)
+{
+    static char *kwlist[] = { "x", "y", NULL };
+    double x, y;
+    gdouble local_x, local_y;
+    PyObject *ret;
+
+    if (!PyArg_ParseTupleAndKeywords(args, kwargs, "dd:CcView.world_to_window_distance", kwlist, &x, &y))
+        return NULL;
+
+    local_x = x;
+    local_y = y;
+
+    cc_view_world_to_window_distance(CC_VIEW(self->obj), &local_x, &local_y);
+
+    ret = PyTuple_New(2);
+
+    PyTuple_SetItem(ret, 0, PyLong_FromDouble(local_x));
+    PyTuple_SetItem(ret, 1, PyLong_FromDouble(local_y));
+
+    return ret;
+}
+%%
+override cc_view_widget_get_center_view noargs
+
+static PyObject *
+_wrap_cc_view_widget_get_center_view(PyGObject *self)
+{
+    int ret;
+
+    ret = cc_view_widget_get_center_view((CcViewWidget const*) self->obj);
+    return PyBool_FromLong(ret);
+
+}
+%%
+override cc_text_new kwargs
+static int
+_wrap_cc_text_new(PyGObject *self, PyObject *args, PyObject *kwargs)
+{
+    static char *kwlist[] = { "text", NULL };
+    char *text = "";
+
+    if (!PyArg_ParseTupleAndKeywords(args, kwargs, "|z:CcText.__init__", kwlist, &text))
+        return -1;
+
+    self->obj = (GObject *)cc_text_new(text);
+
+    if (!self->obj) {
+        PyErr_SetString(PyExc_RuntimeError, "could not create CcText object");
+        return -1;
+    }
+    g_object_ref(self->obj);
+    pygobject_register_wrapper((PyObject *)self);
+    return 0;
+}
+
