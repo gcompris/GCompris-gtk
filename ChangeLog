@@ -1,3 +1,14 @@
+2007-05-26  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	- Added static compilation against insternal libccc for gcompris binary
+	- integrated the moving line demo in the main gcompris window
+
+	* src/gcompris/Makefile.am:
+	* src/gcompris/gcompris.c: (update_bounds), (enter_callback),
+	(leave_callback), (timer_callback), (test_ccc),
+	(gc_set_background), (load_properties):
+	* src/libccc/ccc/Makefile.am:
+
 2007-05-25  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	Added the libccc library by Sven Herzberg.

@@ -48,6 +48,8 @@
 #include "gcompris-nsbundle.h"
 #endif
 
+#include <ccc/ccc.h>
+
 /* get the default database name */
 #define DEFAULT_DATABASE "gcompris_sqlite.db"
 
@@ -254,6 +256,91 @@ static gint xf86_focus_changed(GtkWindow *window,
 #endif
 
 /****************************************************************************/
+#define N_POINTS  12
+#define RADIUS 100.0
+#define STEP 0.02
+#define X(radius, angle)  ((radius)*RADIUS*cos(M_PI*((double) angle)/N_POINTS))
+#define Y(radius, angle)  ((radius)*RADIUS*sin(M_PI*((double) angle)/N_POINTS))
+
+static void
+update_bounds(CcItem* moving_line, CcView* view, CcDRect* bounds, CcRectangle* rect) {
+	if(!bounds) {
+		return;
+	}
+
+	cc_rectangle_set_position(rect,
+				  bounds->x1, bounds->y1,
+				  bounds->x2 - bounds->x1,
+				  bounds->y2 - bounds->y1);
+}
+
+static gboolean
+enter_callback(CcShape* shape, CcView* view, GdkEventCrossing* ev) {
+	CcColor* color = cc_color_new_rgb(1.0, 0.0, 0.0);
+	cc_shape_set_brush_border(shape, CC_BRUSH(color));
+	return TRUE;
+}
+
+static gboolean
+leave_callback(CcShape* shape, CcView* view, GdkEventCrossing* ev) {
+	CcColor* color = cc_color_new_rgb(0.0, 0.0, 1.0);
+	cc_shape_set_brush_border(shape, CC_BRUSH(color));
+	return FALSE;
+}
+
+static int ccindex = 1;
+static CcItem *rounded_line = NULL;
+
+static gboolean
+timer_callback(gpointer data)
+{
+  int i;
+  float  angle = ccindex*STEP;
+
+  for (i=0; i <  N_POINTS; i++)
+    cc_line_data_set_position(CC_LINE(rounded_line), 2*i+1, X(1.5 + cos(M_PI*((double) angle)/N_POINTS),  2*i + 1 + angle),  Y(1.5 + cos(M_PI*((double) angle)/N_POINTS),  2*i + 1 + angle));
+
+  ccindex = (ccindex+1) % ((int) (2*N_POINTS*1/STEP));
+
+  return TRUE;
+}
+
+GtkWidget*
+test_ccc()
+{
+  GtkWidget* canvas;
+  CcItem* item   = cc_item_new();
+  rounded_line   = cc_line_new();
+  CcItem* rect   = cc_rectangle_new();
+
+  g_signal_connect(G_OBJECT(rounded_line), "all-bounds-changed",
+		   G_CALLBACK(update_bounds), rect);
+
+  printf("TEST CCC\n");
+  cc_line_move(CC_LINE(rounded_line), X(1, 0), Y(1, 0));
+
+  int i;
+  for (i=0; i <  N_POINTS; i++) {
+    cc_line_line(CC_LINE(rounded_line), X(0.5, 2*i + 1), Y(0.5, 2*i + 1));
+    cc_line_line(CC_LINE(rounded_line), X(1, 2*i+2), Y(1, 2*i+2));
+  }
+
+  cc_shape_set_brush_border(CC_SHAPE(rect), CC_BRUSH(cc_color_new_rgb(1.0, 0.0, 0.0)));
+  cc_shape_set_brush_border(CC_SHAPE(rounded_line), CC_BRUSH(cc_color_new_rgb(0.0, 0.0, 1.0)));
+  cc_item_append(item, rect);
+  cc_item_append(item, rounded_line);
+
+  g_signal_connect(rounded_line, "enter-notify-event",
+		   G_CALLBACK(enter_callback), NULL);
+  g_signal_connect(rounded_line, "leave-notify-event",
+		   G_CALLBACK(leave_callback), NULL);
+
+  g_timeout_add  (10, (GSourceFunc) timer_callback, NULL);
+
+  canvas = cc_view_widget_new_root(item);
+
+  return canvas;
+}
 
 /* Remove any dialog box */
 static void gc_close_all_dialog() {
@@ -420,6 +507,19 @@ GnomeCanvasItem *gc_set_background(GnomeCanvasGroup *parent, gchar *file)
   gnome_canvas_item_lower_to_bottom(backgroundimg);
 
   gdk_pixbuf_unref(background_pixmap);
+
+  GtkWidget* ccwidget = test_ccc();
+  gnome_canvas_item_new (parent,
+			 gnome_canvas_widget_get_type (),
+			 "widget", GTK_WIDGET(ccwidget),
+			 "x", (double) 160.0,
+			 "y", (double) 10.0,
+			 "width", 500.0,
+			 "height", 500.0,
+			 "anchor", GTK_ANCHOR_NW,
+			 "size_pixels", FALSE,
+			 NULL);
+  gtk_widget_show(GTK_WIDGET(ccwidget));
 
   return (backgroundimg);
 }
@@ -1100,6 +1200,7 @@ static void load_properties ()
     g_warning("Binary relocation disabled");
 
   prefix_dir = gbr_find_prefix(NULL);
+  g_warning("prefix_dir=%s\n", prefix_dir);
 
   /* Check if we are in the source code (developper usage) */
   tmpstr = g_strconcat(prefix_dir, "/gcompris/gcompris.c", NULL);

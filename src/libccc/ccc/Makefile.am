@@ -1,6 +1,6 @@
 NULL=
 
-lib_LTLIBRARIES=libccc-0.1.la
+noinst_LTLIBRARIES=libccc-0.1.la
 
 main_HEADERS=\
 	ccc.h \
