@@ -1,3 +1,4 @@
+noinst_PROGRAMS = gen_art_config
 
 BUILT_SOURCES = art_config.h
 

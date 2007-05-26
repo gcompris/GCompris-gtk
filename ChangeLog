@@ -1,5 +1,12 @@
 2007-05-26  Bruno coudoin  <bruno.coudoin@free.fr>
 
+	Removed x86 binary used for the build and fixed the makefile to
+	make sure it's recreated. (merge of trunk r2678)
+
+	* src/libart_lgpl/Makefile.am:
+
+2007-05-23  Bruno coudoin  <bruno.coudoin@free.fr>
+
 	Removed xvidmode, now use canvas scaling feature instead.
 
 	* configure.in:
