@@ -73,15 +73,6 @@ pyGcomprisPropertiesType_getattr(pyGcomprisPropertiesObject *self, char *name)
 	return Py_False;
       }
     }
-    if(strcmp(name,"noxf86vm")==0){
-      if(self->cdata->noxf86vm){
-	Py_INCREF(Py_True);
-	return Py_True;
-      } else {
-	Py_INCREF(Py_False);
-	return Py_False;
-      }
-    }
     /* enum */
     if(strcmp(name,"screensize")==0) return Py_BuildValue("i", self->cdata->screensize);
 

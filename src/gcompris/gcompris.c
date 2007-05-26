@@ -35,14 +35,6 @@
 
 #include "binreloc.h"
 
-/* For XF86_VIDMODE Support */
-#ifdef XF86_VIDMODE
-#include <gdk/gdkx.h>
-#include <X11/Xlib.h>
-#include <X11/Xutil.h>
-#include <X11/extensions/xf86vmode.h>
-#endif
-
 /* for NSBUNDLE */
 #ifdef NSBUNDLE
 #include "gcompris-nsbundle.h"
@@ -61,13 +53,16 @@ static gchar *lock_file;
 static GtkWidget *window;
 static GnomeCanvas *canvas;
 static GnomeCanvas *canvas_bar;
-static GnomeCanvas *canvas_bg;
+static GtkWidget *fixed;
 
 gchar * exec_prefix = NULL;
 
 //static gint pause_board_cb (GtkWidget *widget, gpointer data);
 static void quit_cb (GtkWidget *widget, gpointer data);
 static void map_cb  (GtkWidget *widget, gpointer data);
+static gint _gc_configure_event_callback (GtkWidget   *widget,
+					  GdkEventConfigure *event,
+					  gpointer     client_data);
 static gint board_widget_key_press_callback (GtkWidget   *widget,
 					    GdkEventKey *event,
 					    gpointer     client_data);
@@ -114,7 +109,6 @@ static gint popt_version	   = FALSE;
 static gint popt_aalias		   = FALSE;
 static gint popt_difficulty_filter = FALSE;
 static gint popt_debug		   = FALSE;
-static gint popt_noxf86vm	   = FALSE;
 static gint popt_nobackimg	   = FALSE;
 static gint popt_nolockcheck	   = FALSE;
 static gchar *popt_root_menu       = NULL;
@@ -163,9 +157,6 @@ static GOptionEntry options[] = {
 
   {"antialiased", '\0', 0, G_OPTION_ARG_NONE, &popt_aalias,
    N_("Use the antialiased canvas (slower)."), NULL},
-
-  {"noxf86vm", 'x', 0, G_OPTION_ARG_NONE, &popt_noxf86vm,
-   N_("Disable XF86VidMode (No screen resolution change)."), NULL},
 
   {"root-menu", 'l', 0, G_OPTION_ARG_STRING, &popt_root_menu,
    N_("Run gcompris with local menu (e.g -l /reading will let you play only activities in the reading directory, -l /strategy/connect4 only the connect4 activity)"), NULL},
@@ -353,6 +344,38 @@ static void gc_close_all_dialog() {
 }
 
 static gint
+_gc_configure_event_callback (GtkWidget   *widget,
+			      GdkEventConfigure *event,
+			      gpointer     client_data)
+{
+  double xratio, yratio;
+  gint screen_height, screen_width;
+
+  gdk_drawable_get_size(GDK_DRAWABLE (window->window),
+			&screen_width,
+			&screen_height);
+
+  yratio=screen_height/(float)(BOARDHEIGHT+BARHEIGHT);
+  xratio=screen_width/(float)BOARDWIDTH;
+  g_message("The screen_width=%f screen_height=%f\n",
+	    (double)screen_width, (double)screen_height);
+  g_message("The xratio=%f yratio=%f\n", xratio, yratio);
+
+  yratio=xratio=MIN(xratio, yratio);
+
+  g_message("Calculated x ratio xratio=%f\n", xratio);
+
+  gtk_widget_set_usize (GTK_WIDGET(canvas), BOARDWIDTH*xratio, BOARDHEIGHT*xratio);
+  gnome_canvas_set_pixels_per_unit (canvas, xratio);
+
+  gtk_widget_set_usize (GTK_WIDGET(canvas_bar),  BOARDWIDTH*xratio,  BARHEIGHT*xratio);
+  gnome_canvas_set_pixels_per_unit (canvas_bar, xratio);
+  gtk_fixed_move(GTK_FIXED(fixed), GTK_WIDGET(canvas_bar),
+		 0, BOARDHEIGHT*xratio);
+  return FALSE;
+}
+
+static gint
 board_widget_key_press_callback (GtkWidget   *widget,
 				 GdkEventKey *event,
 				 gpointer     client_data)
@@ -464,184 +487,6 @@ board_widget_key_press_callback (GtkWidget   *widget,
   return FALSE;
 };
 
-/**
- * Return the main canvas we run in
- */
-GnomeCanvas *gc_get_canvas()
-{
-  return canvas;
-}
-
-GtkWidget *gc_get_window()
-{
-  return window;
-}
-
-GnomeCanvasItem *gc_set_background(GnomeCanvasGroup *parent, gchar *file)
-{
-  GdkPixbuf *background_pixmap = NULL;
-  gchar *img = NULL;
-
-  if ( popt_nobackimg && (strncmp(file, "opt/", 4) == 0) )
-    {
-      img = gc_skin_image_get("gcompris-bg.jpg");
-      background_pixmap = gc_pixmap_load (img);
-      g_free(img);
-    }
-  else
-    background_pixmap = gc_pixmap_load (file);
-
-  if(backgroundimg)
-      gnome_canvas_item_set (backgroundimg,
-			     "pixbuf", background_pixmap,
-			     NULL);
-  else
-    backgroundimg=gnome_canvas_item_new (parent,
-					 gnome_canvas_pixbuf_get_type (),
-					 "pixbuf", background_pixmap,
-					 "x", 0.0,
-					 "y", 0.0,
-					 "width", (double) BOARDWIDTH,
-					 "height", (double) BOARDHEIGHT,
-					 NULL);
-  gnome_canvas_item_lower_to_bottom(backgroundimg);
-
-  gdk_pixbuf_unref(background_pixmap);
-
-  GtkWidget* ccwidget = test_ccc();
-  gnome_canvas_item_new (parent,
-			 gnome_canvas_widget_get_type (),
-			 "widget", GTK_WIDGET(ccwidget),
-			 "x", (double) 160.0,
-			 "y", (double) 10.0,
-			 "width", 500.0,
-			 "height", 500.0,
-			 "anchor", GTK_ANCHOR_NW,
-			 "size_pixels", FALSE,
-			 NULL);
-  gtk_widget_show(GTK_WIDGET(ccwidget));
-
-  return (backgroundimg);
-}
-
-static void init_background()
-{
-  double xratio, yratio, max;
-  gint screen_height, screen_width;
-  GtkWidget *vbox;
-
-#ifdef XF86_VIDMODE
-  xf86_vidmode_init();
-
-  if(properties->fullscreen && !properties->noxf86vm) {
-    screen_height = XF86VidModeData.fs_mode.vdisplay;
-    screen_width  = XF86VidModeData.fs_mode.hdisplay;
-  }
-  else
-#endif
-  {
-    screen_height = gdk_screen_height();
-    screen_width  = gdk_screen_width();
-  }
-
-  yratio=screen_height/(float)(BOARDHEIGHT+BARHEIGHT);
-  xratio=screen_width/(float)BOARDWIDTH;
-  g_message("The screen_width=%f screen_height=%f\n",
-	    (double)screen_width, (double)screen_height);
-  g_message("The xratio=%f yratio=%f\n", xratio, yratio);
-
-  yratio=xratio=MIN(xratio, yratio);
-
-  /* Depending on user preference, set the max ratio */
-  switch(properties->screensize)
-    {
-    case 0: max = 0.8;
-      break;
-    case 1: max = 1;
-      break;
-    case 2: max = 1.28;
-      break;
-    default: max = 1;
-      break;
-    }
-  xratio=MIN(max, xratio);
-
-  g_message("Calculated x ratio xratio=%f\n", xratio);
-
-
-  /* Background area if ratio above 1 */
-  if(properties->fullscreen)
-    {
-
-      /* WARNING : I add 30 here for windows. don't know why it's needed. Doesn't hurt the Linux version */
-      gnome_canvas_set_scroll_region (canvas_bg,
-				      0, 0,
-				      screen_width,
-				      screen_height + 30);
-
-      gtk_widget_set_usize (GTK_WIDGET(canvas_bg), screen_width, screen_height);
-
-      /* Create a black box for the background */
-      gnome_canvas_item_new (gnome_canvas_root(canvas_bg),
-			     gnome_canvas_rect_get_type (),
-			     "x1", (double) 0,
-			     "y1", (double) 0,
-			     "x2", (double) screen_width,
-			     "y2", (double) screen_height + 30,
-			     "fill_color", "black",
-			     "outline_color", "black",
-			     "width_units", (double)0,
-			     NULL);
-
-    }
-
-  /* Create a vertical box in which I put first the play board area, then the button bar */
-  vbox = gtk_vbox_new (FALSE, 0);
-  if(!properties->fullscreen)
-    gtk_container_add (GTK_CONTAINER(window), GTK_WIDGET(vbox));
-
-  gtk_widget_show (GTK_WIDGET(vbox));
-  gtk_widget_show (GTK_WIDGET(canvas));
-  gtk_widget_show (GTK_WIDGET(canvas_bar));
-
-  gtk_box_pack_start (GTK_BOX(vbox), GTK_WIDGET(canvas), TRUE, TRUE, 0);
-  gtk_box_pack_start (GTK_BOX(vbox), GTK_WIDGET(canvas_bar), TRUE, TRUE, 0);
-
-  if(properties->fullscreen)
-    {
-      gnome_canvas_item_new (gnome_canvas_root(canvas_bg),
-			     gnome_canvas_widget_get_type (),
-			     "widget", vbox,
-			     "x", (double) (screen_width-
-					    BOARDWIDTH*xratio)/2,
-			     "y", (double) (screen_height-
-					    BOARDHEIGHT*xratio-BARHEIGHT*xratio)/2,
-			     "width",  (double)BOARDWIDTH*xratio,
-			     "height", (double)BOARDHEIGHT*xratio+BARHEIGHT*xratio,
-			     "size_pixels", TRUE,
-			     NULL);
-    }
-
-  /* Create the drawing area */
-  gnome_canvas_set_pixels_per_unit (canvas, xratio);
-
-  gnome_canvas_set_scroll_region (canvas,
-				  0, 0,
-				  BOARDWIDTH,
-				  BOARDHEIGHT);
-
-  gtk_widget_set_usize (GTK_WIDGET(canvas), BOARDWIDTH*xratio, BOARDHEIGHT*xratio);
-
-  /* Create the spot for the bar */
-  gnome_canvas_set_pixels_per_unit (canvas_bar, xratio);
-  gnome_canvas_set_scroll_region (canvas_bar,
-				  0, 0,
-				  BOARDWIDTH,
-				  BARHEIGHT);
-  gtk_widget_set_usize (GTK_WIDGET(canvas_bar),  BOARDWIDTH*xratio,  BARHEIGHT*xratio);
-
-}
-
 void gc_cursor_set(guint gdk_cursor_type)
 {
   GdkCursor *cursor = NULL;
@@ -701,6 +546,88 @@ void gc_cursor_set(guint gdk_cursor_type)
   }
 }
 
+/**
+ * Return the main canvas we run in
+ */
+GnomeCanvas *gc_get_canvas()
+{
+  return canvas;
+}
+
+GtkWidget *gc_get_window()
+{
+  return window;
+}
+
+GnomeCanvasItem *gc_set_background(GnomeCanvasGroup *parent, gchar *file)
+{
+  GdkPixbuf *background_pixmap = NULL;
+  gchar *img = NULL;
+
+  if ( popt_nobackimg && (strncmp(file, "opt/", 4) == 0) )
+    {
+      img = gc_skin_image_get("gcompris-bg.jpg");
+      background_pixmap = gc_pixmap_load (img);
+      g_free(img);
+    }
+  else
+    background_pixmap = gc_pixmap_load (file);
+
+  if(backgroundimg)
+      gnome_canvas_item_set (backgroundimg,
+			     "pixbuf", background_pixmap,
+			     NULL);
+  else
+    backgroundimg=gnome_canvas_item_new (parent,
+					 gnome_canvas_pixbuf_get_type (),
+					 "pixbuf", background_pixmap,
+					 "x", 0.0,
+					 "y", 0.0,
+					 "width", (double) BOARDWIDTH,
+					 "height", (double) BOARDHEIGHT,
+					 NULL);
+  gnome_canvas_item_lower_to_bottom(backgroundimg);
+
+  gdk_pixbuf_unref(background_pixmap);
+
+  return (backgroundimg);
+}
+
+static void
+init_background()
+{
+
+  /* Create a vertical box in which I put first the play board area, then the button bar */
+  fixed = gtk_fixed_new ();
+  gtk_container_add(GTK_CONTAINER(window), GTK_WIDGET(fixed));
+
+  gtk_fixed_put (GTK_FIXED(fixed), GTK_WIDGET(canvas), 0, 0);
+  gtk_fixed_put (GTK_FIXED(fixed), GTK_WIDGET(canvas_bar), 0, BOARDHEIGHT);
+
+  gtk_widget_show (GTK_WIDGET(fixed));
+  gtk_widget_show (GTK_WIDGET(canvas));
+  gtk_widget_show (GTK_WIDGET(canvas_bar));
+
+  gtk_widget_set_usize (GTK_WIDGET(canvas), BOARDWIDTH, BOARDHEIGHT);
+  gnome_canvas_set_scroll_region (canvas,
+				  0, 0,
+				  BOARDWIDTH,
+				  BOARDHEIGHT);
+
+  gtk_widget_set_usize (GTK_WIDGET(canvas_bar),  BOARDWIDTH,  BARHEIGHT);
+  gnome_canvas_set_scroll_region (canvas_bar,
+				  0, 0,
+				  BOARDWIDTH,
+				  BARHEIGHT);
+
+#if 0
+  GtkWidget* ccwidget = test_ccc();
+  gtk_widget_show(GTK_WIDGET(ccwidget));
+  gtk_fixed_put (GTK_FIXED(fixed), GTK_WIDGET(ccwidget), 0, 000);
+  gtk_widget_set_usize (GTK_WIDGET(ccwidget), BOARDWIDTH/2, BOARDHEIGHT/2);
+#endif
+}
+
 static void setup_window ()
 {
   GcomprisBoard *board_to_start;
@@ -737,13 +664,27 @@ static void setup_window ()
     }
   gtk_window_set_title(GTK_WINDOW (window), "GCompris");
 
+  GdkGeometry hints;
+  hints.base_width = 174;
+  hints.base_height = 144;
+  hints.min_width = 174;
+  hints.min_height = 144;
+  hints.width_inc = 1;
+  hints.height_inc = 1;
+  gtk_window_set_geometry_hints (GTK_WINDOW (window),
+				 NULL,
+				 &hints,
+				 GDK_HINT_RESIZE_INC |
+				 GDK_HINT_MIN_SIZE |
+				 GDK_HINT_BASE_SIZE);
+
   /*
    * Set the main window
    * -------------------
    */
 
-  gtk_window_set_policy (GTK_WINDOW (window), FALSE, FALSE, TRUE);
-  gtk_window_set_default_size(GTK_WINDOW(window), 250, 350);
+  //  gtk_window_set_policy (GTK_WINDOW (window), FALSE, FALSE, TRUE);
+  gtk_window_set_default_size(GTK_WINDOW(window), 640, 480);
   gtk_window_set_wmclass(GTK_WINDOW(window), "gcompris", "GCompris");
 
   gtk_widget_realize (window);
@@ -753,20 +694,8 @@ static void setup_window ()
 
   gtk_signal_connect (GTK_OBJECT (window), "map_event",
 		      GTK_SIGNAL_FUNC (map_cb), NULL);
-
-#ifdef XF86_VIDMODE
-  /* The Xf86VidMode code needs to accuratly now the window position,
-     this is the only way to get it, and it needs to track the focus to
-     enable/disable fullscreen on alt-tab */
-  gtk_widget_add_events(GTK_WIDGET(window),
-    GDK_STRUCTURE_MASK|GDK_FOCUS_CHANGE_MASK);
   gtk_signal_connect (GTK_OBJECT (window), "configure_event",
-    GTK_SIGNAL_FUNC (xf86_window_configured), 0);
-  gtk_signal_connect (GTK_OBJECT (window), "focus_in_event",
-    GTK_SIGNAL_FUNC (xf86_focus_changed), 0);
-  gtk_signal_connect (GTK_OBJECT (window), "focus_out_event",
-    GTK_SIGNAL_FUNC (xf86_focus_changed), 0);
-#endif
+		      GTK_SIGNAL_FUNC (_gc_configure_event_callback), NULL);
 
   /* For non anti alias canvas */
   gtk_widget_push_visual (gdk_rgb_get_visual ());
@@ -775,26 +704,10 @@ static void setup_window ()
   // Set the cursor
   gc_cursor_set(GCOMPRIS_DEFAULT_CURSOR);
 
-  /* For anti alias canvas */
-  /*
-  gtk_widget_push_visual(gdk_rgb_get_visual());
-  gtk_widget_push_colormap(gdk_rgb_get_cmap());
-  */
+  /* For non anti alias canvas */
+  canvas     = GNOME_CANVAS(gnome_canvas_new ());
+  canvas_bar = GNOME_CANVAS(gnome_canvas_new ());
 
-  if(antialiased)
-    {
-      /* For anti alias canvas */
-	canvas     = GNOME_CANVAS(gnome_canvas_new_aa ());
-	canvas_bar = GNOME_CANVAS(gnome_canvas_new_aa ());
-	canvas_bg = GNOME_CANVAS(gnome_canvas_new_aa ());
-    }
-  else
-    {
-      /* For non anti alias canvas */
-      canvas     = GNOME_CANVAS(gnome_canvas_new ());
-      canvas_bar = GNOME_CANVAS(gnome_canvas_new ());
-      canvas_bg  = GNOME_CANVAS(gnome_canvas_new ());
-    }
 
   gtk_signal_connect_after (GTK_OBJECT (window), "key_press_event",
 			    GTK_SIGNAL_FUNC (board_widget_key_press_callback), 0);
@@ -802,20 +715,13 @@ static void setup_window ()
 			    GTK_SIGNAL_FUNC (board_widget_key_press_callback), 0);
   gtk_signal_connect_after (GTK_OBJECT (canvas_bar), "key_press_event",
 			    GTK_SIGNAL_FUNC (board_widget_key_press_callback), 0);
-  gtk_signal_connect_after (GTK_OBJECT (canvas_bg), "key_press_event",
-			    GTK_SIGNAL_FUNC (board_widget_key_press_callback), 0);
 
   gc_im_init(window);
 
 
-  if(properties->fullscreen)
-    gtk_container_add (GTK_CONTAINER (window), GTK_WIDGET(canvas_bg));
-
   gtk_widget_pop_colormap ();
   gtk_widget_pop_visual ();
 
-
-  gtk_widget_show (GTK_WIDGET(canvas_bg));
 
   gc_board_init();
 
@@ -1055,17 +961,11 @@ void gc_board_end()
  */
 void gc_fullscreen_set(gboolean state)
 {
-#ifdef XF86_VIDMODE
-  xf86_vidmode_set_fullscreen(state);
-#endif
   if(state)
     {
       gdk_window_set_decorations (window->window, 0);
       gdk_window_set_functions (window->window, 0);
-#ifdef XF86_VIDMODE
-      if(properties->noxf86vm)
-#endif
-	gtk_window_fullscreen (GTK_WINDOW(window));
+      gtk_window_fullscreen (GTK_WINDOW(window));
       gtk_widget_set_uposition (window, 0, 0);
     }
   else
@@ -1077,10 +977,7 @@ void gc_fullscreen_set(gboolean state)
       if (is_mapped)
         gtk_widget_show (window);
       gdk_window_set_functions (window->window, GDK_FUNC_ALL);
-#ifdef XF86_VIDMODE
-      if(properties->noxf86vm)
-#endif
-	gtk_window_unfullscreen (GTK_WINDOW(window));
+      gtk_window_unfullscreen (GTK_WINDOW(window));
       gtk_widget_set_uposition (window, 0, 0);
     }
 
@@ -1352,154 +1249,6 @@ void gc_log_handler (const gchar *log_domain,
     g_printerr ("%s: %s\n\n", "gcompris", message);
 }
 
-#ifdef XF86_VIDMODE
-/*
- * XF86VidMode STUFF
- * -----------------
- */
-static void
-xf86_vidmode_init ( void )
-{
-  int i,j, mode_count;
-  XF86VidModeModeInfo **modes;
-  XF86VidModeModeLine *l = (XF86VidModeModeLine *)((char *)
-    &XF86VidModeData.orig_mode + sizeof XF86VidModeData.orig_mode.dotclock);
-
-  if (properties->noxf86vm)
-    return;
-
-  if (!XF86VidModeQueryVersion(GDK_DISPLAY(), &i, &j))
-    properties->noxf86vm = TRUE;
-  else if (!XF86VidModeQueryExtension(GDK_DISPLAY(), &i, &j))
-    properties->noxf86vm = TRUE;
-  else if (!XF86VidModeGetModeLine(GDK_DISPLAY(), GDK_SCREEN_XNUMBER(
-            gdk_screen_get_default()), (int*)&XF86VidModeData.orig_mode.dotclock, l))
-    properties->noxf86vm = TRUE;
-  else if (!XF86VidModeGetViewPort(GDK_DISPLAY(), GDK_SCREEN_XNUMBER(
-            gdk_screen_get_default()), &XF86VidModeData.orig_viewport_x,
-            &XF86VidModeData.orig_viewport_y))
-    properties->noxf86vm = TRUE;
-  else if (!XF86VidModeGetAllModeLines(GDK_DISPLAY(), GDK_SCREEN_XNUMBER(
-        gdk_screen_get_default()), &mode_count, &modes))
-    properties->noxf86vm = TRUE;
-  else {
-    unsigned short hdisplay;
-    unsigned short vdisplay;
-
-    /* Follow the use choice in the screen size resolution */
-    switch(properties->screensize)
-      {
-      case 0:
-	hdisplay = BOARDWIDTH * 0.8;
-	vdisplay = (BOARDHEIGHT+BARHEIGHT) * 0.8;
-	break;
-      case 2:
-	hdisplay = BOARDWIDTH * 1.28;
-	vdisplay = (BOARDHEIGHT+BARHEIGHT) * 1.28;
-	break;
-      default:
-	hdisplay = BOARDWIDTH;
-	vdisplay = BOARDHEIGHT+BARHEIGHT;
-	break;
-      }
-    for (i = 0; i < mode_count; i++)
-      {
-        if ((modes[i]->hdisplay == hdisplay) &&
-            (modes[i]->vdisplay == vdisplay))
-          {
-            XF86VidModeData.fs_mode = *modes[i];
-            break;
-          }
-      }
-    if (i == mode_count)
-      properties->noxf86vm = TRUE;
-    XFree(modes);
-  }
-
-  if (properties->noxf86vm)
-      g_warning("XF86VidMode (or 800x600 resolution) not available");
-  else
-      g_warning("XF86VidMode support enabled");
-}
-
-
-static void
-xf86_vidmode_set_fullscreen ( int state )
-{
-  if (properties->noxf86vm || XF86VidModeData.fullscreen_active == state)
-    return;
-
-  if (state)
-    {
-      if (!XF86VidModeSwitchToMode(GDK_DISPLAY(), GDK_SCREEN_XNUMBER(
-            gdk_screen_get_default()), &XF86VidModeData.fs_mode))
-        g_warning("XF86VidMode could not switch resolution");
-      /* Notice the pointer must be grabbed before setting the viewport
-         otherwise setviewport may get "canceled" by the pointer being outside
-         the current viewport. */
-      if (gdk_pointer_grab(window->window, TRUE, 0, window->window, NULL,
-            GDK_CURRENT_TIME) != GDK_GRAB_SUCCESS)
-        g_warning("Pointer grab failed");
-      if (!XF86VidModeSetViewPort(GDK_DISPLAY(),
-            GDK_SCREEN_XNUMBER(gdk_screen_get_default()),
-              XF86VidModeData.window_x, XF86VidModeData.window_y))
-        g_warning("XF86VidMode could not change viewport");
-    }
-  else
-    {
-      if (!XF86VidModeSwitchToMode(GDK_DISPLAY(), GDK_SCREEN_XNUMBER(
-            gdk_screen_get_default()), &XF86VidModeData.orig_mode))
-        g_warning("XF86VidMode could not restore original resolution");
-
-      gdk_pointer_ungrab(GDK_CURRENT_TIME);
-      if (XF86VidModeData.orig_viewport_x || XF86VidModeData.orig_viewport_y)
-        if (!XF86VidModeSetViewPort(GDK_DISPLAY(), GDK_SCREEN_XNUMBER(
-              gdk_screen_get_default()), XF86VidModeData.orig_viewport_x,
-              XF86VidModeData.orig_viewport_y))
-          g_warning("XF86VidMode could not restore original viewport");
-    }
-  XF86VidModeData.fullscreen_active = state;
-}
-
-/* We need to accuratly now the window position, this is the only way to get
-   it. We also grab the pointer to be sure it is really grabbed. Gtk seems
-   to be playing tricks with the window (destroying and recreating?) when
-   switching fullscreen <-> window which sometimes (race condition) causes
-   the pointer to not be properly grabbed.
-
-   This has the added advantage that this way we know for sure the pointer is
-   always grabbed before setting the viewport otherwise setviewport may get
-   "canceled" by the pointer being outside the current viewport. */
-static gint xf86_window_configured(GtkWindow *window,
-  GdkEventConfigure *event, gpointer param)
-{
-  XF86VidModeData.window_x = event->x;
-  XF86VidModeData.window_y = event->y;
-
-  if(XF86VidModeData.fullscreen_active) {
-    if (gdk_pointer_grab(event->window, TRUE, 0, event->window, NULL,
-          GDK_CURRENT_TIME) != GDK_GRAB_SUCCESS)
-      g_warning("Pointer grab failed");
-    if (!XF86VidModeSetViewPort(GDK_DISPLAY(),
-          GDK_SCREEN_XNUMBER(gdk_screen_get_default()), event->x, event->y))
-      g_warning("XF86VidMode could not change viewport");
-  }
-  /* Act as if we aren't there / aren't hooked up */
-  return FALSE;
-}
-
-static gint xf86_focus_changed(GtkWindow *window,
-  GdkEventFocus *event, gpointer param)
-{
-  if(properties->fullscreen)
-    gdk_pointer_grab(event->window, TRUE, 0, event->window, NULL,
-		     GDK_CURRENT_TIME);
-  /* Act as if we aren't there / aren't hooked up */
-  return FALSE;
-}
-
-#endif
-
 static void
 start_bg_music (gchar *file)
 {
@@ -1530,12 +1279,6 @@ main (int argc, char *argv[])
   /* First, Remove the gnome crash dialog because it locks the user when in full screen */
   signal(SIGSEGV, gc_terminate);
   signal(SIGINT, gc_terminate);
-
-#ifdef XF86_VIDMODE
-  printf("XF86VidMode: Compiled with XF86VidMode.\nIf you have problems starting GCompris in fullscreen, try the -x option to disable XF86VidMode.\n");
-#else
-  printf("XF86VidMode: Not compiled with XVIDMODE\n");
-#endif
 
   load_properties();
 
@@ -1653,11 +1396,6 @@ main (int argc, char *argv[])
   if (popt_fullscreen)
     {
       properties->fullscreen = TRUE;
-    }
-
-  if (popt_noxf86vm)
-    {
-      properties->noxf86vm = TRUE;
     }
 
   if (popt_window)

@@ -762,13 +762,8 @@ item_event_ok(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 	{
 	  properties->fullscreen = (properties->fullscreen ? 0 : 1);
 
-#ifdef XF86_VIDMODE
-	  /* Changing screen without xrandr is more complex, it requires to remove the
-	     black border we created manually.
-	  */
-	  if(!properties->noxf86vm)
-	    gc_fullscreen_set(properties->fullscreen);
-#endif
+	  gc_fullscreen_set(properties->fullscreen);
+
 	  /* Warning changing the image needs to update pixbuf_ref for the focus usage */
 	  gc_item_focus_free(item, NULL);
 	  gnome_canvas_item_set (item,

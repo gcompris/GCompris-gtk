@@ -124,35 +124,6 @@ _response_board_conf (GtkButton *button,
 
 }
 
-#ifdef XF86_VIDMODE
-static GdkEventConfigure last_configure_event;
-
-static gint
-_conf_window_configured(GtkWindow *window,
-			GdkEventConfigure *event, gpointer param)
-{
-  gint new_x, new_y;
-  double screen_width, screen_height;
-  /* Because we call gtk_window_move, we cause a configure event. Filter out
-     identical events to avoid looping. */
-  if (memcmp(&last_configure_event, event, sizeof(GdkEventConfigure)))
-  {
-    gnome_canvas_get_scroll_region( GNOME_CANVAS( gtk_bin_get_child( GTK_BIN(
-      gc_get_window()))), NULL, NULL, &screen_width, &screen_height);
-    /* strange but gcompris.c sets the scrollheight to screen_height + 30 */
-    screen_height -= 30;
-    new_x = ((gint)screen_width - event->width) / 2;
-    new_y = ((gint)screen_height - event->height) / 2;
-    /* printf("screen %dx%d, window %dx%d, place %dx%d\n", (int)screen_width, (int)screen_height, event->width, event->height, new_x, new_y); */
-    gtk_window_move (conf_window, new_x, new_y);
-    memcpy(&last_configure_event, event, sizeof(GdkEventConfigure));
-  }
-
-  /* Act as if we aren't there / aren't hooked up */
-  return FALSE;
-}
-#endif
-
 GtkVBox *
 gc_board_config_window_display(gchar *label, GcomprisConfCallback callback)
 {
@@ -179,28 +150,10 @@ gc_board_config_window_display(gchar *label, GcomprisConfCallback callback)
 
 
   /* parameters */
-#ifdef XF86_VIDMODE
-  if (gc_prop_get()->fullscreen &&
-      !gc_prop_get()->noxf86vm)
-    {
-      memset(&last_configure_event, 0, sizeof(GdkEventConfigure));
-      gtk_widget_add_events(GTK_WIDGET(conf_window), GDK_STRUCTURE_MASK);
-      gtk_signal_connect (GTK_OBJECT (conf_window), "configure_event",
-        GTK_SIGNAL_FUNC (_conf_window_configured), 0);
-    }
-  else
-#endif
-      gtk_window_set_position (conf_window,
-				   GTK_WIN_POS_CENTER_ALWAYS);
+  gtk_window_set_position (conf_window,
+			   GTK_WIN_POS_CENTER_ALWAYS);
 
   gtk_widget_show(GTK_WIDGET(conf_window));
-
-  GcomprisProperties *properties = gc_prop_get();
-  if (properties->fullscreen && !properties->noxf86vm)
-    if (gdk_pointer_grab(gc_get_window()->window, TRUE, 0,
-			 gc_get_window()->window, NULL, GDK_CURRENT_TIME) !=
-	GDK_GRAB_SUCCESS)
-      g_warning("Pointer grab failed");
 
   /* main vbox in window */
   main_conf_box = GTK_VBOX(GTK_DIALOG(conf_window)->vbox);

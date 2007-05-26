@@ -151,7 +151,6 @@ gc_prop_new ()
   tmp->fx		 = 1;
   tmp->screensize	 = 1;
   tmp->fullscreen	 = 0;
-  tmp->noxf86vm		 = FALSE;
   tmp->timer		 = 1;
   tmp->skin		 = g_strdup("babytoy");
   tmp->key		 = g_strdup("default");
@@ -386,9 +385,6 @@ gc_prop_load (GcomprisProperties *props)
 	    g_warning("Config file parsing error on token %s", token);
 	} else if(!strcmp(value.v_identifier, "fullscreen")) {
 	  if(!scan_get_int(scanner, &props->fullscreen))
-	    g_warning("Config file parsing error on token %s", token);
-	} else if(!strcmp(value.v_identifier, "noxf86vm")) {
-	  if(!scan_get_int(scanner, &props->noxf86vm))
 	    g_warning("Config file parsing error on token %s", token);
 	} else if(!strcmp(value.v_identifier, "timer")) {
 	  if(!scan_get_int(scanner, &props->timer))

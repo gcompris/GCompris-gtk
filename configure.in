@@ -164,29 +164,7 @@ if test "x$x_libraries" != "x"; then
   XLIBADD=" -L$x_libraries "
 fi
 
-AC_ARG_ENABLE(xf86vidmode,
-          AC_HELP_STRING(
-          [--disable-xf86vidmode],
-          [Turn off xf86vidmode]),
-          USE_XF86VM="$enableval", USE_XF86VM="yes")
-found_xf86vidmode=no
-if test "x$USE_XF86VM" == "xyes" ; then
-  XF86VM_LIBS=
-  AC_CHECK_LIB(Xxf86vm, XF86VidModeQueryExtension,
-             [AC_CHECK_HEADER(X11/extensions/xf86vmode.h,
-	     	XF86VM_LIBS="$XLIBADD -lXxf86vm" found_xf86vidmode=yes,,
-                                [#include <X11/Xlib.h>])],
-               , $XLIBADD $ALL_X_LIBS )
-
-  if test "x$found_xf86vidmode" = "xno"; then
-     AC_MSG_NOTICE(["Suitable XF86VidMode extension library not found - Will not use xf86vidmode for fullscreen."])
-  else
-     AC_DEFINE_UNQUOTED(XF86_VIDMODE, 1, [XF86VidMode Available])
-  fi
-fi
-
-#LDFLAGS="-Wl,--as-needed ${LDFLAGS} ${XF86VM_LIBS}"
-LDFLAGS="${LDFLAGS} ${XF86VM_LIBS}"
+LDFLAGS="${LDFLAGS}"
 
 dnl Add the languages which your application supports here.
 ALL_LINGUAS="am ar ar_TN az bg ca cs da de dz el en_CA en_GB es et eu fi fr ga gl gu he hi hr hu id it ja ka ko lt mk ml mr ms nb ne nl nn oc pa pl pt pt_BR ro ru rw sk sl so sq sr sr@Latn sv ta th tr vi wa zh_CN zh_TW"
@@ -611,8 +589,6 @@ echo with options:
 
 echo "Force python (--enable-py-build-only)    = $py_build_only"
 echo "Python plugin                            = $build_python_plugin"
-
-echo "XF86VM option  (--enable-xf86vidmode)    = $found_xf86vidmode"
 
 echo "SQLITE database (--enable-sqlite)        = $with_sqlite (profiles depend on this)"
 

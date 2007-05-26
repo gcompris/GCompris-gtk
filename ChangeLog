@@ -1,5 +1,20 @@
 2007-05-26  Bruno coudoin  <bruno.coudoin@free.fr>
 
+	Removed xvidmode, now use canvas scaling feature instead.
+
+	* configure.in:
+	* src/boards/py-gcompris-properties.c:
+	(pyGcomprisPropertiesType_getattr):
+	* src/gcompris/board_config.c: (gc_board_config_window_display):
+	* src/gcompris/config.c: (item_event_ok):
+	* src/gcompris/gcompris.c: (_gc_configure_event_callback),
+	(gc_cursor_set), (gc_set_background), (init_background),
+	(setup_window), (gc_fullscreen_set), (main):
+	* src/gcompris/properties.c: (gc_prop_new), (gc_prop_load):
+	* src/gcompris/properties.h:
+
+2007-05-26  Bruno coudoin  <bruno.coudoin@free.fr>
+
 	- Added static compilation against insternal libccc for gcompris binary
 	- integrated the moving line demo in the main gcompris window
 
