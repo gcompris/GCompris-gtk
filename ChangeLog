@@ -1,3 +1,13 @@
+2007-05-27  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	- Added a black background, now GCompris is centered
+	  added a resize contraint do avoid black borders in resize mode.
+
+	* src/gcompris/gcompris.c: (_gc_configure_event_callback),
+	(_expose_background_callback), (init_background), (setup_window):
+	* src/libccc/python/Makefile.am:
+	* src/libccc/python/cccanvas.defs:
+
 2007-05-26  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	Removed x86 binary used for the build and fixed the makefile to

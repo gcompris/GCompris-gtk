@@ -35,7 +35,7 @@
   (parent "GObject")
   (c-name "CcColor")
   (gtype-id "CC_TYPE_COLOR")
-  (implements "CcBrush")  
+  (implements "CcBrush")
 )
 
 (define-object ColorRgb
@@ -219,7 +219,7 @@
   (is-constructor-of "CcBrushColor")
   (return-type "CcBrush*")
   (properties
-    '("color" (argname "color") (optional)) 
+    '("color" (argname "color") (optional))
   )
 )
 
@@ -300,7 +300,7 @@
 ;; From ../ccc/cc-circle.h
 
 (define-function circle_new
-  (in-module "Cc")  
+  (in-module "Cc")
   (c-name "cc_circle_new")
   (is-constructor-of "CcCircle")
   (return-type "CcItem*")
@@ -693,7 +693,7 @@
 (define-method get_all_bounds
   (of-object "CcItem")
   (c-name "cc_item_get_all_bounds")
-  (return-type "CcDRect*")
+  (return-type "CcDRect const*")
   (parameters
    '("CcView*" "view")
    )
@@ -1324,7 +1324,7 @@
 )
 
 (define-method get_center_view
-  (of-object "CcViewWidget")  
+  (of-object "CcViewWidget")
   (c-name "cc_view_widget_get_center_view")
   (return-type "gboolean")
 )

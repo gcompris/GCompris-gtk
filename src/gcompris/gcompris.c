@@ -54,6 +54,7 @@ static GtkWidget *window;
 static GnomeCanvas *canvas;
 static GnomeCanvas *canvas_bar;
 static GtkWidget *fixed;
+static GtkWidget *drawing_area;
 
 gchar * exec_prefix = NULL;
 
@@ -63,6 +64,8 @@ static void map_cb  (GtkWidget *widget, gpointer data);
 static gint _gc_configure_event_callback (GtkWidget   *widget,
 					  GdkEventConfigure *event,
 					  gpointer     client_data);
+static gboolean _expose_background_callback (GtkWidget *widget, GdkEventExpose *event,
+					     gpointer data);
 static gint board_widget_key_press_callback (GtkWidget   *widget,
 					    GdkEventKey *event,
 					    gpointer     client_data);
@@ -225,27 +228,6 @@ static GOptionEntry options[] = {
   { NULL }
 };
 
-/* Fullscreen Stuff */
-#ifdef XF86_VIDMODE
-static struct
-{
-  XF86VidModeModeInfo fs_mode;
-  XF86VidModeModeInfo orig_mode;
-  int orig_viewport_x;
-  int orig_viewport_y;
-  int window_x;
-  int window_y;
-  gboolean fullscreen_active;
-} XF86VidModeData = { { 0 }, { 0 }, 0, 0, 0, 0, FALSE };
-
-static void xf86_vidmode_init( void );
-static void xf86_vidmode_set_fullscreen( int state );
-static gint xf86_window_configured(GtkWindow *window,
-  GdkEventConfigure *event, gpointer param);
-static gint xf86_focus_changed(GtkWindow *window,
-  GdkEventFocus *event, gpointer param);
-#endif
-
 /****************************************************************************/
 #define N_POINTS  12
 #define RADIUS 100.0
@@ -307,7 +289,6 @@ test_ccc()
   g_signal_connect(G_OBJECT(rounded_line), "all-bounds-changed",
 		   G_CALLBACK(update_bounds), rect);
 
-  printf("TEST CCC\n");
   cc_line_move(CC_LINE(rounded_line), X(1, 0), Y(1, 0));
 
   int i;
@@ -367,11 +348,18 @@ _gc_configure_event_callback (GtkWidget   *widget,
 
   gtk_widget_set_usize (GTK_WIDGET(canvas), BOARDWIDTH*xratio, BOARDHEIGHT*xratio);
   gnome_canvas_set_pixels_per_unit (canvas, xratio);
+  gtk_fixed_move(GTK_FIXED(fixed), GTK_WIDGET(canvas),
+		 (screen_width-BOARDWIDTH*xratio)/2,
+		 (screen_height-(BOARDHEIGHT+BARHEIGHT)*xratio)/2);
 
   gtk_widget_set_usize (GTK_WIDGET(canvas_bar),  BOARDWIDTH*xratio,  BARHEIGHT*xratio);
   gnome_canvas_set_pixels_per_unit (canvas_bar, xratio);
   gtk_fixed_move(GTK_FIXED(fixed), GTK_WIDGET(canvas_bar),
-		 0, BOARDHEIGHT*xratio);
+		 (screen_width-BOARDWIDTH*xratio)/2,
+		 (screen_height-(BOARDHEIGHT+BARHEIGHT)*xratio)/2 + BOARDHEIGHT*xratio);
+
+  _expose_background_callback (drawing_area, NULL, NULL);
+
   return FALSE;
 }
 
@@ -538,7 +526,8 @@ void gc_cursor_set(guint gdk_cursor_type)
 
     if(cursor_pixbuf)
       {
-	cursor = gdk_cursor_new_from_pixbuf(gdk_display_get_default(), cursor_pixbuf, 0, 0);
+	cursor = gdk_cursor_new_from_pixbuf(gdk_display_get_default(),
+					    cursor_pixbuf, 0, 0);
 	gdk_window_set_cursor(window->window, cursor);
 	gdk_cursor_unref(cursor);
 	gdk_pixbuf_unref(cursor_pixbuf);
@@ -593,14 +582,38 @@ GnomeCanvasItem *gc_set_background(GnomeCanvasGroup *parent, gchar *file)
   return (backgroundimg);
 }
 
+/* Redraw the black background
+ */
+static gboolean
+_expose_background_callback (GtkWidget *widget, GdkEventExpose *event, gpointer data)
+{
+  gint screen_height, screen_width;
+
+  gdk_drawable_get_size(GDK_DRAWABLE (window->window),
+			&screen_width,
+			&screen_height);
+
+  gtk_widget_set_size_request (widget, screen_width, screen_height);
+  gdk_draw_rectangle (widget->window,
+		      widget->style->fg_gc[GTK_WIDGET_STATE (widget)],
+		      TRUE,
+		      0, 0, widget->allocation.width, widget->allocation.height);
+
+  return FALSE;
+}
+
 static void
 init_background()
 {
-
+  drawing_area = gtk_drawing_area_new ();
+  gtk_widget_set_size_request (drawing_area, BOARDWIDTH, BOARDHEIGHT);
+  g_signal_connect (G_OBJECT (drawing_area), "expose_event",
+		    G_CALLBACK (_expose_background_callback), NULL);
   /* Create a vertical box in which I put first the play board area, then the button bar */
   fixed = gtk_fixed_new ();
   gtk_container_add(GTK_CONTAINER(window), GTK_WIDGET(fixed));
 
+  gtk_fixed_put (GTK_FIXED(fixed), GTK_WIDGET(drawing_area), 0, 0);
   gtk_fixed_put (GTK_FIXED(fixed), GTK_WIDGET(canvas), 0, 0);
   gtk_fixed_put (GTK_FIXED(fixed), GTK_WIDGET(canvas_bar), 0, BOARDHEIGHT);
 
@@ -671,12 +684,15 @@ static void setup_window ()
   hints.min_height = 144;
   hints.width_inc = 1;
   hints.height_inc = 1;
+  hints.min_aspect = (float)BOARDWIDTH/(BOARDHEIGHT+BARHEIGHT);
+  hints. max_aspect = (float)BOARDWIDTH/(BOARDHEIGHT+BARHEIGHT);
   gtk_window_set_geometry_hints (GTK_WINDOW (window),
 				 NULL,
 				 &hints,
 				 GDK_HINT_RESIZE_INC |
 				 GDK_HINT_MIN_SIZE |
-				 GDK_HINT_BASE_SIZE);
+				 GDK_HINT_BASE_SIZE |
+				 GDK_HINT_ASPECT);
 
   /*
    * Set the main window
@@ -978,7 +994,6 @@ void gc_fullscreen_set(gboolean state)
         gtk_widget_show (window);
       gdk_window_set_functions (window->window, GDK_FUNC_ALL);
       gtk_window_unfullscreen (GTK_WINDOW(window));
-      gtk_widget_set_uposition (window, 0, 0);
     }
 
 }
@@ -994,29 +1009,12 @@ int gc_canvas_item_grab (GnomeCanvasItem *item, unsigned int event_mask,
   if (retval != GDK_GRAB_SUCCESS)
     return retval;
 
-#ifdef XF86_VIDMODE
-  /* When fullscreen override mouse grab with our own which
-     confines the cursor to our fullscreen window */
-  if (XF86VidModeData.fullscreen_active)
-    if (gdk_pointer_grab(item->canvas->layout.bin_window, FALSE, event_mask,
-          window->window, cursor, etime+1) != GDK_GRAB_SUCCESS)
-      g_warning("Pointer grab failed");
-#endif
-
   return retval;
 }
 
 void gc_canvas_item_ungrab (GnomeCanvasItem *item, guint32 etime)
 {
   gnome_canvas_item_ungrab(item, etime);
-#ifdef XF86_VIDMODE
-  /* When fullscreen restore the normal mouse grab which avoids
-     scrolling the virtual desktop */
-  if (XF86VidModeData.fullscreen_active)
-    if (gdk_pointer_grab(window->window, TRUE, 0, window->window, NULL,
-          etime+1) != GDK_GRAB_SUCCESS)
-      g_warning("Pointer grab failed");
-#endif
 }
 
 static void cleanup()
