@@ -20,7 +20,8 @@ Then, run /home/bruno/gcompris/bin/gcompris
 Gcompris requires gtk-libs, libxml2, gnomecanvas, sqlite, and gdk-pixbuf.
 
 gcompris also requires the gnuchess and gnucap package for the chess activity and
-electricity to run.
+electricity to run. If you have gnome-gnuchess instead of gnuchess, autoconf will
+detect it and compile with it.
 
 GCompris includes several activity written in python.
 To enable them, you need to have python installed on your system with the following packages:

@@ -327,7 +327,7 @@ else
 fi
 
 dnl Test for gnuchess
-AC_PATH_PROGS(GNUCHESS, gnuchess, gnome-gnuchess,[/usr/bin:/usr/games:/usr/local/bin:$PATH])
+AC_PATH_PROGS(GNUCHESS, gnuchess gnome-gnuchess, no, [/usr/bin:/usr/games:/usr/local/bin:$PATH])
 
 if test x$GNUCHESS = xno; then
   AC_MSG_ERROR(Couldn't find gnuchess, please install the gnuchess package version 5 or above)
