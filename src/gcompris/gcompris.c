@@ -45,6 +45,8 @@
 /* get the default database name */
 #define DEFAULT_DATABASE "gcompris_sqlite.db"
 
+static double zoom_factor = 1.0;
+
 /* Multiple instance check */
 static gchar *lock_file;
 #define GC_LOCK_FILE "gcompris.lock"
@@ -55,7 +57,9 @@ static GnomeCanvas *canvas;
 static GnomeCanvas *canvas_bar;
 static GtkWidget *fixed;
 static GtkWidget *drawing_area;
-
+#if 0
+static GtkWidget* cccanvas_root;
+#endif
 gchar * exec_prefix = NULL;
 
 //static gint pause_board_cb (GtkWidget *widget, gpointer data);
@@ -88,7 +92,6 @@ static GtkEntry *widget_activation_entry;
 
 
 static GcomprisProperties *properties = NULL;
-static gboolean		   antialiased = FALSE;
 static gboolean		   is_mapped = FALSE;
 
 /****************************************************************************/
@@ -109,7 +112,6 @@ static gint popt_sound		   = FALSE;
 static gint popt_mute		   = FALSE;
 static gint popt_cursor		   = FALSE;
 static gint popt_version	   = FALSE;
-static gint popt_aalias		   = FALSE;
 static gint popt_difficulty_filter = FALSE;
 static gint popt_debug		   = FALSE;
 static gint popt_nobackimg	   = FALSE;
@@ -157,9 +159,6 @@ static GOptionEntry options[] = {
 
   {"version", 'v', 0, G_OPTION_ARG_NONE, &popt_version,
    N_("Print the version of " PACKAGE), NULL},
-
-  {"antialiased", '\0', 0, G_OPTION_ARG_NONE, &popt_aalias,
-   N_("Use the antialiased canvas (slower)."), NULL},
 
   {"root-menu", 'l', 0, G_OPTION_ARG_STRING, &popt_root_menu,
    N_("Run gcompris with local menu (e.g -l /reading will let you play only activities in the reading directory, -l /strategy/connect4 only the connect4 activity)"), NULL},
@@ -281,11 +280,11 @@ timer_callback(gpointer data)
 GtkWidget*
 test_ccc()
 {
-  GtkWidget* canvas;
+  GtkWidget* cccanvas_root;
   CcItem* item   = cc_item_new();
   rounded_line   = cc_line_new();
   CcItem* rect   = cc_rectangle_new();
-
+  CcItem* text   = cc_text_new("GCompris Rulez");
   g_signal_connect(G_OBJECT(rounded_line), "all-bounds-changed",
 		   G_CALLBACK(update_bounds), rect);
 
@@ -301,6 +300,7 @@ test_ccc()
   cc_shape_set_brush_border(CC_SHAPE(rounded_line), CC_BRUSH(cc_color_new_rgb(0.0, 0.0, 1.0)));
   cc_item_append(item, rect);
   cc_item_append(item, rounded_line);
+  cc_item_append(item, text);
 
   g_signal_connect(rounded_line, "enter-notify-event",
 		   G_CALLBACK(enter_callback), NULL);
@@ -309,9 +309,10 @@ test_ccc()
 
   g_timeout_add  (10, (GSourceFunc) timer_callback, NULL);
 
-  canvas = cc_view_widget_new_root(item);
+  cccanvas_root = cc_view_widget_new_root(item);
+  cc_view_set_zoom(CC_VIEW(cccanvas_root), 1.0);
 
-  return canvas;
+  return cccanvas_root;
 }
 
 /* Remove any dialog box */
@@ -322,6 +323,14 @@ static void gc_close_all_dialog() {
   gc_about_stop();
   gc_selector_file_stop();
   gc_selector_images_stop();
+}
+
+/* Return the zoom factor we are currently using for our window
+ *
+ */
+double gc_zoom_factor_get()
+{
+  return zoom_factor;
 }
 
 static gint
@@ -338,25 +347,31 @@ _gc_configure_event_callback (GtkWidget   *widget,
 
   yratio=screen_height/(float)(BOARDHEIGHT+BARHEIGHT);
   xratio=screen_width/(float)BOARDWIDTH;
-  g_message("The screen_width=%f screen_height=%f\n",
-	    (double)screen_width, (double)screen_height);
-  g_message("The xratio=%f yratio=%f\n", xratio, yratio);
+  zoom_factor=MIN(xratio, yratio);
+  g_message("The screen_width=%f screen_height=%f ratio=%f\n",
+	    (double)screen_width, (double)screen_height, zoom_factor);
+  printf("The screen_width=%f screen_height=%f ratio=%f\n",
+	    (double)screen_width, (double)screen_height, zoom_factor);
 
-  yratio=xratio=MIN(xratio, yratio);
-
-  g_message("Calculated x ratio xratio=%f\n", xratio);
-
-  gtk_widget_set_usize (GTK_WIDGET(canvas), BOARDWIDTH*xratio, BOARDHEIGHT*xratio);
-  gnome_canvas_set_pixels_per_unit (canvas, xratio);
+  gtk_widget_set_usize (GTK_WIDGET(canvas), BOARDWIDTH*zoom_factor, BOARDHEIGHT*zoom_factor);
+  gnome_canvas_set_pixels_per_unit (canvas, zoom_factor);
   gtk_fixed_move(GTK_FIXED(fixed), GTK_WIDGET(canvas),
-		 (screen_width-BOARDWIDTH*xratio)/2,
-		 (screen_height-(BOARDHEIGHT+BARHEIGHT)*xratio)/2);
+		 (screen_width-BOARDWIDTH*zoom_factor)/2,
+		 (screen_height-(BOARDHEIGHT+BARHEIGHT)*zoom_factor)/2);
 
-  gtk_widget_set_usize (GTK_WIDGET(canvas_bar),  BOARDWIDTH*xratio,  BARHEIGHT*xratio);
-  gnome_canvas_set_pixels_per_unit (canvas_bar, xratio);
+  gtk_widget_set_usize (GTK_WIDGET(canvas_bar),  BOARDWIDTH*zoom_factor,  BARHEIGHT*zoom_factor);
+  gnome_canvas_set_pixels_per_unit (canvas_bar, zoom_factor);
   gtk_fixed_move(GTK_FIXED(fixed), GTK_WIDGET(canvas_bar),
-		 (screen_width-BOARDWIDTH*xratio)/2,
-		 (screen_height-(BOARDHEIGHT+BARHEIGHT)*xratio)/2 + BOARDHEIGHT*xratio);
+		 (screen_width-BOARDWIDTH*zoom_factor)/2,
+		 (screen_height-(BOARDHEIGHT+BARHEIGHT)*zoom_factor)/2 + BOARDHEIGHT*zoom_factor);
+
+#if 0
+  gtk_widget_set_usize (GTK_WIDGET(cccanvas_root),
+			BOARDWIDTH*zoom_factor,
+			BOARDHEIGHT*zoom_factor);
+  cc_view_set_zoom(CC_VIEW(cccanvas_root),
+		   zoom_factor);
+#endif
 
   _expose_background_callback (drawing_area, NULL, NULL);
 
@@ -632,12 +647,11 @@ init_background()
 				  0, 0,
 				  BOARDWIDTH,
 				  BARHEIGHT);
-
 #if 0
-  GtkWidget* ccwidget = test_ccc();
-  gtk_widget_show(GTK_WIDGET(ccwidget));
-  gtk_fixed_put (GTK_FIXED(fixed), GTK_WIDGET(ccwidget), 0, 000);
-  gtk_widget_set_usize (GTK_WIDGET(ccwidget), BOARDWIDTH/2, BOARDHEIGHT/2);
+  cccanvas_root = test_ccc();
+  gtk_widget_show(GTK_WIDGET(cccanvas_root));
+  gtk_fixed_put (GTK_FIXED(fixed), GTK_WIDGET(cccanvas_root), 0, 0);
+  gtk_widget_set_usize (GTK_WIDGET(cccanvas_root), BOARDWIDTH, BOARDHEIGHT);
 #endif
 }
 
@@ -700,7 +714,7 @@ static void setup_window ()
    */
 
   //  gtk_window_set_policy (GTK_WINDOW (window), FALSE, FALSE, TRUE);
-  gtk_window_set_default_size(GTK_WINDOW(window), 640, 480);
+  gtk_window_set_default_size(GTK_WINDOW(window), BOARDWIDTH, BOARDHEIGHT);
   gtk_window_set_wmclass(GTK_WINDOW(window), "gcompris", "GCompris");
 
   gtk_widget_realize (window);
@@ -1423,12 +1437,6 @@ main (int argc, char *argv[])
 #ifdef WIN32
   properties->defaultcursor = GDK_LEFT_PTR;
 #endif
-
-  if (popt_aalias)
-    {
-      g_warning("Slower Antialiased canvas used");
-      antialiased = TRUE;
-    }
 
   if (popt_experimental)
     {

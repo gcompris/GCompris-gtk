@@ -25,6 +25,8 @@
 #ifndef _GC_CORE_H_
 #define _GC_CORE_H_
 
+double gc_zoom_factor_get();
+
 /** The internal help  API */
 void gc_help_start (GcomprisBoard *gcomprisBoard);
 void gc_help_stop ();

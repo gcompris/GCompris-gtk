@@ -1,3 +1,21 @@
+2007-05-28  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* src/boards/menu2.c: (menu_end), (item_event), (set_content),
+	(create_info_area), (display_welcome): changed to use the richtext canvas for all the text
+	* src/gcompris/gc_core.h: added the function gc_zoom_factor_get()
+	* src/gcompris/gc_net.c: (resize_pixbuf_cb), (gc_net_load_pixmap):
+	* src/gcompris/gcompris.c: (test_ccc), (gc_zoom_factor_get),
+	(_gc_configure_event_callback), (init_background), (setup_window),
+	(main): prepared to support loading images at zoom factor.
+
+2007-05-28  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	- The click on letter activity was only proposing the first 4 letters
+	  of the alphabet, whatever the level.
+	  (Bug reported by Yannis) (merge of trunk r2681)
+
+	* src/boards/click_on_letter.c: (click_on_letter_create_item):
+
 2007-05-27  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	- Added a black background, now GCompris is centered

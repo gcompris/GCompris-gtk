@@ -34,12 +34,9 @@
 
 typedef struct {
   /* Information items (_s are shadow) */
-  GnomeCanvasItem *boardname_item;
+  GnomeCanvasRichText *boardname_item;
   GnomeCanvasRichText *description_item;
-  GnomeCanvasItem *author_item;
-  GnomeCanvasItem *boardname_item_s;
-  GnomeCanvasRichText *description_item_s;
-  GnomeCanvasItem *author_item_s;
+  GnomeCanvasRichText *author_item;
 } MenuItems;
 
 static MenuItems *menuitems;
@@ -70,8 +67,8 @@ static gint		 item_event(GnomeCanvasItem *item, GdkEvent *event, MenuItems *menu
 static void		 display_board_icon(GcomprisBoard *board, MenuItems *menuitems);
 static void		 free_stuff (GtkObject *obj, gpointer data);
 static void		 set_content(GnomeCanvasRichText *item_content,
-				     GnomeCanvasRichText *item_content_s,
-				     gchar *text);
+				     gchar *text,
+				     gchar *font);
 
 static void              display_section (gchar *path);
 static void              display_welcome (void);
@@ -376,8 +373,11 @@ menu_end ()
       while (g_idle_remove_by_data (menuitems->description_item));
       gtk_object_destroy (GTK_OBJECT(menuitems->description_item));
 
-      while (g_idle_remove_by_data (menuitems->description_item_s));
-      gtk_object_destroy (GTK_OBJECT(menuitems->description_item_s));
+      while (g_idle_remove_by_data (menuitems->boardname_item));
+      gtk_object_destroy (GTK_OBJECT(menuitems->boardname_item));
+
+      while (g_idle_remove_by_data (menuitems->author_item));
+      gtk_object_destroy (GTK_OBJECT(menuitems->author_item));
 
       gtk_object_destroy (GTK_OBJECT(boardRootItem));
     }
@@ -590,57 +590,28 @@ item_event(GnomeCanvasItem *item, GdkEvent *event,  MenuItems *menuitems)
     {
     case GDK_ENTER_NOTIFY:
       if(board->title && G_IS_OBJECT(menuitems->boardname_item))
-	gnome_canvas_item_set (menuitems->boardname_item,
-			       "text", board->title,
-			       NULL);
+	set_content (menuitems->boardname_item,
+		     board->title,
+		     gc_skin_font_board_big);
 
       if(board->description
-	 && G_IS_OBJECT(menuitems->description_item)
-	 && G_IS_OBJECT(menuitems->description_item_s))
+	 && G_IS_OBJECT(menuitems->description_item))
 	set_content(menuitems->description_item,
-		    menuitems->description_item_s,
-		    board->description);
+		    board->description,
+		    gc_skin_font_board_medium);
 
       if(board->author && G_IS_OBJECT(menuitems->author_item))
-	gnome_canvas_item_set (menuitems->author_item,
-			       "text",  board->author,
-			       NULL);
-
-      if(board->title && G_IS_OBJECT(menuitems->boardname_item_s))
-	gnome_canvas_item_set (menuitems->boardname_item_s,
-			       "text", board->title,
-			       NULL);
-
-      if(board->author && G_IS_OBJECT(menuitems->author_item_s))
-	gnome_canvas_item_set (menuitems->author_item_s,
-			       "text",  board->author,
-			       NULL);
+	set_content (menuitems->author_item,
+		     board->author,
+		     gc_skin_font_board_tiny);
 
       break;
     case GDK_LEAVE_NOTIFY:
-      gnome_canvas_item_set (menuitems->boardname_item,
-			     "text", " ",
-			     NULL);
+      set_content (menuitems->boardname_item, " ", gc_skin_font_board_big);
 
-      gnome_canvas_item_set (GNOME_CANVAS_ITEM(menuitems->description_item),
-			     "text",  " ",
-			     NULL);
+      set_content (menuitems->description_item, " ", gc_skin_font_board_medium);
 
-      gnome_canvas_item_set (menuitems->author_item,
-			     "text",  " ",
-			     NULL);
-
-      gnome_canvas_item_set (menuitems->boardname_item_s,
-			     "text", " ",
-			     NULL);
-
-      gnome_canvas_item_set (GNOME_CANVAS_ITEM(menuitems->description_item_s),
-			     "text",  " ",
-			     NULL);
-
-      gnome_canvas_item_set (menuitems->author_item_s,
-			     "text",  " ",
-			     NULL);
+      set_content (menuitems->author_item, " ", gc_skin_font_board_tiny);
 
       break;
     case GDK_BUTTON_PRESS:
@@ -679,15 +650,15 @@ item_event(GnomeCanvasItem *item, GdkEvent *event,  MenuItems *menuitems)
 /* Apply the style to the given RichText item  */
 static void
 set_content(GnomeCanvasRichText *item_content,
-	    GnomeCanvasRichText *item_content_s,
-	    gchar *text) {
+	    gchar *text,
+	    gchar *font)
+{
 
   GtkTextIter    iter_start, iter_end;
   GtkTextBuffer *buffer;
   GtkTextTag    *txt_tag;
   gboolean success;
   gchar *color_string;
-  GdkColor *color_s = (GdkColor *)malloc(sizeof(GdkColor));
   GdkColor *color   = (GdkColor *)malloc(sizeof(GdkColor));
 
   /*
@@ -696,30 +667,6 @@ set_content(GnomeCanvasRichText *item_content,
   gnome_canvas_item_set(GNOME_CANVAS_ITEM(item_content),
 			"text", text,
 			NULL);
-
-  gnome_canvas_item_set(GNOME_CANVAS_ITEM(item_content_s),
-			"text", text,
-			NULL);
-
-  /*
-   * Set the shadow
-   */
-
-  color_string = g_strdup_printf("#%x", gc_skin_color_shadow >> 8);
-  gdk_color_parse(color_string, color_s);
-  g_free(color_string);
-  success = gdk_colormap_alloc_color(gdk_colormap_get_system(),
-				     color_s,
-  				     FALSE, TRUE);
-
-  buffer  = gnome_canvas_rich_text_get_buffer(GNOME_CANVAS_RICH_TEXT(item_content_s));
-  txt_tag = gtk_text_buffer_create_tag(buffer, NULL,
-				       "foreground-gdk", color_s,
-				       "font",       gc_skin_font_board_medium,
-				       NULL);
-  gtk_text_buffer_get_end_iter(buffer, &iter_end);
-  gtk_text_buffer_get_start_iter(buffer, &iter_start);
-  gtk_text_buffer_apply_tag(buffer, txt_tag, &iter_start, &iter_end);
 
   /*
    * Set the text
@@ -734,13 +681,12 @@ set_content(GnomeCanvasRichText *item_content,
   buffer  = gnome_canvas_rich_text_get_buffer(GNOME_CANVAS_RICH_TEXT(item_content));
   txt_tag = gtk_text_buffer_create_tag(buffer, NULL,
 				       "foreground-gdk", color,
-				       "font",        gc_skin_font_board_medium,
+				       "font", font,
 				       NULL);
   gtk_text_buffer_get_end_iter(buffer, &iter_end);
   gtk_text_buffer_get_start_iter(buffer, &iter_start);
   gtk_text_buffer_apply_tag(buffer, txt_tag, &iter_start, &iter_end);
   g_free(color);
-  g_free(color_s);
 }
 
 /** \brief create the area in which we display the board title and description
@@ -754,42 +700,21 @@ static void create_info_area(GnomeCanvasGroup *parent, MenuItems *menuitems)
   if(parent    == NULL)
     return;
 
-  menuitems->boardname_item_s = \
-    gnome_canvas_item_new (parent,
-			   gnome_canvas_text_get_type (),
-			   "text", " ",
-			   "font", gc_skin_font_board_big,
-			   "x", (double) x + 1.0,
-			   "y", (double) y + 1.0,
-			   "anchor", GTK_ANCHOR_NORTH,
-			   "fill_color_rgba",  gc_skin_color_shadow,
-			   NULL);
-
   menuitems->boardname_item = \
-    gnome_canvas_item_new (parent,
-			   gnome_canvas_text_get_type (),
-			   "text", " ",
-			   "font", gc_skin_font_board_big,
-			   "x", (double) x,
-			   "y", (double) y,
-			   "anchor", GTK_ANCHOR_NORTH,
-			   "fill_color_rgba",  gc_skin_get_color("menu/text"),
-			   NULL);
-
-  menuitems->description_item_s = \
     GNOME_CANVAS_RICH_TEXT(gnome_canvas_item_new (parent,
 						  gnome_canvas_rich_text_get_type (),
-						  "x", (double) x + 1.0,
-						  "y", (double) y + 28 + 1.0,
+						  "x", (double) x,
+						  "y", (double) y,
 						  "width",  info_w,
 						  "height", info_h - 28,
 						  "anchor", GTK_ANCHOR_NORTH,
 						  "justification", GTK_JUSTIFY_CENTER,
-						  "grow_height", FALSE,
+						  "grow_height", TRUE,
 						  "cursor_visible", FALSE,
 						  "cursor_blink", FALSE,
 						  "editable", FALSE,
 						  NULL));
+
   menuitems->description_item = \
     GNOME_CANVAS_RICH_TEXT(gnome_canvas_item_new (parent,
 						  gnome_canvas_rich_text_get_type (),
@@ -799,35 +724,26 @@ static void create_info_area(GnomeCanvasGroup *parent, MenuItems *menuitems)
 						  "height", info_h - 28,
 						  "anchor", GTK_ANCHOR_NORTH,
 						  "justification", GTK_JUSTIFY_CENTER,
-						  "grow_height", FALSE,
+						  "grow_height", TRUE,
 						  "cursor_visible", FALSE,
 						  "cursor_blink", FALSE,
 						  "editable", FALSE,
 						  NULL));
 
-  menuitems->author_item_s = \
-    gnome_canvas_item_new (parent,
-			   gnome_canvas_text_get_type (),
-			   "text", " ",
-			   "font", gc_skin_font_board_tiny,
-			   "x", (double) x + 1.0,
-			   "y", (double) y + 90 + 1.0,
-  			   "anchor", GTK_ANCHOR_NORTH,
-  			   "fill_color_rgba", gc_skin_color_shadow,
-  			   "justification", GTK_JUSTIFY_CENTER,
-			   NULL);
-
   menuitems->author_item = \
-    gnome_canvas_item_new (parent,
-			   gnome_canvas_text_get_type (),
-			   "text", " ",
-			   "font", gc_skin_font_board_tiny,
-			   "x", (double) x,
-			   "y", (double) y + 90,
-  			   "anchor", GTK_ANCHOR_NORTH,
-  			   "fill_color_rgba", gc_skin_get_color("menu/text"),
-  			   "justification", GTK_JUSTIFY_CENTER,
-			   NULL);
+    GNOME_CANVAS_RICH_TEXT(gnome_canvas_item_new (parent,
+						  gnome_canvas_rich_text_get_type (),
+						  "x", (double) x,
+						  "y", (double) y + 90,
+						  "width",  info_w,
+						  "height", info_h - 28,
+						  "anchor", GTK_ANCHOR_NORTH,
+						  "justification", GTK_JUSTIFY_CENTER,
+						  "grow_height", TRUE,
+						  "cursor_visible", FALSE,
+						  "cursor_blink", FALSE,
+						  "editable", FALSE,
+						  NULL));
 
 }
 
@@ -996,29 +912,17 @@ display_welcome (void)
   gdk_pixbuf_unref(pixmap);
 
   if(G_IS_OBJECT(menuitems->boardname_item))
-    gnome_canvas_item_set (menuitems->boardname_item,
-			   "text", "GCompris V" VERSION,
-			   NULL);
+    set_content (menuitems->boardname_item,
+		 "GCompris V" VERSION,
+		 gc_skin_font_board_big);
 
-  if(G_IS_OBJECT(menuitems->description_item)
-     && G_IS_OBJECT(menuitems->description_item_s))
+  if(G_IS_OBJECT(menuitems->description_item))
     set_content(menuitems->description_item,
-		menuitems->description_item_s,
-		_("GCompris is a collection of educational games that provides different activities for children aged 2 and up."));
+		_("GCompris is a collection of educational games that provides different activities for children aged 2 and up."),
+		gc_skin_font_board_medium);
 
   if(G_IS_OBJECT(menuitems->author_item))
-    gnome_canvas_item_set (menuitems->author_item,
-			   "text", "",
-			   NULL);
-  if(G_IS_OBJECT(menuitems->boardname_item_s))
-    gnome_canvas_item_set (menuitems->boardname_item_s,
-			       "text", "GCompris V" VERSION,
-			   NULL);
-
-  if(G_IS_OBJECT(menuitems->author_item_s))
-    gnome_canvas_item_set (menuitems->author_item_s,
-			   "text", "",
-			   NULL);
+    set_content (menuitems->author_item, "", gc_skin_font_board_tiny);
 
   menu_displayed = TRUE;
 }

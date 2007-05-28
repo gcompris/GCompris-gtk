@@ -93,6 +93,18 @@ void gc_net_init()
 #endif
 }
 
+void
+resize_pixbuf_cb(GdkPixbufLoader *loader,
+		 gint             width,
+		 gint             height,
+		 gpointer         user_data)
+{
+  printf("resize_cb %d, %d\n", width, height);
+  gdk_pixbuf_loader_set_size(loader,
+			     width*gc_zoom_factor_get(),
+			     height*gc_zoom_factor_get());
+}
+
 /** Load a pixmap localy or from the network
  *
  * \param pixmapfile : a full URL to the file to load as an image
@@ -102,7 +114,15 @@ void gc_net_init()
 GdkPixbuf *gc_net_load_pixmap(const char *url)
 {
   if(!gc_net_is_url(url))
-    return(gdk_pixbuf_new_from_file (url, NULL));
+    {
+      gint width, height;
+      gdk_pixbuf_get_file_info(url, &width, &height);
+      printf("gc_net_load_pixmap(%s) w=%d h=%d\n", url, width, height);
+      return(gdk_pixbuf_new_from_file (url, NULL));
+      //      return(gdk_pixbuf_new_from_file_at_scale (url,
+      //						width*gc_zoom_factor_get(),
+      //						height*gc_zoom_factor_get(), TRUE, NULL));
+    }
 
   SUPPORT_OR_RETURN(NULL);
 
@@ -118,6 +138,9 @@ GdkPixbuf *gc_net_load_pixmap(const char *url)
       GdkPixbuf *pixmap=NULL;
       GdkPixbufLoader* loader;
       loader = gdk_pixbuf_loader_new();
+      g_signal_connect(G_OBJECT(loader), "size-prepared",
+		       G_CALLBACK(resize_pixbuf_cb), NULL);
+
       gdk_pixbuf_loader_write(loader, (guchar *)buf, buflen, NULL);
       g_free(buf);
       gdk_pixbuf_loader_close(loader, NULL);
