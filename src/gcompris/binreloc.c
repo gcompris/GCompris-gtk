@@ -621,7 +621,10 @@ gbr_find_lib_dir (const gchar *default_lib_dir)
 			return NULL;
 	}
 
-	dir = g_build_filename (prefix, "lib", NULL);
+	if (default_lib_dir && strstr(default_lib_dir, "lib64"))
+		dir = g_build_filename (prefix, "lib64", NULL);
+	else
+		dir = g_build_filename (prefix, "lib", NULL);
 	g_free (prefix);
 	return dir;
 }
