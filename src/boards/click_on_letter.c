@@ -353,7 +353,7 @@ static GnomeCanvasItem *click_on_letter_create_item(GnomeCanvasGroup *parent)
   g_assert(number_of_letters<=length_of_aphabet); // because we must set unique letter on every "vagon"
 
   for (i=0;i<number_of_letters;i++){
-    numbers[i]= g_random_int_range(0, number_of_letters);
+    numbers[i]= g_random_int_range(0, length_of_aphabet);
 
     // check that the letter has not been taken yet
     for(j=0;j<i;j++){
