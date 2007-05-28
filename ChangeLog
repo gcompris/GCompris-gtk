@@ -3,6 +3,7 @@
 	- Patch by Hans de Goede fixes running on machines which
 	  have / use <prefix>/lib64 instead of <prefix>/lib
 	  (merge of trunk r2684)
+	- Merge of trunk 2687 (unused image cleanup)
 
 	* src/gcompris/binreloc.c: (gbr_find_lib_dir):
 
