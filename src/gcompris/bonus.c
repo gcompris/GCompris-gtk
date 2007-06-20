@@ -240,7 +240,7 @@ gc_bonus_display(GCBonusStatusList gamewon, GCBonusList bonus_id)
 	g_free(absolute_file);
       }
     else
-      gc_sound_play_ogg("sounds/wahoo.wav", NULL);
+      gc_sound_play_ogg("sounds/tuxok.wav", NULL);
 
   } else {
     absolute_file = gc_file_find_absolute(loosingList[RAND(0, NUMBER_OF_LOOSING-1)]);

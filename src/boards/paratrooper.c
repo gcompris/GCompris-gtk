@@ -712,7 +712,7 @@ void next_state()
   switch(paratrooperItem.status)
     {
     case TUX_INPLANE:
-      gc_sound_play_ogg ("sounds/wahoo.wav", NULL);
+      gc_sound_play_ogg ("sounds/tuxok.wav", NULL);
       gnome_canvas_item_move(paratrooperItem.rootitem, plane_x+100, 0);
       paratrooperItem.x += plane_x+100;
       gnome_canvas_item_show(paratrooperItem.paratrooper);
