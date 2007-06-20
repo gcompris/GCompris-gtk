@@ -196,7 +196,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       extern gchar *exec_prefix;
       gnuchess_bin = g_build_filename( exec_prefix, "bin", "gnuchess", NULL);
       if (!g_file_test (gnuchess_bin, G_FILE_TEST_EXISTS)) {
-	gc_dialog(_("Error: The external program gnuchess is required\nto play chess in gcompris.\n"
+	gc_dialog(_("Error: The external program gnuchess is required\nto play chess in GCompris.\n"
 		    "Find this program on http://www.rpmfind.net or in your\nGNU/Linux distribution\n"
 		    "And check it is located here: "GNUCHESS),
 		  gc_board_stop);

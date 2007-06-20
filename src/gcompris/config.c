@@ -129,7 +129,7 @@ static gchar *timername[] = {
 
 static gchar *screenname[] = {
   "640x480",
-  N_("800x600 (Default for gcompris)"),
+  N_("800x600 (Default for GCompris)"),
   "1024x768",
 };
 

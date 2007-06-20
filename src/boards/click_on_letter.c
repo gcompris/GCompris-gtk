@@ -283,7 +283,7 @@ static gboolean sounds_are_fine()
 
       if (!str2)
 	{
-	  gchar *msg = g_strdup_printf( _("Error: this activity requires that you first install\nthe packages with gcompris voices for the locale '%s' or '%s'"),
+	  gchar *msg = g_strdup_printf( _("Error: this activity requires that you first install\nthe packages with GCompris voices for the locale '%s' or '%s'"),
 					locale, "en");
 	  gc_dialog(msg, gc_board_stop);
 	  g_free(msg);

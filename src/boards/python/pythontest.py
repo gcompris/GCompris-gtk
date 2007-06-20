@@ -145,7 +145,7 @@ class Gcompris_pythontest:
       gnomecanvas.CanvasText,
       x=400.0,
       y=100.0,
-      text=_("This is the first plugin in gcompris coded in the Python\nProgramming language."),
+      text=_("This is the first plugin in GCompris coded in the Python\nProgramming language."),
       fill_color="black",
       justification=gtk.JUSTIFY_CENTER
       )
@@ -154,7 +154,7 @@ class Gcompris_pythontest:
       gnomecanvas.CanvasText,
       x=400.0,
       y=140.0,
-      text=_("It is now possible to develop gcompris activities in C or in Python.\nThanks to Olivier Samys who makes this possible."),
+      text=_("It is now possible to develop GCompris activities in C or in Python.\nThanks to Olivier Samys who makes this possible."),
       fill_color="black",
       justification=gtk.JUSTIFY_CENTER
       )

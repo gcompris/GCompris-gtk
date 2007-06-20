@@ -137,19 +137,19 @@ static gchar *popt_drag_mode       = NULL;
 
 static GOptionEntry options[] = {
   {"fullscreen", 'f', 0, G_OPTION_ARG_NONE, &popt_fullscreen,
-   N_("run gcompris in fullscreen mode."), NULL},
+   N_("run GCompris in fullscreen mode."), NULL},
 
   {"window", 'w', 0, G_OPTION_ARG_NONE, &popt_window,
-   N_("run gcompris in window mode."), NULL},
+   N_("run GCompris in window mode."), NULL},
 
   {"sound", 's', 0, G_OPTION_ARG_NONE, &popt_sound,
-   N_("run gcompris with sound enabled."), NULL},
+   N_("run GCompris with sound enabled."), NULL},
 
   {"mute", 'm', 0, G_OPTION_ARG_NONE, &popt_mute,
-   N_("run gcompris without sound."), NULL},
+   N_("run GCompris without sound."), NULL},
 
   {"cursor", 'c', 0, G_OPTION_ARG_NONE, &popt_cursor,
-   N_("run gcompris with the default gnome cursor."), NULL},
+   N_("run GCompris with the default gnome cursor."), NULL},
 
   {"difficulty", 'd', 0, G_OPTION_ARG_INT, &popt_difficulty_filter,
    N_("display only activities with this difficulty level."), NULL},
@@ -161,7 +161,7 @@ static GOptionEntry options[] = {
    N_("Print the version of " PACKAGE), NULL},
 
   {"root-menu", 'l', 0, G_OPTION_ARG_STRING, &popt_root_menu,
-   N_("Run gcompris with local menu (e.g -l /reading will let you play only activities in the reading directory, -l /strategy/connect4 only the connect4 activity)"), NULL},
+   N_("Run GCompris with local menu (e.g -l /reading will let you play only activities in the reading directory, -l /strategy/connect4 only the connect4 activity)"), NULL},
 
   {"local-activity", 'L', 0, G_OPTION_ARG_STRING, &popt_local_activity,
    N_("Run GCompris with local activity directory added to menu"), NULL},
@@ -891,7 +891,7 @@ display_activation_dialog()
 int gc_activation_check(char *code)
 {
 #ifdef  DISABLE_ACTIVATION_CODE
-  return 1
+  return 1;
 #else
   int value = 0;
   int i;
@@ -1094,7 +1094,7 @@ static void map_cb (GtkWidget *widget, gpointer data)
 void gc_terminate(int signum)
 {
 
-  g_warning("gcompris got the %d signal, starting exit procedure", signum);
+  g_warning("GCompris got the %d signal, starting exit procedure", signum);
 
   gc_exit();
 
