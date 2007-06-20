@@ -41,7 +41,6 @@ extern BoardPlugin * get_click_on_letter_bplugin_info();
 extern BoardPlugin * get_clockgame_bplugin_info();
 extern BoardPlugin * get_colors_bplugin_info();
 extern BoardPlugin * get_crane_bplugin_info();
-extern BoardPlugin * get_draw_bplugin_info();
 extern BoardPlugin * get_enumerate_bplugin_info();
 extern BoardPlugin * get_erase_bplugin_info();
 extern BoardPlugin * get_fifteen_bplugin_info();
@@ -96,7 +95,6 @@ void gc_board_init(void)
   static_boards_demo[i++] = get_clockgame_bplugin_info();
   static_boards_demo[i++] = get_colors_bplugin_info();
   static_boards_demo[i++] = get_crane_bplugin_info();
-  static_boards_demo[i++] = get_draw_bplugin_info();
   static_boards_demo[i++] = get_enumerate_bplugin_info();
   static_boards_demo[i++] = get_erase_bplugin_info();
   static_boards_demo[i++] = get_gletters_bplugin_info();
@@ -130,7 +128,6 @@ void gc_board_init(void)
   static_boards[i++] = get_clockgame_bplugin_info();
   static_boards[i++] = get_colors_bplugin_info();
   static_boards[i++] = get_crane_bplugin_info();
-  static_boards[i++] = get_draw_bplugin_info();
   static_boards[i++] = get_enumerate_bplugin_info();
   static_boards[i++] = get_erase_bplugin_info();
   static_boards[i++] = get_fifteen_bplugin_info();
