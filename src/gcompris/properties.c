@@ -337,7 +337,7 @@ void gc_prop_old_config_migration(GcomprisProperties *props)
 void
 gc_prop_load (GcomprisProperties *props, GCPropSourceConf source_conf)
 {
-  char          *config_file;
+  char          *config_file = NULL;
   GScanner      *scanner;
   gchar		*content;
   gsize		length;
