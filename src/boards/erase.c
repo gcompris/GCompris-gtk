@@ -514,6 +514,9 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 static gint
 canvas_event(GnomeCanvas *canvas, GdkEvent *event)
 {
+  if (!gcomprisBoard || board_paused)
+    return FALSE;
+
   switch (event->type)
     {
     case GDK_BUTTON_PRESS:
