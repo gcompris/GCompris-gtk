@@ -38,6 +38,30 @@ extern GnomeCanvas *canvas;
 
 typedef void (*sighandler_t)(int);
 
+/* GdkPixbuf RGBA C-Source image dump for a NULL image*/
+#ifdef __SUNPRO_C
+#pragma align 4 (null_img)
+#endif
+#ifdef __GNUC__
+static const guint8 null_img[] __attribute__ ((__aligned__ (4))) =
+#else
+static const guint8 null_img[] =
+#endif
+{ ""
+  /* Pixbuf magic (0x47646b50) */
+  "GdkP"
+  /* length: header (24) + pixel_data (4) */
+  "\0\0\0\34"
+  /* pixdata_type (0x1010002) */
+  "\1\1\0\2"
+  /* rowstride (4) */
+  "\0\0\0\4"
+  /* width (1) */
+  "\0\0\0\1"
+  /* height (1) */
+  "\0\0\0\1"
+  /* pixel_data: */
+  "%%%\0"};
 
 /** load a pixmap from the filesystem
  *
@@ -84,7 +108,9 @@ GdkPixbuf *gc_pixmap_load(const gchar *format, ...)
       gc_dialog (str, NULL);
       g_free(pixmapfile);
       g_free(str);
-      return NULL;
+
+      /* Create an empty pixmap because activities does not manage loading error */
+      return gdk_pixbuf_new_from_inline(-1, null_img, FALSE, NULL);
     }
 
   g_free(pixmapfile);

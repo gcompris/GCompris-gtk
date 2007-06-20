@@ -1,3 +1,304 @@
+2007-06-09  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	Major rework of activity icons by  Mathieu Ignacio.
+	These Images are an original creation of Mathieu Ignacio. Released under GPL.
+	Starting now, we switch to the svg format.
+
+	* boards/advanced_colors.xml.in:
+	* boards/algebra_by.xml.in:
+	* boards/algebra_group.xml.in:
+	* boards/algebra_guesscount.xml.in:
+	* boards/algebra_minus.xml.in:
+	* boards/algebra_plus.xml.in:
+	* boards/algebramenu.xml.in:
+	* boards/algorithm.xml.in:
+	* boards/anim.xml.in:
+	* boards/awele.xml.in:
+	* boards/babymatch.xml.in:
+	* boards/babyshapes.xml.in:
+	* boards/ballcatch.xml.in:
+	* boards/bargame.xml.in:
+	* boards/billard.xml.in:
+	* boards/canal_lock.xml.in:
+	* boards/chat.xml.in:
+	* boards/chess.xml.in:
+	* boards/chess_computer.xml.in:
+	* boards/chess_movelearn.xml.in:
+	* boards/chess_partyend.xml.in:
+	* boards/chronos.xml.in:
+	* boards/click_on_letter.xml.in:
+	* boards/clickanddraw.xml.in:
+	* boards/clickgame.xml.in:
+	* boards/clockgame.xml.in:
+	* boards/colors.xml.in:
+	* boards/colors_group.xml.in:
+	* boards/computer.xml.in:
+	* boards/connect4-2players.xml.in:
+	* boards/connect4.xml.in:
+	* boards/crane.xml.in:
+	* boards/discovery.xml.in:
+	* boards/doubleentry.xml.in:
+	* boards/draw.xml.in:
+	* boards/drawnumber.xml.in:
+	* boards/electric.xml.in:
+	* boards/enumerate.xml.in:
+	* boards/erase.xml.in:
+	* boards/erase_clic.xml.in:
+	* boards/experience.xml.in:
+	* boards/experimental.xml.in:
+	* boards/fifteen.xml.in:
+	* boards/followline.xml.in:
+	* boards/fun.xml.in:
+	* boards/geography.xml.in:
+	* boards/geography_country.xml.in:
+	* boards/geometry.xml.in:
+	* boards/gletters.xml.in:
+	* boards/gnumch-equality.xml.in:
+	* boards/gnumch-factors.xml.in:
+	* boards/gnumch-inequality.xml.in:
+	* boards/gnumch-multiples.xml.in:
+	* boards/gnumch-primes.xml.in:
+	* boards/gnumchmenu.xml.in:
+	* boards/guessnumber.xml.in:
+	* boards/hanoi.xml.in:
+	* boards/hanoi_real.xml.in:
+	* boards/hexagon.xml.in:
+	* boards/imageid.xml.in:
+	* boards/imagename.xml.in:
+	* boards/keyboard.xml.in:
+	* boards/leftright.xml.in:
+	* boards/magic_hat_minus.xml.in:
+	* boards/magic_hat_plus.xml.in:
+	* boards/math.xml.in:
+	* boards/maze.xml.in:
+	* boards/maze2DRelative.xml.in:
+	* boards/maze3D.xml.in:
+	* boards/mazeInvisible.xml.in:
+	* boards/mazeMenu.xml.in:
+	* boards/melody.xml.in:
+	* boards/memory.xml.in:
+	* boards/memory_add.xml.in:
+	* boards/memory_add_minus.xml.in:
+	* boards/memory_add_minus_mult_div.xml.in:
+	* boards/memory_add_minus_mult_div_tux.xml.in:
+	* boards/memory_add_minus_tux.xml.in:
+	* boards/memory_add_tux.xml.in:
+	* boards/memory_div.xml.in:
+	* boards/memory_div_tux.xml.in:
+	* boards/memory_group.xml.in:
+	* boards/memory_minus.xml.in:
+	* boards/memory_minus_tux.xml.in:
+	* boards/memory_mult.xml.in:
+	* boards/memory_mult_div.xml.in:
+	* boards/memory_mult_div_tux.xml.in:
+	* boards/memory_mult_tux.xml.in:
+	* boards/memory_op_group.xml.in:
+	* boards/memory_op_group_tux.xml.in:
+	* boards/memory_sound.xml.in:
+	* boards/memory_sound_tux.xml.in:
+	* boards/memory_tux.xml.in:
+	* boards/miscelaneous.xml.in:
+	* boards/missing_letter.xml.in:
+	* boards/money.xml.in:
+	* boards/money_cents.xml.in:
+	* boards/mosaic.xml.in:
+	* boards/mouse.xml.in:
+	* boards/numeration.xml.in:
+	* boards/oscar_and_friends.xml.in:
+	* boards/paintings.xml.in:
+	* boards/paratrooper.xml.in:
+	* boards/planegame.xml.in:
+	* boards/puzzle.xml.in:
+	* boards/pythontest.xml.in:
+	* boards/railroad.xml.in:
+	* boards/read_colors.xml.in:
+	* boards/reading.xml.in:
+	* boards/readingh.xml.in:
+	* boards/readingv.xml.in:
+	* boards/redraw.xml.in:
+	* boards/redraw_symmetrical.xml.in:
+	* boards/reversecount.xml.in:
+	* boards/scalesboard.xml.in:
+	* boards/searace.xml.in:
+	* boards/searace1player.xml.in:
+	* boards/skins/gartoon/boardicons/advanced_colors.svg:
+	* boards/skins/gartoon/boardicons/algebra_by.svg:
+	* boards/skins/gartoon/boardicons/algebra_group.svg:
+	* boards/skins/gartoon/boardicons/algebra_guesscount.svg:
+	* boards/skins/gartoon/boardicons/algebra_minus.svg:
+	* boards/skins/gartoon/boardicons/algebra_plus.svg:
+	* boards/skins/gartoon/boardicons/algebramenu.svg:
+	* boards/skins/gartoon/boardicons/algorithm.svg:
+	* boards/skins/gartoon/boardicons/anim.svg:
+	* boards/skins/gartoon/boardicons/awele.svg:
+	* boards/skins/gartoon/boardicons/babymatch.svg:
+	* boards/skins/gartoon/boardicons/babyshapes.svg:
+	* boards/skins/gartoon/boardicons/ballcatch.svg:
+	* boards/skins/gartoon/boardicons/bargame.svg:
+	* boards/skins/gartoon/boardicons/bonnefemmeti-lu.svg:
+	* boards/skins/gartoon/boardicons/book.svg:
+	* boards/skins/gartoon/boardicons/canal_lock.svg:
+	* boards/skins/gartoon/boardicons/chat.svg:
+	* boards/skins/gartoon/boardicons/chess.svg:
+	* boards/skins/gartoon/boardicons/chess_computer.svg:
+	* boards/skins/gartoon/boardicons/chess_movelearn.svg:
+	* boards/skins/gartoon/boardicons/chess_partyend.svg:
+	* boards/skins/gartoon/boardicons/chronos.svg:
+	* boards/skins/gartoon/boardicons/click_on_letter.svg:
+	* boards/skins/gartoon/boardicons/clickanddraw.svg:
+	* boards/skins/gartoon/boardicons/clickgame.svg:
+	* boards/skins/gartoon/boardicons/clockgame.svg:
+	* boards/skins/gartoon/boardicons/colors.svg:
+	* boards/skins/gartoon/boardicons/computer.svg:
+	* boards/skins/gartoon/boardicons/connect4.svg:
+	* boards/skins/gartoon/boardicons/crane.svg:
+	* boards/skins/gartoon/boardicons/discovery.svg:
+	* boards/skins/gartoon/boardicons/doubleentry.svg:
+	* boards/skins/gartoon/boardicons/draw.svg:
+	* boards/skins/gartoon/boardicons/drawnumber.svg:
+	* boards/skins/gartoon/boardicons/ear.svg:
+	* boards/skins/gartoon/boardicons/electric.svg:
+	* boards/skins/gartoon/boardicons/enumerate.svg:
+	* boards/skins/gartoon/boardicons/erase.svg:
+	* boards/skins/gartoon/boardicons/erase_clic.svg:
+	* boards/skins/gartoon/boardicons/erase_double_clic.svg:
+	* boards/skins/gartoon/boardicons/experience.svg:
+	* boards/skins/gartoon/boardicons/eye_colors.svg:
+	* boards/skins/gartoon/boardicons/fifteen.svg:
+	* boards/skins/gartoon/boardicons/followline.svg:
+	* boards/skins/gartoon/boardicons/foot.svg:
+	* boards/skins/gartoon/boardicons/france_region.svg:
+	* boards/skins/gartoon/boardicons/fun.svg:
+	* boards/skins/gartoon/boardicons/geometry.svg:
+	* boards/skins/gartoon/boardicons/gletters.svg:
+	* boards/skins/gartoon/boardicons/globe.svg:
+	* boards/skins/gartoon/boardicons/gnumch-equal.svg:
+	* boards/skins/gartoon/boardicons/gnumch-factors.svg:
+	* boards/skins/gartoon/boardicons/gnumch-inequal.svg:
+	* boards/skins/gartoon/boardicons/gnumch-multiples.svg:
+	* boards/skins/gartoon/boardicons/gnumch-primes.svg:
+	* boards/skins/gartoon/boardicons/gnumch.svg:
+	* boards/skins/gartoon/boardicons/guessnumber.svg:
+	* boards/skins/gartoon/boardicons/hanoi.svg:
+	* boards/skins/gartoon/boardicons/hanoi_real.svg:
+	* boards/skins/gartoon/boardicons/helicogame.svg:
+	* boards/skins/gartoon/boardicons/hexagon.svg:
+	* boards/skins/gartoon/boardicons/imageid.svg:
+	* boards/skins/gartoon/boardicons/imagename.svg:
+	* boards/skins/gartoon/boardicons/keyboard.svg:
+	* boards/skins/gartoon/boardicons/leftright.svg:
+	* boards/skins/gartoon/boardicons/magic_hat_minus.svg:
+	* boards/skins/gartoon/boardicons/magic_hat_plus.svg:
+	* boards/skins/gartoon/boardicons/math.svg:
+	* boards/skins/gartoon/boardicons/maze.svg:
+	* boards/skins/gartoon/boardicons/maze3D.svg:
+	* boards/skins/gartoon/boardicons/mazeInvisible.svg:
+	* boards/skins/gartoon/boardicons/melody.svg:
+	* boards/skins/gartoon/boardicons/mem_solo_all.svg:
+	* boards/skins/gartoon/boardicons/mem_solo_calc.svg:
+	* boards/skins/gartoon/boardicons/mem_solo_div.svg:
+	* boards/skins/gartoon/boardicons/mem_solo_minus.svg:
+	* boards/skins/gartoon/boardicons/mem_solo_mult.svg:
+	* boards/skins/gartoon/boardicons/mem_solo_mult_div.svg:
+	* boards/skins/gartoon/boardicons/mem_solo_plus.svg:
+	* boards/skins/gartoon/boardicons/mem_solo_plus_minus.svg:
+	* boards/skins/gartoon/boardicons/mem_tux_all.svg:
+	* boards/skins/gartoon/boardicons/mem_tux_calc.svg:
+	* boards/skins/gartoon/boardicons/mem_tux_div.svg:
+	* boards/skins/gartoon/boardicons/mem_tux_minus.svg:
+	* boards/skins/gartoon/boardicons/mem_tux_mult.svg:
+	* boards/skins/gartoon/boardicons/mem_tux_mult_div.svg:
+	* boards/skins/gartoon/boardicons/mem_tux_plus.svg:
+	* boards/skins/gartoon/boardicons/mem_tux_plus_minus.svg:
+	* boards/skins/gartoon/boardicons/memory.svg:
+	* boards/skins/gartoon/boardicons/memory_elephant.svg:
+	* boards/skins/gartoon/boardicons/memory_sound.svg:
+	* boards/skins/gartoon/boardicons/memory_sound_tux.svg:
+	* boards/skins/gartoon/boardicons/memory_tux.svg:
+	* boards/skins/gartoon/boardicons/miscelaneous.svg:
+	* boards/skins/gartoon/boardicons/missing_letter.svg:
+	* boards/skins/gartoon/boardicons/money.svg:
+	* boards/skins/gartoon/boardicons/money_cents.svg:
+	* boards/skins/gartoon/boardicons/mosaic.svg:
+	* boards/skins/gartoon/boardicons/mouse.svg:
+	* boards/skins/gartoon/boardicons/numeration.svg:
+	* boards/skins/gartoon/boardicons/puzzles.svg:
+	* boards/skins/gartoon/boardicons/python.svg:
+	* boards/skins/gartoon/boardicons/railroad.svg:
+	* boards/skins/gartoon/boardicons/read_colors.svg:
+	* boards/skins/gartoon/boardicons/read_colors2.svg:
+	* boards/skins/gartoon/boardicons/reading.svg:
+	* boards/skins/gartoon/boardicons/readingh.svg:
+	* boards/skins/gartoon/boardicons/redraw.svg:
+	* boards/skins/gartoon/boardicons/redraw_symmetry.svg:
+	* boards/skins/gartoon/boardicons/reversecount.svg:
+	* boards/skins/gartoon/boardicons/scalesicon.svg:
+	* boards/skins/gartoon/boardicons/searace.svg:
+	* boards/skins/gartoon/boardicons/searace1player.svg:
+	* boards/skins/gartoon/boardicons/shapegame.svg:
+	* boards/skins/gartoon/boardicons/smallnumbers.svg:
+	* boards/skins/gartoon/boardicons/smallnumbers2.svg:
+	* boards/skins/gartoon/boardicons/strategy.svg:
+	* boards/skins/gartoon/boardicons/submarine.svg:
+	* boards/skins/gartoon/boardicons/sudoku.svg:
+	* boards/skins/gartoon/boardicons/superbrain.svg:
+	* boards/skins/gartoon/boardicons/tangram.svg:
+	* boards/skins/gartoon/boardicons/target.svg:
+	* boards/skins/gartoon/boardicons/traffic.svg:
+	* boards/skins/gartoon/boardicons/tuxpaint.svg:
+	* boards/skins/gartoon/boardicons/tuxpara.svg:
+	* boards/skins/gartoon/boardicons/warning.svg:
+	* boards/skins/gartoon/boardicons/watercycle.svg:
+	* boards/skins/gartoon/boardicons/wordprocessor.svg:
+	* boards/skins/gartoon/boardicons/wordsgame.svg:
+	* boards/smallnumbers.xml.in:
+	* boards/smallnumbers2.xml.in:
+	* boards/sound_group.xml.in:
+	* boards/strategy.xml.in:
+	* boards/submarine.xml.in:
+	* boards/sudoku.xml.in:
+	* boards/superbrain.xml.in:
+	* boards/tangram.xml.in:
+	* boards/target.xml.in:
+	* boards/traffic.xml.in:
+	* boards/tuxpaint.xml.in:
+	* boards/watercycle.xml.in:
+	* boards/wordprocessor.xml.in:
+	* boards/wordsgame.xml.in:
+
+	* po/POTFILES.skip: Updated
+
+	* src/boards/Makefile.am: cleanup, removed draw.c
+	* src/boards/Makefile.mingw: -
+	* src/boards/draw.c: -
+
+	* src/boards/python/anim.py: removed focus highlight to keep the ON buttons.
+	* src/boards/python/redraw.py: removed image boards/draw directory, use them from skins now.
+	* src/boards/wordprocessor.c: (wordprocessor_create): use draw skin image now
+
+	* src/gcompris/gameutil.c: (gc_pixmap_load): Now return a blank inline pixmap instead of
+	 NULL if the file is not found.
+
+	* src/libgnomecanvas/gnome-canvas-rich-text.c: removed translatable string
+	(gnome_canvas_rich_text_class_init):
+	* src/libgnomecanvas/gnome-canvas-text.c:
+	(gnome_canvas_text_class_init):
+	* src/libgnomecanvas/gnome-canvas.c:
+	(gnome_canvas_group_class_init), (gnome_canvas_class_init):
+
+
+2007-06-06  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	- Added a request to deiconify the window at startup. It's needed
+	  for windows or we start iconified.
+
+	* src/gcompris/gcompris.c
+
+	Major fix, GCompris was crashing if you clicked during bonus display.
+
+	* src/boards/erase.c: (canvas_event):
+
+
 2007-05-28  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	- Patch by Hans de Goede fixes running on machines which

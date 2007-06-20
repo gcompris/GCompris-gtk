@@ -368,9 +368,9 @@ class Gcompris_redraw:
 
     self.rootitem.add(
       gnomecanvas.CanvasPixbuf,
-      pixbuf = gcompris.utils.load_pixmap("draw/little-tool-selector.png"),
+      pixbuf = gcompris.utils.load_pixmap(gcompris.skin.image_to_skin("draw/tool-selector.png")),
       x=5,
-      y=20.0,
+      y=5.0,
       width=30.0
       )
 
@@ -388,7 +388,7 @@ class Gcompris_redraw:
 
       item = self.rootitem.add(
         gnomecanvas.CanvasPixbuf,
-        pixbuf = gcompris.utils.load_pixmap(self.tools[i][1]),
+        pixbuf = gcompris.utils.load_pixmap(gcompris.skin.image_to_skin(self.tools[i][1])),
         x=theX,
         y=y
         )
@@ -399,7 +399,7 @@ class Gcompris_redraw:
     # The last item is select, we select it by default
     self.current_tool = i
     self.old_tool_item = item
-    self.old_tool_item.set(pixbuf = gcompris.utils.load_pixmap(self.tools[i][2]))
+    self.old_tool_item.set(pixbuf = gcompris.utils.load_pixmap(gcompris.skin.image_to_skin(self.tools[i][2])))
     gcompris.set_cursor(self.tools[i][3]);
 
 
@@ -409,12 +409,12 @@ class Gcompris_redraw:
       if event.button == 1:
         gcompris.sound.play_ogg("sounds/bleep.wav")
         # Deactivate old button
-        self.old_tool_item.set(pixbuf = gcompris.utils.load_pixmap(self.tools[self.current_tool][1]))
+        self.old_tool_item.set(pixbuf = gcompris.utils.load_pixmap(gcompris.skin.image_to_skin(self.tools[self.current_tool][1])))
 
         # Activate new button
         self.current_tool = tool
         self.old_tool_item = item
-        self.old_tool_item.set(pixbuf = gcompris.utils.load_pixmap(self.tools[self.current_tool][2]))
+        self.old_tool_item.set(pixbuf = gcompris.utils.load_pixmap(gcompris.skin.image_to_skin(self.tools[self.current_tool][2])))
         gcompris.set_cursor(self.tools[self.current_tool][3]);
 
   # Display the color selector

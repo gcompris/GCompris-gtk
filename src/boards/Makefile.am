@@ -79,7 +79,6 @@ lib_LTLIBRARIES = \
 	libwordsgame.la \
 	libadvanced_colors.la \
 	libread_colors.la \
-	libdraw.la \
 	libwordprocessor.la \
 	libscale.la \
 	$(python_plugin)
@@ -95,10 +94,6 @@ INCLUDES = \
 	$(sqlite_cflags) \
 	$(cairo_cflags) \
 	$(dll_export)
-
-libdraw_la_LDFLAGS = $(shared) $(no_undefined) -module -avoid-version $(gc_libs)
-libdraw_la_LIBADD =
-libdraw_la_SOURCES = draw.c
 
 libawele_la_LDFLAGS = $(shared) $(no_undefined) -module -avoid-version $(gc_libs)
 libawele_la_LIBADD =
@@ -304,6 +299,6 @@ libpython_la_SOURCES = python.c \
 
 
 EXTRA_DIST = README boards2static.pl \
-	draw.c Makefile.mingw
+	Makefile.mingw
 
 

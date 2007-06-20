@@ -574,7 +574,6 @@ class Gcompris_anim:
         y=y
         )
       item.connect("event", self.tool_item_event, i)
-      item.connect("event", gcompris.utils.item_event_focus)
       if i%2:
         y += stepy
 
@@ -1093,8 +1092,8 @@ class Gcompris_anim:
       if event.button == 1:
         gcompris.sound.play_ogg("sounds/bleep.wav")
         self.newitem = None
-        print "----------------------------------------"
-        print "Current image = " + str(self.current_frame)
+        #print "----------------------------------------"
+        #print "Current image = " + str(self.current_frame)
         #self.dump_group(self.root_anim)
         self.newitemgroup = self.root_anim.add(
           gnomecanvas.CanvasGroup,
@@ -2137,7 +2136,7 @@ class Gcompris_anim:
   def Anim2Run(self):
     gcompris.bar_hide(True)
     if self.frames_total==0:
-      print "Mmm... Need to make shots before run anim !!"
+      #print "Mmm... Need to make shots before run anim !!"
       self.running=False
       return
     # Hide the current drawing
@@ -2198,7 +2197,7 @@ def general_save(filename, filetype):
   if (filetype in ['image/gcompris+anim','image/gcompris+draw']):
     anim2_to_file(filename)
     return
-  print "Error File selector return unknown filetype :",'|' + filetype + '|', "!!!"
+  #print "Error File selector return unknown filetype :",'|' + filetype + '|', "!!!"
 
 def general_restore(filename, filetype):
   #print "general_restore : ", filename, " type ",filetype
@@ -2228,7 +2227,7 @@ def general_restore(filename, filetype):
   if (filetype in ['image/gcompris+anim','image/gcompris+draw']):
     file_to_anim2(filename)
     return
-  print "Error File selector return unknown filetype :",filetype, "!!!"
+  #print "Error File selector return unknown filetype :",filetype, "!!!"
 
 
 def anim2_to_file(filename):

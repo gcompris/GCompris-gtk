@@ -363,7 +363,7 @@ static GnomeCanvasItem *wordprocessor_create()
   /*
    * The save button
    */
-  pixmap = gc_pixmap_load("draw/tool-save.png");
+  pixmap = gc_skin_pixmap_load("draw/tool-save.png");
   item = \
     gnome_canvas_item_new (boardRootItem,
 			   gnome_canvas_pixbuf_get_type(),
@@ -382,7 +382,7 @@ static GnomeCanvasItem *wordprocessor_create()
   /*
    * The load button
    */
-  pixmap = gc_pixmap_load("draw/tool-load.png");
+  pixmap = gc_skin_pixmap_load("draw/tool-load.png");
   item = \
     gnome_canvas_item_new (boardRootItem,
 			   gnome_canvas_pixbuf_get_type(),
