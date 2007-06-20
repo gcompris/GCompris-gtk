@@ -420,7 +420,9 @@ static void pythonboard_end (void){
     Py_XDECREF(python_board_module);
     Py_XDECREF(python_board_instance);
     Py_XDECREF(python_gcomprisBoard);
-    Py_Finalize();
+    //FIXME: COMMENTED BECAUSE THIS MAKES GCOMPRIS CRASHES AFTER ENTERING/EXITING
+    //       ANY PHYTHON PLUGIN LESS THAN 10 TIMES
+    //Py_Finalize();
   }
 }
 
