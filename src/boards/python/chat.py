@@ -45,6 +45,8 @@ class Gcompris_chat:
     # Randon adress and port
     self.mcast_adress = "227.234.253.9"
     self.port = 15922
+    self.mcast_timer = 0
+    self.sock = None
 
     # These are used to let us restart only after the bonus is displayed.
     # When the bonus is displayed, it call us first with pause(1) and then with pause(0)
@@ -246,7 +248,8 @@ class Gcompris_chat:
       gobject.source_remove(self.mcast_timer)
       self.mcast_timer = 0
 
-    self.sock.close()
+    if self.sock:
+      self.sock.close()
 
     # Remove the root item removes all the others inside it
     if self.rootitem != None:
