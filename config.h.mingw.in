@@ -109,6 +109,9 @@
 /* Gcompris locale directory */
 #define PACKAGE_LOCALE_DIR "share/locale"
 
+/* System GCompris config directory */
+#define SYSTEM_CONFIG_DIR .
+
 /* Define to the full name of this package. */
 #define PACKAGE_NAME ""
 
@@ -132,4 +135,7 @@
 
 /* SQLITE Database, Profiles are enabled */
 #define USE_SQLITE 1
+
+/* Activation code is disabled */
+/* #define DISABLE_ACTIVATION_CODE 1 */
 

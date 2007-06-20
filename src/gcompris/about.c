@@ -201,7 +201,7 @@ void gc_about_start ()
   // Copyright
   item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				gnome_canvas_text_get_type (),
-				"text", "Copyright 2000-2005 Bruno Coudoin",
+				"text", "Copyright 2000-2007 Bruno Coudoin and Others",
 				"font", gc_skin_font_content,
 				"x", (double)  BOARDWIDTH/2,
 				"y", (double)  y - 95,

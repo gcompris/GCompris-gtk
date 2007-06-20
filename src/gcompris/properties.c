@@ -187,7 +187,7 @@ gc_prop_new ()
   return (tmp);
 }
 
-void old_config_migration(GcomprisProperties *props)
+void gc_prop_old_config_migration(GcomprisProperties *props)
 {
   char *old;
   char *new;
@@ -335,7 +335,7 @@ void old_config_migration(GcomprisProperties *props)
 
 
 void
-gc_prop_load (GcomprisProperties *props)
+gc_prop_load (GcomprisProperties *props, GCPropSourceConf source_conf)
 {
   char          *config_file;
   GScanner      *scanner;
@@ -345,9 +345,15 @@ gc_prop_load (GcomprisProperties *props)
   const gchar   *locale;
 #endif
 
-  config_file = g_strconcat(props->config_dir, "/", gc_prop_config_file_get(), NULL);
-
-  old_config_migration(props);
+  switch(source_conf)
+    {
+    case GC_PROP_FROM_SYSTEM_CONF:
+      config_file = g_strconcat(SYSTEM_CONFIG_DIR, "/", gc_prop_config_file_get(), NULL);
+      break;
+    case GC_PROP_FROM_USER_CONF:
+      config_file = g_strconcat(props->config_dir, "/", gc_prop_config_file_get(), NULL);
+      break;
+    }
 
   if(g_file_get_contents(config_file,
 			 &content,

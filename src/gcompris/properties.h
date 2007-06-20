@@ -24,6 +24,12 @@
 
 #include "profile.h"
 
+/** Source config file for initialization */
+typedef enum {
+	GC_PROP_FROM_SYSTEM_CONF,
+	GC_PROP_FROM_USER_CONF
+} GCPropSourceConf;
+
 typedef struct {
   gint		music;
   gint		fx;
@@ -67,10 +73,12 @@ typedef struct {
 GcomprisProperties	*gc_prop_get (void);
 GcomprisProperties	*gc_prop_new (void);
 void			 gc_prop_destroy (GcomprisProperties *props);
-void			 gc_prop_load (GcomprisProperties *props);
+void			 gc_prop_load (GcomprisProperties *props, GCPropSourceConf);
 void			 gc_prop_save (GcomprisProperties *props);
 void			 gc_prop_activate (GcomprisProperties *props);
 
 gchar                   *gc_prop_default_database_name_get (gchar *config_dir);
 int			 gc_setenv (const char * name, const char * value);
+
+void			 gc_prop_old_config_migration(GcomprisProperties *props);
 #endif

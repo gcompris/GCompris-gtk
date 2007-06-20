@@ -890,6 +890,9 @@ display_activation_dialog()
  */
 int gc_activation_check(char *code)
 {
+#ifdef  DISABLE_ACTIVATION_CODE
+  return 1
+#else
   int value = 0;
   int i;
   char crc1 = 0;
@@ -931,6 +934,7 @@ int gc_activation_check(char *code)
     return(1);
   else
     return(0);
+#endif
 }
 
 /* Check the activation code
@@ -1348,7 +1352,14 @@ main (int argc, char *argv[])
     }
 
   /* Now we know where our config file is, load the saved config */
-  gc_prop_load(properties);
+  gc_prop_old_config_migration(properties);
+  gc_prop_load(properties, GC_PROP_FROM_USER_CONF);
+
+  /* We overwrite the user config with the administrator system config
+     It let the sysadmin to specify a certain set of value that are restaured
+     whatever the user saved
+  */
+  gc_prop_load(properties, GC_PROP_FROM_SYSTEM_CONF);
 
   /* Single instance Check */
   lock_file = g_strdup_printf("%s/%s", properties->config_dir, GC_LOCK_FILE);
