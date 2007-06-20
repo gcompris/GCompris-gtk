@@ -70,3 +70,5 @@ CLEANFILES = $(marshal_sources)
 
 DONT_DIST_SOURCE = $(marshal_sources)
 
+EXTRA_DIST = \
+	gnome-canvas-marshal.list
