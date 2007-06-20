@@ -408,9 +408,19 @@ gc_prop_load (GcomprisProperties *props, GCPropSourceConf source_conf)
 	  if(!scan_get_int(scanner, &props->filter_style))
 	    g_warning("Config file parsing error on token %s", token);
 	} else if(!strcmp(value.v_identifier, "skin")) {
-        g_free(props->skin);
+	  g_free(props->skin);
 	  props->skin = scan_get_string(scanner);
 	  if(!props->skin)
+	    g_warning("Config file parsing error on token %s", token);
+	} else if(!strcmp(value.v_identifier, "user_dir")) {
+	  g_free(props->user_dir);
+	  props->user_dir = scan_get_string(scanner);
+	  if(!props->user_dir)
+	    g_warning("Config file parsing error on token %s", token);
+	} else if(!strcmp(value.v_identifier, "config_dir")) {
+	  g_free(props->config_dir);
+	  props->config_dir = scan_get_string(scanner);
+	  if(!props->config_dir)
 	    g_warning("Config file parsing error on token %s", token);
 	} else if(!strcmp(value.v_identifier, "locale")) {
 	  props->locale = scan_get_string(scanner);

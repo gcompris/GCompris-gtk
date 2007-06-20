@@ -156,25 +156,62 @@ void gc_about_start ()
 			 NULL);
 
   y_start += 40;
-  // FSF Reference
-  pixmap = gc_skin_pixmap_load("fsflogo.png");
-  item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
-				gnome_canvas_pixbuf_get_type (),
-				"pixbuf", pixmap,
-				"x", (double) (BOARDWIDTH*0.8) - gdk_pixbuf_get_width(pixmap)/2,
-				"y", (double) y_start - gdk_pixbuf_get_height(pixmap)/2,
-				NULL);
-  gdk_pixbuf_unref(pixmap);
+  /* Location for a potential sponsor */
+  gchar *sponsor_image = gc_file_find_absolute("sponsor.png");
+  if(sponsor_image)
+    {
+      pixmap = gc_pixmap_load("sponsor.png");
+      gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
+			     gnome_canvas_text_get_type (),
+			     "text", "Version parrainée par",
+			     "font", gc_skin_font_content,
+			     "x", (double)  BOARDWIDTH*0.75,
+			     "y", (double)  y_start - gdk_pixbuf_get_height(pixmap),
+			     "anchor", GTK_ANCHOR_CENTER,
+			     "fill_color_rgba", gc_skin_color_content,
+			     NULL);
+      gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
+			     gnome_canvas_text_get_type (),
+			     "text", "Version parrainée par",
+			     "font", gc_skin_font_content,
+			     "x", (double)  BOARDWIDTH*0.75 + 1,
+			     "y", (double)  y_start - gdk_pixbuf_get_height(pixmap),
+			     "anchor", GTK_ANCHOR_CENTER,
+			     "fill_color", "black",
+			     NULL);
 
-  item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
-				gnome_canvas_text_get_type (),
-				"text", "Free Software Foundation\nhttp://www.fsf.org",
-				"font", gc_skin_font_content,
-				"x", (double)  (BOARDWIDTH*0.75),
-				"y", (double)  y_start + 80,
-				"anchor", GTK_ANCHOR_CENTER,
-				"fill_color_rgba", gc_skin_color_subtitle,
-				NULL);
+      item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
+				    gnome_canvas_pixbuf_get_type (),
+				    "pixbuf", pixmap,
+				    "x", (double) (BOARDWIDTH*0.75) - gdk_pixbuf_get_width(pixmap)/2,
+				    "y", (double) y_start - gdk_pixbuf_get_height(pixmap) + 15,
+				    NULL);
+
+      gdk_pixbuf_unref(pixmap);
+      g_free(sponsor_image);
+    }
+  else
+    {
+      // Default sponsor is the FSF
+      pixmap = gc_skin_pixmap_load("fsflogo.png");
+      item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
+				    gnome_canvas_pixbuf_get_type (),
+				    "pixbuf", pixmap,
+				    "x", (double) (BOARDWIDTH*0.8) - gdk_pixbuf_get_width(pixmap)/2,
+				    "y", (double) y_start - gdk_pixbuf_get_height(pixmap)/2,
+				    NULL);
+      gdk_pixbuf_unref(pixmap);
+
+      item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
+				    gnome_canvas_text_get_type (),
+				    "text", "Free Software Foundation\nhttp://www.fsf.org",
+				    "font", gc_skin_font_content,
+				    "x", (double)  (BOARDWIDTH*0.75),
+				    "y", (double)  y_start + 80,
+				    "anchor", GTK_ANCHOR_CENTER,
+				    "fill_color_rgba", gc_skin_color_subtitle,
+				    NULL);
+    }
 
   // GCompris Reference
   y_start += 80;
@@ -182,7 +219,7 @@ void gc_about_start ()
   item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				gnome_canvas_pixbuf_get_type (),
 				"pixbuf", pixmap,
-				"x", (double) (BOARDWIDTH*0.3) - gdk_pixbuf_get_width(pixmap)/2 -50,
+				"x", (double) (BOARDWIDTH*0.3) - gdk_pixbuf_get_width(pixmap)/2,
 				"y", (double) y_start - gdk_pixbuf_get_height(pixmap)/2,
 				NULL);
 
@@ -219,41 +256,6 @@ void gc_about_start ()
 				"anchor", GTK_ANCHOR_CENTER,
 				"fill_color_rgba", gc_skin_color_content,
 				NULL);
-
-  /* Location for a potential sponsor */
-  gchar *sponsor_image = gc_file_find_absolute("sponsor.png");
-  if(sponsor_image)
-    {
-      gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
-			     gnome_canvas_text_get_type (),
-			     "text", "Version parrainée par",
-			     "font", gc_skin_font_content,
-			     "x", (double)  BOARDWIDTH*0.85,
-			     "y", (double)  10,
-			     "anchor", GTK_ANCHOR_CENTER,
-			     "fill_color_rgba", gc_skin_color_content,
-			     NULL);
-      gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
-			     gnome_canvas_text_get_type (),
-			     "text", "Version parrainée par",
-			     "font", gc_skin_font_content,
-			     "x", (double)  BOARDWIDTH*0.85 + 1,
-			     "y", (double)  10,
-			     "anchor", GTK_ANCHOR_CENTER,
-			     "fill_color", "black",
-			     NULL);
-
-      pixmap = gc_pixmap_load("sponsor.png");
-      item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
-				    gnome_canvas_pixbuf_get_type (),
-				    "pixbuf", pixmap,
-				    "x", (double) (BOARDWIDTH*0.85) - gdk_pixbuf_get_width(pixmap)/2,
-				    "y", (double) 15,
-				    NULL);
-
-      gdk_pixbuf_unref(pixmap);
-      g_free(sponsor_image);
-    }
 
   // OK
   pixmap = gc_skin_pixmap_load("button_large.png");
@@ -311,7 +313,7 @@ void gc_about_start ()
 				      "x", (double) plane_x,
 				      "y", (double) plane_y,
 				      NULL);
-  move_plane_id = gtk_timeout_add (500,
+  move_plane_id = gtk_timeout_add (300,
 				   (GtkFunction) move_plane, NULL);
 
   x_start += 150;

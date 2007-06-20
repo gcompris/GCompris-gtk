@@ -13,7 +13,7 @@ GTK_TOP :=		/gtk
 GLIB_TOP :=		/glib
 GNUWIN32_TOP :=		/gnuwin32
 LIBXML2_TOP :=		/libxml2
-SDL_TOP :=		/sdl
+GSTREAMER_TOP :=	/gstreamer
 CANVAS_TOP :=		/gnomecanvas
 PYTHON_TOP :=		/c/Python24
 CAIRO_TOP :=		/cairo
@@ -61,7 +61,7 @@ INCLUDE_PATHS +=	-I$(INCLUDE_DIR) \
 			-I$(GTK_TOP)/include/atk-1.0 \
 			-I$(GTK_TOP)/include/libart-2.0 \
 			-I$(GTK_TOP)/include/freetype2 \
-			-I$(SDL_TOP)/include/SDL \
+			-I$(GSTREAME_TOP)/include/gstreamer-0.10 \
 			-I$(LIBXML2_TOP)/include \
 			-I$(GNUWIN32_TOP)/include \
 			-I$(CAIRO_TOP)/include/cairo \
@@ -74,7 +74,7 @@ LIB_PATHS =		-L$(GTK_TOP)/lib \
 	  		-L$(GLIB_TOP)/lib \
 			-L$(LIBXML2_TOP)/lib \
 			-L$(GNUWIN32_TOP)/lib \
-			-L$(SDL_TOP)/lib \
+			-L$(GSTREAMER_TOP)/lib \
 			-L$(CANVAS_TOP)/lib \
 			-L$(PYTHON_TOP)/libs \
 			-L$(SQLITE_TOP) \
@@ -113,7 +113,6 @@ EXE_C_SRC = \
 	profile.c \
 	properties.c \
 	score.c \
-	sdlplayer.c \
 	skin.c \
 	soundutil.c \
 	timer.c \
@@ -132,18 +131,14 @@ EXE_LIBS =		../boards/libboards.a \
 			-latk-1.0 \
 			-lpango-1.0 \
 			-lglib-2.0 \
-			-lgthread-2.0 \
 			-lgdk-win32-2.0 \
 			-lgobject-2.0 \
 			-lintl \
 			-lgmodule-2.0 \
 			-lgdk_pixbuf-2.0 \
 			-lws2_32 \
-			-lpopt \
 			-lxml2 \
-			-lSDLmain -lSDL -lSDL_mixer \
-			-lgnomecanvas-2 \
-			-lart_lgpl_2 \
+			-lgstreamer-2.0 \
 			-lpangoft2-1.0 \
 			-liconv \
 			-lpython24 \
