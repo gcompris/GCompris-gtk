@@ -1008,6 +1008,9 @@ void gc_fullscreen_set(gboolean state)
         gtk_widget_show (window);
       gdk_window_set_functions (window->window, GDK_FUNC_ALL);
       gtk_window_unfullscreen (GTK_WINDOW(window));
+
+      /* Mandatory or on windows we get iconified */
+      gtk_window_deiconify (GTK_WINDOW(window));
     }
 
 }
@@ -1698,6 +1701,9 @@ main (int argc, char *argv[])
   gc_net_init();
 
   setup_window ();
+
+  if (properties->fullscreen)
+    gc_fullscreen_set(properties->fullscreen);
 
   gtk_widget_show_all (window);
 
