@@ -264,10 +264,10 @@ class Gcompris_pythontest:
 
 
   def key_press(self, keyval, commit_str, preedit_str):
-    print("Gcompris_pythontest key press. %i %s" % (keyval, str))
-
     utf8char = gtk.gdk.keyval_to_unicode(keyval)
     strn = u'%c' % utf8char
+
+    print("Gcompris_pythontest key press keyval=%i %s" % (keyval, strn))
 
     win = False
 

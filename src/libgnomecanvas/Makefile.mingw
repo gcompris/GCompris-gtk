@@ -1,0 +1,142 @@
+#
+# Makefile.mingw
+#
+
+#
+# PATHS
+#
+
+GCOMPRIS_PLUGINS := 	.
+GCOMPRIS_TOP :=		../..
+GTK_TOP :=		/gtk
+GLIB_TOP :=		/glib
+GNUWIN32_TOP :=		/gnuwin32
+CAIRO_TOP :=		/cairo
+
+##
+## VARIABLE DEFINITIONS
+##
+
+# Compiler Options
+
+CFLAGS =
+
+DEFINES =
+
+.SUFFIXES:
+.SUFFIXES: .c .a
+
+##
+## INCLUDE  MAKEFILES
+##
+
+include $(GCOMPRIS_TOP)/global_win32.mak
+
+##
+## INCLUDE PATHS
+##
+
+INCLUDE_PATHS +=	-I$(GTK_TOP)/include \
+			-I$(GTK_TOP)/include/gtk-2.0 \
+			-I$(GLIB_TOP)/include/glib-2.0 \
+			-I$(GTK_TOP)/include/pango-1.0 \
+			-I$(GTK_TOP)/include/atk-1.0 \
+			-I$(GLIB_TOP)/lib/glib-2.0/include \
+			-I$(GTK_TOP)/lib/gtk-2.0/include \
+			-I$(GTK_TOP)/include/atk-1.0 \
+			-I$(GTK_TOP)/include/freetype2 \
+			-I$(GNUWIN32_TOP)/include \
+			-I$(CAIRO_TOP)/include/cairo \
+			-I$(GCOMPRIS_TOP) \
+			-I$(GCOMPRIS_TOP)/src
+
+
+
+
+LIB_PATHS =		-L$(GTK_TOP)/lib \
+			-L$(GNUWIN32_TOP)/lib
+
+
+##
+## LIBRARIES
+##
+
+LIBS =			-lgtk-win32-2.0 \
+			-lglib-2.0 \
+			-lgdk-win32-2.0 \
+			-lgobject-2.0 \
+			-lgmodule-2.0 \
+			-lgdk_pixbuf-2.0 \
+			-lpango-1.0 \
+			-latk-1.0 \
+			-lpangowin32-1.0 \
+			-lgdi32 -lgthread-2.0 \
+			-lintl \
+			-lws2_32
+
+##
+## RULES
+##
+
+##
+## TARGET DEFINITIONS
+##
+
+.PHONY: all clean
+
+all: libgnomecanvas
+
+install:
+
+##
+##  SOURCES, OBJECTS
+##
+LIBGNOMECANVAS_C_SRC = \
+	gnome-canvas-shape.c			\
+	gnome-canvas-shape-private.h		\
+	gnome-canvas-bpath.c			\
+	gnome-canvas-path-def.c			\
+	gnome-canvas-clipgroup.c		\
+	gnome-canvas-i18n.h			\
+	gnome-canvas-line.c			\
+	gnome-canvas-pixbuf.c			\
+	gnome-canvas-polygon.c			\
+	gnome-canvas-rect-ellipse.c		\
+	gnome-canvas-text.c			\
+	gnome-canvas-rich-text.c		\
+	gnome-canvas-util.c			\
+	gnome-canvas-widget.c			\
+	gnome-canvas.c				\
+	libgnomecanvastypes.c			\
+	gnome-canvas-marshal.c
+
+LIBGNOMECANVAS_OBJECTS = $(LIBGNOMECANVAS_C_SRC:%.c=%.o)
+
+
+#
+# BUILD staticlibrary
+#
+
+# How to make a C file
+%.o: %.c
+	$(CC) $(CFLAGS) $(INCLUDE_PATHS) $(DEFINES) -c $< -o $@
+
+.c.o:
+	$(CC) $(CFLAGS) $(DEFINES) $(INCLUDE_PATHS) -o $@.o -c $<
+	$(CC) -shared $@.o $(LIB_PATHS) $(LIBS) $(DLL_LD_FLAGS) -o $@
+
+libgnomecanvas: \
+		libgnomecanvas.a
+
+libgnomecanvas.a: $(LIBGNOMECANVAS_OBJECTS)
+	-rm -f libgnomecanvas.a
+	$(AR) cru libgnomecanvas.a $(LIBGNOMECANVAS_OBJECTS)
+	ranlib libgnomecanvas.a
+
+##
+## CLEAN RULES
+##
+
+clean:
+	rm -rf *.o
+	rm -rf *.a

@@ -111,6 +111,7 @@ xml_in_files = \
 	paratrooper.xml.in \
 	planegame.xml.in \
 	puzzle.xml.in \
+	pythontemplate.xml.in \
 	pythontest.xml.in \
 	railroad.xml.in \
 	read_colors.xml.in \

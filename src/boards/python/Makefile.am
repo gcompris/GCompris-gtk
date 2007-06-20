@@ -21,6 +21,7 @@ dist_python_DATA= \
 	melody.py \
 	mosaic.py \
 	oscar_and_friends.py \
+	pythontemplate.py \
 	pythontest.py \
 	redraw.py \
 	searace.py \
