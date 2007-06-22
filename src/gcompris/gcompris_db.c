@@ -22,9 +22,8 @@
 #include "gcompris.h"
 #include <glib/gstdio.h>
 
-static char *escape_quote(const char *input);
-
 #ifdef USE_SQLITE
+static char *escape_quote(const char *input);
 static sqlite3 *gcompris_db=NULL;
 #endif
 
@@ -1944,6 +1943,7 @@ void gc_db_log(gchar *date, int duration,
 /* \brief SQL Requires single ' to be replaced by ''
  *
  */
+#ifdef USE_SQLITE
 static char *
 escape_quote(const char *input)
 {
@@ -1967,4 +1967,4 @@ escape_quote(const char *input)
     }
   return result;
 }
-
+#endif
