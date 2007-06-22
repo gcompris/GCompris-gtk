@@ -162,7 +162,6 @@ gc_prop_new ()
   tmp->disable_config    = 0;				/* Used to remove the config button from the bar. Use it for kiosk mode */
   tmp->display_resource  = 0;
   tmp->root_menu         = g_strdup("/");
-  tmp->local_directory   = NULL;
   tmp->profile           = NULL;
   tmp->logged_user       = NULL;
 

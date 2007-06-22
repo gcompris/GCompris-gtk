@@ -656,13 +656,6 @@ void gc_menu_load()
       gc_db_set_version(VERSION);
       g_date_free(today);
     }
-
-
-  if (properties->local_directory){
-    gchar *board_dir = g_strdup_printf("%s/boards/", properties->local_directory);
-    gc_menu_load_dir(board_dir, FALSE);
-    g_free(board_dir);
-  }
 }
 
 

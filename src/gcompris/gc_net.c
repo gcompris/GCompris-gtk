@@ -117,7 +117,7 @@ GdkPixbuf *gc_net_load_pixmap(const char *url)
     {
       gint width, height;
       gdk_pixbuf_get_file_info(url, &width, &height);
-      printf("gc_net_load_pixmap(%s) w=%d h=%d\n", url, width, height);
+      //printf("gc_net_load_pixmap(%s) w=%d h=%d\n", url, width, height);
       return(gdk_pixbuf_new_from_file (url, NULL));
       //      return(gdk_pixbuf_new_from_file_at_scale (url,
       //						width*gc_zoom_factor_get(),

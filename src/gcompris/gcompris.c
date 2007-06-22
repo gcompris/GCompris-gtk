@@ -117,7 +117,9 @@ static gint popt_debug		   = FALSE;
 static gint popt_nobackimg	   = FALSE;
 static gint popt_nolockcheck	   = FALSE;
 static gchar *popt_root_menu       = NULL;
-static gchar *popt_local_activity  = NULL;
+static gchar *popt_plugin_dir      = NULL;
+static gchar *popt_python_plugin_dir = NULL;
+static gchar *popt_package_data_dir = NULL;
 static gint popt_administration	   = FALSE;
 static gchar *popt_database        = NULL;
 static gint popt_create_db   	   = FALSE;
@@ -165,8 +167,14 @@ static GOptionEntry options[] = {
       " (e.g -l /reading will let you play only activities in the reading directory, -l /strategy/connect4 only the connect4 activity)."
       " Use '-l list' to list all the availaible activities and their descriptions."), NULL},
 
-  {"local-activity", 'L', 0, G_OPTION_ARG_STRING, &popt_local_activity,
-   N_("Run GCompris with local activity directory added to menu"), NULL},
+  {"package_data_dir", 'A', 0, G_OPTION_ARG_STRING, &popt_package_data_dir,
+   N_("GCompris will find the data dir in this directory"), NULL},
+
+  {"plugin_dir", 'L', 0, G_OPTION_ARG_STRING, &popt_plugin_dir,
+   N_("GCompris will find the activity plugins in this directory"), NULL},
+
+  {"python_plugin_dir", 'P', 0, G_OPTION_ARG_STRING, &popt_python_plugin_dir,
+   N_("GCompris will find the python activity in this directory"), NULL},
 
   {"administration", 'a', 0, G_OPTION_ARG_NONE, &popt_administration,
    N_("Run GCompris in administration and user-management mode"), NULL},
@@ -1150,7 +1158,6 @@ static void load_properties ()
   g_free(tmpstr);
   g_free(prefix_dir);
 
-
   /* Display the directory value we have */
   printf("package_data_dir         = %s\n", properties->package_data_dir);
   printf("package_locale_dir       = %s\n", properties->package_locale_dir);
@@ -1480,9 +1487,22 @@ main (int argc, char *argv[])
       properties->filter_style      = GCOMPRIS_FILTER_EQUAL;
     }
 
-  if (popt_local_activity){
-    g_warning("Adding local activies from %s.", popt_local_activity);
-    properties->local_directory = g_strdup(popt_local_activity);
+  if (popt_package_data_dir) {
+    printf("Oveloaded package_data_dir = %s\n", popt_package_data_dir);
+    g_free(properties->package_data_dir);
+    properties->package_data_dir = g_strdup(popt_package_data_dir);
+  }
+
+  if (popt_plugin_dir) {
+    printf("Oveloaded package_plugin_dir = %s\n", popt_plugin_dir);
+    g_free(properties->package_plugin_dir);
+    properties->package_plugin_dir = g_strdup(popt_plugin_dir);
+  }
+
+  if (popt_python_plugin_dir) {
+    printf("Oveloaded package_python_plugin_dir = %s\n", popt_python_plugin_dir);
+    g_free(properties->package_python_plugin_dir);
+    properties->package_python_plugin_dir = g_strdup(popt_python_plugin_dir);
   }
 
   if (popt_root_menu){

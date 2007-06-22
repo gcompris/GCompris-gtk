@@ -44,7 +44,6 @@ typedef struct {
   gint		disable_config;
   gint		display_resource;
   gchar        *root_menu;
-  gchar        *local_directory;
   gchar        *package_data_dir;
   gchar        *package_locale_dir;
   gchar        *package_plugin_dir;
