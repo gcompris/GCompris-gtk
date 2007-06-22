@@ -1,9 +1,29 @@
+2007-06-22  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	- Fixed compilation issue when compiled without SQLITE
+	  (Merged from trunk r2781)
+
+	- Added support for overloaded directories :
+	  package_data_dir package_plugin_dir package_python_plugin_dir
+
+	- Added support for overloaded locale directory
+
+	Removed never used local user plugin directory support (--local_directory)
+
+	* src/boards/py-gcompris-properties.c:
+	(pyGcomprisPropertiesType_getattr):
+	* src/gcompris/gc_net.c: (gc_net_load_pixmap):
+	* src/gcompris/gcompris.c: (load_properties), (main):
+	* src/gcompris/menu.c: (gc_menu_load):
+	* src/gcompris/properties.c: (gc_prop_new):
+	* src/gcompris/properties.h:
+
 2007-06-20  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* Merged patches from trunk:
 	  2691 2692 2693 2694 2695 2696 2697 2698 2699 2700 2701 2702
 	  2703 2704 2705 2706 2707 2708 2709 2710 2711 2720 2742 2750
-	  2752 2753
+	  2752 2753 2777
 
 2007-05-28  Bruno coudoin  <bruno.coudoin@free.fr>
 
