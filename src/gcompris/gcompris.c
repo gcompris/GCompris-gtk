@@ -117,9 +117,10 @@ static gint popt_debug		   = FALSE;
 static gint popt_nobackimg	   = FALSE;
 static gint popt_nolockcheck	   = FALSE;
 static gchar *popt_root_menu       = NULL;
+static gchar *popt_package_data_dir = NULL;
 static gchar *popt_plugin_dir      = NULL;
 static gchar *popt_python_plugin_dir = NULL;
-static gchar *popt_package_data_dir = NULL;
+static gchar *popt_locale_dir      = NULL;
 static gint popt_administration	   = FALSE;
 static gchar *popt_database        = NULL;
 static gint popt_create_db   	   = FALSE;
@@ -175,6 +176,9 @@ static GOptionEntry options[] = {
 
   {"python_plugin_dir", 'P', 0, G_OPTION_ARG_STRING, &popt_python_plugin_dir,
    N_("GCompris will find the python activity in this directory"), NULL},
+
+  {"locale_dir", '\0', 0, G_OPTION_ARG_STRING, &popt_locale_dir,
+   N_("GCompris will find the locale file (.mo translation) in this directory"), NULL},
 
   {"administration", 'a', 0, G_OPTION_ARG_NONE, &popt_administration,
    N_("Run GCompris in administration and user-management mode"), NULL},
@@ -1344,7 +1348,6 @@ main (int argc, char *argv[])
 
   if (popt_config_dir)
     {
-      printf("popt_config_dir\n");
       if ((!g_file_test(popt_config_dir, G_FILE_TEST_IS_DIR)) ||
 	  (g_access(popt_config_dir, popt_administration? W_OK : R_OK ) == -1))
 	{
@@ -1358,6 +1361,7 @@ main (int argc, char *argv[])
 	  g_free(properties->config_dir);
 	  properties->config_dir = g_strdup(popt_config_dir);
 	}
+      printf("package_config_dir       = %s\n", properties->config_dir);
     }
 
   /* Now we know where our config file is, load the saved config */
@@ -1488,21 +1492,29 @@ main (int argc, char *argv[])
     }
 
   if (popt_package_data_dir) {
-    printf("Oveloaded package_data_dir = %s\n", popt_package_data_dir);
+    printf("Overloaded package_data_dir          = %s\n", popt_package_data_dir);
     g_free(properties->package_data_dir);
     properties->package_data_dir = g_strdup(popt_package_data_dir);
   }
 
   if (popt_plugin_dir) {
-    printf("Oveloaded package_plugin_dir = %s\n", popt_plugin_dir);
+    printf("Overloaded package_plugin_dir        = %s\n", popt_plugin_dir);
     g_free(properties->package_plugin_dir);
     properties->package_plugin_dir = g_strdup(popt_plugin_dir);
   }
 
   if (popt_python_plugin_dir) {
-    printf("Oveloaded package_python_plugin_dir = %s\n", popt_python_plugin_dir);
+    printf("Overloaded package_python_plugin_dir = %s\n", popt_python_plugin_dir);
     g_free(properties->package_python_plugin_dir);
     properties->package_python_plugin_dir = g_strdup(popt_python_plugin_dir);
+  }
+
+  if (popt_locale_dir) {
+    printf("Overloaded locale_dir                = %s\n", popt_locale_dir);
+    g_free(properties->package_locale_dir);
+    properties->package_locale_dir = g_strdup(popt_locale_dir);
+
+    bindtextdomain (GETTEXT_PACKAGE, properties->package_locale_dir);
   }
 
   if (popt_root_menu){
@@ -1590,10 +1602,12 @@ main (int argc, char *argv[])
     }
 
   /* config_dir initialised, now we can set the default */
-  printf("Infos:\n   Config dir '%s'\n   Users dir '%s'\n   Database '%s'\n",
+  printf("Infos:\n   Config dir '%s'\n   Users dir '%s'\n",
 	 properties->config_dir,
-	 properties->user_dir,
-	 properties->database);
+	 properties->user_dir);
+#ifdef USE_SQLITE
+  printf("   Database '%s'\n",properties->database);
+#endif
 
   if (popt_create_db)
     {
