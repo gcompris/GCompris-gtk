@@ -87,7 +87,6 @@ pyGcomprisPropertiesType_getattr(pyGcomprisPropertiesObject *self, char *name)
     if(strcmp(name,"difficulty_filter")==0) return Py_BuildValue("i", self->cdata->difficulty_filter);
     if(strcmp(name,"difficulty_max")==0) return Py_BuildValue("i", self->cdata->difficulty_max);
     if(strcmp(name,"root_menu")==0) return Py_BuildValue("s", self->cdata->root_menu);
-    if(strcmp(name,"local_directory")==0) return Py_BuildValue("s", self->cdata->local_directory);
     if(strcmp(name,"package_data_dir")==0) return Py_BuildValue("s", self->cdata->package_data_dir);
     if(strcmp(name,"package_plugin_dir")==0) return Py_BuildValue("s", self->cdata->package_plugin_dir);
     if(strcmp(name,"package_python_plugin_dir")==0) return Py_BuildValue("s", self->cdata->package_python_plugin_dir);
