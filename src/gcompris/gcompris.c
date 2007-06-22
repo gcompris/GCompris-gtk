@@ -1492,7 +1492,7 @@ main (int argc, char *argv[])
       printf(_("The list of available activities is :\n"));
 
       gc_db_init();
-
+      gc_board_init();
       gc_menu_load();
 
       GList *list = NULL;
