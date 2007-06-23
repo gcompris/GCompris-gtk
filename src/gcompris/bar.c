@@ -322,6 +322,13 @@ void gc_bar_set_level(GcomprisBoard *gcomprisBoard)
 void
 gc_bar_set_repeat_icon (GdkPixbuf *pixmap)
 {
+  /* Non yet initialized : Something Wrong */
+  if(level_item==NULL)
+    {
+      g_message("in bar_set_level, level_item uninitialized : should not happen\n");
+      return;
+    }
+
   /* Warning changing the image needs to update pixbuf_ref for the focus usage */
   gc_item_focus_free(repeat_item, NULL);
   gnome_canvas_item_set (repeat_item,
@@ -333,6 +340,13 @@ gc_bar_set_repeat_icon (GdkPixbuf *pixmap)
 void
 gc_bar_set (const GComprisBarFlags flags)
 {
+
+  /* Non yet initialized : Something Wrong */
+  if(level_item==NULL)
+    {
+      g_message("in bar_set_level, level_item uninitialized : should not happen\n");
+      return;
+    }
 
   current_flags = flags;
 
@@ -393,6 +407,13 @@ gc_bar_set (const GComprisBarFlags flags)
 void
 gc_bar_hide (gboolean hide)
 {
+  /* Non yet initialized : Something Wrong */
+  if(level_item==NULL)
+    {
+      g_message("in bar_set_level, level_item uninitialized : should not happen\n");
+      return;
+    }
+
   if(hide)
     {
       if(exit_item)

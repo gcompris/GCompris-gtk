@@ -96,7 +96,7 @@ GdkPixbuf *gc_pixmap_load(const gchar *format, ...)
       char *str;
 
       if(!pixmap)
-	g_warning("Loading image '%s' returned a null pointer", filename);
+	g_warning("Loading image '%s' returned a null pointer", pixmapfile);
       else
 	g_warning ("Couldn't find file %s !", pixmapfile);
 

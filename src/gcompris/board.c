@@ -406,7 +406,7 @@ gc_board_stop(void)
 static gboolean
 get_board_playing(void)
 {
-  return bp_data->playing;
+  return (bp_data && bp_data->playing);
 }
 
 static GcomprisBoard *next_board = NULL;

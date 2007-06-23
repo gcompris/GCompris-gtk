@@ -70,6 +70,12 @@ void gc_dialog(gchar *str, DialogBoxCallBack dbcb)
     return;
   }
 
+  if(gc_get_canvas() == NULL)
+    {
+      g_warning("Cannot run a dialog box, canvas not initialized yet = %s\n", str);
+      return;
+    }
+
   /* First pause the board */
   gc_board_pause(TRUE);
 
@@ -85,11 +91,11 @@ void gc_dialog(gchar *str, DialogBoxCallBack dbcb)
   pixmap_dialog = gc_skin_pixmap_load("dialogbox.png");
 
   itemDialogText = gnome_canvas_item_new (rootDialogItem,
-				       gnome_canvas_pixbuf_get_type (),
-				       "pixbuf", pixmap_dialog,
-				       "x", (double) (BOARDWIDTH - gdk_pixbuf_get_width(pixmap_dialog))/2,
-				       "y", (double) (BOARDHEIGHT - gdk_pixbuf_get_height(pixmap_dialog))/2,
-				      NULL);
+					  gnome_canvas_pixbuf_get_type (),
+					  "pixbuf", pixmap_dialog,
+					  "x", (double) (BOARDWIDTH - gdk_pixbuf_get_width(pixmap_dialog))/2,
+					  "y", (double) (BOARDHEIGHT - gdk_pixbuf_get_height(pixmap_dialog))/2,
+					  NULL);
 
   /* OK Text */
   item_text_ok = gnome_canvas_item_new (rootDialogItem,
