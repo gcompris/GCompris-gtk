@@ -191,7 +191,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       gcomprisBoard->sublevel=1;
       gcomprisBoard->number_of_sublevel=1; /* Go to next level after this number of 'play' */
 
-      gc_set_background(gnome_canvas_root(gcomprisBoard->canvas), "opt/target_background.jpg");
+      gc_set_background(gnome_canvas_root(gcomprisBoard->canvas), "target_background.jpg");
 
       target_next_level();
 
@@ -604,7 +604,7 @@ static void animate_items()
   if(animate_item_size>MIN_DART_SIZE)
     animate_item_size--;
 
-  if(animate_item_distance-- == 0)
+  if(--animate_item_distance == 0)
     {
       gc_sound_play_ogg ("sounds/brick.wav", NULL);
 

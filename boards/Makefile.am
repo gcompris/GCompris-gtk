@@ -132,8 +132,6 @@ xml_in_files = \
 	sudoku.xml.in \
 	superbrain.xml.in \
 	tangram.xml.in \
-	target.xml.in \
-	traffic.xml.in \
 	tuxpaint.xml.in \
 	watercycle.xml.in \
 	wordprocessor.xml.in \

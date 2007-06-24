@@ -74,8 +74,6 @@ lib_LTLIBRARIES = \
 	libshapegame.la \
 	libsmallnumbers.la \
 	libsubmarine.la \
-	libtarget.la \
-	libtraffic.la \
 	libwordsgame.la \
 	libadvanced_colors.la \
 	libread_colors.la \
@@ -198,10 +196,6 @@ libcolors_la_LDFLAGS = $(shared) $(no_undefined) -module -avoid-version $(gc_lib
 libcolors_la_LIBADD =
 libcolors_la_SOURCES = colors.c
 
-libtarget_la_LDFLAGS = $(shared) $(no_undefined) -module -avoid-version $(gc_libs)
-libtarget_la_LIBADD =
-libtarget_la_SOURCES = target.c
-
 libmagic_hat_la_LDFLAGS = $(shared) $(no_undefined) -module -avoid-version $(gc_libs)
 libmagic_hat_la_LIBADD =
 libmagic_hat_la_SOURCES = magic_hat.c
@@ -242,10 +236,6 @@ libenumerate_la_SOURCES = enumerate.c
 libmoney_la_LDFLAGS = $(shared) $(no_undefined) -module -avoid-version $(gc_libs)
 libmoney_la_LIBADD =
 libmoney_la_SOURCES = money.c money_widget.c money_widget.h
-
-libtraffic_la_LDFLAGS = $(shared) $(no_undefined) -module -avoid-version $(gc_libs)
-libtraffic_la_LIBADD =
-libtraffic_la_SOURCES = traffic.c traffic.h
 
 libmachpuzzle_la_LDFLAGS = $(shared) $(no_undefined) -module -avoid-version $(gc_libs)
 libmachpuzzle_la_LIBADD =
