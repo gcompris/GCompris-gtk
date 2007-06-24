@@ -1,7 +1,80 @@
 ## Process this file with automake to produce Makefile.in
 
 SUBDIRS = libart_lgpl libgnomecanvas libccc gcompris boards \
-	traffic-activity \
+	advanced_colors-activity \
+	algebra_by-activity \
+	algebra_guesscount-activity \
+	algebra_minus-activity \
+	algebra_plus-activity \
+	awele-activity \
+	babymatch-activity \
+	babyshapes-activity \
+	billard-activity \
+	canal_lock-activity \
+	chess_computer-activity \
+	chess_movelearn-activity \
+	chess_partyend-activity \
+	chronos-activity \
+	click_on_letter-activity \
+	clickgame-activity \
+	clockgame-activity \
+	colors-activity \
+	crane-activity \
+	doubleentry-activity \
+	enumerate-activity \
+	erase-activity \
+	erase_clic-activity \
+	fifteen-activity \
+	geography-activity \
+	geography_country-activity \
+	gletters-activity \
+	hanoi-activity \
+	hanoi_real-activity \
+	imageid-activity \
+	imagename-activity \
+	leftright-activity \
+	magic_hat_minus-activity \
+	magic_hat_plus-activity \
+	maze-activity \
+	maze2DRelative-activity \
+	maze3D-activity \
+	mazeInvisible-activity \
+	memory-activity \
+	memory_add-activity \
+	memory_add_minus-activity \
+	memory_add_minus_mult_div-activity \
+	memory_add_minus_mult_div_tux-activity \
+	memory_add_minus_tux-activity \
+	memory_add_tux-activity \
+	memory_div-activity \
+	memory_div_tux-activity \
+	memory_minus-activity \
+	memory_minus_tux-activity \
+	memory_mult-activity \
+	memory_mult_div-activity \
+	memory_mult_div_tux-activity \
+	memory_mult_tux-activity \
+	memory_sound-activity \
+	memory_sound_tux-activity \
+	memory_tux-activity \
+	missing_letter-activity \
+	money-activity \
+	money_cents-activity \
+	paintings-activity \
+	paratrooper-activity \
+	planegame-activity \
+	railroad-activity \
+	read_colors-activity \
+	readingh-activity \
+	readingv-activity \
+	reversecount-activity \
+	scalesboard-activity \
+	smallnumbers-activity \
+	smallnumbers2-activity \
+	submarine-activity \
+	superbrain-activity \
+	tangram-activity \
 	target-activity \
+	traffic-activity \
 	wordprocessor-activity \
-	scalesboard-activity
+	wordsgame-activity

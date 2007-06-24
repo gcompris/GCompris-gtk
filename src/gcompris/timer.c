@@ -78,32 +78,26 @@ gc_timer_display(int ax, int ay, TimerList atype, int second, GcomprisTimerEnd a
     case GCOMPRIS_TIMER_SAND:
     case GCOMPRIS_TIMER_CLOCK:
       {
-	gchar		*filefull = NULL;
 	gchar		*filename = NULL;
 	gint		fileid;
-	
+
 	fileid = (gint)timer;
 	if(type==GCOMPRIS_TIMER_SAND)
-	  filename = g_strdup_printf("gcompris/timers/sablier%d.png", fileid);
+	  filename = g_strdup_printf("timers/sablier%d.png", fileid);
 	else
-	  filename = g_strdup_printf("gcompris/timers/clock%d.png", fileid);
-	
-	filefull = g_strdup_printf("%s/%s", properties->package_data_dir, filename);
-	if (g_file_test ((filefull), G_FILE_TEST_EXISTS))
-	  {
-	    pixmap = gc_pixmap_load(filename);
+	  filename = g_strdup_printf("timers/clock%d.png", fileid);
 
-	    gc_timer_item = gnome_canvas_item_new (boardRootItem,
-						   gnome_canvas_pixbuf_get_type (),
-						   "pixbuf", pixmap, 
-						   "x", x,
-						   "y", y,
-						   NULL);
-	    
-	    gdk_pixbuf_unref(pixmap);
-	  }
+	pixmap = gc_skin_pixmap_load(filename);
+
+	gc_timer_item = gnome_canvas_item_new (boardRootItem,
+					       gnome_canvas_pixbuf_get_type (),
+					       "pixbuf", pixmap,
+					       "x", x,
+					       "y", y,
+					       NULL);
+
+	gdk_pixbuf_unref(pixmap);
 	g_free(filename);
-	g_free(filefull);
       }
       break;
     case GCOMPRIS_TIMER_TEXT:
@@ -126,7 +120,7 @@ gc_timer_display(int ax, int ay, TimerList atype, int second, GcomprisTimerEnd a
       pixmap = gc_pixmap_load("gcompris/misc/tuxballoon.png");
       gc_timer_item = gnome_canvas_item_new (boardRootItem,
 					     gnome_canvas_pixbuf_get_type (),
-					     "pixbuf", pixmap, 
+					     "pixbuf", pixmap,
 					     "x", x,
 					     "y", y,
 					     NULL);
@@ -139,7 +133,7 @@ gc_timer_display(int ax, int ay, TimerList atype, int second, GcomprisTimerEnd a
       pixmap = gc_pixmap_load("gcompris/misc/sea.png");
       gnome_canvas_item_new (boardRootItem,
 			     gnome_canvas_pixbuf_get_type (),
-			     "pixbuf", pixmap, 
+			     "pixbuf", pixmap,
 			     "x", (double) 0,
 			     "y", (double) BOARDHEIGHT - gdk_pixbuf_get_height(pixmap),
 			     "width", (double) gdk_pixbuf_get_width(pixmap),
@@ -192,7 +186,7 @@ gc_timer_pause(gboolean pause)
       if (animate_id)
 	gtk_timeout_remove (animate_id);
       animate_id = 0;
-      
+
       if (subanimate_id)
 	gtk_timeout_remove (subanimate_id);
       subanimate_id = 0;
@@ -308,28 +302,21 @@ timer_increment(GtkWidget *widget, gpointer data)
 	{
 	  GcomprisProperties *properties = gc_prop_get();
 	  GdkPixbuf	*pixmap = NULL;
-	  gchar		*filefull = NULL;
 	  gchar		*filename = NULL;
 	  gint		fileid;
 
 	  fileid = (gint)timer;
 	  if(type==GCOMPRIS_TIMER_SAND)
-	    filename = g_strdup_printf("gcompris/timers/sablier%d.png", fileid);
+	    filename = g_strdup_printf("timers/sablier%d.png", fileid);
 	  else
-	    filename = g_strdup_printf("gcompris/timers/clock%d.png", fileid);
+	    filename = g_strdup_printf("timers/clock%d.png", fileid);
 
-	  filefull = g_strdup_printf("%s/%s", properties->package_data_dir, filename);
-	  g_debug("timer: filefull = %s\n", filefull);
-	  if (g_file_test ((filefull), G_FILE_TEST_EXISTS))
-	    {
-	      pixmap = gc_pixmap_load(filename);
-	      gnome_canvas_item_set(gc_timer_item,
-				    "pixbuf", pixmap,
-				    NULL);
-	      gdk_pixbuf_unref(pixmap);
-	    }
+	  pixmap = gc_skin_pixmap_load(filename);
+	  gnome_canvas_item_set(gc_timer_item,
+				"pixbuf", pixmap,
+				NULL);
+	  gdk_pixbuf_unref(pixmap);
 	  g_free(filename);
-	  g_free(filefull);
 	}
       break;
     case GCOMPRIS_TIMER_TEXT:
