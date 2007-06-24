@@ -139,22 +139,22 @@ gc_bonus_end_display(GCBoardFinishedList type) {
 
   switch (type) {
 	case GC_BOARD_FINISHED_TUXPLANE :
-		str = g_strdup_printf("gcompris/misc/tuxplane.png");
+		str = g_strdup_printf("tuxplane.png");
 		break;
 	case GC_BOARD_FINISHED_TUXLOCO :
-		str = g_strdup_printf("gcompris/misc/tuxloco.png");
+		str = g_strdup_printf("tuxloco.png");
 		break;
 	case GC_BOARD_FINISHED_TOOMANYERRORS :
-		str = g_strdup_printf("gcompris/misc/toomanyerrors.png");
+		str = g_strdup_printf("toomanyerrors.png");
 		break;
 	default :
-		str = g_strdup_printf("gcompris/misc/tuxplane.png");
+		str = g_strdup_printf("tuxplane.png");
 		break;
   }
 
-  pixmap_door1 = gc_pixmap_load("gcompris/misc/door1.png");
-  pixmap_door2 = gc_pixmap_load("gcompris/misc/door2.png");
-  pixmap_tuxplane = gc_pixmap_load(str);
+  pixmap_door1 = gc_skin_pixmap_load("door1.png");
+  pixmap_door2 = gc_skin_pixmap_load("door2.png");
+  pixmap_tuxplane = gc_skin_pixmap_load(str);
   g_free(str);
 
   g_assert(gcomprisBoard != NULL);
@@ -309,12 +309,12 @@ bonus_image(char *image, GCBonusStatusList gamewon)
 
   switch (gamewon) {
   case GC_BOARD_WIN :
-    str = g_strdup_printf("%s%s%s", "gcompris/bonus/",image,"_good.png");
+    str = g_strdup_printf("%s%s%s", "bonus/",image,"_good.png");
     /* Record the end of board */
     gc_log_end (gcomprisBoard, gamewon);
     break;
   case GC_BOARD_LOOSE :
-    str = g_strdup_printf("%s%s%s", "gcompris/bonus/",image,"_bad.png");
+    str = g_strdup_printf("%s%s%s", "bonus/",image,"_bad.png");
     /* Record the end of board */
     gc_log_end (gcomprisBoard, gamewon);
     break;
@@ -322,7 +322,7 @@ bonus_image(char *image, GCBonusStatusList gamewon)
     /* We do not have draw image so a text message is displayed bellow under the
      * win image
      */
-    str = g_strdup_printf("%s%s%s", "gcompris/bonus/",image,"_good.png");
+    str = g_strdup_printf("%s%s%s", "bonus/",image,"_good.png");
     /* Record the end of board */
     gc_log_end (gcomprisBoard, gamewon);
     break;
@@ -335,7 +335,7 @@ bonus_image(char *image, GCBonusStatusList gamewon)
 
   g_assert(gcomprisBoard != NULL);
 
-  pixmap = gc_pixmap_load(str);
+  pixmap = gc_skin_pixmap_load(str);
 
   bonus_group = (GnomeCanvasGroup *) \
     gnome_canvas_item_new (gnome_canvas_root(gcomprisBoard->canvas),
