@@ -337,7 +337,7 @@ gc_menu_section_get(gchar *section)
     gchar *fullname = NULL;
 
     fullname = g_strdup_printf("%s/%s",
-			       board->section, board->name);
+			       board->section, board->type);
 
     if (strcmp (fullname, section) == 0){
       g_free(fullname);

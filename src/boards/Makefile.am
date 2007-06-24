@@ -77,8 +77,6 @@ lib_LTLIBRARIES = \
 	libwordsgame.la \
 	libadvanced_colors.la \
 	libread_colors.la \
-	libwordprocessor.la \
-	libscale.la \
 	$(python_plugin)
 
 libdir = $(plugindir)
@@ -256,14 +254,6 @@ libhanoi_real_la_SOURCES = hanoi_real.c
 libfifteen_la_LDFLAGS = $(shared) $(no_undefined) -module -avoid-version $(gc_libs)
 libfifteen_la_LIBADD =
 libfifteen_la_SOURCES = fifteen.c
-
-libwordprocessor_la_LDFLAGS = $(shared) $(no_undefined) -module -avoid-version $(gc_libs)
-libwordprocessor_la_LIBADD =
-libwordprocessor_la_SOURCES = wordprocessor.c
-
-libscale_la_LDFLAGS = $(shared) $(no_undefined) -module -avoid-version $(gc_libs)
-libscale_la_LIBADD =
-libscale_la_SOURCES = scale.c
 
 libpython_la_LDFLAGS = -export-dynamic $(shared) $(no_undefined) -module -avoid-version $(gc_libs) $(PYTHON_LIBS)
 libpython_la_LIBADD =

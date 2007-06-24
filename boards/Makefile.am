@@ -121,7 +121,6 @@ xml_in_files = \
 	redraw_symmetrical.xml.in \
 	redraw.xml.in \
 	reversecount.xml.in \
-	scalesboard.xml.in \
 	searace1player.xml.in \
 	searace.xml.in \
 	smallnumbers2.xml.in \
@@ -134,7 +133,6 @@ xml_in_files = \
 	tangram.xml.in \
 	tuxpaint.xml.in \
 	watercycle.xml.in \
-	wordprocessor.xml.in \
 	wordsgame.xml.in \
 	writing_tutor_image_match.xml.in \
 	writing_tutor_missing_match.xml.in \

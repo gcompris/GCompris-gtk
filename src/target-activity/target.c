@@ -191,7 +191,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       gcomprisBoard->sublevel=1;
       gcomprisBoard->number_of_sublevel=1; /* Go to next level after this number of 'play' */
 
-      gc_set_background(gnome_canvas_root(gcomprisBoard->canvas), "target_background.jpg");
+      gc_set_background(gnome_canvas_root(gcomprisBoard->canvas), "target/target_background.jpg");
 
       target_next_level();
 

@@ -163,7 +163,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
             drag_mode = 0;
 
 	gc_set_background(gnome_canvas_root(gcomprisBoard->canvas),
-			  "opt/tabepice.jpg");
+			  "scale/tabepice.jpg");
 
         gc_drag_start(gnome_canvas_root(gcomprisBoard->canvas),
                 (gc_Drag_Func)scale_drag_event, drag_mode);
@@ -495,7 +495,7 @@ static ScaleItem * scale_list_add_weight(gint weight)
     new_item->y = y;
     new_item->weight = weight;
 
-    filename = g_strdup_printf("scales/masse%d.png", weight);
+    filename = g_strdup_printf("scale/masse%d.png", weight);
     pixmap = gc_pixmap_load(filename);
     new_item->item = gnome_canvas_item_new(boardRootItem,
             gnome_canvas_pixbuf_get_type(),
@@ -651,7 +651,7 @@ static void scale_next_level()
 
 	gc_score_set(gcomprisBoard->sublevel);
     // create the balance
-    pixmap = gc_pixmap_load("scales/balance.png");
+    pixmap = gc_pixmap_load("scale/balance.png");
     balance_x = (BOARDWIDTH - gdk_pixbuf_get_width(pixmap))/2;
     balance_y = (BOARDHEIGHT - gdk_pixbuf_get_height(pixmap))/2;
 
@@ -675,7 +675,7 @@ static void scale_next_level()
                 "x", PLATE_X1,
                 "y", 0.0,
                 NULL));
-    pixmap = gc_pixmap_load("scales/plateau.png");
+    pixmap = gc_pixmap_load("scale/plateau.png");
     item = gnome_canvas_item_new(group_g,
             gnome_canvas_pixbuf_get_type(),
             "pixbuf", pixmap,
@@ -688,7 +688,7 @@ static void scale_next_level()
                 "x", PLATE_X2,
                 "y", 0.0,
                 NULL));
-    pixmap = gc_pixmap_load("scales/plateau.png");
+    pixmap = gc_pixmap_load("scale/plateau.png");
     pixmap2 = gdk_pixbuf_flip(pixmap, TRUE);
     item = gnome_canvas_item_new(group_d,
             gnome_canvas_pixbuf_get_type(),
@@ -697,7 +697,7 @@ static void scale_next_level()
     gdk_pixbuf_unref(pixmap);
     gdk_pixbuf_unref(pixmap2);
 
-    pixmap = gc_pixmap_load("scales/bras.png");
+    pixmap = gc_pixmap_load("scale/bras.png");
     bras = item = gnome_canvas_item_new(boardRootItem,
             gnome_canvas_pixbuf_get_type(),
             "pixbuf", pixmap,
