@@ -48,6 +48,7 @@ typedef struct {
   gchar        *package_locale_dir;
   gchar        *package_plugin_dir;
   gchar        *package_python_plugin_dir;
+  gchar        *menu_dir;
   gchar        *system_icon_dir;
   gchar        *cache_dir;
   gchar	       *locale;

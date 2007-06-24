@@ -175,6 +175,7 @@ gc_prop_new ()
   tmp->package_locale_dir         = NULL;
   tmp->package_plugin_dir         = NULL;
   tmp->package_python_plugin_dir  = NULL;
+  tmp->menu_dir			  = NULL;
   tmp->system_icon_dir            = NULL;
   tmp->cache_dir                  = NULL;
   tmp->drag_mode                  = GC_DRAG_MODE_GRAB;
@@ -522,6 +523,7 @@ gc_prop_destroy (GcomprisProperties *props)
   g_free(props->package_locale_dir);
   g_free(props->package_plugin_dir);
   g_free(props->package_python_plugin_dir);
+  g_free(props->menu_dir);
   g_free(props->system_icon_dir);
   g_free(props->cache_dir);
   g_free(props->locale);

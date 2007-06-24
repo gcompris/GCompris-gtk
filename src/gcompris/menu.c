@@ -636,7 +636,7 @@ void gc_menu_load()
     {
       int db = (gc_profile_get_current() ? TRUE: FALSE);
       properties->reread_menu = TRUE;
-      gc_menu_load_dir(properties->package_data_dir, db);
+      gc_menu_load_dir(properties->menu_dir, db);
 
 
       /* use GTimeVal for portability */

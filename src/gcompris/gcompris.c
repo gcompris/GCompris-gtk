@@ -121,6 +121,7 @@ static gchar *popt_package_data_dir = NULL;
 static gchar *popt_plugin_dir      = NULL;
 static gchar *popt_python_plugin_dir = NULL;
 static gchar *popt_locale_dir      = NULL;
+static gchar *popt_menu_dir        = NULL;
 static gint popt_administration	   = FALSE;
 static gchar *popt_database        = NULL;
 static gint popt_create_db   	   = FALSE;
@@ -179,6 +180,9 @@ static GOptionEntry options[] = {
 
   {"locale_dir", '\0', 0, G_OPTION_ARG_STRING, &popt_locale_dir,
    N_("GCompris will find the locale file (.mo translation) in this directory"), NULL},
+
+  {"menu_dir", 'M', 0, G_OPTION_ARG_STRING, &popt_menu_dir,
+   N_("GCompris will find the activities menu in this directory"), NULL},
 
   {"administration", 'a', 0, G_OPTION_ARG_NONE, &popt_administration,
    N_("Run GCompris in administration and user-management mode"), NULL},
@@ -1143,8 +1147,10 @@ static void load_properties ()
       properties->package_locale_dir = g_strdup(PACKAGE_LOCALE_DIR);
 
       properties->package_plugin_dir = g_strconcat(prefix_dir, "/boards/.libs", NULL);
-      properties->package_python_plugin_dir = g_strconcat(prefix_dir, "/boards/python", NULL);
+      properties->package_python_plugin_dir = g_strconcat(prefix_dir, "/boards/python",
+							  NULL);
       properties->system_icon_dir = g_strconcat(prefix_dir, "/..", NULL);
+      properties->menu_dir = g_strdup(prefix_dir);
     }
   else
     {
@@ -1154,8 +1160,10 @@ static void load_properties ()
       properties->package_data_dir = g_strconcat(pkg_data_dir, "/gcompris/boards", NULL);
       properties->package_locale_dir = gbr_find_locale_dir(PACKAGE_LOCALE_DIR);
       properties->package_plugin_dir = g_strconcat(pkg_clib_dir, "/gcompris", NULL);
-      properties->package_python_plugin_dir = g_strconcat(pkg_data_dir, "/gcompris/python", NULL);
+      properties->package_python_plugin_dir = g_strconcat(pkg_data_dir, "/gcompris/python",
+							  NULL);
       properties->system_icon_dir = g_strconcat(pkg_data_dir, "/pixmaps", NULL);
+      properties->menu_dir = g_strdup(properties->package_data_dir);
       g_free(pkg_data_dir);
       g_free(pkg_clib_dir);
     }
@@ -1164,6 +1172,7 @@ static void load_properties ()
 
   /* Display the directory value we have */
   printf("package_data_dir         = %s\n", properties->package_data_dir);
+  printf("package_menu_dir         = %s\n", properties->menu_dir);
   printf("package_locale_dir       = %s\n", properties->package_locale_dir);
   printf("package_plugin_dir       = %s\n", properties->package_plugin_dir);
   printf("package_python_plugin_dir= %s\n", properties->package_python_plugin_dir);
@@ -1495,6 +1504,12 @@ main (int argc, char *argv[])
     printf("Overloaded package_data_dir          = %s\n", popt_package_data_dir);
     g_free(properties->package_data_dir);
     properties->package_data_dir = g_strdup(popt_package_data_dir);
+  }
+
+  if (popt_menu_dir) {
+    printf("Overloaded menu_dir                  = %s\n", popt_menu_dir);
+    g_free(properties->menu_dir);
+    properties->menu_dir = g_strdup(popt_menu_dir);
   }
 
   if (popt_plugin_dir) {
