@@ -78,12 +78,12 @@ static int objet_weight = 0;
 
 static gint drag_mode;
 static const char *imageList[] = {
-    "gcompris/food/chocolate_cake.png",
-    "gcompris/food/pear.png",
-    "gcompris/food/orange.png",
-    "gcompris/food/suggar_box.png",
-    "gcompris/misc/flowerpot.png",
-    "gcompris/misc/glass.png"
+    "scale/chocolate_cake.png",
+    "scale/pear.png",
+    "scale/orange.png",
+    "scale/suggar_box.png",
+    "scale/flowerpot.png",
+    "scale/glass.png"
 };
 
 static const int imageListCount = G_N_ELEMENTS(imageList);
