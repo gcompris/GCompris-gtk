@@ -35,10 +35,10 @@ static void	 set_level (guint level);
 static int	 gamewon;
 static void	 game_won(void);
 
-#define TUX_IMG_NORTH "gcompris/misc/tux_top_north.png"
-#define TUX_IMG_SOUTH "gcompris/misc/tux_top_south.png"
-#define TUX_IMG_WEST  "gcompris/misc/tux_top_west.png"
-#define TUX_IMG_EAST  "gcompris/misc/tux_top_east.png"
+#define TUX_IMG_NORTH "reversecount/tux_top_north.png"
+#define TUX_IMG_SOUTH "reversecount/tux_top_south.png"
+#define TUX_IMG_WEST  "reversecount/tux_top_west.png"
+#define TUX_IMG_EAST  "reversecount/tux_top_east.png"
 #define TUX_TO_BORDER_GAP 10
 
 static GnomeCanvasGroup *boardRootItem = NULL;
@@ -81,47 +81,47 @@ static GnomeCanvasItem *clock_image_item;
 // List of images to use in the game
 static gchar *imageList[] =
 {
-  "opt/baleine.png",
-  "opt/phoque.png",
-  "opt/ourspolaire.png",
-  "opt/morse.png",
-  "opt/elephant_mer.png",
-  "opt/epaulard.png",
-  "opt/narval.png",
+  "reversecount/baleine.png",
+  "reversecount/phoque.png",
+  "reversecount/ourspolaire.png",
+  "reversecount/morse.png",
+  "reversecount/elephant_mer.png",
+  "reversecount/epaulard.png",
+  "reversecount/narval.png",
 };
 #define NUMBER_OF_IMAGES 10
 
 // List of fish to use in the game
 static gchar *fishList[] =
 {
-  "fishes/blueking2_0.png",
-  "fishes/butfish_0.png",
-  "fishes/cichlid1_0.png",
-  "fishes/cichlid4_0.png",
-  "fishes/collaris_0.png",
-  "fishes/discus2_0.png",
-  "fishes/discus3_0.png",
-  "fishes/eel_0.png",
-  "fishes/f00_0.png",
-  "fishes/f01_0.png",
-  "fishes/f02_0.png",
-  "fishes/f03_0.png",
-  "fishes/f04_0.png",
-  "fishes/f05_0.png",
-  "fishes/f06_0.png",
-  "fishes/f07_0.png",
-  "fishes/f08_0.png",
-  "fishes/f09_0.png",
-  "fishes/f10_0.png",
-  "fishes/f11_0.png",
-  "fishes/f12_0.png",
-  "fishes/f13_0.png",
-  "fishes/manta_0.png",
-  "fishes/newf1_0.png",
-  "fishes/QueenAngel_0.png",
-  "fishes/shark1_0.png",
-  "fishes/six_barred_0.png",
-  "fishes/teeth_0.png"
+  "reversecount/fishes/blueking2_0.png",
+  "reversecount/fishes/butfish_0.png",
+  "reversecount/fishes/cichlid1_0.png",
+  "reversecount/fishes/cichlid4_0.png",
+  "reversecount/fishes/collaris_0.png",
+  "reversecount/fishes/discus2_0.png",
+  "reversecount/fishes/discus3_0.png",
+  "reversecount/fishes/eel_0.png",
+  "reversecount/fishes/f00_0.png",
+  "reversecount/fishes/f01_0.png",
+  "reversecount/fishes/f02_0.png",
+  "reversecount/fishes/f03_0.png",
+  "reversecount/fishes/f04_0.png",
+  "reversecount/fishes/f05_0.png",
+  "reversecount/fishes/f06_0.png",
+  "reversecount/fishes/f07_0.png",
+  "reversecount/fishes/f08_0.png",
+  "reversecount/fishes/f09_0.png",
+  "reversecount/fishes/f10_0.png",
+  "reversecount/fishes/f11_0.png",
+  "reversecount/fishes/f12_0.png",
+  "reversecount/fishes/f13_0.png",
+  "reversecount/fishes/manta_0.png",
+  "reversecount/fishes/newf1_0.png",
+  "reversecount/fishes/QueenAngel_0.png",
+  "reversecount/fishes/shark1_0.png",
+  "reversecount/fishes/six_barred_0.png",
+  "reversecount/fishes/teeth_0.png"
 };
 #define NUMBER_OF_FISHES 27
 
@@ -530,7 +530,7 @@ static GnomeCanvasItem *reversecount_create_item(GnomeCanvasGroup *parent)
 
   //----------------------------------------
   // Create the dices
-  pixmap = gc_pixmap_load("gcompris/dice/gnome-dice1.png");
+  pixmap = gc_pixmap_load("reversecount/dice/gnome-dice1.png");
 
   for(d=0; d<number_of_dices; d++)
     {
@@ -711,7 +711,7 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, gint *dice_index)
 	  break;
 	}
 
-      str = g_strdup_printf("gcompris/dice/gnome-dice%d.png", dicevalue_array[i]);
+      str = g_strdup_printf("reversecount/dice/gnome-dice%d.png", dicevalue_array[i]);
 
       pixmap = gc_pixmap_load(str);
 
