@@ -159,7 +159,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
     {
       gcomprisBoard=agcomprisBoard;
       gc_set_background(gnome_canvas_root(gcomprisBoard->canvas),
-			"opt/imageid-bg.jpg");
+			"imageid/imageid-bg.jpg");
       gcomprisBoard->level=1;
       gcomprisBoard->maxlevel=NUMBER_OF_LEVELS;
       gcomprisBoard->sublevel=1;

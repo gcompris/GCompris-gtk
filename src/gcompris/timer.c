@@ -117,7 +117,7 @@ gc_timer_display(int ax, int ay, TimerList atype, int second, GcomprisTimerEnd a
       }
       break;
     case GCOMPRIS_TIMER_BALLOON:
-      pixmap = gc_pixmap_load("gcompris/misc/tuxballoon.png");
+      pixmap = gc_skin_pixmap_load("timers/tuxballoon.png");
       gc_timer_item = gnome_canvas_item_new (boardRootItem,
 					     gnome_canvas_pixbuf_get_type (),
 					     "pixbuf", pixmap,
@@ -130,7 +130,7 @@ gc_timer_display(int ax, int ay, TimerList atype, int second, GcomprisTimerEnd a
 
       gdk_pixbuf_unref(pixmap);
 
-      pixmap = gc_pixmap_load("gcompris/misc/sea.png");
+      pixmap = gc_skin_pixmap_load("timers/sea.png");
       gnome_canvas_item_new (boardRootItem,
 			     gnome_canvas_pixbuf_get_type (),
 			     "pixbuf", pixmap,
@@ -300,7 +300,6 @@ timer_increment(GtkWidget *widget, gpointer data)
     case GCOMPRIS_TIMER_CLOCK:
       if(gc_timer_item)
 	{
-	  GcomprisProperties *properties = gc_prop_get();
 	  GdkPixbuf	*pixmap = NULL;
 	  gchar		*filename = NULL;
 	  gint		fileid;
