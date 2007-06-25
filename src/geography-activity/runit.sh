@@ -1,9 +1,10 @@
 activity=geography
+type=shapegame
 
 plugindir=.
-if [ -f .libs/lib$activity.so ]
+if [ -f ../babymatch-activity/.libs/lib$type.so ]
 then
-  plugindir=.libs
+  plugindir=../babymatch-activity/.libs
 fi
 
 ./gcompris.bin -L $plugindir -P . -A resources \

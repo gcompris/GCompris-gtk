@@ -1,12 +1,13 @@
 activity=algebra_plus
+type=algebra
 
 plugindir=.
-if [ -f .libs/lib$activity.so ]
+if [ -f ../algebra_by-activity/.libs/lib$type.so ]
 then
-  plugindir=.libs
+  plugindir=../algebra_by-activity/.libs
 fi
 
-./gcompris.bin -L $plugindir -P . -A resources \
+./gcompris.bin -L $plugindir -P . -A ../algebra_by-activity/resources \
     --config-dir=. -M activity \
     --locale_dir=./locale -l /math/algebramenu/algebra_group/$activity $*
 

@@ -1,7 +1,8 @@
 activity=magic_hat_minus
+type=magic_hat
 
 plugindir=.
-if [ -f .libs/lib$activity.so ]
+if [ -f .libs/lib$type.so ]
 then
   plugindir=.libs
 fi

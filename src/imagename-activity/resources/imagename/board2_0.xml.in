@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ShapeGame>
+  <Shape name="1" pixmapfile="skin:gcompris-shapelabel.png" type="SHAPE_BACKGROUND"
+	 x="405" y="490" zoomx="1" zoomy="1" position="0"/>
+  <Title x="394" y="490" justification="GTK_JUSTIFY_CENTER" color_skin="gcompris/text button">
+    <_name>Drag and Drop each item onto its name</_name>
+  </Title>
+  <Shape name="A" pixmapfile="imagename/bottle.png"
+	 x="194" y="90" zoomx="1" zoomy="1" position="0"/>
+  <Title x="194" y="200" justification="GTK_JUSTIFY_CENTER">
+    <_name>bottle</_name>
+  </Title>
+  <Shape name="D" pixmapfile="imagename/glass.png"
+	 x="194" y="340" zoomx="1" zoomy="1" position="0"/>
+  <Title x="194" y="450" justification="GTK_JUSTIFY_CENTER">
+    <_name>glass</_name>
+  </Title>
+  <Shape name="B" pixmapfile="imagename/egg.png"
+	 x="394" y="90" zoomx="1" zoomy="1" position="0"/>
+  <Title x="394" y="200" justification="GTK_JUSTIFY_CENTER">
+    <_name>egg</_name>
+  </Title>
+  <Shape name="E" pixmapfile="imagename/eggpot.png"     
+	 x="394" y="340" zoomx="1" zoomy="1" position="0"/>
+  <Title x="394" y="450" justification="GTK_JUSTIFY_CENTER">
+    <_name>eggcup</_name>
+  </Title>
+  <Shape name="M" pixmapfile="imagename/flower.png"
+	 x="594" y="90" zoomx="1" zoomy="1" position="0" />
+  <Title x="594" y="200" justification="GTK_JUSTIFY_CENTER">
+    <_name>flower</_name>
+  </Title>
+  <Shape name="F" pixmapfile="imagename/flowerpot.png"       
+	 x="594" y="340" zoomx="1" zoomy="1" position="0"/>
+  <Title x="594" y="450" justification="GTK_JUSTIFY_CENTER">
+    <_name>vase</_name>
+  </Title>
+</ShapeGame>

@@ -1,12 +1,13 @@
 activity=readingv
+type=reading
 
 plugindir=.
-if [ -f .libs/lib$activity.so ]
+if [ -f ../readingh-activity/.libs/lib$type.so ]
 then
-  plugindir=.libs
+  plugindir=../readingh-activity/.libs
 fi
 
-./gcompris.bin -L $plugindir -P . -A resources \
+./gcompris.bin -L $plugindir -P . -A ../readingh-activity/resources \
     --config-dir=. -M activity \
     --locale_dir=./locale -l /reading/$activity $*
 

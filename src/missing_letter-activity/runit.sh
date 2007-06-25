@@ -1,7 +1,8 @@
 activity=missing_letter
+type=missingletter
 
 plugindir=.
-if [ -f .libs/lib$activity.so ]
+if [ -f .libs/lib$type.so ]
 then
   plugindir=.libs
 fi

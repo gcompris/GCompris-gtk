@@ -1200,7 +1200,7 @@ static void create_item(GnomeCanvasGroup *parent)
 
 
   if (currentUiMode == UIMODE_SOUND) {
-    GdkPixbuf *pixmap =  gc_pixmap_load("images/transparent_square2.png");
+    GdkPixbuf *pixmap =  gc_pixmap_load("memory/transparent_square2.png");
     gnome_canvas_item_new (GNOME_CANVAS_GROUP(parent),
 			   gnome_canvas_pixbuf_get_type (),
 			   "pixbuf", pixmap,
@@ -1211,7 +1211,7 @@ static void create_item(GnomeCanvasGroup *parent)
   }
 
   if (currentMode == MODE_TUX){
-    GdkPixbuf *pixmap_tux =  gc_pixmap_load("images/tux-teacher.png");
+    GdkPixbuf *pixmap_tux =  gc_pixmap_load("memory/tux-teacher.png");
 
     tux = gnome_canvas_item_new (GNOME_CANVAS_GROUP(parent),
 				 gnome_canvas_pixbuf_get_type (),
@@ -1273,7 +1273,7 @@ static void create_item(GnomeCanvasGroup *parent)
 				   NULL);
 
 	  if (currentUiMode == UIMODE_SOUND)
-	    pixmap = gc_pixmap_load("gcompris/misc/Tux_mute.png");
+	    pixmap = gc_pixmap_load("memory/Tux_mute.png");
 	  else
 	    pixmap = gc_pixmap_load("memory/cardimage/backcard.png");
 
@@ -1312,7 +1312,7 @@ static void create_item(GnomeCanvasGroup *parent)
 	  get_image(memoryItem, x, y);
 
 	  if (currentUiMode == UIMODE_SOUND){
-	    pixmap = gc_pixmap_load("gcompris/misc/Tux_play.png");
+	    pixmap = gc_pixmap_load("memory/Tux_play.png");
 	    memoryItem->frontcardItem =	\
 	      gnome_canvas_item_new (GNOME_CANVAS_GROUP(memoryItem->rootItem),
 				     gnome_canvas_pixbuf_get_type (),

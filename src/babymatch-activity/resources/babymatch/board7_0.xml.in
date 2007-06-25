@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ShapeGame>
+  <Shape name="1" pixmapfile="skin:gcompris-shapelabel.png" type="SHAPE_BACKGROUND"
+	 x="405" y="460" zoomx="1" zoomy="1" position="0"/>
+  <Title   x="394" y="460" justification="GTK_JUSTIFY_CENTER" color_skin="gcompris/text button">
+    <_name>Drag and Drop the items to make them match</_name>
+  </Title>
+  <Shape name="A" pixmapfile="babymatch/sun.png" type="SHAPE_BACKGROUND"
+	 x="194" y="200" zoomx="1" zoomy="1" position="0"/>
+  <Shape name="D" pixmapfile="babymatch/lamp.png"
+	 x="194" y="350" zoomx="1" zoomy="1" position="0"/>
+  <Shape name="B" pixmapfile="babymatch/gramophone.png" type="SHAPE_BACKGROUND"      
+	 x="394" y="200" zoomx="1" zoomy="1" position="0"/>
+  <Shape name="E" pixmapfile="babymatch/bell.png"     
+	 x="394" y="350" zoomx="1" zoomy="1" position="0"/>
+  <Shape name="M" pixmapfile="babymatch/umbrella.png" type="SHAPE_BACKGROUND"
+	 x="594" y="200" zoomx="1" zoomy="1" position="0" />
+  <Shape name="F" pixmapfile="babymatch/lifebuoy.png"       
+	 x="594" y="350" zoomx="1" zoomy="1" position="0"/>
+</ShapeGame>
