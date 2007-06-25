@@ -19,10 +19,6 @@
 
 #include <string.h>
 
-/* libxml includes */
-#include <libxml/tree.h>
-#include <libxml/parser.h>
-
 #include "gcompris/gcompris.h"
 
 #define SOUNDLISTFILE PACKAGE
@@ -40,9 +36,6 @@ static void		 process_ok(void);
 static void		 highlight_selected(int);
 static void		 game_won(void);
 
-static void 		 init_xml();
-static gboolean 	 read_xml_file(char *fname);
-
 /* ================================================================ */
 static GnomeCanvasGroup *boardRootItem = NULL;
 static GnomeCanvasItem *highlight_image_item = NULL;
@@ -59,12 +52,26 @@ static void update_clock();
 static int highlight_width, highlight_height, errors;
 static GList * listColors = NULL;
 
-#define LAST_COLOR 11
 #define MAX_ERRORS 10
 #define CLOCK_X 40
 #define CLOCK_Y 420
 
-static char* colors[LAST_COLOR];
+static gchar* colors[] =
+  {
+    N_("blue"),
+    N_("brown"),
+    N_("green"),
+    N_("grey"),
+    N_("orange"),
+    N_("violet"),
+    N_("red"),
+    N_("yellow"),
+    N_("black"),
+    N_("white"),
+    N_("pink"),
+  };
+
+#define LAST_COLOR G_N_ELEMENTS(colors)
 
 static int X[] = {100,300,500,700,200,400,600,100,300,500,700};
 static int Y[] = {90,90,90,90,180,180,180,270,270,270,270};
@@ -131,15 +138,14 @@ static void start_board (GcomprisBoard *agcomprisBoard) {
 
   if(agcomprisBoard!=NULL) {
     gcomprisBoard=agcomprisBoard;
-    gc_set_background(gnome_canvas_root(gcomprisBoard->canvas), "read_colors/read_colors_background.png");
+    gc_set_background(gnome_canvas_root(gcomprisBoard->canvas),
+		      "read_colors/read_colors_background.png");
     gcomprisBoard->level=1;
     gcomprisBoard->maxlevel=1;
     gc_bar_set(0);
 
     gamewon = FALSE;
     errors = MAX_ERRORS;
-
-    init_xml();
 
     // we generate a list of color indexes in a random order
     while (g_list_length(listColors) > 0)
@@ -208,7 +214,7 @@ static void read_colors_next_level() {
   /* show text of color to find */
   color_item = gnome_canvas_item_new (boardRootItem,
 				      gnome_canvas_text_get_type (),
-				      "text", colors[GPOINTER_TO_INT(g_list_nth_data(listColors,0))],
+				      "text", gettext(colors[GPOINTER_TO_INT(g_list_nth_data(listColors,0))]),
 				      "font", gc_skin_font_board_title_bold,
 				      "x", (double) (color_x1+color_x2)/2,
 				      "y", (double) (color_y1+color_y2)/2,
@@ -286,11 +292,11 @@ static GnomeCanvasItem *read_colors_create_item(GnomeCanvasGroup *parent) {
  *
  * =====================================================================*/
 static void update_clock() {
-  char *str = g_strdup_printf("%s%d.png", "gcompris/timers/clock",errors);
+  char *str = g_strdup_printf("%s%d.png", "timers/clock",errors);
 
   gtk_object_destroy (GTK_OBJECT(clock_image_item));
 
-  clock_pixmap = gc_pixmap_load(str);
+  clock_pixmap = gc_skin_pixmap_load(str);
 
   clock_image_item = gnome_canvas_item_new (boardRootItem,
 					    gnome_canvas_pixbuf_get_type (),
@@ -400,96 +406,4 @@ static void highlight_selected(int c) {
   y -= highlight_height/2;
   gnome_canvas_item_show(highlight_image_item);
   gc_item_absolute_move(highlight_image_item, x, y);
-}
-/* ===================================
- *                XML stuff
- * ==================================== */
-static void init_xml()
-{
-  char *filename;
-
-  filename = gc_file_find_absolute("%s/board1.xml",
-				   gcomprisBoard->boarddir);
-
-  g_assert(read_xml_file(filename)== TRUE);
-
-  g_free(filename);
-}
-
-/* ==================================== */
-static void add_xml_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child)
-{
-  char *text = NULL;
-  char *sColor = NULL;
-  int i;
-
-  xmlnode = xmlnode->xmlChildrenNode;
-
-  xmlnode = xmlnode->next;
-
-  while (xmlnode != NULL) {
-
-    // try to match color[i]
-    for (i=0; i<LAST_COLOR; i++) {
-      sColor = g_strdup_printf("color%d", i+1);
-      if (!strcmp((char *)xmlnode->name, sColor)) {
-	text = \
-	  gettext((char *)xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 1));
-	colors[i] = text;
-	g_free(sColor);
-	break;
-      }
-      g_free(sColor);
-    } // end for
-    xmlnode = xmlnode->next;
-  }
-
-  // I really don't know why this test, but otherwise, the list is doubled
-  // with 1 line on 2 filled with NULL elements
-  if ( text == NULL)
-    return;
-
-}
-
-/* ==================================== */
-static void parse_doc(xmlDocPtr doc)
-{
-  xmlNodePtr node;
-
-  for(node = doc->children->children; node != NULL; node = node->next) {
-    if ( g_strcasecmp((gchar *)node->name, "Board") == 0 )
-      add_xml_data(doc, node,NULL);
-  }
-
-}
-/* ==================================== */
-/* read an xml file into our memory structures and update our view,
-   dump any old data we have in memory if we can load a new set */
-static gboolean read_xml_file(char *fname)
-{
-  /* pointer to the new doc */
-  xmlDocPtr doc;
-
-  g_return_val_if_fail(fname!=NULL,FALSE);
-
-  /* parse the new file and put the result into newdoc */
-  doc = gc_net_load_xml(fname);
-
-  /* in case something went wrong */
-  if(!doc)
-    return FALSE;
-
-  if(/* if there is no root element */
-     !doc->children ||
-     /* if it doesn't have a name */
-     !doc->children->name ||
-     /* if it isn't a ImageId node */
-     g_strcasecmp((char *)doc->children->name,"ReadColors")!=0) {
-    xmlFreeDoc(doc);
-    return FALSE;
-  }
-
-  parse_doc(doc);
-  xmlFreeDoc(doc);
-  return TRUE;
 }

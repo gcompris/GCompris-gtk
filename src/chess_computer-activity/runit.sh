@@ -1,4 +1,4 @@
-activity=chess_computer
+activity=chess
 
 plugindir=.
 if [ -f .libs/lib$activity.so ]
