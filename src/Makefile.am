@@ -80,4 +80,37 @@ SUBDIRS = libart_lgpl libgnomecanvas libccc gcompris boards \
 	wordsgame-activity \
 	anim-activity \
 	administration-activity \
-	algorithm-activity
+	algorithm-activity \
+	ballcatch-activity \
+	bargame-activity \
+	chat-activity \
+	clickanddraw-activity \
+	connect4-2players-activity \
+	connect4-activity \
+	drawnumber-activity \
+	draw-activity \
+	electric-activity \
+	followline-activity \
+	gnumch-equality-activity \
+	gnumch-factors-activity \
+	gnumch-inequality-activity \
+	gnumch-multiples-activity \
+	gnumch-primes-activity \
+	guessnumber-activity \
+	hexagon-activity \
+	login-activity \
+	melody-activity \
+	mosaic-activity \
+	pythontemplate-activity \
+	pythontest-activity \
+	redraw_symmetrical-activity \
+	redraw-activity \
+	searace1player-activity \
+	searace-activity \
+	sudoku-activity \
+	tuxpaint-activity \
+	watercycle-activity \
+	writing_tutor_image_match-activity \
+	writing_tutor_missing_match-activity \
+	writing_tutor_pattern_admin-activity \
+	writing_tutor_template_match-activity

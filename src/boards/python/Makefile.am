@@ -1,2 +1,2 @@
-SUBDIRS=gcompris connect4p admin DTW
+SUBDIRS=gcompris
 
