@@ -95,7 +95,7 @@ class Gcompris_mosaic:
     gcompris.bar_set_level(self.gcomprisBoard)
 
     gcompris.set_background(self.gcomprisBoard.canvas.root(),
-                            "opt/mosaic_bg.png")
+                            "mosaic/mosaic_bg.png")
 
     self.display_game()
 
@@ -242,7 +242,7 @@ class Gcompris_mosaic:
       self.current_index_x = -1
       self.current_index_y = -1
 
-      palette = gcompris.utils.load_pixmap("images/mosaic_palette.png")
+      palette = gcompris.utils.load_pixmap("mosaic/mosaic_palette.png")
 
       self.display_mosaic(self.orig_x, self.orig_y, True, palette)
 

@@ -34,7 +34,7 @@ class Gcompris_ballcatch:
     self.gcomprisBoard.sublevel=1
     self.gcomprisBoard.number_of_sublevel=1
     gcompris.bar_set(gcompris.BAR_LEVEL)
-    gcompris.set_background(self.gcomprisBoard.canvas.root(),"opt/beach1.png")
+    gcompris.set_background(self.gcomprisBoard.canvas.root(),"ballcatch/beach1.png")
     gcompris.bar_set_level(self.gcomprisBoard)
 
 
@@ -52,7 +52,7 @@ class Gcompris_ballcatch:
     # Tux
     self.lefthand = self.rootitem.add(
       gnomecanvas.CanvasPixbuf,
-      pixbuf = gcompris.utils.load_pixmap("gcompris/misc/tux.png"),
+      pixbuf = gcompris.utils.load_pixmap("ballcatch/tux.png"),
       x=gcompris.BOARD_WIDTH/2 - 60,
       y=135.0
       )
@@ -70,7 +70,7 @@ class Gcompris_ballcatch:
     # The Left Hand
     self.lefthand = self.rootitem.add(
       gnomecanvas.CanvasPixbuf,
-      pixbuf = gcompris.utils.load_pixmap("gcompris/misc/hand.png"),
+      pixbuf = gcompris.utils.load_pixmap("ballcatch/hand.png"),
       x=gcompris.BOARD_WIDTH/2-150.0,
       y=gcompris.BOARD_HEIGHT - 150
       )
@@ -78,7 +78,7 @@ class Gcompris_ballcatch:
     # The Right Hand
     item = self.lefthand = self.rootitem.add(
       gnomecanvas.CanvasPixbuf,
-      pixbuf = gcompris.utils.load_pixmap("gcompris/misc/hand.png"),
+      pixbuf = gcompris.utils.load_pixmap("ballcatch/hand.png"),
       x=gcompris.BOARD_WIDTH/2+100.0,
       y=gcompris.BOARD_HEIGHT - 150.0
       )
@@ -90,7 +90,7 @@ class Gcompris_ballcatch:
     # The Left Shift KEY
     self.leftkey = self.rootitem.add(
       gnomecanvas.CanvasPixbuf,
-      pixbuf = gcompris.utils.load_pixmap("images/shift_key.png"),
+      pixbuf = gcompris.utils.load_pixmap("ballcatch/shift_key.png"),
       x=gcompris.BOARD_WIDTH/2-240.0,
       y=gcompris.BOARD_HEIGHT - 80
       )
@@ -98,7 +98,7 @@ class Gcompris_ballcatch:
     # The Right Shift KEY
     self.rightkey = self.rootitem.add(
       gnomecanvas.CanvasPixbuf,
-      pixbuf = gcompris.utils.load_pixmap("images/shift_key.png"),
+      pixbuf = gcompris.utils.load_pixmap("ballcatch/shift_key.png"),
       x=gcompris.BOARD_WIDTH/2+100.0,
       y=gcompris.BOARD_HEIGHT - 80
       )
@@ -183,22 +183,22 @@ class Gcompris_ballcatch:
 
     if(self.gcomprisBoard.level == 1):
       self.timerinc = 900
-      gcompris.set_background(self.gcomprisBoard.canvas.root(),"opt/beach1.png")
+      gcompris.set_background(self.gcomprisBoard.canvas.root(),"ballcatch/beach1.png")
     elif(self.gcomprisBoard.level == 2):
       self.timerinc = 350
     elif(self.gcomprisBoard.level == 3):
       self.timerinc = 300
-      gcompris.set_background(self.gcomprisBoard.canvas.root(),"opt/beach2.png")
+      gcompris.set_background(self.gcomprisBoard.canvas.root(),"ballcatch/beach2.png")
     elif(self.gcomprisBoard.level == 4):
       self.timerinc = 200
     elif(self.gcomprisBoard.level == 5):
       self.timerinc = 150
-      gcompris.set_background(self.gcomprisBoard.canvas.root(),"opt/beach3.png")
+      gcompris.set_background(self.gcomprisBoard.canvas.root(),"ballcatch/beach3.png")
     elif(self.gcomprisBoard.level == 6):
       self.timerinc = 100
     elif(self.gcomprisBoard.level == 7):
       self.timerinc = 60
-      gcompris.set_background(self.gcomprisBoard.canvas.root(),"opt/beach4.png")
+      gcompris.set_background(self.gcomprisBoard.canvas.root(),"ballcatch/beach4.png")
     elif(self.gcomprisBoard.level == 8):
       self.timerinc = 30
     elif(self.gcomprisBoard.level == 9):

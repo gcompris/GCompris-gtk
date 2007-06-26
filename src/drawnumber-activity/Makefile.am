@@ -2,6 +2,6 @@ SUBDIRS = activity
 
 pythondir = $(PYTHON_PLUGIN_DIR)
 
-dist_python_DATA= 	drawnumber.py
+dist_python_DATA= 	drawnumber.py clickanddraw.py
 
 

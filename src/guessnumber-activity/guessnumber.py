@@ -17,6 +17,7 @@
 #   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 #
 
+import gobject
 import gnomecanvas
 import gcompris
 import gcompris.utils
@@ -88,7 +89,7 @@ class Gcompris_guessnumber:
 
     gcompris.bar_set_level(self.gcomprisBoard)
 
-    gcompris.set_background(self.gcomprisBoard.canvas.root(), "opt/cave.png")
+    gcompris.set_background(self.gcomprisBoard.canvas.root(), "guessnumber/cave.png")
 
     self.display_game()
 
@@ -249,7 +250,7 @@ class Gcompris_guessnumber:
       #
       # Display the helico
       #
-      pixmap = gcompris.utils.load_pixmap("gcompris/misc/tuxhelico.png")
+      pixmap = gcompris.utils.load_pixmap("guessnumber/tuxhelico.png")
       self.helico_width = pixmap.get_width()
       self.helico_height = pixmap.get_height()
       self.orig_x = self.x_old = self.x = pixmap.get_width()/2 + 10
@@ -387,4 +388,4 @@ class Gcompris_guessnumber:
     self.move_stepnum = 0
 
     # it takes self.num_moveticks iterations of duration self.move_tick to move squares
-    self.movestep_timer = gtk.timeout_add(self.move_tick, self.move_step)
+    self.movestep_timer = gobject.timeout_add(self.move_tick, self.move_step)
