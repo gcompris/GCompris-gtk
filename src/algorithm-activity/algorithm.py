@@ -68,13 +68,20 @@ class Gcompris_algorithm:
   def start(self):
     gcompris.bar_set (0)
     gcompris.set_background(self.gcomprisBoard.canvas.root(),
-                            "opt/scenery5_background.png")
+                            "algorithm/scenery5_background.png")
     self.gcomprisBoard.level=1
     self.gcomprisBoard.sublevel=1
     self.gcomprisBoard.number_of_sublevel=5
     self.gcomprisBoard.maxlevel = 1
 
-    self.symbollist = ["gcompris/misc/apple.png","gcompris/misc/strawberry.png","gcompris/misc/peer.png","gcompris/misc/football.png","gcompris/misc/cerise.png","gcompris/misc/egg.png","gcompris/misc/glass.png","gcompris/misc/eggpot.png"]
+    self.symbollist = ["algorithm/apple.png",
+                       "algorithm/strawberry.png",
+                       "algorithm/peer.png",
+                       "algorithm/football.png",
+                       "algorithm/cerise.png",
+                       "algorithm/egg.png",
+                       "algorithm/glass.png",
+                       "algorithm/eggpot.png"]
     self.pixlist = []
     for i in range (len(self.symbollist)):
      pixbuf2 = gcompris.utils.load_pixmap(self.symbollist [i])
@@ -173,11 +180,9 @@ class Gcompris_algorithm:
      font = gcompris.skin.get_font("gcompris/board/huge bold"))
 
   def key_press(self, keyval, commit_str, preedit_str):
-    print("got key %i" % keyval)
     return False
 
   def set_level(self, level):
-    print("Gcompris_algorithm set level. %i" % level)
     self.gcomprisBoard.level=level;
     self.gcomprisBoard.sublevel=1;
     self.cleanup()

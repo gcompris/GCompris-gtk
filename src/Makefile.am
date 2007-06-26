@@ -78,4 +78,6 @@ SUBDIRS = libart_lgpl libgnomecanvas libccc gcompris boards \
 	traffic-activity \
 	wordprocessor-activity \
 	wordsgame-activity \
-	anim-activity
+	anim-activity \
+	administration-activity \
+	algorithm-activity
