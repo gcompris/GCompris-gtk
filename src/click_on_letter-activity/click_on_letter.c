@@ -160,7 +160,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
     {
       gcomprisBoard=agcomprisBoard;
       gc_set_background(gnome_canvas_root(gcomprisBoard->canvas),
-			      "opt/scenery4_background.png");
+			      "click_on_letter/scenery4_background.png");
       gcomprisBoard->level=1;
       gcomprisBoard->maxlevel=NUMBER_OF_LEVELS;
       gcomprisBoard->sublevel=1;
@@ -402,7 +402,7 @@ static GnomeCanvasItem *click_on_letter_create_item(GnomeCanvasGroup *parent)
 							    NULL));
 
 
-  button_pixmap = gc_pixmap_load("images/wagon-yellow.png");
+  button_pixmap = gc_pixmap_load("click_on_letter/wagon-yellow.png");
 
   yOffset = VERTICAL_SEPARATION;
   xOffset = 5;
@@ -516,7 +516,7 @@ static void highlight_selected(GnomeCanvasItem * item) {
   }
 
   if (selected_button != NULL && selected_button != button) {
-    button_pixmap = gc_pixmap_load("images/wagon-yellow.png");
+    button_pixmap = gc_pixmap_load("click_on_letter/wagon-yellow.png");
     /* Warning changing the image needs to update pixbuf_ref for the focus usage */
     gc_item_focus_free(selected_button, NULL);
     gnome_canvas_item_set(selected_button, "pixbuf", button_pixmap, NULL);
@@ -524,7 +524,7 @@ static void highlight_selected(GnomeCanvasItem * item) {
   }
 
   if (selected_button != button) {
-    button_pixmap_selected = gc_pixmap_load("images/wagon-green.png");
+    button_pixmap_selected = gc_pixmap_load("click_on_letter/wagon-green.png");
     /* Warning changing the image needs to update pixbuf_ref for the focus usage */
       gc_item_focus_free(button, NULL);
     gnome_canvas_item_set(button, "pixbuf", button_pixmap_selected, NULL);

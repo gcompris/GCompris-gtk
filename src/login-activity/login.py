@@ -30,11 +30,11 @@ import math
 
 # Background screens
 backgrounds = [
-  "opt/scenery2_background.png",
-  "opt/scenery3_background.png",
-  "opt/scenery4_background.png",
-  "opt/scenery5_background.png",
-  "opt/scenery6_background.png"
+  "login/scenery2_background.png",
+  "login/scenery3_background.png",
+  "login/scenery4_background.png",
+  "login/scenery5_background.png",
+  "login/scenery6_background.png"
 ]
 
 MAX_USERS_AT_ONCE = 10
