@@ -368,8 +368,6 @@ _gc_configure_event_callback (GtkWidget   *widget,
   zoom_factor=MIN(xratio, yratio);
   g_message("The screen_width=%f screen_height=%f ratio=%f\n",
 	    (double)screen_width, (double)screen_height, zoom_factor);
-  printf("The screen_width=%f screen_height=%f ratio=%f\n",
-	    (double)screen_width, (double)screen_height, zoom_factor);
 
   gtk_widget_set_usize (GTK_WIDGET(canvas), BOARDWIDTH*zoom_factor, BOARDHEIGHT*zoom_factor);
   gnome_canvas_set_pixels_per_unit (canvas, zoom_factor);
