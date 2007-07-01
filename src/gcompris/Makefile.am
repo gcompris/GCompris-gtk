@@ -56,8 +56,7 @@ INCLUDES = \
         $(sqlite_cflags) \
 	$(GNET_CFLAGS) \
 	$(cairo_cflags) \
-	$(NSBUNDLE_CPPFLAGS) \
-	-I$(top_srcdir)/src/libccc/
+	$(NSBUNDLE_CPPFLAGS)
 
 gcompris_SOURCES = \
 	$(cairo_c) \
@@ -123,8 +122,7 @@ gcompris_SOURCES = \
 gcompris_LDFLAGS = \
 	-export-dynamic $(cairo_ldflags) \
 	$(top_builddir)/src/libgnomecanvas/libgnomecanvas-2.a \
-	$(top_builddir)/src/libart_lgpl/libart_lgpl_2.a \
-	$(top_builddir)/src/libccc/ccc/.libs/libccc-0.1.a
+	$(top_builddir)/src/libart_lgpl/libart_lgpl_2.a
 
 
 gcompris_LDADD = \

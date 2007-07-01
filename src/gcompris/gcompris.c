@@ -40,8 +40,6 @@
 #include "gcompris-nsbundle.h"
 #endif
 
-#include <ccc/ccc.h>
-
 /* get the default database name */
 #define DEFAULT_DATABASE "gcompris_sqlite.db"
 
@@ -57,9 +55,6 @@ static GnomeCanvas *canvas;
 static GnomeCanvas *canvas_bar;
 static GtkWidget *fixed;
 static GtkWidget *drawing_area;
-#if 0
-static GtkWidget* cccanvas_root;
-#endif
 gchar * exec_prefix = NULL;
 
 //static gint pause_board_cb (GtkWidget *widget, gpointer data);
@@ -245,94 +240,6 @@ static GOptionEntry options[] = {
   { NULL }
 };
 
-/****************************************************************************/
-#define N_POINTS  12
-#define RADIUS 100.0
-#define STEP 0.02
-#define X(radius, angle)  ((radius)*RADIUS*cos(M_PI*((double) angle)/N_POINTS))
-#define Y(radius, angle)  ((radius)*RADIUS*sin(M_PI*((double) angle)/N_POINTS))
-
-static void
-update_bounds(CcItem* moving_line, CcView* view, CcDRect* bounds, CcRectangle* rect) {
-	if(!bounds) {
-		return;
-	}
-
-	cc_rectangle_set_position(rect,
-				  bounds->x1, bounds->y1,
-				  bounds->x2 - bounds->x1,
-				  bounds->y2 - bounds->y1);
-}
-
-static gboolean
-enter_callback(CcShape* shape, CcView* view, GdkEventCrossing* ev) {
-	CcColor* color = cc_color_new_rgb(1.0, 0.0, 0.0);
-	cc_shape_set_brush_border(shape, CC_BRUSH(color));
-	return TRUE;
-}
-
-static gboolean
-leave_callback(CcShape* shape, CcView* view, GdkEventCrossing* ev) {
-	CcColor* color = cc_color_new_rgb(0.0, 0.0, 1.0);
-	cc_shape_set_brush_border(shape, CC_BRUSH(color));
-	return FALSE;
-}
-
-static int ccindex = 1;
-static CcItem *rounded_line = NULL;
-
-static gboolean
-timer_callback(gpointer data)
-{
-  int i;
-  float  angle = ccindex*STEP;
-
-  for (i=0; i <  N_POINTS; i++)
-    cc_line_data_set_position(CC_LINE(rounded_line), 2*i+1, X(1.5 + cos(M_PI*((double) angle)/N_POINTS),  2*i + 1 + angle),  Y(1.5 + cos(M_PI*((double) angle)/N_POINTS),  2*i + 1 + angle));
-
-  ccindex = (ccindex+1) % ((int) (2*N_POINTS*1/STEP));
-
-  return TRUE;
-}
-
-GtkWidget*
-test_ccc()
-{
-  GtkWidget* cccanvas_root;
-  CcItem* item   = cc_item_new();
-  rounded_line   = cc_line_new();
-  CcItem* rect   = cc_rectangle_new();
-  CcItem* text   = cc_text_new("GCompris Rulez");
-  g_signal_connect(G_OBJECT(rounded_line), "all-bounds-changed",
-		   G_CALLBACK(update_bounds), rect);
-
-  cc_line_move(CC_LINE(rounded_line), X(1, 0), Y(1, 0));
-
-  int i;
-  for (i=0; i <  N_POINTS; i++) {
-    cc_line_line(CC_LINE(rounded_line), X(0.5, 2*i + 1), Y(0.5, 2*i + 1));
-    cc_line_line(CC_LINE(rounded_line), X(1, 2*i+2), Y(1, 2*i+2));
-  }
-
-  cc_shape_set_brush_border(CC_SHAPE(rect), CC_BRUSH(cc_color_new_rgb(1.0, 0.0, 0.0)));
-  cc_shape_set_brush_border(CC_SHAPE(rounded_line), CC_BRUSH(cc_color_new_rgb(0.0, 0.0, 1.0)));
-  cc_item_append(item, rect);
-  cc_item_append(item, rounded_line);
-  cc_item_append(item, text);
-
-  g_signal_connect(rounded_line, "enter-notify-event",
-		   G_CALLBACK(enter_callback), NULL);
-  g_signal_connect(rounded_line, "leave-notify-event",
-		   G_CALLBACK(leave_callback), NULL);
-
-  g_timeout_add  (10, (GSourceFunc) timer_callback, NULL);
-
-  cccanvas_root = cc_view_widget_new_root(item);
-  cc_view_set_zoom(CC_VIEW(cccanvas_root), 1.0);
-
-  return cccanvas_root;
-}
-
 /* Remove any dialog box */
 static void gc_close_all_dialog() {
   gc_dialog_close();
@@ -380,14 +287,6 @@ _gc_configure_event_callback (GtkWidget   *widget,
   gtk_fixed_move(GTK_FIXED(fixed), GTK_WIDGET(canvas_bar),
 		 (screen_width-BOARDWIDTH*zoom_factor)/2,
 		 (screen_height-(BOARDHEIGHT+BARHEIGHT)*zoom_factor)/2 + BOARDHEIGHT*zoom_factor);
-
-#if 0
-  gtk_widget_set_usize (GTK_WIDGET(cccanvas_root),
-			BOARDWIDTH*zoom_factor,
-			BOARDHEIGHT*zoom_factor);
-  cc_view_set_zoom(CC_VIEW(cccanvas_root),
-		   zoom_factor);
-#endif
 
   _expose_background_callback (drawing_area, NULL, NULL);
 
@@ -663,12 +562,6 @@ init_background()
 				  0, 0,
 				  BOARDWIDTH,
 				  BARHEIGHT);
-#if 0
-  cccanvas_root = test_ccc();
-  gtk_widget_show(GTK_WIDGET(cccanvas_root));
-  gtk_fixed_put (GTK_FIXED(fixed), GTK_WIDGET(cccanvas_root), 0, 0);
-  gtk_widget_set_usize (GTK_WIDGET(cccanvas_root), BOARDWIDTH, BOARDHEIGHT);
-#endif
 }
 
 static void setup_window ()
