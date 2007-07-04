@@ -14,6 +14,7 @@
 
 
 
+
 srcdir = .
 top_srcdir = ../..
 
@@ -37,6 +38,7 @@ POST_UNINSTALL = :
 build_triplet = i686-pc-linux-gnu
 host_triplet = i686-pc-linux-gnu
 target_triplet = i686-pc-linux-gnu
+noinst_PROGRAMS = gen_art_config$(EXEEXT)
 subdir = src/libart_lgpl
 DIST_COMMON = README $(srcdir)/Makefile.am $(srcdir)/Makefile.in \
 	AUTHORS COPYING ChangeLog NEWS
@@ -74,6 +76,10 @@ am_libart_lgpl_2_a_OBJECTS = $(am__objects_1) art_affine.$(OBJEXT) \
 	art_vpath_bpath.$(OBJEXT) art_vpath_dash.$(OBJEXT) \
 	art_vpath_svp.$(OBJEXT) libart-features.$(OBJEXT)
 libart_lgpl_2_a_OBJECTS = $(am_libart_lgpl_2_a_OBJECTS)
+PROGRAMS = $(noinst_PROGRAMS)
+gen_art_config_SOURCES = gen_art_config.c
+gen_art_config_OBJECTS = gen_art_config.$(OBJEXT)
+gen_art_config_LDADD = $(LDADD)
 DEFAULT_INCLUDES = -I. -I$(srcdir) -I$(top_builddir)
 depcomp = $(SHELL) $(top_srcdir)/depcomp
 am__depfiles_maybe = depfiles
@@ -85,29 +91,29 @@ LTCOMPILE = $(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) \
 CCLD = $(CC)
 LINK = $(LIBTOOL) --tag=CC --mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) \
 	$(AM_LDFLAGS) $(LDFLAGS) -o $@
-SOURCES = $(libart_lgpl_2_a_SOURCES)
-DIST_SOURCES = $(libart_lgpl_2_a_SOURCES)
+SOURCES = $(libart_lgpl_2_a_SOURCES) gen_art_config.c
+DIST_SOURCES = $(libart_lgpl_2_a_SOURCES) gen_art_config.c
 ETAGS = etags
 CTAGS = ctags
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
-ACLOCAL = ${SHELL} /home/bruno/Projets/gcompris/trunk/missing --run aclocal-1.9
+ACLOCAL = ${SHELL} /home/bruno/Projets/gcomprixo/missing --run aclocal-1.9
 ALLOCA = 
 ALL_LINGUAS = am ar ar_TN az bg ca cs da de dz el en_CA en_GB es et eu fi fr ga gl gu he hi hr hu id it ja ka ko lt mk ml mr ms nb ne nl nn oc pa pl pt pt_BR ro ru rw sk sl so sq sr sr@Latn sv ta th tr vi wa zh_CN zh_TW
 AMDEP_FALSE = #
 AMDEP_TRUE = 
-AMTAR = ${SHELL} /home/bruno/Projets/gcompris/trunk/missing --run tar
+AMTAR = ${SHELL} /home/bruno/Projets/gcomprixo/missing --run tar
 AR = ar
 AS = as
-AUTOCONF = ${SHELL} /home/bruno/Projets/gcompris/trunk/missing --run autoconf
-AUTOHEADER = ${SHELL} /home/bruno/Projets/gcompris/trunk/missing --run autoheader
-AUTOMAKE = ${SHELL} /home/bruno/Projets/gcompris/trunk/missing --run automake-1.9
-AWK = gawk
+AUTOCONF = ${SHELL} /home/bruno/Projets/gcomprixo/missing --run autoconf
+AUTOHEADER = ${SHELL} /home/bruno/Projets/gcomprixo/missing --run autoheader
+AUTOMAKE = ${SHELL} /home/bruno/Projets/gcomprixo/missing --run automake-1.9
+AWK = mawk
 BINRELOC_CFLAGS = -DENABLE_BINRELOC
 BINRELOC_LIBS = 
-BUILD_DATE = 0705
+BUILD_DATE = 0707
 BUILD_MINGW32_FALSE = 
 BUILD_MINGW32_TRUE = #
-BUNDLE_APPDIR = /home/bruno/Projets/gcompris/trunk/GCompris.app
+BUNDLE_APPDIR = /home/bruno/Projets/gcomprixo/GCompris.app
 BUNDLE_NAME = GCompris
 CAIRO_CFLAGS = 
 CAIRO_LIBS = 
@@ -146,7 +152,7 @@ GMOFILES =  am.gmo ar.gmo ar_TN.gmo az.gmo bg.gmo ca.gmo cs.gmo da.gmo de.gmo dz
 GMSGFMT = /usr/bin/msgfmt
 GNET_CFLAGS = 
 GNET_LIBS = 
-GNUCHESS = gnome-gnuchess
+GNUCHESS = /usr/games/gnuchess
 GOBJECT_QUERY = gobject-query
 GREP = /bin/grep
 INSTALL_DATA = ${INSTALL} -m 644
@@ -181,7 +187,7 @@ INTLTOOL_XAM_RULE = %.xam:       %.xml.in       $(INTLTOOL_MERGE) $(wildcard $(t
 INTLTOOL_XGETTEXT = /usr/bin/xgettext
 INTLTOOL_XML_NOMERGE_RULE = %.xml:       %.xml.in       $(INTLTOOL_MERGE) ; LC_ALL=C $(INTLTOOL_MERGE) -x -u /tmp $< $@
 INTLTOOL_XML_RULE = %.xml:       %.xml.in       $(INTLTOOL_MERGE) $(wildcard $(top_srcdir)/po/*.po) ; LC_ALL=C $(INTLTOOL_MERGE) -x -u -c $(top_builddir)/po/.intltool-merge-cache $(top_srcdir)/po $< $@
-LDFLAGS =   -lXxf86vm
+LDFLAGS = 
 LIBICONV = 
 LIBOBJS = 
 LIBS = 
@@ -192,7 +198,7 @@ LTLIBOBJS =
 MAINT = 
 MAINTAINER_MODE_FALSE = #
 MAINTAINER_MODE_TRUE = 
-MAKEINFO = ${SHELL} /home/bruno/Projets/gcompris/trunk/missing --run makeinfo
+MAKEINFO = ${SHELL} /home/bruno/Projets/gcomprixo/missing --run makeinfo
 MKINSTALLDIRS = ./mkinstalldirs
 MSGFMT = /usr/bin/msgfmt
 MSGFMT_OPTS = -c
@@ -243,11 +249,11 @@ PYTHON_PLUGIN_TRUE =
 PYTHON_PREFIX = ${prefix}
 PYTHON_VERSION = 2.5
 RANLIB = ranlib
-REQUIRE_PYTHON = python pygtk2.0 python-sqlite2
+REQUIRE_PYTHON = python pygtk2.0
 SET_MAKE = 
 SHELL = /bin/bash
-SQLITE3_CFLAGS =  
-SQLITE3_LIBS = -lsqlite3  
+SQLITE3_CFLAGS = 
+SQLITE3_LIBS = 
 STRIP = strip
 TETEX = /usr/bin/texi2html
 TEXINFO = /usr/bin/makeinfo
@@ -256,9 +262,9 @@ TEXINFO_TRUE =
 USE_CAIRO_FALSE = 
 USE_CAIRO_TRUE = #
 USE_NLS = yes
-USE_SQLITE_FALSE = #
-USE_SQLITE_TRUE = 
-VERSION = 8.3.1
+USE_SQLITE_FALSE = 
+USE_SQLITE_TRUE = #
+VERSION = 8.4BETA1
 WITH_NSBUNDLE_FALSE = 
 WITH_NSBUNDLE_TRUE = #
 XGETTEXT = /usr/bin/xgettext
@@ -299,7 +305,7 @@ host_vendor = pc
 htmldir = ${docdir}
 includedir = ${prefix}/include
 infodir = ${datarootdir}/info
-install_sh = /home/bruno/Projets/gcompris/trunk/install-sh
+install_sh = /home/bruno/Projets/gcomprixo/install-sh
 libdir = ${exec_prefix}/lib
 libexecdir = ${exec_prefix}/libexec
 localedir = ${datarootdir}/locale
@@ -465,6 +471,16 @@ libart_lgpl_2.a: $(libart_lgpl_2_a_OBJECTS) $(libart_lgpl_2_a_DEPENDENCIES)
 	$(libart_lgpl_2_a_AR) libart_lgpl_2.a $(libart_lgpl_2_a_OBJECTS) $(libart_lgpl_2_a_LIBADD)
 	$(RANLIB) libart_lgpl_2.a
 
+clean-noinstPROGRAMS:
+	@list='$(noinst_PROGRAMS)'; for p in $$list; do \
+	  f=`echo $$p|sed 's/$(EXEEXT)$$//'`; \
+	  echo " rm -f $$p $$f"; \
+	  rm -f $$p $$f ; \
+	done
+gen_art_config$(EXEEXT): $(gen_art_config_OBJECTS) $(gen_art_config_DEPENDENCIES) 
+	@rm -f gen_art_config$(EXEEXT)
+	$(LINK) $(gen_art_config_LDFLAGS) $(gen_art_config_OBJECTS) $(gen_art_config_LDADD) $(LIBS)
+
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT)
 
@@ -510,6 +526,7 @@ include ./$(DEPDIR)/art_vpath.Po
 include ./$(DEPDIR)/art_vpath_bpath.Po
 include ./$(DEPDIR)/art_vpath_dash.Po
 include ./$(DEPDIR)/art_vpath_svp.Po
+include ./$(DEPDIR)/gen_art_config.Po
 include ./$(DEPDIR)/libart-features.Po
 
 .c.o:
@@ -621,7 +638,7 @@ distdir: $(DISTFILES)
 check-am: all-am
 check: $(BUILT_SOURCES)
 	$(MAKE) $(AM_MAKEFLAGS) check-am
-all-am: Makefile $(LIBRARIES)
+all-am: Makefile $(LIBRARIES) $(PROGRAMS)
 installdirs:
 install: $(BUILT_SOURCES)
 	$(MAKE) $(AM_MAKEFLAGS) install-am
@@ -654,7 +671,7 @@ maintainer-clean-generic:
 clean: clean-am
 
 clean-am: clean-generic clean-libtool clean-noinstLIBRARIES \
-	mostlyclean-am
+	clean-noinstPROGRAMS mostlyclean-am
 
 distclean: distclean-am
 	-rm -rf ./$(DEPDIR)
@@ -703,16 +720,16 @@ ps-am:
 uninstall-am: uninstall-info-am
 
 .PHONY: CTAGS GTAGS all all-am check check-am clean clean-generic \
-	clean-libtool clean-noinstLIBRARIES ctags distclean \
-	distclean-compile distclean-generic distclean-libtool \
-	distclean-tags distdir dvi dvi-am html html-am info info-am \
-	install install-am install-data install-data-am install-exec \
-	install-exec-am install-info install-info-am install-man \
-	install-strip installcheck installcheck-am installdirs \
-	maintainer-clean maintainer-clean-generic mostlyclean \
-	mostlyclean-compile mostlyclean-generic mostlyclean-libtool \
-	pdf pdf-am ps ps-am tags uninstall uninstall-am \
-	uninstall-info-am
+	clean-libtool clean-noinstLIBRARIES clean-noinstPROGRAMS ctags \
+	distclean distclean-compile distclean-generic \
+	distclean-libtool distclean-tags distdir dvi dvi-am html \
+	html-am info info-am install install-am install-data \
+	install-data-am install-exec install-exec-am install-info \
+	install-info-am install-man install-strip installcheck \
+	installcheck-am installdirs maintainer-clean \
+	maintainer-clean-generic mostlyclean mostlyclean-compile \
+	mostlyclean-generic mostlyclean-libtool pdf pdf-am ps ps-am \
+	tags uninstall uninstall-am uninstall-info-am
 
 
 art_config.h:	gen_art_config$(EXEEXT)
