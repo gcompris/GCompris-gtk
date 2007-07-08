@@ -143,7 +143,8 @@ gc_sound_fx_close()
 void
 gc_sound_bg_reopen()
 {
-  bg_play(NULL);
+  if(gc_prop_get()->music)
+    bg_play(NULL);
 }
 
 void
