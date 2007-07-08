@@ -1,1 +1,1 @@
-SUBDIRS = activity
+SUBDIRS = activity resources

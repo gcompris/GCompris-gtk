@@ -119,14 +119,6 @@ class Gcompris_tuxpaint:
 
     gcompris.sound.close()
 
-    # release pointergrab if running fullscreen, tuxpaint wants to grab the
-    # pointer itself
-    if (Prop.fullscreen and not Prop.noxf86vm):
-      gtk.gdk.pointer_ungrab()
-
-    #self.window.set_property("accept-focus", 0)
-    #self.window.set_keep_below(False)
-
     try:
        # bug in working_directory=None ?
        if (tuxpaint_dir):

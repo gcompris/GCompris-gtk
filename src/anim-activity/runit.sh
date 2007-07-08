@@ -1,9 +1,9 @@
 activity=anim
 
 plugindir=.
-if [ -f .libs/lib$activity.so ]
+if [ -f ../boards/.libs/libpython.so ]
 then
-  plugindir=.libs
+  plugindir=../boards/.libs
 fi
 
 ./gcompris.bin -L $plugindir -P . -A resources \

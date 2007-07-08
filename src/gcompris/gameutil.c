@@ -640,7 +640,9 @@ gc_file_find_absolute(const gchar *format, ...)
 
  FOUND:
   g_free(filename);
-  return absolute_filename;
+  char *abs_name = realpath(absolute_filename, NULL);
+  g_free(absolute_filename);
+  return abs_name;
 }
 
 /** Create a directory if needed.

@@ -113,22 +113,30 @@ class Gcompris_drawnumber :
     self.gcomprisBoard.sublevel=sublevel
     self.gcomprisBoard.number_of_sublevel=len(self.data)
     #Display of score
-    gcompris.score.start(gcompris.score.STYLE_NOTE, 10, 485,self.gcomprisBoard.number_of_sublevel)
+    gcompris.score.start(gcompris.score.STYLE_NOTE, 10, 485,
+                         self.gcomprisBoard.number_of_sublevel)
     gcompris.score.set(self.gcomprisBoard.sublevel)
 
     #Set point number 0 from which the draw start. This point is equal to first one.
-    self.POINT[0]=self.point(0,self.data[sublevel][1][0],self.data[sublevel][1][1],30)
+    self.POINT[0]=self.point(0,
+                             self.data[sublevel][1][0],
+                             self.data[sublevel][1][1],30)
     self.POINT[0].hide()
     self.MAX=self.data[sublevel][0][0]
 
+    print "ICI1"
     #Data loading from global data and display of points and numbers
     i=1
     while(i<=(self.MAX)):
-      self.TEXT.append(self.texte(i,self.data[sublevel][i][0],self.data[sublevel][i][1]))
-      self.TEXT[i].connect('event',self.action,i)
+      print i
+      self.TEXT.append(self.texte(i,
+                                  self.data[sublevel][i][0],
+                                  self.data[sublevel][i][1]))
+      self.TEXT[i].connect('event', self.action, i)
       self.TEXT[i].lower(300-i)
-      self.POINT.append(self.point(i,self.data[sublevel][i][0],self.data[sublevel][i][1],30))
-      self.POINT[i].connect('event',self.action,i)
+      self.POINT.append(self.point(i,self.data[sublevel][i][0],
+                                   self.data[sublevel][i][1],30))
+      self.POINT[i].connect('event', self.action, i)
 
       #Setting of display level to prevent from covert a point with another point which
       #cause an impossibility to select it.
@@ -138,19 +146,20 @@ class Gcompris_drawnumber :
     #Setting color of the first point to blue instead of green
     self.POINT[1].set(fill_color='blue')
 
-  def point(self,idpt,x,y,d=30):
+  def point(self, idpt, x, y, d=30):
     """Setting point from his x and y location"""
+    print "point"
     rond=self.ROOT.add(gnomecanvas.CanvasEllipse,
-      x1=(x-(d/2)),y1=(y-(d/2)),
-      x2=(x+(d/2)),y2=(y+(d/2)),
-      fill_color = "green", # default color is green and outline in black
-      outline_color = "black",
-      width_units = 1.5
-      )
+                       x1=(x-(d/2)),y1=(y-(d/2)),
+                       x2=(x+(d/2)),y2=(y+(d/2)),
+                       fill_color = "green", # default color is green and outline in black
+                       outline_color = "black",
+                       width_units = 1.5
+                       )
     rond.x,rond.y=x,y
     return rond
 
-  def texte(self,idpt,xt,yt):
+  def texte(self, idpt, xt, yt):
     """Setting text beside the point number idpt locate as xt, yt"""
     labell = self.ROOT.add(gnomecanvas.CanvasText,
                            x=xt,
