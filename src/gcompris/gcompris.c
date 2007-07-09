@@ -1294,7 +1294,13 @@ main (int argc, char *argv[])
 	  sscanf(result, "%ld", &seconds);
 
 	  if(current_time.tv_sec - seconds < GC_LOCK_LIMIT)
-	    exit(0);
+	    {
+	      printf(_("GCompris won't start because the lock file is less than %d seconds old.\n"),
+		     GC_LOCK_LIMIT);
+	      printf(_("The lock file is: %s\n"),
+		     lock_file);
+	      exit(0);
+	    }
 	}
 
       {
@@ -1307,7 +1313,7 @@ main (int argc, char *argv[])
 			    NULL);
       }
     }
-
+  g_free(lock_file);
 
   /* Set the locale */
 #if defined WIN32
