@@ -94,15 +94,16 @@ class Gcompris_drawnumber :
     if self.MAX!=0 :
       self.end()
 
-    #Creation of canvas group use by the activity
-    self.ROOT=self.gcomprisBoard.canvas.root().add(
+    # Setting of the first background image of the sublevel
+    gcompris.set_background(self.gcomprisBoard.canvas.root(),
+                            self.data[sublevel][0][1])
+
+    # Creation of canvas group use by the activity
+    self.ROOT = self.gcomprisBoard.canvas.root().add(
       gnomecanvas.CanvasGroup,
       x=0.0,
       y=0.0
       )
-
-    #Setting of the first background image of the sublevel
-    gcompris.set_background(self.ROOT, self.data[sublevel][0][1])
 
     #Initialisation of sub-elements in list
     self.POINT=[0]
@@ -124,14 +125,12 @@ class Gcompris_drawnumber :
     self.POINT[0].hide()
     self.MAX=self.data[sublevel][0][0]
 
-    print "ICI1"
     #Data loading from global data and display of points and numbers
     i=1
     while(i<=(self.MAX)):
-      print i
-      self.TEXT.append(self.texte(i,
-                                  self.data[sublevel][i][0],
-                                  self.data[sublevel][i][1]))
+      self.TEXT.append(self.text(i,
+                                 self.data[sublevel][i][0],
+                                 self.data[sublevel][i][1]))
       self.TEXT[i].connect('event', self.action, i)
       self.TEXT[i].lower(300-i)
       self.POINT.append(self.point(i,self.data[sublevel][i][0],
@@ -148,18 +147,17 @@ class Gcompris_drawnumber :
 
   def point(self, idpt, x, y, d=30):
     """Setting point from his x and y location"""
-    print "point"
-    rond=self.ROOT.add(gnomecanvas.CanvasEllipse,
-                       x1=(x-(d/2)),y1=(y-(d/2)),
-                       x2=(x+(d/2)),y2=(y+(d/2)),
-                       fill_color = "green", # default color is green and outline in black
-                       outline_color = "black",
-                       width_units = 1.5
-                       )
-    rond.x,rond.y=x,y
+    rond = self.ROOT.add(gnomecanvas.CanvasEllipse,
+                         x1=(x-(d/2)),y1=(y-(d/2)),
+                         x2=(x+(d/2)),y2=(y+(d/2)),
+                         fill_color = "green", # default color is green and outline in black
+                         outline_color = "black",
+                         width_units = 1.5
+                         )
+    rond.x,rond.y = x,y
     return rond
 
-  def texte(self, idpt, xt, yt):
+  def text(self, idpt, xt, yt):
     """Setting text beside the point number idpt locate as xt, yt"""
     labell = self.ROOT.add(gnomecanvas.CanvasText,
                            x=xt,
