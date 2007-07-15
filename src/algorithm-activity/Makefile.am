@@ -1,4 +1,4 @@
-SUBDIRS = activity
+SUBDIRS = activity resources
 
 pythondir = $(PYTHON_PLUGIN_DIR)
 

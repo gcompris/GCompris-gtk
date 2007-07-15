@@ -1,4 +1,4 @@
-SUBDIRS = activity
+SUBDIRS = activity resources
 
 if PLATFORM_WIN32
 shared = -shared
