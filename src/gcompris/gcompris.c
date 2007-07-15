@@ -25,6 +25,11 @@
 #include <time.h>
 #include <string.h>
 
+#include <X11/Xlib.h>
+#include <X11/Xutil.h>
+#include <X11/Xatom.h>
+#include <gdk/gdkx.h>
+
 #include <glib/gstdio.h>
 
 #include "gcompris.h"
@@ -133,6 +138,8 @@ static gchar *popt_server          = NULL;
 static gint  *popt_web_only        = NULL;
 static gchar *popt_cache_dir       = NULL;
 static gchar *popt_drag_mode       = NULL;
+static gchar *sugarBundleId        = NULL;
+static gchar *sugarActivityId      = NULL;
 
 static GOptionEntry options[] = {
   {"fullscreen", 'f', 0, G_OPTION_ARG_NONE, &popt_fullscreen,
@@ -236,6 +243,12 @@ static GOptionEntry options[] = {
 
   {"nolockcheck", '\0', 0, G_OPTION_ARG_NONE, &popt_nolockcheck,
    N_("Do not avoid the execution of multiple instances of GCompris."), NULL},
+
+  {"sugarBundleId", '\0', 0, G_OPTION_ARG_STRING, &sugarBundleId,
+   "Sugar Bundle Id", NULL},
+
+  {"sugarActivityId", '\0', 0, G_OPTION_ARG_STRING, &sugarActivityId,
+   "Sugar Activity Id", NULL},
 
   { NULL }
 };
@@ -571,6 +584,23 @@ static void setup_window ()
   gchar         *icon_file;
 
   window = gtk_window_new (GTK_WINDOW_TOPLEVEL);
+
+  Window xwindow = GDK_WINDOW_XWINDOW(window->window);
+  if (sugarBundleId)
+    XChangeProperty(GDK_DISPLAY(),
+		    xwindow,
+		    XInternAtom(GDK_DISPLAY(), "_SUGAR_BUNDLE_ID", 0),
+		    XInternAtom(GDK_DISPLAY(), "STRING", 0), 8,
+		    PropModeReplace,
+		    (unsigned char *) sugarBundleId, strlen(sugarBundleId));
+
+  if (sugarActivityId)
+    XChangeProperty(GDK_DISPLAY(),
+		    xwindow,
+		    XInternAtom(GDK_DISPLAY(), "_SUGAR_ACTIVITY_ID", 0),
+		    XInternAtom(GDK_DISPLAY(), "STRING", 0), 8,
+		    PropModeReplace,
+		    (unsigned char *) sugarActivityId, strlen(sugarActivityId));
 
   /*
    * Set an icon for gcompris

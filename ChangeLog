@@ -1,3 +1,11 @@
+2007-07-15  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* configure.in: remamed release 8.5BETA1
+	* src/boards/Makefile.am: removed uneeded file
+	* src/gcompris/gcompris.c: (setup_window): added support for sugarBundleId and
+	  sugarActivityId (from the command line these value is passed to us are set in
+	  X properties)
+
 2007-06-22  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	- Fixed compilation issue when compiled without SQLITE

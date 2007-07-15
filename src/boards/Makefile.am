@@ -81,7 +81,7 @@ libpython_la_SOURCES = python.c \
 	py-mod-anim.c		py-mod-anim.h
 
 
-EXTRA_DIST = README boards2static.pl \
+EXTRA_DIST = README \
 	Makefile.mingw
 
 
