@@ -145,13 +145,9 @@ static void pause_board (gboolean pause)
  * =====================================================================*/
 static void start_board (GcomprisBoard *agcomprisBoard) {
   if(agcomprisBoard!=NULL) {
-    gchar *img;
-
     gcomprisBoard=agcomprisBoard;
-    img = gc_skin_image_get("leftright-bg.jpg");
     gc_set_background(gnome_canvas_root(gcomprisBoard->canvas),
-			    img);
-    g_free(img);
+			    "leftright/leftright-bg.jpg");
     gcomprisBoard->level=1;
     gcomprisBoard->maxlevel=NUMBER_OF_LEVELS;
     gcomprisBoard->sublevel=1;

@@ -130,13 +130,10 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 
   if(agcomprisBoard!=NULL)
     {
-      gchar *img;
       gcomprisBoard=agcomprisBoard;
 
-      img = gc_skin_image_get("clockgame-bg.jpg");
       gc_set_background(gnome_canvas_root(gcomprisBoard->canvas),
-			      img);
-      g_free(img);
+			      "clockgame/clockgame-bg.jpg");
 
       /* set initial values for this level adjusted to fit the watch background */
       cx =  gcomprisBoard->width/2;
