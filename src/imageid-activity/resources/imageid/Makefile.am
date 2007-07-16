@@ -15,3 +15,18 @@ $(xml_DATA): %.xml: %.xml.in
 	sed -e "s/\(<\{1\}\/*\)_/\1/g" $< > $@
 
 CLEANFILES = $(xml_DATA)
+
+EXTRA_DIST = \
+	avion.png
+	ballon.png
+	banana.png
+	bed.png
+	bottle.png
+	cake.png
+	car.png
+	cartable.png
+	chien.png
+	fish.png
+	imageid-bg.jpg
+	maison.png
+	pomme.png

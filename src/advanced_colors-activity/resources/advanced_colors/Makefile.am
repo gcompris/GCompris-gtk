@@ -24,3 +24,15 @@ $(xml_DATA): %.xml: %.xml.in
 
 
 CLEANFILES = $(xml_DATA)
+
+EXTRA_DIST = \
+	advanced_colors1.jpg
+	advanced_colors2.jpg
+	advanced_colors3.jpg
+	advanced_colors4.jpg
+	advanced_colors5.jpg
+	advanced_colors6.jpg
+	advanced_colors7.jpg
+	advanced_colors8.jpg
+	advanced_colors9.jpg
+	advanced_colors_highlight.png

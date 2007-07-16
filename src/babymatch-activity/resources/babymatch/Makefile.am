@@ -23,3 +23,42 @@ $(xml_DATA): %.xml: %.xml.in
 
 
 
+EXTRA_DIST = \
+	apple.png
+	bell.png
+	bicycle.png
+	bottle.png
+	carot.png
+	car.png
+	castle.png
+	crown.png
+	egg.png
+	eggpot.png
+	fishingboat.png
+	flower.png
+	flowerpot.png
+	football.png
+	fusee.png
+	glass.png
+	gramophone.png
+	house.png
+	lamp.png
+	lifebuoy.png
+	lighthouse.png
+	light.png
+	minivan.png
+	pencil.png
+	postcard.png
+	postpoint.png
+	rape.png
+	raquette.png
+	sailingboat.png
+	sofa.png
+	star.png
+	sun.png
+	tree.png
+	truck.png
+	tuxhelico.png
+	tuxplane.png
+	umbrella.png
+	windflag5.png

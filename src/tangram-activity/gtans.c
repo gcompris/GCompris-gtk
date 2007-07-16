@@ -1215,7 +1215,8 @@ void tansetdefconfig (void){
 
   /* Gcompris */
   GcomprisProperties	*properties = gc_prop_get();
-  gchar *deffigfile = g_strconcat(properties->package_data_dir,"/gtans/figures/default.figures", NULL);
+  gchar *deffigfile = g_strconcat(properties->package_data_dir,
+				  "/tangram/default.figures", NULL);
 
   tanallocname(&figfilename, deffigfile);
 
