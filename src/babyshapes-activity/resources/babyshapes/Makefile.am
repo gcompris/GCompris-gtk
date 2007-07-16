@@ -24,20 +24,20 @@ $(xml_DATA): %.xml: %.xml.in
 
 
 EXTRA_DIST = \
-	T_baby_bottle.png
-	T_banana.png
-	T_bread_slice.png
-	T_butter.png
-	T_chocolate_cake.png
-	T_chocolate.png
-	T_cookie.png
-	T_french_croissant.png
-	T_grapefruit.png
-	T_marmelade.png
-	T_milk_cup.png
-	T_milk_shake.png
-	T_orange.png
-	T_pear.png
-	T_round_cookie.png
-	T_suggar_box.png
+	T_baby_bottle.png \
+	T_banana.png \
+	T_bread_slice.png \
+	T_butter.png \
+	T_chocolate_cake.png \
+	T_chocolate.png \
+	T_cookie.png \
+	T_french_croissant.png \
+	T_grapefruit.png \
+	T_marmelade.png \
+	T_milk_cup.png \
+	T_milk_shake.png \
+	T_orange.png \
+	T_pear.png \
+	T_round_cookie.png \
+	T_suggar_box.png \
 	T_yahourt.png

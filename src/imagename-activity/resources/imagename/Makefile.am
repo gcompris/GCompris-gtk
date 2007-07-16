@@ -23,35 +23,35 @@ $(xml_DATA): %.xml: %.xml.in
 
 
 EXTRA_DIST = \
-	apple.png
-	bicycle.png
-	bottle.png
-	carot.png
-	car.png
-	castle.png
-	crown.png
-	egg.png
-	eggpot.png
-	fishingboat.png
-	flower.png
-	flowerpot.png
-	football.png
-	fusee.png
-	glass.png
-	house.png
-	lamp.png
-	lighthouse.png
-	light.png
-	minivan.png
-	pencil.png
-	postcard.png
-	postpoint.png
-	rape.png
-	raquette.png
-	sailingboat.png
-	sapin.png
-	sofa.png
-	star.png
-	tree.png
-	truck.png
+	apple.png \
+	bicycle.png \
+	bottle.png \
+	carot.png \
+	car.png \
+	castle.png \
+	crown.png \
+	egg.png \
+	eggpot.png \
+	fishingboat.png \
+	flower.png \
+	flowerpot.png \
+	football.png \
+	fusee.png \
+	glass.png \
+	house.png \
+	lamp.png \
+	lighthouse.png \
+	light.png \
+	minivan.png \
+	pencil.png \
+	postcard.png \
+	postpoint.png \
+	rape.png \
+	raquette.png \
+	sailingboat.png \
+	sapin.png \
+	sofa.png \
+	star.png \
+	tree.png \
+	truck.png \
 	windflag5.png

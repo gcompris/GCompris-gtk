@@ -17,16 +17,16 @@ $(xml_DATA): %.xml: %.xml.in
 
 CLEANFILES = $(xml_DATA)
 EXTRA_DIST = \
-	avion.png
-	ballon.png
-	banana.png
-	bed.png
-	bottle.png
-	cake.png
-	car.png
-	cartable.png
-	chien.png
-	fish.png
-	maison.png
-	missingletter-bg.jpg
+	avion.png \
+	ballon.png \
+	banana.png \
+	bed.png \
+	bottle.png \
+	cake.png \
+	car.png \
+	cartable.png \
+	chien.png \
+	fish.png \
+	maison.png \
+	missingletter-bg.jpg \
 	pomme.png

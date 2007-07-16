@@ -1,0 +1,1 @@
+SUBDIRS = read_colors

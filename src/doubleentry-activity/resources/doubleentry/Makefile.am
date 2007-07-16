@@ -17,28 +17,28 @@ $(xml_DATA): %.xml: %.xml.in
 	sed -e "s/\(<\{1\}\/*\)_/\1/g" $< > $@
 
 EXTRA_DIST = \
-	circle-r0-g2.png
-	circle-r0-g3.png
-	circle-r0-g4.png
-	circle-r2-g0.png
-	circle-r2-g2.png
-	circle-r2-g3.png
-	circle-r2-g4.png
-	circle-r3-g0.png
-	circle-r3-g2.png
-	circle-r3-g3.png
-	circle-r3-g4.png
-	circle-r4-g0.png
-	circle-r4-g2.png
-	circle-r4-g3.png
-	circle-r4-g4.png
-	d-entry_banane_1.png
-	d-entry_banane_2.png
-	d-entry_banane_3.png
-	d-entry_galette_1.png
-	d-entry_galette_2.png
-	d-entry_galette_3.png
-	d-entry_pomme_1.png
-	d-entry_pomme_2.png
-	d-entry_pomme_3.png
+	circle-r0-g2.png \
+	circle-r0-g3.png \
+	circle-r0-g4.png \
+	circle-r2-g0.png \
+	circle-r2-g2.png \
+	circle-r2-g3.png \
+	circle-r2-g4.png \
+	circle-r3-g0.png \
+	circle-r3-g2.png \
+	circle-r3-g3.png \
+	circle-r3-g4.png \
+	circle-r4-g0.png \
+	circle-r4-g2.png \
+	circle-r4-g3.png \
+	circle-r4-g4.png \
+	d-entry_banane_1.png \
+	d-entry_banane_2.png \
+	d-entry_banane_3.png \
+	d-entry_galette_1.png \
+	d-entry_galette_2.png \
+	d-entry_galette_3.png \
+	d-entry_pomme_1.png \
+	d-entry_pomme_2.png \
+	d-entry_pomme_3.png \
 	doubleentry-bg.png
