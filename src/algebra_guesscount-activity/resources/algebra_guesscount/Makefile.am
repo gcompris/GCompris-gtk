@@ -1,0 +1,24 @@
+EXTRA_DIST = \
+	100.png
+	10.png
+	1.png
+	25.png
+	2.png
+	3.png
+	4.png
+	50.png
+	5.png
+	6.png
+	7.png
+	8.png
+	9.png
+	button.png
+	by.png
+	div.png
+	equal.png
+	minus.png
+	plus.png
+	tiger1_by_Ralf_Schmode.jpg
+	tigercub003.jpg
+	tigerdrink001.jpg
+	tigerplay001.jpg
