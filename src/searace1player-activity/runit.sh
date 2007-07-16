@@ -6,7 +6,8 @@ then
   plugindir=../boards/.libs
 fi
 
-./gcompris.bin -L $plugindir -P . -A resources \
+./gcompris.bin -L $plugindir -P ../searace-activity \
+    -A ../searace-activity/resources \
     --config-dir=. -M activity \
     --locale_dir=./locale -l /experience/$activity $*
 
