@@ -18,3 +18,5 @@ $(xml_DATA): %.xml: %.xml.in
 #@INTLTOOL_XML_RULE@
 
 CLEANFILES = $(xml_DATA)
+
+EXTRA_DIST = foot.svg

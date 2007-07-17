@@ -133,7 +133,6 @@ static gchar *popt_user_dir	   = NULL;
 static gint  popt_experimental     = FALSE;
 static gint  popt_no_quit	   = FALSE;
 static gint  popt_no_config        = FALSE;
-static gint  popt_display_resource = FALSE;
 static gchar *popt_server          = NULL;
 static gint  *popt_web_only        = NULL;
 static gchar *popt_cache_dir       = NULL;
@@ -218,13 +217,6 @@ static GOptionEntry options[] = {
 
   {"disable-config",'\0', 0, G_OPTION_ARG_NONE, &popt_no_config,
    N_("Disable the config button"), NULL},
-
-#if 0 /* Never completed, this option means we should document resources
-	    of each activities which is boring to do */
-  {"display-resource",'\0', 0, G_OPTION_ARG_NONE, &popt_display_resource,
-   N_("Display the resources on stdout based on the selected activities"), NULL},
-#endif
-
   {"server", '\0', 0, G_OPTION_ARG_STRING, &popt_server,
    N_("GCompris will get images, sounds and activity data from this server if not found locally."), NULL},
 
@@ -1218,6 +1210,51 @@ start_bg_music (gchar *file)
   gc_sound_bg_reopen();
 }
 
+  /* Single instance Check */
+static void
+single_instance_check()
+{
+  lock_file = g_strdup_printf("%s/%s", properties->config_dir, GC_LOCK_FILE);
+  if(!popt_nolockcheck)
+    {
+      GTimeVal current_time;
+      g_get_current_time(&current_time);
+
+      if (g_file_test (lock_file, G_FILE_TEST_EXISTS))
+	{
+	  char *result;
+	  gsize length;
+	  glong seconds;
+	  /* Read it's content */
+	  g_file_get_contents(lock_file,
+			      &result,
+			      &length,
+			      NULL);
+	  sscanf(result, "%ld", &seconds);
+
+	  if(current_time.tv_sec - seconds < GC_LOCK_LIMIT)
+	    {
+	      printf(_("GCompris won't start because the lock file is less than %d seconds old.\n"),
+		     GC_LOCK_LIMIT);
+	      printf(_("The lock file is: %s\n"),
+		     lock_file);
+	      exit(0);
+	    }
+	}
+
+      {
+	/* Update the date in it (in seconds) */
+	char date_str[64];
+	sprintf(date_str, "%ld", current_time.tv_sec);
+	g_file_set_contents(lock_file,
+			    date_str,
+			    strlen(date_str),
+			    NULL);
+      }
+    }
+  g_free(lock_file);
+}
+
 /*****************************************
  * Main
  *
@@ -1303,47 +1340,6 @@ main (int argc, char *argv[])
      whatever the user saved
   */
   gc_prop_load(properties, GC_PROP_FROM_SYSTEM_CONF);
-
-  /* Single instance Check */
-  lock_file = g_strdup_printf("%s/%s", properties->config_dir, GC_LOCK_FILE);
-  if(!popt_nolockcheck)
-    {
-      GTimeVal current_time;
-      g_get_current_time(&current_time);
-
-      if (g_file_test (lock_file, G_FILE_TEST_EXISTS))
-	{
-	  char *result;
-	  gsize length;
-	  glong seconds;
-	  /* Read it's content */
-	  g_file_get_contents(lock_file,
-			      &result,
-			      &length,
-			      NULL);
-	  sscanf(result, "%ld", &seconds);
-
-	  if(current_time.tv_sec - seconds < GC_LOCK_LIMIT)
-	    {
-	      printf(_("GCompris won't start because the lock file is less than %d seconds old.\n"),
-		     GC_LOCK_LIMIT);
-	      printf(_("The lock file is: %s\n"),
-		     lock_file);
-	      exit(0);
-	    }
-	}
-
-      {
-	/* Update the date in it (in seconds) */
-	char date_str[64];
-	sprintf(date_str, "%ld", current_time.tv_sec);
-	g_file_set_contents(lock_file,
-			    date_str,
-			    strlen(date_str),
-			    NULL);
-      }
-    }
-  g_free(lock_file);
 
   /* Set the locale */
 #if defined WIN32
@@ -1660,20 +1656,12 @@ main (int argc, char *argv[])
       }
 
     g_list_free(profile_list);
-
-    exit(0);
-  }
-
-  /* An alternate profile is requested, check it does exists */
-  if (popt_display_resource){
-    properties->display_resource = TRUE;
-    properties->reread_menu = TRUE;
-    printf("Resources for selected activities (as selected by gcompris --administration):\n");
-    gc_menu_load();
     exit(0);
   }
 
   /*------------------------------------------------------------*/
+
+  single_instance_check();
 
   gc_skin_load(properties->skin);
 
