@@ -19,4 +19,4 @@ $(xml_DATA): %.xml: %.xml.in
 
 CLEANFILES = $(xml_DATA)
 
-EXTRA_DIST = globe.svg
+EXTRA_DIST = france_region.svg
