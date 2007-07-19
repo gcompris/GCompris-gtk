@@ -181,7 +181,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       //gcomprisBoard->disable_im_context = TRUE;
 
       gc_set_background(gnome_canvas_root(gcomprisBoard->canvas),
-			"opt/scenery_background.png");
+			"wordsgame/scenery_background.png");
 
 
       gcomprisBoard->level = 1;
