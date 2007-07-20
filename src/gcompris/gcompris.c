@@ -1210,7 +1210,7 @@ start_bg_music (gchar *file)
   gc_sound_bg_reopen();
 }
 
-  /* Single instance Check */
+/* Single instance Check */
 static void
 single_instance_check()
 {

@@ -13,36 +13,22 @@ class Gcompris_pythontemplate:
   def __init__(self, gcomprisBoard):
     print "template init"
 
+    # Save the gcomprisBoard, it defines everything we need
+    # to know from the core
+    self.gcomprisBoard = gcomprisBoard
+
     # Needed to get key_press
     gcomprisBoard.disable_im_context = True
 
-    # Create our rootitem. We put each canvas item in it so at the end we
-    # only have to kill it. The canvas deletes all the items it contains automaticaly.
-    self.rootitem = gcomprisBoard.canvas.root().add(
-      gnomecanvas.CanvasGroup,
-      x=0.0,
-      y=0.0
-      )
-
   def start(self):
     print "template start"
+
+    # Set the buttons we want in the bar
     gcompris.bar_set(gcompris.BAR_OK|gcompris.BAR_LEVEL)
 
-
-    pixmap = gcompris.utils.load_pixmap(gcompris.skin.image_to_skin("gcompris-shapelabel.png"))
-    item = self.rootitem.add(
-      gnomecanvas.CanvasPixbuf,
-      pixbuf = pixmap,
-      x=0,
-      y=200,
-      )
-    item.connect("event", self.rmll)
-
-  def rmll(self, widget, event=None):
-    if event.type == gtk.gdk.BUTTON_PRESS:
-      if event.button == 1:
-        print event.x
-        print event.y
+    # Set a background image
+    gcompris.set_background(self.gcomprisBoard.canvas.root(),
+                            gcompris.skin.image_to_skin("gcompris-bg.jpg"))
 
 
   def end(self):
