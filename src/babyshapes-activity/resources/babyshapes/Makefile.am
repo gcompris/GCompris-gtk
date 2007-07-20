@@ -23,7 +23,8 @@ $(xml_DATA): %.xml: %.xml.in
 
 
 
-EXTRA_DIST = \
+imgdir = $(pkgdatadir)/@PACKAGE_DATA_DIR@/babyshapes
+img_DATA = \
 	T_baby_bottle.png \
 	T_banana.png \
 	T_bread_slice.png \
@@ -41,3 +42,5 @@ EXTRA_DIST = \
 	T_round_cookie.png \
 	T_suggar_box.png \
 	T_yahourt.png
+
+EXTRA_DIST = $(img_DATA)

@@ -16,7 +16,8 @@ $(xml_DATA): %.xml: %.xml.in
 
 CLEANFILES = $(xml_DATA)
 
-EXTRA_DIST = \
+imgdir = $(pkgdatadir)/@PACKAGE_DATA_DIR@/imageid
+img_DATA = \
 	avion.png \
 	ballon.png \
 	banana.png \
@@ -30,3 +31,5 @@ EXTRA_DIST = \
 	imageid-bg.jpg \
 	maison.png \
 	pomme.png
+
+EXTRA_DIST = $(img_DATA)

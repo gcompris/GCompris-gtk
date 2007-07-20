@@ -1,4 +1,5 @@
-EXTRA_DIST = \
+imgdir = $(pkgdatadir)/@PACKAGE_DATA_DIR@/erase
+img_DATA = \
 	bear001.jpg \
 	black-headed-gull.jpg \
 	butterfly.jpg \
@@ -41,3 +42,5 @@ EXTRA_DIST = \
 	transparent_square_green.png \
 	transparent_square.png \
 	transparent_square_yellow.png
+
+EXTRA_DIST = $(img_DATA)

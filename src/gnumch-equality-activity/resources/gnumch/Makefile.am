@@ -1,4 +1,5 @@
-EXTRA_DIST = \
+imgdir = $(pkgdatadir)/@PACKAGE_DATA_DIR@/gnumch
+img_DATA = \
 	diaper_eating.gif \
 	diaper.gif \
 	diaper.txt \
@@ -25,3 +26,5 @@ EXTRA_DIST = \
 	smarty.txt \
 	smarty_walking.gif
 
+
+EXTRA_DIST = $(img_DATA)

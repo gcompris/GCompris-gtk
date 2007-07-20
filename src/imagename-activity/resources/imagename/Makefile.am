@@ -20,9 +20,8 @@ $(xml_DATA): %.xml: %.xml.in
 	sed -e "s/\(<\{1\}\/*\)_/\1/g" $< > $@
 
 
-
-
-EXTRA_DIST = \
+imgdir = $(pkgdatadir)/@PACKAGE_DATA_DIR@/imagename
+img_DATA = \
 	apple.png \
 	bicycle.png \
 	bottle.png \
@@ -55,3 +54,5 @@ EXTRA_DIST = \
 	tree.png \
 	truck.png \
 	windflag5.png
+
+EXTRA_DIST = $(img_DATA)

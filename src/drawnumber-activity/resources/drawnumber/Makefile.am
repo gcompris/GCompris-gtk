@@ -1,4 +1,5 @@
-EXTRA_DIST = \
+imgdir = $(pkgdatadir)/@PACKAGE_DATA_DIR@/drawnumber
+img_DATA = \
 	dn_bear1.png \
 	dn_bear2.png \
 	dn_de1.png \
@@ -18,3 +19,5 @@ EXTRA_DIST = \
 	dn_poisson2.png \
 	dn_sapin1.png \
 	dn_sapin2.png
+
+EXTRA_DIST = $(img_DATA)

@@ -1,4 +1,5 @@
-EXTRA_DIST = \
+imgdir = $(pkgdatadir)/@PACKAGE_DATA_DIR@/electric
+img_DATA = \
 	battery_dead.png \
 	battery_icon.png \
 	battery.png \
@@ -32,3 +33,5 @@ EXTRA_DIST = \
 	switch_icon.png \
 	switch_off.png \
 	switch_on.png
+
+EXTRA_DIST = $(img_DATA)

@@ -1,4 +1,5 @@
-EXTRA_DIST = \
+imgdir = $(pkgdatadir)/@PACKAGE_DATA_DIR@/awele
+img_DATA = \
 	awele_frame.png \
 	bouton1_clic.png \
 	bouton1_notify.png \
@@ -23,3 +24,5 @@ EXTRA_DIST = \
 	graine3.png \
 	graine4bis.png \
 	graine4.png
+
+EXTRA_DIST = $(img_DATA)

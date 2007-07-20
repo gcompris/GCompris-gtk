@@ -1,4 +1,5 @@
-EXTRA_DIST = \
+imgdir = $(pkgdatadir)/@PACKAGE_DATA_DIR@/railroad
+img_DATA = \
 	loco1.png \
 	loco2.png \
 	loco3.png \
@@ -23,3 +24,5 @@ EXTRA_DIST = \
 	wagon7.png \
 	wagon8.png \
 	wagon9.png
+
+EXTRA_DIST = $(img_DATA)

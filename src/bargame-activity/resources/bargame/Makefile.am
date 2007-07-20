@@ -1,4 +1,5 @@
-EXTRA_DIST = \
+imgdir = $(pkgdatadir)/@PACKAGE_DATA_DIR@/bargame
+img_DATA = \
 	blue_ball.png \
 	board.png \
 	case_last.png \
@@ -17,3 +18,5 @@ EXTRA_DIST = \
 	tux_graduate.png \
 	tux.png \
 	tux_teen.png
+
+EXTRA_DIST = $(img_DATA)

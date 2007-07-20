@@ -26,4 +26,40 @@ xml_DATA = $(xml_in_files:.xml.in=.xml)
 $(xml_DATA): %.xml: %.xml.in
 	sed -e "s/\(<\{1\}\/*\)_/\1/g" $< > $@
 
+imgdir = $(pkgdatadir)/@PACKAGE_DATA_DIR@/chronos
+img_DATA = \
+	1955ds19.png \
+	1.jpg \
+	2.jpg \
+	3.jpg \
+	4.jpg \
+	autumn.png \
+	bell_X1.png \
+	benz1885.png \
+	bg.jpg \
+	bleriot.png \
+	bolle1878.png \
+	celerifere.png \
+	chronos-tuxtree1.png \
+	chronos-tuxtree2.png \
+	chronos-tuxtree3.png \
+	chronos-tuxtree4.png \
+	Eole.png \
+	fardier.png \
+	garden1.png \
+	garden2.png \
+	garden3.png \
+	garden4.png \
+	helico_cornu.png \
+	lancia1923.png \
+	lindbergh.png \
+	mongolfiere.png \
+	rafale.png \
+	renault1899.png \
+	spring.png \
+	st_rocket.png \
+	summer.png \
+	winter.png \
+	wright_flyer.png
 
+EXTRA_DIST = $(img_DATA)

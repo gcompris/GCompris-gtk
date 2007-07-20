@@ -1,4 +1,5 @@
-EXTRA_DIST = \
+imgdir = $(pkgdatadir)/@PACKAGE_DATA_DIR@/crane
+img_DATA = \
 	arrow_b.png \
 	arrow_down.png \
 	arrow_left.png \
@@ -23,3 +24,5 @@ EXTRA_DIST = \
 	water_drop2.png \
 	water_spot1.png \
 	water_spot2.png
+
+EXTRA_DIST = $(img_DATA)

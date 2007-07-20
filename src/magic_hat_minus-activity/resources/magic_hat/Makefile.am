@@ -1,4 +1,5 @@
-EXTRA_DIST = \
+imgdir = $(pkgdatadir)/@PACKAGE_DATA_DIR@/magic_hat
+img_DATA = \
 	hat.png \
 	hat-point.png \
 	magic_hat_minus_bg.png \
@@ -9,3 +10,5 @@ EXTRA_DIST = \
 	star2.png \
 	star3.png \
 	star-clear.png
+
+EXTRA_DIST = $(img_DATA)

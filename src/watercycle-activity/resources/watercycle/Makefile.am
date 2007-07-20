@@ -1,4 +1,5 @@
-EXTRA_DIST = \
+imgdir = $(pkgdatadir)/@PACKAGE_DATA_DIR@/watercycle
+img_DATA = \
 	background.png \
 	badwater_off.png \
 	badwater.png \
@@ -22,3 +23,5 @@ EXTRA_DIST = \
 	vapor.png \
 	watercleaning.png \
 	waterpump.png
+
+EXTRA_DIST = $(img_DATA)

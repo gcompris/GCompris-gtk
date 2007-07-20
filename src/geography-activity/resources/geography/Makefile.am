@@ -1,3 +1,4 @@
+SUBDIRS = africa afrique continents europe northamerica southamerica
 
 xmldir = $(pkgdatadir)/@PACKAGE_DATA_DIR@/geography
 

@@ -1,4 +1,5 @@
-EXTRA_DIST = \
+imgdir = $(pkgdatadir)/@PACKAGE_DATA_DIR@/chess
+img_DATA = \
 	Bb.png \
 	Bk.png \
 	Bn.png \
@@ -11,3 +12,5 @@ EXTRA_DIST = \
 	WP.png \
 	WQ.png \
 	WR.png
+
+EXTRA_DIST = $(img_DATA)

@@ -1,4 +1,5 @@
-EXTRA_DIST = \
+imgdir = $(pkgdatadir)/@PACKAGE_DATA_DIR@/reversecount
+img_DATA = \
 	baleine.png \
 	dice_area.png \
 	elephant_mer.png \
@@ -12,3 +13,5 @@ EXTRA_DIST = \
 	tux_top_north.png \
 	tux_top_south.png \
 	tux_top_west.png
+
+EXTRA_DIST = $(img_DATA)

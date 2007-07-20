@@ -23,7 +23,8 @@ $(xml_DATA): %.xml: %.xml.in
 
 
 
-EXTRA_DIST = \
+imgdir = $(pkgdatadir)/@PACKAGE_DATA_DIR@/babymatch
+img_DATA = \
 	apple.png \
 	bell.png \
 	bicycle.png \
@@ -62,3 +63,5 @@ EXTRA_DIST = \
 	tuxplane.png \
 	umbrella.png \
 	windflag5.png
+
+EXTRA_DIST = $(img_DATA)

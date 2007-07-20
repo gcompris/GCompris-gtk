@@ -16,7 +16,8 @@ xml_DATA = $(xml_in_files:.xml.in=.xml)
 $(xml_DATA): %.xml: %.xml.in
 	sed -e "s/\(<\{1\}\/*\)_/\1/g" $< > $@
 
-EXTRA_DIST = \
+imgdir = $(pkgdatadir)/@PACKAGE_DATA_DIR@/doubleentry
+img_DATA = \
 	circle-r0-g2.png \
 	circle-r0-g3.png \
 	circle-r0-g4.png \
@@ -42,3 +43,5 @@ EXTRA_DIST = \
 	d-entry_pomme_2.png \
 	d-entry_pomme_3.png \
 	doubleentry-bg.png
+
+EXTRA_DIST = $(img_DATA)

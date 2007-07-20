@@ -1,4 +1,5 @@
-EXTRA_DIST = \
+imgdir = $(pkgdatadir)/@PACKAGE_DATA_DIR@/scale
+img_DATA = \
 	balance.png \
 	bras.png \
 	chocolate_cake.png \
@@ -20,3 +21,5 @@ EXTRA_DIST = \
 	plateau.png \
 	suggar_box.png \
 	tabepice.jpg
+
+EXTRA_DIST = $(img_DATA)

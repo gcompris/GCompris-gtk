@@ -1,4 +1,5 @@
-EXTRA_DIST = \
+imgdir = $(pkgdatadir)/@PACKAGE_DATA_DIR@/ballcatch
+img_DATA = \
 	beach1.png \
 	beach2.png \
 	beach3.png \
@@ -6,3 +7,5 @@ EXTRA_DIST = \
 	hand.png \
 	shift_key.png \
 	tux.png
+
+EXTRA_DIST = $(img_DATA)

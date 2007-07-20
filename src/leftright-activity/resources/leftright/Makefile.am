@@ -1,4 +1,5 @@
-EXTRA_DIST = \
+imgdir = $(pkgdatadir)/@PACKAGE_DATA_DIR@/leftright
+img_DATA = \
 	leftright-bg.jpg \
 	leftright-select.png \
 	main_droite_dessus_0.png \
@@ -33,3 +34,5 @@ EXTRA_DIST = \
 	poing_gauche_paume_180.png \
 	poing_gauche_paume_270.png \
 	poing_gauche_paume_90.png
+
+EXTRA_DIST = $(img_DATA)
