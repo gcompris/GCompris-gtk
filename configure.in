@@ -530,12 +530,6 @@ if test x$activation_code = xno; then
 fi
 
 
-#mypaint
-#PKG_CHECK_MODULES(MYPAINT,[
-#        glib-2.0 >= 2.6.0
-#        gtk+-2.0 >= 2.6.0
-#        ])
-
 dnl Autoconf output
 AC_OUTPUT([ gcompris.spec
 Makefile
