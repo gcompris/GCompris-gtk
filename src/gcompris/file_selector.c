@@ -912,7 +912,7 @@ gboolean load_mime_type_from_file(gchar *fname)
 
 /**
  * gc_mime_type_load
- * Load all the mime type in PACKAGE_DATA_DIR"/gcompris/mimetypes/ *.xml"
+ * Load all the mime type in PACKAGE_DATA_DIR"/mimetypes/ *.xml"
  *
  * Must be called once at GCompris startup.
  *
@@ -928,7 +928,7 @@ void gc_mime_type_load()
     return;
   }
 
-  mime_dir = g_strconcat(properties->package_data_dir, "/gcompris/mimetypes/", NULL);
+  mime_dir = g_strconcat(properties->package_data_dir, "/mimetypes/", NULL);
 
   mimetypes_hash      = g_hash_table_new (g_str_hash, g_str_equal);
   mimetypes_ext_hash  = g_hash_table_new (g_str_hash, g_str_equal);
