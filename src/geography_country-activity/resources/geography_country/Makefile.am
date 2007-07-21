@@ -1,7 +1,7 @@
 SUBDIRS = argentina france_region germany_region norway_counties \
 	poland_voivodship turkey_district
 
-xmldir = $(pkgdatadir)/@PACKAGE_DATA_DIR@/geography
+xmldir = $(pkgdatadir)/@PACKAGE_DATA_DIR@/geography_country
 
 xml_in_files = \
 	board1_0.xml.in \
