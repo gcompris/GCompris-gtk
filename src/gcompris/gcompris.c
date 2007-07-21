@@ -1252,7 +1252,8 @@ single_instance_check()
 			    NULL);
       }
     }
-  g_free(lock_file);
+
+  // Do not free lock_file, the unlink needs it
 }
 
 /*****************************************

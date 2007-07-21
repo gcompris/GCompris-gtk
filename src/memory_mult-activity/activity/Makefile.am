@@ -19,4 +19,7 @@ $(xml_DATA): %.xml: %.xml.in
 
 CLEANFILES = $(xml_DATA)
 
-EXTRA_DIST = mem_solo_mult.svg
+icondir = $(pkgdatadir)/@PACKAGE_DATA_DIR@
+icon_DATA = mem_solo_mult.svg
+
+EXTRA_DIST = $(icon_DATA)

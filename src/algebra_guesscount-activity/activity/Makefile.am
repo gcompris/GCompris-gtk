@@ -19,4 +19,7 @@ $(xml_DATA): %.xml: %.xml.in
 
 CLEANFILES = $(xml_DATA)
 
-EXTRA_DIST = algebra_guesscount.svg
+icondir = $(pkgdatadir)/@PACKAGE_DATA_DIR@
+icon_DATA = algebra_guesscount.svg
+
+EXTRA_DIST = $(icon_DATA)

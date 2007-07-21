@@ -19,5 +19,8 @@ $(xml_DATA): %.xml: %.xml.in
 
 CLEANFILES = $(xml_DATA)
 
-EXTRA_DIST = melody.svg
+icondir = $(pkgdatadir)/@PACKAGE_DATA_DIR@
+icon_DATA = melody.svg
+
+EXTRA_DIST = $(icon_DATA)
 

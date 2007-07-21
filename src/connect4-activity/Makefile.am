@@ -1,4 +1,4 @@
-SUBDIRS = activity resources
+SUBDIRS = activity resources connect4p
 
 pythondir = $(PYTHON_PLUGIN_DIR)
 

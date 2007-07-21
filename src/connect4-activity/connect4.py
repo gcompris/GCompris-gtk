@@ -165,7 +165,8 @@ class Gcompris_connect4:
             self.player_stone.destroy()
         self.player_stone = self.rootitem.add(
             gnomecanvas.CanvasPixbuf,
-            pixbuf = gcompris.utils.load_pixmap("connect4/stone_%d.png" % self.cur_player),
+            pixbuf = gcompris.utils.load_pixmap("connect4/stone_%d.png"
+                                                % self.cur_player),
             x=0,
             y=-20 )
         self.update_stone2()

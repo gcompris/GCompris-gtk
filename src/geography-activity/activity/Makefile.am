@@ -18,3 +18,8 @@ $(xml_DATA): %.xml: %.xml.in
 #@INTLTOOL_XML_RULE@
 
 CLEANFILES = $(xml_DATA)
+
+icondir = $(pkgdatadir)/@PACKAGE_DATA_DIR@
+icon_DATA = globe.svg
+
+EXTRA_DIST = $(icon_DATA)

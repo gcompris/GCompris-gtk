@@ -26,6 +26,7 @@ img_DATA = \
 	default-sl.xml \
 	default-sv.xml \
 	default-tr.xml \
+	scenery_background.png \
 	README
 
 

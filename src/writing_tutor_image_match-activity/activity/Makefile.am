@@ -19,5 +19,8 @@ $(xml_DATA): %.xml: %.xml.in
 
 CLEANFILES = $(xml_DATA)
 
-EXTRA_DIST = writing_tutor_image_match.png
+icondir = $(pkgdatadir)/@PACKAGE_DATA_DIR@
+icon_DATA = writing_tutor_image_match.png
+
+EXTRA_DIST = $(icon_DATA)
 

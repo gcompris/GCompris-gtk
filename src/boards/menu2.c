@@ -298,7 +298,7 @@ static void create_panel(GnomeCanvasGroup *parent)
   for (list = panelBoards; list != NULL; list = list->next){
     board = (GcomprisBoard *) list->data;
 
-    pixmap = gc_skin_pixmap_load(board->icon_name);
+    pixmap = gc_pixmap_load(board->icon_name);
 
     item = gnome_canvas_item_new (parent,
 				  gnome_canvas_pixbuf_get_type (),
@@ -478,7 +478,7 @@ static void menu_create_item(GnomeCanvasGroup *parent, MenuItems *menuitems, Gco
    */
   tmp_board_dir = gcomprisBoard->board_dir;
   gcomprisBoard->board_dir = board->board_dir;
-  menu_pixmap = gc_skin_pixmap_load(board->icon_name);
+  menu_pixmap = gc_pixmap_load(board->icon_name);
   gcomprisBoard->board_dir = tmp_board_dir;
 
   ratio = get_ratio (menu_pixmap, icon_size);
@@ -839,7 +839,7 @@ static void create_top(GnomeCanvasGroup *parent, gchar *path)
 
       board = gc_menu_section_get(path1);
 
-      pixmap = gc_skin_pixmap_load(board->icon_name);
+      pixmap = gc_pixmap_load(board->icon_name);
 
       ratio = get_ratio( pixmap, icon_size_top);
 
