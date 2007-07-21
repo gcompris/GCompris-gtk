@@ -6,6 +6,8 @@ img_DATA = \
 	tablet_active.png \
 	tablet_inactive.png \
 	wood_oak.png \
-	wood_pine.png
+	wood_pine.png \
+	anim_pen.txt \
+	anim_pen.gif
 
 EXTRA_DIST = $(img_DATA)

@@ -22,6 +22,8 @@ img_DATA = \
 	sun.png \
 	vapor.png \
 	watercleaning.png \
-	waterpump.png
+	waterpump.png \
+	tuxboat.txt \
+	fishingboat.gif
 
 EXTRA_DIST = $(img_DATA)

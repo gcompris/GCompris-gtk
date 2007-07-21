@@ -128,7 +128,7 @@ class Gcompris_connect4:
 
     def end(self):
         if self.timerAnim:
-            gtk.timeout_remove(self.timerAnim)
+            gobject.source_remove(self.timerAnim)
 
         del self.timericon
 
@@ -210,7 +210,7 @@ class Gcompris_connect4:
 
     def newGame(self):
         if self.timerAnim:
-            gtk.timeout_remove(self.timerAnim)
+            gobject.source_remove(self.timerAnim)
             self.timerAnim = None
         if self.boardItem:
             self.boardItem.destroy()
@@ -307,7 +307,7 @@ class Gcompris_connect4:
             )
         self.stone.connect("event", self.columnItemEvent, 0)
         self.countAnim = self.nbLines-y
-        self.timerAnim = gtk.timeout_add(200, self.animTimer)
+        self.timerAnim = gobject.timeout_add(200, self.animTimer)
         self.timericon.gnomecanvas.show()
 
     def animTimer(self):
@@ -315,7 +315,7 @@ class Gcompris_connect4:
         if self.countAnim > 0:
             y= self.stone.get_property('y')
             self.stone.set_property('y', y + (self.boardSize/self.nbColumns))
-            self.timerAnim = gtk.timeout_add(200, self.animTimer)
+            self.timerAnim = gobject.timeout_add(200, self.animTimer)
         else:
             self.timerAnim = None
             self.timericon.gnomecanvas.hide()
