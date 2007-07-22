@@ -55,6 +55,7 @@ INCLUDES = \
 	-DGNOME_DISABLE_DEPRECATED \
         $(sqlite_cflags) \
 	$(GNET_CFLAGS) \
+	$(DBUS_CFLAGS) \
 	$(cairo_cflags) \
 	$(NSBUNDLE_CPPFLAGS)
 
@@ -77,6 +78,7 @@ gcompris_SOURCES = \
 	bonus.h \
 	cache.c \
 	config.c \
+	dbus.c \
 	dialog.c \
 	drag.c \
 	drag.h \
@@ -127,6 +129,7 @@ gcompris_LDFLAGS = \
 
 gcompris_LDADD = \
 	$(GCOMPRIS_LIBS) $(sqlite_ldadd) $(XML_LIBS) $(GNET_LIBS) \
+	$(DBUS_LIBS) \
         $(INTLLIBS) $(NSBUNDLE_LDFLAGS)
 
 #	$(LIBICONV)

@@ -372,6 +372,20 @@ if test x$with_gnet = xyes; then
   AC_DEFINE([USE_GNET], 1,[Networking is enabled])
 fi
 
+dnl DBUS support
+AC_MSG_CHECKING([wether we build with DBUS (needed only for OLPC SUGAR XO)])
+AC_ARG_ENABLE(dbus,
+          AC_HELP_STRING(
+          [--enable-dbus],
+          [Turn on dbus (will let GCompris integrate well on OLPC SUGAR XO)]),
+          with_dbus="$enableval", with_dbus="no")
+AC_MSG_RESULT($with_dbus)
+
+if test x$with_dbus = xyes; then
+  PKG_CHECK_MODULES(DBUS, [dbus-1 dbus-glib-1],, AC_MSG_ERROR([*** DBUS not found!]))
+  AC_DEFINE([USE_DBUS], 1,[DBUS support is enabled])
+fi
+
 dnl check for python
 AC_ARG_WITH(python,AC_HELP_STRING(
     [--with-python=path],
@@ -938,6 +952,7 @@ echo "Python plugin                            = $build_python_plugin"
 echo "SQLITE database (--enable-sqlite)        = $with_sqlite (profiles depend on this)"
 
 echo "GNET Networking (--enable-gnet)          = $with_gnet (networking depends on this)"
+echo "DBUS Support (OLPC XO Sugar)             = $with_dbus"
 echo "BINRELOC (--enable-binreloc)             = $br_cv_binreloc"
 echo "NSBundle (--enable-nsbundle)             = $nsbundle"
 

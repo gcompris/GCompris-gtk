@@ -1699,6 +1699,9 @@ main (int argc, char *argv[])
 	gc_sound_play_ogg("sounds/$LOCALE/misc/welcome.ogg", NULL);
     }
 
+  if (sugarActivityId)
+    gc_dbus_init(sugarActivityId);
+
   gtk_main ();
 
   /* FIXME: HACK Needed or we have unresolved symbols at python plugin dlopen

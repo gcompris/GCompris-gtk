@@ -58,4 +58,7 @@ void gc_cache_clear();
 gchar *gc_cache_get(gchar *url);
 gchar *gc_cache_insert(const gchar *url, const char *buffer, gssize length);
 
+/** dbus */
+void gc_dbus_init(gchar *sugarActivityId);
+
 #endif
