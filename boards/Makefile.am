@@ -1,4 +1,4 @@
-SUBDIRS = gcompris
+SUBDIRS =
 
 xmldir = $(pkgdatadir)/@PACKAGE_DATA_DIR@
 
