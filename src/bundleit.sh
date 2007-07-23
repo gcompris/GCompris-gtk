@@ -20,6 +20,14 @@ if test "$py" != ""; then
   exit
 fi
 
+# Create the Sugar specific startup scripts
+activity_name=`basename $1 -activity`
+cp activity-gcompris.svg $1/activity
+cp activity.info $1/activity
+sed -i s/@ACTIVITY_NAME@/$activity_name/g $1/activity/activity.info
+cp gcompris-instance $1/
+cp gcompris-factory $1/
+
 tar -cjf $1.tar.bz2 -h \
     --exclude ".svn" --exclude "resources/skins/babytoy" \
     $draw \
@@ -33,3 +41,12 @@ tar -cjf $1.tar.bz2 -h \
     --exclude "*.o" \
     --exclude "*.lai" \
     $1
+
+# Create the sugar .xo zip bundle
+tar -tjf $1.tar.bz2 | zip $1.xo -@
+
+# Sugar cleanup
+rm $1/activity/activity.info
+rm $1/activity/activity-gcompris.svg
+rm $1/gcompris-instance
+rm $1/gcompris-factory
