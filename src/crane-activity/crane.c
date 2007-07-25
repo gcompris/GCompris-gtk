@@ -118,6 +118,8 @@ static gboolean	 is_our_board (GcomprisBoard *gcomprisBoard);
 static void	 set_level (guint level);
 static int	 gamewon;
 static void	 game_won(void);
+static gint	 key_press(guint keyval, gchar *commit_str,
+			   gchar *preedit_str);
 
 static GnomeCanvasItem	*crane_create_item();
 static void		 crane_destroy_all_items(void);
@@ -131,6 +133,7 @@ static int		 is_allowed_move (double, double, int);
 static void		 shuffle_list(int list[], int);
 static void		 select_item(GnomeCanvasItem *);
 static int		 get_item_index (double, double);
+void			 move_target(int direction);
 
 static void draw_arrow(void);
 static void draw_frame(int, int);
@@ -153,7 +156,7 @@ static BoardPlugin menu_bp =
     pause_board,
     end_board,
     is_our_board,
-    NULL,
+    key_press,
     NULL,
     set_level,
     NULL,
@@ -206,6 +209,9 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 	g_free(img);
 
 
+	/* disable im_context */
+	gcomprisBoard->disable_im_context = TRUE;
+
 	crane_next_level();
 
 	gamewon = FALSE;
@@ -253,6 +259,45 @@ static gboolean is_our_board (GcomprisBoard *gcomprisBoard) {
 
   return FALSE;
 }
+
+static gint key_press(guint keyval, gchar *commit_str, gchar *preedit_str)
+{
+
+  if(board_paused)
+    return FALSE;
+
+  switch (keyval)
+    {
+    case GDK_Left:
+      move_target(LEFT);
+      break;
+    case GDK_Right:
+      move_target(RIGHT);
+      break;
+    case GDK_Up:
+      move_target(UP);
+      break;
+    case GDK_Down:
+      move_target(DOWN);
+      break;
+    case GDK_Tab:
+    case GDK_space:
+      /* Select the next item */
+      if(selected_item)
+	{
+	  GnomeCanvasItem *prev_item =					\
+	    (GnomeCanvasItem*)gtk_object_get_data(GTK_OBJECT(selected_item),
+						  "previous_item");
+	  if(prev_item)
+	    select_item(prev_item);
+	}
+      break;
+    default: return FALSE;
+    }
+
+  return TRUE;
+}
+
 
 /*-------------------------------------------------------------------------------*/
 /*-------------------------------------------------------------------------------*/
@@ -372,7 +417,8 @@ static void game_won() {
 }
 
 // Event on item
-static gint item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data) {
+static gint item_event(GnomeCanvasItem *item,
+		       GdkEvent *event, gpointer data) {
 
   if(board_paused)
 	return FALSE;
@@ -390,74 +436,59 @@ static gint item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data) {
   return FALSE;
 }
 
-// Event on arrow
-static gint arrow_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data) {
-
-  int success;
-  double x,y;
+void
+move_target(int direction)
+{
   double dx1, dy1, dx2, dy2;
-  int direction = GPOINTER_TO_INT(data);
   int i;
+  int success;
   int index, new_index;
 
-  if (board_paused)
-	return FALSE;
-
   if (moving) // An object is already moving
-	return FALSE;
-
-  if (gamewon)
-	return FALSE;
-
-  if (event->type == GDK_MOTION_NOTIFY) // Mouse moved
-	return FALSE;
+    return;
 
   if (selected_item == NULL)
-	return FALSE;
+    return;
 
-  // Left click on an arrow move the selected item
-  if (event->type == GDK_BUTTON_PRESS && event->button.button == 1) {
-        gc_sound_play_ogg ("sounds/scroll.wav", NULL);
-	x = event->button.x;
-	y = event->button.y;
+  gc_sound_play_ogg ("sounds/scroll.wav", NULL);
 
-	gnome_canvas_item_get_bounds(selected_item, &dx1, &dy1, &dx2, &dy2);
+  gnome_canvas_item_get_bounds(selected_item,
+			       &dx1, &dy1, &dx2, &dy2);
 
-	switch (direction) {
-	case LEFT:
-	  my_move.x = -1;
-	  my_move.y = 0;
-	  break;
-	case RIGHT:
-	  my_move.x = 1;
-	  my_move.y = 0;
-	  break;
-	case UP:
-	  my_move.x = 0;
-	  my_move.y = -1;
-	  break;
-	case DOWN:
-	  my_move.x = 0;
-	  my_move.y = 1;
-	  break;
-	}
+  switch (direction) {
+  case LEFT:
+    my_move.x = -1;
+    my_move.y = 0;
+    break;
+  case RIGHT:
+    my_move.x = 1;
+    my_move.y = 0;
+    break;
+  case UP:
+    my_move.x = 0;
+    my_move.y = -1;
+    break;
+  case DOWN:
+    my_move.x = 0;
+    my_move.y = 1;
+    break;
+  }
 
-	// Check if the move doesn't go out of the frame
-	if (is_allowed_move(dx1, dy1, direction)) {
+  // Check if the move doesn't go out of the frame
+  if (is_allowed_move(dx1, dy1, direction)) {
 
-		index = get_item_index(dx1, dy1);
-	      	new_index = index + my_move.x + (my_move.y * CRANE_FRAME_COLUMN);
+    index = get_item_index(dx1, dy1);
+    new_index = index + my_move.x + (my_move.y * CRANE_FRAME_COLUMN);
 
-		// Check if no object is already here
-		if (list_game[new_index] == -1) {
+    // Check if no object is already here
+    if (list_game[new_index] == -1) {
 
-			// Do a smooth move
-			my_move.nb = 52;
-			timer_id = g_timeout_add(10,  (GtkFunction) smooth_move, &my_move);
-			list_game[new_index] = list_game[index];
-			list_game[index] = -1;
-		}
-	}
+      // Do a smooth move
+      my_move.nb = 52;
+      timer_id = g_timeout_add(10,  (GtkFunction) smooth_move, &my_move);
+      list_game[new_index] = list_game[index];
+      list_game[index] = -1;
+    }
   }
 
   // Check if the level is won
@@ -469,6 +500,28 @@ static gint arrow_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data) {
   if (success) {
       gamewon = TRUE;
       timer_id = g_timeout_add (1200, (GtkFunction) bonus, NULL);
+  }
+
+}
+
+// Event on arrow
+static gint arrow_event(GnomeCanvasItem *item,
+			GdkEvent *event, gpointer data) {
+
+  int direction = GPOINTER_TO_INT(data);
+
+  if (board_paused)
+	return FALSE;
+
+  if (gamewon)
+	return FALSE;
+
+  if (event->type == GDK_MOTION_NOTIFY) // Mouse moved
+	return FALSE;
+
+  // Left click on an arrow move the selected item
+  if (event->type == GDK_BUTTON_PRESS && event->button.button == 1) {
+    move_target(direction);
   }
 
   return FALSE;
@@ -608,6 +661,8 @@ static void place_item(int x, int y, int active) {
 
   GdkPixbuf *pixmap;
   GnomeCanvasItem *item_image = NULL;
+  GnomeCanvasItem *previous_item_image = NULL;
+  GnomeCanvasItem *first_item_image = NULL;
   int i;
   int valeur;
 
@@ -633,13 +688,30 @@ static void place_item(int x, int y, int active) {
 	gdk_pixbuf_unref( pixmap);
 
 	if (active)
-  		gtk_signal_connect(GTK_OBJECT(item_image), "event", (GtkSignalFunc) item_event, NULL);
+	  {
+	    gtk_signal_connect(GTK_OBJECT(item_image), "event",
+			       (GtkSignalFunc) item_event, NULL);
 
+	    if(previous_item_image)
+	      gtk_object_set_data(GTK_OBJECT(item_image), "previous_item",
+				  previous_item_image);
+	    else
+	      first_item_image = item_image;
+	    
+	    previous_item_image = item_image;
+	    
+	  }
+	
   }
 
   // 'Focus' given to the last one
   if (active)
-	select_item(item_image);
+    {
+      select_item(item_image);
+      if(previous_item_image)
+	gtk_object_set_data(GTK_OBJECT(first_item_image), "previous_item",
+			    item_image);
+    }
 
 }
 
@@ -712,6 +784,9 @@ void shuffle_list(int list[], int size) {
 static void select_item(GnomeCanvasItem *item) {
 
   double dx1, dy1, dx2, dy2;
+
+  if (moving) // An object is already moving
+    return;
 
   // Use of gnome_canvas_item_affine_absolute must be better
 
