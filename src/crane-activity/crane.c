@@ -108,7 +108,7 @@ static gboolean moving = FALSE;
 static move_object my_move;
 static int list_answer[CRANE_FRAME_LINE * CRANE_FRAME_COLUMN];
 static int list_game[CRANE_FRAME_LINE * CRANE_FRAME_COLUMN];
-static GnomeCanvasPoints *crane_rope;
+static GnomeCanvasPoints *crane_rope = NULL;
 
 // gcompris functions
 static void	 start_board (GcomprisBoard *agcomprisBoard);
@@ -322,7 +322,9 @@ static void crane_destroy_all_items()
     timer_id = 0;
   }
 
-  gnome_canvas_points_free(crane_rope);
+  if(crane_rope)
+    gnome_canvas_points_free(crane_rope);
+  crane_rope = NULL;
 
   if(boardRootItem != NULL)
 	gtk_object_destroy (GTK_OBJECT(boardRootItem));
@@ -697,11 +699,11 @@ static void place_item(int x, int y, int active) {
 				  previous_item_image);
 	    else
 	      first_item_image = item_image;
-	    
+
 	    previous_item_image = item_image;
-	    
+
 	  }
-	
+
   }
 
   // 'Focus' given to the last one
