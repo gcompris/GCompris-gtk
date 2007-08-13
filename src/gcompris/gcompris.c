@@ -68,8 +68,11 @@ static void map_cb  (GtkWidget *widget, gpointer data);
 static gint _gc_configure_event_callback (GtkWidget   *widget,
 					  GdkEventConfigure *event,
 					  gpointer     client_data);
-static gboolean _expose_background_callback (GtkWidget *widget, GdkEventExpose *event,
+static gboolean _expose_background_callback (GtkWidget *widget,
+					     GdkEventExpose *event,
 					     gpointer data);
+static gboolean _realize_callback (GtkWidget *widget, GdkEventExpose *event,
+				   gpointer data);
 static gint board_widget_key_press_callback (GtkWidget   *widget,
 					    GdkEventKey *event,
 					    gpointer     client_data);
@@ -537,6 +540,33 @@ _expose_background_callback (GtkWidget *widget, GdkEventExpose *event, gpointer 
   return FALSE;
 }
 
+/*
+ * Sugar requires properties to be set before the windows is realized
+ */
+static gboolean
+_realize_callback (GtkWidget *widget, GdkEventExpose *event, gpointer data)
+{
+  Window xwindow = GDK_WINDOW_XWINDOW(window->window);
+
+  if (sugarBundleId)
+    XChangeProperty(GDK_DISPLAY(),
+		    xwindow,
+		    XInternAtom(GDK_DISPLAY(), "_SUGAR_BUNDLE_ID", 0),
+		    XInternAtom(GDK_DISPLAY(), "STRING", 0), 8,
+		    PropModeReplace,
+		    (unsigned char *) sugarBundleId, strlen(sugarBundleId));
+
+  if (sugarActivityId)
+    XChangeProperty(GDK_DISPLAY(),
+		    xwindow,
+		    XInternAtom(GDK_DISPLAY(), "_SUGAR_ACTIVITY_ID", 0),
+		    XInternAtom(GDK_DISPLAY(), "STRING", 0), 8,
+		    PropModeReplace,
+		    (unsigned char *) sugarActivityId, strlen(sugarActivityId));
+
+  return FALSE;
+}
+
 static void
 init_background()
 {
@@ -576,23 +606,6 @@ static void setup_window ()
   gchar         *icon_file;
 
   window = gtk_window_new (GTK_WINDOW_TOPLEVEL);
-
-  Window xwindow = GDK_WINDOW_XWINDOW(window->window);
-  if (sugarBundleId)
-    XChangeProperty(GDK_DISPLAY(),
-		    xwindow,
-		    XInternAtom(GDK_DISPLAY(), "_SUGAR_BUNDLE_ID", 0),
-		    XInternAtom(GDK_DISPLAY(), "STRING", 0), 8,
-		    PropModeReplace,
-		    (unsigned char *) sugarBundleId, strlen(sugarBundleId));
-
-  if (sugarActivityId)
-    XChangeProperty(GDK_DISPLAY(),
-		    xwindow,
-		    XInternAtom(GDK_DISPLAY(), "_SUGAR_ACTIVITY_ID", 0),
-		    XInternAtom(GDK_DISPLAY(), "STRING", 0), 8,
-		    PropModeReplace,
-		    (unsigned char *) sugarActivityId, strlen(sugarActivityId));
 
   /*
    * Set an icon for gcompris
@@ -647,6 +660,9 @@ static void setup_window ()
   //  gtk_window_set_policy (GTK_WINDOW (window), FALSE, FALSE, TRUE);
   gtk_window_set_default_size(GTK_WINDOW(window), BOARDWIDTH, BOARDHEIGHT);
   gtk_window_set_wmclass(GTK_WINDOW(window), "gcompris", "GCompris");
+
+  g_signal_connect (GTK_OBJECT (window), "realize",
+		    G_CALLBACK (_realize_callback), NULL);
 
   gtk_widget_realize (window);
 
