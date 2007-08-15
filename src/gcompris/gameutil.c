@@ -543,10 +543,9 @@ gc_file_find_absolute(const gchar *format, ...)
   filename = g_strdup_vprintf (format, args);
   va_end (args);
 
-  /* Check it's already an absolute file */
-  if( ((g_path_is_absolute (filename) &&
-	g_file_test (filename, G_FILE_TEST_EXISTS))
-       || gc_net_is_url(filename)) )
+  /* Check it's already found */
+  if( g_file_test (filename, G_FILE_TEST_EXISTS)
+      || gc_net_is_url(filename) )
     {
       return filename;
     }
