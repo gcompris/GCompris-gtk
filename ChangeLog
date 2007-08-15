@@ -1,3 +1,25 @@
+2007-08-16  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* src/boards/missingletter.c: GCompris was asserting when you
+	click on the target image in missingletter activity.
+
+	* src/gcompris/bonus.c: Potentially display a NULL pointer that crashes on windows.
+	fixes bug#463961
+
+	* src/gcompris/gameutil.c:  There is a design issue in gc_file_find_absolute().
+	When called twice, it doesn't work if the properties->package_data_dir if not an
+	absolute directory. This is expecialy the case on windows and the most visible bug
+	is that congratulations are not spoken on this platform.
+
+	* src/gcompris/dbus.c: improved by added missing dbus_g_proxy_add_signal() call. Tested on the
+	XO, there is no more a warning but I did not saw the printf("_set_active")
+	being triggered. I still don't know if this works.
+
+	* src/bundleit.sh: bundle script improved.
+	There are still 2 issues, both concerning the path. One in runit.sg, the other
+	in gcompris-instance. When run on XO, it works by including the full path
+	in them (like /usr/share/activities/crane.activity/gcompris.bin in runit.sh).
+
 2007-07-15  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* configure.in: remamed release 8.5BETA1
