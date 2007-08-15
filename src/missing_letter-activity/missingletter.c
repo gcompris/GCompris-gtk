@@ -322,7 +322,6 @@ static GnomeCanvasItem *missing_letter_create_item(GnomeCanvasGroup *parent)
 				      "width_set", TRUE,
 				      "height_set", TRUE,
 				      NULL);
-  gtk_signal_connect(GTK_OBJECT(image_item), "event", (GtkSignalFunc) item_event, NULL);
   gdk_pixbuf_unref(pixmap);
 
   /* display the 3 words */
