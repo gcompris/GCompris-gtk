@@ -232,10 +232,9 @@ gc_bonus_display(GCBonusStatusList gamewon, GCBonusList bonus_id)
     g_warning("bonus absolute filename... ");
     absolute_file = gc_file_find_absolute(greetingsList[RAND(0, NUMBER_OF_GREETINGS-1)]);
 
-    g_warning("bonus absolute filename: %s", absolute_file );
-
     if (absolute_file)
       {
+	g_warning("bonus absolute filename: %s", absolute_file );
 	gc_sound_play_ogg(absolute_file, NULL);
 	g_free(absolute_file);
       }
