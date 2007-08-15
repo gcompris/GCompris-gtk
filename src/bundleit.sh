@@ -22,13 +22,17 @@ fi
 
 # Create the Sugar specific startup scripts
 activity_name=`basename $1 -activity`
-cp activity-gcompris.svg $1/activity
-cp activity.info $1/activity
-sed -i s/@ACTIVITY_NAME@/$activity_name/g $1/activity/activity.info
-cp gcompris-instance $1/
-cp gcompris-factory $1/
+activity_dir=${activity_name}.activity
+cp -a $1 $activity_dir
+cp activity-gcompris.svg $activity_dir/activity
+cp activity.info $activity_dir/activity
+sed -i s/@ACTIVITY_NAME@/$activity_name/g $activity_dir/activity/activity.info
+cp gcompris-instance $activity_dir/
+cp gcompris-factory $activity_dir/
+mv $activity_dir/.libs/*.so $activity_dir
+rm -rf $activity_dir/.libs
 
-tar -cjf $1.tar.bz2 -h \
+tar -cjf $activity_dir.tar.bz2 -h \
     --exclude ".svn" --exclude "resources/skins/babytoy" \
     $draw \
     --exclude "resources/skins/gartoon/timers" \
@@ -40,13 +44,12 @@ tar -cjf $1.tar.bz2 -h \
     --exclude "*.lo" \
     --exclude "*.o" \
     --exclude "*.lai" \
-    $1
+    $activity_dir
 
 # Create the sugar .xo zip bundle
-tar -tjf $1.tar.bz2 | zip $1.xo -@
+rm -f $activity_dir.xo
+tar -tjf $activity_dir.tar.bz2 | zip $activity_dir.xo -@
 
 # Sugar cleanup
-rm $1/activity/activity.info
-rm $1/activity/activity-gcompris.svg
-rm $1/gcompris-instance
-rm $1/gcompris-factory
+rm -rf $activity_dir
+rm $activity_dir.tar.bz2
