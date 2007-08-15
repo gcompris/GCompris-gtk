@@ -78,6 +78,7 @@ gc_dbus_init(gchar *sugarActivityId)
                                      object_path,
                                      _ACTIVITY_INTERFACE);
 
+  dbus_g_proxy_add_signal(proxy, "set_active", G_TYPE_BOOLEAN);
   dbus_g_proxy_connect_signal(proxy, "set_active",
 			      G_CALLBACK(_set_active), NULL, NULL);
 #endif
