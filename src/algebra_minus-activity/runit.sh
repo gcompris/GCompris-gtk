@@ -1,13 +1,16 @@
+#!/bin/sh
+path=`dirname $0`
+
 activity=algebra_minus
 type=algebra
 
-plugindir=.
-if [ -f ../algebra_by-activity/.libs/lib$type.so ]
+plugindir=$path
+if [ -f $path/../algebra_by-activity/.libs/lib$type.so ]
 then
-  plugindir=../algebra_by-activity/.libs
+  plugindir=$path/../algebra_by-activity/.libs
 fi
 
-./gcompris.bin -L $plugindir -P . -A ../algebra_by-activity/resources \
-    --config-dir=. -M activity \
-    --locale_dir=./locale -l /math/algebramenu/algebra_group/$activity $*
+$path/gcompris.bin -L $plugindir -P $path -A $path/../algebra_by-activity/resources \
+    --config-dir=. -M $path/activity \
+    --locale_dir=$path/locale -l /math/algebramenu/algebra_group/$activity $*
 

@@ -1,12 +1,15 @@
+#!/bin/sh
+path=`dirname $0`
+
 activity=wordsgame
 
-plugindir=.
-if [ -f .libs/lib$activity.so ]
+plugindir=$path
+if [ -f $path/.libs/lib$activity.so ]
 then
-  plugindir=.libs
+  plugindir=$path/.libs
 fi
 
-./gcompris.bin -L $plugindir -P . -A ../readingh-activity/resources \
-    --config-dir=. -M activity \
-    --locale_dir=./locale -l /computer/keyboard/$activity $*
+$path/gcompris.bin -L $plugindir -P $path -A $path/../readingh-activity/resources \
+    --config-dir=. -M $path/activity \
+    --locale_dir=$path/locale -l /computer/keyboard/$activity $*
 

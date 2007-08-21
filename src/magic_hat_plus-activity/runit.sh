@@ -1,13 +1,16 @@
+#!/bin/sh
+path=`dirname $0`
+
 activity=magic_hat_plus
 type=magic_hat
 
-plugindir=.
-if [ -f ../magic_hat_minus-activity/.libs/lib$type.so ]
+plugindir=$path
+if [ -f $path/../magic_hat_minus-activity/.libs/lib$type.so ]
 then
-  plugindir=../magic_hat_minus-activity/.libs
+  plugindir=$path/../magic_hat_minus-activity/.libs
 fi
 
-./gcompris.bin -L $plugindir -P . -A ../magic_hat_minus-activity/resources \
-    --config-dir=. -M activity \
-    --locale_dir=./locale -l /math/numeration/$activity $*
+$path/gcompris.bin -L $plugindir -P $path -A $path/../magic_hat_minus-activity/resources \
+    --config-dir=. -M $path/activity \
+    --locale_dir=$path/locale -l /math/numeration/$activity $*
 

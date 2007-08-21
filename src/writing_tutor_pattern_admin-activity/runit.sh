@@ -1,12 +1,15 @@
+#!/bin/sh
+path=`dirname $0`
+
 activity=writing_tutor_pattern_admin
 
-plugindir=.
-if [ -f ../boards/.libs/libpython.so ]
+plugindir=$path
+if [ -f $path/../boards/.libs/libpython.so ]
 then
-  plugindir=../boards/.libs
+  plugindir=$path/../boards/.libs
 fi
 
-./gcompris.bin -L $plugindir -P . -A resources \
-    --config-dir=. -M activity \
-    --locale_dir=./locale -l /experimental/writing_tutor/$activity $*
+$path/gcompris.bin -L $plugindir -P $path -A $path/resources \
+    --config-dir=. -M $path/activity \
+    --locale_dir=$path/locale -l /experimental/writing_tutor/$activity $*
 

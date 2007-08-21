@@ -30,7 +30,7 @@ echo launching $bundle_id instance $activity_id
 [ -n "$uri"         ] && echo loading uri $uri
 
 # now run GCompris startup script
-exec ./runit.sh \
+exec $SUGAR_BUNDLE_PATH/runit.sh \
     --sugarBundleId $bundle_id \
     --sugarActivityId $activity_id \
     $args

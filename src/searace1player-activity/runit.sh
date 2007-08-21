@@ -1,13 +1,16 @@
+#!/bin/sh
+path=`dirname $0`
+
 activity=searace1player
 
-plugindir=.
-if [ -f ../boards/.libs/libpython.so ]
+plugindir=$path
+if [ -f $path/../boards/.libs/libpython.so ]
 then
-  plugindir=../boards/.libs
+  plugindir=$path/../boards/.libs
 fi
 
-./gcompris.bin -L $plugindir -P ../searace-activity \
-    -A ../searace-activity/resources \
-    --config-dir=. -M activity \
-    --locale_dir=./locale -l /experience/$activity $*
+$path/gcompris.bin -L $plugindir -P $path./searace-activity \
+    -A $path/../searace-activity/resources \
+    --config-dir=. -M $path/activity \
+    --locale_dir=$path/locale -l /experience/$activity $*
 

@@ -1,13 +1,16 @@
+#!/bin/sh
+path=`dirname $0`
+
 activity=erase_clic
 type=erase
 
-plugindir=.
-if [ -f ../erase-activity/.libs/lib$type.so ]
+plugindir=$path
+if [ -f $path/../erase-activity/.libs/lib$type.so ]
 then
-  plugindir=../erase-activity/.libs
+  plugindir=$path/../erase-activity/.libs
 fi
 
-./gcompris.bin -L $plugindir -P . -A ../erase-activity/resources \
-    --config-dir=. -M activity \
-    --locale_dir=./locale -l /computer/mouse/$activity $*
+$path/gcompris.bin -L $plugindir -P $path -A $path/../erase-activity/resources \
+    --config-dir=. -M $path/activity \
+    --locale_dir=$path/locale -l /computer/mouse/$activity $*
 

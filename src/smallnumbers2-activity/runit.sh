@@ -1,13 +1,16 @@
+#!/bin/sh
+path=`dirname $0`
+
 activity=smallnumbers2
 type=smallnumbers
 
-plugindir=.
-if [ -f ../smallnumbers-activity/.libs/lib$type.so ]
+plugindir=$path
+if [ -f $path/../smallnumbers-activity/.libs/lib$type.so ]
 then
-  plugindir=../smallnumbers-activity/.libs
+  plugindir=$path/../smallnumbers-activity/.libs
 fi
 
-./gcompris.bin -L $plugindir -P . -A ../smallnumbers-activity/resources \
-    --config-dir=. -M activity \
-    --locale_dir=./locale -l /math/numeration/$activity $*
+$path/gcompris.bin -L $plugindir -P $path -A $path/../smallnumbers-activity/resources \
+    --config-dir=. -M $path/activity \
+    --locale_dir=$path/locale -l /math/numeration/$activity $*
 

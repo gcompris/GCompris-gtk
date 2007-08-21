@@ -1,13 +1,16 @@
+#!/bin/sh
+path=`dirname $0`
+
 activity=clickanddraw
 
-plugindir=.
-if [ -f ../boards/.libs/libpython.so ]
+plugindir=$path
+if [ -f $path/../boards/.libs/libpython.so ]
 then
-  plugindir=../boards/.libs
+  plugindir=$path/../boards/.libs
 fi
 
-./gcompris.bin -L $plugindir -P ../drawnumber-activity \
-    -A ../drawnumber-activity/resources \
-    --config-dir=. -M activity \
-    --locale_dir=./locale -l /computer/mouse/$activity $*
+$path/gcompris.bin -L $plugindir -P $path./drawnumber-activity \
+    -A $path/../drawnumber-activity/resources \
+    --config-dir=. -M $path/activity \
+    --locale_dir=$path/locale -l /computer/mouse/$activity $*
 

@@ -1,12 +1,15 @@
+#!/bin/sh
+path=`dirname $0`
+
 activity=redraw_symmetrical
 
-plugindir=.
-if [ -f ../boards/.libs/libpython.so ]
+plugindir=$path
+if [ -f $path/../boards/.libs/libpython.so ]
 then
-  plugindir=../boards/.libs
+  plugindir=$path/../boards/.libs
 fi
 
-./gcompris.bin -L $plugindir -P ../redraw-activity -A resources \
-    --config-dir=. -M activity \
-    --locale_dir=./locale -l /math/geometry/$activity $*
+$path/gcompris.bin -L $plugindir -P $path./redraw-activity -A $path/resources \
+    --config-dir=. -M $path/activity \
+    --locale_dir=$path/locale -l /math/geometry/$activity $*
 

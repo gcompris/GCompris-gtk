@@ -1,12 +1,15 @@
+#!/bin/sh
+path=`dirname $0`
+
 activity=maze
 
-plugindir=.
-if [ -f .libs/lib$activity.so ]
+plugindir=$path
+if [ -f $path/.libs/lib$activity.so ]
 then
-  plugindir=.libs
+  plugindir=$path/.libs
 fi
 
-./gcompris.bin -L $plugindir -P . -A resources \
-    --config-dir=. -M activity \
-    --locale_dir=./locale -l /discovery/mazeMenu/$activity $*
+$path/gcompris.bin -L $plugindir -P $path -A $path/resources \
+    --config-dir=. -M $path/activity \
+    --locale_dir=$path/locale -l /discovery/mazeMenu/$activity $*
 

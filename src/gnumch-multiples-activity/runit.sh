@@ -1,13 +1,16 @@
+#!/bin/sh
+path=`dirname $0`
+
 activity=gnumch-multiples
 
-plugindir=.
-if [ -f ../boards/.libs/libpython.so ]
+plugindir=$path
+if [ -f $path/../boards/.libs/libpython.so ]
 then
-  plugindir=../boards/.libs
+  plugindir=$path/../boards/.libs
 fi
 
-./gcompris.bin -L $plugindir -P ../gnumch-equality-activity \
-    -A ../gnumch-equality-activity/resources \
-    --config-dir=. -M activity \
-    --locale_dir=./locale -l /math/algebramenu/gnumchmenu/$activity $*
+$path/gcompris.bin -L $plugindir -P $path./gnumch-equality-activity \
+    -A $path/../gnumch-equality-activity/resources \
+    --config-dir=. -M $path/activity \
+    --locale_dir=$path/locale -l /math/algebramenu/gnumchmenu/$activity $*
 

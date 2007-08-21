@@ -1,13 +1,16 @@
+#!/bin/sh
+path=`dirname $0`
+
 activity=money_cents
 type=money
 
-plugindir=.
-if [ -f ../money-activity/.libs/lib$type.so ]
+plugindir=$path
+if [ -f $path/../money-activity/.libs/lib$type.so ]
 then
-  plugindir=../money-activity/.libs
+  plugindir=$path/../money-activity/.libs
 fi
 
-./gcompris.bin -L $plugindir -P . -A ../money-activity/resources \
-    --config-dir=. -M activity \
-    --locale_dir=./locale -l /math/numeration/$activity $*
+$path/gcompris.bin -L $plugindir -P $path -A $path/../money-activity/resources \
+    --config-dir=. -M $path/activity \
+    --locale_dir=$path/locale -l /math/numeration/$activity $*
 

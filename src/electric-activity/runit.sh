@@ -1,12 +1,15 @@
+#!/bin/sh
+path=`dirname $0`
+
 activity=electric
 
-plugindir=.
-if [ -f ../boards/.libs/libpython.so ]
+plugindir=$path
+if [ -f $path/../boards/.libs/libpython.so ]
 then
-  plugindir=../boards/.libs
+  plugindir=$path/../boards/.libs
 fi
 
-./gcompris.bin -L $plugindir -P . -A resources \
-    --config-dir=. -M activity \
-    --locale_dir=./locale -l /experience/$activity $*
+$path/gcompris.bin -L $plugindir -P $path -A $path/resources \
+    --config-dir=. -M $path/activity \
+    --locale_dir=$path/locale -l /experience/$activity $*
 

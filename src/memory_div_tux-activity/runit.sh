@@ -1,13 +1,16 @@
+#!/bin/sh
+path=`dirname $0`
+
 activity=memory_div_tux
 type=memory
 
-plugindir=.
-if [ -f ../memory-activity/.libs/lib$type.so ]
+plugindir=$path
+if [ -f $path/../memory-activity/.libs/lib$type.so ]
 then
-  plugindir=../memory-activity/.libs
+  plugindir=$path/../memory-activity/.libs
 fi
 
-./gcompris.bin -L $plugindir -P . -A ../memory-activity/resources \
-    --config-dir=. -M activity \
-    --locale_dir=./locale -l /math/algebramenu/memory_op_group_tux/$activity $*
+$path/gcompris.bin -L $plugindir -P $path -A $path/../memory-activity/resources \
+    --config-dir=. -M $path/activity \
+    --locale_dir=$path/locale -l /math/algebramenu/memory_op_group_tux/$activity $*
 

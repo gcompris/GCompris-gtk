@@ -1,13 +1,16 @@
+#!/bin/sh
+path=`dirname $0`
+
 activity=maze2DRelative
 type=maze
 
-plugindir=.
-if [ -f ../maze-activity/.libs/lib$type.so ]
+plugindir=$path
+if [ -f $path/../maze-activity/.libs/lib$type.so ]
 then
-  plugindir=../maze-activity/.libs
+  plugindir=$path/../maze-activity/.libs
 fi
 
-./gcompris.bin -L $plugindir -P . -A ../maze-activity/resources \
-    --config-dir=. -M activity \
-    --locale_dir=./locale -l /discovery/mazeMenu/$activity $*
+$path/gcompris.bin -L $plugindir -P $path -A $path/../maze-activity/resources \
+    --config-dir=. -M $path/activity \
+    --locale_dir=$path/locale -l /discovery/mazeMenu/$activity $*
 
