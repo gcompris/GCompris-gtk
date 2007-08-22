@@ -9,7 +9,7 @@ then
   plugindir=$path/.libs
 fi
 
-$path/gcompris.bin -L $plugindir -P . -A $path/resources \
+$path/gcompris.bin -L $plugindir -P $path -A $path/resources \
     --config-dir=. -M $path/activity \
-    --locale_dir=./locale -l /puzzle/$activity $*
+    --locale_dir=$path/locale -l /puzzle/$activity $*
 
