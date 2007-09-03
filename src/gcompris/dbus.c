@@ -33,6 +33,7 @@
 #define _ACTIVITY_SERVICE_PATH	"/org/laptop/Activity"
 #define _ACTIVITY_INTERFACE	"org.laptop.Activity"
 
+#if USE_DBUS
 void _set_active(DBusGProxy *proxy, gint active, void *dummy)
 {
   printf("_set_active %d\n", active);
@@ -42,6 +43,7 @@ void _set_active(DBusGProxy *proxy, gint active, void *dummy)
     gc_sound_reopen();
 
 }
+#endif
 
 void
 gc_dbus_init(gchar *sugarActivityId)
