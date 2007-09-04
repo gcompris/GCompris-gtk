@@ -175,7 +175,7 @@ colors_config_start(GcomprisBoard *agcomprisBoard,
   gchar *saved_locale_sound = g_hash_table_lookup( config, "locale_sound");
 
   gc_board_config_combo_locales_asset( _("Select sound locale"), saved_locale_sound,
-				"sounds/$LOCALE/colors/purple.ogg");
+				"voices/$LOCALE/colors/purple.ogg");
 
   g_hash_table_destroy(config);
 
@@ -319,7 +319,7 @@ static void repeat (){
       char *str  = NULL;
       GcomprisProperties *properties = gc_prop_get();
 
-      str = g_strdup_printf("sounds/$LOCALE/colors/%s.ogg",
+      str = g_strdup_printf("voices/$LOCALE/colors/%s.ogg",
 			    colors[GPOINTER_TO_INT(g_list_nth_data(listColors, 0))*2]);
 
       /* If we don't find a sound in our locale or the sounds are disabled */

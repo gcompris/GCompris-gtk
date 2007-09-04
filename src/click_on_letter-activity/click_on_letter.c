@@ -237,7 +237,7 @@ static void repeat ()
 
       str1 = gc_sound_alphabet(right_letter);
 
-      right_letter_ogg = g_strdup_printf("sounds/$LOCALE/alphabet/%s", str1);
+      right_letter_ogg = g_strdup_printf("voices/$LOCALE/alphabet/%s", str1);
       g_free(str1);
 
       if(right_letter_ogg) {
@@ -269,7 +269,7 @@ static gboolean sounds_are_fine()
   letter_str = gc_sound_alphabet(letter);
   g_free(letter);
 
-  str2 = gc_file_find_absolute("sounds/$LOCALE/alphabet/%s", letter_str);
+  str2 = gc_file_find_absolute("voices/$LOCALE/alphabet/%s", letter_str);
 
   if (!str2)
     {
@@ -323,7 +323,7 @@ click_on_letter_next_level()
   gc_score_set(gcomprisBoard->sublevel);
   g_free (right_letter);
   /* Try the next level */
-  gc_sound_play_ogg("sounds/$LOCALE/misc/click_on_letter.ogg", NULL);
+  gc_sound_play_ogg("voices/$LOCALE/misc/click_on_letter.ogg", NULL);
   click_on_letter_create_item(gnome_canvas_root(gcomprisBoard->canvas));
 }
 /* ==================================== */
@@ -634,7 +634,7 @@ config_start(GcomprisBoard *agcomprisBoard,
   gchar *saved_locale_sound = g_hash_table_lookup( config, "locale_sound");
 
   gc_board_config_combo_locales_asset( "Select sound locale", saved_locale_sound,
-				"sounds/$LOCALE/colors/purple.ogg");
+				"voices/$LOCALE/colors/purple.ogg");
 
   gboolean up_init = FALSE;
 

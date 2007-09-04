@@ -636,7 +636,7 @@ static GnomeCanvasItem *gletters_create_item(GnomeCanvasGroup *parent)
       gchar *str2 = NULL;
       gchar *letter_unichar_name = gc_sound_alphabet(letter);
 
-      str2 = g_strdup_printf("sounds/$LOCALE/alphabet/%s", letter_unichar_name);
+      str2 = g_strdup_printf("voices/$LOCALE/alphabet/%s", letter_unichar_name);
 
       gc_sound_play_ogg(str2, NULL);
 

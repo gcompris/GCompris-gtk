@@ -414,7 +414,7 @@ static void smallnumbers_create_item(GnomeCanvasGroup *parent)
 	g_free(lettersItem);
 	g_free(unichar_letterItem);
 
-	str2 = g_strdup_printf("sounds/$LOCALE/alphabet/%s", str1);
+	str2 = g_strdup_printf("voices/$LOCALE/alphabet/%s", str1);
 
 	gc_sound_play_ogg(str2, NULL);
 
@@ -610,7 +610,7 @@ smallnumber_config_start(GcomprisBoard *agcomprisBoard,
 
   GtkComboBox *sound_box = gc_board_config_combo_locales_asset( _("Select sound locale"),
 							 saved_locale_sound,
-							 "sounds/$LOCALE/colors/purple.ogg");
+							 "voices/$LOCALE/colors/purple.ogg");
 
   gtk_widget_set_sensitive(GTK_WIDGET(sound_box), with_sound);
 

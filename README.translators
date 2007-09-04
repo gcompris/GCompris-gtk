@@ -30,11 +30,13 @@ Where yy is your target locale.
 Note that these words must be choosen to be simple in your language, don't
 necessary translate the English.
 
-A complete voice translation in boards/sounds/yy
+A complete voice translation in boards/voices/yy
+The voices are in a separate svn branch. If you got the source from the
+svn, you can get the voices simply by running 'make update-voices'. 
 It is best to choose somebody that speaks and articulate well your language.
 What is great with GCompris is that you can use it to practice a foreign
 language.
-Read the file boards/sounds/HOWTO_ENCODE to get more detailed instructions
+Read the file boards/voices/HOWTO_ENCODE to get more detailed instructions
 
 To check that you completed the translation of all voices and that there are no
 missing files. You can use the tool check_missing_voices.pl located in the tools

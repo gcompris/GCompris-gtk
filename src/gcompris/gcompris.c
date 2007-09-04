@@ -1708,11 +1708,11 @@ main (int argc, char *argv[])
 	{
 	  gc_sound_play_ogg("music/intro.ogg",
 			    NULL);
-	  gc_sound_play_ogg_cb("sounds/$LOCALE/misc/welcome.ogg",
+	  gc_sound_play_ogg_cb("voices/$LOCALE/misc/welcome.ogg",
 			       start_bg_music);
 	}
       else
-	gc_sound_play_ogg("sounds/$LOCALE/misc/welcome.ogg", NULL);
+	gc_sound_play_ogg("voices/$LOCALE/misc/welcome.ogg", NULL);
     }
 
   if (sugarActivityId)

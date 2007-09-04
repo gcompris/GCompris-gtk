@@ -810,7 +810,7 @@ gc_locale_reset()
  *
  * \param file: the file to search. In order to work, you need to provide a
  *              filename that includes a $LOCALE in it like:
- *              sounds/$LOCALE/colors/blue.ogg
+ *              voices/$LOCALE/colors/blue.ogg
  *
  * \return a list of locale
  */

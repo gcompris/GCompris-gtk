@@ -608,19 +608,19 @@ static GnomeCanvasItem *algebra_create_item(GnomeCanvasGroup *parent)
     {
     case PLUSSIGNFILE:
       expected_result = g_strdup_printf("%d", first_operand+second_operand);
-      audioOperand = "sounds/$LOCALE/misc/plus.ogg";
+      audioOperand = "voices/$LOCALE/misc/plus.ogg";
       break;
     case MINUSSIGNFILE:
       expected_result = g_strdup_printf("%d", first_operand-second_operand);
-      audioOperand = "sounds/$LOCALE/misc/minus.ogg";
+      audioOperand = "voices/$LOCALE/misc/minus.ogg";
       break;
     case BYSIGNFILE:
       expected_result = g_strdup_printf("%d", first_operand*second_operand);
-      audioOperand = "sounds/$LOCALE/misc/by.ogg";
+      audioOperand = "voices/$LOCALE/misc/by.ogg";
       break;
     case DIVIDESIGNFILE:
       expected_result = g_strdup_printf("%d", first_operand/second_operand);
-      audioOperand = "sounds/$LOCALE/misc/outof.ogg";
+      audioOperand = "voices/$LOCALE/misc/outof.ogg";
       break;
     default:
       g_error("Bad Operation");
@@ -647,10 +647,10 @@ static GnomeCanvasItem *algebra_create_item(GnomeCanvasGroup *parent)
     g_free(first_operand_str);
     g_free(second_operand_str);
 
-    first_operand_str = g_strdup_printf("sounds/$LOCALE/alphabet/%s", str1);
-    second_operand_str = g_strdup_printf("sounds/$LOCALE/alphabet/%s", str2);
+    first_operand_str = g_strdup_printf("voices/$LOCALE/alphabet/%s", str1);
+    second_operand_str = g_strdup_printf("voices/$LOCALE/alphabet/%s", str2);
 
-    gc_sound_play_ogg(first_operand_str, audioOperand , second_operand_str, "sounds/$LOCALE/misc/equal.ogg", NULL);
+    gc_sound_play_ogg(first_operand_str, audioOperand , second_operand_str, "voices/$LOCALE/misc/equal.ogg", NULL);
 
     g_free(str1);
     g_free(str2);

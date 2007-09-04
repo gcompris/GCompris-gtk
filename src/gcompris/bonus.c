@@ -45,21 +45,21 @@ static int left_door_limit = 0;
 // List of sounds to use for greetings
 static gchar *greetingsList[] =
 {
-  "sounds/$LOCALE/misc/congratulation.ogg",
-  "sounds/$LOCALE/misc/great.ogg",
-  "sounds/$LOCALE/misc/good.ogg",
-  "sounds/$LOCALE/misc/awesome.ogg",
-  "sounds/$LOCALE/misc/fantastic.ogg",
-  "sounds/$LOCALE/misc/waytogo.ogg",
-  "sounds/$LOCALE/misc/super.ogg",
-  "sounds/$LOCALE/misc/perfect.ogg"
+  "voices/$LOCALE/misc/congratulation.ogg",
+  "voices/$LOCALE/misc/great.ogg",
+  "voices/$LOCALE/misc/good.ogg",
+  "voices/$LOCALE/misc/awesome.ogg",
+  "voices/$LOCALE/misc/fantastic.ogg",
+  "voices/$LOCALE/misc/waytogo.ogg",
+  "voices/$LOCALE/misc/super.ogg",
+  "voices/$LOCALE/misc/perfect.ogg"
 };
 #define NUMBER_OF_GREETINGS G_N_ELEMENTS(greetingsList)
 
 // List of sounds to use for loosing
 static gchar *loosingList[] =
 {
-  "sounds/$LOCALE/misc/check_answer.ogg",
+  "voices/$LOCALE/misc/check_answer.ogg",
 };
 #define NUMBER_OF_LOOSING 1
 

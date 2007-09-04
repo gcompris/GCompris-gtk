@@ -473,7 +473,7 @@ static gint bar_play_sound (gchar *sound)
   gchar *str;
   gc_sound_policy_set(PLAY_ONLY_IF_IDLE);
 
-  str = g_strdup_printf("sounds/$LOCALE/misc/%s.ogg", sound);
+  str = g_strdup_printf("voices/$LOCALE/misc/%s.ogg", sound);
 
   gc_sound_play_ogg(str, NULL);
 
@@ -552,9 +552,9 @@ item_event_bar(GnomeCanvasItem *item, GdkEvent *event, gchar *data)
 	      gchar *current_level_str = gc_sound_alphabet(number_str);
 	      g_free(number_str);
 
-	      str_number = g_strdup_printf("sounds/$LOCALE/alphabet/%s", current_level_str);
+	      str_number = g_strdup_printf("voices/$LOCALE/alphabet/%s", current_level_str);
 
-	      gc_sound_play_ogg("sounds/$LOCALE/misc/level.ogg", str_number, NULL);
+	      gc_sound_play_ogg("voices/$LOCALE/misc/level.ogg", str_number, NULL);
 
 	      g_free(str_number);
 	      g_free(current_level_str);
