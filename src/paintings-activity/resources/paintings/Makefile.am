@@ -39,7 +39,7 @@ img_DATA = \
 	gogh_auvert_3.jpg \
 	gogh_auvert_4.jpg \
 	gogh_auvert_5.jpg \
-	gogh_auvert_6.jpg
+	gogh_auvert_6.jpg \
 	degas_class-dance_1.png \
 	degas_class-dance_2.png \
 	degas_class-dance_3.png \
