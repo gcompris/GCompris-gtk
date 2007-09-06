@@ -73,27 +73,27 @@ class Gcompris_melody:
                       [
       # xylophon
       [
-      {'theme': "xylofon", 'background': "melody/xylofon/background.png", 'hittool': "melody/xylofon/cursor.png", 'hitofset_x': 50, 'hitofset_y': 50},
-      [ {'x': 150.0, 'y': 101.0,  'image': "melody/xylofon/son1.png", 'sound': "melody/sounds/xylofon/son1.ogg"},
-        {'x': 284.0, 'y': 118.0,  'image': "melody/xylofon/son2.png", 'sound': "melody/sounds/xylofon/son2.ogg"},
-        {'x': 412.0, 'y': 140.0, 'image': "melody/xylofon/son3.png", 'sound': "melody/sounds/xylofon/son3.ogg"},
-        {'x': 546.0, 'y': 157.0, 'image': "melody/xylofon/son4.png", 'sound': "melody/sounds/xylofon/son4.ogg"} ] ],
+      {'theme': "xylofon", 'background': "melody/xylofon_background.png", 'hittool': "melody/xylofon_cursor.png", 'hitofset_x': 50, 'hitofset_y': 50},
+      [ {'x': 150.0, 'y': 101.0,  'image': "melody/xylofon_son1.png", 'sound': "melody/xylofon_son1.ogg"},
+        {'x': 284.0, 'y': 118.0,  'image': "melody/xylofon_son2.png", 'sound': "melody/xylofon_son2.ogg"},
+        {'x': 412.0, 'y': 140.0, 'image': "melody/xylofon_son3.png", 'sound': "melody/xylofon_son3.ogg"},
+        {'x': 546.0, 'y': 157.0, 'image': "melody/xylofon_son4.png", 'sound': "melody/xylofon_son4.ogg"} ] ],
 
       # guitar
       [
-      {'theme': "guitar", 'background': "melody/guitar/background.jpg", 'hittool': "melody/guitar/cursor.png", 'hitofset_x': 400, 'hitofset_y': -5},
-      [ {'x': 0, 'y': 170.0,  'image': "melody/guitar/son1.png", 'sound': "melody/sounds/guitar/son1.ogg"},
-        {'x': 0, 'y': 230.0,  'image': "melody/guitar/son2.png", 'sound': "melody/sounds/guitar/son2.ogg"},
-        {'x': 0, 'y': 290.0, 'image': "melody/guitar/son3.png", 'sound': "melody/sounds/guitar/son3.ogg"},
-        {'x': 0, 'y': 350.0, 'image': "melody/guitar/son4.png", 'sound': "melody/sounds/guitar/son4.ogg"} ] ],
+      {'theme': "guitar", 'background': "melody/guitar_background.jpg", 'hittool': "melody/guitar_cursor.png", 'hitofset_x': 400, 'hitofset_y': -5},
+      [ {'x': 0, 'y': 170.0,  'image': "melody/guitar_son1.png", 'sound': "melody/guitar_son1.ogg"},
+        {'x': 0, 'y': 230.0,  'image': "melody/guitar_son2.png", 'sound': "melody/guitar_son2.ogg"},
+        {'x': 0, 'y': 290.0, 'image': "melody/guitar_son3.png", 'sound': "melody/guitar_son3.ogg"},
+        {'x': 0, 'y': 350.0, 'image': "melody/guitar_son4.png", 'sound': "melody/guitar_son4.ogg"} ] ],
 
       # Kitchen
       [
-      {'theme': "tachos", 'background': "melody/tachos/background.jpg", 'hittool': "melody/tachos/cursor.png", 'hitofset_x': 50, 'hitofset_y': 50},
-      [ {'x': 150.0, 'y': 50.0,  'image': "melody/tachos/son1.png", 'sound': "melody/sounds/tachos/son1.ogg"},
-        {'x': 550.0, 'y': 50.0,  'image': "melody/tachos/son2.png", 'sound': "melody/sounds/tachos/son2.ogg"},
-        {'x': 150.0, 'y': 250.0, 'image': "melody/tachos/son3.png", 'sound': "melody/sounds/tachos/son3.ogg"},
-        {'x': 550.0, 'y': 250.0, 'image': "melody/tachos/son4.png", 'sound': "melody/sounds/tachos/son4.ogg"} ] ] ]
+      {'theme': "tachos", 'background': "melody/tachos_background.jpg", 'hittool': "melody/tachos_cursor.png", 'hitofset_x': 50, 'hitofset_y': 50},
+      [ {'x': 150.0, 'y': 50.0,  'image': "melody/tachos_son1.png", 'sound': "melody/tachos_son1.ogg"},
+        {'x': 550.0, 'y': 50.0,  'image': "melody/tachos_son2.png", 'sound': "melody/tachos_son2.ogg"},
+        {'x': 150.0, 'y': 250.0, 'image': "melody/tachos_son3.png", 'sound': "melody/tachos_son3.ogg"},
+        {'x': 550.0, 'y': 250.0, 'image': "melody/tachos_son4.png", 'sound': "melody/tachos_son4.ogg"} ] ] ]
 
     self.maxtheme = len(self.melodylist)-1
     self.gcomprisBoard.maxlevel = 9
@@ -111,7 +111,8 @@ class Gcompris_melody:
     self.display_current_level()
 
     # Play an intro sound
-    gcompris.sound.play_ogg_cb("melody/sounds/" + self.melodylist[self.theme][0]['theme'] + "/melody.ogg", self.intro_cb)
+    gcompris.sound.play_ogg_cb("melody/" + self.melodylist[self.theme][0]['theme'] +
+                               "_melody.ogg", self.intro_cb)
 
     Prop = gcompris.get_properties()
 
