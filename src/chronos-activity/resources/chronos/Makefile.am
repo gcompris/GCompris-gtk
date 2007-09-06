@@ -32,6 +32,9 @@ img_DATA = \
 	1.jpg \
 	2.jpg \
 	3.jpg \
+	1.ogg \
+	2.ogg \
+	3.ogg \
 	4.jpg \
 	autumn.png \
 	bell_X1.png \
