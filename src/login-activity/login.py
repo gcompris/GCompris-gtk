@@ -47,7 +47,7 @@ class Gcompris_login:
     self.gcomprisBoard = gcomprisBoard
 
     self.gcomprisBoard.disable_im_context = True
-
+    self.entry = []
     print("Gcompris_login __init__.")
 
 
@@ -187,9 +187,9 @@ class Gcompris_login:
     # There is a problem with GTK widgets, they are not covered by the help
     # We hide/show them here
     if(pause):
-      self.entry.hide()
+      if self.entry: self.entry.hide()
     else:
-      self.entryt.show()
+      if self.entry: self.entry.show()
 
 
   def set_level(self, level):
