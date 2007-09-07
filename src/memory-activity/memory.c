@@ -27,7 +27,6 @@
 #include "gcompris/gcompris.h"
 
 
-#define SOUNDLISTFILE PACKAGE
 #define MAX_MEMORY_WIDTH  8
 #define MAX_MEMORY_HEIGHT 4
 
@@ -180,78 +179,76 @@ static MemoryItem *memoryArray[MAX_MEMORY_WIDTH][MAX_MEMORY_HEIGHT];
 /* List of images to use in the memory */
 static gchar *imageList[] =
 {
-  "memory/cardimage/01_cat.png",
-  "memory/cardimage/02_pig.png",
-  "memory/cardimage/03_bear.png",
-  "memory/cardimage/04_hippopotamus.png",
-  "memory/cardimage/05_penguin.png",
-  "memory/cardimage/06_cow.png",
-  "memory/cardimage/07_sheep.png",
-  "memory/cardimage/08_turtle.png",
-  "memory/cardimage/09_panda.png",
-  "memory/cardimage/10_chicken.png",
-  "memory/cardimage/11_redbird.png",
-  "memory/cardimage/12_wolf.png",
-  "memory/cardimage/13_monkey.png",
-  "memory/cardimage/14_fox.png",
-  "memory/cardimage/15_bluebirds.png",
-  "memory/cardimage/16_elephant.png",
-  "memory/cardimage/17_lion.png",
-  "memory/cardimage/18_gnu.png",
-  "memory/cardimage/19_bluebaby.png",
-  "memory/cardimage/20_greenbaby.png",
-  "memory/cardimage/21_frog.png",
+  "memory/01_cat.png",
+  "memory/02_pig.png",
+  "memory/03_bear.png",
+  "memory/04_hippopotamus.png",
+  "memory/05_penguin.png",
+  "memory/06_cow.png",
+  "memory/07_sheep.png",
+  "memory/08_turtle.png",
+  "memory/09_panda.png",
+  "memory/10_chicken.png",
+  "memory/11_redbird.png",
+  "memory/12_wolf.png",
+  "memory/13_monkey.png",
+  "memory/14_fox.png",
+  "memory/15_bluebirds.png",
+  "memory/16_elephant.png",
+  "memory/17_lion.png",
+  "memory/18_gnu.png",
+  "memory/19_bluebaby.png",
+  "memory/20_greenbaby.png",
+  "memory/21_frog.png",
 };
 #define NUMBER_OF_IMAGES G_N_ELEMENTS(imageList)
 
 /* List of sounds to use in the memory */
 static gchar *soundList[] =
 {
-   "sounds/LuneRouge/animaux/LRRain_in_garden_01_by_Lionel_Allorge_cut.ogg",
-   "sounds/LuneRouge/animaux/LRBark_1_by_Lionel_Allorge_cut.ogg",
-   "sounds/LuneRouge/animaux/LRBark_3_by_Lionel_Allorge_cut.ogg",
-   "sounds/LuneRouge/animaux/LRFrogsInPondDuringStormByLionelAllorgeCut.ogg",
-   "sounds/LuneRouge/engins/LRObject_falling_02_by_Lionel_Allorge.ogg",
-   "sounds/LuneRouge/engins/LRTrain_slowing_down_01_by_Lionel_Allorge_cut.ogg",
-   "sounds/LuneRouge/engins/LRStartAndStopCarEngine1ByLionelAllorgeCut.ogg",
-   "sounds/LuneRouge/engins/LRObject_falling_01_by_Lionel_Allorge.ogg",
-   "sounds/LuneRouge/humain/LRApplauses_1_by_Lionel_Allorge_cut.ogg",
-   "sounds/LuneRouge/humain/LRHeart_beat_01_by_Lionel_Allorge.ogg",
-   "sounds/LuneRouge/maison/LRDoor_Open_2_by_Lionel_Allorge.ogg",
-   "sounds/LuneRouge/maison/LRRing_01_by_Lionel_Allorge.ogg",
-   "sounds/LuneRouge/musique/LRBuddhist_gong_05_by_Lionel_Allorge.ogg",
-   "sounds/LuneRouge/sf/LRWeird_4_by_Lionel_Allorge.ogg",
-   "sounds/LuneRouge/sf/LRWeird_1_by_Lionel_Allorge.ogg",
-   "sounds/LuneRouge/sf/LRWeird_2_by_Lionel_Allorge.ogg",
-   "sounds/LuneRouge/sf/LRWeird_3_by_Lionel_Allorge.ogg",
-   "sounds/LuneRouge/sf/LRWeird_5_by_Lionel_Allorge.ogg",
-   "sounds/LuneRouge/sf/LRWeird_6_by_Lionel_Allorge.ogg",
-   "sounds/LuneRouge/sf/LRET_phone_home_01_by_Lionel_Allorge_cut.ogg",
-   "sounds/LuneRouge/usine/LRFactory_noise_02_by_Lionel_Allorge.ogg",
-   "sounds/LuneRouge/usine/LRFactory_noise_03_by_Lionel_Allorge.ogg",
-   "sounds/LuneRouge/usine/LRFactory_noise_04_by_Lionel_Allorge.ogg",
-   "sounds/LuneRouge/usine/LRFactory_noise_05_by_Lionel_Allorge.ogg",
-   "sounds/LuneRouge/usine/LRFactory_noise_06_by_Lionel_Allorge.ogg",
-   "sounds/LuneRouge/usine/LRHits_01_by_Lionel_Allorge.ogg",
-   "sounds/LuneRouge/usine/LRFireballs_01_by_Lionel_Allorge.ogg",
-   "sounds/LuneRouge/usine/LRFactory_noise_01_by_Lionel_Allorge.ogg",
-   "sounds/LuneRouge/LRLaPause_short.ogg",
-   "sounds/memory/plick.ogg",
-   "sounds/memory/tick.ogg",
-   "sounds/memory/tri.ogg",
-   "sounds/chronos/space/1.ogg",
-   "sounds/chronos/space/2.ogg",
-   "sounds/chronos/space/2.ogg",
-   "sounds/melody/guitar/melody.ogg",
-   "sounds/melody/guitar/son1.ogg",
-   "sounds/melody/guitar/son2.ogg",
-   "sounds/melody/guitar/son3.ogg",
-   "sounds/melody/guitar/son4.ogg",
-   "sounds/melody/tachos/son1.ogg",
-   "sounds/melody/tachos/son2.ogg",
-   "sounds/melody/tachos/son3.ogg",
-   "sounds/melody/tachos/son4.ogg",
-   "sounds/melody/tachos/melody.ogg"
+   "memory/LRApplauses_1_by_Lionel_Allorge_cut.ogg",
+   "memory/LRBark_1_by_Lionel_Allorge_cut.ogg",
+   "memory/LRBark_3_by_Lionel_Allorge_cut.ogg",
+   "memory/LRBuddhist_gong_05_by_Lionel_Allorge.ogg",
+   "memory/LRDoor_Open_2_by_Lionel_Allorge.ogg",
+   "memory/LRFactory_noise_01_by_Lionel_Allorge.ogg",
+   "memory/LRFactory_noise_02_by_Lionel_Allorge.ogg",
+   "memory/LRFactory_noise_03_by_Lionel_Allorge.ogg",
+   "memory/LRFactory_noise_04_by_Lionel_Allorge.ogg",
+   "memory/LRFactory_noise_05_by_Lionel_Allorge.ogg",
+   "memory/LRFactory_noise_06_by_Lionel_Allorge.ogg",
+   "memory/LRFireballs_01_by_Lionel_Allorge.ogg",
+   "memory/LRFrogsInPondDuringStormByLionelAllorgeCut.ogg",
+   "memory/LRHeart_beat_01_by_Lionel_Allorge.ogg",
+   "memory/LRHits_01_by_Lionel_Allorge.ogg",
+   "memory/LRLaPause_short.ogg",
+   "memory/LRObject_falling_01_by_Lionel_Allorge.ogg",
+   "memory/LRObject_falling_02_by_Lionel_Allorge.ogg",
+   "memory/LRRain_in_garden_01_by_Lionel_Allorge_cut.ogg",
+   "memory/LRRing_01_by_Lionel_Allorge.ogg",
+   "memory/LRStartAndStopCarEngine1ByLionelAllorgeCut.ogg",
+   "memory/LRTrain_slowing_down_01_by_Lionel_Allorge_cut.ogg",
+   "memory/LRWeird_1_by_Lionel_Allorge.ogg",
+   "memory/LRWeird_2_by_Lionel_Allorge.ogg",
+   "memory/LRWeird_3_by_Lionel_Allorge.ogg",
+   "memory/LRWeird_4_by_Lionel_Allorge.ogg",
+   "memory/LRWeird_5_by_Lionel_Allorge.ogg",
+   "memory/LRWeird_6_by_Lionel_Allorge.ogg",
+   "memory/guitar_melody.ogg",
+   "memory/guitar_son1.ogg",
+   "memory/guitar_son2.ogg",
+   "memory/guitar_son3.ogg",
+   "memory/guitar_son4.ogg",
+   "memory/plick.ogg",
+   "memory/space1.ogg",
+   "memory/space2.ogg",
+   "memory/tachos_melody.ogg",
+   "memory/tachos_son1.ogg",
+   "memory/tachos_son2.ogg",
+   "memory/tachos_son3.ogg",
+   "memory/tachos_son4.ogg",
+   "memory/tick.ogg",
+   "memory/tri.ogg",
 };
 
 #define NUMBER_OF_SOUNDS G_N_ELEMENTS(soundList)
@@ -1275,7 +1272,7 @@ static void create_item(GnomeCanvasGroup *parent)
 	  if (currentUiMode == UIMODE_SOUND)
 	    pixmap = gc_pixmap_load("memory/Tux_mute.png");
 	  else
-	    pixmap = gc_pixmap_load("memory/cardimage/backcard.png");
+	    pixmap = gc_pixmap_load("memory/backcard.png");
 
 	  memoryItem->backcardItem = \
 	    gnome_canvas_item_new (GNOME_CANVAS_GROUP(memoryItem->rootItem),
@@ -1291,7 +1288,7 @@ static void create_item(GnomeCanvasGroup *parent)
 	  gdk_pixbuf_unref(pixmap);
 
 	  if (currentUiMode != UIMODE_SOUND){
-	    pixmap = gc_pixmap_load("memory/cardimage/emptycard.png");
+	    pixmap = gc_pixmap_load("memory/emptycard.png");
 	    memoryItem->framecardItem = \
 	      gnome_canvas_item_new (GNOME_CANVAS_GROUP(memoryItem->rootItem),
 				     gnome_canvas_pixbuf_get_type (),
