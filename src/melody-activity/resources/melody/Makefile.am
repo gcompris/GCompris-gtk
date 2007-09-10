@@ -22,21 +22,18 @@ img_DATA = \
 	guitar_son2.png \
 	guitar_son3.png \
 	guitar_son4.png \
-	guitar \
 	tachos_background.jpg \
 	tachos_cursor.png \
 	tachos_son1.png \
 	tachos_son2.png \
 	tachos_son3.png \
 	tachos_son4.png \
-	tachos \
 	xylofon_background.png \
 	xylofon_cursor.png \
 	xylofon_son1.png \
 	xylofon_son2.png \
 	xylofon_son3.png \
 	xylofon_son4.png \
-	xylofon \
 	switch.png
 
 EXTRA_DIST = $(img_DATA)
