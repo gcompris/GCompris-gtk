@@ -43,7 +43,6 @@ EXTRA_DIST = \
 	$(Applications_in_files) \
 	$(icon_DATA) \
 	$(Menu_DATA) \
-	gcompris.spec.in \
 	intltool-extract.in \
 	intltool-merge.in \
 	intltool-update.in \
@@ -81,17 +80,13 @@ clean-local:
 	rm -f intltool-extract intltool-merge intltool-update
 	-rm -fr $(BUNDLE_APPDIR)
 
-# Creates separates distribution files for the sounds by locale
-dist-sounds:
-	./create_dist_sounds en @ALL_LINGUAS@
-
-# Create a core dist file without localized sounds file
-dist-core:
-	cp $(distdir).tar.gz $(distcore).tar.gz
-	gzip -df $(distcore).tar.gz
-	tar f $(distcore).tar --delete $(distdir)/boards/sounds
-	gzip --best $(distcore).tar
-	@echo Created $(distcore).tar.gz
+update-voices:
+	@if test -d $(PACKAGE_DATA_DIR)/voices; then \
+	  svn up $(PACKAGE_DATA_DIR)/voices; \
+	else \
+	  mkdir $(PACKAGE_DATA_DIR)/voices; \
+	  svn co http://svn.gnome.org/svn/gcompris/voices $(PACKAGE_DATA_DIR)/voices; \
+	fi
 
 all-local:
 

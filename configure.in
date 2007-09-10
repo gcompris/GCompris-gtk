@@ -151,18 +151,14 @@ PKG_CHECK_MODULES(XML, libxml-2.0)
 AC_SUBST(XML_CFLAGS)
 AC_SUBST(XML_LIBS)
 
+dnl Freetype2 flags (needed for libgnomecanvas)
+PKG_CHECK_MODULES(FT2, freetype2)
+AC_SUBST(FT2_CFLAGS)
+
 dnl glib-genmarshal
 AC_PATH_PROG(GLIB_GENMARSHAL, glib-genmarshal)
 
 AM_ICONV
-
-dnl XF86VidMode allows us to set the screen resolution dynamically
-AC_PATH_X
-
-XLIBADD=
-if test "x$x_libraries" != "x"; then
-  XLIBADD=" -L$x_libraries "
-fi
 
 LDFLAGS="${LDFLAGS}"
 
@@ -545,9 +541,8 @@ fi
 
 
 dnl Autoconf output
-AC_OUTPUT([ gcompris.spec
+AC_OUTPUT([ Makefile.mingw
 Makefile
-Makefile.mingw
 autopackage/Makefile
 autopackage/default.apspec
 boards/Makefile

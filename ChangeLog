@@ -1,3 +1,17 @@
+2007-09-10  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	- From trunk r2983
+	- removed unmaitained spec file
+	- fixed menu file not to include icon extension
+	- fixed bug#475301 missing freetype includes to compile libgnomecanvas
+
+	* configure.in:
+	* gcompris-edit.desktop.in:
+	* gcompris.desktop.in:
+	* src/libgnomecanvas/Makefile.am:
+	* Makefile.am: no more distribute an rpm spec file
+	* gcompris.spec.in: deleted
+
 2007-08-22  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	Improved the per activity startup script, it now works

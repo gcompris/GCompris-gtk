@@ -5,6 +5,7 @@ INCLUDES = \
 	-I$(top_srcdir)/src				\
 	$(WARN_CFLAGS) 					\
 	$(GCOMPRIS_CFLAGS) \
+	$(FT2_CFLAGS)					\
         -DGNOMECANVASLIBDIR=\""$(libdir)"\" 		\
         -DGNOMECANVASDATADIR=\""$(datadir)"\" 		\
         -DGNOMECANVASPIXMAPDIR=\""$(datadir)/pixmaps"\"	\
