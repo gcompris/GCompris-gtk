@@ -83,7 +83,10 @@ class Gcompris_electric:
     #
     # Check gnucap is installed and save it's path in self.gnucap_binary
     #
-    for binary in ("/usr/bin/gnucap",
+    # You can provide a gnucap binary in python_plugin_dir.
+    #
+    for binary in (os.path.join(gcompris.PYTHON_PLUGIN_DIR, 'gnucap'),
+                   "/usr/bin/gnucap",
                    "/usr/local/bin/gnucap",
                    "gnucap.exe",
 		   os.path.join(gcompris.DATA_DIR, '..' , '..', '..', 'bin', 'gnucap')):

@@ -8,16 +8,12 @@ if test -z "$1"; then
     exit 1
 fi
 
-if test "$1" != "draw-activity" && test "$1" != "anim-activity"; then
+if test "$1" != "draw-activity" && \
+    test "$1" != "anim-activity" && \
+    test "$1" != "electric-activity" ; then
   draw="--exclude resources/skins/gartoon/draw"
 else
   draw=""
-fi
-
-py=`ls $1/*.py 2>/dev/null`
-if test "$py" != ""; then
-  echo "Python activity not supported yet"
-  exit
 fi
 
 # Create the Sugar specific startup scripts
@@ -29,8 +25,16 @@ cp activity.info $activity_dir/activity
 sed -i s/@ACTIVITY_NAME@/$activity_name/g $activity_dir/activity/activity.info
 cp gcompris-instance $activity_dir/
 cp gcompris-factory $activity_dir/
-mv $activity_dir/.libs/*.so $activity_dir
+if [ -f $activity_dir/.libs/*.so ]; then
+  mv $activity_dir/.libs/*.so $activity_dir
+fi
 rm -rf $activity_dir/.libs
+
+# Add the python plugin if needed
+py=`ls $1/*.py 2>/dev/null`
+if test "$py" != ""; then
+    cp $1/../boards/.libs/libpython.so $activity_dir
+fi
 
 tar -cjf $activity_dir.tar.bz2 -h \
     --exclude ".svn" --exclude "resources/skins/babytoy" \
@@ -39,7 +43,6 @@ tar -cjf $activity_dir.tar.bz2 -h \
     --exclude ".deps" \
     --exclude "Makefile*" \
     --exclude "*.c" \
-    --exclude "*.py" \
     --exclude "*.la" \
     --exclude "*.lo" \
     --exclude "*.o" \
