@@ -134,6 +134,12 @@ gcompris_LDADD = \
 
 #	$(LIBICONV)
 
+gc-marshal.c: gc-marshal.list
+	@GLIB_GENMARSHAL@ --prefix=gc_marshal $(srcdir)/gc-marshal.list --header --body > gc-marshal.c
+
+gc-marshal.h: gc-marshal.list
+	@GLIB_GENMARSHAL@ --prefix=gc_marshal $(srcdir)/gc-marshal.list --header > gc-marshal.h
+
 
 EXTRA_DIST = \
 	Makefile.mingw gcomprisrc.rc

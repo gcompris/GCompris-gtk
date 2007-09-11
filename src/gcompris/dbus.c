@@ -17,8 +17,16 @@
  * Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
+/*
+ * To test it:
+ * run GCompris with  --sugarBundleId a --sugarActivityId a 
+ * dbus-send --dest='org.laptop.Activitya' 
+ *           /org/laptop/Activity/a org.laptop.Activity.set_active boolean:true
+ * 
+ */
 #include "gcompris.h"
 #include <gc_core.h>
+#include "gc-marshal.h"
 
 #if USE_DBUS
 #include <dbus/dbus-glib.h>
@@ -57,6 +65,8 @@ gc_dbus_init(gchar *sugarActivityId)
 
   g_type_init ();
 
+  dbus_g_thread_init ();
+
   error = NULL;
   connection = dbus_g_bus_get (DBUS_BUS_SESSION,
                                &error);
@@ -75,12 +85,15 @@ gc_dbus_init(gchar *sugarActivityId)
 					_ACTIVITY_SERVICE_PATH,
 					sugarActivityId);
 
+  dbus_g_object_register_marshaller (gc_marshal_VOID__BOOLEAN,
+				     G_TYPE_NONE, G_TYPE_BOOLEAN, G_TYPE_INVALID);
+
   proxy = dbus_g_proxy_new_for_name (connection,
                                      service_name,
                                      object_path,
                                      _ACTIVITY_INTERFACE);
 
-  dbus_g_proxy_add_signal(proxy, "set_active", G_TYPE_BOOLEAN);
+  dbus_g_proxy_add_signal(proxy, "set_active", G_TYPE_BOOLEAN, G_TYPE_INVALID);
   dbus_g_proxy_connect_signal(proxy, "set_active",
 			      G_CALLBACK(_set_active), NULL, NULL);
 #endif
