@@ -132,15 +132,23 @@ gcompris_LDADD = \
 	$(DBUS_LIBS) \
         $(INTLLIBS) $(NSBUNDLE_LDFLAGS)
 
+marshal_sources =				\
+	gc-marshal.c				\
+	gc-marshal.h
+
+BUILT_SOURCES =					\
+	$(marshal_sources)
+
 gc-marshal.c: gc-marshal.list
-	@GLIB_GENMARSHAL@ --prefix=gc_marshal $(srcdir)/gc-marshal.list --header --body > gc-marshal.c
+	$(GLIB_GENMARSHAL) --prefix=gc_marshal $< --header --body > $@
 
 gc-marshal.h: gc-marshal.list
-	@GLIB_GENMARSHAL@ --prefix=gc_marshal $(srcdir)/gc-marshal.list --header > gc-marshal.h
+	$(GLIB_GENMARSHAL) --prefix=gc_marshal $< --header > $@
 
 
 EXTRA_DIST = \
 	Makefile.mingw gcomprisrc.rc
 
+DONT_DIST_SOURCE = $(marshal_sources)
 
 gcompris_nsbundle_CPPFLAGS = -fconstant-string-class=NSConstantString
