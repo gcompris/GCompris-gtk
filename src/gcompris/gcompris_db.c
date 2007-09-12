@@ -261,7 +261,7 @@ int gc_db_init()
     }
 
 
-    request = g_strdup_printf("INSERT INTO class (class_id, name, teacher, wholegroup_id) VALUES ( 1, \'%s\', \'(%s)\', 1);",
+    request = g_strdup_printf("INSERT INTO class (class_id, name, teacher, wholegroup_id) VALUES ( 1, \"%s\", \"(%s)\", 1);",
 			      _("Unaffected"),
 			      _("Users without a class"));
 
