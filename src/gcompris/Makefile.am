@@ -132,8 +132,6 @@ gcompris_LDADD = \
 	$(DBUS_LIBS) \
         $(INTLLIBS) $(NSBUNDLE_LDFLAGS)
 
-#	$(LIBICONV)
-
 gc-marshal.c: gc-marshal.list
 	@GLIB_GENMARSHAL@ --prefix=gc_marshal $(srcdir)/gc-marshal.list --header --body > gc-marshal.c
 
