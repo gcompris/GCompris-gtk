@@ -1,4 +1,17 @@
-2007-09-12  Bruno coudoin  <bruno.coudoin@free.fr>
+2007-08-30  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	- merged from trunk 2914 2908 2911
+
+	* boards/flags/af.png: Created from the wikipedia one
+	http://upload.wikimedia.org/wikipedia/commons/a/af/Flag_of_South_Africa.svg
+	* src/gcompris/config.c
+	* po/af.po
+	* po/ChangeLog
+	* configure.in
+	* src/gcompris/gcompris_db.c: Fixed database creation bug when
+	the "Unaffected" or "Users without a class" translation did contains a single quote.
+
+2007-08-29  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	- Added support for Breton by Alan Monfort.
 	- Merged from trunk 2995
