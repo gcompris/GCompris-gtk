@@ -1,12 +1,12 @@
 /* gcompris - config.c
  *
- * Time-stamp: <2006/08/21 23:28:06 bruno>
+ * Time-stamp: <2007-08-22 01:21:16 bruno>
  *
  * Copyright (C) 2000-2003 Bruno Coudoin
  *
  *   This program is free software; you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
- *   the Free Software Foundation; either version 2 of the License, or
+ *   the Free Software Foundation; either version 3 of the License, or
  *   (at your option) any later version.
  *
  *   This program is distributed in the hope that it will be useful,
@@ -15,8 +15,7 @@
  *   GNU General Public License for more details.
  *
  *   You should have received a copy of the GNU General Public License
- *   along with this program; if not, write to the Free Software
- *   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+ *   along with this program; if not, see <http://www.gnu.org/licenses/>.
  */
 
 /**
@@ -57,6 +56,7 @@ static gboolean is_displayed			= FALSE;
 
 static gchar *linguas[] = {
   "",			N_("Your system default"),
+  "af_ZA.UTF-8", 	N_("Afrikaans"),
   "am_ET.UTF-8", 	N_("Amharic"),
   "ar_AE.UTF-8", 	N_("Arabic"),
   "ar_TN.UTF-8", 	N_("Arabic (Tunisia)"),
