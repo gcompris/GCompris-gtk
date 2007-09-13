@@ -11,7 +11,6 @@ dnl libtool versioning from libgnome
 AC_ISC_POSIX
 
 GTK_REQUIRED=2.4.0
-GDK_PIXBUF_REQUIRED=2.4.0
 
 dnl
 dnl Start of pkg-config checks
@@ -21,8 +20,7 @@ PKG_PROG_PKG_CONFIG()
 
 PKG_CHECK_MODULES(GCOMPRIS, dnl
  [gtk+-2.0 >= $GTK_REQUIRED dnl
-  gdk-pixbuf-2.0 >= $GDK_PIXBUF_REQUIRED dnl
-   gstreamer-0.10])
+  gstreamer-0.10])
 
 AC_SUBST(GCOMPRIS_CFLAGS)
 AC_SUBST(GCOMPRIS_LIBS)
