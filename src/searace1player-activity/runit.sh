@@ -11,6 +11,6 @@ fi
 
 $path/gcompris.bin -L $plugindir -P $path./searace-activity \
     -A $path/../searace-activity/resources \
-    --config-dir=. -M $path/activity \
+    --config-dir=. -M $path \
     --locale_dir=$path/locale -l /experience/$activity $*
 

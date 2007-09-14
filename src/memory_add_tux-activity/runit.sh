@@ -11,6 +11,6 @@ then
 fi
 
 $path/gcompris.bin -L $plugindir -P $path -A $path/../memory-activity/resources \
-    --config-dir=. -M $path/activity \
+    --config-dir=. -M $path \
     --locale_dir=$path/locale -l /math/algebramenu/memory_op_group_tux/$activity $*
 

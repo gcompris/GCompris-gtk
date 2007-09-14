@@ -10,6 +10,6 @@ then
 fi
 
 $path/gcompris.bin -L $plugindir -P $path./redraw-activity -A $path/resources \
-    --config-dir=. -M $path/activity \
+    --config-dir=. -M $path \
     --locale_dir=$path/locale -l /math/geometry/$activity $*
 

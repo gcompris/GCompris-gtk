@@ -9,5 +9,5 @@ then
   plugindir=$path/.libs
 fi
 
-$path/gcompris.bin -L $plugindir -P $path -A $path/resources     --config-dir=. -M $path/activity     --locale_dir=$path/locale -l /math/algebramenu/target $*
+$path/gcompris.bin -L $plugindir -P $path -A $path/resources     --config-dir=. -M $path     --locale_dir=$path/locale -l /math/algebramenu/target $*
 

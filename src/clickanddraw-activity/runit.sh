@@ -11,6 +11,6 @@ fi
 
 $path/gcompris.bin -L $plugindir -P $path./drawnumber-activity \
     -A $path/../drawnumber-activity/resources \
-    --config-dir=. -M $path/activity \
+    --config-dir=. -M $path \
     --locale_dir=$path/locale -l /computer/mouse/$activity $*
 

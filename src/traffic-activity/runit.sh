@@ -10,5 +10,5 @@ then
 fi
 
 $path/gcompris.bin -L $plugindir -P $path -A $path/resources \
-    --config-dir=. -M $path/activity \
+    --config-dir=. -M $path \
     --locale_dir=$path/locale -l /puzzle/$activity $*

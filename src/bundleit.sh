@@ -20,6 +20,7 @@ fi
 activity_name=`basename $1 -activity`
 activity_dir=${activity_name}.activity
 cp -a $1 $activity_dir
+mkdir -p $activity_dir/activity
 cp activity-gcompris.svg $activity_dir/activity
 cp activity.info $activity_dir/activity
 sed -i s/@ACTIVITY_NAME@/$activity_name/g $activity_dir/activity/activity.info
