@@ -1,5 +1,6 @@
 #!/bin/sh
 path=`dirname $0`
+resources=$path/../searace-activity/resources
 
 activity=searace1player
 
@@ -10,7 +11,7 @@ then
 fi
 
 $path/gcompris.bin -L $plugindir -P $path./searace-activity \
-    -A $path/../searace-activity/resources \
+    -A $resources \
     --config-dir=. -M $path \
     --locale_dir=$path/locale -l /experience/$activity $*
 

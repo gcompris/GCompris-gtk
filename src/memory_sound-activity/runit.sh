@@ -1,5 +1,6 @@
 #!/bin/sh
 path=`dirname $0`
+resources=$path/../memory-activity/resources
 
 activity=memory_sound
 type=memory
@@ -10,7 +11,7 @@ then
   plugindir=$path/../memory-activity/.libs
 fi
 
-$path/gcompris.bin -L $plugindir -P $path -A $path/../memory-activity/resources \
+$path/gcompris.bin -L $plugindir -P $path -A $resources \
     --config-dir=. -M $path \
     --locale_dir=$path/locale -l /discovery/memory_group/$activity $*
 

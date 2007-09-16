@@ -1,5 +1,6 @@
 #!/bin/sh
 path=`dirname $0`
+resources=$path/../gnumch-equality-activity/resources
 
 activity=gnumch-multiples
 
@@ -10,7 +11,7 @@ then
 fi
 
 $path/gcompris.bin -L $plugindir -P $path./gnumch-equality-activity \
-    -A $path/../gnumch-equality-activity/resources \
+    -A $resources \
     --config-dir=. -M $path \
     --locale_dir=$path/locale -l /math/algebramenu/gnumchmenu/$activity $*
 

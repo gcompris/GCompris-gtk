@@ -1,5 +1,6 @@
 #!/bin/sh
 path=`dirname $0`
+resources=$path/../algebra_by-activity/resources
 
 activity=algebra_plus
 type=algebra
@@ -10,7 +11,7 @@ then
   plugindir=$path/../algebra_by-activity/.libs
 fi
 
-$path/gcompris.bin -L $plugindir -P $path -A $path/../algebra_by-activity/resources \
+$path/gcompris.bin -L $plugindir -P $path -A $resources \
     --config-dir=. -M $path \
     --locale_dir=$path/locale -l /math/algebramenu/algebra_group/$activity $*
 

@@ -1,5 +1,6 @@
 #!/bin/sh
 path=`dirname $0`
+resources=$path/../maze-activity/resources
 
 activity=maze2DRelative
 type=maze
@@ -10,7 +11,7 @@ then
   plugindir=$path/../maze-activity/.libs
 fi
 
-$path/gcompris.bin -L $plugindir -P $path -A $path/../maze-activity/resources \
+$path/gcompris.bin -L $plugindir -P $path -A $resources \
     --config-dir=. -M $path \
     --locale_dir=$path/locale -l /discovery/mazeMenu/$activity $*
 

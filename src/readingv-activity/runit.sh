@@ -1,5 +1,6 @@
 #!/bin/sh
 path=`dirname $0`
+resources=$path/../readingh-activity/resources
 
 activity=readingv
 type=reading
@@ -10,7 +11,7 @@ then
   plugindir=$path/../readingh-activity/.libs
 fi
 
-$path/gcompris.bin -L $plugindir -P $path -A $path/../readingh-activity/resources \
+$path/gcompris.bin -L $plugindir -P $path -A $resources \
     --config-dir=. -M $path \
     --locale_dir=$path/locale -l /reading/$activity $*
 

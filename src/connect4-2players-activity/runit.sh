@@ -1,5 +1,6 @@
 #!/bin/sh
 path=`dirname $0`
+resources=$path/$resources
 
 activity=connect4-2players
 
@@ -17,7 +18,7 @@ then
   resources=../connect4-activity/resources
 fi
 
-$path/gcompris.bin -L $plugindir -P $pathpythonplugindir -A $path/$resources \
+$path/gcompris.bin -L $plugindir -P $pathpythonplugindir -A $resources \
     --config-dir=. -M $path \
     --locale_dir=$path/locale -l /strategy/$activity $*
 

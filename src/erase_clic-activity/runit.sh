@@ -1,5 +1,6 @@
 #!/bin/sh
 path=`dirname $0`
+resources=$path/../erase-activity/resources
 
 activity=erase_clic
 type=erase
@@ -10,7 +11,7 @@ then
   plugindir=$path/../erase-activity/.libs
 fi
 
-$path/gcompris.bin -L $plugindir -P $path -A $path/../erase-activity/resources \
+$path/gcompris.bin -L $plugindir -P $path -A $resources \
     --config-dir=. -M $path \
     --locale_dir=$path/locale -l /computer/mouse/$activity $*
 

@@ -1,5 +1,6 @@
 #!/bin/sh
 path=`dirname $0`
+resources=$path/../drawnumber-activity/resources
 
 activity=clickanddraw
 
@@ -10,7 +11,7 @@ then
 fi
 
 $path/gcompris.bin -L $plugindir -P $path./drawnumber-activity \
-    -A $path/../drawnumber-activity/resources \
+    -A $resources \
     --config-dir=. -M $path \
     --locale_dir=$path/locale -l /computer/mouse/$activity $*
 

@@ -28,7 +28,7 @@ activity_name=`basename $1 -activity`
 activity_dir=${activity_name}.activity
 if [ -d $activity_dir ]
 then
-  echo "The temporary directory already exists, delete it first"
+  echo "The temporary directory '$activity_dir' already exists, delete it first"
   exit 1
 fi
 
@@ -54,18 +54,40 @@ else
     echo "WARNING: No translation found in ../po/$lang.gmo"
 fi
 
-# Added the mandatory sounds of this activity
-mandatory_sound_file=`grep mandatory_sound_file $activity_dir/*.xml.in | cut -d= -f2 | sed s/\"//g`
-echo $mandatory_sound_file
-if test -n $mandatory_sound_file
+# Add the mandatory sounds of this activity
+mandatory_sound_dir=`grep mandatory_sound_dir $activity_dir/*.xml.in | cut -d= -f2 | sed s/\"//g`
+if test -n "$mandatory_sound_dir"
 then
-    mandatory_sound_file=`echo "$mandatory_sound_file" | sed 's/\$LOCALE/'$lang/`
-    mandatory_sound_file=`dirname $mandatory_sound_file`
-    mandatory_sound_file_up=`dirname $mandatory_sound_file`
-    echo "Adding mandatory sound file directory: $mandatory_sound_file"
-    mkdir -p $activity_dir/resources/$mandatory_sound_file_up
-    dotdot=`echo $mandatory_sound_file_up | sed s/[^/]*/../g`
-    ln -s $dotdot/../../../boards/$mandatory_sound_file -t $activity_dir/resources/$mandatory_sound_file_up
+    echo "This activity defines a mandatory_sound_dir in $mandatory_sound_dir"
+    mandatory_sound_dir=`echo "$mandatory_sound_dir" | sed 's/\$LOCALE/'$lang/`
+    echo "Adding mandatory sound dir directory: $mandatory_sound_dir"
+    up=`dirname $mandatory_sound_dir`
+    mkdir -p $activity_dir/resources/$up
+    dotdot=`echo $up | sed s/[^/]*/../g`
+    ln -s $dotdot/../../../boards/$mandatory_sound_dir -t $activity_dir/resources/$up
+fi
+
+# Add the reources if they are in another activity
+path=.
+eval `grep "^resources=" $activity_dir/runit.sh`
+if test "$resources" != "./resources"
+then
+    echo "This activity has it's resources in $resources"
+    if [ -d $activity_dir/resources ]
+    then
+	echo "ERROR: This activity points to another's resources but also have one"
+	exit 1
+    fi
+    ln -s $resources -t $activity_dir
+fi
+
+# Add the plugins if they are in another activity
+path=.
+eval `egrep "^[ ]+plugindir=" $activity_dir/runit.sh`
+if test "$plugindir" != "./.libs"
+then
+    echo "This activity has it's plugindir in $plugindir"
+    cp $activity_dir/$plugindir/*.so $activity_dir
 fi
 
 # Add the python plugin if needed
