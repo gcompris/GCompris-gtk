@@ -39,6 +39,7 @@ cp activity.info $activity_dir/activity
 sed -i s/@ACTIVITY_NAME@/$activity_name/g $activity_dir/activity/activity.info
 cp gcompris-instance $activity_dir/
 cp gcompris-factory $activity_dir/
+cp gcompris/gcompris $activity_dir/gcompris.bin
 if [ -f $activity_dir/.libs/*.so ]; then
   mv $activity_dir/.libs/*.so $activity_dir
 fi
