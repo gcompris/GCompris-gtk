@@ -41,8 +41,8 @@
 # 3. For each region:
 #   a. Select individual region
 #   b. Save selection to channel
-#   c. Rename channel in the name of region
-#  (You can create a channel for Foreign regions)
+#   c. Rename channel with the name of the region
+#  (You create a channel for each regions)
 # 4. Menu Python-Fu -> GCompris -> Geography
 #   a. Choice output directory and title (default based on image name)
 #   b. Set the border size between regions (depend on the original map)
@@ -59,7 +59,7 @@ from random import randint
 
 def gcompris_init(img):
     if len(img.layers) > 1:
-        gimp.message("Error : There too many layers")
+        gimp.message("Error : There is too many layers")
         return False
 
     # resize the image
@@ -225,7 +225,7 @@ def gcompris_geography(img, sdrawable, dossier, title, bordersize, keepLimit):
     pdb.gimp_selection_none(img)
     
     shape = dict()
-    shape["sound"] = os.path.join("sounds", "$LOCALE", "geography", dossier, "%n.png")
+    shape["sound"] = os.path.join("sounds", "$LOCALE", "geography", dossier, "%n.ogg")
     shape["<tooltip>"] = "%n"
     title_d = dict(x=600, y=495, justification="GTK_JUSTIFY_CENTER")
     title_d["<name>"] = title
