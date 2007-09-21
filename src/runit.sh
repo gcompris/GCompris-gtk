@@ -7,6 +7,9 @@ fi
 path=`dirname $0`
 . $1/init_path.sh
 
+menudir=$path
+localedir=$path/locale
+
 if [ ! -f $localedir ]; then
   localedir=/usr/share/locale
 fi
@@ -23,7 +26,6 @@ fi
 $gcompris -L $plugindir \
     -P $pythonplugindir \
     -A $resourcedir \
-    --config-dir=$configdir \
     -M $menudir \
     --locale_dir=$path/locale \
     -l /puzzle/$activity $*

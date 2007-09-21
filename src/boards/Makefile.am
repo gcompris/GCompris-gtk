@@ -59,6 +59,7 @@ libmenu_la_LIBADD =
 libmenu_la_SOURCES = menu2.c
 
 libpython_la_LDFLAGS = -export-dynamic $(shared) $(no_undefined) -module -avoid-version $(gc_libs) $(PYTHON_LIBS)
+
 libpython_la_LIBADD =
 libpython_la_CFLAGS = -fno-strict-aliasing $(PYGTK_CFLAGS)
 libpython_la_SOURCES = python.c \

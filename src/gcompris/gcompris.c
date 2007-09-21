@@ -1335,7 +1335,7 @@ main (int argc, char *argv[])
       if ((!g_file_test(popt_config_dir, G_FILE_TEST_IS_DIR)) ||
 	  (g_access(popt_config_dir, popt_administration? W_OK : R_OK ) == -1))
 	{
-	  printf("%s does not exists or is not %s", popt_config_dir,
+	  printf("%s does not exists or is not %s\n", popt_config_dir,
 		 popt_administration? "writable" : "readable"	);
 	  exit(0);
 	}
@@ -1718,14 +1718,15 @@ main (int argc, char *argv[])
   if (sugarActivityId)
     gc_dbus_init(sugarActivityId);
 
-  gtk_main ();
-
   /* FIXME: HACK Needed or we have unresolved symbols at python plugin dlopen
    *        Is there a better way to fix these?
    */
   GType dummy = gnome_canvas_polygon_get_type();
   dummy = gnome_canvas_clipgroup_get_type();
   dummy = gnome_canvas_bpath_get_type();
+
+  gtk_main ();
+
 
   return(0);
 }

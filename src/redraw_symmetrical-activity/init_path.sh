@@ -1,7 +1,7 @@
 # Set the different path for this activity
 # This is sourced by runit.sh
 path=$1
-activity=crane
+activity=redraw_symmetrical
+plugindir=$path/../boards/.libs
+pythonplugindir=$path/../redraw-activity
 resourcedir=$path/resources
-plugindir=$path/.libs
-pythonplugindir=$path
