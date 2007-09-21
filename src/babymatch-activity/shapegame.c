@@ -56,7 +56,6 @@ struct _Shape {
   char  *name;				/* name of the shape */
   char  *tooltip;			/* optional tooltip for the shape */
   char  *pixmapfile;			/* relative pixmap file name of the shape */
-  GnomeCanvasPoints* points; 		/* OR list of points for this shape */
   char  *targetfile;			/* OPTIONAL relative pixmap file name of the target shape, by default
 					   a red point is displayed */
   double x;				/* x coordinate */
@@ -136,7 +135,7 @@ static void 		 shapegame_next_level(void);
 static gboolean 	 read_xml_file(char *fname);
 static Shape 		*find_closest_shape(double x, double y, double limit);
 static Shape 		*create_shape(ShapeType type, char *name, char *tooltip,
-				      char *pixmapfile,  GnomeCanvasPoints* points,
+				      char *pixmapfile,
 				      char *targetfile, double x, double y, double l, double h, double zoomx,
 				      double zoomy, guint position, char *soundfile);
 static gboolean 	 increment_sublevel(void);
@@ -498,8 +497,6 @@ static void destroy_shape (Shape *shape)
   g_free(shape->targetfile);
   g_free(shape->soundfile);
   g_free(shape->tooltip);
-  if(shape->points!=NULL)
-    gnome_canvas_points_unref(shape->points);
   g_free(shape);
 }
 
@@ -783,7 +780,7 @@ add_shape_to_list_of_shapes(Shape *shape)
 	      gdk_pixbuf_unref(pixmap);
 
 	      icon_shape = create_shape(SHAPE_ICON, shape->name, shape->tooltip,
-					shape->pixmapfile, shape->points, shape->targetfile,
+					shape->pixmapfile, shape->targetfile,
 					(double)x_offset -w/2, (double)y_offset -h/2,
 					(double)w, (double)h,
 					(double)shape->zoomx, (double)shape->zoomy,
@@ -1308,43 +1305,29 @@ add_shape_to_canvas(Shape *shape)
       gnome_canvas_item_lower_to_bottom(item);
     }
 
-  if(shape->points!=NULL)
+  g_warning("it's an image ? shape->pixmapfile=%s\n", shape->pixmapfile);
+  if(shape->pixmapfile)
     {
-      g_warning("it's a point \n");
-      item = gnome_canvas_item_new(GNOME_CANVAS_GROUP(shape_root_item),
-				   gnome_canvas_polygon_get_type (),
-				   "points", shape->points,
-				   "fill_color", "grey",
-				   "outline_color", "black",
-				   "width_units", 1.0,
-				   NULL);
-    }
-  else
-    {
-      g_warning("it's an image ? shape->pixmapfile=%s\n", shape->pixmapfile);
-      if(shape->pixmapfile)
+      g_warning("  Yes it is an image \n");
+      pixmap = gc_pixmap_load(shape->pixmapfile);
+      if(pixmap)
 	{
-	  g_warning("  Yes it is an image \n");
-	  pixmap = gc_pixmap_load(shape->pixmapfile);
-	  if(pixmap)
-	    {
-	      shape->w = (double)gdk_pixbuf_get_width(pixmap) * shape->zoomx;
-	      shape->h = (double)gdk_pixbuf_get_height(pixmap) * shape->zoomy;
-
-	      /* Display the shape itself but hide it until the user puts the right shape on it */
-	      /* I have to do it this way for the positionning (lower/raise) complexity          */
-	      item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(shape_root_item),
-					    gnome_canvas_pixbuf_get_type (),
-					    "pixbuf", pixmap,
-					    "x", shape->x - shape->w / 2,
-					    "y", shape->y - shape->h / 2,
-					    "width", shape->w,
-					    "height", shape->h,
-					    "width_set", TRUE,
-					    "height_set", TRUE,
-					    NULL);
-	      gdk_pixbuf_unref(pixmap);
-	    }
+	  shape->w = (double)gdk_pixbuf_get_width(pixmap) * shape->zoomx;
+	  shape->h = (double)gdk_pixbuf_get_height(pixmap) * shape->zoomy;
+	  
+	  /* Display the shape itself but hide it until the user puts the right shape on it */
+	  /* I have to do it this way for the positionning (lower/raise) complexity          */
+	  item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(shape_root_item),
+					gnome_canvas_pixbuf_get_type (),
+					"pixbuf", pixmap,
+					"x", shape->x - shape->w / 2,
+					"y", shape->y - shape->h / 2,
+					"width", shape->w,
+					"height", shape->h,
+					"width_set", TRUE,
+					"height_set", TRUE,
+					NULL);
+	  gdk_pixbuf_unref(pixmap);
 	}
     }
 
@@ -1401,7 +1384,7 @@ static void create_title(char *name, double x, double y, GtkJustification justif
 }
 
 static Shape *
-create_shape(ShapeType type, char *name, char *tooltip, char *pixmapfile, GnomeCanvasPoints* points,
+create_shape(ShapeType type, char *name, char *tooltip, char *pixmapfile,
 	     char *targetfile, double x, double y,
 	     double w, double h, double zoomx,
 	     double zoomy, guint position, char *soundfile)
@@ -1418,7 +1401,6 @@ create_shape(ShapeType type, char *name, char *tooltip, char *pixmapfile, GnomeC
     shape->tooltip = NULL;
 
   shape->pixmapfile = g_strdup(pixmapfile);
-  shape->points = points;
   shape->targetfile = g_strdup(targetfile);
   shape->x = x;
   shape->y = y;
@@ -1466,16 +1448,13 @@ xmlGetProp_Double(xmlNodePtr node, xmlChar *prop, double def_value)
 static void
 add_xml_shape_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child, GList **list)
 {
-  char *name, *cd ,*ctype, *justification;
+  char *name,*ctype, *justification;
   char *tooltip;
   GtkJustification justification_gtk;
   char *pixmapfile = NULL;
   char *targetfile = NULL;
   char *soundfile = NULL;
   double x, y, zoomx, zoomy;
-  GnomeCanvasPoints* points = NULL;
-  gchar **d;
-  gint i, j;
   guint position;
   ShapeType type = SHAPE_TARGET;
   Shape *shape;
@@ -1508,30 +1487,6 @@ add_xml_shape_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child, GList **
   targetfile = (char *)xmlGetProp(xmlnode, BAD_CAST "targetfile");
 
   soundfile = (char *)xmlGetProp(xmlnode, BAD_CAST "sound");
-  /*********************************/
-  /* get the points for a polygone */
-  /* The list of points is similar to the one define in the SVG standard */
-  /* FIXME : The implementation is incomplete, a point still needs to be added
-     to shapelist and add management for it's x/y coordinates */
-  cd = (char *)xmlGetProp(xmlnode, BAD_CAST "points");
-  if(cd)
-    {
-      d = g_strsplit(cd, " ", 64);
-      xmlFree(cd);
-      j=0;
-      while(d[j]!=NULL)
-	{
-	  j++;
-	}
-
-      points = gnome_canvas_points_new(j/2);
-
-      for(i=0; i<j; i++)
-	{
-	  points->coords[i] = g_ascii_strtod(d[i], NULL);
-	}
-      g_strfreev(d);
-    }
 
   /* get the X coord of the shape */
   x = xmlGetProp_Double(xmlnode, BAD_CAST "x", 100);
@@ -1638,7 +1593,7 @@ add_xml_shape_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child, GList **
     {
       /* add the shape to the database */
       /* WARNING : I do not initialize the width and height since I don't need them */
-      shape = create_shape(type, name, tooltip, pixmapfile , points,
+      shape = create_shape(type, name, tooltip, pixmapfile,
                 targetfile, x, y,
 			   (double)0, (double)0,
 			   zoomx, zoomy, position,
