@@ -5,3 +5,4 @@ activity=connect4
 plugindir=$path/../boards/.libs
 pythonplugindir=$path 
 resourcedir=$path/resources
+section="/strategy"

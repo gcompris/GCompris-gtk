@@ -5,3 +5,4 @@ activity=planegame
 plugindir=$path/.libs
 pythonplugindir=$path 
 resourcedir=$path/resources
+	section="/math/numeration"

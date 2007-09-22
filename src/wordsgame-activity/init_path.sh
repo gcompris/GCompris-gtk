@@ -5,3 +5,4 @@ activity=wordsgame
 plugindir=$path/.libs
 pythonplugindir=$path 
 resourcedir=$path/../readingh-activity/resources
+	section="/computer/keyboard"

@@ -5,3 +5,4 @@ activity=ballcatch
 plugindir=$path/../boards/.libs
 pythonplugindir=$path 
 resourcedir=$path/resources
+section="/computer/keyboard"

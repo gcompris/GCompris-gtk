@@ -5,3 +5,4 @@ activity=doubleentry
 plugindir=$path/../babymatch-activity/.libs
 pythonplugindir=$path 
 resourcedir=$path/resources
+	section="/discovery/miscelaneous"

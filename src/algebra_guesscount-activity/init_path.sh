@@ -5,3 +5,4 @@ activity=algebra_guesscount
 plugindir=$path/.libs
 pythonplugindir=$path 
 resourcedir=$path/resources
+	section="/math/algebramenu"

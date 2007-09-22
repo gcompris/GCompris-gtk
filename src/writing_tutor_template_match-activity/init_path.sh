@@ -5,3 +5,4 @@ activity=writing_tutor_template_match
 plugindir=$path/../boards/.libs
 pythonplugindir=$path 
 resourcedir=$path/resources
+	section="/experimental/writing_tutor"

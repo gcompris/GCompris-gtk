@@ -5,3 +5,4 @@ activity=mosaic
 plugindir=$path/../boards/.libs
 pythonplugindir=$path 
 resourcedir=$path/resources
+section="/discovery/colors_group"

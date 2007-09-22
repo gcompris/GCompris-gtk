@@ -5,3 +5,4 @@ activity=memory_tux
 plugindir=$path/../memory-activity/.libs
 pythonplugindir=$path 
 resourcedir=$path/../memory-activity/resources
+	section="/discovery/memory_group"

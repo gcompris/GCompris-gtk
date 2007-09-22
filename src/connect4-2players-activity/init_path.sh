@@ -6,3 +6,4 @@ pythonplugindir=$path
 resourcedir=$path/$resources
 resources
   ../connect4-activity/resources
+section="/strategy"

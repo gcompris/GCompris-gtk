@@ -5,3 +5,4 @@ activity=gnumch-primes
 plugindir=$path/../boards/.libs
 pythonplugindir=$path/../gnumch-equality-activity
 resourcedir=$path/../gnumch-equality-activity/resources
+section="/math/algebramenu/gnumchmenu"

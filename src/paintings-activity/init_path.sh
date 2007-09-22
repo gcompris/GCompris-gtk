@@ -5,3 +5,4 @@ activity=paintings
 plugindir=$path/../babymatch-activity/.libs
 pythonplugindir=$path 
 resourcedir=$path/resources
+	section="/puzzle"

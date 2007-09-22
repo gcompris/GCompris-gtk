@@ -5,3 +5,4 @@ activity=searace1player
 plugindir=$path/../boards/.libs
 pythonplugindir=$path/../searace-activity
 resourcedir=$path/../searace-activity/resources
+	section="/experience"

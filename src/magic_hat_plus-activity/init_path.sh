@@ -5,3 +5,4 @@ activity=magic_hat_plus
 plugindir=$path/../magic_hat_minus-activity/.libs
 pythonplugindir=$path 
 resourcedir=$path/../magic_hat_minus-activity/resources
+	section="/math/numeration"

@@ -5,3 +5,4 @@ activity=redraw_symmetrical
 plugindir=$path/../boards/.libs
 pythonplugindir=$path/../redraw-activity
 resourcedir=$path/resources
+	section="/math/geometry"

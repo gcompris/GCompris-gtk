@@ -5,3 +5,4 @@ activity=leftright
 plugindir=$path/.libs
 pythonplugindir=$path 
 resourcedir=$path/resources
+	section="/discovery/miscelaneous"

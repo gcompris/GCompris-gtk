@@ -5,3 +5,4 @@ activity=hexagon
 plugindir=$path/../boards/.libs
 pythonplugindir=$path 
 resourcedir=$path/resources
+	section="/fun"

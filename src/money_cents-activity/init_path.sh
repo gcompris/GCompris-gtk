@@ -5,3 +5,4 @@ activity=money_cents
 plugindir=$path/../money-activity/.libs
 pythonplugindir=$path 
 resourcedir=$path/../money-activity/resources
+	section="/math/numeration"

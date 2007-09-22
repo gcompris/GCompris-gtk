@@ -5,3 +5,4 @@ activity=redraw
 plugindir=$path/../boards/.libs
 pythonplugindir=$path 
 resourcedir=$path/resources
+	section="/math/geometry"

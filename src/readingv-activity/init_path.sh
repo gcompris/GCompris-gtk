@@ -5,3 +5,4 @@ activity=readingv
 plugindir=$path/../readingh-activity/.libs
 pythonplugindir=$path 
 resourcedir=$path/../readingh-activity/resources
+	section="/reading"

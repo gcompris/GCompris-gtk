@@ -5,3 +5,4 @@ activity=click_on_letter
 plugindir=$path/.libs
 pythonplugindir=$path 
 resourcedir=$path/resources
+	section="/reading"

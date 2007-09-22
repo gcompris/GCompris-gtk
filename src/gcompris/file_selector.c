@@ -939,6 +939,8 @@ void gc_mime_type_load()
 
   if (!dir) {
     g_warning("gc_mime_type_load : no mime types found in %s", mime_dir);
+    g_free(mime_dir);
+    return;
   } else {
 
     while((one_dirent = g_dir_read_name(dir)) != NULL) {
@@ -958,6 +960,5 @@ void gc_mime_type_load()
       g_free(filename);
     }
   }
-  g_free(mime_dir);
   g_dir_close(dir);
 }

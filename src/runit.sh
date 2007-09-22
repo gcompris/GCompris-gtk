@@ -28,5 +28,5 @@ $gcompris -L $plugindir \
     -A $resourcedir \
     -M $menudir \
     --locale_dir=$path/locale \
-    -l /puzzle/$activity $*
+    -l $section/$activity $*
 

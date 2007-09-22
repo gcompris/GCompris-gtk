@@ -5,3 +5,4 @@ activity=advanced_colors
 plugindir=$path/.libs
 pythonplugindir=$path 
 resourcedir=$path/resources
+	section="/discovery/colors_group"

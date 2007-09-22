@@ -1718,6 +1718,8 @@ main (int argc, char *argv[])
   if (sugarActivityId)
     gc_dbus_init(sugarActivityId);
 
+  gtk_main ();
+
   /* FIXME: HACK Needed or we have unresolved symbols at python plugin dlopen
    *        Is there a better way to fix these?
    */
@@ -1725,8 +1727,6 @@ main (int argc, char *argv[])
   GNOME_IS_CANVAS_POLYGON(dummy);
   GNOME_IS_CANVAS_CLIPGROUP(dummy);
   GNOME_IS_CANVAS_BPATH(dummy);
-
-  gtk_main ();
 
 
   return(0);

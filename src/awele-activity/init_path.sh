@@ -5,3 +5,4 @@ activity=awele
 plugindir=$path/.libs
 pythonplugindir=$path 
 resourcedir=$path/resources
+	section="/strategy"

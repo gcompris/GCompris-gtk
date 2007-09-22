@@ -5,3 +5,4 @@ activity=clickgame
 plugindir=$path/.libs
 pythonplugindir=$path 
 resourcedir=$path/resources
+	section="/computer/mouse"
