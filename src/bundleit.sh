@@ -4,7 +4,7 @@
 # for the given activity.
 #
 if test -z "$1"; then
-    echo "Usage: ./bundleit.sh directory-activity [locale code]"
+    echo "Usage: bundleit.sh directory-activity [locale code]"
     echo "Example (for french locale):"
     echo "./bundleit.sh crane-activity fr"
     exit 1
@@ -23,9 +23,15 @@ else
   draw=""
 fi
 
+if test -f $1/init_path.sh; then 
+  . $1/init_path.sh
+else
+  echo "ERROR: Cannot find $1/init_path.sh"
+  exit 1
+fi
+
 # Create the Sugar specific startup scripts
-activity_name=`basename $1 -activity`
-activity_dir=${activity_name}.activity
+activity_dir=${activity}.activity
 if [ -d $activity_dir ]
 then
   echo "The temporary directory '$activity_dir' already exists, delete it first"
@@ -36,7 +42,7 @@ cp -a $1 $activity_dir
 mkdir -p $activity_dir/activity
 cp activity-gcompris.svg $activity_dir/activity
 cp activity.info $activity_dir/activity
-sed -i s/@ACTIVITY_NAME@/$activity_name/g $activity_dir/activity/activity.info
+sed -i s/@ACTIVITY_NAME@/$activity/g $activity_dir/activity/activity.info
 cp gcompris-instance $activity_dir/
 cp gcompris-factory $activity_dir/
 cp gcompris/gcompris $activity_dir/gcompris.bin
@@ -68,34 +74,22 @@ then
     ln -s $dotdot/../../../boards/$mandatory_sound_dir -t $activity_dir/resources/$up
 fi
 
-# Add the reources if they are in another activity
-path=.
-eval `grep "^resources=" $activity_dir/runit.sh`
-if test "$resources" != "./resources"
-then
-    echo "This activity has it's resources in $resources"
-    if [ -d $activity_dir/resources ]
-    then
-	echo "ERROR: This activity points to another's resources but also have one"
-	exit 1
-    fi
-    ln -s $resources -t $activity_dir
+# Add the resources if they are in another activity
+if [ ! -d $activity_dir/resources ]; then
+  echo "This activity has it's resources in $resourcedir/"
+  ln -s $resourcedir -t $activity_dir
 fi
 
-# Add the plugins if they are in another activity
-path=.
-eval `egrep "^[ ]+plugindir=" $activity_dir/runit.sh`
-if test "$plugindir" != "./.libs"
-then
-    echo "This activity has it's plugindir in $plugindir"
-    cp $activity_dir/$plugindir/*.so $activity_dir
-fi
+# Add the plugins in the proper place
+echo "This activity has it's plugindir in $plugindir"
+cp $plugindir/*.so $activity_dir
+rm -f $activity_dir/menu.so
 
-# Add the python plugin if needed
-py=`ls $1/*.py 2>/dev/null`
-if test "$py" != ""; then
-    cp $1/../boards/.libs/libpython.so $activity_dir
-fi
+# Add the python plugins
+cp $pythonplugindir/*.py $activity_dir
+
+# Add the runit.sh script
+cp $activity_dir/../runit.sh $activity_dir
 
 tar -cjf $activity_dir.tar.bz2 -h \
     --exclude ".svn" \

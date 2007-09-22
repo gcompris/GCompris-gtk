@@ -619,20 +619,24 @@ static void setup_window ()
 
   if(!icon_file)
       g_warning ("Couldn't find file %s !", icon_file);
-
-  icon_pixbuf = gc_net_load_pixmap(icon_file);
-  if (!icon_pixbuf)
+  else
     {
-      g_warning ("Failed to load pixbuf file: %s\n",
-               icon_file);
-    }
-  g_free(icon_file);
+      icon_pixbuf = gc_net_load_pixmap(icon_file);
 
-  if (icon_pixbuf)
-    {
-      gtk_window_set_icon (GTK_WINDOW (window), icon_pixbuf);
-      gdk_pixbuf_unref (icon_pixbuf);
+      if (!icon_pixbuf)
+	{
+	  g_warning ("Failed to load pixbuf file: %s\n",
+		     icon_file);
+	}
+      g_free(icon_file);
+
+      if (icon_pixbuf)
+	{
+	  gtk_window_set_icon (GTK_WINDOW (window), icon_pixbuf);
+	  gdk_pixbuf_unref (icon_pixbuf);
+	}
     }
+
   gtk_window_set_title(GTK_WINDOW (window), "GCompris");
 
   GdkGeometry hints;
