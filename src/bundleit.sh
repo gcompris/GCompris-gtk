@@ -86,7 +86,9 @@ cp $plugindir/*.so $activity_dir
 rm -f $activity_dir/menu.so
 
 # Add the python plugins
-cp $pythonplugindir/*.py $activity_dir
+if [ -f $pythonplugindir/*.py ]; then 
+  cp $pythonplugindir/*.py $activity_dir
+fi
 
 # Add the runit.sh script
 cp $activity_dir/../runit.sh $activity_dir
