@@ -1,4 +1,4 @@
-# translation of gcompris.HEAD.ar.po to Arabic
+# translation of gcompris2.HEAD.po to Arabic
 # Nabil Ben Khalifa <nabil_benkhalifa@yahoo.fr>, 2005, 2006.
 # Djihed Afifi <djihed@gmail.com>, 2006.
 # Anas Husseini <anas_h_34@hotmail.com>, 2007.
@@ -8,17 +8,17 @@
 # This file is distributed under the same license as the GCompris package.
 msgid ""
 msgstr ""
-"Project-Id-Version: gcompris.HEAD.ar\n"
+"Project-Id-Version: gcompris2.HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-05-04 16:27+0100\n"
-"PO-Revision-Date: 2007-05-17 10:04+0300\n"
+"POT-Creation-Date: 2007-08-30 03:38+0100\n"
+"PO-Revision-Date: 2007-08-30 12:20+0300\n"
 "Last-Translator: Khaled Hosny <khaledhosny@eglug.org>\n"
 "Language-Team: Arabic <doc@arabeyes.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.11.4\n"
-"Plural-Forms: nplurals=4; plural=n==1 ? 0 : n==2 ? 1 : n>=3 && n<=10 ? 2 : 3\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\nnplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
 
 #: ../boards/administration.xml.in.h:1
 msgid ""
@@ -819,8 +819,8 @@ msgid ""
 msgstr ""
 "نشاط الدردشة هذا سوف يعمل فقط مع مستخدمي «فهمت» الآخرين في شبكتك المحلية، "
 "وليس على الإنترنت. لاستخدامه، اكتب رسالتك ثم اضغط زر الإدخال. ستُبث رسالتك "
-"على الشبكة المحلية، وأي برنامج «فهمت» على شبكتك المحلية يشغل نشاط الدردشة "
-"في هذا الوقت سيمكنه التقاط رسالتك وعرضها."
+"على الشبكة المحلية، وأي برنامج «فهمت» على شبكتك المحلية يشغل نشاط الدردشة في "
+"هذا الوقت سيمكنه التقاط رسالتك وعرضها."
 
 #: ../boards/chess.xml.in.h:1 ../boards/chess_computer.xml.in.h:3
 msgid "Play chess against the computer in a learning mode"
@@ -884,15 +884,15 @@ msgstr "قصة قصيرة"
 msgid "Moonwalker"
 msgstr "السير على القمر"
 
-#: ../boards/chronos/board1_1.xml.in.h:1 ../src/boards/wordprocessor.c:118
+#: ../boards/chronos/board1_1.xml.in.h:1 ../src/boards/wordprocessor.c:117
 msgid "Autumn"
 msgstr "خريف"
 
-#: ../boards/chronos/board1_1.xml.in.h:2 ../src/boards/wordprocessor.c:116
+#: ../boards/chronos/board1_1.xml.in.h:2 ../src/boards/wordprocessor.c:115
 msgid "Spring"
 msgstr "ربيع"
 
-#: ../boards/chronos/board1_1.xml.in.h:3 ../src/boards/wordprocessor.c:117
+#: ../boards/chronos/board1_1.xml.in.h:3 ../src/boards/wordprocessor.c:116
 msgid "Summer"
 msgstr "صيف"
 
@@ -900,7 +900,7 @@ msgstr "صيف"
 msgid "The 4 Seasons"
 msgstr "الفصول الأربعة"
 
-#: ../boards/chronos/board1_1.xml.in.h:5 ../src/boards/wordprocessor.c:119
+#: ../boards/chronos/board1_1.xml.in.h:5 ../src/boards/wordprocessor.c:118
 msgid "Winter"
 msgstr "شتاء"
 
@@ -1187,7 +1187,7 @@ msgstr ""
 
 #: ../boards/connect4.xml.in.h:3
 msgid "Connect 4"
-msgstr "أوصل 4"
+msgstr "وصّل 4"
 
 #: ../boards/connect4.xml.in.h:4
 msgid ""
@@ -1207,7 +1207,7 @@ msgstr ""
 
 #: ../boards/connect4-2players.xml.in.h:3
 msgid "Connect 4 (2 Players)"
-msgstr "أوصل 4 (لاعبان)"
+msgstr "وصّل 4 (لاعبان)"
 
 #: ../boards/connect4-2players.xml.in.h:4
 msgid ""
@@ -1393,11 +1393,11 @@ msgstr ""
 "'موافق' أو اضغط زر الإدخال."
 
 #: ../boards/enumerate.xml.in.h:4 ../boards/planegame.xml.in.h:5
-#: ../src/boards/enumerate.c:89
+#: ../src/boards/enumerate.c:88
 msgid "Numeration training"
 msgstr "تدرب على الإحصاء"
 
-#: ../boards/enumerate.xml.in.h:5 ../src/boards/enumerate.c:90
+#: ../boards/enumerate.xml.in.h:5 ../src/boards/enumerate.c:89
 msgid "Place the items in the best way to count them"
 msgstr "رتب العناصر في أفضل طريقة لعدها"
 
@@ -1412,12 +1412,12 @@ msgstr ""
 "net ) ومن عند دانيال لبر. وقد أعطى كلاهما مشكورا «فهمت» الإذن لاستعمال هذه "
 "الصور"
 
-#: ../boards/erase.xml.in.h:4 ../src/boards/erase.c:118
-#: ../src/boards/machpuzzle.c:88
+#: ../boards/erase.xml.in.h:4 ../src/boards/erase.c:117
+#: ../src/boards/machpuzzle.c:87
 msgid "Move the mouse"
 msgstr "حرك الفأرة"
 
-#: ../boards/erase.xml.in.h:5 ../src/boards/erase.c:119
+#: ../boards/erase.xml.in.h:5 ../src/boards/erase.c:118
 msgid "Move the mouse to erase the area and discover the background"
 msgstr "حرك الفأرة لمحو الشاشة واكتشاف الخلفية"
 
@@ -2138,11 +2138,11 @@ msgstr "استخدام لوحة المفاتيح"
 msgid "Letter association between the screen and the keyboard"
 msgstr "ربط الحروف بين الشاشة ولوحة المفاتيح"
 
-#: ../boards/gletters.xml.in.h:3 ../src/boards/gletters.c:134
+#: ../boards/gletters.xml.in.h:3 ../src/boards/gletters.c:133
 msgid "Simple Letters"
 msgstr "حروف بسيطة"
 
-#: ../boards/gletters.xml.in.h:4 ../src/boards/gletters.c:135
+#: ../boards/gletters.xml.in.h:4 ../src/boards/gletters.c:134
 msgid "Type the falling letters before they reach the ground"
 msgstr "أدخل الحروف المتساقطة قبل أن تصل إلى الأرض"
 
@@ -2331,7 +2331,7 @@ msgstr ""
 "أمسك واسحب قرصاً واحداً في كل مرة، من وتد إلى آخر، لإعادة تكوين البرج الموجود "
 "يميناً في المساحة الخالية على اليسار."
 
-#: ../boards/hanoi.xml.in.h:4 ../src/boards/hanoi.c:97
+#: ../boards/hanoi.xml.in.h:4 ../src/boards/hanoi.c:96
 msgid "Reproduce the given tower"
 msgstr "أعد تكوين البرج"
 
@@ -2339,7 +2339,7 @@ msgstr "أعد تكوين البرج"
 msgid "Reproduce the tower on the right in the empty space on the left"
 msgstr "أعد تكوين البرج الموجود على اليمين في المساحة الخالية على اليسار"
 
-#: ../boards/hanoi.xml.in.h:6 ../src/boards/hanoi.c:96
+#: ../boards/hanoi.xml.in.h:6 ../src/boards/hanoi.c:95
 msgid "Simplified Tower of Hanoi"
 msgstr "أبراج هانوي مبسطة"
 
@@ -2414,7 +2414,7 @@ msgstr "تعلم القراءة بالعثور على الكلمة المناس�
 
 #: ../boards/imageid.xml.in.h:3 ../boards/imagename.xml.in.h:4
 #: ../boards/readingh.xml.in.h:4 ../boards/readingv.xml.in.h:4
-#: ../src/boards/imageid.c:103 ../src/boards/missingletter.c:101
+#: ../src/boards/imageid.c:102 ../src/boards/missingletter.c:100
 msgid "Reading"
 msgstr "القراءة"
 
@@ -2779,7 +2779,7 @@ msgstr "رياضيات"
 msgid "Can use the keyboard arrow to move an object."
 msgstr "استعمل أسهم لوحة المفاتيح لتحريك الأشياء"
 
-#: ../boards/maze.xml.in.h:2 ../src/boards/maze.c:129
+#: ../boards/maze.xml.in.h:2 ../src/boards/maze.c:128
 msgid "Find your way out of the maze"
 msgstr "اعثر على الطريق للخروج من المتاهة"
 
@@ -2789,7 +2789,7 @@ msgid "Help Tux get out of this maze."
 msgstr "ساعد تُكس للخروج من المتاهة"
 
 #: ../boards/maze.xml.in.h:4 ../boards/maze2DRelative.xml.in.h:4
-#: ../boards/mazeInvisible.xml.in.h:4 ../src/boards/maze.c:128
+#: ../boards/mazeInvisible.xml.in.h:4 ../src/boards/maze.c:127
 msgid "Maze"
 msgstr "المتاهة"
 
@@ -3247,7 +3247,7 @@ msgstr ""
 msgid ""
 "A simple click on an icon brings you to an activity or a menu of "
 "activities.\n"
-"At the bottom of the screen is the gcompris control bar.\n"
+"At the bottom of the screen is the GCompris control bar.\n"
 "The following icons are displayed from right to left.\n"
 "(note that each icon is displayed only if available in the current "
 "activity)\n"
@@ -3272,11 +3272,11 @@ msgstr ""
 "    الإصبع: موافق. \n"
 "    النرد: عرض المستوي الحالي. انقر على النرد لتغيير المستوى \n"
 "    الشفتين: أعد السؤال \n"
-"    علامة الاستفهام: عرض المساعدة \n"
+"    علامة الاستفهام: اعرض المساعدة \n"
 "    صندوق الأدوات: قائمة الإعدادات \n"
-"    طائرة تُكس: حول «فهمت» \n"
-"    الليل: الخروج من «فهمت»\n"
-"تساعد النجوم على التعرف على العمر التقريبي للأطفال الموجه إليهم الأنشطة: \n"
+"    طائرة تُكس: حوْل «فهمت» \n"
+"    الليل: اخرج من «فهمت»\n"
+"تعرض النجوم مجموعات العمر المناسبة لكل لعبة: \n"
 "1، 2 أو 3 نجوم بسيطة: أطفال عمرهم بين سنتين و 6 سنوات\n"
 "1، 2 أو 3 نجوم مركبة: أطفال عمرهم 7 سنوات فما فوق"
 
@@ -3284,19 +3284,19 @@ msgstr ""
 msgid "GCompris Main Menu"
 msgstr "قائمة «فهمت» الرئيسية"
 
-#: ../boards/menu.xml.in.h:17 ../src/boards/menu2.c:1007
+#: ../boards/menu.xml.in.h:17 ../src/boards/menu2.c:1006
 msgid ""
 "GCompris is a collection of educational games that provides different "
 "activities for children aged 2 and up."
 msgstr ""
-"«فهمت» (GCompris) لعبة تربوية تحتوي على مجموعة من الأنشطة مناسبة لأطفال عمرهم سنتان فما "
-"فوق "
+"«فهمت» (GCompris) لعبة تربوية تحتوي على مجموعة من الأنشطة مناسبة لأطفال "
+"عمرهم سنتان فما فوق "
 
 #: ../boards/menu.xml.in.h:19
 msgid ""
-"The goal of gcompris is to provide a free alternative to popular proprietary "
+"The goal of GCompris is to provide a free alternative to popular proprietary "
 "edutainment software"
-msgstr "الهدف من تصميم «فهمت» هو إيجاد بديل شعبي حر ومجاني للبرامج التربوية"
+msgstr "الهدف من «فهمت» هو إيجاد بديل حر ومجاني للبرامج التربوية المُحتكرة"
 
 #: ../boards/miscelaneous.xml.in.h:1
 msgid "Miscellaneous activities"
@@ -3641,7 +3641,7 @@ msgstr "حرك الحوامة لتمسك الغيوم حسب الترتيب ال
 msgid "Number"
 msgstr "أعداد"
 
-#: ../boards/planegame.xml.in.h:4 ../src/boards/planegame.c:74
+#: ../boards/planegame.xml.in.h:4 ../src/boards/planegame.c:73
 msgid "Numbers in Order"
 msgstr "الأعداد مرتبة"
 
@@ -3653,13 +3653,25 @@ msgstr "الألغاز"
 msgid "Various puzzles."
 msgstr "ألغاز متنوعة."
 
-#: ../boards/pythontest.xml.in.h:1
-msgid "Add a language-binding to gcompris."
-msgstr "أضف لغة إلى «فهمت»."
+#: ../boards/pythontemplate.xml.in.h:1 ../boards/pythontest.xml.in.h:1
+msgid "Add a language-binding to GCompris."
+msgstr "أضف ارتباطات لغة إلى «فهمت»."
 
-#: ../boards/pythontest.xml.in.h:2
+#: ../boards/pythontemplate.xml.in.h:2 ../boards/pythontest.xml.in.h:2
 msgid "Advanced Python Programmer :)"
 msgstr "مبرمج بايثون محترف :)"
+
+#: ../boards/pythontemplate.xml.in.h:3
+msgid "An empty python activity to use as a starting point"
+msgstr "نشاط بايثون فارغ ليُستخدم كنقطة انطلاق"
+
+#: ../boards/pythontemplate.xml.in.h:4
+msgid "Python Template"
+msgstr "قالب بايثون"
+
+#: ../boards/pythontemplate.xml.in.h:5 ../boards/pythontest.xml.in.h:5
+msgid "Thanks to Guido van Rossum and the python team for this powerful language!"
+msgstr "شكراً لـ غيدو فان روسوم وفريق بايثون على هذه اللغة القوية والجميلة!"
 
 #: ../boards/pythontest.xml.in.h:3
 msgid "Python Test"
@@ -3668,10 +3680,6 @@ msgstr "اختبار بايثون"
 #: ../boards/pythontest.xml.in.h:4
 msgid "Test board for the python plugin"
 msgstr "لوحة الاختبار لإضافات بايثون"
-
-#: ../boards/pythontest.xml.in.h:5
-msgid "Thanks to Guido van Rossum and the python team for this powerful language!"
-msgstr "شكراً لـ غيدو فان روسوم وفريق بايثون على هذه اللغة القوية والجميلة!"
 
 #: ../boards/railroad.xml.in.h:1
 msgid "A memory game based on trains"
@@ -3914,10 +3922,10 @@ msgid ""
 "next level will give you more complex weather conditions."
 msgstr ""
 "في صندوق النص، أدخل أمراً واحداً في السطر الواحد، للتحكم بقاربك.\n"
-"الأوامر المدعومة موجودة بين مساحتي الإدخال. الأمران 'left' (يسار) و "
-"'right' (يمين) ينبغي أن يُتبعا بمقدار الانحراف بالدرجات. قيمة الانحراف تسمى "
-"أيضاً وسيطاً للأمر يمين أو يسار. القيمة الافتراضية للانحراف هي 45. الأمر "
-"'forward' (أمام) يقبل بعده قيمة المسافة. المسافة الافتراضية هي 1.\n"
+"الأوامر المدعومة موجودة بين مساحتي الإدخال. الأمران 'يسار' و 'يمين' ينبغي أن "
+"يُتبعا بمقدار الانحراف بالدرجات. قيمة الانحراف تسمى أيضاً وسيطاً للأمر يمين أو "
+"يسار. القيمة الافتراضية للانحراف هي 45. الأمر 'forward' (أمام) يقبل بعده "
+"قيمة المسافة. المسافة الافتراضية هي 1.\n"
 "كمثال:\n"
 "- left 90: تجعل القارب ينحرف يساراً بزاوية مستقيمة\n"
 "- forward 10: تجعل القارب يتقدم 10 وحدات (كما يظهر على المسطرة).\n"
@@ -3963,10 +3971,10 @@ msgid ""
 "next level will give you more complex weather conditions."
 msgstr ""
 "في صندوق النص، أدخل أمراً واحداً في السطر الواحد، للتحكم بقاربك.\n"
-"الأوامر المدعومة موجودة بين مساحتي الإدخال. الأمران 'left' (يسار) و "
-"'right' (يمين) ينبغي أن يُتبعا بمقدار الانحراف بالدرجات. قيمة الانحراف تسمى "
-"أيضاً وسيطاً للأمر يمين أو يسار. القيمة الافتراضية للانحراف هي 45. الأمر "
-"'forward' (أمام) يقبل بعده قيمة المسافة. المسافة الافتراضية هي 1.\n"
+"الأوامر المدعومة موجودة بين مساحتي الإدخال. الأمران 'يسار' و 'يمين' ينبغي أن "
+"يُتبعا بمقدار الانحراف بالدرجات. قيمة الانحراف تسمى أيضاً وسيطاً للأمر يمين أو "
+"يسار. القيمة الافتراضية للانحراف هي 45. الأمر 'forward' (أمام) يقبل بعده "
+"قيمة المسافة. المسافة الافتراضية هي 1.\n"
 "كمثال:\n"
 "- left 90: تجعل القارب ينحرف يساراً بزاوية مستقيمة\n"
 "- forward 10: تجعل القارب يتقدم 10 وحدات (كما يظهر على المسطرة).\n"
@@ -4017,7 +4025,7 @@ msgstr "ألعاب الاستراتيجيات"
 
 #: ../boards/strategy.xml.in.h:2
 msgid "Strategy games like chess, connect4, ..."
-msgstr "ألعاب الاستراتيجيات كالشطرنج، أوصل 4، ..."
+msgstr "ألعاب الاستراتيجيات كالشطرنج، وصّل 4، ..."
 
 #: ../boards/submarine.xml.in.h:1
 msgid ""
@@ -4095,11 +4103,11 @@ msgstr ""
 "شريط التحكم. في المراحل الأولى، تُكس يعطيك إشارة إن وجدت مكاناً مخفياً بوضع "
 "صندوق أسود على العنصر. يمكنك استخدام الزر الأيمن للفأرة لعكس الألوان."
 
-#: ../boards/superbrain.xml.in.h:2 ../src/boards/superbrain.c:106
+#: ../boards/superbrain.xml.in.h:2 ../src/boards/superbrain.c:105
 msgid "Super Brain"
 msgstr "العقل الخارق"
 
-#: ../boards/superbrain.xml.in.h:3 ../src/boards/superbrain.c:107
+#: ../boards/superbrain.xml.in.h:3 ../src/boards/superbrain.c:106
 msgid "Tux has hidden several items. Find them again in the correct order"
 msgstr "تُكس أخفى أشياء متعددة. جدها مجدداً في الترتيب الصحيح"
 
@@ -4122,9 +4130,9 @@ msgstr ""
 "العام 1800. إنها تحوي 7 قطع، والتي تشكل مع بعضها البعض مربعاً. وهذه القطع هي "
 "(آخذين طول ضلع المربع الصغير كوحدة قياس):\n"
 "\t* 5 مثلثات متساوية الضلعين\n"
-"\t\to اثنان صغيران (طول الضلع وحدة واحدة)\n"
-"\t\to واحد متوسط (طول الضلع هو الجذر التربيعي لوحدتين)\n"
-"\t\to اثنان كبيران (طول الضلع وحدتان)\n"
+"\t\t° اثنان صغيران (طول الضلع وحدة واحدة)\n"
+"\t\t° واحد متوسط (طول الضلع هو الجذر التربيعي لوحدتين)\n"
+"\t\t° اثنان كبيران (طول الضلع وحدتان)\n"
 "\t* مربع واحد (طول الضلع وحدة)\n"
 "\t* متوازي الأضلاع (طول الأضلاع وحدة والجذر التربيعي لوحدتين)"
 
@@ -4247,7 +4255,7 @@ msgstr ""
 "تُكس عائد من رحلة صيد طويلة على قاربه. أعد تنشيط النظام المائي ليتمكن تُكس من "
 "الاستحمام."
 
-#: ../boards/wordsgame.xml.in.h:1 ../src/boards/wordsgame.c:110
+#: ../boards/wordsgame.xml.in.h:1 ../src/boards/wordsgame.c:109
 msgid "Falling Words"
 msgstr "الكلمات المتساقطة"
 
@@ -4259,7 +4267,7 @@ msgstr "التدرب على لوحة المفاتيح"
 msgid "Type the complete word as it falls, before it reachs the ground"
 msgstr "أدخل الكلمات المتساقطة قبل أن تصل إلى الأرض"
 
-#: ../boards/wordsgame.xml.in.h:5 ../src/boards/wordsgame.c:111
+#: ../boards/wordsgame.xml.in.h:5 ../src/boards/wordsgame.c:110
 msgid "Type the falling words before they reach the ground"
 msgstr "أدخل الكلمات المتساقطة قبل أن تصل إلى الأرض"
 
@@ -4316,48 +4324,48 @@ msgid "Multi-activity educational game"
 msgstr "لعبة تعليمية متعدة الأنشطة"
 
 #. TRANSLATORS: Put here the mathematical operators '+-x/' for  your language.
-#: ../src/boards/algebra.c:182 ../src/boards/memory.c:846
+#: ../src/boards/algebra.c:181 ../src/boards/memory.c:845
 msgid "+-×÷"
 msgstr "+-×÷"
 
-#: ../src/boards/awele.c:350 ../src/boards/awele.c:360
+#: ../src/boards/awele.c:356 ../src/boards/awele.c:366
 msgid "NORTH"
 msgstr "شمال"
 
-#: ../src/boards/awele.c:372 ../src/boards/awele.c:382
+#: ../src/boards/awele.c:378 ../src/boards/awele.c:388
 msgid "SOUTH"
 msgstr "جنوب"
 
-#: ../src/boards/awele.c:551
+#: ../src/boards/awele.c:557
 msgid "Choose a house"
 msgstr "اختر منزلاً"
 
-#: ../src/boards/awele.c:679
+#: ../src/boards/awele.c:685
 msgid "Your turn to play ..."
 msgstr "حان دورك ..."
 
-#: ../src/boards/awele.c:748
+#: ../src/boards/awele.c:754
 msgid "Not allowed! Try again !"
 msgstr "غير مسموح! حاول ثانية!"
 
-#: ../src/boards/chess.c:179
+#: ../src/boards/chess.c:178
 msgid "Error: The external program gnuchess died unexpectedly"
 msgstr "خطأ: البرنامج الخارجي gnuchess انتهى بشكل غير متوقع"
 
-#: ../src/boards/chess.c:199
+#: ../src/boards/chess.c:198
 msgid ""
 "Error: The external program gnuchess is required\n"
-"to play chess in gcompris.\n"
+"to play chess in GCompris.\n"
 "Find this program on http://www.rpmfind.net or in your\n"
 "GNU/Linux distribution\n"
 "And check it is located here: "
 msgstr ""
-"البرنامج الخارجي gnuchess مطلوب للعبة الشطرنج في «فهمت».\n"
-"يمكنك إيجاد هذا البرنامج في http://www.rpmfind.net أو\n"
-"في توزيعتك جنو/لينكس\n"
+"خطأ: البرنامج الخارجي gnuchess مطلوب للعب الشطرنج في «فهمت».\n"
+"يمكنك العثور هذا البرنامج في http://www.rpmfind.net أو\n"
+"في توزيعتك من جنو/لينكس\n"
 "وتحقق من أنه موجود هنا: "
 
-#: ../src/boards/chess.c:244
+#: ../src/boards/chess.c:243
 msgid ""
 "Error: The external program gnuchess is mandatory\n"
 "to play chess in gcompris.\n"
@@ -4367,40 +4375,40 @@ msgstr ""
 "الشطرنج في «فهمت».\n"
 "أولاً، قم بتثبيته، ثم تحقق من وجوده في: "
 
-#: ../src/boards/chess.c:587
+#: ../src/boards/chess.c:586
 msgid "White's Turn"
 msgstr "دور الأبيض"
 
-#: ../src/boards/chess.c:587
+#: ../src/boards/chess.c:586
 msgid "Black's Turn"
 msgstr "دور الأسود"
 
-#: ../src/boards/chess.c:731
+#: ../src/boards/chess.c:730
 msgid "White checks"
 msgstr "كش ملك للأبيض"
 
-#: ../src/boards/chess.c:733
+#: ../src/boards/chess.c:732
 msgid "Black checks"
 msgstr "كش ملك للأسود"
 
-#: ../src/boards/chess.c:1090
+#: ../src/boards/chess.c:1089
 msgid "Black mates"
 msgstr "موت ملك الأسود"
 
-#: ../src/boards/chess.c:1095
+#: ../src/boards/chess.c:1094
 msgid "White mates"
 msgstr "موت ملك الأبيض"
 
-#: ../src/boards/chess.c:1100 ../src/gcompris/bonus.c:364
-#: ../src/gcompris/bonus.c:373
+#: ../src/boards/chess.c:1099 ../src/gcompris/bonus.c:362
+#: ../src/gcompris/bonus.c:371
 msgid "Drawn game"
 msgstr "تعادل"
 
-#: ../src/boards/chess.c:1128
+#: ../src/boards/chess.c:1127
 msgid "Error: The external program gnuchess died unexpectingly"
 msgstr "خطأ: البرنامج الخارجي gnuchess انتهى بشكل غير متوقع"
 
-#: ../src/boards/click_on_letter.c:259 ../src/boards/memory.c:813
+#: ../src/boards/click_on_letter.c:258 ../src/boards/memory.c:812
 msgid ""
 "Error: this activity cannot be played with the\n"
 "sound effects disabled.\n"
@@ -4413,29 +4421,29 @@ msgstr ""
 #. TRANSLATORS: Put here the alphabet in your language
 #. require by all utf8-functions
 #. TRANSLATORS: Put here the alphabet lowercase in your language
-#: ../src/boards/click_on_letter.c:264 ../src/boards/gletters.c:231
-#: ../src/boards/memory.c:835
+#: ../src/boards/click_on_letter.c:263 ../src/boards/gletters.c:230
+#: ../src/boards/memory.c:834
 msgid "abcdefghijklmnopqrstuvwxyz"
 msgstr "ابتثجحخدذرزسشصضطظعغفقكلمنهوي"
 
-#: ../src/boards/click_on_letter.c:286
+#: ../src/boards/click_on_letter.c:285
 #, c-format
 msgid ""
 "Error: this activity requires that you first install\n"
-"the packages with gcompris voices for the locale '%s' or '%s'"
+"the packages with GCompris voices for the locale '%s' or '%s'"
 msgstr ""
-"خطأ: هذا النشاط يتطلب منك أولاً أن تثبت الحزمات التي\n"
-"تأتي مع أصوات «فهمت» للغة '%s' أو '%s'"
+"خطأ: يتطلب هذا النشاط منك أولاً أن تثبت الحزم التي\n"
+"تأتي بأصوات «فهمت» للغة '%s' أو '%s'"
 
-#: ../src/boards/click_on_letter.c:294
+#: ../src/boards/click_on_letter.c:293
 #, c-format
 msgid ""
 "Error: this activity requires that you first install\n"
 "the packages with GCompris voices for the locale '%s' ! Fallback to english, "
 "sorry!"
 msgstr ""
-"خطأ: هذا النشاط يتطلب منك أولاً أن تثبت الحزمات التي\n"
-"تأتي مع أصوات «فهمت» للغة '%s' ! عد إلى اللغة الإنجليزية، عذراً!"
+"خطأ: يتطلب هذا النشاط منك أولاً أن تثبت الحزم التي\n"
+"تأتي بأصوات «فهمت» للغة '%s' ! سأعود إلى اللغة الإنجليزية، عذراً!"
 
 #. Init configuration window:
 #. all the configuration functions will use it
@@ -4443,15 +4451,15 @@ msgstr ""
 #. the dict passed to the apply_callback
 #. the returned value is the main GtkVBox of the window,
 #. we can add what you want in it.
-#: ../src/boards/click_on_letter.c:623 ../src/boards/colors.c:165
-#: ../src/boards/gletters.c:857 ../src/boards/imageid.c:749
-#: ../src/boards/missingletter.c:772
-#: ../src/boards/python/admin/board_list.py:641
-#: ../src/boards/python/admin/board_list.py:659
-#: ../src/boards/python/admin/wordlist.py:50 ../src/boards/python/login.py:535
-#: ../src/boards/python/pythontest.py:409 ../src/boards/python/tuxpaint.py:206
-#: ../src/boards/reading.c:833 ../src/boards/scale.c:862
-#: ../src/boards/shapegame.c:1863 ../src/boards/smallnumbers.c:590
+#: ../src/boards/click_on_letter.c:622 ../src/boards/colors.c:164
+#: ../src/boards/gletters.c:856 ../src/boards/imageid.c:748
+#: ../src/boards/missingletter.c:770
+#: ../src/boards/python/admin/board_list.py:640
+#: ../src/boards/python/admin/board_list.py:658
+#: ../src/boards/python/admin/wordlist.py:49 ../src/boards/python/login.py:534
+#: ../src/boards/python/pythontest.py:409 ../src/boards/python/tuxpaint.py:207
+#: ../src/boards/reading.c:832 ../src/boards/scale.c:861
+#: ../src/boards/shapegame.c:1847 ../src/boards/smallnumbers.c:589
 #, c-format, python-format
 msgid ""
 "<b>%s</b> configuration\n"
@@ -4461,194 +4469,194 @@ msgstr ""
 "للملف الشخصي <b>%s</b>"
 
 #. toggle box
-#: ../src/boards/click_on_letter.c:646 ../src/boards/gletters.c:890
-#: ../src/boards/python/login.py:540
+#: ../src/boards/click_on_letter.c:645 ../src/boards/gletters.c:889
+#: ../src/boards/python/login.py:539
 msgid "Uppercase only text"
 msgstr "نص بحروف كبيرة فقط"
 
-#: ../src/boards/clockgame.c:550 ../src/boards/clockgame.c:560
+#: ../src/boards/clockgame.c:549 ../src/boards/clockgame.c:559
 msgid "Set the watch to:"
 msgstr "حرك العقارب لتحديد الساعة :"
 
-#: ../src/boards/colors.c:56
+#: ../src/boards/colors.c:55
 msgid "Click on the blue duck"
 msgstr "انقر على البطة الزرقاء"
 
-#: ../src/boards/colors.c:57
+#: ../src/boards/colors.c:56
 msgid "Click on the brown duck"
 msgstr "انقر على البطة السمراء"
 
-#: ../src/boards/colors.c:58
+#: ../src/boards/colors.c:57
 msgid "Click on the green duck"
 msgstr "انقر على البطة الخضراء"
 
-#: ../src/boards/colors.c:59
+#: ../src/boards/colors.c:58
 msgid "Click on the grey duck"
 msgstr "انقر على البطة الرمادية"
 
-#: ../src/boards/colors.c:60
+#: ../src/boards/colors.c:59
 msgid "Click on the orange duck"
 msgstr "انقر على البطة البرتقالية"
 
-#: ../src/boards/colors.c:61
+#: ../src/boards/colors.c:60
 msgid "Click on the purple duck"
 msgstr "انقر على البطة البنفسجية"
 
-#: ../src/boards/colors.c:62
+#: ../src/boards/colors.c:61
 msgid "Click on the red duck"
 msgstr "انقر على البطة الحمراء"
 
-#: ../src/boards/colors.c:63
+#: ../src/boards/colors.c:62
 msgid "Click on the yellow duck"
 msgstr "انقر على البطة الصفراء"
 
-#: ../src/boards/colors.c:64
+#: ../src/boards/colors.c:63
 msgid "Click on the black duck"
 msgstr "انقر على البطة السوداء"
 
-#: ../src/boards/colors.c:65
+#: ../src/boards/colors.c:64
 msgid "Click on the white duck"
 msgstr "انقر على البطة البيضاء"
 
-#: ../src/boards/colors.c:177 ../src/boards/python/admin/board_list.py:671
-#: ../src/boards/python/pythontest.py:473 ../src/boards/smallnumbers.c:610
+#: ../src/boards/colors.c:176 ../src/boards/python/admin/board_list.py:670
+#: ../src/boards/python/pythontest.py:473 ../src/boards/smallnumbers.c:609
 msgid "Select sound locale"
 msgstr "اختر لغة الأصوات"
 
 #. TRANSLATORS: Put here the numbers in your language
-#: ../src/boards/gletters.c:227 ../src/boards/memory.c:831
+#: ../src/boards/gletters.c:226 ../src/boards/memory.c:830
 msgid "0123456789"
 msgstr "0123456789"
 
 #. TRANSLATORS: Put here the alphabet uppercase in your language
-#: ../src/boards/gletters.c:237 ../src/boards/memory.c:841
+#: ../src/boards/gletters.c:236 ../src/boards/memory.c:840
 msgid "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 msgstr "ابتثجحخدذرزسشصضطظعغفقكلمنهوي"
 
-#: ../src/boards/gletters.c:886 ../src/boards/smallnumbers.c:608
+#: ../src/boards/gletters.c:885 ../src/boards/smallnumbers.c:607
 msgid "Enable sounds"
 msgstr "تفعيل الأصوات"
 
-#: ../src/boards/hanoi.c:332 ../src/boards/hanoi.c:343
+#: ../src/boards/hanoi.c:331 ../src/boards/hanoi.c:342
 msgid ""
 "Build the same tower in the empty area as the one you see on the right-hand "
 "side."
 msgstr "ابن نفس البرج في الجانب الأيمن في المساحة الخالية."
 
-#: ../src/boards/hanoi_real.c:72
+#: ../src/boards/hanoi_real.c:71
 msgid "Tower of Hanoi"
 msgstr "أبراج هانوي"
 
-#: ../src/boards/hanoi_real.c:277 ../src/boards/hanoi_real.c:288
+#: ../src/boards/hanoi_real.c:276 ../src/boards/hanoi_real.c:287
 msgid "Move the entire stack to the right peg, one disc at a time"
 msgstr "انقل كل الأقراص إلى الوتد الأيمن، قرصاً قرصاً في كل مرة"
 
-#: ../src/boards/imageid.c:104 ../src/boards/missingletter.c:102
+#: ../src/boards/imageid.c:103 ../src/boards/missingletter.c:101
 msgid "Learn how to read"
 msgstr "تعلم القراءة"
 
-#: ../src/boards/leftright.c:277 ../src/boards/leftright.c:287
-#: ../src/boards/python/searace.py:433 ../src/boards/python/searace.py:458
-#: ../src/boards/python/searace.py:548 ../src/boards/python/searace.py:857
-#: ../src/boards/python/searace.py:890 ../src/boards/python/searace.py:981
+#: ../src/boards/leftright.c:276 ../src/boards/leftright.c:286
+#: ../src/boards/python/searace.py:432 ../src/boards/python/searace.py:457
+#: ../src/boards/python/searace.py:547 ../src/boards/python/searace.py:856
+#: ../src/boards/python/searace.py:889 ../src/boards/python/searace.py:980
 msgid "left"
 msgstr "يسار"
 
-#: ../src/boards/leftright.c:297 ../src/boards/leftright.c:307
-#: ../src/boards/python/searace.py:433 ../src/boards/python/searace.py:458
-#: ../src/boards/python/searace.py:557 ../src/boards/python/searace.py:859
-#: ../src/boards/python/searace.py:892 ../src/boards/python/searace.py:975
+#: ../src/boards/leftright.c:296 ../src/boards/leftright.c:306
+#: ../src/boards/python/searace.py:432 ../src/boards/python/searace.py:457
+#: ../src/boards/python/searace.py:556 ../src/boards/python/searace.py:858
+#: ../src/boards/python/searace.py:891 ../src/boards/python/searace.py:974
 msgid "right"
 msgstr "يمين"
 
-#: ../src/boards/maze.c:492
+#: ../src/boards/maze.c:491
 msgid ""
 "Look at your position, then switch back to invisible mode to continue your "
 "moves"
 msgstr "انظر إلى موقعك، ثم حول إلى النمط غير المرئي لمتابعة تحركك"
 
-#: ../src/boards/maze.c:494
+#: ../src/boards/maze.c:493
 msgid "Look at your position, then switch back to 3D mode to continue your moves"
 msgstr "انظر إلى موقعك، ثم حول إلى النمط الثلاثي الأبعاد لمتابعة تحركك"
 
-#: ../src/boards/memory.c:266
+#: ../src/boards/memory.c:265
 msgid "Memory"
 msgstr "الذاكرة"
 
-#: ../src/boards/memory.c:267
+#: ../src/boards/memory.c:266
 msgid "Find the matching pair"
 msgstr "اعثر على الأزواج المتماثلة"
 
-#: ../src/boards/menu2.c:133
+#: ../src/boards/menu2.c:132
 msgid "Main Menu Second Version"
 msgstr "القائمة الرئيسية الإصدار الثاني"
 
-#: ../src/boards/menu2.c:134
+#: ../src/boards/menu2.c:133
 msgid "Select a Board"
 msgstr "اختر لوحة"
 
 #. Set here the way to display money. Change only the money sign, and it's place, always keep %.2f, it will be replaced by 0,34 if decimal is ',' in your locale
-#: ../src/boards/money.c:488
+#: ../src/boards/money.c:487
 #, c-format
 msgid "$ %.2f"
 msgstr "$ %.2f"
 
-#: ../src/boards/money.c:501
+#: ../src/boards/money.c:500
 #, c-format
 msgid "$ %.0f"
 msgstr "$ %.0f"
 
-#: ../src/boards/paratrooper.c:437
+#: ../src/boards/paratrooper.c:436
 msgid "Control fall speed with up and down arrow keys."
 msgstr "تحكم بسرعة السقوط باستخدام مفتاحي السهم الأعلى والأسفل."
 
-#: ../src/boards/planegame.c:75
+#: ../src/boards/planegame.c:74
 msgid "Move the plane to catch the clouds in the correct order"
 msgstr "حرك الطائرة لتمسك بالغيوم حسب الترتيب الصحيح"
 
-#: ../src/boards/python.c:63 ../src/boards/python.c:87
+#: ../src/boards/python.c:62 ../src/boards/python.c:86
 msgid "Python Board"
 msgstr "لوحة بايثون"
 
-#: ../src/boards/python.c:64 ../src/boards/python.c:88
-msgid "Special board that embeds python into gcompris."
-msgstr "لوحة خاصة تضيف أكواد بايثون إلى gcpmpris."
+#: ../src/boards/python.c:63 ../src/boards/python.c:87
+msgid "Special board that embeds python into GCompris."
+msgstr "لوحة خاصة تُدمج بايثون في «فهمت»."
 
-#: ../src/boards/python/admin/board_list.py:89
+#: ../src/boards/python/admin/board_list.py:88
 msgid "Select a profile:"
 msgstr "اختر ملفاً شخصياً:"
 
-#: ../src/boards/python/admin/board_list.py:145
+#: ../src/boards/python/admin/board_list.py:144
 msgid "Filter"
 msgstr "تصفية"
 
-#: ../src/boards/python/admin/board_list.py:150
+#: ../src/boards/python/admin/board_list.py:149
 msgid "Select all"
 msgstr "اختر الكل"
 
-#: ../src/boards/python/admin/board_list.py:155
+#: ../src/boards/python/admin/board_list.py:154
 msgid "Unselect all"
 msgstr "ألغ اختيار الكل"
 
-#: ../src/boards/python/admin/board_list.py:160
+#: ../src/boards/python/admin/board_list.py:159
 msgid "Locales"
 msgstr "اللغات"
 
-#: ../src/boards/python/admin/board_list.py:165
+#: ../src/boards/python/admin/board_list.py:164
 msgid "Locales sound"
 msgstr "أصوات اللغات"
 
-#: ../src/boards/python/admin/board_list.py:170
+#: ../src/boards/python/admin/board_list.py:169
 msgid "Wordlist"
 msgstr "قائمة الكلمات"
 
-#: ../src/boards/python/admin/board_list.py:177
-#: ../src/boards/python/admin/group_user_list.py:144
-#: ../src/boards/python/admin/user_list.py:186
+#: ../src/boards/python/admin/board_list.py:176
+#: ../src/boards/python/admin/group_user_list.py:143
+#: ../src/boards/python/admin/user_list.py:185
 msgid "Login"
 msgstr "اسم الولوج"
 
-#: ../src/boards/python/admin/board_list.py:235
+#: ../src/boards/python/admin/board_list.py:234
 msgid "Main menu"
 msgstr "قائمة الإختيارات الرئيسية"
 
@@ -4657,20 +4665,20 @@ msgstr "قائمة الإختيارات الرئيسية"
 #. image = gtk.image_new_from_stock(gtk.STOCK_PREFERENCES, gtk.ICON_SIZE_MENU)
 #. image.show()
 #. column_pref.set_widget(image)
-#: ../src/boards/python/admin/board_list.py:302
+#: ../src/boards/python/admin/board_list.py:301
 msgid "Active"
 msgstr "نشط"
 
-#: ../src/boards/python/admin/board_list.py:303
+#: ../src/boards/python/admin/board_list.py:302
 msgid "Board title"
 msgstr "عنوان اللوحة"
 
-#: ../src/boards/python/admin/board_list.py:419
+#: ../src/boards/python/admin/board_list.py:418
 #, python-format
 msgid "Filter Boards difficulty for profile %s"
 msgstr "صعوبة لوحات التصفية للملف الشخصي %s"
 
-#: ../src/boards/python/admin/board_list.py:450
+#: ../src/boards/python/admin/board_list.py:449
 #, python-format
 msgid ""
 "<span size='x-large'> Select the difficulty range \n"
@@ -4679,289 +4687,289 @@ msgstr ""
 "<span size='x-large'> اختر مقدار الصعوبة \n"
 "للملف الشخصي <b>%s</b></span>"
 
-#: ../src/boards/python/admin/class_edit.py:60
+#: ../src/boards/python/admin/class_edit.py:59
 msgid "Editing a Class"
 msgstr "تحرير صف"
 
-#: ../src/boards/python/admin/class_edit.py:65
+#: ../src/boards/python/admin/class_edit.py:64
 msgid "Editing class: "
 msgstr "تحرير الصف:"
 
-#: ../src/boards/python/admin/class_edit.py:68
+#: ../src/boards/python/admin/class_edit.py:67
 msgid "Editing a new class"
 msgstr "تحرير صف جديد"
 
-#: ../src/boards/python/admin/class_edit.py:90
+#: ../src/boards/python/admin/class_edit.py:89
 msgid "Class:"
 msgstr "الصف:"
 
 #. FIXME: How to remove the default selection
 #. Label and Entry for the teacher name
-#: ../src/boards/python/admin/class_edit.py:103
+#: ../src/boards/python/admin/class_edit.py:102
 msgid "Teacher:"
 msgstr "المعلم:"
 
-#: ../src/boards/python/admin/class_edit.py:113
+#: ../src/boards/python/admin/class_edit.py:112
 msgid "Assign all the users belonging to this class"
 msgstr "تعليم جميع المستخدمين المنتمين إلى هذا الصف"
 
-#: ../src/boards/python/admin/class_edit.py:253
-#: ../src/boards/python/admin/group_edit.py:265
-#: ../src/boards/python/admin/group_user_list.py:154
-#: ../src/boards/python/admin/user_list.py:196
+#: ../src/boards/python/admin/class_edit.py:252
+#: ../src/boards/python/admin/group_edit.py:264
+#: ../src/boards/python/admin/group_user_list.py:153
+#: ../src/boards/python/admin/user_list.py:195
 msgid "First Name"
 msgstr "الاسم"
 
-#: ../src/boards/python/admin/class_edit.py:264
-#: ../src/boards/python/admin/group_edit.py:276
-#: ../src/boards/python/admin/group_user_list.py:164
-#: ../src/boards/python/admin/user_list.py:206
+#: ../src/boards/python/admin/class_edit.py:263
+#: ../src/boards/python/admin/group_edit.py:275
+#: ../src/boards/python/admin/group_user_list.py:163
+#: ../src/boards/python/admin/user_list.py:205
 msgid "Last Name"
 msgstr "الكنية"
 
-#: ../src/boards/python/admin/class_edit.py:341
+#: ../src/boards/python/admin/class_edit.py:340
 msgid "You need to provide at least a name for your class"
 msgstr "تحتاج أن تزود صفك باسم على الأقل"
 
-#: ../src/boards/python/admin/class_edit.py:387
+#: ../src/boards/python/admin/class_edit.py:386
 msgid "There is already a class with this name"
 msgstr "هناك صف يحمل نفس الاسم"
 
-#: ../src/boards/python/admin/class_list.py:169
-#: ../src/boards/python/admin/profile_edit.py:269
-#: ../src/boards/python/admin/profile_group_list.py:144
+#: ../src/boards/python/admin/class_list.py:168
+#: ../src/boards/python/admin/profile_edit.py:268
+#: ../src/boards/python/admin/profile_group_list.py:143
 msgid "Class"
 msgstr "الصف"
 
-#: ../src/boards/python/admin/class_list.py:179
+#: ../src/boards/python/admin/class_list.py:178
 msgid "Teacher"
 msgstr "المعلم"
 
-#: ../src/boards/python/admin/group_edit.py:60
+#: ../src/boards/python/admin/group_edit.py:59
 msgid "Editing a Group"
 msgstr "تحرير مجموعة"
 
-#: ../src/boards/python/admin/group_edit.py:66
+#: ../src/boards/python/admin/group_edit.py:65
 msgid "Editing group: "
 msgstr "تحرير المجموعة:"
 
-#: ../src/boards/python/admin/group_edit.py:67
+#: ../src/boards/python/admin/group_edit.py:66
 msgid " for class: "
 msgstr "للصف:"
 
-#: ../src/boards/python/admin/group_edit.py:70
+#: ../src/boards/python/admin/group_edit.py:69
 msgid "Editing a new group"
 msgstr "تحرير مجموعة جديدة"
 
-#: ../src/boards/python/admin/group_edit.py:90
+#: ../src/boards/python/admin/group_edit.py:89
 msgid "Group:"
 msgstr "مجموعة:"
 
 #. FIXME: How to remove the selection
 #. Label and Entry for the first name
-#: ../src/boards/python/admin/group_edit.py:102
-#: ../src/boards/python/admin/profile_edit.py:98
+#: ../src/boards/python/admin/group_edit.py:101
+#: ../src/boards/python/admin/profile_edit.py:97
 msgid "Description:"
 msgstr "الوصف:"
 
 #. Top message gives instructions
-#: ../src/boards/python/admin/group_edit.py:113
+#: ../src/boards/python/admin/group_edit.py:112
 msgid "Assign all the users belonging to this group"
 msgstr "تعليم جميع المستخدمين المنتمين إلى هذه المجموعة"
 
-#: ../src/boards/python/admin/group_edit.py:359
+#: ../src/boards/python/admin/group_edit.py:358
 msgid "You need to provide at least a name for your group"
 msgstr "تحتاج أن تعطي المجموعة اسماً على الأقل"
 
-#: ../src/boards/python/admin/group_edit.py:373
+#: ../src/boards/python/admin/group_edit.py:372
 msgid "There is already a group with this name"
 msgstr "هناك مجموعة تحمل هذا الاسم"
 
-#: ../src/boards/python/admin/group_list.py:86
+#: ../src/boards/python/admin/group_list.py:85
 msgid "Select a class:"
 msgstr "اختر صفاً:"
 
-#: ../src/boards/python/admin/group_list.py:214
-#: ../src/boards/python/admin/profile_edit.py:279
-#: ../src/boards/python/admin/profile_group_list.py:154
+#: ../src/boards/python/admin/group_list.py:213
+#: ../src/boards/python/admin/profile_edit.py:278
+#: ../src/boards/python/admin/profile_group_list.py:153
 msgid "Group"
 msgstr "المجموعة"
 
-#: ../src/boards/python/admin/group_list.py:225
-#: ../src/boards/python/admin/profile_edit.py:289
-#: ../src/boards/python/admin/profile_group_list.py:164
-#: ../src/boards/python/admin/profile_list.py:198
+#: ../src/boards/python/admin/group_list.py:224
+#: ../src/boards/python/admin/profile_edit.py:288
+#: ../src/boards/python/admin/profile_group_list.py:163
+#: ../src/boards/python/admin/profile_list.py:197
 msgid "Description"
 msgstr "الوصف"
 
-#: ../src/boards/python/admin/group_list.py:322
+#: ../src/boards/python/admin/group_list.py:321
 msgid "You must first select a group in the list"
 msgstr "عليك أولاً أن تختار مجموعة ضمن القائمة"
 
-#: ../src/boards/python/admin/group_user_list.py:174
-#: ../src/boards/python/admin/user_list.py:216
+#: ../src/boards/python/admin/group_user_list.py:173
+#: ../src/boards/python/admin/user_list.py:215
 msgid "Birth Date"
 msgstr "تاريخ الولادة"
 
-#: ../src/boards/python/admin/log_list.py:91
+#: ../src/boards/python/admin/log_list.py:90
 msgid "Select a user:"
 msgstr "اختر مستخدماً:"
 
 #. Insert the ALL option (HACK, use the user_id -2 to indicate ALL)
-#: ../src/boards/python/admin/log_list.py:102
+#: ../src/boards/python/admin/log_list.py:101
 msgid "All users"
 msgstr "جميع المستخدمين"
 
-#: ../src/boards/python/admin/log_list.py:108
-#: ../src/boards/python/admin/log_list.py:287
-#: ../src/boards/python/admin/profile_list.py:121
+#: ../src/boards/python/admin/log_list.py:107
+#: ../src/boards/python/admin/log_list.py:286
+#: ../src/boards/python/admin/profile_list.py:120
 #: ../src/gcompris/board_config.c:667 ../src/gcompris/board_config.c:925
 msgid "Default"
 msgstr "الافتراضي"
 
 #. Reset buttons
-#: ../src/boards/python/admin/log_list.py:162
+#: ../src/boards/python/admin/log_list.py:161
 msgid "Reset"
 msgstr "إعادة ضبط"
 
-#: ../src/boards/python/admin/log_list.py:208
+#: ../src/boards/python/admin/log_list.py:207
 msgid "Date"
 msgstr "التاريخ"
 
-#: ../src/boards/python/admin/log_list.py:218
+#: ../src/boards/python/admin/log_list.py:217
 msgid "User"
 msgstr "المستخدم"
 
-#: ../src/boards/python/admin/log_list.py:228
+#: ../src/boards/python/admin/log_list.py:227
 msgid "Board"
 msgstr "اللوحة"
 
-#: ../src/boards/python/admin/log_list.py:238
-#: ../src/boards/python/redraw.py:347 ../src/boards/python/redraw.py:357
+#: ../src/boards/python/admin/log_list.py:237
+#: ../src/boards/python/redraw.py:346 ../src/boards/python/redraw.py:356
 msgid "Level"
 msgstr "المستوى"
 
-#: ../src/boards/python/admin/log_list.py:248
+#: ../src/boards/python/admin/log_list.py:247
 msgid "Sublevel"
 msgstr "المستوى الفرعي"
 
-#: ../src/boards/python/admin/log_list.py:258
+#: ../src/boards/python/admin/log_list.py:257
 msgid "Duration"
 msgstr "المدة"
 
-#: ../src/boards/python/admin/log_list.py:268
+#: ../src/boards/python/admin/log_list.py:267
 msgid "Status"
 msgstr "الحالة"
 
-#: ../src/boards/python/admin/module_boards.py:42
-#: ../src/boards/python/admin/module_boards.py:67
+#: ../src/boards/python/admin/module_boards.py:41
+#: ../src/boards/python/admin/module_boards.py:66
 msgid "Boards"
 msgstr "اللوحات"
 
-#: ../src/boards/python/admin/module_groups.py:40
-#: ../src/boards/python/admin/module_groups.py:66
+#: ../src/boards/python/admin/module_groups.py:39
+#: ../src/boards/python/admin/module_groups.py:65
 msgid "Groups"
 msgstr "المجموعات"
 
-#: ../src/boards/python/admin/module_profiles.py:40
-#: ../src/boards/python/admin/module_profiles.py:65
+#: ../src/boards/python/admin/module_profiles.py:39
+#: ../src/boards/python/admin/module_profiles.py:64
 msgid "Profiles"
 msgstr "الملفات الشخصية"
 
-#: ../src/boards/python/admin/module_reports.py:41
-#: ../src/boards/python/admin/module_reports.py:67
+#: ../src/boards/python/admin/module_reports.py:40
+#: ../src/boards/python/admin/module_reports.py:66
 msgid "Reports"
 msgstr "التقارير"
 
-#: ../src/boards/python/admin/module_reports.py:67
-#: ../src/boards/python/admin/module_users.py:41
-#: ../src/boards/python/admin/module_users.py:67
+#: ../src/boards/python/admin/module_reports.py:66
+#: ../src/boards/python/admin/module_users.py:40
+#: ../src/boards/python/admin/module_users.py:66
 msgid "Users"
 msgstr "المستخدمون"
 
-#: ../src/boards/python/admin/module_users.py:41
-#: ../src/boards/python/admin/module_users.py:67
+#: ../src/boards/python/admin/module_users.py:40
+#: ../src/boards/python/admin/module_users.py:66
 msgid "Classes"
 msgstr "الصفوف"
 
-#: ../src/boards/python/admin/profile_edit.py:59
+#: ../src/boards/python/admin/profile_edit.py:58
 msgid "Editing a Profile"
 msgstr "تحرير ملف شخصي"
 
-#: ../src/boards/python/admin/profile_edit.py:64
+#: ../src/boards/python/admin/profile_edit.py:63
 msgid "Editing profile: "
 msgstr "تحرير الملف الشخصي: "
 
-#: ../src/boards/python/admin/profile_edit.py:67
+#: ../src/boards/python/admin/profile_edit.py:66
 msgid "Editing a new profile"
 msgstr "تحرير ملف شخصي جديد"
 
-#: ../src/boards/python/admin/profile_edit.py:86
+#: ../src/boards/python/admin/profile_edit.py:85
 msgid "Profile:"
 msgstr "الملف الشخصي: "
 
 #. Top message gives instructions
-#: ../src/boards/python/admin/profile_edit.py:109
+#: ../src/boards/python/admin/profile_edit.py:108
 msgid "Assign all the groups belonging to this profile"
 msgstr "تعليم جميع المجموعات المنتمية لهذا الملف الشخصي"
 
-#: ../src/boards/python/admin/profile_edit.py:377
+#: ../src/boards/python/admin/profile_edit.py:376
 msgid "You need to provide at least a name for your profile"
 msgstr "عليك أن تعطي اسماً لملفك الشخصي على الأقل"
 
-#: ../src/boards/python/admin/profile_edit.py:399
+#: ../src/boards/python/admin/profile_edit.py:398
 msgid "There is already a profile with this name"
 msgstr "هناك ملف شخصي يحمل هذا الاسم"
 
-#: ../src/boards/python/admin/profile_list.py:188
+#: ../src/boards/python/admin/profile_list.py:187
 msgid "Profile"
 msgstr "الملف الشخصي"
 
-#: ../src/boards/python/admin/profile_list.py:315
+#: ../src/boards/python/admin/profile_list.py:314
 msgid "[Default]"
 msgstr "[افتراضي]"
 
-#: ../src/boards/python/admin/user_edit.py:50
+#: ../src/boards/python/admin/user_edit.py:49
 msgid "Editing a User"
 msgstr "تحرير مستخدم"
 
-#: ../src/boards/python/admin/user_edit.py:55
+#: ../src/boards/python/admin/user_edit.py:54
 msgid "Editing a User "
 msgstr "تحرير مستخدم"
 
-#: ../src/boards/python/admin/user_edit.py:61
+#: ../src/boards/python/admin/user_edit.py:60
 msgid "Editing a new user"
 msgstr "تحرير مستخدم جديد"
 
-#: ../src/boards/python/admin/user_edit.py:78
+#: ../src/boards/python/admin/user_edit.py:77
 msgid "Login:"
 msgstr "اسم الولوج:"
 
 #. FIXME: How to remove the selection
 #. Label and Entry for the first name
-#: ../src/boards/python/admin/user_edit.py:89
+#: ../src/boards/python/admin/user_edit.py:88
 msgid "First name:"
 msgstr "الاسم:"
 
 #. Label and Entry for the last name
-#: ../src/boards/python/admin/user_edit.py:98
+#: ../src/boards/python/admin/user_edit.py:97
 msgid "Last name:"
 msgstr "الكنية:"
 
 #. Label and Entry for the birth date
-#: ../src/boards/python/admin/user_edit.py:107
+#: ../src/boards/python/admin/user_edit.py:106
 msgid "Birth date:"
 msgstr "تاريخ الولادة:"
 
-#: ../src/boards/python/admin/user_edit.py:159
+#: ../src/boards/python/admin/user_edit.py:158
 msgid "You need to provide at least a login, first name and last name for your users"
 msgstr "عليك أن تعطي على الأقل اسم ولوج، اسم وكنية كل مستخدم"
 
-#: ../src/boards/python/admin/user_edit.py:176
+#: ../src/boards/python/admin/user_edit.py:175
 msgid "There is already a user with this login"
 msgstr "هناك مستخدم يحمل اسم الولوج هذا"
 
-#: ../src/boards/python/admin/user_list.py:291
+#: ../src/boards/python/admin/user_list.py:290
 msgid ""
 "To import a user list from a file, first select a class.\n"
 "FILE FORMAT: Your file must be formatted like this:\n"
@@ -4973,7 +4981,7 @@ msgstr ""
 "اسم الولوج؛الاسم؛الكنية؛تاريخ الميلاد\n"
 "يمكنك أن تستخدم الفاصلة أو النقطتين بدلأ من الفاصلة المنقوطة."
 
-#: ../src/boards/python/admin/user_list.py:370
+#: ../src/boards/python/admin/user_list.py:369
 #, python-format
 msgid ""
 "One or more logins are not unique !\n"
@@ -4982,45 +4990,45 @@ msgstr ""
 "اسم ولوج واحد أو أكثر ليس فريداً !\n"
 "عليك أن تغيرهم: %s !"
 
-#: ../src/boards/python/anim.py:2226
+#: ../src/boards/python/anim.py:2224
 msgid "SVG is disabled. Install python xml module to enable it"
 msgstr "SVG معطل. ثبت وحدة إكس إم إل بايثون لتفعيله"
 
-#: ../src/boards/python/anim.py:2382
+#: ../src/boards/python/anim.py:2380
 msgid "Warning: the following images cannot be accessed on your system.\n"
 msgstr "تحذير: الصور التالية لا يمكن الوصول إليها في نظامك.\n"
 
-#: ../src/boards/python/anim.py:2384
+#: ../src/boards/python/anim.py:2382
 msgid "The corresponding items have been skipped."
 msgstr "العناصر التالية تم تجاوزها."
 
-#: ../src/boards/python/chat.py:80
+#: ../src/boards/python/chat.py:81
 msgid "All messages will be displayed here.\n"
 msgstr "جميع الرسائل ستُعرض هنا.\n"
 
-#: ../src/boards/python/chat.py:130
+#: ../src/boards/python/chat.py:131
 msgid "Your Friends"
 msgstr "أصدقاؤك"
 
-#: ../src/boards/python/chat.py:162
+#: ../src/boards/python/chat.py:163
 msgid "Your Channel"
 msgstr "قناتك"
 
-#: ../src/boards/python/chat.py:188
+#: ../src/boards/python/chat.py:189
 msgid ""
 "Type your message here, to send to other GCompris users on your local "
 "network."
 msgstr "اكتب رسالتك هنا، لتـُرسل إلى جميع مستخدمي «فهمت» على شبكتك المحلية."
 
-#: ../src/boards/python/chat.py:322
+#: ../src/boards/python/chat.py:324
 msgid "You must set a channel in your channel entry box first.\n"
 msgstr "عليك أن تحدد قناة في صندوق تحديد القناة أولاً.\n"
 
-#: ../src/boards/python/chat.py:323
+#: ../src/boards/python/chat.py:325
 msgid "Your friends must set the same channel in order to communicate with you"
 msgstr "أصدقاؤك يجب أن يحدوا نفس اسم القناة للتواصل معك"
 
-#: ../src/boards/python/electric.py:95
+#: ../src/boards/python/electric.py:94
 msgid ""
 "Cannot find the 'gnucap' electric simulator.\n"
 "You can download and install it from:\n"
@@ -5037,32 +5045,32 @@ msgstr ""
 "/usr/bin/gnucap أو /usr/local/bin/gnucap.\n"
 "لا يزال بإمكانك استخدام هذا النشاط لرسم النماذج من دون محاكاة الحاسوب"
 
-#: ../src/boards/python/gnumch.py:96
+#: ../src/boards/python/gnumch.py:95
 #, python-format
 msgid ", %d"
 msgstr "، %d"
 
-#: ../src/boards/python/gnumch.py:97
+#: ../src/boards/python/gnumch.py:96
 #, python-format
 msgid " and %d"
 msgstr " و %d"
 
-#: ../src/boards/python/gnumch.py:117
+#: ../src/boards/python/gnumch.py:116
 #, python-format
 msgid "%d is divisible by %s."
 msgstr "%d يقبل القسمة على %s."
 
-#: ../src/boards/python/gnumch.py:121
+#: ../src/boards/python/gnumch.py:120
 msgid "1 is not a prime number."
 msgstr "1 ليس عدداً أولياً."
 
-#: ../src/boards/python/gnumch.py:131
+#: ../src/boards/python/gnumch.py:130
 #, python-format
 msgid "Primes less than %d"
 msgstr "الأعداد الأولية الأصغر من %d"
 
 #. Translators: You can swap %(x)y elements in the string.
-#: ../src/boards/python/gnumch.py:153
+#: ../src/boards/python/gnumch.py:152
 #, python-format
 msgid ""
 "Multiples of %(d1)d include %(s)s,\n"
@@ -5071,57 +5079,57 @@ msgstr ""
 "مضاعفات العدد %(d1)d تتضمن %(s)s،\n"
 "ولكن العدد %(d2)d ليس من مضاعفات العدد %(d3)d."
 
-#: ../src/boards/python/gnumch.py:164
+#: ../src/boards/python/gnumch.py:163
 #, python-format
 msgid "Factors of %d"
 msgstr "قواسم العدد %d"
 
-#: ../src/boards/python/gnumch.py:197
+#: ../src/boards/python/gnumch.py:196
 #, python-format
 msgid "%s are the factors of %d."
 msgstr "%s هي قواسم العدد %d."
 
-#: ../src/boards/python/gnumch.py:209
+#: ../src/boards/python/gnumch.py:208
 #, python-format
 msgid "Multiples of %d"
 msgstr "مضاعفات العدد %d"
 
-#: ../src/boards/python/gnumch.py:243
+#: ../src/boards/python/gnumch.py:242
 #, python-format
 msgid "%s = %d"
 msgstr "%s = %d"
 
-#: ../src/boards/python/gnumch.py:254
+#: ../src/boards/python/gnumch.py:253
 #, python-format
 msgid "%d + %d"
 msgstr "%d + %d"
 
-#: ../src/boards/python/gnumch.py:259
+#: ../src/boards/python/gnumch.py:258
 #, python-format
 msgid "%d − %d"
 msgstr "%d − %d"
 
-#: ../src/boards/python/gnumch.py:264
+#: ../src/boards/python/gnumch.py:263
 #, python-format
 msgid "%d × %d"
 msgstr "%d × %d"
 
-#: ../src/boards/python/gnumch.py:268
+#: ../src/boards/python/gnumch.py:267
 #, python-format
 msgid "%d ÷ %d"
 msgstr "%d ÷ %d"
 
-#: ../src/boards/python/gnumch.py:276
+#: ../src/boards/python/gnumch.py:275
 #, python-format
 msgid "Equal to %d"
 msgstr "يساوي %d"
 
-#: ../src/boards/python/gnumch.py:297
+#: ../src/boards/python/gnumch.py:296
 #, python-format
 msgid "Not equal to %d"
 msgstr "لا يساوي %d"
 
-#: ../src/boards/python/gnumch.py:441
+#: ../src/boards/python/gnumch.py:440
 msgid ""
 "You were eaten by a Troggle.\n"
 "Press <Return> to continue."
@@ -5129,11 +5137,11 @@ msgstr ""
 "لقد احتُجِزت من قبل العائق.\n"
 "اضغط مفتاح الإدخال للمتابعة."
 
-#: ../src/boards/python/gnumch.py:490
+#: ../src/boards/python/gnumch.py:489
 msgid "You ate a wrong number.\n"
 msgstr "لقد التهمت رقماً خاطئاً.\n"
 
-#: ../src/boards/python/gnumch.py:491
+#: ../src/boards/python/gnumch.py:490
 msgid ""
 "\n"
 "Press <Return> to continue."
@@ -5141,7 +5149,7 @@ msgstr ""
 "\n"
 "اضغط مفتاح الإدخال للمتابعة."
 
-#: ../src/boards/python/gnumch.py:784
+#: ../src/boards/python/gnumch.py:783
 msgid ""
 "T\n"
 "R\n"
@@ -5156,50 +5164,50 @@ msgstr ""
 "ئـ\n"
 "ق"
 
-#: ../src/boards/python/guessnumber.py:205
+#: ../src/boards/python/guessnumber.py:204
 #, python-format
 msgid "Guess a number between %d and %d"
 msgstr "خمن عدداً بين %d و %d"
 
+#: ../src/boards/python/guessnumber.py:317
 #: ../src/boards/python/guessnumber.py:318
-#: ../src/boards/python/guessnumber.py:319
 #, python-format
 msgid "Please enter a number between %d and %d"
 msgstr "أدخل رقماً بين %d و %d"
 
+#: ../src/boards/python/guessnumber.py:323
 #: ../src/boards/python/guessnumber.py:324
-#: ../src/boards/python/guessnumber.py:325
 msgid "Out of range"
 msgstr "خارج الحدود"
 
+#: ../src/boards/python/guessnumber.py:330
 #: ../src/boards/python/guessnumber.py:331
-#: ../src/boards/python/guessnumber.py:332
 msgid "Too high"
 msgstr "كبير جداً"
 
+#: ../src/boards/python/guessnumber.py:333
 #: ../src/boards/python/guessnumber.py:334
-#: ../src/boards/python/guessnumber.py:335
 msgid "Too low"
 msgstr "صغير جداً"
 
-#: ../src/boards/python/login.py:114
+#: ../src/boards/python/login.py:113
 msgid "Profile: "
 msgstr "الملف الشخصي: "
 
-#: ../src/boards/python/login.py:268 ../src/boards/python/login.py:277
+#: ../src/boards/python/login.py:267 ../src/boards/python/login.py:276
 msgid "Login: "
 msgstr "اسم الولوج: "
 
 #. toggle box
-#: ../src/boards/python/login.py:550
+#: ../src/boards/python/login.py:549
 msgid "Enter login to log in"
 msgstr "أدخل اسم الولوم لتلِج"
 
-#: ../src/boards/python/mosaic.py:194
+#: ../src/boards/python/mosaic.py:193
 msgid "Rebuild the same mosaic on the right area"
 msgstr "أعد بناء نفس الفسيفساء في المساحة اليمنى"
 
-#: ../src/boards/python/melody.py:118
+#: ../src/boards/python/melody.py:119
 msgid ""
 "Error: this activity cannot be played with the\n"
 "sound effects disabled.\n"
@@ -5231,16 +5239,18 @@ msgstr "أصدقاء أوسكار المفضلين هم السرطان البح�
 
 #: ../src/boards/python/pythontest.py:148
 msgid ""
-"This is the first plugin in gcompris coded in the Python\n"
+"This is the first plugin in GCompris coded in the Python\n"
 "Programming language."
-msgstr "هذه هي أول إضافة في «فهمت» مكتوبة باللغة البرمجية بايثون."
+msgstr ""
+"هذا أول ملحق في «فهمت» مكتوب\n"
+"باللغة البرمجية بايثون."
 
 #: ../src/boards/python/pythontest.py:157
 msgid ""
-"It is now possible to develop gcompris activities in C or in Python.\n"
+"It is now possible to develop GCompris activities in C or in Python.\n"
 "Thanks to Olivier Samys who makes this possible."
 msgstr ""
-"من الممكن الآن تطوير نشاطات «فهمت» بلغة السي أو البايثون.\n"
+"من الممكن الآن تطوير نشاطات «فهمت» بلغة سي أو بايثون.\n"
 "شكراً لأوليفر ساميز الذي جعل ذلك ممكناً."
 
 #: ../src/boards/python/pythontest.py:166
@@ -5275,61 +5285,61 @@ msgstr "استخدم المستطيلات"
 msgid "Choice of pattern"
 msgstr "اختيار التركيبة"
 
-#: ../src/boards/python/redraw.py:909 ../src/boards/python/redraw.py:912
+#: ../src/boards/python/redraw.py:908 ../src/boards/python/redraw.py:911
 msgid "Coordinate"
 msgstr "إحداثية"
 
-#: ../src/boards/python/searace.py:191
+#: ../src/boards/python/searace.py:190
 msgid "The race is already being run"
 msgstr "السباق قد بدأ"
 
 #. Manage default cases (no params given)
 #. Final move, add an ofset because we loose space in abs()
-#: ../src/boards/python/searace.py:433 ../src/boards/python/searace.py:458
-#: ../src/boards/python/searace.py:539 ../src/boards/python/searace.py:855
-#: ../src/boards/python/searace.py:884 ../src/boards/python/searace.py:973
-#: ../src/boards/python/searace.py:979 ../src/boards/python/searace.py:987
+#: ../src/boards/python/searace.py:432 ../src/boards/python/searace.py:457
+#: ../src/boards/python/searace.py:538 ../src/boards/python/searace.py:854
+#: ../src/boards/python/searace.py:883 ../src/boards/python/searace.py:972
+#: ../src/boards/python/searace.py:978 ../src/boards/python/searace.py:986
 msgid "forward"
 msgstr "أمام"
 
-#: ../src/boards/python/searace.py:530
+#: ../src/boards/python/searace.py:529
 msgid "COMMANDS ARE"
 msgstr "الأوامر هي"
 
 #. The two boat arrived in a close time frame (1s), it's a draw
-#: ../src/boards/python/searace.py:756
+#: ../src/boards/python/searace.py:755
 msgid "This is a draw"
 msgstr "تعادل"
 
-#: ../src/boards/python/searace.py:763
+#: ../src/boards/python/searace.py:762
 msgid "The Red boat has won"
 msgstr "فاز القارب الأحمر"
 
-#: ../src/boards/python/searace.py:766
+#: ../src/boards/python/searace.py:765
 msgid "The Green boat has won"
 msgstr "فاز القارب الأخضر"
 
-#: ../src/boards/python/searace.py:784 ../src/boards/python/searace.py:1017
+#: ../src/boards/python/searace.py:783 ../src/boards/python/searace.py:1016
 msgid "Angle:"
 msgstr "الانحراف:"
 
-#: ../src/boards/python/searace.py:784
+#: ../src/boards/python/searace.py:783
 msgid "Wind:"
 msgstr "الرياح:"
 
-#: ../src/boards/python/searace.py:862
+#: ../src/boards/python/searace.py:861
 msgid "Syntax error at line"
 msgstr "خطأ صياغي في السطر"
 
-#: ../src/boards/python/searace.py:880
+#: ../src/boards/python/searace.py:879
 msgid "The command"
 msgstr "الأمر"
 
-#: ../src/boards/python/searace.py:899
+#: ../src/boards/python/searace.py:898
 msgid "Unknown command at line"
 msgstr "أمر غير معروف في السطر"
 
-#: ../src/boards/python/searace.py:1017
+#: ../src/boards/python/searace.py:1016
 msgid "Distance:"
 msgstr "المسافة:"
 
@@ -5341,39 +5351,39 @@ msgstr ""
 "لم يمكن إيجاد برنامج رسم تُكس (tuxpaint).\n"
 "قم بتثبيته للعب بهذا النشاط !"
 
-#: ../src/boards/python/tuxpaint.py:157
+#: ../src/boards/python/tuxpaint.py:158
 msgid "Waiting for Tuxpaint to finish"
 msgstr "يجري الإنتظار حتى ينتهي برنامج رسم تُكس"
 
-#: ../src/boards/python/tuxpaint.py:210
+#: ../src/boards/python/tuxpaint.py:211
 msgid "Inherit fullscreen setting from GCompris"
 msgstr "استخدم إعداد الشاشة الكاملة من «فهمت»"
 
-#: ../src/boards/python/tuxpaint.py:214
+#: ../src/boards/python/tuxpaint.py:216
 msgid "Inherit size setting from GCompris (800x600, 640x480)"
 msgstr "استخدم إعداد المقاس من «فهمت» (800x600، 640x480)"
 
-#: ../src/boards/python/tuxpaint.py:218
+#: ../src/boards/python/tuxpaint.py:221
 msgid "Disable shape rotation"
 msgstr "عطِّل تدوير الأشكال"
 
-#: ../src/boards/python/tuxpaint.py:222
+#: ../src/boards/python/tuxpaint.py:226
 msgid "Show Uppercase text only"
 msgstr "اظهر الأحرف الكبيرة فقط"
 
-#: ../src/boards/python/tuxpaint.py:226
+#: ../src/boards/python/tuxpaint.py:231
 msgid "Disable stamps"
 msgstr "عطِّل الطوابع"
 
-#: ../src/boards/railroad.c:91
+#: ../src/boards/railroad.c:90
 msgid "Memory game"
 msgstr "لعبة الذاكرة"
 
-#: ../src/boards/railroad.c:92
+#: ../src/boards/railroad.c:91
 msgid "Build a train according to the model"
 msgstr "ابنِ قطاراً وفقاً للنموذج"
 
-#: ../src/boards/reading.c:229 ../src/boards/wordsgame.c:205
+#: ../src/boards/reading.c:228 ../src/boards/wordsgame.c:205
 msgid ""
 "Error: We can't find\n"
 "a list of words to play this game.\n"
@@ -5381,99 +5391,99 @@ msgstr ""
 "خطأ: لم يمكن إيجاد قائمة كلمات\n"
 "للعب بهذه اللعبة.\n"
 
-#: ../src/boards/reading.c:381
+#: ../src/boards/reading.c:380
 msgid "Please, check if the word"
 msgstr "تحقق من فضلك أن الكلمة "
 
-#: ../src/boards/reading.c:401
+#: ../src/boards/reading.c:400
 msgid "is being displayed"
 msgstr "معروضة على الشاشة"
 
-#: ../src/boards/reading.c:575
+#: ../src/boards/reading.c:574
 msgid "I am Ready"
 msgstr "أنا مستعد"
 
-#: ../src/boards/reading.c:615
+#: ../src/boards/reading.c:614
 msgid "Yes, I saw it"
 msgstr "نعم رأيتها"
 
-#: ../src/boards/reading.c:645
+#: ../src/boards/reading.c:644
 msgid "No, it was not there"
 msgstr "لا لم أرها"
 
 #. Report what was wrong in the log
-#: ../src/boards/reading.c:683
+#: ../src/boards/reading.c:682
 #, c-format
 msgid "The word to find was '%s'"
 msgstr "الكلمة التي نبحث عنها هي : '%s'"
 
-#: ../src/boards/reading.c:686
+#: ../src/boards/reading.c:685
 msgid "But it was not displayed"
 msgstr "لكن لم يكن معروضاً"
 
-#: ../src/boards/reading.c:688
+#: ../src/boards/reading.c:687
 msgid "And it was displayed"
 msgstr "وكان معروضاً"
 
-#: ../src/boards/scale.c:265
+#: ../src/boards/scale.c:264
 #, c-format
 msgid "Weight = %s"
 msgstr "الوزن = %s"
 
-#: ../src/boards/scale.c:714
+#: ../src/boards/scale.c:713
 msgid "Take care, you can drop masses on both sides of the scale."
 msgstr "خذ حذرك، يمكن أن تُسقط الأوزان عن كفتي الميزان."
 
-#: ../src/boards/target.c:281 ../src/boards/target.c:546
+#: ../src/boards/target.c:280 ../src/boards/target.c:545
 #, c-format
 msgid "Points = %s"
 msgstr "النقاط = %s"
 
-#: ../src/boards/target.c:403
+#: ../src/boards/target.c:402
 #, c-format
 msgid ""
 "Wind speed = %d\n"
 "kilometers/hour"
 msgstr "سرعة الريح = %d /n  كم/س"
 
-#: ../src/boards/target.c:470
+#: ../src/boards/target.c:469
 #, c-format
 msgid "Distance to target = %d meters"
 msgstr "المسافة المتبقية إلى الهدف = %d أمتار"
 
-#: ../src/boards/wordprocessor.c:55
+#: ../src/boards/wordprocessor.c:54
 msgid "Research"
 msgstr "أبحاث"
 
-#: ../src/boards/wordprocessor.c:66
+#: ../src/boards/wordprocessor.c:65
 msgid "Sentimental"
 msgstr "إحساسي"
 
-#: ../src/boards/wordprocessor.c:77
+#: ../src/boards/wordprocessor.c:76
 msgid "Official"
 msgstr "رسمي"
 
-#: ../src/boards/wordprocessor.c:88 ../src/boards/wordprocessor.c:436
+#: ../src/boards/wordprocessor.c:87 ../src/boards/wordprocessor.c:435
 msgid "Text"
 msgstr "نص"
 
-#: ../src/boards/wordprocessor.c:99
+#: ../src/boards/wordprocessor.c:98
 msgid "Flyer"
 msgstr "بادئة"
 
-#: ../src/boards/wordprocessor.c:433
+#: ../src/boards/wordprocessor.c:432
 msgid "Title"
 msgstr "عنوان"
 
-#: ../src/boards/wordprocessor.c:434
+#: ../src/boards/wordprocessor.c:433
 msgid "Heading 1"
 msgstr "رأس 1"
 
-#: ../src/boards/wordprocessor.c:435
+#: ../src/boards/wordprocessor.c:434
 msgid "Heading 2"
 msgstr "رأس 2"
 
-#: ../src/gcompris/about.c:57
+#: ../src/gcompris/about.c:56
 msgid ""
 "Author: Bruno Coudoin\n"
 "Contribution: Pascal Georges, Jose Jorge, Yves Combe\n"
@@ -5488,7 +5498,7 @@ msgstr ""
 "موسيقى خلفية: ريكو دا هلفاريز \n"
 
 #. TRANSLATORS: Replace this string with your names, one name per line.
-#: ../src/gcompris/about.c:65
+#: ../src/gcompris/about.c:64
 msgid "translator_credits"
 msgstr ""
 "فريق عربآيز للترجمة:\n"
@@ -5497,15 +5507,15 @@ msgstr ""
 "أنس الحسيني\n"
 "خالد حسني"
 
-#: ../src/gcompris/about.c:96 ../src/gcompris/about.c:106
+#: ../src/gcompris/about.c:95 ../src/gcompris/about.c:105
 msgid "About GCompris"
 msgstr "حوْل «فهمت»"
 
-#: ../src/gcompris/about.c:117
+#: ../src/gcompris/about.c:116
 msgid "Translators:"
 msgstr "المترجمون:"
 
-#: ../src/gcompris/about.c:193
+#: ../src/gcompris/about.c:229
 msgid ""
 "GCompris Home Page\n"
 "http://gcompris.net"
@@ -5513,37 +5523,37 @@ msgstr ""
 "صفحة «فهمت» الرئيسية\n"
 "http://gcompris.net"
 
-#: ../src/gcompris/about.c:215
+#: ../src/gcompris/about.c:251
 msgid ""
 "This software is a GNU Package and is released under the GNU General Public "
 "License"
 msgstr "هذا البرنامج حزمة من حزم جنو وقد أُصدِر وفقاً لرخصة جنو العمومية"
 
-#: ../src/gcompris/about.c:278 ../src/gcompris/about.c:288
+#: ../src/gcompris/about.c:279 ../src/gcompris/about.c:289
 #: ../src/gcompris/config.c:472 ../src/gcompris/config.c:482
-#: ../src/gcompris/dialog.c:97 ../src/gcompris/help.c:382
-#: ../src/gcompris/help.c:392 ../src/gcompris/images_selector.c:317
+#: ../src/gcompris/dialog.c:102 ../src/gcompris/help.c:381
+#: ../src/gcompris/help.c:391 ../src/gcompris/images_selector.c:316
 msgid "OK"
 msgstr "موافق"
 
-#: ../src/gcompris/bar.c:577
+#: ../src/gcompris/bar.c:597
 msgid "GCompris confirmation"
 msgstr "تأكيد «فهمت»"
 
-#: ../src/gcompris/bar.c:578
+#: ../src/gcompris/bar.c:598
 msgid "Are you sure you want to quit?"
 msgstr "أمتأكد أنك تريد الخروج؟"
 
-#: ../src/gcompris/bar.c:579
+#: ../src/gcompris/bar.c:599
 msgid "Yes, I am sure!"
 msgstr "نعم، متأكد!"
 
-#: ../src/gcompris/bar.c:580
+#: ../src/gcompris/bar.c:600
 msgid "No, I want to keep going"
 msgstr "لا، أريد المغادرة"
 
-#: ../src/gcompris/board.c:187
-msgid "Dynamic module loading is not supported. gcompris cannot load.\n"
+#: ../src/gcompris/board.c:183
+msgid "Dynamic module loading is not supported. GCompris cannot load.\n"
 msgstr "التحميل الديناميكي للوحدات غير مدعوم. «فهمت» لا يمكنه التحميل.\n"
 
 #: ../src/gcompris/board_config.c:699
@@ -5578,9 +5588,13 @@ msgstr ""
 "اختر طريقة السحب والإفلات\n"
 " لاستخدامها في اللوحة"
 
-#: ../src/gcompris/config.c:59
+#: ../src/gcompris/config.c:58
 msgid "Your system default"
 msgstr "الافتراضي في نظامك"
+
+#: ../src/gcompris/config.c:59
+msgid "Afrikaans"
+msgstr "أفريكاني"
 
 #: ../src/gcompris/config.c:60
 msgid "Amharic"
@@ -5835,7 +5849,7 @@ msgid "Fast timer"
 msgstr "مؤقت سريع"
 
 #: ../src/gcompris/config.c:132
-msgid "800x600 (Default for gcompris)"
+msgid "800x600 (Default for GCompris)"
 msgstr "800x600 (الحجم الإفتراضي  لـ «فهمت»)"
 
 #: ../src/gcompris/config.c:137
@@ -5867,8 +5881,8 @@ msgstr "التأثير"
 msgid "Couldn't open skin dir: %s"
 msgstr "تعذر فتح مجلد المظاهر : %s"
 
-#: ../src/gcompris/config.c:416 ../src/gcompris/config.c:867
-#: ../src/gcompris/config.c:881
+#: ../src/gcompris/config.c:416 ../src/gcompris/config.c:866
+#: ../src/gcompris/config.c:880
 #, c-format
 msgid "Skin : %s"
 msgstr "المظهر : %s"
@@ -5881,27 +5895,27 @@ msgstr "المظهر غير موجود"
 msgid "English (United State)"
 msgstr "إنجليزي (الولايات المتحدة)"
 
-#: ../src/gcompris/file_selector.c:337
+#: ../src/gcompris/file_selector.c:336
 msgid "CANCEL"
 msgstr "الغِ"
 
-#: ../src/gcompris/file_selector.c:368
+#: ../src/gcompris/file_selector.c:367
 msgid "LOAD"
 msgstr "حمِّل"
 
-#: ../src/gcompris/file_selector.c:368
+#: ../src/gcompris/file_selector.c:367
 msgid "SAVE"
 msgstr "احفظ"
 
-#: ../src/gcompris/gameutil.c:80
+#: ../src/gcompris/gameutil.c:103
 msgid "Couldn't find or load the file"
 msgstr "لم أستطع العثور أو تحميل الملف "
 
-#: ../src/gcompris/gameutil.c:82
+#: ../src/gcompris/gameutil.c:105
 msgid "This activity is incomplete."
 msgstr "هذا النشاط غير مكتمل."
 
-#: ../src/gcompris/gameutil.c:83
+#: ../src/gcompris/gameutil.c:106
 msgid ""
 "Exit it and report\n"
 "the problem to the authors."
@@ -5909,65 +5923,66 @@ msgstr ""
 "الخروج وإرسال تقرير\n"
 "بالمشكلة إلى المبرمجين."
 
+#: ../src/gcompris/gcompris.c:136
+msgid "run GCompris in fullscreen mode."
+msgstr "شغل «فهمت» في وضع ملء الشاشة."
+
 #: ../src/gcompris/gcompris.c:139
-msgid "run gcompris in fullscreen mode."
-msgstr "شغل «فهمت» مستعملاً جميع الشاشة"
+msgid "run GCompris in window mode."
+msgstr "شغل «فهمت» في وضع النافذة."
 
 #: ../src/gcompris/gcompris.c:142
-msgid "run gcompris in window mode."
-msgstr "شغل «فهمت» في نمط النافذة"
+msgid "run GCompris with sound enabled."
+msgstr "شغل «فهمت» مع تفعيل الصوت."
 
 #: ../src/gcompris/gcompris.c:145
-msgid "run gcompris with sound enabled."
-msgstr "شغل «فهمت» مع تفعيل الصوت"
+msgid "run GCompris without sound."
+msgstr "شغل «فهمت» بدون صوت."
 
 #: ../src/gcompris/gcompris.c:148
-msgid "run gcompris without sound."
-msgstr "شغل «فهمت» بدون صوت"
+msgid "run GCompris with the default gnome cursor."
+msgstr "شغل «فهمت» باستعمال مؤشر جنوم الافتراضي."
 
 #: ../src/gcompris/gcompris.c:151
-msgid "run gcompris with the default gnome cursor."
-msgstr "شغل «فهمت» باستعمال مؤشر جنوم الإفتراضي."
-
-#: ../src/gcompris/gcompris.c:154
 msgid "display only activities with this difficulty level."
 msgstr "اعرض الأنشطة التي تتناسب فقط مع هذا المستوى الصعب."
 
-#: ../src/gcompris/gcompris.c:157
+#: ../src/gcompris/gcompris.c:154
 msgid "display debug informations on the console."
 msgstr "اعرض معلومات التنقيح في سطر الأوامر."
 
-#: ../src/gcompris/gcompris.c:160
+#: ../src/gcompris/gcompris.c:157
 msgid "Print the version of "
 msgstr "اطبع رقم إصدار "
 
-#: ../src/gcompris/gcompris.c:163
+#: ../src/gcompris/gcompris.c:160
 msgid "Use the antialiased canvas (slower)."
 msgstr "استعمل لوحات رسم منعمة (أبطأ) "
 
-#: ../src/gcompris/gcompris.c:166
+#: ../src/gcompris/gcompris.c:163
 msgid "Disable XF86VidMode (No screen resolution change)."
 msgstr "عطِّل XF86VidMode (لن تتغير أبعاد الشاشة النقطية)."
 
-#: ../src/gcompris/gcompris.c:169
+#: ../src/gcompris/gcompris.c:166
 msgid ""
-"Run gcompris with local menu (e.g -l /reading will let you play only "
+"Run GCompris with local menu (e.g -l /reading will let you play only "
 "activities in the reading directory, -l /strategy/connect4 only the connect4 "
-"activity)"
+"activity). Use '-l list' to list all the availaible activities and their "
+"descriptions."
 msgstr ""
 "شغل «فهمت» مع القائمة المحلية (مثال: l reading- سيمكنك من اللعب بالأنشطة "
 "الموجودة فقط في المجلد reading، و l /strategy/connect4- سيمكنك من اللعب بـ "
-"'أوصل 4' فقط)"
+"'وصّل 4' فقط). استخدم '-l list' لسرد جميع النشاطات المتوفرة مع وصف لها."
 
-#: ../src/gcompris/gcompris.c:172
+#: ../src/gcompris/gcompris.c:171
 msgid "Run GCompris with local activity directory added to menu"
 msgstr "شغل «فهمت» مع مجلد الأنشطة المحلي المضاف إلى القائمة"
 
-#: ../src/gcompris/gcompris.c:175
+#: ../src/gcompris/gcompris.c:174
 msgid "Run GCompris in administration and user-management mode"
 msgstr "شغل «فهمت» في نمط الإدارة"
 
-#: ../src/gcompris/gcompris.c:178
+#: ../src/gcompris/gcompris.c:177
 msgid ""
 "Use alternate database for profiles [$HOME/.config/gcompris/gcompris_sqlite."
 "db]"
@@ -5975,25 +5990,25 @@ msgstr ""
 "استخدم قاعدة بيانات بديلة للملفات الشخصية [$HOME/.config/gcompris/"
 "gcompris_sqlite.db]"
 
-#: ../src/gcompris/gcompris.c:181
+#: ../src/gcompris/gcompris.c:180
 msgid "Create the alternate database for profiles"
 msgstr "أنشيء قاعدة بيانات بديلة للملفات الشخصية"
 
-#: ../src/gcompris/gcompris.c:184
+#: ../src/gcompris/gcompris.c:183
 msgid "Re-read XML Menus and store them in the database"
 msgstr "أعِد قراءة قوائم إكس إم إل وحفظها في قاعدة البيانات"
 
-#: ../src/gcompris/gcompris.c:187
+#: ../src/gcompris/gcompris.c:186
 msgid "Set the profile to use. Use 'gcompris -a' to create profiles"
 msgstr ""
 "حدد الملف الشخصي الذي تريد استخدامه. استخدم 'gompris -a' لإنشاء الملفات "
 "الشخصية"
 
-#: ../src/gcompris/gcompris.c:190
+#: ../src/gcompris/gcompris.c:189
 msgid "List all available profiles. Use 'gcompris -a' to create profiles"
 msgstr "اسرد كل الملفات الشخصية المتاحة. استخدم 'gcompris -a' لإنشاء الملفات الشخصية"
 
-#: ../src/gcompris/gcompris.c:193
+#: ../src/gcompris/gcompris.c:192
 msgid ""
 "Config directory location: [$HOME/.config/gcompris]. Alternate is to set "
 "$XDG_CONFIG_HOME."
@@ -6001,27 +6016,27 @@ msgstr ""
 "مكان مجلد الإعدادات: [$HOME/.config/gcompris]. البديل هو تحديد "
 "$XDG_CONFIG_HOME."
 
-#: ../src/gcompris/gcompris.c:196
+#: ../src/gcompris/gcompris.c:195
 msgid "The location of user directories: [$HOME/My GCompris]"
 msgstr "مكان مجلدات المستخدمين: [$HOME/My GCompris]"
 
-#: ../src/gcompris/gcompris.c:199
+#: ../src/gcompris/gcompris.c:198
 msgid "Run the experimental activities"
 msgstr "شغل الأنشطة التجريبية"
 
-#: ../src/gcompris/gcompris.c:202
+#: ../src/gcompris/gcompris.c:201
 msgid "Disable the quit button"
 msgstr "عطِّل زر الخروج"
 
-#: ../src/gcompris/gcompris.c:205
+#: ../src/gcompris/gcompris.c:204
 msgid "Disable the config button"
 msgstr "عطِّل زر الإعدادات"
 
-#: ../src/gcompris/gcompris.c:210
+#: ../src/gcompris/gcompris.c:209
 msgid "Display the resources on stdout based on the selected activities"
 msgstr "اعرض الموارد على الخرج بناءً على الأنشطة المختارة"
 
-#: ../src/gcompris/gcompris.c:214
+#: ../src/gcompris/gcompris.c:213
 msgid ""
 "GCompris will get images, sounds and activity data from this server if not "
 "found locally."
@@ -6029,7 +6044,7 @@ msgstr ""
 "«فهمت» سوف يستورد الصور والأصوات وبيانات الأنشطة من هذا الخادم إن لم تتواجد "
 "محلياً."
 
-#: ../src/gcompris/gcompris.c:217
+#: ../src/gcompris/gcompris.c:216
 msgid ""
 "Only when --server is provided, disable check for local resource first. Data "
 "are always taken from the web server."
@@ -6037,23 +6052,23 @@ msgstr ""
 "فقط عندما يتم تزويد server--، يُلغى التحقق من الموارد المحلية. ستُستورد "
 "البيانات دائماً من خادم الوِب."
 
-#: ../src/gcompris/gcompris.c:221
+#: ../src/gcompris/gcompris.c:220
 msgid "In server mode, specify the cache directory used to avoid useless downloads."
 msgstr "في نمط الخادم، حدد مجلد الذاكرة المخبأة المستخدم لتلافي التحميل المكرر."
 
-#: ../src/gcompris/gcompris.c:224
+#: ../src/gcompris/gcompris.c:223
 msgid "Global drag and drop mode: normal, 2clicks, both. Default mode is normal."
 msgstr "نمط السحب والإفلات العام: عادي، نقرتان، كلاهما. النمط الافتراضي هو عادي."
 
-#: ../src/gcompris/gcompris.c:227
+#: ../src/gcompris/gcompris.c:226
 msgid "Do not display the background images of activities."
 msgstr "لا تعرض صور خلفيات الأنشطة."
 
-#: ../src/gcompris/gcompris.c:230
+#: ../src/gcompris/gcompris.c:229
 msgid "Do not avoid the execution of multiple instances of GCompris."
 msgstr "لا تتجنب تشغيل عدة نسخ من «فهمت» في وقت واحد."
 
-#: ../src/gcompris/gcompris.c:844
+#: ../src/gcompris/gcompris.c:848
 #, c-format
 msgid ""
 "GCompris is free software released under the GPL License. In order to "
@@ -6075,7 +6090,17 @@ msgstr ""
 "مؤسسة البرمجيات الحرة:\n"
 "<http://www.fsf.org/philosophy>"
 
-#: ../src/gcompris/gcompris.c:1539
+#: ../src/gcompris/gcompris.c:1432
+#, c-format
+msgid "GCompris won't start because the lock file is less than %d seconds old.\n"
+msgstr "لن يبدأ «فهمت» لأن ملف القفل أحدث من %d ثوانِ.\n"
+
+#: ../src/gcompris/gcompris.c:1434
+#, c-format
+msgid "The lock file is: %s\n"
+msgstr "ملف القفل: %s\n"
+
+#: ../src/gcompris/gcompris.c:1562
 #, c-format
 msgid ""
 "GCompris\n"
@@ -6089,56 +6114,56 @@ msgstr ""
 "لمزيد من المعلومات زر الصفحة http://gcompris.net \n"
 
 #. check the list of possible values for -l, then exit
-#: ../src/gcompris/gcompris.c:1623
+#: ../src/gcompris/gcompris.c:1646
 #, c-format
 msgid "Use -l to access an activity directly.\n"
 msgstr "استخدم l- للوصول إلى نشاط معين مباشرة.\n"
 
-#: ../src/gcompris/gcompris.c:1624
+#: ../src/gcompris/gcompris.c:1647
 #, c-format
 msgid "The list of available activities is :\n"
 msgstr "قائمة الأنشطة المتاحة: \n"
 
-#: ../src/gcompris/gcompris.c:1811
+#: ../src/gcompris/gcompris.c:1834
 #, c-format
 msgid "The list of available profiles is:\n"
 msgstr "قائمة الملفات الشخصية المتاحة: \n"
 
-#: ../src/gcompris/gcompris_db.c:266
+#: ../src/gcompris/gcompris_db.c:264
 msgid "Unaffected"
 msgstr "غير متأثر"
 
-#: ../src/gcompris/gcompris_db.c:267
+#: ../src/gcompris/gcompris_db.c:265
 msgid "Users without a class"
 msgstr "مستخدمون لا ينتمون إلى أي صف"
 
-#: ../src/gcompris/help.c:197
+#: ../src/gcompris/help.c:196
 msgid "Prerequisite"
 msgstr "المتطلبات"
 
-#: ../src/gcompris/help.c:225
+#: ../src/gcompris/help.c:224
 msgid "Goal"
 msgstr "الهدف"
 
-#: ../src/gcompris/help.c:253
+#: ../src/gcompris/help.c:252
 msgid "Manual"
 msgstr "دليل المستخدم"
 
-#: ../src/gcompris/help.c:281
+#: ../src/gcompris/help.c:280
 msgid "Credit"
 msgstr "شكر وتقدير"
 
-#: ../src/gcompris/properties.c:487 ../src/gcompris/properties.c:494
+#: ../src/gcompris/properties.c:502 ../src/gcompris/properties.c:509
 msgid "readme"
 msgstr "اقرأني"
 
-#: ../src/gcompris/properties.c:489
+#: ../src/gcompris/properties.c:504
 msgid ""
 "This directory contains the files you create with the GCompris educational "
 "suite\n"
 msgstr "هذا المجلد يحتوي الملفات التي أنشأتها بواسطة مجموعة «فهمت» التعليمية\n"
 
-#: ../src/gcompris/properties.c:496
+#: ../src/gcompris/properties.c:511
 msgid ""
 "Put any number of images in this directory.\n"
 "You can include these images in your drawings and animations.\n"
@@ -6148,11 +6173,11 @@ msgstr ""
 "يمكنك تضمين هذه الصور في رسومك وشريطك المتحرك.\n"
 "هيئة الصور المدعومة هي: jpeg، png، و svg.\n"
 
-#: ../src/gcompris/timer.c:250
+#: ../src/gcompris/timer.c:249
 msgid "Time Elapsed"
 msgstr "انتهى الوقت"
 
-#: ../src/gcompris/timer.c:339
+#: ../src/gcompris/timer.c:338
 #, c-format
 msgid "Remaining Time = %d"
 msgstr "الوقت المتبقي = %d"

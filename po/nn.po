@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: nn\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-04-29 17:11+0200\n"
-"PO-Revision-Date: 2007-04-29 19:11+0200\n"
+"POT-Creation-Date: 2007-08-18 17:51+0200\n"
+"PO-Revision-Date: 2007-08-18 18:00+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <i18n-nn@lister.ping.uio.no>\n"
 "MIME-Version: 1.0\n"
@@ -3264,7 +3264,7 @@ msgstr ""
 msgid ""
 "A simple click on an icon brings you to an activity or a menu of "
 "activities.\n"
-"At the bottom of the screen is the gcompris control bar.\n"
+"At the bottom of the screen is the GCompris control bar.\n"
 "The following icons are displayed from right to left.\n"
 "(note that each icon is displayed only if available in the current "
 "activity)\n"
@@ -3283,10 +3283,10 @@ msgstr ""
 "Trykk på eitt av ikona for å komma til ein aktivitet eller ei oversikt over "
 "aktivitetar.\n"
 "Nedst på skjermen ser du kontrollinja med desse ikona, frå høgre til venstre "
-"(det er ikkje sikkert alle vert vist):\n"
+"(kvart ikon vert berre vist om det er tilgjengeleg i den valde aktiviteten):\n"
 "\n"
 "    Heim – Avslutt aktivitet eller tilbake til førre meny.\n"
-"    Tommel – Stadfest svaret.\n"
+"    Tommel – OK. Stadfest svaret.\n"
 "    Terning – Viser gjeldande nivå. Trykk på terningen for å byta nivå.\n"
 "    Lepper – Gjenta spørsmålet.\n"
 "    Spørjeteikn – Hjelp.\n"
@@ -3312,7 +3312,7 @@ msgstr ""
 
 #: ../boards/menu.xml.in.h:19
 msgid ""
-"The goal of gcompris is to provide a free alternative to popular proprietary "
+"The goal of GCompris is to provide a free alternative to popular proprietary "
 "edutainment software"
 msgstr ""
 "Målet med GCompris er å ha eit fritt alternativ til populære godseigde leik "
@@ -3681,13 +3681,25 @@ msgstr "Tenkespel"
 msgid "Various puzzles."
 msgstr "Ymse tenkespel."
 
-#: ../boards/pythontest.xml.in.h:1
-msgid "Add a language-binding to gcompris."
+#: ../boards/pythontemplate.xml.in.h:1 ../boards/pythontest.xml.in.h:1
+msgid "Add a language-binding to GCompris."
 msgstr "Legg ei språkbinding til GCompris."
 
-#: ../boards/pythontest.xml.in.h:2
+#: ../boards/pythontemplate.xml.in.h:2 ../boards/pythontest.xml.in.h:2
 msgid "Advanced Python Programmer :)"
 msgstr "Avansert Python-programmerar! :)"
+
+#: ../boards/pythontemplate.xml.in.h:3
+msgid "An empty python activity to use as a starting point"
+msgstr "Ein tom Python-aktivitet å bruka som utgangspunkt"
+
+#: ../boards/pythontemplate.xml.in.h:4
+msgid "Python Template"
+msgstr "Python-mal"
+
+#: ../boards/pythontemplate.xml.in.h:5 ../boards/pythontest.xml.in.h:5
+msgid "Thanks to Guido van Rossum and the python team for this powerful language!"
+msgstr "Takk til Guido van Rossum og Python-laget for dette kraftige språket!"
 
 #: ../boards/pythontest.xml.in.h:3
 msgid "Python Test"
@@ -3696,10 +3708,6 @@ msgstr "Python-test"
 #: ../boards/pythontest.xml.in.h:4
 msgid "Test board for the python plugin"
 msgstr "Testbrett for python-tillegg"
-
-#: ../boards/pythontest.xml.in.h:5
-msgid "Thanks to Guido van Rossum and the python team for this powerful language!"
-msgstr "Takk til Guido van Rossum og Python-laget for dette kraftige språket!"
 
 #: ../boards/railroad.xml.in.h:1
 msgid "A memory game based on trains"
@@ -4388,7 +4396,7 @@ msgstr "Feil: Det eksterne programmet gnuchess døydde uventa."
 #: ../src/boards/chess.c:199
 msgid ""
 "Error: The external program gnuchess is required\n"
-"to play chess in gcompris.\n"
+"to play chess in GCompris.\n"
 "Find this program on http://www.rpmfind.net or in your\n"
 "GNU/Linux distribution\n"
 "And check it is located here: "
@@ -4433,8 +4441,8 @@ msgstr "Svart set matt"
 msgid "White mates"
 msgstr "Kvit set matt"
 
-#: ../src/boards/chess.c:1100 ../src/gcompris/bonus.c:364
-#: ../src/gcompris/bonus.c:373
+#: ../src/boards/chess.c:1100 ../src/gcompris/bonus.c:363
+#: ../src/gcompris/bonus.c:372
 msgid "Drawn game"
 msgstr "Remis"
 
@@ -4466,7 +4474,7 @@ msgstr "abcdefghijklmnopqrstuvwxyzæøå"
 #, c-format
 msgid ""
 "Error: this activity requires that you first install\n"
-"the packages with gcompris voices for the locale '%s' or '%s'"
+"the packages with GCompris voices for the locale '%s' or '%s'"
 msgstr ""
 "Feil: Du må først installera pakken med\n"
 "GCompris-stemmer for lokalet «%s» eller «%s»."
@@ -4490,11 +4498,11 @@ msgstr ""
 #. we can add what you want in it.
 #: ../src/boards/click_on_letter.c:623 ../src/boards/colors.c:165
 #: ../src/boards/gletters.c:857 ../src/boards/imageid.c:749
-#: ../src/boards/missingletter.c:772
+#: ../src/boards/missingletter.c:771
 #: ../src/boards/python/admin/board_list.py:641
 #: ../src/boards/python/admin/board_list.py:659
 #: ../src/boards/python/admin/wordlist.py:50 ../src/boards/python/login.py:535
-#: ../src/boards/python/pythontest.py:409 ../src/boards/python/tuxpaint.py:206
+#: ../src/boards/python/pythontest.py:409 ../src/boards/python/tuxpaint.py:208
 #: ../src/boards/reading.c:833 ../src/boards/scale.c:862
 #: ../src/boards/shapegame.c:1863 ../src/boards/smallnumbers.c:590
 #, c-format, python-format
@@ -4655,7 +4663,11 @@ msgstr "Fly rundt med flyet for å fanga skyene i rett rekkjefølgje"
 msgid "Python Board"
 msgstr "Python-brett"
 
-#: ../src/boards/python.c:64 ../src/boards/python.c:88
+#: ../src/boards/python.c:64
+msgid "Special board that embeds python into GCompris."
+msgstr "Spesielt brett som brukar Python i GCompris."
+
+#: ../src/boards/python.c:88
 msgid "Special board that embeds python into gcompris."
 msgstr "Spesielt brett som brukar Python i GCompris."
 
@@ -4860,7 +4872,7 @@ msgstr "Alle brukarar"
 #: ../src/boards/python/admin/log_list.py:108
 #: ../src/boards/python/admin/log_list.py:287
 #: ../src/boards/python/admin/profile_list.py:121
-#: ../src/gcompris/board_config.c:667 ../src/gcompris/board_config.c:925
+#: ../src/gcompris/board_config.c:668 ../src/gcompris/board_config.c:926
 msgid "Default"
 msgstr "Standard"
 
@@ -5027,33 +5039,33 @@ msgstr ""
 "Minst to av brukarnamn er like.\n"
 "Du må endra dei: %s."
 
-#: ../src/boards/python/anim.py:2226
+#: ../src/boards/python/anim.py:2225
 msgid "SVG is disabled. Install python xml module to enable it"
 msgstr ""
 "SVG-støtta er ikkje tilgjengeleg. Installer xml-modulen i python viss du vil "
 "bruka SVG."
 
-#: ../src/boards/python/anim.py:2382
+#: ../src/boards/python/anim.py:2381
 msgid "Warning: the following images cannot be accessed on your system.\n"
 msgstr "Åtvaring: Desse bileta kan ikkje opnast:\n"
 
-#: ../src/boards/python/anim.py:2384
+#: ../src/boards/python/anim.py:2383
 msgid "The corresponding items have been skipped."
 msgstr "Tilhøyrande element vert ikkje tekne i bruk."
 
-#: ../src/boards/python/chat.py:80
+#: ../src/boards/python/chat.py:82
 msgid "All messages will be displayed here.\n"
 msgstr "Her vert meldingane vist.\n"
 
-#: ../src/boards/python/chat.py:130
+#: ../src/boards/python/chat.py:132
 msgid "Your Friends"
 msgstr "Vennene mine"
 
-#: ../src/boards/python/chat.py:162
+#: ../src/boards/python/chat.py:164
 msgid "Your Channel"
 msgstr "Din kanal"
 
-#: ../src/boards/python/chat.py:188
+#: ../src/boards/python/chat.py:190
 msgid ""
 "Type your message here, to send to other GCompris users on your local "
 "network."
@@ -5061,11 +5073,11 @@ msgstr ""
 "Skriv inn meldinga du vil senda til andre GCompris-brukarar på lokalnettet "
 "her."
 
-#: ../src/boards/python/chat.py:322
+#: ../src/boards/python/chat.py:325
 msgid "You must set a channel in your channel entry box first.\n"
 msgstr "Du må velja ein kanal i kanalfeltet først.\n"
 
-#: ../src/boards/python/chat.py:323
+#: ../src/boards/python/chat.py:326
 msgid "Your friends must set the same channel in order to communicate with you"
 msgstr "Vennene dine må velja same kanal for å kunna snakka med deg."
 
@@ -5253,7 +5265,7 @@ msgstr "Skriv inn brukarnamnet du bruka"
 msgid "Rebuild the same mosaic on the right area"
 msgstr "Bygg opp att same mosaikk i området til høgre"
 
-#: ../src/boards/python/melody.py:118
+#: ../src/boards/python/melody.py:120
 msgid ""
 "Error: this activity cannot be played with the\n"
 "sound effects disabled.\n"
@@ -5289,19 +5301,19 @@ msgstr "Dei beste vennene til Benny var krabben Kennet og sjøstjerna Synnøve."
 
 #: ../src/boards/python/pythontest.py:148
 msgid ""
-"This is the first plugin in gcompris coded in the Python\n"
+"This is the first plugin in GCompris coded in the Python\n"
 "Programming language."
 msgstr ""
-"Dette er det første programtillegget i GCompris som er\n"
-"programmert i programmeringsspråket Python."
+"Dette er det første programtillegget i GCompris som\n"
+"er programmert i programmeringsspråket Python."
 
 #: ../src/boards/python/pythontest.py:157
 msgid ""
-"It is now possible to develop gcompris activities in C or in Python.\n"
+"It is now possible to develop GCompris activities in C or in Python.\n"
 "Thanks to Olivier Samys who makes this possible."
 msgstr ""
 "Du kan no utvikla GCompris-aktivitetar med både C og Python.\n"
-"Takk til Olivier Samys som har gjort dette mogleg."
+"Takk til Olivier Samys, som har gjort dette mogleg."
 
 #: ../src/boards/python/pythontest.py:166
 msgid "This activity is not playable, just a test"
@@ -5393,7 +5405,7 @@ msgstr "Ukjend kommando på linje"
 msgid "Distance:"
 msgstr "Avstand:"
 
-#: ../src/boards/python/tuxpaint.py:144
+#: ../src/boards/python/tuxpaint.py:145
 msgid ""
 "Cannot find Tuxpaint.\n"
 "Install it to use this activity !"
@@ -5401,27 +5413,27 @@ msgstr ""
 "Fann ikkje Tux Paint.\n"
 "Installer programmet viss du vil bruka dette brettet."
 
-#: ../src/boards/python/tuxpaint.py:157
+#: ../src/boards/python/tuxpaint.py:159
 msgid "Waiting for Tuxpaint to finish"
 msgstr "Ventar på at Tux Paint skal verta ferdig"
 
-#: ../src/boards/python/tuxpaint.py:210
+#: ../src/boards/python/tuxpaint.py:212
 msgid "Inherit fullscreen setting from GCompris"
 msgstr "Bruk fullskjermsvalet frå GCompris"
 
-#: ../src/boards/python/tuxpaint.py:214
+#: ../src/boards/python/tuxpaint.py:217
 msgid "Inherit size setting from GCompris (800x600, 640x480)"
 msgstr "Bruk fullskjermsvalet frå GCompris"
 
-#: ../src/boards/python/tuxpaint.py:218
+#: ../src/boards/python/tuxpaint.py:222
 msgid "Disable shape rotation"
 msgstr "Slå av figurrotering"
 
-#: ../src/boards/python/tuxpaint.py:222
+#: ../src/boards/python/tuxpaint.py:227
 msgid "Show Uppercase text only"
 msgstr "Vis teksten med berre store bokstavar"
 
-#: ../src/boards/python/tuxpaint.py:226
+#: ../src/boards/python/tuxpaint.py:232
 msgid "Disable stamps"
 msgstr "Slå av stempel"
 
@@ -5433,7 +5445,7 @@ msgstr "Hugsespel"
 msgid "Build a train according to the model"
 msgstr "Bygg eit tog som passar til modellen"
 
-#: ../src/boards/reading.c:229 ../src/boards/wordsgame.c:205
+#: ../src/boards/reading.c:229 ../src/boards/wordsgame.c:206
 msgid ""
 "Error: We can't find\n"
 "a list of words to play this game.\n"
@@ -5562,7 +5574,7 @@ msgstr "Om GCompris"
 msgid "Translators:"
 msgstr "Omsetjar:"
 
-#: ../src/gcompris/about.c:193
+#: ../src/gcompris/about.c:230
 msgid ""
 "GCompris Home Page\n"
 "http://gcompris.net"
@@ -5570,7 +5582,7 @@ msgstr ""
 "Heimesida til GCompris\n"
 "http://gcompris.net/"
 
-#: ../src/gcompris/about.c:215
+#: ../src/gcompris/about.c:252
 msgid ""
 "This software is a GNU Package and is released under the GNU General Public "
 "License"
@@ -5578,34 +5590,34 @@ msgstr ""
 "GCompris er ein GNU-pakke og er tilgjengeleg under GNU General Public "
 "License."
 
-#: ../src/gcompris/about.c:278 ../src/gcompris/about.c:288
+#: ../src/gcompris/about.c:280 ../src/gcompris/about.c:290
 #: ../src/gcompris/config.c:472 ../src/gcompris/config.c:482
-#: ../src/gcompris/dialog.c:97 ../src/gcompris/help.c:382
+#: ../src/gcompris/dialog.c:103 ../src/gcompris/help.c:382
 #: ../src/gcompris/help.c:392 ../src/gcompris/images_selector.c:317
 msgid "OK"
 msgstr "OK"
 
-#: ../src/gcompris/bar.c:577
+#: ../src/gcompris/bar.c:598
 msgid "GCompris confirmation"
 msgstr "GCompris-stadfesting"
 
-#: ../src/gcompris/bar.c:578
+#: ../src/gcompris/bar.c:599
 msgid "Are you sure you want to quit?"
 msgstr "Er du sikker på at du ikkje vil spela meir?"
 
-#: ../src/gcompris/bar.c:579
+#: ../src/gcompris/bar.c:600
 msgid "Yes, I am sure!"
 msgstr "Ja, eg er sikker."
 
-#: ../src/gcompris/bar.c:580
+#: ../src/gcompris/bar.c:601
 msgid "No, I want to keep going"
 msgstr "Nei, eg vil halda fram."
 
-#: ../src/gcompris/board.c:187
-msgid "Dynamic module loading is not supported. gcompris cannot load.\n"
+#: ../src/gcompris/board.c:184
+msgid "Dynamic module loading is not supported. GCompris cannot load.\n"
 msgstr "Dynamisk modullasting er ikkje støtta. Kan ikkje starta GCompris.\n"
 
-#: ../src/gcompris/board_config.c:699
+#: ../src/gcompris/board_config.c:700
 msgid ""
 "Select the language\n"
 " to use in the board"
@@ -5613,23 +5625,23 @@ msgstr ""
 "Vel språket du vil\n"
 " bruka i dette brettet"
 
-#: ../src/gcompris/board_config.c:762
+#: ../src/gcompris/board_config.c:763
 msgid "Global GCompris mode"
 msgstr "Global GCompris-modus"
 
-#: ../src/gcompris/board_config.c:763
+#: ../src/gcompris/board_config.c:764
 msgid "Normal"
 msgstr "Eitt klikk"
 
-#: ../src/gcompris/board_config.c:764
+#: ../src/gcompris/board_config.c:765
 msgid "2 clicks"
 msgstr "To klikk"
 
-#: ../src/gcompris/board_config.c:765
+#: ../src/gcompris/board_config.c:766
 msgid "both modes"
 msgstr "Begge delar"
 
-#: ../src/gcompris/board_config.c:793
+#: ../src/gcompris/board_config.c:794
 msgid ""
 "Select the drag and drop mode\n"
 " to use in the board"
@@ -5849,7 +5861,10 @@ msgstr "Serbisk"
 msgid "Swedish"
 msgstr "Svensk"
 
-#. "ta_IN.UTF-8",	N_("Tamil"),
+#: ../src/gcompris/config.c:113
+msgid "Tamil"
+msgstr "Tamil"
+
 #: ../src/gcompris/config.c:114
 msgid "Thai"
 msgstr "Thai"
@@ -5891,7 +5906,7 @@ msgid "Fast timer"
 msgstr "Rask tid"
 
 #: ../src/gcompris/config.c:132
-msgid "800x600 (Default for gcompris)"
+msgid "800x600 (Default for GCompris)"
 msgstr "800x600 (standard for GCompris)"
 
 #: ../src/gcompris/config.c:137
@@ -5923,8 +5938,8 @@ msgstr "Lydeffektar"
 msgid "Couldn't open skin dir: %s"
 msgstr "Klarte ikkje opna draktmappa «%s»"
 
-#: ../src/gcompris/config.c:416 ../src/gcompris/config.c:867
-#: ../src/gcompris/config.c:881
+#: ../src/gcompris/config.c:416 ../src/gcompris/config.c:866
+#: ../src/gcompris/config.c:880
 #, c-format
 msgid "Skin : %s"
 msgstr "Drakt: %s"
@@ -5949,15 +5964,15 @@ msgstr "Opna"
 msgid "SAVE"
 msgstr "Lagra"
 
-#: ../src/gcompris/gameutil.c:80
+#: ../src/gcompris/gameutil.c:104
 msgid "Couldn't find or load the file"
 msgstr "Klarte ikkje opna fila"
 
-#: ../src/gcompris/gameutil.c:82
+#: ../src/gcompris/gameutil.c:106
 msgid "This activity is incomplete."
 msgstr "Aktiviteten er ikkje ferdig."
 
-#: ../src/gcompris/gameutil.c:83
+#: ../src/gcompris/gameutil.c:107
 msgid ""
 "Exit it and report\n"
 "the problem to the authors."
@@ -5965,54 +5980,55 @@ msgstr ""
 "Avslutt programmet og meld\n"
 "frå om problemet til forfattarane."
 
-#: ../src/gcompris/gcompris.c:139
-msgid "run gcompris in fullscreen mode."
+#: ../src/gcompris/gcompris.c:137
+msgid "run GCompris in fullscreen mode."
 msgstr "Køyr GCompris i fullskjermmodus."
 
-#: ../src/gcompris/gcompris.c:142
-msgid "run gcompris in window mode."
+#: ../src/gcompris/gcompris.c:140
+msgid "run GCompris in window mode."
 msgstr "Køyr GCompris i vindaugemodus."
 
-#: ../src/gcompris/gcompris.c:145
-msgid "run gcompris with sound enabled."
+#: ../src/gcompris/gcompris.c:143
+msgid "run GCompris with sound enabled."
 msgstr "Køyr GCompris med lyd."
 
-#: ../src/gcompris/gcompris.c:148
-msgid "run gcompris without sound."
+#: ../src/gcompris/gcompris.c:146
+msgid "run GCompris without sound."
 msgstr "Køyr GCompris utan lyd."
 
-#: ../src/gcompris/gcompris.c:151
-msgid "run gcompris with the default gnome cursor."
+#: ../src/gcompris/gcompris.c:149
+msgid "run GCompris with the default gnome cursor."
 msgstr "Kjør GCompris med standard musepeikarar."
 
-#: ../src/gcompris/gcompris.c:154
+#: ../src/gcompris/gcompris.c:152
 msgid "display only activities with this difficulty level."
 msgstr "Vis berre aktivitetar med denne vanskegraden."
 
-#: ../src/gcompris/gcompris.c:157
+#: ../src/gcompris/gcompris.c:155
 msgid "display debug informations on the console."
 msgstr "Vis feilsøkingsinformasjon på konsollen."
 
-#: ../src/gcompris/gcompris.c:160
+#: ../src/gcompris/gcompris.c:158
 msgid "Print the version of "
 msgstr "Skriv ut versjonsnummeret til "
 
-#: ../src/gcompris/gcompris.c:163
+#: ../src/gcompris/gcompris.c:161
 msgid "Use the antialiased canvas (slower)."
 msgstr "Bruk kantutjamna lerret (tregare)."
 
-#: ../src/gcompris/gcompris.c:166
+#: ../src/gcompris/gcompris.c:164
 msgid "Disable XF86VidMode (No screen resolution change)."
 msgstr "Ikkje bruk XF86VidMode (ikkje byt skjermoppløysing)."
 
-#: ../src/gcompris/gcompris.c:169
+#: ../src/gcompris/gcompris.c:167
 msgid ""
-"Run gcompris with local menu (e.g -l /reading will let you play only "
+"Run GCompris with local menu (e.g -l /reading will let you play only "
 "activities in the reading directory, -l /strategy/connect4 only the connect4 "
-"activity)"
+"activity). Use '-l list' to list all the availaible activities and their "
+"descriptions."
 msgstr ""
 "Køyr GCompris med lokal meny (eksempel: «-l /reading» for å visa lesemenyen, "
-"og «-l /strategy/connect4» for berre «fire på rad»-aktiviteten)."
+"og «-l /strategy/connect4» for berre «fire på rad»-aktiviteten). Bruk «-l list» for å visa ei oversikt over alle tilgjengelege aktivitetar og tilhøyrande skildringar."
 
 #: ../src/gcompris/gcompris.c:172
 msgid "Run GCompris with local activity directory added to menu"
@@ -6110,7 +6126,7 @@ msgstr "Ikkje vis bakgrunnsbilete i aktivitetar."
 msgid "Do not avoid the execution of multiple instances of GCompris."
 msgstr "Ikkje hindra køyring av GCompris fleire gongar samtidig."
 
-#: ../src/gcompris/gcompris.c:844
+#: ../src/gcompris/gcompris.c:849
 #, c-format
 msgid ""
 "GCompris is free software released under the GPL License. In order to "
@@ -6133,7 +6149,17 @@ msgstr ""
 "meir informasjon på nettsida til FSF, på\n"
 "<http://www.fsf.org/philosophy/>."
 
-#: ../src/gcompris/gcompris.c:1539
+#: ../src/gcompris/gcompris.c:1433
+#, c-format
+msgid "GCompris won't start because the lock file is less than %d seconds old.\n"
+msgstr "GCompris kan ikkje starta, då låsefila er mindre enn %d sekund gammal.\n"
+
+#: ../src/gcompris/gcompris.c:1435
+#, c-format
+msgid "The lock file is: %s\n"
+msgstr "Låsefila er «%s».\n"
+
+#: ../src/gcompris/gcompris.c:1563
 #, c-format
 msgid ""
 "GCompris\n"
@@ -6147,26 +6173,26 @@ msgstr ""
 "Meir informasjon på http://gcompris.net/\n"
 
 #. check the list of possible values for -l, then exit
-#: ../src/gcompris/gcompris.c:1623
+#: ../src/gcompris/gcompris.c:1647
 #, c-format
 msgid "Use -l to access an activity directly.\n"
 msgstr "Bruk «-l aktivitet» for direkte tilgang til aktiviteten.\n"
 
-#: ../src/gcompris/gcompris.c:1624
+#: ../src/gcompris/gcompris.c:1648
 #, c-format
 msgid "The list of available activities is :\n"
 msgstr "Lista over tilgjengeleg aktivitetar er:\n"
 
-#: ../src/gcompris/gcompris.c:1811
+#: ../src/gcompris/gcompris.c:1835
 #, c-format
 msgid "The list of available profiles is:\n"
 msgstr "Liste over tilgjengeleg profilar er:\n"
 
-#: ../src/gcompris/gcompris_db.c:266
+#: ../src/gcompris/gcompris_db.c:265
 msgid "Unaffected"
 msgstr "Ikkje påverka"
 
-#: ../src/gcompris/gcompris_db.c:267
+#: ../src/gcompris/gcompris_db.c:266
 msgid "Users without a class"
 msgstr "Klasselause brukarar"
 
@@ -6186,17 +6212,17 @@ msgstr "Bruksrettleiing"
 msgid "Credit"
 msgstr "Bidragsytarar"
 
-#: ../src/gcompris/properties.c:487 ../src/gcompris/properties.c:494
+#: ../src/gcompris/properties.c:503 ../src/gcompris/properties.c:510
 msgid "readme"
 msgstr "lesmeg"
 
-#: ../src/gcompris/properties.c:489
+#: ../src/gcompris/properties.c:505
 msgid ""
 "This directory contains the files you create with the GCompris educational "
 "suite\n"
 msgstr "Denne mappa inneheld alle filene du lagar med programmet GCompris.\n"
 
-#: ../src/gcompris/properties.c:496
+#: ../src/gcompris/properties.c:512
 msgid ""
 "Put any number of images in this directory.\n"
 "You can include these images in your drawings and animations.\n"

@@ -1,21 +1,22 @@
-# translation of gcompris.po to Basque
+# translation of eu.po to Basque
 # This file is distributed under the same license as the PACKAGE package.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER.
+#
 # Hizkuntza Politikarako Sailburuordetza <hizkpol@ej-gv.es>, 2005.
 # Iñaki Larrañaga Murgoitio <dooteo@euskalgnu.org>, 2006.
-#
+# Iñaki Larrañaga Murgoitio <dooteo@zundan.com>, 2007.
 msgid ""
 msgstr ""
 "Project-Id-Version: eu\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-08-08 11:01+0000\n"
-"PO-Revision-Date: 2006-08-08 11:03+0000\n"
-"Last-Translator: Iñaki Larrañaga Murgoitio <dooteo@euskalgnu.org>\n"
+"POT-Creation-Date: 2007-09-08 18:48+0200\n"
+"PO-Revision-Date: 2007-09-08 18:50+0200\n"
+"Last-Translator: Iñaki Larrañaga Murgoitio <dooteo@zundan.com>\n"
 "Language-Team: Basque <itzulpena@euskalgnu.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: KBabel 1.10.2\n"
+"X-Generator: KBabel 1.11.4\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "\n"
 
@@ -40,7 +41,7 @@ msgid ""
 "usernames (login is configurable)."
 msgstr ""
 "- 'Arbela' atalean ariketen zerrenda alda dezakezu. Zuhaitz ikuspegitik "
-"desgaitzea bakarrik da. Irakurtzeko eraibltzen den hizkunta alda dezakezu, "
+"desgaitzea bakarrik da. Irakurtzeko erabiltzen den hizkunta alda dezakezu, "
 "adibidez, eta gero koloreen izenak esateko hizkuntza ezarri. \n"
 "- Hainbat konfiguraziko gorde ditzakezu, eta hauen artean alda zaitezke. "
 "'Profila' atalean profila bat gehi dezakezu, eta gero 'Arbela' atalean "
@@ -413,12 +414,11 @@ msgstr "Praktikatu biderketak"
 msgid "Go to Algebra activities"
 msgstr "Joan algebra-ariketetara"
 
-#: ../boards/algebra_group.xml.in.h:2 ../boards/menu.xml.in.h:17
+#: ../boards/algebra_group.xml.in.h:2 ../boards/menu.xml.in.h:18
 msgid "Left-click the mouse on an activity to select it."
 msgstr "Egin klik saguaren ezker-botoiarekin ariketa bat hautatzeko."
 
 #: ../boards/algebra_guesscount.xml.in.h:1 ../boards/erase_clic.xml.in.h:1
-#: ../boards/erase_double_clic.xml.in.h:1
 msgid ""
 "Animal pictures come from the Animal Photography Page of Ralf Schmode "
 "(http://schmode.net/). Ralf has kindly permitted Gcompris to include his "
@@ -788,9 +788,9 @@ msgstr "Sartu baloia atean"
 
 #: ../boards/billard.xml.in.h:3 ../boards/chess_computer.xml.in.h:2
 #: ../boards/chess_movelearn.xml.in.h:3 ../boards/chess_partyend.xml.in.h:2
-#: ../boards/clickgame.xml.in.h:16 ../boards/connect4.xml.in.h:7
-#: ../boards/erase.xml.in.h:3 ../boards/erase_clic.xml.in.h:6
-#: ../boards/erase_double_clic.xml.in.h:6 ../boards/fifteen.xml.in.h:2
+#: ../boards/clickgame.xml.in.h:5 ../boards/connect4.xml.in.h:6
+#: ../boards/connect4-2players.xml.in.h:5 ../boards/erase.xml.in.h:3
+#: ../boards/erase_clic.xml.in.h:6 ../boards/fifteen.xml.in.h:2
 #: ../boards/hanoi.xml.in.h:3 ../boards/memory.xml.in.h:4
 #: ../boards/tangram.xml.in.h:8
 msgid "Mouse-manipulation"
@@ -827,6 +827,28 @@ msgid ""
 msgstr ""
 "Esklusaren arduraduna zara. Ireki konportak eta esklusa ordena egokian, Tux "
 "pasa ahal izan dadin konportetatik bi noranzkoetan."
+
+#: ../boards/chat.xml.in.h:1
+msgid "Chat with your friends"
+msgstr "Egin berriketan zure lagunekin"
+
+#: ../boards/chat.xml.in.h:2
+msgid "This chat activity only works on the local network"
+msgstr "Berriketaren ekitaldi honek sare lokalean soilik funtzionatzen du"
+
+#: ../boards/chat.xml.in.h:3
+msgid ""
+"This chat activity will only work with other GCompris users on your local "
+"network, not on the Internet. To use it, just type in your message and hit "
+"Enter. Your message is then broadcast on the local network, and any GCompris "
+"program running the chat activity on that local network will receive and "
+"display your message."
+msgstr ""
+"Berriketaren ekitaldi honek sare lokaleko GCompris-eko beste "
+"erabiltzaileekin soilik funtzionatzen du, ez du Interneten funtzionatzen. "
+"Berriketa erabiltzeko idatzi zure mezua eta sakatu Sartu tekla. Zure mezua "
+"sare lokalean zabalduko da, eta sare lokalean GCompris-eko berriketa "
+"ekitaldia darabilten erabiltzaileek jasoko dute eta irakurriko dute."
 
 #: ../boards/chess.xml.in.h:1 ../boards/chess_computer.xml.in.h:3
 msgid "Play chess against the computer in a learning mode"
@@ -889,15 +911,15 @@ msgstr "Kontatu historia labur bat"
 msgid "Moonwalker"
 msgstr "Ilargiaren gainean"
 
-#: ../boards/chronos/board1_1.xml.in.h:1
+#: ../boards/chronos/board1_1.xml.in.h:1 ../src/boards/wordprocessor.c:117
 msgid "Autumn"
 msgstr "Udazkena"
 
-#: ../boards/chronos/board1_1.xml.in.h:2
+#: ../boards/chronos/board1_1.xml.in.h:2 ../src/boards/wordprocessor.c:115
 msgid "Spring"
 msgstr "Udaberria"
 
-#: ../boards/chronos/board1_1.xml.in.h:3
+#: ../boards/chronos/board1_1.xml.in.h:3 ../src/boards/wordprocessor.c:116
 msgid "Summer"
 msgstr "Uda"
 
@@ -905,7 +927,7 @@ msgstr "Uda"
 msgid "The 4 Seasons"
 msgstr "4 urtaroak"
 
-#: ../boards/chronos/board1_1.xml.in.h:5
+#: ../boards/chronos/board1_1.xml.in.h:5 ../src/boards/wordprocessor.c:118
 msgid "Winter"
 msgstr "Negua"
 
@@ -936,16 +958,16 @@ msgid ""
 "Place each image in the order and\n"
 "on the date it was invented.\n"
 "If not sure, research online at wikipedia:\n"
-"&lt;http://www.wikipedia.org&gt;"
+"http://www.wikipedia.org"
 msgstr ""
 "Jarri irudiak ordenan, \n"
 "eta asmatu ziren datan. \n"
-"Seguru ez bazaude, begiratu \n"
-"&lt;http://www.wikipedia.org&gt; gunean"
+"Seguru ez bazaude, ikertu interneteko Wikipedian\n"
+"http://www.wikipedia.org"
 
 #: ../boards/chronos/board3_0.xml.in.h:8 ../boards/chronos/board3_1.xml.in.h:6
 #: ../boards/chronos/board3_2.xml.in.h:5 ../boards/chronos/board3_3.xml.in.h:7
-#: ../boards/chronos/board3_4.xml.in.h:4
+#: ../boards/chronos/board3_4.xml.in.h:5
 msgid "Transportation"
 msgstr "Garraioa"
 
@@ -958,7 +980,7 @@ msgstr ""
 "Aire beroko baloia"
 
 #: ../boards/chronos/board3_1.xml.in.h:3 ../boards/chronos/board3_2.xml.in.h:4
-#: ../boards/chronos/board3_4.xml.in.h:3 ../boards/chronos/board4_0.xml.in.h:1
+#: ../boards/chronos/board3_4.xml.in.h:4 ../boards/chronos/board4_0.xml.in.h:1
 msgid "1880 Clement Ader's Eole"
 msgstr "1880 Clement Ader-en Eoloa"
 
@@ -1048,6 +1070,18 @@ msgstr "1955 Citroën ds 199"
 msgid "Cars"
 msgstr "Automobilak"
 
+#: ../boards/clickanddraw.xml.in.h:1
+msgid "Click and draw"
+msgstr "Egin klik eta marraztu"
+
+#: ../boards/clickanddraw.xml.in.h:2
+msgid "Draw the picture by clicking on each blue point in sequence."
+msgstr "Marraztu irudia puntu urdinetan klik eginez sekuentzian."
+
+#: ../boards/clickanddraw.xml.in.h:3
+msgid "Draw the picture by clicking on the blue points."
+msgstr "Marraztu irudia puntu urdinetan klik eginez."
+
 #: ../boards/click_on_letter.xml.in.h:1
 msgid ""
 "A letter is spoken. Click on the matching letter in the main area. You can "
@@ -1078,39 +1112,13 @@ msgstr "Egin klik niri"
 
 #: ../boards/clickgame.xml.in.h:2
 msgid ""
-"Fish are taken from the Unix utility xfishtank.\n"
-"Images are taken from the National Undersea Research Program (NURP) "
-"Collection\n"
-"at &lt;http://www.photolib.noaa.gov&gt;\n"
-"All image credits belong to the OAR/National Undersea Research Program "
-"(NURP),\n"
-"except for the first image, which is property of the University of North "
-"Carolina at Wilmington.\n"
-"The images used in each level are:\n"
-"Location: Tropical Atlantic Ocean, Florida Keys (image nur00523) "
-"Photographer: D. Kesling\n"
-"Location: Florida Keys (image nur03006)\n"
-"Location: Unknown (image nur03505)\n"
-"Location: Unknown (image nur03010)\n"
-"Location: Unknown (image nur03011)\n"
-"Location: Unknown (image nur03013)"
+"Fish are taken from the Unix utility xfishtank. All image credits belong to "
+"Guillaume Rousse."
 msgstr ""
-"Arrainak Unix xfishtank utilitatekoak dira. \n"
-"Irudiak National Undersea Research Program (NURP) bildumatik hartuak dira:\n"
-" &lt;http://www.photolib.noaa.gov&gt;\n"
-"Irudien kreditu guztiak OAR/National Undersea Research Program-enak (NURP) "
-"dira, \n"
-"lehenengo irudia izan ezik (Ipar Carolinako WilmingtongoUnibertsitatearena "
-"da). \n"
-"Maila bakoitzean erabilitako irudiak: \n"
-"Lekua: Ozeano Atlantiko tropikala, Florida Keys (nur00523 irudia) "
-"Argazkilaria: D. Kesling \n"
-"Lekua: Florida Keys (nur03006 irudia) Lekua: ezezaguna (nur03505 irudia) \n"
-"Lekua: ezezaguna (nur03010 irudia) \n"
-"Lekua: ezezaguna (nur03011 irudia) \n"
-"Lekua: ezezaguna (nur03013 irudia)"
+"Arraina Unix-eko xfishtank utilitatetik hartu da. Irudiaren kreditu guztiak "
+"Guillaume Rousse-ri dagozkio."
 
-#: ../boards/clickgame.xml.in.h:14
+#: ../boards/clickgame.xml.in.h:3
 msgid ""
 "Left-Click with the mouse on all the swimming fish before they leave the "
 "fishtank"
@@ -1118,11 +1126,11 @@ msgstr ""
 "Egin klik saguaren ezkerreko botoiarekin igeri dabiltzan arrain guztietan, "
 "akuariotik irten aurretik"
 
-#: ../boards/clickgame.xml.in.h:15
+#: ../boards/clickgame.xml.in.h:4
 msgid "Motor coordination: moving and clicking the mouse."
 msgstr "Mugimendu-koordinazioa: sagua mugitzea eta saguarekin klik egitea."
 
-#: ../boards/clickgame.xml.in.h:17
+#: ../boards/clickgame.xml.in.h:6
 msgid "Use the left mouse button to click on the moving fish."
 msgstr "Erabili saguaren ezkerreko botoia mugitzen ari den arrainean klik egiteko."
 
@@ -1196,13 +1204,19 @@ msgstr "Ezagutu ordenagailua"
 msgid "Play with computer peripherals."
 msgstr "Jolastu ordenagailuaren periferikoekin."
 
-#: ../boards/connect4.xml.in.h:1
+#: ../boards/connect4.xml.in.h:1 ../boards/connect4-2players.xml.in.h:1
 msgid "Arrange four coins in a row"
 msgstr "Lerrokatu lau txanponak errenkadan"
 
-#: ../boards/connect4.xml.in.h:2
-msgid "Click anywhere in the line where you want to drop a piece"
-msgstr "Egin klik pieza uztea nahi den lineako edozein lekutan"
+#: ../boards/connect4.xml.in.h:2 ../boards/connect4-2players.xml.in.h:2
+msgid ""
+"Click the position in the line where you want to drop a piece. You can also "
+"use the arrow keys to move the piece left or right, and the down or space "
+"key to drop a piece."
+msgstr ""
+"Pieza bat jaregitea nahi duzun marraren posizioan klik egin. Teklatuko "
+"geziak ere erabil ditzakezu pieza ezkerrera edo eskuinera eramateko, eta "
+"behera edo Zuriunea tekla pieza jaregiteko."
 
 #: ../boards/connect4.xml.in.h:3
 msgid "Connect 4"
@@ -1210,13 +1224,13 @@ msgstr "Lauko artzain-jokoa"
 
 #: ../boards/connect4.xml.in.h:4
 msgid ""
-"Create a line of 4 pieces either horizontally (lying down)\n"
-"or vertically (standing up)"
+"Create a line of 4 pieces either horizontally (lying down), vertically "
+"(standing up) or diagonally."
 msgstr ""
-"Sortu 4 piezako linean horizontalki (etzanda)\n"
-"edo bertikalki (tente)"
+"Sortu 4 piezako linea horizontalki (etzanda), bertikalki (tente) edo "
+"diagonalki."
 
-#: ../boards/connect4.xml.in.h:6
+#: ../boards/connect4.xml.in.h:5
 msgid ""
 "Laurent Lacheny. Images and Artificial Intelligence taken from project "
 "4stattack by Jeroen Vloothuis. The original project can be found on &lt;"
@@ -1225,6 +1239,31 @@ msgstr ""
 "Laurent Lacheny. Irudiak eta Adimen Artifiziala Jeroen Vloothuis-en "
 "4stattack proiektutik eskuratuta. Jatorrizko proiektua honako gunean aurki "
 "daiteke: &lt;http://forcedattack.sourceforge.net&gt;"
+
+#: ../boards/connect4-2players.xml.in.h:3
+msgid "Connect 4 (2 Players)"
+msgstr "Lauko artzain-jokoa (2 jokalari)"
+
+#: ../boards/connect4-2players.xml.in.h:4
+msgid ""
+"Create a line of 4 pieces either horizontally (lying down) or vertically "
+"(standing up) or diagonally."
+msgstr ""
+"Sortu 4 piezako linea horizontalki (etzanda), bertikalki (tente) edo "
+"diagonalki."
+
+#: ../boards/connect4-2players.xml.in.h:6
+msgid ""
+"The original code was written in 2005 by Laurent Lacheny. In 2006, Miguel de "
+"Izarra made the two players game. Images and Artificial Intelligence taken "
+"from project 4stattack by Jeroen Vloothuis. The original project can be "
+"found on &lt;http://forcedattack.sourceforge.net&gt;"
+msgstr ""
+"Jatorriko kodea Laurent Lacheny garatu zeun 2005. urtean. 2006. urtean "
+"Miguel de Izarrak bi jokalarientzako jolasa garatu zuen. Irudiak eta Adimen "
+"Artifiziala Jeroen Vloothuis-en 4stattack proiektutik eskuratuta. Jatorrizko "
+"proiektua honako gunean aurki daiteke: &lt;http://forcedattack.sourceforge."
+"net&gt;"
 
 #: ../boards/crane.xml.in.h:1
 msgid "Build the same model"
@@ -1235,7 +1274,7 @@ msgid "Drive the crane and copy the model"
 msgstr "Gidatu grua eta kopiatu modeloa"
 
 #: ../boards/crane.xml.in.h:3 ../boards/erase.xml.in.h:2
-#: ../boards/erase_clic.xml.in.h:5 ../boards/erase_double_clic.xml.in.h:5
+#: ../boards/erase_clic.xml.in.h:5
 msgid "Motor-coordination"
 msgstr "Mugimendu-koordinazioa"
 
@@ -1315,6 +1354,22 @@ msgstr ""
 "eta arrastatu area zurira, forma berri bat sortzeko. Denbora aurreratzeko, "
 "erabili saguaren erdiko botoia objektuak ezabatzeko."
 
+#: ../boards/drawnumber.xml.in.h:1
+msgid "Can count from 1 to 50."
+msgstr "1etik 50era zenbatu ditzake."
+
+#: ../boards/drawnumber.xml.in.h:2
+msgid "Draw Number"
+msgstr "Marraztu zenbakia"
+
+#: ../boards/drawnumber.xml.in.h:3
+msgid "Draw the picture by clicking on each numbers in the right order."
+msgstr "Marraztu irudia klik eginez zenbaki bakoitzean ordena egokian."
+
+#: ../boards/drawnumber.xml.in.h:4
+msgid "Draw the picture by following numbers"
+msgstr "Marraztu irudia klik zenbakiak jarraituz"
+
 #: ../boards/electric.xml.in.h:1
 msgid "Create and simulate an electric schema"
 msgstr "Sortu eta simulatu eskema elektrikoa"
@@ -1381,11 +1436,11 @@ msgstr ""
 "teklatuarekin, eta hautatu 'Ados' botoia edo 'Sartu' tekla."
 
 #: ../boards/enumerate.xml.in.h:4 ../boards/planegame.xml.in.h:5
-#: ../src/boards/enumerate.c:92
+#: ../src/boards/enumerate.c:88
 msgid "Numeration training"
 msgstr "Zenbatzen trebatzea"
 
-#: ../boards/enumerate.xml.in.h:5 ../src/boards/enumerate.c:93
+#: ../boards/enumerate.xml.in.h:5 ../src/boards/enumerate.c:89
 msgid "Place the items in the best way to count them"
 msgstr "Antolatu elementuak erraz zenbatzeko moduan"
 
@@ -1400,12 +1455,12 @@ msgstr ""
 "http://schmode.net/&gt;) eta LE BERRE Danieletik hartu dira. Baimena eman "
 "digute bere argazkiak gcompris-en sartzeko. Eskerrik asko."
 
-#: ../boards/erase.xml.in.h:4 ../src/boards/erase.c:113
-#: ../src/boards/machpuzzle.c:92
+#: ../boards/erase.xml.in.h:4 ../src/boards/erase.c:117
+#: ../src/boards/machpuzzle.c:87
 msgid "Move the mouse"
 msgstr "Sagua mugitzea"
 
-#: ../boards/erase.xml.in.h:5 ../src/boards/erase.c:114
+#: ../boards/erase.xml.in.h:5 ../src/boards/erase.c:118
 msgid "Move the mouse to erase the area and discover the background"
 msgstr "Mugitu sagua area garbitzeko eta atzean dagoen irudia ikusteko"
 
@@ -1424,20 +1479,6 @@ msgstr "Egin klik laukizuzenetan saguarekin bloke guztiak desagertu arte."
 #: ../boards/erase_clic.xml.in.h:4
 msgid "Click the mouse to erase the area and discover the background"
 msgstr "Egin klik saguarekin area garbitzeko eta atzean dagoen irudia ikusteko"
-
-#: ../boards/erase_double_clic.xml.in.h:2
-msgid "Double-Click the mouse to erase the area and discover the background"
-msgstr ""
-"Egin klik-bikoitza saguarekin area garbitzeko eta atzean dagoen irudia "
-"ikusteko"
-
-#: ../boards/erase_double_clic.xml.in.h:3
-msgid "Double-click the mouse"
-msgstr "Egin klik-bikoitza saguarekin"
-
-#: ../boards/erase_double_clic.xml.in.h:4
-msgid "Double-click the mouse on rectangles until all the blocks disappear."
-msgstr "Egin klik-bikoitza laukizuzenetan saguarekin bloke guztiak desagertu arte."
 
 #: ../boards/experience.xml.in.h:1
 msgid "Go to experiential activities"
@@ -1472,36 +1513,8 @@ msgid "Original code taken from the libgnomecanvas demo"
 msgstr "Jatorrizko kodea libgnomecanvas demotik hartu da"
 
 #: ../boards/fifteen.xml.in.h:5
-msgid "Samuel Loyd"
-msgstr "Samuel Loyd"
-
-#: ../boards/fifteen.xml.in.h:6
 msgid "The fifteen game"
 msgstr "Hamabostaren jokoa"
-
-#: ../boards/fifteen.xml.in.h:7
-msgid "anticipate"
-msgstr "aurre hartu"
-
-#: ../boards/fifteen.xml.in.h:8
-msgid "logical"
-msgstr "logikoa"
-
-#: ../boards/fifteen.xml.in.h:9
-msgid "move"
-msgstr "aldatu lekuz"
-
-#: ../boards/fifteen.xml.in.h:10
-msgid "puzzle"
-msgstr "puzzlea"
-
-#: ../boards/fifteen.xml.in.h:11
-msgid "slide"
-msgstr "graduatzailea"
-
-#: ../boards/fifteen.xml.in.h:12
-msgid "taquin"
-msgstr "taquin"
 
 #: ../boards/followline.xml.in.h:1
 msgid "Control the hose-pipe"
@@ -1548,6 +1561,10 @@ msgstr "svg marrazketa"
 msgid "svg mozilla animation"
 msgstr "svg mozilla animazioa"
 
+#: ../boards/gcompris/mimetypes/mime_type.xml.in.h:5
+msgid "wordprocessor text"
+msgstr "testu-prozesadorea"
+
 #: ../boards/geography.xml.in.h:1
 msgid "Drag and Drop the items to redraw the whole map"
 msgstr "Arrastatu eta jaregin elementuak mapa osoa berriro marrazteko"
@@ -1556,19 +1573,9 @@ msgstr "Arrastatu eta jaregin elementuak mapa osoa berriro marrazteko"
 msgid "Locate the countries"
 msgstr "Kokatu herrialdeak"
 
-#: ../boards/geography.xml.in.h:3
+#: ../boards/geography.xml.in.h:3 ../boards/geography_country.xml.in.h:3
 msgid "Mouse manipulation: movement, drag and drop"
 msgstr "Sagua erabiltzen jakitea: mugitzea, arrastatzea eta jaregitea"
-
-#: ../boards/geography.xml.in.h:4
-msgid ""
-"The map of Germany comes from Wikipedia and is released under the GNU Free "
-"Documentation License. Olaf Ronneberger and his children Lina and Julia "
-"Ronneberger created the German level."
-msgstr ""
-"Alemaniako mapa Wikipediatik eskuratu da eta GNUren Free Documentation "
-"License lizentzia pean banatzen da. Olaf Ronneberger eta bere Lina eta Julia "
-"Ronnenberger alabek sortu zuten Alemaniako maila."
 
 #: ../boards/geography/board1_0.xml.in.h:1
 #: ../boards/geography/board4_2.xml.in.h:1
@@ -1800,7 +1807,7 @@ msgstr "Kroazia"
 msgid "Cyprus"
 msgstr "Zipre"
 
-#: ../boards/geography/board3_1.xml.in.h:7 ../src/gcompris/config.c:69
+#: ../boards/geography/board3_1.xml.in.h:7 ../src/gcompris/config.c:66
 msgid "Czech Republic"
 msgstr "Txekiar Errepublika"
 
@@ -1884,153 +1891,153 @@ msgid "Burkina Faso"
 msgstr "Burkina Faso"
 
 #: ../boards/geography/board4_0.xml.in.h:4
-#: ../boards/geography/board4_2.xml.in.h:8
+#: ../boards/geography/board4_2.xml.in.h:7
 msgid "Cameroon"
 msgstr "Kamerun"
 
 #: ../boards/geography/board4_0.xml.in.h:5
-#: ../boards/geography/board4_2.xml.in.h:9
+#: ../boards/geography/board4_2.xml.in.h:8
 msgid "Central African Republic"
 msgstr "Erdialdeko Afrikar Errepublika"
 
 #: ../boards/geography/board4_0.xml.in.h:6
-#: ../boards/geography/board4_2.xml.in.h:10
+#: ../boards/geography/board4_2.xml.in.h:9
 msgid "Chad"
 msgstr "Txad"
 
 #: ../boards/geography/board4_0.xml.in.h:7
-#: ../boards/geography/board4_2.xml.in.h:12
 msgid "Djibouti"
 msgstr "Djibuti"
 
 #: ../boards/geography/board4_0.xml.in.h:8
-#: ../boards/geography/board4_2.xml.in.h:13
+#: ../boards/geography/board4_2.xml.in.h:11
 msgid "Egypt"
 msgstr "Egipto"
 
 #: ../boards/geography/board4_0.xml.in.h:9
 #: ../boards/geography/board4_1.xml.in.h:5
-#: ../boards/geography/board4_2.xml.in.h:14
 msgid "Equatorial Guinea"
 msgstr "Ekuatore Ginea"
 
 #: ../boards/geography/board4_0.xml.in.h:10
-#: ../boards/geography/board4_2.xml.in.h:16
+#: ../boards/geography/board4_2.xml.in.h:12
+msgid "Eritrea"
+msgstr "Eritrea"
+
+#: ../boards/geography/board4_0.xml.in.h:11
+#: ../boards/geography/board4_2.xml.in.h:13
 msgid "Ethiopia"
 msgstr "Etiopia"
 
-#: ../boards/geography/board4_0.xml.in.h:11
+#: ../boards/geography/board4_0.xml.in.h:12
 #: ../boards/geography/board4_1.xml.in.h:6
-#: ../boards/geography/board4_2.xml.in.h:17
+#: ../boards/geography/board4_2.xml.in.h:14
 msgid "Gabon"
 msgstr "Gabon"
 
-#: ../boards/geography/board4_0.xml.in.h:12
-#: ../boards/geography/board4_2.xml.in.h:18
+#: ../boards/geography/board4_0.xml.in.h:13
 msgid "Gambia"
 msgstr "Gambia"
 
-#: ../boards/geography/board4_0.xml.in.h:13
-#: ../boards/geography/board4_2.xml.in.h:19
+#: ../boards/geography/board4_0.xml.in.h:14
+#: ../boards/geography/board4_2.xml.in.h:15
 msgid "Ghana"
 msgstr "Ghana"
 
-#: ../boards/geography/board4_0.xml.in.h:14
-#: ../boards/geography/board4_2.xml.in.h:20
+#: ../boards/geography/board4_0.xml.in.h:15
+#: ../boards/geography/board4_2.xml.in.h:16
 msgid "Guinea"
 msgstr "Ginea"
 
-#: ../boards/geography/board4_0.xml.in.h:15
-#: ../boards/geography/board4_2.xml.in.h:21
+#: ../boards/geography/board4_0.xml.in.h:16
 msgid "Guinea Bissau"
 msgstr "Ginea Bissau"
 
-#: ../boards/geography/board4_0.xml.in.h:16
-#: ../boards/geography/board4_2.xml.in.h:22
+#: ../boards/geography/board4_0.xml.in.h:17
+#: ../boards/geography/board4_2.xml.in.h:17
 msgid "Ivory Coast"
 msgstr "Boli kosta"
 
-#: ../boards/geography/board4_0.xml.in.h:17
-#: ../boards/geography/board4_2.xml.in.h:25
+#: ../boards/geography/board4_0.xml.in.h:18
+#: ../boards/geography/board4_2.xml.in.h:19
 msgid "Liberia"
 msgstr "Liberia"
 
-#: ../boards/geography/board4_0.xml.in.h:18
-#: ../boards/geography/board4_2.xml.in.h:26
+#: ../boards/geography/board4_0.xml.in.h:19
+#: ../boards/geography/board4_2.xml.in.h:20
 msgid "Libya"
 msgstr "Libia "
 
-#: ../boards/geography/board4_0.xml.in.h:19
-#: ../boards/geography/board4_2.xml.in.h:29
+#: ../boards/geography/board4_0.xml.in.h:20
+#: ../boards/geography/board4_2.xml.in.h:23
 msgid "Mali"
 msgstr "Mali"
 
-#: ../boards/geography/board4_0.xml.in.h:20
-#: ../boards/geography/board4_2.xml.in.h:30
+#: ../boards/geography/board4_0.xml.in.h:21
+#: ../boards/geography/board4_2.xml.in.h:24
 msgid "Mauritania"
 msgstr "Mauritania"
 
-#: ../boards/geography/board4_0.xml.in.h:21
-#: ../boards/geography/board4_2.xml.in.h:31
+#: ../boards/geography/board4_0.xml.in.h:22
+#: ../boards/geography/board4_2.xml.in.h:25
 msgid "Morocco"
 msgstr "Maroko"
 
-#: ../boards/geography/board4_0.xml.in.h:22
-#: ../boards/geography/board4_2.xml.in.h:34
+#: ../boards/geography/board4_0.xml.in.h:23
+#: ../boards/geography/board4_2.xml.in.h:28
 msgid "Niger"
 msgstr "Niger"
 
-#: ../boards/geography/board4_0.xml.in.h:23
-#: ../boards/geography/board4_2.xml.in.h:35
+#: ../boards/geography/board4_0.xml.in.h:24
+#: ../boards/geography/board4_2.xml.in.h:29
 msgid "Nigeria"
 msgstr "Nigeria"
 
-#: ../boards/geography/board4_0.xml.in.h:24
+#: ../boards/geography/board4_0.xml.in.h:25
 msgid "Northern Africa"
 msgstr "Ipar Afrika"
 
-#: ../boards/geography/board4_0.xml.in.h:25
+#: ../boards/geography/board4_0.xml.in.h:26
 #: ../boards/geography/board4_1.xml.in.h:14
-#: ../boards/geography/board4_2.xml.in.h:36
 msgid "Rwanda"
 msgstr "Ruanda"
 
-#: ../boards/geography/board4_0.xml.in.h:26
-#: ../boards/geography/board4_2.xml.in.h:37
+#: ../boards/geography/board4_0.xml.in.h:27
+#: ../boards/geography/board4_2.xml.in.h:30
 msgid "Senegal"
 msgstr "Senegal"
 
-#: ../boards/geography/board4_0.xml.in.h:27
-#: ../boards/geography/board4_2.xml.in.h:38
+#: ../boards/geography/board4_0.xml.in.h:28
 msgid "Sierra Leone"
 msgstr "Sierra Leona"
 
-#: ../boards/geography/board4_0.xml.in.h:28
-#: ../boards/geography/board4_2.xml.in.h:39
+#: ../boards/geography/board4_0.xml.in.h:29
+#: ../boards/geography/board4_2.xml.in.h:31
 msgid "Somalia"
 msgstr "Somalia"
 
-#: ../boards/geography/board4_0.xml.in.h:29
+#: ../boards/geography/board4_0.xml.in.h:30
+#: ../boards/geography/board4_2.xml.in.h:33
 msgid "Sudan"
 msgstr "Sudan"
 
-#: ../boards/geography/board4_0.xml.in.h:30
-#: ../boards/geography/board4_2.xml.in.h:43
+#: ../boards/geography/board4_0.xml.in.h:31
+#: ../boards/geography/board4_2.xml.in.h:35
 msgid "Togo"
 msgstr "Togo"
 
-#: ../boards/geography/board4_0.xml.in.h:31
-#: ../boards/geography/board4_2.xml.in.h:44
+#: ../boards/geography/board4_0.xml.in.h:32
+#: ../boards/geography/board4_2.xml.in.h:36
 msgid "Tunisia"
 msgstr "Tunisia"
 
-#: ../boards/geography/board4_0.xml.in.h:32
+#: ../boards/geography/board4_0.xml.in.h:33
 #: ../boards/geography/board4_1.xml.in.h:19
-#: ../boards/geography/board4_2.xml.in.h:45
+#: ../boards/geography/board4_2.xml.in.h:37
 msgid "Uganda"
 msgstr "Uganda"
 
-#: ../boards/geography/board4_0.xml.in.h:33
+#: ../boards/geography/board4_0.xml.in.h:34
 msgid "Western Sahara"
 msgstr "Mendebaldeko Sahara"
 
@@ -2045,42 +2052,40 @@ msgid "Botswana"
 msgstr "Botswana"
 
 #: ../boards/geography/board4_1.xml.in.h:3
-#: ../boards/geography/board4_2.xml.in.h:7
 msgid "Burundi"
 msgstr "Burundi"
 
 #: ../boards/geography/board4_1.xml.in.h:4
-#: ../boards/geography/board4_2.xml.in.h:11
+#: ../boards/geography/board4_2.xml.in.h:10
 msgid "Democratic Republic of Congo"
 msgstr "Kongoko Errepublika Demokratikoa"
 
 #: ../boards/geography/board4_1.xml.in.h:7
-#: ../boards/geography/board4_2.xml.in.h:23
+#: ../boards/geography/board4_2.xml.in.h:18
 msgid "Kenya"
 msgstr "Kenya"
 
 #: ../boards/geography/board4_1.xml.in.h:8
-#: ../boards/geography/board4_2.xml.in.h:24
 msgid "Lesotho"
 msgstr "Lesotho"
 
 #: ../boards/geography/board4_1.xml.in.h:9
-#: ../boards/geography/board4_2.xml.in.h:27
+#: ../boards/geography/board4_2.xml.in.h:21
 msgid "Madagascar"
 msgstr "Madagaskar"
 
 #: ../boards/geography/board4_1.xml.in.h:10
-#: ../boards/geography/board4_2.xml.in.h:28
+#: ../boards/geography/board4_2.xml.in.h:22
 msgid "Malawi"
 msgstr "Malawi"
 
 #: ../boards/geography/board4_1.xml.in.h:11
-#: ../boards/geography/board4_2.xml.in.h:32
+#: ../boards/geography/board4_2.xml.in.h:26
 msgid "Mozambique"
 msgstr "Mozanbike"
 
 #: ../boards/geography/board4_1.xml.in.h:12
-#: ../boards/geography/board4_2.xml.in.h:33
+#: ../boards/geography/board4_2.xml.in.h:27
 msgid "Namibia"
 msgstr "Namibia"
 
@@ -2089,7 +2094,7 @@ msgid "Republic of Congo"
 msgstr "Kongoko Errepublika"
 
 #: ../boards/geography/board4_1.xml.in.h:15
-#: ../boards/geography/board4_2.xml.in.h:40
+#: ../boards/geography/board4_2.xml.in.h:32
 msgid "South Africa"
 msgstr "Hego Afrika"
 
@@ -2098,36 +2103,71 @@ msgid "Southern Africa"
 msgstr "Hegoaldeko Afrika"
 
 #: ../boards/geography/board4_1.xml.in.h:17
-#: ../boards/geography/board4_2.xml.in.h:41
 msgid "Swaziland"
 msgstr "Swazilandia"
 
 #: ../boards/geography/board4_1.xml.in.h:18
-#: ../boards/geography/board4_2.xml.in.h:42
+#: ../boards/geography/board4_2.xml.in.h:34
 msgid "Tanzania"
 msgstr "Tanzania"
 
 #: ../boards/geography/board4_1.xml.in.h:20
-#: ../boards/geography/board4_2.xml.in.h:46
+#: ../boards/geography/board4_2.xml.in.h:38
 msgid "Zambia"
 msgstr "Zambia"
 
 #: ../boards/geography/board4_1.xml.in.h:21
-#: ../boards/geography/board4_2.xml.in.h:47
+#: ../boards/geography/board4_2.xml.in.h:39
 msgid "Zimbabwe"
 msgstr "Zimbawe"
 
-#: ../boards/geography/board4_2.xml.in.h:15
-msgid "Eritrea"
-msgstr "Eritrea"
+#: ../boards/geography_country.xml.in.h:1
+msgid "Drag and Drop the regions to redraw the whole country"
+msgstr "Arrastatu eta jaregin eskualdeak herrialde osoa berriro marrazteko"
 
-#: ../boards/geography/board5_0.xml.in.h:1
+#: ../boards/geography_country.xml.in.h:2
+msgid "Locate the region"
+msgstr "Kokatu eskualdea"
+
+#: ../boards/geography_country.xml.in.h:4
+msgid ""
+"The map of Germany comes from Wikipedia and is released under the GNU Free "
+"Documentation License. Olaf Ronneberger and his children Lina and Julia "
+"Ronneberger created the German level."
+msgstr ""
+"Alemaniako mapa Wikipediatik eskuratu da eta GNUren Free Documentation "
+"License lizentzia pean banatzen da. Olaf Ronneberger eta bere Lina eta Julia "
+"Ronnenberger alabek sortu zuten Alemaniako maila."
+
+#: ../boards/geography_country/board1_0.xml.in.h:1
 msgid "Regions of France"
 msgstr "Frantziako eskualdeak"
 
-#: ../boards/geography/board6_0.xml.in.h:1
+#: ../boards/geography_country/board2_0.xml.in.h:1
 msgid "Deutschland Bundesländer"
 msgstr "Alemaniako eskualdeak"
+
+#: ../boards/geography_country/board3_0.xml.in.h:1
+msgid "Provincias Argentinas"
+msgstr "Argentinako probintziak"
+
+#: ../boards/geography_country/board4_0.xml.in.h:1
+#, fuzzy
+msgid "Polish Voivodship"
+msgstr "Poloniako Voivodship"
+
+#: ../boards/geography_country/board5_0.xml.in.h:1
+#: ../boards/geography_country/board5_2.xml.in.h:1
+msgid "Districts of Turkey"
+msgstr "Turkiako eskualdeak"
+
+#: ../boards/geography_country/board5_1.xml.in.h:1
+msgid "Eastern Districts of Turkey"
+msgstr "Turkiareko ekialdeko eskualdeak"
+
+#: ../boards/geography_country/board6_0.xml.in.h:1
+msgid "Counties of Norway"
+msgstr "Norvegiako konderriak"
 
 #: ../boards/geometry.xml.in.h:1
 msgid "Geometry"
@@ -2145,11 +2185,11 @@ msgstr "Teklatua erabiltzea"
 msgid "Letter association between the screen and the keyboard"
 msgstr "Letrak pantailan eta teklatuan identifikatzea"
 
-#: ../boards/gletters.xml.in.h:3 ../src/boards/gletters.c:135
+#: ../boards/gletters.xml.in.h:3 ../src/boards/gletters.c:133
 msgid "Simple Letters"
 msgstr "Letra sinpleak"
 
-#: ../boards/gletters.xml.in.h:4 ../src/boards/gletters.c:136
+#: ../boards/gletters.xml.in.h:4 ../src/boards/gletters.c:134
 msgid "Type the falling letters before they reach the ground"
 msgstr "Idatzi erortzen ari diren letrak lurrera iritsi aurretik"
 
@@ -2360,7 +2400,7 @@ msgstr ""
 "Arrastatu eta jaregin goiko piezak banan-banan, ziri batetik bestera, "
 "eskuineko dorrearen berdina ezkerrean egiteko."
 
-#: ../boards/hanoi.xml.in.h:4 ../src/boards/hanoi.c:101
+#: ../boards/hanoi.xml.in.h:4 ../src/boards/hanoi.c:96
 msgid "Reproduce the given tower"
 msgstr "Egin ereduko dorrearen berdina"
 
@@ -2368,7 +2408,7 @@ msgstr "Egin ereduko dorrearen berdina"
 msgid "Reproduce the tower on the right in the empty space on the left"
 msgstr "Egin eskuineko dorrearen berdina ezkerreko leku librean"
 
-#: ../boards/hanoi.xml.in.h:6 ../src/boards/hanoi.c:100
+#: ../boards/hanoi.xml.in.h:6 ../src/boards/hanoi.c:95
 msgid "Simplified Tower of Hanoi"
 msgstr "Hanoiko dorre erraztua"
 
@@ -2391,14 +2431,16 @@ msgstr "Hanoiko dorrea"
 #: ../boards/hanoi_real.xml.in.h:5
 msgid ""
 "The object of the game is to move the entire stack to another peg, obeying "
-"the following rules: * only one disc may be moved at a time * no disc may be "
-"placed atop a smaller disc"
+"the following rules:\n"
+"* only one disc may be moved at a time\n"
+"* no disc may be placed atop a smaller disc"
 msgstr ""
 "Jokoaren helburua pila oso bat beste ziri batera eramatea da, honako arauak "
-"jarraituz: aldi bakoitzean disko bakarra alda daiteke lekuz; disko txiki "
-"baten gainean handiagoa ezin da ezarri."
+"jarraituz: \n"
+"* aldi bakoitzean disko bakarra alda daiteke lekuz\n"
+"* disko txiki baten gainean handiagoa ezin da ezarri."
 
-#: ../boards/hanoi_real.xml.in.h:6
+#: ../boards/hanoi_real.xml.in.h:8
 msgid ""
 "The puzzle was invented by the French mathematician Edouard Lucas in 1883. "
 "There is a legend about a Hindu temple whose priests were constantly engaged "
@@ -2444,7 +2486,7 @@ msgstr "Trebatu irakurtzen irudiak eta hitzak elkartzen"
 
 #: ../boards/imageid.xml.in.h:3 ../boards/imagename.xml.in.h:4
 #: ../boards/readingh.xml.in.h:4 ../boards/readingv.xml.in.h:4
-#: ../src/boards/imageid.c:113 ../src/boards/missingletter.c:104
+#: ../src/boards/imageid.c:102 ../src/boards/missingletter.c:100
 msgid "Reading"
 msgstr "Irakurketa"
 
@@ -2631,7 +2673,7 @@ msgid "sofa"
 msgstr "sofa"
 
 #: ../boards/imagename/board3_0.xml.in.h:7
-#: ../boards/imagename/board5_0.xml.in.h:5
+#: ../boards/imagename/board5_0.xml.in.h:4
 msgid "star"
 msgstr "izarra"
 
@@ -2648,16 +2690,13 @@ msgid "grater"
 msgstr "arraspagailua"
 
 #: ../boards/imagename/board4_0.xml.in.h:7
+#: ../boards/imagename/board5_0.xml.in.h:5
 msgid "tree"
 msgstr "zuhaitza"
 
 #: ../boards/imagename/board5_0.xml.in.h:2
 msgid "pencil"
 msgstr "arkatza"
-
-#: ../boards/imagename/board5_0.xml.in.h:4
-msgid "spruce"
-msgstr "izeia"
 
 #: ../boards/imagename/board5_0.xml.in.h:6
 msgid "truck"
@@ -2763,11 +2802,11 @@ msgstr "Batuketa"
 #: ../boards/magic_hat_plus.xml.in.h:2
 msgid ""
 "Click on the hat to open or close it. Under the hat, how many stars can you "
-"see moving around? Count carefully. :) Click in the bottom- right area to "
+"see moving around? Count carefully. :) Click in the bottom-right area to "
 "input your answer."
 msgstr ""
 "Egin klik txapelean irekitzeko edo ixteko. Izar batzuk txapelaren barrura "
-"mugitu dira. Zenbat izar ikus ditzkezu hor mugitzen? Kontuz zenbatu! Egin "
+"mugitu dira. Zenbat izar ikus ditzkezu hor mugitzen? Kontuz zenbatu. :) Egin "
 "klik azpiko eskuineko arean erantzuteko."
 
 #: ../boards/magic_hat_plus.xml.in.h:3
@@ -2823,7 +2862,7 @@ msgstr "Matematikak"
 msgid "Can use the keyboard arrow to move an object."
 msgstr "Teklatuko gezia objektuak mugitzeko erabili ahal izatea."
 
-#: ../boards/maze.xml.in.h:2 ../src/boards/maze.c:133
+#: ../boards/maze.xml.in.h:2 ../src/boards/maze.c:128
 msgid "Find your way out of the maze"
 msgstr "Lortu labirintotik irtetea"
 
@@ -2833,7 +2872,7 @@ msgid "Help Tux get out of this maze."
 msgstr "Tuxi labirinto honetatik irteten laguntzea."
 
 #: ../boards/maze.xml.in.h:4 ../boards/maze2DRelative.xml.in.h:4
-#: ../boards/mazeInvisible.xml.in.h:4 ../src/boards/maze.c:132
+#: ../boards/mazeInvisible.xml.in.h:4 ../src/boards/maze.c:127
 msgid "Maze"
 msgstr "Labirintoa"
 
@@ -3324,45 +3363,46 @@ msgstr ""
 msgid ""
 "A simple click on an icon brings you to an activity or a menu of "
 "activities.\n"
-"At the bottom of the screen is the gcompris control bar.\n"
+"At the bottom of the screen is the GCompris control bar.\n"
 "The following icons are displayed from right to left.\n"
 "(note that each icon is displayed only if available in the current "
 "activity)\n"
-"    Home - Back to previous menu or exit gcompris if at the top\n"
+"    Home - Exit an activity, go back to menu\n"
 "    Thumb - OK. Confirm your answer\n"
 "    Dice - Display the current level. Click to select another level\n"
-"    Music note - Repeat the question\n"
+"    Lips - Repeat the question\n"
 "    Question Mark - Help\n"
 "    Tool - The configuration menu\n"
 "    Tux Plane - About GCompris\n"
+"    Night - Quit GCompris\n"
 "The stars show suitable age groups for each game:\n"
 "    1, 2 or 3 simple stars  - from 2 to 6 years old\n"
 "    1, 2 or 3 complex stars - 7 years and up"
 msgstr ""
 "Ikono batean klik egitean ariketa batera edo ariketa-menu batera joango "
 "zara.\n"
-"Pantailaren behealdean gcompris kontrol-barra dago. \n"
-"Honako ikonoak ikusten dira, eskuinetik ezkerrera\n"
+"Pantailaren behealdean GCompis-en kontrol-barra dago. \n"
+"Honako ikonoak ikusten dira, eskuinetik ezkerrera.\n"
 "(kontuan hartu ikono bakoitza uneko ariketan erabilgarri badago bakarrik "
 "azalduko dela): \n"
-"   Etxera - aurreko menura itzultzeko, edo gcompris-etik irteteko, hasieran "
-"egonez gero \n"
-"   Erpurua - ados. Erantzuna berresteko \n"
+"   Etxera - Ariketaik irten, aurreko menura itzultzeko\n"
+"   Erpurua - Ados. Erantzuna berresteko \n"
 "   Dadoa - uneko maila bistaratzeko. Egin klik bertan beste maila bat "
 "hautatzeko \n"
-"   Musika-nota - Galdera errepikatzeko \n"
+"   Ezpainak - Galdera errepikatzeko \n"
 "   Galdera-marka - Laguntza\n"
 "   Erreminta-kutxa - Konfigurazio-menua\n"
 "   Tuxen hegazkina - Jokoari buruz\n"
+"   Gaua - GCompris-etik irtetzeko\n"
 "Izarren esanahia: \n"
 "   1, 2 edo 3 izar sinple: 2-6 urte bitartekoentzat \n"
 "   1, 2 edo 3 izar konplexu: 7 urte edo zaharragoentzako"
 
-#: ../boards/menu.xml.in.h:15
+#: ../boards/menu.xml.in.h:16
 msgid "GCompris Main Menu"
 msgstr "GCompris-en menu nagusia"
 
-#: ../boards/menu.xml.in.h:16 ../src/boards/menu2.c:996
+#: ../boards/menu.xml.in.h:17 ../src/boards/menu2.c:1006
 msgid ""
 "GCompris is a collection of educational games that provides different "
 "activities for children aged 2 and up."
@@ -3370,12 +3410,12 @@ msgstr ""
 "GCompris joko hezigarrien bilduma bat da, eta 2 urtetik gorako haurrentzako "
 "ariketak ditu."
 
-#: ../boards/menu.xml.in.h:18
+#: ../boards/menu.xml.in.h:19
 msgid ""
-"The goal of gcompris is to provide a free alternative to popular proprietary "
+"The goal of GCompris is to provide a free alternative to popular proprietary "
 "edutainment software"
 msgstr ""
-"gcompris-en helburua ohiko jabedun software hezigarriaren doako alternatiba "
+"GCompris-en helburua ohiko jabedun software hezigarriaren doako alternatiba "
 "eskaintzea da"
 
 #: ../boards/miscelaneous.xml.in.h:1
@@ -3607,6 +3647,22 @@ msgstr "Zenbatzea"
 msgid "Numeration activities."
 msgstr "Zenbatzeko ariketak."
 
+#: ../boards/oscar_and_friends.xml.in.h:1
+msgid "Improve reading skill and the ability to understand what is read."
+msgstr "Hobetu irakurtszeko trebetasuna eta irakurtzen dena ulertzeko gaitasuna."
+
+#: ../boards/oscar_and_friends.xml.in.h:2
+msgid "Read and play with the story"
+msgstr "Irakurri eta jolastu ipuinarekin"
+
+#: ../boards/oscar_and_friends.xml.in.h:3
+msgid "The story of Oscar and friend"
+msgstr "Oskar eta bere lagunen ipuina"
+
+#: ../boards/oscar_and_friends.xml.in.h:4
+msgid "reading"
+msgstr "irakurketa"
+
 #: ../boards/paintings.xml.in.h:1
 msgid "Assemble the puzzle"
 msgstr "Osatu puzzlea"
@@ -3709,7 +3765,7 @@ msgstr "Mugitu helikopteroa hodeiak behar den ordenan harrapatzeko"
 msgid "Number"
 msgstr "Zenbatzen jakitea"
 
-#: ../boards/planegame.xml.in.h:4 ../src/boards/planegame.c:77
+#: ../boards/planegame.xml.in.h:4 ../src/boards/planegame.c:73
 msgid "Numbers in Order"
 msgstr "Zenbakien ordena"
 
@@ -3721,13 +3777,25 @@ msgstr "Puzzleak"
 msgid "Various puzzles."
 msgstr "Hainbat puzzle"
 
-#: ../boards/pythontest.xml.in.h:1
-msgid "Add a language-binding to gcompris."
-msgstr "Gehitu lengoaia-lotura bat gcompris-en."
+#: ../boards/pythontemplate.xml.in.h:1 ../boards/pythontest.xml.in.h:1
+msgid "Add a language-binding to GCompris."
+msgstr "Gehitu lengoaia-lotura bat GCompris-en."
 
-#: ../boards/pythontest.xml.in.h:2
+#: ../boards/pythontemplate.xml.in.h:2 ../boards/pythontest.xml.in.h:2
 msgid "Advanced Python Programmer :)"
 msgstr "Python-en programatzaile aurreratua :)"
+
+#: ../boards/pythontemplate.xml.in.h:3
+msgid "An empty python activity to use as a starting point"
+msgstr "Python-en ariketa hutsa abiapuntu gisa erabiltzeko"
+
+#: ../boards/pythontemplate.xml.in.h:4
+msgid "Python Template"
+msgstr "Python-en txantiloia"
+
+#: ../boards/pythontemplate.xml.in.h:5 ../boards/pythontest.xml.in.h:5
+msgid "Thanks to Guido van Rossum and the python team for this powerful language!"
+msgstr "Mila esker Guido van Rossum eta python taldeari lengoaia ahaltsu honengatik!"
 
 #: ../boards/pythontest.xml.in.h:3
 msgid "Python Test"
@@ -3736,10 +3804,6 @@ msgstr "Python-en proba"
 #: ../boards/pythontest.xml.in.h:4
 msgid "Test board for the python plugin"
 msgstr "Python plugin-aren proba-taula"
-
-#: ../boards/pythontest.xml.in.h:5
-msgid "Thanks to Guido van Rossum and the python team for this powerful language!"
-msgstr "Mila esker Guido van Rossum eta python taldeari lengoaia ahaltsu honengatik!"
 
 #: ../boards/railroad.xml.in.h:1
 msgid "A memory game based on trains"
@@ -3946,22 +4010,13 @@ msgstr ""
 "Tux goseak dago. Lagundu iezaiozu arraina harrapatzen, dagokion izotz-"
 "blokeraino zenbatuz."
 
-#: ../boards/scales/board1_0.xml.in.h:1 ../boards/scales/board1_1.xml.in.h:1
-#: ../boards/scales/board1_2.xml.in.h:1 ../boards/scales/board1_3.xml.in.h:1
-#: ../boards/scales/board1_4.xml.in.h:1 ../boards/scales/board1_5.xml.in.h:1
-#: ../boards/scales/board2_0.xml.in.h:1 ../boards/scales/board2_1.xml.in.h:1
-#: ../boards/scales/board2_2.xml.in.h:1 ../boards/scales/board2_3.xml.in.h:1
-#: ../boards/scales/board2_4.xml.in.h:1 ../boards/scales/board2_5.xml.in.h:1
-#: ../boards/scales/board3_0.xml.in.h:1 ../boards/scales/board3_1.xml.in.h:1
-#: ../boards/scales/board3_2.xml.in.h:1 ../boards/scales/board3_3.xml.in.h:1
-#: ../boards/scales/board3_4.xml.in.h:1 ../boards/scales/board3_5.xml.in.h:1
-#: ../boards/scalesboard.xml.in.h:2
-msgid "Drag and Drop masses to balance the scales"
-msgstr "Arrastatu eta jaregin pisuak balantza orekatzeko"
-
 #: ../boards/scalesboard.xml.in.h:1
 msgid "Balance the scales properly"
 msgstr "Orekatu ondo balantzak"
+
+#: ../boards/scalesboard.xml.in.h:2
+msgid "Drag and Drop masses to balance the scales"
+msgstr "Arrastatu eta jaregin pisuak balantza orekatzeko"
 
 #: ../boards/scalesboard.xml.in.h:3
 msgid "Mental calculation, arithmetic equality"
@@ -3979,46 +4034,50 @@ msgstr ""
 
 #: ../boards/scalesboard.xml.in.h:5
 msgid ""
-"To balance the scales, move the masses on the left side. The masses can be "
-"arranged in any order."
+"To balance the scales, move the masses on the left or the right side. The "
+"masses can be arranged in any order."
 msgstr ""
-"Balantzak orekatzeko, arrastatu eta jarri gainean ezkerreko pisuak. Pisuak "
-"edozein ordenatan jar daitezke."
+"Balantzak orekatzeko, eraman ezkerreko edo eskuineko aldean. Pisuak edozein "
+"ordenatan jar daitezke."
 
 #: ../boards/searace.xml.in.h:1
 msgid "Direct your boat accurately to win the race."
 msgstr "Bideratu txalupa zuzentasunez lasterketa irabazteko."
 
-#: ../boards/searace.xml.in.h:2 ../boards/searace1player.xml.in.h:2
+#: ../boards/searace.xml.in.h:2
 msgid ""
-"In the text entry, enter one command per line, to control your boat. "
+"In the text entry, enter one command per line, to control your boat.\n"
 "Commands supported are displayed between the two entry areas. The 'left' and "
 "'right' commands must be followed by an angle in degrees. The angle value is "
 "also called a 'parameter' to the left or right command. By default 45 "
 "degrees is used. The 'forward' command accepts a distance parameter. By "
-"default 1 is used. For example: left 90 => Make a perpendicular left turn "
-"forward 10 => Go forward for 10 units (as displayed on the ruler). The goal "
-"is to reach the right of the screen (the red line). When done, you can try "
-"to improve your program and start a new race with the same weather "
+"default 1 is used.\n"
+"For example:\n"
+"- left 90: Make a perpendicular left turn\n"
+"- forward 10: Go forward for 10 units (as displayed on the ruler).\n"
+"The goal is to reach the right of the screen (the red line). When done, you "
+"can try to improve your program and start a new race with the same weather "
 "conditions by using the retry button. You can click and drag your mouse "
 "anywhere on the map to get a measurement in distance and angle. Going to the "
 "next level will give you more complex weather conditions."
 msgstr ""
-"Testu-sarreran sartu komandoak lerroz lerro zure ontzia gidatzeko. "
+"Testu-sarreran sartu komandoak lerroz lerro zure ontzia gidatzeko.\n"
 "Onartutako komandoak bi testu-areen artean zerrendatzen dira. 'ezkerrera' "
 "eta 'eskuinera' komandoen atzetik angelua (graduetan) idatzi behar da. "
 "Angelu balioari ere ezkerrera edota eskuinera komandoaren parametroa deitzen "
-"zaio. Lehenespenez 45 gradu erabiltzen da. 'aurrera' komandoak distantziaren "
-"parametroa onartzen du. Lehenespenez 1 balioa erabiltzen du. Adibidea: "
-"ezkerrera 90 => biraketa perpendikularra egiten du ezkerrerantz; aurrera 10 "
-"=> aurrera 10 unitateetan joateko (erregelan bistaratzen den bezala). "
-"Helburua pantailaren eskuinera iristea da (linea gorria). Burutzean programa "
+"zaio. Lehenespenez 45 gradu erabiltzen da. 'Aurrera' komandoak distantziaren "
+"parametroa onartzen du. Lehenespenez 1 balioa erabiltzen du.\n"
+"Adibidea:\n"
+"- ezkerrera 90: biraketa perpendikularra egiten du ezkerrerantz;\n"
+"- aurrera 10: aurrera 10 unitateetan joateko (erregelan bistaratzen den "
+"bezala). \n"
+"Helburua pantailaren eskuinera iristea da (marra gorria). Burutzean programa "
 "hobetu dezakezu eta lasterketa berria abiarazi, eguraldi berdinarekin "
-"berriro saiatzeko teklarekin Klik egin eta arrastatu dezakezu sagua mapako "
+"berriro saiatzeko teklarekin. Klik egin eta arrastatu dezakezu sagua mapako "
 "edozein posiziotan distantzia eta angeluaren neurketa lortzeko. Hurrengo "
 "mailara joatean eguraldiaren baldintza konplexuagoak emango dizkizu."
 
-#: ../boards/searace.xml.in.h:3 ../boards/searace1player.xml.in.h:3
+#: ../boards/searace.xml.in.h:8 ../boards/searace1player.xml.in.h:7
 msgid ""
 "In this activity, you will learn how to enter commands into a computer. Even "
 "if the language is extremely basic, you learn here how to think ahead and "
@@ -4030,7 +4089,7 @@ msgstr ""
 "ikasiko duzu. Jarduera hau haurrei programazioaren kontzeptuak aurkezteko "
 "erabil daiteke."
 
-#: ../boards/searace.xml.in.h:4
+#: ../boards/searace.xml.in.h:9
 msgid "Sea race (2 Players)"
 msgstr "Itsasoko lasterketa (2 jokalari)"
 
@@ -4038,7 +4097,40 @@ msgstr "Itsasoko lasterketa (2 jokalari)"
 msgid "Give good instructions to your ship in order to be first in the race."
 msgstr "Eman agindu egokiak ontziari lasterketako lehena izateko."
 
-#: ../boards/searace1player.xml.in.h:4
+#: ../boards/searace1player.xml.in.h:2
+msgid ""
+"In the text entry, enter one command per line, to control your boat. "
+"Commands supported are displayed between the two entry areas. The 'left' and "
+"'right' commands must be followed by an angle in degrees. The angle value is "
+"also called a 'parameter' to the left or right command. By default 45 "
+"degrees is used. The 'forward' command accepts a distance parameter. By "
+"default 1 is used.\n"
+"For example:\n"
+"- left 90: Make a perpendicular left turn\n"
+"- forward 10: Go forward for 10 units (as displayed on the ruler).\n"
+"The goal is to reach the right of the screen (the red line). When done, you "
+"can try to improve your program and start a new race with the same weather "
+"conditions by using the retry button. You can click and drag your mouse "
+"anywhere on the map to get a measurement in distance and angle. Going to the "
+"next level will give you more complex weather conditions."
+msgstr ""
+"Testu-sarreran sartu komandoak lerroz lerro zure ontzia gidatzeko. "
+"Onartutako komandoak bi testu-areen artean zerrendatzen dira. 'ezkerrera' "
+"eta 'eskuinera' komandoen atzetik angelua (graduetan) idatzi behar da. "
+"Angelu balioari ere ezkerrera edota eskuinera komandoaren parametroa deitzen "
+"zaio. Lehenespenez 45 gradu erabiltzen da. 'aurrera' komandoak distantziaren "
+"parametroa onartzen du. Lehenespenez 1 balioa erabiltzen du.\n"
+"Adibidea:\n"
+"- ezkerrera 90: biraketa perpendikularra egiten du ezkerrerantz.\n"
+"- aurrera 10: aurrera 10 unitateetan joateko (erregelan bistaratzen den "
+"bezala).\n"
+"Helburua pantailaren eskuinera iristea da (marra gorria). Burutzean programa "
+"hobetu dezakezu eta lasterketa berria abiarazi, eguraldi berdinarekin "
+"berriro saiatzeko teklarekin Klik egin eta arrastatu dezakezu sagua mapako "
+"edozein posiziotan distantzia eta angeluaren neurketa lortzeko. Hurrengo "
+"mailara joatean eguraldiaren baldintza konplexuagoak emango dizkizu."
+
+#: ../boards/searace1player.xml.in.h:8
 msgid "Sea race (Single Player)"
 msgstr "Itsasoko lasterketa (jokalari bakarra)"
 
@@ -4085,10 +4177,13 @@ msgstr "Estrategiako jokoak: xakea, lauko artzain-jokoa,..."
 #: ../boards/submarine.xml.in.h:1
 msgid ""
 "Click on different active elements : engine, rudders and air tanks, in order "
-"to navigate to the required depth."
+"to navigate to the required depth. There is a close gate on the right. Catch "
+"the jewel to open it, then pass through it to reach the next level."
 msgstr ""
-"Egin klik elementuetan: motorra, lasta-ganberak, aire-tangak... eskatutako "
-"sakoneran nabigatzeko."
+"Egin klik ariketen elementu ezberdinetan: motorra, lasta-ganberak eta aire-"
+"tangak... eskatutako sakoneran nabigatzeko. Itxitako atea dago eskuinean. "
+"Hartu harribitxia atea irekitzeko, ondoren sartu atean hurrengo mailara "
+"joateko."
 
 #: ../boards/submarine.xml.in.h:2
 msgid "Learn how a submarine works"
@@ -4161,11 +4256,11 @@ msgstr ""
 "beltz batekin markatuko ditu, eta zuriarekin beste kokaleku batean daudenak. "
 "Koloreak alderantzizko ordenan jartzeko, erabili saguaren eskuineko botoia."
 
-#: ../boards/superbrain.xml.in.h:2 ../src/boards/superbrain.c:110
+#: ../boards/superbrain.xml.in.h:2 ../src/boards/superbrain.c:105
 msgid "Super Brain"
 msgstr "Super Garuna"
 
-#: ../boards/superbrain.xml.in.h:3 ../src/boards/superbrain.c:111
+#: ../boards/superbrain.xml.in.h:3 ../src/boards/superbrain.c:106
 msgid "Tux has hidden several items. Find them again in the correct order"
 msgstr "Tuxek gauza batzuk ezkutatu ditu. Aurki itzazu, eta jarri dagokien ordenan"
 
@@ -4261,7 +4356,7 @@ msgstr "Bloke irristakorretako puzzlea"
 
 #: ../boards/traffic.xml.in.h:2
 msgid ""
-"Each car can only move either horizontaly or verticaly. You must make some "
+"Each car can only move either horizontally or vertically. You must make some "
 "room in order to let the red car move through the gate on the right."
 msgstr ""
 "Kotxe bakoitza horizontalki edo bertikalki soilik mugi daiteke. Gela bat "
@@ -4320,7 +4415,7 @@ msgstr ""
 "Tux arrantzan luzaro ibili ondoren itsasontzian itzuli da. Jarri ur-sistema "
 "martxan, dutxa bat hartu ahal izan dezan."
 
-#: ../boards/wordsgame.xml.in.h:1 ../src/boards/wordsgame.c:113
+#: ../boards/wordsgame.xml.in.h:1 ../src/boards/wordsgame.c:109
 msgid "Falling Words"
 msgstr "Erortzen diren hitzak"
 
@@ -4332,9 +4427,49 @@ msgstr "Teklatuarekin trebatzea"
 msgid "Type the complete word as it falls, before it reachs the ground"
 msgstr "Idatzi hitzak erori ahala, lurrera iritsi aurretik"
 
-#: ../boards/wordsgame.xml.in.h:5 ../src/boards/wordsgame.c:114
+#: ../boards/wordsgame.xml.in.h:5 ../src/boards/wordsgame.c:110
 msgid "Type the falling words before they reach the ground"
 msgstr "Idatzi erortzen ari diren hitzak lurrera iritsi aurretik"
+
+#: ../boards/wordprocessor.xml.in.h:1
+msgid "A simple word processor to enter and save any text"
+msgstr "Testu-prozesadore bakuna testua idatzi eta gordetzeko"
+
+#: ../boards/wordprocessor.xml.in.h:2
+msgid ""
+"In this wordprocessor you can type the text you want, save and get it back "
+"later. You can add some style to your text by using the buttons on the left. "
+"The first 4 buttons let you select the style of the line on which your "
+"insert cursor is. The 2 others buttons with multiple choices let you select "
+"from a predefined document and color theme."
+msgstr ""
+"Testu-prozesadore honetan nahi duzun testua idatz dezakezu, gorde eta "
+"beranduago berreskuratu. Estilo batzuk gehi dezaiokezu testuari ezkerreko "
+"botoiak erabiliz. Aurreneko 4 botoiak kurtsorea kokatuta dagoen marraren "
+"estiloa ezartzeko erabiltzen dira. Aukera anitzeko beste 2 botoiek "
+"aurredefinitutako dokumentutik eta kolore-gaitik hautatzea eskaintzen dizu."
+
+#: ../boards/wordprocessor.xml.in.h:3
+msgid ""
+"Learn how to enter text in a wordprocessor. This wordprocessor is special in "
+"that it enforces the use of styles. This way, the children will understand "
+"their benefit when moving to more feature full wordprocessor like OpenOffice."
+"org."
+msgstr ""
+"Ikasi nola idazten den testua testu-prozesadorean. Testu-prozesadore hau "
+"berezia da, estiloak erabiltzera bultzatzen baitu. Honela, umeek ulertuko "
+"dute ongarria izango zaiela funtzionalitate gehiago dituen OpenOffice.org "
+"bezalako testu-prozesadorera mugitzea."
+
+#: ../boards/wordprocessor.xml.in.h:4
+msgid "The children can type their own text or copy one given by the teacher."
+msgstr ""
+"Umeek beraiek sortutako testua idatz deakete, edo irakasleak emandakotik "
+"kopiatu."
+
+#: ../boards/wordprocessor.xml.in.h:5
+msgid "Your word processor"
+msgstr "Zure testu-prozesadorea"
 
 #: ../gcompris-edit.desktop.in.h:1
 msgid "Administration for gcompris"
@@ -4345,91 +4480,100 @@ msgid "Educational game for ages 2 to 10"
 msgstr "Joko hezigarria 2 - 10 urte bitartekoentzat"
 
 #: ../gcompris.desktop.in.h:2
-msgid "Educational suite gcompris"
-msgstr "gcompris suite hezigarria"
+msgid "Educational suite GCompris"
+msgstr "GCompris suite hezigarria"
 
 #: ../gcompris.desktop.in.h:3
-msgid "Multiple activities for kids"
-msgstr "Haurrentzako hainbat jarduera"
+msgid "Multi-activity educational game"
+msgstr "Ariketa anitzeko joku hezigarria"
 
-#: ../src/boards/awele.c:352 ../src/boards/awele.c:362
+#. TRANSLATORS: Put here the mathematical operators '+-x/' for  your language.
+#: ../src/boards/algebra.c:181 ../src/boards/memory.c:843
+msgid "+-×÷"
+msgstr "+-×÷"
+
+#: ../src/boards/awele.c:356 ../src/boards/awele.c:366
 msgid "NORTH"
 msgstr "Iparraldea"
 
-#: ../src/boards/awele.c:374 ../src/boards/awele.c:384
+#: ../src/boards/awele.c:378 ../src/boards/awele.c:388
 msgid "SOUTH"
 msgstr "Hegoaldea"
 
-#: ../src/boards/awele.c:553
+#: ../src/boards/awele.c:557
 msgid "Choose a house"
 msgstr "Aukeratu etxea"
 
-#: ../src/boards/awele.c:681
+#: ../src/boards/awele.c:685
 msgid "Your turn to play ..."
 msgstr "Zure txanda jokatzeko..."
 
-#: ../src/boards/awele.c:750
+#: ../src/boards/awele.c:754
 msgid "Not allowed! Try again !"
 msgstr "Ez dago baimenduta. Saiatu berriro."
 
-#: ../src/boards/chess.c:189
+#: ../src/boards/chess.c:178
+msgid "Error: The external program gnuchess died unexpectedly"
+msgstr "Errorea: kanpoko 'gnuchess' programa ustegabean hil da"
+
+#: ../src/boards/chess.c:198
 msgid ""
-"Error: The external program gnuchess is mandatory\n"
-"to play chess in gcompris.\n"
+"Error: The external program gnuchess is required\n"
+"to play chess in GCompris.\n"
 "Find this program on http://www.rpmfind.net or in your\n"
 "GNU/Linux distribution\n"
 "And check it is located here: "
 msgstr ""
 "Error: kanpoko gnuchess programa nahitaezkoa da\n"
-"gcompris-en xakean jokatzeko.\n"
+"GCompris-en xakean jokatzeko.\n"
 "Programa aurkitzeko, bilatu http://www.rpmfind.net \n"
 "gunean, edo zure GNU/Linux banaketan\n"
 "Begiratu hemen dagoen: "
 
-#: ../src/boards/chess.c:228
+#: ../src/boards/chess.c:243
 msgid ""
 "Error: The external program gnuchess is mandatory\n"
 "to play chess in gcompris.\n"
-"Find this program on http://www.rpmfind.net or in your\n"
-"GNU/Linux distribution\n"
-"And check it is in "
+"First install it, and check it is in "
 msgstr ""
 "Error: Kanpoko gnuchess programa nahitaezkoa da\n"
-"gcompris-en xakean jokatzeko.\n"
-"Programa aurkitzeko, bilatu http://www.rpmfind.net \n"
-"gunean, edo zure GNU/Linux banaketan\n"
-"Begiratu bertan dagoen "
+"GCompris-en xakean jokatzeko.\n"
+"Aurrenik instalatu, eta begiratu hemen dagoen: "
 
-#: ../src/boards/chess.c:572
+#: ../src/boards/chess.c:586
 msgid "White's Turn"
 msgstr "Zurien txanda"
 
-#: ../src/boards/chess.c:572
+#: ../src/boards/chess.c:586
 msgid "Black's Turn"
 msgstr "Beltzen txanda"
 
-#: ../src/boards/chess.c:716
+#: ../src/boards/chess.c:730
 msgid "White checks"
 msgstr "Zurien xakea"
 
-#: ../src/boards/chess.c:718
+#: ../src/boards/chess.c:732
 msgid "Black checks"
 msgstr "Beltzen xakea"
 
-#: ../src/boards/chess.c:1055
+#: ../src/boards/chess.c:1089
 msgid "Black mates"
 msgstr "Beltzen xake-matea"
 
-#: ../src/boards/chess.c:1060
+#: ../src/boards/chess.c:1094
 msgid "White mates"
 msgstr "Zurien xake-matea"
 
-#: ../src/boards/chess.c:1065 ../src/gcompris/bonus.c:333
-#: ../src/gcompris/bonus.c:342
+#: ../src/boards/chess.c:1099 ../src/gcompris/bonus.c:362
+#: ../src/gcompris/bonus.c:371
 msgid "Drawn game"
 msgstr "Berdinketa"
 
-#: ../src/boards/click_on_letter.c:263 ../src/boards/memory.c:827
+#: ../src/boards/chess.c:1127
+msgid "Error: The external program gnuchess died unexpectingly"
+msgstr "Errorea: kanpoko 'gnuchess' programa ustegabean hil da"
+
+#: ../src/boards/click_on_letter.c:258 ../src/boards/memory.c:810
 msgid ""
 "Error: this activity cannot be played with the\n"
 "sound effects disabled.\n"
@@ -4444,21 +4588,21 @@ msgstr ""
 #. TRANSLATORS: Put here the alphabet in your language
 #. require by all utf8-functions
 #. TRANSLATORS: Put here the alphabet lowercase in your language
-#: ../src/boards/click_on_letter.c:268 ../src/boards/gletters.c:232
-#: ../src/boards/memory.c:848
+#: ../src/boards/click_on_letter.c:263 ../src/boards/gletters.c:230
+#: ../src/boards/memory.c:832
 msgid "abcdefghijklmnopqrstuvwxyz"
 msgstr "abcdefghijklmnopqrstuvwxyz"
 
-#: ../src/boards/click_on_letter.c:290
+#: ../src/boards/click_on_letter.c:285
 #, c-format
 msgid ""
 "Error: this activity requires that you first install\n"
-"the packages with gcompris voices for the locale '%s' or '%s'"
+"the packages with GCompris voices for the locale '%s' or '%s'"
 msgstr ""
 "Errorea: ariketa hau egiteko '%s' edo '%s' hizkuntzeko\n"
-"gcompris-en ahotsen paketeak instalatu behar dituzu"
+"GCompris-en ahotsen paketeak instalatu behar dituzu"
 
-#: ../src/boards/click_on_letter.c:298
+#: ../src/boards/click_on_letter.c:293
 #, c-format
 msgid ""
 "Error: this activity requires that you first install\n"
@@ -4466,194 +4610,221 @@ msgid ""
 "sorry!"
 msgstr ""
 "Errorea: ariketa hau egiteko '%s' hizkuntzeko\n"
-"gcompris-en ahotsen paketeak instalatu behar dituzu. Ingelesera itzultzen, sentitzen da!"
+"gcompris-en ahotsen paketeak instalatu behar dituzu. Ingelesera itzultzen, "
+"sentitzen da!"
+
+#. Init configuration window:
+#. all the configuration functions will use it
+#. all the configuration functions returns values for their key in
+#. the dict passed to the apply_callback
+#. the returned value is the main GtkVBox of the window,
+#. we can add what you want in it.
+#: ../src/boards/click_on_letter.c:622 ../src/boards/colors.c:164
+#: ../src/boards/gletters.c:856 ../src/boards/imageid.c:748
+#: ../src/boards/missingletter.c:770
+#: ../src/boards/python/admin/board_list.py:640
+#: ../src/boards/python/admin/board_list.py:658
+#: ../src/boards/python/admin/wordlist.py:49 ../src/boards/python/login.py:535
+#: ../src/boards/python/pythontest.py:409 ../src/boards/python/tuxpaint.py:207
+#: ../src/boards/reading.c:832 ../src/boards/scale.c:861
+#: ../src/boards/shapegame.c:1847 ../src/boards/smallnumbers.c:589
+#, c-format, python-format
+msgid ""
+"<b>%s</b> configuration\n"
+" for profile <b>%s</b>"
+msgstr ""
+"<b>%s</b> konfigurazioa\n"
+"<b>%s</b> profilarena"
 
 #. toggle box
-#: ../src/boards/click_on_letter.c:649 ../src/boards/gletters.c:899
-#: ../src/boards/python/login.py:535
+#: ../src/boards/click_on_letter.c:645 ../src/boards/gletters.c:889
+#: ../src/boards/python/login.py:540
 msgid "Uppercase only text"
 msgstr "Testua maiuskuletan soilik"
 
-#: ../src/boards/clickgame.c:177
-#, c-format
-msgid "Couldn't open dir: %s"
-msgstr "Ezin izan da direktorioa ireki: %s"
-
-#: ../src/boards/clockgame.c:544 ../src/boards/clockgame.c:554
+#: ../src/boards/clockgame.c:549 ../src/boards/clockgame.c:559
 msgid "Set the watch to:"
 msgstr "Jarri ordularia ordu honetan:"
 
-#: ../src/boards/colors.c:57
+#: ../src/boards/colors.c:55
 msgid "Click on the blue duck"
 msgstr "Egin klik panpin urdinean"
 
-#: ../src/boards/colors.c:58
+#: ../src/boards/colors.c:56
 msgid "Click on the brown duck"
 msgstr "Egin klik panpin marroian"
 
-#: ../src/boards/colors.c:59
+#: ../src/boards/colors.c:57
 msgid "Click on the green duck"
 msgstr "Egin klik panpin berdean"
 
-#: ../src/boards/colors.c:60
+#: ../src/boards/colors.c:58
 msgid "Click on the grey duck"
 msgstr "Egin klik panpin grisean"
 
-#: ../src/boards/colors.c:61
+#: ../src/boards/colors.c:59
 msgid "Click on the orange duck"
 msgstr "Egin klik panpin laranjan"
 
-#: ../src/boards/colors.c:62
+#: ../src/boards/colors.c:60
 msgid "Click on the purple duck"
 msgstr "Egin klik panpin morean"
 
-#: ../src/boards/colors.c:63
+#: ../src/boards/colors.c:61
 msgid "Click on the red duck"
 msgstr "Egin klik panpin gorrian"
 
-#: ../src/boards/colors.c:64
+#: ../src/boards/colors.c:62
 msgid "Click on the yellow duck"
 msgstr "Egin klik panpin horian"
 
-#: ../src/boards/colors.c:65
+#: ../src/boards/colors.c:63
 msgid "Click on the black duck"
 msgstr "Egin klik panpin beltzean"
 
-#: ../src/boards/colors.c:66
+#: ../src/boards/colors.c:64
 msgid "Click on the white duck"
 msgstr "Egin klik panpin zurian"
 
+#: ../src/boards/colors.c:176 ../src/boards/python/admin/board_list.py:670
+#: ../src/boards/python/pythontest.py:473 ../src/boards/smallnumbers.c:609
+msgid "Select sound locale"
+msgstr "Hautatu soinu lokala"
+
 #. TRANSLATORS: Put here the numbers in your language
-#: ../src/boards/gletters.c:228 ../src/boards/memory.c:844
+#: ../src/boards/gletters.c:226 ../src/boards/memory.c:828
 msgid "0123456789"
 msgstr "0123456789"
 
 #. TRANSLATORS: Put here the alphabet uppercase in your language
-#: ../src/boards/gletters.c:238 ../src/boards/memory.c:854
+#: ../src/boards/gletters.c:236 ../src/boards/memory.c:838
 msgid "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 msgstr "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
-#: ../src/boards/hanoi.c:335 ../src/boards/hanoi.c:346
+#: ../src/boards/gletters.c:885 ../src/boards/smallnumbers.c:607
+msgid "Enable sounds"
+msgstr "Gaitu soinuak"
+
+#: ../src/boards/hanoi.c:331 ../src/boards/hanoi.c:342
 msgid ""
 "Build the same tower in the empty area as the one you see on the right-hand "
 "side."
 msgstr "Egin area hutsean eskuineko dorrearen berdina"
 
-#: ../src/boards/hanoi_real.c:76
+#: ../src/boards/hanoi_real.c:71
 msgid "Tower of Hanoi"
 msgstr "Hanoiko dorrea"
 
-#: ../src/boards/hanoi_real.c:277 ../src/boards/hanoi_real.c:288
+#: ../src/boards/hanoi_real.c:276 ../src/boards/hanoi_real.c:287
 msgid "Move the entire stack to the right peg, one disc at a time"
 msgstr "Aldatu lekuz pila osoa eskuineko zirira, disko bat aldatuz aldiko"
 
-#: ../src/boards/imageid.c:114 ../src/boards/missingletter.c:105
+#: ../src/boards/imageid.c:103 ../src/boards/missingletter.c:101
 msgid "Learn how to read"
 msgstr "Ikasi irakurtzen"
 
-#: ../src/boards/leftright.c:280 ../src/boards/leftright.c:290
-#: ../src/boards/python/searace.py:429 ../src/boards/python/searace.py:454
-#: ../src/boards/python/searace.py:544 ../src/boards/python/searace.py:856
-#: ../src/boards/python/searace.py:889 ../src/boards/python/searace.py:986
+#: ../src/boards/leftright.c:276 ../src/boards/leftright.c:286
+#: ../src/boards/python/searace.py:432 ../src/boards/python/searace.py:457
+#: ../src/boards/python/searace.py:547 ../src/boards/python/searace.py:856
+#: ../src/boards/python/searace.py:889 ../src/boards/python/searace.py:980
 msgid "left"
 msgstr "ezkerrera"
 
-#: ../src/boards/leftright.c:300 ../src/boards/leftright.c:310
-#: ../src/boards/python/searace.py:429 ../src/boards/python/searace.py:454
-#: ../src/boards/python/searace.py:553 ../src/boards/python/searace.py:858
-#: ../src/boards/python/searace.py:891 ../src/boards/python/searace.py:980
+#: ../src/boards/leftright.c:296 ../src/boards/leftright.c:306
+#: ../src/boards/python/searace.py:432 ../src/boards/python/searace.py:457
+#: ../src/boards/python/searace.py:556 ../src/boards/python/searace.py:858
+#: ../src/boards/python/searace.py:891 ../src/boards/python/searace.py:974
 msgid "right"
 msgstr "eskuinera"
 
-#: ../src/boards/maze.c:496
+#: ../src/boards/maze.c:491
 msgid ""
 "Look at your position, then switch back to invisible mode to continue your "
 "moves"
 msgstr "Begiratu ondo non zauden eta itzuli ikusezin modura mugitzeko"
 
-#: ../src/boards/maze.c:498
+#: ../src/boards/maze.c:493
 msgid "Look at your position, then switch back to 3D mode to continue your moves"
 msgstr "Begiratu ondo non zauden eta itzuli 3D modura mugitzeko"
 
-#: ../src/boards/memory.c:287
+#: ../src/boards/memory.c:263
 msgid "Memory"
 msgstr "Memoria"
 
-#: ../src/boards/memory.c:288
+#: ../src/boards/memory.c:264
 msgid "Find the matching pair"
 msgstr "Aurkitu dagokion bikotea"
 
-#. TRANSLATORS: Put here the mathematical operators "+-�" for  your language.
-#: ../src/boards/memory.c:859
-msgid "+-×÷"
-msgstr "+-×÷"
-
-#: ../src/boards/menu2.c:128
+#: ../src/boards/menu2.c:132
 msgid "Main Menu Second Version"
 msgstr "Menu nagusiaren bigarren bertsioa"
 
-#: ../src/boards/menu2.c:129
+#: ../src/boards/menu2.c:133
 msgid "Select a Board"
 msgstr "Hautatu arbel bat"
 
 #. Set here the way to display money. Change only the money sign, and it's place, always keep %.2f, it will be replaced by 0,34 if decimal is ',' in your locale
-#: ../src/boards/money.c:492
+#: ../src/boards/money.c:487
 #, c-format
 msgid "$ %.2f"
 msgstr "%.2f €"
 
-#: ../src/boards/money.c:505
+#: ../src/boards/money.c:500
 #, c-format
 msgid "$ %.0f"
 msgstr "%.0f €"
 
-#: ../src/boards/planegame.c:78
+#: ../src/boards/paratrooper.c:436
+msgid "Control fall speed with up and down arrow keys."
+msgstr "Kontrolatu erorketaren abiadura teklatuko gora eta behera geziekin."
+
+#: ../src/boards/planegame.c:74
 msgid "Move the plane to catch the clouds in the correct order"
 msgstr "Mugitu helikopteroa hodeiak behar den ordenan harrapatzeko"
 
-#: ../src/boards/python.c:62
+#: ../src/boards/python.c:62 ../src/boards/python.c:86
 msgid "Python Board"
 msgstr "Python taula"
 
-#: ../src/boards/python.c:63
-msgid "Special board that embeds python into gcompris."
-msgstr "Python gcompris-en kapsulatzen duen taula berezia."
+#: ../src/boards/python.c:63 ../src/boards/python.c:87
+msgid "Special board that embeds python into GCompris."
+msgstr "Python GCompris-en kapsulatzen duen mahai-joko berezia."
 
-#: ../src/boards/python/admin/board_list.py:90
+#: ../src/boards/python/admin/board_list.py:88
 msgid "Select a profile:"
 msgstr "Hautatu profila:"
 
-#: ../src/boards/python/admin/board_list.py:146
+#: ../src/boards/python/admin/board_list.py:144
 msgid "Filter"
 msgstr "Iragazkia"
 
-#: ../src/boards/python/admin/board_list.py:151
+#: ../src/boards/python/admin/board_list.py:149
 msgid "Select all"
 msgstr "Hautatu dena"
 
-#: ../src/boards/python/admin/board_list.py:156
+#: ../src/boards/python/admin/board_list.py:154
 msgid "Unselect all"
 msgstr "Desautatu denak"
 
-#: ../src/boards/python/admin/board_list.py:161
+#: ../src/boards/python/admin/board_list.py:159
 msgid "Locales"
 msgstr "Hizkuntzak"
 
-#: ../src/boards/python/admin/board_list.py:166
+#: ../src/boards/python/admin/board_list.py:164
 msgid "Locales sound"
 msgstr "Hizkuntzaren soinuak"
 
-#: ../src/boards/python/admin/board_list.py:171
+#: ../src/boards/python/admin/board_list.py:169
 msgid "Wordlist"
 msgstr "Hitz-zerrenda"
 
-#: ../src/boards/python/admin/board_list.py:178
-#: ../src/boards/python/admin/group_user_list.py:145
-#: ../src/boards/python/admin/user_list.py:187
+#: ../src/boards/python/admin/board_list.py:176
+#: ../src/boards/python/admin/group_user_list.py:143
+#: ../src/boards/python/admin/user_list.py:185
 msgid "Login"
 msgstr "Erabiltzaile-izena"
 
-#: ../src/boards/python/admin/board_list.py:236
+#: ../src/boards/python/admin/board_list.py:234
 msgid "Main menu"
 msgstr "Menu nagusia"
 
@@ -4662,283 +4833,311 @@ msgstr "Menu nagusia"
 #. image = gtk.image_new_from_stock(gtk.STOCK_PREFERENCES, gtk.ICON_SIZE_MENU)
 #. image.show()
 #. column_pref.set_widget(image)
-#: ../src/boards/python/admin/board_list.py:293
+#: ../src/boards/python/admin/board_list.py:301
 msgid "Active"
 msgstr "Aktibo"
 
-#: ../src/boards/python/admin/board_list.py:294
+#: ../src/boards/python/admin/board_list.py:302
 msgid "Board title"
 msgstr "Arbelaren titulua"
 
-#: ../src/boards/python/admin/board_list.py:410
+#: ../src/boards/python/admin/board_list.py:418
 #, python-format
 msgid "Filter Boards difficulty for profile %s"
 msgstr "Iragazi arbelen zailtasuna %s profilarentzat"
 
-#: ../src/boards/python/admin/board_list.py:441
+#: ../src/boards/python/admin/board_list.py:449
 #, python-format
 msgid ""
 "<span size='x-large'> Select the difficulty range \n"
 "for profile <b>%s</b></span>"
 msgstr "<span size='x-large'>Hautatu <b>%s</b> profilaren zailtasun barrutia</span>"
 
-#. Init configuration window:
-#. all the configuration functions will use it
-#. all the configuration functions returns values for their key in
-#. the dict passed to the apply_callback
-#. the returned value is the main GtkVBox of the window,
-#. we can add what you want in it.
-#: ../src/boards/python/admin/board_list.py:632
-#: ../src/boards/python/admin/board_list.py:650
-#: ../src/boards/python/admin/wordlist.py:51 ../src/boards/python/login.py:530
-#: ../src/boards/python/pythontest.py:410 ../src/boards/python/tuxpaint.py:184
-#, python-format
-msgid ""
-"<b>%s</b> configuration\n"
-" for profile <b>%s</b>"
-msgstr ""
-"<b>%s</b> konfigurazioa\n"
-"<b>%s</b> profilarena"
-
-#: ../src/boards/python/admin/board_list.py:662
-#: ../src/boards/python/pythontest.py:474
-msgid "Select sound locale"
-msgstr "Hautatu soinu lokala"
-
-#: ../src/boards/python/admin/class_edit.py:60
+#: ../src/boards/python/admin/class_edit.py:59
 msgid "Editing a Class"
 msgstr "Editatu klasea"
 
-#: ../src/boards/python/admin/class_edit.py:65
+#: ../src/boards/python/admin/class_edit.py:64
 msgid "Editing class: "
 msgstr "Editatu klasea:"
 
-#: ../src/boards/python/admin/class_edit.py:68
+#: ../src/boards/python/admin/class_edit.py:67
 msgid "Editing a new class"
 msgstr "Editatu klase berria"
 
-#: ../src/boards/python/admin/class_edit.py:90
+#: ../src/boards/python/admin/class_edit.py:89
 msgid "Class:"
 msgstr "Klasea:"
 
 #. FIXME: How to remove the default selection
 #. Label and Entry for the teacher name
-#: ../src/boards/python/admin/class_edit.py:103
+#: ../src/boards/python/admin/class_edit.py:102
 msgid "Teacher:"
 msgstr "Irakaslea:"
 
-#: ../src/boards/python/admin/class_edit.py:113
+#: ../src/boards/python/admin/class_edit.py:112
 msgid "Assign all the users belonging to this class"
 msgstr "Esleitu klase honi dagokien erabiltzaile guztiak"
 
-#: ../src/boards/python/admin/class_edit.py:253
-#: ../src/boards/python/admin/group_edit.py:265
-#: ../src/boards/python/admin/group_user_list.py:155
-#: ../src/boards/python/admin/user_list.py:197
+#: ../src/boards/python/admin/class_edit.py:252
+#: ../src/boards/python/admin/group_edit.py:264
+#: ../src/boards/python/admin/group_user_list.py:153
+#: ../src/boards/python/admin/user_list.py:195
 msgid "First Name"
 msgstr "Izena"
 
-#: ../src/boards/python/admin/class_edit.py:264
-#: ../src/boards/python/admin/group_edit.py:276
-#: ../src/boards/python/admin/group_user_list.py:165
-#: ../src/boards/python/admin/user_list.py:207
+#: ../src/boards/python/admin/class_edit.py:263
+#: ../src/boards/python/admin/group_edit.py:275
+#: ../src/boards/python/admin/group_user_list.py:163
+#: ../src/boards/python/admin/user_list.py:205
 msgid "Last Name"
 msgstr "Abizena"
 
-#: ../src/boards/python/admin/class_edit.py:341
+#: ../src/boards/python/admin/class_edit.py:340
 msgid "You need to provide at least a name for your class"
 msgstr "Klasearen izena eman behar duzu gutxienez"
 
-#: ../src/boards/python/admin/class_edit.py:387
+#: ../src/boards/python/admin/class_edit.py:386
 msgid "There is already a class with this name"
 msgstr "Izen berdineko klasea badago lehendik ere"
 
-#: ../src/boards/python/admin/class_list.py:170
-#: ../src/boards/python/admin/profile_edit.py:269
-#: ../src/boards/python/admin/profile_group_list.py:145
+#: ../src/boards/python/admin/class_list.py:168
+#: ../src/boards/python/admin/profile_edit.py:268
+#: ../src/boards/python/admin/profile_group_list.py:143
 msgid "Class"
 msgstr "Klasea"
 
-#: ../src/boards/python/admin/class_list.py:180
+#: ../src/boards/python/admin/class_list.py:178
 msgid "Teacher"
 msgstr "Irakaslea"
 
-#: ../src/boards/python/admin/group_edit.py:60
+#: ../src/boards/python/admin/group_edit.py:59
 msgid "Editing a Group"
 msgstr "Editatu taldea"
 
-#: ../src/boards/python/admin/group_edit.py:66
+#: ../src/boards/python/admin/group_edit.py:65
 msgid "Editing group: "
 msgstr "Editatu taldea:"
 
-#: ../src/boards/python/admin/group_edit.py:67
+#: ../src/boards/python/admin/group_edit.py:66
 msgid " for class: "
 msgstr " klasearena:"
 
-#: ../src/boards/python/admin/group_edit.py:70
+#: ../src/boards/python/admin/group_edit.py:69
 msgid "Editing a new group"
 msgstr "Editatu talde berria"
 
-#: ../src/boards/python/admin/group_edit.py:90
+#: ../src/boards/python/admin/group_edit.py:89
 msgid "Group:"
 msgstr "Taldea:"
 
 #. FIXME: How to remove the selection
 #. Label and Entry for the first name
-#: ../src/boards/python/admin/group_edit.py:102
-#: ../src/boards/python/admin/profile_edit.py:98
+#: ../src/boards/python/admin/group_edit.py:101
+#: ../src/boards/python/admin/profile_edit.py:97
 msgid "Description:"
 msgstr "Azalpena:"
 
 #. Top message gives instructions
-#: ../src/boards/python/admin/group_edit.py:113
+#: ../src/boards/python/admin/group_edit.py:112
 msgid "Assign all the users belonging to this group"
 msgstr "Esleitu taldeari dagozkion erabiltzaile guztiak"
 
-#: ../src/boards/python/admin/group_edit.py:359
+#: ../src/boards/python/admin/group_edit.py:358
 msgid "You need to provide at least a name for your group"
 msgstr "Taldearen izena eman behar duzu gutxienez"
 
-#: ../src/boards/python/admin/group_edit.py:373
+#: ../src/boards/python/admin/group_edit.py:372
 msgid "There is already a group with this name"
 msgstr "Izen berdineko talde bat badago lehendik ere"
 
-#: ../src/boards/python/admin/group_list.py:87
+#: ../src/boards/python/admin/group_list.py:85
 msgid "Select a class:"
 msgstr "Hautatu klasea:"
 
-#: ../src/boards/python/admin/group_list.py:215
-#: ../src/boards/python/admin/profile_edit.py:279
-#: ../src/boards/python/admin/profile_group_list.py:155
+#: ../src/boards/python/admin/group_list.py:213
+#: ../src/boards/python/admin/profile_edit.py:278
+#: ../src/boards/python/admin/profile_group_list.py:153
 msgid "Group"
 msgstr "Taldea"
 
-#: ../src/boards/python/admin/group_list.py:226
-#: ../src/boards/python/admin/profile_edit.py:289
-#: ../src/boards/python/admin/profile_group_list.py:165
-#: ../src/boards/python/admin/profile_list.py:199
+#: ../src/boards/python/admin/group_list.py:224
+#: ../src/boards/python/admin/profile_edit.py:288
+#: ../src/boards/python/admin/profile_group_list.py:163
+#: ../src/boards/python/admin/profile_list.py:197
 msgid "Description"
 msgstr "Azalpena"
 
-#: ../src/boards/python/admin/group_list.py:323
+#: ../src/boards/python/admin/group_list.py:321
 msgid "You must first select a group in the list"
 msgstr "Lehenik talde bat hautatu behar duzu zerrendatik"
 
-#: ../src/boards/python/admin/group_user_list.py:175
-#: ../src/boards/python/admin/user_list.py:217
+#: ../src/boards/python/admin/group_user_list.py:173
+#: ../src/boards/python/admin/user_list.py:215
 msgid "Birth Date"
 msgstr "Jaioteguna"
 
-#: ../src/boards/python/admin/module_boards.py:43
-#: ../src/boards/python/admin/module_boards.py:63
+#: ../src/boards/python/admin/log_list.py:90
+msgid "Select a user:"
+msgstr "Hautatu erabiltzailea:"
+
+#. Insert the ALL option (HACK, use the user_id -2 to indicate ALL)
+#: ../src/boards/python/admin/log_list.py:101
+msgid "All users"
+msgstr "Erabiltzaile guztiak"
+
+#: ../src/boards/python/admin/log_list.py:107
+#: ../src/boards/python/admin/log_list.py:286
+#: ../src/boards/python/admin/profile_list.py:120
+#: ../src/gcompris/board_config.c:667 ../src/gcompris/board_config.c:925
+msgid "Default"
+msgstr "Lehenetsia"
+
+#. Reset buttons
+#: ../src/boards/python/admin/log_list.py:161
+msgid "Reset"
+msgstr "Berrezarri"
+
+#: ../src/boards/python/admin/log_list.py:207
+msgid "Date"
+msgstr "Data"
+
+#: ../src/boards/python/admin/log_list.py:217
+msgid "User"
+msgstr "Erabiltzailea"
+
+#: ../src/boards/python/admin/log_list.py:227
+msgid "Board"
+msgstr "Mahai-jokoa"
+
+#: ../src/boards/python/admin/log_list.py:237
+#: ../src/boards/python/redraw.py:346 ../src/boards/python/redraw.py:356
+msgid "Level"
+msgstr "Maila"
+
+#: ../src/boards/python/admin/log_list.py:247
+msgid "Sublevel"
+msgstr "Azpimaila"
+
+#: ../src/boards/python/admin/log_list.py:257
+msgid "Duration"
+msgstr "Iraupena"
+
+#: ../src/boards/python/admin/log_list.py:267
+msgid "Status"
+msgstr "Egoera"
+
+#: ../src/boards/python/admin/module_boards.py:41
+#: ../src/boards/python/admin/module_boards.py:66
 msgid "Boards"
 msgstr "Mahai-jokoak"
 
-#: ../src/boards/python/admin/module_groups.py:41
-#: ../src/boards/python/admin/module_groups.py:67
+#: ../src/boards/python/admin/module_groups.py:39
+#: ../src/boards/python/admin/module_groups.py:65
 msgid "Groups"
 msgstr "Taldeak"
 
-#: ../src/boards/python/admin/module_profiles.py:41
-#: ../src/boards/python/admin/module_profiles.py:66
+#: ../src/boards/python/admin/module_profiles.py:39
+#: ../src/boards/python/admin/module_profiles.py:64
 msgid "Profiles"
 msgstr "Profilak"
 
-#: ../src/boards/python/admin/module_users.py:42
-#: ../src/boards/python/admin/module_users.py:68
-msgid "Classes"
-msgstr "Klaseak"
+#: ../src/boards/python/admin/module_reports.py:40
+#: ../src/boards/python/admin/module_reports.py:66
+msgid "Reports"
+msgstr "Txostenak"
 
-#: ../src/boards/python/admin/module_users.py:42
-#: ../src/boards/python/admin/module_users.py:68
+#: ../src/boards/python/admin/module_reports.py:66
+#: ../src/boards/python/admin/module_users.py:40
+#: ../src/boards/python/admin/module_users.py:66
 msgid "Users"
 msgstr "Erabiltzaileak"
 
-#: ../src/boards/python/admin/profile_edit.py:59
+#: ../src/boards/python/admin/module_users.py:40
+#: ../src/boards/python/admin/module_users.py:66
+msgid "Classes"
+msgstr "Klaseak"
+
+#: ../src/boards/python/admin/profile_edit.py:58
 msgid "Editing a Profile"
 msgstr "Editatu profila"
 
-#: ../src/boards/python/admin/profile_edit.py:64
+#: ../src/boards/python/admin/profile_edit.py:63
 msgid "Editing profile: "
 msgstr "Editatu profila:"
 
-#: ../src/boards/python/admin/profile_edit.py:67
+#: ../src/boards/python/admin/profile_edit.py:66
 msgid "Editing a new profile"
 msgstr "Editatu profila berria"
 
-#: ../src/boards/python/admin/profile_edit.py:86
+#: ../src/boards/python/admin/profile_edit.py:85
 msgid "Profile:"
 msgstr "Profila:"
 
 #. Top message gives instructions
-#: ../src/boards/python/admin/profile_edit.py:109
+#: ../src/boards/python/admin/profile_edit.py:108
 msgid "Assign all the groups belonging to this profile"
 msgstr "Esleitu profilari dagozkion talde guztiak"
 
-#: ../src/boards/python/admin/profile_edit.py:377
+#: ../src/boards/python/admin/profile_edit.py:376
 msgid "You need to provide at least a name for your profile"
 msgstr "Profilaren izena eman behar duzu gutxienez"
 
-#: ../src/boards/python/admin/profile_edit.py:399
+#: ../src/boards/python/admin/profile_edit.py:398
 msgid "There is already a profile with this name"
 msgstr "Izen berdineko profila bat badago lehendik ere"
 
-#: ../src/boards/python/admin/profile_list.py:122
-#: ../src/gcompris/board_config.c:654 ../src/gcompris/board_config.c:815
-msgid "Default"
-msgstr "Lehenetsia"
-
-#: ../src/boards/python/admin/profile_list.py:189
+#: ../src/boards/python/admin/profile_list.py:187
 msgid "Profile"
 msgstr "Profila"
 
-#: ../src/boards/python/admin/profile_list.py:316
+#: ../src/boards/python/admin/profile_list.py:314
 msgid "[Default]"
 msgstr "[lehenetsia]"
 
-#: ../src/boards/python/admin/user_edit.py:50
+#: ../src/boards/python/admin/user_edit.py:49
 msgid "Editing a User"
 msgstr "Editatu erabiltzailea"
 
-#: ../src/boards/python/admin/user_edit.py:55
+#: ../src/boards/python/admin/user_edit.py:54
 msgid "Editing a User "
 msgstr "Editatu erabiltzailea"
 
-#: ../src/boards/python/admin/user_edit.py:61
+#: ../src/boards/python/admin/user_edit.py:60
 msgid "Editing a new user"
 msgstr "Editatu erabiltzaile berria"
 
-#: ../src/boards/python/admin/user_edit.py:78
+#: ../src/boards/python/admin/user_edit.py:77
 msgid "Login:"
 msgstr "Erabiltzaile-izena:"
 
 #. FIXME: How to remove the selection
 #. Label and Entry for the first name
-#: ../src/boards/python/admin/user_edit.py:89
+#: ../src/boards/python/admin/user_edit.py:88
 msgid "First name:"
 msgstr "Izena:"
 
 #. Label and Entry for the last name
-#: ../src/boards/python/admin/user_edit.py:98
+#: ../src/boards/python/admin/user_edit.py:97
 msgid "Last name:"
 msgstr "Deitura:"
 
 #. Label and Entry for the birth date
-#: ../src/boards/python/admin/user_edit.py:107
+#: ../src/boards/python/admin/user_edit.py:106
 msgid "Birth date:"
 msgstr "Jaioteguna:"
 
-#: ../src/boards/python/admin/user_edit.py:159
+#: ../src/boards/python/admin/user_edit.py:158
 msgid "You need to provide at least a login, first name and last name for your users"
 msgstr ""
 "Zure erabiltzaileen izena, deitura eta erabiltzaile-izena eman behar dituzu "
 "gutxienez"
 
-#: ../src/boards/python/admin/user_edit.py:176
+#: ../src/boards/python/admin/user_edit.py:175
 msgid "There is already a user with this login"
 msgstr "Erabiltzaile-izen berdineko erabiltzailea badago lehendik ere"
 
-#: ../src/boards/python/admin/user_list.py:292
+#: ../src/boards/python/admin/user_list.py:290
 msgid ""
 "To import a user list from a file, first select a class.\n"
 "FILE FORMAT: Your file must be formatted like this:\n"
@@ -4951,7 +5150,7 @@ msgstr ""
 "erabiltzaile-izena;izena;deitura;jaioteguna\n"
 "Bereizlea automatikoki detektatzen da eta ',', ';' edo ':' izan daiteke."
 
-#: ../src/boards/python/admin/user_list.py:371
+#: ../src/boards/python/admin/user_list.py:369
 #, python-format
 msgid ""
 "One or more logins are not unique !\n"
@@ -4960,32 +5159,49 @@ msgstr ""
 "Erabiltzaile-izen bat edo gehiago ez dira bakarrak.\n"
 "Hauek aldatu behar dituzu: %s!"
 
-#: ../src/boards/python/anim.py:59
-msgid "You need the python xml module. Disabling SVG."
-msgstr "Python xml modulua behar da. SVG desgaitzen."
-
-#. gcompris.utils.dialog(_('Python xml module bot found. SVG is disabled. Install the python xml module to enable SVG Save/restore.'), None)
-#: ../src/boards/python/anim.py:417
-msgid ""
-"Python xml module not found. SVG is disabled. Install the python xml module "
-"to enable SVG Save/restore."
-msgstr ""
-"Ez da Python XML modulua aurkitu. SVG desgaituta dago. Instalatu Python XML "
-"modulua SVG gordetzea/leheneratzea gaitzeko."
-
-#: ../src/boards/python/anim.py:2206
+#: ../src/boards/python/anim.py:2224
 msgid "SVG is disabled. Install python xml module to enable it"
 msgstr "SVG desgaituta dago. Instalatu Python XML modulua gaitzeko."
 
-#: ../src/boards/python/anim.py:2362
+#: ../src/boards/python/anim.py:2380
 msgid "Warning: the following images cannot be accessed on your system.\n"
 msgstr "Abisua: honako irudiak ezin dira sisteman aurkitu.\n"
 
-#: ../src/boards/python/anim.py:2364
+#: ../src/boards/python/anim.py:2382
 msgid "The corresponding items have been skipped."
 msgstr "Dagokien elementuak baztertu egin dira."
 
-#: ../src/boards/python/electric.py:96
+#: ../src/boards/python/chat.py:81
+msgid "All messages will be displayed here.\n"
+msgstr "MEzu guztiak hemen bistaratuko dira.\n"
+
+#: ../src/boards/python/chat.py:131
+msgid "Your Friends"
+msgstr "Zure lagunak"
+
+#: ../src/boards/python/chat.py:163
+msgid "Your Channel"
+msgstr "Zure kanala"
+
+#: ../src/boards/python/chat.py:189
+msgid ""
+"Type your message here, to send to other GCompris users on your local "
+"network."
+msgstr ""
+"Idatzi zure mezua hemen, sare lokaleko GCompris-eko beste erabiltzaileei "
+"bidaltzeko."
+
+#: ../src/boards/python/chat.py:324
+msgid "You must set a channel in your channel entry box first.\n"
+msgstr "Kanal bat ezarri behar duzu kanalen sarrerako koadroan aurrenik.\n"
+
+#: ../src/boards/python/chat.py:325
+msgid "Your friends must set the same channel in order to communicate with you"
+msgstr ""
+"Zure lagunek kanal berdinean ezarri behar dira zurekin berriketan egin ahal "
+"izateko"
+
+#: ../src/boards/python/electric.py:94
 msgid ""
 "Cannot find the 'gnucap' electric simulator.\n"
 "You can download and install it from:\n"
@@ -5027,66 +5243,67 @@ msgstr "1 ez da zenbaki lehena."
 msgid "Primes less than %d"
 msgstr "Lehenak %d baino txikiagoak"
 
-#: ../src/boards/python/gnumch.py:151
+#. Translators: You can swap %(x)y elements in the string.
+#: ../src/boards/python/gnumch.py:152
 #, python-format
 msgid ""
-"Multiples of %d include %s,\n"
-"but %d is not a multiple of %d."
+"Multiples of %(d1)d include %(s)s,\n"
+"but %(d2)d is not a multiple of %(d3)d."
 msgstr ""
-"%d(r)en multiploak %s dute,\n"
-"baina %d ez da %d(r)en multiploa."
+"%(d1)d(r)en multiploak %(s)s dute,\n"
+"baina %(d2)d ez da %(d3)d(r)en multiploa."
 
-#: ../src/boards/python/gnumch.py:160
+#: ../src/boards/python/gnumch.py:163
 #, python-format
 msgid "Factors of %d"
 msgstr "%d(r)en faktoreak"
 
-#: ../src/boards/python/gnumch.py:193
+#: ../src/boards/python/gnumch.py:196
 #, python-format
 msgid "%s are the factors of %d."
 msgstr "%s %d(r)en faktoreak dira."
 
-#: ../src/boards/python/gnumch.py:205
+#: ../src/boards/python/gnumch.py:208
 #, python-format
 msgid "Multiples of %d"
 msgstr "%d(r)en multiploak"
 
-#: ../src/boards/python/gnumch.py:239
+#: ../src/boards/python/gnumch.py:242
 #, python-format
 msgid "%s = %d"
 msgstr "%s = %d"
 
-#: ../src/boards/python/gnumch.py:250
+#: ../src/boards/python/gnumch.py:253
 #, python-format
 msgid "%d + %d"
 msgstr "%d + %d"
 
-#: ../src/boards/python/gnumch.py:255
+#: ../src/boards/python/gnumch.py:258
 #, python-format
 msgid "%d − %d"
 msgstr "%d - %d"
 
-#: ../src/boards/python/gnumch.py:260
+#: ../src/boards/python/gnumch.py:263
 #, python-format
 msgid "%d × %d"
 msgstr "%d x %d"
 
-#: ../src/boards/python/gnumch.py:264
+#: ../src/boards/python/gnumch.py:267
 #, python-format
 msgid "%d ÷ %d"
 msgstr "%d ÷ %d"
 
-#: ../src/boards/python/gnumch.py:272
+#: ../src/boards/python/gnumch.py:275
 #, python-format
 msgid "Equal to %d"
 msgstr "%d(r)en berdina"
 
-#: ../src/boards/python/gnumch.py:293
+#: ../src/boards/python/gnumch.py:296
 #, python-format
 msgid "Not equal to %d"
 msgstr "Ez da %d(r)en berdina"
 
-#: ../src/boards/python/gnumch.py:435
+#: ../src/boards/python/gnumch.py:440
 msgid ""
 "You were eaten by a Troggle.\n"
 "Press <Return> to continue."
@@ -5094,11 +5311,11 @@ msgstr ""
 "Troggle batek jan zaitu.\n"
 "Sakatu <Sartu> jarraitzeko."
 
-#: ../src/boards/python/gnumch.py:484
+#: ../src/boards/python/gnumch.py:489
 msgid "You ate a wrong number.\n"
 msgstr "Zenbaki okerra jan duzu.\n"
 
-#: ../src/boards/python/gnumch.py:485
+#: ../src/boards/python/gnumch.py:490
 msgid ""
 "\n"
 "Press <Return> to continue."
@@ -5106,7 +5323,7 @@ msgstr ""
 "\n"
 "Sakatu <Sartu> jarraitzeko."
 
-#: ../src/boards/python/gnumch.py:778
+#: ../src/boards/python/gnumch.py:783
 msgid ""
 "T\n"
 "R\n"
@@ -5124,50 +5341,50 @@ msgstr ""
 "L\n"
 "E"
 
-#: ../src/boards/python/guessnumber.py:222
+#: ../src/boards/python/guessnumber.py:204
 #, python-format
 msgid "Guess a number between %d and %d"
 msgstr "Asmatu %d eta %d arteko zenbakia"
 
-#: ../src/boards/python/guessnumber.py:335
-#: ../src/boards/python/guessnumber.py:336
+#: ../src/boards/python/guessnumber.py:317
+#: ../src/boards/python/guessnumber.py:318
 #, python-format
 msgid "Please enter a number between %d and %d"
 msgstr "Sartu zenbakia, %d eta %d artekoa"
 
-#: ../src/boards/python/guessnumber.py:341
-#: ../src/boards/python/guessnumber.py:342
+#: ../src/boards/python/guessnumber.py:323
+#: ../src/boards/python/guessnumber.py:324
 msgid "Out of range"
 msgstr "Barrutitik kanpo"
 
-#: ../src/boards/python/guessnumber.py:348
-#: ../src/boards/python/guessnumber.py:349
+#: ../src/boards/python/guessnumber.py:330
+#: ../src/boards/python/guessnumber.py:331
 msgid "Too high"
 msgstr "Altuegia"
 
-#: ../src/boards/python/guessnumber.py:351
-#: ../src/boards/python/guessnumber.py:352
+#: ../src/boards/python/guessnumber.py:333
+#: ../src/boards/python/guessnumber.py:334
 msgid "Too low"
 msgstr "Baxuegia"
 
-#: ../src/boards/python/login.py:115
+#: ../src/boards/python/login.py:114
 msgid "Profile: "
 msgstr "Profila: "
 
-#: ../src/boards/python/login.py:263 ../src/boards/python/login.py:272
+#: ../src/boards/python/login.py:268 ../src/boards/python/login.py:277
 msgid "Login: "
 msgstr "Erabiltzaile-izena: "
 
 #. toggle box
-#: ../src/boards/python/login.py:545
+#: ../src/boards/python/login.py:550
 msgid "Enter login to log in"
 msgstr "Sartu erabiltzaile-izena saioa hasteko"
 
-#: ../src/boards/python/mosaic.py:210
+#: ../src/boards/python/mosaic.py:193
 msgid "Rebuild the same mosaic on the right area"
 msgstr "Berreraiki mosaiko berdina eskuineko arean"
 
-#: ../src/boards/python/melody.py:116
+#: ../src/boards/python/melody.py:119
 msgid ""
 "Error: this activity cannot be played with the\n"
 "sound effects disabled.\n"
@@ -5179,98 +5396,117 @@ msgstr ""
 "Joan konfiguratzeko elkarrizketara, eta gaitu\n"
 "soinua"
 
-#: ../src/boards/python/pythontest.py:149
+#: ../src/boards/python/oscar_and_friends.py:116
 msgid ""
-"This is the first plugin in gcompris coded in the Python\n"
+"Below the surface, Oscar the octopus and his friends sat on a rock,\n"
+"watching the bad weather above them."
+msgstr ""
+"urazpian, Oskar olagarroa eta bere lagunak haitz batean eserita daude,\n"
+"beraien gainean dagoen eguraldi txarrari begira."
+
+#: ../src/boards/python/oscar_and_friends.py:117
+msgid "They were all happy that the storms never reached all the way down to them."
+msgstr "Pozik daude ekaitzak ez dielako inoiz harrapatuko."
+
+#: ../src/boards/python/oscar_and_friends.py:118
+msgid "No matter how bad it was up there, the bottom was always calm and quiet."
+msgstr ""
+"Berdin zion nolako txarra zegoen goian, azpian beti egoten zen barealdi eta "
+"baketsu."
+
+#: ../src/boards/python/oscar_and_friends.py:119
+msgid "Oscar's best friends were Charlie the crab and Sandy the sea-star."
+msgstr ""
+"Oskarren lagunik onenak Joxetxo karramarroa eta Mirentxu itsasoko izarra "
+"ziren."
+
+#: ../src/boards/python/pythontest.py:148
+msgid ""
+"This is the first plugin in GCompris coded in the Python\n"
 "Programming language."
 msgstr ""
 "Hau da Python programazio-lengoaian kodetutako lehenengo \n"
-"gcompris plugin-a."
+"GCompris plugin-a."
 
-#: ../src/boards/python/pythontest.py:158
+#: ../src/boards/python/pythontest.py:157
 msgid ""
-"It is now possible to develop gcompris activities in C or in Python.\n"
+"It is now possible to develop GCompris activities in C or in Python.\n"
 "Thanks to Olivier Samys who makes this possible."
 msgstr ""
-"Orain gcompris ariketak C edo Python-en garatu ditzakezu.\n"
-" Mila esker Olivier Samys-i hori posible egiteagatik."
+"Orain GCompris ariketak C edo Python-en garatu ditzakezu.\n"
+"Mila esker Olivier Samys-i hori posible egiteagatik."
 
-#: ../src/boards/python/pythontest.py:167
+#: ../src/boards/python/pythontest.py:166
 msgid "This activity is not playable, just a test"
 msgstr "Ariketa honekin ezin da oraindik jolastu, proba bat besterik ez da"
 
 #. toggle box
-#: ../src/boards/python/pythontest.py:415
+#: ../src/boards/python/pythontest.py:414
 msgid "Disable line drawing in circle"
 msgstr "Desgaitu marra marraztea zirkuluan"
 
 #. combo box
-#: ../src/boards/python/pythontest.py:424
+#: ../src/boards/python/pythontest.py:423
 msgid "Color of the line"
 msgstr "Marraren kolorea"
 
 #. spin button for int
-#: ../src/boards/python/pythontest.py:435
+#: ../src/boards/python/pythontest.py:434
 msgid "Distance between circles"
 msgstr "Zirkuluen arteko distantzia"
 
 #. radio buttons for circle or rectangle
-#: ../src/boards/python/pythontest.py:446
+#: ../src/boards/python/pythontest.py:445
 msgid "Use circles"
 msgstr "Erabili zirkuluak"
 
-#: ../src/boards/python/pythontest.py:447
+#: ../src/boards/python/pythontest.py:446
 msgid "Use rectangles"
 msgstr "Erabili laukizuzenak"
 
-#: ../src/boards/python/pythontest.py:450
+#: ../src/boards/python/pythontest.py:449
 msgid "Choice of pattern"
 msgstr "Ereduaren hautapena"
 
-#: ../src/boards/python/redraw.py:348 ../src/boards/python/redraw.py:358
-msgid "Level"
-msgstr "Maila"
-
-#: ../src/boards/python/redraw.py:902 ../src/boards/python/redraw.py:905
+#: ../src/boards/python/redraw.py:908 ../src/boards/python/redraw.py:911
 msgid "Coordinate"
 msgstr "Koordinazioa"
 
-#: ../src/boards/python/searace.py:201 ../src/boards/python/searace.py:206
-#: ../src/boards/python/searace.py:232
+#: ../src/boards/python/searace.py:190
 msgid "The race is already being run"
 msgstr "Lasterketea exekutatzen dago lehendik"
 
 #. Manage default cases (no params given)
 #. Final move, add an ofset because we loose space in abs()
-#: ../src/boards/python/searace.py:429 ../src/boards/python/searace.py:454
-#: ../src/boards/python/searace.py:535 ../src/boards/python/searace.py:854
-#: ../src/boards/python/searace.py:883 ../src/boards/python/searace.py:978
-#: ../src/boards/python/searace.py:984 ../src/boards/python/searace.py:992
+#: ../src/boards/python/searace.py:432 ../src/boards/python/searace.py:457
+#: ../src/boards/python/searace.py:538 ../src/boards/python/searace.py:854
+#: ../src/boards/python/searace.py:883 ../src/boards/python/searace.py:972
+#: ../src/boards/python/searace.py:978 ../src/boards/python/searace.py:986
 msgid "forward"
 msgstr "aurrera"
 
-#: ../src/boards/python/searace.py:526
+#: ../src/boards/python/searace.py:529
 msgid "COMMANDS ARE"
 msgstr "KOMANDOAK:"
 
 #. The two boat arrived in a close time frame (1s), it's a draw
-#: ../src/boards/python/searace.py:752
+#: ../src/boards/python/searace.py:755
 msgid "This is a draw"
 msgstr "Berdinketa"
 
-#: ../src/boards/python/searace.py:759
+#: ../src/boards/python/searace.py:762
 msgid "The Red boat has won"
 msgstr "Itsasontzi gorriak irabazi du"
 
-#: ../src/boards/python/searace.py:762
+#: ../src/boards/python/searace.py:765
 msgid "The Green boat has won"
 msgstr "Itsasontzi berdeak irabazi du"
 
-#: ../src/boards/python/searace.py:780 ../src/boards/python/searace.py:1022
+#: ../src/boards/python/searace.py:783 ../src/boards/python/searace.py:1016
 msgid "Angle:"
 msgstr "Angelua:"
 
-#: ../src/boards/python/searace.py:780
+#: ../src/boards/python/searace.py:783
 msgid "Wind:"
 msgstr "Haizea:"
 
@@ -5286,11 +5522,11 @@ msgstr "Komandoa"
 msgid "Unknown command at line"
 msgstr "Komando ezezaguna honako lerroan"
 
-#: ../src/boards/python/searace.py:1022
+#: ../src/boards/python/searace.py:1016
 msgid "Distance:"
 msgstr "Distantzia:"
 
-#: ../src/boards/python/tuxpaint.py:120
+#: ../src/boards/python/tuxpaint.py:144
 msgid ""
 "Cannot find Tuxpaint.\n"
 "Install it to use this activity !"
@@ -5298,112 +5534,95 @@ msgstr ""
 "Ezin da Tuxpaint aurkitu.\n"
 "Instalatu ezazu ariketa hau erabiltzeko."
 
-#: ../src/boards/python/tuxpaint.py:133
+#: ../src/boards/python/tuxpaint.py:158
 msgid "Waiting for Tuxpaint to finish"
 msgstr "Tuxpaint-en zai amaitzeko"
 
-#: ../src/boards/python/tuxpaint.py:188
+#: ../src/boards/python/tuxpaint.py:211
 msgid "Inherit fullscreen setting from GCompris"
 msgstr "Heredatu GCompris-en pantaila osoaren ezarpenak"
 
-#: ../src/boards/python/tuxpaint.py:192
+#: ../src/boards/python/tuxpaint.py:216
 msgid "Inherit size setting from GCompris (800x600, 640x480)"
 msgstr "Heredatu GCompris-en tamainaren ezarpenak (800x600, 640x480)"
 
-#: ../src/boards/python/tuxpaint.py:196
+#: ../src/boards/python/tuxpaint.py:221
 msgid "Disable shape rotation"
 msgstr "Desgaitu forma biratzea"
 
-#: ../src/boards/python/tuxpaint.py:200
+#: ../src/boards/python/tuxpaint.py:226
 msgid "Show Uppercase text only"
 msgstr "Erakutsi letrak maiuskuletan soilik"
 
-#: ../src/boards/python/tuxpaint.py:204
+#: ../src/boards/python/tuxpaint.py:231
 msgid "Disable stamps"
 msgstr "Desgaitu zigiluak"
 
-#: ../src/boards/railroad.c:95
+#: ../src/boards/railroad.c:90
 msgid "Memory game"
 msgstr "Memoria-jokoa"
 
-#: ../src/boards/railroad.c:96
+#: ../src/boards/railroad.c:91
 msgid "Build a train according to the model"
 msgstr "Osatu trena ereduari jarraiki"
 
-#: ../src/boards/reading.c:370
+#: ../src/boards/reading.c:228 ../src/boards/wordsgame.c:205
+msgid ""
+"Error: We can't find\n"
+"a list of words to play this game.\n"
+msgstr ""
+"Errorea: Ezin da hitzen zerrenda aurkitu\n"
+"jolas honetara jokatzeko.\n"
+
+#: ../src/boards/reading.c:380
 msgid "Please, check if the word"
 msgstr "Begiratu ea hitza azaltzen"
 
-#: ../src/boards/reading.c:390
+#: ../src/boards/reading.c:400
 msgid "is being displayed"
 msgstr "den ala ez"
 
-#: ../src/boards/reading.c:561
+#: ../src/boards/reading.c:574
 msgid "I am Ready"
 msgstr "Prest nago"
 
-#: ../src/boards/reading.c:601
+#: ../src/boards/reading.c:614
 msgid "Yes, I saw it"
 msgstr "Bai, ikusi dut"
 
-#: ../src/boards/reading.c:631
+#: ../src/boards/reading.c:644
 msgid "No, it was not there"
 msgstr "Ez, ez dut ikusi"
 
 #. Report what was wrong in the log
-#: ../src/boards/reading.c:669
+#: ../src/boards/reading.c:682
 #, c-format
 msgid "The word to find was '%s'"
 msgstr "Aurkitu beharreko hitza '%s' zen"
 
-#: ../src/boards/reading.c:672
+#: ../src/boards/reading.c:685
 msgid "But it was not displayed"
 msgstr "Baina ez da azaldu"
 
-#: ../src/boards/reading.c:674
+#: ../src/boards/reading.c:687
 msgid "And it was displayed"
 msgstr "Eta azaldu da"
 
-#: ../src/boards/reading.c:777 ../src/boards/wordsgame.c:776
-msgid "Cannot open file of words for your locale"
-msgstr "Ezin da zure hizkuntzaren hitzen fitxategia ireki"
+#: ../src/boards/scale.c:264
+#, c-format
+msgid "Weight = %s"
+msgstr "Pisua = %s"
 
-#. Enter Edit Mode
-#: ../src/boards/shapegame.c:433
-msgid ""
-"You have entered Edit mode\n"
-"Move the puzzle items;\n"
-"type 's' to save, and\n"
-"'d' to display all the shapes"
-msgstr ""
-"Editatzeko moduan zaude\n"
-"Aldatu lekuz puzzlearen\n"
-"piezak, eta idatzi 's'\n"
-"gordetzeko, eta 'd' \n"
-"forma guztiak bistaratzeko"
+#: ../src/boards/scale.c:713
+msgid "Take care, you can drop masses on both sides of the scale."
+msgstr "Argi ibili, jaregin pisuak balantzaren bi aldeetan."
 
-#: ../src/boards/shapegame.c:441
-msgid ""
-"The data from this activity are saved under\n"
-"/tmp/gcompris-board.xml"
-msgstr ""
-"Arbel honetako datuak gordeta daude:\n"
-"/tmp/gcompris-board.xml"
-
-#: ../src/boards/submarine.c:201
-msgid "Submarine"
-msgstr "Urpeko ontzia"
-
-#: ../src/boards/submarine.c:202
-msgid "Control the depth of a submarine"
-msgstr "Kontrolatu urpeko ontzi baten sakonera"
-
-#: ../src/boards/target.c:285 ../src/boards/target.c:540
+#: ../src/boards/target.c:280 ../src/boards/target.c:545
 #, c-format
 msgid "Points = %s"
 msgstr "Puntuak = %s"
 
-#: ../src/boards/target.c:405
+#: ../src/boards/target.c:402
 #, c-format
 msgid ""
 "Wind speed = %d\n"
@@ -5412,41 +5631,73 @@ msgstr ""
 "Haizearen abiadura = %d\n"
 "kilometro orduko"
 
-#: ../src/boards/target.c:467
+#: ../src/boards/target.c:469
 #, c-format
 msgid "Distance to target = %d meters"
 msgstr "Helburuarekiko distantzia = %d metro"
 
-#: ../src/gcompris/about.c:65
+#: ../src/boards/wordprocessor.c:54
+msgid "Research"
+msgstr "Ikerketa"
+
+#: ../src/boards/wordprocessor.c:65
+msgid "Sentimental"
+msgstr "Bihotzbera"
+
+#: ../src/boards/wordprocessor.c:76
+msgid "Official"
+msgstr "Ofiziala"
+
+#: ../src/boards/wordprocessor.c:87 ../src/boards/wordprocessor.c:435
+msgid "Text"
+msgstr "Testua"
+
+#: ../src/boards/wordprocessor.c:98
+msgid "Flyer"
+msgstr "Iragarkia"
+
+#: ../src/boards/wordprocessor.c:432
+msgid "Title"
+msgstr "Titulua"
+
+#: ../src/boards/wordprocessor.c:433
+msgid "Heading 1"
+msgstr "1. goiburua"
+
+#: ../src/boards/wordprocessor.c:434
+msgid "Heading 2"
+msgstr "2. goiburua"
+
+#: ../src/gcompris/about.c:56
 msgid ""
 "Author: Bruno Coudoin\n"
-"Contribution: Pascal Georges, Jose Jorge\n"
+"Contribution: Pascal Georges, Jose Jorge, Yves Combe\n"
 "Graphics: Renaud Blanchard, Franck Doucet\n"
 "Intro Music: Djilali Sebihi\n"
 "Background Music: Rico Da Halvarez\n"
 msgstr ""
 "Egilea: Bruno Coudoin\n"
-"Laguntzaileak: Pascal Georges, Jose Jorge\n"
-"Irudiak: Renaud Blanchard\n"
+"Laguntzaileak: Pascal Georges, Jose Jorge, Yves Combe\n"
+"Irudiak: Renaud Blanchard, Franck Doucet\n"
 "Hasierako musika: Djilali Sebihi\n"
 "Hondo-musika: Rico Da Halvarez\n"
 
 #. TRANSLATORS: Replace this string with your names, one name per line.
-#: ../src/gcompris/about.c:73
+#: ../src/gcompris/about.c:64
 msgid "translator_credits"
 msgstr ""
 "Hizkuntza Politikarako Sailburuordetza <hizkpol@ej-gv.es>\n"
 "Iñaki Larrañaga Murgoitio <dooteo@euskalgnu.org>"
 
-#: ../src/gcompris/about.c:105 ../src/gcompris/about.c:114
+#: ../src/gcompris/about.c:95 ../src/gcompris/about.c:105
 msgid "About GCompris"
 msgstr "GCompris-i buruz"
 
-#: ../src/gcompris/about.c:124 ../src/gcompris/about.c:133
+#: ../src/gcompris/about.c:116
 msgid "Translators:"
 msgstr "Itzultzaileak:"
 
-#: ../src/gcompris/about.c:256
+#: ../src/gcompris/about.c:229
 msgid ""
 "GCompris Home Page\n"
 "http://gcompris.net"
@@ -5454,7 +5705,7 @@ msgstr ""
 "GCompris-en etxeko orria\n"
 "http://gcompris.net"
 
-#: ../src/gcompris/about.c:278
+#: ../src/gcompris/about.c:251
 msgid ""
 "This software is a GNU Package and is released under the GNU General Public "
 "License"
@@ -5462,34 +5713,34 @@ msgstr ""
 "Software hau GNU pakete bat da, eta GNU Lizentzia Publikoaren pean "
 "argitaratu da"
 
-#: ../src/gcompris/about.c:341 ../src/gcompris/about.c:350
-#: ../src/gcompris/config.c:224 ../src/gcompris/config.c:233
-#: ../src/gcompris/gameutil.c:1070 ../src/gcompris/help.c:382
-#: ../src/gcompris/help.c:391 ../src/gcompris/images_selector.c:263
+#: ../src/gcompris/about.c:279 ../src/gcompris/about.c:289
+#: ../src/gcompris/config.c:472 ../src/gcompris/config.c:482
+#: ../src/gcompris/dialog.c:102 ../src/gcompris/help.c:381
+#: ../src/gcompris/help.c:391 ../src/gcompris/images_selector.c:316
 msgid "OK"
 msgstr "Ados"
 
-#: ../src/gcompris/bar.c:565
+#: ../src/gcompris/bar.c:597
 msgid "GCompris confirmation"
 msgstr "GCompris-en berrespena"
 
-#: ../src/gcompris/bar.c:566
-msgid "Sure you want to quit ?"
+#: ../src/gcompris/bar.c:598
+msgid "Are you sure you want to quit?"
 msgstr "Ziur zaude irtetzea nahi duzula?"
 
-#: ../src/gcompris/bar.c:567
-msgid "Yes, I am sure !"
+#: ../src/gcompris/bar.c:599
+msgid "Yes, I am sure!"
 msgstr "Bai, ziur nago!"
 
-#: ../src/gcompris/bar.c:568
+#: ../src/gcompris/bar.c:600
 msgid "No, I want to keep going"
 msgstr "Ez, irtetzea nahi dut"
 
-#: ../src/gcompris/board.c:182
-msgid "Dynamic module loading is not supported. gcompris cannot load.\n"
-msgstr "Ez da onartzen modulu dinamikoa. gcompris ezin da kargatu.\n"
+#: ../src/gcompris/board.c:183
+msgid "Dynamic module loading is not supported. GCompris cannot load.\n"
+msgstr "Ez da onartzen modulu dinamikoa. GCompris-ek ezin du kargatu.\n"
 
-#: ../src/gcompris/board_config.c:686
+#: ../src/gcompris/board_config.c:699
 msgid ""
 "Select the language\n"
 " to use in the board"
@@ -5497,232 +5748,295 @@ msgstr ""
 "Hautatu hizkuntza\n"
 "arbelean erabiltzeko"
 
-#: ../src/gcompris/config.c:63
+#: ../src/gcompris/board_config.c:762
+msgid "Global GCompris mode"
+msgstr "GCompris modu globala"
+
+#: ../src/gcompris/board_config.c:763
+msgid "Normal"
+msgstr "Arrunta"
+
+#: ../src/gcompris/board_config.c:764
+msgid "2 clicks"
+msgstr "2 klik"
+
+#: ../src/gcompris/board_config.c:765
+msgid "both modes"
+msgstr "bi moduak"
+
+#: ../src/gcompris/board_config.c:793
+msgid ""
+"Select the drag and drop mode\n"
+" to use in the board"
+msgstr ""
+"Hautatu arrastatu eta jaregiteko modua\n"
+"mahai-jokoan erabiltzeko"
+
+#: ../src/gcompris/config.c:58
 msgid "Your system default"
 msgstr "Sistemaren lehenespenak"
 
-#: ../src/gcompris/config.c:64
+#: ../src/gcompris/config.c:59
+msgid "Afrikaans"
+msgstr "Afrikaansa"
+
+#: ../src/gcompris/config.c:60
 msgid "Amharic"
 msgstr "Amharic"
 
-#: ../src/gcompris/config.c:65
+#: ../src/gcompris/config.c:61
 msgid "Arabic"
 msgstr "Arabiera"
 
-#: ../src/gcompris/config.c:66
+#: ../src/gcompris/config.c:62
+msgid "Arabic (Tunisia)"
+msgstr "Arabiera (Tunisia)"
+
+#: ../src/gcompris/config.c:63
 msgid "Turkish (Azerbaijan)"
 msgstr "Turkiera (Azerbaijan)"
 
-#: ../src/gcompris/config.c:67
+#: ../src/gcompris/config.c:64
 msgid "Bulgarian"
 msgstr "Bulgariera"
 
-#: ../src/gcompris/config.c:68
+#: ../src/gcompris/config.c:65
 msgid "Catalan"
 msgstr "Katalana"
 
-#: ../src/gcompris/config.c:70
+#: ../src/gcompris/config.c:67
 msgid "Danish"
 msgstr "Daniera"
 
-#: ../src/gcompris/config.c:71
+#: ../src/gcompris/config.c:68
 msgid "German"
 msgstr "Alemana"
 
-#: ../src/gcompris/config.c:72
+#: ../src/gcompris/config.c:69
 msgid "Greek"
 msgstr "Grekoa"
 
-#: ../src/gcompris/config.c:73
+#: ../src/gcompris/config.c:70
 msgid "English (Canada)"
 msgstr "Ingelesa (Kanada)"
 
-#: ../src/gcompris/config.c:74
+#: ../src/gcompris/config.c:71
 msgid "English (Great Britain)"
 msgstr "Ingelesa (Britainia Handia)"
 
-#: ../src/gcompris/config.c:75
+#: ../src/gcompris/config.c:72
+msgid "English (United States)"
+msgstr "Ingelesa (Ameriketako Estatu Batuak)"
+
+#: ../src/gcompris/config.c:73
 msgid "Spanish"
 msgstr "Gaztelania"
 
-#: ../src/gcompris/config.c:76
+#: ../src/gcompris/config.c:74
 msgid "Basque"
 msgstr "Euskara"
 
-#: ../src/gcompris/config.c:77
+#: ../src/gcompris/config.c:75
+msgid "Dzongkha"
+msgstr ""
+
+#: ../src/gcompris/config.c:76
 msgid "Finnish"
 msgstr "Finlandiera"
 
-#: ../src/gcompris/config.c:78
+#: ../src/gcompris/config.c:77
 msgid "French"
 msgstr "Frantsesa"
 
-#: ../src/gcompris/config.c:79
+#: ../src/gcompris/config.c:78
 msgid "Irish (Gaelic)"
 msgstr "Gaelikoa (Irlandakoa)"
 
-#: ../src/gcompris/config.c:80
+#: ../src/gcompris/config.c:79
 msgid "Hebrew"
 msgstr "Hebreera"
 
-#: ../src/gcompris/config.c:81
+#: ../src/gcompris/config.c:80
 msgid "Hindi"
 msgstr "Hindia"
 
+#: ../src/gcompris/config.c:81
+msgid "Indonesian"
+msgstr "Indonesiera"
+
 #: ../src/gcompris/config.c:82
+msgid "Japanese"
+msgstr "Japoniera"
+
+#: ../src/gcompris/config.c:83
 msgid "Gujarati"
 msgstr "Gujaratera"
 
-#: ../src/gcompris/config.c:83
+#: ../src/gcompris/config.c:84
 msgid "Punjabi"
 msgstr "Punjabera"
 
-#: ../src/gcompris/config.c:84
+#: ../src/gcompris/config.c:85
 msgid "Hungarian"
 msgstr "Hungariera"
 
-#: ../src/gcompris/config.c:85
+#: ../src/gcompris/config.c:86
 msgid "Croatian"
 msgstr "Kroaziera"
 
-#: ../src/gcompris/config.c:86
+#: ../src/gcompris/config.c:87
 msgid "Italian"
 msgstr "Italiera"
 
-#: ../src/gcompris/config.c:87
+#: ../src/gcompris/config.c:88
 msgid "Georgian"
 msgstr "Georgiera"
 
-#: ../src/gcompris/config.c:88
+#: ../src/gcompris/config.c:89
+msgid "Korean"
+msgstr "Koreera"
+
+#: ../src/gcompris/config.c:90
 msgid "Lithuanian"
 msgstr "Lituaniera"
 
-#: ../src/gcompris/config.c:89
+#: ../src/gcompris/config.c:91
 msgid "Macedonian"
 msgstr "Mazedoniera"
 
-#: ../src/gcompris/config.c:90
+#: ../src/gcompris/config.c:92
 msgid "Malayalam"
 msgstr "Malayalama"
 
-#: ../src/gcompris/config.c:91
+#: ../src/gcompris/config.c:93
 msgid "Marathi"
 msgstr "Marathiera"
 
-#: ../src/gcompris/config.c:92
+#: ../src/gcompris/config.c:94
 msgid "Malay"
 msgstr "Malaysiera"
 
-#: ../src/gcompris/config.c:93
+#: ../src/gcompris/config.c:95
 msgid "Nepal"
 msgstr "Nepal"
 
-#: ../src/gcompris/config.c:94
+#: ../src/gcompris/config.c:96
 msgid "Dutch"
 msgstr "Nederlandera"
 
-#: ../src/gcompris/config.c:95
+#: ../src/gcompris/config.c:97
 msgid "Norwegian Bokmal"
 msgstr "Norvegiako Bokmal"
 
-#: ../src/gcompris/config.c:96
+#: ../src/gcompris/config.c:98
 msgid "Norwegian Nynorsk"
 msgstr "Norvegiako Nynorsk"
 
-#: ../src/gcompris/config.c:97
+#: ../src/gcompris/config.c:99
+msgid "Occitan (languedocien)"
+msgstr "Okzitaniera (languedocien)"
+
+#: ../src/gcompris/config.c:100
 msgid "Polish"
 msgstr "Poloniera"
 
-#: ../src/gcompris/config.c:98
+#: ../src/gcompris/config.c:101
 msgid "Portuguese"
 msgstr "Portugesa"
 
-#: ../src/gcompris/config.c:99
+#: ../src/gcompris/config.c:102
 msgid "Portuguese (Brazil)"
 msgstr "Portugesa (Brasil)"
 
-#: ../src/gcompris/config.c:100
+#: ../src/gcompris/config.c:103
 msgid "Romanian"
 msgstr "Errumaniera"
 
-#: ../src/gcompris/config.c:101
+#: ../src/gcompris/config.c:104
 msgid "Russian"
 msgstr "Errusiera"
 
-#: ../src/gcompris/config.c:102
+#: ../src/gcompris/config.c:105
 msgid "Kinyarwanda"
 msgstr "Kinyaruanda"
 
-#: ../src/gcompris/config.c:103
+#: ../src/gcompris/config.c:106
 msgid "Slovak"
 msgstr "Eslovakiera"
 
-#: ../src/gcompris/config.c:104
+#: ../src/gcompris/config.c:107
 msgid "Slovenian"
 msgstr "Esloveniera"
 
-#: ../src/gcompris/config.c:105
+#: ../src/gcompris/config.c:108
+msgid "Somali"
+msgstr "Somaliera"
+
+#: ../src/gcompris/config.c:109
 msgid "Albanian"
 msgstr "Albaniera"
 
-#: ../src/gcompris/config.c:106
+#: ../src/gcompris/config.c:110
 msgid "Serbian (Latin)"
 msgstr "Serbiera (latinoa)"
 
-#: ../src/gcompris/config.c:107
+#: ../src/gcompris/config.c:111
 msgid "Serbian"
 msgstr "Serbiera"
 
-#: ../src/gcompris/config.c:108
+#: ../src/gcompris/config.c:112
 msgid "Swedish"
 msgstr "Suediera"
 
-#. "ta_IN.UTF-8",	N_("Tamil"),
-#: ../src/gcompris/config.c:110
+#: ../src/gcompris/config.c:113
+msgid "Tamil"
+msgstr "Tamilera"
+
+#: ../src/gcompris/config.c:114
 msgid "Thai"
 msgstr "Thailandiera"
 
-#: ../src/gcompris/config.c:111
+#: ../src/gcompris/config.c:115
 msgid "Turkish"
 msgstr "Turkiera"
 
-#: ../src/gcompris/config.c:112
+#: ../src/gcompris/config.c:116
 msgid "Vietnamese"
 msgstr "Vietnamera"
 
-#: ../src/gcompris/config.c:113
+#: ../src/gcompris/config.c:117
 msgid "Walloon"
 msgstr "Waloiera"
 
-#: ../src/gcompris/config.c:114
+#: ../src/gcompris/config.c:118
 msgid "Chinese (Simplified)"
 msgstr "Txinera (erraztua)"
 
-#: ../src/gcompris/config.c:115
+#: ../src/gcompris/config.c:119
 msgid "Chinese (Traditional)"
 msgstr "Txinatar tradizionala"
 
-#: ../src/gcompris/config.c:120
+#: ../src/gcompris/config.c:124
 msgid "No time limit"
 msgstr "Denbora-mugarik ez"
 
-#: ../src/gcompris/config.c:121
+#: ../src/gcompris/config.c:125
 msgid "Slow timer"
 msgstr "Kronometro motela"
 
-#: ../src/gcompris/config.c:122
+#: ../src/gcompris/config.c:126
 msgid "Normal timer"
 msgstr "Kronometro normala"
 
-#: ../src/gcompris/config.c:123
+#: ../src/gcompris/config.c:127
 msgid "Fast timer"
 msgstr "Kronometro bizkorra"
 
-#: ../src/gcompris/config.c:128
-msgid "800x600 (Default for gcompris)"
-msgstr "800x600 (gcompris-en lehenetsia)"
+#: ../src/gcompris/config.c:132
+msgid "800x600 (Default for GCompris)"
+msgstr "800x600 (Gcompris-en lehenetsia)"
 
-#: ../src/gcompris/config.c:133
+#: ../src/gcompris/config.c:137
 msgid ""
 "<i>Use Gcompris administration module\n"
 "to filter boards</i>"
@@ -5730,58 +6044,62 @@ msgstr ""
 "<i>Erabili GCompris-en administrazio-modulua\n"
 "arbelak iragazteko</i>"
 
-#: ../src/gcompris/config.c:189 ../src/gcompris/config.c:198
+#: ../src/gcompris/config.c:192 ../src/gcompris/config.c:202
 msgid "GCompris Configuration"
 msgstr "GCompris-en konfigurazioa"
 
-#: ../src/gcompris/config.c:316
+#: ../src/gcompris/config.c:278
 msgid "Fullscreen"
 msgstr "Pantaila osoa"
 
-#: ../src/gcompris/config.c:359
+#: ../src/gcompris/config.c:321
 msgid "Music"
 msgstr "Musika"
 
-#: ../src/gcompris/config.c:387
+#: ../src/gcompris/config.c:349
 msgid "Effect"
 msgstr "Efektua"
 
-#: ../src/gcompris/config.c:420
+#: ../src/gcompris/config.c:385
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "Ezin izan da direktorioa ireki: %s"
 
-#: ../src/gcompris/config.c:456 ../src/gcompris/config.c:833
-#: ../src/gcompris/config.c:844
+#: ../src/gcompris/config.c:416 ../src/gcompris/config.c:866
+#: ../src/gcompris/config.c:880
 #, c-format
 msgid "Skin : %s"
 msgstr "Azala: %s"
 
-#: ../src/gcompris/config.c:633
+#: ../src/gcompris/config.c:418
+msgid "SKINS NOT FOUND"
+msgstr "AZALIK EZ DA AURKITU"
+
+#: ../src/gcompris/config.c:543
 msgid "English (United State)"
 msgstr "Ingelesa (Ameriketako Estatu Batuak)"
 
-#: ../src/gcompris/file_selector.c:341
+#: ../src/gcompris/file_selector.c:336
 msgid "CANCEL"
 msgstr "UTZI"
 
-#: ../src/gcompris/file_selector.c:372
+#: ../src/gcompris/file_selector.c:367
 msgid "LOAD"
 msgstr "KARGATU"
 
-#: ../src/gcompris/file_selector.c:372
+#: ../src/gcompris/file_selector.c:367
 msgid "SAVE"
 msgstr "GORDE"
 
-#: ../src/gcompris/gameutil.c:72
-msgid "Couldn't find file"
-msgstr "Ezin izan da fitxategia aurkitu"
+#: ../src/gcompris/gameutil.c:103
+msgid "Couldn't find or load the file"
+msgstr "Ezin izan da fitxategia aurkitu edo kargatu"
 
-#: ../src/gcompris/gameutil.c:74
+#: ../src/gcompris/gameutil.c:105
 msgid "This activity is incomplete."
 msgstr "Ariketa hau ez da osatu."
 
-#: ../src/gcompris/gameutil.c:75
+#: ../src/gcompris/gameutil.c:106
 msgid ""
 "Exit it and report\n"
 "the problem to the authors."
@@ -5789,128 +6107,166 @@ msgstr ""
 "Irten, eta eman\n"
 "arazoaren berri egileei."
 
-#: ../src/gcompris/gcompris.c:126
-msgid "run gcompris in fullscreen mode."
-msgstr "exekutatu gcompris pantaila osoko moduan."
-
-#: ../src/gcompris/gcompris.c:128
-msgid "run gcompris in window mode."
-msgstr "exekutatu gcompris leiho-moduan."
-
-#: ../src/gcompris/gcompris.c:130
-msgid "run gcompris with sound enabled."
-msgstr "exekutatu gcompris soinua gaituta dagoela."
-
-#: ../src/gcompris/gcompris.c:132
-msgid "run gcompris without sound."
-msgstr "exekutatu gcompris soinurik gabe."
-
-#: ../src/gcompris/gcompris.c:134
-msgid "run gcompris with the default gnome cursor."
-msgstr "exekutatu gcompris gnome kurtsore lehenetsiarekin."
-
 #: ../src/gcompris/gcompris.c:136
+msgid "run GCompris in fullscreen mode."
+msgstr "exekutatu GCompris pantaila osoko moduan."
+
+#: ../src/gcompris/gcompris.c:139
+msgid "run GCompris in window mode."
+msgstr "exekutatu GCompris leiho-moduan."
+
+#: ../src/gcompris/gcompris.c:142
+msgid "run GCompris with sound enabled."
+msgstr "exekutatu GCompris soinua gaituta dagoela."
+
+#: ../src/gcompris/gcompris.c:145
+msgid "run GCompris without sound."
+msgstr "exekutatu GCompris soinurik gabe."
+
+#: ../src/gcompris/gcompris.c:148
+msgid "run GCompris with the default gnome cursor."
+msgstr "exekutatu GCompris gnome-ren kurtsore lehenetsiarekin."
+
+#: ../src/gcompris/gcompris.c:151
 msgid "display only activities with this difficulty level."
 msgstr "erakutsi zailtasun-maila honetako ariketak bakarrik."
 
-#: ../src/gcompris/gcompris.c:138
+#: ../src/gcompris/gcompris.c:154
 msgid "display debug informations on the console."
 msgstr "bistaratu arazketaren informazioa kontsolan."
 
-#: ../src/gcompris/gcompris.c:140
+#: ../src/gcompris/gcompris.c:157
 msgid "Print the version of "
 msgstr "Inprimatu bertsioa:  "
 
-#: ../src/gcompris/gcompris.c:142
+#: ../src/gcompris/gcompris.c:160
 msgid "Use the antialiased canvas (slower)."
 msgstr "Erabili antialiasing bidezko oihala (motelagoa)."
 
-#: ../src/gcompris/gcompris.c:144
+#: ../src/gcompris/gcompris.c:163
 msgid "Disable XF86VidMode (No screen resolution change)."
 msgstr "Desgaitu XF86VidMode (ez da pantailaren bereizmena aldatuko)."
 
-#: ../src/gcompris/gcompris.c:146
+#: ../src/gcompris/gcompris.c:166
 msgid ""
-"Run gcompris with local menu (e.g -l /reading will let you play only "
-"activities in the reading directory, -l /boards/connect4 only the connect4 "
-"activity)"
+"Run GCompris with local menu (e.g -l /reading will let you play only "
+"activities in the reading directory, -l /strategy/connect4 only the connect4 "
+"activity). Use '-l list' to list all the availaible activities and their "
+"descriptions."
 msgstr ""
-"Exekutatu gcompris menu lokalarekin (adib. -l /reading irakurtzeko jardueren "
+"Exekutatu GCompris menu lokalarekin (adib. -l /reading irakurtzeko jardueren "
 "direktorioarekin bakarrik jolasten utziko dizu, -l /boards/connect4 'lauko "
-"artzain jokoa' jarduerarekin bakarrik)"
+"artzain jokoa' jarduerarekin bakarrik). Erabili '-l list' jarduera "
+"erabilgarri guztiak eta beraien azalepnak zerrendatzeko."
 
-#: ../src/gcompris/gcompris.c:148
+#: ../src/gcompris/gcompris.c:171
 msgid "Run GCompris with local activity directory added to menu"
 msgstr "Exekutatu gcompris menuan gehitutako jardueren direktorio lokalarekin"
 
-#: ../src/gcompris/gcompris.c:150
+#: ../src/gcompris/gcompris.c:174
 msgid "Run GCompris in administration and user-management mode"
 msgstr "Exekutatu GCompris administratzeko eta erabiltzaileak kudeatzeko moduan"
 
-#: ../src/gcompris/gcompris.c:152
-msgid "Use alternate database for profiles"
-msgstr "Erabili profilen bestelako datu-basea"
+#: ../src/gcompris/gcompris.c:177
+msgid ""
+"Use alternate database for profiles [$HOME/.config/gcompris/gcompris_sqlite."
+"db]"
+msgstr ""
+"Erabili profilen bestelako datu-basea [$HOME/.config/gcompris/"
+"gcompris_sqlite.db]"
 
-#: ../src/gcompris/gcompris.c:154
-msgid "Use alternate database for logs"
-msgstr "Erabili egunkarien bestelako datu-basea"
-
-#: ../src/gcompris/gcompris.c:156
+#: ../src/gcompris/gcompris.c:180
 msgid "Create the alternate database for profiles"
 msgstr "Sortu profilen bestelako datu-basea"
 
-#: ../src/gcompris/gcompris.c:158
+#: ../src/gcompris/gcompris.c:183
 msgid "Re-read XML Menus and store them in the database"
 msgstr "Irakurri berriro XML menuak eta gorde datu-basean"
 
-#: ../src/gcompris/gcompris.c:160
+#: ../src/gcompris/gcompris.c:186
 msgid "Set the profile to use. Use 'gcompris -a' to create profiles"
 msgstr "Ezarri profila erabiltzeko. Erabili 'gcompris -a' profilak sortzeko"
 
-#: ../src/gcompris/gcompris.c:162
+#: ../src/gcompris/gcompris.c:189
 msgid "List all available profiles. Use 'gcompris -a' to create profiles"
 msgstr ""
 "Zerrendatu erabilgarri dauden profila guztiak. Erabili 'gcompris -a' "
 "profilak sortzeko"
 
-#: ../src/gcompris/gcompris.c:164
+#: ../src/gcompris/gcompris.c:192
 msgid ""
-"Shared directory location, for profiles and board-configuration data: "
-"[$HOME/.gcompris/shared]"
+"Config directory location: [$HOME/.config/gcompris]. Alternate is to set "
+"$XDG_CONFIG_HOME."
 msgstr ""
-"Partekatutako direktorioaren kokalekua, profilak eta arbelen konfigurazioko "
-"datuak dituena: [$HOME/.gcompris/shared]"
+"Kongiruazioko direktorioaren kokalekua: [$HOME/.config/gcompris]. Bestelako "
+"metodoa $XDG_CONFIG_HOME definitzea da."
 
-#: ../src/gcompris/gcompris.c:166
-msgid "The location of user directories: [$HOME/.gcompris/users]"
-msgstr "Erabiltzaileen direktorioen kokalekua:  [$HOME/.gcompris/users]"
+#: ../src/gcompris/gcompris.c:195
+msgid "The location of user directories: [$HOME/My GCompris]"
+msgstr "Erabiltzaileen direktorioen kokalekua: [$HOME/My GCompris]"
 
-#: ../src/gcompris/gcompris.c:168
+#: ../src/gcompris/gcompris.c:198
 msgid "Run the experimental activities"
 msgstr "Exekutatu ariketa esperimentalak."
 
-#: ../src/gcompris/gcompris.c:170
+#: ../src/gcompris/gcompris.c:201
 msgid "Disable the quit button"
 msgstr "Desgaitu irteerako botoia"
 
-#: ../src/gcompris/gcompris.c:172
+#: ../src/gcompris/gcompris.c:204
 msgid "Disable the config button"
 msgstr "Desgaitu konfigurazioko botoia"
 
-#: ../src/gcompris/gcompris.c:174
+#: ../src/gcompris/gcompris.c:209
 msgid "Display the resources on stdout based on the selected activities"
 msgstr ""
 "Bistaratu baliabideak irteera estandarrean (stdout) hautatutako jardueretan "
 "oinarrituz"
 
-#: ../src/gcompris/gcompris.c:802
+#: ../src/gcompris/gcompris.c:213
+msgid ""
+"GCompris will get images, sounds and activity data from this server if not "
+"found locally."
+msgstr ""
+"GCompris-ek zerbitzari honetatik irudiak, soinuak eta jardueren datuak "
+"eskura ditzake lokalean ezin baditu aurkitu."
+
+#: ../src/gcompris/gcompris.c:216
+msgid ""
+"Only when --server is provided, disable check for local resource first. Data "
+"are always taken from the web server."
+msgstr ""
+"Soilik '--server' ematean, desgaitu lokaleko baliabideak egiaztatzea "
+"aurrenik. Datuak beti web zerbitzaritik hartuko dira."
+
+#: ../src/gcompris/gcompris.c:220
+msgid "In server mode, specify the cache directory used to avoid useless downloads."
+msgstr ""
+"Zerbitzari moduan, zehaztu cache-aren direktorioa deskarga erabilkaitzak "
+"saihesteko."
+
+#: ../src/gcompris/gcompris.c:223
+msgid "Global drag and drop mode: normal, 2clicks, both. Default mode is normal."
+msgstr ""
+"Arrastatu eta jaregiteko modu globala: arrunta, 2 klik, biak. Lehenetsia "
+"modu arrunta da."
+
+#: ../src/gcompris/gcompris.c:226
+msgid "Do not display the background images of activities."
+msgstr "Ez bistaratu ariketen atzeko planoko irudiak."
+
+#: ../src/gcompris/gcompris.c:229
+msgid "Do not avoid the execution of multiple instances of GCompris."
+msgstr "Ez saihestu GCompris-en hainbat instantzia exekutatzea."
+
+#: ../src/gcompris/gcompris.c:848
 #, c-format
 msgid ""
 "GCompris is free software released under the GPL License. In order to "
 "support its development, the Windows version provides only %d of the %d "
 "activities. You can get the full version for a small fee at\n"
 "<http://gcompris.net>\n"
-"The Linux version does not have this restriction. Note that GCompris is "
+"The GNU/Linux version does not have this restriction. Note that GCompris is "
 "being developed to free schools from monopolistic software vendors. If you "
 "also believe that we should teach freedom to children, please consider using "
 "GNU/Linux. Get more information at FSF:\n"
@@ -5920,14 +6276,26 @@ msgstr ""
 "sustatzeko Windows-eko bertsioak %d (%d(e)tik) jarduera eskaintzen ditu. "
 "Bertsio osoa eskuratzeko diru gutxiren truke hemen lor dezakezu: \n"
 "<http://gcompris.net>\n"
-"Linux-eko bertsioak ez du murriztapen hau. Jakin ezazu gcompris garatzearen "
+"Linux-eko bertsioak ez du murriztapen hau. Jakin ezazu GCompris garatzearen "
 "helburuetariko bat ikastetxeak software monopolistikoen hornitzaileetatik "
 "askatzea dela. Haurrei askatasuna irakatsi behar zaielakoan bazaude, GNU/"
-"Linux sistema erabiltzea gomendatzen dizugu. Xehetasun gehiago honako "
+"Linux sistema erabiltzea gomendatzen dizugu. Xehetasun gehiago FSFren "
 "gunean:\n"
 "<http://www.fsf.org/philosophy>"
 
-#: ../src/gcompris/gcompris.c:1250
+#: ../src/gcompris/gcompris.c:1432
+#, c-format
+msgid "GCompris won't start because the lock file is less than %d seconds old.\n"
+msgstr ""
+"GCompris ez da abiatuko blokeoko fitxategia %d segundo baino gutxiagokoa "
+"delako.\n"
+
+#: ../src/gcompris/gcompris.c:1434
+#, c-format
+msgid "The lock file is: %s\n"
+msgstr "Blokeoko fitxategia: %s\n"
+
+#: ../src/gcompris/gcompris.c:1562
 #, c-format
 msgid ""
 "GCompris\n"
@@ -5941,50 +6309,70 @@ msgstr ""
 "Informazio gehiago: http://gcompris.net\n"
 
 #. check the list of possible values for -l, then exit
-#: ../src/gcompris/gcompris.c:1336
+#: ../src/gcompris/gcompris.c:1646
 #, c-format
 msgid "Use -l to access an activity directly.\n"
 msgstr "Erabili -l ariketetara zuzenean sartzeko.\n"
 
-#: ../src/gcompris/gcompris.c:1337
+#: ../src/gcompris/gcompris.c:1647
 #, c-format
 msgid "The list of available activities is :\n"
 msgstr "Ariketa erabilgarrien zerrenda: \n"
 
-#: ../src/gcompris/gcompris.c:1481
+#: ../src/gcompris/gcompris.c:1834
 #, c-format
 msgid "The list of available profiles is:\n"
 msgstr "Profila erabilgarrien zerrenda: \n"
 
-#: ../src/gcompris/gcompris_db.c:253
+#: ../src/gcompris/gcompris_db.c:264
 msgid "Unaffected"
 msgstr "Efekturik gabe"
 
-#: ../src/gcompris/gcompris_db.c:254
+#: ../src/gcompris/gcompris_db.c:265
 msgid "Users without a class"
 msgstr "Klaserik gabeko erabiltzeak"
 
-#: ../src/gcompris/help.c:200
+#: ../src/gcompris/help.c:196
 msgid "Prerequisite"
 msgstr "Aurrebaldintzak"
 
-#: ../src/gcompris/help.c:228
+#: ../src/gcompris/help.c:224
 msgid "Goal"
 msgstr "Helburua"
 
-#: ../src/gcompris/help.c:256
+#: ../src/gcompris/help.c:252
 msgid "Manual"
 msgstr "Jarraibideak"
 
-#: ../src/gcompris/help.c:284
+#: ../src/gcompris/help.c:280
 msgid "Credit"
 msgstr "Kreditua"
 
-#: ../src/gcompris/timer.c:235
+#: ../src/gcompris/properties.c:502 ../src/gcompris/properties.c:509
+msgid "readme"
+msgstr "irakhau"
+
+#: ../src/gcompris/properties.c:504
+msgid ""
+"This directory contains the files you create with the GCompris educational "
+"suite\n"
+msgstr "Direktorio honek GCompris suite hezigarriarekin sortutako fitxategiak ditu.\n"
+
+#: ../src/gcompris/properties.c:511
+msgid ""
+"Put any number of images in this directory.\n"
+"You can include these images in your drawings and animations.\n"
+"The image formats supported are jpeg, png and svg.\n"
+msgstr ""
+"Jarri edozein irudi kopuru direktorio honetan.\n"
+"Irudi hau zure marrazkietan eta animazioaetan erabil ditzakezu.\n"
+"Onartutako irudien formatuak honakoak dira: JPEG, PNG eta SVG.\n"
+
+#: ../src/gcompris/timer.c:249
 msgid "Time Elapsed"
 msgstr "Igarotako denbora:"
 
-#: ../src/gcompris/timer.c:321
+#: ../src/gcompris/timer.c:338
 #, c-format
 msgid "Remaining Time = %d"
 msgstr "Geratzen den denbora = %d"
