@@ -5,4 +5,4 @@ activity=melody
 plugindir=$path/../boards/.libs
 pythonplugindir=$path 
 resourcedir=$path/resources
-	section="/discovery/sound_group"
+section="/discovery/sound_group"

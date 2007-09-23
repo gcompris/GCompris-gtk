@@ -5,4 +5,4 @@ activity=erase_clic
 plugindir=$path/../erase-activity/.libs
 pythonplugindir=$path 
 resourcedir=$path/../erase-activity/resources
-	section="/computer/mouse"
+section="/computer/mouse"

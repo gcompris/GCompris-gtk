@@ -5,4 +5,4 @@ activity=paratrooper
 plugindir=$path/.libs
 pythonplugindir=$path 
 resourcedir=$path/resources
-	section="/experience"
+section="/experience"

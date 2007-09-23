@@ -5,4 +5,4 @@ activity=billard
 plugindir=$path/.libs
 pythonplugindir=$path 
 resourcedir=$path/resources
-	section="/fun"
+section="/fun"

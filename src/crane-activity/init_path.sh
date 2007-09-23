@@ -5,4 +5,4 @@ activity=crane
 resourcedir=$path/resources
 plugindir=$path/.libs
 pythonplugindir=$path
-	section="/puzzle"
+section="/puzzle"

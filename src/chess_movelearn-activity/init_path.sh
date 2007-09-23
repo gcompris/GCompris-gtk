@@ -5,4 +5,4 @@ activity=chess_movelearn
 plugindir=$path/../chess_computer-activity/.libs
 pythonplugindir=$path 
 resourcedir=$path/../chess_computer-activity/resources
-	section="/strategy/chess"
+section="/strategy/chess"

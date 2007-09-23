@@ -5,4 +5,4 @@ activity=hanoi_real
 plugindir=$path/.libs
 pythonplugindir=$path 
 resourcedir=$path/resources
-	section="/puzzle"
+section="/puzzle"

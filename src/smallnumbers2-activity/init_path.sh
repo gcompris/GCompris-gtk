@@ -5,4 +5,4 @@ activity=smallnumbers2
 plugindir=$path/../smallnumbers-activity/.libs
 pythonplugindir=$path 
 resourcedir=$path/../smallnumbers-activity/resources
-	section="/math/numeration"
+section="/math/numeration"

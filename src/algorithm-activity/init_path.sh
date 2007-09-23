@@ -5,4 +5,4 @@ activity=algorithm
 plugindir=$path/../boards/.libs
 pythonplugindir=$path 
 resourcedir=$path/resources
-	section="/discovery/miscelaneous"
+section="/discovery/miscelaneous"

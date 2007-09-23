@@ -5,6 +5,4 @@ activity=administration
 plugindir=$path/../boards/.libs
 pythonplugindir=$path 
 resourcedir=$path/resources
-	section="/administration"
-<_manualxml:space="preserve">-Inthe'Boards'sectionyoucanchangethelistofactivities.Justuntoggletheminthetreeview.Youcanchangethelanguageusedforreading,forexample,thenthelanguageusedforsayingthenamesofcolors.
--Youcansavemultipleconfigurations,andswitchbetweenthemeasily.Inthe'Profile'sectionaddaprofile,theninthe'Board'sectionselecttheprofileinthecombobox,thenselecttheboardsyouwanttobeactive.Youcanaddmultipleprofiles,withdifferentlistsofboards,anddifferentlanguages.Yousetthedefaultprofileinthe'Profile'section,bychoosingtheprofileyouwant,thenclickingonthe'Default'button.Youcanalsochooseaprofilefromthecommandline.
+section="/administration"

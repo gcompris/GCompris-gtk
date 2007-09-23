@@ -5,4 +5,4 @@ activity=missing_letter
 plugindir=$path/.libs
 pythonplugindir=$path 
 resourcedir=$path/resources
-	section="/reading"
+section="/reading"

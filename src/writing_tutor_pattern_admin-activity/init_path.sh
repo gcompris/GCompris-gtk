@@ -5,4 +5,4 @@ activity=writing_tutor_pattern_admin
 plugindir=$path/../boards/.libs
 pythonplugindir=$path 
 resourcedir=$path/resources
-	section="/experimental/writing_tutor"
+section="/experimental/writing_tutor"

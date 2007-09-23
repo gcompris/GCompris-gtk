@@ -5,4 +5,4 @@ activity=memory_add_minus_mult_div
 plugindir=$path/../memory-activity/.libs
 pythonplugindir=$path 
 resourcedir=$path/../memory-activity/resources
-	section="/math/algebramenu/memory_op_group"
+section="/math/algebramenu/memory_op_group"

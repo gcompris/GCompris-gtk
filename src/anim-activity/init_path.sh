@@ -5,4 +5,4 @@ activity=anim
 plugindir=$path/../boards/.libs
 pythonplugindir=$path 
 resourcedir=$path/resources
-	section="/fun"
+section="/fun"

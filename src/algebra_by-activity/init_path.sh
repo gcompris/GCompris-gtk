@@ -5,4 +5,4 @@ activity=algebra_by
 plugindir=$path/.libs
 pythonplugindir=$path 
 resourcedir=$path/resources
-	section="/math/algebramenu/algebra_group"
+section="/math/algebramenu/algebra_group"

@@ -5,4 +5,4 @@ activity=login
 plugindir=$path/../boards/.libs
 pythonplugindir=$path 
 resourcedir=$path/resources
-	section="/login"
+section="/login"

@@ -5,4 +5,4 @@ activity=railroad
 plugindir=$path/.libs
 pythonplugindir=$path 
 resourcedir=$path/resources
-	section="/discovery/memory_group"
+section="/discovery/memory_group"

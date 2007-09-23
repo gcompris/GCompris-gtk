@@ -5,4 +5,4 @@ activity=mazeInvisible
 plugindir=$path/../maze-activity/.libs
 pythonplugindir=$path 
 resourcedir=$path/../maze-activity/resources
-	section="/discovery/mazeMenu"
+section="/discovery/mazeMenu"

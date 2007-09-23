@@ -5,4 +5,4 @@ activity=draw
 plugindir=$path/../boards/.libs
 pythonplugindir=$path 
 resourcedir=$path/resources
-	section="/math/geometry"
+section="/math/geometry"

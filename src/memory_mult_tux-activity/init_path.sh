@@ -5,4 +5,4 @@ activity=memory_mult_tux
 plugindir=$path/../memory-activity/.libs
 pythonplugindir=$path 
 resourcedir=$path/../memory-activity/resources
-	section="/math/algebramenu/memory_op_group_tux"
+section="/math/algebramenu/memory_op_group_tux"

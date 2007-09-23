@@ -5,4 +5,4 @@ activity=watercycle
 plugindir=$path/../boards/.libs
 pythonplugindir=$path 
 resourcedir=$path/resources
-	section="/experience"
+section="/experience"

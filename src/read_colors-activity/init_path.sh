@@ -5,4 +5,4 @@ activity=read_colors
 plugindir=$path/.libs
 pythonplugindir=$path 
 resourcedir=$path/resources
-	section="/discovery/colors_group"
+section="/discovery/colors_group"
