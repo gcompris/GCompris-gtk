@@ -19,10 +19,10 @@
 
 /*
  * To test it:
- * run GCompris with  --sugarBundleId a --sugarActivityId a 
- * dbus-send --dest='org.laptop.Activitya' 
- *           /org/laptop/Activity/a org.laptop.Activity.set_active boolean:true
- * 
+ * run GCompris with  --sugarBundleId a --sugarActivityId a
+ * dbus-send --dest='org.laptop.Activitya'
+ *           /org/laptop/Activity/a org.laptop.Activity.SetActive boolean:true
+ *
  */
 #include "gcompris.h"
 #include <gc_core.h>
@@ -42,9 +42,9 @@
 #define _ACTIVITY_INTERFACE	"org.laptop.Activity"
 
 #if USE_DBUS
-void _set_active(DBusGProxy *proxy, gint active, void *dummy)
+void _SetActive(DBusGProxy *proxy, gint active, void *dummy)
 {
-  printf("_set_active %d\n", active);
+  printf("_SetActive %d\n", active);
   if(active)
     gc_sound_close();
   else
@@ -93,8 +93,8 @@ gc_dbus_init(gchar *sugarActivityId)
                                      object_path,
                                      _ACTIVITY_INTERFACE);
 
-  dbus_g_proxy_add_signal(proxy, "set_active", G_TYPE_BOOLEAN, G_TYPE_INVALID);
-  dbus_g_proxy_connect_signal(proxy, "set_active",
-			      G_CALLBACK(_set_active), NULL, NULL);
+  dbus_g_proxy_add_signal(proxy, "SetActive", G_TYPE_BOOLEAN, G_TYPE_INVALID);
+  dbus_g_proxy_connect_signal(proxy, "SetActive",
+			      G_CALLBACK(_SetActive), NULL, NULL);
 #endif
 }
