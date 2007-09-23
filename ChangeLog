@@ -1,5 +1,11 @@
 2007-09-14  Bruno coudoin  <bruno.coudoin@free.fr>
 
+	- Merge of commit trunk 3038, now compile out of tree.
+	* src/*/Makefile.am
+
+
+2007-09-14  Bruno coudoin  <bruno.coudoin@free.fr>
+
 	- Removed require on gtk-pixbuf as it's already required by GTK.
 	  merged from trunk 3006
 	* configure.in

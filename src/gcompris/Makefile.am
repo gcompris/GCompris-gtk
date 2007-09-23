@@ -46,9 +46,9 @@ endif
 bin_PROGRAMS = gcompris
 
 INCLUDES = \
-	-I$(top_srcdir)/intl \
+	-I$(top_builddir)/intl \
 	-DDATADIR=\""$(datadir)"\" \
-	-I$(top_srcdir)/src \
+	-I$(top_builddir)/src \
 	$(GCOMPRIS_CFLAGS) \
 	$(GNOME_INCLUDEDIR) \
 	$(XML_CFLAGS) \

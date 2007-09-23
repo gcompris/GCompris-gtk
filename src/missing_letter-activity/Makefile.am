@@ -16,8 +16,8 @@ lib_LTLIBRARIES = \
 	libmissingletter.la
 
 libdir = $(plugindir)
-INCLUDES = 	-I$(top_srcdir)/src \
-	-I$(top_srcdir)/intl \
+INCLUDES = 	-I$(top_builddir)/src \
+	-I$(top_builddir)/intl \
 	$(GCOMPRIS_CFLAGS) \
 	$(XML_CFLAGS) \
 	$(dll_export)
