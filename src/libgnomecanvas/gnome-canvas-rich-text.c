@@ -1725,11 +1725,13 @@ changed_handler(GtkTextLayout *layout, gint start_y,
 #endif
 
 	if (text->_priv->layout->default_style->font_scale !=
-	    GNOME_CANVAS_ITEM(text)->canvas->pixels_per_unit) {
+	    GNOME_CANVAS_ITEM(text)->canvas->pixels_per_unit &&
+	    GNOME_CANVAS_ITEM(text)->canvas->pixels_per_unit > 0.7 &&
+	    GNOME_CANVAS_ITEM(text)->canvas->pixels_per_unit < 1.0) {
 		GtkTextTagTable *tag_table;
 
 		text->_priv->layout->default_style->font_scale =
-			GNOME_CANVAS_ITEM(text)->canvas->pixels_per_unit;
+		  GNOME_CANVAS_ITEM(text)->canvas->pixels_per_unit;
 
 		tag_table = gtk_text_buffer_get_tag_table(get_buffer(text));
 		gtk_text_tag_table_foreach(tag_table, scale_fonts, text);
