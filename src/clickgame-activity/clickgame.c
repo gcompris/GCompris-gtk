@@ -696,12 +696,12 @@ static GSList *load_random_fish(gboolean smallish)
   while(1)
     {
       if (frame) {
-	gchar *exists = gc_file_find_absolute (path, "clickgame/fishes", frame);
+	gchar *exists = gc_file_find_absolute (path, "clickgame", frame);
 	g_free (exists);
 	if (!exists) break;
       }
 
-      GdkPixbuf *pixmap = gc_pixmap_load (path, "clickgame/fishes", frame);
+      GdkPixbuf *pixmap = gc_pixmap_load (path, "clickgame", frame);
       if (!pixmap) break;
 
       ilist = g_slist_prepend (ilist, pixmap);
