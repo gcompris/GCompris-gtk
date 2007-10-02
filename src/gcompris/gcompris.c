@@ -1731,6 +1731,8 @@ main (int argc, char *argv[])
   GNOME_IS_CANVAS_POLYGON(dummy);
   GNOME_IS_CANVAS_CLIPGROUP(dummy);
   GNOME_IS_CANVAS_BPATH(dummy);
+  GType type = GNOME_TYPE_CANVAS_POLYGON;
+  type = type;
 
 
   return(0);

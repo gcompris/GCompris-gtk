@@ -1,3 +1,10 @@
+2007-10-03  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	- Added a little hack to avoid missing symbols from libgnomecanvas
+	  at plugin load time. (merge from trunk 3060)
+
+	* src/gcompris/gcompris.c: (main):
+
 2007-09-23  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	- The sugar dbus API uses Setactive instead of set_active.
