@@ -20,7 +20,7 @@ VPATH = @srcdir@
 pkgdatadir = $(datadir)/@PACKAGE@
 pkglibdir = $(libdir)/@PACKAGE@
 pkgincludedir = $(includedir)/@PACKAGE@
-top_builddir = ..
+top_builddir = ../../..
 am__cd = CDPATH="$${ZSH_VERSION+.}$(PATH_SEPARATOR)" && cd
 INSTALL = @INSTALL@
 install_sh_DATA = $(install_sh) -c -m 644
@@ -36,18 +36,20 @@ PRE_UNINSTALL = :
 POST_UNINSTALL = :
 build_triplet = @build@
 host_triplet = @host@
+target_triplet = @target@
 noinst_PROGRAMS = demo$(EXEEXT) table-demo$(EXEEXT) \
 	simple-demo$(EXEEXT) scalability-demo$(EXEEXT) \
 	units-demo$(EXEEXT) widgets-demo$(EXEEXT) mv-demo$(EXEEXT) \
 	mv-table-demo$(EXEEXT) mv-simple-demo$(EXEEXT) \
 	mv-scalability-demo$(EXEEXT)
-subdir = demo
+subdir = src/goocanvas/demo
 DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
-am__aclocal_m4_deps = $(top_srcdir)/configure.in
+am__aclocal_m4_deps = $(top_srcdir)/acinclude.m4 \
+	$(top_srcdir)/configure.in
 am__configure_deps = $(am__aclocal_m4_deps) $(CONFIGURE_DEPENDENCIES) \
 	$(ACLOCAL_M4)
-mkinstalldirs = $(install_sh) -d
+mkinstalldirs = $(SHELL) $(top_srcdir)/mkinstalldirs
 CONFIG_HEADER = $(top_builddir)/config.h
 CONFIG_CLEAN_FILES =
 PROGRAMS = $(noinst_PROGRAMS)
@@ -61,7 +63,7 @@ am_demo_OBJECTS = demo.$(OBJEXT) demo-fifteen.$(OBJEXT) \
 	demo-large-items.$(OBJEXT) demo-large-rect.$(OBJEXT)
 demo_OBJECTS = $(am_demo_OBJECTS)
 am__DEPENDENCIES_1 =
-demo_DEPENDENCIES = $(top_builddir)/src/libgoocanvas.la \
+demo_DEPENDENCIES = $(top_builddir)/src/goocanvas/src/libgoocanvas.la \
 	$(am__DEPENDENCIES_1)
 am_mv_demo_OBJECTS = mv-demo.$(OBJEXT) mv-demo-fifteen.$(OBJEXT) \
 	mv-demo-scalability.$(OBJEXT) mv-demo-grabs.$(OBJEXT) \
@@ -70,42 +72,51 @@ am_mv_demo_OBJECTS = mv-demo.$(OBJEXT) mv-demo-fifteen.$(OBJEXT) \
 	mv-demo-focus.$(OBJEXT) mv-demo-animation.$(OBJEXT) \
 	mv-demo-clipping.$(OBJEXT) mv-demo-table.$(OBJEXT)
 mv_demo_OBJECTS = $(am_mv_demo_OBJECTS)
-mv_demo_DEPENDENCIES = $(top_builddir)/src/libgoocanvas.la \
+mv_demo_DEPENDENCIES =  \
+	$(top_builddir)/src/goocanvas/src/libgoocanvas.la \
 	$(am__DEPENDENCIES_1)
 am_mv_scalability_demo_OBJECTS = mv-scalability-demo.$(OBJEXT)
 mv_scalability_demo_OBJECTS = $(am_mv_scalability_demo_OBJECTS)
 mv_scalability_demo_DEPENDENCIES =  \
-	$(top_builddir)/src/libgoocanvas.la $(am__DEPENDENCIES_1)
+	$(top_builddir)/src/goocanvas/src/libgoocanvas.la \
+	$(am__DEPENDENCIES_1)
 am_mv_simple_demo_OBJECTS = mv-simple-demo.$(OBJEXT)
 mv_simple_demo_OBJECTS = $(am_mv_simple_demo_OBJECTS)
-mv_simple_demo_DEPENDENCIES = $(top_builddir)/src/libgoocanvas.la \
+mv_simple_demo_DEPENDENCIES =  \
+	$(top_builddir)/src/goocanvas/src/libgoocanvas.la \
 	$(am__DEPENDENCIES_1)
 am_mv_table_demo_OBJECTS = mv-table-demo.$(OBJEXT)
 mv_table_demo_OBJECTS = $(am_mv_table_demo_OBJECTS)
-mv_table_demo_DEPENDENCIES = $(top_builddir)/src/libgoocanvas.la \
+mv_table_demo_DEPENDENCIES =  \
+	$(top_builddir)/src/goocanvas/src/libgoocanvas.la \
 	$(am__DEPENDENCIES_1)
 am_scalability_demo_OBJECTS = scalability-demo.$(OBJEXT)
 scalability_demo_OBJECTS = $(am_scalability_demo_OBJECTS)
-scalability_demo_DEPENDENCIES = $(top_builddir)/src/libgoocanvas.la \
+scalability_demo_DEPENDENCIES =  \
+	$(top_builddir)/src/goocanvas/src/libgoocanvas.la \
 	$(am__DEPENDENCIES_1)
 am_simple_demo_OBJECTS = simple-demo.$(OBJEXT)
 simple_demo_OBJECTS = $(am_simple_demo_OBJECTS)
-simple_demo_DEPENDENCIES = $(top_builddir)/src/libgoocanvas.la \
+simple_demo_DEPENDENCIES =  \
+	$(top_builddir)/src/goocanvas/src/libgoocanvas.la \
 	$(am__DEPENDENCIES_1)
 am_table_demo_OBJECTS = table-demo.$(OBJEXT)
 table_demo_OBJECTS = $(am_table_demo_OBJECTS)
-table_demo_DEPENDENCIES = $(top_builddir)/src/libgoocanvas.la \
+table_demo_DEPENDENCIES =  \
+	$(top_builddir)/src/goocanvas/src/libgoocanvas.la \
 	$(am__DEPENDENCIES_1)
 am_units_demo_OBJECTS = units-demo.$(OBJEXT)
 units_demo_OBJECTS = $(am_units_demo_OBJECTS)
-units_demo_DEPENDENCIES = $(top_builddir)/src/libgoocanvas.la \
+units_demo_DEPENDENCIES =  \
+	$(top_builddir)/src/goocanvas/src/libgoocanvas.la \
 	$(am__DEPENDENCIES_1)
 am_widgets_demo_OBJECTS = widgets-demo.$(OBJEXT)
 widgets_demo_OBJECTS = $(am_widgets_demo_OBJECTS)
-widgets_demo_DEPENDENCIES = $(top_builddir)/src/libgoocanvas.la \
+widgets_demo_DEPENDENCIES =  \
+	$(top_builddir)/src/goocanvas/src/libgoocanvas.la \
 	$(am__DEPENDENCIES_1)
 DEFAULT_INCLUDES = -I. -I$(srcdir) -I$(top_builddir)
-depcomp = $(SHELL) $(top_srcdir)/../../depcomp
+depcomp = $(SHELL) $(top_srcdir)/depcomp
 am__depfiles_maybe = depfiles
 COMPILE = $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) \
 	$(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS)
@@ -129,14 +140,26 @@ ETAGS = etags
 CTAGS = ctags
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
 ACLOCAL = @ACLOCAL@
+ALLOCA = @ALLOCA@
+ALL_LINGUAS = @ALL_LINGUAS@
 AMDEP_FALSE = @AMDEP_FALSE@
 AMDEP_TRUE = @AMDEP_TRUE@
 AMTAR = @AMTAR@
 AR = @AR@
+AS = @AS@
 AUTOCONF = @AUTOCONF@
 AUTOHEADER = @AUTOHEADER@
 AUTOMAKE = @AUTOMAKE@
 AWK = @AWK@
+BINRELOC_CFLAGS = @BINRELOC_CFLAGS@
+BINRELOC_LIBS = @BINRELOC_LIBS@
+BUILD_DATE = @BUILD_DATE@
+BUILD_MINGW32_FALSE = @BUILD_MINGW32_FALSE@
+BUILD_MINGW32_TRUE = @BUILD_MINGW32_TRUE@
+BUNDLE_APPDIR = @BUNDLE_APPDIR@
+BUNDLE_NAME = @BUNDLE_NAME@
+CAIRO_CFLAGS = @CAIRO_CFLAGS@
+CAIRO_LIBS = @CAIRO_LIBS@
 CATALOGS = @CATALOGS@
 CATOBJEXT = @CATOBJEXT@
 CC = @CC@
@@ -150,8 +173,11 @@ CXXDEPMODE = @CXXDEPMODE@
 CXXFLAGS = @CXXFLAGS@
 CYGPATH_W = @CYGPATH_W@
 DATADIRNAME = @DATADIRNAME@
+DBUS_CFLAGS = @DBUS_CFLAGS@
+DBUS_LIBS = @DBUS_LIBS@
 DEFS = @DEFS@
 DEPDIR = @DEPDIR@
+DLLTOOL = @DLLTOOL@
 ECHO = @ECHO@
 ECHO_C = @ECHO_C@
 ECHO_N = @ECHO_N@
@@ -162,11 +188,21 @@ ENABLE_GTK_DOC_TRUE = @ENABLE_GTK_DOC_TRUE@
 EXEEXT = @EXEEXT@
 F77 = @F77@
 FFLAGS = @FFLAGS@
+FT2_CFLAGS = @FT2_CFLAGS@
+FT2_LIBS = @FT2_LIBS@
+GCOMPRIS_CFLAGS = @GCOMPRIS_CFLAGS@
+GCOMPRIS_LIBS = @GCOMPRIS_LIBS@
 GETTEXT_PACKAGE = @GETTEXT_PACKAGE@
+GLIB_CFLAGS = @GLIB_CFLAGS@
 GLIB_GENMARSHAL = @GLIB_GENMARSHAL@
+GLIB_LIBS = @GLIB_LIBS@
 GLIB_MKENUMS = @GLIB_MKENUMS@
 GMOFILES = @GMOFILES@
 GMSGFMT = @GMSGFMT@
+GNET_CFLAGS = @GNET_CFLAGS@
+GNET_LIBS = @GNET_LIBS@
+GNUCHESS = @GNUCHESS@
+GOBJECT_QUERY = @GOBJECT_QUERY@
 GREP = @GREP@
 GTK_DOC_USE_LIBTOOL_FALSE = @GTK_DOC_USE_LIBTOOL_FALSE@
 GTK_DOC_USE_LIBTOOL_TRUE = @GTK_DOC_USE_LIBTOOL_TRUE@
@@ -177,11 +213,39 @@ INSTALL_SCRIPT = @INSTALL_SCRIPT@
 INSTALL_STRIP_PROGRAM = @INSTALL_STRIP_PROGRAM@
 INSTOBJEXT = @INSTOBJEXT@
 INTLLIBS = @INTLLIBS@
+INTLTOOL_CAVES_RULE = @INTLTOOL_CAVES_RULE@
+INTLTOOL_DESKTOP_RULE = @INTLTOOL_DESKTOP_RULE@
+INTLTOOL_DIRECTORY_RULE = @INTLTOOL_DIRECTORY_RULE@
+INTLTOOL_EXTRACT = @INTLTOOL_EXTRACT@
+INTLTOOL_ICONV = @INTLTOOL_ICONV@
+INTLTOOL_KBD_RULE = @INTLTOOL_KBD_RULE@
+INTLTOOL_KEYS_RULE = @INTLTOOL_KEYS_RULE@
+INTLTOOL_MERGE = @INTLTOOL_MERGE@
+INTLTOOL_MSGFMT = @INTLTOOL_MSGFMT@
+INTLTOOL_MSGMERGE = @INTLTOOL_MSGMERGE@
+INTLTOOL_OAF_RULE = @INTLTOOL_OAF_RULE@
+INTLTOOL_PERL = @INTLTOOL_PERL@
+INTLTOOL_PONG_RULE = @INTLTOOL_PONG_RULE@
+INTLTOOL_PROP_RULE = @INTLTOOL_PROP_RULE@
+INTLTOOL_SCHEMAS_RULE = @INTLTOOL_SCHEMAS_RULE@
+INTLTOOL_SERVER_RULE = @INTLTOOL_SERVER_RULE@
+INTLTOOL_SERVICE_RULE = @INTLTOOL_SERVICE_RULE@
+INTLTOOL_SHEET_RULE = @INTLTOOL_SHEET_RULE@
+INTLTOOL_SOUNDLIST_RULE = @INTLTOOL_SOUNDLIST_RULE@
+INTLTOOL_THEME_RULE = @INTLTOOL_THEME_RULE@
+INTLTOOL_UI_RULE = @INTLTOOL_UI_RULE@
+INTLTOOL_UPDATE = @INTLTOOL_UPDATE@
+INTLTOOL_XAM_RULE = @INTLTOOL_XAM_RULE@
+INTLTOOL_XGETTEXT = @INTLTOOL_XGETTEXT@
+INTLTOOL_XML_NOMERGE_RULE = @INTLTOOL_XML_NOMERGE_RULE@
+INTLTOOL_XML_RULE = @INTLTOOL_XML_RULE@
 LDFLAGS = @LDFLAGS@
+LIBICONV = @LIBICONV@
 LIBOBJS = @LIBOBJS@
 LIBS = @LIBS@
 LIBTOOL = @LIBTOOL@
 LN_S = @LN_S@
+LTLIBICONV = @LTLIBICONV@
 LTLIBOBJS = @LTLIBOBJS@
 LT_VERSION_INFO = @LT_VERSION_INFO@
 MAINT = @MAINT@
@@ -191,10 +255,24 @@ MAKEINFO = @MAKEINFO@
 MKINSTALLDIRS = @MKINSTALLDIRS@
 MSGFMT = @MSGFMT@
 MSGFMT_OPTS = @MSGFMT_OPTS@
+NSBUNDLE_CPPFLAGS = @NSBUNDLE_CPPFLAGS@
+NSBUNDLE_GTK_DIR = @NSBUNDLE_GTK_DIR@
+NSBUNDLE_LDFLAGS = @NSBUNDLE_LDFLAGS@
+OBJC = @OBJC@
+OBJCDEPMODE = @OBJCDEPMODE@
+OBJCFLAGS = @OBJCFLAGS@
+OBJCPP = @OBJCPP@
+OBJDUMP = @OBJDUMP@
 OBJEXT = @OBJEXT@
+OS_MACOSX_FALSE = @OS_MACOSX_FALSE@
+OS_MACOSX_TRUE = @OS_MACOSX_TRUE@
+OS_WIN32_FALSE = @OS_WIN32_FALSE@
+OS_WIN32_TRUE = @OS_WIN32_TRUE@
 PACKAGE = @PACKAGE@
 PACKAGE_BUGREPORT = @PACKAGE_BUGREPORT@
 PACKAGE_CFLAGS = @PACKAGE_CFLAGS@
+PACKAGE_DATA_DIR = @PACKAGE_DATA_DIR@
+PACKAGE_HELP_DIR = @PACKAGE_HELP_DIR@
 PACKAGE_LIBS = @PACKAGE_LIBS@
 PACKAGE_NAME = @PACKAGE_NAME@
 PACKAGE_STRING = @PACKAGE_STRING@
@@ -209,21 +287,56 @@ POFILES = @POFILES@
 POSUB = @POSUB@
 PO_IN_DATADIR_FALSE = @PO_IN_DATADIR_FALSE@
 PO_IN_DATADIR_TRUE = @PO_IN_DATADIR_TRUE@
+PYCAIRO_CFLAGS = @PYCAIRO_CFLAGS@
+PYCAIRO_LIBS = @PYCAIRO_LIBS@
+PYGTK_CFLAGS = @PYGTK_CFLAGS@
+PYGTK_CODEGEN = @PYGTK_CODEGEN@
+PYGTK_DEFSDIR = @PYGTK_DEFSDIR@
+PYGTK_H2DEF = @PYGTK_H2DEF@
+PYGTK_LIBS = @PYGTK_LIBS@
+PYTHON = @PYTHON@
+PYTHON_CFLAGS = @PYTHON_CFLAGS@
+PYTHON_EXEC_PREFIX = @PYTHON_EXEC_PREFIX@
+PYTHON_LIBS = @PYTHON_LIBS@
+PYTHON_PLATFORM = @PYTHON_PLATFORM@
+PYTHON_PLUGIN_DIR = @PYTHON_PLUGIN_DIR@
+PYTHON_PLUGIN_FALSE = @PYTHON_PLUGIN_FALSE@
+PYTHON_PLUGIN_TRUE = @PYTHON_PLUGIN_TRUE@
+PYTHON_PREFIX = @PYTHON_PREFIX@
+PYTHON_VERSION = @PYTHON_VERSION@
 RANLIB = @RANLIB@
 REBUILD = @REBUILD@
+REQUIRE_PYTHON = @REQUIRE_PYTHON@
 SET_MAKE = @SET_MAKE@
 SHELL = @SHELL@
+SQLITE3_CFLAGS = @SQLITE3_CFLAGS@
+SQLITE3_LIBS = @SQLITE3_LIBS@
 STRIP = @STRIP@
+TETEX = @TETEX@
+TEXINFO = @TEXINFO@
+TEXINFO_FALSE = @TEXINFO_FALSE@
+TEXINFO_TRUE = @TEXINFO_TRUE@
+USE_CAIRO_FALSE = @USE_CAIRO_FALSE@
+USE_CAIRO_TRUE = @USE_CAIRO_TRUE@
 USE_NLS = @USE_NLS@
+USE_SQLITE_FALSE = @USE_SQLITE_FALSE@
+USE_SQLITE_TRUE = @USE_SQLITE_TRUE@
 VERSION = @VERSION@
+WITH_NSBUNDLE_FALSE = @WITH_NSBUNDLE_FALSE@
+WITH_NSBUNDLE_TRUE = @WITH_NSBUNDLE_TRUE@
 XGETTEXT = @XGETTEXT@
+XML_CFLAGS = @XML_CFLAGS@
+XML_LIBS = @XML_LIBS@
 ac_ct_CC = @ac_ct_CC@
 ac_ct_CXX = @ac_ct_CXX@
 ac_ct_F77 = @ac_ct_F77@
+ac_ct_OBJC = @ac_ct_OBJC@
 am__fastdepCC_FALSE = @am__fastdepCC_FALSE@
 am__fastdepCC_TRUE = @am__fastdepCC_TRUE@
 am__fastdepCXX_FALSE = @am__fastdepCXX_FALSE@
 am__fastdepCXX_TRUE = @am__fastdepCXX_TRUE@
+am__fastdepOBJC_FALSE = @am__fastdepOBJC_FALSE@
+am__fastdepOBJC_TRUE = @am__fastdepOBJC_TRUE@
 am__include = @am__include@
 am__leading_dot = @am__leading_dot@
 am__quote = @am__quote@
@@ -257,18 +370,27 @@ mandir = @mandir@
 mkdir_p = @mkdir_p@
 oldincludedir = @oldincludedir@
 pdfdir = @pdfdir@
+pkgpyexecdir = @pkgpyexecdir@
+pkgpythondir = @pkgpythondir@
+plugindir = @plugindir@
 prefix = @prefix@
 program_transform_name = @program_transform_name@
 psdir = @psdir@
+pyexecdir = @pyexecdir@
+pythondir = @pythondir@
 sbindir = @sbindir@
 sharedstatedir = @sharedstatedir@
 sysconfdir = @sysconfdir@
+target = @target@
 target_alias = @target_alias@
+target_cpu = @target_cpu@
+target_os = @target_os@
+target_vendor = @target_vendor@
 INCLUDES = \
 	-DG_DISABLE_DEPRECATED -DPANGO_DISABLE_DEPRECATED \
 	-DGDK_DISABLE_DEPRECATED -DGDK_PIXBUF_DISABLE_DEPRECATED \
 	-DGTK_DISABLE_DEPRECATED \
-	-I$(top_srcdir)/src \
+	-I$(top_srcdir)/src/goocanvas/src \
 	@PACKAGE_CFLAGS@
 
 demo_SOURCES = \
@@ -278,46 +400,46 @@ demo_SOURCES = \
 	demo-clipping.c demo-table.c demo-large-line.h demo-large-line.c \
 	demo-large-items.c demo-large-rect.h demo-large-rect.c
 
-demo_LDADD = $(top_builddir)/src/libgoocanvas.la @PACKAGE_LIBS@ $(INTLLIBS)
+demo_LDADD = $(top_builddir)/src/goocanvas/src/libgoocanvas.la @PACKAGE_LIBS@ $(INTLLIBS)
 mv_demo_SOURCES = \
 	mv-demo.c mv-demo-fifteen.c mv-demo-scalability.c mv-demo-grabs.c \
 	mv-demo-arrowhead.c mv-demo-features.c mv-demo-events.c \
 	mv-demo-paths.c mv-demo-focus.c mv-demo-animation.c \
 	mv-demo-clipping.c mv-demo-table.c
 
-mv_demo_LDADD = $(top_builddir)/src/libgoocanvas.la @PACKAGE_LIBS@ $(INTLLIBS)
+mv_demo_LDADD = $(top_builddir)/src/goocanvas/src/libgoocanvas.la @PACKAGE_LIBS@ $(INTLLIBS)
 table_demo_SOURCES = \
 	table-demo.c
 
-table_demo_LDADD = $(top_builddir)/src/libgoocanvas.la @PACKAGE_LIBS@ $(INTLLIBS)
+table_demo_LDADD = $(top_builddir)/src/goocanvas/src/libgoocanvas.la @PACKAGE_LIBS@ $(INTLLIBS)
 mv_table_demo_SOURCES = \
 	mv-table-demo.c
 
-mv_table_demo_LDADD = $(top_builddir)/src/libgoocanvas.la @PACKAGE_LIBS@ $(INTLLIBS)
+mv_table_demo_LDADD = $(top_builddir)/src/goocanvas/src/libgoocanvas.la @PACKAGE_LIBS@ $(INTLLIBS)
 simple_demo_SOURCES = \
 	simple-demo.c
 
-simple_demo_LDADD = $(top_builddir)/src/libgoocanvas.la @PACKAGE_LIBS@ $(INTLLIBS)
+simple_demo_LDADD = $(top_builddir)/src/goocanvas/src/libgoocanvas.la @PACKAGE_LIBS@ $(INTLLIBS)
 mv_simple_demo_SOURCES = \
 	mv-simple-demo.c
 
-mv_simple_demo_LDADD = $(top_builddir)/src/libgoocanvas.la @PACKAGE_LIBS@ $(INTLLIBS)
+mv_simple_demo_LDADD = $(top_builddir)/src/goocanvas/src/libgoocanvas.la @PACKAGE_LIBS@ $(INTLLIBS)
 scalability_demo_SOURCES = \
 	scalability-demo.c
 
-scalability_demo_LDADD = $(top_builddir)/src/libgoocanvas.la @PACKAGE_LIBS@ $(INTLLIBS)
+scalability_demo_LDADD = $(top_builddir)/src/goocanvas/src/libgoocanvas.la @PACKAGE_LIBS@ $(INTLLIBS)
 mv_scalability_demo_SOURCES = \
 	mv-scalability-demo.c
 
-mv_scalability_demo_LDADD = $(top_builddir)/src/libgoocanvas.la @PACKAGE_LIBS@ $(INTLLIBS)
+mv_scalability_demo_LDADD = $(top_builddir)/src/goocanvas/src/libgoocanvas.la @PACKAGE_LIBS@ $(INTLLIBS)
 units_demo_SOURCES = \
 	units-demo.c
 
-units_demo_LDADD = $(top_builddir)/src/libgoocanvas.la @PACKAGE_LIBS@ $(INTLLIBS)
+units_demo_LDADD = $(top_builddir)/src/goocanvas/src/libgoocanvas.la @PACKAGE_LIBS@ $(INTLLIBS)
 widgets_demo_SOURCES = \
 	widgets-demo.c
 
-widgets_demo_LDADD = $(top_builddir)/src/libgoocanvas.la @PACKAGE_LIBS@ $(INTLLIBS)
+widgets_demo_LDADD = $(top_builddir)/src/goocanvas/src/libgoocanvas.la @PACKAGE_LIBS@ $(INTLLIBS)
 EXTRA_DIST = flower.png toroid.png
 all: all-am
 
@@ -332,9 +454,9 @@ $(srcdir)/Makefile.in: @MAINTAINER_MODE_TRUE@ $(srcdir)/Makefile.am  $(am__confi
 	      exit 1;; \
 	  esac; \
 	done; \
-	echo ' cd $(top_srcdir) && $(AUTOMAKE) --gnu  demo/Makefile'; \
+	echo ' cd $(top_srcdir) && $(AUTOMAKE) --gnu  src/goocanvas/demo/Makefile'; \
 	cd $(top_srcdir) && \
-	  $(AUTOMAKE) --gnu  demo/Makefile
+	  $(AUTOMAKE) --gnu  src/goocanvas/demo/Makefile
 .PRECIOUS: Makefile
 Makefile: $(srcdir)/Makefile.in $(top_builddir)/config.status
 	@case '$?' in \
