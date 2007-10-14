@@ -184,7 +184,7 @@ AnimCanvas_init(py_GcomprisAnimCanvas *self, PyObject *args, PyObject *key)
 {
   GcomprisAnimCanvasItem *item;
   GcomprisAnimation *anim;
-  GnomeCanvasGroup *parent;
+  GooCanvasItem *parent;
   PyObject *py_p, *py_a;
 
   if(!PyArg_ParseTuple(args, "OO:AnimCanvas_init", &py_a, &py_p)) {
@@ -192,13 +192,13 @@ AnimCanvas_init(py_GcomprisAnimCanvas *self, PyObject *args, PyObject *key)
       return -1;
   }
   if(!PyObject_TypeCheck(py_a, &py_GcomprisAnimationType) ||
-     !PyObject_TypeCheck(py_p,pygobject_lookup_class(GNOME_TYPE_CANVAS_GROUP))){
+     !PyObject_TypeCheck(py_p,pygobject_lookup_class(GOO_TYPE_CANVAS_GROUP))){
 
       PyErr_SetString(PyExc_TypeError, "AnimCanvas() needs an Animation");
       return -1;
   }
 
-  parent = (GnomeCanvasGroup*) pygobject_get(py_p);
+  parent = (GooCanvasItem*) pygobject_get(py_p);
   anim = ( (py_GcomprisAnimation*)py_a )->a;
   item = (GcomprisAnimCanvasItem*) gc_anim_activate(parent, anim);
   self->item = item;

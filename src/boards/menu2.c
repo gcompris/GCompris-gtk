@@ -34,9 +34,9 @@
 
 typedef struct {
   /* Information items (_s are shadow) */
-  GnomeCanvasRichText *boardname_item;
-  GnomeCanvasRichText *description_item;
-  GnomeCanvasRichText *author_item;
+  GooCanvasItem *boardname_item;
+  GooCanvasItem *description_item;
+  GooCanvasItem *author_item;
 } MenuItems;
 
 static MenuItems *menuitems;
@@ -60,20 +60,17 @@ static void              menu_config_start(GcomprisBoard *agcomprisBoard,
 
 static void              menu_config_stop(void);
 
-static void		 menu_create_item(GnomeCanvasGroup *parent, MenuItems *menuitems, GcomprisBoard *board);
+static void		 menu_create_item(GooCanvasItem *parent, MenuItems *menuitems, GcomprisBoard *board);
 static gboolean		 next_spot();
-static void		 create_info_area(GnomeCanvasGroup *parent, MenuItems *menuitems);
-static gint		 item_event(GnomeCanvasItem *item, GdkEvent *event, MenuItems *menuitems);
+static void		 create_info_area(GooCanvasItem *parent, MenuItems *menuitems);
+static gint		 item_event(GooCanvasItem *item, GdkEvent *event, MenuItems *menuitems);
 static void		 display_board_icon(GcomprisBoard *board, MenuItems *menuitems);
 static void		 free_stuff (GtkObject *obj, gpointer data);
-static void		 set_content(GnomeCanvasRichText *item_content,
-				     gchar *text,
-				     gchar *font);
 
 static void              display_section (gchar *path);
 static void              display_welcome (void);
-static void		 create_panel(GnomeCanvasGroup *parent);
-static void		 create_top(GnomeCanvasGroup *parent, gchar *path);
+static void		 create_panel(GooCanvasItem *parent);
+static void		 create_top(GooCanvasItem *parent, gchar *path);
 
 static double current_x = 0.0;
 static double current_y = 0.0;
@@ -118,8 +115,8 @@ static gdouble get_ratio(GdkPixbuf *pixmap, gdouble size);
 #define ICON_SIZE_PANEL 50
 #define ICON_SIZE_TOP 50
 
-static GnomeCanvasGroup *boardRootItem = NULL;
-static GnomeCanvasGroup *actualSectionItem = NULL;
+static GooCanvasItem *boardRootItem = NULL;
+static GooCanvasItem *actualSectionItem = NULL;
 static GList *panelBoards = NULL;
 
 /* Description of this plugin */
@@ -219,16 +216,12 @@ static void menu_start (GcomprisBoard *agcomprisBoard)
       menuitems = g_new(MenuItems, 1);
 
       img = gc_skin_image_get("gcompris-menu2bg.png");
-      gc_set_background(gnome_canvas_root(gcomprisBoard->canvas),
+      gc_set_background(goo_canvas_get_root_item(gcomprisBoard->canvas),
 			      img);
       g_free(img);
 
-      boardRootItem = GNOME_CANVAS_GROUP(
-					 gnome_canvas_item_new (gnome_canvas_root(gcomprisBoard->canvas),
-								gnome_canvas_group_get_type (),
-								"x", (double) 0,
-								"y", (double) 0,
-								NULL));
+      boardRootItem = goo_canvas_group_new (goo_canvas_get_root_item(gcomprisBoard->canvas),
+					    NULL);
 
       g_object_set_data (G_OBJECT (boardRootItem), "menuitems", menuitems);
       g_signal_connect (boardRootItem, "destroy",
@@ -251,7 +244,7 @@ static void menu_start (GcomprisBoard *agcomprisBoard)
       gc_bar_set(GC_BAR_CONFIG|GC_BAR_ABOUT);
 
       /* FIXME : Workaround for bugged canvas */
-      //gnome_canvas_update_now(gcomprisBoard->canvas);
+      //goo_canvas_update_now(gcomprisBoard->canvas);
 
       menu_pause(FALSE);
 
@@ -260,13 +253,13 @@ static void menu_start (GcomprisBoard *agcomprisBoard)
 }
 
 
-static void create_panel(GnomeCanvasGroup *parent)
+static void create_panel(GooCanvasItem *parent)
 {
   int n_sections;
   GList *list = NULL;
   GcomprisBoard *board;
   GdkPixbuf *pixmap = NULL;
-  GnomeCanvasItem *item;
+  GooCanvasItem *item;
 
   gdouble x, y;
   gint int_y;
@@ -292,22 +285,18 @@ static void create_panel(GnomeCanvasGroup *parent)
     int_y = (panel_h - n_sections*icon_size_panel)/n_sections;
   }
 
-  x = panel_x + panel_w/2.0;
-  y = panel_y + int_y/2.0;
+  x = panel_x + panel_w/2.0 - gdk_pixbuf_get_width(pixmap)/2;
+  y = panel_y + int_y/2.0 - gdk_pixbuf_get_height(pixmap)/2;
 
   for (list = panelBoards; list != NULL; list = list->next){
     board = (GcomprisBoard *) list->data;
 
     pixmap = gc_pixmap_load(board->icon_name);
 
-    item = gnome_canvas_item_new (parent,
-				  gnome_canvas_pixbuf_get_type (),
-				  "pixbuf", pixmap,
-				  "x", x,
-				  "y", y,
-				  "width", (gdouble)  gdk_pixbuf_get_width(pixmap),
-				  "height", (gdouble) gdk_pixbuf_get_height(pixmap),
-				  "anchor", GTK_ANCHOR_CENTER,
+    item = goo_canvas_image_new (parent,
+				  pixmap,
+				  x,
+				  y,
 				  NULL);
 
     gdk_pixbuf_unref(pixmap);
@@ -346,12 +335,8 @@ static void display_section (gchar *path)
       current_top_x = 0.0;
       current_top_y = 0.0;
 
-      actualSectionItem = GNOME_CANVAS_GROUP(
-					 gnome_canvas_item_new ( boardRootItem,
-								 gnome_canvas_group_get_type (),
-								"x", (double) 0,
-								"y", (double) 0,
-								NULL));
+      actualSectionItem = goo_canvas_group_new (boardRootItem,
+						NULL);
 
 
       create_top (actualSectionItem, path);
@@ -369,16 +354,6 @@ menu_end ()
 {
   if(boardRootItem!=NULL)
     {
-      /* WORKAROUND: There is a bug in the richtex item and we need to remove it first */
-      while (g_idle_remove_by_data (menuitems->description_item));
-      gtk_object_destroy (GTK_OBJECT(menuitems->description_item));
-
-      while (g_idle_remove_by_data (menuitems->boardname_item));
-      gtk_object_destroy (GTK_OBJECT(menuitems->boardname_item));
-
-      while (g_idle_remove_by_data (menuitems->author_item));
-      gtk_object_destroy (GTK_OBJECT(menuitems->author_item));
-
       gtk_object_destroy (GTK_OBJECT(boardRootItem));
     }
 
@@ -461,11 +436,11 @@ static gboolean next_spot()
 
 }
 
-static void menu_create_item(GnomeCanvasGroup *parent, MenuItems *menuitems, GcomprisBoard *board)
+static void menu_create_item(GooCanvasItem *parent, MenuItems *menuitems, GcomprisBoard *board)
 {
   GdkPixbuf *menu_pixmap = NULL;
   GdkPixbuf *pixmap = NULL;
-  GnomeCanvasItem *item, *menu_button;
+  GooCanvasItem *item, *menu_button;
   int difficulty;
   gchar *tmp_board_dir;
   gdouble ratio, pixmap_w, pixmap_h;
@@ -491,15 +466,12 @@ static void menu_create_item(GnomeCanvasGroup *parent, MenuItems *menuitems, Gco
 
   next_spot();
 
-  menu_button = gnome_canvas_item_new (parent,
-				       gnome_canvas_pixbuf_get_type (),
-				       "pixbuf", menu_pixmap,
-				       "x", (double)current_x - pixmap_w/2,
-				       "y", (double)current_y - pixmap_h/2,
+  menu_button = goo_canvas_image_new (parent,
+				       menu_pixmap,
+				       current_x - pixmap_w/2,
+				       current_y - pixmap_h/2,
 				       "width", (gdouble) pixmap_w,
 				       "height", (gdouble) pixmap_h,
-				       "width-set", TRUE,
-				       "height-set", TRUE,
 				       NULL);
 
   // display difficulty stars
@@ -530,11 +502,12 @@ static void menu_create_item(GnomeCanvasGroup *parent, MenuItems *menuitems, Gco
 	  pixmap = gc_skin_pixmap_load("voice.png");
 	}
 
-      gnome_canvas_item_new (parent,
-			     gnome_canvas_pixbuf_get_type (),
-			     "pixbuf", pixmap,
-			     "x", (double)current_x - pixmap_w/2 - 25,
-			     "y", (double)current_y - pixmap_h/2 + 28,
+      goo_canvas_image_new (parent,
+			    pixmap,
+			    current_x - pixmap_w/2 - 25 -
+			    gdk_pixbuf_get_width(pixmap)/2,
+			    current_y - pixmap_h/2 + 28-
+			    gdk_pixbuf_get_height(pixmap)/2,
 			     NULL);
       gdk_pixbuf_unref(pixmap);
       g_free(soundfile);
@@ -544,12 +517,13 @@ static void menu_create_item(GnomeCanvasGroup *parent, MenuItems *menuitems, Gco
   if(g_strcasecmp(board->type, "menu")==0)
     {
       pixmap = gc_skin_pixmap_load("menuicon.png");
-      item =  gnome_canvas_item_new (parent,
-				     gnome_canvas_pixbuf_get_type (),
-				     "pixbuf", pixmap,
-				     "x", (double)current_x - pixmap_w/2 - 25,
-				     "y", (double)current_y - pixmap_h/2,
-				     NULL);
+      item =  goo_canvas_image_new (parent,
+				    pixmap,
+				    current_x - pixmap_w/2 - 25 -
+				    gdk_pixbuf_get_width(pixmap)/2,
+				    current_y - pixmap_h/2-
+				    gdk_pixbuf_get_height(pixmap)/2,
+				    NULL);
       gdk_pixbuf_unref(pixmap);
     }
 
@@ -574,7 +548,7 @@ static void menu_create_item(GnomeCanvasGroup *parent, MenuItems *menuitems, Gco
 }
 
 static gint
-item_event(GnomeCanvasItem *item, GdkEvent *event,  MenuItems *menuitems)
+item_event(GooCanvasItem *item, GdkEvent *event,  MenuItems *menuitems)
 {
   GcomprisBoard *board;
 
@@ -590,28 +564,31 @@ item_event(GnomeCanvasItem *item, GdkEvent *event,  MenuItems *menuitems)
     {
     case GDK_ENTER_NOTIFY:
       if(board->title && G_IS_OBJECT(menuitems->boardname_item))
-	set_content (menuitems->boardname_item,
-		     board->title,
-		     gc_skin_font_board_big);
+	g_object_set (menuitems->boardname_item,
+		      "text", board->title,
+		      NULL);
 
       if(board->description
 	 && G_IS_OBJECT(menuitems->description_item))
-	set_content(menuitems->description_item,
-		    board->description,
-		    gc_skin_font_board_medium);
+	g_object_set(menuitems->description_item,
+		     "text", board->description,
+		     NULL);
 
       if(board->author && G_IS_OBJECT(menuitems->author_item))
-	set_content (menuitems->author_item,
-		     board->author,
-		     gc_skin_font_board_tiny);
+	g_object_set (menuitems->author_item,
+		      "text", board->author,
+		      NULL);
 
       break;
     case GDK_LEAVE_NOTIFY:
-      set_content (menuitems->boardname_item, " ", gc_skin_font_board_big);
+      g_object_set (menuitems->boardname_item,
+		    "text", "", NULL);
 
-      set_content (menuitems->description_item, " ", gc_skin_font_board_medium);
+      g_object_set (menuitems->description_item,
+		    "text", "", NULL);
 
-      set_content (menuitems->author_item, " ", gc_skin_font_board_tiny);
+      g_object_set (menuitems->author_item,
+		    "text", "", NULL);
 
       break;
     case GDK_BUTTON_PRESS:
@@ -647,52 +624,10 @@ item_event(GnomeCanvasItem *item, GdkEvent *event,  MenuItems *menuitems)
   return FALSE;
 }
 
-/* Apply the style to the given RichText item  */
-static void
-set_content(GnomeCanvasRichText *item_content,
-	    gchar *text,
-	    gchar *font)
-{
-
-  GtkTextIter    iter_start, iter_end;
-  GtkTextBuffer *buffer;
-  GtkTextTag    *txt_tag;
-  gboolean success;
-  gchar *color_string;
-  GdkColor *color   = (GdkColor *)malloc(sizeof(GdkColor));
-
-  /*
-   * Set the new text in the 2 items
-   */
-  gnome_canvas_item_set(GNOME_CANVAS_ITEM(item_content),
-			"text", text,
-			NULL);
-
-  /*
-   * Set the text
-   */
-  color_string = g_strdup_printf("#%x", gc_skin_get_color("menu/text") >> 8);
-  gdk_color_parse(color_string, color);
-  g_free(color_string);
-  success = gdk_colormap_alloc_color(gdk_colormap_get_system(),
-				     color,
-  				     FALSE, TRUE);
-
-  buffer  = gnome_canvas_rich_text_get_buffer(GNOME_CANVAS_RICH_TEXT(item_content));
-  txt_tag = gtk_text_buffer_create_tag(buffer, NULL,
-				       "foreground-gdk", color,
-				       "font", font,
-				       NULL);
-  gtk_text_buffer_get_end_iter(buffer, &iter_end);
-  gtk_text_buffer_get_start_iter(buffer, &iter_start);
-  gtk_text_buffer_apply_tag(buffer, txt_tag, &iter_start, &iter_end);
-  g_free(color);
-}
-
 /** \brief create the area in which we display the board title and description
  *
  */
-static void create_info_area(GnomeCanvasGroup *parent, MenuItems *menuitems)
+static void create_info_area(GooCanvasItem *parent, MenuItems *menuitems)
 {
   gint x = (double) info_x + info_w/2.0;
   gint y = info_y;
@@ -701,49 +636,40 @@ static void create_info_area(GnomeCanvasGroup *parent, MenuItems *menuitems)
     return;
 
   menuitems->boardname_item = \
-    GNOME_CANVAS_RICH_TEXT(gnome_canvas_item_new (parent,
-						  gnome_canvas_rich_text_get_type (),
-						  "x", (double) x,
-						  "y", (double) y,
-						  "width",  info_w,
-						  "height", info_h - 28,
-						  "anchor", GTK_ANCHOR_NORTH,
-						  "justification", GTK_JUSTIFY_CENTER,
-						  "grow_height", TRUE,
-						  "cursor_visible", FALSE,
-						  "cursor_blink", FALSE,
-						  "editable", FALSE,
-						  NULL));
+    goo_canvas_text_new (parent,
+			 "",
+			 x,
+			 y,
+			 info_w,
+			  GTK_ANCHOR_NORTH,
+			 "alignment", PANGO_ALIGN_CENTER,
+			 "font", gc_skin_font_board_big,
+			  "fill-color-rgba", gc_skin_get_color("menu/text"),
+			 NULL);
 
   menuitems->description_item = \
-    GNOME_CANVAS_RICH_TEXT(gnome_canvas_item_new (parent,
-						  gnome_canvas_rich_text_get_type (),
-						  "x", (double) x,
-						  "y", (double) y + 28,
-						  "width",  info_w,
-						  "height", info_h - 28,
-						  "anchor", GTK_ANCHOR_NORTH,
-						  "justification", GTK_JUSTIFY_CENTER,
-						  "grow_height", TRUE,
-						  "cursor_visible", FALSE,
-						  "cursor_blink", FALSE,
-						  "editable", FALSE,
-						  NULL));
+    goo_canvas_text_new (parent,
+			 "",
+			 x,
+			 y + 28,
+			 info_w,
+			  GTK_ANCHOR_NORTH,
+			 "alignment", PANGO_ALIGN_CENTER,
+			 "font", gc_skin_font_board_medium,
+			  "fill-color-rgba", gc_skin_get_color("menu/text"),
+			 NULL);
 
   menuitems->author_item = \
-    GNOME_CANVAS_RICH_TEXT(gnome_canvas_item_new (parent,
-						  gnome_canvas_rich_text_get_type (),
-						  "x", (double) x,
-						  "y", (double) y + 90,
-						  "width",  info_w,
-						  "height", info_h - 28,
-						  "anchor", GTK_ANCHOR_NORTH,
-						  "justification", GTK_JUSTIFY_CENTER,
-						  "grow_height", TRUE,
-						  "cursor_visible", FALSE,
-						  "cursor_blink", FALSE,
-						  "editable", FALSE,
-						  NULL));
+    goo_canvas_text_new (parent,
+			 "",
+			 x,
+			 y + 90,
+			 info_w,
+			  GTK_ANCHOR_NORTH,
+			 "alignment", PANGO_ALIGN_CENTER,
+			 "font", gc_skin_font_board_tiny,
+			  "fill-color-rgba", gc_skin_get_color("menu/text"),
+			 NULL);
 
 }
 
@@ -776,7 +702,7 @@ static gdouble get_ratio(GdkPixbuf *pixmap, gdouble size)
 
 }
 
-static void create_top(GnomeCanvasGroup *parent, gchar *path)
+static void create_top(GooCanvasItem *parent, gchar *path)
 {
   gchar **splitted_section;
   gint i = 1;
@@ -785,9 +711,9 @@ static void create_top(GnomeCanvasGroup *parent, gchar *path)
   GcomprisBoard *board;
   gchar *path1, *path2;
 
-  GnomeCanvasItem *item;
+  GooCanvasItem *item;
 
-  GcomprisProperties	*properties = gc_prop_get();
+  GcomprisProperties *properties = gc_prop_get();
 
   if (!path)
     return;
@@ -819,16 +745,14 @@ static void create_top(GnomeCanvasGroup *parent, gchar *path)
 	pixmap = gc_skin_pixmap_load("button_forward.png");
 	ratio = get_ratio(pixmap, top_arrow_size);
 
-	gnome_canvas_item_new (parent,
-			       gnome_canvas_pixbuf_get_type (),
-			       "pixbuf", pixmap,
-			       "x", current_top_x,
-			       "y", current_top_y + top_arrow_size / 2,
-			       "width", (gdouble)  gdk_pixbuf_get_width(pixmap)*ratio,
-			       "height", (gdouble) gdk_pixbuf_get_height(pixmap)*ratio,
-			       "width-set", TRUE,
-			       "height-set", TRUE,
-			       "anchor", GTK_ANCHOR_NW,
+	goo_canvas_image_new (parent,
+			       pixmap,
+			       current_top_x -
+			      gdk_pixbuf_get_width(pixmap)/2,
+			       current_top_y + top_arrow_size / 2 -
+			      gdk_pixbuf_get_height(pixmap)/2,
+			      "width", (gdouble)  gdk_pixbuf_get_width(pixmap)*ratio,
+			      "height", (gdouble) gdk_pixbuf_get_height(pixmap)*ratio,
 			       NULL);
 
 	gdk_pixbuf_unref(pixmap);
@@ -843,16 +767,14 @@ static void create_top(GnomeCanvasGroup *parent, gchar *path)
 
       ratio = get_ratio( pixmap, icon_size_top);
 
-      item = gnome_canvas_item_new (parent,
-				    gnome_canvas_pixbuf_get_type (),
-				    "pixbuf", pixmap,
-				    "x", current_top_x,
-				    "y", current_top_y,
-				    "width", (gdouble)  gdk_pixbuf_get_width(pixmap)*ratio,
-				    "height", (gdouble) gdk_pixbuf_get_height(pixmap)*ratio,
-				    "width-set", TRUE,
-				    "height-set", TRUE,
-				    "anchor", GTK_ANCHOR_NW,
+      item = goo_canvas_image_new (parent,
+				   pixmap,
+				   current_top_x,
+				   current_top_y,
+				   "width", (gdouble)  gdk_pixbuf_get_width(pixmap)*ratio -
+				   gdk_pixbuf_get_width(pixmap)/2,
+				   "height", (gdouble) gdk_pixbuf_get_height(pixmap)*ratio-
+				   gdk_pixbuf_get_height(pixmap)/2,
 				    NULL);
 
       gdk_pixbuf_unref(pixmap);
@@ -882,7 +804,7 @@ static void create_top(GnomeCanvasGroup *parent, gchar *path)
 static void
 display_welcome (void)
 {
-  GnomeCanvasItem *logo;
+  GooCanvasItem *logo;
   GdkPixbuf *pixmap;
 
   if (actualSectionItem)
@@ -891,38 +813,36 @@ display_welcome (void)
     }
 
 
-  actualSectionItem = GNOME_CANVAS_GROUP(
-					 gnome_canvas_item_new ( boardRootItem,
-								 gnome_canvas_group_get_type (),
-								 "x", (double) 0,
-								 "y", (double) 0,
-								 NULL));
+  actualSectionItem = goo_canvas_group_new (boardRootItem,
+					   NULL);
 
   pixmap = gc_skin_pixmap_load("gcompris-about.png");
 
 
-  logo = gnome_canvas_item_new (actualSectionItem,
-				gnome_canvas_pixbuf_get_type (),
-				"pixbuf", pixmap,
-				"x", (gdouble) display_x + display_w/2.0,
-				"y", (gdouble) display_y + display_h/2.0,
-				"anchor", GTK_ANCHOR_CENTER,
-				NULL);
+  logo = goo_canvas_image_new (actualSectionItem,
+			       pixmap,
+			       display_x + display_w/2.0 -
+			       gdk_pixbuf_get_width(pixmap)/2,
+			       display_y + display_h/2.0 -
+			       gdk_pixbuf_get_height(pixmap)/2,
+			       NULL);
 
   gdk_pixbuf_unref(pixmap);
 
   if(G_IS_OBJECT(menuitems->boardname_item))
-    set_content (menuitems->boardname_item,
-		 "GCompris V" VERSION,
-		 gc_skin_font_board_big);
+    g_object_set(menuitems->boardname_item,
+		 "text", "GCompris V" VERSION,
+		 NULL);
 
   if(G_IS_OBJECT(menuitems->description_item))
-    set_content(menuitems->description_item,
-		_("GCompris is a collection of educational games that provides different activities for children aged 2 and up."),
-		gc_skin_font_board_medium);
+    g_object_set(menuitems->description_item,
+		 "text",
+		 _("GCompris is a collection of educational games that provides different activities for children aged 2 and up."),
+		 NULL);
 
   if(G_IS_OBJECT(menuitems->author_item))
-    set_content (menuitems->author_item, "", gc_skin_font_board_tiny);
+    g_object_set(menuitems->author_item,
+		 "text", "", NULL);
 
   menu_displayed = TRUE;
 }

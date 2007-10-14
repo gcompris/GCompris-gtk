@@ -111,17 +111,17 @@ py_gc_board_end(PyObject* self, PyObject* args)
 }
 
 
-/* void	gc_bar_start (GnomeCanvas *theCanvas); */
+/* void	gc_bar_start (GooCanvas *theCanvas); */
 static PyObject*
 py_gc_bar_start(PyObject* self, PyObject* args)
 {
   PyObject* pyCanvas;
-  GnomeCanvas* canvas;
+  GooCanvas* canvas;
 
   /* Parse arguments */
   if(!PyArg_ParseTuple(args, "O:gc_bar_start", &pyCanvas))
     return NULL;
-  canvas = (GnomeCanvas*) pygobject_get(pyCanvas);
+  canvas = (GooCanvas*) pygobject_get(pyCanvas);
 
   /* Call the corresponding C function */
   gc_bar_start(canvas);
@@ -132,20 +132,20 @@ py_gc_bar_start(PyObject* self, PyObject* args)
 }
 
 
-/* GnomeCanvasItem *gc_set_background(GnomeCanvasGroup *parent, gchar *file); */
+/* GooCanvasItem *gc_set_background(GooCanvasGroup *parent, gchar *file); */
 static PyObject*
 py_gc_set_background(PyObject* self, PyObject* args)
 {
   PyObject* pyCanvasGroup;
-  GnomeCanvasGroup* canvasGroup;
+  GooCanvasItem* canvasGroup;
   gchar* file;
   PyObject* pyResult;
-  GnomeCanvasItem* result;
+  GooCanvasItem* result;
 
   /* Parse arguments */
   if(!PyArg_ParseTuple(args, "Os:gc_set_background", &pyCanvasGroup, &file))
     return NULL;
-  canvasGroup = (GnomeCanvasGroup*) pygobject_get(pyCanvasGroup);
+  canvasGroup = (GooCanvasItem*) pygobject_get(pyCanvasGroup);
 
   /* Call the corresponding C function */
   result = gc_set_background(canvasGroup, file);
@@ -237,11 +237,11 @@ py_gc_bar_hide(PyObject* self, PyObject* args)
   return Py_None;
 }
 
-/* GnomeCanvas *gc_get_canvas(void); */
+/* GooCanvas *gc_get_canvas(void); */
 static PyObject*
 py_gc_get_canvas(PyObject* self, PyObject* args)
 {
-  GnomeCanvas* result;
+  GooCanvas* result;
   /* Parse arguments */
   if(!PyArg_ParseTuple(args, ":gc_get_canvas"))
     return NULL;

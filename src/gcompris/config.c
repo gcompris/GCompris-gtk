@@ -141,7 +141,10 @@ static gchar *filtername[] = {
 static void set_locale_flag(gchar *locale);
 static gchar *get_next_locale(gchar *locale);
 static gchar *get_previous_locale(gchar *locale);
-static gint   item_event_ok(GooCanvasItem *item, GdkEvent *event, gpointer data);
+static gboolean item_event_ok (GooCanvasItem  *item,
+			       GooCanvasItem  *target,
+			       GdkEventButton *event,
+			       gchar *data);
 static void   display_previous_next(guint x_start, guint y_start,
 				    gchar *eventname_previous, gchar *eventname_next);
 
@@ -179,7 +182,7 @@ gc_config_start ()
 			       pixmap,
 			       (double) x_start,
 			       (double) y_start,
-				NULL);
+			       NULL);
   y = BOARDHEIGHT - (BOARDHEIGHT - gdk_pixbuf_get_height(pixmap))/2;
   gdk_pixbuf_unref(pixmap);
 
@@ -191,7 +194,6 @@ gc_config_start ()
 		       GTK_ANCHOR_CENTER,
 		       "font", gc_skin_font_title,
 		       "fill-color-rgba", gc_skin_color_shadow,
-		       "weight", PANGO_WEIGHT_HEAVY,
 		       NULL);
   goo_canvas_text_new (rootitem,
 		       _("GCompris Configuration"),
@@ -201,8 +203,7 @@ gc_config_start ()
 		       GTK_ANCHOR_CENTER,
 		       "font", gc_skin_font_title,
 		       "fill-color-rgba", gc_skin_color_title,
-		       "weight", PANGO_WEIGHT_HEAVY,
-			 NULL);
+		       NULL);
 
   pixmap_checked   = gc_skin_pixmap_load("button_checked.png");
   pixmap_unchecked = gc_skin_pixmap_load("button_unchecked.png");
@@ -222,7 +223,7 @@ gc_config_start ()
 					   NULL,
 					   (double) x_flag_start,
 					   (double) y_start - gdk_pixbuf_get_width(pixmap_checked)/2,
-					    NULL);
+					   NULL);
 
   /* Display a bad icon if this locale is not available */
   pixmap   = gc_skin_pixmap_load("mini_bad.png");
@@ -230,7 +231,7 @@ gc_config_start ()
 					pixmap,
 					(double) x_flag_start - 20,
 					(double) y_start - gdk_pixbuf_get_width(pixmap_checked)/2,
-					 NULL);
+					NULL);
   gdk_pixbuf_unref(pixmap);
 
   /*
@@ -256,14 +257,14 @@ gc_config_start ()
 			       (properties->fullscreen ? pixmap_checked : pixmap_unchecked),
 			       (double) x_start,
 			       (double) y_start - gdk_pixbuf_get_width(pixmap_checked)/2,
-				NULL);
+			       NULL);
 
   g_signal_connect(item, "button_press_event",
-		     (GtkSignalFunc) item_event_ok,
-		     "fullscreen");
+		   (GtkSignalFunc) item_event_ok,
+		   "fullscreen");
   g_signal_connect(item, "button_press_event",
-		     (GtkSignalFunc) gc_item_focus_event,
-		     NULL);
+		   (GtkSignalFunc) gc_item_focus_event,
+		   NULL);
 
 
   goo_canvas_text_new (rootitem,
@@ -298,14 +299,14 @@ gc_config_start ()
 			       (properties->music ? pixmap_checked : pixmap_unchecked),
 			       (double) x_start,
 			       (double) y_start - gdk_pixbuf_get_width(pixmap_checked)/2,
-				NULL);
+			       NULL);
 
   g_signal_connect(item, "button_press_event",
-		     (GtkSignalFunc) item_event_ok,
-		     "music");
+		   (GtkSignalFunc) item_event_ok,
+		   "music");
   g_signal_connect(item, "button_press_event",
-		     (GtkSignalFunc) gc_item_focus_event,
-		     NULL);
+		   (GtkSignalFunc) gc_item_focus_event,
+		   NULL);
 
 
   goo_canvas_text_new (rootitem,
@@ -325,14 +326,14 @@ gc_config_start ()
 			       (properties->fx ? pixmap_checked : pixmap_unchecked),
 			       (double) x_start,
 			       (double) y_start - gdk_pixbuf_get_width(pixmap_checked)/2,
-				NULL);
+			       NULL);
 
   g_signal_connect(item, "button_press_event",
-		     (GtkSignalFunc) item_event_ok,
-		     "effect");
+		   (GtkSignalFunc) item_event_ok,
+		   "effect");
   g_signal_connect(item, "button_press_event",
-		     (GtkSignalFunc) gc_item_focus_event,
-		     NULL);
+		   (GtkSignalFunc) gc_item_focus_event,
+		   NULL);
 
 
   goo_canvas_text_new (rootitem,
@@ -449,14 +450,14 @@ gc_config_start ()
 			       pixmap,
 			       (double) (BOARDWIDTH*0.5) - gdk_pixbuf_get_width(pixmap)/2,
 			       (double) y - gdk_pixbuf_get_height(pixmap) - 5,
-				NULL);
+			       NULL);
 
   g_signal_connect(item, "button_press_event",
-		     (GtkSignalFunc) item_event_ok,
-		     "ok");
+		   (GtkSignalFunc) item_event_ok,
+		   "ok");
   g_signal_connect(item, "button_press_event",
-		     (GtkSignalFunc) gc_item_focus_event,
-		     NULL);
+		   (GtkSignalFunc) gc_item_focus_event,
+		   NULL);
 
   goo_canvas_text_new (rootitem,
 		       _("OK"),
@@ -466,8 +467,7 @@ gc_config_start ()
 		       GTK_ANCHOR_CENTER,
 		       "font", gc_skin_font_title,
 		       "fill-color-rgba", gc_skin_color_shadow,
-		       "weight", PANGO_WEIGHT_HEAVY,
-			 NULL);
+		       NULL);
   item2 = goo_canvas_text_new (rootitem,
 			       _("OK"),
 			       (gdouble)  BOARDWIDTH*0.5,
@@ -476,14 +476,13 @@ gc_config_start ()
 			       GTK_ANCHOR_CENTER,
 			       "font", gc_skin_font_title,
 			       "fill-color-rgba", gc_skin_color_text_button,
-			       "weight", PANGO_WEIGHT_HEAVY,
-				 NULL);
+			       NULL);
   g_signal_connect(item2, "button_press_event",
-		     (GtkSignalFunc) item_event_ok,
-		     "ok");
+		   (GtkSignalFunc) item_event_ok,
+		   "ok");
   g_signal_connect(item2, "button_press_event",
-		     (GtkSignalFunc) gc_item_focus_event,
-		     item);
+		   (GtkSignalFunc) gc_item_focus_event,
+		   item);
   gdk_pixbuf_unref(pixmap);
 
 
@@ -495,7 +494,7 @@ void gc_config_stop ()
   // Destroy the help box
   if(rootitem!=NULL)
     {
-      gtk_object_destroy(GTK_OBJECT(rootitem));
+      goo_canvas_item_remove(rootitem);
       gc_board_pause(FALSE);
     }
   rootitem = NULL;
@@ -561,14 +560,14 @@ display_previous_next(guint x_start, guint y_start,
 			       pixmap,
 			       (double) x_start - gdk_pixbuf_get_width(pixmap) - 10,
 			       (double) y_start - gdk_pixbuf_get_width(pixmap_checked)/2,
-				NULL);
+			       NULL);
 
   g_signal_connect(item, "button_press_event",
-		     (GtkSignalFunc) item_event_ok,
-		     eventname_previous);
+		   (GtkSignalFunc) item_event_ok,
+		   eventname_previous);
   g_signal_connect(item, "button_press_event",
-		     (GtkSignalFunc) gc_item_focus_event,
-		     NULL);
+		   (GtkSignalFunc) gc_item_focus_event,
+		   NULL);
   gdk_pixbuf_unref(pixmap);
 
 
@@ -577,14 +576,14 @@ display_previous_next(guint x_start, guint y_start,
 			       pixmap,
 			       (double) x_start,
 			       (double) y_start - gdk_pixbuf_get_width(pixmap_checked)/2,
-				NULL);
+			       NULL);
 
   g_signal_connect(item, "button_press_event",
-		     (GtkSignalFunc) item_event_ok,
-		     eventname_next);
+		   (GtkSignalFunc) item_event_ok,
+		   eventname_next);
   g_signal_connect(item, "button_press_event",
-		     (GtkSignalFunc) gc_item_focus_event,
-		     NULL);
+		   (GtkSignalFunc) gc_item_focus_event,
+		   NULL);
   gdk_pixbuf_unref(pixmap);
 }
 
@@ -616,8 +615,8 @@ set_locale_flag(gchar *locale)
       pixmap = gc_net_load_pixmap(filename);
 
       g_object_set (item_locale_flag,
-			     "pixbuf", pixmap,
-			     NULL);
+		    "pixbuf", pixmap,
+		    NULL);
 
       gdk_pixbuf_unref(pixmap);
       g_free(filename);
@@ -626,8 +625,8 @@ set_locale_flag(gchar *locale)
     {
       /* No flags */
       g_object_set (item_locale_flag,
-			     "pixbuf", NULL,
-			     NULL);
+		    "pixbuf", NULL,
+		    NULL);
     }
 
   /* Check wether or not the locale is available */
@@ -705,172 +704,170 @@ get_previous_locale(gchar *locale)
 
 /* Callback for the bar operations */
 static gint
-item_event_ok(GooCanvasItem *item, GdkEvent *event, gpointer data)
+item_event_ok(GooCanvasItem *item,
+	      GooCanvasItem *target,
+	      GdkEventButton *event,
+	      gchar *data)
 {
-  GcomprisProperties	*properties = gc_prop_get();
+  GcomprisProperties *properties = gc_prop_get();
 
   if(data==NULL)
     return FALSE;
 
-  switch (event->type)
+  if(!strcmp((char *)data, "ok"))
     {
-    case GDK_ENTER_NOTIFY:
-      break;
-    case GDK_LEAVE_NOTIFY:
-      break;
-    case GDK_BUTTON_PRESS:
-      if(!strcmp((char *)data, "ok"))
+      /* Set the new locale in the properties */
+      if (properties->locale != current_locale)
 	{
-	  /* Set the new locale in the properties */
-	  if (properties->locale != current_locale)
-	    {
-	      g_free(properties->locale);
-	      properties->locale = strdup(current_locale);
-	    }
-
-	  if(current_locale[0] == '\0') {
-	    /* Set the locale to the default user's locale */
-	    gc_locale_set(gc_locale_get_user_default());
-	  } else {
-	    gc_locale_set(current_locale);
-	  }
-	  g_free(properties->skin);
-	  properties->skin = g_strdup((char *)g_list_nth_data(skinlist, skin_index));
-	  gc_skin_load(properties->skin);
-	  gc_config_stop();
-
-	  if(properties->music || properties->fx)
-	    gc_sound_init();
-
-	  if(!properties->music && !properties->fx)
-	    gc_sound_close();
-	  else
-	    {
-	      if(!properties->music)
-		gc_sound_bg_close();
-
-	      if(!properties->fx)
-		gc_sound_fx_close();
-	    }
-	  gc_prop_save(properties);
+	  g_free(properties->locale);
+	  properties->locale = strdup(current_locale);
 	}
-      else if(!strcmp((char *)data, "fullscreen"))
+
+      if(current_locale[0] == '\0') {
+	/* Set the locale to the default user's locale */
+	gc_locale_set(gc_locale_get_user_default());
+      } else {
+	gc_locale_set(current_locale);
+      }
+      g_free(properties->skin);
+      properties->skin = g_strdup((char *)g_list_nth_data(skinlist, skin_index));
+      gc_skin_load(properties->skin);
+      gc_config_stop();
+
+      if(properties->music || properties->fx)
+	gc_sound_init();
+
+      if(!properties->music && !properties->fx)
+	gc_sound_close();
+      else
 	{
-	  properties->fullscreen = (properties->fullscreen ? 0 : 1);
-
-	  gc_fullscreen_set(properties->fullscreen);
-
-	  /* Warning changing the image needs to update pixbuf_ref for the focus usage */
-	  gc_item_focus_free(item, NULL);
-	  g_object_set (item,
-				 "pixbuf", (properties->fullscreen ? pixmap_checked : pixmap_unchecked),
-				 NULL);
-
-	}
-      else if(!strcmp((char *)data, "music"))
-	{
-	  properties->music = (properties->music ? 0 : 1);
-	  /* Warning changing the image needs to update pixbuf_ref for the focus usage */
-	  gc_item_focus_free(item, NULL);
-	  g_object_set (item,
-				 "pixbuf", (properties->music ? pixmap_checked : pixmap_unchecked),
-				 NULL);
 	  if(!properties->music)
-	    {
-	      gc_sound_bg_close();
-	    }
-	  else
-	    {
-	      gc_sound_bg_reopen();
-	    }
-	}
-      else if(!strcmp((char *)data, "effect"))
-	{
-	  properties->fx = (properties->fx ? 0 : 1);
-	  /* Warning changing the image needs to update pixbuf_ref for the focus usage */
-	  gc_item_focus_free(item, NULL);
-	  g_object_set (item,
-				 "pixbuf", (properties->fx ? pixmap_checked : pixmap_unchecked),
-				 NULL);
+	    gc_sound_bg_close();
 
-
+	  if(!properties->fx)
+	    gc_sound_fx_close();
 	}
-      else if(!strcmp((char *)data, "locale_previous"))
-	{
-	  current_locale = get_previous_locale(current_locale);
-	  g_object_set (item_locale_text,
-			       gc_locale_get_name(current_locale),
-				 NULL);
-	  set_locale_flag(current_locale);
-	}
-      else if(!strcmp((char *)data, "locale_next"))
-	{
-	  current_locale = get_next_locale(current_locale);
-	  g_object_set_data (G_OBJECT(item_locale_text),
-			     "text", gc_locale_get_name(current_locale));
-
-	  set_locale_flag(current_locale);
-	}
-      else if(!strcmp((char *)data, "screen_previous"))
-	{
-	  if(properties->screensize>0)
-	    properties->screensize--;
-
-	  g_object_set_data (G_OBJECT(item_screen_text),
-			     "text", gettext(screenname[properties->screensize]));
-	}
-      else if(!strcmp((char *)data, "screen_next"))
-	{
-	  if(properties->screensize<MAX_SCREEN_VALUE)
-	    properties->screensize++;
-
-	  g_object_set_data (G_OBJECT(item_screen_text),
-			     "text", gettext(screenname[properties->screensize]));
-	}
-      else if(!strcmp((char *)data, "timer_previous"))
-	{
-	  if(properties->timer>0)
-	    properties->timer--;
-
-	  g_object_set_data (G_OBJECT(item_timer_text),
-			     "text", gettext(timername[properties->timer]));
-	}
-      else if(!strcmp((char *)data, "timer_next"))
-	{
-	  if(properties->timer<MAX_TIMER_VALUE)
-	    properties->timer++;
-
-	  g_object_set_data (G_OBJECT(item_timer_text),
-				      "text", gettext(timername[properties->timer]));
-	}
-      else if(!strcmp((char *)data, "skin_previous"))
-	{
-	  gchar *skin_str;
-	  if(skin_index-- < 1)
-	    skin_index = g_list_length(skinlist)-1;
-
-	  skin_str = g_strdup_printf(_("Skin : %s"),
-				     (char *)g_list_nth_data(skinlist, skin_index));
-
-	  g_object_set_data (G_OBJECT(item_skin_text),
-			     "text", skin_str);
-	  g_free(skin_str);
-	}
-      else if(!strcmp((char *)data, "skin_next"))
-	{
-	  gchar *skin_str;
-	  if(skin_index++ >= g_list_length(skinlist)-1)
-	    skin_index = 0;
-
-	  skin_str = g_strdup_printf(_("Skin : %s"),
-				     (char *)g_list_nth_data(skinlist, skin_index));
-	  g_object_set_data (G_OBJECT(item_skin_text),
-			     "text", skin_str);
-	  g_free(skin_str);
-	}
-    default:
-      break;
+      gc_prop_save(properties);
     }
-  return FALSE;
+  else if(!strcmp((char *)data, "fullscreen"))
+    {
+      properties->fullscreen = (properties->fullscreen ? 0 : 1);
 
+      gc_fullscreen_set(properties->fullscreen);
+
+      /* Warning changing the image needs to update pixbuf_ref for the focus usage */
+      gc_item_focus_free(item, NULL);
+      g_object_set (item,
+		    "pixbuf", (properties->fullscreen ? pixmap_checked : pixmap_unchecked),
+		    NULL);
+
+    }
+  else if(!strcmp((char *)data, "music"))
+    {
+      properties->music = (properties->music ? 0 : 1);
+      /* Warning changing the image needs to update pixbuf_ref for the focus usage */
+      gc_item_focus_free(item, NULL);
+      g_object_set (item,
+		    "pixbuf", (properties->music ? pixmap_checked : pixmap_unchecked),
+		    NULL);
+      if(!properties->music)
+	{
+	  gc_sound_bg_close();
+	}
+      else
+	{
+	  gc_sound_bg_reopen();
+	}
+    }
+  else if(!strcmp((char *)data, "effect"))
+    {
+      properties->fx = (properties->fx ? 0 : 1);
+      /* Warning changing the image needs to update pixbuf_ref for the focus usage */
+      gc_item_focus_free(item, NULL);
+      g_object_set (item,
+		    "pixbuf", (properties->fx ? pixmap_checked : pixmap_unchecked),
+		    NULL);
+    }
+  else if(!strcmp((char *)data, "locale_previous"))
+    {
+      current_locale = get_previous_locale(current_locale);
+      g_object_set (item_locale_text,
+		    "text", gc_locale_get_name(current_locale),
+		    NULL);
+      set_locale_flag(current_locale);
+    }
+  else if(!strcmp((char *)data, "locale_next"))
+    {
+      current_locale = get_next_locale(current_locale);
+      g_object_set (G_OBJECT(item_locale_text),
+		    "text", gc_locale_get_name(current_locale),
+		    NULL);
+
+      set_locale_flag(current_locale);
+    }
+  else if(!strcmp((char *)data, "screen_previous"))
+    {
+      if(properties->screensize>0)
+	properties->screensize--;
+
+      g_object_set (G_OBJECT(item_screen_text),
+		    "text", gettext(screenname[properties->screensize]),
+		    NULL);
+    }
+  else if(!strcmp((char *)data, "screen_next"))
+    {
+      if(properties->screensize<MAX_SCREEN_VALUE)
+	properties->screensize++;
+
+      g_object_set (G_OBJECT(item_screen_text),
+		    "text", gettext(screenname[properties->screensize]),
+		    NULL);
+    }
+  else if(!strcmp((char *)data, "timer_previous"))
+    {
+      if(properties->timer>0)
+	properties->timer--;
+
+      g_object_set (G_OBJECT(item_timer_text),
+		    "text", gettext(timername[properties->timer]),
+		    NULL);
+    }
+  else if(!strcmp((char *)data, "timer_next"))
+    {
+      if(properties->timer<MAX_TIMER_VALUE)
+	properties->timer++;
+
+      g_object_set (G_OBJECT(item_timer_text),
+		    "text", gettext(timername[properties->timer]),
+		    NULL);
+    }
+  else if(!strcmp((char *)data, "skin_previous"))
+    {
+      gchar *skin_str;
+      if(skin_index-- < 1)
+	skin_index = g_list_length(skinlist)-1;
+
+      skin_str = g_strdup_printf(_("Skin : %s"),
+				 (char *)g_list_nth_data(skinlist, skin_index));
+
+      g_object_set (G_OBJECT(item_skin_text),
+		    "text", skin_str,
+		    NULL);
+      g_free(skin_str);
+    }
+  else if(!strcmp((char *)data, "skin_next"))
+    {
+      gchar *skin_str;
+      if(skin_index++ >= g_list_length(skinlist)-1)
+	skin_index = 0;
+
+      skin_str = g_strdup_printf(_("Skin : %s"),
+				 (char *)g_list_nth_data(skinlist, skin_index));
+      g_object_set (G_OBJECT(item_skin_text),
+		    "text", skin_str,
+		    NULL);
+      g_free(skin_str);
+    }
+
+  return TRUE;
 }

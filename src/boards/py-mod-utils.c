@@ -56,12 +56,12 @@ py_gc_file_find_absolute(PyObject* self, PyObject* args)
 
 
 
-/* void	gc_item_focus_set(GnomeCanvasItem *item, gboolean focus); */
+/* void	gc_item_focus_set(GooCanvasItem *item, gboolean focus); */
 static PyObject*
 py_gc_item_focus_set(PyObject* self, PyObject* args)
 {
   PyObject* pyitem;
-  GnomeCanvasItem* item;
+  GooCanvasItem* item;
   gint pyfocus;
   gboolean focus;
 
@@ -69,7 +69,7 @@ py_gc_item_focus_set(PyObject* self, PyObject* args)
   if(!PyArg_ParseTuple(args, "Oi:gc_item_focus_set", &pyitem, &pyfocus))
     return NULL;
 
-  item = (GnomeCanvasItem*) pygobject_get(pyitem);
+  item = (GooCanvasItem*) pygobject_get(pyitem);
   if(pyfocus>0) focus = TRUE;
   else focus = FALSE;
 
@@ -82,15 +82,15 @@ py_gc_item_focus_set(PyObject* self, PyObject* args)
 }
 
 
-/* gint	gc_item_focus_event(GnomeCanvasItem *item,
+/* gint	gc_item_focus_event(GooCanvasItem *item,
                                   GdkEvent *event,
-                                  GnomeCanvasItem *dest_item);
+                                  GooCanvasItem *dest_item);
 */
 static PyObject*
 py_gc_item_focus_event(PyObject* self, PyObject* args)
 {
   PyObject* pyitem;
-  GnomeCanvasItem* item;
+  GooCanvasItem* item;
   PyObject* pyevent;
   GdkEvent* event;
   gint result;
@@ -98,7 +98,7 @@ py_gc_item_focus_event(PyObject* self, PyObject* args)
   /* Parse arguments */
   if(!PyArg_ParseTuple(args, "OO:gc_item_focus_event", &pyitem, &pyevent))
     return NULL;
-  item = (GnomeCanvasItem*) pygobject_get(pyitem);
+  item = (GooCanvasItem*) pygobject_get(pyitem);
   event = (GdkEvent*) pygobject_get(pyevent);
 
   /* Call the corresponding C function */
@@ -109,18 +109,18 @@ py_gc_item_focus_event(PyObject* self, PyObject* args)
 }
 
 
-/* void gc_item_absolute_move(GnomeCanvasItem *item, int x, int y); */
+/* void gc_item_absolute_move(GooCanvasItem *item, int x, int y); */
 static PyObject*
 py_gc_item_absolute_move(PyObject* self, PyObject* args)
 {
   PyObject* pyitem;
-  GnomeCanvasItem* item;
+  GooCanvasItem* item;
   int x, y;
 
   /* Parse arguments */
   if(!PyArg_ParseTuple(args, "Oii:gc_item_absolute_move", &pyitem, &x, &y))
     return NULL;
-  item = (GnomeCanvasItem*) pygobject_get(pyitem);
+  item = (GooCanvasItem*) pygobject_get(pyitem);
 
   /* Call the corresponding C function */
   gc_item_absolute_move(item, x, y);
@@ -131,18 +131,18 @@ py_gc_item_absolute_move(PyObject* self, PyObject* args)
 }
 
 
-/* void gc_item_rotate(GnomeCanvasItem *item, double angle); */
+/* void gc_item_rotate(GooCanvasItem *item, double angle); */
 static PyObject*
 py_gc_item_rotate(PyObject* self, PyObject* args)
 {
   PyObject* pyitem;
-  GnomeCanvasItem* item;
+  GooCanvasItem* item;
   double angle;
 
   /* Parse arguments */
   if(!PyArg_ParseTuple(args, "Od:gc_item_rotate_relative", &pyitem, &angle))
     return NULL;
-  item = (GnomeCanvasItem*) pygobject_get(pyitem);
+  item = (GooCanvasItem*) pygobject_get(pyitem);
 
   /* Call the corresponding C function */
   gc_item_rotate(item, angle);
@@ -153,18 +153,18 @@ py_gc_item_rotate(PyObject* self, PyObject* args)
 }
 
 
-/* void gc_item_rotate_relative(GnomeCanvasItem *item, double angle); */
+/* void gc_item_rotate_relative(GooCanvasItem *item, double angle); */
 static PyObject*
 py_gc_item_rotate_relative(PyObject* self, PyObject* args)
 {
   PyObject* pyitem;
-  GnomeCanvasItem* item;
+  GooCanvasItem* item;
   double angle;
 
   /* Parse arguments */
   if(!PyArg_ParseTuple(args, "Od:gc_item_rotate_relative", &pyitem, &angle))
     return NULL;
-  item = (GnomeCanvasItem*) pygobject_get(pyitem);
+  item = (GooCanvasItem*) pygobject_get(pyitem);
 
   /* Call the corresponding C function */
   gc_item_rotate_relative(item, angle);
@@ -175,19 +175,19 @@ py_gc_item_rotate_relative(PyObject* self, PyObject* args)
 }
 
 
-/* void gc_item_rotate_with_center(GnomeCanvasItem *item, double angle, int x, int y); */
+/* void gc_item_rotate_with_center(GooCanvasItem *item, double angle, int x, int y); */
 static PyObject*
 py_gc_item_rotate_with_center(PyObject* self, PyObject* args)
 {
   PyObject* pyitem;
-  GnomeCanvasItem* item;
+  GooCanvasItem* item;
   double angle;
   int x,y;
 
   /* Parse arguments */
   if(!PyArg_ParseTuple(args, "Odii:gc_item_rotate_with_center", &pyitem, &angle, &x, &y))
     return NULL;
-  item = (GnomeCanvasItem*) pygobject_get(pyitem);
+  item = (GooCanvasItem*) pygobject_get(pyitem);
 
   /* Call the corresponding C function */
   gc_item_rotate_with_center(item, angle, x, y);
@@ -198,19 +198,19 @@ py_gc_item_rotate_with_center(PyObject* self, PyObject* args)
 }
 
 
-/* void gc_item_rotate_relative_with_center(GnomeCanvasItem *item, double angle, int x, int y); */
+/* void gc_item_rotate_relative_with_center(GooCanvasItem *item, double angle, int x, int y); */
 static PyObject*
 py_gc_item_rotate_relative_with_center(PyObject* self, PyObject* args)
 {
   PyObject* pyitem;
-  GnomeCanvasItem* item;
+  GooCanvasItem* item;
   double angle;
   int x,y;
 
   /* Parse arguments */
   if(!PyArg_ParseTuple(args, "Odii:gc_item_rotate_relative_with_center", &pyitem, &angle, &x, &y))
     return NULL;
-  item = (GnomeCanvasItem*) pygobject_get(pyitem);
+  item = (GooCanvasItem*) pygobject_get(pyitem);
 
   /* Call the corresponding C function */
   gc_item_rotate_relative_with_center(item, angle, x, y);
@@ -285,7 +285,7 @@ static PyObject*
 py_gcompris_filename_pass(PyObject* self, PyObject* args)
 {
   PyObject* pyitem;
-  GnomeCanvasItem *item;
+  GooCanvasItem *item;
   char *string;
 
 
@@ -294,7 +294,7 @@ py_gcompris_filename_pass(PyObject* self, PyObject* args)
     return NULL;
 
   /* pass parameter from python */
-  item = (GnomeCanvasItem *) pygobject_get(pyitem);
+  item = (GooCanvasItem *) pygobject_get(pyitem);
 
   /* gcompris_filename_pass( item, string); */
   g_object_set_data( G_OBJECT(item), "filename", string);
@@ -309,12 +309,12 @@ py_gcompris_filename_pass(PyObject* self, PyObject* args)
  * Set a property in a canvas object
  * ---------------------------------
  */
-/* void canvas_set_property(GnomeCanvasItem *item, gchar *property, gchar* value) */
+/* void canvas_set_property(GooCanvasItem *item, gchar *property, gchar* value) */
 static PyObject*
 py_gcompris_canvas_set_property(PyObject* self, PyObject* args)
 {
   PyObject* pyitem;
-  GnomeCanvasItem *item;
+  GooCanvasItem *item;
   char *property;
   char *value;
 
@@ -324,7 +324,7 @@ py_gcompris_canvas_set_property(PyObject* self, PyObject* args)
     return NULL;
 
   /* pass parameter from python */
-  item = (GnomeCanvasItem *) pygobject_get(pyitem);
+  item = (GooCanvasItem *) pygobject_get(pyitem);
 
   /* gcompris_filename_pass( item, string); */
   g_object_set_data( G_OBJECT(item), property, value);
@@ -339,12 +339,12 @@ py_gcompris_canvas_set_property(PyObject* self, PyObject* args)
  * Get a property in a canvas object
  * ---------------------------------
  */
-/* gchar *canvas_get_property(GnomeCanvasItem *item, gchar *property) */
+/* gchar *canvas_get_property(GooCanvasItem *item, gchar *property) */
 static PyObject*
 py_gcompris_canvas_get_property(PyObject* self, PyObject* args)
 {
   PyObject* pyitem;
-  GnomeCanvasItem *item;
+  GooCanvasItem *item;
   char  *property;
   gchar *result;
 
@@ -353,7 +353,7 @@ py_gcompris_canvas_get_property(PyObject* self, PyObject* args)
     return NULL;
 
   /* pass parameter from python */
-  item = (GnomeCanvasItem *) pygobject_get(pyitem);
+  item = (GooCanvasItem *) pygobject_get(pyitem);
 
   /* gcompris_filename_pass( item, string); */
   result = g_object_get_data( G_OBJECT(item), property);

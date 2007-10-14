@@ -46,6 +46,7 @@ libdir = $(plugindir)
 INCLUDES = \
 	-I$(top_builddir)/src \
 	-I$(top_builddir)/intl \
+	-I$(top_builddir)/src/goocanvas/src \
 	$(GCOMPRIS_CFLAGS) \
 	$(XML_CFLAGS) \
 	$(PYTHON_CFLAGS) \
@@ -63,7 +64,6 @@ libpython_la_LDFLAGS = -export-dynamic $(shared) $(no_undefined) -module -avoid-
 libpython_la_LIBADD =
 libpython_la_CFLAGS = -fno-strict-aliasing $(PYGTK_CFLAGS)
 libpython_la_SOURCES = python.c \
-	canvas.c canvasmodule.c \
 	py-gcompris-board.c	py-gcompris-board.h	\
 	py-gcompris-properties.c	py-gcompris-properties.h	\
 	py-gcompris-profile.c	py-gcompris-profile.h	\

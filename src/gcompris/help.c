@@ -32,7 +32,10 @@
 
 #define GAP_TO_BUTTON -20
 
-static gint	 item_event_help(GooCanvasItem *item, GdkEvent *event, gpointer data);
+static gboolean item_event_help (GooCanvasItem  *item,
+				 GooCanvasItem  *target,
+				 GdkEventButton *event,
+				 gchar *data);
 static int	 event_disable_right_click_popup(GtkWidget *w, GdkEvent *event, gpointer data);
 static void	 select_item(GooCanvasItem *item, GooCanvasItem *item_text);
 static void	 set_content(char *text);
@@ -115,8 +118,8 @@ void gc_help_start (GcomprisBoard *gcomprisBoard)
   x_start = (BOARDWIDTH - gdk_pixbuf_get_width(pixmap))/2;
   item = goo_canvas_image_new (rootitem,
 			       pixmap,
-			       (double) x_start,
-			       (double) y_start,
+			       x_start,
+			       y_start,
 				NULL);
   y = BOARDHEIGHT - (BOARDHEIGHT - gdk_pixbuf_get_height(pixmap))/2;
   gdk_pixbuf_unref(pixmap);
@@ -126,8 +129,8 @@ void gc_help_start (GcomprisBoard *gcomprisBoard)
     text_to_display = g_strdup_printf("%s/%s", gcomprisBoard->section, gcomprisBoard->name);
      goo_canvas_text_new (rootitem,
 			  text_to_display,
-			  (gdouble) BOARDWIDTH*0.10 + 1.0,
-			  (gdouble) y_start + 1.0,
+			  BOARDWIDTH*0.10 + 1.0,
+			  y_start + 1.0,
 			  -1,
 			  GTK_ANCHOR_NW,
 			  "font", gc_skin_font_board_tiny,
@@ -135,8 +138,8 @@ void gc_help_start (GcomprisBoard *gcomprisBoard)
 			  NULL);
      goo_canvas_text_new (rootitem,
 			  text_to_display,
-			  (gdouble) BOARDWIDTH*0.10,
-			  (gdouble) y_start,
+			  BOARDWIDTH*0.10,
+			  y_start,
 			  -1,
 			  GTK_ANCHOR_NW,
 			  "font", gc_skin_font_board_tiny,
@@ -148,24 +151,24 @@ void gc_help_start (GcomprisBoard *gcomprisBoard)
   y_start += 35;
   goo_canvas_text_new (rootitem,
 		       name,
-		       (gdouble) BOARDWIDTH/2 + 1.0,
-		       (gdouble) y_start + 1.0,
+		       BOARDWIDTH/2 + 1.0,
+		       y_start + 1.0,
 		       -1,
 		       GTK_ANCHOR_CENTER,
 		       "font", gc_skin_font_title,
 		       "fill-color-rgba", gc_skin_color_shadow,
 		       "weight", PANGO_WEIGHT_HEAVY,
-			 NULL);
+		       NULL);
   goo_canvas_text_new (rootitem,
 		       name,
-		       (gdouble) BOARDWIDTH/2,
-		       (gdouble) y_start,
+		       BOARDWIDTH/2,
+		       y_start,
 		       -1,
 		       GTK_ANCHOR_CENTER,
 		       "font", gc_skin_font_title,
 		       "fill-color-rgba", gc_skin_color_title,
 		       "weight", PANGO_WEIGHT_HEAVY,
-			 NULL);
+		       NULL);
 
 
   y_start += 120;
@@ -409,7 +412,7 @@ void gc_help_stop ()
       // Destroy the help box
       if(rootitem!=NULL)
 	{
-	  gtk_object_destroy(GTK_OBJECT(rootitem));
+	  goo_canvas_item_remove(rootitem);
 	  rootitem = NULL;
 	}
       gc_board_pause(FALSE);
@@ -436,11 +439,11 @@ static void select_item(GooCanvasItem *item, GooCanvasItem *item_text)
       /* Warning changing the image needs to update pixbuf_ref for the focus usage */
       gc_item_focus_free(item_selected, NULL);
       g_object_set(item_selected,
-			    "pixbuf", pixmap,
-			    NULL);
+		   "pixbuf", pixmap,
+		   NULL);
       g_object_set(item_selected_text,
-			    "fill-color-rgba", gc_skin_get_color("gcompris/helpunselect"),
-			    NULL);
+		   "fill-color-rgba", gc_skin_get_color("gcompris/helpunselect"),
+		   NULL);
 
       gdk_pixbuf_unref(pixmap);
     }
@@ -449,12 +452,12 @@ static void select_item(GooCanvasItem *item, GooCanvasItem *item_text)
   /* Warning changing the image needs to update pixbuf_ref for the focus usage */
   gc_item_focus_free(item, NULL);
   g_object_set(item,
-			"pixbuf", pixmap,
-			NULL);
+	       "pixbuf", pixmap,
+	       NULL);
   gdk_pixbuf_unref(pixmap);
   g_object_set(item_text,
-			"fill-color-rgba", gc_skin_get_color("gcompris/helpselect"),
-			NULL);
+	       "fill-color-rgba", gc_skin_get_color("gcompris/helpselect"),
+	       NULL);
   item_selected = item;
   item_selected_text = item_text;
 }
@@ -467,47 +470,40 @@ static void set_content(gchar *text)
 }
 
 /* Callback for the bar operations */
-static gint
-item_event_help(GooCanvasItem *item, GdkEvent *event, gpointer data)
+static gboolean
+item_event_help (GooCanvasItem  *item,
+		 GooCanvasItem  *target,
+		 GdkEventButton *event,
+		 gchar *data)
 {
 
-  switch (event->type)
+  gc_sound_play_ogg ("sounds/bleep.wav", NULL);
+  if(!strcmp((char *)data, "ok"))
     {
-    case GDK_ENTER_NOTIFY:
-      break;
-    case GDK_LEAVE_NOTIFY:
-      break;
-    case GDK_BUTTON_PRESS:
-      gc_sound_play_ogg ("sounds/bleep.wav", NULL);
-      if(!strcmp((char *)data, "ok"))
-	{
-	  gc_help_stop();
-	}
-      else if(!strcmp((char *)data, "prerequisite"))
-	{
-	  select_item(item_prerequisite, item_prerequisite_text);
-	  set_content(prerequisite);
-	}
-      else if(!strcmp((char *)data, "goal"))
-	{
-	  select_item(item_goal, item_goal_text);
-	  set_content(goal);
-	}
-      else if(!strcmp((char *)data, "manual"))
-	{
-	  select_item(item_manual, item_manual_text);
-	  set_content(manual);
-	}
-      else if(!strcmp((char *)data, "credit"))
-	{
-	  select_item(item_credit, item_credit_text);
-	  set_content(credit);
-	}
-    default:
-      break;
+      gc_help_stop();
     }
-  return FALSE;
+  else if(!strcmp((char *)data, "prerequisite"))
+    {
+      select_item(item_prerequisite, item_prerequisite_text);
+      set_content(prerequisite);
+    }
+  else if(!strcmp((char *)data, "goal"))
+    {
+      select_item(item_goal, item_goal_text);
+      set_content(goal);
+    }
+  else if(!strcmp((char *)data, "manual"))
+    {
+      select_item(item_manual, item_manual_text);
+      set_content(manual);
+    }
+  else if(!strcmp((char *)data, "credit"))
+    {
+      select_item(item_credit, item_credit_text);
+      set_content(credit);
+    }
 
+  return TRUE;
 }
 
 /* Textview have a popup on right click to copy/paste. We don't want it */
