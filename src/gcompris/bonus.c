@@ -29,10 +29,10 @@
 #define GC_BONUS_DURATION 2000
 #define TUX_TIME_STEP 300
 
-static GnomeCanvasGroup *bonus_group   = NULL;
-static GnomeCanvasItem  *door1_item    = NULL;
-static GnomeCanvasItem  *door2_item    = NULL;
-static GnomeCanvasItem  *tuxplane_item = NULL;
+static GooCanvasItem *bonus_group   = NULL;
+static GooCanvasItem  *door1_item    = NULL;
+static GooCanvasItem  *door2_item    = NULL;
+static GooCanvasItem  *tuxplane_item = NULL;
 
 static gboolean gc_bonus_end_display_running = FALSE;
 static gboolean bonus_display_running = FALSE;
@@ -74,12 +74,12 @@ static void	 end_bonus(void);
 /* ==================================== */
 static void
 end_gc_bonus_end_display() {
-  double dx1, dy1, dx2, dy2;
+  GooCanvasBounds bounds;
   //end_board_count++;
-  gnome_canvas_item_get_bounds(tuxplane_item,  &dx1, &dy1, &dx2, &dy2);
+  goo_canvas_item_get_bounds(tuxplane_item,  &bounds);
   // animates tuxplane
-  if (/*end_board_count*/ dx2 +50.0 < (double) (left_door_limit)) {
-    gnome_canvas_item_move(tuxplane_item, 50, 0);
+  if (/*end_board_count*/ bounds.x2 +50.0 < (double) (left_door_limit)) {
+    goo_canvas_item_translate(tuxplane_item, 50, 0);
     return;
   }
 
@@ -163,41 +163,32 @@ gc_bonus_end_display(GCBoardFinishedList type) {
   y = OFFSET;
   left_door_limit = x + gdk_pixbuf_get_width(pixmap_door1);
 
-  door1_item = gnome_canvas_item_new (gnome_canvas_root(gcomprisBoard->canvas),
-				      gnome_canvas_pixbuf_get_type (),
-				      "pixbuf", pixmap_door1,
-				      "x", (double) x,
-				      "y", (double) y,
-				      "width", (double) gdk_pixbuf_get_width(pixmap_door1),
-				      "height", (double) gdk_pixbuf_get_height(pixmap_door1),
-				      "width_set", TRUE,
-				      "height_set", TRUE,
+  door1_item = goo_canvas_image_new (goo_canvas_get_root_item(GOO_CANVAS(gcomprisBoard->canvas)),
+				     pixmap_door1,
+				     x,
+				     y,
+				     "width", (double) gdk_pixbuf_get_width(pixmap_door1),
+				     "height", (double) gdk_pixbuf_get_height(pixmap_door1),
 				      NULL);
 
   x = OFFSET;
   y = (gcomprisBoard->height - gdk_pixbuf_get_height(pixmap_tuxplane)) /2;
-  tuxplane_item = gnome_canvas_item_new (gnome_canvas_root(gcomprisBoard->canvas),
-				      gnome_canvas_pixbuf_get_type (),
-				      "pixbuf", pixmap_tuxplane,
-				      "x", (double) x,
-				      "y", (double) y,
+  tuxplane_item = goo_canvas_image_new (goo_canvas_get_root_item(GOO_CANVAS(gcomprisBoard->canvas)),
+				      pixmap_tuxplane,
+				      x,
+				      y,
 				      "width", (double) gdk_pixbuf_get_width(pixmap_tuxplane),
 				      "height", (double) gdk_pixbuf_get_height(pixmap_tuxplane),
-				      "width_set", TRUE,
-				      "height_set", TRUE,
 				      NULL);
 
   x = gcomprisBoard->width - OFFSET - gdk_pixbuf_get_width(pixmap_door2);
   y = OFFSET;
-  door2_item = gnome_canvas_item_new (gnome_canvas_root(gcomprisBoard->canvas),
-				      gnome_canvas_pixbuf_get_type (),
-				      "pixbuf", pixmap_door2,
-				      "x", (double) x,
-				      "y", (double) y,
+  door2_item = goo_canvas_image_new (goo_canvas_get_root_item(GOO_CANVAS(gcomprisBoard->canvas)),
+				      pixmap_door2,
+				      x,
+				      y,
 				      "width", (double) gdk_pixbuf_get_width(pixmap_door2),
 				      "height", (double) gdk_pixbuf_get_height(pixmap_door2),
-				      "width_set", TRUE,
-				      "height_set", TRUE,
 				      NULL);
 
   gdk_pixbuf_unref(pixmap_door1);
@@ -336,46 +327,39 @@ bonus_image(char *image, GCBonusStatusList gamewon)
 
   pixmap = gc_skin_pixmap_load(str);
 
-  bonus_group = (GnomeCanvasGroup *) \
-    gnome_canvas_item_new (gnome_canvas_root(gcomprisBoard->canvas),
-			   gnome_canvas_group_get_type (),
-			   "x", (double)0,
-			   "y", (double)0,
-			   NULL);
+  bonus_group = goo_canvas_group_new (goo_canvas_get_root_item(GOO_CANVAS(gcomprisBoard->canvas)),
+				      NULL);
 
   x = (gcomprisBoard->width - gdk_pixbuf_get_width(pixmap))/2;
   y = (gcomprisBoard->height - gdk_pixbuf_get_height(pixmap))/2;
-  gnome_canvas_item_new (bonus_group,
-			 gnome_canvas_pixbuf_get_type (),
-			 "pixbuf", pixmap,
-			 "x", (double) x,
-			 "y", (double) y,
-			 "width", (double) gdk_pixbuf_get_width(pixmap),
-			 "height", (double) gdk_pixbuf_get_height(pixmap),
-			 "width_set", TRUE,
-			 "height_set", TRUE,
+  goo_canvas_image_new (bonus_group,
+			 pixmap,
+			 x,
+			 y,
+			 gdk_pixbuf_get_width(pixmap),
+			 gdk_pixbuf_get_height(pixmap),
 			 NULL);
 
 
   if(gamewon==GC_BOARD_DRAW) {
-    gnome_canvas_item_new (bonus_group,
-			   gnome_canvas_text_get_type (),
-			   "text", _("Drawn game"),
-			   "font", gc_skin_font_title,
-			   "x", (double) BOARDWIDTH/2 + 1.0,
-			   "y", (double) gdk_pixbuf_get_height(pixmap) + 1.0,
-			   "anchor", GTK_ANCHOR_CENTER,
-			   "fill_color", "black",
-			   NULL);
-    gnome_canvas_item_new (bonus_group,
-			   gnome_canvas_text_get_type (),
-			   "text", _("Drawn game"),
-			   "font", gc_skin_font_title,
-			   "x", (double) BOARDWIDTH/2,
-			   "y", (double) gdk_pixbuf_get_height(pixmap),
-			   "anchor", GTK_ANCHOR_CENTER,
-			   "fill_color_rgba", gc_skin_color_title,
-			   NULL);
+    goo_canvas_text_new (bonus_group,
+			 _("Drawn game"),
+			 (gdouble) BOARDWIDTH/2 + 1.0,
+			 (gdouble) gdk_pixbuf_get_height(pixmap) + 1.0,
+			 -1,
+			 GTK_ANCHOR_CENTER,
+			 "font", gc_skin_font_title,
+			 "fill_color", "black",
+			 NULL);
+    goo_canvas_text_new (bonus_group,
+			 _("Drawn game"),
+			 (gdouble) BOARDWIDTH/2,
+			 (gdouble) gdk_pixbuf_get_height(pixmap),
+			 -1,
+			 GTK_ANCHOR_CENTER,
+			 "font", gc_skin_font_title,
+			 "fill-color-rgba", gc_skin_color_title,
+			 NULL);
   }
 
   gdk_pixbuf_unref(pixmap);

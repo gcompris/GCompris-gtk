@@ -63,7 +63,7 @@ struct _GcomprisBoard
   /* Size of the window in which we have to run */
   gint16               width;
   gint16               height;
-  GnomeCanvas         *canvas;
+  GooCanvas         *canvas;
 
   /* Pointors to boards's own functions */
   BoardPlugin         *plugin;

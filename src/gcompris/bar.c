@@ -37,21 +37,32 @@
 #define NUMBER_OF_ITEMS 10	/* Number of buttons in the bar                              */
 
 static void	 update_exit_button();
-static gint	 item_event_bar(GnomeCanvasItem *item, GdkEvent *event, gchar *data);
+static gboolean  on_enter_notify (GooCanvasItem *item,
+				  GooCanvasItem *target,
+				  GdkEventCrossing *event,
+				  char *data);
+static gboolean  on_leave_notify (GooCanvasItem *item,
+				  GooCanvasItem *target,
+				  GdkEventCrossing *event,
+				  char *data);
+static gboolean item_event_bar (GooCanvasItem  *item,
+				GooCanvasItem  *target,
+				GdkEventButton *event,
+				gchar *data);
 static void	 bar_reset_sound_id (void);
+static void	 setup_item_signals (GooCanvasItem *item, gchar* name);
 
 static gint current_level = -1;
 static gint current_flags = -1;
-static GnomeCanvasItem *bar_item  = NULL;
-static GnomeCanvasItem *exit_item = NULL;
-static GnomeCanvasItem *home_item = NULL;
-static GnomeCanvasItem *level_item = NULL;
-static GnomeCanvasItem *ok_item = NULL;
-static GnomeCanvasItem *help_item = NULL;
-static GnomeCanvasItem *repeat_item = NULL;
-static GnomeCanvasItem *config_item = NULL;
-static GnomeCanvasItem *about_item = NULL;
-static guint level_handler_id;
+static GooCanvasItem *bar_item  = NULL;
+static GooCanvasItem *exit_item = NULL;
+static GooCanvasItem *home_item = NULL;
+static GooCanvasItem *level_item = NULL;
+static GooCanvasItem *ok_item = NULL;
+static GooCanvasItem *help_item = NULL;
+static GooCanvasItem *repeat_item = NULL;
+static GooCanvasItem *config_item = NULL;
+static GooCanvasItem *about_item = NULL;
 
 static gint sound_play_id = 0;
 
@@ -67,11 +78,11 @@ static void  confirm_quit(gboolean answer);
 /*
  * Do all the bar display and register the events
  */
-void gc_bar_start (GnomeCanvas *theCanvas)
+void gc_bar_start (GooCanvas *theCanvas)
 {
   GcomprisProperties *properties = gc_prop_get();
   GdkPixbuf   *pixmap = NULL;
-  GnomeCanvasItem *rootitem;
+  GooCanvasItem *rootitem;
   gint16           width, height;
   double           zoom;
 
@@ -80,19 +91,13 @@ void gc_bar_start (GnomeCanvas *theCanvas)
 
   bar_reset_sound_id();
 
-  rootitem = \
-    gnome_canvas_item_new (gnome_canvas_root(theCanvas),
-			   gnome_canvas_group_get_type (),
-			   "x", (double)0,
-			   "y", (double)0,
-			   NULL);
+  rootitem = goo_canvas_group_new (goo_canvas_get_root_item(theCanvas), NULL);
 
   pixmap = gc_skin_pixmap_load("bar_bg.jpg");
-  bar_item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
-				gnome_canvas_pixbuf_get_type (),
-				"pixbuf", pixmap,
-				"x", (double) 0,
-				"y", (double) 0,
+  bar_item = goo_canvas_image_new (rootitem,
+				   pixmap,
+				   (double) 0,
+				   (double) 0,
 				NULL);
   gdk_pixbuf_unref(pixmap);
 
@@ -101,180 +106,135 @@ void gc_bar_start (GnomeCanvas *theCanvas)
     {
       pixmap = gc_skin_pixmap_load("button_exit.png");
       zoom = (double)(height-BAR_GAP)/(double)gdk_pixbuf_get_height(pixmap);
-      exit_item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
-					 gnome_canvas_pixbuf_get_type (),
-					 "pixbuf", pixmap,
-					 "x", (double) (width/NUMBER_OF_ITEMS) * 1 -
+      exit_item = goo_canvas_image_new (rootitem,
+					pixmap,
+					(double) (width/NUMBER_OF_ITEMS) * 1 -
 					 gdk_pixbuf_get_width(pixmap)/2,
-					 "y", (double) (height-gdk_pixbuf_get_height(pixmap)*zoom)/2,
+					(double) (height-gdk_pixbuf_get_height(pixmap)*zoom)/2,
 					 NULL);
       gdk_pixbuf_unref(pixmap);
 
-      gtk_signal_connect(GTK_OBJECT(exit_item), "event",
-			 (GtkSignalFunc) item_event_bar,
-			 "quit");
-
-      gtk_signal_connect(GTK_OBJECT(exit_item), "event",
-			 (GtkSignalFunc) gc_item_focus_event,
-			 NULL);
+      setup_item_signals(exit_item, "quit");
     }
 
   // HOME
   pixmap = gc_skin_pixmap_load("home.png");
   zoom = (double)(height-BAR_GAP)/(double)gdk_pixbuf_get_height(pixmap);
-  home_item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
-				     gnome_canvas_pixbuf_get_type (),
-				     "pixbuf", pixmap,
-				     "x", (double) (width/NUMBER_OF_ITEMS) * 9 -
+  home_item = goo_canvas_image_new (rootitem,
+				    pixmap,
+				    (double) (width/NUMBER_OF_ITEMS) * 9 -
 				     gdk_pixbuf_get_width(pixmap)/2,
-				     "y", (double) (height-gdk_pixbuf_get_height(pixmap)*zoom)/2,
+				    (double) (height-gdk_pixbuf_get_height(pixmap)*zoom)/2,
 				     NULL);
   gdk_pixbuf_unref(pixmap);
 
-  gtk_signal_connect(GTK_OBJECT(home_item), "event",
-		     (GtkSignalFunc) item_event_bar,
-		     "back");
-
-  gtk_signal_connect(GTK_OBJECT(home_item), "event",
-		     (GtkSignalFunc) gc_item_focus_event,
-		     NULL);
+  setup_item_signals(home_item, "back");
 
 
   // OK
   pixmap = gc_skin_pixmap_load("ok.png");
   zoom = (double)(height-BAR_GAP)/(double)gdk_pixbuf_get_height(pixmap);
-  ok_item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
-				   gnome_canvas_pixbuf_get_type (),
-				   "pixbuf", pixmap,
-				   "x", (double) (width/NUMBER_OF_ITEMS) * 7 -
+  ok_item = goo_canvas_image_new (rootitem,
+				  pixmap,
+				  (double) (width/NUMBER_OF_ITEMS) * 7 -
 				   gdk_pixbuf_get_width(pixmap)/2,
-				   "y", (double) (height-gdk_pixbuf_get_height(pixmap)*zoom)/2,
+				  (double) (height-gdk_pixbuf_get_height(pixmap)*zoom)/2,
 				   NULL);
   gdk_pixbuf_unref(pixmap);
 
-  gtk_signal_connect(GTK_OBJECT(ok_item), "event",
-		     (GtkSignalFunc) item_event_bar,
-		     "ok");
-
-  gtk_signal_connect(GTK_OBJECT(ok_item), "event",
-		     (GtkSignalFunc) gc_item_focus_event,
-		     NULL);
-
+  setup_item_signals(ok_item, "ok");
 
   // LEVEL
   pixmap = gc_skin_pixmap_load("level1.png");
   zoom = (double)(height-BAR_GAP)/(double)gdk_pixbuf_get_height(pixmap);
-  level_item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
-				      gnome_canvas_pixbuf_get_type (),
-				      "pixbuf", pixmap,
-				      "x", (double) (width/NUMBER_OF_ITEMS) * 5 -
+  level_item = goo_canvas_image_new (rootitem,
+				     pixmap,
+				     (double) (width/NUMBER_OF_ITEMS) * 5 -
 				      gdk_pixbuf_get_width(pixmap)/2,
-				      "y", (double) (height-gdk_pixbuf_get_height(pixmap)*zoom)/2,
+				     (double) (height-gdk_pixbuf_get_height(pixmap)*zoom)/2,
 				      NULL);
   gdk_pixbuf_unref(pixmap);
 
   current_level = 1;
-  gtk_signal_connect(GTK_OBJECT(level_item), "event",
-		     (GtkSignalFunc) item_event_bar,
-		     "level");
 
-  level_handler_id =   gtk_signal_connect(GTK_OBJECT(level_item), "event",
-					  (GtkSignalFunc) gc_item_focus_event,
-					  NULL);
+  setup_item_signals(level_item, "level");
 
   // REPEAT
   pixmap = gc_skin_pixmap_load("repeat.png");
   zoom = (double)(height-BAR_GAP)/(double)gdk_pixbuf_get_height(pixmap);
-  repeat_item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
-				       gnome_canvas_pixbuf_get_type (),
-				       "pixbuf", pixmap,
-				       "x", (double) (width/NUMBER_OF_ITEMS) * 6 -
+  repeat_item = goo_canvas_image_new (rootitem,
+				      pixmap,
+				      (double) (width/NUMBER_OF_ITEMS) * 6 -
 				       gdk_pixbuf_get_width(pixmap)/2,
-				       "y", (double) (height-gdk_pixbuf_get_height(pixmap)*zoom)/2,
+				      (double) (height-gdk_pixbuf_get_height(pixmap)*zoom)/2,
 				       NULL);
   gdk_pixbuf_unref(pixmap);
 
-  gtk_signal_connect(GTK_OBJECT(repeat_item), "event",
-		     (GtkSignalFunc) item_event_bar,
-		     "repeat");
+  setup_item_signals(repeat_item, "repeat");
 
-  gtk_signal_connect(GTK_OBJECT(repeat_item), "event",
-		     (GtkSignalFunc) gc_item_focus_event,
-		     NULL);
 
   // HELP
   pixmap = gc_skin_pixmap_load("help.png");
   zoom = (double)(height-BAR_GAP)/(double)gdk_pixbuf_get_height(pixmap);
-  help_item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
-				     gnome_canvas_pixbuf_get_type (),
-				     "pixbuf", pixmap,
-				     "x", (double) (width/NUMBER_OF_ITEMS) * 4 -
+  help_item = goo_canvas_image_new (rootitem,
+				    pixmap,
+				    (double) (width/NUMBER_OF_ITEMS) * 4 -
 				     gdk_pixbuf_get_width(pixmap)/2,
-				     "y", (double) (height-gdk_pixbuf_get_height(pixmap)*zoom)/2,
+				    (double) (height-gdk_pixbuf_get_height(pixmap)*zoom)/2,
 				     NULL);
   gdk_pixbuf_unref(pixmap);
 
-  gtk_signal_connect(GTK_OBJECT(help_item), "event",
-		     (GtkSignalFunc) item_event_bar,
-		     "help");
-
-  gtk_signal_connect(GTK_OBJECT(help_item), "event",
-		     (GtkSignalFunc) gc_item_focus_event,
-		     NULL);
+  setup_item_signals(help_item, "help");
 
   // CONFIG
   if(properties->disable_config == 0)
     {
       pixmap = gc_skin_pixmap_load("config.png");
       zoom = (double)(height-BAR_GAP)/(double)gdk_pixbuf_get_height(pixmap);
-      config_item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
-					   gnome_canvas_pixbuf_get_type (),
-					   "pixbuf", pixmap,
-					   "x", (double) (width/NUMBER_OF_ITEMS) * 3 -
+      config_item = goo_canvas_image_new (rootitem,
+					  pixmap,
+					  (double) (width/NUMBER_OF_ITEMS) * 3 -
 					   gdk_pixbuf_get_width(pixmap)/2,
-					   "y", (double) (height-gdk_pixbuf_get_height(pixmap)*zoom)/2,
+					  (double) (height-gdk_pixbuf_get_height(pixmap)*zoom)/2,
 					   NULL);
       gdk_pixbuf_unref(pixmap);
 
-      gtk_signal_connect(GTK_OBJECT(config_item), "event",
-			 (GtkSignalFunc) item_event_bar,
-			 "configuration");
-
-      gtk_signal_connect(GTK_OBJECT(config_item), "event",
-			 (GtkSignalFunc) gc_item_focus_event,
-			 NULL);
+      setup_item_signals(config_item, "configuration");
     }
 
   // ABOUT
   pixmap = gc_skin_pixmap_load("about.png");
   zoom = (double)(height-BAR_GAP)/(double)gdk_pixbuf_get_height(pixmap);
-  about_item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
-				     gnome_canvas_pixbuf_get_type (),
-				     "pixbuf", pixmap,
-				     "x", (double) (width/NUMBER_OF_ITEMS) * 2 -
+  about_item = goo_canvas_image_new (rootitem,
+				     pixmap,
+				     (double) (width/NUMBER_OF_ITEMS) * 2 -
 				     gdk_pixbuf_get_width(pixmap)/2,
-				     "y", (double) (height-gdk_pixbuf_get_height(pixmap)*zoom)/2,
+				     (double) (height-gdk_pixbuf_get_height(pixmap)*zoom)/2,
 				     NULL);
   gdk_pixbuf_unref(pixmap);
 
-  gtk_signal_connect(GTK_OBJECT(about_item), "event",
-		     (GtkSignalFunc) item_event_bar,
-		     "about");
-
-  gtk_signal_connect(GTK_OBJECT(about_item), "event",
-		     (GtkSignalFunc) gc_item_focus_event,
-		     NULL);
+  setup_item_signals(about_item, "about");
 
   // Show them all
   update_exit_button();
-  gnome_canvas_item_hide(level_item);
-  gnome_canvas_item_hide(ok_item);
-  gnome_canvas_item_hide(help_item);
-  gnome_canvas_item_hide(repeat_item);
+  g_object_set (level_item,
+		"visibility", GOO_CANVAS_ITEM_INVISIBLE,
+		NULL);
+  g_object_set (ok_item,
+		"visibility", GOO_CANVAS_ITEM_INVISIBLE,
+		NULL);
+  g_object_set (repeat_item,
+		"visibility", GOO_CANVAS_ITEM_INVISIBLE,
+		NULL);
+
   if(config_item)
-    gnome_canvas_item_hide(config_item);
-  gnome_canvas_item_hide(about_item);
-}
+    g_object_set (config_item,
+		  "visibility", GOO_CANVAS_ITEM_INVISIBLE,
+		  NULL);
+
+  g_object_set (about_item,
+		"visibility", GOO_CANVAS_ITEM_INVISIBLE,
+		NULL);}
 
 
 void gc_bar_set_level(GcomprisBoard *gcomprisBoard)
@@ -299,9 +259,9 @@ void gc_bar_set_level(GcomprisBoard *gcomprisBoard)
       /* Warning changing the image needs to free the focus first */
       gc_item_focus_free(level_item, NULL);
 
-      gnome_canvas_item_set (level_item,
-      			     "pixbuf", pixmap,
-      			     NULL);
+      g_object_set (level_item,
+		    "pixbuf", pixmap,
+		    NULL);
       gdk_pixbuf_unref(pixmap);
     }
 
@@ -331,9 +291,9 @@ gc_bar_set_repeat_icon (GdkPixbuf *pixmap)
 
   /* Warning changing the image needs to update pixbuf_ref for the focus usage */
   gc_item_focus_free(repeat_item, NULL);
-  gnome_canvas_item_set (repeat_item,
-			 "pixbuf", pixmap,
-			 NULL);
+  g_object_set (repeat_item,
+		"pixbuf", pixmap,
+		NULL);
 }
 
 /* Setting list of available icons in the control bar */
@@ -353,51 +313,75 @@ gc_bar_set (const GComprisBarFlags flags)
   update_exit_button();
 
   if(flags&GC_BAR_LEVEL)
-    gnome_canvas_item_show(level_item);
+    g_object_set (level_item,
+		  "visibility", GOO_CANVAS_ITEM_VISIBLE,
+		  NULL);
   else
-    gnome_canvas_item_hide(level_item);
+    g_object_set (level_item,
+		  "visibility", GOO_CANVAS_ITEM_INVISIBLE,
+		  NULL);
 
   if(flags&GC_BAR_OK)
-    gnome_canvas_item_show(ok_item);
+    g_object_set (ok_item,
+		  "visibility", GOO_CANVAS_ITEM_VISIBLE,
+		  NULL);
   else
-    gnome_canvas_item_hide(ok_item);
+    g_object_set (ok_item,
+		  "visibility", GOO_CANVAS_ITEM_INVISIBLE,
+		  NULL);
 
   if(gc_help_has_board(gc_board_get_current()))
-    gnome_canvas_item_show(help_item);
+    g_object_set (help_item,
+		  "visibility", GOO_CANVAS_ITEM_VISIBLE,
+		  NULL);
   else
-    gnome_canvas_item_hide(help_item);
+    g_object_set (help_item,
+		  "visibility", GOO_CANVAS_ITEM_INVISIBLE,
+		  NULL);
 
   if(flags&GC_BAR_REPEAT) {
     GdkPixbuf *pixmap;
 
     /* Set the repeat icon to the original one */
     pixmap = gc_skin_pixmap_load("repeat.png");
-    gnome_canvas_item_set (repeat_item,
-			   "pixbuf", pixmap,
-			   NULL);
+    g_object_set (repeat_item,
+		  "pixbuf", pixmap,
+		  NULL);
     gdk_pixbuf_unref(pixmap);
 
-    gnome_canvas_item_show(repeat_item);
+    g_object_set (repeat_item,
+		  "visibility", GOO_CANVAS_ITEM_VISIBLE,
+		  NULL);
   } else {
 
     if(flags&GC_BAR_REPEAT_ICON)
-      gnome_canvas_item_show(repeat_item);
+      g_object_set (repeat_item,
+		    "visibility", GOO_CANVAS_ITEM_VISIBLE,
+		    NULL);
     else
-      gnome_canvas_item_hide(repeat_item);
+      g_object_set (repeat_item,
+		    "visibility", GOO_CANVAS_ITEM_INVISIBLE,
+		    NULL);
   }
 
   if(flags&GC_BAR_CONFIG && config_item)
-    gnome_canvas_item_show(config_item);
+    g_object_set (config_item,
+		  "visibility", GOO_CANVAS_ITEM_VISIBLE,
+		  NULL);
   else
-    gnome_canvas_item_hide(config_item);
+    g_object_set (config_item,
+		  "visibility", GOO_CANVAS_ITEM_INVISIBLE,
+		  NULL);
 
   if(flags&GC_BAR_ABOUT)
-    gnome_canvas_item_show(about_item);
+    g_object_set(about_item,
+		 "visibility", GOO_CANVAS_ITEM_VISIBLE, NULL);
   else
-    gnome_canvas_item_hide(about_item);
+    g_object_set(about_item,
+		 "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
 
   /* FIXME : Workaround for bugged canvas */
-  //  gnome_canvas_update_now(gc_board_get_current()->canvas);
+  //  goo_canvas_update_now(gc_board_get_current()->canvas);
 
 }
 
@@ -417,19 +401,28 @@ gc_bar_hide (gboolean hide)
   if(hide)
     {
       if(exit_item)
-	gnome_canvas_item_hide(exit_item);
-      gnome_canvas_item_hide(home_item);
-      gnome_canvas_item_hide(level_item);
-      gnome_canvas_item_hide(ok_item);
-      gnome_canvas_item_hide(help_item);
-      gnome_canvas_item_hide(repeat_item);
+	g_object_set(exit_item,
+		     "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
+      g_object_set(home_item,
+		   "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
+      g_object_set(level_item,
+		   "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
+      g_object_set(ok_item,
+		   "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
+      g_object_set(help_item,
+		   "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
+      g_object_set(repeat_item,
+		   "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
       if(config_item)
-	gnome_canvas_item_hide(config_item);
-      gnome_canvas_item_hide(about_item);
+	g_object_set(config_item,
+		     "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
+      g_object_set(about_item,
+		   "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
     }
   else
     {
-      gnome_canvas_item_show(home_item);
+      g_object_set(home_item,
+		   "visibility", GOO_CANVAS_ITEM_VISIBLE, NULL);
       gc_bar_set(current_flags);
     }
 }
@@ -445,21 +438,22 @@ gc_bar_hide (gboolean hide)
 static void update_exit_button()
 {
 
-  if(gc_board_get_current() == NULL)
-    return;
-
-  if (gc_board_get_current()->previous_board == NULL)
+  if (!gc_board_get_current() || gc_board_get_current()->previous_board == NULL)
     {
       /* We are in the upper menu: show it */
       if(exit_item)
-	gnome_canvas_item_show(exit_item);
-      gnome_canvas_item_hide(home_item);
+	g_object_set(exit_item,
+		     "visibility", GOO_CANVAS_ITEM_VISIBLE, NULL);
+      g_object_set(home_item,
+		   "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
     }
   else
     {
       if(exit_item)
-	gnome_canvas_item_hide(exit_item);
-      gnome_canvas_item_show(home_item);
+	g_object_set(exit_item,
+		     "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
+      g_object_set(home_item,
+		   "visibility", GOO_CANVAS_ITEM_VISIBLE, NULL);
     }
 }
 
@@ -492,122 +486,126 @@ static void bar_reset_sound_id ()
   sound_play_id=0;
 }
 
+static gboolean
+on_enter_notify (GooCanvasItem  *item,
+		 GooCanvasItem  *target,
+		 GdkEventCrossing *event,
+		 char *data)
+{
+  bar_reset_sound_id();
+  sound_play_id = gtk_timeout_add (1000, (GtkFunction) bar_play_sound, data);
+  return FALSE;
+}
+
+static gboolean
+on_leave_notify (GooCanvasItem  *item,
+		 GooCanvasItem  *target,
+		 GdkEventCrossing *event,
+		 char *data)
+{
+  bar_reset_sound_id();
+  return FALSE;
+}
+
 /* Callback for the bar operations */
-static gint
-item_event_bar(GnomeCanvasItem *item, GdkEvent *event, gchar *data)
+static gboolean
+item_event_bar (GooCanvasItem  *item,
+		GooCanvasItem  *target,
+		GdkEventButton *event,
+		gchar *data)
 {
   GcomprisBoard *gcomprisBoard = gc_board_get_current();
 
-  switch (event->type)
+  bar_reset_sound_id();
+  gc_sound_play_ogg ("sounds/bleep.wav", NULL);
+
+  /* This is not perfect clean but it makes it easy to remove the help window
+     by clicking on any button in the bar */
+  if(strcmp((char *)data, "help"))
+    gc_help_stop ();
+
+  if(!strcmp((char *)data, "ok"))
     {
-    case GDK_ENTER_NOTIFY:
-      bar_reset_sound_id();
-      sound_play_id = gtk_timeout_add (1000, (GtkFunction) bar_play_sound, data);
-      break;
-    case GDK_LEAVE_NOTIFY:
-      bar_reset_sound_id();
-      break;
-    case GDK_BUTTON_PRESS:
-      bar_reset_sound_id();
-      gc_sound_play_ogg ("sounds/bleep.wav", NULL);
-
-      /* This is not perfect clean but it makes it easy to remove the help window
-	 by clicking on any button in the bar */
-      if(strcmp((char *)data, "help"))
-	gc_help_stop ();
-
-      if(!strcmp((char *)data, "ok"))
-	{
-	  if(gcomprisBoard!=NULL)
-	    {
-	      if(gcomprisBoard->plugin->ok != NULL)
-		{
-		  gcomprisBoard->plugin->ok();
-		}
-	    }
-	}
-      else if(!strcmp((char *)data, "level"))
-	{
-	  gint tmp = current_level;
-
-	  if(event->button.button == 1)
-	    {
-	      current_level++;
-	      if(current_level>gcomprisBoard->maxlevel)
-		current_level=1;
-	    }
-	  else
-	    {
-	      /* Decrease the level */
-	      current_level--;
-	      if(current_level<1)
-		current_level=1;
-	    }
-
-	  if(tmp!=current_level)
-	    {
-	      gchar *str_number;
-
-	      gchar *number_str = g_strdup_printf("%d", current_level);
-	      gchar *current_level_str = gc_sound_alphabet(number_str);
-	      g_free(number_str);
-
-	      str_number = g_strdup_printf("voices/$LOCALE/alphabet/%s", current_level_str);
-
-	      gc_sound_play_ogg("voices/$LOCALE/misc/level.ogg", str_number, NULL);
-
-	      g_free(str_number);
-	      g_free(current_level_str);
-
-	      if(gcomprisBoard->plugin->set_level != NULL)
-		{
-		  gcomprisBoard->plugin->set_level(current_level);
-		}
-	    }
-	}
-      else if(!strcmp((char *)data, "back"))
-	{
-	  gc_bar_hide (TRUE);
-	  gc_board_stop();
-	}
-      else if(!strcmp((char *)data, "help"))
-	{
-	  gc_help_start(gcomprisBoard);
-	}
-      else if(!strcmp((char *)data, "repeat"))
-	{
-	  if(gcomprisBoard->plugin->repeat != NULL)
-	    {
-	      gcomprisBoard->plugin->repeat();
-	    }
-	}
-      else if(!strcmp((char *)data, "configuration"))
-	{
-	  if(gcomprisBoard->plugin->config_start != NULL)
-	    {
-	      gcomprisBoard->plugin->config_start(gcomprisBoard,
-						  gc_profile_get_current());
-	    }
-	}
-      else if(!strcmp((char *)data, "about"))
-	{
-	  gc_about_start();
-	}
-      else if(!strcmp((char *)data, "quit"))
-	{
-	  gc_confirm_box( _("GCompris confirmation"),
-			    _("Are you sure you want to quit?"),
-			    _("Yes, I am sure!"),
-			    _("No, I want to keep going"),
-			    (ConfirmCallBack) confirm_quit);
-	}
-      break;
-
-    default:
-      break;
+      if(gcomprisBoard && gcomprisBoard->plugin->ok != NULL)
+	gcomprisBoard->plugin->ok();
     }
-  return FALSE;
+  else if(!strcmp((char *)data, "level"))
+    {
+      gint tmp = current_level;
 
+      if(event->button == 1)
+	{
+	  current_level++;
+	  if(gcomprisBoard && current_level>gcomprisBoard->maxlevel)
+	    current_level=1;
+	}
+      else
+	{
+	  /* Decrease the level */
+	  current_level--;
+	  if(current_level<1)
+	    current_level=1;
+	}
+
+      if(tmp!=current_level)
+	{
+	  gchar *str_number;
+
+	  gchar *number_str = g_strdup_printf("%d", current_level);
+	  gchar *current_level_str = gc_sound_alphabet(number_str);
+	  g_free(number_str);
+
+	  str_number = g_strdup_printf("voices/$LOCALE/alphabet/%s", current_level_str);
+
+	  gc_sound_play_ogg("voices/$LOCALE/misc/level.ogg", str_number, NULL);
+
+	  g_free(str_number);
+	  g_free(current_level_str);
+
+	  if(gcomprisBoard && gcomprisBoard->plugin->set_level != NULL)
+	    {
+	      gcomprisBoard->plugin->set_level(current_level);
+	    }
+	}
+    }
+  else if(!strcmp((char *)data, "back"))
+    {
+      gc_bar_hide (TRUE);
+      gc_board_stop();
+    }
+  else if(!strcmp((char *)data, "help"))
+    {
+      gc_help_start(gcomprisBoard);
+    }
+  else if(!strcmp((char *)data, "repeat"))
+    {
+      if(gcomprisBoard && gcomprisBoard->plugin->repeat != NULL)
+	{
+	  gcomprisBoard->plugin->repeat();
+	}
+    }
+  else if(!strcmp((char *)data, "configuration"))
+    {
+      if(gcomprisBoard && gcomprisBoard->plugin->config_start != NULL)
+	{
+	  gcomprisBoard->plugin->config_start(gcomprisBoard,
+					      gc_profile_get_current());
+	}
+    }
+  else if(!strcmp((char *)data, "about"))
+    {
+      gc_about_start();
+    }
+  else if(!strcmp((char *)data, "quit"))
+    {
+      gc_confirm_box( _("GCompris confirmation"),
+		      _("Are you sure you want to quit?"),
+		      _("Yes, I am sure!"),
+		      _("No, I want to keep going"),
+		      (ConfirmCallBack) confirm_quit);
+    }
+
+  return TRUE;
 }
 
 static void
@@ -615,4 +613,20 @@ confirm_quit(gboolean answer)
 {
   if (answer)
     gc_exit();
+}
+
+static void
+setup_item_signals (GooCanvasItem *item, gchar* name)
+{
+  g_signal_connect (item, "enter_notify_event",
+		    (GtkSignalFunc) on_enter_notify, name);
+  g_signal_connect (item, "leave_notify_event",
+		    (GtkSignalFunc) on_leave_notify, name);
+  g_signal_connect(item, "button_press_event",
+		   (GtkSignalFunc) item_event_bar,
+		   name);
+
+  g_signal_connect(item, "enter_notify_event",
+		   (GtkSignalFunc) gc_item_focus_event,
+		   NULL);
 }

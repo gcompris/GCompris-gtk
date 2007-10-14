@@ -56,8 +56,8 @@ static gchar *lock_file;
 #define GC_LOCK_LIMIT 30 /* seconds */
 
 static GtkWidget *window;
-static GnomeCanvas *canvas;
-static GnomeCanvas *canvas_bar;
+static GtkWidget *canvas;
+static GtkWidget *canvas_bar;
 static GtkWidget *fixed;
 static GtkWidget *drawing_area;
 gchar * exec_prefix = NULL;
@@ -87,7 +87,7 @@ static void activation_enter_callback(GtkWidget *widget,
 				      GtkWidget *entry );
 static void activation_done();
 static void display_activation_dialog();
-static GnomeCanvasItem *activation_item;
+static GooCanvasItem *activation_item;
 static GtkEntry *widget_activation_entry;
 #else
 #define display_activation_dialog()
@@ -100,7 +100,7 @@ static gboolean		   is_mapped = FALSE;
 /****************************************************************************/
 /* Some constants.  */
 
-static GnomeCanvasItem *backgroundimg = NULL;
+static GooCanvasItem *backgroundimg = NULL;
 static gchar           *gc_locale = NULL;
 static gchar           *gc_user_default_locale = NULL;
 static gboolean		gc_debug = FALSE;
@@ -284,15 +284,15 @@ _gc_configure_event_callback (GtkWidget   *widget,
   g_message("The screen_width=%f screen_height=%f ratio=%f\n",
 	    (double)screen_width, (double)screen_height, zoom_factor);
 
-  gtk_widget_set_usize (GTK_WIDGET(canvas), BOARDWIDTH*zoom_factor, BOARDHEIGHT*zoom_factor);
-  gnome_canvas_set_pixels_per_unit (canvas, zoom_factor);
-  gtk_fixed_move(GTK_FIXED(fixed), GTK_WIDGET(canvas),
+  gtk_widget_set_usize (canvas, BOARDWIDTH*zoom_factor, BOARDHEIGHT*zoom_factor);
+  goo_canvas_set_scale (GOO_CANVAS(canvas), zoom_factor);
+  gtk_fixed_move(GTK_FIXED(fixed), canvas,
 		 (screen_width-BOARDWIDTH*zoom_factor)/2,
 		 (screen_height-(BOARDHEIGHT+BARHEIGHT)*zoom_factor)/2);
 
   gtk_widget_set_usize (GTK_WIDGET(canvas_bar),  BOARDWIDTH*zoom_factor,  BARHEIGHT*zoom_factor);
-  gnome_canvas_set_pixels_per_unit (canvas_bar, zoom_factor);
-  gtk_fixed_move(GTK_FIXED(fixed), GTK_WIDGET(canvas_bar),
+  goo_canvas_set_scale (GOO_CANVAS(canvas_bar), zoom_factor);
+  gtk_fixed_move(GTK_FIXED(fixed), canvas_bar,
 		 (screen_width-BOARDWIDTH*zoom_factor)/2,
 		 (screen_height-(BOARDHEIGHT+BARHEIGHT)*zoom_factor)/2 + BOARDHEIGHT*zoom_factor);
 
@@ -311,7 +311,7 @@ board_widget_key_press_callback (GtkWidget   *widget,
   if(event->state & GDK_CONTROL_MASK && ((event->keyval == GDK_r)
 					 || (event->keyval == GDK_R))) {
     g_message("Refreshing the canvas\n");
-    gnome_canvas_update_now(canvas);
+    goo_canvas_update(GOO_CANVAS(canvas));
     return TRUE;
   }
 
@@ -331,7 +331,7 @@ board_widget_key_press_callback (GtkWidget   *widget,
       return TRUE;
     case GDK_F5:
       g_message("Refreshing the canvas\n");
-      gnome_canvas_update_now(canvas);
+      goo_canvas_update(GOO_CANVAS(canvas));
       return TRUE;
 
     case GDK_KP_Multiply:
@@ -476,9 +476,9 @@ void gc_cursor_set(guint gdk_cursor_type)
 /**
  * Return the main canvas we run in
  */
-GnomeCanvas *gc_get_canvas()
+GooCanvas *gc_get_canvas()
 {
-  return canvas;
+  return GOO_CANVAS (canvas);
 }
 
 GtkWidget *gc_get_window()
@@ -486,7 +486,7 @@ GtkWidget *gc_get_window()
   return window;
 }
 
-GnomeCanvasItem *gc_set_background(GnomeCanvasGroup *parent, gchar *file)
+GooCanvasItem *gc_set_background(GooCanvasItem *parent, gchar *file)
 {
   GdkPixbuf *background_pixmap = NULL;
   gchar *img = NULL;
@@ -501,19 +501,17 @@ GnomeCanvasItem *gc_set_background(GnomeCanvasGroup *parent, gchar *file)
     background_pixmap = gc_pixmap_load (file);
 
   if(backgroundimg)
-      gnome_canvas_item_set (backgroundimg,
-			     "pixbuf", background_pixmap,
-			     NULL);
+    g_object_set_data (G_OBJECT(backgroundimg),
+		       "pixbuf", background_pixmap);
   else
-    backgroundimg=gnome_canvas_item_new (parent,
-					 gnome_canvas_pixbuf_get_type (),
-					 "pixbuf", background_pixmap,
-					 "x", 0.0,
-					 "y", 0.0,
-					 "width", (double) BOARDWIDTH,
-					 "height", (double) BOARDHEIGHT,
-					 NULL);
-  gnome_canvas_item_lower_to_bottom(backgroundimg);
+    backgroundimg = goo_canvas_image_new (parent,
+					  background_pixmap,
+					  0.0,
+					  0.0,
+					  "width", (gdouble) BOARDWIDTH,
+					  "height", (gdouble) BOARDHEIGHT,
+					  NULL);
+  goo_canvas_item_lower(backgroundimg, NULL);
 
   gdk_pixbuf_unref(background_pixmap);
 
@@ -587,16 +585,16 @@ init_background()
   gtk_widget_show (GTK_WIDGET(canvas_bar));
 
   gtk_widget_set_usize (GTK_WIDGET(canvas), BOARDWIDTH, BOARDHEIGHT);
-  gnome_canvas_set_scroll_region (canvas,
-				  0, 0,
-				  BOARDWIDTH,
-				  BOARDHEIGHT);
+  goo_canvas_set_bounds (GOO_CANVAS(canvas),
+			 0, 0,
+			 BOARDWIDTH,
+			 BOARDHEIGHT);
 
-  gtk_widget_set_usize (GTK_WIDGET(canvas_bar),  BOARDWIDTH,  BARHEIGHT);
-  gnome_canvas_set_scroll_region (canvas_bar,
-				  0, 0,
-				  BOARDWIDTH,
-				  BARHEIGHT);
+  gtk_widget_set_usize (canvas_bar,  BOARDWIDTH,  BARHEIGHT);
+  goo_canvas_set_bounds (GOO_CANVAS(canvas_bar),
+			 0, 0,
+			 BOARDWIDTH,
+			 BARHEIGHT);
 }
 
 static void setup_window ()
@@ -678,16 +676,12 @@ static void setup_window ()
   gtk_signal_connect (GTK_OBJECT (window), "configure_event",
 		      GTK_SIGNAL_FUNC (_gc_configure_event_callback), NULL);
 
-  /* For non anti alias canvas */
-  gtk_widget_push_visual (gdk_rgb_get_visual ());
-  gtk_widget_push_colormap (gdk_rgb_get_cmap ());
-
   // Set the cursor
   gc_cursor_set(GCOMPRIS_DEFAULT_CURSOR);
 
   /* For non anti alias canvas */
-  canvas     = GNOME_CANVAS(gnome_canvas_new ());
-  canvas_bar = GNOME_CANVAS(gnome_canvas_new ());
+  canvas     = goo_canvas_new();
+  canvas_bar = goo_canvas_new();
 
 
   gtk_signal_connect_after (GTK_OBJECT (window), "key_press_event",
@@ -699,13 +693,7 @@ static void setup_window ()
 
   gc_im_init(window);
 
-
-  gtk_widget_pop_colormap ();
-  gtk_widget_pop_visual ();
-
-
   gc_board_init();
-
 
   /* Load all the menu once */
   gc_menu_load();
@@ -757,7 +745,7 @@ static void setup_window ()
     }
 
     /* Run the bar */
-  gc_bar_start(canvas_bar);
+  gc_bar_start(GOO_CANVAS(canvas_bar));
 
   init_background();
 
@@ -809,8 +797,8 @@ display_activation_dialog()
   widget_activation_entry = (GtkEntry *)gtk_entry_new();
   gtk_entry_set_max_length(widget_activation_entry, 6);
   activation_item = \
-    gnome_canvas_item_new (gnome_canvas_root(canvas),
-			   gnome_canvas_widget_get_type (),
+    goo_canvas_item_new (goo_canvas_root(canvas),
+			   goo_canvas_widget_get_type (),
 			   "widget", GTK_WIDGET(widget_activation_entry),
 			   "x", (double) BOARDWIDTH / 2 - 50,
 			   "y", (double) BOARDHEIGHT - 60,
@@ -970,23 +958,24 @@ void gc_fullscreen_set(gboolean state)
 
 }
 
-/* Use these instead of the gnome_canvas ones for proper fullscreen mousegrab
+/* Use these instead of the goo_canvas ones for proper fullscreen mousegrab
    handling. */
-int gc_canvas_item_grab (GnomeCanvasItem *item, unsigned int event_mask,
-			    GdkCursor *cursor, guint32 etime)
+int gc_canvas_item_grab (GooCanvasItem *item, unsigned int event_mask,
+			 GdkCursor *cursor, guint32 etime)
 {
   int retval;
 
-  retval = gnome_canvas_item_grab(item, event_mask, cursor, etime);
+  retval = goo_canvas_pointer_grab(goo_canvas_item_get_canvas(item), item,
+				   event_mask, cursor, etime);
   if (retval != GDK_GRAB_SUCCESS)
     return retval;
 
   return retval;
 }
 
-void gc_canvas_item_ungrab (GnomeCanvasItem *item, guint32 etime)
+void gc_canvas_item_ungrab (GooCanvasItem *item, guint32 etime)
 {
-  gnome_canvas_item_ungrab(item, etime);
+  goo_canvas_pointer_ungrab(goo_canvas_item_get_canvas(item), item, etime);
 }
 
 static void cleanup()
@@ -1723,17 +1712,6 @@ main (int argc, char *argv[])
     gc_dbus_init(sugarActivityId);
 
   gtk_main ();
-
-  /* FIXME: HACK Needed or we have unresolved symbols at python plugin dlopen
-   *        Is there a better way to fix these?
-   */
-  GnomeCanvasItem *dummy = NULL;
-  GNOME_IS_CANVAS_POLYGON(dummy);
-  GNOME_IS_CANVAS_CLIPGROUP(dummy);
-  GNOME_IS_CANVAS_BPATH(dummy);
-  GType type = GNOME_TYPE_CANVAS_POLYGON;
-  type = type;
-
 
   return(0);
 }

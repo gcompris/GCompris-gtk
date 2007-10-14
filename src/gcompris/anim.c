@@ -85,7 +85,7 @@ gc_anim_load(char *filename)
 }
 
 GcomprisAnimCanvasItem *
-gc_anim_activate(GnomeCanvasGroup *parent,
+gc_anim_activate(GooCanvasItem *parent,
 		 GcomprisAnimation *anim)
 {
   GcomprisAnimCanvasItem *item = g_malloc(sizeof(GcomprisAnimCanvasItem));
@@ -93,12 +93,10 @@ gc_anim_activate(GnomeCanvasGroup *parent,
   item->state = 0;
   item->anim = anim;
   item->iter = gdk_pixbuf_animation_get_iter(anim->anim[0], NULL);
-  item->canvas = (GnomeCanvasPixbuf*) gnome_canvas_item_new(
+  item->canvas = (GooCanvasImage*) goo_canvas_image_new(
                             parent,
-                            GNOME_TYPE_CANVAS_PIXBUF,
-                            "pixbuf",
                             gdk_pixbuf_animation_iter_get_pixbuf(item->iter),
-                            NULL);
+			    0, 0);
 
   if(active == NULL)
       g_timeout_add(TICK_TIME, (GSourceFunc)anim_tick, NULL);
@@ -124,7 +122,7 @@ gc_anim_deactivate(GcomprisAnimCanvasItem *item)
     return;
   }
 
-  if (GNOME_IS_CANVAS_ITEM(item->canvas)){
+  if (GOO_IS_CANVAS_ITEM(item->canvas)){
     gtk_object_destroy(GTK_OBJECT(item->canvas));
     item->canvas = NULL;
   }
@@ -160,7 +158,7 @@ gc_anim_set_state(GcomprisAnimCanvasItem *item, int state)
   g_object_unref( item->iter );
   item->iter = gdk_pixbuf_animation_get_iter( item->anim->anim[item->state],
                                               NULL );
-  gnome_canvas_item_set( (GnomeCanvasItem*)item->canvas, "pixbuf",
+  g_object_set( (GooCanvasItem*)item->canvas, "pixbuf",
                          gdk_pixbuf_animation_iter_get_pixbuf(item->iter),
                          NULL);
 }
@@ -182,7 +180,7 @@ anim_tick(void *ignore)
       GcomprisAnimCanvasItem *a = (GcomprisAnimCanvasItem*)cur->data;
       if( gdk_pixbuf_animation_iter_advance( a->iter, NULL) )
         {
-          gnome_canvas_item_set((GnomeCanvasItem*)a->canvas, "pixbuf",
+          g_object_set((GooCanvasItem*)a->canvas, "pixbuf",
                                 gdk_pixbuf_animation_iter_get_pixbuf(a->iter),
                                 NULL);
         }

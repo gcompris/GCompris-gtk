@@ -41,16 +41,16 @@
 #define MODE_SAVE 2
 static gint mode;
 
-static gint		 item_event_file_selector(GnomeCanvasItem *item,
+static gint		 item_event_file_selector(GooCanvasItem *item,
 						  GdkEvent *event,
 						  gpointer data);
-static gint		 item_event_scroll(GnomeCanvasItem *item,
+static gint		 item_event_scroll(GooCanvasItem *item,
 					   GdkEvent *event,
-					   GnomeCanvas *canvas);
-static gint		 item_event_directory(GnomeCanvasItem *item,
+					   GooCanvas *canvas);
+static gint		 item_event_directory(GooCanvasItem *item,
 					      GdkEvent *event,
 					      char *dir);
-static void		 display_files(GnomeCanvasItem *rootitem, gchar *rootdir);
+static void		 display_files(GooCanvasItem *rootitem, gchar *rootdir);
 static int		 display_file_selector(int mode,
 					       GcomprisBoard *gcomprisBoard,
 					       gchar *rootdir,
@@ -62,8 +62,8 @@ static void		 free_stuff (GtkObject *obj, gchar* data);
 
 static gboolean		 file_selector_displayed = FALSE;
 
-static GnomeCanvasItem	*rootitem = NULL;
-static GnomeCanvasItem	*file_root_item = NULL;
+static GooCanvasItem	*rootitem = NULL;
+static GooCanvasItem	*file_root_item = NULL;
 
 static FileSelectorCallBack  fileSelectorCallBack = NULL;
 static GtkWidget            *gtk_combo_filetypes = NULL;
@@ -181,7 +181,7 @@ display_file_selector(int the_mode,
 		      FileSelectorCallBack iscb) {
 
 
-  GnomeCanvasItem  *item, *item2;
+  GooCanvasItem  *item, *item2;
   GdkPixbuf	   *pixmap = NULL;
   gint		    y = 0;
   gint		    y_start = 0;
@@ -212,21 +212,16 @@ display_file_selector(int the_mode,
   name = gcomprisBoard->name;
   fileSelectorCallBack=iscb;
 
-  rootitem = \
-    gnome_canvas_item_new (gnome_canvas_root(gc_get_canvas()),
-			   gnome_canvas_group_get_type (),
-			   "x", (double)0,
-			   "y", (double)0,
-			   NULL);
+  rootitem = goo_canvas_group_new (goo_canvas_get_root_item(gc_get_canvas()),
+				   NULL);
 
   pixmap = gc_skin_pixmap_load("file_selector_bg.png");
   y_start = (BOARDHEIGHT - gdk_pixbuf_get_height(pixmap))/2;
   x_start = (BOARDWIDTH - gdk_pixbuf_get_width(pixmap))/2;
-  item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
-				gnome_canvas_pixbuf_get_type (),
-				"pixbuf", pixmap,
-				"x", (double) x_start,
-				"y", (double) y_start,
+  item = goo_canvas_image_new (rootitem,
+			       pixmap,
+			       (double) x_start,
+			       (double) y_start,
 				NULL);
   y = BOARDHEIGHT - (BOARDHEIGHT - gdk_pixbuf_get_height(pixmap))/2 + 20;
   gdk_pixbuf_unref(pixmap);
@@ -235,15 +230,13 @@ display_file_selector(int the_mode,
   widget_entry = (GtkEntry *)gtk_entry_new ();
   if(mode==MODE_SAVE)
     gtk_entry_set_max_length(widget_entry, 30);
-  item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
-				gnome_canvas_widget_get_type (),
-				"widget", GTK_WIDGET(widget_entry),
-				"x", (double) control_area_x1,
-				"y", (double) control_area_y1,
-				"width", 230.0,
-				"height", 30.0,
+  item = goo_canvas_widget_new (rootitem,
+				GTK_WIDGET(widget_entry),
+				control_area_x1,
+				control_area_y1,
+				230.0,
+				30.0,
 				"anchor", GTK_ANCHOR_NW,
-				"size_pixels", FALSE,
 				NULL);
   gtk_signal_connect(GTK_OBJECT(widget_entry), "activate",
 		     GTK_SIGNAL_FUNC(entry_enter_callback),
@@ -290,15 +283,13 @@ display_file_selector(int the_mode,
 	g_free(result);
       }
 
-    gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
-			   gnome_canvas_widget_get_type (),
-			   "widget", GTK_WIDGET(gtk_combo_filetypes),
-			   "x", (double) control_area_x1 + 400,
-			   "y", (double) control_area_y1,
-			   "width", 250.0,
-			   "height", 35.0,
+    goo_canvas_widget_new (rootitem,
+			   gtk_combo_filetypes,
+			   control_area_x1 + 400,
+			   control_area_y1,
+			   250.0,
+			   35.0,
 			   "anchor", GTK_ANCHOR_NW,
-			   "size_pixels", FALSE,
 			   NULL);
 
     gtk_widget_show(GTK_WIDGET(gtk_combo_filetypes));
@@ -318,64 +309,62 @@ display_file_selector(int the_mode,
   pixmap = gc_skin_pixmap_load("button_large.png");
 
   // CANCEL
-  item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
-				gnome_canvas_pixbuf_get_type (),
-				"pixbuf", pixmap,
-				"x", (double) (BOARDWIDTH*0.33) - gdk_pixbuf_get_width(pixmap)/2,
-				"y", (double) y - gdk_pixbuf_get_height(pixmap) - 25,
+  item = goo_canvas_image_new (rootitem,
+			       pixmap,
+			       (double) (BOARDWIDTH*0.33) - gdk_pixbuf_get_width(pixmap)/2,
+			       (double) y - gdk_pixbuf_get_height(pixmap) - 25,
 				NULL);
 
-  gtk_signal_connect(GTK_OBJECT(item), "event",
+  g_signal_connect(item, "button_press_event",
 		     (GtkSignalFunc) item_event_file_selector,
 		     "/cancel/");
-  gtk_signal_connect(GTK_OBJECT(item), "event",
+  g_signal_connect(item, "button_press_event",
 		     (GtkSignalFunc) gc_item_focus_event,
 		     NULL);
 
-  item2 = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
-				 gnome_canvas_text_get_type (),
-				 "text", _("CANCEL"),
-				 "font", gc_skin_font_title,
-				 "x", (double)  BOARDWIDTH*0.33,
-				 "y", (double)  y - gdk_pixbuf_get_height(pixmap),
-				 "anchor", GTK_ANCHOR_CENTER,
-				 "fill_color_rgba", gc_skin_color_text_button,
-				 NULL);
-  gtk_signal_connect(GTK_OBJECT(item2), "event",
+  item2 = goo_canvas_text_new (rootitem,
+			       _("CANCEL"),
+			       (gdouble)  BOARDWIDTH*0.33,
+			       (gdouble)  y - gdk_pixbuf_get_height(pixmap),
+			       -1,
+			       GTK_ANCHOR_CENTER,
+			       "font", gc_skin_font_title,
+			       "fill-color-rgba", gc_skin_color_text_button,
+			       NULL);
+  g_signal_connect(item2, "button_press_event",
 		     (GtkSignalFunc) item_event_file_selector,
 		     "/cancel/");
-  gtk_signal_connect(GTK_OBJECT(item2), "event",
+  g_signal_connect(item2, "button_press_event",
 		     (GtkSignalFunc) gc_item_focus_event,
 		     item);
 
   // OK
-  item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
-				gnome_canvas_pixbuf_get_type (),
-				"pixbuf", pixmap,
-				"x", (double) (BOARDWIDTH*0.66) - gdk_pixbuf_get_width(pixmap)/2,
-				"y", (double) y - gdk_pixbuf_get_height(pixmap) - 25,
+  item = goo_canvas_image_new (rootitem,
+			       pixmap,
+			       (double) (BOARDWIDTH*0.66) - gdk_pixbuf_get_width(pixmap)/2,
+			       (double) y - gdk_pixbuf_get_height(pixmap) - 25,
 				NULL);
 
-  gtk_signal_connect(GTK_OBJECT(item), "event",
+  g_signal_connect(item, "button_press_event",
 		     (GtkSignalFunc) item_event_file_selector,
 		     "/ok/");
-  gtk_signal_connect(GTK_OBJECT(item), "event",
+  g_signal_connect(item, "button_press_event",
 		     (GtkSignalFunc) gc_item_focus_event,
 		     NULL);
 
-  item2 = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
-				 gnome_canvas_text_get_type (),
-				 "text", (mode==MODE_LOAD ? _("LOAD") : _("SAVE")),
-				 "font", gc_skin_font_title,
-				 "x", (double)  BOARDWIDTH*0.66,
-				 "y", (double)  y - gdk_pixbuf_get_height(pixmap),
-				 "anchor", GTK_ANCHOR_CENTER,
-				 "fill_color_rgba", gc_skin_color_text_button,
-				 NULL);
-  gtk_signal_connect(GTK_OBJECT(item2), "event",
+  item2 = goo_canvas_text_new (rootitem,
+			       (mode==MODE_LOAD ? _("LOAD") : _("SAVE")),
+			       (gdouble)  BOARDWIDTH*0.66,
+			       (gdouble)  y - gdk_pixbuf_get_height(pixmap),
+			       -1,
+			       GTK_ANCHOR_CENTER,
+			       "font", gc_skin_font_title,
+			       "fill-color-rgba", gc_skin_color_text_button,
+			       NULL);
+  g_signal_connect(item2, "button_press_event",
 		     (GtkSignalFunc) item_event_file_selector,
 		     "/ok/");
-  gtk_signal_connect(GTK_OBJECT(item2), "event",
+  g_signal_connect(item2, "button_press_event",
 		     (GtkSignalFunc) gc_item_focus_event,
 		     item);
   gdk_pixbuf_unref(pixmap);
@@ -401,9 +390,9 @@ free_stuff (GtkObject *obj, gchar *data)
   g_free(data);
 }
 
-static void display_files(GnomeCanvasItem *root_item, gchar *rootdir)
+static void display_files(GooCanvasItem *root_item, gchar *rootdir)
 {
-  GnomeCanvasItem *item;
+  GooCanvasItem *item;
   double iw, ih;
   const gchar *one_dirent;
   GDir  *dir;
@@ -413,9 +402,9 @@ static void display_files(GnomeCanvasItem *root_item, gchar *rootdir)
   guint iy  = 0.0;
 
   GtkWidget	  *w;
-  GnomeCanvasItem *bg_item;
+  GooCanvasItem *bg_item;
 
-  GnomeCanvas	  *canvas; /* The scrolled part */
+  GtkWidget *canvas; /* The scrolled part */
 
   GList  *dir_list  = NULL;
   GList  *listrunner;
@@ -445,71 +434,62 @@ static void display_files(GnomeCanvasItem *root_item, gchar *rootdir)
   file_list = NULL;
 
   /* Create a root item to put the image list in it */
-  file_root_item = \
-    gnome_canvas_item_new (GNOME_CANVAS_GROUP(root_item),
-			   gnome_canvas_group_get_type (),
-			   "x", (double)0,
-			   "y", (double)0,
-			   NULL);
+  file_root_item = goo_canvas_group_new (root_item, NULL);
 
   /*
    * Create the scrollbar
    * --------------------
    */
-  canvas     = GNOME_CANVAS(gnome_canvas_new ());
+  canvas = goo_canvas_new();
 
-  gnome_canvas_item_new (GNOME_CANVAS_GROUP(file_root_item),
-			 gnome_canvas_widget_get_type (),
-			 "widget", GTK_WIDGET(canvas),
-			 "x", (double) DRAWING_AREA_X1,
-			 "y", (double) DRAWING_AREA_Y1,
-			 "width",  DRAWING_AREA_X2- DRAWING_AREA_X1 - 20.0,
-			 "height", DRAWING_AREA_Y2-DRAWING_AREA_Y1 - 35.0,
+  goo_canvas_widget_new (file_root_item,
+			 canvas,
+			 DRAWING_AREA_X1,
+			 DRAWING_AREA_Y1,
+			 DRAWING_AREA_X2- DRAWING_AREA_X1 - 20.0,
+			 DRAWING_AREA_Y2-DRAWING_AREA_Y1 - 35.0,
 			 NULL);
 
   gtk_widget_show (GTK_WIDGET(canvas));
 
   /* Set the new canvas to the background color or it's white */
-  bg_item = gnome_canvas_item_new (gnome_canvas_root(canvas),
-			 gnome_canvas_rect_get_type (),
-			 "x1", (double) 0,
-			 "y1", (double) 0,
-			 "x2", (double) DRAWING_AREA_X2- DRAWING_AREA_X1,
-			 "y2", (double) DRAWING_AREA_Y2-DRAWING_AREA_Y1,
-			 "fill_color_rgba", gc_skin_get_color("gcompris/fileselectbg"),
+  bg_item = goo_canvas_rect_new (goo_canvas_get_root_item(GOO_CANVAS(canvas)),
+				 0,
+				 0,
+				 DRAWING_AREA_X2- DRAWING_AREA_X1,
+				 DRAWING_AREA_Y2-DRAWING_AREA_Y1,
+				 "fill-color-rgba", gc_skin_get_color("gcompris/fileselectbg"),
 			 NULL);
 
 
   w = gtk_vscrollbar_new (GTK_LAYOUT(canvas)->vadjustment);
 
-  gnome_canvas_item_new (GNOME_CANVAS_GROUP(file_root_item),
-			 gnome_canvas_widget_get_type (),
-			 "widget", GTK_WIDGET(w),
-			 "x", (double) DRAWING_AREA_X2 - 15.0,
-			 "y", (double) DRAWING_AREA_Y1,
-			 "width", 30.0,
-			 "height", DRAWING_AREA_Y2-DRAWING_AREA_Y1 - 20.0,
-			 NULL);
+  goo_canvas_widget_new (file_root_item,
+			 w,
+			 DRAWING_AREA_X2 - 15.0,
+			 DRAWING_AREA_Y1,
+			 30.0,
+			 DRAWING_AREA_Y2-DRAWING_AREA_Y1 - 20.0);
   gtk_widget_show (w);
-  gnome_canvas_set_center_scroll_region (GNOME_CANVAS (canvas), FALSE);
+  //??goo_canvas_set_center_scroll_region (GOO_CANVAS (canvas), FALSE);
 
   /* Set the scrollwheel event */
-  gtk_signal_connect(GTK_OBJECT(canvas), "event",
+  g_signal_connect(canvas, "button_press_event",
 		     (GtkSignalFunc) item_event_scroll,
-		     GNOME_CANVAS(canvas));
+		     GOO_CANVAS(canvas));
 
   /* Display the directory name
    * --------------------------
    */
 
-  item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(file_root_item),
-				gnome_canvas_text_get_type (),
-				"text", rootdir,
-				"x", (double)control_area_x1,
-				"y", (double)directory_label_y,
-				"fill_color_rgba", gc_skin_get_color("gcompris/fileselectcol"),
-				"anchor", GTK_ANCHOR_NW,
-				NULL);
+  item = goo_canvas_text_new (file_root_item,
+			      rootdir,
+			      (gdouble)control_area_x1,
+			      (gdouble)directory_label_y,
+			      -1,
+			      GTK_ANCHOR_NW,
+			      "fill-color-rgba", gc_skin_get_color("gcompris/fileselectcol"),
+			      NULL);
 
 
   iw = IMAGE_WIDTH;
@@ -575,26 +555,25 @@ static void display_files(GnomeCanvasItem *root_item, gchar *rootdir)
       pixmap_current  = gc_pixmap_load(gc_skin_image_get("file.png"));
     }
 
-    item = gnome_canvas_item_new (gnome_canvas_root(canvas),
-				  gnome_canvas_pixbuf_get_type (),
-				  "pixbuf", pixmap_current,
-				  "x", (double)ix + (IMAGE_WIDTH + IMAGE_GAP
-						     - gdk_pixbuf_get_width(pixmap_current))/2,
-				  "y", (double)iy,
-				  NULL);
+    item = goo_canvas_image_new (goo_canvas_get_root_item(GOO_CANVAS(canvas)),
+				 pixmap_current,
+				 ix + (IMAGE_WIDTH + IMAGE_GAP
+				       - gdk_pixbuf_get_width(pixmap_current))/2,
+				 iy,
+				 NULL);
 
     gdk_pixbuf_unref(pixmap_current);
 
     if(g_file_test(allfilename, G_FILE_TEST_IS_DIR)) {
-      gtk_signal_connect(GTK_OBJECT(item), "event",
+      g_signal_connect(item, "button_press_event",
 			 (GtkSignalFunc) item_event_directory,
 			 allfilename);
     } else {
-      gtk_signal_connect(GTK_OBJECT(item), "event",
+      g_signal_connect(item, "button_press_event",
 			 (GtkSignalFunc) item_event_file_selector,
 			 allfilename);
     }
-    gtk_signal_connect(GTK_OBJECT(item), "event",
+    g_signal_connect(item, "button_press_event",
 		       (GtkSignalFunc) gc_item_focus_event,
 		       NULL);
 
@@ -602,21 +581,21 @@ static void display_files(GnomeCanvasItem *root_item, gchar *rootdir)
 		      G_CALLBACK (free_stuff),
 		      allfilename);
 
-    item = gnome_canvas_item_new (gnome_canvas_root(canvas),
-				  gnome_canvas_text_get_type (),
-				  "text", filename,
-				  "x", (double)ix + (IMAGE_WIDTH + IMAGE_GAP)/2,
-				  "y", (double)iy + IMAGE_HEIGHT - 5,
-				  "anchor", GTK_ANCHOR_CENTER,
-				  "fill_color_rgba", gc_skin_get_color("gcompris/fileselectcol"),
-				  NULL);
+    item = goo_canvas_text_new (goo_canvas_get_root_item(GOO_CANVAS(canvas)),
+				filename,
+				ix + (IMAGE_WIDTH + IMAGE_GAP)/2,
+				iy + IMAGE_HEIGHT - 5,
+				-1,
+				GTK_ANCHOR_CENTER,
+				"fill-color-rgba", gc_skin_get_color("gcompris/fileselectcol"),
+				NULL);
 
     if(g_file_test(allfilename, G_FILE_TEST_IS_DIR)) {
-      gtk_signal_connect(GTK_OBJECT(item), "event",
+      g_signal_connect(item, "button_press_event",
 			 (GtkSignalFunc) item_event_directory,
 			 allfilename);
     } else {
-      gtk_signal_connect(GTK_OBJECT(item), "event",
+      g_signal_connect(item, "button_press_event",
 			 (GtkSignalFunc) item_event_file_selector,
 			 allfilename);
     }
@@ -628,12 +607,13 @@ static void display_files(GnomeCanvasItem *root_item, gchar *rootdir)
 
 	iy+=IMAGE_HEIGHT + IMAGE_GAP;
 
-	gnome_canvas_set_scroll_region (GNOME_CANVAS (canvas), 0, 0,
-					DRAWING_AREA_X2- DRAWING_AREA_X1,
-					iy + IMAGE_HEIGHT + IMAGE_GAP);
+	goo_canvas_set_bounds (GOO_CANVAS(canvas),
+			       0, 0,
+			       DRAWING_AREA_X2- DRAWING_AREA_X1,
+			       iy + IMAGE_HEIGHT + IMAGE_GAP);
 
 	if(iy>=DRAWING_AREA_Y2-DRAWING_AREA_Y1) {
-	  gnome_canvas_item_set(bg_item,
+	  g_object_set(bg_item,
 				"y2", (double)iy + IMAGE_HEIGHT + IMAGE_GAP,
 				NULL);
 	}
@@ -647,7 +627,7 @@ static void display_files(GnomeCanvasItem *root_item, gchar *rootdir)
 
 /* Callback when a directory is selected */
 static gint
-item_event_directory(GnomeCanvasItem *item, GdkEvent *event, gchar *dir)
+item_event_directory(GooCanvasItem *item, GdkEvent *event, gchar *dir)
 {
 
   if(!rootitem)
@@ -677,20 +657,21 @@ item_event_directory(GnomeCanvasItem *item, GdkEvent *event, gchar *dir)
 
 /* Callback when a scroll event happens */
 static gint
-item_event_scroll(GnomeCanvasItem *item, GdkEvent *event, GnomeCanvas *canvas)
+item_event_scroll(GooCanvasItem *item, GdkEvent *event, GooCanvas *canvas)
 {
-  int x, y;
+  int x = 0;
+  int y = 0;
   if(!rootitem)
     return FALSE;
 
   switch (event->type)
     {
     case GDK_SCROLL:
-      gnome_canvas_get_scroll_offsets (canvas, &x, &y);
+      //??goo_canvas_get_scroll_offsets (canvas, &x, &y);
       if ( event->scroll.direction == GDK_SCROLL_UP )
-	gnome_canvas_scroll_to (canvas, x, y - 20);
+	goo_canvas_scroll_to (canvas, x, y - 20);
       else if ( event->scroll.direction == GDK_SCROLL_DOWN )
-	gnome_canvas_scroll_to (canvas, x, y + 20);
+	goo_canvas_scroll_to (canvas, x, y + 20);
 
       break;
     default:
@@ -701,7 +682,7 @@ item_event_scroll(GnomeCanvasItem *item, GdkEvent *event, GnomeCanvas *canvas)
 
 /* Callback when a file is selected */
 static gint
-item_event_file_selector(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
+item_event_file_selector(GooCanvasItem *item, GdkEvent *event, gpointer data)
 {
 
   if(!rootitem)

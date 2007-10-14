@@ -57,7 +57,8 @@ INCLUDES = \
 	$(GNET_CFLAGS) \
 	$(DBUS_CFLAGS) \
 	$(cairo_cflags) \
-	$(NSBUNDLE_CPPFLAGS)
+	$(NSBUNDLE_CPPFLAGS) \
+	-I$(top_srcdir)/src/goocanvas/src
 
 gcompris_SOURCES = \
 	$(cairo_c) \
@@ -122,12 +123,11 @@ gcompris_SOURCES = \
 	wordlist.h
 
 gcompris_LDFLAGS = \
-	-export-dynamic $(cairo_ldflags) \
-	$(top_builddir)/src/libgnomecanvas/libgnomecanvas-2.a \
-	$(top_builddir)/src/libart_lgpl/libart_lgpl_2.a
+	-export-dynamic $(cairo_ldflags)
 
 
 gcompris_LDADD = \
+	$(top_builddir)/src/goocanvas/src/libgoocanvas.la \
 	$(GCOMPRIS_LIBS) $(sqlite_ldadd) $(XML_LIBS) $(GNET_LIBS) \
 	$(DBUS_LIBS) \
         $(INTLLIBS) $(NSBUNDLE_LDFLAGS)

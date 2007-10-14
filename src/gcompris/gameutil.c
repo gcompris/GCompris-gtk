@@ -34,7 +34,7 @@
 
 #include "gcompris.h"
 
-extern GnomeCanvas *canvas;
+extern GooCanvas *canvas;
 
 typedef void (*sighandler_t)(int);
 
@@ -190,7 +190,7 @@ make_hc_pixbuf(GdkPixbuf *pb, gint val)
  * already has a focus enabled with gc_item_focus_event().
  */
 void
-gc_item_focus_free(GnomeCanvasItem *item, void *none)
+gc_item_focus_free(GooCanvasItem *item, void *none)
 {
   GdkPixbuf *pixbuf;
 
@@ -206,7 +206,7 @@ gc_item_focus_free(GnomeCanvasItem *item, void *none)
  * Set the focus of the given image (highlight or not)
  *
  */
-void gc_item_focus_set(GnomeCanvasItem *item, gboolean focus)
+void gc_item_focus_set(GooCanvasItem *item, gboolean focus)
 {
   GdkPixbuf *dest = NULL;
   GdkPixbuf *pixbuf;
@@ -234,15 +234,13 @@ void gc_item_focus_set(GnomeCanvasItem *item, gboolean focus)
     {
     case TRUE:
       dest = make_hc_pixbuf(pixbuf, 30);
-      gnome_canvas_item_set (item,
-			     "pixbuf", dest,
-			     NULL);
+      g_object_set_data (G_OBJECT(item),
+			 "pixbuf", dest);
 
       break;
     case FALSE:
-      gnome_canvas_item_set (item,
-			     "pixbuf", pixbuf_ref,
-			     NULL);
+      g_object_set_data (G_OBJECT(item),
+			 "pixbuf", pixbuf_ref);
       break;
     default:
       break;
@@ -259,8 +257,8 @@ void gc_item_focus_set(GnomeCanvasItem *item, gboolean focus)
  *
  */
 gint
-gc_item_focus_event(GnomeCanvasItem *item, GdkEvent *event,
-		    GnomeCanvasItem *dest_item)
+gc_item_focus_event(GooCanvasItem *item, GdkEvent *event,
+		    GooCanvasItem *dest_item)
 {
 
   if(dest_item!=NULL)
@@ -310,10 +308,10 @@ gchar *reactivate_newline(char *str)
 }
 
 /* ======================================= */
-void gc_item_absolute_move(GnomeCanvasItem *item, int x, int y) {
-  double dx1, dy1, dx2, dy2;
-  gnome_canvas_item_get_bounds(item, &dx1, &dy1, &dx2, &dy2);
-  gnome_canvas_item_move(item, ((double)x)-dx1, ((double)y)-dy1);
+void gc_item_absolute_move(GooCanvasItem *item, int x, int y) {
+  GooCanvasBounds bounds;
+  goo_canvas_item_get_bounds(item, &bounds);
+  goo_canvas_item_translate(item, ((double)x)-bounds.x1, ((double)y)-bounds.y1);
 }
 
 /* ======================================= */
@@ -323,17 +321,12 @@ void gc_item_absolute_move(GnomeCanvasItem *item, int x, int y) {
    rotation is clockwise if angle > 0
 */
 void
-gc_item_rotate(GnomeCanvasItem *item, double angle) {
-  double r[6],t[6], x1, x2, y1, y2;
-
-  gnome_canvas_item_get_bounds( item, &x1, &y1, &x2, &y2 );
-  art_affine_translate( t , -(x2+x1)/2, -(y2+y1)/2 );
-  art_affine_rotate( r, angle );
-  art_affine_multiply( r, t, r);
-  art_affine_translate( t , (x2+x1)/2, (y2+y1)/2 );
-  art_affine_multiply( r, r, t);
-
-  gnome_canvas_item_affine_absolute(item, r );
+gc_item_rotate(GooCanvasItem *item, double angle) {
+  GooCanvasBounds bounds;
+  goo_canvas_item_get_bounds (item, &bounds);
+  goo_canvas_item_rotate(item, angle,
+			 bounds.x1+(bounds.x2+bounds.x1)/2,
+			 bounds.y1+(bounds.y2+bounds.y1)/2);
 }
 
 /* As gnome does not implement its own API : gc_item_rotate_relative
@@ -342,30 +335,28 @@ gc_item_rotate(GnomeCanvasItem *item, double angle) {
    rotation is clockwise if angle > 0
  */
 void
-gc_item_rotate_relative(GnomeCanvasItem *item, double angle) {
+gc_item_rotate_relative(GooCanvasItem *item, double angle) {
   double x1, x2, y1, y2;
   double tx1, tx2, ty1, ty2;
   double cx, cy;
-  double t;
-  double r[6];
 
-  //  gnome_canvas_item_get_bounds( item, &x1, &y1, &x2, &y2 );
-  /* WARNING: Do not use gnome_canvas_item_get_bounds which gives unpredictable results */
-  if(GNOME_IS_CANVAS_LINE(item)) {
-    GnomeCanvasPoints	*points;
+  //  goo_canvas_item_get_bounds( item, &x1, &y1, &x2, &y2 );
+  /* WARNING: Do not use goo_canvas_item_get_bounds which gives unpredictable results */
+  if(GOO_IS_CANVAS_POLYLINE(item)) {
+    GooCanvasPoints	*points;
     gtk_object_get (GTK_OBJECT (item), "points", &points, NULL);
     x1 = points->coords[0];
     y1 = points->coords[1];
     x2 = points->coords[2];
     y2 = points->coords[3];
-  } else if(GNOME_IS_CANVAS_PIXBUF(item)){
+  } else if(GOO_IS_CANVAS_IMAGE(item)){
     gtk_object_get (GTK_OBJECT (item), "x", &x1, NULL);
     gtk_object_get (GTK_OBJECT (item), "y", &y1, NULL);
     gtk_object_get (GTK_OBJECT (item), "width",  &x2, NULL);
     gtk_object_get (GTK_OBJECT (item), "height", &y2, NULL);
     x2 += x1;
     y2 += y1;
-  } else if(GNOME_IS_CANVAS_GROUP(item)){
+  } else if(GOO_IS_CANVAS_GROUP(item)){
     gtk_object_get (GTK_OBJECT (item), "x", &x1, NULL);
     gtk_object_get (GTK_OBJECT (item), "y", &y1, NULL);
     x2 = x1;
@@ -391,63 +382,31 @@ gc_item_rotate_relative(GnomeCanvasItem *item, double angle) {
   cx = (x2+x1)/2;
   cy = (y2+y1)/2;
 
-  /* Taken from anim by Yves Combe
-   * This matrix rotate around ( cx, cy )
-   * This is the result of the product:
-   *            T_{-c}             Rot (t)                 T_c
-   *
-   *       1    0   cx       cos(t) -sin(t)    0        1    0  -cx
-   *       0    1   cy  by   sin(t)  cos(t)    0   by   0    1  -cy
-   *       0    0    1         0       0       1        0    0   1
-   */
+  goo_canvas_item_rotate(item, angle,
+			 x1+(x2+x1)/2,
+			 y1+(y2+y1)/2);
 
-  t = M_PI*angle/180.0;
-
-  r[0] = cos(t);
-  r[1] = sin(t);
-  r[2] = -sin(t);
-  r[3] = cos(t);
-  r[4] = (1-cos(t))*cx + sin(t)*cy;
-  r[5] = -sin(t)*cx + (1 - cos(t))*cy;
-
-  gnome_canvas_item_affine_relative(item, r );
 }
 
 /** rotates an item around the center (x,y), relative to the widget's coordinates
  */
 void
-gc_item_rotate_with_center(GnomeCanvasItem *item, double angle, int x, int y) {
-  double r[6],t[6], x1, x2, y1, y2, tx, ty;
+gc_item_rotate_with_center(GooCanvasItem *item, double angle, int x, int y) {
+  GooCanvasBounds bounds;
 
-  gnome_canvas_item_get_bounds( item, &x1, &y1, &x2, &y2 );
-  tx = x1 + x;
-  ty = y1 + y;
-  art_affine_translate( t , -tx, -ty );
-  art_affine_rotate( r, angle );
-  art_affine_multiply( r, t, r);
-  art_affine_translate( t , tx, ty );
-  art_affine_multiply( r, r, t);
-
-  gnome_canvas_item_affine_absolute(item, r );
+  goo_canvas_item_get_bounds( item, &bounds );
+  goo_canvas_item_rotate(item, angle, bounds.x1+x, bounds.y1+y);
 }
 
 /** rotates an item around the center (x,y), relative to the widget's coordinates
  *  The rotation is relative to the previous rotation
  */
 void
-gc_item_rotate_relative_with_center(GnomeCanvasItem *item, double angle, int x, int y) {
-  double r[6],t[6], x1, x2, y1, y2, tx, ty;
+gc_item_rotate_relative_with_center(GooCanvasItem *item, double angle, int x, int y) {
+  GooCanvasBounds bounds;
 
-  gnome_canvas_item_get_bounds( item, &x1, &y1, &x2, &y2 );
-  tx = x1 + x;
-  ty = y1 + y;
-  art_affine_translate( t , -tx, -ty );
-  art_affine_rotate( r, angle );
-  art_affine_multiply( r, t, r);
-  art_affine_translate( t , tx, ty );
-  art_affine_multiply( r, r, t);
-
-  gnome_canvas_item_affine_relative(item, r );
+  goo_canvas_item_get_bounds( item, &bounds);
+  goo_canvas_item_rotate(item, angle, bounds.x1+x, bounds.y1+y);
 }
 
 /**
@@ -456,14 +415,14 @@ gc_item_rotate_relative_with_center(GnomeCanvasItem *item, double angle, int x, 
  * The new group in which the stars are created is returned.
  * This is only usefull for the menu plugin and the configuration dialog box.
  */
-GnomeCanvasGroup *gc_difficulty_display(GnomeCanvasGroup *parent,
-						    double x, double y,
-						    double ratio,
-						    gint difficulty)
+GooCanvasItem *gc_difficulty_display(GooCanvasItem *parent,
+				     double x, double y,
+				     double ratio,
+				     gint difficulty)
 {
   GdkPixbuf *pixmap = NULL;
-  GnomeCanvasGroup *stars_group = NULL;
-  GnomeCanvasPixbuf *item = NULL;
+  GooCanvasItem *stars_group = NULL;
+  GooCanvasItem *item = NULL;
   gchar *filename = NULL;
 
   if(difficulty==0 || difficulty>6)
@@ -476,27 +435,19 @@ GnomeCanvasGroup *gc_difficulty_display(GnomeCanvasGroup *parent,
   if(!pixmap)
     return NULL;
 
-  stars_group = GNOME_CANVAS_GROUP(
-				  gnome_canvas_item_new (parent,
-							 gnome_canvas_group_get_type (),
-							 "x", (double) 0,
-							 "y", (double) 0,
-							 NULL));
+  stars_group = goo_canvas_group_new (parent, NULL);
 
-  item = GNOME_CANVAS_PIXBUF(gnome_canvas_item_new (stars_group,
-						    gnome_canvas_pixbuf_get_type (),
-						    "pixbuf", pixmap,
-						    "x", x,
-						    "y", y,
-						    "width", (double) gdk_pixbuf_get_width(pixmap) * ratio,
-						    "height", (double) gdk_pixbuf_get_height(pixmap) * ratio,
-						    "width_set", TRUE,
-						    "height_set", TRUE,
-						    NULL));
+  item = goo_canvas_image_new (stars_group,
+			       pixmap,
+			       x,
+			       y,
+			       "width", (double) gdk_pixbuf_get_width(pixmap) * ratio,
+			       "height", (double) gdk_pixbuf_get_height(pixmap) * ratio,
+			       NULL);
 
-  gtk_signal_connect(GTK_OBJECT(item), "event",
-		     (GtkSignalFunc) gc_item_focus_event,
-		     NULL);
+  g_signal_connect(item, "button_press_event",
+		   (GtkSignalFunc) gc_item_focus_event,
+		   NULL);
 
   gdk_pixbuf_unref(pixmap);
 

@@ -26,7 +26,7 @@
 #  include <config.h>
 #endif
 
-#include <libgnomecanvas/libgnomecanvas.h>
+#include <goocanvas.h>
 
 #include <gtk/gtk.h>
 #include <gdk/gdkkeysyms.h>
@@ -84,9 +84,9 @@
 void		 gc_board_end(void);
 
 /* Control Bar methods */
-void		 gc_bar_start (GnomeCanvas *theCanvas);
+void		 gc_bar_start (GooCanvas *theCanvas);
 
-GnomeCanvasItem *gc_set_background(GnomeCanvasGroup *parent, gchar *file);
+GooCanvasItem *gc_set_background(GooCanvasItem *parent, gchar *file);
 void		 gc_bar_set_level (GcomprisBoard *gcomprisBoard);
 void		 gc_bar_set_repeat_icon (GdkPixbuf *pixmap);
 
@@ -114,7 +114,7 @@ void		 gc_bar_set (const GComprisBarFlags flags);
 void		 gc_bar_hide (gboolean hide);
 
 /* General */
-GnomeCanvas     *gc_get_canvas(void);
+GooCanvas     *gc_get_canvas(void);
 GtkWidget	*gc_get_window(void);
 
 const gchar	*gc_locale_get(void);
@@ -159,11 +159,11 @@ void		 gc_confirm_box (gchar *title,
 
 void		 gc_confirm_box_stop (void);
 
-/* Use these instead of the gnome_canvas ones for proper fullscreen mousegrab
+/* Use these instead of the goo_canvas ones for proper fullscreen mousegrab
    handling. */
-int		 gc_canvas_item_grab (GnomeCanvasItem *item, unsigned int event_mask,
+int		 gc_canvas_item_grab (GooCanvasItem *item, unsigned int event_mask,
 				      GdkCursor *cursor, guint32 etime);
-void		 gc_canvas_item_ungrab (GnomeCanvasItem *item, guint32 etime);
+void		 gc_canvas_item_ungrab (GooCanvasItem *item, guint32 etime);
 
 /* Use it to tell the teacher where the kid failed */
 void		 gc_log_set_comment (GcomprisBoard *gcomprisBoard, gchar *expected, gchar* got);

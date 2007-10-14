@@ -26,7 +26,7 @@
 
 #include "gcompris.h"
 
-static GnomeCanvasGroup *boardRootItem = NULL;
+static GooCanvasItem *boardRootItem = NULL;
 
 static guint x, y, max;
 static ScoreStyleList currentStyle;
@@ -34,13 +34,13 @@ static ScoreStyleList currentStyle;
 /*
  * Forward declarations
  */
-static void display_number(GnomeCanvasGroup *parent, 
+static void display_number(GooCanvasItem *parent,
 			   guint x,
-			   guint y, 
+			   guint y,
 			   char *operand_str);
 
 /*
- * Main entry score 
+ * Main entry score
  * ----------------
  *
  */
@@ -73,7 +73,7 @@ gc_score_end()
 {
   if(boardRootItem!=NULL)
     gtk_object_destroy (GTK_OBJECT(boardRootItem));
-  
+
   boardRootItem=NULL;
 }
 
@@ -84,13 +84,9 @@ gc_score_set(guint value)
   if(boardRootItem!=NULL)
     gtk_object_destroy (GTK_OBJECT(boardRootItem));
 
-  boardRootItem = GNOME_CANVAS_GROUP(
-				     gnome_canvas_item_new (
-							    gnome_canvas_root(gc_board_get_current()->canvas),
-							    gnome_canvas_group_get_type (),
-							    "x", (double) x,
-							    "y", (double) y,
-							    NULL));
+  boardRootItem = \
+    goo_canvas_group_new (goo_canvas_get_root_item(GOO_CANVAS(gc_board_get_current()->canvas)),
+			  NULL);
 
   switch(currentStyle) {
   case SCORESTYLE_NOTE :
@@ -99,12 +95,10 @@ gc_score_set(guint value)
       GdkPixbuf *button_pixmap = NULL;
 
       button_pixmap = gc_skin_pixmap_load("button_large.png");
-      gnome_canvas_item_new (boardRootItem,
-			     gnome_canvas_pixbuf_get_type (),
-			     "pixbuf",  button_pixmap,
-			     "x",  (double) 0,
-			     "y",  (double) -gdk_pixbuf_get_height(button_pixmap)/2,
-			     NULL);
+      goo_canvas_image_new (boardRootItem,
+			     button_pixmap,
+			     x,
+			    y-gdk_pixbuf_get_height(button_pixmap)/2);
       gdk_pixbuf_unref(button_pixmap);
 
       tmp = g_strdup_printf("%d/%d", value, max);
@@ -126,30 +120,30 @@ gc_score_set(guint value)
 #define NUMBERSWIDTH       110
 
 static void
-display_number(GnomeCanvasGroup *parent, 
+display_number(GooCanvasItem *parent,
 	       guint x,
-	       guint y, 
+	       guint y,
 	       char *operand_str)
 {
 
   x -= NUMBERSWIDTH;
 
-  gnome_canvas_item_new (parent,
-			 gnome_canvas_text_get_type (),
-			 "text", operand_str,
-			 "font", gc_skin_font_board_huge_bold,
-			 "x", (double) x+2,
-			 "y", (double) y+2,
-			 "anchor", GTK_ANCHOR_CENTER,
-			 "fill_color_rgba", 0x7a8699FF,
-			 NULL);
-  gnome_canvas_item_new (parent,
-			 gnome_canvas_text_get_type (),
-			 "text", operand_str,
-			 "font", gc_skin_font_board_huge_bold,
-			 "x", (double) x,
-			 "y", (double) y,
-			 "anchor", GTK_ANCHOR_CENTER,
-			 "fill_color_rgba", 0xe5e532FF,
-			 NULL);
+  goo_canvas_text_new (parent,
+		       operand_str,
+		       (gdouble) x+2,
+		       (gdouble) y+2,
+		       -1,
+		       GTK_ANCHOR_CENTER,
+		       "font", gc_skin_font_board_huge_bold,
+		       "fill-color-rgba", 0x7a8699FF,
+		       NULL);
+  goo_canvas_text_new (parent,
+		       operand_str,
+		       (gdouble) x,
+		       (gdouble) y,
+		       -1,
+		       GTK_ANCHOR_CENTER,
+		       "font", gc_skin_font_board_huge_bold,
+		       "fill-color-rgba", 0xe5e532FF,
+		       NULL);
 }

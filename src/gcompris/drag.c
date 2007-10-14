@@ -20,7 +20,7 @@
 #include "drag.h"
 
 static gc_Drag_Func gc_drag_func;
-static int gc_drag_status;  
+static int gc_drag_status;
 
 /*  Values of status are :
     0 - waiting for a BUTTON_PRESS
@@ -28,15 +28,15 @@ static int gc_drag_status;
     2 - follow mouse pointer and waiting for a BUTTON_RELEASE */
 
 static gc_drag_mode_type gc_drag_mode;
-static GnomeCanvasItem *gc_drag_item;
+static GooCanvasItem *gc_drag_item;
 static double gc_drag_offset_x, gc_drag_offset_y;
 
-GnomeCanvasItem * gc_drag_item_get(void)
+GooCanvasItem * gc_drag_item_get(void)
 {
     return gc_drag_item;
 }
 
-void gc_drag_item_set(GnomeCanvasItem *item)
+void gc_drag_item_set(GooCanvasItem *item)
 {
     if(gc_drag_status != 0)
         g_warning("Don't use gc_drag_set_item during a dragging");
@@ -50,10 +50,11 @@ void gc_drag_item_move(GdkEvent *event)
 
     item_x = event->button.x;
     item_y = event->button.y;
-    gnome_canvas_item_w2i(gc_drag_item->parent, &item_x, &item_y);
+    goo_canvas_convert_to_item_space(goo_canvas_item_get_canvas(gc_drag_item),
+				     gc_drag_item, &item_x, &item_y);
 
-    gnome_canvas_item_set(gc_drag_item, 
-            "x", item_x - gc_drag_offset_x, 
+    g_object_set(gc_drag_item,
+            "x", item_x - gc_drag_offset_x,
             "y", item_y - gc_drag_offset_y, NULL);
 }
 
@@ -71,18 +72,20 @@ void gc_drag_offset_set(double x, double y)
 
 void gc_drag_offset_save(GdkEvent *event)
 {
-    double x, y, item_x, item_y;
+    double x, y;
+    GooCanvasBounds bounds;
 
     x=event->button.x;
     y=event->button.y;
-    gnome_canvas_item_w2i(gc_drag_item->parent, &x, &y);
-    
-    gnome_canvas_item_get_bounds(gc_drag_item, &item_x, &item_y, NULL, NULL);
-    
-    gc_drag_offset_set(x - item_x, y - item_y);
+    goo_canvas_convert_to_item_space(goo_canvas_item_get_canvas(gc_drag_item),
+				     gc_drag_item, &x, &y);
+
+    goo_canvas_item_get_bounds(gc_drag_item, &bounds);
+
+    gc_drag_offset_set(x - bounds.x1, y - bounds.y1);
 }
 
-gint gc_drag_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
+gint gc_drag_event(GooCanvasItem *item, GdkEvent *event, gpointer data)
 {
     switch(event->type)
     {
@@ -114,7 +117,7 @@ gint gc_drag_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
     return FALSE;
 }
 
-gint gc_drag_event_root(GnomeCanvasItem * item, GdkEvent *event, gpointer data)
+gint gc_drag_event_root(GooCanvasItem * item, GdkEvent *event, gpointer data)
 {
     switch(event->type)
     {
@@ -132,9 +135,9 @@ gint gc_drag_event_root(GnomeCanvasItem * item, GdkEvent *event, gpointer data)
     return FALSE;
 }
 
-void gc_drag_start(GnomeCanvasGroup *root_item, gc_Drag_Func function, gc_drag_mode_type mode)
+void gc_drag_start(GooCanvasGroup *root_item, gc_Drag_Func function, gc_drag_mode_type mode)
 {
-    gtk_signal_connect(GTK_OBJECT(root_item), "event", 
+    g_signal_connect(root_item, "button_press_event",
             (GtkSignalFunc) gc_drag_event_root, NULL);
     gc_drag_func = function;
     gc_drag_status = 0;
@@ -146,7 +149,7 @@ void gc_drag_start(GnomeCanvasGroup *root_item, gc_Drag_Func function, gc_drag_m
       gc_drag_mode = mode;
 }
 
-void gc_drag_stop(GnomeCanvasGroup *root_item)
+void gc_drag_stop(GooCanvasGroup *root_item)
 {
     if(gc_drag_status>0)
     {

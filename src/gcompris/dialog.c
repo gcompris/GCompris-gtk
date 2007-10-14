@@ -23,9 +23,12 @@
 
 #include "gcompris.h"
 
-static GnomeCanvasGroup *rootDialogItem = NULL;
-static GnomeCanvasItem *itemDialogText = NULL;
-static gint item_event_ok(GnomeCanvasItem *item, GdkEvent *event, DialogBoxCallBack dbcb);
+static GooCanvasItem *rootDialogItem = NULL;
+static GooCanvasItem *itemDialogText = NULL;
+static gboolean item_event_ok (GooCanvasItem  *item,
+			       GooCanvasItem  *target,
+			       GdkEventButton *event,
+			       DialogBoxCallBack dbcb);
 
 typedef void (*sighandler_t)(int);
 
@@ -37,12 +40,7 @@ void gc_dialog_close() {
 
   /* If we already running delete the previous one */
   if(rootDialogItem) {
-    /* WORKAROUND: There is a bug in the richtex item and we need to remove it first */
-    while (g_idle_remove_by_data (itemDialogText));
-    gtk_object_destroy (GTK_OBJECT(itemDialogText));
-    itemDialogText = NULL;
-
-    gtk_object_destroy(GTK_OBJECT(rootDialogItem));
+    goo_canvas_item_remove(rootDialogItem);
   }
 
   rootDialogItem = NULL;
@@ -55,12 +53,9 @@ void gc_dialog_close() {
  */
 void gc_dialog(gchar *str, DialogBoxCallBack dbcb)
 {
-  GnomeCanvasItem *item_text   = NULL;
-  GnomeCanvasItem *item_text_ok   = NULL;
-  GdkPixbuf       *pixmap_dialog = NULL;
-  GtkTextIter      iter_start, iter_end;
-  GtkTextBuffer   *buffer;
-  GtkTextTag      *txt_tag;
+  GooCanvasItem *item_text   = NULL;
+  GooCanvasItem *item_text_ok   = NULL;
+  GdkPixbuf     *pixmap_dialog = NULL;
 
   g_warning("Dialog=%s\n", str);
 
@@ -81,104 +76,73 @@ void gc_dialog(gchar *str, DialogBoxCallBack dbcb)
 
   gc_bar_hide(TRUE);
 
-  rootDialogItem = \
-    GNOME_CANVAS_GROUP(gnome_canvas_item_new (gnome_canvas_root(gc_get_canvas()),
-					      gnome_canvas_group_get_type (),
-					      "x", (double) 0,
-					      "y", (double) 0,
-					      NULL));
+  rootDialogItem = goo_canvas_group_new (goo_canvas_get_root_item(gc_get_canvas()),
+					 NULL);
 
   pixmap_dialog = gc_skin_pixmap_load("dialogbox.png");
 
-  itemDialogText = gnome_canvas_item_new (rootDialogItem,
-					  gnome_canvas_pixbuf_get_type (),
-					  "pixbuf", pixmap_dialog,
-					  "x", (double) (BOARDWIDTH - gdk_pixbuf_get_width(pixmap_dialog))/2,
-					  "y", (double) (BOARDHEIGHT - gdk_pixbuf_get_height(pixmap_dialog))/2,
-					  NULL);
+  itemDialogText = goo_canvas_image_new (rootDialogItem,
+					 pixmap_dialog,
+					 (BOARDWIDTH - gdk_pixbuf_get_width(pixmap_dialog))/2,
+					 (BOARDHEIGHT - gdk_pixbuf_get_height(pixmap_dialog))/2,
+					 NULL);
 
   /* OK Text */
-  item_text_ok = gnome_canvas_item_new (rootDialogItem,
-					gnome_canvas_text_get_type (),
-					"text", _("OK"),
-					"font", gc_skin_font_title,
-					"x", (double)  BOARDWIDTH*0.5,
-					"y", (double)  (BOARDHEIGHT - gdk_pixbuf_get_height(pixmap_dialog))/2 +
-					gdk_pixbuf_get_height(pixmap_dialog) - 35,
-					"anchor", GTK_ANCHOR_CENTER,
-					"fill_color_rgba", gc_skin_color_text_button,
-					"weight", PANGO_WEIGHT_HEAVY,
-				NULL);
+  item_text_ok = goo_canvas_text_new (rootDialogItem,
+				      _("OK"),
+				      BOARDWIDTH * 0.5,
+				      BOARDHEIGHT - 30 -
+				      (BOARDHEIGHT - gdk_pixbuf_get_height(pixmap_dialog))/2,
+				      -1,
+				      GTK_ANCHOR_CENTER,
+				      "font", gc_skin_font_title,
+				      "fill-color-rgba", gc_skin_color_text_button,
+				      "weight", PANGO_WEIGHT_HEAVY,
+				      NULL);
+
+  g_signal_connect(GTK_OBJECT(itemDialogText), "button_press_event",
+		   (GtkSignalFunc) item_event_ok,
+		   dbcb);
+
+  item_text = goo_canvas_text_new (rootDialogItem,
+				   str,
+				   BOARDWIDTH / 2,
+				   (BOARDHEIGHT - gdk_pixbuf_get_height(pixmap_dialog))/2 + 40,
+				   BOARDWIDTH / 2,
+				   GTK_ANCHOR_CENTER,
+				   "alignment", PANGO_ALIGN_CENTER,
+				   NULL);
 
   gdk_pixbuf_unref(pixmap_dialog);
 
-  gtk_signal_connect(GTK_OBJECT(itemDialogText), "event",
-		     (GtkSignalFunc) item_event_ok,
-		     dbcb);
-
-  item_text = gnome_canvas_item_new (rootDialogItem,
-				     gnome_canvas_rich_text_get_type (),
-				     "x", (double) BOARDWIDTH/2,
-				     "y", (double) 100.0,
-				     "width", (double)BOARDWIDTH-260.0,
-				     "height", 400.0,
-				     "anchor", GTK_ANCHOR_NORTH,
-				     "justification", GTK_JUSTIFY_CENTER,
-				     "grow_height", FALSE,
-				     "cursor_visible", FALSE,
-				     "cursor_blink", FALSE,
-				     "editable", FALSE,
-				     NULL);
-
-  gnome_canvas_item_set (item_text,
-			 "text", str,
-			 NULL);
-
-  buffer  = gnome_canvas_rich_text_get_buffer(GNOME_CANVAS_RICH_TEXT(item_text));
-  txt_tag = gtk_text_buffer_create_tag(buffer, NULL,
-				       "font",       gc_skin_font_board_medium,
-				       "foreground", "blue",
-				       "family-set", TRUE,
-				       NULL);
-  gtk_text_buffer_get_end_iter(buffer, &iter_end);
-  gtk_text_buffer_get_start_iter(buffer, &iter_start);
-  gtk_text_buffer_apply_tag(buffer, txt_tag, &iter_start, &iter_end);
-
-  gtk_signal_connect(GTK_OBJECT(item_text), "event",
-		     (GtkSignalFunc) item_event_ok,
-		     dbcb);
-  gtk_signal_connect(GTK_OBJECT(item_text_ok), "event",
-		     (GtkSignalFunc) item_event_ok,
-		     dbcb);
+  g_signal_connect(GTK_OBJECT(item_text), "button_press_event",
+		   (GtkSignalFunc) item_event_ok,
+		   dbcb);
+  g_signal_connect(GTK_OBJECT(item_text_ok), "button_press_event",
+		   (GtkSignalFunc) item_event_ok,
+		   dbcb);
 
 }
 
 /* Callback for the bar operations */
-static gint
-item_event_ok(GnomeCanvasItem *item, GdkEvent *event, DialogBoxCallBack dbcb)
+static gboolean
+item_event_ok (GooCanvasItem  *item,
+	       GooCanvasItem  *target,
+	       GdkEventButton *event,
+	       DialogBoxCallBack dbcb)
 {
-  switch (event->type)
-    {
-    case GDK_ENTER_NOTIFY:
-      break;
-    case GDK_LEAVE_NOTIFY:
-      break;
-    case GDK_BUTTON_PRESS:
-      if(rootDialogItem)
-	gc_dialog_close();
+  if(rootDialogItem)
+    gc_dialog_close();
 
-      gc_sound_play_ogg ("sounds/bleep.wav", NULL);
+  gc_sound_play_ogg ("sounds/bleep.wav", NULL);
 
-      /* restart the board */
-      gc_board_pause(FALSE);
+  /* restart the board */
+  gc_board_pause(FALSE);
 
-      gc_bar_hide(FALSE);
+  gc_bar_hide(FALSE);
 
-      if(dbcb != NULL)
-	dbcb();
+  if(dbcb != NULL)
+    dbcb();
 
-    default:
-      break;
-    }
   return TRUE;
 }

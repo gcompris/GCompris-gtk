@@ -33,7 +33,7 @@ typedef struct {
 } GcomprisAnimation;
 
 typedef struct {
-  GnomeCanvasPixbuf *canvas;
+  GooCanvasImage *canvas;
   GcomprisAnimation *anim;
   GdkPixbufAnimationIter *iter;
   int state;
@@ -41,8 +41,8 @@ typedef struct {
 
 GcomprisAnimation *gc_anim_load(char *filename);
 
-GcomprisAnimCanvasItem *gc_anim_activate(GnomeCanvasGroup *parent,
-                                                    GcomprisAnimation*);
+GcomprisAnimCanvasItem *gc_anim_activate(GooCanvasItem *parent,
+					 GcomprisAnimation*);
 void gc_anim_set_state(GcomprisAnimCanvasItem*, int);
 void gc_anim_deactivate(GcomprisAnimCanvasItem*);
 void gc_anim_free(GcomprisAnimation*);
