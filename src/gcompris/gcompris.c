@@ -45,6 +45,8 @@
 #include "gcompris-nsbundle.h"
 #endif
 
+#include <librsvg/rsvg.h>
+
 /* get the default database name */
 #define DEFAULT_DATABASE "gcompris_sqlite.db"
 
@@ -1681,11 +1683,14 @@ main (int argc, char *argv[])
   /* Gdk-Pixbuf */
   gdk_rgb_init();
 
+  rsvg_init();
+
   /* Cache init */
   gc_cache_init(-1);
 
   /* networking init */
   gc_net_init();
+
 
   setup_window ();
 

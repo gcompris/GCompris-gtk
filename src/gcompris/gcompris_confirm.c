@@ -25,6 +25,7 @@
  *
  */
 #include "gcompris.h"
+#include <librsvg/rsvg.h>
 
 static GooCanvasItem *text;
 
@@ -162,8 +163,10 @@ display_confirm(gchar *title,
   GdkPixbuf	   *pixmap = NULL;
   GdkPixbuf	   *pixmap_cross = NULL;
   GdkPixbuf	   *pixmap_stick = NULL;
-  gint		    y_start = 0;
-  gint		    x_start = 0;
+  //gint		    y_start = 0;
+  //gint		    x_start = 0;
+  GError *error = NULL;
+  RsvgHandle *svg_handle = NULL;
 
   if(rootitem)
     return;
@@ -195,8 +198,10 @@ display_confirm(gchar *title,
 
   confirmCallBack=iscb;
 
-  rootitem = goo_canvas_group_new (goo_canvas_get_root_item(gc_get_canvas()), NULL);
+  rootitem = goo_canvas_group_new (goo_canvas_get_root_item(gc_get_canvas()),
+				   NULL);
 
+#if 0
   pixmap = gc_skin_pixmap_load("help_bg.png");
   y_start = (BOARDHEIGHT - gdk_pixbuf_get_height(pixmap))/2;
   if (y_start < 0)
@@ -209,6 +214,20 @@ display_confirm(gchar *title,
 			       NULL);
 
   gdk_pixbuf_unref(pixmap);
+#endif
+
+  gchar *filename = gc_skin_image_get("help_bg.svg");
+  gchar *filename2 = gc_file_find_absolute(filename);
+  svg_handle = rsvg_handle_new_from_file (filename2, &error);
+  item = goo_svg_item_new (rootitem, svg_handle, NULL);
+  g_free(filename);
+  g_free(filename2);
+
+  RsvgDimensionData dimension;
+  rsvg_handle_get_dimensions(svg_handle, &dimension);
+  goo_canvas_item_translate(item, (BOARDWIDTH - dimension.width)/2,
+			    (BOARDHEIGHT - dimension.height)/2);
+  g_object_unref (svg_handle);
 
   /* Title */
   goo_canvas_text_new (rootitem,

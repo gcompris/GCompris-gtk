@@ -67,7 +67,7 @@ am_libgoocanvas_la_OBJECTS = goocanvasatk.lo goocanvasellipse.lo \
 	goocanvasmarshal.lo goocanvaspolyline.lo goocanvaspath.lo \
 	goocanvasrect.lo goocanvasstyle.lo goocanvastable.lo \
 	goocanvastext.lo goocanvasutils.lo goocanvaswidget.lo \
-	goocanvas.lo
+	goocanvas.lo svg-item.lo
 libgoocanvas_la_OBJECTS = $(am_libgoocanvas_la_OBJECTS)
 DEFAULT_INCLUDES = -I. -I$(srcdir) -I$(top_builddir)
 depcomp = $(SHELL) $(top_srcdir)/depcomp
@@ -351,7 +351,7 @@ libtool_opts = \
   -export-dynamic $(no_undefined)	\
   -rpath $(libdir)
 
-libgoocanvas_la_LDFLAGS = $(libtool_opts) 
+libgoocanvas_la_LDFLAGS = $(libtool_opts)
 libgoocanvasincludedir = $(includedir)/goocanvas-1.0
 libgoocanvas_public_headers = \
 	goocanvasellipse.h		\
@@ -368,7 +368,8 @@ libgoocanvas_public_headers = \
 	goocanvastext.h			\
 	goocanvasutils.h		\
 	goocanvaswidget.h		\
-	goocanvas.h
+	goocanvas.h			\
+	svg-item.h
 
 libgoocanvas_la_SOURCES = \
 	goocanvasatk.h			\
@@ -390,7 +391,8 @@ libgoocanvas_la_SOURCES = \
 	goocanvastext.c			\
 	goocanvasutils.c		\
 	goocanvaswidget.c		\
-	goocanvas.c 
+	goocanvas.c			\
+	svg-item.c
 
 libgoocanvas_extra_sources = \
 	goocanvasmarshal.list
@@ -504,6 +506,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/goocanvastext.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/goocanvasutils.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/goocanvaswidget.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/svg-item.Plo@am__quote@
 
 .c.o:
 @am__fastdepCC_TRUE@	if $(COMPILE) -MT $@ -MD -MP -MF "$(DEPDIR)/$*.Tpo" -c -o $@ $<; \
@@ -747,14 +750,14 @@ stamp-goocanvasmarshal.h: @REBUILD@ goocanvasmarshal.list
 	$(GLIB_GENMARSHAL) --prefix=goo_canvas_marshal $(srcdir)/goocanvasmarshal.list --header >> xgen-gmlh \
 	&& (cmp -s xgen-gmlh goocanvasmarshal.h || cp xgen-gmlh goocanvasmarshal.h) \
 	&& rm -f xgen-gmlh \
-	&& echo timestamp > $(@F)	
+	&& echo timestamp > $(@F)
 goocanvasmarshal.c: @REBUILD@ goocanvasmarshal.list
 	(echo "#include \"goocanvasmarshal.h\""; \
 	 $(GLIB_GENMARSHAL) --prefix=goo_canvas_marshal $(srcdir)/goocanvasmarshal.list --body) >> xgen-gmlc \
 	&& cp xgen-gmlc goocanvasmarshal.c \
 	&& rm -f xgen-gmlc
 
-goocanvasenumtypes.h: stamp-goocanvasenumtypes.h	
+goocanvasenumtypes.h: stamp-goocanvasenumtypes.h
 	@true
 stamp-goocanvasenumtypes.h: @REBUILD@ $(goo_canvas_public_headers) Makefile
 	(cd $(srcdir) && $(GLIB_MKENUMS) \

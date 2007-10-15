@@ -1,3 +1,24 @@
+2007-10-16  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	Quick hack to add a goocanvas svg item and test it in GCompris.
+	the svg-item.c has been made by Damon Chaplin damon on karuna eclipse co uk.
+
+	* boards/Makefile.am:
+	* boards/skins/babytoy/help_bg.svg:
+	* configure.in:
+	* src/gcompris/about.c: (gc_about_start):
+	* src/gcompris/dialog.c: (gc_dialog):
+	* src/gcompris/gcompris.c: (main):
+	* src/gcompris/gcompris_confirm.c: (display_confirm):
+	* src/gcompris/help.c: (gc_help_start):
+	* src/goocanvas/src/Makefile.am:
+	* src/goocanvas/src/Makefile.in:
+	* src/goocanvas/src/goocanvas.h:
+	* src/goocanvas/src/svg-item.c: (goo_svg_item_init),
+	(goo_svg_item_new), (goo_svg_item_update), (goo_svg_item_paint),
+	(goo_svg_item_is_item_at), (goo_svg_item_class_init):
+	* src/goocanvas/src/svg-item.h:
+
 2007-10-03  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	- Added a little hack to avoid missing symbols from libgnomecanvas

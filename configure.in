@@ -34,7 +34,8 @@ PKG_PROG_PKG_CONFIG()
 
 PKG_CHECK_MODULES(GCOMPRIS, dnl
  [gtk+-2.0 >= $GTK_REQUIRED dnl
-  gstreamer-0.10])
+  gstreamer-0.10 dnl
+  librsvg-2.0])
 
 AC_SUBST(GCOMPRIS_CFLAGS)
 AC_SUBST(GCOMPRIS_LIBS)
@@ -51,7 +52,7 @@ AM_DISABLE_STATIC
 AC_LIBTOOL_WIN32_DLL
 AM_PROG_LIBTOOL
 
-pkg_modules="gtk+-2.0 >= 2.10.0 glib-2.0 >= 2.10.0"
+pkg_modules="gtk+-2.0 >= 2.10.0 glib-2.0 >= 2.10.0 librsvg-2.0"
 PKG_CHECK_MODULES(PACKAGE, [$pkg_modules])
 AC_SUBST(PACKAGE_CFLAGS)
 AC_SUBST(PACKAGE_LIBS)

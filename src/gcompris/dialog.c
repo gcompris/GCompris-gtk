@@ -97,7 +97,6 @@ void gc_dialog(gchar *str, DialogBoxCallBack dbcb)
 				      GTK_ANCHOR_CENTER,
 				      "font", gc_skin_font_title,
 				      "fill-color-rgba", gc_skin_color_text_button,
-				      "weight", PANGO_WEIGHT_HEAVY,
 				      NULL);
 
   g_signal_connect(GTK_OBJECT(itemDialogText), "button_press_event",

@@ -157,7 +157,6 @@ void gc_help_start (GcomprisBoard *gcomprisBoard)
 		       GTK_ANCHOR_CENTER,
 		       "font", gc_skin_font_title,
 		       "fill-color-rgba", gc_skin_color_shadow,
-		       "weight", PANGO_WEIGHT_HEAVY,
 		       NULL);
   goo_canvas_text_new (rootitem,
 		       name,
@@ -167,7 +166,6 @@ void gc_help_start (GcomprisBoard *gcomprisBoard)
 		       GTK_ANCHOR_CENTER,
 		       "font", gc_skin_font_title,
 		       "fill-color-rgba", gc_skin_color_title,
-		       "weight", PANGO_WEIGHT_HEAVY,
 		       NULL);
 
 
@@ -376,8 +374,7 @@ void gc_help_start (GcomprisBoard *gcomprisBoard)
 		       GTK_ANCHOR_CENTER,
 		       "font", gc_skin_font_title,
 		       "fill-color-rgba", gc_skin_color_shadow,
-		       "weight", PANGO_WEIGHT_HEAVY,
-			 NULL);
+		       NULL);
   item2 = goo_canvas_text_new (rootitem,
 			       _("OK"),
 			       (gdouble)  BOARDWIDTH*0.5,
@@ -386,8 +383,7 @@ void gc_help_start (GcomprisBoard *gcomprisBoard)
 			       GTK_ANCHOR_CENTER,
 			       "font", gc_skin_font_title,
 			       "fill-color-rgba", gc_skin_color_text_button,
-			       "weight", PANGO_WEIGHT_HEAVY,
-				NULL);
+			       NULL);
   g_signal_connect(item2, "button_press_event",
 		     (GtkSignalFunc) item_event_help,
 		     "ok");

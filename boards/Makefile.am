@@ -1,5 +1,33 @@
 SUBDIRS =
 
+icondir = $(pkgdatadir)/@PACKAGE_DATA_DIR@
+
+icon_DATA = algebra_group.svg \
+	algebramenu.svg \
+	ballcatch.svg \
+	book.svg \
+	chess.svg \
+	computer.svg \
+	discovery.svg \
+	ear.svg \
+	experience.svg \
+	eye_colors.svg \
+	fun.svg \
+	geometry.svg \
+	gnumch.svg \
+	keyboard.svg \
+	math.svg \
+	memory_elephant.svg \
+	mem_solo_calc.svg \
+	mem_tux_calc.svg \
+	miscelaneous.svg \
+	mouse.svg \
+	numeration.svg \
+	puzzles.svg \
+	read_colors.svg \
+	strategy.svg \
+	warning.svg
+
 xmldir = $(pkgdatadir)/@PACKAGE_DATA_DIR@
 
 xml_in_files = \
@@ -47,3 +75,6 @@ $(xml_DATA): %.xml: %.xml.in
 #@INTLTOOL_XML_RULE@
 
 CLEANFILES = $(xml_DATA)
+
+EXTRA_DIST = $(icon_DATA)
+

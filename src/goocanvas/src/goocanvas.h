@@ -18,6 +18,7 @@
 #include <goocanvastable.h>
 #include <goocanvastext.h>
 #include <goocanvaswidget.h>
+#include <svg-item.h>
 
 G_BEGIN_DECLS
 
