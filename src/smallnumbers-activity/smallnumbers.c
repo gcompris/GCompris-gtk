@@ -47,13 +47,13 @@ static gint smallnumbers_drop_items (GtkWidget *widget, gpointer data);
 static gint smallnumbers_move_items (GtkWidget *widget, gpointer data);
 static void smallnumbers_destroy_all_items(void);
 static void smallnumbers_next_level(void);
-static void smallnumbers_gotkey_item(GnomeCanvasItem *item, guint key);
+static void smallnumbers_gotkey_item(GooCanvasItem *item, guint key);
 
 static void		 smallnumber_config_start(GcomprisBoard *agcomprisBoard,
 					     GcomprisProfile *aProfile);
 static void		 smallnumber_config_stop(void);
 
-static void player_win(GnomeCanvasItem *item);
+static void player_win(GooCanvasItem *item);
 static void player_loose(void);
 
 static  guint32              fallSpeed = 0;
@@ -159,7 +159,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       /* disable im_context */
       gcomprisBoard->disable_im_context = TRUE;
 
-      gc_set_background(gnome_canvas_root(gcomprisBoard->canvas),
+      gc_set_background(goo_canvas_get_root_item(gcomprisBoard->canvas),
 			"smallnumbers/scenery7_background.png");
 
       gcomprisBoard->level = 1;
@@ -244,7 +244,7 @@ static gint key_press(guint keyval, gchar *commit_str, gchar *preedit_str)
 
   keyval = atoi(str);
 
-  g_list_foreach(GNOME_CANVAS_GROUP(boardRootItem)->item_list,
+  g_list_foreach(GOO_CANVAS_GROUP(boardRootItem)->item_list,
 		 (GFunc) smallnumbers_gotkey_item,
 		 GINT_TO_POINTER(keyval));
 
@@ -282,9 +282,9 @@ static void smallnumbers_next_level()
 
   smallnumbers_destroy_all_items();
 
-  boardRootItem = GNOME_CANVAS_GROUP(
-				     gnome_canvas_item_new (gnome_canvas_root(gcomprisBoard->canvas),
-							    gnome_canvas_group_get_type (),
+  boardRootItem = GOO_CANVAS_GROUP(
+				     goo_canvas_item_new (goo_canvas_get_root_item(gcomprisBoard->canvas),
+							    goo_canvas_group_get_type (),
 							    "x", (double) 0,
 							    "y", (double) 0,
 							    NULL));
@@ -308,7 +308,7 @@ static void smallnumbers_destroy_all_items()
   boardRootItem = NULL;
 
 }
-static void smallnumbers_gotkey_item(GnomeCanvasItem *item, guint key)
+static void smallnumbers_gotkey_item(GooCanvasItem *item, guint key)
 {
   guint number;
 
@@ -321,12 +321,12 @@ static void smallnumbers_gotkey_item(GnomeCanvasItem *item, guint key)
   }
 }
 
-static void smallnumbers_move_item(GnomeCanvasItem *item)
+static void smallnumbers_move_item(GooCanvasItem *item)
 {
   double x1, y1, x2, y2;
-  gnome_canvas_item_move(item, 0, 2.0);
+  goo_canvas_item_translate(item, 0, 2.0);
 
-  gnome_canvas_item_get_bounds (item,
+  goo_canvas_item_get_bounds (item,
 				&x1,
 				&y1,
 				&x2,
@@ -346,7 +346,7 @@ static gint smallnumbers_move_items (GtkWidget *widget, gpointer data)
 {
 
   /* For each item we need to move */
-  g_list_foreach(GNOME_CANVAS_GROUP(boardRootItem)->item_list, (GFunc) smallnumbers_move_item, NULL);
+  g_list_foreach(GOO_CANVAS_GROUP(boardRootItem)->item_list, (GFunc) smallnumbers_move_item, NULL);
 
   dummy_id = gtk_timeout_add (speed,
 			      (GtkFunction) smallnumbers_move_items, NULL);
@@ -357,16 +357,16 @@ static gint smallnumbers_move_items (GtkWidget *widget, gpointer data)
 static void smallnumbers_create_item(GnomeCanvasGroup *parent)
 {
   GdkPixbuf *smallnumbers_pixmap = NULL;
-  GnomeCanvasItem *item;
+  GooCanvasItem *item;
   GnomeCanvasGroup *group_item;
   guint i;
   guint total_number = 0;
   double x = 0.0;
   guint number_of_dice = number_of_dices;
 
-  group_item = GNOME_CANVAS_GROUP(
-				  gnome_canvas_item_new (parent,
-							 gnome_canvas_group_get_type (),
+  group_item = GOO_CANVAS_GROUP(
+				  goo_canvas_item_new (parent,
+							 goo_canvas_group_get_type (),
 							 "x", (double) 0,
 							 "y", (double) 40,
 							 NULL));
@@ -443,8 +443,8 @@ static void smallnumbers_create_item(GnomeCanvasGroup *parent)
 	x += ((gdk_pixbuf_get_width(smallnumbers_pixmap)-10)*imageZoom);
       }
 
-    item = gnome_canvas_item_new (group_item,
-				  gnome_canvas_pixbuf_get_type (),
+    item = goo_canvas_item_new (group_item,
+				  goo_canvas_pixbuf_get_type (),
 				  "pixbuf", smallnumbers_pixmap,
 				  "x", x,
 				  "y", (double) -gdk_pixbuf_get_height(smallnumbers_pixmap)*imageZoom,
@@ -473,7 +473,7 @@ static gint smallnumbers_drop_items (GtkWidget *widget, gpointer data)
   return (FALSE);
 }
 
-static void player_win(GnomeCanvasItem *item)
+static void player_win(GooCanvasItem *item)
 {
   gtk_object_destroy (GTK_OBJECT(item));
   gc_sound_play_ogg ("sounds/flip.wav", NULL);

@@ -33,7 +33,7 @@ typedef enum {
 struct _MachItem {
   MachItemType	   type;
   gboolean	   moving;
-  GnomeCanvasItem *item;		/* The canvas item      */
+  GooCanvasItem *item;		/* The canvas item      */
   double	   x1, y1, x2, y2;	/* Bounding of the item */
   double	   times;
   double	   ax, ay;
@@ -63,10 +63,10 @@ static void	 game_won(void);
 
 static GnomeCanvasGroup *boardRootItem = NULL;
 
-static GnomeCanvasItem	*minigolf_create_item(GnomeCanvasGroup *parent);
+static GooCanvasItem	*minigolf_create_item(GnomeCanvasGroup *parent);
 static void		 minigolf_destroy_all_items(void);
 static void		 minigolf_next_level(void);
-static gint		 item_event(GnomeCanvasItem *item, GdkEvent *event, MachItem *machItem);
+static gint		 item_event(GooCanvasItem *item, GdkEvent *event, MachItem *machItem);
 static void		 minigolf_move(GList *item_list);
 
 static MachItem		*create_machine_item(MachItemType machItemType, double x, double y);
@@ -194,7 +194,7 @@ static gboolean is_our_board (GcomprisBoard *gcomprisBoard)
 static void minigolf_next_level()
 {
 
-  gc_set_background(gnome_canvas_root(gcomprisBoard->canvas),
+  gc_set_background(goo_canvas_get_root_item(gcomprisBoard->canvas),
 		    "billard/foot_background.png");
 
   gc_bar_set_level(gcomprisBoard);
@@ -203,7 +203,7 @@ static void minigolf_next_level()
   gamewon = FALSE;
 
   /* Try the next level */
-  minigolf_create_item(gnome_canvas_root(gcomprisBoard->canvas));
+  minigolf_create_item(goo_canvas_get_root_item(gcomprisBoard->canvas));
 
   move_id = gtk_timeout_add (40, (GtkFunction) minigolf_move, item_list);
 
@@ -232,12 +232,12 @@ static void minigolf_destroy_all_items()
   item_list = NULL;
 }
 /* ==================================== */
-static GnomeCanvasItem *minigolf_create_item(GnomeCanvasGroup *parent)
+static GooCanvasItem *minigolf_create_item(GnomeCanvasGroup *parent)
 {
 
-  boardRootItem = GNOME_CANVAS_GROUP(
-				     gnome_canvas_item_new (gnome_canvas_root(gcomprisBoard->canvas),
-							    gnome_canvas_group_get_type (),
+  boardRootItem = GOO_CANVAS_GROUP(
+				     goo_canvas_item_new (goo_canvas_get_root_item(gcomprisBoard->canvas),
+							    goo_canvas_group_get_type (),
 							    "x", (double) 0,
 							    "y", (double) 0,
 
@@ -269,15 +269,15 @@ static void game_won()
 
 /* ==================================== */
 static gint
-item_event(GnomeCanvasItem *item, GdkEvent *event, MachItem *machItem)
+item_event(GooCanvasItem *item, GdkEvent *event, MachItem *machItem)
 {
   double item_x, item_y;
   double x1, y1, x2, y2;
   double width;
   item_x = event->button.x;
   item_y = event->button.y;
-  gnome_canvas_item_w2i(item->parent, &item_x, &item_y);
-  gnome_canvas_item_get_bounds    (item,
+  goo_canvas_convert_to_item_space(item->parent, &item_x, &item_y);
+  goo_canvas_item_get_bounds    (item,
 				   &x1,
 				   &y1,
 				   &x2,
@@ -359,8 +359,8 @@ static MachItem *create_machine_item(MachItemType machItemType, double x, double
 
       machItem->elasticity  = 5;
 
-      machItem->item = gnome_canvas_item_new (boardRootItem,
-					      gnome_canvas_rect_get_type (),
+      machItem->item = goo_canvas_item_new (boardRootItem,
+					      goo_canvas_rect_get_type (),
 					      "x1", (double) machItem->xposo,
 					      "y1", (double) machItem->yposo,
 					      "x2", (double) machItem->xposo + width,
@@ -370,7 +370,7 @@ static MachItem *create_machine_item(MachItemType machItemType, double x, double
 					      "width_units", (double)1,
 					      NULL);
 
-      gtk_signal_connect(GTK_OBJECT(machItem->item), "event",
+      g_signal_connect(GTK_OBJECT(machItem->item), "enter_notify_event",
 			 (GtkSignalFunc) item_event,
 			 machItem);
       break;
@@ -399,8 +399,8 @@ static MachItem *create_machine_item(MachItemType machItemType, double x, double
 
       machItem->elasticity  = 3;
 
-      machItem->item = gnome_canvas_item_new (boardRootItem,
-					      gnome_canvas_ellipse_get_type (),
+      machItem->item = goo_canvas_item_new (boardRootItem,
+					      goo_canvas_ellipse_get_type (),
 					      "x1", (double) machItem->xposo,
 					      "y1", (double) machItem->yposo,
 					      "x2", (double) machItem->xposo + width,
@@ -431,8 +431,8 @@ static MachItem *create_machine_item(MachItemType machItemType, double x, double
 
       machItem->elasticity  = 4;
 
-      machItem->item = gnome_canvas_item_new (boardRootItem,
-					      gnome_canvas_ellipse_get_type (),
+      machItem->item = goo_canvas_item_new (boardRootItem,
+					      goo_canvas_ellipse_get_type (),
 					      "x1", (double) machItem->xposo,
 					      "y1", (double) machItem->yposo,
 					      "x2", (double) machItem->xposo + width,
@@ -442,7 +442,7 @@ static MachItem *create_machine_item(MachItemType machItemType, double x, double
 					      "width_units", (double)1,
 					      NULL);
 
-      gtk_signal_connect(GTK_OBJECT(machItem->item), "event",
+      g_signal_connect(GTK_OBJECT(machItem->item), "enter_notify_event",
 			 (GtkSignalFunc) item_event,
 			 machItem);
 
@@ -467,8 +467,8 @@ static MachItem *create_machine_item(MachItemType machItemType, double x, double
 
       machItem->elasticity  = 1;
 
-      machItem->item = gnome_canvas_item_new (boardRootItem,
-					      gnome_canvas_ellipse_get_type (),
+      machItem->item = goo_canvas_item_new (boardRootItem,
+					      goo_canvas_ellipse_get_type (),
 					      "x1", (double) machItem->xposo,
 					      "y1", (double) machItem->yposo,
 					      "x2", (double) machItem->xposo + width,
@@ -478,7 +478,7 @@ static MachItem *create_machine_item(MachItemType machItemType, double x, double
 					      "width_units", (double)1,
 					      NULL);
 
-      gtk_signal_connect(GTK_OBJECT(machItem->item), "event",
+      g_signal_connect(GTK_OBJECT(machItem->item), "enter_notify_event",
 			 (GtkSignalFunc) item_event,
 			 machItem);
       break;
@@ -521,7 +521,7 @@ static void minigolf_move(GList *item_list)
 {
   double		 x1, y1, x2, y2;
   MachItem		*machItem;
-  GnomeCanvasItem	*item;
+  GooCanvasItem	*item;
   guint			 i;
   gboolean		 collision = FALSE;
   double	         xpos, ypos;
@@ -538,7 +538,7 @@ static void minigolf_move(GList *item_list)
       if(machItem->moving)
 	{
 
-	  gnome_canvas_item_get_bounds(item, &x1, &y1, &x2, &y2);
+	  goo_canvas_item_get_bounds(item, &x1, &y1, &x2, &y2);
 
 	  machItem->times += times_inc;
 

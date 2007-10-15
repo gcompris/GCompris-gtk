@@ -95,24 +95,24 @@ static Position *position;
  * Contains the squares structure
  */
 typedef struct {
-  GnomeCanvasItem	*square_item;
-  GnomeCanvasItem	*piece_item;
+  GooCanvasItem	*square_item;
+  GooCanvasItem	*piece_item;
   Square		 square;
 } GSquare;
 
 static GSquare  *currentHighlightedGsquare;
 
-static GnomeCanvasItem	*turn_item = NULL;
-static GnomeCanvasItem	*info_item = NULL;
+static GooCanvasItem	*turn_item = NULL;
+static GooCanvasItem	*info_item = NULL;
 
 /* Need more space to fit notation.h definition */
 static GSquare *chessboard[100];
 
-static GnomeCanvasItem	*chess_create_item(GnomeCanvasGroup *parent);
+static GooCanvasItem	*chess_create_item(GnomeCanvasGroup *parent);
 static void		 chess_destroy_all_items(void);
 static void		 chess_next_level(void);
-static gint		 item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data);
-static gint		 item_event_black(GnomeCanvasItem *item, GdkEvent *event, gpointer data);
+static gint		 item_event(GooCanvasItem *item, GdkEvent *event, gpointer data);
+static gint		 item_event_black(GooCanvasItem *item, GdkEvent *event, gpointer data);
 static gboolean		 start_child (char        *cmd,
 				      GIOChannel **read_chan,
 				      GIOChannel **write_chan,
@@ -326,7 +326,7 @@ static void chess_next_level()
   gchar *img;
 
   img = gc_skin_image_get("gcompris-bg.jpg");
-  gc_set_background(gnome_canvas_root(gcomprisBoard->canvas),
+  gc_set_background(goo_canvas_get_root_item(gcomprisBoard->canvas),
 			  img);
   g_free(img);
 
@@ -365,7 +365,7 @@ static void chess_next_level()
   }
 
   /* Try the next level */
-  chess_create_item(gnome_canvas_root(gcomprisBoard->canvas));
+  chess_create_item(goo_canvas_get_root_item(gcomprisBoard->canvas));
 }
 
 /* ==================================== */
@@ -402,11 +402,11 @@ static void chess_destroy_all_items()
 }
 
 /* ==================================== */
-static GnomeCanvasItem *
+static GooCanvasItem *
 chess_create_item(GnomeCanvasGroup *parent)
 {
   guint color;
-  GnomeCanvasItem *item = NULL;
+  GooCanvasItem *item = NULL;
   Square square;
   Piece piece;
   gshort rank;
@@ -414,9 +414,9 @@ chess_create_item(GnomeCanvasGroup *parent)
   guint empty_case = 0;
   gboolean need_slash = TRUE;
 
-  boardRootItem = GNOME_CANVAS_GROUP(
-				     gnome_canvas_item_new (gnome_canvas_root(gcomprisBoard->canvas),
-							    gnome_canvas_group_get_type (),
+  boardRootItem = GOO_CANVAS_GROUP(
+				     goo_canvas_item_new (goo_canvas_get_root_item(gcomprisBoard->canvas),
+							    goo_canvas_group_get_type (),
 							    "x", (double) 0,
 							    "y", (double) 0,
 
@@ -433,8 +433,8 @@ chess_create_item(GnomeCanvasGroup *parent)
 
       color=((x+y)%2?BLACK_COLOR:WHITE_COLOR);
 
-      item  = gnome_canvas_item_new (boardRootItem,
-				     gnome_canvas_rect_get_type (),
+      item  = goo_canvas_item_new (boardRootItem,
+				     goo_canvas_rect_get_type (),
 				     "x1", (double) CHESSGC_BOARD_X + (x * SQUARE_WIDTH),
 				     "y1", (double) CHESSGC_BOARD_Y + ((7-y) * SQUARE_HEIGHT),
 				     "x2", (double) CHESSGC_BOARD_X + (x * SQUARE_WIDTH) + SQUARE_WIDTH -1,
@@ -520,8 +520,8 @@ chess_create_item(GnomeCanvasGroup *parent)
 	    pixmap = gc_pixmap_load(str);
 	    //	    g_warning("loading piece %s\n",   str);
 	    g_free(str);
-	    item = gnome_canvas_item_new (boardRootItem,
-					  gnome_canvas_pixbuf_get_type (),
+	    item = goo_canvas_item_new (boardRootItem,
+					  goo_canvas_pixbuf_get_type (),
 					  "pixbuf", pixmap,
 					  "x", (double)CHESSGC_BOARD_X + (x * SQUARE_WIDTH) +
 					  (guint)((SQUARE_WIDTH-gdk_pixbuf_get_width(pixmap))/2),
@@ -531,10 +531,10 @@ chess_create_item(GnomeCanvasGroup *parent)
 
 	    chessboard[square]->piece_item = item;
 	    if(WPIECE(piece))
-	      gtk_signal_connect(GTK_OBJECT(item), "event",
+	      g_signal_connect(GTK_OBJECT(item), "enter_notify_event",
 				 (GtkSignalFunc) item_event, NULL);
 	    else
-	      gtk_signal_connect(GTK_OBJECT(item), "event",
+	      g_signal_connect(GTK_OBJECT(item), "enter_notify_event",
 				 (GtkSignalFunc) item_event_black, NULL);
 
 	    gdk_pixbuf_unref(pixmap);
@@ -573,8 +573,8 @@ static void display_white_turn(gboolean whiteturn)
   if(turn_item == NULL)
     {
 
-      turn_item = gnome_canvas_item_new (boardRootItem,
-					 gnome_canvas_text_get_type (),
+      turn_item = goo_canvas_item_new (boardRootItem,
+					 goo_canvas_text_get_type (),
 					 "text",       " ",
 					 "font",       gc_skin_font_board_big,
 					 "x", (double) TURN_X,
@@ -584,7 +584,7 @@ static void display_white_turn(gboolean whiteturn)
 					 NULL);
     }
 
-  gnome_canvas_item_set(turn_item, "text", (whiteturn ? _("White's Turn") : _("Black's Turn")),
+  goo_canvas_item_set(turn_item, "text", (whiteturn ? _("White's Turn") : _("Black's Turn")),
 			NULL);
 }
 
@@ -594,8 +594,8 @@ static void display_info(gchar *info)
 
   if(info_item == NULL)
     {
-      info_item = gnome_canvas_item_new (boardRootItem,
-					 gnome_canvas_text_get_type (),
+      info_item = goo_canvas_item_new (boardRootItem,
+					 goo_canvas_text_get_type (),
 					 "text",       " ",
 					 "font",       gc_skin_font_board_big,
 					 "x", (double) INFO_X,
@@ -605,7 +605,7 @@ static void display_info(gchar *info)
 					 NULL);
     }
 
-  gnome_canvas_item_set(info_item, "text", info,
+  goo_canvas_item_set(info_item, "text", info,
 			NULL);
 }
 
@@ -617,7 +617,7 @@ static void display_info(gchar *info)
 static void move_piece_to(Square from, Square to)
 {
   GSquare *source_square, *dest_square;
-  GnomeCanvasItem *item;
+  GooCanvasItem *item;
   guint x, y;
   double ofset_x, ofset_y;
   double x1, y1, x2, y2;
@@ -655,7 +655,7 @@ static void move_piece_to(Square from, Square to)
     }
 
   /* Show the moved piece */
-  gnome_canvas_item_set(source_square->square_item,
+  goo_canvas_item_set(source_square->square_item,
 			"outline_color",
 			(BPIECE(position->square[to])?"red":"blue"),
 			NULL);
@@ -670,7 +670,7 @@ static void move_piece_to(Square from, Square to)
   dest_square = chessboard[to];
 
   /* Show the moved piece */
-  gnome_canvas_item_set(dest_square->square_item,
+  goo_canvas_item_set(dest_square->square_item,
 			"outline_color",
 			(BPIECE(position->square[to])?"red":"blue"),
 			NULL);
@@ -682,7 +682,7 @@ static void move_piece_to(Square from, Square to)
   dest_square->piece_item    = item;
 
   /* Find the ofset to move the piece */
-  gnome_canvas_item_get_bounds  (item,
+  goo_canvas_item_get_bounds  (item,
 				 &x1,
 				 &y1,
 				 &x2,
@@ -692,7 +692,7 @@ static void move_piece_to(Square from, Square to)
   ofset_x = (CHESSGC_BOARD_X + SQUARE_WIDTH  * (x-1)) - x1 + (SQUARE_WIDTH  - (x2-x1))/2;
   ofset_y = (CHESSGC_BOARD_Y + SQUARE_HEIGHT * (8-y)) - y1 + (SQUARE_HEIGHT - (y2-y1))/2;
 
-  gnome_canvas_item_move(item, ofset_x, ofset_y);
+  goo_canvas_item_translate(item, ofset_x, ofset_y);
 
   /* Manage rock */
   if(position->square[to]==WK && from==E1 && to==C1)
@@ -720,7 +720,7 @@ static void move_piece_to(Square from, Square to)
       pixmap = gc_pixmap_load(str);
       g_free(str);
       g_warning("loading piece %c\n",  piece_to_ascii(piece));
-      gnome_canvas_item_set (dest_square->piece_item,
+      goo_canvas_item_set (dest_square->piece_item,
 			     "pixbuf", pixmap,
 			     NULL);
 
@@ -779,7 +779,7 @@ void hightlight_possible_moves(GSquare *gsquare)
 	  {
 	    color=((rank+square)%2?BLACK_COLOR_H:WHITE_COLOR_H);
 
-	    gnome_canvas_item_set(chessboard[square]->square_item,
+	    goo_canvas_item_set(chessboard[square]->square_item,
 				  "fill_color_rgba", color,
 				  "outline_color", "black",
 				  NULL);
@@ -788,7 +788,7 @@ void hightlight_possible_moves(GSquare *gsquare)
 	  {
 	    color=((rank+square)%2?BLACK_COLOR:WHITE_COLOR);
 
-	    gnome_canvas_item_set(chessboard[square]->square_item,
+	    goo_canvas_item_set(chessboard[square]->square_item,
 				  "fill_color_rgba", color,
 				  "outline_color", "black",
 				  NULL);
@@ -800,7 +800,7 @@ void hightlight_possible_moves(GSquare *gsquare)
   position_set_color_to_move(position, current_color);
 
   /* Show the current piece */
-  gnome_canvas_item_set(gsquare->square_item,
+  goo_canvas_item_set(gsquare->square_item,
 			"outline_color",
 			(BPIECE(position->square[gsquare->square])?"red":"blue"),
 			NULL);
@@ -809,7 +809,7 @@ void hightlight_possible_moves(GSquare *gsquare)
 
 /* ==================================== */
 static gint
-item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
+item_event(GooCanvasItem *item, GdkEvent *event, gpointer data)
 {
    static double x, y;
    static GSquare *gsquare;
@@ -823,7 +823,7 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 
   item_x = event->button.x;
   item_y = event->button.y;
-  gnome_canvas_item_w2i(item->parent, &item_x, &item_y);
+  goo_canvas_convert_to_item_space(item->parent, &item_x, &item_y);
 
   switch (event->type)
     {
@@ -841,7 +841,7 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 	y = item_y;
 
 	fleur = gdk_cursor_new(GDK_FLEUR);
-	gnome_canvas_item_raise_to_top(item);
+	goo_canvas_item_raise_to_top(item);
 	gc_canvas_item_grab(item,
 			       GDK_POINTER_MOTION_MASK |
 			       GDK_BUTTON_RELEASE_MASK,
@@ -859,7 +859,7 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
            new_x = item_x;
            new_y = item_y;
 
-           gnome_canvas_item_move(item, new_x - x, new_y - y);
+           goo_canvas_item_translate(item, new_x - x, new_y - y);
            x = new_x;
            y = new_y;
          }
@@ -896,7 +896,7 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 	       g_warning("====== MOVE from %d REFUSED\n", gsquare->square);
 
 	       /* Find the ofset to move the piece back to where it was*/
-	       gnome_canvas_item_get_bounds  (item,
+	       goo_canvas_item_get_bounds  (item,
 					      &x1,
 					      &y1,
 					      &x2,
@@ -909,7 +909,7 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 	       ofset_y = (CHESSGC_BOARD_Y + SQUARE_HEIGHT * (8-y)) - y1 + (SQUARE_HEIGHT - (y2-y1))/2;
 	       g_warning("ofset = x=%f y=%f\n", ofset_x, ofset_y);
 
-	       gnome_canvas_item_move(item, ofset_x, ofset_y);
+	       goo_canvas_item_translate(item, ofset_x, ofset_y);
 	     }
 
 	   gc_canvas_item_ungrab(item, event->button.time);
@@ -930,7 +930,7 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 /* ==================================== */
 /* The user clicked on a black piece    */
 static gint
-item_event_black(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
+item_event_black(GooCanvasItem *item, GdkEvent *event, gpointer data)
 {
    static GSquare *gsquare;
 

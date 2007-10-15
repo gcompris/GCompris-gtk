@@ -59,7 +59,7 @@ static GList * listPixmapWagons = NULL;
 // In all the lists below, 0 is the LEFTmost vehicle|
 // ==========================================
 // contains the list of vehicles to be found.
-static GnomeCanvasItem *item_model[MODEL_MAX_SIZE];
+static GooCanvasItem *item_model[MODEL_MAX_SIZE];
 // contains the list of vehicles proposed by child.
 static GList *item_answer_list = NULL;
 // contains the list of vehicles proposed by child.
@@ -70,11 +70,11 @@ static GList *int_model_list = NULL;
 static int model_size = 0;
 static gint timer_id;
 
-static GnomeCanvasItem *railroad_create_item(GnomeCanvasGroup *parent);
+static GooCanvasItem *railroad_create_item(GnomeCanvasGroup *parent);
 static void railroad_destroy_all_items(void);
 static void railroad_next_level(void);
-static gint item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data);
-static gint answer_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data);
+static gint item_event(GooCanvasItem *item, GdkEvent *event, gpointer data);
+static gint answer_event(GooCanvasItem *item, GdkEvent *event, gpointer data);
 
 static void reposition_model(void);
 static void reposition_answer(void);
@@ -143,7 +143,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
   if(agcomprisBoard!=NULL)
     {
       gcomprisBoard=agcomprisBoard;
-      gc_set_background(gnome_canvas_root(gcomprisBoard->canvas),
+      gc_set_background(goo_canvas_get_root_item(gcomprisBoard->canvas),
 			      "railroad/railroad-bg.svg");
 
       for (i=0; i<ENGINES; i++) {
@@ -251,9 +251,9 @@ gboolean is_our_board (GcomprisBoard *gcomprisBoard)
 static void repeat ()
 {
   if(gcomprisBoard!=NULL && !animation_pending) {
-    gnome_canvas_item_hide(GNOME_CANVAS_ITEM(answerRootItem));
-    gnome_canvas_item_show(GNOME_CANVAS_ITEM(modelRootItem));
-    gnome_canvas_item_hide(GNOME_CANVAS_ITEM(allwagonsRootItem));
+    goo_canvas_item_hide(GNOME_CANVAS_ITEM(answerRootItem));
+    goo_canvas_item_show(GNOME_CANVAS_ITEM(modelRootItem));
+    goo_canvas_item_hide(GNOME_CANVAS_ITEM(allwagonsRootItem));
     reposition_model();
     animate_model();
   }
@@ -276,7 +276,7 @@ static void railroad_next_level()
   gc_score_set(gcomprisBoard->sublevel);
 
   /* Try the next level */
-  railroad_create_item(gnome_canvas_root(gcomprisBoard->canvas));
+  railroad_create_item(goo_canvas_get_root_item(gcomprisBoard->canvas));
 }
 /* ==================================== */
 /* Destroy all the items */
@@ -288,31 +288,31 @@ static void railroad_destroy_all_items()
   boardRootItem = NULL;
 }
 /* ==================================== */
-static GnomeCanvasItem *railroad_create_item(GnomeCanvasGroup *parent)
+static GooCanvasItem *railroad_create_item(GnomeCanvasGroup *parent)
 {
   int xOffset = 0, yOffset = 0;
   int i, r, l = 1;
   GdkPixbuf * pixmap = NULL;
-  GnomeCanvasItem *item;
+  GooCanvasItem *item;
 
-  boardRootItem = GNOME_CANVAS_GROUP(
-				     gnome_canvas_item_new (parent,
-							    gnome_canvas_group_get_type (),
+  boardRootItem = GOO_CANVAS_GROUP(
+				     goo_canvas_item_new (parent,
+							    goo_canvas_group_get_type (),
 							    "x", (double) 0,
 							    "y", (double) 0,
 							    NULL));
   /* Create a root group for the answer */
-  answerRootItem = GNOME_CANVAS_GROUP(
-				      gnome_canvas_item_new (boardRootItem,
-							     gnome_canvas_group_get_type (),
+  answerRootItem = GOO_CANVAS_GROUP(
+				      goo_canvas_item_new (boardRootItem,
+							     goo_canvas_group_get_type (),
 							     "x", (double) 0,
 							     "y", (double) 0,
 							     NULL));
 
   // Create the vehicules
-  allwagonsRootItem = GNOME_CANVAS_GROUP(
-					 gnome_canvas_item_new (boardRootItem,
-								gnome_canvas_group_get_type (),
+  allwagonsRootItem = GOO_CANVAS_GROUP(
+					 goo_canvas_item_new (boardRootItem,
+								goo_canvas_group_get_type (),
 								"x", (double) 0,
 								"y", (double) 0,
 								NULL));
@@ -329,25 +329,25 @@ static GnomeCanvasItem *railroad_create_item(GnomeCanvasGroup *parent)
     }
     yOffset = line[l] - gdk_pixbuf_get_height(pixmap);
 
-    item = gnome_canvas_item_new (allwagonsRootItem,
-				  gnome_canvas_pixbuf_get_type (),
+    item = goo_canvas_item_new (allwagonsRootItem,
+				  goo_canvas_pixbuf_get_type (),
 				  "pixbuf",  pixmap,
 				  "x",  (double) xOffset,
 				  "y",  (double) yOffset,
 				  NULL);
     xOffset += gdk_pixbuf_get_width(pixmap);
 
-    gtk_signal_connect(GTK_OBJECT(item), "event", (GtkSignalFunc) item_event,
+    g_signal_connect(GTK_OBJECT(item), "enter_notify_event", (GtkSignalFunc) item_event,
 		       GINT_TO_POINTER(i));
 
   }
   // hide them
-  gnome_canvas_item_hide(GNOME_CANVAS_ITEM(allwagonsRootItem));
+  goo_canvas_item_hide(GNOME_CANVAS_ITEM(allwagonsRootItem));
 
   // construct the model to be recognized
-  modelRootItem = GNOME_CANVAS_GROUP(
-				     gnome_canvas_item_new (boardRootItem,
-							    gnome_canvas_group_get_type (),
+  modelRootItem = GOO_CANVAS_GROUP(
+				     goo_canvas_item_new (boardRootItem,
+							    goo_canvas_group_get_type (),
 							    "x", (double) 0,
 							    "y", (double) 0,
 							    NULL));
@@ -363,8 +363,8 @@ static GnomeCanvasItem *railroad_create_item(GnomeCanvasGroup *parent)
     int_model_list = g_list_append(int_model_list, GINT_TO_POINTER(r+ENGINES));
     pixmap = g_list_nth_data(listPixmapWagons, r);
     g_assert(i >= 0 && i<MODEL_MAX_SIZE);
-    item_model[i] =gnome_canvas_item_new (modelRootItem,
-					  gnome_canvas_pixbuf_get_type (),
+    item_model[i] =goo_canvas_item_new (modelRootItem,
+					  goo_canvas_pixbuf_get_type (),
 					  "pixbuf",  pixmap,
 					  "x",  (double) xOffset,
 					  "y",  (double) yOffset - gdk_pixbuf_get_height(pixmap),
@@ -378,8 +378,8 @@ static GnomeCanvasItem *railroad_create_item(GnomeCanvasGroup *parent)
   // keep track of the answer
   int_model_list = g_list_append(int_model_list, GINT_TO_POINTER(r));
   pixmap = g_list_nth_data(listPixmapEngines, r);
-  item_model[model_size-1] =gnome_canvas_item_new (modelRootItem,
-						   gnome_canvas_pixbuf_get_type (),
+  item_model[model_size-1] =goo_canvas_item_new (modelRootItem,
+						   goo_canvas_pixbuf_get_type (),
 						   "pixbuf",  pixmap,
 						   "x",  (double) xOffset,
 						   "y",  (double) yOffset  - gdk_pixbuf_get_height(pixmap),
@@ -437,12 +437,12 @@ static void process_ok()
   gc_bonus_display(gamewon, GC_BONUS_FLOWER);
 }
 /* ==================================== */
-static gint item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data) {
+static gint item_event(GooCanvasItem *item, GdkEvent *event, gpointer data) {
   double item_x, item_y;
   int item_number;
   GdkPixbuf * pixmap = NULL;
   int i, xOffset = 0;
-  GnomeCanvasItem * local_item;
+  GooCanvasItem * local_item;
   double dx1, dy1, dx2, dy2;
   item_number = GPOINTER_TO_INT(data);
 
@@ -452,7 +452,7 @@ static gint item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data) {
 
   item_x = event->button.x;
   item_y = event->button.y;
-  gnome_canvas_item_w2i(item->parent, &item_x, &item_y);
+  goo_canvas_convert_to_item_space(item->parent, &item_x, &item_y);
 
   if(board_paused)
     return FALSE;
@@ -464,7 +464,7 @@ static gint item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data) {
       gc_sound_play_ogg ("sounds/bleep.wav", NULL);
       xOffset = 0;
       for (i=0; i<g_list_length(item_answer_list); i++) {
-	gnome_canvas_item_get_bounds(g_list_nth_data(item_answer_list,i), &dx1, &dy1, &dx2, &dy2);
+	goo_canvas_item_get_bounds(g_list_nth_data(item_answer_list,i), &dx1, &dy1, &dx2, &dy2);
 	xOffset += dx2-dx1;
       }
       if (item_number < ENGINES)
@@ -472,8 +472,8 @@ static gint item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data) {
       else
 	pixmap = g_list_nth_data(listPixmapWagons, item_number-ENGINES);
 
-      local_item =gnome_canvas_item_new (answerRootItem,
-					 gnome_canvas_pixbuf_get_type (),
+      local_item =goo_canvas_item_new (answerRootItem,
+					 goo_canvas_pixbuf_get_type (),
 					 "pixbuf",  pixmap,
 					 "x",  (double) xOffset,
 					 "y",  (double) line[0] - gdk_pixbuf_get_height(pixmap),
@@ -481,7 +481,7 @@ static gint item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data) {
       item_answer_list = g_list_append(item_answer_list, local_item);
       int_answer_list = g_list_append(int_answer_list,GINT_TO_POINTER(item_number));
       //	printf("added %d to int_answer_list\n", item_number);
-      gtk_signal_connect(GTK_OBJECT(local_item), "event", (GtkSignalFunc) answer_event, GINT_TO_POINTER( g_list_length(item_answer_list)-1 ));
+      g_signal_connect(GTK_OBJECT(local_item), "enter_notify_event", (GtkSignalFunc) answer_event, GINT_TO_POINTER( g_list_length(item_answer_list)-1 ));
       break;
 
     default:
@@ -491,10 +491,10 @@ static gint item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data) {
 }
 /* ==================================== */
 /* Used to delete a vehicule at the top (the proposed answer) */
-static gint answer_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data) {
+static gint answer_event(GooCanvasItem *item, GdkEvent *event, gpointer data) {
   double item_x, item_y;
   int item_number, i;
-  GnomeCanvasItem *local_item;
+  GooCanvasItem *local_item;
   item_number = GPOINTER_TO_INT(data);
   // we don't allow any input until train is gone
   if (animation_pending)
@@ -502,7 +502,7 @@ static gint answer_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data) 
 
   item_x = event->button.x;
   item_y = event->button.y;
-  gnome_canvas_item_w2i(item->parent, &item_x, &item_y);
+  goo_canvas_convert_to_item_space(item->parent, &item_x, &item_y);
 
   if(board_paused)
     return FALSE;
@@ -522,7 +522,7 @@ static gint answer_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data) 
       for (i=item_number; i<g_list_length(item_answer_list); i++) {
 	local_item = g_list_nth_data(item_answer_list, i);
 	gtk_signal_disconnect_by_func(GTK_OBJECT(local_item), (GtkSignalFunc) answer_event, GINT_TO_POINTER( i+1 ));
-        gtk_signal_connect(GTK_OBJECT(local_item),"event", (GtkSignalFunc) answer_event, GINT_TO_POINTER( i ));
+        g_signal_connect(GTK_OBJECT(local_item),"enter_notify_event", (GtkSignalFunc) answer_event, GINT_TO_POINTER( i ));
       }
       break;
 
@@ -536,7 +536,7 @@ static void reposition_answer() {
   double dx1, dy1, dx2, dy2;
   int i;
   int xOffset = 0;
-  GnomeCanvasItem * item = NULL;
+  GooCanvasItem * item = NULL;
 
   if(!gcomprisBoard)
     return;
@@ -544,8 +544,8 @@ static void reposition_answer() {
   g_warning("+++ reposition_answer\n");
   for (i=0; i<g_list_length(item_answer_list); i++) {
     item = g_list_nth_data(item_answer_list,i);
-    gnome_canvas_item_get_bounds(item, &dx1, &dy1, &dx2, &dy2);
-    gnome_canvas_item_move(item, xOffset-dx1, line[0]-dy2);
+    goo_canvas_item_get_bounds(item, &dx1, &dy1, &dx2, &dy2);
+    goo_canvas_item_translate(item, xOffset-dx1, line[0]-dy2);
     xOffset += dx2-dx1;
   }
 }
@@ -554,17 +554,17 @@ static void reposition_model() {
   double dx1, dy1, dx2, dy2;
   int i;
   int xOffset = 0;
-  GnomeCanvasItem * item = NULL;
+  GooCanvasItem * item = NULL;
 
   if(!gcomprisBoard)
     return;
 
   g_warning("+++ reposition_model\n");
-  gnome_canvas_item_move(GNOME_CANVAS_ITEM(modelRootItem), 0, 0);
+  goo_canvas_item_translate(GNOME_CANVAS_ITEM(modelRootItem), 0, 0);
   for (i=0; i<model_size; i++) {
     item = item_model[i];
-    gnome_canvas_item_get_bounds(item, &dx1, &dy1, &dx2, &dy2);
-    gnome_canvas_item_move(item, xOffset-dx1, line[0]-dy2);
+    goo_canvas_item_get_bounds(item, &dx1, &dy1, &dx2, &dy2);
+    goo_canvas_item_translate(item, xOffset-dx1, line[0]-dy2);
     xOffset += dx2-dx1;
   }
 }
@@ -594,21 +594,21 @@ static gboolean animate_step() {
       timer_id = 0;
     }
     animation_pending = FALSE;
-    gnome_canvas_item_hide(GNOME_CANVAS_ITEM(modelRootItem));
+    goo_canvas_item_hide(GNOME_CANVAS_ITEM(modelRootItem));
     /* Move back the model to its 0 position */
-    gnome_canvas_item_set(GNOME_CANVAS_ITEM(modelRootItem),
+    goo_canvas_item_set(GNOME_CANVAS_ITEM(modelRootItem),
 			  "x", 0.0,
 			  NULL);
 
-    gnome_canvas_item_show(GNOME_CANVAS_ITEM(allwagonsRootItem));
-    gnome_canvas_item_show(GNOME_CANVAS_ITEM(answerRootItem));
+    goo_canvas_item_show(GNOME_CANVAS_ITEM(allwagonsRootItem));
+    goo_canvas_item_show(GNOME_CANVAS_ITEM(answerRootItem));
     return FALSE;
   }
 
   step = (double) (animation_count-MODEL_PAUSE) / 50.0;
   step *= step;
 
-  gnome_canvas_item_move(GNOME_CANVAS_ITEM(modelRootItem), step, 0.0);
+  goo_canvas_item_translate(GNOME_CANVAS_ITEM(modelRootItem), step, 0.0);
 
   return TRUE;
 }
@@ -624,7 +624,7 @@ static void animate_model() {
 }
 /* ==================================== */
 static void reset_all_lists(void) {
-  GnomeCanvasItem *item;
+  GooCanvasItem *item;
 
   int_model_list = reset_list(int_model_list);
   int_answer_list = reset_list(int_answer_list);

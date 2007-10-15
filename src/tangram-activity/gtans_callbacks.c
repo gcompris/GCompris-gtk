@@ -282,7 +282,7 @@ on_wdrawareapetite_expose_event        (GtkWidget       *widget,
 
 
 gboolean
-on_arrow_clicked (GnomeCanvasItem *item, GdkEvent *event, gpointer user_data)
+on_arrow_clicked (GooCanvasItem *item, GdkEvent *event, gpointer user_data)
 {
   if ((event->type == GDK_BUTTON_PRESS)
       && (event->button.button == 1)) {
@@ -296,7 +296,7 @@ on_arrow_clicked (GnomeCanvasItem *item, GdkEvent *event, gpointer user_data)
 
 
 gboolean
-on_show_clicked (GnomeCanvasItem *canvasitem,
+on_show_clicked (GooCanvasItem *canvasitem,
 		  GdkEvent *event,
 		  gpointer user_data)
 {
@@ -311,7 +311,7 @@ on_show_clicked (GnomeCanvasItem *canvasitem,
 }
 
 gboolean
-on_outline_clicked (GnomeCanvasItem *canvasitem,
+on_outline_clicked (GooCanvasItem *canvasitem,
 		  GdkEvent *event,
 		  gpointer user_data)
 {
@@ -328,7 +328,7 @@ on_outline_clicked (GnomeCanvasItem *canvasitem,
 }
 
 gboolean
-on_symetry_clicked (GnomeCanvasItem *canvasitem,
+on_symetry_clicked (GooCanvasItem *canvasitem,
 		  GdkEvent *event,
 		  gpointer user_data)
 {
@@ -348,7 +348,7 @@ on_symetry_clicked (GnomeCanvasItem *canvasitem,
 }
 
 gboolean
-on_rotation_clicked (GnomeCanvasItem *canvasitem,
+on_rotation_clicked (GooCanvasItem *canvasitem,
 		  GdkEvent *event,
 		  gpointer user_data)
 {

@@ -54,8 +54,8 @@ static Mode currentMode = MODE_VERTICAL;
 /* Store the moving words */
 typedef struct {
   GnomeCanvasGroup *rootItem;
-  GnomeCanvasItem  *overwriteItem;
-  GnomeCanvasItem  *item;
+  GooCanvasItem  *overwriteItem;
+  GooCanvasItem  *item;
 } LettersItem;
 
 static LettersItem previousFocus;
@@ -96,10 +96,10 @@ static void		 reading_config_stop(void);
 static void		 player_win(void);
 static void		 player_loose(void);
 static gchar		*get_random_word(const gchar *except);
-static GnomeCanvasItem	*display_what_to_do(GnomeCanvasGroup *parent);
+static GooCanvasItem	*display_what_to_do(GnomeCanvasGroup *parent);
 static void		 ask_ready(gboolean status);
 static void		 ask_yes_no(void);
-static gint		 item_event_valid(GnomeCanvasItem *item, GdkEvent *event, gpointer data);
+static gint		 item_event_valid(GooCanvasItem *item, GdkEvent *event, gpointer data);
 
 static  guint32          fallSpeed = 0;
 
@@ -182,7 +182,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       gcomprisBoard=agcomprisBoard;
 
       img = gc_skin_image_get("reading-bg.jpg");
-      gc_set_background(gnome_canvas_root(gcomprisBoard->canvas),
+      gc_set_background(goo_canvas_get_root_item(gcomprisBoard->canvas),
 			      img);
       g_free(img);
       wait_for_ready = TRUE;
@@ -298,9 +298,9 @@ static gint reading_next_level()
 
   reading_destroy_all_items();
 
-  boardRootItem = GNOME_CANVAS_GROUP(
-				     gnome_canvas_item_new (gnome_canvas_root(gcomprisBoard->canvas),
-							    gnome_canvas_group_get_type (),
+  boardRootItem = GOO_CANVAS_GROUP(
+				     goo_canvas_item_new (goo_canvas_get_root_item(gcomprisBoard->canvas),
+							    goo_canvas_group_get_type (),
 							    "x", (double) 0,
 							    "y", (double) 0,
 							    NULL));
@@ -357,7 +357,7 @@ static void reading_destroy_all_items()
     }
 }
 
-static GnomeCanvasItem *display_what_to_do(GnomeCanvasGroup *parent)
+static GooCanvasItem *display_what_to_do(GnomeCanvasGroup *parent)
 {
 
   gint base_Y = 110;
@@ -376,8 +376,8 @@ static GnomeCanvasItem *display_what_to_do(GnomeCanvasGroup *parent)
   else
     textToFindIndex = NOT_THERE;
 
-  gnome_canvas_item_new (parent,
-			 gnome_canvas_text_get_type (),
+  goo_canvas_item_new (parent,
+			 goo_canvas_text_get_type (),
 			 "text", _("Please, check if the word"),
 			 "font", gc_skin_font_board_medium,
 			 "x", (double) base_X,
@@ -386,8 +386,8 @@ static GnomeCanvasItem *display_what_to_do(GnomeCanvasGroup *parent)
 			 "fill_color", "black",
 			 NULL);
 
-  gnome_canvas_item_new (parent,
-			 gnome_canvas_text_get_type (),
+  goo_canvas_item_new (parent,
+			 goo_canvas_text_get_type (),
 			 "text", textToFind,
 			 "font", gc_skin_font_board_big,
 			 "x", (double) base_X,
@@ -396,8 +396,8 @@ static GnomeCanvasItem *display_what_to_do(GnomeCanvasGroup *parent)
 			 "fill_color", "green",
 			 NULL);
 
-  gnome_canvas_item_new (parent,
-			 gnome_canvas_text_get_type (),
+  goo_canvas_item_new (parent,
+			 goo_canvas_text_get_type (),
 			 "text", _("is being displayed"),
 			 "font", gc_skin_font_board_medium,
 			 "x", (double) base_X,
@@ -425,7 +425,7 @@ static gboolean reading_create_item(GnomeCanvasGroup *parent)
 
   if(previousFocus.rootItem)
     {
-      gnome_canvas_item_show (previousFocus.overwriteItem);
+      goo_canvas_item_show (previousFocus.overwriteItem);
       toDeleteFocus.rootItem = previousFocus.rootItem;
     }
 
@@ -454,8 +454,8 @@ static gboolean reading_create_item(GnomeCanvasGroup *parent)
     textToFindIndex--;
 
   previousFocus.rootItem = \
-    GNOME_CANVAS_GROUP( gnome_canvas_item_new (parent,
-					       gnome_canvas_group_get_type (),
+    GOO_CANVAS_GROUP( goo_canvas_item_new (parent,
+					       goo_canvas_group_get_type (),
 					       "x", (double) current_x,
 					       "y", (double) current_y,
 					       NULL));
@@ -464,8 +464,8 @@ static gboolean reading_create_item(GnomeCanvasGroup *parent)
     anchor=GTK_ANCHOR_WEST;
 
   previousFocus.item = \
-    gnome_canvas_item_new (GNOME_CANVAS_GROUP(previousFocus.rootItem),
-			   gnome_canvas_text_get_type (),
+    goo_canvas_item_new (GOO_CANVAS_GROUP(previousFocus.rootItem),
+			   goo_canvas_text_get_type (),
 			   "text", word,
 			   "font", gc_skin_font_board_medium,
 			   "x", (double) 0,
@@ -480,8 +480,8 @@ static gboolean reading_create_item(GnomeCanvasGroup *parent)
   g_free(word);
 
   previousFocus.overwriteItem =						\
-    gnome_canvas_item_new (GNOME_CANVAS_GROUP(previousFocus.rootItem),
-			   gnome_canvas_text_get_type (),
+    goo_canvas_item_new (GOO_CANVAS_GROUP(previousFocus.rootItem),
+			   goo_canvas_text_get_type (),
 			   "markup", oldword,
 			   "font", gc_skin_font_board_medium,
 			   "x", (double) 0,
@@ -490,7 +490,7 @@ static gboolean reading_create_item(GnomeCanvasGroup *parent)
 			   NULL);
 
   g_free(oldword);
-  gnome_canvas_item_hide(previousFocus.overwriteItem);
+  goo_canvas_item_hide(previousFocus.overwriteItem);
 
   // Calculate the next spot
   if(currentMode==MODE_VERTICAL)
@@ -502,13 +502,13 @@ static gboolean reading_create_item(GnomeCanvasGroup *parent)
     {
       double x1, y1, x2, y2;
 
-      gnome_canvas_item_get_bounds(GNOME_CANVAS_ITEM(previousFocus.rootItem), &x1, &y1, &x2, &y2);
+      goo_canvas_item_get_bounds(GNOME_CANVAS_ITEM(previousFocus.rootItem), &x1, &y1, &x2, &y2);
 
       // Are we out of bound
       if(x2>BASE_X2)
 	{
 	  // Do the line Wrapping
-	  gnome_canvas_item_move(GNOME_CANVAS_ITEM(previousFocus.rootItem), BASE_X1-x1, interline);
+	  goo_canvas_item_translate(GNOME_CANVAS_ITEM(previousFocus.rootItem), BASE_X1-x1, interline);
 	  current_y += interline;
 	  current_x = BASE_X1;
 	  numberOfLine--;
@@ -534,8 +534,8 @@ static gint reading_drop_items ()
 
 static void ask_ready(gboolean status)
 {
-  static GnomeCanvasItem *item1 = NULL;
-  static GnomeCanvasItem *item2 = NULL;
+  static GooCanvasItem *item1 = NULL;
+  static GooCanvasItem *item2 = NULL;
   GdkPixbuf *button_pixmap = NULL;
   double y_offset = 310;
   double x_offset = 430;
@@ -558,20 +558,20 @@ static void ask_ready(gboolean status)
 
   /*----- READY -----*/
   button_pixmap = gc_skin_pixmap_load("button_large2.png");
-  item1 = gnome_canvas_item_new (boardRootItem,
-				gnome_canvas_pixbuf_get_type (),
+  item1 = goo_canvas_item_new (boardRootItem,
+				goo_canvas_pixbuf_get_type (),
 				"pixbuf",  button_pixmap,
 				"x", x_offset,
 				"y", y_offset,
 				NULL);
 
   gdk_pixbuf_unref(button_pixmap);
-  gtk_signal_connect(GTK_OBJECT(item1), "event",
+  g_signal_connect(GTK_OBJECT(item1), "enter_notify_event",
 		     (GtkSignalFunc) item_event_valid,
 		     "R");
 
-  item2 = gnome_canvas_item_new (boardRootItem,
-				gnome_canvas_text_get_type (),
+  item2 = goo_canvas_item_new (boardRootItem,
+				goo_canvas_text_get_type (),
 				"text", _("I am Ready"),
 				"font", gc_skin_font_board_big,
 				"x", (double) x_offset +
@@ -581,14 +581,14 @@ static void ask_ready(gboolean status)
 				"fill_color", "white",
 				NULL);
 
-  gtk_signal_connect(GTK_OBJECT(item2), "event",
+  g_signal_connect(GTK_OBJECT(item2), "enter_notify_event",
 		     (GtkSignalFunc) item_event_valid,
 		     "R");
 }
 
 static void ask_yes_no()
 {
-  GnomeCanvasItem *item;
+  GooCanvasItem *item;
   GdkPixbuf *button_pixmap = NULL;
   double y_offset = 310;
   double x_offset = 430;
@@ -598,20 +598,20 @@ static void ask_yes_no()
 
   /*----- YES -----*/
   button_pixmap = gc_skin_pixmap_load("button_large2.png");
-  item = gnome_canvas_item_new (boardRootItem,
-				gnome_canvas_pixbuf_get_type (),
+  item = goo_canvas_item_new (boardRootItem,
+				goo_canvas_pixbuf_get_type (),
 				"pixbuf",  button_pixmap,
 				"x", x_offset,
 				"y", y_offset,
 				NULL);
 
   gdk_pixbuf_unref(button_pixmap);
-  gtk_signal_connect(GTK_OBJECT(item), "event",
+  g_signal_connect(GTK_OBJECT(item), "enter_notify_event",
 		     (GtkSignalFunc) item_event_valid,
 		     "Y");
 
-  item = gnome_canvas_item_new (boardRootItem,
-				gnome_canvas_text_get_type (),
+  item = goo_canvas_item_new (boardRootItem,
+				goo_canvas_text_get_type (),
 				"text", _("Yes, I saw it"),
 				"font", gc_skin_font_board_big,
 				"x", (double) x_offset +
@@ -621,27 +621,27 @@ static void ask_yes_no()
 				"fill_color", "white",
 				NULL);
 
-  gtk_signal_connect(GTK_OBJECT(item), "event",
+  g_signal_connect(GTK_OBJECT(item), "enter_notify_event",
 		     (GtkSignalFunc) item_event_valid,
 		     "Y");
 
   /*----- NO -----*/
   y_offset += 100;
   button_pixmap = gc_skin_pixmap_load("button_large2.png");
-  item = gnome_canvas_item_new (boardRootItem,
-				gnome_canvas_pixbuf_get_type (),
+  item = goo_canvas_item_new (boardRootItem,
+				goo_canvas_pixbuf_get_type (),
 				"pixbuf",  button_pixmap,
 				"x", x_offset,
 				"y", y_offset,
 				NULL);
 
   gdk_pixbuf_unref(button_pixmap);
-  gtk_signal_connect(GTK_OBJECT(item), "event",
+  g_signal_connect(GTK_OBJECT(item), "enter_notify_event",
 		     (GtkSignalFunc) item_event_valid,
 		     "N");
 
-  item = gnome_canvas_item_new (boardRootItem,
-				gnome_canvas_text_get_type (),
+  item = goo_canvas_item_new (boardRootItem,
+				goo_canvas_text_get_type (),
 				"text", _("No, it was not there"),
 				"font", gc_skin_font_board_big,
 				"x", (double) x_offset +
@@ -651,7 +651,7 @@ static void ask_yes_no()
 				"fill_color", "white",
 				NULL);
 
-  gtk_signal_connect(GTK_OBJECT(item), "event",
+  g_signal_connect(GTK_OBJECT(item), "enter_notify_event",
 		     (GtkSignalFunc) item_event_valid,
 		     "N");
 }
@@ -699,7 +699,7 @@ static void player_loose()
 
 /* Callback for the yes and no buttons */
 static gint
-item_event_valid(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
+item_event_valid(GooCanvasItem *item, GdkEvent *event, gpointer data)
 {
 
   switch (event->type)

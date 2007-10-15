@@ -63,17 +63,17 @@ static gboolean animation;
 
 static GnomeCanvasGroup *boardRootItem = NULL;
 
-static GnomeCanvasItem	*lock_left_item		= NULL;
-static GnomeCanvasItem	*lock_right_item	= NULL;
+static GooCanvasItem	*lock_left_item		= NULL;
+static GooCanvasItem	*lock_right_item	= NULL;
 
-static GnomeCanvasItem	*canallock_left_item	= NULL;
-static GnomeCanvasItem	*canallock_right_item	= NULL;
+static GooCanvasItem	*canallock_left_item	= NULL;
+static GooCanvasItem	*canallock_right_item	= NULL;
 
-static GnomeCanvasItem	*canal_left_item	= NULL;
-static GnomeCanvasItem	*canal_middle_item	= NULL;
-static GnomeCanvasItem	*canal_right_item	= NULL;
+static GooCanvasItem	*canal_left_item	= NULL;
+static GooCanvasItem	*canal_middle_item	= NULL;
+static GooCanvasItem	*canal_right_item	= NULL;
 
-static GnomeCanvasItem	*tuxboat_item		= NULL;
+static GooCanvasItem	*tuxboat_item		= NULL;
 static double		 tuxboat_width;
 
 #define BOAT_POS_LEFT		1
@@ -90,16 +90,16 @@ static gboolean canallock_right_up;
 
 static double timer_item_x1, timer_item_y1, timer_item_x2, timer_item_y2;
 static double timer_item_limit_y, timer_item_limit_x;
-static GnomeCanvasItem *timer_item;
+static GooCanvasItem *timer_item;
 static gint timer_step_y1, timer_step_x1;
 
-static GnomeCanvasItem	*canal_lock_create_item(GnomeCanvasGroup *parent);
+static GooCanvasItem	*canal_lock_create_item(GnomeCanvasGroup *parent);
 static void		 canal_lock_destroy_all_items(void);
 static void		 canal_lock_next_level(void);
-static gint		 item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data);
+static gint		 item_event(GooCanvasItem *item, GdkEvent *event, gpointer data);
 static gboolean		 animate_step();
 static void		 update_water();
-static void		 toggle_lock(GnomeCanvasItem *item);
+static void		 toggle_lock(GooCanvasItem *item);
 
 /* Description of this plugin */
 static BoardPlugin menu_bp =
@@ -225,7 +225,7 @@ static gboolean is_our_board (GcomprisBoard *gcomprisBoard)
 static void canal_lock_next_level()
 {
 
-  gc_set_background(gnome_canvas_root(gcomprisBoard->canvas),
+  gc_set_background(goo_canvas_get_root_item(gcomprisBoard->canvas),
 			  "canal_lock/canal_lock_bg.png");
 
   gc_bar_set_level(gcomprisBoard);
@@ -243,7 +243,7 @@ static void canal_lock_next_level()
   canallock_right_up = TRUE;
 
   /* Try the next level */
-  canal_lock_create_item(gnome_canvas_root(gcomprisBoard->canvas));
+  canal_lock_create_item(goo_canvas_get_root_item(gcomprisBoard->canvas));
 }
 /* ==================================== */
 /* Destroy all the items */
@@ -255,13 +255,13 @@ static void canal_lock_destroy_all_items()
   boardRootItem = NULL;
 }
 /* ==================================== */
-static GnomeCanvasItem *canal_lock_create_item(GnomeCanvasGroup *parent)
+static GooCanvasItem *canal_lock_create_item(GnomeCanvasGroup *parent)
 {
   GdkPixbuf *pixmap = NULL;
 
-  boardRootItem = GNOME_CANVAS_GROUP(
-				     gnome_canvas_item_new (gnome_canvas_root(gcomprisBoard->canvas),
-							    gnome_canvas_group_get_type (),
+  boardRootItem = GOO_CANVAS_GROUP(
+				     goo_canvas_item_new (goo_canvas_get_root_item(gcomprisBoard->canvas),
+							    goo_canvas_group_get_type (),
 							    "x", (double) 0,
 							    "y", (double) 0,
 
@@ -270,24 +270,24 @@ static GnomeCanvasItem *canal_lock_create_item(GnomeCanvasGroup *parent)
   /* The boat */
   pixmap = gc_pixmap_load("canal_lock/tuxboat.png");
 
-  tuxboat_item = gnome_canvas_item_new (boardRootItem,
-					gnome_canvas_pixbuf_get_type (),
+  tuxboat_item = goo_canvas_item_new (boardRootItem,
+					goo_canvas_pixbuf_get_type (),
 					"pixbuf",  pixmap,
 					"x", (double) (LEFT_CANAL_WIDTH - gdk_pixbuf_get_width(pixmap)) / 2,
 					"y", (double) BASE_LINE - LEFT_CANAL_HEIGHT - gdk_pixbuf_get_height(pixmap)*0.9,
 					NULL);
-  gtk_signal_connect(GTK_OBJECT(tuxboat_item), "event",
+  g_signal_connect(GTK_OBJECT(tuxboat_item), "enter_notify_event",
 		     (GtkSignalFunc) item_event,
 		     NULL);
-  gtk_signal_connect(GTK_OBJECT(tuxboat_item), "event",
+  g_signal_connect(GTK_OBJECT(tuxboat_item), "enter_notify_event",
 		     (GtkSignalFunc) gc_item_focus_event,
 		     NULL);
   tuxboat_width = gdk_pixbuf_get_width(pixmap);
   gdk_pixbuf_unref(pixmap);
 
   /* This is the ground canal */
-  gnome_canvas_item_new (boardRootItem,
-			 gnome_canvas_rect_get_type (),
+  goo_canvas_item_new (boardRootItem,
+			 goo_canvas_rect_get_type (),
 			 "x1", (double) 0,
 			 "y1", (double) BASE_LINE,
 			 "x2", (double) BOARDWIDTH,
@@ -297,8 +297,8 @@ static GnomeCanvasItem *canal_lock_create_item(GnomeCanvasGroup *parent)
 			 NULL);
 
   /* This is the left canal */
-  canal_left_item = gnome_canvas_item_new (boardRootItem,
-					    gnome_canvas_rect_get_type (),
+  canal_left_item = goo_canvas_item_new (boardRootItem,
+					    goo_canvas_rect_get_type (),
 					    "x1", (double) 0,
 					    "y1", (double) BASE_LINE - LEFT_CANAL_HEIGHT,
 					    "x2", (double) LEFT_CANAL_WIDTH,
@@ -308,8 +308,8 @@ static GnomeCanvasItem *canal_lock_create_item(GnomeCanvasGroup *parent)
 					    NULL);
 
   /* This is the middle canal */
-  canal_middle_item = gnome_canvas_item_new (boardRootItem,
-					     gnome_canvas_rect_get_type (),
+  canal_middle_item = goo_canvas_item_new (boardRootItem,
+					     goo_canvas_rect_get_type (),
 					     "x1", (double) LEFT_CANAL_WIDTH,
 					     "y1", (double) BASE_LINE - LEFT_CANAL_HEIGHT,
 					     "x2", (double) LEFT_CANAL_WIDTH + MIDDLE_CANAL_WIDTH,
@@ -319,8 +319,8 @@ static GnomeCanvasItem *canal_lock_create_item(GnomeCanvasGroup *parent)
 					     NULL);
 
   /* This is the right canal */
-  canal_right_item = gnome_canvas_item_new (boardRootItem,
-					    gnome_canvas_rect_get_type (),
+  canal_right_item = goo_canvas_item_new (boardRootItem,
+					    goo_canvas_rect_get_type (),
 					    "x1", (double) LEFT_CANAL_WIDTH + MIDDLE_CANAL_WIDTH,
 					    "y1", (double) BASE_LINE - RIGHT_CANAL_HEIGHT,
 					    "x2", (double) LEFT_CANAL_WIDTH + MIDDLE_CANAL_WIDTH + RIGHT_CANAL_WIDTH,
@@ -330,8 +330,8 @@ static GnomeCanvasItem *canal_lock_create_item(GnomeCanvasGroup *parent)
 					    NULL);
 
   /* This is the left lock */
-  lock_left_item = gnome_canvas_item_new (boardRootItem,
-					  gnome_canvas_rect_get_type (),
+  lock_left_item = goo_canvas_item_new (boardRootItem,
+					  goo_canvas_rect_get_type (),
 					  "x1", (double) LEFT_CANAL_WIDTH - LOCK_WIDTH / 2,
 					  "y1", (double) BASE_LINE - LOCK_HEIGHT_MAX,
 					  "x2", (double) LEFT_CANAL_WIDTH + LOCK_WIDTH / 2,
@@ -339,13 +339,13 @@ static GnomeCanvasItem *canal_lock_create_item(GnomeCanvasGroup *parent)
 					  "fill_color_rgba", LOCK_COLOR,
 					  "width_units", (double) 0,
 					  NULL);
-  gtk_signal_connect(GTK_OBJECT(lock_left_item), "event",
+  g_signal_connect(GTK_OBJECT(lock_left_item), "enter_notify_event",
 		     (GtkSignalFunc) item_event,
 		     NULL);
 
   /* This is the right lock */
-  lock_right_item = gnome_canvas_item_new (boardRootItem,
-					   gnome_canvas_rect_get_type (),
+  lock_right_item = goo_canvas_item_new (boardRootItem,
+					   goo_canvas_rect_get_type (),
 					   "x1", (double) LEFT_CANAL_WIDTH + MIDDLE_CANAL_WIDTH - LOCK_WIDTH / 2,
 					   "y1", (double) BASE_LINE - LOCK_HEIGHT_MAX,
 					   "x2", (double) LEFT_CANAL_WIDTH + MIDDLE_CANAL_WIDTH + LOCK_WIDTH / 2,
@@ -353,13 +353,13 @@ static GnomeCanvasItem *canal_lock_create_item(GnomeCanvasGroup *parent)
 					   "fill_color_rgba", LOCK_COLOR,
 					   "width_units", (double) 0,
 					   NULL);
-  gtk_signal_connect(GTK_OBJECT(lock_right_item), "event",
+  g_signal_connect(GTK_OBJECT(lock_right_item), "enter_notify_event",
 		     (GtkSignalFunc) item_event,
 		     NULL);
 
   /* This is the water conduit under the canal */
-  gnome_canvas_item_new (boardRootItem,
-			 gnome_canvas_rect_get_type (),
+  goo_canvas_item_new (boardRootItem,
+			 goo_canvas_rect_get_type (),
 			 "x1", (double) LEFT_CANAL_WIDTH/2,
 			 "y1", (double) SUBCANAL_BASE_LINE - SUBCANAL_HEIGHT,
 			 "x2", (double) LEFT_CANAL_WIDTH + MIDDLE_CANAL_WIDTH + RIGHT_CANAL_WIDTH / 2 + SUBCANAL_HEIGHT,
@@ -369,8 +369,8 @@ static GnomeCanvasItem *canal_lock_create_item(GnomeCanvasGroup *parent)
 			 NULL);
 
   /* Left conduit */
-  gnome_canvas_item_new (boardRootItem,
-			 gnome_canvas_rect_get_type (),
+  goo_canvas_item_new (boardRootItem,
+			 goo_canvas_rect_get_type (),
 			 "x1", (double) LEFT_CANAL_WIDTH/2,
 			 "y1", (double) BASE_LINE,
 			 "x2", (double) LEFT_CANAL_WIDTH/2 + SUBCANAL_HEIGHT,
@@ -380,8 +380,8 @@ static GnomeCanvasItem *canal_lock_create_item(GnomeCanvasGroup *parent)
 			 NULL);
 
   /* Middle conduit */
-  gnome_canvas_item_new (boardRootItem,
-			 gnome_canvas_rect_get_type (),
+  goo_canvas_item_new (boardRootItem,
+			 goo_canvas_rect_get_type (),
 			 "x1", (double) LEFT_CANAL_WIDTH + MIDDLE_CANAL_WIDTH/2 - SUBCANAL_HEIGHT/2,
 			 "y1", (double) BASE_LINE,
 			 "x2", (double) LEFT_CANAL_WIDTH + MIDDLE_CANAL_WIDTH/2 + SUBCANAL_HEIGHT/2,
@@ -391,8 +391,8 @@ static GnomeCanvasItem *canal_lock_create_item(GnomeCanvasGroup *parent)
 			 NULL);
 
   /* Right conduit */
-  gnome_canvas_item_new (boardRootItem,
-			 gnome_canvas_rect_get_type (),
+  goo_canvas_item_new (boardRootItem,
+			 goo_canvas_rect_get_type (),
 			 "x1", (double) LEFT_CANAL_WIDTH + MIDDLE_CANAL_WIDTH + RIGHT_CANAL_WIDTH/2,
 			 "y1", (double) BASE_LINE,
 			 "x2", (double) LEFT_CANAL_WIDTH + MIDDLE_CANAL_WIDTH + RIGHT_CANAL_WIDTH/2 + SUBCANAL_HEIGHT,
@@ -403,8 +403,8 @@ static GnomeCanvasItem *canal_lock_create_item(GnomeCanvasGroup *parent)
 
   /* And to finish, the 2 canal locks */
   canallock_left_item =
-    gnome_canvas_item_new (boardRootItem,
-			   gnome_canvas_rect_get_type (),
+    goo_canvas_item_new (boardRootItem,
+			   goo_canvas_rect_get_type (),
 			   "x1", (double) LEFT_CANAL_WIDTH + MIDDLE_CANAL_WIDTH * 0.1,
 			   "y1", (double) SUBCANAL_BASE_LINE - SUBCANAL_HEIGHT,
 			   "x2", (double) LEFT_CANAL_WIDTH + MIDDLE_CANAL_WIDTH * 0.1 + LOCK_WIDTH / 2,
@@ -412,13 +412,13 @@ static GnomeCanvasItem *canal_lock_create_item(GnomeCanvasGroup *parent)
 			   "fill_color_rgba", CANALLOCK_COLOR,
 			   "width_units", (double) 0,
 			   NULL);
-  gtk_signal_connect(GTK_OBJECT(canallock_left_item), "event",
+  g_signal_connect(GTK_OBJECT(canallock_left_item), "enter_notify_event",
 		     (GtkSignalFunc) item_event,
 		     NULL);
 
   canallock_right_item =
-    gnome_canvas_item_new (boardRootItem,
-			   gnome_canvas_rect_get_type (),
+    goo_canvas_item_new (boardRootItem,
+			   goo_canvas_rect_get_type (),
 			   "x1", (double) LEFT_CANAL_WIDTH + MIDDLE_CANAL_WIDTH * 0.9,
 			   "y1", (double) SUBCANAL_BASE_LINE - SUBCANAL_HEIGHT,
 			   "x2", (double) LEFT_CANAL_WIDTH + MIDDLE_CANAL_WIDTH * 0.9 + LOCK_WIDTH / 2,
@@ -426,7 +426,7 @@ static GnomeCanvasItem *canal_lock_create_item(GnomeCanvasGroup *parent)
 			   "fill_color_rgba", CANALLOCK_COLOR,
 			   "width_units", (double) 0,
 			   NULL);
-    gtk_signal_connect(GTK_OBJECT(canallock_right_item), "event",
+    g_signal_connect(GTK_OBJECT(canallock_right_item), "enter_notify_event",
 		     (GtkSignalFunc) item_event,
 		     NULL);
 
@@ -496,7 +496,7 @@ static void move_boat()
 
   gc_sound_play_ogg ("sounds/eraser2.wav", NULL);
 
-  gnome_canvas_item_get_bounds(tuxboat_item, &timer_item_x1, &timer_item_y1,
+  goo_canvas_item_get_bounds(tuxboat_item, &timer_item_x1, &timer_item_y1,
 			       &timer_item_x2, &timer_item_y2);
 
   timer_item = tuxboat_item;
@@ -532,7 +532,7 @@ static void update_water()
       return;
     }
 
-  gnome_canvas_item_get_bounds(canal_middle_item, &timer_item_x1, &timer_item_y1,
+  goo_canvas_item_get_bounds(canal_middle_item, &timer_item_x1, &timer_item_y1,
 			       &timer_item_x2, &timer_item_y2);
 
   timer_item = canal_middle_item;
@@ -546,7 +546,7 @@ static void update_water()
 
 /* ==================================== */
 /* Toggle the given lock */
-static void toggle_lock(GnomeCanvasItem *item)
+static void toggle_lock(GooCanvasItem *item)
 {
   gboolean status = TRUE;
   double y1 = 0;
@@ -560,7 +560,7 @@ static void toggle_lock(GnomeCanvasItem *item)
 
   gc_sound_play_ogg ("sounds/bleep.wav", NULL);
 
-  gnome_canvas_item_get_bounds(item, &timer_item_x1, &timer_item_y1,
+  goo_canvas_item_get_bounds(item, &timer_item_x1, &timer_item_y1,
 			       &timer_item_x2, &timer_item_y2);
 
   if(item == lock_left_item)
@@ -618,12 +618,12 @@ static gboolean animate_step()
   timer_item_y1 += timer_step_y1;
 
   if(GNOME_IS_CANVAS_PIXBUF(timer_item))
-    gnome_canvas_item_set(timer_item,
+    goo_canvas_item_set(timer_item,
 			  "x", timer_item_x1,
 			  "y", timer_item_y1,
 			  NULL);
   else if(GNOME_IS_CANVAS_RECT(timer_item))
-    gnome_canvas_item_set(timer_item,
+    goo_canvas_item_set(timer_item,
 			  "x1", timer_item_x1,
 			  "y1", timer_item_y1,
 			  NULL);
@@ -633,10 +633,10 @@ static gboolean animate_step()
     {
       double item_x1, item_y1, item_x2, item_y2;
 
-      gnome_canvas_item_get_bounds(tuxboat_item, &item_x1, &item_y1,
+      goo_canvas_item_get_bounds(tuxboat_item, &item_x1, &item_y1,
 				   &item_x2, &item_y2);
 
-      gnome_canvas_item_set(tuxboat_item,
+      goo_canvas_item_set(tuxboat_item,
 			    "y", item_y1 + timer_step_y1,
 			    NULL);
     }
@@ -658,14 +658,14 @@ static gboolean animate_step()
       update_water();
     }
 
-  gnome_canvas_update_now(gcomprisBoard->canvas);
+  goo_canvas_update_now(gcomprisBoard->canvas);
 
   return TRUE;
 }
 
 /* ==================================== */
 /* Highlight the given item */
-static void hightlight(GnomeCanvasItem *item, gboolean status)
+static void hightlight(GooCanvasItem *item, gboolean status)
 {
   guint color = 0;
 
@@ -685,7 +685,7 @@ static void hightlight(GnomeCanvasItem *item, gboolean status)
     }
 
 
-    gnome_canvas_item_set(item,
+    goo_canvas_item_set(item,
 			  "fill_color_rgba", color,
 			  NULL);
 
@@ -693,12 +693,12 @@ static void hightlight(GnomeCanvasItem *item, gboolean status)
 
 /* ==================================== */
 static gint
-item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
+item_event(GooCanvasItem *item, GdkEvent *event, gpointer data)
 {
   double item_x, item_y;
   item_x = event->button.x;
   item_y = event->button.y;
-  gnome_canvas_item_w2i(item->parent, &item_x, &item_y);
+  goo_canvas_convert_to_item_space(item->parent, &item_x, &item_y);
 
   if(board_paused)
     return FALSE;

@@ -797,7 +797,7 @@ display_activation_dialog()
   widget_activation_entry = (GtkEntry *)gtk_entry_new();
   gtk_entry_set_max_length(widget_activation_entry, 6);
   activation_item = \
-    goo_canvas_item_new (goo_canvas_root(canvas),
+    goo_canvas_item_new (goo_canvas_get_root_item(canvas),
 			   goo_canvas_widget_get_type (),
 			   "widget", GTK_WIDGET(widget_activation_entry),
 			   "x", (double) BOARDWIDTH / 2 - 50,

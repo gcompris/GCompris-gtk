@@ -40,12 +40,12 @@ static void		 colors_config_stop(void);
 
 /* ================================================================ */
 static GnomeCanvasGroup *boardRootItem = NULL;
-static GnomeCanvasItem *highlight_image_item = NULL;
+static GooCanvasItem *highlight_image_item = NULL;
 
-static GnomeCanvasItem *colors_create_item(GnomeCanvasGroup *parent);
+static GooCanvasItem *colors_create_item(GnomeCanvasGroup *parent);
 static void colors_destroy_all_items(void);
 static void colors_next_level(void);
-static gint item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data);
+static gint item_event(GooCanvasItem *item, GdkEvent *event, gpointer data);
 static int highlight_width, highlight_height;
 static GList * listColors = NULL;
 
@@ -225,7 +225,7 @@ static void start_board (GcomprisBoard *agcomprisBoard) {
 
   if(agcomprisBoard!=NULL) {
     gcomprisBoard=agcomprisBoard;
-    gc_set_background(gnome_canvas_root(gcomprisBoard->canvas), "colors/colors_bg.png");
+    gc_set_background(goo_canvas_get_root_item(gcomprisBoard->canvas), "colors/colors_bg.png");
     gcomprisBoard->level=1;
     gcomprisBoard->maxlevel=1;
 
@@ -254,7 +254,7 @@ static void start_board (GcomprisBoard *agcomprisBoard) {
     }
     g_list_free(list);
 
-    gtk_signal_connect(GTK_OBJECT(gcomprisBoard->canvas), "event",  (GtkSignalFunc) item_event, NULL);
+    g_signal_connect(GTK_OBJECT(gcomprisBoard->canvas), "enter_notify_event",  (GtkSignalFunc) item_event, NULL);
     colors_next_level();
     pause_board(FALSE);
   }
@@ -308,7 +308,7 @@ static void colors_next_level() {
   gamewon = FALSE;
 
   /* Try the next level */
-  colors_create_item(gnome_canvas_root(gcomprisBoard->canvas));
+  colors_create_item(goo_canvas_get_root_item(gcomprisBoard->canvas));
   repeat();
 }
 /* ======================================= */
@@ -330,8 +330,8 @@ static void repeat (){
 
       str = g_strdup_printf(gettext(colors[GPOINTER_TO_INT(g_list_nth_data(listColors, 0))*2+1]));
 
-      gnome_canvas_item_new (boardRootItem,
-			     gnome_canvas_text_get_type (),
+      goo_canvas_item_new (boardRootItem,
+			     goo_canvas_text_get_type (),
 			     "text", str,
 			     "font", gc_skin_font_board_huge_bold,
 			     "x", (double) BOARDWIDTH/2+2,
@@ -340,8 +340,8 @@ static void repeat (){
 			     "fill_color", "black",
 			     NULL);
 
-      gnome_canvas_item_new (boardRootItem,
-			     gnome_canvas_text_get_type (),
+      goo_canvas_item_new (boardRootItem,
+			     goo_canvas_text_get_type (),
 			     "text", str,
 			     "font", gc_skin_font_board_huge_bold,
 			     "x", (double) BOARDWIDTH/2,
@@ -365,13 +365,13 @@ static void colors_destroy_all_items() {
 /* =====================================================================
  *
  * =====================================================================*/
-static GnomeCanvasItem *colors_create_item(GnomeCanvasGroup *parent) {
+static GooCanvasItem *colors_create_item(GnomeCanvasGroup *parent) {
   GdkPixbuf *highlight_pixmap = NULL;
   char *str = NULL;
 
-  boardRootItem = GNOME_CANVAS_GROUP(
-				     gnome_canvas_item_new (gnome_canvas_root(gcomprisBoard->canvas),
-							    gnome_canvas_group_get_type (),
+  boardRootItem = GOO_CANVAS_GROUP(
+				     goo_canvas_item_new (goo_canvas_get_root_item(gcomprisBoard->canvas),
+							    goo_canvas_group_get_type (),
 							    "x", (double) 0,
 							    "y", (double) 0,
 							    NULL));
@@ -379,8 +379,8 @@ static GnomeCanvasItem *colors_create_item(GnomeCanvasGroup *parent) {
   str = g_strdup_printf("%s/%s", gcomprisBoard->boarddir, "colors_highlight.png");
   highlight_pixmap = gc_pixmap_load(str);
 
-  highlight_image_item = gnome_canvas_item_new (boardRootItem,
-						gnome_canvas_pixbuf_get_type (),
+  highlight_image_item = goo_canvas_item_new (boardRootItem,
+						goo_canvas_pixbuf_get_type (),
 						"pixbuf", highlight_pixmap,
 						"x", (double) 0,
 						"y", (double) 0,
@@ -395,7 +395,7 @@ static GnomeCanvasItem *colors_create_item(GnomeCanvasGroup *parent) {
 
   g_free(str);
 
-  gnome_canvas_item_hide(highlight_image_item);
+  goo_canvas_item_hide(highlight_image_item);
 
   gdk_pixbuf_unref(highlight_pixmap);
 
@@ -432,7 +432,7 @@ static void process_ok() {
 /* =====================================================================
  *
  * =====================================================================*/
-static gint item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data) {
+static gint item_event(GooCanvasItem *item, GdkEvent *event, gpointer data) {
   double x, y;
   int i, j, clicked;
 
@@ -445,7 +445,7 @@ static gint item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data) {
   switch (event->type)
     {
     case GDK_BUTTON_PRESS:
-      gnome_canvas_c2w(gcomprisBoard->canvas, x, y, &x, &y);
+      goo_canvas_c2w(gcomprisBoard->canvas, x, y, &x, &y);
       clicked = -1;
       for (i=0; i<4; i++) {
 	for (j=0; j<2; j++) {
@@ -494,6 +494,6 @@ static void highlight_selected(int c) {
   }
   x -= highlight_width/2;
   y -= highlight_height/2;
-  gnome_canvas_item_show(highlight_image_item);
+  goo_canvas_item_show(highlight_image_item);
   gc_item_absolute_move(highlight_image_item, x, y);
 }

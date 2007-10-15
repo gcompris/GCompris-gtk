@@ -33,8 +33,8 @@ void create_mainwindow (GnomeCanvasGroup *rootitem)
   gtk_widget_set_events (wdrawareagrande, GDK_EXPOSURE_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_MOTION_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK | GDK_STRUCTURE_MASK);
 
   /* Gcompris */
-  gnome_canvas_item_new      ( rootitem,
-			       gnome_canvas_widget_get_type(),
+  goo_canvas_item_new      ( rootitem,
+			       goo_canvas_widget_get_type(),
 			       "widget", wdrawareagrande,
 			       "x", (double) X_BASE_BIGAREA,
 			       "y", (double) Y_BASE_BIGAREA,
@@ -51,8 +51,8 @@ void create_mainwindow (GnomeCanvasGroup *rootitem)
   gtk_widget_set_events (wdrawareapetite, GDK_EXPOSURE_MASK | GDK_STRUCTURE_MASK);
 
   /* Gcompris */
-  gnome_canvas_item_new      ( rootitem,
-			       gnome_canvas_widget_get_type(),
+  goo_canvas_item_new      ( rootitem,
+			       goo_canvas_widget_get_type(),
 			       "widget", wdrawareapetite,
 			       "x", (double) X_BASE_SMALLAREA,
 			       "y", (double) Y_BASE_SMALLAREA,
@@ -63,25 +63,25 @@ void create_mainwindow (GnomeCanvasGroup *rootitem)
 
   gtk_widget_show (wdrawareapetite);
 
-  gtk_signal_connect (GTK_OBJECT (wdrawareagrande), "expose_event",
+  g_signal_connect (GTK_OBJECT (wdrawareagrande), "expose_event",
                       GTK_SIGNAL_FUNC (on_wdrawareagrande_expose_event),
                       NULL);
-  gtk_signal_connect (GTK_OBJECT (wdrawareagrande), "configure_event",
+  g_signal_connect (GTK_OBJECT (wdrawareagrande), "configure_event",
                       GTK_SIGNAL_FUNC (on_wdrawareagrande_configure_event),
                       NULL);
-  gtk_signal_connect (GTK_OBJECT (wdrawareagrande), "button_press_event",
+  g_signal_connect (GTK_OBJECT (wdrawareagrande), "button_press_event",
                       GTK_SIGNAL_FUNC (on_wdrawareagrande_button_press_event),
                       NULL);
-  gtk_signal_connect (GTK_OBJECT (wdrawareagrande), "button_release_event",
+  g_signal_connect (GTK_OBJECT (wdrawareagrande), "button_release_event",
                       GTK_SIGNAL_FUNC (on_wdrawareagrande_button_release_event),
                       NULL);
-  gtk_signal_connect (GTK_OBJECT (wdrawareagrande), "motion_notify_event",
+  g_signal_connect (GTK_OBJECT (wdrawareagrande), "motion_notify_event",
                       GTK_SIGNAL_FUNC (on_wdrawareagrande_motion_notify_event),
                       NULL);
-  gtk_signal_connect (GTK_OBJECT (wdrawareapetite), "configure_event",
+  g_signal_connect (GTK_OBJECT (wdrawareapetite), "configure_event",
                       GTK_SIGNAL_FUNC (on_wdrawareapetite_configure_event),
                       NULL);
-  gtk_signal_connect (GTK_OBJECT (wdrawareapetite), "expose_event",
+  g_signal_connect (GTK_OBJECT (wdrawareapetite), "expose_event",
                       GTK_SIGNAL_FUNC (on_wdrawareapetite_expose_event),
                       NULL);
 
@@ -94,22 +94,22 @@ void create_mainwindow (GnomeCanvasGroup *rootitem)
   GdkPixbuf   *pixmap_show = NULL;
   GdkPixbuf   *pixmap_outline = NULL;
   GdkPixbuf   *pixmap_symetry = NULL;
-  GnomeCanvasItem *previous_figure, *next_figure;
-  GnomeCanvasItem *show_figure, *outline_figure, *symetry;
+  GooCanvasItem *previous_figure, *next_figure;
+  GooCanvasItem *show_figure, *outline_figure, *symetry;
 
   pixmap_l = gc_skin_pixmap_load("button_backward.png");
 
   pixmap_r = gc_skin_pixmap_load("button_forward.png");
 
-  previous_figure = gnome_canvas_item_new (rootitem,
-					   gnome_canvas_pixbuf_get_type (),
+  previous_figure = goo_canvas_item_new (rootitem,
+					   goo_canvas_pixbuf_get_type (),
 					   "pixbuf", pixmap_l,
 					   "x", (double) X_BASE_SMALLAREA,
 					   "y", (double) Y_BASE_SMALLAREA + WIDTH_SMALLAREA + 10,
 					   NULL);
 
-  next_figure = gnome_canvas_item_new (rootitem,
-				       gnome_canvas_pixbuf_get_type (),
+  next_figure = goo_canvas_item_new (rootitem,
+				       goo_canvas_pixbuf_get_type (),
 				       "pixbuf", pixmap_r,
 				       "x", (double) X_BASE_SMALLAREA + WIDTH_SMALLAREA,
 				       "y", (double) Y_BASE_SMALLAREA + WIDTH_SMALLAREA + 10,
@@ -117,19 +117,19 @@ void create_mainwindow (GnomeCanvasGroup *rootitem)
 				       NULL);
 
 
-  gtk_signal_connect(GTK_OBJECT(previous_figure), "event",
+  g_signal_connect(GTK_OBJECT(previous_figure), "enter_notify_event",
 		     (GtkSignalFunc) on_arrow_clicked,
 		     (gpointer) FALSE);
 
-  gtk_signal_connect(GTK_OBJECT(previous_figure), "event",
+  g_signal_connect(GTK_OBJECT(previous_figure), "enter_notify_event",
 		     (GtkSignalFunc) gc_item_focus_event,
 		     NULL);
 
-  gtk_signal_connect(GTK_OBJECT(next_figure), "event",
+  g_signal_connect(GTK_OBJECT(next_figure), "enter_notify_event",
 		     (GtkSignalFunc) on_arrow_clicked,
 		     (gpointer) TRUE);
 
-  gtk_signal_connect(GTK_OBJECT(next_figure), "event",
+  g_signal_connect(GTK_OBJECT(next_figure), "enter_notify_event",
 		     (GtkSignalFunc) gc_item_focus_event,
 		     NULL);
 
@@ -138,54 +138,54 @@ void create_mainwindow (GnomeCanvasGroup *rootitem)
 
   pixmap_outline = gc_pixmap_load("tangram/gtans_outline.png");
 
-  show_figure = gnome_canvas_item_new (rootitem,
-				       gnome_canvas_pixbuf_get_type (),
+  show_figure = goo_canvas_item_new (rootitem,
+				       goo_canvas_pixbuf_get_type (),
 				       "pixbuf", pixmap_show,
 				       "x", (double) X_BASE_SMALLAREA,
 				       "y", (double) Y_BASE_SMALLAREA + WIDTH_SMALLAREA + 80,
 				       "anchor",  GTK_ANCHOR_W,
 				       NULL);
 
-  outline_figure = gnome_canvas_item_new (rootitem,
-				       gnome_canvas_pixbuf_get_type (),
+  outline_figure = goo_canvas_item_new (rootitem,
+				       goo_canvas_pixbuf_get_type (),
 				       "pixbuf", pixmap_outline,
 				       "x", (double) X_BASE_SMALLAREA,
 				       "y", (double) Y_BASE_SMALLAREA + WIDTH_SMALLAREA + 130,
 				       "anchor", GTK_ANCHOR_W,
 				       NULL);
 
-  gtk_signal_connect(GTK_OBJECT(outline_figure), "event",
+  g_signal_connect(GTK_OBJECT(outline_figure), "enter_notify_event",
 		     (GtkSignalFunc) on_outline_clicked,
 		     NULL);
 
-  gtk_signal_connect(GTK_OBJECT(show_figure), "event",
+  g_signal_connect(GTK_OBJECT(show_figure), "enter_notify_event",
 		     (GtkSignalFunc) on_show_clicked,
 		     NULL);
 
-  gtk_signal_connect(GTK_OBJECT(outline_figure), "event",
+  g_signal_connect(GTK_OBJECT(outline_figure), "enter_notify_event",
 		     (GtkSignalFunc) gc_item_focus_event,
 		     NULL);
 
-  gtk_signal_connect(GTK_OBJECT(show_figure), "event",
+  g_signal_connect(GTK_OBJECT(show_figure), "enter_notify_event",
 		     (GtkSignalFunc) gc_item_focus_event,
 		     NULL);
 
   pixmap_symetry = gc_skin_pixmap_load("draw/tool-flip.png");
 
 
-  symetry = gnome_canvas_item_new (rootitem,
-				   gnome_canvas_pixbuf_get_type (),
+  symetry = goo_canvas_item_new (rootitem,
+				   goo_canvas_pixbuf_get_type (),
 				   "pixbuf", pixmap_symetry,
 				   "x", (double) X_BASE_SMALLAREA + WIDTH_SMALLAREA - 50,
 				   "y", (double) Y_BASE_SMALLAREA + WIDTH_SMALLAREA + 180,
 				   "anchor", GTK_ANCHOR_N,
 				   NULL);
 
-  gtk_signal_connect(GTK_OBJECT(symetry), "event",
+  g_signal_connect(GTK_OBJECT(symetry), "enter_notify_event",
 		     (GtkSignalFunc) on_symetry_clicked,
 		     NULL);
 
-  gtk_signal_connect(GTK_OBJECT(symetry), "event",
+  g_signal_connect(GTK_OBJECT(symetry), "enter_notify_event",
 		     (GtkSignalFunc) gc_item_focus_event,
 		     NULL);
 
@@ -195,13 +195,13 @@ void create_mainwindow (GnomeCanvasGroup *rootitem)
   GdkPixbuf   *left_rot = NULL;
   GdkPixbuf   *right_rot_big = NULL;
   GdkPixbuf   *left_rot_big = NULL;
-  GnomeCanvasItem *l_rot_s, *r_rot_s, *l_rot_b,  *r_rot_b;
+  GooCanvasItem *l_rot_s, *r_rot_s, *l_rot_b,  *r_rot_b;
 
   right_rot       = gc_pixmap_load("tangram/gtans_rotate.png");
   left_rot        = gc_pixmap_load("tangram/gtans_rotate-left.png");
 
-  r_rot_s = gnome_canvas_item_new (rootitem,
-				   gnome_canvas_pixbuf_get_type (),
+  r_rot_s = goo_canvas_item_new (rootitem,
+				   goo_canvas_pixbuf_get_type (),
 				   "pixbuf", right_rot,
 				   "x", (double) X_BASE_SMALLAREA + WIDTH_SMALLAREA,
 				   "y", (double) Y_BASE_SMALLAREA + WIDTH_SMALLAREA + 60,
@@ -209,8 +209,8 @@ void create_mainwindow (GnomeCanvasGroup *rootitem)
 				   NULL);
 
 
-  l_rot_s = gnome_canvas_item_new (rootitem,
-				   gnome_canvas_pixbuf_get_type (),
+  l_rot_s = goo_canvas_item_new (rootitem,
+				   goo_canvas_pixbuf_get_type (),
 				   "pixbuf", left_rot,
 				   "x", (double) X_BASE_SMALLAREA + WIDTH_SMALLAREA - 100,
 				   "y", (double) Y_BASE_SMALLAREA + WIDTH_SMALLAREA + 60,
@@ -224,8 +224,8 @@ void create_mainwindow (GnomeCanvasGroup *rootitem)
   right_rot_big   = gc_pixmap_load("tangram/gtans_2x-rotate.png");
   left_rot_big    = gc_pixmap_load("tangram/gtans_2x-rotate-left.png");
 
-  r_rot_b = gnome_canvas_item_new (rootitem,
-				   gnome_canvas_pixbuf_get_type (),
+  r_rot_b = goo_canvas_item_new (rootitem,
+				   goo_canvas_pixbuf_get_type (),
 				   "pixbuf", right_rot_big,
 				   "x", (double) X_BASE_SMALLAREA + WIDTH_SMALLAREA,
 				   "y", (double) Y_BASE_SMALLAREA + WIDTH_SMALLAREA + 120,
@@ -233,8 +233,8 @@ void create_mainwindow (GnomeCanvasGroup *rootitem)
 				   NULL);
 
 
-  l_rot_b = gnome_canvas_item_new (rootitem,
-				   gnome_canvas_pixbuf_get_type (),
+  l_rot_b = goo_canvas_item_new (rootitem,
+				   goo_canvas_pixbuf_get_type (),
 				   "pixbuf", left_rot_big,
 				   "x", (double) X_BASE_SMALLAREA + WIDTH_SMALLAREA - 100,
 				   "y", (double) Y_BASE_SMALLAREA + WIDTH_SMALLAREA + 120,
@@ -245,35 +245,35 @@ void create_mainwindow (GnomeCanvasGroup *rootitem)
   gdk_pixbuf_unref(left_rot_big);
 
 
-  gtk_signal_connect(GTK_OBJECT(r_rot_s), "event",
+  g_signal_connect(GTK_OBJECT(r_rot_s), "enter_notify_event",
 		     (GtkSignalFunc) on_rotation_clicked,
 		     (gpointer) 0);
 
-  gtk_signal_connect(GTK_OBJECT(r_rot_s), "event",
+  g_signal_connect(GTK_OBJECT(r_rot_s), "enter_notify_event",
 		     (GtkSignalFunc) gc_item_focus_event,
 		     NULL);
 
-  gtk_signal_connect(GTK_OBJECT(l_rot_s), "event",
+  g_signal_connect(GTK_OBJECT(l_rot_s), "enter_notify_event",
 		     (GtkSignalFunc) on_rotation_clicked,
 		     (gpointer) 1);
 
-  gtk_signal_connect(GTK_OBJECT(l_rot_s), "event",
+  g_signal_connect(GTK_OBJECT(l_rot_s), "enter_notify_event",
 		     (GtkSignalFunc) gc_item_focus_event,
 		     NULL);
 
-  gtk_signal_connect(GTK_OBJECT(r_rot_b), "event",
+  g_signal_connect(GTK_OBJECT(r_rot_b), "enter_notify_event",
 		     (GtkSignalFunc) on_rotation_clicked,
 		     (gpointer) 2);
 
-  gtk_signal_connect(GTK_OBJECT(r_rot_b), "event",
+  g_signal_connect(GTK_OBJECT(r_rot_b), "enter_notify_event",
 		     (GtkSignalFunc) gc_item_focus_event,
 		     NULL);
 
-  gtk_signal_connect(GTK_OBJECT(l_rot_b), "event",
+  g_signal_connect(GTK_OBJECT(l_rot_b), "enter_notify_event",
 		     (GtkSignalFunc) on_rotation_clicked,
 		     (gpointer) 3);
 
-  gtk_signal_connect(GTK_OBJECT(l_rot_b), "event",
+  g_signal_connect(GTK_OBJECT(l_rot_b), "enter_notify_event",
 		     (GtkSignalFunc) gc_item_focus_event,
 		     NULL);
 

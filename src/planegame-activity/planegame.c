@@ -31,7 +31,7 @@ static GcomprisBoard *gcomprisBoard = NULL;
 static gint dummy_id = 0;
 static gint drop_items_id = 0;
 
-static GnomeCanvasItem *planeitem = NULL;
+static GooCanvasItem *planeitem = NULL;
 static gint plane_x, plane_y;
 static gint planespeed_x, planespeed_y;
 
@@ -42,7 +42,7 @@ static gint plane_target, plane_last_target;
 
 typedef struct {
   gint number;
-  GnomeCanvasItem *rootitem;
+  GooCanvasItem *rootitem;
 } CloudItem;
 
 
@@ -53,13 +53,13 @@ static gboolean is_our_board (GcomprisBoard *gcomprisBoard);
 static void set_level (guint level);
 static gint key_press(guint keyval, gchar *commit_str, gchar *preedit_str);
 
-static GnomeCanvasItem *planegame_create_item(GnomeCanvasGroup *parent);
+static GooCanvasItem *planegame_create_item(GnomeCanvasGroup *parent);
 static gint planegame_drop_items (GtkWidget *widget, gpointer data);
 static gint planegame_move_items (GtkWidget *widget, gpointer data);
 static void planegame_destroy_item(CloudItem *clouditem);
 static void planegame_destroy_items(void);
 static void planegame_destroy_all_items(void);
-static void setup_item(GnomeCanvasItem *item);
+static void setup_item(GooCanvasItem *item);
 static void planegame_next_level(void);
 
 static  guint32              fallSpeed = 0;
@@ -143,7 +143,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       /* disable im_context */
       gcomprisBoard->disable_im_context = TRUE;
 
-      gc_set_background(gnome_canvas_root(gcomprisBoard->canvas),
+      gc_set_background(goo_canvas_get_root_item(gcomprisBoard->canvas),
 			"planegame/scenery3_background.png");
 
 
@@ -277,8 +277,8 @@ static void planegame_next_level()
   pixmap = gc_pixmap_load("planegame/tuxhelico.png");
   plane_x = 50;
   plane_y = 300;
-  planeitem = gnome_canvas_item_new (gnome_canvas_root(gcomprisBoard->canvas),
-				     gnome_canvas_pixbuf_get_type (),
+  planeitem = goo_canvas_item_new (goo_canvas_get_root_item(gcomprisBoard->canvas),
+				     goo_canvas_pixbuf_get_type (),
 				     "pixbuf", pixmap,
 				     "x", (double) plane_x,
 				     "y", (double) plane_y,
@@ -318,15 +318,15 @@ static void planegame_cloud_colision(CloudItem *clouditem)
 {
   double px1, px2, py1, py2;
   double x1, x2, y1, y2;
-  GnomeCanvasItem *item;
+  GooCanvasItem *item;
 
   if(clouditem==NULL)
     return;
 
   item = clouditem->rootitem;
 
-  gnome_canvas_item_get_bounds(planeitem,  &px1, &py1, &px2, &py2);
-  gnome_canvas_item_get_bounds(item,  &x1, &y1, &x2, &y2);
+  goo_canvas_item_get_bounds(planeitem,  &px1, &py1, &px2, &py2);
+  goo_canvas_item_get_bounds(item,  &x1, &y1, &x2, &y2);
 
   if(
      ISIN(x1, y1, px1, py1, px2, py2) ||
@@ -362,7 +362,7 @@ static void planegame_cloud_colision(CloudItem *clouditem)
 }
 
 /* Move the plane */
-static void planegame_move_plane(GnomeCanvasItem *item)
+static void planegame_move_plane(GooCanvasItem *item)
 {
   if(plane_x>gcomprisBoard->width-150 && planespeed_x>0)
     planespeed_x=0;
@@ -376,7 +376,7 @@ static void planegame_move_plane(GnomeCanvasItem *item)
   if(plane_y<10 && planespeed_y<0)
     planespeed_y=0;
 
-  gnome_canvas_item_move(item, (double)planespeed_x, (double)planespeed_y);
+  goo_canvas_item_translate(item, (double)planespeed_x, (double)planespeed_y);
   plane_x+=planespeed_x;
   plane_y+=planespeed_y;
 }
@@ -384,11 +384,11 @@ static void planegame_move_plane(GnomeCanvasItem *item)
 static void planegame_move_item(CloudItem *clouditem)
 {
   double x1, y1, x2, y2;
-  GnomeCanvasItem *item = clouditem->rootitem;
+  GooCanvasItem *item = clouditem->rootitem;
 
-  gnome_canvas_item_move(item, -2.0, 0.0);
+  goo_canvas_item_translate(item, -2.0, 0.0);
 
-  gnome_canvas_item_get_bounds    (item,
+  goo_canvas_item_get_bounds    (item,
 				   &x1,
 				   &y1,
 				   &x2,
@@ -402,7 +402,7 @@ static void planegame_move_item(CloudItem *clouditem)
 
 static void planegame_destroy_item(CloudItem *clouditem)
 {
-  GnomeCanvasItem *item = clouditem->rootitem;
+  GooCanvasItem *item = clouditem->rootitem;
 
   item_list = g_list_remove (item_list, clouditem);
   item2del_list = g_list_remove (item2del_list, clouditem);
@@ -461,10 +461,10 @@ static gint planegame_move_items (GtkWidget *widget, gpointer data)
   return(FALSE);
 }
 
-static GnomeCanvasItem *planegame_create_item(GnomeCanvasGroup *parent)
+static GooCanvasItem *planegame_create_item(GnomeCanvasGroup *parent)
 {
   GdkPixbuf *pixmap = NULL;
-  GnomeCanvasItem *itemgroup;
+  GooCanvasItem *itemgroup;
   char *number = NULL;
   int i, min;
   CloudItem *clouditem;
@@ -485,8 +485,8 @@ static GnomeCanvasItem *planegame_create_item(GnomeCanvasGroup *parent)
   pixmap = gc_pixmap_load("planegame/cloud.png");
 
   itemgroup = \
-    gnome_canvas_item_new (parent,
-			   gnome_canvas_group_get_type (),
+    goo_canvas_item_new (parent,
+			   goo_canvas_group_get_type (),
 			   "x", (double) gcomprisBoard->width,
 			   "y", (double)(g_random_int()%(gcomprisBoard->height-
 						 (guint)(gdk_pixbuf_get_height(pixmap)*
@@ -494,8 +494,8 @@ static GnomeCanvasItem *planegame_create_item(GnomeCanvasGroup *parent)
 			   NULL);
 
 
-  gnome_canvas_item_new (GNOME_CANVAS_GROUP(itemgroup),
-			 gnome_canvas_pixbuf_get_type (),
+  goo_canvas_item_new (GOO_CANVAS_GROUP(itemgroup),
+			 goo_canvas_pixbuf_get_type (),
 			 "pixbuf", pixmap,
 			 "x", (double) -gdk_pixbuf_get_width(pixmap)*imageZoom/2,
 			 "y", (double) -gdk_pixbuf_get_height(pixmap)*imageZoom/2,
@@ -507,8 +507,8 @@ static GnomeCanvasItem *planegame_create_item(GnomeCanvasGroup *parent)
   gdk_pixbuf_unref(pixmap);
 
 
-  gnome_canvas_item_new (GNOME_CANVAS_GROUP(itemgroup),
-			 gnome_canvas_text_get_type (),
+  goo_canvas_item_new (GOO_CANVAS_GROUP(itemgroup),
+			 goo_canvas_text_get_type (),
 			 "text", number,
 			 "font", gc_skin_font_board_big,
 			 "x", (double) 0,
@@ -517,7 +517,7 @@ static GnomeCanvasItem *planegame_create_item(GnomeCanvasGroup *parent)
 			 NULL);
 
   /* The plane is always on top */
-  gnome_canvas_item_raise_to_top(planeitem);
+  goo_canvas_item_raise_to_top(planeitem);
 
   clouditem = g_malloc(sizeof(CloudItem));
   clouditem->rootitem = itemgroup;
@@ -532,7 +532,7 @@ static GnomeCanvasItem *planegame_create_item(GnomeCanvasGroup *parent)
 
 static void planegame_add_new_item()
 {
-  setup_item (planegame_create_item(gnome_canvas_root(gcomprisBoard->canvas)));
+  setup_item (planegame_create_item(goo_canvas_get_root_item(gcomprisBoard->canvas)));
 }
 
 /*
@@ -549,7 +549,7 @@ static gint planegame_drop_items (GtkWidget *widget, gpointer data)
 }
 
 static gint
-item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
+item_event(GooCanvasItem *item, GdkEvent *event, gpointer data)
 {
    static double x, y;
    double new_x, new_y;
@@ -562,7 +562,7 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 
    item_x = event->button.x;
    item_y = event->button.y;
-   gnome_canvas_item_w2i(item->parent, &item_x, &item_y);
+   goo_canvas_convert_to_item_space(item->parent, &item_x, &item_y);
 
    switch (event->type)
      {
@@ -597,7 +597,7 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
            new_x = item_x;
            new_y = item_y;
 
-           gnome_canvas_item_move(item, new_x - x, new_y - y);
+           goo_canvas_item_translate(item, new_x - x, new_y - y);
            x = new_x;
            y = new_y;
          }
@@ -619,9 +619,9 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
  }
 
 static void
-setup_item(GnomeCanvasItem *item)
+setup_item(GooCanvasItem *item)
 {
-  gtk_signal_connect(GTK_OBJECT(item), "event",
+  g_signal_connect(GTK_OBJECT(item), "enter_notify_event",
 		     (GtkSignalFunc) item_event,
 		     NULL);
 }

@@ -38,15 +38,15 @@ static void		 game_won(void);
 
 /* ================================================================ */
 static GnomeCanvasGroup *boardRootItem = NULL;
-static GnomeCanvasItem *highlight_image_item = NULL;
-static GnomeCanvasItem *color_item = NULL;
-static GnomeCanvasItem *clock_image_item = NULL;
+static GooCanvasItem *highlight_image_item = NULL;
+static GooCanvasItem *color_item = NULL;
+static GooCanvasItem *clock_image_item = NULL;
 static GdkPixbuf *clock_pixmap = NULL;
 
-static GnomeCanvasItem *read_colors_create_item(GnomeCanvasGroup *parent);
+static GooCanvasItem *read_colors_create_item(GnomeCanvasGroup *parent);
 static void read_colors_destroy_all_items(void);
 static void read_colors_next_level(void);
-static gint item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data);
+static gint item_event(GooCanvasItem *item, GdkEvent *event, gpointer data);
 static void update_clock();
 
 static int highlight_width, highlight_height, errors;
@@ -138,7 +138,7 @@ static void start_board (GcomprisBoard *agcomprisBoard) {
 
   if(agcomprisBoard!=NULL) {
     gcomprisBoard=agcomprisBoard;
-    gc_set_background(gnome_canvas_root(gcomprisBoard->canvas),
+    gc_set_background(goo_canvas_get_root_item(gcomprisBoard->canvas),
 		      "read_colors/read_colors_background.png");
     gcomprisBoard->level=1;
     gcomprisBoard->maxlevel=1;
@@ -162,7 +162,7 @@ static void start_board (GcomprisBoard *agcomprisBoard) {
     }
     g_list_free(list);
 
-    gtk_signal_connect(GTK_OBJECT(gcomprisBoard->canvas), "event",  (GtkSignalFunc) item_event, NULL);
+    g_signal_connect(GTK_OBJECT(gcomprisBoard->canvas), "enter_notify_event",  (GtkSignalFunc) item_event, NULL);
     read_colors_next_level();
     pause_board(FALSE);
   }
@@ -209,11 +209,11 @@ static void read_colors_next_level() {
   gamewon = FALSE;
 
   /* Try the next level */
-  read_colors_create_item(gnome_canvas_root(gcomprisBoard->canvas));
+  read_colors_create_item(goo_canvas_get_root_item(gcomprisBoard->canvas));
 
   /* show text of color to find */
-  color_item = gnome_canvas_item_new (boardRootItem,
-				      gnome_canvas_text_get_type (),
+  color_item = goo_canvas_item_new (boardRootItem,
+				      goo_canvas_text_get_type (),
 				      "text", gettext(colors[GPOINTER_TO_INT(g_list_nth_data(listColors,0))]),
 				      "font", gc_skin_font_board_title_bold,
 				      "x", (double) (color_x1+color_x2)/2,
@@ -236,13 +236,13 @@ static void read_colors_destroy_all_items() {
 /* =====================================================================
  *
  * =====================================================================*/
-static GnomeCanvasItem *read_colors_create_item(GnomeCanvasGroup *parent) {
+static GooCanvasItem *read_colors_create_item(GnomeCanvasGroup *parent) {
   GdkPixbuf *highlight_pixmap = NULL;
   char *str = NULL;
 
-  boardRootItem = GNOME_CANVAS_GROUP(
-				     gnome_canvas_item_new (gnome_canvas_root(gcomprisBoard->canvas),
-							    gnome_canvas_group_get_type (),
+  boardRootItem = GOO_CANVAS_GROUP(
+				     goo_canvas_item_new (goo_canvas_get_root_item(gcomprisBoard->canvas),
+							    goo_canvas_group_get_type (),
 							    "x", (double) 0,
 							    "y", (double) 0,
 							    NULL));
@@ -250,8 +250,8 @@ static GnomeCanvasItem *read_colors_create_item(GnomeCanvasGroup *parent) {
   str = g_strdup_printf("%s/%s", gcomprisBoard->boarddir, "read_colors_highlight.png");
   highlight_pixmap = gc_pixmap_load(str);
 
-  highlight_image_item = gnome_canvas_item_new (boardRootItem,
-						gnome_canvas_pixbuf_get_type (),
+  highlight_image_item = goo_canvas_item_new (boardRootItem,
+						goo_canvas_pixbuf_get_type (),
 						"pixbuf", highlight_pixmap,
 						"x", (double) 0,
 						"y", (double) 0,
@@ -265,7 +265,7 @@ static GnomeCanvasItem *read_colors_create_item(GnomeCanvasGroup *parent) {
   highlight_height = gdk_pixbuf_get_height(highlight_pixmap);
 
   g_free(str);
-  gnome_canvas_item_hide(highlight_image_item);
+  goo_canvas_item_hide(highlight_image_item);
 
   gdk_pixbuf_unref(highlight_pixmap);
 
@@ -273,8 +273,8 @@ static GnomeCanvasItem *read_colors_create_item(GnomeCanvasGroup *parent) {
   str = g_strdup_printf("%s%d.png", "timers/clock",errors);
   clock_pixmap = gc_skin_pixmap_load(str);
 
-  clock_image_item = gnome_canvas_item_new (boardRootItem,
-					    gnome_canvas_pixbuf_get_type (),
+  clock_image_item = goo_canvas_item_new (boardRootItem,
+					    goo_canvas_pixbuf_get_type (),
 					    "pixbuf", clock_pixmap,
 					    "x", (double) CLOCK_X,
 					    "y", (double) CLOCK_Y,
@@ -298,8 +298,8 @@ static void update_clock() {
 
   clock_pixmap = gc_skin_pixmap_load(str);
 
-  clock_image_item = gnome_canvas_item_new (boardRootItem,
-					    gnome_canvas_pixbuf_get_type (),
+  clock_image_item = goo_canvas_item_new (boardRootItem,
+					    goo_canvas_pixbuf_get_type (),
 					    "pixbuf", clock_pixmap,
 					    "x", (double) CLOCK_X,
 					    "y", (double) CLOCK_Y,
@@ -354,7 +354,7 @@ static void process_ok() {
 /* =====================================================================
  *
  * =====================================================================*/
-static gint item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data) {
+static gint item_event(GooCanvasItem *item, GdkEvent *event, gpointer data) {
   double x, y;
   int i, clicked;
 
@@ -367,7 +367,7 @@ static gint item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data) {
   switch (event->type)
     {
     case GDK_BUTTON_PRESS:
-      gnome_canvas_c2w (gcomprisBoard->canvas, x, y, &x, &y);
+      goo_canvas_c2w (gcomprisBoard->canvas, x, y, &x, &y);
       clicked = -1;
       for (i=0; i<LAST_COLOR; i++) {
 	if (hypot((double) (X[i]-x),(double)(Y[i]-y)) < RADIUS) {
@@ -404,6 +404,6 @@ static void highlight_selected(int c) {
 
   x -= highlight_width/2;
   y -= highlight_height/2;
-  gnome_canvas_item_show(highlight_image_item);
+  goo_canvas_item_show(highlight_image_item);
   gc_item_absolute_move(highlight_image_item, x, y);
 }

@@ -2,7 +2,7 @@
  *
  * Time-stamp: <2006/08/21 23:30:07 bruno>
  *
- * Copyright (C) 2000 Bruno Coudoin
+ * Copyright (C) 2000-2007 Bruno Coudoin
  *
  *   This program is free software; you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
@@ -27,8 +27,6 @@
 #include "gcompris/gcompris.h"
 #include "gcompris/pixbuf_util.h"
 
-#include <libart_lgpl/art_affine.h>
-
 #define SOUNDLISTFILE PACKAGE
 
 static gboolean board_paused = TRUE;
@@ -48,7 +46,7 @@ typedef struct {
   gint fright;
   gint stun;
   gint currentItem;
-  GnomeCanvasItem *rootitem;
+  GooCanvasItem *rootitem;
   GSList *fwd_frames;
   GSList *rev_frames;
   GSList *cur_frames;  // points to fwd_frames or rev_frames
@@ -205,14 +203,16 @@ fish_reverse_direction (FishItem *fish)
 {
   fish->speed = -fish->speed;
 
-  gnome_canvas_item_hide(g_slist_nth_data(fish->cur_frames,
-					  fish->currentItem));
+  g_object_set(g_slist_nth_data(fish->cur_frames,
+				fish->currentItem),
+	       "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
 
   fish->cur_frames =
     fish->speed<0? fish->rev_frames : fish->fwd_frames;
 
-  gnome_canvas_item_show(g_slist_nth_data(fish->cur_frames,
-					  fish->currentItem));
+  g_object_set(g_slist_nth_data(fish->cur_frames,
+				fish->currentItem),
+	       "visibility", GOO_CANVAS_ITEM_VISIBLE, NULL);
 }
 
 static void
@@ -241,165 +241,117 @@ fish_gobble (FishItem *fishitem)
     }
 }
 
-static gint
-canvas_event(GnomeCanvas *canvas, GdkEvent *event)
+static gboolean
+canvas_event (GooCanvasItem  *item,
+	      GooCanvasItem  *target,
+	      GdkEventButton *event,
+	      gpointer *data)
 {
   FishItem *fish;
-  double mouse_x = event->button.x;
-  double mouse_y = event->button.y;
+  gdouble mouse_x;
+  gdouble mouse_y;
   int ii;
 
-  switch (event->type)
-     {
-     case GDK_BUTTON_PRESS:
-       switch(event->button.button)
-         {
-         case 1:
-         case 2:
-         case 3:
-           if (gcomprisBoard->level >= 3 &&
-	       !(event->button.state & GDK_SHIFT_MASK)) {
-	     for (ii=0; (fish=g_list_nth_data(item_list, ii)); ii++) {
-	       double dx, dy, near;
-	       double x1,x2,y1,y2;
-	       int react;
-	       gnome_canvas_item_get_bounds (fish->rootitem, &x1, &y1, &x2, &y2);
-	       //printf("fish %d\n", ii);
+  if(!event)
+    return FALSE;
 
-	       dy = (mouse_y - (y1 + (y2 - y1) / 2)) / ((y2 - y1) / 2);
-	       //printf("dy = %.2f\n", dy);
-	       if (fabs(dy) > 3) continue;
+  mouse_x = event->x;
+  mouse_y = event->y;
 
-	       dx = (mouse_x - (x1 + (x2 - x1) / 2)) / ((x2 - x1) / 2);
-	       //printf("dx = %.2f\n", dx);
-	       if (fabs(dx) > 3) continue;
+  if (gcomprisBoard->level >= 3 &&
+      !(event->state & GDK_SHIFT_MASK)) {
+    for (ii=0; (fish=g_list_nth_data(item_list, ii)); ii++) {
+      double dx, dy, near;
+      int react;
+      GooCanvasBounds bounds;
+      goo_canvas_item_get_bounds (fish->rootitem, &bounds);
+      //printf("fish %d\n", ii);
 
-	       // 0 to .9
-	       near = (sqrt(2*3*3) - sqrt(dx*dx + dy*dy))/(1.11 * sqrt(2*3*3));
-	       //printf("near = %.2f\n", near);
+      dy = (mouse_y - (bounds.y1 + (bounds.y2 - bounds.y1) / 2)) / ((bounds.y2 - bounds.y1) / 2);
+      //printf("dy = %.2f\n", dy);
+      if (fabs(dy) > 3) continue;
 
-	       react = ((rand() % 1000 < near * 1000) +
-			(rand() % 1000 < near * 1000));
-	       if (react) {
-		 if (gnome_canvas_get_item_at (canvas, mouse_x, mouse_y) !=
-		     g_slist_nth_data (fish->cur_frames, fish->currentItem) &&
-		     (dx > 0) ^ (fish->speed < 0))
-		   {
-		     fish_reverse_direction (fish);
-		     gc_sound_play_ogg ("sounds/drip.wav", NULL);
-		   }
-		 else
-		   react += 1;
-	       }
-	       if (react >= 2)
-		 fish->fright +=
-		   (1000 + rand() % (int)(near * 2000)) / moveSpeed;
-	     }
-	   }
-	   break;
-	 default: break;
-	 }
-       break;
-     default:
-       break;
-     }
+      dx = (mouse_x - (bounds.x1 + (bounds.x2 - bounds.x1) / 2)) / ((bounds.x2 - bounds.x1) / 2);
+      //printf("dx = %.2f\n", dx);
+      if (fabs(dx) > 3) continue;
 
-  return FALSE;
+      // 0 to .9
+      near = (sqrt(2*3*3) - sqrt(dx*dx + dy*dy))/(1.11 * sqrt(2*3*3));
+      //printf("near = %.2f\n", near);
+
+      react = ((rand() % 1000 < near * 1000) +
+	       (rand() % 1000 < near * 1000));
+      if (react) {
+	if (goo_canvas_get_item_at (goo_canvas_item_get_canvas (item),
+				    mouse_x, mouse_y, FALSE) !=
+	    g_slist_nth_data (fish->cur_frames, fish->currentItem) &&
+	    (dx > 0) ^ (fish->speed < 0))
+	  {
+	    fish_reverse_direction (fish);
+	    gc_sound_play_ogg ("sounds/drip.wav", NULL);
+	  }
+	else
+	  react += 1;
+      }
+      if (react >= 2)
+	fish->fright +=
+	  (1000 + rand() % (int)(near * 2000)) / moveSpeed;
+    }
+
+  }
+  return TRUE;
 }
 
-static gint
-item_event(GnomeCanvasItem *item, GdkEvent *event, FishItem *fishitem)
+static gboolean
+item_event (GooCanvasItem  *item,
+	    GooCanvasItem  *target,
+	    GdkEventButton *event,
+	    FishItem *fishitem)
 {
-   static double x, y;
-   double new_x, new_y;
-   GdkCursor *fleur;
-   static int dragging;
    double item_x, item_y;
 
-   if(!gcomprisBoard)
+   if(!gcomprisBoard || !event)
      return FALSE;
 
    if(board_paused)
      return FALSE;
 
-   item_x = event->button.x;
-   item_y = event->button.y;
-   gnome_canvas_item_w2i(item->parent, &item_x, &item_y);
+   item_x = event->x;
+   item_y = event->y;
+   goo_canvas_convert_to_item_space( goo_canvas_item_get_canvas(item),
+				     goo_canvas_item_get_parent(item), &item_x, &item_y);
 
-   switch (event->type)
+   switch(event->button)
      {
-     case GDK_BUTTON_PRESS:
-       switch(event->button.button)
-         {
-         case 1:
-         case 2:
-         case 3:
-           if (event->button.state & GDK_SHIFT_MASK)
-             {
-               x = item_x;
-               y = item_y;
-
-               fleur = gdk_cursor_new(GDK_FLEUR);
-               gc_canvas_item_grab(item,
-                                      GDK_POINTER_MOTION_MASK |
-                                      GDK_BUTTON_RELEASE_MASK,
-                                      fleur,
-                                      event->button.time);
-               gdk_cursor_destroy(fleur);
-               dragging = TRUE;
-             }
-           else
-             {
-	       if (gcomprisBoard->level >= 5 && !fishitem->stun) {
-		 fishitem->stun = 500 * (1 + gcomprisBoard->maxlevel - gcomprisBoard->level) / moveSpeed;
-		 fishitem->fright += 500 / moveSpeed;
-	       } else {
-		 fish_gobble (fishitem);
-	       }
-             }
-           break;
-
-         case 4:
-	   /* fish up */
-	   gnome_canvas_item_move(item, 0.0, -3.0);
-	   break;
-
-         case 5:
-	   /* fish down */
-	   gnome_canvas_item_move(item, 0.0, 3.0);
-	   break;
-
-         default:
-           break;
-         }
-       break;
-
-     case GDK_MOTION_NOTIFY:
-       if (dragging && (event->motion.state & GDK_BUTTON1_MASK))
-         {
-           new_x = item_x;
-           new_y = item_y;
-
-           gnome_canvas_item_move(item, new_x - x, new_y - y);
-           x = new_x;
-           y = new_y;
-         }
-       break;
-
-     case GDK_BUTTON_RELEASE:
-       if(dragging)
-	 {
-	   gc_canvas_item_ungrab(item, event->button.time);
-	   dragging = FALSE;
+     case 1:
+     case 2:
+     case 3:
+       {
+	   if (gcomprisBoard->level >= 5 && !fishitem->stun) {
+	     fishitem->stun = 500 * (1 + gcomprisBoard->maxlevel - gcomprisBoard->level) / moveSpeed;
+	     fishitem->fright += 500 / moveSpeed;
+	   } else {
+	     fish_gobble (fishitem);
+	   }
 	 }
+       break;
+
+     case 4:
+       /* fish up */
+       goo_canvas_item_translate(item, 0.0, -3.0);
+       break;
+
+     case 5:
+       /* fish down */
+       goo_canvas_item_translate(item, 0.0, 3.0);
        break;
 
      default:
        break;
      }
 
-   return FALSE;
- }
+   return TRUE;
+}
 
 /*
  */
@@ -421,8 +373,8 @@ static void clickgame_start (GcomprisBoard *agcomprisBoard)
   gc_bar_set(GC_BAR_LEVEL);
 
   event_handle_id =
-    gtk_signal_connect(GTK_OBJECT(gcomprisBoard->canvas), "event",
-		       (GtkSignalFunc) canvas_event, 0);
+    g_signal_connect(gcomprisBoard->canvas, "enter_notify_event",
+		       (GtkSignalFunc) canvas_event, NULL);
   clickgame_next_level();
 
   clickgame_pause(FALSE);
@@ -502,7 +454,7 @@ static void clickgame_next_level()
   if (bgx < 0 || G_N_ELEMENTS(bglist) <= bgx)
     bgx = G_N_ELEMENTS(bglist) - 1;
 
-  gc_set_background(gnome_canvas_root(gcomprisBoard->canvas), bglist[bgx]);
+  gc_set_background(goo_canvas_get_root_item(gcomprisBoard->canvas), bglist[bgx]);
 
   gc_bar_set_level(gcomprisBoard);
 
@@ -516,7 +468,7 @@ static void clickgame_next_level()
   while (g_list_length (item_list) < 3) {
     FishItem *fish = clickgame_create_item();
     if (!fish) break;
-    gnome_canvas_item_move(fish->rootitem,
+    goo_canvas_item_translate(fish->rootitem,
                           fish->speed * (rand() % 200), 0.0);
   }
 }
@@ -532,11 +484,15 @@ static void clickgame_animate_item(FishItem *fishitem)
   if(fishitem->currentItem >= g_slist_length(fishitem->cur_frames))
     fishitem->currentItem=0;
 
-  gnome_canvas_item_show((GnomeCanvasItem *)g_slist_nth_data(fishitem->cur_frames,
-							     fishitem->currentItem));
+  g_object_set((GooCanvasItem *)g_slist_nth_data(fishitem->cur_frames,
+						 fishitem->currentItem),
+	       "visibility", GOO_CANVAS_ITEM_VISIBLE,
+		NULL);
 
-  gnome_canvas_item_hide((GnomeCanvasItem *)g_slist_nth_data(fishitem->cur_frames,
-							     currentItem));
+  g_object_set((GooCanvasItem *)g_slist_nth_data(fishitem->cur_frames,
+						 currentItem),
+	       "visibility", GOO_CANVAS_ITEM_INVISIBLE,
+	       NULL);
 }
 
 static void
@@ -554,9 +510,8 @@ fish_escape (FishItem *fishitem)
 static void clickgame_move_item(FishItem *fishitem)
 {
   double sp = fishitem->speed;
-  double x1, y1, x2, y2;
 
-  GnomeCanvasItem *item = fishitem->rootitem;
+  GooCanvasItem *item = fishitem->rootitem;
 
   if (fishitem->stun) {
     --fishitem->stun;
@@ -565,41 +520,37 @@ static void clickgame_move_item(FishItem *fishitem)
     --fishitem->fright;
     sp *= 3 + (rand() % 3000) / 1000.0;
   }
-  gnome_canvas_item_move(item, sp, 0.0);
+  goo_canvas_item_translate(item, sp, 0.0);
 
-
-  gnome_canvas_item_get_bounds    (item,
-				   &x1,
-				   &y1,
-				   &x2,
-				   &y2);
+  GooCanvasBounds bounds;
+  goo_canvas_item_get_bounds (item, &bounds);
 
   if(fishitem->speed>0)
     {
-      if(x1>gcomprisBoard->width)
+      if(bounds.x1>gcomprisBoard->width)
 	fish_escape (fishitem);
     }
   else
     {
-      if(x2<0)
+      if(bounds.x2<0)
 	fish_escape (fishitem);
     }
 
   while (g_list_length (item_list) < 3) {
     FishItem *fish = clickgame_create_item();
     if (!fish) break;
-    gnome_canvas_item_move(fish->rootitem,
-                          fish->speed * (rand() % 200), 0.0);
+    goo_canvas_item_translate(fish->rootitem,
+			      fish->speed * (rand() % 200), 0.0);
   }
 }
 
 static void clickgame_destroy_item(FishItem *fishitem)
 {
-  GnomeCanvasItem *item = fishitem->rootitem;
+  GooCanvasItem *item = fishitem->rootitem;
 
   item_list = g_list_remove (item_list, fishitem);
   item2del_list = g_list_remove (item2del_list, fishitem);
-  gtk_object_destroy (GTK_OBJECT(item));
+  goo_canvas_item_remove(item);
 
   g_slist_free (fishitem->fwd_frames);
   g_slist_free (fishitem->rev_frames);
@@ -713,12 +664,15 @@ static GSList *load_random_fish(gboolean smallish)
 static FishItem *
 clickgame_create_item()
 {
-  GnomeCanvasGroup *parent = gnome_canvas_root(gcomprisBoard->canvas);
+  GooCanvasItem *parent = \
+    goo_canvas_group_new (goo_canvas_get_root_item(gcomprisBoard->canvas),
+			  NULL);
+
   GdkPixbuf *pixmap = NULL;
   GdkPixbuf *pixmap2 = NULL;
-  GnomeCanvasItem *rootitem;
+  GooCanvasItem *rootitem;
   FishItem *fishitem;
-  double x;
+  double x, y;
   gint i, length;
   GSList *ilist;
 
@@ -750,59 +704,57 @@ clickgame_create_item()
   else
     {
       x = (double) -gdk_pixbuf_get_width(pixmap)*imageZoom;
-      fishitem->speed=MAX(fishitem->speed, 1);
+      fishitem->speed = MAX(fishitem->speed, 1);
     }
 
   rootitem = \
-    gnome_canvas_item_new (parent,
-			   gnome_canvas_group_get_type (),
-			   "x", x,
-			   "y", (double)(g_random_int()%(gcomprisBoard->height-
-						 (guint)(gdk_pixbuf_get_height(pixmap)*
-							 imageZoom))),
+    goo_canvas_group_new (parent,
 			   NULL);
 
-  gtk_signal_connect(GTK_OBJECT(rootitem), "event",
-		     (GtkSignalFunc) item_event, fishitem);
+  g_signal_connect(rootitem, "button_press_event",
+		   (GtkSignalFunc) item_event, fishitem);
 
   fishitem->rootitem = rootitem;
 
   length = g_slist_length(ilist);
+
+  y = (g_random_int()%(gcomprisBoard->height-
+		       (guint)(gdk_pixbuf_get_height(pixmap)*
+			       imageZoom)));
+
   for(i=0; i<length; i++)
     {
-      GnomeCanvasItem *fwd, *rev;
+      GooCanvasItem *fwd, *rev;
 
       pixmap = (GdkPixbuf *)g_slist_nth_data(ilist, i);
       pixmap2 = pixbuf_copy_mirror(pixmap, TRUE, FALSE);
 
-      fwd = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
-				   gnome_canvas_pixbuf_get_type (),
-				   "pixbuf", pixmap,
-				   "x", 0.0,
-				   "y", 0.0,
-				   "width", (double) gdk_pixbuf_get_width(pixmap)*imageZoom,
-				   "height", (double) gdk_pixbuf_get_height(pixmap)*imageZoom,
-				   "width_set", TRUE,
-				   "height_set", TRUE,
-				   NULL);
-      rev = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
-				   gnome_canvas_pixbuf_get_type (),
-				   "pixbuf", pixmap2,
-				   "x", 0.0,
-				   "y", 0.0,
-				   "width", (double) gdk_pixbuf_get_width(pixmap2)*imageZoom,
-				   "height", (double) gdk_pixbuf_get_height(pixmap2)*imageZoom,
-				   "width_set", TRUE,
-				   "height_set", TRUE,
-				   NULL);
+      fwd = goo_canvas_image_new (rootitem,
+				  pixmap,
+				  x,
+				  y,
+				  "width", (double) gdk_pixbuf_get_width(pixmap)*imageZoom,
+				  "height", (double) gdk_pixbuf_get_height(pixmap)*imageZoom,
+				  NULL);
+      rev = goo_canvas_image_new (rootitem,
+				  pixmap2,
+				  x,
+				  y,
+				  "width", (double) gdk_pixbuf_get_width(pixmap2)*imageZoom,
+				  "height", (double) gdk_pixbuf_get_height(pixmap2)*imageZoom,
+				  NULL);
       gdk_pixbuf_unref(pixmap);
       gdk_pixbuf_unref(pixmap2);
 
       fishitem->fwd_frames = g_slist_prepend (fishitem->fwd_frames, fwd);
       fishitem->rev_frames = g_slist_prepend (fishitem->rev_frames, rev);
 
-      gnome_canvas_item_hide (fwd);
-      gnome_canvas_item_hide (rev);
+      g_object_set (fwd,
+		    "visibility", GOO_CANVAS_ITEM_INVISIBLE,
+		    NULL);
+      g_object_set (rev,
+		    "visibility", GOO_CANVAS_ITEM_INVISIBLE,
+		    NULL);
     }
 
   g_slist_free (ilist);
@@ -813,8 +765,10 @@ clickgame_create_item()
   fishitem->cur_frames =
     fishitem->speed<0? fishitem->rev_frames : fishitem->fwd_frames;
 
-  gnome_canvas_item_show(g_slist_nth_data(fishitem->cur_frames,
-					  fishitem->currentItem));
+  g_object_set(g_slist_nth_data(fishitem->cur_frames,
+				fishitem->currentItem),
+	       "visibility", GOO_CANVAS_ITEM_VISIBLE,
+	       NULL);
 
   item_list = g_list_append (item_list, fishitem);
 

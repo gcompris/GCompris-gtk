@@ -63,6 +63,14 @@ static void              menu_config_stop(void);
 static void		 menu_create_item(GooCanvasItem *parent, MenuItems *menuitems, GcomprisBoard *board);
 static gboolean		 next_spot();
 static void		 create_info_area(GooCanvasItem *parent, MenuItems *menuitems);
+static gboolean		 on_enter_notify (GooCanvasItem *item,
+					  GooCanvasItem *target,
+					  GdkEventCrossing *event,
+					  MenuItems *menuitems);
+static gboolean		 on_leave_notify (GooCanvasItem *item,
+					  GooCanvasItem *target,
+					  GdkEventCrossing *event,
+					  MenuItems *menuitems);
 static gint		 item_event(GooCanvasItem *item, GdkEvent *event, MenuItems *menuitems);
 static void		 display_board_icon(GcomprisBoard *board, MenuItems *menuitems);
 static void		 free_stuff (GtkObject *obj, gpointer data);
@@ -305,13 +313,17 @@ static void create_panel(GooCanvasItem *parent)
 
     g_object_set_data (G_OBJECT (item), "board", board);
 
-    gtk_signal_connect(GTK_OBJECT(item), "event",
-		       (GtkSignalFunc) item_event,
-		       menuitems);
+    g_signal_connect(GTK_OBJECT(item), "button_press_event",
+		     (GtkSignalFunc) item_event,
+		     menuitems);
+    g_signal_connect (item, "enter_notify_event",
+		      (GtkSignalFunc) on_enter_notify, menuitems);
+    g_signal_connect (item, "leave_notify_event",
+		      (GtkSignalFunc) on_leave_notify, menuitems);
 
-    gtk_signal_connect(GTK_OBJECT(item), "event",
-		       (GtkSignalFunc) gc_item_focus_event,
-		       NULL);
+    g_signal_connect(GTK_OBJECT(item), "enter_notify_event",
+		     (GtkSignalFunc) gc_item_focus_event,
+		     NULL);
 
   }
 
@@ -440,7 +452,7 @@ static void menu_create_item(GooCanvasItem *parent, MenuItems *menuitems, Gcompr
 {
   GdkPixbuf *menu_pixmap = NULL;
   GdkPixbuf *pixmap = NULL;
-  GooCanvasItem *item, *menu_button;
+  GooCanvasItem *menu_button;
   int difficulty;
   gchar *tmp_board_dir;
   gdouble ratio, pixmap_w, pixmap_h;
@@ -517,13 +529,13 @@ static void menu_create_item(GooCanvasItem *parent, MenuItems *menuitems, Gcompr
   if(g_strcasecmp(board->type, "menu")==0)
     {
       pixmap = gc_skin_pixmap_load("menuicon.png");
-      item =  goo_canvas_image_new (parent,
-				    pixmap,
-				    current_x - pixmap_w/2 - 25 -
-				    gdk_pixbuf_get_width(pixmap)/2,
-				    current_y - pixmap_h/2-
-				    gdk_pixbuf_get_height(pixmap)/2,
-				    NULL);
+      goo_canvas_image_new (parent,
+			    pixmap,
+			    current_x - pixmap_w/2 - 25 -
+			    gdk_pixbuf_get_width(pixmap)/2,
+			    current_y - pixmap_h/2-
+			    gdk_pixbuf_get_height(pixmap)/2,
+			    NULL);
       gdk_pixbuf_unref(pixmap);
     }
 
@@ -537,14 +549,65 @@ static void menu_create_item(GooCanvasItem *parent, MenuItems *menuitems, Gcompr
    */
   g_object_set_data (G_OBJECT (menu_button), "board", board);
 
-  gtk_signal_connect(GTK_OBJECT(menu_button), "event",
-		     (GtkSignalFunc) item_event,
-		     menuitems);
+  g_signal_connect(menu_button, "button_press_event",
+		   (GtkSignalFunc) item_event,
+		   menuitems);
+  g_signal_connect (menu_button, "enter_notify_event",
+		    (GtkSignalFunc) on_enter_notify, menuitems);
+  g_signal_connect (menu_button, "leave_notify_event",
+		    (GtkSignalFunc) on_leave_notify, menuitems);
 
-  gtk_signal_connect(GTK_OBJECT(menu_button), "event",
-		     (GtkSignalFunc) gc_item_focus_event,
-		     NULL);
+  g_signal_connect(menu_button, "enter_notify_event",
+		   (GtkSignalFunc) gc_item_focus_event,
+		   NULL);
 
+}
+
+static gboolean
+on_enter_notify (GooCanvasItem  *item,
+		 GooCanvasItem  *target,
+		 GdkEventCrossing *event,
+		 MenuItems *menuitems)
+{
+  GcomprisBoard *board;
+
+  board = g_object_get_data (G_OBJECT (item), "board");
+
+  if(board->title && G_IS_OBJECT(menuitems->boardname_item))
+    g_object_set (menuitems->boardname_item,
+		  "text", board->title,
+		  NULL);
+
+  if(board->description
+     && G_IS_OBJECT(menuitems->description_item))
+    g_object_set(menuitems->description_item,
+		 "text", board->description,
+		 NULL);
+
+  if(board->author && G_IS_OBJECT(menuitems->author_item))
+    g_object_set (menuitems->author_item,
+		  "text", board->author,
+		  NULL);
+
+  return FALSE;
+}
+
+static gboolean
+on_leave_notify (GooCanvasItem  *item,
+		 GooCanvasItem  *target,
+		 GdkEventCrossing *event,
+		 MenuItems *menuitems)
+{
+  g_object_set (menuitems->boardname_item,
+		"text", "", NULL);
+
+  g_object_set (menuitems->description_item,
+		"text", "", NULL);
+
+  g_object_set (menuitems->author_item,
+		"text", "", NULL);
+
+  return FALSE;
 }
 
 static gint
@@ -560,68 +623,30 @@ item_event(GooCanvasItem *item, GdkEvent *event,  MenuItems *menuitems)
 
   board = g_object_get_data (G_OBJECT (item), "board");
 
-  switch (event->type)
+  if(!menu_displayed)
+    return TRUE;
+
+
+  if (strcmp(board->type,"menu")==0)
     {
-    case GDK_ENTER_NOTIFY:
-      if(board->title && G_IS_OBJECT(menuitems->boardname_item))
-	g_object_set (menuitems->boardname_item,
-		      "text", board->title,
-		      NULL);
+      gchar *path = g_strdup_printf("%s/%s",board->section, board->name);
 
-      if(board->description
-	 && G_IS_OBJECT(menuitems->description_item))
-	g_object_set(menuitems->description_item,
-		     "text", board->description,
-		     NULL);
+      gc_sound_play_ogg ("sounds/bleep.wav", NULL);
+      display_section(path);
 
-      if(board->author && G_IS_OBJECT(menuitems->author_item))
-	g_object_set (menuitems->author_item,
-		      "text", board->author,
-		      NULL);
+      if (menu_position)
+	g_free(menu_position);
 
-      break;
-    case GDK_LEAVE_NOTIFY:
-      g_object_set (menuitems->boardname_item,
-		    "text", "", NULL);
+      menu_position = path;
 
-      g_object_set (menuitems->description_item,
-		    "text", "", NULL);
-
-      g_object_set (menuitems->author_item,
-		    "text", "", NULL);
-
-      break;
-    case GDK_BUTTON_PRESS:
-      if(!menu_displayed)
-	return TRUE;
-
-
-      if (strcmp(board->type,"menu")==0)
-	{
-	  gchar *path = g_strdup_printf("%s/%s",board->section, board->name);
-
-	  gc_sound_play_ogg ("sounds/bleep.wav", NULL);
-	  display_section(path);
-
-	  if (menu_position)
-	    g_free(menu_position);
-
-	  menu_position = path;
-
-	}
-      else
-	{
-	  gc_sound_play_ogg ("sounds/level.wav", NULL);
-	  gc_board_run_next (board);
-	}
-
-      break;
-
-    default:
-      break;
+    }
+  else
+    {
+      gc_sound_play_ogg ("sounds/level.wav", NULL);
+      gc_board_run_next (board);
     }
 
-  return FALSE;
+  return TRUE;
 }
 
 /** \brief create the area in which we display the board title and description

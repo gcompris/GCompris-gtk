@@ -34,7 +34,7 @@ static void	 game_won(void);
 
 static GnomeCanvasGroup *boardRootItem = NULL;
 
-static GnomeCanvasItem	*hanoi_create_item(GnomeCanvasGroup *parent);
+static GooCanvasItem	*hanoi_create_item(GnomeCanvasGroup *parent);
 static void		 hanoi_destroy_all_items(void);
 static void		 hanoi_next_level(void);
 
@@ -42,7 +42,7 @@ static void		 hanoi_next_level(void);
  * Contains the piece information
  */
 typedef struct {
-  GnomeCanvasItem *item;
+  GooCanvasItem *item;
   gint i;
   gint j;
   double x;
@@ -51,7 +51,7 @@ typedef struct {
   gint width;
 } PieceItem;
 
-static gint		 item_event(GnomeCanvasItem *item, GdkEvent *event, PieceItem *data);
+static gint		 item_event(GooCanvasItem *item, GdkEvent *event, PieceItem *data);
 
 /* This contains the layout of the pieces */
 #define MAX_NUMBER_X 3
@@ -131,7 +131,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       gc_bar_set(GC_BAR_LEVEL);
 
       img = gc_skin_image_get("gcompris-bg.jpg");
-      gc_set_background(gnome_canvas_root(gcomprisBoard->canvas),
+      gc_set_background(goo_canvas_get_root_item(gcomprisBoard->canvas),
 			img);
       g_free(img);
 
@@ -196,7 +196,7 @@ static void hanoi_next_level()
   number_of_item_y = gcomprisBoard->level + 2;
 
   /* Try the next level */
-  hanoi_create_item(gnome_canvas_root(gcomprisBoard->canvas));
+  hanoi_create_item(goo_canvas_get_root_item(gcomprisBoard->canvas));
 }
 /* ==================================== */
 /* Destroy all the items */
@@ -242,26 +242,26 @@ static void dump_solution()
 #endif
 
 /* ==================================== */
-static GnomeCanvasItem *hanoi_create_item(GnomeCanvasGroup *parent)
+static GooCanvasItem *hanoi_create_item(GnomeCanvasGroup *parent)
 {
   int i,j;
   double gap_x, gap_y;
   double baseline;
-  GnomeCanvasItem *item = NULL;
+  GooCanvasItem *item = NULL;
   GdkPixbuf *pixmap = NULL;
   gchar *filename;
 
-  boardRootItem = GNOME_CANVAS_GROUP(
-				     gnome_canvas_item_new (gnome_canvas_root(gcomprisBoard->canvas),
-							    gnome_canvas_group_get_type (),
+  boardRootItem = GOO_CANVAS_GROUP(
+				     goo_canvas_item_new (goo_canvas_get_root_item(gcomprisBoard->canvas),
+							    goo_canvas_group_get_type (),
 							    "x", (double) 0,
 							    "y", (double) 0,
 							    NULL));
 
   pixmap = gc_skin_pixmap_load("gcompris-shapelabel.png");
   if(pixmap) {
-    gnome_canvas_item_new (boardRootItem,
-			   gnome_canvas_pixbuf_get_type (),
+    goo_canvas_item_new (boardRootItem,
+			   goo_canvas_pixbuf_get_type (),
 			   "pixbuf", pixmap,
 			   "x",	(double)10,
 			   "y",	(double)BOARDHEIGHT - 60,
@@ -272,8 +272,8 @@ static GnomeCanvasItem *hanoi_create_item(GnomeCanvasGroup *parent)
     gdk_pixbuf_unref(pixmap);
   }
 
-  gnome_canvas_item_new (boardRootItem,
-			 gnome_canvas_text_get_type (),
+  goo_canvas_item_new (boardRootItem,
+			 goo_canvas_text_get_type (),
 			 "text", _("Move the entire stack to the right peg, one disc at a time"),
 			 "font", gc_skin_font_board_medium,
 			 "x", (double) BOARDWIDTH/2 +1,
@@ -283,8 +283,8 @@ static GnomeCanvasItem *hanoi_create_item(GnomeCanvasGroup *parent)
 			 "justification", GTK_JUSTIFY_CENTER,
 			 NULL);
 
-  gnome_canvas_item_new (boardRootItem,
-			 gnome_canvas_text_get_type (),
+  goo_canvas_item_new (boardRootItem,
+			 goo_canvas_text_get_type (),
 			 "text", _("Move the entire stack to the right peg, one disc at a time"),
 			 "font", gc_skin_font_board_medium,
 			 "x", (double) BOARDWIDTH/2,
@@ -338,8 +338,8 @@ static GnomeCanvasItem *hanoi_create_item(GnomeCanvasGroup *parent)
       if(i==number_of_item_x-1)
 	{
 	  /* Create the backgound for the target */
-	  gnome_canvas_item_new (boardRootItem,
-				 gnome_canvas_rect_get_type (),
+	  goo_canvas_item_new (boardRootItem,
+				 goo_canvas_rect_get_type (),
 				 "x1", (double) item_width * i + gap_x/2,
 				 "y1", (double) baseline - item_height * number_of_item_y - gap_y - 50,
 				 "x2", (double) item_width * (i+1) - gap_x/2,
@@ -353,8 +353,8 @@ static GnomeCanvasItem *hanoi_create_item(GnomeCanvasGroup *parent)
       /* The disc support */
       pixmap = gc_pixmap_load ("hanoi_real/disc_support.png");
 
-      item = gnome_canvas_item_new (boardRootItem,
-				    gnome_canvas_pixbuf_get_type (),
+      item = goo_canvas_item_new (boardRootItem,
+				    goo_canvas_pixbuf_get_type (),
 				    "x", (double) item_width * i + item_width/2,
 				    "y", (double) baseline - gdk_pixbuf_get_height(pixmap)/2 + item_height/2,
 				    "pixbuf", pixmap,
@@ -375,8 +375,8 @@ static GnomeCanvasItem *hanoi_create_item(GnomeCanvasGroup *parent)
 	      filename = g_strdup_printf("%s%d.png", "hanoi_real/disc", j+1);
 	      pixmap = gc_pixmap_load (filename);
 
-	      item = gnome_canvas_item_new (boardRootItem,
-					    gnome_canvas_pixbuf_get_type (),
+	      item = goo_canvas_item_new (boardRootItem,
+					    goo_canvas_pixbuf_get_type (),
 					    "pixbuf", pixmap,
 					    "x", position[i][j]->x,
 					    "y", position[i][j]->y,
@@ -387,7 +387,7 @@ static GnomeCanvasItem *hanoi_create_item(GnomeCanvasGroup *parent)
 
 	      position[i][j]->item = item;
 
-	      gtk_signal_connect(GTK_OBJECT(item), "event", (GtkSignalFunc) item_event,  position[i][j]);
+	      g_signal_connect(GTK_OBJECT(item), "enter_notify_event", (GtkSignalFunc) item_event,  position[i][j]);
 
 	    }
 	}
@@ -432,7 +432,7 @@ static gboolean is_completed()
 
 /* ==================================== */
 static gint
-item_event(GnomeCanvasItem *item, GdkEvent *event, PieceItem *data)
+item_event(GooCanvasItem *item, GdkEvent *event, PieceItem *data)
 {
    static double x, y;
    double new_x, new_y;
@@ -451,7 +451,7 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, PieceItem *data)
 
   item_x = event->button.x;
   item_y = event->button.y;
-  gnome_canvas_item_w2i(item->parent, &item_x, &item_y);
+  goo_canvas_convert_to_item_space(item->parent, &item_x, &item_y);
 
   switch (event->type)
     {
@@ -469,7 +469,7 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, PieceItem *data)
 	  x = item_x;
 	  y = item_y;
 
-	  gnome_canvas_item_raise_to_top(data->item);
+	  goo_canvas_item_raise_to_top(data->item);
 
 	  fleur = gdk_cursor_new(GDK_FLEUR);
 	  gc_canvas_item_grab(data->item,
@@ -489,7 +489,7 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, PieceItem *data)
 	  new_x = item_x;
 	  new_y = item_y;
 
-	  gnome_canvas_item_move(data->item, new_x - x, new_y - y);
+	  goo_canvas_item_translate(data->item, new_x - x, new_y - y);
 	  x = new_x;
 	  y = new_y;
 	}
@@ -539,7 +539,7 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, PieceItem *data)
 	      gc_item_absolute_move (data->item , data->x - disc_w, data->y - disc_h);
 
 	      /* FIXME : Workaround for bugged canvas */
-	      gnome_canvas_update_now(gcomprisBoard->canvas);
+	      goo_canvas_update_now(gcomprisBoard->canvas);
 
 	      return FALSE;
 	    }
@@ -559,7 +559,7 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, PieceItem *data)
 	      gc_item_absolute_move (data->item , data->x - disc_w, data->y - disc_h);
 
 	      /* FIXME : Workaround for bugged canvas */
-	      gnome_canvas_update_now(gcomprisBoard->canvas);
+	      goo_canvas_update_now(gcomprisBoard->canvas);
 
 	      return FALSE;
 	    }
@@ -581,7 +581,7 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, PieceItem *data)
 			      piece_dst->y - disc_h);
 
 	  /* FIXME : Workaround for bugged canvas */
-	  gnome_canvas_update_now(gcomprisBoard->canvas);
+	  goo_canvas_update_now(gcomprisBoard->canvas);
 
 	  /* Swap values in the pieces */
 	  tmpx    = data->x;

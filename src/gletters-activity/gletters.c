@@ -106,19 +106,19 @@ static void gletter_config_start(GcomprisBoard *agcomprisBoard,
 					     GcomprisProfile *aProfile);
 static void gletter_config_stop(void);
 
-static GnomeCanvasItem *gletters_create_item(GnomeCanvasGroup *parent);
+static GooCanvasItem *gletters_create_item(GnomeCanvasGroup *parent);
 static gint gletters_drop_items (GtkWidget *widget, gpointer data);
 static gint gletters_move_items (GtkWidget *widget, gpointer data);
-static void gletters_destroy_item(GnomeCanvasItem *item);
+static void gletters_destroy_item(GooCanvasItem *item);
 static void gletters_destroy_items(void);
 static void gletters_destroy_all_items(void);
 static void gletters_next_level(void);
 static void gletters_add_new_item(void);
 
-static void player_win(GnomeCanvasItem *item);
+static void player_win(GooCanvasItem *item);
 static void player_loose(void);
-static GnomeCanvasItem *item_find_by_title (const gunichar *title);
-static gunichar *key_find_by_item (const GnomeCanvasItem *item);
+static GooCanvasItem *item_find_by_title (const gunichar *title);
+static gunichar *key_find_by_item (const GooCanvasItem *item);
 
 static  guint32              fallSpeed = 0;
 static  double               speed = 0.0;
@@ -313,7 +313,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
     {
       gcomprisBoard=agcomprisBoard;
       load_default_charset();
-      gc_set_background(gnome_canvas_root(gcomprisBoard->canvas),
+      gc_set_background(goo_canvas_get_root_item(gcomprisBoard->canvas),
 			"gletters/scenery_background.png");
       gcomprisBoard->maxlevel=maxLevel;
       gcomprisBoard->level = 1;
@@ -381,7 +381,7 @@ gboolean unichar_comp(gpointer key,
 
 gint is_falling_letter(gunichar  unichar)
 {
-  GnomeCanvasItem *item;
+  GooCanvasItem *item;
 
   if ((item = g_hash_table_find(letters_table,
 			       unichar_comp,
@@ -495,13 +495,13 @@ static void gletters_next_level()
 }
 
 
-static void gletters_move_item(GnomeCanvasItem *item)
+static void gletters_move_item(GooCanvasItem *item)
 {
   double x1, y1, x2, y2;
 
-  gnome_canvas_item_move(item, 0, 2.0);
+  goo_canvas_item_translate(item, 0, 2.0);
 
-  gnome_canvas_item_get_bounds    (item,
+  goo_canvas_item_get_bounds    (item,
 				   &x1,
 				   &y1,
 				   &x2,
@@ -513,7 +513,7 @@ static void gletters_move_item(GnomeCanvasItem *item)
   }
 }
 
-static void gletters_destroy_item(GnomeCanvasItem *item)
+static void gletters_destroy_item(GooCanvasItem *item)
 {
   gunichar *key;
 
@@ -531,7 +531,7 @@ static void gletters_destroy_item(GnomeCanvasItem *item)
 /* Destroy items that falls out of the canvas */
 static void gletters_destroy_items()
 {
-  GnomeCanvasItem *item;
+  GooCanvasItem *item;
 
   while(g_list_length(item2del_list)>0)
     {
@@ -543,7 +543,7 @@ static void gletters_destroy_items()
 /* Destroy all the items */
 static void gletters_destroy_all_items()
 {
-  GnomeCanvasItem *item;
+  GooCanvasItem *item;
 
   if(item_list)
     while(g_list_length(item_list)>0)
@@ -584,9 +584,9 @@ void destroy_canvas_item(gpointer item)
   gtk_object_destroy (GTK_OBJECT(item));
 }
 
-static GnomeCanvasItem *gletters_create_item(GnomeCanvasGroup *parent)
+static GooCanvasItem *gletters_create_item(GnomeCanvasGroup *parent)
 {
-  GnomeCanvasItem *item;
+  GooCanvasItem *item;
   gint i,j,k;
   guint x;
   gunichar *lettersItem;
@@ -645,15 +645,15 @@ static GnomeCanvasItem *gletters_create_item(GnomeCanvasGroup *parent)
     }
 
   item =					\
-    gnome_canvas_item_new (parent,
-			   gnome_canvas_group_get_type (),
+    goo_canvas_item_new (parent,
+			   goo_canvas_group_get_type (),
 			   "x", (double) 0,
 			   "y", (double) -12,
 			   NULL);
 
   x = g_random_int_range( 80, gcomprisBoard->width-160);
-  gnome_canvas_item_new (GNOME_CANVAS_GROUP(item),
-			 gnome_canvas_text_get_type (),
+  goo_canvas_item_new (GOO_CANVAS_GROUP(item),
+			 goo_canvas_text_get_type (),
 			 "text", letter,
 			 "font", gc_skin_font_board_huge_bold,
 			 "x", (double) x,
@@ -662,8 +662,8 @@ static GnomeCanvasItem *gletters_create_item(GnomeCanvasGroup *parent)
 			 "fill_color_rgba", 0x8c8cFFFF,
 			 NULL);
   x -= 2;
-  gnome_canvas_item_new (GNOME_CANVAS_GROUP(item),
-			 gnome_canvas_text_get_type (),
+  goo_canvas_item_new (GOO_CANVAS_GROUP(item),
+			 goo_canvas_text_get_type (),
 			 "text", letter,
 			 "font", gc_skin_font_board_huge_bold,
 			 "x", (double) x,
@@ -687,7 +687,7 @@ static GnomeCanvasItem *gletters_create_item(GnomeCanvasGroup *parent)
 
 static void gletters_add_new_item()
 {
-  gletters_create_item(gnome_canvas_root(gcomprisBoard->canvas));
+  gletters_create_item(goo_canvas_get_root_item(gcomprisBoard->canvas));
 }
 
 /*
@@ -704,7 +704,7 @@ static gint gletters_drop_items (GtkWidget *widget, gpointer data)
   return (FALSE);
 }
 
-static void player_win(GnomeCanvasItem *item)
+static void player_win(GooCanvasItem *item)
 {
   gletters_destroy_item(item);
   gc_sound_play_ogg ("sounds/flip.wav", NULL);
@@ -751,12 +751,12 @@ static void player_loose()
 }
 
 static gunichar *
-key_find_by_item (const GnomeCanvasItem *item)
+key_find_by_item (const GooCanvasItem *item)
 {
   return g_object_get_data (G_OBJECT(item), "unichar_key");
 }
 
-static GnomeCanvasItem *
+static GooCanvasItem *
 item_find_by_title (const gunichar *title)
 {
   if (!letters_table)

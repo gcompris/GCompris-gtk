@@ -136,7 +136,7 @@ static gboolean  key_release_event (GtkWidget *text_view,
 
 static GnomeCanvasGroup *boardRootItem = NULL;
 
-static GnomeCanvasItem	*wordprocessor_create(void);
+static GooCanvasItem	*wordprocessor_create(void);
 static void		 wordprocessor_destroy_all_items(void);
 static void		 item_event(GtkWidget *item, gchar *data);
 static int		 display_style_buttons(GnomeCanvasGroup *boardRootItem,
@@ -148,9 +148,9 @@ static void		 display_style_selector(GnomeCanvasGroup *boardRootItem, double y);
 static void		 display_color_style_selector(GnomeCanvasGroup *boardRootItem, double y);
 static void		 item_event_style_selection (GtkComboBox *widget, void *data);
 static void		 item_event_color_style_selection (GtkComboBox *widget, void *data);
-static gint		 save_event(GnomeCanvasItem *item, GdkEvent *event,
+static gint		 save_event(GooCanvasItem *item, GdkEvent *event,
 				    void *unused);
-static gint		 load_event(GnomeCanvasItem *item, GdkEvent *event,
+static gint		 load_event(GooCanvasItem *item, GdkEvent *event,
 				    void *unused);
 static int		 get_style_index(gchar *style);
 static int		 get_style_current_index();
@@ -254,7 +254,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       gc_bar_set(0);
 
       img = gc_skin_image_get("gcompris-shapebg.jpg");
-      gc_set_background(gnome_canvas_root(gcomprisBoard->canvas),
+      gc_set_background(goo_canvas_get_root_item(gcomprisBoard->canvas),
 			      img);
       g_free(img);
 
@@ -307,15 +307,15 @@ static void wordprocessor_destroy_all_items()
   boardRootItem = NULL;
 }
 /* ==================================== */
-static GnomeCanvasItem *wordprocessor_create()
+static GooCanvasItem *wordprocessor_create()
 {
-  GnomeCanvasItem *item = NULL;
+  GooCanvasItem *item = NULL;
   GdkPixbuf *pixmap;
   double y;
 
-  boardRootItem = GNOME_CANVAS_GROUP(
-				     gnome_canvas_item_new (gnome_canvas_root(gcomprisBoard->canvas),
-							    gnome_canvas_group_get_type (),
+  boardRootItem = GOO_CANVAS_GROUP(
+				     goo_canvas_item_new (goo_canvas_get_root_item(gcomprisBoard->canvas),
+							    goo_canvas_group_get_type (),
 							    "x", (double) 0,
 							    "y", (double) 0,
 							    NULL));
@@ -337,8 +337,8 @@ static GnomeCanvasItem *wordprocessor_create()
 				  GTK_POLICY_ALWAYS);
   gtk_container_add (GTK_CONTAINER (sw), view);
 
-  item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(boardRootItem),
-				gnome_canvas_widget_get_type (),
+  item = goo_canvas_item_new (GOO_CANVAS_GROUP(boardRootItem),
+				goo_canvas_widget_get_type (),
 				"widget", GTK_WIDGET(sw),
 				"x", (double) word_area_x1,
 				"y", (double) word_area_y1,
@@ -365,17 +365,17 @@ static GnomeCanvasItem *wordprocessor_create()
    */
   pixmap = gc_skin_pixmap_load("draw/tool-save.png");
   item = \
-    gnome_canvas_item_new (boardRootItem,
-			   gnome_canvas_pixbuf_get_type(),
+    goo_canvas_item_new (boardRootItem,
+			   goo_canvas_pixbuf_get_type(),
 			   "pixbuf", pixmap,
 			   "x", 17.0,
 			   "y", y,
 			   "anchor", GTK_ANCHOR_NW,
 			   NULL);
   gdk_pixbuf_unref(pixmap);
-  gtk_signal_connect(GTK_OBJECT(item), "event",
+  g_signal_connect(GTK_OBJECT(item), "enter_notify_event",
 		     (GtkSignalFunc) save_event, buffer);
-  gtk_signal_connect(GTK_OBJECT(item), "event",
+  g_signal_connect(GTK_OBJECT(item), "enter_notify_event",
 		     (GtkSignalFunc) gc_item_focus_event,
 		     NULL);
 
@@ -384,17 +384,17 @@ static GnomeCanvasItem *wordprocessor_create()
    */
   pixmap = gc_skin_pixmap_load("draw/tool-load.png");
   item = \
-    gnome_canvas_item_new (boardRootItem,
-			   gnome_canvas_pixbuf_get_type(),
+    goo_canvas_item_new (boardRootItem,
+			   goo_canvas_pixbuf_get_type(),
 			   "pixbuf", pixmap,
 			   "x", 60.0,
 			   "y", y,
 			   "anchor", GTK_ANCHOR_NW,
 			   NULL);
   gdk_pixbuf_unref(pixmap);
-  gtk_signal_connect(GTK_OBJECT(item), "event",
+  g_signal_connect(GTK_OBJECT(item), "enter_notify_event",
 		     (GtkSignalFunc) load_event, buffer);
-  gtk_signal_connect(GTK_OBJECT(item), "event",
+  g_signal_connect(GTK_OBJECT(item), "enter_notify_event",
 		     (GtkSignalFunc) gc_item_focus_event,
 		     NULL);
 
@@ -440,8 +440,8 @@ display_style_buttons(GnomeCanvasGroup *boardRootItem,
     {
       gtk_button_style[i] = gtk_button_new_with_label(gettext(styles_tab[i*2]));
 
-      gnome_canvas_item_new (boardRootItem,
-			     gnome_canvas_widget_get_type (),
+      goo_canvas_item_new (boardRootItem,
+			     goo_canvas_widget_get_type (),
 			     "widget", GTK_WIDGET(gtk_button_style[i]),
 			     "x", (double) combo_style_x1,
 			     "y", (double) y,
@@ -451,7 +451,7 @@ display_style_buttons(GnomeCanvasGroup *boardRootItem,
 			     "size_pixels", FALSE,
 			     NULL);
 
-      gtk_signal_connect(GTK_OBJECT(gtk_button_style[i]), "pressed",
+      g_signal_connect(GTK_OBJECT(gtk_button_style[i]), "pressed",
 			 (GtkSignalFunc)item_event, styles_tab[i*2+1] );
 
       y += offset_y;
@@ -614,8 +614,8 @@ display_style_selector(GnomeCanvasGroup *boardRootItem, double y)
     gtk_combo_box_append_text(GTK_COMBO_BOX(gtk_combo_styles),
 			      gettext(doctype_list[i++]->name));
 
-  gnome_canvas_item_new (GNOME_CANVAS_GROUP(boardRootItem),
-			 gnome_canvas_widget_get_type (),
+  goo_canvas_item_new (GOO_CANVAS_GROUP(boardRootItem),
+			 goo_canvas_widget_get_type (),
 			 "widget", GTK_WIDGET(gtk_combo_styles),
 			 "x", (double) combo_style_x1,
 			 "y", y,
@@ -649,8 +649,8 @@ display_color_style_selector(GnomeCanvasGroup *boardRootItem, double y)
     gtk_combo_box_append_text(GTK_COMBO_BOX(gtk_combo_colors),
 			      gettext(color_style_list[i++][0]));
 
-  gnome_canvas_item_new (GNOME_CANVAS_GROUP(boardRootItem),
-			 gnome_canvas_widget_get_type (),
+  goo_canvas_item_new (GOO_CANVAS_GROUP(boardRootItem),
+			 goo_canvas_widget_get_type (),
 			 "widget", GTK_WIDGET(gtk_combo_colors),
 			 "x", (double) combo_style_x1,
 			 "y", y,
@@ -1003,7 +1003,7 @@ save_buffer(gchar *file, gchar *file_type)
 }
 
 static gint
-save_event(GnomeCanvasItem *item, GdkEvent *event, void *unused)
+save_event(GooCanvasItem *item, GdkEvent *event, void *unused)
 {
   if (event->type != GDK_BUTTON_PRESS || event->button.button != 1)
     return FALSE;
@@ -1133,7 +1133,7 @@ load_buffer(gchar *file, gchar *file_type)
 }
 
 static gint
-load_event(GnomeCanvasItem *item, GdkEvent *event, void *unused)
+load_event(GooCanvasItem *item, GdkEvent *event, void *unused)
 {
   if (event->type != GDK_BUTTON_PRESS || event->button.button != 1)
     return FALSE;

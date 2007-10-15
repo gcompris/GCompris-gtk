@@ -96,8 +96,8 @@ void gc_bar_start (GooCanvas *theCanvas)
   pixmap = gc_skin_pixmap_load("bar_bg.jpg");
   bar_item = goo_canvas_image_new (rootitem,
 				   pixmap,
-				   (double) 0,
-				   (double) 0,
+				   0,
+				   0,
 				NULL);
   gdk_pixbuf_unref(pixmap);
 
@@ -108,9 +108,9 @@ void gc_bar_start (GooCanvas *theCanvas)
       zoom = (double)(height-BAR_GAP)/(double)gdk_pixbuf_get_height(pixmap);
       exit_item = goo_canvas_image_new (rootitem,
 					pixmap,
-					(double) (width/NUMBER_OF_ITEMS) * 1 -
+					(width/NUMBER_OF_ITEMS) * 1 -
 					 gdk_pixbuf_get_width(pixmap)/2,
-					(double) (height-gdk_pixbuf_get_height(pixmap)*zoom)/2,
+					(height-gdk_pixbuf_get_height(pixmap)*zoom)/2,
 					 NULL);
       gdk_pixbuf_unref(pixmap);
 

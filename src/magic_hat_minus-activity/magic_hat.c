@@ -57,7 +57,7 @@ typedef struct {
   double	coord_y;
   int		nb_stars[MAX_LIST];
   int		array_star_type[MAX_LIST][MAX_ITEM];
-  GnomeCanvasItem *array_item[MAX_LIST][MAX_ITEM];
+  GooCanvasItem *array_item[MAX_LIST][MAX_ITEM];
 } frame;
 
 // This structure decribes a movement
@@ -76,9 +76,9 @@ static gboolean board_paused = TRUE;
 static GnomeCanvasGroup *boardRootItem = NULL;
 static gint timer_id = 0;
 static gint board_mode = DEFAULT_MODE;
-static gint hat_event_id;	// value returned by gtk_signal_connect. Used by gtk_signal_disconnect
+static gint hat_event_id;	// value returned by g_signal_connect. Used by gtk_signal_disconnect
 
-static GnomeCanvasItem	*hat;
+static GooCanvasItem	*hat;
 static frame frame1;
 static frame frame2;
 static frame frame_player;
@@ -93,7 +93,7 @@ static void	 set_level (guint level);
 static int	 gamewon;
 static void	 game_won(void);
 
-static GnomeCanvasItem	*magic_hat_create_item();
+static GooCanvasItem	*magic_hat_create_item();
 static void		 magic_hat_destroy_all_items(void);
 static void		 magic_hat_next_level(void);
 
@@ -102,8 +102,8 @@ static void draw_frame(frame *);
 static void draw_table(void);
 static void draw_hat(int);
 static void place_item(frame *, int);
-static gint hat_event(GnomeCanvasItem *, GdkEvent *, gpointer);
-static gint item_event(GnomeCanvasItem *, GdkEvent *, gpointer);
+static gint hat_event(GooCanvasItem *, GdkEvent *, gpointer);
+static gint item_event(GooCanvasItem *, GdkEvent *, gpointer);
 static int  nb_list();
 static gint smooth_move(move_object *);
 static gint move_stars(frame *);
@@ -180,7 +180,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 		board_mode = DEFAULT_MODE;
 
 	img = gc_skin_image_get("gcompris-bg.jpg");
-	gc_set_background(gnome_canvas_root(gcomprisBoard->canvas), img);
+	gc_set_background(goo_canvas_get_root_item(gcomprisBoard->canvas), img);
 	g_free(img);
 
 	magic_hat_next_level();
@@ -288,14 +288,14 @@ static void magic_hat_destroy_all_items()
 }
 
 /* ==================================== */
-static GnomeCanvasItem *magic_hat_create_item()
+static GooCanvasItem *magic_hat_create_item()
 {
   int i, j;
   GdkPixbuf *pixmap;
   int step;
 
-  boardRootItem = GNOME_CANVAS_GROUP(gnome_canvas_item_new (gnome_canvas_root(gcomprisBoard->canvas),
-				     gnome_canvas_group_get_type (),
+  boardRootItem = GOO_CANVAS_GROUP(goo_canvas_item_new (goo_canvas_get_root_item(gcomprisBoard->canvas),
+				     goo_canvas_group_get_type (),
 				     "x", (double) 0,
 				     "y", (double) 0,
 				     NULL));
@@ -305,8 +305,8 @@ static GnomeCanvasItem *magic_hat_create_item()
   else
 	pixmap = gc_pixmap_load("magic_hat/magic_hat_plus_bg.png");
 
-  gnome_canvas_item_new (boardRootItem,
-			 gnome_canvas_pixbuf_get_type(),
+  goo_canvas_item_new (boardRootItem,
+			 goo_canvas_pixbuf_get_type(),
 			 "pixbuf", pixmap,
 			 "x", 0.0,
 			 "y", 0.0,
@@ -369,7 +369,7 @@ static GnomeCanvasItem *magic_hat_create_item()
 
 	for (j = 0 ; j < frame1.nb_stars[i] ; j++) frame1.array_star_type[i][j] = i;
 	for ( ; j < MAX_ITEM ; j++) frame1.array_star_type[i][j] = -1;
-	for (j = 0 ; j < MAX_ITEM ; j++) frame1.array_item[i][j] = gnome_canvas_item_new (boardRootItem, gnome_canvas_pixbuf_get_type(), NULL);
+	for (j = 0 ; j < MAX_ITEM ; j++) frame1.array_item[i][j] = goo_canvas_item_new (boardRootItem, goo_canvas_pixbuf_get_type(), NULL);
 
 	// Frame 2
 	if (board_mode == MODE_MINUS)
@@ -379,7 +379,7 @@ static GnomeCanvasItem *magic_hat_create_item()
 
 	for (j = 0 ; j < frame2.nb_stars[i] ; j++) frame2.array_star_type[i][j] = i;
 	for ( ; j < MAX_ITEM ; j++) frame2.array_star_type[i][j] = -1;
-	for (j = 0 ; j < MAX_ITEM ; j++) frame2.array_item[i][j] = gnome_canvas_item_new (boardRootItem, gnome_canvas_pixbuf_get_type(), NULL);
+	for (j = 0 ; j < MAX_ITEM ; j++) frame2.array_item[i][j] = goo_canvas_item_new (boardRootItem, goo_canvas_pixbuf_get_type(), NULL);
 
 	// Player frame
 	frame_player.nb_stars[i] = 0;
@@ -430,13 +430,13 @@ static void game_won() {
 // Draw a frame with empty small squares
 static void draw_frame(frame *my_frame) {
 
-  GnomeCanvasItem *item_frame = NULL;
+  GooCanvasItem *item_frame = NULL;
   int i, j;
   double x = my_frame->coord_x;
   double y = my_frame->coord_y;
   GnomeCanvasPoints *track;
 
-  track = gnome_canvas_points_new(5);
+  track = goo_canvas_points_new(5);
 
   for (i = 0 ; i < nb_list() ; i++) {
 
@@ -453,15 +453,15 @@ static void draw_frame(frame *my_frame) {
 		track->coords[8] = x + (j * (ITEM_SIZE + SPACE_BETWEEN_ITEMS));
 		track->coords[9] = y + (i * (ITEM_SIZE + SPACE_BETWEEN_ITEMS));
 
-		item_frame = gnome_canvas_item_new (boardRootItem,
-			gnome_canvas_line_get_type (),
+		item_frame = goo_canvas_item_new (boardRootItem,
+			goo_canvas_line_get_type (),
 			"points", track,
 			"width_pixels", 1,
 			"fill_color", "#948d85",
 			NULL);
 	}
   }
-  gnome_canvas_points_free(track);
+  goo_canvas_points_free(track);
 
   place_item(my_frame, EMPTY);
 
@@ -470,24 +470,24 @@ static void draw_frame(frame *my_frame) {
 // Draw the table (line)
 static void draw_table() {
 
-  GnomeCanvasItem *item_frame = NULL;
+  GooCanvasItem *item_frame = NULL;
   GnomeCanvasPoints *track;
 
-  track = gnome_canvas_points_new(2);
+  track = goo_canvas_points_new(2);
 
   track->coords[0] = MH_HAT_X;
   track->coords[1] = MH_HAT_Y + MH_HAT_HEIGHT + 5;
   track->coords[2] = MH_HAT_X + MH_HAT_WIDTH;
   track->coords[3] = MH_HAT_Y + MH_HAT_HEIGHT + 5;
 
-  item_frame = gnome_canvas_item_new (boardRootItem,
-		gnome_canvas_line_get_type (),
+  item_frame = goo_canvas_item_new (boardRootItem,
+		goo_canvas_line_get_type (),
 		"points", track,
 		"width_pixels", 1,
 		"fill_color", "black",
 		NULL);
 
-  gnome_canvas_points_free(track);
+  goo_canvas_points_free(track);
 }
 
 // Draw the hat
@@ -500,8 +500,8 @@ static void draw_hat(int type) {
   else
 	image = gc_pixmap_load("magic_hat/hat-point.png");
 
-  hat = gnome_canvas_item_new (boardRootItem,
-		gnome_canvas_pixbuf_get_type(),
+  hat = goo_canvas_item_new (boardRootItem,
+		goo_canvas_pixbuf_get_type(),
 		"pixbuf", image,
 		"x", (double) MH_HAT_X,
 		"y", (double) MH_HAT_Y,
@@ -515,8 +515,8 @@ static void draw_hat(int type) {
   gdk_pixbuf_unref(image);
 
   if (type == STARS) {
-	 hat_event_id = gtk_signal_connect(GTK_OBJECT(hat), "event", (GtkSignalFunc) hat_event, NULL);
-	 gtk_signal_connect(GTK_OBJECT(hat), "event", (GtkSignalFunc) gc_item_focus_event, NULL);
+	 hat_event_id = g_signal_connect(GTK_OBJECT(hat), "enter_notify_event", (GtkSignalFunc) hat_event, NULL);
+	 g_signal_connect(GTK_OBJECT(hat), "enter_notify_event", (GtkSignalFunc) gc_item_focus_event, NULL);
   }
 }
 
@@ -529,7 +529,7 @@ static void draw_hat(int type) {
 // 				DYNAMIC => the items are made clicable (for the player frame)
 static void place_item(frame * my_frame, int type) {
 
-  GnomeCanvasItem *item = NULL;
+  GooCanvasItem *item = NULL;
   int i, j;
   int k, nb_item;
   GdkPixbuf *image;
@@ -571,8 +571,8 @@ static void place_item(frame * my_frame, int type) {
 			nb_item = 1;
 
 		for (k = 0 ; k < nb_item ; k++) {
-			item = gnome_canvas_item_new (boardRootItem,
-				gnome_canvas_pixbuf_get_type(),
+			item = goo_canvas_item_new (boardRootItem,
+				goo_canvas_pixbuf_get_type(),
 				"pixbuf", image,
 				"x", item_x,
 				"y", item_y,
@@ -585,7 +585,7 @@ static void place_item(frame * my_frame, int type) {
 		}
 
 		if (type == DYNAMIC)
-			gtk_signal_connect(GTK_OBJECT(item), "event",
+			g_signal_connect(GTK_OBJECT(item), "enter_notify_event",
 					   (GtkSignalFunc) item_event,
 					   GINT_TO_POINTER(MAX_ITEM * i + j));
 
@@ -602,7 +602,7 @@ static void place_item(frame * my_frame, int type) {
 }
 
 // When clicked, an star from the player frame changes its appearance (grey or coloured) and the counter is re-evaluated
-static gint item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data) {
+static gint item_event(GooCanvasItem *item, GdkEvent *event, gpointer data) {
 
 	int index = GPOINTER_TO_INT(data);
 
@@ -623,7 +623,7 @@ static gint item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data) {
 
 		  pixmap = gc_pixmap_load("magic_hat/star-clear.png");
 
-		  gnome_canvas_item_set(item, "pixbuf", pixmap, NULL);
+		  goo_canvas_item_set(item, "pixbuf", pixmap, NULL);
 
 		  gdk_pixbuf_unref(pixmap);
 
@@ -640,7 +640,7 @@ static gint item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data) {
 		    case 1: pixmap = gc_pixmap_load("magic_hat/star2.png"); break;
 		    case 2: pixmap = gc_pixmap_load("magic_hat/star3.png"); break;
 		    }
-		  gnome_canvas_item_set(item, "pixbuf", pixmap, NULL);
+		  goo_canvas_item_set(item, "pixbuf", pixmap, NULL);
 
 		  gdk_pixbuf_unref(pixmap);
 		}
@@ -652,7 +652,7 @@ static gint item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data) {
 
 // When clicked, the hat rotates and a few items can go out of or into it
 // Then the hat go back in its previous position, and the game can start
-static gint hat_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data) {
+static gint hat_event(GooCanvasItem *item, GdkEvent *event, gpointer data) {
 
 	if (board_paused)
 		return FALSE;
@@ -751,9 +751,9 @@ static gint smooth_move(move_object *my_move) {
   }
 
   if (my_move->frame == 1)
-	gnome_canvas_item_move(frame1.array_item[my_move->i][my_move->j], my_move->dx, my_move->dy);
+	goo_canvas_item_translate(frame1.array_item[my_move->i][my_move->j], my_move->dx, my_move->dy);
   else
-	gnome_canvas_item_move(frame2.array_item[my_move->i][my_move->j], my_move->dx, my_move->dy);
+	goo_canvas_item_translate(frame2.array_item[my_move->i][my_move->j], my_move->dx, my_move->dy);
 
   return TRUE;
 

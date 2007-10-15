@@ -38,13 +38,13 @@ static void	 game_won(void);
 
 static GnomeCanvasGroup *boardRootItem = NULL;
 
-static GnomeCanvasItem	*fifteen_create_item(GnomeCanvasGroup *parent);
+static GooCanvasItem	*fifteen_create_item(GnomeCanvasGroup *parent);
 static void		 fifteen_destroy_all_items(void);
 static void		 fifteen_next_level(void);
 
 static void		 free_stuff (GtkObject *obj, gpointer data);
-static gint		 piece_event (GnomeCanvasItem *item, GdkEvent *event, gpointer data);
-static void		 scramble (GnomeCanvasItem **board, guint number_of_scrambles);
+static gint		 piece_event (GooCanvasItem *item, GdkEvent *event, gpointer data);
+static void		 scramble (GooCanvasItem **board, guint number_of_scrambles);
 static char		*get_piece_color (int piece);
 
 /* Description of this plugin */
@@ -163,7 +163,7 @@ static void fifteen_next_level()
   gchar *img;
 
   img = gc_skin_image_get("gcompris-bg.jpg");
-  gc_set_background(gnome_canvas_root(gcomprisBoard->canvas),
+  gc_set_background(goo_canvas_get_root_item(gcomprisBoard->canvas),
 			  img);
   g_free(img);
 
@@ -173,7 +173,7 @@ static void fifteen_next_level()
   gamewon = FALSE;
 
   /* Create the level */
-  fifteen_create_item(gnome_canvas_root(gcomprisBoard->canvas));
+  fifteen_create_item(goo_canvas_get_root_item(gcomprisBoard->canvas));
 
 
 }
@@ -187,18 +187,18 @@ static void fifteen_destroy_all_items()
   boardRootItem = NULL;
 }
 /* ==================================== */
-static GnomeCanvasItem *fifteen_create_item(GnomeCanvasGroup *parent)
+static GooCanvasItem *fifteen_create_item(GnomeCanvasGroup *parent)
 {
   int i;
   int x, y;
-  GnomeCanvasItem **board;
-  GnomeCanvasItem *text;
+  GooCanvasItem **board;
+  GooCanvasItem *text;
   char buf[20];
   GdkPixbuf *pixmap = NULL;
 
-  boardRootItem = GNOME_CANVAS_GROUP(
-				     gnome_canvas_item_new (gnome_canvas_root(gcomprisBoard->canvas),
-							    gnome_canvas_group_get_type (),
+  boardRootItem = GOO_CANVAS_GROUP(
+				     goo_canvas_item_new (goo_canvas_get_root_item(gcomprisBoard->canvas),
+							    goo_canvas_group_get_type (),
 							    "x", (double) (BOARDWIDTH-(4*PIECE_SIZE))/2,
 							    "y", (double) (BOARDHEIGHT-(4*PIECE_SIZE))/2,
 							    NULL));
@@ -206,8 +206,8 @@ static GnomeCanvasItem *fifteen_create_item(GnomeCanvasGroup *parent)
   /* Load the cute frame */
   pixmap = gc_pixmap_load("fifteen/fifteen_frame.png");
 
-  gnome_canvas_item_new (boardRootItem,
-			 gnome_canvas_pixbuf_get_type (),
+  goo_canvas_item_new (boardRootItem,
+			 goo_canvas_pixbuf_get_type (),
 			 "pixbuf", pixmap,
 			 "x", (double)-1*((gdk_pixbuf_get_width(pixmap)-(4*PIECE_SIZE))/2),
 			 "y", (double)-1*((gdk_pixbuf_get_height(pixmap)-(4*PIECE_SIZE))/2)-2,
@@ -215,7 +215,7 @@ static GnomeCanvasItem *fifteen_create_item(GnomeCanvasGroup *parent)
   gdk_pixbuf_unref(pixmap);
 
 
-  board = g_new (GnomeCanvasItem *, 16);
+  board = g_new (GooCanvasItem *, 16);
   g_object_set_data (G_OBJECT (boardRootItem), "board", board);
   g_signal_connect (boardRootItem, "destroy",
 		    G_CALLBACK (free_stuff),
@@ -225,14 +225,14 @@ static GnomeCanvasItem *fifteen_create_item(GnomeCanvasGroup *parent)
     y = i / 4;
     x = i % 4;
 
-    board[i] = gnome_canvas_item_new (boardRootItem,
-				      gnome_canvas_group_get_type (),
+    board[i] = goo_canvas_item_new (boardRootItem,
+				      goo_canvas_group_get_type (),
 				      "x", (double) (x * PIECE_SIZE),
 				      "y", (double) (y * PIECE_SIZE),
 				      NULL);
 
-    gnome_canvas_item_new (GNOME_CANVAS_GROUP (board[i]),
-			   gnome_canvas_rect_get_type (),
+    goo_canvas_item_new (GOO_CANVAS_GROUP (board[i]),
+			   goo_canvas_rect_get_type (),
 			   "x1", 0.0,
 			   "y1", 0.0,
 			   "x2", (double) PIECE_SIZE,
@@ -244,8 +244,8 @@ static GnomeCanvasItem *fifteen_create_item(GnomeCanvasGroup *parent)
 
     sprintf (buf, "%d", i + 1);
 
-    text = gnome_canvas_item_new (GNOME_CANVAS_GROUP (board[i]),
-				  gnome_canvas_text_get_type (),
+    text = goo_canvas_item_new (GOO_CANVAS_GROUP (board[i]),
+				  goo_canvas_text_get_type (),
 				  "text", buf,
 				  "x", (double) PIECE_SIZE / 2.0,
 				  "y", (double) PIECE_SIZE / 2.0,
@@ -257,7 +257,7 @@ static GnomeCanvasItem *fifteen_create_item(GnomeCanvasGroup *parent)
     g_object_set_data (G_OBJECT (board[i]), "piece_num", GINT_TO_POINTER (i));
     g_object_set_data (G_OBJECT (board[i]), "piece_pos", GINT_TO_POINTER (i));
     g_object_set_data (G_OBJECT (board[i]), "text", text);
-    g_signal_connect (board[i], "event",
+    g_signal_connect (board[i], "enter_notify_event",
 		      G_CALLBACK (piece_event),
 		      NULL);
   }
@@ -315,7 +315,7 @@ free_stuff (GtkObject *obj, gpointer data)
 }
 
 static void
-test_win (GnomeCanvasItem **board)
+test_win (GooCanvasItem **board)
 {
   int i;
 
@@ -350,10 +350,10 @@ get_piece_color (int piece)
 }
 
 static gint
-piece_event (GnomeCanvasItem *item, GdkEvent *event, gpointer data)
+piece_event (GooCanvasItem *item, GdkEvent *event, gpointer data)
 {
-  GnomeCanvasItem **board;
-  GnomeCanvasItem *text;
+  GooCanvasItem **board;
+  GooCanvasItem *text;
   int num, pos, newpos;
   int x, y;
   double dx = 0.0, dy = 0.0;
@@ -366,13 +366,13 @@ piece_event (GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 
   switch (event->type) {
   case GDK_ENTER_NOTIFY:
-    gnome_canvas_item_set (text,
+    goo_canvas_item_set (text,
 			   "fill_color", "white",
 			   NULL);
     break;
 
   case GDK_LEAVE_NOTIFY:
-    gnome_canvas_item_set (text,
+    goo_canvas_item_set (text,
 			   "fill_color", "black",
 			   NULL);
     break;
@@ -407,9 +407,9 @@ piece_event (GnomeCanvasItem *item, GdkEvent *event, gpointer data)
       board[pos] = NULL;
       board[newpos] = item;
       g_object_set_data (G_OBJECT (item), "piece_pos", GINT_TO_POINTER (newpos));
-      gnome_canvas_item_move (item, dx * PIECE_SIZE, dy * PIECE_SIZE);
+      goo_canvas_item_translate (item, dx * PIECE_SIZE, dy * PIECE_SIZE);
       /* FIXME : Workaround for bugged canvas */
-      gnome_canvas_update_now(gcomprisBoard->canvas);
+      goo_canvas_update_now(gcomprisBoard->canvas);
 
       test_win (board);
     }
@@ -424,7 +424,7 @@ piece_event (GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 }
 
 static void
-scramble (GnomeCanvasItem **board, guint number_of_scrambles)
+scramble (GooCanvasItem **board, guint number_of_scrambles)
 {
   int i;
   int pos, oldpos;
@@ -463,10 +463,10 @@ scramble (GnomeCanvasItem **board, guint number_of_scrambles)
     board[pos] = board[oldpos];
     board[oldpos] = NULL;
     g_object_set_data (G_OBJECT (board[pos]), "piece_pos", GINT_TO_POINTER (pos));
-    gnome_canvas_item_move (board[pos], -x * PIECE_SIZE, -y * PIECE_SIZE);
+    goo_canvas_item_translate (board[pos], -x * PIECE_SIZE, -y * PIECE_SIZE);
     pos = oldpos;
   }
   /* FIXME : Workaround for bugged canvas */
-  gnome_canvas_update_now(gcomprisBoard->canvas);
+  goo_canvas_update_now(gcomprisBoard->canvas);
 }
 

@@ -39,7 +39,7 @@ struct _Money_WidgetPrivate {
   Money_Widget		*targetWidget;	/* Target money widget to add when remove here	  */
   gboolean		 display_total;	/* Display or not the total of this pocket        */
 
-  GnomeCanvasItem	*item_total;	/* Item to display the total                      */
+  GooCanvasItem	*item_total;	/* Item to display the total                      */
   GList			*moneyItemList;	/* List of all the items			  */
 };
 
@@ -71,7 +71,7 @@ static const MoneyList euroList[] =
 
 typedef struct {
   Money_Widget		*moneyWidget;
-  GnomeCanvasItem	*item;
+  GooCanvasItem	*item;
   MoneyEuroType		 value;
   gboolean		 inPocket;
 } MoneyItem;
@@ -82,7 +82,7 @@ typedef struct {
 static void class_init (Money_WidgetClass *class);
 static void init (Money_Widget *pos);
 static void money_display_total(Money_Widget *moneyWidget);
-static gint item_event(GnomeCanvasItem *item, GdkEvent *event, MoneyItem *moneyitem);
+static gint item_event(GooCanvasItem *item, GdkEvent *event, MoneyItem *moneyitem);
 
 GtkType
 money_widget_get_type ()
@@ -198,8 +198,8 @@ money_widget_set_position (Money_Widget *moneyWidget,
   moneyWidget->priv->display_total = display_total;
 
   /* Uncomment to display the limits
-    gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootItem),
-			 gnome_canvas_rect_get_type (),
+    goo_canvas_item_new (GOO_CANVAS_GROUP(rootItem),
+			 goo_canvas_rect_get_type (),
 			 "x1", (double) x1,
 			 "y1", (double) y1,
 			 "x2", (double) x2,
@@ -209,8 +209,8 @@ money_widget_set_position (Money_Widget *moneyWidget,
 			 NULL);
   */
 
-  moneyWidget->priv->item_total =  gnome_canvas_item_new(rootItem,
-						       gnome_canvas_text_get_type (),
+  moneyWidget->priv->item_total =  goo_canvas_item_new(rootItem,
+						       goo_canvas_text_get_type (),
 						       "text", "",
 						       "font", gc_skin_font_board_big,
 						       "x", (double) x1+(x2-x1)/2,
@@ -228,7 +228,7 @@ static void money_display_total(Money_Widget *moneyWidget)
 
   tmpstr = g_strdup_printf("%.2f €", moneyWidget->priv->total);
   if(moneyWidget->priv->display_total)
-    gnome_canvas_item_set (moneyWidget->priv->item_total,
+    goo_canvas_item_set (moneyWidget->priv->item_total,
 			   "text", tmpstr,
 			   NULL);
   g_free(tmpstr);
@@ -238,7 +238,7 @@ static void money_display_total(Money_Widget *moneyWidget)
 void
 money_widget_add (Money_Widget *moneyWidget, MoneyEuroType value)
 {
-  GnomeCanvasItem *item   = NULL;
+  GooCanvasItem *item   = NULL;
   GdkPixbuf       *pixmap = NULL;
   double	   xratio, yratio, ratio;
   double	   block_width, block_height;
@@ -255,7 +255,7 @@ money_widget_add (Money_Widget *moneyWidget, MoneyEuroType value)
 
       if(moneyitem && !moneyitem->inPocket && moneyitem->value == value)
 	{
-	  gnome_canvas_item_show(moneyitem->item);
+	  goo_canvas_item_show(moneyitem->item);
 	  moneyitem->inPocket = TRUE;
 	  moneyWidget->priv->total += euroList[value].value;
 	  money_display_total(moneyWidget);
@@ -277,8 +277,8 @@ money_widget_add (Money_Widget *moneyWidget, MoneyEuroType value)
   yratio =  block_height / (gdk_pixbuf_get_height(pixmap) + BORDER_GAP);
   ratio = yratio = MIN(xratio, yratio);
 
-  item =  gnome_canvas_item_new ( moneyWidget->priv->rootItem,
-				  gnome_canvas_pixbuf_get_type (),
+  item =  goo_canvas_item_new ( moneyWidget->priv->rootItem,
+				  goo_canvas_pixbuf_get_type (),
 				  "pixbuf", pixmap,
 				  "x", (double) moneyWidget->priv->x1 + 
 				  (moneyWidget->priv->next_spot % moneyWidget->priv->columns) * block_width
@@ -302,7 +302,7 @@ money_widget_add (Money_Widget *moneyWidget, MoneyEuroType value)
   moneyWidget->priv->moneyItemList = g_list_append (moneyWidget->priv->moneyItemList,
 						    moneyitem);
 
-  gtk_signal_connect(GTK_OBJECT(item), "event", (GtkSignalFunc) item_event, moneyitem);
+  g_signal_connect(GTK_OBJECT(item), "enter_notify_event", (GtkSignalFunc) item_event, moneyitem);
 
   gdk_pixbuf_unref(pixmap);
 
@@ -334,7 +334,7 @@ money_widget_get_total (Money_Widget *moneyWidget)
 
 
 static gint
-item_event(GnomeCanvasItem *item, GdkEvent *event, MoneyItem *moneyItem)
+item_event(GooCanvasItem *item, GdkEvent *event, MoneyItem *moneyItem)
 {
 
   switch (event->type) 
@@ -343,7 +343,7 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, MoneyItem *moneyItem)
       switch(event->button.button) 
 	{
 	case 1:
-	  gnome_canvas_item_hide(item);
+	  goo_canvas_item_hide(item);
 	  moneyItem->inPocket = FALSE;
 	  money_widget_remove(moneyItem->moneyWidget, moneyItem->value);
 	  

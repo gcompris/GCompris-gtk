@@ -38,7 +38,7 @@ static void		 set_level (guint level);
 static int gamewon;
 
 static void		 process_ok(void);
-static void		 highlight_selected(GnomeCanvasItem *);
+static void		 highlight_selected(GooCanvasItem *);
 static void		 game_won(void);
 static void		 repeat(void);
 static void		 config_start(GcomprisBoard *agcomprisBoard,
@@ -61,15 +61,15 @@ static void		 config_stop(void);
 
 static GnomeCanvasGroup *boardRootItem = NULL;
 
-static GnomeCanvasItem *l_items[MAX_NUMBER_OF_LETTERS];
-static GnomeCanvasItem *buttons[MAX_NUMBER_OF_LETTERS];
-static GnomeCanvasItem *selected_button = NULL;
+static GooCanvasItem *l_items[MAX_NUMBER_OF_LETTERS];
+static GooCanvasItem *buttons[MAX_NUMBER_OF_LETTERS];
+static GooCanvasItem *selected_button = NULL;
 
-static GnomeCanvasItem *click_on_letter_create_item(GnomeCanvasGroup *parent);
+static GooCanvasItem *click_on_letter_create_item(GnomeCanvasGroup *parent);
 
 static void click_on_letter_destroy_all_items(void);
 static void click_on_letter_next_level(void);
-static gint item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data);
+static gint item_event(GooCanvasItem *item, GdkEvent *event, gpointer data);
 static gboolean sounds_are_fine();
 
 static int right_position;
@@ -159,7 +159,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
   if (agcomprisBoard!=NULL)
     {
       gcomprisBoard=agcomprisBoard;
-      gc_set_background(gnome_canvas_root(gcomprisBoard->canvas),
+      gc_set_background(goo_canvas_get_root_item(gcomprisBoard->canvas),
 			      "click_on_letter/scenery4_background.png");
       gcomprisBoard->level=1;
       gcomprisBoard->maxlevel=NUMBER_OF_LEVELS;
@@ -324,7 +324,7 @@ click_on_letter_next_level()
   g_free (right_letter);
   /* Try the next level */
   gc_sound_play_ogg("voices/$LOCALE/misc/click_on_letter.ogg", NULL);
-  click_on_letter_create_item(gnome_canvas_root(gcomprisBoard->canvas));
+  click_on_letter_create_item(goo_canvas_get_root_item(gcomprisBoard->canvas));
 }
 /* ==================================== */
 /* Destroy all the items */
@@ -336,7 +336,7 @@ static void click_on_letter_destroy_all_items()
   boardRootItem = NULL;
 }
 /* ==================================== */
-static GnomeCanvasItem *click_on_letter_create_item(GnomeCanvasGroup *parent)
+static GooCanvasItem *click_on_letter_create_item(GnomeCanvasGroup *parent)
 {
 
   int xOffset,yOffset,i,j;
@@ -394,9 +394,9 @@ static GnomeCanvasItem *click_on_letter_create_item(GnomeCanvasGroup *parent)
   repeat();
 
 
-  boardRootItem = GNOME_CANVAS_GROUP(
-				     gnome_canvas_item_new (gnome_canvas_root(gcomprisBoard->canvas),
-							    gnome_canvas_group_get_type (),
+  boardRootItem = GOO_CANVAS_GROUP(
+				     goo_canvas_item_new (goo_canvas_get_root_item(gcomprisBoard->canvas),
+							    goo_canvas_group_get_type (),
 							    "x", (double) 0,
 							    "y", (double) 0,
 							    NULL));
@@ -409,16 +409,16 @@ static GnomeCanvasItem *click_on_letter_create_item(GnomeCanvasGroup *parent)
 
 
   for (i=0; i< number_of_letters; i++) {
-    buttons[i] = gnome_canvas_item_new (boardRootItem,
-					gnome_canvas_pixbuf_get_type (),
+    buttons[i] = goo_canvas_item_new (boardRootItem,
+					goo_canvas_pixbuf_get_type (),
 					"pixbuf",  button_pixmap,
 					"x",  (double) xOffset,
 					"y",  (double) yOffset,
 					NULL);
 
 
-    l_items[i] = gnome_canvas_item_new (boardRootItem,
-					gnome_canvas_text_get_type (),
+    l_items[i] = goo_canvas_item_new (boardRootItem,
+					goo_canvas_text_get_type (),
 					"text", letters[i],
 					"font", gc_skin_font_board_huge_bold,
 					"anchor", GTK_ANCHOR_CENTER,
@@ -430,9 +430,9 @@ static GnomeCanvasItem *click_on_letter_create_item(GnomeCanvasGroup *parent)
     g_free(letters[i]);
     xOffset +=HORIZONTAL_SEPARATION +gdk_pixbuf_get_width(button_pixmap);
 
-    gtk_signal_connect(GTK_OBJECT(l_items[i]), "event", (GtkSignalFunc) item_event, GINT_TO_POINTER(i));
-    gtk_signal_connect(GTK_OBJECT(buttons[i]), "event",  (GtkSignalFunc) item_event, GINT_TO_POINTER(i));
-    //  gtk_signal_connect(GTK_OBJECT(buttons[i]), "event", (GtkSignalFunc) gc_item_focus_event, NULL);
+    g_signal_connect(GTK_OBJECT(l_items[i]), "enter_notify_event", (GtkSignalFunc) item_event, GINT_TO_POINTER(i));
+    g_signal_connect(GTK_OBJECT(buttons[i]), "enter_notify_event",  (GtkSignalFunc) item_event, GINT_TO_POINTER(i));
+    //  g_signal_connect(GTK_OBJECT(buttons[i]), "enter_notify_event", (GtkSignalFunc) gc_item_focus_event, NULL);
   }
 
 
@@ -469,13 +469,13 @@ static void process_ok() {
 }
 /* ==================================== */
 static gint
-item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
+item_event(GooCanvasItem *item, GdkEvent *event, gpointer data)
 {
   int pos = GPOINTER_TO_INT(data);
   double item_x, item_y;
   item_x = event->button.x;
   item_y = event->button.y;
-  gnome_canvas_item_w2i(item->parent, &item_x, &item_y);
+  goo_canvas_convert_to_item_space(item->parent, &item_x, &item_y);
 
   if(board_paused)
     return FALSE;
@@ -501,9 +501,9 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
   return FALSE;
 }
 /* ==================================== */
-static void highlight_selected(GnomeCanvasItem * item) {
+static void highlight_selected(GooCanvasItem * item) {
   GdkPixbuf *button_pixmap_selected = NULL, *button_pixmap = NULL;
-  GnomeCanvasItem *button;
+  GooCanvasItem *button;
   int i;
 
 
@@ -519,7 +519,7 @@ static void highlight_selected(GnomeCanvasItem * item) {
     button_pixmap = gc_pixmap_load("click_on_letter/wagon-yellow.png");
     /* Warning changing the image needs to update pixbuf_ref for the focus usage */
     gc_item_focus_free(selected_button, NULL);
-    gnome_canvas_item_set(selected_button, "pixbuf", button_pixmap, NULL);
+    goo_canvas_item_set(selected_button, "pixbuf", button_pixmap, NULL);
     gdk_pixbuf_unref(button_pixmap);
   }
 
@@ -527,7 +527,7 @@ static void highlight_selected(GnomeCanvasItem * item) {
     button_pixmap_selected = gc_pixmap_load("click_on_letter/wagon-green.png");
     /* Warning changing the image needs to update pixbuf_ref for the focus usage */
       gc_item_focus_free(button, NULL);
-    gnome_canvas_item_set(button, "pixbuf", button_pixmap_selected, NULL);
+    goo_canvas_item_set(button, "pixbuf", button_pixmap_selected, NULL);
     selected_button = button;
     gdk_pixbuf_unref(button_pixmap_selected);
   }

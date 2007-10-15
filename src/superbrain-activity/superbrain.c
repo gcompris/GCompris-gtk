@@ -31,8 +31,8 @@ typedef struct {
   GnomeCanvasGroup	*rootitem;
   GList			*listitem;
   guint			 selecteditem;
-  GnomeCanvasItem	*good;
-  GnomeCanvasItem	*misplaced;
+  GooCanvasItem	*good;
+  GooCanvasItem	*misplaced;
   gboolean		completed;
 } Piece;
 
@@ -81,10 +81,10 @@ static GnomeCanvasGroup *boardRootItem = NULL;
 static GnomeCanvasGroup	*boardLogoItem = NULL;
 
 
-static GnomeCanvasItem	*superbrain_create_item(GnomeCanvasGroup *parent);
+static GooCanvasItem	*superbrain_create_item(GnomeCanvasGroup *parent);
 static void		 superbrain_destroy_all_items(void);
 static void		 superbrain_next_level(void);
-static gint		 item_event(GnomeCanvasItem *item, GdkEvent *event, Piece *piece);
+static gint		 item_event(GooCanvasItem *item, GdkEvent *event, Piece *piece);
 static void		 mark_pieces(void);
 
 static guint number_of_color    = 0;
@@ -223,7 +223,7 @@ static void superbrain_next_level()
   guint i;
   gboolean selected_color[MAX_COLORS];
 
-  gc_set_background(gnome_canvas_root(gcomprisBoard->canvas),
+  gc_set_background(goo_canvas_get_root_item(gcomprisBoard->canvas),
 			  "superbrain/superbrain_background.jpg");
 
   gc_bar_set_level(gcomprisBoard);
@@ -268,16 +268,16 @@ static void superbrain_next_level()
 
 
 
-  boardRootItem = GNOME_CANVAS_GROUP(
-				     gnome_canvas_item_new (gnome_canvas_root(gcomprisBoard->canvas),
-							    gnome_canvas_group_get_type (),
+  boardRootItem = GOO_CANVAS_GROUP(
+				     goo_canvas_item_new (goo_canvas_get_root_item(gcomprisBoard->canvas),
+							    goo_canvas_group_get_type (),
 							    "x", (double) 0,
 							    "y", (double) 0,
 							    NULL));
 
-  boardLogoItem = GNOME_CANVAS_GROUP(
-				     gnome_canvas_item_new (gnome_canvas_root(gcomprisBoard->canvas),
-							    gnome_canvas_group_get_type (),
+  boardLogoItem = GOO_CANVAS_GROUP(
+				     goo_canvas_item_new (goo_canvas_get_root_item(gcomprisBoard->canvas),
+							    goo_canvas_group_get_type (),
 							    "x", (double) 0,
 							    "y", (double) 0,
 							    NULL));
@@ -285,8 +285,8 @@ static void superbrain_next_level()
   /* The list of the pieces */
   for(i=0; i<number_of_color; i++)
     {
-      gnome_canvas_item_new (boardLogoItem,
-			     gnome_canvas_ellipse_get_type(),
+      goo_canvas_item_new (boardLogoItem,
+			     goo_canvas_ellipse_get_type(),
 			     "x1", (double) PIECE_DISPLAY_X,
 			     "y1", (double) PIECE_DISPLAY_Y + i*PIECE_WIDTH*1.2 + (i*PIECE_GAP*1.2),
 			     "x2", (double) PIECE_DISPLAY_X + PIECE_WIDTH*1.2,
@@ -315,17 +315,17 @@ static void superbrain_destroy_all_items()
   boardLogoItem = NULL;
 }
 /* ==================================== */
-static GnomeCanvasItem *superbrain_create_item(GnomeCanvasGroup *parent)
+static GooCanvasItem *superbrain_create_item(GnomeCanvasGroup *parent)
 {
   int i, j, x;
   double x1, x2;
-  GnomeCanvasItem *item = NULL;
+  GooCanvasItem *item = NULL;
   Piece *piece = NULL;
   GnomeCanvasPoints	*points;
 
   if(current_y_position < SCROLL_LIMIT)
     {
-      gnome_canvas_item_move(GNOME_CANVAS_ITEM(boardRootItem), 0.0, (double)Y_STEP);
+      goo_canvas_item_translate(GNOME_CANVAS_ITEM(boardRootItem), 0.0, (double)Y_STEP);
     }
 
   x = (BOARDWIDTH - number_of_piece*(PIECE_WIDTH+PIECE_GAP))/2 + PLAYING_AREA_X;
@@ -334,14 +334,14 @@ static GnomeCanvasItem *superbrain_create_item(GnomeCanvasGroup *parent)
   x1 = x + PIECE_WIDTH/2;
   x2 = (BOARDWIDTH + (number_of_piece-1)*(PIECE_WIDTH+PIECE_GAP))/2 - PIECE_WIDTH/2 + PLAYING_AREA_X;
 
-  points = gnome_canvas_points_new(2);
+  points = goo_canvas_points_new(2);
   points->coords[0] = (double) x1;
   points->coords[1] = (double) current_y_position + PIECE_HEIGHT + PIECE_GAP/2;
   points->coords[2] = (double) x2;
   points->coords[3] = (double) current_y_position + PIECE_HEIGHT + PIECE_GAP/2;
 
-  gnome_canvas_item_new (boardRootItem,
-			 gnome_canvas_line_get_type (),
+  goo_canvas_item_new (boardRootItem,
+			 goo_canvas_line_get_type (),
 			 "points", points,
 			 "fill_color", "white",
 			 "width_pixels", 1,
@@ -352,8 +352,8 @@ static GnomeCanvasItem *superbrain_create_item(GnomeCanvasGroup *parent)
   points->coords[2] = (double) x2 + 2;
   points->coords[3] = (double) current_y_position + PIECE_HEIGHT + PIECE_GAP/2 + 1;
 
-  gnome_canvas_item_new (boardRootItem,
-			 gnome_canvas_line_get_type (),
+  goo_canvas_item_new (boardRootItem,
+			 goo_canvas_line_get_type (),
 			 "points", points,
 			 "fill_color", "black",
 			 "width_pixels", 1,
@@ -369,8 +369,8 @@ static GnomeCanvasItem *superbrain_create_item(GnomeCanvasGroup *parent)
   points->coords[2] = (double) x2;
   points->coords[3] = (double) current_y_position + PIECE_HEIGHT + PIECE_GAP/2;
 
-  gnome_canvas_item_new (boardRootItem,
-			 gnome_canvas_line_get_type (),
+  goo_canvas_item_new (boardRootItem,
+			 goo_canvas_line_get_type (),
 			 "points", points,
 			 "fill_color", "white",
 			 "width_pixels", 1,
@@ -381,14 +381,14 @@ static GnomeCanvasItem *superbrain_create_item(GnomeCanvasGroup *parent)
   points->coords[2] = (double) x2 + 2;
   points->coords[3] = (double) current_y_position + PIECE_HEIGHT + PIECE_GAP/2 + 1;
 
-  gnome_canvas_item_new (boardRootItem,
-			 gnome_canvas_line_get_type (),
+  goo_canvas_item_new (boardRootItem,
+			 goo_canvas_line_get_type (),
 			 "points", points,
 			 "fill_color", "black",
 			 "width_pixels", 1,
 			 NULL);
 
-  gnome_canvas_points_unref(points);
+  goo_canvas_points_unref(points);
 
   /* Draw the pieces */
   listPieces = g_list_alloc();
@@ -401,9 +401,9 @@ static GnomeCanvasItem *superbrain_create_item(GnomeCanvasGroup *parent)
       piece->completed = FALSE;
       listPieces = g_list_append(listPieces, piece);
 
-      piece->rootitem = GNOME_CANVAS_GROUP(
-					   gnome_canvas_item_new (parent,
-								  gnome_canvas_group_get_type (),
+      piece->rootitem = GOO_CANVAS_GROUP(
+					   goo_canvas_item_new (parent,
+								  goo_canvas_group_get_type (),
 								  "x", (double) 0,
 								  "y", (double) 0,
 
@@ -411,8 +411,8 @@ static GnomeCanvasItem *superbrain_create_item(GnomeCanvasGroup *parent)
 
 
       // Good
-      piece->good = gnome_canvas_item_new (piece->rootitem,
-					   gnome_canvas_rect_get_type (),
+      piece->good = goo_canvas_item_new (piece->rootitem,
+					   goo_canvas_rect_get_type (),
 					   "x1", (double) x + i*PIECE_WIDTH + (i*PIECE_GAP) - PIECE_GAP_GOOD,
 					   "y1", (double) current_y_position - PIECE_GAP_GOOD,
 					   "x2", (double) x + i*PIECE_WIDTH  + PIECE_WIDTH + (i*PIECE_GAP) + PIECE_GAP_GOOD,
@@ -421,11 +421,11 @@ static GnomeCanvasItem *superbrain_create_item(GnomeCanvasGroup *parent)
 					   "outline_color", "white",
 					   "width_units", (double)1,
 					   NULL);
-      gnome_canvas_item_hide(piece->good);
+      goo_canvas_item_hide(piece->good);
 
       // Misplaced
-      piece->misplaced = gnome_canvas_item_new (piece->rootitem,
-						gnome_canvas_rect_get_type (),
+      piece->misplaced = goo_canvas_item_new (piece->rootitem,
+						goo_canvas_rect_get_type (),
 						"x1", (double) x + i*PIECE_WIDTH + (i*PIECE_GAP) - PIECE_GAP_GOOD,
 						"y1", (double) current_y_position - PIECE_GAP_GOOD,
 						"x2", (double) x + i*PIECE_WIDTH  + PIECE_WIDTH + (i*PIECE_GAP) + PIECE_GAP_GOOD,
@@ -434,12 +434,12 @@ static GnomeCanvasItem *superbrain_create_item(GnomeCanvasGroup *parent)
 						"outline_color", "white",
 						"width_units", (double)1,
 						NULL);
-      gnome_canvas_item_hide(piece->misplaced);
+      goo_canvas_item_hide(piece->misplaced);
 
       for(j=0; j<number_of_color; j++)
 	{
-	  item = gnome_canvas_item_new (piece->rootitem,
-					gnome_canvas_ellipse_get_type(),
+	  item = goo_canvas_item_new (piece->rootitem,
+					goo_canvas_ellipse_get_type(),
 					"x1", (double) x + i*PIECE_WIDTH + (i*PIECE_GAP),
 					"y1", (double) current_y_position,
 					"x2", (double) x + i*PIECE_WIDTH  + PIECE_WIDTH + (i*PIECE_GAP),
@@ -449,16 +449,16 @@ static GnomeCanvasItem *superbrain_create_item(GnomeCanvasGroup *parent)
 					"width_units", (double)1,
 					NULL);
 
-	  gnome_canvas_item_hide(item);
+	  goo_canvas_item_hide(item);
 	  piece->listitem = g_list_append(piece->listitem, item);
 
-	  gtk_signal_connect(GTK_OBJECT(item), "event", (GtkSignalFunc) item_event, piece);
+	  g_signal_connect(GTK_OBJECT(item), "enter_notify_event", (GtkSignalFunc) item_event, piece);
 	}
 
       piece->selecteditem = 1;
       item = g_list_nth_data(piece->listitem,
 			     piece->selecteditem);
-      gnome_canvas_item_show(item);
+      goo_canvas_item_show(item);
 
     }
 
@@ -484,9 +484,9 @@ static void game_won()
 
 /* ==================================== */
 static gint
-item_event(GnomeCanvasItem *item, GdkEvent *event, Piece *piece)
+item_event(GooCanvasItem *item, GdkEvent *event, Piece *piece)
 {
-  GnomeCanvasItem *newitem;
+  GooCanvasItem *newitem;
 
   if(board_paused)
     return FALSE;
@@ -496,7 +496,7 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, Piece *piece)
     case GDK_BUTTON_PRESS:
       if(!piece->completed)
 	{
-	  gnome_canvas_item_hide(item);
+	  goo_canvas_item_hide(item);
 
 	  switch(event->button.button)
 	    {
@@ -517,7 +517,7 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, Piece *piece)
 
 	  newitem = g_list_nth_data(piece->listitem,
 				    piece->selecteditem);
-	  gnome_canvas_item_show(newitem);
+	  goo_canvas_item_show(newitem);
 	}
       break;
     default:
@@ -550,7 +550,7 @@ static void mark_pieces()
       if(piece->selecteditem == solution_tmp[i-1])
 	{
 	  if(gcomprisBoard->level<LEVEL_MAX_FOR_HELP)
-	    gnome_canvas_item_show(piece->good);
+	    goo_canvas_item_show(piece->good);
 	  nbgood++;
 	  solution_tmp[i-1] = G_MAXINT;
 	}
@@ -579,7 +579,7 @@ static void mark_pieces()
 	    nbmisplaced++;
 	    solution_tmp[j-1] = G_MAXINT;
 	    if(gcomprisBoard->level<LEVEL_MAX_FOR_HELP)
-	      gnome_canvas_item_show(piece->misplaced);
+	      goo_canvas_item_show(piece->misplaced);
 	    done = TRUE;
 	  }
       } while (!done && j++!=number_of_piece);
@@ -590,8 +590,8 @@ static void mark_pieces()
   x = PLAYING_HELP_X;
   for(i=0; i<nbgood;  i++)
     {
-      gnome_canvas_item_new (boardRootItem,
-			     gnome_canvas_ellipse_get_type(),
+      goo_canvas_item_new (boardRootItem,
+			     goo_canvas_ellipse_get_type(),
 			     "x1", (double) x + i*PIECE_WIDTH/2 + (i*PIECE_GAP/2),
 			     "y1", (double) current_y_position,
 			     "x2", (double) x + i*PIECE_WIDTH/2  + PIECE_WIDTH/2 + (i*PIECE_GAP/2),
@@ -604,8 +604,8 @@ static void mark_pieces()
 
   for(i=0; i<nbmisplaced;  i++)
     {
-      gnome_canvas_item_new (boardRootItem,
-			     gnome_canvas_ellipse_get_type(),
+      goo_canvas_item_new (boardRootItem,
+			     goo_canvas_ellipse_get_type(),
 			     "x1", (double) x + i*PIECE_WIDTH/2 + (i*PIECE_GAP/2),
 			     "y1", (double) current_y_position + PIECE_HEIGHT/2 + PIECE_GAP/3,
 			     "x2", (double) x + i*PIECE_WIDTH/2  + PIECE_WIDTH/2 + (i*PIECE_GAP/2),

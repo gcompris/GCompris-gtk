@@ -128,16 +128,16 @@ static void game_won();
 /* ================================================================ */
 static GnomeCanvasGroup *boardRootItem = NULL;
 
-static GnomeCanvasItem *sub_schema_image_item, *submarine_item,
+static GooCanvasItem *sub_schema_image_item, *submarine_item,
   *ballast_av_purge_item, *ballast_ar_purge_item, *regleur_purge_item;
-static GnomeCanvasItem *ballast_av_chasse_item, *ballast_ar_chasse_item, *regleur_chasse_item;
+static GooCanvasItem *ballast_av_chasse_item, *ballast_ar_chasse_item, *regleur_chasse_item;
 gboolean ballast_av_purge_open, ballast_ar_purge_open, regleur_purge_open;
 gboolean ballast_av_chasse_open, ballast_ar_chasse_open, regleur_chasse_open;
 gboolean air_charging, battery_charging;
 gboolean submarine_destroyed;
 gboolean treasure_captured;
 
-static GnomeCanvasItem *barre_av_item, *barre_ar_item,
+static GooCanvasItem *barre_av_item, *barre_ar_item,
   *barre_av_up_item, *barre_av_down_item, *barre_ar_up_item, *barre_ar_down_item,
   *engine_up_item, *engine_down_item,
   *speed_item_back, *speed_item_front,
@@ -167,20 +167,20 @@ static guint gate_top_y, gate_bottom_y, gate_top_current_y;
 static guint submarine_width;
 static guint submarine_height;
 
-static GnomeCanvasItem *submarine_create_item(GnomeCanvasGroup *parent);
+static GooCanvasItem *submarine_create_item(GnomeCanvasGroup *parent);
 static void submarine_destroy_all_items(void);
 static void submarine_next_level(void);
-static gint ballast_av_purge_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data);
-static gint ballast_ar_purge_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data);
-static gint regleur_purge_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data);
-static gint ballast_ar_chasse_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data);
-static gint ballast_av_chasse_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data);
-static gint regleur_chasse_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data);
-static gint barre_av_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data);
-static gint barre_ar_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data);
-static gint engine_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data);
-static gint air_compressor_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data);
-static gint battery_charger_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data);
+static gint ballast_av_purge_event(GooCanvasItem *item, GdkEvent *event, gpointer data);
+static gint ballast_ar_purge_event(GooCanvasItem *item, GdkEvent *event, gpointer data);
+static gint regleur_purge_event(GooCanvasItem *item, GdkEvent *event, gpointer data);
+static gint ballast_ar_chasse_event(GooCanvasItem *item, GdkEvent *event, gpointer data);
+static gint ballast_av_chasse_event(GooCanvasItem *item, GdkEvent *event, gpointer data);
+static gint regleur_chasse_event(GooCanvasItem *item, GdkEvent *event, gpointer data);
+static gint barre_av_event(GooCanvasItem *item, GdkEvent *event, gpointer data);
+static gint barre_ar_event(GooCanvasItem *item, GdkEvent *event, gpointer data);
+static gint engine_event(GooCanvasItem *item, GdkEvent *event, gpointer data);
+static gint air_compressor_event(GooCanvasItem *item, GdkEvent *event, gpointer data);
+static gint battery_charger_event(GooCanvasItem *item, GdkEvent *event, gpointer data);
 
 static void setSpeed(double value);
 static void setBattery(double value);
@@ -247,7 +247,7 @@ static void pause_board (gboolean pause)
 static void start_board (GcomprisBoard *agcomprisBoard) {
   if(agcomprisBoard!=NULL) {
     gcomprisBoard=agcomprisBoard;
-    gc_set_background(gnome_canvas_root(gcomprisBoard->canvas), "submarine/sub_bg.jpg");
+    gc_set_background(goo_canvas_get_root_item(gcomprisBoard->canvas), "submarine/sub_bg.jpg");
     gcomprisBoard->level=1;
     gcomprisBoard->maxlevel=3;
     gcomprisBoard->sublevel=1;
@@ -322,7 +322,7 @@ static void submarine_next_level()
   gamewon = FALSE;
 
   /* Try the next level */
-  submarine_create_item(gnome_canvas_root(gcomprisBoard->canvas));
+  submarine_create_item(goo_canvas_get_root_item(gcomprisBoard->canvas));
 
 }
 /* =====================================================================
@@ -350,14 +350,14 @@ static void submarine_destroy_all_items() {
 /* =====================================================================
  *
  * =====================================================================*/
-static GnomeCanvasItem *submarine_create_item(GnomeCanvasGroup *parent) {
+static GooCanvasItem *submarine_create_item(GnomeCanvasGroup *parent) {
   GdkPixbuf *pixmap = NULL;
   char s12[12];
   int i, w, h;
 
-  boardRootItem = GNOME_CANVAS_GROUP(
-				     gnome_canvas_item_new (gnome_canvas_root(gcomprisBoard->canvas),
-							    gnome_canvas_group_get_type (),
+  boardRootItem = GOO_CANVAS_GROUP(
+				     goo_canvas_item_new (goo_canvas_get_root_item(gcomprisBoard->canvas),
+							    goo_canvas_group_get_type (),
 							    "x", (double) 0,
 							    "y", (double) 0,
 							    NULL));
@@ -365,8 +365,8 @@ static GnomeCanvasItem *submarine_create_item(GnomeCanvasGroup *parent) {
   pixmap = gc_pixmap_load("submarine/submarine.png");
   submarine_width = gdk_pixbuf_get_width(pixmap);
   submarine_height = gdk_pixbuf_get_height(pixmap);
-  submarine_item = gnome_canvas_item_new (boardRootItem,
-					  gnome_canvas_pixbuf_get_type (),
+  submarine_item = goo_canvas_item_new (boardRootItem,
+					  goo_canvas_pixbuf_get_type (),
 					  "pixbuf", pixmap,
 					  "x", (double) 0.0,//SUBMARINE_INITIAL_X,
 					  "y", (double) 0.0,//SUBMARINE_INITIAL_DEPTH + SURFACE_IN_BACKGROUND - submarine_height,
@@ -386,8 +386,8 @@ static GnomeCanvasItem *submarine_create_item(GnomeCanvasGroup *parent) {
 
   schema_x = (gcomprisBoard->width - w)/2 ;
   schema_y = gcomprisBoard->height - h;
-  sub_schema_image_item = gnome_canvas_item_new (boardRootItem,
-						 gnome_canvas_pixbuf_get_type (),
+  sub_schema_image_item = goo_canvas_item_new (boardRootItem,
+						 goo_canvas_pixbuf_get_type (),
 						 "pixbuf", pixmap,
 						 "x", (double) schema_x + w/2.0,
 						 "y", (double) schema_y + h/2.0,
@@ -403,8 +403,8 @@ static GnomeCanvasItem *submarine_create_item(GnomeCanvasGroup *parent) {
   pixmap = gc_pixmap_load("submarine/vanne.png");
   w = gdk_pixbuf_get_width(pixmap);
   h = gdk_pixbuf_get_height(pixmap);
-  ballast_ar_purge_item = gnome_canvas_item_new (boardRootItem,
-						 gnome_canvas_pixbuf_get_type (),
+  ballast_ar_purge_item = goo_canvas_item_new (boardRootItem,
+						 goo_canvas_pixbuf_get_type (),
 						 "pixbuf", pixmap,
 						 "x", (double) PURGE_AR + schema_x,
 						 "y", (double) schema_y + h/2.0 -1.0,
@@ -414,10 +414,10 @@ static GnomeCanvasItem *submarine_create_item(GnomeCanvasGroup *parent) {
 						 "height_set", TRUE,
 						 "anchor", GTK_ANCHOR_CENTER,
 						 NULL);
-  gtk_signal_connect(GTK_OBJECT(ballast_ar_purge_item), "event",  (GtkSignalFunc) ballast_ar_purge_event, NULL);
+  g_signal_connect(GTK_OBJECT(ballast_ar_purge_item), "enter_notify_event",  (GtkSignalFunc) ballast_ar_purge_event, NULL);
 
-  ballast_av_purge_item = gnome_canvas_item_new (boardRootItem,
-						 gnome_canvas_pixbuf_get_type (),
+  ballast_av_purge_item = goo_canvas_item_new (boardRootItem,
+						 goo_canvas_pixbuf_get_type (),
 						 "pixbuf", pixmap,
 						 "x", (double) PURGE_AV + schema_x,
 						 "y", (double) schema_y + h/2.0 -1.0,
@@ -427,10 +427,10 @@ static GnomeCanvasItem *submarine_create_item(GnomeCanvasGroup *parent) {
 						 "height_set", TRUE,
 						 "anchor", GTK_ANCHOR_CENTER,
 						 NULL);
-  gtk_signal_connect(GTK_OBJECT(ballast_av_purge_item), "event",  (GtkSignalFunc) ballast_av_purge_event, NULL);
+  g_signal_connect(GTK_OBJECT(ballast_av_purge_item), "enter_notify_event",  (GtkSignalFunc) ballast_av_purge_event, NULL);
 
-  regleur_purge_item = gnome_canvas_item_new (boardRootItem,
-					      gnome_canvas_pixbuf_get_type (),
+  regleur_purge_item = goo_canvas_item_new (boardRootItem,
+					      goo_canvas_pixbuf_get_type (),
 					      "pixbuf", pixmap,
 					      "x", (double) REGLEUR + schema_x,
 					      "y", (double) schema_y + h/2.0 -2.0,
@@ -440,10 +440,10 @@ static GnomeCanvasItem *submarine_create_item(GnomeCanvasGroup *parent) {
 					      "height_set", TRUE,
 					      "anchor", GTK_ANCHOR_CENTER,
 					      NULL);
-  gtk_signal_connect(GTK_OBJECT(regleur_purge_item), "event",  (GtkSignalFunc) regleur_purge_event, NULL);
+  g_signal_connect(GTK_OBJECT(regleur_purge_item), "enter_notify_event",  (GtkSignalFunc) regleur_purge_event, NULL);
 
-  ballast_av_chasse_item = gnome_canvas_item_new (boardRootItem,
-						  gnome_canvas_pixbuf_get_type (),
+  ballast_av_chasse_item = goo_canvas_item_new (boardRootItem,
+						  goo_canvas_pixbuf_get_type (),
 						  "pixbuf", pixmap,
 						  "x", (double) schema_x + CHASSE_BALLAST_AV_X,
 						  "y", (double) schema_y +  CHASSE_BALLAST_AV_Y,
@@ -453,10 +453,10 @@ static GnomeCanvasItem *submarine_create_item(GnomeCanvasGroup *parent) {
 						  "height_set", TRUE,
 						  "anchor", GTK_ANCHOR_CENTER,
 						  NULL);
-  gtk_signal_connect(GTK_OBJECT(ballast_av_chasse_item), "event",  (GtkSignalFunc) ballast_av_chasse_event, NULL);
+  g_signal_connect(GTK_OBJECT(ballast_av_chasse_item), "enter_notify_event",  (GtkSignalFunc) ballast_av_chasse_event, NULL);
 
-  ballast_ar_chasse_item = gnome_canvas_item_new (boardRootItem,
-						  gnome_canvas_pixbuf_get_type (),
+  ballast_ar_chasse_item = goo_canvas_item_new (boardRootItem,
+						  goo_canvas_pixbuf_get_type (),
 						  "pixbuf", pixmap,
 						  "x", (double) schema_x + CHASSE_BALLAST_AR_X,
 						  "y", (double) schema_y +  CHASSE_BALLAST_AR_Y,
@@ -466,10 +466,10 @@ static GnomeCanvasItem *submarine_create_item(GnomeCanvasGroup *parent) {
 						  "height_set", TRUE,
 						  "anchor", GTK_ANCHOR_CENTER,
 						  NULL);
-  gtk_signal_connect(GTK_OBJECT(ballast_ar_chasse_item), "event",  (GtkSignalFunc) ballast_ar_chasse_event, NULL);
+  g_signal_connect(GTK_OBJECT(ballast_ar_chasse_item), "enter_notify_event",  (GtkSignalFunc) ballast_ar_chasse_event, NULL);
 
-  regleur_chasse_item = gnome_canvas_item_new (boardRootItem,
-					       gnome_canvas_pixbuf_get_type (),
+  regleur_chasse_item = goo_canvas_item_new (boardRootItem,
+					       goo_canvas_pixbuf_get_type (),
 					       "pixbuf", pixmap,
 					       "x", (double) schema_x + CHASSE_REGLEUR_X,
 					       "y", (double) schema_y + CHASSE_REGLEUR_Y,
@@ -479,14 +479,14 @@ static GnomeCanvasItem *submarine_create_item(GnomeCanvasGroup *parent) {
 					       "height_set", TRUE,
 					       "anchor", GTK_ANCHOR_CENTER,
 					       NULL);
-  gtk_signal_connect(GTK_OBJECT(regleur_chasse_item), "event",  (GtkSignalFunc) regleur_chasse_event, NULL);
+  g_signal_connect(GTK_OBJECT(regleur_chasse_item), "enter_notify_event",  (GtkSignalFunc) regleur_chasse_event, NULL);
 
   gdk_pixbuf_unref(pixmap);
 
   // DEPTH RUDDERS
   pixmap = gc_pixmap_load("submarine/rudder.png");
-  barre_av_item = gnome_canvas_item_new (boardRootItem,
-					 gnome_canvas_pixbuf_get_type (),
+  barre_av_item = goo_canvas_item_new (boardRootItem,
+					 goo_canvas_pixbuf_get_type (),
 					 "pixbuf", pixmap,
 					 "x", (double) schema_x + BARRE_AV_X,
 					 "y", (double) schema_y + BARRE_AV_Y,
@@ -496,8 +496,8 @@ static GnomeCanvasItem *submarine_create_item(GnomeCanvasGroup *parent) {
 					 "height_set", TRUE,
 					 "anchor", GTK_ANCHOR_CENTER,
 					 NULL);
-  barre_ar_item = gnome_canvas_item_new (boardRootItem,
-					 gnome_canvas_pixbuf_get_type (),
+  barre_ar_item = goo_canvas_item_new (boardRootItem,
+					 goo_canvas_pixbuf_get_type (),
 					 "pixbuf", pixmap,
 					 "x", (double) schema_x + BARRE_AR_X,
 					 "y", (double) schema_y + BARRE_AR_Y,
@@ -511,8 +511,8 @@ static GnomeCanvasItem *submarine_create_item(GnomeCanvasGroup *parent) {
 
 #define COMMAND_OFFSET 20.0
   pixmap = gc_pixmap_load("submarine/up.png");
-  barre_av_up_item = gnome_canvas_item_new (boardRootItem,
-					    gnome_canvas_pixbuf_get_type (),
+  barre_av_up_item = goo_canvas_item_new (boardRootItem,
+					    goo_canvas_pixbuf_get_type (),
 					    "pixbuf", pixmap,
 					    "x", (double) schema_x + BARRE_AV_X + COMMAND_OFFSET,
 					    "y", (double) schema_y + BARRE_AV_Y - COMMAND_OFFSET,
@@ -522,8 +522,8 @@ static GnomeCanvasItem *submarine_create_item(GnomeCanvasGroup *parent) {
 					    "height_set", TRUE,
 					    "anchor", GTK_ANCHOR_CENTER,
 					    NULL);
-  barre_ar_up_item = gnome_canvas_item_new (boardRootItem,
-					    gnome_canvas_pixbuf_get_type (),
+  barre_ar_up_item = goo_canvas_item_new (boardRootItem,
+					    goo_canvas_pixbuf_get_type (),
 					    "pixbuf", pixmap,
 					    "x", (double) schema_x + BARRE_AR_X + COMMAND_OFFSET,
 					    "y", (double) schema_y + BARRE_AR_Y - COMMAND_OFFSET,
@@ -533,8 +533,8 @@ static GnomeCanvasItem *submarine_create_item(GnomeCanvasGroup *parent) {
 					    "height_set", TRUE,
 					    "anchor", GTK_ANCHOR_CENTER,
 					    NULL);
-  engine_up_item = gnome_canvas_item_new (boardRootItem,
-					  gnome_canvas_pixbuf_get_type (),
+  engine_up_item = goo_canvas_item_new (boardRootItem,
+					  goo_canvas_pixbuf_get_type (),
 					  "pixbuf", pixmap,
 					  "x", (double) schema_x + ENGINE_UP_X,
 					  "y", (double) schema_y + ENGINE_UP_Y,
@@ -547,8 +547,8 @@ static GnomeCanvasItem *submarine_create_item(GnomeCanvasGroup *parent) {
   gdk_pixbuf_unref(pixmap);
 
   pixmap = gc_pixmap_load("submarine/down.png");
-  barre_av_down_item = gnome_canvas_item_new (boardRootItem,
-					      gnome_canvas_pixbuf_get_type (),
+  barre_av_down_item = goo_canvas_item_new (boardRootItem,
+					      goo_canvas_pixbuf_get_type (),
 					      "pixbuf", pixmap,
 					      "x", (double) schema_x + BARRE_AV_X + COMMAND_OFFSET,
 					      "y", (double) schema_y + BARRE_AV_Y + COMMAND_OFFSET,
@@ -558,8 +558,8 @@ static GnomeCanvasItem *submarine_create_item(GnomeCanvasGroup *parent) {
 					      "height_set", TRUE,
 					      "anchor", GTK_ANCHOR_CENTER,
 					      NULL);
-  barre_ar_down_item = gnome_canvas_item_new (boardRootItem,
-					      gnome_canvas_pixbuf_get_type (),
+  barre_ar_down_item = goo_canvas_item_new (boardRootItem,
+					      goo_canvas_pixbuf_get_type (),
 					      "pixbuf", pixmap,
 					      "x", (double) schema_x + BARRE_AR_X + COMMAND_OFFSET,
 					      "y", (double) schema_y + BARRE_AR_Y + COMMAND_OFFSET,
@@ -569,8 +569,8 @@ static GnomeCanvasItem *submarine_create_item(GnomeCanvasGroup *parent) {
 					      "height_set", TRUE,
 					      "anchor", GTK_ANCHOR_CENTER,
 					      NULL);
-  engine_down_item = gnome_canvas_item_new (boardRootItem,
-					    gnome_canvas_pixbuf_get_type (),
+  engine_down_item = goo_canvas_item_new (boardRootItem,
+					    goo_canvas_pixbuf_get_type (),
 					    "pixbuf", pixmap,
 					    "x", (double) schema_x + ENGINE_DOWN_X,
 					    "y", (double) schema_y + ENGINE_DOWN_Y,
@@ -582,23 +582,23 @@ static GnomeCanvasItem *submarine_create_item(GnomeCanvasGroup *parent) {
 					    NULL);
   gdk_pixbuf_unref(pixmap);
 
-  gtk_signal_connect(GTK_OBJECT(barre_av_up_item), "event",
+  g_signal_connect(GTK_OBJECT(barre_av_up_item), "enter_notify_event",
 		     (GtkSignalFunc) barre_av_event, GINT_TO_POINTER(UP));
-  gtk_signal_connect(GTK_OBJECT(barre_ar_up_item), "event",
+  g_signal_connect(GTK_OBJECT(barre_ar_up_item), "enter_notify_event",
 		     (GtkSignalFunc) barre_ar_event, GINT_TO_POINTER(UP));
-  gtk_signal_connect(GTK_OBJECT(barre_av_down_item), "event",
+  g_signal_connect(GTK_OBJECT(barre_av_down_item), "enter_notify_event",
 		     (GtkSignalFunc) barre_av_event, GINT_TO_POINTER(DOWN));
-  gtk_signal_connect(GTK_OBJECT(barre_ar_down_item), "event",
+  g_signal_connect(GTK_OBJECT(barre_ar_down_item), "enter_notify_event",
 		     (GtkSignalFunc) barre_ar_event, GINT_TO_POINTER(DOWN));
-  gtk_signal_connect(GTK_OBJECT(engine_up_item), "event",
+  g_signal_connect(GTK_OBJECT(engine_up_item), "enter_notify_event",
 		     (GtkSignalFunc) engine_event, GINT_TO_POINTER(UP));
-  gtk_signal_connect(GTK_OBJECT(engine_down_item), "event",
+  g_signal_connect(GTK_OBJECT(engine_down_item), "enter_notify_event",
 		     (GtkSignalFunc) engine_event, GINT_TO_POINTER(DOWN));
 
   // displays the speed on the engine
   sprintf(s12,"%d",(int)submarine_horizontal_speed);
-  speed_item_back = gnome_canvas_item_new (boardRootItem,
-					   gnome_canvas_text_get_type (),
+  speed_item_back = goo_canvas_item_new (boardRootItem,
+					   goo_canvas_text_get_type (),
 					   "text", s12,
 					   "font", gc_skin_font_board_title_bold,
 					   "x", (double) schema_x + (ENGINE_UP_X + ENGINE_DOWN_X)/2 +1,
@@ -606,8 +606,8 @@ static GnomeCanvasItem *submarine_create_item(GnomeCanvasGroup *parent) {
 					   "anchor", GTK_ANCHOR_CENTER,
 					   "fill_color", TEXT_COLOR_BACK,
 					   NULL);
-  speed_item_front = gnome_canvas_item_new (boardRootItem,
-					    gnome_canvas_text_get_type (),
+  speed_item_front = goo_canvas_item_new (boardRootItem,
+					    goo_canvas_text_get_type (),
 					    "text", s12,
 					    "font", gc_skin_font_board_title_bold,
 					    "x", (double) schema_x + (ENGINE_UP_X + ENGINE_DOWN_X)/2,
@@ -617,8 +617,8 @@ static GnomeCanvasItem *submarine_create_item(GnomeCanvasGroup *parent) {
 					    NULL);
 
   // displays the ballast_av_air value
-  ballast_av_air_item_rect = gnome_canvas_item_new (boardRootItem,
-						    gnome_canvas_rect_get_type (),
+  ballast_av_air_item_rect = goo_canvas_item_new (boardRootItem,
+						    goo_canvas_rect_get_type (),
 						    "x1", (double) schema_x + BALLAST_AV_AIR_X1,
 						    "y1", (double) schema_y + BALLAST_AV_AIR_Y2,
 						    "x2", (double) schema_x + BALLAST_AV_AIR_X2,
@@ -628,8 +628,8 @@ static GnomeCanvasItem *submarine_create_item(GnomeCanvasGroup *parent) {
 						    NULL);
 
   sprintf(s12,"%d",(int)ballast_av_air);
-  ballast_av_air_item_back = gnome_canvas_item_new (boardRootItem,
-						    gnome_canvas_text_get_type (),
+  ballast_av_air_item_back = goo_canvas_item_new (boardRootItem,
+						    goo_canvas_text_get_type (),
 						    "text", s12,
 						    "font", gc_skin_font_board_title_bold,
 						    "x", (double) schema_x + BALLAST_AV_AIR_TEXT_X + 1,
@@ -637,8 +637,8 @@ static GnomeCanvasItem *submarine_create_item(GnomeCanvasGroup *parent) {
 						    "anchor", GTK_ANCHOR_CENTER,
 						    "fill_color", TEXT_COLOR_BACK,
 						    NULL);
-  ballast_av_air_item_front = gnome_canvas_item_new (boardRootItem,
-						     gnome_canvas_text_get_type (),
+  ballast_av_air_item_front = goo_canvas_item_new (boardRootItem,
+						     goo_canvas_text_get_type (),
 						     "text", s12,
 						     "font", gc_skin_font_board_title_bold,
 						     "x", (double) schema_x + BALLAST_AV_AIR_TEXT_X,
@@ -649,8 +649,8 @@ static GnomeCanvasItem *submarine_create_item(GnomeCanvasGroup *parent) {
   setBallastAV(ballast_av_air);
 
   // displays the ballast_ar_air value
-  ballast_ar_air_item_rect = gnome_canvas_item_new (boardRootItem,
-						    gnome_canvas_rect_get_type (),
+  ballast_ar_air_item_rect = goo_canvas_item_new (boardRootItem,
+						    goo_canvas_rect_get_type (),
 						    "x1", (double) schema_x + BALLAST_AR_AIR_X1,
 						    "y1", (double) schema_y + BALLAST_AR_AIR_Y2,
 						    "x2", (double) schema_x + BALLAST_AR_AIR_X2,
@@ -660,8 +660,8 @@ static GnomeCanvasItem *submarine_create_item(GnomeCanvasGroup *parent) {
 						    NULL);
 
   sprintf(s12,"%d",(int)ballast_ar_air);
-  ballast_ar_air_item_back = gnome_canvas_item_new (boardRootItem,
-						    gnome_canvas_text_get_type (),
+  ballast_ar_air_item_back = goo_canvas_item_new (boardRootItem,
+						    goo_canvas_text_get_type (),
 						    "text", s12,
 						    "font", gc_skin_font_board_title_bold,
 						    "x", (double) schema_x + BALLAST_AR_AIR_TEXT_X + 1,
@@ -669,8 +669,8 @@ static GnomeCanvasItem *submarine_create_item(GnomeCanvasGroup *parent) {
 						    "anchor", GTK_ANCHOR_CENTER,
 						    "fill_color", TEXT_COLOR_BACK,
 						    NULL);
-  ballast_ar_air_item_front = gnome_canvas_item_new (boardRootItem,
-						     gnome_canvas_text_get_type (),
+  ballast_ar_air_item_front = goo_canvas_item_new (boardRootItem,
+						     goo_canvas_text_get_type (),
 						     "text", s12,
 						     "font", gc_skin_font_board_title_bold,
 						     "x", (double) schema_x + BALLAST_AR_AIR_TEXT_X,
@@ -682,8 +682,8 @@ static GnomeCanvasItem *submarine_create_item(GnomeCanvasGroup *parent) {
 
   // displays the remaining air value
   sprintf(s12,"%d", (int)air);
-  air_item_back = gnome_canvas_item_new (boardRootItem,
-					 gnome_canvas_text_get_type (),
+  air_item_back = goo_canvas_item_new (boardRootItem,
+					 goo_canvas_text_get_type (),
 					 "text", s12,
 					 "font", gc_skin_font_board_title_bold,
 					 "x", (double) schema_x + AIR_X +1,
@@ -691,8 +691,8 @@ static GnomeCanvasItem *submarine_create_item(GnomeCanvasGroup *parent) {
 					 "anchor", GTK_ANCHOR_CENTER,
 					 "fill_color", TEXT_COLOR_BACK,
 					 NULL);
-  air_item_front = gnome_canvas_item_new (boardRootItem,
-					  gnome_canvas_text_get_type (),
+  air_item_front = goo_canvas_item_new (boardRootItem,
+					  goo_canvas_text_get_type (),
 					  "text", s12,
 					  "font", gc_skin_font_board_title_bold,
 					  "x", (double) schema_x + AIR_X,
@@ -703,8 +703,8 @@ static GnomeCanvasItem *submarine_create_item(GnomeCanvasGroup *parent) {
 
   // displays the remaining battery value
   sprintf(s12,"%d", (int)battery);
-  battery_item_back = gnome_canvas_item_new (boardRootItem,
-					     gnome_canvas_text_get_type (),
+  battery_item_back = goo_canvas_item_new (boardRootItem,
+					     goo_canvas_text_get_type (),
 					     "text", s12,
 					     "font", gc_skin_font_board_title_bold,
 					     "x", (double) schema_x + BATTERY_X +1,
@@ -712,8 +712,8 @@ static GnomeCanvasItem *submarine_create_item(GnomeCanvasGroup *parent) {
 					     "anchor", GTK_ANCHOR_CENTER,
 					     "fill_color", TEXT_COLOR_BACK,
 					     NULL);
-  battery_item_front = gnome_canvas_item_new (boardRootItem,
-					      gnome_canvas_text_get_type (),
+  battery_item_front = goo_canvas_item_new (boardRootItem,
+					      goo_canvas_text_get_type (),
 					      "text", s12,
 					      "font", gc_skin_font_board_title_bold,
 					      "x", (double) schema_x + BATTERY_X,
@@ -723,8 +723,8 @@ static GnomeCanvasItem *submarine_create_item(GnomeCanvasGroup *parent) {
 					      NULL);
 
   // displays the remaining regleur value
-  regleur_item_rect = gnome_canvas_item_new (boardRootItem,
-					     gnome_canvas_rect_get_type (),
+  regleur_item_rect = goo_canvas_item_new (boardRootItem,
+					     goo_canvas_rect_get_type (),
 					     "x1", (double) schema_x + REGLEUR_X1,
 					     "y1", (double) schema_y + REGLEUR_Y2,
 					     "x2", (double) schema_x + REGLEUR_X2,
@@ -734,8 +734,8 @@ static GnomeCanvasItem *submarine_create_item(GnomeCanvasGroup *parent) {
 					     NULL);
 
   sprintf(s12,"%d", (int)regleur);
-  regleur_item_back = gnome_canvas_item_new (boardRootItem,
-					     gnome_canvas_text_get_type (),
+  regleur_item_back = goo_canvas_item_new (boardRootItem,
+					     goo_canvas_text_get_type (),
 					     "text", s12,
 					     "font", gc_skin_font_board_title_bold,
 					     "x", (double) schema_x + REGLEUR_TEXT_X +1,
@@ -743,8 +743,8 @@ static GnomeCanvasItem *submarine_create_item(GnomeCanvasGroup *parent) {
 					     "anchor", GTK_ANCHOR_CENTER,
 					     "fill_color", TEXT_COLOR_BACK,
 					     NULL);
-  regleur_item_front = gnome_canvas_item_new (boardRootItem,
-					      gnome_canvas_text_get_type (),
+  regleur_item_front = goo_canvas_item_new (boardRootItem,
+					      goo_canvas_text_get_type (),
 					      "text", s12,
 					      "font", gc_skin_font_board_title_bold,
 					      "x", (double) schema_x + REGLEUR_TEXT_X,
@@ -756,8 +756,8 @@ static GnomeCanvasItem *submarine_create_item(GnomeCanvasGroup *parent) {
 
   // displays an alert when some parameters are bad
   pixmap = gc_pixmap_load("submarine/alert_submarine.png");
-  alert_submarine = gnome_canvas_item_new (boardRootItem,
-					   gnome_canvas_pixbuf_get_type (),
+  alert_submarine = goo_canvas_item_new (boardRootItem,
+					   goo_canvas_pixbuf_get_type (),
 					   "pixbuf", pixmap,
 					   "x", (double) ALERT_SUBMARINE_X,
 					   "y", (double) ALERT_SUBMARINE_Y,
@@ -768,13 +768,13 @@ static GnomeCanvasItem *submarine_create_item(GnomeCanvasGroup *parent) {
 					   "anchor", GTK_ANCHOR_CENTER,
 					   NULL);
   gdk_pixbuf_unref(pixmap);
-  gnome_canvas_item_hide(alert_submarine);
+  goo_canvas_item_hide(alert_submarine);
 
   // when the submarine makes some bubbles ...
   pixmap = gc_pixmap_load("submarine/bubbling.png");
   for (i=0; i<3; i++) {
-    bubbling[i] = gnome_canvas_item_new (boardRootItem,
-					 gnome_canvas_pixbuf_get_type (),
+    bubbling[i] = goo_canvas_item_new (boardRootItem,
+					 goo_canvas_pixbuf_get_type (),
 					 "pixbuf", pixmap,
 					 "x", (double) 0.0,
 					 "y", (double) 0.0,
@@ -784,7 +784,7 @@ static GnomeCanvasItem *submarine_create_item(GnomeCanvasGroup *parent) {
 					 "height_set", TRUE,
 					 "anchor", GTK_ANCHOR_CENTER,
 					 NULL);
-    gnome_canvas_item_hide(bubbling[i]);
+    goo_canvas_item_hide(bubbling[i]);
   }
   gdk_pixbuf_unref(pixmap);
 
@@ -794,8 +794,8 @@ static GnomeCanvasItem *submarine_create_item(GnomeCanvasGroup *parent) {
 			       (int)(gcomprisBoard->width/2));
   whale_y = g_random_int_range((int)(SURFACE_IN_BACKGROUND + gdk_pixbuf_get_height(pixmap)*2),
 			       (int)MAX_DEPTH);
-  whale = gnome_canvas_item_new (boardRootItem,
-				gnome_canvas_pixbuf_get_type (),
+  whale = goo_canvas_item_new (boardRootItem,
+				goo_canvas_pixbuf_get_type (),
 				"pixbuf", pixmap,
 				"x", (double) whale_x,
 				"y", (double) whale_y,
@@ -809,8 +809,8 @@ static GnomeCanvasItem *submarine_create_item(GnomeCanvasGroup *parent) {
 
   // big explosion item (only for the whale)
   pixmap = gc_pixmap_load("submarine/whale_hit.png");
-  big_explosion = gnome_canvas_item_new (boardRootItem,
-					 gnome_canvas_pixbuf_get_type (),
+  big_explosion = goo_canvas_item_new (boardRootItem,
+					 goo_canvas_pixbuf_get_type (),
 					 "pixbuf", pixmap,
 					 "x", (double) whale_x,
 					 "y", (double) whale_y,
@@ -820,7 +820,7 @@ static GnomeCanvasItem *submarine_create_item(GnomeCanvasGroup *parent) {
 					 "height_set", TRUE,
 					 "anchor", GTK_ANCHOR_CENTER,
 					 NULL);
-  gnome_canvas_item_hide(big_explosion);
+  goo_canvas_item_hide(big_explosion);
 
   gdk_pixbuf_unref(pixmap);
 
@@ -828,8 +828,8 @@ static GnomeCanvasItem *submarine_create_item(GnomeCanvasGroup *parent) {
   pixmap = gc_pixmap_load("submarine/crown.png");
   treasure_x = (gcomprisBoard->width*3)/4;
   treasure_y = MAX_DEPTH;
-  treasure = gnome_canvas_item_new (boardRootItem,
-				    gnome_canvas_pixbuf_get_type (),
+  treasure = goo_canvas_item_new (boardRootItem,
+				    goo_canvas_pixbuf_get_type (),
 				    "pixbuf", pixmap,
 				    "x", (double) treasure_x,
 				    "y", (double) treasure_y,
@@ -843,8 +843,8 @@ static GnomeCanvasItem *submarine_create_item(GnomeCanvasGroup *parent) {
 
   // the triggers for air compressor and battery charger
   pixmap = gc_pixmap_load("submarine/manette.png");
-  air_compressor_item = gnome_canvas_item_new (boardRootItem,
-					       gnome_canvas_pixbuf_get_type (),
+  air_compressor_item = goo_canvas_item_new (boardRootItem,
+					       goo_canvas_pixbuf_get_type (),
 					       "pixbuf", pixmap,
 					       "x", (double) schema_x + AIR_TRIGGER_X,
 					       "y", (double) schema_y + AIR_TRIGGER_Y,
@@ -854,8 +854,8 @@ static GnomeCanvasItem *submarine_create_item(GnomeCanvasGroup *parent) {
 					       "height_set", TRUE,
 					       "anchor", GTK_ANCHOR_CENTER,
 					       NULL);
-  battery_charger_item = gnome_canvas_item_new (boardRootItem,
-						gnome_canvas_pixbuf_get_type (),
+  battery_charger_item = goo_canvas_item_new (boardRootItem,
+						goo_canvas_pixbuf_get_type (),
 						"pixbuf", pixmap,
 						"x", (double) schema_x + BATTERY_TRIGGER_X,
 						"y", (double) schema_y + BATTERY_TRIGGER_Y,
@@ -869,8 +869,8 @@ static GnomeCanvasItem *submarine_create_item(GnomeCanvasGroup *parent) {
 
   // the antisubmarine warfare frigate
   pixmap = gc_pixmap_load("submarine/asw_frigate.png");
-  frigate_item = gnome_canvas_item_new (boardRootItem,
-					gnome_canvas_pixbuf_get_type (),
+  frigate_item = goo_canvas_item_new (boardRootItem,
+					goo_canvas_pixbuf_get_type (),
 					"pixbuf", pixmap,
 					"x", (double) 700.0,
 					"y", (double) 2.0,
@@ -882,8 +882,8 @@ static GnomeCanvasItem *submarine_create_item(GnomeCanvasGroup *parent) {
 					NULL);
   gdk_pixbuf_unref(pixmap);
 
-  gtk_signal_connect(GTK_OBJECT(air_compressor_item), "event",  (GtkSignalFunc) air_compressor_event, NULL);
-  gtk_signal_connect(GTK_OBJECT(battery_charger_item), "event",  (GtkSignalFunc) battery_charger_event, NULL);
+  g_signal_connect(GTK_OBJECT(air_compressor_item), "enter_notify_event",  (GtkSignalFunc) air_compressor_event, NULL);
+  g_signal_connect(GTK_OBJECT(battery_charger_item), "enter_notify_event",  (GtkSignalFunc) battery_charger_event, NULL);
 
 
   /*
@@ -909,9 +909,9 @@ static GnomeCanvasItem *submarine_create_item(GnomeCanvasGroup *parent) {
 
   /* At startup, the gate is closed */
   gate_top_current_y = gate_bottom_y;
-  top_gate_item = gnome_canvas_item_new \
+  top_gate_item = goo_canvas_item_new \
     (boardRootItem,
-     gnome_canvas_rect_get_type (),
+     goo_canvas_rect_get_type (),
      "x1", (double) BOARDWIDTH - 25,
      "y1", (double) 40,
      "x2", (double) BOARDWIDTH + 2,
@@ -921,8 +921,8 @@ static GnomeCanvasItem *submarine_create_item(GnomeCanvasGroup *parent) {
      "width_pixels", 2,
      NULL);
 
-  gnome_canvas_item_new (boardRootItem,
-			 gnome_canvas_rect_get_type (),
+  goo_canvas_item_new (boardRootItem,
+			 goo_canvas_rect_get_type (),
 			 "x1", (double) BOARDWIDTH - 25,
 			 "y1", (double) gate_bottom_y,
 			 "x2", (double) BOARDWIDTH + 2,
@@ -1073,9 +1073,9 @@ static gboolean update_timeout_slow() {
 
   // show an alert if some parameters reach the limit
   if (depth >= MAX_DEPTH-20.0 || assiette == -30.0 || assiette == 30.0 || air == 0.0 || battery == 0.0)
-    gnome_canvas_item_show(alert_submarine);
+    goo_canvas_item_show(alert_submarine);
   else
-    gnome_canvas_item_hide(alert_submarine);
+    goo_canvas_item_hide(alert_submarine);
 
   /* if the submarine dives, stop charging air tanks and batteries */
   if ( depth >= SURFACE_DEPTH+10.0 ) {
@@ -1095,7 +1095,7 @@ static gboolean update_timeout_slow() {
       /* Check its within the gate range */
       double x1,x2,y1,y2;
 
-      gnome_canvas_item_get_bounds (submarine_item, &x1, &y1, &x2, &y2);
+      goo_canvas_item_get_bounds (submarine_item, &x1, &y1, &x2, &y2);
 
       if(y1<gate_top_current_y ||
 	 y2>gate_bottom_y)
@@ -1126,15 +1126,15 @@ static gboolean update_timeout_slow() {
     art_affine_multiply( r, t1, r);
     art_affine_translate( t2 , submarine_x, y );
     art_affine_multiply( r, r, t2);
-    gnome_canvas_item_affine_absolute( submarine_item, r );
+    goo_canvas_item_affine_absolute( submarine_item, r );
   }
 
   /* the frigate */
   {
     double x1, x2, y1, y2, x;
     x = - FRIGATE_SPEED * UPDATE_DELAY_SLOW/1000.0;
-    gnome_canvas_item_get_bounds(frigate_item, &x1, &y1, &x2, &y2);
-    gnome_canvas_item_move(frigate_item, - FRIGATE_SPEED * UPDATE_DELAY_SLOW/1000.0, 0.0);
+    goo_canvas_item_get_bounds(frigate_item, &x1, &y1, &x2, &y2);
+    goo_canvas_item_translate(frigate_item, - FRIGATE_SPEED * UPDATE_DELAY_SLOW/1000.0, 0.0);
     /* detects a collision between the frigate and the submarine */
     if (depth <= 30.0 && !submarine_destroyed)
       if ( (submarine_x - submarine_width <= x1 && submarine_x >= x2) ||
@@ -1156,8 +1156,8 @@ static gboolean update_timeout_slow() {
     /* magnetic detection (dist1) or collision with the whale (dist2 & dist3) */
     if ( (dist1 < WHALE_DETECTION_RADIUS || dist2 < WHALE_DETECTION_RADIUS ||dist3 < WHALE_DETECTION_RADIUS)
 	 && !submarine_destroyed ) {
-      gnome_canvas_item_hide(whale);
-      gnome_canvas_item_show(big_explosion);
+      goo_canvas_item_hide(whale);
+      goo_canvas_item_show(big_explosion);
       submarine_explosion();
     }
   }
@@ -1174,7 +1174,7 @@ static gboolean update_timeout_slow() {
 	  || dist3 < TREASURE_DETECTION_RADIUS)
 	 && !treasure_captured ) {
       gc_sound_play_ogg("sounds/tuxok.wav", NULL);
-      gnome_canvas_item_hide(treasure);
+      goo_canvas_item_hide(treasure);
       treasure_captured = TRUE;
       open_door();
     }
@@ -1226,25 +1226,25 @@ static gboolean update_timeout_very_slow() {
   if ( (ballast_av_purge_open && ballast_av_air > 0.0) ||
        ( ballast_av_chasse_open && ballast_av_air == MAX_BALLAST ) ) {
     gc_item_absolute_move( bubbling[0], submarine_x-30.0, depth-50.0);
-    gnome_canvas_item_show( bubbling[0] );
+    goo_canvas_item_show( bubbling[0] );
     gc_sound_play_ogg ("sounds/bubble.wav", NULL);
   } else
-    gnome_canvas_item_hide( bubbling[0] );
+    goo_canvas_item_hide( bubbling[0] );
 
   if ( (ballast_ar_purge_open && ballast_ar_air > 0.0) ||
        ( ballast_ar_chasse_open && ballast_ar_air == MAX_BALLAST ) ) {
     gc_item_absolute_move( bubbling[2], submarine_x - submarine_width , depth-30.0);
     gc_sound_play_ogg ("sounds/bubble.wav", NULL);
-    gnome_canvas_item_show( bubbling[2] );
+    goo_canvas_item_show( bubbling[2] );
   } else
-    gnome_canvas_item_hide( bubbling[2] );
+    goo_canvas_item_hide( bubbling[2] );
 
   if (regleur_purge_open && regleur < MAX_REGLEUR) {
     gc_item_absolute_move( bubbling[1], submarine_x - submarine_width/2 -30.0, depth-30.0);
     gc_sound_play_ogg ("sounds/bubble.wav", NULL);
-    gnome_canvas_item_show( bubbling[1] );
+    goo_canvas_item_show( bubbling[1] );
   } else
-    gnome_canvas_item_hide( bubbling[1] );
+    goo_canvas_item_hide( bubbling[1] );
 
   return TRUE;
 }
@@ -1296,7 +1296,7 @@ static void ok() {
 /* =====================================================================
  *		ballast_av_purge_event
  * =====================================================================*/
-static gint ballast_av_purge_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data) {
+static gint ballast_av_purge_event(GooCanvasItem *item, GdkEvent *event, gpointer data) {
 
   if(board_paused || !boardRootItem)
     return FALSE;
@@ -1321,7 +1321,7 @@ static gint ballast_av_purge_event(GnomeCanvasItem *item, GdkEvent *event, gpoin
 /* =====================================================================
  *		ballast_ar_purge_event
  * =====================================================================*/
-static gint ballast_ar_purge_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data) {
+static gint ballast_ar_purge_event(GooCanvasItem *item, GdkEvent *event, gpointer data) {
 
   if(board_paused || !boardRootItem)
     return FALSE;
@@ -1345,7 +1345,7 @@ static gint ballast_ar_purge_event(GnomeCanvasItem *item, GdkEvent *event, gpoin
 /* =====================================================================
  *		regleur_purge_event
  * =====================================================================*/
-static gint regleur_purge_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data) {
+static gint regleur_purge_event(GooCanvasItem *item, GdkEvent *event, gpointer data) {
 
   if(board_paused || !boardRootItem)
     return FALSE;
@@ -1369,7 +1369,7 @@ static gint regleur_purge_event(GnomeCanvasItem *item, GdkEvent *event, gpointer
 /* =====================================================================
  *		ballast_ar_chasse_event
  * =====================================================================*/
-static gint ballast_ar_chasse_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data) {
+static gint ballast_ar_chasse_event(GooCanvasItem *item, GdkEvent *event, gpointer data) {
 
   if(board_paused || !boardRootItem)
     return FALSE;
@@ -1393,7 +1393,7 @@ static gint ballast_ar_chasse_event(GnomeCanvasItem *item, GdkEvent *event, gpoi
 /* =====================================================================
  *		ballast_av_chasse_event
  * =====================================================================*/
-static gint ballast_av_chasse_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data) {
+static gint ballast_av_chasse_event(GooCanvasItem *item, GdkEvent *event, gpointer data) {
 
   if(board_paused || !boardRootItem)
     return FALSE;
@@ -1417,7 +1417,7 @@ static gint ballast_av_chasse_event(GnomeCanvasItem *item, GdkEvent *event, gpoi
 /* =====================================================================
  *
  * =====================================================================*/
-static gint regleur_chasse_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data) {
+static gint regleur_chasse_event(GooCanvasItem *item, GdkEvent *event, gpointer data) {
 
   if(board_paused || !boardRootItem)
     return FALSE;
@@ -1442,7 +1442,7 @@ static gint regleur_chasse_event(GnomeCanvasItem *item, GdkEvent *event, gpointe
 /* =====================================================================
  *		barre_av_event
  * =====================================================================*/
-static gint barre_av_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data) {
+static gint barre_av_event(GooCanvasItem *item, GdkEvent *event, gpointer data) {
   int d = GPOINTER_TO_INT(data);
 
   if(board_paused || !boardRootItem)
@@ -1470,7 +1470,7 @@ static gint barre_av_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data
 /* =====================================================================
  *		barre_ar_event
  * =====================================================================*/
-static gint barre_ar_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data) {
+static gint barre_ar_event(GooCanvasItem *item, GdkEvent *event, gpointer data) {
   int d = GPOINTER_TO_INT(data);
 
   if(board_paused || !boardRootItem)
@@ -1498,7 +1498,7 @@ static gint barre_ar_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data
 /* =====================================================================
  *		engine_event
  * =====================================================================*/
-static gint engine_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data) {
+static gint engine_event(GooCanvasItem *item, GdkEvent *event, gpointer data) {
   int d = GPOINTER_TO_INT(data);
 
   if(board_paused || !boardRootItem)
@@ -1529,7 +1529,7 @@ static gint engine_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data) 
 /* =====================================================================
  *		air_compressor_event
  * =====================================================================*/
-static gint air_compressor_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data) {
+static gint air_compressor_event(GooCanvasItem *item, GdkEvent *event, gpointer data) {
 
   if(board_paused || !boardRootItem)
     return FALSE;
@@ -1553,7 +1553,7 @@ static gint air_compressor_event(GnomeCanvasItem *item, GdkEvent *event, gpointe
 /* =====================================================================
  *		battery_charger_event
  * =====================================================================*/
-static gint battery_charger_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data) {
+static gint battery_charger_event(GooCanvasItem *item, GdkEvent *event, gpointer data) {
 
   if(board_paused || !boardRootItem)
     return FALSE;
@@ -1580,27 +1580,27 @@ static gint battery_charger_event(GnomeCanvasItem *item, GdkEvent *event, gpoint
 static void setSpeed(double value) {
   char s12[12];
   sprintf(s12,"%d",(int)value);
-  gnome_canvas_item_set(speed_item_back, "text", s12, NULL);
-  gnome_canvas_item_set(speed_item_front, "text", s12, NULL);
+  goo_canvas_item_set(speed_item_back, "text", s12, NULL);
+  goo_canvas_item_set(speed_item_front, "text", s12, NULL);
 }
 static void setBattery(double value) {
   char s12[12];
   sprintf(s12,"%d",(int)value);
-  gnome_canvas_item_set(battery_item_back, "text", s12, NULL);
-  gnome_canvas_item_set(battery_item_front, "text", s12, NULL);
+  goo_canvas_item_set(battery_item_back, "text", s12, NULL);
+  goo_canvas_item_set(battery_item_front, "text", s12, NULL);
 }
 static void setAir(double value) {
   char s12[12];
   sprintf(s12,"%d",(int)value);
-  gnome_canvas_item_set(air_item_back, "text", s12, NULL);
-  gnome_canvas_item_set(air_item_front, "text", s12, NULL);
+  goo_canvas_item_set(air_item_back, "text", s12, NULL);
+  goo_canvas_item_set(air_item_front, "text", s12, NULL);
 }
 static void setRegleur(double value) {
   char s12[12];
   sprintf(s12,"%d",(int)value);
-  gnome_canvas_item_set(regleur_item_back, "text", s12, NULL);
-  gnome_canvas_item_set(regleur_item_front, "text", s12, NULL);
-  gnome_canvas_item_set(regleur_item_rect,
+  goo_canvas_item_set(regleur_item_back, "text", s12, NULL);
+  goo_canvas_item_set(regleur_item_front, "text", s12, NULL);
+  goo_canvas_item_set(regleur_item_rect,
 			"y1", (double) schema_y + REGLEUR_Y2 +
 			( value * (REGLEUR_Y1 - REGLEUR_Y2)) / MAX_REGLEUR,
 			NULL);
@@ -1608,9 +1608,9 @@ static void setRegleur(double value) {
 static void setBallastAV(double value) {
   char s12[12];
   sprintf(s12,"%d", MAX_BALLAST - (int)value);
-  gnome_canvas_item_set(ballast_av_air_item_back, "text", s12, NULL);
-  gnome_canvas_item_set(ballast_av_air_item_front, "text", s12, NULL);
-  gnome_canvas_item_set(ballast_av_air_item_rect,
+  goo_canvas_item_set(ballast_av_air_item_back, "text", s12, NULL);
+  goo_canvas_item_set(ballast_av_air_item_front, "text", s12, NULL);
+  goo_canvas_item_set(ballast_av_air_item_rect,
 			"y1", (double) schema_y + BALLAST_AV_AIR_Y2 +
 			( (MAX_BALLAST - value) * (BALLAST_AV_AIR_Y1 - BALLAST_AV_AIR_Y2)) / MAX_BALLAST,
 			NULL);
@@ -1618,9 +1618,9 @@ static void setBallastAV(double value) {
 static void setBallastAR(double value) {
   char s12[12];
   sprintf(s12,"%d", MAX_BALLAST - (int)value);
-  gnome_canvas_item_set(ballast_ar_air_item_back, "text", s12, NULL);
-  gnome_canvas_item_set(ballast_ar_air_item_front, "text", s12, NULL);
-  gnome_canvas_item_set(ballast_ar_air_item_rect,
+  goo_canvas_item_set(ballast_ar_air_item_back, "text", s12, NULL);
+  goo_canvas_item_set(ballast_ar_air_item_front, "text", s12, NULL);
+  goo_canvas_item_set(ballast_ar_air_item_rect,
 			"y1", (double) schema_y + BALLAST_AR_AIR_Y2 +
 			( (MAX_BALLAST - value) * (BALLAST_AR_AIR_Y1 - BALLAST_AR_AIR_Y2)) / MAX_BALLAST,
 			NULL);
@@ -1632,7 +1632,7 @@ static void setBallastAR(double value) {
  * =====================================================================*/
 static void open_door()
 {
-  gnome_canvas_item_set(top_gate_item,
+  goo_canvas_item_set(top_gate_item,
 			"y2", (double)gate_top_current_y--,
 			NULL);
 }
@@ -1654,7 +1654,7 @@ static void submarine_explosion() {
 
   /* display the boken submarine */
   pixmap = gc_pixmap_load("submarine/submarine-broken.png");
-  gnome_canvas_item_set(submarine_item,
+  goo_canvas_item_set(submarine_item,
 			"pixbuf", pixmap,
 			NULL);
   gdk_pixbuf_unref(pixmap);

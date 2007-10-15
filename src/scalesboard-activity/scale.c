@@ -40,8 +40,8 @@ static void game_won(void);
 
 static GnomeCanvasGroup *boardRootItem = NULL;
 static GnomeCanvasGroup *group_g = NULL, *group_d= NULL;
-static GnomeCanvasItem *bras = NULL;
-static GnomeCanvasItem *answer_item = NULL;
+static GooCanvasItem *bras = NULL;
+static GooCanvasItem *answer_item = NULL;
 GString *answer_string = NULL;
 
 static void scale_destroy_all_items(void);
@@ -66,7 +66,7 @@ static void scale_next_level(void);
 #define PLATE_SIZE 4 // number of place in the plate
 
 typedef struct {
-    GnomeCanvasItem * item;
+    GooCanvasItem * item;
     double x, y;
     int plate;        // 0 not place, 1 in plate_g, -1 in plate_d
     int plate_index;  // position in the plate
@@ -88,7 +88,7 @@ static const char *imageList[] = {
 
 static const int imageListCount = G_N_ELEMENTS(imageList);
 
-static int scale_drag_event(GnomeCanvasItem *w, GdkEvent *event, ScaleItem *item);
+static int scale_drag_event(GooCanvasItem *w, GdkEvent *event, ScaleItem *item);
 
 /* Description of this plugin */
 static BoardPlugin menu_bp =
@@ -162,10 +162,10 @@ static void start_board (GcomprisBoard *agcomprisBoard)
         else
             drag_mode = 0;
 
-	gc_set_background(gnome_canvas_root(gcomprisBoard->canvas),
+	gc_set_background(goo_canvas_get_root_item(gcomprisBoard->canvas),
 			  "scale/tabepice.jpg");
 
-        gc_drag_start(gnome_canvas_root(gcomprisBoard->canvas),
+        gc_drag_start(goo_canvas_get_root_item(gcomprisBoard->canvas),
                 (gc_Drag_Func)scale_drag_event, drag_mode);
 
 	gc_score_start(SCORESTYLE_NOTE,
@@ -181,7 +181,7 @@ static void end_board ()
 {
     if(gcomprisBoard!=NULL)
     {
-        gc_drag_stop(gnome_canvas_root(gcomprisBoard->canvas));
+        gc_drag_stop(goo_canvas_get_root_item(gcomprisBoard->canvas));
         pause_board(TRUE);
         scale_destroy_all_items();
 	gc_score_end();
@@ -263,7 +263,7 @@ static gint key_press(guint keyval, gchar *commit_str, gchar *preedit_str)
             answer_string = g_string_append_c(answer_string, c);
 
         tmpstr = g_strdup_printf(_("Weight = %s"), answer_string->str);
-        gnome_canvas_item_set(answer_item,
+        goo_canvas_item_set(answer_item,
                 "text", tmpstr,
                 NULL);
         g_free(tmpstr);
@@ -315,11 +315,11 @@ void scale_anim_plate(void)
 
     gtk_object_get (GTK_OBJECT (group_g), "x", &x, NULL);
     art_affine_translate(affine, x, delta_y);
-    gnome_canvas_item_affine_absolute(GNOME_CANVAS_ITEM(group_g), affine);
+    goo_canvas_item_affine_absolute(GNOME_CANVAS_ITEM(group_g), affine);
 
     gtk_object_get (GTK_OBJECT (group_d), "x", &x, NULL);
     art_affine_translate(affine, x, -delta_y);
-    gnome_canvas_item_affine_absolute(GNOME_CANVAS_ITEM(group_d), affine);
+    goo_canvas_item_affine_absolute(GNOME_CANVAS_ITEM(group_d), affine);
 
     gc_item_rotate_with_center(bras, -angle, 138, 84);
     }
@@ -329,14 +329,14 @@ void scale_anim_plate(void)
         double x_offset = 40, y_offset = 150;
 
         button_pixmap = gc_skin_pixmap_load("button_large2.png");
-        gnome_canvas_item_new (boardRootItem,
-                gnome_canvas_pixbuf_get_type (),
+        goo_canvas_item_new (boardRootItem,
+                goo_canvas_pixbuf_get_type (),
                 "pixbuf",  button_pixmap,
                 "x", x_offset,
                 "y", y_offset,
                 NULL);
-        answer_item = gnome_canvas_item_new(boardRootItem,
-                gnome_canvas_text_get_type(),
+        answer_item = goo_canvas_item_new(boardRootItem,
+                goo_canvas_text_get_type(),
                 "font", gc_skin_font_board_title_bold,
                 "x", x_offset + gdk_pixbuf_get_width(button_pixmap)/2,
                 "y", y_offset + gdk_pixbuf_get_height(button_pixmap)/2,
@@ -381,8 +381,8 @@ void scale_item_move_to(ScaleItem *item, int plate)
             {   // move to the plate
                 item->plate = plate;
                 item->plate_index=index;
-                gnome_canvas_item_reparent(item->item, plate == 1 ? group_g : group_d);
-                gnome_canvas_item_set(item->item,
+                goo_canvas_item_reparent(item->item, plate == 1 ? group_g : group_d);
+                goo_canvas_item_set(item->item,
                         "x", (double)index * ITEM_W,
                         "y", (double)PLATE_Y-ITEM_H + 5,
                         NULL);
@@ -397,8 +397,8 @@ void scale_item_move_to(ScaleItem *item, int plate)
 	if(item->plate)
 	  gc_sound_play_ogg ("sounds/eraser1.wav", NULL);
         item->plate = 0;
-        gnome_canvas_item_reparent(item->item, boardRootItem);
-        gnome_canvas_item_set(item->item,
+        goo_canvas_item_reparent(item->item, boardRootItem);
+        goo_canvas_item_set(item->item,
                 "x", item->x,
                 "y", item->y, NULL);
     }
@@ -406,7 +406,7 @@ void scale_item_move_to(ScaleItem *item, int plate)
     scale_anim_plate();
 }
 
-static int scale_item_event(GnomeCanvasItem *w, GdkEvent *event, ScaleItem *scale)
+static int scale_item_event(GooCanvasItem *w, GdkEvent *event, ScaleItem *scale)
 {
     if(answer_string)
         return FALSE;
@@ -416,7 +416,7 @@ static int scale_item_event(GnomeCanvasItem *w, GdkEvent *event, ScaleItem *scal
     return FALSE;
 }
 
-static int scale_drag_event(GnomeCanvasItem *w, GdkEvent *event, ScaleItem *scale)
+static int scale_drag_event(GooCanvasItem *w, GdkEvent *event, ScaleItem *scale)
 {
     int plate=0;
     double x,y;
@@ -429,10 +429,10 @@ static int scale_drag_event(GnomeCanvasItem *w, GdkEvent *event, ScaleItem *scal
         case GDK_BUTTON_PRESS:
             gc_drag_offset_save(event);
             g_object_get(G_OBJECT(scale->item), "x", &x, "y", &y, NULL);
-            gnome_canvas_item_i2w(scale->item, &x,&y);
-            gnome_canvas_item_reparent(scale->item,boardRootItem);
-            gnome_canvas_item_w2i(scale->item, &x, &y);
-            gnome_canvas_item_set(scale->item, "x", x, "y", y, NULL);
+            goo_canvas_item_i2w(scale->item, &x,&y);
+            goo_canvas_item_reparent(scale->item,boardRootItem);
+            goo_canvas_convert_to_item_space(scale->item, &x, &y);
+            goo_canvas_item_set(scale->item, "x", x, "y", y, NULL);
             break;
         case GDK_MOTION_NOTIFY:
             gc_drag_item_move(event);
@@ -440,14 +440,14 @@ static int scale_drag_event(GnomeCanvasItem *w, GdkEvent *event, ScaleItem *scal
         case GDK_BUTTON_RELEASE:
             x=event->button.x;
             y=event->button.y;
-            gnome_canvas_item_w2i(GNOME_CANVAS_ITEM(group_g), &x, &y);
+            goo_canvas_convert_to_item_space(GNOME_CANVAS_ITEM(group_g), &x, &y);
             if(-ITEM_W < x && x < PLATE_W + ITEM_W && abs(y-PLATE_Y) < ITEM_H)
                 plate = 1;
             else
             {
                 x=event->button.x;
                 y=event->button.y;
-                gnome_canvas_item_w2i(GNOME_CANVAS_ITEM(group_d), &x, &y);
+                goo_canvas_convert_to_item_space(GNOME_CANVAS_ITEM(group_d), &x, &y);
                 if(-ITEM_W < x && x < PLATE_W + ITEM_W && abs(y-PLATE_Y) < ITEM_H)
                     plate = -1;
                 else
@@ -497,17 +497,17 @@ static ScaleItem * scale_list_add_weight(gint weight)
 
     filename = g_strdup_printf("scale/masse%d.png", weight);
     pixmap = gc_pixmap_load(filename);
-    new_item->item = gnome_canvas_item_new(boardRootItem,
-            gnome_canvas_pixbuf_get_type(),
+    new_item->item = goo_canvas_item_new(boardRootItem,
+            goo_canvas_pixbuf_get_type(),
             "pixbuf", pixmap,
             "x", new_item->x,
             "y", new_item->y, NULL);
     g_free(filename);
     gdk_pixbuf_unref(pixmap);
 
-    g_signal_connect(new_item->item, "event", (GtkSignalFunc)gc_item_focus_event, NULL);
-    g_signal_connect(new_item->item, "event", (GtkSignalFunc)gc_drag_event, new_item);
-    g_signal_connect(new_item->item, "event", (GtkSignalFunc) scale_item_event, new_item);
+    g_signal_connect(new_item->item, "enter_notify_event", (GtkSignalFunc)gc_item_focus_event, NULL);
+    g_signal_connect(new_item->item, "enter_notify_event", (GtkSignalFunc)gc_drag_event, new_item);
+    g_signal_connect(new_item->item, "enter_notify_event", (GtkSignalFunc) scale_item_event, new_item);
 
     item_list = g_list_append(item_list, new_item);
     return new_item;
@@ -515,15 +515,15 @@ static ScaleItem * scale_list_add_weight(gint weight)
 
 static ScaleItem * scale_list_add_object(GdkPixbuf *pixmap, int weight, int plate, gboolean show_weight)
 {
-    GnomeCanvasItem *item;
+    GooCanvasItem *item;
     ScaleItem * new_item;
 
-    item = gnome_canvas_item_new(group_d,
-            gnome_canvas_pixbuf_get_type(),
+    item = goo_canvas_item_new(group_d,
+            goo_canvas_pixbuf_get_type(),
             "pixbuf", pixmap,
             "x", ((double)PLATE_SIZE * ITEM_W - gdk_pixbuf_get_width(pixmap))/2.0,
             "y", PLATE_Y + 5 - gdk_pixbuf_get_height(pixmap), NULL);
-    gnome_canvas_item_lower_to_bottom(item);
+    goo_canvas_item_lower_to_bottom(item);
 
     if(show_weight)
     {   // display the object weight
@@ -533,8 +533,8 @@ static ScaleItem * scale_list_add_object(GdkPixbuf *pixmap, int weight, int plat
         x = PLATE_SIZE * ITEM_W * .5;
         y = PLATE_Y - 20.0;
         text = g_strdup_printf("%d", objet_weight);
-        gnome_canvas_item_new(group_d,
-                gnome_canvas_text_get_type(),
+        goo_canvas_item_new(group_d,
+                goo_canvas_text_get_type(),
                 "text", text,
                 "font", gc_skin_font_board_medium,
                 "x", x + 1.0,
@@ -542,8 +542,8 @@ static ScaleItem * scale_list_add_object(GdkPixbuf *pixmap, int weight, int plat
                 "anchor", GTK_ANCHOR_CENTER,
                 "fill_color_rgba", gc_skin_color_shadow,
                 NULL);
-        gnome_canvas_item_new(group_d,
-                gnome_canvas_text_get_type(),
+        goo_canvas_item_new(group_d,
+                goo_canvas_text_get_type(),
                 "text", text,
                 "font", gc_skin_font_board_medium,
                 "x", x,
@@ -641,7 +641,7 @@ static void scale_make_level()
 static void scale_next_level()
 {
     GdkPixbuf *pixmap, *pixmap2;
-    GnomeCanvasItem *item, *balance;
+    GooCanvasItem *item, *balance;
     double balance_x, balance_y;
 
     gc_bar_set_level(gcomprisBoard);
@@ -655,14 +655,14 @@ static void scale_next_level()
     balance_x = (BOARDWIDTH - gdk_pixbuf_get_width(pixmap))/2;
     balance_y = (BOARDHEIGHT - gdk_pixbuf_get_height(pixmap))/2;
 
-    boardRootItem = GNOME_CANVAS_GROUP(gnome_canvas_item_new (gnome_canvas_root(gcomprisBoard->canvas),
-                gnome_canvas_group_get_type (),
+    boardRootItem = GOO_CANVAS_GROUP(goo_canvas_item_new (goo_canvas_get_root_item(gcomprisBoard->canvas),
+                goo_canvas_group_get_type (),
                 "x", balance_x,
                 "y", balance_y,
                 NULL));
 
-    balance = item = gnome_canvas_item_new(boardRootItem,
-            gnome_canvas_pixbuf_get_type(),
+    balance = item = goo_canvas_item_new(boardRootItem,
+            goo_canvas_pixbuf_get_type(),
             "pixbuf", pixmap,
             "x", (double)0,
             "y", (double)0,
@@ -670,47 +670,47 @@ static void scale_next_level()
     gdk_pixbuf_unref(pixmap);
 
     // create plate left
-    group_g = GNOME_CANVAS_GROUP(gnome_canvas_item_new(boardRootItem,
-                gnome_canvas_group_get_type(),
+    group_g = GOO_CANVAS_GROUP(goo_canvas_item_new(boardRootItem,
+                goo_canvas_group_get_type(),
                 "x", PLATE_X1,
                 "y", 0.0,
                 NULL));
     pixmap = gc_pixmap_load("scale/plateau.png");
-    item = gnome_canvas_item_new(group_g,
-            gnome_canvas_pixbuf_get_type(),
+    item = goo_canvas_item_new(group_g,
+            goo_canvas_pixbuf_get_type(),
             "pixbuf", pixmap,
             "x", 0.0, "y", PLATE_Y, NULL);
     gdk_pixbuf_unref(pixmap);
 
     // create plate right
-    group_d = GNOME_CANVAS_GROUP(gnome_canvas_item_new(boardRootItem,
-                gnome_canvas_group_get_type(),
+    group_d = GOO_CANVAS_GROUP(goo_canvas_item_new(boardRootItem,
+                goo_canvas_group_get_type(),
                 "x", PLATE_X2,
                 "y", 0.0,
                 NULL));
     pixmap = gc_pixmap_load("scale/plateau.png");
     pixmap2 = gdk_pixbuf_flip(pixmap, TRUE);
-    item = gnome_canvas_item_new(group_d,
-            gnome_canvas_pixbuf_get_type(),
+    item = goo_canvas_item_new(group_d,
+            goo_canvas_pixbuf_get_type(),
             "pixbuf", pixmap2,
             "x", 0.0, "y", PLATE_Y, NULL);
     gdk_pixbuf_unref(pixmap);
     gdk_pixbuf_unref(pixmap2);
 
     pixmap = gc_pixmap_load("scale/bras.png");
-    bras = item = gnome_canvas_item_new(boardRootItem,
-            gnome_canvas_pixbuf_get_type(),
+    bras = item = goo_canvas_item_new(boardRootItem,
+            goo_canvas_pixbuf_get_type(),
             "pixbuf", pixmap,
             "x", BRAS_X,
             "y", BRAS_Y,
             NULL);
     gdk_pixbuf_unref(pixmap);
-    gnome_canvas_item_raise_to_top(balance);
+    goo_canvas_item_raise_to_top(balance);
 
     /* display some hint */
     if(gcomprisBoard->level > 2)
-      gnome_canvas_item_new(boardRootItem,
-			    gnome_canvas_text_get_type(),
+      goo_canvas_item_new(boardRootItem,
+			    goo_canvas_text_get_type(),
 			    "text", _("Take care, you can drop masses on both sides of the scale."),
 			    "font", gc_skin_font_board_medium,
 			    "x", 200.0,

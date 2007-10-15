@@ -76,10 +76,10 @@ static GnomeCanvasGroup *boardRootItem = NULL;
 static GnomeCanvasGroup *mazegroup     = NULL;
 static GnomeCanvasGroup *wallgroup     = NULL;
 
-static GnomeCanvasItem *warning_item   = NULL;
-static GnomeCanvasItem *tuxitem        = NULL;
+static GooCanvasItem *warning_item   = NULL;
+static GooCanvasItem *tuxitem        = NULL;
 
-static GnomeCanvasItem *maze_create_item(GnomeCanvasGroup *parent);
+static GooCanvasItem *maze_create_item(GnomeCanvasGroup *parent);
 static void maze_destroy_all_items(void);
 static void maze_next_level(void);
 static void set_level (guint level);
@@ -87,8 +87,8 @@ static gint key_press(guint keyval, gchar *commit_str, gchar *preedit_str);
 /*--------------------*/
 static void draw_a_rect(GnomeCanvasGroup *group, int x1, int y1, int x2, int y2, char *color);
 static void draw_a_line(GnomeCanvasGroup *group, int x1, int y1, int x2, int y2, guint32 color);
-static GnomeCanvasItem *draw_image(GnomeCanvasGroup *group, int x,int y, GdkPixbuf *pixmap);
-static void move_image(GnomeCanvasGroup *group, int x,int y, GnomeCanvasItem *item);
+static GooCanvasItem *draw_image(GnomeCanvasGroup *group, int x,int y, GdkPixbuf *pixmap);
+static void move_image(GnomeCanvasGroup *group, int x,int y, GooCanvasItem *item);
 static void draw_rect(GnomeCanvasGroup *group, int x,int y,char *color);
 static void draw_combined_rect(GnomeCanvasGroup *group, int x1, int y1, int x2,int y2, char *color);
 static void initMaze(void);
@@ -98,8 +98,8 @@ static void generateMaze(int x, int y);
 static void removeSet(void);
 static void draw_background(GnomeCanvasGroup *rootItem);
 static void setlevelproperties(void);
-static gint tux_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data);
-static gint target_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data);
+static gint tux_event(GooCanvasItem *item, GdkEvent *event, gpointer data);
+static gint target_event(GooCanvasItem *item, GdkEvent *event, gpointer data);
 static void update_tux(gint direction);
 
 /*---------- 3D stuff ------------*/
@@ -187,7 +187,7 @@ static void start_board (GcomprisBoard *agcomprisBoard) {
     gcomprisBoard->disable_im_context = TRUE;
 
     img = gc_skin_image_get("gcompris-bg.jpg");
-    gc_set_background(gnome_canvas_root(gcomprisBoard->canvas),
+    gc_set_background(goo_canvas_get_root_item(gcomprisBoard->canvas),
 			    img);
     g_free(img);
     gcomprisBoard->level=1;
@@ -275,11 +275,11 @@ static void maze_next_level() {
   generateMaze((g_random_int()%breedte),(g_random_int()%hoogte));
   removeSet();
   /* Try the next level */
-  maze_create_item(gnome_canvas_root(gcomprisBoard->canvas));
+  maze_create_item(goo_canvas_get_root_item(gcomprisBoard->canvas));
   draw_background(wallgroup);
 
   if(modeIsInvisible) {
-    gnome_canvas_item_hide(GNOME_CANVAS_ITEM(wallgroup));
+    goo_canvas_item_hide(GNOME_CANVAS_ITEM(wallgroup));
   }
 
   /* make a new group for the items */
@@ -292,16 +292,16 @@ static void maze_next_level() {
     {
       tuxitem = draw_image(mazegroup,0,begin,pixmap);
       gdk_pixbuf_unref(pixmap);
-      gtk_signal_connect(GTK_OBJECT(tuxitem), "event", (GtkSignalFunc) tux_event, NULL);
+      g_signal_connect(GTK_OBJECT(tuxitem), "enter_notify_event", (GtkSignalFunc) tux_event, NULL);
     }
 
   /* Draw the target */
   pixmap = gc_pixmap_load("maze/door.png");
   if(pixmap)
     {
-      GnomeCanvasItem *targetitem = draw_image(mazegroup,breedte-1,end,pixmap);
+      GooCanvasItem *targetitem = draw_image(mazegroup,breedte-1,end,pixmap);
       gdk_pixbuf_unref(pixmap);
-      gtk_signal_connect(GTK_OBJECT(targetitem), "event", (GtkSignalFunc) target_event, NULL);
+      g_signal_connect(GTK_OBJECT(targetitem), "enter_notify_event", (GtkSignalFunc) target_event, NULL);
     }
 
   position[ind][0]=0;
@@ -411,14 +411,14 @@ static void repeat () {
 
   if(modeIsInvisible) {
     if(mapActive) {
-      gnome_canvas_item_hide(GNOME_CANVAS_ITEM(wallgroup));
+      goo_canvas_item_hide(GNOME_CANVAS_ITEM(wallgroup));
       /* Hide the warning */
-      gnome_canvas_item_hide(warning_item);
+      goo_canvas_item_hide(warning_item);
       mapActive = FALSE;
     } else {
-      gnome_canvas_item_show(GNOME_CANVAS_ITEM(wallgroup));
+      goo_canvas_item_show(GNOME_CANVAS_ITEM(wallgroup));
       /* Display a warning that you can't move there */
-      gnome_canvas_item_show(warning_item);
+      goo_canvas_item_show(warning_item);
       mapActive = TRUE;
     }
   }
@@ -435,7 +435,7 @@ static void repeat () {
     }
     twoDdisplay();
     /* Display a warning that you can't move there */
-    gnome_canvas_item_show(warning_item);
+    goo_canvas_item_show(warning_item);
 
   } else {
 
@@ -444,7 +444,7 @@ static void repeat () {
       gc_bar_set_repeat_icon(pixmap);
       gdk_pixbuf_unref(pixmap);
     }
-    gnome_canvas_item_hide(warning_item);
+    goo_canvas_item_hide(warning_item);
     threeDdisplay();
   }
 
@@ -467,23 +467,23 @@ static void maze_destroy_all_items() {
 /* =====================================================================
  *
  * =====================================================================*/
-static GnomeCanvasItem *maze_create_item(GnomeCanvasGroup *parent) {
+static GooCanvasItem *maze_create_item(GnomeCanvasGroup *parent) {
   gchar *message;
 
-  boardRootItem = GNOME_CANVAS_GROUP(
-				     gnome_canvas_item_new (gnome_canvas_root(gcomprisBoard->canvas),
-							    gnome_canvas_group_get_type (),
+  boardRootItem = GOO_CANVAS_GROUP(
+				     goo_canvas_item_new (goo_canvas_get_root_item(gcomprisBoard->canvas),
+							    goo_canvas_group_get_type (),
 							    "x", (double) 0,
 							    "y", (double) 0,
 							    NULL));
-  mazegroup=GNOME_CANVAS_GROUP(gnome_canvas_item_new(boardRootItem,
-						     gnome_canvas_group_get_type(),
+  mazegroup=GOO_CANVAS_GROUP(goo_canvas_item_new(boardRootItem,
+						     goo_canvas_group_get_type(),
 						     "x",(double)breedte,
 						     "y",(double)hoogte,
 						     NULL));
 
-  wallgroup=GNOME_CANVAS_GROUP(gnome_canvas_item_new(boardRootItem,
-						     gnome_canvas_group_get_type(),
+  wallgroup=GOO_CANVAS_GROUP(goo_canvas_item_new(boardRootItem,
+						     goo_canvas_group_get_type(),
 						     "x",(double) 0,
 						     "y",(double) 0,
 						     NULL));
@@ -494,8 +494,8 @@ static GnomeCanvasItem *maze_create_item(GnomeCanvasGroup *parent) {
     message = _("Look at your position, then switch back to 3D mode to continue your moves");
   }
 
-  warning_item = gnome_canvas_item_new (boardRootItem,
-					gnome_canvas_text_get_type (),
+  warning_item = goo_canvas_item_new (boardRootItem,
+					goo_canvas_text_get_type (),
 					"text", message,
 					"font", gc_skin_font_board_small,
 					"x", (double) BOARDWIDTH/2,
@@ -503,7 +503,7 @@ static GnomeCanvasItem *maze_create_item(GnomeCanvasGroup *parent) {
 					"anchor", GTK_ANCHOR_CENTER,
 					"fill_color_rgba", gc_skin_color_content,
 					NULL);
-  gnome_canvas_item_hide(warning_item);
+  goo_canvas_item_hide(warning_item);
 
   return NULL;
 }
@@ -532,7 +532,7 @@ static void
 draw_a_rect(GnomeCanvasGroup *group,
 	    int x1, int y1, int x2, int y2, char *color)
 {
-  gnome_canvas_item_new(group,gnome_canvas_rect_get_type(),
+  goo_canvas_item_new(group,goo_canvas_rect_get_type(),
 			"x1",(double)x1,
 			"y1",(double)y1,
 			"x2",(double)x2,
@@ -547,20 +547,20 @@ draw_a_line(GnomeCanvasGroup *group,
 {
   GnomeCanvasPoints *points;
 
-  points = gnome_canvas_points_new (2);
+  points = goo_canvas_points_new (2);
 
   points->coords[0] = x1;
   points->coords[1] = y1;
   points->coords[2] = x2;
   points->coords[3] = y2;
-  gnome_canvas_item_new(group,
-			gnome_canvas_line_get_type(),
+  goo_canvas_item_new(group,
+			goo_canvas_line_get_type(),
 			"points", points,
 			"fill_color_rgba", color,
 			"width_units", (double)thickness,
 			NULL);
 
-  gnome_canvas_points_free(points);
+  goo_canvas_points_free(points);
 }
 
 static void draw_rect(GnomeCanvasGroup *group, int x,int y,char *color)
@@ -575,16 +575,16 @@ static void draw_rect(GnomeCanvasGroup *group, int x,int y,char *color)
  * Same as draw rect but for an image
  * Returns the created item
  */
-static GnomeCanvasItem *draw_image(GnomeCanvasGroup *group, int x,int y, GdkPixbuf *pixmap)
+static GooCanvasItem *draw_image(GnomeCanvasGroup *group, int x,int y, GdkPixbuf *pixmap)
 {
-  GnomeCanvasItem *item = NULL;
+  GooCanvasItem *item = NULL;
   int x1,y1;
 
   y1=cellsize*(y)-hoogte + board_border_y;
   x1=cellsize*(x)-breedte + board_border_x;
 
-  item = gnome_canvas_item_new (group,
-				gnome_canvas_pixbuf_get_type (),
+  item = goo_canvas_item_new (group,
+				goo_canvas_pixbuf_get_type (),
 				"pixbuf", pixmap,
 				"x",	(double)x1+buffer,
 				"y",	(double)y1+buffer,
@@ -600,17 +600,17 @@ static GnomeCanvasItem *draw_image(GnomeCanvasGroup *group, int x,int y, GdkPixb
 /*
  * Same as draw rect but for an image
  */
-static void move_image(GnomeCanvasGroup *group, int x,int y, GnomeCanvasItem *item)
+static void move_image(GnomeCanvasGroup *group, int x,int y, GooCanvasItem *item)
 {
   int x1,y1;
   y1=cellsize*(y)-hoogte + board_border_y;
   x1=cellsize*(x)-breedte + board_border_x;
 
-  gnome_canvas_item_set (item,
+  goo_canvas_item_set (item,
 			 "x",	(double)x1+buffer,
 			 "y",	(double)y1+buffer,
 			 NULL);
-  gnome_canvas_item_raise_to_top(item);
+  goo_canvas_item_raise_to_top(item);
 }
 
 static void draw_combined_rect(GnomeCanvasGroup *group, int x1,int y1,int x2,int y2,char *color)
@@ -936,14 +936,14 @@ static gint key_press(guint keyval, gchar *commit_str, gchar *preedit_str)
       if(modeIsInvisible) {
 	gc_sound_play_ogg ("sounds/flip.wav", NULL);
 	if(mapActive) {
-	  gnome_canvas_item_hide(GNOME_CANVAS_ITEM(wallgroup));
+	  goo_canvas_item_hide(GNOME_CANVAS_ITEM(wallgroup));
 	  /* Hide the warning */
-	  gnome_canvas_item_hide(warning_item);
+	  goo_canvas_item_hide(warning_item);
 	  mapActive = FALSE;
 	} else {
-	  gnome_canvas_item_show(GNOME_CANVAS_ITEM(wallgroup));
+	  goo_canvas_item_show(GNOME_CANVAS_ITEM(wallgroup));
 	  /* Display a warning that you can't move there */
-	  gnome_canvas_item_show(warning_item);
+	  goo_canvas_item_show(warning_item);
 	  mapActive = TRUE;
 	}
       }
@@ -972,7 +972,7 @@ static gint key_press(guint keyval, gchar *commit_str, gchar *preedit_str)
   return TRUE;
 }
 
-static gint tux_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
+static gint tux_event(GooCanvasItem *item, GdkEvent *event, gpointer data)
 {	if (event->type!=GDK_BUTTON_PRESS) return FALSE;
  run_fast=!run_fast;
  return FALSE;
@@ -985,7 +985,7 @@ static gint tux_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 #define TURN_RIGHT(d) ((((d)>>1)|((d)<<3))&15)
 #define U_TURN(d) ((((d)>>2)|((d)<<2))&15)
 
-static gint target_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
+static gint target_event(GooCanvasItem *item, GdkEvent *event, gpointer data)
 {	if (event->type!=GDK_BUTTON_PRESS) return FALSE;
  threeDdisplay(position[ind][0],position[ind][1]);
  return FALSE;
@@ -1051,7 +1051,7 @@ static gint key_press_3D(guint keyval, gchar *commit_str, gchar *preedit_str)
     case GDK_2:
     case GDK_space:
       /* Display a warning that you can't move there */
-      gnome_canvas_item_show(warning_item);
+      goo_canvas_item_show(warning_item);
       twoDdisplay();
       return TRUE;
     case GDK_E: case GDK_e: eye_pos_y+=0.1; if (eye_pos_y>0.9) eye_pos_y=0.9; break;
@@ -1071,9 +1071,9 @@ struct Trapez
 {  int x_left,x_right,y_left_top,y_left_bottom,y_right_top,y_right_bottom;
 };
 
-static GnomeCanvasItem *draw_Trapez(GnomeCanvasGroup *group, struct Trapez t,const char *c1, const char *c2)
-{	GnomeCanvasPoints *pts=gnome_canvas_points_new(4);
- GnomeCanvasItem *res=NULL;
+static GooCanvasItem *draw_Trapez(GnomeCanvasGroup *group, struct Trapez t,const char *c1, const char *c2)
+{	GnomeCanvasPoints *pts=goo_canvas_points_new(4);
+ GooCanvasItem *res=NULL;
  pts->coords[0]=t.x_left;
  pts->coords[1]=t.y_left_top;
  pts->coords[2]=t.x_right;
@@ -1082,7 +1082,7 @@ static GnomeCanvasItem *draw_Trapez(GnomeCanvasGroup *group, struct Trapez t,con
  pts->coords[5]=t.y_right_bottom;
  pts->coords[6]=t.x_left;
  pts->coords[7]=t.y_left_bottom;
- res=gnome_canvas_item_new(group,gnome_canvas_polygon_get_type(),
+ res=goo_canvas_item_new(group,goo_canvas_polygon_get_type(),
 			   "points", (GnomeCanvasPoints*)pts,
 			   "fill_color", c1,
 			   "outline_color", c2,
@@ -1395,8 +1395,8 @@ static void draw3D()
     threedgroup = NULL;
   }
   if (!threeDactive) return;
-  threedgroup=GNOME_CANVAS_GROUP(gnome_canvas_item_new(gnome_canvas_root(gcomprisBoard->canvas),
-						       gnome_canvas_group_get_type(),
+  threedgroup=GOO_CANVAS_GROUP(goo_canvas_item_new(goo_canvas_get_root_item(gcomprisBoard->canvas),
+						       goo_canvas_group_get_type(),
 						       "x",(double)0,
 						       "y",(double)0,
 						       NULL));
@@ -1409,20 +1409,20 @@ static void twoDdisplay()
   char *fileskin;
   gc_sound_play_ogg ("sounds/flip.wav", NULL);
   fileskin = gc_skin_image_get("gcompris-bg.jpg");
-  gc_set_background(gnome_canvas_root(gcomprisBoard->canvas), fileskin);
+  gc_set_background(goo_canvas_get_root_item(gcomprisBoard->canvas), fileskin);
   g_free(fileskin);
 
   if (threedgroup)
-    gnome_canvas_item_hide(GNOME_CANVAS_ITEM(threedgroup));
-  gnome_canvas_item_show(GNOME_CANVAS_ITEM(boardRootItem));
+    goo_canvas_item_hide(GNOME_CANVAS_ITEM(threedgroup));
+  goo_canvas_item_show(GNOME_CANVAS_ITEM(boardRootItem));
   threeDactive=FALSE;
 }
 
 static void threeDdisplay()
 {
   gc_sound_play_ogg ("sounds/flip.wav", NULL);
-  gc_set_background(gnome_canvas_root(gcomprisBoard->canvas), "maze/maze-bg.jpg");
-  gnome_canvas_item_hide(GNOME_CANVAS_ITEM(boardRootItem));
+  gc_set_background(goo_canvas_get_root_item(gcomprisBoard->canvas), "maze/maze-bg.jpg");
+  goo_canvas_item_hide(GNOME_CANVAS_ITEM(boardRootItem));
   threeDactive=TRUE;
   draw3D();
 }
@@ -1449,7 +1449,7 @@ static void update_tux(gint direction)
 
   if(pixmap)
     {
-      gnome_canvas_item_set (tuxitem,
+      goo_canvas_item_set (tuxitem,
 			     "pixbuf", pixmap,
 			     NULL);
       gdk_pixbuf_unref(pixmap);

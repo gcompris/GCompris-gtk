@@ -37,7 +37,7 @@ static void repeat(void);
 static GnomeCanvasGroup *boardRootItem = NULL;
 
 static gboolean is_our_board (GcomprisBoard * gcomprisBoard);
-static GnomeCanvasItem *awele_create_item (GnomeCanvasGroup * parent);
+static GooCanvasItem *awele_create_item (GnomeCanvasGroup * parent);
 static void awele_destroy_all_items (void);
 static void awele_next_level (void);
 static gboolean  to_computer(gpointer data);
@@ -105,7 +105,7 @@ static void pause_board (gboolean pause)
 				       NULL);
 	      anim_item = gc_anim_activate( boardRootItem,
 						       animation );
-	      gnome_canvas_item_show(GNOME_CANVAS_ITEM(anim_item->canvas));
+	      goo_canvas_item_show(GNOME_CANVAS_ITEM(anim_item->canvas));
 	    }
 	}
 	else{
@@ -239,7 +239,7 @@ awele_next_level ()
         gchar *img;
 
 	img = gc_skin_image_get ("gcompris-bg.jpg");
-	gc_set_background (gnome_canvas_root (gcomprisBoard->canvas),
+	gc_set_background (goo_canvas_get_root_item (gcomprisBoard->canvas),
 				 img);
 	g_free(img);
 
@@ -252,7 +252,7 @@ awele_next_level ()
 	/*
 	 * Create the level
 	 */
-	awele_create_item (gnome_canvas_root (gcomprisBoard->canvas));
+	awele_create_item (goo_canvas_get_root_item (gcomprisBoard->canvas));
 
 	if ((gcomprisBoard->level % 2) ==0){
 	  computer_turn = TRUE;
@@ -262,7 +262,7 @@ awele_next_level ()
 				   NULL);
 	  anim_item = gc_anim_activate( boardRootItem,
 						   animation );
-	  gnome_canvas_item_show(GNOME_CANVAS_ITEM(anim_item->canvas));
+	  goo_canvas_item_show(GNOME_CANVAS_ITEM(anim_item->canvas));
 
 	} else {
 	  computer_turn = FALSE;
@@ -302,7 +302,7 @@ awele_destroy_all_items ()
 /*
  * ====================================
  */
-static GnomeCanvasItem *
+static GooCanvasItem *
 awele_create_item (GnomeCanvasGroup * parent)
 {
 
@@ -314,10 +314,10 @@ awele_create_item (GnomeCanvasGroup * parent)
 	gchar xpmFileClic[35] = BOUTON_CLIC;
 
 	boardRootItem =
-		GNOME_CANVAS_GROUP (gnome_canvas_item_new
-				    (gnome_canvas_root
+		GOO_CANVAS_GROUP (goo_canvas_item_new
+				    (goo_canvas_get_root_item
 				     (gcomprisBoard->canvas),
-				     gnome_canvas_group_get_type (), "x",
+				     goo_canvas_group_get_type (), "x",
 				     (double) 0, "y", (double) 0, NULL));
 
 	/*
@@ -325,8 +325,8 @@ awele_create_item (GnomeCanvasGroup * parent)
 	 */
 	pixmap = gc_pixmap_load ("awele/awele_frame.png");
 
-	gnome_canvas_item_new (boardRootItem,
-			       gnome_canvas_pixbuf_get_type (),
+	goo_canvas_item_new (boardRootItem,
+			       goo_canvas_pixbuf_get_type (),
 			       "pixbuf", pixmap,
 			       "x", (double) 0,
 			       "y", (double) 0,
@@ -345,8 +345,8 @@ awele_create_item (GnomeCanvasGroup * parent)
 
 	  x = 35;
 	  y = 190;
-	  gnome_canvas_item_new (boardRootItem,
-				 gnome_canvas_text_get_type (),
+	  goo_canvas_item_new (boardRootItem,
+				 goo_canvas_text_get_type (),
 				 "text", _("NORTH"),
 				 "font", gc_skin_font_board_medium,
 				 "x", (double) x + 1,
@@ -355,8 +355,8 @@ awele_create_item (GnomeCanvasGroup * parent)
 				 "fill_color_rgba", gc_skin_color_shadow,
 				 NULL);
 
-	  gnome_canvas_item_new (boardRootItem,
-				 gnome_canvas_text_get_type (),
+	  goo_canvas_item_new (boardRootItem,
+				 goo_canvas_text_get_type (),
 				 "text", _("NORTH"),
 				 "font", gc_skin_font_board_medium,
 				 "x", (double) x,
@@ -367,8 +367,8 @@ awele_create_item (GnomeCanvasGroup * parent)
 
 	  x = 765;
 	  y = 295;
-	  gnome_canvas_item_new (boardRootItem,
-				 gnome_canvas_text_get_type (),
+	  goo_canvas_item_new (boardRootItem,
+				 goo_canvas_text_get_type (),
 				 "text", _("SOUTH"),
 				 "font", gc_skin_font_board_medium,
 				 "x", (double) x + 1,
@@ -377,8 +377,8 @@ awele_create_item (GnomeCanvasGroup * parent)
 				 "fill_color_rgba", gc_skin_color_shadow,
 				 NULL);
 
-	  gnome_canvas_item_new (boardRootItem,
-				 gnome_canvas_text_get_type (),
+	  goo_canvas_item_new (boardRootItem,
+				 goo_canvas_text_get_type (),
 				 "text", _("SOUTH"),
 				 "font", gc_skin_font_board_medium,
 				 "x", (double) x,
@@ -459,8 +459,8 @@ awele_create_item (GnomeCanvasGroup * parent)
 		 * declencher la procedure associee. Passage en argument a cette fonction
 		 * du numero de case selectionne par tableau chaine
 		 */
-		graphsElt->button[i] = gnome_canvas_item_new (boardRootItem,
-							      gnome_canvas_pixbuf_get_type
+		graphsElt->button[i] = goo_canvas_item_new (boardRootItem,
+							      goo_canvas_pixbuf_get_type
 							      (), "x",
 							      (double) x1,
 							      "y",
@@ -471,8 +471,8 @@ awele_create_item (GnomeCanvasGroup * parent)
 							      pixbufButton[i],
 							      NULL);
 
-		gtk_signal_connect (GTK_OBJECT (graphsElt->button[i]),
-				    "event", GTK_SIGNAL_FUNC (buttonClick),
+		g_signal_connect (GTK_OBJECT (graphsElt->button[i]),
+				    "enter_notify_event", GTK_SIGNAL_FUNC (buttonClick),
 				    GINT_TO_POINTER(i));
 
 
@@ -489,8 +489,8 @@ awele_create_item (GnomeCanvasGroup * parent)
 		sprintf (buffer, "%d", staticAwale->board[i]);
 
 		graphsElt->nbBeansHole[i] =
-			gnome_canvas_item_new (boardRootItem,
-					       gnome_canvas_text_get_type (),
+			goo_canvas_item_new (boardRootItem,
+					       goo_canvas_text_get_type (),
 					       "text", buffer,
 					       "font", "sans 12",
 					       "size", 14000,
@@ -511,8 +511,8 @@ awele_create_item (GnomeCanvasGroup * parent)
 
 		sprintf (buffer, "%d", staticAwale->CapturedBeans[i]);
 
-		graphsElt->Captures[i] = gnome_canvas_item_new (boardRootItem,
-								gnome_canvas_text_get_type
+		graphsElt->Captures[i] = goo_canvas_item_new (boardRootItem,
+								goo_canvas_text_get_type
 								(), "text",
 								buffer,
 								"font",
@@ -546,8 +546,8 @@ awele_create_item (GnomeCanvasGroup * parent)
 	*/
 	initBoardGraphics (graphsElt);
 
-	graphsElt->msg = gnome_canvas_item_new (boardRootItem,
-						gnome_canvas_text_get_type (),
+	graphsElt->msg = goo_canvas_item_new (boardRootItem,
+						goo_canvas_text_get_type (),
 						"text", _("Choose a house"),
 						"font", "sans 12",
 						"size", 20000,
@@ -624,8 +624,8 @@ initBoardGraphics (GRAPHICS_ELT * graphsElt)
 		{
 			k = 0 + g_random_int() % 4;
 			graphsElt->ptBeansHoleLink[idxTabBeans].beanPixbuf =
-				gnome_canvas_item_new (boardRootItem,
-						       gnome_canvas_pixbuf_get_type
+				goo_canvas_item_new (boardRootItem,
+						       goo_canvas_pixbuf_get_type
 						       (), "x",
 						       (double) caseCoord[i] +
 						       g_random_int() % 50, "y",
@@ -849,7 +849,7 @@ updateNbBeans (int alpha)
   for (i = NBHOLE - 1; i >= 0; i--)
     {
       sprintf (buffer, "%d", staticAwale->board[i]);
-      gnome_canvas_item_set (graphsElt->nbBeansHole[i], "text", buffer, NULL);
+      goo_canvas_item_set (graphsElt->nbBeansHole[i], "text", buffer, NULL);
 
       for (j = 0;
 	   j < staticAwale->board[i] && idxTabBeans < nbActiveBean;
@@ -858,7 +858,7 @@ updateNbBeans (int alpha)
 
 	  k = 0 + g_random_int() % 4;
 
-	  gnome_canvas_item_set (ptBeansHoleLink[idxTabBeans].
+	  goo_canvas_item_set (ptBeansHoleLink[idxTabBeans].
 				 beanPixbuf, "x",
 				 (double) caseCoord[i] +
 				 g_random_int() % 50, "y",

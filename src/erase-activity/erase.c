@@ -43,10 +43,10 @@ static void	 game_won(void);
 
 static GnomeCanvasGroup *boardRootItem = NULL;
 
-static GnomeCanvasItem	*erase_create_item();
+static GooCanvasItem	*erase_create_item();
 static void		 erase_destroy_all_items(void);
 static void		 erase_next_level(void);
-static gint		 item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data);
+static gint		 item_event(GooCanvasItem *item, GdkEvent *event, gpointer data);
 static void		 shuffle_image_list(char *list[], int size);
 static gint              canvas_event(GnomeCanvas *canvas, GdkEvent *event);
 
@@ -185,7 +185,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       CoverPixmap[2] = gc_pixmap_load("erase/transparent_square_yellow.png");
 
       event_handle_id =
-	gtk_signal_connect(GTK_OBJECT(gcomprisBoard->canvas), "event",
+	g_signal_connect(GTK_OBJECT(gcomprisBoard->canvas), "enter_notify_event",
 			   (GtkSignalFunc) canvas_event, 0);
 
       if (strcmp(gcomprisBoard->mode,"clic")==0)
@@ -292,7 +292,7 @@ static int get_num_layers()
 /* set initial values for the next level */
 static void erase_next_level()
 {
-  gc_set_background(gnome_canvas_root(gcomprisBoard->canvas),
+  gc_set_background(goo_canvas_get_root_item(gcomprisBoard->canvas),
 			  imageList[current_image++]);
 
   if(current_image>=NUMBER_OF_IMAGES)
@@ -365,9 +365,9 @@ static void add_one_item(int i, int j, int protect)
   while(current_layer--)
     {
       assert(CoverPixmap[current_layer]);
-      GnomeCanvasItem *item =
-	gnome_canvas_item_new (boardRootItem,
-				    gnome_canvas_pixbuf_get_type (),
+      GooCanvasItem *item =
+	goo_canvas_item_new (boardRootItem,
+				    goo_canvas_pixbuf_get_type (),
 				    "pixbuf", CoverPixmap[current_layer],
 				    "x", (double) i,
 				    "y", (double) j,
@@ -388,7 +388,7 @@ static void add_one_item(int i, int j, int protect)
       if (current_layer > 0 || get_num_layers() == 4)
 	c->max += 1;
 
-      g_signal_connect_data (item, "event", (GCallback) item_event,(gpointer)c,
+      g_signal_connect_data (item, "enter_notify_event", (GCallback) item_event,(gpointer)c,
 			     (GClosureNotify) g_free, 0);
       number_of_items++;
       if (items_per_cell)
@@ -397,13 +397,13 @@ static void add_one_item(int i, int j, int protect)
 }
 
 /* ==================================== */
-static GnomeCanvasItem *erase_create_item()
+static GooCanvasItem *erase_create_item()
 {
   int i,j;
 
-  boardRootItem = GNOME_CANVAS_GROUP(
-				     gnome_canvas_item_new (gnome_canvas_root(gcomprisBoard->canvas),
-							    gnome_canvas_group_get_type (),
+  boardRootItem = GOO_CANVAS_GROUP(
+				     goo_canvas_item_new (goo_canvas_get_root_item(gcomprisBoard->canvas),
+							    goo_canvas_group_get_type (),
 							    "x", (double) 0,
 							    "y", (double) 0,
 							    NULL));
@@ -446,7 +446,7 @@ static void game_won()
 }
 
 static gboolean
-erase_one_item (GnomeCanvasItem *item)
+erase_one_item (GooCanvasItem *item)
 {
   double screen_x, screen_y;
   int x,y;
@@ -475,7 +475,7 @@ erase_one_item (GnomeCanvasItem *item)
 
 /* ==================================== */
 static gint
-item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
+item_event(GooCanvasItem *item, GdkEvent *event, gpointer data)
 {
   counter *c = (counter *) data;
   if(board_paused)

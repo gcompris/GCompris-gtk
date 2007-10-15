@@ -45,11 +45,11 @@ static GnomeCanvasGroup *boardRootItem = NULL;
 
 static void		 process_ok(void);
 static void		 process_error(void);
-static GnomeCanvasItem	*reversecount_create_item(GnomeCanvasGroup *parent);
+static GooCanvasItem	*reversecount_create_item(GnomeCanvasGroup *parent);
 static void		 reversecount_destroy_all_items(void);
 static void		 reversecount_next_level(void);
-static gint		 item_event(GnomeCanvasItem *item, GdkEvent *event, gint *dice_index);
-static GnomeCanvasItem	*display_item_at(gchar *imagename, int block, double ratio);
+static gint		 item_event(GooCanvasItem *item, GdkEvent *event, gint *dice_index);
+static GooCanvasItem	*display_item_at(gchar *imagename, int block, double ratio);
 static void		 display_random_fish();
 static void		 create_clock(double x, double y, int value);
 static void		 update_clock(int value);
@@ -74,9 +74,9 @@ static int animate_speed    = 0;
 static double tux_ratio = 0;
 
 static int dicevalue_array[10];
-static GnomeCanvasItem *fishItem;
-static GnomeCanvasItem *tuxItem;
-static GnomeCanvasItem *clock_image_item;
+static GooCanvasItem *fishItem;
+static GooCanvasItem *tuxItem;
+static GooCanvasItem *clock_image_item;
 
 // List of images to use in the game
 static gchar *imageList[] =
@@ -332,7 +332,7 @@ static void process_ok()
 static void reversecount_next_level()
 {
 
-  gc_set_background(gnome_canvas_root(gcomprisBoard->canvas),
+  gc_set_background(goo_canvas_get_root_item(gcomprisBoard->canvas),
 			  imageList[gcomprisBoard->level-1]);
 
   gc_bar_set_level(gcomprisBoard);
@@ -399,7 +399,7 @@ static void reversecount_next_level()
   number_of_item = number_of_item_x * 2 + (number_of_item_y - 2) * 2;
 
   /* Try the next level */
-  reversecount_create_item(gnome_canvas_root(gcomprisBoard->canvas));
+  reversecount_create_item(goo_canvas_get_root_item(gcomprisBoard->canvas));
 }
 /* ==================================== */
 /* Destroy all the items */
@@ -414,19 +414,19 @@ static void reversecount_destroy_all_items()
   boardRootItem = NULL;
 }
 /* ==================================== */
-static GnomeCanvasItem *reversecount_create_item(GnomeCanvasGroup *parent)
+static GooCanvasItem *reversecount_create_item(GnomeCanvasGroup *parent)
 {
   int i,j,d;
-  GnomeCanvasItem *item = NULL;
+  GooCanvasItem *item = NULL;
   GdkPixbuf   *pixmap = NULL;
   double block_width, block_height;
   double dice_area_x;
   double xratio, yratio;
   GcomprisProperties	*properties = gc_prop_get();
 
-  boardRootItem = GNOME_CANVAS_GROUP(
-				     gnome_canvas_item_new (gnome_canvas_root(gcomprisBoard->canvas),
-							    gnome_canvas_group_get_type (),
+  boardRootItem = GOO_CANVAS_GROUP(
+				     goo_canvas_item_new (goo_canvas_get_root_item(gcomprisBoard->canvas),
+							    goo_canvas_group_get_type (),
 							    "x", (double) 0,
 							    "y", (double) 0,
 
@@ -459,8 +459,8 @@ static GnomeCanvasItem *reversecount_create_item(GnomeCanvasGroup *parent)
   for(i=0; i<BOARDWIDTH; i+=block_width)
     {
       j=0;
-      item = gnome_canvas_item_new (boardRootItem,
-				    gnome_canvas_pixbuf_get_type (),
+      item = goo_canvas_item_new (boardRootItem,
+				    goo_canvas_pixbuf_get_type (),
 				    "pixbuf", pixmap,
 				    "x", (double) i,
 				    "y", (double) j,
@@ -471,8 +471,8 @@ static GnomeCanvasItem *reversecount_create_item(GnomeCanvasGroup *parent)
 					NULL);
 
       j=BOARDHEIGHT-block_height;
-      item = gnome_canvas_item_new (boardRootItem,
-				    gnome_canvas_pixbuf_get_type (),
+      item = goo_canvas_item_new (boardRootItem,
+				    goo_canvas_pixbuf_get_type (),
 				    "pixbuf", pixmap,
 				    "x", (double) i,
 				    "y", (double) j,
@@ -486,8 +486,8 @@ static GnomeCanvasItem *reversecount_create_item(GnomeCanvasGroup *parent)
   for(j=block_height; j<=BOARDHEIGHT-(block_height*2); j+=block_height)
     {
       i = 0;
-      item = gnome_canvas_item_new (boardRootItem,
-				    gnome_canvas_pixbuf_get_type (),
+      item = goo_canvas_item_new (boardRootItem,
+				    goo_canvas_pixbuf_get_type (),
 				    "pixbuf", pixmap,
 				    "x", (double) i,
 				    "y", (double) j,
@@ -498,8 +498,8 @@ static GnomeCanvasItem *reversecount_create_item(GnomeCanvasGroup *parent)
 					NULL);
 
       i = BOARDWIDTH - block_width;
-      item = gnome_canvas_item_new (boardRootItem,
-				    gnome_canvas_pixbuf_get_type (),
+      item = goo_canvas_item_new (boardRootItem,
+				    goo_canvas_pixbuf_get_type (),
 				    "pixbuf", pixmap,
 				    "x", (double) i,
 				    "y", (double) j,
@@ -519,8 +519,8 @@ static GnomeCanvasItem *reversecount_create_item(GnomeCanvasGroup *parent)
 
   dice_area_x = BOARDWIDTH - block_width - gdk_pixbuf_get_width (pixmap) - 20;
 
-  gnome_canvas_item_new (boardRootItem,
-			 gnome_canvas_pixbuf_get_type (),
+  goo_canvas_item_new (boardRootItem,
+			 goo_canvas_pixbuf_get_type (),
 			 "pixbuf", pixmap,
 			 "x", (double) dice_area_x,
 			 "y", (double) block_height + 20,
@@ -539,8 +539,8 @@ static GnomeCanvasItem *reversecount_create_item(GnomeCanvasGroup *parent)
       i = dice_area_x + gdk_pixbuf_get_width(pixmap) * d + 30;
       j = block_height + 25 + d*7;
 
-      item = gnome_canvas_item_new (boardRootItem,
-				    gnome_canvas_pixbuf_get_type (),
+      item = goo_canvas_item_new (boardRootItem,
+				    goo_canvas_pixbuf_get_type (),
 				    "pixbuf", pixmap,
 				    "x", (double) i,
 				    "y", (double) j,
@@ -548,9 +548,9 @@ static GnomeCanvasItem *reversecount_create_item(GnomeCanvasGroup *parent)
       dicevalue_array[d] = 1;
       val = g_new(gint, 1);
       *val = d;
-      gtk_signal_connect(GTK_OBJECT(item), "event", (GtkSignalFunc) item_event,
+      g_signal_connect(GTK_OBJECT(item), "enter_notify_event", (GtkSignalFunc) item_event,
 			 val);
-      gtk_signal_connect(GTK_OBJECT(item), "event",
+      g_signal_connect(GTK_OBJECT(item), "enter_notify_event",
 			 (GtkSignalFunc) gc_item_focus_event,
 			 NULL);
 
@@ -584,11 +584,11 @@ static void display_random_fish()
 /**
  * Display given imagename on the given ice block.
  */
-static GnomeCanvasItem *display_item_at(gchar *imagename, int block, double ratio)
+static GooCanvasItem *display_item_at(gchar *imagename, int block, double ratio)
 {
   double block_width, block_height;
   double xratio, yratio;
-  GnomeCanvasItem *item = NULL;
+  GooCanvasItem *item = NULL;
   GdkPixbuf   *pixmap = NULL;
   int i,j;
 
@@ -642,8 +642,8 @@ static GnomeCanvasItem *display_item_at(gchar *imagename, int block, double rati
       xratio = yratio = ratio;
     }
 
-  item = gnome_canvas_item_new (boardRootItem,
-				gnome_canvas_pixbuf_get_type (),
+  item = goo_canvas_item_new (boardRootItem,
+				goo_canvas_pixbuf_get_type (),
 				"pixbuf", pixmap,
 				"x", (double) i + (block_width -
 						   (gdk_pixbuf_get_width (pixmap) * xratio)) / 2,
@@ -684,7 +684,7 @@ static void game_won()
  */
 
 static gint
-item_event(GnomeCanvasItem *item, GdkEvent *event, gint *dice_index)
+item_event(GooCanvasItem *item, GdkEvent *event, gint *dice_index)
 {
   gchar *str;
   GdkPixbuf   *pixmap = NULL;
@@ -717,7 +717,7 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, gint *dice_index)
 
       /* Warning changing the image needs to update pixbuf_ref for the focus usage */
       gc_item_focus_free(item, NULL);
-      gnome_canvas_item_set (item,
+      goo_canvas_item_set (item,
       			     "pixbuf", pixmap,
       			     NULL);
       gdk_pixbuf_unref(pixmap);
@@ -747,8 +747,8 @@ static void create_clock(double x, double y, int value)
 
   pixmap = gc_skin_pixmap_load(str);
 
-  clock_image_item = gnome_canvas_item_new (boardRootItem,
-					    gnome_canvas_pixbuf_get_type (),
+  clock_image_item = goo_canvas_item_new (boardRootItem,
+					    goo_canvas_pixbuf_get_type (),
 					    "pixbuf", pixmap,
 					    "x", (double) x,
 					    "y", (double) y,
@@ -770,7 +770,7 @@ static void update_clock(int value)
 
   pixmap = gc_pixmap_load(str);
 
-  gnome_canvas_item_set (clock_image_item,
+  goo_canvas_item_set (clock_image_item,
 			 "pixbuf", pixmap,
 			 NULL);
 

@@ -101,10 +101,10 @@ typedef struct {
   gchar *data;
   gint type;
   guint status;
-  GnomeCanvasItem *rootItem;
-  GnomeCanvasItem *backcardItem;
-  GnomeCanvasItem *framecardItem;
-  GnomeCanvasItem *frontcardItem;
+  GooCanvasItem *rootItem;
+  GooCanvasItem *backcardItem;
+  GooCanvasItem *framecardItem;
+  GooCanvasItem *frontcardItem;
   gboolean hidden;
   gchar *second_value;
 } MemoryItem;
@@ -148,7 +148,7 @@ static void set_level (guint level);
 static void create_item(GnomeCanvasGroup *parent);
 static void memory_destroy_all_items(void);
 static void memory_next_level(void);
-static gint item_event(GnomeCanvasItem *item, GdkEvent *event, MemoryItem *memoryItem);
+static gint item_event(GooCanvasItem *item, GdkEvent *event, MemoryItem *memoryItem);
 static gint compare_card (gconstpointer a, gconstpointer b);
 
 static void player_win();
@@ -394,11 +394,11 @@ static guint div_levelDescription[10][2] =
 
 static GList *passed_token = NULL;
 
-static GnomeCanvasItem *tux;
-static GnomeCanvasItem *tux_score;
-static GnomeCanvasItem *player_score;
-static GnomeCanvasItem *tux_score_s;
-static GnomeCanvasItem *player_score_s;
+static GooCanvasItem *tux;
+static GooCanvasItem *tux_score;
+static GooCanvasItem *player_score;
+static GooCanvasItem *tux_score_s;
+static GooCanvasItem *player_score_s;
 
 /* set the type of the token returned in string in returned_type */
 void get_random_token(int token_type, gint *returned_type, gchar **string, gchar **second_value)
@@ -798,7 +798,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 
 	  gc_sound_policy_set(PLAY_AND_INTERRUPT);
 
-	  gc_set_background(gnome_canvas_root(gcomprisBoard->canvas),
+	  gc_set_background(goo_canvas_get_root_item(gcomprisBoard->canvas),
 			    "memory/gcompris_band.png");
 	  base_x1 = BASE_SOUND_X1;
 	  base_y1 = BASE_SOUND_Y1;
@@ -814,7 +814,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 	}
       else
 	{
-	  gc_set_background(gnome_canvas_root(gcomprisBoard->canvas),
+	  gc_set_background(goo_canvas_get_root_item(gcomprisBoard->canvas),
 			    "memory/scenery_background.png");
 	  base_x1 = BASE_CARD_X1;
 	  base_y1 = BASE_CARD_Y1;
@@ -945,10 +945,10 @@ static void update_scores()
   tux_score_str = g_strdup_printf("%d", tux_pairs);
   player_score_str = g_strdup_printf("%d", player_pairs);
 
-  gnome_canvas_item_set(tux_score,      "text", tux_score_str, NULL);
-  gnome_canvas_item_set(player_score,   "text", player_score_str, NULL);
-  gnome_canvas_item_set(tux_score_s,    "text", tux_score_str, NULL);
-  gnome_canvas_item_set(player_score_s, "text", player_score_str, NULL);
+  goo_canvas_item_set(tux_score,      "text", tux_score_str, NULL);
+  goo_canvas_item_set(player_score,   "text", player_score_str, NULL);
+  goo_canvas_item_set(tux_score_s,    "text", tux_score_str, NULL);
+  goo_canvas_item_set(player_score_s, "text", player_score_str, NULL);
 
   g_free(tux_score_str);
   g_free(player_score_str);
@@ -961,9 +961,9 @@ static void memory_next_level()
 
   memory_destroy_all_items();
 
-  boardRootItem = GNOME_CANVAS_GROUP(
-				     gnome_canvas_item_new (gnome_canvas_root(gcomprisBoard->canvas),
-							    gnome_canvas_group_get_type (),
+  boardRootItem = GOO_CANVAS_GROUP(
+				     goo_canvas_item_new (goo_canvas_get_root_item(gcomprisBoard->canvas),
+							    goo_canvas_group_get_type (),
 							    "x", (double) 0,
 							    "y", (double) 0,
 							    NULL));
@@ -1198,8 +1198,8 @@ static void create_item(GnomeCanvasGroup *parent)
 
   if (currentUiMode == UIMODE_SOUND) {
     GdkPixbuf *pixmap =  gc_pixmap_load("memory/transparent_square2.png");
-    gnome_canvas_item_new (GNOME_CANVAS_GROUP(parent),
-			   gnome_canvas_pixbuf_get_type (),
+    goo_canvas_item_new (GOO_CANVAS_GROUP(parent),
+			   goo_canvas_pixbuf_get_type (),
 			   "pixbuf", pixmap,
 			   "x", (double) (currentMode == MODE_TUX ? base_x1_tux : base_x1) - 20,
 			   "y", (double) base_y1 - 15,
@@ -1210,16 +1210,16 @@ static void create_item(GnomeCanvasGroup *parent)
   if (currentMode == MODE_TUX){
     GdkPixbuf *pixmap_tux =  gc_pixmap_load("memory/tux-teacher.png");
 
-    tux = gnome_canvas_item_new (GNOME_CANVAS_GROUP(parent),
-				 gnome_canvas_pixbuf_get_type (),
+    tux = goo_canvas_item_new (GOO_CANVAS_GROUP(parent),
+				 goo_canvas_pixbuf_get_type (),
 				 "pixbuf", pixmap_tux,
 				 "x", (double) 50,
 				 "y", (double) 20,
 				 NULL);
     gdk_pixbuf_unref(pixmap_tux);
 
-    tux_score_s = gnome_canvas_item_new (GNOME_CANVAS_GROUP(parent),
-				       gnome_canvas_text_get_type (),
+    tux_score_s = goo_canvas_item_new (GOO_CANVAS_GROUP(parent),
+				       goo_canvas_text_get_type (),
 				       "font", gc_skin_font_board_huge_bold,
 				       "x", (double) 100+1.0,
 				       "y", (double) 200+1.0,
@@ -1227,8 +1227,8 @@ static void create_item(GnomeCanvasGroup *parent)
 				       "fill_color_rgba", 0x101010FF,
 				       NULL);
 
-    player_score_s = gnome_canvas_item_new (GNOME_CANVAS_GROUP(parent),
-					  gnome_canvas_text_get_type (),
+    player_score_s = goo_canvas_item_new (GOO_CANVAS_GROUP(parent),
+					  goo_canvas_text_get_type (),
 					  "font", gc_skin_font_board_huge_bold,
 					  "x", (double) 100+1.0,
 					  "y", (double) BASE_CARD_Y2 - 20+1.0,
@@ -1236,8 +1236,8 @@ static void create_item(GnomeCanvasGroup *parent)
 					  "fill_color_rgba", 0x101010FF,
 					  NULL);
 
-    tux_score = gnome_canvas_item_new (GNOME_CANVAS_GROUP(parent),
-				       gnome_canvas_text_get_type (),
+    tux_score = goo_canvas_item_new (GOO_CANVAS_GROUP(parent),
+				       goo_canvas_text_get_type (),
 				       "font", gc_skin_font_board_huge_bold,
 				       "x", (double) 100,
 				       "y", (double) 200,
@@ -1245,8 +1245,8 @@ static void create_item(GnomeCanvasGroup *parent)
 				       "fill_color_rgba", 0xFF0F0FFF,
 				       NULL);
 
-    player_score = gnome_canvas_item_new (GNOME_CANVAS_GROUP(parent),
-					  gnome_canvas_text_get_type (),
+    player_score = goo_canvas_item_new (GOO_CANVAS_GROUP(parent),
+					  goo_canvas_text_get_type (),
 					  "font", gc_skin_font_board_huge_bold,
 					  "x", (double) 100,
 					  "y", (double) BASE_CARD_Y2 - 20,
@@ -1263,8 +1263,8 @@ static void create_item(GnomeCanvasGroup *parent)
 	  memoryItem = g_malloc0(sizeof(MemoryItem));
 
 	  memoryItem->rootItem = \
-	    gnome_canvas_item_new (parent,
-				   gnome_canvas_group_get_type (),
+	    goo_canvas_item_new (parent,
+				   goo_canvas_group_get_type (),
 				   "x", (double) (currentMode == MODE_TUX ? base_x1_tux : base_x1) + x*width,
 				   "y", (double) base_y1 + y*height,
 				   NULL);
@@ -1275,8 +1275,8 @@ static void create_item(GnomeCanvasGroup *parent)
 	    pixmap = gc_pixmap_load("memory/backcard.png");
 
 	  memoryItem->backcardItem = \
-	    gnome_canvas_item_new (GNOME_CANVAS_GROUP(memoryItem->rootItem),
-				   gnome_canvas_pixbuf_get_type (),
+	    goo_canvas_item_new (GOO_CANVAS_GROUP(memoryItem->rootItem),
+				   goo_canvas_pixbuf_get_type (),
 				   "pixbuf", pixmap,
 				   "x", (double) 0,
 				   "y", (double) 0,
@@ -1290,8 +1290,8 @@ static void create_item(GnomeCanvasGroup *parent)
 	  if (currentUiMode != UIMODE_SOUND){
 	    pixmap = gc_pixmap_load("memory/emptycard.png");
 	    memoryItem->framecardItem = \
-	      gnome_canvas_item_new (GNOME_CANVAS_GROUP(memoryItem->rootItem),
-				     gnome_canvas_pixbuf_get_type (),
+	      goo_canvas_item_new (GOO_CANVAS_GROUP(memoryItem->rootItem),
+				     goo_canvas_pixbuf_get_type (),
 				     "pixbuf", pixmap,
 				     "x", (double) 0,
 				     "y", (double) 0,
@@ -1300,7 +1300,7 @@ static void create_item(GnomeCanvasGroup *parent)
 				     "width_set", TRUE,
 				     "height_set", TRUE,
 				     NULL);
-	    gnome_canvas_item_hide(memoryItem->framecardItem);
+	    goo_canvas_item_hide(memoryItem->framecardItem);
 	    gdk_pixbuf_unref(pixmap);
 	  }
 
@@ -1311,8 +1311,8 @@ static void create_item(GnomeCanvasGroup *parent)
 	  if (currentUiMode == UIMODE_SOUND){
 	    pixmap = gc_pixmap_load("memory/Tux_play.png");
 	    memoryItem->frontcardItem =	\
-	      gnome_canvas_item_new (GNOME_CANVAS_GROUP(memoryItem->rootItem),
-				     gnome_canvas_pixbuf_get_type (),
+	      goo_canvas_item_new (GOO_CANVAS_GROUP(memoryItem->rootItem),
+				     goo_canvas_pixbuf_get_type (),
 				     "pixbuf", pixmap,
 				     "x", (double) 0,
 				     "y", (double) 0,
@@ -1328,8 +1328,8 @@ static void create_item(GnomeCanvasGroup *parent)
 	      pixmap = gc_pixmap_load(memoryItem->data);
 
 	      memoryItem->frontcardItem =	\
-		gnome_canvas_item_new (GNOME_CANVAS_GROUP(memoryItem->rootItem),
-				       gnome_canvas_pixbuf_get_type (),
+		goo_canvas_item_new (GOO_CANVAS_GROUP(memoryItem->rootItem),
+				       goo_canvas_pixbuf_get_type (),
 				       "pixbuf", pixmap,
 				       "x", (double) (width2-
 						      gdk_pixbuf_get_width(pixmap))/2,
@@ -1350,8 +1350,8 @@ static void create_item(GnomeCanvasGroup *parent)
 		font = TEXT_FONT;
 	      /* It's a letter */
 	      memoryItem->frontcardItem =	 \
-		gnome_canvas_item_new (GNOME_CANVAS_GROUP(memoryItem->rootItem),
-				       gnome_canvas_text_get_type (),
+		goo_canvas_item_new (GOO_CANVAS_GROUP(memoryItem->rootItem),
+				       goo_canvas_text_get_type (),
 				       "text", memoryItem->data,
 				       "font", font,
 				       "x", (double) (width2)/2,
@@ -1363,8 +1363,8 @@ static void create_item(GnomeCanvasGroup *parent)
 	    }
 	  }
 
-	  gnome_canvas_item_hide(memoryItem->frontcardItem);
-	  gtk_signal_connect(GTK_OBJECT(memoryItem->rootItem), "event",
+	  goo_canvas_item_hide(memoryItem->frontcardItem);
+	  g_signal_connect(GTK_OBJECT(memoryItem->rootItem), "enter_notify_event",
 			     (GtkSignalFunc) item_event,
 			     memoryItem);
 
@@ -1396,18 +1396,18 @@ static void display_card(MemoryItem *memoryItem, CardStatus cardStatus)
       {
       case ON_FRONT:
 	g_assert(memoryItem->hidden == FALSE);
-	gnome_canvas_item_hide(memoryItem->backcardItem);
-	gnome_canvas_item_show(memoryItem->frontcardItem);
+	goo_canvas_item_hide(memoryItem->backcardItem);
+	goo_canvas_item_show(memoryItem->frontcardItem);
 	playing_sound = TRUE;
 	gc_sound_play_ogg_cb (memoryItem->data, sound_callback);
 	break;
       case ON_BACK:
-	gnome_canvas_item_show(memoryItem->backcardItem);
-	gnome_canvas_item_hide(memoryItem->frontcardItem);
+	goo_canvas_item_show(memoryItem->backcardItem);
+	goo_canvas_item_hide(memoryItem->frontcardItem);
 	break;
       case HIDDEN:
-	gnome_canvas_item_hide(memoryItem->backcardItem);
-	gnome_canvas_item_hide(memoryItem->frontcardItem);
+	goo_canvas_item_hide(memoryItem->backcardItem);
+	goo_canvas_item_hide(memoryItem->frontcardItem);
 	memoryItem->hidden = TRUE;
 	break;
       }
@@ -1417,19 +1417,19 @@ static void display_card(MemoryItem *memoryItem, CardStatus cardStatus)
       {
       case ON_FRONT:
 	g_assert(memoryItem->hidden == FALSE);
-	gnome_canvas_item_hide(memoryItem->backcardItem);
-	gnome_canvas_item_show(memoryItem->framecardItem);
-	gnome_canvas_item_show(memoryItem->frontcardItem);
+	goo_canvas_item_hide(memoryItem->backcardItem);
+	goo_canvas_item_show(memoryItem->framecardItem);
+	goo_canvas_item_show(memoryItem->frontcardItem);
 	break;
       case ON_BACK:
-	gnome_canvas_item_show(memoryItem->backcardItem);
-	gnome_canvas_item_hide(memoryItem->framecardItem);
-	gnome_canvas_item_hide(memoryItem->frontcardItem);
+	goo_canvas_item_show(memoryItem->backcardItem);
+	goo_canvas_item_hide(memoryItem->framecardItem);
+	goo_canvas_item_hide(memoryItem->frontcardItem);
 	break;
       case HIDDEN:
-	gnome_canvas_item_hide(memoryItem->backcardItem);
-	gnome_canvas_item_hide(memoryItem->framecardItem);
-	gnome_canvas_item_hide(memoryItem->frontcardItem);
+	goo_canvas_item_hide(memoryItem->backcardItem);
+	goo_canvas_item_hide(memoryItem->framecardItem);
+	goo_canvas_item_hide(memoryItem->frontcardItem);
 	memoryItem->hidden = TRUE;
 	break;
       }
@@ -1535,7 +1535,7 @@ static void check_win()
 }
 
 static gint
-item_event(GnomeCanvasItem *item, GdkEvent *event, MemoryItem *memoryItem)
+item_event(GooCanvasItem *item, GdkEvent *event, MemoryItem *memoryItem)
 {
 
   if(!gcomprisBoard)

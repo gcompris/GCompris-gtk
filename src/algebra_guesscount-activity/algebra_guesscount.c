@@ -86,7 +86,7 @@ struct _token {
   int num;
   int xOffset_original;
   int signal_id;
-  GnomeCanvasItem * item;
+  GooCanvasItem * item;
 };
 
 // contains the values, NUM OPER NUM OPER NUM etc.
@@ -114,19 +114,19 @@ static GdkPixbuf * num_pixmap[NUM_VALUES];
 static GdkPixbuf * oper_pixmap[5];
 static GdkPixbuf *button_pixmap = NULL;
 
-static GnomeCanvasItem *oper_item[4];
-static GnomeCanvasItem *num_item[MAX_NUMBER];
-static GnomeCanvasItem *equal_item[NUMBER_OF_LEVELS];
-static GnomeCanvasItem *calcul_line_item[NUMBER_OF_LEVELS*2];
-static GnomeCanvasItem *calcul_line_item_back[NUMBER_OF_LEVELS*2];
-static GnomeCanvasItem *result_item_front, *result_item_back;
+static GooCanvasItem *oper_item[4];
+static GooCanvasItem *num_item[MAX_NUMBER];
+static GooCanvasItem *equal_item[NUMBER_OF_LEVELS];
+static GooCanvasItem *calcul_line_item[NUMBER_OF_LEVELS*2];
+static GooCanvasItem *calcul_line_item_back[NUMBER_OF_LEVELS*2];
+static GooCanvasItem *result_item_front, *result_item_back;
 
-static GnomeCanvasItem *algebra_guesscount_create_item(GnomeCanvasGroup *parent);
+static GooCanvasItem *algebra_guesscount_create_item(GnomeCanvasGroup *parent);
 static void algebra_guesscount_destroy_all_items(void);
 static void algebra_guesscount_next_level(void);
-static gint item_event_num(GnomeCanvasItem *item, GdkEvent *event, gpointer data);
-static gint item_event_oper(GnomeCanvasItem *item, GdkEvent *event, gpointer data);
-static gint item_event_oper_moved(GnomeCanvasItem *item, GdkEvent *event, gpointer data);
+static gint item_event_num(GooCanvasItem *item, GdkEvent *event, gpointer data);
+static gint item_event_oper(GooCanvasItem *item, GdkEvent *event, gpointer data);
+static gint item_event_oper_moved(GooCanvasItem *item, GdkEvent *event, gpointer data);
 
 static int generate_numbers();
 static int token_result();
@@ -201,7 +201,7 @@ static void start_board (GcomprisBoard *agcomprisBoard) {
     button_pixmap = gc_pixmap_load(str);
     g_free(str);
 
-    gc_set_background(gnome_canvas_root(gcomprisBoard->canvas),"algebra_guesscount/tiger1_by_Ralf_Schmode.jpg");
+    gc_set_background(goo_canvas_get_root_item(gcomprisBoard->canvas),"algebra_guesscount/tiger1_by_Ralf_Schmode.jpg");
     gcomprisBoard->level=1;
     gcomprisBoard->maxlevel=NUMBER_OF_LEVELS;
     gcomprisBoard->sublevel=1;
@@ -264,7 +264,7 @@ static void algebra_guesscount_next_level() {
   gc_score_set(gcomprisBoard->sublevel);
 
   /* Try the next level */
-  algebra_guesscount_create_item(gnome_canvas_root(gcomprisBoard->canvas));
+  algebra_guesscount_create_item(goo_canvas_get_root_item(gcomprisBoard->canvas));
 }
 /* ==================================== */
 /* Destroy all the items */
@@ -319,12 +319,12 @@ static void update_line_calcul() {
     return;
 
   sprintf(str, "%d",token_result());
-  gnome_canvas_item_set(calcul_line_item[line*2],      "text", BLANK, NULL);
-  gnome_canvas_item_set(calcul_line_item_back[line*2], "text", BLANK, NULL);
+  goo_canvas_item_set(calcul_line_item[line*2],      "text", BLANK, NULL);
+  goo_canvas_item_set(calcul_line_item_back[line*2], "text", BLANK, NULL);
 
   if(line < gcomprisBoard->level-1) {			/* No next line to update on last line */
-    gnome_canvas_item_set(calcul_line_item[line*2+1],      "text", BLANK, NULL);
-    gnome_canvas_item_set(calcul_line_item_back[line*2+1], "text", BLANK, NULL);
+    goo_canvas_item_set(calcul_line_item[line*2+1],      "text", BLANK, NULL);
+    goo_canvas_item_set(calcul_line_item_back[line*2+1], "text", BLANK, NULL);
   }
 
 }
@@ -393,23 +393,23 @@ static int generate_numbers() {
   return result;
 }
 /* ==================================== */
-static GnomeCanvasItem *algebra_guesscount_create_item(GnomeCanvasGroup *parent) {
+static GooCanvasItem *algebra_guesscount_create_item(GnomeCanvasGroup *parent) {
   int i, xOffset, sid;
   char str[10];
 
   result_to_find = generate_numbers();
 
-  boardRootItem = GNOME_CANVAS_GROUP(
-				     gnome_canvas_item_new (gnome_canvas_root(gcomprisBoard->canvas),
-							    gnome_canvas_group_get_type (),
+  boardRootItem = GOO_CANVAS_GROUP(
+				     goo_canvas_item_new (goo_canvas_get_root_item(gcomprisBoard->canvas),
+							    goo_canvas_group_get_type (),
 							    "x", (double) 0,
 							    "y", (double) 0,
 							    NULL));
 
   // the intermediate result, line by line, when empty is BLANK
   for (i=0; i<gcomprisBoard->level; i++) {
-    calcul_line_item_back[i*2] = gnome_canvas_item_new (boardRootItem,
-							gnome_canvas_text_get_type (),
+    calcul_line_item_back[i*2] = goo_canvas_item_new (boardRootItem,
+							goo_canvas_text_get_type (),
 							"text", BLANK,
 							"font", gc_skin_font_board_title_bold,
 							"x", (double) X_EQUAL+BUTTON_WIDTH*1.5 + 1,
@@ -417,8 +417,8 @@ static GnomeCanvasItem *algebra_guesscount_create_item(GnomeCanvasGroup *parent)
 							"anchor", GTK_ANCHOR_CENTER,
 							"fill_color", TEXT_COLOR_BACK,
 							NULL);
-    calcul_line_item[i*2] = gnome_canvas_item_new (boardRootItem,
-						   gnome_canvas_text_get_type (),
+    calcul_line_item[i*2] = goo_canvas_item_new (boardRootItem,
+						   goo_canvas_text_get_type (),
 						   "text", BLANK,
 						   "font", gc_skin_font_board_title_bold,
 						   "x", (double) X_EQUAL+BUTTON_WIDTH*1.5,
@@ -429,8 +429,8 @@ static GnomeCanvasItem *algebra_guesscount_create_item(GnomeCanvasGroup *parent)
   }
 
   for (i=0; i<gcomprisBoard->level-1; i++) {
-    calcul_line_item_back[i*2+1] = gnome_canvas_item_new (boardRootItem,
-							  gnome_canvas_text_get_type (),
+    calcul_line_item_back[i*2+1] = goo_canvas_item_new (boardRootItem,
+							  goo_canvas_text_get_type (),
 							  "text", BLANK,
 							  "font", gc_skin_font_board_title_bold,
 							  "x", (double) X_NUM1+BUTTON_WIDTH/2 + 1,
@@ -438,8 +438,8 @@ static GnomeCanvasItem *algebra_guesscount_create_item(GnomeCanvasGroup *parent)
 							  "anchor", GTK_ANCHOR_CENTER,
 							  "fill_color", TEXT_COLOR_BACK,
 							  NULL);
-    calcul_line_item[i*2+1] = gnome_canvas_item_new (boardRootItem,
-						     gnome_canvas_text_get_type (),
+    calcul_line_item[i*2+1] = goo_canvas_item_new (boardRootItem,
+						     goo_canvas_text_get_type (),
 						     "text", BLANK,
 						     "font", gc_skin_font_board_title_bold,
 						     "x", (double) X_NUM1+BUTTON_WIDTH/2,
@@ -451,8 +451,8 @@ static GnomeCanvasItem *algebra_guesscount_create_item(GnomeCanvasGroup *parent)
 
   xOffset = (gcomprisBoard->width - 4 * BUTTON_WIDTH - 3 * HORIZONTAL_SEPARATION)/2;
   for (i=0; i<4; i++) {
-    oper_item[i] = gnome_canvas_item_new (boardRootItem,
-					  gnome_canvas_pixbuf_get_type (),
+    oper_item[i] = goo_canvas_item_new (boardRootItem,
+					  goo_canvas_pixbuf_get_type (),
 					  "pixbuf", oper_pixmap[i],
 					  "x", (double) xOffset ,
 					  "y", (double) Y_OPE,
@@ -462,7 +462,7 @@ static GnomeCanvasItem *algebra_guesscount_create_item(GnomeCanvasGroup *parent)
 					  "height_set", TRUE,
 					  NULL);
     xOffset += BUTTON_WIDTH+HORIZONTAL_SEPARATION;
-    gtk_signal_connect(GTK_OBJECT(oper_item[i]), "event", (GtkSignalFunc) item_event_oper,
+    g_signal_connect(GTK_OBJECT(oper_item[i]), "enter_notify_event", (GtkSignalFunc) item_event_oper,
 		       GINT_TO_POINTER(&(token_value[i*2+1])) );
     token_value[i*2+1].isNumber = FALSE;
     token_value[i*2+1].isMoved = FALSE;
@@ -471,8 +471,8 @@ static GnomeCanvasItem *algebra_guesscount_create_item(GnomeCanvasGroup *parent)
 
   // displays the target result
   sprintf(str,"%d",result_to_find);
-  result_item_back = gnome_canvas_item_new (boardRootItem,
-					    gnome_canvas_text_get_type (),
+  result_item_back = goo_canvas_item_new (boardRootItem,
+					    goo_canvas_text_get_type (),
 					    "text", str,
 					    "font", gc_skin_font_board_title_bold,
 					    "x", (double) xOffset+BUTTON_WIDTH +1,
@@ -480,8 +480,8 @@ static GnomeCanvasItem *algebra_guesscount_create_item(GnomeCanvasGroup *parent)
 					    "anchor", GTK_ANCHOR_CENTER,
 					    "fill_color", TEXT_RESULT_COLOR_BACK,
 					    NULL);
-  result_item_front = gnome_canvas_item_new (boardRootItem,
-					     gnome_canvas_text_get_type (),
+  result_item_front = goo_canvas_item_new (boardRootItem,
+					     goo_canvas_text_get_type (),
 					     "text", str,
 					     "font", gc_skin_font_board_title_bold,
 					     "x", (double) xOffset+BUTTON_WIDTH,
@@ -492,8 +492,8 @@ static GnomeCanvasItem *algebra_guesscount_create_item(GnomeCanvasGroup *parent)
 
   xOffset = (gcomprisBoard->width - (gcomprisBoard->level+1) * BUTTON_WIDTH - gcomprisBoard->level * HORIZONTAL_SEPARATION)/2;
   for (i=0; i<gcomprisBoard->level+1; i++) {
-    num_item[i] = gnome_canvas_item_new (boardRootItem,
-					 gnome_canvas_pixbuf_get_type (),
+    num_item[i] = goo_canvas_item_new (boardRootItem,
+					 goo_canvas_pixbuf_get_type (),
 					 "pixbuf", num_pixmap[answer_num_index[i]],
 					 "x", (double) xOffset ,
 					 "y", (double) Y_NUM,
@@ -502,7 +502,7 @@ static GnomeCanvasItem *algebra_guesscount_create_item(GnomeCanvasGroup *parent)
 					 "width_set", TRUE,
 					 "height_set", TRUE,
 					 NULL);
-    sid = gtk_signal_connect(GTK_OBJECT(num_item[i]), "event", (GtkSignalFunc) item_event_num,
+    sid = g_signal_connect(GTK_OBJECT(num_item[i]), "enter_notify_event", (GtkSignalFunc) item_event_num,
 			     (void *)&(token_value[i*2]));
     token_value[i*2].isNumber = TRUE;
     token_value[i*2].num = answer_num_index[i];
@@ -515,8 +515,8 @@ static GnomeCanvasItem *algebra_guesscount_create_item(GnomeCanvasGroup *parent)
 
   // items "="
   for (i=0; i<gcomprisBoard->level; i++) {
-    equal_item[i] = gnome_canvas_item_new (boardRootItem,
-					   gnome_canvas_pixbuf_get_type (),
+    equal_item[i] = goo_canvas_item_new (boardRootItem,
+					   goo_canvas_pixbuf_get_type (),
 					   "pixbuf", oper_pixmap[4],
 					   "x", (double) X_EQUAL ,
 					   "y", (double) y_equal_offset[i],
@@ -542,7 +542,7 @@ static void game_won() {
       gc_bonus_end_display(GC_BOARD_FINISHED_TUXPLANE);
       return;
     }
-    gc_set_background(gnome_canvas_root(gcomprisBoard->canvas),background_images[gcomprisBoard->level-1]);
+    gc_set_background(goo_canvas_get_root_item(gcomprisBoard->canvas),background_images[gcomprisBoard->level-1]);
   }
   algebra_guesscount_next_level();
 }
@@ -568,10 +568,10 @@ static int oper_char_to_pixmap_index(char oper) {
   return -1;
 }
 /* ==================================== */
-static gint item_event_oper(GnomeCanvasItem *item, GdkEvent *event, gpointer data){
+static gint item_event_oper(GooCanvasItem *item, GdkEvent *event, gpointer data){
   token *t = (	token *)data;
 
-  GnomeCanvasItem * tmp_item;
+  GooCanvasItem * tmp_item;
 
   if(board_paused)
     return FALSE;
@@ -583,8 +583,8 @@ static gint item_event_oper(GnomeCanvasItem *item, GdkEvent *event, gpointer dat
   case GDK_BUTTON_PRESS:
     gc_sound_play_ogg ("sounds/flip.wav", NULL);
     ptr_token_selected[token_count] = t;
-    tmp_item = gnome_canvas_item_new (boardRootItem,
-				      gnome_canvas_pixbuf_get_type (),
+    tmp_item = goo_canvas_item_new (boardRootItem,
+				      goo_canvas_pixbuf_get_type (),
 				      "pixbuf", oper_pixmap[oper_char_to_pixmap_index(t->oper)],
 				      "x", (double) x_token_offset[token_count],
 				      "y", (double) y_token_offset[token_count],
@@ -594,14 +594,14 @@ static gint item_event_oper(GnomeCanvasItem *item, GdkEvent *event, gpointer dat
 				      "height_set", TRUE,
 				      NULL);
     token_count++;
-    gtk_signal_connect(GTK_OBJECT(tmp_item), "event", (GtkSignalFunc) item_event_oper_moved, GINT_TO_POINTER(token_count));
+    g_signal_connect(GTK_OBJECT(tmp_item), "enter_notify_event", (GtkSignalFunc) item_event_oper_moved, GINT_TO_POINTER(token_count));
     break;
   default : break;
   }
   return FALSE;
 }
 /* ==================================== */
-static gint item_event_oper_moved(GnomeCanvasItem *item, GdkEvent *event, gpointer data){
+static gint item_event_oper_moved(GooCanvasItem *item, GdkEvent *event, gpointer data){
   int count = GPOINTER_TO_INT(data);
 
   if(board_paused)
@@ -621,7 +621,7 @@ static gint item_event_oper_moved(GnomeCanvasItem *item, GdkEvent *event, gpoint
   return FALSE;
 }
 /* ==================================== */
-static gint item_event_num(GnomeCanvasItem *item, GdkEvent *event, gpointer data){
+static gint item_event_num(GooCanvasItem *item, GdkEvent *event, gpointer data){
   token *t = (token *)data;
   char str[12];
 
@@ -657,12 +657,12 @@ static gint item_event_num(GnomeCanvasItem *item, GdkEvent *event, gpointer data
       if (token_count != 1 && token_count % 2 == 1) {
 	sprintf(str,"%d",token_result());
 
-	gnome_canvas_item_set(calcul_line_item[token_count-3], "text", str, NULL);
-	gnome_canvas_item_set(calcul_line_item_back[token_count-3], "text", str, NULL);
+	goo_canvas_item_set(calcul_line_item[token_count-3], "text", str, NULL);
+	goo_canvas_item_set(calcul_line_item_back[token_count-3], "text", str, NULL);
 
 	if(token_count < 2*gcomprisBoard->level+1) {			/* No next line to update on last line */
-	  gnome_canvas_item_set(calcul_line_item[token_count-2], "text", str, NULL);
-	  gnome_canvas_item_set(calcul_line_item_back[token_count-2], "text", str, NULL);
+	  goo_canvas_item_set(calcul_line_item[token_count-2], "text", str, NULL);
+	  goo_canvas_item_set(calcul_line_item_back[token_count-2], "text", str, NULL);
 	}
 
 	gamewon = (result_to_find == token_result());

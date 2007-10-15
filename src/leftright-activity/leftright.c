@@ -68,13 +68,13 @@ static void game_won();
 /* ================================================================ */
 static GnomeCanvasGroup *boardRootItem = NULL;
 
-static GnomeCanvasItem *hand_image_item = NULL;
-static GnomeCanvasItem *left_highlight_image_item = NULL, *right_highlight_image_item = NULL;
+static GooCanvasItem *hand_image_item = NULL;
+static GooCanvasItem *left_highlight_image_item = NULL, *right_highlight_image_item = NULL;
 
-static GnomeCanvasItem *leftright_create_item(GnomeCanvasGroup *parent);
+static GooCanvasItem *leftright_create_item(GnomeCanvasGroup *parent);
 static void leftright_destroy_all_items(void);
 static void leftright_next_level(void);
-static gint item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data);
+static gint item_event(GooCanvasItem *item, GdkEvent *event, gpointer data);
 static int answer;
 
 static char *hands[32] = {"main_droite_dessus_0.png","main_droite_paume_0.png",
@@ -146,7 +146,7 @@ static void pause_board (gboolean pause)
 static void start_board (GcomprisBoard *agcomprisBoard) {
   if(agcomprisBoard!=NULL) {
     gcomprisBoard=agcomprisBoard;
-    gc_set_background(gnome_canvas_root(gcomprisBoard->canvas),
+    gc_set_background(goo_canvas_get_root_item(gcomprisBoard->canvas),
 			    "leftright/leftright-bg.jpg");
     gcomprisBoard->level=1;
     gcomprisBoard->maxlevel=NUMBER_OF_LEVELS;
@@ -212,7 +212,7 @@ static void leftright_next_level() {
   gc_score_set(gcomprisBoard->sublevel);
 
   /* Try the next level */
-  leftright_create_item(gnome_canvas_root(gcomprisBoard->canvas));
+  leftright_create_item(goo_canvas_get_root_item(gcomprisBoard->canvas));
 
 }
 /* =====================================================================
@@ -228,23 +228,23 @@ static void leftright_destroy_all_items() {
 /* =====================================================================
  *
  * =====================================================================*/
-static GnomeCanvasItem *leftright_create_item(GnomeCanvasGroup *parent) {
+static GooCanvasItem *leftright_create_item(GnomeCanvasGroup *parent) {
   GdkPixbuf *highlight_pixmap = NULL;
   GdkPixbuf *hand_pixmap = NULL;
   gchar *str;
   int i;
 
-  boardRootItem = GNOME_CANVAS_GROUP(
-				     gnome_canvas_item_new (gnome_canvas_root(gcomprisBoard->canvas),
-							    gnome_canvas_group_get_type (),
+  boardRootItem = GOO_CANVAS_GROUP(
+				     goo_canvas_item_new (goo_canvas_get_root_item(gcomprisBoard->canvas),
+							    goo_canvas_group_get_type (),
 							    "x", (double) 0,
 							    "y", (double) 0,
 							    NULL));
 
   highlight_pixmap = gc_pixmap_load("leftright/leftright-select.png");
 
-  left_highlight_image_item = gnome_canvas_item_new (boardRootItem,
-						     gnome_canvas_pixbuf_get_type (),
+  left_highlight_image_item = goo_canvas_item_new (boardRootItem,
+						     goo_canvas_pixbuf_get_type (),
 						     "pixbuf", highlight_pixmap,
 						     "x", (double) BUTTON_AREA_X1,
 						     "y", (double) BUTTON_AREA_Y1,
@@ -254,8 +254,8 @@ static GnomeCanvasItem *leftright_create_item(GnomeCanvasGroup *parent) {
 						     "height_set", TRUE,
 						     NULL);
 
-  right_highlight_image_item = gnome_canvas_item_new (boardRootItem,
-						      gnome_canvas_pixbuf_get_type (),
+  right_highlight_image_item = goo_canvas_item_new (boardRootItem,
+						      goo_canvas_pixbuf_get_type (),
 						      "pixbuf", highlight_pixmap,
 						      "x", (double) BUTTON_AREA_X2,
 						      "y", (double) BUTTON_AREA_Y1,
@@ -265,11 +265,11 @@ static GnomeCanvasItem *leftright_create_item(GnomeCanvasGroup *parent) {
 						      "height_set", TRUE,
 						      NULL);
 
-  gnome_canvas_item_hide(right_highlight_image_item);
-  gnome_canvas_item_hide(left_highlight_image_item);
+  goo_canvas_item_hide(right_highlight_image_item);
+  goo_canvas_item_hide(left_highlight_image_item);
 
-  gnome_canvas_item_new (boardRootItem,
-			 gnome_canvas_text_get_type (),
+  goo_canvas_item_new (boardRootItem,
+			 goo_canvas_text_get_type (),
 			 "text", _("left"),
 			 "font", gc_skin_font_board_big,
 			 "x", (double) CENTER_LEFT_X + 1.0,
@@ -278,8 +278,8 @@ static GnomeCanvasItem *leftright_create_item(GnomeCanvasGroup *parent) {
 			 "fill_color", "black",
 			 NULL);
 
-  gnome_canvas_item_new (boardRootItem,
-			 gnome_canvas_text_get_type (),
+  goo_canvas_item_new (boardRootItem,
+			 goo_canvas_text_get_type (),
 			 "text", _("left"),
 			 "font", gc_skin_font_board_big,
 			 "x", (double) CENTER_LEFT_X,
@@ -288,8 +288,8 @@ static GnomeCanvasItem *leftright_create_item(GnomeCanvasGroup *parent) {
 			 "fill_color", TEXT_COLOR,
 			 NULL);
 
-  gnome_canvas_item_new (boardRootItem,
-			 gnome_canvas_text_get_type (),
+  goo_canvas_item_new (boardRootItem,
+			 goo_canvas_text_get_type (),
 			 "text", _("right"),
 			 "font", gc_skin_font_board_big,
 			 "x", (double) CENTER_RIGHT_X + 1.0,
@@ -298,8 +298,8 @@ static GnomeCanvasItem *leftright_create_item(GnomeCanvasGroup *parent) {
 			 "fill_color", "black",
 			 NULL);
 
-  gnome_canvas_item_new (boardRootItem,
-			 gnome_canvas_text_get_type (),
+  goo_canvas_item_new (boardRootItem,
+			 goo_canvas_text_get_type (),
 			 "text", _("right"),
 			 "font", gc_skin_font_board_big,
 			 "x", (double) CENTER_RIGHT_X,
@@ -322,8 +322,8 @@ static GnomeCanvasItem *leftright_create_item(GnomeCanvasGroup *parent) {
 
   str = g_strdup_printf("%s/%s", gcomprisBoard->boarddir, hands[i]);
   hand_pixmap = gc_pixmap_load(str);
-  hand_image_item = gnome_canvas_item_new (boardRootItem,
-					   gnome_canvas_pixbuf_get_type (),
+  hand_image_item = goo_canvas_item_new (boardRootItem,
+					   goo_canvas_pixbuf_get_type (),
 					   "pixbuf", hand_pixmap,
 					   "x", (double) HAND_X - (gdk_pixbuf_get_width(hand_pixmap)/2),
 					   "y", (double) HAND_Y - (gdk_pixbuf_get_height(hand_pixmap)/2),
@@ -338,7 +338,7 @@ static GnomeCanvasItem *leftright_create_item(GnomeCanvasGroup *parent) {
   gdk_pixbuf_unref(highlight_pixmap);
   gdk_pixbuf_unref(hand_pixmap);
 
-  gtk_signal_connect(GTK_OBJECT(gcomprisBoard->canvas), "event",  (GtkSignalFunc) item_event, NULL);
+  g_signal_connect(GTK_OBJECT(gcomprisBoard->canvas), "enter_notify_event",  (GtkSignalFunc) item_event, NULL);
 
   return NULL;
 }
@@ -375,7 +375,7 @@ static void process_ok() {
 /* =====================================================================
  *
  * =====================================================================*/
-static gint item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data) {
+static gint item_event(GooCanvasItem *item, GdkEvent *event, gpointer data) {
   double x, y;
   int side;
 
@@ -388,7 +388,7 @@ static gint item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data) {
   switch (event->type)
     {
     case GDK_BUTTON_PRESS:
-      gnome_canvas_c2w(gcomprisBoard->canvas, x, y, &x, &y);
+      goo_canvas_c2w(gcomprisBoard->canvas, x, y, &x, &y);
 
       if (y>CLICKABLE_Y1 && y<CLICKABLE_Y2) {
 	if (x>CLICKABLE_X1 && x<CLICKABLE_X2) { // the left button is clicked
@@ -422,11 +422,11 @@ static gint item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data) {
  * =====================================================================*/
 static void highlight_selected(int side) {
   if (side == LEFT) {
-    gnome_canvas_item_hide(right_highlight_image_item);
-    gnome_canvas_item_show(left_highlight_image_item);
+    goo_canvas_item_hide(right_highlight_image_item);
+    goo_canvas_item_show(left_highlight_image_item);
   }
   if (side == RIGHT) {
-    gnome_canvas_item_show(right_highlight_image_item);
-    gnome_canvas_item_hide(left_highlight_image_item);
+    goo_canvas_item_show(right_highlight_image_item);
+    goo_canvas_item_hide(left_highlight_image_item);
   }
 }

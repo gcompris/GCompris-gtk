@@ -88,7 +88,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       gcomprisBoard->maxlevel = 1;
       gc_bar_set(0);
 
-      gc_set_background(gnome_canvas_root(gcomprisBoard->canvas),
+      gc_set_background(goo_canvas_get_root_item(gcomprisBoard->canvas),
 			"tangram/gtans_bg.png");
 
       selectedgrande = FALSE;
@@ -1792,8 +1792,8 @@ void taninitstart(void){
   tanclampgrandefig();
 
 
-  boardRootItem = GNOME_CANVAS_GROUP(gnome_canvas_item_new (gnome_canvas_root(gcomprisBoard->canvas),
-							    gnome_canvas_group_get_type(),
+  boardRootItem = GOO_CANVAS_GROUP(goo_canvas_item_new (goo_canvas_get_root_item(gcomprisBoard->canvas),
+							    goo_canvas_group_get_type(),
 							    "x", 0.0,
 							    "y", 0.0,
 							    NULL

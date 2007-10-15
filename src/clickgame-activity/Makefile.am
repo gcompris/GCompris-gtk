@@ -16,8 +16,10 @@ lib_LTLIBRARIES = \
 	libclickgame.la
 
 libdir = $(plugindir)
-INCLUDES = 	-I$(top_builddir)/src \
+INCLUDES = \
+	-I$(top_builddir)/src \
 	-I$(top_builddir)/intl \
+	-I$(top_srcdir)/src/goocanvas/src \
 	$(GCOMPRIS_CFLAGS) \
 	$(XML_CFLAGS) \
 	$(dll_export)

@@ -49,6 +49,7 @@ INCLUDES = \
 	-I$(top_builddir)/intl \
 	-DDATADIR=\""$(datadir)"\" \
 	-I$(top_builddir)/src \
+	-I$(top_srcdir)/src/goocanvas/src \
 	$(GCOMPRIS_CFLAGS) \
 	$(GNOME_INCLUDEDIR) \
 	$(XML_CFLAGS) \
@@ -57,8 +58,7 @@ INCLUDES = \
 	$(GNET_CFLAGS) \
 	$(DBUS_CFLAGS) \
 	$(cairo_cflags) \
-	$(NSBUNDLE_CPPFLAGS) \
-	-I$(top_srcdir)/src/goocanvas/src
+	$(NSBUNDLE_CPPFLAGS)
 
 gcompris_SOURCES = \
 	$(cairo_c) \

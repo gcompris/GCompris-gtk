@@ -68,15 +68,15 @@ struct _Shape {
   char  *soundfile;			/* relative sound file to be played when pressing mouse button */
   ShapeType type;			/* Type of shape */
 
-  GnomeCanvasItem *item;     	  	/* Canvas item for this shape */
+  GooCanvasItem *item;     	  	/* Canvas item for this shape */
 				  	/* Root index which this item is in the shapelist */
   GnomeCanvasGroup *shape_list_group_root;
   guint shapelistgroup_index;	  	/* Root index which this item is in the shapelist */
   Shape *icon_shape;			/* Temporary Canvas icon shape for this shape */
   Shape *target_shape;			/* If this is an icon shape then point to its shape */
 
-  GnomeCanvasItem *target_point;       	/* Target point item for this shape */
-  GnomeCanvasItem *targetitem;       	/* Target item for this shape (if targetfile is defined) */
+  GooCanvasItem *target_point;       	/* Target point item for this shape */
+  GooCanvasItem *targetitem;       	/* Target item for this shape (if targetfile is defined) */
   double offset_x, offset_y;
   Shape *shape_place;       /* the shape place in this place */
   Shape *placed ;           /* where is place this shape */
@@ -87,8 +87,8 @@ static GList *shape_list	= NULL;
 static GList *shape_list_group	= NULL;
 static int current_shapelistgroup_index	= -1;
 
-static GnomeCanvasItem *next_shapelist_item     = NULL;		/* Canvas item button for the next shapelist */
-static GnomeCanvasItem *previous_shapelist_item = NULL;   	/* Canvas item button for the previous shapelist */
+static GooCanvasItem *next_shapelist_item     = NULL;		/* Canvas item button for the next shapelist */
+static GooCanvasItem *previous_shapelist_item = NULL;   	/* Canvas item button for the previous shapelist */
 
 /* Let's define the structure for the shapebox list that contains the icons of the shapes */
 typedef struct _ShapeBox ShapeBox;
@@ -108,14 +108,14 @@ static ShapeBox shapeBox;
 static GHashTable *shapelist_table = NULL;
 static gint SHAPE_BOX_WIDTH_RATIO = 18;
 
-static GnomeCanvasItem	*shape_root_item;
-static GnomeCanvasItem	*shape_list_root_item;
+static GooCanvasItem	*shape_root_item;
+static GooCanvasItem	*shape_list_root_item;
 
 /* The tooltip */
 static GnomeCanvasGroup	*tooltip_root_item;
-static GnomeCanvasItem	*tooltip_text_item;
-static GnomeCanvasItem	*tooltip_text_item_s;
-static GnomeCanvasItem	*tooltip_bg_item;
+static GooCanvasItem	*tooltip_text_item;
+static GooCanvasItem	*tooltip_text_item_s;
+static GooCanvasItem	*tooltip_bg_item;
 
 static void		 start_board (GcomprisBoard *agcomprisBoard);
 static void 		 pause_board (gboolean pause);
@@ -130,7 +130,7 @@ static void	         config_stop (void);
 
 static void              shapegame_init_canvas(GnomeCanvasGroup *parent);
 static void 		 shapegame_destroy_all_items(void);
-static void 		 setup_item(GnomeCanvasItem *item, Shape *shape);
+static void 		 setup_item(GooCanvasItem *item, Shape *shape);
 static void 		 shapegame_next_level(void);
 static gboolean 	 read_xml_file(char *fname);
 static Shape 		*find_closest_shape(double x, double y, double limit);
@@ -141,8 +141,8 @@ static Shape 		*create_shape(ShapeType type, char *name, char *tooltip,
 static gboolean 	 increment_sublevel(void);
 static void 		 create_title(char *name, double x, double y, GtkJustification justification,
 				      guint32 color_rgba);
-static gint		 item_event_ok(GnomeCanvasItem *item, GdkEvent *event, gpointer data);
-static gint item_event_drag(GnomeCanvasItem *item, GdkEvent *event, gpointer data);
+static gint		 item_event_ok(GooCanvasItem *item, GdkEvent *event, gpointer data);
+static gint item_event_drag(GooCanvasItem *item, GdkEvent *event, gpointer data);
 #if DEBUG
 static void dump_shapes(void);
 static void dump_shape(Shape *shape);
@@ -292,7 +292,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 	    tmp = g_malloc(strlen(gcomprisBoard->mode));
 	    tmp = strcpy(tmp, gcomprisBoard->mode + 11);
 
-	    gc_set_background(gnome_canvas_root(gcomprisBoard->canvas), tmp);
+	    gc_set_background(goo_canvas_get_root_item(gcomprisBoard->canvas), tmp);
 	    default_background = FALSE;
 	    g_free(tmp);
 	  }
@@ -303,11 +303,11 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 
 	  // Default case, load the default background
 	  img = gc_skin_image_get("gcompris-shapebg.jpg");
-	  gc_set_background(gnome_canvas_root(gcomprisBoard->canvas),
+	  gc_set_background(goo_canvas_get_root_item(gcomprisBoard->canvas),
 				  img);
 	  g_free(img);
 	}
-      gc_drag_start(gnome_canvas_root(gcomprisBoard->canvas), (gc_Drag_Func) item_event_drag, drag_mode);
+      gc_drag_start(goo_canvas_get_root_item(gcomprisBoard->canvas), (gc_Drag_Func) item_event_drag, drag_mode);
       shapegame_next_level();
 
       pause_board(FALSE);
@@ -321,7 +321,7 @@ end_board ()
 
   if(gcomprisBoard!=NULL)
     {
-      gc_drag_stop(gnome_canvas_root(gcomprisBoard->canvas));
+      gc_drag_stop(goo_canvas_get_root_item(gcomprisBoard->canvas));
       pause_board(TRUE);
       shapegame_destroy_all_items();
       gcomprisBoard->level = 1;       // Restart this game to zero
@@ -439,7 +439,7 @@ static void shapegame_next_level()
 
   shapegame_destroy_all_items();
   next_shapelist_item = previous_shapelist_item = NULL;
-  shapegame_init_canvas(gnome_canvas_root(gcomprisBoard->canvas));
+  shapegame_init_canvas(goo_canvas_get_root_item(gcomprisBoard->canvas));
 
   while( ((filename = gc_file_find_absolute("%s/board%d_%d.xml",
 					    gcomprisBoard->boarddir,
@@ -539,22 +539,22 @@ static void shapegame_init_canvas(GnomeCanvasGroup *parent)
   GdkPixbuf       *pixmap = NULL;
 
   shape_list_root_item = \
-    gnome_canvas_item_new (parent,
-			   gnome_canvas_group_get_type (),
+    goo_canvas_item_new (parent,
+			   goo_canvas_group_get_type (),
 			   "x", (double)0,
 			   "y", (double)0,
 			   NULL);
 
   shape_root_item = \
-    gnome_canvas_item_new (parent,
-			   gnome_canvas_group_get_type (),
+    goo_canvas_item_new (parent,
+			   goo_canvas_group_get_type (),
 			   "x", (double)gcomprisBoard->width/SHAPE_BOX_WIDTH_RATIO,
 			   "y", (double)0,
 			   NULL);
 
-  tooltip_root_item = GNOME_CANVAS_GROUP(
-					 gnome_canvas_item_new (parent,
-								gnome_canvas_group_get_type (),
+  tooltip_root_item = GOO_CANVAS_GROUP(
+					 goo_canvas_item_new (parent,
+								goo_canvas_group_get_type (),
 								"x", (double)10,
 								"y", (double)gcomprisBoard->height-70,
 								NULL)
@@ -563,8 +563,8 @@ static void shapegame_init_canvas(GnomeCanvasGroup *parent)
   /* Create the tooltip area */
   pixmap = gc_skin_pixmap_load("button_large.png");
   tooltip_bg_item = \
-    gnome_canvas_item_new (GNOME_CANVAS_GROUP(tooltip_root_item),
-			   gnome_canvas_pixbuf_get_type (),
+    goo_canvas_item_new (GOO_CANVAS_GROUP(tooltip_root_item),
+			   goo_canvas_pixbuf_get_type (),
 			   "pixbuf", pixmap,
 			   "x", (double) 0,
 			   "y", (double) 0,
@@ -572,8 +572,8 @@ static void shapegame_init_canvas(GnomeCanvasGroup *parent)
   gdk_pixbuf_unref(pixmap);
 
   tooltip_text_item_s = \
-    gnome_canvas_item_new (GNOME_CANVAS_GROUP(tooltip_root_item),
-			   gnome_canvas_text_get_type (),
+    goo_canvas_item_new (GOO_CANVAS_GROUP(tooltip_root_item),
+			   goo_canvas_text_get_type (),
 			   "text", "",
 			   "font", gc_skin_font_board_small,
 			   "x", (double)gdk_pixbuf_get_width(pixmap)/2 + 1.0,
@@ -583,8 +583,8 @@ static void shapegame_init_canvas(GnomeCanvasGroup *parent)
 			   "fill_color_rgba", gc_skin_color_shadow,
 			   NULL);
   tooltip_text_item = \
-    gnome_canvas_item_new (GNOME_CANVAS_GROUP(tooltip_root_item),
-			   gnome_canvas_text_get_type (),
+    goo_canvas_item_new (GOO_CANVAS_GROUP(tooltip_root_item),
+			   goo_canvas_text_get_type (),
 			   "text", "",
 			   "font", gc_skin_font_board_small,
 			   "x", (double)gdk_pixbuf_get_width(pixmap)/2,
@@ -595,7 +595,7 @@ static void shapegame_init_canvas(GnomeCanvasGroup *parent)
 			   NULL);
 
   /* Hide the tooltip */
-  gnome_canvas_item_hide(GNOME_CANVAS_ITEM(tooltip_root_item));
+  goo_canvas_item_hide(GNOME_CANVAS_ITEM(tooltip_root_item));
 
 }
 
@@ -609,7 +609,7 @@ static void shapegame_init_canvas(GnomeCanvasGroup *parent)
 static void
 add_shape_to_list_of_shapes(Shape *shape)
 {
-  GnomeCanvasItem *item;
+  GooCanvasItem *item;
   GdkPixbuf   *pixmap = NULL;
   GnomeCanvasGroup *shape_list_group_root = NULL;
   double ICON_GAP    = 5.0;
@@ -624,38 +624,38 @@ add_shape_to_list_of_shapes(Shape *shape)
   if(g_hash_table_size(shapelist_table)==(shapeBox.nb_shape_x * shapeBox.nb_shape_y))
     {
       pixmap = gc_skin_pixmap_load("button_backward.png");
-      previous_shapelist_item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(shape_list_root_item),
-						       gnome_canvas_pixbuf_get_type (),
+      previous_shapelist_item = goo_canvas_item_new (GOO_CANVAS_GROUP(shape_list_root_item),
+						       goo_canvas_pixbuf_get_type (),
 						       "pixbuf", pixmap,
 						       "x", (double) shapeBox.x + (shapeBox.w/2) -
 						       gdk_pixbuf_get_width(pixmap) - 2,
 						       "y", (double) shapeBox.y + shapeBox.h,
 						       NULL);
 
-      gtk_signal_connect(GTK_OBJECT(previous_shapelist_item), "event",
+      g_signal_connect(GTK_OBJECT(previous_shapelist_item), "enter_notify_event",
 			 (GtkSignalFunc) item_event_ok,
 			 "previous_shapelist");
-      gtk_signal_connect(GTK_OBJECT(previous_shapelist_item), "event",
+      g_signal_connect(GTK_OBJECT(previous_shapelist_item), "enter_notify_event",
 			 (GtkSignalFunc) gc_item_focus_event,
 			 NULL);
       gdk_pixbuf_unref(pixmap);
 
       pixmap = gc_skin_pixmap_load("button_forward.png");
-      next_shapelist_item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(shape_list_root_item),
-						   gnome_canvas_pixbuf_get_type (),
+      next_shapelist_item = goo_canvas_item_new (GOO_CANVAS_GROUP(shape_list_root_item),
+						   goo_canvas_pixbuf_get_type (),
 						   "pixbuf", pixmap,
 						   "x", (double) shapeBox.x + (shapeBox.w/2) + 2,
 						   "y", (double) shapeBox.y + shapeBox.h,
 						   NULL);
 
-      gtk_signal_connect(GTK_OBJECT(next_shapelist_item), "event",
+      g_signal_connect(GTK_OBJECT(next_shapelist_item), "enter_notify_event",
 			 (GtkSignalFunc) item_event_ok,
 			 "next_shapelist");
-      gtk_signal_connect(GTK_OBJECT(next_shapelist_item), "event",
+      g_signal_connect(GTK_OBJECT(next_shapelist_item), "enter_notify_event",
 			 (GtkSignalFunc) gc_item_focus_event,
 			 NULL);
       gdk_pixbuf_unref(pixmap);
-      gnome_canvas_item_hide(next_shapelist_item);
+      goo_canvas_item_hide(next_shapelist_item);
 
   }
 
@@ -671,17 +671,17 @@ add_shape_to_list_of_shapes(Shape *shape)
       if(current_shapelistgroup_index>=1)
 	{
 	  g_warning(" Hide previous group\n");
-	  shape_list_group_root = GNOME_CANVAS_GROUP(g_list_nth_data(shape_list_group,
+	  shape_list_group_root = GOO_CANVAS_GROUP(g_list_nth_data(shape_list_group,
 								     current_shapelistgroup_index-1));
-	  //gnome_canvas_item_hide(shape_list_group_root);
+	  //goo_canvas_item_hide(shape_list_group_root);
 	  item = g_list_nth_data(shape_list_group, current_shapelistgroup_index-1);
-	  gnome_canvas_item_hide(item);
+	  goo_canvas_item_hide(item);
 	}
 
       // We need to start a new shape list group
       shape_list_group_root = \
-	GNOME_CANVAS_GROUP(gnome_canvas_item_new (GNOME_CANVAS_GROUP(shape_list_root_item),
-						 gnome_canvas_group_get_type (),
+	GOO_CANVAS_GROUP(goo_canvas_item_new (GOO_CANVAS_GROUP(shape_list_root_item),
+						 goo_canvas_group_get_type (),
 						 "x", (double)0,
 						 "y", (double)0,
 						 NULL));
@@ -767,8 +767,8 @@ add_shape_to_list_of_shapes(Shape *shape)
             h=ICON_HEIGHT;
         }
 
-	      item = gnome_canvas_item_new (shape_list_group_root,
-					    gnome_canvas_pixbuf_get_type (),
+	      item = goo_canvas_item_new (shape_list_group_root,
+					    goo_canvas_pixbuf_get_type (),
 					    "pixbuf", pixmap,
 					    "x", (double)x_offset-w/2,
 					    "y", (double)y_offset-h/2,
@@ -795,7 +795,7 @@ add_shape_to_list_of_shapes(Shape *shape)
 		     shape->shapelistgroup_index, current_shapelistgroup_index);
 	      icon_shape->shape_list_group_root = shape_list_group_root;
 	      setup_item(item, icon_shape);
-	      gtk_signal_connect(GTK_OBJECT(item), "event",
+	      g_signal_connect(GTK_OBJECT(item), "enter_notify_event",
 				 (GtkSignalFunc) gc_item_focus_event,
 				 NULL);
 	    }
@@ -870,12 +870,12 @@ static void shape_goes_back_to_list(Shape *shape)
     if(shape -> type == SHAPE_ICON)
         shape = shape -> target_shape;
 
-    gnome_canvas_item_hide(shape->item);
+    goo_canvas_item_hide(shape->item);
     /* replace the icon */
-    gnome_canvas_item_set(shape->icon_shape->item,
+    goo_canvas_item_set(shape->icon_shape->item,
             "x", shape->icon_shape->x,
             "y", shape->icon_shape->y, NULL);
-    gnome_canvas_item_show(shape->icon_shape->item);
+    goo_canvas_item_show(shape->icon_shape->item);
 
     if(shape->placed)
     {
@@ -888,7 +888,7 @@ static void shape_goes_back_to_list(Shape *shape)
     gc_sound_play_ogg ("sounds/flip.wav", NULL);
 }
 
-static Shape * item_to_shape(GnomeCanvasItem *item)
+static Shape * item_to_shape(GooCanvasItem *item)
 {
     GList *list;
     for(list = shape_list; list ; list = list -> next)
@@ -912,16 +912,16 @@ void target_point_switch_on(Shape *shape_on)
     {
         shape = list -> data;
         if(shape->type == SHAPE_TARGET && ! shape->targetfile)
-            gnome_canvas_item_set(shape->target_point,
+            goo_canvas_item_set(shape->target_point,
                     "fill_color_rgba",
                     shape == shape_on ? POINT_COLOR_ON : POINT_COLOR_OFF,
                     NULL);
     }
 }
 
-static gint item_event_drag(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
+static gint item_event_drag(GooCanvasItem *item, GdkEvent *event, gpointer data)
 {
-    static GnomeCanvasItem *shadow_item=NULL;
+    static GooCanvasItem *shadow_item=NULL;
     double item_x, item_y;
     Shape *shape, *found_shape;
 
@@ -957,7 +957,7 @@ static gint item_event_drag(GnomeCanvasItem *item, GdkEvent *event, gpointer dat
                     }
                     break;
                 case SHAPE_TARGET:
-                    gnome_canvas_item_hide(shape->item);
+                    goo_canvas_item_hide(shape->item);
 
                     // unplace this shape
                     shape->placed->shape_place= NULL;
@@ -965,7 +965,7 @@ static gint item_event_drag(GnomeCanvasItem *item, GdkEvent *event, gpointer dat
 
                     shape = shape -> icon_shape;
                     gc_drag_offset_set( shape->offset_x, shape->offset_y);
-                    gnome_canvas_item_show(shape->item);
+                    goo_canvas_item_show(shape->item);
                     gc_drag_item_set(shape->item);
                     break;
                 default:
@@ -981,20 +981,20 @@ static gint item_event_drag(GnomeCanvasItem *item, GdkEvent *event, gpointer dat
 
                 dest = gdk_pixbuf_copy(pixmap);
                 pixbuf_add_transparent(dest, 100);
-                shadow_item = gnome_canvas_item_new(GNOME_CANVAS_GROUP(shape_root_item),
-                        gnome_canvas_pixbuf_get_type(),
+                shadow_item = goo_canvas_item_new(GOO_CANVAS_GROUP(shape_root_item),
+                        goo_canvas_pixbuf_get_type(),
                         "pixbuf", dest,
                         "width", shape->target_shape->w,
                         "height", shape->target_shape->h,
                         "width_set", TRUE,
                         "height_set", TRUE,
                         NULL);
-                gnome_canvas_item_hide(shadow_item);
+                goo_canvas_item_hide(shadow_item);
                 gdk_pixbuf_unref(dest);
                 gdk_pixbuf_unref(pixmap);
             }
-            gnome_canvas_item_reparent(shape->item, GNOME_CANVAS_GROUP(shape_list_root_item->parent));
-            gnome_canvas_item_raise_to_top(shape->item);
+            goo_canvas_item_reparent(shape->item, GOO_CANVAS_GROUP(shape_list_root_item->parent));
+            goo_canvas_item_raise_to_top(shape->item);
             gc_drag_item_move(event);
             break;
         case GDK_MOTION_NOTIFY:
@@ -1002,21 +1002,21 @@ static gint item_event_drag(GnomeCanvasItem *item, GdkEvent *event, gpointer dat
 
             item_x = event->button.x;
             item_y = event->button.y;
-            gnome_canvas_item_w2i(item->parent, &item_x, &item_y);
+            goo_canvas_convert_to_item_space(item->parent, &item_x, &item_y);
 
             found_shape = find_closest_shape( item_x, item_y, SQUARE_LIMIT_DISTANCE);
             if(shadow_enable)
             {
                 if(found_shape)
                 {
-                    gnome_canvas_item_set(shadow_item,
+                    goo_canvas_item_set(shadow_item,
                             "x", found_shape->x - shape->target_shape->w/2,
                             "y", found_shape->y - shape->target_shape->h/2,
                             NULL);
-                    gnome_canvas_item_show(shadow_item);
+                    goo_canvas_item_show(shadow_item);
                 }
                 else
-                    gnome_canvas_item_hide(shadow_item);
+                    goo_canvas_item_hide(shadow_item);
             }
 
             target_point_switch_on(found_shape);
@@ -1024,7 +1024,7 @@ static gint item_event_drag(GnomeCanvasItem *item, GdkEvent *event, gpointer dat
         case GDK_BUTTON_RELEASE:
             item_x = event->button.x;
             item_y = event->button.y;
-            gnome_canvas_item_w2i(item->parent, &item_x, &item_y);
+            goo_canvas_convert_to_item_space(item->parent, &item_x, &item_y);
 
             if(shadow_enable && shadow_item)
             {
@@ -1033,7 +1033,7 @@ static gint item_event_drag(GnomeCanvasItem *item, GdkEvent *event, gpointer dat
             }
 
             target_point_switch_on(NULL);
-            gnome_canvas_item_reparent(shape->item, shape->shape_list_group_root);
+            goo_canvas_item_reparent(shape->item, shape->shape_list_group_root);
 
             found_shape = find_closest_shape( item_x, item_y, SQUARE_LIMIT_DISTANCE);
             if(found_shape)
@@ -1044,13 +1044,13 @@ static gint item_event_drag(GnomeCanvasItem *item, GdkEvent *event, gpointer dat
 		gc_sound_play_ogg ("sounds/line_end.wav", NULL);
 
                 /* place the target item */
-                gnome_canvas_item_set(shape->target_shape->item,
+                goo_canvas_item_set(shape->target_shape->item,
                         "x", found_shape->x - shape->target_shape->w/2,
                         "y", found_shape->y - shape->target_shape->h/2,
                         NULL);
-                gnome_canvas_item_show(shape->target_shape->item);
-                gnome_canvas_item_raise_to_top(shape->target_shape->item);
-                gnome_canvas_item_hide(shape->item);
+                goo_canvas_item_show(shape->target_shape->item);
+                goo_canvas_item_raise_to_top(shape->target_shape->item);
+                goo_canvas_item_hide(shape->item);
 
                 shape -> target_shape -> placed = found_shape;
                 found_shape -> shape_place = shape -> target_shape;
@@ -1069,7 +1069,7 @@ static gint item_event_drag(GnomeCanvasItem *item, GdkEvent *event, gpointer dat
 }
 
 static gint
-item_event(GnomeCanvasItem *item, GdkEvent *event, Shape *shape)
+item_event(GooCanvasItem *item, GdkEvent *event, Shape *shape)
 {
 
   if(!gcomprisBoard)
@@ -1089,21 +1089,21 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, Shape *shape)
      case GDK_ENTER_NOTIFY:
        if(shape->tooltip && shape->type == SHAPE_ICON) {
 	 /* WARNING: This should not be needed but if I don't do it, it's not refreshed */
-	 gnome_canvas_item_set(GNOME_CANVAS_ITEM(tooltip_bg_item),
+	 goo_canvas_item_set(GNOME_CANVAS_ITEM(tooltip_bg_item),
 			       "y", 0.0,
 			       NULL);
-	 gnome_canvas_item_set(GNOME_CANVAS_ITEM(tooltip_text_item_s),
+	 goo_canvas_item_set(GNOME_CANVAS_ITEM(tooltip_text_item_s),
 			       "text", shape->tooltip,
 			       NULL);
-	 gnome_canvas_item_set(GNOME_CANVAS_ITEM(tooltip_text_item),
+	 goo_canvas_item_set(GNOME_CANVAS_ITEM(tooltip_text_item),
 			       "text", shape->tooltip,
 			       NULL);
-	 gnome_canvas_item_show(GNOME_CANVAS_ITEM(tooltip_root_item));
+	 goo_canvas_item_show(GNOME_CANVAS_ITEM(tooltip_root_item));
        }
        break;
      case GDK_LEAVE_NOTIFY:
        if(shape->tooltip && shape->type == SHAPE_ICON)
-       	 gnome_canvas_item_hide(GNOME_CANVAS_ITEM(tooltip_root_item));
+       	 goo_canvas_item_hide(GNOME_CANVAS_ITEM(tooltip_root_item));
        break;
      case GDK_BUTTON_PRESS:
        if(event->button.button == 3)
@@ -1170,7 +1170,7 @@ static void update_shapelist_item(void)
     if(get_element_count_listgroup(current_shapelistgroup_index) ==0)
     {
         int index;
-        GnomeCanvasItem *root_item;
+        GooCanvasItem *root_item;
 
         index = get_no_void_group(-1);
         if(index == current_shapelistgroup_index)
@@ -1178,20 +1178,20 @@ static void update_shapelist_item(void)
         if(index != current_shapelistgroup_index)
         {
             root_item = g_list_nth_data(shape_list_group, current_shapelistgroup_index);
-            gnome_canvas_item_hide(root_item);
+            goo_canvas_item_hide(root_item);
             root_item = g_list_nth_data(shape_list_group, index);
-            gnome_canvas_item_show(root_item);
+            goo_canvas_item_show(root_item);
             current_shapelistgroup_index = index;
         }
     }
     if(get_no_void_group(1) == current_shapelistgroup_index)
-        gnome_canvas_item_hide(next_shapelist_item);
+        goo_canvas_item_hide(next_shapelist_item);
     else
-        gnome_canvas_item_show(next_shapelist_item);
+        goo_canvas_item_show(next_shapelist_item);
     if(get_no_void_group(-1) == current_shapelistgroup_index)
-        gnome_canvas_item_hide(previous_shapelist_item);
+        goo_canvas_item_hide(previous_shapelist_item);
     else
-        gnome_canvas_item_show(previous_shapelist_item);
+        goo_canvas_item_show(previous_shapelist_item);
 #if DEBUG
     dump_shapes();
 #endif
@@ -1199,9 +1199,9 @@ static void update_shapelist_item(void)
 
 /* Callback for the operations */
 static gint
-item_event_ok(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
+item_event_ok(GooCanvasItem *item, GdkEvent *event, gpointer data)
 {
-  GnomeCanvasItem	*root_item;
+  GooCanvasItem	*root_item;
 
   if(board_paused)
     return FALSE;
@@ -1211,7 +1211,7 @@ item_event_ok(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
     case GDK_BUTTON_PRESS:
       gc_sound_play_ogg ("sounds/bleep.wav", NULL);
       root_item = g_list_nth_data(shape_list_group, current_shapelistgroup_index);
-      gnome_canvas_item_hide(root_item);
+      goo_canvas_item_hide(root_item);
 
       g_warning(" item event current_shapelistgroup_index=%d\n", current_shapelistgroup_index);
       if(!strcmp((char *)data, "previous_shapelist"))
@@ -1226,11 +1226,11 @@ item_event_ok(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 	}
 
       root_item = g_list_nth_data(shape_list_group, current_shapelistgroup_index);
-      gnome_canvas_item_show(root_item);
+      goo_canvas_item_show(root_item);
 
 
       /* FIXME : Workaround for bugged canvas */
-      //      gnome_canvas_update_now(gcomprisBoard->canvas);
+      //      goo_canvas_update_now(gcomprisBoard->canvas);
 
     default:
       break;
@@ -1239,12 +1239,12 @@ item_event_ok(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 }
 
 static void
-setup_item(GnomeCanvasItem *item, Shape *shape)
+setup_item(GooCanvasItem *item, Shape *shape)
 {
-  gtk_signal_connect(GTK_OBJECT(item), "event",
+  g_signal_connect(GTK_OBJECT(item), "enter_notify_event",
 		     (GtkSignalFunc) item_event,
 		     shape);
-  gtk_signal_connect(GTK_OBJECT(item), "event",
+  g_signal_connect(GTK_OBJECT(item), "enter_notify_event",
           (GtkSignalFunc) gc_drag_event, NULL);
 }
 
@@ -1259,7 +1259,7 @@ add_shape_to_canvas(Shape *shape)
 {
   GdkPixbuf *pixmap;
   GdkPixbuf *targetpixmap;
-  GnomeCanvasItem *item = NULL;
+  GooCanvasItem *item = NULL;
 
   /* checking of preconditions, this is usefull for tracking down bugs,
      but you should not count on these always being compiled in */
@@ -1273,8 +1273,8 @@ add_shape_to_canvas(Shape *shape)
 	  shape->w = (double)gdk_pixbuf_get_width(targetpixmap) * shape->zoomx;
 	  shape->h = (double)gdk_pixbuf_get_height(targetpixmap) *shape->zoomy;
 
-	  item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(shape_root_item),
-					gnome_canvas_pixbuf_get_type (),
+	  item = goo_canvas_item_new (GOO_CANVAS_GROUP(shape_root_item),
+					goo_canvas_pixbuf_get_type (),
 					"pixbuf", targetpixmap,
 					"x", shape->x - shape->w / 2,
 					"y", shape->y - shape->h / 2,
@@ -1290,8 +1290,8 @@ add_shape_to_canvas(Shape *shape)
 	{
 	  int point_size = 6;
 	  /* Display a point to highlight the target location of this shape */
-	  item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(shape_root_item),
-					gnome_canvas_ellipse_get_type(),
+	  item = goo_canvas_item_new (GOO_CANVAS_GROUP(shape_root_item),
+					goo_canvas_ellipse_get_type(),
 					"x1", (double)shape->x-point_size,
 					"y1", (double)shape->y-point_size,
 					"x2", (double)shape->x+point_size,
@@ -1302,7 +1302,7 @@ add_shape_to_canvas(Shape *shape)
 					NULL);
 	  shape->target_point = item;
 	}
-      gnome_canvas_item_lower_to_bottom(item);
+      goo_canvas_item_lower_to_bottom(item);
     }
 
   g_warning("it's an image ? shape->pixmapfile=%s\n", shape->pixmapfile);
@@ -1317,8 +1317,8 @@ add_shape_to_canvas(Shape *shape)
 	  
 	  /* Display the shape itself but hide it until the user puts the right shape on it */
 	  /* I have to do it this way for the positionning (lower/raise) complexity          */
-	  item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(shape_root_item),
-					gnome_canvas_pixbuf_get_type (),
+	  item = goo_canvas_item_new (GOO_CANVAS_GROUP(shape_root_item),
+					goo_canvas_pixbuf_get_type (),
 					"pixbuf", pixmap,
 					"x", shape->x - shape->w / 2,
 					"y", shape->y - shape->h / 2,
@@ -1338,12 +1338,12 @@ add_shape_to_canvas(Shape *shape)
     {
       setup_item(item, shape);
 
-      gnome_canvas_item_hide(item);
+      goo_canvas_item_hide(item);
       add_shape_to_list_of_shapes(shape);
     }
   else if(shape->type==SHAPE_BACKGROUND)
     {
-      gnome_canvas_item_lower_to_bottom(item);
+      goo_canvas_item_lower_to_bottom(item);
     }
 
 }
@@ -1351,12 +1351,12 @@ add_shape_to_canvas(Shape *shape)
 static void create_title(char *name, double x, double y, GtkJustification justification,
 			 guint32 color_rgba)
 {
-  GnomeCanvasItem *item;
+  GooCanvasItem *item;
 
   /* Shadow */
   item = \
-    gnome_canvas_item_new (GNOME_CANVAS_GROUP(shape_root_item),
-			   gnome_canvas_text_get_type (),
+    goo_canvas_item_new (GOO_CANVAS_GROUP(shape_root_item),
+			   goo_canvas_text_get_type (),
 			   "text", gettext(name),
 			   "font", gc_skin_font_board_medium,
 			   "x", x + 1.0,
@@ -1366,11 +1366,11 @@ static void create_title(char *name, double x, double y, GtkJustification justif
 			   "fill_color_rgba", gc_skin_color_shadow,
 			   NULL);
 
-  gnome_canvas_item_raise_to_top(item);
+  goo_canvas_item_raise_to_top(item);
 
   item = \
-    gnome_canvas_item_new (GNOME_CANVAS_GROUP(shape_root_item),
-			   gnome_canvas_text_get_type (),
+    goo_canvas_item_new (GOO_CANVAS_GROUP(shape_root_item),
+			   goo_canvas_text_get_type (),
 			   "text", gettext(name),
 			   "font", gc_skin_font_board_medium,
 			   "x", x,
@@ -1380,7 +1380,7 @@ static void create_title(char *name, double x, double y, GtkJustification justif
 			   "fill_color_rgba", color_rgba,
 			   NULL);
 
-  gnome_canvas_item_raise_to_top(item);
+  goo_canvas_item_raise_to_top(item);
 }
 
 static Shape *
@@ -1628,7 +1628,7 @@ parse_doc(xmlDocPtr doc)
   GList *shape_list_init = NULL;
   xmlNodePtr node;
   GList *list;
-  GnomeCanvasItem *item;
+  GooCanvasItem *item;
   int list_length, i;
 
   /* find <Shape> nodes and add them to the list, this just
@@ -1658,11 +1658,11 @@ parse_doc(xmlDocPtr doc)
 
   if(current_shapelistgroup_index>0) { /* If at least on shape group */
     item = g_list_nth_data(shape_list_group, current_shapelistgroup_index);
-    gnome_canvas_item_hide(item);
+    goo_canvas_item_hide(item);
     item = g_list_nth_data(shape_list_group, 0);
-    gnome_canvas_item_show(item);
-    gnome_canvas_item_hide(previous_shapelist_item);
-    gnome_canvas_item_show(next_shapelist_item);
+    goo_canvas_item_show(item);
+    goo_canvas_item_hide(previous_shapelist_item);
+    goo_canvas_item_show(next_shapelist_item);
     current_shapelistgroup_index = 0;
   }
 
@@ -1672,9 +1672,9 @@ parse_doc(xmlDocPtr doc)
   for(list = shape_list; list != NULL; list = list->next) {
     Shape *shape = list->data;
 
-    gnome_canvas_item_lower_to_bottom(shape->item);
+    goo_canvas_item_lower_to_bottom(shape->item);
     if(shape->position>=1)
-      gnome_canvas_item_raise(shape->item, ABS(shape->position));
+      goo_canvas_item_raise(shape->item, ABS(shape->position));
   }
 }
 

@@ -50,7 +50,7 @@ static void	 repeat(void);
 
 static GnomeCanvasGroup *boardRootItem = NULL;
 
-static GnomeCanvasItem	*traffic_create_item(GnomeCanvasGroup *parent);
+static GooCanvasItem	*traffic_create_item(GnomeCanvasGroup *parent);
 static void		 traffic_destroy_all_items(void);
 static void		 traffic_next_level(void);
 
@@ -78,7 +78,7 @@ struct _jam {
   car *cars[MAX_NUMBER_OF_CARS];
 };
 
-static int	 car_cb(GnomeCanvasItem *item, GdkEvent *event, car *thiscar);
+static int	 car_cb(GooCanvasItem *item, GdkEvent *event, car *thiscar);
 gboolean	 load_level(guint level, guint card);
 
 static jam	 current_card  ={0,0,0,{NULL}};
@@ -166,7 +166,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 	gc_bar_set(GC_BAR_LEVEL|GC_BAR_REPEAT);
       }
 
-      gc_set_background(gnome_canvas_root(gcomprisBoard->canvas),
+      gc_set_background(goo_canvas_get_root_item(gcomprisBoard->canvas),
 			"traffic/traffic-bg.jpg");
 
       traffic_next_level();
@@ -223,7 +223,7 @@ static void repeat (){
   traffic_destroy_all_items();
 
   /* Try the next level */
-  traffic_create_item(gnome_canvas_root(gcomprisBoard->canvas));
+  traffic_create_item(goo_canvas_get_root_item(gcomprisBoard->canvas));
 }
 
 /*-------------------------------------------------------------------------------*/
@@ -240,7 +240,7 @@ static void traffic_next_level()
   gc_score_set(gcomprisBoard->sublevel);
 
   /* Try the next level */
-  traffic_create_item(gnome_canvas_root(gcomprisBoard->canvas));
+  traffic_create_item(goo_canvas_get_root_item(gcomprisBoard->canvas));
 
 }
 /* ==================================== */
@@ -261,27 +261,27 @@ static void traffic_destroy_all_items()
 }
 
 /* ==================================== */
-static GnomeCanvasItem *traffic_create_item(GnomeCanvasGroup *parent)
+static GooCanvasItem *traffic_create_item(GnomeCanvasGroup *parent)
 {
   GnomeCanvasGroup *borderItem = NULL;
 
-  boardRootItem = GNOME_CANVAS_GROUP(
-				     gnome_canvas_item_new (gnome_canvas_root(gcomprisBoard->canvas),
-							    gnome_canvas_group_get_type (),
+  boardRootItem = GOO_CANVAS_GROUP(
+				     goo_canvas_item_new (goo_canvas_get_root_item(gcomprisBoard->canvas),
+							    goo_canvas_group_get_type (),
 							    "x", (double) 0,
 							    "y", (double) 0,
 							    NULL));
-  borderItem = GNOME_CANVAS_GROUP(
-				  gnome_canvas_item_new (boardRootItem,
-							 gnome_canvas_group_get_type (),
+  borderItem = GOO_CANVAS_GROUP(
+				  goo_canvas_item_new (boardRootItem,
+							 goo_canvas_group_get_type (),
 							 "x", (double) OFSET_X,
 							 "y", (double) OFSET_Y,
 							 NULL));
   draw_grid(borderItem);
 
-  allcars= GNOME_CANVAS_GROUP(
-			      gnome_canvas_item_new(GNOME_CANVAS_GROUP(borderItem),
-						    gnome_canvas_group_get_type(),
+  allcars= GOO_CANVAS_GROUP(
+			      goo_canvas_item_new(GOO_CANVAS_GROUP(borderItem),
+						    goo_canvas_group_get_type(),
 						    "x", 11.0,
 						    "y", 11.0,
 						    NULL));
@@ -317,22 +317,22 @@ static void draw_grid(GnomeCanvasGroup *rootBorder)
   GnomeCanvasGroup *grid_group;
   int xlooper, ylooper;
 
-  grid_group = GNOME_CANVAS_GROUP(
-				  gnome_canvas_item_new(rootBorder,
-							gnome_canvas_group_get_type(),
+  grid_group = GOO_CANVAS_GROUP(
+				  goo_canvas_item_new(rootBorder,
+							goo_canvas_group_get_type(),
 							"x", 10.0,
 							"y", 10.0,
 							NULL));
 
   gtk_object_set_data(GTK_OBJECT(grid_group),"whatami",(gpointer)"grid_group");
 
-  gnome_canvas_item_lower_to_bottom(GNOME_CANVAS_ITEM(grid_group));
+  goo_canvas_item_lower_to_bottom(GNOME_CANVAS_ITEM(grid_group));
 
   for (xlooper=0;xlooper<=6;xlooper++)
     for (ylooper=0;ylooper<=6;ylooper++)
       gtk_object_set_data(GTK_OBJECT(
-				     gnome_canvas_item_new(grid_group,
-							   gnome_canvas_rect_get_type(),
+				     goo_canvas_item_new(grid_group,
+							   goo_canvas_rect_get_type(),
 							   "x1", 0.0*xlooper,
 							   "x2", 40.0*xlooper,
 							   "y1", 0.0*ylooper,
@@ -347,19 +347,19 @@ static void draw_grid(GnomeCanvasGroup *rootBorder)
 
 void draw_car(car *thiscar)
 {
-  GnomeCanvasItem *car_group;
-  GnomeCanvasItem *car_rect;
+  GooCanvasItem *car_group;
+  GooCanvasItem *car_rect;
 
   gtk_object_set_data(GTK_OBJECT(allcars),"whatami",(gpointer)"allcars");
 
-  car_group=gnome_canvas_item_new(GNOME_CANVAS_GROUP(allcars),
-				  gnome_canvas_group_get_type(),
+  car_group=goo_canvas_item_new(GOO_CANVAS_GROUP(allcars),
+				  goo_canvas_group_get_type(),
 				  "x",40.0*thiscar->x,
 				  "y",40.0*thiscar->y,
 				  NULL);
 
-  car_rect=gnome_canvas_item_new(GNOME_CANVAS_GROUP(car_group),
-				 gnome_canvas_rect_get_type(),
+  car_rect=goo_canvas_item_new(GOO_CANVAS_GROUP(car_group),
+				 goo_canvas_rect_get_type(),
 				 "x1",0.0,
 				 "y1",0.0,
 				 "x2",(thiscar->orient?40.0*thiscar->size:40.0)-2.25,
@@ -368,7 +368,7 @@ void draw_car(car *thiscar)
 				 "outline_color", NULL,
 				 NULL);
 
-  gtk_signal_connect(GTK_OBJECT(car_group),"event",
+  g_signal_connect(GTK_OBJECT(car_group),"enter_notify_event",
 		     GTK_SIGNAL_FUNC(car_cb),(gpointer)thiscar);
   gtk_object_set_data(GTK_OBJECT(car_group),"car",(gpointer)thiscar);
   gtk_object_set_data(GTK_OBJECT(car_group),"whatami",(gpointer)"car_group");
@@ -382,7 +382,7 @@ void draw_jam(jam *myjam)
     draw_car(myjam->cars[whichcar]);
 }
 
-static int car_cb(GnomeCanvasItem *item, GdkEvent *event, car *thiscar)
+static int car_cb(GooCanvasItem *item, GdkEvent *event, car *thiscar)
 {
   static gboolean moving;
   static int button;
@@ -393,12 +393,12 @@ static int car_cb(GnomeCanvasItem *item, GdkEvent *event, car *thiscar)
   double dx,dy;
   double small_x, big_x, small_y, big_y;
   GdkCursor *cursor;
-  GnomeCanvasItem *atdest=NULL;
+  GooCanvasItem *atdest=NULL;
   car *othercar=NULL;
 
   item_x=world_x=event->button.x;
   item_y=world_y=event->button.y;
-  gnome_canvas_item_w2i(item->parent,&item_x,&item_y);
+  goo_canvas_convert_to_item_space(item->parent,&item_x,&item_y);
 
   switch (event->type) {
   case GDK_BUTTON_PRESS:
@@ -427,8 +427,8 @@ static int car_cb(GnomeCanvasItem *item, GdkEvent *event, car *thiscar)
 	small_y=0;
 	big_y=40*thiscar->size-1;
 
-	gnome_canvas_item_i2w(item,&small_x,&small_y);
-	gnome_canvas_item_i2w(item,&big_x,&big_y);
+	goo_canvas_item_i2w(item,&small_x,&small_y);
+	goo_canvas_item_i2w(item,&big_x,&big_y);
 
 	dy=CLAMP(item_y-start_y,-39,39);
 	dx=CLAMP(item_x-start_x,-39,39);
@@ -444,7 +444,7 @@ static int car_cb(GnomeCanvasItem *item, GdkEvent *event, car *thiscar)
 	if (hit==0) {
 	  if (dy>0) {
 	    do {
-	      atdest=gnome_canvas_get_item_at(gcomprisBoard->canvas,
+	      atdest=goo_canvas_get_item_at(gcomprisBoard->canvas,
 					      small_x+20,
 					      big_y+dy);
 	      if (atdest)
@@ -456,7 +456,7 @@ static int car_cb(GnomeCanvasItem *item, GdkEvent *event, car *thiscar)
 	    } while (othercar);
 	  } else if (dy<0) {
 	    do {
-	      atdest=gnome_canvas_get_item_at(gcomprisBoard->canvas,
+	      atdest=goo_canvas_get_item_at(gcomprisBoard->canvas,
 					      small_x+20,small_y+dy-1);
 	      if (atdest)
 		othercar=(car*)gtk_object_get_data(GTK_OBJECT(atdest->parent),"car");
@@ -471,8 +471,8 @@ static int car_cb(GnomeCanvasItem *item, GdkEvent *event, car *thiscar)
 	start_x+=dx;
 	start_y+=dy;
 
-	gnome_canvas_item_move(item,0,dy);
-	gnome_canvas_item_request_update(item);
+	goo_canvas_item_translate(item,0,dy);
+	goo_canvas_item_request_update(item);
 
 	break;
       case CAR_ORIENT_EW:
@@ -481,15 +481,15 @@ static int car_cb(GnomeCanvasItem *item, GdkEvent *event, car *thiscar)
 	small_y=0;
 	big_y=40-1;
 
-	gnome_canvas_item_i2w(item,&small_x,&small_y);
-	gnome_canvas_item_i2w(item,&big_x,&big_y);
+	goo_canvas_item_i2w(item,&small_x,&small_y);
+	goo_canvas_item_i2w(item,&big_x,&big_y);
 
 	dy=CLAMP(item_y-start_y,-39,39);
 	dx=CLAMP(item_x-start_x,-39,39);
 
 	if (thiscar->goal && big_x==250+OFSET_X) {
 	  gc_canvas_item_ungrab(item,event->button.time);
-	  gnome_canvas_item_hide(item);
+	  goo_canvas_item_hide(item);
 	  moving=FALSE;
 
 	  gamewon = TRUE;
@@ -508,7 +508,7 @@ static int car_cb(GnomeCanvasItem *item, GdkEvent *event, car *thiscar)
 	if (hit==0) {
 	  if (dx>0) {
 	    do {
-	      atdest=gnome_canvas_get_item_at(gcomprisBoard->canvas,
+	      atdest=goo_canvas_get_item_at(gcomprisBoard->canvas,
 					      big_x+dx,small_y+20);
 	      if (atdest)
 		othercar=(car*)gtk_object_get_data(GTK_OBJECT(atdest->parent),"car");
@@ -519,7 +519,7 @@ static int car_cb(GnomeCanvasItem *item, GdkEvent *event, car *thiscar)
 	    } while (othercar);
 	  } else if (dx<0) {
 	    do {
-	      atdest=gnome_canvas_get_item_at(gcomprisBoard->canvas,
+	      atdest=goo_canvas_get_item_at(gcomprisBoard->canvas,
 					      small_x+dx-1,small_y+20);
 	      if (atdest)
 		othercar=(car*)gtk_object_get_data(GTK_OBJECT(atdest->parent),"car");
@@ -534,8 +534,8 @@ static int car_cb(GnomeCanvasItem *item, GdkEvent *event, car *thiscar)
 	start_x+=dx;
 	start_y+=dy;
 
-	gnome_canvas_item_move(item,dx,0);
-	gnome_canvas_item_request_update(item);
+	goo_canvas_item_translate(item,dx,0);
+	goo_canvas_item_request_update(item);
 
 	break;
       default:
@@ -551,7 +551,7 @@ static int car_cb(GnomeCanvasItem *item, GdkEvent *event, car *thiscar)
 	double *ptr;
 	double x=0,y=0;
 
-	gnome_canvas_item_i2w(item,&x,&y);
+	goo_canvas_item_i2w(item,&x,&y);
 
 	for (ptr=even_vals_x;*ptr<x;ptr++);
 	if (*ptr-x>20)
@@ -565,7 +565,7 @@ static int car_cb(GnomeCanvasItem *item, GdkEvent *event, car *thiscar)
 	else
 	  dy=*ptr-y;
 
-	gnome_canvas_item_move(item,dx,dy);
+	goo_canvas_item_translate(item,dx,dy);
 	gc_canvas_item_ungrab(item,event->button.time);
 	hit=0;
 	moving=FALSE;

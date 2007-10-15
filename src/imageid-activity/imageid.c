@@ -38,7 +38,7 @@ static void		 set_level (guint level);
 static int gamewon;
 
 static void		 process_ok(void);
-static void		 highlight_selected(GnomeCanvasItem *);
+static void		 highlight_selected(GooCanvasItem *);
 static void		 game_won(void);
 
 static void		 config_start(GcomprisBoard *agcomprisBoard,
@@ -84,16 +84,16 @@ static int right_word; // between 1 and 3, indicates which choice is the right o
 
 static GnomeCanvasGroup *boardRootItem = NULL;
 
-static GnomeCanvasItem *image_item = NULL;
-static GnomeCanvasItem *text1_item = NULL;
-static GnomeCanvasItem *text2_item = NULL;
-static GnomeCanvasItem *text3_item = NULL;
-static GnomeCanvasItem *button1 = NULL, *button2 = NULL, *button3 = NULL, *selected_button = NULL;
+static GooCanvasItem *image_item = NULL;
+static GooCanvasItem *text1_item = NULL;
+static GooCanvasItem *text2_item = NULL;
+static GooCanvasItem *text3_item = NULL;
+static GooCanvasItem *button1 = NULL, *button2 = NULL, *button3 = NULL, *selected_button = NULL;
 
-static GnomeCanvasItem *imageid_create_item(GnomeCanvasGroup *parent);
+static GooCanvasItem *imageid_create_item(GnomeCanvasGroup *parent);
 static void imageid_destroy_all_items(void);
 static void imageid_next_level(void);
-static gint item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data);
+static gint item_event(GooCanvasItem *item, GdkEvent *event, gpointer data);
 
 /* Description of this plugin */
 static BoardPlugin menu_bp =
@@ -158,7 +158,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
   if(agcomprisBoard!=NULL)
     {
       gcomprisBoard=agcomprisBoard;
-      gc_set_background(gnome_canvas_root(gcomprisBoard->canvas),
+      gc_set_background(goo_canvas_get_root_item(gcomprisBoard->canvas),
 			"imageid/imageid-bg.jpg");
       gcomprisBoard->level=1;
       gcomprisBoard->maxlevel=NUMBER_OF_LEVELS;
@@ -240,7 +240,7 @@ static void imageid_next_level()
   gc_score_set(gcomprisBoard->sublevel);
 
   /* Try the next level */
-  imageid_create_item(gnome_canvas_root(gcomprisBoard->canvas));
+  imageid_create_item(goo_canvas_get_root_item(gcomprisBoard->canvas));
 
 }
 /* ==================================== */
@@ -253,7 +253,7 @@ static void imageid_destroy_all_items()
   boardRootItem = NULL;
 }
 /* ==================================== */
-static GnomeCanvasItem *imageid_create_item(GnomeCanvasGroup *parent)
+static GooCanvasItem *imageid_create_item(GnomeCanvasGroup *parent)
 {
   char *buf[3];
   int x, y, xp, yp, place;
@@ -271,9 +271,9 @@ static GnomeCanvasItem *imageid_create_item(GnomeCanvasGroup *parent)
 
   right_word = place+1;
 
-  boardRootItem = GNOME_CANVAS_GROUP(
-				     gnome_canvas_item_new (gnome_canvas_root(gcomprisBoard->canvas),
-							    gnome_canvas_group_get_type (),
+  boardRootItem = GOO_CANVAS_GROUP(
+				     goo_canvas_item_new (goo_canvas_get_root_item(gcomprisBoard->canvas),
+							    goo_canvas_group_get_type (),
 							    "x", (double) 0,
 							    "y", (double) 0,
 							    NULL));
@@ -288,8 +288,8 @@ static GnomeCanvasItem *imageid_create_item(GnomeCanvasGroup *parent)
   x = IMAGE_AREA_X1 + ( IMAGE_AREA_X2 - IMAGE_AREA_X1 - gdk_pixbuf_get_width(pixmap))/2;
   y = IMAGE_AREA_Y1 + ( IMAGE_AREA_Y2 - IMAGE_AREA_Y1 - gdk_pixbuf_get_height(pixmap))/2;
 
-  image_item = gnome_canvas_item_new (boardRootItem,
-				      gnome_canvas_pixbuf_get_type (),
+  image_item = goo_canvas_item_new (boardRootItem,
+				      goo_canvas_pixbuf_get_type (),
 				      "pixbuf", pixmap,
 				      "x", (double) x,
 				      "y", (double) y,
@@ -325,14 +325,14 @@ static GnomeCanvasItem *imageid_create_item(GnomeCanvasGroup *parent)
   xp = HORIZONTAL_SEPARATION;
   yp = (gcomprisBoard->height - 3*gdk_pixbuf_get_height(button_pixmap) - 2*VERTICAL_SEPARATION)/2;
 
-  button1 = gnome_canvas_item_new (boardRootItem,
-				   gnome_canvas_pixbuf_get_type (),
+  button1 = goo_canvas_item_new (boardRootItem,
+				   goo_canvas_pixbuf_get_type (),
 				   "pixbuf",  button_pixmap,
 				   "x",  (double) xp,
 				   "y",  (double) yp,
 				   NULL);
-  gnome_canvas_item_new (boardRootItem,
-			 gnome_canvas_text_get_type (),
+  goo_canvas_item_new (boardRootItem,
+			 goo_canvas_text_get_type (),
 			 "text", buf[0],
 			 "font", gc_skin_font_board_big,
 			 "x", (double) xp + gdk_pixbuf_get_width(button_pixmap)/2 + 1.0,
@@ -340,8 +340,8 @@ static GnomeCanvasItem *imageid_create_item(GnomeCanvasGroup *parent)
 			 "anchor", GTK_ANCHOR_CENTER,
 			 "fill_color_rgba", gc_skin_color_shadow,
 			 NULL);
-  text1_item = gnome_canvas_item_new (boardRootItem,
-				      gnome_canvas_text_get_type (),
+  text1_item = goo_canvas_item_new (boardRootItem,
+				      goo_canvas_text_get_type (),
 				      "text", buf[0],
 				      "font", gc_skin_font_board_big,
 				      "x", (double) xp + gdk_pixbuf_get_width(button_pixmap)/2,
@@ -351,14 +351,14 @@ static GnomeCanvasItem *imageid_create_item(GnomeCanvasGroup *parent)
 				      NULL);
 
   yp += gdk_pixbuf_get_height(button_pixmap) + VERTICAL_SEPARATION;
-  button2 = gnome_canvas_item_new (boardRootItem,
-				   gnome_canvas_pixbuf_get_type (),
+  button2 = goo_canvas_item_new (boardRootItem,
+				   goo_canvas_pixbuf_get_type (),
 				   "pixbuf",  button_pixmap,
 				   "x",  (double) xp,
 				   "y",  (double) yp,
 				   NULL);
-  gnome_canvas_item_new (boardRootItem,
-			 gnome_canvas_text_get_type (),
+  goo_canvas_item_new (boardRootItem,
+			 goo_canvas_text_get_type (),
 			 "text", buf[1],
 			 "font", gc_skin_font_board_big,
 			 "x", (double) xp + gdk_pixbuf_get_width(button_pixmap)/2 + 1.0,
@@ -366,8 +366,8 @@ static GnomeCanvasItem *imageid_create_item(GnomeCanvasGroup *parent)
 			 "anchor", GTK_ANCHOR_CENTER,
 			 "fill_color_rgba", gc_skin_color_shadow,
 			 NULL);
-  text2_item = gnome_canvas_item_new (boardRootItem,
-				      gnome_canvas_text_get_type (),
+  text2_item = goo_canvas_item_new (boardRootItem,
+				      goo_canvas_text_get_type (),
 				      "text", buf[1],
 				      "font", gc_skin_font_board_big,
 				      "x", (double) xp + gdk_pixbuf_get_width(button_pixmap)/2,
@@ -377,15 +377,15 @@ static GnomeCanvasItem *imageid_create_item(GnomeCanvasGroup *parent)
 				      NULL);
 
   yp += gdk_pixbuf_get_height(button_pixmap) + VERTICAL_SEPARATION;
-  button3 = gnome_canvas_item_new (boardRootItem,
-				   gnome_canvas_pixbuf_get_type (),
+  button3 = goo_canvas_item_new (boardRootItem,
+				   goo_canvas_pixbuf_get_type (),
 				   "pixbuf",  button_pixmap,
 				   "x",  (double) xp,
 				   "y",  (double) yp,
 				   NULL);
 
-  gnome_canvas_item_new (boardRootItem,
-			 gnome_canvas_text_get_type (),
+  goo_canvas_item_new (boardRootItem,
+			 goo_canvas_text_get_type (),
 			 "text", buf[2],
 			 "font", gc_skin_font_board_big,
 			 "x", (double) xp + gdk_pixbuf_get_width(button_pixmap)/2 + 1.0,
@@ -393,8 +393,8 @@ static GnomeCanvasItem *imageid_create_item(GnomeCanvasGroup *parent)
 			 "anchor", GTK_ANCHOR_CENTER,
 			 "fill_color_rgba", gc_skin_color_shadow,
 			 NULL);
-  text3_item = gnome_canvas_item_new (boardRootItem,
-				      gnome_canvas_text_get_type (),
+  text3_item = goo_canvas_item_new (boardRootItem,
+				      goo_canvas_text_get_type (),
 				      "text", buf[2],
 				      "font", gc_skin_font_board_big,
 				      "x", (double) xp + gdk_pixbuf_get_width(button_pixmap)/2,
@@ -405,13 +405,13 @@ static GnomeCanvasItem *imageid_create_item(GnomeCanvasGroup *parent)
 
   gdk_pixbuf_unref(button_pixmap);
 
-  gtk_signal_connect(GTK_OBJECT(button1), "event",  (GtkSignalFunc) item_event, NULL);
-  gtk_signal_connect(GTK_OBJECT(button2), "event",  (GtkSignalFunc) item_event, NULL);
-  gtk_signal_connect(GTK_OBJECT(button3), "event",  (GtkSignalFunc) item_event, NULL);
+  g_signal_connect(GTK_OBJECT(button1), "enter_notify_event",  (GtkSignalFunc) item_event, NULL);
+  g_signal_connect(GTK_OBJECT(button2), "enter_notify_event",  (GtkSignalFunc) item_event, NULL);
+  g_signal_connect(GTK_OBJECT(button3), "enter_notify_event",  (GtkSignalFunc) item_event, NULL);
 
-  gtk_signal_connect(GTK_OBJECT(text1_item), "event", (GtkSignalFunc) item_event, NULL);
-  gtk_signal_connect(GTK_OBJECT(text2_item), "event", (GtkSignalFunc) item_event, NULL);
-  gtk_signal_connect(GTK_OBJECT(text3_item), "event", (GtkSignalFunc) item_event, NULL);
+  g_signal_connect(GTK_OBJECT(text1_item), "enter_notify_event", (GtkSignalFunc) item_event, NULL);
+  g_signal_connect(GTK_OBJECT(text2_item), "enter_notify_event", (GtkSignalFunc) item_event, NULL);
+  g_signal_connect(GTK_OBJECT(text3_item), "enter_notify_event", (GtkSignalFunc) item_event, NULL);
 
   return NULL;
 }
@@ -443,13 +443,13 @@ static void process_ok() {
 }
 /* ==================================== */
 static gint
-item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
+item_event(GooCanvasItem *item, GdkEvent *event, gpointer data)
 {
   double item_x, item_y;
-  GnomeCanvasItem * temp = NULL;
+  GooCanvasItem * temp = NULL;
   item_x = event->button.x;
   item_y = event->button.y;
-  gnome_canvas_item_w2i(item->parent, &item_x, &item_y);
+  goo_canvas_convert_to_item_space(item->parent, &item_x, &item_y);
 
   if(board_paused)
     return FALSE;
@@ -492,9 +492,9 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 }
 
 /* ==================================== */
-static void highlight_selected(GnomeCanvasItem * item) {
+static void highlight_selected(GooCanvasItem * item) {
   GdkPixbuf *button_pixmap_selected = NULL, *button_pixmap = NULL;
-  GnomeCanvasItem *button;
+  GooCanvasItem *button;
 
   /* Replace text item by button item */
   button = item;
@@ -508,13 +508,13 @@ static void highlight_selected(GnomeCanvasItem * item) {
 
   if (selected_button != NULL && selected_button != button) {
     button_pixmap = gc_skin_pixmap_load("button_large.png");
-    gnome_canvas_item_set(selected_button, "pixbuf", button_pixmap, NULL);
+    goo_canvas_item_set(selected_button, "pixbuf", button_pixmap, NULL);
     gdk_pixbuf_unref(button_pixmap);
   }
 
   if (selected_button != button) {
     button_pixmap_selected = gc_skin_pixmap_load("button_large_selected.png");
-    gnome_canvas_item_set(button, "pixbuf", button_pixmap_selected, NULL);
+    goo_canvas_item_set(button, "pixbuf", button_pixmap_selected, NULL);
     selected_button = button;
     gdk_pixbuf_unref(button_pixmap_selected);
   }

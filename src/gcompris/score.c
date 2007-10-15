@@ -72,7 +72,7 @@ void
 gc_score_end()
 {
   if(boardRootItem!=NULL)
-    gtk_object_destroy (GTK_OBJECT(boardRootItem));
+    goo_canvas_item_remove(boardRootItem);
 
   boardRootItem=NULL;
 }
@@ -82,7 +82,7 @@ gc_score_set(guint value)
 {
 
   if(boardRootItem!=NULL)
-    gtk_object_destroy (GTK_OBJECT(boardRootItem));
+    goo_canvas_item_remove(boardRootItem);
 
   boardRootItem = \
     goo_canvas_group_new (goo_canvas_get_root_item(GOO_CANVAS(gc_board_get_current()->canvas)),
@@ -96,13 +96,16 @@ gc_score_set(guint value)
 
       button_pixmap = gc_skin_pixmap_load("button_large.png");
       goo_canvas_image_new (boardRootItem,
-			     button_pixmap,
-			     x,
+			    button_pixmap,
+			    x,
 			    y-gdk_pixbuf_get_height(button_pixmap)/2);
-      gdk_pixbuf_unref(button_pixmap);
 
       tmp = g_strdup_printf("%d/%d", value, max);
-      display_number(boardRootItem, gdk_pixbuf_get_width(button_pixmap)+10, 0, tmp);
+      display_number(boardRootItem,
+		     x + gdk_pixbuf_get_width(button_pixmap)/2,
+		     y - gdk_pixbuf_get_height(button_pixmap)/2,
+		     tmp);
+      gdk_pixbuf_unref(button_pixmap);
       g_free(tmp);
     }
     break;
@@ -117,8 +120,6 @@ gc_score_set(guint value)
 /*-------------------------------------------------------------------------------*/
 
 
-#define NUMBERSWIDTH       110
-
 static void
 display_number(GooCanvasItem *parent,
 	       guint x,
@@ -126,23 +127,24 @@ display_number(GooCanvasItem *parent,
 	       char *operand_str)
 {
 
-  x -= NUMBERSWIDTH;
-
   goo_canvas_text_new (parent,
 		       operand_str,
-		       (gdouble) x+2,
-		       (gdouble) y+2,
+		       x+2,
+		       y+2,
 		       -1,
-		       GTK_ANCHOR_CENTER,
+		       GTK_ANCHOR_NORTH,
+		       "alignment", PANGO_ALIGN_CENTER,
 		       "font", gc_skin_font_board_huge_bold,
 		       "fill-color-rgba", 0x7a8699FF,
 		       NULL);
+
   goo_canvas_text_new (parent,
 		       operand_str,
-		       (gdouble) x,
-		       (gdouble) y,
+		       x,
+		       y,
 		       -1,
-		       GTK_ANCHOR_CENTER,
+		       GTK_ANCHOR_NORTH,
+		       "alignment", PANGO_ALIGN_CENTER,
 		       "font", gc_skin_font_board_huge_bold,
 		       "fill-color-rgba", 0xe5e532FF,
 		       NULL);

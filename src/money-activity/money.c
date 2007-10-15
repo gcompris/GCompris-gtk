@@ -48,7 +48,7 @@ typedef struct {
   char *image;
   guint status;
   float value;
-  GnomeCanvasItem *item;
+  GooCanvasItem *item;
 } MoneyItem;
 
 // List of images to use in the game
@@ -206,7 +206,7 @@ static void money_next_level()
   gchar		  *img;
 
   img = gc_skin_image_get("money-bg.png");
-  gc_set_background(gnome_canvas_root(gcomprisBoard->canvas),
+  gc_set_background(goo_canvas_get_root_item(gcomprisBoard->canvas),
 			  img);
   g_free(img);
 
@@ -215,8 +215,8 @@ static void money_next_level()
   money_destroy_all_items();
   gamewon = FALSE;
 
-  boardRootItem = GNOME_CANVAS_GROUP(gnome_canvas_item_new (gnome_canvas_root(gcomprisBoard->canvas),
-							    gnome_canvas_group_get_type (),
+  boardRootItem = GOO_CANVAS_GROUP(goo_canvas_item_new (goo_canvas_get_root_item(gcomprisBoard->canvas),
+							    goo_canvas_group_get_type (),
 							    "x", (double) 0,
 							    "y", (double) 0,
 							    NULL));
@@ -471,8 +471,8 @@ static void money_next_level()
 
     pixmap = gc_pixmap_load(imageList[g_random_int_range(0, NUMBER_OF_IMAGES-1)]);
 
-    gnome_canvas_item_new ( boardRootItem,
-			    gnome_canvas_pixbuf_get_type (),
+    goo_canvas_item_new ( boardRootItem,
+			    goo_canvas_pixbuf_get_type (),
 			    "pixbuf", pixmap,
 			    "x", (double) (i*BOARDWIDTH)/(number_of_item+1)
 			    - gdk_pixbuf_get_width(pixmap)/2,
@@ -503,8 +503,8 @@ static void money_next_level()
 
     price_target += object_price;
     text = g_strdup_printf(display_format, object_price);
-    gnome_canvas_item_new(boardRootItem,
-			  gnome_canvas_text_get_type (),
+    goo_canvas_item_new(boardRootItem,
+			  goo_canvas_text_get_type (),
 			  "text", text,
 			  "font", gc_skin_font_board_big,
 			  "x", (double) (i*BOARDWIDTH)/(number_of_item+1),

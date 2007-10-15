@@ -89,11 +89,11 @@ end_gc_bonus_end_display() {
   }
 
   if(door1_item)
-    gtk_object_destroy (GTK_OBJECT(door1_item));
+    goo_canvas_item_remove(door1_item);
   if(door2_item)
-    gtk_object_destroy (GTK_OBJECT(door2_item));
+    goo_canvas_item_remove(door2_item);
   if(tuxplane_item)
-    gtk_object_destroy (GTK_OBJECT(tuxplane_item));
+    goo_canvas_item_remove(tuxplane_item);
 
   door1_item = NULL;
   door2_item = NULL;
@@ -167,9 +167,7 @@ gc_bonus_end_display(GCBoardFinishedList type) {
 				     pixmap_door1,
 				     x,
 				     y,
-				     "width", (double) gdk_pixbuf_get_width(pixmap_door1),
-				     "height", (double) gdk_pixbuf_get_height(pixmap_door1),
-				      NULL);
+				     NULL);
 
   x = OFFSET;
   y = (gcomprisBoard->height - gdk_pixbuf_get_height(pixmap_tuxplane)) /2;
@@ -177,8 +175,6 @@ gc_bonus_end_display(GCBoardFinishedList type) {
 				      pixmap_tuxplane,
 				      x,
 				      y,
-				      "width", (double) gdk_pixbuf_get_width(pixmap_tuxplane),
-				      "height", (double) gdk_pixbuf_get_height(pixmap_tuxplane),
 				      NULL);
 
   x = gcomprisBoard->width - OFFSET - gdk_pixbuf_get_width(pixmap_door2);
@@ -187,8 +183,6 @@ gc_bonus_end_display(GCBoardFinishedList type) {
 				      pixmap_door2,
 				      x,
 				      y,
-				      "width", (double) gdk_pixbuf_get_width(pixmap_door2),
-				      "height", (double) gdk_pixbuf_get_height(pixmap_door2),
 				      NULL);
 
   gdk_pixbuf_unref(pixmap_door1);
@@ -333,12 +327,10 @@ bonus_image(char *image, GCBonusStatusList gamewon)
   x = (gcomprisBoard->width - gdk_pixbuf_get_width(pixmap))/2;
   y = (gcomprisBoard->height - gdk_pixbuf_get_height(pixmap))/2;
   goo_canvas_image_new (bonus_group,
-			 pixmap,
-			 x,
-			 y,
-			 gdk_pixbuf_get_width(pixmap),
-			 gdk_pixbuf_get_height(pixmap),
-			 NULL);
+			pixmap,
+			x,
+			y,
+			NULL);
 
 
   if(gamewon==GC_BOARD_DRAW) {
@@ -378,7 +370,7 @@ end_bonus()
   }
 
   if(bonus_group)
-    gtk_object_destroy (GTK_OBJECT(bonus_group));
+    goo_canvas_item_remove(bonus_group);
 
   bonus_group = NULL;
   bonus_display_running = FALSE;

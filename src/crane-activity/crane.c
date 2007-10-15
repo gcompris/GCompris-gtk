@@ -99,9 +99,9 @@ typedef struct {
 static GcomprisBoard *gcomprisBoard = NULL;
 static gboolean board_paused = TRUE;
 static GnomeCanvasGroup *boardRootItem = NULL;
-static GnomeCanvasItem *selected_item = NULL;
-static GnomeCanvasItem *red_hands = NULL;
-static GnomeCanvasItem *crane_rope_item = NULL;
+static GooCanvasItem *selected_item = NULL;
+static GooCanvasItem *red_hands = NULL;
+static GooCanvasItem *crane_rope_item = NULL;
 static gint timer_id = 0;
 static gint nb_move = 0;
 static gboolean moving = FALSE;
@@ -121,17 +121,17 @@ static void	 game_won(void);
 static gint	 key_press(guint keyval, gchar *commit_str,
 			   gchar *preedit_str);
 
-static GnomeCanvasItem	*crane_create_item();
+static GooCanvasItem	*crane_create_item();
 static void		 crane_destroy_all_items(void);
 static void		 crane_next_level(void);
 
 // crane functions
-static gint		 item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data);
-static gint		 arrow_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data);
+static gint		 item_event(GooCanvasItem *item, GdkEvent *event, gpointer data);
+static gint		 arrow_event(GooCanvasItem *item, GdkEvent *event, gpointer data);
 static guint		 smooth_move(move_object *);
 static int		 is_allowed_move (double, double, int);
 static void		 shuffle_list(int list[], int);
-static void		 select_item(GnomeCanvasItem *);
+static void		 select_item(GooCanvasItem *);
 static int		 get_item_index (double, double);
 void			 move_target(int direction);
 
@@ -204,7 +204,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 	gc_bar_set(GC_BAR_LEVEL);
 
 	img = gc_skin_image_get("gcompris-bg.jpg");
-	gc_set_background(gnome_canvas_root(gcomprisBoard->canvas),
+	gc_set_background(goo_canvas_get_root_item(gcomprisBoard->canvas),
 				img);
 	g_free(img);
 
@@ -285,8 +285,8 @@ static gint key_press(guint keyval, gchar *commit_str, gchar *preedit_str)
       /* Select the next item */
       if(selected_item)
 	{
-	  GnomeCanvasItem *prev_item =					\
-	    (GnomeCanvasItem*)gtk_object_get_data(GTK_OBJECT(selected_item),
+	  GooCanvasItem *prev_item =					\
+	    (GooCanvasItem*)gtk_object_get_data(GTK_OBJECT(selected_item),
 						  "previous_item");
 	  if(prev_item)
 	    select_item(prev_item);
@@ -323,7 +323,7 @@ static void crane_destroy_all_items()
   }
 
   if(crane_rope)
-    gnome_canvas_points_free(crane_rope);
+    goo_canvas_points_free(crane_rope);
   crane_rope = NULL;
 
   if(boardRootItem != NULL)
@@ -333,22 +333,22 @@ static void crane_destroy_all_items()
 }
 
 /* ==================================== */
-static GnomeCanvasItem *crane_create_item()
+static GooCanvasItem *crane_create_item()
 {
   int i;
   int nb_element;
   GdkPixbuf *pixmap;
 
-  boardRootItem = GNOME_CANVAS_GROUP(gnome_canvas_item_new (gnome_canvas_root(gcomprisBoard->canvas),
-				     gnome_canvas_group_get_type (),
+  boardRootItem = GOO_CANVAS_GROUP(goo_canvas_item_new (goo_canvas_get_root_item(gcomprisBoard->canvas),
+				     goo_canvas_group_get_type (),
 				     "x", (double) 0,
 				     "y", (double) 0,
 				     NULL));
 
 
   pixmap = gc_pixmap_load("crane/crane-bg.png");
-  gnome_canvas_item_new (boardRootItem,
-			 gnome_canvas_pixbuf_get_type(),
+  goo_canvas_item_new (boardRootItem,
+			 goo_canvas_pixbuf_get_type(),
 			 "pixbuf", pixmap,
 			 "x", 0.0,
 			 "y", 0.0,
@@ -419,7 +419,7 @@ static void game_won() {
 }
 
 // Event on item
-static gint item_event(GnomeCanvasItem *item,
+static gint item_event(GooCanvasItem *item,
 		       GdkEvent *event, gpointer data) {
 
   if(board_paused)
@@ -454,7 +454,7 @@ move_target(int direction)
 
   gc_sound_play_ogg ("sounds/scroll.wav", NULL);
 
-  gnome_canvas_item_get_bounds(selected_item,
+  goo_canvas_item_get_bounds(selected_item,
 			       &dx1, &dy1, &dx2, &dy2);
 
   switch (direction) {
@@ -507,7 +507,7 @@ move_target(int direction)
 }
 
 // Event on arrow
-static gint arrow_event(GnomeCanvasItem *item,
+static gint arrow_event(GooCanvasItem *item,
 			GdkEvent *event, gpointer data) {
 
   int direction = GPOINTER_TO_INT(data);
@@ -532,7 +532,7 @@ static gint arrow_event(GnomeCanvasItem *item,
 // Draw the four arrows on the crane
 static void draw_arrow() {
 
-  GnomeCanvasItem *item_arrow = NULL;
+  GooCanvasItem *item_arrow = NULL;
 
   int i;
   crane_object arrow[4];
@@ -554,16 +554,16 @@ static void draw_arrow() {
   arrow[3].y = CRANE_BUTTON_RIGHT_Y - 2;
 
   for (i = 0 ; i < 4 ; i++) {
-  	item_arrow = gnome_canvas_item_new (boardRootItem,
-				    gnome_canvas_pixbuf_get_type(),
+  	item_arrow = goo_canvas_item_new (boardRootItem,
+				    goo_canvas_pixbuf_get_type(),
 				    "pixbuf", arrow[i].pixmap,
 				    "x", arrow[i].x,
 				    "y", arrow[i].y,
 				    "anchor", GTK_ANCHOR_NW,
 				    NULL);
-  	gtk_signal_connect(GTK_OBJECT(item_arrow), "event",
+  	g_signal_connect(GTK_OBJECT(item_arrow), "enter_notify_event",
 			   (GtkSignalFunc) arrow_event, GINT_TO_POINTER(i));
-	gtk_signal_connect(GTK_OBJECT(item_arrow), "event",
+	g_signal_connect(GTK_OBJECT(item_arrow), "enter_notify_event",
 			 (GtkSignalFunc) gc_item_focus_event,
 			 NULL);
 	gdk_pixbuf_unref( arrow[i].pixmap);
@@ -578,15 +578,15 @@ static void draw_redhands() {
   GdkPixbuf *pixmap;
 
   /* Initialize the rope (Warning, it's static and freed in crane_destroy_all_items) */
-  crane_rope = gnome_canvas_points_new(2);
+  crane_rope = goo_canvas_points_new(2);
 
   crane_rope->coords[0] = 5;
   crane_rope->coords[1] = CRANE_BUTTON_LEFT_Y;
   crane_rope->coords[2] = 5;
   crane_rope->coords[3] = CRANE_BUTTON_LEFT_Y;
 
-  crane_rope_item = gnome_canvas_item_new (boardRootItem,
-					   gnome_canvas_line_get_type(),
+  crane_rope_item = goo_canvas_item_new (boardRootItem,
+					   goo_canvas_line_get_type(),
 					  "points", crane_rope,
 					  "fill_color", "darkblue",
 					  "width_units", (double) 1,
@@ -595,8 +595,8 @@ static void draw_redhands() {
 
   pixmap = gc_pixmap_load("crane/selected.png");
 
-  red_hands = gnome_canvas_item_new (boardRootItem,
-	gnome_canvas_pixbuf_get_type(),
+  red_hands = goo_canvas_item_new (boardRootItem,
+	goo_canvas_pixbuf_get_type(),
 	"pixbuf", pixmap,
 	"x", (double) 5,
 	"y", (double) 5,
@@ -609,18 +609,18 @@ static void draw_redhands() {
 
   gdk_pixbuf_unref(pixmap);
 
-  gnome_canvas_item_hide(red_hands);
+  goo_canvas_item_hide(red_hands);
 
 }
 
 // Draw the drak frame (horizontal and vertical lines) that helps positionning elements
 static void draw_frame(int x, int y) {
 
-  GnomeCanvasItem *item_frame = NULL;
+  GooCanvasItem *item_frame = NULL;
   int i;
   GnomeCanvasPoints *track;
 
-  track = gnome_canvas_points_new(2);
+  track = goo_canvas_points_new(2);
 
   for (i = 1 ; i < CRANE_FRAME_COLUMN ; i++) {
 
@@ -629,8 +629,8 @@ static void draw_frame(int x, int y) {
 	track->coords[2] = x + i * CRANE_FRAME_CELL;
 	track->coords[3] = y + (CRANE_FRAME_LINE * CRANE_FRAME_CELL) - CRANE_FRAME_BORDER;
 
-	item_frame = gnome_canvas_item_new (boardRootItem,
-			  		gnome_canvas_line_get_type (),
+	item_frame = goo_canvas_item_new (boardRootItem,
+			  		goo_canvas_line_get_type (),
 					"points", track,
 					"width_pixels", 1,
 					"fill_color", "black",
@@ -644,15 +644,15 @@ static void draw_frame(int x, int y) {
 	track->coords[2] = x + (CRANE_FRAME_COLUMN * CRANE_FRAME_CELL) - CRANE_FRAME_BORDER;
 	track->coords[3] = y + (i * CRANE_FRAME_CELL);
 
-	item_frame = gnome_canvas_item_new (boardRootItem,
-			  		gnome_canvas_line_get_type (),
+	item_frame = goo_canvas_item_new (boardRootItem,
+			  		goo_canvas_line_get_type (),
 					"points", track,
 					"width_pixels", 1,
 					"fill_color", "black",
 					NULL);
   }
 
-  gnome_canvas_points_free(track);
+  goo_canvas_points_free(track);
 
 }
 
@@ -662,9 +662,9 @@ static void draw_frame(int x, int y) {
 static void place_item(int x, int y, int active) {
 
   GdkPixbuf *pixmap;
-  GnomeCanvasItem *item_image = NULL;
-  GnomeCanvasItem *previous_item_image = NULL;
-  GnomeCanvasItem *first_item_image = NULL;
+  GooCanvasItem *item_image = NULL;
+  GooCanvasItem *previous_item_image = NULL;
+  GooCanvasItem *first_item_image = NULL;
   int i;
   int valeur;
 
@@ -681,8 +681,8 @@ static void place_item(int x, int y, int active) {
 		continue;
 
 	pixmap = gc_pixmap_load(imageList[valeur]);
-	item_image = gnome_canvas_item_new (boardRootItem,
-				    gnome_canvas_pixbuf_get_type (),
+	item_image = goo_canvas_item_new (boardRootItem,
+				    goo_canvas_pixbuf_get_type (),
 				    "pixbuf", pixmap,
 				    "x", (double) (x + 5 + ((i % CRANE_FRAME_COLUMN) * CRANE_FRAME_CELL)),
 				    "y", (double) (y + 5 + (floor(i / CRANE_FRAME_COLUMN) * CRANE_FRAME_CELL)),
@@ -691,7 +691,7 @@ static void place_item(int x, int y, int active) {
 
 	if (active)
 	  {
-	    gtk_signal_connect(GTK_OBJECT(item_image), "event",
+	    g_signal_connect(GTK_OBJECT(item_image), "enter_notify_event",
 			       (GtkSignalFunc) item_event, NULL);
 
 	    if(previous_item_image)
@@ -725,18 +725,18 @@ static guint smooth_move(move_object *move) {
 	nb_move = move->nb;
   }
 
-  gnome_canvas_item_get_bounds(red_hands, &dx1, &dy1, &dx2, &dy2);
+  goo_canvas_item_get_bounds(red_hands, &dx1, &dy1, &dx2, &dy2);
   crane_rope->coords[0] = (dx1 + dx2) / 2;
   crane_rope->coords[1] = CRANE_ROPE_Y;
   crane_rope->coords[2] = (dx1 + dx2) / 2;
   crane_rope->coords[3] = (dy1 + dy2) / 2;
 
-  gnome_canvas_item_set (crane_rope_item,
+  goo_canvas_item_set (crane_rope_item,
 			 "points", crane_rope,
 			 NULL);
 
-  gnome_canvas_item_move(selected_item, move->x, move->y);
-  gnome_canvas_item_move(red_hands, move->x, move->y);
+  goo_canvas_item_translate(selected_item, move->x, move->y);
+  goo_canvas_item_translate(red_hands, move->x, move->y);
   nb_move--;
 
   if (nb_move == 0) {
@@ -783,33 +783,33 @@ void shuffle_list(int list[], int size) {
   }
 }
 
-static void select_item(GnomeCanvasItem *item) {
+static void select_item(GooCanvasItem *item) {
 
   double dx1, dy1, dx2, dy2;
 
   if (moving) // An object is already moving
     return;
 
-  // Use of gnome_canvas_item_affine_absolute must be better
+  // Use of goo_canvas_item_affine_absolute must be better
 
-  gnome_canvas_item_hide(red_hands);
+  goo_canvas_item_hide(red_hands);
 
   // Place redhands in (O;O)
-  gnome_canvas_item_get_bounds(red_hands, &dx1, &dy1, &dx2, &dy2);
-  gnome_canvas_item_move(red_hands, -(dx1), -(dy1));
+  goo_canvas_item_get_bounds(red_hands, &dx1, &dy1, &dx2, &dy2);
+  goo_canvas_item_translate(red_hands, -(dx1), -(dy1));
 
   // Place redhands 'around' the selected item
-  gnome_canvas_item_get_bounds(item, &dx1, &dy1, &dx2, &dy2);
-  gnome_canvas_item_move(red_hands, dx1 - 1 , dy1 - 1);
+  goo_canvas_item_get_bounds(item, &dx1, &dy1, &dx2, &dy2);
+  goo_canvas_item_translate(red_hands, dx1 - 1 , dy1 - 1);
 
-  gnome_canvas_item_show(red_hands);
+  goo_canvas_item_show(red_hands);
 
   crane_rope->coords[0] = (dx1 + dx2) / 2;
   crane_rope->coords[1] = CRANE_ROPE_Y;
   crane_rope->coords[2] = (dx1 + dx2) / 2;
   crane_rope->coords[3] = (dy1 + dy2) / 2;
 
-  gnome_canvas_item_set (crane_rope_item,
+  goo_canvas_item_set (crane_rope_item,
 			 "points", crane_rope,
 			 NULL);
 

@@ -31,13 +31,13 @@ static gboolean board_paused = TRUE;
 
 static GnomeCanvasGroup *boardRootItem = NULL;
 
-static GnomeCanvasItem *second_item;
-static GnomeCanvasItem *hour_item;
-static GnomeCanvasItem *minute_item;
-static GnomeCanvasItem *digital_time_item;
-static GnomeCanvasItem *digital_time_item_s;
-static GnomeCanvasItem *time_to_find_item;
-static GnomeCanvasItem *time_to_find_item_s;
+static GooCanvasItem *second_item;
+static GooCanvasItem *hour_item;
+static GooCanvasItem *minute_item;
+static GooCanvasItem *digital_time_item;
+static GooCanvasItem *digital_time_item_s;
+static GooCanvasItem *time_to_find_item;
+static GooCanvasItem *time_to_find_item_s;
 
 /* Center of the clock and it's size */
 double cx;
@@ -65,7 +65,7 @@ static void		 clockgame_create_item(GnomeCanvasGroup *parent);
 static void		 destroy_all_items(void);
 static void		 get_random_hour(GcomprisTime *time);
 static void		 clockgame_next_level(void);
-static gint		 item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data);
+static gint		 item_event(GooCanvasItem *item, GdkEvent *event, gpointer data);
 static void		 display_hour(guint hour);
 static void		 display_minute(guint minute);
 static void		 display_second(guint second);
@@ -132,7 +132,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
     {
       gcomprisBoard=agcomprisBoard;
 
-      gc_set_background(gnome_canvas_root(gcomprisBoard->canvas),
+      gc_set_background(goo_canvas_get_root_item(gcomprisBoard->canvas),
 			      "clockgame/clockgame-bg.jpg");
 
       /* set initial values for this level adjusted to fit the watch background */
@@ -223,7 +223,7 @@ static void clockgame_next_level()
     get_random_hour(&currentTime);
   } while(time_equal(&timeToFind, &currentTime));
 
-  clockgame_create_item(gnome_canvas_root(gcomprisBoard->canvas));
+  clockgame_create_item(goo_canvas_get_root_item(gcomprisBoard->canvas));
 
 }
 
@@ -240,7 +240,7 @@ destroy_all_items()
 }
 
 
-static void display_digital_time(GnomeCanvasItem *item, GcomprisTime *time)
+static void display_digital_time(GooCanvasItem *item, GcomprisTime *time)
 {
   gchar *text = NULL;
   int temps;
@@ -258,7 +258,7 @@ static void display_digital_time(GnomeCanvasItem *item, GcomprisTime *time)
   else
     text = g_strdup_printf("%.2d:%.2d:%.2d", time->hour, time->minute, time->second);
 
-  gnome_canvas_item_set (item,
+  goo_canvas_item_set (item,
 			 "text", text,
 			 NULL);
   g_free(text);
@@ -279,12 +279,12 @@ static void display_hour(guint hour)
   ang += currentTime.minute * M_PI / 360;
   ang += currentTime.second * M_PI / 21600;
 
-  canvasPoints = gnome_canvas_points_new (2);
+  canvasPoints = goo_canvas_points_new (2);
   canvasPoints->coords[0]=cx;
   canvasPoints->coords[1]=cy;
   canvasPoints->coords[2]=cx + needle_size * sin(ang);
   canvasPoints->coords[3]=cy - needle_size * cos(ang);
-  gnome_canvas_item_set (hour_item,
+  goo_canvas_item_set (hour_item,
 			 "points", canvasPoints,
 			 "fill_color", "darkblue",
 			 "width_units", (double)1,
@@ -294,7 +294,7 @@ static void display_hour(guint hour)
 			 "arrow_shape_b", (double) needle_size-20,
 			 "arrow_shape_c", (double) 8.0,
 			 NULL);
-  gnome_canvas_points_free(canvasPoints);
+  goo_canvas_points_free(canvasPoints);
 
   currentTime.hour=hour;
   display_digital_time(digital_time_item, &currentTime);
@@ -313,12 +313,12 @@ static void display_minute(guint minute)
   ang = minute * M_PI / 30;
   ang += currentTime.second * M_PI / 1800;
 
-  canvasPoints = gnome_canvas_points_new (2);
+  canvasPoints = goo_canvas_points_new (2);
   canvasPoints->coords[0]=cx;
   canvasPoints->coords[1]=cy;
   canvasPoints->coords[2]=cx + needle_size * sin(ang);
   canvasPoints->coords[3]=cy - needle_size * cos(ang);
-  gnome_canvas_item_set (minute_item,
+  goo_canvas_item_set (minute_item,
 			 "points", canvasPoints,
 			 "fill_color", "red",
 			 "width_units", (double)1,
@@ -328,7 +328,7 @@ static void display_minute(guint minute)
 			 "arrow_shape_b", (double) needle_size-10,
 			 "arrow_shape_c", (double) 3.0,
 			 NULL);
-  gnome_canvas_points_free(canvasPoints);
+  goo_canvas_points_free(canvasPoints);
 
   currentTime.minute=minute;
   display_digital_time(digital_time_item, &currentTime);
@@ -347,12 +347,12 @@ static void display_second(guint second)
 
   ang = second * M_PI / 30;
 
-  canvasPoints = gnome_canvas_points_new (2);
+  canvasPoints = goo_canvas_points_new (2);
   canvasPoints->coords[0]=cx;
   canvasPoints->coords[1]=cy;
   canvasPoints->coords[2]=cx + needle_size * sin(ang);
   canvasPoints->coords[3]=cy - needle_size * cos(ang);
-  gnome_canvas_item_set (second_item,
+  goo_canvas_item_set (second_item,
 			 "points", canvasPoints,
 			 "fill_color_rgba", 0x68c46fFF,
 			 "width_units", (double)1,
@@ -362,7 +362,7 @@ static void display_second(guint second)
 			 "arrow_shape_b", (double) 0,
 			 "arrow_shape_c", (double) 0,
 			 NULL);
-  gnome_canvas_points_free(canvasPoints);
+  goo_canvas_points_free(canvasPoints);
 
   currentTime.second=second;
   display_digital_time(digital_time_item, &currentTime);
@@ -373,7 +373,7 @@ static void display_second(guint second)
 static void
 clockgame_create_item(GnomeCanvasGroup *parent)
 {
-  GnomeCanvasItem *item;
+  GooCanvasItem *item;
   double needle_size = clock_size;
   double min_point_size = clock_size*0.05;
   double hour_point_size = clock_size*0.1;
@@ -385,14 +385,14 @@ clockgame_create_item(GnomeCanvasGroup *parent)
   gchar *mtext = NULL;
   gchar *font = NULL;
 
-  boardRootItem = GNOME_CANVAS_GROUP(
-				     gnome_canvas_item_new (gnome_canvas_root(gcomprisBoard->canvas),
-							    gnome_canvas_group_get_type (),
+  boardRootItem = GOO_CANVAS_GROUP(
+				     goo_canvas_item_new (goo_canvas_get_root_item(gcomprisBoard->canvas),
+							    goo_canvas_group_get_type (),
 							    "x", (double) 0,
 							    "y", (double) 0,
 							    NULL));
 
-  canvasPoints = gnome_canvas_points_new (2);
+  canvasPoints = goo_canvas_points_new (2);
 
   for(min = 1 ; min <= 60 ; min += 1)
     {
@@ -418,8 +418,8 @@ clockgame_create_item(GnomeCanvasGroup *parent)
 
       canvasPoints->coords[2]=cx + needle_size * sin(ang);
       canvasPoints->coords[3]=cy - needle_size * cos(ang);
-      item = gnome_canvas_item_new (boardRootItem,
-				    gnome_canvas_line_get_type (),
+      item = goo_canvas_item_new (boardRootItem,
+				    goo_canvas_line_get_type (),
 				    "points", canvasPoints,
 				    "fill_color", color,
 				    "width_units", (double)1,
@@ -430,8 +430,8 @@ clockgame_create_item(GnomeCanvasGroup *parent)
       if(gcomprisBoard->level<5)
 	{
 	  mtext = g_strdup_printf("%d", min);
-	  item = gnome_canvas_item_new (boardRootItem,
-					gnome_canvas_text_get_type (),
+	  item = goo_canvas_item_new (boardRootItem,
+					goo_canvas_text_get_type (),
 					"text", mtext,
 					"font", font,
 					"x", (double) cx + (needle_size+10) * sin(ang),
@@ -448,8 +448,8 @@ clockgame_create_item(GnomeCanvasGroup *parent)
 	if(min%5==0)
 	  {
 	    mtext = g_strdup_printf( "%d", min/5);
-	    item = gnome_canvas_item_new (boardRootItem,
-					  gnome_canvas_text_get_type (),
+	    item = goo_canvas_item_new (boardRootItem,
+					  goo_canvas_text_get_type (),
 					  "text", mtext,
 					  "font", font,
 					  "x", (double) cx + (needle_size-30) * sin(ang),
@@ -466,8 +466,8 @@ clockgame_create_item(GnomeCanvasGroup *parent)
   if(gcomprisBoard->level<4)
     {
       digital_time_item_s =
-	gnome_canvas_item_new (boardRootItem,
-			       gnome_canvas_text_get_type (),
+	goo_canvas_item_new (boardRootItem,
+			       goo_canvas_text_get_type (),
 			       "text", "",
 			       "font", gc_skin_font_board_medium,
 			       "x", (double) cx + 1.0,
@@ -478,8 +478,8 @@ clockgame_create_item(GnomeCanvasGroup *parent)
       display_digital_time(digital_time_item_s, &currentTime);
 
       digital_time_item =
-	gnome_canvas_item_new (boardRootItem,
-			       gnome_canvas_text_get_type (),
+	goo_canvas_item_new (boardRootItem,
+			       goo_canvas_text_get_type (),
 			       "text", "",
 			       "font", gc_skin_font_board_medium,
 			       "x", (double) cx,
@@ -501,49 +501,49 @@ clockgame_create_item(GnomeCanvasGroup *parent)
   canvasPoints->coords[1]=0;
   canvasPoints->coords[2]=0;
   canvasPoints->coords[3]=0;
-  hour_item = gnome_canvas_item_new (boardRootItem,
-				     gnome_canvas_line_get_type (),
+  hour_item = goo_canvas_item_new (boardRootItem,
+				     goo_canvas_line_get_type (),
 				     "points", canvasPoints,
 				     "fill_color", "darkblue",
 				     "width_units", (double)1,
 				     "width_pixels", (guint) 0,
 				     NULL);
-  gtk_signal_connect(GTK_OBJECT(hour_item), "event",
+  g_signal_connect(GTK_OBJECT(hour_item), "enter_notify_event",
 		     (GtkSignalFunc) item_event,
 		     NULL);
   display_hour(currentTime.hour);
 
   /* Create the minute needle */
 
-  minute_item = gnome_canvas_item_new (boardRootItem,
-				       gnome_canvas_line_get_type (),
+  minute_item = goo_canvas_item_new (boardRootItem,
+				       goo_canvas_line_get_type (),
 				       "points", canvasPoints,
 				       "fill_color", "darkblue",
 				       "width_units", (double)1,
 				       "width_pixels", (guint) 0,
 				       NULL);
-  gtk_signal_connect(GTK_OBJECT(minute_item), "event",
+  g_signal_connect(GTK_OBJECT(minute_item), "enter_notify_event",
 		     (GtkSignalFunc) item_event,
 		     NULL);
   display_minute(currentTime.minute);
 
   /* Create the second needle */
 
-  second_item = gnome_canvas_item_new (boardRootItem,
-				       gnome_canvas_line_get_type (),
+  second_item = goo_canvas_item_new (boardRootItem,
+				       goo_canvas_line_get_type (),
 				       "points", canvasPoints,
 				       "fill_color", "darkblue",
 				       "width_units", (double)1,
 				       "width_pixels", (guint) 0,
 				       NULL);
-  gtk_signal_connect(GTK_OBJECT(second_item), "event",
+  g_signal_connect(GTK_OBJECT(second_item), "enter_notify_event",
 		     (GtkSignalFunc) item_event,
 		     NULL);
   display_second(currentTime.second);
 
   /* Create the text area for the time to find display */
-  gnome_canvas_item_new (boardRootItem,
-			 gnome_canvas_text_get_type (),
+  goo_canvas_item_new (boardRootItem,
+			 goo_canvas_text_get_type (),
 			 "text", _("Set the watch to:"),
 			 "font", gc_skin_font_board_small,
 			 "x", (double) gcomprisBoard->width*0.17 + 1.0,
@@ -552,8 +552,8 @@ clockgame_create_item(GnomeCanvasGroup *parent)
 			 "fill_color_rgba", gc_skin_color_shadow,
 			 NULL);
 
-  gnome_canvas_item_new (boardRootItem,
-			 gnome_canvas_text_get_type (),
+  goo_canvas_item_new (boardRootItem,
+			 goo_canvas_text_get_type (),
 			 "text", _("Set the watch to:"),
 			 "font", gc_skin_font_board_small,
 			 "x", (double) gcomprisBoard->width*0.17,
@@ -563,8 +563,8 @@ clockgame_create_item(GnomeCanvasGroup *parent)
 			 NULL);
 
   time_to_find_item_s =
-    gnome_canvas_item_new (boardRootItem,
-			   gnome_canvas_text_get_type (),
+    goo_canvas_item_new (boardRootItem,
+			   goo_canvas_text_get_type (),
 			   "text", "",
 			   "font", gc_skin_font_board_big_bold,
 			   "x", (double) gcomprisBoard->width*0.17 + 1.0,
@@ -575,8 +575,8 @@ clockgame_create_item(GnomeCanvasGroup *parent)
   display_digital_time(time_to_find_item_s, &timeToFind);
 
   time_to_find_item =
-    gnome_canvas_item_new (boardRootItem,
-			   gnome_canvas_text_get_type (),
+    goo_canvas_item_new (boardRootItem,
+			   goo_canvas_text_get_type (),
 			   "text", "",
 			   "font", gc_skin_font_board_big_bold,
 			   "x", (double) gcomprisBoard->width*0.17,
@@ -586,7 +586,7 @@ clockgame_create_item(GnomeCanvasGroup *parent)
 			   NULL);
   display_digital_time(time_to_find_item, &timeToFind);
 
-  gnome_canvas_points_free(canvasPoints);
+  goo_canvas_points_free(canvasPoints);
 
 }
 
@@ -644,7 +644,7 @@ static void process_ok()
 
 /* Callback for the 'toBeFoundItem' */
 static gint
-item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
+item_event(GooCanvasItem *item, GdkEvent *event, gpointer data)
 {
   static double x, y;
   double item_x, item_y;
@@ -657,7 +657,7 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 
   item_x = event->button.x;
   item_y = event->button.y;
-  gnome_canvas_item_w2i(item->parent, &item_x, &item_y);
+  goo_canvas_convert_to_item_space(item->parent, &item_x, &item_y);
 
   switch (event->type)
     {

@@ -62,9 +62,9 @@ typedef struct _ToBeFoundItem ToBeFoundItem;
 
 struct _ToBeFoundItem{
   guint index;
-  GnomeCanvasItem *item;
-  GnomeCanvasItem *focus_item;
-  GnomeCanvasItem *bad_item;
+  GooCanvasItem *item;
+  GooCanvasItem *focus_item;
+  GooCanvasItem *bad_item;
   ToBeFoundItem *next;
   ToBeFoundItem *previous;
   char value;
@@ -85,8 +85,8 @@ static void		 set_level (guint level);
 static gint		 key_press(guint keyval, gchar *commit_str, gchar *preedit_str);
 static void		 process_ok(void);
 
-static GnomeCanvasItem	*algebra_create_item(GnomeCanvasGroup *parent);
-static void		 algebra_destroy_item(GnomeCanvasItem *item);
+static GooCanvasItem	*algebra_create_item(GnomeCanvasGroup *parent);
+static void		 algebra_destroy_item(GooCanvasItem *item);
 static void		 algebra_destroy_all_items(void);
 static void		 display_operand(GnomeCanvasGroup *parent,
 					 double x_align,
@@ -95,7 +95,7 @@ static void		 display_operand(GnomeCanvasGroup *parent,
 					 gboolean masked);
 static void		 get_random_number(guint *first_operand, guint *second_operand);
 static void		 algebra_next_level(void);
-static gint		 item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data);
+static gint		 item_event(GooCanvasItem *item, GdkEvent *event, gpointer data);
 static void		 set_focus_item(ToBeFoundItem *toBeFoundItem, gboolean status);
 static void		 init_operation(void);
 
@@ -165,7 +165,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       /* disable im_context */
       gcomprisBoard->disable_im_context = TRUE;
 
-      gc_set_background(gnome_canvas_root(gcomprisBoard->canvas),
+      gc_set_background(goo_canvas_get_root_item(gcomprisBoard->canvas),
 			"algebra/scenery2_background.png");
 
       /* set initial values for this level */
@@ -328,12 +328,12 @@ static gint key_press(guint keyval, gchar *commit_str, gchar *preedit_str)
       number[0] = (char)c;
 
       currentToBeFoundItem->value = c;
-      gnome_canvas_item_set (currentToBeFoundItem->item,
+      goo_canvas_item_set (currentToBeFoundItem->item,
 			     "text", (char *)&number,
 			     NULL);
 
       /* Not a failure (yet) */
-      gnome_canvas_item_hide(currentToBeFoundItem->bad_item);
+      goo_canvas_item_hide(currentToBeFoundItem->bad_item);
       currentToBeFoundItem->in_error = FALSE;
 
       set_focus_item(currentToBeFoundItem, FALSE);
@@ -398,9 +398,9 @@ static void algebra_next_level()
 
   algebra_destroy_all_items();
 
-  boardRootItem = GNOME_CANVAS_GROUP(
-				     gnome_canvas_item_new (gnome_canvas_root(gcomprisBoard->canvas),
-							    gnome_canvas_group_get_type (),
+  boardRootItem = GOO_CANVAS_GROUP(
+				     goo_canvas_item_new (goo_canvas_get_root_item(gcomprisBoard->canvas),
+							    goo_canvas_group_get_type (),
 							    "x", (double) 0,
 							    "y", (double) 0,
 							    NULL));
@@ -415,7 +415,7 @@ static void algebra_next_level()
 }
 
 
-static void algebra_destroy_item(GnomeCanvasItem *item)
+static void algebra_destroy_item(GooCanvasItem *item)
 {
   item_list = g_list_remove (item_list, item);
   gtk_object_destroy (GTK_OBJECT(item));
@@ -424,7 +424,7 @@ static void algebra_destroy_item(GnomeCanvasItem *item)
 /* Destroy all the items */
 static void algebra_destroy_all_items()
 {
-  GnomeCanvasItem *item;
+  GooCanvasItem *item;
   ToBeFoundItem *next;
 
   gc_timer_end();
@@ -454,7 +454,7 @@ static void display_operand(GnomeCanvasGroup *parent,
 			    char *operand_str,
 			    gboolean masked)
 {
-  GnomeCanvasItem *item, *focus_item = NULL, *bad_item = NULL;
+  GooCanvasItem *item, *focus_item = NULL, *bad_item = NULL;
   int i;
   ToBeFoundItem *toBeFoundItem=NULL;
   ToBeFoundItem *previousToBeFoundItem=NULL;;
@@ -466,8 +466,8 @@ static void display_operand(GnomeCanvasGroup *parent,
       if(!masked)
 	operand[0] = operand_str[i];
 
-      item = gnome_canvas_item_new (parent,
-				    gnome_canvas_text_get_type (),
+      item = goo_canvas_item_new (parent,
+				    goo_canvas_text_get_type (),
 				    "text", &operand,
 				    "font", gc_skin_font_board_huge_bold,
 				    "anchor", GTK_ANCHOR_CENTER,
@@ -479,8 +479,8 @@ static void display_operand(GnomeCanvasGroup *parent,
 
       if(masked)
 	{
-	  focus_item = gnome_canvas_item_new (parent,
-					      gnome_canvas_text_get_type (),
+	  focus_item = goo_canvas_item_new (parent,
+					      goo_canvas_text_get_type (),
 					      "text", "_",
 					      "font", gc_skin_font_board_huge_bold,
 					      "anchor", GTK_ANCHOR_CENTER,
@@ -491,8 +491,8 @@ static void display_operand(GnomeCanvasGroup *parent,
 
 	  item_list = g_list_append (item_list, focus_item);
 
-	  bad_item = gnome_canvas_item_new (parent,
-					    gnome_canvas_text_get_type (),
+	  bad_item = goo_canvas_item_new (parent,
+					    goo_canvas_text_get_type (),
 					    "text", "/",
 					    "font", gc_skin_font_board_huge_bold,
 					    "anchor", GTK_ANCHOR_CENTER,
@@ -500,7 +500,7 @@ static void display_operand(GnomeCanvasGroup *parent,
 					    "y", y,
 					    "fill_color_rgba", 0xFF0000FF,
 					    NULL);
-	  gnome_canvas_item_hide(bad_item);
+	  goo_canvas_item_hide(bad_item);
 
 	  item_list = g_list_append (item_list, bad_item);
 
@@ -533,16 +533,16 @@ static void display_operand(GnomeCanvasGroup *parent,
 	    {
 	      set_focus_item(toBeFoundItem, FALSE);
 	    }
-	  gtk_signal_connect(GTK_OBJECT(item), "event",
+	  g_signal_connect(GTK_OBJECT(item), "enter_notify_event",
 			     (GtkSignalFunc) item_event,
 			     toBeFoundItem);
 	}
     }
 }
 
-static GnomeCanvasItem *algebra_create_item(GnomeCanvasGroup *parent)
+static GooCanvasItem *algebra_create_item(GnomeCanvasGroup *parent)
 {
-  GnomeCanvasItem *item;
+  GooCanvasItem *item;
   guint first_operand = 0;
   guint second_operand = 0;
   char *first_operand_str = NULL;
@@ -579,8 +579,8 @@ static GnomeCanvasItem *algebra_create_item(GnomeCanvasGroup *parent)
   /* Display the operator */
   x=(double) x_align;
   y=(double) y_firstline;
-  item = gnome_canvas_item_new (parent,
-				gnome_canvas_text_get_type (),
+  item = goo_canvas_item_new (parent,
+				goo_canvas_text_get_type (),
 				"text", currentOperationText,
 				"font", gc_skin_font_board_huge_bold,
 				"x", x,
@@ -591,8 +591,8 @@ static GnomeCanvasItem *algebra_create_item(GnomeCanvasGroup *parent)
   item_list = g_list_append (item_list, item);
 
   /* Now the equal sign*/
-  item = gnome_canvas_item_new (parent,
-				gnome_canvas_text_get_type (),
+  item = goo_canvas_item_new (parent,
+				goo_canvas_text_get_type (),
 				"text", "=",
 				"font", gc_skin_font_board_huge_bold,
 				"x", x_align + NUMBERSWIDTH*(strlen(second_operand_str)+1),
@@ -665,11 +665,11 @@ static void set_focus_item(ToBeFoundItem *toBeFoundItem, gboolean status)
 {
   if(status)
     {
-      gnome_canvas_item_show (toBeFoundItem->focus_item);
+      goo_canvas_item_show (toBeFoundItem->focus_item);
     }
   else
     {
-      gnome_canvas_item_hide (toBeFoundItem->focus_item);
+      goo_canvas_item_hide (toBeFoundItem->focus_item);
     }
 }
 
@@ -691,7 +691,7 @@ static void process_ok()
     {
       if(currentToBeFoundItem->value!=expected_result[currentToBeFoundItem->index])
 	{
-	  gnome_canvas_item_show(currentToBeFoundItem->bad_item);
+	  goo_canvas_item_show(currentToBeFoundItem->bad_item);
 	  currentToBeFoundItem->in_error = TRUE;
 	  /* remember the appropriate digit to focus next */
 	  hasfail=currentToBeFoundItem;
@@ -713,7 +713,7 @@ static void process_ok()
 
 /* Callback for the 'toBeFoundItem' */
 static gint
-item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
+item_event(GooCanvasItem *item, GdkEvent *event, gpointer data)
 {
   ToBeFoundItem *toBeFoundItem;
 

@@ -344,7 +344,7 @@ set_content(GooCanvasText *item_content,
    * Set the new text in the 2 items
    */
   g_object_set(GOO_CANVAS_ITEM(item_content),
-	       text,
+	       "text", text,
 	       NULL);
 
 }

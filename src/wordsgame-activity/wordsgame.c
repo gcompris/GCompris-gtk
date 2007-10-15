@@ -40,8 +40,8 @@ GStaticRWLock items2del_lock = G_STATIC_RW_LOCK_INIT;
   letter - current expected letter to type
 */
 typedef struct {
-  GnomeCanvasItem *rootitem;
-  GnomeCanvasItem *overwriteItem;
+  GooCanvasItem *rootitem;
+  GooCanvasItem *overwriteItem;
   gchar *word;
   gchar *overword;
   gint  count;
@@ -73,7 +73,7 @@ static gboolean		 is_our_board (GcomprisBoard *gcomprisBoard);
 static void		 set_level (guint level);
 static gint		 key_press(guint keyval, gchar *commit_str, gchar *preedit_str);
 
-static GnomeCanvasItem	 *wordsgame_create_item(GnomeCanvasGroup *parent);
+static GooCanvasItem	 *wordsgame_create_item(GnomeCanvasGroup *parent);
 static gint		 wordsgame_drop_items (GtkWidget *widget, gpointer data);
 static gint		 wordsgame_move_items (GtkWidget *widget, gpointer data);
 static void		 wordsgame_destroy_item(LettersItem *item);
@@ -100,7 +100,7 @@ static void		 player_loose(void);
 static  guint32              fallSpeed = 0;
 static  double               speed = 0.0;
 
-static GnomeCanvasItem *preedit_text = NULL;
+static GooCanvasItem *preedit_text = NULL;
 
 /* Description of this plugin */
 static BoardPlugin menu_bp =
@@ -180,7 +180,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       /* disable im_context */
       //gcomprisBoard->disable_im_context = TRUE;
 
-      gc_set_background(gnome_canvas_root(gcomprisBoard->canvas),
+      gc_set_background(goo_canvas_get_root_item(gcomprisBoard->canvas),
 			"wordsgame/scenery_background.png");
 
 
@@ -279,8 +279,8 @@ static gint key_press(guint keyval, gchar *commit_str, gchar *preedit_str)
 
     if (!preedit_text)
       preedit_text = \
-	gnome_canvas_item_new (gnome_canvas_root(gcomprisBoard->canvas),
-			       gnome_canvas_text_get_type (),
+	goo_canvas_item_new (goo_canvas_get_root_item(gcomprisBoard->canvas),
+			       goo_canvas_text_get_type (),
 			       "font", gc_skin_font_board_huge_bold,
 			       "x", (double) BOARDWIDTH/2,
 			       "y", (double) BOARDHEIGHT - 100,
@@ -289,7 +289,7 @@ static gint key_press(guint keyval, gchar *commit_str, gchar *preedit_str)
 			       NULL);
 
 
-    gnome_canvas_item_set (preedit_text,
+    goo_canvas_item_set (preedit_text,
 			   "text", text,
 			   "attributes", attrs,
 			   NULL);
@@ -350,7 +350,7 @@ static gint key_press(guint keyval, gchar *commit_str, gchar *preedit_str)
 	     */
 	    item_on_focus->overword = g_strdup_printf("%s%lc", tmpstr, 0x200D);
 	    g_free(tmpstr);
-	    gnome_canvas_item_set (item_on_focus->overwriteItem,
+	    goo_canvas_item_set (item_on_focus->overwriteItem,
 				   "text", item_on_focus->overword,
 				   NULL);
 
@@ -378,7 +378,7 @@ static gint key_press(guint keyval, gchar *commit_str, gchar *preedit_str)
 
 	    item_on_focus->pos=g_utf8_find_next_char(item_on_focus->word,NULL);
 
-	    gnome_canvas_item_set (item_on_focus->overwriteItem,
+	    goo_canvas_item_set (item_on_focus->overwriteItem,
 				   "text", item_on_focus->overword,
 				   NULL);
 	    item_on_focus=NULL;
@@ -465,9 +465,9 @@ static void wordsgame_move_item(LettersItem *item)
   double x1, y1, x2, y2;
 
 
-  gnome_canvas_item_move(item->rootitem, 0, 2.0);
+  goo_canvas_item_translate(item->rootitem, 0, 2.0);
 
-  gnome_canvas_item_get_bounds    (item->rootitem,
+  goo_canvas_item_get_bounds    (item->rootitem,
 				   &x1,
 				   &y1,
 				   &x2,
@@ -584,10 +584,10 @@ static void wordsgame_destroy_all_items()
 }
 
 
-static GnomeCanvasItem *wordsgame_create_item(GnomeCanvasGroup *parent)
+static GooCanvasItem *wordsgame_create_item(GnomeCanvasGroup *parent)
 {
 
-  GnomeCanvasItem *item2;
+  GooCanvasItem *item2;
   LettersItem *item;
   gchar *word = gc_wordlist_random_word_get(gc_wordlist, gcomprisBoard->level);
 
@@ -604,8 +604,8 @@ static GnomeCanvasItem *wordsgame_create_item(GnomeCanvasGroup *parent)
   item->pos=g_utf8_find_next_char(item->word,NULL);
 
   item->rootitem = \
-    gnome_canvas_item_new (parent,
-			   gnome_canvas_group_get_type (),
+    goo_canvas_item_new (parent,
+			   goo_canvas_group_get_type (),
 			   "x", (double) 0,
 			   "y", (double) -12,
 			   NULL);
@@ -613,8 +613,8 @@ static GnomeCanvasItem *wordsgame_create_item(GnomeCanvasGroup *parent)
   /* To 'erase' words, I create 2 times the text item. One is empty now */
   /* It will be filled each time the user enters the right key         */
   item2 = \
-    gnome_canvas_item_new (GNOME_CANVAS_GROUP(item->rootitem),
-			   gnome_canvas_text_get_type (),
+    goo_canvas_item_new (GOO_CANVAS_GROUP(item->rootitem),
+			   goo_canvas_text_get_type (),
 			   "text", item->word,
 			   "font", gc_skin_font_board_huge_bold,
 			   "x", (double) 0,
@@ -624,8 +624,8 @@ static GnomeCanvasItem *wordsgame_create_item(GnomeCanvasGroup *parent)
 			   NULL);
 
   item->overwriteItem = \
-    gnome_canvas_item_new (GNOME_CANVAS_GROUP(item->rootitem),
-			   gnome_canvas_text_get_type (),
+    goo_canvas_item_new (GOO_CANVAS_GROUP(item->rootitem),
+			   goo_canvas_text_get_type (),
 			   "text", item->overword,
 			   "font", gc_skin_font_board_huge_bold,
 			   "x", (double) 0,
@@ -639,13 +639,13 @@ static GnomeCanvasItem *wordsgame_create_item(GnomeCanvasGroup *parent)
   double x1, y1, x2, y2;
 
 
-  gnome_canvas_item_get_bounds    (item->rootitem,
+  goo_canvas_item_get_bounds    (item->rootitem,
                                    &x1,
                                    &y1,
                                    &x2,
                                    &y2);
 
-  gnome_canvas_item_move (item->rootitem,(double) (g_random_int()%(gcomprisBoard->width-(gint)(x2))),(double) 0);
+  goo_canvas_item_translate (item->rootitem,(double) (g_random_int()%(gcomprisBoard->width-(gint)(x2))),(double) 0);
 
 
   g_static_rw_lock_writer_lock (&items_lock);
@@ -659,7 +659,7 @@ static void wordsgame_add_new_item()
 {
 
   g_assert(gcomprisBoard->canvas!=NULL);
-  wordsgame_create_item(gnome_canvas_root(gcomprisBoard->canvas));
+  wordsgame_create_item(goo_canvas_get_root_item(gcomprisBoard->canvas));
 
 }
 
@@ -696,7 +696,7 @@ static void player_win(LettersItem *item)
   g_ptr_array_add(items2del,item);
   g_static_rw_lock_writer_unlock (&items2del_lock);
 
-  gnome_canvas_item_hide(item->rootitem);
+  goo_canvas_item_hide(item->rootitem);
   g_timeout_add (500,(GtkFunction) wordsgame_destroy_items, items2del);
 
 
