@@ -49,7 +49,7 @@ static gchar *op_fonts[10] =
 
 static GcomprisBoard *gcomprisBoard = NULL;
 
-static GnomeCanvasGroup *boardRootItem = NULL;
+static GooCanvasItem *boardRootItem = NULL;
 
 static gint win_id = 0;
 
@@ -145,7 +145,7 @@ static void end_board (void);
 static gboolean is_our_board (GcomprisBoard *gcomprisBoard);
 static void set_level (guint level);
 
-static void create_item(GnomeCanvasGroup *parent);
+static void create_item(GooCanvasItem *parent);
 static void memory_destroy_all_items(void);
 static void memory_next_level(void);
 static gint item_event(GooCanvasItem *item, GdkEvent *event, MemoryItem *memoryItem);
@@ -945,10 +945,10 @@ static void update_scores()
   tux_score_str = g_strdup_printf("%d", tux_pairs);
   player_score_str = g_strdup_printf("%d", player_pairs);
 
-  goo_canvas_item_set(tux_score,      "text", tux_score_str, NULL);
-  goo_canvas_item_set(player_score,   "text", player_score_str, NULL);
-  goo_canvas_item_set(tux_score_s,    "text", tux_score_str, NULL);
-  goo_canvas_item_set(player_score_s, "text", player_score_str, NULL);
+  g_object_set(tux_score,      "text", tux_score_str, NULL);
+  g_object_set(player_score,   "text", player_score_str, NULL);
+  g_object_set(tux_score_s,    "text", tux_score_str, NULL);
+  g_object_set(player_score_s, "text", player_score_str, NULL);
 
   g_free(tux_score_str);
   g_free(player_score_str);
@@ -1173,7 +1173,7 @@ static void get_image(MemoryItem *memoryItem, guint x, guint y)
   memoryArray[rx][ry] = memoryItem;
 }
 
-static void create_item(GnomeCanvasGroup *parent)
+static void create_item(GooCanvasItem *parent)
 {
   MemoryItem *memoryItem;
   gint x, y;
@@ -1198,61 +1198,63 @@ static void create_item(GnomeCanvasGroup *parent)
 
   if (currentUiMode == UIMODE_SOUND) {
     GdkPixbuf *pixmap =  gc_pixmap_load("memory/transparent_square2.png");
-    goo_canvas_item_new (GOO_CANVAS_GROUP(parent),
-			   goo_canvas_pixbuf_get_type (),
-			   "pixbuf", pixmap,
-			   "x", (double) (currentMode == MODE_TUX ? base_x1_tux : base_x1) - 20,
-			   "y", (double) base_y1 - 15,
-			   NULL);
+    goo_canvas_image_new (GOO_CANVAS_GROUP(parent),
+			  pixmap,
+			  (currentMode == MODE_TUX ? base_x1_tux : base_x1) - 20,
+			  base_y1 - 15,
+			  NULL);
     gdk_pixbuf_unref(pixmap);
   }
 
   if (currentMode == MODE_TUX){
     GdkPixbuf *pixmap_tux =  gc_pixmap_load("memory/tux-teacher.png");
 
-    tux = goo_canvas_item_new (GOO_CANVAS_GROUP(parent),
-				 goo_canvas_pixbuf_get_type (),
-				 "pixbuf", pixmap_tux,
-				 "x", (double) 50,
-				 "y", (double) 20,
+    tux = goo_canvas_image_new (GOO_CANVAS_GROUP(parent),
+				pixmap_tux,
+				50,
+				20,
 				 NULL);
     gdk_pixbuf_unref(pixmap_tux);
 
-    tux_score_s = goo_canvas_item_new (GOO_CANVAS_GROUP(parent),
-				       goo_canvas_text_get_type (),
+    tux_score_s = goo_canvas_text_new (GOO_CANVAS_GROUP(parent),
+				       memoryItem->data,
+				       (double) 100+1.0,
+				       (double) 200+1.0,
+				       -1,
+				       GTK_ANCHOR_CENTER,
 				       "font", gc_skin_font_board_huge_bold,
-				       "x", (double) 100+1.0,
-				       "y", (double) 200+1.0,
-				       "anchor", GTK_ANCHOR_CENTER,
 				       "fill_color_rgba", 0x101010FF,
 				       NULL);
 
-    player_score_s = goo_canvas_item_new (GOO_CANVAS_GROUP(parent),
-					  goo_canvas_text_get_type (),
+    player_score_s = goo_canvas_text_new (GOO_CANVAS_GROUP(parent),
+					  "",
+					  (double) 100+1.0,
+					  (double) BASE_CARD_Y2 - 20+1.0,
+					  -1,
+					  GTK_ANCHOR_CENTER,
 					  "font", gc_skin_font_board_huge_bold,
-					  "x", (double) 100+1.0,
-					  "y", (double) BASE_CARD_Y2 - 20+1.0,
-					  "anchor", GTK_ANCHOR_CENTER,
 					  "fill_color_rgba", 0x101010FF,
 					  NULL);
 
-    tux_score = goo_canvas_item_new (GOO_CANVAS_GROUP(parent),
-				       goo_canvas_text_get_type (),
-				       "font", gc_skin_font_board_huge_bold,
-				       "x", (double) 100,
-				       "y", (double) 200,
-				       "anchor", GTK_ANCHOR_CENTER,
-				       "fill_color_rgba", 0xFF0F0FFF,
-				       NULL);
+    tux_score = goo_canvas_text_new (GOO_CANVAS_GROUP(parent),
+				     "",
+				     (double) 100,
+				     (double) 200,
+				     -1,
+				     GTK_ANCHOR_CENTER,
+				     "font", gc_skin_font_board_huge_bold,
+				     "fill_color_rgba", 0xFF0F0FFF,
+				     NULL);
 
-    player_score = goo_canvas_item_new (GOO_CANVAS_GROUP(parent),
-					  goo_canvas_text_get_type (),
-					  "font", gc_skin_font_board_huge_bold,
-					  "x", (double) 100,
-					  "y", (double) BASE_CARD_Y2 - 20,
-					  "anchor", GTK_ANCHOR_CENTER,
-					  "fill_color_rgba", 0xFF0F0FFF,
-					  NULL);
+    player_score = goo_canvas_text_new (GOO_CANVAS_GROUP(parent),
+					"",
+					(double) 100,
+					(double) BASE_CARD_Y2 - 20,
+					-1,
+					GTK_ANCHOR_CENTER,
+					"font", gc_skin_font_board_huge_bold,
+					"fill_color_rgba", 0xFF0F0FFF,
+					NULL);
   }
 
   for(x=0; x<numberOfColumn; x++)
@@ -1275,31 +1277,25 @@ static void create_item(GnomeCanvasGroup *parent)
 	    pixmap = gc_pixmap_load("memory/backcard.png");
 
 	  memoryItem->backcardItem = \
-	    goo_canvas_item_new (GOO_CANVAS_GROUP(memoryItem->rootItem),
-				   goo_canvas_pixbuf_get_type (),
-				   "pixbuf", pixmap,
-				   "x", (double) 0,
-				   "y", (double) 0,
-				   "width", (double) width2,
-				   "height", (double) height2,
-				   "width_set", TRUE,
-				   "height_set", TRUE,
-				   NULL);
+	    goo_canvas_image_new (GOO_CANVAS_GROUP(memoryItem->rootItem),
+				  pixmap,
+				  0,
+				  0,
+				  "width", (double) width2,
+				  "height", (double) height2,
+				  NULL);
 	  gdk_pixbuf_unref(pixmap);
 
 	  if (currentUiMode != UIMODE_SOUND){
 	    pixmap = gc_pixmap_load("memory/emptycard.png");
 	    memoryItem->framecardItem = \
-	      goo_canvas_item_new (GOO_CANVAS_GROUP(memoryItem->rootItem),
-				     goo_canvas_pixbuf_get_type (),
-				     "pixbuf", pixmap,
-				     "x", (double) 0,
-				     "y", (double) 0,
-				     "width", (double) width2,
-				     "height", (double) height2,
-				     "width_set", TRUE,
-				     "height_set", TRUE,
-				     NULL);
+	      goo_canvas_image_new (GOO_CANVAS_GROUP(memoryItem->rootItem),
+				    pixmap,
+				    0,
+				    0,
+				    "width", (double) width2,
+				    "height", (double) height2,
+				    NULL);
 	    goo_canvas_item_hide(memoryItem->framecardItem);
 	    gdk_pixbuf_unref(pixmap);
 	  }
@@ -1311,16 +1307,13 @@ static void create_item(GnomeCanvasGroup *parent)
 	  if (currentUiMode == UIMODE_SOUND){
 	    pixmap = gc_pixmap_load("memory/Tux_play.png");
 	    memoryItem->frontcardItem =	\
-	      goo_canvas_item_new (GOO_CANVAS_GROUP(memoryItem->rootItem),
-				     goo_canvas_pixbuf_get_type (),
-				     "pixbuf", pixmap,
-				     "x", (double) 0,
-				     "y", (double) 0,
-				     "width", (double) width2,
-				     "height", (double) height2,
-				     "width_set", TRUE,
-				     "height_set", TRUE,
-				     NULL);
+	      goo_canvas_image_new (GOO_CANVAS_GROUP(memoryItem->rootItem),
+				    pixmap,
+				    0,
+				    0,
+				    "width", (double) width2,
+				    "height", (double) height2,
+				    NULL);
 	    gdk_pixbuf_unref(pixmap);
 	  }
 	  else {
@@ -1328,17 +1321,14 @@ static void create_item(GnomeCanvasGroup *parent)
 	      pixmap = gc_pixmap_load(memoryItem->data);
 
 	      memoryItem->frontcardItem =	\
-		goo_canvas_item_new (GOO_CANVAS_GROUP(memoryItem->rootItem),
-				       goo_canvas_pixbuf_get_type (),
-				       "pixbuf", pixmap,
-				       "x", (double) (width2-
-						      gdk_pixbuf_get_width(pixmap))/2,
-				       "y", (double) (height2-
-						      gdk_pixbuf_get_height(pixmap))/2,
-				       "width", (double) gdk_pixbuf_get_width(pixmap),
-				       "height", (double) gdk_pixbuf_get_height(pixmap),
-				       "width_set", TRUE,
-				       "height_set", TRUE,
+		goo_canvas_image_new (GOO_CANVAS_GROUP(memoryItem->rootItem),
+				      pixmap,
+				      (width2-
+				       gdk_pixbuf_get_width(pixmap))/2,
+				      (height2-
+				       gdk_pixbuf_get_height(pixmap))/2,
+				      "width", (double) gdk_pixbuf_get_width(pixmap),
+				      "height", (double) gdk_pixbuf_get_height(pixmap),
 				       NULL);
 	      gdk_pixbuf_unref(pixmap);
 
@@ -1350,15 +1340,15 @@ static void create_item(GnomeCanvasGroup *parent)
 		font = TEXT_FONT;
 	      /* It's a letter */
 	      memoryItem->frontcardItem =	 \
-		goo_canvas_item_new (GOO_CANVAS_GROUP(memoryItem->rootItem),
-				       goo_canvas_text_get_type (),
-				       "text", memoryItem->data,
-				       "font", font,
-				       "x", (double) (width2)/2,
-				       "y", (double) (height2)/2,
-				       "anchor", GTK_ANCHOR_CENTER,
-				       "fill_color_rgba", 0x225AFFFF,
-				       NULL);
+		goo_canvas_text_new (GOO_CANVAS_GROUP(memoryItem->rootItem),
+				     "",
+				     (double) (width2)/2,
+				     (double) (height2)/2,
+				     -1,
+				     GTK_ANCHOR_CENTER,
+				     "font", font,
+				     "fill_color_rgba", 0x225AFFFF,
+				     NULL);
 
 	    }
 	  }

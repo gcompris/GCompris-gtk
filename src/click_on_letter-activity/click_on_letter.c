@@ -59,13 +59,13 @@ static void		 config_stop(void);
 
 #define TEXT_COLOR "white"
 
-static GnomeCanvasGroup *boardRootItem = NULL;
+static GooCanvasItem *boardRootItem = NULL;
 
 static GooCanvasItem *l_items[MAX_NUMBER_OF_LETTERS];
 static GooCanvasItem *buttons[MAX_NUMBER_OF_LETTERS];
 static GooCanvasItem *selected_button = NULL;
 
-static GooCanvasItem *click_on_letter_create_item(GnomeCanvasGroup *parent);
+static GooCanvasItem *click_on_letter_create_item(GooCanvasItem *parent);
 
 static void click_on_letter_destroy_all_items(void);
 static void click_on_letter_next_level(void);
@@ -336,7 +336,7 @@ static void click_on_letter_destroy_all_items()
   boardRootItem = NULL;
 }
 /* ==================================== */
-static GooCanvasItem *click_on_letter_create_item(GnomeCanvasGroup *parent)
+static GooCanvasItem *click_on_letter_create_item(GooCanvasItem *parent)
 {
 
   int xOffset,yOffset,i,j;
@@ -409,23 +409,22 @@ static GooCanvasItem *click_on_letter_create_item(GnomeCanvasGroup *parent)
 
 
   for (i=0; i< number_of_letters; i++) {
-    buttons[i] = goo_canvas_item_new (boardRootItem,
-					goo_canvas_pixbuf_get_type (),
-					"pixbuf",  button_pixmap,
-					"x",  (double) xOffset,
-					"y",  (double) yOffset,
-					NULL);
+    buttons[i] = goo_canvas_image_new (boardRootItem,
+				       button_pixmap,
+				       xOffset,
+				       yOffset,
+				       NULL);
 
 
-    l_items[i] = goo_canvas_item_new (boardRootItem,
-					goo_canvas_text_get_type (),
-					"text", letters[i],
-					"font", gc_skin_font_board_huge_bold,
-					"anchor", GTK_ANCHOR_CENTER,
-					"fill_color_rgba", 0x0000ffff,
-					"x",  (double) xOffset + gdk_pixbuf_get_width(button_pixmap)/2,
-					"y",  (double) yOffset + gdk_pixbuf_get_height(button_pixmap)/2 - 5,
-					NULL);
+    l_items[i] = goo_canvas_text_new (boardRootItem,
+				      letters[i],
+				      (double) xOffset + gdk_pixbuf_get_width(button_pixmap)/2,
+				      (double) yOffset + gdk_pixbuf_get_height(button_pixmap)/2 - 5,
+				      -1,
+				      GTK_ANCHOR_CENTER,
+				      "font", gc_skin_font_board_huge_bold,
+				      "fill_color_rgba", 0x0000ffff,
+				      NULL);
 
     g_free(letters[i]);
     xOffset +=HORIZONTAL_SEPARATION +gdk_pixbuf_get_width(button_pixmap);
@@ -519,7 +518,7 @@ static void highlight_selected(GooCanvasItem * item) {
     button_pixmap = gc_pixmap_load("click_on_letter/wagon-yellow.png");
     /* Warning changing the image needs to update pixbuf_ref for the focus usage */
     gc_item_focus_free(selected_button, NULL);
-    goo_canvas_item_set(selected_button, "pixbuf", button_pixmap, NULL);
+    g_object_set(selected_button, "pixbuf", button_pixmap, NULL);
     gdk_pixbuf_unref(button_pixmap);
   }
 
@@ -527,7 +526,7 @@ static void highlight_selected(GooCanvasItem * item) {
     button_pixmap_selected = gc_pixmap_load("click_on_letter/wagon-green.png");
     /* Warning changing the image needs to update pixbuf_ref for the focus usage */
       gc_item_focus_free(button, NULL);
-    goo_canvas_item_set(button, "pixbuf", button_pixmap_selected, NULL);
+    g_object_set(button, "pixbuf", button_pixmap_selected, NULL);
     selected_button = button;
     gdk_pixbuf_unref(button_pixmap_selected);
   }

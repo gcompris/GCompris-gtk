@@ -36,9 +36,9 @@ static void	 set_level (guint level);
 static int	 gamewon;
 static void	 game_won(void);
 
-static GnomeCanvasGroup *boardRootItem = NULL;
+static GooCanvasItem *boardRootItem = NULL;
 
-static GooCanvasItem	*enumerate_create_item(GnomeCanvasGroup *parent);
+static GooCanvasItem	*enumerate_create_item(GooCanvasItem *parent);
 static void		 enumerate_destroy_all_items(void);
 static void		 enumerate_next_level(void);
 static gint		 item_event(GooCanvasItem *item, GdkEvent *event, gpointer data);
@@ -209,7 +209,7 @@ static gint key_press(guint keyval, gchar *commit_str, gchar *preedit_str)
 
   item = answer_item[current_focus];
 
-  if(GNOME_IS_CANVAS_TEXT(item))
+  if(GOO_IS_CANVAS_TEXT(item))
     {
       gchar *oldtext;
       gchar *newtext;
@@ -250,7 +250,7 @@ static gint key_press(guint keyval, gchar *commit_str, gchar *preedit_str)
       if(newtext[0] != '?')
 	answer[current_focus] = atoi(newtext);
 
-      goo_canvas_item_set (item,
+      g_object_set (item,
 			     "text", newtext,
 			     NULL);
 
@@ -354,7 +354,7 @@ static void enumerate_destroy_all_items()
   boardRootItem = NULL;
 }
 /* ==================================== */
-static GooCanvasItem *enumerate_create_item(GnomeCanvasGroup *parent)
+static GooCanvasItem *enumerate_create_item(GooCanvasItem *parent)
 {
   int i,j;
   int current_y;
@@ -362,13 +362,8 @@ static GooCanvasItem *enumerate_create_item(GnomeCanvasGroup *parent)
   GdkPixbuf *pixmap = NULL;
   GdkPixbuf *pixmap_answer = NULL;
 
-  boardRootItem = GOO_CANVAS_GROUP(
-				     goo_canvas_item_new (goo_canvas_get_root_item(gcomprisBoard->canvas),
-							    goo_canvas_group_get_type (),
-							    "x", (double) 0,
-							    "y", (double) 0,
-
-							    NULL));
+  boardRootItem = goo_canvas_group_new (goo_canvas_get_root_item(gcomprisBoard->canvas),
+				   NULL);
 
   current_y = BOARDHEIGHT;
 
@@ -387,12 +382,11 @@ static GooCanvasItem *enumerate_create_item(GnomeCanvasGroup *parent)
 	  x = g_random_int_range(0, ANSWER_X-gdk_pixbuf_get_width(pixmap)-ANSWER_WIDTH);
 	  y = g_random_int_range(0, BOARDHEIGHT-gdk_pixbuf_get_height(pixmap));
 
-	  item = goo_canvas_item_new (boardRootItem,
-					goo_canvas_pixbuf_get_type (),
-					"pixbuf", pixmap,
-					"x", (double) x,
-					"y", (double) y,
-					NULL);
+	  item = goo_canvas_image_new (boardRootItem,
+				       pixmap,
+				       x,
+				       y,
+				       NULL);
 
 	  g_signal_connect(GTK_OBJECT(item), "enter_notify_event", (GtkSignalFunc) item_event, NULL);
 	}
@@ -405,12 +399,11 @@ static GooCanvasItem *enumerate_create_item(GnomeCanvasGroup *parent)
       pixmap_answer = gc_pixmap_load("enumerate/enumerate_answer_focus.png");
 
       item = \
-	goo_canvas_item_new (boardRootItem,
-			       goo_canvas_pixbuf_get_type (),
-			       "pixbuf", pixmap_answer,
-			       "x", (double) ANSWER_X - ANSWER_WIDTH/2,
-			       "y", (double) current_y - ANSWER_HEIGHT/2,
-			       NULL);
+	goo_canvas_image_new (boardRootItem,
+			      pixmap_answer,
+			      ANSWER_X - ANSWER_WIDTH/2,
+			      current_y - ANSWER_HEIGHT/2,
+			      NULL);
 
       g_signal_connect(GTK_OBJECT(item), "enter_notify_event", (GtkSignalFunc) item_event_focus, GINT_TO_POINTER(i));
 
@@ -419,25 +412,21 @@ static GooCanvasItem *enumerate_create_item(GnomeCanvasGroup *parent)
       pixmap_answer = gc_pixmap_load("enumerate/enumerate_answer.png");
 
       answer_item_focus[i] = \
-	goo_canvas_item_new (boardRootItem,
-			       goo_canvas_pixbuf_get_type (),
-			       "pixbuf", pixmap_answer,
-			       "x", (double) ANSWER_X - ANSWER_WIDTH/2,
-			       "y", (double) current_y - ANSWER_HEIGHT/2,
-			       NULL);
+	goo_canvas_image_new (boardRootItem,
+			      pixmap_answer,
+			      ANSWER_X - ANSWER_WIDTH/2,
+			      current_y - ANSWER_HEIGHT/2,
+			      NULL);
 
       gdk_pixbuf_unref(pixmap_answer);
       goo_canvas_item_hide(answer_item_focus[i]);
 
-      item = goo_canvas_item_new (boardRootItem,
-				    goo_canvas_pixbuf_get_type (),
-				    "pixbuf", pixmap,
-				    "x", (double) ANSWER_X,
-				    "y", (double) current_y,
-				    "width", (double) gdk_pixbuf_get_width(pixmap)*ANSWER_HEIGHT/gdk_pixbuf_get_height(pixmap),
-				    "height", (double) ANSWER_HEIGHT,
-				    "width_set", TRUE,
-				    "height_set", TRUE,
+      item = goo_canvas_image_new (boardRootItem,
+				   pixmap,
+				   ANSWER_X,
+				   current_y,
+				   "width", (double) gdk_pixbuf_get_width(pixmap)*ANSWER_HEIGHT/gdk_pixbuf_get_height(pixmap),
+				   "height", (double) ANSWER_HEIGHT,
 				    NULL);
 
 
@@ -448,15 +437,15 @@ static GooCanvasItem *enumerate_create_item(GnomeCanvasGroup *parent)
 			 NULL);
 
       answer_item[i] = \
-	goo_canvas_item_new (boardRootItem,
-			       goo_canvas_text_get_type (),
-			       "text", "?",
-			       "font", gc_skin_font_board_big,
-			       "x", (double) ANSWER_X + 2.5*ANSWER_WIDTH,
-			       "y", (double) current_y + ANSWER_HEIGHT/2,
-			       "anchor", GTK_ANCHOR_EAST,
-			       "fill_color", "blue",
-			       NULL);
+	goo_canvas_text_new (boardRootItem,
+			     "?",
+			     (double) ANSWER_X + 2.5*ANSWER_WIDTH,
+			     (double) current_y + ANSWER_HEIGHT/2,
+			     -1,
+			     GTK_ANCHOR_EAST,
+			     "font", gc_skin_font_board_big,
+			     "fill_color", "blue",
+			     NULL);
       g_signal_connect(GTK_OBJECT(answer_item[i]), "enter_notify_event", (GtkSignalFunc) item_event_focus,
 			 GINT_TO_POINTER(i));
 

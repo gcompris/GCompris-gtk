@@ -83,7 +83,7 @@ static gboolean	 	 is_our_board (GcomprisBoard *gcomprisBoard);
 static void	 	 set_level (guint level);
 static gint	 	 key_press(guint keyval, gchar *commit_str, gchar *preedit_str);
 
-static GooCanvasItem	*paratrooper_create_cloud(GnomeCanvasGroup *parent);
+static GooCanvasItem	*paratrooper_create_cloud(GooCanvasItem *parent);
 static gint		 paratrooper_drop_clouds (GtkWidget *widget, gpointer data);
 static gint		 paratrooper_move_items (GtkWidget *widget, gpointer data);
 static gint		 paratrooper_move_tux (GtkWidget *widget, gpointer data);
@@ -329,15 +329,12 @@ static void paratrooper_next_level()
   pixmap = gc_pixmap_load(str);
   plane_x = 0;
   plane_y = 40;
-  planeitem = goo_canvas_item_new (goo_canvas_get_root_item(gcomprisBoard->canvas),
-				     goo_canvas_pixbuf_get_type (),
-				     "pixbuf", pixmap,
-				     "x", (double) plane_x,
-				     "y", (double) plane_y,
+  planeitem = goo_canvas_image_new (goo_canvas_get_root_item(gcomprisBoard->canvas),
+				    pixmap,
+				    (double) plane_x,
+				    (double) plane_y,
 				     "width", (double) gdk_pixbuf_get_width(pixmap)*imageZoom,
 				     "height", (double) gdk_pixbuf_get_height(pixmap)*imageZoom,
-				     "width_set", TRUE,
-				     "height_set", TRUE,
 				     NULL);
   g_signal_connect(GTK_OBJECT(planeitem), "enter_notify_event",
 		     (GtkSignalFunc) item_event,
@@ -365,15 +362,12 @@ static void paratrooper_next_level()
   boat_y = gcomprisBoard->height-100;
   boat_landarea_y = boat_y+20;
   boat_length = gdk_pixbuf_get_width(pixmap)*imageZoom;
-  boatitem = goo_canvas_item_new (goo_canvas_get_root_item(gcomprisBoard->canvas),
-				    goo_canvas_pixbuf_get_type (),
-				    "pixbuf", pixmap,
-				    "x", (double) boat_x,
-				    "y", (double) boat_y,
+  boatitem = goo_canvas_image_new (goo_canvas_get_root_item(gcomprisBoard->canvas),
+				   pixmap,
+				   (double) boat_x,
+				   (double) boat_y,
 				    "width", (double) gdk_pixbuf_get_width(pixmap)*imageZoom,
 				    "height", (double) gdk_pixbuf_get_height(pixmap),
-				    "width_set", TRUE,
-				    "height_set", TRUE,
 				    NULL);
   gdk_pixbuf_unref(pixmap);
 
@@ -399,13 +393,10 @@ static void paratrooper_next_level()
   str = g_strdup_printf("%s%s", pixmapsdir, "minitux.png");
   pixmap = gc_pixmap_load(str);
 
-  paratrooperItem.paratrooper = goo_canvas_item_new (GOO_CANVAS_GROUP(paratrooperItem.rootitem),
-						       goo_canvas_pixbuf_get_type (),
-						       "pixbuf", pixmap,
-						       "x", (double) -gdk_pixbuf_get_width(pixmap)/2,
-						       "y", (double) -gdk_pixbuf_get_height(pixmap)/2,
-						       "width", (double) gdk_pixbuf_get_width(pixmap),
-						       "height", (double) gdk_pixbuf_get_height(pixmap),
+  paratrooperItem.paratrooper = goo_canvas_image_new (GOO_CANVAS_GROUP(paratrooperItem.rootitem),
+						      pixmap,
+						      (double) -gdk_pixbuf_get_width(pixmap)/2,
+						      (double) -gdk_pixbuf_get_height(pixmap)/2,
 						       NULL);
   goo_canvas_item_hide(paratrooperItem.paratrooper);
   gdk_pixbuf_unref(pixmap);
@@ -420,28 +411,25 @@ static void paratrooper_next_level()
   str = g_strdup_printf("%s%s", pixmapsdir, "parachute.png");
   pixmap = gc_pixmap_load(str);
 
-  paratrooperItem.parachute = goo_canvas_item_new (GOO_CANVAS_GROUP(paratrooperItem.rootitem),
-						     goo_canvas_pixbuf_get_type (),
-						     "pixbuf", pixmap,
-						     "x", (double) -gdk_pixbuf_get_width(pixmap)/2,
-						     "y", (double) -(gdk_pixbuf_get_height(pixmap)/2)-60,
-						     "width", (double) gdk_pixbuf_get_width(pixmap),
-						     "height", (double) gdk_pixbuf_get_height(pixmap),
+  paratrooperItem.parachute = goo_canvas_image_new (GOO_CANVAS_GROUP(paratrooperItem.rootitem),
+						    pixmap,
+						    (double) -gdk_pixbuf_get_width(pixmap)/2,
+						    (double) -(gdk_pixbuf_get_height(pixmap)/2)-60,
 						     NULL);
   goo_canvas_item_hide(paratrooperItem.parachute);
   gdk_pixbuf_unref(pixmap);
 
   g_free (str);
 
-  paratrooperItem.instruct = goo_canvas_item_new (goo_canvas_get_root_item (gcomprisBoard->canvas),
-						    goo_canvas_text_get_type (),
-						    "text", _("Control fall speed with up and down arrow keys."),
-						    "font", gc_skin_font_board_medium,
-						    "fill_color_rgba", gc_skin_color_title,
-						    "anchor", GTK_ANCHOR_CENTER,
-						    "x", (double) gcomprisBoard->width / 2.0,
-						    "y", (double) 130,
-						    NULL);
+  paratrooperItem.instruct = goo_canvas_text_new (goo_canvas_get_root_item (gcomprisBoard->canvas),
+						  _("Control fall speed with up and down arrow keys."),
+						  (double) gcomprisBoard->width / 2.0,
+						  (double) 130,
+						  -1,
+						  GTK_ANCHOR_CENTER,
+						  "font", gc_skin_font_board_medium,
+						  "fill_color_rgba", gc_skin_color_title,
+						  NULL);
   goo_canvas_item_hide (paratrooperItem.instruct);
 }
 
@@ -633,7 +621,7 @@ static gint paratrooper_move_tux (GtkWidget *widget, gpointer data)
   return(FALSE);
 }
 
-static GooCanvasItem *paratrooper_create_cloud(GnomeCanvasGroup *parent)
+static GooCanvasItem *paratrooper_create_cloud(GooCanvasItem *parent)
 {
   GdkPixbuf *pixmap = NULL;
   GooCanvasItem *itemgroup;
@@ -660,15 +648,12 @@ static GooCanvasItem *paratrooper_create_cloud(GnomeCanvasGroup *parent)
 			   NULL);
 
 
-  goo_canvas_item_new (GOO_CANVAS_GROUP(itemgroup),
-			 goo_canvas_pixbuf_get_type (),
-			 "pixbuf", pixmap,
-			 "x", (double) -gdk_pixbuf_get_width(pixmap)*imageZoom/2,
-			 "y", (double) -gdk_pixbuf_get_height(pixmap)*imageZoom/2,
+  goo_canvas_image_new (GOO_CANVAS_GROUP(itemgroup),
+			pixmap,
+			(double) -gdk_pixbuf_get_width(pixmap)*imageZoom/2,
+			(double) -gdk_pixbuf_get_height(pixmap)*imageZoom/2,
 			 "width", (double) gdk_pixbuf_get_width(pixmap)*imageZoom,
 			 "height", (double) gdk_pixbuf_get_height(pixmap)*imageZoom,
-			 "width_set", TRUE,
-			 "height_set", TRUE,
 			 NULL);
   gdk_pixbuf_unref(pixmap);
 

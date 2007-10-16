@@ -33,7 +33,7 @@ static char *numbers = "123456";
 static  int  gamewon;
 static guint number_of_dices=1;
 
-static GnomeCanvasGroup *boardRootItem = NULL;
+static GooCanvasItem *boardRootItem = NULL;
 
 static void start_board (GcomprisBoard *agcomprisBoard);
 static void pause_board (gboolean pause);
@@ -42,7 +42,7 @@ static gboolean is_our_board (GcomprisBoard *gcomprisBoard);
 static void set_level (guint level);
 static gint key_press(guint keyval, gchar *commit_str, gchar *preedit_str);
 
-static void smallnumbers_create_item(GnomeCanvasGroup *parent);
+static void smallnumbers_create_item(GooCanvasItem *parent);
 static gint smallnumbers_drop_items (GtkWidget *widget, gpointer data);
 static gint smallnumbers_move_items (GtkWidget *widget, gpointer data);
 static void smallnumbers_destroy_all_items(void);
@@ -354,11 +354,11 @@ static gint smallnumbers_move_items (GtkWidget *widget, gpointer data)
   return(FALSE);
 }
 
-static void smallnumbers_create_item(GnomeCanvasGroup *parent)
+static void smallnumbers_create_item(GooCanvasItem *parent)
 {
   GdkPixbuf *smallnumbers_pixmap = NULL;
   GooCanvasItem *item;
-  GnomeCanvasGroup *group_item;
+  GooCanvasItem *group_item;
   guint i;
   guint total_number = 0;
   double x = 0.0;
@@ -443,15 +443,10 @@ static void smallnumbers_create_item(GnomeCanvasGroup *parent)
 	x += ((gdk_pixbuf_get_width(smallnumbers_pixmap)-10)*imageZoom);
       }
 
-    item = goo_canvas_item_new (group_item,
-				  goo_canvas_pixbuf_get_type (),
-				  "pixbuf", smallnumbers_pixmap,
-				  "x", x,
-				  "y", (double) -gdk_pixbuf_get_height(smallnumbers_pixmap)*imageZoom,
-				  "width", (double) gdk_pixbuf_get_width(smallnumbers_pixmap)*imageZoom,
-				  "height", (double) gdk_pixbuf_get_height(smallnumbers_pixmap)*imageZoom,
-				  "width_set", TRUE,
-				  "height_set", TRUE,
+    item = goo_canvas_image_new (group_item,
+				 smallnumbers_pixmap,
+				 x,
+				 -gdk_pixbuf_get_height(smallnumbers_pixmap)*imageZoom,
 				  NULL);
     gdk_pixbuf_unref(smallnumbers_pixmap);
   }

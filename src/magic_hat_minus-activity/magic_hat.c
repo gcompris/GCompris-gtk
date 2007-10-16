@@ -73,7 +73,7 @@ typedef struct {
 // Global variables
 static GcomprisBoard *gcomprisBoard = NULL;
 static gboolean board_paused = TRUE;
-static GnomeCanvasGroup *boardRootItem = NULL;
+static GooCanvasItem *boardRootItem = NULL;
 static gint timer_id = 0;
 static gint board_mode = DEFAULT_MODE;
 static gint hat_event_id;	// value returned by g_signal_connect. Used by gtk_signal_disconnect
@@ -294,9 +294,9 @@ static GooCanvasItem *magic_hat_create_item()
   GdkPixbuf *pixmap;
   int step;
 
-  boardRootItem = GOO_CANVAS_GROUP(goo_canvas_item_new (goo_canvas_get_root_item(gcomprisBoard->canvas),
+  boardRootItem = GOO_CANVAS_GROUP(goo_canvas_image_new (goo_canvas_get_root_item(gcomprisBoard->canvas),
 				     goo_canvas_group_get_type (),
-				     "x", (double) 0,
+							 (double) 0,
 				     "y", (double) 0,
 				     NULL));
 
@@ -305,13 +305,11 @@ static GooCanvasItem *magic_hat_create_item()
   else
 	pixmap = gc_pixmap_load("magic_hat/magic_hat_plus_bg.png");
 
-  goo_canvas_item_new (boardRootItem,
-			 goo_canvas_pixbuf_get_type(),
-			 "pixbuf", pixmap,
-			 "x", 0.0,
-			 "y", 0.0,
-			 "anchor", GTK_ANCHOR_NW,
-			 NULL);
+  goo_canvas_image_new (boardRootItem,
+			pixmap,
+			0.0,
+			0.0,
+			NULL);
   gdk_pixbuf_unref(pixmap);
 
   // Initialisation for frame1
@@ -369,7 +367,6 @@ static GooCanvasItem *magic_hat_create_item()
 
 	for (j = 0 ; j < frame1.nb_stars[i] ; j++) frame1.array_star_type[i][j] = i;
 	for ( ; j < MAX_ITEM ; j++) frame1.array_star_type[i][j] = -1;
-	for (j = 0 ; j < MAX_ITEM ; j++) frame1.array_item[i][j] = goo_canvas_item_new (boardRootItem, goo_canvas_pixbuf_get_type(), NULL);
 
 	// Frame 2
 	if (board_mode == MODE_MINUS)
@@ -500,17 +497,11 @@ static void draw_hat(int type) {
   else
 	image = gc_pixmap_load("magic_hat/hat-point.png");
 
-  hat = goo_canvas_item_new (boardRootItem,
-		goo_canvas_pixbuf_get_type(),
-		"pixbuf", image,
-		"x", (double) MH_HAT_X,
-		"y", (double) MH_HAT_Y,
-		"width", (double) MH_HAT_WIDTH,
-		"height", (double) MH_HAT_HEIGHT,
-		"width_set", TRUE,
-		"height_set", TRUE,
-		"anchor", GTK_ANCHOR_NW,
-		NULL);
+  hat = goo_canvas_image_new (boardRootItem,
+			      image,
+			      MH_HAT_X,
+			      MH_HAT_Y,
+			      NULL);
 
   gdk_pixbuf_unref(image);
 
@@ -571,17 +562,13 @@ static void place_item(frame * my_frame, int type) {
 			nb_item = 1;
 
 		for (k = 0 ; k < nb_item ; k++) {
-			item = goo_canvas_item_new (boardRootItem,
-				goo_canvas_pixbuf_get_type(),
-				"pixbuf", image,
-				"x", item_x,
-				"y", item_y,
-				"width", (double) (ITEM_SIZE - 2),
-				"height", (double) (ITEM_SIZE - 2),
-				"width_set", TRUE,
-				"height_set", TRUE,
-				"anchor", GTK_ANCHOR_NW,
-				NULL);
+			item = goo_canvas_image_new (boardRootItem,
+						     image,
+						     item_x,
+						     item_y,
+						     "width", (double) (ITEM_SIZE - 2),
+						     "height", (double) (ITEM_SIZE - 2),
+						     NULL);
 		}
 
 		if (type == DYNAMIC)
@@ -623,7 +610,7 @@ static gint item_event(GooCanvasItem *item, GdkEvent *event, gpointer data) {
 
 		  pixmap = gc_pixmap_load("magic_hat/star-clear.png");
 
-		  goo_canvas_item_set(item, "pixbuf", pixmap, NULL);
+		  g_object_set(item, "pixbuf", pixmap, NULL);
 
 		  gdk_pixbuf_unref(pixmap);
 
@@ -640,7 +627,7 @@ static gint item_event(GooCanvasItem *item, GdkEvent *event, gpointer data) {
 		    case 1: pixmap = gc_pixmap_load("magic_hat/star2.png"); break;
 		    case 2: pixmap = gc_pixmap_load("magic_hat/star3.png"); break;
 		    }
-		  goo_canvas_item_set(item, "pixbuf", pixmap, NULL);
+		  g_object_set(item, "pixbuf", pixmap, NULL);
 
 		  gdk_pixbuf_unref(pixmap);
 		}

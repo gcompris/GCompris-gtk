@@ -41,14 +41,20 @@ static void	 set_level (guint level);
 static int	 gamewon;
 static void	 game_won(void);
 
-static GnomeCanvasGroup *boardRootItem = NULL;
+static GooCanvasItem *boardRootItem = NULL;
 
 static GooCanvasItem	*erase_create_item();
 static void		 erase_destroy_all_items(void);
 static void		 erase_next_level(void);
-static gint		 item_event(GooCanvasItem *item, GdkEvent *event, gpointer data);
 static void		 shuffle_image_list(char *list[], int size);
-static gint              canvas_event(GnomeCanvas *canvas, GdkEvent *event);
+static gboolean		 item_event (GooCanvasItem  *item,
+				     GooCanvasItem  *target,
+				     GdkEventButton *event,
+				     gpointer *data);
+static gboolean		 canvas_event (GooCanvasItem  *item,
+				       GooCanvasItem  *target,
+				       GdkEventButton *event,
+				       gpointer *data);
 
 static int number_of_items = 0;
 static int number_of_item_x = 0;
@@ -185,7 +191,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       CoverPixmap[2] = gc_pixmap_load("erase/transparent_square_yellow.png");
 
       event_handle_id =
-	g_signal_connect(GTK_OBJECT(gcomprisBoard->canvas), "enter_notify_event",
+	g_signal_connect(GTK_OBJECT(gcomprisBoard->canvas), "button_press_event",
 			   (GtkSignalFunc) canvas_event, 0);
 
       if (strcmp(gcomprisBoard->mode,"clic")==0)
@@ -366,17 +372,13 @@ static void add_one_item(int i, int j, int protect)
     {
       assert(CoverPixmap[current_layer]);
       GooCanvasItem *item =
-	goo_canvas_item_new (boardRootItem,
-				    goo_canvas_pixbuf_get_type (),
-				    "pixbuf", CoverPixmap[current_layer],
-				    "x", (double) i,
-				    "y", (double) j,
-				    "width", w,
-				    "height", h,
-				    "width_set", TRUE,
-				    "height_set", TRUE,
-				    "anchor", GTK_ANCHOR_NW,
-				    NULL);
+	goo_canvas_image_new (boardRootItem,
+			      CoverPixmap[current_layer],
+			      i,
+			      j,
+			      "width", w,
+			      "height", h,
+			      NULL);
 
       counter *c = g_new (counter, 1);
       c->count = 0 ;
@@ -388,7 +390,9 @@ static void add_one_item(int i, int j, int protect)
       if (current_layer > 0 || get_num_layers() == 4)
 	c->max += 1;
 
-      g_signal_connect_data (item, "enter_notify_event", (GCallback) item_event,(gpointer)c,
+      g_signal_connect_data (item, "enter_notify_event",
+			     (GCallback) item_event,
+			     (gpointer)c,
 			     (GClosureNotify) g_free, 0);
       number_of_items++;
       if (items_per_cell)
@@ -401,12 +405,8 @@ static GooCanvasItem *erase_create_item()
 {
   int i,j;
 
-  boardRootItem = GOO_CANVAS_GROUP(
-				     goo_canvas_item_new (goo_canvas_get_root_item(gcomprisBoard->canvas),
-							    goo_canvas_group_get_type (),
-							    "x", (double) 0,
-							    "y", (double) 0,
-							    NULL));
+  boardRootItem = goo_canvas_group_new (goo_canvas_get_root_item(gcomprisBoard->canvas),
+					NULL);
 
   assert(number_of_items == 0);
 
@@ -474,14 +474,13 @@ erase_one_item (GooCanvasItem *item)
 }
 
 /* ==================================== */
-static gint
-item_event(GooCanvasItem *item, GdkEvent *event, gpointer data)
+static gboolean		 item_event (GooCanvasItem  *item,
+				     GooCanvasItem  *target,
+				     GdkEventButton *event,
+				     gpointer *data)
 {
   counter *c = (counter *) data;
   if(board_paused)
-    return FALSE;
-
-  if (event->type == GDK_MOTION_NOTIFY)
     return FALSE;
 
   if (board_mode == NORMAL) {
@@ -511,27 +510,24 @@ item_event(GooCanvasItem *item, GdkEvent *event, gpointer data)
   return FALSE;
 }
 
-static gint
-canvas_event(GnomeCanvas *canvas, GdkEvent *event)
+static gboolean canvas_event (GooCanvasItem  *item,
+			      GooCanvasItem  *target,
+			      GdkEventButton *event,
+			      gpointer *data)
 {
   if (!gcomprisBoard || board_paused)
     return FALSE;
 
-  switch (event->type)
+  if (board_mode == NORMAL)
     {
-    case GDK_BUTTON_PRESS:
-      if (board_mode == NORMAL) {
-	int x = event->button.x;
-	int y = event->button.y;
-	int item_x = x / (BOARDWIDTH/number_of_item_x);
-	int item_y = y / (BOARDHEIGHT/number_of_item_y);
-	if (items_per_cell[item_x * number_of_item_x + item_y] == 0)
-	  add_one_item(x, y, 1);
-      }
-      break;
-    default:
-      break;
+      int x = event->x;
+      int y = event->y;
+      int item_x = x / (BOARDWIDTH/number_of_item_x);
+      int item_y = y / (BOARDHEIGHT/number_of_item_y);
+      if (items_per_cell[item_x * number_of_item_x + item_y] == 0)
+	add_one_item(x, y, 1);
     }
+
   return FALSE;
 }
 

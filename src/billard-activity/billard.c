@@ -61,9 +61,9 @@ static void	 set_level (guint level);
 static int	 gamewon;
 static void	 game_won(void);
 
-static GnomeCanvasGroup *boardRootItem = NULL;
+static GooCanvasItem *boardRootItem = NULL;
 
-static GooCanvasItem	*minigolf_create_item(GnomeCanvasGroup *parent);
+static GooCanvasItem	*minigolf_create_item(GooCanvasItem *parent);
 static void		 minigolf_destroy_all_items(void);
 static void		 minigolf_next_level(void);
 static gint		 item_event(GooCanvasItem *item, GdkEvent *event, MachItem *machItem);
@@ -232,7 +232,7 @@ static void minigolf_destroy_all_items()
   item_list = NULL;
 }
 /* ==================================== */
-static GooCanvasItem *minigolf_create_item(GnomeCanvasGroup *parent)
+static GooCanvasItem *minigolf_create_item(GooCanvasItem *parent)
 {
 
   boardRootItem = GOO_CANVAS_GROUP(

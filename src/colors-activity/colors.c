@@ -39,10 +39,10 @@ static void		 colors_config_start(GcomprisBoard *agcomprisBoard,
 static void		 colors_config_stop(void);
 
 /* ================================================================ */
-static GnomeCanvasGroup *boardRootItem = NULL;
+static GooCanvasItem *boardRootItem = NULL;
 static GooCanvasItem *highlight_image_item = NULL;
 
-static GooCanvasItem *colors_create_item(GnomeCanvasGroup *parent);
+static GooCanvasItem *colors_create_item(GooCanvasItem *parent);
 static void colors_destroy_all_items(void);
 static void colors_next_level(void);
 static gint item_event(GooCanvasItem *item, GdkEvent *event, gpointer data);
@@ -330,25 +330,25 @@ static void repeat (){
 
       str = g_strdup_printf(gettext(colors[GPOINTER_TO_INT(g_list_nth_data(listColors, 0))*2+1]));
 
-      goo_canvas_item_new (boardRootItem,
-			     goo_canvas_text_get_type (),
-			     "text", str,
-			     "font", gc_skin_font_board_huge_bold,
-			     "x", (double) BOARDWIDTH/2+2,
-			     "y", (double) BOARDHEIGHT-25+2,
-			     "anchor", GTK_ANCHOR_CENTER,
-			     "fill_color", "black",
-			     NULL);
+      goo_canvas_text_new (boardRootItem,
+			   str,
+			   (double) BOARDWIDTH/2+2,
+			   (double) BOARDHEIGHT-25+2,
+			   -1,
+			   GTK_ANCHOR_CENTER,
+			   "font", gc_skin_font_board_huge_bold,
+			   "fill_color", "black",
+			   NULL);
 
-      goo_canvas_item_new (boardRootItem,
-			     goo_canvas_text_get_type (),
-			     "text", str,
-			     "font", gc_skin_font_board_huge_bold,
-			     "x", (double) BOARDWIDTH/2,
-			     "y", (double) BOARDHEIGHT-25,
-			     "anchor", GTK_ANCHOR_CENTER,
-			     "fill_color", "blue",
-			     NULL);
+      goo_canvas_text_new (boardRootItem,
+			   str,
+			   (double) BOARDWIDTH/2,
+			   (double) BOARDHEIGHT-25,
+			   -1,
+			   GTK_ANCHOR_CENTER,
+			   "font", gc_skin_font_board_huge_bold,
+			   "fill_color", "blue",
+			   NULL);
       g_free(str);
     }
 }
@@ -365,7 +365,7 @@ static void colors_destroy_all_items() {
 /* =====================================================================
  *
  * =====================================================================*/
-static GooCanvasItem *colors_create_item(GnomeCanvasGroup *parent) {
+static GooCanvasItem *colors_create_item(GooCanvasItem *parent) {
   GdkPixbuf *highlight_pixmap = NULL;
   char *str = NULL;
 
@@ -379,16 +379,11 @@ static GooCanvasItem *colors_create_item(GnomeCanvasGroup *parent) {
   str = g_strdup_printf("%s/%s", gcomprisBoard->boarddir, "colors_highlight.png");
   highlight_pixmap = gc_pixmap_load(str);
 
-  highlight_image_item = goo_canvas_item_new (boardRootItem,
-						goo_canvas_pixbuf_get_type (),
-						"pixbuf", highlight_pixmap,
-						"x", (double) 0,
-						"y", (double) 0,
-						"width", (double) gdk_pixbuf_get_width(highlight_pixmap),
-						"height", (double) gdk_pixbuf_get_height(highlight_pixmap),
-						"width_set", TRUE,
-						"height_set", TRUE,
-						NULL);
+  highlight_image_item = goo_canvas_image_new (boardRootItem,
+					       highlight_pixmap,
+					       0,
+					       0,
+					       NULL);
 
   highlight_width = gdk_pixbuf_get_width(highlight_pixmap);
   highlight_height = gdk_pixbuf_get_height(highlight_pixmap);

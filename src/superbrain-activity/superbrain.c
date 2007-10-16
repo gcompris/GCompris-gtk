@@ -28,7 +28,7 @@ static gboolean board_paused = TRUE;
  * Contains the points that represents the anchors
  */
 typedef struct {
-  GnomeCanvasGroup	*rootitem;
+  GooCanvasItem	*rootitem;
   GList			*listitem;
   guint			 selecteditem;
   GooCanvasItem	*good;
@@ -77,11 +77,11 @@ static void	 set_level (guint level);
 static int	 gamewon;
 static void	 game_won(void);
 
-static GnomeCanvasGroup *boardRootItem = NULL;
-static GnomeCanvasGroup	*boardLogoItem = NULL;
+static GooCanvasItem *boardRootItem = NULL;
+static GooCanvasItem	*boardLogoItem = NULL;
 
 
-static GooCanvasItem	*superbrain_create_item(GnomeCanvasGroup *parent);
+static GooCanvasItem	*superbrain_create_item(GooCanvasItem *parent);
 static void		 superbrain_destroy_all_items(void);
 static void		 superbrain_next_level(void);
 static gint		 item_event(GooCanvasItem *item, GdkEvent *event, Piece *piece);
@@ -315,7 +315,7 @@ static void superbrain_destroy_all_items()
   boardLogoItem = NULL;
 }
 /* ==================================== */
-static GooCanvasItem *superbrain_create_item(GnomeCanvasGroup *parent)
+static GooCanvasItem *superbrain_create_item(GooCanvasItem *parent)
 {
   int i, j, x;
   double x1, x2;

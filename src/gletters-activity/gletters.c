@@ -106,7 +106,7 @@ static void gletter_config_start(GcomprisBoard *agcomprisBoard,
 					     GcomprisProfile *aProfile);
 static void gletter_config_stop(void);
 
-static GooCanvasItem *gletters_create_item(GnomeCanvasGroup *parent);
+static GooCanvasItem *gletters_create_item(GooCanvasItem *parent);
 static gint gletters_drop_items (GtkWidget *widget, gpointer data);
 static gint gletters_move_items (GtkWidget *widget, gpointer data);
 static void gletters_destroy_item(GooCanvasItem *item);
@@ -584,7 +584,7 @@ void destroy_canvas_item(gpointer item)
   gtk_object_destroy (GTK_OBJECT(item));
 }
 
-static GooCanvasItem *gletters_create_item(GnomeCanvasGroup *parent)
+static GooCanvasItem *gletters_create_item(GooCanvasItem *parent)
 {
   GooCanvasItem *item;
   gint i,j,k;
@@ -652,25 +652,25 @@ static GooCanvasItem *gletters_create_item(GnomeCanvasGroup *parent)
 			   NULL);
 
   x = g_random_int_range( 80, gcomprisBoard->width-160);
-  goo_canvas_item_new (GOO_CANVAS_GROUP(item),
-			 goo_canvas_text_get_type (),
-			 "text", letter,
-			 "font", gc_skin_font_board_huge_bold,
-			 "x", (double) x,
-			 "y", (double) -20,
-			 "anchor", GTK_ANCHOR_CENTER,
-			 "fill_color_rgba", 0x8c8cFFFF,
-			 NULL);
+  goo_canvas_text_new (GOO_CANVAS_GROUP(item),
+		       letter,
+		       (double) x,
+		       (double) -20,
+		       -1,
+		       GTK_ANCHOR_CENTER,
+		       "font", gc_skin_font_board_huge_bold,
+		       "fill_color_rgba", 0x8c8cFFFF,
+		       NULL);
   x -= 2;
-  goo_canvas_item_new (GOO_CANVAS_GROUP(item),
-			 goo_canvas_text_get_type (),
-			 "text", letter,
-			 "font", gc_skin_font_board_huge_bold,
-			 "x", (double) x,
-			 "y", (double) -22,
-			 "anchor", GTK_ANCHOR_CENTER,
-			 "fill_color_rgba", 0x254c87FF,
-			 NULL);
+  goo_canvas_text_new (GOO_CANVAS_GROUP(item),
+		       letter,
+		       (double) x,
+		       (double) -22,
+		       -1,
+		       GTK_ANCHOR_CENTER,
+		       "font", gc_skin_font_board_huge_bold,
+		       "fill_color_rgba", 0x254c87FF,
+		       NULL);
 
   g_object_set_data (G_OBJECT(item), "unichar_key", lettersItem);
   g_object_set_data (G_OBJECT(item), "utf8_key", letter);

@@ -36,9 +36,9 @@ static void	 set_level (guint level);
 static int	 gamewon;
 static void	 game_won(void);
 
-static GnomeCanvasGroup *boardRootItem = NULL;
+static GooCanvasItem *boardRootItem = NULL;
 
-static GooCanvasItem	*fifteen_create_item(GnomeCanvasGroup *parent);
+static GooCanvasItem	*fifteen_create_item(GooCanvasItem *parent);
 static void		 fifteen_destroy_all_items(void);
 static void		 fifteen_next_level(void);
 
@@ -187,7 +187,7 @@ static void fifteen_destroy_all_items()
   boardRootItem = NULL;
 }
 /* ==================================== */
-static GooCanvasItem *fifteen_create_item(GnomeCanvasGroup *parent)
+static GooCanvasItem *fifteen_create_item(GooCanvasItem *parent)
 {
   int i;
   int x, y;
@@ -196,22 +196,21 @@ static GooCanvasItem *fifteen_create_item(GnomeCanvasGroup *parent)
   char buf[20];
   GdkPixbuf *pixmap = NULL;
 
-  boardRootItem = GOO_CANVAS_GROUP(
-				     goo_canvas_item_new (goo_canvas_get_root_item(gcomprisBoard->canvas),
-							    goo_canvas_group_get_type (),
-							    "x", (double) (BOARDWIDTH-(4*PIECE_SIZE))/2,
-							    "y", (double) (BOARDHEIGHT-(4*PIECE_SIZE))/2,
-							    NULL));
+  boardRootItem = goo_canvas_group_new (goo_canvas_get_root_item(gcomprisBoard->canvas),
+				   NULL);
+
+  goo_canvas_item_translate(boardRootItem,
+			    (BOARDWIDTH-(4*PIECE_SIZE))/2,
+			    (BOARDHEIGHT-(4*PIECE_SIZE))/2);
 
   /* Load the cute frame */
   pixmap = gc_pixmap_load("fifteen/fifteen_frame.png");
 
-  goo_canvas_item_new (boardRootItem,
-			 goo_canvas_pixbuf_get_type (),
-			 "pixbuf", pixmap,
-			 "x", (double)-1*((gdk_pixbuf_get_width(pixmap)-(4*PIECE_SIZE))/2),
-			 "y", (double)-1*((gdk_pixbuf_get_height(pixmap)-(4*PIECE_SIZE))/2)-2,
-			 NULL);
+  goo_canvas_image_new (boardRootItem,
+			pixmap,
+			-1*((gdk_pixbuf_get_width(pixmap)-(4*PIECE_SIZE))/2),
+			-1*((gdk_pixbuf_get_height(pixmap)-(4*PIECE_SIZE))/2)-2,
+			NULL);
   gdk_pixbuf_unref(pixmap);
 
 
@@ -225,34 +224,33 @@ static GooCanvasItem *fifteen_create_item(GnomeCanvasGroup *parent)
     y = i / 4;
     x = i % 4;
 
-    board[i] = goo_canvas_item_new (boardRootItem,
-				      goo_canvas_group_get_type (),
-				      "x", (double) (x * PIECE_SIZE),
-				      "y", (double) (y * PIECE_SIZE),
-				      NULL);
+    board[i] = goo_canvas_group_new (boardRootItem, NULL);
 
-    goo_canvas_item_new (GOO_CANVAS_GROUP (board[i]),
-			   goo_canvas_rect_get_type (),
-			   "x1", 0.0,
-			   "y1", 0.0,
-			   "x2", (double) PIECE_SIZE,
-			   "y2", (double) PIECE_SIZE,
-			   "fill_color", get_piece_color (i),
-			   "outline_color", "black",
-			   "width_pixels", 0,
-			   NULL);
+    goo_canvas_item_translate(board[i],
+			      (x * PIECE_SIZE),
+			      (y * PIECE_SIZE));
+
+    goo_canvas_rect_new (board[i],
+			 0.0,
+			 0.0,
+			 PIECE_SIZE,
+			 PIECE_SIZE,
+			 "fill_color", get_piece_color (i),
+			 "outline_color", "black",
+			 "width_pixels", 0,
+			 NULL);
 
     sprintf (buf, "%d", i + 1);
 
-    text = goo_canvas_item_new (GOO_CANVAS_GROUP (board[i]),
-				  goo_canvas_text_get_type (),
-				  "text", buf,
-				  "x", (double) PIECE_SIZE / 2.0,
-				  "y", (double) PIECE_SIZE / 2.0,
-				  "font", gc_skin_font_board_medium,
-				  "anchor", GTK_ANCHOR_CENTER,
-				  "fill_color", "black",
-				  NULL);
+    text = goo_canvas_text_new (board[i],
+				buf,
+				(double) PIECE_SIZE / 2.0,
+				(double) PIECE_SIZE / 2.0,
+				-1,
+				GTK_ANCHOR_CENTER,
+				"font", gc_skin_font_board_medium,
+				"fill_color", "black",
+				NULL);
 
     g_object_set_data (G_OBJECT (board[i]), "piece_num", GINT_TO_POINTER (i));
     g_object_set_data (G_OBJECT (board[i]), "piece_pos", GINT_TO_POINTER (i));
@@ -366,13 +364,13 @@ piece_event (GooCanvasItem *item, GdkEvent *event, gpointer data)
 
   switch (event->type) {
   case GDK_ENTER_NOTIFY:
-    goo_canvas_item_set (text,
+    g_object_set (text,
 			   "fill_color", "white",
 			   NULL);
     break;
 
   case GDK_LEAVE_NOTIFY:
-    goo_canvas_item_set (text,
+    g_object_set (text,
 			   "fill_color", "black",
 			   NULL);
     break;
@@ -408,8 +406,6 @@ piece_event (GooCanvasItem *item, GdkEvent *event, gpointer data)
       board[newpos] = item;
       g_object_set_data (G_OBJECT (item), "piece_pos", GINT_TO_POINTER (newpos));
       goo_canvas_item_translate (item, dx * PIECE_SIZE, dy * PIECE_SIZE);
-      /* FIXME : Workaround for bugged canvas */
-      goo_canvas_update_now(gcomprisBoard->canvas);
 
       test_win (board);
     }
@@ -466,7 +462,5 @@ scramble (GooCanvasItem **board, guint number_of_scrambles)
     goo_canvas_item_translate (board[pos], -x * PIECE_SIZE, -y * PIECE_SIZE);
     pos = oldpos;
   }
-  /* FIXME : Workaround for bugged canvas */
-  goo_canvas_update_now(gcomprisBoard->canvas);
 }
 

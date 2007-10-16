@@ -43,13 +43,13 @@ static void		 init_xml(void);
 static gboolean		 read_xml_file(char *fname);
 
 /* ================================================================ */
-static GnomeCanvasGroup *boardRootItem = NULL;
+static GooCanvasItem *boardRootItem = NULL;
 static GooCanvasItem *highlight_image_item = NULL;
 static GooCanvasItem *clock_image_item = NULL;
 static GdkPixbuf *clock_pixmap = NULL;
 static GooCanvasItem *color_item = NULL;
 
-static GooCanvasItem *colors_create_item(GnomeCanvasGroup *parent);
+static GooCanvasItem *colors_create_item(GooCanvasItem *parent);
 static void colors_destroy_all_items(void);
 static void colors_next_level(void);
 static void set_level (guint);
@@ -233,14 +233,13 @@ static void colors_next_level() {
 
   /* show text of color to find */
   color_item = goo_canvas_item_new (boardRootItem,
-				      goo_canvas_text_get_type (),
-				      "text", colors[GPOINTER_TO_INT(g_list_nth_data(listColors,0))],
-				      "font", gc_skin_font_board_title_bold,
-				      "x", (double) (color_x1+color_x2)/2,
-				      "y", (double) (color_y1+color_y2)/2,
-				      "anchor", GTK_ANCHOR_CENTER,
-				      "fill_color", "darkblue",
-				      NULL);
+				    colors[GPOINTER_TO_INT(g_list_nth_data(listColors,0))],
+				    (color_x1+color_x2)/2,
+				    (color_y1+color_y2)/2,
+				    GTK_ANCHOR_CENTER,
+				    "font", gc_skin_font_board_title_bold,
+				    "fill_color", "darkblue",
+				    NULL);
 
 }
 /* =====================================================================
@@ -256,7 +255,7 @@ static void colors_destroy_all_items() {
 /* =====================================================================
  *
  * =====================================================================*/
-static GooCanvasItem *colors_create_item(GnomeCanvasGroup *parent) {
+static GooCanvasItem *colors_create_item(GooCanvasItem *parent) {
   GdkPixbuf *highlight_pixmap = NULL;
 
   char *str = NULL;
@@ -272,16 +271,11 @@ static GooCanvasItem *colors_create_item(GnomeCanvasGroup *parent) {
   str = g_strdup_printf("%s/%s", gcomprisBoard->boarddir, "advanced_colors_highlight.png");
   highlight_pixmap = gc_pixmap_load(str);
 
-  highlight_image_item = goo_canvas_item_new (boardRootItem,
-						goo_canvas_pixbuf_get_type (),
-						"pixbuf", highlight_pixmap,
-						"x", (double) 0,
-						"y", (double) 0,
-						"width", (double) gdk_pixbuf_get_width(highlight_pixmap),
-						"height", (double) gdk_pixbuf_get_height(highlight_pixmap),
-						"width_set", TRUE,
-						"height_set", TRUE,
-						NULL);
+  highlight_image_item = goo_canvas_image_new (boardRootItem,
+					       highlight_pixmap,
+					       0,
+					       0,
+					       NULL);
 
   highlight_width = gdk_pixbuf_get_width(highlight_pixmap);
   highlight_height = gdk_pixbuf_get_height(highlight_pixmap);
@@ -296,16 +290,11 @@ static GooCanvasItem *colors_create_item(GnomeCanvasGroup *parent) {
   str = g_strdup_printf("%s%d.png", "timers/clock",errors);
   clock_pixmap = gc_skin_pixmap_load(str);
 
-  clock_image_item = goo_canvas_item_new (boardRootItem,
-					    goo_canvas_pixbuf_get_type (),
-					    "pixbuf", clock_pixmap,
-					    "x", (double) CLOCK_X,
-					    "y", (double) CLOCK_Y,
-					    "width", (double) gdk_pixbuf_get_width(clock_pixmap),
-					    "height", (double) gdk_pixbuf_get_height(clock_pixmap),
-					    "width_set", TRUE,
-					    "height_set", TRUE,
-					    NULL);
+  clock_image_item = goo_canvas_image_new (boardRootItem,
+					   clock_pixmap,
+					   CLOCK_X,
+					   CLOCK_Y,
+					   NULL);
 
   g_free(str);
 
@@ -408,16 +397,11 @@ static void update_clock() {
 
   clock_pixmap = gc_pixmap_load(str);
 
-  clock_image_item = goo_canvas_item_new (boardRootItem,
-					    goo_canvas_pixbuf_get_type (),
-					    "pixbuf", clock_pixmap,
-					    "x", (double) CLOCK_X,
-					    "y", (double) CLOCK_Y,
-					    "width", (double) gdk_pixbuf_get_width(clock_pixmap),
-					    "height", (double) gdk_pixbuf_get_height(clock_pixmap),
-					    "width_set", TRUE,
-					    "height_set", TRUE,
-					    NULL);
+  clock_image_item = goo_canvas_image_new (boardRootItem,
+					   clock_pixmap,
+					   CLOCK_X,
+					   CLOCK_Y,
+					   NULL);
 
   gdk_pixbuf_unref(clock_pixmap);
   g_free(str);

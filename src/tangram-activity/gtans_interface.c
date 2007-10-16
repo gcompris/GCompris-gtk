@@ -12,7 +12,7 @@
 #define Y_BASE_SMALLAREA 50
 #define WIDTH_SMALLAREA 200
 
-void create_mainwindow (GnomeCanvasGroup *rootitem)
+void create_mainwindow (GooCanvasItem *rootitem)
 {
   GtkWidget *wdrawareagrande;
   GtkWidget *wdrawareapetite;
@@ -101,18 +101,16 @@ void create_mainwindow (GnomeCanvasGroup *rootitem)
 
   pixmap_r = gc_skin_pixmap_load("button_forward.png");
 
-  previous_figure = goo_canvas_item_new (rootitem,
-					   goo_canvas_pixbuf_get_type (),
-					   "pixbuf", pixmap_l,
-					   "x", (double) X_BASE_SMALLAREA,
-					   "y", (double) Y_BASE_SMALLAREA + WIDTH_SMALLAREA + 10,
+  previous_figure = goo_canvas_image_new (rootitem,
+					  pixmap_l,
+					  X_BASE_SMALLAREA,
+					  Y_BASE_SMALLAREA + WIDTH_SMALLAREA + 10,
 					   NULL);
 
-  next_figure = goo_canvas_item_new (rootitem,
-				       goo_canvas_pixbuf_get_type (),
-				       "pixbuf", pixmap_r,
-				       "x", (double) X_BASE_SMALLAREA + WIDTH_SMALLAREA,
-				       "y", (double) Y_BASE_SMALLAREA + WIDTH_SMALLAREA + 10,
+  next_figure = goo_canvas_image_new (rootitem,
+				      pixmap_r,
+				      X_BASE_SMALLAREA + WIDTH_SMALLAREA,
+				      Y_BASE_SMALLAREA + WIDTH_SMALLAREA + 10,
 				       "anchor", GTK_ANCHOR_NE,
 				       NULL);
 
@@ -138,19 +136,17 @@ void create_mainwindow (GnomeCanvasGroup *rootitem)
 
   pixmap_outline = gc_pixmap_load("tangram/gtans_outline.png");
 
-  show_figure = goo_canvas_item_new (rootitem,
-				       goo_canvas_pixbuf_get_type (),
-				       "pixbuf", pixmap_show,
-				       "x", (double) X_BASE_SMALLAREA,
-				       "y", (double) Y_BASE_SMALLAREA + WIDTH_SMALLAREA + 80,
+  show_figure = goo_canvas_image_new (rootitem,
+				      pixmap_show,
+				      X_BASE_SMALLAREA,
+				      Y_BASE_SMALLAREA + WIDTH_SMALLAREA + 80,
 				       "anchor",  GTK_ANCHOR_W,
 				       NULL);
 
-  outline_figure = goo_canvas_item_new (rootitem,
-				       goo_canvas_pixbuf_get_type (),
-				       "pixbuf", pixmap_outline,
-				       "x", (double) X_BASE_SMALLAREA,
-				       "y", (double) Y_BASE_SMALLAREA + WIDTH_SMALLAREA + 130,
+  outline_figure = goo_canvas_image_new (rootitem,
+					 pixmap_outline,
+					 X_BASE_SMALLAREA,
+					 Y_BASE_SMALLAREA + WIDTH_SMALLAREA + 130,
 				       "anchor", GTK_ANCHOR_W,
 				       NULL);
 
@@ -173,11 +169,10 @@ void create_mainwindow (GnomeCanvasGroup *rootitem)
   pixmap_symetry = gc_skin_pixmap_load("draw/tool-flip.png");
 
 
-  symetry = goo_canvas_item_new (rootitem,
-				   goo_canvas_pixbuf_get_type (),
-				   "pixbuf", pixmap_symetry,
-				   "x", (double) X_BASE_SMALLAREA + WIDTH_SMALLAREA - 50,
-				   "y", (double) Y_BASE_SMALLAREA + WIDTH_SMALLAREA + 180,
+  symetry = goo_canvas_image_new (rootitem,
+				  pixmap_symetry,
+				  X_BASE_SMALLAREA + WIDTH_SMALLAREA - 50,
+				  Y_BASE_SMALLAREA + WIDTH_SMALLAREA + 180,
 				   "anchor", GTK_ANCHOR_N,
 				   NULL);
 
@@ -200,20 +195,18 @@ void create_mainwindow (GnomeCanvasGroup *rootitem)
   right_rot       = gc_pixmap_load("tangram/gtans_rotate.png");
   left_rot        = gc_pixmap_load("tangram/gtans_rotate-left.png");
 
-  r_rot_s = goo_canvas_item_new (rootitem,
-				   goo_canvas_pixbuf_get_type (),
-				   "pixbuf", right_rot,
-				   "x", (double) X_BASE_SMALLAREA + WIDTH_SMALLAREA,
-				   "y", (double) Y_BASE_SMALLAREA + WIDTH_SMALLAREA + 60,
+  r_rot_s = goo_canvas_image_new (rootitem,
+				  right_rot,
+				  X_BASE_SMALLAREA + WIDTH_SMALLAREA,
+				  Y_BASE_SMALLAREA + WIDTH_SMALLAREA + 60,
 				   "anchor", GTK_ANCHOR_NE,
 				   NULL);
 
 
-  l_rot_s = goo_canvas_item_new (rootitem,
-				   goo_canvas_pixbuf_get_type (),
-				   "pixbuf", left_rot,
-				   "x", (double) X_BASE_SMALLAREA + WIDTH_SMALLAREA - 100,
-				   "y", (double) Y_BASE_SMALLAREA + WIDTH_SMALLAREA + 60,
+  l_rot_s = goo_canvas_image_new (rootitem,
+				  left_rot,
+				  X_BASE_SMALLAREA + WIDTH_SMALLAREA - 100,
+				  Y_BASE_SMALLAREA + WIDTH_SMALLAREA + 60,
 				   "anchor", GTK_ANCHOR_NW,
 				   NULL);
 
@@ -224,20 +217,18 @@ void create_mainwindow (GnomeCanvasGroup *rootitem)
   right_rot_big   = gc_pixmap_load("tangram/gtans_2x-rotate.png");
   left_rot_big    = gc_pixmap_load("tangram/gtans_2x-rotate-left.png");
 
-  r_rot_b = goo_canvas_item_new (rootitem,
-				   goo_canvas_pixbuf_get_type (),
-				   "pixbuf", right_rot_big,
-				   "x", (double) X_BASE_SMALLAREA + WIDTH_SMALLAREA,
-				   "y", (double) Y_BASE_SMALLAREA + WIDTH_SMALLAREA + 120,
+  r_rot_b = goo_canvas_image_new (rootitem,
+				  right_rot_big,
+				  X_BASE_SMALLAREA + WIDTH_SMALLAREA,
+				  Y_BASE_SMALLAREA + WIDTH_SMALLAREA + 120,
 				   "anchor", GTK_ANCHOR_NE,
 				   NULL);
 
 
-  l_rot_b = goo_canvas_item_new (rootitem,
-				   goo_canvas_pixbuf_get_type (),
-				   "pixbuf", left_rot_big,
-				   "x", (double) X_BASE_SMALLAREA + WIDTH_SMALLAREA - 100,
-				   "y", (double) Y_BASE_SMALLAREA + WIDTH_SMALLAREA + 120,
+  l_rot_b = goo_canvas_image_new (rootitem,
+				  left_rot_big,
+				  X_BASE_SMALLAREA + WIDTH_SMALLAREA - 100,
+				  Y_BASE_SMALLAREA + WIDTH_SMALLAREA + 120,
 				   "anchor", GTK_ANCHOR_NW,
 				   NULL);
 

@@ -34,7 +34,7 @@
 static GcomprisBoard  *gcomprisBoard = NULL;
 static gboolean	board_paused  = TRUE;
 
-static GnomeCanvasGroup *allcars         = NULL;
+static GooCanvasItem *allcars         = NULL;
 
 #define OFSET_X 250
 #define OFSET_Y 128
@@ -48,9 +48,9 @@ static int	 gamewon;
 static void	 game_won(void);
 static void	 repeat(void);
 
-static GnomeCanvasGroup *boardRootItem = NULL;
+static GooCanvasItem *boardRootItem = NULL;
 
-static GooCanvasItem	*traffic_create_item(GnomeCanvasGroup *parent);
+static GooCanvasItem	*traffic_create_item(GooCanvasItem *parent);
 static void		 traffic_destroy_all_items(void);
 static void		 traffic_next_level(void);
 
@@ -67,7 +67,7 @@ struct _car {
   guint size;
   guint color;
   gchar color_string[50];
-  GnomeCanvasGroup *canvasgroup;
+  GooCanvasItem *canvasgroup;
 };
 
 struct _jam {
@@ -83,7 +83,7 @@ gboolean	 load_level(guint level, guint card);
 
 static jam	 current_card  ={0,0,0,{NULL}};
 
-static void	 draw_grid  (GnomeCanvasGroup *rootBorder);
+static void	 draw_grid  (GooCanvasItem *rootBorder);
 static gint	 cars_from_strv(char *strv);
 
 /* Description of this plugin */
@@ -261,9 +261,9 @@ static void traffic_destroy_all_items()
 }
 
 /* ==================================== */
-static GooCanvasItem *traffic_create_item(GnomeCanvasGroup *parent)
+static GooCanvasItem *traffic_create_item(GooCanvasItem *parent)
 {
-  GnomeCanvasGroup *borderItem = NULL;
+  GooCanvasItem *borderItem = NULL;
 
   boardRootItem = GOO_CANVAS_GROUP(
 				     goo_canvas_item_new (goo_canvas_get_root_item(gcomprisBoard->canvas),
@@ -312,9 +312,9 @@ static void game_won()
 
 /* from canvas.c */
 
-static void draw_grid(GnomeCanvasGroup *rootBorder)
+static void draw_grid(GooCanvasItem *rootBorder)
 {
-  GnomeCanvasGroup *grid_group;
+  GooCanvasItem *grid_group;
   int xlooper, ylooper;
 
   grid_group = GOO_CANVAS_GROUP(

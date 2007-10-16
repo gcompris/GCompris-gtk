@@ -27,7 +27,7 @@
 #include "money_widget.h"
 
 struct _Money_WidgetPrivate {
-  GnomeCanvasGroup	*rootItem;	/* The canvas to display our euros in             */
+  GooCanvasItem	*rootItem;	/* The canvas to display our euros in             */
   double		 x1;		/* Coordinate of the widget                       */
   double		 y1;
   double		 x2;
@@ -117,7 +117,7 @@ finalize (GtkObject *object)
 
   printf("ERROR : Finalize is NEVER CALLED\n");
   /* FIXME: CLEANUP CODE UNTESTED */
-  while(g_list_length(moneyWidget->priv->moneyItemList)>0) 
+  while(g_list_length(moneyWidget->priv->moneyItemList)>0)
     {
       moneyitem = g_list_nth_data(moneyWidget->priv->moneyItemList, 0);
       moneyWidget->priv->moneyItemList = g_list_remove (moneyWidget->priv->moneyItemList,
@@ -126,7 +126,7 @@ finalize (GtkObject *object)
     }
 
   g_free (moneyWidget->priv);
-  
+
   moneyWidget->priv = NULL;
 
 }
@@ -136,9 +136,9 @@ static void
 class_init (Money_WidgetClass *class)
 {
   GtkObjectClass *object_class;
-  
+
   object_class = (GtkObjectClass*) class;
-  
+
   //2  object_class->destroy = finalize;
 }
 
@@ -176,7 +176,7 @@ money_widget_set_target (Money_Widget *moneyWidget,
 
 void
 money_widget_set_position (Money_Widget *moneyWidget,
-			   GnomeCanvasGroup *rootItem,
+			   GooCanvasItem *rootItem,
 			   double x1,
 			   double y1,
 			   double x2,
@@ -186,7 +186,7 @@ money_widget_set_position (Money_Widget *moneyWidget,
 			   gboolean display_total)
 {
   g_return_if_fail (moneyWidget != NULL);
-  
+
   moneyWidget->priv->rootItem = rootItem;
   moneyWidget->priv->x1 = x1;
   moneyWidget->priv->y1 = y1;
@@ -209,13 +209,13 @@ money_widget_set_position (Money_Widget *moneyWidget,
 			 NULL);
   */
 
-  moneyWidget->priv->item_total =  goo_canvas_item_new(rootItem,
-						       goo_canvas_text_get_type (),
-						       "text", "",
+  moneyWidget->priv->item_total =  goo_canvas_text_new(rootItem,
+						       "",
+						       (double) x1+(x2-x1)/2,
+						       (double) y2 + 10,
+						       -1,
+						       GTK_ANCHOR_CENTER,
 						       "font", gc_skin_font_board_big,
-						       "x", (double) x1+(x2-x1)/2,
-						       "y", (double) y2 + 10,
-						       "anchor", GTK_ANCHOR_CENTER,
 						       "fill_color", "white",
 						       NULL);
 
@@ -228,11 +228,11 @@ static void money_display_total(Money_Widget *moneyWidget)
 
   tmpstr = g_strdup_printf("%.2f €", moneyWidget->priv->total);
   if(moneyWidget->priv->display_total)
-    goo_canvas_item_set (moneyWidget->priv->item_total,
+    g_object_set (moneyWidget->priv->item_total,
 			   "text", tmpstr,
 			   NULL);
   g_free(tmpstr);
-  
+
 }
 
 void
@@ -262,7 +262,7 @@ money_widget_add (Money_Widget *moneyWidget, MoneyEuroType value)
 	  return;
 	}
     }
-  
+
   /* There is no already suitable item create, create a new one */
 
   if(moneyWidget->priv->next_spot > moneyWidget->priv->columns * moneyWidget->priv->lines)
@@ -277,21 +277,18 @@ money_widget_add (Money_Widget *moneyWidget, MoneyEuroType value)
   yratio =  block_height / (gdk_pixbuf_get_height(pixmap) + BORDER_GAP);
   ratio = yratio = MIN(xratio, yratio);
 
-  item =  goo_canvas_item_new ( moneyWidget->priv->rootItem,
-				  goo_canvas_pixbuf_get_type (),
-				  "pixbuf", pixmap,
-				  "x", (double) moneyWidget->priv->x1 + 
-				  (moneyWidget->priv->next_spot % moneyWidget->priv->columns) * block_width
-				  +  block_width/2 - (gdk_pixbuf_get_width(pixmap) * ratio)/2,
-				  "y", (double)moneyWidget->priv->y1 +
-				  (moneyWidget->priv->next_spot / moneyWidget->priv->columns)
-				  * block_height
-				  + block_height/2 - (gdk_pixbuf_get_height(pixmap) * ratio)/2,
-				  "width",  (double) gdk_pixbuf_get_width(pixmap)  * ratio,
-				  "height", (double) gdk_pixbuf_get_height(pixmap) * ratio,
-				  "width_set", TRUE, 
-				  "height_set", TRUE,
-				  NULL);
+  item =  goo_canvas_image_new ( moneyWidget->priv->rootItem,
+				 pixmap,
+				 moneyWidget->priv->x1 +
+				 (moneyWidget->priv->next_spot % moneyWidget->priv->columns) * block_width
+				 +  block_width/2 - (gdk_pixbuf_get_width(pixmap) * ratio)/2,
+				 moneyWidget->priv->y1 +
+				 (moneyWidget->priv->next_spot / moneyWidget->priv->columns)
+				 * block_height
+				 + block_height/2 - (gdk_pixbuf_get_height(pixmap) * ratio)/2,
+				 "width",  (double) gdk_pixbuf_get_width(pixmap)  * ratio,
+				 "height", (double) gdk_pixbuf_get_height(pixmap) * ratio,
+				 NULL);
 
   moneyitem = g_malloc(sizeof(MoneyItem));
   moneyitem->moneyWidget = moneyWidget;
@@ -337,20 +334,20 @@ static gint
 item_event(GooCanvasItem *item, GdkEvent *event, MoneyItem *moneyItem)
 {
 
-  switch (event->type) 
+  switch (event->type)
     {
     case GDK_BUTTON_PRESS:
-      switch(event->button.button) 
+      switch(event->button.button)
 	{
 	case 1:
 	  goo_canvas_item_hide(item);
 	  moneyItem->inPocket = FALSE;
 	  money_widget_remove(moneyItem->moneyWidget, moneyItem->value);
-	  
+
 	  if(moneyItem->moneyWidget->priv->targetWidget != NULL)
 	    money_widget_add(moneyItem->moneyWidget->priv->targetWidget,
 			     moneyItem->value);
-	  
+
 	  break;
 	default:
 	  break;

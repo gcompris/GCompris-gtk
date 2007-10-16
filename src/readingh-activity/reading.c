@@ -42,7 +42,7 @@ static gchar *textToFind = NULL;
 static gint textToFindIndex = 0;
 #define NOT_THERE -1000
 
-static GnomeCanvasGroup *boardRootItem = NULL;
+static GooCanvasItem *boardRootItem = NULL;
 
 typedef enum
 {
@@ -53,7 +53,7 @@ static Mode currentMode = MODE_VERTICAL;
 
 /* Store the moving words */
 typedef struct {
-  GnomeCanvasGroup *rootItem;
+  GooCanvasItem *rootItem;
   GooCanvasItem  *overwriteItem;
   GooCanvasItem  *item;
 } LettersItem;
@@ -84,7 +84,7 @@ static void		 set_level (guint level);
 static int		 wait_for_ready;
 static int		 gamewon;
 
-static gboolean		 reading_create_item(GnomeCanvasGroup *parent);
+static gboolean		 reading_create_item(GooCanvasItem *parent);
 static gint		 reading_drop_items (void);
 //static void reading_destroy_item(LettersItem *item);
 static void		 reading_destroy_all_items(void);
@@ -96,7 +96,7 @@ static void		 reading_config_stop(void);
 static void		 player_win(void);
 static void		 player_loose(void);
 static gchar		*get_random_word(const gchar *except);
-static GooCanvasItem	*display_what_to_do(GnomeCanvasGroup *parent);
+static GooCanvasItem	*display_what_to_do(GooCanvasItem *parent);
 static void		 ask_ready(gboolean status);
 static void		 ask_yes_no(void);
 static gint		 item_event_valid(GooCanvasItem *item, GdkEvent *event, gpointer data);
@@ -357,7 +357,7 @@ static void reading_destroy_all_items()
     }
 }
 
-static GooCanvasItem *display_what_to_do(GnomeCanvasGroup *parent)
+static GooCanvasItem *display_what_to_do(GooCanvasItem *parent)
 {
 
   gint base_Y = 110;
@@ -376,41 +376,41 @@ static GooCanvasItem *display_what_to_do(GnomeCanvasGroup *parent)
   else
     textToFindIndex = NOT_THERE;
 
-  goo_canvas_item_new (parent,
-			 goo_canvas_text_get_type (),
-			 "text", _("Please, check if the word"),
-			 "font", gc_skin_font_board_medium,
-			 "x", (double) base_X,
-			 "y", (double) base_Y,
-			 "anchor", GTK_ANCHOR_CENTER,
-			 "fill_color", "black",
-			 NULL);
+  goo_canvas_text_new (parent,
+		       _("Please, check if the word"),
+		       (double) base_X,
+		       (double) base_Y,
+		       -1,
+		       GTK_ANCHOR_CENTER,
+		       "font", gc_skin_font_board_medium,
+		       "fill_color", "black",
+		       NULL);
 
-  goo_canvas_item_new (parent,
-			 goo_canvas_text_get_type (),
-			 "text", textToFind,
-			 "font", gc_skin_font_board_big,
-			 "x", (double) base_X,
-			 "y", (double) base_Y + 30,
-			 "anchor", GTK_ANCHOR_CENTER,
-			 "fill_color", "green",
-			 NULL);
+  goo_canvas_text_new (parent,
+		       textToFind,
+		       (double) base_X,
+		       (double) base_Y + 30,
+		       -1,
+		       GTK_ANCHOR_CENTER,
+		       "font", gc_skin_font_board_big,
+		       "fill_color", "green",
+		       NULL);
 
-  goo_canvas_item_new (parent,
-			 goo_canvas_text_get_type (),
-			 "text", _("is being displayed"),
-			 "font", gc_skin_font_board_medium,
-			 "x", (double) base_X,
-			 "y", (double) base_Y + 60,
-			 "anchor", GTK_ANCHOR_CENTER,
-			 "fill_color", "black",
-			 NULL);
+  goo_canvas_text_new (parent,
+		       _("is being displayed"),
+		       (double) base_X,
+		       (double) base_Y + 60,
+		       -1,
+		       GTK_ANCHOR_CENTER,
+		       "font", gc_skin_font_board_medium,
+		       "fill_color", "black",
+		       NULL);
 
 
   return NULL;
 }
 
-static gboolean reading_create_item(GnomeCanvasGroup *parent)
+static gboolean reading_create_item(GooCanvasItem *parent)
 {
   gint   anchor = GTK_ANCHOR_CENTER;
   gchar *word;
@@ -464,15 +464,15 @@ static gboolean reading_create_item(GnomeCanvasGroup *parent)
     anchor=GTK_ANCHOR_WEST;
 
   previousFocus.item = \
-    goo_canvas_item_new (GOO_CANVAS_GROUP(previousFocus.rootItem),
-			   goo_canvas_text_get_type (),
-			   "text", word,
-			   "font", gc_skin_font_board_medium,
-			   "x", (double) 0,
-			   "y", (double) 0,
-			   "anchor", anchor,
-			   "fill_color", "black",
-			   NULL);
+    goo_canvas_text_new (GOO_CANVAS_GROUP(previousFocus.rootItem),
+			 word,
+			 (double) 0,
+			 (double) 0,
+			 -1,
+			 anchor,
+			 "font", gc_skin_font_board_medium,
+			 "fill_color", "black",
+			 NULL);
 
 
   gchar *oldword = g_strdup_printf("<span foreground=\"black\" background=\"black\">%s</span>", word);
@@ -480,14 +480,15 @@ static gboolean reading_create_item(GnomeCanvasGroup *parent)
   g_free(word);
 
   previousFocus.overwriteItem =						\
-    goo_canvas_item_new (GOO_CANVAS_GROUP(previousFocus.rootItem),
-			   goo_canvas_text_get_type (),
-			   "markup", oldword,
-			   "font", gc_skin_font_board_medium,
-			   "x", (double) 0,
-			   "y", (double) 0,
-			   "anchor", anchor,
-			   NULL);
+    goo_canvas_text_new (GOO_CANVAS_GROUP(previousFocus.rootItem),
+			 _("I am Ready"),
+			 (double) 0,
+			 (double) 0,
+			 -1,
+			 anchor,
+			 "markup", oldword,
+			 "font", gc_skin_font_board_medium,
+			 NULL);
 
   g_free(oldword);
   goo_canvas_item_hide(previousFocus.overwriteItem);
@@ -558,11 +559,10 @@ static void ask_ready(gboolean status)
 
   /*----- READY -----*/
   button_pixmap = gc_skin_pixmap_load("button_large2.png");
-  item1 = goo_canvas_item_new (boardRootItem,
-				goo_canvas_pixbuf_get_type (),
-				"pixbuf",  button_pixmap,
-				"x", x_offset,
-				"y", y_offset,
+  item1 = goo_canvas_image_new (boardRootItem,
+				button_pixmap,
+				x_offset,
+				y_offset,
 				NULL);
 
   gdk_pixbuf_unref(button_pixmap);
@@ -570,15 +570,15 @@ static void ask_ready(gboolean status)
 		     (GtkSignalFunc) item_event_valid,
 		     "R");
 
-  item2 = goo_canvas_item_new (boardRootItem,
-				goo_canvas_text_get_type (),
-				"text", _("I am Ready"),
-				"font", gc_skin_font_board_big,
-				"x", (double) x_offset +
-				gdk_pixbuf_get_width(button_pixmap)/2,
-				"y", (double) y_offset + 40,
-				"anchor", GTK_ANCHOR_CENTER,
-				"fill_color", "white",
+  item2 = goo_canvas_text_new (boardRootItem,
+			       _("Yes, I saw it"),
+			       (double) x_offset +
+			       (double) y_offset + 40,
+			       -1,
+			       GTK_ANCHOR_CENTER,
+			       "font", gc_skin_font_board_big,
+			       gdk_pixbuf_get_width(button_pixmap)/2,
+			       "fill_color", "white",
 				NULL);
 
   g_signal_connect(GTK_OBJECT(item2), "enter_notify_event",
@@ -598,27 +598,26 @@ static void ask_yes_no()
 
   /*----- YES -----*/
   button_pixmap = gc_skin_pixmap_load("button_large2.png");
-  item = goo_canvas_item_new (boardRootItem,
-				goo_canvas_pixbuf_get_type (),
-				"pixbuf",  button_pixmap,
-				"x", x_offset,
-				"y", y_offset,
-				NULL);
+  item = goo_canvas_image_new (boardRootItem,
+			       button_pixmap,
+			       x_offset,
+			       y_offset,
+			       NULL);
 
   gdk_pixbuf_unref(button_pixmap);
   g_signal_connect(GTK_OBJECT(item), "enter_notify_event",
 		     (GtkSignalFunc) item_event_valid,
 		     "Y");
 
-  item = goo_canvas_item_new (boardRootItem,
-				goo_canvas_text_get_type (),
-				"text", _("Yes, I saw it"),
-				"font", gc_skin_font_board_big,
-				"x", (double) x_offset +
-				gdk_pixbuf_get_width(button_pixmap)/2,
-				"y", (double) y_offset + 40,
-				"anchor", GTK_ANCHOR_CENTER,
-				"fill_color", "white",
+  item = goo_canvas_text_new (boardRootItem,
+			      _("No, it was not there"),
+			      (double) x_offset +
+			      (double) y_offset + 40,
+			      -1,
+			      GTK_ANCHOR_CENTER,
+			      "font", gc_skin_font_board_big,
+			      gdk_pixbuf_get_width(button_pixmap)/2,
+			      "fill_color", "white",
 				NULL);
 
   g_signal_connect(GTK_OBJECT(item), "enter_notify_event",
@@ -628,28 +627,27 @@ static void ask_yes_no()
   /*----- NO -----*/
   y_offset += 100;
   button_pixmap = gc_skin_pixmap_load("button_large2.png");
-  item = goo_canvas_item_new (boardRootItem,
-				goo_canvas_pixbuf_get_type (),
-				"pixbuf",  button_pixmap,
-				"x", x_offset,
-				"y", y_offset,
-				NULL);
+  item = goo_canvas_image_new (boardRootItem,
+			       button_pixmap,
+			       x_offset,
+			       y_offset,
+			       NULL);
 
   gdk_pixbuf_unref(button_pixmap);
   g_signal_connect(GTK_OBJECT(item), "enter_notify_event",
 		     (GtkSignalFunc) item_event_valid,
 		     "N");
 
-  item = goo_canvas_item_new (boardRootItem,
-				goo_canvas_text_get_type (),
-				"text", _("No, it was not there"),
-				"font", gc_skin_font_board_big,
-				"x", (double) x_offset +
-				gdk_pixbuf_get_width(button_pixmap)/2,
-				"y", (double) y_offset + 40,
-				"anchor", GTK_ANCHOR_CENTER,
-				"fill_color", "white",
-				NULL);
+  item = goo_canvas_text_new (boardRootItem,
+			      "",
+			      (double) x_offset +
+			      (double) y_offset + 40,
+			      -1,
+			      GTK_ANCHOR_CENTER,
+			      "font", gc_skin_font_board_big,
+			      gdk_pixbuf_get_width(button_pixmap)/2,
+			      "fill_color", "white",
+			      NULL);
 
   g_signal_connect(GTK_OBJECT(item), "enter_notify_event",
 		     (GtkSignalFunc) item_event_valid,

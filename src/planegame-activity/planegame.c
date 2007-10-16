@@ -53,7 +53,7 @@ static gboolean is_our_board (GcomprisBoard *gcomprisBoard);
 static void set_level (guint level);
 static gint key_press(guint keyval, gchar *commit_str, gchar *preedit_str);
 
-static GooCanvasItem *planegame_create_item(GnomeCanvasGroup *parent);
+static GooCanvasItem *planegame_create_item(GooCanvasItem *parent);
 static gint planegame_drop_items (GtkWidget *widget, gpointer data);
 static gint planegame_move_items (GtkWidget *widget, gpointer data);
 static void planegame_destroy_item(CloudItem *clouditem);
@@ -277,16 +277,13 @@ static void planegame_next_level()
   pixmap = gc_pixmap_load("planegame/tuxhelico.png");
   plane_x = 50;
   plane_y = 300;
-  planeitem = goo_canvas_item_new (goo_canvas_get_root_item(gcomprisBoard->canvas),
-				     goo_canvas_pixbuf_get_type (),
-				     "pixbuf", pixmap,
-				     "x", (double) plane_x,
-				     "y", (double) plane_y,
-				     "width", (double) gdk_pixbuf_get_width(pixmap)*imageZoom,
-				     "height", (double) gdk_pixbuf_get_height(pixmap)*imageZoom,
-				     "width_set", TRUE,
-				     "height_set", TRUE,
-				     NULL);
+  planeitem = goo_canvas_image_new (goo_canvas_get_root_item(gcomprisBoard->canvas),
+				    pixmap,
+				    plane_x,
+				    plane_y,
+				    "width", (double) gdk_pixbuf_get_width(pixmap)*imageZoom,
+				    "height", (double) gdk_pixbuf_get_height(pixmap)*imageZoom,
+				    NULL);
   gdk_pixbuf_unref(pixmap);
 
   /* Game rules */
@@ -461,7 +458,7 @@ static gint planegame_move_items (GtkWidget *widget, gpointer data)
   return(FALSE);
 }
 
-static GooCanvasItem *planegame_create_item(GnomeCanvasGroup *parent)
+static GooCanvasItem *planegame_create_item(GooCanvasItem *parent)
 {
   GdkPixbuf *pixmap = NULL;
   GooCanvasItem *itemgroup;
@@ -494,15 +491,12 @@ static GooCanvasItem *planegame_create_item(GnomeCanvasGroup *parent)
 			   NULL);
 
 
-  goo_canvas_item_new (GOO_CANVAS_GROUP(itemgroup),
-			 goo_canvas_pixbuf_get_type (),
-			 "pixbuf", pixmap,
-			 "x", (double) -gdk_pixbuf_get_width(pixmap)*imageZoom/2,
-			 "y", (double) -gdk_pixbuf_get_height(pixmap)*imageZoom/2,
+  goo_canvas_image_new (GOO_CANVAS_GROUP(itemgroup),
+			pixmap,
+			-gdk_pixbuf_get_width(pixmap)*imageZoom/2,
+			-gdk_pixbuf_get_height(pixmap)*imageZoom/2,
 			 "width", (double) gdk_pixbuf_get_width(pixmap)*imageZoom,
 			 "height", (double) gdk_pixbuf_get_height(pixmap)*imageZoom,
-			 "width_set", TRUE,
-			 "height_set", TRUE,
 			 NULL);
   gdk_pixbuf_unref(pixmap);
 

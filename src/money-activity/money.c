@@ -34,7 +34,7 @@ static void	 process_ok(void);
 static int	 gamewon;
 static void	 game_won(void);
 
-static GnomeCanvasGroup *boardRootItem = NULL;
+static GooCanvasItem *boardRootItem = NULL;
 
 static void		 money_destroy_all_items(void);
 static void		 money_next_level(void);
@@ -471,13 +471,12 @@ static void money_next_level()
 
     pixmap = gc_pixmap_load(imageList[g_random_int_range(0, NUMBER_OF_IMAGES-1)]);
 
-    goo_canvas_item_new ( boardRootItem,
-			    goo_canvas_pixbuf_get_type (),
-			    "pixbuf", pixmap,
-			    "x", (double) (i*BOARDWIDTH)/(number_of_item+1)
-			    - gdk_pixbuf_get_width(pixmap)/2,
-			    "y", (double) 200,
-			    NULL);
+    goo_canvas_image_new ( boardRootItem,
+			   pixmap,
+			   (i*BOARDWIDTH)/(number_of_item+1)
+			   - gdk_pixbuf_get_width(pixmap)/2,
+			   200,
+			   NULL);
 
     /* Diplay the price */
     object_price  = (double) g_random_int_range(min_price/number_of_item, max_price/number_of_item);
@@ -503,15 +502,15 @@ static void money_next_level()
 
     price_target += object_price;
     text = g_strdup_printf(display_format, object_price);
-    goo_canvas_item_new(boardRootItem,
-			  goo_canvas_text_get_type (),
-			  "text", text,
-			  "font", gc_skin_font_board_big,
-			  "x", (double) (i*BOARDWIDTH)/(number_of_item+1),
-			  "y", (double) 180,
-			  "anchor", GTK_ANCHOR_CENTER,
-			  "fill_color", "white",
-			  NULL);
+    goo_canvas_text_new(boardRootItem,
+			text,
+			(double) (i*BOARDWIDTH)/(number_of_item+1),
+			(double) 180,
+			-1,
+			GTK_ANCHOR_CENTER,
+			"font", gc_skin_font_board_big,
+			"fill_color", "white",
+			NULL);
     g_free(text);
     gdk_pixbuf_unref(pixmap);
   }

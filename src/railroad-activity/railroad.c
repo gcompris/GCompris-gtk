@@ -46,11 +46,11 @@ static const int line[] = { 100,180,260,340, 420, 500};
 static gboolean animation_pending;
 static gint animation_count = 0;
 
-static GnomeCanvasGroup *boardRootItem = NULL;
+static GooCanvasItem *boardRootItem = NULL;
 
-static GnomeCanvasGroup *allwagonsRootItem = NULL;
-static GnomeCanvasGroup *modelRootItem = NULL;
-static GnomeCanvasGroup *answerRootItem = NULL;
+static GooCanvasItem *allwagonsRootItem = NULL;
+static GooCanvasItem *modelRootItem = NULL;
+static GooCanvasItem *answerRootItem = NULL;
 
 static GList * listPixmapEngines = NULL;
 static GList * listPixmapWagons = NULL;
@@ -70,7 +70,7 @@ static GList *int_model_list = NULL;
 static int model_size = 0;
 static gint timer_id;
 
-static GooCanvasItem *railroad_create_item(GnomeCanvasGroup *parent);
+static GooCanvasItem *railroad_create_item(GooCanvasItem *parent);
 static void railroad_destroy_all_items(void);
 static void railroad_next_level(void);
 static gint item_event(GooCanvasItem *item, GdkEvent *event, gpointer data);
@@ -288,7 +288,7 @@ static void railroad_destroy_all_items()
   boardRootItem = NULL;
 }
 /* ==================================== */
-static GooCanvasItem *railroad_create_item(GnomeCanvasGroup *parent)
+static GooCanvasItem *railroad_create_item(GooCanvasItem *parent)
 {
   int xOffset = 0, yOffset = 0;
   int i, r, l = 1;
@@ -329,12 +329,11 @@ static GooCanvasItem *railroad_create_item(GnomeCanvasGroup *parent)
     }
     yOffset = line[l] - gdk_pixbuf_get_height(pixmap);
 
-    item = goo_canvas_item_new (allwagonsRootItem,
-				  goo_canvas_pixbuf_get_type (),
-				  "pixbuf",  pixmap,
-				  "x",  (double) xOffset,
-				  "y",  (double) yOffset,
-				  NULL);
+    item = goo_canvas_image_new (allwagonsRootItem,
+				 pixmap,
+				 xOffset,
+				 yOffset,
+				 NULL);
     xOffset += gdk_pixbuf_get_width(pixmap);
 
     g_signal_connect(GTK_OBJECT(item), "enter_notify_event", (GtkSignalFunc) item_event,
@@ -363,12 +362,11 @@ static GooCanvasItem *railroad_create_item(GnomeCanvasGroup *parent)
     int_model_list = g_list_append(int_model_list, GINT_TO_POINTER(r+ENGINES));
     pixmap = g_list_nth_data(listPixmapWagons, r);
     g_assert(i >= 0 && i<MODEL_MAX_SIZE);
-    item_model[i] =goo_canvas_item_new (modelRootItem,
-					  goo_canvas_pixbuf_get_type (),
-					  "pixbuf",  pixmap,
-					  "x",  (double) xOffset,
-					  "y",  (double) yOffset - gdk_pixbuf_get_height(pixmap),
-					  NULL);
+    item_model[i] =goo_canvas_image_new (modelRootItem,
+					 pixmap,
+					 xOffset,
+					 yOffset - gdk_pixbuf_get_height(pixmap),
+					 NULL);
     xOffset  += gdk_pixbuf_get_width(pixmap);
   }
 
@@ -378,12 +376,11 @@ static GooCanvasItem *railroad_create_item(GnomeCanvasGroup *parent)
   // keep track of the answer
   int_model_list = g_list_append(int_model_list, GINT_TO_POINTER(r));
   pixmap = g_list_nth_data(listPixmapEngines, r);
-  item_model[model_size-1] =goo_canvas_item_new (modelRootItem,
-						   goo_canvas_pixbuf_get_type (),
-						   "pixbuf",  pixmap,
-						   "x",  (double) xOffset,
-						   "y",  (double) yOffset  - gdk_pixbuf_get_height(pixmap),
-						   NULL);
+  item_model[model_size-1] =goo_canvas_image_new (modelRootItem,
+						  pixmap,
+						  xOffset,
+						  yOffset  - gdk_pixbuf_get_height(pixmap),
+						  NULL);
 
   animate_model();
 
@@ -472,12 +469,11 @@ static gint item_event(GooCanvasItem *item, GdkEvent *event, gpointer data) {
       else
 	pixmap = g_list_nth_data(listPixmapWagons, item_number-ENGINES);
 
-      local_item =goo_canvas_item_new (answerRootItem,
-					 goo_canvas_pixbuf_get_type (),
-					 "pixbuf",  pixmap,
-					 "x",  (double) xOffset,
-					 "y",  (double) line[0] - gdk_pixbuf_get_height(pixmap),
-					 NULL);
+      local_item =goo_canvas_image_new (answerRootItem,
+					pixmap,
+					xOffset,
+					line[0] - gdk_pixbuf_get_height(pixmap),
+					NULL);
       item_answer_list = g_list_append(item_answer_list, local_item);
       int_answer_list = g_list_append(int_answer_list,GINT_TO_POINTER(item_number));
       //	printf("added %d to int_answer_list\n", item_number);
@@ -596,7 +592,7 @@ static gboolean animate_step() {
     animation_pending = FALSE;
     goo_canvas_item_hide(GNOME_CANVAS_ITEM(modelRootItem));
     /* Move back the model to its 0 position */
-    goo_canvas_item_set(GNOME_CANVAS_ITEM(modelRootItem),
+    g_object_set(GNOME_CANVAS_ITEM(modelRootItem),
 			  "x", 0.0,
 			  NULL);
 

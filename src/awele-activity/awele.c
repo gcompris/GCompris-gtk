@@ -34,10 +34,10 @@ static int gamewon;
 static void game_won (void);
 static void repeat(void);
 
-static GnomeCanvasGroup *boardRootItem = NULL;
+static GooCanvasItem *boardRootItem = NULL;
 
 static gboolean is_our_board (GcomprisBoard * gcomprisBoard);
-static GooCanvasItem *awele_create_item (GnomeCanvasGroup * parent);
+static GooCanvasItem *awele_create_item (GooCanvasItem * parent);
 static void awele_destroy_all_items (void);
 static void awele_next_level (void);
 static gboolean  to_computer(gpointer data);
@@ -303,7 +303,7 @@ awele_destroy_all_items ()
  * ====================================
  */
 static GooCanvasItem *
-awele_create_item (GnomeCanvasGroup * parent)
+awele_create_item (GooCanvasItem * parent)
 {
 
 	GdkPixbuf *pixmap = NULL;
@@ -325,16 +325,11 @@ awele_create_item (GnomeCanvasGroup * parent)
 	 */
 	pixmap = gc_pixmap_load ("awele/awele_frame.png");
 
-	goo_canvas_item_new (boardRootItem,
-			       goo_canvas_pixbuf_get_type (),
-			       "pixbuf", pixmap,
-			       "x", (double) 0,
-			       "y", (double) 0,
-			       "width",
-			       (double) gdk_pixbuf_get_width (pixmap),
-			       "height",
-			       (double) gdk_pixbuf_get_height (pixmap),
-			       "width_set", TRUE, "height_set", TRUE, NULL);
+	goo_canvas_image_new (boardRootItem,
+			      pixmap,
+			      0,
+			      0,
+			      NULL);
 	gdk_pixbuf_unref(pixmap);
 
 	/*
@@ -345,47 +340,47 @@ awele_create_item (GnomeCanvasGroup * parent)
 
 	  x = 35;
 	  y = 190;
-	  goo_canvas_item_new (boardRootItem,
-				 goo_canvas_text_get_type (),
-				 "text", _("NORTH"),
-				 "font", gc_skin_font_board_medium,
-				 "x", (double) x + 1,
-				 "y", (double) y + 1,
-				 "anchor", GTK_ANCHOR_CENTER,
-				 "fill_color_rgba", gc_skin_color_shadow,
-				 NULL);
+	  goo_canvas_text_new (boardRootItem,
+			       _("NORTH"),
+			       (double) x + 1,
+			       (double) y + 1,
+			       -1,
+			       GTK_ANCHOR_CENTER,
+			       "font", gc_skin_font_board_medium,
+			       "fill_color_rgba", gc_skin_color_shadow,
+			       NULL);
 
-	  goo_canvas_item_new (boardRootItem,
-				 goo_canvas_text_get_type (),
-				 "text", _("NORTH"),
-				 "font", gc_skin_font_board_medium,
-				 "x", (double) x,
-				 "y", (double) y,
-				 "anchor", GTK_ANCHOR_CENTER,
-				 "fill_color_rgba", gc_skin_color_text_button,
-				 NULL);
+	  goo_canvas_text_new (boardRootItem,
+			       _("NORTH"),
+			       (double) x,
+			       (double) y,
+			       -1,
+			       GTK_ANCHOR_CENTER,
+			       "font", gc_skin_font_board_medium,
+			       "fill_color_rgba", gc_skin_color_text_button,
+			       NULL);
 
 	  x = 765;
 	  y = 295;
-	  goo_canvas_item_new (boardRootItem,
-				 goo_canvas_text_get_type (),
-				 "text", _("SOUTH"),
-				 "font", gc_skin_font_board_medium,
-				 "x", (double) x + 1,
-				 "y", (double) y + 1,
-				 "anchor", GTK_ANCHOR_CENTER,
-				 "fill_color_rgba", gc_skin_color_shadow,
-				 NULL);
+	  goo_canvas_text_new (boardRootItem,
+			       _("SOUTH"),
+			       (double) x + 1,
+			       (double) y + 1,
+			       -1,
+			       GTK_ANCHOR_CENTER,
+			       "font", gc_skin_font_board_medium,
+			       "fill_color_rgba", gc_skin_color_shadow,
+			       NULL);
 
-	  goo_canvas_item_new (boardRootItem,
-				 goo_canvas_text_get_type (),
-				 "text", _("SOUTH"),
-				 "font", gc_skin_font_board_medium,
-				 "x", (double) x,
-				 "y", (double) y,
-				 "anchor", GTK_ANCHOR_CENTER,
-				 "fill_color_rgba", gc_skin_color_text_button,
-				 NULL);
+	  goo_canvas_text_new (boardRootItem,
+			       _("SOUTH"),
+			       (double) x,
+			       (double) y,
+			       -1,
+			       GTK_ANCHOR_CENTER,
+			       "font", gc_skin_font_board_medium,
+			       "fill_color_rgba", gc_skin_color_text_button,
+			       NULL);
 
 	}
 
@@ -459,17 +454,11 @@ awele_create_item (GnomeCanvasGroup * parent)
 		 * declencher la procedure associee. Passage en argument a cette fonction
 		 * du numero de case selectionne par tableau chaine
 		 */
-		graphsElt->button[i] = goo_canvas_item_new (boardRootItem,
-							      goo_canvas_pixbuf_get_type
-							      (), "x",
-							      (double) x1,
-							      "y",
-							      (double)
-							      Y_BOUTONS,
-							      "pixbuf",
-							      graphsElt->
-							      pixbufButton[i],
-							      NULL);
+		graphsElt->button[i] = goo_canvas_image_new (boardRootItem,
+							     graphsElt->pixbufButton[i],
+							     x1,
+							     Y_BOUTONS,
+							     NULL);
 
 		g_signal_connect (GTK_OBJECT (graphsElt->button[i]),
 				    "enter_notify_event", GTK_SIGNAL_FUNC (buttonClick),
@@ -546,15 +535,15 @@ awele_create_item (GnomeCanvasGroup * parent)
 	*/
 	initBoardGraphics (graphsElt);
 
-	graphsElt->msg = goo_canvas_item_new (boardRootItem,
-						goo_canvas_text_get_type (),
-						"text", _("Choose a house"),
-						"font", "sans 12",
-						"size", 20000,
-						"x", (double) 400,
-						"y", (double) 500,
-						"fill_color", "red",
-						"anchor", GTK_ANCHOR_CENTER,
+	graphsElt->msg = goo_canvas_text_new (boardRootItem,
+					      _("Choose a house"),
+					      (double) 400,
+					      (double) 500,
+					      -1,
+					      GTK_ANCHOR_CENTER,
+					      "font", "sans 12",
+					      "size", 20000,
+					      "fill_color", "red",
 						NULL);
 
 	return NULL;
@@ -624,19 +613,15 @@ initBoardGraphics (GRAPHICS_ELT * graphsElt)
 		{
 			k = 0 + g_random_int() % 4;
 			graphsElt->ptBeansHoleLink[idxTabBeans].beanPixbuf =
-				goo_canvas_item_new (boardRootItem,
-						       goo_canvas_pixbuf_get_type
-						       (), "x",
-						       (double) caseCoord[i] +
-						       g_random_int() % 50, "y",
-						       (double) (((i <
-								   6) ? 260 :
-								  130) +
-								 g_random_int() %
-								 60),
-						       "pixbuf",
-						       graphsElt->
-						       pixbufBeans[k], NULL);
+				goo_canvas_image_new (boardRootItem,
+						      graphsElt->pixbufBeans[k]
+						      caseCoord[i] + g_random_int() % 50,
+						      (((i <
+							 6) ? 260 :
+							130) +
+						       g_random_int() %
+						       60),
+						      NULL);
 
 			graphsElt->ptBeansHoleLink[idxTabBeans].hole = i;
 		}
@@ -849,7 +834,7 @@ updateNbBeans (int alpha)
   for (i = NBHOLE - 1; i >= 0; i--)
     {
       sprintf (buffer, "%d", staticAwale->board[i]);
-      goo_canvas_item_set (graphsElt->nbBeansHole[i], "text", buffer, NULL);
+      g_object_set (graphsElt->nbBeansHole[i], "text", buffer, NULL);
 
       for (j = 0;
 	   j < staticAwale->board[i] && idxTabBeans < nbActiveBean;
@@ -858,7 +843,7 @@ updateNbBeans (int alpha)
 
 	  k = 0 + g_random_int() % 4;
 
-	  goo_canvas_item_set (ptBeansHoleLink[idxTabBeans].
+	  g_object_set (ptBeansHoleLink[idxTabBeans].
 				 beanPixbuf, "x",
 				 (double) caseCoord[i] +
 				 g_random_int() % 50, "y",

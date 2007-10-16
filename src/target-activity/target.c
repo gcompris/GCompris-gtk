@@ -36,8 +36,8 @@ static void		 game_won(void);
 #define HORIZONTAL_SEPARATION	30
 #define TEXT_COLOR		"white"
 
-static GnomeCanvasGroup *boardRootItem = NULL;
-static GnomeCanvasGroup *speedRootItem = NULL;
+static GooCanvasItem *boardRootItem = NULL;
+static GooCanvasItem *speedRootItem = NULL;
 
 static double wind_speed;
 static double ang;
@@ -62,7 +62,7 @@ static guint		user_points = 0;
  */
 static void		process_ok(void);
 static gint		key_press(guint keyval, gchar *commit_str, gchar *preedit_str);
-static GooCanvasItem *target_create_item(GnomeCanvasGroup *parent);
+static GooCanvasItem *target_create_item(GooCanvasItem *parent);
 static void		target_destroy_all_items(void);
 static void		target_next_level(void);
 static gint		item_event(GooCanvasItem *item, GdkEvent *event, gpointer data);
@@ -279,9 +279,9 @@ static gint key_press(guint keyval, gchar *commit_str, gchar *preedit_str)
   if(answer_item)
     {
       gchar *tmpstr = g_strdup_printf(_("Points = %s"), answer_string);
-      goo_canvas_item_set(answer_item,
-			    "text", tmpstr,
-			    NULL);
+      g_object_set(answer_item,
+		   "text", tmpstr,
+		   NULL);
       g_free(tmpstr);
     }
 
@@ -401,15 +401,15 @@ static void display_windspeed()
 			 NULL);
 
   tmpstr = g_strdup_printf(_("Wind speed = %d\nkilometers/hour"), (guint)wind_speed);
-  goo_canvas_item_new (speedRootItem,
-			 goo_canvas_text_get_type (),
-			 "text", tmpstr,
-			 "font", gc_skin_font_board_medium,
-			 "x", (double) SPEED_CENTER_X,
-			 "y", (double) SPEED_CENTER_Y + 110,
-			 "anchor", GTK_ANCHOR_CENTER,
-			 "fill_color", "white",
-			 NULL);
+  goo_canvas_text_new (speedRootItem,
+		       tmpstr,
+		       (double) SPEED_CENTER_X,
+		       (double) SPEED_CENTER_Y + 110,
+		       -1,
+		       GTK_ANCHOR_CENTER,
+		       "font", gc_skin_font_board_medium,
+		       "fill_color", "white",
+		       NULL);
   g_free(tmpstr);
 
 }
@@ -417,7 +417,7 @@ static void display_windspeed()
 
 
 /* ==================================== */
-static GooCanvasItem *target_create_item(GnomeCanvasGroup *parent)
+static GooCanvasItem *target_create_item(GooCanvasItem *parent)
 {
   int i;
   gchar *tmpstr;
@@ -450,15 +450,15 @@ static GooCanvasItem *target_create_item(GnomeCanvasGroup *parent)
 	  /* Display the value for this target */
 	  tmpstr = g_strdup_printf("%d",
 				   targetDefinition[gcomprisBoard->level-1].target_width_value[i*2+1]);
-	  item = goo_canvas_item_new (boardRootItem,
-					goo_canvas_text_get_type (),
-					"text", tmpstr,
-					"font", gc_skin_font_board_medium,
-					"x", (double) 0,
-					"y", (double) targetDefinition[gcomprisBoard->level-1].target_width_value[i*2] - 10,
-					"anchor", GTK_ANCHOR_CENTER,
-					"fill_color", "white",
-					NULL);
+	  item = goo_canvas_text_new (boardRootItem,
+				      tmpstr,
+				      (double) 0,
+				      (double) targetDefinition[gcomprisBoard->level-1].target_width_value[i*2] - 10,
+				      -1,
+				      GTK_ANCHOR_CENTER,
+				      "font", gc_skin_font_board_medium,
+				      "fill_color", "white",
+				      NULL);
 	  g_free(tmpstr);
 
 	  g_signal_connect(GTK_OBJECT(item), "enter_notify_event", (GtkSignalFunc) item_event, NULL);
@@ -469,15 +469,15 @@ static GooCanvasItem *target_create_item(GnomeCanvasGroup *parent)
 
   tmpstr = g_strdup_printf(_("Distance to target = %d meters"),
 			   targetDefinition[gcomprisBoard->level-1].target_distance);
-  goo_canvas_item_new (boardRootItem,
-			 goo_canvas_text_get_type (),
-			 "text", tmpstr,
-			 "font", gc_skin_font_board_medium,
-			 "x", (double) 0,
-			 "y", (double) BOARDHEIGHT-TARGET_CENTER_Y -45,
-			 "anchor", GTK_ANCHOR_CENTER,
-			 "fill_color", "white",
-			 NULL);
+  goo_canvas_text_new (boardRootItem,
+		       tmpstr,
+		       (double) 0,
+		       (double) BOARDHEIGHT-TARGET_CENTER_Y -45,
+		       -1,
+		       GTK_ANCHOR_CENTER,
+		       "font", gc_skin_font_board_medium,
+		       "fill_color", "white",
+		       NULL);
   g_free(tmpstr);
 
   display_windspeed();
@@ -536,23 +536,22 @@ static void request_score()
 
   gc_bar_set(GC_BAR_LEVEL|GC_BAR_OK);
   button_pixmap = gc_skin_pixmap_load("button_large2.png");
-  goo_canvas_item_new (boardRootItem,
-			 goo_canvas_pixbuf_get_type (),
-			 "pixbuf",  button_pixmap,
-			 "x", x_offset,
-			 "y", y_offset,
+  goo_canvas_image_new (boardRootItem,
+			button_pixmap,
+			x_offset,
+			y_offset,
 			 NULL);
 
   tmpstr =  g_strdup_printf(_("Points = %s"), "");
-  answer_item = goo_canvas_item_new (boardRootItem,
-				       goo_canvas_text_get_type (),
-				       "text", tmpstr,
-				       "font", gc_skin_font_board_title_bold,
-				       "x", (double) x_offset + gdk_pixbuf_get_width(button_pixmap)/2,
-				       "y", (double) y_offset + gdk_pixbuf_get_height(button_pixmap)/2,
-				       "anchor", GTK_ANCHOR_CENTER,
-				       "fill_color", "white",
-				       NULL);
+  answer_item = goo_canvas_text_new (boardRootItem,
+				     tmpstr,
+				     (double) x_offset + gdk_pixbuf_get_width(button_pixmap)/2,
+				     (double) y_offset + gdk_pixbuf_get_height(button_pixmap)/2,
+				     -1,
+				     GTK_ANCHOR_CENTER,
+				     "font", gc_skin_font_board_title_bold,
+				     "fill_color", "white",
+				     NULL);
   g_free(tmpstr);
 
   gdk_pixbuf_unref(button_pixmap);
@@ -594,7 +593,7 @@ static void animate_items()
   animate_item_x = animate_item_x + wind_speed * sin(ang);
   animate_item_y = animate_item_y - wind_speed * cos(ang);
 
-  goo_canvas_item_set (animate_item,
+  g_object_set (animate_item,
 			 "x1", (double)animate_item_x - animate_item_size,
 			 "y1", (double)animate_item_y - animate_item_size,
 			 "x2", (double)animate_item_x + animate_item_size,

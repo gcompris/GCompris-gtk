@@ -134,18 +134,18 @@ static void	 set_level (guint level);
 static gboolean  key_release_event (GtkWidget *text_view,
 				    GdkEventKey *event);
 
-static GnomeCanvasGroup *boardRootItem = NULL;
+static GooCanvasItem *boardRootItem = NULL;
 
 static GooCanvasItem	*wordprocessor_create(void);
 static void		 wordprocessor_destroy_all_items(void);
 static void		 item_event(GtkWidget *item, gchar *data);
-static int		 display_style_buttons(GnomeCanvasGroup *boardRootItem,
+static int		 display_style_buttons(GooCanvasItem *boardRootItem,
 					       int x,
 					       int y);
 static void		 create_tags (GtkTextBuffer *buffer, doctype_t *doctype);
 static void		 set_default_tag (GtkTextBuffer *buffer, GtkTextTag *tag);
-static void		 display_style_selector(GnomeCanvasGroup *boardRootItem, double y);
-static void		 display_color_style_selector(GnomeCanvasGroup *boardRootItem, double y);
+static void		 display_style_selector(GooCanvasItem *boardRootItem, double y);
+static void		 display_color_style_selector(GooCanvasItem *boardRootItem, double y);
 static void		 item_event_style_selection (GtkComboBox *widget, void *data);
 static void		 item_event_color_style_selection (GtkComboBox *widget, void *data);
 static gint		 save_event(GooCanvasItem *item, GdkEvent *event,
@@ -365,11 +365,10 @@ static GooCanvasItem *wordprocessor_create()
    */
   pixmap = gc_skin_pixmap_load("draw/tool-save.png");
   item = \
-    goo_canvas_item_new (boardRootItem,
-			   goo_canvas_pixbuf_get_type(),
-			   "pixbuf", pixmap,
-			   "x", 17.0,
-			   "y", y,
+    goo_canvas_image_new (boardRootItem,
+			  pixmap,
+			  17.0,
+			  y,
 			   "anchor", GTK_ANCHOR_NW,
 			   NULL);
   gdk_pixbuf_unref(pixmap);
@@ -384,11 +383,10 @@ static GooCanvasItem *wordprocessor_create()
    */
   pixmap = gc_skin_pixmap_load("draw/tool-load.png");
   item = \
-    goo_canvas_item_new (boardRootItem,
-			   goo_canvas_pixbuf_get_type(),
-			   "pixbuf", pixmap,
-			   "x", 60.0,
-			   "y", y,
+    goo_canvas_image_new (boardRootItem,
+			  pixmap,
+			  60.0,
+			  y,
 			   "anchor", GTK_ANCHOR_NW,
 			   NULL);
   gdk_pixbuf_unref(pixmap);
@@ -424,7 +422,7 @@ static GooCanvasItem *wordprocessor_create()
  * \return the new y coordinate
  */
 static int
-display_style_buttons(GnomeCanvasGroup *boardRootItem,
+display_style_buttons(GooCanvasItem *boardRootItem,
 		      int x,
 		      int y)
 {
@@ -604,7 +602,7 @@ get_tag_from_name(gchar *tag_name)
  * --------------------------------
  */
 static void
-display_style_selector(GnomeCanvasGroup *boardRootItem, double y)
+display_style_selector(GooCanvasItem *boardRootItem, double y)
 {
   int i = 0;
 
@@ -639,7 +637,7 @@ display_style_selector(GnomeCanvasGroup *boardRootItem, double y)
  * --------------------------------------
  */
 static void
-display_color_style_selector(GnomeCanvasGroup *boardRootItem, double y)
+display_color_style_selector(GooCanvasItem *boardRootItem, double y)
 {
   int i = 0;
 

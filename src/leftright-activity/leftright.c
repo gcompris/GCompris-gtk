@@ -66,12 +66,12 @@ static void game_won();
 #define TEXT_COLOR "yellow"
 
 /* ================================================================ */
-static GnomeCanvasGroup *boardRootItem = NULL;
+static GooCanvasItem *boardRootItem = NULL;
 
 static GooCanvasItem *hand_image_item = NULL;
 static GooCanvasItem *left_highlight_image_item = NULL, *right_highlight_image_item = NULL;
 
-static GooCanvasItem *leftright_create_item(GnomeCanvasGroup *parent);
+static GooCanvasItem *leftright_create_item(GooCanvasItem *parent);
 static void leftright_destroy_all_items(void);
 static void leftright_next_level(void);
 static gint item_event(GooCanvasItem *item, GdkEvent *event, gpointer data);
@@ -228,7 +228,7 @@ static void leftright_destroy_all_items() {
 /* =====================================================================
  *
  * =====================================================================*/
-static GooCanvasItem *leftright_create_item(GnomeCanvasGroup *parent) {
+static GooCanvasItem *leftright_create_item(GooCanvasItem *parent) {
   GdkPixbuf *highlight_pixmap = NULL;
   GdkPixbuf *hand_pixmap = NULL;
   gchar *str;
@@ -243,70 +243,60 @@ static GooCanvasItem *leftright_create_item(GnomeCanvasGroup *parent) {
 
   highlight_pixmap = gc_pixmap_load("leftright/leftright-select.png");
 
-  left_highlight_image_item = goo_canvas_item_new (boardRootItem,
-						     goo_canvas_pixbuf_get_type (),
-						     "pixbuf", highlight_pixmap,
-						     "x", (double) BUTTON_AREA_X1,
-						     "y", (double) BUTTON_AREA_Y1,
-						     "width", (double) gdk_pixbuf_get_width(highlight_pixmap),
-						     "height", (double) gdk_pixbuf_get_height(highlight_pixmap),
-						     "width_set", TRUE,
-						     "height_set", TRUE,
+  left_highlight_image_item = goo_canvas_image_new (boardRootItem,
+						    highlight_pixmap,
+						    BUTTON_AREA_X1,
+						    BUTTON_AREA_Y1,
 						     NULL);
 
-  right_highlight_image_item = goo_canvas_item_new (boardRootItem,
-						      goo_canvas_pixbuf_get_type (),
-						      "pixbuf", highlight_pixmap,
-						      "x", (double) BUTTON_AREA_X2,
-						      "y", (double) BUTTON_AREA_Y1,
-						      "width", (double) gdk_pixbuf_get_width(highlight_pixmap),
-						      "height", (double) gdk_pixbuf_get_height(highlight_pixmap),
-						      "width_set", TRUE,
-						      "height_set", TRUE,
-						      NULL);
+  right_highlight_image_item = goo_canvas_image_new (boardRootItem,
+						     highlight_pixmap,
+						     BUTTON_AREA_X2,
+						     BUTTON_AREA_Y1,
+						     NULL);
 
   goo_canvas_item_hide(right_highlight_image_item);
   goo_canvas_item_hide(left_highlight_image_item);
 
-  goo_canvas_item_new (boardRootItem,
-			 goo_canvas_text_get_type (),
-			 "text", _("left"),
-			 "font", gc_skin_font_board_big,
-			 "x", (double) CENTER_LEFT_X + 1.0,
-			 "y", (double) CENTER_LEFT_Y + 1.0,
-			 "anchor", GTK_ANCHOR_CENTER,
-			 "fill_color", "black",
-			 NULL);
+  goo_canvas_text_new (boardRootItem,
+		       _("left"),
+		       (double) CENTER_LEFT_X + 1.0,
+		       (double) CENTER_LEFT_Y + 1.0,
+		       -1,
+		       GTK_ANCHOR_CENTER,
+		       "font", gc_skin_font_board_big,
+		       "fill_color", "black",
+		       NULL);
 
-  goo_canvas_item_new (boardRootItem,
-			 goo_canvas_text_get_type (),
-			 "text", _("left"),
-			 "font", gc_skin_font_board_big,
-			 "x", (double) CENTER_LEFT_X,
-			 "y", (double) CENTER_LEFT_Y,
-			 "anchor", GTK_ANCHOR_CENTER,
-			 "fill_color", TEXT_COLOR,
-			 NULL);
+  goo_canvas_text_new (boardRootItem,
+		       _("left"),
+		       (double) CENTER_LEFT_X,
+		       (double) CENTER_LEFT_Y,
+		       -1,
+		       GTK_ANCHOR_CENTER,
+		       "font", gc_skin_font_board_big,
+		       "fill_color", TEXT_COLOR,
+		       NULL);
 
-  goo_canvas_item_new (boardRootItem,
-			 goo_canvas_text_get_type (),
-			 "text", _("right"),
-			 "font", gc_skin_font_board_big,
-			 "x", (double) CENTER_RIGHT_X + 1.0,
-			 "y", (double) CENTER_RIGHT_Y + 1.0,
-			 "anchor", GTK_ANCHOR_CENTER,
-			 "fill_color", "black",
-			 NULL);
+  goo_canvas_text_new (boardRootItem,
+		       _("right"),
+		       (double) CENTER_RIGHT_X + 1.0,
+		       (double) CENTER_RIGHT_Y + 1.0,
+		       -1,
+		       GTK_ANCHOR_CENTER,
+		       "font", gc_skin_font_board_big,
+		       "fill_color", "black",
+		       NULL);
 
-  goo_canvas_item_new (boardRootItem,
-			 goo_canvas_text_get_type (),
-			 "text", _("right"),
-			 "font", gc_skin_font_board_big,
-			 "x", (double) CENTER_RIGHT_X,
-			 "y", (double) CENTER_RIGHT_Y,
-			 "anchor", GTK_ANCHOR_CENTER,
-			 "fill_color", TEXT_COLOR,
-			 NULL);
+  goo_canvas_text_new (boardRootItem,
+		       _("right"),
+		       (double) CENTER_RIGHT_X,
+		       (double) CENTER_RIGHT_Y,
+		       -1,
+		       GTK_ANCHOR_CENTER,
+		       "font", gc_skin_font_board_big,
+		       "fill_color", TEXT_COLOR,
+		       NULL);
 
   // make sure that next hand is not the same as previous
   do {
@@ -322,16 +312,11 @@ static GooCanvasItem *leftright_create_item(GnomeCanvasGroup *parent) {
 
   str = g_strdup_printf("%s/%s", gcomprisBoard->boarddir, hands[i]);
   hand_pixmap = gc_pixmap_load(str);
-  hand_image_item = goo_canvas_item_new (boardRootItem,
-					   goo_canvas_pixbuf_get_type (),
-					   "pixbuf", hand_pixmap,
-					   "x", (double) HAND_X - (gdk_pixbuf_get_width(hand_pixmap)/2),
-					   "y", (double) HAND_Y - (gdk_pixbuf_get_height(hand_pixmap)/2),
-					   "width", (double) gdk_pixbuf_get_width(hand_pixmap),
-					   "height", (double) gdk_pixbuf_get_height(hand_pixmap),
-					   "width_set", TRUE,
-					   "height_set", TRUE,
-					   NULL);
+  hand_image_item = goo_canvas_image_new (boardRootItem,
+					  hand_pixmap,
+					  HAND_X - (gdk_pixbuf_get_width(hand_pixmap)/2),
+					  HAND_Y - (gdk_pixbuf_get_height(hand_pixmap)/2),
+					  NULL);
 
   g_free(str);
 

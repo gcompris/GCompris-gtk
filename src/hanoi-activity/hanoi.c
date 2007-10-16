@@ -32,9 +32,9 @@ static void	 set_level (guint level);
 static int	 gamewon;
 static void	 game_won(void);
 
-static GnomeCanvasGroup *boardRootItem = NULL;
+static GooCanvasItem *boardRootItem = NULL;
 
-static GooCanvasItem	*hanoi_create_item(GnomeCanvasGroup *parent);
+static GooCanvasItem	*hanoi_create_item(GooCanvasItem *parent);
 static void		 hanoi_destroy_all_items(void);
 static void		 hanoi_next_level(void);
 
@@ -294,7 +294,7 @@ static void print_piece(PieceItem *piece)
 #endif
 
 /* ==================================== */
-static GooCanvasItem *hanoi_create_item(GnomeCanvasGroup *parent)
+static GooCanvasItem *hanoi_create_item(GooCanvasItem *parent)
 {
   int i,j;
   double gap_x, gap_y;
@@ -315,38 +315,35 @@ static GooCanvasItem *hanoi_create_item(GnomeCanvasGroup *parent)
 
   pixmap = gc_skin_pixmap_load("gcompris-shapelabel.png");
   if(pixmap) {
-    goo_canvas_item_new (boardRootItem,
-			   goo_canvas_pixbuf_get_type (),
-			   "pixbuf", pixmap,
-			   "x",	(double)10,
-			   "y",	(double)BOARDHEIGHT - 60,
-			   "width", (double) BOARDWIDTH - 20,
-			   "width_set", TRUE,
-			   "anchor", GTK_ANCHOR_NW,
+    goo_canvas_image_new (boardRootItem,
+			  pixmap,
+			  10,
+			  BOARDHEIGHT - 60,
+			  "width", (double) BOARDWIDTH - 20,
 			   NULL);
     gdk_pixbuf_unref(pixmap);
   }
 
-  goo_canvas_item_new (boardRootItem,
-			 goo_canvas_text_get_type (),
-			 "text", _("Build the same tower in the empty area as the one you see on the right-hand side."),
-			 "font", gc_skin_font_board_medium,
-			 "x", (double) BOARDWIDTH/2 +1,
-			 "y", (double) BOARDHEIGHT - 50 +1,
-			 "anchor", GTK_ANCHOR_NORTH,
-			 "fill_color", "black",
-			 "justification", GTK_JUSTIFY_CENTER,
+  goo_canvas_text_new (boardRootItem,
+		       _("Build the same tower in the empty area as the one you see on the right-hand side."),
+		       (double) BOARDWIDTH/2 +1,
+		       (double) BOARDHEIGHT - 50 +1,
+		       -1,
+		       GTK_ANCHOR_NORTH,
+		       "font", gc_skin_font_board_medium,
+		       "fill_color", "black",
+		       "justification", GTK_JUSTIFY_CENTER,
 			 NULL);
 
-  goo_canvas_item_new (boardRootItem,
-			 goo_canvas_text_get_type (),
-			 "text", _("Build the same tower in the empty area as the one you see on the right-hand side."),
-			 "font", gc_skin_font_board_medium,
-			 "x", (double) BOARDWIDTH/2,
-			 "y", (double) BOARDHEIGHT - 50,
-			 "anchor", GTK_ANCHOR_NORTH,
-			 "fill_color_rgba", gc_skin_color_text_button,
-			 "justification", GTK_JUSTIFY_CENTER,
+  goo_canvas_text_new (boardRootItem,
+		       _("Build the same tower in the empty area as the one you see on the right-hand side."),
+		       (double) BOARDWIDTH/2,
+		       (double) BOARDHEIGHT - 50,
+		       -1,
+		       GTK_ANCHOR_NORTH,
+		       "font", gc_skin_font_board_medium,
+		       "fill_color_rgba", gc_skin_color_text_button,
+		       "justification", GTK_JUSTIFY_CENTER,
 			 NULL);
 
 
@@ -534,15 +531,15 @@ static GooCanvasItem *hanoi_create_item(GnomeCanvasGroup *parent)
 	      car[1] = '\0';
 
 	       position[i][j]->item_text = \
-		 goo_canvas_item_new (boardRootItem,
-					goo_canvas_text_get_type (),
-					"text", &car,
-					"font", gc_skin_font_board_tiny,
-					"x", (double) position[i][j]->xt,
-					"y", (double) position[i][j]->yt,
-					"anchor", GTK_ANCHOR_NORTH,
-					"fill_color", "white",
-					"justification", GTK_JUSTIFY_CENTER,
+		 goo_canvas_text_new (boardRootItem,
+				      &car,
+				      (double) position[i][j]->xt,
+				      (double) position[i][j]->yt,
+				      -1,
+				      GTK_ANCHOR_NORTH,
+				      "font", gc_skin_font_board_tiny,
+				      "fill_color", "white",
+				      "justification", GTK_JUSTIFY_CENTER,
 					NULL);
 
 	      position[i][j]->item = item;
@@ -618,13 +615,13 @@ item_event(GooCanvasItem *item, GdkEvent *event, PieceItem *data)
   switch (event->type)
     {
     case GDK_ENTER_NOTIFY:
-      goo_canvas_item_set(item,
+      g_object_set(item,
 			    "outline_color", "white",
 			    "width_units", (double)3,
 			    NULL);
       break;
     case GDK_LEAVE_NOTIFY:
-      goo_canvas_item_set(item,
+      g_object_set(item,
 			    "outline_color", "black",
 			    "width_units", (double)1,
 			    NULL);

@@ -73,7 +73,7 @@ static gboolean		 is_our_board (GcomprisBoard *gcomprisBoard);
 static void		 set_level (guint level);
 static gint		 key_press(guint keyval, gchar *commit_str, gchar *preedit_str);
 
-static GooCanvasItem	 *wordsgame_create_item(GnomeCanvasGroup *parent);
+static GooCanvasItem	 *wordsgame_create_item(GooCanvasItem *parent);
 static gint		 wordsgame_drop_items (GtkWidget *widget, gpointer data);
 static gint		 wordsgame_move_items (GtkWidget *widget, gpointer data);
 static void		 wordsgame_destroy_item(LettersItem *item);
@@ -279,20 +279,21 @@ static gint key_press(guint keyval, gchar *commit_str, gchar *preedit_str)
 
     if (!preedit_text)
       preedit_text = \
-	goo_canvas_item_new (goo_canvas_get_root_item(gcomprisBoard->canvas),
-			       goo_canvas_text_get_type (),
-			       "font", gc_skin_font_board_huge_bold,
-			       "x", (double) BOARDWIDTH/2,
-			       "y", (double) BOARDHEIGHT - 100,
-			       "anchor", GTK_ANCHOR_N,
-			       //"fill_color_rgba", 0xba00ffff,
-			       NULL);
+	goo_canvas_text_new (goo_canvas_get_root_item(gcomprisBoard->canvas),
+			     "",
+			     BOARDWIDTH/2,
+			     BOARDHEIGHT - 100,
+			     -1,
+			     GTK_ANCHOR_N,
+			     "font", gc_skin_font_board_huge_bold,
+			     //"fill_color_rgba", 0xba00ffff,
+			     NULL);
 
 
-    goo_canvas_item_set (preedit_text,
-			   "text", text,
-			   "attributes", attrs,
-			   NULL);
+    g_object_set (preedit_text,
+		  "text", text,
+		  "attributes", attrs,
+		  NULL);
 
     return TRUE;
 
@@ -350,9 +351,9 @@ static gint key_press(guint keyval, gchar *commit_str, gchar *preedit_str)
 	     */
 	    item_on_focus->overword = g_strdup_printf("%s%lc", tmpstr, 0x200D);
 	    g_free(tmpstr);
-	    goo_canvas_item_set (item_on_focus->overwriteItem,
-				   "text", item_on_focus->overword,
-				   NULL);
+	    g_object_set (item_on_focus->overwriteItem,
+			  "text", item_on_focus->overword,
+			  NULL);
 
 
 	    if (item_on_focus->count<g_utf8_strlen(item_on_focus->word,-1))
@@ -378,9 +379,9 @@ static gint key_press(guint keyval, gchar *commit_str, gchar *preedit_str)
 
 	    item_on_focus->pos=g_utf8_find_next_char(item_on_focus->word,NULL);
 
-	    goo_canvas_item_set (item_on_focus->overwriteItem,
-				   "text", item_on_focus->overword,
-				   NULL);
+	    g_object_set (item_on_focus->overwriteItem,
+			  "text", item_on_focus->overword,
+			  NULL);
 	    item_on_focus=NULL;
 	    g_free(letter);
 	    player_loose();
@@ -584,7 +585,7 @@ static void wordsgame_destroy_all_items()
 }
 
 
-static GooCanvasItem *wordsgame_create_item(GnomeCanvasGroup *parent)
+static GooCanvasItem *wordsgame_create_item(GooCanvasItem *parent)
 {
 
   GooCanvasItem *item2;
@@ -613,26 +614,26 @@ static GooCanvasItem *wordsgame_create_item(GnomeCanvasGroup *parent)
   /* To 'erase' words, I create 2 times the text item. One is empty now */
   /* It will be filled each time the user enters the right key         */
   item2 = \
-    goo_canvas_item_new (GOO_CANVAS_GROUP(item->rootitem),
-			   goo_canvas_text_get_type (),
-			   "text", item->word,
-			   "font", gc_skin_font_board_huge_bold,
-			   "x", (double) 0,
-			   "y", (double) 0,
-			   "anchor", GTK_ANCHOR_NW,
-			   "fill_color_rgba", 0xba00ffff,
-			   NULL);
+    goo_canvas_text_new (GOO_CANVAS_GROUP(item->rootitem),
+			 item->word,
+			 (double) 0,
+			 (double) 0,
+			 -1,
+			 GTK_ANCHOR_NW,
+			 "font", gc_skin_font_board_huge_bold,
+			 "fill_color_rgba", 0xba00ffff,
+			 NULL);
 
   item->overwriteItem = \
-    goo_canvas_item_new (GOO_CANVAS_GROUP(item->rootitem),
-			   goo_canvas_text_get_type (),
-			   "text", item->overword,
-			   "font", gc_skin_font_board_huge_bold,
-			   "x", (double) 0,
-			   "y", (double) 0,
-			   "anchor", GTK_ANCHOR_NW,
-			   "fill_color", "blue",
-			   NULL);
+    goo_canvas_text_new (GOO_CANVAS_GROUP(item->rootitem),
+			 item->overword,
+			 (double) 0,
+			 (double) 0,
+			 -1,
+			 GTK_ANCHOR_NW,
+			 "font", gc_skin_font_board_huge_bold,
+			 "fill_color", "blue",
+			 NULL);
 
   /*set right x position */
 

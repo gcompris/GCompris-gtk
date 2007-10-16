@@ -73,7 +73,7 @@ GET_BPLUGIN_INFO(gtans)
 
 static GcomprisBoard *gcomprisBoard = NULL;
 
-static GnomeCanvasGroup *boardRootItem = NULL;
+static GooCanvasItem *boardRootItem = NULL;
 
 static gboolean board_paused = FALSE;
 

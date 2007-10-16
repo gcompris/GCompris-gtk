@@ -41,11 +41,11 @@ static void	 game_won(void);
 #define TUX_IMG_EAST  "reversecount/tux_top_east.png"
 #define TUX_TO_BORDER_GAP 10
 
-static GnomeCanvasGroup *boardRootItem = NULL;
+static GooCanvasItem *boardRootItem = NULL;
 
 static void		 process_ok(void);
 static void		 process_error(void);
-static GooCanvasItem	*reversecount_create_item(GnomeCanvasGroup *parent);
+static GooCanvasItem	*reversecount_create_item(GooCanvasItem *parent);
 static void		 reversecount_destroy_all_items(void);
 static void		 reversecount_next_level(void);
 static gint		 item_event(GooCanvasItem *item, GdkEvent *event, gint *dice_index);
@@ -414,7 +414,7 @@ static void reversecount_destroy_all_items()
   boardRootItem = NULL;
 }
 /* ==================================== */
-static GooCanvasItem *reversecount_create_item(GnomeCanvasGroup *parent)
+static GooCanvasItem *reversecount_create_item(GooCanvasItem *parent)
 {
   int i,j,d;
   GooCanvasItem *item = NULL;
@@ -459,55 +459,35 @@ static GooCanvasItem *reversecount_create_item(GnomeCanvasGroup *parent)
   for(i=0; i<BOARDWIDTH; i+=block_width)
     {
       j=0;
-      item = goo_canvas_item_new (boardRootItem,
-				    goo_canvas_pixbuf_get_type (),
-				    "pixbuf", pixmap,
-				    "x", (double) i,
-				    "y", (double) j,
-				    "width", (double) block_width,
-				    "height", (double)  block_height,
-				    "width_set", TRUE,
-				    "height_set", TRUE,
-					NULL);
+      item = goo_canvas_image_new (boardRootItem,
+				   pixmap,
+				   i,
+				   j,
+				   NULL);
 
       j=BOARDHEIGHT-block_height;
-      item = goo_canvas_item_new (boardRootItem,
-				    goo_canvas_pixbuf_get_type (),
-				    "pixbuf", pixmap,
-				    "x", (double) i,
-				    "y", (double) j,
-				    "width", (double) block_width,
-				    "height", (double)  block_height,
-				    "width_set", TRUE,
-				    "height_set", TRUE,
-					NULL);
+      item = goo_canvas_image_new (boardRootItem,
+				   pixmap,
+				   i,
+				   j,
+				   NULL);
     }
 
   for(j=block_height; j<=BOARDHEIGHT-(block_height*2); j+=block_height)
     {
       i = 0;
-      item = goo_canvas_item_new (boardRootItem,
-				    goo_canvas_pixbuf_get_type (),
-				    "pixbuf", pixmap,
-				    "x", (double) i,
-				    "y", (double) j,
-				    "width", (double) block_width,
-				    "height", (double)  block_height,
-				    "width_set", TRUE,
-				    "height_set", TRUE,
-					NULL);
+      item = goo_canvas_image_new (boardRootItem,
+				   pixmap,
+				   i,
+				   j,
+				   NULL);
 
       i = BOARDWIDTH - block_width;
-      item = goo_canvas_item_new (boardRootItem,
-				    goo_canvas_pixbuf_get_type (),
-				    "pixbuf", pixmap,
-				    "x", (double) i,
-				    "y", (double) j,
-				    "width", (double) block_width,
-				    "height", (double)  block_height,
-				    "width_set", TRUE,
-				    "height_set", TRUE,
-					NULL);
+      item = goo_canvas_image_new (boardRootItem,
+				   pixmap,
+				   i,
+				   j,
+				   NULL);
     }
 
   gdk_pixbuf_unref(pixmap);
@@ -519,12 +499,11 @@ static GooCanvasItem *reversecount_create_item(GnomeCanvasGroup *parent)
 
   dice_area_x = BOARDWIDTH - block_width - gdk_pixbuf_get_width (pixmap) - 20;
 
-  goo_canvas_item_new (boardRootItem,
-			 goo_canvas_pixbuf_get_type (),
-			 "pixbuf", pixmap,
-			 "x", (double) dice_area_x,
-			 "y", (double) block_height + 20,
-			 NULL);
+  goo_canvas_image_new (boardRootItem,
+			pixmap,
+			dice_area_x,
+			block_height + 20,
+			NULL);
 
   gdk_pixbuf_unref(pixmap);
 
@@ -539,12 +518,11 @@ static GooCanvasItem *reversecount_create_item(GnomeCanvasGroup *parent)
       i = dice_area_x + gdk_pixbuf_get_width(pixmap) * d + 30;
       j = block_height + 25 + d*7;
 
-      item = goo_canvas_item_new (boardRootItem,
-				    goo_canvas_pixbuf_get_type (),
-				    "pixbuf", pixmap,
-				    "x", (double) i,
-				    "y", (double) j,
-				    NULL);
+      item = goo_canvas_image_new (boardRootItem,
+				   pixmap,
+				   i,
+				   j,
+				   NULL);
       dicevalue_array[d] = 1;
       val = g_new(gint, 1);
       *val = d;
@@ -642,17 +620,14 @@ static GooCanvasItem *display_item_at(gchar *imagename, int block, double ratio)
       xratio = yratio = ratio;
     }
 
-  item = goo_canvas_item_new (boardRootItem,
-				goo_canvas_pixbuf_get_type (),
-				"pixbuf", pixmap,
-				"x", (double) i + (block_width -
-						   (gdk_pixbuf_get_width (pixmap) * xratio)) / 2,
-				"y", (double) j + (block_height -
-						   (gdk_pixbuf_get_height (pixmap) * yratio)) / 2,
+  item = goo_canvas_image_new (boardRootItem,
+			       pixmap,
+			       i + (block_width -
+				    (gdk_pixbuf_get_width (pixmap) * xratio)) / 2,
+			       j + (block_height -
+				    (gdk_pixbuf_get_height (pixmap) * yratio)) / 2,
 				"width", (double) gdk_pixbuf_get_width (pixmap) * xratio,
 				"height", (double)  gdk_pixbuf_get_height (pixmap) * yratio,
-				"width_set", TRUE,
-				"height_set", TRUE,
 				NULL);
 
   gdk_pixbuf_unref(pixmap);
@@ -717,7 +692,7 @@ item_event(GooCanvasItem *item, GdkEvent *event, gint *dice_index)
 
       /* Warning changing the image needs to update pixbuf_ref for the focus usage */
       gc_item_focus_free(item, NULL);
-      goo_canvas_item_set (item,
+      g_object_set (item,
       			     "pixbuf", pixmap,
       			     NULL);
       gdk_pixbuf_unref(pixmap);
@@ -747,12 +722,11 @@ static void create_clock(double x, double y, int value)
 
   pixmap = gc_skin_pixmap_load(str);
 
-  clock_image_item = goo_canvas_item_new (boardRootItem,
-					    goo_canvas_pixbuf_get_type (),
-					    "pixbuf", pixmap,
-					    "x", (double) x,
-					    "y", (double) y,
-					    NULL);
+  clock_image_item = goo_canvas_image_new (boardRootItem,
+					   pixmap,
+					   x,
+					   y,
+					   NULL);
 
   gdk_pixbuf_unref(pixmap);
   g_free(str);
@@ -770,9 +744,9 @@ static void update_clock(int value)
 
   pixmap = gc_pixmap_load(str);
 
-  goo_canvas_item_set (clock_image_item,
-			 "pixbuf", pixmap,
-			 NULL);
+  g_item_set (clock_image_item,
+	      "pixbuf", pixmap,
+	      NULL);
 
   gdk_pixbuf_unref(pixmap);
   g_free(str);

@@ -72,7 +72,7 @@ struct _ToBeFoundItem{
 };
 static ToBeFoundItem *currentToBeFoundItem = NULL;
 
-static GnomeCanvasGroup *boardRootItem = NULL;
+static GooCanvasItem *boardRootItem = NULL;
 
 static char currentOperation[2];
 static gchar *currentOperationText;
@@ -85,10 +85,10 @@ static void		 set_level (guint level);
 static gint		 key_press(guint keyval, gchar *commit_str, gchar *preedit_str);
 static void		 process_ok(void);
 
-static GooCanvasItem	*algebra_create_item(GnomeCanvasGroup *parent);
+static GooCanvasItem	*algebra_create_item(GooCanvasItem *parent);
 static void		 algebra_destroy_item(GooCanvasItem *item);
 static void		 algebra_destroy_all_items(void);
-static void		 display_operand(GnomeCanvasGroup *parent,
+static void		 display_operand(GooCanvasItem *parent,
 					 double x_align,
 					 double y,
 					 char *operand_str,
@@ -328,7 +328,7 @@ static gint key_press(guint keyval, gchar *commit_str, gchar *preedit_str)
       number[0] = (char)c;
 
       currentToBeFoundItem->value = c;
-      goo_canvas_item_set (currentToBeFoundItem->item,
+      g_object_set (currentToBeFoundItem->item,
 			     "text", (char *)&number,
 			     NULL);
 
@@ -448,7 +448,7 @@ static void algebra_destroy_all_items()
   boardRootItem=NULL;
 }
 
-static void display_operand(GnomeCanvasGroup *parent,
+static void display_operand(GooCanvasItem *parent,
 			    double x_align,
 			    double y,
 			    char *operand_str,
@@ -466,40 +466,40 @@ static void display_operand(GnomeCanvasGroup *parent,
       if(!masked)
 	operand[0] = operand_str[i];
 
-      item = goo_canvas_item_new (parent,
-				    goo_canvas_text_get_type (),
-				    "text", &operand,
-				    "font", gc_skin_font_board_huge_bold,
-				    "anchor", GTK_ANCHOR_CENTER,
-				    "x", x_align-((strlen(operand_str)-i)*NUMBERSWIDTH),
-				    "y", y,
-				    "fill_color_rgba", 0x2c2cFFFF,
-				    NULL);
+      item = goo_canvas_text_new (parent,
+				  &operand,
+				  x_align-((strlen(operand_str)-i)*NUMBERSWIDTH),
+				  y,
+				  -1,
+				  GTK_ANCHOR_CENTER,
+				  "font", gc_skin_font_board_huge_bold,
+				  "fill_color_rgba", 0x2c2cFFFF,
+				  NULL);
       item_list = g_list_append (item_list, item);
 
       if(masked)
 	{
-	  focus_item = goo_canvas_item_new (parent,
-					      goo_canvas_text_get_type (),
-					      "text", "_",
-					      "font", gc_skin_font_board_huge_bold,
-					      "anchor", GTK_ANCHOR_CENTER,
-					      "x", x_align-((strlen(operand_str)-i)*NUMBERSWIDTH),
-					      "y", y,
-					      "fill_color_rgba", 0x00ae00FF,
-					      NULL);
+	  focus_item = goo_canvas_text_new (parent,
+					    "_",
+					    x_align-((strlen(operand_str)-i)*NUMBERSWIDTH),
+					    y,
+					    -1,
+					    GTK_ANCHOR_CENTER,
+					    "font", gc_skin_font_board_huge_bold,
+					    "fill_color_rgba", 0x00ae00FF,
+					    NULL);
 
 	  item_list = g_list_append (item_list, focus_item);
 
-	  bad_item = goo_canvas_item_new (parent,
-					    goo_canvas_text_get_type (),
-					    "text", "/",
-					    "font", gc_skin_font_board_huge_bold,
-					    "anchor", GTK_ANCHOR_CENTER,
-					    "x", x_align-((strlen(operand_str)-i)*NUMBERSWIDTH),
-					    "y", y,
-					    "fill_color_rgba", 0xFF0000FF,
-					    NULL);
+	  bad_item = goo_canvas_text_new (parent,
+					  "/",
+					  x_align-((strlen(operand_str)-i)*NUMBERSWIDTH),
+					  y,
+					  -1,
+					  GTK_ANCHOR_CENTER,
+					  "font", gc_skin_font_board_huge_bold,
+					  "fill_color_rgba", 0xFF0000FF,
+					  NULL);
 	  goo_canvas_item_hide(bad_item);
 
 	  item_list = g_list_append (item_list, bad_item);
@@ -540,7 +540,7 @@ static void display_operand(GnomeCanvasGroup *parent,
     }
 }
 
-static GooCanvasItem *algebra_create_item(GnomeCanvasGroup *parent)
+static GooCanvasItem *algebra_create_item(GooCanvasItem *parent)
 {
   GooCanvasItem *item;
   guint first_operand = 0;
@@ -579,27 +579,27 @@ static GooCanvasItem *algebra_create_item(GnomeCanvasGroup *parent)
   /* Display the operator */
   x=(double) x_align;
   y=(double) y_firstline;
-  item = goo_canvas_item_new (parent,
-				goo_canvas_text_get_type (),
-				"text", currentOperationText,
-				"font", gc_skin_font_board_huge_bold,
-				"x", x,
-				"y", y,
-				"anchor", GTK_ANCHOR_CENTER,
-				"fill_color_rgba", 0xFF3333FF,
-				NULL);
+  item = goo_canvas_text_new (parent,
+			      currentOperationText,
+			      x,
+			      y,
+			      -1,
+			      GTK_ANCHOR_CENTER,
+			      "font", gc_skin_font_board_huge_bold,
+			      "fill_color_rgba", 0xFF3333FF,
+			      NULL);
   item_list = g_list_append (item_list, item);
 
   /* Now the equal sign*/
-  item = goo_canvas_item_new (parent,
-				goo_canvas_text_get_type (),
-				"text", "=",
-				"font", gc_skin_font_board_huge_bold,
-				"x", x_align + NUMBERSWIDTH*(strlen(second_operand_str)+1),
-				"y", y,
-				"anchor", GTK_ANCHOR_CENTER,
-				"fill_color_rgba", 0xFF3333FF,
-				NULL);
+  item = goo_canvas_text_new (parent,
+			      "=",
+			      x_align + NUMBERSWIDTH*(strlen(second_operand_str)+1),
+			      y,
+			      -1,
+			      GTK_ANCHOR_CENTER,
+			      "font", gc_skin_font_board_huge_bold,
+			      "fill_color_rgba", 0xFF3333FF,
+			      NULL);
   item_list = g_list_append (item_list, item);
 
   /* Display the empty area */

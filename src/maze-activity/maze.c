@@ -72,38 +72,38 @@ static void game_won(void);
 static void repeat(void);
 
 /* ================================================================ */
-static GnomeCanvasGroup *boardRootItem = NULL;
-static GnomeCanvasGroup *mazegroup     = NULL;
-static GnomeCanvasGroup *wallgroup     = NULL;
+static GooCanvasItem *boardRootItem = NULL;
+static GooCanvasItem *mazegroup     = NULL;
+static GooCanvasItem *wallgroup     = NULL;
 
 static GooCanvasItem *warning_item   = NULL;
 static GooCanvasItem *tuxitem        = NULL;
 
-static GooCanvasItem *maze_create_item(GnomeCanvasGroup *parent);
+static GooCanvasItem *maze_create_item(GooCanvasItem *parent);
 static void maze_destroy_all_items(void);
 static void maze_next_level(void);
 static void set_level (guint level);
 static gint key_press(guint keyval, gchar *commit_str, gchar *preedit_str);
 /*--------------------*/
-static void draw_a_rect(GnomeCanvasGroup *group, int x1, int y1, int x2, int y2, char *color);
-static void draw_a_line(GnomeCanvasGroup *group, int x1, int y1, int x2, int y2, guint32 color);
-static GooCanvasItem *draw_image(GnomeCanvasGroup *group, int x,int y, GdkPixbuf *pixmap);
-static void move_image(GnomeCanvasGroup *group, int x,int y, GooCanvasItem *item);
-static void draw_rect(GnomeCanvasGroup *group, int x,int y,char *color);
-static void draw_combined_rect(GnomeCanvasGroup *group, int x1, int y1, int x2,int y2, char *color);
+static void draw_a_rect(GooCanvasItem *group, int x1, int y1, int x2, int y2, char *color);
+static void draw_a_line(GooCanvasItem *group, int x1, int y1, int x2, int y2, guint32 color);
+static GooCanvasItem *draw_image(GooCanvasItem *group, int x,int y, GdkPixbuf *pixmap);
+static void move_image(GooCanvasItem *group, int x,int y, GooCanvasItem *item);
+static void draw_rect(GooCanvasItem *group, int x,int y,char *color);
+static void draw_combined_rect(GooCanvasItem *group, int x1, int y1, int x2,int y2, char *color);
 static void initMaze(void);
 static int check(int x,int y);
 static int* isPossible(int x, int y);
 static void generateMaze(int x, int y);
 static void removeSet(void);
-static void draw_background(GnomeCanvasGroup *rootItem);
+static void draw_background(GooCanvasItem *rootItem);
 static void setlevelproperties(void);
 static gint tux_event(GooCanvasItem *item, GdkEvent *event, gpointer data);
 static gint target_event(GooCanvasItem *item, GdkEvent *event, gpointer data);
 static void update_tux(gint direction);
 
 /*---------- 3D stuff ------------*/
-static GnomeCanvasGroup *threedgroup = NULL;
+static GooCanvasItem *threedgroup = NULL;
 static gint viewing_direction=EAST;
 static gboolean threeDactive=FALSE;
 static gboolean mapActive=FALSE;
@@ -467,7 +467,7 @@ static void maze_destroy_all_items() {
 /* =====================================================================
  *
  * =====================================================================*/
-static GooCanvasItem *maze_create_item(GnomeCanvasGroup *parent) {
+static GooCanvasItem *maze_create_item(GooCanvasItem *parent) {
   gchar *message;
 
   boardRootItem = GOO_CANVAS_GROUP(
@@ -494,15 +494,15 @@ static GooCanvasItem *maze_create_item(GnomeCanvasGroup *parent) {
     message = _("Look at your position, then switch back to 3D mode to continue your moves");
   }
 
-  warning_item = goo_canvas_item_new (boardRootItem,
-					goo_canvas_text_get_type (),
-					"text", message,
-					"font", gc_skin_font_board_small,
-					"x", (double) BOARDWIDTH/2,
-					"y", (double) BOARDHEIGHT-20,
-					"anchor", GTK_ANCHOR_CENTER,
-					"fill_color_rgba", gc_skin_color_content,
-					NULL);
+  warning_item = goo_canvas_text_new (boardRootItem,
+				      message,
+				      (double) BOARDWIDTH/2,
+				      (double) BOARDHEIGHT-20,
+				      -1,
+				      GTK_ANCHOR_CENTER,
+				      "font", gc_skin_font_board_small,
+				      "fill_color_rgba", gc_skin_color_content,
+				      NULL);
   goo_canvas_item_hide(warning_item);
 
   return NULL;
@@ -529,7 +529,7 @@ static void process_ok() {
 }
 
 static void
-draw_a_rect(GnomeCanvasGroup *group,
+draw_a_rect(GooCanvasItem *group,
 	    int x1, int y1, int x2, int y2, char *color)
 {
   goo_canvas_item_new(group,goo_canvas_rect_get_type(),
@@ -542,7 +542,7 @@ draw_a_rect(GnomeCanvasGroup *group,
 }
 
 static void
-draw_a_line(GnomeCanvasGroup *group,
+draw_a_line(GooCanvasItem *group,
 	    int x1, int y1, int x2, int y2, guint32 color)
 {
   GnomeCanvasPoints *points;
@@ -563,7 +563,7 @@ draw_a_line(GnomeCanvasGroup *group,
   goo_canvas_points_free(points);
 }
 
-static void draw_rect(GnomeCanvasGroup *group, int x,int y,char *color)
+static void draw_rect(GooCanvasItem *group, int x,int y,char *color)
 {
   int x1,y1;
   y1=cellsize*(y)-hoogte + board_border_y;
@@ -575,7 +575,7 @@ static void draw_rect(GnomeCanvasGroup *group, int x,int y,char *color)
  * Same as draw rect but for an image
  * Returns the created item
  */
-static GooCanvasItem *draw_image(GnomeCanvasGroup *group, int x,int y, GdkPixbuf *pixmap)
+static GooCanvasItem *draw_image(GooCanvasItem *group, int x,int y, GdkPixbuf *pixmap)
 {
   GooCanvasItem *item = NULL;
   int x1,y1;
@@ -583,16 +583,13 @@ static GooCanvasItem *draw_image(GnomeCanvasGroup *group, int x,int y, GdkPixbuf
   y1=cellsize*(y)-hoogte + board_border_y;
   x1=cellsize*(x)-breedte + board_border_x;
 
-  item = goo_canvas_item_new (group,
-				goo_canvas_pixbuf_get_type (),
-				"pixbuf", pixmap,
-				"x",	(double)x1+buffer,
-				"y",	(double)y1+buffer,
-				"width",	(double)cellsize-buffer*2,
-				"height",(double)cellsize-buffer*2,
-				"width_set", TRUE,
-				"height_set", TRUE,
-				NULL);
+  item = goo_canvas_image_new (group,
+			       pixmap,
+			       x1+buffer,
+			       y1+buffer,
+			       "width",	(double)cellsize-buffer*2,
+			       "height",(double)cellsize-buffer*2,
+			       NULL);
 
   return(item);
 }
@@ -600,20 +597,20 @@ static GooCanvasItem *draw_image(GnomeCanvasGroup *group, int x,int y, GdkPixbuf
 /*
  * Same as draw rect but for an image
  */
-static void move_image(GnomeCanvasGroup *group, int x,int y, GooCanvasItem *item)
+static void move_image(GooCanvasItem *group, int x,int y, GooCanvasItem *item)
 {
   int x1,y1;
   y1=cellsize*(y)-hoogte + board_border_y;
   x1=cellsize*(x)-breedte + board_border_x;
 
-  goo_canvas_item_set (item,
+  g_object_set (item,
 			 "x",	(double)x1+buffer,
 			 "y",	(double)y1+buffer,
 			 NULL);
   goo_canvas_item_raise_to_top(item);
 }
 
-static void draw_combined_rect(GnomeCanvasGroup *group, int x1,int y1,int x2,int y2,char *color)
+static void draw_combined_rect(GooCanvasItem *group, int x1,int y1,int x2,int y2,char *color)
 {
   int xx1,yy1,xx2,yy2;
   yy1=cellsize*(y1)-hoogte + board_border_y;
@@ -772,7 +769,7 @@ static void removeSet(void)
 
 /* draw the background of the playing board */
 static void
-draw_background(GnomeCanvasGroup *rootItem)
+draw_background(GooCanvasItem *rootItem)
 {
   int x,y,x1,y1;
   int wall;
@@ -1071,7 +1068,7 @@ struct Trapez
 {  int x_left,x_right,y_left_top,y_left_bottom,y_right_top,y_right_bottom;
 };
 
-static GooCanvasItem *draw_Trapez(GnomeCanvasGroup *group, struct Trapez t,const char *c1, const char *c2)
+static GooCanvasItem *draw_Trapez(GooCanvasItem *group, struct Trapez t,const char *c1, const char *c2)
 {	GnomeCanvasPoints *pts=goo_canvas_points_new(4);
  GooCanvasItem *res=NULL;
  pts->coords[0]=t.x_left;
@@ -1449,7 +1446,7 @@ static void update_tux(gint direction)
 
   if(pixmap)
     {
-      goo_canvas_item_set (tuxitem,
+      g_object_set (tuxitem,
 			     "pixbuf", pixmap,
 			     NULL);
       gdk_pixbuf_unref(pixmap);

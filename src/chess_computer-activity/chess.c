@@ -81,7 +81,7 @@ static int	 get_square_from_coord (double x, double y);
 
 static char gameType = COMPUTER;
 
-static GnomeCanvasGroup *boardRootItem = NULL;
+static GooCanvasItem *boardRootItem = NULL;
 
 static GIOChannel *read_chan;
 static GIOChannel *write_chan;
@@ -108,7 +108,7 @@ static GooCanvasItem	*info_item = NULL;
 /* Need more space to fit notation.h definition */
 static GSquare *chessboard[100];
 
-static GooCanvasItem	*chess_create_item(GnomeCanvasGroup *parent);
+static GooCanvasItem	*chess_create_item(GooCanvasItem *parent);
 static void		 chess_destroy_all_items(void);
 static void		 chess_next_level(void);
 static gint		 item_event(GooCanvasItem *item, GdkEvent *event, gpointer data);
@@ -403,7 +403,7 @@ static void chess_destroy_all_items()
 
 /* ==================================== */
 static GooCanvasItem *
-chess_create_item(GnomeCanvasGroup *parent)
+chess_create_item(GooCanvasItem *parent)
 {
   guint color;
   GooCanvasItem *item = NULL;
@@ -520,14 +520,13 @@ chess_create_item(GnomeCanvasGroup *parent)
 	    pixmap = gc_pixmap_load(str);
 	    //	    g_warning("loading piece %s\n",   str);
 	    g_free(str);
-	    item = goo_canvas_item_new (boardRootItem,
-					  goo_canvas_pixbuf_get_type (),
-					  "pixbuf", pixmap,
-					  "x", (double)CHESSGC_BOARD_X + (x * SQUARE_WIDTH) +
-					  (guint)((SQUARE_WIDTH-gdk_pixbuf_get_width(pixmap))/2),
-					  "y", (double) CHESSGC_BOARD_Y + ((7-y) * SQUARE_HEIGHT) +
-					  (guint)((SQUARE_HEIGHT-gdk_pixbuf_get_height(pixmap))/2),
-					  NULL);
+	    item = goo_canvas_image_new (boardRootItem,
+					 pixmap,
+					 CHESSGC_BOARD_X + (x * SQUARE_WIDTH) +
+					 (guint)((SQUARE_WIDTH-gdk_pixbuf_get_width(pixmap))/2),
+					 CHESSGC_BOARD_Y + ((7-y) * SQUARE_HEIGHT) +
+					 (guint)((SQUARE_HEIGHT-gdk_pixbuf_get_height(pixmap))/2),
+					 NULL);
 
 	    chessboard[square]->piece_item = item;
 	    if(WPIECE(piece))
@@ -573,18 +572,18 @@ static void display_white_turn(gboolean whiteturn)
   if(turn_item == NULL)
     {
 
-      turn_item = goo_canvas_item_new (boardRootItem,
-					 goo_canvas_text_get_type (),
-					 "text",       " ",
-					 "font",       gc_skin_font_board_big,
-					 "x", (double) TURN_X,
-					 "y", (double) TURN_Y,
-					 "anchor",     GTK_ANCHOR_CENTER,
-					 "fill_color_rgba", gc_skin_color_content,
-					 NULL);
+      turn_item = goo_canvas_text_new (boardRootItem,
+				       " ",
+				       (double) TURN_X,
+				       (double) TURN_Y,
+				       -1,
+				       GTK_ANCHOR_CENTER,
+				       "font",       gc_skin_font_board_big,
+				       "fill_color_rgba", gc_skin_color_content,
+				       NULL);
     }
 
-  goo_canvas_item_set(turn_item, "text", (whiteturn ? _("White's Turn") : _("Black's Turn")),
+  g_object_set(turn_item, "text", (whiteturn ? _("White's Turn") : _("Black's Turn")),
 			NULL);
 }
 
@@ -594,18 +593,18 @@ static void display_info(gchar *info)
 
   if(info_item == NULL)
     {
-      info_item = goo_canvas_item_new (boardRootItem,
-					 goo_canvas_text_get_type (),
-					 "text",       " ",
-					 "font",       gc_skin_font_board_big,
-					 "x", (double) INFO_X,
-					 "y", (double) INFO_Y,
-					 "anchor",     GTK_ANCHOR_CENTER,
-					 "fill_color_rgba", gc_skin_color_subtitle,
-					 NULL);
+      info_item = goo_canvas_text_new (boardRootItem,
+				       " ",
+				       (double) INFO_X,
+				       (double) INFO_Y,
+				       -1,
+				       GTK_ANCHOR_CENTER,
+				       "font",       gc_skin_font_board_big,
+				       "fill_color_rgba", gc_skin_color_subtitle,
+				       NULL);
     }
 
-  goo_canvas_item_set(info_item, "text", info,
+  g_object_set(info_item, "text", info,
 			NULL);
 }
 
@@ -655,7 +654,7 @@ static void move_piece_to(Square from, Square to)
     }
 
   /* Show the moved piece */
-  goo_canvas_item_set(source_square->square_item,
+  g_object_set(source_square->square_item,
 			"outline_color",
 			(BPIECE(position->square[to])?"red":"blue"),
 			NULL);
@@ -670,7 +669,7 @@ static void move_piece_to(Square from, Square to)
   dest_square = chessboard[to];
 
   /* Show the moved piece */
-  goo_canvas_item_set(dest_square->square_item,
+  g_object_set(dest_square->square_item,
 			"outline_color",
 			(BPIECE(position->square[to])?"red":"blue"),
 			NULL);
@@ -720,7 +719,7 @@ static void move_piece_to(Square from, Square to)
       pixmap = gc_pixmap_load(str);
       g_free(str);
       g_warning("loading piece %c\n",  piece_to_ascii(piece));
-      goo_canvas_item_set (dest_square->piece_item,
+      g_object_set (dest_square->piece_item,
 			     "pixbuf", pixmap,
 			     NULL);
 
@@ -779,7 +778,7 @@ void hightlight_possible_moves(GSquare *gsquare)
 	  {
 	    color=((rank+square)%2?BLACK_COLOR_H:WHITE_COLOR_H);
 
-	    goo_canvas_item_set(chessboard[square]->square_item,
+	    g_object_set(chessboard[square]->square_item,
 				  "fill_color_rgba", color,
 				  "outline_color", "black",
 				  NULL);
@@ -788,7 +787,7 @@ void hightlight_possible_moves(GSquare *gsquare)
 	  {
 	    color=((rank+square)%2?BLACK_COLOR:WHITE_COLOR);
 
-	    goo_canvas_item_set(chessboard[square]->square_item,
+	    g_object_set(chessboard[square]->square_item,
 				  "fill_color_rgba", color,
 				  "outline_color", "black",
 				  NULL);
@@ -800,7 +799,7 @@ void hightlight_possible_moves(GSquare *gsquare)
   position_set_color_to_move(position, current_color);
 
   /* Show the current piece */
-  goo_canvas_item_set(gsquare->square_item,
+  g_object_set(gsquare->square_item,
 			"outline_color",
 			(BPIECE(position->square[gsquare->square])?"red":"blue"),
 			NULL);

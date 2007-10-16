@@ -1,4 +1,4 @@
-SUBDIRS = 
+SUBDIRS =
 
 if PLATFORM_WIN32
 shared = -shared
@@ -18,6 +18,7 @@ lib_LTLIBRARIES = \
 libdir = $(plugindir)
 INCLUDES = 	-I$(top_builddir)/src \
 	-I$(top_builddir)/intl \
+	-I$(top_builddir)/src/goocanvas/src \
 	$(GCOMPRIS_CFLAGS) \
 	$(XML_CFLAGS) \
 	$(dll_export)

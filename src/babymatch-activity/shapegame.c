@@ -70,7 +70,7 @@ struct _Shape {
 
   GooCanvasItem *item;     	  	/* Canvas item for this shape */
 				  	/* Root index which this item is in the shapelist */
-  GnomeCanvasGroup *shape_list_group_root;
+  GooCanvasItem *shape_list_group_root;
   guint shapelistgroup_index;	  	/* Root index which this item is in the shapelist */
   Shape *icon_shape;			/* Temporary Canvas icon shape for this shape */
   Shape *target_shape;			/* If this is an icon shape then point to its shape */
@@ -112,7 +112,7 @@ static GooCanvasItem	*shape_root_item;
 static GooCanvasItem	*shape_list_root_item;
 
 /* The tooltip */
-static GnomeCanvasGroup	*tooltip_root_item;
+static GooCanvasItem	*tooltip_root_item;
 static GooCanvasItem	*tooltip_text_item;
 static GooCanvasItem	*tooltip_text_item_s;
 static GooCanvasItem	*tooltip_bg_item;
@@ -128,7 +128,7 @@ static void	         config_start (GcomprisBoard *agcomprisBoard,
 					   GcomprisProfile *aProfile);
 static void	         config_stop (void);
 
-static void              shapegame_init_canvas(GnomeCanvasGroup *parent);
+static void              shapegame_init_canvas(GooCanvasItem *parent);
 static void 		 shapegame_destroy_all_items(void);
 static void 		 setup_item(GooCanvasItem *item, Shape *shape);
 static void 		 shapegame_next_level(void);
@@ -534,7 +534,7 @@ static void shapegame_destroy_all_items()
     }
 }
 
-static void shapegame_init_canvas(GnomeCanvasGroup *parent)
+static void shapegame_init_canvas(GooCanvasItem *parent)
 {
   GdkPixbuf       *pixmap = NULL;
 
@@ -563,35 +563,34 @@ static void shapegame_init_canvas(GnomeCanvasGroup *parent)
   /* Create the tooltip area */
   pixmap = gc_skin_pixmap_load("button_large.png");
   tooltip_bg_item = \
-    goo_canvas_item_new (GOO_CANVAS_GROUP(tooltip_root_item),
-			   goo_canvas_pixbuf_get_type (),
-			   "pixbuf", pixmap,
-			   "x", (double) 0,
-			   "y", (double) 0,
-			   NULL);
+    goo_canvas_image_new (GOO_CANVAS_GROUP(tooltip_root_item),
+			  pixmap,
+			  0,
+			  0,
+			  NULL);
   gdk_pixbuf_unref(pixmap);
 
   tooltip_text_item_s = \
-    goo_canvas_item_new (GOO_CANVAS_GROUP(tooltip_root_item),
-			   goo_canvas_text_get_type (),
-			   "text", "",
-			   "font", gc_skin_font_board_small,
-			   "x", (double)gdk_pixbuf_get_width(pixmap)/2 + 1.0,
-			   "y", 24.0 + 1.0,
-			   "anchor", GTK_ANCHOR_CENTER,
-			   "justification", GTK_JUSTIFY_CENTER,
-			   "fill_color_rgba", gc_skin_color_shadow,
+    goo_canvas_text_new (GOO_CANVAS_GROUP(tooltip_root_item),
+			 "",
+			 (double)gdk_pixbuf_get_width(pixmap)/2 + 1.0,
+			 24.0 + 1.0,
+			 -1,
+			 GTK_ANCHOR_CENTER,
+			 "font", gc_skin_font_board_small,
+			 "justification", GTK_JUSTIFY_CENTER,
+			 "fill_color_rgba", gc_skin_color_shadow,
 			   NULL);
   tooltip_text_item = \
-    goo_canvas_item_new (GOO_CANVAS_GROUP(tooltip_root_item),
-			   goo_canvas_text_get_type (),
-			   "text", "",
-			   "font", gc_skin_font_board_small,
-			   "x", (double)gdk_pixbuf_get_width(pixmap)/2,
-			   "y", 24.0,
-			   "anchor", GTK_ANCHOR_CENTER,
-			   "justification", GTK_JUSTIFY_CENTER,
-			   "fill_color_rgba", gc_skin_color_text_button,
+    goo_canvas_text_new (GOO_CANVAS_GROUP(tooltip_root_item),
+			 "",
+			 (double)gdk_pixbuf_get_width(pixmap)/2,
+			 24.0,
+			 -1,
+			 GTK_ANCHOR_CENTER,
+			 "font", gc_skin_font_board_small,
+			 "justification", GTK_JUSTIFY_CENTER,
+			 "fill_color_rgba", gc_skin_color_text_button,
 			   NULL);
 
   /* Hide the tooltip */
@@ -611,7 +610,7 @@ add_shape_to_list_of_shapes(Shape *shape)
 {
   GooCanvasItem *item;
   GdkPixbuf   *pixmap = NULL;
-  GnomeCanvasGroup *shape_list_group_root = NULL;
+  GooCanvasItem *shape_list_group_root = NULL;
   double ICON_GAP    = 5.0;
   double ICON_HEIGHT = (double)(shapeBox.h / shapeBox.nb_shape_y) - ICON_GAP;
   double ICON_WIDTH  = (double)(shapeBox.w / shapeBox.nb_shape_x) - ICON_GAP;
@@ -624,13 +623,12 @@ add_shape_to_list_of_shapes(Shape *shape)
   if(g_hash_table_size(shapelist_table)==(shapeBox.nb_shape_x * shapeBox.nb_shape_y))
     {
       pixmap = gc_skin_pixmap_load("button_backward.png");
-      previous_shapelist_item = goo_canvas_item_new (GOO_CANVAS_GROUP(shape_list_root_item),
-						       goo_canvas_pixbuf_get_type (),
-						       "pixbuf", pixmap,
-						       "x", (double) shapeBox.x + (shapeBox.w/2) -
-						       gdk_pixbuf_get_width(pixmap) - 2,
-						       "y", (double) shapeBox.y + shapeBox.h,
-						       NULL);
+      previous_shapelist_item = goo_canvas_image_new (shape_list_root_item,
+						      pixmap,
+						      shapeBox.x + (shapeBox.w/2) -
+						      gdk_pixbuf_get_width(pixmap) - 2,
+						      shapeBox.y + shapeBox.h,
+						      NULL);
 
       g_signal_connect(GTK_OBJECT(previous_shapelist_item), "enter_notify_event",
 			 (GtkSignalFunc) item_event_ok,
@@ -641,12 +639,11 @@ add_shape_to_list_of_shapes(Shape *shape)
       gdk_pixbuf_unref(pixmap);
 
       pixmap = gc_skin_pixmap_load("button_forward.png");
-      next_shapelist_item = goo_canvas_item_new (GOO_CANVAS_GROUP(shape_list_root_item),
-						   goo_canvas_pixbuf_get_type (),
-						   "pixbuf", pixmap,
-						   "x", (double) shapeBox.x + (shapeBox.w/2) + 2,
-						   "y", (double) shapeBox.y + shapeBox.h,
-						   NULL);
+      next_shapelist_item = goo_canvas_image_new (shape_list_root_item,
+						  pixmap,
+						  shapeBox.x + (shapeBox.w/2) + 2,
+						  shapeBox.y + shapeBox.h,
+						  NULL);
 
       g_signal_connect(GTK_OBJECT(next_shapelist_item), "enter_notify_event",
 			 (GtkSignalFunc) item_event_ok,
@@ -767,16 +764,13 @@ add_shape_to_list_of_shapes(Shape *shape)
             h=ICON_HEIGHT;
         }
 
-	      item = goo_canvas_item_new (shape_list_group_root,
-					    goo_canvas_pixbuf_get_type (),
-					    "pixbuf", pixmap,
-					    "x", (double)x_offset-w/2,
-					    "y", (double)y_offset-h/2,
-					    "width", (double) w,
-					    "height", (double) h,
-					    "width_set", TRUE,
-					    "height_set", TRUE,
-					    NULL);
+	      item = goo_canvas_image_new (shape_list_group_root,
+					   pixmap,
+					   x_offset - w/2,
+					   y_offset - h/2,
+					   "width", (double) w,
+					   "height", (double) h,
+					   NULL);
 	      gdk_pixbuf_unref(pixmap);
 
 	      icon_shape = create_shape(SHAPE_ICON, shape->name, shape->tooltip,
@@ -872,7 +866,7 @@ static void shape_goes_back_to_list(Shape *shape)
 
     goo_canvas_item_hide(shape->item);
     /* replace the icon */
-    goo_canvas_item_set(shape->icon_shape->item,
+    g_object_set(shape->icon_shape->item,
             "x", shape->icon_shape->x,
             "y", shape->icon_shape->y, NULL);
     goo_canvas_item_show(shape->icon_shape->item);
@@ -912,7 +906,7 @@ void target_point_switch_on(Shape *shape_on)
     {
         shape = list -> data;
         if(shape->type == SHAPE_TARGET && ! shape->targetfile)
-            goo_canvas_item_set(shape->target_point,
+            g_object_set(shape->target_point,
                     "fill_color_rgba",
                     shape == shape_on ? POINT_COLOR_ON : POINT_COLOR_OFF,
                     NULL);
@@ -981,9 +975,8 @@ static gint item_event_drag(GooCanvasItem *item, GdkEvent *event, gpointer data)
 
                 dest = gdk_pixbuf_copy(pixmap);
                 pixbuf_add_transparent(dest, 100);
-                shadow_item = goo_canvas_item_new(GOO_CANVAS_GROUP(shape_root_item),
-                        goo_canvas_pixbuf_get_type(),
-                        "pixbuf", dest,
+                shadow_item = goo_canvas_image_new(GOO_CANVAS_GROUP(shape_root_item),
+						   dest,
                         "width", shape->target_shape->w,
                         "height", shape->target_shape->h,
                         "width_set", TRUE,
@@ -1009,10 +1002,10 @@ static gint item_event_drag(GooCanvasItem *item, GdkEvent *event, gpointer data)
             {
                 if(found_shape)
                 {
-                    goo_canvas_item_set(shadow_item,
-                            "x", found_shape->x - shape->target_shape->w/2,
-                            "y", found_shape->y - shape->target_shape->h/2,
-                            NULL);
+                    g_object_set(shadow_item,
+					found_shape->x - shape->target_shape->w/2,
+					found_shape->y - shape->target_shape->h/2,
+					NULL);
                     goo_canvas_item_show(shadow_item);
                 }
                 else
@@ -1044,7 +1037,7 @@ static gint item_event_drag(GooCanvasItem *item, GdkEvent *event, gpointer data)
 		gc_sound_play_ogg ("sounds/line_end.wav", NULL);
 
                 /* place the target item */
-                goo_canvas_item_set(shape->target_shape->item,
+                g_object_set(shape->target_shape->item,
                         "x", found_shape->x - shape->target_shape->w/2,
                         "y", found_shape->y - shape->target_shape->h/2,
                         NULL);
@@ -1089,13 +1082,13 @@ item_event(GooCanvasItem *item, GdkEvent *event, Shape *shape)
      case GDK_ENTER_NOTIFY:
        if(shape->tooltip && shape->type == SHAPE_ICON) {
 	 /* WARNING: This should not be needed but if I don't do it, it's not refreshed */
-	 goo_canvas_item_set(GNOME_CANVAS_ITEM(tooltip_bg_item),
+	 g_object_set(GNOME_CANVAS_ITEM(tooltip_bg_item),
 			       "y", 0.0,
 			       NULL);
-	 goo_canvas_item_set(GNOME_CANVAS_ITEM(tooltip_text_item_s),
+	 g_object_set(GNOME_CANVAS_ITEM(tooltip_text_item_s),
 			       "text", shape->tooltip,
 			       NULL);
-	 goo_canvas_item_set(GNOME_CANVAS_ITEM(tooltip_text_item),
+	 g_object_set(GNOME_CANVAS_ITEM(tooltip_text_item),
 			       "text", shape->tooltip,
 			       NULL);
 	 goo_canvas_item_show(GNOME_CANVAS_ITEM(tooltip_root_item));
@@ -1273,15 +1266,12 @@ add_shape_to_canvas(Shape *shape)
 	  shape->w = (double)gdk_pixbuf_get_width(targetpixmap) * shape->zoomx;
 	  shape->h = (double)gdk_pixbuf_get_height(targetpixmap) *shape->zoomy;
 
-	  item = goo_canvas_item_new (GOO_CANVAS_GROUP(shape_root_item),
-					goo_canvas_pixbuf_get_type (),
-					"pixbuf", targetpixmap,
-					"x", shape->x - shape->w / 2,
-					"y", shape->y - shape->h / 2,
-					"width",  shape->w,
-					"height", shape->h,
-					"width_set", TRUE,
-					"height_set", TRUE,
+	  item = goo_canvas_image_new (GOO_CANVAS_GROUP(shape_root_item),
+				       targetpixmap,
+				       shape->x - shape->w / 2,
+				       shape->y - shape->h / 2,
+				       "width",  shape->w,
+				       "height", shape->h,
 					NULL);
 	  shape->targetitem = item;
 	  gdk_pixbuf_unref(targetpixmap);
@@ -1314,18 +1304,15 @@ add_shape_to_canvas(Shape *shape)
 	{
 	  shape->w = (double)gdk_pixbuf_get_width(pixmap) * shape->zoomx;
 	  shape->h = (double)gdk_pixbuf_get_height(pixmap) * shape->zoomy;
-	  
+
 	  /* Display the shape itself but hide it until the user puts the right shape on it */
 	  /* I have to do it this way for the positionning (lower/raise) complexity          */
-	  item = goo_canvas_item_new (GOO_CANVAS_GROUP(shape_root_item),
-					goo_canvas_pixbuf_get_type (),
-					"pixbuf", pixmap,
-					"x", shape->x - shape->w / 2,
-					"y", shape->y - shape->h / 2,
+	  item = goo_canvas_image_new (GOO_CANVAS_GROUP(shape_root_item),
+				       pixmap,
+				       shape->x - shape->w / 2,
+				       shape->y - shape->h / 2,
 					"width", shape->w,
 					"height", shape->h,
-					"width_set", TRUE,
-					"height_set", TRUE,
 					NULL);
 	  gdk_pixbuf_unref(pixmap);
 	}
@@ -1355,29 +1342,29 @@ static void create_title(char *name, double x, double y, GtkJustification justif
 
   /* Shadow */
   item = \
-    goo_canvas_item_new (GOO_CANVAS_GROUP(shape_root_item),
-			   goo_canvas_text_get_type (),
-			   "text", gettext(name),
-			   "font", gc_skin_font_board_medium,
-			   "x", x + 1.0,
-			   "y", y + 1.0,
-			   "anchor", GTK_ANCHOR_CENTER,
-			   "justification", justification,
-			   "fill_color_rgba", gc_skin_color_shadow,
+    goo_canvas_text_new (GOO_CANVAS_GROUP(shape_root_item),
+			 gettext(name),
+			 x + 1.0,
+			 y + 1.0,
+			 -1,
+			 GTK_ANCHOR_CENTER,
+			 "font", gc_skin_font_board_medium,
+			 "justification", justification,
+			 "fill_color_rgba", gc_skin_color_shadow,
 			   NULL);
 
   goo_canvas_item_raise_to_top(item);
 
   item = \
-    goo_canvas_item_new (GOO_CANVAS_GROUP(shape_root_item),
-			   goo_canvas_text_get_type (),
-			   "text", gettext(name),
-			   "font", gc_skin_font_board_medium,
-			   "x", x,
-			   "y", y,
-			   "anchor", GTK_ANCHOR_CENTER,
-			   "justification", justification,
-			   "fill_color_rgba", color_rgba,
+    goo_canvas_text_new (GOO_CANVAS_GROUP(shape_root_item),
+			 gettext(name),
+			 x,
+			 y,
+			 -1,
+			 GTK_ANCHOR_CENTER,
+			 "font", gc_skin_font_board_medium,
+			 "justification", justification,
+			 "fill_color_rgba", color_rgba,
 			   NULL);
 
   goo_canvas_item_raise_to_top(item);

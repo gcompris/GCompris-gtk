@@ -126,7 +126,7 @@ static void game_won();
 #define TEXT_COLOR_BACK "orange"
 
 /* ================================================================ */
-static GnomeCanvasGroup *boardRootItem = NULL;
+static GooCanvasItem *boardRootItem = NULL;
 
 static GooCanvasItem *sub_schema_image_item, *submarine_item,
   *ballast_av_purge_item, *ballast_ar_purge_item, *regleur_purge_item;
@@ -167,7 +167,7 @@ static guint gate_top_y, gate_bottom_y, gate_top_current_y;
 static guint submarine_width;
 static guint submarine_height;
 
-static GooCanvasItem *submarine_create_item(GnomeCanvasGroup *parent);
+static GooCanvasItem *submarine_create_item(GooCanvasItem *parent);
 static void submarine_destroy_all_items(void);
 static void submarine_next_level(void);
 static gint ballast_av_purge_event(GooCanvasItem *item, GdkEvent *event, gpointer data);
@@ -350,7 +350,7 @@ static void submarine_destroy_all_items() {
 /* =====================================================================
  *
  * =====================================================================*/
-static GooCanvasItem *submarine_create_item(GnomeCanvasGroup *parent) {
+static GooCanvasItem *submarine_create_item(GooCanvasItem *parent) {
   GdkPixbuf *pixmap = NULL;
   char s12[12];
   int i, w, h;
@@ -365,15 +365,10 @@ static GooCanvasItem *submarine_create_item(GnomeCanvasGroup *parent) {
   pixmap = gc_pixmap_load("submarine/submarine.png");
   submarine_width = gdk_pixbuf_get_width(pixmap);
   submarine_height = gdk_pixbuf_get_height(pixmap);
-  submarine_item = goo_canvas_item_new (boardRootItem,
-					  goo_canvas_pixbuf_get_type (),
-					  "pixbuf", pixmap,
-					  "x", (double) 0.0,//SUBMARINE_INITIAL_X,
-					  "y", (double) 0.0,//SUBMARINE_INITIAL_DEPTH + SURFACE_IN_BACKGROUND - submarine_height,
-					  "width", (double) gdk_pixbuf_get_width(pixmap),
-					  "height", (double) gdk_pixbuf_get_height(pixmap),
-					  "width_set", TRUE,
-					  "height_set", TRUE,
+  submarine_item = goo_canvas_image_new (boardRootItem,
+					 pixmap,
+					 0,//SUBMARINE_INITIAL_X,
+					 0,//SUBMARINE_INITIAL_DEPTH + SURFACE_IN_BACKGROUND - submarine_height,
 					  "anchor", GTK_ANCHOR_CENTER,
 					  NULL);
 
@@ -386,15 +381,10 @@ static GooCanvasItem *submarine_create_item(GnomeCanvasGroup *parent) {
 
   schema_x = (gcomprisBoard->width - w)/2 ;
   schema_y = gcomprisBoard->height - h;
-  sub_schema_image_item = goo_canvas_item_new (boardRootItem,
-						 goo_canvas_pixbuf_get_type (),
-						 "pixbuf", pixmap,
-						 "x", (double) schema_x + w/2.0,
-						 "y", (double) schema_y + h/2.0,
-						 "width", (double) w,
-						 "height", (double) h,
-						 "width_set", TRUE,
-						 "height_set", TRUE,
+  sub_schema_image_item = goo_canvas_image_new (boardRootItem,
+						pixmap,
+						(double) schema_x + w/2.0,
+						(double) schema_y + h/2.0,
 						 "anchor", GTK_ANCHOR_CENTER,
 						 NULL);
 
@@ -403,183 +393,106 @@ static GooCanvasItem *submarine_create_item(GnomeCanvasGroup *parent) {
   pixmap = gc_pixmap_load("submarine/vanne.png");
   w = gdk_pixbuf_get_width(pixmap);
   h = gdk_pixbuf_get_height(pixmap);
-  ballast_ar_purge_item = goo_canvas_item_new (boardRootItem,
-						 goo_canvas_pixbuf_get_type (),
-						 "pixbuf", pixmap,
-						 "x", (double) PURGE_AR + schema_x,
-						 "y", (double) schema_y + h/2.0 -1.0,
-						 "width", (double) w,
-						 "height", (double) h,
-						 "width_set", TRUE,
-						 "height_set", TRUE,
-						 "anchor", GTK_ANCHOR_CENTER,
+  ballast_ar_purge_item = goo_canvas_image_new (boardRootItem,
+						pixmap,
+						PURGE_AR + schema_x + w/2,
+						schema_y + h/2.0 -1.0 + h/2,
 						 NULL);
-  g_signal_connect(GTK_OBJECT(ballast_ar_purge_item), "enter_notify_event",  (GtkSignalFunc) ballast_ar_purge_event, NULL);
+  g_signal_connect(GTK_OBJECT(ballast_ar_purge_item), "enter_notify_event",
+		   (GtkSignalFunc) ballast_ar_purge_event, NULL);
 
-  ballast_av_purge_item = goo_canvas_item_new (boardRootItem,
-						 goo_canvas_pixbuf_get_type (),
-						 "pixbuf", pixmap,
-						 "x", (double) PURGE_AV + schema_x,
-						 "y", (double) schema_y + h/2.0 -1.0,
-						 "width", (double) gdk_pixbuf_get_width(pixmap),
-						 "height", (double) gdk_pixbuf_get_height(pixmap),
-						 "width_set", TRUE,
-						 "height_set", TRUE,
-						 "anchor", GTK_ANCHOR_CENTER,
-						 NULL);
+  ballast_av_purge_item = goo_canvas_image_new (boardRootItem,
+						pixmap,
+						PURGE_AV + schema_x + w/2,
+						schema_y + h/2.0 -1.0 + h/2,
+						NULL);
   g_signal_connect(GTK_OBJECT(ballast_av_purge_item), "enter_notify_event",  (GtkSignalFunc) ballast_av_purge_event, NULL);
 
-  regleur_purge_item = goo_canvas_item_new (boardRootItem,
-					      goo_canvas_pixbuf_get_type (),
-					      "pixbuf", pixmap,
-					      "x", (double) REGLEUR + schema_x,
-					      "y", (double) schema_y + h/2.0 -2.0,
-					      "width", (double) gdk_pixbuf_get_width(pixmap),
-					      "height", (double) gdk_pixbuf_get_height(pixmap),
-					      "width_set", TRUE,
-					      "height_set", TRUE,
-					      "anchor", GTK_ANCHOR_CENTER,
-					      NULL);
+  regleur_purge_item = goo_canvas_image_new (boardRootItem,
+					     pixmap,
+					     REGLEUR + schema_x + w/2,
+					     schema_y + h/2.0 -2.0 + h/2,
+					     NULL);
   g_signal_connect(GTK_OBJECT(regleur_purge_item), "enter_notify_event",  (GtkSignalFunc) regleur_purge_event, NULL);
 
-  ballast_av_chasse_item = goo_canvas_item_new (boardRootItem,
-						  goo_canvas_pixbuf_get_type (),
-						  "pixbuf", pixmap,
-						  "x", (double) schema_x + CHASSE_BALLAST_AV_X,
-						  "y", (double) schema_y +  CHASSE_BALLAST_AV_Y,
-						  "width", (double) gdk_pixbuf_get_width(pixmap),
-						  "height", (double) gdk_pixbuf_get_height(pixmap),
-						  "width_set", TRUE,
-						  "height_set", TRUE,
-						  "anchor", GTK_ANCHOR_CENTER,
-						  NULL);
+  ballast_av_chasse_item = goo_canvas_image_new (boardRootItem,
+						 pixmap,
+						 schema_x + CHASSE_BALLAST_AV_X + w/2,
+						 schema_y +  CHASSE_BALLAST_AV_Y + h/2,
+						 NULL);
   g_signal_connect(GTK_OBJECT(ballast_av_chasse_item), "enter_notify_event",  (GtkSignalFunc) ballast_av_chasse_event, NULL);
 
-  ballast_ar_chasse_item = goo_canvas_item_new (boardRootItem,
-						  goo_canvas_pixbuf_get_type (),
-						  "pixbuf", pixmap,
-						  "x", (double) schema_x + CHASSE_BALLAST_AR_X,
-						  "y", (double) schema_y +  CHASSE_BALLAST_AR_Y,
-						  "width", (double) gdk_pixbuf_get_width(pixmap),
-						  "height", (double) gdk_pixbuf_get_height(pixmap),
-						  "width_set", TRUE,
-						  "height_set", TRUE,
-						  "anchor", GTK_ANCHOR_CENTER,
+  ballast_ar_chasse_item = goo_canvas_image_new (boardRootItem,
+						 pixmap,
+						 schema_x + CHASSE_BALLAST_AR_X + w/2,
+						 schema_y +  CHASSE_BALLAST_AR_Y + h/2,
 						  NULL);
   g_signal_connect(GTK_OBJECT(ballast_ar_chasse_item), "enter_notify_event",  (GtkSignalFunc) ballast_ar_chasse_event, NULL);
 
-  regleur_chasse_item = goo_canvas_item_new (boardRootItem,
-					       goo_canvas_pixbuf_get_type (),
-					       "pixbuf", pixmap,
-					       "x", (double) schema_x + CHASSE_REGLEUR_X,
-					       "y", (double) schema_y + CHASSE_REGLEUR_Y,
-					       "width", (double) gdk_pixbuf_get_width(pixmap),
-					       "height", (double) gdk_pixbuf_get_height(pixmap),
-					       "width_set", TRUE,
-					       "height_set", TRUE,
-					       "anchor", GTK_ANCHOR_CENTER,
-					       NULL);
+  regleur_chasse_item = goo_canvas_image_new (boardRootItem,
+					      pixmap,
+					      schema_x + CHASSE_REGLEUR_X + w/2,
+					      schema_y + CHASSE_REGLEUR_Y + h/2,
+					      NULL);
   g_signal_connect(GTK_OBJECT(regleur_chasse_item), "enter_notify_event",  (GtkSignalFunc) regleur_chasse_event, NULL);
 
   gdk_pixbuf_unref(pixmap);
 
   // DEPTH RUDDERS
   pixmap = gc_pixmap_load("submarine/rudder.png");
-  barre_av_item = goo_canvas_item_new (boardRootItem,
-					 goo_canvas_pixbuf_get_type (),
-					 "pixbuf", pixmap,
-					 "x", (double) schema_x + BARRE_AV_X,
-					 "y", (double) schema_y + BARRE_AV_Y,
-					 "width", (double) gdk_pixbuf_get_width(pixmap),
-					 "height", (double) gdk_pixbuf_get_height(pixmap),
-					 "width_set", TRUE,
-					 "height_set", TRUE,
-					 "anchor", GTK_ANCHOR_CENTER,
+  w = gdk_pixbuf_get_width(pixmap);
+  h = gdk_pixbuf_get_height(pixmap);
+  barre_av_item = goo_canvas_image_new (boardRootItem,
+					pixmap,
+					schema_x + BARRE_AV_X + w/2,
+					schema_y + BARRE_AV_Y + h/2,
 					 NULL);
-  barre_ar_item = goo_canvas_item_new (boardRootItem,
-					 goo_canvas_pixbuf_get_type (),
-					 "pixbuf", pixmap,
-					 "x", (double) schema_x + BARRE_AR_X,
-					 "y", (double) schema_y + BARRE_AR_Y,
-					 "width", (double) gdk_pixbuf_get_width(pixmap),
-					 "height", (double) gdk_pixbuf_get_height(pixmap),
-					 "width_set", TRUE,
-					 "height_set", TRUE,
-					 "anchor", GTK_ANCHOR_CENTER,
+  barre_ar_item = goo_canvas_image_new (boardRootItem,
+					pixmap,
+					schema_x + BARRE_AR_X + w/2,
+					schema_y + BARRE_AR_Y + h/2,
 					 NULL);
   gdk_pixbuf_unref(pixmap);
 
 #define COMMAND_OFFSET 20.0
   pixmap = gc_pixmap_load("submarine/up.png");
-  barre_av_up_item = goo_canvas_item_new (boardRootItem,
-					    goo_canvas_pixbuf_get_type (),
-					    "pixbuf", pixmap,
-					    "x", (double) schema_x + BARRE_AV_X + COMMAND_OFFSET,
-					    "y", (double) schema_y + BARRE_AV_Y - COMMAND_OFFSET,
-					    "width", (double) gdk_pixbuf_get_width(pixmap),
-					    "height", (double) gdk_pixbuf_get_height(pixmap),
-					    "width_set", TRUE,
-					    "height_set", TRUE,
-					    "anchor", GTK_ANCHOR_CENTER,
+  w = gdk_pixbuf_get_width(pixmap);
+  h = gdk_pixbuf_get_height(pixmap);
+  barre_av_up_item = goo_canvas_image_new (boardRootItem,
+					   pixmap,
+					   schema_x + BARRE_AV_X + COMMAND_OFFSET + w/2,
+					   schema_y + BARRE_AV_Y - COMMAND_OFFSET + h/2,
 					    NULL);
-  barre_ar_up_item = goo_canvas_item_new (boardRootItem,
-					    goo_canvas_pixbuf_get_type (),
-					    "pixbuf", pixmap,
-					    "x", (double) schema_x + BARRE_AR_X + COMMAND_OFFSET,
-					    "y", (double) schema_y + BARRE_AR_Y - COMMAND_OFFSET,
-					    "width", (double) gdk_pixbuf_get_width(pixmap),
-					    "height", (double) gdk_pixbuf_get_height(pixmap),
-					    "width_set", TRUE,
-					    "height_set", TRUE,
-					    "anchor", GTK_ANCHOR_CENTER,
-					    NULL);
-  engine_up_item = goo_canvas_item_new (boardRootItem,
-					  goo_canvas_pixbuf_get_type (),
-					  "pixbuf", pixmap,
-					  "x", (double) schema_x + ENGINE_UP_X,
-					  "y", (double) schema_y + ENGINE_UP_Y,
-					  "width", (double) gdk_pixbuf_get_width(pixmap),
-					  "height", (double) gdk_pixbuf_get_height(pixmap),
-					  "width_set", TRUE,
-					  "height_set", TRUE,
-					  "anchor", GTK_ANCHOR_CENTER,
-					  NULL);
+  barre_ar_up_item = goo_canvas_image_new (boardRootItem,
+					   pixmap,
+					   schema_x + BARRE_AR_X + COMMAND_OFFSET + w/2,
+					   schema_y + BARRE_AR_Y - COMMAND_OFFSET + h/2,
+					   NULL);
+  engine_up_item = goo_canvas_image_new (boardRootItem,
+					 pixmap,
+					 schema_x + ENGINE_UP_X + w/2,
+					 schema_y + ENGINE_UP_Y + h/2,
+					 NULL);
   gdk_pixbuf_unref(pixmap);
 
   pixmap = gc_pixmap_load("submarine/down.png");
-  barre_av_down_item = goo_canvas_item_new (boardRootItem,
-					      goo_canvas_pixbuf_get_type (),
-					      "pixbuf", pixmap,
-					      "x", (double) schema_x + BARRE_AV_X + COMMAND_OFFSET,
-					      "y", (double) schema_y + BARRE_AV_Y + COMMAND_OFFSET,
-					      "width", (double) gdk_pixbuf_get_width(pixmap),
-					      "height", (double) gdk_pixbuf_get_height(pixmap),
-					      "width_set", TRUE,
-					      "height_set", TRUE,
-					      "anchor", GTK_ANCHOR_CENTER,
-					      NULL);
-  barre_ar_down_item = goo_canvas_item_new (boardRootItem,
-					      goo_canvas_pixbuf_get_type (),
-					      "pixbuf", pixmap,
-					      "x", (double) schema_x + BARRE_AR_X + COMMAND_OFFSET,
-					      "y", (double) schema_y + BARRE_AR_Y + COMMAND_OFFSET,
-					      "width", (double) gdk_pixbuf_get_width(pixmap),
-					      "height", (double) gdk_pixbuf_get_height(pixmap),
-					      "width_set", TRUE,
-					      "height_set", TRUE,
-					      "anchor", GTK_ANCHOR_CENTER,
-					      NULL);
-  engine_down_item = goo_canvas_item_new (boardRootItem,
-					    goo_canvas_pixbuf_get_type (),
-					    "pixbuf", pixmap,
-					    "x", (double) schema_x + ENGINE_DOWN_X,
-					    "y", (double) schema_y + ENGINE_DOWN_Y,
-					    "width", (double) gdk_pixbuf_get_width(pixmap),
-					    "height", (double) gdk_pixbuf_get_height(pixmap),
-					    "width_set", TRUE,
-					    "height_set", TRUE,
-					    "anchor", GTK_ANCHOR_CENTER,
-					    NULL);
+  w = gdk_pixbuf_get_width(pixmap);
+  h = gdk_pixbuf_get_height(pixmap);
+  barre_av_down_item = goo_canvas_image_new (boardRootItem,
+					     pixmap,
+					     schema_x + BARRE_AV_X + COMMAND_OFFSET + w/2,
+					     schema_y + BARRE_AV_Y + COMMAND_OFFSET + h/2,
+					     NULL);
+  barre_ar_down_item = goo_canvas_image_new (boardRootItem,
+					     pixmap,
+					     schema_x + BARRE_AR_X + COMMAND_OFFSET + w/2,
+					     schema_y + BARRE_AR_Y + COMMAND_OFFSET + h/2,
+					     NULL);
+  engine_down_item = goo_canvas_image_new (boardRootItem,
+					   pixmap,
+					   schema_x + ENGINE_DOWN_X + w/2,
+					   schema_y + ENGINE_DOWN_Y + h/2,
+					   NULL);
   gdk_pixbuf_unref(pixmap);
 
   g_signal_connect(GTK_OBJECT(barre_av_up_item), "enter_notify_event",
@@ -597,24 +510,24 @@ static GooCanvasItem *submarine_create_item(GnomeCanvasGroup *parent) {
 
   // displays the speed on the engine
   sprintf(s12,"%d",(int)submarine_horizontal_speed);
-  speed_item_back = goo_canvas_item_new (boardRootItem,
-					   goo_canvas_text_get_type (),
-					   "text", s12,
-					   "font", gc_skin_font_board_title_bold,
-					   "x", (double) schema_x + (ENGINE_UP_X + ENGINE_DOWN_X)/2 +1,
-					   "y", (double) schema_y + ENGINE_UP_Y + 1,
-					   "anchor", GTK_ANCHOR_CENTER,
-					   "fill_color", TEXT_COLOR_BACK,
-					   NULL);
-  speed_item_front = goo_canvas_item_new (boardRootItem,
-					    goo_canvas_text_get_type (),
-					    "text", s12,
-					    "font", gc_skin_font_board_title_bold,
-					    "x", (double) schema_x + (ENGINE_UP_X + ENGINE_DOWN_X)/2,
-					    "y", (double) schema_y + ENGINE_UP_Y,
-					    "anchor", GTK_ANCHOR_CENTER,
-					    "fill_color", TEXT_COLOR_FRONT,
-					    NULL);
+  speed_item_back = goo_canvas_text_new (boardRootItem,
+					 s12,
+					 (double) schema_x + (ENGINE_UP_X + ENGINE_DOWN_X)/2 +1,
+					 (double) schema_y + ENGINE_UP_Y + 1,
+					 -1,
+					 GTK_ANCHOR_CENTER,
+					 "font", gc_skin_font_board_title_bold,
+					 "fill_color", TEXT_COLOR_BACK,
+					 NULL);
+  speed_item_front = goo_canvas_text_new (boardRootItem,
+					  s12,
+					  (double) schema_x + (ENGINE_UP_X + ENGINE_DOWN_X)/2,
+					  (double) schema_y + ENGINE_UP_Y,
+					  -1,
+					  GTK_ANCHOR_CENTER,
+					  "font", gc_skin_font_board_title_bold,
+					  "fill_color", TEXT_COLOR_FRONT,
+					  NULL);
 
   // displays the ballast_av_air value
   ballast_av_air_item_rect = goo_canvas_item_new (boardRootItem,
@@ -628,24 +541,24 @@ static GooCanvasItem *submarine_create_item(GnomeCanvasGroup *parent) {
 						    NULL);
 
   sprintf(s12,"%d",(int)ballast_av_air);
-  ballast_av_air_item_back = goo_canvas_item_new (boardRootItem,
-						    goo_canvas_text_get_type (),
-						    "text", s12,
-						    "font", gc_skin_font_board_title_bold,
-						    "x", (double) schema_x + BALLAST_AV_AIR_TEXT_X + 1,
-						    "y", (double) schema_y + BALLAST_AV_AIR_TEXT_Y + 1,
-						    "anchor", GTK_ANCHOR_CENTER,
-						    "fill_color", TEXT_COLOR_BACK,
-						    NULL);
-  ballast_av_air_item_front = goo_canvas_item_new (boardRootItem,
-						     goo_canvas_text_get_type (),
-						     "text", s12,
-						     "font", gc_skin_font_board_title_bold,
-						     "x", (double) schema_x + BALLAST_AV_AIR_TEXT_X,
-						     "y", (double) schema_y + BALLAST_AV_AIR_TEXT_Y,
-						     "anchor", GTK_ANCHOR_CENTER,
-						     "fill_color", TEXT_COLOR_FRONT,
-						     NULL);
+  ballast_av_air_item_back = goo_canvas_text_new (boardRootItem,
+						  s12,
+						  (double) schema_x + BALLAST_AV_AIR_TEXT_X + 1,
+						  (double) schema_y + BALLAST_AV_AIR_TEXT_Y + 1,
+						  -1,
+						  GTK_ANCHOR_CENTER,
+						  "font", gc_skin_font_board_title_bold,
+						  "fill_color", TEXT_COLOR_BACK,
+						  NULL);
+  ballast_av_air_item_front = goo_canvas_text_new (boardRootItem,
+						   s12,
+						   (double) schema_x + BALLAST_AV_AIR_TEXT_X,
+						   (double) schema_y + BALLAST_AV_AIR_TEXT_Y,
+						   -1,
+						   GTK_ANCHOR_CENTER,
+						   "font", gc_skin_font_board_title_bold,
+						   "fill_color", TEXT_COLOR_FRONT,
+						   NULL);
   setBallastAV(ballast_av_air);
 
   // displays the ballast_ar_air value
@@ -660,70 +573,70 @@ static GooCanvasItem *submarine_create_item(GnomeCanvasGroup *parent) {
 						    NULL);
 
   sprintf(s12,"%d",(int)ballast_ar_air);
-  ballast_ar_air_item_back = goo_canvas_item_new (boardRootItem,
-						    goo_canvas_text_get_type (),
-						    "text", s12,
-						    "font", gc_skin_font_board_title_bold,
-						    "x", (double) schema_x + BALLAST_AR_AIR_TEXT_X + 1,
-						    "y", (double) schema_y + BALLAST_AR_AIR_TEXT_Y + 1,
-						    "anchor", GTK_ANCHOR_CENTER,
-						    "fill_color", TEXT_COLOR_BACK,
-						    NULL);
-  ballast_ar_air_item_front = goo_canvas_item_new (boardRootItem,
-						     goo_canvas_text_get_type (),
-						     "text", s12,
-						     "font", gc_skin_font_board_title_bold,
-						     "x", (double) schema_x + BALLAST_AR_AIR_TEXT_X,
-						     "y", (double) schema_y + BALLAST_AR_AIR_TEXT_Y,
-						     "anchor", GTK_ANCHOR_CENTER,
-						     "fill_color", TEXT_COLOR_FRONT,
-						     NULL);
+  ballast_ar_air_item_back = goo_canvas_text_new (boardRootItem,
+						  s12,
+						  (double) schema_x + BALLAST_AR_AIR_TEXT_X + 1,
+						  (double) schema_y + BALLAST_AR_AIR_TEXT_Y + 1,
+						  -1,
+						  GTK_ANCHOR_CENTER,
+						  "font", gc_skin_font_board_title_bold,
+						  "fill_color", TEXT_COLOR_BACK,
+						  NULL);
+  ballast_ar_air_item_front = goo_canvas_text_new (boardRootItem,
+						   s12,
+						   (double) schema_x + BALLAST_AR_AIR_TEXT_X,
+						   (double) schema_y + BALLAST_AR_AIR_TEXT_Y,
+						   -1,
+						   GTK_ANCHOR_CENTER,
+						   "font", gc_skin_font_board_title_bold,
+						   "fill_color", TEXT_COLOR_FRONT,
+						   NULL);
     setBallastAR(ballast_ar_air);
 
   // displays the remaining air value
   sprintf(s12,"%d", (int)air);
-  air_item_back = goo_canvas_item_new (boardRootItem,
-					 goo_canvas_text_get_type (),
-					 "text", s12,
-					 "font", gc_skin_font_board_title_bold,
-					 "x", (double) schema_x + AIR_X +1,
-					 "y", (double) schema_y + AIR_Y + 1,
-					 "anchor", GTK_ANCHOR_CENTER,
-					 "fill_color", TEXT_COLOR_BACK,
-					 NULL);
-  air_item_front = goo_canvas_item_new (boardRootItem,
-					  goo_canvas_text_get_type (),
-					  "text", s12,
-					  "font", gc_skin_font_board_title_bold,
-					  "x", (double) schema_x + AIR_X,
-					  "y", (double) schema_y + AIR_Y,
-					  "anchor", GTK_ANCHOR_CENTER,
-					  "fill_color", TEXT_COLOR_FRONT,
-					  NULL);
+  air_item_back = goo_canvas_text_new (boardRootItem,
+				       s12,
+				       (double) schema_x + AIR_X +1,
+				       (double) schema_y + AIR_Y + 1,
+				       -1,
+				       GTK_ANCHOR_CENTER,
+				       "font", gc_skin_font_board_title_bold,
+				       "fill_color", TEXT_COLOR_BACK,
+				       NULL);
+  air_item_front = goo_canvas_text_new (boardRootItem,
+					s12,
+					(double) schema_x + AIR_X,
+					(double) schema_y + AIR_Y,
+					-1,
+					GTK_ANCHOR_CENTER,
+					"font", gc_skin_font_board_title_bold,
+					"fill_color", TEXT_COLOR_FRONT,
+					NULL);
 
   // displays the remaining battery value
   sprintf(s12,"%d", (int)battery);
-  battery_item_back = goo_canvas_item_new (boardRootItem,
-					     goo_canvas_text_get_type (),
-					     "text", s12,
-					     "font", gc_skin_font_board_title_bold,
-					     "x", (double) schema_x + BATTERY_X +1,
-					     "y", (double) schema_y + BATTERY_Y + 1,
-					     "anchor", GTK_ANCHOR_CENTER,
-					     "fill_color", TEXT_COLOR_BACK,
-					     NULL);
-  battery_item_front = goo_canvas_item_new (boardRootItem,
-					      goo_canvas_text_get_type (),
-					      "text", s12,
-					      "font", gc_skin_font_board_title_bold,
-					      "x", (double) schema_x + BATTERY_X,
-					      "y", (double) schema_y + BATTERY_Y,
-					      "anchor", GTK_ANCHOR_CENTER,
-					      "fill_color", TEXT_COLOR_FRONT,
-					      NULL);
+  battery_item_back = goo_canvas_text_new (boardRootItem,
+					   s12,
+					   (double) schema_x + BATTERY_X +1,
+					   (double) schema_y + BATTERY_Y + 1,
+					   -1,
+					   GTK_ANCHOR_CENTER,
+					   "font", gc_skin_font_board_title_bold,
+					   "fill_color", TEXT_COLOR_BACK,
+					   NULL);
+  battery_item_front = goo_canvas_text_new (boardRootItem,
+					    s12,
+					    (double) schema_x + BATTERY_X,
+					    (double) schema_y + BATTERY_Y,
+					    -1,
+					    GTK_ANCHOR_CENTER,
+					    "font", gc_skin_font_board_title_bold,
+					    "fill_color", TEXT_COLOR_FRONT,
+					    NULL);
 
   // displays the remaining regleur value
-  regleur_item_rect = goo_canvas_item_new (boardRootItem,
+  regleur_item_rect = goo_canvas_text_new (boardRootItem,
 					     goo_canvas_rect_get_type (),
 					     "x1", (double) schema_x + REGLEUR_X1,
 					     "y1", (double) schema_y + REGLEUR_Y2,
@@ -735,151 +648,117 @@ static GooCanvasItem *submarine_create_item(GnomeCanvasGroup *parent) {
 
   sprintf(s12,"%d", (int)regleur);
   regleur_item_back = goo_canvas_item_new (boardRootItem,
-					     goo_canvas_text_get_type (),
-					     "text", s12,
-					     "font", gc_skin_font_board_title_bold,
-					     "x", (double) schema_x + REGLEUR_TEXT_X +1,
-					     "y", (double) schema_y + REGLEUR_TEXT_Y + 1,
-					     "anchor", GTK_ANCHOR_CENTER,
-					     "fill_color", TEXT_COLOR_BACK,
-					     NULL);
-  regleur_item_front = goo_canvas_item_new (boardRootItem,
-					      goo_canvas_text_get_type (),
-					      "text", s12,
-					      "font", gc_skin_font_board_title_bold,
-					      "x", (double) schema_x + REGLEUR_TEXT_X,
-					      "y", (double) schema_y + REGLEUR_TEXT_Y,
-					      "anchor", GTK_ANCHOR_CENTER,
-					      "fill_color", TEXT_COLOR_FRONT,
-					      NULL);
+					   s12,
+					   (double) schema_x + REGLEUR_TEXT_X +1,
+					   (double) schema_y + REGLEUR_TEXT_Y + 1,
+					   -1,
+					   GTK_ANCHOR_CENTER,
+					   "font", gc_skin_font_board_title_bold,
+					   "fill_color", TEXT_COLOR_BACK,
+					   NULL);
+  regleur_item_front = goo_canvas_text_new (boardRootItem,
+					    s12,
+					    (double) schema_x + REGLEUR_TEXT_X,
+					    (double) schema_y + REGLEUR_TEXT_Y,
+					    -1,
+					    GTK_ANCHOR_CENTER,
+					    "font", gc_skin_font_board_title_bold,
+					    "fill_color", TEXT_COLOR_FRONT,
+					    NULL);
   setRegleur(regleur);
 
   // displays an alert when some parameters are bad
   pixmap = gc_pixmap_load("submarine/alert_submarine.png");
-  alert_submarine = goo_canvas_item_new (boardRootItem,
-					   goo_canvas_pixbuf_get_type (),
-					   "pixbuf", pixmap,
-					   "x", (double) ALERT_SUBMARINE_X,
-					   "y", (double) ALERT_SUBMARINE_Y,
-					   "width", (double) gdk_pixbuf_get_width(pixmap),
-					   "height", (double) gdk_pixbuf_get_height(pixmap),
-					   "width_set", TRUE,
-					   "height_set", TRUE,
-					   "anchor", GTK_ANCHOR_CENTER,
-					   NULL);
+  w = gdk_pixbuf_get_width(pixmap);
+  h = gdk_pixbuf_get_height(pixmap);
+  alert_submarine = goo_canvas_image_new (boardRootItem,
+					  pixmap,
+					  ALERT_SUBMARINE_X + w/2,
+					  ALERT_SUBMARINE_Y + h/2,
+					  NULL);
   gdk_pixbuf_unref(pixmap);
   goo_canvas_item_hide(alert_submarine);
 
   // when the submarine makes some bubbles ...
   pixmap = gc_pixmap_load("submarine/bubbling.png");
+  w = gdk_pixbuf_get_width(pixmap);
+  h = gdk_pixbuf_get_height(pixmap);
   for (i=0; i<3; i++) {
-    bubbling[i] = goo_canvas_item_new (boardRootItem,
-					 goo_canvas_pixbuf_get_type (),
-					 "pixbuf", pixmap,
-					 "x", (double) 0.0,
-					 "y", (double) 0.0,
-					 "width", (double) gdk_pixbuf_get_width(pixmap),
-					 "height", (double) gdk_pixbuf_get_height(pixmap),
-					 "width_set", TRUE,
-					 "height_set", TRUE,
-					 "anchor", GTK_ANCHOR_CENTER,
-					 NULL);
+    bubbling[i] = goo_canvas_image_new (boardRootItem,
+					pixmap,
+					w/2,
+					h/2,
+					NULL);
     goo_canvas_item_hide(bubbling[i]);
   }
   gdk_pixbuf_unref(pixmap);
 
   // whale item
   pixmap = gc_pixmap_load("submarine/whale.png");
+  w = gdk_pixbuf_get_width(pixmap);
+  h = gdk_pixbuf_get_height(pixmap);
   whale_x = g_random_int_range((int)(gcomprisBoard->width/4),
 			       (int)(gcomprisBoard->width/2));
   whale_y = g_random_int_range((int)(SURFACE_IN_BACKGROUND + gdk_pixbuf_get_height(pixmap)*2),
 			       (int)MAX_DEPTH);
-  whale = goo_canvas_item_new (boardRootItem,
-				goo_canvas_pixbuf_get_type (),
-				"pixbuf", pixmap,
-				"x", (double) whale_x,
-				"y", (double) whale_y,
-				"width", (double) gdk_pixbuf_get_width(pixmap),
-				"height", (double) gdk_pixbuf_get_height(pixmap),
-				"width_set", TRUE,
-				"height_set", TRUE,
-				"anchor", GTK_ANCHOR_CENTER,
+  whale = goo_canvas_image_new (boardRootItem,
+				pixmap,
+				whale_x + w/2,
+				whale_y + h/2,
 				NULL);
   gdk_pixbuf_unref(pixmap);
 
   // big explosion item (only for the whale)
   pixmap = gc_pixmap_load("submarine/whale_hit.png");
-  big_explosion = goo_canvas_item_new (boardRootItem,
-					 goo_canvas_pixbuf_get_type (),
-					 "pixbuf", pixmap,
-					 "x", (double) whale_x,
-					 "y", (double) whale_y,
-					 "width", (double) gdk_pixbuf_get_width(pixmap),
-					 "height", (double) gdk_pixbuf_get_height(pixmap),
-					 "width_set", TRUE,
-					 "height_set", TRUE,
-					 "anchor", GTK_ANCHOR_CENTER,
-					 NULL);
+  w = gdk_pixbuf_get_width(pixmap);
+  h = gdk_pixbuf_get_height(pixmap);
+  big_explosion = goo_canvas_image_new (boardRootItem,
+					pixmap,
+					whale_x + w/2,
+					whale_y + h/2,
+					NULL);
   goo_canvas_item_hide(big_explosion);
 
   gdk_pixbuf_unref(pixmap);
 
   // treasure item
   pixmap = gc_pixmap_load("submarine/crown.png");
+  w = gdk_pixbuf_get_width(pixmap);
+  h = gdk_pixbuf_get_height(pixmap);
   treasure_x = (gcomprisBoard->width*3)/4;
   treasure_y = MAX_DEPTH;
-  treasure = goo_canvas_item_new (boardRootItem,
-				    goo_canvas_pixbuf_get_type (),
-				    "pixbuf", pixmap,
-				    "x", (double) treasure_x,
-				    "y", (double) treasure_y,
-				    "width", (double) gdk_pixbuf_get_width(pixmap)/2,
-				    "height", (double) gdk_pixbuf_get_height(pixmap)/2,
-				    "width_set", TRUE,
-				    "height_set", TRUE,
-				    "anchor", GTK_ANCHOR_CENTER,
-				    NULL);
+  treasure = goo_canvas_image_new (boardRootItem,
+				   pixmap,
+				   treasure_x + w/2,
+				   treasure_y + h/2,
+				   NULL);
   gdk_pixbuf_unref(pixmap);
 
   // the triggers for air compressor and battery charger
   pixmap = gc_pixmap_load("submarine/manette.png");
-  air_compressor_item = goo_canvas_item_new (boardRootItem,
-					       goo_canvas_pixbuf_get_type (),
-					       "pixbuf", pixmap,
-					       "x", (double) schema_x + AIR_TRIGGER_X,
-					       "y", (double) schema_y + AIR_TRIGGER_Y,
-					       "width", (double) gdk_pixbuf_get_width(pixmap),
-					       "height", (double) gdk_pixbuf_get_height(pixmap),
-					       "width_set", TRUE,
-					       "height_set", TRUE,
-					       "anchor", GTK_ANCHOR_CENTER,
+  w = gdk_pixbuf_get_width(pixmap);
+  h = gdk_pixbuf_get_height(pixmap);
+  air_compressor_item = goo_canvas_image_new (boardRootItem,
+					      pixmap,
+					      schema_x + AIR_TRIGGER_X + w/2,
+					      schema_y + AIR_TRIGGER_Y + h/2,
+					      NULL);
+  battery_charger_item = goo_canvas_image_new (boardRootItem,
+					       pixmap,
+					       schema_x + BATTERY_TRIGGER_X + w/2,
+					       schema_y + BATTERY_TRIGGER_Y + h/2,
 					       NULL);
-  battery_charger_item = goo_canvas_item_new (boardRootItem,
-						goo_canvas_pixbuf_get_type (),
-						"pixbuf", pixmap,
-						"x", (double) schema_x + BATTERY_TRIGGER_X,
-						"y", (double) schema_y + BATTERY_TRIGGER_Y,
-						"width", (double) gdk_pixbuf_get_width(pixmap),
-						"height", (double) gdk_pixbuf_get_height(pixmap),
-						"width_set", TRUE,
-						"height_set", TRUE,
-						"anchor", GTK_ANCHOR_CENTER,
-						NULL);
   gdk_pixbuf_unref(pixmap);
 
   // the antisubmarine warfare frigate
   pixmap = gc_pixmap_load("submarine/asw_frigate.png");
-  frigate_item = goo_canvas_item_new (boardRootItem,
-					goo_canvas_pixbuf_get_type (),
-					"pixbuf", pixmap,
-					"x", (double) 700.0,
-					"y", (double) 2.0,
-					"width", (double) gdk_pixbuf_get_width(pixmap),
-					"height", (double) gdk_pixbuf_get_height(pixmap),
-					"width_set", TRUE,
-					"height_set", TRUE,
-					//"anchor", GTK_ANCHOR_CENTER,
-					NULL);
+  w = gdk_pixbuf_get_width(pixmap);
+  h = gdk_pixbuf_get_height(pixmap);
+  frigate_item = goo_canvas_image_new (boardRootItem,
+				       pixmap,
+				       700.0 + w/2,
+				       2.0 + h/2,
+				       NULL);
   gdk_pixbuf_unref(pixmap);
 
   g_signal_connect(GTK_OBJECT(air_compressor_item), "enter_notify_event",  (GtkSignalFunc) air_compressor_event, NULL);
@@ -1580,27 +1459,27 @@ static gint battery_charger_event(GooCanvasItem *item, GdkEvent *event, gpointer
 static void setSpeed(double value) {
   char s12[12];
   sprintf(s12,"%d",(int)value);
-  goo_canvas_item_set(speed_item_back, "text", s12, NULL);
-  goo_canvas_item_set(speed_item_front, "text", s12, NULL);
+  g_object_set(speed_item_back, "text", s12, NULL);
+  g_object_set(speed_item_front, "text", s12, NULL);
 }
 static void setBattery(double value) {
   char s12[12];
   sprintf(s12,"%d",(int)value);
-  goo_canvas_item_set(battery_item_back, "text", s12, NULL);
-  goo_canvas_item_set(battery_item_front, "text", s12, NULL);
+  g_object_set(battery_item_back, "text", s12, NULL);
+  g_object_set(battery_item_front, "text", s12, NULL);
 }
 static void setAir(double value) {
   char s12[12];
   sprintf(s12,"%d",(int)value);
-  goo_canvas_item_set(air_item_back, "text", s12, NULL);
-  goo_canvas_item_set(air_item_front, "text", s12, NULL);
+  g_object_set(air_item_back, "text", s12, NULL);
+  g_object_set(air_item_front, "text", s12, NULL);
 }
 static void setRegleur(double value) {
   char s12[12];
   sprintf(s12,"%d",(int)value);
-  goo_canvas_item_set(regleur_item_back, "text", s12, NULL);
-  goo_canvas_item_set(regleur_item_front, "text", s12, NULL);
-  goo_canvas_item_set(regleur_item_rect,
+  g_object_set(regleur_item_back, "text", s12, NULL);
+  g_object_set(regleur_item_front, "text", s12, NULL);
+  g_object_set(regleur_item_rect,
 			"y1", (double) schema_y + REGLEUR_Y2 +
 			( value * (REGLEUR_Y1 - REGLEUR_Y2)) / MAX_REGLEUR,
 			NULL);
@@ -1608,9 +1487,9 @@ static void setRegleur(double value) {
 static void setBallastAV(double value) {
   char s12[12];
   sprintf(s12,"%d", MAX_BALLAST - (int)value);
-  goo_canvas_item_set(ballast_av_air_item_back, "text", s12, NULL);
-  goo_canvas_item_set(ballast_av_air_item_front, "text", s12, NULL);
-  goo_canvas_item_set(ballast_av_air_item_rect,
+  g_object_set(ballast_av_air_item_back, "text", s12, NULL);
+  g_object_set(ballast_av_air_item_front, "text", s12, NULL);
+  g_object_set(ballast_av_air_item_rect,
 			"y1", (double) schema_y + BALLAST_AV_AIR_Y2 +
 			( (MAX_BALLAST - value) * (BALLAST_AV_AIR_Y1 - BALLAST_AV_AIR_Y2)) / MAX_BALLAST,
 			NULL);
@@ -1618,9 +1497,9 @@ static void setBallastAV(double value) {
 static void setBallastAR(double value) {
   char s12[12];
   sprintf(s12,"%d", MAX_BALLAST - (int)value);
-  goo_canvas_item_set(ballast_ar_air_item_back, "text", s12, NULL);
-  goo_canvas_item_set(ballast_ar_air_item_front, "text", s12, NULL);
-  goo_canvas_item_set(ballast_ar_air_item_rect,
+  g_object_set(ballast_ar_air_item_back, "text", s12, NULL);
+  g_object_set(ballast_ar_air_item_front, "text", s12, NULL);
+  g_object_set(ballast_ar_air_item_rect,
 			"y1", (double) schema_y + BALLAST_AR_AIR_Y2 +
 			( (MAX_BALLAST - value) * (BALLAST_AR_AIR_Y1 - BALLAST_AR_AIR_Y2)) / MAX_BALLAST,
 			NULL);
@@ -1632,7 +1511,7 @@ static void setBallastAR(double value) {
  * =====================================================================*/
 static void open_door()
 {
-  goo_canvas_item_set(top_gate_item,
+  g_object_set(top_gate_item,
 			"y2", (double)gate_top_current_y--,
 			NULL);
 }
@@ -1654,7 +1533,7 @@ static void submarine_explosion() {
 
   /* display the boken submarine */
   pixmap = gc_pixmap_load("submarine/submarine-broken.png");
-  goo_canvas_item_set(submarine_item,
+  g_object_set(submarine_item,
 			"pixbuf", pixmap,
 			NULL);
   gdk_pixbuf_unref(pixmap);

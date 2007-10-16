@@ -29,7 +29,7 @@
 static GcomprisBoard *gcomprisBoard = NULL;
 static gboolean board_paused = TRUE;
 
-static GnomeCanvasGroup *boardRootItem = NULL;
+static GooCanvasItem *boardRootItem = NULL;
 
 static GooCanvasItem *second_item;
 static GooCanvasItem *hour_item;
@@ -61,7 +61,7 @@ static void		 process_ok(void);
 static int gamewon;
 static void		 game_won(void);
 
-static void		 clockgame_create_item(GnomeCanvasGroup *parent);
+static void		 clockgame_create_item(GooCanvasItem *parent);
 static void		 destroy_all_items(void);
 static void		 get_random_hour(GcomprisTime *time);
 static void		 clockgame_next_level(void);
@@ -258,7 +258,7 @@ static void display_digital_time(GooCanvasItem *item, GcomprisTime *time)
   else
     text = g_strdup_printf("%.2d:%.2d:%.2d", time->hour, time->minute, time->second);
 
-  goo_canvas_item_set (item,
+  g_object_set (item,
 			 "text", text,
 			 NULL);
   g_free(text);
@@ -284,7 +284,7 @@ static void display_hour(guint hour)
   canvasPoints->coords[1]=cy;
   canvasPoints->coords[2]=cx + needle_size * sin(ang);
   canvasPoints->coords[3]=cy - needle_size * cos(ang);
-  goo_canvas_item_set (hour_item,
+  g_object_set (hour_item,
 			 "points", canvasPoints,
 			 "fill_color", "darkblue",
 			 "width_units", (double)1,
@@ -318,7 +318,7 @@ static void display_minute(guint minute)
   canvasPoints->coords[1]=cy;
   canvasPoints->coords[2]=cx + needle_size * sin(ang);
   canvasPoints->coords[3]=cy - needle_size * cos(ang);
-  goo_canvas_item_set (minute_item,
+  g_object_set (minute_item,
 			 "points", canvasPoints,
 			 "fill_color", "red",
 			 "width_units", (double)1,
@@ -352,7 +352,7 @@ static void display_second(guint second)
   canvasPoints->coords[1]=cy;
   canvasPoints->coords[2]=cx + needle_size * sin(ang);
   canvasPoints->coords[3]=cy - needle_size * cos(ang);
-  goo_canvas_item_set (second_item,
+  g_object_set (second_item,
 			 "points", canvasPoints,
 			 "fill_color_rgba", 0x68c46fFF,
 			 "width_units", (double)1,
@@ -371,7 +371,7 @@ static void display_second(guint second)
 
 
 static void
-clockgame_create_item(GnomeCanvasGroup *parent)
+clockgame_create_item(GooCanvasItem *parent)
 {
   GooCanvasItem *item;
   double needle_size = clock_size;
@@ -430,15 +430,15 @@ clockgame_create_item(GnomeCanvasGroup *parent)
       if(gcomprisBoard->level<5)
 	{
 	  mtext = g_strdup_printf("%d", min);
-	  item = goo_canvas_item_new (boardRootItem,
-					goo_canvas_text_get_type (),
-					"text", mtext,
-					"font", font,
-					"x", (double) cx + (needle_size+10) * sin(ang),
-					"y", (double) cy - (needle_size+10) * cos(ang),
-					"anchor", GTK_ANCHOR_CENTER,
-					"fill_color", color_text,
-					"justification", GTK_JUSTIFY_CENTER,
+	  item = goo_canvas_text_new (boardRootItem,
+				      mtext,
+				      (double) cx + (needle_size+10) * sin(ang),
+				      (double) cy - (needle_size+10) * cos(ang),
+				      -1,
+				      GTK_ANCHOR_CENTER,
+				      "font", font,
+				      "fill_color", color_text,
+				      "justification", GTK_JUSTIFY_CENTER,
 					NULL);
 	  g_free(mtext);
 	}
@@ -448,15 +448,15 @@ clockgame_create_item(GnomeCanvasGroup *parent)
 	if(min%5==0)
 	  {
 	    mtext = g_strdup_printf( "%d", min/5);
-	    item = goo_canvas_item_new (boardRootItem,
-					  goo_canvas_text_get_type (),
-					  "text", mtext,
-					  "font", font,
-					  "x", (double) cx + (needle_size-30) * sin(ang),
-					  "y", (double) cy - (needle_size-30) * cos(ang),
-					  "anchor", GTK_ANCHOR_CENTER,
-					  "fill_color", "blue",
-					  "justification", GTK_JUSTIFY_CENTER,
+	    item = goo_canvas_text_new (boardRootItem,
+					mtext,
+					(double) cx + (needle_size-30) * sin(ang),
+					(double) cy - (needle_size-30) * cos(ang),
+					-1,
+					GTK_ANCHOR_CENTER,
+					"font", font,
+					"fill_color", "blue",
+					"justification", GTK_JUSTIFY_CENTER,
 					  NULL);
 	    g_free(mtext);
 	  }
@@ -466,27 +466,27 @@ clockgame_create_item(GnomeCanvasGroup *parent)
   if(gcomprisBoard->level<4)
     {
       digital_time_item_s =
-	goo_canvas_item_new (boardRootItem,
-			       goo_canvas_text_get_type (),
-			       "text", "",
-			       "font", gc_skin_font_board_medium,
-			       "x", (double) cx + 1.0,
-			       "y", (double) cy +  needle_size/2 + 1.0,
-			       "anchor", GTK_ANCHOR_CENTER,
-			       "fill_color_rgba", 0xc4c4c4ff,
-			       NULL);
+	goo_canvas_text_new (boardRootItem,
+			     "",
+			     (double) cx + 1.0,
+			     (double) cy +  needle_size/2 + 1.0,
+			     -1,
+			     GTK_ANCHOR_CENTER,
+			     "font", gc_skin_font_board_medium,
+			     "fill_color_rgba", 0xc4c4c4ff,
+			     NULL);
       display_digital_time(digital_time_item_s, &currentTime);
 
       digital_time_item =
-	goo_canvas_item_new (boardRootItem,
-			       goo_canvas_text_get_type (),
-			       "text", "",
-			       "font", gc_skin_font_board_medium,
-			       "x", (double) cx,
-			       "y", (double) cy +  needle_size/2,
-			       "anchor", GTK_ANCHOR_CENTER,
-			       "fill_color", "blue",
-			       NULL);
+	goo_canvas_text_new (boardRootItem,
+			     "",
+			     (double) cx,
+			     (double) cy +  needle_size/2,
+			     -1,
+			     GTK_ANCHOR_CENTER,
+			     "font", gc_skin_font_board_medium,
+			     "fill_color", "blue",
+			     NULL);
       display_digital_time(digital_time_item, &currentTime);
     }
   else
@@ -542,48 +542,48 @@ clockgame_create_item(GnomeCanvasGroup *parent)
   display_second(currentTime.second);
 
   /* Create the text area for the time to find display */
-  goo_canvas_item_new (boardRootItem,
-			 goo_canvas_text_get_type (),
-			 "text", _("Set the watch to:"),
-			 "font", gc_skin_font_board_small,
-			 "x", (double) gcomprisBoard->width*0.17 + 1.0,
-			 "y", (double) cy + needle_size +  needle_size / 3 - 30 + 1.0,
-			 "anchor", GTK_ANCHOR_CENTER,
-			 "fill_color_rgba", gc_skin_color_shadow,
-			 NULL);
+  goo_canvas_text_new (boardRootItem,
+		       _("Set the watch to:"),
+		       (double) gcomprisBoard->width*0.17 + 1.0,
+		       (double) cy + needle_size +  needle_size / 3 - 30 + 1.0,
+		       -1,
+		       GTK_ANCHOR_CENTER,
+		       "font", gc_skin_font_board_small,
+		       "fill_color_rgba", gc_skin_color_shadow,
+		       NULL);
 
-  goo_canvas_item_new (boardRootItem,
-			 goo_canvas_text_get_type (),
-			 "text", _("Set the watch to:"),
-			 "font", gc_skin_font_board_small,
-			 "x", (double) gcomprisBoard->width*0.17,
-			 "y", (double) cy + needle_size +  needle_size / 3 - 30,
-			 "anchor", GTK_ANCHOR_CENTER,
-			 "fill_color_rgba", gc_skin_get_color("clockgame/text"),
-			 NULL);
+  goo_canvas_text_new (boardRootItem,
+		       _("Set the watch to:"),
+		       (double) gcomprisBoard->width*0.17,
+		       (double) cy + needle_size +  needle_size / 3 - 30,
+		       -1,
+		       GTK_ANCHOR_CENTER,
+		       "font", gc_skin_font_board_small,
+		       "fill_color_rgba", gc_skin_get_color("clockgame/text"),
+		       NULL);
 
   time_to_find_item_s =
-    goo_canvas_item_new (boardRootItem,
-			   goo_canvas_text_get_type (),
-			   "text", "",
-			   "font", gc_skin_font_board_big_bold,
-			   "x", (double) gcomprisBoard->width*0.17 + 1.0,
-			   "y", (double) cy + needle_size +  needle_size / 3 + 1.0,
-			   "anchor", GTK_ANCHOR_CENTER,
-			   "fill_color_rgba", gc_skin_color_shadow,
-			   NULL);
+    goo_canvas_text_new (boardRootItem,
+			 "",
+			 (double) gcomprisBoard->width*0.17 + 1.0,
+			 (double) cy + needle_size +  needle_size / 3 + 1.0,
+			 -1,
+			 GTK_ANCHOR_CENTER,
+			 "font", gc_skin_font_board_big_bold,
+			 "fill_color_rgba", gc_skin_color_shadow,
+			 NULL);
   display_digital_time(time_to_find_item_s, &timeToFind);
 
   time_to_find_item =
-    goo_canvas_item_new (boardRootItem,
-			   goo_canvas_text_get_type (),
-			   "text", "",
-			   "font", gc_skin_font_board_big_bold,
-			   "x", (double) gcomprisBoard->width*0.17,
-			   "y", (double) cy + needle_size +  needle_size / 3,
-			   "anchor", GTK_ANCHOR_CENTER,
-			   "fill_color_rgba", gc_skin_get_color("clockgame/text"),
-			   NULL);
+    goo_canvas_text_new (boardRootItem,
+			 "",
+			 (double) gcomprisBoard->width*0.17,
+			 (double) cy + needle_size +  needle_size / 3,
+			 -1,
+			 GTK_ANCHOR_CENTER,
+			 "font", gc_skin_font_board_big_bold,
+			 "fill_color_rgba", gc_skin_get_color("clockgame/text"),
+			 NULL);
   display_digital_time(time_to_find_item, &timeToFind);
 
   goo_canvas_points_free(canvasPoints);

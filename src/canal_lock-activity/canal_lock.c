@@ -61,7 +61,7 @@ static void	 game_won(void);
 static gint timer_id;
 static gboolean animation;
 
-static GnomeCanvasGroup *boardRootItem = NULL;
+static GooCanvasItem *boardRootItem = NULL;
 
 static GooCanvasItem	*lock_left_item		= NULL;
 static GooCanvasItem	*lock_right_item	= NULL;
@@ -93,7 +93,7 @@ static double timer_item_limit_y, timer_item_limit_x;
 static GooCanvasItem *timer_item;
 static gint timer_step_y1, timer_step_x1;
 
-static GooCanvasItem	*canal_lock_create_item(GnomeCanvasGroup *parent);
+static GooCanvasItem	*canal_lock_create_item(GooCanvasItem *parent);
 static void		 canal_lock_destroy_all_items(void);
 static void		 canal_lock_next_level(void);
 static gint		 item_event(GooCanvasItem *item, GdkEvent *event, gpointer data);
@@ -255,7 +255,7 @@ static void canal_lock_destroy_all_items()
   boardRootItem = NULL;
 }
 /* ==================================== */
-static GooCanvasItem *canal_lock_create_item(GnomeCanvasGroup *parent)
+static GooCanvasItem *canal_lock_create_item(GooCanvasItem *parent)
 {
   GdkPixbuf *pixmap = NULL;
 
@@ -270,12 +270,11 @@ static GooCanvasItem *canal_lock_create_item(GnomeCanvasGroup *parent)
   /* The boat */
   pixmap = gc_pixmap_load("canal_lock/tuxboat.png");
 
-  tuxboat_item = goo_canvas_item_new (boardRootItem,
-					goo_canvas_pixbuf_get_type (),
-					"pixbuf",  pixmap,
-					"x", (double) (LEFT_CANAL_WIDTH - gdk_pixbuf_get_width(pixmap)) / 2,
-					"y", (double) BASE_LINE - LEFT_CANAL_HEIGHT - gdk_pixbuf_get_height(pixmap)*0.9,
-					NULL);
+  tuxboat_item = goo_canvas_image_new (boardRootItem,
+				       pixmap,
+				       (LEFT_CANAL_WIDTH - gdk_pixbuf_get_width(pixmap)) / 2,
+				       BASE_LINE - LEFT_CANAL_HEIGHT - gdk_pixbuf_get_height(pixmap)*0.9,
+				       NULL);
   g_signal_connect(GTK_OBJECT(tuxboat_item), "enter_notify_event",
 		     (GtkSignalFunc) item_event,
 		     NULL);
@@ -617,13 +616,13 @@ static gboolean animate_step()
   timer_item_x1 += timer_step_x1;
   timer_item_y1 += timer_step_y1;
 
-  if(GNOME_IS_CANVAS_PIXBUF(timer_item))
-    goo_canvas_item_set(timer_item,
+  if(GOO_IS_CANVAS_PIXBUF(timer_item))
+    g_object_set(timer_item,
 			  "x", timer_item_x1,
 			  "y", timer_item_y1,
 			  NULL);
-  else if(GNOME_IS_CANVAS_RECT(timer_item))
-    goo_canvas_item_set(timer_item,
+  else if(GOO_IS_CANVAS_RECT(timer_item))
+    g_object_set(timer_item,
 			  "x1", timer_item_x1,
 			  "y1", timer_item_y1,
 			  NULL);
@@ -636,7 +635,7 @@ static gboolean animate_step()
       goo_canvas_item_get_bounds(tuxboat_item, &item_x1, &item_y1,
 				   &item_x2, &item_y2);
 
-      goo_canvas_item_set(tuxboat_item,
+      g_object_set(tuxboat_item,
 			    "y", item_y1 + timer_step_y1,
 			    NULL);
     }
@@ -685,7 +684,7 @@ static void hightlight(GooCanvasItem *item, gboolean status)
     }
 
 
-    goo_canvas_item_set(item,
+    g_object_set(item,
 			  "fill_color_rgba", color,
 			  NULL);
 
