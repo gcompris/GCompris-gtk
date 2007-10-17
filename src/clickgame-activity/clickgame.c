@@ -454,7 +454,8 @@ static void clickgame_next_level()
   if (bgx < 0 || G_N_ELEMENTS(bglist) <= bgx)
     bgx = G_N_ELEMENTS(bglist) - 1;
 
-  gc_set_background(goo_canvas_get_root_item(gcomprisBoard->canvas), bglist[bgx]);
+  gc_set_background(goo_canvas_get_root_item(gcomprisBoard->canvas),
+		    bglist[bgx]);
 
   gc_bar_set_level(gcomprisBoard);
 
