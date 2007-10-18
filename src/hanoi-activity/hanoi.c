@@ -331,7 +331,7 @@ static GooCanvasItem *hanoi_create_item(GooCanvasItem *parent)
 		       -1,
 		       GTK_ANCHOR_NORTH,
 		       "font", gc_skin_font_board_medium,
-		       "fill_color", "black",
+		       "fill-color", "black",
 		       "justification", GTK_JUSTIFY_CENTER,
 			 NULL);
 
@@ -450,8 +450,8 @@ static GooCanvasItem *hanoi_create_item(GooCanvasItem *parent)
 				 "x2", (double) item_width * (i+1) - gap_x/2,
 				 "y2", (double) baseline + 50,
 				 "fill_color_rgba", 0x036ED8FF,
-				 "outline_color", "black",
-				 "width_units", (double)1,
+				 "stroke-color", "black",
+				 "line-width", (double)1,
 				 NULL);
 	}
       else if (i==number_of_item_x)
@@ -464,8 +464,8 @@ static GooCanvasItem *hanoi_create_item(GooCanvasItem *parent)
 				 "x2", (double) item_width * (i+1) - gap_x/2,
 				 "y2", (double) baseline + 50,
 				 "fill_color_rgba", 0x48AAF1FF,
-				 "outline_color", "black",
-				 "width_units", (double)1,
+				 "stroke-color", "black",
+				 "line-width", (double)1,
 				 NULL);
 	}
 
@@ -478,8 +478,8 @@ static GooCanvasItem *hanoi_create_item(GooCanvasItem *parent)
 			     "x2", (double) item_width * i + item_width/2 + w,
 			     "y2", (double) baseline,
 			     "fill_color_rgba", 0xFF1030FF,
-			     "outline_color", "black",
-			     "width_units", (double)1,
+			     "stroke-color", "black",
+			     "line-width", (double)1,
 			     NULL);
 
       /* And the base line */
@@ -496,7 +496,7 @@ static GooCanvasItem *hanoi_create_item(GooCanvasItem *parent)
       item = goo_canvas_item_new (boardRootItem,
 				    GNOME_TYPE_CANVAS_SHAPE,
 				    "fill_color_rgba", 0x20FF30FF,
-				    "outline_color", "black",
+				    "stroke-color", "black",
 				    NULL);
       goo_canvas_shape_set_path_def (GNOME_CANVAS_SHAPE (item), path);
       goo_canvas_item_show (item);
@@ -523,8 +523,8 @@ static GooCanvasItem *hanoi_create_item(GooCanvasItem *parent)
 					    "x2", (double) item_width * i + item_width - gap_x,
 					    "y2", (double) baseline - item_height * j,
 					    "fill_color_rgba", colorlist[position[i][j]->color],
-					    "outline_color", "black",
-					    "width_units", (double)1,
+					    "stroke-color", "black",
+					    "line-width", (double)1,
 					    NULL);
 
 	      car[0] = 'a' + position[i][j]->color;
@@ -538,7 +538,7 @@ static GooCanvasItem *hanoi_create_item(GooCanvasItem *parent)
 				      -1,
 				      GTK_ANCHOR_NORTH,
 				      "font", gc_skin_font_board_tiny,
-				      "fill_color", "white",
+				      "fill-color", "white",
 				      "justification", GTK_JUSTIFY_CENTER,
 					NULL);
 
@@ -616,14 +616,14 @@ item_event(GooCanvasItem *item, GdkEvent *event, PieceItem *data)
     {
     case GDK_ENTER_NOTIFY:
       g_object_set(item,
-			    "outline_color", "white",
-			    "width_units", (double)3,
+			    "stroke-color", "white",
+			    "line-width", (double)3,
 			    NULL);
       break;
     case GDK_LEAVE_NOTIFY:
       g_object_set(item,
-			    "outline_color", "black",
-			    "width_units", (double)1,
+			    "stroke-color", "black",
+			    "line-width", (double)1,
 			    NULL);
       break;
     case GDK_BUTTON_PRESS:

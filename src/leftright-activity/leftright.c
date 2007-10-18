@@ -265,7 +265,7 @@ static GooCanvasItem *leftright_create_item(GooCanvasItem *parent) {
 		       -1,
 		       GTK_ANCHOR_CENTER,
 		       "font", gc_skin_font_board_big,
-		       "fill_color", "black",
+		       "fill-color", "black",
 		       NULL);
 
   goo_canvas_text_new (boardRootItem,
@@ -275,7 +275,7 @@ static GooCanvasItem *leftright_create_item(GooCanvasItem *parent) {
 		       -1,
 		       GTK_ANCHOR_CENTER,
 		       "font", gc_skin_font_board_big,
-		       "fill_color", TEXT_COLOR,
+		       "fill-color", TEXT_COLOR,
 		       NULL);
 
   goo_canvas_text_new (boardRootItem,
@@ -285,7 +285,7 @@ static GooCanvasItem *leftright_create_item(GooCanvasItem *parent) {
 		       -1,
 		       GTK_ANCHOR_CENTER,
 		       "font", gc_skin_font_board_big,
-		       "fill_color", "black",
+		       "fill-color", "black",
 		       NULL);
 
   goo_canvas_text_new (boardRootItem,
@@ -295,7 +295,7 @@ static GooCanvasItem *leftright_create_item(GooCanvasItem *parent) {
 		       -1,
 		       GTK_ANCHOR_CENTER,
 		       "font", gc_skin_font_board_big,
-		       "fill_color", TEXT_COLOR,
+		       "fill-color", TEXT_COLOR,
 		       NULL);
 
   // make sure that next hand is not the same as previous

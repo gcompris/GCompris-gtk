@@ -342,7 +342,7 @@ void scale_anim_plate(void)
                 "x", x_offset + gdk_pixbuf_get_width(button_pixmap)/2,
                 "y", y_offset + gdk_pixbuf_get_height(button_pixmap)/2,
                 "anchor", GTK_ANCHOR_CENTER,
-                "fill_color", "black",
+                "fill-color", "black",
                 NULL);
         gdk_pixbuf_unref(button_pixmap);
 
@@ -716,7 +716,7 @@ static void scale_next_level()
 			  -1,
 			  GTK_ANCHOR_CENTER,
 			  "font", gc_skin_font_board_medium,
-			  "fill_color", "darkblue",
+			  "fill-color", "darkblue",
 			  NULL);
 
     scale_make_level();

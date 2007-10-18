@@ -431,7 +431,7 @@ static void draw_frame(frame *my_frame) {
   int i, j;
   double x = my_frame->coord_x;
   double y = my_frame->coord_y;
-  GnomeCanvasPoints *track;
+  GooCanvasPoints *track;
 
   track = goo_canvas_points_new(5);
 
@@ -454,11 +454,11 @@ static void draw_frame(frame *my_frame) {
 			goo_canvas_line_get_type (),
 			"points", track,
 			"width_pixels", 1,
-			"fill_color", "#948d85",
+			"fill-color", "#948d85",
 			NULL);
 	}
   }
-  goo_canvas_points_free(track);
+  goo_canvas_points_unref(track);
 
   place_item(my_frame, EMPTY);
 
@@ -468,7 +468,7 @@ static void draw_frame(frame *my_frame) {
 static void draw_table() {
 
   GooCanvasItem *item_frame = NULL;
-  GnomeCanvasPoints *track;
+  GooCanvasPoints *track;
 
   track = goo_canvas_points_new(2);
 
@@ -481,10 +481,10 @@ static void draw_table() {
 		goo_canvas_line_get_type (),
 		"points", track,
 		"width_pixels", 1,
-		"fill_color", "black",
+		"fill-color", "black",
 		NULL);
 
-  goo_canvas_points_free(track);
+  goo_canvas_points_unref(track);
 }
 
 // Draw the hat

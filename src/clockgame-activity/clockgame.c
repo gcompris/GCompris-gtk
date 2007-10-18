@@ -269,7 +269,7 @@ static void display_hour(guint hour)
 {
   double needle_size = clock_size*0.70;
   double ang;
-  GnomeCanvasPoints *canvasPoints;
+  GooCanvasPoints *canvasPoints;
 
   if(hour_item==NULL)
     return;
@@ -286,15 +286,15 @@ static void display_hour(guint hour)
   canvasPoints->coords[3]=cy - needle_size * cos(ang);
   g_object_set (hour_item,
 			 "points", canvasPoints,
-			 "fill_color", "darkblue",
-			 "width_units", (double)1,
+			 "fill-color", "darkblue",
+			 "line-width", (double)1,
 			 "width_pixels", (guint) 4,
 			 "last_arrowhead", TRUE,
 			 "arrow_shape_a", (double) needle_size,
 			 "arrow_shape_b", (double) needle_size-20,
 			 "arrow_shape_c", (double) 8.0,
 			 NULL);
-  goo_canvas_points_free(canvasPoints);
+  goo_canvas_points_unref(canvasPoints);
 
   currentTime.hour=hour;
   display_digital_time(digital_time_item, &currentTime);
@@ -305,7 +305,7 @@ static void display_minute(guint minute)
 {
   double needle_size = clock_size;
   double ang;
-  GnomeCanvasPoints *canvasPoints;
+  GooCanvasPoints *canvasPoints;
 
   if(minute_item==NULL)
     return;
@@ -320,15 +320,15 @@ static void display_minute(guint minute)
   canvasPoints->coords[3]=cy - needle_size * cos(ang);
   g_object_set (minute_item,
 			 "points", canvasPoints,
-			 "fill_color", "red",
-			 "width_units", (double)1,
+			 "fill-color", "red",
+			 "line-width", (double)1,
 			 "width_pixels", (guint) 4,
 			 "last_arrowhead", TRUE,
 			 "arrow_shape_a", (double) needle_size,
 			 "arrow_shape_b", (double) needle_size-10,
 			 "arrow_shape_c", (double) 3.0,
 			 NULL);
-  goo_canvas_points_free(canvasPoints);
+  goo_canvas_points_unref(canvasPoints);
 
   currentTime.minute=minute;
   display_digital_time(digital_time_item, &currentTime);
@@ -339,7 +339,7 @@ static void display_second(guint second)
 {
   double needle_size = clock_size;
   double ang;
-  GnomeCanvasPoints *canvasPoints;
+  GooCanvasPoints *canvasPoints;
 
   /* No seconds at first levels */
   if(second_item==NULL || gcomprisBoard->level<=2)
@@ -355,14 +355,14 @@ static void display_second(guint second)
   g_object_set (second_item,
 			 "points", canvasPoints,
 			 "fill_color_rgba", 0x68c46fFF,
-			 "width_units", (double)1,
+			 "line-width", (double)1,
 			 "width_pixels", (guint) 4,
 			 "last_arrowhead", TRUE,
 			 "arrow_shape_a", (double) 0,
 			 "arrow_shape_b", (double) 0,
 			 "arrow_shape_c", (double) 0,
 			 NULL);
-  goo_canvas_points_free(canvasPoints);
+  goo_canvas_points_unref(canvasPoints);
 
   currentTime.second=second;
   display_digital_time(digital_time_item, &currentTime);
@@ -379,7 +379,7 @@ clockgame_create_item(GooCanvasItem *parent)
   double hour_point_size = clock_size*0.1;
   double ang;
   guint min;
-  GnomeCanvasPoints *canvasPoints;
+  GooCanvasPoints *canvasPoints;
   char *color;
   char *color_text;
   gchar *mtext = NULL;
@@ -421,8 +421,8 @@ clockgame_create_item(GooCanvasItem *parent)
       item = goo_canvas_item_new (boardRootItem,
 				    goo_canvas_line_get_type (),
 				    "points", canvasPoints,
-				    "fill_color", color,
-				    "width_units", (double)1,
+				    "fill-color", color,
+				    "line-width", (double)1,
 				    "width_pixels", (guint) 2,
 				    NULL);
 
@@ -437,7 +437,7 @@ clockgame_create_item(GooCanvasItem *parent)
 				      -1,
 				      GTK_ANCHOR_CENTER,
 				      "font", font,
-				      "fill_color", color_text,
+				      "fill-color", color_text,
 				      "justification", GTK_JUSTIFY_CENTER,
 					NULL);
 	  g_free(mtext);
@@ -455,7 +455,7 @@ clockgame_create_item(GooCanvasItem *parent)
 					-1,
 					GTK_ANCHOR_CENTER,
 					"font", font,
-					"fill_color", "blue",
+					"fill-color", "blue",
 					"justification", GTK_JUSTIFY_CENTER,
 					  NULL);
 	    g_free(mtext);
@@ -485,7 +485,7 @@ clockgame_create_item(GooCanvasItem *parent)
 			     -1,
 			     GTK_ANCHOR_CENTER,
 			     "font", gc_skin_font_board_medium,
-			     "fill_color", "blue",
+			     "fill-color", "blue",
 			     NULL);
       display_digital_time(digital_time_item, &currentTime);
     }
@@ -504,8 +504,8 @@ clockgame_create_item(GooCanvasItem *parent)
   hour_item = goo_canvas_item_new (boardRootItem,
 				     goo_canvas_line_get_type (),
 				     "points", canvasPoints,
-				     "fill_color", "darkblue",
-				     "width_units", (double)1,
+				     "fill-color", "darkblue",
+				     "line-width", (double)1,
 				     "width_pixels", (guint) 0,
 				     NULL);
   g_signal_connect(GTK_OBJECT(hour_item), "enter_notify_event",
@@ -518,8 +518,8 @@ clockgame_create_item(GooCanvasItem *parent)
   minute_item = goo_canvas_item_new (boardRootItem,
 				       goo_canvas_line_get_type (),
 				       "points", canvasPoints,
-				       "fill_color", "darkblue",
-				       "width_units", (double)1,
+				       "fill-color", "darkblue",
+				       "line-width", (double)1,
 				       "width_pixels", (guint) 0,
 				       NULL);
   g_signal_connect(GTK_OBJECT(minute_item), "enter_notify_event",
@@ -532,8 +532,8 @@ clockgame_create_item(GooCanvasItem *parent)
   second_item = goo_canvas_item_new (boardRootItem,
 				       goo_canvas_line_get_type (),
 				       "points", canvasPoints,
-				       "fill_color", "darkblue",
-				       "width_units", (double)1,
+				       "fill-color", "darkblue",
+				       "line-width", (double)1,
 				       "width_pixels", (guint) 0,
 				       NULL);
   g_signal_connect(GTK_OBJECT(second_item), "enter_notify_event",
@@ -586,7 +586,7 @@ clockgame_create_item(GooCanvasItem *parent)
 			 NULL);
   display_digital_time(time_to_find_item, &timeToFind);
 
-  goo_canvas_points_free(canvasPoints);
+  goo_canvas_points_unref(canvasPoints);
 
 }
 

@@ -444,7 +444,7 @@ static GooCanvasItem *enumerate_create_item(GooCanvasItem *parent)
 			     -1,
 			     GTK_ANCHOR_EAST,
 			     "font", gc_skin_font_board_big,
-			     "fill_color", "blue",
+			     "fill-color", "blue",
 			     NULL);
       g_signal_connect(GTK_OBJECT(answer_item[i]), "enter_notify_event", (GtkSignalFunc) item_event_focus,
 			 GINT_TO_POINTER(i));

@@ -415,7 +415,7 @@ static GooCanvasItem *algebra_guesscount_create_item(GooCanvasItem *parent) {
 						      -1,
 						      GTK_ANCHOR_CENTER,
 						      "font", gc_skin_font_board_title_bold,
-						      "fill_color", TEXT_COLOR_BACK,
+						      "fill-color", TEXT_COLOR_BACK,
 						      NULL);
     calcul_line_item[i*2] = goo_canvas_text_new (boardRootItem,
 						 BLANK,
@@ -424,7 +424,7 @@ static GooCanvasItem *algebra_guesscount_create_item(GooCanvasItem *parent) {
 						 -1,
 						 GTK_ANCHOR_CENTER,
 						 "font", gc_skin_font_board_title_bold,
-						 "fill_color", TEXT_COLOR_FRONT,
+						 "fill-color", TEXT_COLOR_FRONT,
 						 NULL);
   }
 
@@ -436,7 +436,7 @@ static GooCanvasItem *algebra_guesscount_create_item(GooCanvasItem *parent) {
 							-1,
 							GTK_ANCHOR_CENTER,
 							"font", gc_skin_font_board_title_bold,
-							"fill_color", TEXT_COLOR_BACK,
+							"fill-color", TEXT_COLOR_BACK,
 							NULL);
     calcul_line_item[i*2+1] = goo_canvas_text_new (boardRootItem,
 						   BLANK,
@@ -445,7 +445,7 @@ static GooCanvasItem *algebra_guesscount_create_item(GooCanvasItem *parent) {
 						   -1,
 						   GTK_ANCHOR_CENTER,
 						   "font", gc_skin_font_board_title_bold,
-						   "fill_color", TEXT_COLOR_FRONT,
+						   "fill-color", TEXT_COLOR_FRONT,
 						   NULL);
   }
 
@@ -473,7 +473,7 @@ static GooCanvasItem *algebra_guesscount_create_item(GooCanvasItem *parent) {
 					  -1,
 					  GTK_ANCHOR_CENTER,
 					  "font", gc_skin_font_board_title_bold,
-					  "fill_color", TEXT_RESULT_COLOR_BACK,
+					  "fill-color", TEXT_RESULT_COLOR_BACK,
 					  NULL);
   result_item_front = goo_canvas_text_new (boardRootItem,
 					   str,
@@ -482,7 +482,7 @@ static GooCanvasItem *algebra_guesscount_create_item(GooCanvasItem *parent) {
 					   -1,
 					   GTK_ANCHOR_CENTER,
 					   "font", gc_skin_font_board_title_bold,
-					   "fill_color", TEXT_RESULT_COLOR_FRONT,
+					   "fill-color", TEXT_RESULT_COLOR_FRONT,
 					   NULL);
 
   xOffset = (gcomprisBoard->width - (gcomprisBoard->level+1) * BUTTON_WIDTH - gcomprisBoard->level * HORIZONTAL_SEPARATION)/2;

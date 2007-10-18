@@ -108,7 +108,7 @@ static gboolean moving = FALSE;
 static move_object my_move;
 static int list_answer[CRANE_FRAME_LINE * CRANE_FRAME_COLUMN];
 static int list_game[CRANE_FRAME_LINE * CRANE_FRAME_COLUMN];
-static GnomeCanvasPoints *crane_rope = NULL;
+static GooCanvasPoints *crane_rope = NULL;
 
 // gcompris functions
 static void	 start_board (GcomprisBoard *agcomprisBoard);
@@ -126,8 +126,14 @@ static void		 crane_destroy_all_items(void);
 static void		 crane_next_level(void);
 
 // crane functions
-static gint		 item_event(GooCanvasItem *item, GdkEvent *event, gpointer data);
-static gint		 arrow_event(GooCanvasItem *item, GdkEvent *event, gpointer data);
+static gboolean		 item_event (GooCanvasItem  *item,
+				     GooCanvasItem  *target,
+				     GdkEventButton *event,
+				     gpointer data);
+static gboolean		 arrow_event (GooCanvasItem  *item,
+				      GooCanvasItem  *target,
+				      GdkEventButton *event,
+				      gpointer data);
 static guint		 smooth_move(move_object *);
 static int		 is_allowed_move (double, double, int);
 static void		 shuffle_list(int list[], int);
@@ -323,7 +329,7 @@ static void crane_destroy_all_items()
   }
 
   if(crane_rope)
-    goo_canvas_points_free(crane_rope);
+    goo_canvas_points_unref(crane_rope);
   crane_rope = NULL;
 
   if(boardRootItem != NULL)
@@ -414,32 +420,28 @@ static void game_won() {
 }
 
 // Event on item
-static gint item_event(GooCanvasItem *item,
-		       GdkEvent *event, gpointer data) {
-
+static gboolean
+item_event (GooCanvasItem  *item,
+	    GooCanvasItem  *target,
+	    GdkEventButton *event,
+	    gpointer data)
+{
   if(board_paused)
-	return FALSE;
+    return FALSE;
 
-  if (event->type == GDK_MOTION_NOTIFY) // Mouse moved
-	return FALSE;
+  gc_sound_play_ogg ("sounds/bleep.wav", NULL);
+  select_item(item);
 
-  // Select item if left click on it
-  if (event->type == GDK_BUTTON_PRESS && event->button.button == 1)
-    {
-      gc_sound_play_ogg ("sounds/bleep.wav", NULL);
-      select_item(item);
-    }
-
-  return FALSE;
+  return TRUE;
 }
 
 void
 move_target(int direction)
 {
-  double dx1, dy1, dx2, dy2;
   int i;
   int success;
   int index, new_index;
+  GooCanvasBounds bounds;
 
   if (moving) // An object is already moving
     return;
@@ -450,7 +452,7 @@ move_target(int direction)
   gc_sound_play_ogg ("sounds/scroll.wav", NULL);
 
   goo_canvas_item_get_bounds(selected_item,
-			       &dx1, &dy1, &dx2, &dy2);
+			     &bounds);
 
   switch (direction) {
   case LEFT:
@@ -472,9 +474,9 @@ move_target(int direction)
   }
 
   // Check if the move doesn't go out of the frame
-  if (is_allowed_move(dx1, dy1, direction)) {
+  if (is_allowed_move(bounds.x1, bounds.y1, direction)) {
 
-    index = get_item_index(dx1, dy1);
+    index = get_item_index(bounds.x1, bounds.y1);
     new_index = index + my_move.x + (my_move.y * CRANE_FRAME_COLUMN);
 
     // Check if no object is already here
@@ -502,24 +504,22 @@ move_target(int direction)
 }
 
 // Event on arrow
-static gint arrow_event(GooCanvasItem *item,
-			GdkEvent *event, gpointer data) {
-
+static gboolean
+arrow_event (GooCanvasItem  *item,
+	     GooCanvasItem  *target,
+	     GdkEventButton *event,
+	     gpointer data)
+{
   int direction = GPOINTER_TO_INT(data);
 
   if (board_paused)
-	return FALSE;
+    return FALSE;
 
   if (gamewon)
-	return FALSE;
-
-  if (event->type == GDK_MOTION_NOTIFY) // Mouse moved
-	return FALSE;
+    return FALSE;
 
   // Left click on an arrow move the selected item
-  if (event->type == GDK_BUTTON_PRESS && event->button.button == 1) {
-    move_target(direction);
-  }
+  move_target(direction);
 
   return FALSE;
 }
@@ -554,7 +554,7 @@ static void draw_arrow() {
 					   arrow[i].x,
 					   arrow[i].y,
 					   NULL);
-  	g_signal_connect(GTK_OBJECT(item_arrow), "enter_notify_event",
+  	g_signal_connect(GTK_OBJECT(item_arrow), "button_press_event",
 			   (GtkSignalFunc) arrow_event, GINT_TO_POINTER(i));
 	g_signal_connect(GTK_OBJECT(item_arrow), "enter_notify_event",
 			 (GtkSignalFunc) gc_item_focus_event,
@@ -578,13 +578,11 @@ static void draw_redhands() {
   crane_rope->coords[2] = 5;
   crane_rope->coords[3] = CRANE_BUTTON_LEFT_Y;
 
-  crane_rope_item = goo_canvas_item_new (boardRootItem,
-					   goo_canvas_line_get_type(),
-					  "points", crane_rope,
-					  "fill_color", "darkblue",
-					  "width_units", (double) 1,
-					  "width_pixels", (guint) 7,
-					  NULL);
+  crane_rope_item = goo_canvas_polyline_new (boardRootItem, FALSE, 0,
+					     "points", crane_rope,
+					     "fill-color", "darkblue",
+					     "line-width", (double) 3,
+					     NULL);
 
   pixmap = gc_pixmap_load("crane/selected.png");
 
@@ -592,16 +590,15 @@ static void draw_redhands() {
 				    pixmap,
 				    5,
 				    5,
-	"width", (double) (CRANE_FRAME_IMAGE_SIZE + 5),
-	"height", (double) (CRANE_FRAME_IMAGE_SIZE + 5),
-	"width_set", TRUE,
-	"height_set", TRUE,
-	"anchor", GTK_ANCHOR_NW,
-	NULL);
+				    "width", (double) (CRANE_FRAME_IMAGE_SIZE + 5),
+				    "height", (double) (CRANE_FRAME_IMAGE_SIZE + 5),
+				    NULL);
 
   gdk_pixbuf_unref(pixmap);
 
-  goo_canvas_item_hide(red_hands);
+  g_object_set (red_hands,
+		"visibility", GOO_CANVAS_ITEM_INVISIBLE,
+		NULL);
 
 }
 
@@ -610,7 +607,7 @@ static void draw_frame(int x, int y) {
 
   GooCanvasItem *item_frame = NULL;
   int i;
-  GnomeCanvasPoints *track;
+  GooCanvasPoints *track;
 
   track = goo_canvas_points_new(2);
 
@@ -621,11 +618,9 @@ static void draw_frame(int x, int y) {
 	track->coords[2] = x + i * CRANE_FRAME_CELL;
 	track->coords[3] = y + (CRANE_FRAME_LINE * CRANE_FRAME_CELL) - CRANE_FRAME_BORDER;
 
-	item_frame = goo_canvas_item_new (boardRootItem,
-			  		goo_canvas_line_get_type (),
+	item_frame = goo_canvas_polyline_new (boardRootItem, FALSE, 0,
 					"points", track,
-					"width_pixels", 1,
-					"fill_color", "black",
+					"fill-color", "black",
 					NULL);
   }
 
@@ -636,15 +631,13 @@ static void draw_frame(int x, int y) {
 	track->coords[2] = x + (CRANE_FRAME_COLUMN * CRANE_FRAME_CELL) - CRANE_FRAME_BORDER;
 	track->coords[3] = y + (i * CRANE_FRAME_CELL);
 
-	item_frame = goo_canvas_item_new (boardRootItem,
-			  		goo_canvas_line_get_type (),
+	item_frame = goo_canvas_polyline_new (boardRootItem, FALSE, 0,
 					"points", track,
-					"width_pixels", 1,
-					"fill_color", "black",
+					"fill-color", "black",
 					NULL);
   }
 
-  goo_canvas_points_free(track);
+  goo_canvas_points_unref(track);
 
 }
 
@@ -682,7 +675,7 @@ static void place_item(int x, int y, int active) {
 
 	if (active)
 	  {
-	    g_signal_connect(GTK_OBJECT(item_image), "enter_notify_event",
+	    g_signal_connect(GTK_OBJECT(item_image), "button_press_event",
 			       (GtkSignalFunc) item_event, NULL);
 
 	    if(previous_item_image)
@@ -709,22 +702,22 @@ static void place_item(int x, int y, int active) {
 }
 
 static guint smooth_move(move_object *move) {
-  double dx1, dy1, dx2, dy2;
+  GooCanvasBounds bounds;
 
   if (nb_move == 0) {
 	moving = TRUE;
 	nb_move = move->nb;
   }
 
-  goo_canvas_item_get_bounds(red_hands, &dx1, &dy1, &dx2, &dy2);
-  crane_rope->coords[0] = (dx1 + dx2) / 2;
+  goo_canvas_item_get_bounds(red_hands, &bounds);
+  crane_rope->coords[0] = (bounds.x1 + bounds.x2) / 2;
   crane_rope->coords[1] = CRANE_ROPE_Y;
-  crane_rope->coords[2] = (dx1 + dx2) / 2;
-  crane_rope->coords[3] = (dy1 + dy2) / 2;
+  crane_rope->coords[2] = (bounds.x1 + bounds.x2) / 2;
+  crane_rope->coords[3] = (bounds.y1 + bounds.y2) / 2;
 
   g_object_set (crane_rope_item,
-			 "points", crane_rope,
-			 NULL);
+		"points", crane_rope,
+		NULL);
 
   goo_canvas_item_translate(selected_item, move->x, move->y);
   goo_canvas_item_translate(red_hands, move->x, move->y);
@@ -776,29 +769,33 @@ void shuffle_list(int list[], int size) {
 
 static void select_item(GooCanvasItem *item) {
 
-  double dx1, dy1, dx2, dy2;
+  GooCanvasBounds bounds;
 
   if (moving) // An object is already moving
     return;
 
   // Use of goo_canvas_item_affine_absolute must be better
 
-  goo_canvas_item_hide(red_hands);
+  g_object_set (red_hands,
+		"visibility", GOO_CANVAS_ITEM_INVISIBLE,
+		NULL);
 
   // Place redhands in (O;O)
-  goo_canvas_item_get_bounds(red_hands, &dx1, &dy1, &dx2, &dy2);
-  goo_canvas_item_translate(red_hands, -(dx1), -(dy1));
+  goo_canvas_item_get_bounds(red_hands, &bounds);
+  goo_canvas_item_translate(red_hands, -(bounds.x1), -(bounds.y1));
 
   // Place redhands 'around' the selected item
-  goo_canvas_item_get_bounds(item, &dx1, &dy1, &dx2, &dy2);
-  goo_canvas_item_translate(red_hands, dx1 - 1 , dy1 - 1);
+  goo_canvas_item_get_bounds(item, &bounds);
+  goo_canvas_item_translate(red_hands, bounds.x1 - 1 , bounds.y1 - 1);
 
-  goo_canvas_item_show(red_hands);
+  g_object_set (red_hands,
+		"visibility", GOO_CANVAS_ITEM_VISIBLE,
+		NULL);
 
-  crane_rope->coords[0] = (dx1 + dx2) / 2;
+  crane_rope->coords[0] = (bounds.x1 + bounds.x2) / 2;
   crane_rope->coords[1] = CRANE_ROPE_Y;
-  crane_rope->coords[2] = (dx1 + dx2) / 2;
-  crane_rope->coords[3] = (dy1 + dy2) / 2;
+  crane_rope->coords[2] = (bounds.x1 + bounds.x2) / 2;
+  crane_rope->coords[3] = (bounds.y1 + bounds.y2) / 2;
 
   g_object_set (crane_rope_item,
 			 "points", crane_rope,

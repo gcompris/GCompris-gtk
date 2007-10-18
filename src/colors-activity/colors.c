@@ -337,7 +337,7 @@ static void repeat (){
 			   -1,
 			   GTK_ANCHOR_CENTER,
 			   "font", gc_skin_font_board_huge_bold,
-			   "fill_color", "black",
+			   "fill-color", "black",
 			   NULL);
 
       goo_canvas_text_new (boardRootItem,
@@ -347,7 +347,7 @@ static void repeat (){
 			   -1,
 			   GTK_ANCHOR_CENTER,
 			   "font", gc_skin_font_board_huge_bold,
-			   "fill_color", "blue",
+			   "fill-color", "blue",
 			   NULL);
       g_free(str);
     }

@@ -537,7 +537,7 @@ draw_a_rect(GooCanvasItem *group,
 			"y1",(double)y1,
 			"x2",(double)x2,
 			"y2",(double)y2,
-			"fill_color", color,
+			"fill-color", color,
 			NULL);
 }
 
@@ -545,7 +545,7 @@ static void
 draw_a_line(GooCanvasItem *group,
 	    int x1, int y1, int x2, int y2, guint32 color)
 {
-  GnomeCanvasPoints *points;
+  GooCanvasPoints *points;
 
   points = goo_canvas_points_new (2);
 
@@ -557,10 +557,10 @@ draw_a_line(GooCanvasItem *group,
 			goo_canvas_line_get_type(),
 			"points", points,
 			"fill_color_rgba", color,
-			"width_units", (double)thickness,
+			"line-width", (double)thickness,
 			NULL);
 
-  goo_canvas_points_free(points);
+  goo_canvas_points_unref(points);
 }
 
 static void draw_rect(GooCanvasItem *group, int x,int y,char *color)
@@ -1069,7 +1069,7 @@ struct Trapez
 };
 
 static GooCanvasItem *draw_Trapez(GooCanvasItem *group, struct Trapez t,const char *c1, const char *c2)
-{	GnomeCanvasPoints *pts=goo_canvas_points_new(4);
+{	GooCanvasPoints *pts=goo_canvas_points_new(4);
  GooCanvasItem *res=NULL;
  pts->coords[0]=t.x_left;
  pts->coords[1]=t.y_left_top;
@@ -1080,9 +1080,9 @@ static GooCanvasItem *draw_Trapez(GooCanvasItem *group, struct Trapez t,const ch
  pts->coords[6]=t.x_left;
  pts->coords[7]=t.y_left_bottom;
  res=goo_canvas_item_new(group,goo_canvas_polygon_get_type(),
-			   "points", (GnomeCanvasPoints*)pts,
-			   "fill_color", c1,
-			   "outline_color", c2,
+			   "points", (GooCanvasPoints*)pts,
+			   "fill-color", c1,
+			   "stroke-color", c2,
 			   "width_pixels", 1,
 			   NULL);
  return res;

@@ -219,7 +219,7 @@ static void read_colors_next_level() {
 				    -1,
 				    GTK_ANCHOR_CENTER,
 				    "font", gc_skin_font_board_title_bold,
-				    "fill_color", "darkblue",
+				    "fill-color", "darkblue",
 				    NULL);
 
 }

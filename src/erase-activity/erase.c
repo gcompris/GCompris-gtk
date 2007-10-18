@@ -50,11 +50,11 @@ static void		 shuffle_image_list(char *list[], int size);
 static gboolean		 item_event (GooCanvasItem  *item,
 				     GooCanvasItem  *target,
 				     GdkEventButton *event,
-				     gpointer *data);
+				     gpointer data);
 static gboolean		 canvas_event (GooCanvasItem  *item,
 				       GooCanvasItem  *target,
 				       GdkEventButton *event,
-				       gpointer *data);
+				       gpointer data);
 
 static int number_of_items = 0;
 static int number_of_item_x = 0;
@@ -339,10 +339,9 @@ static void erase_destroy_all_items()
     timer_id = 0;
   }
 
-  if(boardRootItem!=NULL) {
-    gtk_object_destroy (GTK_OBJECT(boardRootItem));
-    boardRootItem = NULL;
-  }
+  if(boardRootItem!=NULL)
+    goo_canvas_item_remove(boardRootItem);
+  boardRootItem = NULL;
 
   number_of_items = 0;
 
@@ -456,7 +455,7 @@ erase_one_item (GooCanvasItem *item)
   if (items_per_cell)
     items_per_cell[(int) (x * number_of_item_x + y)]--;
 
-  gtk_object_destroy(GTK_OBJECT(item));
+  goo_canvas_item_remove(item);
 
   if(number_of_items%2)
     gc_sound_play_ogg ("sounds/eraser1.wav", NULL);
@@ -474,10 +473,11 @@ erase_one_item (GooCanvasItem *item)
 }
 
 /* ==================================== */
-static gboolean		 item_event (GooCanvasItem  *item,
-				     GooCanvasItem  *target,
-				     GdkEventButton *event,
-				     gpointer *data)
+static gboolean
+item_event (GooCanvasItem  *item,
+	    GooCanvasItem  *target,
+	    GdkEventButton *event,
+	    gpointer data)
 {
   counter *c = (counter *) data;
   if(board_paused)
@@ -513,7 +513,7 @@ static gboolean		 item_event (GooCanvasItem  *item,
 static gboolean canvas_event (GooCanvasItem  *item,
 			      GooCanvasItem  *target,
 			      GdkEventButton *event,
-			      gpointer *data)
+			      gpointer data)
 {
   if (!gcomprisBoard || board_paused)
     return FALSE;

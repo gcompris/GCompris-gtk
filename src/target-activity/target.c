@@ -348,7 +348,7 @@ static void display_windspeed()
   guint second = 0;
   guint needle_zoom = 15;
   gchar *tmpstr;
-  GnomeCanvasPoints *canvasPoints;
+  GooCanvasPoints *canvasPoints;
   canvasPoints = goo_canvas_points_new (2);
 
   if(speedRootItem!=NULL)
@@ -378,7 +378,7 @@ static void display_windspeed()
 			 goo_canvas_line_get_type (),
 			 "points", canvasPoints,
 			 "fill_color_rgba", 0x6df438FF,
-			 "width_units", (double)1,
+			 "line-width", (double)1,
 			 "width_pixels", (guint) 4,
 			 "last_arrowhead", TRUE,
 			 "arrow_shape_a", (double) wind_speed,
@@ -386,7 +386,7 @@ static void display_windspeed()
 			 "arrow_shape_c", (double) 5.0,
 			 NULL);
 
-  goo_canvas_points_free(canvasPoints);
+  goo_canvas_points_unref(canvasPoints);
 
   /* Draw the center of the speedometer */
   goo_canvas_item_new (speedRootItem,
@@ -396,8 +396,8 @@ static void display_windspeed()
 			 "x2", (double)SPEED_CENTER_X+5,
 			 "y2", (double)SPEED_CENTER_Y+5,
 			 "fill_color_rgba", 0x6df438FF,
-			 "outline_color", "red",
-			 "width_units", (double)1,
+			 "stroke-color", "red",
+			 "line-width", (double)1,
 			 NULL);
 
   tmpstr = g_strdup_printf(_("Wind speed = %d\nkilometers/hour"), (guint)wind_speed);
@@ -408,7 +408,7 @@ static void display_windspeed()
 		       -1,
 		       GTK_ANCHOR_CENTER,
 		       "font", gc_skin_font_board_medium,
-		       "fill_color", "white",
+		       "fill-color", "white",
 		       NULL);
   g_free(tmpstr);
 
@@ -440,8 +440,8 @@ static GooCanvasItem *target_create_item(GooCanvasItem *parent)
 					"x2", (double)targetDefinition[gcomprisBoard->level-1].target_width_value[i*2],
 					"y2", (double)targetDefinition[gcomprisBoard->level-1].target_width_value[i*2],
 					"fill_color_rgba", target_colors[i],
-					"outline_color", "black",
-					"width_units", (double)1,
+					"stroke-color", "black",
+					"line-width", (double)1,
 					NULL);
 
 	  goo_canvas_item_lower_to_bottom(item);
@@ -457,7 +457,7 @@ static GooCanvasItem *target_create_item(GooCanvasItem *parent)
 				      -1,
 				      GTK_ANCHOR_CENTER,
 				      "font", gc_skin_font_board_medium,
-				      "fill_color", "white",
+				      "fill-color", "white",
 				      NULL);
 	  g_free(tmpstr);
 
@@ -476,7 +476,7 @@ static GooCanvasItem *target_create_item(GooCanvasItem *parent)
 		       -1,
 		       GTK_ANCHOR_CENTER,
 		       "font", gc_skin_font_board_medium,
-		       "fill_color", "white",
+		       "fill-color", "white",
 		       NULL);
   g_free(tmpstr);
 
@@ -550,7 +550,7 @@ static void request_score()
 				     -1,
 				     GTK_ANCHOR_CENTER,
 				     "font", gc_skin_font_board_title_bold,
-				     "fill_color", "white",
+				     "fill-color", "white",
 				     NULL);
   g_free(tmpstr);
 
@@ -640,8 +640,8 @@ static void launch_dart(double item_x, double item_y)
 					"x2", (double)item_x+MAX_DART_SIZE,
 					"y2", (double)item_y+MAX_DART_SIZE,
 					"fill_color_rgba", 0xFF80FFFF,
-					"outline_color", "white",
-					"width_units", (double)1,
+					"stroke-color", "white",
+					"line-width", (double)1,
 					NULL);
 
   animate_id = gtk_timeout_add (200, (GtkFunction) animate_items, NULL);

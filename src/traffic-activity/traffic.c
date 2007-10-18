@@ -35,6 +35,7 @@ static GcomprisBoard  *gcomprisBoard = NULL;
 static gboolean	board_paused  = TRUE;
 
 static GooCanvasItem *allcars         = NULL;
+static gboolean dragging = FALSE;
 
 #define OFSET_X 250
 #define OFSET_Y 128
@@ -78,7 +79,19 @@ struct _jam {
   car *cars[MAX_NUMBER_OF_CARS];
 };
 
-static int	 car_cb(GooCanvasItem *item, GdkEvent *event, car *thiscar);
+static gboolean on_button_press (GooCanvasItem  *item,
+				 GooCanvasItem  *target,
+				 GdkEventButton *event,
+				 car *thiscar);
+static gboolean on_button_release (GooCanvasItem *item,
+				   GooCanvasItem *target,
+				   GdkEventButton *event,
+				   car *thiscar);
+static gboolean on_motion_notify (GooCanvasItem *item,
+				  GooCanvasItem *target,
+				  GdkEventMotion *event,
+				  car *thiscar);
+
 gboolean	 load_level(guint level, guint card);
 
 static jam	 current_card  ={0,0,0,{NULL}};
@@ -250,7 +263,7 @@ static void traffic_destroy_all_items()
   guint i;
 
   if(boardRootItem!=NULL)
-    gtk_object_destroy (GTK_OBJECT(boardRootItem));
+    goo_canvas_item_remove(boardRootItem);
   boardRootItem = NULL;
 
   for (i=0; i<current_card.num_cars; i++)
@@ -279,7 +292,7 @@ static GooCanvasItem *traffic_create_item(GooCanvasItem *parent)
   allcars = goo_canvas_group_new (borderItem, NULL);
   goo_canvas_item_translate(allcars, 11, 11);
 
-  gtk_object_set_data(GTK_OBJECT(allcars),
+  g_object_set_data(G_OBJECT(allcars),
 		      "whatami", (gpointer)"allcars");
 
   /* Ready now, let's go */
@@ -318,24 +331,24 @@ static void draw_grid(GooCanvasItem *rootBorder)
 
   goo_canvas_item_translate(rootBorder, 10, 10);
 
-  gtk_object_set_data(GTK_OBJECT(grid_group),
+  g_object_set_data(G_OBJECT(grid_group),
 		      "whatami", (gpointer)"grid_group");
 
   goo_canvas_item_lower(grid_group, NULL);
 
   for (xlooper=0;xlooper<=6;xlooper++)
     for (ylooper=0;ylooper<=6;ylooper++)
-      gtk_object_set_data(GTK_OBJECT(
-				     goo_canvas_rect_new(grid_group,
-							 0.0*xlooper,
-							 0.0*ylooper,
-							 40.0*xlooper,
-							 40.0*ylooper,
-							 "fill_color", NULL,
-							 "outline_color", "white",
-							 "width_units", 2.0,
-							 NULL)),
-			  "whatami",(gpointer)"grid square");;
+      g_object_set_data(G_OBJECT(
+				 goo_canvas_rect_new(grid_group,
+						     0.0*xlooper,
+						     0.0*ylooper,
+						     40.0*xlooper,
+						     40.0*ylooper,
+						     "fill-color", NULL,
+						     "stroke-color", "white",
+						     "line-width", 2.0,
+						     NULL)),
+			"whatami",(gpointer)"grid square");;
 }
 
 
@@ -344,26 +357,33 @@ void draw_car(car *thiscar)
   GooCanvasItem *car_group;
   GooCanvasItem *car_rect;
 
-  gtk_object_set_data(GTK_OBJECT(allcars),"whatami",(gpointer)"allcars");
+  g_object_set_data(G_OBJECT(allcars),"whatami",(gpointer)"allcars");
 
   car_group = goo_canvas_group_new(allcars,
 				   NULL);
-  goo_canvas_item_translate(car_group, 40.0*thiscar->x, 40.0*thiscar->y);
+  goo_canvas_item_translate(car_group,
+			    40.0*thiscar->x-10,
+			    40.0*thiscar->y-10);
 
-  car_rect=goo_canvas_rect_new(car_group,
-			       0.0,
-			       0.0,
-			       (thiscar->orient?40.0*thiscar->size:40.0)-2.25,
-			       (thiscar->orient?40.0:40.0*thiscar->size)-2.25,
-			       "fill_color_rgba", thiscar->color,
-			       "outline_color", NULL,
-			       NULL);
+  car_rect = goo_canvas_rect_new(car_group,
+				 0.0,
+				 0.0,
+				 (thiscar->orient?40.0*thiscar->size:40.0)-2.25,
+				 (thiscar->orient?40.0:40.0*thiscar->size)-2.25,
+				 "fill_color_rgba", thiscar->color,
+				 "stroke-color", NULL,
+				 NULL);
 
-  g_signal_connect(GTK_OBJECT(car_group),"enter_notify_event",
-		     GTK_SIGNAL_FUNC(car_cb),(gpointer)thiscar);
-  gtk_object_set_data(GTK_OBJECT(car_group),"car",(gpointer)thiscar);
-  gtk_object_set_data(GTK_OBJECT(car_group),"whatami",(gpointer)"car_group");
-  gtk_object_set_data(GTK_OBJECT(car_rect),"whatami",(gpointer)"car_rect");
+  g_signal_connect(car_group,"button_press_event",
+		   GTK_SIGNAL_FUNC(on_button_press), (gpointer)thiscar);
+  g_signal_connect (car_group, "button_release_event",
+		    (GtkSignalFunc) on_button_release, (gpointer)thiscar);
+  g_signal_connect (car_group, "motion_notify_event",
+		    (GtkSignalFunc) on_motion_notify, (gpointer)thiscar);
+
+  g_object_set_data(G_OBJECT(car_group), "car", (gpointer)thiscar);
+  g_object_set_data(G_OBJECT(car_group), "whatami", (gpointer)"car_group");
+  g_object_set_data(G_OBJECT(car_rect), "whatami", (gpointer)"car_rect");
 }
 
 void draw_jam(jam *myjam)
@@ -373,56 +393,113 @@ void draw_jam(jam *myjam)
     draw_car(myjam->cars[whichcar]);
 }
 
-static int car_cb(GooCanvasItem *item, GdkEvent *event, car *thiscar)
+static gboolean on_motion_notify (GooCanvasItem *item,
+				  GooCanvasItem *target,
+				  GdkEventMotion *event,
+				  car *thiscar)
 {
-  static gboolean moving;
-  static int button;
+  GooCanvas *canvas;
+  double small_x, big_x, small_y, big_y;
+  double dx,dy;
+  double item_x, item_y;
   static double start_x,start_y;
   static double hit=0;
-  double item_x, item_y;
-  double world_x, world_y;
-  double dx,dy;
-  double small_x, big_x, small_y, big_y;
-  GdkCursor *cursor;
-  GooCanvasItem *atdest=NULL;
-  car *othercar=NULL;
+  GooCanvasItem *atdest = NULL;
+  car *othercar = NULL;
 
-  item_x = world_x = event->button.x;
-  item_y = world_y = event->button.y;
+  canvas = goo_canvas_item_get_canvas (item);
+
+  item_x = event->x;
+  item_y = event->y;
   goo_canvas_convert_to_item_space(goo_canvas_item_get_canvas(item),
 				   goo_canvas_item_get_parent(item),
 				   &item_x, &item_y);
 
-  switch (event->type) {
-  case GDK_BUTTON_PRESS:
-    start_x=item_x;
-    start_y=item_y;
-    button=event->button.button;
+  start_x=item_x;
+  start_y=item_y;
 
-    if (thiscar->orient==CAR_ORIENT_NS)
-      cursor=gdk_cursor_new(GDK_SB_V_DOUBLE_ARROW);
-    else
-      cursor=gdk_cursor_new(GDK_SB_H_DOUBLE_ARROW);
-    gc_canvas_item_grab(item,
-			GDK_POINTER_MOTION_MASK | GDK_BUTTON_RELEASE_MASK,
-			cursor,
-			event->button.time);
-    gdk_cursor_destroy(cursor);
-
-    moving=TRUE;
-    break;
-  case GDK_MOTION_NOTIFY:
-    if (moving)
+  if (dragging && (event->state & GDK_BUTTON1_MASK))
+    {
       switch (thiscar->orient) {
+      case CAR_ORIENT_EW:
+	small_x=0;
+	big_x=40*thiscar->size-1;
+	small_y=0;
+	big_y=40-1;
+
+	goo_canvas_convert_from_item_space(canvas,
+					   item, &small_x, &small_y);
+	goo_canvas_convert_from_item_space(canvas,
+					   item, &big_x, &big_y);
+
+	dy = CLAMP(item_y-start_y,-39,39);
+	dx = CLAMP(item_x-start_x,-39,39);
+
+	if (thiscar->goal && big_x==250+OFSET_X) {
+	  gc_canvas_item_ungrab(item,event->time);
+	  g_object_set (item,
+			"visibility", GOO_CANVAS_ITEM_INVISIBLE,
+			NULL);
+	  dragging=FALSE;
+
+	  gamewon = TRUE;
+	  gc_bonus_display(gamewon, GC_BONUS_SMILEY);
+
+	}
+
+	if (small_x+dx<11+OFSET_X) {
+	  dx=11-small_x+OFSET_X;
+	} else if (big_x+dx>250+OFSET_X) {
+	  dx=250-big_x+OFSET_X;
+	}
+
+	if ((hit<0)!=(dx<0)) { hit=0;}
+
+	if (hit==0) {
+	  if (dx>0) {
+	    do {
+	      atdest = goo_canvas_get_item_at(canvas,
+					      big_x+dx,small_y+20, TRUE);
+	      if (atdest)
+		othercar=(car*)g_object_get_data(G_OBJECT(goo_canvas_item_get_parent(atdest)),
+						   "car");
+	      if (othercar) {
+		hit=1;
+		dx--;
+	      }
+	    } while (othercar);
+	  } else if (dx<0) {
+	    do {
+	      atdest=goo_canvas_get_item_at(canvas,
+					    small_x+dx-1,small_y+20, TRUE);
+	      if (atdest)
+		othercar=(car*)g_object_get_data(G_OBJECT(goo_canvas_item_get_parent(atdest)),
+						   "car");
+	      if (othercar) {
+		hit=-1;
+		dx++;
+	      }
+	    } while (othercar);
+	  }
+	} else { dx=0; }
+
+	start_x += dx;
+	start_y += dy;
+
+	goo_canvas_item_translate(item,dx,0);
+	break;
+
       case CAR_ORIENT_NS:
 	small_x=0;
 	big_x=40-1;
 	small_y=0;
 	big_y=40*thiscar->size-1;
 
-	goo_canvas_convert_from_item_space(goo_canvas_item_get_canvas(item), item,
+	goo_canvas_convert_from_item_space(goo_canvas_item_get_canvas(item),
+					   item,
 					   &small_x, &small_y);
-	goo_canvas_convert_from_item_space(goo_canvas_item_get_canvas(item), item,
+	goo_canvas_convert_from_item_space(goo_canvas_item_get_canvas(item),
+					   item,
 					   &big_x, &big_y);
 
 	dy=CLAMP(item_y-start_y,-39,39);
@@ -444,8 +521,8 @@ static int car_cb(GooCanvasItem *item, GdkEvent *event, car *thiscar)
 					      big_y + dy,
 					      TRUE);
 	      if (atdest)
-		othercar=(car*)gtk_object_get_data(GTK_OBJECT(goo_canvas_item_get_parent(atdest)),
-						   "car");
+		othercar=(car*)g_object_get_data(G_OBJECT(goo_canvas_item_get_parent(atdest)),
+						 "car");
 	      if (othercar) {
 		hit=1;
 		dy--;
@@ -456,7 +533,7 @@ static int car_cb(GooCanvasItem *item, GdkEvent *event, car *thiscar)
 	      atdest=goo_canvas_get_item_at(gcomprisBoard->canvas,
 					    small_x+20,small_y+dy-1, TRUE);
 	      if (atdest)
-		othercar=(car*)gtk_object_get_data(GTK_OBJECT(goo_canvas_item_get_parent(atdest)),
+		othercar=(car*)g_object_get_data(G_OBJECT(goo_canvas_item_get_parent(atdest)),
 						   "car");
 	      if (othercar) {
 		hit=-1;
@@ -469,116 +546,98 @@ static int car_cb(GooCanvasItem *item, GdkEvent *event, car *thiscar)
 	start_x+=dx;
 	start_y+=dy;
 
-	goo_canvas_item_translate(item,0,dy);
-	goo_canvas_item_request_update(item);
-
-	break;
-      case CAR_ORIENT_EW:
-	small_x=0;
-	big_x=40*thiscar->size-1;
-	small_y=0;
-	big_y=40-1;
-
-	goo_canvas_convert_from_item_space(goo_canvas_item_get_canvas(item),
-					   item, &small_x, &small_y);
-	goo_canvas_convert_from_item_space(goo_canvas_item_get_canvas(item),
-					   item, &big_x, &big_y);
-
-	dy=CLAMP(item_y-start_y,-39,39);
-	dx=CLAMP(item_x-start_x,-39,39);
-
-	if (thiscar->goal && big_x==250+OFSET_X) {
-	  gc_canvas_item_ungrab(item,event->button.time);
-	  g_object_set (item,
-			"visibility", GOO_CANVAS_ITEM_INVISIBLE,
-		    NULL);
-	  moving=FALSE;
-
-	  gamewon = TRUE;
-	  gc_bonus_display(gamewon, GC_BONUS_SMILEY);
-
-	}
-
-	if (small_x+dx<11+OFSET_X) {
-	  dx=11-small_x+OFSET_X;
-	} else if (big_x+dx>250+OFSET_X) {
-	  dx=250-big_x+OFSET_X;
-	}
-
-	if ((hit<0)!=(dx<0)) { hit=0;}
-
-	if (hit==0) {
-	  if (dx>0) {
-	    do {
-	      atdest = goo_canvas_get_item_at(gcomprisBoard->canvas,
-					      big_x+dx,small_y+20, TRUE);
-	      if (atdest)
-		othercar=(car*)gtk_object_get_data(GTK_OBJECT(goo_canvas_item_get_parent(atdest)),
-							      "car");
-	      if (othercar) {
-		hit=1;
-		dx--;
-	      }
-	    } while (othercar);
-	  } else if (dx<0) {
-	    do {
-	      atdest=goo_canvas_get_item_at(gcomprisBoard->canvas,
-					    small_x+dx-1,small_y+20, TRUE);
-	      if (atdest)
-		othercar=(car*)gtk_object_get_data(GTK_OBJECT(goo_canvas_item_get_parent(atdest)),
-						   "car");
-	      if (othercar) {
-		hit=-1;
-		dx++;
-	      }
-	    } while (othercar);
-	  }
-	} else { dx=0; }
-
-	start_x+=dx;
-	start_y+=dy;
-
-	goo_canvas_item_translate(item,dx,0);
-	goo_canvas_item_request_update(item);
-
-	break;
-      default:
-	break;
+	goo_canvas_item_translate(item, 0, dy);
       }
-  case GDK_BUTTON_RELEASE:
-    if (moving && (event->button.button==button))
-      {
-	double even_vals_x[]={11+OFSET_X,51+OFSET_X,91+OFSET_X,131+
-			      OFSET_X,171+OFSET_X,211+OFSET_X,HUGE_VAL};
-	double even_vals_y[]={11+OFSET_Y,51+OFSET_Y,91+OFSET_Y,131+
-			      OFSET_Y,171+OFSET_Y,211+OFSET_Y,HUGE_VAL};
-	double *ptr;
-	double x=0,y=0;
 
-	goo_canvas_convert_from_item_space(goo_canvas_item_get_canvas(item), item,
-					   &x, &y);
+    }
+  return TRUE;
+}
 
-	for (ptr=even_vals_x;*ptr<x;ptr++);
-	if (*ptr-x>20)
-	  dx=*(ptr-1)-x;
-	else
-	  dx=*ptr-x;
+static gboolean on_button_release (GooCanvasItem *item,
+				   GooCanvasItem *target,
+				   GdkEventButton *event,
+				   car *thiscar)
+{
+  GooCanvas *canvas;
+  double dx,dy;
+  static double hit=0;
 
-	for (ptr=even_vals_y;*ptr<y;ptr++);
-	if (*ptr-y>20)
-	  dy=*(ptr-1)-y;
-	else
-	  dy=*ptr-y;
+  canvas = goo_canvas_item_get_canvas (item);
 
-	goo_canvas_item_translate(item,dx,dy);
-	gc_canvas_item_ungrab(item,event->button.time);
-	hit=0;
-	moving=FALSE;
-      }
-    break;
-  default:
-    break;
-  }
+#if 0
+  g_print ("received 'button-release' signal\n");
+#endif
+
+  if (dragging)
+    {
+      double even_vals_x[]={11+OFSET_X,51+OFSET_X,91+OFSET_X,131+
+			    OFSET_X,171+OFSET_X,211+OFSET_X,HUGE_VAL};
+      double even_vals_y[]={11+OFSET_Y,51+OFSET_Y,91+OFSET_Y,131+
+			    OFSET_Y,171+OFSET_Y,211+OFSET_Y,HUGE_VAL};
+      double *ptr;
+      double x=0,y=0;
+
+      goo_canvas_convert_from_item_space(canvas, item,
+					 &x, &y);
+
+      for (ptr=even_vals_x;*ptr<x;ptr++);
+      if (*ptr-x>20)
+	dx=*(ptr-1)-x;
+      else
+	dx=*ptr-x;
+
+      for (ptr=even_vals_y;*ptr<y;ptr++);
+      if (*ptr-y>20)
+	dy=*(ptr-1)-y;
+      else
+	dy=*ptr-y;
+
+      goo_canvas_item_translate(item, dx, dy);
+      gc_canvas_item_ungrab(item, event->time);
+      hit=0;
+      dragging=FALSE;
+    }
+
+  return TRUE;
+}
+
+ static gboolean on_button_press (GooCanvasItem  *item,
+				 GooCanvasItem  *target,
+				 GdkEventButton *event,
+				 car *thiscar)
+{
+  GooCanvas *canvas;
+  static int button;
+  static double start_x,start_y;
+  double item_x, item_y;
+  double world_x, world_y;
+  GdkCursor *cursor;
+
+  canvas = goo_canvas_item_get_canvas (item);
+
+  item_x = world_x = event->x;
+  item_y = world_y = event->y;
+  goo_canvas_convert_to_item_space(goo_canvas_item_get_canvas(item),
+				   goo_canvas_item_get_parent(item),
+				   &item_x, &item_y);
+
+  start_x=item_x;
+  start_y=item_y;
+  button=event->button;
+
+  if (thiscar->orient==CAR_ORIENT_NS)
+    cursor = gdk_cursor_new(GDK_SB_V_DOUBLE_ARROW);
+  else
+    cursor = gdk_cursor_new(GDK_SB_H_DOUBLE_ARROW);
+
+  gc_canvas_item_grab(item,
+		      GDK_POINTER_MOTION_MASK | GDK_BUTTON_RELEASE_MASK,
+		      cursor,
+		      event->time);
+
+  gdk_cursor_unref(cursor);
+  dragging=TRUE;
+
   return TRUE;
 }
 

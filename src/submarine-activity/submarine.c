@@ -355,12 +355,9 @@ static GooCanvasItem *submarine_create_item(GooCanvasItem *parent) {
   char s12[12];
   int i, w, h;
 
-  boardRootItem = GOO_CANVAS_GROUP(
-				     goo_canvas_item_new (goo_canvas_get_root_item(gcomprisBoard->canvas),
-							    goo_canvas_group_get_type (),
-							    "x", (double) 0,
-							    "y", (double) 0,
-							    NULL));
+  boardRootItem = \
+    goo_canvas_group_new (goo_canvas_get_root_item(gcomprisBoard->canvas),
+			  NULL);
 
   pixmap = gc_pixmap_load("submarine/submarine.png");
   submarine_width = gdk_pixbuf_get_width(pixmap);
@@ -517,7 +514,7 @@ static GooCanvasItem *submarine_create_item(GooCanvasItem *parent) {
 					 -1,
 					 GTK_ANCHOR_CENTER,
 					 "font", gc_skin_font_board_title_bold,
-					 "fill_color", TEXT_COLOR_BACK,
+					 "fill-color", TEXT_COLOR_BACK,
 					 NULL);
   speed_item_front = goo_canvas_text_new (boardRootItem,
 					  s12,
@@ -526,19 +523,18 @@ static GooCanvasItem *submarine_create_item(GooCanvasItem *parent) {
 					  -1,
 					  GTK_ANCHOR_CENTER,
 					  "font", gc_skin_font_board_title_bold,
-					  "fill_color", TEXT_COLOR_FRONT,
+					  "fill-color", TEXT_COLOR_FRONT,
 					  NULL);
 
   // displays the ballast_av_air value
-  ballast_av_air_item_rect = goo_canvas_item_new (boardRootItem,
-						    goo_canvas_rect_get_type (),
-						    "x1", (double) schema_x + BALLAST_AV_AIR_X1,
-						    "y1", (double) schema_y + BALLAST_AV_AIR_Y2,
-						    "x2", (double) schema_x + BALLAST_AV_AIR_X2,
-						    "y2", (double) schema_y + BALLAST_AV_AIR_Y2,
-						    "fill_color", "blue",
-						    "width_pixels", 0,
-						    NULL);
+  ballast_av_air_item_rect = goo_canvas_rect_new (boardRootItem,
+						  schema_x + BALLAST_AV_AIR_X1,
+						  schema_y + BALLAST_AV_AIR_Y2,
+						  BALLAST_AV_AIR_X2,
+						  BALLAST_AV_AIR_Y2,
+						  "fill-color", "blue",
+						  "width_pixels", 0,
+						  NULL);
 
   sprintf(s12,"%d",(int)ballast_av_air);
   ballast_av_air_item_back = goo_canvas_text_new (boardRootItem,
@@ -548,7 +544,7 @@ static GooCanvasItem *submarine_create_item(GooCanvasItem *parent) {
 						  -1,
 						  GTK_ANCHOR_CENTER,
 						  "font", gc_skin_font_board_title_bold,
-						  "fill_color", TEXT_COLOR_BACK,
+						  "fill-color", TEXT_COLOR_BACK,
 						  NULL);
   ballast_av_air_item_front = goo_canvas_text_new (boardRootItem,
 						   s12,
@@ -557,20 +553,19 @@ static GooCanvasItem *submarine_create_item(GooCanvasItem *parent) {
 						   -1,
 						   GTK_ANCHOR_CENTER,
 						   "font", gc_skin_font_board_title_bold,
-						   "fill_color", TEXT_COLOR_FRONT,
+						   "fill-color", TEXT_COLOR_FRONT,
 						   NULL);
   setBallastAV(ballast_av_air);
 
   // displays the ballast_ar_air value
-  ballast_ar_air_item_rect = goo_canvas_item_new (boardRootItem,
-						    goo_canvas_rect_get_type (),
-						    "x1", (double) schema_x + BALLAST_AR_AIR_X1,
-						    "y1", (double) schema_y + BALLAST_AR_AIR_Y2,
-						    "x2", (double) schema_x + BALLAST_AR_AIR_X2,
-						    "y2", (double) schema_y + BALLAST_AR_AIR_Y2,
-						    "fill_color", "blue",
-						    "width_pixels", 0,
-						    NULL);
+  ballast_ar_air_item_rect = goo_canvas_rect_new (boardRootItem,
+						  schema_x + BALLAST_AR_AIR_X1,
+						  schema_y + BALLAST_AR_AIR_Y2,
+						  BALLAST_AR_AIR_X2,
+						  BALLAST_AR_AIR_Y2,
+						  "fill-color", "blue",
+						  "width_pixels", 0,
+						  NULL);
 
   sprintf(s12,"%d",(int)ballast_ar_air);
   ballast_ar_air_item_back = goo_canvas_text_new (boardRootItem,
@@ -580,7 +575,7 @@ static GooCanvasItem *submarine_create_item(GooCanvasItem *parent) {
 						  -1,
 						  GTK_ANCHOR_CENTER,
 						  "font", gc_skin_font_board_title_bold,
-						  "fill_color", TEXT_COLOR_BACK,
+						  "fill-color", TEXT_COLOR_BACK,
 						  NULL);
   ballast_ar_air_item_front = goo_canvas_text_new (boardRootItem,
 						   s12,
@@ -589,7 +584,7 @@ static GooCanvasItem *submarine_create_item(GooCanvasItem *parent) {
 						   -1,
 						   GTK_ANCHOR_CENTER,
 						   "font", gc_skin_font_board_title_bold,
-						   "fill_color", TEXT_COLOR_FRONT,
+						   "fill-color", TEXT_COLOR_FRONT,
 						   NULL);
     setBallastAR(ballast_ar_air);
 
@@ -602,7 +597,7 @@ static GooCanvasItem *submarine_create_item(GooCanvasItem *parent) {
 				       -1,
 				       GTK_ANCHOR_CENTER,
 				       "font", gc_skin_font_board_title_bold,
-				       "fill_color", TEXT_COLOR_BACK,
+				       "fill-color", TEXT_COLOR_BACK,
 				       NULL);
   air_item_front = goo_canvas_text_new (boardRootItem,
 					s12,
@@ -611,7 +606,7 @@ static GooCanvasItem *submarine_create_item(GooCanvasItem *parent) {
 					-1,
 					GTK_ANCHOR_CENTER,
 					"font", gc_skin_font_board_title_bold,
-					"fill_color", TEXT_COLOR_FRONT,
+					"fill-color", TEXT_COLOR_FRONT,
 					NULL);
 
   // displays the remaining battery value
@@ -623,7 +618,7 @@ static GooCanvasItem *submarine_create_item(GooCanvasItem *parent) {
 					   -1,
 					   GTK_ANCHOR_CENTER,
 					   "font", gc_skin_font_board_title_bold,
-					   "fill_color", TEXT_COLOR_BACK,
+					   "fill-color", TEXT_COLOR_BACK,
 					   NULL);
   battery_item_front = goo_canvas_text_new (boardRootItem,
 					    s12,
@@ -632,29 +627,28 @@ static GooCanvasItem *submarine_create_item(GooCanvasItem *parent) {
 					    -1,
 					    GTK_ANCHOR_CENTER,
 					    "font", gc_skin_font_board_title_bold,
-					    "fill_color", TEXT_COLOR_FRONT,
+					    "fill-color", TEXT_COLOR_FRONT,
 					    NULL);
 
   // displays the remaining regleur value
-  regleur_item_rect = goo_canvas_text_new (boardRootItem,
-					     goo_canvas_rect_get_type (),
-					     "x1", (double) schema_x + REGLEUR_X1,
-					     "y1", (double) schema_y + REGLEUR_Y2,
-					     "x2", (double) schema_x + REGLEUR_X2,
-					     "y2", (double) schema_y + REGLEUR_Y2,
-					     "fill_color", "blue",
-					     "width_pixels", 0,
-					     NULL);
+  regleur_item_rect = goo_canvas_rect_new (boardRootItem,
+					   schema_x + REGLEUR_X1,
+					   schema_y + REGLEUR_Y2,
+					   REGLEUR_X2,
+					   REGLEUR_Y2,
+					   "fill-color", "blue",
+					   "width_pixels", 0,
+					   NULL);
 
   sprintf(s12,"%d", (int)regleur);
-  regleur_item_back = goo_canvas_item_new (boardRootItem,
+  regleur_item_back = goo_canvas_text_new (boardRootItem,
 					   s12,
 					   (double) schema_x + REGLEUR_TEXT_X +1,
 					   (double) schema_y + REGLEUR_TEXT_Y + 1,
 					   -1,
 					   GTK_ANCHOR_CENTER,
 					   "font", gc_skin_font_board_title_bold,
-					   "fill_color", TEXT_COLOR_BACK,
+					   "fill-color", TEXT_COLOR_BACK,
 					   NULL);
   regleur_item_front = goo_canvas_text_new (boardRootItem,
 					    s12,
@@ -663,7 +657,7 @@ static GooCanvasItem *submarine_create_item(GooCanvasItem *parent) {
 					    -1,
 					    GTK_ANCHOR_CENTER,
 					    "font", gc_skin_font_board_title_bold,
-					    "fill_color", TEXT_COLOR_FRONT,
+					    "fill-color", TEXT_COLOR_FRONT,
 					    NULL);
   setRegleur(regleur);
 
@@ -677,7 +671,9 @@ static GooCanvasItem *submarine_create_item(GooCanvasItem *parent) {
 					  ALERT_SUBMARINE_Y + h/2,
 					  NULL);
   gdk_pixbuf_unref(pixmap);
-  goo_canvas_item_hide(alert_submarine);
+  g_object_set (alert_submarine,
+		"visibility", GOO_CANVAS_ITEM_INVISIBLE,
+		NULL);
 
   // when the submarine makes some bubbles ...
   pixmap = gc_pixmap_load("submarine/bubbling.png");
@@ -689,7 +685,9 @@ static GooCanvasItem *submarine_create_item(GooCanvasItem *parent) {
 					w/2,
 					h/2,
 					NULL);
-    goo_canvas_item_hide(bubbling[i]);
+    g_object_set (bubbling[i],
+		  "visibility", GOO_CANVAS_ITEM_INVISIBLE,
+		  NULL);
   }
   gdk_pixbuf_unref(pixmap);
 
@@ -717,7 +715,9 @@ static GooCanvasItem *submarine_create_item(GooCanvasItem *parent) {
 					whale_x + w/2,
 					whale_y + h/2,
 					NULL);
-  goo_canvas_item_hide(big_explosion);
+  g_object_set (big_explosion,
+		"visibility", GOO_CANVAS_ITEM_INVISIBLE,
+		NULL);
 
   gdk_pixbuf_unref(pixmap);
 
@@ -788,26 +788,24 @@ static GooCanvasItem *submarine_create_item(GooCanvasItem *parent) {
 
   /* At startup, the gate is closed */
   gate_top_current_y = gate_bottom_y;
-  top_gate_item = goo_canvas_item_new \
+  top_gate_item = goo_canvas_rect_new \
     (boardRootItem,
-     goo_canvas_rect_get_type (),
-     "x1", (double) BOARDWIDTH - 25,
-     "y1", (double) 40,
-     "x2", (double) BOARDWIDTH + 2,
-     "y2", (double) gate_top_current_y,
+     BOARDWIDTH - 25,
+     40,
+     27,
+     gate_top_current_y - 40,
      "fill_color_rgba", 0x989677FF,
-     "outline_color", "black",
+     "stroke-color", "black",
      "width_pixels", 2,
      NULL);
 
-  goo_canvas_item_new (boardRootItem,
-			 goo_canvas_rect_get_type (),
-			 "x1", (double) BOARDWIDTH - 25,
-			 "y1", (double) gate_bottom_y,
-			 "x2", (double) BOARDWIDTH + 2,
-			 "y2", (double) schema_y,
+  goo_canvas_rect_new (boardRootItem,
+			 BOARDWIDTH - 25,
+			 gate_bottom_y,
+			 27,
+			 schema_y - gate_bottom_y,
 			 "fill_color_rgba", 0x989677FF,
-			 "outline_color", "black",
+			 "stroke-color", "black",
 			 "width_pixels", 2,
 			 NULL);
 
@@ -952,9 +950,13 @@ static gboolean update_timeout_slow() {
 
   // show an alert if some parameters reach the limit
   if (depth >= MAX_DEPTH-20.0 || assiette == -30.0 || assiette == 30.0 || air == 0.0 || battery == 0.0)
-    goo_canvas_item_show(alert_submarine);
+    g_object_set (alert_submarine,
+		  "visibility", GOO_CANVAS_ITEM_VISIBLE,
+		  NULL);
   else
-    goo_canvas_item_hide(alert_submarine);
+    g_object_set (alert_submarine,
+		  "visibility", GOO_CANVAS_ITEM_INVISIBLE,
+		  NULL);
 
   /* if the submarine dives, stop charging air tanks and batteries */
   if ( depth >= SURFACE_DEPTH+10.0 ) {
@@ -972,12 +974,12 @@ static gboolean update_timeout_slow() {
   if ( submarine_x > WRAP_X )
     {
       /* Check its within the gate range */
-      double x1,x2,y1,y2;
+      GooCanvasBounds bounds;
 
-      goo_canvas_item_get_bounds (submarine_item, &x1, &y1, &x2, &y2);
+      goo_canvas_item_get_bounds (submarine_item, &bounds);
 
-      if(y1<gate_top_current_y ||
-	 y2>gate_bottom_y)
+      if(bounds.y1<gate_top_current_y ||
+	 bounds.y2>gate_bottom_y)
 	{
 	  /* It's a crash */
 	  submarine_explosion();
@@ -1010,20 +1012,19 @@ static gboolean update_timeout_slow() {
 
   /* the frigate */
   {
-    double x1, x2, y1, y2, x;
-    x = - FRIGATE_SPEED * UPDATE_DELAY_SLOW/1000.0;
-    goo_canvas_item_get_bounds(frigate_item, &x1, &y1, &x2, &y2);
+    GooCanvasBounds bounds;
+    goo_canvas_item_get_bounds(frigate_item, &bounds);
     goo_canvas_item_translate(frigate_item, - FRIGATE_SPEED * UPDATE_DELAY_SLOW/1000.0, 0.0);
     /* detects a collision between the frigate and the submarine */
     if (depth <= 30.0 && !submarine_destroyed)
-      if ( (submarine_x - submarine_width <= x1 && submarine_x >= x2) ||
-	   (submarine_x - submarine_width >= x1 && submarine_x - submarine_width <= x2) ||
-	   (submarine_x >= x1 && submarine_x <= x2) ) {
+      if ( (submarine_x - submarine_width <= bounds.x1 && submarine_x >= bounds.x2) ||
+	   (submarine_x - submarine_width >= bounds.x1 && submarine_x - submarine_width <= bounds.x2) ||
+	   (submarine_x >= bounds.x1 && submarine_x <= bounds.x2) ) {
         submarine_explosion();
       }
     /* wraps the destroyer if it reached the left side (and disappeared for a long time)*/
-    if (x2 < -300.0)
-      gc_item_absolute_move( frigate_item, gcomprisBoard->width, y1 );
+    if (bounds.x2 < -300.0)
+      gc_item_absolute_move( frigate_item, gcomprisBoard->width, bounds.y1 );
   }
 
   /* whale detection */

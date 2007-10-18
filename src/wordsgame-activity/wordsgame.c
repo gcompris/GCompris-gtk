@@ -632,7 +632,7 @@ static GooCanvasItem *wordsgame_create_item(GooCanvasItem *parent)
 			 -1,
 			 GTK_ANCHOR_NW,
 			 "font", gc_skin_font_board_huge_bold,
-			 "fill_color", "blue",
+			 "fill-color", "blue",
 			 NULL);
 
   /*set right x position */

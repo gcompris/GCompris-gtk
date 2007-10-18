@@ -245,7 +245,7 @@ static gboolean
 canvas_event (GooCanvasItem  *item,
 	      GooCanvasItem  *target,
 	      GdkEventButton *event,
-	      gpointer *data)
+	      gpointer data)
 {
   FishItem *fish;
   gdouble mouse_x;

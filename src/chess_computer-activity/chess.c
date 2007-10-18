@@ -440,8 +440,8 @@ chess_create_item(GooCanvasItem *parent)
 				     "x2", (double) CHESSGC_BOARD_X + (x * SQUARE_WIDTH) + SQUARE_WIDTH -1,
 				     "y2", (double)  CHESSGC_BOARD_Y + ((7-y) * SQUARE_HEIGHT) + SQUARE_HEIGHT -1,
 				     "fill_color_rgba", color,
-				     "outline_color", "black",
-				     "width_units", (double)2,
+				     "stroke-color", "black",
+				     "line-width", (double)2,
 				     NULL);
       chessboard[square]->square_item = item;
     }
@@ -655,7 +655,7 @@ static void move_piece_to(Square from, Square to)
 
   /* Show the moved piece */
   g_object_set(source_square->square_item,
-			"outline_color",
+			"stroke-color",
 			(BPIECE(position->square[to])?"red":"blue"),
 			NULL);
 
@@ -670,7 +670,7 @@ static void move_piece_to(Square from, Square to)
 
   /* Show the moved piece */
   g_object_set(dest_square->square_item,
-			"outline_color",
+			"stroke-color",
 			(BPIECE(position->square[to])?"red":"blue"),
 			NULL);
 
@@ -780,7 +780,7 @@ void hightlight_possible_moves(GSquare *gsquare)
 
 	    g_object_set(chessboard[square]->square_item,
 				  "fill_color_rgba", color,
-				  "outline_color", "black",
+				  "stroke-color", "black",
 				  NULL);
 	  }
 	else
@@ -789,7 +789,7 @@ void hightlight_possible_moves(GSquare *gsquare)
 
 	    g_object_set(chessboard[square]->square_item,
 				  "fill_color_rgba", color,
-				  "outline_color", "black",
+				  "stroke-color", "black",
 				  NULL);
 	  }
       }
@@ -800,7 +800,7 @@ void hightlight_possible_moves(GSquare *gsquare)
 
   /* Show the current piece */
   g_object_set(gsquare->square_item,
-			"outline_color",
+			"stroke-color",
 			(BPIECE(position->square[gsquare->square])?"red":"blue"),
 			NULL);
 

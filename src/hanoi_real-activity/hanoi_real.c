@@ -342,8 +342,8 @@ static GooCanvasItem *hanoi_create_item(GooCanvasItem *parent)
 				 "x2", (double) item_width * (i+1) - gap_x/2,
 				 "y2", (double) baseline + 50,
 				 "fill_color_rgba", 0x036ED8FF,
-				 "outline_color", "black",
-				 "width_units", (double)1,
+				 "stroke-color", "black",
+				 "line-width", (double)1,
 				 NULL);
 	}
 

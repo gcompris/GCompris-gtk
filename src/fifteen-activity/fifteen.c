@@ -235,8 +235,8 @@ static GooCanvasItem *fifteen_create_item(GooCanvasItem *parent)
 			 0.0,
 			 PIECE_SIZE,
 			 PIECE_SIZE,
-			 "fill_color", get_piece_color (i),
-			 "outline_color", "black",
+			 "fill-color", get_piece_color (i),
+			 "stroke-color", "black",
 			 "width_pixels", 0,
 			 NULL);
 
@@ -249,7 +249,7 @@ static GooCanvasItem *fifteen_create_item(GooCanvasItem *parent)
 				-1,
 				GTK_ANCHOR_CENTER,
 				"font", gc_skin_font_board_medium,
-				"fill_color", "black",
+				"fill-color", "black",
 				NULL);
 
     g_object_set_data (G_OBJECT (board[i]), "piece_num", GINT_TO_POINTER (i));
@@ -365,13 +365,13 @@ piece_event (GooCanvasItem *item, GdkEvent *event, gpointer data)
   switch (event->type) {
   case GDK_ENTER_NOTIFY:
     g_object_set (text,
-			   "fill_color", "white",
+			   "fill-color", "white",
 			   NULL);
     break;
 
   case GDK_LEAVE_NOTIFY:
     g_object_set (text,
-			   "fill_color", "black",
+			   "fill-color", "black",
 			   NULL);
     break;
 

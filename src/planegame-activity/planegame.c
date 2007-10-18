@@ -507,7 +507,7 @@ static GooCanvasItem *planegame_create_item(GooCanvasItem *parent)
 			 "font", gc_skin_font_board_big,
 			 "x", (double) 0,
 			 "y", (double) 0,
-			 "fill_color", "red",
+			 "fill-color", "red",
 			 NULL);
 
   /* The plane is always on top */

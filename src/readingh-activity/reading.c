@@ -383,7 +383,7 @@ static GooCanvasItem *display_what_to_do(GooCanvasItem *parent)
 		       -1,
 		       GTK_ANCHOR_CENTER,
 		       "font", gc_skin_font_board_medium,
-		       "fill_color", "black",
+		       "fill-color", "black",
 		       NULL);
 
   goo_canvas_text_new (parent,
@@ -393,7 +393,7 @@ static GooCanvasItem *display_what_to_do(GooCanvasItem *parent)
 		       -1,
 		       GTK_ANCHOR_CENTER,
 		       "font", gc_skin_font_board_big,
-		       "fill_color", "green",
+		       "fill-color", "green",
 		       NULL);
 
   goo_canvas_text_new (parent,
@@ -403,7 +403,7 @@ static GooCanvasItem *display_what_to_do(GooCanvasItem *parent)
 		       -1,
 		       GTK_ANCHOR_CENTER,
 		       "font", gc_skin_font_board_medium,
-		       "fill_color", "black",
+		       "fill-color", "black",
 		       NULL);
 
 
@@ -471,7 +471,7 @@ static gboolean reading_create_item(GooCanvasItem *parent)
 			 -1,
 			 anchor,
 			 "font", gc_skin_font_board_medium,
-			 "fill_color", "black",
+			 "fill-color", "black",
 			 NULL);
 
 
@@ -578,7 +578,7 @@ static void ask_ready(gboolean status)
 			       GTK_ANCHOR_CENTER,
 			       "font", gc_skin_font_board_big,
 			       gdk_pixbuf_get_width(button_pixmap)/2,
-			       "fill_color", "white",
+			       "fill-color", "white",
 				NULL);
 
   g_signal_connect(GTK_OBJECT(item2), "enter_notify_event",
@@ -617,7 +617,7 @@ static void ask_yes_no()
 			      GTK_ANCHOR_CENTER,
 			      "font", gc_skin_font_board_big,
 			      gdk_pixbuf_get_width(button_pixmap)/2,
-			      "fill_color", "white",
+			      "fill-color", "white",
 				NULL);
 
   g_signal_connect(GTK_OBJECT(item), "enter_notify_event",
@@ -646,7 +646,7 @@ static void ask_yes_no()
 			      GTK_ANCHOR_CENTER,
 			      "font", gc_skin_font_board_big,
 			      gdk_pixbuf_get_width(button_pixmap)/2,
-			      "fill_color", "white",
+			      "fill-color", "white",
 			      NULL);
 
   g_signal_connect(GTK_OBJECT(item), "enter_notify_event",

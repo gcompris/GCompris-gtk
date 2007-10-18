@@ -1287,7 +1287,7 @@ add_shape_to_canvas(Shape *shape)
 					"x2", (double)shape->x+point_size,
 					"y2", (double)shape->y+point_size,
 					"fill_color_rgba", POINT_COLOR_OFF,
-					"outline_color", "black",
+					"stroke-color", "black",
 					"width_pixels", 2,
 					NULL);
 	  shape->target_point = item;

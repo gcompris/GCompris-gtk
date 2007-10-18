@@ -292,7 +292,7 @@ static GooCanvasItem *canal_lock_create_item(GooCanvasItem *parent)
 			 "x2", (double) BOARDWIDTH,
 			 "y2", (double) BOARDHEIGHT,
 			 "fill_color_rgba", GROUND_COLOR,
-			 "width_units", (double) 0,
+			 "line-width", (double) 0,
 			 NULL);
 
   /* This is the left canal */
@@ -303,7 +303,7 @@ static GooCanvasItem *canal_lock_create_item(GooCanvasItem *parent)
 					    "x2", (double) LEFT_CANAL_WIDTH,
 					    "y2", (double) BASE_LINE,
 					    "fill_color_rgba", CANAL_COLOR,
-					    "width_units", (double) 0,
+					    "line-width", (double) 0,
 					    NULL);
 
   /* This is the middle canal */
@@ -314,7 +314,7 @@ static GooCanvasItem *canal_lock_create_item(GooCanvasItem *parent)
 					     "x2", (double) LEFT_CANAL_WIDTH + MIDDLE_CANAL_WIDTH,
 					     "y2", (double) BASE_LINE,
 					     "fill_color_rgba", CANAL_COLOR,
-					     "width_units", (double) 0,
+					     "line-width", (double) 0,
 					     NULL);
 
   /* This is the right canal */
@@ -325,7 +325,7 @@ static GooCanvasItem *canal_lock_create_item(GooCanvasItem *parent)
 					    "x2", (double) LEFT_CANAL_WIDTH + MIDDLE_CANAL_WIDTH + RIGHT_CANAL_WIDTH,
 					    "y2", (double) BASE_LINE,
 					    "fill_color_rgba", CANAL_COLOR,
-					    "width_units", (double) 0,
+					    "line-width", (double) 0,
 					    NULL);
 
   /* This is the left lock */
@@ -336,7 +336,7 @@ static GooCanvasItem *canal_lock_create_item(GooCanvasItem *parent)
 					  "x2", (double) LEFT_CANAL_WIDTH + LOCK_WIDTH / 2,
 					  "y2", (double) BASE_LINE,
 					  "fill_color_rgba", LOCK_COLOR,
-					  "width_units", (double) 0,
+					  "line-width", (double) 0,
 					  NULL);
   g_signal_connect(GTK_OBJECT(lock_left_item), "enter_notify_event",
 		     (GtkSignalFunc) item_event,
@@ -350,7 +350,7 @@ static GooCanvasItem *canal_lock_create_item(GooCanvasItem *parent)
 					   "x2", (double) LEFT_CANAL_WIDTH + MIDDLE_CANAL_WIDTH + LOCK_WIDTH / 2,
 					   "y2", (double) BASE_LINE,
 					   "fill_color_rgba", LOCK_COLOR,
-					   "width_units", (double) 0,
+					   "line-width", (double) 0,
 					   NULL);
   g_signal_connect(GTK_OBJECT(lock_right_item), "enter_notify_event",
 		     (GtkSignalFunc) item_event,
@@ -364,7 +364,7 @@ static GooCanvasItem *canal_lock_create_item(GooCanvasItem *parent)
 			 "x2", (double) LEFT_CANAL_WIDTH + MIDDLE_CANAL_WIDTH + RIGHT_CANAL_WIDTH / 2 + SUBCANAL_HEIGHT,
 			 "y2", (double) SUBCANAL_BASE_LINE,
 			 "fill_color_rgba", CANAL_COLOR,
-			 "width_units", (double) 0,
+			 "line-width", (double) 0,
 			 NULL);
 
   /* Left conduit */
@@ -375,7 +375,7 @@ static GooCanvasItem *canal_lock_create_item(GooCanvasItem *parent)
 			 "x2", (double) LEFT_CANAL_WIDTH/2 + SUBCANAL_HEIGHT,
 			 "y2", (double) SUBCANAL_BASE_LINE,
 			 "fill_color_rgba", CANAL_COLOR,
-			 "width_units", (double) 0,
+			 "line-width", (double) 0,
 			 NULL);
 
   /* Middle conduit */
@@ -386,7 +386,7 @@ static GooCanvasItem *canal_lock_create_item(GooCanvasItem *parent)
 			 "x2", (double) LEFT_CANAL_WIDTH + MIDDLE_CANAL_WIDTH/2 + SUBCANAL_HEIGHT/2,
 			 "y2", (double) SUBCANAL_BASE_LINE,
 			 "fill_color_rgba", CANAL_COLOR,
-			 "width_units", (double) 0,
+			 "line-width", (double) 0,
 			 NULL);
 
   /* Right conduit */
@@ -397,7 +397,7 @@ static GooCanvasItem *canal_lock_create_item(GooCanvasItem *parent)
 			 "x2", (double) LEFT_CANAL_WIDTH + MIDDLE_CANAL_WIDTH + RIGHT_CANAL_WIDTH/2 + SUBCANAL_HEIGHT,
 			 "y2", (double) SUBCANAL_BASE_LINE,
 			 "fill_color_rgba", CANAL_COLOR,
-			 "width_units", (double) 0,
+			 "line-width", (double) 0,
 			 NULL);
 
   /* And to finish, the 2 canal locks */
@@ -409,7 +409,7 @@ static GooCanvasItem *canal_lock_create_item(GooCanvasItem *parent)
 			   "x2", (double) LEFT_CANAL_WIDTH + MIDDLE_CANAL_WIDTH * 0.1 + LOCK_WIDTH / 2,
 			   "y2", (double) SUBCANAL_BASE_LINE,
 			   "fill_color_rgba", CANALLOCK_COLOR,
-			   "width_units", (double) 0,
+			   "line-width", (double) 0,
 			   NULL);
   g_signal_connect(GTK_OBJECT(canallock_left_item), "enter_notify_event",
 		     (GtkSignalFunc) item_event,
@@ -423,7 +423,7 @@ static GooCanvasItem *canal_lock_create_item(GooCanvasItem *parent)
 			   "x2", (double) LEFT_CANAL_WIDTH + MIDDLE_CANAL_WIDTH * 0.9 + LOCK_WIDTH / 2,
 			   "y2", (double) SUBCANAL_BASE_LINE,
 			   "fill_color_rgba", CANALLOCK_COLOR,
-			   "width_units", (double) 0,
+			   "line-width", (double) 0,
 			   NULL);
     g_signal_connect(GTK_OBJECT(canallock_right_item), "enter_notify_event",
 		     (GtkSignalFunc) item_event,

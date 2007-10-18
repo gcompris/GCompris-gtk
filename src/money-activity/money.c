@@ -509,7 +509,7 @@ static void money_next_level()
 			-1,
 			GTK_ANCHOR_CENTER,
 			"font", gc_skin_font_board_big,
-			"fill_color", "white",
+			"fill-color", "white",
 			NULL);
     g_free(text);
     gdk_pixbuf_unref(pixmap);

@@ -204,7 +204,7 @@ money_widget_set_position (Money_Widget *moneyWidget,
 			 "y1", (double) y1,
 			 "x2", (double) x2,
 			 "y2", (double) y2,
-			 "outline_color", "red",
+			 "stroke-color", "red",
 			 "width_pixels", 2,
 			 NULL);
   */
@@ -216,7 +216,7 @@ money_widget_set_position (Money_Widget *moneyWidget,
 						       -1,
 						       GTK_ANCHOR_CENTER,
 						       "font", gc_skin_font_board_big,
-						       "fill_color", "white",
+						       "fill-color", "white",
 						       NULL);
 
 }

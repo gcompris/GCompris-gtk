@@ -485,7 +485,7 @@ awele_create_item (GooCanvasItem * parent)
 					       "size", 14000,
 					       "x", (double) (caseCoord[i] + 45),
 					       "y", (double) ((i < 6) ? 378 : 94),
-					       "fill_color", "black", NULL);
+					       "fill-color", "black", NULL);
 	}
 
 	/**
@@ -511,7 +511,7 @@ awele_create_item (GooCanvasItem * parent)
 								(double) x1,
 								"y",
 								(double) 246,
-								"fill_color",
+								"fill-color",
 								"black",
 								NULL);
 	}
@@ -543,7 +543,7 @@ awele_create_item (GooCanvasItem * parent)
 					      GTK_ANCHOR_CENTER,
 					      "font", "sans 12",
 					      "size", 20000,
-					      "fill_color", "red",
+					      "fill-color", "red",
 						NULL);
 
 	return NULL;

@@ -238,7 +238,7 @@ static void colors_next_level() {
 				    (color_y1+color_y2)/2,
 				    GTK_ANCHOR_CENTER,
 				    "font", gc_skin_font_board_title_bold,
-				    "fill_color", "darkblue",
+				    "fill-color", "darkblue",
 				    NULL);
 
 }

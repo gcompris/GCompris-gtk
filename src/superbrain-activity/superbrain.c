@@ -292,8 +292,8 @@ static void superbrain_next_level()
 			     "x2", (double) PIECE_DISPLAY_X + PIECE_WIDTH*1.2,
 			     "y2", (double) PIECE_DISPLAY_Y + i*PIECE_WIDTH*1.2 + PIECE_HEIGHT*1.2 + (i*PIECE_GAP*1.2),
 			     "fill_color_rgba", colors[i],
-			     "outline_color", "white",
-			     "width_units", (double)1,
+			     "stroke-color", "white",
+			     "line-width", (double)1,
 			     NULL);
     }
 
@@ -321,7 +321,7 @@ static GooCanvasItem *superbrain_create_item(GooCanvasItem *parent)
   double x1, x2;
   GooCanvasItem *item = NULL;
   Piece *piece = NULL;
-  GnomeCanvasPoints	*points;
+  GooCanvasPoints	*points;
 
   if(current_y_position < SCROLL_LIMIT)
     {
@@ -343,7 +343,7 @@ static GooCanvasItem *superbrain_create_item(GooCanvasItem *parent)
   goo_canvas_item_new (boardRootItem,
 			 goo_canvas_line_get_type (),
 			 "points", points,
-			 "fill_color", "white",
+			 "fill-color", "white",
 			 "width_pixels", 1,
 			 NULL);
 
@@ -355,7 +355,7 @@ static GooCanvasItem *superbrain_create_item(GooCanvasItem *parent)
   goo_canvas_item_new (boardRootItem,
 			 goo_canvas_line_get_type (),
 			 "points", points,
-			 "fill_color", "black",
+			 "fill-color", "black",
 			 "width_pixels", 1,
 			 NULL);
 
@@ -372,7 +372,7 @@ static GooCanvasItem *superbrain_create_item(GooCanvasItem *parent)
   goo_canvas_item_new (boardRootItem,
 			 goo_canvas_line_get_type (),
 			 "points", points,
-			 "fill_color", "white",
+			 "fill-color", "white",
 			 "width_pixels", 1,
 			 NULL);
 
@@ -384,7 +384,7 @@ static GooCanvasItem *superbrain_create_item(GooCanvasItem *parent)
   goo_canvas_item_new (boardRootItem,
 			 goo_canvas_line_get_type (),
 			 "points", points,
-			 "fill_color", "black",
+			 "fill-color", "black",
 			 "width_pixels", 1,
 			 NULL);
 
@@ -418,8 +418,8 @@ static GooCanvasItem *superbrain_create_item(GooCanvasItem *parent)
 					   "x2", (double) x + i*PIECE_WIDTH  + PIECE_WIDTH + (i*PIECE_GAP) + PIECE_GAP_GOOD,
 					   "y2", (double) current_y_position + PIECE_HEIGHT + PIECE_GAP_GOOD,
 					   "fill_color_rgba", COLOR_GOOD,
-					   "outline_color", "white",
-					   "width_units", (double)1,
+					   "stroke-color", "white",
+					   "line-width", (double)1,
 					   NULL);
       goo_canvas_item_hide(piece->good);
 
@@ -431,8 +431,8 @@ static GooCanvasItem *superbrain_create_item(GooCanvasItem *parent)
 						"x2", (double) x + i*PIECE_WIDTH  + PIECE_WIDTH + (i*PIECE_GAP) + PIECE_GAP_GOOD,
 						"y2", (double) current_y_position + PIECE_HEIGHT + PIECE_GAP_GOOD,
 						"fill_color_rgba", COLOR_MISPLACED,
-						"outline_color", "white",
-						"width_units", (double)1,
+						"stroke-color", "white",
+						"line-width", (double)1,
 						NULL);
       goo_canvas_item_hide(piece->misplaced);
 
@@ -445,8 +445,8 @@ static GooCanvasItem *superbrain_create_item(GooCanvasItem *parent)
 					"x2", (double) x + i*PIECE_WIDTH  + PIECE_WIDTH + (i*PIECE_GAP),
 					"y2", (double) current_y_position + PIECE_HEIGHT,
 					"fill_color_rgba", colors[j],
-					"outline_color", "white",
-					"width_units", (double)1,
+					"stroke-color", "white",
+					"line-width", (double)1,
 					NULL);
 
 	  goo_canvas_item_hide(item);
@@ -596,9 +596,9 @@ static void mark_pieces()
 			     "y1", (double) current_y_position,
 			     "x2", (double) x + i*PIECE_WIDTH/2  + PIECE_WIDTH/2 + (i*PIECE_GAP/2),
 			     "y2", (double) current_y_position + PIECE_HEIGHT/2,
-			     "fill_color", "black",
-			     "outline_color", "white",
-			     "width_units", (double)1,
+			     "fill-color", "black",
+			     "stroke-color", "white",
+			     "line-width", (double)1,
 			     NULL);
     }
 
@@ -610,9 +610,9 @@ static void mark_pieces()
 			     "y1", (double) current_y_position + PIECE_HEIGHT/2 + PIECE_GAP/3,
 			     "x2", (double) x + i*PIECE_WIDTH/2  + PIECE_WIDTH/2 + (i*PIECE_GAP/2),
 			     "y2", (double) current_y_position + PIECE_HEIGHT + PIECE_GAP/3,
-			     "fill_color", "white",
-			     "outline_color", "black",
-			     "width_units", (double)1,
+			     "fill-color", "white",
+			     "stroke-color", "black",
+			     "line-width", (double)1,
 			     NULL);
     }
 

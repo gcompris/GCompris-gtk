@@ -365,9 +365,9 @@ static MachItem *create_machine_item(MachItemType machItemType, double x, double
 					      "y1", (double) machItem->yposo,
 					      "x2", (double) machItem->xposo + width,
 					      "y2", (double) machItem->yposo + height,
-					      "outline_color", "black",
+					      "stroke-color", "black",
 					      "fill_color_rgba", 0xFF10C0FF,
-					      "width_units", (double)1,
+					      "line-width", (double)1,
 					      NULL);
 
       g_signal_connect(GTK_OBJECT(machItem->item), "enter_notify_event",
@@ -407,7 +407,7 @@ static MachItem *create_machine_item(MachItemType machItemType, double x, double
 					      "y2", (double) machItem->yposo + width,
 					      "outline_color_rgba", 0xEEEEEEFF,
 					      "fill_color_rgba", 0x111111FF,
-					      "width_units", (double)2,
+					      "line-width", (double)2,
 					      NULL);
 
       break;
@@ -437,9 +437,9 @@ static MachItem *create_machine_item(MachItemType machItemType, double x, double
 					      "y1", (double) machItem->yposo,
 					      "x2", (double) machItem->xposo + width,
 					      "y2", (double) machItem->yposo + width,
-					      "outline_color", "black",
-					      "fill_color", "white",
-					      "width_units", (double)1,
+					      "stroke-color", "black",
+					      "fill-color", "white",
+					      "line-width", (double)1,
 					      NULL);
 
       g_signal_connect(GTK_OBJECT(machItem->item), "enter_notify_event",
@@ -473,9 +473,9 @@ static MachItem *create_machine_item(MachItemType machItemType, double x, double
 					      "y1", (double) machItem->yposo,
 					      "x2", (double) machItem->xposo + width,
 					      "y2", (double) machItem->yposo + width * 1.5,
-					      "outline_color", "black",
+					      "stroke-color", "black",
 					      "fill_color_rgba", 0xE03000FF,
-					      "width_units", (double)1,
+					      "line-width", (double)1,
 					      NULL);
 
       g_signal_connect(GTK_OBJECT(machItem->item), "enter_notify_event",
