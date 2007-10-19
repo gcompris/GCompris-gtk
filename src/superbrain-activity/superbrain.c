@@ -268,12 +268,9 @@ static void superbrain_next_level()
 
 
 
-  boardRootItem = GOO_CANVAS_GROUP(
-				     goo_canvas_item_new (goo_canvas_get_root_item(gcomprisBoard->canvas),
-							    goo_canvas_group_get_type (),
-							    "x", (double) 0,
-							    "y", (double) 0,
-							    NULL));
+  boardRootItem = goo_canvas_group_new (goo_canvas_get_root_item(gcomprisBoard->canvas),
+					NULL);
+
 
   boardLogoItem = GOO_CANVAS_GROUP(
 				     goo_canvas_item_new (goo_canvas_get_root_item(gcomprisBoard->canvas),
@@ -305,12 +302,12 @@ static void superbrain_next_level()
 static void superbrain_destroy_all_items()
 {
   if(boardRootItem!=NULL)
-    gtk_object_destroy (GTK_OBJECT(boardRootItem));
+    goo_canvas_item_remove(boardRootItem);
 
   boardRootItem = NULL;
 
   if(boardLogoItem!=NULL)
-    gtk_object_destroy (GTK_OBJECT(boardLogoItem));
+    goo_canvas_item_remove(boardLogoItem);
 
   boardLogoItem = NULL;
 }
@@ -421,7 +418,7 @@ static GooCanvasItem *superbrain_create_item(GooCanvasItem *parent)
 					   "stroke-color", "white",
 					   "line-width", (double)1,
 					   NULL);
-      goo_canvas_item_hide(piece->good);
+      g_object_set (piece->good, "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
 
       // Misplaced
       piece->misplaced = goo_canvas_item_new (piece->rootitem,
@@ -434,7 +431,7 @@ static GooCanvasItem *superbrain_create_item(GooCanvasItem *parent)
 						"stroke-color", "white",
 						"line-width", (double)1,
 						NULL);
-      goo_canvas_item_hide(piece->misplaced);
+      g_object_set (piece->misplaced, "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
 
       for(j=0; j<number_of_color; j++)
 	{
@@ -449,7 +446,7 @@ static GooCanvasItem *superbrain_create_item(GooCanvasItem *parent)
 					"line-width", (double)1,
 					NULL);
 
-	  goo_canvas_item_hide(item);
+	  g_object_set (item, "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
 	  piece->listitem = g_list_append(piece->listitem, item);
 
 	  g_signal_connect(GTK_OBJECT(item), "enter_notify_event", (GtkSignalFunc) item_event, piece);
@@ -458,7 +455,7 @@ static GooCanvasItem *superbrain_create_item(GooCanvasItem *parent)
       piece->selecteditem = 1;
       item = g_list_nth_data(piece->listitem,
 			     piece->selecteditem);
-      goo_canvas_item_show(item);
+      g_object_set (item, "visibility", GOO_CANVAS_ITEM_VISIBLE, NULL);
 
     }
 
@@ -496,7 +493,7 @@ item_event(GooCanvasItem *item, GdkEvent *event, Piece *piece)
     case GDK_BUTTON_PRESS:
       if(!piece->completed)
 	{
-	  goo_canvas_item_hide(item);
+	  g_object_set (item, "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
 
 	  switch(event->button.button)
 	    {
@@ -517,7 +514,7 @@ item_event(GooCanvasItem *item, GdkEvent *event, Piece *piece)
 
 	  newitem = g_list_nth_data(piece->listitem,
 				    piece->selecteditem);
-	  goo_canvas_item_show(newitem);
+	  g_object_set (newitem, "visibility", GOO_CANVAS_ITEM_VISIBLE, NULL);
 	}
       break;
     default:
@@ -550,7 +547,7 @@ static void mark_pieces()
       if(piece->selecteditem == solution_tmp[i-1])
 	{
 	  if(gcomprisBoard->level<LEVEL_MAX_FOR_HELP)
-	    goo_canvas_item_show(piece->good);
+	    g_object_set (piece->good, "visibility", GOO_CANVAS_ITEM_VISIBLE, NULL);
 	  nbgood++;
 	  solution_tmp[i-1] = G_MAXINT;
 	}
@@ -579,7 +576,7 @@ static void mark_pieces()
 	    nbmisplaced++;
 	    solution_tmp[j-1] = G_MAXINT;
 	    if(gcomprisBoard->level<LEVEL_MAX_FOR_HELP)
-	      goo_canvas_item_show(piece->misplaced);
+	      g_object_set (piece->misplaced, "visibility", GOO_CANVAS_ITEM_VISIBLE, NULL);
 	    done = TRUE;
 	  }
       } while (!done && j++!=number_of_piece);

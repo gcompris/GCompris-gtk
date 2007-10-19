@@ -282,7 +282,7 @@ static void magic_hat_destroy_all_items()
   }
 
   if(boardRootItem != NULL)
-	gtk_object_destroy (GTK_OBJECT(boardRootItem));
+	goo_canvas_item_remove(boardRootItem);
 
   boardRootItem = NULL;
 }
@@ -294,11 +294,9 @@ static GooCanvasItem *magic_hat_create_item()
   GdkPixbuf *pixmap;
   int step;
 
-  boardRootItem = GOO_CANVAS_GROUP(goo_canvas_image_new (goo_canvas_get_root_item(gcomprisBoard->canvas),
-				     goo_canvas_group_get_type (),
-							 (double) 0,
-				     "y", (double) 0,
-				     NULL));
+  boardRootItem = goo_canvas_group_new (goo_canvas_get_root_item(gcomprisBoard->canvas),
+					NULL);
+
 
   if (board_mode == MODE_MINUS)
 	pixmap = gc_pixmap_load("magic_hat/magic_hat_minus_bg.png");

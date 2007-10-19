@@ -115,7 +115,8 @@ gc_timer_display(int ax, int ay, TimerList atype, int second, GcomprisTimerEnd a
       gc_timer_item = goo_canvas_image_new (boardRootItem,
 					    pixmap,
 					    x,
-					    y);
+					    y,
+					    NULL);
 
       /* Calc the number of step needed to reach the sea based on user y and second */
       ystep = (BOARDHEIGHT-y-gdk_pixbuf_get_height(pixmap))/second;
@@ -124,7 +125,7 @@ gc_timer_display(int ax, int ay, TimerList atype, int second, GcomprisTimerEnd a
 
       pixmap = gc_skin_pixmap_load("timers/sea.png");
       goo_canvas_image_new (boardRootItem,
-			     pixmap,
+			    pixmap,
 			    0,
 			    BOARDHEIGHT - gdk_pixbuf_get_height(pixmap),
 			    "width", (double) gdk_pixbuf_get_width(pixmap),
@@ -150,7 +151,7 @@ void
 gc_timer_end()
 {
   if(boardRootItem!=NULL)
-    gtk_object_destroy (GTK_OBJECT(boardRootItem));
+    goo_canvas_item_remove(boardRootItem);
   boardRootItem = NULL;
 
   paused = TRUE;

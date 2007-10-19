@@ -581,7 +581,7 @@ void destroy_canvas_item(gpointer item)
 {
   //g_free(g_object_get_data (G_OBJECT(item),"unichar_key"));
   //g_free(g_object_get_data (G_OBJECT(item),"utf8_key"));
-  gtk_object_destroy (GTK_OBJECT(item));
+  goo_canvas_item_remove(item);
 }
 
 static GooCanvasItem *gletters_create_item(GooCanvasItem *parent)

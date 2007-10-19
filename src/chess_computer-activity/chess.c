@@ -376,14 +376,14 @@ static void chess_destroy_all_items()
   register gshort rank;
 
   if(boardRootItem!=NULL)
-    gtk_object_destroy (GTK_OBJECT(boardRootItem));
+    goo_canvas_item_remove(boardRootItem);
 
   boardRootItem = NULL;
   turn_item     = NULL;
   info_item     = NULL;
 
   if(position!=NULL)
-    gtk_object_destroy (GTK_OBJECT (position));
+    goo_canvas_item_remove(position);
 
   position = NULL;
 

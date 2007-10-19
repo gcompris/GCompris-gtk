@@ -343,7 +343,7 @@ static void submarine_destroy_all_items() {
   timer_very_slow_id = 0;
 
   if(boardRootItem!=NULL)
-    gtk_object_destroy (GTK_OBJECT(boardRootItem));
+    goo_canvas_item_remove(boardRootItem);
   boardRootItem = NULL;
 }
 
@@ -1036,8 +1036,8 @@ static gboolean update_timeout_slow() {
     /* magnetic detection (dist1) or collision with the whale (dist2 & dist3) */
     if ( (dist1 < WHALE_DETECTION_RADIUS || dist2 < WHALE_DETECTION_RADIUS ||dist3 < WHALE_DETECTION_RADIUS)
 	 && !submarine_destroyed ) {
-      goo_canvas_item_hide(whale);
-      goo_canvas_item_show(big_explosion);
+      g_object_set (whale, "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
+      g_object_set (big_explosion, "visibility", GOO_CANVAS_ITEM_VISIBLE, NULL);
       submarine_explosion();
     }
   }
@@ -1054,7 +1054,7 @@ static gboolean update_timeout_slow() {
 	  || dist3 < TREASURE_DETECTION_RADIUS)
 	 && !treasure_captured ) {
       gc_sound_play_ogg("sounds/tuxok.wav", NULL);
-      goo_canvas_item_hide(treasure);
+      g_object_set (treasure, "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
       treasure_captured = TRUE;
       open_door();
     }
@@ -1106,25 +1106,25 @@ static gboolean update_timeout_very_slow() {
   if ( (ballast_av_purge_open && ballast_av_air > 0.0) ||
        ( ballast_av_chasse_open && ballast_av_air == MAX_BALLAST ) ) {
     gc_item_absolute_move( bubbling[0], submarine_x-30.0, depth-50.0);
-    goo_canvas_item_show( bubbling[0] );
+    g_object_set ( bubbling[0] , "visibility", GOO_CANVAS_ITEM_VISIBLE, NULL);
     gc_sound_play_ogg ("sounds/bubble.wav", NULL);
   } else
-    goo_canvas_item_hide( bubbling[0] );
+    g_object_set ( bubbling[0] , "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
 
   if ( (ballast_ar_purge_open && ballast_ar_air > 0.0) ||
        ( ballast_ar_chasse_open && ballast_ar_air == MAX_BALLAST ) ) {
     gc_item_absolute_move( bubbling[2], submarine_x - submarine_width , depth-30.0);
     gc_sound_play_ogg ("sounds/bubble.wav", NULL);
-    goo_canvas_item_show( bubbling[2] );
+    g_object_set ( bubbling[2] , "visibility", GOO_CANVAS_ITEM_VISIBLE, NULL);
   } else
-    goo_canvas_item_hide( bubbling[2] );
+    g_object_set ( bubbling[2] , "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
 
   if (regleur_purge_open && regleur < MAX_REGLEUR) {
     gc_item_absolute_move( bubbling[1], submarine_x - submarine_width/2 -30.0, depth-30.0);
     gc_sound_play_ogg ("sounds/bubble.wav", NULL);
-    goo_canvas_item_show( bubbling[1] );
+    g_object_set ( bubbling[1] , "visibility", GOO_CANVAS_ITEM_VISIBLE, NULL);
   } else
-    goo_canvas_item_hide( bubbling[1] );
+    g_object_set ( bubbling[1] , "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
 
   return TRUE;
 }

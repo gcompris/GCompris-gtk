@@ -961,12 +961,9 @@ static void memory_next_level()
 
   memory_destroy_all_items();
 
-  boardRootItem = GOO_CANVAS_GROUP(
-				     goo_canvas_item_new (goo_canvas_get_root_item(gcomprisBoard->canvas),
-							    goo_canvas_group_get_type (),
-							    "x", (double) 0,
-							    "y", (double) 0,
-							    NULL));
+  boardRootItem = goo_canvas_group_new (goo_canvas_get_root_item(gcomprisBoard->canvas),
+					NULL);
+
 
   numberOfColumn = levelDescription[gcomprisBoard->level*2];
   numberOfLine   = levelDescription[gcomprisBoard->level*2+1];
@@ -1011,7 +1008,7 @@ static void memory_destroy_all_items()
 
   /* Now destroy all items */
   if(boardRootItem!=NULL)
-      gtk_object_destroy (GTK_OBJECT(boardRootItem));
+      goo_canvas_item_remove(boardRootItem);
 
   boardRootItem=NULL;
 
@@ -1296,7 +1293,7 @@ static void create_item(GooCanvasItem *parent)
 				    "width", (double) width2,
 				    "height", (double) height2,
 				    NULL);
-	    goo_canvas_item_hide(memoryItem->framecardItem);
+	    g_object_set (memoryItem->framecardItem, "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
 	    gdk_pixbuf_unref(pixmap);
 	  }
 
@@ -1353,7 +1350,7 @@ static void create_item(GooCanvasItem *parent)
 	    }
 	  }
 
-	  goo_canvas_item_hide(memoryItem->frontcardItem);
+	  g_object_set (memoryItem->frontcardItem, "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
 	  g_signal_connect(GTK_OBJECT(memoryItem->rootItem), "enter_notify_event",
 			     (GtkSignalFunc) item_event,
 			     memoryItem);
@@ -1386,18 +1383,18 @@ static void display_card(MemoryItem *memoryItem, CardStatus cardStatus)
       {
       case ON_FRONT:
 	g_assert(memoryItem->hidden == FALSE);
-	goo_canvas_item_hide(memoryItem->backcardItem);
-	goo_canvas_item_show(memoryItem->frontcardItem);
+	g_object_set (memoryItem->backcardItem, "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
+	g_object_set (memoryItem->frontcardItem, "visibility", GOO_CANVAS_ITEM_VISIBLE, NULL);
 	playing_sound = TRUE;
 	gc_sound_play_ogg_cb (memoryItem->data, sound_callback);
 	break;
       case ON_BACK:
-	goo_canvas_item_show(memoryItem->backcardItem);
-	goo_canvas_item_hide(memoryItem->frontcardItem);
+	g_object_set (memoryItem->backcardItem, "visibility", GOO_CANVAS_ITEM_VISIBLE, NULL);
+	g_object_set (memoryItem->frontcardItem, "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
 	break;
       case HIDDEN:
-	goo_canvas_item_hide(memoryItem->backcardItem);
-	goo_canvas_item_hide(memoryItem->frontcardItem);
+	g_object_set (memoryItem->backcardItem, "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
+	g_object_set (memoryItem->frontcardItem, "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
 	memoryItem->hidden = TRUE;
 	break;
       }
@@ -1407,19 +1404,19 @@ static void display_card(MemoryItem *memoryItem, CardStatus cardStatus)
       {
       case ON_FRONT:
 	g_assert(memoryItem->hidden == FALSE);
-	goo_canvas_item_hide(memoryItem->backcardItem);
-	goo_canvas_item_show(memoryItem->framecardItem);
-	goo_canvas_item_show(memoryItem->frontcardItem);
+	g_object_set (memoryItem->backcardItem, "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
+	g_object_set (memoryItem->framecardItem, "visibility", GOO_CANVAS_ITEM_VISIBLE, NULL);
+	g_object_set (memoryItem->frontcardItem, "visibility", GOO_CANVAS_ITEM_VISIBLE, NULL);
 	break;
       case ON_BACK:
-	goo_canvas_item_show(memoryItem->backcardItem);
-	goo_canvas_item_hide(memoryItem->framecardItem);
-	goo_canvas_item_hide(memoryItem->frontcardItem);
+	g_object_set (memoryItem->backcardItem, "visibility", GOO_CANVAS_ITEM_VISIBLE, NULL);
+	g_object_set (memoryItem->framecardItem, "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
+	g_object_set (memoryItem->frontcardItem, "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
 	break;
       case HIDDEN:
-	goo_canvas_item_hide(memoryItem->backcardItem);
-	goo_canvas_item_hide(memoryItem->framecardItem);
-	goo_canvas_item_hide(memoryItem->frontcardItem);
+	g_object_set (memoryItem->backcardItem, "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
+	g_object_set (memoryItem->framecardItem, "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
+	g_object_set (memoryItem->frontcardItem, "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
 	memoryItem->hidden = TRUE;
 	break;
       }

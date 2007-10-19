@@ -1,15 +1,15 @@
 /*
  * gcompris - awele.h Copyright (C) 2005 Frederic Mazzarol This program is
- * free software; you can redistribute it and/or modify it under the terms 
+ * free software; you can redistribute it and/or modify it under the terms
  * of the GNU General Public License as published by the Free Software
  * Foundation; either version 2 of the License, or (at your option) any
  * later version.  This program is distributed in the hope that it will
  * be useful, but WITHOUT ANY WARRANTY; without even the implied warranty
  * of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * General Public License for more details.  You should have received a
- * copy of the GNU General Public License along with this program; if not, 
+ * copy of the GNU General Public License along with this program; if not,
  * write to the Free Software Foundation, Inc., 59 Temple Place, Suite
- * 330, Boston, MA 02111-1307 USA 
+ * 330, Boston, MA 02111-1307 USA
  */
 
 
@@ -26,20 +26,20 @@
 *	Tableau de graines
 */
 typedef struct {
-	GnomeCanvasItem *beanPixbuf;
+	GooCanvasItem *beanPixbuf;
 	char hole;
 }BEANHOLE_LINK;
 
 
 typedef struct {
-    GnomeCanvasItem *msg;	//Item message pour dialogue avec utilisateur   
-    GnomeCanvasItem *nbBeansHole[12];	//Tableau d'item affichant le nbre de graine par trou.
+    GooCanvasItem *msg;	//Item message pour dialogue avec utilisateur
+    GooCanvasItem *nbBeansHole[12];	//Tableau d'item affichant le nbre de graine par trou.
     BEANHOLE_LINK *ptBeansHoleLink;	//pointeur sur structures stockant les item graines et la case dans laquelle elles se trouvent.
-    GnomeCanvasItem *button[6];	//Item des boutons (affichés avec pixbufButton) 
+    GooCanvasItem *button[6];	//Item des boutons (affichés avec pixbufButton)
     GdkPixbuf *pixbufButtonNotify[6];	//pixbux des boutons notifiés
     GdkPixbuf *pixbufButton[6];	//pixbuf des boutons(selection de la case a jouer)
     GdkPixbuf *pixbufButtonClicked[6];	//pixbuf des boutons cliqués
-    GnomeCanvasItem *Captures[2];	//Tableau d'item affichage nbre graine capturées.
+    GooCanvasItem *Captures[2];	//Tableau d'item affichage nbre graine capturées.
     GdkPixbuf *pixbufBeans[4];	//pixbufs des graines
 } GRAPHICS_ELT;
 
@@ -48,10 +48,13 @@ typedef struct {
     GRAPHICS_ELT *graphsElt;
 } CALLBACK_ARGS;
 
-/* 
+/*
 *	Fonctions de traitement des events, signaux et rappels
 */
-static gint buttonClick (GtkWidget *item, GdkEvent *event, gpointer data);
+static gboolean buttonClick (GooCanvasItem  *item,
+			     GooCanvasItem  *target,
+			     GdkEventButton *event,
+			     gchar *data);
 
 /**
 *	Fonctions Mise a jour de l'affichage

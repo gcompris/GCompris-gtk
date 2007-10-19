@@ -95,7 +95,10 @@ static void		 display_operand(GooCanvasItem *parent,
 					 gboolean masked);
 static void		 get_random_number(guint *first_operand, guint *second_operand);
 static void		 algebra_next_level(void);
-static gint		 item_event(GooCanvasItem *item, GdkEvent *event, gpointer data);
+static gboolean		 item_event (GooCanvasItem  *item,
+				     GooCanvasItem  *target,
+				     GdkEventButton *event,
+				     gchar *data);
 static void		 set_focus_item(ToBeFoundItem *toBeFoundItem, gboolean status);
 static void		 init_operation(void);
 
@@ -333,7 +336,7 @@ static gint key_press(guint keyval, gchar *commit_str, gchar *preedit_str)
 			     NULL);
 
       /* Not a failure (yet) */
-      goo_canvas_item_hide(currentToBeFoundItem->bad_item);
+      g_object_set (currentToBeFoundItem->bad_item, "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
       currentToBeFoundItem->in_error = FALSE;
 
       set_focus_item(currentToBeFoundItem, FALSE);
@@ -398,16 +401,13 @@ static void algebra_next_level()
 
   algebra_destroy_all_items();
 
-  boardRootItem = GOO_CANVAS_GROUP(
-				     goo_canvas_item_new (goo_canvas_get_root_item(gcomprisBoard->canvas),
-							    goo_canvas_group_get_type (),
-							    "x", (double) 0,
-							    "y", (double) 0,
-							    NULL));
+  boardRootItem = goo_canvas_group_new (goo_canvas_get_root_item(gcomprisBoard->canvas),
+					NULL);
+
 
   maxtime = 20;
   gc_timer_display(TIMER_X, TIMER_Y,
-			 GCOMPRIS_TIMER_BALLOON, maxtime, timer_end);
+		   GCOMPRIS_TIMER_BALLOON, maxtime, timer_end);
 
   /* Try the next level */
   algebra_create_item(boardRootItem);
@@ -418,7 +418,7 @@ static void algebra_next_level()
 static void algebra_destroy_item(GooCanvasItem *item)
 {
   item_list = g_list_remove (item_list, item);
-  gtk_object_destroy (GTK_OBJECT(item));
+  goo_canvas_item_remove(item);
 }
 
 /* Destroy all the items */
@@ -443,7 +443,7 @@ static void algebra_destroy_all_items()
   }
 
   if(boardRootItem!=NULL)
-    gtk_object_destroy (GTK_OBJECT(boardRootItem));
+    goo_canvas_item_remove(boardRootItem);
 
   boardRootItem=NULL;
 }
@@ -461,13 +461,13 @@ static void display_operand(GooCanvasItem *parent,
 
   for(i=strlen(operand_str)-1; i>=0; i--)
     {
-      char operand[2] = "?";
+      gchar *operand = "?";
 
       if(!masked)
 	operand[0] = operand_str[i];
 
       item = goo_canvas_text_new (parent,
-				  &operand,
+				  operand,
 				  x_align-((strlen(operand_str)-i)*NUMBERSWIDTH),
 				  y,
 				  -1,
@@ -500,7 +500,7 @@ static void display_operand(GooCanvasItem *parent,
 					  "font", gc_skin_font_board_huge_bold,
 					  "fill_color_rgba", 0xFF0000FF,
 					  NULL);
-	  goo_canvas_item_hide(bad_item);
+	  g_object_set (bad_item, "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
 
 	  item_list = g_list_append (item_list, bad_item);
 
@@ -533,7 +533,7 @@ static void display_operand(GooCanvasItem *parent,
 	    {
 	      set_focus_item(toBeFoundItem, FALSE);
 	    }
-	  g_signal_connect(GTK_OBJECT(item), "enter_notify_event",
+	  g_signal_connect(GTK_OBJECT(item), "button_press_event",
 			     (GtkSignalFunc) item_event,
 			     toBeFoundItem);
 	}
@@ -665,11 +665,15 @@ static void set_focus_item(ToBeFoundItem *toBeFoundItem, gboolean status)
 {
   if(status)
     {
-      goo_canvas_item_show (toBeFoundItem->focus_item);
+      g_object_set (toBeFoundItem->focus_item,
+		    "visibility", GOO_CANVAS_ITEM_VISIBLE,
+		    NULL);
     }
   else
     {
-      goo_canvas_item_hide (toBeFoundItem->focus_item);
+      g_object_set (toBeFoundItem->focus_item,
+		  "visibility", GOO_CANVAS_ITEM_INVISIBLE,
+		  NULL);
     }
 }
 
@@ -691,7 +695,7 @@ static void process_ok()
     {
       if(currentToBeFoundItem->value!=expected_result[currentToBeFoundItem->index])
 	{
-	  goo_canvas_item_show(currentToBeFoundItem->bad_item);
+	  g_object_set (currentToBeFoundItem->bad_item, "visibility", GOO_CANVAS_ITEM_VISIBLE, NULL);
 	  currentToBeFoundItem->in_error = TRUE;
 	  /* remember the appropriate digit to focus next */
 	  hasfail=currentToBeFoundItem;
@@ -712,8 +716,10 @@ static void process_ok()
 }
 
 /* Callback for the 'toBeFoundItem' */
-static gint
-item_event(GooCanvasItem *item, GdkEvent *event, gpointer data)
+static gboolean item_event (GooCanvasItem  *item,
+			    GooCanvasItem  *target,
+			    GdkEventButton *event,
+			    gchar *data)
 {
   ToBeFoundItem *toBeFoundItem;
 

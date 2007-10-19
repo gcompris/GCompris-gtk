@@ -48,7 +48,10 @@ static void		 process_error(void);
 static GooCanvasItem	*reversecount_create_item(GooCanvasItem *parent);
 static void		 reversecount_destroy_all_items(void);
 static void		 reversecount_next_level(void);
-static gint		 item_event(GooCanvasItem *item, GdkEvent *event, gint *dice_index);
+static gboolean		 item_event (GooCanvasItem  *item,
+				     GooCanvasItem  *target,
+				     GdkEventButton *event,
+				     gint *dice_index);
 static GooCanvasItem	*display_item_at(gchar *imagename, int block, double ratio);
 static void		 display_random_fish();
 static void		 create_clock(double x, double y, int value);
@@ -409,7 +412,7 @@ static void reversecount_destroy_all_items()
   gc_timer_end();
 
   if(boardRootItem!=NULL)
-    gtk_object_destroy (GTK_OBJECT(boardRootItem));
+    goo_canvas_item_remove(boardRootItem);
 
   boardRootItem = NULL;
 }
@@ -424,13 +427,9 @@ static GooCanvasItem *reversecount_create_item(GooCanvasItem *parent)
   double xratio, yratio;
   GcomprisProperties	*properties = gc_prop_get();
 
-  boardRootItem = GOO_CANVAS_GROUP(
-				     goo_canvas_item_new (goo_canvas_get_root_item(gcomprisBoard->canvas),
-							    goo_canvas_group_get_type (),
-							    "x", (double) 0,
-							    "y", (double) 0,
+  boardRootItem = goo_canvas_group_new (goo_canvas_get_root_item(gcomprisBoard->canvas),
+					NULL);
 
-							    NULL));
 
   block_width =  BOARDWIDTH/number_of_item_x;
   block_height = BOARDHEIGHT/number_of_item_y;
@@ -526,11 +525,13 @@ static GooCanvasItem *reversecount_create_item(GooCanvasItem *parent)
       dicevalue_array[d] = 1;
       val = g_new(gint, 1);
       *val = d;
-      g_signal_connect(GTK_OBJECT(item), "enter_notify_event", (GtkSignalFunc) item_event,
-			 val);
-      g_signal_connect(GTK_OBJECT(item), "enter_notify_event",
-			 (GtkSignalFunc) gc_item_focus_event,
-			 NULL);
+
+      g_signal_connect(item, "button_press_event",
+		       (GtkSignalFunc) item_event,
+		       val);
+      g_signal_connect(item, "enter_notify_event",
+		       (GtkSignalFunc) gc_item_focus_event,
+		       NULL);
 
     }
   gdk_pixbuf_unref(pixmap);
@@ -658,8 +659,11 @@ static void game_won()
  * Increment the dices when they are clicked
  */
 
-static gint
-item_event(GooCanvasItem *item, GdkEvent *event, gint *dice_index)
+static gboolean
+item_event (GooCanvasItem  *item,
+	    GooCanvasItem  *target,
+	    GdkEventButton *event,
+	    gint *dice_index)
 {
   gchar *str;
   GdkPixbuf   *pixmap = NULL;
@@ -668,41 +672,33 @@ item_event(GooCanvasItem *item, GdkEvent *event, gint *dice_index)
   if(board_paused)
     return FALSE;
 
-  switch (event->type)
+  switch(event->button)
     {
-    case GDK_BUTTON_PRESS:
-      switch(event->button.button)
-	{
-	case 1:
-	  if(dicevalue_array[i]++ >= max_dice_number)
-	    dicevalue_array[i] = (number_of_dices==1 ? 1 : 0);
-	  break;
-	case 2:
-	case 3:
-	  if(dicevalue_array[i]-- == (number_of_dices==1 ? 1 : 0))
-	    dicevalue_array[i] = max_dice_number;
-	  break;
-	default:
-	  break;
-	}
-
-      str = g_strdup_printf("reversecount/gnome-dice%d.png", dicevalue_array[i]);
-
-      pixmap = gc_pixmap_load(str);
-
-      /* Warning changing the image needs to update pixbuf_ref for the focus usage */
-      gc_item_focus_free(item, NULL);
-      g_object_set (item,
-      			     "pixbuf", pixmap,
-      			     NULL);
-      gdk_pixbuf_unref(pixmap);
-
-      g_free(str);
+    case 1:
+      if(dicevalue_array[i]++ >= max_dice_number)
+	dicevalue_array[i] = (number_of_dices==1 ? 1 : 0);
       break;
-
+    case 2:
+    case 3:
+      if(dicevalue_array[i]-- == (number_of_dices==1 ? 1 : 0))
+	dicevalue_array[i] = max_dice_number;
+      break;
     default:
       break;
     }
+
+  str = g_strdup_printf("reversecount/gnome-dice%d.png", dicevalue_array[i]);
+
+  pixmap = gc_pixmap_load(str);
+
+  /* Warning changing the image needs to update pixbuf_ref for the focus usage */
+  gc_item_focus_free(item, NULL);
+  g_object_set (item,
+		"pixbuf", pixmap,
+		NULL);
+  gdk_pixbuf_unref(pixmap);
+
+  g_free(str);
 
   return FALSE;
 }
@@ -744,9 +740,9 @@ static void update_clock(int value)
 
   pixmap = gc_pixmap_load(str);
 
-  g_item_set (clock_image_item,
-	      "pixbuf", pixmap,
-	      NULL);
+  g_object_set (clock_image_item,
+		"pixbuf", pixmap,
+		NULL);
 
   gdk_pixbuf_unref(pixmap);
   g_free(str);
@@ -756,7 +752,7 @@ static gint animate_tux()
 {
   // Move tux
   if(tuxItem!=NULL)
-    gtk_object_destroy(GTK_OBJECT(tuxItem));
+    goo_canvas_item_remove(tuxItem);
 
   tux_index++;
 
@@ -794,7 +790,7 @@ static gint animate_tux()
 	{
 	  // Remove the fish
 	  if(fishItem!=NULL)
-	    gtk_object_destroy(GTK_OBJECT(fishItem));
+	    goo_canvas_item_remove(fishItem);
 
 	  gc_sound_play_ogg ("sounds/gobble.wav", NULL);
 

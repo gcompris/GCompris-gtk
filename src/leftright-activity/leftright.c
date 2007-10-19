@@ -220,7 +220,7 @@ static void leftright_next_level() {
  * =====================================================================*/
 static void leftright_destroy_all_items() {
   if(boardRootItem!=NULL)
-    gtk_object_destroy (GTK_OBJECT(boardRootItem));
+    goo_canvas_item_remove(boardRootItem);
 
   boardRootItem = NULL;
 }
@@ -234,12 +234,9 @@ static GooCanvasItem *leftright_create_item(GooCanvasItem *parent) {
   gchar *str;
   int i;
 
-  boardRootItem = GOO_CANVAS_GROUP(
-				     goo_canvas_item_new (goo_canvas_get_root_item(gcomprisBoard->canvas),
-							    goo_canvas_group_get_type (),
-							    "x", (double) 0,
-							    "y", (double) 0,
-							    NULL));
+  boardRootItem = goo_canvas_group_new (goo_canvas_get_root_item(gcomprisBoard->canvas),
+					NULL);
+
 
   highlight_pixmap = gc_pixmap_load("leftright/leftright-select.png");
 
@@ -255,8 +252,8 @@ static GooCanvasItem *leftright_create_item(GooCanvasItem *parent) {
 						     BUTTON_AREA_Y1,
 						     NULL);
 
-  goo_canvas_item_hide(right_highlight_image_item);
-  goo_canvas_item_hide(left_highlight_image_item);
+  g_object_set (right_highlight_image_item, "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
+  g_object_set (left_highlight_image_item, "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
 
   goo_canvas_text_new (boardRootItem,
 		       _("left"),
@@ -407,11 +404,11 @@ static gint item_event(GooCanvasItem *item, GdkEvent *event, gpointer data) {
  * =====================================================================*/
 static void highlight_selected(int side) {
   if (side == LEFT) {
-    goo_canvas_item_hide(right_highlight_image_item);
-    goo_canvas_item_show(left_highlight_image_item);
+    g_object_set (right_highlight_image_item, "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
+    g_object_set (left_highlight_image_item, "visibility", GOO_CANVAS_ITEM_VISIBLE, NULL);
   }
   if (side == RIGHT) {
-    goo_canvas_item_show(right_highlight_image_item);
-    goo_canvas_item_hide(left_highlight_image_item);
+    g_object_set (right_highlight_image_item, "visibility", GOO_CANVAS_ITEM_VISIBLE, NULL);
+    g_object_set (left_highlight_image_item, "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
   }
 }

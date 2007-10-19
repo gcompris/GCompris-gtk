@@ -54,7 +54,10 @@ static void colors_destroy_all_items(void);
 static void colors_next_level(void);
 static void set_level (guint);
 static void update_clock();
-static gint item_event(GooCanvasItem *item, GdkEvent *event, gpointer data);
+static gboolean item_event (GooCanvasItem  *item,
+			    GooCanvasItem  *target,
+			    GdkEventButton *event,
+			    gpointer data);
 static int highlight_width, highlight_height;
 static GList * listColors = NULL;
 
@@ -135,15 +138,16 @@ static void start_board (GcomprisBoard *agcomprisBoard) {
 
     gc_bar_set(GC_BAR_LEVEL);
     gc_score_start(SCORESTYLE_NOTE,
-			 gcomprisBoard->width - 220,
-			 gcomprisBoard->height - 50,
-			 gcomprisBoard->number_of_sublevel);
+		   gcomprisBoard->width - 220,
+		   gcomprisBoard->height - 50,
+		   gcomprisBoard->number_of_sublevel);
 
     gamewon = FALSE;
     errors = MAX_ERRORS;
     init_xml();
 
-    g_signal_connect(GTK_OBJECT(gcomprisBoard->canvas), "enter_notify_event",  (GtkSignalFunc) item_event, NULL);
+    g_signal_connect(gcomprisBoard->canvas, "button_press_event",
+    		     (GtkSignalFunc) item_event, NULL);
 
     colors_next_level();
     pause_board(FALSE);
@@ -232,10 +236,11 @@ static void colors_next_level() {
   colors_create_item(goo_canvas_get_root_item(gcomprisBoard->canvas));
 
   /* show text of color to find */
-  color_item = goo_canvas_item_new (boardRootItem,
+  color_item = goo_canvas_text_new (boardRootItem,
 				    colors[GPOINTER_TO_INT(g_list_nth_data(listColors,0))],
 				    (color_x1+color_x2)/2,
 				    (color_y1+color_y2)/2,
+				    -1,
 				    GTK_ANCHOR_CENTER,
 				    "font", gc_skin_font_board_title_bold,
 				    "fill-color", "darkblue",
@@ -247,7 +252,7 @@ static void colors_next_level() {
  * =====================================================================*/
 static void colors_destroy_all_items() {
   if(boardRootItem!=NULL)
-    gtk_object_destroy (GTK_OBJECT(boardRootItem));
+    goo_canvas_item_remove(boardRootItem);
 
   boardRootItem = NULL;
 }
@@ -261,12 +266,9 @@ static GooCanvasItem *colors_create_item(GooCanvasItem *parent) {
   char *str = NULL;
   int i;
 
-  boardRootItem = GOO_CANVAS_GROUP(
-				     goo_canvas_item_new (goo_canvas_get_root_item(gcomprisBoard->canvas),
-							    goo_canvas_group_get_type (),
-							    "x", (double) 0,
-							    "y", (double) 0,
-							    NULL));
+  boardRootItem = goo_canvas_group_new (goo_canvas_get_root_item(gcomprisBoard->canvas),
+					NULL);
+
 
   str = g_strdup_printf("%s/%s", gcomprisBoard->boarddir, "advanced_colors_highlight.png");
   highlight_pixmap = gc_pixmap_load(str);
@@ -281,7 +283,7 @@ static GooCanvasItem *colors_create_item(GooCanvasItem *parent) {
   highlight_height = gdk_pixbuf_get_height(highlight_pixmap);
 
   g_free(str);
-  goo_canvas_item_hide(highlight_image_item);
+  g_object_set (highlight_image_item, "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
   i = g_random_int_range(0,LAST_COLOR);
 
   gdk_pixbuf_unref(highlight_pixmap);
@@ -350,40 +352,38 @@ static void ok() {
 /* =====================================================================
  *
  * =====================================================================*/
-static gint item_event(GooCanvasItem *item, GdkEvent *event, gpointer data) {
+static gboolean item_event (GooCanvasItem  *item,
+			    GooCanvasItem  *target,
+			    GdkEventButton *event,
+			    gpointer data)
+{
   double x, y;
   int i, j, clicked;
 
-  x = event->button.x;
-  y = event->button.y;
+  x = event->x;
+  y = event->y;
 
   if (!gcomprisBoard || board_paused)
     return FALSE;
 
-  switch (event->type)
-    {
-    case GDK_BUTTON_PRESS:
-      goo_canvas_c2w (gcomprisBoard->canvas, x, y, &x, &y);
-      clicked = -1;
-      for (i=0; i<4; i++) {
-	for (j=0; j<2; j++) {
-	  if (x>X[i*2] && x<X[i*2+1] && y>Y[j*2] && y<Y[j*2+1]) {
-	    clicked = j*4 + i;
-	  }
-	}
+  return TRUE;
+  //goo_canvas_c2w (gcomprisBoard->canvas, x, y, &x, &y);
+  clicked = -1;
+  for (i=0; i<4; i++) {
+    for (j=0; j<2; j++) {
+      if (x>X[i*2] && x<X[i*2+1] && y>Y[j*2] && y<Y[j*2+1]) {
+	clicked = j*4 + i;
       }
-      if (clicked >= 0) {
-	gc_sound_play_ogg ("sounds/bleep.wav", NULL);
-	board_paused = TRUE;
-	highlight_selected(clicked);
-	gamewon = (clicked == GPOINTER_TO_INT(g_list_nth_data(listColors,0)));
-	ok();
-      }
-      break;
-
-    default:
-      break;
     }
+  }
+  if (clicked >= 0) {
+    gc_sound_play_ogg ("sounds/bleep.wav", NULL);
+    board_paused = TRUE;
+    highlight_selected(clicked);
+    gamewon = (clicked == GPOINTER_TO_INT(g_list_nth_data(listColors,0)));
+    ok();
+  }
+
   return FALSE;
 }
 
@@ -419,7 +419,7 @@ static void highlight_selected(int c) {
 
   x -= highlight_width/2;
   y -= highlight_height;
-  goo_canvas_item_show(highlight_image_item);
+  g_object_set (highlight_image_item, "visibility", GOO_CANVAS_ITEM_VISIBLE, NULL);
   gc_item_absolute_move(highlight_image_item, x, y);
 }
 

@@ -604,17 +604,14 @@ static GooCanvasItem *wordsgame_create_item(GooCanvasItem *parent)
   item->letter=g_utf8_strndup(item->word,1);
   item->pos=g_utf8_find_next_char(item->word,NULL);
 
-  item->rootitem = \
-    goo_canvas_item_new (parent,
-			   goo_canvas_group_get_type (),
-			   "x", (double) 0,
-			   "y", (double) -12,
-			   NULL);
+  item->rootitem = goo_canvas_group_new (parent, NULL);
+  goo_canvas_item_translate(parent, 0, -12);
+
 
   /* To 'erase' words, I create 2 times the text item. One is empty now */
   /* It will be filled each time the user enters the right key         */
   item2 = \
-    goo_canvas_text_new (GOO_CANVAS_GROUP(item->rootitem),
+    goo_canvas_text_new (item->rootitem,
 			 item->word,
 			 (double) 0,
 			 (double) 0,
@@ -625,7 +622,7 @@ static GooCanvasItem *wordsgame_create_item(GooCanvasItem *parent)
 			 NULL);
 
   item->overwriteItem = \
-    goo_canvas_text_new (GOO_CANVAS_GROUP(item->rootitem),
+    goo_canvas_text_new (item->rootitem,
 			 item->overword,
 			 (double) 0,
 			 (double) 0,
@@ -697,7 +694,7 @@ static void player_win(LettersItem *item)
   g_ptr_array_add(items2del,item);
   g_static_rw_lock_writer_unlock (&items2del_lock);
 
-  goo_canvas_item_hide(item->rootitem);
+  g_object_set (item->rootitem, "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
   g_timeout_add (500,(GtkFunction) wordsgame_destroy_items, items2del);
 
 

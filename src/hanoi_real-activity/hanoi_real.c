@@ -51,7 +51,10 @@ typedef struct {
   gint width;
 } PieceItem;
 
-static gint		 item_event(GooCanvasItem *item, GdkEvent *event, PieceItem *data);
+static gboolean item_event (GooCanvasItem  *item,
+			    GooCanvasItem  *target,
+			    GdkEventButton *event,
+			    PieceItem *data);
 
 /* This contains the layout of the pieces */
 #define MAX_NUMBER_X 3
@@ -206,7 +209,7 @@ static void hanoi_destroy_all_items()
 
   if(boardRootItem!=NULL)
     {
-      gtk_object_destroy (GTK_OBJECT(boardRootItem));
+      goo_canvas_item_remove(boardRootItem);
 
       /* Cleanup our memory structure */
       for(i=0; i<number_of_item_x; i++)
@@ -251,12 +254,9 @@ static GooCanvasItem *hanoi_create_item(GooCanvasItem *parent)
   GdkPixbuf *pixmap = NULL;
   gchar *filename;
 
-  boardRootItem = GOO_CANVAS_GROUP(
-				     goo_canvas_item_new (goo_canvas_get_root_item(gcomprisBoard->canvas),
-							    goo_canvas_group_get_type (),
-							    "x", (double) 0,
-							    "y", (double) 0,
-							    NULL));
+  boardRootItem = goo_canvas_group_new (goo_canvas_get_root_item(gcomprisBoard->canvas),
+					NULL);
+
 
   pixmap = gc_skin_pixmap_load("gcompris-shapelabel.png");
   if(pixmap) {
@@ -335,16 +335,15 @@ static GooCanvasItem *hanoi_create_item(GooCanvasItem *parent)
       if(i==number_of_item_x-1)
 	{
 	  /* Create the backgound for the target */
-	  goo_canvas_item_new (boardRootItem,
-				 goo_canvas_rect_get_type (),
-				 "x1", (double) item_width * i + gap_x/2,
-				 "y1", (double) baseline - item_height * number_of_item_y - gap_y - 50,
-				 "x2", (double) item_width * (i+1) - gap_x/2,
-				 "y2", (double) baseline + 50,
-				 "fill_color_rgba", 0x036ED8FF,
-				 "stroke-color", "black",
-				 "line-width", (double)1,
-				 NULL);
+	  goo_canvas_rect_new (boardRootItem,
+			       item_width * i + gap_x/2,
+			       baseline - item_height * number_of_item_y - gap_y - 50,
+			       item_width * (i+1) - gap_x/2,
+			       baseline + 50,
+			       "fill_color_rgba", 0x036ED8FF,
+			       "stroke-color", "black",
+			       "line-width", (double)1,
+			       NULL);
 	}
 
       /* The disc support */
@@ -382,7 +381,9 @@ static GooCanvasItem *hanoi_create_item(GooCanvasItem *parent)
 
 	      position[i][j]->item = item;
 
-	      g_signal_connect(GTK_OBJECT(item), "enter_notify_event", (GtkSignalFunc) item_event,  position[i][j]);
+	      g_signal_connect(GTK_OBJECT(item),
+			       "button_press_event",
+			       (GtkSignalFunc) item_event,  position[i][j]);
 
 	    }
 	}
@@ -426,8 +427,10 @@ static gboolean is_completed()
 }
 
 /* ==================================== */
-static gint
-item_event(GooCanvasItem *item, GdkEvent *event, PieceItem *data)
+static gboolean item_event (GooCanvasItem  *item,
+				 GooCanvasItem  *target,
+				 GdkEventButton *event,
+				 PieceItem *data)
 {
    static double x, y;
    double new_x, new_y;
@@ -444,34 +447,34 @@ item_event(GooCanvasItem *item, GdkEvent *event, PieceItem *data)
   if(!data->on_top)
     return FALSE;
 
-  item_x = event->button.x;
-  item_y = event->button.y;
-  goo_canvas_convert_to_item_space(item->parent, &item_x, &item_y);
+  item_x = event->x;
+  item_y = event->y;
+  //goo_canvas_convert_to_item_space(item->parent, &item_x, &item_y);
 
   switch (event->type)
     {
     case GDK_ENTER_NOTIFY:
-      gc_item_focus_set(item, TRUE);
+      //gc_item_focus_set(item, TRUE);
       break;
     case GDK_LEAVE_NOTIFY:
-      gc_item_focus_set(item, FALSE);
+      //gc_item_focus_set(item, FALSE);
       break;
     case GDK_BUTTON_PRESS:
-      switch(event->button.button)
+      switch(event->button)
 	{
 	case 1:
 
 	  x = item_x;
 	  y = item_y;
 
-	  goo_canvas_item_raise_to_top(data->item);
+	  goo_canvas_item_raise(data->item, NULL);
 
 	  fleur = gdk_cursor_new(GDK_FLEUR);
-	  gc_canvas_item_grab(data->item,
-				 GDK_POINTER_MOTION_MASK |
-				 GDK_BUTTON_RELEASE_MASK,
-				 fleur,
-				 event->button.time);
+	  //  gc_canvas_item_grab(data->item,
+	  //		 GDK_POINTER_MOTION_MASK |
+	  //		 GDK_BUTTON_RELEASE_MASK,
+	  //		 fleur,
+	  //		 event->time);
 	  gdk_cursor_destroy(fleur);
 	  dragging = TRUE;
 	  break;
@@ -479,7 +482,7 @@ item_event(GooCanvasItem *item, GdkEvent *event, PieceItem *data)
       break;
 
     case GDK_MOTION_NOTIFY:
-      if (dragging && (event->motion.state & GDK_BUTTON1_MASK))
+      if (dragging && (event->state & GDK_BUTTON1_MASK))
 	{
 	  new_x = item_x;
 	  new_y = item_y;
@@ -508,7 +511,7 @@ item_event(GooCanvasItem *item, GdkEvent *event, PieceItem *data)
 	  disc_h = gdk_pixbuf_get_height(pixmap)/2;
 	  gdk_pixbuf_unref(pixmap);
 
-	  gc_canvas_item_ungrab(data->item, event->button.time);
+	  gc_canvas_item_ungrab(data->item, event->time);
 	  dragging = FALSE;
 
 	  /* Search the column (x) where this item is ungrabbed */
@@ -533,9 +536,6 @@ item_event(GooCanvasItem *item, GdkEvent *event, PieceItem *data)
 	      /* Return to the original position */
 	      gc_item_absolute_move (data->item , data->x - disc_w, data->y - disc_h);
 
-	      /* FIXME : Workaround for bugged canvas */
-	      goo_canvas_update_now(gcomprisBoard->canvas);
-
 	      return FALSE;
 	    }
 
@@ -552,9 +552,6 @@ item_event(GooCanvasItem *item, GdkEvent *event, PieceItem *data)
 	    {
 	      /* Return to the original position */
 	      gc_item_absolute_move (data->item , data->x - disc_w, data->y - disc_h);
-
-	      /* FIXME : Workaround for bugged canvas */
-	      goo_canvas_update_now(gcomprisBoard->canvas);
 
 	      return FALSE;
 	    }
@@ -574,9 +571,6 @@ item_event(GooCanvasItem *item, GdkEvent *event, PieceItem *data)
 	  gc_item_absolute_move (data->item,
 			      piece_dst->x - disc_w,
 			      piece_dst->y - disc_h);
-
-	  /* FIXME : Workaround for bugged canvas */
-	  goo_canvas_update_now(gcomprisBoard->canvas);
 
 	  /* Swap values in the pieces */
 	  tmpx    = data->x;

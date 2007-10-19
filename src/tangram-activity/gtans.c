@@ -98,7 +98,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 
 static void end_board (void)
 {
-  gtk_object_destroy (GTK_OBJECT(boardRootItem));
+  goo_canvas_item_remove(boardRootItem);
   boardRootItem = NULL;
 
   widgetpetite = NULL;
@@ -1792,12 +1792,9 @@ void taninitstart(void){
   tanclampgrandefig();
 
 
-  boardRootItem = GOO_CANVAS_GROUP(goo_canvas_item_new (goo_canvas_get_root_item(gcomprisBoard->canvas),
-							    goo_canvas_group_get_type(),
-							    "x", 0.0,
-							    "y", 0.0,
-							    NULL
-							    ));
+  boardRootItem = goo_canvas_group_new (goo_canvas_get_root_item(gcomprisBoard->canvas),
+					NULL);
+
 
   create_mainwindow(boardRootItem);
 

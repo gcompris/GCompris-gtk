@@ -298,12 +298,9 @@ static gint reading_next_level()
 
   reading_destroy_all_items();
 
-  boardRootItem = GOO_CANVAS_GROUP(
-				     goo_canvas_item_new (goo_canvas_get_root_item(gcomprisBoard->canvas),
-							    goo_canvas_group_get_type (),
-							    "x", (double) 0,
-							    "y", (double) 0,
-							    NULL));
+  boardRootItem = goo_canvas_group_new (goo_canvas_get_root_item(gcomprisBoard->canvas),
+					NULL);
+
 
   /* Default speed */
   fallSpeed=1400-gcomprisBoard->level*120;
@@ -344,7 +341,7 @@ static void reading_destroy_all_items()
   }
 
   if(boardRootItem!=NULL)
-      gtk_object_destroy (GTK_OBJECT(boardRootItem));
+      goo_canvas_item_remove(boardRootItem);
 
   boardRootItem = NULL;
   previousFocus.rootItem = NULL;
@@ -491,7 +488,7 @@ static gboolean reading_create_item(GooCanvasItem *parent)
 			 NULL);
 
   g_free(oldword);
-  goo_canvas_item_hide(previousFocus.overwriteItem);
+  g_object_set (previousFocus.overwriteItem, "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
 
   // Calculate the next spot
   if(currentMode==MODE_VERTICAL)

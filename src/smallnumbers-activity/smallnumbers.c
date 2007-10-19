@@ -282,12 +282,9 @@ static void smallnumbers_next_level()
 
   smallnumbers_destroy_all_items();
 
-  boardRootItem = GOO_CANVAS_GROUP(
-				     goo_canvas_item_new (goo_canvas_get_root_item(gcomprisBoard->canvas),
-							    goo_canvas_group_get_type (),
-							    "x", (double) 0,
-							    "y", (double) 0,
-							    NULL));
+  boardRootItem = goo_canvas_group_new (goo_canvas_get_root_item(gcomprisBoard->canvas),
+					NULL);
+
 
   /* Try the next level */
   speed=100+(40/gcomprisBoard->level);
@@ -303,7 +300,7 @@ static void smallnumbers_destroy_all_items()
 {
 
   if(boardRootItem!=NULL)
-    gtk_object_destroy (GTK_OBJECT(boardRootItem));
+    goo_canvas_item_remove(boardRootItem);
 
   boardRootItem = NULL;
 
@@ -334,7 +331,7 @@ static void smallnumbers_move_item(GooCanvasItem *item)
 
   if(y1>gcomprisBoard->height) {
     player_loose();
-    gtk_object_destroy (GTK_OBJECT(item));
+    goo_canvas_item_remove(item);
   }
 }
 
@@ -470,7 +467,7 @@ static gint smallnumbers_drop_items (GtkWidget *widget, gpointer data)
 
 static void player_win(GooCanvasItem *item)
 {
-  gtk_object_destroy (GTK_OBJECT(item));
+  goo_canvas_item_remove(item);
   gc_sound_play_ogg ("sounds/flip.wav", NULL);
 
   gcomprisBoard->sublevel++;

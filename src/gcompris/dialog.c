@@ -99,7 +99,7 @@ void gc_dialog(gchar *str, DialogBoxCallBack dbcb)
 				      "fill-color-rgba", gc_skin_color_text_button,
 				      NULL);
 
-  g_signal_connect(GTK_OBJECT(itemDialogText), "button_press_event",
+  g_signal_connect(itemDialogText, "button_press_event",
 		   (GtkSignalFunc) item_event_ok,
 		   dbcb);
 
@@ -114,10 +114,10 @@ void gc_dialog(gchar *str, DialogBoxCallBack dbcb)
 
   gdk_pixbuf_unref(pixmap_dialog);
 
-  g_signal_connect(GTK_OBJECT(item_text), "button_press_event",
+  g_signal_connect(item_text, "button_press_event",
 		   (GtkSignalFunc) item_event_ok,
 		   dbcb);
-  g_signal_connect(GTK_OBJECT(item_text_ok), "button_press_event",
+  g_signal_connect(item_text_ok, "button_press_event",
 		   (GtkSignalFunc) item_event_ok,
 		   dbcb);
 

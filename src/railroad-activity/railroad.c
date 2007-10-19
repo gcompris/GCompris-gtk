@@ -251,9 +251,9 @@ gboolean is_our_board (GcomprisBoard *gcomprisBoard)
 static void repeat ()
 {
   if(gcomprisBoard!=NULL && !animation_pending) {
-    goo_canvas_item_hide(GNOME_CANVAS_ITEM(answerRootItem));
-    goo_canvas_item_show(GNOME_CANVAS_ITEM(modelRootItem));
-    goo_canvas_item_hide(GNOME_CANVAS_ITEM(allwagonsRootItem));
+    g_object_set (GNOME_CANVAS_ITEM(answerRootItem), "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
+    g_object_set (GNOME_CANVAS_ITEM(modelRootItem), "visibility", GOO_CANVAS_ITEM_VISIBLE, NULL);
+    g_object_set (GNOME_CANVAS_ITEM(allwagonsRootItem), "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
     reposition_model();
     animate_model();
   }
@@ -283,7 +283,7 @@ static void railroad_next_level()
 static void railroad_destroy_all_items()
 {
   if(boardRootItem!=NULL)
-    gtk_object_destroy (GTK_OBJECT(boardRootItem));
+    goo_canvas_item_remove(boardRootItem);
 
   boardRootItem = NULL;
 }
@@ -295,12 +295,9 @@ static GooCanvasItem *railroad_create_item(GooCanvasItem *parent)
   GdkPixbuf * pixmap = NULL;
   GooCanvasItem *item;
 
-  boardRootItem = GOO_CANVAS_GROUP(
-				     goo_canvas_item_new (parent,
-							    goo_canvas_group_get_type (),
-							    "x", (double) 0,
-							    "y", (double) 0,
-							    NULL));
+  boardRootItem = goo_canvas_group_new (goo_canvas_get_root_item(gcomprisBoard->canvas),
+					NULL);
+
   /* Create a root group for the answer */
   answerRootItem = GOO_CANVAS_GROUP(
 				      goo_canvas_item_new (boardRootItem,
@@ -341,7 +338,7 @@ static GooCanvasItem *railroad_create_item(GooCanvasItem *parent)
 
   }
   // hide them
-  goo_canvas_item_hide(GNOME_CANVAS_ITEM(allwagonsRootItem));
+  g_object_set (GNOME_CANVAS_ITEM(allwagonsRootItem), "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
 
   // construct the model to be recognized
   modelRootItem = GOO_CANVAS_GROUP(
@@ -590,14 +587,14 @@ static gboolean animate_step() {
       timer_id = 0;
     }
     animation_pending = FALSE;
-    goo_canvas_item_hide(GNOME_CANVAS_ITEM(modelRootItem));
+    g_object_set (GNOME_CANVAS_ITEM(modelRootItem), "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
     /* Move back the model to its 0 position */
     g_object_set(GNOME_CANVAS_ITEM(modelRootItem),
 			  "x", 0.0,
 			  NULL);
 
-    goo_canvas_item_show(GNOME_CANVAS_ITEM(allwagonsRootItem));
-    goo_canvas_item_show(GNOME_CANVAS_ITEM(answerRootItem));
+    g_object_set (GNOME_CANVAS_ITEM(allwagonsRootItem), "visibility", GOO_CANVAS_ITEM_VISIBLE, NULL);
+    g_object_set (GNOME_CANVAS_ITEM(answerRootItem), "visibility", GOO_CANVAS_ITEM_VISIBLE, NULL);
     return FALSE;
   }
 
@@ -629,7 +626,7 @@ static void reset_all_lists(void) {
     item = g_list_nth_data(item_answer_list, 0);
     item_answer_list = g_list_remove (item_answer_list, item);
     // causes segfaults
-    //  	gtk_object_destroy (GTK_OBJECT(item));
+    //  	goo_canvas_item_remove(item);
   }
 
 }

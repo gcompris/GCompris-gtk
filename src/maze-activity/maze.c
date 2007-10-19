@@ -279,7 +279,7 @@ static void maze_next_level() {
   draw_background(wallgroup);
 
   if(modeIsInvisible) {
-    goo_canvas_item_hide(GNOME_CANVAS_ITEM(wallgroup));
+    g_object_set (wallgroup, "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
   }
 
   /* make a new group for the items */
@@ -411,14 +411,14 @@ static void repeat () {
 
   if(modeIsInvisible) {
     if(mapActive) {
-      goo_canvas_item_hide(GNOME_CANVAS_ITEM(wallgroup));
+      g_object_set (wallgroup, "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
       /* Hide the warning */
-      goo_canvas_item_hide(warning_item);
+      g_object_set (warning_item, "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
       mapActive = FALSE;
     } else {
-      goo_canvas_item_show(GNOME_CANVAS_ITEM(wallgroup));
+      g_object_set (wallgroup, "visibility", GOO_CANVAS_ITEM_VISIBLE, NULL);
       /* Display a warning that you can't move there */
-      goo_canvas_item_show(warning_item);
+      g_object_set (warning_item, "visibility", GOO_CANVAS_ITEM_VISIBLE, NULL);
       mapActive = TRUE;
     }
   }
@@ -435,7 +435,7 @@ static void repeat () {
     }
     twoDdisplay();
     /* Display a warning that you can't move there */
-    goo_canvas_item_show(warning_item);
+    g_object_set (warning_item, "visibility", GOO_CANVAS_ITEM_VISIBLE, NULL);
 
   } else {
 
@@ -444,7 +444,7 @@ static void repeat () {
       gc_bar_set_repeat_icon(pixmap);
       gdk_pixbuf_unref(pixmap);
     }
-    goo_canvas_item_hide(warning_item);
+    g_object_set (warning_item, "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
     threeDdisplay();
   }
 
@@ -455,7 +455,7 @@ static void repeat () {
  * =====================================================================*/
 static void maze_destroy_all_items() {
   if(boardRootItem!=NULL)
-    gtk_object_destroy (GTK_OBJECT(boardRootItem));
+    goo_canvas_item_remove(boardRootItem);
   if (threedgroup!=NULL)
     gtk_object_destroy(GTK_OBJECT(threedgroup));
   mazegroup = NULL;
@@ -470,12 +470,9 @@ static void maze_destroy_all_items() {
 static GooCanvasItem *maze_create_item(GooCanvasItem *parent) {
   gchar *message;
 
-  boardRootItem = GOO_CANVAS_GROUP(
-				     goo_canvas_item_new (goo_canvas_get_root_item(gcomprisBoard->canvas),
-							    goo_canvas_group_get_type (),
-							    "x", (double) 0,
-							    "y", (double) 0,
-							    NULL));
+  boardRootItem = goo_canvas_group_new (goo_canvas_get_root_item(gcomprisBoard->canvas),
+					NULL);
+
   mazegroup=GOO_CANVAS_GROUP(goo_canvas_item_new(boardRootItem,
 						     goo_canvas_group_get_type(),
 						     "x",(double)breedte,
@@ -503,7 +500,7 @@ static GooCanvasItem *maze_create_item(GooCanvasItem *parent) {
 				      "font", gc_skin_font_board_small,
 				      "fill_color_rgba", gc_skin_color_content,
 				      NULL);
-  goo_canvas_item_hide(warning_item);
+  g_object_set (warning_item, "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
 
   return NULL;
 }
@@ -933,14 +930,14 @@ static gint key_press(guint keyval, gchar *commit_str, gchar *preedit_str)
       if(modeIsInvisible) {
 	gc_sound_play_ogg ("sounds/flip.wav", NULL);
 	if(mapActive) {
-	  goo_canvas_item_hide(GNOME_CANVAS_ITEM(wallgroup));
+	  g_object_set (GNOME_CANVAS_ITEM(wallgroup), "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
 	  /* Hide the warning */
-	  goo_canvas_item_hide(warning_item);
+	  g_object_set (warning_item, "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
 	  mapActive = FALSE;
 	} else {
-	  goo_canvas_item_show(GNOME_CANVAS_ITEM(wallgroup));
+	  g_object_set (GNOME_CANVAS_ITEM(wallgroup), "visibility", GOO_CANVAS_ITEM_VISIBLE, NULL);
 	  /* Display a warning that you can't move there */
-	  goo_canvas_item_show(warning_item);
+	  g_object_set (warning_item, "visibility", GOO_CANVAS_ITEM_VISIBLE, NULL);
 	  mapActive = TRUE;
 	}
       }
@@ -1048,7 +1045,7 @@ static gint key_press_3D(guint keyval, gchar *commit_str, gchar *preedit_str)
     case GDK_2:
     case GDK_space:
       /* Display a warning that you can't move there */
-      goo_canvas_item_show(warning_item);
+      g_object_set (warning_item, "visibility", GOO_CANVAS_ITEM_VISIBLE, NULL);
       twoDdisplay();
       return TRUE;
     case GDK_E: case GDK_e: eye_pos_y+=0.1; if (eye_pos_y>0.9) eye_pos_y=0.9; break;
@@ -1410,8 +1407,8 @@ static void twoDdisplay()
   g_free(fileskin);
 
   if (threedgroup)
-    goo_canvas_item_hide(GNOME_CANVAS_ITEM(threedgroup));
-  goo_canvas_item_show(GNOME_CANVAS_ITEM(boardRootItem));
+    g_object_set (GNOME_CANVAS_ITEM(threedgroup), "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
+  g_object_set (GNOME_CANVAS_ITEM(boardRootItem), "visibility", GOO_CANVAS_ITEM_VISIBLE, NULL);
   threeDactive=FALSE;
 }
 
@@ -1419,7 +1416,7 @@ static void threeDdisplay()
 {
   gc_sound_play_ogg ("sounds/flip.wav", NULL);
   gc_set_background(goo_canvas_get_root_item(gcomprisBoard->canvas), "maze/maze-bg.jpg");
-  goo_canvas_item_hide(GNOME_CANVAS_ITEM(boardRootItem));
+  g_object_set (GNOME_CANVAS_ITEM(boardRootItem), "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
   threeDactive=TRUE;
   draw3D();
 }

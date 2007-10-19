@@ -254,7 +254,7 @@ static void hanoi_destroy_all_items()
 
   if(boardRootItem!=NULL)
     {
-      gtk_object_destroy (GTK_OBJECT(boardRootItem));
+      goo_canvas_item_remove(boardRootItem);
 
       /* Cleanup our memory structure */
       for(i=0; i<(number_of_item_x+2); i++)
@@ -306,12 +306,9 @@ static GooCanvasItem *hanoi_create_item(GooCanvasItem *parent)
   guint w;
   GdkPixbuf *pixmap = NULL;
 
-  boardRootItem = GOO_CANVAS_GROUP(
-				     goo_canvas_item_new (goo_canvas_get_root_item(gcomprisBoard->canvas),
-							    goo_canvas_group_get_type (),
-							    "x", (double) 0,
-							    "y", (double) 0,
-							    NULL));
+  boardRootItem = goo_canvas_group_new (goo_canvas_get_root_item(gcomprisBoard->canvas),
+					NULL);
+
 
   pixmap = gc_skin_pixmap_load("gcompris-shapelabel.png");
   if(pixmap) {

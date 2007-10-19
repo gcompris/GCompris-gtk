@@ -669,11 +669,11 @@ static void scale_next_level()
     gdk_pixbuf_unref(pixmap);
 
     // create plate left
-    group_g = GOO_CANVAS_GROUP(goo_canvas_item_new(boardRootItem,
-                goo_canvas_group_get_type(),
-                "x", PLATE_X1,
-                "y", 0.0,
-                NULL));
+    group_g = goo_canvas_group_new (goo_canvas_get_root_item(gcomprisBoard->canvas),
+				    NULL);
+    goo_canvas_item_translate(parent, PLATE_X1, 0);
+
+
     pixmap = gc_pixmap_load("scale/plateau.png");
     item = goo_canvas_image_new(group_g,
 				pixmap,
@@ -729,7 +729,7 @@ static void scale_destroy_all_items()
     GList *list;
 
     if(boardRootItem)
-        gtk_object_destroy (GTK_OBJECT(boardRootItem));
+        goo_canvas_item_remove(boardRootItem);
     boardRootItem = NULL;
 
     if(item_list)

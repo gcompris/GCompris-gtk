@@ -182,7 +182,7 @@ static void fifteen_next_level()
 static void fifteen_destroy_all_items()
 {
   if(boardRootItem!=NULL)
-    gtk_object_destroy (GTK_OBJECT(boardRootItem));
+    goo_canvas_item_remove(boardRootItem);
 
   boardRootItem = NULL;
 }

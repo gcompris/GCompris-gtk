@@ -255,7 +255,7 @@ money_widget_add (Money_Widget *moneyWidget, MoneyEuroType value)
 
       if(moneyitem && !moneyitem->inPocket && moneyitem->value == value)
 	{
-	  goo_canvas_item_show(moneyitem->item);
+	  g_object_set (moneyitem->item, "visibility", GOO_CANVAS_ITEM_VISIBLE, NULL);
 	  moneyitem->inPocket = TRUE;
 	  moneyWidget->priv->total += euroList[value].value;
 	  money_display_total(moneyWidget);
@@ -340,7 +340,7 @@ item_event(GooCanvasItem *item, GdkEvent *event, MoneyItem *moneyItem)
       switch(event->button.button)
 	{
 	case 1:
-	  goo_canvas_item_hide(item);
+	  g_object_set (item, "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
 	  moneyItem->inPocket = FALSE;
 	  money_widget_remove(moneyItem->moneyWidget, moneyItem->value);
 

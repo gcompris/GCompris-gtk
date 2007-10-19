@@ -215,11 +215,9 @@ static void money_next_level()
   money_destroy_all_items();
   gamewon = FALSE;
 
-  boardRootItem = GOO_CANVAS_GROUP(goo_canvas_item_new (goo_canvas_get_root_item(gcomprisBoard->canvas),
-							    goo_canvas_group_get_type (),
-							    "x", (double) 0,
-							    "y", (double) 0,
-							    NULL));
+  boardRootItem = goo_canvas_group_new (goo_canvas_get_root_item(gcomprisBoard->canvas),
+					NULL);
+
 
   tux_money = MONEY_WIDGET(money_widget_new());
   money_widget_set_position(tux_money,
@@ -521,14 +519,14 @@ static void money_next_level()
 static void money_destroy_all_items()
 {
   if(boardRootItem!=NULL)
-    gtk_object_destroy (GTK_OBJECT(boardRootItem));
+    goo_canvas_item_remove(boardRootItem);
 
   if(tux_money!=NULL)
-    gtk_object_destroy (GTK_OBJECT (tux_money));
+    goo_canvas_item_remove(tux_money);
   tux_money = NULL;
 
   if(seller_money!=NULL)
-    gtk_object_destroy (GTK_OBJECT (seller_money));
+    goo_canvas_item_remove(seller_money);
   seller_money = NULL;
 
   boardRootItem = NULL;

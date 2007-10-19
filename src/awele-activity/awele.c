@@ -105,7 +105,7 @@ static void pause_board (gboolean pause)
 				       NULL);
 	      anim_item = gc_anim_activate( boardRootItem,
 						       animation );
-	      goo_canvas_item_show(GNOME_CANVAS_ITEM(anim_item->canvas));
+	      g_object_set (anim_item->canvas, "visibility", GOO_CANVAS_ITEM_VISIBLE, NULL);
 	    }
 	}
 	else{
@@ -262,7 +262,7 @@ awele_next_level ()
 				   NULL);
 	  anim_item = gc_anim_activate( boardRootItem,
 						   animation );
-	  goo_canvas_item_show(GNOME_CANVAS_ITEM(anim_item->canvas));
+	  g_object_set (anim_item->canvas, "visibility", GOO_CANVAS_ITEM_VISIBLE, NULL);
 
 	} else {
 	  computer_turn = FALSE;
@@ -281,7 +281,7 @@ awele_destroy_all_items ()
         int i;
 
 	if (boardRootItem != NULL)
-		gtk_object_destroy (GTK_OBJECT (boardRootItem));
+	  goo_canvas_item_remove(boardRootItem);
 
 	boardRootItem = NULL;
 
@@ -313,12 +313,9 @@ awele_create_item (GooCanvasItem * parent)
 	gchar xpmFileNotify[35] = BOUTON_NOTIFY;
 	gchar xpmFileClic[35] = BOUTON_CLIC;
 
-	boardRootItem =
-		GOO_CANVAS_GROUP (goo_canvas_item_new
-				    (goo_canvas_get_root_item
-				     (gcomprisBoard->canvas),
-				     goo_canvas_group_get_type (), "x",
-				     (double) 0, "y", (double) 0, NULL));
+	boardRootItem = goo_canvas_group_new (goo_canvas_get_root_item(gcomprisBoard->canvas),
+					      NULL);
+
 
 	/*
 	 * Load the cute frame
@@ -461,7 +458,7 @@ awele_create_item (GooCanvasItem * parent)
 							     NULL);
 
 		g_signal_connect (GTK_OBJECT (graphsElt->button[i]),
-				    "enter_notify_event", GTK_SIGNAL_FUNC (buttonClick),
+				    "button_press_event", GTK_SIGNAL_FUNC (buttonClick),
 				    GINT_TO_POINTER(i));
 
 
@@ -478,14 +475,16 @@ awele_create_item (GooCanvasItem * parent)
 		sprintf (buffer, "%d", staticAwale->board[i]);
 
 		graphsElt->nbBeansHole[i] =
-			goo_canvas_item_new (boardRootItem,
-					       goo_canvas_text_get_type (),
-					       "text", buffer,
-					       "font", "sans 12",
-					       "size", 14000,
-					       "x", (double) (caseCoord[i] + 45),
-					       "y", (double) ((i < 6) ? 378 : 94),
-					       "fill-color", "black", NULL);
+			goo_canvas_text_new (boardRootItem,
+					     buffer,
+					     (caseCoord[i] + 45),
+					     ((i < 6) ? 378 : 94),
+					     -1,
+					     GTK_ANCHOR_NW,
+					     "font", "sans 12",
+					     "size", 14000,
+					     "fill-color", "black",
+					     NULL);
 	}
 
 	/**
@@ -500,20 +499,17 @@ awele_create_item (GooCanvasItem * parent)
 
 		sprintf (buffer, "%d", staticAwale->CapturedBeans[i]);
 
-		graphsElt->Captures[i] = goo_canvas_item_new (boardRootItem,
-								goo_canvas_text_get_type
-								(), "text",
-								buffer,
-								"font",
-								"sans 12",
-								"size", 20000,
-								"x",
-								(double) x1,
-								"y",
-								(double) 246,
-								"fill-color",
-								"black",
-								NULL);
+		graphsElt->Captures[i] = \
+		  goo_canvas_text_new (boardRootItem,
+				       buffer,
+				       x1,
+				       246,
+				       -1,
+				       GTK_ANCHOR_NW,
+				       "font", "sans 12",
+				       "size", 20000,
+				       "fill-color", "black",
+				       NULL);
 	}
 
 	/**
@@ -614,7 +610,7 @@ initBoardGraphics (GRAPHICS_ELT * graphsElt)
 			k = 0 + g_random_int() % 4;
 			graphsElt->ptBeansHoleLink[idxTabBeans].beanPixbuf =
 				goo_canvas_image_new (boardRootItem,
-						      graphsElt->pixbufBeans[k]
+						      graphsElt->pixbufBeans[k],
 						      caseCoord[i] + g_random_int() % 50,
 						      (((i <
 							 6) ? 260 :
@@ -694,74 +690,76 @@ static gboolean  to_computer(gpointer data)
 *  les elements graphiques a modifier.
 *  @return un entier
 */
-static gint
-buttonClick (GtkWidget * item, GdkEvent * event, gpointer data)
+static gboolean buttonClick (GooCanvasItem  *item,
+			     GooCanvasItem  *target,
+			     GdkEventButton *event,
+			     gchar *data)
 {
-	gint numeroCase = GPOINTER_TO_INT(data);
+  gint numeroCase = GPOINTER_TO_INT(data);
 
-	switch (event->type)
+  switch (event->type)
+    {
+    case GDK_ENTER_NOTIFY:
+      g_object_set (GTK_OBJECT
+		    (graphsElt->button[numeroCase]),
+		    "pixbuf",
+		    graphsElt->pixbufButtonNotify[numeroCase],
+		    "y", (double) Y_BOUTONS, NULL);
+      break;
+    case GDK_LEAVE_NOTIFY:
+      g_object_set (GTK_OBJECT
+		    (graphsElt->button[numeroCase]),
+		    "pixbuf",
+		    graphsElt->pixbufButton[numeroCase],
+		    "y", (double) Y_BOUTONS, NULL);
+      break;
+    case GDK_BUTTON_PRESS:
+      if (computer_turn)
+	return TRUE;
+
+      g_object_set (GTK_OBJECT
+		    (graphsElt->button[numeroCase]),
+		    "pixbuf",
+		    graphsElt->pixbufButtonClicked[numeroCase],
+		    "y", (double) Y_BOUTONS + 3, NULL);
+
+      g_object_set (graphsElt->msg, "text", "", NULL);
+
+      AWALE *tmpaw = moveAwale (numeroCase, staticAwale);
+      if (!tmpaw)
 	{
-	case GDK_ENTER_NOTIFY:
-		g_object_set (GTK_OBJECT
-			      (graphsElt->button[numeroCase]),
-			      "pixbuf",
-			      graphsElt->pixbufButtonNotify[numeroCase],
-			      "y", (double) Y_BOUTONS, NULL);
-		break;
-	case GDK_LEAVE_NOTIFY:
-		g_object_set (GTK_OBJECT
-			      (graphsElt->button[numeroCase]),
-			      "pixbuf",
-			      graphsElt->pixbufButton[numeroCase],
-			      "y", (double) Y_BOUTONS, NULL);
-		break;
-	case GDK_BUTTON_PRESS:
-	  if (computer_turn)
-	    return TRUE;
-
-	  g_object_set (GTK_OBJECT
-			(graphsElt->button[numeroCase]),
-			"pixbuf",
-			graphsElt->pixbufButtonClicked[numeroCase],
-			"y", (double) Y_BOUTONS + 3, NULL);
-
-	  g_object_set (graphsElt->msg, "text", "", NULL);
-
-	  AWALE *tmpaw = moveAwale (numeroCase, staticAwale);
-	  if (!tmpaw)
-	    {
-	      g_object_set (graphsElt->msg, "text", _("Not allowed! Try again !"),
-			    NULL);
-	    }
-	  else
-	    {
-	      g_free(staticAwale);
-	      staticAwale = tmpaw;
-	      updateNbBeans (0);
-	      updateCapturedBeans ();
-	      if (!gamewon){
-		computer_turn = TRUE;
-		timeout = g_timeout_add (2000,
-					 (GSourceFunc) to_computer,
-					 NULL);
-		anim_item = gc_anim_activate( boardRootItem,
-							 animation );
-	      }
-	    }
-
-	  break;
-	case GDK_BUTTON_RELEASE:
-	  g_object_set (GTK_OBJECT
-			(graphsElt->button[numeroCase]),
-			"pixbuf",
-			graphsElt->pixbufButtonNotify[numeroCase],
-			"y", (double) Y_BOUTONS, NULL);
-	  break;
-	default:
-		break;
+	  g_object_set (graphsElt->msg, "text", _("Not allowed! Try again !"),
+			NULL);
+	}
+      else
+	{
+	  g_free(staticAwale);
+	  staticAwale = tmpaw;
+	  updateNbBeans (0);
+	  updateCapturedBeans ();
+	  if (!gamewon){
+	    computer_turn = TRUE;
+	    timeout = g_timeout_add (2000,
+				     (GSourceFunc) to_computer,
+				     NULL);
+	    anim_item = gc_anim_activate( boardRootItem,
+					  animation );
+	  }
 	}
 
-	return FALSE;
+      break;
+    case GDK_BUTTON_RELEASE:
+      g_object_set (GTK_OBJECT
+		    (graphsElt->button[numeroCase]),
+		    "pixbuf",
+		    graphsElt->pixbufButtonNotify[numeroCase],
+		    "y", (double) Y_BOUTONS, NULL);
+      break;
+    default:
+      break;
+    }
+
+  return FALSE;
 }
 
 /**
@@ -811,7 +809,7 @@ updateNbBeans (int alpha)
   for (ptBeansHoleLink = &(graphsElt->ptBeansHoleLink)[nbActiveBean], i = 0;
        i < nbOldActiveBean - nbActiveBean; i++, ptBeansHoleLink++)
     {
-      gtk_object_destroy (GTK_OBJECT (ptBeansHoleLink->beanPixbuf));
+      goo_canvas_item_remove(ptBeansHoleLink->beanPixbuf);
     }
 
 
@@ -843,13 +841,13 @@ updateNbBeans (int alpha)
 
 	  k = 0 + g_random_int() % 4;
 
-	  g_object_set (ptBeansHoleLink[idxTabBeans].
-				 beanPixbuf, "x",
-				 (double) caseCoord[i] +
-				 g_random_int() % 50, "y",
-				 (double) (((i <
-					     6) ? 260 : 130) +
-					   g_random_int() % 60), NULL);
+	  g_object_set (ptBeansHoleLink[idxTabBeans].beanPixbuf,
+			"x", (double) caseCoord[i] +
+			g_random_int() % 50,
+			"y", (double) (((i <
+					 6) ? 260 : 130) +
+				       g_random_int() % 60),
+			NULL);
 
 	  ptBeansHoleLink[idxTabBeans].hole = i;
 	}

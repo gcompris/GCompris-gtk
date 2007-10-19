@@ -270,7 +270,7 @@ static void algebra_guesscount_next_level() {
 /* Destroy all the items */
 static void algebra_guesscount_destroy_all_items() {
   if(boardRootItem!=NULL)
-    gtk_object_destroy (GTK_OBJECT(boardRootItem));
+    goo_canvas_item_remove(boardRootItem);
 
   boardRootItem = NULL;
 }
@@ -399,12 +399,9 @@ static GooCanvasItem *algebra_guesscount_create_item(GooCanvasItem *parent) {
 
   result_to_find = generate_numbers();
 
-  boardRootItem = GOO_CANVAS_GROUP(
-				     goo_canvas_item_new (goo_canvas_get_root_item(gcomprisBoard->canvas),
-							    goo_canvas_group_get_type (),
-							    "x", (double) 0,
-							    "y", (double) 0,
-							    NULL));
+  boardRootItem = goo_canvas_group_new (goo_canvas_get_root_item(gcomprisBoard->canvas),
+					NULL);
+
 
   // the intermediate result, line by line, when empty is BLANK
   for (i=0; i<gcomprisBoard->level; i++) {
@@ -591,7 +588,7 @@ static gint item_event_oper_moved(GooCanvasItem *item, GdkEvent *event, gpointer
   case GDK_BUTTON_PRESS:
     gc_sound_play_ogg ("sounds/flip.wav", NULL);
     if (count == token_count) {
-      gtk_object_destroy (GTK_OBJECT(item));
+      goo_canvas_item_remove(item);
       token_count--;
       update_line_calcul();
     }

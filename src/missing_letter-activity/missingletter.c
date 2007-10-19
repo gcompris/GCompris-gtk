@@ -245,7 +245,7 @@ static void missing_letter_next_level()
 static void missing_letter_destroy_all_items()
 {
   if(boardRootItem!=NULL)
-    gtk_object_destroy (GTK_OBJECT(boardRootItem));
+    goo_canvas_item_remove(boardRootItem);
 
   boardRootItem = NULL;
 }
@@ -276,12 +276,9 @@ static GooCanvasItem *missing_letter_create_item(GooCanvasItem *parent)
 
   right_word = place+1;
 
-  boardRootItem = GOO_CANVAS_GROUP(
-				     goo_canvas_item_new (goo_canvas_get_root_item(gcomprisBoard->canvas),
-							    goo_canvas_group_get_type (),
-							    "x", (double) 0,
-							    "y", (double) 0,
-							    NULL));
+  boardRootItem = goo_canvas_group_new (goo_canvas_get_root_item(gcomprisBoard->canvas),
+					NULL);
+
   button_pixmap = gc_skin_pixmap_load("button.png");
   /* display the image */
   board = g_list_nth_data(board_list, board_number);

@@ -403,7 +403,7 @@ static void planegame_destroy_item(CloudItem *clouditem)
 
   item_list = g_list_remove (item_list, clouditem);
   item2del_list = g_list_remove (item2del_list, clouditem);
-  gtk_object_destroy (GTK_OBJECT(item));
+  goo_canvas_item_remove(item);
 
   g_free(clouditem);
 }
@@ -433,7 +433,7 @@ static void planegame_destroy_all_items()
 
   if(planeitem)
     {
-      gtk_object_destroy (GTK_OBJECT(planeitem));
+      goo_canvas_item_remove(planeitem);
       planeitem = NULL;
     }
 }
@@ -481,14 +481,14 @@ static GooCanvasItem *planegame_create_item(GooCanvasItem *parent)
 
   pixmap = gc_pixmap_load("planegame/cloud.png");
 
-  itemgroup = \
-    goo_canvas_item_new (parent,
-			   goo_canvas_group_get_type (),
-			   "x", (double) gcomprisBoard->width,
-			   "y", (double)(g_random_int()%(gcomprisBoard->height-
-						 (guint)(gdk_pixbuf_get_height(pixmap)*
-							 imageZoom))),
-			   NULL);
+  itemgroup = goo_canvas_group_new (goo_canvas_get_root_item(gcomprisBoard->canvas),
+				    NULL);
+  goo_canvas_item_translate(itemgroup,
+			    gcomprisBoard->width,
+			    (g_random_int()%(gcomprisBoard->height-
+					     (guint)(gdk_pixbuf_get_height(pixmap)*
+						     -imageZoom))));
+
 
 
   goo_canvas_image_new (GOO_CANVAS_GROUP(itemgroup),

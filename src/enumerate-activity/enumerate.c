@@ -349,7 +349,7 @@ static void enumerate_next_level()
 static void enumerate_destroy_all_items()
 {
   if(boardRootItem!=NULL)
-    gtk_object_destroy (GTK_OBJECT(boardRootItem));
+    goo_canvas_item_remove(boardRootItem);
 
   boardRootItem = NULL;
 }
@@ -419,7 +419,7 @@ static GooCanvasItem *enumerate_create_item(GooCanvasItem *parent)
 			      NULL);
 
       gdk_pixbuf_unref(pixmap_answer);
-      goo_canvas_item_hide(answer_item_focus[i]);
+      g_object_set (answer_item_focus[i], "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
 
       item = goo_canvas_image_new (boardRootItem,
 				   pixmap,
@@ -451,7 +451,7 @@ static GooCanvasItem *enumerate_create_item(GooCanvasItem *parent)
 
     }
 
-  goo_canvas_item_show(answer_item_focus[current_focus]);
+  g_object_set (answer_item_focus[current_focus], "visibility", GOO_CANVAS_ITEM_VISIBLE, NULL);
 
   return NULL;
 }
@@ -482,9 +482,9 @@ item_event_focus(GooCanvasItem *item, GdkEvent *event, guint index)
      {
      case GDK_BUTTON_PRESS:
        gc_sound_play_ogg ("sounds/prompt.wav", NULL);
-       goo_canvas_item_hide(answer_item_focus[current_focus]);
+       g_object_set (answer_item_focus[current_focus], "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
        current_focus = index;
-       goo_canvas_item_show(answer_item_focus[current_focus]);
+       g_object_set (answer_item_focus[current_focus], "visibility", GOO_CANVAS_ITEM_VISIBLE, NULL);
        return TRUE;
        break;
      default:

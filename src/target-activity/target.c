@@ -325,12 +325,12 @@ static void target_next_level()
 static void target_destroy_all_items()
 {
   if(boardRootItem!=NULL)
-    gtk_object_destroy (GTK_OBJECT(boardRootItem));
+    goo_canvas_item_remove(boardRootItem);
 
   boardRootItem = NULL;
 
   if(speedRootItem!=NULL)
-    gtk_object_destroy (GTK_OBJECT(speedRootItem));
+    goo_canvas_item_remove(speedRootItem);
 
   animate_item = NULL;
   answer_item = NULL;
@@ -352,14 +352,11 @@ static void display_windspeed()
   canvasPoints = goo_canvas_points_new (2);
 
   if(speedRootItem!=NULL)
-    gtk_object_destroy (GTK_OBJECT(speedRootItem));
+    goo_canvas_item_remove(speedRootItem);
 
-  speedRootItem = GOO_CANVAS_GROUP(
-				    goo_canvas_item_new (goo_canvas_get_root_item(gcomprisBoard->canvas),
-							   goo_canvas_group_get_type (),
-							   "x", (double) 0,
-							   "y", (double) 0,
-							   NULL));
+  speedRootItem = goo_canvas_group_new (goo_canvas_get_root_item(gcomprisBoard->canvas),
+					NULL);
+
 
   /* Speed orientation */
   second = g_random_int()%60;

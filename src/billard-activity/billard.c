@@ -213,7 +213,7 @@ static void minigolf_next_level()
 static void minigolf_destroy_all_items()
 {
   if(boardRootItem!=NULL)
-    gtk_object_destroy (GTK_OBJECT(boardRootItem));
+    goo_canvas_item_remove(boardRootItem);
 
   if (move_id) {
     gtk_timeout_remove (move_id);
@@ -235,13 +235,9 @@ static void minigolf_destroy_all_items()
 static GooCanvasItem *minigolf_create_item(GooCanvasItem *parent)
 {
 
-  boardRootItem = GOO_CANVAS_GROUP(
-				     goo_canvas_item_new (goo_canvas_get_root_item(gcomprisBoard->canvas),
-							    goo_canvas_group_get_type (),
-							    "x", (double) 0,
-							    "y", (double) 0,
+  boardRootItem = goo_canvas_group_new (goo_canvas_get_root_item(gcomprisBoard->canvas),
+					NULL);
 
-							    NULL));
 
   create_machine_item(MACH_HOLE, 730.0, 260.0);
   create_machine_item(MACH_BASKET_BALL, (double)g_random_int_range(60, 150), (double)RAND(60, 400));

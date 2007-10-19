@@ -302,7 +302,7 @@ static gboolean is_our_board (GcomprisBoard *gcomprisBoard)
 static void wordprocessor_destroy_all_items()
 {
   if(boardRootItem!=NULL)
-    gtk_object_destroy (GTK_OBJECT(boardRootItem));
+    goo_canvas_item_remove(boardRootItem);
 
   boardRootItem = NULL;
 }
@@ -313,12 +313,9 @@ static GooCanvasItem *wordprocessor_create()
   GdkPixbuf *pixmap;
   double y;
 
-  boardRootItem = GOO_CANVAS_GROUP(
-				     goo_canvas_item_new (goo_canvas_get_root_item(gcomprisBoard->canvas),
-							    goo_canvas_group_get_type (),
-							    "x", (double) 0,
-							    "y", (double) 0,
-							    NULL));
+  boardRootItem = goo_canvas_group_new (goo_canvas_get_root_item(gcomprisBoard->canvas),
+					NULL);
+
 
   selected_tag = NULL;
   view = gtk_text_view_new ();
