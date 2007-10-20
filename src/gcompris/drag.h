@@ -32,8 +32,8 @@ typedef gint (*gc_Drag_Func) (GooCanvasItem *item, GdkEvent *event, gpointer dat
 
 gint gc_drag_event(GooCanvasItem *item, GdkEvent *event, gpointer data);
 
-void gc_drag_start(GooCanvasGroup *root_item, gc_Drag_Func function, gc_drag_mode_type mode);
-void gc_drag_stop(GooCanvasGroup *root_item);
+void gc_drag_start(GooCanvasItem *root_item, gc_Drag_Func function, gc_drag_mode_type mode);
+void gc_drag_stop(GooCanvasItem *root_item);
 
 GooCanvasItem * gc_drag_item_get(void);
 void gc_drag_item_set(GooCanvasItem *item);

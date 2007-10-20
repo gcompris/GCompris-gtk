@@ -124,9 +124,18 @@ static GooCanvasItem *result_item_front, *result_item_back;
 static GooCanvasItem *algebra_guesscount_create_item(GooCanvasItem *parent);
 static void algebra_guesscount_destroy_all_items(void);
 static void algebra_guesscount_next_level(void);
-static gint item_event_num(GooCanvasItem *item, GdkEvent *event, gpointer data);
-static gint item_event_oper(GooCanvasItem *item, GdkEvent *event, gpointer data);
-static gint item_event_oper_moved(GooCanvasItem *item, GdkEvent *event, gpointer data);
+static gboolean item_event_num (GooCanvasItem  *item,
+				GooCanvasItem  *target,
+				GdkEventButton *event,
+				gpointer data);
+static gboolean item_event_oper (GooCanvasItem  *item,
+				 GooCanvasItem  *target,
+				 GdkEventButton *event,
+				 gpointer data);
+static gboolean item_event_oper_moved (GooCanvasItem  *item,
+				       GooCanvasItem  *target,
+				       GdkEventButton *event,
+				       gpointer data);
 
 static int generate_numbers();
 static int token_result();
@@ -454,8 +463,9 @@ static GooCanvasItem *algebra_guesscount_create_item(GooCanvasItem *parent) {
 					 Y_OPE,
 					  NULL);
     xOffset += BUTTON_WIDTH+HORIZONTAL_SEPARATION;
-    g_signal_connect(GTK_OBJECT(oper_item[i]), "enter_notify_event", (GtkSignalFunc) item_event_oper,
-		       GINT_TO_POINTER(&(token_value[i*2+1])) );
+    g_signal_connect(oper_item[i], "button_press_event",
+		     (GtkSignalFunc) item_event_oper,
+		     GINT_TO_POINTER(&(token_value[i*2+1])) );
     token_value[i*2+1].isNumber = FALSE;
     token_value[i*2+1].isMoved = FALSE;
     token_value[i*2+1].oper = oper_values[i];
@@ -489,8 +499,9 @@ static GooCanvasItem *algebra_guesscount_create_item(GooCanvasItem *parent) {
 					xOffset ,
 					Y_NUM,
 					NULL);
-    sid = g_signal_connect(GTK_OBJECT(num_item[i]), "enter_notify_event", (GtkSignalFunc) item_event_num,
-			     (void *)&(token_value[i*2]));
+    sid = g_signal_connect(num_item[i], "button_press_event",
+			   (GtkSignalFunc) item_event_num,
+			   (void *)&(token_value[i*2]));
     token_value[i*2].isNumber = TRUE;
     token_value[i*2].num = answer_num_index[i];
     token_value[i*2].signal_id = sid;
@@ -550,7 +561,11 @@ static int oper_char_to_pixmap_index(char oper) {
   return -1;
 }
 /* ==================================== */
-static gint item_event_oper(GooCanvasItem *item, GdkEvent *event, gpointer data){
+static gboolean item_event_oper (GooCanvasItem  *item,
+				 GooCanvasItem  *target,
+				 GdkEventButton *event,
+				 gpointer data)
+{
   token *t = (	token *)data;
 
   GooCanvasItem * tmp_item;
@@ -571,14 +586,20 @@ static gint item_event_oper(GooCanvasItem *item, GdkEvent *event, gpointer data)
 				     y_token_offset[token_count],
 				     NULL);
     token_count++;
-    g_signal_connect(GTK_OBJECT(tmp_item), "enter_notify_event", (GtkSignalFunc) item_event_oper_moved, GINT_TO_POINTER(token_count));
+    g_signal_connect(tmp_item, "button_press_event",
+		     (GtkSignalFunc) item_event_oper_moved,
+		     GINT_TO_POINTER(token_count));
     break;
   default : break;
   }
   return FALSE;
 }
 /* ==================================== */
-static gint item_event_oper_moved(GooCanvasItem *item, GdkEvent *event, gpointer data){
+static gboolean item_event_oper_moved (GooCanvasItem  *item,
+				       GooCanvasItem  *target,
+				       GdkEventButton *event,
+				       gpointer data)
+{
   int count = GPOINTER_TO_INT(data);
 
   if(board_paused)
@@ -598,7 +619,11 @@ static gint item_event_oper_moved(GooCanvasItem *item, GdkEvent *event, gpointer
   return FALSE;
 }
 /* ==================================== */
-static gint item_event_num(GooCanvasItem *item, GdkEvent *event, gpointer data){
+static gboolean item_event_num (GooCanvasItem  *item,
+				GooCanvasItem  *target,
+				GdkEventButton *event,
+				gpointer data)
+{
   token *t = (token *)data;
   char str[12];
 

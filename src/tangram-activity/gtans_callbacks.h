@@ -160,26 +160,26 @@ on_badjust_clicked                     (GtkButton       *button,
                                         gpointer         user_data);
 
 gboolean
-on_arrow_clicked (GnomeCanvasItem *canvasitem,
+on_arrow_clicked (GooCanvasItem *canvasitem,
 		  GdkEvent *event,
 		  gpointer user_data);
 
 gboolean
-on_show_clicked (GnomeCanvasItem *canvasitem,
+on_show_clicked (GooCanvasItem *canvasitem,
 		  GdkEvent *event,
 		  gpointer user_data);
 
 gboolean
-on_outline_clicked (GnomeCanvasItem *canvasitem,
+on_outline_clicked (GooCanvasItem *canvasitem,
 		  GdkEvent *event,
 		  gpointer user_data);
 
 gboolean
-on_symetry_clicked (GnomeCanvasItem *canvasitem,
+on_symetry_clicked (GooCanvasItem *canvasitem,
 		  GdkEvent *event,
 		  gpointer user_data);
 
 gboolean
-on_rotation_clicked (GnomeCanvasItem *canvasitem,
+on_rotation_clicked (GooCanvasItem *canvasitem,
 		     GdkEvent *event,
 		     gpointer user_data);

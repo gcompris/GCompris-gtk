@@ -47,7 +47,7 @@ static gint smallnumbers_drop_items (GtkWidget *widget, gpointer data);
 static gint smallnumbers_move_items (GtkWidget *widget, gpointer data);
 static void smallnumbers_destroy_all_items(void);
 static void smallnumbers_next_level(void);
-static void smallnumbers_gotkey_item(GooCanvasItem *item, guint key);
+static gboolean smallnumbers_gotkey_item(GooCanvasItem *item, guint key);
 
 static void		 smallnumber_config_start(GcomprisBoard *agcomprisBoard,
 					     GcomprisProfile *aProfile);
@@ -213,6 +213,7 @@ set_level (guint level)
 static gint key_press(guint keyval, gchar *commit_str, gchar *preedit_str)
 {
   char str[2];
+  int i;
 
   if(!gcomprisBoard || !boardRootItem)
     return FALSE;
@@ -244,9 +245,15 @@ static gint key_press(guint keyval, gchar *commit_str, gchar *preedit_str)
 
   keyval = atoi(str);
 
-  g_list_foreach(GOO_CANVAS_GROUP(boardRootItem)->item_list,
-		 (GFunc) smallnumbers_gotkey_item,
-		 GINT_TO_POINTER(keyval));
+  /* Warning, deleting items in a loop is not safe */
+  int gotit = FALSE;
+  int nb_item = goo_canvas_item_get_n_children(boardRootItem);
+
+  for(i=0;
+      (!gotit && i< nb_item);
+      i++)
+    gotit = smallnumbers_gotkey_item( goo_canvas_item_get_child(boardRootItem, i), 
+				      keyval );
 
   return TRUE;
 }
@@ -305,31 +312,31 @@ static void smallnumbers_destroy_all_items()
   boardRootItem = NULL;
 
 }
-static void smallnumbers_gotkey_item(GooCanvasItem *item, guint key)
+static gboolean
+smallnumbers_gotkey_item(GooCanvasItem *item, guint key)
 {
   guint number;
+  gboolean gotit = FALSE;
 
   if(G_OBJECT (item)) {
     number = GPOINTER_TO_INT (g_object_get_data (G_OBJECT (item), "dice_number"));
 
-    if(number==key) {
+    if(number == key) {
+      gotit = TRUE;
       player_win(item);
     }
   }
+  return(gotit);
 }
 
 static void smallnumbers_move_item(GooCanvasItem *item)
 {
-  double x1, y1, x2, y2;
   goo_canvas_item_translate(item, 0, 2.0);
 
-  goo_canvas_item_get_bounds (item,
-				&x1,
-				&y1,
-				&x2,
-				&y2);
+  GooCanvasBounds bounds;
+  goo_canvas_item_get_bounds (item, &bounds);
 
-  if(y1>gcomprisBoard->height) {
+  if(bounds.y1>gcomprisBoard->height) {
     player_loose();
     goo_canvas_item_remove(item);
   }
@@ -341,9 +348,11 @@ static void smallnumbers_move_item(GooCanvasItem *item)
  */
 static gint smallnumbers_move_items (GtkWidget *widget, gpointer data)
 {
+  int i;
 
   /* For each item we need to move */
-  g_list_foreach(GOO_CANVAS_GROUP(boardRootItem)->item_list, (GFunc) smallnumbers_move_item, NULL);
+  for(i=0; i<goo_canvas_item_get_n_children(boardRootItem); i++)
+    smallnumbers_move_item(goo_canvas_item_get_child(boardRootItem, i)); 
 
   dummy_id = gtk_timeout_add (speed,
 			      (GtkFunction) smallnumbers_move_items, NULL);
@@ -361,12 +370,8 @@ static void smallnumbers_create_item(GooCanvasItem *parent)
   double x = 0.0;
   guint number_of_dice = number_of_dices;
 
-  group_item = GOO_CANVAS_GROUP(
-				  goo_canvas_item_new (parent,
-							 goo_canvas_group_get_type (),
-							 "x", (double) 0,
-							 "y", (double) 40,
-							 NULL));
+  group_item = goo_canvas_group_new (parent, NULL);
+  goo_canvas_item_translate(group_item, 0, 40);
 
   while(number_of_dice-- > 0) {
     gchar *str1 = NULL;

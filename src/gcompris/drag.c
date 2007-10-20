@@ -135,7 +135,7 @@ gint gc_drag_event_root(GooCanvasItem * item, GdkEvent *event, gpointer data)
     return FALSE;
 }
 
-void gc_drag_start(GooCanvasGroup *root_item, gc_Drag_Func function, gc_drag_mode_type mode)
+void gc_drag_start(GooCanvasItem *root_item, gc_Drag_Func function, gc_drag_mode_type mode)
 {
     g_signal_connect(root_item, "button_press_event",
             (GtkSignalFunc) gc_drag_event_root, NULL);
@@ -149,7 +149,7 @@ void gc_drag_start(GooCanvasGroup *root_item, gc_Drag_Func function, gc_drag_mod
       gc_drag_mode = mode;
 }
 
-void gc_drag_stop(GooCanvasGroup *root_item)
+void gc_drag_stop(GooCanvasItem *root_item)
 {
     if(gc_drag_status>0)
     {

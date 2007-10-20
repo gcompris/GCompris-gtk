@@ -307,7 +307,8 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 				  img);
 	  g_free(img);
 	}
-      gc_drag_start(gcomprisBoard->canvas, (gc_Drag_Func) item_event_drag, drag_mode);
+      gc_drag_start(goo_canvas_get_root_item(gcomprisBoard->canvas),
+		    (gc_Drag_Func) item_event_drag, drag_mode);
       shapegame_next_level();
 
       pause_board(FALSE);
@@ -572,7 +573,7 @@ static void shapegame_init_canvas(GooCanvasItem *parent)
 			 "fill_color_rgba", gc_skin_color_shadow,
 			   NULL);
   tooltip_text_item = \
-    goo_canvas_text_new (GOO_CANVAS_GROUP(tooltip_root_item),
+    goo_canvas_text_new (tooltip_root_item,
 			 "",
 			 (double)gdk_pixbuf_get_width(pixmap)/2,
 			 24.0,
@@ -658,8 +659,8 @@ add_shape_to_list_of_shapes(Shape *shape)
       if(current_shapelistgroup_index>=1)
 	{
 	  g_warning(" Hide previous group\n");
-	  shape_list_group_root = GOO_CANVAS_GROUP(g_list_nth_data(shape_list_group,
-								     current_shapelistgroup_index-1));
+	  shape_list_group_root = GOO_CANVAS_ITEM(g_list_nth_data(shape_list_group,
+								  current_shapelistgroup_index-1));
 	  //g_object_set (shape_list_group_root, "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
 	  item = g_list_nth_data(shape_list_group, current_shapelistgroup_index-1);
 	  g_object_set (item, "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
@@ -667,11 +668,11 @@ add_shape_to_list_of_shapes(Shape *shape)
 
       // We need to start a new shape list group
       shape_list_group_root = \
-	GOO_CANVAS_GROUP(goo_canvas_item_new (GOO_CANVAS_GROUP(shape_list_root_item),
-						 goo_canvas_group_get_type (),
-						 "x", (double)0,
-						 "y", (double)0,
-						 NULL));
+	goo_canvas_item_new (shape_list_root_item,
+			     goo_canvas_group_get_type (),
+			     "x", (double)0,
+			     "y", (double)0,
+			     NULL);
 
       shape_list_group = g_list_append (shape_list_group, shape_list_group_root);
       g_warning(" current_shapelistgroup_index=%d\n", current_shapelistgroup_index);
@@ -965,7 +966,7 @@ static gint item_event_drag(GooCanvasItem *item, GdkEvent *event, gpointer data)
 
                 dest = gdk_pixbuf_copy(pixmap);
                 pixbuf_add_transparent(dest, 100);
-                shadow_item = goo_canvas_image_new(GOO_CANVAS_GROUP(shape_root_item),
+                shadow_item = goo_canvas_image_new(shape_root_item,
 						   dest,
                         "width", shape->target_shape->w,
                         "height", shape->target_shape->h,
@@ -976,7 +977,8 @@ static gint item_event_drag(GooCanvasItem *item, GdkEvent *event, gpointer data)
                 gdk_pixbuf_unref(dest);
                 gdk_pixbuf_unref(pixmap);
             }
-            goo_canvas_item_reparent(shape->item, GOO_CANVAS_GROUP(shape_list_root_item->parent));
+            goo_canvas_item_reparent(shape->item, shape_list_root_item->parent)
+;
             goo_canvas_item_raise_to_top(shape->item);
             gc_drag_item_move(event);
             break;
@@ -985,7 +987,8 @@ static gint item_event_drag(GooCanvasItem *item, GdkEvent *event, gpointer data)
 
             item_x = event->button.x;
             item_y = event->button.y;
-            goo_canvas_convert_to_item_space(item->parent, &item_x, &item_y);
+            goo_canvas_convert_to_item_space(goo_canvas_item_get_canvas(item),
+					     item, &item_x, &item_y);
 
             found_shape = find_closest_shape( item_x, item_y, SQUARE_LIMIT_DISTANCE);
             if(shadow_enable)
@@ -993,9 +996,9 @@ static gint item_event_drag(GooCanvasItem *item, GdkEvent *event, gpointer data)
                 if(found_shape)
                 {
                     g_object_set(shadow_item,
-					found_shape->x - shape->target_shape->w/2,
-					found_shape->y - shape->target_shape->h/2,
-					NULL);
+				 "x", found_shape->x - shape->target_shape->w/2,
+				 "y", found_shape->y - shape->target_shape->h/2,
+				 NULL);
                     g_object_set (shadow_item, "visibility", GOO_CANVAS_ITEM_VISIBLE, NULL);
                 }
                 else
@@ -1007,7 +1010,8 @@ static gint item_event_drag(GooCanvasItem *item, GdkEvent *event, gpointer data)
         case GDK_BUTTON_RELEASE:
             item_x = event->button.x;
             item_y = event->button.y;
-            goo_canvas_convert_to_item_space(item->parent, &item_x, &item_y);
+            goo_canvas_convert_to_item_space(goo_canvas_item_get_canvas(item),
+					     item, &item_x, &item_y);
 
             if(shadow_enable && shadow_item)
             {
@@ -1072,21 +1076,21 @@ item_event(GooCanvasItem *item, GdkEvent *event, Shape *shape)
      case GDK_ENTER_NOTIFY:
        if(shape->tooltip && shape->type == SHAPE_ICON) {
 	 /* WARNING: This should not be needed but if I don't do it, it's not refreshed */
-	 g_object_set(GNOME_CANVAS_ITEM(tooltip_bg_item),
+	 g_object_set(tooltip_bg_item,
 			       "y", 0.0,
 			       NULL);
-	 g_object_set(GNOME_CANVAS_ITEM(tooltip_text_item_s),
+	 g_object_set(tooltip_text_item_s,
 			       "text", shape->tooltip,
 			       NULL);
-	 g_object_set(GNOME_CANVAS_ITEM(tooltip_text_item),
+	 g_object_set(tooltip_text_item,
 			       "text", shape->tooltip,
 			       NULL);
-	 g_object_set (GNOME_CANVAS_ITEM(tooltip_root_item), "visibility", GOO_CANVAS_ITEM_VISIBLE, NULL);
+	 g_object_set (tooltip_root_item, "visibility", GOO_CANVAS_ITEM_VISIBLE, NULL);
        }
        break;
      case GDK_LEAVE_NOTIFY:
        if(shape->tooltip && shape->type == SHAPE_ICON)
-       	 g_object_set (GNOME_CANVAS_ITEM(tooltip_root_item), "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
+       	 g_object_set (tooltip_root_item, "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
        break;
      case GDK_BUTTON_PRESS:
        if(event->button.button == 3)
@@ -1256,7 +1260,7 @@ add_shape_to_canvas(Shape *shape)
 	  shape->w = (double)gdk_pixbuf_get_width(targetpixmap) * shape->zoomx;
 	  shape->h = (double)gdk_pixbuf_get_height(targetpixmap) *shape->zoomy;
 
-	  item = goo_canvas_image_new (GOO_CANVAS_GROUP(shape_root_item),
+	  item = goo_canvas_image_new (shape_root_item,
 				       targetpixmap,
 				       shape->x - shape->w / 2,
 				       shape->y - shape->h / 2,
@@ -1270,7 +1274,7 @@ add_shape_to_canvas(Shape *shape)
 	{
 	  int point_size = 6;
 	  /* Display a point to highlight the target location of this shape */
-	  item = goo_canvas_item_new (GOO_CANVAS_GROUP(shape_root_item),
+	  item = goo_canvas_item_new (shape_root_item,
 					goo_canvas_ellipse_get_type(),
 					"x1", (double)shape->x-point_size,
 					"y1", (double)shape->y-point_size,
@@ -1297,7 +1301,7 @@ add_shape_to_canvas(Shape *shape)
 
 	  /* Display the shape itself but hide it until the user puts the right shape on it */
 	  /* I have to do it this way for the positionning (lower/raise) complexity          */
-	  item = goo_canvas_image_new (GOO_CANVAS_GROUP(shape_root_item),
+	  item = goo_canvas_image_new (shape_root_item,
 				       pixmap,
 				       shape->x - shape->w / 2,
 				       shape->y - shape->h / 2,
@@ -1332,7 +1336,7 @@ static void create_title(char *name, double x, double y, GtkJustification justif
 
   /* Shadow */
   item = \
-    goo_canvas_text_new (GOO_CANVAS_GROUP(shape_root_item),
+    goo_canvas_text_new (shape_root_item,
 			 gettext(name),
 			 x + 1.0,
 			 y + 1.0,
@@ -1346,7 +1350,7 @@ static void create_title(char *name, double x, double y, GtkJustification justif
   goo_canvas_item_raise_to_top(item);
 
   item = \
-    goo_canvas_text_new (GOO_CANVAS_GROUP(shape_root_item),
+    goo_canvas_text_new (shape_root_item,
 			 gettext(name),
 			 x,
 			 y,

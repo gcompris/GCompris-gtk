@@ -251,9 +251,9 @@ gboolean is_our_board (GcomprisBoard *gcomprisBoard)
 static void repeat ()
 {
   if(gcomprisBoard!=NULL && !animation_pending) {
-    g_object_set (GNOME_CANVAS_ITEM(answerRootItem), "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
-    g_object_set (GNOME_CANVAS_ITEM(modelRootItem), "visibility", GOO_CANVAS_ITEM_VISIBLE, NULL);
-    g_object_set (GNOME_CANVAS_ITEM(allwagonsRootItem), "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
+    g_object_set (answerRootItem, "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
+    g_object_set (modelRootItem, "visibility", GOO_CANVAS_ITEM_VISIBLE, NULL);
+    g_object_set (allwagonsRootItem, "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
     reposition_model();
     animate_model();
   }
@@ -299,20 +299,10 @@ static GooCanvasItem *railroad_create_item(GooCanvasItem *parent)
 					NULL);
 
   /* Create a root group for the answer */
-  answerRootItem = GOO_CANVAS_GROUP(
-				      goo_canvas_item_new (boardRootItem,
-							     goo_canvas_group_get_type (),
-							     "x", (double) 0,
-							     "y", (double) 0,
-							     NULL));
+  answerRootItem = goo_canvas_group_new (boardRootItem, NULL);
 
   // Create the vehicules
-  allwagonsRootItem = GOO_CANVAS_GROUP(
-					 goo_canvas_item_new (boardRootItem,
-								goo_canvas_group_get_type (),
-								"x", (double) 0,
-								"y", (double) 0,
-								NULL));
+  allwagonsRootItem = goo_canvas_group_new (boardRootItem, NULL);
 
   for (i=0; i<ENGINES+WAGONS; i++) {
     if (i<ENGINES)
@@ -338,15 +328,10 @@ static GooCanvasItem *railroad_create_item(GooCanvasItem *parent)
 
   }
   // hide them
-  g_object_set (GNOME_CANVAS_ITEM(allwagonsRootItem), "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
+  g_object_set (allwagonsRootItem, "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
 
   // construct the model to be recognized
-  modelRootItem = GOO_CANVAS_GROUP(
-				     goo_canvas_item_new (boardRootItem,
-							    goo_canvas_group_get_type (),
-							    "x", (double) 0,
-							    "y", (double) 0,
-							    NULL));
+  modelRootItem = goo_canvas_group_new (boardRootItem, NULL);
 
   yOffset = line[0];
   xOffset = 0;
@@ -437,7 +422,6 @@ static gint item_event(GooCanvasItem *item, GdkEvent *event, gpointer data) {
   GdkPixbuf * pixmap = NULL;
   int i, xOffset = 0;
   GooCanvasItem * local_item;
-  double dx1, dy1, dx2, dy2;
   item_number = GPOINTER_TO_INT(data);
 
   // we don't allow any input until train is gone
@@ -446,7 +430,8 @@ static gint item_event(GooCanvasItem *item, GdkEvent *event, gpointer data) {
 
   item_x = event->button.x;
   item_y = event->button.y;
-  goo_canvas_convert_to_item_space(item->parent, &item_x, &item_y);
+  goo_canvas_convert_to_item_space(goo_canvas_item_get_canvas(item),
+				   item, &item_x, &item_y);
 
   if(board_paused)
     return FALSE;
@@ -458,8 +443,9 @@ static gint item_event(GooCanvasItem *item, GdkEvent *event, gpointer data) {
       gc_sound_play_ogg ("sounds/bleep.wav", NULL);
       xOffset = 0;
       for (i=0; i<g_list_length(item_answer_list); i++) {
-	goo_canvas_item_get_bounds(g_list_nth_data(item_answer_list,i), &dx1, &dy1, &dx2, &dy2);
-	xOffset += dx2-dx1;
+	GooCanvasBounds bounds;
+	goo_canvas_item_get_bounds(g_list_nth_data(item_answer_list,i), &bounds);
+	xOffset += bounds.x2 - bounds.x1;
       }
       if (item_number < ENGINES)
 	pixmap = g_list_nth_data(listPixmapEngines, item_number);
@@ -495,7 +481,8 @@ static gint answer_event(GooCanvasItem *item, GdkEvent *event, gpointer data) {
 
   item_x = event->button.x;
   item_y = event->button.y;
-  goo_canvas_convert_to_item_space(item->parent, &item_x, &item_y);
+  goo_canvas_convert_to_item_space(goo_canvas_item_get_canvas(item),
+				   item, &item_x, &item_y);
 
   if(board_paused)
     return FALSE;
@@ -526,7 +513,6 @@ static gint answer_event(GooCanvasItem *item, GdkEvent *event, gpointer data) {
 }
 /* ==================================== */
 static void reposition_answer() {
-  double dx1, dy1, dx2, dy2;
   int i;
   int xOffset = 0;
   GooCanvasItem * item = NULL;
@@ -536,15 +522,15 @@ static void reposition_answer() {
 
   g_warning("+++ reposition_answer\n");
   for (i=0; i<g_list_length(item_answer_list); i++) {
+    GooCanvasBounds bounds;
     item = g_list_nth_data(item_answer_list,i);
-    goo_canvas_item_get_bounds(item, &dx1, &dy1, &dx2, &dy2);
-    goo_canvas_item_translate(item, xOffset-dx1, line[0]-dy2);
-    xOffset += dx2-dx1;
+    goo_canvas_item_get_bounds(item, &bounds);
+    goo_canvas_item_translate(item, xOffset-bounds.x1, line[0]-bounds.y2);
+    xOffset += bounds.x2 - bounds.x1;
   }
 }
 /* ==================================== */
 static void reposition_model() {
-  double dx1, dy1, dx2, dy2;
   int i;
   int xOffset = 0;
   GooCanvasItem * item = NULL;
@@ -553,12 +539,13 @@ static void reposition_model() {
     return;
 
   g_warning("+++ reposition_model\n");
-  goo_canvas_item_translate(GNOME_CANVAS_ITEM(modelRootItem), 0, 0);
+  goo_canvas_item_translate(modelRootItem, 0, 0);
   for (i=0; i<model_size; i++) {
+    GooCanvasBounds bounds;
     item = item_model[i];
-    goo_canvas_item_get_bounds(item, &dx1, &dy1, &dx2, &dy2);
-    goo_canvas_item_translate(item, xOffset-dx1, line[0]-dy2);
-    xOffset += dx2-dx1;
+    goo_canvas_item_get_bounds(item, &bounds);
+    goo_canvas_item_translate(item, xOffset-bounds.x1, line[0]-bounds.y2);
+    xOffset += bounds.x2 - bounds.x1;
   }
 }
 
@@ -587,21 +574,21 @@ static gboolean animate_step() {
       timer_id = 0;
     }
     animation_pending = FALSE;
-    g_object_set (GNOME_CANVAS_ITEM(modelRootItem), "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
+    g_object_set (modelRootItem, "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
     /* Move back the model to its 0 position */
-    g_object_set(GNOME_CANVAS_ITEM(modelRootItem),
+    g_object_set(modelRootItem,
 			  "x", 0.0,
 			  NULL);
 
-    g_object_set (GNOME_CANVAS_ITEM(allwagonsRootItem), "visibility", GOO_CANVAS_ITEM_VISIBLE, NULL);
-    g_object_set (GNOME_CANVAS_ITEM(answerRootItem), "visibility", GOO_CANVAS_ITEM_VISIBLE, NULL);
+    g_object_set (allwagonsRootItem, "visibility", GOO_CANVAS_ITEM_VISIBLE, NULL);
+    g_object_set (answerRootItem, "visibility", GOO_CANVAS_ITEM_VISIBLE, NULL);
     return FALSE;
   }
 
   step = (double) (animation_count-MODEL_PAUSE) / 50.0;
   step *= step;
 
-  goo_canvas_item_translate(GNOME_CANVAS_ITEM(modelRootItem), step, 0.0);
+  goo_canvas_item_translate(modelRootItem, step, 0.0);
 
   return TRUE;
 }
