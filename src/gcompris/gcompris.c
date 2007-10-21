@@ -571,7 +571,7 @@ static void
 init_background()
 {
   drawing_area = gtk_drawing_area_new ();
-  gtk_widget_set_size_request (drawing_area, BOARDWIDTH, BOARDHEIGHT);
+  gtk_widget_set_size_request (drawing_area, BOARDWIDTH, BOARDHEIGHT+BARHEIGHT);
   g_signal_connect (G_OBJECT (drawing_area), "expose_event",
 		    G_CALLBACK (_expose_background_callback), NULL);
   /* Create a vertical box in which I put first the play board area, then the button bar */
