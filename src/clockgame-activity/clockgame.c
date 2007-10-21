@@ -284,16 +284,17 @@ static void display_hour(guint hour)
   canvasPoints->coords[1]=cy;
   canvasPoints->coords[2]=cx + needle_size * sin(ang);
   canvasPoints->coords[3]=cy - needle_size * cos(ang);
+  double w = 4.0;
   g_object_set (hour_item,
-			 "points", canvasPoints,
-			 "fill-color", "darkblue",
-			 "line-width", (double)1,
-			 "width_pixels", (guint) 4,
-			 "last_arrowhead", TRUE,
-			 "arrow_shape_a", (double) needle_size,
-			 "arrow_shape_b", (double) needle_size-20,
-			 "arrow_shape_c", (double) 8.0,
-			 NULL);
+		"points", canvasPoints,
+		"fill-color", "darkblue",
+		"stroke-color", "red",
+		"line-width", w,
+		"end-arrow", TRUE,
+		"arrow-tip-length", needle_size/w,
+		"arrow-length", 4.0,
+		"arrow-width", 4.0,
+		NULL);
   goo_canvas_points_unref(canvasPoints);
 
   currentTime.hour=hour;
@@ -318,16 +319,17 @@ static void display_minute(guint minute)
   canvasPoints->coords[1]=cy;
   canvasPoints->coords[2]=cx + needle_size * sin(ang);
   canvasPoints->coords[3]=cy - needle_size * cos(ang);
+  double w = 4.0;
   g_object_set (minute_item,
-			 "points", canvasPoints,
-			 "fill-color", "red",
-			 "line-width", (double)1,
-			 "width_pixels", (guint) 4,
-			 "last_arrowhead", TRUE,
-			 "arrow_shape_a", (double) needle_size,
-			 "arrow_shape_b", (double) needle_size-10,
-			 "arrow_shape_c", (double) 3.0,
-			 NULL);
+		"points", canvasPoints,
+		"stroke-color", "red",
+		"fill-color", "red",
+		"line-width", w,
+		"end-arrow", TRUE,
+		"arrow-tip-length", needle_size/w,
+		"arrow-length", (double) 4.0,
+		"arrow-width", (double) 3.0,
+		NULL);
   goo_canvas_points_unref(canvasPoints);
 
   currentTime.minute=minute;
@@ -353,15 +355,11 @@ static void display_second(guint second)
   canvasPoints->coords[2]=cx + needle_size * sin(ang);
   canvasPoints->coords[3]=cy - needle_size * cos(ang);
   g_object_set (second_item,
-			 "points", canvasPoints,
-			 "fill_color_rgba", 0x68c46fFF,
-			 "line-width", (double)1,
-			 "width_pixels", (guint) 4,
-			 "last_arrowhead", TRUE,
-			 "arrow_shape_a", (double) 0,
-			 "arrow_shape_b", (double) 0,
-			 "arrow_shape_c", (double) 0,
-			 NULL);
+		"points", canvasPoints,
+		"stroke-color", "red",
+		"fill_color_rgba", 0x68c46fFF,
+		"line-width", 4.0,
+		NULL);
   goo_canvas_points_unref(canvasPoints);
 
   currentTime.second=second;
@@ -415,13 +413,14 @@ clockgame_create_item(GooCanvasItem *parent)
 
       canvasPoints->coords[2]=cx + needle_size * sin(ang);
       canvasPoints->coords[3]=cy - needle_size * cos(ang);
-      item = goo_canvas_item_new (boardRootItem,
-				    goo_canvas_line_get_type (),
-				    "points", canvasPoints,
-				    "fill-color", color,
-				    "line-width", (double)1,
-				    "width_pixels", (guint) 2,
-				    NULL);
+      item = goo_canvas_polyline_new (boardRootItem, FALSE, 2,
+				      canvasPoints->coords[0],
+				      canvasPoints->coords[1],
+				      canvasPoints->coords[2],
+				      canvasPoints->coords[3],
+				      "stroke-color", color,
+				      "line-width", (double)1,
+				      NULL);
 
       /* Display minute number */
       if(gcomprisBoard->level<5)
@@ -435,8 +434,7 @@ clockgame_create_item(GooCanvasItem *parent)
 				      GTK_ANCHOR_CENTER,
 				      "font", font,
 				      "fill-color", color_text,
-				      "justification", GTK_JUSTIFY_CENTER,
-					NULL);
+				      NULL);
 	  g_free(mtext);
 	}
 
@@ -453,8 +451,7 @@ clockgame_create_item(GooCanvasItem *parent)
 					GTK_ANCHOR_CENTER,
 					"font", font,
 					"fill-color", "blue",
-					"justification", GTK_JUSTIFY_CENTER,
-					  NULL);
+					NULL);
 	    g_free(mtext);
 	  }
     }
@@ -494,48 +491,29 @@ clockgame_create_item(GooCanvasItem *parent)
 
   /* Create the Hour needle */
 
-  canvasPoints->coords[0]=0;
-  canvasPoints->coords[1]=0;
-  canvasPoints->coords[2]=0;
-  canvasPoints->coords[3]=0;
-  hour_item = goo_canvas_item_new (boardRootItem,
-				     goo_canvas_line_get_type (),
-				     "points", canvasPoints,
-				     "fill-color", "darkblue",
-				     "line-width", (double)1,
-				     "width_pixels", (guint) 0,
-				     NULL);
-  g_signal_connect(GTK_OBJECT(hour_item), "enter_notify_event",
-		     (GtkSignalFunc) item_event,
-		     NULL);
+  hour_item = goo_canvas_polyline_new (boardRootItem, FALSE, 0,
+				       NULL);
+  g_signal_connect(hour_item, "button-press-event",
+		   (GtkSignalFunc) item_event,
+		   NULL);
   display_hour(currentTime.hour);
 
   /* Create the minute needle */
 
-  minute_item = goo_canvas_item_new (boardRootItem,
-				       goo_canvas_line_get_type (),
-				       "points", canvasPoints,
-				       "fill-color", "darkblue",
-				       "line-width", (double)1,
-				       "width_pixels", (guint) 0,
-				       NULL);
-  g_signal_connect(GTK_OBJECT(minute_item), "enter_notify_event",
-		     (GtkSignalFunc) item_event,
-		     NULL);
+  minute_item = goo_canvas_polyline_new (boardRootItem, FALSE, 0,
+					 NULL);
+  g_signal_connect(minute_item, "button-press-event",
+		   (GtkSignalFunc) item_event,
+		   NULL);
   display_minute(currentTime.minute);
 
   /* Create the second needle */
 
-  second_item = goo_canvas_item_new (boardRootItem,
-				       goo_canvas_line_get_type (),
-				       "points", canvasPoints,
-				       "fill-color", "darkblue",
-				       "line-width", (double)1,
-				       "width_pixels", (guint) 0,
-				       NULL);
-  g_signal_connect(GTK_OBJECT(second_item), "enter_notify_event",
-		     (GtkSignalFunc) item_event,
-		     NULL);
+  second_item = goo_canvas_polyline_new (boardRootItem, FALSE, 0,
+					 NULL);
+  g_signal_connect(second_item, "button-press-event",
+		   (GtkSignalFunc) item_event,
+		   NULL);
   display_second(currentTime.second);
 
   /* Create the text area for the time to find display */
@@ -654,7 +632,7 @@ item_event(GooCanvasItem *item, GdkEvent *event, gpointer data)
 
   item_x = event->button.x;
   item_y = event->button.y;
-  goo_canvas_convert_to_item_space(item->parent, &item_x, &item_y);
+  //goo_canvas_convert_to_item_space(item->parent, &item_x, &item_y);
 
   switch (event->type)
     {

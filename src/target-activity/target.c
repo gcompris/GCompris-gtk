@@ -65,7 +65,10 @@ static gint		key_press(guint keyval, gchar *commit_str, gchar *preedit_str);
 static GooCanvasItem *target_create_item(GooCanvasItem *parent);
 static void		target_destroy_all_items(void);
 static void		target_next_level(void);
-static gint		item_event(GooCanvasItem *item, GdkEvent *event, gpointer data);
+static gboolean		item_event (GooCanvasItem  *item,
+				    GooCanvasItem  *target,
+				    GdkEventButton *event,
+				    gpointer data);
 static void		animate_items(void);
 static void		launch_dart(double item_x, double item_y);
 
@@ -98,14 +101,14 @@ static TargetDefinition targetDefinition[] =
 };
 #define NUMBER_OF_TARGET 4
 
-#define TARGET_CENTER_X	235
-#define TARGET_CENTER_Y	260
+#define TARGET_CENTER_X	235.0
+#define TARGET_CENTER_Y	260.0
 
-#define SPEED_CENTER_X	660
-#define SPEED_CENTER_Y	125
+#define SPEED_CENTER_X	660.0
+#define SPEED_CENTER_Y	125.0
 
 static guint target_colors[] = {
-  0xAA0000FF, 0x00AA00FF, 0x0000AAFF, 0xAAAA00FF, 0x00AAAAFF, 0xAA00AAFF, 0xAA0000FF, 0x00AA00FF, 0x0000AAFF, 0xAA0000FF
+  0xAA0000AF, 0x00AA00AF, 0x0000AAAF, 0xAAAA00AF, 0x00AAAAAF, 0xAA00AAAF, 0xAA0000AF, 0x00AA00AF, 0x0000AAAF, 0xAA0000AF
 };
 
 static guint number_of_arrow = 0;
@@ -371,28 +374,27 @@ static void display_windspeed()
   canvasPoints->coords[1]=SPEED_CENTER_Y;
   canvasPoints->coords[2]=SPEED_CENTER_X + wind_speed * sin(ang) * needle_zoom;
   canvasPoints->coords[3]=SPEED_CENTER_Y - wind_speed * cos(ang) * needle_zoom;
-  goo_canvas_item_new (speedRootItem,
-			 goo_canvas_line_get_type (),
-			 "points", canvasPoints,
-			 "fill_color_rgba", 0x6df438FF,
-			 "line-width", (double)1,
-			 "width_pixels", (guint) 4,
-			 "last_arrowhead", TRUE,
-			 "arrow_shape_a", (double) wind_speed,
-			 "arrow_shape_b", (double) wind_speed-15,
-			 "arrow_shape_c", (double) 5.0,
-			 NULL);
+  double w = 4.0;
+  goo_canvas_polyline_new (speedRootItem, FALSE, 0,
+			   "points", canvasPoints,
+			   "stroke-color-rgba", 0x6df438C0,
+			   "fill-color", "green",
+			   "line-width", w,
+			   "end-arrow", TRUE,
+			   "arrow-tip-length", 7.0,
+			   "arrow-length", 5.0,
+			   "arrow-width", 4.0,
+			   NULL);
 
   goo_canvas_points_unref(canvasPoints);
 
   /* Draw the center of the speedometer */
-  goo_canvas_item_new (speedRootItem,
-			 goo_canvas_ellipse_get_type(),
-			 "x1", (double)SPEED_CENTER_X-5,
-			 "y1", (double)SPEED_CENTER_Y-5,
-			 "x2", (double)SPEED_CENTER_X+5,
-			 "y2", (double)SPEED_CENTER_Y+5,
-			 "fill_color_rgba", 0x6df438FF,
+  goo_canvas_ellipse_new (speedRootItem,
+			 SPEED_CENTER_X,
+			 SPEED_CENTER_Y,
+			 10.0,
+			 10.0,
+			 "fill_color_rgba", 0x6df438C0,
 			 "stroke-color", "red",
 			 "line-width", (double)1,
 			 NULL);
@@ -420,29 +422,28 @@ static GooCanvasItem *target_create_item(GooCanvasItem *parent)
   gchar *tmpstr;
   GooCanvasItem *item = NULL;
 
-  boardRootItem = GOO_CANVAS_GROUP(
-				     goo_canvas_item_new (parent,
-							    goo_canvas_group_get_type (),
-							    "x", (double) TARGET_CENTER_X,
-							    "y", (double) TARGET_CENTER_Y,
-							    NULL));
+  boardRootItem = goo_canvas_group_new (parent, NULL);
+  goo_canvas_item_translate(boardRootItem,
+			    TARGET_CENTER_X,
+			    TARGET_CENTER_Y);
+
   for(i=0; i<MAX_NUMBER_OF_TARGET; i++)
     {
       if(targetDefinition[gcomprisBoard->level-1].target_width_value[i*2]>0)
 	{
-	  item = goo_canvas_item_new (boardRootItem,
-					goo_canvas_ellipse_get_type(),
-					"x1", (double)-targetDefinition[gcomprisBoard->level-1].target_width_value[i*2],
-					"y1", (double)-targetDefinition[gcomprisBoard->level-1].target_width_value[i*2],
-					"x2", (double)targetDefinition[gcomprisBoard->level-1].target_width_value[i*2],
-					"y2", (double)targetDefinition[gcomprisBoard->level-1].target_width_value[i*2],
-					"fill_color_rgba", target_colors[i],
-					"stroke-color", "black",
-					"line-width", (double)1,
-					NULL);
+	  item = \
+	    goo_canvas_ellipse_new (boardRootItem,
+				    0.0,
+				    0.0,
+				    (double)targetDefinition[gcomprisBoard->level-1].target_width_value[i*2],
+				    (double)targetDefinition[gcomprisBoard->level-1].target_width_value[i*2],
+				    "fill_color_rgba", target_colors[i],
+				    "stroke-color", "black",
+				    "line-width", 1.0,
+				    NULL);
 
-	  goo_canvas_item_lower_to_bottom(item);
-	  g_signal_connect(GTK_OBJECT(item), "enter_notify_event", (GtkSignalFunc) item_event, NULL);
+	  goo_canvas_item_lower(item, NULL);
+	  g_signal_connect(item, "button-press-event", (GtkSignalFunc) item_event, NULL);
 
 	  /* Display the value for this target */
 	  tmpstr = g_strdup_printf("%d",
@@ -458,7 +459,7 @@ static GooCanvasItem *target_create_item(GooCanvasItem *parent)
 				      NULL);
 	  g_free(tmpstr);
 
-	  g_signal_connect(GTK_OBJECT(item), "enter_notify_event", (GtkSignalFunc) item_event, NULL);
+	  g_signal_connect(item, "button-press-event", (GtkSignalFunc) item_event, NULL);
 	}
     }
 
@@ -591,11 +592,11 @@ static void animate_items()
   animate_item_y = animate_item_y - wind_speed * cos(ang);
 
   g_object_set (animate_item,
-			 "x1", (double)animate_item_x - animate_item_size,
-			 "y1", (double)animate_item_y - animate_item_size,
-			 "x2", (double)animate_item_x + animate_item_size,
-			 "y2", (double)animate_item_y + animate_item_size,
-			 NULL);
+		"center-x", (double)animate_item_x,
+		"center-y", (double)animate_item_y,
+		"radius-x", (double)animate_item_size,
+		"radius-y", (double)animate_item_size,
+		NULL);
 
   if(animate_item_size>MIN_DART_SIZE)
     animate_item_size--;
@@ -630,12 +631,11 @@ static void launch_dart(double item_x, double item_y)
 
   gc_sound_play_ogg ("sounds/line_end.wav", NULL);
 
-  animate_item = goo_canvas_item_new (boardRootItem,
-					goo_canvas_ellipse_get_type(),
-					"x1", (double)item_x-MAX_DART_SIZE,
-					"y1", (double)item_y-MAX_DART_SIZE,
-					"x2", (double)item_x+MAX_DART_SIZE,
-					"y2", (double)item_y+MAX_DART_SIZE,
+  animate_item = goo_canvas_ellipse_new (boardRootItem,
+					(double)item_x,
+					(double)item_y,
+					(double)MAX_DART_SIZE,
+					(double)MAX_DART_SIZE,
 					"fill_color_rgba", 0xFF80FFFF,
 					"stroke-color", "white",
 					"line-width", (double)1,
@@ -651,8 +651,11 @@ static void launch_dart(double item_x, double item_y)
 }
 
 /* ==================================== */
-static gint
-item_event(GooCanvasItem *item, GdkEvent *event, gpointer data)
+static gboolean
+item_event (GooCanvasItem  *item,
+	    GooCanvasItem  *target,
+	    GdkEventButton *event,
+	    gpointer data)
 {
   double item_x, item_y;
 
@@ -663,26 +666,21 @@ item_event(GooCanvasItem *item, GdkEvent *event, gpointer data)
   if(number_of_arrow == 0 || animate_item)
     return FALSE;
 
-  switch (event->type)
+  switch(event->button)
     {
-    case GDK_BUTTON_PRESS:
-      switch(event->button.button)
-	{
-	case 1:
-	case 2:
-	case 3:
-	  item_x = event->button.x;
-	  item_y = event->button.y;
-	  goo_canvas_convert_to_item_space(item->parent, &item_x, &item_y);
-
-	  launch_dart(item_x, item_y);
-
-	  break;
-	default:
-	  break;
-	}
+    case 1:
+    case 2:
+    case 3:
+      item_x = event->x;
+      item_y = event->y;
+      //goo_canvas_convert_to_item_space(item->parent, &item_x, &item_y);
+      
+      launch_dart(item_x, item_y);
+      
+      break;
     default:
       break;
     }
+
   return FALSE;
 }
