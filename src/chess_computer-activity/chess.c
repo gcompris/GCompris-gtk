@@ -383,7 +383,7 @@ static void chess_destroy_all_items()
   info_item     = NULL;
 
   if(position!=NULL)
-    goo_canvas_item_remove(position);
+    gtk_object_destroy (GTK_OBJECT (position));
 
   position = NULL;
 
@@ -414,13 +414,8 @@ chess_create_item(GooCanvasItem *parent)
   guint empty_case = 0;
   gboolean need_slash = TRUE;
 
-  boardRootItem = GOO_CANVAS_GROUP(
-				     goo_canvas_item_new (goo_canvas_get_root_item(gcomprisBoard->canvas),
-							    goo_canvas_group_get_type (),
-							    "x", (double) 0,
-							    "y", (double) 0,
-
-							    NULL));
+  boardRootItem = goo_canvas_group_new (goo_canvas_get_root_item(gcomprisBoard->canvas),
+					NULL);
 
   for (rank = 1; rank <= 8; rank++) {
     for (square = A1 + ((rank - 1) * 10);
@@ -433,16 +428,15 @@ chess_create_item(GooCanvasItem *parent)
 
       color=((x+y)%2?BLACK_COLOR:WHITE_COLOR);
 
-      item  = goo_canvas_item_new (boardRootItem,
-				     goo_canvas_rect_get_type (),
-				     "x1", (double) CHESSGC_BOARD_X + (x * SQUARE_WIDTH),
-				     "y1", (double) CHESSGC_BOARD_Y + ((7-y) * SQUARE_HEIGHT),
-				     "x2", (double) CHESSGC_BOARD_X + (x * SQUARE_WIDTH) + SQUARE_WIDTH -1,
-				     "y2", (double)  CHESSGC_BOARD_Y + ((7-y) * SQUARE_HEIGHT) + SQUARE_HEIGHT -1,
-				     "fill_color_rgba", color,
-				     "stroke-color", "black",
-				     "line-width", (double)2,
-				     NULL);
+      item  = goo_canvas_rect_new (boardRootItem,
+				   CHESSGC_BOARD_X + (x * SQUARE_WIDTH),
+				   CHESSGC_BOARD_Y + ((7-y) * SQUARE_HEIGHT),
+				   SQUARE_WIDTH -1,
+				   SQUARE_HEIGHT -1,
+				   "fill_color_rgba", color,
+				   "stroke-color", "black",
+				   "line-width", (double)2,
+				   NULL);
       chessboard[square]->square_item = item;
     }
   }
@@ -619,7 +613,7 @@ static void move_piece_to(Square from, Square to)
   GooCanvasItem *item;
   guint x, y;
   double ofset_x, ofset_y;
-  double x1, y1, x2, y2;
+  GooCanvasBounds bounds;
   Piece piece = NONE;
 
 
@@ -682,14 +676,11 @@ static void move_piece_to(Square from, Square to)
 
   /* Find the ofset to move the piece */
   goo_canvas_item_get_bounds  (item,
-				 &x1,
-				 &y1,
-				 &x2,
-				 &y2);
+			       &bounds);
 
 
-  ofset_x = (CHESSGC_BOARD_X + SQUARE_WIDTH  * (x-1)) - x1 + (SQUARE_WIDTH  - (x2-x1))/2;
-  ofset_y = (CHESSGC_BOARD_Y + SQUARE_HEIGHT * (8-y)) - y1 + (SQUARE_HEIGHT - (y2-y1))/2;
+  ofset_x = (CHESSGC_BOARD_X + SQUARE_WIDTH  * (x-1)) - bounds.x1 + (SQUARE_WIDTH  - (bounds.x2-bounds.x1))/2;
+  ofset_y = (CHESSGC_BOARD_Y + SQUARE_HEIGHT * (8-y)) - bounds.y1 + (SQUARE_HEIGHT - (bounds.y2-bounds.y1))/2;
 
   goo_canvas_item_translate(item, ofset_x, ofset_y);
 
@@ -822,8 +813,8 @@ item_event(GooCanvasItem *item, GdkEvent *event, gpointer data)
 
   item_x = event->button.x;
   item_y = event->button.y;
-  goo_canvas_convert_to_item_space(item->parent, &item_x, &item_y);
-
+  //goo_canvas_convert_to_item_space(item->parent, &item_x, &item_y);
+  
   switch (event->type)
     {
     case GDK_BUTTON_PRESS:
@@ -840,7 +831,7 @@ item_event(GooCanvasItem *item, GdkEvent *event, gpointer data)
 	y = item_y;
 
 	fleur = gdk_cursor_new(GDK_FLEUR);
-	goo_canvas_item_raise_to_top(item);
+	goo_canvas_item_raise(item, NULL);
 	gc_canvas_item_grab(item,
 			       GDK_POINTER_MOTION_MASK |
 			       GDK_BUTTON_RELEASE_MASK,
@@ -869,7 +860,7 @@ item_event(GooCanvasItem *item, GdkEvent *event, gpointer data)
 	 {
 	   guint x, y;
 	   double ofset_x, ofset_y;
-	   double x1, y1, x2, y2;
+	   GooCanvasBounds bounds;
 	   char pos[6];
 	   Square to;
 
@@ -896,16 +887,13 @@ item_event(GooCanvasItem *item, GdkEvent *event, gpointer data)
 
 	       /* Find the ofset to move the piece back to where it was*/
 	       goo_canvas_item_get_bounds  (item,
-					      &x1,
-					      &y1,
-					      &x2,
-					      &y2);
+					    &bounds);
 
 	       x = gsquare->square % 10;
 	       y = gsquare->square / 10 -1;
 
-	       ofset_x = (CHESSGC_BOARD_X + SQUARE_WIDTH  * (x-1)) - x1 + (SQUARE_WIDTH  - (x2-x1))/2;
-	       ofset_y = (CHESSGC_BOARD_Y + SQUARE_HEIGHT * (8-y)) - y1 + (SQUARE_HEIGHT - (y2-y1))/2;
+	       ofset_x = (CHESSGC_BOARD_X + SQUARE_WIDTH  * (x-1)) - bounds.x1 + (SQUARE_WIDTH  - (bounds.x2-bounds.x1))/2;
+	       ofset_y = (CHESSGC_BOARD_Y + SQUARE_HEIGHT * (8-y)) - bounds.y1 + (SQUARE_HEIGHT - (bounds.y2-bounds.y1))/2;
 	       g_warning("ofset = x=%f y=%f\n", ofset_x, ofset_y);
 
 	       goo_canvas_item_translate(item, ofset_x, ofset_y);

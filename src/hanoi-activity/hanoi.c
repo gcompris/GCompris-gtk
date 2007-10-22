@@ -440,44 +440,41 @@ static GooCanvasItem *hanoi_create_item(GooCanvasItem *parent)
       if(i==number_of_item_x+1)
 	{
 	  /* Create the backgound for the target */
-	  goo_canvas_item_new (boardRootItem,
-				 goo_canvas_rect_get_type (),
-				 "x1", (double) item_width * i + gap_x/2,
-				 "y1", (double) baseline - item_height * number_of_item_y - gap_y - 50,
-				 "x2", (double) item_width * (i+1) - gap_x/2,
-				 "y2", (double) baseline + 50,
-				 "fill_color_rgba", 0x036ED8FF,
-				 "stroke-color", "black",
-				 "line-width", (double)1,
-				 NULL);
+	  goo_canvas_rect_new (boardRootItem,
+			       item_width * i + gap_x/2,
+			       baseline - item_height * number_of_item_y - gap_y - 50,
+			       item_width - gap_x/2,
+			       item_height,
+			       "fill_color_rgba", 0x036ED8FF,
+			       "stroke-color", "black",
+			       "line-width", (double)1,
+			       NULL);
 	}
       else if (i==number_of_item_x)
 	{
 	  /* Create the backgound for the empty area */
-	  goo_canvas_item_new (boardRootItem,
-				 goo_canvas_rect_get_type (),
-				 "x1", (double) item_width * i + gap_x/2,
-				 "y1", (double) baseline - item_height * number_of_item_y - gap_y - 50,
-				 "x2", (double) item_width * (i+1) - gap_x/2,
-				 "y2", (double) baseline + 50,
-				 "fill_color_rgba", 0x48AAF1FF,
-				 "stroke-color", "black",
-				 "line-width", (double)1,
-				 NULL);
+	  goo_canvas_rect_new (boardRootItem,
+			       item_width * i + gap_x/2,
+			       baseline - item_height * number_of_item_y - gap_y - 50,
+			       item_width,
+			       item_height,
+			       "fill_color_rgba", 0x48AAF1FF,
+			       "stroke-color", "black",
+			       "line-width", (double)1,
+			       NULL);
 	}
 
       /* Create the vertical line */
       w = 10;
-      goo_canvas_item_new (boardRootItem,
-			     goo_canvas_rect_get_type (),
-			     "x1", (double) item_width * i + item_width/2 - w,
-			     "y1", (double) baseline - item_height * number_of_item_y - gap_y,
-			     "x2", (double) item_width * i + item_width/2 + w,
-			     "y2", (double) baseline,
-			     "fill_color_rgba", 0xFF1030FF,
-			     "stroke-color", "black",
-			     "line-width", (double)1,
-			     NULL);
+      goo_canvas_rect_new (boardRootItem,
+			   item_width * i + item_width/2 - w,
+			   baseline - item_height * number_of_item_y - gap_y,
+			   item_width,
+			   item_height,
+			   "fill_color_rgba", 0xFF1030FF,
+			   "stroke-color", "black",
+			   "line-width", (double)1,
+			   NULL);
 
       /* And the base line */
       w = 40;
@@ -513,23 +510,23 @@ static GooCanvasItem *hanoi_create_item(GooCanvasItem *parent)
 	    {
 	      char car[2];
 
-	      item = goo_canvas_item_new (boardRootItem,
-					    goo_canvas_rect_get_type (),
-					    "x1", (double) position[i][j]->x,
-					    "y1", (double) position[i][j]->y,
-					    "x2", (double) item_width * i + item_width - gap_x,
-					    "y2", (double) baseline - item_height * j,
-					    "fill_color_rgba", colorlist[position[i][j]->color],
-					    "stroke-color", "black",
-					    "line-width", (double)1,
-					    NULL);
+	      item = goo_canvas_rect_new (boardRootItem,
+					  position[i][j]->x,
+					  position[i][j]->y,
+					  item_width,
+					  item_height,
+					  "fill_color_rgba", colorlist[position[i][j]->color],
+					  "stroke-color", "black",
+					  "line-width", (double)1,
+					  NULL);
 
 	      car[0] = 'a' + position[i][j]->color;
 	      car[1] = '\0';
+	      char *carp = &car;
 
 	       position[i][j]->item_text = \
 		 goo_canvas_text_new (boardRootItem,
-				      &car,
+				      carp,
 				      (double) position[i][j]->xt,
 				      (double) position[i][j]->yt,
 				      -1,
@@ -537,7 +534,7 @@ static GooCanvasItem *hanoi_create_item(GooCanvasItem *parent)
 				      "font", gc_skin_font_board_tiny,
 				      "fill-color", "white",
 				      "justification", GTK_JUSTIFY_CENTER,
-					NULL);
+				      NULL);
 
 	      position[i][j]->item = item;
 
@@ -607,7 +604,7 @@ item_event(GooCanvasItem *item, GdkEvent *event, PieceItem *data)
 
   item_x = event->button.x;
   item_y = event->button.y;
-  goo_canvas_convert_to_item_space(item->parent, &item_x, &item_y);
+  //goo_canvas_convert_to_item_space(item->parent, &item_x, &item_y);
 
   switch (event->type)
     {
@@ -632,8 +629,8 @@ item_event(GooCanvasItem *item, GdkEvent *event, PieceItem *data)
 	  x = item_x;
 	  y = item_y;
 
-	  goo_canvas_item_raise_to_top(data->item);
-	  goo_canvas_item_raise_to_top(data->item_text);
+	  goo_canvas_item_raise(data->item, NULL);
+	  goo_canvas_item_raise(data->item_text, NULL);
 
 	  fleur = gdk_cursor_new(GDK_FLEUR);
 	  gc_canvas_item_grab(data->item,
@@ -689,9 +686,6 @@ item_event(GooCanvasItem *item, GdkEvent *event, PieceItem *data)
 	      gc_item_absolute_move (data->item     , data->x , data->y);
 	      gc_item_absolute_move (data->item_text, data->xt, data->yt);
 
-	      /* FIXME : Workaround for bugged canvas */
-	      goo_canvas_update_now(gcomprisBoard->canvas);
-
 	      return FALSE;
 	    }
 
@@ -710,9 +704,6 @@ item_event(GooCanvasItem *item, GdkEvent *event, PieceItem *data)
 	      /* Return to the original position */
 	      gc_item_absolute_move (data->item     , data->x , data->y);
 	      gc_item_absolute_move (data->item_text, data->xt, data->yt);
-
-	      /* FIXME : Workaround for bugged canvas */
-	      goo_canvas_update_now(gcomprisBoard->canvas);
 
 	      return FALSE;
 	    }

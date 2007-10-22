@@ -374,7 +374,12 @@ static GooCanvasItem *magic_hat_create_item()
 
 	for (j = 0 ; j < frame2.nb_stars[i] ; j++) frame2.array_star_type[i][j] = i;
 	for ( ; j < MAX_ITEM ; j++) frame2.array_star_type[i][j] = -1;
-	for (j = 0 ; j < MAX_ITEM ; j++) frame2.array_item[i][j] = goo_canvas_item_new (boardRootItem, goo_canvas_pixbuf_get_type(), NULL);
+	for (j = 0 ; j < MAX_ITEM ; j++)
+	  frame2.array_item[i][j] = goo_canvas_image_new (boardRootItem,
+							  NULL,
+							  0,
+							  0,
+							  NULL);
 
 	// Player frame
 	frame_player.nb_stars[i] = 0;
@@ -448,12 +453,11 @@ static void draw_frame(frame *my_frame) {
 		track->coords[8] = x + (j * (ITEM_SIZE + SPACE_BETWEEN_ITEMS));
 		track->coords[9] = y + (i * (ITEM_SIZE + SPACE_BETWEEN_ITEMS));
 
-		item_frame = goo_canvas_item_new (boardRootItem,
-			goo_canvas_line_get_type (),
-			"points", track,
-			"width_pixels", 1,
-			"fill-color", "#948d85",
-			NULL);
+		item_frame = goo_canvas_polyline_new (boardRootItem, FALSE, 0,
+						      "points", track,
+						      "width_pixels", 1,
+						      "fill-color", "#948d85",
+						      NULL);
 	}
   }
   goo_canvas_points_unref(track);
@@ -475,13 +479,12 @@ static void draw_table() {
   track->coords[2] = MH_HAT_X + MH_HAT_WIDTH;
   track->coords[3] = MH_HAT_Y + MH_HAT_HEIGHT + 5;
 
-  item_frame = goo_canvas_item_new (boardRootItem,
-		goo_canvas_line_get_type (),
-		"points", track,
-		"width_pixels", 1,
-		"fill-color", "black",
-		NULL);
-
+  item_frame = goo_canvas_polyline_new (boardRootItem, FALSE, 0,
+					"points", track,
+					"width_pixels", 1,
+					"fill-color", "black",
+					NULL);
+  
   goo_canvas_points_unref(track);
 }
 
@@ -504,8 +507,8 @@ static void draw_hat(int type) {
   gdk_pixbuf_unref(image);
 
   if (type == STARS) {
-	 hat_event_id = g_signal_connect(GTK_OBJECT(hat), "enter_notify_event", (GtkSignalFunc) hat_event, NULL);
-	 g_signal_connect(GTK_OBJECT(hat), "enter_notify_event", (GtkSignalFunc) gc_item_focus_event, NULL);
+	 hat_event_id = g_signal_connect(hat, "enter_notify_event", (GtkSignalFunc) hat_event, NULL);
+	 g_signal_connect(hat, "enter_notify_event", (GtkSignalFunc) gc_item_focus_event, NULL);
   }
 }
 
@@ -570,7 +573,7 @@ static void place_item(frame * my_frame, int type) {
 		}
 
 		if (type == DYNAMIC)
-			g_signal_connect(GTK_OBJECT(item), "enter_notify_event",
+			g_signal_connect(item, "enter_notify_event",
 					   (GtkSignalFunc) item_event,
 					   GINT_TO_POINTER(MAX_ITEM * i + j));
 
@@ -648,7 +651,7 @@ static gint hat_event(GooCanvasItem *item, GdkEvent *event, gpointer data) {
 	if ((event->type == GDK_BUTTON_PRESS) && (event->button.button == 1)) {
 
 		// disconnect hat and hat_event, so that hat can not be clicked any more
-		gtk_signal_disconnect(GTK_OBJECT(hat), hat_event_id);
+		gtk_signal_disconnect(hat, hat_event_id);
 
 		// 'open' the hat
 		gc_item_rotate_with_center(hat, -20.0, 0, MH_HAT_HEIGHT);
@@ -715,7 +718,7 @@ static gint move_stars(frame *my_frame) {
 static gint close_hat() {
 
   // erase the hat with stars
-  gtk_object_destroy(GTK_OBJECT(hat));
+  goo_canvas_item_remove(hat);
 
   // draw a hat with an interrogation point
   draw_hat(POINT);

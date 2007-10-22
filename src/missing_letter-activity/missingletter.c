@@ -254,7 +254,7 @@ static GooCanvasItem *missing_letter_create_item(GooCanvasItem *parent)
 {
   char *buf[3];
   int xOffset,yOffset,place;
-  double dx1, dy1, dx2, dy2;
+  GooCanvasBounds bounds;
   GdkPixbuf *button_pixmap = NULL;
   GdkPixbuf *pixmap = NULL;
 
@@ -306,8 +306,8 @@ static GooCanvasItem *missing_letter_create_item(GooCanvasItem *parent)
 			      "fill_color_rgba", gc_skin_get_color("missingletter/question"),
 			      NULL);
 
-  goo_canvas_item_get_bounds(text, &dx1, &dy1, &dx2, &dy2);
-  yOffset += VERTICAL_SEPARATION + dy2-dy1;
+  goo_canvas_item_get_bounds(text, &bounds);
+  yOffset += VERTICAL_SEPARATION + bounds.y2 - bounds.y1;
 
   image_item = goo_canvas_image_new (boardRootItem,
 				     pixmap,
@@ -364,16 +364,15 @@ static GooCanvasItem *missing_letter_create_item(GooCanvasItem *parent)
 				 NULL);
 
   yOffset += HORIZONTAL_SEPARATION + gdk_pixbuf_get_height(button_pixmap);
-  button2 = goo_canvas_text_new (boardRootItem,
-				   goo_canvas_pixbuf_get_type (),
-				   "pixbuf",  button_pixmap,
-				   "x",  (double) xOffset,
-				   "y",  (double) yOffset,
+  button2 = goo_canvas_image_new (boardRootItem,
+				   button_pixmap,
+				   xOffset,
+				   yOffset,
 				   NULL);
-  goo_canvas_item_new (boardRootItem,
+  goo_canvas_text_new (boardRootItem,
 		       buf[1],
-		       (double) xOffset + gdk_pixbuf_get_width(button_pixmap)/2 + 1.0,
-		       (double) yOffset + gdk_pixbuf_get_height(button_pixmap)/2 + 1.0,
+		       xOffset + gdk_pixbuf_get_width(button_pixmap)/2 + 1.0,
+		       yOffset + gdk_pixbuf_get_height(button_pixmap)/2 + 1.0,
 		       -1,
 		       GTK_ANCHOR_CENTER,
 		       "font", gc_skin_font_board_huge_bold,
@@ -391,13 +390,12 @@ static GooCanvasItem *missing_letter_create_item(GooCanvasItem *parent)
 
   yOffset += HORIZONTAL_SEPARATION + gdk_pixbuf_get_height(button_pixmap);
 
-  button3 = goo_canvas_text_new (boardRootItem,
-				   goo_canvas_pixbuf_get_type (),
-				   "pixbuf",  button_pixmap,
-				   "x",  (double) xOffset,
-				   "y",  (double) yOffset,
-				   NULL);
-  goo_canvas_item_new (boardRootItem,
+  button3 = goo_canvas_image_new (boardRootItem,
+				  button_pixmap,
+				  xOffset,
+				  yOffset,
+				  NULL);
+  goo_canvas_text_new (boardRootItem,
 		       buf[2],
 		       (double) xOffset + gdk_pixbuf_get_width(button_pixmap)/2 + 1.0,
 		       (double) yOffset + gdk_pixbuf_get_height(button_pixmap)/2 + 1.0,
@@ -467,7 +465,7 @@ item_event(GooCanvasItem *item, GdkEvent *event, gpointer data)
   GooCanvasItem * temp = NULL;
   item_x = event->button.x;
   item_y = event->button.y;
-  goo_canvas_convert_to_item_space(item->parent, &item_x, &item_y);
+  //goo_canvas_convert_to_item_space(item->parent, &item_x, &item_y);
 
   if(board_paused)
     return FALSE;

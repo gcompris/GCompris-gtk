@@ -43,7 +43,10 @@ static void		 fifteen_destroy_all_items(void);
 static void		 fifteen_next_level(void);
 
 static void		 free_stuff (GtkObject *obj, gpointer data);
-static gint		 piece_event (GooCanvasItem *item, GdkEvent *event, gpointer data);
+static gboolean		 piece_event (GooCanvasItem  *item,
+				      GooCanvasItem  *target,
+				      GdkEventButton *event,
+				      gpointer data);
 static void		 scramble (GooCanvasItem **board, guint number_of_scrambles);
 static char		*get_piece_color (int piece);
 
@@ -237,7 +240,6 @@ static GooCanvasItem *fifteen_create_item(GooCanvasItem *parent)
 			 PIECE_SIZE,
 			 "fill-color", get_piece_color (i),
 			 "stroke-color", "black",
-			 "width_pixels", 0,
 			 NULL);
 
     sprintf (buf, "%d", i + 1);
@@ -255,7 +257,7 @@ static GooCanvasItem *fifteen_create_item(GooCanvasItem *parent)
     g_object_set_data (G_OBJECT (board[i]), "piece_num", GINT_TO_POINTER (i));
     g_object_set_data (G_OBJECT (board[i]), "piece_pos", GINT_TO_POINTER (i));
     g_object_set_data (G_OBJECT (board[i]), "text", text);
-    g_signal_connect (board[i], "enter_notify_event",
+    g_signal_connect (board[i], "button-press-event",
 		      G_CALLBACK (piece_event),
 		      NULL);
   }
@@ -347,8 +349,11 @@ get_piece_color (int piece)
   return buf;
 }
 
-static gint
-piece_event (GooCanvasItem *item, GdkEvent *event, gpointer data)
+static gboolean
+piece_event (GooCanvasItem  *item,
+	     GooCanvasItem  *target,
+	     GdkEventButton *event,
+	     gpointer data)
 {
   GooCanvasItem **board;
   GooCanvasItem *text;
@@ -357,7 +362,7 @@ piece_event (GooCanvasItem *item, GdkEvent *event, gpointer data)
   double dx = 0.0, dy = 0.0;
   int move;
 
-  board = g_object_get_data (G_OBJECT (item->parent), "board");
+  board = g_object_get_data (G_OBJECT (goo_canvas_item_get_parent(item)), "board");
   num = GPOINTER_TO_INT (g_object_get_data (G_OBJECT (item), "piece_num"));
   pos = GPOINTER_TO_INT (g_object_get_data (G_OBJECT (item), "piece_pos"));
   text = g_object_get_data (G_OBJECT (item), "text");
@@ -365,14 +370,14 @@ piece_event (GooCanvasItem *item, GdkEvent *event, gpointer data)
   switch (event->type) {
   case GDK_ENTER_NOTIFY:
     g_object_set (text,
-			   "fill-color", "white",
-			   NULL);
+		  "fill-color", "white",
+		  NULL);
     break;
 
   case GDK_LEAVE_NOTIFY:
     g_object_set (text,
-			   "fill-color", "black",
-			   NULL);
+		  "fill-color", "black",
+		  NULL);
     break;
 
   case GDK_BUTTON_PRESS:

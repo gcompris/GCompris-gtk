@@ -41,12 +41,18 @@ static GooCanvasItem *boardRootItem = NULL;
 static GooCanvasItem	*enumerate_create_item(GooCanvasItem *parent);
 static void		 enumerate_destroy_all_items(void);
 static void		 enumerate_next_level(void);
-static gint		 item_event(GooCanvasItem *item, GdkEvent *event, gpointer data);
-static gint		 item_event_focus(GooCanvasItem *item, GdkEvent *event, guint index);
+static gboolean		 item_event (GooCanvasItem  *item,
+				     GooCanvasItem  *target,
+				     GdkEventButton *event,
+				     gpointer data);
+static gboolean		item_event_focus (GooCanvasItem  *item,
+					  GooCanvasItem  *target,
+					  GdkEventButton *event,
+					  guint index);
 
 #define ANSWER_X	BOARDWIDTH - 150
-#define ANSWER_WIDTH	40
-#define ANSWER_HEIGHT	40
+#define ANSWER_WIDTH	40.0
+#define ANSWER_HEIGHT	40.0
 
 static int number_of_item_type	= 0;
 static int number_of_item_max	= 0;
@@ -214,7 +220,7 @@ static gint key_press(guint keyval, gchar *commit_str, gchar *preedit_str)
       gchar *oldtext;
       gchar *newtext;
 
-      gtk_object_get (GTK_OBJECT (item), "text", &oldtext, NULL);
+      g_object_get (item, "text", &oldtext, NULL);
 
       switch(keyval)
 	{
@@ -388,10 +394,8 @@ static GooCanvasItem *enumerate_create_item(GooCanvasItem *parent)
 				       y,
 				       NULL);
 
-	  g_signal_connect(GTK_OBJECT(item), "enter_notify_event", (GtkSignalFunc) item_event, NULL);
+	  g_signal_connect(item, "button-press-event", (GtkSignalFunc) item_event, NULL);
 	}
-
-      gdk_pixbuf_unref(pixmap);
 
       /* Display the answer area */
       current_y -= ANSWER_HEIGHT*2;
@@ -405,7 +409,7 @@ static GooCanvasItem *enumerate_create_item(GooCanvasItem *parent)
 			      current_y - ANSWER_HEIGHT/2,
 			      NULL);
 
-      g_signal_connect(GTK_OBJECT(item), "enter_notify_event", (GtkSignalFunc) item_event_focus, GINT_TO_POINTER(i));
+      g_signal_connect(item, "button-press-event", (GtkSignalFunc) item_event_focus, GINT_TO_POINTER(i));
 
       gdk_pixbuf_unref(pixmap_answer);
 
@@ -423,16 +427,22 @@ static GooCanvasItem *enumerate_create_item(GooCanvasItem *parent)
 
       item = goo_canvas_image_new (boardRootItem,
 				   pixmap,
-				   ANSWER_X,
-				   current_y,
-				   "width", (double) gdk_pixbuf_get_width(pixmap)*ANSWER_HEIGHT/gdk_pixbuf_get_height(pixmap),
-				   "height", (double) ANSWER_HEIGHT,
-				    NULL);
+				   0, 0,
+				   NULL);
+
+      double scale = ANSWER_HEIGHT/gdk_pixbuf_get_height(pixmap);
+      goo_canvas_item_set_simple_transform(item,
+					   ANSWER_X,
+					   current_y - 5,
+					   scale, 0.0);
+
+      gdk_pixbuf_unref(pixmap);
 
 
-      g_signal_connect(GTK_OBJECT(item), "enter_notify_event", (GtkSignalFunc) item_event_focus,  GINT_TO_POINTER(i));
 
-      g_signal_connect(GTK_OBJECT(item), "enter_notify_event",
+      g_signal_connect(item, "button-press-event", (GtkSignalFunc) item_event_focus,  GINT_TO_POINTER(i));
+
+      g_signal_connect(item, "enter_notify_event",
 			 (GtkSignalFunc) gc_item_focus_event,
 			 NULL);
 
@@ -446,7 +456,7 @@ static GooCanvasItem *enumerate_create_item(GooCanvasItem *parent)
 			     "font", gc_skin_font_board_big,
 			     "fill-color", "blue",
 			     NULL);
-      g_signal_connect(GTK_OBJECT(answer_item[i]), "enter_notify_event", (GtkSignalFunc) item_event_focus,
+      g_signal_connect(answer_item[i], "button-press-event", (GtkSignalFunc) item_event_focus,
 			 GINT_TO_POINTER(i));
 
     }
@@ -474,29 +484,35 @@ static void game_won()
 }
 
 /* ==================================== */
-static gint
-item_event_focus(GooCanvasItem *item, GdkEvent *event, guint index)
+static gboolean
+item_event_focus (GooCanvasItem  *item,
+		  GooCanvasItem  *target,
+		  GdkEventButton *event,
+		  guint index)
 {
 
-   switch (event->type)
-     {
-     case GDK_BUTTON_PRESS:
-       gc_sound_play_ogg ("sounds/prompt.wav", NULL);
-       g_object_set (answer_item_focus[current_focus], "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
-       current_focus = index;
-       g_object_set (answer_item_focus[current_focus], "visibility", GOO_CANVAS_ITEM_VISIBLE, NULL);
-       return TRUE;
-       break;
-     default:
-       break;
-     }
-
-   return FALSE;
+  switch (event->type)
+    {
+    case GDK_BUTTON_PRESS:
+      gc_sound_play_ogg ("sounds/prompt.wav", NULL);
+      g_object_set (answer_item_focus[current_focus], "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
+      current_focus = index;
+      g_object_set (answer_item_focus[current_focus], "visibility", GOO_CANVAS_ITEM_VISIBLE, NULL);
+      return TRUE;
+      break;
+    default:
+      break;
+    }
+  
+  return FALSE;
 }
 
 /* ==================================== */
-static gint
-item_event(GooCanvasItem *item, GdkEvent *event, gpointer data)
+static gboolean
+item_event (GooCanvasItem  *item,
+	    GooCanvasItem  *target,
+	    GdkEventButton *event,
+	    gpointer data)
 {
   static double x, y;
   double item_x, item_y;
@@ -504,9 +520,9 @@ item_event(GooCanvasItem *item, GdkEvent *event, gpointer data)
   static int dragging;
   double new_x, new_y;
 
-  item_x = event->button.x;
-  item_y = event->button.y;
-  goo_canvas_convert_to_item_space(item->parent, &item_x, &item_y);
+  item_x = event->x;
+  item_y = event->y;
+  //goo_canvas_convert_to_item_space(item->parent, &item_x, &item_y);
 
   if(board_paused)
     return FALSE;
@@ -515,21 +531,21 @@ item_event(GooCanvasItem *item, GdkEvent *event, gpointer data)
    switch (event->type)
      {
      case GDK_BUTTON_PRESS:
-       switch(event->button.button)
+       switch(event->button)
          {
          case 1:
 	   gc_sound_play_ogg ("sounds/bleep.wav", NULL);
 	   x = item_x;
 	   y = item_y;
 
-	   goo_canvas_item_raise_to_top(item);
+	   goo_canvas_item_raise(item, NULL);
 
 	   fleur = gdk_cursor_new(GDK_FLEUR);
 	   gc_canvas_item_grab(item,
-				  GDK_POINTER_MOTION_MASK |
-				  GDK_BUTTON_RELEASE_MASK,
-				  fleur,
-				  event->button.time);
+			       GDK_POINTER_MOTION_MASK |
+			       GDK_BUTTON_RELEASE_MASK,
+			       fleur,
+			       event->time);
 	   gdk_cursor_destroy(fleur);
 	   dragging = TRUE;
            break;
@@ -552,21 +568,21 @@ item_event(GooCanvasItem *item, GdkEvent *event, gpointer data)
        break;
 
      case GDK_MOTION_NOTIFY:
-       if (dragging && (event->motion.state & GDK_BUTTON1_MASK))
+       if (dragging && (event->state & GDK_BUTTON1_MASK))
          {
-	   double x1, x2, y1, y2;
+	   GooCanvasBounds bounds;
 
-	   goo_canvas_item_get_bounds(item,  &x1, &y1, &x2, &y2);
+	   goo_canvas_item_get_bounds(item,  &bounds);
 
            new_x = item_x;
            new_y = item_y;
 
 	   /* Check board boundaries */
-	   if((x1 < 0 && new_x<x)|| (x2 > BOARDWIDTH && new_x>x))
+	   if((bounds.x1 < 0 && new_x<x)|| (bounds.x2 > BOARDWIDTH && new_x>x))
 	     {
 	       new_x = x;
 	     }
-	   if((y1 < 0 && new_y<y) || (y2 > BOARDHEIGHT && new_y>y))
+	   if((bounds.y1 < 0 && new_y<y) || (bounds.y2 > BOARDHEIGHT && new_y>y))
 	     {
 	       new_y = y;
 	     }
@@ -580,7 +596,7 @@ item_event(GooCanvasItem *item, GdkEvent *event, gpointer data)
      case GDK_BUTTON_RELEASE:
        if(dragging)
 	 {
-	   gc_canvas_item_ungrab(item, event->button.time);
+	   gc_canvas_item_ungrab(item, event->time);
 	   dragging = FALSE;
 	 }
        break;

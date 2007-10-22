@@ -497,17 +497,14 @@ static void gletters_next_level()
 
 static void gletters_move_item(GooCanvasItem *item)
 {
-  double x1, y1, x2, y2;
+  GooCanvasBounds bounds;
 
   goo_canvas_item_translate(item, 0, 2.0);
 
   goo_canvas_item_get_bounds    (item,
-				   &x1,
-				   &y1,
-				   &x2,
-				   &y2);
+				 &bounds);
 
-  if(y1>gcomprisBoard->height) {
+  if(bounds.y1>gcomprisBoard->height) {
     item2del_list = g_list_append (item2del_list, item);
     player_loose();
   }
@@ -644,15 +641,13 @@ static GooCanvasItem *gletters_create_item(GooCanvasItem *parent)
       g_free(str2);
     }
 
-  item =					\
-    goo_canvas_item_new (parent,
-			   goo_canvas_group_get_type (),
-			   "x", (double) 0,
-			   "y", (double) -12,
+  item = \
+    goo_canvas_group_new (parent,
 			   NULL);
+  goo_canvas_item_translate(item, 0, -12);
 
   x = g_random_int_range( 80, gcomprisBoard->width-160);
-  goo_canvas_text_new (GOO_CANVAS_GROUP(item),
+  goo_canvas_text_new (item,
 		       letter,
 		       (double) x,
 		       (double) -20,
@@ -662,7 +657,7 @@ static GooCanvasItem *gletters_create_item(GooCanvasItem *parent)
 		       "fill_color_rgba", 0x8c8cFFFF,
 		       NULL);
   x -= 2;
-  goo_canvas_text_new (GOO_CANVAS_GROUP(item),
+  goo_canvas_text_new (item,
 		       letter,
 		       (double) x,
 		       (double) -22,

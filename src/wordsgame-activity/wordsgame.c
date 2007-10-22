@@ -463,18 +463,15 @@ static void wordsgame_next_level()
 
 static void wordsgame_move_item(LettersItem *item)
 {
-  double x1, y1, x2, y2;
+  GooCanvasBounds bounds;
 
 
   goo_canvas_item_translate(item->rootitem, 0, 2.0);
 
-  goo_canvas_item_get_bounds    (item->rootitem,
-				   &x1,
-				   &y1,
-				   &x2,
-				   &y2);
+  goo_canvas_item_get_bounds (item->rootitem,
+			      &bounds);
 
-  if(y1>gcomprisBoard->height) {
+  if(bounds.y1>gcomprisBoard->height) {
 
     if (item == item_on_focus)
       item_on_focus = NULL;
@@ -634,16 +631,15 @@ static GooCanvasItem *wordsgame_create_item(GooCanvasItem *parent)
 
   /*set right x position */
 
-  double x1, y1, x2, y2;
+  GooCanvasBounds bounds;
 
 
   goo_canvas_item_get_bounds    (item->rootitem,
-                                   &x1,
-                                   &y1,
-                                   &x2,
-                                   &y2);
+				 &bounds);
 
-  goo_canvas_item_translate (item->rootitem,(double) (g_random_int()%(gcomprisBoard->width-(gint)(x2))),(double) 0);
+  goo_canvas_item_translate (item->rootitem,
+			     (double) (g_random_int()%(gcomprisBoard->width-(gint)(bounds.x2))),
+			     (double) 0);
 
 
   g_static_rw_lock_writer_lock (&items_lock);

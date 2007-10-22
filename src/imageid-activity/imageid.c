@@ -438,7 +438,7 @@ item_event(GooCanvasItem *item, GdkEvent *event, gpointer data)
   GooCanvasItem * temp = NULL;
   item_x = event->button.x;
   item_y = event->button.y;
-  goo_canvas_convert_to_item_space(item->parent, &item_x, &item_y);
+  //goo_canvas_convert_to_item_space(item->parent, &item_x, &item_y);
 
   if(board_paused)
     return FALSE;

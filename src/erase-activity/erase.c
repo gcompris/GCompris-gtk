@@ -373,11 +373,14 @@ static void add_one_item(int i, int j, int protect)
       GooCanvasItem *item =
 	goo_canvas_image_new (boardRootItem,
 			      CoverPixmap[current_layer],
-			      i,
-			      j,
-			      "width", w,
-			      "height", h,
+			      0,
+			      0,
 			      NULL);
+      double scale = h/gdk_pixbuf_get_height(CoverPixmap[current_layer]);
+      goo_canvas_item_set_simple_transform(item,
+					   i,
+					   j,
+					   scale, 0.0);
 
       counter *c = g_new (counter, 1);
       c->count = 0 ;

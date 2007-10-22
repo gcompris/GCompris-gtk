@@ -370,7 +370,7 @@ static gint item_event(GooCanvasItem *item, GdkEvent *event, gpointer data) {
   switch (event->type)
     {
     case GDK_BUTTON_PRESS:
-      goo_canvas_c2w(gcomprisBoard->canvas, x, y, &x, &y);
+      //goo_canvas_c2w(gcomprisBoard->canvas, x, y, &x, &y);
 
       if (y>CLICKABLE_Y1 && y<CLICKABLE_Y2) {
 	if (x>CLICKABLE_X1 && x<CLICKABLE_X2) { // the left button is clicked

@@ -668,11 +668,8 @@ add_shape_to_list_of_shapes(Shape *shape)
 
       // We need to start a new shape list group
       shape_list_group_root = \
-	goo_canvas_item_new (shape_list_root_item,
-			     goo_canvas_group_get_type (),
-			     "x", (double)0,
-			     "y", (double)0,
-			     NULL);
+	goo_canvas_group_new (shape_list_root_item,
+			      NULL);
 
       shape_list_group = g_list_append (shape_list_group, shape_list_group_root);
       g_warning(" current_shapelistgroup_index=%d\n", current_shapelistgroup_index);
@@ -968,18 +965,21 @@ static gint item_event_drag(GooCanvasItem *item, GdkEvent *event, gpointer data)
                 pixbuf_add_transparent(dest, 100);
                 shadow_item = goo_canvas_image_new(shape_root_item,
 						   dest,
-                        "width", shape->target_shape->w,
-                        "height", shape->target_shape->h,
-                        "width_set", TRUE,
-                        "height_set", TRUE,
-                        NULL);
+						   0,
+						   0,
+						   "width", shape->target_shape->w,
+						   "height", shape->target_shape->h,
+						   NULL);
                 g_object_set (shadow_item, "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
                 gdk_pixbuf_unref(dest);
                 gdk_pixbuf_unref(pixmap);
             }
-            goo_canvas_item_reparent(shape->item, shape_list_root_item->parent)
-;
-            goo_canvas_item_raise_to_top(shape->item);
+	    /* Reparent it */
+	    g_object_ref(shape->item);
+	    goo_canvas_item_add_child (goo_canvas_item_get_parent(shape_list_root_item),
+				       shape->item, -1);
+	    g_object_unref(shape->item);
+
             gc_drag_item_move(event);
             break;
         case GDK_MOTION_NOTIFY:
@@ -1020,7 +1020,12 @@ static gint item_event_drag(GooCanvasItem *item, GdkEvent *event, gpointer data)
             }
 
             target_point_switch_on(NULL);
-            goo_canvas_item_reparent(shape->item, shape->shape_list_group_root);
+
+	    /* Reparent it */
+	    g_object_ref(shape->item);
+	    goo_canvas_item_add_child (goo_canvas_item_get_parent(shape_list_root_item),
+				       shape->item, -1);
+	    g_object_unref(shape->item);
 
             found_shape = find_closest_shape( item_x, item_y, SQUARE_LIMIT_DISTANCE);
             if(found_shape)
@@ -1036,7 +1041,7 @@ static gint item_event_drag(GooCanvasItem *item, GdkEvent *event, gpointer data)
                         "y", found_shape->y - shape->target_shape->h/2,
                         NULL);
                 g_object_set (shape->target_shape->item, "visibility", GOO_CANVAS_ITEM_VISIBLE, NULL);
-                goo_canvas_item_raise_to_top(shape->target_shape->item);
+                goo_canvas_item_raise(shape->target_shape->item, NULL);
                 g_object_set (shape->item, "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
 
                 shape -> target_shape -> placed = found_shape;
@@ -1274,19 +1279,18 @@ add_shape_to_canvas(Shape *shape)
 	{
 	  int point_size = 6;
 	  /* Display a point to highlight the target location of this shape */
-	  item = goo_canvas_item_new (shape_root_item,
-					goo_canvas_ellipse_get_type(),
-					"x1", (double)shape->x-point_size,
-					"y1", (double)shape->y-point_size,
-					"x2", (double)shape->x+point_size,
-					"y2", (double)shape->y+point_size,
-					"fill_color_rgba", POINT_COLOR_OFF,
-					"stroke-color", "black",
-					"width_pixels", 2,
-					NULL);
+	  item = goo_canvas_ellipse_new (shape_root_item,
+					shape->x,
+					shape->y,
+					 point_size,
+					point_size,
+					 "fill_color_rgba", POINT_COLOR_OFF,
+					 "stroke-color", "black",
+					 "width_pixels", 2,
+					 NULL);
 	  shape->target_point = item;
 	}
-      goo_canvas_item_lower_to_bottom(item);
+      goo_canvas_item_lower(item, NULL);
     }
 
   g_warning("it's an image ? shape->pixmapfile=%s\n", shape->pixmapfile);
@@ -1324,7 +1328,7 @@ add_shape_to_canvas(Shape *shape)
     }
   else if(shape->type==SHAPE_BACKGROUND)
     {
-      goo_canvas_item_lower_to_bottom(item);
+      goo_canvas_item_lower(item, NULL);
     }
 
 }
@@ -1347,7 +1351,7 @@ static void create_title(char *name, double x, double y, GtkJustification justif
 			 "fill_color_rgba", gc_skin_color_shadow,
 			   NULL);
 
-  goo_canvas_item_raise_to_top(item);
+  goo_canvas_item_raise(item, NULL);
 
   item = \
     goo_canvas_text_new (shape_root_item,
@@ -1361,7 +1365,7 @@ static void create_title(char *name, double x, double y, GtkJustification justif
 			 "fill_color_rgba", color_rgba,
 			   NULL);
 
-  goo_canvas_item_raise_to_top(item);
+  goo_canvas_item_raise(item, NULL);
 }
 
 static Shape *
@@ -1653,9 +1657,9 @@ parse_doc(xmlDocPtr doc)
   for(list = shape_list; list != NULL; list = list->next) {
     Shape *shape = list->data;
 
-    goo_canvas_item_lower_to_bottom(shape->item);
-    if(shape->position>=1)
-      goo_canvas_item_raise(shape->item, ABS(shape->position));
+    goo_canvas_item_lower(shape->item, NULL);
+    //FIXMEif(shape->position>=1)
+    //goo_canvas_item_raise(shape->item, ABS(shape->position));
   }
 }
 

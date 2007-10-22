@@ -334,15 +334,13 @@ static GooCanvasItem *wordprocessor_create()
 				  GTK_POLICY_ALWAYS);
   gtk_container_add (GTK_CONTAINER (sw), view);
 
-  item = goo_canvas_item_new (GOO_CANVAS_GROUP(boardRootItem),
-				goo_canvas_widget_get_type (),
-				"widget", GTK_WIDGET(sw),
-				"x", (double) word_area_x1,
-				"y", (double) word_area_y1,
-				"width", (double) word_area_width,
-				"height", (double) word_area_height,
+  item = goo_canvas_widget_new (boardRootItem,
+				GTK_WIDGET(sw),
+				word_area_x1,
+				word_area_y1,
+				word_area_width,
+				word_area_height,
 				"anchor", GTK_ANCHOR_NW,
-				"size_pixels", FALSE,
 				NULL);
   gtk_widget_show(GTK_WIDGET(view));
   gtk_widget_show(GTK_WIDGET(sw));
@@ -435,15 +433,13 @@ display_style_buttons(GooCanvasItem *boardRootItem,
     {
       gtk_button_style[i] = gtk_button_new_with_label(gettext(styles_tab[i*2]));
 
-      goo_canvas_item_new (boardRootItem,
-			     goo_canvas_widget_get_type (),
-			     "widget", GTK_WIDGET(gtk_button_style[i]),
-			     "x", (double) combo_style_x1,
-			     "y", (double) y,
-			     "width", (double) combo_style_width,
-			     "height", 35.0,
+      goo_canvas_widget_new (boardRootItem,
+			     GTK_WIDGET(gtk_button_style[i]),
+			     combo_style_x1,
+			     y,
+			     combo_style_width,
+			     35.0,
 			     "anchor", GTK_ANCHOR_NW,
-			     "size_pixels", FALSE,
 			     NULL);
 
       g_signal_connect(GTK_OBJECT(gtk_button_style[i]), "pressed",
@@ -609,15 +605,13 @@ display_style_selector(GooCanvasItem *boardRootItem, double y)
     gtk_combo_box_append_text(GTK_COMBO_BOX(gtk_combo_styles),
 			      gettext(doctype_list[i++]->name));
 
-  goo_canvas_item_new (GOO_CANVAS_GROUP(boardRootItem),
-			 goo_canvas_widget_get_type (),
-			 "widget", GTK_WIDGET(gtk_combo_styles),
-			 "x", (double) combo_style_x1,
-			 "y", y,
-			 "width", (double) combo_style_width,
-			 "height", 35.0,
+  goo_canvas_widget_new (boardRootItem,
+			 GTK_WIDGET(gtk_combo_styles),
+			 combo_style_x1,
+			 y,
+			 combo_style_width,
+			 35.0,
 			 "anchor", GTK_ANCHOR_NW,
-			 "size_pixels", FALSE,
 			 NULL);
 
   gtk_widget_show(GTK_WIDGET(gtk_combo_styles));
@@ -644,15 +638,13 @@ display_color_style_selector(GooCanvasItem *boardRootItem, double y)
     gtk_combo_box_append_text(GTK_COMBO_BOX(gtk_combo_colors),
 			      gettext(color_style_list[i++][0]));
 
-  goo_canvas_item_new (GOO_CANVAS_GROUP(boardRootItem),
-			 goo_canvas_widget_get_type (),
-			 "widget", GTK_WIDGET(gtk_combo_colors),
-			 "x", (double) combo_style_x1,
-			 "y", y,
-			 "width", (double) combo_style_width,
-			 "height", 35.0,
+  goo_canvas_widget_new (boardRootItem,
+			 GTK_WIDGET(gtk_combo_colors),
+			 combo_style_x1,
+			 y,
+			 combo_style_width,
+			 35.0,
 			 "anchor", GTK_ANCHOR_NW,
-			 "size_pixels", FALSE,
 			 NULL);
 
   gtk_widget_show(GTK_WIDGET(gtk_combo_colors));

@@ -91,7 +91,10 @@ static void		 paratrooper_destroy_item(CloudItem *clouditem);
 static void		 paratrooper_destroy_items(void);
 static void		 paratrooper_destroy_all_items(void);
 static void		 paratrooper_next_level(void);
-static gint		 item_event(GooCanvasItem *item, GdkEvent *event, void *data);
+static gboolean		 item_event (GooCanvasItem  *item,
+				     GooCanvasItem  *target,
+				     GdkEventButton *event,
+				     gpointer data);
 static void		 next_state(void);
 
 
@@ -160,7 +163,6 @@ static void pause_board (gboolean pause)
 	    gc_bonus_end_display(GC_BOARD_FINISHED_RANDOM);
 	    return;
 	  }
-	  printf("paratrooper pause start next level\n");
 	}
 
       // Unpause code
@@ -336,10 +338,10 @@ static void paratrooper_next_level()
 				     "width", (double) gdk_pixbuf_get_width(pixmap)*imageZoom,
 				     "height", (double) gdk_pixbuf_get_height(pixmap)*imageZoom,
 				     NULL);
-  g_signal_connect(GTK_OBJECT(planeitem), "enter_notify_event",
+  g_signal_connect(planeitem, "button-press-event",
 		     (GtkSignalFunc) item_event,
 		     NULL);
-  g_signal_connect(GTK_OBJECT(planeitem), "enter_notify_event",
+  g_signal_connect(planeitem, "enter_notify_event",
 		     (GtkSignalFunc) gc_item_focus_event,
 		     NULL);
   gdk_pixbuf_unref(pixmap);
@@ -383,28 +385,28 @@ static void paratrooper_next_level()
   paratrooperItem.speed		= 3;
 
   paratrooperItem.rootitem = \
-    goo_canvas_item_new (goo_canvas_get_root_item(gcomprisBoard->canvas),
-			   goo_canvas_group_get_type (),
-			   "x", (double)paratrooperItem.x,
-			   "y", (double)paratrooperItem.y,
-			   NULL);
+    goo_canvas_group_new (goo_canvas_get_root_item(gcomprisBoard->canvas), NULL);
+  goo_canvas_item_translate(paratrooperItem.rootitem,
+			    paratrooperItem.x,
+			    paratrooperItem.y);
 
   g_free(str);
   str = g_strdup_printf("%s%s", pixmapsdir, "minitux.png");
   pixmap = gc_pixmap_load(str);
 
-  paratrooperItem.paratrooper = goo_canvas_group_new (goo_canvas_get_root_item(gcomprisBoard->canvas),
-						      NULL);
-  goo_canvas_item_translate(paratrooperItem.paratrooper,
-			    -gdk_pixbuf_get_width(pixmap)/2,
-			    -gdk_pixbuf_get_height(pixmap)/2);
+  paratrooperItem.paratrooper = \
+    goo_canvas_image_new (paratrooperItem.rootitem,
+			  pixmap,
+			  -gdk_pixbuf_get_width(pixmap)/2,
+			  -gdk_pixbuf_get_height(pixmap)/2,
+			  NULL);
 
   g_object_set (paratrooperItem.paratrooper, "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
   gdk_pixbuf_unref(pixmap);
-  g_signal_connect(GTK_OBJECT(paratrooperItem.paratrooper), "enter_notify_event",
+  g_signal_connect(paratrooperItem.paratrooper, "button-press-event",
 		     (GtkSignalFunc) item_event,
 		     NULL);
-  g_signal_connect(GTK_OBJECT(paratrooperItem.paratrooper), "enter_notify_event",
+  g_signal_connect(paratrooperItem.paratrooper, "enter_notify_event",
 		     (GtkSignalFunc) gc_item_focus_event,
 		     NULL);
 
@@ -412,7 +414,7 @@ static void paratrooper_next_level()
   str = g_strdup_printf("%s%s", pixmapsdir, "parachute.png");
   pixmap = gc_pixmap_load(str);
 
-  paratrooperItem.parachute = goo_canvas_image_new (GOO_CANVAS_GROUP(paratrooperItem.rootitem),
+  paratrooperItem.parachute = goo_canvas_image_new (paratrooperItem.rootitem,
 						    pixmap,
 						    (double) -gdk_pixbuf_get_width(pixmap)/2,
 						    (double) -(gdk_pixbuf_get_height(pixmap)/2)-60,
@@ -431,7 +433,7 @@ static void paratrooper_next_level()
 						  "font", gc_skin_font_board_medium,
 						  "fill_color_rgba", gc_skin_color_title,
 						  NULL);
-  goo_canvas_item_hide (paratrooperItem.instruct);
+  g_object_set (paratrooperItem.instruct, "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
 }
 
 
@@ -441,14 +443,14 @@ static void paratrooper_move_plane(GooCanvasItem *item)
 
   if(plane_x>gcomprisBoard->width && planespeed_x>0)
     {
-      double x1, y1, x2, y2;
+      GooCanvasBounds bounds;
       goo_canvas_item_get_bounds    (item,
-				       &x1,
-				       &y1,
-				       &x2,
-				       &y2);
-      goo_canvas_item_translate(item, (double)-gcomprisBoard->width-(x2-x1), (double)planespeed_y);
-      plane_x = plane_x - gcomprisBoard->width - (x2-x1);
+				     &bounds);
+
+      goo_canvas_item_translate(item,
+				-gcomprisBoard->width-(bounds.x2-bounds.x1),
+				planespeed_y);
+      plane_x = plane_x - gcomprisBoard->width - (bounds.x2-bounds.x1);
 
       if(paratrooperItem.status!=TUX_INPLANE)
 	g_object_set (item, "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
@@ -461,23 +463,19 @@ static void paratrooper_move_plane(GooCanvasItem *item)
 
 static void paratrooper_move_cloud(CloudItem *clouditem)
 {
-  double x1, y1, x2, y2;
   GooCanvasItem *item = clouditem->rootitem;
+  GooCanvasBounds bounds;
 
   goo_canvas_item_translate(item, windspeed, 0.0);
 
-  goo_canvas_item_get_bounds    (item,
-				   &x1,
-				   &y1,
-				   &x2,
-				   &y2);
+  goo_canvas_item_get_bounds (item, &bounds);
 
   /* Manage the wrapping for the cloud */
-  if(windspeed<0 && x2<0)
+  if(windspeed<0 && bounds.x2<0)
     {
       goo_canvas_item_translate(item, gcomprisBoard->width, 0.0);
     }
-  else if(windspeed>0 && x1>gcomprisBoard->width)
+  else if(windspeed>0 && bounds.x1>gcomprisBoard->width)
     {
       goo_canvas_item_translate(item, -gcomprisBoard->width, 0.0);
     }
@@ -531,7 +529,7 @@ static void paratrooper_destroy_all_items()
 
   if(paratrooperItem.rootitem)
     {
-      gtk_object_destroy (GTK_OBJECT(paratrooperItem.rootitem));
+      goo_canvas_item_remove(paratrooperItem.rootitem);
       paratrooperItem.rootitem = NULL;
     }
   if (paratrooperItem.instruct) {
@@ -640,16 +638,15 @@ static GooCanvasItem *paratrooper_create_cloud(GooCanvasItem *parent)
     x = gcomprisBoard->width;
 
   itemgroup = \
-    goo_canvas_item_new (parent,
-			   goo_canvas_group_get_type (),
-			   "x", (double) x,
-			   "y", (double)(rand()%(gcomprisBoard->height-200-
-						 (guint)(gdk_pixbuf_get_height(pixmap)*
-							 imageZoom))),
-			   NULL);
+    goo_canvas_group_new (parent, NULL);
+  goo_canvas_item_translate(itemgroup,
+			    x,
+			    (rand()%(gcomprisBoard->height-200-
+				     (guint)(gdk_pixbuf_get_height(pixmap)*
+					     imageZoom))));
 
 
-  goo_canvas_image_new (GOO_CANVAS_GROUP(itemgroup),
+  goo_canvas_image_new (itemgroup,
 			pixmap,
 			(double) -gdk_pixbuf_get_width(pixmap)*imageZoom/2,
 			(double) -gdk_pixbuf_get_height(pixmap)*imageZoom/2,
@@ -660,7 +657,7 @@ static GooCanvasItem *paratrooper_create_cloud(GooCanvasItem *parent)
 
 
   /* The plane is always on top */
-  goo_canvas_item_raise_to_top(planeitem);
+  goo_canvas_item_raise(planeitem, NULL);
 
   clouditem = g_malloc(sizeof(CloudItem));
   clouditem->rootitem = itemgroup;
@@ -709,25 +706,25 @@ void next_state()
       break;
     case TUX_DROPPING:
       gc_sound_play_ogg ("sounds/eraser2.wav", NULL);
-      goo_canvas_item_lower_to_bottom(paratrooperItem.parachute);
+      goo_canvas_item_lower(paratrooperItem.parachute, NULL);
       g_object_set (paratrooperItem.parachute, "visibility", GOO_CANVAS_ITEM_VISIBLE, NULL);
       paratrooperItem.status = TUX_FLYING;
       paratrooperItem.speed_override = 0;
       if (gcomprisBoard->level >= 2) {
-	goo_canvas_item_raise_to_top (paratrooperItem.instruct);
-	goo_canvas_item_show (paratrooperItem.instruct);
+	goo_canvas_item_raise (paratrooperItem.instruct, NULL);
+	g_object_set (paratrooperItem.instruct, "visibility", GOO_CANVAS_ITEM_VISIBLE, NULL);
       }
       break;
     case TUX_LANDED:
       gc_sound_play_ogg ("sounds/tuxok.wav", NULL);
-      goo_canvas_item_hide (paratrooperItem.instruct);
+      g_object_set (paratrooperItem.instruct, "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
       gamewon = TRUE;
       gc_bonus_display(gamewon, GC_BONUS_TUX);
       break;
     case TUX_CRASHED:
       /* Restart */
       gc_sound_play_ogg ("sounds/bubble.wav", NULL);
-      goo_canvas_item_hide (paratrooperItem.instruct);
+      g_object_set (paratrooperItem.instruct, "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
       goo_canvas_item_translate(paratrooperItem.rootitem, -paratrooperItem.x, -paratrooperItem.y+60);
       paratrooperItem.status	= TUX_INPLANE;
       paratrooperItem.x		= 0;
@@ -741,8 +738,11 @@ void next_state()
     }
 }
 
-static gint
-item_event(GooCanvasItem *item, GdkEvent *event, void *data)
+static gboolean
+item_event (GooCanvasItem  *item,
+	    GooCanvasItem  *target,
+	    GdkEventButton *event,
+	    gpointer data)
 {
 
   if(!gcomprisBoard)

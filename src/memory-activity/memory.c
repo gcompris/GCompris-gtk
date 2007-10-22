@@ -1195,7 +1195,7 @@ static void create_item(GooCanvasItem *parent)
 
   if (currentUiMode == UIMODE_SOUND) {
     GdkPixbuf *pixmap =  gc_pixmap_load("memory/transparent_square2.png");
-    goo_canvas_image_new (GOO_CANVAS_GROUP(parent),
+    goo_canvas_image_new (parent,
 			  pixmap,
 			  (currentMode == MODE_TUX ? base_x1_tux : base_x1) - 20,
 			  base_y1 - 15,
@@ -1206,15 +1206,15 @@ static void create_item(GooCanvasItem *parent)
   if (currentMode == MODE_TUX){
     GdkPixbuf *pixmap_tux =  gc_pixmap_load("memory/tux-teacher.png");
 
-    tux = goo_canvas_image_new (GOO_CANVAS_GROUP(parent),
+    tux = goo_canvas_image_new (parent,
 				pixmap_tux,
 				50,
 				20,
-				 NULL);
+				NULL);
     gdk_pixbuf_unref(pixmap_tux);
 
-    tux_score_s = goo_canvas_text_new (GOO_CANVAS_GROUP(parent),
-				       memoryItem->data,
+    tux_score_s = goo_canvas_text_new (parent,
+				       NULL,
 				       (double) 100+1.0,
 				       (double) 200+1.0,
 				       -1,
@@ -1223,7 +1223,7 @@ static void create_item(GooCanvasItem *parent)
 				       "fill_color_rgba", 0x101010FF,
 				       NULL);
 
-    player_score_s = goo_canvas_text_new (GOO_CANVAS_GROUP(parent),
+    player_score_s = goo_canvas_text_new (parent,
 					  "",
 					  (double) 100+1.0,
 					  (double) BASE_CARD_Y2 - 20+1.0,
@@ -1233,7 +1233,7 @@ static void create_item(GooCanvasItem *parent)
 					  "fill_color_rgba", 0x101010FF,
 					  NULL);
 
-    tux_score = goo_canvas_text_new (GOO_CANVAS_GROUP(parent),
+    tux_score = goo_canvas_text_new (parent,
 				     "",
 				     (double) 100,
 				     (double) 200,
@@ -1243,7 +1243,7 @@ static void create_item(GooCanvasItem *parent)
 				     "fill_color_rgba", 0xFF0F0FFF,
 				     NULL);
 
-    player_score = goo_canvas_text_new (GOO_CANVAS_GROUP(parent),
+    player_score = goo_canvas_text_new (parent,
 					"",
 					(double) 100,
 					(double) BASE_CARD_Y2 - 20,
@@ -1262,19 +1262,19 @@ static void create_item(GooCanvasItem *parent)
 	  memoryItem = g_malloc0(sizeof(MemoryItem));
 
 	  memoryItem->rootItem = \
-	    goo_canvas_item_new (parent,
-				   goo_canvas_group_get_type (),
-				   "x", (double) (currentMode == MODE_TUX ? base_x1_tux : base_x1) + x*width,
-				   "y", (double) base_y1 + y*height,
-				   NULL);
-
+	    goo_canvas_group_new (parent,
+				  NULL);
+	  goo_canvas_item_translate(memoryItem->rootItem,
+				    (currentMode == MODE_TUX ? base_x1_tux : base_x1) + x*width,
+				    base_y1 + y*height);
+	
 	  if (currentUiMode == UIMODE_SOUND)
 	    pixmap = gc_pixmap_load("memory/Tux_mute.png");
 	  else
 	    pixmap = gc_pixmap_load("memory/backcard.png");
 
 	  memoryItem->backcardItem = \
-	    goo_canvas_image_new (GOO_CANVAS_GROUP(memoryItem->rootItem),
+	    goo_canvas_image_new (memoryItem->rootItem,
 				  pixmap,
 				  0,
 				  0,
@@ -1286,7 +1286,7 @@ static void create_item(GooCanvasItem *parent)
 	  if (currentUiMode != UIMODE_SOUND){
 	    pixmap = gc_pixmap_load("memory/emptycard.png");
 	    memoryItem->framecardItem = \
-	      goo_canvas_image_new (GOO_CANVAS_GROUP(memoryItem->rootItem),
+	      goo_canvas_image_new (memoryItem->rootItem,
 				    pixmap,
 				    0,
 				    0,
@@ -1304,7 +1304,7 @@ static void create_item(GooCanvasItem *parent)
 	  if (currentUiMode == UIMODE_SOUND){
 	    pixmap = gc_pixmap_load("memory/Tux_play.png");
 	    memoryItem->frontcardItem =	\
-	      goo_canvas_image_new (GOO_CANVAS_GROUP(memoryItem->rootItem),
+	      goo_canvas_image_new (memoryItem->rootItem,
 				    pixmap,
 				    0,
 				    0,
@@ -1318,7 +1318,7 @@ static void create_item(GooCanvasItem *parent)
 	      pixmap = gc_pixmap_load(memoryItem->data);
 
 	      memoryItem->frontcardItem =	\
-		goo_canvas_image_new (GOO_CANVAS_GROUP(memoryItem->rootItem),
+		goo_canvas_image_new (memoryItem->rootItem,
 				      pixmap,
 				      (width2-
 				       gdk_pixbuf_get_width(pixmap))/2,
@@ -1337,7 +1337,7 @@ static void create_item(GooCanvasItem *parent)
 		font = TEXT_FONT;
 	      /* It's a letter */
 	      memoryItem->frontcardItem =	 \
-		goo_canvas_text_new (GOO_CANVAS_GROUP(memoryItem->rootItem),
+		goo_canvas_text_new (memoryItem->rootItem,
 				     "",
 				     (double) (width2)/2,
 				     (double) (height2)/2,

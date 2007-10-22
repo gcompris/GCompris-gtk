@@ -96,7 +96,10 @@ static gint timer_step_y1, timer_step_x1;
 static GooCanvasItem	*canal_lock_create_item(GooCanvasItem *parent);
 static void		 canal_lock_destroy_all_items(void);
 static void		 canal_lock_next_level(void);
-static gint		 item_event(GooCanvasItem *item, GdkEvent *event, gpointer data);
+static gboolean		 item_event (GooCanvasItem  *item,
+				     GooCanvasItem  *target,
+				     GdkEventButton *event,
+				     gpointer data);
 static gboolean		 animate_step();
 static void		 update_water();
 static void		 toggle_lock(GooCanvasItem *item);
@@ -266,162 +269,151 @@ static GooCanvasItem *canal_lock_create_item(GooCanvasItem *parent)
   /* The boat */
   pixmap = gc_pixmap_load("canal_lock/tuxboat.png");
 
-  tuxboat_item = goo_canvas_image_new (boardRootItem,
-				       pixmap,
-				       (LEFT_CANAL_WIDTH - gdk_pixbuf_get_width(pixmap)) / 2,
-				       BASE_LINE - LEFT_CANAL_HEIGHT - gdk_pixbuf_get_height(pixmap)*0.9,
-				       NULL);
-  g_signal_connect(GTK_OBJECT(tuxboat_item), "enter_notify_event",
+  tuxboat_item = \
+    goo_canvas_image_new (boardRootItem,
+			  pixmap,
+			  (LEFT_CANAL_WIDTH - gdk_pixbuf_get_width(pixmap)) / 2,
+			  BASE_LINE - LEFT_CANAL_HEIGHT - gdk_pixbuf_get_height(pixmap)*0.9,
+			  NULL);
+  g_signal_connect(tuxboat_item, "button-press-event",
 		     (GtkSignalFunc) item_event,
 		     NULL);
-  g_signal_connect(GTK_OBJECT(tuxboat_item), "enter_notify_event",
+  g_signal_connect(tuxboat_item, "enter_notify_event",
 		     (GtkSignalFunc) gc_item_focus_event,
 		     NULL);
   tuxboat_width = gdk_pixbuf_get_width(pixmap);
   gdk_pixbuf_unref(pixmap);
 
   /* This is the ground canal */
-  goo_canvas_item_new (boardRootItem,
-			 goo_canvas_rect_get_type (),
-			 "x1", (double) 0,
-			 "y1", (double) BASE_LINE,
-			 "x2", (double) BOARDWIDTH,
-			 "y2", (double) BOARDHEIGHT,
-			 "fill_color_rgba", GROUND_COLOR,
-			 "line-width", (double) 0,
-			 NULL);
+  goo_canvas_rect_new (boardRootItem,
+		       0,
+		       BASE_LINE,
+		       BOARDWIDTH,
+		       BOARDHEIGHT - BASE_LINE,
+		       "fill_color_rgba", GROUND_COLOR,
+		       "line-width", (double) 0,
+		       NULL);
 
   /* This is the left canal */
-  canal_left_item = goo_canvas_item_new (boardRootItem,
-					    goo_canvas_rect_get_type (),
-					    "x1", (double) 0,
-					    "y1", (double) BASE_LINE - LEFT_CANAL_HEIGHT,
-					    "x2", (double) LEFT_CANAL_WIDTH,
-					    "y2", (double) BASE_LINE,
-					    "fill_color_rgba", CANAL_COLOR,
-					    "line-width", (double) 0,
-					    NULL);
+  canal_left_item = goo_canvas_rect_new (boardRootItem,
+					 0,
+					 BASE_LINE - LEFT_CANAL_HEIGHT,
+					 LEFT_CANAL_WIDTH,
+					 LEFT_CANAL_HEIGHT,
+					 "fill_color_rgba", CANAL_COLOR,
+					 "line-width", (double) 0,
+					 NULL);
 
   /* This is the middle canal */
-  canal_middle_item = goo_canvas_item_new (boardRootItem,
-					     goo_canvas_rect_get_type (),
-					     "x1", (double) LEFT_CANAL_WIDTH,
-					     "y1", (double) BASE_LINE - LEFT_CANAL_HEIGHT,
-					     "x2", (double) LEFT_CANAL_WIDTH + MIDDLE_CANAL_WIDTH,
-					     "y2", (double) BASE_LINE,
-					     "fill_color_rgba", CANAL_COLOR,
-					     "line-width", (double) 0,
-					     NULL);
+  canal_middle_item = goo_canvas_rect_new (boardRootItem,
+					   LEFT_CANAL_WIDTH,
+					   BASE_LINE - LEFT_CANAL_HEIGHT,
+					   MIDDLE_CANAL_WIDTH,
+					   LEFT_CANAL_HEIGHT,
+					   "fill_color_rgba", CANAL_COLOR,
+					   "line-width", (double) 0,
+					   NULL);
 
   /* This is the right canal */
-  canal_right_item = goo_canvas_item_new (boardRootItem,
-					    goo_canvas_rect_get_type (),
-					    "x1", (double) LEFT_CANAL_WIDTH + MIDDLE_CANAL_WIDTH,
-					    "y1", (double) BASE_LINE - RIGHT_CANAL_HEIGHT,
-					    "x2", (double) LEFT_CANAL_WIDTH + MIDDLE_CANAL_WIDTH + RIGHT_CANAL_WIDTH,
-					    "y2", (double) BASE_LINE,
-					    "fill_color_rgba", CANAL_COLOR,
-					    "line-width", (double) 0,
-					    NULL);
-
-  /* This is the left lock */
-  lock_left_item = goo_canvas_item_new (boardRootItem,
-					  goo_canvas_rect_get_type (),
-					  "x1", (double) LEFT_CANAL_WIDTH - LOCK_WIDTH / 2,
-					  "y1", (double) BASE_LINE - LOCK_HEIGHT_MAX,
-					  "x2", (double) LEFT_CANAL_WIDTH + LOCK_WIDTH / 2,
-					  "y2", (double) BASE_LINE,
-					  "fill_color_rgba", LOCK_COLOR,
+  canal_right_item = goo_canvas_rect_new (boardRootItem,
+					  LEFT_CANAL_WIDTH + MIDDLE_CANAL_WIDTH,
+					  BASE_LINE - RIGHT_CANAL_HEIGHT,
+					  RIGHT_CANAL_WIDTH,
+					  RIGHT_CANAL_HEIGHT,
+					  "fill_color_rgba", CANAL_COLOR,
 					  "line-width", (double) 0,
 					  NULL);
-  g_signal_connect(GTK_OBJECT(lock_left_item), "enter_notify_event",
+
+  /* This is the left lock */
+  lock_left_item = goo_canvas_rect_new (boardRootItem,
+					LEFT_CANAL_WIDTH - LOCK_WIDTH / 2,
+					BASE_LINE - LOCK_HEIGHT_MAX,
+					LOCK_WIDTH,
+					LOCK_HEIGHT_MAX,
+					"fill_color_rgba", LOCK_COLOR,
+					"line-width", (double) 0,
+					NULL);
+  g_signal_connect(lock_left_item, "button-press-event",
 		     (GtkSignalFunc) item_event,
 		     NULL);
 
   /* This is the right lock */
-  lock_right_item = goo_canvas_item_new (boardRootItem,
-					   goo_canvas_rect_get_type (),
-					   "x1", (double) LEFT_CANAL_WIDTH + MIDDLE_CANAL_WIDTH - LOCK_WIDTH / 2,
-					   "y1", (double) BASE_LINE - LOCK_HEIGHT_MAX,
-					   "x2", (double) LEFT_CANAL_WIDTH + MIDDLE_CANAL_WIDTH + LOCK_WIDTH / 2,
-					   "y2", (double) BASE_LINE,
-					   "fill_color_rgba", LOCK_COLOR,
-					   "line-width", (double) 0,
-					   NULL);
-  g_signal_connect(GTK_OBJECT(lock_right_item), "enter_notify_event",
+  lock_right_item = goo_canvas_rect_new (boardRootItem,
+					 LEFT_CANAL_WIDTH + MIDDLE_CANAL_WIDTH - LOCK_WIDTH / 2,
+					 BASE_LINE - LOCK_HEIGHT_MAX,
+					 LOCK_WIDTH,
+					 LOCK_HEIGHT_MAX,
+					 "fill_color_rgba", LOCK_COLOR,
+					 "line-width", (double) 0,
+					 NULL);
+  g_signal_connect(lock_right_item, "button-press-event",
 		     (GtkSignalFunc) item_event,
 		     NULL);
 
   /* This is the water conduit under the canal */
-  goo_canvas_item_new (boardRootItem,
-			 goo_canvas_rect_get_type (),
-			 "x1", (double) LEFT_CANAL_WIDTH/2,
-			 "y1", (double) SUBCANAL_BASE_LINE - SUBCANAL_HEIGHT,
-			 "x2", (double) LEFT_CANAL_WIDTH + MIDDLE_CANAL_WIDTH + RIGHT_CANAL_WIDTH / 2 + SUBCANAL_HEIGHT,
-			 "y2", (double) SUBCANAL_BASE_LINE,
-			 "fill_color_rgba", CANAL_COLOR,
-			 "line-width", (double) 0,
-			 NULL);
+  goo_canvas_rect_new (boardRootItem,
+		       LEFT_CANAL_WIDTH/2,
+		       SUBCANAL_BASE_LINE - SUBCANAL_HEIGHT,
+		       LEFT_CANAL_WIDTH + MIDDLE_CANAL_WIDTH + RIGHT_CANAL_WIDTH/2 - LEFT_CANAL_WIDTH/2,
+		       SUBCANAL_HEIGHT,
+		       "fill_color_rgba", CANAL_COLOR,
+		       "line-width", (double) 0,
+		       NULL);
 
   /* Left conduit */
-  goo_canvas_item_new (boardRootItem,
-			 goo_canvas_rect_get_type (),
-			 "x1", (double) LEFT_CANAL_WIDTH/2,
-			 "y1", (double) BASE_LINE,
-			 "x2", (double) LEFT_CANAL_WIDTH/2 + SUBCANAL_HEIGHT,
-			 "y2", (double) SUBCANAL_BASE_LINE,
-			 "fill_color_rgba", CANAL_COLOR,
-			 "line-width", (double) 0,
-			 NULL);
+  goo_canvas_rect_new (boardRootItem,
+		       LEFT_CANAL_WIDTH/2,
+		       BASE_LINE,
+		       SUBCANAL_HEIGHT,
+		       SUBCANAL_BASE_LINE - BASE_LINE,
+		       "fill_color_rgba", CANAL_COLOR,
+		       "line-width", (double) 0,
+		       NULL);
 
   /* Middle conduit */
-  goo_canvas_item_new (boardRootItem,
-			 goo_canvas_rect_get_type (),
-			 "x1", (double) LEFT_CANAL_WIDTH + MIDDLE_CANAL_WIDTH/2 - SUBCANAL_HEIGHT/2,
-			 "y1", (double) BASE_LINE,
-			 "x2", (double) LEFT_CANAL_WIDTH + MIDDLE_CANAL_WIDTH/2 + SUBCANAL_HEIGHT/2,
-			 "y2", (double) SUBCANAL_BASE_LINE,
-			 "fill_color_rgba", CANAL_COLOR,
-			 "line-width", (double) 0,
-			 NULL);
+  goo_canvas_rect_new (boardRootItem,
+		       LEFT_CANAL_WIDTH + MIDDLE_CANAL_WIDTH/2 - SUBCANAL_HEIGHT/2,
+		       BASE_LINE,
+		       SUBCANAL_HEIGHT/2,
+		       SUBCANAL_BASE_LINE - BASE_LINE,
+		       "fill_color_rgba", CANAL_COLOR,
+		       "line-width", (double) 0,
+		       NULL);
 
   /* Right conduit */
-  goo_canvas_item_new (boardRootItem,
-			 goo_canvas_rect_get_type (),
-			 "x1", (double) LEFT_CANAL_WIDTH + MIDDLE_CANAL_WIDTH + RIGHT_CANAL_WIDTH/2,
-			 "y1", (double) BASE_LINE,
-			 "x2", (double) LEFT_CANAL_WIDTH + MIDDLE_CANAL_WIDTH + RIGHT_CANAL_WIDTH/2 + SUBCANAL_HEIGHT,
-			 "y2", (double) SUBCANAL_BASE_LINE,
-			 "fill_color_rgba", CANAL_COLOR,
-			 "line-width", (double) 0,
-			 NULL);
+  goo_canvas_rect_new (boardRootItem,
+		       LEFT_CANAL_WIDTH + MIDDLE_CANAL_WIDTH + RIGHT_CANAL_WIDTH/2,
+		       BASE_LINE,
+		       SUBCANAL_HEIGHT,
+		       SUBCANAL_BASE_LINE - BASE_LINE,
+		       "fill_color_rgba", CANAL_COLOR,
+		       "line-width", (double) 0,
+		       NULL);
 
   /* And to finish, the 2 canal locks */
   canallock_left_item =
-    goo_canvas_item_new (boardRootItem,
-			   goo_canvas_rect_get_type (),
-			   "x1", (double) LEFT_CANAL_WIDTH + MIDDLE_CANAL_WIDTH * 0.1,
-			   "y1", (double) SUBCANAL_BASE_LINE - SUBCANAL_HEIGHT,
-			   "x2", (double) LEFT_CANAL_WIDTH + MIDDLE_CANAL_WIDTH * 0.1 + LOCK_WIDTH / 2,
-			   "y2", (double) SUBCANAL_BASE_LINE,
-			   "fill_color_rgba", CANALLOCK_COLOR,
-			   "line-width", (double) 0,
-			   NULL);
-  g_signal_connect(GTK_OBJECT(canallock_left_item), "enter_notify_event",
+    goo_canvas_rect_new (boardRootItem,
+			 LEFT_CANAL_WIDTH + MIDDLE_CANAL_WIDTH * 0.1,
+			 SUBCANAL_BASE_LINE - SUBCANAL_HEIGHT,
+			 LOCK_WIDTH / 2,
+			 SUBCANAL_HEIGHT,
+			 "fill_color_rgba", CANALLOCK_COLOR,
+			 "line-width", (double) 0,
+			 NULL);
+  g_signal_connect(canallock_left_item, "button-press-event",
 		     (GtkSignalFunc) item_event,
 		     NULL);
 
   canallock_right_item =
-    goo_canvas_item_new (boardRootItem,
-			   goo_canvas_rect_get_type (),
-			   "x1", (double) LEFT_CANAL_WIDTH + MIDDLE_CANAL_WIDTH * 0.9,
-			   "y1", (double) SUBCANAL_BASE_LINE - SUBCANAL_HEIGHT,
-			   "x2", (double) LEFT_CANAL_WIDTH + MIDDLE_CANAL_WIDTH * 0.9 + LOCK_WIDTH / 2,
-			   "y2", (double) SUBCANAL_BASE_LINE,
-			   "fill_color_rgba", CANALLOCK_COLOR,
-			   "line-width", (double) 0,
-			   NULL);
-    g_signal_connect(GTK_OBJECT(canallock_right_item), "enter_notify_event",
+    goo_canvas_rect_new (boardRootItem,
+			 LEFT_CANAL_WIDTH + MIDDLE_CANAL_WIDTH * 0.9,
+			 SUBCANAL_BASE_LINE - SUBCANAL_HEIGHT,
+			 LOCK_WIDTH / 2,
+			 SUBCANAL_HEIGHT,
+			 "fill_color_rgba", CANALLOCK_COLOR,
+			 "line-width", (double) 0,
+			 NULL);
+    g_signal_connect(canallock_right_item, "button-press-event",
 		     (GtkSignalFunc) item_event,
 		     NULL);
 
@@ -491,8 +483,12 @@ static void move_boat()
 
   gc_sound_play_ogg ("sounds/eraser2.wav", NULL);
 
-  goo_canvas_item_get_bounds(tuxboat_item, &timer_item_x1, &timer_item_y1,
-			       &timer_item_x2, &timer_item_y2);
+  GooCanvasBounds bounds;
+  goo_canvas_item_get_bounds(tuxboat_item, &bounds);
+  timer_item_x1 = bounds.x1;
+  timer_item_y1 = bounds.y1;
+  timer_item_x2 = bounds.x2;
+  timer_item_y2 = bounds.y2;
 
   timer_item = tuxboat_item;
   timer_step_y1 = 0;
@@ -527,8 +523,12 @@ static void update_water()
       return;
     }
 
-  goo_canvas_item_get_bounds(canal_middle_item, &timer_item_x1, &timer_item_y1,
-			       &timer_item_x2, &timer_item_y2);
+  GooCanvasBounds bounds;
+  goo_canvas_item_get_bounds(tuxboat_item, &bounds);
+  timer_item_x1 = bounds.x1;
+  timer_item_y1 = bounds.y1;
+  timer_item_x2 = bounds.x2;
+  timer_item_y2 = bounds.y2;
 
   timer_item = canal_middle_item;
   timer_item_limit_y = (status ? timer_item_y2 - min :
@@ -555,8 +555,12 @@ static void toggle_lock(GooCanvasItem *item)
 
   gc_sound_play_ogg ("sounds/bleep.wav", NULL);
 
-  goo_canvas_item_get_bounds(item, &timer_item_x1, &timer_item_y1,
-			       &timer_item_x2, &timer_item_y2);
+  GooCanvasBounds bounds;
+  goo_canvas_item_get_bounds(tuxboat_item, &bounds);
+  timer_item_x1 = bounds.x1;
+  timer_item_y1 = bounds.y1;
+  timer_item_x2 = bounds.x2;
+  timer_item_y2 = bounds.y2;
 
   if(item == lock_left_item)
     {
@@ -612,27 +616,26 @@ static gboolean animate_step()
   timer_item_x1 += timer_step_x1;
   timer_item_y1 += timer_step_y1;
 
-  if(GOO_IS_CANVAS_PIXBUF(timer_item))
+  if(GOO_IS_CANVAS_IMAGE(timer_item))
     g_object_set(timer_item,
-			  "x", timer_item_x1,
-			  "y", timer_item_y1,
-			  NULL);
+		 "x", timer_item_x1,
+		 "y", timer_item_y1,
+		 NULL);
   else if(GOO_IS_CANVAS_RECT(timer_item))
     g_object_set(timer_item,
-			  "x1", timer_item_x1,
-			  "y1", timer_item_y1,
-			  NULL);
+		 "x", timer_item_x1,
+		 "y", timer_item_y1,
+		 NULL);
 
   /* Special case for raising/lowering the boat */
   if(boat_position==BOAT_POS_MIDDLE && timer_item==canal_middle_item)
     {
-      double item_x1, item_y1, item_x2, item_y2;
+      GooCanvasBounds bounds;
 
-      goo_canvas_item_get_bounds(tuxboat_item, &item_x1, &item_y1,
-				   &item_x2, &item_y2);
+      goo_canvas_item_get_bounds(tuxboat_item, &bounds);
 
       g_object_set(tuxboat_item,
-			    "y", item_y1 + timer_step_y1,
+			    "y", bounds.y1 + timer_step_y1,
 			    NULL);
     }
 
@@ -652,8 +655,6 @@ static gboolean animate_step()
       animation = FALSE;
       update_water();
     }
-
-  goo_canvas_update_now(gcomprisBoard->canvas);
 
   return TRUE;
 }
@@ -687,13 +688,16 @@ static void hightlight(GooCanvasItem *item, gboolean status)
 }
 
 /* ==================================== */
-static gint
-item_event(GooCanvasItem *item, GdkEvent *event, gpointer data)
+static gboolean
+item_event (GooCanvasItem  *item,
+	    GooCanvasItem  *target,
+	    GdkEventButton *event,
+	    gpointer data)
 {
   double item_x, item_y;
-  item_x = event->button.x;
-  item_y = event->button.y;
-  goo_canvas_convert_to_item_space(item->parent, &item_x, &item_y);
+  item_x = event->x;
+  item_y = event->y;
+  //goo_canvas_convert_to_item_space(item->parent, &item_x, &item_y);
 
   if(board_paused)
     return FALSE;
@@ -753,14 +757,6 @@ item_event(GooCanvasItem *item, GdkEvent *event, gpointer data)
     default:
       break;
     }
-  return FALSE;
-
-
-  /*
-    gamewon = TRUE;
-    canal_lock_destroy_all_items();
-    gc_bonus_display(gamewon, GC_BONUS_SMILEY);
-  */
   return FALSE;
 }
 

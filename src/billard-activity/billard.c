@@ -268,16 +268,12 @@ static gint
 item_event(GooCanvasItem *item, GdkEvent *event, MachItem *machItem)
 {
   double item_x, item_y;
-  double x1, y1, x2, y2;
+  GooCanvasBounds bounds;
   double width;
   item_x = event->button.x;
   item_y = event->button.y;
-  goo_canvas_convert_to_item_space(item->parent, &item_x, &item_y);
-  goo_canvas_item_get_bounds    (item,
-				   &x1,
-				   &y1,
-				   &x2,
-				   &y2);
+  //goo_canvas_convert_to_item_space(item->parent, &item_x, &item_y);
+  goo_canvas_item_get_bounds (item, &bounds);
 
   if(board_paused)
     return FALSE;
@@ -287,15 +283,15 @@ item_event(GooCanvasItem *item, GdkEvent *event, MachItem *machItem)
 
      case GDK_BUTTON_PRESS:
        gc_sound_play_ogg ("sounds/scroll.wav", NULL);
-       width = x2-x1;
+       width = bounds.x2 - bounds.x1;
 
        //       machItem->vyo   = (y1 - machItem->ypos) * machItem->elasticity;
        machItem->times = 0;
        machItem->yposo = machItem->ypos;
        machItem->xposo = machItem->xpos;
 
-       machItem->vyo = ((item_y-y1)<width/2?(width/2-(item_y-y1))*20:-1*(width/2-(y2-item_y))*20);
-       machItem->vxo = ((item_x-x1)<width/2?(width/2-(item_x-x1))*20:-1*(width/2-(x2-item_x))*20);
+       machItem->vyo = ((item_y-bounds.y1)<width/2?(width/2-(item_y-bounds.y1))*20:-1*(width/2-(bounds.y2-item_y))*20);
+       machItem->vxo = ((item_x-bounds.x1)<width/2?(width/2-(item_x-bounds.x1))*20:-1*(width/2-(bounds.x2-item_x))*20);
        break;
 
      default:
@@ -355,12 +351,11 @@ static MachItem *create_machine_item(MachItemType machItemType, double x, double
 
       machItem->elasticity  = 5;
 
-      machItem->item = goo_canvas_item_new (boardRootItem,
-					      goo_canvas_rect_get_type (),
-					      "x1", (double) machItem->xposo,
-					      "y1", (double) machItem->yposo,
-					      "x2", (double) machItem->xposo + width,
-					      "y2", (double) machItem->yposo + height,
+      machItem->item = goo_canvas_rect_new (boardRootItem,
+					      machItem->xposo,
+					      machItem->yposo,
+					      width,
+					      height,
 					      "stroke-color", "black",
 					      "fill_color_rgba", 0xFF10C0FF,
 					      "line-width", (double)1,
@@ -395,12 +390,11 @@ static MachItem *create_machine_item(MachItemType machItemType, double x, double
 
       machItem->elasticity  = 3;
 
-      machItem->item = goo_canvas_item_new (boardRootItem,
-					      goo_canvas_ellipse_get_type (),
-					      "x1", (double) machItem->xposo,
-					      "y1", (double) machItem->yposo,
-					      "x2", (double) machItem->xposo + width,
-					      "y2", (double) machItem->yposo + width,
+      machItem->item = goo_canvas_ellipse_new (boardRootItem,
+					      machItem->xposo,
+					      machItem->yposo,
+					      width/2,
+					      width/2,
 					      "outline_color_rgba", 0xEEEEEEFF,
 					      "fill_color_rgba", 0x111111FF,
 					      "line-width", (double)2,
@@ -427,12 +421,11 @@ static MachItem *create_machine_item(MachItemType machItemType, double x, double
 
       machItem->elasticity  = 4;
 
-      machItem->item = goo_canvas_item_new (boardRootItem,
-					      goo_canvas_ellipse_get_type (),
-					      "x1", (double) machItem->xposo,
-					      "y1", (double) machItem->yposo,
-					      "x2", (double) machItem->xposo + width,
-					      "y2", (double) machItem->yposo + width,
+      machItem->item = goo_canvas_ellipse_new (boardRootItem,
+					      machItem->xposo,
+					      machItem->yposo,
+					      width/2,
+					      width/2,
 					      "stroke-color", "black",
 					      "fill-color", "white",
 					      "line-width", (double)1,
@@ -463,12 +456,11 @@ static MachItem *create_machine_item(MachItemType machItemType, double x, double
 
       machItem->elasticity  = 1;
 
-      machItem->item = goo_canvas_item_new (boardRootItem,
-					      goo_canvas_ellipse_get_type (),
-					      "x1", (double) machItem->xposo,
-					      "y1", (double) machItem->yposo,
-					      "x2", (double) machItem->xposo + width,
-					      "y2", (double) machItem->yposo + width * 1.5,
+      machItem->item = goo_canvas_ellipse_new (boardRootItem,
+					      machItem->xposo,
+					      machItem->yposo,
+					      width/2,
+					      width/2 * 1.5,
 					      "stroke-color", "black",
 					      "fill_color_rgba", 0xE03000FF,
 					      "line-width", (double)1,
@@ -515,7 +507,7 @@ static gint rectangle_in(double sx1, double sy1, double sx2, double sy2,
 /* Move */
 static void minigolf_move(GList *item_list)
 {
-  double		 x1, y1, x2, y2;
+  GooCanvasBounds bounds;
   MachItem		*machItem;
   GooCanvasItem	*item;
   guint			 i;
@@ -534,7 +526,7 @@ static void minigolf_move(GList *item_list)
       if(machItem->moving)
 	{
 
-	  goo_canvas_item_get_bounds(item, &x1, &y1, &x2, &y2);
+	  goo_canvas_item_get_bounds(item, &bounds);
 
 	  machItem->times += times_inc;
 
@@ -549,7 +541,7 @@ static void minigolf_move(GList *item_list)
 
 	      if(collMachItem != machItem) {
 
-		if(rectangle_in(x1, y1, x2, y2,
+		if(rectangle_in(bounds.x1, bounds.y1, bounds.x2, bounds.y2,
 				collMachItem->xpos,
 				collMachItem->ypos,
 				collMachItem->xpos + collMachItem->width,
@@ -622,7 +614,7 @@ static void minigolf_move(GList *item_list)
 
 	  gc_item_absolute_move(item, machItem->xpos, machItem->ypos);
 
-	  if((machItem->ypos>=MIN_Y2-machItem->height-BORDER && (y1 - machItem->ypos)<=0) || collision == TRUE)
+	  if((machItem->ypos>=MIN_Y2-machItem->height-BORDER && (bounds.y1 - machItem->ypos)<=0) || collision == TRUE)
 	    {
 	      machItem->vyo   = machItem->vyo * -0.5;
 	      machItem->vxo   = machItem->vxo * 0.5;
@@ -635,7 +627,7 @@ static void minigolf_move(GList *item_list)
 	      gc_sound_play_ogg ("sounds/line_end.wav", NULL);
 	    }
 
-	  if((y1<=MIN_Y1 && (y1 - machItem->ypos)>=0) || collision == TRUE)
+	  if((bounds.y1<=MIN_Y1 && (bounds.y1 - machItem->ypos)>=0) || collision == TRUE)
 	    {
 	      machItem->vyo   = machItem->vyo * -0.5;
 	      machItem->vxo   = machItem->vxo * 0.5;
@@ -646,7 +638,7 @@ static void minigolf_move(GList *item_list)
 	    }
 
 	  //	  if(x1<=5 && (x1 - machItem->xpos)>0 || collision == TRUE)
-	  if((x1<=MIN_X1 && machItem->vxo<0) || collision == TRUE)
+	  if((bounds.x1<=MIN_X1 && machItem->vxo<0) || collision == TRUE)
 	    {
 	      machItem->vyo   = machItem->vyo * 0.5;
 	      machItem->vxo   = machItem->vxo * -0.5;
@@ -656,7 +648,7 @@ static void minigolf_move(GList *item_list)
 	      gc_sound_play_ogg ("sounds/line_end.wav", NULL);
 	    }
 
-	  if((x2>=MIN_X2 && machItem->vxo>0) || collision == TRUE)
+	  if((bounds.x2>=MIN_X2 && machItem->vxo>0) || collision == TRUE)
 	    {
 	      machItem->vyo = 0.5 * machItem->vyo;
 	      machItem->vxo = machItem->vxo * -0.5;

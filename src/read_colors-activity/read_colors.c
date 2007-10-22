@@ -349,7 +349,7 @@ static gint item_event(GooCanvasItem *item, GdkEvent *event, gpointer data) {
   switch (event->type)
     {
     case GDK_BUTTON_PRESS:
-      goo_canvas_c2w (gcomprisBoard->canvas, x, y, &x, &y);
+      //goo_canvas_c2w (gcomprisBoard->canvas, x, y, &x, &y);
       clicked = -1;
       for (i=0; i<LAST_COLOR; i++) {
 	if (hypot((double) (X[i]-x),(double)(Y[i]-y)) < RADIUS) {
