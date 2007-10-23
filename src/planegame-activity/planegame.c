@@ -309,12 +309,11 @@ static void planegame_next_level()
     }
 }
 
-#define ISIN(x1, y1, px1, py1, px2, py2) (x1>px1 && x1<px2 && y1>py1 && y2<py2 ? TRUE : FALSE)
+#define ISIN(x1, y1, px1, py1, px2, py2) (x1>px1 && x1<px2 && y1>py1 && y1<py2 ? TRUE : FALSE)
 
 static void planegame_cloud_colision(CloudItem *clouditem)
 {
-  double px1, px2, py1, py2;
-  double x1, x2, y1, y2;
+  GooCanvasBounds ib, pb;
   GooCanvasItem *item;
 
   if(clouditem==NULL)
@@ -322,14 +321,14 @@ static void planegame_cloud_colision(CloudItem *clouditem)
 
   item = clouditem->rootitem;
 
-  goo_canvas_item_get_bounds(planeitem,  &px1, &py1, &px2, &py2);
-  goo_canvas_item_get_bounds(item,  &x1, &y1, &x2, &y2);
+  goo_canvas_item_get_bounds(planeitem,  &pb);
+  goo_canvas_item_get_bounds(item, &ib);
 
   if(
-     ISIN(x1, y1, px1, py1, px2, py2) ||
-     ISIN(x2, y1, px1, py1, px2, py2) ||
-     ISIN(x1, y2, px1, py1, px2, py2) ||
-     ISIN(x2, y2, px1, py1, px2, py2)
+     ISIN(ib.x1, ib.y1, pb.x1, pb.y1, pb.x2, pb.y2) ||
+     ISIN(ib.x2, ib.y1, pb.x1, pb.y1, pb.x2, pb.y2) ||
+     ISIN(ib.x1, ib.y2, pb.x1, pb.y1, pb.x2, pb.y2) ||
+     ISIN(ib.x2, ib.y2, pb.x1, pb.y1, pb.x2, pb.y2)
      )
     {
       if(plane_target == clouditem->number)
@@ -380,18 +379,14 @@ static void planegame_move_plane(GooCanvasItem *item)
 
 static void planegame_move_item(CloudItem *clouditem)
 {
-  double x1, y1, x2, y2;
+  GooCanvasBounds bounds;
   GooCanvasItem *item = clouditem->rootitem;
 
   goo_canvas_item_translate(item, -2.0, 0.0);
 
-  goo_canvas_item_get_bounds    (item,
-				   &x1,
-				   &y1,
-				   &x2,
-				   &y2);
+  goo_canvas_item_get_bounds (item, &bounds);
 
-  if(x2<0) {
+  if(bounds.x2<0) {
     item2del_list = g_list_append (item2del_list, clouditem);
   }
 
@@ -491,7 +486,7 @@ static GooCanvasItem *planegame_create_item(GooCanvasItem *parent)
 
 
 
-  goo_canvas_image_new (GOO_CANVAS_GROUP(itemgroup),
+  goo_canvas_image_new (itemgroup,
 			pixmap,
 			-gdk_pixbuf_get_width(pixmap)*imageZoom/2,
 			-gdk_pixbuf_get_height(pixmap)*imageZoom/2,
@@ -501,17 +496,18 @@ static GooCanvasItem *planegame_create_item(GooCanvasItem *parent)
   gdk_pixbuf_unref(pixmap);
 
 
-  goo_canvas_item_new (GOO_CANVAS_GROUP(itemgroup),
-			 goo_canvas_text_get_type (),
-			 "text", number,
-			 "font", gc_skin_font_board_big,
-			 "x", (double) 0,
-			 "y", (double) 0,
-			 "fill-color", "red",
-			 NULL);
+  goo_canvas_text_new (itemgroup,
+		       number,
+		       0,
+		       0,
+		       -1,
+		       GTK_ANCHOR_CENTER,
+		       "font", gc_skin_font_board_big,
+		       "fill-color", "red",
+		       NULL);
 
   /* The plane is always on top */
-  goo_canvas_item_raise_to_top(planeitem);
+  goo_canvas_item_raise(planeitem, NULL);
 
   clouditem = g_malloc(sizeof(CloudItem));
   clouditem->rootitem = itemgroup;
@@ -556,7 +552,7 @@ item_event(GooCanvasItem *item, GdkEvent *event, gpointer data)
 
    item_x = event->button.x;
    item_y = event->button.y;
-   goo_canvas_convert_to_item_space(item->parent, &item_x, &item_y);
+   //goo_canvas_convert_to_item_space(item->parent, &item_x, &item_y);
 
    switch (event->type)
      {

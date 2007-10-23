@@ -302,22 +302,24 @@ static GooCanvasItem *hanoi_create_item(GooCanvasItem *parent)
   GooCanvasItem *item = NULL;
   guint color_to_place;
   guint used_colors[NUMBER_OF_COLOR];
-  GnomeCanvasPathDef *path;
   guint w;
   GdkPixbuf *pixmap = NULL;
 
-  boardRootItem = goo_canvas_group_new (goo_canvas_get_root_item(gcomprisBoard->canvas),
-					NULL);
+  boardRootItem = \
+    goo_canvas_group_new (goo_canvas_get_root_item(gcomprisBoard->canvas),
+			  NULL);
 
 
   pixmap = gc_skin_pixmap_load("gcompris-shapelabel.png");
   if(pixmap) {
-    goo_canvas_image_new (boardRootItem,
-			  pixmap,
-			  10,
-			  BOARDHEIGHT - 60,
-			  "width", (double) BOARDWIDTH - 20,
-			   NULL);
+    item = goo_canvas_image_new (boardRootItem,
+				 pixmap,
+				 10,
+				 BOARDHEIGHT - 60,
+				 NULL);
+    goo_canvas_item_scale(item,
+			  (double)(BOARDWIDTH-20)/gdk_pixbuf_get_width(pixmap),
+			  1);
     gdk_pixbuf_unref(pixmap);
   }
 
@@ -329,7 +331,6 @@ static GooCanvasItem *hanoi_create_item(GooCanvasItem *parent)
 		       GTK_ANCHOR_NORTH,
 		       "font", gc_skin_font_board_medium,
 		       "fill-color", "black",
-		       "justification", GTK_JUSTIFY_CENTER,
 			 NULL);
 
   goo_canvas_text_new (boardRootItem,
@@ -340,7 +341,6 @@ static GooCanvasItem *hanoi_create_item(GooCanvasItem *parent)
 		       GTK_ANCHOR_NORTH,
 		       "font", gc_skin_font_board_medium,
 		       "fill_color_rgba", gc_skin_color_text_button,
-		       "justification", GTK_JUSTIFY_CENTER,
 			 NULL);
 
 
@@ -443,8 +443,8 @@ static GooCanvasItem *hanoi_create_item(GooCanvasItem *parent)
 	  goo_canvas_rect_new (boardRootItem,
 			       item_width * i + gap_x/2,
 			       baseline - item_height * number_of_item_y - gap_y - 50,
-			       item_width - gap_x/2,
-			       item_height,
+			       item_width - gap_x,
+			       item_height * number_of_item_y + gap_y*2 + 100,
 			       "fill_color_rgba", 0x036ED8FF,
 			       "stroke-color", "black",
 			       "line-width", (double)1,
@@ -456,8 +456,8 @@ static GooCanvasItem *hanoi_create_item(GooCanvasItem *parent)
 	  goo_canvas_rect_new (boardRootItem,
 			       item_width * i + gap_x/2,
 			       baseline - item_height * number_of_item_y - gap_y - 50,
-			       item_width,
-			       item_height,
+			       item_width - gap_x,
+			       item_height * number_of_item_y + gap_y*2 + 100,
 			       "fill_color_rgba", 0x48AAF1FF,
 			       "stroke-color", "black",
 			       "line-width", (double)1,
@@ -469,32 +469,23 @@ static GooCanvasItem *hanoi_create_item(GooCanvasItem *parent)
       goo_canvas_rect_new (boardRootItem,
 			   item_width * i + item_width/2 - w,
 			   baseline - item_height * number_of_item_y - gap_y,
-			   item_width,
-			   item_height,
+			   w*2,
+			   item_height * number_of_item_y - gap_y,
 			   "fill_color_rgba", 0xFF1030FF,
 			   "stroke-color", "black",
 			   "line-width", (double)1,
 			   NULL);
 
       /* And the base line */
-      w = 40;
-      path = goo_canvas_path_def_new();
-      goo_canvas_path_def_moveto (path, item_width * i + item_width/2 - w, baseline);
-      goo_canvas_path_def_lineto (path, item_width * i + item_width/2 + w, baseline);
-      goo_canvas_path_def_curveto (path,
-				     item_width * i + item_width/2 + w , baseline,
-				     item_width * i + item_width/2, baseline + w + 10,
-				     item_width * i + item_width/2 - w, baseline);
-      goo_canvas_path_def_closepath_current (path);
-
-      item = goo_canvas_item_new (boardRootItem,
-				    GNOME_TYPE_CANVAS_SHAPE,
-				    "fill_color_rgba", 0x20FF30FF,
-				    "stroke-color", "black",
-				    NULL);
-      goo_canvas_shape_set_path_def (GNOME_CANVAS_SHAPE (item), path);
-      goo_canvas_item_show (item);
-      goo_canvas_path_def_unref (path);
+      item = goo_canvas_path_new (boardRootItem,
+				  "M 43,19 A 22,20 0 1 1 -1,19 L 20,19 z",
+				  "fill_color_rgba", 0xFF1030FF,
+				  "stroke-color", "black",
+				  "line-width", 1.0,
+				  NULL);
+      goo_canvas_item_translate(item,
+				item_width * i + 55,
+				baseline - 20);
 
       for(j=0; j<number_of_item_y; j++)
 	{
@@ -513,8 +504,8 @@ static GooCanvasItem *hanoi_create_item(GooCanvasItem *parent)
 	      item = goo_canvas_rect_new (boardRootItem,
 					  position[i][j]->x,
 					  position[i][j]->y,
-					  item_width,
-					  item_height,
+					  item_width - gap_x,
+					  item_height - gap_y,
 					  "fill_color_rgba", colorlist[position[i][j]->color],
 					  "stroke-color", "black",
 					  "line-width", (double)1,
@@ -522,24 +513,22 @@ static GooCanvasItem *hanoi_create_item(GooCanvasItem *parent)
 
 	      car[0] = 'a' + position[i][j]->color;
 	      car[1] = '\0';
-	      char *carp = &car;
 
 	       position[i][j]->item_text = \
 		 goo_canvas_text_new (boardRootItem,
-				      carp,
+				      (char *)car,
 				      (double) position[i][j]->xt,
 				      (double) position[i][j]->yt,
 				      -1,
 				      GTK_ANCHOR_NORTH,
 				      "font", gc_skin_font_board_tiny,
 				      "fill-color", "white",
-				      "justification", GTK_JUSTIFY_CENTER,
 				      NULL);
 
 	      position[i][j]->item = item;
 
 	      if(i!=number_of_item_x+1)
-		g_signal_connect(GTK_OBJECT(item), "enter_notify_event", (GtkSignalFunc) item_event,  position[i][j]);
+		g_signal_connect(item, "enter_notify_event", (GtkSignalFunc) item_event,  position[i][j]);
 
 	    }
 
@@ -723,9 +712,6 @@ item_event(GooCanvasItem *item, GdkEvent *event, PieceItem *data)
 	  gc_item_absolute_move (data->item_text, piece_dst->xt, piece_dst->yt);
 
 	  gc_sound_play_ogg ("sounds/scroll.wav", NULL);
-
-	  /* FIXME : Workaround for bugged canvas */
-	  goo_canvas_update_now(gcomprisBoard->canvas);
 
 	  /* Swap values in the pieces */
 	  tmpx    = data->x;

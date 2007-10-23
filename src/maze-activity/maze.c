@@ -473,17 +473,14 @@ static GooCanvasItem *maze_create_item(GooCanvasItem *parent) {
   boardRootItem = goo_canvas_group_new (goo_canvas_get_root_item(gcomprisBoard->canvas),
 					NULL);
 
-  mazegroup=GOO_CANVAS_GROUP(goo_canvas_item_new(boardRootItem,
-						     goo_canvas_group_get_type(),
-						     "x",(double)breedte,
-						     "y",(double)hoogte,
-						     NULL));
+  mazegroup = goo_canvas_group_new(boardRootItem,
+				   NULL);
+  goo_canvas_item_translate(mazegroup,
+			    breedte,
+			    hoogte);
 
-  wallgroup=GOO_CANVAS_GROUP(goo_canvas_item_new(boardRootItem,
-						     goo_canvas_group_get_type(),
-						     "x",(double) 0,
-						     "y",(double) 0,
-						     NULL));
+  wallgroup = goo_canvas_group_new(boardRootItem,
+				   NULL);
 
   if(modeIsInvisible) {
     message = _("Look at your position, then switch back to invisible mode to continue your moves");
@@ -529,35 +526,26 @@ static void
 draw_a_rect(GooCanvasItem *group,
 	    int x1, int y1, int x2, int y2, char *color)
 {
-  goo_canvas_item_new(group,goo_canvas_rect_get_type(),
-			"x1",(double)x1,
-			"y1",(double)y1,
-			"x2",(double)x2,
-			"y2",(double)y2,
-			"fill-color", color,
-			NULL);
+  goo_canvas_rect_new(group,
+		      x1,
+		      y1,
+		      x2 - x1,
+		      y2 - y1,
+		      "fill-color", color,
+		      NULL);
 }
 
 static void
 draw_a_line(GooCanvasItem *group,
 	    int x1, int y1, int x2, int y2, guint32 color)
 {
-  GooCanvasPoints *points;
+  goo_canvas_polyline_new(group, FALSE, 2,
+			  (double)x1, (double)y1,
+			  (double)x2, (double)y2,
+			  "fill_color_rgba", color,
+			  "line-width", (double)thickness,
+			  NULL);
 
-  points = goo_canvas_points_new (2);
-
-  points->coords[0] = x1;
-  points->coords[1] = y1;
-  points->coords[2] = x2;
-  points->coords[3] = y2;
-  goo_canvas_item_new(group,
-			goo_canvas_line_get_type(),
-			"points", points,
-			"fill_color_rgba", color,
-			"line-width", (double)thickness,
-			NULL);
-
-  goo_canvas_points_unref(points);
 }
 
 static void draw_rect(GooCanvasItem *group, int x,int y,char *color)
@@ -601,10 +589,10 @@ static void move_image(GooCanvasItem *group, int x,int y, GooCanvasItem *item)
   x1=cellsize*(x)-breedte + board_border_x;
 
   g_object_set (item,
-			 "x",	(double)x1+buffer,
-			 "y",	(double)y1+buffer,
-			 NULL);
-  goo_canvas_item_raise_to_top(item);
+		"x",	(double)x1+buffer,
+		"y",	(double)y1+buffer,
+		NULL);
+  goo_canvas_item_raise(item, NULL);
 }
 
 static void draw_combined_rect(GooCanvasItem *group, int x1,int y1,int x2,int y2,char *color)
@@ -930,12 +918,12 @@ static gint key_press(guint keyval, gchar *commit_str, gchar *preedit_str)
       if(modeIsInvisible) {
 	gc_sound_play_ogg ("sounds/flip.wav", NULL);
 	if(mapActive) {
-	  g_object_set (GNOME_CANVAS_ITEM(wallgroup), "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
+	  g_object_set (wallgroup, "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
 	  /* Hide the warning */
 	  g_object_set (warning_item, "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
 	  mapActive = FALSE;
 	} else {
-	  g_object_set (GNOME_CANVAS_ITEM(wallgroup), "visibility", GOO_CANVAS_ITEM_VISIBLE, NULL);
+	  g_object_set (wallgroup, "visibility", GOO_CANVAS_ITEM_VISIBLE, NULL);
 	  /* Display a warning that you can't move there */
 	  g_object_set (warning_item, "visibility", GOO_CANVAS_ITEM_VISIBLE, NULL);
 	  mapActive = TRUE;
@@ -1076,12 +1064,12 @@ static GooCanvasItem *draw_Trapez(GooCanvasItem *group, struct Trapez t,const ch
  pts->coords[5]=t.y_right_bottom;
  pts->coords[6]=t.x_left;
  pts->coords[7]=t.y_left_bottom;
- res=goo_canvas_item_new(group,goo_canvas_polygon_get_type(),
-			   "points", (GooCanvasPoints*)pts,
-			   "fill-color", c1,
-			   "stroke-color", c2,
-			   "width_pixels", 1,
-			   NULL);
+ res=goo_canvas_polyline_new(group, FALSE, 0,
+			     "points", (GooCanvasPoints*)pts,
+			     "fill-color", c1,
+			     "stroke-color", c2,
+			     "width_pixels", 1,
+			     NULL);
  return res;
 }
 
@@ -1389,11 +1377,8 @@ static void draw3D()
     threedgroup = NULL;
   }
   if (!threeDactive) return;
-  threedgroup=GOO_CANVAS_GROUP(goo_canvas_item_new(goo_canvas_get_root_item(gcomprisBoard->canvas),
-						       goo_canvas_group_get_type(),
-						       "x",(double)0,
-						       "y",(double)0,
-						       NULL));
+  threedgroup = goo_canvas_group_new(goo_canvas_get_root_item(gcomprisBoard->canvas),
+				     NULL);
   Display3(vector_ctor(position[ind][0],position[ind][1]),viewing_direction,
 	   screenparam_ctor(MAINX,MAINY,MAINSX,MAINSY,0.95*MAINSX,0.95*MAINSY));
 }
@@ -1407,8 +1392,8 @@ static void twoDdisplay()
   g_free(fileskin);
 
   if (threedgroup)
-    g_object_set (GNOME_CANVAS_ITEM(threedgroup), "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
-  g_object_set (GNOME_CANVAS_ITEM(boardRootItem), "visibility", GOO_CANVAS_ITEM_VISIBLE, NULL);
+    g_object_set (threedgroup, "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
+  g_object_set (boardRootItem, "visibility", GOO_CANVAS_ITEM_VISIBLE, NULL);
   threeDactive=FALSE;
 }
 
@@ -1416,7 +1401,7 @@ static void threeDdisplay()
 {
   gc_sound_play_ogg ("sounds/flip.wav", NULL);
   gc_set_background(goo_canvas_get_root_item(gcomprisBoard->canvas), "maze/maze-bg.jpg");
-  g_object_set (GNOME_CANVAS_ITEM(boardRootItem), "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
+  g_object_set (boardRootItem, "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
   threeDactive=TRUE;
   draw3D();
 }

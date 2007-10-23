@@ -522,11 +522,11 @@ static void money_destroy_all_items()
     goo_canvas_item_remove(boardRootItem);
 
   if(tux_money!=NULL)
-    goo_canvas_item_remove(tux_money);
+    gtk_object_destroy (GTK_OBJECT (tux_money));
   tux_money = NULL;
 
   if(seller_money!=NULL)
-    goo_canvas_item_remove(seller_money);
+    gtk_object_destroy (GTK_OBJECT (seller_money));
   seller_money = NULL;
 
   boardRootItem = NULL;

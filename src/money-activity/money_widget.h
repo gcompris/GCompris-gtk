@@ -68,14 +68,14 @@ typedef enum {
 } MoneyEuroType;
 
 
-GtkType        money_widget_get_type             (void);    
+GtkType        money_widget_get_type             (void);
 GtkObject     *money_widget_new                  (void);
 Money_Widget  *money_widget_copy                 (Money_Widget *moneyWidget);
 
 void	       money_widget_set_target		 (Money_Widget *moneyWidget,
 					          Money_Widget *targetWidget);
 void           money_widget_set_position         (Money_Widget *moneyWidget,
-						  GnomeCanvasGroup *rootItem,
+						  GooCanvasItem *rootItem,
 						  double x1,
 						  double y1,
 						  double x2,
