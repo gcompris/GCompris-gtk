@@ -99,7 +99,10 @@ static gchar		*get_random_word(const gchar *except);
 static GooCanvasItem	*display_what_to_do(GooCanvasItem *parent);
 static void		 ask_ready(gboolean status);
 static void		 ask_yes_no(void);
-static gint		 item_event_valid(GooCanvasItem *item, GdkEvent *event, gpointer data);
+static gboolean		 item_event_valid (GooCanvasItem  *item,
+					   GooCanvasItem  *target,
+					   GdkEventButton *event,
+					   gpointer data);
 
 static  guint32          fallSpeed = 0;
 
@@ -416,19 +419,21 @@ static gboolean reading_create_item(GooCanvasItem *parent)
 
   if(toDeleteFocus.rootItem)
     {
-      gtk_object_destroy (GTK_OBJECT(toDeleteFocus.rootItem));
+      goo_canvas_item_remove(toDeleteFocus.rootItem);
       toDeleteFocus.rootItem = NULL;
     }
 
   if(previousFocus.rootItem)
     {
-      goo_canvas_item_show (previousFocus.overwriteItem);
+      g_object_set (previousFocus.overwriteItem,
+		    "visibility", GOO_CANVAS_ITEM_VISIBLE,
+		    NULL);
       toDeleteFocus.rootItem = previousFocus.rootItem;
     }
 
   if(numberOfLine<=0)
     {
-      gtk_object_destroy (GTK_OBJECT(toDeleteFocus.rootItem));
+      goo_canvas_item_remove(toDeleteFocus.rootItem);
       toDeleteFocus.rootItem = NULL;
 
       ask_yes_no();
@@ -451,17 +456,18 @@ static gboolean reading_create_item(GooCanvasItem *parent)
     textToFindIndex--;
 
   previousFocus.rootItem = \
-    GOO_CANVAS_GROUP( goo_canvas_item_new (parent,
-					       goo_canvas_group_get_type (),
-					       "x", (double) current_x,
-					       "y", (double) current_y,
-					       NULL));
+    goo_canvas_group_new (parent,
+			  NULL);
+
+  goo_canvas_item_translate(parent,
+			    current_x,
+			    current_y);
 
   if(currentMode==MODE_HORIZONTAL)
     anchor=GTK_ANCHOR_WEST;
 
   previousFocus.item = \
-    goo_canvas_text_new (GOO_CANVAS_GROUP(previousFocus.rootItem),
+    goo_canvas_text_new (previousFocus.rootItem,
 			 word,
 			 (double) 0,
 			 (double) 0,
@@ -476,19 +482,19 @@ static gboolean reading_create_item(GooCanvasItem *parent)
 
   g_free(word);
 
-  previousFocus.overwriteItem =						\
-    goo_canvas_text_new (GOO_CANVAS_GROUP(previousFocus.rootItem),
-			 _("I am Ready"),
+  previousFocus.overwriteItem = \
+    goo_canvas_text_new (previousFocus.rootItem,
+			 oldword,
 			 (double) 0,
 			 (double) 0,
 			 -1,
 			 anchor,
-			 "markup", oldword,
 			 "font", gc_skin_font_board_medium,
 			 NULL);
 
   g_free(oldword);
-  g_object_set (previousFocus.overwriteItem, "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
+  g_object_set (previousFocus.overwriteItem,
+		"visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
 
   // Calculate the next spot
   if(currentMode==MODE_VERTICAL)
@@ -498,20 +504,21 @@ static gboolean reading_create_item(GooCanvasItem *parent)
     }
   else
     {
-      double x1, y1, x2, y2;
+      GooCanvasBounds bounds;
 
-      goo_canvas_item_get_bounds(GNOME_CANVAS_ITEM(previousFocus.rootItem), &x1, &y1, &x2, &y2);
+      goo_canvas_item_get_bounds(previousFocus.rootItem, &bounds);
 
       // Are we out of bound
-      if(x2>BASE_X2)
+      if(bounds.x2>BASE_X2)
 	{
 	  // Do the line Wrapping
-	  goo_canvas_item_translate(GNOME_CANVAS_ITEM(previousFocus.rootItem), BASE_X1-x1, interline);
+	  goo_canvas_item_translate(previousFocus.rootItem,
+				    BASE_X1-bounds.x1, interline);
 	  current_y += interline;
 	  current_x = BASE_X1;
 	  numberOfLine--;
 	}
-      current_x += x2-x1 + font_size;
+      current_x += bounds.x2 - bounds.x1 + font_size;
     }
 
   return (TRUE);
@@ -544,10 +551,10 @@ static void ask_ready(gboolean status)
   if(status==FALSE)
     {
       if(item1!=NULL)
-	gtk_object_destroy(GTK_OBJECT(item1));
+	goo_canvas_item_remove(item1);
 
       if(item2!=NULL)
-	gtk_object_destroy(GTK_OBJECT(item2));
+	goo_canvas_item_remove(item2);
 
       item1 = NULL;
       item2 = NULL;
@@ -563,24 +570,23 @@ static void ask_ready(gboolean status)
 				NULL);
 
   gdk_pixbuf_unref(button_pixmap);
-  g_signal_connect(GTK_OBJECT(item1), "enter_notify_event",
+  g_signal_connect(item1, "button-press-event",
 		     (GtkSignalFunc) item_event_valid,
 		     "R");
 
   item2 = goo_canvas_text_new (boardRootItem,
-			       _("Yes, I saw it"),
-			       (double) x_offset +
-			       (double) y_offset + 40,
+			       _("I am Ready"),
+			       x_offset + gdk_pixbuf_get_width(button_pixmap)/2,
+			       y_offset + 40,
 			       -1,
 			       GTK_ANCHOR_CENTER,
 			       "font", gc_skin_font_board_big,
-			       gdk_pixbuf_get_width(button_pixmap)/2,
 			       "fill-color", "white",
 				NULL);
 
-  g_signal_connect(GTK_OBJECT(item2), "enter_notify_event",
-		     (GtkSignalFunc) item_event_valid,
-		     "R");
+  g_signal_connect(item2, "button-press-event",
+		   (GtkSignalFunc) item_event_valid,
+		   "R");
 }
 
 static void ask_yes_no()
@@ -602,24 +608,23 @@ static void ask_yes_no()
 			       NULL);
 
   gdk_pixbuf_unref(button_pixmap);
-  g_signal_connect(GTK_OBJECT(item), "enter_notify_event",
-		     (GtkSignalFunc) item_event_valid,
-		     "Y");
+  g_signal_connect(item, "button-press-event",
+		   (GtkSignalFunc) item_event_valid,
+		   "Y");
 
   item = goo_canvas_text_new (boardRootItem,
-			      _("No, it was not there"),
-			      (double) x_offset +
-			      (double) y_offset + 40,
+			      ("Yes, I saw it"),
+			      x_offset + gdk_pixbuf_get_width(button_pixmap)/2,
+			      y_offset + 40,
 			      -1,
 			      GTK_ANCHOR_CENTER,
 			      "font", gc_skin_font_board_big,
-			      gdk_pixbuf_get_width(button_pixmap)/2,
 			      "fill-color", "white",
-				NULL);
+			      NULL);
 
-  g_signal_connect(GTK_OBJECT(item), "enter_notify_event",
-		     (GtkSignalFunc) item_event_valid,
-		     "Y");
+  g_signal_connect(item, "button-press-event",
+		   (GtkSignalFunc) item_event_valid,
+		   "Y");
 
   /*----- NO -----*/
   y_offset += 100;
@@ -631,24 +636,23 @@ static void ask_yes_no()
 			       NULL);
 
   gdk_pixbuf_unref(button_pixmap);
-  g_signal_connect(GTK_OBJECT(item), "enter_notify_event",
-		     (GtkSignalFunc) item_event_valid,
-		     "N");
+  g_signal_connect(item, "button-press-event",
+		   (GtkSignalFunc) item_event_valid,
+		   "N");
 
   item = goo_canvas_text_new (boardRootItem,
-			      "",
-			      (double) x_offset +
-			      (double) y_offset + 40,
+			      _("No, it was not there"),
+			      x_offset + gdk_pixbuf_get_width(button_pixmap)/2,
+			      y_offset + 40,
 			      -1,
 			      GTK_ANCHOR_CENTER,
 			      "font", gc_skin_font_board_big,
-			      gdk_pixbuf_get_width(button_pixmap)/2,
 			      "fill-color", "white",
 			      NULL);
 
-  g_signal_connect(GTK_OBJECT(item), "enter_notify_event",
-		     (GtkSignalFunc) item_event_valid,
-		     "N");
+  g_signal_connect(item, "button-press-event",
+		   (GtkSignalFunc) item_event_valid,
+		   "N");
 }
 
 
@@ -693,43 +697,32 @@ static void player_loose()
 }
 
 /* Callback for the yes and no buttons */
-static gint
-item_event_valid(GooCanvasItem *item, GdkEvent *event, gpointer data)
+static gboolean
+item_event_valid (GooCanvasItem  *item,
+		  GooCanvasItem  *target,
+		  GdkEventButton *event,
+		  gpointer data)
 {
 
-  switch (event->type)
+  if (((char *)data)[0]=='R')
     {
-    case GDK_ENTER_NOTIFY:
-      break;
-    case GDK_LEAVE_NOTIFY:
-      break;
-    case GDK_BUTTON_PRESS:
-      if (((char *)data)[0]=='R')
-	{
-	  // The user is Ready
-	  wait_for_ready = FALSE;
-	  ask_ready(FALSE);
-	  pause_board(FALSE);
-	}
-      else if(!wait_for_ready) {
-	if ((((char *)data)[0]=='Y' && textToFindIndex == -1)
-	    || (((char *)data)[0]=='N' && textToFindIndex == NOT_THERE))
-	  {
-	    player_win();
-	  }
-	else
-	  {
-	    player_loose();
-	  }
-	return TRUE;
-      }
-      break;
-
-    default:
-      break;
+      // The user is Ready
+      wait_for_ready = FALSE;
+      ask_ready(FALSE);
+      pause_board(FALSE);
     }
-  return FALSE;
-
+  else if(!wait_for_ready) {
+    if ((((char *)data)[0]=='Y' && textToFindIndex == -1)
+	|| (((char *)data)[0]=='N' && textToFindIndex == NOT_THERE))
+      {
+	player_win();
+      }
+    else
+      {
+	player_loose();
+      }
+  }
+  return TRUE;
 }
 
 
