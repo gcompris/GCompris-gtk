@@ -36,33 +36,33 @@ static int gamewon;
 static void ok(void);
 static void game_won();
 
-#define PURGE_AR 225
-#define PURGE_AV 438
-#define REGLEUR 330
-#define CHASSE_BALLAST_AR_X 227
+#define PURGE_AR 215
+#define PURGE_AV 428
+#define REGLEUR 320
+#define CHASSE_BALLAST_AR_X 217
 #define CHASSE_BALLAST_AR_Y 97
-#define CHASSE_BALLAST_AV_X 440
+#define CHASSE_BALLAST_AV_X 430
 #define CHASSE_BALLAST_AV_Y 98
-#define CHASSE_REGLEUR_X 331
+#define CHASSE_REGLEUR_X 321
 #define CHASSE_REGLEUR_Y 72
-#define BARRE_AR_X 100
-#define BARRE_AR_Y 50
-#define BARRE_AV_X 530
-#define BARRE_AV_Y 100
+#define BARRE_AR_X 80
+#define BARRE_AR_Y 30
+#define BARRE_AV_X 500
+#define BARRE_AV_Y 90
 
 #define BALLAST_AV_AIR_TEXT_X 440
 #define BALLAST_AV_AIR_TEXT_Y 50
 #define BALLAST_AV_AIR_X1 393
 #define BALLAST_AV_AIR_Y1 20
-#define BALLAST_AV_AIR_X2 483
-#define BALLAST_AV_AIR_Y2 80
+#define BALLAST_AV_AIR_W 90
+#define BALLAST_AV_AIR_H 60
 
 #define BALLAST_AR_AIR_TEXT_X 220
 #define BALLAST_AR_AIR_TEXT_Y 50
 #define BALLAST_AR_AIR_X1 180
 #define BALLAST_AR_AIR_Y1 20
-#define BALLAST_AR_AIR_X2 270
-#define BALLAST_AR_AIR_Y2 80
+#define BALLAST_AR_AIR_W 90
+#define BALLAST_AR_AIR_H 60
 
 #define SURFACE_IN_BACKGROUND 40
 #define SURFACE_DEPTH 20.0
@@ -86,13 +86,13 @@ static void game_won();
 #define RUDDER_MAX 15
 #define RUDDER_CENTER_X 72
 #define RUDDER_CENTER_Y 7
-#define ENGINE_DOWN_X 42
-#define ENGINE_DOWN_Y 104
-#define ENGINE_UP_X 124
-#define ENGINE_UP_Y 104
+#define ENGINE_DOWN_X 32
+#define ENGINE_DOWN_Y 94
+#define ENGINE_UP_X 114
+#define ENGINE_UP_Y 94
 #define AIR_X 328
 #define AIR_Y 109
-#define BATTERY_X 285
+#define BATTERY_X 295
 #define BATTERY_Y 156
 
 #define REGLEUR_TEXT_X 330
@@ -152,12 +152,12 @@ static GooCanvasItem *barre_av_item, *barre_ar_item,
   *bubbling[3], *frigate_item, *big_explosion, *whale, *treasure, *top_gate_item;
 
 /* submarine parameters */
-static double barre_av_angle, barre_ar_angle, depth, weight, resulting_weight, submarine_x, air, battery, regleur;
-static double submarine_horizontal_speed, submarine_vertical_speed, speed_ordered, assiette;
-static double ballast_av_air, ballast_ar_air;
+static gdouble barre_av_angle, barre_ar_angle, depth, weight, resulting_weight, submarine_x, air, battery, regleur;
+static gdouble submarine_horizontal_speed, submarine_vertical_speed, speed_ordered, assiette;
+static gdouble ballast_av_air, ballast_ar_air;
 
-static double whale_x, whale_y;
-static double treasure_x, treasure_y;
+static gdouble whale_x, whale_y;
+static gdouble treasure_x, treasure_y;
 static guint schema_x, schema_y;
 
 /* Defines the right gate */
@@ -170,24 +170,37 @@ static guint submarine_height;
 static GooCanvasItem *submarine_create_item(GooCanvasItem *parent);
 static void submarine_destroy_all_items(void);
 static void submarine_next_level(void);
-static gint ballast_av_purge_event(GooCanvasItem *item, GdkEvent *event, gpointer data);
-static gint ballast_ar_purge_event(GooCanvasItem *item, GdkEvent *event, gpointer data);
-static gint regleur_purge_event(GooCanvasItem *item, GdkEvent *event, gpointer data);
-static gint ballast_ar_chasse_event(GooCanvasItem *item, GdkEvent *event, gpointer data);
-static gint ballast_av_chasse_event(GooCanvasItem *item, GdkEvent *event, gpointer data);
-static gint regleur_chasse_event(GooCanvasItem *item, GdkEvent *event, gpointer data);
-static gint barre_av_event(GooCanvasItem *item, GdkEvent *event, gpointer data);
-static gint barre_ar_event(GooCanvasItem *item, GdkEvent *event, gpointer data);
-static gint engine_event(GooCanvasItem *item, GdkEvent *event, gpointer data);
-static gint air_compressor_event(GooCanvasItem *item, GdkEvent *event, gpointer data);
-static gint battery_charger_event(GooCanvasItem *item, GdkEvent *event, gpointer data);
+static gboolean ballast_av_purge_event (GooCanvasItem  *item,
+					GooCanvasItem  *target,
+					GdkEventButton *event,
+					gpointer data);
+static gboolean ballast_ar_purge_event(GooCanvasItem *item, GooCanvas *target,
+				       GdkEventButton *event, gpointer data);
+static gboolean regleur_purge_event(GooCanvasItem *item, GooCanvas *target,
+				GdkEventButton *event, gpointer data);
+static gboolean ballast_ar_chasse_event(GooCanvasItem *item, GooCanvas *target,
+				    GdkEventButton *event, gpointer data);
+static gboolean ballast_av_chasse_event(GooCanvasItem *item, GooCanvas *target,
+				    GdkEventButton *event, gpointer data);
+static gboolean regleur_chasse_event(GooCanvasItem *item, GooCanvas *target,
+				 GdkEventButton *event, gpointer data);
+static gboolean barre_av_event(GooCanvasItem *item, GooCanvas *target,
+			   GdkEventButton *event, gpointer data);
+static gboolean barre_ar_event(GooCanvasItem *item, GooCanvas *target,
+			   GdkEventButton *event, gpointer data);
+static gboolean engine_event(GooCanvasItem *item, GooCanvas *target,
+			 GdkEventButton *event, gpointer data);
+static gboolean air_compressor_event(GooCanvasItem *item, GooCanvas *target,
+				 GdkEventButton *event, gpointer data);
+static gboolean battery_charger_event(GooCanvasItem *item, GooCanvas *target,
+				  GdkEventButton *event, gpointer data);
 
-static void setSpeed(double value);
-static void setBattery(double value);
-static void setAir(double value);
-static void setRegleur(double value);
-static void setBallastAV(double value);
-static void setBallastAR(double value);
+static void setSpeed(gdouble value);
+static void setBattery(gdouble value);
+static void setAir(gdouble value);
+static void setRegleur(gdouble value);
+static void setBallastAV(gdouble value);
+static void setBallastAR(gdouble value);
 
 static void submarine_explosion();
 static void open_door();
@@ -366,8 +379,7 @@ static GooCanvasItem *submarine_create_item(GooCanvasItem *parent) {
 					 pixmap,
 					 0,//SUBMARINE_INITIAL_X,
 					 0,//SUBMARINE_INITIAL_DEPTH + SURFACE_IN_BACKGROUND - submarine_height,
-					  "anchor", GTK_ANCHOR_CENTER,
-					  NULL);
+					 NULL);
 
   gdk_pixbuf_unref(pixmap);
 
@@ -380,58 +392,58 @@ static GooCanvasItem *submarine_create_item(GooCanvasItem *parent) {
   schema_y = gcomprisBoard->height - h;
   sub_schema_image_item = goo_canvas_image_new (boardRootItem,
 						pixmap,
-						(double) schema_x + w/2.0,
-						(double) schema_y + h/2.0,
-						 "anchor", GTK_ANCHOR_CENTER,
-						 NULL);
+						schema_x,
+						schema_y,
+						NULL);
 
   gdk_pixbuf_unref(pixmap);
 
   pixmap = gc_pixmap_load("submarine/vanne.png");
-  w = gdk_pixbuf_get_width(pixmap);
-  h = gdk_pixbuf_get_height(pixmap);
+
   ballast_ar_purge_item = goo_canvas_image_new (boardRootItem,
 						pixmap,
-						PURGE_AR + schema_x + w/2,
-						schema_y + h/2.0 -1.0 + h/2,
+						PURGE_AR + schema_x,
+						schema_y -1.0,
 						 NULL);
-  g_signal_connect(GTK_OBJECT(ballast_ar_purge_item), "enter_notify_event",
+  g_signal_connect(ballast_ar_purge_item, "button-press-event",
 		   (GtkSignalFunc) ballast_ar_purge_event, NULL);
 
   ballast_av_purge_item = goo_canvas_image_new (boardRootItem,
 						pixmap,
-						PURGE_AV + schema_x + w/2,
-						schema_y + h/2.0 -1.0 + h/2,
+						PURGE_AV + schema_x,
+						schema_y -1.0,
 						NULL);
-  g_signal_connect(GTK_OBJECT(ballast_av_purge_item), "enter_notify_event",  (GtkSignalFunc) ballast_av_purge_event, NULL);
+  g_signal_connect(ballast_av_purge_item, "button-press-event",  (GtkSignalFunc) ballast_av_purge_event, NULL);
 
   regleur_purge_item = goo_canvas_image_new (boardRootItem,
 					     pixmap,
-					     REGLEUR + schema_x + w/2,
-					     schema_y + h/2.0 -2.0 + h/2,
+					     REGLEUR + schema_x,
+					     schema_y -2.0,
 					     NULL);
-  g_signal_connect(GTK_OBJECT(regleur_purge_item), "enter_notify_event",  (GtkSignalFunc) regleur_purge_event, NULL);
+  g_signal_connect(regleur_purge_item, "button-press-event",  (GtkSignalFunc) regleur_purge_event, NULL);
 
   ballast_av_chasse_item = goo_canvas_image_new (boardRootItem,
 						 pixmap,
-						 schema_x + CHASSE_BALLAST_AV_X + w/2,
-						 schema_y +  CHASSE_BALLAST_AV_Y + h/2,
+						 schema_x + CHASSE_BALLAST_AV_X,
+						 schema_y +  CHASSE_BALLAST_AV_Y,
 						 NULL);
-  g_signal_connect(GTK_OBJECT(ballast_av_chasse_item), "enter_notify_event",  (GtkSignalFunc) ballast_av_chasse_event, NULL);
+  g_signal_connect(ballast_av_chasse_item, "button-press-event",  (GtkSignalFunc) ballast_av_chasse_event, NULL);
 
   ballast_ar_chasse_item = goo_canvas_image_new (boardRootItem,
 						 pixmap,
-						 schema_x + CHASSE_BALLAST_AR_X + w/2,
-						 schema_y +  CHASSE_BALLAST_AR_Y + h/2,
+						 schema_x + CHASSE_BALLAST_AR_X,
+						 schema_y +  CHASSE_BALLAST_AR_Y,
 						  NULL);
-  g_signal_connect(GTK_OBJECT(ballast_ar_chasse_item), "enter_notify_event",  (GtkSignalFunc) ballast_ar_chasse_event, NULL);
+  g_signal_connect(ballast_ar_chasse_item, "button-press-event",
+		   (GtkSignalFunc) ballast_ar_chasse_event, NULL);
 
   regleur_chasse_item = goo_canvas_image_new (boardRootItem,
 					      pixmap,
-					      schema_x + CHASSE_REGLEUR_X + w/2,
-					      schema_y + CHASSE_REGLEUR_Y + h/2,
+					      schema_x + CHASSE_REGLEUR_X,
+					      schema_y + CHASSE_REGLEUR_Y,
 					      NULL);
-  g_signal_connect(GTK_OBJECT(regleur_chasse_item), "enter_notify_event",  (GtkSignalFunc) regleur_chasse_event, NULL);
+  g_signal_connect(regleur_chasse_item, "button-press-event",
+		   (GtkSignalFunc) regleur_chasse_event, NULL);
 
   gdk_pixbuf_unref(pixmap);
 
@@ -441,106 +453,106 @@ static GooCanvasItem *submarine_create_item(GooCanvasItem *parent) {
   h = gdk_pixbuf_get_height(pixmap);
   barre_av_item = goo_canvas_image_new (boardRootItem,
 					pixmap,
-					schema_x + BARRE_AV_X + w/2,
-					schema_y + BARRE_AV_Y + h/2,
+					schema_x + BARRE_AV_X,
+					schema_y + BARRE_AV_Y,
 					 NULL);
   barre_ar_item = goo_canvas_image_new (boardRootItem,
 					pixmap,
-					schema_x + BARRE_AR_X + w/2,
-					schema_y + BARRE_AR_Y + h/2,
+					schema_x + BARRE_AR_X,
+					schema_y + BARRE_AR_Y,
 					 NULL);
   gdk_pixbuf_unref(pixmap);
 
 #define COMMAND_OFFSET 20.0
   pixmap = gc_pixmap_load("submarine/up.png");
-  w = gdk_pixbuf_get_width(pixmap);
-  h = gdk_pixbuf_get_height(pixmap);
+  int w2 = gdk_pixbuf_get_width(pixmap);
   barre_av_up_item = goo_canvas_image_new (boardRootItem,
 					   pixmap,
-					   schema_x + BARRE_AV_X + COMMAND_OFFSET + w/2,
-					   schema_y + BARRE_AV_Y - COMMAND_OFFSET + h/2,
+					   schema_x + BARRE_AV_X + w - w2,
+					   schema_y + BARRE_AV_Y - COMMAND_OFFSET,
 					    NULL);
   barre_ar_up_item = goo_canvas_image_new (boardRootItem,
 					   pixmap,
-					   schema_x + BARRE_AR_X + COMMAND_OFFSET + w/2,
-					   schema_y + BARRE_AR_Y - COMMAND_OFFSET + h/2,
+					   schema_x + BARRE_AR_X + w - w2,
+					   schema_y + BARRE_AR_Y - COMMAND_OFFSET,
 					   NULL);
   engine_up_item = goo_canvas_image_new (boardRootItem,
 					 pixmap,
-					 schema_x + ENGINE_UP_X + w/2,
-					 schema_y + ENGINE_UP_Y + h/2,
+					 schema_x + ENGINE_UP_X,
+					 schema_y + ENGINE_UP_Y,
 					 NULL);
   gdk_pixbuf_unref(pixmap);
 
   pixmap = gc_pixmap_load("submarine/down.png");
-  w = gdk_pixbuf_get_width(pixmap);
-  h = gdk_pixbuf_get_height(pixmap);
   barre_av_down_item = goo_canvas_image_new (boardRootItem,
 					     pixmap,
-					     schema_x + BARRE_AV_X + COMMAND_OFFSET + w/2,
-					     schema_y + BARRE_AV_Y + COMMAND_OFFSET + h/2,
+					     schema_x + BARRE_AV_X + w - w2,
+					     schema_y + BARRE_AV_Y + COMMAND_OFFSET,
 					     NULL);
   barre_ar_down_item = goo_canvas_image_new (boardRootItem,
 					     pixmap,
-					     schema_x + BARRE_AR_X + COMMAND_OFFSET + w/2,
-					     schema_y + BARRE_AR_Y + COMMAND_OFFSET + h/2,
+					     schema_x + BARRE_AR_X + w - w2,
+					     schema_y + BARRE_AR_Y + COMMAND_OFFSET,
 					     NULL);
   engine_down_item = goo_canvas_image_new (boardRootItem,
 					   pixmap,
-					   schema_x + ENGINE_DOWN_X + w/2,
-					   schema_y + ENGINE_DOWN_Y + h/2,
+					   schema_x + ENGINE_DOWN_X,
+					   schema_y + ENGINE_DOWN_Y,
 					   NULL);
   gdk_pixbuf_unref(pixmap);
 
-  g_signal_connect(GTK_OBJECT(barre_av_up_item), "enter_notify_event",
+  g_signal_connect(barre_av_up_item, "button-press-event",
 		     (GtkSignalFunc) barre_av_event, GINT_TO_POINTER(UP));
-  g_signal_connect(GTK_OBJECT(barre_ar_up_item), "enter_notify_event",
+  g_signal_connect(barre_ar_up_item, "button-press-event",
 		     (GtkSignalFunc) barre_ar_event, GINT_TO_POINTER(UP));
-  g_signal_connect(GTK_OBJECT(barre_av_down_item), "enter_notify_event",
+  g_signal_connect(barre_av_down_item, "button-press-event",
 		     (GtkSignalFunc) barre_av_event, GINT_TO_POINTER(DOWN));
-  g_signal_connect(GTK_OBJECT(barre_ar_down_item), "enter_notify_event",
+  g_signal_connect(barre_ar_down_item, "button-press-event",
 		     (GtkSignalFunc) barre_ar_event, GINT_TO_POINTER(DOWN));
-  g_signal_connect(GTK_OBJECT(engine_up_item), "enter_notify_event",
+  g_signal_connect(engine_up_item, "button-press-event",
 		     (GtkSignalFunc) engine_event, GINT_TO_POINTER(UP));
-  g_signal_connect(GTK_OBJECT(engine_down_item), "enter_notify_event",
+  g_signal_connect(engine_down_item, "button-press-event",
 		     (GtkSignalFunc) engine_event, GINT_TO_POINTER(DOWN));
 
   // displays the speed on the engine
   sprintf(s12,"%d",(int)submarine_horizontal_speed);
   speed_item_back = goo_canvas_text_new (boardRootItem,
 					 s12,
-					 (double) schema_x + (ENGINE_UP_X + ENGINE_DOWN_X)/2 +1,
-					 (double) schema_y + ENGINE_UP_Y + 1,
+					 (gdouble) schema_x + ENGINE_UP_X - ENGINE_DOWN_X +1,
+					 (gdouble) schema_y + ENGINE_UP_Y + 10 + 1,
 					 -1,
 					 GTK_ANCHOR_CENTER,
 					 "font", gc_skin_font_board_title_bold,
+					 "alignment", PANGO_ALIGN_CENTER,
 					 "fill-color", TEXT_COLOR_BACK,
 					 NULL);
   speed_item_front = goo_canvas_text_new (boardRootItem,
 					  s12,
-					  (double) schema_x + (ENGINE_UP_X + ENGINE_DOWN_X)/2,
-					  (double) schema_y + ENGINE_UP_Y,
+					  (gdouble) schema_x + ENGINE_UP_X - ENGINE_DOWN_X,
+					  (gdouble) schema_y + ENGINE_UP_Y + 10,
 					  -1,
 					  GTK_ANCHOR_CENTER,
 					  "font", gc_skin_font_board_title_bold,
+					  "alignment", PANGO_ALIGN_CENTER,
 					  "fill-color", TEXT_COLOR_FRONT,
 					  NULL);
 
   // displays the ballast_av_air value
   ballast_av_air_item_rect = goo_canvas_rect_new (boardRootItem,
 						  schema_x + BALLAST_AV_AIR_X1,
-						  schema_y + BALLAST_AV_AIR_Y2,
-						  BALLAST_AV_AIR_X2,
-						  BALLAST_AV_AIR_Y2,
+						  schema_y + BALLAST_AV_AIR_Y1
+						  + BALLAST_AV_AIR_H,
+						  BALLAST_AV_AIR_W,
+						  BALLAST_AV_AIR_H,
 						  "fill-color", "blue",
-						  "width_pixels", 0,
+						  "line-width", 0.0,
 						  NULL);
 
   sprintf(s12,"%d",(int)ballast_av_air);
   ballast_av_air_item_back = goo_canvas_text_new (boardRootItem,
 						  s12,
-						  (double) schema_x + BALLAST_AV_AIR_TEXT_X + 1,
-						  (double) schema_y + BALLAST_AV_AIR_TEXT_Y + 1,
+						  (gdouble) schema_x + BALLAST_AV_AIR_TEXT_X + 1,
+						  (gdouble) schema_y + BALLAST_AV_AIR_TEXT_Y + 1,
 						  -1,
 						  GTK_ANCHOR_CENTER,
 						  "font", gc_skin_font_board_title_bold,
@@ -548,8 +560,8 @@ static GooCanvasItem *submarine_create_item(GooCanvasItem *parent) {
 						  NULL);
   ballast_av_air_item_front = goo_canvas_text_new (boardRootItem,
 						   s12,
-						   (double) schema_x + BALLAST_AV_AIR_TEXT_X,
-						   (double) schema_y + BALLAST_AV_AIR_TEXT_Y,
+						   (gdouble) schema_x + BALLAST_AV_AIR_TEXT_X,
+						   (gdouble) schema_y + BALLAST_AV_AIR_TEXT_Y,
 						   -1,
 						   GTK_ANCHOR_CENTER,
 						   "font", gc_skin_font_board_title_bold,
@@ -560,18 +572,19 @@ static GooCanvasItem *submarine_create_item(GooCanvasItem *parent) {
   // displays the ballast_ar_air value
   ballast_ar_air_item_rect = goo_canvas_rect_new (boardRootItem,
 						  schema_x + BALLAST_AR_AIR_X1,
-						  schema_y + BALLAST_AR_AIR_Y2,
-						  BALLAST_AR_AIR_X2,
-						  BALLAST_AR_AIR_Y2,
+						  schema_y + BALLAST_AR_AIR_Y1
+						  + BALLAST_AR_AIR_H,
+						  BALLAST_AR_AIR_W,
+						  BALLAST_AR_AIR_H,
 						  "fill-color", "blue",
-						  "width_pixels", 0,
+						  "line-width", 0.0,
 						  NULL);
 
   sprintf(s12,"%d",(int)ballast_ar_air);
   ballast_ar_air_item_back = goo_canvas_text_new (boardRootItem,
 						  s12,
-						  (double) schema_x + BALLAST_AR_AIR_TEXT_X + 1,
-						  (double) schema_y + BALLAST_AR_AIR_TEXT_Y + 1,
+						  (gdouble) schema_x + BALLAST_AR_AIR_TEXT_X + 1,
+						  (gdouble) schema_y + BALLAST_AR_AIR_TEXT_Y + 1,
 						  -1,
 						  GTK_ANCHOR_CENTER,
 						  "font", gc_skin_font_board_title_bold,
@@ -579,8 +592,8 @@ static GooCanvasItem *submarine_create_item(GooCanvasItem *parent) {
 						  NULL);
   ballast_ar_air_item_front = goo_canvas_text_new (boardRootItem,
 						   s12,
-						   (double) schema_x + BALLAST_AR_AIR_TEXT_X,
-						   (double) schema_y + BALLAST_AR_AIR_TEXT_Y,
+						   (gdouble) schema_x + BALLAST_AR_AIR_TEXT_X,
+						   (gdouble) schema_y + BALLAST_AR_AIR_TEXT_Y,
 						   -1,
 						   GTK_ANCHOR_CENTER,
 						   "font", gc_skin_font_board_title_bold,
@@ -592,8 +605,8 @@ static GooCanvasItem *submarine_create_item(GooCanvasItem *parent) {
   sprintf(s12,"%d", (int)air);
   air_item_back = goo_canvas_text_new (boardRootItem,
 				       s12,
-				       (double) schema_x + AIR_X +1,
-				       (double) schema_y + AIR_Y + 1,
+				       (gdouble) schema_x + AIR_X +1,
+				       (gdouble) schema_y + AIR_Y + 1,
 				       -1,
 				       GTK_ANCHOR_CENTER,
 				       "font", gc_skin_font_board_title_bold,
@@ -601,8 +614,8 @@ static GooCanvasItem *submarine_create_item(GooCanvasItem *parent) {
 				       NULL);
   air_item_front = goo_canvas_text_new (boardRootItem,
 					s12,
-					(double) schema_x + AIR_X,
-					(double) schema_y + AIR_Y,
+					(gdouble) schema_x + AIR_X,
+					(gdouble) schema_y + AIR_Y,
 					-1,
 					GTK_ANCHOR_CENTER,
 					"font", gc_skin_font_board_title_bold,
@@ -613,20 +626,22 @@ static GooCanvasItem *submarine_create_item(GooCanvasItem *parent) {
   sprintf(s12,"%d", (int)battery);
   battery_item_back = goo_canvas_text_new (boardRootItem,
 					   s12,
-					   (double) schema_x + BATTERY_X +1,
-					   (double) schema_y + BATTERY_Y + 1,
+					   (gdouble) schema_x + BATTERY_X +1,
+					   (gdouble) schema_y + BATTERY_Y + 1,
 					   -1,
 					   GTK_ANCHOR_CENTER,
 					   "font", gc_skin_font_board_title_bold,
+					   "alignment", PANGO_ALIGN_CENTER,
 					   "fill-color", TEXT_COLOR_BACK,
 					   NULL);
   battery_item_front = goo_canvas_text_new (boardRootItem,
 					    s12,
-					    (double) schema_x + BATTERY_X,
-					    (double) schema_y + BATTERY_Y,
+					    (gdouble) schema_x + BATTERY_X,
+					    (gdouble) schema_y + BATTERY_Y,
 					    -1,
 					    GTK_ANCHOR_CENTER,
 					    "font", gc_skin_font_board_title_bold,
+					    "alignment", PANGO_ALIGN_CENTER,
 					    "fill-color", TEXT_COLOR_FRONT,
 					    NULL);
 
@@ -634,17 +649,17 @@ static GooCanvasItem *submarine_create_item(GooCanvasItem *parent) {
   regleur_item_rect = goo_canvas_rect_new (boardRootItem,
 					   schema_x + REGLEUR_X1,
 					   schema_y + REGLEUR_Y2,
-					   REGLEUR_X2,
-					   REGLEUR_Y2,
+					   REGLEUR_X2 - REGLEUR_X1,
+					   REGLEUR_Y2 - REGLEUR_Y2,
 					   "fill-color", "blue",
-					   "width_pixels", 0,
+					   "line-width", 0.0,
 					   NULL);
 
   sprintf(s12,"%d", (int)regleur);
   regleur_item_back = goo_canvas_text_new (boardRootItem,
 					   s12,
-					   (double) schema_x + REGLEUR_TEXT_X +1,
-					   (double) schema_y + REGLEUR_TEXT_Y + 1,
+					   (gdouble) schema_x + REGLEUR_TEXT_X +1,
+					   (gdouble) schema_y + REGLEUR_TEXT_Y + 1,
 					   -1,
 					   GTK_ANCHOR_CENTER,
 					   "font", gc_skin_font_board_title_bold,
@@ -652,8 +667,8 @@ static GooCanvasItem *submarine_create_item(GooCanvasItem *parent) {
 					   NULL);
   regleur_item_front = goo_canvas_text_new (boardRootItem,
 					    s12,
-					    (double) schema_x + REGLEUR_TEXT_X,
-					    (double) schema_y + REGLEUR_TEXT_Y,
+					    (gdouble) schema_x + REGLEUR_TEXT_X,
+					    (gdouble) schema_y + REGLEUR_TEXT_Y,
 					    -1,
 					    GTK_ANCHOR_CENTER,
 					    "font", gc_skin_font_board_title_bold,
@@ -667,8 +682,8 @@ static GooCanvasItem *submarine_create_item(GooCanvasItem *parent) {
   h = gdk_pixbuf_get_height(pixmap);
   alert_submarine = goo_canvas_image_new (boardRootItem,
 					  pixmap,
-					  ALERT_SUBMARINE_X + w/2,
-					  ALERT_SUBMARINE_Y + h/2,
+					  ALERT_SUBMARINE_X,
+					  ALERT_SUBMARINE_Y,
 					  NULL);
   gdk_pixbuf_unref(pixmap);
   g_object_set (alert_submarine,
@@ -682,8 +697,8 @@ static GooCanvasItem *submarine_create_item(GooCanvasItem *parent) {
   for (i=0; i<3; i++) {
     bubbling[i] = goo_canvas_image_new (boardRootItem,
 					pixmap,
-					w/2,
-					h/2,
+					0,
+					0,
 					NULL);
     g_object_set (bubbling[i],
 		  "visibility", GOO_CANVAS_ITEM_INVISIBLE,
@@ -701,8 +716,8 @@ static GooCanvasItem *submarine_create_item(GooCanvasItem *parent) {
 			       (int)MAX_DEPTH);
   whale = goo_canvas_image_new (boardRootItem,
 				pixmap,
-				whale_x + w/2,
-				whale_y + h/2,
+				whale_x,
+				whale_y,
 				NULL);
   gdk_pixbuf_unref(pixmap);
 
@@ -712,8 +727,8 @@ static GooCanvasItem *submarine_create_item(GooCanvasItem *parent) {
   h = gdk_pixbuf_get_height(pixmap);
   big_explosion = goo_canvas_image_new (boardRootItem,
 					pixmap,
-					whale_x + w/2,
-					whale_y + h/2,
+					whale_x,
+					whale_y,
 					NULL);
   g_object_set (big_explosion,
 		"visibility", GOO_CANVAS_ITEM_INVISIBLE,
@@ -729,9 +744,19 @@ static GooCanvasItem *submarine_create_item(GooCanvasItem *parent) {
   treasure_y = MAX_DEPTH;
   treasure = goo_canvas_image_new (boardRootItem,
 				   pixmap,
-				   treasure_x + w/2,
-				   treasure_y + h/2,
+				   0,
+				   0,
 				   NULL);
+  goo_canvas_item_translate(treasure, treasure_x, 0);
+  goo_canvas_item_animate(treasure,
+			  treasure_x,
+			  treasure_y,
+			  0.6,
+			  0,
+			  TRUE,
+			  6*1000,
+			  40,
+			  GOO_CANVAS_ANIMATE_FREEZE);
   gdk_pixbuf_unref(pixmap);
 
   // the triggers for air compressor and battery charger
@@ -740,13 +765,13 @@ static GooCanvasItem *submarine_create_item(GooCanvasItem *parent) {
   h = gdk_pixbuf_get_height(pixmap);
   air_compressor_item = goo_canvas_image_new (boardRootItem,
 					      pixmap,
-					      schema_x + AIR_TRIGGER_X + w/2,
-					      schema_y + AIR_TRIGGER_Y + h/2,
+					      schema_x + AIR_TRIGGER_X,
+					      schema_y + AIR_TRIGGER_Y,
 					      NULL);
   battery_charger_item = goo_canvas_image_new (boardRootItem,
 					       pixmap,
-					       schema_x + BATTERY_TRIGGER_X + w/2,
-					       schema_y + BATTERY_TRIGGER_Y + h/2,
+					       schema_x + BATTERY_TRIGGER_X,
+					       schema_y + BATTERY_TRIGGER_Y,
 					       NULL);
   gdk_pixbuf_unref(pixmap);
 
@@ -756,13 +781,15 @@ static GooCanvasItem *submarine_create_item(GooCanvasItem *parent) {
   h = gdk_pixbuf_get_height(pixmap);
   frigate_item = goo_canvas_image_new (boardRootItem,
 				       pixmap,
-				       700.0 + w/2,
-				       2.0 + h/2,
+				       700.0,
+				       2.0,
 				       NULL);
   gdk_pixbuf_unref(pixmap);
 
-  g_signal_connect(GTK_OBJECT(air_compressor_item), "enter_notify_event",  (GtkSignalFunc) air_compressor_event, NULL);
-  g_signal_connect(GTK_OBJECT(battery_charger_item), "enter_notify_event",  (GtkSignalFunc) battery_charger_event, NULL);
+  g_signal_connect(air_compressor_item, "button-press-event",
+		   (GtkSignalFunc) air_compressor_event, NULL);
+  g_signal_connect(battery_charger_item, "button-press-event",
+		   (GtkSignalFunc) battery_charger_event, NULL);
 
 
   /*
@@ -796,18 +823,18 @@ static GooCanvasItem *submarine_create_item(GooCanvasItem *parent) {
      gate_top_current_y - 40,
      "fill_color_rgba", 0x989677FF,
      "stroke-color", "black",
-     "width_pixels", 2,
+     "line-width", 2.0,
      NULL);
 
   goo_canvas_rect_new (boardRootItem,
-			 BOARDWIDTH - 25,
-			 gate_bottom_y,
-			 27,
-			 schema_y - gate_bottom_y,
-			 "fill_color_rgba", 0x989677FF,
-			 "stroke-color", "black",
-			 "width_pixels", 2,
-			 NULL);
+		       BOARDWIDTH - 25,
+		       gate_bottom_y,
+		       27,
+		       schema_y - gate_bottom_y,
+		       "fill_color_rgba", 0x989677FF,
+		       "stroke-color", "black",
+		       "line-width", 2.0,
+		       NULL);
 
 
   timer_id = g_timeout_add(UPDATE_DELAY, update_timeout, NULL);
@@ -820,7 +847,7 @@ static GooCanvasItem *submarine_create_item(GooCanvasItem *parent) {
  * Periodically recalculate the submarine parameters
  * =====================================================================*/
 static gboolean update_timeout() {
-  double delta_air;
+  gdouble delta_air;
   gboolean regleur_dirty = FALSE;
   gboolean air_dirty = FALSE;
 
@@ -897,7 +924,7 @@ static gboolean update_timeout() {
  * Periodically recalculate some submarine parameters, with a larger delay
  * =====================================================================*/
 static gboolean update_timeout_slow() {
-  double delta_assiette;
+  gdouble delta_assiette;
 
   if(!boardRootItem)
     return FALSE;
@@ -935,7 +962,7 @@ static gboolean update_timeout_slow() {
   /* if depth rudders are in the same direction */
   if (barre_ar_angle != 0.0 && barre_av_angle != 0.0) {
     if (fabs(barre_ar_angle)/barre_ar_angle == fabs(barre_av_angle)/barre_av_angle) {
-      double a = (fabs(barre_ar_angle) > fabs(barre_av_angle)) ? barre_av_angle : barre_ar_angle;
+      gdouble a = (fabs(barre_ar_angle) > fabs(barre_av_angle)) ? barre_av_angle : barre_ar_angle;
       submarine_vertical_speed += a * submarine_horizontal_speed/30.0;
     }
   }
@@ -1000,14 +1027,17 @@ static gboolean update_timeout_slow() {
     open_door();
 
   { /* display the submarine */
-    double r[6],t1[6], t2[6];
-    double y = depth + submarine_height/2 + SURFACE_IN_BACKGROUND - submarine_width/2.0*sin(DEG_TO_RAD(assiette));
-    art_affine_translate( t1 , (double)(submarine_width/2.0)*-1, (double)(submarine_height)*-1);
+    gdouble y = depth + SURFACE_IN_BACKGROUND - sin(DEG_TO_RAD(assiette));
+#if 0
+    gdouble r[6],t1[6], t2[6];
+    art_affine_translate( t1 , (gdouble)(submarine_width/2.0)*-1, (gdouble)(submarine_height)*-1);
     art_affine_rotate( r, -assiette );
     art_affine_multiply( r, t1, r);
     art_affine_translate( t2 , submarine_x, y );
     art_affine_multiply( r, r, t2);
     goo_canvas_item_affine_absolute( submarine_item, r );
+#endif
+    goo_canvas_item_set_simple_transform(submarine_item, submarine_x, y, 1, -assiette);
   }
 
   /* the frigate */
@@ -1029,7 +1059,7 @@ static gboolean update_timeout_slow() {
 
   /* whale detection */
   {
-    double dist1, dist2, dist3;
+    gdouble dist1, dist2, dist3;
     dist1 = hypot( submarine_x -submarine_width/2 -whale_x, depth+SURFACE_IN_BACKGROUND-whale_y);
     dist2 = hypot(submarine_x - submarine_width - whale_x, depth+SURFACE_IN_BACKGROUND-whale_y);
     dist3 = hypot(submarine_x - whale_x, depth+SURFACE_IN_BACKGROUND-whale_y);
@@ -1044,7 +1074,7 @@ static gboolean update_timeout_slow() {
 
   /* treasure detection */
   {
-    double dist1, dist2, dist3;
+    gdouble dist1, dist2, dist3;
     dist1 = hypot( submarine_x -submarine_width/2 -treasure_x, depth+SURFACE_IN_BACKGROUND-treasure_y);
     dist2 = hypot(submarine_x - submarine_width - treasure_x, depth+SURFACE_IN_BACKGROUND-treasure_y);
     dist3 = hypot(submarine_x - treasure_x, depth+SURFACE_IN_BACKGROUND-treasure_y);
@@ -1176,153 +1206,155 @@ static void ok() {
 /* =====================================================================
  *		ballast_av_purge_event
  * =====================================================================*/
-static gint ballast_av_purge_event(GooCanvasItem *item, GdkEvent *event, gpointer data) {
+static gboolean
+ballast_av_purge_event (GooCanvasItem  *item,
+			GooCanvasItem  *target,
+			GdkEventButton *event,
+			gpointer data)
+{
+  GooCanvasBounds bounds;
 
   if(board_paused || !boardRootItem)
     return FALSE;
 
-  switch (event->type)
-    {
-    case GDK_BUTTON_PRESS:
-      gc_sound_play_ogg ("sounds/bleep.wav", NULL);
-      ballast_av_purge_open = !ballast_av_purge_open;
-      if (ballast_av_purge_open)
-	gc_item_rotate(item, 90.0);
-      else
-	gc_item_rotate(item, 0.0);
-      break;
+  goo_canvas_item_get_bounds(item, &bounds);
 
-    default:
-      break;
-    }
+  gc_sound_play_ogg ("sounds/bleep.wav", NULL);
+  ballast_av_purge_open = !ballast_av_purge_open;
+
+  goo_canvas_item_rotate(item, 90.0,
+			 bounds.x1 + (bounds.x2 - bounds.x1) / 2,
+			 bounds.y1 + (bounds.y2 - bounds.y1) / 2);
+
+
   return FALSE;
 }
 
 /* =====================================================================
  *		ballast_ar_purge_event
  * =====================================================================*/
-static gint ballast_ar_purge_event(GooCanvasItem *item, GdkEvent *event, gpointer data) {
+static gboolean
+ballast_ar_purge_event(GooCanvasItem *item, GooCanvas *target,
+		       GdkEventButton *event, gpointer data)
+{
+  GooCanvasBounds bounds;
 
   if(board_paused || !boardRootItem)
     return FALSE;
 
-  switch (event->type)
-    {
-    case GDK_BUTTON_PRESS:
-      gc_sound_play_ogg ("sounds/bleep.wav", NULL);
-      ballast_ar_purge_open = !ballast_ar_purge_open;
-      if (ballast_ar_purge_open)
-	gc_item_rotate(item, 90.0);
-      else
-	gc_item_rotate(item, 0.0);
-      break;
+  goo_canvas_item_get_bounds(item, &bounds);
 
-    default:
-      break;
-    }
+  gc_sound_play_ogg ("sounds/bleep.wav", NULL);
+  ballast_ar_purge_open = !ballast_ar_purge_open;
+
+  goo_canvas_item_rotate(item, 90.0,
+			 bounds.x1 + (bounds.x2 - bounds.x1) / 2,
+			 bounds.y1 + (bounds.y2 - bounds.y1) / 2);
+
   return FALSE;
 }
 /* =====================================================================
  *		regleur_purge_event
  * =====================================================================*/
-static gint regleur_purge_event(GooCanvasItem *item, GdkEvent *event, gpointer data) {
+static gboolean
+regleur_purge_event(GooCanvasItem *item, GooCanvas *target,
+		    GdkEventButton *event, gpointer data)
+{
+  GooCanvasBounds bounds;
 
   if(board_paused || !boardRootItem)
     return FALSE;
 
-  switch (event->type)
-    {
-    case GDK_BUTTON_PRESS:
-      gc_sound_play_ogg ("sounds/bleep.wav", NULL);
-      regleur_purge_open = !regleur_purge_open;
-      if (regleur_purge_open)
-	gc_item_rotate(item, 90.0);
-      else
-	gc_item_rotate(item, 0.0);
-      break;
+  goo_canvas_item_get_bounds(item, &bounds);
 
-    default:
-      break;
-    }
+  gc_sound_play_ogg ("sounds/bleep.wav", NULL);
+  regleur_purge_open = !regleur_purge_open;
+
+  goo_canvas_item_rotate(item, 90.0,
+			 bounds.x1 + (bounds.x2 - bounds.x1) / 2,
+			 bounds.y1 + (bounds.y2 - bounds.y1) / 2);
+
   return FALSE;
 }
 /* =====================================================================
  *		ballast_ar_chasse_event
  * =====================================================================*/
-static gint ballast_ar_chasse_event(GooCanvasItem *item, GdkEvent *event, gpointer data) {
+static gboolean
+ballast_ar_chasse_event(GooCanvasItem *item, GooCanvas *target,
+			GdkEventButton *event, gpointer data)
+{
+  GooCanvasBounds bounds;
 
   if(board_paused || !boardRootItem)
     return FALSE;
 
-  switch (event->type)
-    {
-    case GDK_BUTTON_PRESS:
-      gc_sound_play_ogg ("sounds/bleep.wav", NULL);
-      ballast_ar_chasse_open = !ballast_ar_chasse_open;
-      if (ballast_ar_chasse_open)
-	gc_item_rotate(item, 90.0);
-      else
-	gc_item_rotate(item, 0.0);
-      break;
+  goo_canvas_item_get_bounds(item, &bounds);
 
-    default:
-      break;
-    }
+  gc_sound_play_ogg ("sounds/bleep.wav", NULL);
+  ballast_ar_chasse_open = !ballast_ar_chasse_open;
+
+  goo_canvas_item_rotate(item, 90.0,
+			 bounds.x1 + (bounds.x2 - bounds.x1) / 2,
+			 bounds.y1 + (bounds.y2 - bounds.y1) / 2);
+
   return FALSE;
 }
 /* =====================================================================
  *		ballast_av_chasse_event
  * =====================================================================*/
-static gint ballast_av_chasse_event(GooCanvasItem *item, GdkEvent *event, gpointer data) {
+static gboolean
+ballast_av_chasse_event(GooCanvasItem *item, GooCanvas *target,
+			GdkEventButton *event, gpointer data)
+{
+  GooCanvasBounds bounds;
 
   if(board_paused || !boardRootItem)
     return FALSE;
 
-  switch (event->type)
-    {
-    case GDK_BUTTON_PRESS:
-      gc_sound_play_ogg ("sounds/bleep.wav", NULL);
-      ballast_av_chasse_open = !ballast_av_chasse_open;
-      if (ballast_av_chasse_open)
-	gc_item_rotate(item, 90.0);
-      else
-	gc_item_rotate(item, 0.0);
-      break;
+  goo_canvas_item_get_bounds(item, &bounds);
 
-    default:
-      break;
-    }
+  gc_sound_play_ogg ("sounds/bleep.wav", NULL);
+  ballast_av_chasse_open = !ballast_av_chasse_open;
+
+  goo_canvas_item_rotate(item, 90.0,
+			 bounds.x1 + (bounds.x2 - bounds.x1) / 2,
+			 bounds.y1 + (bounds.y2 - bounds.y1) / 2);
+
+
   return FALSE;
 }
 /* =====================================================================
  *
  * =====================================================================*/
-static gint regleur_chasse_event(GooCanvasItem *item, GdkEvent *event, gpointer data) {
+static gboolean
+regleur_chasse_event(GooCanvasItem *item, GooCanvas *target,
+		     GdkEventButton *event, gpointer data)
+{
+  GooCanvasBounds bounds;
 
   if(board_paused || !boardRootItem)
     return FALSE;
 
-  switch (event->type)
-    {
-    case GDK_BUTTON_PRESS:
-      gc_sound_play_ogg ("sounds/bleep.wav", NULL);
-      regleur_chasse_open = !regleur_chasse_open;
-      if (regleur_chasse_open)
-	gc_item_rotate(item, 90.0);
-      else
-	gc_item_rotate(item, 0.0);
-      break;
+  goo_canvas_item_get_bounds(item, &bounds);
 
-    default:
-      break;
-    }
+  gc_sound_play_ogg ("sounds/bleep.wav", NULL);
+  regleur_chasse_open = !regleur_chasse_open;
+
+  goo_canvas_item_rotate(item, 90.0,
+			 bounds.x1 + (bounds.x2 - bounds.x1) / 2,
+			 bounds.y1 + (bounds.y2 - bounds.y1) / 2);
+
   return FALSE;
 }
 
 /* =====================================================================
  *		barre_av_event
  * =====================================================================*/
-static gint barre_av_event(GooCanvasItem *item, GdkEvent *event, gpointer data) {
+static gboolean
+barre_av_event(GooCanvasItem *item, GooCanvas *target,
+	       GdkEventButton *event, gpointer data)
+{
+
   int d = GPOINTER_TO_INT(data);
 
   if(board_paused || !boardRootItem)
@@ -1334,7 +1366,8 @@ static gint barre_av_event(GooCanvasItem *item, GdkEvent *event, gpointer data) 
       gc_sound_play_ogg ("sounds/bleep.wav", NULL);
       if (d == UP && barre_av_angle < RUDDER_MAX) {
         barre_av_angle += RUDDER_STEP;
-        gc_item_rotate_with_center( barre_av_item, barre_av_angle,RUDDER_CENTER_X,RUDDER_CENTER_Y);
+        gc_item_rotate_with_center( barre_av_item, barre_av_angle,
+				    RUDDER_CENTER_X,RUDDER_CENTER_Y);
       }
       if (d == DOWN && barre_av_angle > -RUDDER_MAX) {
         barre_av_angle -= RUDDER_STEP;
@@ -1350,171 +1383,184 @@ static gint barre_av_event(GooCanvasItem *item, GdkEvent *event, gpointer data) 
 /* =====================================================================
  *		barre_ar_event
  * =====================================================================*/
-static gint barre_ar_event(GooCanvasItem *item, GdkEvent *event, gpointer data) {
+static gboolean
+barre_ar_event(GooCanvasItem *item, GooCanvas *target,
+	       GdkEventButton *event, gpointer data)
+{
   int d = GPOINTER_TO_INT(data);
 
   if(board_paused || !boardRootItem)
     return FALSE;
 
-  switch (event->type)
-    {
-    case GDK_BUTTON_PRESS:
-      gc_sound_play_ogg ("sounds/bleep.wav", NULL);
-      if (d == UP && barre_ar_angle < RUDDER_MAX) {
-        barre_ar_angle += RUDDER_STEP;
-        gc_item_rotate_with_center( barre_ar_item, barre_ar_angle,RUDDER_CENTER_X,RUDDER_CENTER_Y);
-      }
-      if (d == DOWN && barre_ar_angle > -RUDDER_MAX) {
-        barre_ar_angle -= RUDDER_STEP;
-        gc_item_rotate_with_center( barre_ar_item, barre_ar_angle,RUDDER_CENTER_X,RUDDER_CENTER_Y);
-      }
-      break;
+  gc_sound_play_ogg ("sounds/bleep.wav", NULL);
+  if (d == UP && barre_ar_angle < RUDDER_MAX) {
+    barre_ar_angle += RUDDER_STEP;
+    gc_item_rotate_with_center( barre_ar_item, barre_ar_angle,
+				RUDDER_CENTER_X, RUDDER_CENTER_Y);
+  }
+  if (d == DOWN && barre_ar_angle > -RUDDER_MAX) {
+    barre_ar_angle -= RUDDER_STEP;
+    gc_item_rotate_with_center( barre_ar_item, barre_ar_angle,
+				RUDDER_CENTER_X, RUDDER_CENTER_Y);
+  }
 
-    default:
-      break;
-    }
   return FALSE;
 }
 /* =====================================================================
  *		engine_event
  * =====================================================================*/
-static gint engine_event(GooCanvasItem *item, GdkEvent *event, gpointer data) {
+static gboolean
+engine_event(GooCanvasItem *item, GooCanvas *target,
+	     GdkEventButton *event, gpointer data)
+{
   int d = GPOINTER_TO_INT(data);
 
   if(board_paused || !boardRootItem)
     return FALSE;
 
-  switch (event->type)
-    {
-    case GDK_BUTTON_PRESS:
-      gc_sound_play_ogg ("sounds/bleep.wav", NULL);
-      if (d == UP) {
-        speed_ordered += SPEED_STEP;
-      }
-      if (d == DOWN) {
-        speed_ordered -= SPEED_STEP;
-      }
-      if (speed_ordered > SPEED_MAX)
-	speed_ordered = SPEED_MAX;
-      if (speed_ordered < 0)
-      	speed_ordered = 0;
-      setSpeed(speed_ordered);
-      break;
+  gc_sound_play_ogg ("sounds/bleep.wav", NULL);
+  if (d == UP) {
+    speed_ordered += SPEED_STEP;
+  }
+  if (d == DOWN) {
+    speed_ordered -= SPEED_STEP;
+  }
+  if (speed_ordered > SPEED_MAX)
+    speed_ordered = SPEED_MAX;
+  if (speed_ordered < 0)
+    speed_ordered = 0;
+  setSpeed(speed_ordered);
 
-    default:
-      break;
-    }
   return FALSE;
 }
 /* =====================================================================
  *		air_compressor_event
  * =====================================================================*/
-static gint air_compressor_event(GooCanvasItem *item, GdkEvent *event, gpointer data) {
+static gboolean
+air_compressor_event(GooCanvasItem *item, GooCanvas *target,
+		     GdkEventButton *event, gpointer data)
+{
 
   if(board_paused || !boardRootItem)
     return FALSE;
 
-  switch (event->type)
-    {
-    case GDK_BUTTON_PRESS:
-      gc_sound_play_ogg ("sounds/bleep.wav", NULL);
-      if (air_charging)
-      	air_charging = FALSE;
-      else
-	air_charging = TRUE;
-      gc_item_rotate_with_center(item, air_charging ? 180 : 0 , TRIGGER_CENTER_X, TRIGGER_CENTER_Y );
-      break;
+  gc_sound_play_ogg ("sounds/bleep.wav", NULL);
+  if (air_charging)
+    air_charging = FALSE;
+  else
+    air_charging = TRUE;
 
-    default:
-      break;
-    }
+  gc_item_rotate_with_center(item, air_charging ? 180 : 0 ,
+			     TRIGGER_CENTER_X, TRIGGER_CENTER_Y );
+
   return FALSE;
 }
 /* =====================================================================
  *		battery_charger_event
  * =====================================================================*/
-static gint battery_charger_event(GooCanvasItem *item, GdkEvent *event, gpointer data) {
+static gboolean
+battery_charger_event(GooCanvasItem *item, GooCanvas *target,
+		      GdkEventButton *event, gpointer data)
+{
 
   if(board_paused || !boardRootItem)
     return FALSE;
 
-  switch (event->type)
-    {
-    case GDK_BUTTON_PRESS:
-      gc_sound_play_ogg ("sounds/bleep.wav", NULL);
-      if (battery_charging)
-      	battery_charging = FALSE;
-      else
-	battery_charging = TRUE;
-      gc_item_rotate_with_center(item, battery_charging ? 180 : 0 , TRIGGER_CENTER_X, TRIGGER_CENTER_Y );
-      break;
+  gc_sound_play_ogg ("sounds/bleep.wav", NULL);
+  if (battery_charging)
+    battery_charging = FALSE;
+  else
+    battery_charging = TRUE;
 
-    default:
-      break;
-    }
+  gc_item_rotate_with_center(item, battery_charging ? 180 : 0 , TRIGGER_CENTER_X, TRIGGER_CENTER_Y );
+
   return FALSE;
 }
 /* =====================================================================
  * Helper functions to update the graphical display
  * =====================================================================*/
-static void setSpeed(double value) {
+static void setSpeed(gdouble value) {
   char s12[12];
   sprintf(s12,"%d",(int)value);
   g_object_set(speed_item_back, "text", s12, NULL);
   g_object_set(speed_item_front, "text", s12, NULL);
 }
-static void setBattery(double value) {
+
+static void setBattery(gdouble value) {
   char s12[12];
   sprintf(s12,"%d",(int)value);
   g_object_set(battery_item_back, "text", s12, NULL);
   g_object_set(battery_item_front, "text", s12, NULL);
 }
-static void setAir(double value) {
+
+static void setAir(gdouble value) {
   char s12[12];
   sprintf(s12,"%d",(int)value);
   g_object_set(air_item_back, "text", s12, NULL);
   g_object_set(air_item_front, "text", s12, NULL);
 }
-static void setRegleur(double value) {
+
+static void setRegleur(gdouble value) {
   char s12[12];
   sprintf(s12,"%d",(int)value);
   g_object_set(regleur_item_back, "text", s12, NULL);
   g_object_set(regleur_item_front, "text", s12, NULL);
   g_object_set(regleur_item_rect,
-			"y1", (double) schema_y + REGLEUR_Y2 +
-			( value * (REGLEUR_Y1 - REGLEUR_Y2)) / MAX_REGLEUR,
-			NULL);
+	       "y", (gdouble) schema_y + REGLEUR_Y2 +
+	       ( value * (REGLEUR_Y1 - REGLEUR_Y2)) / MAX_REGLEUR,
+	       NULL);
 }
-static void setBallastAV(double value) {
+
+static void setBallastAV(gdouble value) {
   char s12[12];
+  gdouble height, y_new;
+
   sprintf(s12,"%d", MAX_BALLAST - (int)value);
   g_object_set(ballast_av_air_item_back, "text", s12, NULL);
   g_object_set(ballast_av_air_item_front, "text", s12, NULL);
+
+  y_new = \
+    schema_y + BALLAST_AV_AIR_Y1 + BALLAST_AV_AIR_H +
+    ( (MAX_BALLAST - value) * BALLAST_AV_AIR_H * -1) / MAX_BALLAST;
+
+  height = \
+    schema_y + BALLAST_AV_AIR_Y1 + BALLAST_AV_AIR_H - y_new;
+
   g_object_set(ballast_av_air_item_rect,
-			"y1", (double) schema_y + BALLAST_AV_AIR_Y2 +
-			( (MAX_BALLAST - value) * (BALLAST_AV_AIR_Y1 - BALLAST_AV_AIR_Y2)) / MAX_BALLAST,
-			NULL);
+	       "y", y_new,
+	       "height", height,
+	       NULL);
 }
-static void setBallastAR(double value) {
+
+static void setBallastAR(gdouble value) {
   char s12[12];
+  gdouble height, y_new;
+
   sprintf(s12,"%d", MAX_BALLAST - (int)value);
   g_object_set(ballast_ar_air_item_back, "text", s12, NULL);
   g_object_set(ballast_ar_air_item_front, "text", s12, NULL);
+
+  y_new = \
+    schema_y + BALLAST_AR_AIR_Y1 + BALLAST_AR_AIR_H +
+    ( (MAX_BALLAST - value) * BALLAST_AR_AIR_H * -1) / MAX_BALLAST;
+
+  height = \
+    schema_y + BALLAST_AR_AIR_Y1 + BALLAST_AR_AIR_H - y_new;
+
   g_object_set(ballast_ar_air_item_rect,
-			"y1", (double) schema_y + BALLAST_AR_AIR_Y2 +
-			( (MAX_BALLAST - value) * (BALLAST_AR_AIR_Y1 - BALLAST_AR_AIR_Y2)) / MAX_BALLAST,
-			NULL);
-
-
+	       "y", y_new,
+	       "height", height,
+	       NULL);
 }
-/* =====================================================================
- *	Submarine explosion
- * =====================================================================*/
+
 static void open_door()
 {
+  gdouble height;
+  g_object_get(top_gate_item, "height", &height, NULL);
   g_object_set(top_gate_item,
-			"y2", (double)gate_top_current_y--,
-			NULL);
+	       "y", (gdouble)gate_top_current_y--,
+	       "height", height+1,
+	       NULL);
 }
   /* =====================================================================
  *	Submarine explosion
