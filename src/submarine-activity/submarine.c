@@ -78,14 +78,14 @@ static void game_won();
 #define REGLEUR_INITIAL 500.0
 #define WEIGHT_INITIAL -300.0
 
-#define SUBMARINE_INITIAL_X 150
+#define SUBMARINE_INITIAL_X 100
 #define WRAP_X BOARDWIDTH
 #define SUBMARINE_INITIAL_DEPTH SURFACE_DEPTH
 
 #define RUDDER_STEP 5
 #define RUDDER_MAX 15
-#define RUDDER_CENTER_X 72
-#define RUDDER_CENTER_Y 7
+#define RUDDER_CENTER_X 68
+#define RUDDER_CENTER_Y 8
 #define ENGINE_DOWN_X 32
 #define ENGINE_DOWN_Y 94
 #define ENGINE_UP_X 114
@@ -99,8 +99,8 @@ static void game_won();
 #define REGLEUR_TEXT_Y 37
 #define REGLEUR_X1 325
 #define REGLEUR_Y1 18
-#define REGLEUR_X2 337
-#define REGLEUR_Y2 56
+#define REGLEUR_W  12
+#define REGLEUR_H  34
 
 #define AIR_TRIGGER_X 154
 #define AIR_TRIGGER_Y 108
@@ -152,8 +152,10 @@ static GooCanvasItem *barre_av_item, *barre_ar_item,
   *bubbling[3], *frigate_item, *big_explosion, *whale, *treasure, *top_gate_item;
 
 /* submarine parameters */
-static gdouble barre_av_angle, barre_ar_angle, depth, weight, resulting_weight, submarine_x, air, battery, regleur;
-static gdouble submarine_horizontal_speed, submarine_vertical_speed, speed_ordered, assiette;
+static gdouble barre_av_angle, barre_ar_angle, depth, weight, resulting_weight;
+static gdouble submarine_x, air, battery, regleur;
+static gdouble submarine_horizontal_speed, submarine_vertical_speed;
+static gdouble speed_ordered, assiette;
 static gdouble ballast_av_air, ballast_ar_air;
 
 static gdouble whale_x, whale_y;
@@ -648,9 +650,9 @@ static GooCanvasItem *submarine_create_item(GooCanvasItem *parent) {
   // displays the remaining regleur value
   regleur_item_rect = goo_canvas_rect_new (boardRootItem,
 					   schema_x + REGLEUR_X1,
-					   schema_y + REGLEUR_Y2,
-					   REGLEUR_X2 - REGLEUR_X1,
-					   REGLEUR_Y2 - REGLEUR_Y2,
+					   schema_y + REGLEUR_Y1 + REGLEUR_H,
+					   REGLEUR_W,
+					   REGLEUR_H,
 					   "fill-color", "blue",
 					   "line-width", 0.0,
 					   NULL);
@@ -692,8 +694,7 @@ static GooCanvasItem *submarine_create_item(GooCanvasItem *parent) {
 
   // when the submarine makes some bubbles ...
   pixmap = gc_pixmap_load("submarine/bubbling.png");
-  w = gdk_pixbuf_get_width(pixmap);
-  h = gdk_pixbuf_get_height(pixmap);
+
   for (i=0; i<3; i++) {
     bubbling[i] = goo_canvas_image_new (boardRootItem,
 					pixmap,
@@ -708,8 +709,6 @@ static GooCanvasItem *submarine_create_item(GooCanvasItem *parent) {
 
   // whale item
   pixmap = gc_pixmap_load("submarine/whale.png");
-  w = gdk_pixbuf_get_width(pixmap);
-  h = gdk_pixbuf_get_height(pixmap);
   whale_x = g_random_int_range((int)(gcomprisBoard->width/4),
 			       (int)(gcomprisBoard->width/2));
   whale_y = g_random_int_range((int)(SURFACE_IN_BACKGROUND + gdk_pixbuf_get_height(pixmap)*2),
@@ -721,10 +720,8 @@ static GooCanvasItem *submarine_create_item(GooCanvasItem *parent) {
 				NULL);
   gdk_pixbuf_unref(pixmap);
 
-  // big explosion item (only for the whale)
+  //  whale being hit
   pixmap = gc_pixmap_load("submarine/whale_hit.png");
-  w = gdk_pixbuf_get_width(pixmap);
-  h = gdk_pixbuf_get_height(pixmap);
   big_explosion = goo_canvas_image_new (boardRootItem,
 					pixmap,
 					whale_x,
@@ -738,8 +735,6 @@ static GooCanvasItem *submarine_create_item(GooCanvasItem *parent) {
 
   // treasure item
   pixmap = gc_pixmap_load("submarine/crown.png");
-  w = gdk_pixbuf_get_width(pixmap);
-  h = gdk_pixbuf_get_height(pixmap);
   treasure_x = (gcomprisBoard->width*3)/4;
   treasure_y = MAX_DEPTH;
   treasure = goo_canvas_image_new (boardRootItem,
@@ -761,8 +756,6 @@ static GooCanvasItem *submarine_create_item(GooCanvasItem *parent) {
 
   // the triggers for air compressor and battery charger
   pixmap = gc_pixmap_load("submarine/manette.png");
-  w = gdk_pixbuf_get_width(pixmap);
-  h = gdk_pixbuf_get_height(pixmap);
   air_compressor_item = goo_canvas_image_new (boardRootItem,
 					      pixmap,
 					      schema_x + AIR_TRIGGER_X,
@@ -775,21 +768,30 @@ static GooCanvasItem *submarine_create_item(GooCanvasItem *parent) {
 					       NULL);
   gdk_pixbuf_unref(pixmap);
 
-  // the antisubmarine warfare frigate
-  pixmap = gc_pixmap_load("submarine/asw_frigate.png");
-  w = gdk_pixbuf_get_width(pixmap);
-  h = gdk_pixbuf_get_height(pixmap);
-  frigate_item = goo_canvas_image_new (boardRootItem,
-				       pixmap,
-				       700.0,
-				       2.0,
-				       NULL);
-  gdk_pixbuf_unref(pixmap);
-
   g_signal_connect(air_compressor_item, "button-press-event",
 		   (GtkSignalFunc) air_compressor_event, NULL);
   g_signal_connect(battery_charger_item, "button-press-event",
 		   (GtkSignalFunc) battery_charger_event, NULL);
+
+  // the antisubmarine warfare frigate
+  pixmap = gc_pixmap_load("submarine/asw_frigate.png");
+  w = gdk_pixbuf_get_width(pixmap);
+  frigate_item = goo_canvas_image_new (boardRootItem,
+				       pixmap,
+				       0,
+				       0,
+				       NULL);
+  goo_canvas_item_translate(frigate_item, BOARDWIDTH, 2);
+  goo_canvas_item_animate(frigate_item,
+			  -w,
+			  2.0,
+			  1,
+			  0,
+			  TRUE,
+			  30*1000,
+			  40,
+			  GOO_CANVAS_ANIMATE_RESTART);
+  gdk_pixbuf_unref(pixmap);
 
 
   /*
@@ -815,16 +817,15 @@ static GooCanvasItem *submarine_create_item(GooCanvasItem *parent) {
 
   /* At startup, the gate is closed */
   gate_top_current_y = gate_bottom_y;
-  top_gate_item = goo_canvas_rect_new \
-    (boardRootItem,
-     BOARDWIDTH - 25,
-     40,
-     27,
-     gate_top_current_y - 40,
-     "fill_color_rgba", 0x989677FF,
-     "stroke-color", "black",
-     "line-width", 2.0,
-     NULL);
+  top_gate_item = goo_canvas_rect_new (boardRootItem,
+				       BOARDWIDTH - 25,
+				       40,
+				       27,
+				       gate_top_current_y - 40,
+				       "fill_color_rgba", 0x989677FF,
+				       "stroke-color", "black",
+				       "line-width", 2.0,
+				       NULL);
 
   goo_canvas_rect_new (boardRootItem,
 		       BOARDWIDTH - 25,
@@ -957,7 +958,8 @@ static gboolean update_timeout_slow() {
   /* resulting_weight > 0 ==> the sub goes deeper
      regleur : this is the qty of water */
   resulting_weight = weight - ballast_av_air - ballast_ar_air + regleur;
-  submarine_vertical_speed = resulting_weight/300.0 + submarine_horizontal_speed*sin(DEG_TO_RAD(-assiette));
+  submarine_vertical_speed = resulting_weight/300.0 
+    + submarine_horizontal_speed*sin(DEG_TO_RAD(-assiette));
 
   /* if depth rudders are in the same direction */
   if (barre_ar_angle != 0.0 && barre_av_angle != 0.0) {
@@ -968,15 +970,20 @@ static gboolean update_timeout_slow() {
   }
 
   /* position & depth */
-  submarine_x += submarine_horizontal_speed * cos(DEG_TO_RAD(assiette)) * UPDATE_DELAY_SLOW/1000.0;
+  submarine_x += submarine_horizontal_speed 
+    * cos(DEG_TO_RAD(assiette)) 
+    * UPDATE_DELAY_SLOW/1000.0;
+
   depth += submarine_vertical_speed * UPDATE_DELAY_SLOW/1000.0;
+
   if (depth < SURFACE_DEPTH)
     depth = SURFACE_DEPTH;
   if (depth > MAX_DEPTH)
     depth = MAX_DEPTH;
 
   // show an alert if some parameters reach the limit
-  if (depth >= MAX_DEPTH-20.0 || assiette == -30.0 || assiette == 30.0 || air == 0.0 || battery == 0.0)
+  if (depth >= MAX_DEPTH-20.0 || assiette == -30.0
+      || assiette == 30.0 || air == 0.0 || battery == 0.0)
     g_object_set (alert_submarine,
 		  "visibility", GOO_CANVAS_ITEM_VISIBLE,
 		  NULL);
@@ -989,11 +996,13 @@ static gboolean update_timeout_slow() {
   if ( depth >= SURFACE_DEPTH+10.0 ) {
     if (air_charging) {
       air_charging = FALSE;
-      gc_item_rotate_with_center(air_compressor_item, 0 , TRIGGER_CENTER_X, TRIGGER_CENTER_Y );
+      gc_item_rotate_with_center(air_compressor_item, 0,
+				 TRIGGER_CENTER_X, TRIGGER_CENTER_Y );
     }
     if (battery_charging) {
       battery_charging = FALSE;
-      gc_item_rotate_with_center(battery_charger_item, 0 , TRIGGER_CENTER_X, TRIGGER_CENTER_Y );
+      gc_item_rotate_with_center(battery_charger_item, 0,
+				 TRIGGER_CENTER_X, TRIGGER_CENTER_Y );
     }
   }
 
@@ -1005,8 +1014,8 @@ static gboolean update_timeout_slow() {
 
       goo_canvas_item_get_bounds (submarine_item, &bounds);
 
-      if(bounds.y1<gate_top_current_y ||
-	 bounds.y2>gate_bottom_y)
+      if(bounds.y1 < gate_top_current_y ||
+	 bounds.y2 > gate_bottom_y)
 	{
 	  /* It's a crash */
 	  submarine_explosion();
@@ -1018,7 +1027,10 @@ static gboolean update_timeout_slow() {
 	  if(gcomprisBoard->level<3)
 	    gc_bonus_display(gamewon, GC_BONUS_SMILEY);
 	  else
-	    submarine_x = submarine_width/2.0;
+	    {
+	      submarine_x = SUBMARINE_INITIAL_X;
+	      depth = SUBMARINE_INITIAL_DEPTH;
+	    }
 	}
     }
 
@@ -1026,25 +1038,17 @@ static gboolean update_timeout_slow() {
   if(treasure_captured && gate_top_current_y > gate_top_y)
     open_door();
 
-  { /* display the submarine */
-    gdouble y = depth + SURFACE_IN_BACKGROUND - sin(DEG_TO_RAD(assiette));
-#if 0
-    gdouble r[6],t1[6], t2[6];
-    art_affine_translate( t1 , (gdouble)(submarine_width/2.0)*-1, (gdouble)(submarine_height)*-1);
-    art_affine_rotate( r, -assiette );
-    art_affine_multiply( r, t1, r);
-    art_affine_translate( t2 , submarine_x, y );
-    art_affine_multiply( r, r, t2);
-    goo_canvas_item_affine_absolute( submarine_item, r );
-#endif
-    goo_canvas_item_set_simple_transform(submarine_item, submarine_x, y, 1, -assiette);
-  }
+  /* display the submarine */
+  goo_canvas_item_set_simple_transform(submarine_item,
+				       submarine_x - submarine_width/2.0,
+				       depth + SURFACE_DEPTH - submarine_height/2.0,
+				       1, -assiette);
 
   /* the frigate */
   {
     GooCanvasBounds bounds;
     goo_canvas_item_get_bounds(frigate_item, &bounds);
-    goo_canvas_item_translate(frigate_item, - FRIGATE_SPEED * UPDATE_DELAY_SLOW/1000.0, 0.0);
+    //goo_canvas_item_translate(frigate_item, - FRIGATE_SPEED * UPDATE_DELAY_SLOW/1000.0, 0.0);
     /* detects a collision between the frigate and the submarine */
     if (depth <= 30.0 && !submarine_destroyed)
       if ( (submarine_x - submarine_width <= bounds.x1 && submarine_x >= bounds.x2) ||
@@ -1053,18 +1057,23 @@ static gboolean update_timeout_slow() {
         submarine_explosion();
       }
     /* wraps the destroyer if it reached the left side (and disappeared for a long time)*/
-    if (bounds.x2 < -300.0)
-      gc_item_absolute_move( frigate_item, gcomprisBoard->width, bounds.y1 );
+    //if (bounds.x2 < -300.0)
+    //gc_item_absolute_move( frigate_item, gcomprisBoard->width, bounds.y1 );
   }
 
   /* whale detection */
   {
     gdouble dist1, dist2, dist3;
-    dist1 = hypot( submarine_x -submarine_width/2 -whale_x, depth+SURFACE_IN_BACKGROUND-whale_y);
-    dist2 = hypot(submarine_x - submarine_width - whale_x, depth+SURFACE_IN_BACKGROUND-whale_y);
-    dist3 = hypot(submarine_x - whale_x, depth+SURFACE_IN_BACKGROUND-whale_y);
+    dist1 = hypot( submarine_x -submarine_width/2 -whale_x,
+		   depth+SURFACE_IN_BACKGROUND-whale_y);
+    dist2 = hypot(submarine_x - submarine_width - whale_x,
+		  depth+SURFACE_IN_BACKGROUND-whale_y);
+    dist3 = hypot(submarine_x - whale_x,
+		  depth+SURFACE_IN_BACKGROUND-whale_y);
     /* magnetic detection (dist1) or collision with the whale (dist2 & dist3) */
-    if ( (dist1 < WHALE_DETECTION_RADIUS || dist2 < WHALE_DETECTION_RADIUS ||dist3 < WHALE_DETECTION_RADIUS)
+    if ( (dist1 < WHALE_DETECTION_RADIUS
+	  || dist2 < WHALE_DETECTION_RADIUS 
+	  || dist3 < WHALE_DETECTION_RADIUS)
 	 && !submarine_destroyed ) {
       g_object_set (whale, "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
       g_object_set (big_explosion, "visibility", GOO_CANVAS_ITEM_VISIBLE, NULL);
@@ -1075,9 +1084,12 @@ static gboolean update_timeout_slow() {
   /* treasure detection */
   {
     gdouble dist1, dist2, dist3;
-    dist1 = hypot( submarine_x -submarine_width/2 -treasure_x, depth+SURFACE_IN_BACKGROUND-treasure_y);
-    dist2 = hypot(submarine_x - submarine_width - treasure_x, depth+SURFACE_IN_BACKGROUND-treasure_y);
-    dist3 = hypot(submarine_x - treasure_x, depth+SURFACE_IN_BACKGROUND-treasure_y);
+    dist1 = hypot( submarine_x -submarine_width/2 -treasure_x,
+		   depth+SURFACE_IN_BACKGROUND-treasure_y);
+    dist2 = hypot(submarine_x - submarine_width - treasure_x,
+		  depth+SURFACE_IN_BACKGROUND-treasure_y);
+    dist3 = hypot(submarine_x - treasure_x,
+		  depth+SURFACE_IN_BACKGROUND-treasure_y);
     /* magnetic detection (dist1) or collision with the treasure (dist2 & dist3) */
     if ( (dist1 < TREASURE_DETECTION_RADIUS
 	  || dist2 < TREASURE_DETECTION_RADIUS
@@ -1123,7 +1135,9 @@ static gboolean update_timeout_very_slow() {
   }
 
   /* battery */
-  battery -= submarine_horizontal_speed*submarine_horizontal_speed/3.0*UPDATE_DELAY_VERY_SLOW/1000.0;
+  battery -= submarine_horizontal_speed * submarine_horizontal_speed/3.0
+    * UPDATE_DELAY_VERY_SLOW/1000.0;
+
   if (battery < 0.0) {
     battery = 0.0;
     speed_ordered = 0;
@@ -1134,26 +1148,38 @@ static gboolean update_timeout_very_slow() {
 
   /* bubbling */
   if ( (ballast_av_purge_open && ballast_av_air > 0.0) ||
-       ( ballast_av_chasse_open && ballast_av_air == MAX_BALLAST ) ) {
-    gc_item_absolute_move( bubbling[0], submarine_x-30.0, depth-50.0);
-    g_object_set ( bubbling[0] , "visibility", GOO_CANVAS_ITEM_VISIBLE, NULL);
-    gc_sound_play_ogg ("sounds/bubble.wav", NULL);
-  } else
+       ( ballast_av_chasse_open && ballast_av_air == MAX_BALLAST ) )
+    {
+      gc_item_absolute_move( bubbling[0],
+			     submarine_x + submarine_width/2,
+			     depth - 30.0);
+      g_object_set ( bubbling[0] , "visibility", GOO_CANVAS_ITEM_VISIBLE, NULL);
+      gc_sound_play_ogg ("sounds/bubble.wav", NULL);
+    }
+  else
     g_object_set ( bubbling[0] , "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
 
   if ( (ballast_ar_purge_open && ballast_ar_air > 0.0) ||
-       ( ballast_ar_chasse_open && ballast_ar_air == MAX_BALLAST ) ) {
-    gc_item_absolute_move( bubbling[2], submarine_x - submarine_width , depth-30.0);
-    gc_sound_play_ogg ("sounds/bubble.wav", NULL);
-    g_object_set ( bubbling[2] , "visibility", GOO_CANVAS_ITEM_VISIBLE, NULL);
-  } else
+       ( ballast_ar_chasse_open && ballast_ar_air == MAX_BALLAST ) )
+    {
+      gc_item_absolute_move( bubbling[2],
+			     submarine_x - submarine_width/2,
+			     depth - 30.0);
+      gc_sound_play_ogg ("sounds/bubble.wav", NULL);
+      g_object_set ( bubbling[2] , "visibility", GOO_CANVAS_ITEM_VISIBLE, NULL);
+    }
+  else
     g_object_set ( bubbling[2] , "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
 
-  if (regleur_purge_open && regleur < MAX_REGLEUR) {
-    gc_item_absolute_move( bubbling[1], submarine_x - submarine_width/2 -30.0, depth-30.0);
-    gc_sound_play_ogg ("sounds/bubble.wav", NULL);
-    g_object_set ( bubbling[1] , "visibility", GOO_CANVAS_ITEM_VISIBLE, NULL);
-  } else
+  if (regleur_purge_open && regleur < MAX_REGLEUR)
+    {
+      gc_item_absolute_move( bubbling[1],
+			     submarine_x,
+			     depth - 30.0);
+      gc_sound_play_ogg ("sounds/bubble.wav", NULL);
+      g_object_set ( bubbling[1] , "visibility", GOO_CANVAS_ITEM_VISIBLE, NULL);
+    }
+  else
     g_object_set ( bubbling[1] , "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
 
   return TRUE;
@@ -1360,24 +1386,18 @@ barre_av_event(GooCanvasItem *item, GooCanvas *target,
   if(board_paused || !boardRootItem)
     return FALSE;
 
-  switch (event->type)
-    {
-    case GDK_BUTTON_PRESS:
-      gc_sound_play_ogg ("sounds/bleep.wav", NULL);
-      if (d == UP && barre_av_angle < RUDDER_MAX) {
-        barre_av_angle += RUDDER_STEP;
-        gc_item_rotate_with_center( barre_av_item, barre_av_angle,
-				    RUDDER_CENTER_X,RUDDER_CENTER_Y);
-      }
-      if (d == DOWN && barre_av_angle > -RUDDER_MAX) {
-        barre_av_angle -= RUDDER_STEP;
-        gc_item_rotate_with_center( barre_av_item, barre_av_angle,RUDDER_CENTER_X,RUDDER_CENTER_Y);
-      }
-      break;
+  gc_sound_play_ogg ("sounds/bleep.wav", NULL);
+  if (d == UP && barre_av_angle < RUDDER_MAX) {
+    barre_av_angle += RUDDER_STEP;
+    gc_item_rotate_relative_with_center( barre_av_item, RUDDER_STEP,
+					 RUDDER_CENTER_X, RUDDER_CENTER_Y);
+  }
+  if (d == DOWN && barre_av_angle > -RUDDER_MAX) {
+    barre_av_angle -= RUDDER_STEP;
+    gc_item_rotate_relative_with_center( barre_av_item, -RUDDER_STEP,
+					 RUDDER_CENTER_X, RUDDER_CENTER_Y);
+  }
 
-    default:
-      break;
-    }
   return FALSE;
 }
 /* =====================================================================
@@ -1395,13 +1415,13 @@ barre_ar_event(GooCanvasItem *item, GooCanvas *target,
   gc_sound_play_ogg ("sounds/bleep.wav", NULL);
   if (d == UP && barre_ar_angle < RUDDER_MAX) {
     barre_ar_angle += RUDDER_STEP;
-    gc_item_rotate_with_center( barre_ar_item, barre_ar_angle,
-				RUDDER_CENTER_X, RUDDER_CENTER_Y);
+    gc_item_rotate_relative_with_center(barre_ar_item, RUDDER_STEP,
+					RUDDER_CENTER_X, RUDDER_CENTER_Y);
   }
   if (d == DOWN && barre_ar_angle > -RUDDER_MAX) {
     barre_ar_angle -= RUDDER_STEP;
-    gc_item_rotate_with_center( barre_ar_item, barre_ar_angle,
-				RUDDER_CENTER_X, RUDDER_CENTER_Y);
+    gc_item_rotate_relative_with_center( barre_ar_item, -RUDDER_STEP,
+					 RUDDER_CENTER_X, RUDDER_CENTER_Y);
   }
 
   return FALSE;
@@ -1450,8 +1470,8 @@ air_compressor_event(GooCanvasItem *item, GooCanvas *target,
   else
     air_charging = TRUE;
 
-  gc_item_rotate_with_center(item, air_charging ? 180 : 0 ,
-			     TRIGGER_CENTER_X, TRIGGER_CENTER_Y );
+  gc_item_rotate_relative_with_center(item, air_charging ? 180 : 0 ,
+				      TRIGGER_CENTER_X, TRIGGER_CENTER_Y );
 
   return FALSE;
 }
@@ -1500,14 +1520,25 @@ static void setAir(gdouble value) {
   g_object_set(air_item_front, "text", s12, NULL);
 }
 
+/* Value is the water level in the small tank */
 static void setRegleur(gdouble value) {
   char s12[12];
-  sprintf(s12,"%d",(int)value);
+  gdouble height, y_new;
+
+  sprintf(s12,"%d", (int)value);
   g_object_set(regleur_item_back, "text", s12, NULL);
   g_object_set(regleur_item_front, "text", s12, NULL);
+
+  y_new = \
+    schema_y + REGLEUR_Y1 + REGLEUR_H +
+    ( value * REGLEUR_H * -1) / MAX_REGLEUR;
+
+  height = \
+    schema_y + REGLEUR_Y1 + REGLEUR_H - y_new;
+
   g_object_set(regleur_item_rect,
-	       "y", (gdouble) schema_y + REGLEUR_Y2 +
-	       ( value * (REGLEUR_Y1 - REGLEUR_Y2)) / MAX_REGLEUR,
+	       "y", y_new,
+	       "height", height,
 	       NULL);
 }
 
@@ -1556,21 +1587,25 @@ static void setBallastAR(gdouble value) {
 static void open_door()
 {
   gdouble height;
+
   g_object_get(top_gate_item, "height", &height, NULL);
+  gate_top_current_y--;
+  height--;
   g_object_set(top_gate_item,
-	       "y", (gdouble)gate_top_current_y--,
-	       "height", height+1,
+	       "height", height,
 	       NULL);
 }
   /* =====================================================================
  *	Submarine explosion
  * =====================================================================*/
-static void submarine_explosion() {
+static void submarine_explosion()
+{
   GdkPixbuf *pixmap = NULL;
 
   submarine_destroyed = TRUE;
   gamewon = FALSE;
   gc_sound_play_ogg("sounds/crash.wav", NULL);
+
   /* make the submarine die */
   setSpeed(speed_ordered = submarine_horizontal_speed = 0.0);
   setBattery(battery = 0.0);
@@ -1578,11 +1613,14 @@ static void submarine_explosion() {
   regleur = MAX_REGLEUR;
   weight = 2000.0;
 
+  /* Stop the frigate */
+  goo_canvas_item_stop_animation (frigate_item);
+
   /* display the boken submarine */
   pixmap = gc_pixmap_load("submarine/submarine-broken.png");
   g_object_set(submarine_item,
-			"pixbuf", pixmap,
-			NULL);
+	       "pixbuf", pixmap,
+	       NULL);
   gdk_pixbuf_unref(pixmap);
 
   ok();

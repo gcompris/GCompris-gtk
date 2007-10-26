@@ -308,8 +308,12 @@ gchar *reactivate_newline(char *str)
 }
 
 /* ======================================= */
-void gc_item_absolute_move(GooCanvasItem *item, int x, int y) {
+/* Any previous transformation are reseted first. */
+void gc_item_absolute_move(GooCanvasItem *item, int x, int y)
+{
   GooCanvasBounds bounds;
+
+  goo_canvas_item_set_transform(item, NULL);
   goo_canvas_item_get_bounds(item, &bounds);
   goo_canvas_item_translate(item, ((double)x)-bounds.x1, ((double)y)-bounds.y1);
 }
@@ -317,7 +321,6 @@ void gc_item_absolute_move(GooCanvasItem *item, int x, int y) {
 /* ======================================= */
 /** As gnome does not implement its own API : gc_item_rotate
    we have to do it ourselves ....
-   IMPORTANT NOTE : This is designed for an item with "anchor" =  GTK_ANCHOR_CENTER
    rotation is clockwise if angle > 0
 */
 void
@@ -325,8 +328,8 @@ gc_item_rotate(GooCanvasItem *item, double angle) {
   GooCanvasBounds bounds;
   goo_canvas_item_get_bounds (item, &bounds);
   goo_canvas_item_rotate(item, angle,
-			 bounds.x1+(bounds.x2+bounds.x1)/2,
-			 bounds.y1+(bounds.y2+bounds.y1)/2);
+			 bounds.x1+(bounds.x2-bounds.x1)/2,
+			 bounds.y1+(bounds.y2-bounds.y1)/2);
 }
 
 /* As gnome does not implement its own API : gc_item_rotate_relative
@@ -335,7 +338,8 @@ gc_item_rotate(GooCanvasItem *item, double angle) {
    rotation is clockwise if angle > 0
  */
 void
-gc_item_rotate_relative(GooCanvasItem *item, double angle) {
+gc_item_rotate_relative(GooCanvasItem *item, double angle)
+{
   double x1, x2, y1, y2;
   double tx1, tx2, ty1, ty2;
   double cx, cy;
@@ -344,28 +348,28 @@ gc_item_rotate_relative(GooCanvasItem *item, double angle) {
   /* WARNING: Do not use goo_canvas_item_get_bounds which gives unpredictable results */
   if(GOO_IS_CANVAS_POLYLINE(item)) {
     GooCanvasPoints	*points;
-    gtk_object_get (GTK_OBJECT (item), "points", &points, NULL);
+    g_object_get (item, "points", &points, NULL);
     x1 = points->coords[0];
     y1 = points->coords[1];
     x2 = points->coords[2];
     y2 = points->coords[3];
-  } else if(GOO_IS_CANVAS_IMAGE(item)){
-    gtk_object_get (GTK_OBJECT (item), "x", &x1, NULL);
-    gtk_object_get (GTK_OBJECT (item), "y", &y1, NULL);
-    gtk_object_get (GTK_OBJECT (item), "width",  &x2, NULL);
-    gtk_object_get (GTK_OBJECT (item), "height", &y2, NULL);
+  } else if(GOO_IS_CANVAS_IMAGE(item) || GOO_IS_CANVAS_RECT(item)) {
+    g_object_get (item, "x", &x1, NULL);
+    g_object_get (item, "y", &y1, NULL);
+    g_object_get (item, "width",  &x2, NULL);
+    g_object_get (item, "height", &y2, NULL);
     x2 += x1;
     y2 += y1;
   } else if(GOO_IS_CANVAS_GROUP(item)){
-    gtk_object_get (GTK_OBJECT (item), "x", &x1, NULL);
-    gtk_object_get (GTK_OBJECT (item), "y", &y1, NULL);
+    g_object_get (item, "x", &x1, NULL);
+    g_object_get (item, "y", &y1, NULL);
     x2 = x1;
     y2 = y1;
   } else {
-    gtk_object_get (GTK_OBJECT (item), "x1", &x1, NULL);
-    gtk_object_get (GTK_OBJECT (item), "y1", &y1, NULL);
-    gtk_object_get (GTK_OBJECT (item), "x2", &x2, NULL);
-    gtk_object_get (GTK_OBJECT (item), "y2", &y2, NULL);
+    g_object_get (item, "x1", &x1, NULL);
+    g_object_get (item, "y1", &y1, NULL);
+    g_object_get (item, "x2", &x2, NULL);
+    g_object_get (item, "y2", &y2, NULL);
   }
 
   tx1 = x1;
@@ -383,17 +387,20 @@ gc_item_rotate_relative(GooCanvasItem *item, double angle) {
   cy = (y2+y1)/2;
 
   goo_canvas_item_rotate(item, angle,
-			 x1+(x2+x1)/2,
-			 y1+(y2+y1)/2);
+			 x1+(x2-x1)/2,
+			 y1+(y2-y1)/2);
 
 }
 
 /** rotates an item around the center (x,y), relative to the widget's coordinates
+ * Any previous transformation are reseted first.
  */
 void
-gc_item_rotate_with_center(GooCanvasItem *item, double angle, int x, int y) {
+gc_item_rotate_with_center(GooCanvasItem *item, double angle, int x, int y)
+{
   GooCanvasBounds bounds;
 
+  goo_canvas_item_set_transform(item, NULL);
   goo_canvas_item_get_bounds( item, &bounds );
   goo_canvas_item_rotate(item, angle, bounds.x1+x, bounds.y1+y);
 }
@@ -402,11 +409,37 @@ gc_item_rotate_with_center(GooCanvasItem *item, double angle, int x, int y) {
  *  The rotation is relative to the previous rotation
  */
 void
-gc_item_rotate_relative_with_center(GooCanvasItem *item, double angle, int x, int y) {
-  GooCanvasBounds bounds;
+gc_item_rotate_relative_with_center(GooCanvasItem *item, double angle, int x, int y)
+{
+  double x1, x2, y1, y2;
 
-  goo_canvas_item_get_bounds( item, &bounds);
-  goo_canvas_item_rotate(item, angle, bounds.x1+x, bounds.y1+y);
+  if(GOO_IS_CANVAS_POLYLINE(item)) {
+    GooCanvasPoints *points;
+    g_object_get (item, "points", &points, NULL);
+    x1 = points->coords[0];
+    y1 = points->coords[1];
+    x2 = points->coords[2];
+    y2 = points->coords[3];
+  } else if(GOO_IS_CANVAS_IMAGE(item) || GOO_IS_CANVAS_RECT(item)) {
+    g_object_get (item, "x", &x1, NULL);
+    g_object_get (item, "y", &y1, NULL);
+    g_object_get (item, "width",  &x2, NULL);
+    g_object_get (item, "height", &y2, NULL);
+    x2 += x1 + (x2 - x1);
+    y2 += y1 + (y2 - y1);
+  } else if(GOO_IS_CANVAS_GROUP(item)){
+    g_object_get (item, "x", &x1, NULL);
+    g_object_get (item, "y", &y1, NULL);
+    x2 = x1;
+    y2 = y1;
+  } else {
+    g_object_get (item, "x1", &x1, NULL);
+    g_object_get (item, "y1", &y1, NULL);
+    g_object_get (item, "x2", &x2, NULL);
+    g_object_get (item, "y2", &y2, NULL);
+  }
+
+  goo_canvas_item_rotate(item, angle, x1+x, y1+y);
 }
 
 /**
