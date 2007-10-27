@@ -46,7 +46,6 @@ static gboolean		 read_xml_file(char *fname);
 static GooCanvasItem *boardRootItem = NULL;
 static GooCanvasItem *highlight_image_item = NULL;
 static GooCanvasItem *clock_image_item = NULL;
-static GdkPixbuf *clock_pixmap = NULL;
 static GooCanvasItem *color_item = NULL;
 
 static GooCanvasItem *colors_create_item(GooCanvasItem *parent);
@@ -146,7 +145,8 @@ static void start_board (GcomprisBoard *agcomprisBoard) {
     errors = MAX_ERRORS;
     init_xml();
 
-    g_signal_connect(gcomprisBoard->canvas, "button_press_event",
+    g_signal_connect(goo_canvas_get_root_item(gcomprisBoard->canvas),
+		     "button_press_event",
     		     (GtkSignalFunc) item_event, NULL);
 
     colors_next_level();
@@ -250,7 +250,8 @@ static void colors_next_level() {
 /* =====================================================================
  * Destroy all the items
  * =====================================================================*/
-static void colors_destroy_all_items() {
+static void colors_destroy_all_items()
+{
   if(boardRootItem!=NULL)
     goo_canvas_item_remove(boardRootItem);
 
@@ -260,9 +261,9 @@ static void colors_destroy_all_items() {
 /* =====================================================================
  *
  * =====================================================================*/
-static GooCanvasItem *colors_create_item(GooCanvasItem *parent) {
-  GdkPixbuf *highlight_pixmap = NULL;
-
+static GooCanvasItem *colors_create_item(GooCanvasItem *parent)
+{
+  GdkPixbuf *pixmap;
   char *str = NULL;
   int i;
 
@@ -270,34 +271,38 @@ static GooCanvasItem *colors_create_item(GooCanvasItem *parent) {
 					NULL);
 
 
-  str = g_strdup_printf("%s/%s", gcomprisBoard->boarddir, "advanced_colors_highlight.png");
-  highlight_pixmap = gc_pixmap_load(str);
+  str = g_strdup_printf("%s/%s", gcomprisBoard->boarddir,
+			"advanced_colors_highlight.png");
+  pixmap = gc_pixmap_load(str);
 
   highlight_image_item = goo_canvas_image_new (boardRootItem,
-					       highlight_pixmap,
+					       pixmap,
 					       0,
 					       0,
 					       NULL);
 
-  highlight_width = gdk_pixbuf_get_width(highlight_pixmap);
-  highlight_height = gdk_pixbuf_get_height(highlight_pixmap);
+  highlight_width = gdk_pixbuf_get_width(pixmap);
+  highlight_height = gdk_pixbuf_get_height(pixmap);
 
   g_free(str);
-  g_object_set (highlight_image_item, "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
+  g_object_set (highlight_image_item,
+		"visibility", GOO_CANVAS_ITEM_INVISIBLE,
+		NULL);
   i = g_random_int_range(0,LAST_COLOR);
 
-  gdk_pixbuf_unref(highlight_pixmap);
+  gdk_pixbuf_unref(pixmap);
 
   /* setup the clock */
   str = g_strdup_printf("%s%d.png", "timers/clock",errors);
-  clock_pixmap = gc_skin_pixmap_load(str);
+  pixmap = gc_skin_pixmap_load(str);
 
   clock_image_item = goo_canvas_image_new (boardRootItem,
-					   clock_pixmap,
+					   pixmap,
 					   CLOCK_X,
 					   CLOCK_Y,
 					   NULL);
 
+  gdk_pixbuf_unref(pixmap);
   g_free(str);
 
   return NULL;
@@ -327,7 +332,8 @@ static void game_won() {
 /* =====================================================================
  *
  * =====================================================================*/
-static gboolean ok_timeout() {
+static gboolean ok_timeout()
+{
   g_warning("+++ ok_timeout errors = %d\n", errors);
   gc_bonus_display(gamewon, GC_BONUS_SMILEY);
   if (!gamewon)
@@ -366,7 +372,6 @@ static gboolean item_event (GooCanvasItem  *item,
   if (!gcomprisBoard || board_paused)
     return FALSE;
 
-  return TRUE;
   //goo_canvas_c2w (gcomprisBoard->canvas, x, y, &x, &y);
   clicked = -1;
   for (i=0; i<4; i++) {
@@ -390,26 +395,25 @@ static gboolean item_event (GooCanvasItem  *item,
 /* =====================================================================
  *
  * =====================================================================*/
-static void update_clock() {
-  char *str = g_strdup_printf("%s%d.png", "gcompris/timers/clock",errors);
+static void update_clock()
+{
+  GdkPixbuf *pixmap;
+  char *str = g_strdup_printf("%s%d.png", "timers/clock", errors);
 
-  gtk_object_destroy (GTK_OBJECT(clock_image_item));
+  pixmap = gc_skin_pixmap_load(str);
 
-  clock_pixmap = gc_pixmap_load(str);
+  g_object_set(clock_image_item,
+	       "pixbuf", pixmap,
+	       NULL);
 
-  clock_image_item = goo_canvas_image_new (boardRootItem,
-					   clock_pixmap,
-					   CLOCK_X,
-					   CLOCK_Y,
-					   NULL);
-
-  gdk_pixbuf_unref(clock_pixmap);
+  gdk_pixbuf_unref(pixmap);
   g_free(str);
 }
 /* =====================================================================
  *
  * =====================================================================*/
-static void highlight_selected(int c) {
+static void highlight_selected(int c)
+{
   int x, y;
 
   g_assert(c>=0 && c<8);
@@ -419,7 +423,9 @@ static void highlight_selected(int c) {
 
   x -= highlight_width/2;
   y -= highlight_height;
-  g_object_set (highlight_image_item, "visibility", GOO_CANVAS_ITEM_VISIBLE, NULL);
+  g_object_set (highlight_image_item,
+		"visibility", GOO_CANVAS_ITEM_VISIBLE,
+		NULL);
   gc_item_absolute_move(highlight_image_item, x, y);
 }
 

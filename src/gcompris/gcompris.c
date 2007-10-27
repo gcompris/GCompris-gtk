@@ -503,8 +503,9 @@ GooCanvasItem *gc_set_background(GooCanvasItem *parent, gchar *file)
     background_pixmap = gc_pixmap_load (file);
 
   if(backgroundimg)
-    g_object_set_data (G_OBJECT(backgroundimg),
-		       "pixbuf", background_pixmap);
+    g_object_set(backgroundimg,
+		 "pixbuf", background_pixmap,
+		 NULL);
   else
     backgroundimg = goo_canvas_image_new (parent,
 					  background_pixmap,
@@ -523,7 +524,8 @@ GooCanvasItem *gc_set_background(GooCanvasItem *parent, gchar *file)
 /* Redraw the black background
  */
 static gboolean
-_expose_background_callback (GtkWidget *widget, GdkEventExpose *event, gpointer data)
+_expose_background_callback (GtkWidget *widget,
+			     GdkEventExpose *event, gpointer data)
 {
   gint screen_height, screen_width;
 

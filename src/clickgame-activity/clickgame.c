@@ -365,7 +365,7 @@ static void clickgame_start (GcomprisBoard *agcomprisBoard)
   /* set initial values for this level */
   gcomprisBoard->level = 1;
   gcomprisBoard->maxlevel=6;
-  gcomprisBoard->number_of_sublevel=10; /* Go to next level after this number of 'play' */
+  gcomprisBoard->number_of_sublevel=10;
   gc_score_start(SCORESTYLE_NOTE,
 		 gcomprisBoard->width - 220,
 		 gcomprisBoard->height - 50,
@@ -374,7 +374,7 @@ static void clickgame_start (GcomprisBoard *agcomprisBoard)
 
   event_handle_id =
     g_signal_connect(gcomprisBoard->canvas, "enter_notify_event",
-		       (GtkSignalFunc) canvas_event, NULL);
+		     (GtkSignalFunc) canvas_event, NULL);
   clickgame_next_level();
 
   clickgame_pause(FALSE);

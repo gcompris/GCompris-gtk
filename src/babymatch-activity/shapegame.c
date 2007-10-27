@@ -139,7 +139,8 @@ static Shape 		*create_shape(ShapeType type, char *name, char *tooltip,
 				      char *targetfile, double x, double y, double l, double h, double zoomx,
 				      double zoomy, guint position, char *soundfile);
 static gboolean 	 increment_sublevel(void);
-static void 		 create_title(char *name, double x, double y, GtkJustification justification,
+static void 		 create_title(char *name, double x, double y,
+				      GtkAnchorType anchor,
 				      guint32 color_rgba);
 static gint		 item_event_ok(GooCanvasItem *item, GdkEvent *event, gpointer data);
 static gint item_event_drag(GooCanvasItem *item, GdkEvent *event, gpointer data);
@@ -519,11 +520,13 @@ static void shapegame_destroy_all_items()
   if (shapelist_table)
     {
       /* Deleting the root item automatically deletes children items */
-      gtk_object_destroy (GTK_OBJECT(shape_list_root_item));
+      goo_canvas_item_remove(shape_list_root_item);
       shape_list_root_item = NULL;
-      gtk_object_destroy (GTK_OBJECT(shape_root_item));
+
+      goo_canvas_item_remove(shape_root_item);
       shape_root_item = NULL;
-      gtk_object_destroy (GTK_OBJECT(tooltip_root_item));
+
+      goo_canvas_item_remove(tooltip_root_item);
       tooltip_root_item = NULL;
 
       g_hash_table_destroy (shapelist_table);
@@ -569,7 +572,6 @@ static void shapegame_init_canvas(GooCanvasItem *parent)
 			 -1,
 			 GTK_ANCHOR_CENTER,
 			 "font", gc_skin_font_board_small,
-			 "justification", GTK_JUSTIFY_CENTER,
 			 "fill_color_rgba", gc_skin_color_shadow,
 			   NULL);
   tooltip_text_item = \
@@ -580,7 +582,6 @@ static void shapegame_init_canvas(GooCanvasItem *parent)
 			 -1,
 			 GTK_ANCHOR_CENTER,
 			 "font", gc_skin_font_board_small,
-			 "justification", GTK_JUSTIFY_CENTER,
 			 "fill_color_rgba", gc_skin_color_text_button,
 			   NULL);
 
@@ -621,12 +622,14 @@ add_shape_to_list_of_shapes(Shape *shape)
 						      shapeBox.y + shapeBox.h,
 						      NULL);
 
-      g_signal_connect(GTK_OBJECT(previous_shapelist_item), "enter_notify_event",
-			 (GtkSignalFunc) item_event_ok,
-			 "previous_shapelist");
-      g_signal_connect(GTK_OBJECT(previous_shapelist_item), "enter_notify_event",
-			 (GtkSignalFunc) gc_item_focus_event,
-			 NULL);
+      g_signal_connect(previous_shapelist_item,
+		       "enter_notify_event",
+		       (GtkSignalFunc) item_event_ok,
+		       "previous_shapelist");
+      g_signal_connect(previous_shapelist_item,
+		       "enter_notify_event",
+		       (GtkSignalFunc) gc_item_focus_event,
+		       NULL);
       gdk_pixbuf_unref(pixmap);
 
       pixmap = gc_skin_pixmap_load("button_forward.png");
@@ -636,10 +639,10 @@ add_shape_to_list_of_shapes(Shape *shape)
 						  shapeBox.y + shapeBox.h,
 						  NULL);
 
-      g_signal_connect(GTK_OBJECT(next_shapelist_item), "enter_notify_event",
+      g_signal_connect(next_shapelist_item, "enter_notify_event",
 			 (GtkSignalFunc) item_event_ok,
 			 "next_shapelist");
-      g_signal_connect(GTK_OBJECT(next_shapelist_item), "enter_notify_event",
+      g_signal_connect(next_shapelist_item, "enter_notify_event",
 			 (GtkSignalFunc) gc_item_focus_event,
 			 NULL);
       gdk_pixbuf_unref(pixmap);
@@ -777,9 +780,9 @@ add_shape_to_list_of_shapes(Shape *shape)
 		     shape->shapelistgroup_index, current_shapelistgroup_index);
 	      icon_shape->shape_list_group_root = shape_list_group_root;
 	      setup_item(item, icon_shape);
-	      g_signal_connect(GTK_OBJECT(item), "enter_notify_event",
-				 (GtkSignalFunc) gc_item_focus_event,
-				 NULL);
+	      g_signal_connect(item, "enter_notify_event",
+			       (GtkSignalFunc) gc_item_focus_event,
+			       NULL);
 	    }
 	}
     }
@@ -956,10 +959,12 @@ static gint item_event_drag(GooCanvasItem *item, GdkEvent *event, gpointer data)
             if(shadow_enable)
             {
                 if(shadow_item)
-                    gtk_object_destroy(GTK_OBJECT(shadow_item));
+		  goo_canvas_item_remove(shadow_item);
+
                 // initialise shadow shape
                 GdkPixbuf *pixmap, *dest;
-                g_object_get(shape->target_shape->item, "pixbuf", &pixmap, NULL);
+                g_object_get(shape->target_shape->item,
+			     "pixbuf", &pixmap, NULL);
 
                 dest = gdk_pixbuf_copy(pixmap);
                 pixbuf_add_transparent(dest, 100);
@@ -1015,7 +1020,7 @@ static gint item_event_drag(GooCanvasItem *item, GdkEvent *event, gpointer data)
 
             if(shadow_enable && shadow_item)
             {
-                gtk_object_destroy(GTK_OBJECT(shadow_item));
+		goo_canvas_item_remove(shadow_item);
                 shadow_item = NULL;
             }
 
@@ -1233,11 +1238,11 @@ item_event_ok(GooCanvasItem *item, GdkEvent *event, gpointer data)
 static void
 setup_item(GooCanvasItem *item, Shape *shape)
 {
-  g_signal_connect(GTK_OBJECT(item), "enter_notify_event",
+  g_signal_connect(item, "enter_notify_event",
 		     (GtkSignalFunc) item_event,
 		     shape);
-  g_signal_connect(GTK_OBJECT(item), "enter_notify_event",
-          (GtkSignalFunc) gc_drag_event, NULL);
+  g_signal_connect(item, "enter_notify_event",
+		   (GtkSignalFunc) gc_drag_event, NULL);
 }
 
 /*
@@ -1280,13 +1285,13 @@ add_shape_to_canvas(Shape *shape)
 	  int point_size = 6;
 	  /* Display a point to highlight the target location of this shape */
 	  item = goo_canvas_ellipse_new (shape_root_item,
-					shape->x,
-					shape->y,
+					 shape->x,
+					 shape->y,
 					 point_size,
-					point_size,
+					 point_size,
 					 "fill_color_rgba", POINT_COLOR_OFF,
 					 "stroke-color", "black",
-					 "width_pixels", 2,
+					 "line-width", 2.0,
 					 NULL);
 	  shape->target_point = item;
 	}
@@ -1333,7 +1338,8 @@ add_shape_to_canvas(Shape *shape)
 
 }
 
-static void create_title(char *name, double x, double y, GtkJustification justification,
+static void create_title(char *name, double x, double y,
+			 GtkAnchorType anchor,
 			 guint32 color_rgba)
 {
   GooCanvasItem *item;
@@ -1345,9 +1351,8 @@ static void create_title(char *name, double x, double y, GtkJustification justif
 			 x + 1.0,
 			 y + 1.0,
 			 -1,
-			 GTK_ANCHOR_CENTER,
+			 anchor,
 			 "font", gc_skin_font_board_medium,
-			 "justification", justification,
 			 "fill_color_rgba", gc_skin_color_shadow,
 			   NULL);
 
@@ -1359,9 +1364,8 @@ static void create_title(char *name, double x, double y, GtkJustification justif
 			 x,
 			 y,
 			 -1,
-			 GTK_ANCHOR_CENTER,
+			 anchor,
 			 "font", gc_skin_font_board_medium,
-			 "justification", justification,
 			 "fill_color_rgba", color_rgba,
 			   NULL);
 
@@ -1435,7 +1439,7 @@ add_xml_shape_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child, GList **
 {
   char *name,*ctype, *justification;
   char *tooltip;
-  GtkJustification justification_gtk;
+  GtkAnchorType anchor_gtk;
   char *pixmapfile = NULL;
   char *targetfile = NULL;
   char *soundfile = NULL;
@@ -1514,17 +1518,17 @@ add_xml_shape_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child, GList **
       type = SHAPE_TARGET;
 
   /* get the JUSTIFICATION of the Title */
-  justification_gtk = GTK_JUSTIFY_CENTER;	/* GTK_JUSTIFICATION_CENTER is default */
+  anchor_gtk = GTK_ANCHOR_CENTER;	/* GTK_ANCHOR_CENTER is default */
   justification = (char *)xmlGetProp(xmlnode, BAD_CAST "justification");
   if(justification) {
     if (strcmp(justification, "GTK_JUSTIFY_LEFT") == 0) {
-      justification_gtk = GTK_JUSTIFY_LEFT;
+      anchor_gtk = GTK_ANCHOR_WEST;
     } else if (strcmp(justification, "GTK_JUSTIFY_RIGHT") == 0) {
-      justification_gtk = GTK_JUSTIFY_RIGHT;
+      anchor_gtk = GTK_ANCHOR_EAST;
     } else if (strcmp(justification, "GTK_JUSTIFY_CENTER") == 0) {
-      justification_gtk = GTK_JUSTIFY_CENTER;
-    } else if (strcmp(justification, "GTK_JUSTIFY_FILL") == 0) {
-      justification_gtk = GTK_JUSTIFY_FILL;
+      anchor_gtk = GTK_ANCHOR_CENTER;
+    } else {
+      g_warning("Unknown justification '%s'", justification);
     }
     xmlFree(justification);
   }
@@ -1595,7 +1599,7 @@ add_xml_shape_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child, GList **
       if(name != NULL) {
 	newname = g_strcompress(name);
 
-	create_title(newname, x, y, justification_gtk, color_rgba);
+	create_title(newname, x, y, anchor_gtk, color_rgba);
     g_free(newname);
       }
     }

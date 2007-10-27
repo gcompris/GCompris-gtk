@@ -501,8 +501,8 @@ static void gletters_move_item(GooCanvasItem *item)
 
   goo_canvas_item_translate(item, 0, 2.0);
 
-  goo_canvas_item_get_bounds    (item,
-				 &bounds);
+  goo_canvas_item_get_bounds (item,
+			      &bounds);
 
   if(bounds.y1>gcomprisBoard->height) {
     item2del_list = g_list_append (item2del_list, item);
@@ -643,14 +643,14 @@ static GooCanvasItem *gletters_create_item(GooCanvasItem *parent)
 
   item = \
     goo_canvas_group_new (parent,
-			   NULL);
+			  NULL);
   goo_canvas_item_translate(item, 0, -12);
 
   x = g_random_int_range( 80, gcomprisBoard->width-160);
   goo_canvas_text_new (item,
 		       letter,
-		       (double) x,
-		       (double) -20,
+		       x,
+		       -20,
 		       -1,
 		       GTK_ANCHOR_CENTER,
 		       "font", gc_skin_font_board_huge_bold,
@@ -659,8 +659,8 @@ static GooCanvasItem *gletters_create_item(GooCanvasItem *parent)
   x -= 2;
   goo_canvas_text_new (item,
 		       letter,
-		       (double) x,
-		       (double) -22,
+		       x,
+		       -22,
 		       -1,
 		       GTK_ANCHOR_CENTER,
 		       "font", gc_skin_font_board_huge_bold,

@@ -139,7 +139,7 @@ GET_BPLUGIN_INFO(wordsgame)
  * in : boolean TRUE = PAUSE : FALSE = UNPAUSE
  *
  */
-     static void pause_board (gboolean pause)
+static void pause_board (gboolean pause)
 {
 
   if(gcomprisBoard==NULL)
@@ -222,7 +222,7 @@ end_board ()
       gc_score_end();
       wordsgame_destroy_all_items();
       if (preedit_text){
-	gtk_object_destroy(GTK_OBJECT(preedit_text));
+	goo_canvas_item_remove(preedit_text);
 	preedit_text=NULL;
       }
       gc_im_reset();
@@ -426,22 +426,20 @@ is_our_board (GcomprisBoard *gcomprisBoard)
 /* set initial values for the next level */
 static void wordsgame_next_level()
 {
-
-
   gcomprisBoard->number_of_sublevel = 10 +
     ((gcomprisBoard->level-1) * 5);
   gc_score_start(SCORESTYLE_NOTE,
-		       gcomprisBoard->width - 220,
-		       gcomprisBoard->height - 50,
-		       gcomprisBoard->number_of_sublevel);
-
+		 gcomprisBoard->width - 220,
+		 gcomprisBoard->height - 50,
+		 gcomprisBoard->number_of_sublevel);
+  
   gc_bar_set_level(gcomprisBoard);
   gc_score_set(gcomprisBoard->sublevel);
 
   wordsgame_destroy_all_items();
 
   if (preedit_text){
-    gtk_object_destroy(GTK_OBJECT(preedit_text));
+    goo_canvas_item_remove(preedit_text);
     preedit_text=NULL;
   }
   gc_im_reset();
@@ -451,7 +449,7 @@ static void wordsgame_next_level()
 
 
   /* Increase speed only after 5 levels */
-  if(gcomprisBoard->level>5)
+  if(gcomprisBoard->level > 5)
     {
       gint temp = fallSpeed-gcomprisBoard->level*200;
       if (temp > MIN_FALLSPEED)	fallSpeed=temp;
@@ -518,7 +516,7 @@ static void wordsgame_destroy_item(LettersItem *item)
 {
 
   /* The items are freed by player_win */
-  gtk_object_destroy (GTK_OBJECT(item->rootitem));
+  goo_canvas_item_remove(item->rootitem);
   g_free(item->word);
   g_free(item->overword);
   g_free(item->letter);
@@ -602,7 +600,7 @@ static GooCanvasItem *wordsgame_create_item(GooCanvasItem *parent)
   item->pos=g_utf8_find_next_char(item->word,NULL);
 
   item->rootitem = goo_canvas_group_new (parent, NULL);
-  goo_canvas_item_translate(parent, 0, -12);
+  goo_canvas_item_translate(item->rootitem, 0, -12);
 
 
   /* To 'erase' words, I create 2 times the text item. One is empty now */
@@ -638,8 +636,8 @@ static GooCanvasItem *wordsgame_create_item(GooCanvasItem *parent)
 				 &bounds);
 
   goo_canvas_item_translate (item->rootitem,
-			     (double) (g_random_int()%(gcomprisBoard->width-(gint)(bounds.x2))),
-			     (double) 0);
+			     (g_random_int()%(gcomprisBoard->width-(gint)(bounds.x2))),
+			     0);
 
 
   g_static_rw_lock_writer_lock (&items_lock);

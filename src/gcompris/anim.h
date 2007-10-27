@@ -33,7 +33,7 @@ typedef struct {
 } GcomprisAnimation;
 
 typedef struct {
-  GooCanvasImage *canvas;
+  GooCanvasItem *canvas;
   GcomprisAnimation *anim;
   GdkPixbufAnimationIter *iter;
   int state;

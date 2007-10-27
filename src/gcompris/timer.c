@@ -31,8 +31,8 @@ static double		 ystep;
 static int		 timer;
 static double		 subratio;
 static TimerList	 type;
-static gint		 timer_increment (GtkWidget *widget, gpointer data);
-static gint		 subtimer_increment (GtkWidget *widget, gpointer data);
+static gint		 timer_increment (GooCanvasItem *item);
+static gint		 subtimer_increment (GooCanvasItem *item);
 static void		 start_animation();
 static GooCanvasItem    *boardRootItem = NULL;
 static gint		 animate_id = 0;
@@ -118,7 +118,9 @@ gc_timer_display(int ax, int ay, TimerList atype, int second, GcomprisTimerEnd a
 					    y,
 					    NULL);
 
-      /* Calc the number of step needed to reach the sea based on user y and second */
+      /* Calc the number of step needed to reach 
+       * the sea based on user y and second
+       */
       ystep = (BOARDHEIGHT-y-gdk_pixbuf_get_height(pixmap))/second;
 
       gdk_pixbuf_unref(pixmap);
@@ -216,11 +218,15 @@ start_animation()
     case GCOMPRIS_TIMER_BALLOON:
       /* Perform under second animation */
       subratio = 5;
-      subanimate_id = gtk_timeout_add (1000/subratio, (GtkFunction) subtimer_increment, NULL);
+      subanimate_id = gtk_timeout_add (1000/subratio,
+				       (GtkFunction) subtimer_increment,
+				       gc_timer_item);
       break;
     }
 
-  animate_id = gtk_timeout_add (1000, (GtkFunction) timer_increment, NULL);
+  animate_id = gtk_timeout_add (1000,
+				(GtkFunction) timer_increment, 
+				gc_timer_item);
 }
 
 
@@ -244,7 +250,7 @@ display_time_ellapsed()
 
 
 static gint
-subtimer_increment(GtkWidget *widget, gpointer data)
+subtimer_increment(GooCanvasItem *item)
 {
   if(paused)
     return(FALSE);
@@ -255,10 +261,9 @@ subtimer_increment(GtkWidget *widget, gpointer data)
       /* Display the value for this timer */
       y+=ystep/subratio;
       if(gc_timer_item)
-	g_object_set(gc_timer_item,
+	g_object_set(item,
 		     "y", y,
 		     NULL);
-      //      goo_canvas_update_now(gc_get_canvas());
       break;
     default:
       break;
@@ -267,7 +272,7 @@ subtimer_increment(GtkWidget *widget, gpointer data)
 }
 
 static gint
-timer_increment(GtkWidget *widget, gpointer data)
+timer_increment(GooCanvasItem *item)
 {
   if(paused)
     return(FALSE);
@@ -290,33 +295,34 @@ timer_increment(GtkWidget *widget, gpointer data)
     {
     case GCOMPRIS_TIMER_SAND:
     case GCOMPRIS_TIMER_CLOCK:
-      if(gc_timer_item)
+      if(item)
 	{
 	  GdkPixbuf	*pixmap = NULL;
 	  gchar		*filename = NULL;
-	  gint		fileid;
+	  gint		 fileid;
 
 	  fileid = (gint)timer;
-	  if(type==GCOMPRIS_TIMER_SAND)
+	  if(type == GCOMPRIS_TIMER_SAND)
 	    filename = g_strdup_printf("timers/sablier%d.png", fileid);
 	  else
 	    filename = g_strdup_printf("timers/clock%d.png", fileid);
 
 	  pixmap = gc_skin_pixmap_load(filename);
-	  g_object_set(gc_timer_item,
-				"pixbuf", pixmap,
-				NULL);
+	  g_object_set(item,
+		       "pixbuf", pixmap,
+		       NULL);
 	  gdk_pixbuf_unref(pixmap);
 	  g_free(filename);
 	}
       break;
     case GCOMPRIS_TIMER_TEXT:
       /* Display the value for this timer */
-      if(gc_timer_item)
+      if(item)
 	{
 	  char *tmpstr = g_strdup_printf(_("Remaining Time = %d"), timer);
-	  g_object_set_data (G_OBJECT(gc_timer_item),
-			     "text", tmpstr);
+	  g_object_set (item,
+			"text", tmpstr,
+			NULL);
 	  g_free(tmpstr);
 	}
       break;

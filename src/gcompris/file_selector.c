@@ -147,7 +147,7 @@ void gc_selector_file_stop ()
   // Destroy the file_selector box
   /* FIXME: Crashes randomly */
   if(rootitem!=NULL)
-    gtk_object_destroy(GTK_OBJECT(rootitem));
+    goo_canvas_item_remove(rootitem);
 
   rootitem = NULL;
 

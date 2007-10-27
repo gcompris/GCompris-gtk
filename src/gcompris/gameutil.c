@@ -212,7 +212,7 @@ void gc_item_focus_set(GooCanvasItem *item, gboolean focus)
   GdkPixbuf *pixbuf;
   GdkPixbuf *pixbuf_ref;
 
-  gtk_object_get (GTK_OBJECT (item), "pixbuf", &pixbuf, NULL);
+  g_object_get (item, "pixbuf", &pixbuf, NULL);
   g_return_if_fail (pixbuf != NULL);
   gdk_pixbuf_unref(pixbuf);
 

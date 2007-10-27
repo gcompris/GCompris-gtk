@@ -57,7 +57,8 @@ gc_anim_load(char *filename)
   /* read filenames, one per line, from the animation spec-file */
   while(fscanf(f, "%99s", tmp) == 1)
     files = g_slist_append(files,
-			   g_strdup_printf("%s/%s", gc_prop_get()->package_data_dir, tmp));
+			   g_strdup_printf("%s/%s",
+					   gc_prop_get()->package_data_dir, tmp));
   fclose(f);
   anim = g_malloc(sizeof(GcomprisAnimation));
   anim->numstates = g_slist_length(files);
@@ -88,15 +89,20 @@ GcomprisAnimCanvasItem *
 gc_anim_activate(GooCanvasItem *parent,
 		 GcomprisAnimation *anim)
 {
-  GcomprisAnimCanvasItem *item = g_malloc(sizeof(GcomprisAnimCanvasItem));
+  GcomprisAnimCanvasItem *item;
+
+  g_assert(parent != NULL);
+  //  g_assert(anim != NULL);
+
+  item = g_malloc(sizeof(GcomprisAnimCanvasItem));
 
   item->state = 0;
   item->anim = anim;
   item->iter = gdk_pixbuf_animation_get_iter(anim->anim[0], NULL);
-  item->canvas = (GooCanvasImage*) goo_canvas_image_new(
-                            parent,
-                            gdk_pixbuf_animation_iter_get_pixbuf(item->iter),
-			    0, 0);
+  item->canvas = goo_canvas_image_new(parent,
+				      gdk_pixbuf_animation_iter_get_pixbuf(item->iter),
+				      0, 0,
+				      NULL);
 
   if(active == NULL)
       g_timeout_add(TICK_TIME, (GSourceFunc)anim_tick, NULL);
@@ -123,7 +129,7 @@ gc_anim_deactivate(GcomprisAnimCanvasItem *item)
   }
 
   if (GOO_IS_CANVAS_ITEM(item->canvas)){
-    gtk_object_destroy(GTK_OBJECT(item->canvas));
+    goo_canvas_item_remove(item->canvas);
     item->canvas = NULL;
   }
 
@@ -158,9 +164,10 @@ gc_anim_set_state(GcomprisAnimCanvasItem *item, int state)
   g_object_unref( item->iter );
   item->iter = gdk_pixbuf_animation_get_iter( item->anim->anim[item->state],
                                               NULL );
-  g_object_set( (GooCanvasItem*)item->canvas, "pixbuf",
-                         gdk_pixbuf_animation_iter_get_pixbuf(item->iter),
-                         NULL);
+  g_object_set( (GooCanvasItem*)item->canvas,
+		"pixbuf",
+		gdk_pixbuf_animation_iter_get_pixbuf(item->iter),
+		NULL);
 }
 
 /* private callback functions */
@@ -180,9 +187,9 @@ anim_tick(void *ignore)
       GcomprisAnimCanvasItem *a = (GcomprisAnimCanvasItem*)cur->data;
       if( gdk_pixbuf_animation_iter_advance( a->iter, NULL) )
         {
-          g_object_set((GooCanvasItem*)a->canvas, "pixbuf",
-                                gdk_pixbuf_animation_iter_get_pixbuf(a->iter),
-                                NULL);
+          g_object_set(a->canvas, "pixbuf",
+		       gdk_pixbuf_animation_iter_get_pixbuf(a->iter),
+		       NULL);
         }
     }
   return TRUE;

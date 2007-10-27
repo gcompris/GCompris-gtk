@@ -98,7 +98,8 @@ gc_score_set(guint value)
       goo_canvas_image_new (boardRootItem,
 			    button_pixmap,
 			    x,
-			    y-gdk_pixbuf_get_height(button_pixmap)/2);
+			    y-gdk_pixbuf_get_height(button_pixmap)/2,
+			    NULL);
 
       tmp = g_strdup_printf("%d/%d", value, max);
       display_number(boardRootItem,

@@ -49,7 +49,7 @@ static void		 erase_next_level(void);
 static void		 shuffle_image_list(char *list[], int size);
 static gboolean		 item_event (GooCanvasItem  *item,
 				     GooCanvasItem  *target,
-				     GdkEventButton *event,
+				     GdkEventCrossing *event,
 				     gpointer data);
 static gboolean		 canvas_event (GooCanvasItem  *item,
 				       GooCanvasItem  *target,
@@ -182,7 +182,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       gcomprisBoard->level=1;
       gcomprisBoard->maxlevel=6;
       gcomprisBoard->sublevel=1;
-      gcomprisBoard->number_of_sublevel=10; /* Go to next level after this number of 'play' */
+      gcomprisBoard->number_of_sublevel=10;
       gc_bar_set(GC_BAR_LEVEL);
 
       /* CAUTION: CoverPixmap has MAX_LAYERS elements */
@@ -191,8 +191,9 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       CoverPixmap[2] = gc_pixmap_load("erase/transparent_square_yellow.png");
 
       event_handle_id =
-	g_signal_connect(GTK_OBJECT(gcomprisBoard->canvas), "button_press_event",
-			   (GtkSignalFunc) canvas_event, 0);
+	g_signal_connect(goo_canvas_get_root_item(gcomprisBoard->canvas),
+			 "button_press_event",
+			 (GtkSignalFunc) canvas_event, NULL);
 
       if (strcmp(gcomprisBoard->mode,"clic")==0)
 	board_mode = CLIC;
@@ -430,7 +431,8 @@ static void finished() {
 }
 
 /* ==================================== */
-static void game_won()
+static void
+game_won()
 {
   gcomprisBoard->sublevel++;
 
@@ -438,7 +440,8 @@ static void game_won()
     /* Try the next level */
     gcomprisBoard->sublevel=1;
     gcomprisBoard->level++;
-    if(gcomprisBoard->level>gcomprisBoard->maxlevel) { // the current board is finished : bail out
+    /* the current board is finished : bail out */
+    if(gcomprisBoard->level>gcomprisBoard->maxlevel) {
       timer_id = gtk_timeout_add (2000, (GtkFunction) finished, NULL);
       return;
     }
@@ -450,11 +453,13 @@ static void game_won()
 static gboolean
 erase_one_item (GooCanvasItem *item)
 {
-  double screen_x, screen_y;
+  gdouble screen_x, screen_y;
   int x,y;
-  g_object_get(item, "x", &screen_x, "y", &screen_y, NULL);
+  goo_canvas_convert_from_item_space(goo_canvas_item_get_canvas(item),
+				     item, &screen_x, &screen_y);
   x = screen_x / (BOARDWIDTH/number_of_item_x);
   y = screen_y / (BOARDHEIGHT/number_of_item_y);
+
   if (items_per_cell)
     items_per_cell[(int) (x * number_of_item_x + y)]--;
 
@@ -479,7 +484,7 @@ erase_one_item (GooCanvasItem *item)
 static gboolean
 item_event (GooCanvasItem  *item,
 	    GooCanvasItem  *target,
-	    GdkEventButton *event,
+	    GdkEventCrossing *event,
 	    gpointer data)
 {
   counter *c = (counter *) data;
@@ -513,10 +518,11 @@ item_event (GooCanvasItem  *item,
   return FALSE;
 }
 
-static gboolean canvas_event (GooCanvasItem  *item,
-			      GooCanvasItem  *target,
-			      GdkEventButton *event,
-			      gpointer data)
+static gboolean
+canvas_event (GooCanvasItem  *item,
+	      GooCanvasItem  *target,
+	      GdkEventButton *event,
+	      gpointer data)
 {
   if (!gcomprisBoard || board_paused)
     return FALSE;
@@ -527,8 +533,10 @@ static gboolean canvas_event (GooCanvasItem  *item,
       int y = event->y;
       int item_x = x / (BOARDWIDTH/number_of_item_x);
       int item_y = y / (BOARDHEIGHT/number_of_item_y);
+
       if (items_per_cell[item_x * number_of_item_x + item_y] == 0)
 	add_one_item(x, y, 1);
+
     }
 
   return FALSE;
