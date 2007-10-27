@@ -34,7 +34,6 @@ struct _MachItem {
   MachItemType	   type;
   gboolean	   moving;
   GooCanvasItem *item;		/* The canvas item      */
-  double	   x1, y1, x2, y2;	/* Bounding of the item */
   double	   times;
   double	   ax, ay;
   double	   xposo, xpos, vxo;
@@ -66,7 +65,10 @@ static GooCanvasItem *boardRootItem = NULL;
 static GooCanvasItem	*minigolf_create_item(GooCanvasItem *parent);
 static void		 minigolf_destroy_all_items(void);
 static void		 minigolf_next_level(void);
-static gint		 item_event(GooCanvasItem *item, GdkEvent *event, MachItem *machItem);
+static gboolean		 item_event (GooCanvasItem  *item,
+				     GooCanvasItem  *target,
+				     GdkEventButton *event,
+				     MachItem *machItem);
 static void		 minigolf_move(GList *item_list);
 
 static MachItem		*create_machine_item(MachItemType machItemType, double x, double y);
@@ -239,8 +241,10 @@ static GooCanvasItem *minigolf_create_item(GooCanvasItem *parent)
 					NULL);
 
 
-  create_machine_item(MACH_HOLE, 730.0, 260.0);
-  create_machine_item(MACH_BASKET_BALL, (double)g_random_int_range(60, 150), (double)RAND(60, 400));
+  create_machine_item(MACH_HOLE, 750.0, 260.0);
+  create_machine_item(MACH_BASKET_BALL, 
+		      (double)g_random_int_range(60, 150),
+		      (double)RAND(60, 400));
 
 
   return NULL;
@@ -264,42 +268,37 @@ static void game_won()
 }
 
 /* ==================================== */
-static gint
-item_event(GooCanvasItem *item, GdkEvent *event, MachItem *machItem)
+static gboolean
+item_event (GooCanvasItem  *item,
+	    GooCanvasItem  *target,
+	    GdkEventButton *event,
+	    MachItem *machItem)
 {
   double item_x, item_y;
   GooCanvasBounds bounds;
   double width;
-  item_x = event->button.x;
-  item_y = event->button.y;
-  //goo_canvas_convert_to_item_space(item->parent, &item_x, &item_y);
+  item_x = event->x;
+  item_y = event->y;
+
+  goo_canvas_convert_from_item_space(goo_canvas_item_get_canvas(item),
+				     item, &item_x, &item_y);
+
   goo_canvas_item_get_bounds (item, &bounds);
 
   if(board_paused)
     return FALSE;
 
-   switch (event->type)
-     {
+  gc_sound_play_ogg ("sounds/scroll.wav", NULL);
+  width = bounds.x2 - bounds.x1;
+  
+  machItem->times = 0;
+  machItem->yposo = machItem->ypos;
+  machItem->xposo = machItem->xpos;
+  
+  machItem->vyo = ((item_y-bounds.y1)<width/2?(width/2-(item_y-bounds.y1))*20:-1*(width/2-(bounds.y2-item_y))*20);
+  machItem->vxo = ((item_x-bounds.x1)<width/2?(width/2-(item_x-bounds.x1))*20:-1*(width/2-(bounds.x2-item_x))*20);
 
-     case GDK_BUTTON_PRESS:
-       gc_sound_play_ogg ("sounds/scroll.wav", NULL);
-       width = bounds.x2 - bounds.x1;
-
-       //       machItem->vyo   = (y1 - machItem->ypos) * machItem->elasticity;
-       machItem->times = 0;
-       machItem->yposo = machItem->ypos;
-       machItem->xposo = machItem->xpos;
-
-       machItem->vyo = ((item_y-bounds.y1)<width/2?(width/2-(item_y-bounds.y1))*20:-1*(width/2-(bounds.y2-item_y))*20);
-       machItem->vxo = ((item_x-bounds.x1)<width/2?(width/2-(item_x-bounds.x1))*20:-1*(width/2-(bounds.x2-item_x))*20);
-       break;
-
-     default:
-       break;
-     }
-
-
-   return FALSE;
+  return FALSE;
 }
 
 #if 0
@@ -361,9 +360,10 @@ static MachItem *create_machine_item(MachItemType machItemType, double x, double
 					      "line-width", (double)1,
 					      NULL);
 
-      g_signal_connect(GTK_OBJECT(machItem->item), "enter_notify_event",
-			 (GtkSignalFunc) item_event,
-			 machItem);
+      g_signal_connect(machItem->item,
+		       "button_press_event",
+		       (GtkSignalFunc) item_event,
+		       machItem);
       break;
     case MACH_VERT_WALL:
       break;
@@ -375,13 +375,13 @@ static MachItem *create_machine_item(MachItemType machItemType, double x, double
       machItem->moving	= FALSE;
       machItem->times   = 0.0;
 
-      machItem->xposo	= x - width/2;
-      machItem->xpos	= x - width/2;
+      machItem->xposo	= x;
+      machItem->xpos	= x;
       machItem->vxo	= 0;
       machItem->ax	= 0;
 
-      machItem->yposo	= y - width/2;
-      machItem->ypos	= y - width/2;
+      machItem->yposo	= y;
+      machItem->ypos	= y;
       machItem->vyo	= 0;
       machItem->ay	= 0;
 
@@ -395,8 +395,8 @@ static MachItem *create_machine_item(MachItemType machItemType, double x, double
 					      machItem->yposo,
 					      width/2,
 					      width/2,
-					      "outline_color_rgba", 0xEEEEEEFF,
-					      "fill_color_rgba", 0x111111FF,
+					      "stroke-color-rgba", 0xEEEEEEFF,
+					      "fill-color-rgba", 0x111111FF,
 					      "line-width", (double)2,
 					      NULL);
 
@@ -431,9 +431,9 @@ static MachItem *create_machine_item(MachItemType machItemType, double x, double
 					      "line-width", (double)1,
 					      NULL);
 
-      g_signal_connect(GTK_OBJECT(machItem->item), "enter_notify_event",
-			 (GtkSignalFunc) item_event,
-			 machItem);
+      g_signal_connect(machItem->item, "button_press_event",
+		       (GtkSignalFunc) item_event,
+		       machItem);
 
       break;
     case MACH_FLYING_BALL:
@@ -466,13 +466,13 @@ static MachItem *create_machine_item(MachItemType machItemType, double x, double
 					      "line-width", (double)1,
 					      NULL);
 
-      g_signal_connect(GTK_OBJECT(machItem->item), "enter_notify_event",
-			 (GtkSignalFunc) item_event,
-			 machItem);
+      g_signal_connect(machItem->item, "enter_notify_event",
+		       (GtkSignalFunc) item_event,
+		       machItem);
       break;
     }
 
-  gtk_object_set_data(GTK_OBJECT(machItem->item),"mach",(gpointer)machItem);
+  g_object_set_data(G_OBJECT(machItem->item), "mach", (gpointer)machItem);
 
   item_list = g_list_append (item_list, machItem);
 
@@ -525,7 +525,6 @@ static void minigolf_move(GList *item_list)
 
       if(machItem->moving)
 	{
-
 	  goo_canvas_item_get_bounds(item, &bounds);
 
 	  machItem->times += times_inc;
@@ -537,15 +536,13 @@ static void minigolf_move(GList *item_list)
 
 	      collMachItem = g_list_nth_data(item_list, j);
 
-	      //printf("Checking coll detec item %d\n", j);
-
 	      if(collMachItem != machItem) {
 
+		GooCanvasBounds bounds2;
+		goo_canvas_item_get_bounds(collMachItem->item, &bounds2);
+
 		if(rectangle_in(bounds.x1, bounds.y1, bounds.x2, bounds.y2,
-				collMachItem->xpos,
-				collMachItem->ypos,
-				collMachItem->xpos + collMachItem->width,
-				collMachItem->ypos + collMachItem->height))
+				bounds2.x1, bounds2.y1, bounds2.x2, bounds2.y2))
 		  {
 		    //printf("!!! Collision detected with:\n");
 		    //dump_machItem(collMachItem);
@@ -614,7 +611,8 @@ static void minigolf_move(GList *item_list)
 
 	  gc_item_absolute_move(item, machItem->xpos, machItem->ypos);
 
-	  if((machItem->ypos>=MIN_Y2-machItem->height-BORDER && (bounds.y1 - machItem->ypos)<=0) || collision == TRUE)
+	  if((machItem->ypos>=MIN_Y2-machItem->height-BORDER 
+	      && (bounds.y1 - machItem->ypos)<=0) || collision == TRUE)
 	    {
 	      machItem->vyo   = machItem->vyo * -0.5;
 	      machItem->vxo   = machItem->vxo * 0.5;
@@ -627,7 +625,8 @@ static void minigolf_move(GList *item_list)
 	      gc_sound_play_ogg ("sounds/line_end.wav", NULL);
 	    }
 
-	  if((bounds.y1<=MIN_Y1 && (bounds.y1 - machItem->ypos)>=0) || collision == TRUE)
+	  if((bounds.y1<=MIN_Y1 && (bounds.y1 - machItem->ypos)>=0) 
+	     || collision == TRUE)
 	    {
 	      machItem->vyo   = machItem->vyo * -0.5;
 	      machItem->vxo   = machItem->vxo * 0.5;
