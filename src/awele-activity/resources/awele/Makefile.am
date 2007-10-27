@@ -23,6 +23,8 @@ img_DATA = \
 	graine2.png \
 	graine3.png \
 	graine4bis.png \
-	graine4.png
+	graine4.png \
+	sablier.gif \
+	sablier.txt
 
 EXTRA_DIST = $(img_DATA)

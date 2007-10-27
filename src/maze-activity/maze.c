@@ -17,6 +17,7 @@
  *   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  */
 
+#include <librsvg/rsvg.h>
 #include "gcompris/gcompris.h"
 
 #define SOUNDLISTFILE PACKAGE
@@ -98,8 +99,10 @@ static void generateMaze(int x, int y);
 static void removeSet(void);
 static void draw_background(GooCanvasItem *rootItem);
 static void setlevelproperties(void);
-static gint tux_event(GooCanvasItem *item, GdkEvent *event, gpointer data);
-static gint target_event(GooCanvasItem *item, GdkEvent *event, gpointer data);
+static gboolean tux_event (GooCanvasItem *item,
+			   GooCanvasItem *target,
+			   GdkEventButton *event,
+			   gpointer data);
 static void update_tux(gint direction);
 
 /*---------- 3D stuff ------------*/
@@ -258,6 +261,7 @@ static gboolean is_our_board (GcomprisBoard *gcomprisBoard) {
   }
   return FALSE;
 }
+
 /* =====================================================================
  * set initial values for the next level
  * =====================================================================*/
@@ -287,21 +291,41 @@ static void maze_next_level() {
   end=g_random_int()%hoogte;
 
   /* Draw the tux */
+  GError *error = NULL;
+  RsvgHandle *svg_handle = NULL;
+  gchar *filename = gc_file_find_absolute("maze/tux_top_south.svg");
+  svg_handle = rsvg_handle_new_from_file (filename, &error);
+  tuxitem = goo_svg_item_new (mazegroup, svg_handle, NULL);
+  g_free(filename);
+  g_object_unref (svg_handle);
+
+  RsvgDimensionData dimension;
+  rsvg_handle_get_dimensions(svg_handle, &dimension);
+  gdouble scale = (gdouble) cellsize / dimension.width;
+  goo_canvas_item_set_simple_transform(tuxitem,
+				       cellsize*(0)-breedte + board_border_x,
+				       cellsize*(begin)-hoogte + board_border_y,
+				       scale,
+				       -90);
+
+  g_signal_connect(tuxitem, 
+		   "button_press_event",
+		   (GtkSignalFunc) tux_event, NULL);
+#if 0
   pixmap = gc_pixmap_load("maze/tux_top_east.png");
   if(pixmap)
     {
       tuxitem = draw_image(mazegroup,0,begin,pixmap);
       gdk_pixbuf_unref(pixmap);
-      g_signal_connect(GTK_OBJECT(tuxitem), "enter_notify_event", (GtkSignalFunc) tux_event, NULL);
     }
+#endif
 
   /* Draw the target */
   pixmap = gc_pixmap_load("maze/door.png");
   if(pixmap)
     {
-      GooCanvasItem *targetitem = draw_image(mazegroup,breedte-1,end,pixmap);
+      draw_image(mazegroup,breedte-1,end,pixmap);
       gdk_pixbuf_unref(pixmap);
-      g_signal_connect(GTK_OBJECT(targetitem), "enter_notify_event", (GtkSignalFunc) target_event, NULL);
     }
 
   position[ind][0]=0;
@@ -456,8 +480,10 @@ static void repeat () {
 static void maze_destroy_all_items() {
   if(boardRootItem!=NULL)
     goo_canvas_item_remove(boardRootItem);
+
   if (threedgroup!=NULL)
-    gtk_object_destroy(GTK_OBJECT(threedgroup));
+    goo_canvas_item_remove(threedgroup);
+
   mazegroup = NULL;
   wallgroup = NULL;
   boardRootItem = NULL;
@@ -532,6 +558,7 @@ draw_a_rect(GooCanvasItem *group,
 		      x2 - x1,
 		      y2 - y1,
 		      "fill-color", color,
+		      "line-width", 0.0,
 		      NULL);
 }
 
@@ -548,33 +575,43 @@ draw_a_line(GooCanvasItem *group,
 
 }
 
-static void draw_rect(GooCanvasItem *group, int x,int y,char *color)
+static void
+draw_rect(GooCanvasItem *group, int x,int y,char *color)
 {
   int x1,y1;
   y1=cellsize*(y)-hoogte + board_border_y;
   x1=cellsize*(x)-breedte + board_border_x;
-  draw_a_rect(group,x1+buffer,y1+buffer ,x1+cellsize-buffer ,y1+cellsize-buffer ,color);
+  draw_a_rect(group,
+	      x1+buffer,y1+buffer ,x1+cellsize-buffer,
+	      y1+cellsize-buffer,
+	      color);
 }
 
 /*
  * Same as draw rect but for an image
  * Returns the created item
  */
-static GooCanvasItem *draw_image(GooCanvasItem *group, int x,int y, GdkPixbuf *pixmap)
+static GooCanvasItem *
+draw_image(GooCanvasItem *group,
+	   int x,int y, GdkPixbuf *pixmap)
 {
   GooCanvasItem *item = NULL;
   int x1,y1;
+  GdkPixbuf *pixmap2;
 
   y1=cellsize*(y)-hoogte + board_border_y;
   x1=cellsize*(x)-breedte + board_border_x;
 
+  pixmap2 = gdk_pixbuf_scale_simple (pixmap,
+				     cellsize-buffer*2,
+				     cellsize-buffer*2,
+				     GDK_INTERP_BILINEAR);
   item = goo_canvas_image_new (group,
-			       pixmap,
+			       pixmap2,
 			       x1+buffer,
 			       y1+buffer,
-			       "width",	(double)cellsize-buffer*2,
-			       "height",(double)cellsize-buffer*2,
 			       NULL);
+  gdk_pixbuf_unref(pixmap2);
 
   return(item);
 }
@@ -595,7 +632,9 @@ static void move_image(GooCanvasItem *group, int x,int y, GooCanvasItem *item)
   goo_canvas_item_raise(item, NULL);
 }
 
-static void draw_combined_rect(GooCanvasItem *group, int x1,int y1,int x2,int y2,char *color)
+static void draw_combined_rect(GooCanvasItem *group,
+			       int x1,int y1,int x2,int y2,
+			       char *color)
 {
   int xx1,yy1,xx2,yy2;
   yy1=cellsize*(y1)-hoogte + board_border_y;
@@ -608,15 +647,22 @@ static void draw_combined_rect(GooCanvasItem *group, int x1,int y1,int x2,int y2
     }
   else if (y1==y2 && x1>x2)
     {
-      draw_a_rect(group,xx2+cellsize-buffer,yy2+buffer,xx1+buffer,yy1+cellsize-buffer,color);
+      draw_a_rect(group,
+		  xx2+cellsize-buffer,
+		  yy2+buffer,xx1+buffer,yy1+cellsize-buffer,
+		  color);
     }
   else if (x1==x2 && y1<y2)
     {
-      draw_a_rect(group,xx1+buffer,yy1+cellsize-buffer,xx2+cellsize-buffer,yy2+buffer,color);
+      draw_a_rect(group,
+		  xx1+buffer,yy1+cellsize-buffer,xx2+cellsize-buffer,yy2+buffer,
+		  color);
     }
   else if (x1==x2 && y1>y2)
     {
-      draw_a_rect(group,xx2+buffer,yy2+cellsize-buffer,xx1+cellsize-buffer,yy1+buffer,color);
+      draw_a_rect(group,
+		  xx2+buffer,yy2+cellsize-buffer,xx1+cellsize-buffer,yy1+buffer,
+		  color);
     }
 
 }
@@ -767,16 +813,24 @@ draw_background(GooCanvasItem *rootItem)
 	  y=cellsize*(y1)+board_border_y;
 	  x=cellsize*(x1)+board_border_x;
 	  if (x1==0)
-	    draw_a_line(rootItem,x, y, x, y+cellsize, gc_skin_get_color("maze/wall color"));
+	    draw_a_line(rootItem,
+			x, y, x, y+cellsize,
+			gc_skin_get_color("maze/wall color"));
 
 	  if (y1==0)
-	    draw_a_line(rootItem,x, y, x+cellsize, y, gc_skin_get_color("maze/wall color"));
+	    draw_a_line(rootItem,
+			x, y, x+cellsize, y,
+			gc_skin_get_color("maze/wall color"));
 
 	  if (wall&EAST)
-	    draw_a_line(rootItem,x+cellsize, y, x+cellsize, y+cellsize, gc_skin_get_color("maze/wall color"));
+	    draw_a_line(rootItem,
+			x+cellsize, y, x+cellsize, y+cellsize,
+			gc_skin_get_color("maze/wall color"));
 
 	  if (wall&SOUTH)
-	    draw_a_line(rootItem,x, y+cellsize, x+cellsize, y+cellsize, gc_skin_get_color("maze/wall color"));
+	    draw_a_line(rootItem,x,
+			y+cellsize, x+cellsize, y+cellsize,
+			gc_skin_get_color("maze/wall color"));
 
 	}
     }
@@ -809,8 +863,11 @@ static void movePos(int x1, int y1, int x2,int y2, int richting)
 	      else
 		{
 		  Maze[position[i][0]][position[i][1]]&=~SET;
-		  draw_rect(mazegroup,position[i][0],position[i][1],"red");
-		  draw_combined_rect(mazegroup,position[i-1][0],position[i-1][1],position[i][0],position[i][1],"red");
+		  draw_rect(mazegroup, position[i][0], position[i][1], "red");
+		  draw_combined_rect(mazegroup,
+				     position[i-1][0],position[i-1][1],
+				     position[i][0],position[i][1],
+				     "red");
 		  ind--;
 		}
 
@@ -832,7 +889,7 @@ static void movePos(int x1, int y1, int x2,int y2, int richting)
 	  else
 	    {
 	      move_image(mazegroup,x2,y2,tuxitem);
-	      draw_combined_rect(mazegroup,x1,y1,x2,y2,"green");
+	      draw_combined_rect(mazegroup, x1, y1, x2, y2, "green");
 	      draw_rect(mazegroup,x1,y1,"green");
 	    }
 	}
@@ -876,6 +933,7 @@ static gint key_press(guint keyval, gchar *commit_str, gchar *preedit_str)
 {
   guint richting=0,level=gcomprisBoard->level;
 
+  printf("key_press\n");
   if(board_paused)
     return FALSE;
 
@@ -954,10 +1012,15 @@ static gint key_press(guint keyval, gchar *commit_str, gchar *preedit_str)
   return TRUE;
 }
 
-static gint tux_event(GooCanvasItem *item, GdkEvent *event, gpointer data)
-{	if (event->type!=GDK_BUTTON_PRESS) return FALSE;
- run_fast=!run_fast;
- return FALSE;
+static gboolean
+tux_event (GooCanvasItem *item,
+	   GooCanvasItem *target,
+	   GdkEventButton *event,
+	   gpointer data)
+{
+  printf("tux_event\n");
+  run_fast=!run_fast;
+  return FALSE;
 }
 
 /*---------- 3D stuff below --------------*/
@@ -967,16 +1030,11 @@ static gint tux_event(GooCanvasItem *item, GdkEvent *event, gpointer data)
 #define TURN_RIGHT(d) ((((d)>>1)|((d)<<3))&15)
 #define U_TURN(d) ((((d)>>2)|((d)<<2))&15)
 
-static gint target_event(GooCanvasItem *item, GdkEvent *event, gpointer data)
-{	if (event->type!=GDK_BUTTON_PRESS) return FALSE;
- threeDdisplay(position[ind][0],position[ind][1]);
- return FALSE;
-}
-
 static gint key_press_2D_relative(guint keyval, gchar *commit_str, gchar *preedit_str)
 {
   guint richting=0,level=gcomprisBoard->level;
 
+  printf("key_press_2D_relative\n");
   switch (keyval)
     {
     case GDK_Left: viewing_direction=TURN_LEFT(viewing_direction);
@@ -1373,7 +1431,7 @@ static void draw3D()
 
   if (threedgroup!=NULL)
   {
-    gtk_object_destroy(GTK_OBJECT(threedgroup));
+    goo_canvas_item_remove(threedgroup);
     threedgroup = NULL;
   }
   if (!threeDactive) return;
@@ -1400,37 +1458,35 @@ static void twoDdisplay()
 static void threeDdisplay()
 {
   gc_sound_play_ogg ("sounds/flip.wav", NULL);
-  gc_set_background(goo_canvas_get_root_item(gcomprisBoard->canvas), "maze/maze-bg.jpg");
-  g_object_set (boardRootItem, "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
+  gc_set_background(goo_canvas_get_root_item(gcomprisBoard->canvas),
+		    "maze/maze-bg.jpg");
+  g_object_set (boardRootItem, "visibility",
+		GOO_CANVAS_ITEM_INVISIBLE, NULL);
   threeDactive=TRUE;
   draw3D();
 }
 
 static void update_tux(gint direction)
 {
-  GdkPixbuf *pixmap = NULL;
+  gint rotation = 0;
 
   switch(direction)
     {
     case EAST:
-      pixmap = gc_pixmap_load("maze/tux_top_east.png");
+      rotation = 0;
       break;
     case WEST:
-      pixmap = gc_pixmap_load("maze/tux_top_west.png");
+      rotation = 180;
       break;
     case NORTH:
-      pixmap = gc_pixmap_load("maze/tux_top_north.png");
+      rotation = -90;
       break;
     case SOUTH:
-      pixmap = gc_pixmap_load("maze/tux_top_south.png");
+      rotation = 90;
       break;
     }
 
-  if(pixmap)
-    {
-      g_object_set (tuxitem,
-			     "pixbuf", pixmap,
-			     NULL);
-      gdk_pixbuf_unref(pixmap);
-    }
+  printf("update_tux rotation=%d\n", rotation);
+  //  goo_canvas_item_set_transform(tuxitem, NULL);
+  goo_canvas_item_rotate(tuxitem, rotation, 0, 0);
 }

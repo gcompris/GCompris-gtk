@@ -292,11 +292,13 @@ _gc_configure_event_callback (GtkWidget   *widget,
 		 (screen_width-BOARDWIDTH*zoom_factor)/2,
 		 (screen_height-(BOARDHEIGHT+BARHEIGHT)*zoom_factor)/2);
 
-  gtk_widget_set_usize (GTK_WIDGET(canvas_bar),  BOARDWIDTH*zoom_factor,  BARHEIGHT*zoom_factor);
+  gtk_widget_set_usize (GTK_WIDGET(canvas_bar),
+			BOARDWIDTH*zoom_factor,  BARHEIGHT*zoom_factor);
   goo_canvas_set_scale (GOO_CANVAS(canvas_bar), zoom_factor);
   gtk_fixed_move(GTK_FIXED(fixed), canvas_bar,
 		 (screen_width-BOARDWIDTH*zoom_factor)/2,
-		 (screen_height-(BOARDHEIGHT+BARHEIGHT)*zoom_factor)/2 + BOARDHEIGHT*zoom_factor);
+		 (screen_height-(BOARDHEIGHT+BARHEIGHT)*zoom_factor)/2
+		 + BOARDHEIGHT*zoom_factor);
 
   _expose_background_callback (drawing_area, NULL, NULL);
 
@@ -310,6 +312,7 @@ board_widget_key_press_callback (GtkWidget   *widget,
 {
   int kv = event->keyval;
 
+  printf("board_widget_key_press_callback\n");
   if(event->state & GDK_CONTROL_MASK && ((event->keyval == GDK_r)
 					 || (event->keyval == GDK_R))) {
     g_message("Refreshing the canvas\n");
@@ -397,11 +400,13 @@ board_widget_key_press_callback (GtkWidget   *widget,
   /* NOTE: If a board receives key press, it must bind the ENTER Keys to OK
    *       whenever possible
    */
-  if (gc_board_get_current_board_plugin()!=NULL && gc_board_get_current_board_plugin()->key_press)
+  if (gc_board_get_current_board_plugin()!=NULL 
+      && gc_board_get_current_board_plugin()->key_press)
     {
       return(gc_board_get_current_board_plugin()->key_press (event->keyval, NULL, NULL));
     }
-  else if (gc_board_get_current_board_plugin()!=NULL && gc_board_get_current_board_plugin()->ok &&
+  else if (gc_board_get_current_board_plugin()!=NULL 
+	   && gc_board_get_current_board_plugin()->ok &&
 	   (event->keyval == GDK_KP_Enter ||
 	    event->keyval == GDK_Return   ||
 	    event->keyval == GDK_KP_Space))
@@ -677,6 +682,7 @@ static void setup_window ()
 
   gtk_signal_connect (GTK_OBJECT (window), "map_event",
 		      GTK_SIGNAL_FUNC (map_cb), NULL);
+
   gtk_signal_connect (GTK_OBJECT (window), "configure_event",
 		      GTK_SIGNAL_FUNC (_gc_configure_event_callback), NULL);
 
@@ -690,10 +696,15 @@ static void setup_window ()
 
   gtk_signal_connect_after (GTK_OBJECT (window), "key_press_event",
 			    GTK_SIGNAL_FUNC (board_widget_key_press_callback), 0);
-  gtk_signal_connect_after (GTK_OBJECT (canvas), "key_press_event",
-			    GTK_SIGNAL_FUNC (board_widget_key_press_callback), 0);
-  gtk_signal_connect_after (GTK_OBJECT (canvas_bar), "key_press_event",
-			    GTK_SIGNAL_FUNC (board_widget_key_press_callback), 0);
+  g_signal_connect_after (canvas,
+			  "key_press_event",
+			  GTK_SIGNAL_FUNC (board_widget_key_press_callback), 0);
+  g_signal_connect_after (canvas_bar,
+			  "key_press_event",
+			  GTK_SIGNAL_FUNC (board_widget_key_press_callback), 0);
+
+  GTK_WIDGET_SET_FLAGS (canvas, GTK_CAN_FOCUS);
+  gtk_widget_grab_focus (canvas);
 
   gc_im_init(window);
 

@@ -104,7 +104,7 @@ goo_svg_item_is_item_at (GooCanvasItemSimple *simple,
 			  gboolean             is_pointer_event)
 {
   /* Don't do hit-detection for now. */
-  return FALSE;
+  return TRUE;
 }
 
 

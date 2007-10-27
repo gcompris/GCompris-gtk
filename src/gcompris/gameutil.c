@@ -353,7 +353,8 @@ gc_item_rotate_relative(GooCanvasItem *item, double angle)
     y1 = points->coords[1];
     x2 = points->coords[2];
     y2 = points->coords[3];
-  } else if(GOO_IS_CANVAS_IMAGE(item) || GOO_IS_CANVAS_RECT(item)) {
+  } else if(GOO_IS_CANVAS_IMAGE(item) 
+	    || GOO_IS_CANVAS_RECT(item)) {
     g_object_get (item, "x", &x1, NULL);
     g_object_get (item, "y", &y1, NULL);
     g_object_get (item, "width",  &x2, NULL);
@@ -366,10 +367,7 @@ gc_item_rotate_relative(GooCanvasItem *item, double angle)
     x2 = x1;
     y2 = y1;
   } else {
-    g_object_get (item, "x1", &x1, NULL);
-    g_object_get (item, "y1", &y1, NULL);
-    g_object_get (item, "x2", &x2, NULL);
-    g_object_get (item, "y2", &y2, NULL);
+    g_assert(FALSE);
   }
 
   tx1 = x1;
