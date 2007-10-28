@@ -59,7 +59,6 @@ static gint planegame_move_items (GtkWidget *widget, gpointer data);
 static void planegame_destroy_item(CloudItem *clouditem);
 static void planegame_destroy_items(void);
 static void planegame_destroy_all_items(void);
-static void setup_item(GooCanvasItem *item);
 static void planegame_next_level(void);
 
 static  guint32              fallSpeed = 0;
@@ -111,22 +110,22 @@ static void pause_board (gboolean pause)
   if(pause)
     {
       if (dummy_id) {
-	gtk_timeout_remove (dummy_id);
+	g_source_remove (dummy_id);
 	dummy_id = 0;
       }
       if (drop_items_id) {
-	gtk_timeout_remove (drop_items_id);
+	g_source_remove (drop_items_id);
 	drop_items_id = 0;
       }
     }
   else
     {
       if(!drop_items_id) {
-	drop_items_id = gtk_timeout_add (1000,
-					 (GtkFunction) planegame_drop_items, NULL);
+	drop_items_id = g_timeout_add (1000,
+				       (GtkFunction) planegame_drop_items, NULL);
       }
       if(!dummy_id) {
-	dummy_id = gtk_timeout_add (1000, (GtkFunction) planegame_move_items, NULL);
+	dummy_id = g_timeout_add (1000, (GtkFunction) planegame_move_items, NULL);
       }
     }
 }
@@ -447,8 +446,8 @@ static gint planegame_move_items (GtkWidget *widget, gpointer data)
 
   /* move the plane */
   planegame_move_plane(planeitem);
-  dummy_id = gtk_timeout_add (speed,
-			      (GtkFunction) planegame_move_items, NULL);
+  dummy_id = g_timeout_add (speed,
+			    (GtkFunction) planegame_move_items, NULL);
 
   return(FALSE);
 }
@@ -522,7 +521,7 @@ static GooCanvasItem *planegame_create_item(GooCanvasItem *parent)
 
 static void planegame_add_new_item()
 {
-  setup_item (planegame_create_item(goo_canvas_get_root_item(gcomprisBoard->canvas)));
+  planegame_create_item(goo_canvas_get_root_item(gcomprisBoard->canvas));
 }
 
 /*
@@ -533,85 +532,8 @@ static gint planegame_drop_items (GtkWidget *widget, gpointer data)
 {
   planegame_add_new_item();
 
-  drop_items_id = gtk_timeout_add (fallSpeed,
-  				   (GtkFunction) planegame_drop_items, NULL);
+  drop_items_id = g_timeout_add (fallSpeed,
+				 (GtkFunction) planegame_drop_items, NULL);
   return (FALSE);
 }
 
-static gint
-item_event(GooCanvasItem *item, GdkEvent *event, gpointer data)
-{
-   static double x, y;
-   double new_x, new_y;
-   GdkCursor *fleur;
-   static int dragging;
-   double item_x, item_y;
-
-  if(!gcomprisBoard)
-    return FALSE;
-
-   item_x = event->button.x;
-   item_y = event->button.y;
-   //goo_canvas_convert_to_item_space(item->parent, &item_x, &item_y);
-
-   switch (event->type)
-     {
-     case GDK_BUTTON_PRESS:
-       switch(event->button.button)
-         {
-         case 1:
-           if (event->button.state & GDK_SHIFT_MASK)
-             {
-               x = item_x;
-               y = item_y;
-
-               fleur = gdk_cursor_new(GDK_FLEUR);
-               gc_canvas_item_grab(item,
-                                      GDK_POINTER_MOTION_MASK |
-                                      GDK_BUTTON_RELEASE_MASK,
-                                      fleur,
-                                      event->button.time);
-               gdk_cursor_destroy(fleur);
-               dragging = TRUE;
-             }
-           break;
-
-         default:
-           break;
-         }
-       break;
-
-     case GDK_MOTION_NOTIFY:
-       if (dragging && (event->motion.state & GDK_BUTTON1_MASK))
-         {
-           new_x = item_x;
-           new_y = item_y;
-
-           goo_canvas_item_translate(item, new_x - x, new_y - y);
-           x = new_x;
-           y = new_y;
-         }
-       break;
-
-     case GDK_BUTTON_RELEASE:
-       if(dragging)
-	 {
-	   gc_canvas_item_ungrab(item, event->button.time);
-	   dragging = FALSE;
-	 }
-       break;
-
-     default:
-       break;
-     }
-
-   return FALSE;
- }
-
-static void
-setup_item(GooCanvasItem *item)
-{
-  g_signal_connect(GTK_OBJECT(item), "enter_notify_event",
-		     (GtkSignalFunc) item_event,
-		     NULL);
-}

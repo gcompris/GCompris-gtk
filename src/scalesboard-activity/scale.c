@@ -425,7 +425,9 @@ static int scale_item_event(GooCanvasItem *w, GdkEvent *event, ScaleItem *scale)
     return FALSE;
 }
 
-static int scale_drag_event(GooCanvasItem *w, GdkEvent *event, ScaleItem *scale)
+static int scale_drag_event(GooCanvasItem *w,
+			    GdkEvent *event,
+			    ScaleItem *scale)
 {
     int plate=0;
     double x,y;

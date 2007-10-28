@@ -73,8 +73,14 @@ static gint timer_id;
 static GooCanvasItem *railroad_create_item(GooCanvasItem *parent);
 static void railroad_destroy_all_items(void);
 static void railroad_next_level(void);
-static gint item_event(GooCanvasItem *item, GdkEvent *event, gpointer data);
-static gint answer_event(GooCanvasItem *item, GdkEvent *event, gpointer data);
+static gint item_event(GooCanvasItem *item,
+		       GooCanvasItem *target,
+		       GdkEventButton *event,
+		       gpointer data);
+static gint answer_event(GooCanvasItem *item,
+			 GooCanvasItem *target,
+			 GdkEventButton *event,
+			 gpointer data);
 
 static void reposition_model(void);
 static void reposition_answer(void);
@@ -323,8 +329,9 @@ static GooCanvasItem *railroad_create_item(GooCanvasItem *parent)
 				 NULL);
     xOffset += gdk_pixbuf_get_width(pixmap);
 
-    g_signal_connect(GTK_OBJECT(item), "enter_notify_event", (GtkSignalFunc) item_event,
-		       GINT_TO_POINTER(i));
+    g_signal_connect(item,
+		     "button_press_event", (GtkSignalFunc) item_event,
+		     GINT_TO_POINTER(i));
 
   }
   // hide them
@@ -416,7 +423,11 @@ static void process_ok()
   gc_bonus_display(gamewon, GC_BONUS_FLOWER);
 }
 /* ==================================== */
-static gint item_event(GooCanvasItem *item, GdkEvent *event, gpointer data) {
+static gint item_event(GooCanvasItem *item,
+		       GooCanvasItem *target,
+		       GdkEventButton *event,
+		       gpointer data)
+{
   double item_x, item_y;
   int item_number;
   GdkPixbuf * pixmap = NULL;
@@ -428,8 +439,8 @@ static gint item_event(GooCanvasItem *item, GdkEvent *event, gpointer data) {
   if (animation_pending)
     return FALSE;
 
-  item_x = event->button.x;
-  item_y = event->button.y;
+  item_x = event->x;
+  item_y = event->y;
   goo_canvas_convert_to_item_space(goo_canvas_item_get_canvas(item),
 				   item, &item_x, &item_y);
 
@@ -460,7 +471,9 @@ static gint item_event(GooCanvasItem *item, GdkEvent *event, gpointer data) {
       item_answer_list = g_list_append(item_answer_list, local_item);
       int_answer_list = g_list_append(int_answer_list,GINT_TO_POINTER(item_number));
       //	printf("added %d to int_answer_list\n", item_number);
-      g_signal_connect(GTK_OBJECT(local_item), "enter_notify_event", (GtkSignalFunc) answer_event, GINT_TO_POINTER( g_list_length(item_answer_list)-1 ));
+      g_signal_connect(local_item,
+		       "button_press_event", (GtkSignalFunc) answer_event,
+		       GINT_TO_POINTER( g_list_length(item_answer_list)-1 ));
       break;
 
     default:
@@ -470,7 +483,11 @@ static gint item_event(GooCanvasItem *item, GdkEvent *event, gpointer data) {
 }
 /* ==================================== */
 /* Used to delete a vehicule at the top (the proposed answer) */
-static gint answer_event(GooCanvasItem *item, GdkEvent *event, gpointer data) {
+static gint answer_event(GooCanvasItem *item,
+			 GooCanvasItem *target,
+			 GdkEventButton *event,
+			 gpointer data)
+{
   double item_x, item_y;
   int item_number, i;
   GooCanvasItem *local_item;
@@ -479,8 +496,8 @@ static gint answer_event(GooCanvasItem *item, GdkEvent *event, gpointer data) {
   if (animation_pending)
     return FALSE;
 
-  item_x = event->button.x;
-  item_y = event->button.y;
+  item_x = event->x;
+  item_y = event->y;
   goo_canvas_convert_to_item_space(goo_canvas_item_get_canvas(item),
 				   item, &item_x, &item_y);
 
@@ -495,15 +512,22 @@ static gint answer_event(GooCanvasItem *item, GdkEvent *event, gpointer data) {
       local_item = g_list_nth_data(item_answer_list,item_number);
       item_answer_list = g_list_remove( item_answer_list, local_item );
       //	gtk_signal_disconnect(GTK_OBJECT(local_item), (GtkSignalFunc) answer_event, NULL);
-      gtk_object_destroy (GTK_OBJECT(local_item));
+      goo_canvas_item_remove(local_item);
       int_answer_list = g_list_remove(int_answer_list, g_list_nth_data(int_answer_list, item_number) );
       reposition_answer();
+
       // setup the signals for the cars at the right side of the deleted object
-      for (i=item_number; i<g_list_length(item_answer_list); i++) {
-	local_item = g_list_nth_data(item_answer_list, i);
-	gtk_signal_disconnect_by_func(GTK_OBJECT(local_item), (GtkSignalFunc) answer_event, GINT_TO_POINTER( i+1 ));
-        g_signal_connect(GTK_OBJECT(local_item),"enter_notify_event", (GtkSignalFunc) answer_event, GINT_TO_POINTER( i ));
-      }
+      for (i=item_number; i<g_list_length(item_answer_list); i++)
+	{
+	  local_item = g_list_nth_data(item_answer_list, i);
+	  g_signal_handlers_disconnect_by_func(GTK_OBJECT(local_item),
+				      (GtkSignalFunc) answer_event,
+				      GINT_TO_POINTER( i+1 ));
+	  g_signal_connect(local_item,
+			   "button_press_event",
+			   (GtkSignalFunc) answer_event,
+			   GINT_TO_POINTER( i ));
+	}
       break;
 
     default:
@@ -574,11 +598,9 @@ static gboolean animate_step() {
       timer_id = 0;
     }
     animation_pending = FALSE;
-    g_object_set (modelRootItem, "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
-    /* Move back the model to its 0 position */
-    g_object_set(modelRootItem,
-			  "x", 0.0,
-			  NULL);
+    g_object_set (modelRootItem,
+		  "visibility", GOO_CANVAS_ITEM_INVISIBLE,
+		  NULL);
 
     g_object_set (allwagonsRootItem, "visibility", GOO_CANVAS_ITEM_VISIBLE, NULL);
     g_object_set (answerRootItem, "visibility", GOO_CANVAS_ITEM_VISIBLE, NULL);

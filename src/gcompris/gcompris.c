@@ -312,7 +312,6 @@ board_widget_key_press_callback (GtkWidget   *widget,
 {
   int kv = event->keyval;
 
-  printf("board_widget_key_press_callback\n");
   if(event->state & GDK_CONTROL_MASK && ((event->keyval == GDK_r)
 					 || (event->keyval == GDK_R))) {
     g_message("Refreshing the canvas\n");
@@ -400,12 +399,12 @@ board_widget_key_press_callback (GtkWidget   *widget,
   /* NOTE: If a board receives key press, it must bind the ENTER Keys to OK
    *       whenever possible
    */
-  if (gc_board_get_current_board_plugin()!=NULL 
+  if (gc_board_get_current_board_plugin()!=NULL
       && gc_board_get_current_board_plugin()->key_press)
     {
       return(gc_board_get_current_board_plugin()->key_press (event->keyval, NULL, NULL));
     }
-  else if (gc_board_get_current_board_plugin()!=NULL 
+  else if (gc_board_get_current_board_plugin()!=NULL
 	   && gc_board_get_current_board_plugin()->ok &&
 	   (event->keyval == GDK_KP_Enter ||
 	    event->keyval == GDK_Return   ||
@@ -692,6 +691,10 @@ static void setup_window ()
   /* For non anti alias canvas */
   canvas     = goo_canvas_new();
   canvas_bar = goo_canvas_new();
+
+  g_object_set (G_OBJECT(goo_canvas_get_root_item(GOO_CANVAS(canvas))),
+		"can-focus", TRUE,
+		NULL);
 
 
   gtk_signal_connect_after (GTK_OBJECT (window), "key_press_event",
