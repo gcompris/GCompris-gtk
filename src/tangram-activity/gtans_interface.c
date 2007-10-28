@@ -102,13 +102,14 @@ void create_mainwindow (GooCanvasItem *rootitem)
   previous_figure = goo_canvas_image_new (rootitem,
 					  pixmap_l,
 					  X_BASE_SMALLAREA,
-					  Y_BASE_SMALLAREA + WIDTH_SMALLAREA + 10,
+					  Y_BASE_SMALLAREA + WIDTH_SMALLAREA + 20,
 					   NULL);
 
   next_figure = goo_canvas_image_new (rootitem,
 				      pixmap_r,
-				      X_BASE_SMALLAREA + WIDTH_SMALLAREA,
-				      Y_BASE_SMALLAREA + WIDTH_SMALLAREA + 10,
+				      X_BASE_SMALLAREA + WIDTH_SMALLAREA -
+				      gdk_pixbuf_get_width (pixmap_r),
+				      Y_BASE_SMALLAREA + WIDTH_SMALLAREA + 20,
 				       NULL);
 
 
@@ -137,15 +138,13 @@ void create_mainwindow (GooCanvasItem *rootitem)
 				      pixmap_show,
 				      X_BASE_SMALLAREA,
 				      Y_BASE_SMALLAREA + WIDTH_SMALLAREA + 80,
-				       "anchor",  GTK_ANCHOR_W,
-				       NULL);
+				      NULL);
 
   outline_figure = goo_canvas_image_new (rootitem,
 					 pixmap_outline,
 					 X_BASE_SMALLAREA,
 					 Y_BASE_SMALLAREA + WIDTH_SMALLAREA + 130,
-				       "anchor", GTK_ANCHOR_W,
-				       NULL);
+					 NULL);
 
   g_signal_connect(outline_figure, "button_press_event",
 		     (GtkSignalFunc) on_outline_clicked,
@@ -170,8 +169,7 @@ void create_mainwindow (GooCanvasItem *rootitem)
 				  pixmap_symetry,
 				  X_BASE_SMALLAREA + WIDTH_SMALLAREA - 50,
 				  Y_BASE_SMALLAREA + WIDTH_SMALLAREA + 180,
-				   "anchor", GTK_ANCHOR_N,
-				   NULL);
+				  NULL);
 
   g_signal_connect(symetry, "button_press_event",
 		     (GtkSignalFunc) on_symetry_clicked,
@@ -203,8 +201,7 @@ void create_mainwindow (GooCanvasItem *rootitem)
 				  left_rot,
 				  X_BASE_SMALLAREA + WIDTH_SMALLAREA - 100,
 				  Y_BASE_SMALLAREA + WIDTH_SMALLAREA + 60,
-				   "anchor", GTK_ANCHOR_NW,
-				   NULL);
+				  NULL);
 
 
   gdk_pixbuf_unref(right_rot);
