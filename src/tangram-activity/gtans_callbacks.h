@@ -161,25 +161,31 @@ on_badjust_clicked                     (GtkButton       *button,
 
 gboolean
 on_arrow_clicked (GooCanvasItem *canvasitem,
-		  GdkEvent *event,
+		  GooCanvasItem *target,
+		  GdkEventButton *event,
 		  gpointer user_data);
 
 gboolean
 on_show_clicked (GooCanvasItem *canvasitem,
-		  GdkEvent *event,
-		  gpointer user_data);
+		 GooCanvasItem *target,
+		 GdkEventButton *event,
+		 gpointer user_data);
 
 gboolean
 on_outline_clicked (GooCanvasItem *canvasitem,
-		  GdkEvent *event,
-		  gpointer user_data);
+		    GooCanvasItem *target,
+		    GdkEventButton *event,
+		    gpointer user_data);
 
 gboolean
 on_symetry_clicked (GooCanvasItem *canvasitem,
-		  GdkEvent *event,
-		  gpointer user_data);
+		    GooCanvasItem *target,
+		    GdkEventButton *event,
+		    gpointer user_data);
 
 gboolean
 on_rotation_clicked (GooCanvasItem *canvasitem,
-		     GdkEvent *event,
+		     GooCanvasItem *target,
+		     GdkEventButton *event,
 		     gpointer user_data);
+

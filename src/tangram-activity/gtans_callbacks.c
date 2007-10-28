@@ -282,10 +282,12 @@ on_wdrawareapetite_expose_event        (GtkWidget       *widget,
 
 
 gboolean
-on_arrow_clicked (GooCanvasItem *item, GdkEvent *event, gpointer user_data)
+on_arrow_clicked (GooCanvasItem *item,
+		  GooCanvasItem *target,
+		  GdkEventButton *event,
+		  gpointer user_data)
 {
-  if ((event->type == GDK_BUTTON_PRESS)
-      && (event->button.button == 1)) {
+  if (event->button == 1) {
     gc_sound_play_ogg ("sounds/bleep.wav", NULL);
     change_figure((gboolean) GPOINTER_TO_INT(user_data));
     return TRUE;
@@ -297,11 +299,11 @@ on_arrow_clicked (GooCanvasItem *item, GdkEvent *event, gpointer user_data)
 
 gboolean
 on_show_clicked (GooCanvasItem *canvasitem,
-		  GdkEvent *event,
-		  gpointer user_data)
+		 GooCanvasItem *target,
+		 GdkEventButton *event,
+		 gpointer user_data)
 {
-  if ((event->type == GDK_BUTTON_PRESS)
-      && (event->button.button == 1)) {
+  if (event->button == 1) {
     gc_sound_play_ogg ("sounds/bleep.wav", NULL);
     helptanset = (helptanset+1)%PIECENBR;
     tanredrawpetite();
@@ -312,11 +314,11 @@ on_show_clicked (GooCanvasItem *canvasitem,
 
 gboolean
 on_outline_clicked (GooCanvasItem *canvasitem,
-		  GdkEvent *event,
-		  gpointer user_data)
+		    GooCanvasItem *target,
+		    GdkEventButton *event,
+		    gpointer user_data)
 {
-  if ((event->type == GDK_BUTTON_PRESS)
-      && (event->button.button == 1)) {
+  if (event->button == 1) {
     gc_sound_play_ogg ("sounds/bleep.wav", NULL);
     if(!helpoutset){
       helpoutset = TRUE;
@@ -329,11 +331,11 @@ on_outline_clicked (GooCanvasItem *canvasitem,
 
 gboolean
 on_symetry_clicked (GooCanvasItem *canvasitem,
-		  GdkEvent *event,
-		  gpointer user_data)
+		    GooCanvasItem *target,
+		    GdkEventButton *event,
+		    gpointer user_data)
 {
-  if ((event->type == GDK_BUTTON_PRESS)
-      && (event->button.button == 1)) {
+  if (event->button == 1) {
     gc_sound_play_ogg ("sounds/flip.wav", NULL);
     if (selectedgrande==TRUE){
       if (figgrande.piecepos[PIECENBR-1].type==3)
@@ -349,11 +351,11 @@ on_symetry_clicked (GooCanvasItem *canvasitem,
 
 gboolean
 on_rotation_clicked (GooCanvasItem *canvasitem,
-		  GdkEvent *event,
-		  gpointer user_data)
+		     GooCanvasItem *target,
+		     GdkEventButton *event,
+		     gpointer user_data)
 {
-  if ((event->type == GDK_BUTTON_PRESS)
-      && (event->button.button == 1)) {
+  if(event->button == 1) {
     gc_sound_play_ogg ("sounds/scroll.wav", NULL);
     gint angle = 0;
 

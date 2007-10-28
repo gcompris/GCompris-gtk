@@ -112,7 +112,7 @@ void create_mainwindow (GooCanvasItem *rootitem)
 				       NULL);
 
 
-  g_signal_connect(previous_figure, "enter_notify_event",
+  g_signal_connect(previous_figure, "button_press_event",
 		     (GtkSignalFunc) on_arrow_clicked,
 		     (gpointer) FALSE);
 
@@ -120,7 +120,7 @@ void create_mainwindow (GooCanvasItem *rootitem)
 		     (GtkSignalFunc) gc_item_focus_event,
 		     NULL);
 
-  g_signal_connect(next_figure, "enter_notify_event",
+  g_signal_connect(next_figure, "button_press_event",
 		     (GtkSignalFunc) on_arrow_clicked,
 		     (gpointer) TRUE);
 
@@ -147,11 +147,11 @@ void create_mainwindow (GooCanvasItem *rootitem)
 				       "anchor", GTK_ANCHOR_W,
 				       NULL);
 
-  g_signal_connect(outline_figure, "enter_notify_event",
+  g_signal_connect(outline_figure, "button_press_event",
 		     (GtkSignalFunc) on_outline_clicked,
 		     NULL);
 
-  g_signal_connect(show_figure, "enter_notify_event",
+  g_signal_connect(show_figure, "button_press_event",
 		     (GtkSignalFunc) on_show_clicked,
 		     NULL);
 
@@ -173,7 +173,7 @@ void create_mainwindow (GooCanvasItem *rootitem)
 				   "anchor", GTK_ANCHOR_N,
 				   NULL);
 
-  g_signal_connect(symetry, "enter_notify_event",
+  g_signal_connect(symetry, "button_press_event",
 		     (GtkSignalFunc) on_symetry_clicked,
 		     NULL);
 
@@ -230,7 +230,7 @@ void create_mainwindow (GooCanvasItem *rootitem)
   gdk_pixbuf_unref(left_rot_big);
 
 
-  g_signal_connect(r_rot_s, "enter_notify_event",
+  g_signal_connect(r_rot_s, "button_press_event",
 		     (GtkSignalFunc) on_rotation_clicked,
 		     (gpointer) 0);
 
@@ -238,7 +238,7 @@ void create_mainwindow (GooCanvasItem *rootitem)
 		     (GtkSignalFunc) gc_item_focus_event,
 		     NULL);
 
-  g_signal_connect(l_rot_s, "enter_notify_event",
+  g_signal_connect(l_rot_s, "button_press_event",
 		     (GtkSignalFunc) on_rotation_clicked,
 		     (gpointer) 1);
 
@@ -246,7 +246,7 @@ void create_mainwindow (GooCanvasItem *rootitem)
 		     (GtkSignalFunc) gc_item_focus_event,
 		     NULL);
 
-  g_signal_connect(r_rot_b, "enter_notify_event",
+  g_signal_connect(r_rot_b, "button_press_event",
 		     (GtkSignalFunc) on_rotation_clicked,
 		     (gpointer) 2);
 
@@ -254,7 +254,7 @@ void create_mainwindow (GooCanvasItem *rootitem)
 		     (GtkSignalFunc) gc_item_focus_event,
 		     NULL);
 
-  g_signal_connect(l_rot_b, "enter_notify_event",
+  g_signal_connect(l_rot_b, "button_press_event",
 		     (GtkSignalFunc) on_rotation_clicked,
 		     (gpointer) 3);
 
