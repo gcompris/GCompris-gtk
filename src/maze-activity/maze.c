@@ -75,6 +75,7 @@ static void repeat(void);
 /* ================================================================ */
 static GooCanvasItem *boardRootItem = NULL;
 static GooCanvasItem *mazegroup     = NULL;
+static GooCanvasItem *tuxgroup      = NULL;
 static GooCanvasItem *wallgroup     = NULL;
 
 static GooCanvasItem *warning_item   = NULL;
@@ -295,30 +296,18 @@ static void maze_next_level() {
   RsvgHandle *svg_handle = NULL;
   gchar *filename = gc_file_find_absolute("maze/tux_top_south.svg");
   svg_handle = rsvg_handle_new_from_file (filename, &error);
-  tuxitem = goo_svg_item_new (mazegroup, svg_handle, NULL);
+  tuxitem = goo_svg_item_new (tuxgroup, svg_handle,
+			      NULL);
   g_free(filename);
   g_object_unref (svg_handle);
 
-  RsvgDimensionData dimension;
-  rsvg_handle_get_dimensions(svg_handle, &dimension);
-  gdouble scale = (gdouble) cellsize / dimension.width;
-  goo_canvas_item_set_simple_transform(tuxitem,
-				       cellsize*(0)-breedte + board_border_x,
-				       cellsize*(begin)-hoogte + board_border_y,
-				       scale,
-				       -90);
+  goo_canvas_item_translate(tuxgroup,
+			    cellsize*(0)-breedte + board_border_x,
+			    cellsize*(begin)-hoogte + board_border_y);
 
-  g_signal_connect(tuxitem, 
+  g_signal_connect(tuxitem,
 		   "button_press_event",
 		   (GtkSignalFunc) tux_event, NULL);
-#if 0
-  pixmap = gc_pixmap_load("maze/tux_top_east.png");
-  if(pixmap)
-    {
-      tuxitem = draw_image(mazegroup,0,begin,pixmap);
-      gdk_pixbuf_unref(pixmap);
-    }
-#endif
 
   /* Draw the target */
   pixmap = gc_pixmap_load("maze/door.png");
@@ -485,6 +474,7 @@ static void maze_destroy_all_items() {
     goo_canvas_item_remove(threedgroup);
 
   mazegroup = NULL;
+  tuxgroup = NULL;
   wallgroup = NULL;
   boardRootItem = NULL;
   threedgroup=NULL;
@@ -493,7 +483,9 @@ static void maze_destroy_all_items() {
 /* =====================================================================
  *
  * =====================================================================*/
-static GooCanvasItem *maze_create_item(GooCanvasItem *parent) {
+static GooCanvasItem *
+maze_create_item(GooCanvasItem *parent)
+{
   gchar *message;
 
   boardRootItem = goo_canvas_group_new (goo_canvas_get_root_item(gcomprisBoard->canvas),
@@ -501,9 +493,13 @@ static GooCanvasItem *maze_create_item(GooCanvasItem *parent) {
 
   mazegroup = goo_canvas_group_new(boardRootItem,
 				   NULL);
+
   goo_canvas_item_translate(mazegroup,
 			    breedte,
 			    hoogte);
+
+  tuxgroup = goo_canvas_group_new(mazegroup,
+				   NULL);
 
   wallgroup = goo_canvas_group_new(boardRootItem,
 				   NULL);
@@ -550,7 +546,8 @@ static void process_ok() {
 
 static void
 draw_a_rect(GooCanvasItem *group,
-	    int x1, int y1, int x2, int y2, char *color)
+	    int x1, int y1, int x2, int y2,
+	    char *color)
 {
   goo_canvas_rect_new(group,
 		      x1,
@@ -558,7 +555,8 @@ draw_a_rect(GooCanvasItem *group,
 		      x2 - x1,
 		      y2 - y1,
 		      "fill-color", color,
-		      "line-width", 0.0,
+		      "stroke-color", color,
+		      "line-width", 1.0,
 		      NULL);
 }
 
@@ -619,16 +617,17 @@ draw_image(GooCanvasItem *group,
 /*
  * Same as draw rect but for an image
  */
-static void move_image(GooCanvasItem *group, int x,int y, GooCanvasItem *item)
+static void move_image(GooCanvasItem *group,
+		       int x, int y, GooCanvasItem *item)
 {
   int x1,y1;
   y1=cellsize*(y)-hoogte + board_border_y;
   x1=cellsize*(x)-breedte + board_border_x;
 
-  g_object_set (item,
-		"x",	(double)x1+buffer,
-		"y",	(double)y1+buffer,
-		NULL);
+  goo_canvas_item_set_transform(item, NULL);
+  goo_canvas_item_translate(item,
+  			    x1, y1);
+
   goo_canvas_item_raise(item, NULL);
 }
 
@@ -637,31 +636,46 @@ static void draw_combined_rect(GooCanvasItem *group,
 			       char *color)
 {
   int xx1,yy1,xx2,yy2;
+
   yy1=cellsize*(y1)-hoogte + board_border_y;
   xx1=cellsize*(x1)-breedte + board_border_x;
   yy2=cellsize*(y2)-hoogte + board_border_y;
   xx2=cellsize*(x2)-breedte + board_border_x;
+
   if (y1==y2 && x1<x2)
     {
-      draw_a_rect(group,xx1+cellsize-buffer,yy1+buffer,xx2+buffer,yy2+cellsize-buffer,color);
+      draw_a_rect(group,
+		  xx1+cellsize-buffer,
+		  yy1+buffer,
+		  xx2+buffer,
+		  yy2+cellsize-buffer,
+		  color);
     }
   else if (y1==y2 && x1>x2)
     {
       draw_a_rect(group,
 		  xx2+cellsize-buffer,
-		  yy2+buffer,xx1+buffer,yy1+cellsize-buffer,
+		  yy2+buffer,
+		  xx1+buffer,
+		  yy1+cellsize-buffer,
 		  color);
     }
   else if (x1==x2 && y1<y2)
     {
       draw_a_rect(group,
-		  xx1+buffer,yy1+cellsize-buffer,xx2+cellsize-buffer,yy2+buffer,
+		  xx1+buffer,
+		  yy1+cellsize-buffer,
+		  xx2+cellsize-buffer,
+		  yy2+buffer,
 		  color);
     }
   else if (x1==x2 && y1>y2)
     {
       draw_a_rect(group,
-		  xx2+buffer,yy2+cellsize-buffer,xx1+cellsize-buffer,yy1+buffer,
+		  xx2+buffer,
+		  yy2+cellsize-buffer,
+		  xx1+cellsize-buffer,
+		  yy1+buffer,
 		  color);
     }
 
@@ -669,8 +683,8 @@ static void draw_combined_rect(GooCanvasItem *group,
 
 static void initMaze(void)
 {
-  int x,y;
-  for (x=0; x<breedte;x++)
+  int x, y;
+  for (x=0; x<breedte; x++)
     {
       for (y=0; y <hoogte; y++)
 	{
@@ -841,6 +855,7 @@ static void movePos(int x1, int y1, int x2,int y2, int richting)
   int ret,wall,i,bo=1;
   ret=1;
   wall=Maze[x1][y1];
+
   if (wall&richting)
     {
       gc_sound_play_ogg ("sounds/brick.wav", NULL);
@@ -857,7 +872,7 @@ static void movePos(int x1, int y1, int x2,int y2, int richting)
 	      if(position[i][0]==x2 && position[i][1]==y2)
 		{
 		  bo=0;
-		  move_image(mazegroup,x2,y2,tuxitem);
+		  move_image(mazegroup,x2,y2,tuxgroup);
 		  //					draw_rect(mazegroup,x2,y2,"blue");
 		}
 	      else
@@ -888,9 +903,9 @@ static void movePos(int x1, int y1, int x2,int y2, int richting)
 	    }
 	  else
 	    {
-	      move_image(mazegroup,x2,y2,tuxitem);
 	      draw_combined_rect(mazegroup, x1, y1, x2, y2, "green");
 	      draw_rect(mazegroup,x1,y1,"green");
+	      move_image(mazegroup,x2,y2,tuxgroup);
 	    }
 	}
     }
@@ -933,7 +948,6 @@ static gint key_press(guint keyval, gchar *commit_str, gchar *preedit_str)
 {
   guint richting=0,level=gcomprisBoard->level;
 
-  printf("key_press\n");
   if(board_paused)
     return FALSE;
 
@@ -1111,34 +1125,39 @@ struct Trapez
 {  int x_left,x_right,y_left_top,y_left_bottom,y_right_top,y_right_bottom;
 };
 
-static GooCanvasItem *draw_Trapez(GooCanvasItem *group, struct Trapez t,const char *c1, const char *c2)
-{	GooCanvasPoints *pts=goo_canvas_points_new(4);
- GooCanvasItem *res=NULL;
- pts->coords[0]=t.x_left;
- pts->coords[1]=t.y_left_top;
- pts->coords[2]=t.x_right;
- pts->coords[3]=t.y_right_top;
- pts->coords[4]=t.x_right;
- pts->coords[5]=t.y_right_bottom;
- pts->coords[6]=t.x_left;
- pts->coords[7]=t.y_left_bottom;
- res=goo_canvas_polyline_new(group, FALSE, 0,
-			     "points", (GooCanvasPoints*)pts,
-			     "fill-color", c1,
-			     "stroke-color", c2,
-			     "width_pixels", 1,
-			     NULL);
- return res;
+static GooCanvasItem *
+draw_Trapez(GooCanvasItem *group,
+	    struct Trapez t,const char *c1, const char *c2)
+{
+  GooCanvasPoints *pts=goo_canvas_points_new(4);
+  GooCanvasItem *res=NULL;
+  pts->coords[0]=t.x_left;
+  pts->coords[1]=t.y_left_top;
+  pts->coords[2]=t.x_right;
+  pts->coords[3]=t.y_right_top;
+  pts->coords[4]=t.x_right;
+  pts->coords[5]=t.y_right_bottom;
+  pts->coords[6]=t.x_left;
+  pts->coords[7]=t.y_left_bottom;
+  res=goo_canvas_polyline_new(group, FALSE, 0,
+			      "points", (GooCanvasPoints*)pts,
+			      "fill-color", c1,
+			      "stroke-color", c2,
+			      "line-width", 1.0,
+			      NULL);
+  return res;
 }
 
 struct vector
 {  int x,y;
 };
 
-static struct vector vector_ctor(int x, int y)
-{  struct vector r;
- r.x=x; r.y=y;
- return r;
+static struct vector
+vector_ctor(int x, int y)
+{
+  struct vector r;
+  r.x=x; r.y=y;
+  return r;
 };
 
 #if 0
@@ -1152,10 +1171,12 @@ static void print_Trapez(FILE *f, struct Trapez t)
 }
 #endif
 
-static gboolean is_wall2(struct vector viewpos, int viewdir)
-{  if (viewpos.x<0 || viewpos.y<0 || viewpos.x>=breedte || viewpos.y>=hoogte)
-  return TRUE;
- return Maze[viewpos.x][viewpos.y]&viewdir;
+static gboolean
+is_wall2(struct vector viewpos, int viewdir)
+{
+  if (viewpos.x<0 || viewpos.y<0 || viewpos.x>=breedte || viewpos.y>=hoogte)
+    return TRUE;
+  return Maze[viewpos.x][viewpos.y]&viewdir;
 }
 
 /*
@@ -1176,38 +1197,47 @@ static gboolean is_wall2(struct vector viewpos, int viewdir)
 /* this corresponds to multiplying with ( cos a, -sin a )
    ( sin a, cos a  )  */
 
-static struct vector vector_turn(struct vector v,int angle) /* 1=90deg, 2=180deg */
-{  switch (angle&3)
-  {  case 0: return v;
-  case 1: return vector_ctor(-v.y,v.x);
-  case 2: return vector_ctor(-v.x,-v.y);
-  case 3: return vector_ctor(v.y,-v.x);
-  }
- return v; // quiet
+static struct vector
+vector_turn(struct vector v,int angle) /* 1=90deg, 2=180deg */
+{
+  switch (angle&3)
+    {  case 0: return v;
+    case 1: return vector_ctor(-v.y,v.x);
+    case 2: return vector_ctor(-v.x,-v.y);
+    case 3: return vector_ctor(v.y,-v.x);
+    }
+  return v; // quiet
 }
 
-static struct vector vector_add(struct vector v, struct vector w)
-{  return vector_ctor(v.x+w.x, v.y+w.y);
+static struct vector
+vector_add(struct vector v, struct vector w)
+{
+  return vector_ctor(v.x+w.x, v.y+w.y);
 }
 
 /* returns result in 90° steps ( 1=90° ...) */
-static gint angle(gint a, gint b)
-{  if (a==b) return 0;
- if (a==TURN_LEFT(b)) return 1;
- if (a==U_TURN(b)) return 2;
- return 3;
+static gint
+angle(gint a, gint b)
+{
+  if (a==b) return 0;
+  if (a==TURN_LEFT(b)) return 1;
+  if (a==U_TURN(b)) return 2;
+  return 3;
 }
 
-static struct vector invert_y(struct vector v)
-{  return vector_ctor(v.x, -v.y);
+static struct vector
+invert_y(struct vector v)
+{
+  return vector_ctor(v.x, -v.y);
 }
 
 /* we have to invert the y component of our view beam because the
    screen and the labyrinth are left handed systems (unlike
    classical vector algebra) */
 
-static gboolean is_visible(struct vector viewpos, int viewdir,
-			   struct vector distance, gboolean left_side, gboolean *is_exit)
+static gboolean
+is_visible(struct vector viewpos, int viewdir,
+	   struct vector distance, gboolean left_side, gboolean *is_exit)
 {
   struct vector where=vector_add(viewpos,invert_y(vector_turn(distance,angle(viewdir,NORTH))));
   gint direction=left_side ? TURN_LEFT(viewdir) : viewdir;
@@ -1227,22 +1257,26 @@ static gboolean is_visible(struct vector viewpos, int viewdir,
 }
 
 /* screen coordinate of edge (applied ray interception theorems) */
-static int transform(int s0, int w, int lx, int ly, eyepos_t ex, eyepos_t ez)
-{  return s0
-     + w*ex
-     + (w*(1+ez)*(2*lx-(1+ex)))/(2*ly+1+ez);
+static int
+transform(int s0, int w, int lx, int ly, eyepos_t ex, eyepos_t ez)
+{
+  return s0
+    + w*ex
+    + (w*(1+ez)*(2*lx-(1+ex)))/(2*ly+1+ez);
 }
 
 /* inverse of transform (lx(sx)) */
 /* note: it is possible to use integer arithmetic by returning dividend and divisor separately ... */
 static float inverse_transform(int s0, int w, int sx, int ly, eyepos_t ex, eyepos_t ez)
-{  return ((sx-s0-w*ex)*(2*ly+1+ez)
-	   + w*(1+ex)*(1+ez)
-	   ) / (float)(2*w*(1+ez));
+{
+  return ((sx-s0-w*ex)*(2*ly+1+ez)
+	  + w*(1+ex)*(1+ez)
+	  ) / (float)(2*w*(1+ez));
 }
 
 struct screenparam
-{  struct vector pos, size; /* middle position, radius */
+{
+  struct vector pos, size; /* middle position, radius */
   struct vector screendist; /* position of (x,y,z)(1,1,-1) onscreen */
   /* which is the eye-screen distance in screen coordinates */
 };
@@ -1251,178 +1285,193 @@ struct screenparam
 
 /* leftmost wall which ('s right edge) is visible right of xmin */
 /* take left edge, floor (round down) */
-static int dx_left(struct screenparam sp, int xmin, int dy, gboolean left_side)
-{  if (left_side)
-  {  if (!dy) return xmin>sp.pos.x-sp.screendist.x /* ?1:0 */ ;
-  if (xmin<(sp.pos.x+sp.screendist.x*eye_pos_x))
-    return dx_left(sp,xmin,dy,FALSE)+1;
-  else return dx_left(sp,xmin,dy-1,FALSE)+1;
-  }
- return (int)(floorf(inverse_transform(sp.pos.x, sp.screendist.x, xmin,
-				       dy, eye_pos_x, eye_pos_z)));
+static int
+dx_left(struct screenparam sp, int xmin, int dy, gboolean left_side)
+{
+  if (left_side)
+    {  if (!dy) return xmin>sp.pos.x-sp.screendist.x /* ?1:0 */ ;
+      if (xmin<(sp.pos.x+sp.screendist.x*eye_pos_x))
+	return dx_left(sp,xmin,dy,FALSE)+1;
+      else return dx_left(sp,xmin,dy-1,FALSE)+1;
+    }
+  return (int)(floorf(inverse_transform(sp.pos.x, sp.screendist.x, xmin,
+					dy, eye_pos_x, eye_pos_z)));
 }
 
 /* rightmost wall which ('s left edge) is visible */
 /* take right edge, ceil (round up) */
-static int dx_right(struct screenparam sp, int xmax, int dy, gboolean left_side)
-{  if (left_side)
-  {  if (!dy) return xmax>sp.pos.x+sp.screendist.x /* ?1:0 */ ;
-  if (xmax<(sp.pos.x+sp.screendist.x*eye_pos_x))
-    return dx_right(sp,xmax,dy-1,FALSE);
-  else return dx_right(sp,xmax,dy,FALSE);
-  }
- return (int)(ceilf(inverse_transform(sp.pos.x, sp.screendist.x, xmax,
-				      dy, eye_pos_x, eye_pos_z))) - 1;
+static int
+dx_right(struct screenparam sp, int xmax, int dy, gboolean left_side)
+{
+  if (left_side)
+    {  if (!dy) return xmax>sp.pos.x+sp.screendist.x /* ?1:0 */ ;
+      if (xmax<(sp.pos.x+sp.screendist.x*eye_pos_x))
+	return dx_right(sp,xmax,dy-1,FALSE);
+      else return dx_right(sp,xmax,dy,FALSE);
+    }
+  return (int)(ceilf(inverse_transform(sp.pos.x, sp.screendist.x, xmax,
+				       dy, eye_pos_x, eye_pos_z))) - 1;
 }
 
-static struct Trapez wall_coords(struct screenparam sp, struct vector distance, gboolean left_side)
-{  struct Trapez r;
+static struct Trapez
+wall_coords(struct screenparam sp, struct vector distance, gboolean left_side)
+{
+  struct Trapez r;
 
-// leftmost/rightmost wall (special handling)
- if (left_side && !distance.y)
-   {  if (distance.x<=0)
-     {  r.x_left=sp.pos.x-sp.size.x;
-     r.y_left_top=sp.pos.y-sp.size.y;
-     r.y_left_bottom=sp.pos.y+sp.size.y;
-     r.x_right=sp.pos.x-sp.screendist.x;
-     r.y_right_top=sp.pos.y-sp.screendist.y;
-     r.y_right_bottom=sp.pos.y+sp.screendist.y;
-     }
-   else
-     {  r.x_right=sp.pos.x+sp.size.x;
-     r.y_right_top=sp.pos.y-sp.size.y;
-     r.y_right_bottom=sp.pos.y+sp.size.y;
-     r.x_left=sp.pos.x+sp.screendist.x;
-     r.y_left_top=sp.pos.y-sp.screendist.y;
-     r.y_left_bottom=sp.pos.y+sp.screendist.y;
-     }
-   goto test;
-   }
+  // leftmost/rightmost wall (special handling)
+  if (left_side && !distance.y)
+    {  if (distance.x<=0)
+	{  r.x_left=sp.pos.x-sp.size.x;
+	  r.y_left_top=sp.pos.y-sp.size.y;
+	  r.y_left_bottom=sp.pos.y+sp.size.y;
+	  r.x_right=sp.pos.x-sp.screendist.x;
+	  r.y_right_top=sp.pos.y-sp.screendist.y;
+	  r.y_right_bottom=sp.pos.y+sp.screendist.y;
+	}
+      else
+	{  r.x_right=sp.pos.x+sp.size.x;
+	  r.y_right_top=sp.pos.y-sp.size.y;
+	  r.y_right_bottom=sp.pos.y+sp.size.y;
+	  r.x_left=sp.pos.x+sp.screendist.x;
+	  r.y_left_top=sp.pos.y-sp.screendist.y;
+	  r.y_left_bottom=sp.pos.y+sp.screendist.y;
+	}
+      goto test;
+    }
 
- r.x_left=transform(sp.pos.x, sp.screendist.x, distance.x, distance.y, eye_pos_x, eye_pos_z);
- // the y sign is inverted (screen coords)
- r.y_left_top=transform(sp.pos.y, sp.screendist.y, 0, distance.y, eye_pos_y, eye_pos_z);
- r.y_left_bottom=transform(sp.pos.y, sp.screendist.y, 1, distance.y, eye_pos_y, eye_pos_z);
- if (left_side)
-   {  r.x_right=transform(sp.pos.x, sp.screendist.x, distance.x, distance.y-1, eye_pos_x, eye_pos_z);
-   r.y_right_top=transform(sp.pos.y, sp.screendist.y, 0, distance.y-1, eye_pos_y, eye_pos_z);
-   r.y_right_bottom=transform(sp.pos.y, sp.screendist.y, 1, distance.y-1, eye_pos_y, eye_pos_z);
-   if (distance.x<=0)
-     {  // swap coords since more distant edge becomes left
-       int h;
-       h=r.x_left; r.x_left=r.x_right; r.x_right=h;
-       h=r.y_left_top; r.y_left_top=r.y_right_top; r.y_right_top=h;
-       h=r.y_left_bottom; r.y_left_bottom=r.y_right_bottom; r.y_right_bottom=h;
-     }
-   }
- else // front wall
-   {  r.x_right=transform(sp.pos.x, sp.screendist.x, distance.x+1, distance.y, eye_pos_x, eye_pos_z);
-   r.y_right_top=r.y_left_top;
-   r.y_right_bottom=r.y_left_bottom;
-   }
+  r.x_left=transform(sp.pos.x, sp.screendist.x, distance.x, distance.y, eye_pos_x, eye_pos_z);
+  // the y sign is inverted (screen coords)
+  r.y_left_top=transform(sp.pos.y, sp.screendist.y, 0, distance.y, eye_pos_y, eye_pos_z);
+  r.y_left_bottom=transform(sp.pos.y, sp.screendist.y, 1, distance.y, eye_pos_y, eye_pos_z);
+  if (left_side)
+    {  r.x_right=transform(sp.pos.x, sp.screendist.x, distance.x, distance.y-1, eye_pos_x, eye_pos_z);
+      r.y_right_top=transform(sp.pos.y, sp.screendist.y, 0, distance.y-1, eye_pos_y, eye_pos_z);
+      r.y_right_bottom=transform(sp.pos.y, sp.screendist.y, 1, distance.y-1, eye_pos_y, eye_pos_z);
+      if (distance.x<=0)
+	{  // swap coords since more distant edge becomes left
+	  int h;
+	  h=r.x_left; r.x_left=r.x_right; r.x_right=h;
+	  h=r.y_left_top; r.y_left_top=r.y_right_top; r.y_right_top=h;
+	  h=r.y_left_bottom; r.y_left_bottom=r.y_right_bottom; r.y_right_bottom=h;
+	}
+    }
+  else // front wall
+    {  r.x_right=transform(sp.pos.x, sp.screendist.x, distance.x+1, distance.y, eye_pos_x, eye_pos_z);
+      r.y_right_top=r.y_left_top;
+      r.y_right_bottom=r.y_left_bottom;
+    }
  test:
- g_assert(r.x_left<=r.x_right);
- g_assert(r.y_left_top<=r.y_left_bottom);
- g_assert(r.y_right_top<=r.y_right_bottom);
- return r;
+  g_assert(r.x_left<=r.x_right);
+  g_assert(r.y_left_top<=r.y_left_bottom);
+  g_assert(r.y_right_top<=r.y_right_bottom);
+  return r;
 }
 
-static struct Trapez Trapez_hide(const struct Trapez t, int xmin, int xmax)
-{  struct Trapez r=t;
- if (xmax<xmin) return t;
+static struct Trapez
+Trapez_hide(const struct Trapez t, int xmin, int xmax)
+{
+  struct Trapez r=t;
+  if (xmax<xmin) return t;
 
- if (xmin>t.x_left)
-   {  r.x_left=xmin;
-   r.y_left_top=t.y_left_top + (xmin-t.x_left)*(t.y_right_top-t.y_left_top)
-     /(t.x_right-t.x_left);
-   r.y_left_bottom=t.y_left_bottom + (xmin-t.x_left)*(t.y_right_bottom-t.y_left_bottom)
-     /(t.x_right-t.x_left);
-   }
- if (xmax<t.x_right)
-   {  r.x_right=xmax;
-   r.y_right_top=t.y_right_top - (t.x_right-xmax)*(t.y_right_top-t.y_left_top)
-     /(t.x_right-t.x_left);
-   r.y_right_bottom=t.y_right_bottom - (t.x_right-xmax)*(t.y_right_bottom-t.y_left_bottom)
-     /(t.x_right-t.x_left);
-   }
- g_assert(r.x_left<=r.x_right);
- g_assert(xmin<=r.x_left);
- g_assert(r.x_right<=xmax);
- g_assert(r.y_left_top<=r.y_left_bottom);
- g_assert(r.y_right_top<=r.y_right_bottom);
- return r;
+  if (xmin>t.x_left)
+    {  r.x_left=xmin;
+      r.y_left_top=t.y_left_top + (xmin-t.x_left)*(t.y_right_top-t.y_left_top)
+	/(t.x_right-t.x_left);
+      r.y_left_bottom=t.y_left_bottom + (xmin-t.x_left)*(t.y_right_bottom-t.y_left_bottom)
+	/(t.x_right-t.x_left);
+    }
+  if (xmax<t.x_right)
+    {  r.x_right=xmax;
+      r.y_right_top=t.y_right_top - (t.x_right-xmax)*(t.y_right_top-t.y_left_top)
+	/(t.x_right-t.x_left);
+      r.y_right_bottom=t.y_right_bottom - (t.x_right-xmax)*(t.y_right_bottom-t.y_left_bottom)
+	/(t.x_right-t.x_left);
+    }
+  g_assert(r.x_left<=r.x_right);
+  g_assert(xmin<=r.x_left);
+  g_assert(r.x_right<=xmax);
+  g_assert(r.y_left_top<=r.y_left_bottom);
+  g_assert(r.y_right_top<=r.y_right_bottom);
+  return r;
 }
 
-static const char *color(int dir)
-{  if (dir==EAST) return "white";
- if (dir==WEST) return "grey";
- return "light grey";
+static const char *
+color(int dir)
+{
+  if (dir==EAST) return "white";
+  if (dir==WEST) return "grey";
+  return "light grey";
 }
 
-static void gcDisplay(struct vector position, int viewdir,
-		    struct screenparam sp, int xmin, int xmax, int dy, gboolean left_wall)
+static void
+gcDisplay(struct vector position, int viewdir,
+	  struct screenparam sp, int xmin, int xmax, int dy, gboolean left_wall)
 {
   int dxl=dx_left(sp,xmin,dy,left_wall),
     dxr=dx_right(sp,xmax,dy,left_wall),
     i=0;
   gboolean is_exit=FALSE;
 
- if (dxl<=0) // seek from the middle left for a wall
-   {  if (dxr<i) i=dxr;
-   while (i>=dxl && !is_visible(position,viewdir,vector_ctor(i,dy),left_wall,&is_exit))
-     --i;
-   }
- if (i>=dxl) // wall found
-   {  // draw it
-     struct Trapez t=Trapez_hide(wall_coords(sp,vector_ctor(i,dy),left_wall),xmin,xmax);
-     draw_Trapez(threedgroup,t,is_exit?"green":color(left_wall?TURN_LEFT(viewdir):viewdir),"black");
-     // draw left of it
-     if (t.x_left-1>=xmin) gcDisplay(position,viewdir,sp,xmin,t.x_left-1,dy,left_wall);
-     // right of it ...
-     xmin=t.x_right+1;
-   }
+  if (dxl<=0) // seek from the middle left for a wall
+    {  if (dxr<i) i=dxr;
+      while (i>=dxl && !is_visible(position,viewdir,vector_ctor(i,dy),left_wall,&is_exit))
+	--i;
+    }
+  if (i>=dxl) // wall found
+    {  // draw it
+      struct Trapez t=Trapez_hide(wall_coords(sp,vector_ctor(i,dy),left_wall),xmin,xmax);
+      draw_Trapez(threedgroup,t,is_exit?"green":color(left_wall?TURN_LEFT(viewdir):viewdir),"black");
+      // draw left of it
+      if (t.x_left-1>=xmin) gcDisplay(position,viewdir,sp,xmin,t.x_left-1,dy,left_wall);
+      // right of it ...
+      xmin=t.x_right+1;
+    }
 
- i=1;
- is_exit=FALSE;
- if (dxr>=1) // seek from the middle right for a wall
-   {  if (dxl>i) i=dxl;
-   while (i<=dxr && !is_visible(position,viewdir,vector_ctor(i,dy),left_wall,&is_exit))
-     ++i;
-   }
- if (i<=dxr) // wall found
-   {
-     struct Trapez t=Trapez_hide(wall_coords(sp,vector_ctor(i,dy),left_wall),xmin,xmax);
-     draw_Trapez(threedgroup,t,is_exit?"green":color(left_wall?TURN_RIGHT(viewdir):viewdir),"black");
-     // draw right of it
-     if (t.x_right+1<xmax)
-       gcDisplay(position,viewdir,sp,t.x_right+1,xmax,dy,left_wall);
-     // draw right of it
-     if (t.x_right+1<xmax)
-       gcDisplay(position,viewdir,sp,t.x_right+1,xmax,dy,left_wall);
-     // left of it ...
-     xmax=t.x_left-1;
-   }
+  i=1;
+  is_exit=FALSE;
+  if (dxr>=1) // seek from the middle right for a wall
+    {  if (dxl>i) i=dxl;
+      while (i<=dxr && !is_visible(position,viewdir,vector_ctor(i,dy),left_wall,&is_exit))
+	++i;
+    }
+  if (i<=dxr) // wall found
+    {
+      struct Trapez t=Trapez_hide(wall_coords(sp,vector_ctor(i,dy),left_wall),xmin,xmax);
+      draw_Trapez(threedgroup,t,is_exit?"green":color(left_wall?TURN_RIGHT(viewdir):viewdir),"black");
+      // draw right of it
+      if (t.x_right+1<xmax)
+	gcDisplay(position,viewdir,sp,t.x_right+1,xmax,dy,left_wall);
+      // draw right of it
+      if (t.x_right+1<xmax)
+	gcDisplay(position,viewdir,sp,t.x_right+1,xmax,dy,left_wall);
+      // left of it ...
+      xmax=t.x_left-1;
+    }
 
- if (xmin<=xmax) // draw in the middle (no wall there)
-   gcDisplay(position,viewdir,sp,xmin,xmax,dy+!left_wall,!left_wall);
+  if (xmin<=xmax) // draw in the middle (no wall there)
+    gcDisplay(position,viewdir,sp,xmin,xmax,dy+!left_wall,!left_wall);
 }
 
-static void Display3(struct vector position, int viewdir,
-		     struct screenparam sp)
+static void
+Display3(struct vector position, int viewdir,
+	 struct screenparam sp)
 {
   gcDisplay(position, viewdir, sp, sp.pos.x-sp.size.x, sp.pos.x+sp.size.x,
 	    0, TRUE);
 }
 
-static struct screenparam screenparam_ctor(int px,int py,int sx,int sy,int sdx,int sdy)
-{  struct screenparam r;
- r.pos=vector_ctor(px,py);
- r.size=vector_ctor(sx,sy);
- r.screendist=vector_ctor(sdx,sdy);
- return r;
+static struct screenparam
+screenparam_ctor(int px,int py,int sx,int sy,int sdx,int sdy)
+{
+  struct screenparam r;
+  r.pos=vector_ctor(px,py);
+  r.size=vector_ctor(sx,sy);
+  r.screendist=vector_ctor(sdx,sdy);
+  return r;
 }
 
-static void draw3D()
+static void
+draw3D()
 {
 #define MAINX 400
 #define MAINY 240
@@ -1430,10 +1479,10 @@ static void draw3D()
 #define MAINSY 240
 
   if (threedgroup!=NULL)
-  {
-    goo_canvas_item_remove(threedgroup);
-    threedgroup = NULL;
-  }
+    {
+      goo_canvas_item_remove(threedgroup);
+      threedgroup = NULL;
+    }
   if (!threeDactive) return;
   threedgroup = goo_canvas_group_new(goo_canvas_get_root_item(gcomprisBoard->canvas),
 				     NULL);
@@ -1441,7 +1490,8 @@ static void draw3D()
 	   screenparam_ctor(MAINX,MAINY,MAINSX,MAINSY,0.95*MAINSX,0.95*MAINSY));
 }
 
-static void twoDdisplay()
+static void
+twoDdisplay()
 {
   char *fileskin;
   gc_sound_play_ogg ("sounds/flip.wav", NULL);
@@ -1455,7 +1505,8 @@ static void twoDdisplay()
   threeDactive=FALSE;
 }
 
-static void threeDdisplay()
+static void
+threeDdisplay()
 {
   gc_sound_play_ogg ("sounds/flip.wav", NULL);
   gc_set_background(goo_canvas_get_root_item(gcomprisBoard->canvas),
@@ -1466,27 +1517,38 @@ static void threeDdisplay()
   draw3D();
 }
 
-static void update_tux(gint direction)
+static void
+update_tux(gint direction)
 {
   gint rotation = 0;
+  GooCanvasBounds bounds;
+  gdouble scale;
 
+  /* Our svg image of tux is faced south */
   switch(direction)
     {
     case EAST:
-      rotation = 0;
-      break;
-    case WEST:
-      rotation = 180;
-      break;
-    case NORTH:
       rotation = -90;
       break;
-    case SOUTH:
+    case WEST:
       rotation = 90;
+      break;
+    case NORTH:
+      rotation = 180;
+      break;
+    case SOUTH:
+      rotation = 0;
       break;
     }
 
-  printf("update_tux rotation=%d\n", rotation);
-  //  goo_canvas_item_set_transform(tuxitem, NULL);
-  goo_canvas_item_rotate(tuxitem, rotation, 0, 0);
+  goo_canvas_item_set_transform(tuxitem, NULL);
+
+  goo_canvas_item_get_bounds(tuxitem, &bounds);
+
+  scale = (gdouble) cellsize / (bounds.x2 - bounds.x1);
+  goo_canvas_item_scale(tuxitem, scale, scale);
+
+  goo_canvas_item_rotate( tuxitem, rotation,
+			  (bounds.x2-bounds.x1)/2,
+			  (bounds.y2-bounds.y1)/2);
 }
