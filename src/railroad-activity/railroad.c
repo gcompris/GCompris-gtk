@@ -520,7 +520,7 @@ static gint answer_event(GooCanvasItem *item,
       for (i=item_number; i<g_list_length(item_answer_list); i++)
 	{
 	  local_item = g_list_nth_data(item_answer_list, i);
-	  g_signal_handlers_disconnect_by_func(GTK_OBJECT(local_item),
+	  g_signal_handlers_disconnect_by_func(G_OBJECT(local_item),
 				      (GtkSignalFunc) answer_event,
 				      GINT_TO_POINTER( i+1 ));
 	  g_signal_connect(local_item,

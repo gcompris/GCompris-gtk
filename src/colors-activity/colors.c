@@ -45,7 +45,11 @@ static GooCanvasItem *highlight_image_item = NULL;
 static GooCanvasItem *colors_create_item(GooCanvasItem *parent);
 static void colors_destroy_all_items(void);
 static void colors_next_level(void);
-static gint item_event(GooCanvasItem *item, GdkEvent *event, gpointer data);
+static gboolean
+item_event (GooCanvasItem *item,
+	    GooCanvasItem *target,
+	    GdkEventButton *event,
+	    gpointer data);
 static int highlight_width, highlight_height;
 static GList * listColors = NULL;
 
@@ -111,9 +115,9 @@ static void save_table (gpointer key,
 			gpointer user_data)
 {
   gc_db_set_board_conf ( profile_conf,
-			    board_conf,
-			    (gchar *) key,
-			    (gchar *) value);
+			 board_conf,
+			 (gchar *) key,
+			 (gchar *) value);
 }
 
 static void
@@ -209,7 +213,8 @@ static void pause_board (gboolean pause)
 /* =====================================================================
  *
  * =====================================================================*/
-static void start_board (GcomprisBoard *agcomprisBoard) {
+static void start_board (GcomprisBoard *agcomprisBoard)
+{
   GcomprisProperties	*properties = gc_prop_get();
   GList * list = NULL;
   int * item;
@@ -225,7 +230,8 @@ static void start_board (GcomprisBoard *agcomprisBoard) {
 
   if(agcomprisBoard!=NULL) {
     gcomprisBoard=agcomprisBoard;
-    gc_set_background(goo_canvas_get_root_item(gcomprisBoard->canvas), "colors/colors_bg.png");
+    gc_set_background(goo_canvas_get_root_item(gcomprisBoard->canvas),
+		      "colors/colors_bg.png");
     gcomprisBoard->level=1;
     gcomprisBoard->maxlevel=1;
 
@@ -254,7 +260,9 @@ static void start_board (GcomprisBoard *agcomprisBoard) {
     }
     g_list_free(list);
 
-    g_signal_connect(GTK_OBJECT(gcomprisBoard->canvas), "enter_notify_event",  (GtkSignalFunc) item_event, NULL);
+    g_signal_connect(goo_canvas_get_root_item(gcomprisBoard->canvas),
+		     "button_press_event", (GtkSignalFunc) item_event, NULL);
+
     colors_next_level();
     pause_board(FALSE);
   }
@@ -263,10 +271,15 @@ static void start_board (GcomprisBoard *agcomprisBoard) {
 /* =====================================================================
  *
  * =====================================================================*/
-static void end_board () {
+static void end_board ()
+{
 
-  if(gcomprisBoard!=NULL){
+  if(gcomprisBoard!=NULL) {
     GcomprisProperties	*properties = gc_prop_get();
+
+
+    g_signal_handlers_disconnect_by_func(goo_canvas_get_root_item(gcomprisBoard->canvas),
+					 (GtkSignalFunc) item_event, NULL);
 
     pause_board(TRUE);
     gc_score_end();
@@ -290,7 +303,8 @@ static void end_board () {
 /* =====================================================================
  *
  * =====================================================================*/
-static gboolean is_our_board (GcomprisBoard *gcomprisBoard) {
+static gboolean is_our_board (GcomprisBoard *gcomprisBoard)
+{
   if (gcomprisBoard) {
     if(g_strcasecmp(gcomprisBoard->type, "colors")==0) {
       /* Set the plugin entry */
@@ -303,7 +317,8 @@ static gboolean is_our_board (GcomprisBoard *gcomprisBoard) {
 /* =====================================================================
  * set initial values for the next level
  * =====================================================================*/
-static void colors_next_level() {
+static void colors_next_level()
+{
   colors_destroy_all_items();
   gamewon = FALSE;
 
@@ -312,7 +327,8 @@ static void colors_next_level() {
   repeat();
 }
 /* ======================================= */
-static void repeat (){
+static void repeat ()
+{
 
   if(gcomprisBoard!=NULL)
     {
@@ -355,7 +371,8 @@ static void repeat (){
 /* =====================================================================
  * Destroy all the items
  * =====================================================================*/
-static void colors_destroy_all_items() {
+static void colors_destroy_all_items()
+{
   if(boardRootItem!=NULL)
     goo_canvas_item_remove(boardRootItem);
 
@@ -365,7 +382,8 @@ static void colors_destroy_all_items() {
 /* =====================================================================
  *
  * =====================================================================*/
-static GooCanvasItem *colors_create_item(GooCanvasItem *parent) {
+static GooCanvasItem *colors_create_item(GooCanvasItem *parent)
+{
   GdkPixbuf *highlight_pixmap = NULL;
   char *str = NULL;
 
@@ -396,7 +414,8 @@ static GooCanvasItem *colors_create_item(GooCanvasItem *parent) {
 /* =====================================================================
  *
  * =====================================================================*/
-static void game_won() {
+static void game_won()
+{
   gcomprisBoard->sublevel++;
 
   listColors = g_list_remove(listColors, g_list_nth_data(listColors,0));
@@ -411,58 +430,58 @@ static void game_won() {
 /* =====================================================================
  *
  * =====================================================================*/
-static gboolean process_ok_timeout() {
+static gboolean process_ok_timeout()
+{
   gc_bonus_display(gamewon, GC_BONUS_GNU);
   return FALSE;
 }
 
-static void process_ok() {
+static void process_ok()
+{
   gc_bar_hide(TRUE);
   // leave time to display the right answer
   g_timeout_add(TIME_CLICK_TO_BONUS, process_ok_timeout, NULL);
 }
+
 /* =====================================================================
  *
  * =====================================================================*/
-static gint item_event(GooCanvasItem *item, GdkEvent *event, gpointer data) {
+static gboolean
+item_event (GooCanvasItem *item,
+	    GooCanvasItem *target,
+	    GdkEventButton *event,
+	    gpointer data)
+{
   double x, y;
   int i, j, clicked;
 
-  x = event->button.x;
-  y = event->button.y;
+  x = event->x;
+  y = event->y;
 
   if (!gcomprisBoard || board_paused)
     return FALSE;
 
-  switch (event->type)
-    {
-    case GDK_BUTTON_PRESS:
-      //goo_canvas_c2w(gcomprisBoard->canvas, x, y, &x, &y);
-      clicked = -1;
-      for (i=0; i<4; i++) {
-	for (j=0; j<2; j++) {
-	  if (x>X[i*2] && x<X[i*2+1] && y>Y[j*2] && y<Y[j*2+1]) {
-	    clicked = j*4 + i;
-	  }
-	}
+  clicked = -1;
+  for (i=0; i<4; i++) {
+    for (j=0; j<2; j++) {
+      if (x>X[i*2] && x<X[i*2+1] && y>Y[j*2] && y<Y[j*2+1]) {
+	clicked = j*4 + i;
       }
-      if (x>X[2] && x<X[3] && y>Y[4] && y<Y[5])
-	clicked = 8;
-      if (x>X[4] && x<X[5] && y>Y[4] && y<Y[5])
-	clicked = 9;
-
-      if (clicked >= 0) {
-	gc_sound_play_ogg ("sounds/bleep.wav", NULL);
-	board_paused = TRUE;
-	highlight_selected(clicked);
-	gamewon = (clicked == GPOINTER_TO_INT(g_list_nth_data(listColors,0)));
-        process_ok();
-      }
-      break;
-
-    default:
-      break;
     }
+  }
+  if (x>X[2] && x<X[3] && y>Y[4] && y<Y[5])
+    clicked = 8;
+  if (x>X[4] && x<X[5] && y>Y[4] && y<Y[5])
+    clicked = 9;
+
+  if (clicked >= 0) {
+    gc_sound_play_ogg ("sounds/bleep.wav", NULL);
+    board_paused = TRUE;
+    highlight_selected(clicked);
+    gamewon = (clicked == GPOINTER_TO_INT(g_list_nth_data(listColors,0)));
+    process_ok();
+  }
+
   return FALSE;
 }
 

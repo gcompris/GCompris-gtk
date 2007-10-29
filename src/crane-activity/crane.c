@@ -185,7 +185,7 @@ static void pause_board (gboolean pause)
     return;
 
   if (timer_id) {
-    gtk_timeout_remove (timer_id);
+    g_source_remove (timer_id);
     timer_id = 0;
   }
 
@@ -228,7 +228,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 static void end_board () {
 
   if (timer_id) {
-	gtk_timeout_remove (timer_id);
+	g_source_remove (timer_id);
 	timer_id = 0;
   }
 
@@ -291,9 +291,9 @@ static gint key_press(guint keyval, gchar *commit_str, gchar *preedit_str)
       /* Select the next item */
       if(selected_item)
 	{
-	  GooCanvasItem *prev_item =					\
-	    (GooCanvasItem*)gtk_object_get_data(GTK_OBJECT(selected_item),
-						  "previous_item");
+	  GooCanvasItem *prev_item = \
+	    (GooCanvasItem*)g_object_get_data(G_OBJECT(selected_item),
+					      "previous_item");
 	  if(prev_item)
 	    select_item(prev_item);
 	}
@@ -324,7 +324,7 @@ static void crane_next_level() {
 static void crane_destroy_all_items()
 {
   if (timer_id) {
-    gtk_timeout_remove (timer_id);
+    g_source_remove (timer_id);
     timer_id = 0;
   }
 
@@ -412,8 +412,8 @@ static void game_won() {
 	gcomprisBoard->level++;
 
 	if (gcomprisBoard->level>gcomprisBoard->maxlevel) { // all levels completed : the current board is finished
-		timer_id = g_timeout_add (2000, (GtkFunction) finished, NULL);
-		return;
+	  timer_id = g_timeout_add (2000, (GtkFunction) finished, NULL);
+	  return;
 	}
   }
   crane_next_level();
@@ -484,7 +484,7 @@ move_target(int direction)
 
       // Do a smooth move
       my_move.nb = 52;
-      timer_id = g_timeout_add(10,  (GtkFunction) smooth_move, &my_move);
+      timer_id = g_timeout_add(10, (GtkFunction) smooth_move, &my_move);
       list_game[new_index] = list_game[index];
       list_game[index] = -1;
     }
@@ -554,9 +554,9 @@ static void draw_arrow() {
 					   arrow[i].x,
 					   arrow[i].y,
 					   NULL);
-  	g_signal_connect(GTK_OBJECT(item_arrow), "button_press_event",
-			   (GtkSignalFunc) arrow_event, GINT_TO_POINTER(i));
-	g_signal_connect(GTK_OBJECT(item_arrow), "enter_notify_event",
+  	g_signal_connect(item_arrow, "button_press_event",
+			 (GtkSignalFunc) arrow_event, GINT_TO_POINTER(i));
+	g_signal_connect(item_arrow, "enter_notify_event",
 			 (GtkSignalFunc) gc_item_focus_event,
 			 NULL);
 	gdk_pixbuf_unref( arrow[i].pixmap);
@@ -675,12 +675,12 @@ static void place_item(int x, int y, int active) {
 
 	if (active)
 	  {
-	    g_signal_connect(GTK_OBJECT(item_image), "button_press_event",
+	    g_signal_connect(item_image, "button_press_event",
 			       (GtkSignalFunc) item_event, NULL);
 
 	    if(previous_item_image)
-	      gtk_object_set_data(GTK_OBJECT(item_image), "previous_item",
-				  previous_item_image);
+	      g_object_set_data(G_OBJECT(item_image), "previous_item",
+				previous_item_image);
 	    else
 	      first_item_image = item_image;
 
@@ -695,8 +695,8 @@ static void place_item(int x, int y, int active) {
     {
       select_item(item_image);
       if(previous_item_image)
-	gtk_object_set_data(GTK_OBJECT(first_item_image), "previous_item",
-			    item_image);
+	g_object_set_data(G_OBJECT(first_item_image), "previous_item",
+			  item_image);
     }
 
 }
