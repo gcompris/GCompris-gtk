@@ -74,7 +74,11 @@ static GooCanvasItem *left_highlight_image_item = NULL, *right_highlight_image_i
 static GooCanvasItem *leftright_create_item(GooCanvasItem *parent);
 static void leftright_destroy_all_items(void);
 static void leftright_next_level(void);
-static gint item_event(GooCanvasItem *item, GdkEvent *event, gpointer data);
+static gboolean item_event (GooCanvasItem  *item,
+			    GooCanvasItem  *target,
+			    GdkEventButton *event,
+			    gpointer data);
+
 static int answer;
 
 static char *hands[32] = {"main_droite_dessus_0.png","main_droite_paume_0.png",
@@ -320,7 +324,9 @@ static GooCanvasItem *leftright_create_item(GooCanvasItem *parent) {
   gdk_pixbuf_unref(highlight_pixmap);
   gdk_pixbuf_unref(hand_pixmap);
 
-  g_signal_connect(GTK_OBJECT(gcomprisBoard->canvas), "enter_notify_event",  (GtkSignalFunc) item_event, NULL);
+  g_signal_connect(goo_canvas_get_root_item(gcomprisBoard->canvas),
+		   "button_press_event",
+		   (GtkSignalFunc) item_event, NULL);
 
   return NULL;
 }
@@ -357,45 +363,44 @@ static void process_ok() {
 /* =====================================================================
  *
  * =====================================================================*/
-static gint item_event(GooCanvasItem *item, GdkEvent *event, gpointer data) {
+static gboolean item_event (GooCanvasItem  *item,
+			    GooCanvasItem  *target,
+			    GdkEventButton *event,
+			    gpointer data)
+
+{
   double x, y;
   int side;
 
-  x = event->button.x;
-  y = event->button.y;
+  x = event->x;
+  y = event->y;
 
   if (!gcomprisBoard || board_paused)
     return FALSE;
 
-  switch (event->type)
+  if (y>CLICKABLE_Y1 && y<CLICKABLE_Y2)
     {
-    case GDK_BUTTON_PRESS:
-      //goo_canvas_c2w(gcomprisBoard->canvas, x, y, &x, &y);
-
-      if (y>CLICKABLE_Y1 && y<CLICKABLE_Y2) {
-	if (x>CLICKABLE_X1 && x<CLICKABLE_X2) { // the left button is clicked
+      if (x>CLICKABLE_X1 && x<CLICKABLE_X2)
+	{ // the left button is clicked
 	  gc_sound_play_ogg ("sounds/bleep.wav", NULL);
 	  board_paused = TRUE;
 	  side = LEFT;
 	  highlight_selected(side);
 	  gamewon = (side == answer);
-          process_ok();
+	  process_ok();
 	}
-	if (x>CLICKABLE_X3 && x<CLICKABLE_X4) { // the left button is clicked
+
+      if (x>CLICKABLE_X3 && x<CLICKABLE_X4)
+	{ // the left button is clicked
 	  gc_sound_play_ogg ("sounds/bleep.wav", NULL);
 	  board_paused = TRUE;
 	  side = RIGHT;
 	  highlight_selected(side);
 	  gamewon = (side == answer);
-          process_ok();
+	  process_ok();
 	}
-      }
-
-      break;
-
-    default:
-      break;
     }
+
   return FALSE;
 }
 

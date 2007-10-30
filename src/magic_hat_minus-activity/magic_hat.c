@@ -100,10 +100,17 @@ static void		 magic_hat_next_level(void);
 // magic_hat functions
 static void draw_frame(frame *);
 static void draw_table(void);
-static void draw_hat(int);
+static void draw_hat(GooCanvasItem *hat, int);
 static void place_item(frame *, int);
-static gint hat_event(GooCanvasItem *, GdkEvent *, gpointer);
-static gint item_event(GooCanvasItem *, GdkEvent *, gpointer);
+static gboolean hat_event (GooCanvasItem  *item,
+			   GooCanvasItem  *target,
+			   GdkEventButton *event,
+			   gpointer data);
+static gboolean item_event (GooCanvasItem  *item,
+			    GooCanvasItem  *target,
+			    GdkEventButton *event,
+			    gpointer data);
+
 static int  nb_list();
 static gint smooth_move(move_object *);
 static gint move_stars(frame *);
@@ -299,9 +306,9 @@ static GooCanvasItem *magic_hat_create_item()
 
 
   if (board_mode == MODE_MINUS)
-	pixmap = gc_pixmap_load("magic_hat/magic_hat_minus_bg.png");
+    pixmap = gc_pixmap_load("magic_hat/magic_hat_minus_bg.png");
   else
-	pixmap = gc_pixmap_load("magic_hat/magic_hat_plus_bg.png");
+    pixmap = gc_pixmap_load("magic_hat/magic_hat_plus_bg.png");
 
   goo_canvas_image_new (boardRootItem,
 			pixmap,
@@ -396,7 +403,18 @@ static GooCanvasItem *magic_hat_create_item()
 
   // The magic hat !! And its table
   // The hat is designed after the 'minus' items so that it hides them
-  draw_hat(STARS);
+
+  /* Place the lower left corner as the (0,0) coord for the animation */
+  hat = goo_canvas_image_new (boardRootItem,
+			      NULL,
+			      0,
+			      -MH_HAT_HEIGHT,
+			      NULL);
+  goo_canvas_item_translate(hat,
+			    MH_HAT_X,
+			    MH_HAT_Y + MH_HAT_HEIGHT);
+
+  draw_hat(hat, STARS);
   draw_table();
 
   return NULL;
@@ -455,7 +473,7 @@ static void draw_frame(frame *my_frame) {
 
 		item_frame = goo_canvas_polyline_new (boardRootItem, FALSE, 0,
 						      "points", track,
-						      "width_pixels", 1,
+						      "line-width", 1.0,
 						      "fill-color", "#948d85",
 						      NULL);
 	}
@@ -481,34 +499,36 @@ static void draw_table() {
 
   item_frame = goo_canvas_polyline_new (boardRootItem, FALSE, 0,
 					"points", track,
-					"width_pixels", 1,
+					"line-width", 1.0,
 					"fill-color", "black",
 					NULL);
-  
+
   goo_canvas_points_unref(track);
 }
 
 // Draw the hat
-static void draw_hat(int type) {
+static void draw_hat(GooCanvasItem *item,
+		     int type) {
 
   GdkPixbuf *image;
 
   if (type == STARS)
-	image = gc_pixmap_load("magic_hat/hat.png");
+    image = gc_pixmap_load("magic_hat/hat.png");
   else
-	image = gc_pixmap_load("magic_hat/hat-point.png");
+    image = gc_pixmap_load("magic_hat/hat-point.png");
 
-  hat = goo_canvas_image_new (boardRootItem,
-			      image,
-			      MH_HAT_X,
-			      MH_HAT_Y,
-			      NULL);
-
+  g_object_set(item,
+	       "pixbuf", image,
+	       NULL);
   gdk_pixbuf_unref(image);
 
   if (type == STARS) {
-	 hat_event_id = g_signal_connect(hat, "enter_notify_event", (GtkSignalFunc) hat_event, NULL);
-	 g_signal_connect(hat, "enter_notify_event", (GtkSignalFunc) gc_item_focus_event, NULL);
+	 hat_event_id = g_signal_connect(item,
+					 "button_press_event",
+					 (GtkSignalFunc) hat_event,
+					 NULL);
+	 g_signal_connect(item, "button_press_event",
+			  (GtkSignalFunc) gc_item_focus_event, NULL);
   }
 }
 
@@ -519,153 +539,164 @@ static void draw_hat(int type) {
 // 				NORMAL => a coloured star
 // 				UNDERHAT => objects are not visible, they are localised under the hat
 // 				DYNAMIC => the items are made clicable (for the player frame)
-static void place_item(frame * my_frame, int type) {
-
+static void place_item(frame * my_frame, int type)
+{
   GooCanvasItem *item = NULL;
   int i, j;
   int k, nb_item;
-  GdkPixbuf *image;
+  RsvgHandle *image;
   double item_x, item_y;
   double x, y;
 
-  GdkPixbuf *image_name[MAX_LIST];
-  GdkPixbuf *image_star_clear = gc_pixmap_load("magic_hat/star-clear.png");
 
-  image_name[0] = gc_pixmap_load("magic_hat/star1.png");
-  image_name[1] = gc_pixmap_load("magic_hat/star2.png");
-  image_name[2] = gc_pixmap_load("magic_hat/star3.png");
+  RsvgHandle *image_name[MAX_LIST];
+  RsvgHandle *image_star_clear = gc_rsvg_load("magic_hat/star-clear.svgz");
+
+  image_name[0] = gc_rsvg_load("magic_hat/star1.svgz");
+  image_name[1] = gc_rsvg_load("magic_hat/star2.svgz");
+  image_name[2] = gc_rsvg_load("magic_hat/star3.svgz");
 
   x = my_frame->coord_x;
   y = my_frame->coord_y;
 
   for (i = 0 ; i < nb_list() ; i++) {
 
-	for (j = 0 ; j < MAX_ITEM ; j++) {
+    for (j = 0 ; j < MAX_ITEM ; j++) {
 
-		if ((j < my_frame->nb_stars[i]) && (type != EMPTY))
-			image = image_name[i];
-		else
-			image = image_star_clear;
+      if ((j < my_frame->nb_stars[i]) && (type != EMPTY))
+	image = image_name[i];
+      else
+	image = image_star_clear;
 
-		if (type == UNDERHAT) {
-			item_x = (MH_HAT_X + ((MH_HAT_WIDTH - ITEM_SIZE) / 2));
-			item_y = (MH_HAT_Y + MH_HAT_HEIGHT -  2 * ITEM_SIZE);
-		} else {
-			item_x = x + (j * (ITEM_SIZE + SPACE_BETWEEN_ITEMS));
-			item_y = y + (i * (ITEM_SIZE + SPACE_BETWEEN_ITEMS));
-		}
+      if (type == UNDERHAT) {
+	item_x = (MH_HAT_X + ((MH_HAT_WIDTH - ITEM_SIZE) / 2));
+	item_y = (MH_HAT_Y + MH_HAT_HEIGHT -  2 * ITEM_SIZE);
+      } else {
+	item_x = x + (j * (ITEM_SIZE + SPACE_BETWEEN_ITEMS));
+	item_y = y + (i * (ITEM_SIZE + SPACE_BETWEEN_ITEMS));
+      }
 
-		// If NORMAL, we have to create two items : the first one stays on the frame, the
-		// other one moves to the hat
-		if (type == NORMAL)
-			nb_item = 2;
-		else
-			nb_item = 1;
+      // If NORMAL, we have to create two items : the first one stays on the frame, the
+      // other one moves to the hat
+      if (type == NORMAL)
+	nb_item = 2;
+      else
+	nb_item = 1;
 
-		for (k = 0 ; k < nb_item ; k++) {
-			item = goo_canvas_image_new (boardRootItem,
-						     image,
-						     item_x,
-						     item_y,
-						     "width", (double) (ITEM_SIZE - 2),
-						     "height", (double) (ITEM_SIZE - 2),
-						     NULL);
-		}
-
-		if (type == DYNAMIC)
-			g_signal_connect(item, "enter_notify_event",
-					   (GtkSignalFunc) item_event,
-					   GINT_TO_POINTER(MAX_ITEM * i + j));
-
-		if (type == UNDERHAT || type == NORMAL)
-			my_frame->array_item[i][j] = item;
+      for (k = 0 ; k < nb_item ; k++)
+	{
+	  item = goo_svg_item_new (boardRootItem,
+				   image, NULL);
+	  goo_canvas_item_translate(item,
+				    item_x,
+				    item_y);
 	}
+
+      if (type == DYNAMIC)
+	g_signal_connect(item, "button_press_event",
+			 (GtkSignalFunc) item_event,
+			 GINT_TO_POINTER(MAX_ITEM * i + j));
+
+      if (type == UNDERHAT || type == NORMAL)
+	my_frame->array_item[i][j] = item;
+    }
   }
 
-  gdk_pixbuf_unref(image_star_clear);
-  gdk_pixbuf_unref(image_name[0]);
-  gdk_pixbuf_unref(image_name[1]);
-  gdk_pixbuf_unref(image_name[2]);
+  g_object_unref(image_star_clear);
+  g_object_unref(image_name[0]);
+  g_object_unref(image_name[1]);
+  g_object_unref(image_name[2]);
 
 }
 
 // When clicked, an star from the player frame changes its appearance (grey or coloured) and the counter is re-evaluated
-static gint item_event(GooCanvasItem *item, GdkEvent *event, gpointer data) {
+static gboolean item_event (GooCanvasItem  *item,
+			    GooCanvasItem  *target,
+			    GdkEventButton *event,
+			    gpointer data)
+{
 
-	int index = GPOINTER_TO_INT(data);
+  int index = GPOINTER_TO_INT(data);
 
-	if (board_paused)
-		return FALSE;
+  if (board_paused)
+    return FALSE;
 
-	if (event->type == GDK_MOTION_NOTIFY) // Mouse moved
-		return FALSE;
+  if ((event->type == GDK_BUTTON_PRESS) && (event->button == 1)) {
 
-	if ((event->type == GDK_BUTTON_PRESS) && (event->button.button == 1)) {
+    if (frame_player.array_star_type[index / MAX_ITEM][index % MAX_ITEM] >= 0)
+      {
+	RsvgHandle *pixmap;
 
-		if (frame_player.array_star_type[index / MAX_ITEM][index % MAX_ITEM] >= 0) {
-		  GdkPixbuf *pixmap;
+	// Desactivate the star
+	frame_player.nb_stars[index / MAX_ITEM]--;
+	frame_player.array_star_type[index / MAX_ITEM][index % MAX_ITEM] = -1;
 
-		  // Desactivate the star
-		  frame_player.nb_stars[index / MAX_ITEM]--;
-		  frame_player.array_star_type[index / MAX_ITEM][index % MAX_ITEM] = -1;
+	pixmap = gc_rsvg_load("magic_hat/star-clear.svgz");
 
-		  pixmap = gc_pixmap_load("magic_hat/star-clear.png");
+	g_object_set(item, "pixbuf", pixmap, NULL);
 
-		  g_object_set(item, "pixbuf", pixmap, NULL);
+	g_object_unref(pixmap);
 
-		  gdk_pixbuf_unref(pixmap);
+      }
+    else
+      {
+	RsvgHandle *pixmap = NULL;
 
-		} else {
-		  GdkPixbuf *pixmap = NULL;
+	// Activate the star
+	frame_player.nb_stars[index / MAX_ITEM]++;
+	frame_player.array_star_type[index / MAX_ITEM][index % MAX_ITEM] = index / MAX_ITEM;
 
-		  // Activate the star
-		  frame_player.nb_stars[index / MAX_ITEM]++;
-		  frame_player.array_star_type[index / MAX_ITEM][index % MAX_ITEM] = index / MAX_ITEM;
+	switch(index / MAX_ITEM)
+	  {
+	  case 0: pixmap = gc_rsvg_load("magic_hat/star1.svg"); break;
+	  case 1: pixmap = gc_rsvg_load("magic_hat/star2.svg"); break;
+	  case 2: pixmap = gc_rsvg_load("magic_hat/star3.svg"); break;
+	  }
+      g_object_set(item, "pixbuf", pixmap, NULL);
 
-		  switch(index / MAX_ITEM)
-		    {
-		    case 0: pixmap = gc_pixmap_load("magic_hat/star1.png"); break;
-		    case 1: pixmap = gc_pixmap_load("magic_hat/star2.png"); break;
-		    case 2: pixmap = gc_pixmap_load("magic_hat/star3.png"); break;
-		    }
-		  g_object_set(item, "pixbuf", pixmap, NULL);
+      g_object_unref(pixmap);
+    }
+    gc_sound_play_ogg ("sounds/bleep.wav", NULL);
+  }
 
-		  gdk_pixbuf_unref(pixmap);
-		}
-		gc_sound_play_ogg ("sounds/bleep.wav", NULL);
-	}
-
-	return FALSE;
+  return FALSE;
 }
 
 // When clicked, the hat rotates and a few items can go out of or into it
 // Then the hat go back in its previous position, and the game can start
-static gint hat_event(GooCanvasItem *item, GdkEvent *event, gpointer data) {
+static gboolean hat_event (GooCanvasItem  *item,
+			   GooCanvasItem  *target,
+			   GdkEventButton *event,
+			   gpointer data)
+{
+  if (board_paused)
+    return FALSE;
 
-	if (board_paused)
-		return FALSE;
+  if ((event->type == GDK_BUTTON_PRESS) && (event->button == 1))
+    {
+      // disconnect hat and hat_event, so that hat can not be clicked any more
+      gtk_signal_disconnect(hat, hat_event_id);
 
-	if (event->type == GDK_MOTION_NOTIFY) // Mouse moved
-		return FALSE;
+      // 'open' the hat
+      goo_canvas_item_animate (item,
+			       0,
+			       0,
+			       1,
+			       -30,
+			       FALSE,
+			       40 * 20, 40,
+			       GOO_CANVAS_ANIMATE_FREEZE);
 
-	if ((event->type == GDK_BUTTON_PRESS) && (event->button.button == 1)) {
+    // Make the items move from/out the hat, depending on the mode
+    // Wait a few seconds between the two frames
+    move_stars(&frame1);
+    timer_id = g_timeout_add(1200, (GtkFunction) move_stars, &frame2);
 
-		// disconnect hat and hat_event, so that hat can not be clicked any more
-		gtk_signal_disconnect(hat, hat_event_id);
+    // Wait again a few seconds before closing the hat. Then the game is ready to start
+    timer_id = g_timeout_add(2600, (GtkFunction) close_hat, NULL);
+  }
 
-		// 'open' the hat
-		gc_item_rotate_with_center(hat, -20.0, 0, MH_HAT_HEIGHT);
-
-		// Make the items move from/out the hat, depending on the mode
-		// Wait a few seconds between the two frames
-		move_stars(&frame1);
-		timer_id = g_timeout_add(1200, (GtkFunction) move_stars, &frame2);
-
-		// Wait again a few seconds before closing the hat. Then the game is ready to start
-		timer_id = g_timeout_add(2600, (GtkFunction) close_hat, NULL);
-	}
-
-	return FALSE;
+  return FALSE;
 }
 
 // Return nb_list to be displayed, depending of the game level :
@@ -717,11 +748,17 @@ static gint move_stars(frame *my_frame) {
 // Close the hat, then the game can start
 static gint close_hat() {
 
-  // erase the hat with stars
-  goo_canvas_item_remove(hat);
+  // 'close' the hat
+  goo_canvas_item_animate (hat,
+			   0,
+			   0,
+			   1,
+			   30,
+			   FALSE,
+			   40 * 20, 40,
+			   GOO_CANVAS_ANIMATE_FREEZE);
 
-  // draw a hat with an interrogation point
-  draw_hat(POINT);
+  draw_hat(hat, POINT);
 
   // draw an empty dynamic frame, each item is activable by left click
   // before this, the player_frame is not clicable
@@ -739,9 +776,11 @@ static gint smooth_move(move_object *my_move) {
   }
 
   if (my_move->frame == 1)
-	goo_canvas_item_translate(frame1.array_item[my_move->i][my_move->j], my_move->dx, my_move->dy);
+	goo_canvas_item_translate(frame1.array_item[my_move->i][my_move->j],
+				  my_move->dx, my_move->dy);
   else
-	goo_canvas_item_translate(frame2.array_item[my_move->i][my_move->j], my_move->dx, my_move->dy);
+	goo_canvas_item_translate(frame2.array_item[my_move->i][my_move->j],
+				  my_move->dx, my_move->dy);
 
   return TRUE;
 

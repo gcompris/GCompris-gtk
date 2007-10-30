@@ -106,7 +106,7 @@ void gc_dialog(gchar *str, DialogBoxCallBack dbcb)
   item_text = goo_canvas_text_new (rootDialogItem,
 				   str,
 				   BOARDWIDTH / 2,
-				   (BOARDHEIGHT - gdk_pixbuf_get_height(pixmap_dialog))/2 + 40,
+				   (BOARDHEIGHT - gdk_pixbuf_get_height(pixmap_dialog))/2 + 60,
 				   BOARDWIDTH / 2,
 				   GTK_ANCHOR_CENTER,
 				   "alignment", PANGO_ALIGN_CENTER,

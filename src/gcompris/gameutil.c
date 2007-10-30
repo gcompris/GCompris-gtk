@@ -120,6 +120,63 @@ GdkPixbuf *gc_pixmap_load(const gchar *format, ...)
   return(pixmap);
 }
 
+/** load an svg image from the filesystem
+ *
+ * \param format: If format contains $LOCALE, it will be first replaced by the current long locale
+ *                and if not found the short locale name. It support printf formating.
+ * \param ...:    additional params for the format (printf like)
+ *
+ * \return a new allocated pixbuf or NULL
+ */
+RsvgHandle *gc_rsvg_load(const gchar *format, ...)
+{
+  va_list args;
+  gchar *filename;
+  gchar *rsvghandlefile;
+  RsvgHandle *rsvghandle = NULL;
+  GError *error = NULL;
+
+  if (!format)
+    return NULL;
+
+  va_start (args, format);
+  rsvghandlefile = g_strdup_vprintf (format, args);
+  va_end (args);
+
+  /* Search */
+  filename = gc_file_find_absolute(rsvghandlefile);
+
+  if(filename)
+    rsvghandle = rsvg_handle_new_from_file (filename, &error);
+
+  if (!filename || !rsvghandle)
+    {
+      char *str;
+
+      if(!rsvghandle)
+	g_warning("Loading image '%s' returned a null pointer", rsvghandlefile);
+      else
+	g_warning ("Couldn't find file %s !", rsvghandlefile);
+
+      str = g_strdup_printf("%s\n%s\n%s\n%s",
+			    _("Couldn't find or load the file"),
+			    rsvghandlefile,
+			    _("This activity is incomplete."),
+			    _("Exit it and report\nthe problem to the authors."));
+      gc_dialog (str, NULL);
+      g_free(rsvghandlefile);
+      g_free(str);
+
+      /* Create an empty rsvghandle because activities does not manage loading error */
+      return rsvg_handle_new();
+    }
+
+  g_free(rsvghandlefile);
+  g_free(filename);
+
+  return(rsvghandle);
+}
+
 /*************************************************************
  * colorshift a pixbuf
  * code taken from the gnome-panel of gnome-core
@@ -353,7 +410,7 @@ gc_item_rotate_relative(GooCanvasItem *item, double angle)
     y1 = points->coords[1];
     x2 = points->coords[2];
     y2 = points->coords[3];
-  } else if(GOO_IS_CANVAS_IMAGE(item) 
+  } else if(GOO_IS_CANVAS_IMAGE(item)
 	    || GOO_IS_CANVAS_RECT(item)) {
     g_object_get (item, "x", &x1, NULL);
     g_object_get (item, "y", &y1, NULL);
