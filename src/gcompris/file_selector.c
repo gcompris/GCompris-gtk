@@ -459,7 +459,7 @@ static void display_files(GooCanvasItem *root_item, gchar *rootdir)
 				 DRAWING_AREA_X2- DRAWING_AREA_X1,
 				 DRAWING_AREA_Y2-DRAWING_AREA_Y1,
 				 "fill-color-rgba", gc_skin_get_color("gcompris/fileselectbg"),
-			 NULL);
+				 NULL);
 
 
   w = gtk_vscrollbar_new (GTK_LAYOUT(canvas)->vadjustment);
@@ -469,7 +469,8 @@ static void display_files(GooCanvasItem *root_item, gchar *rootdir)
 			 DRAWING_AREA_X2 - 15.0,
 			 DRAWING_AREA_Y1,
 			 30.0,
-			 DRAWING_AREA_Y2-DRAWING_AREA_Y1 - 20.0);
+			 DRAWING_AREA_Y2-DRAWING_AREA_Y1 - 20.0,
+			 NULL);
   gtk_widget_show (w);
   //??goo_canvas_set_center_scroll_region (GOO_CANVAS (canvas), FALSE);
 

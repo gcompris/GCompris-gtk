@@ -148,10 +148,14 @@ static void		 display_style_selector(GooCanvasItem *boardRootItem, double y);
 static void		 display_color_style_selector(GooCanvasItem *boardRootItem, double y);
 static void		 item_event_style_selection (GtkComboBox *widget, void *data);
 static void		 item_event_color_style_selection (GtkComboBox *widget, void *data);
-static gint		 save_event(GooCanvasItem *item, GdkEvent *event,
-				    void *unused);
-static gint		 load_event(GooCanvasItem *item, GdkEvent *event,
-				    void *unused);
+static gboolean		 save_event (GooCanvasItem  *item,
+				     GooCanvasItem  *target,
+				     GdkEventButton *event,
+				     gchar *data);
+static gboolean		 load_event (GooCanvasItem  *item,
+				     GooCanvasItem  *target,
+				     GdkEventButton *event,
+				     gchar *data);
 static int		 get_style_index(gchar *style);
 static int		 get_style_current_index();
 static gint		 get_color_style_index(gchar *color_style);
@@ -367,10 +371,10 @@ static GooCanvasItem *wordprocessor_create()
 			   "anchor", GTK_ANCHOR_NW,
 			   NULL);
   gdk_pixbuf_unref(pixmap);
-  g_signal_connect(GTK_OBJECT(item), "enter_notify_event",
-		     (GtkSignalFunc) save_event, buffer);
-  g_signal_connect(GTK_OBJECT(item), "enter_notify_event",
-		     (GtkSignalFunc) gc_item_focus_event,
+  g_signal_connect(item, "button_press_event",
+		   (GtkSignalFunc) save_event, buffer);
+  g_signal_connect(item, "enter_notify_event",
+		   (GtkSignalFunc) gc_item_focus_event,
 		     NULL);
 
   /*
@@ -385,11 +389,11 @@ static GooCanvasItem *wordprocessor_create()
 			   "anchor", GTK_ANCHOR_NW,
 			   NULL);
   gdk_pixbuf_unref(pixmap);
-  g_signal_connect(GTK_OBJECT(item), "enter_notify_event",
-		     (GtkSignalFunc) load_event, buffer);
-  g_signal_connect(GTK_OBJECT(item), "enter_notify_event",
-		     (GtkSignalFunc) gc_item_focus_event,
-		     NULL);
+  g_signal_connect(item, "button_press_event",
+		   (GtkSignalFunc) load_event, buffer);
+  g_signal_connect(item, "enter_notify_event",
+		   (GtkSignalFunc) gc_item_focus_event,
+		   NULL);
 
   y += 45;
   /*
@@ -989,10 +993,13 @@ save_buffer(gchar *file, gchar *file_type)
 
 }
 
-static gint
-save_event(GooCanvasItem *item, GdkEvent *event, void *unused)
+static gboolean
+save_event (GooCanvasItem  *item,
+	    GooCanvasItem  *target,
+	    GdkEventButton *event,
+	    gchar *data)
 {
-  if (event->type != GDK_BUTTON_PRESS || event->button.button != 1)
+  if (event->button != 1)
     return FALSE;
 
   pause_board(TRUE);
@@ -1119,10 +1126,13 @@ load_buffer(gchar *file, gchar *file_type)
   xmlFreeDoc(doc);
 }
 
-static gint
-load_event(GooCanvasItem *item, GdkEvent *event, void *unused)
+static gboolean
+load_event (GooCanvasItem  *item,
+	    GooCanvasItem  *target,
+	    GdkEventButton *event,
+	    gchar *data)
 {
-  if (event->type != GDK_BUTTON_PRESS || event->button.button != 1)
+  if (event->button != 1)
     return FALSE;
 
   pause_board(TRUE);
