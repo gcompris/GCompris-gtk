@@ -6,9 +6,9 @@ img_DATA = \
 	magic_hat_minus.png \
 	magic_hat_plus_bg.png \
 	magic_hat_plus.png \
-	star1.png \
-	star2.png \
-	star3.png \
-	star-clear.png
+	star1.svgz \
+	star2.svgz \
+	star3.svgz \
+	star-clear.svgz
 
 EXTRA_DIST = $(img_DATA)
