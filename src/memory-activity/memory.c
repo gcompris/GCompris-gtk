@@ -148,7 +148,11 @@ static void set_level (guint level);
 static void create_item(GooCanvasItem *parent);
 static void memory_destroy_all_items(void);
 static void memory_next_level(void);
-static gint item_event(GooCanvasItem *item, GdkEvent *event, MemoryItem *memoryItem);
+static gboolean item_event (GooCanvasItem  *item,
+			    GooCanvasItem  *target,
+			    GdkEventButton *event,
+			    MemoryItem *memoryItem);
+
 static gint compare_card (gconstpointer a, gconstpointer b);
 
 static void player_win();
@@ -1267,7 +1271,7 @@ static void create_item(GooCanvasItem *parent)
 	  goo_canvas_item_translate(memoryItem->rootItem,
 				    (currentMode == MODE_TUX ? base_x1_tux : base_x1) + x*width,
 				    base_y1 + y*height);
-	
+
 	  if (currentUiMode == UIMODE_SOUND)
 	    pixmap = gc_pixmap_load("memory/Tux_mute.png");
 	  else
@@ -1351,7 +1355,7 @@ static void create_item(GooCanvasItem *parent)
 	  }
 
 	  g_object_set (memoryItem->frontcardItem, "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
-	  g_signal_connect(GTK_OBJECT(memoryItem->rootItem), "enter_notify_event",
+	  g_signal_connect(memoryItem->rootItem, "button_press_event",
 			     (GtkSignalFunc) item_event,
 			     memoryItem);
 
@@ -1521,81 +1525,73 @@ static void check_win()
 
 }
 
-static gint
-item_event(GooCanvasItem *item, GdkEvent *event, MemoryItem *memoryItem)
+static gboolean item_event (GooCanvasItem  *item,
+			    GooCanvasItem  *target,
+			    GdkEventButton *event,
+			    MemoryItem *memoryItem)
 {
 
   if(!gcomprisBoard)
     return FALSE;
 
-   switch (event->type)
-     {
-     case GDK_BUTTON_PRESS:
-       switch(event->button.button)
-         {
-         case 1:
+  if(event->button != 1)
+    return FALSE;
 
-	   if (currentMode == MODE_TUX){
-	     if (to_tux){
-	       g_warning("He ! it's tux turn !");
-	       return FALSE;
-	     }
-	   }
+  if (currentMode == MODE_TUX){
+    if (to_tux){
+      g_warning("He ! it's tux turn !");
+      return FALSE;
+    }
+  }
 
-	   if (playing_sound){
-	     g_warning("wait a minute, the sound is playing !");
-	     //return FALSE;
-	   }
+  if (playing_sound){
+    g_warning("wait a minute, the sound is playing !");
+    //return FALSE;
+  }
 
-	   if(win_id)
-	     return FALSE;
+  if(win_id)
+    return FALSE;
 
-	   if (currentUiMode == UIMODE_NORMAL)
-	     gc_sound_play_ogg ("sounds/bleep.wav", NULL);
+  if (currentUiMode == UIMODE_NORMAL)
+    gc_sound_play_ogg ("sounds/bleep.wav", NULL);
 
-	   if(secondCard)
-	     {
-	       display_card(firstCard, ON_BACK);
-	       firstCard = NULL;
-	       display_card(secondCard, ON_BACK);
-	       secondCard = NULL;
-	     }
+  if(secondCard)
+    {
+      display_card(firstCard, ON_BACK);
+      firstCard = NULL;
+      display_card(secondCard, ON_BACK);
+      secondCard = NULL;
+    }
 
-	   if(!firstCard)
-	     {
-	       firstCard = memoryItem;
-	       if (currentMode == MODE_TUX)
-		 add_card_in_tux_memory(memoryItem);
-	       display_card(memoryItem, ON_FRONT);
-	       return TRUE;
-	     }
-	   else
-	     {
-	       // Check he/she did not click on the same card twice
-	       if(firstCard==memoryItem)
-		 return FALSE;
+  if(!firstCard)
+    {
+      firstCard = memoryItem;
+      if (currentMode == MODE_TUX)
+	add_card_in_tux_memory(memoryItem);
+      display_card(memoryItem, ON_FRONT);
+      return TRUE;
+    }
+  else
+    {
+      // Check he/she did not click on the same card twice
+      if(firstCard==memoryItem)
+	return FALSE;
 
-	       secondCard = memoryItem;
-	       if (currentMode == MODE_TUX)
-		 add_card_in_tux_memory(memoryItem);
-	       display_card(memoryItem, ON_FRONT);
-	       if (currentUiMode == UIMODE_SOUND)
-		 // Check win is called from callback return
-		 return TRUE;
-	       else {
-		 check_win();
-		 return TRUE;
-	       }
+      secondCard = memoryItem;
+      if (currentMode == MODE_TUX)
+	add_card_in_tux_memory(memoryItem);
+      display_card(memoryItem, ON_FRONT);
+      if (currentUiMode == UIMODE_SOUND)
+	// Check win is called from callback return
+	return TRUE;
+      else {
+	check_win();
+	return TRUE;
+      }
 
-	     }
-	   break;
-	 default:
-	   break;
-	 }
-     default:
-       break;
-     }
-   return FALSE;
+    }
+
+  return FALSE;
 }
 
 void add_card_in_tux_memory(MemoryItem *card)
