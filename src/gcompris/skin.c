@@ -107,6 +107,26 @@ gc_skin_pixmap_load(char *pixmapfile)
 }
 
 /*
+ * Load a pixmap from the current skin directory
+ * If not found, try in the default skin directory
+ * If not found abort gcompris
+ */
+RsvgHandle *
+gc_skin_rsvg_load(char *pixmapfile)
+{
+  gchar *filename;
+  RsvgHandle *result_svg;
+
+  filename = gc_skin_image_get(pixmapfile);
+
+  result_svg = gc_rsvg_load (filename);
+
+  g_free(filename);
+
+  return (result_svg);
+}
+
+/*
  * Utility function used when freeing the memory used by
  * a hashtable containing strings.
  */

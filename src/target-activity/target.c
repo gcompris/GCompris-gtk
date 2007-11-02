@@ -108,7 +108,10 @@ static TargetDefinition targetDefinition[] =
 #define SPEED_CENTER_Y	125.0
 
 static guint target_colors[] = {
-  0xAA0000AF, 0x00AA00AF, 0x0000AAAF, 0xAAAA00AF, 0x00AAAAAF, 0xAA00AAAF, 0xAA0000AF, 0x00AA00AF, 0x0000AAAF, 0xAA0000AF
+  0xAA0000FF, 0x00AA00FF, 0x0000AAFF,
+  0xAAAA00FF, 0x00AAAAFF, 0xAA00AAFF,
+  0xAA0000FF, 0x00AA00FF, 0x0000AAFF,
+  0xAA0000AF
 };
 
 static guint number_of_arrow = 0;
@@ -674,9 +677,9 @@ item_event (GooCanvasItem  *item,
       item_x = event->x;
       item_y = event->y;
       //goo_canvas_convert_to_item_space(item->parent, &item_x, &item_y);
-      
+
       launch_dart(item_x, item_y);
-      
+
       break;
     default:
       break;

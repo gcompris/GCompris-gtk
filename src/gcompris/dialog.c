@@ -55,7 +55,7 @@ void gc_dialog(gchar *str, DialogBoxCallBack dbcb)
 {
   GooCanvasItem *item_text   = NULL;
   GooCanvasItem *item_text_ok   = NULL;
-  GdkPixbuf     *pixmap_dialog = NULL;
+  RsvgHandle    *svg_handle = NULL;
 
   g_warning("Dialog=%s\n", str);
 
@@ -79,20 +79,23 @@ void gc_dialog(gchar *str, DialogBoxCallBack dbcb)
   rootDialogItem = goo_canvas_group_new (goo_canvas_get_root_item(gc_get_canvas()),
 					 NULL);
 
-  pixmap_dialog = gc_skin_pixmap_load("dialogbox.png");
+  svg_handle = gc_skin_rsvg_load("dialogbox.svgz");
+  itemDialogText = goo_svg_item_new (rootDialogItem, svg_handle, NULL);
 
-  itemDialogText = goo_canvas_image_new (rootDialogItem,
-					 pixmap_dialog,
-					 (BOARDWIDTH - gdk_pixbuf_get_width(pixmap_dialog))/2,
-					 (BOARDHEIGHT - gdk_pixbuf_get_height(pixmap_dialog))/2,
-					 NULL);
+  RsvgDimensionData dimension;
+  rsvg_handle_get_dimensions(svg_handle, &dimension);
+  goo_canvas_item_translate(itemDialogText,
+			    (BOARDWIDTH - dimension.width)/2,
+			    (BOARDHEIGHT - dimension.height)/2);
+  g_object_unref (svg_handle);
+
 
   /* OK Text */
   item_text_ok = goo_canvas_text_new (rootDialogItem,
 				      _("OK"),
 				      BOARDWIDTH * 0.5,
 				      BOARDHEIGHT - 30 -
-				      (BOARDHEIGHT - gdk_pixbuf_get_height(pixmap_dialog))/2,
+				      (BOARDHEIGHT - dimension.height)/2,
 				      -1,
 				      GTK_ANCHOR_CENTER,
 				      "font", gc_skin_font_title,
@@ -106,13 +109,11 @@ void gc_dialog(gchar *str, DialogBoxCallBack dbcb)
   item_text = goo_canvas_text_new (rootDialogItem,
 				   str,
 				   BOARDWIDTH / 2,
-				   (BOARDHEIGHT - gdk_pixbuf_get_height(pixmap_dialog))/2 + 60,
+				   (BOARDHEIGHT - dimension.height)/2 + 60,
 				   BOARDWIDTH / 2,
 				   GTK_ANCHOR_CENTER,
 				   "alignment", PANGO_ALIGN_CENTER,
 				   NULL);
-
-  gdk_pixbuf_unref(pixmap_dialog);
 
   g_signal_connect(item_text, "button_press_event",
 		   (GtkSignalFunc) item_event_ok,

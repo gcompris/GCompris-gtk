@@ -16,7 +16,7 @@
  *   along with this program; if not, write to the Free Software
  *   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  */
- 
+
 #ifndef SKIN_H
 #define SKIN_H
 
@@ -47,6 +47,7 @@ extern gchar* gc_skin_font_board_huge_bold;
 
 gchar		*gc_skin_image_get(gchar *imagename);
 GdkPixbuf	*gc_skin_pixmap_load(char *pixmapfile);
+RsvgHandle	*gc_skin_rsvg_load(char *pixmapfile);
 
 void            gc_skin_load (gchar* skin);
 void            gc_skin_free (void);

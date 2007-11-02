@@ -79,6 +79,7 @@ static double tux_ratio = 0;
 static int dicevalue_array[10];
 static GooCanvasItem *fishItem;
 static GooCanvasItem *tuxItem;
+static GooCanvasItem *tuxRootItem;
 static GooCanvasItem *clock_image_item;
 
 // List of images to use in the game
@@ -563,7 +564,8 @@ static void display_random_fish()
 /**
  * Display given imagename on the given ice block.
  */
-static GooCanvasItem *display_item_at(gchar *imagename, int block, double ratio)
+static GooCanvasItem
+*display_item_at(gchar *imagename, int block, double ratio)
 {
   double block_width, block_height;
   double xratio, yratio;
@@ -736,9 +738,9 @@ static void update_clock(int value)
   if(value<0)
     return;
 
-  str = g_strdup_printf("%s%d.png", "gcompris/timers/clock",value);
+  str = g_strdup_printf("%s%d.png", "timers/clock",value);
 
-  pixmap = gc_pixmap_load(str);
+  pixmap = gc_skin_pixmap_load(str);
 
   g_object_set (clock_image_item,
 		"pixbuf", pixmap,
@@ -762,7 +764,7 @@ static gint animate_tux()
   if(tux_index >= number_of_item)
     tux_index = tux_index - (number_of_item);
 
-  /* Caclulate which tux should be displayed */
+  /* Calculate which tux should be displayed */
   if(tux_index<number_of_item_x-1)
     tuxItem = display_item_at(TUX_IMG_EAST, tux_index, tux_ratio);
   else if(tux_index<number_of_item_x+number_of_item_y-2)
