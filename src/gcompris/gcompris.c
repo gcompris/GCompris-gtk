@@ -103,6 +103,7 @@ static gboolean		   is_mapped = FALSE;
 /* Some constants.  */
 
 static GooCanvasItem *backgroundimg = NULL;
+static GooCanvasItem *backgroundsvgimg = NULL;
 static gchar           *gc_locale = NULL;
 static gchar           *gc_user_default_locale = NULL;
 static gboolean		gc_debug = FALSE;
@@ -492,17 +493,36 @@ GtkWidget *gc_get_window()
   return window;
 }
 
-GooCanvasItem *gc_set_background(GooCanvasItem *parent, gchar *file)
+static void
+_set_svg_background(GooCanvasItem *parent, gchar *file)
 {
-  GdkPixbuf *background_pixmap = NULL;
-  gchar *img = NULL;
+  RsvgHandle *rsvg_handle;
 
   if ( popt_nobackimg && (strncmp(file, "opt/", 4) == 0) )
-    {
-      img = gc_skin_image_get("gcompris-bg.jpg");
-      background_pixmap = gc_pixmap_load (img);
-      g_free(img);
-    }
+    rsvg_handle = gc_skin_rsvg_load ("gcompris-bg.svgz");
+  else
+    rsvg_handle = gc_rsvg_load (file);
+
+  if(backgroundsvgimg)
+    g_object_set(backgroundsvgimg,
+		 "rsvg-handle", rsvg_handle,
+		 NULL);
+  else
+    backgroundsvgimg = goo_svg_item_new (parent,
+					 rsvg_handle,
+					 NULL);
+  goo_canvas_item_lower(backgroundsvgimg, NULL);
+
+  g_object_unref(rsvg_handle);
+}
+
+static void
+_set_pixmap_background(GooCanvasItem *parent, gchar *file)
+{
+  GdkPixbuf *background_pixmap;
+
+  if ( popt_nobackimg && (strncmp(file, "opt/", 4) == 0) )
+    background_pixmap = gc_skin_pixmap_load ("gcompris-bg.jpg");
   else
     background_pixmap = gc_pixmap_load (file);
 
@@ -522,7 +542,27 @@ GooCanvasItem *gc_set_background(GooCanvasItem *parent, gchar *file)
 
   gdk_pixbuf_unref(background_pixmap);
 
-  return (backgroundimg);
+}
+
+void
+gc_set_background(GooCanvasItem *parent, gchar *file)
+{
+  g_assert(parent);
+  g_assert(file);
+
+  if(g_str_has_suffix(file, ".svg") ||
+     g_str_has_suffix(file, ".svgz"))
+    {
+      if(backgroundimg)
+	goo_canvas_item_remove(backgroundimg);
+      _set_svg_background(parent, file);
+    }
+  else
+    {
+      if(backgroundsvgimg)
+	goo_canvas_item_remove(backgroundsvgimg);
+      _set_pixmap_background(parent, file);
+    }
 }
 
 /* Redraw the black background

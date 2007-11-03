@@ -111,7 +111,8 @@ void gc_help_start (GcomprisBoard *gcomprisBoard)
   name = gcomprisBoard->title;
   gc_help_has_board(gcomprisBoard);
 
-  rootitem = goo_canvas_group_new (goo_canvas_get_root_item(gc_get_canvas()), NULL);
+  rootitem = goo_canvas_group_new (goo_canvas_get_root_item(gc_get_canvas()),
+				   NULL);
 
   pixmap = gc_skin_pixmap_load("help_bg.png");
   y_start = (BOARDHEIGHT - gdk_pixbuf_get_height(pixmap))/2;
@@ -120,7 +121,7 @@ void gc_help_start (GcomprisBoard *gcomprisBoard)
 			       pixmap,
 			       x_start,
 			       y_start,
-				NULL);
+			       NULL);
   y = BOARDHEIGHT - (BOARDHEIGHT - gdk_pixbuf_get_height(pixmap))/2;
   gdk_pixbuf_unref(pixmap);
 
@@ -178,9 +179,9 @@ void gc_help_start (GcomprisBoard *gcomprisBoard)
     {
       item_prerequisite = goo_canvas_image_new (rootitem,
 						pixmap,
-						(double) (BOARDWIDTH*0.2) - gdk_pixbuf_get_width(pixmap)/2,
-						(double) y_start - gdk_pixbuf_get_height(pixmap) - 10,
-						 NULL);
+						(BOARDWIDTH*0.2) - gdk_pixbuf_get_width(pixmap)/2,
+						y_start - gdk_pixbuf_get_height(pixmap) - 10,
+						NULL);
 
       g_signal_connect(item_prerequisite, "button_press_event",
 			 (GtkSignalFunc) item_event_help,
@@ -189,8 +190,8 @@ void gc_help_start (GcomprisBoard *gcomprisBoard)
       item_prerequisite_text = \
 	goo_canvas_text_new (rootitem,
 			     _("Prerequisite"),
-			     (gdouble)  BOARDWIDTH*0.20,
-			     (gdouble)  y_start - gdk_pixbuf_get_height(pixmap)  + GAP_TO_BUTTON,
+			     BOARDWIDTH*0.20,
+			     y_start - gdk_pixbuf_get_height(pixmap)  + GAP_TO_BUTTON,
 			     -1,
 			     GTK_ANCHOR_CENTER,
 			     "font", gc_skin_font_content,
@@ -206,9 +207,9 @@ void gc_help_start (GcomprisBoard *gcomprisBoard)
     {
       item_goal = goo_canvas_image_new (rootitem,
 					pixmap,
-					(double) (BOARDWIDTH*0.4) - gdk_pixbuf_get_width(pixmap)/2,
-					(double) y_start - gdk_pixbuf_get_height(pixmap) - 10,
-					 NULL);
+					(BOARDWIDTH*0.4) - gdk_pixbuf_get_width(pixmap)/2,
+					y_start - gdk_pixbuf_get_height(pixmap) - 10,
+					NULL);
 
       g_signal_connect(item_goal, "button_press_event",
 			 (GtkSignalFunc) item_event_help,
@@ -216,8 +217,8 @@ void gc_help_start (GcomprisBoard *gcomprisBoard)
 
       item_goal_text = goo_canvas_text_new (rootitem,
 					    _("Goal"),
-					    (gdouble)  BOARDWIDTH*0.4,
-					    (gdouble)  y_start - gdk_pixbuf_get_height(pixmap)  + GAP_TO_BUTTON,
+					    BOARDWIDTH*0.4,
+					    y_start - gdk_pixbuf_get_height(pixmap)  + GAP_TO_BUTTON,
 					    -1,
 					    GTK_ANCHOR_CENTER,
 					    "font", gc_skin_font_content,
@@ -233,8 +234,8 @@ void gc_help_start (GcomprisBoard *gcomprisBoard)
     {
       item_manual = goo_canvas_image_new (rootitem,
 					  pixmap,
-					  (double) (BOARDWIDTH*0.6) - gdk_pixbuf_get_width(pixmap)/2,
-					  (double) y_start - gdk_pixbuf_get_height(pixmap) - 10,
+					  (BOARDWIDTH*0.6) - gdk_pixbuf_get_width(pixmap)/2,
+					  y_start - gdk_pixbuf_get_height(pixmap) - 10,
 					   NULL);
 
       g_signal_connect(item_manual, "button_press_event",
@@ -243,8 +244,8 @@ void gc_help_start (GcomprisBoard *gcomprisBoard)
 
       item_manual_text = goo_canvas_text_new (rootitem,
 					      _("Manual"),
-					      (gdouble)  BOARDWIDTH*0.6,
-					      (gdouble)  y_start - gdk_pixbuf_get_height(pixmap)  + GAP_TO_BUTTON,
+					      BOARDWIDTH*0.6,
+					      y_start - gdk_pixbuf_get_height(pixmap)  + GAP_TO_BUTTON,
 					      -1,
 					      GTK_ANCHOR_CENTER,
 					      "font", gc_skin_font_content,
@@ -260,8 +261,8 @@ void gc_help_start (GcomprisBoard *gcomprisBoard)
     {
       item_credit = goo_canvas_image_new (rootitem,
 					  pixmap,
-					  (double) (BOARDWIDTH*0.8) - gdk_pixbuf_get_width(pixmap)/2,
-					  (double) y_start - gdk_pixbuf_get_height(pixmap) - 10,
+					  (BOARDWIDTH*0.8) - gdk_pixbuf_get_width(pixmap)/2,
+					  y_start - gdk_pixbuf_get_height(pixmap) - 10,
 					   NULL);
 
       g_signal_connect(item_credit, "button_press_event",
@@ -270,8 +271,8 @@ void gc_help_start (GcomprisBoard *gcomprisBoard)
 
       item_credit_text = goo_canvas_text_new (rootitem,
 					      _("Credit"),
-					      (gdouble)  BOARDWIDTH*0.8,
-					      (gdouble)  y_start - gdk_pixbuf_get_height(pixmap)  + GAP_TO_BUTTON,
+					      BOARDWIDTH*0.8,
+					      y_start - gdk_pixbuf_get_height(pixmap)  + GAP_TO_BUTTON,
 					      -1,
 					      GTK_ANCHOR_CENTER,
 					      "font", gc_skin_font_content,
@@ -343,8 +344,8 @@ void gc_help_start (GcomprisBoard *gcomprisBoard)
 
   goo_canvas_widget_new (rootitem,
 			 sw,
-			 (gdouble)  x_start + 40,
-			 (gdouble)  y_start,
+			 x_start + 40,
+			 y_start,
 			 618.0,
 			 280.0);
   gtk_widget_show_all (sw);
@@ -355,8 +356,8 @@ void gc_help_start (GcomprisBoard *gcomprisBoard)
 
   item = goo_canvas_image_new (rootitem,
 			       pixmap,
-			       (double) (BOARDWIDTH*0.5) - gdk_pixbuf_get_width(pixmap)/2,
-			       (double) y - gdk_pixbuf_get_height(pixmap) - 5,
+			       (BOARDWIDTH*0.5) - gdk_pixbuf_get_width(pixmap)/2,
+			       y - gdk_pixbuf_get_height(pixmap) - 5,
 				NULL);
 
   g_signal_connect(item, "button_press_event",
@@ -368,8 +369,8 @@ void gc_help_start (GcomprisBoard *gcomprisBoard)
 
   goo_canvas_text_new (rootitem,
 		       _("OK"),
-		       (gdouble)  BOARDWIDTH*0.5 + 1.0,
-		       (gdouble)  y - gdk_pixbuf_get_height(pixmap) + 20 + 1.0,
+		       BOARDWIDTH*0.5 + 1.0,
+		       y - gdk_pixbuf_get_height(pixmap) + 20 + 1.0,
 		       -1,
 		       GTK_ANCHOR_CENTER,
 		       "font", gc_skin_font_title,
@@ -377,8 +378,8 @@ void gc_help_start (GcomprisBoard *gcomprisBoard)
 		       NULL);
   item2 = goo_canvas_text_new (rootitem,
 			       _("OK"),
-			       (gdouble)  BOARDWIDTH*0.5,
-			       (gdouble)  y - gdk_pixbuf_get_height(pixmap) + 20,
+			       BOARDWIDTH*0.5,
+			       y - gdk_pixbuf_get_height(pixmap) + 20,
 			       -1,
 			       GTK_ANCHOR_CENTER,
 			       "font", gc_skin_font_title,

@@ -35,10 +35,11 @@ static void	 set_level (guint level);
 static int	 gamewon;
 static void	 game_won(void);
 
-#define TUX_IMG_NORTH "reversecount/tux_top_north.png"
-#define TUX_IMG_SOUTH "reversecount/tux_top_south.png"
-#define TUX_IMG_WEST  "reversecount/tux_top_west.png"
-#define TUX_IMG_EAST  "reversecount/tux_top_east.png"
+#define NORTH 1
+#define WEST 2
+#define SOUTH 4
+#define EAST 8
+
 #define TUX_TO_BORDER_GAP 10
 
 static GooCanvasItem *boardRootItem = NULL;
@@ -52,11 +53,15 @@ static gboolean		 item_event (GooCanvasItem  *item,
 				     GooCanvasItem  *target,
 				     GdkEventButton *event,
 				     gint *dice_index);
-static GooCanvasItem	*display_item_at(gchar *imagename, int block, double ratio);
+static GooCanvasItem	*display_item_at(gchar *imagename, int block);
 static void		 display_random_fish();
 static void		 create_clock(double x, double y, int value);
 static void		 update_clock(int value);
 static gint		 animate_tux();
+static void		 rotate_tux(GooCanvasItem *tuxitem, gint direction,
+				    gdouble scale);
+static void		 move_item_at(GooCanvasItem *item,
+				      int block, double ratio);
 
 static int number_of_item   = 0;
 static int number_of_item_x = 0;
@@ -74,7 +79,7 @@ static int animate_speed    = 0;
 
 #define ANIMATE_SPEED	800
 
-static double tux_ratio = 0;
+static gdouble tux_ratio = 0;
 
 static int dicevalue_array[10];
 static GooCanvasItem *fishItem;
@@ -85,13 +90,13 @@ static GooCanvasItem *clock_image_item;
 // List of images to use in the game
 static gchar *imageList[] =
 {
-  "reversecount/baleine.png",
-  "reversecount/phoque.png",
-  "reversecount/ourspolaire.png",
-  "reversecount/morse.png",
-  "reversecount/elephant_mer.png",
-  "reversecount/epaulard.png",
-  "reversecount/narval.png",
+  "reversecount/baleine.svgz",
+  "reversecount/phoque.svgz",
+  "reversecount/ourspolaire.svgz",
+  "reversecount/morse.svgz",
+  "reversecount/elephant_mer.svgz",
+  "reversecount/epaulard.svgz",
+  "reversecount/narval.svgz",
 };
 #define NUMBER_OF_IMAGES 10
 
@@ -337,7 +342,7 @@ static void reversecount_next_level()
 {
 
   gc_set_background(goo_canvas_get_root_item(gcomprisBoard->canvas),
-			  imageList[gcomprisBoard->level-1]);
+		    imageList[gcomprisBoard->level-1]);
 
   gc_bar_set_level(gcomprisBoard);
 
@@ -420,13 +425,13 @@ static void reversecount_destroy_all_items()
 /* ==================================== */
 static GooCanvasItem *reversecount_create_item(GooCanvasItem *parent)
 {
-  int i,j,d;
+  gint i, j, d;
   GooCanvasItem *item = NULL;
-  GdkPixbuf   *pixmap = NULL;
-  double block_width, block_height;
-  double dice_area_x;
-  double xratio, yratio;
+  gdouble block_width, block_height;
+  gdouble dice_area_x;
+  gdouble xratio, yratio;
   GcomprisProperties	*properties = gc_prop_get();
+  RsvgHandle *svg_handle;
 
   boardRootItem = goo_canvas_group_new (goo_canvas_get_root_item(gcomprisBoard->canvas),
 					NULL);
@@ -439,7 +444,8 @@ static GooCanvasItem *reversecount_create_item(GooCanvasItem *parent)
   if(properties->timer>0)
     {
       errors = number_of_dices + 4 - (MIN(properties->timer, 4));
-      create_clock(BOARDWIDTH - block_width - 100, BOARDHEIGHT - block_height - 100,
+      create_clock(BOARDWIDTH - block_width - 100,
+		   BOARDHEIGHT - block_height - 100,
 		   errors) ;
     }
   else
@@ -447,82 +453,76 @@ static GooCanvasItem *reversecount_create_item(GooCanvasItem *parent)
       errors = -1;
     }
 
-  /* Calc the tux best ratio to display it */
-  pixmap = gc_pixmap_load(TUX_IMG_EAST);
-  xratio =  block_width  / (gdk_pixbuf_get_width (pixmap) + TUX_TO_BORDER_GAP);
-  yratio =  block_height / (gdk_pixbuf_get_height(pixmap) + TUX_TO_BORDER_GAP);
-  tux_ratio = yratio = MIN(xratio, yratio);
-  gdk_pixbuf_unref(pixmap);
+  svg_handle = gc_rsvg_load("reversecount/iceblock.svgz");
+  RsvgDimensionData rsvg_dimension;
+  rsvg_handle_get_dimensions (svg_handle, &rsvg_dimension);
 
-  pixmap = gc_pixmap_load("reversecount/iceblock.png");
+  xratio = block_width / rsvg_dimension.width;
+  yratio =  block_height / rsvg_dimension.height;
 
   for(i=0; i<BOARDWIDTH; i+=block_width)
     {
       j=0;
-      item = goo_canvas_image_new (boardRootItem,
-				   pixmap,
-				   i,
-				   j,
-				   NULL);
+      item = goo_svg_item_new (boardRootItem, svg_handle, NULL);
+      goo_canvas_item_translate(item, i, j);
+      goo_canvas_item_scale(item, xratio, yratio);
 
       j=BOARDHEIGHT-block_height;
-      item = goo_canvas_image_new (boardRootItem,
-				   pixmap,
-				   i,
-				   j,
-				   NULL);
+      item = goo_svg_item_new (boardRootItem, svg_handle, NULL);
+      goo_canvas_item_translate(item, i, j);
+      goo_canvas_item_scale(item, xratio, yratio);
     }
 
   for(j=block_height; j<=BOARDHEIGHT-(block_height*2); j+=block_height)
     {
       i = 0;
-      item = goo_canvas_image_new (boardRootItem,
-				   pixmap,
-				   i,
-				   j,
-				   NULL);
+      item = goo_svg_item_new (boardRootItem, svg_handle, NULL);
+      goo_canvas_item_translate(item, i, j);
+      goo_canvas_item_scale(item, xratio, yratio);
+
 
       i = BOARDWIDTH - block_width;
-      item = goo_canvas_image_new (boardRootItem,
-				   pixmap,
-				   i,
-				   j,
-				   NULL);
+      item = goo_svg_item_new (boardRootItem, svg_handle, NULL);
+      goo_canvas_item_translate(item, i, j);
+      goo_canvas_item_scale(item, xratio, yratio);
     }
 
-  gdk_pixbuf_unref(pixmap);
+  g_object_unref(svg_handle);
 
 
   //----------------------------------------
   // Create the dice area
-  pixmap = gc_pixmap_load("reversecount/dice_area.png");
+  svg_handle = gc_rsvg_load("reversecount/dice_area.svgz");
+  rsvg_handle_get_dimensions (svg_handle, &rsvg_dimension);
 
-  dice_area_x = BOARDWIDTH - block_width - gdk_pixbuf_get_width (pixmap) - 20;
+  dice_area_x = BOARDWIDTH - block_width - rsvg_dimension.width - 20;
 
-  goo_canvas_image_new (boardRootItem,
-			pixmap,
-			dice_area_x,
-			block_height + 20,
-			NULL);
+  item = goo_svg_item_new (boardRootItem, svg_handle, NULL);
+  goo_canvas_item_translate(item,
+			    dice_area_x, block_height + 20);
 
-  gdk_pixbuf_unref(pixmap);
+  g_object_unref(svg_handle);
 
   //----------------------------------------
   // Create the dices
-  pixmap = gc_pixmap_load("reversecount/gnome-dice1.png");
+  svg_handle = gc_rsvg_load("reversecount/dice1.svgz");
+  rsvg_handle_get_dimensions (svg_handle, &rsvg_dimension);
+  guint dice_width = 78;
 
   for(d=0; d<number_of_dices; d++)
     {
       int *val;
 
-      i = dice_area_x + gdk_pixbuf_get_width(pixmap) * d + 30;
-      j = block_height + 25 + d*7;
+      i = dice_area_x + dice_width * d + 20;
+      j = block_height + 24 + d*7;
 
-      item = goo_canvas_image_new (boardRootItem,
-				   pixmap,
-				   i,
-				   j,
-				   NULL);
+      item = goo_svg_item_new (boardRootItem, svg_handle, NULL);
+      goo_canvas_item_translate(item,
+				i, j);
+
+      xratio = (gdouble)dice_width / rsvg_dimension.width;
+      goo_canvas_item_scale(item, xratio, xratio);
+
       dicevalue_array[d] = 1;
       val = g_new(gint, 1);
       *val = d;
@@ -530,15 +530,30 @@ static GooCanvasItem *reversecount_create_item(GooCanvasItem *parent)
       g_signal_connect(item, "button_press_event",
 		       (GtkSignalFunc) item_event,
 		       val);
-      g_signal_connect(item, "enter_notify_event",
-		       (GtkSignalFunc) gc_item_focus_event,
-		       NULL);
-
     }
-  gdk_pixbuf_unref(pixmap);
+  g_object_unref(svg_handle);
+
+  tuxRootItem = goo_canvas_group_new (boardRootItem, NULL);
+
+  svg_handle = gc_rsvg_load("reversecount/tux_top_south.svgz");
+  tuxItem = goo_svg_item_new (tuxRootItem, svg_handle, NULL);
+
+  RsvgDimensionData dimension;
+  rsvg_handle_get_dimensions(svg_handle, &dimension);
+
+  /* Calc the tux best ratio to display it */
+  xratio =  block_width  / (dimension.width + TUX_TO_BORDER_GAP);
+  yratio =  block_height / (dimension.height + TUX_TO_BORDER_GAP);
+  tux_ratio = yratio = MIN(xratio, yratio);
+
+  goo_canvas_item_scale(tuxItem, tux_ratio, tux_ratio);
+
+  goo_canvas_item_translate(tuxItem, (BOARDWIDTH - dimension.width)/2,
+			    (BOARDHEIGHT - dimension.height)/2);
+  rotate_tux(tuxItem, EAST, tux_ratio);
+  g_object_unref (svg_handle);
 
   tux_index = 0;
-  tuxItem = display_item_at(TUX_IMG_EAST, tux_index, tux_ratio);
 
   // Display the first fish
   display_random_fish();
@@ -557,26 +572,25 @@ static void display_random_fish()
     fish_index = fish_index - (number_of_item);
 
   fishItem = display_item_at(fishList[g_random_int()%NUMBER_OF_FISHES],
-			     fish_index, -1);
+			     fish_index);
 }
 
 /* ==================================== */
 /**
  * Display given imagename on the given ice block.
  */
-static GooCanvasItem
-*display_item_at(gchar *imagename, int block, double ratio)
+static GooCanvasItem*
+display_item_at(gchar *imagename, int block)
 {
   double block_width, block_height;
   double xratio, yratio;
-  GooCanvasItem *item = NULL;
-  GdkPixbuf   *pixmap = NULL;
+  GooCanvasItem *item;
+  GdkPixbuf *pixmap;
+  GdkPixbuf *pixmap2;
   int i,j;
 
   block_width  = BOARDWIDTH/number_of_item_x;
   block_height = BOARDHEIGHT/number_of_item_y;
-
-  pixmap = gc_pixmap_load(imagename);
 
   if(block < number_of_item_x)
     {
@@ -612,30 +626,88 @@ static GooCanvasItem
   g_warning("display_tux %d i=%d j=%d\n", block, i, j);
 
   /* Calculation to thrink the item while keeping the ratio */
-  if(ratio==-1)
+  pixmap = gc_pixmap_load(imagename);
+  xratio =  block_width  / (gdk_pixbuf_get_width (pixmap) + TUX_TO_BORDER_GAP);
+  yratio =  block_height / (gdk_pixbuf_get_height(pixmap) + TUX_TO_BORDER_GAP);
+  xratio = yratio = MIN(xratio, yratio);
+
+  pixmap2 = gdk_pixbuf_scale_simple(pixmap,
+				    gdk_pixbuf_get_width (pixmap) * xratio,
+				    gdk_pixbuf_get_height(pixmap) * xratio,
+				    GDK_INTERP_BILINEAR);
+  gdk_pixbuf_unref(pixmap);
+
+  item = goo_canvas_image_new (boardRootItem,
+			       pixmap2,
+			       i + (block_width -
+				    (gdk_pixbuf_get_width (pixmap2))) / 2,
+			       j + (block_height -
+				    (gdk_pixbuf_get_height (pixmap2))) / 2,
+			       NULL);
+
+  gdk_pixbuf_unref(pixmap2);
+
+  return(item);
+}
+
+/**
+ * Move given GooCanvasItem on the given ice block.
+ */
+static void
+move_item_at(GooCanvasItem *item, int block, double ratio)
+{
+  double block_width, block_height;
+  int i,j;
+  GooCanvasBounds bounds;
+
+  block_width  = BOARDWIDTH/number_of_item_x;
+  block_height = BOARDHEIGHT/number_of_item_y;
+
+  if(block < number_of_item_x)
     {
-      xratio =  block_width  / (gdk_pixbuf_get_width (pixmap) + TUX_TO_BORDER_GAP);
-      yratio =  block_height / (gdk_pixbuf_get_height(pixmap) + TUX_TO_BORDER_GAP);
-      xratio = yratio = MIN(xratio, yratio);
+      // Upper line
+      g_warning("      // Upper line\n");
+      i = block_width * block;
+      j = 0;
+    }
+  else if(block < number_of_item_x + number_of_item_y - 2)
+    {
+      // Right line
+      g_warning("      // Right line\n");
+      i = block_width * (number_of_item_x - 1);
+      j = block_height * (block - (number_of_item_x-1));
+    }
+  else if(block < number_of_item_x*2 + number_of_item_y - 2)
+    {
+      // Bottom line
+      g_warning("      // Bottom line\n");
+      i = block_width * (number_of_item_x - (block-
+					     (number_of_item_x+number_of_item_y-1))-2);
+      j = block_height * (number_of_item_y-1);
     }
   else
     {
-      xratio = yratio = ratio;
+      // Left line
+      g_warning("      // Left line\n");
+      i = 0;
+      j = block_height * (number_of_item_y - (block - (number_of_item_x*2 +
+						      number_of_item_y-4)));
     }
 
-  item = goo_canvas_image_new (boardRootItem,
-			       pixmap,
-			       i + (block_width -
-				    (gdk_pixbuf_get_width (pixmap) * xratio)) / 2,
-			       j + (block_height -
-				    (gdk_pixbuf_get_height (pixmap) * yratio)) / 2,
-				"width", (double) gdk_pixbuf_get_width (pixmap) * xratio,
-				"height", (double)  gdk_pixbuf_get_height (pixmap) * yratio,
-				NULL);
+  g_warning("move_item_at %d i=%d j=%d\n", block, i, j);
 
-  gdk_pixbuf_unref(pixmap);
+  goo_canvas_item_get_bounds(item, &bounds);
 
-  return(item);
+  goo_canvas_item_animate(item,
+			  i,
+			  j,
+			  1.0,
+			  0,
+			  TRUE,
+			  animate_speed,
+			  40,
+			  GOO_CANVAS_ANIMATE_FREEZE);
+
 }
 
 /* ==================================== */
@@ -668,7 +740,7 @@ item_event (GooCanvasItem  *item,
 	    gint *dice_index)
 {
   gchar *str;
-  GdkPixbuf   *pixmap = NULL;
+  RsvgHandle *rsvg_handle;
   gint i = *dice_index;
 
   if(board_paused)
@@ -689,16 +761,13 @@ item_event (GooCanvasItem  *item,
       break;
     }
 
-  str = g_strdup_printf("reversecount/gnome-dice%d.png", dicevalue_array[i]);
+  str = g_strdup_printf("reversecount/dice%d.svgz", dicevalue_array[i]);
+  rsvg_handle = gc_rsvg_load(str);
 
-  pixmap = gc_pixmap_load(str);
-
-  /* Warning changing the image needs to update pixbuf_ref for the focus usage */
-  gc_item_focus_free(item, NULL);
   g_object_set (item,
-		"pixbuf", pixmap,
+		"rsvg-handle", rsvg_handle,
 		NULL);
-  gdk_pixbuf_unref(pixmap);
+  g_object_unref(rsvg_handle);
 
   g_free(str);
 
@@ -753,12 +822,12 @@ static void update_clock(int value)
 static gint animate_tux()
 {
   // Move tux
-  if(tuxItem!=NULL)
-    goo_canvas_item_remove(tuxItem);
-
   tux_index++;
 
-  g_warning("=========== tux_index=%d tux_destination=%d fish_index=%d\n", tux_index, tux_destination, fish_index);
+  move_item_at(tuxRootItem, tux_index, tux_ratio);
+
+  g_warning("=========== tux_index=%d tux_destination=%d fish_index=%d\n",
+	    tux_index, tux_destination, fish_index);
 
   // Wrapping
   if(tux_index >= number_of_item)
@@ -766,13 +835,13 @@ static gint animate_tux()
 
   /* Calculate which tux should be displayed */
   if(tux_index<number_of_item_x-1)
-    tuxItem = display_item_at(TUX_IMG_EAST, tux_index, tux_ratio);
+    rotate_tux(tuxItem, EAST, tux_ratio);
   else if(tux_index<number_of_item_x+number_of_item_y-2)
-    tuxItem = display_item_at(TUX_IMG_SOUTH, tux_index, tux_ratio);
+    rotate_tux(tuxItem, SOUTH, tux_ratio);
   else if(tux_index<2*number_of_item_x+number_of_item_y-3)
-    tuxItem = display_item_at(TUX_IMG_WEST, tux_index, tux_ratio);
+    rotate_tux(tuxItem, WEST, tux_ratio);
   else
-    tuxItem = display_item_at(TUX_IMG_NORTH, tux_index, tux_ratio);
+    rotate_tux(tuxItem, NORTH, tux_ratio);
 
   /* Rearm the timer to go to the next spot */
   if(tux_index != tux_destination)
@@ -810,4 +879,40 @@ static gint animate_tux()
     }
 
   return(FALSE);
+}
+
+static void
+rotate_tux(GooCanvasItem *tuxitem, gint direction,
+	   gdouble scale)
+{
+  gint rotation = 0;
+  GooCanvasBounds bounds;
+
+  /* Our svg image of tux is faced south */
+  switch(direction)
+    {
+    case EAST:
+      rotation = -90;
+      break;
+    case WEST:
+      rotation = 90;
+      break;
+    case NORTH:
+      rotation = 180;
+      break;
+    case SOUTH:
+      rotation = 0;
+      break;
+    }
+
+  goo_canvas_item_set_transform(tuxitem, NULL);
+
+  goo_canvas_item_get_bounds(tuxitem, &bounds);
+
+  goo_canvas_item_scale(tuxitem, scale, scale);
+
+  goo_canvas_item_rotate(tuxitem, rotation,
+			 (bounds.x2-bounds.x1)/2,
+			 (bounds.y2-bounds.y1)/2);
+
 }

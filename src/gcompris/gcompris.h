@@ -86,7 +86,7 @@ void		 gc_board_end(void);
 /* Control Bar methods */
 void		 gc_bar_start (GooCanvas *theCanvas);
 
-GooCanvasItem *gc_set_background(GooCanvasItem *parent, gchar *file);
+void		 gc_set_background(GooCanvasItem *parent, gchar *file);
 void		 gc_bar_set_level (GcomprisBoard *gcomprisBoard);
 void		 gc_bar_set_repeat_icon (GdkPixbuf *pixmap);
 

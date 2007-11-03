@@ -1,6 +1,6 @@
 imgdir = $(pkgdatadir)/@PACKAGE_DATA_DIR@/reversecount
 img_DATA = \
-	baleine.png \
+	baleine.svgz \
 	blueking2_0.png \
 	butfish_0.png \
 	cichlid1_0.png \
@@ -10,8 +10,8 @@ img_DATA = \
 	discus2_0.png \
 	discus3_0.png \
 	eel_0.png \
-	elephant_mer.png \
-	epaulard.png \
+	elephant_mer.svgz \
+	epaulard.svgz \
 	f00_0.png \
 	f01_0.png \
 	f02_0.png \
@@ -26,30 +26,27 @@ img_DATA = \
 	f11_0.png \
 	f12_0.png \
 	f13_0.png \
-	gnome-dice0.png \
-	gnome-dice1.png \
-	gnome-dice2.png \
-	gnome-dice3.png \
-	gnome-dice4.png \
-	gnome-dice5.png \
-	gnome-dice6.png \
-	gnome-dice7.png \
-	gnome-dice8.png \
-	gnome-dice9.png \
-	iceblock.png \
+	dice0.svgz \
+	dice1.svgz \
+	dice2.svgz \
+	dice3.svgz \
+	dice4.svgz \
+	dice5.svgz \
+	dice6.svgz \
+	dice7.svgz \
+	dice8.svgz \
+	dice9.svgz \
+	iceblock.svgz \
 	manta_0.png \
-	morse.png \
-	narval.png \
+	morse.svgz \
+	narval.svgz \
 	newf1_0.png \
-	ourspolaire.png \
-	phoque.png \
+	ourspolaire.svgz \
+	phoque.svgz \
 	QueenAngel_0.png \
 	shark1_0.png \
 	six_barred_0.png \
 	teeth_0.png \
-	tux_top_east.png \
-	tux_top_north.png \
-	tux_top_south.png \
-	tux_top_west.png
+	tux_top_south.svgz
 
 EXTRA_DIST = $(img_DATA)
