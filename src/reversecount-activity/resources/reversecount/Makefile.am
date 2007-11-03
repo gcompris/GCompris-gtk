@@ -6,7 +6,7 @@ img_DATA = \
 	cichlid1_0.png \
 	cichlid4_0.png \
 	collaris_0.png \
-	dice_area.png \
+	dice_area.svgz \
 	discus2_0.png \
 	discus3_0.png \
 	eel_0.png \
