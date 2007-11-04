@@ -23,15 +23,14 @@
 
 #define SOUNDLISTFILE PACKAGE
 
-static GList *item_list = NULL;
-static GList *item2del_list = NULL;
-
 static GcomprisBoard *gcomprisBoard = NULL;
 
-static gint dummy_id = 0;
+static gint planemove_id = 0;
 static gint drop_items_id = 0;
 
-static GooCanvasItem *planeitem = NULL;
+static GooCanvasItem *rootitem = NULL;
+static GooCanvasItem *planeitem;
+static GooCanvasItem *clouds_rootitem;
 static gint plane_x, plane_y;
 static gint planespeed_x, planespeed_y;
 
@@ -39,12 +38,6 @@ static gint planespeed_x, planespeed_y;
 
 /* These are the index for managing the game rule */
 static gint plane_target, plane_last_target;
-
-typedef struct {
-  gint number;
-  GooCanvasItem *rootitem;
-} CloudItem;
-
 
 static void start_board (GcomprisBoard *agcomprisBoard);
 static void pause_board (gboolean pause);
@@ -56,8 +49,6 @@ static gint key_press(guint keyval, gchar *commit_str, gchar *preedit_str);
 static GooCanvasItem *planegame_create_item(GooCanvasItem *parent);
 static gint planegame_drop_items (GtkWidget *widget, gpointer data);
 static gint planegame_move_items (GtkWidget *widget, gpointer data);
-static void planegame_destroy_item(CloudItem *clouditem);
-static void planegame_destroy_items(void);
 static void planegame_destroy_all_items(void);
 static void planegame_next_level(void);
 
@@ -109,9 +100,9 @@ static void pause_board (gboolean pause)
 
   if(pause)
     {
-      if (dummy_id) {
-	g_source_remove (dummy_id);
-	dummy_id = 0;
+      if (planemove_id) {
+	g_source_remove (planemove_id);
+	planemove_id = 0;
       }
       if (drop_items_id) {
 	g_source_remove (drop_items_id);
@@ -122,10 +113,13 @@ static void pause_board (gboolean pause)
     {
       if(!drop_items_id) {
 	drop_items_id = g_timeout_add (1000,
-				       (GtkFunction) planegame_drop_items, NULL);
+				       (GtkFunction) planegame_drop_items,
+				       NULL);
       }
-      if(!dummy_id) {
-	dummy_id = g_timeout_add (1000, (GtkFunction) planegame_move_items, NULL);
+      if(!planemove_id) {
+	planemove_id = g_timeout_add (1000,
+				      (GtkFunction) planegame_move_items,
+				      NULL);
       }
     }
 }
@@ -258,11 +252,17 @@ is_our_board (GcomprisBoard *gcomprisBoard)
 /* set initial values for the next level */
 static void planegame_next_level()
 {
-  GdkPixbuf *pixmap = NULL;
+  RsvgHandle *svg_handle = NULL;
+  GooCanvasItem *item;
 
   gc_bar_set_level(gcomprisBoard);
 
   planegame_destroy_all_items();
+
+  rootitem = goo_canvas_group_new (goo_canvas_get_root_item(gcomprisBoard->canvas),
+				   NULL);
+
+  clouds_rootitem = goo_canvas_group_new (rootitem, NULL);
 
   /* Try the next level */
   speed=100+(40/(gcomprisBoard->level));
@@ -273,17 +273,24 @@ static void planegame_next_level()
   /* Setup and Display the plane */
   planespeed_y = 0;
   planespeed_x = 0;
-  pixmap = gc_pixmap_load("planegame/tuxhelico.png");
+  svg_handle = gc_rsvg_load("planegame/tuxhelico.svgz");
   plane_x = 50;
   plane_y = 300;
-  planeitem = goo_canvas_image_new (goo_canvas_get_root_item(gcomprisBoard->canvas),
-				    pixmap,
-				    plane_x,
-				    plane_y,
-				    "width", (double) gdk_pixbuf_get_width(pixmap)*imageZoom,
-				    "height", (double) gdk_pixbuf_get_height(pixmap)*imageZoom,
-				    NULL);
-  gdk_pixbuf_unref(pixmap);
+
+  planeitem = goo_canvas_group_new (rootitem,
+				   NULL);
+
+  goo_canvas_item_translate(planeitem, plane_x, plane_y);
+
+  item = goo_svg_item_new (planeitem,
+			   svg_handle,
+			   NULL);
+
+  goo_canvas_item_scale(item,
+  			0.4 * imageZoom,
+  			0.4 * imageZoom);
+
+  g_object_unref(svg_handle);
 
   /* Game rules */
   plane_target = 1;
@@ -306,22 +313,24 @@ static void planegame_next_level()
 			   gcomprisBoard->number_of_sublevel);
       gc_score_set(gcomprisBoard->sublevel);
     }
+
 }
 
-#define ISIN(x1, y1, px1, py1, px2, py2) (x1>px1 && x1<px2 && y1>py1 && y1<py2 ? TRUE : FALSE)
+#define ISIN(x1, y1, px1, py1, px2, py2) \
+  (x1>px1 && x1<px2 && y1>py1 && y1<py2 ? TRUE : FALSE)
 
-static void planegame_cloud_colision(CloudItem *clouditem)
+static void planegame_cloud_colision(GooCanvasItem *item)
 {
   GooCanvasBounds ib, pb;
-  GooCanvasItem *item;
-
-  if(clouditem==NULL)
-    return;
-
-  item = clouditem->rootitem;
 
   goo_canvas_item_get_bounds(planeitem,  &pb);
   goo_canvas_item_get_bounds(item, &ib);
+
+  if(ib.x2<0)
+    {
+      goo_canvas_item_remove(item);
+      return;
+    }
 
   if(
      ISIN(ib.x1, ib.y1, pb.x1, pb.y1, pb.x2, pb.y2) ||
@@ -330,18 +339,20 @@ static void planegame_cloud_colision(CloudItem *clouditem)
      ISIN(ib.x2, ib.y2, pb.x1, pb.y1, pb.x2, pb.y2)
      )
     {
-      if(plane_target == clouditem->number)
+      gint number = GPOINTER_TO_INT (g_object_get_data (G_OBJECT (item),
+							"cloud_number"));
+
+      if(plane_target == number)
 	{
 	  gc_sound_play_ogg ("sounds/gobble.wav", NULL);
-	  item2del_list = g_list_append (item2del_list, clouditem);
 	  plane_target++;
 
-	  if(gcomprisBoard->level==1)
-	    {
-	      gc_score_set(plane_target);
-	    }
+	  goo_canvas_item_remove(item);
 
-	  if(plane_target==plane_last_target)
+	  if(gcomprisBoard->level==1)
+	    gc_score_set(plane_target);
+
+	  if(plane_target == plane_last_target)
 	    {
 	      /* Try the next level */
 	      gcomprisBoard->level++;
@@ -359,77 +370,38 @@ static void planegame_cloud_colision(CloudItem *clouditem)
 /* Move the plane */
 static void planegame_move_plane(GooCanvasItem *item)
 {
-  if(plane_x>gcomprisBoard->width-150 && planespeed_x>0)
-    planespeed_x=0;
-
-  if(plane_x<0 && planespeed_x<0)
-    planespeed_x=0;
-
-  if(plane_y>gcomprisBoard->height-50 && planespeed_y>0)
-    planespeed_y=0;
-
-  if(plane_y<10 && planespeed_y<0)
-    planespeed_y=0;
-
-  goo_canvas_item_translate(item, (double)planespeed_x, (double)planespeed_y);
-  plane_x+=planespeed_x;
-  plane_y+=planespeed_y;
-}
-
-static void planegame_move_item(CloudItem *clouditem)
-{
   GooCanvasBounds bounds;
-  GooCanvasItem *item = clouditem->rootitem;
 
-  goo_canvas_item_translate(item, -2.0, 0.0);
+  goo_canvas_item_get_bounds(item, &bounds);
 
-  goo_canvas_item_get_bounds (item, &bounds);
+  if(plane_x > gcomprisBoard->width - (bounds.x2 - bounds.x1)
+     && planespeed_x > 0)
+    planespeed_x=0;
 
-  if(bounds.x2<0) {
-    item2del_list = g_list_append (item2del_list, clouditem);
-  }
+  if(plane_x < 0 && planespeed_x < 0)
+    planespeed_x = 0;
 
-}
+  if(plane_y > gcomprisBoard->height - (bounds.y2 - bounds.y1)
+     && planespeed_y > 0)
+    planespeed_y = 0;
 
-static void planegame_destroy_item(CloudItem *clouditem)
-{
-  GooCanvasItem *item = clouditem->rootitem;
+  if(plane_y < 0 && planespeed_y < 0)
+    planespeed_y=0;
 
-  item_list = g_list_remove (item_list, clouditem);
-  item2del_list = g_list_remove (item2del_list, clouditem);
-  goo_canvas_item_remove(item);
-
-  g_free(clouditem);
-}
-
-/* Destroy items that falls out of the canvas */
-static void planegame_destroy_items()
-{
-  CloudItem *clouditem;
-
-  while(g_list_length(item2del_list)>0)
-    {
-      clouditem = g_list_nth_data(item2del_list, 0);
-      planegame_destroy_item(clouditem);
-    }
+  goo_canvas_item_translate(item,
+			    planespeed_x,
+			    planespeed_y);
+  plane_x += planespeed_x;
+  plane_y += planespeed_y;
 }
 
 /* Destroy all the items */
 static void planegame_destroy_all_items()
 {
-  CloudItem *clouditem;
+  if(rootitem)
+    goo_canvas_item_remove(rootitem);
 
-  while(g_list_length(item_list)>0)
-    {
-      clouditem = g_list_nth_data(item_list, 0);
-      planegame_destroy_item(clouditem);
-    }
-
-  if(planeitem)
-    {
-      goo_canvas_item_remove(planeitem);
-      planeitem = NULL;
-    }
+  rootitem = NULL;
 }
 
 /*
@@ -438,27 +410,32 @@ static void planegame_destroy_all_items()
  */
 static gint planegame_move_items (GtkWidget *widget, gpointer data)
 {
-  g_list_foreach (item_list, (GFunc) planegame_move_item, NULL);
-  g_list_foreach (item_list, (GFunc) planegame_cloud_colision, NULL);
+  int i;
 
-  /* Destroy items that falls out of the canvas */
-  planegame_destroy_items();
+  /* Check collision with each cloud */
+  for(i = 0;
+      i < goo_canvas_item_get_n_children(clouds_rootitem);
+      i++)
+    planegame_cloud_colision(goo_canvas_item_get_child(clouds_rootitem,
+							 i));
 
   /* move the plane */
   planegame_move_plane(planeitem);
-  dummy_id = g_timeout_add (speed,
-			    (GtkFunction) planegame_move_items, NULL);
+  planemove_id = g_timeout_add (speed,
+				(GtkFunction) planegame_move_items, NULL);
 
   return(FALSE);
 }
 
 static GooCanvasItem *planegame_create_item(GooCanvasItem *parent)
 {
-  GdkPixbuf *pixmap = NULL;
+  RsvgHandle *svg_handle;
+  RsvgDimensionData dimension;
   GooCanvasItem *itemgroup;
+  GooCanvasItem *item;
   char *number = NULL;
   int i, min;
-  CloudItem *clouditem;
+  guint y;
 
   /* Random cloud number */
   if(g_random_int()%2==0)
@@ -473,46 +450,57 @@ static GooCanvasItem *planegame_create_item(GooCanvasItem *parent)
     }
   number = g_strdup_printf("%d", i);
 
-  pixmap = gc_pixmap_load("planegame/cloud.png");
+  itemgroup = goo_canvas_group_new (parent, NULL);
 
-  itemgroup = goo_canvas_group_new (goo_canvas_get_root_item(gcomprisBoard->canvas),
-				    NULL);
+  g_object_set_data (G_OBJECT (itemgroup),
+		     "cloud_number", GINT_TO_POINTER (i));
+
+  svg_handle = gc_rsvg_load("planegame/cloud.svgz");
+  rsvg_handle_get_dimensions(svg_handle, &dimension);
+
+  y = (g_random_int()%(gcomprisBoard->height -
+		       (guint)(dimension.height * imageZoom)));
+
   goo_canvas_item_translate(itemgroup,
 			    gcomprisBoard->width,
-			    (g_random_int()%(gcomprisBoard->height-
-					     (guint)(gdk_pixbuf_get_height(pixmap)*
-						     -imageZoom))));
+			    y);
 
+  item = goo_svg_item_new (itemgroup,
+			   svg_handle,
+			   NULL);
+  goo_canvas_item_scale(item, imageZoom, imageZoom);
 
+  g_object_unref(svg_handle);
 
-  goo_canvas_image_new (itemgroup,
-			pixmap,
-			-gdk_pixbuf_get_width(pixmap)*imageZoom/2,
-			-gdk_pixbuf_get_height(pixmap)*imageZoom/2,
-			 "width", (double) gdk_pixbuf_get_width(pixmap)*imageZoom,
-			 "height", (double) gdk_pixbuf_get_height(pixmap)*imageZoom,
-			 NULL);
-  gdk_pixbuf_unref(pixmap);
+  g_object_set_data (G_OBJECT (item),
+		     "cloud_number", GINT_TO_POINTER (i));
 
+  item = goo_canvas_text_new (itemgroup,
+			      number,
+			      dimension.width*imageZoom/2,
+			      dimension.height*imageZoom/2,
+			      -1,
+			      GTK_ANCHOR_CENTER,
+			      "font", gc_skin_font_board_big,
+			      "fill-color", "red",
+			      NULL);
 
-  goo_canvas_text_new (itemgroup,
-		       number,
-		       0,
-		       0,
-		       -1,
-		       GTK_ANCHOR_CENTER,
-		       "font", gc_skin_font_board_big,
-		       "fill-color", "red",
-		       NULL);
+  g_object_set_data (G_OBJECT (item),
+		     "cloud_number", GINT_TO_POINTER (i));
+
+  goo_canvas_item_animate(itemgroup,
+			  -dimension.width*imageZoom,
+			  y,
+			  1.0,
+			  0,
+			  TRUE,
+			  40*BOARDWIDTH,
+			  40,
+			  GOO_CANVAS_ANIMATE_FREEZE);
 
   /* The plane is always on top */
+  goo_canvas_item_raise(itemgroup, NULL);
   goo_canvas_item_raise(planeitem, NULL);
-
-  clouditem = g_malloc(sizeof(CloudItem));
-  clouditem->rootitem = itemgroup;
-  clouditem->number   = i;
-
-  item_list = g_list_append (item_list, clouditem);
 
   g_free (number);
 
@@ -521,7 +509,7 @@ static GooCanvasItem *planegame_create_item(GooCanvasItem *parent)
 
 static void planegame_add_new_item()
 {
-  planegame_create_item(goo_canvas_get_root_item(gcomprisBoard->canvas));
+  planegame_create_item(clouds_rootitem);
 }
 
 /*
