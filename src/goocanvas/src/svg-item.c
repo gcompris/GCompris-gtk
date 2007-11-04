@@ -7,12 +7,35 @@
 #include "goocanvas.h"
 #include "svg-item.h"
 
+enum {
+  PROP_0,
+
+  /* Convenience properties. */
+  PROP_SVGHANDLE
+};
+
+static void goo_svg_item_set_property (GObject            *object,
+				       guint               param_id,
+				       const GValue       *value,
+				       GParamSpec         *pspec);
+
 
 /* Use the GLib convenience macro to define the type. GooSvgItem is the
    class struct, goo_svg_item is the function prefix, and our class is a
    subclass of GOO_TYPE_CANVAS_ITEM_SIMPLE. */
 G_DEFINE_TYPE (GooSvgItem, goo_svg_item, GOO_TYPE_CANVAS_ITEM_SIMPLE)
 
+static void
+goo_svg_item_install_common_properties (GObjectClass *gobject_class)
+{
+  g_object_class_install_property (gobject_class, PROP_SVGHANDLE,
+				   g_param_spec_object ("rsvg-handle",
+							"Rsvg Handle",
+							"The RsvgHandle to display",
+							RSVG_TYPE_HANDLE,
+							G_PARAM_WRITABLE));
+
+}
 
 /* The standard object initialization function. */
 static void
@@ -23,7 +46,7 @@ goo_svg_item_init (GooSvgItem *svg_item)
 }
 
 
-/* The convenience function to create new items. This should start with a 
+/* The convenience function to create new items. This should start with a
    parent argument and end with a variable list of object properties to fit
    in with the standard canvas items. */
 GooCanvasItem*
@@ -93,6 +116,56 @@ goo_svg_item_paint (GooCanvasItemSimple   *simple,
 }
 
 
+static void
+goo_svg_item_set_common_property (GObject              *object,
+				  GooSvgItem           *svg_item,
+				  guint                 prop_id,
+				  const GValue         *value,
+				  GParamSpec           *pspec)
+{
+  RsvgHandle *svg_handle;
+  RsvgDimensionData dimension_data;
+
+  switch (prop_id)
+    {
+    case PROP_SVGHANDLE:
+      svg_handle = g_value_get_object (value);
+      g_object_unref (svg_item->svg_handle);
+      g_object_ref (svg_handle);
+      svg_item->svg_handle = svg_handle;
+      rsvg_handle_get_dimensions (svg_handle, &dimension_data);
+      svg_item->width = dimension_data.width;
+      svg_item->height = dimension_data.height;
+      break;
+    default:
+      G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
+      break;
+  }
+}
+
+
+static void
+goo_svg_item_set_property (GObject              *object,
+			   guint                 prop_id,
+			   const GValue         *value,
+			   GParamSpec           *pspec)
+{
+  GooCanvasItemSimple *simple = (GooCanvasItemSimple*) object;
+  GooSvgItem *image = (GooSvgItem*) object;
+
+  if (simple->model)
+    {
+      g_warning ("Can't set property of a canvas item with a model - set the model property instead");
+      return;
+    }
+
+  goo_svg_item_set_common_property (object, image, prop_id,
+				    value, pspec);
+  goo_canvas_item_simple_changed (simple, TRUE);
+}
+
+
+
 /* Hit detection. This should check if the given coordinate (in the item's
    coordinate space) is within the item. If it is it should return TRUE,
    otherwise it should return FALSE. */
@@ -113,11 +186,17 @@ goo_svg_item_is_item_at (GooCanvasItemSimple *simple,
 static void
 goo_svg_item_class_init (GooSvgItemClass *klass)
 {
+  GObjectClass *gobject_class = (GObjectClass*) klass;
   GooCanvasItemSimpleClass *simple_class = (GooCanvasItemSimpleClass*) klass;
+
+  gobject_class->set_property = goo_svg_item_set_property;
 
   simple_class->simple_update        = goo_svg_item_update;
   simple_class->simple_paint         = goo_svg_item_paint;
   simple_class->simple_is_item_at    = goo_svg_item_is_item_at;
+
+  goo_svg_item_install_common_properties (gobject_class);
+
 }
 
 
