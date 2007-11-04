@@ -46,7 +46,10 @@ static GdkPixbuf *clock_pixmap = NULL;
 static GooCanvasItem *read_colors_create_item(GooCanvasItem *parent);
 static void read_colors_destroy_all_items(void);
 static void read_colors_next_level(void);
-static gint item_event(GooCanvasItem *item, GdkEvent *event, gpointer data);
+static gboolean	item_event (GooCanvasItem  *item,
+			    GooCanvasItem  *target,
+			    GdkEventButton *event,
+			    gpointer data);
 static void update_clock();
 
 static int highlight_width, highlight_height, errors;
@@ -162,7 +165,9 @@ static void start_board (GcomprisBoard *agcomprisBoard) {
     }
     g_list_free(list);
 
-    g_signal_connect(GTK_OBJECT(gcomprisBoard->canvas), "enter_notify_event",  (GtkSignalFunc) item_event, NULL);
+    g_signal_connect(goo_canvas_get_root_item(gcomprisBoard->canvas),
+		     "button_press_event", (GtkSignalFunc) item_event,
+		     NULL);
     read_colors_next_level();
     pause_board(FALSE);
   }
@@ -171,19 +176,25 @@ static void start_board (GcomprisBoard *agcomprisBoard) {
 /* =====================================================================
  *
  * =====================================================================*/
-static void end_board () {
+static void
+end_board ()
+{
 
-  if(gcomprisBoard!=NULL){
-    pause_board(TRUE);
-    gc_score_end();
-    read_colors_destroy_all_items();
-    // free list
-    while (g_list_length(listColors) > 0)
-      listColors = g_list_remove(listColors, g_list_nth_data(listColors,0));
+  if(gcomprisBoard!=NULL)
+    {
+      g_signal_handlers_disconnect_by_func(goo_canvas_get_root_item(gcomprisBoard->canvas),
+					   (GtkSignalFunc) item_event, NULL);
 
-    g_list_free(listColors);
-    listColors = NULL;
-  }
+      pause_board(TRUE);
+      gc_score_end();
+      read_colors_destroy_all_items();
+      // free list
+      while (g_list_length(listColors) > 0)
+	listColors = g_list_remove(listColors, g_list_nth_data(listColors,0));
+
+      g_list_free(listColors);
+      listColors = NULL;
+    }
   gcomprisBoard = NULL;
 }
 
@@ -281,7 +292,7 @@ static GooCanvasItem *read_colors_create_item(GooCanvasItem *parent) {
 static void update_clock() {
   char *str = g_strdup_printf("%s%d.png", "timers/clock",errors);
 
-  gtk_object_destroy (GTK_OBJECT(clock_image_item));
+  goo_canvas_item_remove(clock_image_item);
 
   clock_pixmap = gc_skin_pixmap_load(str);
 
@@ -336,40 +347,36 @@ static void process_ok() {
 /* =====================================================================
  *
  * =====================================================================*/
-static gint item_event(GooCanvasItem *item, GdkEvent *event, gpointer data) {
+static gboolean item_event (GooCanvasItem  *item,
+			    GooCanvasItem  *target,
+			    GdkEventButton *event,
+			    gpointer data)
+{
   double x, y;
   int i, clicked;
 
-  x = event->button.x;
-  y = event->button.y;
+  x = event->x;
+  y = event->y;
 
   if (!gcomprisBoard || board_paused)
     return FALSE;
 
-  switch (event->type)
-    {
-    case GDK_BUTTON_PRESS:
-      //goo_canvas_c2w (gcomprisBoard->canvas, x, y, &x, &y);
-      clicked = -1;
-      for (i=0; i<LAST_COLOR; i++) {
-	if (hypot((double) (X[i]-x),(double)(Y[i]-y)) < RADIUS) {
-	  clicked = i;
-	  break;
-	}
-      }
-
-      if (clicked >= 0) {
-	gc_sound_play_ogg ("sounds/bleep.wav", NULL);
-	board_paused = TRUE;
-	highlight_selected(clicked);
-	gamewon = (clicked == GPOINTER_TO_INT(g_list_nth_data(listColors,0)));
-	process_ok();
-      }
-      break;
-
-    default:
+  clicked = -1;
+  for (i=0; i<LAST_COLOR; i++) {
+    if (hypot((double) (X[i]-x),(double)(Y[i]-y)) < RADIUS) {
+      clicked = i;
       break;
     }
+  }
+
+  if (clicked >= 0) {
+    gc_sound_play_ogg ("sounds/bleep.wav", NULL);
+    board_paused = TRUE;
+    highlight_selected(clicked);
+    gamewon = (clicked == GPOINTER_TO_INT(g_list_nth_data(listColors,0)));
+    process_ok();
+  }
+
   return FALSE;
 }
 

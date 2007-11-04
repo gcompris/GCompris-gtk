@@ -277,7 +277,6 @@ static void end_board ()
   if(gcomprisBoard!=NULL) {
     GcomprisProperties	*properties = gc_prop_get();
 
-
     g_signal_handlers_disconnect_by_func(goo_canvas_get_root_item(gcomprisBoard->canvas),
 					 (GtkSignalFunc) item_event, NULL);
 
