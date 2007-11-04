@@ -609,7 +609,9 @@ static void place_item(frame * my_frame, int type)
 
 }
 
-// When clicked, an star from the player frame changes its appearance (grey or coloured) and the counter is re-evaluated
+/* When clicked, an star from the player frame changes
+ * its appearance (grey or coloured) and the counter is re-evaluated
+ */
 static gboolean item_event (GooCanvasItem  *item,
 			    GooCanvasItem  *target,
 			    GdkEventButton *event,
@@ -633,7 +635,7 @@ static gboolean item_event (GooCanvasItem  *item,
 
 	pixmap = gc_rsvg_load("magic_hat/star-clear.svgz");
 
-	g_object_set(item, "pixbuf", pixmap, NULL);
+	g_object_set(item, "rsvg-handle", pixmap, NULL);
 
 	g_object_unref(pixmap);
 
@@ -648,11 +650,17 @@ static gboolean item_event (GooCanvasItem  *item,
 
 	switch(index / MAX_ITEM)
 	  {
-	  case 0: pixmap = gc_rsvg_load("magic_hat/star1.svg"); break;
-	  case 1: pixmap = gc_rsvg_load("magic_hat/star2.svg"); break;
-	  case 2: pixmap = gc_rsvg_load("magic_hat/star3.svg"); break;
+	  case 0:
+	    pixmap = gc_rsvg_load("magic_hat/star1.svgz");
+	    break;
+	  case 1:
+	    pixmap = gc_rsvg_load("magic_hat/star2.svgz");
+	    break;
+	  case 2:
+	    pixmap = gc_rsvg_load("magic_hat/star3.svgz");
+	    break;
 	  }
-      g_object_set(item, "pixbuf", pixmap, NULL);
+      g_object_set(item, "rsvg-handle", pixmap, NULL);
 
       g_object_unref(pixmap);
     }
