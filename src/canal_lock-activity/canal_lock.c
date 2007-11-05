@@ -39,6 +39,7 @@
 #define LOCK_WIDTH		20
 #define LOCK_HEIGHT_MAX		(RIGHT_CANAL_HEIGHT + 40)
 #define LOCK_HEIGHT_MIN		60
+#define LOCK_RHEIGHT_MIN	160
 
 #define SUBCANAL_BASE_LINE	(BASE_LINE + 80)
 #define SUBCANAL_HEIGHT		40
@@ -88,7 +89,6 @@ static gboolean lock_water_low;
 static gboolean canallock_left_up;
 static gboolean canallock_right_up;
 
-static double timer_item_x1, timer_item_y1, timer_item_x2, timer_item_y2;
 static double timer_item_limit_y, timer_item_limit_x;
 static GooCanvasItem *timer_item;
 static gint timer_step_y1, timer_step_x1;
@@ -334,8 +334,8 @@ static GooCanvasItem *canal_lock_create_item(GooCanvasItem *parent)
 					"line-width", (double) 0,
 					NULL);
   g_signal_connect(lock_left_item, "button-press-event",
-		     (GtkSignalFunc) item_event,
-		     NULL);
+		   (GtkSignalFunc) item_event,
+		   NULL);
 
   /* This is the right lock */
   lock_right_item = goo_canvas_rect_new (boardRootItem,
@@ -347,8 +347,8 @@ static GooCanvasItem *canal_lock_create_item(GooCanvasItem *parent)
 					 "line-width", (double) 0,
 					 NULL);
   g_signal_connect(lock_right_item, "button-press-event",
-		     (GtkSignalFunc) item_event,
-		     NULL);
+		   (GtkSignalFunc) item_event,
+		   NULL);
 
   /* This is the water conduit under the canal */
   goo_canvas_rect_new (boardRootItem,
@@ -441,7 +441,8 @@ static void game_won()
 
 /* ==================================== */
 /* Move the boat to the next possible position */
-static void move_boat()
+static void
+move_boat()
 {
 
   /* If there is already an animation do nothing else set animation to avoid deadlock */
@@ -483,13 +484,6 @@ static void move_boat()
 
   gc_sound_play_ogg ("sounds/eraser2.wav", NULL);
 
-  GooCanvasBounds bounds;
-  goo_canvas_item_get_bounds(tuxboat_item, &bounds);
-  timer_item_x1 = bounds.x1;
-  timer_item_y1 = bounds.y1;
-  timer_item_x2 = bounds.x2;
-  timer_item_y2 = bounds.y2;
-
   timer_item = tuxboat_item;
   timer_step_y1 = 0;
 
@@ -502,9 +496,10 @@ static void update_water()
 {
   gboolean status = TRUE;
   double y1 = 0;
-  gint min = LEFT_CANAL_HEIGHT;
+  gint min = BASE_LINE - LEFT_CANAL_HEIGHT;
 
-  /* If there is already an animation do nothing else set animation to avoid deadlock */
+  /* If there is already an animation do nothing else set
+     animation to avoid deadlock */
   if(animation)
     return;
   animation = TRUE;
@@ -523,15 +518,8 @@ static void update_water()
       return;
     }
 
-  GooCanvasBounds bounds;
-  goo_canvas_item_get_bounds(tuxboat_item, &bounds);
-  timer_item_x1 = bounds.x1;
-  timer_item_y1 = bounds.y1;
-  timer_item_x2 = bounds.x2;
-  timer_item_y2 = bounds.y2;
-
   timer_item = canal_middle_item;
-  timer_item_limit_y = (status ? timer_item_y2 - min :
+  timer_item_limit_y = (status ? min :
 			y1);
   timer_step_y1 = (status ? 2 : -2);
   timer_step_x1 = 0;
@@ -541,7 +529,8 @@ static void update_water()
 
 /* ==================================== */
 /* Toggle the given lock */
-static void toggle_lock(GooCanvasItem *item)
+static void
+toggle_lock(GooCanvasItem *item)
 {
   gboolean status = TRUE;
   double y1 = 0;
@@ -555,19 +544,12 @@ static void toggle_lock(GooCanvasItem *item)
 
   gc_sound_play_ogg ("sounds/bleep.wav", NULL);
 
-  GooCanvasBounds bounds;
-  goo_canvas_item_get_bounds(tuxboat_item, &bounds);
-  timer_item_x1 = bounds.x1;
-  timer_item_y1 = bounds.y1;
-  timer_item_x2 = bounds.x2;
-  timer_item_y2 = bounds.y2;
-
   if(item == lock_left_item)
     {
       status = lock_left_up;
       lock_left_up = !lock_left_up;
       y1 = BASE_LINE - LOCK_HEIGHT_MAX;
-      min = LOCK_HEIGHT_MIN;
+      min = BASE_LINE - LOCK_HEIGHT_MIN;
       animate_speed = ANIMATE_SPEED;
     }
   else if(item == lock_right_item)
@@ -575,7 +557,7 @@ static void toggle_lock(GooCanvasItem *item)
       status = lock_right_up;
       lock_right_up = !lock_right_up;
       y1 = BASE_LINE - LOCK_HEIGHT_MAX;
-      min = LOCK_HEIGHT_MIN;
+      min = BASE_LINE - LOCK_RHEIGHT_MIN;
       animate_speed = ANIMATE_SPEED;
     }
   else if(item == canallock_left_item)
@@ -583,7 +565,7 @@ static void toggle_lock(GooCanvasItem *item)
       status = canallock_left_up;
       canallock_left_up = !canallock_left_up;
       y1 = SUBCANAL_BASE_LINE - SUBCANAL_HEIGHT;
-      min = CANALLOCK_HEIGHT_MIN;
+      min = SUBCANAL_BASE_LINE - CANALLOCK_HEIGHT_MIN;
       animate_speed = ANIMATE_SPEED;
     }
   else if(item == canallock_right_item)
@@ -591,40 +573,43 @@ static void toggle_lock(GooCanvasItem *item)
       status = canallock_right_up;
       canallock_right_up = !canallock_right_up;
       y1 = SUBCANAL_BASE_LINE - SUBCANAL_HEIGHT;
-      min = CANALLOCK_HEIGHT_MIN;
+      min = SUBCANAL_BASE_LINE - CANALLOCK_HEIGHT_MIN;
       animate_speed = ANIMATE_SPEED;
     }
 
   timer_item = item;
-  timer_item_limit_y = (status ? timer_item_y2 - min :
+  timer_item_limit_y = (status ? min :
 			y1);
   timer_step_y1 = (status ? 2 : -2);
   timer_step_x1 = 0;
 
-  timer_id = gtk_timeout_add (animate_speed, (GtkFunction) animate_step, NULL);
+  timer_id = gtk_timeout_add (animate_speed, (GtkFunction) animate_step,
+			      NULL);
 
 }
 
 
 /* ==================================== */
-static gboolean animate_step()
+static gboolean
+animate_step()
 {
 
   if(!gcomprisBoard)
     return FALSE;
 
-  timer_item_x1 += timer_step_x1;
-  timer_item_y1 += timer_step_y1;
+  GooCanvasBounds bounds;
+  goo_canvas_item_get_bounds(timer_item, &bounds);
 
   if(GOO_IS_CANVAS_IMAGE(timer_item))
     g_object_set(timer_item,
-		 "x", timer_item_x1,
-		 "y", timer_item_y1,
+		 "x", bounds.x1 + timer_step_x1,
+		 "y", bounds.y1 + timer_step_y1,
 		 NULL);
   else if(GOO_IS_CANVAS_RECT(timer_item))
     g_object_set(timer_item,
-		 "x", timer_item_x1,
-		 "y", timer_item_y1,
+		 "x", bounds.x1 + timer_step_x1,
+		 "y", bounds.y1 + timer_step_y1,
+		 "height", bounds.y2 - bounds.y1 - timer_step_y1,
 		 NULL);
 
   /* Special case for raising/lowering the boat */
@@ -639,16 +624,16 @@ static gboolean animate_step()
 			    NULL);
     }
 
-  if((timer_item_y1 >= timer_item_limit_y && timer_step_y1 > 0) ||
-     (timer_item_y1 <= timer_item_limit_y && timer_step_y1 < 0))
+  if((bounds.y1 >= timer_item_limit_y && timer_step_y1 > 0) ||
+     (bounds.y1 <= timer_item_limit_y && timer_step_y1 < 0))
     {
       gtk_timeout_remove (timer_id);
       timer_id = 0;
       animation = FALSE;
       update_water();
     }
-  else if((timer_item_x1 >= timer_item_limit_x && timer_step_x1 > 0) ||
-     (timer_item_x1 <= timer_item_limit_x && timer_step_x1 < 0))
+  else if((bounds.x1 >= timer_item_limit_x && timer_step_x1 > 0) ||
+     (bounds.x1 <= timer_item_limit_x && timer_step_x1 < 0))
     {
       gtk_timeout_remove (timer_id);
       timer_id = 0;
@@ -694,11 +679,6 @@ item_event (GooCanvasItem  *item,
 	    GdkEventButton *event,
 	    gpointer data)
 {
-  double item_x, item_y;
-  item_x = event->x;
-  item_y = event->y;
-  //goo_canvas_convert_to_item_space(item->parent, &item_x, &item_y);
-
   if(board_paused)
     return FALSE;
 
