@@ -39,8 +39,8 @@ img_DATA = \
 	tigercub003.jpg \
 	tigerdrink001.jpg \
 	tigerplay001.jpg \
-	transparent_square_green.png \
-	transparent_square.png \
-	transparent_square_yellow.png
+	transparent_square_green.svgz \
+	transparent_square.svgz \
+	transparent_square_yellow.svgz
 
 EXTRA_DIST = $(img_DATA)

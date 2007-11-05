@@ -29,7 +29,7 @@ typedef struct  {gint count; gint max;} counter;
 static GcomprisBoard *gcomprisBoard = NULL;
 static gboolean board_paused = TRUE;
 static SoundPolicy sound_policy;
-static GdkPixbuf *CoverPixmap[MAX_LAYERS];
+static RsvgHandle *CoverPixmap[MAX_LAYERS];
 static gulong event_handle_id;
 
 
@@ -186,9 +186,9 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       gc_bar_set(GC_BAR_LEVEL);
 
       /* CAUTION: CoverPixmap has MAX_LAYERS elements */
-      CoverPixmap[0] = gc_pixmap_load("erase/transparent_square.png");
-      CoverPixmap[1] = gc_pixmap_load("erase/transparent_square_green.png");
-      CoverPixmap[2] = gc_pixmap_load("erase/transparent_square_yellow.png");
+      CoverPixmap[0] = gc_rsvg_load("erase/transparent_square.svgz");
+      CoverPixmap[1] = gc_rsvg_load("erase/transparent_square_green.svgz");
+      CoverPixmap[2] = gc_rsvg_load("erase/transparent_square_yellow.svgz");
 
       event_handle_id =
 	g_signal_connect(goo_canvas_get_root_item(gcomprisBoard->canvas),
@@ -214,17 +214,21 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       sound_policy = gc_sound_policy_get();
       gc_sound_policy_set(PLAY_AND_INTERRUPT);
 
-      GdkPixbuf *cursor_pixbuf = gc_pixmap_load("erase/sponge.png");
-      if(cursor_pixbuf)
+      GcomprisProperties *properties = gc_prop_get ();
+      if(properties->defaultcursor == GCOMPRIS_DEFAULT_CURSOR)
 	{
-	  GdkCursor *cursor = NULL;
-	  cursor = gdk_cursor_new_from_pixbuf(gdk_display_get_default(),
-					      cursor_pixbuf,
-					      gdk_pixbuf_get_width(cursor_pixbuf)/2,
-					      gdk_pixbuf_get_height(cursor_pixbuf)/2);
-	  gdk_window_set_cursor(gc_get_window()->window, cursor);
-	  gdk_cursor_unref(cursor);
-	  gdk_pixbuf_unref(cursor_pixbuf);
+	  GdkPixbuf *cursor_pixbuf = gc_pixmap_load("erase/sponge.png");
+	  if(cursor_pixbuf)
+	    {
+	      GdkCursor *cursor = NULL;
+	      cursor = gdk_cursor_new_from_pixbuf(gdk_display_get_default(),
+						  cursor_pixbuf,
+						  gdk_pixbuf_get_width(cursor_pixbuf)/2,
+						  gdk_pixbuf_get_height(cursor_pixbuf)/2);
+	      gdk_window_set_cursor(gc_get_window()->window, cursor);
+	      gdk_cursor_unref(cursor);
+	      gdk_pixbuf_unref(cursor_pixbuf);
+	    }
 	}
     }
 }
@@ -234,7 +238,7 @@ static void end_board ()
   int i;
   for(i=0; i<MAX_LAYERS; i++)
     if(CoverPixmap[i]) {
-      gdk_pixbuf_unref(CoverPixmap[i]);
+      g_object_unref(CoverPixmap[i]);
       CoverPixmap[i]=NULL;
     }
 
@@ -370,14 +374,15 @@ static void add_one_item(int i, int j, int protect)
 
   while(current_layer--)
     {
+      RsvgDimensionData dimension;
+
       assert(CoverPixmap[current_layer]);
       GooCanvasItem *item =
-	goo_canvas_image_new (boardRootItem,
-			      CoverPixmap[current_layer],
-			      0,
-			      0,
-			      NULL);
-      double scale = h/gdk_pixbuf_get_height(CoverPixmap[current_layer]);
+	goo_svg_item_new (boardRootItem,
+			  CoverPixmap[current_layer],
+			  NULL);
+      rsvg_handle_get_dimensions(CoverPixmap[current_layer], &dimension);
+      double scale = h/dimension.height;
       goo_canvas_item_set_simple_transform(item,
 					   i,
 					   j,
