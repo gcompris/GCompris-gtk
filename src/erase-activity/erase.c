@@ -524,7 +524,7 @@ canvas_event (GooCanvasItem  *item,
 	      GdkEventButton *event,
 	      gpointer data)
 {
-  if (!gcomprisBoard || board_paused)
+  if (!gcomprisBoard || board_paused || gamewon)
     return FALSE;
 
   if (board_mode == NORMAL)
