@@ -36,8 +36,8 @@ static void	 game_won(void);
 
 static GooCanvasItem *boardRootItem = NULL;
 
-static void		 money_destroy_all_items(void);
-static void		 money_next_level(void);
+static void	 money_destroy_all_items(void);
+static void	 money_next_level(void);
 
 Money_Widget    *tux_money    = NULL;
 Money_Widget    *seller_money = NULL;
@@ -54,22 +54,22 @@ typedef struct {
 // List of images to use in the game
 static gchar *imageList[] =
 {
-  "money/apple.png",
-  "money/bicycle.png",
-  "money/bottle.png",
-  "money/carot.png",
-  "money/cerise.png",
-  "money/crown.png",
-  "money/eggpot.png",
-  "money/flower.png",
-  "money/football.png",
-  "money/lamp.png",
-  "money/light.png",
-  "money/peer.png",
-  "money/pencil.png",
-  "money/strawberry.png"
+  "money/apple.svgz",
+  "money/bicycle.svgz",
+  "money/bottle.svgz",
+  "money/carot.svgz",
+  "money/eggpot.svgz",
+  "money/lamp.svgz",
+  "money/light.svgz",
+  "money/pamplemousse.svgz",
+  "money/crown.svgz",
+  "money/cerise.svgz",
+  "money/cake.svgz",
+  "money/football.svgz",
+  "money/banane.svgz",
+  "money/orange.svgz",
 };
-#define NUMBER_OF_IMAGES 14
+#define NUMBER_OF_IMAGES G_N_ELEMENTS(imageList)
 
 #define WITHOUT_CENTS	1
 #define WITH_CENTS	2
@@ -198,7 +198,6 @@ gboolean is_our_board (GcomprisBoard *gcomprisBoard)
 /* set initial values for the next level */
 static void money_next_level()
 {
-  GdkPixbuf       *pixmap = NULL;
   guint		   min_price = 0, max_price = 0;
   guint		   number_of_item = 0;
   guint		   i;
@@ -222,8 +221,8 @@ static void money_next_level()
   tux_money = MONEY_WIDGET(money_widget_new());
   money_widget_set_position(tux_money,
 			    boardRootItem,
-			    100.0, 400.0,
-			    700.0, 500.0,
+			    100.0, 380.0,
+			    700.0, 490.0,
 			    5, 2,
 			    FALSE);
 
@@ -432,8 +431,8 @@ static void money_next_level()
 	  break;
 	case 5:
 	  number_of_item = 4;
-	  min_price      = 1;
-	  max_price      = 3;
+	  min_price      = 0;
+	  max_price      = 4;
 	  money_widget_add(tux_money, MONEY_EURO_COIN_2E);
 	  money_widget_add(tux_money, MONEY_EURO_COIN_1E);
 	  money_widget_add(tux_money, MONEY_EURO_COIN_5C);
@@ -452,7 +451,7 @@ static void money_next_level()
   seller_money = MONEY_WIDGET(money_widget_new());
   money_widget_set_position(seller_money,
 			    boardRootItem,
-			    100.0,  30.0,
+			    100.0,  20.0,
 			    700.0, 130.0,
 			    5, 2,
 			    FALSE);
@@ -464,22 +463,38 @@ static void money_next_level()
   price_target = 0;
   for(i=1; i<=number_of_item; i++)
   {
-    double object_price;
+    gdouble object_price;
     gchar *text;
+    GooCanvasItem *item;
+    RsvgHandle *svg_handle;
+    RsvgDimensionData dimension;
+    double xratio, yratio;
 
-    pixmap = gc_pixmap_load(imageList[g_random_int_range(0, NUMBER_OF_IMAGES-1)]);
+    svg_handle = \
+      gc_rsvg_load(imageList[g_random_int_range(0, NUMBER_OF_IMAGES-1)]);
 
-    goo_canvas_image_new ( boardRootItem,
-			   pixmap,
-			   (i*BOARDWIDTH)/(number_of_item+1)
-			   - gdk_pixbuf_get_width(pixmap)/2,
-			   200,
-			   NULL);
+    rsvg_handle_get_dimensions(svg_handle, &dimension);
 
-    /* Diplay the price */
-    object_price  = (double) g_random_int_range(min_price/number_of_item, max_price/number_of_item);
+    item = goo_svg_item_new ( boardRootItem,
+			      svg_handle,
+			      NULL);
 
-    if(currentMode==WITH_CENTS)
+    xratio =  (gdouble)(BOARDWIDTH/(number_of_item+1)) / dimension.width;
+    yratio =  100.0 / dimension.height;
+
+    xratio = yratio = MIN(xratio, yratio);
+    goo_canvas_item_translate(item,
+			      (i*BOARDWIDTH)/(number_of_item+1)
+    			      - dimension.width*xratio/2,
+    			      200);
+
+    goo_canvas_item_scale(item, xratio, xratio);
+
+    /* Display the price */
+    object_price  = (double) g_random_int_range(min_price/number_of_item,
+						max_price/number_of_item);
+
+    if(currentMode == WITH_CENTS)
       {
 	/* Set here the way to display money. Change only the money sign, and it's place, always keep %.2f, it will be replaced by 0,34 if decimal is ',' in your locale */
 	display_format = _("$ %.2f");
@@ -502,15 +517,15 @@ static void money_next_level()
     text = g_strdup_printf(display_format, object_price);
     goo_canvas_text_new(boardRootItem,
 			text,
-			(double) (i*BOARDWIDTH)/(number_of_item+1),
-			(double) 180,
+			(i*BOARDWIDTH)/(number_of_item+1),
+			185,
 			-1,
 			GTK_ANCHOR_CENTER,
 			"font", gc_skin_font_board_big,
 			"fill-color", "white",
 			NULL);
     g_free(text);
-    gdk_pixbuf_unref(pixmap);
+    g_object_unref(svg_handle);
   }
 
 }

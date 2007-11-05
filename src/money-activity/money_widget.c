@@ -39,7 +39,7 @@ struct _Money_WidgetPrivate {
   Money_Widget		*targetWidget;	/* Target money widget to add when remove here	  */
   gboolean		 display_total;	/* Display or not the total of this pocket        */
 
-  GooCanvasItem	*item_total;	/* Item to display the total                      */
+  GooCanvasItem		*item_total;	/* Item to display the total                      */
   GList			*moneyItemList;	/* List of all the items			  */
 };
 
@@ -54,24 +54,24 @@ struct _MoneyList {
 // List of images to use in the game
 static const MoneyList euroList[] =
 {
-  { "money/euro/c1c.png",		0.01  },
-  { "money/euro/c2c.png",		0.02  },
-  { "money/euro/c5c.png",		0.05  },
-  { "money/euro/c10c.png",		0.1   },
-  { "money/euro/c20c.png",		0.20  },
-  { "money/euro/c50c.png",		0.5   },
-  { "money/euro/c1e.png",		1.0   },
-  { "money/euro/c2e.png",		2.0   },
-  { "money/euro/p5e.png",		5.0   },
-  { "money/euro/p10e.png",		10.0  },
-  { "money/euro/p20e.png",		20.0  },
-  { "money/euro/p50e.png",		50.0  },
-  { NULL,				-1.0  }
+  { "money/c1c.svgz",		0.01  },
+  { "money/c2c.svgz",		0.02  },
+  { "money/c5c.svgz",		0.05  },
+  { "money/c10c.svgz",		0.1   },
+  { "money/c20c.svgz",		0.20  },
+  { "money/c50c.svgz",		0.5   },
+  { "money/c1e.svgz",		1.0   },
+  { "money/c2e.svgz",		2.0   },
+  { "money/n5e.svgz",		5.0   },
+  { "money/n10e.svgz",		10.0  },
+  { "money/n20e.svgz",		20.0  },
+  { "money/n50e.svgz",		50.0  },
+  { NULL,			-1.0  }
 };
 
 typedef struct {
   Money_Widget		*moneyWidget;
-  GooCanvasItem	*item;
+  GooCanvasItem		*item;
   MoneyEuroType		 value;
   gboolean		 inPocket;
 } MoneyItem;
@@ -82,7 +82,10 @@ typedef struct {
 static void class_init (Money_WidgetClass *class);
 static void init (Money_Widget *pos);
 static void money_display_total(Money_Widget *moneyWidget);
-static gint item_event(GooCanvasItem *item, GdkEvent *event, MoneyItem *moneyitem);
+static gboolean item_event (GooCanvasItem  *item,
+			    GooCanvasItem  *target,
+			    GdkEventButton *event,
+			    MoneyItem *moneyItem);
 
 GtkType
 money_widget_get_type ()
@@ -209,15 +212,16 @@ money_widget_set_position (Money_Widget *moneyWidget,
 			 NULL);
   */
 
-  moneyWidget->priv->item_total =  goo_canvas_text_new(rootItem,
-						       "",
-						       (double) x1+(x2-x1)/2,
-						       (double) y2 + 10,
-						       -1,
-						       GTK_ANCHOR_CENTER,
-						       "font", gc_skin_font_board_big,
-						       "fill-color", "white",
-						       NULL);
+  moneyWidget->priv->item_total =  \
+    goo_canvas_text_new(rootItem,
+			"",
+			x1+(x2-x1)/2,
+			y2 + 10,
+			-1,
+			GTK_ANCHOR_CENTER,
+			"font", gc_skin_font_board_big,
+			"fill-color", "white",
+			NULL);
 
 }
 
@@ -226,7 +230,7 @@ static void money_display_total(Money_Widget *moneyWidget)
   gchar *tmpstr;
   g_return_if_fail (moneyWidget != NULL);
 
-  tmpstr = g_strdup_printf("%.2f €", moneyWidget->priv->total);
+  tmpstr = g_strdup_printf("%.2f", moneyWidget->priv->total);
   if(moneyWidget->priv->display_total)
     g_object_set (moneyWidget->priv->item_total,
 			   "text", tmpstr,
@@ -238,12 +242,13 @@ static void money_display_total(Money_Widget *moneyWidget)
 void
 money_widget_add (Money_Widget *moneyWidget, MoneyEuroType value)
 {
-  GooCanvasItem *item   = NULL;
-  GdkPixbuf       *pixmap = NULL;
-  double	   xratio, yratio, ratio;
-  double	   block_width, block_height;
-  MoneyItem	  *moneyitem;
-  guint		   i, length;
+  GooCanvasItem *item;
+  RsvgHandle    *svg_handle;
+  RsvgDimensionData dimension;
+  double	 xratio, yratio, ratio;
+  double	 block_width, block_height;
+  MoneyItem	*moneyitem;
+  guint		 i, length;
 
   g_return_if_fail (moneyWidget != NULL);
 
@@ -251,11 +256,14 @@ money_widget_add (Money_Widget *moneyWidget, MoneyEuroType value)
   length = g_list_length(moneyWidget->priv->moneyItemList);
   for(i=0; i<length; i++)
     {
-      moneyitem = (MoneyItem *)g_list_nth_data(moneyWidget->priv->moneyItemList, i);
+      moneyitem = \
+	(MoneyItem *)g_list_nth_data(moneyWidget->priv->moneyItemList,
+				     i);
 
       if(moneyitem && !moneyitem->inPocket && moneyitem->value == value)
 	{
-	  g_object_set (moneyitem->item, "visibility", GOO_CANVAS_ITEM_VISIBLE, NULL);
+	  g_object_set (moneyitem->item,
+			"visibility", GOO_CANVAS_ITEM_VISIBLE, NULL);
 	  moneyitem->inPocket = TRUE;
 	  moneyWidget->priv->total += euroList[value].value;
 	  money_display_total(moneyWidget);
@@ -265,30 +273,39 @@ money_widget_add (Money_Widget *moneyWidget, MoneyEuroType value)
 
   /* There is no already suitable item create, create a new one */
 
-  if(moneyWidget->priv->next_spot > moneyWidget->priv->columns * moneyWidget->priv->lines)
+  if(moneyWidget->priv->next_spot
+     > moneyWidget->priv->columns * moneyWidget->priv->lines)
     g_message("More money items requested than the pocket size\n");
 
-  block_width  = (moneyWidget->priv->x2 - moneyWidget->priv->x1) / moneyWidget->priv->columns;
-  block_height = (moneyWidget->priv->y2 - moneyWidget->priv->y1) / moneyWidget->priv->lines;
+  block_width  = \
+    (moneyWidget->priv->x2 - moneyWidget->priv->x1)
+    / moneyWidget->priv->columns;
+  block_height = \
+    (moneyWidget->priv->y2 - moneyWidget->priv->y1) / moneyWidget->priv->lines;
 
-  pixmap = gc_pixmap_load((gchar *)euroList[value].image);
+  svg_handle = gc_rsvg_load(euroList[value].image);
 
-  xratio =  block_width  / (gdk_pixbuf_get_width (pixmap) + BORDER_GAP);
-  yratio =  block_height / (gdk_pixbuf_get_height(pixmap) + BORDER_GAP);
+  rsvg_handle_get_dimensions(svg_handle, &dimension);
+
+  xratio =  block_width  / (dimension.width + BORDER_GAP);
+  yratio =  block_height / (dimension.height + BORDER_GAP);
   ratio = yratio = MIN(xratio, yratio);
 
-  item =  goo_canvas_image_new ( moneyWidget->priv->rootItem,
-				 pixmap,
-				 moneyWidget->priv->x1 +
-				 (moneyWidget->priv->next_spot % moneyWidget->priv->columns) * block_width
-				 +  block_width/2 - (gdk_pixbuf_get_width(pixmap) * ratio)/2,
-				 moneyWidget->priv->y1 +
-				 (moneyWidget->priv->next_spot / moneyWidget->priv->columns)
-				 * block_height
-				 + block_height/2 - (gdk_pixbuf_get_height(pixmap) * ratio)/2,
-				 "width",  (double) gdk_pixbuf_get_width(pixmap)  * ratio,
-				 "height", (double) gdk_pixbuf_get_height(pixmap) * ratio,
-				 NULL);
+  item =  goo_svg_item_new(moneyWidget->priv->rootItem,
+			   svg_handle,
+			   NULL);
+
+  goo_canvas_item_translate(item,
+			    moneyWidget->priv->x1 +
+			    (moneyWidget->priv->next_spot % moneyWidget->priv->columns) * block_width
+			    +  block_width/2 - (dimension.width * ratio)/2,
+			    moneyWidget->priv->y1 +
+			    (moneyWidget->priv->next_spot / moneyWidget->priv->columns)
+			    * (block_height + BORDER_GAP)
+			    + block_height/2 - (dimension.height * ratio)/2);
+  goo_canvas_item_scale(item,
+			ratio,
+  			ratio);
 
   moneyitem = g_malloc(sizeof(MoneyItem));
   moneyitem->moneyWidget = moneyWidget;
@@ -296,12 +313,15 @@ money_widget_add (Money_Widget *moneyWidget, MoneyEuroType value)
   moneyitem->value  = value;
   moneyitem->inPocket = TRUE;
 
-  moneyWidget->priv->moneyItemList = g_list_append (moneyWidget->priv->moneyItemList,
-						    moneyitem);
+  moneyWidget->priv->moneyItemList = \
+    g_list_append (moneyWidget->priv->moneyItemList,
+		   moneyitem);
 
-  g_signal_connect(GTK_OBJECT(item), "enter_notify_event", (GtkSignalFunc) item_event, moneyitem);
+  g_signal_connect(item,
+		   "button_press_event", (GtkSignalFunc) item_event,
+		   moneyitem);
 
-  gdk_pixbuf_unref(pixmap);
+  g_object_unref(svg_handle);
 
   moneyWidget->priv->next_spot++;
 
@@ -330,14 +350,17 @@ money_widget_get_total (Money_Widget *moneyWidget)
 }
 
 
-static gint
-item_event(GooCanvasItem *item, GdkEvent *event, MoneyItem *moneyItem)
+static gboolean
+item_event (GooCanvasItem  *item,
+	    GooCanvasItem  *target,
+	    GdkEventButton *event,
+	    MoneyItem *moneyItem)
 {
 
   switch (event->type)
     {
     case GDK_BUTTON_PRESS:
-      switch(event->button.button)
+      switch(event->button)
 	{
 	case 1:
 	  g_object_set (item, "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
