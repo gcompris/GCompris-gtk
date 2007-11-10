@@ -64,10 +64,13 @@ goo_svg_item_new (GooCanvasItem      *parent,
 
   svg_item = (GooSvgItem*) item;
   svg_item->svg_handle = svg_handle;
-  g_object_ref (svg_handle);
-  rsvg_handle_get_dimensions (svg_handle, &dimension_data);
-  svg_item->width = dimension_data.width;
-  svg_item->height = dimension_data.height;
+  if(svg_handle)
+    {
+      g_object_ref (svg_handle);
+      rsvg_handle_get_dimensions (svg_handle, &dimension_data);
+      svg_item->width = dimension_data.width;
+      svg_item->height = dimension_data.height;
+    }
 
   va_start (var_args, svg_handle);
   first_property = va_arg (var_args, char*);
@@ -91,7 +94,7 @@ goo_svg_item_new (GooCanvasItem      *parent,
    storing them in simple->bounds. */
 static void
 goo_svg_item_update  (GooCanvasItemSimple *simple,
-		       cairo_t             *cr)
+		      cairo_t             *cr)
 {
   GooSvgItem *svg_item = (GooSvgItem*) simple;
 
@@ -112,7 +115,8 @@ goo_svg_item_paint (GooCanvasItemSimple   *simple,
 {
   GooSvgItem *svg_item = (GooSvgItem*) simple;
 
-  rsvg_handle_render_cairo (svg_item->svg_handle, cr);
+  if(svg_item->svg_handle)
+    rsvg_handle_render_cairo (svg_item->svg_handle, cr);
 }
 
 
@@ -130,7 +134,8 @@ goo_svg_item_set_common_property (GObject              *object,
     {
     case PROP_SVGHANDLE:
       svg_handle = g_value_get_object (value);
-      g_object_unref (svg_item->svg_handle);
+      if(svg_item->svg_handle)
+	g_object_unref (svg_item->svg_handle);
       g_object_ref (svg_handle);
       svg_item->svg_handle = svg_handle;
       rsvg_handle_get_dimensions (svg_handle, &dimension_data);

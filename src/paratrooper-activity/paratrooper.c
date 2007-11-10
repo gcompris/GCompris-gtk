@@ -30,11 +30,11 @@ static GcomprisBoard *gcomprisBoard = NULL;
 static gint drop_tux_id = 0;
 
 static GooCanvasItem *boardRootItem = NULL;
-static gint boat_x, boat_y, boat_landarea_y, boat_length;
+static gint boat_x, boat_y, boat_landarea_y, boat_width;
 
 static gint plane_x, plane_y;
 static gint planespeed_x;
-static double windspeed;
+static gdouble windspeed;
 
 static GooCanvasItem *planeitem;
 
@@ -53,15 +53,12 @@ typedef struct {
   double speed;
   double drift;
   gboolean speed_override;
-  double x;
-  double y;
   GooCanvasItem *rootitem;
   GooCanvasItem *paratrooper;
-  GooCanvasItem *parachute;
   GooCanvasItem *instruct;
 } ParatrooperItem;
 
-static  ParatrooperItem	     paratrooperItem;
+static  ParatrooperItem paratrooperItem;
 
 
 static void	 	 start_board (GcomprisBoard *agcomprisBoard);
@@ -83,8 +80,8 @@ static gboolean		 item_event (GooCanvasItem  *item,
 static void		 next_state(void);
 
 
-static  double               speed = 0.0;
-static  double               imageZoom = 0.0;
+static double            speed = 0.0;
+static double            imageZoom = 0.0;
 
 /* Description of this plugin */
 static BoardPlugin menu_bp =
@@ -290,6 +287,8 @@ static void paratrooper_next_level()
   RsvgHandle *svg_handle;
   RsvgDimensionData rsvg_dimension;
   GooCanvasItem *item;
+  GooCanvasItem *planeroot;
+  GooCanvasBounds bounds;
 
   gamewon = FALSE;
 
@@ -311,11 +310,14 @@ static void paratrooper_next_level()
   svg_handle = gc_rsvg_load("paratrooper/tuxplane.svgz");
   rsvg_handle_get_dimensions (svg_handle, &rsvg_dimension);
 
+  planeroot = \
+    goo_canvas_group_new (boardRootItem,
+			  NULL);
   planespeed_x = 4 + gcomprisBoard->level;
 
   plane_x = -rsvg_dimension.width;
   plane_y = 10;
-  planeitem = goo_svg_item_new (boardRootItem,
+  planeitem = goo_svg_item_new (planeroot,
 				svg_handle,
 				NULL);
 
@@ -324,14 +326,14 @@ static void paratrooper_next_level()
 				       plane_y,
 				       imageZoom,
 				       0);
-  goo_canvas_item_animate(planeitem,
-			  BOARDWIDTH * imageZoom,
+  goo_canvas_item_animate(planeroot,
+			  BOARDWIDTH + rsvg_dimension.width,
 			  plane_y,
 			  1,
 			  0,
 			  FALSE,
 			  BOARDWIDTH * speed,
-			  40,
+			  speed*1.5,
 			  GOO_CANVAS_ANIMATE_RESTART);
 
   g_signal_connect(planeitem, "button-press-event",
@@ -366,14 +368,17 @@ static void paratrooper_next_level()
 			    -rsvg_dimension.width/2,
 			    boat_y - 50);
 
+  goo_canvas_item_get_bounds(item, &bounds);
+  boat_width = bounds.x2 - bounds.x1;
+
   goo_canvas_item_animate(item,
 			  boat_x,
 			  boat_y,
 			  1,
 			  0,
 			  TRUE,
-			  BOARDWIDTH * 40,
-			  40,
+			  BOARDWIDTH/2 * 30,
+			  40*2,
 			  GOO_CANVAS_ANIMATE_FREEZE);
 
   g_object_unref(svg_handle);
@@ -385,43 +390,26 @@ static void paratrooper_next_level()
   }
 
   paratrooperItem.status	= TUX_INPLANE;
-  paratrooperItem.x		= 0;
-  paratrooperItem.y		= 60;
   paratrooperItem.speed		= 3;
 
   paratrooperItem.rootitem = \
     goo_canvas_group_new (boardRootItem,
 			  NULL);
-  goo_canvas_item_translate(paratrooperItem.rootitem,
-			    paratrooperItem.x,
-			    paratrooperItem.y);
-
-  svg_handle = gc_rsvg_load("paratrooper/minitux.svgz");
 
   paratrooperItem.paratrooper = \
     goo_svg_item_new (paratrooperItem.rootitem,
-		      svg_handle,
+		      NULL,
 		      NULL);
 
   g_object_set (paratrooperItem.paratrooper, "visibility",
 		GOO_CANVAS_ITEM_INVISIBLE, NULL);
-  g_object_unref(svg_handle);
+
   g_signal_connect(paratrooperItem.paratrooper, "button-press-event",
 		     (GtkSignalFunc) item_event,
 		     NULL);
   g_signal_connect(paratrooperItem.paratrooper, "enter_notify_event",
 		     (GtkSignalFunc) gc_item_focus_event,
 		     NULL);
-
-  svg_handle = gc_rsvg_load("paratrooper/parachute.svgz");
-
-  paratrooperItem.parachute = \
-    goo_svg_item_new (paratrooperItem.rootitem,
-		      svg_handle,
-		      NULL);
-  g_object_set (paratrooperItem.parachute, "visibility",
-		GOO_CANVAS_ITEM_INVISIBLE, NULL);
-  g_object_unref(svg_handle);
 
   paratrooperItem.instruct = \
     goo_canvas_text_new (boardRootItem,
@@ -449,18 +437,27 @@ static void paratrooper_destroy_all_items()
  * This does the moves of the game's paratropper
  *
  */
-static gint paratrooper_move_tux (GtkWidget *widget, gpointer data)
+static gint
+paratrooper_move_tux (GtkWidget *widget, gpointer data)
 {
   double offset;
+  GooCanvasBounds bounds;
+  guint center;
+
+  goo_canvas_item_get_bounds(paratrooperItem.paratrooper, &bounds);
+
+  center = bounds.x1 + (bounds.x2 - bounds.x1) / 2;
 
   /* Manage the wrapping */
-  if(paratrooperItem.x<0) {
-    paratrooperItem.x+=gcomprisBoard->width;
-    goo_canvas_item_translate(paratrooperItem.rootitem, gcomprisBoard->width, 0);
+  if(center < 0) {
+    goo_canvas_item_translate(paratrooperItem.rootitem,
+			      gcomprisBoard->width,
+			      0);
   }
-  if(paratrooperItem.x>gcomprisBoard->width) {
-    paratrooperItem.x-=gcomprisBoard->width;
-    goo_canvas_item_translate(paratrooperItem.rootitem, -gcomprisBoard->width, 0);
+  if(center > gcomprisBoard->width) {
+    goo_canvas_item_translate(paratrooperItem.rootitem,
+			      -gcomprisBoard->width,
+			      0);
   }
 
   offset = (windspeed / 2 + 15 * paratrooperItem.drift) / 16;
@@ -468,31 +465,32 @@ static gint paratrooper_move_tux (GtkWidget *widget, gpointer data)
 
   if (paratrooperItem.status == TUX_DROPPING && gcomprisBoard->level >= 4)
     paratrooperItem.speed *= 1.05;
+
   if (paratrooperItem.status == TUX_FLYING && paratrooperItem.speed > 3 &&
       !paratrooperItem.speed_override)
     paratrooperItem.speed /= 1.2;
-  goo_canvas_item_translate(paratrooperItem.rootitem, offset, paratrooperItem.speed);
-  paratrooperItem.y += paratrooperItem.speed;
-  paratrooperItem.x += offset;
+
+  goo_canvas_item_translate(paratrooperItem.rootitem,
+  			    offset, paratrooperItem.speed);
 
   /* Check we reached the target */
-  if(paratrooperItem.y>boat_landarea_y)
+  if(bounds.y2 > boat_landarea_y)
     {
-      if(paratrooperItem.x>boat_x && paratrooperItem.x<boat_x+boat_length &&
-	 paratrooperItem.status==TUX_FLYING)
+      if( center > boat_x &&
+	  center < boat_x + boat_width &&
+	  paratrooperItem.status == TUX_FLYING)
 	{
-	  g_object_set (paratrooperItem.parachute, "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
 	  paratrooperItem.status = TUX_LANDED;
 	  next_state();
 	}
       else
 	{
-	  if(paratrooperItem.y<gcomprisBoard->height-20)
+	  if(bounds.y2 < gcomprisBoard->height - 20)
 	    drop_tux_id = gtk_timeout_add (150,
-					   (GtkFunction) paratrooper_move_tux, NULL);
+					   (GtkFunction) paratrooper_move_tux,
+					   NULL);
 	  else
 	    {
-	      g_object_set (paratrooperItem.parachute, "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
 	      paratrooperItem.status = TUX_CRASHED;
 	      next_state();
 	    }
@@ -512,6 +510,7 @@ paratrooper_create_cloud(GooCanvasItem *parent)
 {
   RsvgHandle *svg_handle = NULL;
   GooCanvasItem *item;
+  GooCanvasItem *root;
   int x, y;
   int x_end;
   RsvgDimensionData rsvg_dimension;
@@ -526,30 +525,32 @@ paratrooper_create_cloud(GooCanvasItem *parent)
     }
   else
     {
-      x = gcomprisBoard->width;
+      x = gcomprisBoard->width - rsvg_dimension.width * imageZoom;
       x_end = 0;
     }
 
-  y = (rand()%(gcomprisBoard->height-200-
-	       rsvg_dimension.height));
+  y = 60;
 
-  printf("paratrooper_create_cloud %d wind=%f\n", y, windspeed);
-  item = goo_svg_item_new (parent,
+  root = \
+    goo_canvas_group_new (parent,
+			  NULL);
+
+  item = goo_svg_item_new (root,
 			   svg_handle,
 			   NULL);
 
-  goo_canvas_item_set_simple_transform(item,
-				       x, y,
-				       1,
-				       0);
+  goo_canvas_item_scale(item,
+			imageZoom, imageZoom);
 
-  goo_canvas_item_animate(item,
+  goo_canvas_item_translate(root, x, y);
+
+  goo_canvas_item_animate(root,
 			  x_end,
 			  y,
 			  1,
 			  0,
 			  TRUE,
-			  BOARDWIDTH * windspeed,
+			  BOARDWIDTH * (80 / ABS(windspeed)),
 			  40,
 			  GOO_CANVAS_ANIMATE_RESTART);
   g_object_unref(svg_handle);
@@ -576,47 +577,78 @@ static gint paratrooper_drop_clouds (GtkWidget *widget, gpointer data)
  */
 void next_state()
 {
+  GooCanvasBounds bounds;
 
   switch(paratrooperItem.status)
     {
     case TUX_INPLANE:
-      gc_sound_play_ogg ("sounds/tuxok.wav", NULL);
-      goo_canvas_item_translate(paratrooperItem.rootitem, plane_x+100, 0);
-      paratrooperItem.x += plane_x+100;
-      g_object_set (paratrooperItem.paratrooper, "visibility", GOO_CANVAS_ITEM_VISIBLE, NULL);
-      paratrooperItem.status = TUX_DROPPING;
-      paratrooperItem.drift = planespeed_x;
-      drop_tux_id = gtk_timeout_add (10, (GtkFunction) paratrooper_move_tux, NULL);
-      break;
-    case TUX_DROPPING:
-      gc_sound_play_ogg ("sounds/eraser2.wav", NULL);
-      goo_canvas_item_lower(paratrooperItem.parachute, NULL);
-      g_object_set (paratrooperItem.parachute, "visibility", GOO_CANVAS_ITEM_VISIBLE, NULL);
-      paratrooperItem.status = TUX_FLYING;
-      paratrooperItem.speed_override = 0;
-      if (gcomprisBoard->level >= 2) {
-	goo_canvas_item_raise (paratrooperItem.instruct, NULL);
-	g_object_set (paratrooperItem.instruct, "visibility", GOO_CANVAS_ITEM_VISIBLE, NULL);
+      {
+	RsvgHandle *svg_handle;
+
+	gc_sound_play_ogg ("sounds/tuxok.wav", NULL);
+
+	svg_handle = gc_rsvg_load("paratrooper/minitux.svgz");
+	g_object_set (paratrooperItem.paratrooper,
+		      "rsvg-handle", svg_handle,
+		      NULL);
+	g_object_unref(svg_handle);
+
+	goo_canvas_item_get_bounds(planeitem, &bounds);
+
+	g_object_set (paratrooperItem.paratrooper, "visibility",
+		      GOO_CANVAS_ITEM_VISIBLE, NULL);
+	paratrooperItem.status = TUX_DROPPING;
+	paratrooperItem.drift = planespeed_x;
+
+	goo_canvas_item_translate(paratrooperItem.rootitem,
+				  (bounds.x1 > 0 ? bounds.x1 : 0),
+				  bounds.y2);
+	drop_tux_id = \
+	  gtk_timeout_add (10, (GtkFunction) paratrooper_move_tux, NULL);
       }
       break;
+
+    case TUX_DROPPING:
+      {
+	RsvgHandle *svg_handle;
+
+	gc_sound_play_ogg ("sounds/eraser2.wav", NULL);
+
+	svg_handle = gc_rsvg_load("paratrooper/parachute.svgz");
+
+	g_object_set (paratrooperItem.paratrooper,
+		      "rsvg-handle", svg_handle,
+		      NULL);
+
+	g_object_unref(svg_handle);
+
+	paratrooperItem.status = TUX_FLYING;
+	paratrooperItem.speed_override = 0;
+	if (gcomprisBoard->level >= 2) {
+	  goo_canvas_item_raise (paratrooperItem.instruct, NULL);
+	  g_object_set (paratrooperItem.instruct, "visibility", GOO_CANVAS_ITEM_VISIBLE, NULL);
+	}
+      }
+      break;
+
     case TUX_LANDED:
       gc_sound_play_ogg ("sounds/tuxok.wav", NULL);
       g_object_set (paratrooperItem.instruct, "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
       gamewon = TRUE;
       gc_bonus_display(gamewon, GC_BONUS_TUX);
       break;
+
     case TUX_CRASHED:
       /* Restart */
       gc_sound_play_ogg ("sounds/bubble.wav", NULL);
       g_object_set (paratrooperItem.instruct, "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
-      goo_canvas_item_translate(paratrooperItem.rootitem, -paratrooperItem.x, -paratrooperItem.y+60);
+      goo_canvas_item_set_transform(paratrooperItem.rootitem, NULL);
       paratrooperItem.status	= TUX_INPLANE;
-      paratrooperItem.x		= 0;
-      paratrooperItem.y		= 60;
       paratrooperItem.speed	= 3;
       g_object_set (paratrooperItem.paratrooper, "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
       g_object_set (planeitem, "visibility", GOO_CANVAS_ITEM_VISIBLE, NULL);
       break;
+
     default:
       break;
     }
