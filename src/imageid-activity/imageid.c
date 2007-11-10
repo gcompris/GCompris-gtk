@@ -45,16 +45,16 @@ static void		 config_start(GcomprisBoard *agcomprisBoard,
 				      GcomprisProfile *aProfile);
 static void		 config_stop(void);
 
+#define MAX_PROPOSAL 6
 typedef struct {
-  char  *pixmapfile;
-  char  *text1;
-  char  *text2;
-  char  *text3;
+  gchar  *pixmapfile;
+  gchar  *text[MAX_PROPOSAL + 1];
+  guint solution; /* Index to solution in text[] */
 } Board;
 
 /* XML */
 static gboolean		 read_xml_file(char *fname);
-static void		 init_xml(void);
+static void		 init_xml(guint level);
 static void		 add_xml_data(xmlDocPtr doc,xmlNodePtr xmlnode, GNode * child);
 static void		 parse_doc(xmlDocPtr doc);
 static gboolean		 read_xml_file(char *fname);
@@ -64,7 +64,6 @@ static void		 destroy_board(Board * board);
 /* This is the list of boards */
 static GList *board_list = NULL;
 
-#define VERTICAL_SEPARATION 30
 #define HORIZONTAL_SEPARATION 30
 // the values are taken from the backgound image imageid-bg.jpg
 #define IMAGE_AREA_X1 280
@@ -72,28 +71,22 @@ static GList *board_list = NULL;
 #define IMAGE_AREA_Y1 90
 #define IMAGE_AREA_Y2 430
 
-//NUMBER_OF_SUBLEVELS*NUMBER_OF_LEVELS must equal the number of boards in XML file
-#define NUMBER_OF_SUBLEVELS 3
-#define NUMBER_OF_LEVELS 4
-
 #define TEXT_COLOR "white"
 
 /* ================================================================ */
 static int board_number; // between 0 and board_list.length-1
-static int right_word; // between 1 and 3, indicates which choice is the right one (the player clicks on it
+static int right_word; // indicates which choice is the right one
 
+static GooCanvasItem *selected_button;
 static GooCanvasItem *boardRootItem = NULL;
 
-static GooCanvasItem *image_item = NULL;
-static GooCanvasItem *text1_item = NULL;
-static GooCanvasItem *text2_item = NULL;
-static GooCanvasItem *text3_item = NULL;
-static GooCanvasItem *button1 = NULL, *button2 = NULL, *button3 = NULL, *selected_button = NULL;
-
-static GooCanvasItem *imageid_create_item(GooCanvasItem *parent);
+static void imageid_create_item(GooCanvasItem *parent);
 static void imageid_destroy_all_items(void);
 static void imageid_next_level(void);
-static gint item_event(GooCanvasItem *item, GdkEvent *event, gpointer data);
+static gboolean item_event (GooCanvasItem  *item,
+			    GooCanvasItem  *target,
+			    GdkEventButton *event,
+			    gpointer data);
 
 /* Description of this plugin */
 static BoardPlugin menu_bp =
@@ -132,7 +125,8 @@ GET_BPLUGIN_INFO(imageid)
  * in : boolean TRUE = PAUSE : FALSE = CONTINUE
  *
  */
-     static void pause_board (gboolean pause)
+static void
+pause_board (gboolean pause)
 {
   if(gcomprisBoard==NULL)
     return;
@@ -147,8 +141,10 @@ GET_BPLUGIN_INFO(imageid)
 
 /*
  */
-static void start_board (GcomprisBoard *agcomprisBoard)
+static void
+start_board (GcomprisBoard *agcomprisBoard)
 {
+  gchar *filename = NULL;
   GHashTable *config = gc_db_get_board_conf();
 
   gc_locale_set(g_hash_table_lookup( config, "locale"));
@@ -161,17 +157,22 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       gc_set_background(goo_canvas_get_root_item(gcomprisBoard->canvas),
 			"imageid/imageid-bg.jpg");
       gcomprisBoard->level=1;
-      gcomprisBoard->maxlevel=NUMBER_OF_LEVELS;
       gcomprisBoard->sublevel=1;
 
-      init_xml();
+      /* Calculate the maxlevel based on the available data file for this board */
+      gcomprisBoard->maxlevel=1;
 
-      gcomprisBoard->number_of_sublevel = NUMBER_OF_SUBLEVELS;
-      g_assert(NUMBER_OF_LEVELS*NUMBER_OF_SUBLEVELS == g_list_length(board_list));
-      gc_score_start(SCORESTYLE_NOTE,
-			   50,
-			   gcomprisBoard->height - 50,
-			   gcomprisBoard->number_of_sublevel);
+      while( (filename = gc_file_find_absolute("%s/board%d.xml",
+							 gcomprisBoard->boarddir,
+							 gcomprisBoard->maxlevel++,
+							 NULL)) )
+	{
+	  g_free(filename);
+
+	}
+      g_free(filename);
+
+      gcomprisBoard->maxlevel -= 2;
       gc_bar_set(GC_BAR_CONFIG|GC_BAR_LEVEL);
 
       imageid_next_level();
@@ -229,10 +230,35 @@ is_our_board (GcomprisBoard *gcomprisBoard)
 /*-------------------------------------------------------------------------------*/
 /*-------------------------------------------------------------------------------*/
 /* set initial values for the next level */
-static void imageid_next_level()
+static void
+imageid_next_level()
 {
   gc_bar_set_level(gcomprisBoard);
 
+  imageid_destroy_all_items();
+  selected_button = NULL;
+  gamewon = FALSE;
+
+  destroy_board_list();
+  init_xml(gcomprisBoard->level);
+
+  gcomprisBoard->number_of_sublevel = g_list_length(board_list);
+
+  gc_score_end();
+  gc_score_start(SCORESTYLE_NOTE,
+		 50,
+		 gcomprisBoard->height - 50,
+		 gcomprisBoard->number_of_sublevel);
+
+  gc_score_set(gcomprisBoard->sublevel);
+
+  /* Try the next level */
+  imageid_create_item(goo_canvas_get_root_item(gcomprisBoard->canvas));
+}
+
+static void
+imageid_next_sublevel()
+{
   imageid_destroy_all_items();
   selected_button = NULL;
   gamewon = FALSE;
@@ -241,8 +267,8 @@ static void imageid_next_level()
 
   /* Try the next level */
   imageid_create_item(goo_canvas_get_root_item(gcomprisBoard->canvas));
-
 }
+
 /* ==================================== */
 /* Destroy all the items */
 static void imageid_destroy_all_items()
@@ -252,172 +278,134 @@ static void imageid_destroy_all_items()
 
   boardRootItem = NULL;
 }
+
 /* ==================================== */
-static GooCanvasItem *imageid_create_item(GooCanvasItem *parent)
+static void
+imageid_create_item(GooCanvasItem *parent)
 {
-  char *buf[3];
-  int x, y, xp, yp, place;
+  GooCanvasItem *item;
+  GooCanvasItem *group;
+  GooCanvasItem *button;
+  int x, y, xp, yp;
+  guint vertical_separation;
   GdkPixbuf *pixmap = NULL;
   GdkPixbuf *button_pixmap = NULL;
   Board * board;
+  guint i;
 
-  board_number = (gcomprisBoard->level-1) * NUMBER_OF_SUBLEVELS + gcomprisBoard->sublevel-1;
-  /*  if (board_number >= g_list_length(board_list))
-      board_number = g_list_length(board_list)-1;
-  */
+  board_number = gcomprisBoard->sublevel-1;
+
   g_assert(board_number >= 0  && board_number < g_list_length(board_list));
-  place = g_random_int_range( 0, 3);
-  g_assert(place >= 0  && place < 3);
 
-  right_word = place+1;
-
-  boardRootItem = goo_canvas_group_new (goo_canvas_get_root_item(gcomprisBoard->canvas),
-					NULL);
-
+  boardRootItem = \
+    goo_canvas_group_new (goo_canvas_get_root_item(gcomprisBoard->canvas),
+			  NULL);
 
   button_pixmap = gc_skin_pixmap_load("button_large.png");
   /* display the image */
   board = g_list_nth_data(board_list, board_number);
   g_assert(board != NULL);
 
+  right_word = board->solution;
+
   pixmap = gc_pixmap_load(board->pixmapfile);
 
   x = IMAGE_AREA_X1 + ( IMAGE_AREA_X2 - IMAGE_AREA_X1 - gdk_pixbuf_get_width(pixmap))/2;
   y = IMAGE_AREA_Y1 + ( IMAGE_AREA_Y2 - IMAGE_AREA_Y1 - gdk_pixbuf_get_height(pixmap))/2;
 
-  image_item = goo_canvas_image_new (boardRootItem,
-				     pixmap,
-				     x,
-				     y,
-				     NULL);
+  item = goo_canvas_image_new (boardRootItem,
+			       pixmap,
+			       x,
+			       y,
+			       NULL);
 
   gdk_pixbuf_unref(pixmap);
 
-  /* display the 3 words */
-  /* the right word is at position 0 : it is swapped with any position depending of place value */
-
-  switch (place) {
-  case 1 :
-    buf[0] = board->text2;
-    buf[1] = board->text1;
-    buf[2] = board->text3;
-    break;
-  case 2 :
-    buf[0] = board->text3;
-    buf[1] = board->text2;
-    buf[2] = board->text1;
-    break;
-  default :
-    buf[0] = board->text1;
-    buf[1] = board->text2;
-    buf[2] = board->text3;
-    break;
-  }
-
   xp = HORIZONTAL_SEPARATION;
-  yp = (gcomprisBoard->height - 3*gdk_pixbuf_get_height(button_pixmap) - 2*VERTICAL_SEPARATION)/2;
 
-  button1 = goo_canvas_image_new (boardRootItem,
-				  button_pixmap,
-				  xp,
-				  yp,
-				  NULL);
-  goo_canvas_text_new (boardRootItem,
-		       buf[0],
-		       (double) xp + gdk_pixbuf_get_width(button_pixmap)/2 + 1.0,
-		       (double) yp + gdk_pixbuf_get_height(button_pixmap)/2 + 1.0,
-		       -1,
-		       GTK_ANCHOR_CENTER,
-		       "font", gc_skin_font_board_big,
-		       "fill_color_rgba", gc_skin_color_shadow,
-		       NULL);
-  text1_item = goo_canvas_text_new (boardRootItem,
-				    buf[0],
-				    (double) xp + gdk_pixbuf_get_width(button_pixmap)/2,
-				    (double) yp + gdk_pixbuf_get_height(button_pixmap)/2,
-				    -1,
-				    GTK_ANCHOR_CENTER,
-				    "font", gc_skin_font_board_big,
-				    "fill_color_rgba", gc_skin_color_text_button,
+  /* Calc the number of items */
+  i = 0;
+  while(board->text[i++]);
+
+  vertical_separation = 10 + 60 / i;
+
+  yp = (gcomprisBoard->height -
+	i * gdk_pixbuf_get_height(button_pixmap)
+	- 2 * vertical_separation)/2 - 20;
+
+  i = 0;
+  while(board->text[i])
+    {
+      group = goo_canvas_group_new (boardRootItem,
 				    NULL);
 
-  yp += gdk_pixbuf_get_height(button_pixmap) + VERTICAL_SEPARATION;
-  button2 = goo_canvas_image_new (boardRootItem,
-				  button_pixmap,
-				  xp,
-				  yp,
-				  NULL);
-  goo_canvas_text_new (boardRootItem,
-		       buf[1],
-		       (double) xp + gdk_pixbuf_get_width(button_pixmap)/2 + 1.0,
-		       (double) yp + gdk_pixbuf_get_height(button_pixmap)/2 + 1.0,
-		       -1,
-		       GTK_ANCHOR_CENTER,
-		       "font", gc_skin_font_board_big,
-		       "fill_color_rgba", gc_skin_color_shadow,
-		       NULL);
-  text2_item = goo_canvas_text_new (boardRootItem,
-				    buf[1],
-				    (double) xp + gdk_pixbuf_get_width(button_pixmap)/2,
-				    (double) yp + gdk_pixbuf_get_height(button_pixmap)/2,
-				    -1,
-				    GTK_ANCHOR_CENTER,
-				    "font", gc_skin_font_board_big,
-				    "fill_color_rgba", gc_skin_color_text_button,
-				    NULL);
+      button = goo_canvas_image_new (group,
+				     button_pixmap,
+				     xp,
+				     yp,
+				     NULL);
 
-  yp += gdk_pixbuf_get_height(button_pixmap) + VERTICAL_SEPARATION;
-  button3 = goo_canvas_image_new (boardRootItem,
-				  button_pixmap,
-				  xp,
-				  yp,
+      g_object_set_data(G_OBJECT(group),
+		      "button", button);
+
+      g_signal_connect(button, "button_press_event",
+		       (GtkSignalFunc) item_event,
+		       GINT_TO_POINTER(i));
+
+      item = goo_canvas_text_new (group,
+				  board->text[i],
+				  xp + gdk_pixbuf_get_width(button_pixmap)/2 + 1.0,
+				  yp + gdk_pixbuf_get_height(button_pixmap)/2 + 1.0,
+				  -1,
+				  GTK_ANCHOR_CENTER,
+				  "font", gc_skin_font_board_big,
+				  "fill_color_rgba", gc_skin_color_shadow,
 				  NULL);
 
-  goo_canvas_text_new (boardRootItem,
-		       buf[2],
-		       (double) xp + gdk_pixbuf_get_width(button_pixmap)/2 + 1.0,
-		       (double) yp + gdk_pixbuf_get_height(button_pixmap)/2 + 1.0,
-		       -1,
-		       GTK_ANCHOR_CENTER,
-		       "font", gc_skin_font_board_big,
-		       "fill_color_rgba", gc_skin_color_shadow,
-		       NULL);
-  text3_item = goo_canvas_text_new (boardRootItem,
-				    buf[2],
-				    (double) xp + gdk_pixbuf_get_width(button_pixmap)/2,
-				    (double) yp + gdk_pixbuf_get_height(button_pixmap)/2,
-				    -1,
-				    GTK_ANCHOR_CENTER,
-				    "font", gc_skin_font_board_big,
-				    "fill_color_rgba", gc_skin_color_text_button,
-				    NULL);
+      g_signal_connect(item, "button_press_event",
+		       (GtkSignalFunc) item_event,
+		       GINT_TO_POINTER(i));
+
+      item = goo_canvas_text_new (group,
+				  board->text[i],
+				  xp + gdk_pixbuf_get_width(button_pixmap)/2,
+				  yp + gdk_pixbuf_get_height(button_pixmap)/2,
+				  -1,
+				  GTK_ANCHOR_CENTER,
+				  "font", gc_skin_font_board_big,
+				  "fill_color_rgba", gc_skin_color_text_button,
+				  NULL);
+
+      g_signal_connect(item, "button_press_event",
+		       (GtkSignalFunc) item_event,
+		       GINT_TO_POINTER(i));
+
+      yp += gdk_pixbuf_get_height(button_pixmap) + vertical_separation;
+
+      i++;
+    }
 
   gdk_pixbuf_unref(button_pixmap);
 
-  g_signal_connect(GTK_OBJECT(button1), "enter_notify_event",  (GtkSignalFunc) item_event, NULL);
-  g_signal_connect(GTK_OBJECT(button2), "enter_notify_event",  (GtkSignalFunc) item_event, NULL);
-  g_signal_connect(GTK_OBJECT(button3), "enter_notify_event",  (GtkSignalFunc) item_event, NULL);
-
-  g_signal_connect(GTK_OBJECT(text1_item), "enter_notify_event", (GtkSignalFunc) item_event, NULL);
-  g_signal_connect(GTK_OBJECT(text2_item), "enter_notify_event", (GtkSignalFunc) item_event, NULL);
-  g_signal_connect(GTK_OBJECT(text3_item), "enter_notify_event", (GtkSignalFunc) item_event, NULL);
-
-  return NULL;
 }
 /* ==================================== */
 static void game_won()
 {
   gcomprisBoard->sublevel++;
-  if(gcomprisBoard->sublevel > gcomprisBoard->number_of_sublevel) {
-    /* Try the next level */
-    gcomprisBoard->sublevel=1;
-    gcomprisBoard->level++;
-    if(gcomprisBoard->level>gcomprisBoard->maxlevel) { // the current board is finished : bail out
-      gc_bonus_end_display(GC_BOARD_FINISHED_TUXLOCO);
-      return;
+  if(gcomprisBoard->sublevel > gcomprisBoard->number_of_sublevel)
+    {
+      /* Try the next level */
+      gcomprisBoard->sublevel=1;
+      gcomprisBoard->level++;
+      if(gcomprisBoard->level>gcomprisBoard->maxlevel)
+	{
+	  gc_bonus_end_display(GC_BOARD_FINISHED_TUXLOCO);
+	  return;
+	}
+      imageid_next_level();
     }
-  }
-  imageid_next_level();
+  else
+    imageid_next_sublevel();
 }
 
 /* ==================================== */
@@ -431,14 +419,14 @@ static void process_ok() {
   g_timeout_add(TIME_CLICK_TO_BONUS, process_ok_timeout, NULL);
 }
 /* ==================================== */
-static gint
-item_event(GooCanvasItem *item, GdkEvent *event, gpointer data)
+static gboolean
+item_event (GooCanvasItem  *item,
+	    GooCanvasItem  *target,
+	    GdkEventButton *event,
+	    gpointer data)
 {
-  double item_x, item_y;
-  GooCanvasItem * temp = NULL;
-  item_x = event->button.x;
-  item_y = event->button.y;
-  //goo_canvas_convert_to_item_space(item->parent, &item_x, &item_y);
+  gint button_id = GPOINTER_TO_INT(data);
+  GooCanvasItem *button;
 
   if(board_paused)
     return FALSE;
@@ -447,31 +435,16 @@ item_event(GooCanvasItem *item, GdkEvent *event, gpointer data)
     {
     case GDK_BUTTON_PRESS:
       board_paused = TRUE;
-      temp = item;
-      if (item == text1_item)
-	temp = button1;
-      if (item == text2_item)
-	temp = button2;
-      if (item == text3_item)
-	temp = button3;
 
-      g_assert(temp == button1 || temp == button2 || temp == button3);
-
-      if ( ( temp == button1 && right_word == 1) ||
-	   ( temp == button2 && right_word == 2) ||
-	   ( temp == button3 && right_word == 3) ) {
+      if ( button_id == right_word )
 	gamewon = TRUE;
-      } else {
+      else
 	gamewon = FALSE;
-      }
-      highlight_selected(temp);
+
+      button = (GooCanvasItem*)g_object_get_data(G_OBJECT(goo_canvas_item_get_parent(item)),
+						   "button");
+      highlight_selected(button);
       process_ok();
-      break;
-
-    case GDK_MOTION_NOTIFY:
-      break;
-
-    case GDK_BUTTON_RELEASE:
       break;
 
     default:
@@ -481,32 +454,25 @@ item_event(GooCanvasItem *item, GdkEvent *event, gpointer data)
 }
 
 /* ==================================== */
-static void highlight_selected(GooCanvasItem * item) {
+static void
+highlight_selected(GooCanvasItem * button)
+{
   GdkPixbuf *button_pixmap_selected = NULL, *button_pixmap = NULL;
-  GooCanvasItem *button;
 
-  /* Replace text item by button item */
-  button = item;
-  if ( button == text1_item ) {
-    button = button1;
-  } else if ( item == text2_item ) {
-    button = button2;
-  } else if ( item == text3_item ) {
-    button = button3;
-  }
+  if (selected_button != NULL && selected_button != button)
+    {
+      button_pixmap = gc_skin_pixmap_load("button_large.png");
+      g_object_set(selected_button, "pixbuf", button_pixmap, NULL);
+      gdk_pixbuf_unref(button_pixmap);
+    }
 
-  if (selected_button != NULL && selected_button != button) {
-    button_pixmap = gc_skin_pixmap_load("button_large.png");
-    g_object_set(selected_button, "pixbuf", button_pixmap, NULL);
-    gdk_pixbuf_unref(button_pixmap);
-  }
-
-  if (selected_button != button) {
-    button_pixmap_selected = gc_skin_pixmap_load("button_large_selected.png");
-    g_object_set(button, "pixbuf", button_pixmap_selected, NULL);
-    selected_button = button;
-    gdk_pixbuf_unref(button_pixmap_selected);
-  }
+  if (selected_button != button)
+    {
+      button_pixmap_selected = gc_skin_pixmap_load("button_large_selected.png");
+      g_object_set(button, "pixbuf", button_pixmap_selected, NULL);
+      selected_button = button;
+      gdk_pixbuf_unref(button_pixmap_selected);
+    }
 
 }
 
@@ -528,12 +494,13 @@ static void dump_xml() {
 }
 #endif
 
-static void init_xml()
+static void init_xml(guint level)
 {
   char *filename;
 
-  filename = gc_file_find_absolute("%s/board1.xml",
-				   gcomprisBoard->boarddir);
+  filename = gc_file_find_absolute("%s/board%d.xml",
+				   gcomprisBoard->boarddir,
+				   level);
 
   g_assert(read_xml_file(filename)== TRUE);
   g_free(filename);
@@ -542,77 +509,94 @@ static void init_xml()
 /* ==================================== */
 static void add_xml_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child)
 {
-  gchar *pixmapfile = NULL;
-  gchar *text1 = NULL, *text2 = NULL, *text3 = NULL;
-  Board * board = g_new(Board,1);
-  gboolean found_text1 = FALSE, found_text2 = FALSE, found_text3 = FALSE;
+  Board * board = g_new0(Board, 1);
+  guint text_index = 0;
 
   xmlnode = xmlnode->xmlChildrenNode;
 
-  xmlnode = xmlnode->next;
+  while( (xmlnode = xmlnode->next) != NULL)
+    {
+      if (!strcmp((char *)xmlnode->name, "pixmapfile"))
+	board->pixmapfile =						\
+	  (gchar *)xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 1);
 
-  while(xmlnode!=NULL) {
+      if (!strcmp((char *)xmlnode->name, "good"))
+	{
+	  board->solution = text_index;
+	  board->text[text_index++] =					\
+	    g_strdup(gettext((gchar *)xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 1)));
+	}
 
-    if (!strcmp((char *)xmlnode->name, "pixmapfile"))
-      pixmapfile = (gchar *)xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 1);
+      if (!strcmp((char *)xmlnode->name, "bad"))
+	board->text[text_index++] =					\
+	  g_strdup(gettext((gchar *)xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 1)));
 
-    if (!found_text1 && !strcmp((char *)xmlnode->name, "text1"))
+      if(text_index > MAX_PROPOSAL)
+	{
+	  gc_dialog(_("Data file for this level is not properly formatted. Too many choices are proposed."),
+		    gc_board_stop);
+	  g_free(board);
+	  return;
+	}
+    }
+
+  /* Check there is enough information to play it */
+  if ( board->pixmapfile == NULL
+       || board->text[0] == NULL
+       || board->text[1] == NULL )
+    {
+      gc_dialog(_("Data file for this level is not properly formatted."),
+		gc_board_stop);
+      g_free(board);
+      return;
+    }
+
+  /* Randomize the set */
+  {
+    guint c = text_index * 2;
+    gchar *text;
+
+    while(c--)
       {
-	if(text1==NULL)
-	  {
-	    text1 = \
-	      g_strdup(gettext((gchar *)xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 1)));
-	  }
-      }
+	guint i1 = g_random_int_range(0, text_index);
+	guint i2 = g_random_int_range(0, text_index);
 
-    if (!found_text2 && !strcmp((char *)xmlnode->name, "text2"))
-      {
-	if(text2==NULL)
-	  {
-	    text2 = \
-	      g_strdup(gettext((gchar *)xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 1)));
-	  }
-      }
+	/* Swap entries */
+	text = board->text[i1];
+	board->text[i1] = board->text[i2];
+	board->text[i2] = text;
 
-    if (!found_text3 && !strcmp((char *)xmlnode->name, "text3"))
-      {
-	if(text3==NULL)
-	  {
-	    text3 = \
-	      g_strdup(gettext((gchar *)xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 1)));
-	  }
+	if(i1 == board->solution)
+	  board->solution = i2;
+	else if(i2 == board->solution)
+	  board->solution = i1;
       }
-
-    xmlnode = xmlnode->next;
   }
-  // I really don't know why this test, but otherwise, the list is doubled
-  // with 1 line on 2 filled with NULL elements
-  if ( (pixmapfile == NULL || text1 == NULL || text2 == NULL || text3 == NULL))
-    return;
 
-  board->pixmapfile = pixmapfile;
-  board->text1 = text1;
-  board->text2 = text2;
-  board->text3 = text3;
-
-  board_list = g_list_append (board_list, board);
+  /* Insert boards randomly in the list */
+  if(g_random_int_range(0, 2))
+    board_list = g_list_append (board_list, board);
+  else
+    board_list = g_list_prepend (board_list, board);
 }
 
 /* ==================================== */
-static void parse_doc(xmlDocPtr doc)
+static void
+parse_doc(xmlDocPtr doc)
 {
   xmlNodePtr node;
 
   for(node = doc->children->children; node != NULL; node = node->next) {
     if ( g_strcasecmp((gchar *)node->name, "Board") == 0 )
-      add_xml_data(doc, node,NULL);
+      add_xml_data(doc, node, NULL);
   }
 
 }
 /* ==================================== */
 /* read an xml file into our memory structures and update our view,
    dump any old data we have in memory if we can load a new set */
-static gboolean read_xml_file(char *fname)
+static gboolean
+read_xml_file(char *fname)
 {
   /* pointer to the new doc */
   xmlDocPtr doc;
@@ -640,8 +624,11 @@ static gboolean read_xml_file(char *fname)
   xmlFreeDoc(doc);
   return TRUE;
 }
+
 /* ======================================= */
-static void destroy_board_list() {
+static void
+destroy_board_list()
+{
   Board *board;
 
   while(g_list_length(board_list)>0)
@@ -653,11 +640,15 @@ static void destroy_board_list() {
 }
 
 /* ======================================= */
-static void destroy_board(Board * board) {
+static void
+destroy_board(Board * board)
+{
+  guint i = 0;
+
   g_free(board->pixmapfile);
-  g_free(board->text1);
-  g_free(board->text2);
-  g_free(board->text3);
+  while(board->text[i])
+    g_free(board->text[i++]);
+
   g_free(board);
 }
 
@@ -711,8 +702,7 @@ static GcomprisConfCallback conf_ok(GHashTable *table)
       g_hash_table_destroy(config);
 
     destroy_board_list();
-
-    init_xml();
+    init_xml(gcomprisBoard->level);
 
     imageid_next_level();
 

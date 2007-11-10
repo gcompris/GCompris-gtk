@@ -177,31 +177,6 @@ static BoardPlugin menu_bp =
    config_stop
 };
 
-/* Description of this plugin without configuration */
-/* static BoardPlugin menu_bp_no_config = */
-/* { */
-/*    NULL, */
-/*    NULL, */
-/*    "Make the puzzle", */
-/*    "Drag and Drop the items to rebuild the object", */
-/*    "Bruno Coudoin <bruno.coudoin@free.fr>", */
-/*    NULL, */
-/*    NULL, */
-/*    NULL, */
-/*    NULL, */
-/*    start_board, */
-/*    pause_board, */
-/*    end_board, */
-/*    is_our_board, */
-/*    key_press, */
-/*    process_ok, */
-/*    set_level, */
-/*    NULL, */
-/*    NULL, */
-/*    NULL, */
-/*    NULL */
-/* }; */
-
 /*
  * Main entry point mandatory for each Gcompris's game
  * ---------------------------------------------------
@@ -270,10 +245,9 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 							 NULL)) )
 	{
 	  g_free(filename);
-
 	}
+      g_free(filename);
 
-      /**/
       gcomprisBoard->maxlevel--;
 
       gc_bar_set(GC_BAR_CONFIG|GC_BAR_LEVEL);

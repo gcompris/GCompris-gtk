@@ -139,8 +139,6 @@ py_gc_set_background(PyObject* self, PyObject* args)
   PyObject* pyCanvasGroup;
   GooCanvasItem* canvasGroup;
   gchar* file;
-  PyObject* pyResult;
-  GooCanvasItem* result;
 
   /* Parse arguments */
   if(!PyArg_ParseTuple(args, "Os:gc_set_background", &pyCanvasGroup, &file))
@@ -148,11 +146,9 @@ py_gc_set_background(PyObject* self, PyObject* args)
   canvasGroup = (GooCanvasItem*) pygobject_get(pyCanvasGroup);
 
   /* Call the corresponding C function */
-  result = gc_set_background(canvasGroup, file);
+  gc_set_background(canvasGroup, file);
 
-  /* Create and return the result */
-  pyResult = pygobject_new((GObject*)result);
-  return pyResult;
+  return Py_None;
 }
 
 
