@@ -2,7 +2,11 @@
 xmldir = $(pkgdatadir)/@PACKAGE_DATA_DIR@/missing_letter
 
 xml_in_files = \
-	board1.xml.in
+	board1.xml.in \
+	board2.xml.in \
+	board3.xml.in \
+	board4.xml.in \
+	board5.xml.in
 
 xml_DATA = $(xml_in_files:.xml.in=.xml)
 

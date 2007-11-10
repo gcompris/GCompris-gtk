@@ -163,9 +163,9 @@ start_board (GcomprisBoard *agcomprisBoard)
       gcomprisBoard->maxlevel=1;
 
       while( (filename = gc_file_find_absolute("%s/board%d.xml",
-							 gcomprisBoard->boarddir,
-							 gcomprisBoard->maxlevel++,
-							 NULL)) )
+					       gcomprisBoard->boarddir,
+					       gcomprisBoard->maxlevel++,
+					       NULL)) )
 	{
 	  g_free(filename);
 
@@ -290,7 +290,7 @@ imageid_create_item(GooCanvasItem *parent)
   guint vertical_separation;
   GdkPixbuf *pixmap = NULL;
   GdkPixbuf *button_pixmap = NULL;
-  Board * board;
+  Board *board;
   guint i;
 
   board_number = gcomprisBoard->sublevel-1;
@@ -323,7 +323,7 @@ imageid_create_item(GooCanvasItem *parent)
 
   xp = HORIZONTAL_SEPARATION;
 
-  /* Calc the number of items */
+  /* Calc the number of proposals */
   i = 0;
   while(board->text[i++]);
 
@@ -409,7 +409,9 @@ static void game_won()
 }
 
 /* ==================================== */
-static gboolean process_ok_timeout() {
+static gboolean
+process_ok_timeout()
+{
   gc_bonus_display(gamewon, GC_BONUS_SMILEY);
   return FALSE;
 }
@@ -481,22 +483,11 @@ highlight_selected(GooCanvasItem * button)
  *                XML stuff
  *                Ref : shapegame.c
  * ==================================== */
-/* ======  for DEBUG ========  */
-#if 0
-static void dump_xml() {
-  GList *list;
-  g_warning("XML lentgh = %d\n", g_list_length(board_list));
 
-  for(list = board_list; list != NULL; list = list->next) {
-    Board * board = list->data;
-    g_warning("xml = %s %s %s %s\n", board->pixmapfile, board->text1, board->text2, board->text3);
-  }
-}
-#endif
-
-static void init_xml(guint level)
+static void
+init_xml(guint level)
 {
-  char *filename;
+  gchar *filename;
 
   filename = gc_file_find_absolute("%s/board%d.xml",
 				   gcomprisBoard->boarddir,
@@ -504,10 +495,11 @@ static void init_xml(guint level)
 
   g_assert(read_xml_file(filename)== TRUE);
   g_free(filename);
-
 }
+
 /* ==================================== */
-static void add_xml_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child)
+static void
+add_xml_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode *child)
 {
   Board * board = g_new0(Board, 1);
   guint text_index = 0;
@@ -601,7 +593,7 @@ read_xml_file(char *fname)
   /* pointer to the new doc */
   xmlDocPtr doc;
 
-  g_return_val_if_fail(fname!=NULL,FALSE);
+  g_return_val_if_fail(fname!=NULL, FALSE);
 
   /* parse the new file and put the result into newdoc */
   doc = gc_net_load_xml(fname);
