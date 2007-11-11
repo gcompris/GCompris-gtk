@@ -41,11 +41,11 @@
 #define MODE_SAVE 2
 static gint mode;
 
-static gint		 item_event_file_selector(GooCanvasItem *item,
-						  GdkEvent *event,
-						  gpointer data);
-static gint		 item_event_scroll(GooCanvasItem *item,
-					   GdkEvent *event,
+static gboolean item_event_file_selector (GooCanvasItem  *item,
+					  GooCanvasItem  *target,
+					  GdkEventButton *event,
+					  char *data);
+static void		 item_event_scroll(GtkAdjustment *adj,
 					   GooCanvas *canvas);
 static gint		 item_event_directory(GooCanvasItem *item,
 					      GdkEvent *event,
@@ -58,8 +58,6 @@ static int		 display_file_selector(int mode,
 					       FileSelectorCallBack iscb);
 static void		 entry_enter_callback( GtkWidget *widget,
 					       GtkWidget *entry );
-static void		 free_stuff (GtkObject *obj, gchar* data);
-
 static gboolean		 file_selector_displayed = FALSE;
 
 static GooCanvasItem	*rootitem = NULL;
@@ -69,9 +67,7 @@ static FileSelectorCallBack  fileSelectorCallBack = NULL;
 static GtkWidget            *gtk_combo_filetypes = NULL;
 
 static gchar *current_rootdir = NULL;
-static GtkEntry *widget_entry = NULL;
-
-static GList  *file_list = NULL;
+static GtkWidget *widget_entry = NULL;
 
 /* Represent the limits of control area */
 static guint32 control_area_x1;
@@ -92,21 +88,6 @@ static guint32 directory_label_y;
 #define IMAGE_HEIGHT (DRAWING_AREA_Y2-DRAWING_AREA_Y1)/VERTICAL_NUMBER_OF_IMAGE-IMAGE_GAP
 
 /*
- * Mime type management
- * --------------------
- */
-typedef struct {
-  gchar	       *mimetype;
-  gchar	       *description;
-  gchar	       *extension;
-  gchar	       *icon;
-} GcomprisMimeType;
-
-static GHashTable* mimetypes_hash = NULL;
-static GHashTable* mimetypes_ext_hash  = NULL; /* Mime type with the key being the extension   */
-static GHashTable* mimetypes_desc_hash = NULL; /* Mime type with the key being the description */
-
-/*
  * Main entry point
  * ----------------
  *
@@ -118,18 +99,18 @@ static GHashTable* mimetypes_desc_hash = NULL; /* Mime type with the key being t
  */
 
 void gc_selector_file_save (GcomprisBoard *gcomprisBoard, gchar *rootdir,
-				  gchar *file_types,
+				  gchar *file_exts,
 				  FileSelectorCallBack iscb)
 {
-  display_file_selector(MODE_SAVE, gcomprisBoard, rootdir, file_types,
+  display_file_selector(MODE_SAVE, gcomprisBoard, rootdir, file_exts,
 			iscb);
 }
 
 void gc_selector_file_load (GcomprisBoard *gcomprisBoard, gchar *rootdir,
-				  gchar *file_types,
+				  gchar *file_exts,
 				  FileSelectorCallBack iscb)
 {
-  display_file_selector(MODE_LOAD, gcomprisBoard, rootdir, file_types,
+  display_file_selector(MODE_LOAD, gcomprisBoard, rootdir, file_exts,
 			iscb);
 }
 
@@ -137,7 +118,8 @@ void gc_selector_file_load (GcomprisBoard *gcomprisBoard, gchar *rootdir,
  * Remove the displayed file_selector.
  * Do nothing if none is currently being dislayed
  */
-void gc_selector_file_stop ()
+void
+gc_selector_file_stop ()
 {
   GcomprisBoard *gcomprisBoard = gc_board_get_current();
 
@@ -153,13 +135,6 @@ void gc_selector_file_stop ()
 
   /* No need to destroy it since it's in rootitem but just clear it */
   file_root_item = NULL;
-
-  /* Cleanup the file list */
-  if(file_list) {
-    //    g_list_foreach(file_list, (GFunc)g_free, NULL);
-    g_list_free(file_list);
-  }
-  file_list = NULL;
 
   gc_bar_hide(FALSE);
   file_selector_displayed = FALSE;
@@ -177,19 +152,16 @@ static int
 display_file_selector(int the_mode,
 		      GcomprisBoard *gcomprisBoard,
 		      gchar *rootdir,
-		      gchar *file_types,
-		      FileSelectorCallBack iscb) {
-
-
-  GooCanvasItem  *item, *item2;
+		      gchar *file_exts,
+		      FileSelectorCallBack iscb)
+{
+  GooCanvasItem    *item;
   GdkPixbuf	   *pixmap = NULL;
   gint		    y = 0;
   gint		    y_start = 0;
   gint		    x_start = 0;
   gchar		   *name = NULL;
   gchar            *full_rootdir;
-  gchar            *sub_string;
-  gchar            *file_types_string = NULL;
 
   mode = the_mode;
 
@@ -197,10 +169,6 @@ display_file_selector(int the_mode,
   control_area_x1   = gc_skin_get_number_default("gcompris/fileselectx", 85);
   control_area_y1   = gc_skin_get_number_default("gcompris/fileselecty", 80);
   directory_label_y = gc_skin_get_number_default("gcompris/fileselectdiry", 180);
-
-  if(file_types) {
-    file_types_string = g_strdup(file_types);
-  }
 
   if(rootitem)
     return 0;
@@ -218,70 +186,53 @@ display_file_selector(int the_mode,
   pixmap = gc_skin_pixmap_load("file_selector_bg.png");
   y_start = (BOARDHEIGHT - gdk_pixbuf_get_height(pixmap))/2;
   x_start = (BOARDWIDTH - gdk_pixbuf_get_width(pixmap))/2;
+
   item = goo_canvas_image_new (rootitem,
 			       pixmap,
-			       (double) x_start,
-			       (double) y_start,
-				NULL);
+			       x_start,
+			       y_start,
+			       NULL);
+
   y = BOARDHEIGHT - (BOARDHEIGHT - gdk_pixbuf_get_height(pixmap))/2 + 20;
   gdk_pixbuf_unref(pixmap);
 
   /* Entry area */
-  widget_entry = (GtkEntry *)gtk_entry_new ();
+  widget_entry = gtk_entry_new ();
+
   if(mode==MODE_SAVE)
-    gtk_entry_set_max_length(widget_entry, 30);
+    gtk_entry_set_max_length(GTK_ENTRY(widget_entry), 30);
+
   item = goo_canvas_widget_new (rootitem,
 				GTK_WIDGET(widget_entry),
 				control_area_x1,
 				control_area_y1,
 				230.0,
 				30.0,
-				"anchor", GTK_ANCHOR_NW,
 				NULL);
+
   gtk_signal_connect(GTK_OBJECT(widget_entry), "activate",
 		     GTK_SIGNAL_FUNC(entry_enter_callback),
 		     widget_entry);
 
-  gtk_widget_show(GTK_WIDGET(widget_entry));
+  gtk_widget_show(widget_entry);
 
   /*
    * Create the combo with the file types
    * ------------------------------------
    */
-  if(mode==MODE_SAVE && file_types_string && *file_types_string!='\0') {
-    GcomprisMimeType *mimeType = NULL;
-    char *str;
-    gchar *result;
+  if(mode==MODE_SAVE && file_exts && *file_exts != '\0')
+  {
+    gchar **all_type = g_strsplit(file_exts, " ", 0);
+    guint i = 0;
 
     gtk_combo_filetypes = gtk_combo_box_new_text();
 
     /* Extract first string */
-    str = (char *)strtok(file_types_string, " ");
-    /* Extract the mime type */
-    mimeType = (GcomprisMimeType *)(g_hash_table_lookup(mimetypes_hash, str));
-    if(mimeType) {
-      result = strdup(gettext(mimeType->description));
-    } else {
-      result = strdup(str);
-    }
+    while (all_type[i])
+      gtk_combo_box_append_text(GTK_COMBO_BOX(gtk_combo_filetypes),
+				g_strdup(all_type[i++]) );
 
-
-    gtk_combo_box_append_text(GTK_COMBO_BOX(gtk_combo_filetypes), result);
-    g_free(result);
-
-    while ( (sub_string=(char *)strtok(NULL, " ")) != NULL)
-      {
-	/* Extract the mime type */
-	mimeType = (GcomprisMimeType *)(g_hash_table_lookup(mimetypes_hash, sub_string));
-	if(mimeType) {
-	  result = strdup(gettext(mimeType->description));
-	} else {
-	  result = strdup(str);
-	}
-
-	gtk_combo_box_append_text(GTK_COMBO_BOX(gtk_combo_filetypes), result);
-	g_free(result);
-      }
+    g_strfreev(all_type);
 
     goo_canvas_widget_new (rootitem,
 			   gtk_combo_filetypes,
@@ -289,17 +240,13 @@ display_file_selector(int the_mode,
 			   control_area_y1,
 			   250.0,
 			   35.0,
-			   "anchor", GTK_ANCHOR_NW,
 			   NULL);
 
-    gtk_widget_show(GTK_WIDGET(gtk_combo_filetypes));
+    gtk_widget_show(gtk_combo_filetypes);
     gtk_combo_box_set_active(GTK_COMBO_BOX(gtk_combo_filetypes), 0);
-    g_free(file_types_string);
   }
 
-
   y_start += 110;
-
 
   /*
    * Buttons
@@ -316,27 +263,27 @@ display_file_selector(int the_mode,
 				NULL);
 
   g_signal_connect(item, "button_press_event",
-		     (GtkSignalFunc) item_event_file_selector,
-		     "/cancel/");
+		   (GtkSignalFunc) item_event_file_selector,
+		   "/cancel/");
   g_signal_connect(item, "button_press_event",
-		     (GtkSignalFunc) gc_item_focus_event,
-		     NULL);
+		   (GtkSignalFunc) gc_item_focus_event,
+		   NULL);
 
-  item2 = goo_canvas_text_new (rootitem,
-			       _("CANCEL"),
-			       (gdouble)  BOARDWIDTH*0.33,
-			       (gdouble)  y - gdk_pixbuf_get_height(pixmap),
-			       -1,
-			       GTK_ANCHOR_CENTER,
-			       "font", gc_skin_font_title,
-			       "fill-color-rgba", gc_skin_color_text_button,
-			       NULL);
-  g_signal_connect(item2, "button_press_event",
-		     (GtkSignalFunc) item_event_file_selector,
-		     "/cancel/");
-  g_signal_connect(item2, "button_press_event",
-		     (GtkSignalFunc) gc_item_focus_event,
-		     item);
+  item = goo_canvas_text_new (rootitem,
+			      _("CANCEL"),
+			      (gdouble)  BOARDWIDTH*0.33,
+			      (gdouble)  y - gdk_pixbuf_get_height(pixmap),
+			      -1,
+			      GTK_ANCHOR_CENTER,
+			      "font", gc_skin_font_title,
+			      "fill-color-rgba", gc_skin_color_text_button,
+			      NULL);
+  g_signal_connect(item, "button_press_event",
+		   (GtkSignalFunc) item_event_file_selector,
+		   "/cancel/");
+  g_signal_connect(item, "button_press_event",
+		   (GtkSignalFunc) gc_item_focus_event,
+		   item);
 
   // OK
   item = goo_canvas_image_new (rootitem,
@@ -352,23 +299,22 @@ display_file_selector(int the_mode,
 		     (GtkSignalFunc) gc_item_focus_event,
 		     NULL);
 
-  item2 = goo_canvas_text_new (rootitem,
-			       (mode==MODE_LOAD ? _("LOAD") : _("SAVE")),
-			       (gdouble)  BOARDWIDTH*0.66,
-			       (gdouble)  y - gdk_pixbuf_get_height(pixmap),
-			       -1,
-			       GTK_ANCHOR_CENTER,
-			       "font", gc_skin_font_title,
-			       "fill-color-rgba", gc_skin_color_text_button,
-			       NULL);
-  g_signal_connect(item2, "button_press_event",
-		     (GtkSignalFunc) item_event_file_selector,
-		     "/ok/");
-  g_signal_connect(item2, "button_press_event",
-		     (GtkSignalFunc) gc_item_focus_event,
-		     item);
+  item = goo_canvas_text_new (rootitem,
+			      (mode==MODE_LOAD ? _("LOAD") : _("SAVE")),
+			      (gdouble)  BOARDWIDTH*0.66,
+			      (gdouble)  y - gdk_pixbuf_get_height(pixmap),
+			      -1,
+			      GTK_ANCHOR_CENTER,
+			      "font", gc_skin_font_title,
+			      "fill-color-rgba", gc_skin_color_text_button,
+			      NULL);
+  g_signal_connect(item, "button_press_event",
+		   (GtkSignalFunc) item_event_file_selector,
+		   "/ok/");
+  g_signal_connect(item, "button_press_event",
+		   (GtkSignalFunc) gc_item_focus_event,
+		   item);
   gdk_pixbuf_unref(pixmap);
-
 
 
   file_selector_displayed = TRUE;
@@ -385,12 +331,7 @@ display_file_selector(int the_mode,
 }
 
 static void
-free_stuff (GtkObject *obj, gchar *data)
-{
-  g_free(data);
-}
-
-static void display_files(GooCanvasItem *root_item, gchar *rootdir)
+display_files(GooCanvasItem *root_item, gchar *rootdir)
 {
   GooCanvasItem *item;
   double iw, ih;
@@ -407,7 +348,11 @@ static void display_files(GooCanvasItem *root_item, gchar *rootdir)
   GtkWidget *canvas; /* The scrolled part */
 
   GList  *dir_list  = NULL;
+  GList  *file_list = NULL;
   GList  *listrunner;
+
+
+  GtkAdjustment *adj;
 
   if(!rootitem)
     return;
@@ -422,16 +367,8 @@ static void display_files(GooCanvasItem *root_item, gchar *rootdir)
   }
 
   /* Delete the previous file root if any */
-  if(file_root_item!=NULL) {
-    gtk_object_destroy(GTK_OBJECT(file_root_item));
-  }
-
-  /* Cleanup the file list */
-  if(file_list) {
-    //g_list_foreach(file_list, (GFunc)g_free, NULL);
-    g_list_free(file_list);
-  }
-  file_list = NULL;
+  if(file_root_item)
+    goo_canvas_item_remove(file_root_item);
 
   /* Create a root item to put the image list in it */
   file_root_item = goo_canvas_group_new (root_item, NULL);
@@ -446,38 +383,44 @@ static void display_files(GooCanvasItem *root_item, gchar *rootdir)
 			 canvas,
 			 DRAWING_AREA_X1,
 			 DRAWING_AREA_Y1,
-			 DRAWING_AREA_X2- DRAWING_AREA_X1 - 20.0,
-			 DRAWING_AREA_Y2-DRAWING_AREA_Y1 - 35.0,
+			 DRAWING_AREA_X2 - DRAWING_AREA_X1 - 20.0,
+			 DRAWING_AREA_Y2 - DRAWING_AREA_Y1 - 35.0,
 			 NULL);
 
-  gtk_widget_show (GTK_WIDGET(canvas));
+  gtk_widget_show (canvas);
 
   /* Set the new canvas to the background color or it's white */
   bg_item = goo_canvas_rect_new (goo_canvas_get_root_item(GOO_CANVAS(canvas)),
 				 0,
 				 0,
-				 DRAWING_AREA_X2- DRAWING_AREA_X1,
-				 DRAWING_AREA_Y2-DRAWING_AREA_Y1,
+				 DRAWING_AREA_X2 - DRAWING_AREA_X1,
+				 DRAWING_AREA_Y2 - DRAWING_AREA_Y1,
 				 "fill-color-rgba", gc_skin_get_color("gcompris/fileselectbg"),
+				 "line-width", 0.0,
 				 NULL);
 
 
-  w = gtk_vscrollbar_new (GTK_LAYOUT(canvas)->vadjustment);
+  adj = \
+    GTK_ADJUSTMENT (gtk_adjustment_new (0.00, 0.00,
+					DRAWING_AREA_Y2 - DRAWING_AREA_Y1 + 30,
+					10, IMAGE_HEIGHT,
+					(DRAWING_AREA_Y2 - DRAWING_AREA_Y1)/3)
+		    );
+  w = gtk_vscrollbar_new (adj);
 
   goo_canvas_widget_new (file_root_item,
 			 w,
 			 DRAWING_AREA_X2 - 15.0,
 			 DRAWING_AREA_Y1,
 			 30.0,
-			 DRAWING_AREA_Y2-DRAWING_AREA_Y1 - 20.0,
+			 DRAWING_AREA_Y2 - DRAWING_AREA_Y1 - 20.0,
 			 NULL);
   gtk_widget_show (w);
-  //??goo_canvas_set_center_scroll_region (GOO_CANVAS (canvas), FALSE);
 
   /* Set the scrollwheel event */
-  g_signal_connect(canvas, "button_press_event",
-		     (GtkSignalFunc) item_event_scroll,
-		     GOO_CANVAS(canvas));
+  g_signal_connect (adj, "value_changed",
+		    (GtkSignalFunc) item_event_scroll,
+		    canvas);
 
   /* Display the directory name
    * --------------------------
@@ -489,7 +432,8 @@ static void display_files(GooCanvasItem *root_item, gchar *rootdir)
 			      (gdouble)directory_label_y,
 			      -1,
 			      GTK_ANCHOR_NW,
-			      "fill-color-rgba", gc_skin_get_color("gcompris/fileselectcol"),
+			      "fill-color-rgba",
+			      gc_skin_get_color("gcompris/fileselectcol"),
 			      NULL);
 
 
@@ -498,131 +442,148 @@ static void display_files(GooCanvasItem *root_item, gchar *rootdir)
 
   /* Insert all files in a sorted list */
 
-  while((one_dirent = g_dir_read_name(dir)) != NULL) {
-    gchar *filename;
+  while((one_dirent = g_dir_read_name(dir)) != NULL)
+    {
+      gchar *filename;
 
-    filename = g_strdup_printf("%s/%s",
-			       rootdir, (gchar*)(one_dirent));
+      filename = g_strdup_printf("%s/%s",
+				 rootdir, (gchar*)(one_dirent));
 
-    if(g_file_test(filename, G_FILE_TEST_IS_DIR)) {
-      dir_list = g_list_insert_sorted(dir_list, filename,
-				       (GCompareFunc)strcmp);
-    } else {
-      file_list = g_list_insert_sorted(file_list, filename,
-				       (GCompareFunc)strcmp);
+      if(g_file_test(filename, G_FILE_TEST_IS_DIR))
+	{
+	  dir_list = g_list_insert_sorted(dir_list, filename,
+					  (GCompareFunc)strcmp);
+	}
+      else
+	{
+	  file_list = g_list_insert_sorted(file_list, filename,
+					   (GCompareFunc)strcmp);
+	}
     }
-  }
 
   /* Concat the directory list and file list */
   file_list = g_list_concat(dir_list, file_list);
 
+  g_list_free(dir_list);
+  dir_list = NULL;
+
   /* We have the list sorted, now display it */
   listrunner = g_list_first(file_list);
-  while(listrunner) {
-    /* add the file to the display */
-    GdkPixbuf *pixmap_current;
+  while(listrunner)
+    {
+      /* add the file to the display */
+      GdkPixbuf *pixmap_current;
 
-    gchar *allfilename = listrunner->data;
-    gchar *filename    = g_path_get_basename(allfilename);
-    gchar *ext         = strrchr(filename, '.');
+      gchar *allfilename = listrunner->data;
+      gchar *filename    = g_path_get_basename(allfilename);
+      gchar *ext = g_strrstr(filename, ".");
+      gchar *file_wo_ext = g_strdup(filename);
 
-
-
-    if(g_file_test(allfilename, G_FILE_TEST_IS_DIR)) {
-      pixmap_current  = gc_pixmap_load(gc_skin_image_get("directory.png"));
-    } else if(ext) {
-      /* Need to find an icon for this extension */
-      GcomprisMimeType *mimeType = NULL;
-
-      /* Extract the mime type for this extension */
-      mimeType = (GcomprisMimeType *)(g_hash_table_lookup(mimetypes_ext_hash, ext));
-      if(mimeType) {
-	if(mimeType->icon) {
-	  pixmap_current  = gc_pixmap_load(mimeType->icon);
-	  if(pixmap_current==NULL) {
-	    g_warning("Cannot find icon %s for mimetype %s", mimeType->icon, mimeType->description);
-	    pixmap_current  = gc_pixmap_load(gc_skin_image_get("file.png"));
-	  } else {
-	    /* We can remove the extension now that we have an icon */
-	    *ext='\0';
-	  }
-	} else {
-	  pixmap_current  = gc_pixmap_load(gc_skin_image_get("file.png"));
+      if(ext)
+	{
+	  gchar *ext2 = g_strrstr(file_wo_ext, ".");
+	  *ext2 = '\0';
 	}
-      } else {
+
+      if(g_file_test(allfilename, G_FILE_TEST_IS_DIR))
+	pixmap_current  = gc_pixmap_load(gc_skin_image_get("directory.png"));
+      else
 	pixmap_current  = gc_pixmap_load(gc_skin_image_get("file.png"));
-      }
-    } else {
-      pixmap_current  = gc_pixmap_load(gc_skin_image_get("file.png"));
-    }
 
-    item = goo_canvas_image_new (goo_canvas_get_root_item(GOO_CANVAS(canvas)),
-				 pixmap_current,
-				 ix + (IMAGE_WIDTH + IMAGE_GAP
-				       - gdk_pixbuf_get_width(pixmap_current))/2,
-				 iy,
-				 NULL);
+      item = goo_canvas_image_new (goo_canvas_get_root_item(GOO_CANVAS(canvas)),
+				   pixmap_current,
+				   ix + (IMAGE_WIDTH + IMAGE_GAP
+					 - gdk_pixbuf_get_width(pixmap_current))/2,
+				   iy,
+				   NULL);
 
-    gdk_pixbuf_unref(pixmap_current);
+      gdk_pixbuf_unref(pixmap_current);
 
-    if(g_file_test(allfilename, G_FILE_TEST_IS_DIR)) {
+      if(g_file_test(allfilename, G_FILE_TEST_IS_DIR))
+	{
+	  g_signal_connect(item, "button_press_event",
+			   (GtkSignalFunc) item_event_directory,
+			   allfilename);
+	}
+      else
+	{
+	  g_signal_connect(item, "button_press_event",
+			   (GtkSignalFunc) item_event_file_selector,
+			   allfilename);
+	}
       g_signal_connect(item, "button_press_event",
-			 (GtkSignalFunc) item_event_directory,
-			 allfilename);
-    } else {
-      g_signal_connect(item, "button_press_event",
-			 (GtkSignalFunc) item_event_file_selector,
-			 allfilename);
-    }
-    g_signal_connect(item, "button_press_event",
 		       (GtkSignalFunc) gc_item_focus_event,
 		       NULL);
 
-    g_signal_connect (item, "destroy",
-		      G_CALLBACK (free_stuff),
-		      allfilename);
+      g_object_set_data_full (G_OBJECT (item),
+			      "allfilename", allfilename, g_free);
+      /* The type */
+      if(ext)
+	goo_canvas_text_new (goo_canvas_get_root_item(GOO_CANVAS(canvas)),
+			     ext,
+			     ix + (IMAGE_WIDTH + IMAGE_GAP)/2,
+			     iy + 10,
+			     -1,
+			     GTK_ANCHOR_CENTER,
+			     "font", "Sans 7",
+			     "fill-color-rgba",
+			     gc_skin_get_color("gcompris/fileselectcol"),
+			     NULL);
 
-    item = goo_canvas_text_new (goo_canvas_get_root_item(GOO_CANVAS(canvas)),
-				filename,
-				ix + (IMAGE_WIDTH + IMAGE_GAP)/2,
-				iy + IMAGE_HEIGHT - 5,
-				-1,
-				GTK_ANCHOR_CENTER,
-				"fill-color-rgba", gc_skin_get_color("gcompris/fileselectcol"),
-				NULL);
+      /* The filename */
+      item = goo_canvas_text_new (goo_canvas_get_root_item(GOO_CANVAS(canvas)),
+				  file_wo_ext,
+				  ix + (IMAGE_WIDTH + IMAGE_GAP)/2,
+				  iy + IMAGE_HEIGHT - 5,
+				  -1,
+				  GTK_ANCHOR_CENTER,
+				  "fill-color-rgba", gc_skin_get_color("gcompris/fileselectcol"),
+				  NULL);
+      g_free(file_wo_ext);
+      g_free(filename);
 
-    if(g_file_test(allfilename, G_FILE_TEST_IS_DIR)) {
-      g_signal_connect(item, "button_press_event",
-			 (GtkSignalFunc) item_event_directory,
-			 allfilename);
-    } else {
-      g_signal_connect(item, "button_press_event",
-			 (GtkSignalFunc) item_event_file_selector,
-			 allfilename);
+      if(g_file_test(allfilename, G_FILE_TEST_IS_DIR))
+	{
+	  g_signal_connect(item, "button_press_event",
+			   (GtkSignalFunc) item_event_directory,
+			   allfilename);
+	}
+      else
+	{
+	  g_signal_connect(item, "button_press_event",
+			   (GtkSignalFunc) item_event_file_selector,
+			   allfilename);
+	}
+
+      ix += IMAGE_WIDTH + IMAGE_GAP;
+
+      if(ix >= DRAWING_AREA_X2 - DRAWING_AREA_X1 -
+	 (IMAGE_WIDTH + IMAGE_GAP) )
+	{
+	  ix=0;
+
+	  iy+=IMAGE_HEIGHT + IMAGE_GAP;
+
+	  goo_canvas_set_bounds (GOO_CANVAS(canvas),
+				 0, 0,
+				 DRAWING_AREA_X2- DRAWING_AREA_X1,
+				 iy + IMAGE_HEIGHT + IMAGE_GAP);
+
+	  if(iy >= DRAWING_AREA_Y2-DRAWING_AREA_Y1)
+	    {
+	      g_object_set(bg_item,
+			   "height", (double)iy + IMAGE_HEIGHT + IMAGE_GAP,
+			   NULL);
+	      g_object_set(adj,
+			   "upper", iy + IMAGE_HEIGHT + IMAGE_GAP,
+			   NULL);
+	    }
+	}
+      listrunner = g_list_next(listrunner);
     }
 
-    ix+=IMAGE_WIDTH + IMAGE_GAP;
-    if(ix>=DRAWING_AREA_X2 - DRAWING_AREA_X1 -IMAGE_GAP)
-      {
-	ix=0;
-
-	iy+=IMAGE_HEIGHT + IMAGE_GAP;
-
-	goo_canvas_set_bounds (GOO_CANVAS(canvas),
-			       0, 0,
-			       DRAWING_AREA_X2- DRAWING_AREA_X1,
-			       iy + IMAGE_HEIGHT + IMAGE_GAP);
-
-	if(iy>=DRAWING_AREA_Y2-DRAWING_AREA_Y1) {
-	  g_object_set(bg_item,
-				"y2", (double)iy + IMAGE_HEIGHT + IMAGE_GAP,
-				NULL);
-	}
-      }
-    listrunner = g_list_next(listrunner);
-  }
-
   g_dir_close(dir);
+  g_list_free(file_list);
 
 }
 
@@ -636,10 +597,6 @@ item_event_directory(GooCanvasItem *item, GdkEvent *event, gchar *dir)
 
   switch (event->type)
     {
-    case GDK_ENTER_NOTIFY:
-      break;
-    case GDK_LEAVE_NOTIFY:
-      break;
     case GDK_BUTTON_PRESS:
       if(strcmp(g_path_get_basename(dir), "..")==0) {
 	/* Up one level. Remove .. and one directory on the right of the path */
@@ -647,7 +604,7 @@ item_event_directory(GooCanvasItem *item, GdkEvent *event, gchar *dir)
 	dir=g_path_get_dirname(dir);
       }
       display_files(rootitem, g_strdup(dir));
-      gtk_entry_set_text(widget_entry, "");
+      gtk_entry_set_text(GTK_ENTRY(widget_entry), "");
       break;
     default:
       break;
@@ -657,116 +614,88 @@ item_event_directory(GooCanvasItem *item, GdkEvent *event, gchar *dir)
 }
 
 /* Callback when a scroll event happens */
-static gint
-item_event_scroll(GooCanvasItem *item, GdkEvent *event, GooCanvas *canvas)
+static void
+item_event_scroll(GtkAdjustment *adj, GooCanvas *canvas)
 {
-  int x = 0;
-  int y = 0;
   if(!rootitem)
-    return FALSE;
+    return;
 
-  switch (event->type)
-    {
-    case GDK_SCROLL:
-      //??goo_canvas_get_scroll_offsets (canvas, &x, &y);
-      if ( event->scroll.direction == GDK_SCROLL_UP )
-	goo_canvas_scroll_to (canvas, x, y - 20);
-      else if ( event->scroll.direction == GDK_SCROLL_DOWN )
-	goo_canvas_scroll_to (canvas, x, y + 20);
-
-      break;
-    default:
-      break;
-    }
-  return FALSE;
+  goo_canvas_scroll_to (canvas, 0, adj->value);
 }
 
 /* Callback when a file is selected */
-static gint
-item_event_file_selector(GooCanvasItem *item, GdkEvent *event, gpointer data)
+static gboolean
+item_event_file_selector (GooCanvasItem  *item,
+			  GooCanvasItem  *target,
+			  GdkEventButton *event,
+			  gchar *data)
 {
-
   if(!rootitem)
     return FALSE;
 
   switch (event->type)
     {
-    case GDK_ENTER_NOTIFY:
-      break;
-    case GDK_LEAVE_NOTIFY:
-      break;
     case GDK_BUTTON_PRESS:
-      if(!strcmp((char *)data, "/ok/"))	{
+      if(!strcmp(data, "/ok/"))	{
 
 	/* Nothing selected, please cancel instead */
-	if(strcmp(gtk_entry_get_text(widget_entry),"")==0) {
+	if(strcmp(gtk_entry_get_text(GTK_ENTRY(widget_entry)), "")==0)
 	  return FALSE;
-	}
 
-	if(fileSelectorCallBack!=NULL) {
-	  gchar *result=NULL;
-	  gchar *file_type=NULL;
+	if(fileSelectorCallBack!=NULL)
+	  {
+	    gchar *result = NULL;
+	    gchar *file_type = NULL;
 
-	  result = g_strdup_printf("%s/%s", current_rootdir, gtk_entry_get_text(widget_entry));
+	    if(mode==MODE_SAVE)
+	      {
+		GtkTreeModel *model;
+		GtkTreeIter iter;
 
-	  if(mode==MODE_SAVE) {
-	    GcomprisMimeType *mimeType = NULL;
-	    GtkTreeModel *model;
-	    GtkTreeIter iter;
-
-	    model = gtk_combo_box_get_model ((GtkComboBox *)gtk_combo_filetypes);
-	    if (gtk_combo_box_get_active_iter ((GtkComboBox *)gtk_combo_filetypes, &iter)) {
-	      gtk_tree_model_get (model, &iter, 0, &file_type, -1);
-	    }
-
-	    /* Extract the mime type */
-	    mimeType = (GcomprisMimeType *)(g_hash_table_lookup(mimetypes_desc_hash, file_type));
-	    g_free(file_type);
-	    if(mimeType && mimeType->mimetype) {
-	      file_type = strdup(mimeType->mimetype);
-	      if(!g_str_has_suffix(result,mimeType->extension)) {
-		gchar *old_result = result;
-		result = g_strconcat(result, mimeType->extension, NULL);
-		g_free(old_result);
+		model = gtk_combo_box_get_model ((GtkComboBox *)gtk_combo_filetypes);
+		if (gtk_combo_box_get_active_iter ((GtkComboBox *)gtk_combo_filetypes,
+						   &iter))
+		  gtk_tree_model_get (model, &iter, 0,
+				      &file_type, -1);
 	      }
-	    }
-	  } else {
-	    /* LOAD Mode, get the file_type from the extension in the mimetype */
-	    GcomprisMimeType *mimeType = NULL;
-	    gchar *ext         = strrchr(result, '.');
 
-	    /* Extract the mime type */
-	    if(ext) {
-	      mimeType = (GcomprisMimeType *)(g_hash_table_lookup(mimetypes_ext_hash, ext));
-	      if(mimeType && mimeType->mimetype) {
-		if(file_type) {
-		  g_free(file_type);
-		}
-		file_type = strdup(mimeType->mimetype);
-	      }
-	    }
-
-	  }
+	    result = g_strdup_printf("%s/%s%s",
+				     current_rootdir,
+				     gtk_entry_get_text(GTK_ENTRY(widget_entry)),
+				     (file_type ? file_type :  "") );
 
 	  /* Callback with the proper params */
 	  fileSelectorCallBack(result, file_type);
 
-	  if(file_type) {
+	  if(file_type)
 	    g_free(file_type);
-	  }
 
 	  /* DO NOT FREE RESULT OR PYTHON SIDE WILL BE IN TROUBLE */
 	  /* ADDENDUM: DOES NOT HURT ANYMORE, WHY ? */
-	  if(result) {
+	  if(result)
 	    g_free(result);
-	  }
 	}
 	gc_selector_file_stop();
-      } else if(!strcmp((char *)data, "/cancel/")) {
-	gc_selector_file_stop();
-      } else {
-	gtk_entry_set_text(widget_entry, g_path_get_basename((gchar *)data));
       }
+      else if(!strcmp(data, "/cancel/"))
+	{
+	  gc_selector_file_stop();
+	}
+      else
+	{
+	  gchar *ext = g_strrstr(data, ".");
+	  gchar *file_wo_ext = g_strdup(data);
+
+	  if(ext)
+	    {
+	      gchar *ext2 = g_strrstr(file_wo_ext, ".");
+	      *ext2 = '\0';
+	    }
+
+	  gtk_entry_set_text(GTK_ENTRY(widget_entry),
+			     g_path_get_basename(file_wo_ext));
+	  g_free(file_wo_ext);
+	}
       break;
     default:
       break;
@@ -786,161 +715,3 @@ static void entry_enter_callback( GtkWidget *widget,
   entry_text = (char *)gtk_entry_get_text(GTK_ENTRY(entry));
 }
 
-/*
- * MimeType PARSING
- * ----------------
- */
-
-void parseMime (xmlDocPtr doc, xmlNodePtr xmlnode) {
-
-  GcomprisMimeType *gcomprisMime = g_malloc0 (sizeof (GcomprisMimeType));
-
-  gcomprisMime->mimetype    = (gchar *)xmlGetProp(xmlnode, BAD_CAST "mimetype");
-  gcomprisMime->extension   = (gchar *)xmlGetProp(xmlnode, BAD_CAST "extension");
-  gcomprisMime->icon        = (gchar *)xmlGetProp(xmlnode, BAD_CAST "icon");
-
-  for (xmlnode = xmlnode->xmlChildrenNode; xmlnode != NULL; xmlnode = xmlnode->next) {
-    if (xmlHasProp(xmlnode, BAD_CAST "lang"))
-      continue;
-
-    /* get the title of the board */
-    if (!strcmp((char *)xmlnode->name, "description"))
-      gcomprisMime->description = (gchar *)xmlNodeListGetString(doc,
-								xmlnode->xmlChildrenNode, 0);
-  }
-
-  if(!gcomprisMime->mimetype || !gcomprisMime->extension || !gcomprisMime->description ) {
-    g_warning("Incomplete mimetype description\n");
-    g_free(gcomprisMime);
-    return;
-  }
-
-  g_message("Mime type mimetype=%s description=%s extension=%s icon=%s\n",
-	    gcomprisMime->mimetype,
-	    gcomprisMime->description,
-	    gcomprisMime->extension,
-	    gcomprisMime->icon);
-
-  g_hash_table_insert(mimetypes_hash,      gcomprisMime->mimetype,    gcomprisMime);
-  g_hash_table_insert(mimetypes_ext_hash,  gcomprisMime->extension,   gcomprisMime);
-  g_hash_table_insert(mimetypes_desc_hash, gettext(gcomprisMime->description), gcomprisMime);
-
-  return;
-}
-
-static void parse_doc(xmlDocPtr doc) {
-  xmlNodePtr cur;
-
-  cur = xmlDocGetRootElement(doc);
-  if (cur == NULL) {
-    g_warning("empty document\n");
-    xmlFreeDoc(doc);
-    return;
-  }
-  cur = cur->xmlChildrenNode;
-
-  while (cur != NULL) {
-    if ((!xmlStrcmp(cur->name, (const xmlChar *)"MimeType"))){
-      parseMime (doc, cur);
-    }
-
-    cur = cur->next;
-  }
-
-  return;
-}
-
-
-/* read an xml file into our memory structures and update our view,
-   dump any old data we have in memory if we can load a new set */
-gboolean load_mime_type_from_file(gchar *fname)
-{
-  /* pointer to the new doc */
-  xmlDocPtr doc;
-
-  g_return_val_if_fail(fname!=NULL,FALSE);
-
-  /* if the file doesn't exist */
-  if(!g_file_test ((fname), G_FILE_TEST_EXISTS))
-    {
-      g_warning("Couldn't find file %s !", fname);
-      return FALSE;
-    }
-
-  /* parse the new file and put the result into newdoc */
-  doc = xmlParseFile(fname);
-
-  /* in case something went wrong */
-  if(!doc)
-    return FALSE;
-
-  if(/* if there is no root element */
-     !doc->children ||
-     /* if it doesn't have a name */
-     !doc->children->name ||
-     /* if it isn't the good node */
-     g_strcasecmp((gchar *)doc->children->name,"MimeTypeRoot")!=0) {
-    xmlFreeDoc(doc);
-    return FALSE;
-  }
-
-  /* parse our document and replace old data */
-  parse_doc(doc);
-
-  xmlFreeDoc(doc);
-
-  return TRUE;
-}
-
-/**
- * gc_mime_type_load
- * Load all the mime type in PACKAGE_DATA_DIR"/mimetypes/ *.xml"
- *
- * Must be called once at GCompris startup.
- *
- */
-void gc_mime_type_load()
-{
-  const gchar  *one_dirent;
-  GcomprisProperties *properties = gc_prop_get();
-  GDir   *dir;
-  gchar  *mime_dir;
-
-  if(mimetypes_hash) {
-    return;
-  }
-
-  mime_dir = g_strconcat(properties->package_data_dir, "/mimetypes/", NULL);
-
-  mimetypes_hash      = g_hash_table_new (g_str_hash, g_str_equal);
-  mimetypes_ext_hash  = g_hash_table_new (g_str_hash, g_str_equal);
-  mimetypes_desc_hash = g_hash_table_new (g_str_hash, g_str_equal);
-
-  /* Load the Pixpmaps directory file names */
-  dir = g_dir_open(mime_dir, 0, NULL);
-
-  if (!dir) {
-    g_warning("gc_mime_type_load : no mime types found in %s", mime_dir);
-    g_free(mime_dir);
-    return;
-  } else {
-
-    while((one_dirent = g_dir_read_name(dir)) != NULL) {
-      /* add the board to the list */
-      gchar *filename;
-
-      filename = g_strdup_printf("%s/%s", mime_dir, one_dirent);
-
-      if(!g_file_test(filename, G_FILE_TEST_IS_REGULAR)) {
-	g_free(filename);
-	continue;
-      }
-
-      if(file_end_with_xml(one_dirent)) {
-	load_mime_type_from_file(filename);
-      }
-      g_free(filename);
-    }
-  }
-  g_dir_close(dir);
-}

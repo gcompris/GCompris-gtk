@@ -368,8 +368,7 @@ static GooCanvasItem *wordprocessor_create()
 			  pixmap,
 			  17.0,
 			  y,
-			   "anchor", GTK_ANCHOR_NW,
-			   NULL);
+			  NULL);
   gdk_pixbuf_unref(pixmap);
   g_signal_connect(item, "button_press_event",
 		   (GtkSignalFunc) save_event, buffer);
@@ -386,8 +385,7 @@ static GooCanvasItem *wordprocessor_create()
 			  pixmap,
 			  60.0,
 			  y,
-			   "anchor", GTK_ANCHOR_NW,
-			   NULL);
+			  NULL);
   gdk_pixbuf_unref(pixmap);
   g_signal_connect(item, "button_press_event",
 		   (GtkSignalFunc) load_event, buffer);
@@ -1006,7 +1004,7 @@ save_event (GooCanvasItem  *item,
 
   gc_selector_file_save(gcomprisBoard,
 			"wordprocessor",
-			"wordprocessor/xhtml",
+			".xhtml",
 			save_buffer);
 
   return FALSE;
@@ -1139,7 +1137,7 @@ load_event (GooCanvasItem  *item,
 
   gc_selector_file_load(gcomprisBoard,
 			"wordprocessor",
-			"wordprocessor/xhtml",
+			".xhtml",
 			load_buffer);
 
   return FALSE;

@@ -756,9 +756,6 @@ static void setup_window ()
   /* Load all the menu once */
   gc_menu_load();
 
-  /* Load the mime type */
-  gc_mime_type_load();
-
   /* Save the root_menu */
   properties->menu_board = gc_menu_section_get(properties->root_menu);
 
