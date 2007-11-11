@@ -26,6 +26,9 @@
 static GcomprisBoard *gcomprisBoard = NULL;
 static gboolean board_paused = TRUE;
 
+static gboolean dragging = FALSE;
+static double drag_x, drag_y;
+
 static void	 start_board (GcomprisBoard *agcomprisBoard);
 static gint	 key_press(guint keyval, gchar *commit_str, gchar *preedit_str);
 static void	 pause_board (gboolean pause);
@@ -41,14 +44,26 @@ static GooCanvasItem *boardRootItem = NULL;
 static GooCanvasItem	*enumerate_create_item(GooCanvasItem *parent);
 static void		 enumerate_destroy_all_items(void);
 static void		 enumerate_next_level(void);
-static gboolean		 item_event (GooCanvasItem  *item,
-				     GooCanvasItem  *target,
-				     GdkEventButton *event,
-				     gpointer data);
-static gboolean		item_event_focus (GooCanvasItem  *item,
-					  GooCanvasItem  *target,
-					  GdkEventButton *event,
-					  guint index);
+
+static gboolean on_button_release (GooCanvasItem *item,
+				   GooCanvasItem *target,
+				   GdkEventButton *event,
+				   gpointer data);
+
+static gboolean on_button_press (GooCanvasItem *item,
+				 GooCanvasItem *target,
+				 GdkEventButton *event,
+				 gpointer data);
+
+static gboolean on_motion_notify (GooCanvasItem *item,
+				  GooCanvasItem *target,
+				  GdkEventMotion *event,
+				  gpointer data);
+
+static gboolean	item_event_focus (GooCanvasItem  *item,
+				  GooCanvasItem  *target,
+				  GdkEventButton *event,
+				  guint index);
 
 #define ANSWER_X	BOARDWIDTH - 150
 #define ANSWER_WIDTH	40.0
@@ -394,7 +409,12 @@ static GooCanvasItem *enumerate_create_item(GooCanvasItem *parent)
 				       y,
 				       NULL);
 
-	  g_signal_connect(item, "button-press-event", (GtkSignalFunc) item_event, NULL);
+	  g_signal_connect (item, "motion_notify_event",
+			    (GtkSignalFunc) on_motion_notify, NULL);
+	  g_signal_connect (item, "button_press_event",
+			    (GtkSignalFunc) on_button_press, NULL);
+	  g_signal_connect (item, "button_release_event",
+			    (GtkSignalFunc) on_button_release, NULL);
 	}
 
       /* Display the answer area */
@@ -409,7 +429,8 @@ static GooCanvasItem *enumerate_create_item(GooCanvasItem *parent)
 			      current_y - ANSWER_HEIGHT/2,
 			      NULL);
 
-      g_signal_connect(item, "button-press-event", (GtkSignalFunc) item_event_focus, GINT_TO_POINTER(i));
+      g_signal_connect(item, "button-press-event",
+		       (GtkSignalFunc) item_event_focus, GINT_TO_POINTER(i));
 
       gdk_pixbuf_unref(pixmap_answer);
 
@@ -438,13 +459,12 @@ static GooCanvasItem *enumerate_create_item(GooCanvasItem *parent)
 
       gdk_pixbuf_unref(pixmap);
 
-
-
-      g_signal_connect(item, "button-press-event", (GtkSignalFunc) item_event_focus,  GINT_TO_POINTER(i));
-
+      g_signal_connect(item, "button-press-event",
+		       (GtkSignalFunc) item_event_focus, GINT_TO_POINTER(i));
       g_signal_connect(item, "enter_notify_event",
-			 (GtkSignalFunc) gc_item_focus_event,
-			 NULL);
+		       (GtkSignalFunc) gc_item_focus_event,
+		       NULL);
+
 
       answer_item[i] = \
 	goo_canvas_text_new (boardRootItem,
@@ -456,8 +476,9 @@ static GooCanvasItem *enumerate_create_item(GooCanvasItem *parent)
 			     "font", gc_skin_font_board_big,
 			     "fill-color", "blue",
 			     NULL);
-      g_signal_connect(answer_item[i], "button-press-event", (GtkSignalFunc) item_event_focus,
-			 GINT_TO_POINTER(i));
+      g_signal_connect(answer_item[i],
+		       "button-press-event",
+		       (GtkSignalFunc) item_event_focus, GINT_TO_POINTER(i));
 
     }
 
@@ -503,107 +524,6 @@ item_event_focus (GooCanvasItem  *item,
     default:
       break;
     }
-  
-  return FALSE;
-}
-
-/* ==================================== */
-static gboolean
-item_event (GooCanvasItem  *item,
-	    GooCanvasItem  *target,
-	    GdkEventButton *event,
-	    gpointer data)
-{
-  static double x, y;
-  double item_x, item_y;
-  GdkCursor *fleur;
-  static int dragging;
-  double new_x, new_y;
-
-  item_x = event->x;
-  item_y = event->y;
-  //goo_canvas_convert_to_item_space(item->parent, &item_x, &item_y);
-
-  if(board_paused)
-    return FALSE;
-
-
-   switch (event->type)
-     {
-     case GDK_BUTTON_PRESS:
-       switch(event->button)
-         {
-         case 1:
-	   gc_sound_play_ogg ("sounds/bleep.wav", NULL);
-	   x = item_x;
-	   y = item_y;
-
-	   goo_canvas_item_raise(item, NULL);
-
-	   fleur = gdk_cursor_new(GDK_FLEUR);
-	   gc_canvas_item_grab(item,
-			       GDK_POINTER_MOTION_MASK |
-			       GDK_BUTTON_RELEASE_MASK,
-			       fleur,
-			       event->time);
-	   gdk_cursor_destroy(fleur);
-	   dragging = TRUE;
-           break;
-
-         case 3:
-         case 4:
-	   /* fish up */
-	   goo_canvas_item_translate(item, 0.0, -3.0);
-	   break;
-
-         case 2:
-         case 5:
-	   /* fish down */
-	   goo_canvas_item_translate(item, 0.0, 3.0);
-	   break;
-
-         default:
-           break;
-         }
-       break;
-
-     case GDK_MOTION_NOTIFY:
-       if (dragging && (event->state & GDK_BUTTON1_MASK))
-         {
-	   GooCanvasBounds bounds;
-
-	   goo_canvas_item_get_bounds(item,  &bounds);
-
-           new_x = item_x;
-           new_y = item_y;
-
-	   /* Check board boundaries */
-	   if((bounds.x1 < 0 && new_x<x)|| (bounds.x2 > BOARDWIDTH && new_x>x))
-	     {
-	       new_x = x;
-	     }
-	   if((bounds.y1 < 0 && new_y<y) || (bounds.y2 > BOARDHEIGHT && new_y>y))
-	     {
-	       new_y = y;
-	     }
-
-	   goo_canvas_item_translate(item, new_x - x, new_y - y);
-	   x = new_x;
-	   y = new_y;
-         }
-       break;
-
-     case GDK_BUTTON_RELEASE:
-       if(dragging)
-	 {
-	   gc_canvas_item_ungrab(item, event->time);
-	   dragging = FALSE;
-	 }
-       break;
-
-     default:
-       break;
-     }
 
   return FALSE;
 }
@@ -626,5 +546,92 @@ static void process_ok()
     gamewon = FALSE;
     gc_bonus_display(gamewon, GC_BONUS_SMILEY);
   }
+}
+
+static gboolean
+on_button_press (GooCanvasItem *item,
+		 GooCanvasItem *target,
+		 GdkEventButton *event,
+		 gpointer data)
+{
+  GooCanvas *canvas;
+  GdkCursor *fleur;
+
+  canvas = goo_canvas_item_get_canvas (item);
+
+  switch (event->button)
+    {
+    case 1:
+      {
+	gc_sound_play_ogg ("sounds/bleep.wav", NULL);
+
+	goo_canvas_item_raise(item, NULL);
+
+	drag_x = event->x;
+	drag_y = event->y;
+
+	fleur = gdk_cursor_new (GDK_FLEUR);
+	goo_canvas_pointer_grab (canvas, item,
+				 GDK_POINTER_MOTION_MASK | GDK_BUTTON_RELEASE_MASK,
+				 fleur,
+				 event->time);
+	gdk_cursor_unref (fleur);
+	dragging = TRUE;
+      }
+      break;
+
+    default:
+      break;
+    }
+
+  return TRUE;
+}
+
+
+static gboolean
+on_button_release (GooCanvasItem *item,
+		   GooCanvasItem *target,
+		   GdkEventButton *event,
+		   gpointer data)
+{
+  GooCanvas *canvas;
+
+  canvas = goo_canvas_item_get_canvas (item);
+  goo_canvas_pointer_ungrab (canvas, item, event->time);
+  dragging = FALSE;
+
+  return TRUE;
+}
+
+
+static gboolean
+on_motion_notify (GooCanvasItem *item,
+		  GooCanvasItem *target,
+		  GdkEventMotion *event,
+		  gpointer data)
+{
+  if (dragging && (event->state & GDK_BUTTON1_MASK))
+    {
+      GooCanvasBounds bounds;
+      double new_x = event->x;
+      double new_y = event->y;
+
+      /* Check board boundaries */
+      goo_canvas_item_get_bounds(item, &bounds);
+      if((bounds.x1 < 0 && new_x < drag_x)
+	 || (bounds.x2 > BOARDWIDTH && new_x > drag_x))
+	{
+	  new_x = drag_x;
+	}
+      if((bounds.y1 < 0 && new_y < drag_y)
+	 || (bounds.y2 > BOARDHEIGHT && new_y > drag_y))
+	{
+	  new_y = drag_y;
+	}
+
+      goo_canvas_item_translate (item, new_x - drag_x, new_y - drag_y);
+    }
+
+  return TRUE;
 }
 
