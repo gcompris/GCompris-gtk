@@ -1,1 +1,0 @@
-SUBDIRS = writing_tutor
