@@ -91,16 +91,20 @@ static gint err_cb;
 
 static Position *position;
 
+static gboolean dragging = FALSE;
+static double drag_x, drag_y;
+
 /*
  * Contains the squares structure
  */
 typedef struct {
   GooCanvasItem	*square_item;
   GooCanvasItem	*piece_item;
-  Square		 square;
+  Square	 square;
 } GSquare;
 
 static GSquare  *currentHighlightedGsquare;
+static GSquare  *drag_square_src;
 
 static GooCanvasItem	*turn_item = NULL;
 static GooCanvasItem	*info_item = NULL;
@@ -111,8 +115,26 @@ static GSquare *chessboard[100];
 static GooCanvasItem	*chess_create_item(GooCanvasItem *parent);
 static void		 chess_destroy_all_items(void);
 static void		 chess_next_level(void);
-static gint		 item_event(GooCanvasItem *item, GdkEvent *event, gpointer data);
-static gint		 item_event_black(GooCanvasItem *item, GdkEvent *event, gpointer data);
+
+static gboolean		 on_button_release (GooCanvasItem *item,
+					    GooCanvasItem *target,
+					    GdkEventButton *event,
+					    gpointer data);
+
+static gboolean		 on_button_press (GooCanvasItem *item,
+					  GooCanvasItem *target,
+					  GdkEventButton *event,
+					  gpointer data);
+
+static gboolean		 on_motion_notify (GooCanvasItem *item,
+					   GooCanvasItem *target,
+					   GdkEventMotion *event,
+					   gpointer data);
+
+static gboolean		 item_event_black (GooCanvasItem  *item,
+					   GooCanvasItem  *target,
+					   GdkEventButton *event,
+					   gpointer data);
 static gboolean		 start_child (char        *cmd,
 				      GIOChannel **read_chan,
 				      GIOChannel **write_chan,
@@ -524,11 +546,18 @@ chess_create_item(GooCanvasItem *parent)
 
 	    chessboard[square]->piece_item = item;
 	    if(WPIECE(piece))
-	      g_signal_connect(GTK_OBJECT(item), "enter_notify_event",
-				 (GtkSignalFunc) item_event, NULL);
+	      {
+		g_signal_connect (item, "motion_notify_event",
+				  (GtkSignalFunc) on_motion_notify, NULL);
+		g_signal_connect (item, "button_press_event",
+				  (GtkSignalFunc) on_button_press, NULL);
+		g_signal_connect (item, "button_release_event",
+				  (GtkSignalFunc) on_button_release, NULL);
+
+	      }
 	    else
-	      g_signal_connect(GTK_OBJECT(item), "enter_notify_event",
-				 (GtkSignalFunc) item_event_black, NULL);
+	      g_signal_connect(item, "button_press_event",
+			       (GtkSignalFunc) item_event_black, NULL);
 
 	    gdk_pixbuf_unref(pixmap);
 	  }
@@ -593,7 +622,7 @@ static void display_info(gchar *info)
 				       (double) INFO_Y,
 				       -1,
 				       GTK_ANCHOR_CENTER,
-				       "font",       gc_skin_font_board_big,
+				       "font", gc_skin_font_board_big,
 				       "fill_color_rgba", gc_skin_color_subtitle,
 				       NULL);
     }
@@ -668,11 +697,11 @@ static void move_piece_to(Square from, Square to)
 			(BPIECE(position->square[to])?"red":"blue"),
 			NULL);
 
+  /* Oups I loose a piece */
   if(dest_square->piece_item != NULL)
-    /* Oups I loose a piece */
-    gtk_object_destroy (GTK_OBJECT(dest_square->piece_item));
+     goo_canvas_item_remove(dest_square->piece_item);
 
-  dest_square->piece_item    = item;
+  dest_square->piece_item = item;
 
   /* Find the ofset to move the piece */
   goo_canvas_item_get_bounds  (item,
@@ -798,126 +827,169 @@ void hightlight_possible_moves(GSquare *gsquare)
 }
 
 /* ==================================== */
-static gint
-item_event(GooCanvasItem *item, GdkEvent *event, gpointer data)
+static gboolean
+on_button_press (GooCanvasItem *item,
+		 GooCanvasItem *target,
+		 GdkEventButton *event,
+		 gpointer data)
 {
-   static double x, y;
-   static GSquare *gsquare;
-   double new_x, new_y;
-   GdkCursor *fleur;
-   static int dragging;
-   double item_x, item_y;
+  GooCanvas *canvas;
+  GdkCursor *fleur;
+  double item_x, item_y;
 
   if(board_paused)
     return FALSE;
 
-  item_x = event->button.x;
-  item_y = event->button.y;
-  //goo_canvas_convert_to_item_space(item->parent, &item_x, &item_y);
-  
-  switch (event->type)
+  item_x = event->x;
+  item_y = event->y;
+
+  goo_canvas_convert_from_item_space(goo_canvas_item_get_canvas(item),
+				     item, &item_x, &item_y);
+
+  canvas = goo_canvas_item_get_canvas (item);
+
+  switch (event->button)
     {
-    case GDK_BUTTON_PRESS:
+    case 1:
       {
-	guint x1, y1;
 	Square square;
 
-	square = get_square_from_coord(event->button.x, event->button.y);
-	x1 = square % 10;
-	y1 = square / 10 -1;
-	gsquare = chessboard[square];
+	square = get_square_from_coord(item_x, item_y);
+	drag_square_src = chessboard[square];
+	hightlight_possible_moves(drag_square_src);
 
-	x = item_x;
-	y = item_y;
+	gc_sound_play_ogg ("sounds/bleep.wav", NULL);
 
-	fleur = gdk_cursor_new(GDK_FLEUR);
 	goo_canvas_item_raise(item, NULL);
-	gc_canvas_item_grab(item,
-			       GDK_POINTER_MOTION_MASK |
-			       GDK_BUTTON_RELEASE_MASK,
-			       fleur,
-			       event->button.time);
-	gdk_cursor_destroy(fleur);
-	dragging = TRUE;
 
-	hightlight_possible_moves(gsquare);
+	drag_x = event->x;
+	drag_y = event->y;
+
+	fleur = gdk_cursor_new (GDK_FLEUR);
+	goo_canvas_pointer_grab (canvas, item,
+				 GDK_POINTER_MOTION_MASK | GDK_BUTTON_RELEASE_MASK,
+				 fleur,
+				 event->time);
+	gdk_cursor_unref (fleur);
+	dragging = TRUE;
       }
       break;
-    case GDK_MOTION_NOTIFY:
-       if (dragging && (event->motion.state & GDK_BUTTON1_MASK))
-         {
-           new_x = item_x;
-           new_y = item_y;
-
-           goo_canvas_item_translate(item, new_x - x, new_y - y);
-           x = new_x;
-           y = new_y;
-         }
-       break;
-
-     case GDK_BUTTON_RELEASE:
-       if(dragging)
-	 {
-	   guint x, y;
-	   double ofset_x, ofset_y;
-	   GooCanvasBounds bounds;
-	   char pos[6];
-	   Square to;
-
-	   to = get_square_from_coord(event->button.x, event->button.y);
-	   g_warning("===== Source square = %d Destination square = %d\n", gsquare->square,
-		  to);
-
-	   to = position_move_normalize (position, gsquare->square, to);
-	   if (to) {
-	     position_move (position, gsquare->square, to);
-
-	     x = 1 + (event->button.x - CHESSGC_BOARD_X) / SQUARE_WIDTH;
-	     y = 1 + (event->button.y - CHESSGC_BOARD_Y) / SQUARE_HEIGHT;
-	     move_to_ascii((char *)&pos, gsquare->square, to);
-
-	     /* Tell gnuchess what our move is */
-	     write_child (write_chan, (char *)&pos);
-	     write_child (write_chan, "\n");
-	     move_piece_to(gsquare->square, to);
-	   }
-	   else
-	     {
-	       g_warning("====== MOVE from %d REFUSED\n", gsquare->square);
-
-	       /* Find the ofset to move the piece back to where it was*/
-	       goo_canvas_item_get_bounds  (item,
-					    &bounds);
-
-	       x = gsquare->square % 10;
-	       y = gsquare->square / 10 -1;
-
-	       ofset_x = (CHESSGC_BOARD_X + SQUARE_WIDTH  * (x-1)) - bounds.x1 + (SQUARE_WIDTH  - (bounds.x2-bounds.x1))/2;
-	       ofset_y = (CHESSGC_BOARD_Y + SQUARE_HEIGHT * (8-y)) - bounds.y1 + (SQUARE_HEIGHT - (bounds.y2-bounds.y1))/2;
-	       g_warning("ofset = x=%f y=%f\n", ofset_x, ofset_y);
-
-	       goo_canvas_item_translate(item, ofset_x, ofset_y);
-	     }
-
-	   gc_canvas_item_ungrab(item, event->button.time);
-	   dragging = FALSE;
-
-	   position_display(position);
-
-	 }
-       break;
 
     default:
       break;
     }
 
-  return FALSE;
+  return TRUE;
+}
+
+
+static gboolean
+on_button_release (GooCanvasItem *item,
+		   GooCanvasItem *target,
+		   GdkEventButton *event,
+		   gpointer data)
+{
+  GooCanvas *canvas;
+  guint x, y;
+  double ofset_x, ofset_y;
+  GooCanvasBounds bounds;
+  char pos[6];
+  Square to;
+  double event_x, event_y;
+
+  event_x = event->x;
+  event_y = event->y;
+
+  goo_canvas_convert_from_item_space(goo_canvas_item_get_canvas(item),
+				     item, &event_x, &event_y);
+
+  to = get_square_from_coord(event_x, event_y);
+  g_warning("===== Source square = %d Destination square = %d\n",
+	    drag_square_src->square,
+	    to);
+
+  to = position_move_normalize (position,
+				drag_square_src->square, to);
+  if (to)
+    {
+      position_move (position, drag_square_src->square, to);
+
+      x = 1 + (event_x - CHESSGC_BOARD_X) / SQUARE_WIDTH;
+      y = 1 + (event_y - CHESSGC_BOARD_Y) / SQUARE_HEIGHT;
+      move_to_ascii((char *)&pos, drag_square_src->square, to);
+
+      /* Tell gnuchess what our move is */
+      write_child (write_chan, (char *)&pos);
+      write_child (write_chan, "\n");
+      move_piece_to(drag_square_src->square, to);
+    }
+  else
+    {
+      g_warning("====== MOVE from %d REFUSED\n", drag_square_src->square);
+
+      /* Find the ofset to move the piece back to where it was*/
+      goo_canvas_item_get_bounds  (item,
+				   &bounds);
+
+      x = drag_square_src->square % 10;
+      y = drag_square_src->square / 10 -1;
+
+      ofset_x = (CHESSGC_BOARD_X + SQUARE_WIDTH
+		 * (x-1)) - bounds.x1 + (SQUARE_WIDTH  - (bounds.x2-bounds.x1))/2;
+      ofset_y = (CHESSGC_BOARD_Y + SQUARE_HEIGHT
+		 * (8-y)) - bounds.y1 + (SQUARE_HEIGHT - (bounds.y2-bounds.y1))/2;
+      g_warning("ofset = x=%f y=%f\n", ofset_x, ofset_y);
+
+      goo_canvas_item_translate(item, ofset_x, ofset_y);
+    }
+
+  position_display(position);
+
+  canvas = goo_canvas_item_get_canvas (item);
+  goo_canvas_pointer_ungrab (canvas, item, event->time);
+  dragging = FALSE;
+
+  return TRUE;
+}
+
+
+static gboolean
+on_motion_notify (GooCanvasItem *item,
+		  GooCanvasItem *target,
+		  GdkEventMotion *event,
+		  gpointer data)
+{
+  if (dragging && (event->state & GDK_BUTTON1_MASK))
+    {
+      GooCanvasBounds bounds;
+      double new_x = event->x;
+      double new_y = event->y;
+
+      /* Check board boundaries */
+      goo_canvas_item_get_bounds(item, &bounds);
+      if((bounds.x1 < 0 && new_x < drag_x)
+	 || (bounds.x2 > BOARDWIDTH && new_x > drag_x))
+	{
+	  new_x = drag_x;
+	}
+      if((bounds.y1 < 0 && new_y < drag_y)
+	 || (bounds.y2 > BOARDHEIGHT && new_y > drag_y))
+	{
+	  new_y = drag_y;
+	}
+
+      goo_canvas_item_translate (item, new_x - drag_x, new_y - drag_y);
+    }
+
+  return TRUE;
 }
 
 /* ==================================== */
 /* The user clicked on a black piece    */
-static gint
-item_event_black(GooCanvasItem *item, GdkEvent *event, gpointer data)
+static gboolean	item_event_black (GooCanvasItem  *item,
+				  GooCanvasItem  *target,
+				  GdkEventButton *event,
+				  gpointer data)
 {
    static GSquare *gsquare;
 
@@ -930,7 +1002,7 @@ item_event_black(GooCanvasItem *item, GdkEvent *event, gpointer data)
       {
 	Square square;
 
-	square = get_square_from_coord(event->button.x, event->button.y);
+	square = get_square_from_coord(event->x, event->y);
 	gsquare = chessboard[square];
 
 	hightlight_possible_moves(gsquare);

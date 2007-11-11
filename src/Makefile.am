@@ -109,8 +109,4 @@ SUBDIRS = goocanvas gcompris boards \
 	searace-activity \
 	sudoku-activity \
 	tuxpaint-activity \
-	watercycle-activity \
-	writing_tutor_image_match-activity \
-	writing_tutor_missing_match-activity \
-	writing_tutor_pattern_admin-activity \
-	writing_tutor_template_match-activity
+	watercycle-activity
