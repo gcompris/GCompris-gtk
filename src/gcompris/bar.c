@@ -481,7 +481,7 @@ static gint bar_play_sound (gchar *sound)
 static void bar_reset_sound_id ()
 {
   if(sound_play_id)
-    gtk_timeout_remove (sound_play_id);
+    g_source_remove (sound_play_id);
 
   sound_play_id=0;
 }
@@ -493,7 +493,7 @@ on_enter_notify (GooCanvasItem  *item,
 		 char *data)
 {
   bar_reset_sound_id();
-  sound_play_id = gtk_timeout_add (1000, (GtkFunction) bar_play_sound, data);
+  sound_play_id = g_timeout_add (1000, (GtkFunction) bar_play_sound, data);
   return FALSE;
 }
 

@@ -42,13 +42,15 @@ static GcomprisTimerEnd	 gcomprisTimerEnd;
 GooCanvasItem	*gc_timer_item;
 
 void
-gc_timer_display(int ax, int ay, TimerList atype, int second, GcomprisTimerEnd agcomprisTimerEnd)
+gc_timer_display(int ax, int ay,
+		 TimerList atype, int second,
+		 GcomprisTimerEnd agcomprisTimerEnd)
 {
   GdkFont *gdk_font;
   GdkPixbuf *pixmap = NULL;
   GcomprisProperties *properties = gc_prop_get();
 
-  /* Timer is not requested */
+  /* Timer is user disabled */
   if(properties->timer==0)
     return;
 
@@ -118,7 +120,7 @@ gc_timer_display(int ax, int ay, TimerList atype, int second, GcomprisTimerEnd a
 					    y,
 					    NULL);
 
-      /* Calc the number of step needed to reach 
+      /* Calc the number of step needed to reach
        * the sea based on user y and second
        */
       ystep = (BOARDHEIGHT-y-gdk_pixbuf_get_height(pixmap))/second;
@@ -152,19 +154,19 @@ gc_timer_add(int second)
 void
 gc_timer_end()
 {
-  if(boardRootItem!=NULL)
-    goo_canvas_item_remove(boardRootItem);
-  boardRootItem = NULL;
-
   paused = TRUE;
 
   if (animate_id)
-    gtk_timeout_remove (animate_id);
+    g_source_remove (animate_id);
   animate_id = 0;
 
   if (subanimate_id)
-    gtk_timeout_remove (subanimate_id);
+    g_source_remove (subanimate_id);
   subanimate_id = 0;
+
+  if(boardRootItem!=NULL)
+    goo_canvas_item_remove(boardRootItem);
+  boardRootItem = NULL;
 }
 
 void
@@ -178,14 +180,14 @@ gc_timer_pause(gboolean pause)
   if(pause)
     {
       if (animate_id)
-	gtk_timeout_remove (animate_id);
+	g_source_remove (animate_id);
       animate_id = 0;
 
       if (subanimate_id)
-	gtk_timeout_remove (subanimate_id);
+	g_source_remove (subanimate_id);
       subanimate_id = 0;
     }
-  else
+  else if(paused)
     {
       start_animation();
     }
@@ -218,21 +220,24 @@ start_animation()
     case GCOMPRIS_TIMER_BALLOON:
       /* Perform under second animation */
       subratio = 5;
-      subanimate_id = gtk_timeout_add (1000/subratio,
-				       (GtkFunction) subtimer_increment,
-				       gc_timer_item);
+      subanimate_id = g_timeout_add (1000/subratio,
+				     (GtkFunction) subtimer_increment,
+				     gc_timer_item);
       break;
     }
 
-  animate_id = gtk_timeout_add (1000,
-				(GtkFunction) timer_increment, 
-				gc_timer_item);
+  animate_id = g_timeout_add (1000,
+			      (GtkFunction) timer_increment,
+			      gc_timer_item);
 }
 
 
 static void
 display_time_ellapsed()
 {
+  if(paused || !boardRootItem)
+    return;
+
   switch(type)
     {
     case GCOMPRIS_TIMER_TEXT:
@@ -252,18 +257,16 @@ display_time_ellapsed()
 static gint
 subtimer_increment(GooCanvasItem *item)
 {
-  if(paused)
+  if(paused || !boardRootItem)
     return(FALSE);
 
   switch(type)
     {
     case GCOMPRIS_TIMER_BALLOON:
-      /* Display the value for this timer */
-      y+=ystep/subratio;
-      if(gc_timer_item)
-	g_object_set(item,
-		     "y", y,
-		     NULL);
+      y += ystep/subratio;
+      g_object_set(item,
+		   "y", y,
+		   NULL);
       break;
     default:
       break;
@@ -274,7 +277,7 @@ subtimer_increment(GooCanvasItem *item)
 static gint
 timer_increment(GooCanvasItem *item)
 {
-  if(paused)
+  if(paused || !boardRootItem)
     return(FALSE);
 
   timer--;

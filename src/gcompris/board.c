@@ -415,7 +415,7 @@ static gint next_board_callback_id = 0;
 
 void board_run_next_end()
 {
-  gtk_timeout_remove(next_board_callback_id);
+  g_source_remove(next_board_callback_id);
   next_board_callback_id = 0;
 
   if (next_board &&
@@ -436,8 +436,8 @@ void gc_board_run_next(GcomprisBoard *board)
 
   next_board = board;
 
-  next_board_callback_id = gtk_timeout_add (NEXT_TIME_DELAY,
-					    (GtkFunction) board_run_next_end,
-					    NULL);
+  next_board_callback_id = g_timeout_add (NEXT_TIME_DELAY,
+					  (GtkFunction) board_run_next_end,
+					  NULL);
 
 }

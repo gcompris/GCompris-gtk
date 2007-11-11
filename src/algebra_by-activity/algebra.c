@@ -401,8 +401,9 @@ static void algebra_next_level()
 
   algebra_destroy_all_items();
 
-  boardRootItem = goo_canvas_group_new (goo_canvas_get_root_item(gcomprisBoard->canvas),
-					NULL);
+  boardRootItem = \
+    goo_canvas_group_new (goo_canvas_get_root_item(gcomprisBoard->canvas),
+			  NULL);
 
 
   maxtime = 20;
@@ -448,20 +449,21 @@ static void algebra_destroy_all_items()
   boardRootItem=NULL;
 }
 
-static void display_operand(GooCanvasItem *parent,
-			    double x_align,
-			    double y,
-			    char *operand_str,
-			    gboolean masked)
+static void
+display_operand(GooCanvasItem *parent,
+		double x_align,
+		double y,
+		char *operand_str,
+		gboolean masked)
 {
   GooCanvasItem *item, *focus_item = NULL, *bad_item = NULL;
   int i;
   ToBeFoundItem *toBeFoundItem=NULL;
   ToBeFoundItem *previousToBeFoundItem=NULL;;
 
-  for(i=strlen(operand_str)-1; i>=0; i--)
+  for( i = strlen(operand_str)-1; i >= 0; i--)
     {
-      gchar *operand = "?";
+      gchar operand[2] = "?";
 
       if(!masked)
 	operand[0] = operand_str[i];
@@ -533,9 +535,9 @@ static void display_operand(GooCanvasItem *parent,
 	    {
 	      set_focus_item(toBeFoundItem, FALSE);
 	    }
-	  g_signal_connect(GTK_OBJECT(item), "button_press_event",
-			     (GtkSignalFunc) item_event,
-			     toBeFoundItem);
+	  g_signal_connect(item, "button_press_event",
+			   (GtkSignalFunc) item_event,
+			   toBeFoundItem);
 	}
     }
 }
@@ -553,13 +555,11 @@ static GooCanvasItem *algebra_create_item(GooCanvasItem *parent)
   double x, y;
   double y_firstline = 0;
 
-
-
   /* Some globals for this board layout */
   y_firstline = gcomprisBoard->height/5;
 
-
   get_random_number(&first_operand, &second_operand);
+
   first_operand_str = g_strdup_printf("%d", first_operand);
 
   second_operand_str = g_strdup_printf("%d", second_operand);
@@ -567,7 +567,8 @@ static GooCanvasItem *algebra_create_item(GooCanvasItem *parent)
   /* Calc the longuest value */
   longuest = MAX(strlen(first_operand_str), strlen(second_operand_str));
 
-  x_align = (gcomprisBoard->width - (longuest*3*NUMBERSWIDTH))/2 + NUMBERSWIDTH*(strlen(first_operand_str)) - 200;
+  x_align = (gcomprisBoard->width - (longuest*3*NUMBERSWIDTH))/2
+    + NUMBERSWIDTH*(strlen(first_operand_str)) - 200;
 
   /* First operand */
   display_operand(parent, x_align, y_firstline, first_operand_str, FALSE);
@@ -650,7 +651,8 @@ static GooCanvasItem *algebra_create_item(GooCanvasItem *parent)
     first_operand_str = g_strdup_printf("voices/$LOCALE/alphabet/%s", str1);
     second_operand_str = g_strdup_printf("voices/$LOCALE/alphabet/%s", str2);
 
-    gc_sound_play_ogg(first_operand_str, audioOperand , second_operand_str, "voices/$LOCALE/misc/equal.ogg", NULL);
+    gc_sound_play_ogg(first_operand_str, audioOperand , second_operand_str,
+		      "voices/$LOCALE/misc/equal.ogg", NULL);
 
     g_free(str1);
     g_free(str2);
@@ -716,10 +718,11 @@ static void process_ok()
 }
 
 /* Callback for the 'toBeFoundItem' */
-static gboolean item_event (GooCanvasItem  *item,
-			    GooCanvasItem  *target,
-			    GdkEventButton *event,
-			    gchar *data)
+static gboolean
+item_event (GooCanvasItem  *item,
+	    GooCanvasItem  *target,
+	    GdkEventButton *event,
+	    gchar *data)
 {
   ToBeFoundItem *toBeFoundItem;
 
@@ -783,7 +786,8 @@ static void init_operation()
 }
 
 /* Returns a random int based on the current level */
-static void get_random_number(guint *first_operand, guint *second_operand)
+static void
+get_random_number(guint *first_operand, guint *second_operand)
 {
   guint min, max;
 

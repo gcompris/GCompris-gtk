@@ -189,7 +189,7 @@ gc_bonus_end_display(GCBoardFinishedList type) {
   gdk_pixbuf_unref(pixmap_door2);
   gdk_pixbuf_unref(pixmap_tuxplane);
 
-  gc_bonus_end_display_id = gtk_timeout_add (TUX_TIME_STEP, (GtkFunction) end_gc_bonus_end_display, NULL);
+  gc_bonus_end_display_id = g_timeout_add (TUX_TIME_STEP, (GtkFunction) end_gc_bonus_end_display, NULL);
 
 }
 
@@ -357,7 +357,7 @@ bonus_image(char *image, GCBonusStatusList gamewon)
   gdk_pixbuf_unref(pixmap);
 
   g_free(str);
-  end_bonus_id = gtk_timeout_add (GC_BONUS_DURATION, (GtkFunction) end_bonus, NULL);
+  end_bonus_id = g_timeout_add (GC_BONUS_DURATION, (GtkFunction) end_bonus, NULL);
 }
 
 /* ==================================== */
