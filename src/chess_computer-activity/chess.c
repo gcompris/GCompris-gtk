@@ -895,15 +895,15 @@ on_button_release (GooCanvasItem *item,
   GooCanvasBounds bounds;
   char pos[6];
   Square to;
-  double event_x, event_y;
+  double item_x, item_y;
 
-  event_x = event->x;
-  event_y = event->y;
+  item_x = event->x;
+  item_y = event->y;
 
   goo_canvas_convert_from_item_space(goo_canvas_item_get_canvas(item),
-				     item, &event_x, &event_y);
+				     item, &item_x, &item_y);
 
-  to = get_square_from_coord(event_x, event_y);
+  to = get_square_from_coord(item_x, item_y);
   g_warning("===== Source square = %d Destination square = %d\n",
 	    drag_square_src->square,
 	    to);
@@ -914,8 +914,8 @@ on_button_release (GooCanvasItem *item,
     {
       position_move (position, drag_square_src->square, to);
 
-      x = 1 + (event_x - CHESSGC_BOARD_X) / SQUARE_WIDTH;
-      y = 1 + (event_y - CHESSGC_BOARD_Y) / SQUARE_HEIGHT;
+      x = 1 + (item_x - CHESSGC_BOARD_X) / SQUARE_WIDTH;
+      y = 1 + (item_y - CHESSGC_BOARD_Y) / SQUARE_HEIGHT;
       move_to_ascii((char *)&pos, drag_square_src->square, to);
 
       /* Tell gnuchess what our move is */

@@ -39,10 +39,13 @@ static GooCanvasItem *digital_time_item_s;
 static GooCanvasItem *time_to_find_item;
 static GooCanvasItem *time_to_find_item_s;
 
+static gboolean dragging = FALSE;
+static double drag_x, drag_y;
+
 /* Center of the clock and it's size */
-double cx;
-double cy;
-double clock_size;
+static double cx;
+static double cy;
+static double clock_size;
 
 typedef struct {
   guint hour;
@@ -56,7 +59,6 @@ static void		 pause_board (gboolean pause);
 static void		 end_board (void);
 static gboolean		 is_our_board (GcomprisBoard *gcomprisBoard);
 static void		 set_level (guint level);
-static void		 process_ok(void);
 
 static int gamewon;
 static void		 game_won(void);
@@ -65,7 +67,22 @@ static void		 clockgame_create_item(GooCanvasItem *parent);
 static void		 destroy_all_items(void);
 static void		 get_random_hour(GcomprisTime *time);
 static void		 clockgame_next_level(void);
-static gint		 item_event(GooCanvasItem *item, GdkEvent *event, gpointer data);
+
+static gboolean		 on_button_release (GooCanvasItem *item,
+					    GooCanvasItem *target,
+					    GdkEventButton *event,
+					    gpointer data);
+
+static gboolean		 on_button_press (GooCanvasItem *item,
+					  GooCanvasItem *target,
+					  GdkEventButton *event,
+					  gpointer data);
+
+static gboolean		 on_motion_notify (GooCanvasItem *item,
+					   GooCanvasItem *target,
+					   GdkEventMotion *event,
+					   gpointer data);
+
 static void		 display_hour(guint hour);
 static void		 display_minute(guint minute);
 static void		 display_second(guint second);
@@ -88,7 +105,7 @@ static BoardPlugin menu_bp =
    end_board,
    is_our_board,
    NULL,
-   process_ok,
+   NULL,
    set_level,
    NULL,
    NULL,
@@ -135,7 +152,8 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       gc_set_background(goo_canvas_get_root_item(gcomprisBoard->canvas),
 			      "clockgame/clockgame-bg.jpg");
 
-      /* set initial values for this level adjusted to fit the watch background */
+      /* set initial values for this level adjusted to
+	 fit the watch background */
       cx =  gcomprisBoard->width/2;
       cy =  gcomprisBoard->height*0.4 + 42;
       clock_size = gcomprisBoard->height*0.3;
@@ -148,7 +166,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 			   gcomprisBoard->width - 220,
 			   gcomprisBoard->height - 50,
 			   gcomprisBoard->number_of_sublevel);
-      gc_bar_set(GC_BAR_LEVEL|GC_BAR_OK);
+      gc_bar_set(GC_BAR_LEVEL);
 
       clockgame_next_level();
 
@@ -259,8 +277,8 @@ static void display_digital_time(GooCanvasItem *item, GcomprisTime *time)
     text = g_strdup_printf("%.2d:%.2d:%.2d", time->hour, time->minute, time->second);
 
   g_object_set (item,
-			 "text", text,
-			 NULL);
+		"text", text,
+		NULL);
   g_free(text);
 
 }
@@ -493,27 +511,36 @@ clockgame_create_item(GooCanvasItem *parent)
 
   hour_item = goo_canvas_polyline_new (boardRootItem, FALSE, 0,
 				       NULL);
-  g_signal_connect(hour_item, "button-press-event",
-		   (GtkSignalFunc) item_event,
-		   NULL);
+  g_signal_connect (hour_item, "motion_notify_event",
+		    (GtkSignalFunc) on_motion_notify, NULL);
+  g_signal_connect (hour_item, "button_press_event",
+		    (GtkSignalFunc) on_button_press, NULL);
+  g_signal_connect (hour_item, "button_release_event",
+		    (GtkSignalFunc) on_button_release, NULL);
   display_hour(currentTime.hour);
 
   /* Create the minute needle */
 
   minute_item = goo_canvas_polyline_new (boardRootItem, FALSE, 0,
 					 NULL);
-  g_signal_connect(minute_item, "button-press-event",
-		   (GtkSignalFunc) item_event,
-		   NULL);
+  g_signal_connect (minute_item, "motion_notify_event",
+		    (GtkSignalFunc) on_motion_notify, NULL);
+  g_signal_connect (minute_item, "button_press_event",
+		    (GtkSignalFunc) on_button_press, NULL);
+  g_signal_connect (minute_item, "button_release_event",
+		    (GtkSignalFunc) on_button_release, NULL);
   display_minute(currentTime.minute);
 
   /* Create the second needle */
 
   second_item = goo_canvas_polyline_new (boardRootItem, FALSE, 0,
 					 NULL);
-  g_signal_connect(second_item, "button-press-event",
-		   (GtkSignalFunc) item_event,
-		   NULL);
+  g_signal_connect (second_item, "motion_notify_event",
+		    (GtkSignalFunc) on_motion_notify, NULL);
+  g_signal_connect (second_item, "button_press_event",
+		    (GtkSignalFunc) on_button_press, NULL);
+  g_signal_connect (second_item, "button_release_event",
+		    (GtkSignalFunc) on_button_release, NULL);
   display_second(currentTime.second);
 
   /* Create the text area for the time to find display */
@@ -537,7 +564,7 @@ clockgame_create_item(GooCanvasItem *parent)
 		       "fill_color_rgba", gc_skin_get_color("clockgame/text"),
 		       NULL);
 
-  time_to_find_item_s =
+  time_to_find_item_s = \
     goo_canvas_text_new (boardRootItem,
 			 "",
 			 (double) gcomprisBoard->width*0.17 + 1.0,
@@ -549,7 +576,7 @@ clockgame_create_item(GooCanvasItem *parent)
 			 NULL);
   display_digital_time(time_to_find_item_s, &timeToFind);
 
-  time_to_find_item =
+  time_to_find_item = \
     goo_canvas_text_new (boardRootItem,
 			 "",
 			 (double) gcomprisBoard->width*0.17,
@@ -601,127 +628,136 @@ static void game_won()
   clockgame_next_level();
 }
 
-/* ==================================== */
-static void process_ok()
+static gboolean
+on_button_press (GooCanvasItem *item,
+		 GooCanvasItem *target,
+		 GdkEventButton *event,
+		 gpointer data)
 {
-  if(time_equal(&timeToFind, &currentTime))
-    {
-      gamewon = TRUE;
-    }
-  else
-    {
-      /* Oups, you're wrong */
-      gamewon = FALSE;
-    }
-  gc_bonus_display(gamewon, GC_BONUS_FLOWER);
-}
-
-
-/* Callback for the 'toBeFoundItem' */
-static gint
-item_event(GooCanvasItem *item, GdkEvent *event, gpointer data)
-{
-  static double x, y;
-  double item_x, item_y;
-  static int dragging;
+  GooCanvas *canvas;
   GdkCursor *fleur;
-  double new_x, new_y;
 
-  if(board_paused)
-    return FALSE;
+  canvas = goo_canvas_item_get_canvas (item);
 
-  item_x = event->button.x;
-  item_y = event->button.y;
-  //goo_canvas_convert_to_item_space(item->parent, &item_x, &item_y);
-
-  switch (event->type)
+  switch (event->button)
     {
-    case GDK_BUTTON_PRESS:
-      gc_sound_play_ogg ("sounds/bleep.wav", NULL);
-      x = item_x;
-      y = item_y;
+    case 1:
+      {
+	gc_sound_play_ogg ("sounds/bleep.wav", NULL);
 
-      fleur = gdk_cursor_new(GDK_FLEUR);
-      gc_canvas_item_grab(item,
-			     GDK_POINTER_MOTION_MASK |
-			     GDK_BUTTON_RELEASE_MASK,
-			     fleur,
-			     event->button.time);
-      gdk_cursor_destroy(fleur);
-      dragging = TRUE;
-      break;
+	goo_canvas_item_raise(item, NULL);
 
-    case GDK_MOTION_NOTIFY:
-      if (dragging && (event->motion.state & GDK_BUTTON1_MASK))
-	{
+	drag_x = event->x;
+	drag_y = event->y;
 
-          double angle;
-
-          /* only use coords relative to the center, with standard
-             direction for axis (y's need to be negated for this) */
-          new_x = item_x - cx;
-          new_y = - item_y + cy;
-
-          /* angle as mesured relatively to noon position */
-	  /* Thanks to Martin Herweg for this code        */
-	  angle =  atan2(new_x,new_y);
-	  if (angle<0) {angle= angle + 2.0*M_PI;}
-
-	  if(item==hour_item)
-	    display_hour(angle * 6 / M_PI);
-	  else if(item==minute_item)
-	  {
-	    if(currentTime.minute > 45 && angle * 30 / M_PI < 15)
-	      {
-		currentTime.hour++;
-		gc_sound_play_ogg ("sounds/paint1.wav", NULL);
-	      }
-
-	    if(currentTime.minute < 15 && angle * 30 / M_PI > 45)
-	      {
-		currentTime.hour--;
-		gc_sound_play_ogg ("sounds/paint1.wav", NULL);
-	      }
-
-	    display_minute(angle * 30 / M_PI);
-	    display_hour(currentTime.hour);
-	  }
-	  else if(item==second_item)
-	  {
-	    if(currentTime.second > 45 && angle * 30 / M_PI < 15)
-	      {
-		currentTime.minute++;
-		gc_sound_play_ogg ("sounds/paint1.wav", NULL);
-	      }
-
-	    if(currentTime.second < 15 && angle * 30 / M_PI > 45)
-	      {
-		currentTime.minute--;
-		gc_sound_play_ogg ("sounds/paint1.wav", NULL);
-	      }
-
-	    display_second(angle * 30 / M_PI);
-	    display_minute(currentTime.minute);
-	    display_hour(currentTime.hour);
-	  }
-
-          x = new_x + cx;
-          y = new_y + cy;
-	}
-      break;
-
-    case GDK_BUTTON_RELEASE:
-      if(dragging)
-	{
-	  gc_canvas_item_ungrab(item, event->button.time);
-	  dragging = FALSE;
-	}
+	fleur = gdk_cursor_new (GDK_FLEUR);
+	goo_canvas_pointer_grab (canvas, item,
+				 GDK_POINTER_MOTION_MASK | GDK_BUTTON_RELEASE_MASK,
+				 fleur,
+				 event->time);
+	gdk_cursor_unref (fleur);
+	dragging = TRUE;
+      }
       break;
 
     default:
       break;
     }
-  return FALSE;
+
+  return TRUE;
+}
+
+
+static gboolean
+on_button_release (GooCanvasItem *item,
+		   GooCanvasItem *target,
+		   GdkEventButton *event,
+		   gpointer data)
+{
+  GooCanvas *canvas;
+
+  canvas = goo_canvas_item_get_canvas (item);
+  goo_canvas_pointer_ungrab (canvas, item, event->time);
+  dragging = FALSE;
+
+  if(time_equal(&timeToFind, &currentTime))
+    {
+      gamewon = TRUE;
+      gc_bonus_display(gamewon, GC_BONUS_FLOWER);
+    }
+  return TRUE;
+}
+
+
+static gboolean
+on_motion_notify (GooCanvasItem *item,
+		  GooCanvasItem *target,
+		  GdkEventMotion *event,
+		  gpointer data)
+{
+  if (dragging && (event->state & GDK_BUTTON1_MASK))
+    {
+      double angle;
+      double item_x, item_y;
+      double new_x, new_y;
+
+      item_x = event->x;
+      item_y = event->y;
+
+      goo_canvas_convert_from_item_space(goo_canvas_item_get_canvas(item),
+					 item, &item_x, &item_y);
+
+
+      /* only use coords relative to the center, with standard
+	 direction for axis (y's need to be negated for this) */
+      new_x = item_x - cx;
+      new_y = - item_y + cy;
+
+      /* angle as mesured relatively to noon position */
+      /* Thanks to Martin Herweg for this code        */
+      angle =  atan2(new_x,new_y);
+      if (angle<0) {angle= angle + 2.0*M_PI;}
+
+      if(item==hour_item)
+	display_hour(angle * 6 / M_PI);
+      else if(item==minute_item)
+	{
+	  if(currentTime.minute > 45 && angle * 30 / M_PI < 15)
+	    {
+	      currentTime.hour++;
+	      gc_sound_play_ogg ("sounds/paint1.wav", NULL);
+	    }
+
+	  if(currentTime.minute < 15 && angle * 30 / M_PI > 45)
+	    {
+	      currentTime.hour--;
+	      gc_sound_play_ogg ("sounds/paint1.wav", NULL);
+	    }
+
+	  display_minute(angle * 30 / M_PI);
+	  display_hour(currentTime.hour);
+	}
+      else if(item==second_item)
+	{
+	  if(currentTime.second > 45 && angle * 30 / M_PI < 15)
+	    {
+	      currentTime.minute++;
+	      gc_sound_play_ogg ("sounds/paint1.wav", NULL);
+	    }
+
+	  if(currentTime.second < 15 && angle * 30 / M_PI > 45)
+	    {
+	      currentTime.minute--;
+	      gc_sound_play_ogg ("sounds/paint1.wav", NULL);
+	    }
+
+	  display_second(angle * 30 / M_PI);
+	  display_minute(currentTime.minute);
+	  display_hour(currentTime.hour);
+	}
+    }
+
+  return TRUE;
 }
 
 
