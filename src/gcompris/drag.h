@@ -21,16 +21,19 @@
 #define GCOMPIRS_DRAG_H
 #include "gcompris.h"
 
-typedef enum { 
-    GC_DRAG_MODE_DEFAULT = 0, 
-    GC_DRAG_MODE_GRAB = 1, 
+typedef enum {
+    GC_DRAG_MODE_DEFAULT = 0,
+    GC_DRAG_MODE_GRAB = 1,
     GC_DRAG_MODE_2CLICKS = 2,
     GC_DRAG_MODE_BOTH = 3
 } gc_drag_mode_type;
 
 typedef gint (*gc_Drag_Func) (GooCanvasItem *item, GdkEvent *event, gpointer data);
 
-gint gc_drag_event(GooCanvasItem *item, GdkEvent *event, gpointer data);
+gboolean gc_drag_event (GooCanvasItem *item,
+			GooCanvasItem *target,
+			GdkEventButton *event,
+			gpointer data);
 
 void gc_drag_start(GooCanvasItem *root_item, gc_Drag_Func function, gc_drag_mode_type mode);
 void gc_drag_stop(GooCanvasItem *root_item);
