@@ -178,7 +178,8 @@ start_board (GcomprisBoard *agcomprisBoard)
     }
 }
 
-static void end_board ()
+static void
+end_board ()
 {
   if(gcomprisBoard!=NULL)
     {
@@ -191,7 +192,8 @@ static void end_board ()
 }
 
 /* ======================================= */
-static void set_level (guint level)
+static void
+set_level (guint level)
 {
 
   if(gcomprisBoard!=NULL)
@@ -216,7 +218,8 @@ gboolean is_our_board (GcomprisBoard *gcomprisBoard)
 }
 
 /* ======================================= */
-static gint key_press(guint keyval, gchar *commit_str, gchar *preedit_str)
+static gint
+key_press(guint keyval, gchar *commit_str, gchar *preedit_str)
 {
   if(!gcomprisBoard)
     return FALSE;
@@ -276,7 +279,8 @@ static gint key_press(guint keyval, gchar *commit_str, gchar *preedit_str)
 // plate = 1 plate g
 // plate = -1 plate d
 // plate = 0 plate g - plate d
-int get_weight_plate(int plate)
+int
+get_weight_plate(int plate)
 {
   GList *list;
   ScaleItem *item;
@@ -312,6 +316,9 @@ scale_anim_plate(void)
 
   if(last_delta != delta_y)
     {
+      goo_canvas_item_translate(group_g, 0, -last_delta);
+      goo_canvas_item_translate(group_d, 0, last_delta);
+
       last_delta = delta_y;
 
       angle = tan(delta_y / 138) * 180 / M_PI;
@@ -322,30 +329,31 @@ scale_anim_plate(void)
       gc_item_rotate_with_center(bras, -angle, 138, 84);
     }
 
-  if(diff == 0 && (gcomprisBoard->level == 2 || gcomprisBoard->level == 4))
+  if(diff == 0 && (gcomprisBoard->level == 2
+		   || gcomprisBoard->level == 4))
     {
       GdkPixbuf *button_pixmap;
-      double x_offset = 40, y_offset = 150;
+      double x_offset = BOARDWIDTH/2, y_offset = BOARDHEIGHT*0.6;
 
       button_pixmap = gc_skin_pixmap_load("button_large2.png");
       int w = gdk_pixbuf_get_width(button_pixmap);
       int h = gdk_pixbuf_get_height(button_pixmap);
       goo_canvas_image_new (boardRootItem,
 			    button_pixmap,
-			    x_offset + w/2,
-			    y_offset + h/2,
+			    x_offset - w/2,
+			    y_offset,
 			    NULL);
+      gdk_pixbuf_unref(button_pixmap);
 
       answer_item = goo_canvas_text_new(boardRootItem,
 					"",
-					x_offset + gdk_pixbuf_get_width(button_pixmap)/2,
-					y_offset + gdk_pixbuf_get_height(button_pixmap)/2,
+					x_offset,
+					y_offset + h/2,
 					-1,
 					GTK_ANCHOR_CENTER,
 					"font", gc_skin_font_board_title_bold,
-					"fill-color", "black",
+					"fill-color", "white",
 					NULL);
-      gdk_pixbuf_unref(button_pixmap);
 
       answer_string = g_string_new(NULL);
       key_press(0, NULL, NULL);
@@ -363,7 +371,7 @@ scale_item_move_to(ScaleItem *item, int plate)
   gboolean found;
   int index;
 
-  if(plate!=0)
+  if(plate != 0)
     {
       if(item->plate)
 	item->plate_index = -1;
@@ -380,20 +388,22 @@ scale_item_move_to(ScaleItem *item, int plate)
 	      if(scale->plate_index == index && scale->plate == plate)
 		found=TRUE;
             }
+
 	  if(!found)
             {   // move to the plate
 	      item->plate = plate;
-	      item->plate_index=index;
+	      item->plate_index = index;
 
 	      /* Reparent */
 	      g_object_ref(item->item);
-	      goo_canvas_item_add_child (goo_canvas_item_get_parent(plate == 1 ? group_g : group_d),
+	      goo_canvas_item_remove(item->item);
+	      goo_canvas_item_add_child ((plate == 1 ? group_g : group_d),
 					 item->item, -1);
 	      g_object_unref(item->item);
 
 	      g_object_set(item->item,
-			   "x", (double)index * ITEM_W,
-			   "y", (double)PLATE_Y-ITEM_H + 5,
+			   "x", (double) index * ITEM_W,
+			   "y", (double) PLATE_Y - ITEM_H + 5,
 			   NULL);
 	      break;
             }
@@ -408,7 +418,8 @@ scale_item_move_to(ScaleItem *item, int plate)
 	gc_sound_play_ogg ("sounds/eraser1.wav", NULL);
       item->plate = 0;
       g_object_ref(item->item);
-      goo_canvas_item_add_child (goo_canvas_item_get_parent(boardRootItem),
+      goo_canvas_item_remove(item->item);
+      goo_canvas_item_add_child (boardRootItem,
 				 item->item, -1);
       g_object_unref(item->item);
 
@@ -439,8 +450,8 @@ static int scale_drag_event(GooCanvasItem *w,
 			    GdkEvent *event,
 			    ScaleItem *scale)
 {
-  int plate=0;
   double x, y;
+  double item_x, item_y;
 
   if(answer_string)   // disable, waiting a answer
     return FALSE;
@@ -448,16 +459,24 @@ static int scale_drag_event(GooCanvasItem *w,
   switch(event->type)
     {
     case GDK_BUTTON_PRESS:
-      printf("scale_drag_event PRESS\n");
-      gc_drag_offset_save(event);
-      g_object_get(G_OBJECT(scale->item), "x", &x, "y", &y, NULL);
-      //goo_canvas_item_i2w(scale->item, &x,&y);
+      item_x = event->button.x;
+      item_y = event->button.y;
+
+      goo_canvas_convert_from_item_space(goo_canvas_item_get_canvas(w),
+					 scale->item, &item_x, &item_y);
+
       g_object_ref(scale->item);
+      goo_canvas_item_remove(scale->item);
       goo_canvas_item_add_child (goo_canvas_item_get_parent(boardRootItem),
 				 scale->item, -1);
       g_object_unref(scale->item);
-      //goo_canvas_convert_to_item_space(scale->item, &x, &y);
-      g_object_set(scale->item, "x", x, "y", y, NULL);
+      gc_drag_offset_save(event);
+
+      gc_drag_offset_get(&x, &y);
+
+      g_object_set(scale->item,
+		   "x", item_x - x,
+		   "y", item_y - y, NULL);
       break;
 
     case GDK_MOTION_NOTIFY:
@@ -466,7 +485,7 @@ static int scale_drag_event(GooCanvasItem *w,
 
     case GDK_BUTTON_RELEASE:
       {
-	double item_x, item_y;
+	int plate;
 
 	item_x = event->button.x;
 	item_y = event->button.y;
@@ -476,12 +495,13 @@ static int scale_drag_event(GooCanvasItem *w,
 
 	x = item_x;
 	y = item_y;
+
 	goo_canvas_convert_to_item_space(goo_canvas_item_get_canvas(w),
 					 group_g, &x, &y);
 
 	if( -ITEM_W < x
-	    && item_x < PLATE_W + ITEM_W
-	    && abs(item_y - PLATE_Y) < ITEM_H)
+	    && x < PLATE_W + ITEM_W
+	    && abs(y - PLATE_Y) < ITEM_H)
 	  plate = 1;
 	else
 	  {
@@ -492,7 +512,7 @@ static int scale_drag_event(GooCanvasItem *w,
 
 	    if( -ITEM_W < x
 		&& x < PLATE_W + ITEM_W
-		&& abs(y-PLATE_Y) < ITEM_H)
+		&& abs(y - PLATE_Y) < ITEM_H)
 	      plate = -1;
 	    else
 	      plate=0;
@@ -782,10 +802,6 @@ static void scale_destroy_all_items()
 {
   GList *list;
 
-  if(boardRootItem)
-    goo_canvas_item_remove(boardRootItem);
-  boardRootItem = NULL;
-
   if(item_list)
     {
       for(list = item_list; list ; list = list->next)
@@ -798,6 +814,11 @@ static void scale_destroy_all_items()
       g_string_free(answer_string, TRUE);
       answer_string = NULL;
     }
+
+  if(boardRootItem)
+    goo_canvas_item_remove(boardRootItem);
+  boardRootItem = NULL;
+
 }
 
 static void game_won()

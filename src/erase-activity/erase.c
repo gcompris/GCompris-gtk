@@ -245,8 +245,8 @@ static void end_board ()
   gc_cursor_set(GCOMPRIS_DEFAULT_CURSOR);
   if(gcomprisBoard!=NULL)
     {
-      gtk_signal_disconnect(GTK_OBJECT(gcomprisBoard->canvas),
-			    event_handle_id);
+      g_signal_handler_disconnect(gcomprisBoard->canvas,
+				  event_handle_id);
       pause_board(TRUE);
       erase_destroy_all_items();
     }

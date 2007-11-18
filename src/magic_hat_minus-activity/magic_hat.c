@@ -78,7 +78,7 @@ static gint timer_id = 0;
 static gint board_mode = DEFAULT_MODE;
 static gint hat_event_id;	// value returned by g_signal_connect. Used by gtk_signal_disconnect
 
-static GooCanvasItem	*hat;
+static GooCanvasItem *hat;
 static frame frame1;
 static frame frame2;
 static frame frame_player;
@@ -683,7 +683,7 @@ static gboolean hat_event (GooCanvasItem  *item,
   if ((event->type == GDK_BUTTON_PRESS) && (event->button == 1))
     {
       // disconnect hat and hat_event, so that hat can not be clicked any more
-      gtk_signal_disconnect(hat, hat_event_id);
+      g_signal_handler_disconnect(hat, hat_event_id);
 
       // 'open' the hat
       goo_canvas_item_animate (item,

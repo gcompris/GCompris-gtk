@@ -79,12 +79,11 @@ gc_drag_offset_save(GdkEvent *event)
   double x, y;
   GooCanvasBounds bounds;
 
-  x=event->button.x;
-  y=event->button.y;
+  x = event->button.x;
+  y = event->button.y;
 
   goo_canvas_convert_to_item_space(goo_canvas_item_get_canvas(gc_drag_item),
 				   gc_drag_item, &x, &y);
-
   goo_canvas_item_get_bounds(gc_drag_item, &bounds);
 
   gc_drag_offset_set(x - bounds.x1, y - bounds.y1);
@@ -176,8 +175,9 @@ gc_drag_stop(GooCanvasItem *root_item)
       event.button.button = 1;
       gc_drag_func(gc_drag_item, &event, NULL);
     }
-  gtk_signal_disconnect_by_func(GTK_OBJECT(root_item),
-				(GtkSignalFunc) gc_drag_event_root, NULL);
+  g_signal_handlers_disconnect_by_func(root_item,
+				       (GtkSignalFunc) gc_drag_event_root,
+				       NULL);
   gc_drag_func = NULL;
   gc_drag_status = -1;
   gc_drag_item = NULL;

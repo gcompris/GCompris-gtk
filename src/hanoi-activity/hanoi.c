@@ -54,7 +54,9 @@ typedef struct {
   gint color;
 } PieceItem;
 
-static gint		 item_event(GooCanvasItem *item, GdkEvent *event, PieceItem *data);
+static gint item_event(GooCanvasItem *item,
+		       GooCanvasItem *target,
+		       GdkEvent *event, PieceItem *data);
 
 /* This contains the layout of the pieces */
 #define MAX_NUMBER_X 10
@@ -142,7 +144,7 @@ static void pause_board (gboolean pause)
  */
 static void start_board (GcomprisBoard *agcomprisBoard)
 {
-    gchar *img;
+  gchar *img;
 
   if(agcomprisBoard!=NULL)
     {
@@ -154,7 +156,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       gc_bar_set(GC_BAR_LEVEL);
 
       gc_set_background(goo_canvas_get_root_item(gcomprisBoard->canvas),
-			      img = gc_skin_image_get("gcompris-bg.jpg"));
+			img = gc_skin_image_get("gcompris-bg.jpg"));
       g_free(img);
       hanoi_next_level();
 
@@ -294,7 +296,8 @@ static void print_piece(PieceItem *piece)
 #endif
 
 /* ==================================== */
-static GooCanvasItem *hanoi_create_item(GooCanvasItem *parent)
+static GooCanvasItem *
+hanoi_create_item(GooCanvasItem *parent)
 {
   int i,j;
   double gap_x, gap_y;
@@ -306,7 +309,7 @@ static GooCanvasItem *hanoi_create_item(GooCanvasItem *parent)
   GdkPixbuf *pixmap = NULL;
 
   boardRootItem = \
-    goo_canvas_group_new (goo_canvas_get_root_item(gcomprisBoard->canvas),
+    goo_canvas_group_new (parent,
 			  NULL);
 
 
@@ -362,7 +365,8 @@ static GooCanvasItem *hanoi_create_item(GooCanvasItem *parent)
   for(i=0; i<NUMBER_OF_COLOR; i++)
     used_colors[i] = FALSE;
 
-  /* Initialize a random goal and store the color index in position[number_of_item_x] */
+  /* Initialize a random goal and store the color index
+     in position[number_of_item_x] */
   for(i=0; i<(number_of_item_y); i++)
     {
       guint color = (guint)g_random_int_range(0, NUMBER_OF_COLOR-1);
@@ -437,7 +441,7 @@ static GooCanvasItem *hanoi_create_item(GooCanvasItem *parent)
 
   for(i=0; i<(number_of_item_x+2); i++)
     {
-      if(i==number_of_item_x+1)
+      if(i == number_of_item_x+1)
 	{
 	  /* Create the backgound for the target */
 	  goo_canvas_rect_new (boardRootItem,
@@ -450,7 +454,7 @@ static GooCanvasItem *hanoi_create_item(GooCanvasItem *parent)
 			       "line-width", (double)1,
 			       NULL);
 	}
-      else if (i==number_of_item_x)
+      else if (i == number_of_item_x)
 	{
 	  /* Create the backgound for the empty area */
 	  goo_canvas_rect_new (boardRootItem,
@@ -470,7 +474,7 @@ static GooCanvasItem *hanoi_create_item(GooCanvasItem *parent)
 			   item_width * i + item_width/2 - w,
 			   baseline - item_height * number_of_item_y - gap_y,
 			   w*2,
-			   item_height * number_of_item_y - gap_y,
+			   (item_height + gap_y/2 - 2) * number_of_item_y,
 			   "fill_color_rgba", 0xFF1030FF,
 			   "stroke-color", "black",
 			   "line-width", (double)1,
@@ -484,8 +488,8 @@ static GooCanvasItem *hanoi_create_item(GooCanvasItem *parent)
 				  "line-width", 1.0,
 				  NULL);
       goo_canvas_item_translate(item,
-				item_width * i + 55,
-				baseline - 20);
+				item_width * i + item_width/2 - 20,
+				baseline - 25);
 
       for(j=0; j<number_of_item_y; j++)
 	{
@@ -504,7 +508,7 @@ static GooCanvasItem *hanoi_create_item(GooCanvasItem *parent)
 	      item = goo_canvas_rect_new (boardRootItem,
 					  position[i][j]->x,
 					  position[i][j]->y,
-					  item_width - gap_x,
+					  item_width - gap_x * 2,
 					  item_height - gap_y,
 					  "fill_color_rgba", colorlist[position[i][j]->color],
 					  "stroke-color", "black",
@@ -528,8 +532,23 @@ static GooCanvasItem *hanoi_create_item(GooCanvasItem *parent)
 	      position[i][j]->item = item;
 
 	      if(i!=number_of_item_x+1)
-		g_signal_connect(item, "enter_notify_event", (GtkSignalFunc) item_event,  position[i][j]);
-
+		{
+		  g_signal_connect(item, "button_press_event",
+				   (GtkSignalFunc)item_event,
+				   position[i][j]);
+		  g_signal_connect(item, "button_release_event",
+				   (GtkSignalFunc)item_event,
+				   position[i][j]);
+		  g_signal_connect(item, "motion_notify_event",
+				   (GtkSignalFunc) item_event,
+				   position[i][j]);
+		  g_signal_connect(item, "enter_notify_event",
+				   (GtkSignalFunc) item_event,
+				   position[i][j]);
+		  g_signal_connect(item, "leave_notify_event",
+				   (GtkSignalFunc) item_event,
+				   position[i][j]);
+		}
 	    }
 
 	}
@@ -574,16 +593,19 @@ static gboolean is_completed()
 
 /* ==================================== */
 static gint
-item_event(GooCanvasItem *item, GdkEvent *event, PieceItem *data)
+item_event(GooCanvasItem *item,
+	   GooCanvasItem *target,
+	   GdkEvent *event,
+	   PieceItem *data)
 {
-   static double x, y;
-   double new_x, new_y;
-   GdkCursor *fleur;
-   static int dragging;
-   double item_x, item_y;
+  static double x, y;
+  double new_x, new_y;
+  GdkCursor *fleur;
+  static int dragging;
+  double item_x, item_y;
 
-   if(!gcomprisBoard)
-     return FALSE;
+  if(!gcomprisBoard)
+    return FALSE;
 
   if(board_paused)
     return FALSE;
@@ -593,21 +615,21 @@ item_event(GooCanvasItem *item, GdkEvent *event, PieceItem *data)
 
   item_x = event->button.x;
   item_y = event->button.y;
-  //goo_canvas_convert_to_item_space(item->parent, &item_x, &item_y);
+  goo_canvas_convert_to_item_space(item->parent, &item_x, &item_y);
 
   switch (event->type)
     {
     case GDK_ENTER_NOTIFY:
       g_object_set(item,
-			    "stroke-color", "white",
-			    "line-width", (double)3,
-			    NULL);
+		   "stroke-color", "white",
+		   "line-width", (double)3,
+		   NULL);
       break;
     case GDK_LEAVE_NOTIFY:
       g_object_set(item,
-			    "stroke-color", "black",
-			    "line-width", (double)1,
-			    NULL);
+		   "stroke-color", "black",
+		   "line-width", (double)1,
+		   NULL);
       break;
     case GDK_BUTTON_PRESS:
       switch(event->button.button)
@@ -623,10 +645,10 @@ item_event(GooCanvasItem *item, GdkEvent *event, PieceItem *data)
 
 	  fleur = gdk_cursor_new(GDK_FLEUR);
 	  gc_canvas_item_grab(data->item,
-				 GDK_POINTER_MOTION_MASK |
-				 GDK_BUTTON_RELEASE_MASK,
-				 fleur,
-				 event->button.time);
+			      GDK_POINTER_MOTION_MASK |
+			      GDK_BUTTON_RELEASE_MASK,
+			      fleur,
+			      event->button.time);
 	  gdk_cursor_destroy(fleur);
 	  dragging = TRUE;
 	  break;

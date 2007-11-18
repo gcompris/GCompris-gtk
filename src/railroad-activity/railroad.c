@@ -511,7 +511,6 @@ static gint answer_event(GooCanvasItem *item,
       g_warning("Deleting %d\n",item_number);
       local_item = g_list_nth_data(item_answer_list,item_number);
       item_answer_list = g_list_remove( item_answer_list, local_item );
-      //	gtk_signal_disconnect(GTK_OBJECT(local_item), (GtkSignalFunc) answer_event, NULL);
       goo_canvas_item_remove(local_item);
       int_answer_list = g_list_remove(int_answer_list, g_list_nth_data(int_answer_list, item_number) );
       reposition_answer();

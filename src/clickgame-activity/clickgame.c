@@ -388,7 +388,7 @@ clickgame_end ()
       clickgame_pause(TRUE);
       gc_score_end();
       clickgame_destroy_all_items();
-      gtk_signal_disconnect(GTK_OBJECT(gcomprisBoard->canvas),
+      g_signal_handler_disconnect(gcomprisBoard->canvas,
 			    event_handle_id);
       gcomprisBoard->level = 1;       // Restart this game to zero
     }
