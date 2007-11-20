@@ -42,14 +42,11 @@ static void		 hanoi_next_level(void);
  * Contains the piece information
  */
 typedef struct {
-  GooCanvasItem *item;
-  GooCanvasItem *item_text;
+  GooCanvasItem *group;
   gint i;
   gint j;
   double x;
   double y;
-  double xt;
-  double yt;
   gboolean on_top;
   gint color;
 } PieceItem;
@@ -127,7 +124,8 @@ GET_BPLUGIN_INFO(hanoi)
  * in : boolean TRUE = PAUSE : FALSE = CONTINUE
  *
  */
-static void pause_board (gboolean pause)
+static void
+pause_board (gboolean pause)
 {
   if(gcomprisBoard==NULL)
     return;
@@ -142,7 +140,8 @@ static void pause_board (gboolean pause)
 
 /*
  */
-static void start_board (GcomprisBoard *agcomprisBoard)
+static void
+start_board (GcomprisBoard *agcomprisBoard)
 {
   gchar *img;
 
@@ -158,6 +157,11 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       gc_set_background(goo_canvas_get_root_item(gcomprisBoard->canvas),
 			img = gc_skin_image_get("gcompris-bg.jpg"));
       g_free(img);
+
+      gc_drag_start(goo_canvas_get_root_item(gcomprisBoard->canvas),
+		    (GcDragFunc)item_event,
+		    GC_DRAG_MODE_DEFAULT);
+
       hanoi_next_level();
 
       gamewon = FALSE;
@@ -165,10 +169,12 @@ static void start_board (GcomprisBoard *agcomprisBoard)
     }
 }
 /* ======================================= */
-static void end_board ()
+static void
+end_board ()
 {
   if(gcomprisBoard!=NULL)
     {
+      gc_drag_stop(goo_canvas_get_root_item(gcomprisBoard->canvas));
       pause_board(TRUE);
       hanoi_destroy_all_items();
     }
@@ -291,7 +297,9 @@ static void dump_solution()
 
 static void print_piece(PieceItem *piece)
 {
-  g_warning("Piece: (%d,%d=%2d/%d)\n",  piece->i,  piece->j, piece->color, piece->on_top);
+  g_warning("Piece: (%d,%d=%2d/%d)\n",
+	    piece->i,  piece->j,
+	    piece->color, piece->on_top);
 }
 #endif
 
@@ -497,20 +505,25 @@ hanoi_create_item(GooCanvasItem *parent)
 	  position[i][j]->x = item_width * i + gap_x;
 	  position[i][j]->y = baseline - item_height * j - item_height + gap_y;
 
-	  position[i][j]->xt = position[i][j]->x + 20;
-	  position[i][j]->yt = position[i][j]->y + 2;
-
-
 	  if(position[i][j]->color != -1)
 	    {
 	      char car[2];
 
-	      item = goo_canvas_rect_new (boardRootItem,
-					  position[i][j]->x,
-					  position[i][j]->y,
+	      GooCanvasItem *group = goo_canvas_group_new(boardRootItem,
+							  NULL);
+	      goo_canvas_item_translate(group,
+					position[i][j]->x,
+					position[i][j]->y);
+
+	      position[i][j]->group = group;
+
+	      item = goo_canvas_rect_new (group,
+					  0,
+					  0,
 					  item_width - gap_x * 2,
 					  item_height - gap_y,
-					  "fill_color_rgba", colorlist[position[i][j]->color],
+					  "fill_color_rgba",
+					  colorlist[position[i][j]->color],
 					  "stroke-color", "black",
 					  "line-width", (double)1,
 					  NULL);
@@ -518,30 +531,25 @@ hanoi_create_item(GooCanvasItem *parent)
 	      car[0] = 'a' + position[i][j]->color;
 	      car[1] = '\0';
 
-	       position[i][j]->item_text = \
-		 goo_canvas_text_new (boardRootItem,
-				      (char *)car,
-				      (double) position[i][j]->xt,
-				      (double) position[i][j]->yt,
-				      -1,
-				      GTK_ANCHOR_NORTH,
-				      "font", gc_skin_font_board_tiny,
-				      "fill-color", "white",
-				      NULL);
+	      goo_canvas_text_new (group,
+				   (char *)car,
+				   20,
+				   2,
+				   -1,
+				   GTK_ANCHOR_NORTH,
+				   "font", gc_skin_font_board_tiny,
+				   "fill-color", "white",
+				   NULL);
 
-	      position[i][j]->item = item;
-
-	      if(i!=number_of_item_x+1)
+	      if(i != number_of_item_x+1)
 		{
 		  g_signal_connect(item, "button_press_event",
-				   (GtkSignalFunc)item_event,
+				   (GtkSignalFunc)gc_drag_event,
 				   position[i][j]);
 		  g_signal_connect(item, "button_release_event",
-				   (GtkSignalFunc)item_event,
+				   (GtkSignalFunc)gc_drag_event,
 				   position[i][j]);
-		  g_signal_connect(item, "motion_notify_event",
-				   (GtkSignalFunc) item_event,
-				   position[i][j]);
+
 		  g_signal_connect(item, "enter_notify_event",
 				   (GtkSignalFunc) item_event,
 				   position[i][j]);
@@ -557,7 +565,8 @@ hanoi_create_item(GooCanvasItem *parent)
   return NULL;
 }
 /* ==================================== */
-static void game_won()
+static void
+game_won()
 {
   gcomprisBoard->sublevel++;
 
@@ -577,7 +586,8 @@ static void game_won()
 /*
  * Returns TRUE is the goal is reached
  */
-static gboolean is_completed()
+static gboolean
+is_completed()
 {
   gint j;
   gboolean done = TRUE;
@@ -598,10 +608,6 @@ item_event(GooCanvasItem *item,
 	   GdkEvent *event,
 	   PieceItem *data)
 {
-  static double x, y;
-  double new_x, new_y;
-  GdkCursor *fleur;
-  static int dragging;
   double item_x, item_y;
 
   if(!gcomprisBoard)
@@ -610,12 +616,8 @@ item_event(GooCanvasItem *item,
   if(board_paused)
     return FALSE;
 
-  if(!data->on_top)
+  if(data && !data->on_top)
     return FALSE;
-
-  item_x = event->button.x;
-  item_y = event->button.y;
-  goo_canvas_convert_to_item_space(item->parent, &item_x, &item_y);
 
   switch (event->type)
     {
@@ -636,40 +638,17 @@ item_event(GooCanvasItem *item,
 	{
 	case 1:
 	  gc_sound_play_ogg ("sounds/bleep.wav", NULL);
-
-	  x = item_x;
-	  y = item_y;
-
-	  goo_canvas_item_raise(data->item, NULL);
-	  goo_canvas_item_raise(data->item_text, NULL);
-
-	  fleur = gdk_cursor_new(GDK_FLEUR);
-	  gc_canvas_item_grab(data->item,
-			      GDK_POINTER_MOTION_MASK |
-			      GDK_BUTTON_RELEASE_MASK,
-			      fleur,
-			      event->button.time);
-	  gdk_cursor_destroy(fleur);
-	  dragging = TRUE;
+	  gc_drag_offset_save(event);
+	  goo_canvas_item_raise(data->group, NULL);
 	  break;
 	}
       break;
 
     case GDK_MOTION_NOTIFY:
-      if (dragging && (event->motion.state & GDK_BUTTON1_MASK))
-	{
-	  new_x = item_x;
-	  new_y = item_y;
-
-	  goo_canvas_item_translate(data->item     , new_x - x, new_y - y);
-	  goo_canvas_item_translate(data->item_text, new_x - x, new_y - y);
-	  x = new_x;
-	  y = new_y;
-	}
+      gc_drag_item_move(event, data->group);
       break;
 
     case GDK_BUTTON_RELEASE:
-      if(dragging)
 	{
 	  gint i;
 	  gint tmpi, tmpj;
@@ -678,8 +657,11 @@ item_event(GooCanvasItem *item,
 	  PieceItem *piece_dst;
 	  gint col = 0, line;
 
-	  gc_canvas_item_ungrab(data->item, event->button.time);
-	  dragging = FALSE;
+	  item_x = event->button.x;
+	  item_y = event->button.y;
+	  goo_canvas_convert_from_item_space(goo_canvas_item_get_canvas(item),
+					     item,
+					     &item_x, &item_y);
 
 	  /* Search the column (x) where this item is ungrabbed */
 	  for(i=0; i<=number_of_item_x; i++)
@@ -694,9 +676,7 @@ item_event(GooCanvasItem *item,
 	      gc_sound_play_ogg ("sounds/eraser2.wav", NULL);
 
 	      /* Return to the original position */
-	      gc_item_absolute_move (data->item     , data->x , data->y);
-	      gc_item_absolute_move (data->item_text, data->xt, data->yt);
-
+	      gc_item_absolute_move (data->group, data->x , data->y);
 	      return FALSE;
 	    }
 
@@ -713,8 +693,7 @@ item_event(GooCanvasItem *item,
 	      gc_sound_play_ogg ("sounds/eraser2.wav", NULL);
 
 	      /* Return to the original position */
-	      gc_item_absolute_move (data->item     , data->x , data->y);
-	      gc_item_absolute_move (data->item_text, data->xt, data->yt);
+	      gc_item_absolute_move (data->group, data->x , data->y);
 
 	      return FALSE;
 	    }
@@ -730,8 +709,7 @@ item_event(GooCanvasItem *item,
 	  /* Move the piece */
 	  piece_dst = position[col][line];
 	  piece_src = data;
-	  gc_item_absolute_move (data->item     , piece_dst->x , piece_dst->y);
-	  gc_item_absolute_move (data->item_text, piece_dst->xt, piece_dst->yt);
+	  gc_item_absolute_move (data->group, piece_dst->x , piece_dst->y);
 
 	  gc_sound_play_ogg ("sounds/scroll.wav", NULL);
 
@@ -742,13 +720,6 @@ item_event(GooCanvasItem *item,
 	  piece_src->y = piece_dst->y;
 	  piece_dst->x = tmpx;
 	  piece_dst->y = tmpy;
-
-	  tmpx    = data->xt;
-	  tmpy    = data->yt;
-	  piece_src->xt = piece_dst->xt;
-	  piece_src->yt = piece_dst->yt;
-	  piece_dst->xt = tmpx;
-	  piece_dst->yt = tmpy;
 
 	  tmpi    = data->i;
 	  tmpj    = data->j;

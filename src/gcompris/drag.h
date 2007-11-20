@@ -28,19 +28,21 @@ typedef enum {
     GC_DRAG_MODE_BOTH = 3
 } gc_drag_mode_type;
 
-typedef gint (*gc_Drag_Func) (GooCanvasItem *item, GdkEvent *event, gpointer data);
+typedef gint (*GcDragFunc) (GooCanvasItem *item,
+			    GooCanvasItem *target,
+			    GdkEvent *event, gpointer data);
 
 gboolean gc_drag_event (GooCanvasItem *item,
 			GooCanvasItem *target,
 			GdkEventButton *event,
 			gpointer data);
 
-void gc_drag_start(GooCanvasItem *root_item, gc_Drag_Func function, gc_drag_mode_type mode);
+void gc_drag_start(GooCanvasItem *root_item, GcDragFunc function, gc_drag_mode_type mode);
 void gc_drag_stop(GooCanvasItem *root_item);
 
 GooCanvasItem * gc_drag_item_get(void);
 void gc_drag_item_set(GooCanvasItem *item);
-void gc_drag_item_move(GdkEvent *event);
+void gc_drag_item_move(GdkEvent *event, GooCanvasItem *group);
 
 void gc_drag_offset_save(GdkEvent *event);
 void gc_drag_offset_get(double *x, double *y);

@@ -43,12 +43,12 @@ static gboolean shadow_enable;
 #define POINT_COLOR_ON  0x00EF0080
 
 typedef enum
-{
-  SHAPE_TARGET		= 1 << 0,
-  SHAPE_DUMMY_TARGET	= 1 << 1,
-  SHAPE_ICON		= 1 << 2,
-  SHAPE_BACKGROUND	= 1 << 3,
-} ShapeType;
+  {
+    SHAPE_TARGET	= 1 << 0,
+    SHAPE_DUMMY_TARGET	= 1 << 1,
+    SHAPE_ICON		= 1 << 2,
+    SHAPE_BACKGROUND	= 1 << 3,
+  } ShapeType;
 
 /* Let's define the structure for a single shape */
 typedef struct _Shape Shape;
@@ -80,7 +80,7 @@ struct _Shape {
   double offset_x, offset_y;
   Shape *shape_place;       /* the shape place in this place */
   Shape *placed ;           /* where is place this shape */
-};
+  };
 
 /* This is the list of shape for the current game */
 static GList *shape_list	= NULL;
@@ -99,7 +99,7 @@ struct _ShapeBox {
   double h;				/* height */
   guint  nb_shape_x;			/* Number of shape on x */
   guint  nb_shape_y;			/* Number of shape on y */
-};
+  };
 static ShapeBox shapeBox;
 
 #define BUTTON_SPACE		40
@@ -125,7 +125,7 @@ static void 		 set_level (guint level);
 static void 		 process_ok(void);
 static gint		 key_press(guint keyval, gchar *commit_str, gchar *preedit_str);
 static void	         config_start (GcomprisBoard *agcomprisBoard,
-					   GcomprisProfile *aProfile);
+				       GcomprisProfile *aProfile);
 static void	         config_stop (void);
 
 static void              shapegame_init_canvas(GooCanvasItem *parent);
@@ -143,7 +143,8 @@ static void 		 create_title(char *name, double x, double y,
 				      GtkAnchorType anchor,
 				      guint32 color_rgba);
 static gint		 item_event_ok(GooCanvasItem *item, GdkEvent *event, gpointer data);
-static gint item_event_drag(GooCanvasItem *item, GdkEvent *event, gpointer data);
+static gint item_event_drag(GooCanvasItem *item, GooCanvasItem *target,
+			    GdkEvent *event, gpointer data);
 #if DEBUG
 static void dump_shapes(void);
 static void dump_shape(Shape *shape);
@@ -154,28 +155,28 @@ static void auto_process(void);
 static gint drag_mode;
 /* Description of this plugin */
 static BoardPlugin menu_bp =
-{
-   NULL,
-   NULL,
-   "Make the puzzle",
-   "Drag and Drop the items to rebuild the object",
-   "Bruno Coudoin <bruno.coudoin@free.fr>",
-   NULL,
-   NULL,
-   NULL,
-   NULL,
-   start_board,
-   pause_board,
-   end_board,
-   is_our_board,
-   key_press,
-   process_ok,
-   set_level,
-   NULL,
-   NULL,
-   config_start,
-   config_stop
-};
+  {
+    NULL,
+    NULL,
+    "Make the puzzle",
+    "Drag and Drop the items to rebuild the object",
+    "Bruno Coudoin <bruno.coudoin@free.fr>",
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    start_board,
+    pause_board,
+    end_board,
+    is_our_board,
+    key_press,
+    process_ok,
+    set_level,
+    NULL,
+    NULL,
+    config_start,
+    config_stop
+  };
 
 /*
  * Main entry point mandatory for each Gcompris's game
@@ -240,9 +241,9 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       gcomprisBoard->maxlevel=1;
       /**/
       while( (filename = gc_file_find_absolute("%s/board%d_0.xml",
-							 gcomprisBoard->boarddir,
-							 gcomprisBoard->maxlevel++,
-							 NULL)) )
+					       gcomprisBoard->boarddir,
+					       gcomprisBoard->maxlevel++,
+					       NULL)) )
 	{
 	  g_free(filename);
 	}
@@ -279,11 +280,11 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 	  // Default case, load the default background
 	  img = gc_skin_image_get("gcompris-shapebg.jpg");
 	  gc_set_background(goo_canvas_get_root_item(gcomprisBoard->canvas),
-				  img);
+			    img);
 	  g_free(img);
 	}
       gc_drag_start(goo_canvas_get_root_item(gcomprisBoard->canvas),
-		    (gc_Drag_Func) item_event_drag, drag_mode);
+		    (GcDragFunc) item_event_drag, drag_mode);
       shapegame_next_level();
 
       pause_board(FALSE);
@@ -329,7 +330,7 @@ is_our_board (GcomprisBoard *gcomprisBoard)
     {
       if(g_strcasecmp(gcomprisBoard->type, "shapegame")==0)
 	{
-        gcomprisBoard->plugin = &menu_bp;
+	  gcomprisBoard->plugin = &menu_bp;
 
 	  return TRUE;
 	}
@@ -445,12 +446,12 @@ static void process_ok()
 
   /* Loop through all the shapes to find if all target are found */
   for(list = shape_list; list != NULL; list = list->next) {
-      Shape *shape = list->data;
+    Shape *shape = list->data;
 
-      if(shape->type==SHAPE_TARGET)
+    if(shape->type==SHAPE_TARGET)
       {
-          if(shape->placed!=shape)
-              done=FALSE;
+	if(shape->placed!=shape)
+	  done=FALSE;
       }
   }
 
@@ -547,7 +548,7 @@ static void shapegame_init_canvas(GooCanvasItem *parent)
 			 GTK_ANCHOR_CENTER,
 			 "font", gc_skin_font_board_small,
 			 "fill_color_rgba", gc_skin_color_shadow,
-			   NULL);
+			 NULL);
   tooltip_text_item = \
     goo_canvas_text_new (tooltip_root_item,
 			 "",
@@ -557,7 +558,7 @@ static void shapegame_init_canvas(GooCanvasItem *parent)
 			 GTK_ANCHOR_CENTER,
 			 "font", gc_skin_font_board_small,
 			 "fill_color_rgba", gc_skin_color_text_button,
-			   NULL);
+			 NULL);
 
   /* Hide the tooltip */
   g_object_set (tooltip_root_item, "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
@@ -597,7 +598,7 @@ add_shape_to_list_of_shapes(Shape *shape)
 						      NULL);
 
       g_signal_connect(previous_shapelist_item,
-		       "enter_notify_event",
+		       "button_press_event",
 		       (GtkSignalFunc) item_event_ok,
 		       "previous_shapelist");
       g_signal_connect(previous_shapelist_item,
@@ -613,16 +614,16 @@ add_shape_to_list_of_shapes(Shape *shape)
 						  shapeBox.y + shapeBox.h,
 						  NULL);
 
+      g_signal_connect(next_shapelist_item, "button_press_event",
+		       (GtkSignalFunc) item_event_ok,
+		       "next_shapelist");
       g_signal_connect(next_shapelist_item, "enter_notify_event",
-			 (GtkSignalFunc) item_event_ok,
-			 "next_shapelist");
-      g_signal_connect(next_shapelist_item, "enter_notify_event",
-			 (GtkSignalFunc) gc_item_focus_event,
-			 NULL);
+		       (GtkSignalFunc) gc_item_focus_event,
+		       NULL);
       gdk_pixbuf_unref(pixmap);
       g_object_set (next_shapelist_item, "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
 
-  }
+    }
 
   /*----------------------------------------------------------------------*/
   /* Do We need to create a new list                                      */
@@ -630,7 +631,7 @@ add_shape_to_list_of_shapes(Shape *shape)
     {
       current_shapelistgroup_index++;
       g_warning("Creation of the group of shape current_shapelistgroup_index=%d\n",
-	     current_shapelistgroup_index);
+		current_shapelistgroup_index);
 
       // Hide the previous group
       if(current_shapelistgroup_index>=1)
@@ -699,35 +700,35 @@ add_shape_to_list_of_shapes(Shape *shape)
 		{
 		  h = ICON_HEIGHT;
 		  w = gdk_pixbuf_get_width(pixmap) * ( h / gdk_pixbuf_get_height(pixmap));
-        }
-        if(h < 20 || w < 20 )
-        {
-            GdkPixbuf *scale, *hand;
+		}
+	      if(h < 20 || w < 20 )
+		{
+		  GdkPixbuf *scale, *hand;
 
-            scale = gdk_pixbuf_scale_simple(pixmap, w, h, GDK_INTERP_BILINEAR);
-            gdk_pixbuf_unref(pixmap);
+		  scale = gdk_pixbuf_scale_simple(pixmap, w, h, GDK_INTERP_BILINEAR);
+		  gdk_pixbuf_unref(pixmap);
 
-            pixmap = gdk_pixbuf_new( GDK_COLORSPACE_RGB, TRUE, 8,
-                    ICON_WIDTH, ICON_HEIGHT);
-            gdk_pixbuf_fill(pixmap,0xffffff00);
-            // add the shape
-            gdk_pixbuf_copy_area( scale, 0, 0, w, h,
-                    pixmap, (ICON_WIDTH-w )/2, (ICON_HEIGHT-h)/2 );
-            gdk_pixbuf_unref(scale);
+		  pixmap = gdk_pixbuf_new( GDK_COLORSPACE_RGB, TRUE, 8,
+					   ICON_WIDTH, ICON_HEIGHT);
+		  gdk_pixbuf_fill(pixmap,0xffffff00);
+		  // add the shape
+		  gdk_pixbuf_copy_area( scale, 0, 0, w, h,
+					pixmap, (ICON_WIDTH-w )/2, (ICON_HEIGHT-h)/2 );
+		  gdk_pixbuf_unref(scale);
 
-            // add the hand
-            hand = gc_skin_pixmap_load("hand.svg");
-            h = ICON_HEIGHT/3;
-            w = gdk_pixbuf_get_width(hand) * h / gdk_pixbuf_get_height(hand);
-            scale = gdk_pixbuf_scale_simple(hand, w, h, GDK_INTERP_BILINEAR);
-            gdk_pixbuf_copy_area(scale, 0, 0, w, h,
-                    pixmap, ICON_WIDTH-w,0);
-            gdk_pixbuf_unref(hand);
-            gdk_pixbuf_unref(scale);
+		  // add the hand
+		  hand = gc_skin_pixmap_load("hand.svg");
+		  h = ICON_HEIGHT/3;
+		  w = gdk_pixbuf_get_width(hand) * h / gdk_pixbuf_get_height(hand);
+		  scale = gdk_pixbuf_scale_simple(hand, w, h, GDK_INTERP_BILINEAR);
+		  gdk_pixbuf_copy_area(scale, 0, 0, w, h,
+				       pixmap, ICON_WIDTH-w,0);
+		  gdk_pixbuf_unref(hand);
+		  gdk_pixbuf_unref(scale);
 
-            w=ICON_WIDTH;
-            h=ICON_HEIGHT;
-        }
+		  w=ICON_WIDTH;
+		  h=ICON_HEIGHT;
+		}
 
 	      item = goo_canvas_image_new (shape_list_group_root,
 					   pixmap,
@@ -746,12 +747,12 @@ add_shape_to_list_of_shapes(Shape *shape)
 					0, shape->soundfile);
 	      icon_shape->item = item;
 	      icon_shape->target_shape = shape;
-          shape->icon_shape = icon_shape;
+	      shape->icon_shape = icon_shape;
 	      icon_shape->shapelistgroup_index = current_shapelistgroup_index;
 	      shape->shapelistgroup_index = current_shapelistgroup_index;
 	      g_warning(" creation shape=%s shape->shapelistgroup_index=%d current_shapelistgroup_index=%d\n",
-		     shape->name,
-		     shape->shapelistgroup_index, current_shapelistgroup_index);
+			shape->name,
+			shape->shapelistgroup_index, current_shapelistgroup_index);
 	      icon_shape->shape_list_group_root = shape_list_group_root;
 	      setup_item(item, icon_shape);
 	      g_signal_connect(item, "enter_notify_event",
@@ -796,29 +797,29 @@ static Shape *find_closest_shape(double x, double y, double limit)
 
 static void dump_shapes(void)
 {
-    GList *list;
+  GList *list;
 
-    printf("---- Shapes ----\n");
-    for(list = shape_list; list ; list = list->next)
+  printf("---- Shapes ----\n");
+  for(list = shape_list; list ; list = list->next)
     {
-        Shape * s = list->data;
-        if(s->type == SHAPE_TARGET || s->type == SHAPE_ICON)
-            dump_shape(s);
+      Shape * s = list->data;
+      if(s->type == SHAPE_TARGET || s->type == SHAPE_ICON)
+	dump_shape(s);
     }
 }
 
 static void dump_shape(Shape *shape)
 {
-    if(shape->type == SHAPE_TARGET && (shape->placed || shape->shape_place))
+  if(shape->type == SHAPE_TARGET && (shape->placed || shape->shape_place))
     {
-        printf("%s :", shape->name);
-        if(shape->placed)
-            printf(" %s -> %s", shape->name, shape->placed->name);
-        else
-            printf("       ");
-        if(shape->shape_place)
-            printf(" %s -> %s", shape->shape_place->name, shape->name);
-        printf("\n");
+      printf("%s :", shape->name);
+      if(shape->placed)
+	printf(" %s -> %s", shape->name, shape->placed->name);
+      else
+	printf("       ");
+      if(shape->shape_place)
+	printf(" %s -> %s", shape->shape_place->name, shape->name);
+      printf("\n");
     }
 }
 #endif
@@ -826,217 +827,220 @@ static void dump_shape(Shape *shape)
 /* it puts a shape back to the list of shapes */
 static void shape_goes_back_to_list(Shape *shape)
 {
-    if(shape -> type == SHAPE_ICON)
-        shape = shape -> target_shape;
+  if(shape -> type == SHAPE_ICON)
+    shape = shape -> target_shape;
 
-    g_object_set (shape->item, "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
-    /* replace the icon */
-    g_object_set(shape->icon_shape->item,
-            "x", shape->icon_shape->x,
-            "y", shape->icon_shape->y, NULL);
-    g_object_set (shape->icon_shape->item, "visibility", GOO_CANVAS_ITEM_VISIBLE, NULL);
+  g_object_set (shape->item, "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
+  /* replace the icon */
+  g_object_set(shape->icon_shape->item,
+	       "x", shape->icon_shape->x,
+	       "y", shape->icon_shape->y, NULL);
+  g_object_set (shape->icon_shape->item, "visibility", GOO_CANVAS_ITEM_VISIBLE, NULL);
 
-    if(shape->placed)
+  if(shape->placed)
     {
-        shape->placed->shape_place = NULL;
-        shape->placed = NULL;
+      shape->placed->shape_place = NULL;
+      shape->placed = NULL;
     }
 
-    update_shapelist_item();
+  update_shapelist_item();
 
-    gc_sound_play_ogg ("sounds/flip.wav", NULL);
+  gc_sound_play_ogg ("sounds/flip.wav", NULL);
 }
 
 static Shape * item_to_shape(GooCanvasItem *item)
 {
-    GList *list;
-    for(list = shape_list; list ; list = list -> next)
+  GList *list;
+  for(list = shape_list; list ; list = list -> next)
     {
-        Shape *s = list -> data;
-        if( s-> item  == item)
-            return s;
+      Shape *s = list -> data;
+      if( s-> item  == item)
+	return s;
     }
-    g_warning("Can't find the shape for item %p", item);
-    return NULL;
+  g_warning("Can't find the shape for item %p", item);
+  return NULL;
 }
 
 /* switch off all point, and switch on this point
-    if shape is NULL, switch off all */
+   if shape is NULL, switch off all */
 void target_point_switch_on(Shape *shape_on)
 {
-    GList *list;
-    Shape *shape;
+  GList *list;
+  Shape *shape;
 
-    for(list = shape_list; list ; list = list ->next)
+  for(list = shape_list; list ; list = list ->next)
     {
-        shape = list -> data;
-        if(shape->type == SHAPE_TARGET && ! shape->targetfile)
-            g_object_set(shape->target_point,
-                    "fill_color_rgba",
-                    shape == shape_on ? POINT_COLOR_ON : POINT_COLOR_OFF,
-                    NULL);
+      shape = list -> data;
+      if(shape->type == SHAPE_TARGET && ! shape->targetfile)
+	g_object_set(shape->target_point,
+		     "fill_color_rgba",
+		     shape == shape_on ? POINT_COLOR_ON : POINT_COLOR_OFF,
+		     NULL);
     }
 }
 
-static gint item_event_drag(GooCanvasItem *item, GdkEvent *event, gpointer data)
+static gint
+item_event_drag(GooCanvasItem *item,
+		GooCanvasItem *target,
+		GdkEvent *event, gpointer data)
 {
-    static GooCanvasItem *shadow_item=NULL;
-    double item_x, item_y;
-    Shape *shape, *found_shape;
+  static GooCanvasItem *shadow_item=NULL;
+  double item_x, item_y;
+  Shape *shape, *found_shape;
 
-    if(board_paused)
-        return FALSE;
-
-    shape = item_to_shape(item);
-    switch(event->type)
-    {
-        case GDK_BUTTON_PRESS:
-	    gc_sound_play_ogg ("sounds/bleep.wav", NULL);
-            switch(shape -> type)
-            {
-                case SHAPE_ICON:
-                    gc_drag_offset_save(event);
-                    gc_drag_offset_get(&shape->offset_x, &shape->offset_y);
-                    if (shape->soundfile)
-                    {
-                        /* If the soundfile has space ' ' in it, then it is assumed that it is a list
-                         * of sound rather than a single one */
-                        char *p = NULL;
-                        char *soundfile = g_strdup(shape->soundfile);
-
-                        while ((p = strstr (soundfile, " ")))
-                        {
-                            *p='\0';
-                            gc_sound_play_ogg(soundfile, NULL);
-                            soundfile=p+1;
-                            g_warning("soundfile = %s\n", soundfile);
-                        }
-
-                        gc_sound_play_ogg(soundfile, NULL);
-                    }
-                    break;
-                case SHAPE_TARGET:
-                    g_object_set (shape->item, "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
-
-                    // unplace this shape
-                    shape->placed->shape_place= NULL;
-                    shape->placed = NULL;
-
-                    shape = shape -> icon_shape;
-                    gc_drag_offset_set( shape->offset_x, shape->offset_y);
-                    g_object_set (shape->item, "visibility", GOO_CANVAS_ITEM_VISIBLE, NULL);
-                    gc_drag_item_set(shape->item);
-                    break;
-                default:
-                    break;
-            }
-            if(shadow_enable)
-            {
-                if(shadow_item)
-		  goo_canvas_item_remove(shadow_item);
-
-                // initialise shadow shape
-                GdkPixbuf *pixmap, *dest;
-                g_object_get(shape->target_shape->item,
-			     "pixbuf", &pixmap, NULL);
-
-                dest = gdk_pixbuf_copy(pixmap);
-                pixbuf_add_transparent(dest, 100);
-                shadow_item = goo_canvas_image_new(shape_root_item,
-						   dest,
-						   0,
-						   0,
-						   "width", shape->target_shape->w,
-						   "height", shape->target_shape->h,
-						   NULL);
-                g_object_set (shadow_item, "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
-                gdk_pixbuf_unref(dest);
-                gdk_pixbuf_unref(pixmap);
-            }
-	    /* Reparent it */
-	    g_object_ref(shape->item);
-	    goo_canvas_item_add_child (goo_canvas_item_get_parent(shape_list_root_item),
-				       shape->item, -1);
-	    g_object_unref(shape->item);
-
-            gc_drag_item_move(event);
-            break;
-        case GDK_MOTION_NOTIFY:
-            gc_drag_item_move(event);
-
-            item_x = event->button.x;
-            item_y = event->button.y;
-            goo_canvas_convert_to_item_space(goo_canvas_item_get_canvas(item),
-					     item, &item_x, &item_y);
-
-            found_shape = find_closest_shape( item_x, item_y, SQUARE_LIMIT_DISTANCE);
-            if(shadow_enable)
-            {
-                if(found_shape)
-                {
-                    g_object_set(shadow_item,
-				 "x", found_shape->x - shape->target_shape->w/2,
-				 "y", found_shape->y - shape->target_shape->h/2,
-				 NULL);
-                    g_object_set (shadow_item, "visibility", GOO_CANVAS_ITEM_VISIBLE, NULL);
-                }
-                else
-                    g_object_set (shadow_item, "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
-            }
-
-            target_point_switch_on(found_shape);
-            break;
-        case GDK_BUTTON_RELEASE:
-            item_x = event->button.x;
-            item_y = event->button.y;
-            goo_canvas_convert_to_item_space(goo_canvas_item_get_canvas(item),
-					     item, &item_x, &item_y);
-
-            if(shadow_enable && shadow_item)
-            {
-		goo_canvas_item_remove(shadow_item);
-                shadow_item = NULL;
-            }
-
-            target_point_switch_on(NULL);
-
-	    /* Reparent it */
-	    g_object_ref(shape->item);
-	    goo_canvas_item_add_child (goo_canvas_item_get_parent(shape_list_root_item),
-				       shape->item, -1);
-	    g_object_unref(shape->item);
-
-            found_shape = find_closest_shape( item_x, item_y, SQUARE_LIMIT_DISTANCE);
-            if(found_shape)
-            {
-                if(found_shape->shape_place)
-                    shape_goes_back_to_list(found_shape->shape_place);
-
-		gc_sound_play_ogg ("sounds/line_end.wav", NULL);
-
-                /* place the target item */
-                g_object_set(shape->target_shape->item,
-                        "x", found_shape->x - shape->target_shape->w/2,
-                        "y", found_shape->y - shape->target_shape->h/2,
-                        NULL);
-                g_object_set (shape->target_shape->item, "visibility", GOO_CANVAS_ITEM_VISIBLE, NULL);
-                goo_canvas_item_raise(shape->target_shape->item, NULL);
-                g_object_set (shape->item, "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
-
-                shape -> target_shape -> placed = found_shape;
-                found_shape -> shape_place = shape -> target_shape;
-		auto_process();
-                update_shapelist_item();
-            }
-            else
-            {
-                shape_goes_back_to_list(shape);
-            }
-            break;
-        default:
-            break;
-    }
+  if(board_paused)
     return FALSE;
+
+  shape = item_to_shape(item);
+  switch(event->type)
+    {
+    case GDK_BUTTON_PRESS:
+      gc_sound_play_ogg ("sounds/bleep.wav", NULL);
+      switch(shape -> type)
+	{
+	case SHAPE_ICON:
+	  gc_drag_offset_save(event);
+	  gc_drag_offset_get(&shape->offset_x, &shape->offset_y);
+	  if (shape->soundfile)
+	    {
+	      /* If the soundfile has space ' ' in it, then it is assumed that it is a list
+	       * of sound rather than a single one */
+	      char *p = NULL;
+	      char *soundfile = g_strdup(shape->soundfile);
+
+	      while ((p = strstr (soundfile, " ")))
+		{
+		  *p='\0';
+		  gc_sound_play_ogg(soundfile, NULL);
+		  soundfile=p+1;
+		  g_warning("soundfile = %s\n", soundfile);
+		}
+
+	      gc_sound_play_ogg(soundfile, NULL);
+	    }
+	  break;
+	case SHAPE_TARGET:
+	  g_object_set (shape->item, "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
+
+	  // unplace this shape
+	  shape->placed->shape_place= NULL;
+	  shape->placed = NULL;
+
+	  shape = shape -> icon_shape;
+	  gc_drag_offset_set( shape->offset_x, shape->offset_y);
+	  g_object_set (shape->item, "visibility", GOO_CANVAS_ITEM_VISIBLE, NULL);
+	  gc_drag_item_set(shape->item);
+	  break;
+	default:
+	  break;
+	}
+      if(shadow_enable)
+	{
+	  if(shadow_item)
+	    goo_canvas_item_remove(shadow_item);
+
+	  // initialise shadow shape
+	  GdkPixbuf *pixmap, *dest;
+	  g_object_get(shape->target_shape->item,
+		       "pixbuf", &pixmap, NULL);
+
+	  dest = gdk_pixbuf_copy(pixmap);
+	  pixbuf_add_transparent(dest, 100);
+	  shadow_item = goo_canvas_image_new(shape_root_item,
+					     dest,
+					     0,
+					     0,
+					     "width", shape->target_shape->w,
+					     "height", shape->target_shape->h,
+					     NULL);
+	  g_object_set (shadow_item, "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
+	  gdk_pixbuf_unref(dest);
+	  gdk_pixbuf_unref(pixmap);
+	}
+      /* Reparent it */
+      g_object_ref(shape->item);
+      goo_canvas_item_add_child (goo_canvas_item_get_parent(shape_list_root_item),
+				 shape->item, -1);
+      g_object_unref(shape->item);
+
+      gc_drag_item_move(event, NULL);
+      break;
+    case GDK_MOTION_NOTIFY:
+      gc_drag_item_move(event, NULL);
+
+      item_x = event->button.x;
+      item_y = event->button.y;
+      goo_canvas_convert_to_item_space(goo_canvas_item_get_canvas(item),
+				       item, &item_x, &item_y);
+
+      found_shape = find_closest_shape( item_x, item_y, SQUARE_LIMIT_DISTANCE);
+      if(shadow_enable)
+	{
+	  if(found_shape)
+	    {
+	      g_object_set(shadow_item,
+			   "x", found_shape->x - shape->target_shape->w/2,
+			   "y", found_shape->y - shape->target_shape->h/2,
+			   NULL);
+	      g_object_set (shadow_item, "visibility", GOO_CANVAS_ITEM_VISIBLE, NULL);
+	    }
+	  else
+	    g_object_set (shadow_item, "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
+	}
+
+      target_point_switch_on(found_shape);
+      break;
+    case GDK_BUTTON_RELEASE:
+      item_x = event->button.x;
+      item_y = event->button.y;
+      goo_canvas_convert_to_item_space(goo_canvas_item_get_canvas(item),
+				       item, &item_x, &item_y);
+
+      if(shadow_enable && shadow_item)
+	{
+	  goo_canvas_item_remove(shadow_item);
+	  shadow_item = NULL;
+	}
+
+      target_point_switch_on(NULL);
+
+      /* Reparent it */
+      g_object_ref(shape->item);
+      goo_canvas_item_add_child (goo_canvas_item_get_parent(shape_list_root_item),
+				 shape->item, -1);
+      g_object_unref(shape->item);
+
+      found_shape = find_closest_shape( item_x, item_y, SQUARE_LIMIT_DISTANCE);
+      if(found_shape)
+	{
+	  if(found_shape->shape_place)
+	    shape_goes_back_to_list(found_shape->shape_place);
+
+	  gc_sound_play_ogg ("sounds/line_end.wav", NULL);
+
+	  /* place the target item */
+	  g_object_set(shape->target_shape->item,
+		       "x", found_shape->x - shape->target_shape->w/2,
+		       "y", found_shape->y - shape->target_shape->h/2,
+		       NULL);
+	  g_object_set (shape->target_shape->item, "visibility", GOO_CANVAS_ITEM_VISIBLE, NULL);
+	  goo_canvas_item_raise(shape->target_shape->item, NULL);
+	  g_object_set (shape->item, "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
+
+	  shape -> target_shape -> placed = found_shape;
+	  found_shape -> shape_place = shape -> target_shape;
+	  auto_process();
+	  update_shapelist_item();
+	}
+      else
+	{
+	  shape_goes_back_to_list(shape);
+	}
+      break;
+    default:
+      break;
+    }
+  return FALSE;
 }
 
 static gint
@@ -1050,69 +1054,69 @@ item_event(GooCanvasItem *item, GdkEvent *event, Shape *shape)
     return FALSE;
 
 
-   if(shape==NULL) {
-     g_warning("Shape is NULL : Should not happen");
-     return FALSE;
-   }
+  if(shape==NULL) {
+    g_warning("Shape is NULL : Should not happen");
+    return FALSE;
+  }
 
-   switch (event->type)
-     {
-     case GDK_ENTER_NOTIFY:
-       if(shape->tooltip && shape->type == SHAPE_ICON) {
-	 /* WARNING: This should not be needed but if I don't do it, it's not refreshed */
-	 g_object_set(tooltip_bg_item,
-			       "y", 0.0,
-			       NULL);
-	 g_object_set(tooltip_text_item_s,
-			       "text", shape->tooltip,
-			       NULL);
-	 g_object_set(tooltip_text_item,
-			       "text", shape->tooltip,
-			       NULL);
-	 g_object_set (tooltip_root_item, "visibility", GOO_CANVAS_ITEM_VISIBLE, NULL);
-       }
-       break;
-     case GDK_LEAVE_NOTIFY:
-       if(shape->tooltip && shape->type == SHAPE_ICON)
-       	 g_object_set (tooltip_root_item, "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
-       break;
-     case GDK_BUTTON_PRESS:
-       if(event->button.button == 3)
-           shape_goes_back_to_list(shape);
-     default:
-       break;
-     }
+  switch (event->type)
+    {
+    case GDK_ENTER_NOTIFY:
+      if(shape->tooltip && shape->type == SHAPE_ICON) {
+	/* WARNING: This should not be needed but if I don't do it, it's not refreshed */
+	g_object_set(tooltip_bg_item,
+		     "y", 0.0,
+		     NULL);
+	g_object_set(tooltip_text_item_s,
+		     "text", shape->tooltip,
+		     NULL);
+	g_object_set(tooltip_text_item,
+		     "text", shape->tooltip,
+		     NULL);
+	g_object_set (tooltip_root_item, "visibility", GOO_CANVAS_ITEM_VISIBLE, NULL);
+      }
+      break;
+    case GDK_LEAVE_NOTIFY:
+      if(shape->tooltip && shape->type == SHAPE_ICON)
+	g_object_set (tooltip_root_item, "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
+      break;
+    case GDK_BUTTON_PRESS:
+      if(event->button.button == 3)
+	shape_goes_back_to_list(shape);
+    default:
+      break;
+    }
 
-   return FALSE;
- }
+  return FALSE;
+}
 
 static int get_element_count_listgroup(int listgroup_index)
 {
-    int count=0, i;
-    Shape *sh;
-    for (i=0;i<g_list_length(shape_list);i++) {
-        sh = g_list_nth_data(shape_list,i);
-        if( sh->shapelistgroup_index == listgroup_index &&
-                sh->type == SHAPE_TARGET && ! sh->placed)
-            count ++;
-    }
-    return count;
+  int count=0, i;
+  Shape *sh;
+  for (i=0;i<g_list_length(shape_list);i++) {
+    sh = g_list_nth_data(shape_list,i);
+    if( sh->shapelistgroup_index == listgroup_index &&
+	sh->type == SHAPE_TARGET && ! sh->placed)
+      count ++;
+  }
+  return count;
 }
 
 static int get_no_void_group(int direction)
 {
-    int index = current_shapelistgroup_index;
+  int index = current_shapelistgroup_index;
 
-    direction = direction>0 ? 1 : -1;
+  direction = direction>0 ? 1 : -1;
 
-    index += direction;
-    while(0 <= index && index < g_list_length(shape_list_group))
+  index += direction;
+  while(0 <= index && index < g_list_length(shape_list_group))
     {
-        if(get_element_count_listgroup(index))
-            return index;
-        index += direction;
+      if(get_element_count_listgroup(index))
+	return index;
+      index += direction;
     }
-    return current_shapelistgroup_index;
+  return current_shapelistgroup_index;
 }
 
 static void auto_process(void)
@@ -1122,49 +1126,49 @@ static void auto_process(void)
 
   /* Loop through all the shapes to find if all target are in place */
   for(list = shape_list; list != NULL; list = list->next) {
-      Shape *shape = list->data;
+    Shape *shape = list->data;
 
-      if(shape->type==SHAPE_TARGET)
+    if(shape->type==SHAPE_TARGET)
       {
-          if(shape->placed==NULL)
-              done=FALSE;
+	if(shape->placed==NULL)
+	  done=FALSE;
       }
   }
   if(done)
-  	process_ok();
+    process_ok();
 }
 
 static void update_shapelist_item(void)
 {
-    if(! next_shapelist_item || !previous_shapelist_item)
-        return;
-    if(get_element_count_listgroup(current_shapelistgroup_index) ==0)
+  if(! next_shapelist_item || !previous_shapelist_item)
+    return;
+  if(get_element_count_listgroup(current_shapelistgroup_index) ==0)
     {
-        int index;
-        GooCanvasItem *root_item;
+      int index;
+      GooCanvasItem *root_item;
 
-        index = get_no_void_group(-1);
-        if(index == current_shapelistgroup_index)
-            index = get_no_void_group(1);
-        if(index != current_shapelistgroup_index)
+      index = get_no_void_group(-1);
+      if(index == current_shapelistgroup_index)
+	index = get_no_void_group(1);
+      if(index != current_shapelistgroup_index)
         {
-            root_item = g_list_nth_data(shape_list_group, current_shapelistgroup_index);
-            g_object_set (root_item, "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
-            root_item = g_list_nth_data(shape_list_group, index);
-            g_object_set (root_item, "visibility", GOO_CANVAS_ITEM_VISIBLE, NULL);
-            current_shapelistgroup_index = index;
+	  root_item = g_list_nth_data(shape_list_group, current_shapelistgroup_index);
+	  g_object_set (root_item, "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
+	  root_item = g_list_nth_data(shape_list_group, index);
+	  g_object_set (root_item, "visibility", GOO_CANVAS_ITEM_VISIBLE, NULL);
+	  current_shapelistgroup_index = index;
         }
     }
-    if(get_no_void_group(1) == current_shapelistgroup_index)
-        g_object_set (next_shapelist_item, "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
-    else
-        g_object_set (next_shapelist_item, "visibility", GOO_CANVAS_ITEM_VISIBLE, NULL);
-    if(get_no_void_group(-1) == current_shapelistgroup_index)
-        g_object_set (previous_shapelist_item, "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
-    else
-        g_object_set (previous_shapelist_item, "visibility", GOO_CANVAS_ITEM_VISIBLE, NULL);
+  if(get_no_void_group(1) == current_shapelistgroup_index)
+    g_object_set (next_shapelist_item, "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
+  else
+    g_object_set (next_shapelist_item, "visibility", GOO_CANVAS_ITEM_VISIBLE, NULL);
+  if(get_no_void_group(-1) == current_shapelistgroup_index)
+    g_object_set (previous_shapelist_item, "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
+  else
+    g_object_set (previous_shapelist_item, "visibility", GOO_CANVAS_ITEM_VISIBLE, NULL);
 #if DEBUG
-    dump_shapes();
+  dump_shapes();
 #endif
 }
 
@@ -1187,13 +1191,13 @@ item_event_ok(GooCanvasItem *item, GdkEvent *event, gpointer data)
       g_warning(" item event current_shapelistgroup_index=%d\n", current_shapelistgroup_index);
       if(!strcmp((char *)data, "previous_shapelist"))
 	{
-	    current_shapelistgroup_index = get_no_void_group(-1);
-        update_shapelist_item();
+	  current_shapelistgroup_index = get_no_void_group(-1);
+	  update_shapelist_item();
 	}
       else if(!strcmp((char *)data, "next_shapelist"))
 	{
-	    current_shapelistgroup_index = get_no_void_group(1);
-        update_shapelist_item();
+	  current_shapelistgroup_index = get_no_void_group(1);
+	  update_shapelist_item();
 	}
 
       root_item = g_list_nth_data(shape_list_group, current_shapelistgroup_index);
@@ -1213,9 +1217,11 @@ static void
 setup_item(GooCanvasItem *item, Shape *shape)
 {
   g_signal_connect(item, "enter_notify_event",
-		     (GtkSignalFunc) item_event,
-		     shape);
-  g_signal_connect(item, "enter_notify_event",
+		   (GtkSignalFunc) item_event,
+		   shape);
+  g_signal_connect(item, "button_press_event",
+		   (GtkSignalFunc) gc_drag_event, NULL);
+  g_signal_connect(item, "button_release_event",
 		   (GtkSignalFunc) gc_drag_event, NULL);
 }
 
@@ -1250,7 +1256,7 @@ add_shape_to_canvas(Shape *shape)
 				       shape->y - shape->h / 2,
 				       "width",  shape->w,
 				       "height", shape->h,
-					NULL);
+				       NULL);
 	  shape->targetitem = item;
 	  gdk_pixbuf_unref(targetpixmap);
 	}
@@ -1288,9 +1294,9 @@ add_shape_to_canvas(Shape *shape)
 				       pixmap,
 				       shape->x - shape->w / 2,
 				       shape->y - shape->h / 2,
-					"width", shape->w,
-					"height", shape->h,
-					NULL);
+				       "width", shape->w,
+				       "height", shape->h,
+				       NULL);
 	  gdk_pixbuf_unref(pixmap);
 	}
     }
@@ -1328,7 +1334,7 @@ static void create_title(char *name, double x, double y,
 			 anchor,
 			 "font", gc_skin_font_board_medium,
 			 "fill_color_rgba", gc_skin_color_shadow,
-			   NULL);
+			 NULL);
 
   goo_canvas_item_raise(item, NULL);
 
@@ -1341,7 +1347,7 @@ static void create_title(char *name, double x, double y,
 			 anchor,
 			 "font", gc_skin_font_board_medium,
 			 "fill_color_rgba", color_rgba,
-			   NULL);
+			 NULL);
 
   goo_canvas_item_raise(item, NULL);
 }
@@ -1398,12 +1404,12 @@ xmlGetProp_Double(xmlNodePtr node, xmlChar *prop, double def_value)
 
   str = (char *)xmlGetProp(node, prop);
   if(str)
-  {
-       value = g_ascii_strtod(str, NULL);
+    {
+      value = g_ascii_strtod(str, NULL);
       free(str);
-  }
+    }
   else
-      value = def_value;
+    value = def_value;
 
   return value;
 }
@@ -1430,9 +1436,9 @@ add_xml_shape_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child, GList **
      !xmlnode->name ||
      /* or if the name is not "Shape" */
      ((g_strcasecmp((const char *)xmlnode->name,"Shape")!=0) &&
-     /* or if the name is not "Title" */
+      /* or if the name is not "Title" */
       (g_strcasecmp((const char *)xmlnode->name,"Title")!=0) &&
-     /* or if the name is not "Option" */
+      /* or if the name is not "Option" */
       (g_strcasecmp((const char *)xmlnode->name,"Option")!=0) )
      )
     return;
@@ -1481,15 +1487,15 @@ add_xml_shape_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child, GList **
   ctype = (char *)xmlGetProp(xmlnode, BAD_CAST "type");
   if(ctype) {
     if(g_strcasecmp(ctype,"SHAPE_TARGET")==0)
-        type = SHAPE_TARGET;
-      else if(g_strcasecmp(ctype,"SHAPE_DUMMY_TARGET")==0)
-        type = SHAPE_DUMMY_TARGET;
-      else if (g_strcasecmp(ctype,"SHAPE_BACKGROUND")==0)
-        type = SHAPE_BACKGROUND;
-   xmlFree(ctype);
+      type = SHAPE_TARGET;
+    else if(g_strcasecmp(ctype,"SHAPE_DUMMY_TARGET")==0)
+      type = SHAPE_DUMMY_TARGET;
+    else if (g_strcasecmp(ctype,"SHAPE_BACKGROUND")==0)
+      type = SHAPE_BACKGROUND;
+    xmlFree(ctype);
   }
   else
-      type = SHAPE_TARGET;
+    type = SHAPE_TARGET;
 
   /* get the JUSTIFICATION of the Title */
   anchor_gtk = GTK_ANCHOR_CENTER;	/* GTK_ANCHOR_CENTER is default */
@@ -1529,9 +1535,9 @@ add_xml_shape_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child, GList **
 	    || !strcmp(lang, gc_locale_get())
 	    || !strncmp(lang, gc_locale_get(), 2)))
       {
-          if (name)
-              xmlFree(name);
-        	name = (char *)xmlNodeListGetString(doc, xmlnamenode->xmlChildrenNode, 1);
+	if (name)
+	  xmlFree(name);
+	name = (char *)xmlNodeListGetString(doc, xmlnamenode->xmlChildrenNode, 1);
       }
 
     /* get the tooltip of the shape */
@@ -1540,9 +1546,9 @@ add_xml_shape_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child, GList **
 	    || !strcmp(lang, gc_locale_get())
 	    || !strncmp(lang, gc_locale_get(), 2)))
       {
-          if (tooltip)
-              xmlFree(tooltip);
-          tooltip = (char *)xmlNodeListGetString(doc, xmlnamenode->xmlChildrenNode, 1);
+	if (tooltip)
+	  xmlFree(tooltip);
+	tooltip = (char *)xmlNodeListGetString(doc, xmlnamenode->xmlChildrenNode, 1);
       }
     xmlFree(lang);
     xmlnamenode = xmlnamenode->next;
@@ -1557,10 +1563,10 @@ add_xml_shape_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child, GList **
       /* add the shape to the database */
       /* WARNING : I do not initialize the width and height since I don't need them */
       shape = create_shape(type, name, tooltip, pixmapfile,
-                targetfile, x, y,
+			   targetfile, x, y,
 			   (double)0, (double)0,
 			   zoomx, zoomy, position,
-               soundfile);
+			   soundfile);
 
       /* add the shape to the list */
       *list = g_list_append(*list, shape);
@@ -1574,7 +1580,7 @@ add_xml_shape_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child, GList **
 	newname = g_strcompress(name);
 
 	create_title(newname, x, y, anchor_gtk, color_rgba);
-    g_free(newname);
+	g_free(newname);
       }
     }
   g_free(pixmapfile);
@@ -1717,9 +1723,9 @@ static void save_table (gpointer key,
 			gpointer user_data)
 {
   gc_db_set_board_conf ( profile_conf,
-			    board_conf,
-			    (gchar *) key,
-			    (gchar *) value);
+			 board_conf,
+			 (gchar *) key,
+			 (gchar *) value);
 }
 
 static void conf_ok(GHashTable *table)
@@ -1770,7 +1776,7 @@ static void conf_ok(GHashTable *table)
 
 static void
 config_start(GcomprisBoard *agcomprisBoard,
-		    GcomprisProfile *aProfile)
+	     GcomprisProfile *aProfile)
 {
   board_conf = agcomprisBoard;
   profile_conf = aProfile;
@@ -1783,7 +1789,7 @@ config_start(GcomprisBoard *agcomprisBoard,
 				  aProfile? aProfile->name : "");
 
   gc_board_config_window_display( label,
-				 (GcomprisConfCallback )conf_ok);
+				  (GcomprisConfCallback )conf_ok);
 
   g_free(label);
 

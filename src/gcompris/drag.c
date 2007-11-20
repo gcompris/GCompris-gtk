@@ -19,7 +19,8 @@
 
 #include "drag.h"
 
-static gc_Drag_Func gc_drag_func;
+static GcDragFunc gc_drag_func;
+static gpointer gc_drag_user_data;
 static int gc_drag_status;
 
 /*  Values of status are :
@@ -31,12 +32,14 @@ static gc_drag_mode_type gc_drag_mode;
 static GooCanvasItem *gc_drag_item;
 static double gc_drag_offset_x, gc_drag_offset_y;
 
-GooCanvasItem * gc_drag_item_get(void)
+GooCanvasItem*
+gc_drag_item_get(void)
 {
   return gc_drag_item;
 }
 
-void gc_drag_item_set(GooCanvasItem *item)
+void
+gc_drag_item_set(GooCanvasItem *item)
 {
   if(gc_drag_status != 0)
     g_warning("Don't use gc_drag_set_item during a dragging");
@@ -44,19 +47,27 @@ void gc_drag_item_set(GooCanvasItem *item)
     gc_drag_item = item;
 }
 
+/* Move the current dragging item of the group if given */
 void
-gc_drag_item_move(GdkEvent *event)
+gc_drag_item_move(GdkEvent *event, GooCanvasItem *group)
 {
-  double item_x, item_y;
+  double new_x = event->button.x;
+  double new_y = event->button.y;
+  GooCanvasBounds bounds;
 
-  item_x = event->button.x;
-  item_y = event->button.y;
-  goo_canvas_convert_to_item_space(goo_canvas_item_get_canvas(gc_drag_item),
-				   gc_drag_item, &item_x, &item_y);
+  /* Check board boundaries */
+  goo_canvas_item_get_bounds(gc_drag_item, &bounds);
+  if((bounds.x1 < 0 && new_x < gc_drag_offset_x)
+     || (bounds.x2 > BOARDWIDTH && new_x > gc_drag_offset_x))
+      new_x = gc_drag_offset_x;
 
-  g_object_set(gc_drag_item,
-	       "x", item_x - gc_drag_offset_x,
-	       "y", item_y - gc_drag_offset_y, NULL);
+  if((bounds.y1 < 0 && new_y < gc_drag_offset_y)
+     || (bounds.y2 > BOARDHEIGHT && new_y > gc_drag_offset_y))
+      new_y = gc_drag_offset_y;
+
+  goo_canvas_item_translate ((group ? group : gc_drag_item),
+			     new_x - gc_drag_offset_x,
+			     new_y - gc_drag_offset_y);
 }
 
 void
@@ -82,9 +93,9 @@ gc_drag_offset_save(GdkEvent *event)
   x = event->button.x;
   y = event->button.y;
 
-  goo_canvas_convert_to_item_space(goo_canvas_item_get_canvas(gc_drag_item),
-				   gc_drag_item, &x, &y);
   goo_canvas_item_get_bounds(gc_drag_item, &bounds);
+  goo_canvas_convert_to_item_space(goo_canvas_item_get_canvas(gc_drag_item),
+  				   gc_drag_item, &bounds.x1, &bounds.y1);
 
   gc_drag_offset_set(x - bounds.x1, y - bounds.y1);
 }
@@ -106,15 +117,20 @@ gc_drag_event (GooCanvasItem *item,
 	  else
 	    gc_drag_status = 1;
 
-	  gc_drag_func(item, (GdkEvent*)event, data);
+	  gc_drag_user_data = data;
+	  gc_drag_func(item, target, (GdkEvent*)event, data);
 	}
       break;
     case GDK_BUTTON_RELEASE:
       if(gc_drag_status == 2)
 	{
-	  gc_drag_func(gc_drag_item, (GdkEvent*)event, data);
+	  gc_drag_func(gc_drag_item,
+		       target,
+		       (GdkEvent*)event,
+		       data);
 	  gc_drag_status = 0;
 	  gc_drag_item = NULL;
+	  gc_drag_user_data = NULL;
 	}
       else if (gc_drag_status == 1 && gc_drag_mode & GC_DRAG_MODE_2CLICKS)
 	gc_drag_status = 2;
@@ -138,7 +154,10 @@ gc_drag_event_root(GooCanvasItem * item,
 	{
 	  if(gc_drag_status==1 && gc_drag_mode & GC_DRAG_MODE_GRAB)
 	    gc_drag_status=2;
-	  gc_drag_func(gc_drag_item, (GdkEvent*)event, data);
+	  gc_drag_func(gc_drag_item,
+		       target,
+		       (GdkEvent*)event,
+		       gc_drag_user_data);
 	}
       break;
     default:
@@ -149,12 +168,13 @@ gc_drag_event_root(GooCanvasItem * item,
 
 void
 gc_drag_start(GooCanvasItem *root_item,
-	      gc_Drag_Func function,
+	      GcDragFunc function,
 	      gc_drag_mode_type mode)
 {
   g_signal_connect(root_item, "motion_notify_event",
-		   (GtkSignalFunc) gc_drag_event_root, NULL);
+  		   (GtkSignalFunc) gc_drag_event_root, NULL);
   gc_drag_func = function;
+  gc_drag_user_data = NULL;
   gc_drag_status = 0;
   gc_drag_item = NULL;
   gc_drag_offset_x = gc_drag_offset_y = 0;
@@ -173,12 +193,13 @@ gc_drag_stop(GooCanvasItem *root_item)
       event.type = GDK_BUTTON_RELEASE;
       event.button.x = event.button.y =0;
       event.button.button = 1;
-      gc_drag_func(gc_drag_item, &event, NULL);
+      gc_drag_func(gc_drag_item, NULL, &event, NULL);
     }
   g_signal_handlers_disconnect_by_func(root_item,
 				       (GtkSignalFunc) gc_drag_event_root,
 				       NULL);
   gc_drag_func = NULL;
+  gc_drag_user_data = NULL;
   gc_drag_status = -1;
   gc_drag_item = NULL;
   gc_drag_mode = 0;
