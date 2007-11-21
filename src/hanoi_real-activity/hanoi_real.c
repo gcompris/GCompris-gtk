@@ -53,7 +53,7 @@ typedef struct {
 
 static gboolean item_event (GooCanvasItem  *item,
 			    GooCanvasItem  *target,
-			    GdkEventButton *event,
+			    GdkEvent *event,
 			    PieceItem *data);
 
 /* This contains the layout of the pieces */
@@ -140,6 +140,9 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 
       boardRootItem = NULL;
 
+      gc_drag_start(goo_canvas_get_root_item(gcomprisBoard->canvas),
+		    (GcDragFunc)item_event, GC_DRAG_MODE_DEFAULT);
+
       hanoi_next_level();
 
       gamewon = FALSE;
@@ -151,6 +154,7 @@ static void end_board ()
 {
   if(gcomprisBoard!=NULL)
     {
+      gc_drag_stop(goo_canvas_get_root_item(gcomprisBoard->canvas));
       pause_board(TRUE);
       hanoi_destroy_all_items();
     }
@@ -245,51 +249,52 @@ static void dump_solution()
 #endif
 
 /* ==================================== */
-static GooCanvasItem *hanoi_create_item(GooCanvasItem *parent)
+static GooCanvasItem *
+hanoi_create_item(GooCanvasItem *parent)
 {
   int i,j;
   double gap_x, gap_y;
   double baseline;
-  GooCanvasItem *item = NULL;
-  GdkPixbuf *pixmap = NULL;
-  gchar *filename;
+  GooCanvasItem *item;
+  GdkPixbuf *pixmap;
 
   boardRootItem = goo_canvas_group_new (goo_canvas_get_root_item(gcomprisBoard->canvas),
 					NULL);
 
-
   pixmap = gc_skin_pixmap_load("gcompris-shapelabel.png");
   if(pixmap) {
-    goo_canvas_image_new (boardRootItem,
-			  pixmap,
-			  10,
-			  BOARDHEIGHT - 60,
-			  "width", (double) BOARDWIDTH - 20,
-			   NULL);
+    item = goo_canvas_image_new (boardRootItem,
+				 pixmap,
+				 10,
+				 BOARDHEIGHT - 60,
+				 NULL);
+    goo_canvas_item_scale(item,
+			  (double)(BOARDWIDTH - 20)/gdk_pixbuf_get_width(pixmap),
+			  1);
     gdk_pixbuf_unref(pixmap);
   }
 
   goo_canvas_text_new (boardRootItem,
 		       _("Move the entire stack to the right peg, one disc at a time"),
-		       (double) BOARDWIDTH/2 +1,
-		       (double) BOARDHEIGHT - 50 +1,
+		       BOARDWIDTH/2 +1,
+		       BOARDHEIGHT - 50 +1,
 		       -1,
 		       GTK_ANCHOR_NORTH,
 		       "font", gc_skin_font_board_medium,
 		       "fill_color_rgba", gc_skin_color_shadow,
-		       "justification", GTK_JUSTIFY_CENTER,
-			 NULL);
+		       "alignment", PANGO_ALIGN_CENTER,
+		       NULL);
 
   goo_canvas_text_new (boardRootItem,
 		       _("Move the entire stack to the right peg, one disc at a time"),
-		       (double) BOARDWIDTH/2,
-		       (double) BOARDHEIGHT - 50,
+		       BOARDWIDTH/2,
+		       BOARDHEIGHT - 50,
 		       -1,
 		       GTK_ANCHOR_NORTH,
 		       "font", gc_skin_font_board_medium,
 		       "fill_color_rgba", gc_skin_color_text_button,
-		       "justification", GTK_JUSTIFY_CENTER,
-			 NULL);
+		       "alignment", PANGO_ALIGN_CENTER,
+		       NULL);
 
 
   /*----------------------------------------*/
@@ -332,14 +337,14 @@ static GooCanvasItem *hanoi_create_item(GooCanvasItem *parent)
 
   for(i=0; i<number_of_item_x; i++)
     {
-      if(i==number_of_item_x-1)
+      if(i == number_of_item_x-1)
 	{
 	  /* Create the backgound for the target */
 	  goo_canvas_rect_new (boardRootItem,
 			       item_width * i + gap_x/2,
 			       baseline - item_height * number_of_item_y - gap_y - 50,
-			       item_width * (i+1) - gap_x/2,
-			       baseline + 50,
+			       item_width - gap_x,
+			       baseline - item_height * number_of_item_y - gap_y,
 			       "fill_color_rgba", 0x036ED8FF,
 			       "stroke-color", "black",
 			       "line-width", (double)1,
@@ -351,8 +356,9 @@ static GooCanvasItem *hanoi_create_item(GooCanvasItem *parent)
 
       item = goo_canvas_image_new (boardRootItem,
 				   pixmap,
-				   item_width * i + item_width/2,
-				   baseline - gdk_pixbuf_get_height(pixmap)/2 + item_height/2,
+				   item_width * i
+				   + (item_width - gdk_pixbuf_get_width(pixmap))/2,
+				   baseline - gdk_pixbuf_get_height(pixmap) + item_height,
 				   NULL);
 
       gdk_pixbuf_unref(pixmap);
@@ -362,29 +368,31 @@ static GooCanvasItem *hanoi_create_item(GooCanvasItem *parent)
 	{
 
 	  position[i][j]->x = item_width * i + item_width/2;
-	  position[i][j]->y = baseline - item_height * j - item_height + gap_y;
+	  position[i][j]->y = baseline - item_height * j - item_height;
 
 	  if(position[i][j]->width != -1)
 	    {
-	      filename = g_strdup_printf("%s%d.png", "hanoi_real/disc", j+1);
-	      pixmap = gc_pixmap_load (filename);
+	      pixmap = gc_pixmap_load ("%s%d.png", "hanoi_real/disc", j+1);
 	      int w = gdk_pixbuf_get_width(pixmap);
-	      int h = gdk_pixbuf_get_height(pixmap);
 
 	      item = goo_canvas_image_new (boardRootItem,
 					   pixmap,
-					   position[i][j]->x + w/2,
-					   position[i][j]->y + h/2,
+					   0, 0,
 					   NULL);
-	      g_free(filename);
 	      gdk_pixbuf_unref(pixmap);
+	      goo_canvas_item_translate(item,
+					position[i][j]->x - w/2,
+					position[i][j]->y);
+
 
 	      position[i][j]->item = item;
 
-	      g_signal_connect(GTK_OBJECT(item),
+	      g_signal_connect(item,
 			       "button_press_event",
-			       (GtkSignalFunc) item_event,  position[i][j]);
-
+			       (GtkSignalFunc) gc_drag_event,  position[i][j]);
+	      g_signal_connect(item,
+			       "button_release_event",
+			       (GtkSignalFunc) gc_drag_event,  position[i][j]);
 	    }
 	}
     }
@@ -427,15 +435,12 @@ static gboolean is_completed()
 }
 
 /* ==================================== */
-static gboolean item_event (GooCanvasItem  *item,
-				 GooCanvasItem  *target,
-				 GdkEventButton *event,
-				 PieceItem *data)
+static gboolean
+item_event (GooCanvasItem  *item,
+	    GooCanvasItem  *target,
+	    GdkEvent *event,
+	    PieceItem *data)
 {
-   static double x, y;
-   double new_x, new_y;
-   GdkCursor *fleur;
-   static int dragging;
    double item_x, item_y;
 
    if(!gcomprisBoard)
@@ -447,54 +452,24 @@ static gboolean item_event (GooCanvasItem  *item,
   if(!data->on_top)
     return FALSE;
 
-  item_x = event->x;
-  item_y = event->y;
-  //goo_canvas_convert_to_item_space(item->parent, &item_x, &item_y);
-
   switch (event->type)
     {
-    case GDK_ENTER_NOTIFY:
-      //gc_item_focus_set(item, TRUE);
-      break;
-    case GDK_LEAVE_NOTIFY:
-      //gc_item_focus_set(item, FALSE);
-      break;
     case GDK_BUTTON_PRESS:
-      switch(event->button)
+      switch(event->button.button)
 	{
 	case 1:
 
-	  x = item_x;
-	  y = item_y;
-
+	  gc_drag_offset_save(event);
 	  goo_canvas_item_raise(data->item, NULL);
-
-	  fleur = gdk_cursor_new(GDK_FLEUR);
-	  //  gc_canvas_item_grab(data->item,
-	  //		 GDK_POINTER_MOTION_MASK |
-	  //		 GDK_BUTTON_RELEASE_MASK,
-	  //		 fleur,
-	  //		 event->time);
-	  gdk_cursor_destroy(fleur);
-	  dragging = TRUE;
 	  break;
 	}
       break;
 
     case GDK_MOTION_NOTIFY:
-      if (dragging && (event->state & GDK_BUTTON1_MASK))
-	{
-	  new_x = item_x;
-	  new_y = item_y;
-
-	  goo_canvas_item_translate(data->item, new_x - x, new_y - y);
-	  x = new_x;
-	  y = new_y;
-	}
+      gc_drag_item_move(event, NULL);
       break;
 
     case GDK_BUTTON_RELEASE:
-      if(dragging)
 	{
 	  gint i;
 	  gint tmpi, tmpj;
@@ -504,15 +479,20 @@ static gboolean item_event (GooCanvasItem  *item,
 	  gint line;
 	  gint col=-1;
 	  double disc_w, disc_h;
-	  GdkPixbuf *pixmap;
+	  GooCanvasBounds bounds;
 
-	  g_object_get(G_OBJECT(data->item), "pixbuf", &pixmap, NULL);
-	  disc_w = gdk_pixbuf_get_width(pixmap)/2;
-	  disc_h = gdk_pixbuf_get_height(pixmap)/2;
-	  gdk_pixbuf_unref(pixmap);
+	  item_x = event->button.x;
+	  item_y = event->button.y;
 
-	  gc_canvas_item_ungrab(data->item, event->time);
-	  dragging = FALSE;
+	  goo_canvas_item_get_bounds(data->item, &bounds);
+	  disc_w = (bounds.x2 - bounds.x1)/2;
+	  disc_h = (bounds.y2 - bounds.y1)/2;
+
+	  gc_canvas_item_ungrab(data->item, event->button.time);
+
+	  goo_canvas_convert_from_item_space(goo_canvas_item_get_canvas(data->item),
+					   data->item,
+					   &item_x, &item_y);
 
 	  /* Search the column (x) where this item is ungrabbed */
 	  if(item_x > (position[number_of_item_x-1][0]->x
@@ -534,7 +514,9 @@ static gboolean item_event (GooCanvasItem  *item,
 	  if(col<0 || col > number_of_item_x || col == data->i)
 	    {
 	      /* Return to the original position */
-	      gc_item_absolute_move (data->item , data->x - disc_w, data->y - disc_h);
+	      gc_item_absolute_move (data->item ,
+				     data->x - disc_w,
+				     data->y);
 
 	      return FALSE;
 	    }
@@ -551,8 +533,9 @@ static gboolean item_event (GooCanvasItem  *item,
 	     (line > 0 && position[col][line-1]->width != -1 && position[col][line-1]->width < data->width))
 	    {
 	      /* Return to the original position */
-	      gc_item_absolute_move (data->item , data->x - disc_w, data->y - disc_h);
-
+	      gc_item_absolute_move (data->item ,
+				     data->x - disc_w,
+				     data->y - disc_h);
 	      return FALSE;
 	    }
 
@@ -569,8 +552,8 @@ static gboolean item_event (GooCanvasItem  *item,
 	  piece_src = data;
 
 	  gc_item_absolute_move (data->item,
-			      piece_dst->x - disc_w,
-			      piece_dst->y - disc_h);
+				 piece_dst->x - disc_w,
+				 piece_dst->y);
 
 	  /* Swap values in the pieces */
 	  tmpx    = data->x;
