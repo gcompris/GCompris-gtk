@@ -111,7 +111,7 @@ gc_drag_event (GooCanvasItem *item,
     case GDK_BUTTON_PRESS:
       if(gc_drag_status == 0 && event->button == 1)
 	{
-	  gc_drag_item = item;
+	  gc_drag_item = target;
 	  if(gc_drag_mode == GC_DRAG_MODE_GRAB)
 	    gc_drag_status = 2;
 	  else
@@ -147,6 +147,9 @@ gc_drag_event_root(GooCanvasItem * item,
 		   GdkEventMotion *event,
 		   gpointer data)
 {
+  if(gc_drag_item != target)
+    return FALSE;
+
   switch(event->type)
     {
     case GDK_MOTION_NOTIFY:
@@ -193,7 +196,7 @@ gc_drag_stop(GooCanvasItem *root_item)
       event.type = GDK_BUTTON_RELEASE;
       event.button.x = event.button.y =0;
       event.button.button = 1;
-      gc_drag_func(gc_drag_item, NULL, &event, NULL);
+      gc_drag_func(gc_drag_item, NULL, &event, gc_drag_user_data);
     }
   g_signal_handlers_disconnect_by_func(root_item,
 				       (GtkSignalFunc) gc_drag_event_root,

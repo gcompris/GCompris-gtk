@@ -449,7 +449,7 @@ item_event (GooCanvasItem  *item,
   if(board_paused)
     return FALSE;
 
-  if(!data->on_top)
+  if(data && !data->on_top)
     return FALSE;
 
   switch (event->type)
