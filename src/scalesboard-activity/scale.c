@@ -439,6 +439,7 @@ scale_item_move_to(ScaleItem *item, int plate)
       gc_item_absolute_move(item->item,
 			    item->x,
 			    item->y);
+      goo_canvas_item_raise(item->item, NULL);
     }
 
   scale_anim_plate();
@@ -743,6 +744,14 @@ scale_next_level()
     goo_canvas_group_new (goo_canvas_get_root_item(gcomprisBoard->canvas),
 			  NULL);
 
+  pixmap2 = gc_pixmap_load("scale/bras.png");
+  bras = goo_canvas_image_new(boardRootItem,
+			      pixmap2,
+			      BOARDWIDTH/2 - gdk_pixbuf_get_width(pixmap2)/2,
+			      balance_left_y - 10,
+			      NULL);
+  gdk_pixbuf_unref(pixmap2);
+
   balance = goo_canvas_image_new(boardRootItem,
 				 pixmap,
 				 balance_x,
@@ -783,15 +792,6 @@ scale_next_level()
 			      NULL);
   gdk_pixbuf_unref(pixmap);
   gdk_pixbuf_unref(pixmap2);
-
-  pixmap = gc_pixmap_load("scale/bras.png");
-  bras = goo_canvas_image_new(boardRootItem,
-			      pixmap,
-			      BOARDWIDTH/2 - gdk_pixbuf_get_width(pixmap)/2,
-			      balance_left_y - 10,
-			      NULL);
-  gdk_pixbuf_unref(pixmap);
-  goo_canvas_item_raise(balance, NULL);
 
   /* display some hint */
   if(gcomprisBoard->level > 2)
