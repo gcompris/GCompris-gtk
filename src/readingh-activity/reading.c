@@ -54,8 +54,8 @@ static Mode currentMode = MODE_VERTICAL;
 /* Store the moving words */
 typedef struct {
   GooCanvasItem *rootItem;
-  GooCanvasItem  *overwriteItem;
-  GooCanvasItem  *item;
+  GooCanvasItem *overwriteItem;
+  GooCanvasItem *item;
 } LettersItem;
 
 static LettersItem previousFocus;
@@ -69,11 +69,11 @@ static LettersItem toDeleteFocus;
 #define BASE_Y2 520
 #define BASE_CX  BASE_X1+(BASE_X2-BASE_X1)/2
 
-gint current_x;
-gint current_y;
-gint numberOfLine;
-gint font_size;
-gint interline;
+static gint current_x;
+static gint current_y;
+static gint numberOfLine;
+static gint font_size;
+static gint interline;
 
 
 static void		 start_board (GcomprisBoard *agcomprisBoard);
@@ -86,7 +86,6 @@ static int		 gamewon;
 
 static gboolean		 reading_create_item(GooCanvasItem *parent);
 static gint		 reading_drop_items (void);
-//static void reading_destroy_item(LettersItem *item);
 static void		 reading_destroy_all_items(void);
 static gint		 reading_next_level(void);
 static void		 reading_config_start(GcomprisBoard *agcomprisBoard,
@@ -212,12 +211,14 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 
       interline = ascent + descent;
 
-      g_warning ("Font to display words have size %d  ascent : %d, descent : %d.\n Set inerline to %d", font_size, ascent, descent, interline);
+      g_warning ("Font to display words have size %d  ascent : %d, descent : %d.\n Set inerline to %d",
+		 font_size, ascent, descent, interline);
 
       /* Default mode */
       currentMode=MODE_VERTICAL;
-      if(gcomprisBoard->mode && g_strcasecmp(gcomprisBoard->mode, "horizontal")==0)
-	currentMode=MODE_HORIZONTAL;
+      if(gcomprisBoard->mode
+	 && g_strcasecmp(gcomprisBoard->mode, "horizontal") == 0)
+	currentMode = MODE_HORIZONTAL;
 
       gc_wordlist = gc_wordlist_get_from_file("wordsgame/default-$LOCALE.xml");
 
@@ -306,23 +307,23 @@ static gint reading_next_level()
 
 
   /* Default speed */
-  fallSpeed=1400-gcomprisBoard->level*120;
+  fallSpeed = 1400-gcomprisBoard->level*120;
 
   if(currentMode==MODE_VERTICAL)
     {
       current_x = BASE_CX;
-      numberOfLine=7+gcomprisBoard->level;
+      numberOfLine = 7 + gcomprisBoard->level;
     }
   else
     {
       current_x = BASE_X1;
-      numberOfLine=2+gcomprisBoard->level;
+      numberOfLine = 2 + gcomprisBoard->level;
     }
 
   current_y = BASE_Y1 - 2 * interline;
 
-  gcomprisBoard->number_of_sublevel=1;
-  gcomprisBoard->sublevel=1;
+  gcomprisBoard->number_of_sublevel = 1;
+  gcomprisBoard->sublevel = 1;
 
   display_what_to_do(boardRootItem);
   ask_ready(TRUE);
@@ -330,7 +331,8 @@ static gint reading_next_level()
 }
 
 /* Destroy all the items */
-static void reading_destroy_all_items()
+static void
+reading_destroy_all_items()
 {
 
   if (drop_items_id) {
@@ -357,10 +359,11 @@ static void reading_destroy_all_items()
     }
 }
 
-static GooCanvasItem *display_what_to_do(GooCanvasItem *parent)
+static GooCanvasItem *
+display_what_to_do(GooCanvasItem *parent)
 {
 
-  gint base_Y = 110;
+  gint base_Y = 90;
   gint base_X = 570;
 
   /* Load the text to find */
@@ -393,7 +396,7 @@ static GooCanvasItem *display_what_to_do(GooCanvasItem *parent)
 		       -1,
 		       GTK_ANCHOR_CENTER,
 		       "font", gc_skin_font_board_big,
-		       "fill-color", "green",
+		       "fill-color", "blue",
 		       NULL);
 
   goo_canvas_text_new (parent,
@@ -410,7 +413,8 @@ static GooCanvasItem *display_what_to_do(GooCanvasItem *parent)
   return NULL;
 }
 
-static gboolean reading_create_item(GooCanvasItem *parent)
+static gboolean
+reading_create_item(GooCanvasItem *parent)
 {
   gint   anchor = GTK_ANCHOR_CENTER;
   gchar *word;
@@ -459,7 +463,7 @@ static gboolean reading_create_item(GooCanvasItem *parent)
     goo_canvas_group_new (parent,
 			  NULL);
 
-  goo_canvas_item_translate(parent,
+  goo_canvas_item_translate(previousFocus.rootItem,
 			    current_x,
 			    current_y);
 
@@ -485,11 +489,12 @@ static gboolean reading_create_item(GooCanvasItem *parent)
   previousFocus.overwriteItem = \
     goo_canvas_text_new (previousFocus.rootItem,
 			 oldword,
-			 (double) 0,
-			 (double) 0,
+			 0,
+			 0,
 			 -1,
 			 anchor,
 			 "font", gc_skin_font_board_medium,
+			 "use-markup", TRUE,
 			 NULL);
 
   g_free(oldword);
@@ -509,7 +514,7 @@ static gboolean reading_create_item(GooCanvasItem *parent)
       goo_canvas_item_get_bounds(previousFocus.rootItem, &bounds);
 
       // Are we out of bound
-      if(bounds.x2>BASE_X2)
+      if(bounds.x2 > BASE_X2)
 	{
 	  // Do the line Wrapping
 	  goo_canvas_item_translate(previousFocus.rootItem,
@@ -528,7 +533,8 @@ static gboolean reading_create_item(GooCanvasItem *parent)
  * This is called on a low frequency and is used to display new items
  *
  */
-static gint reading_drop_items ()
+static gint
+reading_drop_items ()
 {
 
   if(reading_create_item(boardRootItem))
@@ -537,13 +543,14 @@ static gint reading_drop_items ()
   return (FALSE);
 }
 
-static void ask_ready(gboolean status)
+static void
+ask_ready(gboolean status)
 {
   static GooCanvasItem *item1 = NULL;
   static GooCanvasItem *item2 = NULL;
   GdkPixbuf *button_pixmap = NULL;
-  double y_offset = 310;
-  double x_offset = 430;
+  double y_offset = 250;
+  double x_offset = 400;
 
   if(textToFind==NULL)
     return;
@@ -589,12 +596,13 @@ static void ask_ready(gboolean status)
 		   "R");
 }
 
-static void ask_yes_no()
+static void
+ask_yes_no()
 {
   GooCanvasItem *item;
   GdkPixbuf *button_pixmap = NULL;
-  double y_offset = 310;
-  double x_offset = 430;
+  double y_offset = 250;
+  double x_offset = 400;
 
   if(textToFind==NULL)
     return;
@@ -656,7 +664,8 @@ static void ask_yes_no()
 }
 
 
-static void player_win()
+static void
+player_win()
 {
   gamewon = TRUE;
   wait_for_ready = TRUE;
@@ -671,7 +680,8 @@ static void player_win()
   next_level_timer = g_timeout_add(3000, (GtkFunction)reading_next_level, NULL);
 }
 
-static void player_loose()
+static void
+player_loose()
 {
   gchar *expected;
   gchar *got;
