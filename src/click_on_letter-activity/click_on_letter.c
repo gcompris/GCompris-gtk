@@ -69,7 +69,8 @@ static GooCanvasItem *click_on_letter_create_item(GooCanvasItem *parent);
 
 static void click_on_letter_destroy_all_items(void);
 static void click_on_letter_next_level(void);
-static gint item_event(GooCanvasItem *item, GdkEvent *event, gpointer data);
+static gint item_event(GooCanvasItem *item, GooCanvasItem *target,
+		       GdkEvent *event, gpointer data);
 static gboolean sounds_are_fine();
 
 static int right_position;
@@ -279,7 +280,7 @@ static gboolean sounds_are_fine()
       gc_locale_reset();
       gc_locale_set("en_US");
 
-      str2 = gc_file_find_absolute("sounds/en/alphabet/%s", letter_str);
+      str2 = gc_file_find_absolute("voices/en/alphabet/%s", letter_str);
 
       if (!str2)
 	{
@@ -426,8 +427,10 @@ static GooCanvasItem *click_on_letter_create_item(GooCanvasItem *parent)
     g_free(letters[i]);
     xOffset +=HORIZONTAL_SEPARATION +gdk_pixbuf_get_width(button_pixmap);
 
-    g_signal_connect(GTK_OBJECT(l_items[i]), "enter_notify_event", (GtkSignalFunc) item_event, GINT_TO_POINTER(i));
-    g_signal_connect(GTK_OBJECT(buttons[i]), "enter_notify_event",  (GtkSignalFunc) item_event, GINT_TO_POINTER(i));
+    g_signal_connect(l_items[i], "button_press_event",
+		     (GtkSignalFunc) item_event, GINT_TO_POINTER(i));
+    g_signal_connect(buttons[i], "button_press_event",
+		     (GtkSignalFunc) item_event, GINT_TO_POINTER(i));
     //  g_signal_connect(GTK_OBJECT(buttons[i]), "enter_notify_event", (GtkSignalFunc) gc_item_focus_event, NULL);
   }
 
@@ -465,7 +468,8 @@ static void process_ok() {
 }
 /* ==================================== */
 static gint
-item_event(GooCanvasItem *item, GdkEvent *event, gpointer data)
+item_event(GooCanvasItem *item, GooCanvasItem *target,
+	   GdkEvent *event, gpointer data)
 {
   int pos = GPOINTER_TO_INT(data);
   double item_x, item_y;
