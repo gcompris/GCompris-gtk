@@ -995,7 +995,8 @@ item_event_drag(GooCanvasItem *item,
       goo_canvas_convert_from_item_space(goo_canvas_item_get_canvas(item),
 					 item, &item_x, &item_y);
 
-      found_shape = find_closest_shape(item_x, item_y, SQUARE_LIMIT_DISTANCE);
+      found_shape = find_closest_shape(item_x - gcomprisBoard->width/SHAPE_BOX_WIDTH_RATIO,
+				       item_y, SQUARE_LIMIT_DISTANCE);
       if(shadow_enable)
 	{
 	  if(found_shape)
@@ -1160,15 +1161,17 @@ auto_process(void)
   gboolean done = TRUE;
 
   /* Loop through all the shapes to find if all target are in place */
-  for(list = shape_list; list != NULL; list = list->next) {
-    Shape *shape = list->data;
+  for(list = shape_list; list != NULL; list = list->next)
+    {
+      Shape *shape = list->data;
 
-    if(shape->type==SHAPE_TARGET)
-      {
-	if(shape->placed==NULL)
-	  done=FALSE;
-      }
-  }
+      if(shape->type == SHAPE_TARGET)
+	{
+	  if(shape->placed == NULL)
+	    done=FALSE;
+	}
+    }
+
   if(done)
     process_ok();
 }
