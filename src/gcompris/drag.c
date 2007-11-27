@@ -41,8 +41,9 @@ gc_drag_item_get(void)
 void
 gc_drag_item_set(GooCanvasItem *item)
 {
-  if(gc_drag_status != 0)
-    g_warning("Don't use gc_drag_set_item during a dragging");
+  /* Don't use gc_drag_set_item during a dragging */
+  g_assert(gc_drag_status == 0);
+
   if(item)
     gc_drag_item = item;
 }

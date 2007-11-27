@@ -70,7 +70,6 @@ struct _Shape {
 
   GooCanvasItem *item;     	  	/* Canvas item for this shape */
 				  	/* Root index which this item is in the shapelist */
-  GooCanvasItem *shape_list_group_root;
   guint shapelistgroup_index;	  	/* Root index which this item is in the shapelist */
   Shape *icon_shape;			/* Temporary Canvas icon shape for this shape */
   Shape *target_shape;			/* If this is an icon shape then point to its shape */
@@ -78,8 +77,8 @@ struct _Shape {
   GooCanvasItem *target_point;       	/* Target point item for this shape */
   GooCanvasItem *targetitem;       	/* Target item for this shape (if targetfile is defined) */
   double offset_x, offset_y;
-  Shape *shape_place;       /* the shape place in this place */
-  Shape *placed ;           /* where is place this shape */
+  Shape *shape_place;			/* the shape place in this place */
+  Shape *placed ;			/* where is placed this shape */
   };
 
 /* This is the list of shape for the current game */
@@ -520,12 +519,12 @@ static void shapegame_init_canvas(GooCanvasItem *parent)
 {
   GdkPixbuf       *pixmap = NULL;
 
-  shape_list_root_item = goo_canvas_group_new (parent, NULL);
-
   shape_root_item = goo_canvas_group_new (parent, NULL);
   goo_canvas_item_translate(shape_root_item,
 			    gcomprisBoard->width/SHAPE_BOX_WIDTH_RATIO,
 			    0);
+
+  shape_list_root_item = goo_canvas_group_new (parent, NULL);
 
   tooltip_root_item = goo_canvas_group_new (goo_canvas_get_root_item(gcomprisBoard->canvas),
 					    NULL);
@@ -663,7 +662,8 @@ add_shape_to_list_of_shapes(Shape *shape)
     {
       // Get the current shapelist group
       g_warning(" get the current_shapelistgroup_index=%d\n", current_shapelistgroup_index);
-      shape_list_group_root = g_list_nth_data(shape_list_group, current_shapelistgroup_index);
+      shape_list_group_root = g_list_nth_data(shape_list_group,
+					      current_shapelistgroup_index);
     }
 
   /*----------------------------------------------------------------------*/
@@ -725,7 +725,6 @@ add_shape_to_list_of_shapes(Shape *shape)
 		  gdk_pixbuf_unref(scale);
 
 		  // add the hand
-		  printf("add the hand\n");
 		  hand = gc_skin_pixmap_load("hand.svg");
 		  h = ICON_HEIGHT/3;
 		  w = gdk_pixbuf_get_width(hand) * h / gdk_pixbuf_get_height(hand);
@@ -766,7 +765,6 @@ add_shape_to_list_of_shapes(Shape *shape)
 	      g_warning(" creation shape=%s shape->shapelistgroup_index=%d current_shapelistgroup_index=%d\n",
 			shape->name,
 			shape->shapelistgroup_index, current_shapelistgroup_index);
-	      icon_shape->shape_list_group_root = shape_list_group_root;
 	      setup_item(item, icon_shape);
 	      g_signal_connect(item, "enter_notify_event",
 			       (GtkSignalFunc) gc_item_focus_event,
@@ -823,7 +821,8 @@ static void dump_shapes(void)
     }
 }
 
-static void dump_shape(Shape *shape)
+static void
+dump_shape(Shape *shape)
 {
   if(shape->type == SHAPE_TARGET && (shape->placed || shape->shape_place))
     {
@@ -909,7 +908,7 @@ item_event_drag(GooCanvasItem *item,
     {
     case GDK_BUTTON_PRESS:
       gc_sound_play_ogg ("sounds/bleep.wav", NULL);
-      switch(shape -> type)
+      switch(shape->type)
 	{
 	case SHAPE_ICON:
 	  gc_drag_offset_save(event);
@@ -935,19 +934,16 @@ item_event_drag(GooCanvasItem *item,
 	  break;
 
 	case SHAPE_TARGET:
-	  gc_drag_offset_save(event);
-	  g_object_set (shape->item, "visibility",
-			GOO_CANVAS_ITEM_INVISIBLE, NULL);
+	  //  g_object_set(shape->item, "visibility",
+	  //	       GOO_CANVAS_ITEM_INVISIBLE, NULL);
 
 	  // unplace this shape
 	  shape->placed->shape_place = NULL;
 	  shape->placed = NULL;
 
-	  shape = shape->icon_shape;
-	  gc_drag_offset_set(shape->offset_x, shape->offset_y);
-	  g_object_set (shape->item, "visibility",
-			GOO_CANVAS_ITEM_VISIBLE, NULL);
-	  gc_drag_item_set(shape->item);
+	  //g_object_set(shape->icon_shape->item, "visibility",
+	  //       GOO_CANVAS_ITEM_VISIBLE, NULL);
+	  gc_drag_offset_save(event);
 	  break;
 
 	default:
@@ -962,9 +958,12 @@ item_event_drag(GooCanvasItem *item,
 	  // initialise shadow shape
 	  GdkPixbuf *pixmap, *dest;
 
-	  printf("init shadow shape\n");
-	  pixmap = g_object_get_data(G_OBJECT(shape->target_shape->item),
-				     "pixmap");
+	  if(shape->target_shape)
+	    pixmap = g_object_get_data(G_OBJECT(shape->target_shape->item),
+				       "pixmap");
+	  else
+	    pixmap = g_object_get_data(G_OBJECT(shape->item),
+				       "pixmap");
 
 	  dest = gdk_pixbuf_copy(pixmap);
 	  pixbuf_add_transparent(dest, 100);
@@ -976,13 +975,7 @@ item_event_drag(GooCanvasItem *item,
 	  g_object_set (shadow_item, "visibility",
 			GOO_CANVAS_ITEM_INVISIBLE, NULL);
 	  gdk_pixbuf_unref(dest);
-	  printf("init shadow shape DONE\n");
 	}
-      /* Reparent it */
-      g_object_ref(shape->item);
-      goo_canvas_item_add_child (goo_canvas_item_get_parent(shape_list_root_item),
-				 shape->item, -1);
-      g_object_unref(shape->item);
 
       gc_drag_item_move(event, NULL);
       break;
@@ -1031,17 +1024,17 @@ item_event_drag(GooCanvasItem *item,
 
       target_point_switch_on(NULL);
 
-      /* Reparent it */
-      g_object_ref(shape->item);
-      goo_canvas_item_add_child (goo_canvas_item_get_parent(shape_list_root_item),
-				 shape->item, -1);
-      g_object_unref(shape->item);
-
       found_shape = find_closest_shape( item_x, item_y, SQUARE_LIMIT_DISTANCE);
 
       if(found_shape)
 	{
 	  GooCanvasBounds bounds;
+	  GooCanvasItem *fitem;
+
+	  if(shape->target_shape)
+	    fitem = shape->target_shape->item;
+	  else
+	    fitem = shape->item;
 
 	  if(found_shape->shape_place)
 	    shape_goes_back_to_list(found_shape->shape_place);
@@ -1049,18 +1042,21 @@ item_event_drag(GooCanvasItem *item,
 	  gc_sound_play_ogg ("sounds/line_end.wav", NULL);
 
 	  /* place the target item */
-	  goo_canvas_item_get_bounds (shape->target_shape->item, &bounds);
-	  gc_item_absolute_move(shape->target_shape->item,
+	  goo_canvas_item_get_bounds (fitem, &bounds);
+
+	  gc_item_absolute_move(fitem,
 				found_shape->x - (bounds.x2 - bounds.x1) / 2
 				+ gcomprisBoard->width/SHAPE_BOX_WIDTH_RATIO,
 				found_shape->y - (bounds.y2 - bounds.y1) / 2);
-	  g_object_set (shape->target_shape->item, "visibility",
+	  g_object_set (fitem, "visibility",
 			GOO_CANVAS_ITEM_VISIBLE, NULL);
-	  goo_canvas_item_raise(shape->target_shape->item, NULL);
+	  goo_canvas_item_raise(fitem, NULL);
+
 	  g_object_set (shape->item, "visibility",
 			GOO_CANVAS_ITEM_INVISIBLE, NULL);
 
-	  shape->target_shape->placed = found_shape;
+	  if(shape->target_shape)
+	    shape->target_shape->placed = found_shape;
 	  found_shape->shape_place = shape->target_shape;
 	  auto_process();
 	  update_shapelist_item();
@@ -1081,8 +1077,6 @@ static gint
 item_event(GooCanvasItem *item, GooCanvasItem *target,
 	   GdkEvent *event, Shape *shape)
 {
-  printf("item_event\n");
-
   if(!gcomprisBoard)
     return FALSE;
 
@@ -1176,7 +1170,8 @@ auto_process(void)
     process_ok();
 }
 
-static void update_shapelist_item(void)
+static void
+update_shapelist_item(void)
 {
   if(! next_shapelist_item || !previous_shapelist_item)
     return;
@@ -1197,6 +1192,7 @@ static void update_shapelist_item(void)
 	  current_shapelistgroup_index = index;
         }
     }
+
   if(get_no_void_group(1) == current_shapelistgroup_index)
     g_object_set (next_shapelist_item, "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
   else
@@ -1210,7 +1206,7 @@ static void update_shapelist_item(void)
 #endif
 }
 
-/* Callback for the operations */
+/* Callback for the previous / next shape operations */
 static gint
 item_event_ok(GooCanvasItem *item, GooCanvasItem *target,
 	      GdkEvent *event, gchar *data)
@@ -1669,7 +1665,7 @@ parse_doc(xmlDocPtr doc)
   g_list_free(shape_list_init);
   shape_list_init = NULL;
 
-  if(current_shapelistgroup_index>0)
+  if(current_shapelistgroup_index > 0)
     { /* If at least on shape group */
       item = g_list_nth_data(shape_list_group, current_shapelistgroup_index);
       g_object_set (item, "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
