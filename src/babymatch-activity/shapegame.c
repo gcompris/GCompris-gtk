@@ -910,12 +910,6 @@ item_event_drag(GooCanvasItem *item,
   switch(event->type)
     {
     case GDK_BUTTON_PRESS:
-      if(event->button.button == 3)
-	{
-	  shape_goes_back_to_list(shape);
-	  return TRUE;
-	}
-
       gc_sound_play_ogg ("sounds/bleep.wav", NULL);
       switch(shape->type)
 	{
