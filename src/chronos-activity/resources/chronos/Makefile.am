@@ -29,13 +29,13 @@ $(xml_DATA): %.xml: %.xml.in
 imgdir = $(pkgdatadir)/@PACKAGE_DATA_DIR@/chronos
 img_DATA = \
 	1955ds19.png \
-	1.jpg \
-	2.jpg \
-	3.jpg \
+	1.png \
+	2.png \
+	3.png \
 	1.ogg \
 	2.ogg \
 	3.ogg \
-	4.jpg \
+	4.png \
 	autumn.png \
 	bell_X1.png \
 	benz1885.png \

@@ -70,6 +70,7 @@ struct _Shape {
 
   GooCanvasItem *item;     	  	/* Canvas item for this shape */
 				  	/* Root index which this item is in the shapelist */
+  GdkPixbuf *pixmap;			/* The pixmap of the target item */
   guint shapelistgroup_index;	  	/* Root index which this item is in the shapelist */
   Shape *icon_shape;			/* Temporary Canvas icon shape for this shape */
   Shape *target_shape;			/* If this is an icon shape then point to its shape */
@@ -476,6 +477,8 @@ static void destroy_shape (Shape *shape)
   g_free(shape->targetfile);
   g_free(shape->soundfile);
   g_free(shape->tooltip);
+  if(shape->pixmap)
+    gdk_pixbuf_unref(shape->pixmap);
   g_free(shape);
 }
 
@@ -907,9 +910,20 @@ item_event_drag(GooCanvasItem *item,
   switch(event->type)
     {
     case GDK_BUTTON_PRESS:
+      if(event->button.button == 3)
+	{
+	  shape_goes_back_to_list(shape);
+	  return TRUE;
+	}
+
       gc_sound_play_ogg ("sounds/bleep.wav", NULL);
       switch(shape->type)
 	{
+	case SHAPE_TARGET:
+	  /* unplace this shape */
+	  shape->placed->shape_place = NULL;
+	  shape->placed = NULL;
+	  /* No break on purpose */
 	case SHAPE_ICON:
 	  gc_drag_offset_save(event);
 	  gc_drag_offset_get(&shape->offset_x, &shape->offset_y);
@@ -933,19 +947,6 @@ item_event_drag(GooCanvasItem *item,
 	    }
 	  break;
 
-	case SHAPE_TARGET:
-	  //  g_object_set(shape->item, "visibility",
-	  //	       GOO_CANVAS_ITEM_INVISIBLE, NULL);
-
-	  // unplace this shape
-	  shape->placed->shape_place = NULL;
-	  shape->placed = NULL;
-
-	  //g_object_set(shape->icon_shape->item, "visibility",
-	  //       GOO_CANVAS_ITEM_VISIBLE, NULL);
-	  gc_drag_offset_save(event);
-	  break;
-
 	default:
 	  break;
 	}
@@ -956,24 +957,17 @@ item_event_drag(GooCanvasItem *item,
 	    goo_canvas_item_remove(shadow_item);
 
 	  // initialise shadow shape
-	  GdkPixbuf *pixmap, *dest;
+	  GdkPixbuf *dest;
 
-	  if(shape->target_shape)
-	    pixmap = g_object_get_data(G_OBJECT(shape->target_shape->item),
-				       "pixmap");
-	  else
-	    pixmap = g_object_get_data(G_OBJECT(shape->item),
-				       "pixmap");
-
-	  dest = gdk_pixbuf_copy(pixmap);
+	  dest = gdk_pixbuf_copy(shape->target_shape->pixmap);
 	  pixbuf_add_transparent(dest, 100);
 	  shadow_item = goo_canvas_image_new(shape_root_item,
 					     dest,
 					     0,
 					     0,
 					     NULL);
-	  g_object_set (shadow_item, "visibility",
-			GOO_CANVAS_ITEM_INVISIBLE, NULL);
+	  g_object_set(shadow_item, "visibility",
+		       GOO_CANVAS_ITEM_INVISIBLE, NULL);
 	  gdk_pixbuf_unref(dest);
 	}
 
@@ -1024,17 +1018,16 @@ item_event_drag(GooCanvasItem *item,
 
       target_point_switch_on(NULL);
 
-      found_shape = find_closest_shape( item_x, item_y, SQUARE_LIMIT_DISTANCE);
+      found_shape = find_closest_shape(item_x - gcomprisBoard->width/SHAPE_BOX_WIDTH_RATIO,
+				       item_y,
+				       SQUARE_LIMIT_DISTANCE);
 
       if(found_shape)
 	{
 	  GooCanvasBounds bounds;
-	  GooCanvasItem *fitem;
+	  GooCanvasItem *target_item;
 
-	  if(shape->target_shape)
-	    fitem = shape->target_shape->item;
-	  else
-	    fitem = shape->item;
+	  target_item = shape->target_shape->item;
 
 	  if(found_shape->shape_place)
 	    shape_goes_back_to_list(found_shape->shape_place);
@@ -1042,22 +1035,24 @@ item_event_drag(GooCanvasItem *item,
 	  gc_sound_play_ogg ("sounds/line_end.wav", NULL);
 
 	  /* place the target item */
-	  goo_canvas_item_get_bounds (fitem, &bounds);
+	  goo_canvas_item_get_bounds(target_item, &bounds);
 
-	  gc_item_absolute_move(fitem,
+	  gc_item_absolute_move(target_item,
 				found_shape->x - (bounds.x2 - bounds.x1) / 2
 				+ gcomprisBoard->width/SHAPE_BOX_WIDTH_RATIO,
 				found_shape->y - (bounds.y2 - bounds.y1) / 2);
-	  g_object_set (fitem, "visibility",
+
+	  g_object_set (target_item, "visibility",
 			GOO_CANVAS_ITEM_VISIBLE, NULL);
-	  goo_canvas_item_raise(fitem, NULL);
+	  goo_canvas_item_raise(target_item, NULL);
 
-	  g_object_set (shape->item, "visibility",
-			GOO_CANVAS_ITEM_INVISIBLE, NULL);
+	  if(shape->type == SHAPE_ICON)
+	    g_object_set (shape->item, "visibility",
+			  GOO_CANVAS_ITEM_INVISIBLE, NULL);
 
-	  if(shape->target_shape)
-	    shape->target_shape->placed = found_shape;
+	  shape->target_shape->placed = found_shape;
 	  found_shape->shape_place = shape->target_shape;
+
 	  auto_process();
 	  update_shapelist_item();
 	}
@@ -1077,22 +1072,15 @@ static gint
 item_event(GooCanvasItem *item, GooCanvasItem *target,
 	   GdkEvent *event, Shape *shape)
 {
-  if(!gcomprisBoard)
+  if(!gcomprisBoard || board_paused)
     return FALSE;
 
-  if(board_paused)
-    return FALSE;
-
-
-  if(shape==NULL) {
-    g_warning("Shape is NULL : Should not happen");
-    return FALSE;
-  }
+  g_assert(shape);
 
   switch (event->type)
     {
     case GDK_ENTER_NOTIFY:
-      if(shape->tooltip && shape->type == SHAPE_ICON) {
+      if(shape->tooltip) {
 	g_object_set(tooltip_text_item_s,
 		     "text", shape->tooltip,
 		     NULL);
@@ -1102,13 +1090,16 @@ item_event(GooCanvasItem *item, GooCanvasItem *target,
 	g_object_set (tooltip_root_item, "visibility", GOO_CANVAS_ITEM_VISIBLE, NULL);
       }
       break;
+
     case GDK_LEAVE_NOTIFY:
-      if(shape->tooltip && shape->type == SHAPE_ICON)
+      if(shape->tooltip)
 	g_object_set (tooltip_root_item, "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
       break;
+
     case GDK_BUTTON_PRESS:
       if(event->button.button == 3)
 	shape_goes_back_to_list(shape);
+
     default:
       break;
     }
@@ -1254,6 +1245,9 @@ setup_item(GooCanvasItem *item, Shape *shape)
 		   (GtkSignalFunc) item_event,
 		   shape);
   g_signal_connect(item, "button_press_event",
+		   (GtkSignalFunc) item_event,
+		   shape);
+  g_signal_connect(item, "button_press_event",
 		   (GtkSignalFunc) gc_drag_event, shape);
   g_signal_connect(item, "button_release_event",
 		   (GtkSignalFunc) gc_drag_event, shape);
@@ -1335,8 +1329,7 @@ add_shape_to_canvas(Shape *shape)
 				    shape->y - shape->h / 2);
 	  goo_canvas_item_scale(item, shape->zoomx, shape->zoomy);
 
-	  g_object_set_data(G_OBJECT(item), "pixmap", pixmap);
-	  //FIXMEgdk_pixbuf_unref(pixmap);
+	  shape->pixmap = pixmap;
 	}
     }
 
@@ -1420,6 +1413,9 @@ create_shape(ShapeType type, char *name, char *tooltip, char *pixmapfile,
   shape->position = position;
   shape->type = type;
   shape->soundfile = g_strdup(soundfile);
+
+  if(type != SHAPE_ICON)
+    shape->target_shape = shape;
 
   /* add the shape to the list */
   shape_list = g_list_append(shape_list, shape);

@@ -85,38 +85,38 @@ GdkPixbuf *pixbuf_copy_mirror(GdkPixbuf *src, gint mirror, gint flip)
 
 
 
-/* Copyright 2006 Miguel DE IZARRA 
+/* Copyright 2006 Miguel DE IZARRA
  * Base on function gdk_pixbuf_fill from gdk_pixbuf
  */
 void pixbuf_add_transparent (GdkPixbuf *pixbuf,guint alpha)
 {
-        guchar *pixels;
-        guchar *p;
-        guint w, h;
+  guchar *pixels;
+  guchar *p;
+  guint w, h;
 
-        g_return_if_fail (GDK_IS_PIXBUF (pixbuf));
-        g_return_if_fail(gdk_pixbuf_get_has_alpha(pixbuf));
-        
-        if (gdk_pixbuf_get_width(pixbuf) == 0 || gdk_pixbuf_get_height(pixbuf) == 0)
-                return;
+  g_return_if_fail(GDK_IS_PIXBUF (pixbuf));
+  g_return_if_fail(gdk_pixbuf_get_has_alpha(pixbuf));
 
-        pixels = gdk_pixbuf_get_pixels(pixbuf);
+  if (gdk_pixbuf_get_width(pixbuf) == 0 || gdk_pixbuf_get_height(pixbuf) == 0)
+    return;
 
-        h = gdk_pixbuf_get_height(pixbuf);
-        
-        while (h--) {
-                w = gdk_pixbuf_get_width(pixbuf);
-                p = pixels;
+  pixels = gdk_pixbuf_get_pixels(pixbuf);
 
-                while (w--) {
-                    if(p[3] > alpha)
-                        p[3] = p[3] - alpha;
-                    else
-                        p[3] = 0;
-                    p += 4;
-                }
+  h = gdk_pixbuf_get_height(pixbuf);
 
-                pixels += gdk_pixbuf_get_rowstride(pixbuf);
-        }
+  while (h--) {
+    w = gdk_pixbuf_get_width(pixbuf);
+    p = pixels;
+
+    while (w--) {
+      if(p[3] > alpha)
+	p[3] = p[3] - alpha;
+      else
+	p[3] = 0;
+      p += 4;
+    }
+
+    pixels += gdk_pixbuf_get_rowstride(pixbuf);
+  }
 }
 
