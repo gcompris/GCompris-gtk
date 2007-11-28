@@ -573,9 +573,6 @@ if test x$activation_code = xno; then
   AC_DEFINE([DISABLE_ACTIVATION_CODE], 1,[Activation code is disabled])
 fi
 
-dnl Needed by goocanvas
-GTK_DOC_CHECK(1.8)
-
 dnl Autoconf output
 AC_OUTPUT([ Makefile.mingw
 Makefile

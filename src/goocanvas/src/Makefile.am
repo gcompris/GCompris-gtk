@@ -9,6 +9,7 @@ INCLUDES = \
 	-DG_LOG_DOMAIN=\"GooCanvas\" \
 	@PACKAGE_CFLAGS@
 
+libdir = $(plugindir)
 lib_LTLIBRARIES = libgoocanvas.la
 
 libgoocanvas_la_LIBADD = @PACKAGE_LIBS@ $(INTLLIBS)
@@ -81,11 +82,6 @@ libgoocanvas_built_sources =		\
 stamp_files =				\
 	stamp-goocanvasmarshal.h	\
 	stamp-goocanvasenumtypes.h
-
-
-libgoocanvasinclude_HEADERS =		\
-	$(libgoocanvas_public_headers)	\
-	$(libgoocanvas_built_headers)
 
 
 #

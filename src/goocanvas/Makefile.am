@@ -5,7 +5,7 @@ SUBDIRS = src demo docs
 # require automake 1.7
 AUTOMAKE_OPTIONS = 1.7
 
-pkgconfigdir = $(libdir)/pkgconfig
-pkgconfig_DATA = goocanvas.pc
+#pkgconfigdir = $(libdir)/pkgconfig
+#pkgconfig_DATA = goocanvas.pc
 
 EXTRA_DIST = goocanvas.pc.in autogen.sh

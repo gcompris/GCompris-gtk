@@ -503,10 +503,11 @@ gc_item_rotate_relative_with_center(GooCanvasItem *item, double angle, int x, in
  * The new group in which the stars are created is returned.
  * This is only usefull for the menu plugin and the configuration dialog box.
  */
-GooCanvasItem *gc_difficulty_display(GooCanvasItem *parent,
-				     double x, double y,
-				     double ratio,
-				     gint difficulty)
+GooCanvasItem *
+gc_difficulty_display(GooCanvasItem *parent,
+		      double x, double y,
+		      double ratio,
+		      gint difficulty)
 {
   GdkPixbuf *pixmap = NULL;
   GooCanvasItem *stars_group = NULL;
@@ -527,11 +528,11 @@ GooCanvasItem *gc_difficulty_display(GooCanvasItem *parent,
 
   item = goo_canvas_image_new (stars_group,
 			       pixmap,
-			       x,
-			       y,
-			       "width", (double) gdk_pixbuf_get_width(pixmap) * ratio,
-			       "height", (double) gdk_pixbuf_get_height(pixmap) * ratio,
+			       0,
+			       0,
 			       NULL);
+  goo_canvas_item_translate(item, x, y);
+  goo_canvas_item_scale(item, ratio, ratio);
 
   g_signal_connect(item, "button_press_event",
 		   (GtkSignalFunc) gc_item_focus_event,

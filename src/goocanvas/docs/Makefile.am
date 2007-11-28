@@ -24,7 +24,7 @@ DOC_SOURCE_DIR=../src
 SCANGOBJ_OPTIONS=--query-child-properties=goo_canvas_query_child_properties
 
 # Extra options to supply to gtkdoc-scan.
-# e.g. SCAN_OPTIONS=--deprecated-guards="GTK_DISABLE_DEPRECATED" 
+# e.g. SCAN_OPTIONS=--deprecated-guards="GTK_DISABLE_DEPRECATED"
 SCAN_OPTIONS=
 
 # Extra options to supply to gtkdoc-mkdb.
@@ -75,8 +75,9 @@ INCLUDES=-I$(top_srcdir)/src -I$(top_builddir)/src @PACKAGE_CFLAGS@
 GTKDOC_LIBS=@PACKAGE_LIBS@ $(top_builddir)/src/libgoocanvas.la
 
 # This includes the standard gtk-doc make rules, copied by gtkdocize.
-include $(top_srcdir)/gtk-doc.make
+#include $(top_srcdir)/gtk-doc.make
 
 # Other files to distribute
 # e.g. EXTRA_DIST += version.xml.in
-EXTRA_DIST += 
+EXTRA_DIST = $(expand_content_files) $(DOC_MAIN_SGML_FILE) \
+	goocanvas-overrides.txt goocanvas-sections.txt

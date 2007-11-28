@@ -73,10 +73,9 @@ static gboolean		 on_leave_notify (GooCanvasItem *item,
 					  MenuItems *menuitems);
 static gint		 item_event(GooCanvasItem *item, GdkEvent *event, MenuItems *menuitems);
 static void		 display_board_icon(GcomprisBoard *board, MenuItems *menuitems);
-static void		 free_stuff (GtkObject *obj, gpointer data);
 
 static void              display_section (gchar *path);
-static void              display_welcome (void);
+static void              display_welcome (MenuItems *menuitems);
 static void		 create_panel(GooCanvasItem *parent);
 static void		 create_top(GooCanvasItem *parent, gchar *path);
 
@@ -215,7 +214,7 @@ static void menu_start (GcomprisBoard *agcomprisBoard)
 
   g_warning ("menu2 : start  board");
 
-  if(agcomprisBoard!=NULL)
+  if(agcomprisBoard != NULL)
     {
       gchar *img;
 
@@ -228,23 +227,21 @@ static void menu_start (GcomprisBoard *agcomprisBoard)
 			      img);
       g_free(img);
 
-      boardRootItem = goo_canvas_group_new (goo_canvas_get_root_item(gcomprisBoard->canvas),
-					    NULL);
+      boardRootItem = \
+	goo_canvas_group_new (goo_canvas_get_root_item(gcomprisBoard->canvas),
+			      NULL);
 
-      g_object_set_data (G_OBJECT (boardRootItem), "menuitems", menuitems);
-      g_signal_connect (boardRootItem, "destroy",
-			G_CALLBACK (free_stuff),
-			menuitems);
+      g_object_set_data_full(G_OBJECT (boardRootItem),
+			     "menuitems", menuitems, g_free);
 
       create_info_area(boardRootItem, menuitems);
 
       create_panel(boardRootItem);
 
-      if (menu_position){
+      if (menu_position)
 	display_section(menu_position);
-      }
       else
-	display_welcome();
+	display_welcome(menuitems);
 
       /* set initial values for this level */
       gcomprisBoard->level = 1;
@@ -261,7 +258,8 @@ static void menu_start (GcomprisBoard *agcomprisBoard)
 }
 
 
-static void create_panel(GooCanvasItem *parent)
+static void
+create_panel(GooCanvasItem *parent)
 {
   int n_sections;
   GList *list = NULL;
@@ -271,7 +269,7 @@ static void create_panel(GooCanvasItem *parent)
 
   gdouble x, y;
   gint int_y;
-  GcomprisProperties	*properties = gc_prop_get();
+  GcomprisProperties *properties = gc_prop_get();
 
   /* In normal mode, we show all the sections in panel */
   /* in direct submenu access, we show the icon of the submenu */
@@ -285,89 +283,86 @@ static void create_panel(GooCanvasItem *parent)
   if (n_sections == 0)
     return;
 
-  if ( (panel_h/n_sections) <= icon_size_panel){
-    icon_size_panel = panel_h/n_sections;
-    int_y = 0;
-  }
-  else {
-    int_y = (panel_h - n_sections*icon_size_panel)/n_sections;
-  }
+  if ( (panel_h/n_sections) <= icon_size_panel)
+    {
+      icon_size_panel = panel_h / n_sections;
+      int_y = 0;
+    }
+  else
+    {
+      int_y = (panel_h - n_sections*icon_size_panel)/n_sections;
+    }
 
-  x = panel_x + panel_w/2.0 - gdk_pixbuf_get_width(pixmap)/2;
-  y = panel_y + int_y/2.0 - gdk_pixbuf_get_height(pixmap)/2;
+  x = panel_x + panel_w * 0.25;
+  y = panel_y + int_y / 2.0 - 20;
 
-  for (list = panelBoards; list != NULL; list = list->next){
-    board = (GcomprisBoard *) list->data;
+  for (list = panelBoards; list != NULL; list = list->next)
+    {
+      board = (GcomprisBoard *) list->data;
 
-    pixmap = gc_pixmap_load(board->icon_name);
+      pixmap = gc_pixmap_load(board->icon_name);
 
-    item = goo_canvas_image_new (parent,
-				  pixmap,
-				  x,
-				  y,
-				  NULL);
+      item = goo_canvas_image_new (parent,
+				   pixmap,
+				   x,
+				   y,
+				   NULL);
 
-    gdk_pixbuf_unref(pixmap);
+      gdk_pixbuf_unref(pixmap);
 
-    y += int_y + icon_size_panel;
+      y += int_y + icon_size_panel;
 
-    g_object_set_data (G_OBJECT (item), "board", board);
+      g_object_set_data (G_OBJECT (item), "board", board);
 
-    g_signal_connect(GTK_OBJECT(item), "button_press_event",
-		     (GtkSignalFunc) item_event,
-		     menuitems);
-    g_signal_connect (item, "enter_notify_event",
-		      (GtkSignalFunc) on_enter_notify, menuitems);
-    g_signal_connect (item, "leave_notify_event",
-		      (GtkSignalFunc) on_leave_notify, menuitems);
+      g_signal_connect(item, "button_press_event",
+		       (GtkSignalFunc) item_event,
+		       menuitems);
+      g_signal_connect (item, "enter_notify_event",
+			(GtkSignalFunc) on_enter_notify, menuitems);
+      g_signal_connect (item, "leave_notify_event",
+			(GtkSignalFunc) on_leave_notify, menuitems);
 
-    g_signal_connect(GTK_OBJECT(item), "enter_notify_event",
-		     (GtkSignalFunc) gc_item_focus_event,
-		     NULL);
-
-  }
-
-
-
+      g_signal_connect(item, "enter_notify_event",
+		       (GtkSignalFunc) gc_item_focus_event,
+		       NULL);
+    }
 }
 
-static void display_section (gchar *path)
+static void
+display_section (gchar *path)
 {
-      GList		*boardlist;	/* List of Board */
+  GList *boardlist;	/* List of Board */
 
-      menu_displayed = FALSE;
+  menu_displayed = FALSE;
 
-      boardlist = gc_menu_getlist(path);
+  boardlist = gc_menu_getlist(path);
 
-      if (actualSectionItem)
-	gtk_object_destroy (GTK_OBJECT(actualSectionItem));
+  if (actualSectionItem)
+    goo_canvas_item_remove(actualSectionItem);
 
-      current_x = 0.0;
-      current_y = 0.0;
-      current_top_x = 0.0;
-      current_top_y = 0.0;
+  current_x = 0.0;
+  current_y = 0.0;
+  current_top_x = 0.0;
+  current_top_y = 0.0;
 
-      actualSectionItem = goo_canvas_group_new (boardRootItem,
-						NULL);
+  actualSectionItem = goo_canvas_group_new (boardRootItem,
+					    NULL);
 
+  create_top (actualSectionItem, path);
 
-      create_top (actualSectionItem, path);
+  g_list_foreach (boardlist, (GFunc) display_board_icon, menuitems);
 
-      g_list_foreach (boardlist, (GFunc) display_board_icon, menuitems);
+  if (strcmp(path,"home")!=0)
+    g_list_free(boardlist);
 
-      if (strcmp(path,"home")!=0)
-	g_list_free(boardlist);
-
-      menu_displayed = TRUE;
+  menu_displayed = TRUE;
 }
 
 static void
 menu_end ()
 {
   if(boardRootItem!=NULL)
-    {
-      gtk_object_destroy (GTK_OBJECT(boardRootItem));
-    }
+    goo_canvas_item_remove(boardRootItem);
 
   boardRootItem     = NULL;
   actualSectionItem = NULL;
@@ -473,28 +468,28 @@ static void menu_create_item(GooCanvasItem *parent, MenuItems *menuitems, Gcompr
   if (ratio < 1.0)
     g_warning("Resize %s", board->icon_name);
 
-  pixmap_w = gdk_pixbuf_get_width(menu_pixmap)*ratio;
-  pixmap_h = gdk_pixbuf_get_height(menu_pixmap)*ratio;
+  pixmap_w = gdk_pixbuf_get_width(menu_pixmap) * ratio;
+  pixmap_h = gdk_pixbuf_get_height(menu_pixmap) * ratio;
 
   next_spot();
 
   menu_button = goo_canvas_image_new (parent,
-				       menu_pixmap,
-				       current_x - pixmap_w/2,
-				       current_y - pixmap_h/2,
-				       "width", (gdouble) pixmap_w,
-				       "height", (gdouble) pixmap_h,
-				       NULL);
+				      menu_pixmap,
+				      current_x - pixmap_w/2,
+				      current_y - pixmap_h/2,
+				      NULL);
+  goo_canvas_item_scale(menu_button, ratio, ratio);
 
   // display difficulty stars
-  if (board->difficulty != NULL) {
-    difficulty = atoi(board->difficulty);
-    gc_difficulty_display(parent,
-				      (double)current_x - pixmap_w/2 - 25,
-				      (double)current_y - pixmap_h/2,
-				      (double) 0.6,
-				      difficulty);
-  }
+  if (board->difficulty != NULL)
+    {
+      difficulty = atoi(board->difficulty);
+      gc_difficulty_display(parent,
+			    (double)current_x - pixmap_w/2 - 25,
+			    (double)current_y - pixmap_h/2,
+			    (double) 0.6,
+			    difficulty);
+    }
 
   // display board availability due to sound voice not present
   if(board->mandatory_sound_file)
@@ -520,13 +515,13 @@ static void menu_create_item(GooCanvasItem *parent, MenuItems *menuitems, Gcompr
 			    gdk_pixbuf_get_width(pixmap)/2,
 			    current_y - pixmap_h/2 + 28-
 			    gdk_pixbuf_get_height(pixmap)/2,
-			     NULL);
+			    NULL);
       gdk_pixbuf_unref(pixmap);
       g_free(soundfile);
     }
 
   // display menu icon ========================== BEGIN
-  if(g_strcasecmp(board->type, "menu")==0)
+  if(g_strcasecmp(board->type, "menu") == 0)
     {
       pixmap = gc_skin_pixmap_load("menuicon.png");
       goo_canvas_image_new (parent,
@@ -652,22 +647,21 @@ item_event(GooCanvasItem *item, GdkEvent *event,  MenuItems *menuitems)
 /** \brief create the area in which we display the board title and description
  *
  */
-static void create_info_area(GooCanvasItem *parent, MenuItems *menuitems)
+static void
+create_info_area(GooCanvasItem *parent, MenuItems *menuitems)
 {
   gint x = (double) info_x + info_w/2.0;
   gint y = info_y;
 
-  if(parent    == NULL)
-    return;
+  g_assert(parent);
 
   menuitems->boardname_item = \
     goo_canvas_text_new (parent,
 			 "",
 			 x,
 			 y,
-			 info_w,
-			  GTK_ANCHOR_NORTH,
-			 "alignment", PANGO_ALIGN_CENTER,
+			 -1,
+			 GTK_ANCHOR_CENTER,
 			 "font", gc_skin_font_board_big,
 			  "fill-color-rgba", gc_skin_get_color("menu/text"),
 			 NULL);
@@ -676,12 +670,11 @@ static void create_info_area(GooCanvasItem *parent, MenuItems *menuitems)
     goo_canvas_text_new (parent,
 			 "",
 			 x,
-			 y + 28,
+			 y + 34,
 			 info_w,
-			  GTK_ANCHOR_NORTH,
-			 "alignment", PANGO_ALIGN_CENTER,
+			 GTK_ANCHOR_CENTER,
 			 "font", gc_skin_font_board_medium,
-			  "fill-color-rgba", gc_skin_get_color("menu/text"),
+			 "fill-color-rgba", gc_skin_get_color("menu/text"),
 			 NULL);
 
   menuitems->author_item = \
@@ -689,23 +682,16 @@ static void create_info_area(GooCanvasItem *parent, MenuItems *menuitems)
 			 "",
 			 x,
 			 y + 90,
-			 info_w,
-			  GTK_ANCHOR_NORTH,
-			 "alignment", PANGO_ALIGN_CENTER,
+			 -1,
+			 GTK_ANCHOR_CENTER,
 			 "font", gc_skin_font_board_tiny,
 			  "fill-color-rgba", gc_skin_get_color("menu/text"),
 			 NULL);
 
 }
 
-static void
-free_stuff (GtkObject *obj, gpointer data)
-{
-  g_free (data);
-}
-
-
-static gdouble get_ratio(GdkPixbuf *pixmap, gdouble size)
+static gdouble
+get_ratio(GdkPixbuf *pixmap, gdouble size)
 {
 
   gdouble ratio = 1.0;
@@ -727,7 +713,8 @@ static gdouble get_ratio(GdkPixbuf *pixmap, gdouble size)
 
 }
 
-static void create_top(GooCanvasItem *parent, gchar *path)
+static void
+create_top(GooCanvasItem *parent, gchar *path)
 {
   gchar **splitted_section;
   gint i = 1;
@@ -763,28 +750,30 @@ static void create_top(GooCanvasItem *parent, gchar *path)
 	continue;
       }
 
-      if (current_top_x == 0.0){
-	current_top_x = top_x;
-	current_top_y = top_y;
-      } else {
-	pixmap = gc_skin_pixmap_load("button_forward.png");
-	ratio = get_ratio(pixmap, top_arrow_size);
+      if (current_top_x == 0.0)
+	{
+	  current_top_x = top_x;
+	  current_top_y = top_y;
+	}
+      else
+	{
+	  pixmap = gc_skin_pixmap_load("button_forward.png");
+	  ratio = get_ratio(pixmap, top_arrow_size);
 
-	goo_canvas_image_new (parent,
-			       pixmap,
-			       current_top_x -
-			      gdk_pixbuf_get_width(pixmap)/2,
-			       current_top_y + top_arrow_size / 2 -
-			      gdk_pixbuf_get_height(pixmap)/2,
-			      "width", (gdouble)  gdk_pixbuf_get_width(pixmap)*ratio,
-			      "height", (gdouble) gdk_pixbuf_get_height(pixmap)*ratio,
-			       NULL);
+	  item = \
+	    goo_canvas_image_new (parent,
+				  pixmap,
+				  0, 0,
+				  NULL);
 
-	gdk_pixbuf_unref(pixmap);
+	  goo_canvas_item_translate(item,
+				    current_top_x,
+				    current_top_y + top_arrow_size);
+	  goo_canvas_item_scale(item, ratio, ratio);
+	  gdk_pixbuf_unref(pixmap);
 
-	current_top_x += top_arrow_size + top_int_x;
-
-      }
+	  current_top_x += top_arrow_size + top_int_x;
+	}
 
       board = gc_menu_section_get(path1);
 
@@ -794,27 +783,25 @@ static void create_top(GooCanvasItem *parent, gchar *path)
 
       item = goo_canvas_image_new (parent,
 				   pixmap,
-				   current_top_x,
-				   current_top_y,
-				   "width", (gdouble)  gdk_pixbuf_get_width(pixmap)*ratio -
-				   gdk_pixbuf_get_width(pixmap)/2,
-				   "height", (gdouble) gdk_pixbuf_get_height(pixmap)*ratio-
-				   gdk_pixbuf_get_height(pixmap)/2,
-				    NULL);
-
+				   0, 0,
+				   NULL);
+      goo_canvas_item_translate(item,
+				current_top_x,
+				current_top_y);
+      goo_canvas_item_scale(item, ratio, ratio);
       gdk_pixbuf_unref(pixmap);
 
       current_top_x += top_int_x + icon_size_top;
 
       g_object_set_data (G_OBJECT (item), "board", board);
 
-      gtk_signal_connect(GTK_OBJECT(item), "event",
-			 (GtkSignalFunc) item_event,
-			 menuitems);
+      g_signal_connect(item, "button_press_event",
+		       (GtkSignalFunc) item_event,
+		       menuitems);
 
-      gtk_signal_connect(GTK_OBJECT(item), "event",
-			 (GtkSignalFunc) gc_item_focus_event,
-			 NULL);
+      g_signal_connect(item, "enter_notify_event",
+		       (GtkSignalFunc) gc_item_focus_event,
+		       NULL);
 
 
 
@@ -827,30 +814,26 @@ static void create_top(GooCanvasItem *parent, gchar *path)
 }
 
 static void
-display_welcome (void)
+display_welcome (MenuItems *menuitems)
 {
-  GooCanvasItem *logo;
   GdkPixbuf *pixmap;
 
   if (actualSectionItem)
-    {
-      g_error("actualSectionItem exists in display_section !");
-    }
+    g_error("actualSectionItem exists in display_section !");
 
 
-  actualSectionItem = goo_canvas_group_new (boardRootItem,
+  actualSectionItem = goo_canvas_group_new(boardRootItem,
 					   NULL);
 
   pixmap = gc_skin_pixmap_load("gcompris-about.png");
 
-
-  logo = goo_canvas_image_new (actualSectionItem,
-			       pixmap,
-			       display_x + display_w/2.0 -
-			       gdk_pixbuf_get_width(pixmap)/2,
-			       display_y + display_h/2.0 -
-			       gdk_pixbuf_get_height(pixmap)/2,
-			       NULL);
+  goo_canvas_image_new (actualSectionItem,
+			pixmap,
+			display_x + display_w/2.0 -
+			gdk_pixbuf_get_width(pixmap)/2,
+			display_y + display_h/2.0 -
+			gdk_pixbuf_get_height(pixmap)/2,
+			NULL);
 
   gdk_pixbuf_unref(pixmap);
 
@@ -874,7 +857,7 @@ display_welcome (void)
 
 static void
 menu_config_start(GcomprisBoard *agcomprisBoard,
-	     GcomprisProfile *aProfile){
+		  GcomprisProfile *aProfile){
   if(gcomprisBoard!=NULL)
     {
       menu_pause(TRUE);
