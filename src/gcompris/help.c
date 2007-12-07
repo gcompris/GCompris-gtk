@@ -130,15 +130,6 @@ void gc_help_start (GcomprisBoard *gcomprisBoard)
     text_to_display = g_strdup_printf("%s/%s", gcomprisBoard->section, gcomprisBoard->name);
      goo_canvas_text_new (rootitem,
 			  text_to_display,
-			  BOARDWIDTH*0.10 + 1.0,
-			  y_start + 1.0,
-			  -1,
-			  GTK_ANCHOR_NW,
-			  "font", gc_skin_font_board_tiny,
-			  "fill-color-rgba", gc_skin_color_shadow,
-			  NULL);
-     goo_canvas_text_new (rootitem,
-			  text_to_display,
 			  BOARDWIDTH*0.10,
 			  y_start,
 			  -1,
@@ -150,15 +141,6 @@ void gc_help_start (GcomprisBoard *gcomprisBoard)
   }
 
   y_start += 35;
-  goo_canvas_text_new (rootitem,
-		       name,
-		       BOARDWIDTH/2 + 1.0,
-		       y_start + 1.0,
-		       -1,
-		       GTK_ANCHOR_CENTER,
-		       "font", gc_skin_font_title,
-		       "fill-color-rgba", gc_skin_color_shadow,
-		       NULL);
   goo_canvas_text_new (rootitem,
 		       name,
 		       BOARDWIDTH/2,
@@ -367,15 +349,6 @@ void gc_help_start (GcomprisBoard *gcomprisBoard)
 		     (GtkSignalFunc) gc_item_focus_event,
 		     NULL);
 
-  goo_canvas_text_new (rootitem,
-		       _("OK"),
-		       BOARDWIDTH*0.5 + 1.0,
-		       y - gdk_pixbuf_get_height(pixmap) + 20 + 1.0,
-		       -1,
-		       GTK_ANCHOR_CENTER,
-		       "font", gc_skin_font_title,
-		       "fill-color-rgba", gc_skin_color_shadow,
-		       NULL);
   item2 = goo_canvas_text_new (rootitem,
 			       _("OK"),
 			       BOARDWIDTH*0.5,

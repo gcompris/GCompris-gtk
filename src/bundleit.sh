@@ -23,7 +23,12 @@ else
   draw=""
 fi
 
-if test -f $1/init_path.sh; then 
+if test "$1" = "administration-activity" ; then
+  echo "Skipping administration-activity"
+  exit 0
+fi
+
+if test -f $1/init_path.sh; then
   . $1/init_path.sh
 else
   echo "ERROR: Cannot find $1/init_path.sh"
@@ -40,11 +45,16 @@ fi
 
 cp -a $1 $activity_dir
 mkdir -p $activity_dir/activity
+mkdir -p $activity_dir/bin
 cp activity-gcompris.svg $activity_dir/activity
 cp activity.info $activity_dir/activity
 sed -i s/@ACTIVITY_NAME@/$activity/g $activity_dir/activity/activity.info
-cp gcompris-instance $activity_dir/
-cp gcompris-factory $activity_dir/
+cp old-gcompris-instance $activity_dir/
+cp old-gcompris-factory $activity_dir/
+cp old-gcompris-activity $activity_dir/
+sed -i s/@ACTIVITY_NAME@/$activity/g $activity_dir/old-gcompris-activity
+cp $activity_dir/old-gcompris-activity $activity_dir/gcompris-activity
+cp gcompris-activity $activity_dir/bin/
 cp gcompris/gcompris $activity_dir/gcompris.bin
 if [ -f $activity_dir/.libs/*.so ]; then
   mv $activity_dir/.libs/*.so $activity_dir
@@ -86,7 +96,7 @@ cp $plugindir/*.so $activity_dir
 rm -f $activity_dir/menu.so
 
 # Add the python plugins
-if [ -f $pythonplugindir/*.py ]; then 
+if [ -f $pythonplugindir/*.py ]; then
   cp $pythonplugindir/*.py $activity_dir
 fi
 

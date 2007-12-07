@@ -1,8 +1,8 @@
 [Activity]
 name = @ACTIVITY_NAME@
-activity_version = 1
+activity_version = 2
 host_version = 1
 service_name = net.gcompris.@ACTIVITY_NAME@Activity
 icon = activity-gcompris
-exec = gcompris-factory net.gcompris.@ACTIVITY_NAME@Activity gcompris-instance
+exec = gcompris-activity
 show_launcher = yes
