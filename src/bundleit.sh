@@ -23,8 +23,9 @@ else
   draw=""
 fi
 
-if test "$1" = "administration-activity" ; then
-  echo "Skipping administration-activity"
+if test "$1" = "administration-activity" || \
+   test "$1" = "gcompris-activity" ; then
+  echo "Skipping $1"
   exit 0
 fi
 
@@ -87,7 +88,7 @@ fi
 # Add the resources if they are in another activity
 if [ ! -d $activity_dir/resources ]; then
   echo "This activity has it's resources in $resourcedir/"
-  ln -s $resourcedir -t $activity_dir
+  ln -s ../$resourcedir -t $activity_dir
 fi
 
 # Add the plugins in the proper place
@@ -122,5 +123,5 @@ rm -f $activity_dir.xo
 tar -tjf $activity_dir.tar.bz2 | zip $activity_dir.xo -@
 
 # Sugar cleanup
-rm -rf $activity_dir
+#rm -rf $activity_dir
 rm $activity_dir.tar.bz2
