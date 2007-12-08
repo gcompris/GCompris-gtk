@@ -123,5 +123,5 @@ rm -f $activity_dir.xo
 tar -tjf $activity_dir.tar.bz2 | zip $activity_dir.xo -@
 
 # Sugar cleanup
-#rm -rf $activity_dir
+rm -rf $activity_dir
 rm $activity_dir.tar.bz2
