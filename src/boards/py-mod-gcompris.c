@@ -44,7 +44,7 @@ typedef int Py_ssize_t;
 #include "py-mod-anim.h"
 #include "py-mod-admin.h"
 
-void initgnomecanvas (void);
+//void initgnomecanvas (void);
 
 void pair_in_dict(gpointer key,
 		  gpointer value,
@@ -1614,7 +1614,7 @@ void python_gcompris_module_init(void)
 
 
   /* Initialize the sub modules */
-  initgnomecanvas();
+  //initgnomecanvas();
   python_gcompris_bonus_module_init();
   python_gc_score_module_init();
   python_gc_skin_module_init();

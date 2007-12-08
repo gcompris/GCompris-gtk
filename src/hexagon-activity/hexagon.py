@@ -18,7 +18,7 @@
 #   along with this program; if not, write to the Free Software
 #   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 #
-import gnomecanvas
+import goocanvas
 import gcompris
 import gcompris.utils
 import gcompris.bonus
@@ -30,7 +30,7 @@ import random
 import math
 
 class Gcompris_hexagon:
-  """The minouche activity"""
+  """The hexagon activity"""
 
   def __init__(self, gcomprisBoard):
     self.gcomprisBoard = gcomprisBoard
@@ -44,13 +44,10 @@ class Gcompris_hexagon:
 
   def start(self):
     gcompris.bar_set (0)
-    gcompris.set_background(self.gcomprisBoard.canvas.root(),
+    gcompris.set_background(self.gcomprisBoard.canvas.get_root_item(),
                             gcompris.skin.image_to_skin("gcompris-bg.jpg"))
-    self.rootitem = self.gcomprisBoard.canvas.root().add(
-     gnomecanvas.CanvasGroup,
-     x=0.0,
-     y=0.0
-     )
+    self.rootitem = goocanvas.Group()
+    self.gcomprisBoard.canvas.get_root_item().add_child(self.rootitem)
     self.paint_skin()
     self.random_catx = random.randrange(21)
     self.random_caty = random.randrange(15)
@@ -60,7 +57,7 @@ class Gcompris_hexagon:
     self.cleanup()
 
   def ok(self):
-    print("Gcompris_minouche ok.")
+    print("Gcompris_hexagonagon ok.")
 
   def key_press(self, keyval, commit_str, preedit_str):
     #print("got key %i" % keyval)
@@ -90,7 +87,7 @@ class Gcompris_hexagon:
     self.gamewon       = False;
     # Remove the root item removes all the others inside it
     if self.rootitem != None:
-     self.rootitem.destroy()
+     self.rootitem.remove()
      self.rootitem = None
 
   def paint_hex(self, x, y, color=0x0099FFCCL):
@@ -99,14 +96,16 @@ class Gcompris_hexagon:
 
     if y&1 :
      ax+=self.sqrt3/2*self.r
-    self.pts = []
+    pts = []
     for i in range (len(self.cx)):
-     self.pts.append (ax+self.cx [i])
-     self.pts.append (ay+self.cy [i])
+     pts.append ((ax+self.cx [i], ay+self.cy [i]))
 
-    s = self.rootitem.add(gnomecanvas.CanvasPolygon, points = self.pts,
-         fill_color_rgba = color, outline_color = "black", width_units =
-         2.5)
+    s = goocanvas.Polyline (parent =  self.rootitem,
+                            points = goocanvas.Points(pts),
+                            close_path = True,
+                            stroke_color = "black",
+                            fill_color_rgba = color,
+                            line_width = 2.5)
     return s
 
   def paint_skin(self):
@@ -121,7 +120,7 @@ class Gcompris_hexagon:
      for y in range (16):
       s = self.paint_hex(x, y)
 
-      s.connect ("event", self.on_click, x-int(y/2), y)
+      s.connect ("button_press_event", self.on_click, x-int(y/2), y)
 
   def coloring(self,dist):
     r=b=g=0
@@ -145,7 +144,7 @@ class Gcompris_hexagon:
   def finished(self):
     gcompris.bonus.board_finished(gcompris.bonus.FINISHED_RANDOM)
 
-  def on_click (self, widget, event=None, x=0, y=0):
+  def on_click (self, widget, target, event=None, x=0, y=0):
     if event.type == gtk.gdk.BUTTON_PRESS and event.button == 1 :
 
       catdistance = self.distance_cat(x,y)
@@ -155,28 +154,28 @@ class Gcompris_hexagon:
         gcompris.sound.play_ogg("sounds/smudge.wav")
 
         self.paint_cat()
-        self.gamewon       = True;
+        self.gamewon = True;
         gcompris.bonus.display(gcompris.bonus.WIN, gcompris.bonus.GNU)
       else:
         gcompris.sound.play_ogg("sounds/bleep.wav")
 
         color = self.coloring (catdistance/30.0)
-        widget.set(fill_color_rgba=color);
+        widget.props.fill_color_rgba = color;
 
 
   def paint_cat(self):
-    position =19+self.sqrt3*self.r*self.random_catx
-    if self.random_caty%2:
-     position +=self.sqrt3/2*self.r
+    position = 19 + self.sqrt3 * self.r * self.random_catx
+    if self.random_caty % 2:
+     position += self.sqrt3/2 * self.r
     pixbuf2 = gcompris.utils.load_pixmap \
-    ("gcompris/misc/strawberry.png")
+    ("hexagon/strawberry.svg")
     h2 = 30
-    w2 = pixbuf2.get_width()*h2/pixbuf2.get_height()
-    self.rootitem.add(gnomecanvas.CanvasPixbuf,
-                      pixbuf=pixbuf2.scale_simple(w2, h2,
+    w2 = pixbuf2.get_width() * h2/pixbuf2.get_height()
+    img = goocanvas.Image (parent = self.rootitem,
+                           pixbuf = pixbuf2.scale_simple(w2, h2,
                                                   gtk.gdk.INTERP_BILINEAR),
-                      x=position,
-                      y=14+1.5*self.random_caty*self.r)
+                           x = position - 5,
+                           y = 14+1.5*self.random_caty*self.r)
 
   def distance_cat (self,x,y):
     dx = self.random_catx-x-int(self.random_caty/2)

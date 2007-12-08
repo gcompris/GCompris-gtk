@@ -24,6 +24,9 @@ else
 fi
 
 if test "$1" = "administration-activity" || \
+   test "$1" = "tuxpaint-activity" || \
+   test "$1" = "pythontemplate-activity" || \
+   test "$1" = "pythontest-activity" || \
    test "$1" = "gcompris-activity" ; then
   echo "Skipping $1"
   exit 0

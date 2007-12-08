@@ -18,8 +18,9 @@
  */
 
 #include <Python.h>
-#define NO_IMPORT_PYGOBJECT 1
+//#define NO_IMPORT_PYGOBJECT 1
 #include <pygobject.h>
+#include <pygtk/pygtk.h>
 #include "gcompris/gcompris.h"
 #include "py-gcompris-board.h"
 #include "py-mod-gcompris.h"
