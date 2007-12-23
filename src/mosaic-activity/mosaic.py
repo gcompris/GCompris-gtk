@@ -17,7 +17,7 @@
 #   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 #
 
-import gnomecanvas
+import goocanvas
 import gcompris
 import gcompris.utils
 import gcompris.skin
@@ -94,7 +94,7 @@ class Gcompris_mosaic:
 
     gcompris.bar_set_level(self.gcomprisBoard)
 
-    gcompris.set_background(self.gcomprisBoard.canvas.root(),
+    gcompris.set_background(self.gcomprisBoard.canvas.get_root_item(),
                             "mosaic/mosaic_bg.png")
 
     self.display_game()
@@ -173,7 +173,7 @@ class Gcompris_mosaic:
 
       self.current_index = None
       # Remove the root item removes all the others inside it
-      self.rootitem.destroy()
+      self.rootitem.remove()
 
   # Display the board game
   def display_game(self):
@@ -185,31 +185,27 @@ class Gcompris_mosaic:
 
       # Create our rootitem. We put each canvas item in it so at the end we
       # only have to kill it. The canvas deletes all the items it contains automaticaly.
-      self.rootitem = self.gcomprisBoard.canvas.root().add(
-          gnomecanvas.CanvasGroup,
-          x=0.0,
-          y=0.0
-          )
+      self.rootitem = goocanvas.Group(parent =  self.gcomprisBoard.canvas.get_root_item())
 
       text = _("Rebuild the same mosaic on the right area")
-      self.rootitem.add(
-          gnomecanvas.CanvasText,
-          x=gcompris.BOARD_WIDTH/2 + 1.0,
-          y=gcompris.BOARD_HEIGHT - 30 + 1.0,
-          font=gcompris.skin.get_font("gcompris/title"),
-          text=(text),
-          fill_color="black",
-          justification=gtk.JUSTIFY_CENTER
-          )
-      self.rootitem.add(
-          gnomecanvas.CanvasText,
-          x=gcompris.BOARD_WIDTH/2,
-          y=gcompris.BOARD_HEIGHT - 30,
-          font=gcompris.skin.get_font("gcompris/title"),
-          text=(text),
-          fill_color="white",
-          justification=gtk.JUSTIFY_CENTER
-          )
+      goocanvas.Text(
+        parent = self.rootitem,
+        x=gcompris.BOARD_WIDTH/2 + 1.0,
+        y=gcompris.BOARD_HEIGHT - 30 + 1.0,
+        font=gcompris.skin.get_font("gcompris/title"),
+        text=(text),
+        fill_color="black",
+        anchor=gtk.ANCHOR_CENTER
+        )
+      goocanvas.Text(
+        parent = self.rootitem,
+        x=gcompris.BOARD_WIDTH/2,
+        y=gcompris.BOARD_HEIGHT - 30,
+        font=gcompris.skin.get_font("gcompris/title"),
+        text=(text),
+        fill_color="white",
+        anchor=gtk.ANCHOR_CENTER
+        )
 
 
 
@@ -251,13 +247,13 @@ class Gcompris_mosaic:
       self.display_palette(self.palette_x, self.palette_y, palette)
 
       # Create the check button to show the selected color
-      self.checked_color_item = self.rootitem.add(
-        gnomecanvas.CanvasPixbuf,
+      self.checked_color_item = goocanvas.Image(
+        parent = self.rootitem,
         pixbuf = gcompris.utils.load_pixmap(gcompris.skin.image_to_skin("button_checked.png")),
         x = 0,
         y = 0)
 
-      self.checked_color_item.hide()
+      self.checked_color_item.props.visibility = goocanvas.ITEM_INVISIBLE
 
   #
   # Display the mosaic itself (colored or not)
@@ -284,14 +280,14 @@ class Gcompris_mosaic:
                                            self.palette_grey_item_y * self.palette_item_height,
                                            self.palette_item_width, self.palette_item_height)
 
-              item = self.rootitem.add(
-                gnomecanvas.CanvasPixbuf,
-                pixbuf = image,
-                x = orig_x + x * (self.palette_item_width  + gap_x),
-                y = orig_y + y * (self.palette_item_height + gap_y))
+                item =goocanvas.Image(
+                  parent = self.rootitem,
+                  pixbuf = image,
+                  x = orig_x + x * (self.palette_item_width  + gap_x),
+                  y = orig_y + y * (self.palette_item_height + gap_y))
 
               if not colored:
-                item.connect("event", self.set_focus_item_event, (i,
+                item.connect("button_press_event", self.set_focus_item_event, (i,
                                                                   item, palette))
                 self.user_list.append((-1, -1))
               else:
@@ -326,19 +322,20 @@ class Gcompris_mosaic:
 
             coord_x = orig_x + x * (self.palette_item_width  + gap_x)
             coord_y = orig_y + y * (self.palette_item_height + gap_y)
-            item = self.rootitem.add(
-              gnomecanvas.CanvasPixbuf,
+            item = goocanvas.Image(
+              parent = self.rootitem,
               pixbuf = image,
               x = coord_x,
               y = coord_y)
 
-            item.connect("event", gcompris.utils.item_event_focus)
-            item.connect("event", self.set_color_item_event, (item, palette_x, palette_y,
-                                                              coord_x, coord_y))
+            item.connect("button_press_event", gcompris.utils.item_event_focus)
+            item.connect("button_press_event",
+                         self.set_color_item_event, (item, palette_x, palette_y,
+                                                     coord_x, coord_y))
 
 
   # Event when a target square is selected
-  def set_focus_item_event(self, item, event, data):
+  def set_focus_item_event(self, item, target, event, data):
     (index, box_item, palette)  = data
 
     if event.type == gtk.gdk.BUTTON_PRESS:
@@ -350,7 +347,7 @@ class Gcompris_mosaic:
                                   self.current_index_y * self.palette_item_height,
                                   self.palette_item_width, self.palette_item_height)
 
-        box_item.set(pixbuf = image)
+        box_item.props.pixbuf = image
 
         self.user_list[index] = (self.current_index_x,
                                  self.current_index_y)
@@ -362,7 +359,7 @@ class Gcompris_mosaic:
 
 
   # Event when a color square is selected
-  def set_color_item_event(self, item, event, data):
+  def set_color_item_event(self, item, target, event, data):
 
     if event.type == gtk.gdk.BUTTON_PRESS:
       gcompris.sound.play_ogg("sounds/paint1.wav");
@@ -373,6 +370,7 @@ class Gcompris_mosaic:
 
       index = color_index_y * self.palette_number_of_item_x + color_index_x
 
-      self.checked_color_item.set( x = coord_x,
-                                   y = coord_y + self.palette_item_height/3)
-      self.checked_color_item.show()
+      self.checked_color_item.set_transform(None)
+      self.checked_color_item.translate(coord_x,
+                                        coord_y + self.palette_item_height/3)
+      self.checked_color_item.props.visibility = goocanvas.ITEM_VISIBLE

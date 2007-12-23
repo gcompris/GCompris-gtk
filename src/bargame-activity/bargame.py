@@ -1,7 +1,5 @@
 #  gcompris - BarGame
 #
-#
-#
 # Copyright (C) 2004  Yves Combe
 #
 #   This program is free software; you can redistribute it and/or modify
@@ -18,7 +16,7 @@
 #   along with this program; if not, write to the Free Software
 #   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 #
-import gnomecanvas
+import goocanvas
 import gcompris
 import gcompris.utils
 import gcompris.bonus
@@ -87,10 +85,8 @@ class Gcompris_bargame:
     gcompris.bar_set_level(self.gcomprisBoard)
 
     # Create persistent over levels root item canvas for the board
-    self.rootitem_p = self.gcomprisBoard.canvas.root().add(
-      gnomecanvas.CanvasGroup,
-      x=0,
-      y=0
+    self.rootitem_p = goocanvas.Group(
+      parent = self.gcomprisBoard.canvas.get_root_item()
       )
 
     self.profbutton = self.prof_button(self,
@@ -115,7 +111,7 @@ class Gcompris_bargame:
     self.answer = []
 
     if self.rootitem_p:
-      self.rootitem_p.destroy()
+      self.rootitem_p.remove()
 
 
   def set_level(self,level):
@@ -192,7 +188,7 @@ class Gcompris_bargame:
   # Remove uneeded objects
   def cleanup(self):
     if self.rootitem:
-      self.rootitem.destroy()
+      self.rootitem.remove()
 
     # Holes reinit
     for h in self.holes:
@@ -227,14 +223,10 @@ class Gcompris_bargame:
 
 
     # Create root item canvas for the board
-    self.rootitem = self.gcomprisBoard.canvas.root().add(
-      gnomecanvas.CanvasGroup,
-      x=0,
-      y=0
-      )
+    self.rootitem = goocanvas.Group(parent = self.gcomprisBoard.canvas.get_root_item())
 
     # background
-    gcompris.set_background(self.gcomprisBoard.canvas.root(),
+    gcompris.set_background(self.gcomprisBoard.canvas.get_root_item(),
                             backgrounds[self.gcomprisBoard.level - 1])
 
     self.profbutton.set_prof(profs[self.gcomprisBoard.level - 1])
@@ -313,10 +305,7 @@ class Gcompris_bargame:
                  scale):
       self.board = board
 
-      self.itemgroup = root.add(
-        gnomecanvas.CanvasGroup,
-        x=x,
-        y=y)
+      self.itemgroup = goocanvas.Group(parent = root)
 
       self.scale = scale
 
@@ -328,91 +317,73 @@ class Gcompris_bargame:
         pixbuf_mask = self.board.pixmap_mask
 
 
-      item = self.itemgroup.add(
-        gnomecanvas.CanvasPixbuf,
+      item = goocanvas.Image(
+        parent = self.itemgroup,
         pixbuf = pixbuf_case,
         x=0,
         y=0)
       bounds = item.get_bounds()
-      item.set(width  = (bounds[2]-bounds[0])*scale,
-               height = (bounds[3]-bounds[1])*scale,
-               width_set  = True,
-               height_set = True)
+      item.scale(scale, scale)
 
-      self.ombre = self.itemgroup.add(
-        gnomecanvas.CanvasPixbuf,
+      self.ombre = goocanvas.Image(
+        parent = self.itemgroup,
         pixbuf = self.board.pixmap_ombre,
         x=0,
         y=0)
-      self.ombre.hide()
+      self.ombre.props.visibility = goocanvas.ITEM_INVISIBLE
       bounds = self.ombre.get_bounds()
-      self.ombre.set(width  = (bounds[2]-bounds[0])*scale,
-                     height = (bounds[3]-bounds[1])*scale,
-                     width_set  = True,
-                     height_set = True)
+      self.ombre.scale(scale, scale)
 
-      self.ball = self.itemgroup.add(
-        gnomecanvas.CanvasPixbuf,
+      self.ball = goocanvas.Image(
+        parent = self.itemgroup,
         x=0,
         y=0)
-      self.ball.hide()
+      self.ball.props.visibility = goocanvas.ITEM_INVISIBLE
 
-      item = self.itemgroup.add(
-        gnomecanvas.CanvasPixbuf,
+      item = goocanvas.Image(
+        parent = self.itemgroup,
         pixbuf = pixbuf_mask,
         x=0,
         y=0)
       bounds = item.get_bounds()
-      item.set(width  = (bounds[2]-bounds[0])*scale,
-               height = (bounds[3]-bounds[1])*scale,
-               width_set  = True,
-               height_set = True)
+      item.scale(scale, scale)
 
       if ((index+1)%5 == 0):
-        self.itemgroup.add(
-          gnomecanvas.CanvasText,
-          x=(bounds[2]-bounds[0])/2,
-          y=-10,
-          fill_color_rgba=0x000000ffL,
+        goocanvas.Text(
+          parent = self.itemgroup,
+          x = (bounds.x2-bounds.x1)/2,
+          y = -10,
+          fill_color_rgba = 0x000000ffL,
           font=gcompris.skin.get_font("gcompris/board/small bold"),
-          anchor=gtk.ANCHOR_CENTER,
+          anchor = gtk.ANCHOR_CENTER,
           text = index + 1)
 
 
     def isBlue(self):
-      self.ball.set(pixbuf = self.board.pixmap_blue_ball)
+      self.ball.props.pixbuf = self.board.pixmap_blue_ball
       bounds = self.ball.get_bounds()
-      self.ball.set(width  = (bounds[2]-bounds[0])*self.scale,
-                    height = (bounds[3]-bounds[1])*self.scale,
-                    width_set  = True,
-                    height_set = True)
-      self.ball.show()
-      self.ombre.show()
+      self.ball.scale(self.scale, self.scale)
+      self.ball.props.visibility = goocanvas.ITEM_VISIBLE
+      self.ombre.props.visibility = goocanvas.ITEM_VISIBLE
 
     def isGreen(self):
-      self.ball.set(pixbuf = self.board.pixmap_green_ball)
+      self.ball.props.pixbuf = self.board.pixmap_green_ball
       bounds = self.ball.get_bounds()
-      self.ball.set(width  = (bounds[2]-bounds[0])*self.scale,
-                    height = (bounds[3]-bounds[1])*self.scale,
-                    width_set  = True,
-                    height_set = True)
-      self.ball.show()
-      self.ombre.show()
+      self.ball.scale(self.scale, self.scale)
+      self.ball.props.visibility = goocanvas.ITEM_VISIBLE
+      self.ombre.props.visibility = goocanvas.ITEM_VISIBLE
 
 
   class ball:
     def __init__(self, root, x, y, scale, image):
 
-      self.ball = root.add(
-        gnomecanvas.CanvasPixbuf,
+      self.ball = goocanvas.Image(
+        parent = root,
         pixbuf = image,
         x=x,
         y=y)
       bounds = self.ball.get_bounds()
-      self.ball.set(width  = (bounds[2]-bounds[0])*scale,
-                    height = (bounds[3]-bounds[1])*scale,
-                    width_set  = True,
-                    height_set = True)
+      self.ball.scale(scale, scale)
 
   class answer_button:
     def __init__(self, root, scale, image, number_balls):
@@ -420,46 +391,42 @@ class Gcompris_bargame:
 
       self.number_balls = number_balls
 
-      self.itemgroup = root.add(
-        gnomecanvas.CanvasGroup,
-        x = gcompris.BOARD_WIDTH - 200,
-        )
+      self.itemgroup = goocanvas.Group(parent = root)
+      self.itemgroup.translate(gcompris.BOARD_WIDTH - 200, 0)
 
-      self.background = self.itemgroup.add(
-        gnomecanvas.CanvasPixbuf,
+      self.background =goocanvas.Image(
+        parent = self.itemgroup,
         pixbuf = gcompris.utils.load_pixmap("bargame/enumerate_answer.png"),
         x=0,
         y=0
         )
       answer_bounds = self.background.get_bounds()
 
-      self.itemgroup.set( y = gcompris.BOARD_HEIGHT - answer_bounds[3]-answer_bounds[1] - 5)
+      self.background.translate( 0,
+                                 gcompris.BOARD_HEIGHT - answer_bounds.y2-answer_bounds.y1 - 5)
 
-      self.background_focused = self.itemgroup.add(
-        gnomecanvas.CanvasPixbuf,
+      self.background_focused = goocanvas.Image(
+        parent = self.itemgroup,
         pixbuf = gcompris.utils.load_pixmap("bargame/enumerate_answer_focus.png"),
-        x=0,
-        y=0
+        x = 0,
+        y = 0
         )
-      self.background_focused.hide()
+      self.background_focused.props.visibility = goocanvas.ITEM_INVISIBLE
 
-      self.icone = self.itemgroup.add(
-        gnomecanvas.CanvasPixbuf,
+      self.icone = goocanvas.Image(
+        parent = self.itemgroup,
         pixbuf = image,
         x=10,
         y=20
         )
       bounds = self.icone.get_bounds()
-      self.icone.set(width  = (bounds[2]-bounds[0])*scale,
-                     height = (bounds[3]-bounds[1])*scale,
-                     width_set  = True,
-                     height_set = True)
+      self.icone.scale(scale, scale)
 
       self.value = number_balls[0]
 
-      self.text = self.itemgroup.add(
-        gnomecanvas.CanvasText,
-        x = answer_bounds[2]-answer_bounds[0] - 50,
+      self.text = goocanvas.Text(
+        parent = self.itemgroup,
+        x = answer_bounds.x2-answer_bounds.x1 - 50,
         y = 40,
         fill_color_rgba=0xff0000ffL,
         font=gcompris.skin.get_font("gcompris/board/huge bold"),
@@ -467,10 +434,10 @@ class Gcompris_bargame:
         text = self.value
         )
 
-      self.background.connect("event",self.answer_event)
-      self.background_focused.connect("event",self.answer_event)
-      self.icone.connect("event",self.answer_event)
-      self.text.connect("event",self.answer_event)
+      self.background.connect("button_press_event",self.answer_event)
+      self.background_focused.connect("button_press_event",self.answer_event)
+      self.icone.connect("button_press_event",self.answer_event)
+      self.text.connect("button_press_event",self.answer_event)
 
 
     def new_value(self, value):
@@ -478,14 +445,14 @@ class Gcompris_bargame:
       self.text.set_property('text',value)
 
     def has_focus(self):
-      self.background_focused.show()
+      self.background_focused.props.visibility = goocanvas.ITEM_VISIBLE
       self.focus = True
 
     def set_number_of_balls(self, number_balls):
       self.number_balls = number_balls
       self.new_value(1)
 
-    def answer_event(self, item, event):
+    def answer_event(self, item, target, event):
       if ((event.type != gtk.gdk.BUTTON_PRESS) or
           (event.button != 1)):
         return False
@@ -508,21 +475,22 @@ class Gcompris_bargame:
     def __init__(self, board, root, prof_image):
       self.board = board
 
-      self.prof_item = root.add(
-        gnomecanvas.CanvasPixbuf,
+      self.prof_item =goocanvas.Image(
+        parent = root,
         y = 230
         )
       bounds = self.prof_item.get_bounds()
-      self.prof_item.set(x  = ((gcompris.BOARD_WIDTH - bounds[2]-bounds[0])/2 - 90))
+      self.prof_item.props.x = \
+          (gcompris.BOARD_WIDTH - bounds.x2-bounds.x1)/2 - 90
 
-      self.prof_item.connect("event",self.event_play)
+      self.prof_item.connect("button_press_event",self.event_play)
       # This item is clickeable and it must be seen
-      self.prof_item.connect("event", gcompris.utils.item_event_focus)
+      self.prof_item.connect("button_press_event", gcompris.utils.item_event_focus)
 
     def set_prof(self, prof_image):
-      self.prof_item.set(pixbuf = gcompris.utils.load_pixmap(prof_image))
+      self.prof_item.props.pixbuf = gcompris.utils.load_pixmap(prof_image)
 
-    def event_play(self, item, event):
+    def event_play(self, item, target, event):
       if ((event.type != gtk.gdk.BUTTON_PRESS) or
           (event.button != 1)):
         return False

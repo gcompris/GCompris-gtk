@@ -17,7 +17,7 @@
 #   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 #
 # Administration Board module
-import gnomecanvas
+import goocanvas
 import gcompris
 import gcompris.utils
 import gcompris.skin
@@ -40,11 +40,7 @@ class Gcompris_administration:
 
     # Create our rootitem. We put each canvas item in it so at the end we
     # only have to kill it. The canvas deletes all the items it contains automaticaly.
-    self.rootitem = self.gcomprisBoard.canvas.root().add(
-      gnomecanvas.CanvasGroup,
-      x=0.0,
-      y=0.0
-      )
+    self.rootitem = goocanvas.Group(parent =  self.gcomprisBoard.canvas.get_root_item())
 
     gap = 10
     panel_x = 120
@@ -97,31 +93,32 @@ class Gcompris_administration:
     self.gcomprisBoard.sublevel=1
     self.gcomprisBoard.number_of_sublevel=1
     gcompris.bar_set(0)
-    gcompris.set_background(self.gcomprisBoard.canvas.root(),
+    gcompris.set_background(self.gcomprisBoard.canvas.get_root_item(),
                             gcompris.skin.image_to_skin("gcompris-bg.jpg"))
     gcompris.bar_set_level(self.gcomprisBoard)
 
-    self.rootitem.add(
-      gnomecanvas.CanvasRect,
+    goocanvas.Rect(
+      parent = self.rootitem,
       x1=self.select_area[0],
       y1=self.select_area[1],
       x2=self.select_area[2],
       y2=self.select_area[3],
       fill_color="white",
-      outline_color_rgba=0x111199FFL,
-      width_units=1.0
+      stroke_color_rgba=0x111199FFL,
+      line_width=1.0
       )
 
     # A White background in the panel area
-    self.rootitem.add(
-      gnomecanvas.CanvasRect,
+
+    goocanvas.Rect(
+      parent = self.rootitem,
       x1=self.panel_area[0],
       y1=self.panel_area[1],
       x2=self.panel_area[2],
       y2=self.panel_area[3],
       fill_color="white",
-      outline_color_rgba=0x111199FFL,
-      width_units=1.0
+      stroke_color_rgba=0x111199FFL,
+      line_width=1.0
       )
 
     # Get the menu position for each module

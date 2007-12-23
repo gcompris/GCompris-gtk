@@ -4,7 +4,7 @@ import gtk.gdk
 import gcompris
 import gcompris.utils
 import gcompris.skin
-import gnomecanvas
+import goocanvas
 
 class Gcompris_pythontemplate:
   """Empty gcompris python class"""
@@ -27,7 +27,7 @@ class Gcompris_pythontemplate:
     gcompris.bar_set(gcompris.BAR_OK|gcompris.BAR_LEVEL)
 
     # Set a background image
-    gcompris.set_background(self.gcomprisBoard.canvas.root(),
+    gcompris.set_background(self.gcomprisBoard.canvas.get_root_item(),
                             gcompris.skin.image_to_skin("gcompris-bg.jpg"))
 
 

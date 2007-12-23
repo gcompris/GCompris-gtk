@@ -19,7 +19,7 @@
 #   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 #
 
-import gnomecanvas
+import goocanvas
 import gcompris
 import gcompris.utils
 import gcompris.bonus
@@ -53,7 +53,7 @@ class Gcompris_drawnumber :
 
   def end(self):
     gcompris.score.end()
-    self.ROOT.destroy()
+    self.ROOT.remove()
     if self.timeout:
       gobject.source_remove(self.timeout)
     self.timeout = 0
@@ -95,14 +95,13 @@ class Gcompris_drawnumber :
       self.end()
 
     # Setting of the first background image of the sublevel
-    gcompris.set_background(self.gcomprisBoard.canvas.root(),
+    gcompris.set_background(self.gcomprisBoard.canvas.get_root_item(),
                             self.data[sublevel][0][1])
 
     # Creation of canvas group use by the activity
-    self.ROOT = self.gcomprisBoard.canvas.root().add(
-      gnomecanvas.CanvasGroup,
-      x=0.0,
-      y=0.0
+    self.ROOT = \
+      goocanvas.Group(
+        parent = self.gcomprisBoard.canvas.get_root_item(),
       )
 
     #Initialisation of sub-elements in list
@@ -122,7 +121,7 @@ class Gcompris_drawnumber :
     self.POINT[0]=self.point(0,
                              self.data[sublevel][1][0],
                              self.data[sublevel][1][1],30)
-    self.POINT[0].hide()
+    self.POINT[0].props.visibility = goocanvas.ITEM_INVISIBLE
     self.MAX=self.data[sublevel][0][0]
 
     #Data loading from global data and display of points and numbers
@@ -147,19 +146,23 @@ class Gcompris_drawnumber :
 
   def point(self, idpt, x, y, d=30):
     """Setting point from his x and y location"""
-    rond = self.ROOT.add(gnomecanvas.CanvasEllipse,
-                         x1=(x-(d/2)),y1=(y-(d/2)),
-                         x2=(x+(d/2)),y2=(y+(d/2)),
-                         fill_color = "green", # default color is green and outline in black
-                         outline_color = "black",
-                         width_units = 1.5
-                         )
+    rond = goocanvas.Ellipse(
+      parent = self.ROOT,
+      center_x = x,
+      center_y = y,
+      radius_x = d/2,
+      radius_y = d/2,
+      fill_color = "green", # default color is green and outline in black
+      stroke_color = "black",
+      line_width = 1.5
+      )
     rond.x,rond.y = x,y
     return rond
 
   def text(self, idpt, xt, yt):
     """Setting text beside the point number idpt locate as xt, yt"""
-    labell = self.ROOT.add(gnomecanvas.CanvasText,
+    labell = goocanvas.Text(
+      parent = self.ROOT,
                            x=xt,
                            y=yt,
                            fill_color="black",
@@ -175,18 +178,19 @@ class Gcompris_drawnumber :
     if truc.type == gtk.gdk.BUTTON_PRESS :
       if idpt == (self.actu+1): #Action to execute if the selected point is the following of previous one
         xd,yd,xa,ya=self.POINT[(idpt-1)].x,self.POINT[(idpt-1)].y,self.POINT[idpt].x,self.POINT[idpt].y
-        item = self.ROOT.add(gnomecanvas.CanvasLine,
+        item = goocanvas.Polyline(
+          parent = self.ROOT,
                              points=(xd,yd,xa,ya),
                              fill_color='black',
-                             width_units=1.5)
+                             line_width=1.5)
 
 
         if idpt == 2: # Always raise the first point
           self.POINT[self.MAX].raise_to_top()
           self.TEXT[self.MAX].raise_to_top()
 
-        self.POINT[idpt].hide()
-        self.TEXT[idpt].hide()
+        self.POINT[idpt].props.visibility = goocanvas.ITEM_INVISIBLE
+        self.TEXT[idpt].props.visibility = goocanvas.ITEM_INVISIBLE
         if idpt == self.MAX : #Action to execute if all points have been selected in good way
           gcompris.set_background(self.ROOT, self.data[self.gcomprisBoard.sublevel][0][2])
           self.gamewon = 1

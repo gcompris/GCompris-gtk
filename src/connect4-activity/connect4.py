@@ -24,7 +24,7 @@
 #
 
 import gobject
-import gnomecanvas
+import goocanvas
 import gcompris
 import gcompris.utils
 import gcompris.skin
@@ -71,12 +71,8 @@ class Gcompris_connect4:
             board_bar = 0
         # Create our rootitem. We put each canvas item in it so at the end we
         # only have to kill it. The canvas deletes all the items it contains automaticaly.
-        self.rootitem = self.gcomprisBoard.canvas.root().add(
-            gnomecanvas.CanvasGroup,
-            x=0.0,
-            y=0.0
-            )
-        
+        self.rootitem = goocanvas.Group(parent =  self.gcomprisBoard.canvas.get_root_item())
+
         pixmap = gcompris.utils.load_pixmap(gcompris.skin.image_to_skin("button_reload.png"))
         if(pixmap):
             gcompris.bar_set_repeat_icon(pixmap)
@@ -84,46 +80,50 @@ class Gcompris_connect4:
         else:
             board_bar = board_bar | gcompris.BAR_REPEAT
         gcompris.bar_set(board_bar)
-        
-        selector = self.rootitem.add(
-            gnomecanvas.CanvasPixbuf,
+
+        selector = \
+            goocanvas.Image(
+                parent = self.rootitem,
             pixbuf = gcompris.utils.load_pixmap("connect4/back.png"),
             x=0.0,
             y=0.0
             )
         selector.connect("event", self.columnItemEvent, 0)
-        
+
         if self.mode == 1:
-            self.prof = self.rootitem.add(
-                gnomecanvas.CanvasPixbuf,
+            self.prof = \
+                goocanvas.Image(
+                    parent = self.rootitem,
                 pixbuf = gcompris.utils.load_pixmap("connect4/tux-teacher.png"),
                 x=10,
                 y=350.0
                 )
             self.prof.connect("event", self.profItemEvent, 0)
             self.prof.connect("event", gcompris.utils.item_event_focus)
-        
+
         self.timericon = gcompris.anim.CanvasItem( gcompris.anim.Animation("connect4/sablier.txt"),
             self.rootitem )
-        self.timericon.gnomecanvas.hide()
+        self.timericon.goocanvas.props.visibility = goocanvas.ITEM_INVISIBLE
 
         self.player_stone = None
-        
+
         for i in range(2):
-            self.rootitem.add(gnomecanvas.CanvasPixbuf,
+            goocanvas.Image(
+                parent = self.rootitem,
                 pixbuf = gcompris.utils.load_pixmap("connect4/stone_%d.png" % (i+1)),
                 x= 25,
                 y=175 + i * 73 )
-        self.score_item = self.rootitem.add(
-            gnomecanvas.CanvasText,
+        self.score_item = \
+            goocanvas.Text(
+                parent = self.rootitem,
             font=gcompris.skin.get_font("gcompris/board/huge bold"),
             x=60,
             y=250,
             justification=gtk.JUSTIFY_CENTER,
             fill_color_rgba=0xFF0000FFL)
-        
+
         self.update_scores((0, 0))
-        
+
         self.newGame()
 
     def end(self):
@@ -133,8 +133,8 @@ class Gcompris_connect4:
         del self.timericon
 
         # Remove the root item removes all the others inside it
-        self.rootitem.destroy()
-        self.boardItem.destroy()
+        self.rootitem.remove()
+        self.boardItem.remove()
 
     def ok(self):
         pass
@@ -159,19 +159,20 @@ class Gcompris_connect4:
         if scores: self.scores = list(scores)
         txt = str(self.scores[0]) + "\n\n" + str(self.scores[1])
         self.score_item.set(text=txt)
-        
+
     def stone_init(self):
         if self.player_stone:
-            self.player_stone.destroy()
-        self.player_stone = self.rootitem.add(
-            gnomecanvas.CanvasPixbuf,
+            self.player_stone.remove()
+        self.player_stone = \
+            goocanvas.Image(
+                parent = self.rootitem,
             pixbuf = gcompris.utils.load_pixmap("connect4/stone_%d.png"
                                                 % self.cur_player),
             x=0,
             y=-20 )
         self.update_stone2()
     def update_stone2(self):
-        self.player_stone.set_property("x", (gcompris.BOARD_WIDTH - self.boardSize) /2 + 
+        self.player_stone.set_property("x", (gcompris.BOARD_WIDTH - self.boardSize) /2 +
             self.keyb_column * self.boardSize / self.nbColumns)
 
     def key_press(self, keyval, commit_str, preedit_str):
@@ -188,7 +189,7 @@ class Gcompris_connect4:
             self.update_stone2()
         elif key =="Down" or commit_str == " ":
             if self.play(self.player1, self.cur_player, self.keyb_column):
-                self.player_stone.hide()
+                self.player_stone.props.visibility = goocanvas.ITEM_INVISIBLE
         return False
 
     def pause(self, pause):
@@ -213,9 +214,10 @@ class Gcompris_connect4:
             gobject.source_remove(self.timerAnim)
             self.timerAnim = None
         if self.boardItem:
-            self.boardItem.destroy()
-        self.boardItem = self.gcomprisBoard.canvas.root().add(
-            gnomecanvas.CanvasGroup,
+            self.boardItem.remove()
+        self.boardItem = \
+            goocanvas.Group(
+                parent = self.gcomprisBoard.canvas.get_root_item(),
             x=(gcompris.BOARD_WIDTH-self.boardSize)/2.0,
             y=50.0
             )
@@ -233,22 +235,22 @@ class Gcompris_connect4:
         self.cur_player = 1
         self.stone_init()
         self.update_stone2()
-        
-        self.timericon.gnomecanvas.hide()
+
+        self.timericon.goocanvas.props.visibility = goocanvas.ITEM_INVISIBLE
         if self.mode == 1:
-            self.prof.show()
+            self.prof.props.visibility = goocanvas.ITEM_VISIBLE
 
     def columnItemEvent(self, widget, event, columns):
         if self.mode == 1 and self.cur_player == 2: # AI playing
             return False
-        if self.cur_player == 0 or self.timerAnim:  # Game over or Timer animate 
+        if self.cur_player == 0 or self.timerAnim:  # Game over or Timer animate
             return False
         if event.type == gtk.gdk.BUTTON_PRESS and event.button == 1:
             column = int((event.x - (gcompris.BOARD_WIDTH-self.boardSize)/2.0) // self.stoneSize)
             if 0 <= column < self.nbColumns:
                 if self.play(self.player1, self.cur_player, column):
-                    self.timericon.gnomecanvas.show()
-                    self.player_stone.hide()
+                    self.timericon.goocanvas.props.visibility = goocanvas.ITEM_VISIBLE
+                    self.player_stone.props.visibility = goocanvas.ITEM_INVISIBLE
         elif event.type == gtk.gdk.MOTION_NOTIFY:
             column = int((event.x - (gcompris.BOARD_WIDTH-self.boardSize)/2.0) // self.stoneSize)
             if 0 <= column < self.nbColumns:
@@ -259,8 +261,8 @@ class Gcompris_connect4:
     def profItemEvent(self, widget, event, column):
         if event.type == gtk.gdk.BUTTON_PRESS:
             self.cur_player=1
-            self.prof.hide()
-            self.player_stone.hide()
+            self.prof.props.visibility = goocanvas.ITEM_INVISIBLE
+            self.player_stone.props.visibility = goocanvas.ITEM_INVISIBLE
             self.play_next()
 
     def play_next(self):
@@ -268,7 +270,7 @@ class Gcompris_connect4:
             self.cur_player = 2
             if self.mode == 1:
                 # IA play
-                self.timericon.gnomecanvas.show()
+                self.timericon.goocanvas.props.visibility = goocanvas.ITEM_VISIBLE
                 self.play(self.player2, 2, 0)
             else:
                 # player 2
@@ -284,9 +286,9 @@ class Gcompris_connect4:
 
     def play(self, player, numPlayer, column):
         if self.mode == 1:
-            self.prof.hide()
+            self.prof.props.visibility = goocanvas.ITEM_INVISIBLE
         move = player.doMove(self.board, numPlayer, column)
-        
+
         if isinstance(move, int) and rules.isMoveLegal(self.board, move):
             self.board.move(move, numPlayer)
             self.drawBoard(self.board)
@@ -298,9 +300,10 @@ class Gcompris_connect4:
         x = self.board.last_move
         y = len(self.board.state[self.board.last_move])-1
         file = "connect4/stone_%d.png" % stone
-        
-        self.stone = self.boardItem.add(
-            gnomecanvas.CanvasPixbuf,
+
+        self.stone = \
+            goocanvas.Image(
+                parent = self.boardItem,
             pixbuf = gcompris.utils.load_pixmap(file),
             x=x*(self.boardSize/self.nbColumns),
             y=0
@@ -308,7 +311,7 @@ class Gcompris_connect4:
         self.stone.connect("event", self.columnItemEvent, 0)
         self.countAnim = self.nbLines-y
         self.timerAnim = gobject.timeout_add(200, self.animTimer)
-        self.timericon.gnomecanvas.show()
+        self.timericon.goocanvas.props.visibility = goocanvas.ITEM_VISIBLE
 
     def animTimer(self):
         self.countAnim -= 1
@@ -318,7 +321,7 @@ class Gcompris_connect4:
             self.timerAnim = gobject.timeout_add(200, self.animTimer)
         else:
             self.timerAnim = None
-            self.timericon.gnomecanvas.hide()
+            self.timericon.goocanvas.props.visibility = goocanvas.ITEM_INVISIBLE
             self.winLine = rules.isWinner(self.board, self.cur_player)
             if self.winLine:
                 self.winner(self.cur_player)
@@ -335,19 +338,20 @@ class Gcompris_connect4:
         if player == 0:
             gcompris.bonus.display(gcompris.bonus.DRAW, gcompris.bonus.FLOWER)
             return
-   
+
         # Display the winner line
         self.scores[player-1] += 1
         self.update_scores()
-        
+
         points = ( self.winLine[0][0]*(self.boardSize/self.nbColumns)+self.stoneSize/2,
                 (self.boardSize/self.nbColumns)*(self.nbLines-1-self.winLine[0][1])+self.stoneSize/2,
                 self.winLine[1][0]*(self.boardSize/self.nbColumns)+self.stoneSize/2,
                 (self.boardSize/self.nbColumns)*(self.nbLines-1-self.winLine[1][1])+self.stoneSize/2
                 )
-        
-        self.redLine = self.boardItem.add(
-            gnomecanvas.CanvasLine,
+
+        self.redLine = \
+            goocanvas.Polyline(
+                parent = self.boardItem,
             fill_color_rgba=0xFF0000FFL,
             points=points,
             width_pixels = 8

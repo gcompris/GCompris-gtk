@@ -18,7 +18,7 @@
 #
 
 import gobject
-import gnomecanvas
+import goocanvas
 import gcompris
 import gcompris.utils
 import gcompris.skin
@@ -43,7 +43,6 @@ class Gcompris_guessnumber:
 
     # A text canvas item use to indicate it's over or lower
     self.indicator = None
-    self.indicator_s = None
 
     # The text entry for the number
     self.entry = None
@@ -89,7 +88,7 @@ class Gcompris_guessnumber:
 
     gcompris.bar_set_level(self.gcomprisBoard)
 
-    gcompris.set_background(self.gcomprisBoard.canvas.root(), "guessnumber/cave.png")
+    gcompris.set_background(self.gcomprisBoard.canvas.get_root_item(), "guessnumber/cave.png")
 
     self.display_game()
 
@@ -120,9 +119,9 @@ class Gcompris_guessnumber:
 
     # Hack for widget that can't be covered by bonus and/or help
     if pause:
-       self.entry.hide()
+       self.entry.props.visibility = goocanvas.ITEM_INVISIBLE
     else:
-      self.entry.show()
+      self.entry.props.visibility = goocanvas.ITEM_VISIBLE
 
     # When the bonus is displayed, it call us first with pause(1) and then with pause(0)
     # the game is won
@@ -178,18 +177,14 @@ class Gcompris_guessnumber:
       self.movestep_timer = 0
 
     # Remove the root item removes all the others inside it
-    self.rootitem.destroy()
+    self.rootitem.remove()
 
   # Display the board game
   def display_game(self):
 
       # Create our rootitem. We put each canvas item in it so at the end we
       # only have to kill it. The canvas deletes all the items it contains automaticaly.
-      self.rootitem = self.gcomprisBoard.canvas.root().add(
-          gnomecanvas.CanvasGroup,
-          x=0.0,
-          y=0.0
-          )
+      self.rootitem = goocanvas.Group(parent =  self.gcomprisBoard.canvas.get_root_item())
 
       self.min = 1
       self.max = 10
@@ -205,45 +200,23 @@ class Gcompris_guessnumber:
 
       text = _("Guess a number between %d and %d") %(self.min, self.max)
 
-      self.rootitem.add(
-          gnomecanvas.CanvasText,
-          x=340.0 + 1.0,
-          y=30.0 + 1.0,
-          font=gcompris.skin.get_font("gcompris/title"),
-          text=(text),
-          fill_color="white",
-          justification=gtk.JUSTIFY_CENTER
-          )
+      goocanvas.Text(
+        parent = self.rootitem,
+        x=10.0,
+        y=30.0,
+        font=gcompris.skin.get_font("gcompris/title"),
+        text=(text),
+        fill_color_rgba=0x1514c4ffL,
+        )
 
-      self.rootitem.add(
-          gnomecanvas.CanvasText,
-          x=340.0,
-          y=30.0,
-          font=gcompris.skin.get_font("gcompris/title"),
-          text=(text),
-          fill_color_rgba=0x1514c4ffL,
-          justification=gtk.JUSTIFY_CENTER
-          )
-
-      self.indicator_s = self.rootitem.add(
-          gnomecanvas.CanvasText,
-          x=300.0 + 1.0,
-          y=70.0 + 1.0,
-          font=gcompris.skin.get_font("gcompris/subtitle"),
-          text=(""),
-          fill_color="white",
-          justification=gtk.JUSTIFY_CENTER
-          )
-
-      self.indicator = self.rootitem.add(
-          gnomecanvas.CanvasText,
-          x=300.0,
-          y=70.0,
-          font=gcompris.skin.get_font("gcompris/subtitle"),
-          text=(""),
-          fill_color_rgba=0xff0006ffL,
-          justification=gtk.JUSTIFY_CENTER
-          )
+      self.indicator =goocanvas.Text(
+        parent = self.rootitem,
+        x=300.0,
+        y=70.0,
+        font=gcompris.skin.get_font("gcompris/subtitle"),
+        text=(""),
+        fill_color_rgba=0xff0006ffL,
+        )
 
       self.entry_text()
 
@@ -256,12 +229,11 @@ class Gcompris_guessnumber:
       self.orig_x = self.x_old = self.x = pixmap.get_width()/2 + 10
       self.y_old = self.y = self.orig_y
 
-      self.anim = self.rootitem.add(
-        gnomecanvas.CanvasPixbuf,
+      self.anim =goocanvas.Image(
+        parent = self.rootitem,
         pixbuf = pixmap,
-        x=self.x,
-        y=self.y,
-        anchor=gtk.ANCHOR_CENTER,
+        x = self.x,
+        y = self.y,
         )
 
   def entry_text(self):
@@ -278,25 +250,22 @@ class Gcompris_guessnumber:
     self.entry.connect("activate", self.enter_callback)
     self.entry.connect("changed", self.enter_char_callback)
 
-    self.entry.show()
+    self.entry.props.visibility = goocanvas.ITEM_VISIBLE
 
-    self.widget = self.rootitem.add(
-      gnomecanvas.CanvasWidget,
+    self.widget = goocanvas.Widget(
+      parent = self.rootitem,
       widget=self.entry,
       x=730,
       y=30,
       width=100,
       height=46,
       anchor=gtk.ANCHOR_CENTER,
-      size_pixels=False
       )
 
-    self.widget.raise_to_top()
+    self.widget.raise_(None)
 
-    # does not work. Why ?
-    #self.gcomprisBoard.canvas.grab_focus()
-    self.widget.grab_focus()
-    self.entry.grab_focus()
+    #self.widget.grab_focus()
+    #self.entry.grab_focus()
 
   def enter_char_callback(self, widget):
       text = widget.get_text()
@@ -307,33 +276,28 @@ class Gcompris_guessnumber:
 
     # Find a number game
     if str(self.solution) == text:
-      self.indicator.set(text="")
-      self.indicator_s.set(text="")
+      self.indicator.props.text = ""
       self.gamewon = True
       gcompris.bonus.display(gcompris.bonus.WIN, gcompris.bonus.TUX)
     else:
       try:
-        # can have been destroyed before by a delete action. No matter
+        # can have been removeed before by a delete action. No matter
         number = int(text)
       except:
-        self.indicator.set(text=_("Please enter a number between %d and %d") %(self.min, self.max))
-        self.indicator_s.set(text=_("Please enter a number between %d and %d") %(self.min, self.max))
+        self.indicator.props.text = _("Please enter a number between %d and %d") %(self.min, self.max)
         widget.set_text('')
         return
 
       if number > self.max or number <= 0:
-        self.indicator.set(text=_("Out of range"))
-        self.indicator_s.set(text=_("Out of range"))
+        self.indicator.props.text = _("Out of range")
       else:
         max_distance = max(self.max - self.solution, self.solution)
         distance_x = self.target_x - abs(self.solution - number) * float(self.target_x - self.orig_x) / max_distance
         distance_y = self.orig_y + float(((self.solution - number) * 170) / max_distance)
         if(number > self.solution):
-          self.indicator.set(text=_("Too high"))
-          self.indicator_s.set(text=_("Too high"))
+          self.indicator.props.text=_("Too high")
         else:
-          self.indicator.set(text=_("Too low"))
-          self.indicator_s.set(text=_("Too low"))
+          self.indicator.props.text = _("Too low")
 
         self.move(self.x_old, self.y_old,
                   distance_x,
@@ -350,7 +314,9 @@ class Gcompris_guessnumber:
       x = self.anim.get_property("x") + self.velocity[0]/self.num_moveticks
       y = self.anim.get_property("y") + self.velocity[1]/self.num_moveticks
       ret = True
-      self.anim.set(x=x, y=y)
+      self.anim.props.x = x
+      self.anim.props.y = y
+
       return True
     else:
       x = self.anim.get_property("x") + self.velocity[0]/self.num_moveticks
@@ -358,8 +324,8 @@ class Gcompris_guessnumber:
       self.move_stepnum = 0
       self.moving = False
       self.movestep_timer = 0
-      self.anim.set(x=(self.x_old),
-                    y=(self.y_old))
+      self.anim.props.x = (self.x_old)
+      self.anim.props.y = (self.y_old)
       gcompris.utils.item_rotate(self.anim, 0)
       self.entry.set_editable(True)
       return False

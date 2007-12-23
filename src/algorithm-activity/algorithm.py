@@ -18,7 +18,7 @@
 #   along with this program; if not, write to the Free Software
 #   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 #
-import gnomecanvas
+import goocanvas
 import gcompris
 import gcompris.utils
 import gcompris.skin
@@ -44,12 +44,11 @@ class Gcompris_algorithm:
   def paint_image (self, i, x2, y2):
 
 
-    return self.rootitem.add(
-        gnomecanvas.CanvasPixbuf,
-        pixbuf = self.pixlist[i],
-        x=self.leftx+x2*self.distance,
-        y=y2
-        )
+    return goocanvas.Image(parent = self.rootitem,
+                            pixbuf = self.pixlist[i],
+                            x = self.leftx+x2*self.distance,
+                            y = y2
+                            )
 
   def __init__(self, gcomprisBoard):
     self.gcomprisBoard = gcomprisBoard
@@ -67,7 +66,7 @@ class Gcompris_algorithm:
 
   def start(self):
     gcompris.bar_set (0)
-    gcompris.set_background(self.gcomprisBoard.canvas.root(),
+    gcompris.set_background(self.gcomprisBoard.canvas.get_root_item(),
                             "algorithm/scenery5_background.png")
     self.gcomprisBoard.level=1
     self.gcomprisBoard.sublevel=1
@@ -122,7 +121,7 @@ class Gcompris_algorithm:
 
     # Remove the root item removes all the others inside it
     if self.rootitem != None:
-     self.rootitem.destroy()
+     self.rootitem.remove()
      self.rootitem = None
      gcompris.score.end()
 
@@ -135,16 +134,12 @@ class Gcompris_algorithm:
 
     # Create our rootitem. We put each canvas item in it so at the end we
     # only have to kill it. The canvas deletes all the items it contains automaticaly.
-    self.rootitem = self.gcomprisBoard.canvas.root().add(
-      gnomecanvas.CanvasGroup,
-      x=0.0,
-      y=0.0
-      )
+    self.rootitem = goocanvas.Group(parent = self.gcomprisBoard.canvas.get_root_item())
 
     # Display our list of items
     for i in range(len(self.symbollist)):
      s = self.paint_image(i ,i ,390)
-     s.connect ("event", self.apple_click, i)
+     s.connect ("button_press_event", self.apple_click, i)
 
     # Display the algorithm
     self.algo = random.choice(self.algos)
@@ -174,10 +169,11 @@ class Gcompris_algorithm:
     self.paint_qm ()
 
   def paint_qm (self):
-    self.qm = self.rootitem.add(gnomecanvas.CanvasText, text = "?",
-     x = self.place*self.distance+30+self.leftx,
-     y = 185, fill_color_rgba = 0x000000ffL,
-     font = gcompris.skin.get_font("gcompris/board/huge bold"))
+    self.qm = goocanvas.Text(parent = self.rootitem,
+                             text = "?",
+                             x = self.place*self.distance+30+self.leftx,
+                             y = 185, fill_color_rgba = 0x000000ffL,
+                             font = gcompris.skin.get_font("gcompris/board/huge bold"))
 
   def key_press(self, keyval, commit_str, preedit_str):
     return False
@@ -207,11 +203,11 @@ class Gcompris_algorithm:
     return 1
 
 
-  def apple_click (self, widget, event=None, index=0):
+  def apple_click (self, widget, target, event=None, index=0):
     if event.type == gtk.gdk.BUTTON_PRESS and event.button == 1:
      if index == self.random_index[self.algo(self.place)]:
       gcompris.sound.play_ogg("sounds/bleep.wav")
-      self.qm.destroy()
+      self.qm.remove()
       self.paint_image(index, self.place, 147)
       self.place +=1
       if self.place == self.anzahl:

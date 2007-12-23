@@ -18,7 +18,7 @@
 #
 # Follow Line Board module
 import gobject
-import gnomecanvas
+import goocanvas
 import gcompris
 import gcompris.skin
 import gcompris.bonus
@@ -66,9 +66,11 @@ class Gcompris_followline:
     self.gcomprisBoard.sublevel=1
     self.gcomprisBoard.number_of_sublevel=1
     gcompris.bar_set(gcompris.BAR_LEVEL)
-    self.background_item = gcompris.set_background(self.gcomprisBoard.canvas.root(),
-                                                   "followline/followline.png")
-    self.background_item_connect_id = self.background_item.connect("event", self.loosing_item_event)
+    gcompris.set_background(self.gcomprisBoard.canvas.get_root_item(),
+                            "followline/followline.png")
+    self.background_item_connect_id = \
+        self.gcomprisBoard.canvas.get_root_item().connect("button_press_event",
+                                                          self.loosing_item_event)
 
     gcompris.bar_set_level(self.gcomprisBoard)
 
@@ -83,7 +85,8 @@ class Gcompris_followline:
     self.cleanup()
 
     # Disconnect from the background item
-    self.background_item.disconnect(self.background_item_connect_id)
+    self.gcomprisBoard.canvas.get_root_item().disconnect(
+      self.background_item_connect_id)
 
     gcompris.sound.policy_set(self.saved_policy)
 
@@ -134,9 +137,9 @@ class Gcompris_followline:
     # Remove the root item removes all the others inside it
     self.state = "Done"
 
-    self.rootitem.destroy()
-    self.lines_group.destroy()
-    self.water_spot_group.destroy()
+    self.rootitem.remove()
+    self.lines_group.remove()
+    self.water_spot_group.remove()
 
   def next_level(self):
 
@@ -155,22 +158,16 @@ class Gcompris_followline:
 
     # Create our rootitem. We put each canvas item in it so at the end we
     # only have to kill it. The canvas deletes all the items it contains automaticaly.
-    self.rootitem = self.gcomprisBoard.canvas.root().add(
-      gnomecanvas.CanvasGroup,
-      x=0.0,
-      y=0.0
-      )
+    self.rootitem = goocanvas.Group(
+      parent = self.gcomprisBoard.canvas.get_root_item())
 
     # Another group where we put each canvas line item in it
-    self.lines_group = self.gcomprisBoard.canvas.root().add(
-      gnomecanvas.CanvasGroup,
-      x=0.0,
-      y=0.0
-      )
+    self.lines_group = goocanvas.Group(
+      parent = self.gcomprisBoard.canvas.get_root_item())
 
-    start_x         = 40
-    start_y         = gcompris.BOARD_HEIGHT/2
-    stop_x          = gcompris.BOARD_WIDTH - 100
+    start_x  = 40
+    start_y  = gcompris.BOARD_HEIGHT/2
+    stop_x   = gcompris.BOARD_WIDTH - 100
 
     # Line path (create several little line)
     min_boundary = 40
@@ -188,33 +185,26 @@ class Gcompris_followline:
       y2 = start_y + math.cos(xpi)*(self.gcomprisBoard.level*10)
 
       # Check we stay within boundaries
-      if(y2>=gcompris.BOARD_HEIGHT-min_boundary):
-        y2=gcompris.BOARD_HEIGHT-min_boundary
-      elif(y2<=min_boundary):
-        y2=min_boundary
+      if(y2 >= gcompris.BOARD_HEIGHT - min_boundary):
+        y2 = gcompris.BOARD_HEIGHT - min_boundary
+      elif(y2 <= min_boundary):
+        y2 = min_boundary
 
-      item = self.lines_group.add(
-        gnomecanvas.CanvasLine,
-        points          =( x,
-                           y,
-                           x + step,
-                           y2),
-        fill_color_rgba = self.color_empty,
-        width_units     = line_width,
-        cap_style       = gtk.gdk.CAP_ROUND
+      item = goocanvas.Polyline(
+        parent = self.lines_group,
+        points = goocanvas.Points([(x, y), (x + step + 4, y2)]),
+        stroke_color_rgba = self.color_empty,
+        line_width = line_width,
         )
-      item.connect("event", self.line_item_event)
+      item.connect("button_press_event", self.line_item_event)
 
       if x > start_x and x < stop_x-step:
-        self.rootitem.add(
-          gnomecanvas.CanvasLine,
-          points          =( x,
-                             y,
-                             x + step,
-                             y2),
+          goocanvas.Polyline(
+          parent = self.rootitem,
+          points = goocanvas.Points([( x, y),
+                                     (x + step + 4, y2)]),
           fill_color_rgba = self.color_border,
-          width_units     = line_width + 20,
-          cap_style       = gtk.gdk.CAP_ROUND
+          line_width = line_width + 20,
           )
 
       y = y2
@@ -222,19 +212,17 @@ class Gcompris_followline:
     self.highlight_next_line()
 
     # Another group where we put each canvas line item in it
-    self.water_spot_group = self.gcomprisBoard.canvas.root().add(
-      gnomecanvas.CanvasGroup,
-      x=0.0,
-      y=0.0
-      )
+    self.water_spot_group = goocanvas.Group(
+      parent = self.gcomprisBoard.canvas.get_root_item())
+
     # A water spot will be displayed when the user win
-    self.water_spot = self.water_spot_group.add (
-      gnomecanvas.CanvasPixbuf,
+    self.water_spot = goocanvas.Image(
+      parent = self.water_spot_group,
       pixbuf = gcompris.utils.load_pixmap("followline/water_spot.png"),
-      x=580,
-      y=260,
+      x = 580,
+      y = 260,
       )
-    self.water_spot.hide()
+    self.water_spot.props.visibility = goocanvas.ITEM_INVISIBLE
 
 
   # Code that increments the sublevel and level
@@ -258,11 +246,10 @@ class Gcompris_followline:
   # Highlight the next spot on the line
   #
   def highlight_next_line(self):
-    for item in self.lines_group.item_list:
+    for i in range(0, self.lines_group.get_n_children()):
+      item = self.lines_group.get_child(i)
       if(item.get_data("gotit") != True):
-        item.set(
-          fill_color_rgba = self.color_target,
-          )
+        item.props.fill_color_rgba = self.color_target
         item.set_data("iamnext", True);
         return
 
@@ -273,21 +260,18 @@ class Gcompris_followline:
   def highlight_previous_line(self):
     previous_item = []
 
-    for item in self.lines_group.item_list:
+    for i in range(0, self.lines_group.get_n_children()):
+      item = self.lines_group.get_child(i)
 
       if(item.get_data("iamnext") == True):
 
         if(previous_item):
           # Remove the target info for this item
           item.set_data("iamnext", False)
-          item.set(
-            fill_color_rgba = self.color_empty,
-            )
+          item.props.fill_color_rgba = self.color_empty
 
           # Set the target info on the previous item
-          previous_item.set(
-            fill_color_rgba = self.color_target,
-            )
+          previous_item.props.fill_color_rgba = self.color_target
           item.set_data("gotit", False)
           previous_item.set_data("iamnext", True);
 
@@ -314,12 +298,12 @@ class Gcompris_followline:
         self.state = "Done"
         self.gamewon = 1
         self.water_spot.raise_to_top()
-        self.water_spot.show()
+        self.water_spot.props.visibility = goocanvas.ITEM_VISIBLE
         self.timeout = gobject.timeout_add(1500, self.lauch_bonus)
 
     return done
 
-  def loosing_item_event(self, widget, event=None):
+  def loosing_item_event(self, widget, target, event=None):
     if(self.state == "Started"):
       self.loosing_count += 1
       if(self.loosing_count % 10):
@@ -328,14 +312,13 @@ class Gcompris_followline:
     return False
 
 
-  def line_item_event(self, widget, event=None):
+  def line_item_event(self, widget, target, event=None):
     if not self.board_paused and widget.get_data("iamnext") == True:
       # The first line touch means the game is started
       gcompris.sound.play_ogg("sounds/drip.wav")
       self.state = "Started"
-      widget.set(
-        fill_color_rgba = self.color_full,
-        )
+      widget.props.fill_color_rgba = self.color_full
+
       widget.set_data("gotit", True);
       widget.set_data("iamnext", False);
       self.highlight_next_line()

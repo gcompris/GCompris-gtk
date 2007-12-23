@@ -17,7 +17,7 @@
 #   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 #
 from gettext import gettext as _
-import gnomecanvas
+import goocanvas
 import gcompris
 import gcompris.utils
 import gcompris.bonus
@@ -55,13 +55,9 @@ class Gcompris_chat:
 
   def start(self):
     gcompris.bar_set (0)
-    gcompris.set_background(self.gcomprisBoard.canvas.root(),
+    gcompris.set_background(self.gcomprisBoard.canvas.get_root_item(),
                             gcompris.skin.image_to_skin("gcompris-bg.jpg"))
-    self.rootitem = self.gcomprisBoard.canvas.root().add(
-     gnomecanvas.CanvasGroup,
-     x=0.0,
-     y=0.0
-     )
+    self.rootitem = goocanvas.Group(parent =  self.gcomprisBoard.canvas.get_root_item())
 
     # The global area
     # ---------------
@@ -82,15 +78,15 @@ class Gcompris_chat:
     self.global_area_tb.set_text(_("All messages will be displayed here.\n"))
 
     self.global_area_tv.set_wrap_mode(gtk.WRAP_CHAR)
-    self.rootitem.add(
-      gnomecanvas.CanvasWidget,
+
+    goocanvas.Widget(
+      parent = self.rootitem,
       widget=self.global_area_sw,
       x=x,
       y=y,
       width=w,
       height= h,
-      anchor=gtk.ANCHOR_NW,
-      size_pixels=False)
+      anchor=gtk.ANCHOR_NW)
     self.global_area_tv.show()
     self.global_area_sw.show()
 
@@ -114,21 +110,22 @@ class Gcompris_chat:
     self.friend_area_tb.set_text("")
 
     self.friend_area_tv.set_wrap_mode(gtk.WRAP_CHAR)
-    self.rootitem.add(
-      gnomecanvas.CanvasWidget,
+
+    goocanvas.Widget(
+      parent = self.rootitem,
       widget=self.friend_area_sw,
       x=x,
       y=y,
       width=w,
       height= h,
-      anchor=gtk.ANCHOR_NW,
-      size_pixels=False)
+      anchor=gtk.ANCHOR_NW)
     self.friend_area_tv.show()
     self.friend_area_sw.show()
 
     # A label for the friend area
-    self.rootitem.add(
-      gnomecanvas.CanvasText,
+
+    goocanvas.Text(
+      parent = self.rootitem,
       text=_("Your Friends"),
       font = gcompris.skin.get_font("gcompris/board/medium"),
       x=x+(w/2),
@@ -144,23 +141,24 @@ class Gcompris_chat:
     y = gcompris.BOARD_HEIGHT - 140.0
     x = x
 
-    self.rootitem.add(
-      gnomecanvas.CanvasWidget,
+
+    goocanvas.Widget(
+      parent = self.rootitem,
       widget=self.channel,
       x=x,
       y=y,
       width=w,
       height= h,
-      anchor=gtk.ANCHOR_NW,
-      size_pixels=False)
+      anchor=gtk.ANCHOR_NW)
 
     self.channel.show()
     self.channel.set_text("")
 
 
     # A label for the channel area
-    self.rootitem.add(
-      gnomecanvas.CanvasText,
+
+    goocanvas.Text(
+      parent = self.rootitem,
       text=_("Your Channel"),
       font = gcompris.skin.get_font("gcompris/board/medium"),
       x=x+(w/2),
@@ -176,15 +174,15 @@ class Gcompris_chat:
     h = 30.0
     y = gcompris.BOARD_HEIGHT - 60.0
 
-    self.rootitem.add(
-      gnomecanvas.CanvasWidget,
+
+    goocanvas.Widget(
+      parent = self.rootitem,
       widget=self.entry,
       x=x,
       y=y,
       width=w,
       height= h,
-      anchor=gtk.ANCHOR_NW,
-      size_pixels=False)
+      anchor=gtk.ANCHOR_NW)
 
     self.entry.show()
     self.entry.set_text(_("Type your message here, to send to other GCompris users on your local network."))
@@ -220,12 +218,12 @@ class Gcompris_chat:
     # There is a problem with GTK widgets, they are not covered by the help
     # We hide/show them here
     if(pause):
-      self.global_area_tv.hide()
-      self.global_area_sw.hide()
-      self.friend_area_tv.hide()
-      self.friend_area_sw.hide()
-      self.entry.hide()
-      self.channel.hide()
+      self.global_area_tv.props.hide()
+      self.global_area_sw.props.hide()
+      self.friend_area_tv.props.hide()
+      self.friend_area_sw.props.hide()
+      self.entry.props.hide()
+      self.channel.props.hide()
     else:
       self.global_area_tv.show()
       self.global_area_sw.show()
@@ -253,7 +251,7 @@ class Gcompris_chat:
 
     # Remove the root item removes all the others inside it
     if self.rootitem != None:
-     self.rootitem.destroy()
+     self.rootitem.remove()
      self.rootitem = None
 
 

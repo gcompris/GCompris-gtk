@@ -46,11 +46,7 @@ class Gcompris_hexagon:
     gcompris.bar_set (0)
     gcompris.set_background(self.gcomprisBoard.canvas.get_root_item(),
                             gcompris.skin.image_to_skin("gcompris-bg.jpg"))
-    self.rootitem = goocanvas.Group()
-    self.gcomprisBoard.canvas.get_root_item().add_child(self.rootitem)
-    self.paint_skin()
-    self.random_catx = random.randrange(21)
-    self.random_caty = random.randrange(15)
+    self.game_start()
 
 
   def end(self):
@@ -81,9 +77,13 @@ class Gcompris_hexagon:
   # ----------------------------------------------------------------------
   # ----------------------------------------------------------------------
 
+  def game_start(self):
+    self.rootitem = goocanvas.Group(parent =  self.gcomprisBoard.canvas.get_root_item())
+    self.paint_skin()
+    self.random_catx = random.randrange(21)
+    self.random_caty = random.randrange(15)
 
   def cleanup(self):
-
     self.gamewon       = False;
     # Remove the root item removes all the others inside it
     if self.rootitem != None:
@@ -142,7 +142,8 @@ class Gcompris_hexagon:
     return color
 
   def finished(self):
-    gcompris.bonus.board_finished(gcompris.bonus.FINISHED_RANDOM)
+    self.cleanup()
+    self.game_start()
 
   def on_click (self, widget, target, event=None, x=0, y=0):
     if event.type == gtk.gdk.BUTTON_PRESS and event.button == 1 :

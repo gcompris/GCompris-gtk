@@ -28,7 +28,7 @@
 from gettext import gettext as _
 # PythonTest Board module
 import gobject
-import gnomecanvas
+import goocanvas
 import gcompris
 import gcompris.utils
 import gcompris.skin
@@ -190,17 +190,17 @@ class Gcompris_anim:
     self.anchors ['FILL_CIRCLE'] =  self.anchors ['RECT']
     self.anchors ['IMAGE'] =  self.anchors ['RECT']
 
-    # gnomecanvas type corresponding
-    self.types = { 'RECT' : gnomecanvas.CanvasRect,
-                   'FILL_RECT' : gnomecanvas.CanvasRect,
-                   'CIRCLE' : gnomecanvas.CanvasEllipse,
-                   'FILL_CIRCLE' : gnomecanvas.CanvasEllipse,
-                   'TEXT' : gnomecanvas.CanvasText,
-                   'IMAGE' : gnomecanvas.CanvasPixbuf,
-                   'LINE' : gnomecanvas.CanvasLine
+    # goocanvas type corresponding
+    self.types = { 'RECT' : goocanvas.Rect,
+                   'FILL_RECT' : goocanvas.Rect,
+                   'CIRCLE' : goocanvas.Ellipse,
+                   'FILL_CIRCLE' : goocanvas.Ellipse,
+                   'TEXT' : goocanvas.Text,
+                   'IMAGE' : goocanvas.Image,
+                   'LINE' : goocanvas.Polyline
                    }
 
-    # mutable gnomecanvas attributs
+    # mutable goocanvas attributs
     self.attributs = { 'LINE' : [ "points",
                                   "fill_color_rgba",
                                   ],
@@ -208,7 +208,7 @@ class Gcompris_anim:
                                   "y1",
                                   "x2",
                                   "y2",
-                                  "outline_color_rgba",
+                                  "stroke_color_rgba",
                                   ],
                        'FILL_RECT' : [ "x1",
                                        "y1",
@@ -220,7 +220,7 @@ class Gcompris_anim:
                                     "y1",
                                     "x2",
                                     "y2",
-                                    "outline_color_rgba",
+                                    "stroke_color_rgba",
                                     ],
                        'FILL_CIRCLE' : [ "x1",
                                          "y1",
@@ -240,23 +240,22 @@ class Gcompris_anim:
                                    ]
                        }
 
-    # non mutable gnomecanvas attributs
+    # non mutable goocanvas attributs
     self.fixedattributs = { 'LINE' : { 'width-units': 8.0
                                        },
                             'RECT' : { 'width-units': 4.0
                                        },
                             'FILL_RECT' : { 'width-units': 1.0,
-                                            'outline_color_rgba': 0x000000FFL
+                                            'stroke_color_rgba': 0x000000FFL
                                             },
                             'CIRCLE' : { 'width-units': 4.0 },
                             'FILL_CIRCLE' : { 'width-units': 1.0,
-                                              'outline_color_rgba': 0x000000FFL
+                                              'stroke_color_rgba': 0x000000FFL
                                               },
                             'TEXT' : { 'font': gcompris.FONT_BOARD_BIG_BOLD,
                                        'anchor' : gtk.ANCHOR_CENTER
                                        },
-                            'IMAGE' : { 'width_set': True,
-                                        'height_set': True
+                            'IMAGE' : {
                                         }
                        }
 
@@ -396,16 +395,13 @@ class Gcompris_anim:
     self.gcomprisBoard.number_of_sublevel=0
 
     gcompris.bar_set(0)
-    gcompris.set_background(self.gcomprisBoard.canvas.root(),
+    gcompris.set_background(self.gcomprisBoard.canvas.get_root_item(),
                             gcompris.skin.image_to_skin("gcompris-bg.jpg"))
 
     # Create our rootitem. We put each canvas item in it so at the end we
     # only have to kill it. The canvas deletes all the items it contains automaticaly.
-    self.rootitem = self.gcomprisBoard.canvas.root().add(
-      gnomecanvas.CanvasGroup,
-      x=0.0,
-      y=0.0
-      )
+    self.rootitem = goocanvas.Group(
+      parent =  self.gcomprisBoard.canvas.get_root_item())
 
     # initialisation
     self.draw_tools()
@@ -432,7 +428,7 @@ class Gcompris_anim:
 
     # Remove the root item removes all the others inside it
     gcompris.set_cursor(gcompris.CURSOR_DEFAULT);
-    self.rootitem.destroy()
+    self.rootitem.remove()
 
   def pause(self, pause):
     #used to stop the event reception at the end?
@@ -532,21 +528,19 @@ class Gcompris_anim:
   # Display the tools
   def draw_tools(self):
 
-    self.root_toolitem = self.rootitem.add(
-      gnomecanvas.CanvasGroup,
-      x=0.0,
-      y=0.0
+    self.root_toolitem = \
+      goocanvas.Group(
+        parent = self.rootitem,
       )
 
-    self.root_toolitem.add(
-      gnomecanvas.CanvasPixbuf,
+
+    goocanvas.Image(
+      parent = self.root_toolitem,
       pixbuf = gcompris.utils.load_pixmap(gcompris.skin.image_to_skin("draw/tool-selector.png")),
       x=5,
       y=5.0,
       width=107.0,
       height=517.0,
-      width_set=True,
-      height_set=True
       )
 
     x1=11.0
@@ -567,13 +561,14 @@ class Gcompris_anim:
       else:
         theX = x1
 
-      item = self.root_toolitem.add(
-        gnomecanvas.CanvasPixbuf,
+      item = \
+        goocanvas.Image(
+          parent = self.root_toolitem,
         pixbuf = gcompris.utils.load_pixmap(gcompris.skin.image_to_skin(self.tools[i][1])),
         x=theX,
         y=y
         )
-      item.connect("event", self.tool_item_event, i)
+      item.connect("button_press_event", self.tool_item_event, i)
       if i%2:
         y += stepy
 
@@ -583,13 +578,14 @@ class Gcompris_anim:
         # Always select the SELECT item by default
         self.current_tool = i
         self.old_tool_item = item
-        self.old_tool_item.set(pixbuf = gcompris.utils.load_pixmap(gcompris.skin.image_to_skin(self.tools[i][2])))
+        self.old_tool_item.props.pixbuf = \
+            gcompris.utils.load_pixmap(gcompris.skin.image_to_skin(self.tools[i][2]))
         gcompris.set_cursor(self.tools[i][3]);
 
 
   # Event when a tool is selected
   # Perform instant action or swich the tool selection
-  def tool_item_event(self, item, event, tool):
+  def tool_item_event(self, item, target, event, tool):
 
     if event.type == gtk.gdk.BUTTON_PRESS:
       if event.button == 1:
@@ -637,12 +633,14 @@ class Gcompris_anim:
         # -------------------------------
 
         # Deactivate old button
-        self.old_tool_item.set(pixbuf = gcompris.utils.load_pixmap(gcompris.skin.image_to_skin(self.tools[self.current_tool][1])))
+        self.old_tool_item.props.pixbuf = \
+            gcompris.utils.load_pixmap(gcompris.skin.image_to_skin(self.tools[self.current_tool][1]))
 
         # Activate new button
         self.current_tool = tool
         self.old_tool_item = item
-        self.old_tool_item.set(pixbuf = gcompris.utils.load_pixmap(gcompris.skin.image_to_skin(self.tools[self.current_tool][2])))
+        self.old_tool_item.props.pixbuf = \
+            gcompris.utils.load_pixmap(gcompris.skin.image_to_skin(self.tools[self.current_tool][2]))
         gcompris.set_cursor(self.tools[self.current_tool][3]);
 
 
@@ -660,14 +658,14 @@ class Gcompris_anim:
 
     c = 0
 
-    self.root_coloritem = self.rootitem.add(
-      gnomecanvas.CanvasGroup,
-      x=0.0,
-      y=0.0
+    self.root_coloritem = \
+      goocanvas.Group(
+        parent = self.rootitem,
       )
 
-    self.root_coloritem.add(
-      gnomecanvas.CanvasPixbuf,
+
+    goocanvas.Image(
+      parent = self.root_coloritem,
       pixbuf = pixmap,
       x=x,
       y=y,
@@ -678,25 +676,26 @@ class Gcompris_anim:
 
       for j in range(0,4):
         c = i*4 +j
-        item = self.root_coloritem.add(
-          gnomecanvas.CanvasRect,
-          x1=x1 + 26*(j%2),
-          y1=y+8 + (color_pixmap_height/2 -6)*(j/2),
-          x2=x1 + 24  + 26*(j%2),
-          y2=y + color_pixmap_height/2  + (color_pixmap_height/2 -6)*(j/2),
-          fill_color_rgba=self.colors[c],
-          outline_color_rgba=0x07A3E0FFL
-          )
+        item = \
+          goocanvas.Rect(
+            parent = self.root_coloritem,
+            x = x1 + 26*(j%2),
+            y = y + 8 + (color_pixmap_height/2 -6)*(j/2),
+            width = 24,
+            height = color_pixmap_height/2 - 8,
+            fill_color_rgba = self.colors[c],
+            stroke_color_rgba = 0x07A3E0FFL
+            )
 
-        item.connect("event", self.color_item_event, c)
+        item.connect("button_press_event", self.color_item_event, c)
         if (c==0):
           self.current_color = c
           self.old_color_item = item
-          self.old_color_item.set(width_units = 4.0,
-                                  outline_color_rgba= 0x16EC3DFFL)
+          self.old_color_item.props.line_width = 4.0
+          self.old_color_item.stroke_color_rgba = 0x16EC3DFFL
 
   # Color event
-  def color_item_event(self, item, event, color):
+  def color_item_event(self, item, target, event, color):
     if self.running:
       return
 
@@ -704,50 +703,49 @@ class Gcompris_anim:
       gcompris.sound.play_ogg("sounds/drip.wav")
       if event.button == 1:
         # Deactivate old button
-        self.old_color_item.set(width_units = 0.0,
-                                outline_color_rgba= 0x144B9DFFL)
+        self.old_color_item.props.line_width = 0.0
+        self.old_color_item.props.stroke_color_rgba = 0x144B9DFFL
 
         # Activate new button
         self.current_color = color
         self.old_color_item = item
-        self.old_color_item.set(width_units = 4.0,
-                                outline_color_rgba= 0x16EC3DFFL)
+        self.old_color_item.props.line_width = 4.0
+        self.old_color_item.props.stroke_color_rgba= 0x16EC3DFFL
 
 
   # Display the drawing area
   def draw_drawing_area(self,step):
 
-    x1=self.drawing_area[0]
-    y1=self.drawing_area[1]
-    x2=self.drawing_area[2]
-    y2=self.drawing_area[3]
+    x1 = self.drawing_area[0]
+    y1 = self.drawing_area[1]
+    x2 = self.drawing_area[2]
+    y2 = self.drawing_area[3]
 
-    item = self.rootitem.add (
-      gnomecanvas.CanvasRect,
-      x1=x1,
-      y1=y1,
-      x2=x2,
-      y2=y2,
+    item = \
+      goocanvas.Rect(
+        parent = self.rootitem,
+      x = x1,
+      y = y1,
+      width = x2 - x1,
+      height = y2 - y1,
       fill_color_rgba=0xFFFFFFFFL,
-      width_units=2.0,
-      outline_color_rgba=0x111199FFL
+      line_width=2.0,
+      stroke_color_rgba=0x111199FFL
       )
-    item.connect("event", self.create_item_event)
+    item.connect("button_press_event", self.create_item_event)
 
     # The CanvasGroup for the edit space.
-    self.root_drawingitem = self.rootitem.add(
-      gnomecanvas.CanvasGroup,
-      x=0.0,
-      y=0.0
+    self.root_drawingitem = \
+      goocanvas.Group(
+        parent = self.rootitem,
       )
     self.draw_grid(x1,x2,y1,y2,step)
 
     # Create the root_anim group which contains all the drawings.
     # At root_anim root, there is a group for each drawings.
-    self.root_anim = self.rootitem.add(
-      gnomecanvas.CanvasGroup,
-      x=0.0,
-      y=0.0
+    self.root_anim = \
+      goocanvas.Group(
+        parent = self.rootitem,
       )
 
     gcompris.utils.item_absolute_move(self.root_anim,
@@ -757,13 +755,14 @@ class Gcompris_anim:
 
     # Create a group for the first drawing
 
-    self.flash = self.rootitem.add (
-      gnomecanvas.CanvasPixbuf,
+    self.flash = \
+      goocanvas.Image(
+        parent = self.rootitem,
       pixbuf = gcompris.utils.load_pixmap(gcompris.skin.image_to_skin("draw/camera.png")),
       x=300,
       y=200,
       )
-    self.flash.hide()
+    self.flash.props.visibility = goocanvas.ITEM_INVISIBLE
 
 
   # Display the drawing area
@@ -776,30 +775,29 @@ class Gcompris_anim:
 
 
     # The CanvasGroup for the playing area.
-    self.root_playingitem = self.rootitem.add(
-      gnomecanvas.CanvasGroup,
-      x=0.0,
-      y=0.0
+    self.root_playingitem = \
+      goocanvas.Group(
+        parent = self.rootitem,
       )
-    self.root_playingitem.hide()
+    self.root_playingitem.props.visibility = goocanvas.ITEM_INVISIBLE
 
     # intervall = 1000 / anim_speed
     self.anim_speed=5
 
-    run = self.root_playingitem.add(
-      gnomecanvas.CanvasPixbuf,
+    run = \
+      goocanvas.Image(
+        parent = self.root_playingitem,
       pixbuf = gcompris.utils.load_pixmap(gcompris.skin.image_to_skin("draw/down.png")),
       x = 15,
       y = 410,
       width = 20,
       height = 20,
-      width_set = 1,
-      height_set = 1
       )
-    run.connect("event", self.speed_event,False)
+    run.connect("button_press_event", self.speed_event,False)
 
-    self.speed_item = self.root_playingitem.add(
-      gnomecanvas.CanvasText,
+    self.speed_item = \
+      goocanvas.Text(
+        parent = self.root_playingitem,
       text=self.anim_speed,
       font = gcompris.skin.get_font("gcompris/board/medium"),
       x=52,
@@ -808,29 +806,29 @@ class Gcompris_anim:
       )
 
 
-    run = self.root_playingitem.add(
-      gnomecanvas.CanvasPixbuf,
+    run = \
+      goocanvas.Image(
+        parent = self.root_playingitem,
       pixbuf = gcompris.utils.load_pixmap(gcompris.skin.image_to_skin("draw/up.png")),
       x = 70,
       y = 410,
       width = 20,
       height = 20,
-      width_set = 1,
-      height_set = 1
       )
-    run.connect("event", self.speed_event,True)
+    run.connect("button_press_event", self.speed_event,True)
 
     # And finaly a STOP icon
-    run = self.root_playingitem.add(
-      gnomecanvas.CanvasPixbuf,
+    run = \
+      goocanvas.Image(
+        parent = self.root_playingitem,
       pixbuf = gcompris.utils.load_pixmap(gcompris.skin.image_to_skin("boardicons/draw.svg")),
       x = 16,
       y = 110,
       )
-    run.connect("event", self.stop_event,True)
+    run.connect("button_press_event", self.stop_event,True)
 
 
-  def stop_event(self, item, event, up):
+  def stop_event(self, item, target, event, up):
     if event.type == gtk.gdk.BUTTON_PRESS:
       gcompris.sound.play_ogg("sounds/bleep.wav")
       self.playing_stop()
@@ -840,7 +838,7 @@ class Gcompris_anim:
     gobject.source_remove(self.timeout)
     self.run_anim2()
 
-  def speed_event(self, item, event, up):
+  def speed_event(self, item, target, event, up):
 
     if event.type == gtk.gdk.BUTTON_PRESS:
       gcompris.sound.play_ogg("sounds/bleep.wav")
@@ -867,31 +865,32 @@ class Gcompris_anim:
 
     color = 0x1D0DFFFFL
 
-    self.grid = self.rootitem.add (
-      gnomecanvas.CanvasGroup,
-      x=0.0,
-      y=0.0
+    self.grid = \
+      goocanvas.Group(
+        parent = self.rootitem,
       )
-    self.grid.hide()
+    self.grid.props.visibility = goocanvas.ITEM_INVISIBLE
 
     for i in range(int(x1), int(x2), step):
-      item = self.grid.add (
-        gnomecanvas.CanvasLine,
-        points=(i , y1, i , y2),
+      item = \
+        goocanvas.Polyline(
+          parent = self.grid,
+        points = goocanvas.Points([(i , y1), (i , y2)]),
         fill_color_rgba=color,
-        width_units=1.0,
+        line_width=1.0,
         )
       # Clicking on lines let you create object
-      item.connect("event", self.create_item_event)
+      item.connect("button_press_event", self.create_item_event)
 
     for i in range(int(y1), int(y2), step):
-      item = self.grid.add (
-        gnomecanvas.CanvasLine,
-        points=(x1, i, x2 , i),
+      item = \
+        goocanvas.Polyline(
+          parent = self.grid,
+        points= goocanvas.Points([(x1, i), (x2 , i)]),
         fill_color_rgba=color,
-        width_units=1.0,
+        line_width=1.0,
         )
-      item.connect("event", self.create_item_event)
+      item.connect("button_press_event", self.create_item_event)
 
   # Given x,y return a new x,y snapped to the grid
   def snap_to_grid(self, x, y):
@@ -971,7 +970,7 @@ class Gcompris_anim:
           return True
         # activate the anchors
         self.selected=item.get_property("parent")
-        self.selected.item_list[1].show()
+        self.selected.item_list[1].props.visibility = goocanvas.ITEM_VISIBLE
 
         # Reset the in_select_ofx ofset
         self.in_select_ofx = -1
@@ -1045,13 +1044,13 @@ class Gcompris_anim:
       if event.button == 1:
         gcompris.sound.play_ogg("sounds/paint1.wav")
         if self.tools[self.current_tool][0] == "FILL":
-          item.set(outline_color_rgba=self.colors[self.current_color])
+          item.set(stroke_color_rgba=self.colors[self.current_color])
           return True
     return False
 
   # Del an item and internal struct cleanup
   def del_item(self, item):
-    item.get_property("parent").destroy()
+    item.get_property("parent").remove()
     self.del_AnimItem(item.get_data("AnimItem"))
 
   # Event when a click on an item happen
@@ -1066,7 +1065,7 @@ class Gcompris_anim:
     return False
 
   # Event when an event on the drawing area happen
-  def create_item_event(self, item, event):
+  def create_item_event(self, item, target, event):
     if(event.type == gtk.gdk.BUTTON_PRESS and self.running==True):
       self.playing_stop()
       return False
@@ -1095,10 +1094,9 @@ class Gcompris_anim:
         #print "----------------------------------------"
         #print "Current image = " + str(self.current_frame)
         #self.dump_group(self.root_anim)
-        self.newitemgroup = self.root_anim.add(
-          gnomecanvas.CanvasGroup,
-          x=0.0,
-          y=0.0
+        self.newitemgroup = \
+          goocanvas.Group(
+            parent = self.root_anim,
           )
 
 
@@ -1132,11 +1130,12 @@ class Gcompris_anim:
 #           .....
 #        Item
 
-          self.newitem = self.newitemgroup.add(
-            gnomecanvas.CanvasLine,
+          self.newitem = \
+            goocanvas.Polyline(
+              parent = self.newitemgroup,
             points=tuple_points,
             fill_color_rgba=self.colors[self.current_color],
-            width_units=8.0
+            line_width=8.0
             )
 
         elif self.tools[self.current_tool][0] == "RECT":
@@ -1159,14 +1158,15 @@ class Gcompris_anim:
               points[c + '1'] = eval(c) - self.draw_defaults_size['LINE'][dist[c]]/2
               points[c + '2'] = eval(c) + self.draw_defaults_size['LINE'][dist[c]]/2
 
-          self.newitem = self.newitemgroup.add(
-            gnomecanvas.CanvasRect,
-            x1=points['x1'],
-            y1=points['y1'],
-            x2=points['x2'],
-            y2=points['y2'],
-            outline_color_rgba=self.colors[self.current_color],
-            width_units=4.0
+          self.newitem = \
+            goocanvas.Rect(
+              parent = self.newitemgroup,
+            x = points['x'],
+            y = points['y'],
+            width = points['width'],
+            height = points['height'],
+            stroke_color_rgba=self.colors[self.current_color],
+            line_width=4.0
             )
           #          self.newitem.set_data('empty',True)
           gcompris.utils.canvas_set_property(self.newitem, "empty", "True")
@@ -1190,16 +1190,17 @@ class Gcompris_anim:
               points[c + '1'] = eval(c) - self.draw_defaults_size['LINE'][dist[c]]/2
               points[c + '2'] = eval(c) + self.draw_defaults_size['LINE'][dist[c]]/2
 
-          self.newitem = self.newitemgroup.add(
-            gnomecanvas.CanvasRect,
-            x1=points['x1'],
-            y1=points['y1'],
-            x2=points['x2'],
-            y2=points['y2'],
+          self.newitem = \
+            goocanvas.Rect(
+            parent = self.newitemgroup,
+            x = points['x'],
+            y = points['y'],
+            width = points['width'],
+            height = points['height'],
             fill_color=self.colors[self.current_color],
             fill_color_rgba=self.colors[self.current_color],
-            outline_color_rgba=0x000000FFL,
-            width_units=1.0
+            stroke_color_rgba=0x000000FFL,
+            line_width=1.0
             )
 
         elif self.tools[self.current_tool][0] == "CIRCLE":
@@ -1223,14 +1224,15 @@ class Gcompris_anim:
               points[c + '1'] = eval(c) - self.draw_defaults_size['LINE'][dist[c]]/2
               points[c + '2'] = eval(c) + self.draw_defaults_size['LINE'][dist[c]]/2
 
-          self.newitem = self.newitemgroup.add(
-            gnomecanvas.CanvasEllipse,
-            x1=points['x1'],
-            y1=points['y1'],
-            x2=points['x2'],
-            y2=points['y2'],
-             outline_color_rgba=self.colors[self.current_color],
-            width_units=5.0
+          self.newitem = \
+            goocanvas.Ellipse(
+              parent = self.newitemgroup,
+            center_x = points['center_x'],
+            center_y = points['center_y'],
+            radius_x = points['radius_x'],
+            radius_y = points['radius_y'],
+             stroke_color_rgba=self.colors[self.current_color],
+            line_width=5.0
             )
           #          self.newitem.set_data('empty',True)
           gcompris.utils.canvas_set_property(self.newitem, "empty", "True")
@@ -1256,15 +1258,16 @@ class Gcompris_anim:
               points[c + '1'] = eval(c) - self.draw_defaults_size['LINE'][dist[c]]/2
               points[c + '2'] = eval(c) + self.draw_defaults_size['LINE'][dist[c]]/2
 
-          self.newitem = self.newitemgroup.add(
-            gnomecanvas.CanvasEllipse,
+          self.newitem = \
+            goocanvas.Ellipse(
+              parent = self.newitemgroup,
             x1=points['x1'],
             y1=points['y1'],
             x2=points['x2'],
             y2=points['y2'],
             fill_color_rgba=self.colors[self.current_color],
-            outline_color_rgba=0x000000FFL,
-            width_units=1.0
+            stroke_color_rgba=0x000000FFL,
+            line_width=1.0
             )
 
         elif self.tools[self.current_tool][0] == "TEXT":
@@ -1273,8 +1276,9 @@ class Gcompris_anim:
           self.pos_x = x
           self.pos_y = y
 
-          self.newitem = self.newitemgroup.add(
-            gnomecanvas.CanvasText,
+          self.newitem = \
+            goocanvas.Text(
+              parent = self.newitemgroup,
             x=self.pos_x,
             y=self.pos_y,
             fill_color_rgba=self.colors[self.current_color],
@@ -1415,18 +1419,18 @@ class Gcompris_anim:
       self.Anim2Shot()
 
   def run_flash(self):
-    self.flash.hide()
+    self.flash.props.visibility = goocanvas.ITEM_INVISIBLE
     return False
 
   def playing_start(self):
     if not self.running:
       self.running=True
-      self.root_coloritem.hide()
-      self.root_toolitem.hide()
-      self.root_playingitem.show()
+      self.root_coloritem.props.visibility = goocanvas.ITEM_INVISIBLE
+      self.root_toolitem.props.visibility = goocanvas.ITEM_INVISIBLE
+      self.root_playingitem.props.visibility = goocanvas.ITEM_VISIBLE
       self.Anim2Run()
 
-  def playing_event(self, item, event, state):
+  def playing_event(self, item, target, event, state):
     if event.type == gtk.gdk.BUTTON_PRESS:
       if state:
         self.playing_start()
@@ -1446,36 +1450,36 @@ class Gcompris_anim:
       return
 
     # Draw the background area
-    self.rootitem.add(
-      gnomecanvas.CanvasPixbuf,
+
+      goocanvas.Image(
+        parent = self.rootitem,
       pixbuf = gcompris.utils.load_pixmap(gcompris.skin.image_to_skin("draw/counter.png")),
       x=x_left - -11,
       y=y_top - 2,
       width=70.0,
       height=34.0,
-      width_set=True,
-      height_set=True
       )
 
     # First
     #item = self.rootitem.add(
-    #  gnomecanvas.CanvasPixbuf,
+    #  goocanvas.Image,
     #  pixbuf = gcompris.utils.load_pixmap(gcompris.skin.image_to_skin("anim/minibutton.png")),
     #  x = x_left,
     #  y = y_top,
     #  )
-    #item.connect("event", self.image_select_event, "first")
+    #item.connect("button_press_event", self.image_select_event, "first")
     #item = self.rootitem.add(
-    #  gnomecanvas.CanvasText,
+    #  goocanvas.Text,
     #  text = "<<",
     #  x = x_left + 14,
     #  y = y_top + 7,
     #  )
-    #item.connect("event", self.image_select_event, "first")
+    #item.connect("button_press_event", self.image_select_event, "first")
 
     # Image Number
-    self.item_frame_counter = self.rootitem.add(
-      gnomecanvas.CanvasText,
+    self.item_frame_counter = \
+      goocanvas.Text(
+        parent = self.rootitem,
       text = self.current_frame + 1,
       x = x_left + minibutton_width + 14,
       y = y_top + 15,
@@ -1483,54 +1487,54 @@ class Gcompris_anim:
 
     # Last
     #item = self.rootitem.add(
-    #  gnomecanvas.CanvasPixbuf,
+    #  goocanvas.Image,
     #  pixbuf = gcompris.utils.load_pixmap(gcompris.skin.image_to_skin("anim/minibutton.png")),
     #  x = x_left + 2*minibutton_width,
     #  y = y_top,
     #  )
-    #item.connect("event", self.image_select_event, "last")
+    #item.connect("button_press_event", self.image_select_event, "last")
     #item = self.rootitem.add(
-    #  gnomecanvas.CanvasText,
+    #  goocanvas.Text,
     #  text = ">>",
     #  x = x_left + 2*minibutton_width + 14,
     #  y = y_top + 7,
     #  )
-    #item.connect("event", self.image_select_event, "last")
+    #item.connect("button_press_event", self.image_select_event, "last")
 
     # Next line
     #y_top += minibutton_height
 
     # Previous
     #item = self.rootitem.add(
-    #  gnomecanvas.CanvasPixbuf,
+    #  goocanvas.Image,
     #  pixbuf = gcompris.utils.load_pixmap(gcompris.skin.image_to_skin("anim/minibutton.png")),
     #  x = x_left,
     #  y = y_top,
     #  )
-    #item.connect("event", self.image_select_event, "previous")
+    #item.connect("button_press_event", self.image_select_event, "previous")
     ##item = self.rootitem.add(
-    #  gnomecanvas.CanvasText,
+    #  goocanvas.Text,
     #  text = "<",
     #  x = x_left + 14,
     #  y = y_top + 7,
     #  )
-    #item.connect("event", self.image_select_event, "previous")
+    #item.connect("button_press_event", self.image_select_event, "previous")
 
     # Next
     #item = self.rootitem.add(
-    #  gnomecanvas.CanvasPixbuf,
+    #  goocanvas.Image,
     #  pixbuf = gcompris.utils.load_pixmap(gcompris.skin.image_to_skin("anim/minibutton.png")),
     #  x = x_left + 2*minibutton_width,
     #  y = y_top,
     #  )
-    #item.connect("event", self.image_select_event, "next")
+    #item.connect("button_press_event", self.image_select_event, "next")
     #item = self.rootitem.add(
-    #  gnomecanvas.CanvasText,
+    #  goocanvas.Text,
     #  text = ">",
     #  x = x_left + 2*minibutton_width + 14,
     #  y = y_top + 7,
     #  )
-    #item.connect("event", self.image_select_event, "next")
+    #item.connect("button_press_event", self.image_select_event, "next")
 
     # Last button line
     #y_top += minibutton_height
@@ -1638,7 +1642,7 @@ class Gcompris_anim:
           )
 
 
-  def resize_item_event(self, item, event, anchor_type):
+  def resize_item_event(self, item, target, event, anchor_type):
     if self.running:
       return
 
@@ -1780,7 +1784,7 @@ class Gcompris_anim:
       item_type='LINE'
     elif gobject.type_name(item)=="GnomeCanvasPixbuf":
       item_type='IMAGE'
-    elif gobject.type_name(item)=="GnomeCanvasRect":
+    elif gobject.type_name(item)=="GnomeRect":
       try:
         # Can't do it here because it needs to be C compatible for the svgexport
         empty = gcompris.utils.canvas_get_property(item, "empty")
@@ -1799,7 +1803,7 @@ class Gcompris_anim:
       else:
         item_type='FILL_RECT'
 
-    elif gobject.type_name(item)=="GnomeCanvasEllipse":
+    elif gobject.type_name(item)=="GnomeEllipse":
       try:
         #empty = item.get_data('empty')
         # Can't do it here because it needs to be C compatible for the svgexport
@@ -1850,25 +1854,27 @@ class Gcompris_anim:
       return
 
     for event in self.events[item_type]:
-      item.connect("event", event)
+      item.connect("button_press_event", event)
 
-    anchorgroup=group.add(
-      gnomecanvas.CanvasGroup,
+    anchorgroup = \
+      goocanvas.Group(
+        parent = group,
       x=0,
       y=0
       )
     anchorgroup.set_data('anchors',True)
-    anchorgroup.hide()
+    anchorgroup.props.visibility = goocanvas.ITEM_INVISIBLE
 
     for anchor_type in self.anchors[item_type]:
-      anchor=anchorgroup.add(
-        gnomecanvas.CanvasRect,
+      anchor = \
+          goocanvas.Rect(
+        parent = anchorgroup,
         fill_color_rgba=self.ANCHOR_COLOR,
-        outline_color_rgba=0x000000FFL,
+        stroke_color_rgba=0x000000FFL,
         width_pixels=1,
         )
       anchor.set_data('anchor_type', anchor_type)
-      anchor.connect("event", self.resize_item_event,anchor_type)
+      anchor.connect("button_press_event", self.resize_item_event,anchor_type)
 
   def select_item(self, group):
     if (self.selected != None):
@@ -1884,7 +1890,7 @@ class Gcompris_anim:
     gcompris.set_cursor(self.tools[self.current_tool][3]);
 
     self.selected = group
-    self.selected.item_list[1].show()
+    self.selected.item_list[1].props.visibility = goocanvas.ITEM_VISIBLE
 
   def rotate_relative(self, item, angle):
     bounds = item.get_bounds()
@@ -2035,7 +2041,7 @@ class Gcompris_anim:
   def Anim2Shot(self):
     if self.gcomprisBoard.mode == 'draw':
       return
-    self.flash.show()
+    self.flash.props.visibility = goocanvas.ITEM_VISIBLE
     for anAnimItem in self.framelist[:]:
       if anAnimItem.z == None:
         # deleted
@@ -2075,7 +2081,7 @@ class Gcompris_anim:
         continue
       modif = item.frames_info[frame].copy()
       if modif.has_key('delete'):
-        item.canvas_item.destroy()
+        item.canvas_item.remove()
         continue
       if modif.has_key('create'):
         del modif['create']
@@ -2113,23 +2119,21 @@ class Gcompris_anim:
   def run_anim2(self):
     if self.running:
       if self.current_frame==0:
-        self.playing.destroy()
+        self.playing.remove()
         self.playing = self.rootitem.add(
-          gnomecanvas.CanvasGroup,
-          x=0.0,
-          y=0.0
+          goocanvas.Group,
           )
       self.apply_frame((self.current_frame)%(self.frames_total))
       self.current_frame=(self.current_frame+1)%(self.frames_total)
       self.item_frame_counter.set(text=self.current_frame + 1)
     else:
-      self.playing.destroy()
+      self.playing.remove()
       self.current_frame = self.frames_total
       self.item_frame_counter.set(text=self.current_frame + 1)
-      self.root_anim.show()
-      self.root_coloritem.show()
-      self.root_toolitem.show()
-      self.root_playingitem.hide()
+      self.root_anim.props.visibility = goocanvas.ITEM_VISIBLE
+      self.root_coloritem.props.visibility = goocanvas.ITEM_VISIBLE
+      self.root_toolitem.props.visibility = goocanvas.ITEM_VISIBLE
+      self.root_playingitem.props.visibility = goocanvas.ITEM_INVISIBLE
       gcompris.bar_hide(False)
     return self.running
 
@@ -2140,11 +2144,9 @@ class Gcompris_anim:
       self.running=False
       return
     # Hide the current drawing
-    self.root_anim.hide()
+    self.root_anim.props.visibility = goocanvas.ITEM_INVISIBLE
     self.playing = self.root_anim.add(
-      gnomecanvas.CanvasGroup,
-      x=0.0,
-      y=0.0
+      goocanvas.Group,
       )
 
     self.playlist = []
@@ -2171,7 +2173,7 @@ class Gcompris_anim:
       self.selected.item_list[0].set(markup=self.last_commit)
       self.last_commit = None
       gcompris.im_reset()
-    self.selected.item_list[1].hide()
+    self.selected.item_list[1].props.visibility = goocanvas.ITEM_INVISIBLE
     self.selected = None
 
 
@@ -2323,21 +2325,21 @@ def list_restore(picklelist):
     data_list = { 'LINE' : ['parent', 'points'],
                   'IMAGE' : ['parent', 'x', 'y', 'width', 'height'],
                   'TEXT' : ['parent', 'x', 'y'],
-                  'RECT': ['parent', 'x1', 'y1', 'x2', 'y2'],
-                  'FILL_RECT': ['parent', 'x1', 'y1', 'x2', 'y2'],
-                  'CIRCLE': ['parent', 'x1', 'y1', 'x2', 'y2'],
-                  'FILL_CIRCLE': ['parent', 'x1', 'y1', 'x2', 'y2']
+                  'RECT': ['parent', 'x', 'y', 'width', 'height'],
+                  'FILL_RECT': ['parent', 'x', 'y', 'width', 'height'],
+                  'CIRCLE': ['parent', 'center_x', 'center_y', 'radius_x', 'radius_y'],
+                  'FILL_CIRCLE': ['parent', 'center_x', 'center_y', 'radius_x', 'radius_y'],
       }
 
     data = {}
     for prop in data_list[item.type]:
-      data[prop]=item.canvas_item.get_property(prop)
+      data[prop] = item.canvas_item.get_property(prop)
 
     if item.type == 'LINE':
       param = data['parent'], data['points'][0], data['points'][1], data['points'][2], data['points'][3],
     elif item.type == 'TEXT':
       bounds = item.canvas_item.get_bounds()
-      param = data['parent'], bounds[0],bounds[1],bounds[2],bounds[3]
+      param = data['parent'], bounds.x1, bounds.y1, bounds.x2, bounds.y2
     elif item.type == 'IMAGE':
       param = data['parent'], data['x'], data['y'], data['x']+data['width'], data['y']+data['height']
     else:
@@ -2353,8 +2355,8 @@ def list_restore(picklelist):
 
   for item in fles.framelist:
     try:
-      # can have been destroyed before by a delete action. No matter
-      item.canvas_item.get_property("parent").destroy()
+      # can have been removeed before by a delete action. No matter
+      item.canvas_item.get_property("parent").remove()
     except:
       pass
 
@@ -2391,7 +2393,7 @@ def list_restore(picklelist):
   fles.z_reinit()
   fles.current_frame = fles.frames_total
 
-  fles.root_anim.show()
+  fles.root_anim.props.visibility = goocanvas.ITEM_VISIBLE
 
   # now each item needs to get it's frames_info cleared
   if fles.gcomprisBoard.mode != 'draw':
@@ -2406,7 +2408,7 @@ def restore_item(item, frame, missing):
     return
   modif = item.frames_info[frame].copy()
   if modif.has_key('delete'):
-    item.canvas_item.get_property("parent").destroy()
+    item.canvas_item.get_property("parent").remove()
     fles.framelist.remove(item)
     return False
   if (modif.has_key('create') or (fles.gcomprisBoard.mode == 'draw')):
@@ -2437,9 +2439,7 @@ def restore_item(item, frame, missing):
       pixmap = gcompris.utils.load_pixmap(item.image_name)
       modif['pixbuf']= pixmap
     newitemgroup = fles.root_anim.add(
-        gnomecanvas.CanvasGroup,
-        x=0.0,
-        y=0.0
+        goocanvas.Group,
         )
     item.canvas_item = newitemgroup.add(fles.types[item.type], **modif)
     item.canvas_item.set_data("AnimItem", item)
@@ -2466,7 +2466,7 @@ def restore_item(item, frame, missing):
     if len(modif) != 0:
       # Bourrin: je supprime les ancres et je les remets apres les modifs
       # Pas envie de me faire ch*** a retraiter les resize et les move
-      #item.canvas_item.get_property("parent").item_list[1].destroy()
+      #item.canvas_item.get_property("parent").item_list[1].remove()
       item.canvas_item.set(**modif)
       #fles.anchorize(item.canvas_item.get_property("parent"))
     return True
@@ -2662,10 +2662,10 @@ class BaseProcess:
                       'fill',
                       self.rgb_write(item[1][frame_no]['fill_color_rgba']))
                   continue
-                if (attr == 'outline_color_rgba'):
+                if (attr == 'stroke_color_rgba'):
                   self.frame.setAttribute(
                       'stroke',
-                      self.rgb_write(item[1][frame_no]['outline_color_rgba']))
+                      self.rgb_write(item[1][frame_no]['stroke_color_rgba']))
                   continue
                 if (attr == 'width-units'):
                   self.frame.setAttribute(
@@ -2680,10 +2680,10 @@ class BaseProcess:
                       str(item[1][frame_no]['width-units']))
                   continue
 
-                if (attr == 'outline_color_rgba'):
+                if (attr == 'stroke_color_rgba'):
                   self.frame.setAttribute(
                       'stroke',
-                      self.rgb_write(item[1][frame_no]['outline_color_rgba']))
+                      self.rgb_write(item[1][frame_no]['stroke_color_rgba']))
                   continue
                 if (item[0] == 'CIRCLE') and item[1][frame_no].has_key('create'):
                   self.frame.setAttribute('fill', 'none')
@@ -2845,9 +2845,6 @@ class BaseProcess:
                     # Pass the image_name info in private child
                     self.image.appendChild(self.gcompris_name)
                     self.gcompris_name.setAttribute('value',image_name)
-                  continue
-
-                if ((attr == 'height_set') or  (attr == 'width_set')):
                   continue
 
               if (attr == 'matrice'):
@@ -3092,12 +3089,12 @@ class Outputter:
              if (k == 'stroke'):
                # used in CIRCLE LINE and RECT
                if (self.item_getting[0] in ['CIRCLE','RECT','LINE','FILL_RECT','FILL_CIRCLE']):
-                 # CIRCLE RECT -> outline_color_rgba
+                 # CIRCLE RECT -> stroke_color_rgba
                  # LINE -> fill_color_rgba
                  if (self.item_getting[0] == 'LINE'):
                    frame_info['fill_color_rgba'] = eval(attrs[k])
                  else:
-                   frame_info['outline_color_rgba'] = eval(attrs[k])
+                   frame_info['stroke_color_rgba'] = eval(attrs[k])
                  continue
              if (k == 'fill'):
                #used in FILL_CIRCLE and FILL_RECT
@@ -3383,9 +3380,7 @@ def image_selected(image):
 
   fles.newitem = None
   fles.newitemgroup = fles.root_anim.add(
-    gnomecanvas.CanvasGroup,
-    x=0.0,
-    y=0.0
+    goocanvas.Group,
     )
 
   x= fles.pos_x
@@ -3394,14 +3389,12 @@ def image_selected(image):
   height = pixmap.get_height()
 
   fles.newitem = fles.newitemgroup.add(
-    gnomecanvas.CanvasPixbuf,
+    goocanvas.Image,
     pixbuf = pixmap,
     x=x,
     y=y,
     width=width,
     height=height,
-    width_set = True,
-    height_set = True
     )
 
   # Tell svg_save the filename

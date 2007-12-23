@@ -1,6 +1,6 @@
 # PythonTest Board module
 import gobject
-import gnomecanvas
+import goocanvas
 import gcompris
 import gcompris.utils
 import gcompris.skin
@@ -91,17 +91,13 @@ class Gcompris_pythontest:
     self.colors['line'] = self.config_colors[color_name]
 
     gcompris.bar_set(gcompris.BAR_CONFIG)
-    gcompris.set_background(self.gcomprisBoard.canvas.root(),
+    gcompris.set_background(self.gcomprisBoard.canvas.get_root_item(),
                             gcompris.skin.image_to_skin("gcompris-bg.jpg"))
     gcompris.bar_set_level(self.gcomprisBoard)
 
     # Create our rootitem. We put each canvas item in it so at the end we
     # only have to kill it. The canvas deletes all the items it contains automaticaly.
-    self.rootitem = self.gcomprisBoard.canvas.root().add(
-      gnomecanvas.CanvasGroup,
-      x=0.0,
-      y=0.0
-      )
+    self.rootitem = goocanvas.Group(parent =  self.gcomprisBoard.canvas.get_root_item())
 
     # distance is used to demo of gcompris.spin_int
     distance = eval(self.config_dict['distance_circle'])
@@ -109,8 +105,8 @@ class Gcompris_pythontest:
     # pattern is for gcompris.radio_buttons
     pattern = self.config_dict['pattern']
 
-    patterns = { 'circle': gnomecanvas.CanvasEllipse,
-                 'rectangle': gnomecanvas.CanvasRect
+    patterns = { 'circle': goocanvas.Ellipse,
+                 'rectangle': goocanvas.Rect
                  }
 
     #error check
@@ -124,8 +120,8 @@ class Gcompris_pythontest:
       x2=380.0 - distance,
       y2=220.0,
       fill_color_rgba= self.colors['circle_in'],
-      outline_color_rgba= self.colors['circle_out'],
-      width_units=1.0
+      stroke_color_rgba= self.colors['circle_out'],
+      line_width=1.0
       )
     self.canvasitems[1].connect("event", self.circle_item_event)
 
@@ -136,13 +132,13 @@ class Gcompris_pythontest:
       x2=420.0 + distance,
       y2=220.0,
       fill_color_rgba= self.colors['circle_in'],
-      outline_color_rgba= self.colors['circle_out'],
-      width_units=1.0
+      stroke_color_rgba= self.colors['circle_out'],
+      line_width=1.0
       )
     self.canvasitems[2].connect("event", self.circle_item_event)
 
-    self.canvasitems[3] = self.rootitem.add(
-      gnomecanvas.CanvasText,
+    self.canvasitems[3] = goocanvas.Text(
+      parent = self.rootitem,
       x=400.0,
       y=100.0,
       text=_("This is the first plugin in GCompris coded in the Python\nProgramming language."),
@@ -150,8 +146,8 @@ class Gcompris_pythontest:
       justification=gtk.JUSTIFY_CENTER
       )
 
-    self.canvasitems[4] = self.rootitem.add(
-      gnomecanvas.CanvasText,
+    self.canvasitems[4] =goocanvas.Text(
+      parent = self.rootitem,
       x=400.0,
       y=140.0,
       text=_("It is now possible to develop GCompris activities in C or in Python.\nThanks to Olivier Samys who makes this possible."),
@@ -160,7 +156,7 @@ class Gcompris_pythontest:
       )
 
     self.canvasitems[5] = self.rootitem.add(
-      gnomecanvas.CanvasText,
+      goocanvas.Text,
       x=400.0,
       y=250.0,
       text=_("This activity is not playable, just a test"),
@@ -171,19 +167,19 @@ class Gcompris_pythontest:
     #----------------------------------------
     # A simple game.
     # Try to hit left shift and right shift together. The peed increases
-    self.rootitem.add(
-          gnomecanvas.CanvasRect,
-          x1=20,
-          y1=gcompris.BOARD_HEIGHT-180,
-          x2=gcompris.BOARD_WIDTH-20,
-          y2=gcompris.BOARD_HEIGHT-10,
-          fill_color_rgba=0xe0ecfaFFL,
-          outline_color_rgba=0xc3d9f1FFL,
-          width_units=2.0)
+    goocanvas.Rect(
+      parent = self.rootitem,
+      x1=20,
+      y1=gcompris.BOARD_HEIGHT-180,
+      x2=gcompris.BOARD_WIDTH-20,
+      y2=gcompris.BOARD_HEIGHT-10,
+      fill_color_rgba=0xe0ecfaFFL,
+      stroke_color_rgba=0xc3d9f1FFL,
+      line_width=2.0)
 
     # For the game status WIN/LOOSE
-    self.canvasitems[6] = self.rootitem.add(
-      gnomecanvas.CanvasText,
+    self.canvasitems[6] = goocanvas.Text(
+      parent = self.rootitem,
       x=gcompris.BOARD_WIDTH / 2,
       y=gcompris.BOARD_HEIGHT - 40,
       font=gcompris.skin.get_font("gcompris/content"),
@@ -191,8 +187,8 @@ class Gcompris_pythontest:
       justification=gtk.JUSTIFY_CENTER
       )
 
-    self.rootitem.add(
-      gnomecanvas.CanvasText,
+    goocanvas.Text(
+      parent = self.rootitem,
       x=400.0,
       y=400.0,
       text=("Test your reflex with the counter. Hit the 2 shifts key together.\nHit space to reset the counter and increase the speed.\nBackspace to reset the speed"),
@@ -208,8 +204,8 @@ class Gcompris_pythontest:
     self.counter_left  = 0
     self.counter_right = 0
 
-    self.canvasitems[7] = self.rootitem.add(
-      gnomecanvas.CanvasText,
+    self.canvasitems[7] =goocanvas.Text(
+      parent = self.rootitem,
       x=gcompris.BOARD_WIDTH / 2,
       y=gcompris.BOARD_HEIGHT - 80,
       font=gcompris.skin.get_font("gcompris/content"),
@@ -218,16 +214,16 @@ class Gcompris_pythontest:
       justification=gtk.JUSTIFY_CENTER
       )
 
-    self.textitem_left = self.rootitem.add(
-      gnomecanvas.CanvasText,
+    self.textitem_left = goocanvas.Text(
+      parent = self.rootitem,
       font=gcompris.skin.get_font("gcompris/content"),
       x=gcompris.BOARD_WIDTH / 3,
       y=gcompris.BOARD_HEIGHT - 40,
       fill_color_rgba=0xFF000FFFL
       )
 
-    self.textitem_right = self.rootitem.add(
-      gnomecanvas.CanvasText,
+    self.textitem_right =goocanvas.Text(
+      parent = self.rootitem,
       font=gcompris.skin.get_font("gcompris/content"),
       x=gcompris.BOARD_WIDTH / 1.5,
       y=gcompris.BOARD_HEIGHT - 40,
@@ -245,7 +241,7 @@ class Gcompris_pythontest:
     gcompris.reset_locale()
 
     # Remove the root item removes all the others inside it
-    self.rootitem.destroy()
+    self.rootitem.remove()
 
     if self.timer_inc :
       gobject.source_remove(self.timer_inc)
@@ -356,12 +352,12 @@ class Gcompris_pythontest:
         self.pos_x = (bounds[0]+bounds[2])/2
         self.pos_y = (bounds[1]+bounds[3])/2
         if 'line 1' in self.canvasitems:
-          self.canvasitems['line 1'].destroy()
-        self.canvasitems['line 1'] = self.rootitem.add(
-          gnomecanvas.CanvasLine,
+          self.canvasitems['line 1'].remove()
+        self.canvasitems['line 1'] =goocanvas.Line(
+          parent = self.rootitem,
           points=( self.pos_x, self.pos_y, event.x, event.y),
           fill_color_rgba=self.colors['line'],
-          width_units=5.0
+          line_width=5.0
           )
         self.movingline='line 1'
         print "Button press"
@@ -467,7 +463,7 @@ class Gcompris_pythontest:
 
     label = gtk.Label()
     label.set_markup('<i>-- unused, but here for test --</i>')
-    label.show()
+    label.props.visibility = goocanvas.ITEM_VISIBLE
     self.main_vbox.pack_start (label, False, False, 8)
 
     gcompris.combo_locales_asset( _("Select sound locale"), self.config_dict['locale_sound'], "gcompris colors", None, "audio/x-ogg", "purple.ogg" )

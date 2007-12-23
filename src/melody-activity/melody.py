@@ -19,7 +19,7 @@
 #   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 #
 import gobject
-import gnomecanvas
+import goocanvas
 import gcompris
 import gcompris.utils
 import gcompris.skin
@@ -141,12 +141,13 @@ class Gcompris_melody:
     self.in_repeat = 0;
 
     # Remove the root item removes all the others inside it
-    self.rootitem.destroy()
+    if(self.rootitem):
+      self.rootitem.remove()
     self.rootitem = None
 
   def display_current_level(self):
 
-    gcompris.set_background(self.gcomprisBoard.canvas.root(),
+    gcompris.set_background(self.gcomprisBoard.canvas.get_root_item(),
                             self.melodylist[self.theme][0]['background'])
     gcompris.bar_set_level(self.gcomprisBoard)
 
@@ -154,46 +155,43 @@ class Gcompris_melody:
 
     # Create our rootitem. We put each canvas item in it so at the end we
     # only have to kill it. The canvas deletes all the items it contains automaticaly.
-    self.rootitem = self.gcomprisBoard.canvas.root().add(
-      gnomecanvas.CanvasGroup,
-      x=0.0,
-      y=0.0
-      )
+    self.rootitem = goocanvas.Group(parent =  self.gcomprisBoard.canvas.get_root_item())
 
     # Put the theme switcher button
-    self.switch_item = self.rootitem.add(
-        gnomecanvas.CanvasPixbuf,
-        pixbuf = gcompris.utils.load_pixmap("melody/switch.png"),
-        x=10,
-        y=10
-        )
-    self.switch_item.connect("event", self.switch_item_event)
+    self.switch_item =goocanvas.Image(
+      parent = self.rootitem,
+      pixbuf = gcompris.utils.load_pixmap("melody/switch.png"),
+      x=10,
+      y=10
+      )
+    self.switch_item.connect("button_press_event", self.switch_item_event)
     # This item is clickeable and it must be seen
-    self.switch_item.connect("event", gcompris.utils.item_event_focus)
+    self.switch_item.connect("button_press_event", gcompris.utils.item_event_focus)
 
 
     # Put the sound buttons
     self.sound_list = self.melodylist[self.theme][1]
 
     for i in self.sound_list:
-      self.sound_item = self.rootitem.add(
-        gnomecanvas.CanvasPixbuf,
+      self.sound_item =goocanvas.Image(
+        parent = self.rootitem,
         pixbuf = gcompris.utils.load_pixmap(i['image']),
         x=i['x'],
         y=i['y']
         )
-      self.sound_item.connect("event", self.sound_item_event, i)
+      self.sound_item.connect("button_press_event", self.sound_item_event, i)
       # This item is clickeable and it must be seen
-      self.sound_item.connect("event", gcompris.utils.item_event_focus)
+      self.sound_item.connect("button_press_event",
+                              gcompris.utils.item_event_focus)
 
 
-    self.bang_item = self.rootitem.add(
-      gnomecanvas.CanvasPixbuf,
+    self.bang_item = goocanvas.Image(
+      parent = self.rootitem,
       pixbuf = gcompris.utils.load_pixmap(self.melodylist[self.theme][0]['hittool']),
-      x=0,
-      y=0
+      x = 0,
+      y = 0
       )
-    self.bang_item.hide()
+    #self.bang_item.props.visibility = goocanvas.ITEM_INVISIBLE
 
     self.hitofset_x = self.melodylist[self.theme][0]['hitofset_x']
     self.hitofset_y = self.melodylist[self.theme][0]['hitofset_y']
@@ -227,7 +225,7 @@ class Gcompris_melody:
     if self.board_paused or self.rootitem == None:
       return
 
-    self.bang_item.hide()
+    self.bang_item.props.visibility = goocanvas.ITEM_INVISIBLE
     self.timers.pop(0)
 
   # Shows and plays the thing clicked
@@ -236,21 +234,21 @@ class Gcompris_melody:
     if self.board_paused or self.rootitem == None:
       return
 
-    self.bang_item.set(x=a['x'] + self.hitofset_x, y=a['y'] + self.hitofset_y)
-
-    self.bang_item.show()
+    self.bang_item.props.transform = None
+    self.bang_item.translate(a['x'] + self.hitofset_x,
+                             a['y'] + self.hitofset_y)
+    #FIXME THIS STAY HIDDEN
+    #self.bang_item.props.visibility = goocanvas.ITEM_VISIBLE
 
     gcompris.sound.play_ogg_cb(a['sound'], self.sound_played)
     self.timers.pop(0)
 
 
   def repeat(self):
-    #print("Gcompris_melody repeat.")
     # Important to use a timer here to keep self.timers up todate
     self.timers.append(gobject.timeout_add(50, self.repeat_it))
 
   def repeat_it(self):
-    #print("Gcompris_melody repeat it.")
     if self.in_repeat:
       return
 
@@ -273,12 +271,10 @@ class Gcompris_melody:
 
 
   def config(self):
-    #print("Gcompris_melody config.")
     pass
 
   #randomize the sequence and plays it one first time
   def populate(self, sound_struct):
-    #print("Gcompris_melody populate.")
     self.solution = []
 
     for i in range(self.gcomprisBoard.level+2):
@@ -287,7 +283,6 @@ class Gcompris_melody:
     self.timers.append(gobject.timeout_add(1300, self.repeat_it))
 
   def key_press(self, keyval, commit_str, preedit_str):
-    #print("got key %i" % keyval)
     # Play sounds with the keys
     if ((keyval == gtk.keysyms.KP_1) or (keyval == gtk.keysyms._1)):
       #print "son1"
@@ -323,7 +318,6 @@ class Gcompris_melody:
 
 
   def set_level(self, level):
-    #print("Gcompris_melody set level. %i" % level)
     self.gcomprisBoard.level=level;
     self.gcomprisBoard.sublevel=1;
     self.cleanup()
@@ -348,7 +342,7 @@ class Gcompris_melody:
 
 
   # ---------------- sound on click events -----------------------
-  def sound_item_event(self, widget, event, sound_struct):
+  def sound_item_event(self, widget, target, event, sound_struct):
 
     if self.board_paused or self.in_repeat:
       return
@@ -365,7 +359,7 @@ class Gcompris_melody:
     return
 
   # ---------------- theme change on switch events -----------------------
-  def switch_item_event(self, widget, event):
+  def switch_item_event(self, widget, target, event):
 
     if self.board_paused or self.in_repeat:
       return

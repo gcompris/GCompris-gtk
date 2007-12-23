@@ -21,7 +21,7 @@
 #
 
 import gobject
-import gnomecanvas
+import goocanvas
 import gcompris
 import gcompris.utils
 import gcompris.skin
@@ -44,11 +44,12 @@ class Number:
 class Square:
     def __init__(self, x, y):
         self.num = None
-        self.pic = game.rootitem.add( gnomecanvas.CanvasText,
-                                      text = "",
-                                      font = gcompris.skin.get_font("gcompris/content"),
-                                      x = x,
-                                      y = y )
+        self.pic = goocanvas.Text(
+            parent = game.rootitem,
+            text = "",
+            font = gcompris.skin.get_font("gcompris/content"),
+            x = x,
+            y = y )
 
     def setNum(self, num):
         self.num = num
@@ -347,10 +348,10 @@ class Player(object):
     def move_step(self):
         if self.move_stepnum < game.num_moveticks-1:
             self.move_stepnum += 1
-            x_old = self.anim.gnomecanvas.get_property("x")
-            y_old = self.anim.gnomecanvas.get_property("y")
-            x = self.anim.gnomecanvas.get_property("x") + self.velocity[0]*game.sw/game.num_moveticks
-            y = self.anim.gnomecanvas.get_property("y") + self.velocity[1]*game.sh/game.num_moveticks
+            x_old = self.anim.goocanvas.get_property("x")
+            y_old = self.anim.goocanvas.get_property("y")
+            x = self.anim.goocanvas.get_property("x") + self.velocity[0]*game.sw/game.num_moveticks
+            y = self.anim.goocanvas.get_property("y") + self.velocity[1]*game.sh/game.num_moveticks
             ret = True
         else:
             self.move_stepnum = 0
@@ -360,7 +361,7 @@ class Player(object):
             self.movestep_timer = 0
             ret = False
 
-        self.anim.gnomecanvas.set(x=x, y=y)
+        self.anim.goocanvas.set(x=x, y=y)
         return ret
 
     def move(self, x_old, y_old, x, y):
@@ -370,7 +371,7 @@ class Player(object):
         self.x = x
         self.y = y
         self.velocity = [x-x_old, y-y_old]
-        self.anim.gnomecanvas.set(x=(self.x_old * game.sw + game.left),
+        self.anim.goocanvas.set(x=(self.x_old * game.sw + game.left),
                                    y=(self.y_old * game.sh + game.top))
         self.moving = True
 
@@ -413,28 +414,28 @@ class Muncher(Player):
         self.lives = 1
         self.anim = gcompris.anim.CanvasItem(game.munchanimation, game.rootitem)
         self.spare = gcompris.anim.CanvasItem(game.munchanimation, game.rootitem)
-        self.anim.gnomecanvas.hide()
+        self.anim.goocanvas.props.visibility = goocanvas.ITEM_INVISIBLE
         self.key_queue = []
-        self.spare.gnomecanvas.set(x=0, y=0)
+        self.spare.goocanvas.set(x=0, y=0)
 
     def spawn(self):
         if self.lives >= 1:
-            self.spare.gnomecanvas.show()
+            self.spare.goocanvas.props.visibility = goocanvas.ITEM_VISIBLE
         elif self.lives == 0:
-            self.spare.gnomecanvas.hide()
+            self.spare.goocanvas.props.visibility = goocanvas.ITEM_INVISIBLE
         else:
             game.loseGame()
         self.key_queue = []
         game.hide_message()
         self.exists = True
         self.move(0,0,0,0)
-        self.anim.gnomecanvas.show()
+        self.anim.goocanvas.props.visibility = goocanvas.ITEM_VISIBLE
 
     def die(self):
         super(Muncher, self).die()
         self.lives -= 1
         self.exists = False
-        self.anim.gnomecanvas.hide()
+        self.anim.goocanvas.props.visibility = goocanvas.ITEM_INVISIBLE
         self.key_queue = []
 
     def getEaten(self):
@@ -536,13 +537,13 @@ class Troggle(Player):
                 self.y = game.height - 1
             self.x = self.x_old = random.randint(0, game.width-1)
         self.move(self.x_old, self.y_old, self.x, self.y)
-        self.anim.gnomecanvas.show()
+        self.anim.goocanvas.props.visibility = goocanvas.ITEM_VISIBLE
         game.hide_trogwarning()
 
     def die(self):
         super(Troggle, self).die()
         self.exists = 0
-        self.anim.gnomecanvas.hide()
+        self.anim.goocanvas.props.visibility = goocanvas.ITEM_INVISIBLE
 
         time = game.trog_spawn_time()
         self.nextspawn_timer = game.timeout_add( time + game.trogwarn_time, self.spawn )
@@ -713,24 +714,25 @@ class Gcompris_gnumch:
             gcompris.bar_set(gcompris.BAR_LEVEL | gcompris.BAR_REPEAT)
 
         # create our rootitem. We put each canvas item here so at the end we only
-        # need to destroy the rootitem
-        self.rootitem = self.board.canvas.root().add(gnomecanvas.CanvasGroup,
-                                                     x=0.0,
-                                                     y=0.0)
+        # need to remove the rootitem
+            self.rootitem =goocanvas.Group(
+                parent = self.board.canvas.root())
 
         # draw the board on top of the background
         for i in range(0,self.width+1):
-            self.rootitem.add(gnomecanvas.CanvasLine,
-                              points = (i*self.sw + self.left, self.top,
-                                        i*self.sw + self.left, self.scrh),
-                              fill_color_rgba = 0x000000FFL,
-                              width_units = 3.0)
+            goocanvas.Polyline(
+                parent = self.rootitem,
+                points = (i*self.sw + self.left, self.top,
+                          i*self.sw + self.left, self.scrh),
+                fill_color_rgba = 0x000000FFL,
+                line_width = 3.0)
         for i in range(0,self.height+1):
-            self.rootitem.add(gnomecanvas.CanvasLine,
-                              points = (self.left, self.top + i*self.sh,
-                                        self.scrw, self.top + i*self.sh),
-                              fill_color_rgba = 0x000000FFL,
-                              width_units = 3.0)
+            goocanvas.Polyline(
+                parent = self.rootitem,
+                points = (self.left, self.top + i*self.sh,
+                          self.scrw, self.top + i*self.sh),
+                fill_color_rgba = 0x000000FFL,
+                line_width = 3.0)
 
         # munchers and troggles
         self.players = []
@@ -751,58 +753,64 @@ class Gcompris_gnumch:
             self.squares.append(tmp)
 
         # so that the troggles get clipped to the board area
-        self.rootitem.add(gnomecanvas.CanvasRect,
-                          x1=0, y1=0,
-                          x2=self.scrw, y2=self.top,
-                          fill_color_rgba = 0xFFFFFFFFL)
-        self.rootitem.add(gnomecanvas.CanvasRect,
-                          x1=0, y1=0,
-                          x2=self.left, y2=self.scrh,
-                          fill_color_rgba = 0xFFFFFFFFL)
+        goocanvas.Rect(
+            parent = self.rootitem,
+            x1=0, y1=0,
+            x2=self.scrw, y2=self.top,
+            fill_color_rgba = 0xFFFFFFFFL)
+        goocanvas.Rect(
+            parent = self.rootitem,
+            x1=0, y1=0,
+            x2=self.left, y2=self.scrh,
+            fill_color_rgba = 0xFFFFFFFFL)
 
         # the board title
-        self.title = self.rootitem.add(gnomecanvas.CanvasText,
+        self.title = goocanvas.Text(
+            parent = self.rootitem,
                                        text = "",
                                        font = gcompris.skin.get_font("gcompris/board/title bold"),
                                        x = self.scrw/2,
                                        y = self.top/2)
 
         # the message
-        self.message_back = self.rootitem.add(gnomecanvas.CanvasRect,
+        self.message_back = goocanvas.Rect(
+            parent = self.rootitem,
                                         x1=0, y1=0, x2=1, y2=1,
                                         fill_color_rgba = 0x60F06060L)
-        self.message = self.rootitem.add(gnomecanvas.CanvasText,
+        self.message = goocanvas.Text(
+            parent = self.rootitem,
                                         text = "",
                                         justification = gtk.JUSTIFY_CENTER,
                                         font = gcompris.skin.get_font("gcompris/board/title bold"),
                                         x = self.scrw/2,
                                         y = self.scrh/2)
-        self.message.hide()
+        self.message.props.visibility = goocanvas.ITEM_INVISIBLE
 
         # the trogwarning
-        self.trogwarning = self.rootitem.add(gnomecanvas.CanvasText,
+        self.trogwarning = goocanvas.Text(
+            parent = self.rootitem,
                                         text = _("T\nR\nO\nG\nG\nL\nE"),
                                         justification = gtk.JUSTIFY_CENTER,
                                         font = gcompris.skin.get_font("gcompris/board/title bold"),
                                         x = self.left/2,
                                         y = self.scrh/2)
-        self.trogwarning.hide()
+        self.trogwarning.props.visibility = goocanvas.ITEM_INVISIBLE
         self.trogwarning_num = 0
 
         # the spare life
-        self.muncher.spare.gnomecanvas.raise_to_top()
+        self.muncher.spare.goocanvas.raise_to_top()
 
         self.startGame()
 
     def show_trogwarning(self):
         self.trogwarning_num += 1
         if self.trogwarning_num == 1:
-            self.trogwarning.show()
+            self.trogwarning.props.visibility = goocanvas.ITEM_VISIBLE
 
     def hide_trogwarning(self):
         self.trogwarning_num -= 1
         if self.trogwarning_num == 0:
-            self.trogwarning.hide()
+            self.trogwarning.props.visibility = goocanvas.ITEM_INVISIBLE
 
     def show_message(self, text):
         self.message.set( text = text )
@@ -810,12 +818,12 @@ class Gcompris_gnumch:
         h = self.message.get_property("text-height")
         self.message_back.set( x1 = (self.scrw - w)/2, y1 = (self.scrh - h)/2,
                                x2 = (self.scrw + w)/2, y2 = (self.scrh + h)/2 )
-        self.message_back.show()
-        self.message.show()
+        self.message_back.props.visibility = goocanvas.ITEM_VISIBLE
+        self.message.props.visibility = goocanvas.ITEM_VISIBLE
 
     def hide_message(self):
-        self.message.hide()
-        self.message_back.hide()
+        self.message.props.visibility = goocanvas.ITEM_INVISIBLE
+        self.message_back.props.visibility = goocanvas.ITEM_INVISIBLE
 
     def set_level(self, level):
         self.board.level = level;
@@ -881,7 +889,7 @@ class Gcompris_gnumch:
                 self.troggles[i].die()
             else: # don't move them into the spawning queue
                 self.troggles[i].exists = 0
-                self.troggles[i].anim.gnomecanvas.hide()
+                self.troggles[i].anim.goocanvas.props.visibility = goocanvas.ITEM_INVISIBLE
         self.muncher.spawn()
 
     def winGame(self):
@@ -926,8 +934,8 @@ class Gcompris_gnumch:
 
     def end(self):
         for i in range(0, len(self.troggles)):
-            self.troggles[i].anim.destroy()
+            self.troggles[i].anim.remove()
         if self.muncher.anim:
-            self.muncher.anim.destroy()
+            self.muncher.anim.remove()
         self.stopGame()
-        self.rootitem.destroy()
+        self.rootitem.remove()

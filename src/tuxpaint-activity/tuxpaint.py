@@ -16,7 +16,7 @@
 #   along with this program; if not, write to the Free Software
 #   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 #
-import gnomecanvas
+import goocanvas
 import gcompris
 import gcompris.utils
 import gcompris.bonus
@@ -84,11 +84,7 @@ class Gcompris_tuxpaint:
     #replace configured values
     self.config_dict.update(gcompris.get_board_conf())
 
-    self.rootitem = self.gcomprisBoard.canvas.root().add(
-      gnomecanvas.CanvasGroup,
-      x=0.0,
-      y=0.0
-      )
+    self.rootitem = goocanvas.Group(parent =  self.gcomprisBoard.canvas.get_root_item())
 
     options = [progname]
 
@@ -145,7 +141,7 @@ class Gcompris_tuxpaint:
                             gcompris.skin.image_to_skin("gcompris-bg.jpg"))
 
     textItem = self.rootitem.add(
-      gnomecanvas.CanvasText,
+      goocanvas.Text,
       text = _("Waiting for Tuxpaint to finish"),
       x = gcompris.BOARD_WIDTH/2,
       y = 185,
@@ -162,7 +158,7 @@ class Gcompris_tuxpaint:
     #import os
     #os.kill(self.pid, signal.SIGKILL)
     if self.rootitem != None:
-      self.rootitem.destroy()
+      self.rootitem.remove()
       self.rootitem = None
 
   def set_level(self,level):

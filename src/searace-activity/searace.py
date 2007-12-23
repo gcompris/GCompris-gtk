@@ -19,7 +19,7 @@
 #   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 #
 import gobject
-import gnomecanvas
+import goocanvas
 import gcompris
 import gcompris.utils
 import gcompris.skin
@@ -121,28 +121,19 @@ class Gcompris_searace:
 
     # Create our rootitem. We put each canvas item in it so at the end we
     # only have to kill it. The canvas deletes all the items it contains automaticaly.
-    self.rootitem = self.gcomprisBoard.canvas.root().add(
-      gnomecanvas.CanvasGroup,
-      x=0.0,
-      y=0.0
-      )
+    self.rootitem = goocanvas.Group(parent =  self.gcomprisBoard.canvas.get_root_item())
 
     pixmap = gcompris.utils.load_pixmap(gcompris.skin.image_to_skin("gcompris-bg.jpg"))
-    item = self.rootitem.add(
-      gnomecanvas.CanvasPixbuf,
-      pixbuf = pixmap,
-      x=0,
-      y=0,
-      )
-    item.connect("event", self.ruler_item_event)
+    item = goocanvas.Image(parent = self.rootitem,
+                           pixbuf = pixmap,
+                           x=0,
+                           y=0,
+                           )
+    item.connect("button_press_event", self.ruler_item_event)
 
     self.display_sea_area()
 
-    self.root_weather_item = self.rootitem.add(
-      gnomecanvas.CanvasGroup,
-      x=0.0,
-      y=0.0
-      )
+    self.root_weather_item = goocanvas.Group(parent = self.rootitem)
 
     # Display the weather now
     self.display_weather()
@@ -158,7 +149,7 @@ class Gcompris_searace:
     self.stop_race()
 
     # Remove the root item removes all the others inside it
-    self.rootitem.destroy()
+    self.rootitem.remove()
 
     #print("Gcompris_searace end.")
 
@@ -170,11 +161,11 @@ class Gcompris_searace:
     # There is a problem with GTK widgets, they are not covered by the help
     # We hide/show them here
     if(pause):
-      self.left_boat.sw.hide()
-      self.right_boat.sw.hide()
+      self.left_boat.sw.props.hide()
+      self.right_boat.sw.props.hide()
     else:
-      self.left_boat.sw.show()
-      self.right_boat.sw.show()
+      self.left_boat.sw.props.visibility = goocanvas.ITEM_VISIBLE
+      self.right_boat.sw.props.visibility = goocanvas.ITEM_VISIBLE
       self.repeat()
 
     return
@@ -200,13 +191,9 @@ class Gcompris_searace:
     gcompris.bar_set_level(self.gcomprisBoard);
 
     # Remove the root item removes all the others inside it
-    self.root_weather_item.destroy()
+    self.root_weather_item.remove()
 
-    self.root_weather_item = self.rootitem.add(
-      gnomecanvas.CanvasGroup,
-      x=0.0,
-      y=0.0
-      )
+    self.root_weather_item = goocanvas.Group(parent = self.rootitem)
 
     # Display the weather now
     self.display_weather()
@@ -262,32 +249,31 @@ class Gcompris_searace:
 
     # Display the player boats
     if(self.left_boat.item):
-      self.left_boat.item.destroy()
+      self.left_boat.item.remove()
 
     pixmap = gcompris.utils.load_pixmap("searace/top_boat_red.png")
-    self.left_boat.item = self.rootitem.add(
-      gnomecanvas.CanvasPixbuf,
-      pixbuf = pixmap,
-      x=self.left_boat.x,
-      y=self.left_boat.y,
-      anchor=gtk.ANCHOR_CENTER,
-      )
+    self.left_boat.item = goocanvas.Image(parent = self.rootitem,
+                                          pixbuf = pixmap,
+                                          x=self.left_boat.x,
+                                          y=self.left_boat.y,
+                                          anchor=gtk.ANCHOR_CENTER,
+                                          )
     self.left_boat.item.raise_to_top()
-    self.left_boat.item.connect("event", self.ruler_item_event)
+    self.left_boat.item.connect("button_press_event", self.ruler_item_event)
 
     if(self.right_boat.item):
-      self.right_boat.item.destroy()
+      self.right_boat.item.remove()
 
     pixmap = gcompris.utils.load_pixmap("searace/top_boat_green.png")
-    self.right_boat.item = self.rootitem.add(
-      gnomecanvas.CanvasPixbuf,
+    self.right_boat.item = goocanvas.Image(
+      parent = self.rootitem,
       pixbuf = pixmap,
       x=self.right_boat.x,
       y=self.right_boat.y,
       anchor=gtk.ANCHOR_CENTER,
       )
     self.right_boat.item.raise_to_top()
-    self.right_boat.item.connect("event", self.ruler_item_event)
+    self.right_boat.item.connect("button_press_event", self.ruler_item_event)
 
 
     # Reset command line processing as well.
@@ -314,8 +300,8 @@ class Gcompris_searace:
   def display_sea_area(self):
     # Some constant to define the sea area
     # The sea area is defined in the global self.sea_area
-    step_x    = (self.sea_area[2]-self.sea_area[0])/20
-    step_y    = (self.sea_area[3]-self.sea_area[1])/10
+    step_x    = (self.sea_area[2] - self.sea_area[0])/20
+    step_y    = (self.sea_area[3] - self.sea_area[1])/10
     self.sea_ratio = step_x
 
     text_x    = self.sea_area[0] - 15
@@ -334,34 +320,35 @@ class Gcompris_searace:
       ci += 1
 
       # Shadow for text number
-      item = self.rootitem.add (
-        gnomecanvas.CanvasText,
+      item = goocanvas.Text(
+        parent = self.rootitem,
         text=int(ci),
         font=gcompris.skin.get_font("gcompris/content"),
         x=text_x+1,
         y=y+1,
         fill_color_rgba=0x000000FFL
         )
-      item.connect("event", self.ruler_item_event)
+      item.connect("button_press_event", self.ruler_item_event)
 
       # Text number
-      item = self.rootitem.add (
-        gnomecanvas.CanvasText,
+      item = goocanvas.Text(
+        parent = self.rootitem,
         text=int(ci),
         font=gcompris.skin.get_font("gcompris/content"),
         x=text_x,
         y=y,
         fill_color_rgba=cb
         )
-      item.connect("event", self.ruler_item_event)
+      item.connect("button_press_event", self.ruler_item_event)
 
-      item = self.rootitem.add(
-        gnomecanvas.CanvasLine,
-        points=(self.sea_area[0], y, self.sea_area[2], y),
+      item = goocanvas.Polyline(
+        parent = self.rootitem,
+        points = goocanvas.Points([(self.sea_area[0], y),
+                                   (self.sea_area[2], y)]),
         fill_color_rgba = color,
-         width_units=1.0
+        line_width = 1.0
         )
-      item.connect("event", self.ruler_item_event)
+      item.connect("button_press_event", self.ruler_item_event)
 
 
     ci = 0
@@ -373,44 +360,46 @@ class Gcompris_searace:
       ci += 1
 
       # Shadow for text number
-      item = self.rootitem.add (
-        gnomecanvas.CanvasText,
+      item = goocanvas.Text(
+        parent = self.rootitem,
         text=int(ci),
         font=gcompris.skin.get_font("gcompris/content"),
         x=x+1,
         y=text_y+1,
         fill_color_rgba=0x000000FFL
         )
-      item.connect("event", self.ruler_item_event)
+      item.connect("button_press_event", self.ruler_item_event)
 
       # Text number
-      item = self.rootitem.add (
-        gnomecanvas.CanvasText,
+      item = goocanvas.Text(
+        parent = self.rootitem,
         text=int(ci),
         font=gcompris.skin.get_font("gcompris/content"),
         x=x,
         y=text_y,
         fill_color_rgba=cb
         )
-      item.connect("event", self.ruler_item_event)
+      item.connect("button_press_event", self.ruler_item_event)
 
-      item = self.rootitem.add(
-        gnomecanvas.CanvasLine,
-        points=(x, self.sea_area[1], x, self.sea_area[3]),
+      item = goocanvas.Polyline(
+        parent = self.rootitem,
+        points= goocanvas.Points([(x, self.sea_area[1]),
+                                  (x, self.sea_area[3])]),
         fill_color_rgba = color,
-         width_units=1.0
+        line_width=1.0
         )
-      item.connect("event", self.ruler_item_event)
+      item.connect("button_press_event", self.ruler_item_event)
 
 
     # The ARRIVAL LINE
-    item = self.rootitem.add(
-      gnomecanvas.CanvasLine,
-      points=(self.sea_area[2], self.sea_area[1]-5, self.sea_area[2], self.sea_area[3]+5),
+    item = goocanvas.Polyline(
+      parent = self.rootitem,
+      points = goocanvas.Points([(self.sea_area[2], self.sea_area[1]-5),
+                                 (self.sea_area[2], self.sea_area[3]+5)]),
       fill_color_rgba = 0xFF0000FFL,
-      width_units=5.0
+      line_width=5.0
       )
-    item.connect("event", self.ruler_item_event)
+    item.connect("button_press_event", self.ruler_item_event)
 
     # The grid is done
     # ----------------
@@ -434,15 +423,14 @@ class Gcompris_searace:
     self.left_boat.tb.set_text(command_example)
 
     self.left_boat.tv.set_wrap_mode(gtk.WRAP_CHAR)
-    self.rootitem.add(
-      gnomecanvas.CanvasWidget,
-      widget=self.left_boat.sw,
+    goocanvas.Widget(
+      parent = self.rootitem,
+      widget = self.left_boat.sw,
       x=x_left,
       y=y,
       width=w,
       height= h,
-      anchor=gtk.ANCHOR_N,
-      size_pixels=False)
+      anchor=gtk.ANCHOR_N)
     self.left_boat.tv.show()
     self.left_boat.sw.show()
 
@@ -459,21 +447,20 @@ class Gcompris_searace:
     self.right_boat.tb.set_text(command_example)
 
     self.right_boat.tv.set_wrap_mode(gtk.WRAP_CHAR)
-    self.rootitem.add(
-      gnomecanvas.CanvasWidget,
+    goocanvas.Widget(
+      parent = self.rootitem,
       widget=self.right_boat.sw,
       x=x_right,
       y=y,
       width=w,
       height= h,
-      anchor=gtk.ANCHOR_N,
-      size_pixels=False)
+      anchor=gtk.ANCHOR_N)
     self.right_boat.tv.show()
     self.right_boat.sw.show()
 
     # Text Labels
-    self.left_boat.speeditem = self.rootitem.add (
-      gnomecanvas.CanvasText,
+    self.left_boat.speeditem = goocanvas.Text(
+      parent = self.rootitem,
       text="",
       font=gcompris.skin.get_font("gcompris/content"),
       x=x_left,
@@ -481,8 +468,8 @@ class Gcompris_searace:
       fill_color_rgba=0xFF0000FFL
       )
 
-    self.right_boat.speeditem = self.rootitem.add (
-      gnomecanvas.CanvasText,
+    self.right_boat.speeditem = goocanvas.Text(
+      parent = self.rootitem,
       text="",
       font=gcompris.skin.get_font("gcompris/content"),
       x=x_right,
@@ -491,8 +478,8 @@ class Gcompris_searace:
       )
 
     # The status area
-    self.statusitem = self.rootitem.add (
-      gnomecanvas.CanvasText,
+    self.statusitem = goocanvas.Text(
+      parent = self.rootitem,
       text="",
       font=gcompris.skin.get_font("gcompris/content"),
       x=gcompris.BOARD_WIDTH/2,
@@ -502,8 +489,8 @@ class Gcompris_searace:
 
     # The decoration boats
     pixmap = gcompris.utils.load_pixmap("searace/top_boat_red.png")
-    item = self.rootitem.add(
-      gnomecanvas.CanvasPixbuf,
+    item = goocanvas.Image(
+      parent = self.rootitem,
       pixbuf = pixmap,
       x=25,
       y=y+40,
@@ -512,8 +499,8 @@ class Gcompris_searace:
     gcompris.utils.item_rotate_relative(item, -90);
 
     pixmap = gcompris.utils.load_pixmap("searace/top_boat_green.png")
-    item = self.rootitem.add(
-      gnomecanvas.CanvasPixbuf,
+    item = goocanvas.Image(
+      parent = self.rootitem,
       pixbuf = pixmap,
       x=gcompris.BOARD_WIDTH-25,
       y=y+40,
@@ -525,8 +512,8 @@ class Gcompris_searace:
     hl = 18
     y += 7
     text_color = 0x0000FFFFL
-    self.rootitem.add (
-      gnomecanvas.CanvasText,
+    goocanvas.Text(
+      parent = self.rootitem,
       text=_("COMMANDS ARE"),
       font=gcompris.skin.get_font("gcompris/content"),
       x=gcompris.BOARD_WIDTH/2,
@@ -535,25 +522,25 @@ class Gcompris_searace:
       )
 
     self.rootitem.add (
-      gnomecanvas.CanvasText,
+      goocanvas.Text,
       text=_("forward"),
       font=gcompris.skin.get_font("gcompris/content"),
       x=gcompris.BOARD_WIDTH/2,
       y=y+hl,
-      fill_color_rgba=text_color
+      fill_color_rgba= text_color
       )
 
-    self.rootitem.add (
-      gnomecanvas.CanvasText,
+    goocanvas.Text(
+      parent = self.rootitem,
       text=_("left"),
       font=gcompris.skin.get_font("gcompris/content"),
       x=gcompris.BOARD_WIDTH/2,
       y=y+hl*2,
-      fill_color_rgba=text_color
+      fill_color_rgba= text_color
       )
 
-    self.rootitem.add (
-      gnomecanvas.CanvasText,
+    goocanvas.Text(
+      parent = self.rootitem,
       text=_("right"),
       font=gcompris.skin.get_font("gcompris/content"),
       x=gcompris.BOARD_WIDTH/2,
@@ -621,37 +608,37 @@ class Gcompris_searace:
     cy = condition[0][1]+(condition[0][3]-condition[0][1])/2
 
     pixmap = gcompris.utils.load_pixmap("searace/arrow.png")
-    item = self.root_weather_item.add(
-      gnomecanvas.CanvasPixbuf,
+    item = goocanvas.Image(
+      parent = self.root_weather_item,
       pixbuf = pixmap,
       x=cx,
       y=cy,
       anchor=gtk.ANCHOR_CENTER
       )
     gcompris.utils.item_rotate_relative(item, condition[1][0]);
-    item.connect("event", self.ruler_item_event)
+    item.connect("button_press_event", self.ruler_item_event)
 
     # Text number Shadow
-    item = self.root_weather_item.add (
-      gnomecanvas.CanvasText,
+    item =  goocanvas.Text(
+      parent = self.root_weather_item,
       text=condition[1][1],
       font=gcompris.skin.get_font("gcompris/content"),
       x=cx+1+pixmap.get_width()/2,
       y=cy+1+pixmap.get_height()/2,
       fill_color_rgba=0x000000FFL
       )
-    item.connect("event", self.ruler_item_event)
+    item.connect("button_press_event", self.ruler_item_event)
 
     # Text number
-    item = self.root_weather_item.add (
-      gnomecanvas.CanvasText,
+    item = goocanvas.Text (
+      parent = self.root_weather_item,
       text=condition[1][1],
       font=gcompris.skin.get_font("gcompris/content"),
       x=cx+pixmap.get_width()/2,
       y=cy+pixmap.get_height()/2,
       fill_color_rgba=0xFFFFFFFFL
       )
-    item.connect("event", self.ruler_item_event)
+    item.connect("button_press_event", self.ruler_item_event)
 
     return
 
@@ -943,10 +930,10 @@ class Gcompris_searace:
 
       # ----------
       self.root_weather_item.add(
-        gnomecanvas.CanvasLine,
-        points=(bx, by, coord[0], coord[1]),
+        goocanvas.Polyline,
+        points = goocanvas.Points([(bx, by), (coord[0], coord[1])]),
         fill_color_rgba=0x00CC00FFL,
-        width_units=2.0,
+        line_width=2.0,
         line_style=coord[4]
         )
       bx = coord[0]
@@ -993,16 +980,17 @@ class Gcompris_searace:
   # ----------------------------------------
   # The RULER
   #
-  def ruler_item_event(self, widget, event=None):
+  def ruler_item_event(self, widget, target, event=None):
     if event.type == gtk.gdk.BUTTON_PRESS:
       if event.button == 1:
         self.pos_x = event.x
         self.pos_y = event.y
-        self.ruleritem = self.rootitem.add(
-          gnomecanvas.CanvasLine,
-          points=( self.pos_x, self.pos_y, event.x, event.y),
+        self.ruleritem = goocanvas.Polyline(
+          parent = self.rootitem,
+          points = goocanvas.Points([(self.pos_x, self.pos_y,
+                                      event.x, event.y)]),
           fill_color_rgba=0xFF0000FFL,
-          width_units=2.0
+          line_width=2.0
           )
         return True
     if event.type == gtk.gdk.MOTION_NOTIFY:
@@ -1020,7 +1008,7 @@ class Gcompris_searace:
           )
     if event.type == gtk.gdk.BUTTON_RELEASE:
       if event.button == 1:
-        self.ruleritem.destroy()
+        self.ruleritem.remove()
         self.statusitem.set(text="")
         return True
     return False

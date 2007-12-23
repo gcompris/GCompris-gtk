@@ -16,7 +16,7 @@
 #   along with this program; if not, write to the Free Software
 #   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 #
-import gnomecanvas
+import goocanvas
 import gcompris
 import gcompris.utils
 import gcompris.skin
@@ -65,7 +65,7 @@ class Gcompris_login:
 
     gcompris.bar_set_level(self.gcomprisBoard)
 
-    gcompris.set_background(self.gcomprisBoard.canvas.root(),
+    gcompris.set_background(self.gcomprisBoard.canvas.get_root_item(),
                             backgrounds[self.gcomprisBoard.level-1])
 
     # Get the default profile
@@ -102,11 +102,7 @@ class Gcompris_login:
     # Create our rootitem.
     # We put each canvas item in it so at the end we only have to kill it.
     # The canvas deletes all the items it contains automaticaly.
-    self.rootitem = self.gcomprisBoard.canvas.root().add(
-      gnomecanvas.CanvasGroup,
-      x=0.0,
-      y=0.0
-      )
+    self.rootitem = goocanvas.Group(parent =  self.gcomprisBoard.canvas.get_root_item())
 
     # Display the profile name
     x = gcompris.BOARD_WIDTH-100
@@ -114,8 +110,8 @@ class Gcompris_login:
     text = _("Profile: ") + Prop.profile.name
 
     # Shadow
-    self.rootitem.add(
-      gnomecanvas.CanvasText,
+    goocanvas.Text(
+      parent = self.rootitem,
       x= x + 1,
       y= y + 1,
       text= text,
@@ -125,8 +121,8 @@ class Gcompris_login:
       )
 
     # Profile name
-    self.rootitem.add(
-      gnomecanvas.CanvasText,
+    goocanvas.Text(
+      parent = self.rootitem,
       x= x,
       y= y,
       text= text,
@@ -152,7 +148,7 @@ class Gcompris_login:
   def end(self):
 
     # Remove the root item removes all the others inside it
-    self.rootitem.destroy()
+    self.rootitem.remove()
 
 
   def ok(self):
@@ -161,7 +157,7 @@ class Gcompris_login:
 
   def repeat(self):
     print("Gcompris_login repeat.")
-    self.rootitem.destroy()
+    self.rootitem.remove()
 
     self.init_rootitem(self.Prop)
 
@@ -187,9 +183,9 @@ class Gcompris_login:
     # There is a problem with GTK widgets, they are not covered by the help
     # We hide/show them here
     if(pause):
-      if self.entry: self.entry.hide()
+      if self.entry: self.entry.props.visibility = goocanvas.ITEM_INVISIBLE
     else:
-      if self.entry: self.entry.show()
+      if self.entry: self.entry.props.visibility = goocanvas.ITEM_VISIBLE
 
 
   def set_level(self, level):
@@ -247,11 +243,7 @@ class Gcompris_login:
   def display_letters(self, letters, users, start_filter):
 
     # Create a group for the letters
-    self.letter_rootitem = self.rootitem.add(
-      self.rootitem,
-      x=0.0,
-      y=0.0
-      )
+    self.letter_rootitem = goocanvas.Group(parent = self.rootitem)
 
     #
     # Display the current filter
@@ -261,8 +253,8 @@ class Gcompris_login:
     y = 20
 
     # The shadow
-    self.letter_rootitem.add(
-      gnomecanvas.CanvasText,
+    goocanvas.Text(
+      parent = self.letter_rootitem,
       x= x + 1.5,
       y= y + 1.5,
       text= _("Login: ") + start_filter + "...",
@@ -270,8 +262,8 @@ class Gcompris_login:
       font=gcompris.skin.get_font("gcompris/board/huge"),
       )
     # The text
-    self.letter_rootitem.add(
-      gnomecanvas.CanvasText,
+    goocanvas.Text(
+      parent = self.letter_rootitem,
       x= x,
       y= y,
       text= _("Login: ") + start_filter + "...",
@@ -302,8 +294,8 @@ class Gcompris_login:
       else:
         text = letter.upper() + letter.lower()
 
-      item = self.letter_rootitem.add(
-        gnomecanvas.CanvasPixbuf,
+      item =goocanvas.Image(
+        parent = self.letter_rootitem,
         pixbuf = button_pixbuf,
         x = x -  button_pixbuf.get_width()/2,
         y = y -  button_pixbuf.get_height()/2,
@@ -314,8 +306,8 @@ class Gcompris_login:
                    (users, start_filter + letter))
 
       # The shadow
-      item = self.letter_rootitem.add(
-        gnomecanvas.CanvasText,
+      item =goocanvas.Text(
+        parent = self.letter_rootitem,
         x= x + 1.5,
         y= y + 1.5,
         text= text,
@@ -326,8 +318,8 @@ class Gcompris_login:
                    (users, start_filter + letter))
 
       # The text
-      item = self.letter_rootitem.add(
-        gnomecanvas.CanvasText,
+      item =goocanvas.Text(
+        parent = self.letter_rootitem,
         x= x,
         y= y,
         text= text,
@@ -376,8 +368,8 @@ class Gcompris_login:
       if not login.startswith(start_filter):
         continue
 
-      item = self.rootitem.add(
-        gnomecanvas.CanvasPixbuf,
+      item =goocanvas.Image(
+        parent = self.rootitem,
         pixbuf = button_pixbuf,
         x = x -  button_pixbuf.get_width()/2,
         y = y -  button_pixbuf.get_height()/2,
@@ -388,8 +380,8 @@ class Gcompris_login:
 
 
       # The shadow
-      item = self.rootitem.add(
-        gnomecanvas.CanvasText,
+      item =goocanvas.Text(
+        parent = self.rootitem,
         x= x + 1.5,
         y= y + 1.5,
         text= login,
@@ -399,8 +391,8 @@ class Gcompris_login:
       item.connect("event", self.name_click_event, user)
 
       # The text
-      item = self.rootitem.add(
-        gnomecanvas.CanvasText,
+      item =goocanvas.Text(
+        parent = self.rootitem,
         x= x,
         y= y,
         text= login,
@@ -424,7 +416,7 @@ class Gcompris_login:
   # data[1] is the start filter
   def letter_click_event(self, widget, event, data):
     if event.type == gtk.gdk.BUTTON_PRESS:
-      self.letter_rootitem.destroy()
+      self.letter_rootitem.remove()
       self.display_user_by_letter(data[0], data[1])
       return True
 
@@ -471,10 +463,10 @@ class Gcompris_login:
     self.entry.connect("activate", self.enter_callback)
     self.entry.connect("changed", self.enter_char_callback)
 
-    self.entry.show()
+    self.entry.props.visibility = goocanvas.ITEM_VISIBLE
 
-    self.widget = self.rootitem.add(
-      gnomecanvas.CanvasWidget,
+    self.widget =goocanvas.Widget(
+      parent = self.rootitem,
       widget=self.entry,
       x=400,
       y=400,
@@ -506,7 +498,7 @@ class Gcompris_login:
       else:
         login = user.login
       if text == login:
-        self.widget.destroy()
+        self.widget.remove()
         self.logon(user)
         found = True
 

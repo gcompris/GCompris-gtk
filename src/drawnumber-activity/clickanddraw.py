@@ -19,7 +19,7 @@
 #   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 #
 
-import gnomecanvas
+import goocanvas
 import gcompris
 import gcompris.utils
 import gcompris.bonus
@@ -38,10 +38,9 @@ class Gcompris_clickanddraw(Gcompris_drawnumber) :
       self.end()
 
     #Creation of canvas group use by the activity
-    self.ROOT=self.gcomprisBoard.canvas.root().add(
-      gnomecanvas.CanvasGroup,
-      x=0.0,
-      y=0.0
+    self.ROOT = \
+    goocanvas.Group(
+      parent = self.gcomprisBoard.canvas.get_root_item(),
       )
 
     #Setting of the first background image of the level
@@ -61,7 +60,7 @@ class Gcompris_clickanddraw(Gcompris_drawnumber) :
     #Set point number 0 from which the draw start. This point is equal to first one.
     self.MAX=self.data[sublevel][0][0]
     self.POINT[0]=self.point(0,self.data[sublevel][self.MAX][0],self.data[sublevel][self.MAX][1],30)
-    self.POINT[0].hide()
+    self.POINT[0].props.visibility = goocanvas.ITEM_INVISIBLE
 
     #Data loading from global data and display of points and numbers
     i=self.MAX
@@ -94,14 +93,16 @@ class Gcompris_clickanddraw(Gcompris_drawnumber) :
     if truc.type == gtk.gdk.BUTTON_PRESS :
       if idpt == (self.actu+1): #Action to execute if the selected point is the following of previous one
         xd,yd,xa,ya = self.POINT[(idpt-1)].x, self.POINT[(idpt-1)].y, self.POINT[idpt].x, self.POINT[idpt].y
-        self.ROOT.add(gnomecanvas.CanvasLine,points=(xd,yd,xa,ya),
-                      fill_color='black',
-                      width_units=2)
+        goocanvas.Polyline(
+          parent = self.ROOT,
+          points=(xd,yd,xa,ya),
+          fill_color='black',
+          line_width=2)
 
         if idpt == 2: # Always raise the first point
           self.POINT[self.MAX].raise_to_top()
 
-        objet.hide()
+        objet.props.visibility = goocanvas.ITEM_INVISIBLE
         if idpt==self.MAX : #Action to exectute if all points have been selected in good way
           gcompris.set_background(self.ROOT,
                                   self.data[self.gcomprisBoard.sublevel][0][2])

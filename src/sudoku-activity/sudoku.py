@@ -16,7 +16,7 @@
 #   along with this program; if not, write to the Free Software
 #   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 #
-import gnomecanvas
+import goocanvas
 import gcompris
 import gcompris.utils
 import gcompris.skin
@@ -95,17 +95,13 @@ class Gcompris_sudoku:
     else:
       gcompris.bar_set(gcompris.BAR_LEVEL|gcompris.BAR_REPEAT)
 
-    gcompris.set_background(self.gcomprisBoard.canvas.root(),
+    gcompris.set_background(self.gcomprisBoard.canvas.get_root_item(),
                             gcompris.skin.image_to_skin("gcompris-bg.jpg"))
     gcompris.bar_set_level(self.gcomprisBoard)
 
     # Create our rootitem. We put each canvas item in it so at the end we
     # only have to kill it. The canvas deletes all the items it contains automaticaly.
-    self.rootitem = self.gcomprisBoard.canvas.root().add(
-      gnomecanvas.CanvasGroup,
-      x=0.0,
-      y=0.0
-      )
+    self.rootitem = goocanvas.Group(parent = self.gcomprisBoard.canvas.get_root_item())
 
     self.next_level()
 
@@ -115,7 +111,7 @@ class Gcompris_sudoku:
 
   def end(self):
     # Remove the root item removes all the others inside it
-    self.rootitem.destroy()
+    self.rootitem.remove()
     self.rootitem = None
     gcompris.score.end()
 
@@ -243,7 +239,7 @@ class Gcompris_sudoku:
     self.sudo_symbol[x][y].set(
       pixbuf = pixmap
       )
-    self.sudo_symbol[x][y].show()
+    self.sudo_symbol[x][y].props.visibility = goocanvas.ITEM_VISIBLE
 
     self.sudo_number[x][y].set(
       text = text
@@ -259,7 +255,7 @@ class Gcompris_sudoku:
       return False
 
     if event.type == gtk.gdk.BUTTON_PRESS:
-      item.hide()
+      item.props.visibility = goocanvas.ITEM_INVISIBLE
       self.sudo_number[data[0]][data[1]].set(
         text = ""
         )
@@ -268,7 +264,7 @@ class Gcompris_sudoku:
   # This function is being called uppon a click on a symbol on the left
   # If a square has the focus, then the clicked square is assigned there
   #
-  def symbol_item_event(self, item, event, text):
+  def symbol_item_event(self, item, target, event, text):
 
     if(self.gamewon):
       return False
@@ -491,20 +487,17 @@ class Gcompris_sudoku:
         cx = int(x_init + (pixmap.get_width() * zoom)/2)
         cy = int(y_init + square_height * y + square_height/2)
 
-        item = self.root_sudo.add(
-          gnomecanvas.CanvasPixbuf,
+        item = goocanvas.Image(
+          parent = self.root_sudo,
           pixbuf = pixmap,
-          x= cx,
-          y= cy,
-          width= pixmap.get_width() * zoom,
-          height= pixmap.get_height() * zoom,
-          width_set=True,
-          height_set=True,
-          anchor=gtk.ANCHOR_CENTER
+          x = cx,
+          y = cy,
+          width = pixmap.get_width() * zoom,
+          height = pixmap.get_height() * zoom,
           )
-        item.connect("event", self.symbol_item_event, valid_chars[y])
+        item.connect("button_press_event", self.symbol_item_event, valid_chars[y])
         # This item is clickeable and it must be seen
-        item.connect("event", gcompris.utils.item_event_focus)
+        item.connect("button_press_event", gcompris.utils.item_event_focus)
 
         # Save it's coordinate origines for the drag and drop
         item.set_data('orig_x', str(cx))
@@ -513,7 +506,7 @@ class Gcompris_sudoku:
       else:
         # Shadow
         self.root_sudo.add(
-          gnomecanvas.CanvasText,
+          goocanvas.Text,
           x= x_init+1.5,
           y= y_init + square_height * y + square_height/2 + 1.5,
           text= valid_chars[y],
@@ -522,7 +515,7 @@ class Gcompris_sudoku:
           )
         # Text
         self.root_sudo.add(
-          gnomecanvas.CanvasText,
+          goocanvas.Text,
           x= x_init,
           y= y_init + square_height * y + square_height/2,
           text= valid_chars[y],
@@ -559,16 +552,12 @@ class Gcompris_sudoku:
     self.sudo_size = len(sudoku[0])
 
     if(self.root_sudo):
-      self.root_sudo.destroy()
+      self.root_sudo.remove()
 
     # Create our rootitem. We put each canvas item in it so at the end we
     # only have to kill it. The canvas deletes all the items it contains
     # automaticaly.
-    self.root_sudo = self.rootitem.add(
-      gnomecanvas.CanvasGroup,
-      x=0.0,
-      y=0.0
-      )
+    self.root_sudo = goocanvas.Group(parent = self.rootitem)
 
 
     # Region is the modulo place to set region (if defined)
@@ -601,19 +590,19 @@ class Gcompris_sudoku:
             self.valid_chars.append(text)
 
         # The background of the square
-        item = self.root_sudo.add(
-          gnomecanvas.CanvasRect,
-          fill_color_rgba = square_color,
-          x1= x_init + square_width * x,
-          y1= y_init + square_height * y,
-          x2= x_init + square_width * (x+1),
-          y2= y_init + square_height * (y+1),
-          width_units=1.0,
-          outline_color_rgba= 0x144B9DFFL
-          )
+        item = goocanvas.Rect(
+            parent = self.root_sudo,
+            fill_color_rgba = square_color,
+            x = x_init + square_width * x,
+            y = y_init + square_height * y,
+            width = square_width * (x+1),
+            height = square_height * (y+1),
+            line_width = 1.0,
+            stroke_color_rgba = 0x144B9DFFL
+            )
         line_square.append(item)
-        if(self.gcomprisBoard.level>=self.symbolize_level_max):
-          item.connect("event", self.square_item_event, (x,y))
+        if(self.gcomprisBoard.level >= self.symbolize_level_max):
+          item.connect("button_press_event", self.square_item_event, (x,y))
 
         # Save it's sudo coord for the drag and drop
         item.set_data('sudo_x', str(x))
@@ -624,18 +613,15 @@ class Gcompris_sudoku:
           pixmap = self.get_pixmap_symbol(self.valid_chars, text)
           zoom = (square_width*0.835) / pixmap.get_width()
 
-          item = self.root_sudo.add(
-            gnomecanvas.CanvasPixbuf,
+          item = goocanvas.Image(
+            parent = self.root_sudo,
             pixbuf = pixmap,
-            x= x_init + square_width * x + square_width/2
+            x = x_init + square_width * x + square_width/2
             - (pixmap.get_width() * zoom)/2,
-            y= y_init + square_height * y + square_height/2
+            y = y_init + square_height * y + square_height/2
             - (pixmap.get_height() * zoom)/2,
-            width= pixmap.get_width() * zoom,
-            height= pixmap.get_height() * zoom,
-            width_set=True,
-            height_set=True,
-            anchor=gtk.ANCHOR_NW
+            width = pixmap.get_width() * zoom,
+            height = pixmap.get_height() * zoom,
             )
           line_symbol.append(item)
 
@@ -644,17 +630,17 @@ class Gcompris_sudoku:
           item.set_data('sudo_y', str(y))
 
           if(not text):
-            item.hide()
+            item.props.visibility = goocanvas.ITEM_INVISIBLE
             # This item is clickeable and it must be seen
             #item.connect("event", gcompris.utils.item_event_focus)
-            item.connect("event", self.hide_symbol_event, (x, y))
+            item.connect("button_press_event", self.hide_symbol_event, (x, y))
 
         #
         #
         #
 
-        item = self.root_sudo.add(
-          gnomecanvas.CanvasText,
+        item = goocanvas.Text(
+          parent = self.root_sudo,
           x= x_init + square_width * x + square_width/2,
           y= y_init + square_height * y + square_height/2,
           text= text,
@@ -662,20 +648,20 @@ class Gcompris_sudoku:
           font=gcompris.skin.get_font("gcompris/content"),
           )
         if(self.gcomprisBoard.level<self.symbolize_level_max):
-          item.hide()
+          item.props.visibility = goocanvas.ITEM_INVISIBLE
 
         line_number.append(item)
 
         if(region):
           if(y>0 and y%region==0):
             self.root_sudo.add (
-              gnomecanvas.CanvasLine,
+              goocanvas.Polyline,
               points=(x_init - 5,
                       y_init + square_height * y,
                       x_init + (square_width * self.sudo_size) + 5,
                       y_init + square_height * y),
               fill_color_rgba=self.lines_color,
-              width_units=2.5,
+              line_width=2.5,
               )
 
       self.sudo_square.append(line_square)
@@ -685,13 +671,13 @@ class Gcompris_sudoku:
       if(region):
         if(x>0 and x%region==0):
           self.root_sudo.add (
-            gnomecanvas.CanvasLine,
+            goocanvas.Polyline,
             points=(x_init + square_width * x,
                     y_init - 5,
                     x_init + square_width * x,
                     y_init + square_height * self.sudo_size + 5),
             fill_color_rgba=self.lines_color,
-            width_units=2.5,
+            line_width=2.5,
             )
 
     if(self.gcomprisBoard.level>=self.symbolize_level_max):

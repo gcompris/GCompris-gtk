@@ -90,19 +90,23 @@ static PyObject*
 py_gc_item_focus_event(PyObject* self, PyObject* args)
 {
   PyObject* pyitem;
+  PyObject* pytarget;
   GooCanvasItem* item;
+  GooCanvasItem* target;
   PyObject* pyevent;
   GdkEvent* event;
   gint result;
 
   /* Parse arguments */
-  if(!PyArg_ParseTuple(args, "OO:gc_item_focus_event", &pyitem, &pyevent))
+  if(!PyArg_ParseTuple(args, "OOO:gc_item_focus_event",
+		       &pyitem, &pytarget, &pyevent))
     return NULL;
   item = (GooCanvasItem*) pygobject_get(pyitem);
+  target = (GooCanvasItem*) pygobject_get(pytarget);
   event = (GdkEvent*) pygobject_get(pyevent);
 
   /* Call the corresponding C function */
-  result = gc_item_focus_event(item, event, NULL);
+  result = gc_item_focus_event(item, target, event, NULL);
 
   /* Create and return the result */
   return Py_BuildValue("i", result);

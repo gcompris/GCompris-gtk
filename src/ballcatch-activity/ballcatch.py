@@ -1,6 +1,6 @@
 # Ballcatch Board module
 import gobject
-import gnomecanvas
+import goocanvas
 import gcompris
 import gcompris.utils
 import gcompris.skin
@@ -34,7 +34,7 @@ class Gcompris_ballcatch:
     self.gcomprisBoard.sublevel=1
     self.gcomprisBoard.number_of_sublevel=1
     gcompris.bar_set(gcompris.BAR_LEVEL)
-    gcompris.set_background(self.gcomprisBoard.canvas.root(),"ballcatch/beach1.png")
+    gcompris.set_background(self.gcomprisBoard.canvas.get_root_item(),"ballcatch/beach1.png")
     gcompris.bar_set_level(self.gcomprisBoard)
 
 
@@ -43,41 +43,33 @@ class Gcompris_ballcatch:
 
     # Create our rootitem. We put each canvas item in it so at the end we
     # only have to kill it. The canvas deletes all the items it contains automaticaly.
-    self.rootitem = self.gcomprisBoard.canvas.root().add(
-      gnomecanvas.CanvasGroup,
-      x=0.0,
-      y=0.0
-      )
+    self.rootitem = goocanvas.Group(parent =  self.gcomprisBoard.canvas.get_root_item())
 
     # Tux
-    self.lefthand = self.rootitem.add(
-      gnomecanvas.CanvasPixbuf,
+    self.lefthand =goocanvas.Image(
+      parent = self.rootitem,
       pixbuf = gcompris.utils.load_pixmap("ballcatch/tux.png"),
       x=gcompris.BOARD_WIDTH/2 - 60,
       y=135.0
       )
 
     # Balloon
-    self.balloon_item = self.rootitem.add(
-      gnomecanvas.CanvasEllipse,
-      x1=0.0,
-      y1=0.0,
-      x2=0.0,
-      y2=0.0
+    self.balloon_item =goocanvas.Ellipse(
+      parent = self.rootitem,
       )
     self.init_balloon()
 
     # The Left Hand
-    self.lefthand = self.rootitem.add(
-      gnomecanvas.CanvasPixbuf,
+    self.lefthand =goocanvas.Image(
+      parent = self.rootitem,
       pixbuf = gcompris.utils.load_pixmap("ballcatch/hand.png"),
       x=gcompris.BOARD_WIDTH/2-150.0,
       y=gcompris.BOARD_HEIGHT - 150
       )
 
     # The Right Hand
-    item = self.lefthand = self.rootitem.add(
-      gnomecanvas.CanvasPixbuf,
+    item = self.lefthand =goocanvas.Image(
+      parent = self.rootitem,
       pixbuf = gcompris.utils.load_pixmap("ballcatch/hand.png"),
       x=gcompris.BOARD_WIDTH/2+100.0,
       y=gcompris.BOARD_HEIGHT - 150.0
@@ -85,19 +77,20 @@ class Gcompris_ballcatch:
     bounds = self.get_bounds(item)
     (cx, cy) = ( (bounds[2]+bounds[0])/2 , (bounds[3]+bounds[1])/2)
     mat = ( -1, 0, 0, 1, 2*cx, 0)
-    item.affine_relative(mat)
+    #FIXME should rotate the hand
+    #item.set_transform(mat)
 
     # The Left Shift KEY
-    self.leftkey = self.rootitem.add(
-      gnomecanvas.CanvasPixbuf,
+    self.leftkey =goocanvas.Image(
+      parent = self.rootitem,
       pixbuf = gcompris.utils.load_pixmap("ballcatch/shift_key.png"),
       x=gcompris.BOARD_WIDTH/2-240.0,
       y=gcompris.BOARD_HEIGHT - 80
       )
 
     # The Right Shift KEY
-    self.rightkey = self.rootitem.add(
-      gnomecanvas.CanvasPixbuf,
+    self.rightkey =goocanvas.Image(
+      parent = self.rootitem,
       pixbuf = gcompris.utils.load_pixmap("ballcatch/shift_key.png"),
       x=gcompris.BOARD_WIDTH/2+100.0,
       y=gcompris.BOARD_HEIGHT - 80
@@ -121,7 +114,7 @@ class Gcompris_ballcatch:
       gobject.source_remove(self.timer_inc)
 
     # Remove the root item removes all the others inside it
-    self.rootitem.destroy()
+    self.rootitem.remove()
 
   def ok(self):
     pass
@@ -183,22 +176,22 @@ class Gcompris_ballcatch:
 
     if(self.gcomprisBoard.level == 1):
       self.timerinc = 900
-      gcompris.set_background(self.gcomprisBoard.canvas.root(),"ballcatch/beach1.png")
+      gcompris.set_background(self.gcomprisBoard.canvas.get_root_item(),"ballcatch/beach1.png")
     elif(self.gcomprisBoard.level == 2):
       self.timerinc = 350
     elif(self.gcomprisBoard.level == 3):
       self.timerinc = 300
-      gcompris.set_background(self.gcomprisBoard.canvas.root(),"ballcatch/beach2.png")
+      gcompris.set_background(self.gcomprisBoard.canvas.get_root_item(),"ballcatch/beach2.png")
     elif(self.gcomprisBoard.level == 4):
       self.timerinc = 200
     elif(self.gcomprisBoard.level == 5):
       self.timerinc = 150
-      gcompris.set_background(self.gcomprisBoard.canvas.root(),"ballcatch/beach3.png")
+      gcompris.set_background(self.gcomprisBoard.canvas.get_root_item(),"ballcatch/beach3.png")
     elif(self.gcomprisBoard.level == 6):
       self.timerinc = 100
     elif(self.gcomprisBoard.level == 7):
       self.timerinc = 60
-      gcompris.set_background(self.gcomprisBoard.canvas.root(),"ballcatch/beach4.png")
+      gcompris.set_background(self.gcomprisBoard.canvas.get_root_item(),"ballcatch/beach4.png")
     elif(self.gcomprisBoard.level == 8):
       self.timerinc = 30
     elif(self.gcomprisBoard.level == 9):
@@ -247,16 +240,15 @@ class Gcompris_ballcatch:
     self.balloon_x    += self.timer_diff
     self.balloon_y    -= 5
 
-    if(self.balloon_width_units>1.0):
-      self.balloon_width_units -= 0.5
+    if(self.balloon_line_width>1.0):
+      self.balloon_line_width -= 0.5
 
-    self.balloon_item.set(
-      x1=self.balloon_x - self.balloon_size/2,
-      y1=self.balloon_y - self.balloon_size/2,
-      x2=self.balloon_x + self.balloon_size/2,
-      y2=self.balloon_y + self.balloon_size/2,
-      width_units=self.balloon_width_units
-      )
+    self.balloon_item.props.center_x = self.balloon_x - self.balloon_size/2
+    self.balloon_item.props.center_y = self.balloon_y - self.balloon_size/2
+    self.balloon_item.props.radius_x = self.balloon_size/2
+    self.balloon_item.props.radius_y = self.balloon_size/2
+    self.balloon_item.props.line_width = self.balloon_line_width
+
 
     if(self.balloon_size>48):
       self.timer_inc  = gobject.timeout_add(self.ballinc,
@@ -276,28 +268,28 @@ class Gcompris_ballcatch:
         gcompris.bonus.display(gcompris.bonus.LOOSE, gcompris.bonus.TUX)
 
   def get_bounds(self, item):
-    if gobject.type_name(item)=="GnomeCanvasPixbuf":
+    if gobject.type_name(item) == "GooCanvasImage":
       x1=item.get_property("x")
       y1=item.get_property("y")
       x2=item.get_property("x")+item.get_property("width")
       y2=item.get_property("y")+item.get_property("height")
-    return (min(x1,x2),min(y1,y2),max(x1,x2),max(y1,y2))
+      return (min(x1,x2),min(y1,y2),max(x1,x2),max(y1,y2))
+    return(None)
 
   def init_balloon(self):
     self.balloon_size = 160
-    self.balloon_width_units = 5.0
+    self.balloon_line_width = 5.0
     self.balloon_x    = gcompris.BOARD_WIDTH/2-20
     self.balloon_y    = gcompris.BOARD_HEIGHT - 130
 
-    self.balloon_item.set(
-      x1=self.balloon_x - self.balloon_size/2,
-      y1=self.balloon_y - self.balloon_size/2,
-      x2=self.balloon_x + self.balloon_size/2,
-      y2=self.balloon_y + self.balloon_size/2,
-      fill_color_rgba=0xFF1212FFL,
-      outline_color_rgba=0x000000FFL,
-      width_units=self.balloon_width_units
-      )
+    self.balloon_item.props.center_x = self.balloon_x - self.balloon_size/2
+    self.balloon_item.props.center_y = self.balloon_y - self.balloon_size/2
+    self.balloon_item.props.radius_x = self.balloon_x + self.balloon_size/2
+    self.balloon_item.props.radius_y = self.balloon_y + self.balloon_size/2
+    self.balloon_item.props.fill_color_rgba = 0xFF1212FFL
+    self.balloon_item.props.stroke_color_rgba = 0x000000FFL
+    self.balloon_item.props.line_width = self.balloon_line_width
+
 
   # Code that increments the sublevel and level
   # And bail out if no more levels are available
