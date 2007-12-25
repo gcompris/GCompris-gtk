@@ -18,6 +18,7 @@
 #
 
 import goocanvas
+import cairo
 import gcompris
 import gcompris.utils
 import gcompris.skin
@@ -190,15 +191,6 @@ class Gcompris_mosaic:
       text = _("Rebuild the same mosaic on the right area")
       goocanvas.Text(
         parent = self.rootitem,
-        x=gcompris.BOARD_WIDTH/2 + 1.0,
-        y=gcompris.BOARD_HEIGHT - 30 + 1.0,
-        font=gcompris.skin.get_font("gcompris/title"),
-        text=(text),
-        fill_color="black",
-        anchor=gtk.ANCHOR_CENTER
-        )
-      goocanvas.Text(
-        parent = self.rootitem,
         x=gcompris.BOARD_WIDTH/2,
         y=gcompris.BOARD_HEIGHT - 30,
         font=gcompris.skin.get_font("gcompris/title"),
@@ -206,8 +198,6 @@ class Gcompris_mosaic:
         fill_color="white",
         anchor=gtk.ANCHOR_CENTER
         )
-
-
 
       self.number_item_x = 4
       self.number_item_y = 2
@@ -249,9 +239,7 @@ class Gcompris_mosaic:
       # Create the check button to show the selected color
       self.checked_color_item = goocanvas.Image(
         parent = self.rootitem,
-        pixbuf = gcompris.utils.load_pixmap(gcompris.skin.image_to_skin("button_checked.png")),
-        x = 0,
-        y = 0)
+        pixbuf = gcompris.utils.load_pixmap(gcompris.skin.image_to_skin("button_checked.png")) )
 
       self.checked_color_item.props.visibility = goocanvas.ITEM_INVISIBLE
 
@@ -280,15 +268,15 @@ class Gcompris_mosaic:
                                            self.palette_grey_item_y * self.palette_item_height,
                                            self.palette_item_width, self.palette_item_height)
 
-                item =goocanvas.Image(
-                  parent = self.rootitem,
-                  pixbuf = image,
-                  x = orig_x + x * (self.palette_item_width  + gap_x),
-                  y = orig_y + y * (self.palette_item_height + gap_y))
+              item = goocanvas.Image(
+                parent = self.rootitem,
+                pixbuf = image,
+                x = orig_x + x * (self.palette_item_width  + gap_x),
+                y = orig_y + y * (self.palette_item_height + gap_y))
 
               if not colored:
                 item.connect("button_press_event", self.set_focus_item_event, (i,
-                                                                  item, palette))
+                                                                               item, palette))
                 self.user_list.append((-1, -1))
               else:
                 self.target_list.append((color_index_x, color_index_y))
@@ -361,16 +349,15 @@ class Gcompris_mosaic:
   # Event when a color square is selected
   def set_color_item_event(self, item, target, event, data):
 
-    if event.type == gtk.gdk.BUTTON_PRESS:
-      gcompris.sound.play_ogg("sounds/paint1.wav");
-      (box_item, color_index_x, color_index_y, coord_x, coord_y) = data
+    gcompris.sound.play_ogg("sounds/paint1.wav");
+    (box_item, color_index_x, color_index_y, coord_x, coord_y) = data
 
-      self.current_index_x = color_index_x
-      self.current_index_y = color_index_y
+    self.current_index_x = color_index_x
+    self.current_index_y = color_index_y
 
-      index = color_index_y * self.palette_number_of_item_x + color_index_x
+    index = color_index_y * self.palette_number_of_item_x + color_index_x
 
-      self.checked_color_item.set_transform(None)
-      self.checked_color_item.translate(coord_x,
-                                        coord_y + self.palette_item_height/3)
-      self.checked_color_item.props.visibility = goocanvas.ITEM_VISIBLE
+    self.checked_color_item.set_transform(cairo.Matrix(1, 0, 0, 1, 5, -5))
+    self.checked_color_item.translate(coord_x,
+                                      coord_y + self.palette_item_height/3)
+    self.checked_color_item.props.visibility = goocanvas.ITEM_VISIBLE

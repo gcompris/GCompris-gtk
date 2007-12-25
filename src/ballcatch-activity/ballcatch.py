@@ -298,10 +298,8 @@ class Gcompris_ballcatch:
       # Try the next level
       self.gcomprisBoard.sublevel=1
       self.gcomprisBoard.level += 1
-      if(self.gcomprisBoard.level>self.gcomprisBoard.maxlevel):
-        # the current board is finished : bail out
-        gcompris.bonus.board_finished(gcompris.bonus.FINISHED_RANDOM)
-        return 0
+      if(self.gcomprisBoard.level > self.gcomprisBoard.maxlevel):
+        self.gcomprisBoard.level = self.gcomprisBoard.maxlevel
 
     return 1
 
