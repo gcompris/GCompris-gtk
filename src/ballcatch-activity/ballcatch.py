@@ -1,6 +1,7 @@
 # Ballcatch Board module
 import gobject
 import goocanvas
+import cairo
 import gcompris
 import gcompris.utils
 import gcompris.skin
@@ -46,7 +47,7 @@ class Gcompris_ballcatch:
     self.rootitem = goocanvas.Group(parent =  self.gcomprisBoard.canvas.get_root_item())
 
     # Tux
-    self.lefthand =goocanvas.Image(
+    goocanvas.Image(
       parent = self.rootitem,
       pixbuf = gcompris.utils.load_pixmap("ballcatch/tux.png"),
       x=gcompris.BOARD_WIDTH/2 - 60,
@@ -60,25 +61,21 @@ class Gcompris_ballcatch:
     self.init_balloon()
 
     # The Left Hand
-    self.lefthand =goocanvas.Image(
+    goocanvas.Image(
       parent = self.rootitem,
       pixbuf = gcompris.utils.load_pixmap("ballcatch/hand.png"),
-      x=gcompris.BOARD_WIDTH/2-150.0,
-      y=gcompris.BOARD_HEIGHT - 150
+      x = gcompris.BOARD_WIDTH/2 - 150.0,
+      y = gcompris.BOARD_HEIGHT - 150
       )
 
-    # The Right Hand
-    item = self.lefthand =goocanvas.Image(
+    # The Right Hand (invert the left hand)
+    item = goocanvas.Image(
       parent = self.rootitem,
       pixbuf = gcompris.utils.load_pixmap("ballcatch/hand.png"),
-      x=gcompris.BOARD_WIDTH/2+100.0,
-      y=gcompris.BOARD_HEIGHT - 150.0
       )
-    bounds = self.get_bounds(item)
-    (cx, cy) = ( (bounds[2]+bounds[0])/2 , (bounds[3]+bounds[1])/2)
-    mat = ( -1, 0, 0, 1, 2*cx, 0)
-    #FIXME should rotate the hand
-    #item.set_transform(mat)
+    item.set_transform(cairo.Matrix( -1, 0, 0, 1,
+                                      gcompris.BOARD_WIDTH/2 + 100.0,
+                                      gcompris.BOARD_HEIGHT - 150))
 
     # The Left Shift KEY
     self.leftkey =goocanvas.Image(
@@ -243,8 +240,8 @@ class Gcompris_ballcatch:
     if(self.balloon_line_width>1.0):
       self.balloon_line_width -= 0.5
 
-    self.balloon_item.props.center_x = self.balloon_x - self.balloon_size/2
-    self.balloon_item.props.center_y = self.balloon_y - self.balloon_size/2
+    self.balloon_item.props.center_x = self.balloon_x
+    self.balloon_item.props.center_y = self.balloon_y
     self.balloon_item.props.radius_x = self.balloon_size/2
     self.balloon_item.props.radius_y = self.balloon_size/2
     self.balloon_item.props.line_width = self.balloon_line_width
@@ -269,10 +266,10 @@ class Gcompris_ballcatch:
 
   def get_bounds(self, item):
     if gobject.type_name(item) == "GooCanvasImage":
-      x1=item.get_property("x")
-      y1=item.get_property("y")
-      x2=item.get_property("x")+item.get_property("width")
-      y2=item.get_property("y")+item.get_property("height")
+      x1 = item.get_property("x")
+      y1 = item.get_property("y")
+      x2 = item.get_property("x")+item.get_property("width")
+      y2 = item.get_property("y")+item.get_property("height")
       return (min(x1,x2),min(y1,y2),max(x1,x2),max(y1,y2))
     return(None)
 
@@ -282,10 +279,10 @@ class Gcompris_ballcatch:
     self.balloon_x    = gcompris.BOARD_WIDTH/2-20
     self.balloon_y    = gcompris.BOARD_HEIGHT - 130
 
-    self.balloon_item.props.center_x = self.balloon_x - self.balloon_size/2
-    self.balloon_item.props.center_y = self.balloon_y - self.balloon_size/2
-    self.balloon_item.props.radius_x = self.balloon_x + self.balloon_size/2
-    self.balloon_item.props.radius_y = self.balloon_y + self.balloon_size/2
+    self.balloon_item.props.center_x = self.balloon_x
+    self.balloon_item.props.center_y = self.balloon_y
+    self.balloon_item.props.radius_x = self.balloon_size/2
+    self.balloon_item.props.radius_y = self.balloon_size/2
     self.balloon_item.props.fill_color_rgba = 0xFF1212FFL
     self.balloon_item.props.stroke_color_rgba = 0x000000FFL
     self.balloon_item.props.line_width = self.balloon_line_width
