@@ -258,7 +258,7 @@ class Gcompris_searace:
                                           y=self.left_boat.y,
                                           anchor=gtk.ANCHOR_CENTER,
                                           )
-    self.left_boat.item.raise_to_top()
+    self.left_boat.item.raise_(None)
     self.left_boat.item.connect("button_press_event", self.ruler_item_event)
 
     if(self.right_boat.item):
@@ -272,7 +272,7 @@ class Gcompris_searace:
       y=self.right_boat.y,
       anchor=gtk.ANCHOR_CENTER,
       )
-    self.right_boat.item.raise_to_top()
+    self.right_boat.item.raise_(None)
     self.right_boat.item.connect("button_press_event", self.ruler_item_event)
 
 

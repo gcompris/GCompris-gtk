@@ -54,8 +54,6 @@ class Gcompris_followline:
 
     self.timeout       = 0
 
-    print("Gcompris_followline __init__.")
-
 
   def start(self):
     self.saved_policy = gcompris.sound.policy_get()
@@ -69,14 +67,12 @@ class Gcompris_followline:
     gcompris.set_background(self.gcomprisBoard.canvas.get_root_item(),
                             "followline/followline.png")
     self.background_item_connect_id = \
-        self.gcomprisBoard.canvas.get_root_item().connect("button_press_event",
+        self.gcomprisBoard.canvas.get_root_item().connect("motion_notify_event",
                                                           self.loosing_item_event)
 
     gcompris.bar_set_level(self.gcomprisBoard)
 
     self.init_board()
-
-    print("Gcompris_followline start.")
 
 
   def end(self):
@@ -95,15 +91,15 @@ class Gcompris_followline:
     self.timeout = 0
 
   def ok(self):
-    print("Gcompris_followline ok.")
+    pass
 
 
   def repeat(self):
-    print("Gcompris_followline repeat.")
+    pass
 
 
   def config(self):
-    print("Gcompris_followline config.")
+    pass
 
 
   def key_press(self, keyval, commit_str, preedit_str):
@@ -196,15 +192,26 @@ class Gcompris_followline:
         stroke_color_rgba = self.color_empty,
         line_width = line_width,
         )
-      item.connect("button_press_event", self.line_item_event)
+      item.connect("enter_notify_event", self.line_item_event)
 
+      # Draw the black tube
       if x > start_x and x < stop_x-step:
           goocanvas.Polyline(
           parent = self.rootitem,
           points = goocanvas.Points([( x, y),
-                                     (x + step + 4, y2)]),
+                                     (x + step, y2)]),
           fill_color_rgba = self.color_border,
           line_width = line_width + 20,
+          )
+          # Make the outline smooth
+          goocanvas.Ellipse(
+          parent = self.rootitem,
+          center_x = x + step,
+          center_y = y2,
+          radius_x = (line_width + 20) / 2,
+          radius_y = (line_width + 20) / 2,
+          fill_color_rgba = self.color_border,
+          line_width = 0,
           )
 
       y = y2
@@ -231,14 +238,12 @@ class Gcompris_followline:
   def increment_level(self):
     self.gcomprisBoard.sublevel += 1
 
-    if(self.gcomprisBoard.sublevel>self.gcomprisBoard.number_of_sublevel):
+    if(self.gcomprisBoard.sublevel > self.gcomprisBoard.number_of_sublevel):
       # Try the next level
       self.gcomprisBoard.sublevel=1
       self.gcomprisBoard.level += 1
-      if(self.gcomprisBoard.level>self.gcomprisBoard.maxlevel):
-        # the current board is finished : bail out
-        gcompris.bonus.board_finished(gcompris.bonus.FINISHED_RANDOM)
-        return 0
+      if(self.gcomprisBoard.level > self.gcomprisBoard.maxlevel):
+        self.gcomprisBoard.level = self.gcomprisBoard.maxlevel
 
     return 1
 
@@ -249,7 +254,7 @@ class Gcompris_followline:
     for i in range(0, self.lines_group.get_n_children()):
       item = self.lines_group.get_child(i)
       if(item.get_data("gotit") != True):
-        item.props.fill_color_rgba = self.color_target
+        item.props.stroke_color_rgba = self.color_target
         item.set_data("iamnext", True);
         return
 
@@ -268,10 +273,10 @@ class Gcompris_followline:
         if(previous_item):
           # Remove the target info for this item
           item.set_data("iamnext", False)
-          item.props.fill_color_rgba = self.color_empty
+          item.props.stroke_color_rgba = self.color_empty
 
           # Set the target info on the previous item
-          previous_item.props.fill_color_rgba = self.color_target
+          previous_item.props.stroke_color_rgba = self.color_target
           item.set_data("gotit", False)
           previous_item.set_data("iamnext", True);
 
@@ -287,7 +292,8 @@ class Gcompris_followline:
 
   def is_done(self):
     done = True
-    for item in self.lines_group.item_list:
+    for i in range(0, self.lines_group.get_n_children()):
+      item = self.lines_group.get_child(i)
       if(item.get_data("gotit") != True):
         done = False
 
@@ -297,16 +303,19 @@ class Gcompris_followline:
       if (self.increment_level() == 1):
         self.state = "Done"
         self.gamewon = 1
-        self.water_spot.raise_to_top()
+        self.water_spot.raise_(None)
         self.water_spot.props.visibility = goocanvas.ITEM_VISIBLE
         self.timeout = gobject.timeout_add(1500, self.lauch_bonus)
 
     return done
 
   def loosing_item_event(self, widget, target, event=None):
+    if target.__class__ != goocanvas.Image:
+      return False
+
     if(self.state == "Started"):
       self.loosing_count += 1
-      if(self.loosing_count % 10):
+      if(self.loosing_count % 10 == 0):
         gcompris.sound.play_ogg("sounds/smudge.wav")
         self.highlight_previous_line()
     return False
@@ -317,7 +326,7 @@ class Gcompris_followline:
       # The first line touch means the game is started
       gcompris.sound.play_ogg("sounds/drip.wav")
       self.state = "Started"
-      widget.props.fill_color_rgba = self.color_full
+      widget.props.stroke_color_rgba = self.color_full
 
       widget.set_data("gotit", True);
       widget.set_data("iamnext", False);

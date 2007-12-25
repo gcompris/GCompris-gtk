@@ -465,7 +465,7 @@ class Gcompris_login:
 
     self.entry.props.visibility = goocanvas.ITEM_VISIBLE
 
-    self.widget =goocanvas.Widget(
+    self.widget = goocanvas.Widget(
       parent = self.rootitem,
       widget=self.entry,
       x=400,
@@ -476,7 +476,7 @@ class Gcompris_login:
       size_pixels=False
       )
 
-    self.widget.raise_to_top()
+    self.widget.raise_(None)
 
     # does not work. Why ?
     #self.gcomprisBoard.canvas.grab_focus()
