@@ -1,7 +1,5 @@
 #  gcompris - searace
 #
-# Time-stamp: <2001/08/20 00:54:45 bruno>
-#
 # Copyright (C) 2004 Bruno Coudoin
 #
 #   This program is free software; you can redistribute it and/or modify
@@ -130,6 +128,8 @@ class Gcompris_searace:
                            y=0,
                            )
     item.connect("button_press_event", self.ruler_item_event)
+    item.connect("button_release_event", self.ruler_item_event)
+    item.connect("motion_notify_event", self.ruler_item_event)
 
     self.display_sea_area()
 
@@ -179,7 +179,7 @@ class Gcompris_searace:
       self.race_one_command(self.left_boat)
       self.race_one_command(self.right_boat)
     else:
-      self.statusitem.set(text=_("The race is already being run"))
+      self.statusitem.props.text = _("The race is already being run")
 
   # Called by gcompris when the user click on the level icon
   def set_level(self, level):
@@ -256,10 +256,11 @@ class Gcompris_searace:
                                           pixbuf = pixmap,
                                           x=self.left_boat.x,
                                           y=self.left_boat.y,
-                                          anchor=gtk.ANCHOR_CENTER,
                                           )
     self.left_boat.item.raise_(None)
     self.left_boat.item.connect("button_press_event", self.ruler_item_event)
+    self.left_boat.item.connect("button_release_event", self.ruler_item_event)
+    self.left_boat.item.connect("motion_notify_event", self.ruler_item_event)
 
     if(self.right_boat.item):
       self.right_boat.item.remove()
@@ -270,10 +271,11 @@ class Gcompris_searace:
       pixbuf = pixmap,
       x=self.right_boat.x,
       y=self.right_boat.y,
-      anchor=gtk.ANCHOR_CENTER,
       )
     self.right_boat.item.raise_(None)
     self.right_boat.item.connect("button_press_event", self.ruler_item_event)
+    self.right_boat.item.connect("button_release_event", self.ruler_item_event)
+    self.right_boat.item.connect("motion_notify_event", self.ruler_item_event)
 
 
     # Reset command line processing as well.
@@ -283,7 +285,9 @@ class Gcompris_searace:
     self.right_boat.arrived = False
     self.left_boat.won      = False
     self.right_boat.won     = False
-    self.statusitem.set(text="")
+    self.left_boat.speeditem.props.text = ""
+    self.right_boat.speeditem.props.text = ""
+    self.statusitem.props.text = ""
 
     # Let the user enter comands
     self.left_boat.tv.set_editable(True)
@@ -319,17 +323,6 @@ class Gcompris_searace:
         color = cb
       ci += 1
 
-      # Shadow for text number
-      item = goocanvas.Text(
-        parent = self.rootitem,
-        text=int(ci),
-        font=gcompris.skin.get_font("gcompris/content"),
-        x=text_x+1,
-        y=y+1,
-        fill_color_rgba=0x000000FFL
-        )
-      item.connect("button_press_event", self.ruler_item_event)
-
       # Text number
       item = goocanvas.Text(
         parent = self.rootitem,
@@ -337,18 +330,23 @@ class Gcompris_searace:
         font=gcompris.skin.get_font("gcompris/content"),
         x=text_x,
         y=y,
-        fill_color_rgba=cb
+        fill_color_rgba=cb,
+        anchor = gtk.ANCHOR_CENTER
         )
       item.connect("button_press_event", self.ruler_item_event)
+      item.connect("button_release_event", self.ruler_item_event)
+      item.connect("motion_notify_event", self.ruler_item_event)
 
       item = goocanvas.Polyline(
         parent = self.rootitem,
         points = goocanvas.Points([(self.sea_area[0], y),
                                    (self.sea_area[2], y)]),
-        fill_color_rgba = color,
+        stroke_color_rgba = color,
         line_width = 1.0
         )
       item.connect("button_press_event", self.ruler_item_event)
+      item.connect("button_release_event", self.ruler_item_event)
+      item.connect("motion_notify_event", self.ruler_item_event)
 
 
     ci = 0
@@ -359,17 +357,6 @@ class Gcompris_searace:
         color = cb
       ci += 1
 
-      # Shadow for text number
-      item = goocanvas.Text(
-        parent = self.rootitem,
-        text=int(ci),
-        font=gcompris.skin.get_font("gcompris/content"),
-        x=x+1,
-        y=text_y+1,
-        fill_color_rgba=0x000000FFL
-        )
-      item.connect("button_press_event", self.ruler_item_event)
-
       # Text number
       item = goocanvas.Text(
         parent = self.rootitem,
@@ -377,7 +364,8 @@ class Gcompris_searace:
         font=gcompris.skin.get_font("gcompris/content"),
         x=x,
         y=text_y,
-        fill_color_rgba=cb
+        fill_color_rgba=cb,
+        anchor = gtk.ANCHOR_CENTER
         )
       item.connect("button_press_event", self.ruler_item_event)
 
@@ -385,7 +373,7 @@ class Gcompris_searace:
         parent = self.rootitem,
         points= goocanvas.Points([(x, self.sea_area[1]),
                                   (x, self.sea_area[3])]),
-        fill_color_rgba = color,
+        stroke_color_rgba = color,
         line_width=1.0
         )
       item.connect("button_press_event", self.ruler_item_event)
@@ -396,7 +384,7 @@ class Gcompris_searace:
       parent = self.rootitem,
       points = goocanvas.Points([(self.sea_area[2], self.sea_area[1]-5),
                                  (self.sea_area[2], self.sea_area[3]+5)]),
-      fill_color_rgba = 0xFF0000FFL,
+      stroke_color_rgba = 0xFF0000FFL,
       line_width=5.0
       )
     item.connect("button_press_event", self.ruler_item_event)
@@ -465,7 +453,8 @@ class Gcompris_searace:
       font=gcompris.skin.get_font("gcompris/content"),
       x=x_left,
       y=y-20,
-      fill_color_rgba=0xFF0000FFL
+      fill_color_rgba=0xFF0000FFL,
+      anchor = gtk.ANCHOR_CENTER
       )
 
     self.right_boat.speeditem = goocanvas.Text(
@@ -474,7 +463,8 @@ class Gcompris_searace:
       font=gcompris.skin.get_font("gcompris/content"),
       x=x_right,
       y=y-20,
-      fill_color_rgba=0X027308FFL
+      fill_color_rgba=0X027308FFL,
+      anchor = gtk.ANCHOR_CENTER
       )
 
     # The status area
@@ -484,7 +474,8 @@ class Gcompris_searace:
       font=gcompris.skin.get_font("gcompris/content"),
       x=gcompris.BOARD_WIDTH/2,
       y=y-40,
-      fill_color_rgba=0X000a89FFL
+      fill_color_rgba=0X000a89FFL,
+      anchor = gtk.ANCHOR_CENTER
       )
 
     # The decoration boats
@@ -492,21 +483,17 @@ class Gcompris_searace:
     item = goocanvas.Image(
       parent = self.rootitem,
       pixbuf = pixmap,
-      x=25,
-      y=y+40,
-      anchor=gtk.ANCHOR_CENTER,
       )
-    gcompris.utils.item_rotate_relative(item, -90);
+    gcompris.utils.item_rotate(item, -90);
+    item.translate(-y-40, -10)
 
     pixmap = gcompris.utils.load_pixmap("searace/top_boat_green.png")
     item = goocanvas.Image(
       parent = self.rootitem,
       pixbuf = pixmap,
-      x=gcompris.BOARD_WIDTH-25,
-      y=y+40,
-      anchor=gtk.ANCHOR_CENTER,
       )
-    gcompris.utils.item_rotate_relative(item, -90);
+    gcompris.utils.item_rotate(item, -90);
+    item.translate(-y-40, gcompris.BOARD_WIDTH-60)
 
     # The commands
     hl = 18
@@ -518,16 +505,18 @@ class Gcompris_searace:
       font=gcompris.skin.get_font("gcompris/content"),
       x=gcompris.BOARD_WIDTH/2,
       y=y,
-      fill_color_rgba=text_color
+      fill_color_rgba=text_color,
+      anchor = gtk.ANCHOR_CENTER
       )
 
-    self.rootitem.add (
-      goocanvas.Text,
+    goocanvas.Text(
+      parent = self.rootitem,
       text=_("forward"),
       font=gcompris.skin.get_font("gcompris/content"),
       x=gcompris.BOARD_WIDTH/2,
       y=y+hl,
-      fill_color_rgba= text_color
+      fill_color_rgba= text_color,
+      anchor = gtk.ANCHOR_CENTER
       )
 
     goocanvas.Text(
@@ -536,7 +525,8 @@ class Gcompris_searace:
       font=gcompris.skin.get_font("gcompris/content"),
       x=gcompris.BOARD_WIDTH/2,
       y=y+hl*2,
-      fill_color_rgba= text_color
+      fill_color_rgba= text_color,
+      anchor = gtk.ANCHOR_CENTER
       )
 
     goocanvas.Text(
@@ -545,7 +535,8 @@ class Gcompris_searace:
       font=gcompris.skin.get_font("gcompris/content"),
       x=gcompris.BOARD_WIDTH/2,
       y=y+hl*3,
-      fill_color_rgba=text_color
+      fill_color_rgba=text_color,
+      anchor = gtk.ANCHOR_CENTER
       )
 
 
@@ -613,21 +604,11 @@ class Gcompris_searace:
       pixbuf = pixmap,
       x=cx,
       y=cy,
-      anchor=gtk.ANCHOR_CENTER
       )
     gcompris.utils.item_rotate_relative(item, condition[1][0]);
     item.connect("button_press_event", self.ruler_item_event)
-
-    # Text number Shadow
-    item =  goocanvas.Text(
-      parent = self.root_weather_item,
-      text=condition[1][1],
-      font=gcompris.skin.get_font("gcompris/content"),
-      x=cx+1+pixmap.get_width()/2,
-      y=cy+1+pixmap.get_height()/2,
-      fill_color_rgba=0x000000FFL
-      )
-    item.connect("button_press_event", self.ruler_item_event)
+    item.connect("button_release_event", self.ruler_item_event)
+    item.connect("motion_notify_event", self.ruler_item_event)
 
     # Text number
     item = goocanvas.Text (
@@ -636,15 +617,19 @@ class Gcompris_searace:
       font=gcompris.skin.get_font("gcompris/content"),
       x=cx+pixmap.get_width()/2,
       y=cy+pixmap.get_height()/2,
-      fill_color_rgba=0xFFFFFFFFL
+      fill_color_rgba=0xFFFFFFFFL,
+      anchor = gtk.ANCHOR_CENTER
       )
     item.connect("button_press_event", self.ruler_item_event)
+    item.connect("button_release_event", self.ruler_item_event)
+    item.connect("motion_notify_event", self.ruler_item_event)
 
     return
 
   # Given a boat item, return it's weather condition
   def get_weather_condition(self, boat):
-    (x, y)= boat.item.i2w( boat.x, boat.y)
+    (x, y)= self.gcomprisBoard.canvas.\
+        convert_from_item_space(boat.item, boat.x, boat.y)
 
     # Look in the cache to speed the process
     if(boat.condition):
@@ -722,15 +707,18 @@ class Gcompris_searace:
     boat.y += 0
 
     # We need to convert the coord to the rootitem coordinate to check limits
-    (x, y)= boat.item.i2w( boat.x, boat.y)
+    (x, y)= self.gcomprisBoard.canvas.\
+        convert_from_item_space(boat.item, boat.x, boat.y)
 
     # Manage the wrapping
     if(y<self.sea_area[1]):
       y = self.sea_area[3]
-      (boat.x, boat.y)= boat.item.w2i( x, y)
+      (boat.x, boat.y)= self.gcomprisBoard.canvas.\
+        convert_to_item_space(boat.item, x, y)
     elif(y>self.sea_area[3]):
       y = self.sea_area[1]
-      (boat.x, boat.y)= boat.item.w2i( x, y)
+      (boat.x, boat.y)= self.gcomprisBoard.canvas.\
+        convert_to_item_space(boat.item, x, y)
     elif(x>self.sea_area[2]):
       boat.arrived     = True
       boat.finish_time = time.time()
@@ -740,26 +728,26 @@ class Gcompris_searace:
         boat.won = True
       elif(abs(self.left_boat.finish_time - self.right_boat.finish_time) < 1):
         # The two boat arrived in a close time frame (1s), it's a draw
-        self.statusitem.set(text=_("This is a draw"))
+        self.statusitem.props.text = _("This is a draw")
         self.left_boat.won  = False
         self.right_boat.won = False
-        boat.speeditem.set(text="")
-        boat.speeditem.set(text="")
+        boat.speeditem.props.text = ""
+        boat.speeditem.props.text = ""
 
       if(self.left_boat.won):
-        self.statusitem.set(text=_("The Red boat has won"))
-        boat.speeditem.set(text="")
+        self.statusitem.props.text = _("The Red boat has won")
+        boat.speeditem.props.text = ""
       elif(self.right_boat.won):
-        self.statusitem.set(text=_("The Green boat has won"))
-        boat.speeditem.set(text="")
+        self.statusitem.props.text = _("The Green boat has won")
+        boat.speeditem.props.text = ""
 
       boat.timer = 0
       return
 
     condition = self.get_weather_condition(boat)
 
-    boat.item.set(x = boat.x,
-                  y = boat.y)
+    boat.item.props.x = boat.x
+    boat.item.props.y = boat.y
 
 
     wind = self.get_wind_score(boat.angle, condition)
@@ -768,9 +756,10 @@ class Gcompris_searace:
     angle = condition[0]
     if(angle>180):
       angle = abs(angle-360)
-    boat.speeditem.set(text = _("Angle:") + str(angle) + " " + _("Wind:") + str(int(wind)*-1))
-    boat.timer = gobject.timeout_add(int(self.timerinc+wind), self.cmd_forward, boat, value)
-
+    boat.speeditem.props.text = \
+        _("Angle:") + str(angle) + " " + _("Wind:") + str(int(wind)*-1)
+    boat.timer = gobject.timeout_add(int(self.timerinc+wind),
+                                     self.cmd_forward, boat, value)
 
 
 
@@ -846,7 +835,8 @@ class Gcompris_searace:
     elif ( len(cmds) == 1 and cmd.startswith(_("right")) ):
       cmd += " 45"
     elif ( len(cmds) > 2):
-      boat.speeditem.set(text=_("Syntax error at line") + " " + str(boat.line) + "\n(" + cmd + ")")
+      boat.speeditem.props.text = _("Syntax error at line") \
+          + " " + str(boat.line) + "\n(" + cmd + ")"
 
       # Let the user enter commands
       boat.tv.set_editable(True)
@@ -864,7 +854,7 @@ class Gcompris_searace:
         boat.tv.set_editable(True)
 
         boat.timer = 0
-        boat.speeditem.set(text=_("The command") + " '" + cmd.split()[0] + "' " + "at line" + " " + str(boat.line) + "\n" + "requires a number parameter")
+        boat.speeditem.props.text = _("The command") + " '" + cmd.split()[0] + "' " + "at line" + " " + str(boat.line) + "\n" + "requires a number parameter"
         boat.line = 0
         return
 
@@ -883,7 +873,8 @@ class Gcompris_searace:
       boat.tv.set_editable(True)
 
       boat.timer = 0
-      boat.speeditem.set(text=_("Unknown command at line") + " " + str(boat.line) + "\n(" +  cmd.split()[0] + ")")
+      boat.speeditem.props.text = \
+          _("Unknown command at line") + " " + str(boat.line) + "\n(" +  cmd.split()[0] + ")"
       boat.line = 0
 
   # Will return a text string: the tux move
@@ -932,7 +923,7 @@ class Gcompris_searace:
       self.root_weather_item.add(
         goocanvas.Polyline,
         points = goocanvas.Points([(bx, by), (coord[0], coord[1])]),
-        fill_color_rgba=0x00CC00FFL,
+        stroke_color_rgba=0x00CC00FFL,
         line_width=2.0,
         line_style=coord[4]
         )
@@ -981,35 +972,39 @@ class Gcompris_searace:
   # The RULER
   #
   def ruler_item_event(self, widget, target, event=None):
+    (x, y)= self.gcomprisBoard.canvas.\
+        convert_from_item_space(widget, event.x, event.y)
     if event.type == gtk.gdk.BUTTON_PRESS:
       if event.button == 1:
-        self.pos_x = event.x
-        self.pos_y = event.y
+        self.pos_x = x
+        self.pos_y = y
         self.ruleritem = goocanvas.Polyline(
           parent = self.rootitem,
-          points = goocanvas.Points([(self.pos_x, self.pos_y,
-                                      event.x, event.y)]),
-          fill_color_rgba=0xFF0000FFL,
+          points = goocanvas.Points([(self.pos_x, self.pos_y),
+                                      (x, y)]),
+          stroke_color_rgba=0xFF0000FFL,
           line_width=2.0
           )
         return True
+
     if event.type == gtk.gdk.MOTION_NOTIFY:
       if event.state & gtk.gdk.BUTTON1_MASK:
         # Calc the angle and distance and display them in the status bar
-        distance = math.sqrt((self.pos_x-event.x)*(self.pos_x-event.x)+(self.pos_y-event.y)*(self.pos_y-event.y))
+        distance = math.sqrt((self.pos_x-x)*(self.pos_x-x)+(self.pos_y-y)*(self.pos_y-y))
         distance = int(distance/self.sea_ratio)
 
-        angle = math.atan2(abs(self.pos_x-event.x), abs(self.pos_y-event.y))
+        angle = math.atan2(abs(self.pos_x-x), abs(self.pos_y-y))
         angle = int(angle*180/math.pi)
         angle = abs(angle - 90)
-        self.statusitem.set(text=_("Distance:") + " " + str(distance) + " " + _("Angle:") + " " + str(angle))
-        self.ruleritem.set(
-          points=( self.pos_x, self.pos_y, event.x, event.y)
-          )
+        self.statusitem.props.text = \
+            _("Distance:") + " " + str(distance) + " " + _("Angle:") + " " + str(angle)
+        self.ruleritem.props.points = \
+            goocanvas.Points([(self.pos_x, self.pos_y), (x, y)])
+
     if event.type == gtk.gdk.BUTTON_RELEASE:
       if event.button == 1:
         self.ruleritem.remove()
-        self.statusitem.set(text="")
+        self.statusitem.props.text = ""
         return True
     return False
 

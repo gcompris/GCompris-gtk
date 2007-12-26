@@ -24,9 +24,11 @@ import gcompris
 import gcompris.utils
 import gcompris.bonus
 import gcompris.score
+import gcompris.skin
 import gtk
 import gtk.gdk
 import gobject
+import cairo
 
 class Gcompris_drawnumber :
 
@@ -126,23 +128,29 @@ class Gcompris_drawnumber :
 
     #Data loading from global data and display of points and numbers
     i=1
-    while(i<=(self.MAX)):
+    prev_text = None
+    prev_point = None
+    while(i <= self.MAX):
+      self.POINT.append(self.point(i,self.data[sublevel][i][0],
+                                   self.data[sublevel][i][1],30))
+      self.POINT[i].connect('button_press_event', self.action, i)
+
       self.TEXT.append(self.text(i,
                                  self.data[sublevel][i][0],
                                  self.data[sublevel][i][1]))
-      self.TEXT[i].connect('event', self.action, i)
-      self.TEXT[i].lower(300-i)
-      self.POINT.append(self.point(i,self.data[sublevel][i][0],
-                                   self.data[sublevel][i][1],30))
-      self.POINT[i].connect('event', self.action, i)
+      self.TEXT[i].connect('button_press_event', self.action, i)
 
-      #Setting of display level to prevent from covert a point with another point which
-      #cause an impossibility to select it.
-      self.POINT[i].lower(300-i)
+      # Setting of display level to prevent covering a point with another point which
+      # cause an impossibility to select it.
+      self.TEXT[i].lower(prev_point)
+      prev_text = self.TEXT[i]
+      self.POINT[i].lower(prev_text)
+      prev_point = self.POINT[i]
+
       i=i+1
 
     #Setting color of the first point to blue instead of green
-    self.POINT[1].set(fill_color='blue')
+    self.POINT[1].set_properties(fill_color_rgba=0x003DF5D0)
 
   def point(self, idpt, x, y, d=30):
     """Setting point from his x and y location"""
@@ -152,7 +160,7 @@ class Gcompris_drawnumber :
       center_y = y,
       radius_x = d/2,
       radius_y = d/2,
-      fill_color = "green", # default color is green and outline in black
+      fill_color_rgba = 0x3DF500D0, # default color is green and outline in black
       stroke_color = "black",
       line_width = 1.5
       )
@@ -163,31 +171,33 @@ class Gcompris_drawnumber :
     """Setting text beside the point number idpt locate as xt, yt"""
     labell = goocanvas.Text(
       parent = self.ROOT,
-                           x=xt,
-                           y=yt,
-                           fill_color="black",
-                           size_points=14,
-                           text=str(idpt)) # ,font=gcompris.FONT_TITLE)
+      x = xt,
+      y = yt,
+      fill_color = "black",
+      font = gcompris.skin.get_font("gcompris/board/big bold"),
+      anchor = gtk.ANCHOR_CENTER,
+      text = str(idpt))
     return labell
 
   def lauch_bonus(self):
     gcompris.bonus.display(gcompris.bonus.WIN, gcompris.bonus.RANDOM)
 
-  def action(self,objet,truc,idpt):
+  def action(self, objet, target, truc, idpt):
     """Action to do at each step during normal execution of the game"""
     if truc.type == gtk.gdk.BUTTON_PRESS :
       if idpt == (self.actu+1): #Action to execute if the selected point is the following of previous one
-        xd,yd,xa,ya=self.POINT[(idpt-1)].x,self.POINT[(idpt-1)].y,self.POINT[idpt].x,self.POINT[idpt].y
+        xd,yd,xa,ya = self.POINT[(idpt-1)].x,self.POINT[(idpt-1)].y,self.POINT[idpt].x,self.POINT[idpt].y
         item = goocanvas.Polyline(
           parent = self.ROOT,
-                             points=(xd,yd,xa,ya),
-                             fill_color='black',
-                             line_width=1.5)
+          points = goocanvas.Points([(xd,yd),(xa,ya)]),
+          stroke_color = 'black',
+          line_cap = cairo.LINE_CAP_ROUND,
+          line_width = 1.5)
 
 
         if idpt == 2: # Always raise the first point
-          self.POINT[self.MAX].raise_to_top()
-          self.TEXT[self.MAX].raise_to_top()
+          self.POINT[self.MAX].raise_(None)
+          self.TEXT[self.MAX].raise_(None)
 
         self.POINT[idpt].props.visibility = goocanvas.ITEM_INVISIBLE
         self.TEXT[idpt].props.visibility = goocanvas.ITEM_INVISIBLE
@@ -197,7 +207,8 @@ class Gcompris_drawnumber :
           self.timeout = gobject.timeout_add(1500, self.lauch_bonus) # The level is complete -> Bonus display
 
         else : #Action to execute if the selected point isn't the last one of this level
-          #self.POINT[(idpt+1)].set(fill_color='blue') #Set color in blue to next point. Too easy ???
+          #Set color in blue to next point. Too easy ???
+          #self.POINT[(idpt+1)].set_properties(fill_color_rgba=0x003DF5F0)
           self.actu=self.actu+1 #self.actu update to set it at actual value of selected point
 
   def ok(self):

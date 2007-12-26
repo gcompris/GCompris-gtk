@@ -19,6 +19,7 @@
 # Follow Line Board module
 import gobject
 import goocanvas
+import cairo
 import gcompris
 import gcompris.skin
 import gcompris.bonus
@@ -188,9 +189,10 @@ class Gcompris_followline:
 
       item = goocanvas.Polyline(
         parent = self.lines_group,
-        points = goocanvas.Points([(x, y), (x + step + 4, y2)]),
+        points = goocanvas.Points([(x, y), (x + step, y2)]),
         stroke_color_rgba = self.color_empty,
         line_width = line_width,
+        line_cap = cairo.LINE_CAP_ROUND
         )
       item.connect("enter_notify_event", self.line_item_event)
 
@@ -202,18 +204,8 @@ class Gcompris_followline:
                                      (x + step, y2)]),
           fill_color_rgba = self.color_border,
           line_width = line_width + 20,
+          line_cap = cairo.LINE_CAP_ROUND
           )
-          # Make the outline smooth
-          goocanvas.Ellipse(
-          parent = self.rootitem,
-          center_x = x + step,
-          center_y = y2,
-          radius_x = (line_width + 20) / 2,
-          radius_y = (line_width + 20) / 2,
-          fill_color_rgba = self.color_border,
-          line_width = 0,
-          )
-
       y = y2
 
     self.highlight_next_line()

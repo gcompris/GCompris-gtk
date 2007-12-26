@@ -32,6 +32,7 @@ import gcompris.bonus
 import gcompris.anim
 import gtk
 import gtk.gdk
+import cairo
 from gettext import gettext as _
 
 from  connect4p import rules
@@ -88,7 +89,8 @@ class Gcompris_connect4:
             x=0.0,
             y=0.0
             )
-        selector.connect("event", self.columnItemEvent, 0)
+        selector.connect("motion_notify_event", self.columnItemEvent, 0)
+        selector.connect("button_press_event", self.columnItemEvent, 0)
 
         if self.mode == 1:
             self.prof = \
@@ -98,8 +100,8 @@ class Gcompris_connect4:
                 x=10,
                 y=350.0
                 )
-            self.prof.connect("event", self.profItemEvent, 0)
-            self.prof.connect("event", gcompris.utils.item_event_focus)
+            self.prof.connect("button_press_event", self.profItemEvent, 0)
+            self.prof.connect("enter_notify_event", gcompris.utils.item_event_focus)
 
         self.timericon = gcompris.anim.CanvasItem( gcompris.anim.Animation("connect4/sablier.txt"),
             self.rootitem )
@@ -116,11 +118,11 @@ class Gcompris_connect4:
         self.score_item = \
             goocanvas.Text(
                 parent = self.rootitem,
-            font=gcompris.skin.get_font("gcompris/board/huge bold"),
-            x=60,
-            y=250,
-            justification=gtk.JUSTIFY_CENTER,
-            fill_color_rgba=0xFF0000FFL)
+                font=gcompris.skin.get_font("gcompris/board/huge bold"),
+                x=60,
+                y=250,
+                anchor = gtk.ANCHOR_CENTER,
+                fill_color_rgba=0xFF0000FFL)
 
         self.update_scores((0, 0))
 
@@ -158,7 +160,7 @@ class Gcompris_connect4:
     def update_scores(self, scores=None):
         if scores: self.scores = list(scores)
         txt = str(self.scores[0]) + "\n\n" + str(self.scores[1])
-        self.score_item.set(text=txt)
+        self.score_item.props.text = txt
 
     def stone_init(self):
         if self.player_stone:
@@ -217,10 +219,10 @@ class Gcompris_connect4:
             self.boardItem.remove()
         self.boardItem = \
             goocanvas.Group(
-                parent = self.gcomprisBoard.canvas.get_root_item(),
-            x=(gcompris.BOARD_WIDTH-self.boardSize)/2.0,
-            y=50.0
-            )
+                parent = self.gcomprisBoard.canvas.get_root_item()
+                )
+        self.boardItem.translate((gcompris.BOARD_WIDTH-self.boardSize)/2.0,
+                                 50.0)
         self.player1 = human.Human(self.gcomprisBoard.level)
         if self.mode == 1:
             self.player2 = minmax.MinMax(self.gcomprisBoard.level, self.refreshScreen)
@@ -240,25 +242,27 @@ class Gcompris_connect4:
         if self.mode == 1:
             self.prof.props.visibility = goocanvas.ITEM_VISIBLE
 
-    def columnItemEvent(self, widget, event, columns):
+    def columnItemEvent(self, widget, target, event, columns):
+        (x, y)= self.gcomprisBoard.canvas.\
+            convert_from_item_space(widget, event.x, event.y)
         if self.mode == 1 and self.cur_player == 2: # AI playing
             return False
         if self.cur_player == 0 or self.timerAnim:  # Game over or Timer animate
             return False
         if event.type == gtk.gdk.BUTTON_PRESS and event.button == 1:
-            column = int((event.x - (gcompris.BOARD_WIDTH-self.boardSize)/2.0) // self.stoneSize)
+            column = int((x - (gcompris.BOARD_WIDTH-self.boardSize)/2.0) // self.stoneSize)
             if 0 <= column < self.nbColumns:
                 if self.play(self.player1, self.cur_player, column):
                     self.timericon.goocanvas.props.visibility = goocanvas.ITEM_VISIBLE
                     self.player_stone.props.visibility = goocanvas.ITEM_INVISIBLE
         elif event.type == gtk.gdk.MOTION_NOTIFY:
-            column = int((event.x - (gcompris.BOARD_WIDTH-self.boardSize)/2.0) // self.stoneSize)
+            column = int((x - (gcompris.BOARD_WIDTH-self.boardSize)/2.0) // self.stoneSize)
             if 0 <= column < self.nbColumns:
                 self.keyb_column = column
                 self.update_stone2()
         return False
 
-    def profItemEvent(self, widget, event, column):
+    def profItemEvent(self, widget, target, event, column):
         if event.type == gtk.gdk.BUTTON_PRESS:
             self.cur_player=1
             self.prof.props.visibility = goocanvas.ITEM_INVISIBLE
@@ -308,7 +312,8 @@ class Gcompris_connect4:
             x=x*(self.boardSize/self.nbColumns),
             y=0
             )
-        self.stone.connect("event", self.columnItemEvent, 0)
+        self.stone.connect("button_press_event", self.columnItemEvent, 0)
+        self.stone.connect("motion_notify_event", self.columnItemEvent, 0)
         self.countAnim = self.nbLines-y
         self.timerAnim = gobject.timeout_add(200, self.animTimer)
         self.timericon.goocanvas.props.visibility = goocanvas.ITEM_VISIBLE
@@ -343,20 +348,20 @@ class Gcompris_connect4:
         self.scores[player-1] += 1
         self.update_scores()
 
-        points = ( self.winLine[0][0]*(self.boardSize/self.nbColumns)+self.stoneSize/2,
-                (self.boardSize/self.nbColumns)*(self.nbLines-1-self.winLine[0][1])+self.stoneSize/2,
-                self.winLine[1][0]*(self.boardSize/self.nbColumns)+self.stoneSize/2,
-                (self.boardSize/self.nbColumns)*(self.nbLines-1-self.winLine[1][1])+self.stoneSize/2
-                )
+        points = goocanvas.Points([(self.winLine[0][0]*(self.boardSize/self.nbColumns)+self.stoneSize/2,
+                                    (self.boardSize/self.nbColumns)*(self.nbLines-1-self.winLine[0][1])+self.stoneSize/2),
+                                   (self.winLine[1][0]*(self.boardSize/self.nbColumns)+self.stoneSize/2,
+                                    (self.boardSize/self.nbColumns)*(self.nbLines-1-self.winLine[1][1])+self.stoneSize/2)
+                                   ])
 
         self.redLine = \
             goocanvas.Polyline(
-                parent = self.boardItem,
-            fill_color_rgba=0xFF0000FFL,
-            points=points,
-            width_pixels = 8
+            parent = self.boardItem,
+            stroke_color_rgba=0xFF0000FFL,
+            points = points,
+            line_width = 8,
+            line_cap = cairo.LINE_CAP_ROUND
             )
-        self.redLine.set_property("cap-style", gtk.gdk.CAP_ROUND)
         if player == 1:
             gcompris.bonus.display(gcompris.bonus.WIN, gcompris.bonus.FLOWER)
         elif player == 2:

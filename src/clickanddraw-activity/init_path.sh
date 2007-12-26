@@ -3,6 +3,6 @@
 path=$1
 activity=clickanddraw
 plugindir=$path/../boards/.libs
-pythonplugindir=$path./drawnumber-activity
+pythonplugindir=$path/../drawnumber-activity
 resourcedir=$path/../drawnumber-activity/resources
 section="/computer/mouse"

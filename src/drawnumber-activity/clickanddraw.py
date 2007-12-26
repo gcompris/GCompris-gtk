@@ -27,11 +27,12 @@ import gcompris.score
 import gtk
 import gtk.gdk
 import gobject
+import cairo
 from drawnumber import Gcompris_drawnumber
 
-class Gcompris_clickanddraw(Gcompris_drawnumber) :
+class Gcompris_clickanddraw(Gcompris_drawnumber):
 
-  def set_sublevel(self,sublevel=1):
+  def set_sublevel(self, sublevel=1):
     """Start of the game at sublevel number sublevel of level n"""
 
     if self.MAX!=0 :
@@ -44,7 +45,8 @@ class Gcompris_clickanddraw(Gcompris_drawnumber) :
       )
 
     #Setting of the first background image of the level
-    gcompris.set_background(self.ROOT,self.data[sublevel][0][1])
+    gcompris.set_background(self.gcomprisBoard.canvas.get_root_item(),
+                            self.data[sublevel][0][1])
 
     #Initialisation of sub-elements in list
     self.POINT=[0]
@@ -64,6 +66,7 @@ class Gcompris_clickanddraw(Gcompris_drawnumber) :
 
     #Data loading from global data and display of points and numbers
     i=self.MAX
+    prev_point = None
     while(i>0):
       if self.gcomprisBoard.level==1 :
         self.POINT.append(self.point(idpt=(self.MAX-i+1),
@@ -78,29 +81,33 @@ class Gcompris_clickanddraw(Gcompris_drawnumber) :
                                      x=self.data[sublevel][i][0],
                                      y=self.data[sublevel][i][1],d=20))
 
-      self.POINT[(self.MAX-i+1)].connect('event',self.action,(self.MAX-i+1))
+      self.POINT[(self.MAX-i+1)].connect('button_press_event',
+                                         self.action,(self.MAX-i+1))
 
-      #Setting of display level to prevent from covert a point with another
+      #Setting of display level to prevent covering a point with another
       #point which cause an impossibility to select it.
-      self.POINT[(self.MAX-i+1)].lower(300-(self.MAX-i+1))
-      i=i-1
+      if prev_point:
+        self.POINT[(self.MAX-i+1)].lower(prev_point)
+      prev_point = self.POINT[(self.MAX-i+1)]
+      i = i-1
 
     #Setting color of the first point to blue instead of green
-    self.POINT[1].set(fill_color='blue')
+    self.POINT[1].set_properties(fill_color_rgba = 0x003DF5D0)
 
-  def action(self,objet,truc,idpt):
+  def action(self, objet, target, truc, idpt):
     """Action to do at each step during normal execution of the game"""
     if truc.type == gtk.gdk.BUTTON_PRESS :
       if idpt == (self.actu+1): #Action to execute if the selected point is the following of previous one
         xd,yd,xa,ya = self.POINT[(idpt-1)].x, self.POINT[(idpt-1)].y, self.POINT[idpt].x, self.POINT[idpt].y
         goocanvas.Polyline(
           parent = self.ROOT,
-          points=(xd,yd,xa,ya),
-          fill_color='black',
-          line_width=2)
+          points = goocanvas.Points([(xd,yd), (xa,ya)]),
+          fill_color = 'black',
+          line_cap = cairo.LINE_CAP_ROUND,
+          line_width = 2)
 
         if idpt == 2: # Always raise the first point
-          self.POINT[self.MAX].raise_to_top()
+          self.POINT[self.MAX].raise_(None)
 
         objet.props.visibility = goocanvas.ITEM_INVISIBLE
         if idpt==self.MAX : #Action to exectute if all points have been selected in good way
@@ -109,6 +116,7 @@ class Gcompris_clickanddraw(Gcompris_drawnumber) :
           self.gamewon = 1
           self.timeout = gobject.timeout_add(1500, self.lauch_bonus) # The level is complete -> Bonus display
 
-        else : #Action to execute if the selected point isn't the last one of this level
-          self.POINT[(idpt+1)].set(fill_color='blue') #Set color in blue to next point. Too easy ???
+        else : # Action to execute if the selected point isn't the last one of this level
+          # Set color in blue to next point. Too easy ???
+          self.POINT[(idpt+1)].set_properties(fill_color_rgba=0x003DF5D0)
           self.actu = self.actu+1 #self.actu update to set it at actual value of selected point
