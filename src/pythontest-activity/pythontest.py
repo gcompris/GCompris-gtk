@@ -8,6 +8,7 @@ import gcompris.admin
 import gtk
 import gtk.gdk
 import random
+import cairo
 
 from gcompris import gcompris_gettext as _
 
@@ -97,7 +98,7 @@ class Gcompris_pythontest:
 
     # Create our rootitem. We put each canvas item in it so at the end we
     # only have to kill it. The canvas deletes all the items it contains automaticaly.
-    self.rootitem = goocanvas.Group(parent =  self.gcomprisBoard.canvas.get_root_item())
+    self.rootitem = goocanvas.Group(parent = self.gcomprisBoard.canvas.get_root_item())
 
     # distance is used to demo of gcompris.spin_int
     distance = eval(self.config_dict['distance_circle'])
@@ -113,29 +114,51 @@ class Gcompris_pythontest:
     if not patterns.has_key(pattern):
       pattern = 'circle'
 
-    self.canvasitems[1] = self.rootitem.add(
-      patterns[pattern],
-      x1=400.0 - distance ,
-      y1=200.0,
-      x2=380.0 - distance,
-      y2=220.0,
+    self.canvasitems[1] = patterns[pattern](
+      parent = self.rootitem,
       fill_color_rgba= self.colors['circle_in'],
       stroke_color_rgba= self.colors['circle_out'],
       line_width=1.0
       )
-    self.canvasitems[1].connect("event", self.circle_item_event)
+    self.canvasitems[1].connect("button_press_event", self.circle_item_event)
+    self.canvasitems[1].connect("button_release_event", self.circle_item_event)
+    self.canvasitems[1].connect("motion_notify_event", self.circle_item_event)
 
-    self.canvasitems[2] = self.rootitem.add(
-      patterns[pattern],
-      x1=400.0 + distance,
-      y1=200.0,
-      x2=420.0 + distance,
-      y2=220.0,
+    if(pattern == 'circle'):
+      self.canvasitems[1].set_properties(
+        center_x = 400.0 - distance,
+        center_y = 200.0,
+        radius_x = 20,
+        radius_y = 20)
+    else:
+      self.canvasitems[1].set_properties(
+        x = 400.0 - distance,
+        y = 200.0,
+        width = 20,
+        height = 20)
+
+    self.canvasitems[2] = patterns[pattern](
+      parent = self.rootitem,
       fill_color_rgba= self.colors['circle_in'],
       stroke_color_rgba= self.colors['circle_out'],
       line_width=1.0
       )
-    self.canvasitems[2].connect("event", self.circle_item_event)
+    self.canvasitems[2].connect("button_press_event", self.circle_item_event)
+    self.canvasitems[2].connect("button_release_event", self.circle_item_event)
+    self.canvasitems[2].connect("motion_notify_event", self.circle_item_event)
+
+    if(pattern == 'circle'):
+      self.canvasitems[2].set_properties(
+        center_x = 400.0 + distance,
+        center_y = 200.0,
+        radius_x = 20,
+        radius_y = 20)
+    else:
+      self.canvasitems[2].set_properties(
+        x = 400.0 + distance,
+        y = 200.0,
+        width = 20,
+        height = 20)
 
     self.canvasitems[3] = goocanvas.Text(
       parent = self.rootitem,
@@ -143,25 +166,25 @@ class Gcompris_pythontest:
       y=100.0,
       text=_("This is the first plugin in GCompris coded in the Python\nProgramming language."),
       fill_color="black",
-      justification=gtk.JUSTIFY_CENTER
+      anchor = gtk.ANCHOR_CENTER,
       )
 
-    self.canvasitems[4] =goocanvas.Text(
+    self.canvasitems[4] = goocanvas.Text(
       parent = self.rootitem,
       x=400.0,
       y=140.0,
       text=_("It is now possible to develop GCompris activities in C or in Python.\nThanks to Olivier Samys who makes this possible."),
       fill_color="black",
-      justification=gtk.JUSTIFY_CENTER
+      anchor = gtk.ANCHOR_CENTER,
       )
 
-    self.canvasitems[5] = self.rootitem.add(
-      goocanvas.Text,
+    self.canvasitems[5] = goocanvas.Text(
+      parent = self.rootitem,
       x=400.0,
       y=250.0,
       text=_("This activity is not playable, just a test"),
       fill_color="black",
-      justification=gtk.JUSTIFY_CENTER
+      anchor = gtk.ANCHOR_CENTER,
       )
 
     #----------------------------------------
@@ -169,12 +192,12 @@ class Gcompris_pythontest:
     # Try to hit left shift and right shift together. The peed increases
     goocanvas.Rect(
       parent = self.rootitem,
-      x1=20,
-      y1=gcompris.BOARD_HEIGHT-180,
-      x2=gcompris.BOARD_WIDTH-20,
-      y2=gcompris.BOARD_HEIGHT-10,
-      fill_color_rgba=0xe0ecfaFFL,
-      stroke_color_rgba=0xc3d9f1FFL,
+      x = 20,
+      y = gcompris.BOARD_HEIGHT-180,
+      width = gcompris.BOARD_WIDTH-40,
+      height = 160,
+      fill_color_rgba=0xFF663333L,
+      stroke_color_rgba=0xFF33CCAAL,
       line_width=2.0)
 
     # For the game status WIN/LOOSE
@@ -184,7 +207,7 @@ class Gcompris_pythontest:
       y=gcompris.BOARD_HEIGHT - 40,
       font=gcompris.skin.get_font("gcompris/content"),
       fill_color_rgba=0x102010FFL,
-      justification=gtk.JUSTIFY_CENTER
+      anchor = gtk.ANCHOR_CENTER,
       )
 
     goocanvas.Text(
@@ -193,7 +216,7 @@ class Gcompris_pythontest:
       y=400.0,
       text=("Test your reflex with the counter. Hit the 2 shifts key together.\nHit space to reset the counter and increase the speed.\nBackspace to reset the speed"),
       fill_color="black",
-      justification=gtk.JUSTIFY_CENTER
+      anchor = gtk.ANCHOR_CENTER,
       )
 
     # The basic tick for object moves
@@ -211,7 +234,7 @@ class Gcompris_pythontest:
       font=gcompris.skin.get_font("gcompris/content"),
       text="Speed="+str(self.timerinc)+" ms",
       fill_color="black",
-      justification=gtk.JUSTIFY_CENTER
+      anchor = gtk.ANCHOR_CENTER,
       )
 
     self.textitem_left = goocanvas.Text(
@@ -275,12 +298,12 @@ class Gcompris_pythontest:
 
     if(not self.left_continue and not self.right_continue):
       if(self.counter_left == self.counter_right):
-        self.canvasitems[6].set(text="WIN",
-                                fill_color_rgba=0x2bf9f2FFL)
+        self.canvasitems[6].set_properties(text = "WIN",
+                                           fill_color_rgba = 0x002EB8FFL)
         win=True
       else:
-        self.canvasitems[6].set(text="LOOSE",
-                                fill_color_rgba=0xFF0000FFL)
+        self.canvasitems[6].set_properties(text = "LOOSE",
+                                           fill_color_rgba = 0xFF0000FFL)
 
     if ((keyval == gtk.keysyms.BackSpace) or
         (keyval == gtk.keysyms.Delete)):
@@ -305,10 +328,10 @@ class Gcompris_pythontest:
       if(self.timerinc<1):
           self.timerinc = 1
 
-      self.canvasitems[3].set(text="")
-      self.canvasitems[6].set(text="")
+      self.canvasitems[3].set_properties(text="")
+      self.canvasitems[6].set_properties(text="")
 
-    self.canvasitems[7].set(text="Speed="+str(self.timerinc)+" ms")
+    self.canvasitems[7].set_properties(text="Speed="+str(self.timerinc)+" ms")
 
     # Find a number game
     if str(self.solution) == strn:
@@ -333,39 +356,42 @@ class Gcompris_pythontest:
   def timer_inc_display(self):
 
     if(self.left_continue):
-      self.textitem_left.set(text=str(self.counter_left))
+      self.textitem_left.set_properties(text=str(self.counter_left))
       self.counter_left += self.timer_inc
 
     if(self.right_continue):
-      self.textitem_right.set(text=str(self.counter_right))
+      self.textitem_right.set_properties(text=str(self.counter_right))
       self.counter_right += self.timer_inc
 
     self.timer_inc  = gobject.timeout_add(self.timerinc, self.timer_inc_display)
 
-  def circle_item_event(self, widget, event=None):
+  def circle_item_event(self, widget, target, event=None):
     if eval(self.config_dict['disable_line']):
       return False
 
     if event.type == gtk.gdk.BUTTON_PRESS:
       if event.button == 1:
         bounds = widget.get_bounds()
-        self.pos_x = (bounds[0]+bounds[2])/2
-        self.pos_y = (bounds[1]+bounds[3])/2
+        self.pos_x = (bounds.x1+bounds.x2)/2
+        self.pos_y = (bounds.y1+bounds.y2)/2
         if 'line 1' in self.canvasitems:
           self.canvasitems['line 1'].remove()
-        self.canvasitems['line 1'] =goocanvas.Line(
+        self.canvasitems['line 1'] =goocanvas.Polyline(
           parent = self.rootitem,
-          points=( self.pos_x, self.pos_y, event.x, event.y),
-          fill_color_rgba=self.colors['line'],
-          line_width=5.0
+          points = goocanvas.Points([(self.pos_x, self.pos_y),
+                                     (event.x, event.y)]),
+          fill_color_rgba = self.colors['line'],
+          line_cap = cairo.LINE_CAP_ROUND,
+          line_width = 6.0
           )
         self.movingline='line 1'
         print "Button press"
         return True
     if event.type == gtk.gdk.MOTION_NOTIFY:
       if event.state & gtk.gdk.BUTTON1_MASK:
-        self.canvasitems[self.movingline].set(
-          points=( self.pos_x, self.pos_y, event.x, event.y)
+        self.canvasitems[self.movingline].set_properties(
+          points = goocanvas.Points([(self.pos_x, self.pos_y),
+                                     (event.x, event.y)])
           )
     if event.type == gtk.gdk.BUTTON_RELEASE:
       if event.button == 1:
