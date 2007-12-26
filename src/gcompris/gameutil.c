@@ -271,7 +271,7 @@ void gc_item_focus_set(GooCanvasItem *item, gboolean focus)
 
   g_object_get (item, "pixbuf", &pixbuf, NULL);
   g_return_if_fail (pixbuf != NULL);
-  gdk_pixbuf_unref(pixbuf);
+  //gdk_pixbuf_unref(pixbuf);
 
   /* Store the first pixbuf */
   pixbuf_ref = (GdkPixbuf *)g_object_get_data (G_OBJECT (item), "pixbuf_ref");
@@ -318,6 +318,9 @@ gc_item_focus_event(GooCanvasItem *item, GooCanvasItem *target,
 		    GdkEvent *event,
 		    GooCanvasItem *dest_item)
 {
+
+  /* FIXME NOT GOOCANVAS IFIED */
+  return(FALSE);
 
   if(dest_item != NULL)
     item = dest_item;

@@ -22,6 +22,7 @@ import gcompris.utils
 import gcompris.skin
 import gcompris.bonus
 import gcompris.score
+import gobject
 import gtk
 import gtk.gdk
 import random
@@ -51,16 +52,15 @@ class Gcompris_sudoku:
     # Holds the coordinate of the current square
     self.cursqre = None
 
-    self.normal_square_color = 0xbebbc9ffL
-    self.highl_square_color  = 0x8b83a7ffL
-    self.focus_square_color  = 0x555555ffL
-    self.fixed_square_color  = 0x8bAAa7ffL
-    self.error_square_color  = 0xff77a7ffL
-    self.lines_color         = 0xebe745ffL
+    self.normal_square_color = 0x33CCFFffL
+    self.highl_square_color  = 0xFFCC33ffL
+    self.focus_square_color  = 0xFF6633ffL
+    self.fixed_square_color  = 0x3366FFffL
+    self.error_square_color  = 0xFF3366ffL
+    self.lines_color         = 0xFF3366ffL
 
-    # These colors must be different or it won't work
-    self.fixed_number_color  = 0x000cffffL
-    self.user_number_color   = 0x000bffffL
+    self.fixed_number_color  = 0xFFFFFFFFL
+    self.user_number_color   = 0xFFFFFFFFL
 
     self.root_sudo = None
 
@@ -72,11 +72,16 @@ class Gcompris_sudoku:
 
     self.symbolize_level_max = 4 # Last level in which we set symbols
     self.symbols = [
-      gcompris.utils.load_pixmap("sudoku/rectangle.png"),
-      gcompris.utils.load_pixmap("sudoku/circle.png"),
-      gcompris.utils.load_pixmap("sudoku/rhombus.png"),
-      gcompris.utils.load_pixmap("sudoku/triangle.png"),
-      gcompris.utils.load_pixmap("sudoku/star.png")
+      (gcompris.utils.load_pixmap("sudoku/rectangle.png"),
+       gcompris.utils.load_pixmap("sudoku/rectangle_grey.png")),
+      (gcompris.utils.load_pixmap("sudoku/circle.png"),
+       gcompris.utils.load_pixmap("sudoku/circle_grey.png")),
+      (gcompris.utils.load_pixmap("sudoku/rhombus.png"),
+       gcompris.utils.load_pixmap("sudoku/rhombus_grey.png")),
+      (gcompris.utils.load_pixmap("sudoku/triangle.png"),
+       gcompris.utils.load_pixmap("sudoku/triangle_grey.png")),
+      (gcompris.utils.load_pixmap("sudoku/star.png"),
+       gcompris.utils.load_pixmap("sudoku/star_grey.png"))
       ]
 
   def start(self):
@@ -137,9 +142,8 @@ class Gcompris_sudoku:
     if(strn in self.valid_chars):
 
       if self.is_legal(strn):
-        self.sudo_number[self.cursqre[0]][self.cursqre[1]].set(
-          text = strn.encode('UTF-8'),
-          )
+        self.sudo_number[self.cursqre[0]][self.cursqre[1]].props.text = \
+            strn.encode('UTF-8')
 
         # Maybe it's all done
         if self.is_solved():
@@ -152,9 +156,7 @@ class Gcompris_sudoku:
       if ((keyval == gtk.keysyms.BackSpace) or
           (keyval == gtk.keysyms.Delete) or
           (keyval == gtk.keysyms.space)):
-        self.sudo_number[self.cursqre[0]][self.cursqre[1]].set(
-          text = "",
-          )
+        self.sudo_number[self.cursqre[0]][self.cursqre[1]].props.text = ""
 
       else:
         # No key processing done
@@ -223,10 +225,8 @@ class Gcompris_sudoku:
       # Set the level in the control bar
       gcompris.bar_set_level(self.gcomprisBoard);
 
-      if(self.gcomprisBoard.level>self.gcomprisBoard.maxlevel):
-        # the last board is finished : bail out
-        gcompris.bonus.board_finished(gcompris.bonus.FINISHED_RANDOM)
-        return False
+      if(self.gcomprisBoard.level > self.gcomprisBoard.maxlevel):
+        self.gcomprisBoard.level = self.gcomprisBoard.maxlevel
 
     return True
 
@@ -234,31 +234,24 @@ class Gcompris_sudoku:
   # Set a symbol in the sudoku
   #
   def set_sudoku_symbol(self, text, x, y):
-    pixmap = self.get_pixmap_symbol(self.valid_chars, text)
+    (pixmap, pixmap_grey) = self.get_pixmap_symbol(self.valid_chars, text)
 
-    self.sudo_symbol[x][y].set(
-      pixbuf = pixmap
-      )
+    self.sudo_symbol[x][y].props.pixbuf = pixmap
     self.sudo_symbol[x][y].props.visibility = goocanvas.ITEM_VISIBLE
 
-    self.sudo_number[x][y].set(
-      text = text
-      )
-
+    self.sudo_number[x][y].props.text = text
 
   #
   # Event on a placed symbol. Means that we remove it
   #
-  def hide_symbol_event(self, item, event, data):
+  def hide_symbol_event(self, item, target, event, data):
 
     if(self.gamewon):
       return False
 
     if event.type == gtk.gdk.BUTTON_PRESS:
       item.props.visibility = goocanvas.ITEM_INVISIBLE
-      self.sudo_number[data[0]][data[1]].set(
-        text = ""
-        )
+      self.sudo_number[data[0]][data[1]].props.text = ""
 
   #
   # This function is being called uppon a click on a symbol on the left
@@ -268,116 +261,79 @@ class Gcompris_sudoku:
 
     if(self.gamewon):
       return False
-    #
-    # MOTION EVENT
-    # ------------
-    if event.type == gtk.gdk.MOTION_NOTIFY:
-      if event.state & gtk.gdk.BUTTON1_MASK:
-        x=event.x
-        y=event.y
 
-        item.set(
-          x= x,
-          y= y)
+    if self.selected_item == item:
+      return False
 
-        return True
-    #
-    # MOUSE DRAG STOP
-    # ---------------
-    if event.type == gtk.gdk.BUTTON_RELEASE:
-      if event.button == 1:
-        x=event.x
-        y=event.y
+    item.props.pixbuf = item.get_data("pixmap")
 
-        cx = float(item.get_data("orig_x"))
-        cy = float(item.get_data("orig_y"))
-        item.set(
-          x= cx,
-          y= cy)
+    if self.selected_item:
+      self.selected_item.props.pixbuf = self.selected_item.get_data("pixmap_grey")
 
-        target_item = self.gcomprisBoard.canvas.get_item_at(x, y)
-
-        if target_item:
-          # Get it's sudo coord
-          x = target_item.get_data("sudo_x")
-          if x:
-            x = int(x)
-
-          y = target_item.get_data("sudo_y")
-          if y:
-            y = int(y)
-
-          self.cursqre = (x, y)
-          if self.is_legal(text):
-            self.set_sudoku_symbol(text, x, y)
-
-            # Maybe it's all done
-            if self.is_solved():
-              self.gamewon = 1
-              gcompris.bonus.display(gcompris.bonus.WIN,
-                                     gcompris.bonus.FLOWER)
-
-        return True
+    self.selected_item = item
 
     return False
 
   #
   # This function is being called uppon a click on any little square
   #
-  def square_item_event(self, widget, event, square):
+  def square_item_event(self, widget, target, event, square):
 
     if(self.gamewon):
       return False
 
-    # Check it's a user editable square
-    oldcolor = self.sudo_number[square[0]][square[1]].get_property('fill_color_rgba')
-    if oldcolor == self.fixed_number_color:
-      return False
-
     if event.type == gtk.gdk.ENTER_NOTIFY:
       if self.cursqre != square:
-        self.sudo_square[square[0]][square[1]].set(
-          fill_color_rgba = self.highl_square_color,
-          )
+        self.sudo_square[square[0]][square[1]].props.fill_color_rgba = \
+            self.highl_square_color
+
     elif event.type == gtk.gdk.LEAVE_NOTIFY:
-      if self.cursqre == square:
-        self.sudo_square[square[0]][square[1]].set(
-          fill_color_rgba = self.focus_square_color,
-          )
+      if ((self.gcomprisBoard.level >= self.symbolize_level_max)
+          and (self.cursqre == square)):
+        self.sudo_square[square[0]][square[1]].props.fill_color_rgba = \
+            self.focus_square_color
       else:
-        self.sudo_square[square[0]][square[1]].set(
-          fill_color_rgba = self.normal_square_color,
-          )
+        self.sudo_square[square[0]][square[1]].props.fill_color_rgba = \
+            self.normal_square_color
+
     elif event.type == gtk.gdk.BUTTON_PRESS:
-      if(self.cursqre):
-        self.sudo_square[self.cursqre[0]][self.cursqre[1]].set(
-          fill_color_rgba = self.normal_square_color,
-          )
-      self.cursqre = square
-      self.sudo_square[square[0]][square[1]].set(
-        fill_color_rgba = self.focus_square_color,
-        )
-      return True
+      # For low levels, we mark the selected item
+      if(self.gcomprisBoard.level < self.symbolize_level_max):
+        self.cursqre = (square[0], square[1])
+        text = self.selected_item.get_data("text")
+        if self.is_legal(text):
+          self.set_sudoku_symbol(text, square[0], square[1])
+
+          # Maybe it's all done
+          if self.is_solved():
+            self.gamewon = 1
+            gcompris.bonus.display(gcompris.bonus.WIN,
+                                   gcompris.bonus.FLOWER)
+
+      else:
+        if(self.cursqre):
+          self.sudo_square[self.cursqre[0]][self.cursqre[1]].props.fill_color_rgba = \
+              self.normal_square_color
+        self.cursqre = square
+        self.sudo_square[square[0]][square[1]].props.fill_color_rgba = \
+            self.focus_square_color
+        return True
 
     return False
 
-  # Highlight the given item to show it's the one that causes the resufal
-  # to pose a number
-  def set_on_error(self, items):
-    for item in items:
-      item.set(
-        fill_color_rgba= self.error_square_color
-        )
-
-    self.timer = gtk.timeout_add(3000, self.unset_on_error, items)
-
+  # Highlight the given item to show it's the one that causes the refusal
+  # to place a number
   def unset_on_error(self, items):
     if(self.rootitem):
       for item in items:
-        item.set(
-          fill_color_rgba= self.fixed_square_color
-          )
+        item.props.fill_color_rgba = self.fixed_square_color
 
+
+  def set_on_error(self, items):
+    for item in items:
+      item.props.fill_color_rgba = self.error_square_color
+
+    self.timer = gobject.timeout_add(3000, self.unset_on_error, items)
 
   # Return True or False if the given number is possible
   #
@@ -394,7 +350,7 @@ class Gcompris_sudoku:
       return possible
 
     # Check this number is not already in a row
-    for x in range(0,self.sudo_size):
+    for x in range(0, self.sudo_size):
 
       if x == self.cursqre[0]:
          continue
@@ -407,7 +363,7 @@ class Gcompris_sudoku:
         possible = False
 
     # Check this number is not already in a column
-    for y in range(0,self.sudo_size):
+    for y in range(0, self.sudo_size):
 
       if y == self.cursqre[1]:
         continue
@@ -477,50 +433,44 @@ class Gcompris_sudoku:
     x_init = 20
     y_init = (gcompris.BOARD_HEIGHT - square_height*sudo_size)/2
 
-    for y in range(0,sudo_size):
+    for y in range(0, sudo_size):
 
       # For low levels, we symbolize the letters
-      if(self.gcomprisBoard.level<self.symbolize_level_max):
-        pixmap = self.get_pixmap_symbol(valid_chars, valid_chars[y])
+      if(self.gcomprisBoard.level < self.symbolize_level_max):
+        (pixmap, pixmap_grey) = self.get_pixmap_symbol(valid_chars, valid_chars[y])
         zoom = (square_width*0.5) / pixmap.get_width()
 
         cx = int(x_init + (pixmap.get_width() * zoom)/2)
-        cy = int(y_init + square_height * y + square_height/2)
+        cy = int(y_init + square_height * y + (square_height - pixmap.get_height()*zoom)/2)
 
         item = goocanvas.Image(
           parent = self.root_sudo,
-          pixbuf = pixmap,
+          pixbuf = pixmap_grey,
           x = cx,
-          y = cy,
-          width = pixmap.get_width() * zoom,
-          height = pixmap.get_height() * zoom,
-          )
+          y = cy / zoom)
+        item.scale(zoom, zoom)
+        item.set_data("pixmap_grey", pixmap_grey)
+        item.set_data("pixmap", pixmap)
+        item.set_data("text", valid_chars[y])
+
         item.connect("button_press_event", self.symbol_item_event, valid_chars[y])
         # This item is clickeable and it must be seen
         item.connect("button_press_event", gcompris.utils.item_event_focus)
 
-        # Save it's coordinate origines for the drag and drop
-        item.set_data('orig_x', str(cx))
-        item.set_data('orig_y', str(cy))
+        # Select the first item
+        if y == 0:
+          self.selected_item = item
+          item.props.pixbuf = pixmap
 
       else:
-        # Shadow
-        self.root_sudo.add(
-          goocanvas.Text,
-          x= x_init+1.5,
-          y= y_init + square_height * y + square_height/2 + 1.5,
-          text= valid_chars[y],
-          font=gcompris.skin.get_font("gcompris/title"),
-          fill_color="black"
-          )
         # Text
-        self.root_sudo.add(
-          goocanvas.Text,
+        goocanvas.Text(
+          parent = self.root_sudo,
           x= x_init,
           y= y_init + square_height * y + square_height/2,
           text= valid_chars[y],
           font=gcompris.skin.get_font("gcompris/title"),
-          fill_color="white"
+          fill_color = "black"
           )
 
   # Return a symbol pixmap
@@ -538,7 +488,7 @@ class Gcompris_sudoku:
 
     # Reinit the sudoku globals
     if self.timer:
-      gtk.timeout_remove(self.timer)
+      gobject.source_remove(self.timer)
 
     self.sudo_square = []       # The square Rect Item
     self.sudo_number = []       # The square Text Item
@@ -563,9 +513,9 @@ class Gcompris_sudoku:
     # Region is the modulo place to set region (if defined)
     region = None
     if(self.sudo_region.has_key(self.sudo_size)):
-      region=self.sudo_region[self.sudo_size]
+      region = self.sudo_region[self.sudo_size]
 
-    square_width = (gcompris.BOARD_HEIGHT-50)/self.sudo_size
+    square_width = (gcompris.BOARD_HEIGHT-50) / self.sudo_size
     square_height = square_width
     x_init = (gcompris.BOARD_WIDTH - square_width*self.sudo_size)/2 - 40
     y_init = (gcompris.BOARD_HEIGHT - square_height*self.sudo_size)/2
@@ -579,13 +529,13 @@ class Gcompris_sudoku:
 
         # Get the data from the dataset
         text  = sudoku[y][x]
-        color = self.fixed_number_color
-        square_color = self.fixed_square_color
         if text == '.':
           text  = ""
           color = self.user_number_color
           square_color = self.normal_square_color
         else:
+          color = self.fixed_number_color
+          square_color = self.fixed_square_color
           if(not text in self.valid_chars):
             self.valid_chars.append(text)
 
@@ -595,34 +545,35 @@ class Gcompris_sudoku:
             fill_color_rgba = square_color,
             x = x_init + square_width * x,
             y = y_init + square_height * y,
-            width = square_width * (x+1),
-            height = square_height * (y+1),
+            width = square_width,
+            height = square_height,
             line_width = 1.0,
             stroke_color_rgba = 0x144B9DFFL
             )
         line_square.append(item)
-        if(self.gcomprisBoard.level >= self.symbolize_level_max):
+        if text == '':
           item.connect("button_press_event", self.square_item_event, (x,y))
+          item.connect("enter_notify_event", self.square_item_event, (x,y))
+          item.connect("leave_notify_event", self.square_item_event, (x,y))
 
         # Save it's sudo coord for the drag and drop
         item.set_data('sudo_x', str(x))
         item.set_data('sudo_y', str(y))
 
         # For low levels, we symbolize the letters
-        if(self.gcomprisBoard.level<self.symbolize_level_max):
-          pixmap = self.get_pixmap_symbol(self.valid_chars, text)
+        if(self.gcomprisBoard.level < self.symbolize_level_max):
+          (pixmap, pixmap_grey) = self.get_pixmap_symbol(self.valid_chars, text)
           zoom = (square_width*0.835) / pixmap.get_width()
 
           item = goocanvas.Image(
             parent = self.root_sudo,
             pixbuf = pixmap,
-            x = x_init + square_width * x + square_width/2
-            - (pixmap.get_width() * zoom)/2,
-            y = y_init + square_height * y + square_height/2
-            - (pixmap.get_height() * zoom)/2,
-            width = pixmap.get_width() * zoom,
-            height = pixmap.get_height() * zoom,
+            x = (x_init + square_width * x + square_width/2
+            - (pixmap.get_width() * zoom)/2) / zoom,
+            y = (y_init + square_height * y + square_height/2
+                 - (pixmap.get_height() * zoom)/2) / zoom,
             )
+          item.scale(zoom, zoom)
           line_symbol.append(item)
 
           # Save it's sudo coord for the drag and drop
@@ -632,7 +583,7 @@ class Gcompris_sudoku:
           if(not text):
             item.props.visibility = goocanvas.ITEM_INVISIBLE
             # This item is clickeable and it must be seen
-            #item.connect("event", gcompris.utils.item_event_focus)
+            item.connect("enter_notify_event", gcompris.utils.item_event_focus)
             item.connect("button_press_event", self.hide_symbol_event, (x, y))
 
         #
@@ -641,9 +592,9 @@ class Gcompris_sudoku:
 
         item = goocanvas.Text(
           parent = self.root_sudo,
-          x= x_init + square_width * x + square_width/2,
-          y= y_init + square_height * y + square_height/2,
-          text= text,
+          x= x_init + square_width * x + square_width/2 - 5,
+          y= y_init + square_height * y + square_height/2 - 5,
+          text = text,
           fill_color_rgba= color,
           font=gcompris.skin.get_font("gcompris/content"),
           )
@@ -654,14 +605,14 @@ class Gcompris_sudoku:
 
         if(region):
           if(y>0 and y%region==0):
-            self.root_sudo.add (
-              goocanvas.Polyline,
-              points=(x_init - 5,
-                      y_init + square_height * y,
-                      x_init + (square_width * self.sudo_size) + 5,
-                      y_init + square_height * y),
-              fill_color_rgba=self.lines_color,
-              line_width=2.5,
+            goocanvas.Polyline(
+              parent = self.root_sudo,
+              points = goocanvas.Points([(x_init - 5,
+                                          y_init + square_height * y),
+                                         (x_init + (square_width * self.sudo_size) + 5,
+                                          y_init + square_height * y)]),
+              stroke_color_rgba = self.lines_color,
+              line_width = 2.5,
               )
 
       self.sudo_square.append(line_square)
@@ -670,18 +621,19 @@ class Gcompris_sudoku:
 
       if(region):
         if(x>0 and x%region==0):
-          self.root_sudo.add (
-            goocanvas.Polyline,
-            points=(x_init + square_width * x,
-                    y_init - 5,
-                    x_init + square_width * x,
-                    y_init + square_height * self.sudo_size + 5),
-            fill_color_rgba=self.lines_color,
-            line_width=2.5,
+          goocanvas.Polyline(
+            parent = self.root_sudo,
+            points = goocanvas.Points([(x_init + square_width * x,
+                                        y_init - 5),
+                                       (x_init + square_width * x,
+                                        y_init + square_height * self.sudo_size + 5)]),
+            stroke_color_rgba = self.lines_color,
+            line_width = 2.5,
             )
 
-    if(self.gcomprisBoard.level>=self.symbolize_level_max):
+    if(self.gcomprisBoard.level >= self.symbolize_level_max):
       self.valid_chars.sort()
+
     self.display_valid_chars(self.sudo_size, self.valid_chars)
 
   # return the list of items (data) for this game
@@ -1588,7 +1540,6 @@ class Gcompris_sudoku:
         new_pos = random.randint(0,len(sudoku_list[l])-1)
         sudoku_list[l][j] = sudoku_list[l][new_pos]
         sudoku_list[l][new_pos] = old_sudo
-
 
 
     return sudoku_list
