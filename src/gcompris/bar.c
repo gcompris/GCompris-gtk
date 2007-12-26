@@ -598,11 +598,16 @@ item_event_bar (GooCanvasItem  *item,
     }
   else if(!strcmp((char *)data, "quit"))
     {
-      gc_confirm_box( _("GCompris confirmation"),
-		      _("Are you sure you want to quit?"),
-		      _("Yes, I am sure!"),
-		      _("No, I want to keep going"),
-		      (ConfirmCallBack) confirm_quit);
+      GcomprisProperties *properties = gc_prop_get();
+
+      if(strlen(properties->root_menu) == 1)
+	gc_confirm_box( _("GCompris confirmation"),
+			_("Are you sure you want to quit?"),
+			_("Yes, I am sure!"),
+			_("No, I want to keep going"),
+			(ConfirmCallBack) confirm_quit);
+      else
+	confirm_quit(TRUE);
     }
 
   return TRUE;
