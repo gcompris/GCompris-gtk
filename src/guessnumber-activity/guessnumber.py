@@ -71,7 +71,7 @@ class Gcompris_guessnumber:
 
     self.orig_x = 0
     self.orig_y = gcompris.BOARD_HEIGHT/2
-    self.target_x = 700
+    self.target_x = 640
     self.target_y = self.orig_y
 
     self.helico_width = -1
@@ -88,7 +88,8 @@ class Gcompris_guessnumber:
 
     gcompris.bar_set_level(self.gcomprisBoard)
 
-    gcompris.set_background(self.gcomprisBoard.canvas.get_root_item(), "guessnumber/cave.png")
+    gcompris.set_background(self.gcomprisBoard.canvas.get_root_item(),
+                            "guessnumber/cave.png")
 
     self.display_game()
 
@@ -162,10 +163,9 @@ class Gcompris_guessnumber:
       self.gcomprisBoard.level += 1
       gcompris.bar_set_level(self.gcomprisBoard)
 
-      if(self.gcomprisBoard.level>self.gcomprisBoard.maxlevel):
-        # the current board is finished : bail out
-        gcompris.bonus.board_finished(gcompris.bonus.FINISHED_RANDOM)
-        return 0
+      if(self.gcomprisBoard.level > self.gcomprisBoard.maxlevel):
+        # the current board is finished : stay on the last level
+        self.gcomprisBoard.level = self.gcomprisBoard.maxlevel
 
     return 1
 
@@ -226,10 +226,10 @@ class Gcompris_guessnumber:
       pixmap = gcompris.utils.load_pixmap("guessnumber/tuxhelico.png")
       self.helico_width = pixmap.get_width()
       self.helico_height = pixmap.get_height()
-      self.orig_x = self.x_old = self.x = pixmap.get_width()/2 + 10
+      self.orig_x = self.x_old = self.x = 20
       self.y_old = self.y = self.orig_y
 
-      self.anim =goocanvas.Image(
+      self.anim = goocanvas.Image(
         parent = self.rootitem,
         pixbuf = pixmap,
         x = self.x,
@@ -281,7 +281,6 @@ class Gcompris_guessnumber:
       gcompris.bonus.display(gcompris.bonus.WIN, gcompris.bonus.TUX)
     else:
       try:
-        # can have been removeed before by a delete action. No matter
         number = int(text)
       except:
         self.indicator.props.text = _("Please enter a number between %d and %d") %(self.min, self.max)
@@ -307,48 +306,53 @@ class Gcompris_guessnumber:
 
 
   def move_step(self):
+
     if self.move_stepnum < self.num_moveticks-1:
       self.move_stepnum += 1
-      x_old = self.anim.get_property("x")
-      y_old = self.anim.get_property("y")
       x = self.anim.get_property("x") + self.velocity[0]/self.num_moveticks
       y = self.anim.get_property("y") + self.velocity[1]/self.num_moveticks
-      ret = True
       self.anim.props.x = x
       self.anim.props.y = y
-
       return True
+
     else:
-      x = self.anim.get_property("x") + self.velocity[0]/self.num_moveticks
-      y = self.anim.get_property("y") + self.velocity[1]/self.num_moveticks
+
       self.move_stepnum = 0
       self.moving = False
       self.movestep_timer = 0
-      self.anim.props.x = (self.x_old)
-      self.anim.props.y = (self.y_old)
-      gcompris.utils.item_rotate(self.anim, 0)
+      (self.x_old, self.y_old) = self.gcomprisBoard.canvas.\
+          convert_from_item_space(self.anim, self.x_old, self.y_old)
+      self.anim.props.transform = None
+      self.anim.props.x = self.x_old
+      self.anim.props.y = self.y_old
       self.entry.set_editable(True)
       return False
 
 
   def move(self, x_old, y_old, x, y):
+
     if x == x_old and y == y_old:
       return
 
     self.entry.set_editable(False)
-    self.x_old = x
-    self.y_old = y
-    self.x = x
-    self.y = y
-    self.velocity = [float(x-x_old), float(y-y_old)]
 
-    if(x>x_old):
-      self.rotation = 2
+    if(x > x_old):
+      self.rotation = 5
     elif (x<x_old):
-      self.rotation = -2
+      self.rotation = -5
     else:
       self.rotation = 0
     gcompris.utils.item_rotate(self.anim, self.rotation)
+
+    (self.x_old, self.y_old) = self.gcomprisBoard.canvas.\
+        convert_to_item_space(self.anim, x, y)
+    (x_old, y_old) = self.gcomprisBoard.canvas.\
+        convert_to_item_space(self.anim, x_old, y_old)
+
+    (self.x, self.y) = (x, y)
+
+    self.velocity = [float(self.x_old - x_old),
+                     float(self.y_old - y_old)]
 
     self.moving = True
     self.move_stepnum = 0
