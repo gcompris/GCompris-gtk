@@ -602,8 +602,8 @@ class Gcompris_searace:
     item = goocanvas.Image(
       parent = self.root_weather_item,
       pixbuf = pixmap,
-      x=cx,
-      y=cy,
+      x = cx - pixmap.get_width()/2,
+      y = cy - pixmap.get_height()/2,
       )
     gcompris.utils.item_rotate_relative(item, condition[1][0]);
     item.connect("button_press_event", self.ruler_item_event)
@@ -615,8 +615,8 @@ class Gcompris_searace:
       parent = self.root_weather_item,
       text=condition[1][1],
       font=gcompris.skin.get_font("gcompris/content"),
-      x=cx+pixmap.get_width()/2,
-      y=cy+pixmap.get_height()/2,
+      x = cx,
+      y = cy,
       fill_color_rgba=0xFFFFFFFFL,
       anchor = gtk.ANCHOR_CENTER
       )

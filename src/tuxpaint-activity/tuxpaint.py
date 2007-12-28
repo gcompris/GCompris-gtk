@@ -140,12 +140,13 @@ class Gcompris_tuxpaint:
     gcompris.set_background(self.rootitem,
                             gcompris.skin.image_to_skin("gcompris-bg.jpg"))
 
-    textItem = self.rootitem.add(
-      goocanvas.Text,
+    textItem = goocanvas.Text(
+      parent = self.rootitem,
       text = _("Waiting for Tuxpaint to finish"),
       x = gcompris.BOARD_WIDTH/2,
       y = 185,
       fill_color_rgba = 0x000000ffL,
+      anchor = gtk.ANCHOR_CENTER,
       font = gcompris.skin.get_font("gcompris/board/title bold"),
       )
 
