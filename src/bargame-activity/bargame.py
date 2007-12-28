@@ -306,7 +306,7 @@ class Gcompris_bargame:
       self.board = board
 
       self.itemgroup = goocanvas.Group(parent = root)
-
+      self.itemgroup.translate(x, y)
       self.scale = scale
 
       if (index == (board_size-1)):
@@ -379,11 +379,12 @@ class Gcompris_bargame:
 
       self.ball = goocanvas.Image(
         parent = root,
-        pixbuf = image,
-        x=x,
-        y=y)
+        pixbuf = image)
+
       bounds = self.ball.get_bounds()
       self.ball.scale(scale, scale)
+      (x, y) = root.get_canvas().convert_to_item_space(self.ball, x, y)
+      self.ball.translate(x, y)
 
   class answer_button:
     def __init__(self, root, scale, image, number_balls):
@@ -392,35 +393,31 @@ class Gcompris_bargame:
       self.number_balls = number_balls
 
       self.itemgroup = goocanvas.Group(parent = root)
-      self.itemgroup.translate(gcompris.BOARD_WIDTH - 200, 0)
 
-      self.background =goocanvas.Image(
+      self.background = goocanvas.Image(
         parent = self.itemgroup,
         pixbuf = gcompris.utils.load_pixmap("bargame/enumerate_answer.png"),
-        x=0,
-        y=0
         )
       answer_bounds = self.background.get_bounds()
 
-      self.background.translate( 0,
-                                 gcompris.BOARD_HEIGHT - answer_bounds.y2-answer_bounds.y1 - 5)
+      self.itemgroup.translate(gcompris.BOARD_WIDTH - 200,
+                               gcompris.BOARD_HEIGHT - answer_bounds.y2 \
+                                 - answer_bounds.y1 - 5)
 
       self.background_focused = goocanvas.Image(
         parent = self.itemgroup,
         pixbuf = gcompris.utils.load_pixmap("bargame/enumerate_answer_focus.png"),
-        x = 0,
-        y = 0
         )
       self.background_focused.props.visibility = goocanvas.ITEM_INVISIBLE
 
       self.icone = goocanvas.Image(
         parent = self.itemgroup,
-        pixbuf = image,
-        x=10,
-        y=20
-        )
+        pixbuf = image)
       bounds = self.icone.get_bounds()
       self.icone.scale(scale, scale)
+      (x, y) = root.get_canvas().convert_from_item_space(self.itemgroup, 10, 20)
+      (x, y) = root.get_canvas().convert_to_item_space(self.icone, x, y)
+      self.icone.translate(x, y)
 
       self.value = number_balls[0]
 
