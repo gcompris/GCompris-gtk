@@ -188,10 +188,8 @@ class Gcompris_melody:
     self.bang_item = goocanvas.Image(
       parent = self.rootitem,
       pixbuf = gcompris.utils.load_pixmap(self.melodylist[self.theme][0]['hittool']),
-      x = 0,
-      y = 0
       )
-    #self.bang_item.props.visibility = goocanvas.ITEM_INVISIBLE
+    self.bang_item.props.visibility = goocanvas.ITEM_INVISIBLE
 
     self.hitofset_x = self.melodylist[self.theme][0]['hitofset_x']
     self.hitofset_y = self.melodylist[self.theme][0]['hitofset_y']
@@ -237,8 +235,7 @@ class Gcompris_melody:
     self.bang_item.props.transform = None
     self.bang_item.translate(a['x'] + self.hitofset_x,
                              a['y'] + self.hitofset_y)
-    #FIXME THIS STAY HIDDEN
-    #self.bang_item.props.visibility = goocanvas.ITEM_VISIBLE
+    self.bang_item.props.visibility = goocanvas.ITEM_VISIBLE
 
     gcompris.sound.play_ogg_cb(a['sound'], self.sound_played)
     self.timers.pop(0)
