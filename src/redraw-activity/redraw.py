@@ -1,7 +1,5 @@
 #  gcompris - redraw
 #
-# Time-stamp: <2001/08/20 00:54:45 bruno>
-#
 # Copyright (C) 2003 Bruno Coudoin
 #
 #   This program is free software; you can redistribute it and/or modify
@@ -204,7 +202,7 @@ class Gcompris_redraw:
 
       # Create our rootitem for error items mark
       self.root_erroritem = goocanvas.Group(
-        prarent = self.gcomprisBoard.canvas.get_root_item())
+        parent = self.gcomprisBoard.canvas.get_root_item())
 
       self.display_error(target, 1)
       self.display_error(source, 0)
@@ -235,12 +233,19 @@ class Gcompris_redraw:
           x = t['points'][0] + (t['points'][2]-t['points'][0])/2 - icw + xofset,
           y = t['points'][1] + (t['points'][3]-t['points'][1])/2 -ich
           )
-      else:
+      elif(t.has_key('width')):
         goocanvas.Image(
           parent = self.root_erroritem,
           pixbuf = gcompris.utils.load_pixmap(gcompris.skin.image_to_skin("mini_bad.png")),
-          x = t['x1'] + (t['x2']-t['x1'])/2 -icw + xofset,
-          y = t['y1'] + (t['y2']-t['y1'])/2 -ich
+          x = t['x'] + t['width']/2 - icw + xofset,
+          y = t['y'] + t['height']/2 - ich
+          )
+      elif(t.has_key('radius_x')):
+        goocanvas.Image(
+          parent = self.root_erroritem,
+          pixbuf = gcompris.utils.load_pixmap(gcompris.skin.image_to_skin("mini_bad.png")),
+          x = t['center_x'] + t['radius_x']/2 -icw + xofset,
+          y = t['center_y'] + t['radius_y']/2 -ich
           )
 
 
@@ -271,17 +276,16 @@ class Gcompris_redraw:
 
   # Display the current level target
   def display_current_level(self):
-    # Set the level in the control bar
-    gcompris.bar_set_level(self.gcomprisBoard);
-
     # Calc the index in drawlist
     i = (self.gcomprisBoard.level-1) * self.gcomprisBoard.number_of_sublevel+ \
         (self.gcomprisBoard.sublevel-1)
 
     if(i >= len(self.drawlist)):
-       # the current board is finished : bail out
-       gcompris.bonus.board_finished(gcompris.bonus.FINISHED_RANDOM)
-       return
+      # Wrap to the first level when completed
+      i = 0
+
+    # Set the level in the control bar
+    gcompris.bar_set_level(self.gcomprisBoard);
 
     self.draw_image_target(self.drawlist[i])
 
@@ -292,16 +296,14 @@ class Gcompris_redraw:
       parent = self.root_targetitem,
       font = gcompris.skin.get_font("gcompris/content"),
       x = gcompris.BOARD_WIDTH / 2,
-      y = gcompris.BOARD_HEIGHT - 10,
-      fill_color_rgba = 0xFFFFFFFFL
+      y = gcompris.BOARD_HEIGHT - 20,
+      fill_color_rgba = 0x000000FFL,
+      anchor = gtk.ANCHOR_NE
       )
 
     # Create our rootitem for drawing items
     self.root_drawingitem = goocanvas.Group(
-      parent = self.gcomprisBoard.canvas.get_root_item(),
-      x=0.0,
-      y=0.0
-      )
+      parent = self.gcomprisBoard.canvas.get_root_item())
 
     # Reset the drawing
     self.current_drawing = []
@@ -328,13 +330,13 @@ class Gcompris_redraw:
 
     goocanvas.Text(
       parent = self.root_targetitem,
-      text=_("Level") + " " + str(self.gcomprisBoard.sublevel) + "/"
-      + str(self.gcomprisBoard.number_of_sublevel),
-      font=gcompris.skin.get_font("gcompris/content"),
-      x=gcompris.BOARD_WIDTH - 10,
-      y=gcompris.BOARD_HEIGHT - 10,
-      fill_color_rgba=0xFFFFFFFFL,
-      anchor=gtk.ANCHOR_EAST
+      text = _("Level") + " " + str(self.gcomprisBoard.sublevel) + "/" \
+        + str(self.gcomprisBoard.number_of_sublevel),
+      font = gcompris.skin.get_font("gcompris/content"),
+      x = gcompris.BOARD_WIDTH - 10,
+      y = gcompris.BOARD_HEIGHT - 20,
+      fill_color_rgba = 0x000000FFL,
+      anchor = gtk.ANCHOR_NE
       )
 
   # Display the tools
@@ -355,16 +357,16 @@ class Gcompris_redraw:
 
     # Display the tools
     for i in range(0,len(self.tools)):
-      if(i%2):
+      if(i%2 == 0):
         theX = x2
       else:
         theX = x1
 
-        item =goocanvas.Image(
-          parent = self.rootitem,
+      item = goocanvas.Image(
+        parent = self.rootitem,
         pixbuf = gcompris.utils.load_pixmap(gcompris.skin.image_to_skin(self.tools[i][1])),
-        x=theX,
-        y=y
+        x = theX,
+        y = y
         )
       item.connect("button_press_event", self.tool_item_event, i)
       if i%2:
@@ -406,16 +408,16 @@ class Gcompris_redraw:
       else:
         theX = x1
 
-        item = goocanvas.Rect(
-          parent = self.rootitem,
-          fill_color_rgba = self.colors[i],
-          x=theX,
-          y=y,
-          width=30,
-          height=30,
-          line_width=0.0,
-          stroke_color_rgba= 0x144B9DFFL
-          )
+      item = goocanvas.Rect(
+        parent = self.rootitem,
+        fill_color_rgba = self.colors[i],
+        x=theX,
+        y=y,
+        width=30,
+        height=30,
+        line_width=0.0,
+        stroke_color_rgba= 0x144B9DFFL
+        )
       item.connect("button_press_event", self.color_item_event, i)
       if i%2:
         y += stepy
@@ -452,7 +454,7 @@ class Gcompris_redraw:
     x2=self.drawing_area[2]
     y2=self.drawing_area[3]
 
-    item =goocanvas.Rect(
+    item = goocanvas.Rect(
       parent = self.rootitem,
       x = x1,
       y = y1,
@@ -463,6 +465,8 @@ class Gcompris_redraw:
       stroke_color_rgba = 0x111199FFL
       )
     item.connect("button_press_event", self.create_item_event)
+    item.connect("button_release_event", self.create_item_event)
+    item.connect("motion_notify_event", self.create_item_event)
 
     self.draw_grid(x1,x2,y1,y2,step)
 
@@ -481,7 +485,7 @@ class Gcompris_redraw:
       line_width=2.0,
       stroke_color_rgba=0x111199FFL
       )
-    item.connect("button_press_event", self.target_item_event)
+    item.connect("motion_notify_event", self.target_item_event)
 
     self.draw_grid(x1,x2,y1,y2,step)
 
@@ -555,7 +559,7 @@ class Gcompris_redraw:
     self.image_target = drawing
 
     # Create our rootitem for target items
-    self.root_targetitem =goocanvas.Group(
+    self.root_targetitem = goocanvas.Group(
       parent = self.gcomprisBoard.canvas.get_root_item())
 
     if self.gcomprisBoard.mode == 'symmetrical':
@@ -567,23 +571,29 @@ class Gcompris_redraw:
       #
       # Can specify the item type to draw via a real GTK type or a TOOL string
       if(i.has_key('type')):
-        item = self.root_targetitem.add_child ( i['type'] )
-        item.connect("button_press_event", self.target_item_event)
+        item =  i['type']();
+        self.root_targetitem.add_child (item, -1)
+        item.connect("motion_notify_event", self.target_item_event)
 
       elif(i.has_key('tool')):
         if(i['tool'] == "RECT"):
-          item = self.root_targetitem.add_child ( goocanvas.Rect )
+          item =  goocanvas.Rect();
+          self.root_targetitem.add_child (item, -1)
         elif(i['tool'] == "FILL_RECT"):
-          item = self.root_targetitem.add_child ( goocanvas.Rect )
+          item =  goocanvas.Rect();
+          self.root_targetitem.add_child (item, -1)
         elif(i['tool'] == "CIRCLE"):
-          item = self.root_targetitem.add_child ( goocanvas.Ellipse )
+          item =  goocanvas.Ellipse();
+          self.root_targetitem.add_child (item, -1)
         elif(i['tool'] == "FILL_CIRCLE"):
-          item = self.root_targetitem.add_child ( goocanvas.Ellipse )
+          item =  goocanvas.Ellipse();
+          self.root_targetitem.add_child (item, -1)
         elif(i['tool'] == "LINE"):
-          item = self.root_targetitem.add_child ( goocanvas.Polyline )
+          item =  goocanvas.Polyline();
+          self.root_targetitem.add_child (item, -1)
         else:
           print ("ERROR: incorrect type in draw_image_target", i)
-        item.connect("button_press_event", self.target_item_event)
+        item.connect("motion_notify_event", self.target_item_event)
 
       for k, v in i.items():
         if k == 'fill_color' :
@@ -597,28 +607,26 @@ class Gcompris_redraw:
         elif k == 'stroke_color_rgba' :
           item.props.stroke_color_rgba = v
         elif k == 'points' :
-          v2 = (v[0]+xofset, v[1], v[2]+xofset, v[3])
-          item.props.points = v2
+          item.props.points = goocanvas.Points([(v[0]+xofset, v[1]),
+                                                (v[2]+xofset, v[3])])
         elif k == 'line_width' :
           item.props.line_width = v
         elif k == 'width_pixels' :
           item.props.width_pixels = v
         elif k == 'width' :
-          v[0] += xofset
-          v[2] += xofset
           item.props.width = v
         elif k == 'x' :
           item.props.x = v + xofset
         elif k == 'y' :
           item.props.y = v
-        elif k == 'x1' :
-          item.props.x1 = v + xofset
-        elif k == 'y1' :
-          item.props.y1 = v
-        elif k == 'x2' :
-          item.props.x2 = v + xofset
-        elif k == 'y2' :
-          item.props.y2 = v
+        elif k == 'center_x' :
+          item.props.center_x = v + xofset
+        elif k == 'center_y' :
+          item.props.center_y = v
+        elif k == 'radius_x' :
+          item.props.radius_x = v
+        elif k == 'radius_y' :
+          item.props.radius_y = v
 
   #
   # Draw the grid
@@ -638,7 +646,7 @@ class Gcompris_redraw:
     ca = 0x1D0DFFFFL
     cb = 0xAAEEAAFFL
 
-    for i in range(int(x1), int(x2), step):
+    for i in range(int(x1), int(x2), int(step)):
       if(ci%2):
         color = ca
       else:
@@ -648,26 +656,28 @@ class Gcompris_redraw:
       item = goocanvas.Polyline(
         parent = self.rootitem,
         points = goocanvas.Points([(i , y1), (i , y2)]),
-        fill_color_rgba = color,
+        stroke_color_rgba = color,
         line_width = 1.0,
         )
       # Text number
       goocanvas.Text(
         parent = self.rootitem,
         text = int((i-x1) / step),
-        font = gcompris.skin.get_font("gcompris/content"),
+        font = gcompris.skin.get_font("gcompris/board/tiny"),
         x = i,
         y = y_text,
-        fill_color_rgba=0x000000FFL
+        fill_color_rgba = 0x000000FFL
         )
 
       # Clicking on lines let you create object
       if(x1<self.target_area[0]):
         item.connect("button_press_event", self.create_item_event)
+        item.connect("button_release_event", self.create_item_event)
+        item.connect("motion_notify_event", self.create_item_event)
       else:
-        item.connect("button_press_event", self.target_item_event)
+        item.connect("motion_notify_event", self.target_item_event)
 
-    for i in range(int(y1), int(y2), step):
+    for i in range(int(y1), int(y2), int(step)):
       if(ci%2):
         color = ca
       else:
@@ -677,7 +687,7 @@ class Gcompris_redraw:
       item = goocanvas.Polyline(
         parent = self.rootitem,
         points = goocanvas.Points([(x1, i), (x2 , i)]),
-        fill_color_rgba = color,
+        stroke_color_rgba = color,
         line_width = 1.0,
         )
 
@@ -685,7 +695,7 @@ class Gcompris_redraw:
       goocanvas.Text(
         parent = self.rootitem,
         text = int((i-y1) / step),
-        font = gcompris.skin.get_font("gcompris/content"),
+        font = gcompris.skin.get_font("gcompris/board/tiny"),
         x = x_text,
         y = i,
         fill_color_rgba=0x000000FFL
@@ -694,6 +704,8 @@ class Gcompris_redraw:
       # Clicking on lines let you create object
       if(x1<self.target_area[0]):
         item.connect("button_press_event", self.create_item_event)
+        item.connect("button_release_event", self.create_item_event)
+        item.connect("motion_notify_event", self.create_item_event)
 
   # Given x,y return a new x,y snapped to the grid
   def snap_to_grid(self, x, y):
@@ -763,7 +775,7 @@ class Gcompris_redraw:
         n,y = self.snap_to_grid(x,y)
 
       # Need to update current_drawing
-      if(self.current_drawing[item_index].has_key('x1')):
+      if(self.current_drawing[item_index].has_key('x')):
         # It's not a line
         ox = x - self.current_drawing[item_index]['x1']
         oy = y - self.current_drawing[item_index]['y1']
@@ -824,13 +836,12 @@ class Gcompris_redraw:
 
   # Event when a click on an item happen
   def del_item_event(self, item, target, event, drawing_item_index):
-    if event.type == gtk.gdk.BUTTON_PRESS:
-      if event.button == 1:
-        if self.tools[self.current_tool][0] == "DEL":
-          self.del_item(item, drawing_item_index);
-          gcompris.sound.play_ogg("sounds/eraser1.wav",
-                                  "sounds/eraser2.wav")
-          return True
+    if (event.button == 1 and self.tools[self.current_tool][0] == "DEL") \
+          or (event.button == 3):
+      self.del_item(item, drawing_item_index);
+      gcompris.sound.play_ogg("sounds/eraser1.wav",
+      "sounds/eraser2.wav")
+      return True
     return False
 
   #
@@ -874,177 +885,182 @@ class Gcompris_redraw:
     else:
       self.display_coord(event.x, event.y, 1)
 
-    if event.type == gtk.gdk.BUTTON_PRESS:
 
+    if event.type == gtk.gdk.BUTTON_PRESS:
       # Delete error previous mark if any
       if(self.root_erroritem):
         self.root_erroritem.remove()
 
-      if event.button == 1:
-        self.newitem = None
+      if event.button != 1:
+        return False
 
-        if (self.tools[self.current_tool][0] == "DEL" or
-            self.tools[self.current_tool][0] == "SELECT" or
-            self.tools[self.current_tool][0] == "FILL"):
-          # This event is treated in del_item_event to avoid
-          # operating on background item and grid
-          return False
+      self.newitem = None
 
-        elif self.tools[self.current_tool][0] == "LINE":
+      if (self.tools[self.current_tool][0] == "DEL" or
+          self.tools[self.current_tool][0] == "SELECT" or
+          self.tools[self.current_tool][0] == "FILL"):
+        # This event is treated in del_item_event to avoid
+        # operating on background item and grid
+        return False
 
-          gcompris.sound.play_ogg("sounds/bleep.wav")
+      elif self.tools[self.current_tool][0] == "LINE":
 
-          x,y = self.snap_to_grid(event.x,event.y)
-          self.pos_x = x
-          self.pos_y = y
+        gcompris.sound.play_ogg("sounds/bleep.wav")
 
-          self.newitem =goocanvas.Line(
-            parent = self.root_drawingitem,
-            points=(self.pos_x, self.pos_y, x, y),
-            fill_color_rgba=self.colors[self.current_color],
-            line_width=8.0
-            )
-          self.newitem.connect("button_press_event",
-                               self.fillin_item_event, len(self.current_drawing))
-          self.newitem.connect("button_press_event",
-                               self.move_item_event, len(self.current_drawing))
+        x,y = self.snap_to_grid(event.x,event.y)
+        self.pos_x = x
+        self.pos_y = y
 
-          # Add the new item to our list
-          self.current_drawing.append({'tool': self.tools[self.current_tool][0],
-                                        'points':(self.pos_x, self.pos_y, x, y),
-                                        'fill_color_rgba':self.colors[self.current_color],
-                                        'line_width':8.0})
+        self.newitem = goocanvas.Polyline(
+          parent = self.root_drawingitem,
+          points = goocanvas.Points([(self.pos_x, self.pos_y),
+                                     (x, y)]),
+          fill_color_rgba = self.colors[self.current_color],
+          line_width = 8.0
+          )
+        self.newitem.connect("button_press_event",
+                             self.fillin_item_event, len(self.current_drawing))
+        self.newitem.connect("button_press_event",
+                             self.move_item_event, len(self.current_drawing))
 
-        elif self.tools[self.current_tool][0] == "RECT":
+        # Add the new item to our list
+        self.current_drawing.append({'tool': self.tools[self.current_tool][0],
+                                      'points':(self.pos_x, self.pos_y, x, y),
+                                      'fill_color_rgba':self.colors[self.current_color],
+                                      'line_width':8.0})
 
-          gcompris.sound.play_ogg("sounds/bleep.wav")
+      elif self.tools[self.current_tool][0] == "RECT":
 
-          x,y = self.snap_to_grid(event.x,event.y)
-          self.pos_x = x
-          self.pos_y = y
+        gcompris.sound.play_ogg("sounds/bleep.wav")
 
-          self.newitem =goocanvas.Rect(
-            parent = self.root_drawingitem,
-            x1=self.pos_x,
-            y1=self.pos_y,
-            x2=x,
-            y2=y,
-            stroke_color_rgba=self.colors[self.current_color],
-            line_width=4.0
-            )
-          self.newitem.connect("button_press_event",
-                               self.fillout_item_event, len(self.current_drawing))
-          self.newitem.connect("button_press_event",
-                               self.move_item_event, len(self.current_drawing))
+        x,y = self.snap_to_grid(event.x,event.y)
+        self.pos_x = x
+        self.pos_y = y
 
-          # Add the new item to our list
-          self.current_drawing.append({'tool': self.tools[self.current_tool][0],
-                                       'x1':self.pos_x,
-                                       'y1':self.pos_y,
-                                       'x2':x,
-                                       'y2':y,
-                                       'stroke_color_rgba':self.colors[self.current_color],
-                                       'line_width':4.0})
+        self.newitem =goocanvas.Rect(
+          parent = self.root_drawingitem,
+          x=self.pos_x,
+          y=self.pos_y,
+          width=0,
+          height=0,
+          stroke_color_rgba=self.colors[self.current_color],
+          line_width=4.0
+          )
+        self.newitem.connect("button_press_event",
+                             self.fillout_item_event, len(self.current_drawing))
+        self.newitem.connect("button_press_event",
+                             self.move_item_event, len(self.current_drawing))
 
-        elif self.tools[self.current_tool][0] == "FILL_RECT":
+        # Add the new item to our list
+        self.current_drawing.append({'tool': self.tools[self.current_tool][0],
+                                     'x':self.pos_x,
+                                     'y':self.pos_y,
+                                     'width':x,
+                                     'height':y,
+                                     'stroke_color_rgba':self.colors[self.current_color],
+                                     'line_width':4.0})
 
-          gcompris.sound.play_ogg("sounds/bleep.wav")
+      elif self.tools[self.current_tool][0] == "FILL_RECT":
 
-          x,y = self.snap_to_grid(event.x,event.y)
-          self.pos_x = x
-          self.pos_y = y
+        gcompris.sound.play_ogg("sounds/bleep.wav")
 
-          self.newitem =goocanvas.Rect(
-            parent = self.root_drawingitem,
-            x1=self.pos_x,
-            y1=self.pos_y,
-            x2=x,
-            y2=y,
-            fill_color_rgba=self.colors[self.current_color],
-            stroke_color_rgba=0x000000FFL,
-            line_width=1.0
-            )
-          self.newitem.connect("button_press_event",
-                               self.fillin_item_event, len(self.current_drawing))
-          self.newitem.connect("button_press_event",
-                               self.move_item_event, len(self.current_drawing))
+        x,y = self.snap_to_grid(event.x,event.y)
+        self.pos_x = x
+        self.pos_y = y
 
-          # Add the new item to our list
-          self.current_drawing.append({'tool': self.tools[self.current_tool][0],
-                                       'x1':self.pos_x,
-                                       'y1':self.pos_y,
-                                       'x2':x,
-                                       'y2':y,
-                                       'fill_color_rgba':self.colors[self.current_color],
-                                       'stroke_color_rgba':0x000000FFL,
-                                       'line_width':1.0})
+        self.newitem = goocanvas.Rect(
+          parent = self.root_drawingitem,
+          x = self.pos_x,
+          y = self.pos_y,
+          width = 0,
+          height = 0,
+          fill_color_rgba = self.colors[self.current_color],
+          stroke_color_rgba = 0x000000FFL,
+          line_width = 1.0
+          )
+        self.newitem.connect("button_press_event",
+                             self.fillin_item_event, len(self.current_drawing))
+        self.newitem.connect("button_press_event",
+                             self.move_item_event, len(self.current_drawing))
 
-        elif self.tools[self.current_tool][0] == "CIRCLE":
+        # Add the new item to our list
+        self.current_drawing.append({'tool': self.tools[self.current_tool][0],
+                                     'x':self.pos_x,
+                                     'y':self.pos_y,
+                                     'width':0,
+                                     'height':0,
+                                     'fill_color_rgba':self.colors[self.current_color],
+                                     'stroke_color_rgba':0x000000FFL,
+                                     'line_width':1.0})
 
-          gcompris.sound.play_ogg("sounds/bleep.wav")
+      elif self.tools[self.current_tool][0] == "CIRCLE":
 
-          x,y = self.snap_to_grid(event.x,event.y)
-          self.pos_x = x
-          self.pos_y = y
+        gcompris.sound.play_ogg("sounds/bleep.wav")
 
-          self.newitem =goocanvas.Ellipse(
-            parent = self.root_drawingitem,
-            x1=self.pos_x,
-            y1=self.pos_y,
-            x2=x,
-            y2=y,
-            stroke_color_rgba=self.colors[self.current_color],
-            line_width=5.0
-            )
-          self.newitem.connect("button_press_event",
-                               self.fillout_item_event, len(self.current_drawing))
-          self.newitem.connect("button_press_event",
-                               self.move_item_event, len(self.current_drawing))
+        x,y = self.snap_to_grid(event.x,event.y)
+        self.pos_x = x
+        self.pos_y = y
 
-          # Add the new item to our list
-          self.current_drawing.append({'tool': self.tools[self.current_tool][0],
-                                       'x1':self.pos_x,
-                                       'y1':self.pos_y,
-                                       'x2':x,
-                                       'y2':y,
-                                       'stroke_color_rgba':self.colors[self.current_color],
-                                       'line_width':5.0})
+        self.newitem = goocanvas.Ellipse(
+          parent = self.root_drawingitem,
+          center_x = self.pos_x,
+          center_y = self.pos_y,
+          radius_x = 0,
+          radius_y = 0,
+          stroke_color_rgba=self.colors[self.current_color],
+          line_width=5.0
+          )
+        self.newitem.connect("button_press_event",
+                             self.fillout_item_event, len(self.current_drawing))
+        self.newitem.connect("button_press_event",
+                             self.move_item_event, len(self.current_drawing))
 
-        elif self.tools[self.current_tool][0] == "FILL_CIRCLE":
+        # Add the new item to our list
+        self.current_drawing.append({'tool': self.tools[self.current_tool][0],
+                                     'center_x':self.pos_x,
+                                     'center_y':self.pos_y,
+                                     'radius_x':0,
+                                     'radius_y':0,
+                                     'stroke_color_rgba':self.colors[self.current_color],
+                                     'line_width':5.0})
 
-          gcompris.sound.play_ogg("sounds/bleep.wav")
+      elif self.tools[self.current_tool][0] == "FILL_CIRCLE":
 
-          x,y = self.snap_to_grid(event.x,event.y)
-          self.pos_x = x
-          self.pos_y = y
+        gcompris.sound.play_ogg("sounds/bleep.wav")
 
-          self.newitem =goocanvas.Ellipse(
-            parent = self.root_drawingitem,
-            x1=self.pos_x,
-            y1=self.pos_y,
-            x2=x,
-            y2=y,
-            fill_color_rgba=self.colors[self.current_color],
-            stroke_color_rgba=0x000000FFL,
-            line_width=1.0
-            )
-          self.newitem.connect("button_press_event",
-                               self.fillin_item_event, len(self.current_drawing))
-          self.newitem.connect("button_press_event",
-                               self.move_item_event, len(self.current_drawing))
+        x,y = self.snap_to_grid(event.x,event.y)
+        self.pos_x = x
+        self.pos_y = y
 
-          # Add the new item to our list
-          self.current_drawing.append({'tool': self.tools[self.current_tool][0],
-                                       'x1':self.pos_x,
-                                       'y1':self.pos_y,
-                                       'x2':x,
-                                       'y2':y,
-                                       'fill_color_rgba':self.colors[self.current_color],
-                                       'stroke_color_rgba':0x000000FFL,
-                                       'line_width':1.0})
-        if self.newitem != 0:
-          self.newitem.connect("button_press_event", self.create_item_event)
-          self.newitem.connect("button_press_event", self.del_item_event, len(self.current_drawing)-1)
+        self.newitem = goocanvas.Ellipse(
+          parent = self.root_drawingitem,
+          center_x = self.pos_x,
+          center_y = self.pos_y,
+          radius_x = 0,
+          radius_y = 0,
+          fill_color_rgba = self.colors[self.current_color],
+          stroke_color_rgba = 0x000000FFL,
+          line_width = 1.0
+          )
+        self.newitem.connect("button_press_event",
+                             self.fillin_item_event, len(self.current_drawing))
+        self.newitem.connect("button_press_event",
+                             self.move_item_event, len(self.current_drawing))
+
+        # Add the new item to our list
+        self.current_drawing.append({'tool': self.tools[self.current_tool][0],
+                                     'center_x':self.pos_x,
+                                     'center_y':self.pos_y,
+                                     'radius_x':0,
+                                     'radius_y':0,
+                                     'fill_color_rgba':self.colors[self.current_color],
+                                     'stroke_color_rgba':0x000000FFL,
+                                     'line_width':1.0})
+      if self.newitem != 0:
+        self.newitem.connect("button_press_event", self.create_item_event)
+        self.newitem.connect("button_release_event", self.create_item_event)
+        self.newitem.connect("motion_notify_event", self.create_item_event)
+        self.newitem.connect("button_press_event", self.del_item_event, len(self.current_drawing)-1)
 
       return True
 
@@ -1068,18 +1084,29 @@ class Gcompris_redraw:
           y=self.drawing_area[3]
 
         if self.tools[self.current_tool][0] == "LINE":
-          self.newitem.props.points = ( self.pos_x, self.pos_y, x, y)
+          self.newitem.props.points = goocanvas.Points([(self.pos_x, self.pos_y),
+                                                        (x, y)])
           # Reset the item to our list
           self.current_drawing[len(self.current_drawing)-1]['points'] = ( self.pos_x, self.pos_y, x, y)
         elif (self.tools[self.current_tool][0] == "RECT" or
-              self.tools[self.current_tool][0] == "FILL_RECT" or
-              self.tools[self.current_tool][0] == "CIRCLE" or
+              self.tools[self.current_tool][0] == "FILL_RECT"):
+          if(x - self.pos_x > 0):
+            self.newitem.props.width = abs(x - self.pos_x)
+            self.current_drawing[len(self.current_drawing)-1]['width'] = abs(x - self.pos_x)
+
+          if(y - self.pos_y > 0):
+            self.newitem.props.height = abs(y - self.pos_y)
+            self.current_drawing[len(self.current_drawing)-1]['height'] = abs(y - self.pos_y)
+
+        elif (self.tools[self.current_tool][0] == "CIRCLE" or
               self.tools[self.current_tool][0] == "FILL_CIRCLE"):
-          self.newitem.props.x2 = x
-          self.newitem.props.y2 = y
-          # Reset the item to our list
-          self.current_drawing[len(self.current_drawing)-1]['x2'] = x
-          self.current_drawing[len(self.current_drawing)-1]['y2'] = y
+          if(x - self.pos_x > 0):
+            self.newitem.props.radius_x = x - self.pos_x
+            self.current_drawing[len(self.current_drawing)-1]['radius_x'] = x - self.pos_x
+
+          if(y - self.pos_y > 0):
+            self.newitem.props.radius_y = y - self.pos_y
+            self.current_drawing[len(self.current_drawing)-1]['radius_y'] = y - self.pos_y
 
 
     #
@@ -1107,25 +1134,23 @@ class Gcompris_redraw:
                                                                              bounds[0], bounds[1])
 
         elif (self.tools[self.current_tool][0] == "RECT" or
-              self.tools[self.current_tool][0] == "FILL_RECT" or
-              self.tools[self.current_tool][0] == "CIRCLE" or
+              self.tools[self.current_tool][0] == "FILL_RECT"):
+          # It's a rect
+          width = self.current_drawing[len(self.current_drawing)-1]['width']
+          height = self.current_drawing[len(self.current_drawing)-1]['height']
+          if (width == 0) or (height == 0):
+            # Oups, empty rect
+            self.del_item(self.newitem, len(self.current_drawing)-1)
+        elif (self.tools[self.current_tool][0] == "CIRCLE" or
               self.tools[self.current_tool][0] == "FILL_CIRCLE"):
-          # It's a rect or ellipse
-          x1 = self.current_drawing[len(self.current_drawing)-1]['x1']
-          y1 = self.current_drawing[len(self.current_drawing)-1]['y1']
-          x2 = self.current_drawing[len(self.current_drawing)-1]['x2']
-          y2 = self.current_drawing[len(self.current_drawing)-1]['y2']
-          if (x1 == x2) or (y1 == y2):
+          # It's an ellipse
+          radius_x = self.current_drawing[len(self.current_drawing)-1]['radius_x']
+          radius_y = self.current_drawing[len(self.current_drawing)-1]['radius_y']
+          if (radius_x == 0) or (radius_y == 0):
             # Oups, empty rect
             self.del_item(self.newitem, len(self.current_drawing)-1)
           else:
             gcompris.sound.play_ogg("sounds/line_end.wav")
-            # We need to reord the coord in increasing order to allow later comparison
-            x1, y1, x2, y2 = self.reorder_coord(x1, y1, x2, y2)
-            self.current_drawing[len(self.current_drawing)-1]['x1'] = x1
-            self.current_drawing[len(self.current_drawing)-1]['y1'] = y1
-            self.current_drawing[len(self.current_drawing)-1]['x2'] = x2
-            self.current_drawing[len(self.current_drawing)-1]['y2'] = y2
 
         return True
     return False
@@ -1138,102 +1163,192 @@ class Gcompris_redraw:
       self.drawlist = \
                     [
         # Two stripes
-      [{'x2': 420.0, 'line_width': 1.0, 'y2': 100.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 4042322175L, 'y1': 80.0, 'tool': 'FILL_RECT', 'x1': 140.0}, {'x2': 420.0, 'line_width': 1.0, 'y2': 440.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 4042322175L, 'y1': 420.0, 'tool': 'FILL_RECT', 'x1': 140.0}]
+      [{'width': 280.0, 'line_width': 1.0, 'height': 20.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 4042322175L, 'y': 80.0, 'tool': 'FILL_RECT', 'x': 140.0},
+       {'width': 280.0, 'line_width': 1.0, 'height': 20.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 4042322175L, 'y': 420.0, 'tool': 'FILL_RECT', 'x': 140.0}]
       ,
       # Top centered box
-      [{'x2': 360.0, 'y2': 80.0, 'line_width': 1.0, 'fill_color_rgba': 4042322175L, 'stroke_color_rgba': 255L, 'y1': 40.0, 'x1': 200.0, 'tool': 'FILL_RECT'}]
+      [{'width': 160.0, 'height': 40.0, 'line_width': 1.0, 'fill_color_rgba': 4042322175L, 'stroke_color_rgba': 255L, 'y': 40.0, 'x': 200.0, 'tool': 'FILL_RECT'}]
       ,
       # 4 small corners
-      [{'x2': 200.0, 'y2': 80.0,  'line_width': 1.0,'fill_color_rgba': 4042322175L, 'stroke_color_rgba': 255L, 'y1': 40.0, 'x1': 160.0, 'tool': 'FILL_RECT'},
-       {'x2': 400.0, 'y2': 80.0,  'line_width': 1.0,'fill_color_rgba': 4042322175L, 'stroke_color_rgba': 255L, 'y1': 40.0, 'x1': 360.0, 'tool': 'FILL_RECT'},
-       {'x2': 200.0, 'y2': 480.0, 'line_width': 1.0, 'fill_color_rgba': 4042322175L, 'stroke_color_rgba': 255L, 'y1': 440.0, 'x1': 160.0, 'tool': 'FILL_RECT'},
-       {'x2': 400.0, 'y2': 480.0,  'line_width': 1.0,'fill_color_rgba': 4042322175L, 'stroke_color_rgba': 255L, 'y1': 440.0, 'x1': 360.0, 'tool': 'FILL_RECT'}]
+      [{'width': 40.0, 'height': 40.0,  'line_width': 1.0,'fill_color_rgba': 4042322175L, 'stroke_color_rgba': 255L, 'y': 40.0, 'x': 160.0, 'tool': 'FILL_RECT'},
+       {'width': 400.0-360.0, 'height': 80.0-40.0,  'line_width': 1.0,'fill_color_rgba': 4042322175L, 'stroke_color_rgba': 255L, 'y': 40.0, 'x': 360.0, 'tool': 'FILL_RECT'},
+       {'width': 200.0-160.0, 'height': 480.0-440.0, 'line_width': 1.0, 'fill_color_rgba': 4042322175L, 'stroke_color_rgba': 255L, 'y': 440.0, 'x': 160.0, 'tool': 'FILL_RECT'},
+       {'width': 400.0-360.0, 'height': 480.0-440.0,  'line_width': 1.0,'fill_color_rgba': 4042322175L, 'stroke_color_rgba': 255L, 'y': 440.0, 'x': 360.0, 'tool': 'FILL_RECT'}]
       ,
       # 4 non filled Rects organised in rect and shifted
-      [{'x2': 200.0, 'y2': 360.0, 'stroke_color_rgba': 4042322175L, 'line_width': 4.0, 'y1': 200.0, 'x1': 180.0, 'tool': 'RECT'},
-       {'x2': 340.0, 'y2': 400.0, 'stroke_color_rgba': 4042322175L, 'line_width': 4.0, 'y1':380.0, 'x1': 180.0, 'tool': 'RECT'},
-       {'x2': 380.0, 'y2': 400.0, 'stroke_color_rgba': 4042322175L, 'line_width': 4.0, 'y1': 240.0, 'x1': 360.0, 'tool': 'RECT'},
-       {'x2': 380.0, 'y2': 220.0, 'stroke_color_rgba': 4042322175L, 'line_width': 4.0, 'y1': 200.0, 'x1': 220.0, 'tool': 'RECT'}]
+      [{'width': 200.0-180.0, 'height': 360.0-200.0, 'stroke_color_rgba': 4042322175L, 'line_width': 4.0, 'y': 200.0, 'x': 180.0, 'tool': 'RECT'},
+       {'width': 340.0-180.0, 'height': 400.0-380.0, 'stroke_color_rgba': 4042322175L, 'line_width': 4.0, 'y':380.0, 'x': 180.0, 'tool': 'RECT'},
+       {'width': 380.0-360.0, 'height': 400.0-240.0, 'stroke_color_rgba': 4042322175L, 'line_width': 4.0, 'y': 240.0, 'x': 360.0, 'tool': 'RECT'},
+       {'width': 380.0-220.0, 'height': 220.0-200.0, 'stroke_color_rgba': 4042322175L, 'line_width': 4.0, 'y': 200.0, 'x': 220.0, 'tool': 'RECT'}]
       ,
       # Letter A
-      [{'tool': 'LINE', 'points': (200.0, 120.0, 280.0, 120.0), 'line_width': 8.0, 'fill_color_rgba': 4042322175L}, {'tool': 'LINE', 'points': (280.0, 120.0, 280.0,240.0), 'line_width': 8.0, 'fill_color_rgba': 4042322175L}, {'tool': 'LINE', 'points': (200.0, 120.0, 200.0, 240.0), 'line_width': 8.0, 'fill_color_rgba': 4042322175L}, {'tool': 'LINE', 'points': (200.0, 180.0, 280.0, 180.0), 'line_width': 8.0, 'fill_color_rgba': 4042322175L}]
+      [{'tool': 'LINE', 'points': (200.0, 120.0, 280.0, 120.0), 'line_width': 8.0, 'stroke_color_rgba': 4042322175L},
+       {'tool': 'LINE', 'points': (280.0, 120.0, 280.0,240.0), 'line_width': 8.0, 'stroke_color_rgba': 4042322175L},
+       {'tool': 'LINE', 'points': (200.0, 120.0, 200.0, 240.0), 'line_width': 8.0, 'stroke_color_rgba': 4042322175L},
+       {'tool': 'LINE', 'points': (200.0, 180.0, 280.0, 180.0), 'line_width': 8.0, 'stroke_color_rgba': 4042322175L}]
       ,
       # Letter B
-      [{'tool': 'LINE', 'points': (240.0, 240.0, 320.0, 240.0), 'line_width': 8.0, 'fill_color_rgba': 4042322175L}, {'tool': 'LINE', 'points': (300.0, 180.0, 320.0,200.0), 'line_width': 8.0, 'fill_color_rgba': 4042322175L}, {'tool': 'LINE', 'points': (300.0, 180.0, 320.0, 160.0), 'line_width': 8.0, 'fill_color_rgba': 4042322175L}, {'tool': 'LINE', 'points': (240.0, 180.0, 300.0, 180.0), 'line_width': 8.0, 'fill_color_rgba': 4042322175L}, {'tool': 'LINE', 'points': (320.0, 100.0, 320.0, 160.0), 'line_width': 8.0, 'fill_color_rgba': 4042322175L}, {'tool':'LINE', 'points': (240.0, 100.0, 320.0, 100.0), 'line_width': 8.0, 'fill_color_rgba': 4042322175L}, {'tool': 'LINE', 'points': (240.0, 100.0, 240.0, 240.0), 'line_width': 8.0, 'fill_color_rgba': 4042322175L}, {'tool': 'LINE', 'points': (320.0, 200.0, 320.0, 240.0), 'line_width': 8.0, 'fill_color_rgba': 4042322175L}]
+      [{'tool': 'LINE', 'points': (240.0, 240.0, 320.0, 240.0), 'line_width': 8.0, 'stroke_color_rgba': 4042322175L},
+       {'tool': 'LINE', 'points': (300.0, 180.0, 320.0,200.0), 'line_width': 8.0, 'stroke_color_rgba': 4042322175L},
+       {'tool': 'LINE', 'points': (300.0, 180.0, 320.0, 160.0), 'line_width': 8.0, 'stroke_color_rgba': 4042322175L},
+       {'tool': 'LINE', 'points': (240.0, 180.0, 300.0, 180.0), 'line_width': 8.0, 'stroke_color_rgba': 4042322175L},
+       {'tool': 'LINE', 'points': (320.0, 100.0, 320.0, 160.0), 'line_width': 8.0, 'stroke_color_rgba': 4042322175L},
+       {'tool':'LINE', 'points': (240.0, 100.0, 320.0, 100.0), 'line_width': 8.0, 'stroke_color_rgba': 4042322175L},
+       {'tool': 'LINE', 'points': (240.0, 100.0, 240.0, 240.0), 'line_width': 8.0, 'stroke_color_rgba': 4042322175L},
+       {'tool': 'LINE', 'points': (320.0, 200.0, 320.0, 240.0), 'line_width': 8.0, 'stroke_color_rgba': 4042322175L}]
       ,
       # A door
-      [{'x2': 360.0, 'y2': 360.0, 'stroke_color_rgba': 4042322175L, 'line_width': 4.0, 'y1': 180.0, 'x1': 200.0, 'tool': 'RECT'},
-       {'x2': 340.0, 'y2': 320.0, 'line_width': 1.0, 'fill_color_rgba': 4042322175L, 'stroke_color_rgba': 255L, 'y1': 280.0, 'x1': 300.0, 'tool': 'FILL_CIRCLE'},
-       {'x2': 320.0, 'y2': 260.0, 'line_width': 1.0, 'fill_color_rgba': 4042322175L, 'stroke_color_rgba': 255L, 'y1': 200.0, 'x1': 240.0, 'tool': 'FILL_RECT'}]
-      ,
+      [{'width': 360.0-200.0, 'height': 360.0-180.0, 'stroke_color_rgba': 4042322175L, 'line_width': 4.0, 'y': 180.0, 'x': 200.0, 'tool': 'RECT'},
+       {'radius_x': 20, 'radius_y': 20, 'line_width': 1.0, 'fill_color_rgba': 4042322175L, 'stroke_color_rgba': 255L, 'center_y': 280.0+20, 'center_x': 300.0+20, 'tool': 'FILL_CIRCLE'},
+       {'width': 320.0-240.0, 'height': 260.0-200.0, 'line_width': 1.0, 'fill_color_rgba': 4042322175L, 'stroke_color_rgba': 255L, 'y': 200.0, 'x': 240.0, 'tool': 'FILL_RECT'}],
       # A top left kind of target
-      [{'x2': 260.0, 'y2': 140.0, 'stroke_color_rgba': 4042322175L, 'y1': 40.0, 'x1': 160.0, 'tool': 'CIRCLE', 'line_width': 5.0},
-       {'x2': 240.0, 'y2': 120.0, 'line_width': 1.0, 'fill_color_rgba': 4042322175L, 'stroke_color_rgba': 255L, 'y1': 60.0, 'x1': 180.0, 'tool': 'FILL_CIRCLE'}]
+      [{'radius_x': 50, 'radius_y': 50, 'stroke_color_rgba': 4042322175L, 'center_y': 40.0+50, 'center_x': 160.0+50, 'tool': 'CIRCLE', 'line_width': 5.0},
+       {'radius_x': 30, 'radius_y': 30, 'line_width': 1.0, 'fill_color_rgba': 4042322175L, 'stroke_color_rgba': 255L, 'center_y': 60.0+30, 'center_x': 180.0+30, 'tool': 'FILL_CIRCLE'}]
       ,
       # 4 Huge Diagonal lines
-      [{'tool': 'LINE', 'points': (140.0, 260.0, 260.0, 20.0), 'line_width': 8.0, 'fill_color_rgba': 4042322175L}, {'tool': 'LINE', 'points': (140.0, 260.0, 260.0, 500.0), 'line_width': 8.0, 'fill_color_rgba': 4042322175L}, {'tool': 'LINE', 'points': (260.0, 500.0, 420.0, 260.0), 'line_width': 8.0, 'fill_color_rgba': 4042322175L}, {'tool': 'LINE', 'points': (260.0, 20.0, 420.0, 260.0), 'line_width': 8.0, 'fill_color_rgba': 4042322175L}]
+      [{'tool': 'LINE', 'points': (140.0, 260.0, 260.0, 20.0), 'line_width': 8.0, 'stroke_color_rgba': 4042322175L},
+       {'tool': 'LINE', 'points': (140.0, 260.0, 260.0, 500.0), 'line_width': 8.0, 'stroke_color_rgba': 4042322175L},
+       {'tool': 'LINE', 'points': (260.0, 500.0, 420.0, 260.0), 'line_width': 8.0, 'stroke_color_rgba': 4042322175L},
+       {'tool': 'LINE', 'points': (260.0, 20.0, 420.0, 260.0), 'line_width': 8.0, 'stroke_color_rgba': 4042322175L}]
       ,
       # Balloon
-      [{'tool': 'LINE', 'points': (220.0, 240.0, 220.0, 340.0), 'line_width': 8.0, 'fill_color_rgba': 4042322175L}, {'x2': 260.0, 'line_width': 1.0, 'y2': 240.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 3992977663L, 'y1': 140.0, 'tool': 'FILL_CIRCLE', 'x1': 180.0}, {'x2': 380.0, 'line_width': 1.0, 'y2': 180.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 4283674623L, 'y1': 80.0, 'tool': 'FILL_CIRCLE', 'x1': 300.0}, {'tool': 'LINE', 'points': (340.0, 180.0, 340.0, 280.0), 'line_width': 8.0, 'fill_color_rgba': 4042322175L}]
+      [{'tool': 'LINE', 'points': (220.0, 240.0, 220.0, 340.0), 'line_width': 8.0, 'stroke_color_rgba': 4042322175L},
+       {'radius_x': 40, 'line_width': 1.0, 'radius_y': 50, 'stroke_color_rgba': 255L, 'fill_color_rgba': 3992977663L, 'center_y': 140.0+50, 'tool': 'FILL_CIRCLE', 'center_x': 180.0+40},
+       {'radius_x': 40, 'line_width': 1.0, 'radius_y': 50, 'stroke_color_rgba': 255L, 'fill_color_rgba': 4283674623L, 'center_y': 80.0+50, 'tool': 'FILL_CIRCLE', 'center_x': 300.0+40},
+       {'tool': 'LINE', 'points': (340.0, 180.0, 340.0, 280.0), 'line_width': 8.0, 'stroke_color_rgba': 4042322175L}]
       ,
       # Watch
-      [{'x2': 380.0, 'y2': 340.0, 'stroke_color_rgba': 4042322175L, 'line_width': 5.0, 'y1': 140.0, 'tool': 'CIRCLE', 'x1': 180.0}, {'tool': 'LINE', 'points': (280.0, 160.0, 280.0, 240.0), 'line_width': 8.0, 'fill_color_rgba': 3992977663L}, {'tool': 'LINE', 'points': (280.0, 240.0, 320.0, 200.0), 'line_width': 8.0, 'fill_color_rgba': 352271359L}, {'tool': 'LINE', 'points': (220.0, 280.0, 280.0, 240.0), 'line_width': 8.0, 'fill_color_rgba': 4294905087L}]
+      [{'radius_x': 100, 'radius_y': 100, 'stroke_color_rgba': 4042322175L, 'line_width': 5.0, 'center_y': 140.0+100, 'tool': 'CIRCLE', 'center_x': 180.0+100},
+       {'tool': 'LINE', 'points': (280.0, 160.0, 280.0, 240.0), 'line_width': 8.0, 'stroke_color_rgba': 3992977663L},
+       {'tool': 'LINE', 'points': (280.0, 240.0, 320.0, 200.0), 'line_width': 8.0, 'stroke_color_rgba': 352271359L},
+       {'tool': 'LINE', 'points': (220.0, 280.0, 280.0, 240.0), 'line_width': 8.0, 'stroke_color_rgba': 4294905087L}]
       ,
       # Colored pyramid
-      [{'x2': 280.0, 'line_width': 1.0, 'y2': 120.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 3992977663L, 'y1': 100.0, 'tool': 'FILL_RECT', 'x1': 260.0}, {'x2': 300.0, 'line_width': 1.0, 'y2': 140.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 4294905087L, 'y1': 120.0, 'tool': 'FILL_RECT', 'x1': 240.0}, {'x2': 320.0, 'line_width': 1.0, 'y2': 160.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 352271359L, 'y1': 140.0, 'tool': 'FILL_RECT', 'x1': 220.0}, {'x2': 340.0, 'line_width': 1.0, 'y2': 180.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 4283674623L, 'y1': 160.0, 'tool': 'FILL_RECT', 'x1': 200.0}, {'x2': 360.0, 'line_width': 1.0, 'y2': 200.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 1717987071L, 'y1': 180.0, 'tool': 'FILL_RECT', 'x1': 180.0}]
+      [{'width': 280.0-260.0, 'line_width': 1.0, 'height': 120.0-100.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 3992977663L, 'y': 100.0, 'x': 260.0, 'tool': 'FILL_RECT'},
+       {'width': 300.0-240.0, 'line_width': 1.0, 'height': 140.0-120.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 4294905087L, 'y': 120.0,  'x': 240.0, 'tool': 'FILL_RECT'},
+       {'width': 320.0-220.0, 'line_width': 1.0, 'height': 160.0-140.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 352271359L, 'y': 140.0, 'tool': 'FILL_RECT', 'x': 220.0},
+       {'width': 340.0-200.0, 'line_width': 1.0, 'height': 180.0-160.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 4283674623L, 'y': 160.0, 'tool': 'FILL_RECT', 'x': 200.0},
+       {'width': 360.0-180.0, 'line_width': 1.0, 'height': 200.0-180.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 1717987071L, 'y': 180.0, 'tool': 'FILL_RECT', 'x': 180.0}]
       ,
       # Colored Rectangle bigger and bigger
-      [{'x2': 180.0, 'line_width': 1.0, 'y2': 60.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 4283674623L, 'y1': 20.0, 'tool': 'FILL_RECT', 'x1': 140.0}, {'x2': 240.0, 'line_width': 1.0, 'y2': 120.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 3992977663L, 'y1': 60.0, 'tool': 'FILL_RECT', 'x1': 180.0}, {'x2': 320.0, 'line_width': 1.0, 'y2': 200.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 4294905087L, 'y1': 120.0, 'tool': 'FILL_RECT', 'x1': 240.0}, {'x2': 420.0, 'line_width': 1.0, 'y2': 300.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 352271359L, 'y1': 200.0, 'tool': 'FILL_RECT', 'x1': 320.0}]
+      [{'width': 180.0-140.0, 'line_width': 1.0, 'height': 60.0-20.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 4283674623L, 'y': 20.0, 'tool': 'FILL_RECT', 'x': 140.0},
+       {'width': 240.0-180.0, 'line_width': 1.0, 'height': 120.0-60.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 3992977663L, 'y': 60.0, 'tool': 'FILL_RECT', 'x': 180.0},
+       {'width': 320.0-240.0, 'line_width': 1.0, 'height': 200.0-120.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 4294905087L, 'y': 120.0, 'tool': 'FILL_RECT', 'x': 240.0},
+       {'width': 420.0-320.0, 'line_width': 1.0, 'height': 300.0-200.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 352271359L, 'y': 200.0, 'tool': 'FILL_RECT', 'x': 320.0}]
       ,
       # Tree
-      [{'x2': 420.0, 'line_width': 1.0, 'y2': 500.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 2085298687L, 'y1': 460.0, 'tool': 'FILL_RECT', 'x1': 140.0}, {'x2': 260.0, 'line_width': 1.0, 'y2': 460.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 4287383039L, 'y1': 360.0, 'tool': 'FILL_RECT', 'x1': 240.0}, {'x2': 320.0, 'line_width': 1.0, 'y2': 360.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 352271359L, 'y1': 280.0, 'tool': 'FILL_CIRCLE', 'x1': 180.0}]
+      [{'width': 420.0-140.0, 'line_width': 1.0, 'height': 500.0-460.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 2085298687L, 'y': 460.0, 'tool': 'FILL_RECT', 'x': 140.0},
+       {'width': 260.0-240.0, 'line_width': 1.0, 'height': 460.0-360.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 4287383039L, 'y': 360.0, 'tool': 'FILL_RECT', 'x': 240.0},
+       {'radius_x': 70, 'line_width': 1.0, 'radius_y': 40, 'stroke_color_rgba': 255L, 'fill_color_rgba': 352271359L, 'center_y': 280.0+40, 'tool': 'FILL_CIRCLE', 'center_x': 180.0+70}]
       ,
       # bipbip (big non flying bird)
-      [{'x2': 280.0, 'line_width': 1.0, 'y2': 320.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 352271359L, 'y1': 120.0, 'tool': 'FILL_RECT', 'x1': 260.0}, {'x2': 300.0, 'line_width': 1.0, 'y2': 120.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 352271359L, 'y1': 80.0, 'tool': 'FILL_RECT', 'x1': 260.0}, {'x2': 320.0, 'line_width': 1.0, 'y2': 120.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 352271359L, 'y1': 100.0, 'tool': 'FILL_RECT', 'x1': 300.0}, {'x2': 280.0, 'line_width': 1.0, 'y2': 380.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 352271359L, 'y1': 320.0, 'tool': 'FILL_RECT', 'x1': 200.0}, {'x2': 220.0, 'line_width': 1.0, 'y2': 320.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 352271359L, 'y1': 300.0, 'tool': 'FILL_RECT', 'x1': 200.0}, {'x2': 260.0, 'line_width': 1.0, 'y2': 460.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 352271359L, 'y1': 380.0, 'tool': 'FILL_RECT', 'x1': 240.0}, {'x2': 280.0, 'line_width': 1.0, 'y2': 460.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 352271359L, 'y1': 440.0, 'tool': 'FILL_RECT', 'x1': 260.0}]
+      [{'width': 280.0-260.0, 'line_width': 1.0, 'height': 320.0-120.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 352271359L, 'y': 120.0, 'tool': 'FILL_RECT', 'x': 260.0},
+       {'width': 300.0-260.0, 'line_width': 1.0, 'height': 120.0-80.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 352271359L, 'y': 80.0, 'tool': 'FILL_RECT', 'x': 260.0},
+       {'width': 320.0-300.0, 'line_width': 1.0, 'height': 120.0-100.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 352271359L, 'y': 100.0, 'tool': 'FILL_RECT', 'x': 300.0},
+       {'width': 280.0-200.0, 'line_width': 1.0, 'height': 380.0-320.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 352271359L, 'y': 320.0, 'tool': 'FILL_RECT', 'x': 200.0},
+       {'width': 220.0-200.0, 'line_width': 1.0, 'height': 320.0-300.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 352271359L, 'y': 300.0, 'tool': 'FILL_RECT', 'x': 200.0},
+       {'width': 260.0-240.0, 'line_width': 1.0, 'height': 460.0-380.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 352271359L, 'y': 380.0, 'tool': 'FILL_RECT', 'x': 240.0},
+       {'width': 280.0-260.0, 'line_width': 1.0, 'height': 460.0-440.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 352271359L, 'y': 440.0, 'tool': 'FILL_RECT', 'x': 260.0}]
       ,
       # Dog
-      [{'x2': 180.0, 'line_width': 1.0, 'y2': 200.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 2199425535L, 'y1': 180.0, 'tool': 'FILL_RECT', 'x1': 160.0}, {'x2': 340.0, 'line_width': 1.0, 'y2': 240.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 2199425535L, 'y1': 200.0, 'tool': 'FILL_RECT', 'x1': 180.0}, {'x2': 200.0, 'line_width': 1.0, 'y2': 280.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 2199425535L, 'y1': 240.0, 'tool': 'FILL_RECT', 'x1': 180.0}, {'x2': 340.0,'line_width': 1.0, 'y2': 280.0, 'stroke_color_rgba': 255L, 'fill_color_rgba':2199425535L, 'y1': 240.0, 'tool': 'FILL_RECT', 'x1': 320.0}, {'x2': 380.0, 'line_width': 1.0, 'y2': 200.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 2199425535L, 'y1': 160.0, 'tool': 'FILL_RECT', 'x1': 320.0}]
+      [{'width': 180.0-160.0, 'line_width': 1.0, 'height': 200.0-180.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 2199425535L, 'y': 180.0, 'tool': 'FILL_RECT', 'x': 160.0},
+       {'width': 340.0-180.0, 'line_width': 1.0, 'height': 240.0-200.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 2199425535L, 'y': 200.0, 'tool': 'FILL_RECT', 'x': 180.0},
+       {'width': 200.0-180.0, 'line_width': 1.0, 'height': 280.0-240.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 2199425535L, 'y': 240.0, 'tool': 'FILL_RECT', 'x': 180.0},
+       {'width': 340.0-320.0,'line_width': 1.0, 'height': 280.0-240.0, 'stroke_color_rgba': 255L, 'fill_color_rgba':2199425535L, 'y': 240.0, 'tool': 'FILL_RECT', 'x': 320.0},
+       {'width': 380.0-320.0, 'line_width': 1.0, 'height': 200.0-160.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 2199425535L, 'y': 160.0, 'tool': 'FILL_RECT', 'x': 320.0}]
       ,
       # Fish
-      [{'x2': 360.0, 'line_width': 1.0, 'y2': 280.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 4294905087L, 'y1': 160.0, 'tool': 'FILL_CIRCLE', 'x1': 180.0}, {'x2': 340.0, 'line_width': 1.0, 'y2': 220.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 4042322175L, 'y1': 200.0, 'tool': 'FILL_CIRCLE', 'x1': 320.0}, {'x2': 180.0, 'line_width': 1.0, 'y2': 260.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 4294905087L, 'y1': 180.0, 'tool': 'FILL_RECT', 'x1': 160.0}]
+      [{'radius_x': 90, 'line_width': 1.0, 'radius_y': 60, 'stroke_color_rgba': 255L, 'fill_color_rgba': 4294905087L, 'center_y': 160.0+60, 'tool': 'FILL_CIRCLE', 'center_x': 180.0+90},
+       {'radius_x': 10, 'line_width': 1.0, 'radius_y': 10, 'stroke_color_rgba': 255L, 'fill_color_rgba': 4042322175L, 'center_y': 200.0+10, 'tool': 'FILL_CIRCLE', 'center_x': 320.0+10},
+       {'width': 180.0-160.0, 'line_width': 1.0, 'height': 260.0-180.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 4294905087L, 'y': 180.0, 'tool': 'FILL_RECT', 'x': 160.0}]
       ,
       # Balloon (human)
-      [{'x2': 380.0, 'line_width': 1.0, 'y2': 300.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 3992977663L, 'y1': 100.0, 'tool': 'FILL_CIRCLE', 'x1': 200.0}, {'x2': 340.0, 'line_width': 1.0, 'y2': 380.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 4294905087L, 'y1': 320.0, 'tool': 'FILL_RECT', 'x1': 240.0}, {'tool': 'LINE', 'points': (220.0, 260.0, 260.0, 320.0), 'line_width': 8.0, 'fill_color_rgba': 4287383039L}, {'tool': 'LINE', 'points': (320.0, 320.0, 360.0, 260.0),
-'line_width': 8.0, 'fill_color_rgba': 4287383039L}]
+      [{'radius_x': 90, 'line_width': 1.0, 'radius_y': 100, 'stroke_color_rgba': 255L, 'fill_color_rgba': 3992977663L, 'center_y': 100.0+100, 'tool': 'FILL_CIRCLE', 'center_x': 200.0+90},
+       {'radius_x': 50, 'line_width': 1.0, 'radius_y': 30, 'stroke_color_rgba': 255L, 'stroke_color_rgba': 4294905087L, 'center_y': 320.0, 'tool': 'FILL_RECT', 'center_x': 240.0},
+       {'tool': 'LINE', 'points': (220.0, 260.0, 260.0, 320.0), 'line_width': 8.0, 'stroke_color_rgba': 4287383039L},
+       {'tool': 'LINE', 'points': (320.0, 320.0, 360.0, 260.0), 'line_width': 8.0, 'stroke_color_rgba': 4287383039L}]
       ,
       # House
-      [{'x2': 360.0, 'line_width': 1.0, 'y2': 340.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 4287383039L, 'y1': 240.0, 'tool': 'FILL_RECT', 'x1': 200.0}, {'x2': 280.0, 'line_width': 1.0, 'y2': 340.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 4042322175L, 'y1': 280.0, 'tool': 'FILL_RECT', 'x1': 240.0}, {'x2': 340.0, 'line_width': 1.0, 'y2': 300.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 4042322175L, 'y1': 260.0, 'tool': 'FILL_RECT', 'x1': 300.0}, {'tool': 'LINE', 'points': (200.0, 240.0, 280.0, 160.0), 'line_width': 8.0, 'fill_color_rgba': 4287383039L}, {'tool': 'LINE', 'points': (280.0, 160.0, 360.0, 240.0), 'line_width': 8.0, 'fill_color_rgba': 4287383039L}]
+      [{'width': 360.0-200.0, 'line_width': 1.0, 'height': 340.0-240.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 4287383039L, 'y': 240.0, 'tool': 'FILL_RECT', 'x': 200.0},
+       {'width': 280.0-240.0, 'line_width': 1.0, 'height': 340.0-280.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 4042322175L, 'y': 280.0, 'tool': 'FILL_RECT', 'x': 240.0},
+       {'width': 340.0-300.0, 'line_width': 1.0, 'height': 300.0-260.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 4042322175L, 'y': 260.0, 'tool': 'FILL_RECT', 'x': 300.0},
+       {'tool': 'LINE', 'points': (200.0, 240.0, 280.0, 160.0), 'line_width': 8.0, 'stroke_color_rgba': 4287383039L},
+       {'tool': 'LINE', 'points': (280.0, 160.0, 360.0, 240.0), 'line_width': 8.0, 'stroke_color_rgba': 4287383039L}]
       ,
       # Truck
-      [{'x2': 220.0, 'line_width': 1.0, 'y2': 280.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 4042322175L, 'y1': 240.0, 'tool': 'FILL_CIRCLE', 'x1': 180.0}, {'x2': 320.0, 'line_width': 1.0, 'y2': 280.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 4042322175L, 'y1': 240.0, 'tool': 'FILL_CIRCLE', 'x1': 280.0}, {'x2': 220.0, 'line_width': 1.0, 'y2': 260.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 3992977663L, 'y1': 220.0, 'tool': 'FILL_RECT', 'x1': 160.0}, {'x2': 300.0, 'line_width': 1.0, 'y2': 260.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 3992977663L, 'y1': 180.0, 'tool': 'FILL_RECT', 'x1': 220.0}, {'x2': 320.0, 'line_width': 1.0, 'y2': 260.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 3992977663L, 'y1': 220.0, 'tool': 'FILL_RECT', 'x1': 300.0}, {'x2': 280.0, 'line_width': 1.0, 'y2': 260.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 4042322175L, 'y1': 200.0, 'tool': 'FILL_RECT', 'x1': 240.0}]
+      [{'radius_x': 20, 'line_width': 1.0, 'radius_y': 20, 'stroke_color_rgba': 255L, 'fill_color_rgba': 4042322175L, 'center_y': 240.0+20, 'tool': 'FILL_CIRCLE', 'center_x': 180.0+20},
+       {'radius_x': 20, 'line_width': 1.0, 'radius_y': 20, 'stroke_color_rgba': 255L, 'fill_color_rgba': 4042322175L, 'center_y': 240.0+20, 'tool': 'FILL_CIRCLE', 'center_x': 280.0+20},
+       {'width': 220.0-160.0, 'line_width': 1.0, 'height': 260.0-220.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 3992977663L, 'y': 220.0, 'tool': 'FILL_RECT', 'x': 160.0},
+       {'width': 300.0-220.0, 'line_width': 1.0, 'height': 260.0-180.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 3992977663L, 'y': 180.0, 'tool': 'FILL_RECT', 'x': 220.0},
+       {'width': 320.0-300.0, 'line_width': 1.0, 'height': 260.0-220.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 3992977663L, 'y': 220.0, 'tool': 'FILL_RECT', 'x': 300.0},
+       {'width': 280.0-240.0, 'line_width': 1.0, 'height': 260.0-200.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 4042322175L, 'y': 200.0, 'tool': 'FILL_RECT', 'x': 240.0}]
       ,
       # Fire truck
-      [{'x2': 200.0, 'line_width': 1.0, 'y2': 300.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 3992977663L, 'y1': 260.0, 'tool': 'FILL_CIRCLE', 'x1': 160.0}, {'x2': 360.0, 'line_width': 1.0, 'y2': 300.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 3992977663L, 'y1': 260.0, 'tool': 'FILL_CIRCLE', 'x1': 320.0}, {'x2': 380.0, 'line_width': 1.0, 'y2': 280.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 3992977663L, 'y1': 220.0, 'tool': 'FILL_RECT', 'x1': 160.0}, {'tool': 'LINE', 'points': (160.0, 200.0, 340.0, 180.0), 'line_width': 8.0, 'fill_color_rgba': 3992977663L}, {'x2': 200.0, 'line_width': 1.0, 'y2': 220.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 3992977663L, 'y1': 200.0, 'tool': 'FILL_RECT', 'x1': 180.0}, {'x2': 360.0, 'line_width': 1.0, 'y2': 260.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 4042322175L, 'y1': 220.0, 'tool': 'FILL_RECT', 'x1': 320.0}, {'x2': 300.0, 'line_width': 1.0, 'y2': 260.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 4042322175L, 'y1': 220.0, 'tool': 'FILL_RECT', 'x1': 280.0}]
+      [{'radius_x': 20, 'line_width': 1.0, 'radius_y': 20, 'stroke_color_rgba': 255L, 'fill_color_rgba': 3992977663L, 'center_y': 260.0+20, 'tool': 'FILL_CIRCLE', 'center_x': 160.0+20},
+       {'radius_x': 20, 'line_width': 1.0, 'radius_y': 20, 'stroke_color_rgba': 255L, 'fill_color_rgba': 3992977663L, 'center_y': 260.0+20, 'tool': 'FILL_CIRCLE', 'center_x': 320.0+20},
+       {'width': 380.0-160.0, 'line_width': 1.0, 'height': 280.0-220.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 3992977663L, 'y': 220.0, 'tool': 'FILL_RECT', 'x': 160.0},
+       {'tool': 'LINE', 'points': (160.0, 200.0, 340.0, 180.0), 'line_width': 8.0, 'stroke_color_rgba': 3992977663L},
+       {'width': 200.0-180.0, 'line_width': 1.0, 'height': 220.0-200.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 3992977663L, 'y': 200.0, 'tool': 'FILL_RECT', 'x': 180.0},
+       {'width': 360.0-320.0, 'line_width': 1.0, 'height': 260.0-220.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 4042322175L, 'y': 220.0, 'tool': 'FILL_RECT', 'x': 320.0},
+       {'width': 300.0-280.0, 'line_width': 1.0, 'height': 260.0-220.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 4042322175L, 'y': 220.0, 'tool': 'FILL_RECT', 'x': 280.0}]
       ,
       # Billard
       [
-        {'line_width': 8.0, 'points': (180.0, 80.0, 180.0, 440.0), 'tool': 'LINE', 'fill_color_rgba': 4042322175L},
-        {'line_width': 8.0, 'points': (180.0, 460.0, 380.0, 460.0), 'tool': 'LINE', 'fill_color_rgba': 4042322175L},
-        {'line_width': 8.0, 'points': (380.0, 80.0, 380.0, 440.0), 'tool': 'LINE', 'fill_color_rgba': 4042322175L},
-        {'line_width': 8.0, 'points': (180.0, 60.0, 380.0, 60.0), 'tool': 'LINE', 'fill_color_rgba': 4042322175L},
-        {'line_width': 8.0, 'points': (280.0, 320.0, 280.0, 420.0), 'tool': 'LINE', 'fill_color_rgba': 2199425535L},
-        {'x2': 280.0, 'line_width': 1.0, 'y2': 320.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 4042322175L, 'y1': 300.0, 'x1': 260.0, 'tool': 'FILL_CIRCLE'},
-        {'x2': 260.0, 'line_width': 1.0, 'y2': 120.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 2199425535L, 'y1': 100.0, 'x1': 240.0, 'tool': 'FILL_CIRCLE'},
-        {'x2': 280.0, 'line_width': 1.0, 'y2': 120.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 4287383039L, 'y1': 100.0, 'x1': 260.0, 'tool': 'FILL_CIRCLE'},
-        {'x2': 300.0, 'line_width': 1.0, 'y2': 120.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 3992977663L, 'y1': 100.0, 'x1': 280.0, 'tool': 'FILL_CIRCLE'},
-        {'x2': 320.0, 'line_width': 1.0, 'y2': 120.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 2085298687L, 'y1': 100.0, 'x1': 300.0, 'tool': 'FILL_CIRCLE'},
-        {'x2': 280.0, 'line_width': 1.0, 'y2': 140.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 3116109311L, 'y1': 120.0, 'x1': 260.0, 'tool': 'FILL_CIRCLE'},
-        {'x2': 300.0, 'line_width': 1.0, 'y2': 140.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 352271359L, 'y1': 120.0, 'x1': 280.0, 'tool': 'FILL_CIRCLE'}
+        {'line_width': 8.0, 'points': (180.0, 80.0, 180.0, 440.0), 'tool': 'LINE', 'stroke_color_rgba': 4042322175L},
+        {'line_width': 8.0, 'points': (180.0, 460.0, 380.0, 460.0), 'tool': 'LINE', 'stroke_color_rgba': 4042322175L},
+        {'line_width': 8.0, 'points': (380.0, 80.0, 380.0, 440.0), 'tool': 'LINE', 'stroke_color_rgba': 4042322175L},
+        {'line_width': 8.0, 'points': (180.0, 60.0, 380.0, 60.0), 'tool': 'LINE', 'stroke_color_rgba': 4042322175L},
+        {'line_width': 8.0, 'points': (280.0, 320.0, 280.0, 420.0), 'tool': 'LINE', 'stroke_color_rgba': 2199425535L},
+        {'radius_x': 10, 'line_width': 1.0, 'radius_y': 10, 'stroke_color_rgba': 255L, 'fill_color_rgba': 4042322175L, 'center_y': 300.0+10, 'center_x': 260.0+10, 'tool': 'FILL_CIRCLE'},
+        {'radius_x': 10, 'line_width': 1.0, 'radius_y': 10, 'stroke_color_rgba': 255L, 'fill_color_rgba': 2199425535L, 'center_y': 100.0+10, 'center_x': 240.0+10, 'tool': 'FILL_CIRCLE'},
+        {'radius_x': 10, 'line_width': 1.0, 'radius_y': 10, 'stroke_color_rgba': 255L, 'fill_color_rgba': 4287383039L, 'center_y': 100.0+10, 'center_x': 260.0+10, 'tool': 'FILL_CIRCLE'},
+        {'radius_x': 10, 'line_width': 1.0, 'radius_y': 10, 'stroke_color_rgba': 255L, 'fill_color_rgba': 3992977663L, 'center_y': 100.0+10, 'center_x': 280.0+10, 'tool': 'FILL_CIRCLE'},
+        {'radius_x': 10, 'line_width': 1.0, 'radius_y': 10, 'stroke_color_rgba': 255L, 'fill_color_rgba': 2085298687L, 'center_y': 100.0+10, 'center_x': 300.0+10, 'tool': 'FILL_CIRCLE'},
+        {'radius_x': 10, 'line_width': 1.0, 'radius_y': 10, 'stroke_color_rgba': 255L, 'fill_color_rgba': 3116109311L, 'center_y': 120.0+10, 'center_x': 260.0+10, 'tool': 'FILL_CIRCLE'},
+        {'radius_x': 10, 'line_width': 1.0, 'radius_y': 10, 'stroke_color_rgba': 255L, 'fill_color_rgba': 352271359L, 'center_y': 120.0+10, 'center_x': 280.0+10, 'tool': 'FILL_CIRCLE'}
         ]
       ,
       # Clara (my daughter)
-      [{'x2': 240.0, 'line_width': 1.0, 'y2': 480.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 2199425535L, 'y1': 400.0, 'x1': 220.0, 'tool': 'FILL_RECT'}, {'x2': 320.0, 'line_width': 1.0, 'y2': 480.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 2199425535L, 'y1': 400.0, 'x1': 300.0, 'tool': 'FILL_RECT'}, {'x2': 220.0, 'line_width': 1.0, 'y2': 200.0,'stroke_color_rgba': 255L, 'fill_color_rgba': 2199425535L, 'y1': 180.0, 'x1': 160.0, 'tool': 'FILL_RECT'}, {'x2': 380.0, 'line_width': 1.0, 'y2': 200.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 2199425535L, 'y1': 180.0, 'x1': 320.0, 'tool': 'FILL_RECT'}, {'x2': 380.0, 'line_width': 1.0, 'y2': 180.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 2199425535L, 'y1': 120.0, 'x1': 360.0, 'tool': 'FILL_RECT'}, {'x2': 180.0, 'line_width': 1.0, 'y2': 260.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 2199425535L, 'y1': 200.0, 'x1': 160.0, 'tool': 'FILL_RECT'}, {'x2': 320.0, 'line_width': 1.0, 'y2': 160.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 4287383039L, 'y1': 60.0, 'x1': 220.0, 'tool': 'FILL_CIRCLE'}, {'x2': 260.0, 'line_width': 1.0, 'y2': 120.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 2768221183L, 'y1': 100.0, 'x1': 240.0, 'tool': 'FILL_CIRCLE'}, {'x2': 300.0, 'line_width': 1.0, 'y2': 120.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 2768221183L, 'y1': 100.0, 'x1': 280.0, 'tool': 'FILL_CIRCLE'}, {'line_width': 8.0, 'points': (260.0, 140.0, 280.0, 140.0), 'tool': 'LINE', 'fill_color_rgba': 3992977663L}, {'x2': 300.0, 'line_width': 1.0, 'y2': 180.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 4287383039L, 'y1': 160.0, 'x1': 240.0, 'tool': 'FILL_RECT'}, {'x2': 320.0, 'line_width': 1.0, 'y2': 320.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 4283674623L, 'y1': 180.0, 'x1': 220.0, 'tool': 'FILL_RECT'}, {'x2': 340.0, 'line_width': 1.0, 'y2': 400.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 4283674623L, 'y1': 320.0, 'x1': 200.0, 'tool': 'FILL_RECT'}]
+      [{'width': 240.0-220.0, 'line_width': 1.0, 'height': 480.0-400.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 2199425535L, 'y': 400.0, 'x': 220.0, 'tool': 'FILL_RECT'},
+       {'width': 320.0-300.0, 'line_width': 1.0, 'height': 480.0-400.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 2199425535L, 'y': 400.0, 'x': 300.0, 'tool': 'FILL_RECT'},
+       {'width': 220.0-160.0, 'line_width': 1.0, 'height': 200.0-180.0,'stroke_color_rgba': 255L, 'fill_color_rgba': 2199425535L, 'y': 180.0, 'x': 160.0, 'tool': 'FILL_RECT'},
+       {'width': 380.0-320.0, 'line_width': 1.0, 'height': 200.0-180.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 2199425535L, 'y': 180.0, 'x': 320.0, 'tool': 'FILL_RECT'},
+       {'width': 380.0-360.0, 'line_width': 1.0, 'height': 180.0-120.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 2199425535L, 'y': 120.0, 'x': 360.0, 'tool': 'FILL_RECT'},
+       {'width': 180.0-160.0, 'line_width': 1.0, 'height': 260.0-200.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 2199425535L, 'y': 200.0, 'x': 160.0, 'tool': 'FILL_RECT'},
+       {'radius_x': 50, 'line_width': 1.0, 'radius_y': 50, 'stroke_color_rgba': 255L, 'fill_color_rgba': 4287383039L, 'center_y': 60.0+50, 'center_x': 220.0+50, 'tool': 'FILL_CIRCLE'},
+       {'radius_x': 10, 'line_width': 1.0, 'radius_y': 10, 'stroke_color_rgba': 255L, 'fill_color_rgba': 2768221183L, 'center_y': 100.0+10, 'center_x': 240.0+10, 'tool': 'FILL_CIRCLE'},
+       {'radius_x': 10, 'line_width': 1.0, 'radius_y': 10, 'stroke_color_rgba': 255L, 'fill_color_rgba': 2768221183L, 'center_y': 100.0+10, 'center_x': 280.0+10, 'tool': 'FILL_CIRCLE'},
+       {'line_width': 8.0, 'points': (260.0, 140.0, 280.0, 140.0), 'tool': 'LINE', 'stroke_color_rgba': 3992977663L},
+       {'width': 300.0-240.0, 'line_width': 1.0, 'height': 180.0-160.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 4287383039L, 'y': 160.0, 'x': 240.0, 'tool': 'FILL_RECT'},
+       {'width': 320.0-220.0, 'line_width': 1.0, 'height': 320.0-180.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 4283674623L, 'y': 180.0, 'x': 220.0, 'tool': 'FILL_RECT'},
+       {'width': 340.0-200.0, 'line_width': 1.0, 'height': 400.0-320.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 4283674623L, 'y': 320.0, 'x': 200.0, 'tool': 'FILL_RECT'}]
       ,
       # Bicycle
-      [{'x2': 240.0, 'y2': 340.0, 'stroke_color_rgba': 4287383039L, 'line_width': 5.0, 'y1': 260.0, 'tool': 'CIRCLE', 'x1': 160.0}, {'x2': 400.0, 'y2': 340.0, 'stroke_color_rgba': 4287383039L, 'line_width': 5.0, 'y1': 260.0, 'tool': 'CIRCLE', 'x1': 320.0}, {'tool': 'LINE', 'points': (200.0, 300.0, 280.0, 300.0), 'line_width': 8.0, 'fill_color_rgba': 3992977663L}, {'tool': 'LINE', 'points': (280.0,300.0, 340.0, 240.0), 'line_width': 8.0, 'fill_color_rgba': 3992977663L}, {'tool': 'LINE', 'points': (240.0, 240.0, 340.0, 240.0), 'line_width': 8.0, 'fill_color_rgba': 3992977663L}, {'tool': 'LINE', 'points': (200.0, 300.0, 240.0, 240.0), 'line_width': 8.0, 'fill_color_rgba': 3992977663L}, {'tool': 'LINE', 'points': (240.0, 220.0, 240.0, 240.0), 'line_width': 8.0, 'fill_color_rgba': 2199425535L}, {'tool': 'LINE', 'points': (220.0, 220.0, 260.0, 220.0), 'line_width': 8.0, 'fill_color_rgba': 2199425535L}, {'tool': 'LINE', 'points': (340.0, 200.0, 340.0, 240.0), 'line_width': 8.0, 'fill_color_rgba': 2199425535L}, {'tool': 'LINE', 'points': (320.0, 200.0, 340.0, 200.0), 'line_width': 8.0, 'fill_color_rgba': 2199425535L}, {'tool': 'LINE', 'points': (340.0, 240.0, 360.0, 300.0), 'line_width': 8.0, 'fill_color_rgba': 3992977663L}]
+      [{'radius_x': 40, 'radius_y': 40, 'stroke_color_rgba': 4287383039L, 'line_width': 5.0, 'center_y': 260.0+40, 'tool': 'CIRCLE', 'center_x': 160.0+40},
+       {'radius_x': 40, 'radius_y': 40, 'stroke_color_rgba': 4287383039L, 'line_width': 5.0, 'center_y': 260.0+40, 'tool': 'CIRCLE', 'center_x': 320.0+40},
+       {'tool': 'LINE', 'points': (200.0, 300.0, 280.0, 300.0), 'line_width': 8.0, 'stroke_color_rgba': 3992977663L},
+       {'tool': 'LINE', 'points': (280.0,300.0, 340.0, 240.0), 'line_width': 8.0, 'stroke_color_rgba': 3992977663L},
+       {'tool': 'LINE', 'points': (240.0, 240.0, 340.0, 240.0), 'line_width': 8.0, 'stroke_color_rgba': 3992977663L},
+       {'tool': 'LINE', 'points': (200.0, 300.0, 240.0, 240.0), 'line_width': 8.0, 'stroke_color_rgba': 3992977663L},
+       {'tool': 'LINE', 'points': (240.0, 220.0, 240.0, 240.0), 'line_width': 8.0, 'stroke_color_rgba': 2199425535L},
+       {'tool': 'LINE', 'points': (220.0, 220.0, 260.0, 220.0), 'line_width': 8.0, 'stroke_color_rgba': 2199425535L},
+       {'tool': 'LINE', 'points': (340.0, 200.0, 340.0, 240.0), 'line_width': 8.0, 'stroke_color_rgba': 2199425535L},
+       {'tool': 'LINE', 'points': (320.0, 200.0, 340.0, 200.0), 'line_width': 8.0, 'stroke_color_rgba': 2199425535L},
+       {'tool': 'LINE', 'points': (340.0, 240.0, 360.0, 300.0), 'line_width': 8.0, 'stroke_color_rgba': 3992977663L}]
       ,
       # Sea boat and sun
-      [{'x2': 420.0, 'line_width': 1.0, 'y2': 500.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 2768221183L, 'y1': 420.0, 'tool': 'FILL_RECT', 'x1': 140.0}, {'x2': 260.0, 'line_width': 1.0, 'y2': 160.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 4294905087L, 'y1': 60.0, 'tool': 'FILL_CIRCLE', 'x1': 160.0}, {'x2': 360.0, 'line_width': 1.0, 'y2': 200.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 4042322175L, 'y1': 160.0, 'tool': 'FILL_CIRCLE', 'x1': 260.0}, {'x2': 360.0, 'line_width': 1.0, 'y2': 220.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 4042322175L, 'y1': 200.0, 'tool': 'FILL_CIRCLE', 'x1': 300.0}, {'x2': 400.0,'line_width': 1.0, 'y2': 160.0, 'stroke_color_rgba': 255L, 'fill_color_rgba':4042322175L, 'y1': 140.0, 'tool': 'FILL_CIRCLE', 'x1': 360.0}, {'tool': 'LINE','points': (220.0, 400.0, 240.0, 420.0), 'line_width': 8.0, 'fill_color_rgba': 3992977663L}, {'tool': 'LINE', 'points': (240.0, 420.0, 280.0, 420.0), 'line_width': 8.0, 'fill_color_rgba': 3992977663L}, {'tool': 'LINE', 'points': (280.0, 420.0, 300.0, 400.0), 'line_width': 8.0, 'fill_color_rgba': 3992977663L}, {'tool': 'LINE', 'points': (220.0, 400.0, 300.0, 400.0), 'line_width': 8.0, 'fill_color_rgba': 3992977663L}, {'tool': 'LINE', 'points': (260.0, 280.0, 260.0, 400.0),'line_width': 8.0, 'fill_color_rgba': 3992977663L}, {'tool': 'LINE', 'points':(260.0, 280.0, 300.0, 380.0), 'line_width': 8.0, 'fill_color_rgba': 2199425535L}, {'tool': 'LINE', 'points': (260.0, 380.0, 300.0, 380.0), 'line_width': 8.0,'fill_color_rgba': 2199425535L}]
+      [{'width': 420.0-140.0, 'line_width': 1.0, 'height': 500.0-420.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 2768221183L, 'y': 420.0, 'tool': 'FILL_RECT', 'x': 140.0},
+       {'radius_x': 50, 'line_width': 1.0, 'radius_y': 50, 'stroke_color_rgba': 255L, 'fill_color_rgba': 4294905087L, 'center_y': 60.0+50, 'tool': 'FILL_CIRCLE', 'center_x': 160.0+50},
+       {'radius_x': 50, 'line_width': 1.0, 'radius_y': 20, 'stroke_color_rgba': 255L, 'fill_color_rgba': 4042322175L, 'center_y': 160.0+20, 'tool': 'FILL_CIRCLE', 'center_x': 260.0+50},
+       {'radius_x': 30, 'line_width': 1.0, 'radius_y': 10, 'stroke_color_rgba': 255L, 'fill_color_rgba': 4042322175L, 'center_y': 200.0+10, 'tool': 'FILL_CIRCLE', 'center_x': 300.0+30},
+       {'radius_x': 20,'line_width': 1.0, 'radius_y': 10, 'stroke_color_rgba': 255L, 'fill_color_rgba':4042322175L, 'center_y': 140.0+10, 'tool': 'FILL_CIRCLE', 'center_x': 360.0+20},
+       {'tool': 'LINE','points': (220.0, 400.0, 240.0, 420.0), 'line_width': 8.0, 'stroke_color_rgba': 3992977663L},
+       {'tool': 'LINE', 'points': (240.0, 420.0, 280.0, 420.0), 'line_width': 8.0, 'stroke_color_rgba': 3992977663L},
+       {'tool': 'LINE', 'points': (280.0, 420.0, 300.0, 400.0), 'line_width': 8.0, 'stroke_color_rgba': 3992977663L},
+       {'tool': 'LINE', 'points': (220.0, 400.0, 300.0, 400.0), 'line_width': 8.0, 'stroke_color_rgba': 3992977663L},
+       {'tool': 'LINE', 'points': (260.0, 280.0, 260.0, 400.0),'line_width': 8.0, 'stroke_color_rgba': 3992977663L},
+       {'tool': 'LINE', 'points':(260.0, 280.0, 300.0, 380.0), 'line_width': 8.0, 'stroke_color_rgba': 2199425535L},
+       {'tool': 'LINE', 'points': (260.0, 380.0, 300.0, 380.0), 'line_width': 8.0,'stroke_color_rgba': 2199425535L}]
 
       ]
     else:
@@ -1241,46 +1356,129 @@ class Gcompris_redraw:
       self.drawlist = \
       [
         # 3 white box in triangle
-        [{'x2': 420.0, 'line_width': 1.0, 'y2': 260.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 4042322175L, 'y1': 220.0, 'tool': 'FILL_RECT', 'x1': 380.0}, {'x2': 380.0, 'line_width': 1.0, 'y2': 220.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 4042322175L, 'y1': 180.0, 'tool': 'FILL_RECT', 'x1': 340.0}, {'x2': 380.0, 'line_width': 1.0, 'y2': 300.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 4042322175L, 'y1': 260.0, 'tool': 'FILL_RECT', 'x1': 340.0}]
+        [{'width': 420.0-380.0, 'line_width': 1.0, 'height': 260.0-220.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 4042322175L, 'y': 220.0, 'tool': 'FILL_RECT', 'x': 380.0},
+         {'width': 380.0-340.0, 'line_width': 1.0, 'height': 220.0-180.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 4042322175L, 'y': 180.0, 'tool': 'FILL_RECT', 'x': 340.0},
+         {'width': 380.0-340.0, 'line_width': 1.0, 'height': 300.0-260.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 4042322175L, 'y': 260.0, 'tool': 'FILL_RECT', 'x': 340.0}]
         ,
         # Colored pyramid
-        [{'x2': 420.0, 'line_width': 1.0, 'y2': 460.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 1717987071L, 'y1': 420.0, 'tool': 'FILL_RECT', 'x1': 140.0}, {'x2': 420.0, 'line_width': 1.0, 'y2': 420.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 4283674623L, 'y1': 380.0, 'tool': 'FILL_RECT', 'x1': 180.0}, {'x2': 420.0, 'line_width': 1.0, 'y2': 380.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 352271359L, 'y1': 340.0, 'tool': 'FILL_RECT', 'x1': 220.0}, {'x2': 420.0, 'line_width': 1.0, 'y2': 340.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 4294905087L, 'y1': 300.0, 'tool': 'FILL_RECT', 'x1': 260.0}, {'x2': 420.0, 'line_width': 1.0, 'y2': 300.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 3992977663L, 'y1': 260.0, 'tool': 'FILL_RECT', 'x1': 300.0}, {'x2': 420.0, 'line_width': 1.0, 'y2': 260.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 707406591L, 'y1': 220.0, 'tool': 'FILL_RECT', 'x1': 340.0}, {'x2': 420.0, 'line_width': 1.0, 'y2': 220.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 2085298687L, 'y1': 180.0, 'tool': 'FILL_RECT', 'x1': 380.0}]
+        [{'width': 420.0-140.0, 'line_width': 1.0, 'height': 460.0-420.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 1717987071L, 'y': 420.0, 'tool': 'FILL_RECT', 'x': 140.0},
+         {'width': 420.0-180.0, 'line_width': 1.0, 'height': 420.0-380.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 4283674623L, 'y': 380.0, 'tool': 'FILL_RECT', 'x': 180.0},
+         {'width': 420.0-220.0, 'line_width': 1.0, 'height': 380.0-340.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 352271359L, 'y': 340.0, 'tool': 'FILL_RECT', 'x': 220.0},
+         {'width': 420.0-260.0, 'line_width': 1.0, 'height': 340.0-300.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 4294905087L, 'y': 300.0, 'tool': 'FILL_RECT', 'x': 260.0},
+         {'width': 420.0-300.0, 'line_width': 1.0, 'height': 300.0-260.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 3992977663L, 'y': 260.0, 'tool': 'FILL_RECT', 'x': 300.0},
+         {'width': 420.0-340.0, 'line_width': 1.0, 'height': 260.0-220.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 707406591L, 'y': 220.0, 'tool': 'FILL_RECT', 'x': 340.0},
+         {'width': 420.0-380.0, 'line_width': 1.0, 'height': 220.0-180.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 2085298687L, 'y': 180.0, 'tool': 'FILL_RECT', 'x': 380.0}]
         ,
         # Butterfly
-        [{'x2': 420.0, 'line_width': 1.0, 'y2': 380.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 4294905087L, 'y1': 180.0, 'tool': 'FILL_RECT', 'x1': 380.0}, {'tool': 'LINE', 'points': (360.0, 80.0, 400.0, 180.0), 'line_width': 8.0, 'fill_color_rgba': 707406591L}, {'x2': 380.0, 'line_width': 1.0, 'y2': 440.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 4287383039L, 'y1': 100.0, 'tool': 'FILL_CIRCLE', 'x1': 180.0}, {'x2': 360.0, 'line_width': 1.0, 'y2': 380.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 2199425535L, 'y1': 180.0, 'tool': 'FILL_CIRCLE', 'x1': 260.0}]
+        [{'width': 420.0-380.0, 'line_width': 1.0, 'height': 380.0-180.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 4294905087L, 'y': 180.0, 'tool': 'FILL_RECT', 'x': 380.0},
+         {'tool': 'LINE', 'points': (360.0, 80.0, 400.0, 180.0), 'line_width': 8.0, 'stroke_color_rgba': 707406591L},
+         {'radius_x': 100, 'line_width': 1.0, 'radius_y': 170, 'stroke_color_rgba': 255L, 'fill_color_rgba': 4287383039L, 'center_y': 100.0+170, 'tool': 'FILL_CIRCLE', 'center_x': 180.0+100},
+         {'radius_x': 50, 'line_width': 1.0, 'radius_y': 100, 'stroke_color_rgba': 255L, 'fill_color_rgba': 2199425535L, 'center_y': 180.0+100, 'tool': 'FILL_CIRCLE', 'center_x': 260.0+50}]
         ,
         # Robot
-        [{'x2': 420.0, 'line_width': 1.0, 'y2': 360.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 3992977663L, 'y1': 160.0, 'tool': 'FILL_RECT', 'x1': 340.0}, {'x2': 380.0, 'line_width': 1.0, 'y2': 500.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 4287383039L, 'y1': 360.0, 'tool': 'FILL_RECT', 'x1': 340.0}, {'x2': 340.0, 'line_width': 1.0, 'y2': 200.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 4287383039L, 'y1': 160.0, 'tool': 'FILL_RECT', 'x1': 260.0}, {'x2': 300.0, 'line_width': 1.0, 'y2': 280.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 4287383039L, 'y1': 200.0, 'tool': 'FILL_RECT', 'x1': 260.0}, {'x2': 420.0, 'line_width': 1.0, 'y2': 160.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 4287383039L, 'y1': 140.0, 'tool': 'FILL_RECT', 'x1': 380.0}, {'x2': 420.0, 'line_width': 1.0, 'y2': 140.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 2768221183L, 'y1': 60.0, 'tool': 'FILL_RECT', 'x1': 360.0}, {'x2': 420.0, 'line_width': 1.0, 'y2': 120.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 3116109311L, 'y1': 100.0, 'tool': 'FILL_RECT', 'x1': 400.0}, {'x2': 400.0, 'line_width': 1.0, 'y2': 100.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 4283674623L, 'y1': 80.0, 'tool': 'FILL_CIRCLE', 'x1': 380.0}]
+        [{'width': 420.0-340.0, 'line_width': 1.0, 'height': 360.0-160.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 3992977663L, 'y': 160.0, 'tool': 'FILL_RECT', 'x': 340.0},
+         {'width': 380.0-340.0, 'line_width': 1.0, 'height': 500.0-360.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 4287383039L, 'y': 360.0, 'tool': 'FILL_RECT', 'x': 340.0},
+         {'width': 340.0-260.0, 'line_width': 1.0, 'height': 200.0-160.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 4287383039L, 'y': 160.0, 'tool': 'FILL_RECT', 'x': 260.0},
+         {'width': 300.0-260.0, 'line_width': 1.0, 'height': 280.0-200.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 4287383039L, 'y': 200.0, 'tool': 'FILL_RECT', 'x': 260.0},
+         {'width': 420.0-380.0, 'line_width': 1.0, 'height': 160.0-140.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 4287383039L, 'y': 140.0, 'tool': 'FILL_RECT', 'x': 380.0},
+         {'width': 420.0-360.0, 'line_width': 1.0, 'height': 140.0-60.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 2768221183L, 'y': 60.0, 'tool': 'FILL_RECT', 'x': 360.0},
+         {'width': 420.0-400.0, 'line_width': 1.0, 'height': 120.0-100.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 3116109311L, 'y': 100.0, 'tool': 'FILL_RECT', 'x': 400.0},
+         {'radius_x': 10, 'line_width': 1.0, 'radius_y': 10, 'stroke_color_rgba': 255L, 'fill_color_rgba': 4283674623L, 'center_y': 80.0+10, 'tool': 'FILL_CIRCLE', 'center_x': 380.0+10}]
         ,
         # Arrow
-        [{'x2': 420.0, 'line_width': 1.0, 'y2': 260.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 4287383039L, 'y1': 240.0, 'tool': 'FILL_RECT', 'x1': 300.0}, {'tool': 'LINE', 'points': (180.0, 240.0, 300.0, 140.0), 'line_width': 8.0, 'fill_color_rgba': 4287383039L}, {'tool': 'LINE', 'points': (180.0, 240.0, 180.0, 260.0), 'line_width': 8.0, 'fill_color_rgba': 4287383039L}, {'tool': 'LINE', 'points': (180.0, 260.0, 300.0, 360.0), 'line_width': 8.0, 'fill_color_rgba': 4287383039L}, {'tool': 'LINE', 'points': (300.0, 140.0, 300.0, 360.0), 'line_width': 8.0, 'fill_color_rgba': 4287383039L}]
+        [{'width': 420.0-300.0, 'line_width': 1.0, 'height': 260.0-240.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 4287383039L, 'y': 240.0, 'tool': 'FILL_RECT', 'x': 300.0},
+         {'tool': 'LINE', 'points': (180.0, 240.0, 300.0, 140.0), 'line_width': 8.0, 'stroke_color_rgba': 4287383039L},
+         {'tool': 'LINE', 'points': (180.0, 240.0, 180.0, 260.0), 'line_width': 8.0, 'stroke_color_rgba': 4287383039L},
+         {'tool': 'LINE', 'points': (180.0, 260.0, 300.0, 360.0), 'line_width': 8.0, 'stroke_color_rgba': 4287383039L},
+         {'tool': 'LINE', 'points': (300.0, 140.0, 300.0, 360.0), 'line_width': 8.0, 'stroke_color_rgba': 4287383039L}]
         ,
         # House
-        [{'x2': 420.0, 'line_width': 1.0, 'y2': 460.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 4042322175L, 'y1': 440.0, 'tool': 'FILL_RECT', 'x1': 200.0}, {'x2': 220.0, 'line_width': 1.0, 'y2': 440.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 4042322175L, 'y1': 280.0, 'tool': 'FILL_RECT', 'x1': 200.0}, {'x2': 420.0, 'line_width': 1.0, 'y2': 280.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 4042322175L, 'y1': 260.0, 'tool': 'FILL_RECT', 'x1': 200.0}, {'x2': 420.0, 'line_width': 1.0, 'y2': 440.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 3992977663L, 'y1': 360.0, 'tool': 'FILL_RECT', 'x1': 380.0}, {'x2': 360.0, 'line_width': 1.0, 'y2': 400.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 4294905087L, 'y1': 300.0, 'tool': 'FILL_RECT', 'x1': 240.0}, {'tool': 'LINE', 'points': (200.0, 260.0, 420.0, 100.0), 'line_width': 8.0, 'fill_color_rgba': 4294905087L}]
+        [{'width': 420.0-200.0, 'line_width': 1.0, 'height': 460.0-440.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 4042322175L, 'y': 440.0, 'tool': 'FILL_RECT', 'x': 200.0},
+         {'width': 220.0-200.0, 'line_width': 1.0, 'height': 440.0-280.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 4042322175L, 'y': 280.0, 'tool': 'FILL_RECT', 'x': 200.0},
+         {'width': 420.0-200.0, 'line_width': 1.0, 'height': 280.0-260.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 4042322175L, 'y': 260.0, 'tool': 'FILL_RECT', 'x': 200.0},
+         {'width': 420.0-380.0, 'line_width': 1.0, 'height': 440.0-360.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 3992977663L, 'y': 360.0, 'tool': 'FILL_RECT', 'x': 380.0},
+         {'width': 360.0-240.0, 'line_width': 1.0, 'height': 400.0-300.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 4294905087L, 'y': 300.0, 'tool': 'FILL_RECT', 'x': 240.0},
+         {'tool': 'LINE', 'points': (200.0, 260.0, 420.0, 100.0), 'line_width': 8.0, 'stroke_color_rgba': 4294905087L}]
         ,
         # Plane
-        [{'x2': 420.0, 'line_width': 1.0, 'y2': 380.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 3992977663L, 'y1': 140.0, 'tool': 'FILL_RECT', 'x1': 360.0}, {'x2': 360.0, 'line_width': 1.0, 'y2': 280.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 4287383039L, 'y1': 220.0, 'tool': 'FILL_RECT', 'x1': 180.0}, {'x2': 260.0, 'line_width': 1.0, 'y2': 220.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 707406591L, 'y1': 200.0, 'tool': 'FILL_RECT', 'x1': 240.0}, {'tool': 'LINE', 'points': (180.0, 200.0, 320.0, 200.0), 'line_width': 8.0, 'fill_color_rgba': 4283674623L}, {'x2': 420.0, 'line_width': 1.0, 'y2': 420.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 4287383039L, 'y1': 360.0, 'tool': 'FILL_RECT', 'x1': 400.0}, {'x2': 420.0, 'line_width': 1.0, 'y2': 180.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 4287383039L, 'y1': 160.0, 'tool': 'FILL_RECT', 'x1': 380.0}]
+        [{'width': 420.0-360.0, 'line_width': 1.0, 'height': 380.0-140.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 3992977663L, 'y': 140.0, 'tool': 'FILL_RECT', 'x': 360.0},
+         {'width': 360.0-180.0, 'line_width': 1.0, 'height': 280.0-220.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 4287383039L, 'y': 220.0, 'tool': 'FILL_RECT', 'x': 180.0},
+         {'width': 260.0-240.0, 'line_width': 1.0, 'height': 220.0-200.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 707406591L, 'y': 200.0, 'tool': 'FILL_RECT', 'x': 240.0},
+         {'tool': 'LINE', 'points': (180.0, 200.0, 320.0, 200.0), 'line_width': 8.0, 'stroke_color_rgba': 4283674623L},
+         {'width': 420.0-400.0, 'line_width': 1.0, 'height': 420.0-360.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 4287383039L, 'y': 360.0, 'tool': 'FILL_RECT', 'x': 400.0},
+         {'width': 420.0-380.0, 'line_width': 1.0, 'height': 180.0-160.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 4287383039L, 'y': 160.0, 'tool': 'FILL_RECT', 'x': 380.0}]
         ,
         # bipbip (big non flying bird)
-        [{'x2': 280.0, 'line_width': 1.0, 'y2': 320.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 352271359L, 'y1': 120.0, 'tool': 'FILL_RECT', 'x1': 260.0}, {'x2': 300.0, 'line_width': 1.0, 'y2': 120.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 352271359L, 'y1': 80.0, 'tool': 'FILL_RECT', 'x1': 260.0}, {'x2': 320.0, 'line_width': 1.0, 'y2': 120.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 352271359L, 'y1': 100.0, 'tool': 'FILL_RECT', 'x1': 300.0}, {'x2': 280.0, 'line_width': 1.0, 'y2': 380.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 352271359L, 'y1': 320.0, 'tool': 'FILL_RECT', 'x1': 200.0}, {'x2': 220.0, 'line_width': 1.0, 'y2': 320.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 352271359L, 'y1': 300.0, 'tool': 'FILL_RECT', 'x1': 200.0}, {'x2': 260.0, 'line_width': 1.0, 'y2': 460.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 352271359L, 'y1': 380.0, 'tool': 'FILL_RECT', 'x1': 240.0}, {'x2': 280.0, 'line_width': 1.0, 'y2': 460.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 352271359L, 'y1': 440.0, 'tool': 'FILL_RECT', 'x1': 260.0}]
+        [{'width': 280.0-260.0, 'line_width': 1.0, 'height': 320.0-120.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 352271359L, 'y': 120.0, 'tool': 'FILL_RECT', 'x': 260.0},
+         {'width': 300.0-260.0, 'line_width': 1.0, 'height': 120.0-80.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 352271359L, 'y': 80.0, 'tool': 'FILL_RECT', 'x': 260.0},
+         {'width': 320.0-300.0, 'line_width': 1.0, 'height': 120.0-100.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 352271359L, 'y': 100.0, 'tool': 'FILL_RECT', 'x': 300.0},
+         {'width': 280.0-200.0, 'line_width': 1.0, 'height': 380.0-320.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 352271359L, 'y': 320.0, 'tool': 'FILL_RECT', 'x': 200.0},
+         {'width': 220.0-200.0, 'line_width': 1.0, 'height': 320.0-300.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 352271359L, 'y': 300.0, 'tool': 'FILL_RECT', 'x': 200.0},
+         {'width': 260.0-240.0, 'line_width': 1.0, 'height': 460.0-380.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 352271359L, 'y': 380.0, 'tool': 'FILL_RECT', 'x': 240.0},
+         {'width': 280.0-260.0, 'line_width': 1.0, 'height': 460.0-440.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 352271359L, 'y': 440.0, 'tool': 'FILL_RECT', 'x': 260.0}]
         ,
         # Dog
-        [{'x2': 180.0, 'line_width': 1.0, 'y2': 200.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 2199425535L, 'y1': 180.0, 'tool': 'FILL_RECT', 'x1': 160.0}, {'x2': 340.0, 'line_width': 1.0, 'y2': 240.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 2199425535L, 'y1': 200.0, 'tool': 'FILL_RECT', 'x1': 180.0}, {'x2': 200.0, 'line_width': 1.0, 'y2': 280.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 2199425535L, 'y1': 240.0, 'tool': 'FILL_RECT', 'x1': 180.0}, {'x2': 340.0,'line_width': 1.0, 'y2': 280.0, 'stroke_color_rgba': 255L, 'fill_color_rgba':2199425535L, 'y1': 240.0, 'tool': 'FILL_RECT', 'x1': 320.0}, {'x2': 380.0, 'line_width': 1.0, 'y2': 200.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 2199425535L, 'y1': 160.0, 'tool': 'FILL_RECT', 'x1': 320.0}]
+        [{'width': 180.0-160.0, 'line_width': 1.0, 'height': 200.0-180.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 2199425535L, 'y': 180.0, 'tool': 'FILL_RECT', 'x': 160.0},
+         {'width': 340.0-180.0, 'line_width': 1.0, 'height': 240.0-200.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 2199425535L, 'y': 200.0, 'tool': 'FILL_RECT', 'x': 180.0},
+         {'width': 200.0-180.0, 'line_width': 1.0, 'height': 280.0-240.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 2199425535L, 'y': 240.0, 'tool': 'FILL_RECT', 'x': 180.0},
+         {'width': 340.0-320.0,'line_width': 1.0, 'height': 280.0-240.0, 'stroke_color_rgba': 255L, 'fill_color_rgba':2199425535L, 'y': 240.0, 'tool': 'FILL_RECT', 'x': 320.0},
+         {'width': 380.0-320.0, 'line_width': 1.0, 'height': 200.0-160.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 2199425535L, 'y': 160.0, 'tool': 'FILL_RECT', 'x': 320.0}]
         ,
         # Fish
-        [{'x2': 360.0, 'line_width': 1.0, 'y2': 280.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 4294905087L, 'y1': 160.0, 'tool': 'FILL_CIRCLE', 'x1': 180.0}, {'x2': 340.0, 'line_width': 1.0, 'y2': 220.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 4042322175L, 'y1': 200.0, 'tool': 'FILL_CIRCLE', 'x1': 320.0}, {'x2': 180.0, 'line_width': 1.0, 'y2': 260.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 4294905087L, 'y1': 180.0, 'tool': 'FILL_RECT', 'x1': 160.0}]
+        [{'radius_x': 90, 'line_width': 1.0, 'radius_y': 60, 'stroke_color_rgba': 255L, 'fill_color_rgba': 4294905087L, 'center_y': 160.0+60, 'tool': 'FILL_CIRCLE', 'center_x': 180.0+90},
+         {'radius_x': 10, 'line_width': 1.0, 'radius_y': 10, 'stroke_color_rgba': 255L, 'fill_color_rgba': 4042322175L, 'center_y': 200.0+10, 'tool': 'FILL_CIRCLE', 'center_x': 320.0+10},
+         {'width': 180.0-160.0, 'line_width': 1.0, 'height': 260.0-180.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 4294905087L, 'y': 180.0, 'tool': 'FILL_RECT', 'x': 160.0}]
         ,
         # Boat
-        [{'tool': 'LINE', 'points': (260.0, 340.0, 420.0, 340.0), 'line_width': 8.0, 'fill_color_rgba': 4042322175L}, {'tool': 'LINE', 'points': (220.0, 260.0, 260.0, 340.0), 'line_width': 8.0, 'fill_color_rgba': 4042322175L}, {'tool': 'LINE', 'points': (220.0, 260.0, 420.0, 260.0), 'line_width': 8.0, 'fill_color_rgba': 4042322175L}, {'tool': 'LINE', 'points': (340.0, 260.0, 360.0, 220.0), 'line_width': 8.0, 'fill_color_rgba': 4042322175L}, {'tool': 'LINE', 'points': (360.0, 220.0, 420.0, 220.0), 'line_width': 8.0, 'fill_color_rgba': 4042322175L}, {'x2': 320.0, 'line_width': 1.0, 'y2': 300.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 3992977663L, 'y1': 280.0, 'tool': 'FILL_CIRCLE', 'x1': 300.0}, {'x2': 360.0, 'line_width': 1.0, 'y2': 300.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 3992977663L, 'y1': 280.0, 'tool': 'FILL_CIRCLE', 'x1': 340.0}, {'x2': 400.0, 'line_width': 1.0, 'y2': 300.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 3992977663L, 'y1': 280.0, 'tool': 'FILL_CIRCLE', 'x1': 380.0}]
+        [{'tool': 'LINE', 'points': (260.0, 340.0, 420.0, 340.0), 'line_width': 8.0, 'stroke_color_rgba': 4042322175L},
+         {'tool': 'LINE', 'points': (220.0, 260.0, 260.0, 340.0), 'line_width': 8.0, 'stroke_color_rgba': 4042322175L},
+         {'tool': 'LINE', 'points': (220.0, 260.0, 420.0, 260.0), 'line_width': 8.0, 'stroke_color_rgba': 4042322175L},
+         {'tool': 'LINE', 'points': (340.0, 260.0, 360.0, 220.0), 'line_width': 8.0, 'stroke_color_rgba': 4042322175L},
+         {'tool': 'LINE', 'points': (360.0, 220.0, 420.0, 220.0), 'line_width': 8.0, 'stroke_color_rgba': 4042322175L},
+         {'radius_x': 10, 'line_width': 1.0, 'radius_y': 10, 'stroke_color_rgba': 255L, 'fill_color_rgba': 3992977663L, 'center_y': 280.0+10, 'tool': 'FILL_CIRCLE', 'center_x': 300.0+10},
+         {'radius_x': 10, 'line_width': 1.0, 'radius_y': 10, 'stroke_color_rgba': 255L, 'fill_color_rgba': 3992977663L, 'center_y': 280.0+10, 'tool': 'FILL_CIRCLE', 'center_x': 340.0+10},
+         {'radius_x': 10, 'line_width': 1.0, 'radius_y': 10, 'stroke_color_rgba': 255L, 'fill_color_rgba': 3992977663L, 'center_y': 280.0+10, 'tool': 'FILL_CIRCLE', 'center_x': 380.0+10}]
         ,
         # Spaceship
-        [{'tool': 'LINE', 'points': (220.0, 400.0, 340.0, 400.0), 'line_width': 8.0, 'fill_color_rgba': 4042322175L}, {'tool': 'LINE', 'points': (340.0, 400.0, 360.0, 420.0), 'line_width': 8.0, 'fill_color_rgba': 4042322175L}, {'tool': 'LINE', 'points': (360.0, 320.0, 360.0, 420.0), 'line_width': 8.0, 'fill_color_rgba': 4042322175L}, {'tool': 'LINE', 'points': (340.0, 300.0, 360.0, 320.0), 'line_width': 8.0, 'fill_color_rgba': 4042322175L}, {'tool': 'LINE', 'points': (340.0, 100.0, 340.0, 300.0), 'line_width': 8.0, 'fill_color_rgba': 4042322175L}, {'tool': 'LINE', 'points': (200.0, 420.0, 220.0, 400.0), 'line_width': 8.0, 'fill_color_rgba': 4042322175L}, {'tool': 'LINE', 'points': (200.0, 320.0, 200.0, 420.0), 'line_width': 8.0, 'fill_color_rgba': 4042322175L}, {'tool': 'LINE', 'points': (200.0, 320.0, 220.0, 300.0), 'line_width': 8.0, 'fill_color_rgba': 4042322175L}, {'tool': 'LINE', 'points': (220.0, 100.0, 220.0, 300.0), 'line_width': 8.0, 'fill_color_rgba': 4042322175L}, {'tool': 'LINE', 'points': (220.0, 100.0, 280.0, 20.0), 'line_width': 8.0, 'fill_color_rgba': 4042322175L}, {'tool': 'LINE', 'points': (280.0, 20.0, 340.0, 100.0), 'line_width': 8.0, 'fill_color_rgba': 4042322175L}, {'tool': 'LINE', 'points': (220.0, 100.0, 340.0, 100.0), 'line_width': 8.0, 'fill_color_rgba': 4042322175L}, {'tool': 'LINE', 'points': (220.0, 120.0, 340.0, 120.0), 'line_width': 8.0, 'fill_color_rgba': 4042322175L}, {'tool': 'LINE', 'points': (220.0, 300.0, 340.0, 300.0), 'line_width': 8.0, 'fill_color_rgba': 4042322175L}, {'tool': 'LINE', 'points': (280.0, 300.0, 280.0, 420.0), 'line_width': 8.0, 'fill_color_rgba': 4042322175L}]
+        [{'tool': 'LINE', 'points': (220.0, 400.0, 340.0, 400.0), 'line_width': 8.0, 'stroke_color_rgba': 4042322175L},
+         {'tool': 'LINE', 'points': (340.0, 400.0, 360.0, 420.0), 'line_width': 8.0, 'stroke_color_rgba': 4042322175L},
+         {'tool': 'LINE', 'points': (360.0, 320.0, 360.0, 420.0), 'line_width': 8.0, 'stroke_color_rgba': 4042322175L},
+         {'tool': 'LINE', 'points': (340.0, 300.0, 360.0, 320.0), 'line_width': 8.0, 'stroke_color_rgba': 4042322175L},
+         {'tool': 'LINE', 'points': (340.0, 100.0, 340.0, 300.0), 'line_width': 8.0, 'stroke_color_rgba': 4042322175L},
+         {'tool': 'LINE', 'points': (200.0, 420.0, 220.0, 400.0), 'line_width': 8.0, 'stroke_color_rgba': 4042322175L},
+         {'tool': 'LINE', 'points': (200.0, 320.0, 200.0, 420.0), 'line_width': 8.0, 'stroke_color_rgba': 4042322175L},
+         {'tool': 'LINE', 'points': (200.0, 320.0, 220.0, 300.0), 'line_width': 8.0, 'stroke_color_rgba': 4042322175L},
+         {'tool': 'LINE', 'points': (220.0, 100.0, 220.0, 300.0), 'line_width': 8.0, 'stroke_color_rgba': 4042322175L},
+         {'tool': 'LINE', 'points': (220.0, 100.0, 280.0, 20.0), 'line_width': 8.0, 'stroke_color_rgba': 4042322175L},
+         {'tool': 'LINE', 'points': (280.0, 20.0, 340.0, 100.0), 'line_width': 8.0, 'stroke_color_rgba': 4042322175L},
+         {'tool': 'LINE', 'points': (220.0, 100.0, 340.0, 100.0), 'line_width': 8.0, 'stroke_color_rgba': 4042322175L},
+         {'tool': 'LINE', 'points': (220.0, 120.0, 340.0, 120.0), 'line_width': 8.0, 'stroke_color_rgba': 4042322175L},
+         {'tool': 'LINE', 'points': (220.0, 300.0, 340.0, 300.0), 'line_width': 8.0, 'stroke_color_rgba': 4042322175L},
+         {'tool': 'LINE', 'points': (280.0, 300.0, 280.0, 420.0), 'line_width': 8.0, 'stroke_color_rgba': 4042322175L}]
         ,
         # Question mark
-        [{'tool': 'LINE', 'points': (280.0, 260.0, 280.0, 440.0), 'line_width': 8.0, 'fill_color_rgba': 4042322175L}, {'tool': 'LINE', 'points': (280.0, 260.0, 340.0, 220.0), 'line_width': 8.0, 'fill_color_rgba': 4042322175L}, {'tool': 'LINE', 'points': (340.0, 160.0, 340.0, 220.0), 'line_width': 8.0, 'fill_color_rgba': 4042322175L}, {'tool': 'LINE', 'points': (280.0, 120.0, 340.0, 160.0), 'line_width': 8.0, 'fill_color_rgba': 4042322175L}, {'tool': 'LINE', 'points': (220.0, 160.0, 280.0, 120.0), 'line_width': 8.0, 'fill_color_rgba': 4042322175L}, {'tool': 'LINE', 'points': (220.0, 160.0, 220.0, 200.0), 'line_width': 8.0, 'fill_color_rgba': 4042322175L}, {'tool': 'LINE', 'points': (220.0, 200.0, 260.0, 220.0), 'line_width': 8.0, 'fill_color_rgba': 4042322175L}]
+        [{'tool': 'LINE', 'points': (280.0, 260.0, 280.0, 440.0), 'line_width': 8.0, 'stroke_color_rgba': 4042322175L},
+         {'tool': 'LINE', 'points': (280.0, 260.0, 340.0, 220.0), 'line_width': 8.0, 'stroke_color_rgba': 4042322175L},
+         {'tool': 'LINE', 'points': (340.0, 160.0, 340.0, 220.0), 'line_width': 8.0, 'stroke_color_rgba': 4042322175L},
+         {'tool': 'LINE', 'points': (280.0, 120.0, 340.0, 160.0), 'line_width': 8.0, 'stroke_color_rgba': 4042322175L},
+         {'tool': 'LINE', 'points': (220.0, 160.0, 280.0, 120.0), 'line_width': 8.0, 'stroke_color_rgba': 4042322175L},
+         {'tool': 'LINE', 'points': (220.0, 160.0, 220.0, 200.0), 'line_width': 8.0, 'stroke_color_rgba': 4042322175L},
+         {'tool': 'LINE', 'points': (220.0, 200.0, 260.0, 220.0), 'line_width': 8.0, 'stroke_color_rgba': 4042322175L}]
         ,
         # Flying toy (cerf volant in french)
-        [{'tool': 'LINE', 'points': (160.0, 140.0, 260.0, 100.0), 'line_width': 8.0, 'fill_color_rgba': 4042322175L}, {'tool': 'LINE', 'points': (160.0, 140.0, 160.0, 220.0), 'line_width': 8.0, 'fill_color_rgba': 4042322175L}, {'tool': 'LINE', 'points': (160.0, 220.0, 260.0, 380.0), 'line_width': 8.0, 'fill_color_rgba': 4042322175L}, {'tool': 'LINE', 'points': (260.0, 380.0, 360.0, 220.0), 'line_width': 8.0, 'fill_color_rgba': 4042322175L}, {'tool': 'LINE', 'points': (360.0, 140.0, 360.0, 220.0), 'line_width': 8.0, 'fill_color_rgba': 4042322175L}, {'tool': 'LINE', 'points': (260.0, 100.0, 360.0, 140.0), 'line_width': 8.0, 'fill_color_rgba': 4042322175L}, {'tool': 'LINE', 'points': (220.0, 500.0, 260.0, 380.0), 'line_width': 8.0, 'fill_color_rgba': 707406591L}, {'x2': 240.0, 'line_width': 1.0, 'y2': 180.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 3992977663L, 'y1': 160.0, 'tool': 'FILL_RECT', 'x1': 220.0}, {'x2': 300.0, 'line_width': 1.0, 'y2': 220.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 3992977663L, 'y1': 200.0, 'tool': 'FILL_RECT', 'x1': 280.0}, {'x2': 240.0, 'line_width': 1.0, 'y2': 260.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 3992977663L, 'y1': 240.0, 'tool': 'FILL_RECT', 'x1': 220.0}, {'x2': 300.0, 'line_width': 1.0, 'y2': 180.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 4287383039L, 'y1': 160.0, 'tool': 'FILL_CIRCLE', 'x1': 280.0}, {'x2': 240.0, 'line_width': 1.0, 'y2': 220.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 4287383039L, 'y1': 200.0, 'tool': 'FILL_CIRCLE', 'x1': 220.0}, {'x2': 300.0, 'line_width': 1.0, 'y2': 260.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 4287383039L, 'y1': 240.0, 'tool': 'FILL_CIRCLE', 'x1': 280.0}]
+        [{'tool': 'LINE', 'points': (160.0, 140.0, 260.0, 100.0), 'line_width': 8.0, 'stroke_color_rgba': 4042322175L},
+         {'tool': 'LINE', 'points': (160.0, 140.0, 160.0, 220.0), 'line_width': 8.0, 'stroke_color_rgba': 4042322175L},
+         {'tool': 'LINE', 'points': (160.0, 220.0, 260.0, 380.0), 'line_width': 8.0, 'stroke_color_rgba': 4042322175L},
+         {'tool': 'LINE', 'points': (260.0, 380.0, 360.0, 220.0), 'line_width': 8.0, 'stroke_color_rgba': 4042322175L},
+         {'tool': 'LINE', 'points': (360.0, 140.0, 360.0, 220.0), 'line_width': 8.0, 'stroke_color_rgba': 4042322175L},
+         {'tool': 'LINE', 'points': (260.0, 100.0, 360.0, 140.0), 'line_width': 8.0, 'stroke_color_rgba': 4042322175L},
+         {'tool': 'LINE', 'points': (220.0, 500.0, 260.0, 380.0), 'line_width': 8.0, 'stroke_color_rgba': 707406591L},
+         {'width': 240.0-220.0, 'line_width': 1.0, 'height': 180.0-160.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 3992977663L, 'y': 160.0, 'tool': 'FILL_RECT', 'x': 220.0},
+         {'width': 300.0-280.0, 'line_width': 1.0, 'height': 220.0-200.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 3992977663L, 'y': 200.0, 'tool': 'FILL_RECT', 'x': 280.0},
+         {'width': 240.0-220.0, 'line_width': 1.0, 'height': 260.0-240.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 3992977663L, 'y': 240.0, 'tool': 'FILL_RECT', 'x': 220.0},
+         {'radius_x': 10, 'line_width': 1.0, 'radius_y': 10, 'stroke_color_rgba': 255L, 'fill_color_rgba': 4287383039L, 'center_y': 160.0+10, 'tool': 'FILL_CIRCLE', 'center_x': 280.0+10},
+         {'radius_x': 10, 'line_width': 1.0, 'radius_y': 10, 'stroke_color_rgba': 255L, 'fill_color_rgba': 4287383039L, 'center_y': 200.0+10, 'tool': 'FILL_CIRCLE', 'center_x': 220.0+10},
+         {'radius_x': 10, 'line_width': 1.0, 'radius_y': 10, 'stroke_color_rgba': 255L, 'fill_color_rgba': 4287383039L, 'center_y': 240.0+10, 'tool': 'FILL_CIRCLE', 'center_x': 280.0+10}]
 
       ]
 
