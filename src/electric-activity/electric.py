@@ -26,7 +26,7 @@ import gcompris.bonus
 import gtk
 import gtk.gdk
 import gobject
-
+import cairo
 import os
 import tempfile
 
@@ -241,7 +241,7 @@ class Gcompris_electric:
 
   # Event when a tool is selected
   # Perform instant action or swich the tool selection
-  def tool_item_event(self, item, event, tool):
+  def tool_item_event(self, item, target, event, tool):
 
     if event.type == gtk.gdk.BUTTON_PRESS:
       if event.button == 1:
@@ -254,12 +254,12 @@ class Gcompris_electric:
   def assign_tool(self, newtool):
     # Deactivate old button
     item = self.tools[self.current_tool][4]
-    item.set(pixbuf = gcompris.utils.load_pixmap(gcompris.skin.image_to_skin(self.tools[self.current_tool][1])))
+    item.set_properties(pixbuf = gcompris.utils.load_pixmap(gcompris.skin.image_to_skin(self.tools[self.current_tool][1])))
 
     # Activate new button
     self.current_tool = newtool
     item = self.tools[newtool][4]
-    item.set(pixbuf = gcompris.utils.load_pixmap(gcompris.skin.image_to_skin(self.tools[self.current_tool][2])))
+    item.set_properties(pixbuf = gcompris.utils.load_pixmap(gcompris.skin.image_to_skin(self.tools[self.current_tool][2])))
     gcompris.set_cursor(self.tools[self.current_tool][3]);
 
 
@@ -522,8 +522,10 @@ class Wire:
       self.wire_item = \
           goocanvas.Polyline(
         parent = self.rootitem,
-        points=( self.x1, self.y1, self.x2, self.y2),
-        fill_color_rgba = 0xFF0000FFL,
+        points = goocanvas.Points([(self.x1, self.y1),
+                                   (self.x2, self.y2)]),
+        stroke_color_rgba = 0xFF0000FFL,
+        line_cap = cairo.LINE_CAP_ROUND,
         line_width=5.0
         )
       self.wire_item.connect("button_press_event", self.delete_wire, self)
@@ -566,7 +568,7 @@ class Wire:
         self.source_node.renumber_wire(self, id)
 
       # Colorize the wire
-      self.wire_item.set(fill_color_rgba = Wire.colors[id % len(Wire.colors)])
+      self.wire_item.set_properties(fill_color_rgba = Wire.colors[id % len(Wire.colors)])
 
     def get_wire_id(self):
       return self.wire_id
@@ -588,7 +590,7 @@ class Wire:
       self._add_connection(node)
 
       # Colorize the wire
-      self.wire_item.set(fill_color_rgba = Wire.colors[self.wire_id % len(Wire.colors)])
+      self.wire_item.set_properties(fill_color_rgba = Wire.colors[self.wire_id % len(Wire.colors)])
 
     # Move wire. In fact, the attached component are moved and THEY
     # move the wire
@@ -609,18 +611,20 @@ class Wire:
     def move_source_node(self, x1, y1):
       self.x1 = x1
       self.y1 = y1
-      self.wire_item.set( points = (self.x1, self.y1,
-                                    self.x2, self.y2) )
+      self.wire_item.set_properties(points = goocanvas.Points([(self.x1, self.y1),
+                                                               (self.x2, self.y2)])
+                                    )
 
     def move_target_node(self, x2, y2):
       self.x2 = x2
       self.y2 = y2
-      self.wire_item.set( points = (self.x1, self.y1,
-                                    self.x2, self.y2) )
+      self.wire_item.set_properties(points = goocanvas.Points([(self.x1, self.y1),
+                                                               (self.x2, self.y2)])
+                                    )
 
 
     # Callback event to delete a wire
-    def delete_wire(self, widget, event, wire):
+    def delete_wire(self, widget, target, event, wire):
 
       if event.type == gtk.gdk.BUTTON_PRESS:
         if event.button == 1:
@@ -705,7 +709,7 @@ class Node:
 
     def move(self, x, y):
       if(self.item):
-        self.item.set(x = x + self.x,
+        self.item.set_properties(x = x + self.x,
                       y = y + self.y)
 
       for wire in self.wires:
@@ -741,8 +745,6 @@ class Component(object):
       self.comp_rootitem = \
         goocanvas.Group(
           parent = self.rootitem,
-        x=0.0,
-        y=0.0
         )
       self.comp_rootitem.props.visibility = goocanvas.ITEM_INVISIBLE
 
@@ -762,12 +764,17 @@ class Component(object):
         x = self.x + self.component_item_offset_x,
         y = self.y + self.component_item_offset_y,
         )
-      self.component_item.connect("button_press_event", self.component_move, self)
+      self.component_item.connect("button_press_event",
+                                  self.component_move, self)
+      self.component_item.connect("motion_notify_event",
+                                  self.component_move, self)
 
       # Add each connector
       for node in self.nodes:
         item = node.create(self, node.x, node.y)
         item.connect("button_press_event", self.create_wire, node)
+        item.connect("button_release_event", self.create_wire, node)
+        item.connect("motion_notify_event", self.create_wire, node)
 
       # A text item to display textual values (volt and amp)
       self.item_values_x = 0
@@ -780,9 +787,10 @@ class Component(object):
         font = "Sans 8",
         text = "",
         fill_color = "white",
-        justification=gtk.JUSTIFY_CENTER
+        anchor = gtk.ANCHOR_CENTER
         )
       self.item_values.connect("button_press_event", self.component_move, self)
+      self.item_values.connect("motion_notify_event", self.component_move, self)
 
     # Return False if we need more value to complete our component
     # This is usefull in case where one Component is made of several gnucap component
@@ -790,7 +798,7 @@ class Component(object):
       self.voltage = voltage
       self.intensity = intensity
       if(valid_value):
-        self.item_values.set(text="V=%.2fV\nI=%.3fA"%(voltage,intensity))
+        self.item_values.set_properties(text="V=%.2fV\nI=%.3fA"%(voltage,intensity))
         self.item_values.props.visibility = goocanvas.ITEM_VISIBLE
       else:
         self.item_values.props.visibility = goocanvas.ITEM_INVISIBLE
@@ -804,10 +812,10 @@ class Component(object):
       self.x =  x - self.center_x
       self.y =  y - self.center_y
 
-      self.item_values.set(x =  self.item_values_x + self.x,
+      self.item_values.set_properties(x =  self.item_values_x + self.x,
                            y =  self.item_values_y + self.y)
 
-      self.component_item.set(x =  self.x + self.component_item_offset_x,
+      self.component_item.set_properties(x =  self.x + self.component_item_offset_x,
                               y =  self.y + self.component_item_offset_y )
 
       for node in self.nodes:
@@ -882,21 +890,21 @@ class Component(object):
       return [gnucap, ".print dc + v(%s) i(%s)\n" %(self.gnucap_name, self.gnucap_name)]
 
     # Callback event to move the component
-    def component_move(self, widget, event, component):
+    def component_move(self, widget, target, event, component):
 
-      if event.state & gtk.gdk.BUTTON1_MASK:
-        if event.type == gtk.gdk.MOTION_NOTIFY:
+      if event.type == gtk.gdk.MOTION_NOTIFY:
+        if event.state & gtk.gdk.BUTTON1_MASK:
           if(self.electric.get_current_tools()=="SELECT"):
             component.move(event.x, event.y)
 
-        else:
-          if(self.electric.get_current_tools()=="DEL"):
-            self.remove()
+      else:
+        if(self.electric.get_current_tools()=="DEL"):
+          self.remove()
 
       return True
 
     # Callback event to create a wire
-    def create_wire(self, widget, event, node):
+    def create_wire(self, widget, target, event, node):
 
       if(self.electric.get_current_tools()=="DEL"):
         return True
@@ -920,7 +928,7 @@ class Component(object):
           node_target = None
           # Our wire line confuses the get_item_at. Look arround.
           for x in range(-10, 11, 5):
-            target_item = self.canvas.get_item_at(event.x + x, event.y)
+            target_item = self.canvas.get_item_at(event.x + x, event.y, True)
             if target_item:
               node_target = target_item.get_data('node')
               if(node_target):
@@ -970,7 +978,7 @@ class Resistor(Component):
     self.item_values_y = 12
 
     self.move(x, y)
-    self.props.visibility = goocanvas.ITEM_VISIBLE
+    self.show()
 
 # ----------------------------------------
 # DIODE
@@ -993,7 +1001,7 @@ class Diode(Component):
     self.item_values_y = 12
 
     self.move(x, y)
-    self.props.visibility = goocanvas.ITEM_VISIBLE
+    self.show()
 
 
   # Return the gnucap definition for this component
@@ -1037,18 +1045,18 @@ class Switch(Component):
     self.move(x, y)
 
     pixmap = gcompris.utils.load_pixmap("electric/switch_click.png")
-    self.click_item = self.comp_rootitem.add(
-      goocanvas.Image,
+    self.click_item = goocanvas.Image(
+      parent = self.comp_rootitem,
       pixbuf = pixmap,
       x = self.x + self.click_ofset_x,
       y = self.y + self.click_ofset_y,
       )
     self.click_item.connect("button_press_event", self.component_click)
-    self.props.visibility = goocanvas.ITEM_VISIBLE
+    self.show()
 
   # Callback event on the switch
   def component_click(self, widget, target, event):
-    if event.state & gtk.gdk.BUTTON1_MASK:
+    if event.button == 1:
       if(self.gnucap_value == self.value_off):
         self.gnucap_value = self.value_on
         pixmap = gcompris.utils.load_pixmap("electric/switch_on.png")
@@ -1056,19 +1064,19 @@ class Switch(Component):
         self.gnucap_value = self.value_off
         pixmap = gcompris.utils.load_pixmap("electric/switch_off.png")
 
-      self.component_item.set(pixbuf = pixmap)
+      self.component_item.set_properties(pixbuf = pixmap)
       self.electric.run_simulation()
 
     return False
 
   # Callback event to move the component
-  def component_move(self, widget, event, component):
-     super(Switch, self).component_move(widget, event, component)
+  def component_move(self, widget, target, event, component):
+     super(Switch, self).component_move(widget, target, event, component)
 
      if(self.electric.get_current_tools()=="DEL"):
        return True
 
-     self.click_item.set(
+     self.click_item.set_properties(
        x = self.x + self.click_ofset_x,
        y = self.y + self.click_ofset_y)
 
@@ -1115,19 +1123,19 @@ class Switch2(Component):
     self.move(x, y)
 
     pixmap = gcompris.utils.load_pixmap("electric/switch_click.png")
-    self.click_item = self.comp_rootitem.add(
-      goocanvas.Image,
+    self.click_item = goocanvas.Image(
+      parent = self.comp_rootitem,
       pixbuf = pixmap,
       x = self.x + self.click_ofset_x,
       y = self.y + self.click_ofset_y,
       )
     self.click_item.connect("button_press_event", self.component_click)
-    self.props.visibility = goocanvas.ITEM_VISIBLE
+    self.show()
 
 
   # Callback event on the switch
   def component_click(self, widget, target, event):
-    if event.state & gtk.gdk.BUTTON1_MASK:
+    if event.button == 1:
       if(self.value_top == self.value_off):
         self.value_top = self.value_on
         self.value_bottom = self.value_off
@@ -1139,20 +1147,20 @@ class Switch2(Component):
         self.component_item_offset_y = 10
         pixmap = gcompris.utils.load_pixmap("electric/switch2_off.png")
 
-      self.component_item.set(y = self.y + self.component_item_offset_y)
-      self.component_item.set(pixbuf = pixmap)
+      self.component_item.set_properties(y = self.y + self.component_item_offset_y)
+      self.component_item.set_properties(pixbuf = pixmap)
       self.electric.run_simulation()
 
     return False
 
   # Callback event to move the component
-  def component_move(self, widget, event, component):
-    super(Switch2, self).component_move(widget, event, component)
+  def component_move(self, widget, target, event, component):
+    super(Switch2, self).component_move(widget, target, event, component)
 
     if(self.electric.get_current_tools()=="DEL"):
       return True
 
-    self.click_item.set(
+    self.click_item.set_properties(
       x = self.x + self.click_ofset_x,
       y = self.y + self.click_ofset_y)
 
@@ -1263,36 +1271,38 @@ class Rheostat(Component):
     # Overide some values
     self.item_values_x = 20
     self.item_values_y = 70
-    self.item_values.set(fill_color="blue")
+    self.item_values.set_properties(fill_color="blue")
 
     self.move(x, y)
 
     # The wiper wire
-    self.wiper_wire_item = self.comp_rootitem.add(
-      goocanvas.Polyline,
-      points = (0,0,0,0),
+    self.wiper_wire_item = goocanvas.Polyline(
+      parent = self.comp_rootitem,
+      points = goocanvas.Points([(0,0), (0,0)]),
       fill_color_rgba = 0x5A5A5AFFL,
       line_width=5.0
       )
     self.update_wiper_wire()
 
     pixmap = gcompris.utils.load_pixmap("electric/resistor_wiper.png")
-    self.wiper_item = self.comp_rootitem.add(
-      goocanvas.Image,
+    self.wiper_item = goocanvas.Image(
+      parent = self.comp_rootitem,
       pixbuf = pixmap,
       x = self.x + self.wiper_ofset_x,
       y = self.y + self.wiper_ofset_y,
       )
     self.wiper_item.connect("button_press_event", self.component_click)
+    self.wiper_item.connect("motion_notify_event", self.component_click)
 
-    self.props.visibility = goocanvas.ITEM_VISIBLE
+    self.show()
 
   def update_wiper_wire(self):
-    self.wiper_wire_item.set(
-      points = (self.x + self.wiper_ofset_x + 35,
-                self.y + self.wiper_ofset_y + 10,
-                self.x + 55,
-                self.y + 65))
+    self.wiper_wire_item.set_properties(
+      points = goocanvas.Points([(self.x + self.wiper_ofset_x + 35,
+                                  self.y + self.wiper_ofset_y + 10),
+                                 (self.x + 55,
+                                  self.y + 65)])
+      )
 
   def move_wiper(self, new_y):
     if(new_y>self.y+self.wiper_ofset_max_y):
@@ -1302,14 +1312,14 @@ class Rheostat(Component):
     else:
       self.wiper_ofset_y = new_y - self.y
 
-    self.wiper_item.set(
+    self.wiper_item.set_properties(
       y = self.y + self.wiper_ofset_y,
       )
     self.update_wiper_wire()
     self.electric.run_simulation()
 
   # Fixme: can't connect "scroll-event" to this function
-  def component_scroll(self, widget, event):
+  def component_scroll(self, widget, target, event):
     if event.type == gtk.gdk.SCROLL:
       if event.direction == gtk.gdk.SCROLL_UP:
         self.move_wiper(self.y - 5)
@@ -1328,12 +1338,12 @@ class Rheostat(Component):
 
   # Callback event to move the component
   def component_move(self, widget, target, event, component):
-     super(Rheostat, self).component_move(widget, event, component)
+     super(Rheostat, self).component_move(widget, target, event, component)
 
      if(self.electric.get_current_tools()=="DEL"):
        return True
 
-     self.wiper_item.set(
+     self.wiper_item.set_properties(
        x = self.x + self.wiper_ofset_x,
        y = self.y + self.wiper_ofset_y)
      self.update_wiper_wire()
@@ -1437,7 +1447,7 @@ class Rheostat(Component):
       self.voltage = voltage
       self.intensity = intensity
       if(valid_value ):
-        self.item_values.set(text="U=%.1fV\nI=%.2fA"%(voltage,intensity))
+        self.item_values.set_properties(text="U=%.1fV\nI=%.2fA"%(voltage,intensity))
         self.item_values.props.visibility = goocanvas.ITEM_VISIBLE
       else:
         self.item_values.props.visibility = goocanvas.ITEM_INVISIBLE
@@ -1471,12 +1481,12 @@ class Bulb(Component):
     # Overide some values
     self.item_values_x = 55
     self.item_values_y = 80
-    self.item_values.set(fill_color="red")
+    self.item_values.set_properties(fill_color="red")
 
     # Specific Bulb values
     self.is_blown = False
     self.move(x, y)
-    self.props.visibility = goocanvas.ITEM_VISIBLE
+    self.show()
     self.power_max = power_max
     self.resistor_blown = 100000000
 
@@ -1495,7 +1505,7 @@ class Bulb(Component):
     image_index = min((power * 10) /  self.power_max + 1, 11)
     pixmap = gcompris.utils.load_pixmap("electric/bulb%d.png" %(image_index,))
     if debug: print "Power = %f (Max=%f) Image index = %d" %(power, self.power_max, image_index)
-    self.component_item.set(pixbuf = pixmap)
+    self.component_item.set_properties(pixbuf = pixmap)
 
     # If the Bulb is blown, we have to change it's internal
     # Resistor value to infinite and ask for a circuit recalc
@@ -1508,10 +1518,11 @@ class Bulb(Component):
 
   # Callback event to move the component
   # We override it to repair the Bulb
-  def component_move(self, widget, event, component):
+  def component_move(self, widget, target, event, component):
     # If the Bulb is blown and we get a click repair it
     # If the bulb is not blown, you can blown it by right clicking on it
-    if (event.state & gtk.gdk.BUTTON1_MASK) and self.electric.get_current_tools()=="SELECT":
+    if (event.state & gtk.gdk.BUTTON1_MASK) \
+          and self.electric.get_current_tools() == "SELECT":
       if self.is_blown:
         self.is_blown = False
         self.gnucap_value = self.internal_resistor
@@ -1522,7 +1533,7 @@ class Bulb(Component):
         # Blown us with arbitrate high value
         self.set_voltage_intensity(True, 100, 10)
 
-    return super(Bulb, self).component_move(widget, event, component)
+    return super(Bulb, self).component_move(widget, target, event, component)
 
 
 
@@ -1546,7 +1557,7 @@ class Battery(Component):
     self.item_values_y = 70
 
     self.move(x, y)
-    self.props.visibility = goocanvas.ITEM_VISIBLE
+    self.show()
 
   # Return False if we need more value to complete our component
   # This is usefull in case where one Component is made of several gnucap component
@@ -1555,9 +1566,9 @@ class Battery(Component):
 
     if(abs(self.intensity) > 1):
       # Short circuit case, set the dead battery icon
-      self.component_item.set(pixbuf = gcompris.utils.load_pixmap("electric/battery_dead.png"))
+      self.component_item.set_properties(pixbuf = gcompris.utils.load_pixmap("electric/battery_dead.png"))
     else:
-      self.component_item.set(pixbuf = gcompris.utils.load_pixmap("electric/battery.png"))
+      self.component_item.set_properties(pixbuf = gcompris.utils.load_pixmap("electric/battery.png"))
 
     return True
 
@@ -1576,7 +1587,7 @@ class Connection(Component):
                                      self.image,
                                      [Node("electric/connect.png", "A", 18, 10)])
     self.move(x, y)
-    self.props.visibility = goocanvas.ITEM_VISIBLE
+    self.show()
 
 # -----------------------------------------------------------------------
 # -----------------------------------------------------------------------
@@ -1622,7 +1633,12 @@ class Selector:
         self.init_coord[component_class[0]] = (self.x, self.y + index_y)
         index_y += pixmap.get_height() + gap
 
-        item.connect("button_press_event", self.component_click, component_class)
+        item.connect("button_press_event", self.component_click,
+                     component_class)
+        item.connect("button_release_event", self.component_click,
+                     component_class)
+        item.connect("motion_notify_event", self.component_click,
+                     component_class)
 
 
     # Callback event on the component
@@ -1641,8 +1657,8 @@ class Selector:
             self.offset_x = (event.x - bounds.x1)
             self.offset_y = (event.y - bounds.y1)
 
-          widget.set(x = event.x - self.offset_x,
-                     y = event.y - self.offset_y)
+          widget.set_properties(x = event.x - self.offset_x,
+                                y = event.y - self.offset_y)
 
       if event.type == gtk.gdk.BUTTON_RELEASE:
         if event.button == 1:
@@ -1652,8 +1668,8 @@ class Selector:
                              event.y - self.offset_y + (bounds.y2-bounds.y1)/2,
                              component_class[1])
 
-          widget.set(x = self.init_coord[component_class[0]][0],
-                     y = self.init_coord[component_class[0]][1])
+          widget.set_properties(x = self.init_coord[component_class[0]][0],
+                                y = self.init_coord[component_class[0]][1])
 
           self.offset_x = self.offset_y = 0
 
