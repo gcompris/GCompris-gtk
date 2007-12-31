@@ -17,7 +17,7 @@
 #   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 #
 
-import gnomecanvas
+import goocanvas
 import gcompris
 import gcompris.utils
 import gcompris.skin
@@ -206,11 +206,9 @@ class Class_list:
       #
       # Remove it from the base (Triggers maintains other tables)
       #
-      print "Deleting class_id=" + str(class_id)
       self.cur.execute('DELETE FROM class WHERE class_id=?', (class_id,))
       self.con.commit()
 
-      print "class_list:remove_class_clicked calling reload"
       self.list_user.reload(class_id)
 
 
@@ -244,7 +242,6 @@ class Class_list:
     if iter:
       path = model.get_path(iter)[0]
       class_id = model.get_value(iter, COLUMN_CLASSID)
-      print "class_changed_cb %d" %class_id
       user_list.reload(class_id)
 
       # The Unaffected class is not editable.
@@ -258,8 +255,6 @@ class Class_list:
 
   # Reload data (class data and users)
   def reload(self, class_id, class_name, class_teacher):
-    print ">> class_list:reload %d" %class_id
-    print "class_name %s" %class_name
     # We need to find the row matching this class_id.
     # If not found, it's a new class to create
     model = self.treeview_class.get_model()
@@ -275,8 +270,6 @@ class Class_list:
 
         # Now update the class_name and class_teacher if provided
         if class_name:
-          print "updating %s" %class_name
-          print dir(class_name)
           model.set(iter, COLUMN_NAME, class_name)
 
         if class_teacher:
@@ -298,13 +291,8 @@ class Class_list:
     # Reload the selected class
     selection = self.treeview_class.get_selection()
     if(selection):
-      print "got selection"
       model, iter = selection.get_selected()
       if iter:
         path = model.get_path(iter)[0]
         sel_class_id = model.get_value(iter, COLUMN_CLASSID)
-        print "got selection %d" %sel_class_id
         self.list_user.reload(sel_class_id)
-
-    print "class_list reload DONE"
-

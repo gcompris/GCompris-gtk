@@ -1,21 +1,21 @@
 #  gcompris - class_edit.py
-# 
+#
 # Copyright (C) 2005 Bruno Coudoin and Yves Combe
-# 
+#
 #   This program is free software; you can redistribute it and/or modify
 #   it under the terms of the GNU General Public License as published by
 #   the Free Software Foundation; either version 2 of the License, or
 #   (at your option) any later version.
-# 
+#
 #   This program is distributed in the hope that it will be useful,
 #   but WITHOUT ANY WARRANTY; without even the implied warranty of
 #   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 #   GNU General Public License for more details.
-# 
+#
 #   You should have received a copy of the GNU General Public License
 #   along with this program; if not, write to the Free Software
 #   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
-# 
+#
 
 
 import gtk
@@ -52,11 +52,11 @@ class ClassEdit(gtk.Window):
         self.class_id = class_id
         self.class_name = class_name
         self.teacher_name = teacher_name
-        
+
         # A pointer to the user_list class
         # Will be called to refresh the list when edit is done
         self.list_class = list_class
-        
+
         self.set_title(_("Editing a Class"))
         self.set_border_width(8)
         self.set_default_size(320, 350)
@@ -67,12 +67,12 @@ class ClassEdit(gtk.Window):
         else:
             frame = gtk.Frame(_("Editing a new class"))
             self.new_class = True
-            
+
         # Connect the "destroy" event to close
         # FIXME: This makes the close code beeing called twice
         #        because the close destroy also call close again.
         frame.connect("destroy", self.close)
-        
+
         self.add(frame)
 
         # Main VBOX
@@ -86,7 +86,7 @@ class ClassEdit(gtk.Window):
         table.set_row_spacings(0)
         table.set_col_spacings(20)
         vbox.pack_start(table, True, True, 0)
-        
+
         label = gtk.Label(_('Class:'))
         label.set_alignment(0, 0)
         table.attach(label, 0, 1, 0, 1, xoptions=gtk.SHRINK,
@@ -98,7 +98,7 @@ class ClassEdit(gtk.Window):
                      xoptions=gtk.SHRINK, yoptions=gtk.EXPAND)
 
         # FIXME: How to remove the default selection
-        
+
         # Label and Entry for the teacher name
         label = gtk.Label(_('Teacher:'))
         label.set_alignment(0, 0)
@@ -136,7 +136,7 @@ class ClassEdit(gtk.Window):
         treeview.get_selection().set_mode(gtk.SELECTION_MULTIPLE)
 
         sw.add(treeview)
-        
+
         # add columns to the tree view
         self.__add_columns(treeview)
 
@@ -174,7 +174,7 @@ class ClassEdit(gtk.Window):
         treeview2.get_selection().set_mode(gtk.SELECTION_MULTIPLE)
 
         sw2.add(treeview2)
-        
+
         # add columns to the tree view
         self.__add_columns(treeview2)
 
@@ -185,7 +185,7 @@ class ClassEdit(gtk.Window):
         vbox.pack_start(gtk.HSeparator(), False, False, 0)
 
         bbox = gtk.HBox(homogeneous=False, spacing=8)
-        
+
         button = gtk.Button(stock='gtk-help')
         bbox.pack_start(button, expand=False, fill=False, padding=0)
 
@@ -198,7 +198,7 @@ class ClassEdit(gtk.Window):
         button.connect("clicked", self.close)
 
         vbox.pack_start(bbox, False, False, 0)
-        
+
         # Missing callbacks
         button_delete.connect("clicked", self.remove_user, treeview2)
 
@@ -221,12 +221,12 @@ class ClassEdit(gtk.Window):
                    )
 
     # If class_id is provided, only users in this class are inserted
-    # If with = True, create a list only with the given class_id.
+    # If gwith = True, create a list only with the given class_id.
     #           False, create a list only without the given class_id
-    def __create_model(self, with, class_id):
+    def __create_model(self, gwith, class_id):
 
         # Grab the user data
-        if(with):
+        if(gwith):
             self.cur.execute('SELECT user_id,firstname,lastname FROM users where class_id=? ORDER BY login', (class_id,))
         else:
             self.cur.execute('SELECT user_id,firstname,lastname FROM users WHERE class_id!=? ORDER BY login', (class_id,))
@@ -290,12 +290,11 @@ class ClassEdit(gtk.Window):
 
             # Add in the the right view
             self.add_user_in_model(self.model_right, (user_id, user_firstname, user_lastname))
-            
+
             # Save the change in the base
             self.cur.execute('UPDATE users SET class_id=? WHERE user_id=?',
                              (self.class_id, user_id))
             self.con.commit()
-            print "UPDATE users SET class_id=%d" %self.class_id
 
     # Remove a user from the right list to the left list
     #
@@ -303,7 +302,7 @@ class ClassEdit(gtk.Window):
         model = treeview.get_model()
         treestore, paths = treeview.get_selection().get_selected_rows()
         paths.reverse()
-        
+
         for path in paths:
             iter = treestore.get_iter(path)
             path = model.get_path(iter)[0]
@@ -314,11 +313,10 @@ class ClassEdit(gtk.Window):
 
             # Add in the the left view
             self.add_user_in_model(self.model_left, (user_id, user_firstname, user_lastname))
-            
+
             # Save the change in the base (1 Is the 'Unselected user' class)
             self.cur.execute('UPDATE users SET class_id=? where user_id=?', (1, user_id))
             self.con.commit()
-            print "UPDATE users SET class_id=1"
 
     # Done, can quit this dialog (without saving)
     #
@@ -328,7 +326,7 @@ class ClassEdit(gtk.Window):
                                self.class_name,
                                self.teacher_name)
         self.destroy()
-        
+
     # Done, can quit this dialog with saving
     #
     def ok(self, button):
@@ -367,7 +365,6 @@ class ClassEdit(gtk.Window):
         self.class_name   = self.entry_class.get_text()
         self.teacher_name = self.entry_teacher.get_text()
 
-        print "class_edit done"
         self.destroy()
 
 
@@ -376,7 +373,7 @@ class ClassEdit(gtk.Window):
     # Make the necessary checks and create the class in the base
     #
     def create_class(self):
-                
+
         # Check the login do not exist already
         self.cur.execute('SELECT name FROM class WHERE name=?',
                          (self.entry_class.get_text(),))

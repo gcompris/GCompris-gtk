@@ -19,7 +19,7 @@
 
 # This is the base Class for all Administration modules.
 
-import gnomecanvas
+import goocanvas
 import gcompris
 import gcompris.utils
 import gcompris.skin
@@ -46,8 +46,6 @@ class Module:
         return 999
 
     def init(self, index, select_area, callback):
-        print("Gcompris_administration init panel.")
-
         height = 80
         gap = 35
         x   = select_area[0] + (select_area[2] - select_area[0]) / 2
@@ -57,61 +55,58 @@ class Module:
         # Create our rootitem. We put each canvas item in it so at the end we
         # only have to kill it. The canvas deletes all the items it contains automaticaly.
 
-        self.root_select_item = self.canvas.add(
-            gnomecanvas.CanvasGroup,
-            x=0.0,
-            y=0.0
+        self.root_select_item = goocanvas.Group(
+            parent = self.canvas,
             )
 
-        self.select_item = self.root_select_item.add(
-            gnomecanvas.CanvasRect,
-            x1=select_area[0]+2,
-            y1=y1,
-            x2=select_area[2]-2,
-            y2=y2,
+        self.select_item = goocanvas.Rect(
+            parent = self.root_select_item,
+            x = select_area[0]+2,
+            y = y1,
+            width = select_area[2]-2 - select_area[0]+2,
+            height = y2 - y1,
             fill_color="white",
-            outline_color="white",
-            width_units=1.0
+            stroke_color="white",
+            line_width = 1.0
             )
-        self.select_item.connect("event", callback, self)
+        self.select_item.connect("button_press_event", callback, self)
 
         y1 += 30
-        item = self.root_select_item.add(
-            gnomecanvas.CanvasPixbuf,
+        item = goocanvas.Image(
+            parent = self.root_select_item,
             pixbuf = gcompris.utils.load_pixmap(gcompris.skin.image_to_skin("config_" +
                                                                             self.module_name +
                                                                             ".png")),
             x = x,
             y = y1,
-            anchor=gtk.ANCHOR_CENTER,
             )
-        item.connect("event", callback, self)
+        item.connect("button_press_event", callback, self)
 
         y1 += gap
 
-        item = self.root_select_item.add (
-            gnomecanvas.CanvasText,
+        item = goocanvas.Text(
+            parent = self.root_select_item,
             text=_(self.module_label),
             font=gcompris.skin.get_font("gcompris/tiny"),
             x = x,
             y = y1,
             fill_color="black"
             )
-        item.connect("event", callback, self)
+        item.connect("button_press_event", callback, self)
 
 
     def get_module_name(self):
         return self.module_name
 
     def start(self):
-        self.select_item.set(
+        self.select_item.set_properties(
             fill_color_rgba=self.selector_color,
-            outline_color_rgba=self.outline_color
+            stroke_color_rgba=self.outline_color
             )
 
     def stop(self):
-        self.select_item.set(
+        self.select_item.set_properties(
             fill_color="white",
-            outline_color="white"
+            stroke_color="white"
             )
 

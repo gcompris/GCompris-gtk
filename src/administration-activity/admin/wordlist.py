@@ -17,7 +17,7 @@
 #   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 #
 
-import gnomecanvas
+import goocanvas
 import gcompris
 import gcompris.utils
 import gcompris.skin
@@ -40,11 +40,7 @@ class Words_list:
     self.con = db_connect
     self.active_profile = profile
 
-    print "Words_list __init__"
-
     files = glob.glob('wordlist_*.xml')
-
-    print "Matching files :", files
 
     self.main_vbox = gcompris.configuration_window ( \
       _('<b>%s</b> configuration\n for profile <b>%s</b>') % ('Wordlist', self.active_profile.name ),
@@ -55,8 +51,6 @@ class Words_list:
 
     self.wordlist_dir = self.prop.shared_dir +'/wordlist'
 
-    print self.wordlist_dir
-
     gcompris.textview('Words list',
                       'wordlist',
                       'Enter the words, comma, space, return separated. Then click on th check button.',
@@ -64,14 +58,11 @@ class Words_list:
                       self.wordlist_validate)
 
   def wordlist_callback(self, table):
-    print "wordlist_callback"
     for k, v in table.iteritems():
       print k, v
 
 
   def wordlist_validate( self, key, text, label):
-    print "wordlist_validate"
-    print key, text
     label.set_markup(text)
     return True
 

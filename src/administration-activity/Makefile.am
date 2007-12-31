@@ -1,4 +1,4 @@
-SUBDIRS = 
+SUBDIRS = admin
 
 pythondir = $(PYTHON_PLUGIN_DIR)
 

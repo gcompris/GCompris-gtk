@@ -48,7 +48,6 @@ class Gcompris_login:
 
     self.gcomprisBoard.disable_im_context = True
     self.entry = []
-    print("Gcompris_login __init__.")
 
 
   def start(self):
@@ -74,8 +73,6 @@ class Gcompris_login:
     # init config to default values
     self.config_dict = self.init_config()
 
-    print gcompris.get_board_conf(), self.gcomprisBoard.board_id, self.gcomprisBoard.name
-
     # change configured values
     self.config_dict.update(gcompris.get_board_conf())
 
@@ -94,11 +91,8 @@ class Gcompris_login:
     else:
       self.display_user_by_letter(self.users, "")
 
-    print("Gcompris_login start.")
-
 
   def init_rootitem(self, Prop):
-    print "__rootitem__"
     # Create our rootitem.
     # We put each canvas item in it so at the end we only have to kill it.
     # The canvas deletes all the items it contains automaticaly.
@@ -109,17 +103,6 @@ class Gcompris_login:
     y = 20.0
     text = _("Profile: ") + Prop.profile.name
 
-    # Shadow
-    goocanvas.Text(
-      parent = self.rootitem,
-      x= x + 1,
-      y= y + 1,
-      text= text,
-      fill_color="black",
-      font=gcompris.skin.get_font("gcompris/board/small"),
-      justification=gtk.JUSTIFY_RIGHT
-      )
-
     # Profile name
     goocanvas.Text(
       parent = self.rootitem,
@@ -128,7 +111,7 @@ class Gcompris_login:
       text= text,
       fill_color="white",
       font=gcompris.skin.get_font("gcompris/board/small"),
-      justification=gtk.JUSTIFY_RIGHT
+      anchor = gtk.ANCHOR_CENTER
       )
 
 
@@ -152,11 +135,10 @@ class Gcompris_login:
 
 
   def ok(self):
-    print("Gcompris_login ok.")
+    pass
 
 
   def repeat(self):
-    print("Gcompris_login repeat.")
     self.rootitem.remove()
 
     self.init_rootitem(self.Prop)
@@ -167,19 +149,16 @@ class Gcompris_login:
       self.display_user_by_letter(self.users, "")
 
   def config(self):
-    print("Gcompris_login config.")
+    pass
 
 
   def key_press(self, keyval, commit_str, preedit_str):
-    print("Gcompris_login key press. %i" % keyval)
-
     # Return  True  if you did process a key
     # Return  False if you did not processed a key
     #         (gtk need to send it to next widget)
     return False
 
   def pause(self, pause):
-    print("Gcompris_login pause. %i" % pause)
     # There is a problem with GTK widgets, they are not covered by the help
     # We hide/show them here
     if(pause):
@@ -189,7 +168,7 @@ class Gcompris_login:
 
 
   def set_level(self, level):
-    print("Gcompris_login set level. %i" % level)
+    pass
 
   # -------------------------------
   # ---- End of Initialisation ----
@@ -206,8 +185,6 @@ class Gcompris_login:
   #        the first letters of the user name
   #
   def display_user_by_letter(self, users, start_filter):
-
-    print "display_user_by_letter start_filter=" + start_filter
 
     first_letters = []
     current_letter = None
@@ -294,27 +271,15 @@ class Gcompris_login:
       else:
         text = letter.upper() + letter.lower()
 
-      item =goocanvas.Image(
+      item = goocanvas.Image(
         parent = self.letter_rootitem,
         pixbuf = button_pixbuf,
         x = x -  button_pixbuf.get_width()/2,
         y = y -  button_pixbuf.get_height()/2,
         )
       # This item is clickeable and it must be seen
-      item.connect("event", gcompris.utils.item_event_focus)
-      item.connect("event", self.letter_click_event,
-                   (users, start_filter + letter))
-
-      # The shadow
-      item =goocanvas.Text(
-        parent = self.letter_rootitem,
-        x= x + 1.5,
-        y= y + 1.5,
-        text= text,
-        fill_color="black",
-        font=gcompris.skin.get_font("gcompris/board/huge"),
-        )
-      item.connect("event", self.letter_click_event,
+      item.connect("button_press_event", gcompris.utils.item_event_focus)
+      item.connect("button_press_event", self.letter_click_event,
                    (users, start_filter + letter))
 
       # The text
@@ -326,7 +291,7 @@ class Gcompris_login:
         fill_color="white",
         font=gcompris.skin.get_font("gcompris/board/huge"),
         )
-      item.connect("event", self.letter_click_event,
+      item.connect("button_press_event", self.letter_click_event,
                    (users, start_filter + letter))
       x += step_x
 
@@ -375,31 +340,20 @@ class Gcompris_login:
         y = y -  button_pixbuf.get_height()/2,
         )
       # This item is clickeable and it must be seen
-      item.connect("event", gcompris.utils.item_event_focus)
-      item.connect("event", self.name_click_event, user)
+      item.connect("button_press_event", gcompris.utils.item_event_focus)
+      item.connect("button_press_event", self.name_click_event, user)
 
-
-      # The shadow
-      item =goocanvas.Text(
-        parent = self.rootitem,
-        x= x + 1.5,
-        y= y + 1.5,
-        text= login,
-        fill_color="black",
-        font=gcompris.skin.get_font("gcompris/board/huge"),
-        )
-      item.connect("event", self.name_click_event, user)
 
       # The text
-      item =goocanvas.Text(
+      item = goocanvas.Text(
         parent = self.rootitem,
         x= x,
-        y= y,
+        y= y - button_pixbuf.get_height()/2 + 5,
         text= login,
         fill_color="white",
         font=gcompris.skin.get_font("gcompris/board/huge"),
         )
-      item.connect("event", self.name_click_event, user)
+      item.connect("button_press_event", self.name_click_event, user)
 
       y += step_y
       i += 1
@@ -425,10 +379,8 @@ class Gcompris_login:
   #
   # Event when a click happen on a user name
   #
-  def name_click_event(self, widget, event, user):
+  def name_click_event(self, widget, target, event, user):
     if event.type == gtk.gdk.BUTTON_PRESS:
-      print "selected user = " + user.login
-
       self.logon(user)
       return True
 
@@ -447,7 +399,6 @@ class Gcompris_login:
 
 
   def entry_text(self):
-    print "__entry__"
     self.entry = gtk.Entry()
 
     self.entry.modify_font(pango.FontDescription("sans bold 36"))
@@ -506,7 +457,6 @@ class Gcompris_login:
       widget.set_text('')
 
   def config_start(self, profile):
-    print '__login config__'
     # keep profile in mind
     self.configuring_profile = profile
 

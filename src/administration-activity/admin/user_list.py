@@ -132,7 +132,6 @@ class User_list:
 
   # Retrieve data from the database for the given class_id
   def reload(self, class_id):
-    print "user_list reload %d" %class_id
     self.class_id = class_id
 
     # Remove all entries in the list
@@ -277,7 +276,6 @@ class User_list:
       user_id = model.get_value(iter, COLUMN_USERID)
       model.remove(iter)
       # Remove it from the base
-      print "Deleting user_id=" + str(user_id)
       self.cur.execute('delete from users where user_id=?', (user_id,))
       self.con.commit()
 
@@ -338,7 +336,6 @@ class User_list:
     rejected = []
 
     for line in file.readlines():
-      print line
       line = line.rstrip("\n\r")
       user_id = self.get_next_user_id()
       login, firstname, lastname, birthdate = line.split(sep)

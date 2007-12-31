@@ -17,7 +17,7 @@
 #   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 #
 
-import gnomecanvas
+import goocanvas
 import gcompris
 import gcompris.utils
 import gcompris.skin
@@ -65,8 +65,6 @@ class Board_list:
 
       self.difficulty = [1, 6]
 
-      #print out_dict
-
       # Main box is vertical
       top_box = gtk.VBox(False, 8)
       top_box.show()
@@ -101,7 +99,6 @@ class Board_list:
           combobox.set_active(self.profiles_list.index(profile))
 
       self.active_profile = self.profiles_list[combobox.get_active()]
-      print 'Active profile is now', self.active_profile.name
 
       # Create the table
       sw = gtk.ScrolledWindow()
@@ -231,7 +228,7 @@ class Board_list:
       if  board_cell[0] == None:
         row_dict[''] =  \
                      model.append(None,
-                                  [self.pixbuf_at_height('gcompris/misc/tuxplane.png', height),
+                                  [self.pixbuf_skin_at_height('tuxplane.png', height),
                                    _('Main menu') + '\n' + '/',
                                    not board_cell[1].board_id in self.out_dict[self.active_profile.profile_id],
                                    '%s/%s' % (board_cell[1].section,board_cell[1].name), self.pixbuf_configurable(board_cell[1])])
@@ -239,7 +236,7 @@ class Board_list:
       else:
         row_dict['%s/%s' % (board_cell[1].section,board_cell[1].name)] = \
                          model.append(row_dict[board_cell[1].section],
-                                      [self.pixbuf_skin_at_height(board_cell[1].icon_name, height),
+                                      [self.pixbuf_at_height(board_cell[1].icon_name, height),
                                        _(board_cell[1].title) + '\n' + '%s/%s' % (board_cell[1].section,board_cell[1].name),
                                        not board_cell[1].board_id in self.out_dict[self.active_profile.profile_id],
                                        '%s/%s' % (board_cell[1].section,board_cell[1].name), self.pixbuf_configurable(board_cell[1])])
@@ -367,8 +364,6 @@ class Board_list:
       return
     self.active_profile = self.profiles_list[index]
 
-    print 'Active profile is now', self.active_profile.name
-
     self.model.foreach(self.update_active)
 
   def update_active(self, model, path, iter):
@@ -387,11 +382,10 @@ class Board_list:
       return None
 
   def preference_clicked(self, widget, event, board):
-    print 'preference', board.title
+    pass
 
   def row_selected(self, treeview,  model):
     path = model.get_path(treeview.get_selection().get_selected()[1])
-    print "Row selected:", model[path][3]
 
     self.selected_board = self.board_dict[model[path][3]]
     if self.selected_board.is_configurable:
@@ -567,8 +561,6 @@ class Board_list:
                          in range( self.difficulty[0],
                                    self.difficulty[1]+1))
 
-    print self.board_dict[model[path][3]].name, self.board_dict[model[path][3]].difficulty, self.difficulty, model[path][2]
-
     if model[path][2]:
       self.update_parent(model[path].parent)
 
@@ -702,9 +694,7 @@ class Board_list:
 
 
   def login_configure(self, button):
-    print "__login configure__"
     board_log = self.get_board_by_name('/login/login', self.boards_list)
-    print board_log.name, board_log.is_configurable
     gcompris.admin.board_config_start(board_log,
                                       self.active_profile)
 

@@ -663,7 +663,8 @@ create_info_area(GooCanvasItem *parent, MenuItems *menuitems)
 			 -1,
 			 GTK_ANCHOR_CENTER,
 			 "font", gc_skin_font_board_big,
-			  "fill-color-rgba", gc_skin_get_color("menu/text"),
+			 "fill-color-rgba", gc_skin_get_color("menu/text"),
+			 "alignment", PANGO_ALIGN_CENTER,
 			 NULL);
 
   menuitems->description_item = \
@@ -675,6 +676,7 @@ create_info_area(GooCanvasItem *parent, MenuItems *menuitems)
 			 GTK_ANCHOR_CENTER,
 			 "font", gc_skin_font_board_medium,
 			 "fill-color-rgba", gc_skin_get_color("menu/text"),
+			 //FIXME BROKEN "alignment", PANGO_ALIGN_CENTER,
 			 NULL);
 
   menuitems->author_item = \
@@ -685,7 +687,8 @@ create_info_area(GooCanvasItem *parent, MenuItems *menuitems)
 			 -1,
 			 GTK_ANCHOR_CENTER,
 			 "font", gc_skin_font_board_tiny,
-			  "fill-color-rgba", gc_skin_get_color("menu/text"),
+			 "fill-color-rgba", gc_skin_get_color("menu/text"),
+			 "alignment", PANGO_ALIGN_CENTER,
 			 NULL);
 
 }

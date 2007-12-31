@@ -17,7 +17,7 @@
 #   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 #
 
-import gnomecanvas
+import goocanvas
 import gcompris
 import gcompris.utils
 import gcompris.skin
@@ -38,7 +38,6 @@ class Boards(module.Module):
 
 
   def __init__(self, canvas):
-    print("Gcompris_administration __init__ boards panel.")
     module.Module.__init__(self, canvas, "boards", _("Boards"))
 
   # Return the position it must have in the administration menu
@@ -47,16 +46,13 @@ class Boards(module.Module):
     return 3
 
   def start(self, area):
-    print "starting boards panel"
 
     # Create our rootitem. We put each canvas item in it so at the end we
     # only have to kill it. The canvas deletes all the items it contains automaticaly.
 
-    self.rootitem = self.canvas.add(
-        gnomecanvas.CanvasGroup,
-        x=0.0,
-        y=0.0
-        )
+    self.rootitem = goocanvas.Group(
+      parent = self.canvas,
+      )
 
     module.Module.start(self)
 
@@ -67,25 +63,23 @@ class Boards(module.Module):
     frame = gtk.Frame(_("Boards"))
     frame.show()
 
-    self.rootitem.add(
-      gnomecanvas.CanvasWidget,
+    goocanvas.Widget(
+      parent = self.rootitem,
       widget=frame,
       x=area[0]+self.module_panel_ofset,
       y=area[1]+self.module_panel_ofset,
       width=area[2]-area[0]-2*self.module_panel_ofset,
       height=area[3]-area[1]-2*self.module_panel_ofset,
-      anchor=gtk.ANCHOR_NW,
-      size_pixels=False)
+      anchor=gtk.ANCHOR_NW)
 
     board_list.Board_list(self.con, self.cur,
                           frame)
 
   def stop(self):
-    print "stopping boards panel"
     module.Module.stop(self)
 
     # Remove the root item removes all the others inside it
-    self.rootitem.destroy()
+    self.rootitem.remove()
 
     # Close the database
     self.cur.close()

@@ -1,21 +1,21 @@
 #  gcompris - user_edit.py
-# 
+#
 # Copyright (C) 2005 Bruno Coudoin
-# 
+#
 #   This program is free software; you can redistribute it and/or modify
 #   it under the terms of the GNU General Public License as published by
 #   the Free Software Foundation; either version 2 of the License, or
 #   (at your option) any later version.
-# 
+#
 #   This program is distributed in the hope that it will be useful,
 #   but WITHOUT ANY WARRANTY; without even the implied warranty of
 #   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 #   GNU General Public License for more details.
-# 
+#
 #   You should have received a copy of the GNU General Public License
 #   along with this program; if not, write to the Free Software
 #   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
-# 
+#
 
 
 import gtk
@@ -42,11 +42,11 @@ class UserEdit(gtk.Window):
 
         self.user_id  = user_id
         self.class_id = class_id
-        
+
         # A pointer to the user_list class
         # Will be called to refresh the list when edit is done
         self.list_user = list_user
-        
+
         self.set_title(_("Editing a User"))
         self.set_border_width(8)
         self.set_default_size(320, 250)
@@ -74,7 +74,7 @@ class UserEdit(gtk.Window):
         table.set_row_spacings(0)
         table.set_col_spacings(20)
         vbox.pack_start(table, True, True, 0)
-        
+
         label = gtk.Label(_('Login:'))
         label.set_alignment(0, 0)
         table.attach(label, 0, 1, 0, 1, xoptions=gtk.SHRINK, yoptions=gtk.EXPAND)
@@ -84,7 +84,7 @@ class UserEdit(gtk.Window):
         table.attach(self.entry_login, 1, 2, 0, 1, xoptions=gtk.SHRINK, yoptions=gtk.EXPAND)
 
         # FIXME: How to remove the selection
-        
+
         # Label and Entry for the first name
         label = gtk.Label(_('First name:'))
         label.set_alignment(0, 0)
@@ -117,7 +117,7 @@ class UserEdit(gtk.Window):
         vbox.pack_start(gtk.HSeparator(), False, False, 0)
 
         bbox = gtk.HBox(homogeneous=False, spacing=8)
-        
+
         button = gtk.Button(stock='gtk-help')
         bbox.pack_start(button, expand=False, fill=False, padding=0)
 
@@ -130,7 +130,7 @@ class UserEdit(gtk.Window):
         button.connect("clicked", self.close)
 
         vbox.pack_start(bbox, False, False, 0)
-        
+
         # Ready GO
         self.show_all()
 
@@ -144,7 +144,7 @@ class UserEdit(gtk.Window):
     #
     def close(self, button):
         self.destroy()
-        
+
     # Done, can quit this dialog with saving
     #
     def ok(self, button):
@@ -193,8 +193,7 @@ class UserEdit(gtk.Window):
         self.con.commit()
 
         # Close the dialog window now
-        print "user_edit calling reload"
         self.list_user.reload(self.class_id)
 
         self.destroy()
-        
+

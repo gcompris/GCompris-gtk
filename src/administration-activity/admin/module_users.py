@@ -17,7 +17,7 @@
 #   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 #
 
-import gnomecanvas
+import goocanvas
 import gcompris
 import gcompris.utils
 import gcompris.skin
@@ -37,7 +37,6 @@ class Users(module.Module):
 
 
   def __init__(self, canvas):
-      print("Gcompris_administration __init__ users panel.")
       module.Module.__init__(self, canvas, "users", _("Classes") + " / " + _("Users") )
 
   # Return the position it must have in the administration menu
@@ -47,18 +46,14 @@ class Users(module.Module):
 
 
   def start(self, area):
-      print "starting users panel"
-
       # Connect to our database
       self.con = sqlite.connect(gcompris.get_database())
       self.cur = self.con.cursor()
 
       # Create our rootitem. We put each canvas item in it so at the end we
       # only have to kill it. The canvas deletes all the items it contains automaticaly.
-      self.rootitem = self.canvas.add(
-          gnomecanvas.CanvasGroup,
-          x=0.0,
-          y=0.0
+      self.rootitem = goocanvas.Group(
+          parent = self.canvas,
           )
 
       # Call our parent start
@@ -67,29 +62,25 @@ class Users(module.Module):
       frame = gtk.Frame(_("Classes") + " / " + _("Users") )
       frame.show()
 
-      self.rootitem.add(
-        gnomecanvas.CanvasWidget,
+      goocanvas.Widget(
+        parent = self.rootitem,
         widget=frame,
         x=area[0]+self.module_panel_ofset,
         y=area[1]+self.module_panel_ofset,
         width=area[2]-area[0]-2*self.module_panel_ofset,
         height=area[3]-area[1]-2*self.module_panel_ofset,
-        anchor=gtk.ANCHOR_NW,
-        size_pixels=False)
+        anchor=gtk.ANCHOR_NW)
 
 
       class_list.Class_list(frame, self.con, self.cur)
 
 
   def stop(self):
-    print "stopping users panel"
     module.Module.stop(self)
 
     # Remove the root item removes all the others inside it
-    self.rootitem.destroy()
+    self.rootitem.remove()
 
     # Close the database
     self.cur.close()
     self.con.close()
-
-

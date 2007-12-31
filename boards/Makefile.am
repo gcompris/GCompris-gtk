@@ -56,8 +56,7 @@ xml_in_files = \
 	puzzle.xml.in \
 	reading.xml.in \
 	sound_group.xml.in \
-	strategy.xml.in \
-	writing_tutor.xml.in
+	strategy.xml.in
 
 
 

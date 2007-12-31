@@ -99,11 +99,11 @@ class Gcompris_administration:
 
     goocanvas.Rect(
       parent = self.rootitem,
-      x1=self.select_area[0],
-      y1=self.select_area[1],
-      x2=self.select_area[2],
-      y2=self.select_area[3],
-      fill_color="white",
+      x = self.select_area[0],
+      y = self.select_area[1],
+      width = self.select_area[2] - self.select_area[0],
+      height = self.select_area[3] - self.select_area[1],
+      fill_color = "white",
       stroke_color_rgba=0x111199FFL,
       line_width=1.0
       )
@@ -112,10 +112,10 @@ class Gcompris_administration:
 
     goocanvas.Rect(
       parent = self.rootitem,
-      x1=self.panel_area[0],
-      y1=self.panel_area[1],
-      x2=self.panel_area[2],
-      y2=self.panel_area[3],
+      x = self.panel_area[0],
+      y = self.panel_area[1],
+      width = self.panel_area[2] - self.panel_area[0],
+      height = self.panel_area[3] - self.panel_area[1],
       fill_color="white",
       stroke_color_rgba=0x111199FFL,
       line_width=1.0
@@ -157,13 +157,12 @@ class Gcompris_administration:
 
 
   def key_press(self, keyval, commit_str, preedit_str):
-    #print("Gcompris_administration key press. %i" % keyval)
     return False
 
   # ---- End of Initialisation
 
   # Event when a tool is selected
-  def select_event(self, item, event, module):
+  def select_event(self, item, target, event, module):
     if event.type == gtk.gdk.BUTTON_PRESS:
       if event.button == 1:
 

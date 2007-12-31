@@ -9,6 +9,7 @@ import gtk
 import gtk.gdk
 import random
 import cairo
+import pango
 
 from gcompris import gcompris_gettext as _
 
@@ -167,6 +168,7 @@ class Gcompris_pythontest:
       text=_("This is the first plugin in GCompris coded in the Python\nProgramming language."),
       fill_color="black",
       anchor = gtk.ANCHOR_CENTER,
+      alignment = pango.ALIGN_CENTER
       )
 
     self.canvasitems[4] = goocanvas.Text(
@@ -176,6 +178,7 @@ class Gcompris_pythontest:
       text=_("It is now possible to develop GCompris activities in C or in Python.\nThanks to Olivier Samys who makes this possible."),
       fill_color="black",
       anchor = gtk.ANCHOR_CENTER,
+      alignment = pango.ALIGN_CENTER
       )
 
     self.canvasitems[5] = goocanvas.Text(
@@ -185,6 +188,7 @@ class Gcompris_pythontest:
       text=_("This activity is not playable, just a test"),
       fill_color="black",
       anchor = gtk.ANCHOR_CENTER,
+      alignment = pango.ALIGN_CENTER
       )
 
     #----------------------------------------
@@ -208,6 +212,7 @@ class Gcompris_pythontest:
       font=gcompris.skin.get_font("gcompris/content"),
       fill_color_rgba=0x102010FFL,
       anchor = gtk.ANCHOR_CENTER,
+      alignment = pango.ALIGN_CENTER
       )
 
     goocanvas.Text(
@@ -217,6 +222,7 @@ class Gcompris_pythontest:
       text=("Test your reflex with the counter. Hit the 2 shifts key together.\nHit space to reset the counter and increase the speed.\nBackspace to reset the speed"),
       fill_color="black",
       anchor = gtk.ANCHOR_CENTER,
+      alignment = pango.ALIGN_CENTER
       )
 
     # The basic tick for object moves
@@ -235,6 +241,7 @@ class Gcompris_pythontest:
       text="Speed="+str(self.timerinc)+" ms",
       fill_color="black",
       anchor = gtk.ANCHOR_CENTER,
+      alignment = pango.ALIGN_CENTER
       )
 
     self.textitem_left = goocanvas.Text(
