@@ -59,18 +59,14 @@ class Gcompris_redraw:
     # COLOR SELECTION
     self.color_fill = 0xA0
     self.color_stroke = 0xFF
-    self.colors = [ 0x2A2A2A00L,
-                    0x7C4B2100L,
+    self.colors = [ 0x00000000L,
                     0xFF000000L,
-                    0xFF8C4500L,
                     0xFFFF0c00L,
                     0xB9BC0D00L,
-                    0x14FF3b00L,
-                    0xA4FFB300L,
-                    0xFF53AF00L,
+                    0x33FF0000L,
                     0x83189100L,
-                    0x66666600L,
-                    0x1010F000L]
+                    0xC2C2C200L,
+                    0x1010FF00L]
 
     self.current_color = 0
     self.current_step = 0
@@ -113,14 +109,16 @@ class Gcompris_redraw:
     # only have to kill it. The canvas deletes all the items it contains automaticaly.
     self.rootitem = goocanvas.Group(parent =  self.gcomprisBoard.canvas.get_root_item())
 
-    goocanvas.Image(
+    item = goocanvas.Image(
       parent = self.rootitem,
-      pixbuf = gcompris.utils.load_pixmap(gcompris.skin.image_to_skin(self.gcomprisBoard.icon_name)),
-      x = gcompris.BOARD_WIDTH - 60,
-      y = 5,
-      width = 60,
-      height = 60,
+      pixbuf = gcompris.utils.load_pixmap(self.gcomprisBoard.name + "/" +
+                                          self.gcomprisBoard.icon_name),
       )
+    bounds = item.get_bounds()
+    scale = 60.0 / (bounds.x2 - bounds.x1)
+    item.scale(scale, scale)
+    item.set_properties(x = (gcompris.BOARD_WIDTH - 65) / scale,
+                        y = 5 / scale)
 
     self.draw_tools()
     self.draw_colors()
@@ -469,6 +467,7 @@ class Gcompris_redraw:
     item.connect("button_press_event", self.create_item_event)
     item.connect("button_release_event", self.create_item_event)
     item.connect("motion_notify_event", self.create_item_event)
+    item.connect("leave_notify_event", self.target_item_event)
 
     self.draw_grid(x1,x2,y1,y2,step)
 
@@ -488,6 +487,7 @@ class Gcompris_redraw:
       stroke_color_rgba=0x111199FFL
       )
     item.connect("motion_notify_event", self.target_item_event)
+    item.connect("leave_notify_event", self.target_item_event)
 
     self.draw_grid(x1,x2,y1,y2,step)
 
@@ -521,34 +521,12 @@ class Gcompris_redraw:
       for k, v in item.items():
 
         if k == 'points' :
-          if self.gcomprisBoard.mode == 'normal':
-            v2 = (v[0]+xofset, v[1], v[2]+xofset, v[3])
-          else:
-            # Symmetrical view
-            v2 = (self.drawing_area[2] - (v[0] - self.drawing_area[0])+xofset, v[1],
-                  self.drawing_area[2] - (v[2] - self.drawing_area[0])+xofset, v[3])
-          item[k] = v2
-
-        elif k == 'x' :
-          if self.gcomprisBoard.mode == 'normal':
-            item[k] = v + xofset
-          else:
-            # Symmetrical view
-            item[k] = self.drawing_area[2] - (v - self.drawing_area[0])  + xofset
-
-        elif k == 'x1' :
-          if self.gcomprisBoard.mode == 'normal':
-            item[k] = v + xofset
-          else:
-            # Symmetrical view
-            item[k] = self.drawing_area[2] - (v - self.drawing_area[0])  + xofset
-
-        elif k == 'x2' :
-          if self.gcomprisBoard.mode == 'normal':
-            item[k] = v + xofset
-          else:
-            # Symmetrical view
-            item[k] = self.drawing_area[2] - (v - self.drawing_area[0])  + xofset
+          item[k] = (self.drawing_area[2] - (v[0] - self.drawing_area[0])+xofset, v[1],
+                     self.drawing_area[2] - (v[2] - self.drawing_area[0])+xofset, v[3])
+        elif k == 'x':
+          item[k] = self.drawing_area[2] - (v - self.drawing_area[0])  + xofset - item['width']
+        elif k == 'center_x':
+          item[k] = self.drawing_area[2] - (v - self.drawing_area[0])  + xofset
 
     return drawing
 
@@ -1223,62 +1201,62 @@ class Gcompris_redraw:
       self.drawlist = \
                     [
         # Two stripes
-      [{'width': 280.0, 'line_width': 1.0, 'height': 20.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x1010F0A0L, 'y': 80.0, 'tool': 'FILL_RECT', 'x': 140.0},
-       {'width': 280.0, 'line_width': 1.0, 'height': 20.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x1010F0A0L, 'y': 420.0, 'tool': 'FILL_RECT', 'x': 140.0}]
+      [{'width': 280.0, 'line_width': 1.0, 'height': 20.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x1010FFA0L, 'y': 80.0, 'tool': 'FILL_RECT', 'x': 140.0},
+       {'width': 280.0, 'line_width': 1.0, 'height': 20.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x1010FFA0L, 'y': 420.0, 'tool': 'FILL_RECT', 'x': 140.0}]
       ,
       # Top centered box
-      [{'width': 160.0, 'height': 40.0, 'line_width': 1.0, 'fill_color_rgba': 0x1010F0A0L, 'stroke_color_rgba': 255L, 'y': 40.0, 'x': 200.0, 'tool': 'FILL_RECT'}]
+      [{'width': 160.0, 'height': 40.0, 'line_width': 1.0, 'fill_color_rgba': 0x1010FFA0L, 'stroke_color_rgba': 255L, 'y': 40.0, 'x': 200.0, 'tool': 'FILL_RECT'}]
       ,
       # 4 small corners
-      [{'width': 40.0, 'height': 40.0,  'line_width': 1.0,'fill_color_rgba': 0x1010F0A0L, 'stroke_color_rgba': 255L, 'y': 40.0, 'x': 160.0, 'tool': 'FILL_RECT'},
-       {'width': 400.0-360.0, 'height': 80.0-40.0,  'line_width': 1.0,'fill_color_rgba': 0x1010F0A0L, 'stroke_color_rgba': 255L, 'y': 40.0, 'x': 360.0, 'tool': 'FILL_RECT'},
-       {'width': 200.0-160.0, 'height': 480.0-440.0, 'line_width': 1.0, 'fill_color_rgba': 0x1010F0A0L, 'stroke_color_rgba': 255L, 'y': 440.0, 'x': 160.0, 'tool': 'FILL_RECT'},
-       {'width': 400.0-360.0, 'height': 480.0-440.0,  'line_width': 1.0,'fill_color_rgba': 0x1010F0A0L, 'stroke_color_rgba': 255L, 'y': 440.0, 'x': 360.0, 'tool': 'FILL_RECT'}]
+      [{'width': 40.0, 'height': 40.0,  'line_width': 1.0,'fill_color_rgba': 0x1010FFA0L, 'stroke_color_rgba': 255L, 'y': 40.0, 'x': 160.0, 'tool': 'FILL_RECT'},
+       {'width': 400.0-360.0, 'height': 80.0-40.0,  'line_width': 1.0,'fill_color_rgba': 0x1010FFA0L, 'stroke_color_rgba': 255L, 'y': 40.0, 'x': 360.0, 'tool': 'FILL_RECT'},
+       {'width': 200.0-160.0, 'height': 480.0-440.0, 'line_width': 1.0, 'fill_color_rgba': 0x1010FFA0L, 'stroke_color_rgba': 255L, 'y': 440.0, 'x': 160.0, 'tool': 'FILL_RECT'},
+       {'width': 400.0-360.0, 'height': 480.0-440.0,  'line_width': 1.0,'fill_color_rgba': 0x1010FFA0L, 'stroke_color_rgba': 255L, 'y': 440.0, 'x': 360.0, 'tool': 'FILL_RECT'}]
       ,
       # 4 non filled Rects organised in rect and shifted
-      [{'width': 200.0-180.0, 'height': 360.0-200.0, 'stroke_color_rgba': 0x1010F0FFL, 'line_width': 4.0, 'y': 200.0, 'x': 180.0, 'tool': 'RECT'},
-       {'width': 340.0-180.0, 'height': 400.0-380.0, 'stroke_color_rgba': 0x1010F0FFL, 'line_width': 4.0, 'y':380.0, 'x': 180.0, 'tool': 'RECT'},
-       {'width': 380.0-360.0, 'height': 400.0-240.0, 'stroke_color_rgba': 0x1010F0FFL, 'line_width': 4.0, 'y': 240.0, 'x': 360.0, 'tool': 'RECT'},
-       {'width': 380.0-220.0, 'height': 220.0-200.0, 'stroke_color_rgba': 0x1010F0FFL, 'line_width': 4.0, 'y': 200.0, 'x': 220.0, 'tool': 'RECT'}]
+      [{'width': 200.0-180.0, 'height': 360.0-200.0, 'stroke_color_rgba': 0x1010FFFFL, 'line_width': 4.0, 'y': 200.0, 'x': 180.0, 'tool': 'RECT'},
+       {'width': 340.0-180.0, 'height': 400.0-380.0, 'stroke_color_rgba': 0x1010FFFFL, 'line_width': 4.0, 'y':380.0, 'x': 180.0, 'tool': 'RECT'},
+       {'width': 380.0-360.0, 'height': 400.0-240.0, 'stroke_color_rgba': 0x1010FFFFL, 'line_width': 4.0, 'y': 240.0, 'x': 360.0, 'tool': 'RECT'},
+       {'width': 380.0-220.0, 'height': 220.0-200.0, 'stroke_color_rgba': 0x1010FFFFL, 'line_width': 4.0, 'y': 200.0, 'x': 220.0, 'tool': 'RECT'}]
       ,
       # Letter A
-      [{'tool': 'LINE', 'points': (200.0, 120.0, 280.0, 120.0), 'line_width': 8.0, 'stroke_color_rgba': 0x1010F0FFL},
-       {'tool': 'LINE', 'points': (280.0, 120.0, 280.0,240.0), 'line_width': 8.0, 'stroke_color_rgba': 0x1010F0FFL},
-       {'tool': 'LINE', 'points': (200.0, 120.0, 200.0, 240.0), 'line_width': 8.0, 'stroke_color_rgba': 0x1010F0FFL},
-       {'tool': 'LINE', 'points': (200.0, 180.0, 280.0, 180.0), 'line_width': 8.0, 'stroke_color_rgba': 0x1010F0FFL}]
+      [{'tool': 'LINE', 'points': (200.0, 120.0, 280.0, 120.0), 'line_width': 8.0, 'stroke_color_rgba': 0x1010FFFFL},
+       {'tool': 'LINE', 'points': (280.0, 120.0, 280.0,240.0), 'line_width': 8.0, 'stroke_color_rgba': 0x1010FFFFL},
+       {'tool': 'LINE', 'points': (200.0, 120.0, 200.0, 240.0), 'line_width': 8.0, 'stroke_color_rgba': 0x1010FFFFL},
+       {'tool': 'LINE', 'points': (200.0, 180.0, 280.0, 180.0), 'line_width': 8.0, 'stroke_color_rgba': 0x1010FFFFL}]
       ,
       # Letter B
-      [{'tool': 'LINE', 'points': (240.0, 240.0, 320.0, 240.0), 'line_width': 8.0, 'stroke_color_rgba': 0x1010F0FFL},
-       {'tool': 'LINE', 'points': (300.0, 180.0, 320.0,200.0), 'line_width': 8.0, 'stroke_color_rgba': 0x1010F0FFL},
-       {'tool': 'LINE', 'points': (300.0, 180.0, 320.0, 160.0), 'line_width': 8.0, 'stroke_color_rgba': 0x1010F0FFL},
-       {'tool': 'LINE', 'points': (240.0, 180.0, 300.0, 180.0), 'line_width': 8.0, 'stroke_color_rgba': 0x1010F0FFL},
-       {'tool': 'LINE', 'points': (320.0, 100.0, 320.0, 160.0), 'line_width': 8.0, 'stroke_color_rgba': 0x1010F0FFL},
-       {'tool':'LINE', 'points': (240.0, 100.0, 320.0, 100.0), 'line_width': 8.0, 'stroke_color_rgba': 0x1010F0FFL},
-       {'tool': 'LINE', 'points': (240.0, 100.0, 240.0, 240.0), 'line_width': 8.0, 'stroke_color_rgba': 0x1010F0FFL},
-       {'tool': 'LINE', 'points': (320.0, 200.0, 320.0, 240.0), 'line_width': 8.0, 'stroke_color_rgba': 0x1010F0FFL}]
+      [{'tool': 'LINE', 'points': (240.0, 240.0, 320.0, 240.0), 'line_width': 8.0, 'stroke_color_rgba': 0x1010FFFFL},
+       {'tool': 'LINE', 'points': (300.0, 180.0, 320.0,200.0), 'line_width': 8.0, 'stroke_color_rgba': 0x1010FFFFL},
+       {'tool': 'LINE', 'points': (300.0, 180.0, 320.0, 160.0), 'line_width': 8.0, 'stroke_color_rgba': 0x1010FFFFL},
+       {'tool': 'LINE', 'points': (240.0, 180.0, 300.0, 180.0), 'line_width': 8.0, 'stroke_color_rgba': 0x1010FFFFL},
+       {'tool': 'LINE', 'points': (320.0, 100.0, 320.0, 160.0), 'line_width': 8.0, 'stroke_color_rgba': 0x1010FFFFL},
+       {'tool':'LINE', 'points': (240.0, 100.0, 320.0, 100.0), 'line_width': 8.0, 'stroke_color_rgba': 0x1010FFFFL},
+       {'tool': 'LINE', 'points': (240.0, 100.0, 240.0, 240.0), 'line_width': 8.0, 'stroke_color_rgba': 0x1010FFFFL},
+       {'tool': 'LINE', 'points': (320.0, 200.0, 320.0, 240.0), 'line_width': 8.0, 'stroke_color_rgba': 0x1010FFFFL}]
       ,
       # A door
-      [{'width': 360.0-200.0, 'height': 360.0-180.0, 'stroke_color_rgba': 0x1010F0FFL, 'line_width': 4.0, 'y': 180.0, 'x': 200.0, 'tool': 'RECT'},
-       {'radius_x': 20, 'radius_y': 20, 'line_width': 1.0, 'fill_color_rgba': 0x1010F0A0L, 'stroke_color_rgba': 255L, 'center_y': 280.0+20, 'center_x': 300.0+20, 'tool': 'FILL_CIRCLE'},
-       {'width': 320.0-240.0, 'height': 260.0-200.0, 'line_width': 1.0, 'fill_color_rgba': 0x1010F0A0L, 'stroke_color_rgba': 255L, 'y': 200.0, 'x': 240.0, 'tool': 'FILL_RECT'}],
+      [{'width': 360.0-200.0, 'height': 360.0-180.0, 'stroke_color_rgba': 0x1010FFFFL, 'line_width': 4.0, 'y': 180.0, 'x': 200.0, 'tool': 'RECT'},
+       {'radius_x': 20, 'radius_y': 20, 'line_width': 1.0, 'fill_color_rgba': 0x1010FFA0L, 'stroke_color_rgba': 255L, 'center_y': 280.0+20, 'center_x': 300.0+20, 'tool': 'FILL_CIRCLE'},
+       {'width': 320.0-240.0, 'height': 260.0-200.0, 'line_width': 1.0, 'fill_color_rgba': 0x1010FFA0L, 'stroke_color_rgba': 255L, 'y': 200.0, 'x': 240.0, 'tool': 'FILL_RECT'}],
       # A top left kind of target
-      [{'radius_x': 50, 'radius_y': 50, 'stroke_color_rgba': 0x1010F0FFL, 'center_y': 40.0+50, 'center_x': 160.0+50, 'tool': 'CIRCLE', 'line_width': 5.0},
-       {'radius_x': 30, 'radius_y': 30, 'line_width': 1.0, 'fill_color_rgba': 0x1010F0A0L, 'stroke_color_rgba': 255L, 'center_y': 60.0+30, 'center_x': 180.0+30, 'tool': 'FILL_CIRCLE'}]
+      [{'radius_x': 50, 'radius_y': 50, 'stroke_color_rgba': 0x1010FFFFL, 'center_y': 40.0+50, 'center_x': 160.0+50, 'tool': 'CIRCLE', 'line_width': 5.0},
+       {'radius_x': 30, 'radius_y': 30, 'line_width': 1.0, 'fill_color_rgba': 0x1010FFA0L, 'stroke_color_rgba': 255L, 'center_y': 60.0+30, 'center_x': 180.0+30, 'tool': 'FILL_CIRCLE'}]
       ,
       # 4 Huge Diagonal lines
-      [{'tool': 'LINE', 'points': (140.0, 260.0, 260.0, 20.0), 'line_width': 8.0, 'stroke_color_rgba': 0x1010F0FFL},
-       {'tool': 'LINE', 'points': (140.0, 260.0, 260.0, 500.0), 'line_width': 8.0, 'stroke_color_rgba': 0x1010F0FFL},
-       {'tool': 'LINE', 'points': (260.0, 500.0, 420.0, 260.0), 'line_width': 8.0, 'stroke_color_rgba': 0x1010F0FFL},
-       {'tool': 'LINE', 'points': (260.0, 20.0, 420.0, 260.0), 'line_width': 8.0, 'stroke_color_rgba': 0x1010F0FFL}]
+      [{'tool': 'LINE', 'points': (140.0, 260.0, 260.0, 20.0), 'line_width': 8.0, 'stroke_color_rgba': 0x1010FFFFL},
+       {'tool': 'LINE', 'points': (140.0, 260.0, 260.0, 500.0), 'line_width': 8.0, 'stroke_color_rgba': 0x1010FFFFL},
+       {'tool': 'LINE', 'points': (260.0, 500.0, 420.0, 260.0), 'line_width': 8.0, 'stroke_color_rgba': 0x1010FFFFL},
+       {'tool': 'LINE', 'points': (260.0, 20.0, 420.0, 260.0), 'line_width': 8.0, 'stroke_color_rgba': 0x1010FFFFL}]
       ,
       # Balloon
-      [{'tool': 'LINE', 'points': (220.0, 240.0, 220.0, 340.0), 'line_width': 8.0, 'stroke_color_rgba': 0x1010F0FFL},
+      [{'tool': 'LINE', 'points': (220.0, 240.0, 220.0, 340.0), 'line_width': 8.0, 'stroke_color_rgba': 0x1010FFFFL},
        {'radius_x': 40, 'line_width': 1.0, 'radius_y': 50, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0xFF0000A0L, 'center_y': 140.0+50, 'tool': 'FILL_CIRCLE', 'center_x': 180.0+40},
-       {'radius_x': 40, 'line_width': 1.0, 'radius_y': 50, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0xff53afA0L, 'center_y': 80.0+50, 'tool': 'FILL_CIRCLE', 'center_x': 300.0+40},
-       {'tool': 'LINE', 'points': (340.0, 180.0, 340.0, 280.0), 'line_width': 8.0, 'stroke_color_rgba': 0x1010F0FFL}]
+       {'radius_x': 40, 'line_width': 1.0, 'radius_y': 50, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x33FF00A0L, 'center_y': 80.0+50, 'tool': 'FILL_CIRCLE', 'center_x': 300.0+40},
+       {'tool': 'LINE', 'points': (340.0, 180.0, 340.0, 280.0), 'line_width': 8.0, 'stroke_color_rgba': 0x1010FFFFL}]
       ,
       # Watch
-      [{'radius_x': 100, 'radius_y': 100, 'stroke_color_rgba': 0x1010F0FFL, 'line_width': 5.0, 'center_y': 140.0+100, 'tool': 'CIRCLE', 'center_x': 180.0+100},
+      [{'radius_x': 100, 'radius_y': 100, 'stroke_color_rgba': 0x1010FFFFL, 'line_width': 5.0, 'center_y': 140.0+100, 'tool': 'CIRCLE', 'center_x': 180.0+100},
        {'tool': 'LINE', 'points': (280.0, 160.0, 280.0, 240.0), 'line_width': 8.0, 'stroke_color_rgba': 0xFF0000A0L},
        {'tool': 'LINE', 'points': (280.0, 240.0, 320.0, 200.0), 'line_width': 8.0, 'stroke_color_rgba': 352271359L},
        {'tool': 'LINE', 'points': (220.0, 280.0, 280.0, 240.0), 'line_width': 8.0, 'stroke_color_rgba': 4294905087L}]
@@ -1286,29 +1264,29 @@ class Gcompris_redraw:
       # Colored pyramid
       [{'width': 280.0-260.0, 'line_width': 1.0, 'height': 120.0-100.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0xFF0000A0L, 'y': 100.0, 'x': 260.0, 'tool': 'FILL_RECT'},
        {'width': 300.0-240.0, 'line_width': 1.0, 'height': 140.0-120.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0xffff0cA0L, 'y': 120.0,  'x': 240.0, 'tool': 'FILL_RECT'},
-       {'width': 320.0-220.0, 'line_width': 1.0, 'height': 160.0-140.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x14FF3BA0L, 'y': 140.0, 'tool': 'FILL_RECT', 'x': 220.0},
-       {'width': 340.0-200.0, 'line_width': 1.0, 'height': 180.0-160.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0xff53afA0L, 'y': 160.0, 'tool': 'FILL_RECT', 'x': 200.0},
-       {'width': 360.0-180.0, 'line_width': 1.0, 'height': 200.0-180.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x666666A0L, 'y': 180.0, 'tool': 'FILL_RECT', 'x': 180.0}]
+       {'width': 320.0-220.0, 'line_width': 1.0, 'height': 160.0-140.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x33FF00A0L, 'y': 140.0, 'tool': 'FILL_RECT', 'x': 220.0},
+       {'width': 340.0-200.0, 'line_width': 1.0, 'height': 180.0-160.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x33FF00A0L, 'y': 160.0, 'tool': 'FILL_RECT', 'x': 200.0},
+       {'width': 360.0-180.0, 'line_width': 1.0, 'height': 200.0-180.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0xC2C2C2A0L, 'y': 180.0, 'tool': 'FILL_RECT', 'x': 180.0}]
       ,
       # Colored Rectangle bigger and bigger
-      [{'width': 180.0-140.0, 'line_width': 1.0, 'height': 60.0-20.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0xff53afA0L, 'y': 20.0, 'tool': 'FILL_RECT', 'x': 140.0},
+      [{'width': 180.0-140.0, 'line_width': 1.0, 'height': 60.0-20.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x33FF00A0L, 'y': 20.0, 'tool': 'FILL_RECT', 'x': 140.0},
        {'width': 240.0-180.0, 'line_width': 1.0, 'height': 120.0-60.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0xFF0000A0L, 'y': 60.0, 'tool': 'FILL_RECT', 'x': 180.0},
        {'width': 320.0-240.0, 'line_width': 1.0, 'height': 200.0-120.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0xffff0cA0L, 'y': 120.0, 'tool': 'FILL_RECT', 'x': 240.0},
-       {'width': 420.0-320.0, 'line_width': 1.0, 'height': 300.0-200.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x14FF3BA0L, 'y': 200.0, 'tool': 'FILL_RECT', 'x': 320.0}]
+       {'width': 420.0-320.0, 'line_width': 1.0, 'height': 300.0-200.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x33FF00A0L, 'y': 200.0, 'tool': 'FILL_RECT', 'x': 320.0}]
       ,
       # Tree
-      [{'width': 420.0-140.0, 'line_width': 1.0, 'height': 500.0-460.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x7C4B21A0L, 'y': 460.0, 'tool': 'FILL_RECT', 'x': 140.0},
-       {'width': 260.0-240.0, 'line_width': 1.0, 'height': 460.0-360.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x14ff3bA0L, 'y': 360.0, 'tool': 'FILL_RECT', 'x': 240.0},
-       {'radius_x': 70, 'line_width': 1.0, 'radius_y': 40, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x14FF3BA0L, 'center_y': 280.0+40, 'tool': 'FILL_CIRCLE', 'center_x': 180.0+70}]
+      [{'width': 420.0-140.0, 'line_width': 1.0, 'height': 500.0-460.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x000000A0L, 'y': 460.0, 'tool': 'FILL_RECT', 'x': 140.0},
+       {'width': 260.0-240.0, 'line_width': 1.0, 'height': 460.0-360.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x33FF00A0L, 'y': 360.0, 'tool': 'FILL_RECT', 'x': 240.0},
+       {'radius_x': 70, 'line_width': 1.0, 'radius_y': 40, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x33FF00A0L, 'center_y': 280.0+40, 'tool': 'FILL_CIRCLE', 'center_x': 180.0+70}]
       ,
       # bipbip (big non flying bird)
-      [{'width': 280.0-260.0, 'line_width': 1.0, 'height': 320.0-120.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x14FF3BA0L, 'y': 120.0, 'tool': 'FILL_RECT', 'x': 260.0},
-       {'width': 300.0-260.0, 'line_width': 1.0, 'height': 120.0-80.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x14FF3BA0L, 'y': 80.0, 'tool': 'FILL_RECT', 'x': 260.0},
-       {'width': 320.0-300.0, 'line_width': 1.0, 'height': 120.0-100.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x14FF3BA0L, 'y': 100.0, 'tool': 'FILL_RECT', 'x': 300.0},
-       {'width': 280.0-200.0, 'line_width': 1.0, 'height': 380.0-320.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x14FF3BA0L, 'y': 320.0, 'tool': 'FILL_RECT', 'x': 200.0},
-       {'width': 220.0-200.0, 'line_width': 1.0, 'height': 320.0-300.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x14FF3BA0L, 'y': 300.0, 'tool': 'FILL_RECT', 'x': 200.0},
-       {'width': 260.0-240.0, 'line_width': 1.0, 'height': 460.0-380.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x14FF3BA0L, 'y': 380.0, 'tool': 'FILL_RECT', 'x': 240.0},
-       {'width': 280.0-260.0, 'line_width': 1.0, 'height': 460.0-440.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x14FF3BA0L, 'y': 440.0, 'tool': 'FILL_RECT', 'x': 260.0}]
+      [{'width': 280.0-260.0, 'line_width': 1.0, 'height': 320.0-120.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x33FF00A0L, 'y': 120.0, 'tool': 'FILL_RECT', 'x': 260.0},
+       {'width': 300.0-260.0, 'line_width': 1.0, 'height': 120.0-80.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x33FF00A0L, 'y': 80.0, 'tool': 'FILL_RECT', 'x': 260.0},
+       {'width': 320.0-300.0, 'line_width': 1.0, 'height': 120.0-100.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x33FF00A0L, 'y': 100.0, 'tool': 'FILL_RECT', 'x': 300.0},
+       {'width': 280.0-200.0, 'line_width': 1.0, 'height': 380.0-320.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x33FF00A0L, 'y': 320.0, 'tool': 'FILL_RECT', 'x': 200.0},
+       {'width': 220.0-200.0, 'line_width': 1.0, 'height': 320.0-300.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x33FF00A0L, 'y': 300.0, 'tool': 'FILL_RECT', 'x': 200.0},
+       {'width': 260.0-240.0, 'line_width': 1.0, 'height': 460.0-380.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x33FF00A0L, 'y': 380.0, 'tool': 'FILL_RECT', 'x': 240.0},
+       {'width': 280.0-260.0, 'line_width': 1.0, 'height': 460.0-440.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x33FF00A0L, 'y': 440.0, 'tool': 'FILL_RECT', 'x': 260.0}]
       ,
       # Dog
       [{'width': 180.0-160.0, 'line_width': 1.0, 'height': 200.0-180.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x831891A0L, 'y': 180.0, 'tool': 'FILL_RECT', 'x': 160.0},
@@ -1319,7 +1297,7 @@ class Gcompris_redraw:
       ,
       # Fish
       [{'radius_x': 90, 'line_width': 1.0, 'radius_y': 60, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0xffff0cA0L, 'center_y': 160.0+60, 'tool': 'FILL_CIRCLE', 'center_x': 180.0+90},
-       {'radius_x': 10, 'line_width': 1.0, 'radius_y': 10, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x1010F0A0L, 'center_y': 200.0+10, 'tool': 'FILL_CIRCLE', 'center_x': 320.0+10},
+       {'radius_x': 10, 'line_width': 1.0, 'radius_y': 10, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x1010FFA0L, 'center_y': 200.0+10, 'tool': 'FILL_CIRCLE', 'center_x': 320.0+10},
        {'width': 180.0-160.0, 'line_width': 1.0, 'height': 260.0-180.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0xffff0cA0L, 'y': 180.0, 'tool': 'FILL_RECT', 'x': 160.0}]
       ,
       # Balloon (human)
@@ -1329,19 +1307,19 @@ class Gcompris_redraw:
        {'tool': 'LINE', 'points': (320.0, 320.0, 360.0, 260.0), 'line_width': 8.0, 'stroke_color_rgba': 4287383039L}]
       ,
       # House
-      [{'width': 360.0-200.0, 'line_width': 1.0, 'height': 340.0-240.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x14ff3bA0L, 'y': 240.0, 'tool': 'FILL_RECT', 'x': 200.0},
-       {'width': 280.0-240.0, 'line_width': 1.0, 'height': 340.0-280.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x1010F0A0L, 'y': 280.0, 'tool': 'FILL_RECT', 'x': 240.0},
-       {'width': 340.0-300.0, 'line_width': 1.0, 'height': 300.0-260.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x1010F0A0L, 'y': 260.0, 'tool': 'FILL_RECT', 'x': 300.0},
+      [{'width': 360.0-200.0, 'line_width': 1.0, 'height': 340.0-240.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x33FF00A0L, 'y': 240.0, 'tool': 'FILL_RECT', 'x': 200.0},
+       {'width': 280.0-240.0, 'line_width': 1.0, 'height': 340.0-280.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x1010FFA0L, 'y': 280.0, 'tool': 'FILL_RECT', 'x': 240.0},
+       {'width': 340.0-300.0, 'line_width': 1.0, 'height': 300.0-260.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x1010FFA0L, 'y': 260.0, 'tool': 'FILL_RECT', 'x': 300.0},
        {'tool': 'LINE', 'points': (200.0, 240.0, 280.0, 160.0), 'line_width': 8.0, 'stroke_color_rgba': 4287383039L},
        {'tool': 'LINE', 'points': (280.0, 160.0, 360.0, 240.0), 'line_width': 8.0, 'stroke_color_rgba': 4287383039L}]
       ,
       # Truck
-      [{'radius_x': 20, 'line_width': 1.0, 'radius_y': 20, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x1010F0A0L, 'center_y': 240.0+20, 'tool': 'FILL_CIRCLE', 'center_x': 180.0+20},
-       {'radius_x': 20, 'line_width': 1.0, 'radius_y': 20, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x1010F0A0L, 'center_y': 240.0+20, 'tool': 'FILL_CIRCLE', 'center_x': 280.0+20},
+      [{'radius_x': 20, 'line_width': 1.0, 'radius_y': 20, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x1010FFA0L, 'center_y': 240.0+20, 'tool': 'FILL_CIRCLE', 'center_x': 180.0+20},
+       {'radius_x': 20, 'line_width': 1.0, 'radius_y': 20, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x1010FFA0L, 'center_y': 240.0+20, 'tool': 'FILL_CIRCLE', 'center_x': 280.0+20},
        {'width': 220.0-160.0, 'line_width': 1.0, 'height': 260.0-220.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0xFF0000A0L, 'y': 220.0, 'tool': 'FILL_RECT', 'x': 160.0},
        {'width': 300.0-220.0, 'line_width': 1.0, 'height': 260.0-180.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0xFF0000A0L, 'y': 180.0, 'tool': 'FILL_RECT', 'x': 220.0},
        {'width': 320.0-300.0, 'line_width': 1.0, 'height': 260.0-220.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0xFF0000A0L, 'y': 220.0, 'tool': 'FILL_RECT', 'x': 300.0},
-       {'width': 280.0-240.0, 'line_width': 1.0, 'height': 260.0-200.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x1010F0A0L, 'y': 200.0, 'tool': 'FILL_RECT', 'x': 240.0}]
+       {'width': 280.0-240.0, 'line_width': 1.0, 'height': 260.0-200.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x1010FFA0L, 'y': 200.0, 'tool': 'FILL_RECT', 'x': 240.0}]
       ,
       # Fire truck
       [{'radius_x': 20, 'line_width': 1.0, 'radius_y': 20, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0xFF0000A0L, 'center_y': 260.0+20, 'tool': 'FILL_CIRCLE', 'center_x': 160.0+20},
@@ -1349,23 +1327,23 @@ class Gcompris_redraw:
        {'width': 380.0-160.0, 'line_width': 1.0, 'height': 280.0-220.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0xFF0000A0L, 'y': 220.0, 'tool': 'FILL_RECT', 'x': 160.0},
        {'tool': 'LINE', 'points': (160.0, 200.0, 340.0, 180.0), 'line_width': 8.0, 'stroke_color_rgba': 0xFF0000A0L},
        {'width': 200.0-180.0, 'line_width': 1.0, 'height': 220.0-200.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0xFF0000A0L, 'y': 200.0, 'tool': 'FILL_RECT', 'x': 180.0},
-       {'width': 360.0-320.0, 'line_width': 1.0, 'height': 260.0-220.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x1010F0A0L, 'y': 220.0, 'tool': 'FILL_RECT', 'x': 320.0},
-       {'width': 300.0-280.0, 'line_width': 1.0, 'height': 260.0-220.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x1010F0A0L, 'y': 220.0, 'tool': 'FILL_RECT', 'x': 280.0}]
+       {'width': 360.0-320.0, 'line_width': 1.0, 'height': 260.0-220.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x1010FFA0L, 'y': 220.0, 'tool': 'FILL_RECT', 'x': 320.0},
+       {'width': 300.0-280.0, 'line_width': 1.0, 'height': 260.0-220.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x1010FFA0L, 'y': 220.0, 'tool': 'FILL_RECT', 'x': 280.0}]
       ,
       # Billard
       [
-        {'line_width': 8.0, 'points': (180.0, 80.0, 180.0, 440.0), 'tool': 'LINE', 'stroke_color_rgba': 0x1010F0FFL},
-        {'line_width': 8.0, 'points': (180.0, 460.0, 380.0, 460.0), 'tool': 'LINE', 'stroke_color_rgba': 0x1010F0FFL},
-        {'line_width': 8.0, 'points': (380.0, 80.0, 380.0, 440.0), 'tool': 'LINE', 'stroke_color_rgba': 0x1010F0FFL},
-        {'line_width': 8.0, 'points': (180.0, 60.0, 380.0, 60.0), 'tool': 'LINE', 'stroke_color_rgba': 0x1010F0FFL},
+        {'line_width': 8.0, 'points': (180.0, 80.0, 180.0, 440.0), 'tool': 'LINE', 'stroke_color_rgba': 0x1010FFFFL},
+        {'line_width': 8.0, 'points': (180.0, 460.0, 380.0, 460.0), 'tool': 'LINE', 'stroke_color_rgba': 0x1010FFFFL},
+        {'line_width': 8.0, 'points': (380.0, 80.0, 380.0, 440.0), 'tool': 'LINE', 'stroke_color_rgba': 0x1010FFFFL},
+        {'line_width': 8.0, 'points': (180.0, 60.0, 380.0, 60.0), 'tool': 'LINE', 'stroke_color_rgba': 0x1010FFFFL},
         {'line_width': 8.0, 'points': (280.0, 320.0, 280.0, 420.0), 'tool': 'LINE', 'stroke_color_rgba': 2199425535L},
-        {'radius_x': 10, 'line_width': 1.0, 'radius_y': 10, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x1010F0A0L, 'center_y': 300.0+10, 'center_x': 260.0+10, 'tool': 'FILL_CIRCLE'},
+        {'radius_x': 10, 'line_width': 1.0, 'radius_y': 10, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x1010FFA0L, 'center_y': 300.0+10, 'center_x': 260.0+10, 'tool': 'FILL_CIRCLE'},
         {'radius_x': 10, 'line_width': 1.0, 'radius_y': 10, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x831891A0L, 'center_y': 100.0+10, 'center_x': 240.0+10, 'tool': 'FILL_CIRCLE'},
-        {'radius_x': 10, 'line_width': 1.0, 'radius_y': 10, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x14ff3bA0L, 'center_y': 100.0+10, 'center_x': 260.0+10, 'tool': 'FILL_CIRCLE'},
+        {'radius_x': 10, 'line_width': 1.0, 'radius_y': 10, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x33FF00A0L, 'center_y': 100.0+10, 'center_x': 260.0+10, 'tool': 'FILL_CIRCLE'},
         {'radius_x': 10, 'line_width': 1.0, 'radius_y': 10, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0xFF0000A0L, 'center_y': 100.0+10, 'center_x': 280.0+10, 'tool': 'FILL_CIRCLE'},
-        {'radius_x': 10, 'line_width': 1.0, 'radius_y': 10, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x7C4B21A0L, 'center_y': 100.0+10, 'center_x': 300.0+10, 'tool': 'FILL_CIRCLE'},
+        {'radius_x': 10, 'line_width': 1.0, 'radius_y': 10, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x000000A0L, 'center_y': 100.0+10, 'center_x': 300.0+10, 'tool': 'FILL_CIRCLE'},
         {'radius_x': 10, 'line_width': 1.0, 'radius_y': 10, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0xb9bc0dffL, 'center_y': 120.0+10, 'center_x': 260.0+10, 'tool': 'FILL_CIRCLE'},
-        {'radius_x': 10, 'line_width': 1.0, 'radius_y': 10, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x14FF3BA0L, 'center_y': 120.0+10, 'center_x': 280.0+10, 'tool': 'FILL_CIRCLE'}
+        {'radius_x': 10, 'line_width': 1.0, 'radius_y': 10, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x33FF00A0L, 'center_y': 120.0+10, 'center_x': 280.0+10, 'tool': 'FILL_CIRCLE'}
         ]
       ,
       # Clara (my daughter)
@@ -1375,13 +1353,13 @@ class Gcompris_redraw:
        {'width': 380.0-320.0, 'line_width': 1.0, 'height': 200.0-180.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x831891A0L, 'y': 180.0, 'x': 320.0, 'tool': 'FILL_RECT'},
        {'width': 380.0-360.0, 'line_width': 1.0, 'height': 180.0-120.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x831891A0L, 'y': 120.0, 'x': 360.0, 'tool': 'FILL_RECT'},
        {'width': 180.0-160.0, 'line_width': 1.0, 'height': 260.0-200.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x831891A0L, 'y': 200.0, 'x': 160.0, 'tool': 'FILL_RECT'},
-       {'radius_x': 50, 'line_width': 1.0, 'radius_y': 50, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x14ff3bA0L, 'center_y': 60.0+50, 'center_x': 220.0+50, 'tool': 'FILL_CIRCLE'},
-       {'radius_x': 10, 'line_width': 1.0, 'radius_y': 10, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0xa4ffb3a0L, 'center_y': 100.0+10, 'center_x': 240.0+10, 'tool': 'FILL_CIRCLE'},
-       {'radius_x': 10, 'line_width': 1.0, 'radius_y': 10, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0xa4ffb3a0L, 'center_y': 100.0+10, 'center_x': 280.0+10, 'tool': 'FILL_CIRCLE'},
+       {'radius_x': 50, 'line_width': 1.0, 'radius_y': 50, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x33FF00A0L, 'center_y': 60.0+50, 'center_x': 220.0+50, 'tool': 'FILL_CIRCLE'},
+       {'radius_x': 10, 'line_width': 1.0, 'radius_y': 10, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x33FF00a0L, 'center_y': 100.0+10, 'center_x': 240.0+10, 'tool': 'FILL_CIRCLE'},
+       {'radius_x': 10, 'line_width': 1.0, 'radius_y': 10, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x33FF00a0L, 'center_y': 100.0+10, 'center_x': 280.0+10, 'tool': 'FILL_CIRCLE'},
        {'line_width': 8.0, 'points': (260.0, 140.0, 280.0, 140.0), 'tool': 'LINE', 'stroke_color_rgba': 0xFF0000A0L},
-       {'width': 300.0-240.0, 'line_width': 1.0, 'height': 180.0-160.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x14ff3bA0L, 'y': 160.0, 'x': 240.0, 'tool': 'FILL_RECT'},
-       {'width': 320.0-220.0, 'line_width': 1.0, 'height': 320.0-180.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0xff53afA0L, 'y': 180.0, 'x': 220.0, 'tool': 'FILL_RECT'},
-       {'width': 340.0-200.0, 'line_width': 1.0, 'height': 400.0-320.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0xff53afA0L, 'y': 320.0, 'x': 200.0, 'tool': 'FILL_RECT'}]
+       {'width': 300.0-240.0, 'line_width': 1.0, 'height': 180.0-160.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x33FF00A0L, 'y': 160.0, 'x': 240.0, 'tool': 'FILL_RECT'},
+       {'width': 320.0-220.0, 'line_width': 1.0, 'height': 320.0-180.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x33FF00A0L, 'y': 180.0, 'x': 220.0, 'tool': 'FILL_RECT'},
+       {'width': 340.0-200.0, 'line_width': 1.0, 'height': 400.0-320.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x33FF00A0L, 'y': 320.0, 'x': 200.0, 'tool': 'FILL_RECT'}]
       ,
       # Bicycle
       [{'radius_x': 40, 'radius_y': 40, 'stroke_color_rgba': 4287383039L, 'line_width': 5.0, 'center_y': 260.0+40, 'tool': 'CIRCLE', 'center_x': 160.0+40},
@@ -1397,11 +1375,11 @@ class Gcompris_redraw:
        {'tool': 'LINE', 'points': (340.0, 240.0, 360.0, 300.0), 'line_width': 8.0, 'stroke_color_rgba': 0xFF0000A0L}]
       ,
       # Sea boat and sun
-      [{'width': 420.0-140.0, 'line_width': 1.0, 'height': 500.0-420.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0xa4ffb3a0L, 'y': 420.0, 'tool': 'FILL_RECT', 'x': 140.0},
+      [{'width': 420.0-140.0, 'line_width': 1.0, 'height': 500.0-420.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x33FF00a0L, 'y': 420.0, 'tool': 'FILL_RECT', 'x': 140.0},
        {'radius_x': 50, 'line_width': 1.0, 'radius_y': 50, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0xffff0cA0L, 'center_y': 60.0+50, 'tool': 'FILL_CIRCLE', 'center_x': 160.0+50},
-       {'radius_x': 50, 'line_width': 1.0, 'radius_y': 20, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x1010F0A0L, 'center_y': 160.0+20, 'tool': 'FILL_CIRCLE', 'center_x': 260.0+50},
-       {'radius_x': 30, 'line_width': 1.0, 'radius_y': 10, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x1010F0A0L, 'center_y': 200.0+10, 'tool': 'FILL_CIRCLE', 'center_x': 300.0+30},
-       {'radius_x': 20,'line_width': 1.0, 'radius_y': 10, 'stroke_color_rgba': 255L, 'fill_color_rgba':0x1010F0A0L, 'center_y': 140.0+10, 'tool': 'FILL_CIRCLE', 'center_x': 360.0+20},
+       {'radius_x': 50, 'line_width': 1.0, 'radius_y': 20, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x1010FFA0L, 'center_y': 160.0+20, 'tool': 'FILL_CIRCLE', 'center_x': 260.0+50},
+       {'radius_x': 30, 'line_width': 1.0, 'radius_y': 10, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x1010FFA0L, 'center_y': 200.0+10, 'tool': 'FILL_CIRCLE', 'center_x': 300.0+30},
+       {'radius_x': 20,'line_width': 1.0, 'radius_y': 10, 'stroke_color_rgba': 255L, 'fill_color_rgba':0x1010FFA0L, 'center_y': 140.0+10, 'tool': 'FILL_CIRCLE', 'center_x': 360.0+20},
        {'tool': 'LINE','points': (220.0, 400.0, 240.0, 420.0), 'line_width': 8.0, 'stroke_color_rgba': 0xFF0000A0L},
        {'tool': 'LINE', 'points': (240.0, 420.0, 280.0, 420.0), 'line_width': 8.0, 'stroke_color_rgba': 0xFF0000A0L},
        {'tool': 'LINE', 'points': (280.0, 420.0, 300.0, 400.0), 'line_width': 8.0, 'stroke_color_rgba': 0xFF0000A0L},
@@ -1416,66 +1394,66 @@ class Gcompris_redraw:
       self.drawlist = \
       [
         # 3 white box in triangle
-        [{'width': 420.0-380.0, 'line_width': 1.0, 'height': 260.0-220.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x1010F0A0L, 'y': 220.0, 'tool': 'FILL_RECT', 'x': 380.0},
-         {'width': 380.0-340.0, 'line_width': 1.0, 'height': 220.0-180.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x1010F0A0L, 'y': 180.0, 'tool': 'FILL_RECT', 'x': 340.0},
-         {'width': 380.0-340.0, 'line_width': 1.0, 'height': 300.0-260.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x1010F0A0L, 'y': 260.0, 'tool': 'FILL_RECT', 'x': 340.0}]
+        [{'width': 420.0-380.0, 'line_width': 1.0, 'height': 260.0-220.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x1010FFA0L, 'y': 220.0, 'tool': 'FILL_RECT', 'x': 380.0},
+         {'width': 380.0-340.0, 'line_width': 1.0, 'height': 220.0-180.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x1010FFA0L, 'y': 180.0, 'tool': 'FILL_RECT', 'x': 340.0},
+         {'width': 380.0-340.0, 'line_width': 1.0, 'height': 300.0-260.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x1010FFA0L, 'y': 260.0, 'tool': 'FILL_RECT', 'x': 340.0}]
         ,
         # Colored pyramid
-        [{'width': 420.0-140.0, 'line_width': 1.0, 'height': 460.0-420.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x666666A0L, 'y': 420.0, 'tool': 'FILL_RECT', 'x': 140.0},
-         {'width': 420.0-180.0, 'line_width': 1.0, 'height': 420.0-380.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0xff53afA0L, 'y': 380.0, 'tool': 'FILL_RECT', 'x': 180.0},
-         {'width': 420.0-220.0, 'line_width': 1.0, 'height': 380.0-340.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x14FF3BA0L, 'y': 340.0, 'tool': 'FILL_RECT', 'x': 220.0},
+        [{'width': 420.0-140.0, 'line_width': 1.0, 'height': 460.0-420.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0xC2C2C2A0L, 'y': 420.0, 'tool': 'FILL_RECT', 'x': 140.0},
+         {'width': 420.0-180.0, 'line_width': 1.0, 'height': 420.0-380.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x33FF00A0L, 'y': 380.0, 'tool': 'FILL_RECT', 'x': 180.0},
+         {'width': 420.0-220.0, 'line_width': 1.0, 'height': 380.0-340.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x33FF00A0L, 'y': 340.0, 'tool': 'FILL_RECT', 'x': 220.0},
          {'width': 420.0-260.0, 'line_width': 1.0, 'height': 340.0-300.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0xffff0cA0L, 'y': 300.0, 'tool': 'FILL_RECT', 'x': 260.0},
          {'width': 420.0-300.0, 'line_width': 1.0, 'height': 300.0-260.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0xFF0000A0L, 'y': 260.0, 'tool': 'FILL_RECT', 'x': 300.0},
-         {'width': 420.0-340.0, 'line_width': 1.0, 'height': 260.0-220.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x2A2A2AA0L, 'y': 220.0, 'tool': 'FILL_RECT', 'x': 340.0},
-         {'width': 420.0-380.0, 'line_width': 1.0, 'height': 220.0-180.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x7C4B21A0L, 'y': 180.0, 'tool': 'FILL_RECT', 'x': 380.0}]
+         {'width': 420.0-340.0, 'line_width': 1.0, 'height': 260.0-220.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x000000A0L, 'y': 220.0, 'tool': 'FILL_RECT', 'x': 340.0},
+         {'width': 420.0-380.0, 'line_width': 1.0, 'height': 220.0-180.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x000000A0L, 'y': 180.0, 'tool': 'FILL_RECT', 'x': 380.0}]
         ,
         # Butterfly
         [{'width': 420.0-380.0, 'line_width': 1.0, 'height': 380.0-180.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0xffff0cA0L, 'y': 180.0, 'tool': 'FILL_RECT', 'x': 380.0},
          {'tool': 'LINE', 'points': (360.0, 80.0, 400.0, 180.0), 'line_width': 8.0, 'stroke_color_rgba': 707406591L},
-         {'radius_x': 100, 'line_width': 1.0, 'radius_y': 170, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x14ff3bA0L, 'center_y': 100.0+170, 'tool': 'FILL_CIRCLE', 'center_x': 180.0+100},
+         {'radius_x': 100, 'line_width': 1.0, 'radius_y': 170, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x33FF00A0L, 'center_y': 100.0+170, 'tool': 'FILL_CIRCLE', 'center_x': 180.0+100},
          {'radius_x': 50, 'line_width': 1.0, 'radius_y': 100, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x831891A0L, 'center_y': 180.0+100, 'tool': 'FILL_CIRCLE', 'center_x': 260.0+50}]
         ,
         # Robot
         [{'width': 420.0-340.0, 'line_width': 1.0, 'height': 360.0-160.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0xFF0000A0L, 'y': 160.0, 'tool': 'FILL_RECT', 'x': 340.0},
-         {'width': 380.0-340.0, 'line_width': 1.0, 'height': 500.0-360.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x14ff3bA0L, 'y': 360.0, 'tool': 'FILL_RECT', 'x': 340.0},
-         {'width': 340.0-260.0, 'line_width': 1.0, 'height': 200.0-160.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x14ff3bA0L, 'y': 160.0, 'tool': 'FILL_RECT', 'x': 260.0},
-         {'width': 300.0-260.0, 'line_width': 1.0, 'height': 280.0-200.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x14ff3bA0L, 'y': 200.0, 'tool': 'FILL_RECT', 'x': 260.0},
-         {'width': 420.0-380.0, 'line_width': 1.0, 'height': 160.0-140.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x14ff3bA0L, 'y': 140.0, 'tool': 'FILL_RECT', 'x': 380.0},
-         {'width': 420.0-360.0, 'line_width': 1.0, 'height': 140.0-60.0,  'stroke_color_rgba': 255L, 'fill_color_rgba': 0xa4ffb3a0L, 'y': 60.0, 'tool': 'FILL_RECT', 'x': 360.0},
+         {'width': 380.0-340.0, 'line_width': 1.0, 'height': 500.0-360.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x33FF00A0L, 'y': 360.0, 'tool': 'FILL_RECT', 'x': 340.0},
+         {'width': 340.0-260.0, 'line_width': 1.0, 'height': 200.0-160.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x33FF00A0L, 'y': 160.0, 'tool': 'FILL_RECT', 'x': 260.0},
+         {'width': 300.0-260.0, 'line_width': 1.0, 'height': 280.0-200.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x33FF00A0L, 'y': 200.0, 'tool': 'FILL_RECT', 'x': 260.0},
+         {'width': 420.0-380.0, 'line_width': 1.0, 'height': 160.0-140.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x33FF00A0L, 'y': 140.0, 'tool': 'FILL_RECT', 'x': 380.0},
+         {'width': 420.0-360.0, 'line_width': 1.0, 'height': 140.0-60.0,  'stroke_color_rgba': 255L, 'fill_color_rgba': 0x33FF00a0L, 'y': 60.0, 'tool': 'FILL_RECT', 'x': 360.0},
          {'width': 420.0-400.0, 'line_width': 1.0, 'height': 120.0-100.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0xb9bc0dffL, 'y': 100.0, 'tool': 'FILL_RECT', 'x': 400.0},
-         {'radius_x': 10, 'line_width': 1.0, 'radius_y': 10, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0xff53afA0L, 'center_y': 80.0+10, 'tool': 'FILL_CIRCLE', 'center_x': 380.0+10}]
+         {'radius_x': 10, 'line_width': 1.0, 'radius_y': 10, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x33FF00A0L, 'center_y': 80.0+10, 'tool': 'FILL_CIRCLE', 'center_x': 380.0+10}]
         ,
         # Arrow
-        [{'width': 420.0-300.0, 'line_width': 1.0, 'height': 260.0-240.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x14ff3bA0L, 'y': 240.0, 'tool': 'FILL_RECT', 'x': 300.0},
+        [{'width': 420.0-300.0, 'line_width': 1.0, 'height': 260.0-240.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x33FF00A0L, 'y': 240.0, 'tool': 'FILL_RECT', 'x': 300.0},
          {'tool': 'LINE', 'points': (180.0, 240.0, 300.0, 140.0), 'line_width': 8.0, 'stroke_color_rgba': 4287383039L},
          {'tool': 'LINE', 'points': (180.0, 240.0, 180.0, 260.0), 'line_width': 8.0, 'stroke_color_rgba': 4287383039L},
          {'tool': 'LINE', 'points': (180.0, 260.0, 300.0, 360.0), 'line_width': 8.0, 'stroke_color_rgba': 4287383039L},
          {'tool': 'LINE', 'points': (300.0, 140.0, 300.0, 360.0), 'line_width': 8.0, 'stroke_color_rgba': 4287383039L}]
         ,
         # House
-        [{'width': 420.0-200.0, 'line_width': 1.0, 'height': 460.0-440.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x1010F0A0L, 'y': 440.0, 'tool': 'FILL_RECT', 'x': 200.0},
-         {'width': 220.0-200.0, 'line_width': 1.0, 'height': 440.0-280.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x1010F0A0L, 'y': 280.0, 'tool': 'FILL_RECT', 'x': 200.0},
-         {'width': 420.0-200.0, 'line_width': 1.0, 'height': 280.0-260.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x1010F0A0L, 'y': 260.0, 'tool': 'FILL_RECT', 'x': 200.0},
+        [{'width': 420.0-200.0, 'line_width': 1.0, 'height': 460.0-440.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x1010FFA0L, 'y': 440.0, 'tool': 'FILL_RECT', 'x': 200.0},
+         {'width': 220.0-200.0, 'line_width': 1.0, 'height': 440.0-280.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x1010FFA0L, 'y': 280.0, 'tool': 'FILL_RECT', 'x': 200.0},
+         {'width': 420.0-200.0, 'line_width': 1.0, 'height': 280.0-260.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x1010FFA0L, 'y': 260.0, 'tool': 'FILL_RECT', 'x': 200.0},
          {'width': 420.0-380.0, 'line_width': 1.0, 'height': 440.0-360.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0xFF0000A0L, 'y': 360.0, 'tool': 'FILL_RECT', 'x': 380.0},
          {'width': 360.0-240.0, 'line_width': 1.0, 'height': 400.0-300.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0xffff0cA0L, 'y': 300.0, 'tool': 'FILL_RECT', 'x': 240.0},
          {'tool': 'LINE', 'points': (200.0, 260.0, 420.0, 100.0), 'line_width': 8.0, 'stroke_color_rgba': 4294905087L}]
         ,
         # Plane
         [{'width': 420.0-360.0, 'line_width': 1.0, 'height': 380.0-140.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0xFF0000A0L, 'y': 140.0, 'tool': 'FILL_RECT', 'x': 360.0},
-         {'width': 360.0-180.0, 'line_width': 1.0, 'height': 280.0-220.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x14ff3bA0L, 'y': 220.0, 'tool': 'FILL_RECT', 'x': 180.0},
-         {'width': 260.0-240.0, 'line_width': 1.0, 'height': 220.0-200.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x2A2A2AA0L, 'y': 200.0, 'tool': 'FILL_RECT', 'x': 240.0},
+         {'width': 360.0-180.0, 'line_width': 1.0, 'height': 280.0-220.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x33FF00A0L, 'y': 220.0, 'tool': 'FILL_RECT', 'x': 180.0},
+         {'width': 260.0-240.0, 'line_width': 1.0, 'height': 220.0-200.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x000000A0L, 'y': 200.0, 'tool': 'FILL_RECT', 'x': 240.0},
          {'tool': 'LINE', 'points': (180.0, 200.0, 320.0, 200.0), 'line_width': 8.0, 'stroke_color_rgba': 4283674623L},
-         {'width': 420.0-400.0, 'line_width': 1.0, 'height': 420.0-360.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x14ff3bA0L, 'y': 360.0, 'tool': 'FILL_RECT', 'x': 400.0},
-         {'width': 420.0-380.0, 'line_width': 1.0, 'height': 180.0-160.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x14ff3bA0L, 'y': 160.0, 'tool': 'FILL_RECT', 'x': 380.0}]
+         {'width': 420.0-400.0, 'line_width': 1.0, 'height': 420.0-360.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x33FF00A0L, 'y': 360.0, 'tool': 'FILL_RECT', 'x': 400.0},
+         {'width': 420.0-380.0, 'line_width': 1.0, 'height': 180.0-160.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x33FF00A0L, 'y': 160.0, 'tool': 'FILL_RECT', 'x': 380.0}]
         ,
         # bipbip (big non flying bird)
-        [{'width': 280.0-260.0, 'line_width': 1.0, 'height': 320.0-120.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x14FF3BA0L, 'y': 120.0, 'tool': 'FILL_RECT', 'x': 260.0},
-         {'width': 300.0-260.0, 'line_width': 1.0, 'height': 120.0-80.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x14FF3BA0L, 'y': 80.0, 'tool': 'FILL_RECT', 'x': 260.0},
-         {'width': 320.0-300.0, 'line_width': 1.0, 'height': 120.0-100.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x14FF3BA0L, 'y': 100.0, 'tool': 'FILL_RECT', 'x': 300.0},
-         {'width': 280.0-200.0, 'line_width': 1.0, 'height': 380.0-320.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x14FF3BA0L, 'y': 320.0, 'tool': 'FILL_RECT', 'x': 200.0},
-         {'width': 220.0-200.0, 'line_width': 1.0, 'height': 320.0-300.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x14FF3BA0L, 'y': 300.0, 'tool': 'FILL_RECT', 'x': 200.0},
-         {'width': 260.0-240.0, 'line_width': 1.0, 'height': 460.0-380.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x14FF3BA0L, 'y': 380.0, 'tool': 'FILL_RECT', 'x': 240.0},
-         {'width': 280.0-260.0, 'line_width': 1.0, 'height': 460.0-440.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x14FF3BA0L, 'y': 440.0, 'tool': 'FILL_RECT', 'x': 260.0}]
+        [{'width': 280.0-260.0, 'line_width': 1.0, 'height': 320.0-120.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x33FF00A0L, 'y': 120.0, 'tool': 'FILL_RECT', 'x': 260.0},
+         {'width': 300.0-260.0, 'line_width': 1.0, 'height': 120.0-80.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x33FF00A0L, 'y': 80.0, 'tool': 'FILL_RECT', 'x': 260.0},
+         {'width': 320.0-300.0, 'line_width': 1.0, 'height': 120.0-100.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x33FF00A0L, 'y': 100.0, 'tool': 'FILL_RECT', 'x': 300.0},
+         {'width': 280.0-200.0, 'line_width': 1.0, 'height': 380.0-320.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x33FF00A0L, 'y': 320.0, 'tool': 'FILL_RECT', 'x': 200.0},
+         {'width': 220.0-200.0, 'line_width': 1.0, 'height': 320.0-300.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x33FF00A0L, 'y': 300.0, 'tool': 'FILL_RECT', 'x': 200.0},
+         {'width': 260.0-240.0, 'line_width': 1.0, 'height': 460.0-380.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x33FF00A0L, 'y': 380.0, 'tool': 'FILL_RECT', 'x': 240.0},
+         {'width': 280.0-260.0, 'line_width': 1.0, 'height': 460.0-440.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x33FF00A0L, 'y': 440.0, 'tool': 'FILL_RECT', 'x': 260.0}]
         ,
         # Dog
         [{'width': 180.0-160.0, 'line_width': 1.0, 'height': 200.0-180.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x831891A0L, 'y': 180.0, 'tool': 'FILL_RECT', 'x': 160.0},
@@ -1486,59 +1464,59 @@ class Gcompris_redraw:
         ,
         # Fish
         [{'radius_x': 90, 'line_width': 1.0, 'radius_y': 60, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0xffff0cA0L, 'center_y': 160.0+60, 'tool': 'FILL_CIRCLE', 'center_x': 180.0+90},
-         {'radius_x': 10, 'line_width': 1.0, 'radius_y': 10, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x1010F0A0L, 'center_y': 200.0+10, 'tool': 'FILL_CIRCLE', 'center_x': 320.0+10},
+         {'radius_x': 10, 'line_width': 1.0, 'radius_y': 10, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x1010FFA0L, 'center_y': 200.0+10, 'tool': 'FILL_CIRCLE', 'center_x': 320.0+10},
          {'width': 180.0-160.0, 'line_width': 1.0, 'height': 260.0-180.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0xffff0cA0L, 'y': 180.0, 'tool': 'FILL_RECT', 'x': 160.0}]
         ,
         # Boat
-        [{'tool': 'LINE', 'points': (260.0, 340.0, 420.0, 340.0), 'line_width': 8.0, 'stroke_color_rgba': 0x1010F0FFL},
-         {'tool': 'LINE', 'points': (220.0, 260.0, 260.0, 340.0), 'line_width': 8.0, 'stroke_color_rgba': 0x1010F0FFL},
-         {'tool': 'LINE', 'points': (220.0, 260.0, 420.0, 260.0), 'line_width': 8.0, 'stroke_color_rgba': 0x1010F0FFL},
-         {'tool': 'LINE', 'points': (340.0, 260.0, 360.0, 220.0), 'line_width': 8.0, 'stroke_color_rgba': 0x1010F0FFL},
-         {'tool': 'LINE', 'points': (360.0, 220.0, 420.0, 220.0), 'line_width': 8.0, 'stroke_color_rgba': 0x1010F0FFL},
+        [{'tool': 'LINE', 'points': (260.0, 340.0, 420.0, 340.0), 'line_width': 8.0, 'stroke_color_rgba': 0x1010FFFFL},
+         {'tool': 'LINE', 'points': (220.0, 260.0, 260.0, 340.0), 'line_width': 8.0, 'stroke_color_rgba': 0x1010FFFFL},
+         {'tool': 'LINE', 'points': (220.0, 260.0, 420.0, 260.0), 'line_width': 8.0, 'stroke_color_rgba': 0x1010FFFFL},
+         {'tool': 'LINE', 'points': (340.0, 260.0, 360.0, 220.0), 'line_width': 8.0, 'stroke_color_rgba': 0x1010FFFFL},
+         {'tool': 'LINE', 'points': (360.0, 220.0, 420.0, 220.0), 'line_width': 8.0, 'stroke_color_rgba': 0x1010FFFFL},
          {'radius_x': 10, 'line_width': 1.0, 'radius_y': 10, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0xFF0000A0L, 'center_y': 280.0+10, 'tool': 'FILL_CIRCLE', 'center_x': 300.0+10},
          {'radius_x': 10, 'line_width': 1.0, 'radius_y': 10, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0xFF0000A0L, 'center_y': 280.0+10, 'tool': 'FILL_CIRCLE', 'center_x': 340.0+10},
          {'radius_x': 10, 'line_width': 1.0, 'radius_y': 10, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0xFF0000A0L, 'center_y': 280.0+10, 'tool': 'FILL_CIRCLE', 'center_x': 380.0+10}]
         ,
         # Spaceship
-        [{'tool': 'LINE', 'points': (220.0, 400.0, 340.0, 400.0), 'line_width': 8.0, 'stroke_color_rgba': 0x1010F0FFL},
-         {'tool': 'LINE', 'points': (340.0, 400.0, 360.0, 420.0), 'line_width': 8.0, 'stroke_color_rgba': 0x1010F0FFL},
-         {'tool': 'LINE', 'points': (360.0, 320.0, 360.0, 420.0), 'line_width': 8.0, 'stroke_color_rgba': 0x1010F0FFL},
-         {'tool': 'LINE', 'points': (340.0, 300.0, 360.0, 320.0), 'line_width': 8.0, 'stroke_color_rgba': 0x1010F0FFL},
-         {'tool': 'LINE', 'points': (340.0, 100.0, 340.0, 300.0), 'line_width': 8.0, 'stroke_color_rgba': 0x1010F0FFL},
-         {'tool': 'LINE', 'points': (200.0, 420.0, 220.0, 400.0), 'line_width': 8.0, 'stroke_color_rgba': 0x1010F0FFL},
-         {'tool': 'LINE', 'points': (200.0, 320.0, 200.0, 420.0), 'line_width': 8.0, 'stroke_color_rgba': 0x1010F0FFL},
-         {'tool': 'LINE', 'points': (200.0, 320.0, 220.0, 300.0), 'line_width': 8.0, 'stroke_color_rgba': 0x1010F0FFL},
-         {'tool': 'LINE', 'points': (220.0, 100.0, 220.0, 300.0), 'line_width': 8.0, 'stroke_color_rgba': 0x1010F0FFL},
-         {'tool': 'LINE', 'points': (220.0, 100.0, 280.0, 20.0), 'line_width': 8.0, 'stroke_color_rgba': 0x1010F0FFL},
-         {'tool': 'LINE', 'points': (280.0, 20.0, 340.0, 100.0), 'line_width': 8.0, 'stroke_color_rgba': 0x1010F0FFL},
-         {'tool': 'LINE', 'points': (220.0, 100.0, 340.0, 100.0), 'line_width': 8.0, 'stroke_color_rgba': 0x1010F0FFL},
-         {'tool': 'LINE', 'points': (220.0, 120.0, 340.0, 120.0), 'line_width': 8.0, 'stroke_color_rgba': 0x1010F0FFL},
-         {'tool': 'LINE', 'points': (220.0, 300.0, 340.0, 300.0), 'line_width': 8.0, 'stroke_color_rgba': 0x1010F0FFL},
-         {'tool': 'LINE', 'points': (280.0, 300.0, 280.0, 420.0), 'line_width': 8.0, 'stroke_color_rgba': 0x1010F0FFL}]
+        [{'tool': 'LINE', 'points': (220.0, 400.0, 340.0, 400.0), 'line_width': 8.0, 'stroke_color_rgba': 0x1010FFFFL},
+         {'tool': 'LINE', 'points': (340.0, 400.0, 360.0, 420.0), 'line_width': 8.0, 'stroke_color_rgba': 0x1010FFFFL},
+         {'tool': 'LINE', 'points': (360.0, 320.0, 360.0, 420.0), 'line_width': 8.0, 'stroke_color_rgba': 0x1010FFFFL},
+         {'tool': 'LINE', 'points': (340.0, 300.0, 360.0, 320.0), 'line_width': 8.0, 'stroke_color_rgba': 0x1010FFFFL},
+         {'tool': 'LINE', 'points': (340.0, 100.0, 340.0, 300.0), 'line_width': 8.0, 'stroke_color_rgba': 0x1010FFFFL},
+         {'tool': 'LINE', 'points': (200.0, 420.0, 220.0, 400.0), 'line_width': 8.0, 'stroke_color_rgba': 0x1010FFFFL},
+         {'tool': 'LINE', 'points': (200.0, 320.0, 200.0, 420.0), 'line_width': 8.0, 'stroke_color_rgba': 0x1010FFFFL},
+         {'tool': 'LINE', 'points': (200.0, 320.0, 220.0, 300.0), 'line_width': 8.0, 'stroke_color_rgba': 0x1010FFFFL},
+         {'tool': 'LINE', 'points': (220.0, 100.0, 220.0, 300.0), 'line_width': 8.0, 'stroke_color_rgba': 0x1010FFFFL},
+         {'tool': 'LINE', 'points': (220.0, 100.0, 280.0, 20.0), 'line_width': 8.0, 'stroke_color_rgba': 0x1010FFFFL},
+         {'tool': 'LINE', 'points': (280.0, 20.0, 340.0, 100.0), 'line_width': 8.0, 'stroke_color_rgba': 0x1010FFFFL},
+         {'tool': 'LINE', 'points': (220.0, 100.0, 340.0, 100.0), 'line_width': 8.0, 'stroke_color_rgba': 0x1010FFFFL},
+         {'tool': 'LINE', 'points': (220.0, 120.0, 340.0, 120.0), 'line_width': 8.0, 'stroke_color_rgba': 0x1010FFFFL},
+         {'tool': 'LINE', 'points': (220.0, 300.0, 340.0, 300.0), 'line_width': 8.0, 'stroke_color_rgba': 0x1010FFFFL},
+         {'tool': 'LINE', 'points': (280.0, 300.0, 280.0, 420.0), 'line_width': 8.0, 'stroke_color_rgba': 0x1010FFFFL}]
         ,
         # Question mark
-        [{'tool': 'LINE', 'points': (280.0, 260.0, 280.0, 440.0), 'line_width': 8.0, 'stroke_color_rgba': 0x1010F0FFL},
-         {'tool': 'LINE', 'points': (280.0, 260.0, 340.0, 220.0), 'line_width': 8.0, 'stroke_color_rgba': 0x1010F0FFL},
-         {'tool': 'LINE', 'points': (340.0, 160.0, 340.0, 220.0), 'line_width': 8.0, 'stroke_color_rgba': 0x1010F0FFL},
-         {'tool': 'LINE', 'points': (280.0, 120.0, 340.0, 160.0), 'line_width': 8.0, 'stroke_color_rgba': 0x1010F0FFL},
-         {'tool': 'LINE', 'points': (220.0, 160.0, 280.0, 120.0), 'line_width': 8.0, 'stroke_color_rgba': 0x1010F0FFL},
-         {'tool': 'LINE', 'points': (220.0, 160.0, 220.0, 200.0), 'line_width': 8.0, 'stroke_color_rgba': 0x1010F0FFL},
-         {'tool': 'LINE', 'points': (220.0, 200.0, 260.0, 220.0), 'line_width': 8.0, 'stroke_color_rgba': 0x1010F0FFL}]
+        [{'tool': 'LINE', 'points': (280.0, 260.0, 280.0, 440.0), 'line_width': 8.0, 'stroke_color_rgba': 0x1010FFFFL},
+         {'tool': 'LINE', 'points': (280.0, 260.0, 340.0, 220.0), 'line_width': 8.0, 'stroke_color_rgba': 0x1010FFFFL},
+         {'tool': 'LINE', 'points': (340.0, 160.0, 340.0, 220.0), 'line_width': 8.0, 'stroke_color_rgba': 0x1010FFFFL},
+         {'tool': 'LINE', 'points': (280.0, 120.0, 340.0, 160.0), 'line_width': 8.0, 'stroke_color_rgba': 0x1010FFFFL},
+         {'tool': 'LINE', 'points': (220.0, 160.0, 280.0, 120.0), 'line_width': 8.0, 'stroke_color_rgba': 0x1010FFFFL},
+         {'tool': 'LINE', 'points': (220.0, 160.0, 220.0, 200.0), 'line_width': 8.0, 'stroke_color_rgba': 0x1010FFFFL},
+         {'tool': 'LINE', 'points': (220.0, 200.0, 260.0, 220.0), 'line_width': 8.0, 'stroke_color_rgba': 0x1010FFFFL}]
         ,
         # Flying toy (cerf volant in french)
-        [{'tool': 'LINE', 'points': (160.0, 140.0, 260.0, 100.0), 'line_width': 8.0, 'stroke_color_rgba': 0x1010F0FFL},
-         {'tool': 'LINE', 'points': (160.0, 140.0, 160.0, 220.0), 'line_width': 8.0, 'stroke_color_rgba': 0x1010F0FFL},
-         {'tool': 'LINE', 'points': (160.0, 220.0, 260.0, 380.0), 'line_width': 8.0, 'stroke_color_rgba': 0x1010F0FFL},
-         {'tool': 'LINE', 'points': (260.0, 380.0, 360.0, 220.0), 'line_width': 8.0, 'stroke_color_rgba': 0x1010F0FFL},
-         {'tool': 'LINE', 'points': (360.0, 140.0, 360.0, 220.0), 'line_width': 8.0, 'stroke_color_rgba': 0x1010F0FFL},
-         {'tool': 'LINE', 'points': (260.0, 100.0, 360.0, 140.0), 'line_width': 8.0, 'stroke_color_rgba': 0x1010F0FFL},
+        [{'tool': 'LINE', 'points': (160.0, 140.0, 260.0, 100.0), 'line_width': 8.0, 'stroke_color_rgba': 0x1010FFFFL},
+         {'tool': 'LINE', 'points': (160.0, 140.0, 160.0, 220.0), 'line_width': 8.0, 'stroke_color_rgba': 0x1010FFFFL},
+         {'tool': 'LINE', 'points': (160.0, 220.0, 260.0, 380.0), 'line_width': 8.0, 'stroke_color_rgba': 0x1010FFFFL},
+         {'tool': 'LINE', 'points': (260.0, 380.0, 360.0, 220.0), 'line_width': 8.0, 'stroke_color_rgba': 0x1010FFFFL},
+         {'tool': 'LINE', 'points': (360.0, 140.0, 360.0, 220.0), 'line_width': 8.0, 'stroke_color_rgba': 0x1010FFFFL},
+         {'tool': 'LINE', 'points': (260.0, 100.0, 360.0, 140.0), 'line_width': 8.0, 'stroke_color_rgba': 0x1010FFFFL},
          {'tool': 'LINE', 'points': (220.0, 500.0, 260.0, 380.0), 'line_width': 8.0, 'stroke_color_rgba': 707406591L},
          {'width': 240.0-220.0, 'line_width': 1.0, 'height': 180.0-160.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0xFF0000A0L, 'y': 160.0, 'tool': 'FILL_RECT', 'x': 220.0},
          {'width': 300.0-280.0, 'line_width': 1.0, 'height': 220.0-200.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0xFF0000A0L, 'y': 200.0, 'tool': 'FILL_RECT', 'x': 280.0},
          {'width': 240.0-220.0, 'line_width': 1.0, 'height': 260.0-240.0, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0xFF0000A0L, 'y': 240.0, 'tool': 'FILL_RECT', 'x': 220.0},
-         {'radius_x': 10, 'line_width': 1.0, 'radius_y': 10, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x14ff3bA0L, 'center_y': 160.0+10, 'tool': 'FILL_CIRCLE', 'center_x': 280.0+10},
-         {'radius_x': 10, 'line_width': 1.0, 'radius_y': 10, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x14ff3bA0L, 'center_y': 200.0+10, 'tool': 'FILL_CIRCLE', 'center_x': 220.0+10},
-         {'radius_x': 10, 'line_width': 1.0, 'radius_y': 10, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x14ff3bA0L, 'center_y': 240.0+10, 'tool': 'FILL_CIRCLE', 'center_x': 280.0+10}]
+         {'radius_x': 10, 'line_width': 1.0, 'radius_y': 10, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x33FF00A0L, 'center_y': 160.0+10, 'tool': 'FILL_CIRCLE', 'center_x': 280.0+10},
+         {'radius_x': 10, 'line_width': 1.0, 'radius_y': 10, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x33FF00A0L, 'center_y': 200.0+10, 'tool': 'FILL_CIRCLE', 'center_x': 220.0+10},
+         {'radius_x': 10, 'line_width': 1.0, 'radius_y': 10, 'stroke_color_rgba': 255L, 'fill_color_rgba': 0x33FF00A0L, 'center_y': 240.0+10, 'tool': 'FILL_CIRCLE', 'center_x': 280.0+10}]
 
       ]
 
