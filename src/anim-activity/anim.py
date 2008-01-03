@@ -46,20 +46,6 @@ import tempfile
 import cPickle as pickle
 import base64
 
-# Note that we only need one of these for any given version of the
-# processing class.
-#
-python_xml = False
-# python_xml = True
-# try:
-#   from xml.dom.DOMImplementation import implementation
-#   import xml.sax.writer
-#   import xml.utils
-# except:
-#   python_xml = False
-  # Commented out, until we have a clean support for a mainstream mozilla
-  #print _('You need the python xml module. Disabling SVG.')
-
 fles=None
 
 # When anim is passed the mode 'draw', animation is disabled.
@@ -135,21 +121,7 @@ class Gcompris_anim:
     global fles
     fles=self
 
-    # File formats to save/restore
-    #
-    # svg has proprietary data to handle animation, base64 included images
-    # gcompris is cPickle python saved data
-    #
-    # svg in draw mode is normal svg file with base64 included images
-    global python_xml
-    if self.gcomprisBoard.mode == 'draw':
-      self.file_type = "image/gcompris+draw"
-      if python_xml:
-        self.file_type = self.file_type + " image/svg+xml"
-    else:
-      self.file_type = "image/gcompris+anim"
-      #      if python_xml:
-      #        self.file_type = self.file_type +"  image/svg+xml+javascript"
+    self.file_type = ".gcanim"
 
     # These are used to let us restart only after the bonux is displayed.
     # When the bonus is displayed, it call us first with pause(1) and then with pause(0)
@@ -202,31 +174,31 @@ class Gcompris_anim:
 
     # mutable goocanvas attributs
     self.attributs = { 'LINE' : [ "points",
-                                  "fill_color_rgba",
-                                  ],
-                       'RECT' : [ "x1",
-                                  "y1",
-                                  "x2",
-                                  "y2",
                                   "stroke_color_rgba",
                                   ],
-                       'FILL_RECT' : [ "x1",
-                                       "y1",
-                                       "x2",
-                                       "y2",
-                                       "fill_color_rgba",
+                       'RECT' : [ "x",
+                                  "y",
+                                  "width",
+                                  "height",
+                                  #"stroke_color_rgba",
+                                  ],
+                       'FILL_RECT' : [ "x",
+                                       "y",
+                                       "width",
+                                       "height",
+                                       #"fill_color_rgba",
                                        ],
-                       'CIRCLE' : [ "x1",
-                                    "y1",
-                                    "x2",
-                                    "y2",
-                                    "stroke_color_rgba",
+                       'CIRCLE' : [ "center_x",
+                                    "center_y",
+                                    "radius_x",
+                                    "radius_y",
+                                    #"stroke_color_rgba",
                                     ],
-                       'FILL_CIRCLE' : [ "x1",
-                                         "y1",
-                                         "x2",
-                                         "y2",
-                                         "fill_color_rgba",
+                       'FILL_CIRCLE' : [ "center_x",
+                                         "center_y",
+                                         "radius_x",
+                                         "radius_y",
+                                         #"fill_color_rgba",
                                          ],
                        'TEXT' : [ "x",
                                   "y",
@@ -241,15 +213,15 @@ class Gcompris_anim:
                        }
 
     # non mutable goocanvas attributs
-    self.fixedattributs = { 'LINE' : { 'width-units': 8.0
+    self.fixedattributs = { 'LINE' : { 'line_width': 8.0
                                        },
-                            'RECT' : { 'width-units': 4.0
+                            'RECT' : { 'line_width': 4.0
                                        },
-                            'FILL_RECT' : { 'width-units': 1.0,
+                            'FILL_RECT' : { 'line_width': 1.0,
                                             'stroke_color_rgba': 0x000000FFL
                                             },
-                            'CIRCLE' : { 'width-units': 4.0 },
-                            'FILL_CIRCLE' : { 'width-units': 1.0,
+                            'CIRCLE' : { 'line_width': 4.0 },
+                            'FILL_CIRCLE' : { 'line_width': 1.0,
                                               'stroke_color_rgba': 0x000000FFL
                                               },
                             'TEXT' : { 'font': gcompris.FONT_BOARD_BIG_BOLD,
@@ -411,11 +383,6 @@ class Gcompris_anim:
     self.draw_playing_area()
     self.pause(0)
 
-    global python_xml
-    if not python_xml:
-      #gcompris.utils.dialog(_('Python xml module not found. SVG is disabled. Install the python xml module to enable SVG Save/restore.'), None)
-      #print _('Python xml module not found. SVG is disabled. Install the python xml module to enable SVG Save/restore.')
-      pass
 
   def end(self):
     # stop the animation
@@ -913,13 +880,18 @@ class Gcompris_anim:
 
   # Event when a click on any item. Perform the move
   def move_item_event(self, item, target, event):
+
+    if event.type == gtk.gdk.BUTTON_PRESS and event.button == 1:
+      gcompris.sound.play_ogg("sounds/bleep.wav")
+      self.unselect()
+
     if self.tools[self.current_tool][0] == "CCW":
       if ((event.type == gtk.gdk.BUTTON_PRESS) and
           (event.button == 1) and
           (gobject.type_name(item)!="GnomeCanvasText")):
         # this one seems broken
         #gcompris.utils.item_rotate_relative(item.get_property("parent"),-10)
-        self.rotate_relative(item,-10)
+        self.rotate_relative(item.get_property("parent"), -10)
         return True
       else:
         return False
@@ -928,7 +900,7 @@ class Gcompris_anim:
       if ((event.type == gtk.gdk.BUTTON_PRESS) and
           (event.button == 1) and
           (gobject.type_name(item)!="GnomeCanvasText")):
-        self.rotate_relative(item,10)
+        self.rotate_relative(item.get_property("parent"), 10)
         return True
       else:
         return False
@@ -944,7 +916,7 @@ class Gcompris_anim:
 
     if self.tools[self.current_tool][0] == "RAISE":
       if event.type == gtk.gdk.BUTTON_PRESS and event.button == 1:
-        item.get_property("parent").raise_(1)
+        item.get_property("parent").raise_(None)
         self.z_raise(item.get_data("AnimItem"))
         return True
       else:
@@ -952,7 +924,7 @@ class Gcompris_anim:
 
     if self.tools[self.current_tool][0] == "LOWER":
       if event.type == gtk.gdk.BUTTON_PRESS and event.button == 1:
-        item.get_property("parent").lower(1)
+        item.get_property("parent").lower(None)
         self.z_lower(item.get_data("AnimItem"))
         return True
       else:
@@ -964,11 +936,6 @@ class Gcompris_anim:
         self.in_select_ofy = event.y
         return False
 
-    if event.type == gtk.gdk.BUTTON_PRESS and event.button == 1:
-      if event.button == 1:
-        gcompris.sound.play_ogg("sounds/bleep.wav")
-        self.unselect()
-
     #
     # MOUSE DRAG STOP
     # ---------------
@@ -978,14 +945,15 @@ class Gcompris_anim:
           self.draw_created_object = False
           return True
         # activate the anchors
-        self.selected=item.get_property("parent")
+        self.selected = item.get_property("parent")
         self.selected.get_child(1).props.visibility = goocanvas.ITEM_VISIBLE
 
         return True
 
     # The move motion
-    if (event.type == gtk.gdk.MOTION_NOTIFY and
-        event.state & gtk.gdk.BUTTON1_MASK):
+    if (self.tools[self.current_tool][0] == "SELECT"
+        and event.type == gtk.gdk.MOTION_NOTIFY
+        and event.state & gtk.gdk.BUTTON1_MASK):
       bounds = item.get_bounds()
       (x1, y1)= item.get_canvas().convert_from_item_space(item,
                                                         bounds.x1, bounds.y1)
@@ -1073,20 +1041,21 @@ class Gcompris_anim:
         #print "----------------------------------------"
         #print "Current image = " + str(self.current_frame)
         #self.dump_group(self.root_anim)
+
+        # All items are formatted this way:
+        #     ItemGroup:
+        #        AnchorsGroup
+        #           ANCHOR_SE
+        #           .....
+        #        Item (line, rect, ellipse, text)
+
         self.newitemgroup = \
           goocanvas.Group(
             parent = self.root_anim,
           )
 
 
-        if (self.tools[self.current_tool][0] == "DEL" or
-            self.tools[self.current_tool][0] == "SELECT" or
-            self.tools[self.current_tool][0] == "FILL"):
-          # This event is treated in del_item_event to avoid
-          # operating on background item and grid
-          return False
-
-        elif self.tools[self.current_tool][0] == "LINE":
+        if self.tools[self.current_tool][0] == "LINE":
 
           x,y = self.snap_to_grid(event.x,event.y)
           self.pos_x = x
@@ -1104,12 +1073,6 @@ class Gcompris_anim:
 
             tuple_points = goocanvas.Points([(points['x1'], points['y1']),
                                              (points['x2'], points['y2'])])
-
-#     ItemGroup:
-#        AnchorsGroup
-#           ANCHOR_SE
-#           .....
-#        Item
 
           self.newitem = \
             goocanvas.Polyline(
@@ -1289,12 +1252,8 @@ class Gcompris_anim:
           elif self.gcomprisBoard.mode == 'draw':
             # needed because used to set the anchors.
             # The item has already the right size
-            self.object_set_size_and_pos(self.newitemgroup,
-                                          x1=points['x1'],
-                                          y1=points['y1'],
-                                          x2=points['x2'],
-                                          y2=points['y2']
-                                          )
+            (x1, x2, y1, y2) = self.get_bounds(self.newitem)
+            self.object_set_size_and_pos(self.newitemgroup, x1, x2, y1, y2)
 
             self.select_item(self.newitemgroup)
             # in draw creation is finished. Object is selected.
@@ -1307,7 +1266,7 @@ class Gcompris_anim:
     # MOTION EVENT
     # ------------
     if event.type == gtk.gdk.MOTION_NOTIFY:
-      # That's used only in itel creation.
+      # That's used only in item creation.
       # In draw mode, item creation does not use drag&drop
       if self.gcomprisBoard.mode == 'draw':
         return False
@@ -1361,10 +1320,10 @@ class Gcompris_anim:
               - self.newitem.get_property("radius_y")
 
         self.object_set_size_and_pos(self.newitemgroup,
-                                     x1=x1,
-                                     y1=y1,
-                                     x2=x,
-                                     y2=y
+                                     x1 = x1,
+                                     y1 = y1,
+                                     x2 = x,
+                                     y2 = y
                                      )
     #
     # MOUSE DRAG STOP
@@ -1449,22 +1408,6 @@ class Gcompris_anim:
       height=34.0,
       )
 
-    # First
-    #item = self.rootitem.add(
-    #  goocanvas.Image,
-    #  pixbuf = gcompris.utils.load_pixmap(gcompris.skin.image_to_skin("anim/minibutton.png")),
-    #  x = x_left,
-    #  y = y_top,
-    #  )
-    #item.connect("button_press_event", self.image_select_event, "first")
-    #item = self.rootitem.add(
-    #  goocanvas.Text,
-    #  text = "<<",
-    #  x = x_left + 14,
-    #  y = y_top + 7,
-    #  )
-    #item.connect("button_press_event", self.image_select_event, "first")
-
     # Image Number
     self.item_frame_counter = \
       goocanvas.Text(
@@ -1473,70 +1416,6 @@ class Gcompris_anim:
       x = x_left + minibutton_width + 14,
       y = y_top + 15,
       font = gcompris.skin.get_font("gcompris/board/medium"))
-
-    # Last
-    #item = self.rootitem.add(
-    #  goocanvas.Image,
-    #  pixbuf = gcompris.utils.load_pixmap(gcompris.skin.image_to_skin("anim/minibutton.png")),
-    #  x = x_left + 2*minibutton_width,
-    #  y = y_top,
-    #  )
-    #item.connect("button_press_event", self.image_select_event, "last")
-    #item = self.rootitem.add(
-    #  goocanvas.Text,
-    #  text = ">>",
-    #  x = x_left + 2*minibutton_width + 14,
-    #  y = y_top + 7,
-    #  )
-    #item.connect("button_press_event", self.image_select_event, "last")
-
-    # Next line
-    #y_top += minibutton_height
-
-    # Previous
-    #item = self.rootitem.add(
-    #  goocanvas.Image,
-    #  pixbuf = gcompris.utils.load_pixmap(gcompris.skin.image_to_skin("anim/minibutton.png")),
-    #  x = x_left,
-    #  y = y_top,
-    #  )
-    #item.connect("button_press_event", self.image_select_event, "previous")
-    ##item = self.rootitem.add(
-    #  goocanvas.Text,
-    #  text = "<",
-    #  x = x_left + 14,
-    #  y = y_top + 7,
-    #  )
-    #item.connect("button_press_event", self.image_select_event, "previous")
-
-    # Next
-    #item = self.rootitem.add(
-    #  goocanvas.Image,
-    #  pixbuf = gcompris.utils.load_pixmap(gcompris.skin.image_to_skin("anim/minibutton.png")),
-    #  x = x_left + 2*minibutton_width,
-    #  y = y_top,
-    #  )
-    #item.connect("button_press_event", self.image_select_event, "next")
-    #item = self.rootitem.add(
-    #  goocanvas.Text,
-    #  text = ">",
-    #  x = x_left + 2*minibutton_width + 14,
-    #  y = y_top + 7,
-    #  )
-    #item.connect("button_press_event", self.image_select_event, "next")
-
-    # Last button line
-    #y_top += minibutton_height
-
-  def object_move(self,object,dx,dy):
-    # Unfortunately object.move is broken for 'TEXT' group.
-
-    if gobject.type_name(object.get_child(0))=="GnomeCanvasText":
-      (x1,y1,x2,y2) = object.get_bounds()
-      (idx, idy) =  object.w2i( dx, dy )
-      self.object_set_size_and_pos(object, x1+idx, y1+idy, x2+idx, y2+idy)
-    else:
-      object.move(dx, dy)
 
   def object_set_size_and_pos(self, object, x1, y1, x2, y2):
     if gobject.type_name(object.get_child(0))=="GooCanvasLine":
@@ -1830,7 +1709,6 @@ class Gcompris_anim:
 
     item_type = self.item_type(item)
 
-    print "anchorize %s" % item_type
     if item_type == "GROUP" or not item_type:
       return
 
@@ -1880,7 +1758,8 @@ class Gcompris_anim:
     #bds = item.get_property("parent").get_bounds()
     #    print "Item parent bounds : ", bounds
 
-    (cx, cy) = ( (bounds[2]+bounds[0])/2 , (bounds[3]+bounds[1])/2)
+    (cx, cy) = ( bounds.x1 + (bounds.x2-bounds.x1)/2,
+                 bounds.y1 + (bounds.y2-bounds.y1)/2 )
 
 
     t = math.radians(angle)
@@ -1904,8 +1783,8 @@ class Gcompris_anim:
             (1-math.cos(t))*cx + math.sin(t)*cy,
             -math.sin(t)*cx + (1 - math.cos(t))*cy)
 
-    item.get_property("parent").affine_relative(mat)
-
+    #item.get_property("parent").set_transform(mat)
+    item.rotate(angle, cx, cy)
 
     return
 
@@ -1915,7 +1794,7 @@ class Gcompris_anim:
 
     mat = ( -1, 0, 0, 1, 2*cx, 0)
 
-    item.get_property("parent").affine_relative(mat)
+    item.get_property("parent").set_transform(mat)
 
 
 ###########################################
@@ -1961,14 +1840,14 @@ class Gcompris_anim:
       self.list_z_actual.pop(index)
       self.list_z_actual.insert(index-1, anAnimItem.z)
 
-  # Version 2: compare attributs and put those with difference in frames_info
+  # Version 2: compare attributes and put those with difference in frames_info
   #
   # self.attributs is list of specific attributs usable for animation
   # There is matrice (rotation, flip) and z position to check too
 
 
   def get_animitem_properties(self, anAnimItem):
-    properties = {'matrice' : anAnimItem.canvas_item.i2c_affine((0,0,0,0,0,0)) }
+    properties = {'matrice' : anAnimItem.canvas_item.get_transform() }
     for property_name in self.attributs[anAnimItem.type]:
       properties [property_name] = anAnimItem.canvas_item.get_property(property_name)
       if property_name == 'text':
@@ -2075,11 +1954,13 @@ class Gcompris_anim:
           del modif['image_name']
           pixmap = gcompris.utils.load_pixmap(image)
           modif['pixbuf']= pixmap
-        item.canvas_item = self.playing.add(self.types[item.type], **modif)
-        delta = len(self.playing.item_list) - z -1
-        if delta != 0:
-          item.canvas_item.lower(delta)
-        item.canvas_item.affine_absolute(matrice)
+        item.canvas_item = self.types[item.type](
+          parent = self.playing,
+          **modif)
+        #delta = len(self.playing.get_n_children()) - z -1
+        #if delta != 0:
+        #  item.canvas_item.lower(delta)
+        item.canvas_item.set_transform(matrice)
         continue
       else:
         if modif.has_key('z'):
@@ -2093,7 +1974,7 @@ class Gcompris_anim:
         if  modif.has_key('matrice'):
           matrice = modif['matrice']
           del modif['matrice']
-          item.canvas_item.affine_absolute(matrice)
+          item.canvas_item.set_transform(matrice)
         if len(modif) != 0:
           item.canvas_item.set_properties(**modif)
 
@@ -2101,8 +1982,8 @@ class Gcompris_anim:
     if self.running:
       if self.current_frame==0:
         self.playing.remove()
-        self.playing = self.rootitem.add(
-          goocanvas.Group,
+        self.playing = goocanvas.Group(
+          parent = self.rootitem,
           )
       self.apply_frame((self.current_frame)%(self.frames_total))
       self.current_frame=(self.current_frame+1)%(self.frames_total)
@@ -2126,8 +2007,8 @@ class Gcompris_anim:
       return
     # Hide the current drawing
     self.root_anim.props.visibility = goocanvas.ITEM_INVISIBLE
-    self.playing = self.root_anim.add(
-      goocanvas.Group,
+    self.playing = goocanvas.Group(
+      parent = self.root_anim,
       )
 
     self.playlist = []
@@ -2154,9 +2035,9 @@ class Gcompris_anim:
       self.selected.get_child(0).set_properties(markup=self.last_commit)
       self.last_commit = None
       gcompris.im_reset()
+
     self.selected.get_child(1).props.visibility = goocanvas.ITEM_INVISIBLE
     self.selected = None
-
 
 
 
@@ -2169,24 +2050,16 @@ class Gcompris_anim:
 def general_save(filename, filetype):
   global fles
 
+  print "filename=%s filetype=%s" %(filename, filetype)
   fles.z_reinit()
 
-  #print "general_save : ", filename, " type ",filetype
-  if filetype == None:
-    filetype = filename.split('.')[-1]
-  if (filetype in ['image/svg+xml+javascript','image/svg+xml']):
-    anim2_to_svg(filename)
-    return
-  if (filetype in ['image/gcompris+anim','image/gcompris+draw']):
-    anim2_to_file(filename)
-    return
-  #print "Error File selector return unknown filetype :",'|' + filetype + '|', "!!!"
+  anim2_to_file(filename)
+
 
 def general_restore(filename, filetype):
   #print "general_restore : ", filename, " type ",filetype
-  if filetype == None:
-    filetype = filename.split('.')[-1]
 
+  filename = filename + fles.file_type
   # Determine the file format by reading the first line
   file = open(filename, 'r')
   line = file.read(24)
@@ -2198,25 +2071,14 @@ def general_restore(filename, filetype):
   elif(line == "<?xml version='1.0' enco"):
     filetype = 'image/svg+xml'
 
-  #   print " Detected type ",filetype
-
-  if (filetype in ['image/svg+xml+javascript','image/svg+xml']):
-    global python_xml
-    if python_xml:
-      svg_to_anim2(filename)
-    else:
-      gcompris.utils.dialog(_('SVG is disabled. Install python xml module to enable it'),None)
-    return
   if (filetype in ['image/gcompris+anim','image/gcompris+draw']):
     file_to_anim2(filename)
-    return
-  #print "Error File selector return unknown filetype :",filetype, "!!!"
 
 
 def anim2_to_file(filename):
   global fles
 
-  file =   open(filename, 'wb')
+  file = open(filename, 'wb')
 
   # Save the descriptif frame:
   pickle.dump(fles.format_string['gcompris'],file,True)
@@ -2318,19 +2180,11 @@ def list_restore(picklelist):
 
     if item.type == 'LINE':
       param = data['parent'], data['points'][0], data['points'][1], data['points'][2], data['points'][3],
-    elif item.type == 'TEXT':
+    else:
       bounds = item.canvas_item.get_bounds()
       param = data['parent'], bounds.x1, bounds.y1, bounds.x2, bounds.y2
-    elif item.type == 'IMAGE':
-      param = data['parent'], data['x'], data['y'], data['x']+data['width'], data['y']+data['height']
-    else:
-      param = data['parent'], data['x1'], data['y1'], data['x2'], data['y2']
-
 
     fles.object_set_size_and_pos(*param)
-
-  # Historic strate
-  #fles.current_image = 0
 
   fles.selected = None
 
@@ -2368,7 +2222,7 @@ def list_restore(picklelist):
   fles.list_z_last_shot= []
   for item in fles.framelist:
     fles.list_z_last_shot.append(item.z)
-    update_anchors(item)
+    #FIXMEupdate_anchors(item)
   fles.list_z_last_shot.sort()
   fles.list_z_actual = fles.list_z_last_shot[:]
   fles.z_reinit()
@@ -2387,11 +2241,52 @@ def restore_item(item, frame, missing):
   global fles
   if not item.frames_info.has_key(frame):
     return
+
   modif = item.frames_info[frame].copy()
+
   if modif.has_key('delete'):
     item.canvas_item.get_property("parent").remove()
     fles.framelist.remove(item)
     return False
+
+  # To be backward compatible, delete unsupported gnomecanvas properties
+  try:
+    del modif['height_set']
+    del modif['width_set']
+  except:
+    pass
+
+  # To be backward compatible, rename some properties
+  if ( ((item.type == 'CIRCLE') or (item.type == 'FILL_CIRCLE')
+        and (modif.has_key('x2'))) ):
+    modif['radius_x'] = (modif['x2'] - modif['x1'])/2
+    modif['radius_y'] = (modif['y2'] - modif['y1'])/2
+    modif['center_x'] = modif['x1'] + modif['radius_x']
+    modif['center_y'] = modif['y1'] + modif['radius_y']
+    del modif['x1']
+    del modif['x2']
+    del modif['y1']
+    del modif['y2']
+
+  if ( ((item.type == 'RECT') or (item.type == 'FILL_RECT'))
+        and modif.has_key('x2') ):
+    modif['x'] = modif['x1']
+    modif['y'] = modif['y1']
+    modif['width'] = modif['x2'] - modif['x1']
+    modif['height'] = modif['y2'] - modif['y1']
+    del modif['x1']
+    del modif['x2']
+    del modif['y1']
+    del modif['y2']
+
+  if (modif.has_key('width-units')):
+    modif['line_width'] = modif['width-units']
+    del modif['width-units']
+
+  if (modif.has_key('outline_color_rgba')):
+    modif['stroke_color_rgba'] = modif['outline_color_rgba']
+    del modif['outline_color_rgba']
+
   if (modif.has_key('create') or (fles.gcomprisBoard.mode == 'draw')):
 
     if modif.has_key('create'):
@@ -2419,16 +2314,20 @@ def restore_item(item, frame, missing):
       del modif['image_name']
       pixmap = gcompris.utils.load_pixmap(item.image_name)
       modif['pixbuf']= pixmap
-    newitemgroup = fles.root_anim.add(
-        goocanvas.Group,
+
+    newitemgroup = goocanvas.Group(
+      parent = fles.root_anim,
         )
-    item.canvas_item = newitemgroup.add(fles.types[item.type], **modif)
+
+    item.canvas_item = fles.types[item.type](
+      parent = newitemgroup,
+      **modif)
     item.canvas_item.set_data("AnimItem", item)
     fles.anchorize(newitemgroup)
-    delta = len(fles.root_anim.item_list) - item.z -1
-    if delta != 0:
-      newitemgroup.lower(delta)
-    newitemgroup.affine_absolute(matrice)
+    #delta = len(fles.root_anim.item_list) - item.z -1
+    #if delta != 0:
+    #  newitemgroup.lower(delta)
+    newitemgroup.set_transform(matrice)
     fles.framelist.append(item)
     return True
   else:
@@ -2443,7 +2342,7 @@ def restore_item(item, frame, missing):
     if  modif.has_key('matrice'):
       matrice = modif['matrice']
       del modif['matrice']
-      item.canvas_item.get_property("parent").affine_absolute(matrice)
+      item.canvas_item.get_property("parent").set_transform(matrice)
     if len(modif) != 0:
       # Bourrin: je supprime les ancres et je les remets apres les modifs
       # Pas envie de me faire ch*** a retraiter les resize et les move
@@ -2452,907 +2351,6 @@ def restore_item(item, frame, missing):
       #fles.anchorize(item.canvas_item.get_property("parent"))
     return True
 
-##############################################
-#
-#  SVG anim 2 export
-#
-##############################################
-
-def anim2_to_svg(filename):
-
-    processor_class = DOMProcess
-
-    outfp = open(filename,'w')
-
-    processor = processor_class(outfp)
-    processor.run()
-
-    outfp.close()
-
-
-class BaseProcess:
-    """Base class for the conversion processors.  Each concrete subclass
-    must provide the following methods:
-
-    initOutput()
-        Initialize the output stream and any internal data structures
-        that the conversion process needs.
-
-    addRecord(lname, fname, type)
-        Add one record to the output stream (or the internal structures)
-        where lname is the last name, fname is the first name, and type
-        is either 'manager' or 'employee'.
-
-    finishOutput()
-        Finish all output generation.  If all work has been on internal
-        data structures, this is where they should be converted to text
-        and written out.
-    """
-    def __init__(self, outfp):
-        """Store the input and output streams for later use."""
-        self.types = { 'RECT' : 'rect',
-                       'FILL_RECT' : 'rect',
-                       'CIRCLE' : 'ellipse',
-                       'FILL_CIRCLE' : 'ellipse',
-                       'TEXT' : 'text',
-                       'IMAGE' : 'use',
-                       'LINE' : 'line'
-                   }
-
-        global fles
-
-        self.outfp = outfp
-        self.images_list = {}
-
-        self.frames_total = fles.frames_total
-
-
-        # save the list into
-        self.list_to = []
-
-        # get the list
-        self.list_from = []
-
-        if (fles.gcomprisBoard.mode == 'draw'):
-          # in draw we need to get the list in z order, because of svg.
-          def get_item_at(z):
-            for item in eval('fles.' + fles.itemlist[fles.gcomprisBoard.mode]):
-              if item.z == z: return item
-          for z in fles.list_z_actual:
-            self.list_from.append(get_item_at(z))
-
-          # now each item needs to get it's frames_info updated
-          for anAnimItem in self.list_from[:]:
-            modified = fles.get_modified_parameters(anAnimItem)
-            if len(modified) != 0:
-              anAnimItem.frames_info[fles.current_frame] = modified
-        else:
-          self.list_from = fles.animlist
-
-        for item in self.list_from:
-          frames_info_copied = {}
-          for t, d  in item.frames_info.iteritems():
-            frames_info_copied[t] = d.copy();
-          Sitem = [ item.type, frames_info_copied]
-          list_frames = Sitem[1].keys()
-          list_frames.sort()
-#          if ((Sitem[0] == 'TEXT') and (Sitem[1][list_frames[0]].has_key('anchor'))):
-#            Sitem[1][list_frames[0]]['text-anchor']='middle'
-#            del Sitem[1][list_frames[0]]['anchor']
-          self.list_to.append(Sitem)
-
-
-    def get_last_rectel_bounds(self, item, frame_no):
-        listkeys = item[1].keys()
-        listkeys.sort()
-
-
-        def f(x): return x < frame_no
-
-        #print "rectel last", item, frame_no, filter(f,listkeys)
-
-        for frame in filter(f,listkeys):
-          if item[1][frame].has_key('x1'):
-             x1 = item[1][frame]['x1']
-          if item[1][frame].has_key('x2'):
-             x2 = item[1][frame]['x2']
-          if item[1][frame].has_key('y1'):
-             y1 = item[1][frame]['y1']
-          if item[1][frame].has_key('y2'):
-             y2 = item[1][frame]['y2']
-
-        return (x1,y1,x2,y2)
-
-    def get_last_line_points(self, item, frame_no):
-        listkeys = item[1].keys()
-        listkeys.sort()
-
-        def f(x): return x < frame_no
-
-        for frame in filter(f,listkeys):
-            if  item[1][frame].has_key('points'):
-                points = item[1][frame]['points']
-        return points
-
-    def rgb_write(self, rgba):
-        red = int ( ( rgba >> 24 ) & 255 )
-        green = int ( ( rgba >> 16 ) & 255 )
-        blue = int ( ( rgba >> 8 ) & 255 )
-        return 'rgb(' + str(red) +',' + str(green) + ',' + str(blue) + ')'
-
-    def run(self):
-        """Perform the complete conversion process.
-
-        This method is responsible for parsing the input and calling the
-        subclass-provided methods in the right order.
-        """
-        self.initOutput()
-
-        global fles
-
-        for item in self.list_to:
-          self.element = self.document.createElement(self.types[item[0]])
-          self.svg.appendChild(self.element)
-          listkeys = item[1].keys()
-          listkeys.sort()
-          for frame_no in listkeys:
-            # if draw there is only one key.
-            # in this case parameters are put in self.element
-            # and not in self.frame
-
-            if fles.gcomprisBoard.mode == 'draw':
-              self.frame = self.element
-            else:
-             self.frame = self.document.createElement("gcompris:frame")
-             self.frame.setAttribute('time',str(frame_no))
-             self.element.appendChild(self.frame)
-
-            for attr in item[1][frame_no].keys():
-              if (self.types[item[0]] == 'rect'):
-
-                if (item[0] == 'RECT') and item[1][frame_no].has_key('create'):
-                  self.frame.setAttribute('fill', 'none')
-                if (attr == 'x2'):
-                  if item[1][frame_no].has_key('x1'):
-                    self.frame.setAttribute('width', str(item[1][frame_no]['x2']-item[1][frame_no]['x1']))
-                  else:
-               	    points = self.get_last_rectel_bounds(item, frame_no)
-                    self.frame.setAttribute('width', str(item[1][frame_no]['x2']- points[0]))
-                  continue
-                if (attr == 'y2'):
-                  if item[1][frame_no].has_key('y1'):
-                    self.frame.setAttribute('height', str(item[1][frame_no]['y2']-item[1][frame_no]['y1']))
-                  else:
-               	    points = self.get_last_rectel_bounds(item, frame_no)
-                    self.frame.setAttribute('height', str(item[1][frame_no]['y2']- points[1]))
-                  continue
-                if (attr == 'x1'):
-                  self.frame.setAttribute('x', str(item[1][frame_no]['x1']))
-                  if not item[1][frame_no].has_key('x2'):
-                    points = self.get_last_rectel_bounds(item, frame_no)
-                    self.frame.setAttribute('width', str( - item[1][frame_no]['x1'] + points[2]))
-                  continue
-                if (attr == 'y1'):
-                  self.frame.setAttribute('y', str(item[1][frame_no]['y1']))
-                  if not item[1][frame_no].has_key('y2'):
-                    points = self.get_last_rectel_bounds(item, frame_no)
-                    self.frame.setAttribute('width', str( - item[1][frame_no]['y1']+ points[3]))
-                  continue
-                if (attr == 'fill_color_rgba'):
-                  self.frame.setAttribute(
-                      'fill',
-                      self.rgb_write(item[1][frame_no]['fill_color_rgba']))
-                  continue
-                if (attr == 'stroke_color_rgba'):
-                  self.frame.setAttribute(
-                      'stroke',
-                      self.rgb_write(item[1][frame_no]['stroke_color_rgba']))
-                  continue
-                if (attr == 'width-units'):
-                  self.frame.setAttribute(
-                      'stroke-width',
-                      str(item[1][frame_no]['width-units']))
-                  continue
-
-              if (self.types[item[0]] == 'ellipse'):
-                if (attr == 'width-units'):
-                  self.frame.setAttribute(
-                      'stroke-width',
-                      str(item[1][frame_no]['width-units']))
-                  continue
-
-                if (attr == 'stroke_color_rgba'):
-                  self.frame.setAttribute(
-                      'stroke',
-                      self.rgb_write(item[1][frame_no]['stroke_color_rgba']))
-                  continue
-                if (item[0] == 'CIRCLE') and item[1][frame_no].has_key('create'):
-                  self.frame.setAttribute('fill', 'none')
-
-                if (attr == 'fill_color_rgba'):
-                  self.frame.setAttribute(
-                      'fill',
-                      self.rgb_write(item[1][frame_no]['fill_color_rgba']))
-                  continue
-
-                if (attr == 'x2'):
-                  if item[1][frame_no].has_key('x1'):
-                    cx = (item[1][frame_no]['x2']+item[1][frame_no]['x1'])/2
-                  else:
-               	    points = self.get_last_rectel_bounds(item, frame_no)
-                    cx = (item[1][frame_no]['x2']+ points[0])/2
-                  rx = item[1][frame_no]['x2']-cx
-                  self.frame.setAttribute('cx',str(cx))
-                  self.frame.setAttribute('rx',str(rx))
-                  continue
-                if (attr == 'x1'):
-                  if item[1][frame_no].has_key('x2'):
-                    continue
-                  else:
-               	    points = self.get_last_rectel_bounds(item, frame_no)
-                    cx = (item[1][frame_no]['x1']+ points[2])/2
-                    rx = cx - item[1][frame_no]['x1']
-                    self.frame.setAttribute('cx',str(cx))
-                    self.frame.setAttribute('rx',str(rx))
-                  continue
-
-                if (attr == 'y2'):
-                  if item[1][frame_no].has_key('y1'):
-                    cy = (item[1][frame_no]['y2']+item[1][frame_no]['y1'])/2
-                  else:
-               	    points = self.get_last_rectel_bounds(item, frame_no)
-                    cy = (item[1][frame_no]['y2']+ points[1])/2
-                  ry = item[1][frame_no]['y2']-cy
-                  self.frame.setAttribute('cy',str(cy))
-                  self.frame.setAttribute('ry',str(ry))
-                  continue
-                if (attr == 'y1'):
-                  if item[1][frame_no].has_key('y2'):
-                    continue
-                  else:
-               	    points = self.get_last_rectel_bounds(item, frame_no)
-                    cy = (item[1][frame_no]['y1']+ points[3])/2
-                    ry = cy - item[1][frame_no]['y1']
-                    self.frame.setAttribute('cy',str(cy))
-                    self.frame.setAttribute('ry',str(ry))
-                  continue
-
-              if (self.types[item[0]] == 'line'):
-                if (attr == 'fill_color_rgba'):
-                  self.frame.setAttribute(
-                      'stroke',
-                      self.rgb_write(item[1][frame_no]['fill_color_rgba']))
-                  continue
-                if (attr == 'width-units'):
-                  self.frame.setAttribute(
-                      'stroke-width',
-                      str(item[1][frame_no]['width-units']))
-                  continue
-                if (attr == 'points'):
-                    if item[1][frame_no].has_key('create'):
-                        self.frame.setAttribute('x1', str(item[1][frame_no]['points'][0]))
-                        self.frame.setAttribute('y1', str(item[1][frame_no]['points'][1]))
-                        self.frame.setAttribute('x2', str(item[1][frame_no]['points'][2]))
-                        self.frame.setAttribute('y2', str(item[1][frame_no]['points'][3]))
-                    else:
-                        last_points = self.get_last_line_points(item, frame_no)
-                        points = item[1][frame_no]['points']
-
-                        if points[0] != last_points[0]:
-                            self.frame.setAttribute('x1', str(points[0]))
-                        if points[1] != last_points[1]:
-                            self.frame.setAttribute('y1', str(points[1]))
-                        if points[2] != last_points[2]:
-                            self.frame.setAttribute('x2', str(points[2]))
-                        if points[3] != last_points[3]:
-                            self.frame.setAttribute('y2',str( points[3]))
-                    continue
-
-              if (self.types[item[0]] == 'text'):
-                if (attr == 'fill_color_rgba'):
-                  self.frame.setAttribute(
-                      'fill',
-                      self.rgb_write(item[1][frame_no]['fill_color_rgba']))
-                  continue
-                if (attr == 'anchor'):
-                    self.frame.setAttribute(
-                        'text-anchor',
-                        'middle')
-                    continue
-#                if (attr == 'text'):
-#                  self.frame.appendChild(self.document.createTextNode(item[1][frame_no]['text'].encode('UTF-8')))
-#                  continue
-
-              if ( attr == 'font' ):
-                  font = item[1][frame_no]['font']
-                  list = font.split()
-
-                  self.frame.setAttribute(
-                      'font-size',list[-1] + 'pt')
-                  self.frame.setAttribute(
-                      'font-family',list[0] + ' ' + list[1])
-
-
-              if (item[0] == 'IMAGE'):
-                if (attr == 'image_name'):
-                  image_name=item[1][frame_no]['image_name']
-                  list_image_name = image_name.split('/')
-                  if self.images_list.has_key(image_name):
-                    self.element.setAttribute(
-                        'xlink:href',self.images_list[image_name])
-                  else:
-                    self.symbol = self.document.createElement('symbol')
-                    self.defel.appendChild(self.symbol)
-                    self.image = self.document.createElement('image')
-                    self.symbol.appendChild(self.image)
-                    self.symbol.setAttribute(
-                        'id', 'image' + str(len(self.images_list)))
-                    self.element.setAttribute(
-                        'xlink:href', '#image' + str(len(self.images_list)))
-                    self.images_list[image_name]= 'image' + str(len(self.images_list))
-                    # Base64 included image, to get all in one file
-                    #
-                    # that's dirty, but i want something simple for kids
-                    #
-                    # anyway image can be used multiple time,
-                    # it will be included only once
-                    #
-                    # Maybe put file and image in same directory ?
-                    #
-                    imagefile = open(gcompris.DATA_DIR + '/' + image_name)
-                    base64string = base64.encodestring(imagefile.read())
-                    self.image.setAttribute(
-                        'xlink:href','data:image/png;base64,' + base64string)
-
-                    # get real size of the image.
-                    pixmap = gcompris.utils.load_pixmap(image_name)
-                    width = pixmap.get_width()
-                    height = pixmap.get_height()
-
-                    # Pass the <symbol> with image included.
-                    self.image.setAttribute(
-                        'x','0')
-                    self.image.setAttribute(
-                        'y','0')
-                    self.image.setAttribute(
-                        'width', str(width))
-                    self.image.setAttribute(
-                        'height',str(height))
-                    self.symbol.setAttribute(
-                        'viewBox','0 0 '+ str(width) + ' ' + str(height))
-                    self.symbol.setAttribute(
-                        'preserveAspectRatio','none')
-                    self.gcompris_name = self.document.createElement('gcompris:image_name')
-                    # Pass the image_name info in private child
-                    self.image.appendChild(self.gcompris_name)
-                    self.gcompris_name.setAttribute('value',image_name)
-                  continue
-
-              if (attr == 'matrice'):
-                  self.frame.setAttribute(
-                      'transform',
-                      'matrix' + str(item[1][frame_no]['matrice']))
-                  continue
-
-              if fles.gcomprisBoard.mode == 'draw':
-                if (attr != 'create'):
-                  self.frame.setAttribute(attr,str(item[1][frame_no][attr]))
-              else:
-                self.frame.setAttribute(attr,str(item[1][frame_no][attr]))
-        self.finishOutput()
-
-
-class DOMProcess(BaseProcess):
-    """Concrete conversion process which uses a DOM structure as an
-    internal data structure.
-
-    Content is added to the DOM tree for each input record, and the
-    entire tree is serialized and written to the output stream in the
-    finishOutput() method.
-    """
-    def initOutput(self):
-        global fles
-        # Create a new document with no namespace uri, qualified name,
-        # or document type
-        self.document = implementation.createDocument(None,None,None)
-        self.svg = self.document.createElement("svg")
-        self.svg.setAttribute("id","svgroot")
-        self.svg.setAttribute("width","800")
-        self.svg.setAttribute("height","550")
-        self.svg.setAttribute("version","1.1")
-        self.svg.setAttribute("xmlns","http://www.w3.org/2000/svg")
-        self.svg.setAttribute("xmlns:xlink","http://www.w3.org/1999/xlink")
-        self.svg.setAttribute("xmlns:html","http://www.w3.org/1999/xhtml")
-        self.svg.setAttribute("xmlns:gcompris","http://www.ofset.org/gcompris")
-        self.svg.setAttribute("onload","init();")
-        self.document.appendChild(self.svg)
-
-        self.metadata = self.document.createElement("metadata")
-        self.svg.appendChild(self.metadata)
-        self.gc_desc = self.document.createElement("gcompris:description")
-        self.metadata.appendChild(self.gc_desc)
-        self.gc_desc.setAttribute('value',fles.format_string['svg'])
-
-        if fles.gcomprisBoard.mode != 'draw':
-          self.script = self.document.createElement("script")
-          self.svg.appendChild(self.script)
-          self.gcompris_frames_total = self.document.createElement("gcompris:frames_total")
-          self.svg.appendChild(self.gcompris_frames_total)
-          self.gcompris_frames_total.setAttribute("value",str(self.frames_total))
-          scriptfile = open(gcompris.DATA_DIR + "/anim/animation.js")
-          t = self.document.createCDATASection(scriptfile.read())
-          self.script.appendChild(t)
-
-        self.defel = self.document.createElement("defs")
-        self.svg.appendChild(self.defel)
-
-        if fles.gcomprisBoard.mode != 'draw':
-          # html buttons included
-          self.foreign = self.document.createElement("foreignObject")
-          self.svg.appendChild(self.foreign)
-          self.foreign.setAttribute("x","300")
-          self.foreign.setAttribute("y","520")
-          self.foreign.setAttribute("width","800")
-          self.foreign.setAttribute("height","30")
-          self.foreign.setAttribute("requiredExtensions","http://www.mozilla.org/SVGExtensions/EmbeddedXHTML")
-          self.button1 = self.document.createElement("html:button")
-          self.foreign.appendChild(self.button1)
-          self.button1.setAttribute("onclick", "start_animation();")
-          self.button1text = self.document.createTextNode(u'>'.encode('UTF-8'))
-          self.button1.appendChild(self.button1text)
-
-          self.button2 = self.document.createElement("html:button")
-          self.foreign.appendChild(self.button2)
-          self.button2.setAttribute("onclick", "speed_down();")
-          self.button2text = self.document.createTextNode(u'<<'.encode('UTF-8'))
-          self.button2.appendChild(self.button2text)
-
-          self.speedtext = self.document.createElement("html:input")
-          self.foreign.appendChild(self.speedtext)
-          self.speedtext.setAttribute("id","speed_text")
-          self.speedtext.setAttribute("type","TEXT")
-          self.speedtext.setAttribute("size","6")
-          self.speedtext.setAttribute("maxlength","6")
-          self.speedtext.setAttribute("value","4 fps")
-
-          self.ratetext = self.document.createElement("html:input")
-          self.foreign.appendChild(self.ratetext)
-          self.ratetext.setAttribute("id","rate_text")
-          self.ratetext.setAttribute("type","TEXT")
-          self.ratetext.setAttribute("size","6")
-          self.ratetext.setAttribute("maxlength","6")
-          self.ratetext.setAttribute("value","")
-
-          self.button3 = self.document.createElement("html:button")
-          self.foreign.appendChild(self.button3)
-          self.button3.setAttribute("onclick", "speed_up();")
-          self.button3text = self.document.createTextNode(u'>>'.encode('UTF-8'))
-          self.button3.appendChild(self.button3text)
-
-          self.button4 = self.document.createElement("html:button")
-          self.foreign.appendChild(self.button4)
-          self.button4.setAttribute("onclick", "stop_animation();")
-          self.button4text = self.document.createTextNode(u'||'.encode('UTF-8'))
-          self.button4.appendChild(self.button4text)
-
-
-    def finishOutput(self):
-#        t = self.document.createTextNode("\n")
-#        self.svg.appendChild(t)
-        # XXX toxml not supported by 4DOM
-        # self.outfp.write(self.document.toxml())
-        xml.dom.ext.PrettyPrint(self.document, self.outfp)
-        self.outfp.write("\n")
-
-        # now each item needs to get it's frames_info cleared
-        global fles
-        if fles.gcomprisBoard.mode == 'draw':
-          for anAnimItem in self.list_from[:]:
-            del anAnimItem.frames_info[fles.current_frame]
-
-
-
-
-
-
-##############################################
-#
-#  SVG anim 2 import
-#
-##############################################
-
-
-#try:
-#    import xml.parsers.expat
-#except ImportError:
-#    import pyexpat
-
-#from xml.parsers import expat
-
-def svg_to_anim2(filename):
-    """Process command line parameters and run the conversion."""
-
-    infp = open(filename)
-    global fles
-
-    fles.filename = filename
-    out = Outputter()
-    parser = expat.ParserCreate()
-
-    HANDLER_NAMES = [
-        'StartElementHandler', 'EndElementHandler',
-        'CharacterDataHandler', 'ProcessingInstructionHandler',
-        'UnparsedEntityDeclHandler', 'NotationDeclHandler',
-        'StartNamespaceDeclHandler', 'EndNamespaceDeclHandler',
-        'CommentHandler', 'StartCdataSectionHandler',
-        'EndCdataSectionHandler',
-        'DefaultHandler', 'DefaultHandlerExpand',
-        #'NotStandaloneHandler',
-        'ExternalEntityRefHandler', 'SkippedEntityHandler',
-        ]
-    parser.returns_unicode = 1
-
-    for name in HANDLER_NAMES:
-        setattr(parser, name, getattr(out, name))
-
-    try:
-        parser.ParseFile(infp)
-    except expat.error:
-        print '** Error', parser.ErrorCode, expat.ErrorString(parser.ErrorCode)
-        print '** Line', parser.ErrorLineNumber
-        print '** Column', parser.ErrorColumnNumber
-        print '** Byte', parser.ErrorByteIndex
-
-
-    infp.close()
-    return
-
-class Outputter:
-    global fles
-
-    def __init__(self):
-       self.fixedattributs = fles.fixedattributs
-
-       # used to check the element coming is the right one
-       self.wait_element_list = ['svg']
-
-       # keep where we are in the tree
-       self.in_element = []
-
-       # elements constituting the draws.
-       self.svg_element = ['use', 'rect', 'ellipse', 'line', 'text']
-
-       # dict with id : image_name pairs
-       self.images = {}
-
-       # Format of output in the gcompris anim2 pickle format,
-       # close to the anim2 internal format
-       self.picklelist = []
-
-       # Item we are looking in. In fact we keep here the item we actually read the frames information.
-       self.item_getting = None
-
-       # id of image we are looking in
-       self.image_getting = None
-
-       # used to skip elements we are not interested in (foreignObject, script)
-       self.wait_end_of = None
-
-
-    def StartElementHandler(self, name, attrs):
-        global fles
-        def get_attrs(attrs):
-          global fles
-
-          def rgb(r,g,b):
-             return (r<<24L) + (g<<16) + (b<<8) + 255
-
-          def matrix(a, b, c, d, e, f):
-            return (a , b, c, d, e, f)
-
-          frame_info = {}
-
-          keys = attrs.keys()
-          for k in keys:
-             if (k == 'create'):
-               if (self.item_getting[0] == 'IMAGE'):
-                 frame_info['image_name'] = self.image_getting
-               if ('fill' in keys):
-                 if (attrs['fill']=='none'):
-                   if (self.item_getting[0] == 'FILL_RECT'):
-                     self.item_getting[0] = 'RECT'
-                   if (self.item_getting[0] == 'FILL_CIRCLE'):
-                     self.item_getting[0] = 'CIRCLE'
-               frame_info.update(self.fixedattributs[self.item_getting[0]])
-             if (k == 'transform'):
-                 frame_info['matrice'] =  eval(attrs[k])
-                 continue
-             if (k == 'stroke'):
-               # used in CIRCLE LINE and RECT
-               if (self.item_getting[0] in ['CIRCLE','RECT','LINE','FILL_RECT','FILL_CIRCLE']):
-                 # CIRCLE RECT -> stroke_color_rgba
-                 # LINE -> fill_color_rgba
-                 if (self.item_getting[0] == 'LINE'):
-                   frame_info['fill_color_rgba'] = eval(attrs[k])
-                 else:
-                   frame_info['stroke_color_rgba'] = eval(attrs[k])
-                 continue
-             if (k == 'fill'):
-               #used in FILL_CIRCLE and FILL_RECT
-               if (self.item_getting[0] in ['FILL_CIRCLE','FILL_RECT','TEXT']):
-                 frame_info['fill_color_rgba'] = eval(attrs[k])
-               continue
-             if (k in ['stroke-width', 'font-size', 'font-family', 'font', 'text-anchor']):
-               continue
-             if (k in ['x1', 'y1', 'x2', 'y2','x','y','width','height', 'cx', 'cy', 'rx', 'ry']):
-               self.points[k] =  eval(attrs[k])
-               continue
-
-             if (k == 'text'):
-                frame_info['text']=attrs[k]
-                continue
-             if (k == 'xlink:href'):
-               # in draw, this is in attrs becaus the frame is directly in element.
-               frame_info['image_name'] = self.image_getting
-               continue
-
-             if (not (k in ['x1', 'y1', 'x2', 'y2','x','y','width','height', 'cx', 'cy', 'rx', 'ry'])):
-               #print u'Attribut non trait\xe9 :', self.item_getting[0], " ", k, "=", attrs[k]
-               frame_info[k] = eval(attrs[k])
-
-          if (self.points != {}):
-            if (self.item_getting[0] == 'LINE'):
-              for coord in ['x1', 'y1', 'x2', 'y2']:
-                if (not self.points.has_key(coord)):
-                  self.points[coord] = self.last_points[coord]
-              frame_info['points'] = ( self.points['x1'],
-                                         self.points['y1'],
-                                         self.points['x2'],
-                                         self.points['y2'])
-              self.last_points.update(self.points)
-              self.points = {}
-
-            if (self.item_getting[0] == 'IMAGE'):
-              for j in self.points.keys():
-                  frame_info[j] = self.points[j]
-              self.points = {}
-
-            if (self.item_getting[0] in ['RECT', 'FILL_RECT']):
-              dist = { 'x' : 'width', 'y': 'height'}
-              for c in ['x', 'y']:
-                if (self.points.has_key(c)):
-                  b1 = self.points[c]
-                  if (self.points.has_key(dist[c])):
-                    # x and w changed
-                    b2 = b1 + self.points[dist[c]]
-                  else:
-                    # x changed but not w
-                    b2 = b1 + self.last_points[c + '2'] - self.last_points[c + 1]
-                else:
-                  b1 = self.last_points[c + '1']
-
-                  if (self.points.has_key(dist[c])):
-                    # x not changed but w
-                    b2 = b1 + self.points[dist[c]]
-                  else:
-                    # x and w not changed. normally never here
-                    b2 = self.last_points[c + '2']
-
-                if (b1 != self.last_points[c+'1']):
-                  frame_info[c+'1'] = b1
-                  self.last_points[c+'1'] = b1
-                if (b2 != self.last_points[c+'2']):
-                  frame_info[c+'2'] = b2
-                  self.last_points[c+'2'] = b2
-
-            if (self.item_getting[0] in ['CIRCLE', 'FILL_CIRCLE']):
-              dist = { 'x' : 'rx', 'y': 'ry'}
-              for c in ['x', 'y']:
-                if (self.points.has_key('c' + c)):
-                  if (self.points.has_key(dist[c])):
-                    # c and r change
-                    b1 = self.points['c' + c] - self.points[dist[c]]
-                    b2 = self.points['c' + c] + self.points[dist[c]]
-                  else:
-                    # c changed but not r
-                    b1 = self.points['c' + c] - (self.last_points[c +'2'] - self.last_points[c +'1'])/2
-                    b2 = self.points['c' + c] + (self.last_points[c +'2'] - self.last_points[c +'1'])/2
-                else:
-                  if (self.points.has_key(dist[c])):
-                    # c not changed , r changed
-                    b1 = (self.last_points[c + '1'] + self.last_points[c + '2'])/2 - self.points[dist[c]]
-                    b2 = b1 + 2 * self.points[dist[c]]
-                  else:
-                    # c and r not changed
-                    b1 = self.last_points[c + '1']
-                    b2 = self.last_points[c + '2']
-
-                if (b1 != self.last_points[c+'1']):
-                  frame_info[c+'1'] = b1
-                  self.last_points[c+'1'] = b1
-                if (b2 != self.last_points[c+'2']):
-                  frame_info[c+'2'] = b2
-                  self.last_points[c+'2'] = b2
-
-            if (self.item_getting[0] in ['TEXT']):
-              for c in ['x', 'y']:
-                if (self.points[c] != self.last_points[c+'1']):
-                  frame_info[c] = self.points[c]
-                  self.last_points[c+'1'] = self.points[c]
-
-          return frame_info
-
-        if self.wait_end_of != None:
-           # ignore all childs of that element .
-           return
-
-        if not (name in self.wait_element_list):
-           #print "Error : wait ", self.wait_element_list, " get ", name
-           return
-        self.in_element.append(name)
-        if (name == 'svg'):
-          if (fles.gcomprisBoard.mode == 'draw'):
-            self.wait_element_list = [ 'defs', 'metadata' ]
-          else:
-            self.wait_element_list = [ 'script', 'metadata' ]
-          return
-        if (name == 'metadata'):
-           self.wait_element_list = ['gcompris:description']
-           return
-        if (name == 'gcompris:description'):
-           desc = attrs['value']
-           return
-        if (name == 'script'):
-           self.wait_end_of = name
-           return
-        if (name == 'foreignObject'):
-           self.wait_end_of = name
-           return
-        if (name == 'gcompris:frames_total'):
-           fles.frames_total = eval(attrs['value'])
-           return
-        if (name == 'defs'):
-           self.wait_element_list = ['symbol']
-           return
-        if (name == 'symbol'):
-           # just get the id.
-           self.wait_element_list = ['image']
-           self.image_getting = attrs['id']
-        if (name == 'image'):
-           #the only interresting thing is the name in gcompris tree of this image. This the child element <gcompris:image_name /> value attribut.
-           self.wait_element_list = ['gcompris:image_name']
-           return
-        if (name == 'gcompris:image_name'):
-           #the only interresting thing is the name in gcompris tree of this image. This the child element <gcompris:image_name /> value attribut.
-           image_id = attrs['value']
-           self.images['#' + self.image_getting] =  image_id
-           return
-        if (name in self.svg_element):
-           self.wait_element_list = ['gcompris:frame']
-           # used to check modification in x, y, w, h positions
-           self.points = {}
-           self.last_points = { 'x1' : None,
-                                'y1' : None,
-                                'x2' : None,
-                                'y2' : None
-                                }
-
-           if (name == 'use'):
-             self.item_getting = ['IMAGE',{}]
-             # We will put image_name when we meet 'create' attr, in frame_info spec. For that we need to keep the name of that image.
-             self.image_getting = self.images[attrs['xlink:href']]
-           if (name == 'text'):
-             self.item_getting = ['TEXT',{}]
-           if (name == 'line'):
-             self.item_getting = ['LINE',{}]
-           if (name == 'rect'):
-             # Warning ! Will be changed in RECT
-             # if fill='none' found with create attr.
-             self.item_getting = ['FILL_RECT',{}]
-           if (name == 'ellipse'):
-             # Warning ! Will be changed in CIRCLE
-             # if fill='none'  found with create attr.
-             self.item_getting = ['FILL_CIRCLE',{}]
-
-           if (fles.gcomprisBoard.mode == 'draw'):
-             self.item_getting[1][0] = get_attrs(attrs)
-
-        if (name == 'gcompris:frame'):
-          self.item_getting[1][eval(attrs['time'])] = {}
-          frame_info = self.item_getting[1][eval(attrs['time'])]
-          del attrs['time']
-
-          frame_info.update(get_attrs(attrs))
-
-    def EndElementHandler(self, name):
-        if (self.wait_end_of != None):
-          if (name == self.wait_end_of):
-            self.wait_end_of = None
-          else: return
-
-        if (name != self.in_element[-1]):
-          # Let this print it can handle error
-          print "Error close ", name, " but ", self.in_element[-1], " waited."
-          return
-        self.in_element.pop()
-
-        if (name == 'svg'):
-            list_restore(self.picklelist)
-            return
-        if (name == 'metadata'):
-          if (fles.gcomprisBoard.mode == 'draw'):
-            self.wait_element_list = [ 'defs' ]
-          else:
-            self.wait_element_list = [ 'script' ]
-          return
-        if (name == 'script'):
-            self.wait_element_list = [ 'gcompris:frames_total' ]
-            return
-        if (name == 'gcompris:frames_total'):
-            self.wait_element_list = ['defs']
-            return
-        if (name == 'symbol'):
-            self.wait_element_list = ['symbol']
-            return
-        if (name == 'defs'):
-          if (fles.gcomprisBoard.mode == 'draw'):
-            self.wait_element_list = self.svg_element
-          else:
-            self.wait_element_list = ['foreignObject']
-            return
-        if (name == 'foreignObject'):
-            self.wait_element_list = self.svg_element
-            return
-        if (name in self.svg_element):
-            self.wait_element_list = self.svg_element
-            self.picklelist.append([self.item_getting[0],self.item_getting[1].copy()])
-            self.item_getting = None
-            return
-
-    def CharacterDataHandler(self, data):
-      pass
-
-    def ProcessingInstructionHandler(self, target, data):
-      pass
-
-    def StartNamespaceDeclHandler(self, prefix, uri):
-      pass
-
-    def EndNamespaceDeclHandler(self, prefix):
-      pass
-
-    def StartCdataSectionHandler(self):
-      pass
-
-    def EndCdataSectionHandler(self):
-      pass
-
-    def CommentHandler(self, text):
-      pass
-
-    def NotationDeclHandler(self, *args):
-      pass
-
-    def UnparsedEntityDeclHandler(self, *args):
-      pass
-
-    def NotStandaloneHandler(self, userData):
-      return 1
-
-    def ExternalEntityRefHandler(self, *args):
-      return 1
-
-    def SkippedEntityHandler(self, *args):
-      pass
-
-    def DefaultHandler(self, userData):
-      pass
-
-    def DefaultHandlerExpand(self, userData):
-      pass
-
-
-
 def image_selected(image):
   #fles is used because self is not passed through callback
   global fles
@@ -3360,8 +2358,8 @@ def image_selected(image):
   pixmap = gcompris.utils.load_pixmap(image)
 
   fles.newitem = None
-  fles.newitemgroup = fles.root_anim.add(
-    goocanvas.Group,
+  fles.newitemgroup = goocanvas.Group(
+    parent = fles.root_anim
     )
 
   x= fles.pos_x
@@ -3369,19 +2367,14 @@ def image_selected(image):
   width  = pixmap.get_width()
   height = pixmap.get_height()
 
-  fles.newitem = fles.newitemgroup.add(
-    goocanvas.Image,
+  fles.newitem = goocanvas.Image(
+    parent = fles.newitemgroup,
     pixbuf = pixmap,
     x=x,
     y=y,
     width=width,
     height=height,
     )
-
-  # Tell svg_save the filename
-  # Write "filename=image" in the property of newitem
-  # Can't do it here because in C python string are unreadable
-  # gcompris.utils.canvas_set_property(fles.newitem, "filename", image)
 
   anAnimItem = fles.AnimItem()
   anAnimItem.z = fles.new_z()

@@ -95,7 +95,7 @@ static guint32 directory_label_y;
 
 /*
  * Do all the file_selector display and register the events
- * file_types is A Comma separated text explaining the different file types
+ * file_types is A Space separated possible file extensions
  */
 
 void gc_selector_file_save (GcomprisBoard *gcomprisBoard, gchar *rootdir,
