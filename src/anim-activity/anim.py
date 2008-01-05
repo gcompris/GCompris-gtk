@@ -1459,7 +1459,7 @@ class Gcompris_anim:
       if anchor_type == self.ANCHOR_N:
         anchor.set_properties(
           x= (x1 + x2 - self.DEFAULT_ANCHOR_SIZE)/2,
-          y= y2,
+          y= y1 - self.DEFAULT_ANCHOR_SIZE,
           width = self.DEFAULT_ANCHOR_SIZE,
           height = self.DEFAULT_ANCHOR_SIZE,
           )
@@ -1473,7 +1473,7 @@ class Gcompris_anim:
       elif anchor_type == self.ANCHOR_NE:
         anchor.set_properties(
           x= x2,
-          y= y2,
+          y= y1 - self.DEFAULT_ANCHOR_SIZE,
           width = self.DEFAULT_ANCHOR_SIZE,
           height = self.DEFAULT_ANCHOR_SIZE,
           )
@@ -1487,21 +1487,21 @@ class Gcompris_anim:
       elif anchor_type == self.ANCHOR_SE:
         anchor.set_properties(
           x= x2,
-          y= y1 - self.DEFAULT_ANCHOR_SIZE,
+          y= y2,
           width = self.DEFAULT_ANCHOR_SIZE,
           height = self.DEFAULT_ANCHOR_SIZE,
           )
       elif anchor_type == self.ANCHOR_S:
         anchor.set_properties(
           x= (x1 + x2 - self.DEFAULT_ANCHOR_SIZE)/2,
-          y= y1 - self.DEFAULT_ANCHOR_SIZE,
+          y= y2,
           width = self.DEFAULT_ANCHOR_SIZE,
           height = self.DEFAULT_ANCHOR_SIZE,
           )
       elif anchor_type == self.ANCHOR_SW:
         anchor.set_properties(
           x= x1 - self.DEFAULT_ANCHOR_SIZE,
-          y= y1 - self.DEFAULT_ANCHOR_SIZE,
+          y= y2,
           width = self.DEFAULT_ANCHOR_SIZE,
           height = self.DEFAULT_ANCHOR_SIZE,
           )
@@ -1515,7 +1515,7 @@ class Gcompris_anim:
       elif anchor_type == self.ANCHOR_NW:
         anchor.set_properties(
           x= x1 - self.DEFAULT_ANCHOR_SIZE,
-          y= y2,
+          y= y1 - self.DEFAULT_ANCHOR_SIZE,
           width = self.DEFAULT_ANCHOR_SIZE,
           height = self.DEFAULT_ANCHOR_SIZE,
           )
@@ -1532,13 +1532,11 @@ class Gcompris_anim:
 
     if event.state & gtk.gdk.BUTTON1_MASK:
       # warning: anchor is in a group of anchors, which is in the object group
-      parent=item.get_property("parent").get_property("parent")
-      real_item=parent.get_child(0)
+      parent = item.get_property("parent").get_property("parent")
+      real_item = parent.get_child(0)
 
-      wx=event.x
-      wy=event.y
-      #passing x, y to item relative coordinate
-      (x,y)= item.w2i(wx,wy)
+      x = event.x
+      y = event.y
 
       if gobject.type_name(real_item)=="GooCanvasLine":
         points= real_item.get_property("points")
@@ -1547,26 +1545,32 @@ class Gcompris_anim:
         x2=points[2]
         y2=points[3]
       elif gobject.type_name(real_item)=="GooCanvasPixbuf":
-        x1=real_item.get_property("x")
-        y1=real_item.get_property("y")
-        x2=x1+real_item.get_property("width")
-        y2=y1+real_item.get_property("height")
+        bounds = real_item.get_bounds()
+        x1 = real_item.get_property("x")
+        y1 = real_item.get_property("y")
+        y1 = bounds.y1
+        y2 = bounds.y2
+      elif gobject.type_name(real_item)=="GooCanvasEllipse":
+        x1 = real_item.get_property("center_x") - real_item.get_property("radius_x")
+        y1 = real_item.get_property("center_y") - real_item.get_property("radius_y")
+        x2 = x1 + real_item.get_property("radius_x") * 2
+        y2 = y1 + real_item.get_property("radius_y") * 2
+      elif gobject.type_name(real_item)=="GooCanvasRect":
+        x1 = real_item.get_property("x")
+        y1 = real_item.get_property("y")
+        x2 = x1 + real_item.get_property("width")
+        y2 = y1 + real_item.get_property("height")
       elif gobject.type_name(real_item)=="GooCanvasText":
         y1=y
         y2=y+real_item.get_property("text_height")
         pass
-      else:
-        x1=real_item.get_property("x1")
-        y1=real_item.get_property("y1")
-        x2=real_item.get_property("x2")
-        y2=real_item.get_property("y2")
 
       if (anchor_type == self.ANCHOR_N):
         self.object_set_size_and_pos(parent,
                                      x1=x1,
-                                     y1=y1,
+                                     y1=y,
                                      x2=x2,
-                                     y2=y
+                                     y2=y2
                                      )
       elif (anchor_type == self.ANCHOR_T):
         self.object_set_size_and_pos(parent,
@@ -1578,9 +1582,9 @@ class Gcompris_anim:
       elif (anchor_type == self.ANCHOR_NE):
         self.object_set_size_and_pos(parent,
                                      x1=x1,
-                                     y1=y1,
+                                     y1=y,
                                      x2=x,
-                                     y2=y
+                                     y2=y2
                                      )
       elif (anchor_type == self.ANCHOR_E):
         self.object_set_size_and_pos(parent,
@@ -1592,23 +1596,23 @@ class Gcompris_anim:
       elif (anchor_type == self.ANCHOR_SE):
         self.object_set_size_and_pos(parent,
                                      x1=x1,
-                                     y1=y,
+                                     y1=y1,
                                      x2=x,
-                                     y2=y2
+                                     y2=y
                                      )
       elif (anchor_type == self.ANCHOR_S):
         self.object_set_size_and_pos(parent,
                                      x1=x1,
-                                     y1=y,
+                                     y1=y1,
                                      x2=x2,
-                                     y2=y2
+                                     y2=y
                                      )
       elif (anchor_type == self.ANCHOR_SW):
         self.object_set_size_and_pos(parent,
                                      x1=x,
-                                     y1=y,
+                                     y1=y1,
                                      x2=x2,
-                                     y2=y2
+                                     y2=y
                                      )
       elif (anchor_type == self.ANCHOR_W):
         self.object_set_size_and_pos(parent,
@@ -1620,9 +1624,9 @@ class Gcompris_anim:
       elif (anchor_type == self.ANCHOR_NW):
         self.object_set_size_and_pos(parent,
                                      x1=x,
-                                     y1=y1,
+                                     y1=y,
                                      x2=x2,
-                                     y2=y
+                                     y2=y2
                                      )
 
 
@@ -1733,7 +1737,9 @@ class Gcompris_anim:
         line_width=1,
         )
       anchor.set_data('anchor_type', anchor_type)
-      anchor.connect("button_press_event", self.resize_item_event,anchor_type)
+      anchor.connect("button_press_event", self.resize_item_event, anchor_type)
+      anchor.connect("button_release_event", self.resize_item_event, anchor_type)
+      anchor.connect("motion_notify_event", self.resize_item_event, anchor_type)
 
   def select_item(self, group):
     if (self.selected != None):
