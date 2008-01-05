@@ -63,8 +63,8 @@ static int	 get_square_from_coord (double x, double y);
 #define CHESSGC_BOARD_Y	20
 #define SQUARE_WIDTH	60
 #define SQUARE_HEIGHT	60
-#define WHITE_COLOR	0xFFFF99FF
-#define BLACK_COLOR	0x9999FFFF
+#define WHITE_COLOR	0x9999FFFF
+#define BLACK_COLOR	0xFFFF99FF
 #define WHITE_COLOR_H	0x99FF99FF
 #define BLACK_COLOR_H	0x99FF99FF
 
