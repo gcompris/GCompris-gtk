@@ -1,3 +1,4 @@
+SUBDIRS=dog1 dog2 dog3 food
 
 xmldir = $(pkgdatadir)/@PACKAGE_DATA_DIR@/babyshapes
 
