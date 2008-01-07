@@ -1,8 +1,77 @@
 imgdir = $(pkgdatadir)/@PACKAGE_DATA_DIR@/memory
 img_DATA = \
+	01_cat.png \
+	02_pig.png \
+	03_bear.png \
+	04_hippopotamus.png \
+	05_penguin.png \
+	06_cow.png \
+	07_sheep.png \
+	08_turtle.png \
+	09_panda.png \
+	10_chicken.png \
+	11_redbird.png \
+	12_wolf.png \
+	13_monkey.png \
+	14_fox.png \
+	15_bluebirds.png \
+	16_elephant.png \
+	17_lion.png \
+	18_gnu.png \
+	19_bluebaby.png \
+	20_greenbaby.png \
+	21_frog.png \
+	backcard.png \
+	COPYRIGHT \
+	emptycard.png \
 	gcompris_band.png \
+	guitar_melody.ogg \
+	guitar_son1.ogg \
+	guitar_son2.ogg \
+	guitar_son3.ogg \
+	guitar_son4.ogg \
+	Licence.txt \
+	LRApplauses_1_by_Lionel_Allorge_cut.ogg \
+	LRBark_1_by_Lionel_Allorge_cut.ogg \
+	LRBark_3_by_Lionel_Allorge_cut.ogg \
+	LRBuddhist_gong_05_by_Lionel_Allorge.ogg \
+	LRDoor_Open_2_by_Lionel_Allorge.ogg \
+	LRFactory_noise_01_by_Lionel_Allorge.ogg \
+	LRFactory_noise_02_by_Lionel_Allorge.ogg \
+	LRFactory_noise_03_by_Lionel_Allorge.ogg \
+	LRFactory_noise_04_by_Lionel_Allorge.ogg \
+	LRFactory_noise_05_by_Lionel_Allorge.ogg \
+	LRFactory_noise_06_by_Lionel_Allorge.ogg \
+	LRFireballs_01_by_Lionel_Allorge.ogg \
+	LRFrogsInPondDuringStormByLionelAllorgeCut.ogg \
+	LRHeart_beat_01_by_Lionel_Allorge.ogg \
+	LRHits_01_by_Lionel_Allorge.ogg \
+	LRLaPause_short.ogg \
+	LRObject_falling_01_by_Lionel_Allorge.ogg \
+	LRObject_falling_02_by_Lionel_Allorge.ogg \
+	LRRain_in_garden_01_by_Lionel_Allorge_cut.ogg \
+	LRRing_01_by_Lionel_Allorge.ogg \
+	LRStartAndStopCarEngine1ByLionelAllorgeCut.ogg \
+	LRTrain_slowing_down_01_by_Lionel_Allorge_cut.ogg \
+	LRWeird_1_by_Lionel_Allorge.ogg \
+	LRWeird_2_by_Lionel_Allorge.ogg \
+	LRWeird_3_by_Lionel_Allorge.ogg \
+	LRWeird_4_by_Lionel_Allorge.ogg \
+	LRWeird_5_by_Lionel_Allorge.ogg \
+	LRWeird_6_by_Lionel_Allorge.ogg \
+	plick.ogg \
+	README \
 	scenery_background.png \
+	space1.ogg \
+	space2.ogg \
+	tachos_melody.ogg \
+	tachos_son1.ogg \
+	tachos_son2.ogg \
+	tachos_son3.ogg \
+	tachos_son4.ogg \
+	tick.ogg \
 	transparent_square2.png \
+	tri.ogg \
 	Tux_mute.png \
 	Tux_play.png \
 	tux-teacher.png
