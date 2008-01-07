@@ -587,13 +587,13 @@ class Gcompris_anim:
 
           if not self.running:
             # unselect object if necessary
-            self.unselect()
+            self.anim_item_unselect()
 
             self.playing_start()
             return False
 
         elif (self.tools[tool][0] != "SELECT") and (self.selected != None):
-          self.unselect()
+          self.anim_item_unselect()
 
         #
         # Normal case, tool button switch
@@ -790,7 +790,7 @@ class Gcompris_anim:
     run = \
       goocanvas.Image(
         parent = self.root_playingitem,
-      pixbuf = gcompris.utils.load_pixmap(gcompris.skin.image_to_skin("boardicons/draw.svg")),
+      pixbuf = gcompris.utils.load_pixmap("anim/draw.svg"),
       x = 16,
       y = 110,
       )
@@ -883,7 +883,7 @@ class Gcompris_anim:
 
     if event.type == gtk.gdk.BUTTON_PRESS and event.button == 1:
       gcompris.sound.play_ogg("sounds/bleep.wav")
-      self.unselect()
+      self.anim_item_unselect()
 
     if self.tools[self.current_tool][0] == "CCW":
       if ((event.type == gtk.gdk.BUTTON_PRESS) and
@@ -944,9 +944,9 @@ class Gcompris_anim:
         if self.draw_created_object:
           self.draw_created_object = False
           return True
+
         # activate the anchors
-        self.selected = item.get_property("parent")
-        self.selected.get_child(1).props.visibility = goocanvas.ITEM_VISIBLE
+        self.anim_item_select(item)
 
         return True
 
@@ -1742,9 +1742,6 @@ class Gcompris_anim:
       anchor.connect("motion_notify_event", self.resize_item_event, anchor_type)
 
   def select_item(self, group):
-    if (self.selected != None):
-      self.unselect()
-
     # Deactivate old button
     self.old_tool_item.set_properties(pixbuf = gcompris.utils.load_pixmap(gcompris.skin.image_to_skin(self.tools[self.current_tool][1])))
 
@@ -1754,8 +1751,7 @@ class Gcompris_anim:
     self.old_tool_item.set_properties(pixbuf = gcompris.utils.load_pixmap(gcompris.skin.image_to_skin(self.tools[self.current_tool][2])))
     gcompris.set_cursor(self.tools[self.current_tool][3]);
 
-    self.selected = group
-    self.selected.get_child(1).props.visibility = goocanvas.ITEM_VISIBLE
+    self.anim_item_select(group)
 
   def rotate_relative(self, item, angle):
     bounds = item.get_bounds()
@@ -1966,7 +1962,8 @@ class Gcompris_anim:
         #delta = len(self.playing.get_n_children()) - z -1
         #if delta != 0:
         #  item.canvas_item.lower(delta)
-        item.canvas_item.set_transform(matrice)
+        if matrice:
+          item.canvas_item.set_transform(matrice)
         continue
       else:
         if modif.has_key('z'):
@@ -1980,7 +1977,8 @@ class Gcompris_anim:
         if  modif.has_key('matrice'):
           matrice = modif['matrice']
           del modif['matrice']
-          item.canvas_item.set_transform(matrice)
+          if matrice:
+            item.canvas_item.set_transform(matrice)
         if len(modif) != 0:
           item.canvas_item.set_properties(**modif)
 
@@ -2031,12 +2029,18 @@ class Gcompris_anim:
     self.timeout=gobject.timeout_add(1000/self.anim_speed, self.run_anim2)
 
 
-  def unselect(self):
+  def anim_item_select(self, item):
+    if (self.selected != None):
+      self.anim_item_unselect()
+
+    self.selected = item.get_property("parent")
+    self.selected.get_child(1).props.visibility = goocanvas.ITEM_VISIBLE
+
+  def anim_item_unselect(self):
     if not self.selected:
       return
     if ((gobject.type_name(self.selected.get_child(0))=="GooCanvasText")
-        and
-        (self.last_commit != None)):
+        and (self.last_commit != None)):
       #suppress preedit
       self.selected.get_child(0).set_properties(markup=self.last_commit)
       self.last_commit = None
@@ -2087,7 +2091,7 @@ def anim2_to_file(filename):
   file = open(filename, 'wb')
 
   # Save the descriptif frame:
-  pickle.dump(fles.format_string['gcompris'],file,True)
+  pickle.dump(fles.format_string['gcompris'], file, True)
 
   # save the total of frames
   pickle.dump(fles.frames_total, file, True)
@@ -2123,7 +2127,7 @@ def anim2_to_file(filename):
     list_frames = Sitem[1].keys()
     list_frames.sort()
     if ((Sitem[0] == 'TEXT') and (Sitem[1][list_frames[0]].has_key('anchor'))):
-        Sitem[1][list_frames[0]]['text-anchor']='middle'
+        Sitem[1][list_frames[0]]['text-anchor'] = 'middle'
         del Sitem[1][list_frames[0]]['anchor']
     list_to.append(Sitem)
 
@@ -2141,6 +2145,7 @@ def file_to_anim2(filename):
     print 'Cannot load ', filename , " as a GCompris animation"
     return
 
+  print "file_to_anim2 A"
   if type(desc) == type('str'):
     # string
     if 'desc' != fles.format_string['gcompris']:
@@ -2161,13 +2166,16 @@ def file_to_anim2(filename):
     # int
     fles.frames_total = desc
 
+  print "file_to_anim2 B"
   picklelist = pickle.load(file)
   file.close()
   list_restore(picklelist)
+  print "file_to_anim2 C"
 
 def list_restore(picklelist):
   global fles
 
+  print "list_restore"
   def update_anchors(item):
     global fles
 
@@ -2182,6 +2190,7 @@ def list_restore(picklelist):
 
     data = {}
     for prop in data_list[item.type]:
+      print prop
       data[prop] = item.canvas_item.get_property(prop)
 
     if item.type == 'LINE':
@@ -2195,6 +2204,7 @@ def list_restore(picklelist):
   fles.selected = None
 
   for item in fles.framelist:
+    print item
     try:
       # can have been removed before by a delete action. No matter
       item.canvas_item.get_property("parent").remove()
@@ -2205,6 +2215,8 @@ def list_restore(picklelist):
   fles.animlist=[]
 
   for Sitem in picklelist:
+    print "Sitem"
+    print Sitem
     AItem = fles.AnimItem()
     AItem.type = Sitem[0]
     AItem.frames_info = Sitem[1]
@@ -2215,7 +2227,7 @@ def list_restore(picklelist):
     for item in fles.animlist[:]:
       if fles.gcomprisBoard.mode == 'draw':
         item.z = fles.animlist.index(item)
-      restore_item( item, fles.current_frame, missing_images)
+      restore_item(item, fles.current_frame, missing_images)
 
   if missing_images:
     list_images = ''
@@ -2245,9 +2257,12 @@ def list_restore(picklelist):
 
 def restore_item(item, frame, missing):
   global fles
+
+  print "restore_item A"
   if not item.frames_info.has_key(frame):
     return
 
+  print "restore_item B"
   modif = item.frames_info[frame].copy()
 
   if modif.has_key('delete'):
@@ -2262,6 +2277,7 @@ def restore_item(item, frame, missing):
   except:
     pass
 
+  print "restore_item C"
   # To be backward compatible, rename some properties
   if ( ((item.type == 'CIRCLE') or (item.type == 'FILL_CIRCLE')
         and (modif.has_key('x2'))) ):
@@ -2321,20 +2337,26 @@ def restore_item(item, frame, missing):
       pixmap = gcompris.utils.load_pixmap(item.image_name)
       modif['pixbuf']= pixmap
 
+    print "restore_item D"
     newitemgroup = goocanvas.Group(
       parent = fles.root_anim,
         )
 
+    print modif
+    print "restore_item E %s" %(item.type,)
     item.canvas_item = fles.types[item.type](
       parent = newitemgroup,
       **modif)
+    print item.canvas_item
     item.canvas_item.set_data("AnimItem", item)
     fles.anchorize(newitemgroup)
     #delta = len(fles.root_anim.item_list) - item.z -1
     #if delta != 0:
     #  newitemgroup.lower(delta)
-    newitemgroup.set_transform(matrice)
+    if matrice:
+      newitemgroup.set_transform(matrice)
     fles.framelist.append(item)
+    print "restore_item F"
     return True
   else:
     if modif.has_key('z'):
@@ -2348,7 +2370,8 @@ def restore_item(item, frame, missing):
     if  modif.has_key('matrice'):
       matrice = modif['matrice']
       del modif['matrice']
-      item.canvas_item.get_property("parent").set_transform(matrice)
+      if matrice:
+        item.canvas_item.get_property("parent").set_transform(matrice)
     if len(modif) != 0:
       # Bourrin: je supprime les ancres et je les remets apres les modifs
       # Pas envie de me faire ch*** a retraiter les resize et les move
@@ -2356,6 +2379,7 @@ def restore_item(item, frame, missing):
       item.canvas_item.set_properties(**modif)
       #fles.anchorize(item.canvas_item.get_property("parent"))
     return True
+  print "restore_item END"
 
 def image_selected(image):
   #fles is used because self is not passed through callback
