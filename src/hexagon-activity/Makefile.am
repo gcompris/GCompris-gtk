@@ -1,4 +1,4 @@
-SUBDIRS = 
+SUBDIRS = resources
 
 pythondir = $(PYTHON_PLUGIN_DIR)
 
