@@ -1,7 +1,5 @@
 #  gcompris - anim
 #
-# Time-stamp: <2001/08/20 00:54:45 bruno>
-#
 # Copyright (C) 2003 Bruno Coudoin (redraw code), 2004 Yves Combe (anim code)
 #
 #   This program is free software; you can redistribute it and/or modify
@@ -104,7 +102,6 @@ class Gcompris_anim:
     # Initialisation. Should not change in draw.
     self.running = False
 
-
     # In draw objects are created without drag&drop
     # Default size for rect, circle, line
     self.draw_defaults_size = { 'RECT' : {'width' : 60 , 'height' : 40 },
@@ -113,9 +110,6 @@ class Gcompris_anim:
                                 'FILL_CIRCLE' : {'width' : 60 , 'height' : 40 },
                                 'LINE' : {'width' : 60 , 'height' : 40 }
                               }
-
-    # Cool !!!
-    self.empty="empty"
 
     # global parameter to access object structures from global fonctions
     global fles
@@ -452,14 +446,14 @@ class Gcompris_anim:
           (keyval == gtk.keysyms.Num_Lock)):
       return False
 
-    if (self.selected == None):
-      return True
-    elif (gobject.type_name(self.selected.get_child(0))!="GnomeCanvasText"):
-      #print "Not Text object when got key !!!"
-      return True
+    if ( (not self.selected) and
+         (gobject.type_name(self.selected.get_child(0)) != "GooCanvasText")
+         ):
+      # No Text object selected
+      return False
 
     textItem = self.selected.get_child(0)
-    if (self.last_commit == None):
+    if (not self.last_commit):
       oldtext = textItem.get_property('text').decode('UTF-8')
     else:
       oldtext = self.last_commit
@@ -471,15 +465,20 @@ class Gcompris_anim:
       else:
         newtext = u'?'
       self.last_commit = newtext
+
+    elif (keyval == gtk.keysyms.Return):
+      newtext = oldtext + '\n'
+      self.last_commit = newtext
+
     else:
       if ((oldtext[:1] == u'?') and (len(oldtext)==1)):
         oldtext = u' '
         oldtext = oldtext.strip()
 
-      if (commit_str != None):
+      if (commit_str):
         str = commit_str
         self.last_commit = oldtext + str
-      if (preedit_str != None):
+      if (preedit_str):
         str = '<span foreground="red">'+ preedit_str +'</span>'
         self.last_commit = oldtext
 
@@ -488,7 +487,7 @@ class Gcompris_anim:
       else:
         newtext = oldtext
 
-    textItem.set_properties(markup=newtext.encode('UTF-8'))
+    textItem.set_properties(text = newtext.encode('UTF-8'))
 
     return True
 
@@ -592,7 +591,7 @@ class Gcompris_anim:
             self.playing_start()
             return False
 
-        elif (self.tools[tool][0] != "SELECT") and (self.selected != None):
+        elif (self.tools[tool][0] != "SELECT") and (self.selected):
           self.anim_item_unselect()
 
         #
@@ -946,7 +945,7 @@ class Gcompris_anim:
           return True
 
         # activate the anchors
-        self.anim_item_select(item)
+        self.anim_item_select(item.get_property("parent"))
 
         return True
 
@@ -1044,10 +1043,10 @@ class Gcompris_anim:
 
         # All items are formatted this way:
         #     ItemGroup:
+        #        Item (line, rect, ellipse, text)
         #        AnchorsGroup
         #           ANCHOR_SE
         #           .....
-        #        Item (line, rect, ellipse, text)
 
         self.newitemgroup = \
           goocanvas.Group(
@@ -1222,13 +1221,13 @@ class Gcompris_anim:
           self.newitem = \
             goocanvas.Text(
               parent = self.newitemgroup,
-            x=self.pos_x,
-            y=self.pos_y,
-            fill_color_rgba=self.colors[self.current_color],
-            font=gcompris.FONT_BOARD_BIG_BOLD,
-            text=u'?',
-            anchor=gtk.ANCHOR_CENTER
-            )
+              x = self.pos_x,
+              y = self.pos_y,
+              fill_color_rgba = self.colors[self.current_color],
+              font = gcompris.FONT_BOARD_BIG_BOLD,
+              text = u'?',
+              anchor=gtk.ANCHOR_CENTER
+              )
 
         if self.newitem != 0:
           self.anchorize(self.newitemgroup)
@@ -1241,22 +1240,20 @@ class Gcompris_anim:
           self.list_z_actual.append(anAnimItem.z)
           self.draw_created_object = True
 
-
-          if self.tools[self.current_tool][0] == "TEXT":
-            (x1, x2, y1, y2) = self.get_bounds(self.newitem)
-            self.object_set_size_and_pos(self.newitemgroup, x1, x2, y1, y2)
-            self.select_item(self.newitemgroup)
-            self.newitem = None
-            self.newitemgroup = None
-
-          elif self.gcomprisBoard.mode == 'draw':
+          if self.gcomprisBoard.mode == 'draw':
             # needed because used to set the anchors.
             # The item has already the right size
             (x1, x2, y1, y2) = self.get_bounds(self.newitem)
             self.object_set_size_and_pos(self.newitemgroup, x1, x2, y1, y2)
 
-            self.select_item(self.newitemgroup)
+            self.anim_item_select(self.newitemgroup)
             # in draw creation is finished. Object is selected.
+            self.newitem = None
+            self.newitemgroup = None
+          elif self.tools[self.current_tool][0] == "TEXT":
+            (x1, x2, y1, y2) = self.get_bounds(self.newitem)
+            self.object_set_size_and_pos(self.newitemgroup, x1, x2, y1, y2)
+            self.anim_item_select(self.newitemgroup)
             self.newitem = None
             self.newitemgroup = None
 
@@ -1280,8 +1277,8 @@ class Gcompris_anim:
             self.tools[self.current_tool][0] == "LOWER"):
           return False
 
-        x=event.x
-        y=event.y
+        x = event.x
+        y = event.y
         x,y = self.snap_to_grid(event.x,event.y)
 
         # Check drawing boundaries
@@ -1418,30 +1415,30 @@ class Gcompris_anim:
       font = gcompris.skin.get_font("gcompris/board/medium"))
 
   def object_set_size_and_pos(self, object, x1, y1, x2, y2):
-    if gobject.type_name(object.get_child(0))=="GooCanvasLine":
+    if gobject.type_name(object.get_child(0)) == "GooCanvasLine":
       object.get_child(0).set_properties(
-        points=goocanvas.Points([(x1,y1) ,(x2,y2)])
+        points = goocanvas.Points([(x1,y1) ,(x2,y2)])
         )
-    elif gobject.type_name(object.get_child(0))=="GooCanvasPixbuf":
-      object.get_child(0).set_properties(
-        x=x1,
-        y=y1,
-        width=x2-x1,
-        height=y2-y1
-        )
-    elif gobject.type_name(object.get_child(0))=="GooCanvasText":
-      object.get_child(0).set_properties(
-        x=(x1+x2)/2,
-        y=(y1+y2)/2
-        )
-    elif gobject.type_name(object.get_child(0))=="GooCanvasRect":
+    elif gobject.type_name(object.get_child(0)) == "GooCanvasPixbuf":
       object.get_child(0).set_properties(
         x = x1,
         y = y1,
         width = x2 - x1,
         height = y2 - y1
         )
-    elif gobject.type_name(object.get_child(0))=="GooCanvasEllipse":
+    elif gobject.type_name(object.get_child(0)) == "GooCanvasText":
+      object.get_child(0).set_properties(
+        x = (x1+x2)/2,
+        y = (y1+y2)/2
+        )
+    elif gobject.type_name(object.get_child(0)) == "GooCanvasRect":
+      object.get_child(0).set_properties(
+        x = x1,
+        y = y1,
+        width = x2 - x1,
+        height = y2 - y1
+        )
+    elif gobject.type_name(object.get_child(0)) == "GooCanvasEllipse":
       object.get_child(0).set_properties(
         center_x = x1 + (x2-x1)/2,
         center_y = y1 + (y2-y1)/2,
@@ -1652,8 +1649,8 @@ class Gcompris_anim:
         # Can't do it here because it needs to be C compatible for the svgexport
         empty = gcompris.utils.canvas_get_property(item, "empty")
         #empty = item.get_data('empty')
-        if empty == None:
-          empty = Fale
+        if not empty:
+          empty = False
         else:
           empty = True
         # empty is passed from C, not python object
@@ -1672,7 +1669,7 @@ class Gcompris_anim:
         # Can't do it here because it needs to be C compatible for the svgexport
         empty = gcompris.utils.canvas_get_property(item, "empty")
 
-        if empty == None:
+        if not empty:
           empty = Fale
         else:
           empty = True
@@ -1741,17 +1738,19 @@ class Gcompris_anim:
       anchor.connect("button_release_event", self.resize_item_event, anchor_type)
       anchor.connect("motion_notify_event", self.resize_item_event, anchor_type)
 
-  def select_item(self, group):
+  def select_tool_TBD(self):
     # Deactivate old button
-    self.old_tool_item.set_properties(pixbuf = gcompris.utils.load_pixmap(gcompris.skin.image_to_skin(self.tools[self.current_tool][1])))
+    self.old_tool_item.set_properties(
+      pixbuf = gcompris.utils.load_pixmap(gcompris.skin.image_to_skin(
+          self.tools[self.current_tool][1])))
 
     # Activate new button
     self.current_tool = self.select_tool_number
     self.old_tool_item = self.select_tool
-    self.old_tool_item.set_properties(pixbuf = gcompris.utils.load_pixmap(gcompris.skin.image_to_skin(self.tools[self.current_tool][2])))
+    self.old_tool_item.set_properties(
+      pixbuf = gcompris.utils.load_pixmap(gcompris.skin.image_to_skin(self.tools[self.current_tool][2])))
     gcompris.set_cursor(self.tools[self.current_tool][3]);
 
-    self.anim_item_select(group)
 
   def rotate_relative(self, item, angle):
     bounds = item.get_bounds()
@@ -1865,7 +1864,7 @@ class Gcompris_anim:
     self.list_z_actual=self.list_z_last_shot[:]
 
   def z_delete_on_shot(self, anAnimItem):
-    if anAnimItem.z_previous != None:
+    if anAnimItem.z_previous:
         self.list_z_last_shot.remove(anAnimItem.z_previous)
 
   def get_modified_parameters(self, animItem):
@@ -1893,7 +1892,7 @@ class Gcompris_anim:
           self.animlist.append(animItem)
 
         if animItem.z != animItem.z_previous:
-          if animItem.z_previous != None:
+          if animItem.z_previous:
             self.list_z_last_shot.remove(animItem.z_previous)
           modified['z'] = self.z_find_index(animItem)
           self.list_z_last_shot.insert( modified['z'], animItem.z)
@@ -1905,7 +1904,7 @@ class Gcompris_anim:
       return
     self.flash.props.visibility = goocanvas.ITEM_VISIBLE
     for anAnimItem in self.framelist[:]:
-      if anAnimItem.z == None:
+      if not anAnimItem.z:
         # deleted
         self.z_delete_on_shot(anAnimItem)
         modified = { 'delete': True }
@@ -2026,23 +2025,24 @@ class Gcompris_anim:
     self.apply_frame(0)
     self.current_frame = 0
 
-    self.timeout=gobject.timeout_add(1000/self.anim_speed, self.run_anim2)
+    self.timeout = gobject.timeout_add(1000/self.anim_speed, self.run_anim2)
 
 
   def anim_item_select(self, item):
-    if (self.selected != None):
+    if (self.selected):
       self.anim_item_unselect()
 
-    self.selected = item.get_property("parent")
+    self.selected = item
     self.selected.get_child(1).props.visibility = goocanvas.ITEM_VISIBLE
+
 
   def anim_item_unselect(self):
     if not self.selected:
       return
-    if ((gobject.type_name(self.selected.get_child(0))=="GooCanvasText")
-        and (self.last_commit != None)):
+    if ((gobject.type_name(self.selected.get_child(0)) == "GooCanvasText")
+        and (self.last_commit)):
       #suppress preedit
-      self.selected.get_child(0).set_properties(markup=self.last_commit)
+      self.selected.get_child(0).set_properties(text = self.last_commit)
       self.last_commit = None
       gcompris.im_reset()
 
@@ -2417,7 +2417,7 @@ def image_selected(image):
 
   fles.anchorize(fles.newitemgroup)
   fles.object_set_size_and_pos(fles.newitemgroup, x, y, x+width, y+height)
-  fles.select_item(fles.newitemgroup)
+  fles.anim_item_select(fles.newitemgroup)
 
   fles.newitem = None
   fles.newitemgroup = None
