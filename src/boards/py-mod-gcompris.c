@@ -381,8 +381,8 @@ py_gc_selector_images_start(PyObject* self, PyObject* args)
   /* Call the corresponding C function */
   pyImageSelectorCallBackFunc = pyCallback;
   gc_selector_images_start(cGcomprisBoard,
-				 dataset,
-				 pyImageSelectorCallBack);
+			   dataset,
+			   pyImageSelectorCallBack);
 
   /* Create and return the result */
   Py_INCREF(Py_None);

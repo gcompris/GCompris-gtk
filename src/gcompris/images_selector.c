@@ -40,13 +40,12 @@ static gint		 item_event_images_selector(GooCanvasItem *item,
 static gint		 item_event_imageset_selector(GooCanvasItem *item,
 						      GdkEvent *event,
 						      gpointer data);
-static gint		 item_event_scroll(GooCanvasItem *item,
-					   GdkEvent *event,
+static void		 item_event_scroll(GtkAdjustment *adj,
 					   GooCanvas *canvas);
 static gboolean		 read_xml_file(gchar *fname);
 static gboolean		 read_dataset_directory(gchar *dataset_dir);
 static void		 display_image(gchar *imagename, GooCanvasItem *rootitem);
-static void		 free_stuff (GtkObject *obj, GSList *data);
+static void		 free_stuff (GSList *data);
 
 static gboolean		 images_selector_displayed = FALSE;
 
@@ -102,7 +101,7 @@ static guint		 isy;
 
 void
 gc_selector_images_start (GcomprisBoard *gcomprisBoard, gchar *dataset,
-				ImageSelectorCallBack iscb)
+			  ImageSelectorCallBack iscb)
 {
 
   GooCanvasItem *item, *item2;
@@ -113,6 +112,7 @@ gc_selector_images_start (GcomprisBoard *gcomprisBoard, gchar *dataset,
   gchar		*dataseturl = NULL;
 
   GtkWidget	  *w;
+  GtkAdjustment   *adj;
 
   if(rootitem)
     return;
@@ -154,21 +154,28 @@ gc_selector_images_start (GcomprisBoard *gcomprisBoard, gchar *dataset,
 			 LIST_AREA_X1,
 			 LIST_AREA_Y1,
 			 LIST_AREA_X2 - LIST_AREA_X1,
-			 LIST_AREA_Y2 - LIST_AREA_Y1 - 35.0);
+			 LIST_AREA_Y2 - LIST_AREA_Y1 - 35.0,
+			 NULL);
 
-  gtk_widget_show (GTK_WIDGET(canvas_list_selector));
+  gtk_widget_show (canvas_list_selector);
 
   /* Set the new canvas to the background color or it's white */
   list_bg_item = goo_canvas_rect_new (goo_canvas_get_root_item(GOO_CANVAS(canvas_list_selector)),
-					0,
-					0,
-					LIST_AREA_X2 - LIST_AREA_X1,
-					LIST_AREA_Y2 - LIST_AREA_Y1,
-					"fill-color-rgba", gc_skin_get_color("gcompris/imageselectbg"),
-					NULL);
+				      0,
+				      0,
+				      LIST_AREA_X2 - LIST_AREA_X1,
+				      LIST_AREA_Y2 - LIST_AREA_Y1,
+				      "fill-color-rgba", gc_skin_get_color("gcompris/imageselectbg"),
+				      NULL);
 
+  adj = \
+    GTK_ADJUSTMENT (gtk_adjustment_new (0.00, 0.00,
+					LIST_AREA_Y2 - LIST_AREA_Y1 + 30,
+					10, IMAGE_HEIGHT,
+					(LIST_AREA_Y2 - LIST_AREA_Y1)/3)
+		    );
 
-  w = gtk_vscrollbar_new (GTK_LAYOUT(canvas_list_selector)->vadjustment);
+  w = gtk_vscrollbar_new (adj);
 
   goo_canvas_widget_new (rootitem,
 			 w,
@@ -178,12 +185,11 @@ gc_selector_images_start (GcomprisBoard *gcomprisBoard, gchar *dataset,
 			 LIST_AREA_Y2 - LIST_AREA_Y1 - 20.0,
 			 NULL);
   gtk_widget_show (w);
-  //??  goo_canvas_set_center_scroll_region (GOO_CANVAS (canvas_list_selector), FALSE);
 
   /* Set the scrollwheel event */
-  g_signal_connect(canvas_list_selector, "button_press_event",
-		     (GtkSignalFunc) item_event_scroll,
-		     GOO_CANVAS(canvas_list_selector));
+  g_signal_connect (adj, "value_changed",
+		    (GtkSignalFunc) item_event_scroll,
+		    canvas_list_selector);
 
   /*
    * Create the image scrollbar
@@ -199,7 +205,7 @@ gc_selector_images_start (GcomprisBoard *gcomprisBoard, gchar *dataset,
 			 DRAWING_AREA_Y2 - DRAWING_AREA_Y1 - 35.0,
 			 NULL);
 
-  gtk_widget_show (GTK_WIDGET(canvas_image_selector));
+  gtk_widget_show (canvas_image_selector);
 
   /* Set the new canvas to the background color or it's white */
   image_bg_item = goo_canvas_rect_new (goo_canvas_get_root_item(GOO_CANVAS(canvas_image_selector)),
@@ -211,7 +217,14 @@ gc_selector_images_start (GcomprisBoard *gcomprisBoard, gchar *dataset,
 				       NULL);
 
 
-  w = gtk_vscrollbar_new (GTK_LAYOUT(canvas_image_selector)->vadjustment);
+  adj = \
+    GTK_ADJUSTMENT (gtk_adjustment_new (0.00, 0.00,
+					LIST_AREA_Y2 - LIST_AREA_Y1 + 30,
+					10, IMAGE_HEIGHT,
+					(LIST_AREA_Y2 - LIST_AREA_Y1)/3)
+		    );
+
+  w = gtk_vscrollbar_new (adj);
 
   goo_canvas_widget_new (rootitem,
 			 w,
@@ -221,12 +234,11 @@ gc_selector_images_start (GcomprisBoard *gcomprisBoard, gchar *dataset,
 			 DRAWING_AREA_Y2 - DRAWING_AREA_Y1 - 20.0,
 			 NULL);
   gtk_widget_show (w);
-  //??goo_canvas_set_center_scroll_region (GOO_CANVAS (canvas_image_selector), FALSE);
 
   /* Set the scrollwheel event */
-  g_signal_connect(canvas_image_selector, "button_press_event",
-		     (GtkSignalFunc) item_event_scroll,
-		     GOO_CANVAS(canvas_image_selector));
+  g_signal_connect (adj, "value_changed",
+		    (GtkSignalFunc) item_event_scroll,
+		    canvas_image_selector);
 
   /*
    * DISPLAY IMAGES
@@ -353,7 +365,6 @@ void gc_selector_images_stop ()
 static void
 display_image(gchar *imagename, GooCanvasItem *root_item)
 {
-
   GdkPixbuf *pixmap = NULL;
   GooCanvasItem *item;
   double xratio, yratio;
@@ -372,41 +383,40 @@ display_image(gchar *imagename, GooCanvasItem *root_item)
   ih = IMAGE_HEIGHT;
 
   /* Calc the max to resize width or height */
-  xratio = (double) (((double)gdk_pixbuf_get_width(pixmap))/iw);
-  yratio = (double) (((double)gdk_pixbuf_get_height(pixmap))/ih);
-  xratio = MAX(yratio,xratio);
+  xratio = (double) ((iw/(double)gdk_pixbuf_get_width(pixmap)));
+  yratio = (double) ((ih/(double)gdk_pixbuf_get_height(pixmap)));
+  xratio = MIN(yratio, xratio);
 
   item = goo_canvas_image_new (root_item,
 			       pixmap,
 			       ix,
 			       iy,
-			       "width", (double) gdk_pixbuf_get_width(pixmap)/xratio,
-			       "height", (double) gdk_pixbuf_get_height(pixmap)/xratio,
-				NULL);
+			       NULL);
+  goo_canvas_item_scale(item, xratio, xratio);
   gdk_pixbuf_unref(pixmap);
 
   g_signal_connect(item, "button_press_event",
-		     (GtkSignalFunc) item_event_images_selector,
-		     imagename);
+		   (GtkSignalFunc) item_event_images_selector,
+		   imagename);
   g_signal_connect(item, "button_press_event",
-		     (GtkSignalFunc) gc_item_focus_event,
-		     NULL);
+		   (GtkSignalFunc) gc_item_focus_event,
+		   NULL);
 
-  ix+=IMAGE_WIDTH + IMAGE_GAP;
-  if(ix>=DRAWING_AREA_X2-DRAWING_AREA_X1-IMAGE_GAP)
+  ix += IMAGE_WIDTH + IMAGE_GAP;
+  if(ix >= DRAWING_AREA_X2 - DRAWING_AREA_X1 - IMAGE_GAP)
     {
       guint iy_calc;
       ix=0;
-      iy+=IMAGE_HEIGHT + IMAGE_GAP;
+      iy += IMAGE_HEIGHT + IMAGE_GAP;
 
       /* Cannot use GINT_TO_POINTER with a constant calculation */
       iy_calc = iy + IMAGE_HEIGHT + IMAGE_GAP;
       g_object_set_data (G_OBJECT (root_item), "iy", GINT_TO_POINTER (iy_calc));
 
-      if(iy>=DRAWING_AREA_Y2-DRAWING_AREA_Y1) {
+      if(iy >= DRAWING_AREA_Y2-DRAWING_AREA_Y1) {
 	g_object_set(image_bg_item,
-			      "y2", (double) iy + IMAGE_HEIGHT + IMAGE_GAP,
-			      NULL);
+		     "height", iy + IMAGE_HEIGHT + IMAGE_GAP,
+		     NULL);
       }
     }
 }
@@ -433,19 +443,16 @@ display_image_set(gchar *imagename, GSList *imagelist)
   ih = LIST_IMAGE_HEIGHT;
 
   /* Calc the max to resize width or height */
-  xratio = (double) (((double)gdk_pixbuf_get_width(pixmap))/iw);
-  yratio = (double) (((double)gdk_pixbuf_get_height(pixmap))/ih);
-  xratio = MAX(yratio,xratio);
+  xratio = (double) ((iw/(double)gdk_pixbuf_get_width(pixmap)));
+  yratio = (double) ((ih/(double)gdk_pixbuf_get_height(pixmap)));
+  xratio = MIN(yratio, xratio);
 
   item = goo_canvas_image_new (goo_canvas_get_root_item(GOO_CANVAS(canvas_list_selector)),
 			       pixmap,
 			       (double)5,
 			       (double)isy,
-				"width", (double) gdk_pixbuf_get_width(pixmap)/xratio,
-				"height", (double) gdk_pixbuf_get_height(pixmap)/xratio,
-				"width_set", TRUE,
-				"height_set", TRUE,
-				NULL);
+			       NULL);
+  goo_canvas_item_scale(item, xratio, xratio);
   gdk_pixbuf_unref(pixmap);
   g_object_set_data (G_OBJECT (item), "imagelist", imagelist);
 
@@ -463,10 +470,10 @@ display_image_set(gchar *imagename, GSList *imagelist)
 			 LIST_AREA_X2- LIST_AREA_X1,
 			 isy - IMAGE_GAP);
 
-  if(isy>=LIST_AREA_Y2-LIST_AREA_Y1) {
+  if(isy >= LIST_AREA_Y2-LIST_AREA_Y1) {
     g_object_set(list_bg_item,
-			  "y2", (double)isy + LIST_IMAGE_HEIGHT + IMAGE_GAP,
-			  NULL);
+		 "height", LIST_IMAGE_HEIGHT + IMAGE_GAP,
+		 NULL);
   }
 
   /* Create a root item to put the image list in it */
@@ -476,14 +483,12 @@ display_image_set(gchar *imagename, GSList *imagelist)
 
   g_object_set_data (G_OBJECT (item), "rootitem", rootitem_set);
   g_object_set_data (G_OBJECT (item), "imageset_done", GINT_TO_POINTER (0));
-  g_signal_connect (item, "destroy",
-		    G_CALLBACK (free_stuff),
-		    imagelist);
-
+  g_object_set_data_full (G_OBJECT (item), "imagelist",
+			  imagelist, (GDestroyNotify)free_stuff );
 }
 
 static void
-free_stuff (GtkObject *obj, GSList *list)
+free_stuff (GSList *list)
 {
   while (g_slist_length(list) > 0) {
     g_free(g_slist_nth_data(list,0));
@@ -500,76 +505,65 @@ item_event_imageset_selector(GooCanvasItem *item, GdkEvent *event, gpointer data
   GSList *image_list;
   GooCanvasItem *rootitem_set;
   guint imageset_done;
+  guint last_iy;
 
   if(display_in_progress)
     return TRUE;
 
-  switch (event->type)
-    {
-    case GDK_ENTER_NOTIFY:
-      break;
-    case GDK_LEAVE_NOTIFY:
-      break;
-    case GDK_BUTTON_PRESS:
-	{
-	  guint last_iy;
+  display_in_progress = TRUE;
 
-	  display_in_progress = TRUE;
+  /* We must display the list of images for this set */
+  image_list = (GSList *)g_object_get_data (G_OBJECT (item), "imagelist");
+  g_return_val_if_fail (image_list != NULL, FALSE);
 
-	  /* We must display the list of images for this set */
-	  image_list = (GSList *)g_object_get_data (G_OBJECT (item), "imagelist");
-	  g_return_val_if_fail (image_list != NULL, FALSE);
+  /* We must display the list of images for this set */
+  rootitem_set = (GooCanvasItem *)g_object_get_data (G_OBJECT (item), "rootitem");
+  g_return_val_if_fail (rootitem_set != NULL, FALSE);
 
-	  /* We must display the list of images for this set */
-	  rootitem_set = (GooCanvasItem *)g_object_get_data (G_OBJECT (item), "rootitem");
-	  g_return_val_if_fail (rootitem_set != NULL, FALSE);
+  imageset_done = GPOINTER_TO_INT (g_object_get_data (G_OBJECT (item),
+						      "imageset_done"));
 
-	  imageset_done = GPOINTER_TO_INT (g_object_get_data (G_OBJECT (item), "imageset_done"));
+  /* Hide the previous image set if any */
+  if (current_root_set != NULL) {
+    g_object_set (current_root_set,
+		  "visibility", GOO_CANVAS_ITEM_INVISIBLE,
+		  NULL);
 
-	  /* Hide the previous image set if any */
-	  if (current_root_set != NULL) {
-	    g_object_set (current_root_set,
-			  "visibility", GOO_CANVAS_ITEM_INVISIBLE,
-			  NULL);
+  }
+  /* Not yet displayed set */
+  if(!imageset_done) {
+    guint iy_calc;
+    /* Cannot use GINT_TO_POINTER with a constant calculation */
+    /* Set the initial iy value                               */
+    iy_calc = IMAGE_HEIGHT + IMAGE_GAP;
+    g_object_set_data (G_OBJECT (rootitem_set), "iy", GINT_TO_POINTER (iy_calc));
 
-	  }
-	  /* Not yet displayed this set */
-	  if(!imageset_done) {
-	    guint iy_calc;
-	    /* Cannot use GINT_TO_POINTER with a constant calculation */
-	    /* Set the initial iy value                               */
-	    iy_calc = IMAGE_HEIGHT + IMAGE_GAP;
-	    g_object_set_data (G_OBJECT (rootitem_set), "iy", GINT_TO_POINTER (iy_calc));
+    g_slist_foreach (image_list, (GFunc) display_image, rootitem_set);
+    g_object_set_data (G_OBJECT (item), "imageset_done", GINT_TO_POINTER (1));
+  }
 
-	    g_slist_foreach (image_list, (GFunc) display_image, rootitem_set);
-	    g_object_set_data (G_OBJECT (item), "imageset_done", GINT_TO_POINTER (1));
-	  }
+  /* Set the image scrollbar back to its max position */
+  last_iy = GPOINTER_TO_INT (g_object_get_data (G_OBJECT (rootitem_set), "iy"));
+  goo_canvas_set_bounds  (GOO_CANVAS(canvas_image_selector),
+			  0, 0,
+			  DRAWING_AREA_X2- DRAWING_AREA_X1,
+			  last_iy - IMAGE_GAP);
+  if(last_iy >= DRAWING_AREA_Y2 - DRAWING_AREA_Y1) {
+    g_object_set(image_bg_item,
+		 "height", last_iy + IMAGE_HEIGHT + IMAGE_GAP,
+		 NULL);
+  }
 
-	  /* Set the image scrollbar back to its max position */
-	  last_iy = GPOINTER_TO_INT (g_object_get_data (G_OBJECT (rootitem_set), "iy"));
-	  goo_canvas_set_bounds  (GOO_CANVAS(canvas_image_selector),
-				  0, 0,
-				  DRAWING_AREA_X2- DRAWING_AREA_X1,
-				  last_iy - IMAGE_GAP);
-	  if(last_iy>=DRAWING_AREA_Y2-DRAWING_AREA_Y1) {
-	    g_object_set(image_bg_item,
-				  "y2", (double) last_iy + IMAGE_HEIGHT + IMAGE_GAP,
-				  NULL);
-	  }
+  g_object_set(rootitem_set,
+	       "visibility", GOO_CANVAS_ITEM_VISIBLE, NULL);
+  current_root_set = rootitem_set;
 
-	  g_object_set(rootitem_set,
-		       "visibility", GOO_CANVAS_ITEM_VISIBLE, NULL);
-	  current_root_set = rootitem_set;
+  /* Back to the initial image position */
+  ix  = 0;
+  iy  = 0;
 
-	  /* Back to the initial image position */
-	  ix  = 0;
-	  iy  = 0;
+  display_in_progress = FALSE;
 
-	  display_in_progress = FALSE;
-	}
-    default:
-      break;
-    }
   return FALSE;
 
 }
@@ -582,54 +576,30 @@ item_event_images_selector(GooCanvasItem *item, GdkEvent *event, gpointer data)
   if(display_in_progress)
     return TRUE;
 
-  switch (event->type)
+  if(!strcmp((char *)data, "/ok/"))
     {
-    case GDK_ENTER_NOTIFY:
-      break;
-    case GDK_LEAVE_NOTIFY:
-      break;
-    case GDK_BUTTON_PRESS:
-      if(!strcmp((char *)data, "/ok/"))
-	{
-	  gc_selector_images_stop();
-	}
-      else
-	{
-	  if(imageSelectorCallBack!=NULL)
-	    imageSelectorCallBack(data);
-
-	  gc_selector_images_stop();
-	}
-    default:
-      break;
+      gc_selector_images_stop();
     }
+  else
+    {
+      if(imageSelectorCallBack!=NULL)
+	imageSelectorCallBack(data);
+
+      gc_selector_images_stop();
+    }
+
   return FALSE;
 
 }
 
 /* Callback when a scroll event happens */
-static gint
-item_event_scroll(GooCanvasItem *item, GdkEvent *event, GooCanvas *canvas)
+static void
+item_event_scroll(GtkAdjustment *adj, GooCanvas *canvas)
 {
-  int x = 0;
-  int y = 0;
   if(!rootitem)
-    return FALSE;
+    return;
 
-  switch (event->type)
-    {
-    case GDK_SCROLL:
-      //??goo_canvas_get_scroll_offsets (canvas, &x, &y);
-      if ( event->scroll.direction == GDK_SCROLL_UP )
-	goo_canvas_scroll_to (canvas, x, y - 20);
-      else if ( event->scroll.direction == GDK_SCROLL_DOWN )
-	goo_canvas_scroll_to (canvas, x, y + 20);
-
-      break;
-    default:
-      break;
-    }
-  return FALSE;
+  goo_canvas_scroll_to (canvas, 0, adj->value);
 }
 
 /*
