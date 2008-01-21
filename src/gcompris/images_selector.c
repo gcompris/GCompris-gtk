@@ -346,11 +346,10 @@ void gc_selector_images_stop ()
       gc_board_pause(FALSE);
     }
 
-  // Destroy the images_selector box
+  // Destroy the image_selector box
   if(rootitem!=NULL)
-    {
-      gtk_object_destroy(GTK_OBJECT(rootitem));
-    }
+    goo_canvas_item_remove(rootitem);
+
   rootitem = NULL;
   current_root_set = NULL;
 

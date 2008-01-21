@@ -410,9 +410,13 @@ class Gcompris_anim:
 
     # keyboard shortcuts
     if (keyval == gtk.keysyms.F1):
-      gcompris.file_selector_save( self.gcomprisBoard, self.selector_section, self.file_type, general_save)
+      gcompris.file_selector_save( self.gcomprisBoard,
+                                   self.selector_section, self.file_type,
+                                   general_save)
     elif (keyval == gtk.keysyms.F2):
-      gcompris.file_selector_load( self.gcomprisBoard, self.selector_section, self.file_type, general_restore)
+      gcompris.file_selector_load( self.gcomprisBoard,
+                                   self.selector_section, self.file_type,
+                                   general_restore)
 
     # Printing
     # Bruno we need a print button !
@@ -499,20 +503,19 @@ class Gcompris_anim:
         parent = self.rootitem,
       )
 
-
     goocanvas.Image(
       parent = self.root_toolitem,
       pixbuf = gcompris.utils.load_pixmap(gcompris.skin.image_to_skin("draw/tool-selector.png")),
-      x=5,
-      y=5.0,
-      width=107.0,
-      height=517.0,
+      x = 5,
+      y = 5.0,
+      width = 107.0,
+      height = 517.0,
       )
 
-    x1=11.0
-    x2=56.0
-    y=11.0
-    stepy=45
+    x1 = 11.0
+    x2 = 56.0
+    y = 11.0
+    stepy = 45
 
     # Display the tools
     for i in range(0,len(self.tools)):
@@ -559,11 +562,15 @@ class Gcompris_anim:
         # Some button have instant effects
         if (self.tools[tool][0] == "SAVE"):
 #          self.Anim2Shot()
-          gcompris.file_selector_save( self.gcomprisBoard, self.selector_section, self.file_type, general_save)
+          gcompris.file_selector_save( self.gcomprisBoard,
+                                       self.selector_section, self.file_type,
+                                       general_save)
           return False
 
         elif (self.tools[tool][0] == "LOAD"):
-          gcompris.file_selector_load( self.gcomprisBoard, self.selector_section, self.file_type, general_restore)
+          gcompris.file_selector_load( self.gcomprisBoard,
+                                       self.selector_section, self.file_type,
+                                       general_restore)
           return False
 
         elif (self.tools[tool][0] == "IMAGE"):
@@ -953,21 +960,9 @@ class Gcompris_anim:
     if (self.tools[self.current_tool][0] == "SELECT"
         and event.type == gtk.gdk.MOTION_NOTIFY
         and event.state & gtk.gdk.BUTTON1_MASK):
-      bounds = item.get_bounds()
-      (x1, y1)= item.get_canvas().convert_from_item_space(item,
-                                                        bounds.x1, bounds.y1)
-      (x2, y2)= item.get_canvas().convert_from_item_space(item,
-                                                        bounds.x2, bounds.y2)
 
       dx = event.x - self.in_select_ofx
       dy = event.y - self.in_select_ofy
-
-      # Check drawing boundaries
-      if(bounds.x1 + dx < self.drawing_area[0] or
-         bounds.x2 + dx > self.drawing_area[2] or
-         bounds.y1 + dy < self.drawing_area[1] or
-         bounds.y2 + dy > self.drawing_area[3]):
-        return
 
       item.get_property("parent").translate(dx, dy)
       return True
@@ -1171,8 +1166,8 @@ class Gcompris_anim:
               parent = self.newitemgroup,
               center_x = points['x1'],
               center_y = points['y1'],
-              radius_x = points['x2'],
-              radius_y = points['y2'],
+              radius_x = points['x2'] - points['x1'],
+              radius_y = points['y2'] - points['y1'],
               stroke_color_rgba = self.colors[self.current_color],
               line_width = 5.0
             )
@@ -1419,13 +1414,12 @@ class Gcompris_anim:
       object.get_child(0).set_properties(
         points = goocanvas.Points([(x1,y1) ,(x2,y2)])
         )
-    elif gobject.type_name(object.get_child(0)) == "GooCanvasPixbuf":
-      object.get_child(0).set_properties(
-        x = x1,
-        y = y1,
-        width = x2 - x1,
-        height = y2 - y1
-        )
+    elif gobject.type_name(object.get_child(0)) == "GooCanvasImage":
+      item = object.get_child(0)
+      item.props.transform = None
+      item.translate(x1, y1)
+      item.scale((x2 - x1) / item.props.width,
+                 (y2 - y1) / item.props.height)
     elif gobject.type_name(object.get_child(0)) == "GooCanvasText":
       object.get_child(0).set_properties(
         x = (x1+x2)/2,
@@ -1447,6 +1441,7 @@ class Gcompris_anim:
         )
 
     if(object.get_n_children() < 2):
+      print "Warning: Should not happens, uncomplete object"
       return
 
     for i in range(0, object.get_child(1).get_n_children()):
@@ -1536,17 +1531,18 @@ class Gcompris_anim:
       y = event.y
 
       if gobject.type_name(real_item)=="GooCanvasLine":
-        points= real_item.get_property("points")
-        x1=points[0]
-        y1=points[1]
-        x2=points[2]
-        y2=points[3]
-      elif gobject.type_name(real_item)=="GooCanvasPixbuf":
+        points = real_item.get_property("points")
+        x1 = points[0]
+        y1 = points[1]
+        x2 = points[2]
+        y2 = points[3]
+      elif gobject.type_name(real_item)=="GooCanvasImage":
         bounds = real_item.get_bounds()
-        x1 = real_item.get_property("x")
-        y1 = real_item.get_property("y")
-        y1 = bounds.y1
-        y2 = bounds.y2
+        (x1, y1)= real_item.get_canvas().convert_to_item_space(parent,
+                                                               bounds.x1, bounds.y1)
+        (x2, y2)= real_item.get_canvas().convert_to_item_space(parent,
+                                                               bounds.x2, bounds.y2)
+
       elif gobject.type_name(real_item)=="GooCanvasEllipse":
         x1 = real_item.get_property("center_x") - real_item.get_property("radius_x")
         y1 = real_item.get_property("center_y") - real_item.get_property("radius_y")
@@ -1558,8 +1554,8 @@ class Gcompris_anim:
         x2 = x1 + real_item.get_property("width")
         y2 = y1 + real_item.get_property("height")
       elif gobject.type_name(real_item)=="GooCanvasText":
-        y1=y
-        y2=y+real_item.get_property("text_height")
+        y1 = y
+        y2 = y + real_item.get_property("text_height")
         pass
 
       if (anchor_type == self.ANCHOR_N):
@@ -1642,7 +1638,7 @@ class Gcompris_anim:
       item_type='GROUP'
     elif gobject.type_name(item)=="GooCanvasLine":
       item_type='LINE'
-    elif gobject.type_name(item)=="GooCanvasPixbuf":
+    elif gobject.type_name(item)=="GooCanvasImage":
       item_type='IMAGE'
     elif gobject.type_name(item)=="GooCanvasRect":
       try:
@@ -1933,8 +1929,6 @@ class Gcompris_anim:
     return len(filter(f, self.list_z_last_shot))
 
 #    self.z_reinit()
-
-#  def anim2Run(self):
 
   def apply_frame(self, frame):
     for item in self.playlist:
@@ -2392,19 +2386,14 @@ def image_selected(image):
     parent = fles.root_anim
     )
 
-  x= fles.pos_x
-  y= fles.pos_y
-  width  = pixmap.get_width()
-  height = pixmap.get_height()
+  x = fles.pos_x
+  y = fles.pos_y
 
   fles.newitem = goocanvas.Image(
     parent = fles.newitemgroup,
     pixbuf = pixmap,
-    x=x,
-    y=y,
-    width=width,
-    height=height,
     )
+  fles.newitem.translate(x, y)
 
   anAnimItem = fles.AnimItem()
   anAnimItem.z = fles.new_z()
@@ -2416,7 +2405,11 @@ def image_selected(image):
   fles.list_z_actual.append(anAnimItem.z)
 
   fles.anchorize(fles.newitemgroup)
-  fles.object_set_size_and_pos(fles.newitemgroup, x, y, x+width, y+height)
+  width  = pixmap.get_width()
+  height = pixmap.get_height()
+  fles.object_set_size_and_pos(fles.newitemgroup,
+                               x, y,
+                               x+width, y+height)
   fles.anim_item_select(fles.newitemgroup)
 
   fles.newitem = None

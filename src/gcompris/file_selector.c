@@ -127,7 +127,6 @@ gc_selector_file_stop ()
     gc_board_pause(FALSE);
 
   // Destroy the file_selector box
-  /* FIXME: Crashes randomly */
   if(rootitem!=NULL)
     goo_canvas_item_remove(rootitem);
 
