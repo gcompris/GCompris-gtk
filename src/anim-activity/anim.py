@@ -1417,9 +1417,10 @@ class Gcompris_anim:
     elif gobject.type_name(object.get_child(0)) == "GooCanvasImage":
       item = object.get_child(0)
       item.props.transform = None
+      sx = (x2 - x1) / item.props.width
+      sy = (y2 - y1) / item.props.height
       item.translate(x1, y1)
-      item.scale((x2 - x1) / item.props.width,
-                 (y2 - y1) / item.props.height)
+      item.scale(sx, sy)
     elif gobject.type_name(object.get_child(0)) == "GooCanvasText":
       object.get_child(0).set_properties(
         x = (x1+x2)/2,
@@ -1538,11 +1539,23 @@ class Gcompris_anim:
         y2 = points[3]
       elif gobject.type_name(real_item)=="GooCanvasImage":
         bounds = real_item.get_bounds()
-        (x1, y1)= real_item.get_canvas().convert_to_item_space(parent,
-                                                               bounds.x1, bounds.y1)
-        (x2, y2)= real_item.get_canvas().convert_to_item_space(parent,
-                                                               bounds.x2, bounds.y2)
+        (x1, y1)= \
+            real_item.get_canvas().convert_to_item_space(parent,
+                                                         bounds.x1, bounds.y1)
+        (x2, y2)= \
+            real_item.get_canvas().convert_to_item_space(parent,
+                                                         bounds.x2, bounds.y2)
 
+        mx1 = min(x1, x2)
+        my1 = min(y1, y2)
+        x2 = max(x1, x2)
+        y2 = max(y1, y2)
+        x1 = mx1
+        y1 = my1
+#         x1 = real_item.get_property("x")
+#         y1 = real_item.get_property("y")
+#         x2 = x1 + real_item.get_property("width")
+#         y2 = y1 + real_item.get_property("height")
       elif gobject.type_name(real_item)=="GooCanvasEllipse":
         x1 = real_item.get_property("center_x") - real_item.get_property("radius_x")
         y1 = real_item.get_property("center_y") - real_item.get_property("radius_y")
@@ -2393,7 +2406,6 @@ def image_selected(image):
     parent = fles.newitemgroup,
     pixbuf = pixmap,
     )
-  fles.newitem.translate(x, y)
 
   anAnimItem = fles.AnimItem()
   anAnimItem.z = fles.new_z()
@@ -2409,7 +2421,7 @@ def image_selected(image):
   height = pixmap.get_height()
   fles.object_set_size_and_pos(fles.newitemgroup,
                                x, y,
-                               x+width, y+height)
+                               x + width, y + height)
   fles.anim_item_select(fles.newitemgroup)
 
   fles.newitem = None
