@@ -162,7 +162,7 @@ void create_mainwindow (GooCanvasItem *rootitem)
 		     (GtkSignalFunc) gc_item_focus_event,
 		     NULL);
 
-  pixmap_symetry = gc_skin_pixmap_load("draw/tool-flip.png");
+  pixmap_symetry = gc_pixmap_load("tangram/tool-flip.png");
 
 
   symetry = goo_canvas_image_new (rootitem,
