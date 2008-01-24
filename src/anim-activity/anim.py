@@ -1364,7 +1364,7 @@ class Gcompris_anim:
 
   def playing_start(self):
     if not self.running:
-      self.running=True
+      self.running = True
       self.root_coloritem.props.visibility = goocanvas.ITEM_INVISIBLE
       self.root_toolitem.props.visibility = goocanvas.ITEM_INVISIBLE
       self.root_playingitem.props.visibility = goocanvas.ITEM_VISIBLE
@@ -1402,12 +1402,13 @@ class Gcompris_anim:
 
     # Image Number
     self.item_frame_counter = \
-      goocanvas.Text(
-        parent = self.rootitem,
+        goocanvas.Text(
+      parent = self.rootitem,
       text = self.current_frame + 1,
       x = x_left + minibutton_width + 14,
       y = y_top + 15,
-      font = gcompris.skin.get_font("gcompris/board/medium"))
+      font = gcompris.skin.get_font("gcompris/board/medium"),
+      fill_color = "white")
 
   def object_set_size_and_pos(self, object, x1, y1, x2, y2):
     if gobject.type_name(object.get_child(0)) == "GooCanvasLine":
@@ -1877,9 +1878,10 @@ class Gcompris_anim:
         self.list_z_last_shot.remove(anAnimItem.z_previous)
 
   def get_modified_parameters(self, animItem):
-
+        print "get_modified_parameters=", animItem
         modified= {}
         dict_properties = self.get_animitem_properties(animItem)
+        print "dict_properties=", dict_properties
         frames = animItem.frames_info.keys()
         if frames != []:
           frames.sort()
@@ -1887,7 +1889,7 @@ class Gcompris_anim:
 
           for property in dict_properties.keys():
             for frame in frames:
-#              print animItem.type, property, frame, animItem.frames_info[frame]
+              print animItem.type, property, frame, animItem.frames_info[frame]
               if animItem.frames_info[frame].has_key(property):
                 if not animItem.frames_info[frame][property]==dict_properties[property]:
                   modified[property]=dict_properties[property]
@@ -1922,11 +1924,12 @@ class Gcompris_anim:
           # deleted without being in any shot
           continue
       else:
-#
         modified = self.get_modified_parameters(anAnimItem)
+        print "Anim2Shot modified", modified
 
 
       if len(modified) != 0:
+        print ">>MARKING MODIFIED"
         anAnimItem.frames_info[self.current_frame] = modified
 #
     self.current_frame = self.current_frame + 1
@@ -1944,10 +1947,13 @@ class Gcompris_anim:
 #    self.z_reinit()
 
   def apply_frame(self, frame):
+    print "apply_frame", frame, self.playlist
     for item in self.playlist:
+      print "item ",item
       if not item.frames_info.has_key(frame):
         continue
       modif = item.frames_info[frame].copy()
+      print "modif ",modif
       if modif.has_key('delete'):
         item.canvas_item.remove()
         continue
@@ -1958,7 +1964,7 @@ class Gcompris_anim:
         matrice = modif['matrice']
         del modif['matrice']
         if item.type == 'IMAGE':
-          image =  modif['image_name']
+          image = modif['image_name']
           del modif['image_name']
           pixmap = gcompris.utils.load_pixmap(image)
           modif['pixbuf']= pixmap
@@ -2022,7 +2028,9 @@ class Gcompris_anim:
       )
 
     self.playlist = []
+    print "Creating list"
     for aItem in self.animlist:
+      print aItem
       playItem = self.AnimItem()
       playItem.frames_info = aItem.frames_info.copy()
       playItem.type = aItem.type
