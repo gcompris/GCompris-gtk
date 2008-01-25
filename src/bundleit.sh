@@ -15,29 +15,40 @@ if test -n "$2"; then
     lang=$2
 fi
 
-if test "$1" != "draw-activity" && \
-    test "$1" != "anim-activity" && \
-    test "$1" != "electric-activity" ; then
+activitysrc=`basename $1`
+echo "Processing activity $activitysrc"
+if test "$activitysrc" != "draw-activity" && \
+    test "$activitysrc" != "anim-activity" && \
+    test "$activitysrc" != "pythontest-activity" && \
+    test "$activitysrc" != "electric-activity" ; then
   draw="--exclude resources/skins/gartoon/draw"
 else
   draw=""
 fi
 
-if test "$1" = "administration-activity" || \
-   test "$1" = "tuxpaint-activity" || \
-   test "$1" = "pythontemplate-activity" || \
-   test "$1" = "pythontest-activity" || \
-   test "$1" = "gcompris-activity" ; then
-  echo "Skipping $1"
+if test "$activitysrc" = "administration-activity" || \
+   test "$activitysrc" = "tuxpaint-activity" || \
+   test "$activitysrc" = "melody-activity" || \
+   test "$activitysrc" = "gcompris-activity" ; then
+  echo "Skipping $activitysrc"
   exit 0
 fi
 
-if test -f $1/init_path.sh; then
-  . $1/init_path.sh
+if test -f $activitysrc/init_path.sh; then
+  . $activitysrc/init_path.sh
 else
-  echo "ERROR: Cannot find $1/init_path.sh"
+  echo "ERROR: Cannot find $activitysrc/init_path.sh"
   exit 1
 fi
+
+with_clock="--exclude resources/skins/gartoon/timers"
+for act in `grep timers/clock */*.c | cut -d/ -f1 | sort -u | xargs`
+do
+  if test "$activitysrc" = $act; then
+    echo "Adding timers/clock files"
+    with_clock=""
+  fi
+done
 
 # Create the Sugar specific startup scripts
 activity_dir=${activity}.activity
@@ -47,7 +58,7 @@ then
   exit 1
 fi
 
-cp -a $1 $activity_dir
+cp -a $activitysrc $activity_dir
 mkdir -p $activity_dir/activity
 mkdir -p $activity_dir/bin
 cp activity-gcompris.svg $activity_dir/activity
@@ -111,7 +122,7 @@ tar -cjf $activity_dir.tar.bz2 -h \
     --exclude ".svn" \
     --exclude "resources/skins/babytoy" \
     $draw \
-    --exclude "resources/skins/gartoon/timers" \
+    $with_clock \
     --exclude ".deps" \
     --exclude "Makefile*" \
     --exclude "*.c" \
