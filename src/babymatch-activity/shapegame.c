@@ -611,6 +611,10 @@ add_shape_to_list_of_shapes(Shape *shape)
 		       "enter_notify_event",
 		       (GtkSignalFunc) gc_item_focus_event,
 		       NULL);
+      g_signal_connect(previous_shapelist_item,
+		       "leave_notify_event",
+		       (GtkSignalFunc) gc_item_focus_event,
+		       NULL);
       gdk_pixbuf_unref(pixmap);
 
       pixmap = gc_skin_pixmap_load("button_forward.png");
@@ -625,6 +629,9 @@ add_shape_to_list_of_shapes(Shape *shape)
 		       (GtkSignalFunc) item_event_ok,
 		       "next_shapelist");
       g_signal_connect(next_shapelist_item, "enter_notify_event",
+		       (GtkSignalFunc) gc_item_focus_event,
+		       NULL);
+      g_signal_connect(next_shapelist_item, "leave_notify_event",
 		       (GtkSignalFunc) gc_item_focus_event,
 		       NULL);
       gdk_pixbuf_unref(pixmap);
@@ -770,6 +777,9 @@ add_shape_to_list_of_shapes(Shape *shape)
 			shape->shapelistgroup_index, current_shapelistgroup_index);
 	      setup_item(item, icon_shape);
 	      g_signal_connect(item, "enter_notify_event",
+			       (GtkSignalFunc) gc_item_focus_event,
+			       NULL);
+	      g_signal_connect(item, "leave_notify_event",
 			       (GtkSignalFunc) gc_item_focus_event,
 			       NULL);
 	    }

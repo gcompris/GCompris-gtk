@@ -634,4 +634,7 @@ setup_item_signals (GooCanvasItem *item, gchar* name)
   g_signal_connect(item, "enter_notify_event",
 		   (GtkSignalFunc) gc_item_focus_event,
 		   NULL);
+  g_signal_connect(item, "leave_notify_event",
+		   (GtkSignalFunc) gc_item_focus_event,
+		   NULL);
 }

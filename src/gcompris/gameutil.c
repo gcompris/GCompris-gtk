@@ -177,69 +177,6 @@ RsvgHandle *gc_rsvg_load(const gchar *format, ...)
   return(rsvghandle);
 }
 
-/*************************************************************
- * colorshift a pixbuf
- * code taken from the gnome-panel of gnome-core
- */
-static void
-do_colorshift (GdkPixbuf *dest, GdkPixbuf *src, int shift)
-{
-  gint i, j;
-  gint width, height, has_alpha, srcrowstride, destrowstride;
-  guchar *target_pixels;
-  guchar *original_pixels;
-  guchar *pixsrc;
-  guchar *pixdest;
-  int val;
-  guchar r,g,b;
-
-  has_alpha = gdk_pixbuf_get_has_alpha (src);
-  width = gdk_pixbuf_get_width (src);
-  height = gdk_pixbuf_get_height (src);
-  srcrowstride = gdk_pixbuf_get_rowstride (src);
-  destrowstride = gdk_pixbuf_get_rowstride (dest);
-  target_pixels = gdk_pixbuf_get_pixels (dest);
-  original_pixels = gdk_pixbuf_get_pixels (src);
-
-  for (i = 0; i < height; i++) {
-    pixdest = target_pixels + i*destrowstride;
-    pixsrc = original_pixels + i*srcrowstride;
-    for (j = 0; j < width; j++) {
-      r = *(pixsrc++);
-      g = *(pixsrc++);
-      b = *(pixsrc++);
-      val = r + shift;
-      *(pixdest++) = CLAMP(val, 0, 255);
-      val = g + shift;
-      *(pixdest++) = CLAMP(val, 0, 255);
-      val = b + shift;
-      *(pixdest++) = CLAMP(val, 0, 255);
-      if (has_alpha)
-	*(pixdest++) = *(pixsrc++);
-    }
-  }
-}
-
-
-
-GdkPixbuf *
-make_hc_pixbuf(GdkPixbuf *pb, gint val)
-{
-  GdkPixbuf *new;
-  if(!pb)
-    return NULL;
-
-  new = gdk_pixbuf_new(gdk_pixbuf_get_colorspace(pb),
-		       gdk_pixbuf_get_has_alpha(pb),
-		       gdk_pixbuf_get_bits_per_sample(pb),
-		       gdk_pixbuf_get_width(pb),
-		       gdk_pixbuf_get_height(pb));
-  do_colorshift(new, pb, val);
-  /*do_saturate_darken (new, pb, (int)(1.00*255), (int)(1.15*255));*/
-
-  return new;
-}
-
 /**
  * Free the highlight image from our image_focus system
  *
@@ -249,62 +186,56 @@ make_hc_pixbuf(GdkPixbuf *pb, gint val)
 void
 gc_item_focus_free(GooCanvasItem *item, void *none)
 {
-  GdkPixbuf *pixbuf;
-
-  pixbuf = (GdkPixbuf *)g_object_get_data (G_OBJECT (item), "pixbuf_ref");
-  if(pixbuf)
-    {
-      g_object_set_data (G_OBJECT (item), "pixbuf_ref", NULL);
-      gdk_pixbuf_unref(pixbuf);
-    }
 }
 
 /**
  * Set the focus of the given image (highlight or not)
  *
  */
+#define GAP 4
 void gc_item_focus_set(GooCanvasItem *item, gboolean focus)
 {
-  GdkPixbuf *dest = NULL;
-  GdkPixbuf *pixbuf;
-  GdkPixbuf *pixbuf_ref;
+  GooCanvasItem *highlight_item;
 
-  g_object_get (item, "pixbuf", &pixbuf, NULL);
-  g_return_if_fail (pixbuf != NULL);
-  //gdk_pixbuf_unref(pixbuf);
-
-  /* Store the first pixbuf */
-  pixbuf_ref = (GdkPixbuf *)g_object_get_data (G_OBJECT (item), "pixbuf_ref");
-  if(!pixbuf_ref)
+  highlight_item = g_object_get_data (G_OBJECT(item),
+		     "highlight_item");
+  if(!highlight_item)
     {
-      g_object_set_data (G_OBJECT (item), "pixbuf_ref", pixbuf);
-      pixbuf_ref = pixbuf;
-      gdk_pixbuf_ref(pixbuf);
-      g_signal_connect (item, "destroy",
- 			G_CALLBACK (gc_item_focus_free),
- 			NULL);
+      GooCanvasBounds bounds;
+      goo_canvas_item_get_bounds(item, &bounds);
 
+      /* Create the highlight_item */
+      highlight_item = \
+	goo_canvas_rect_new (goo_canvas_item_get_parent(item),
+			     bounds.x1 - GAP,
+			     bounds.y1 - GAP,
+			     bounds.x2 - bounds.x1 + GAP*2,
+			     bounds.y2 - bounds.y1 + GAP*2,
+			     "stroke_color_rgba", 0xFFFFFFFFL,
+			     "fill_color_rgba", 0xFF000090L,
+			     "line-width", (double) 2,
+			     "radius-x", (double) 10,
+			     "radius-y", (double) 10,
+			     NULL);
+      g_object_set_data (G_OBJECT(item), "highlight_item", highlight_item);
+      goo_canvas_item_lower(highlight_item, item);
     }
-
 
   switch (focus)
     {
     case TRUE:
-      dest = make_hc_pixbuf(pixbuf, 30);
-      g_object_set_data (G_OBJECT(item),
-			 "pixbuf", dest);
-
+      g_object_set (highlight_item,
+		    "visibility", GOO_CANVAS_ITEM_VISIBLE,
+		    NULL);
       break;
     case FALSE:
-      g_object_set_data (G_OBJECT(item),
-			 "pixbuf", pixbuf_ref);
+      g_object_set (highlight_item,
+		    "visibility", GOO_CANVAS_ITEM_INVISIBLE,
+		    NULL);
       break;
     default:
       break;
     }
-
-  if(dest!=NULL)
-    gdk_pixbuf_unref (dest);
 
 }
 
@@ -318,10 +249,6 @@ gc_item_focus_event(GooCanvasItem *item, GooCanvasItem *target,
 		    GdkEvent *event,
 		    GooCanvasItem *dest_item)
 {
-
-  /* FIXME NOT GOOCANVAS IFIED */
-  return(FALSE);
-
   if(dest_item != NULL)
     item = dest_item;
 
