@@ -34,7 +34,7 @@ import gtk
 import gtk.gdk
 import random
 import math
-from gettext import gettext as _
+from gcompris import gcompris_gettext as _
 
 class Number:
     def __init__(self, text, good):

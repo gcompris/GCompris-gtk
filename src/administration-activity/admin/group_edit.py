@@ -20,7 +20,7 @@
 
 import gtk
 import gobject
-from gettext import gettext as _
+from gcompris import gcompris_gettext as _
 
 import group_user_list
 

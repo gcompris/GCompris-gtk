@@ -23,7 +23,7 @@ import gcompris.utils
 import gcompris.skin
 import gtk
 import gtk.gdk
-from gettext import gettext as _
+from gcompris import gcompris_gettext as _
 
 import module
 import profile_list

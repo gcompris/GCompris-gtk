@@ -9,7 +9,7 @@ import gcompris.bonus
 import gcompris.sound
 import gtk
 import gtk.gdk
-from gettext import gettext as _
+from gcompris import gcompris_gettext as _
 
 # ----------------------------------------
 # Hit left shift and right shift together to send the ball straight

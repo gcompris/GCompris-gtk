@@ -25,7 +25,7 @@ import gcompris.utils
 import gcompris.skin
 import gtk
 import gtk.gdk
-from gettext import gettext as _
+from gcompris import gcompris_gettext as _
 
 class Module:
     """GCompris Administrative Module"""

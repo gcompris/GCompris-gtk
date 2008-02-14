@@ -23,7 +23,7 @@ import gcompris.utils
 import gcompris.skin
 import gtk
 import gtk.gdk
-from gettext import gettext as _
+from gcompris import gcompris_gettext as _
 
 # Database
 from pysqlite2 import dbapi2 as sqlite

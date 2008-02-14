@@ -23,7 +23,7 @@
 # in parameters of graphicals object between shots?
 
 
-from gettext import gettext as _
+from gcompris import gcompris_gettext as _
 # PythonTest Board module
 import gobject
 import goocanvas

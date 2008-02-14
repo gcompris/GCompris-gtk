@@ -24,7 +24,7 @@ import gcompris.admin
 import gtk
 import gtk.gdk
 import pango
-from gettext import gettext as _
+from gcompris import gcompris_gettext as _
 
 import math
 

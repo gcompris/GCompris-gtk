@@ -29,7 +29,7 @@ import gtk
 import gtk.gdk
 import random
 import math
-from gettext import gettext as _
+from gcompris import gcompris_gettext as _
 
 # ----------------------------------------
 #

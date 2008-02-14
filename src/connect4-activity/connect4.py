@@ -33,7 +33,7 @@ import gcompris.anim
 import gtk
 import gtk.gdk
 import cairo
-from gettext import gettext as _
+from gcompris import gcompris_gettext as _
 
 from  connect4p import rules
 from  connect4p import human
