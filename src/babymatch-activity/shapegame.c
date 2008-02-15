@@ -114,8 +114,12 @@ static GooCanvasItem	*shape_list_root_item;
 /* The tooltip */
 static GooCanvasItem	*tooltip_root_item;
 static GooCanvasItem	*tooltip_text_item;
-static GooCanvasItem	*tooltip_text_item_s;
 static GooCanvasItem	*tooltip_bg_item;
+
+/* The continue button */
+static GooCanvasItem	*continue_root_item;
+static GooCanvasItem	*continue_text_item;
+static GooCanvasItem	*continue_bg_item;
 
 static void		 start_board (GcomprisBoard *agcomprisBoard);
 static void 		 pause_board (gboolean pause);
@@ -173,7 +177,7 @@ static BoardPlugin menu_bp =
     end_board,
     is_our_board,
     key_press,
-    process_ok,
+    NULL,
     set_level,
     NULL,
     NULL,
@@ -371,8 +375,7 @@ static gint key_press(guint keyval, gchar *commit_str, gchar *preedit_str)
       return FALSE;
     case GDK_KP_Enter:
     case GDK_Return:
-      process_ok();
-      return TRUE;
+      return FALSE;
     case GDK_Right:
     case GDK_Delete:
     case GDK_BackSpace:
@@ -444,30 +447,13 @@ static void shapegame_next_level()
 
 static void process_ok()
 {
-  GList *list;
-  gboolean done = TRUE;
+  gamewon = TRUE;
 
-  /* Loop through all the shapes to find if all target are found */
-  for(list = shape_list; list != NULL; list = list->next) {
-    Shape *shape = list->data;
-
-    if(shape->type==SHAPE_TARGET)
-      {
-	if(shape->placed!=shape)
-	  done=FALSE;
-      }
-  }
-
-  if(done)
-    {
-      gamewon = TRUE;
-      gc_bonus_display(gamewon, GC_BONUS_FLOWER);
-    }
-  else
-    {
-      gc_bonus_display(gamewon, GC_BONUS_FLOWER);
-    }
-
+  /* Show the tooltip to let the user continue the game */
+  g_object_set(continue_text_item,
+	       "text", _("Continue"),
+	       NULL);
+  g_object_set (continue_root_item, "visibility", GOO_CANVAS_ITEM_VISIBLE, NULL);
 }
 
 static void destroy_shape (Shape *shape)
@@ -509,6 +495,9 @@ static void shapegame_destroy_all_items()
       goo_canvas_item_remove(tooltip_root_item);
       tooltip_root_item = NULL;
 
+      goo_canvas_item_remove(continue_root_item);
+      continue_root_item = NULL;
+
       g_hash_table_destroy (shapelist_table);
       shapelist_table=NULL;
 
@@ -529,12 +518,12 @@ static void shapegame_init_canvas(GooCanvasItem *parent)
 
   shape_list_root_item = goo_canvas_group_new (parent, NULL);
 
+  /* Create the tooltip area */
   tooltip_root_item = goo_canvas_group_new (goo_canvas_get_root_item(gcomprisBoard->canvas),
 					    NULL);
   goo_canvas_item_translate(tooltip_root_item, 10, gcomprisBoard->height-70);
 
 
-  /* Create the tooltip area */
   pixmap = gc_skin_pixmap_load("button_large.png");
   tooltip_bg_item = \
     goo_canvas_image_new (tooltip_root_item,
@@ -544,16 +533,6 @@ static void shapegame_init_canvas(GooCanvasItem *parent)
 			  NULL);
   gdk_pixbuf_unref(pixmap);
 
-  tooltip_text_item_s = \
-    goo_canvas_text_new (tooltip_root_item,
-			 "",
-			 (double)gdk_pixbuf_get_width(pixmap)/2 + 1.0,
-			 24.0 + 1.0,
-			 -1,
-			 GTK_ANCHOR_CENTER,
-			 "font", gc_skin_font_board_small,
-			 "fill_color_rgba", gc_skin_color_shadow,
-			 NULL);
   tooltip_text_item = \
     goo_canvas_text_new (tooltip_root_item,
 			 "",
@@ -567,6 +546,45 @@ static void shapegame_init_canvas(GooCanvasItem *parent)
 
   /* Hide the tooltip */
   g_object_set (tooltip_root_item, "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
+
+
+  /* Create the continue button */
+  continue_root_item = goo_canvas_group_new (goo_canvas_get_root_item(gcomprisBoard->canvas),
+					    NULL);
+  goo_canvas_item_translate(continue_root_item, 5, 5);
+
+
+  pixmap = gc_skin_pixmap_load("button_large.png");
+  continue_bg_item = \
+    goo_canvas_image_new (continue_root_item,
+			  pixmap,
+			  0,
+			  0,
+			  NULL);
+  gdk_pixbuf_unref(pixmap);
+
+  continue_text_item = \
+    goo_canvas_text_new (continue_root_item,
+			 "",
+			 (double)gdk_pixbuf_get_width(pixmap)/2,
+			 24.0,
+			 -1,
+			 GTK_ANCHOR_CENTER,
+			 "font", gc_skin_font_board_small,
+			 "fill_color_rgba", gc_skin_color_text_button,
+			 NULL);
+
+  g_signal_connect(continue_root_item,
+		   "button_press_event",
+		   (GtkSignalFunc) item_event_ok,
+		   "continue_click");
+  g_signal_connect(continue_text_item,
+		   "button_press_event",
+		   (GtkSignalFunc) item_event_ok,
+		   "continue_click");
+
+  /* Hide the continue */
+  g_object_set (continue_root_item, "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
 
 }
 
@@ -1085,9 +1103,6 @@ item_event(GooCanvasItem *item, GooCanvasItem *target,
     {
     case GDK_ENTER_NOTIFY:
       if(shape->tooltip) {
-	g_object_set(tooltip_text_item_s,
-		     "text", shape->tooltip,
-		     NULL);
 	g_object_set(tooltip_text_item,
 		     "text", shape->tooltip,
 		     NULL);
@@ -1229,6 +1244,9 @@ item_event_ok(GooCanvasItem *item, GooCanvasItem *target,
 	  current_shapelistgroup_index = get_no_void_group(1);
 	  update_shapelist_item();
 	}
+      else if(!strcmp(data, "continue_click"))
+	if(gamewon == TRUE)
+	  gc_bonus_display(gamewon, GC_BONUS_FLOWER);
 
       root_item = g_list_nth_data(shape_list_group, current_shapelistgroup_index);
       g_object_set (root_item, "visibility", GOO_CANVAS_ITEM_VISIBLE, NULL);
