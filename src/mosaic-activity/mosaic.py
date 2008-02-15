@@ -275,8 +275,7 @@ class Gcompris_mosaic:
                 y = orig_y + y * (self.palette_item_height + gap_y))
 
               if not colored:
-                item.connect("button_press_event", self.set_focus_item_event, (i,
-                                                                               item, palette))
+                item.connect("button_press_event", self.set_focus_item_event, (i, palette))
                 self.user_list.append((-1, -1))
               else:
                 self.target_list.append((color_index_x, color_index_y))
@@ -318,13 +317,13 @@ class Gcompris_mosaic:
 
             item.connect("button_press_event", gcompris.utils.item_event_focus)
             item.connect("button_press_event",
-                         self.set_color_item_event, (item, palette_x, palette_y,
+                         self.set_color_item_event, (palette_x, palette_y,
                                                      coord_x, coord_y))
 
 
   # Event when a target square is selected
   def set_focus_item_event(self, item, target, event, data):
-    (index, box_item, palette)  = data
+    (index, palette)  = data
 
     if event.type == gtk.gdk.BUTTON_PRESS:
       # A color is selected
@@ -335,7 +334,7 @@ class Gcompris_mosaic:
                                   self.current_index_y * self.palette_item_height,
                                   self.palette_item_width, self.palette_item_height)
 
-        box_item.props.pixbuf = image
+        item.props.pixbuf = image
 
         self.user_list[index] = (self.current_index_x,
                                  self.current_index_y)
@@ -350,7 +349,7 @@ class Gcompris_mosaic:
   def set_color_item_event(self, item, target, event, data):
 
     gcompris.sound.play_ogg("sounds/paint1.wav");
-    (box_item, color_index_x, color_index_y, coord_x, coord_y) = data
+    (color_index_x, color_index_y, coord_x, coord_y) = data
 
     self.current_index_x = color_index_x
     self.current_index_y = color_index_y
