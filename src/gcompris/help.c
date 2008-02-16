@@ -96,6 +96,7 @@ void gc_help_start (GcomprisBoard *gcomprisBoard)
   gint x_start = 0;
   gchar   *name = NULL;
   gchar   *text_to_display = NULL;
+  RsvgHandle *svg_handle = NULL;
 
   if(rootitem)
     return;
@@ -111,16 +112,17 @@ void gc_help_start (GcomprisBoard *gcomprisBoard)
   rootitem = goo_canvas_group_new (goo_canvas_get_root_item(gc_get_canvas()),
 				   NULL);
 
-  pixmap = gc_skin_pixmap_load("help_bg.png");
-  y_start = (BOARDHEIGHT - gdk_pixbuf_get_height(pixmap))/2;
-  x_start = (BOARDWIDTH - gdk_pixbuf_get_width(pixmap))/2;
-  item = goo_canvas_image_new (rootitem,
-			       pixmap,
-			       x_start,
-			       y_start,
-			       NULL);
-  y = BOARDHEIGHT - (BOARDHEIGHT - gdk_pixbuf_get_height(pixmap))/2;
-  gdk_pixbuf_unref(pixmap);
+  svg_handle = gc_skin_rsvg_load("dialog_help.svgz");
+
+  RsvgDimensionData dimension;
+  rsvg_handle_get_dimensions(svg_handle, &dimension);
+  x_start = (BOARDWIDTH - dimension.width)/2;
+  y_start = (BOARDHEIGHT - dimension.height)/2;
+
+  item = goo_svg_item_new (rootitem, svg_handle, NULL);
+  goo_canvas_item_translate(item, x_start, y_start);
+  y = y_start + dimension.height;
+  g_object_unref (svg_handle);
 
   y_start += 14;
   if(gcomprisBoard->section && gcomprisBoard->name) {
