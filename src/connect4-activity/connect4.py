@@ -98,7 +98,7 @@ class Gcompris_connect4:
                 y=350.0
                 )
             self.prof.connect("button_press_event", self.profItemEvent, 0)
-            self.prof.connect("enter_notify_event", gcompris.utils.item_event_focus)
+            gcompris.utils.item_focus_init(self.prof, None)
 
         self.timericon = gcompris.anim.CanvasItem( gcompris.anim.Animation("connect4/sablier.txt"),
             self.rootitem )

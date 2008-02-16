@@ -72,61 +72,32 @@ py_gc_file_find_absolute(PyObject* self, PyObject* args)
 }
 
 
-
-/* void	gc_item_focus_set(GooCanvasItem *item, gboolean focus); */
-static PyObject*
-py_gc_item_focus_set(PyObject* self, PyObject* args)
-{
-  PyObject* pyitem;
-  GooCanvasItem* item;
-  gint pyfocus;
-  gboolean focus;
-
-  /* Parse arguments */
-  if(!PyArg_ParseTuple(args, "Oi:gc_item_focus_set", &pyitem, &pyfocus))
-    return NULL;
-
-  item = (GooCanvasItem*) pygobject_get(pyitem);
-  if(pyfocus>0) focus = TRUE;
-  else focus = FALSE;
-
-  /* Call the corresponding C function */
-  gc_item_focus_set(item, focus);
-
-  /* Create and return the result */
-  Py_INCREF(Py_None);
-  return Py_None;
-}
-
-
-/* gint	gc_item_focus_event(GooCanvasItem *item,
-                            GdkEvent *event,
-                            GooCanvasItem *dest_item);
+/* gint	gc_item_focus_init(GooCanvasItem *source_item,
+                           GooCanvasItem *target_item);
 */
 static PyObject*
-py_gc_item_focus_event(PyObject* self, PyObject* args)
+py_gc_item_focus_init(PyObject* self, PyObject* args)
 {
   PyObject* pyitem;
   PyObject* pytarget;
   GooCanvasItem* item;
-  GooCanvasItem* target;
-  PyObject* pyevent;
-  GdkEvent* event;
-  gint result;
+  GooCanvasItem* target = NULL;
 
   /* Parse arguments */
-  if(!PyArg_ParseTuple(args, "OOO:gc_item_focus_event",
-		       &pyitem, &pytarget, &pyevent))
+  if(!PyArg_ParseTuple(args, "OO:gc_item_focus_init",
+		       &pyitem, &pytarget))
     return NULL;
+
   item = (GooCanvasItem*) pygobject_get(pyitem);
-  target = (GooCanvasItem*) pygobject_get(pytarget);
-  event = (GdkEvent*) pygobject_get(pyevent);
+  if(pytarget != Py_None)
+    target = (GooCanvasItem*) pygobject_get(pytarget);
 
   /* Call the corresponding C function */
-  result = gc_item_focus_event(item, target, event, NULL);
+  gc_item_focus_init(item, target);
 
   /* Create and return the result */
-  return Py_BuildValue("i", result);
+  Py_INCREF(Py_None);
+  return Py_None;
 }
 
 
@@ -341,7 +312,8 @@ py_gcompris_canvas_set_property(PyObject* self, PyObject* args)
 
 
   /* Parse arguments */
-  if(!PyArg_ParseTuple(args, "Oss:gcompris_canvas_set_property", &pyitem, &property, &value))
+  if(!PyArg_ParseTuple(args, "Oss:gcompris_canvas_set_property",
+		       &pyitem, &property, &value))
     return NULL;
 
   /* pass parameter from python */
@@ -393,8 +365,7 @@ py_gcompris_canvas_get_property(PyObject* self, PyObject* args)
 static PyMethodDef PythonGcomprisUtilsModule[] = {
   { "load_pixmap",  py_gc_pixmap_load, METH_VARARGS, "gc_pixmap_load" },
   { "find_file_absolute",  py_gc_file_find_absolute, METH_VARARGS, "gc_file_find_absolute" },
-  { "set_image_focus",  py_gc_item_focus_set, METH_VARARGS, "gc_item_focus_set" },
-  { "item_event_focus",  py_gc_item_focus_event, METH_VARARGS, "gc_item_focus_event" },
+  { "item_focus_init",  py_gc_item_focus_init, METH_VARARGS, "gc_item_focus_init" },
   { "item_absolute_move",  py_gc_item_absolute_move, METH_VARARGS, "gc_item_absolute_move" },
   { "item_rotate",  py_gc_item_rotate, METH_VARARGS, "gc_item_rotate" },
   { "item_rotate_relative",  py_gc_item_rotate_relative, METH_VARARGS, "gc_item_rotate_relative" },

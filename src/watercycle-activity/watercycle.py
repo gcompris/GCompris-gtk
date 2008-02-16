@@ -107,7 +107,7 @@ class Gcompris_watercycle:
       )
     self.sunitem.connect("button_press_event", self.sun_item_event)
     # This item is clickeable and it must be seen
-    self.sunitem.connect("button_press_event", gcompris.utils.item_event_focus)
+    gcompris.utils.item_focus_init(self.sunitem, None)
     self.sun_direction = -1
     self.sun_on = 0
 
@@ -155,7 +155,7 @@ class Gcompris_watercycle:
     self.clouditem.props.visibility = goocanvas.ITEM_INVISIBLE
     self.clouditem.connect("button_press_event", self.cloud_item_event)
     # This item is clickeable and it must be seen
-    self.clouditem.connect("button_press_event", gcompris.utils.item_event_focus)
+    gcompris.utils.item_focus_init(self.clouditem, None)
     self.cloud_on = 0
 
     # The vapor

@@ -277,7 +277,7 @@ class Gcompris_login:
         y = y -  button_pixbuf.get_height()/2,
         )
       # This item is clickeable and it must be seen
-      item.connect("button_press_event", gcompris.utils.item_event_focus)
+      gcompris.utils.item_focus_init(item, None)
       item.connect("button_press_event", self.letter_click_event,
                    (users, start_filter + letter))
 
@@ -339,7 +339,7 @@ class Gcompris_login:
         y = y -  button_pixbuf.get_height()/2,
         )
       # This item is clickeable and it must be seen
-      item.connect("button_press_event", gcompris.utils.item_event_focus)
+      gcompris.utils.item_focus_init(item, None)
       item.connect("button_press_event", self.name_click_event, user)
 
 

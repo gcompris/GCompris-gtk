@@ -454,7 +454,7 @@ class Gcompris_sudoku:
 
         item.connect("button_press_event", self.symbol_item_event, valid_chars[y])
         # This item is clickeable and it must be seen
-        item.connect("button_press_event", gcompris.utils.item_event_focus)
+        gcompris.utils.item_focus_init(item, None)
 
         # Select the first item
         if y == 0:
@@ -582,7 +582,7 @@ class Gcompris_sudoku:
           if(not text):
             item.props.visibility = goocanvas.ITEM_INVISIBLE
             # This item is clickeable and it must be seen
-            item.connect("enter_notify_event", gcompris.utils.item_event_focus)
+            gcompris.utils.item_focus_init(item, None)
             item.connect("button_press_event", self.hide_symbol_event, (x, y))
 
         #

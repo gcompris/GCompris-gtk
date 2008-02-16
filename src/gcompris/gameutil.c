@@ -175,6 +175,65 @@ RsvgHandle *gc_rsvg_load(const gchar *format, ...)
 }
 
 /**
+ * Set the focus of the given image (highlight or not)
+ *
+ */
+static void
+gc_item_focus_set(GooCanvasItem *item, gboolean focus)
+{
+  GooCanvasItem *highlight_item;
+
+  highlight_item = g_object_get_data (G_OBJECT(item),
+				      "highlight_item");
+  g_assert(highlight_item);
+
+  switch (focus)
+    {
+    case TRUE:
+      g_object_set (highlight_item,
+		    "visibility", GOO_CANVAS_ITEM_VISIBLE,
+		    NULL);
+      break;
+    case FALSE:
+      g_object_set (highlight_item,
+		    "visibility", GOO_CANVAS_ITEM_INVISIBLE,
+		    NULL);
+      break;
+    default:
+      break;
+    }
+
+}
+
+/**
+ * Callback over a canvas item, this function will highlight the focussed item
+ * or the given one
+ *
+ */
+static gint
+gc_item_focus_event(GooCanvasItem *item, GooCanvasItem *target,
+		    GdkEvent *event,
+		    GooCanvasItem *target_item)
+{
+  if(target_item != NULL)
+    item = target_item;
+
+  switch (event->type)
+    {
+    case GDK_ENTER_NOTIFY:
+      gc_item_focus_set(item, TRUE);
+      break;
+    case GDK_LEAVE_NOTIFY:
+      gc_item_focus_set(item, FALSE);
+      break;
+    default:
+      break;
+    }
+
+  return FALSE;
+}
+
+/**
  * Init an item so that it has a focus
  * Optionnaly, provide a target_item that will be focused
  * by events on source_item.
@@ -223,64 +282,6 @@ void gc_item_focus_init(GooCanvasItem *source_item,
   g_signal_connect(source_item, "leave_notify_event",
 		   (GtkSignalFunc) gc_item_focus_event,
 		   target_item);
-}
-
-/**
- * Set the focus of the given image (highlight or not)
- *
- */
-void gc_item_focus_set(GooCanvasItem *item, gboolean focus)
-{
-  GooCanvasItem *highlight_item;
-
-  highlight_item = g_object_get_data (G_OBJECT(item),
-		     "highlight_item");
-  g_assert(highlight_item);
-
-  switch (focus)
-    {
-    case TRUE:
-      g_object_set (highlight_item,
-		    "visibility", GOO_CANVAS_ITEM_VISIBLE,
-		    NULL);
-      break;
-    case FALSE:
-      g_object_set (highlight_item,
-		    "visibility", GOO_CANVAS_ITEM_INVISIBLE,
-		    NULL);
-      break;
-    default:
-      break;
-    }
-
-}
-
-/**
- * Callback over a canvas item, this function will highlight the focussed item
- * or the given one
- *
- */
-gint
-gc_item_focus_event(GooCanvasItem *item, GooCanvasItem *target,
-		    GdkEvent *event,
-		    GooCanvasItem *target_item)
-{
-  if(target_item != NULL)
-    item = target_item;
-
-  switch (event->type)
-    {
-    case GDK_ENTER_NOTIFY:
-      gc_item_focus_set(item, TRUE);
-      break;
-    case GDK_LEAVE_NOTIFY:
-      gc_item_focus_set(item, FALSE);
-      break;
-    default:
-      break;
-    }
-
-  return FALSE;
 }
 
 /*

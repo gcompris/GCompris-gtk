@@ -471,20 +471,20 @@ class Gcompris_bargame:
     def __init__(self, board, root, prof_image):
       self.board = board
 
-      self.prof_item =goocanvas.Image(
+      self.prof_item = goocanvas.Image(
         parent = root,
         y = 230
         )
-      bounds = self.prof_item.get_bounds()
-      self.prof_item.props.x = \
-          (gcompris.BOARD_WIDTH - bounds.x2-bounds.x1)/2 - 90
 
-      self.prof_item.connect("button_press_event",self.event_play)
-      # This item is clickeable and it must be seen
-      self.prof_item.connect("button_press_event", gcompris.utils.item_event_focus)
 
     def set_prof(self, prof_image):
       self.prof_item.props.pixbuf = gcompris.utils.load_pixmap(prof_image)
+      bounds = self.prof_item.get_bounds()
+      self.prof_item.props.x = \
+          (gcompris.BOARD_WIDTH - bounds.x2-bounds.x1)/2 - 90
+      self.prof_item.connect("button_press_event",self.event_play)
+      # This item is clickeable and it must be seen
+      gcompris.utils.item_focus_init(self.prof_item, None)
 
     def event_play(self, item, target, event):
       if ((event.type != gtk.gdk.BUTTON_PRESS) or

@@ -163,7 +163,7 @@ class Gcompris_melody:
       )
     self.switch_item.connect("button_press_event", self.switch_item_event)
     # This item is clickeable and it must be seen
-    self.switch_item.connect("button_press_event", gcompris.utils.item_event_focus)
+    gcompris.utils.item_focus_init(self.switch_item, None)
 
 
     # Put the sound buttons
@@ -178,8 +178,7 @@ class Gcompris_melody:
         )
       self.sound_item.connect("button_press_event", self.sound_item_event, i)
       # This item is clickeable and it must be seen
-      self.sound_item.connect("button_press_event",
-                              gcompris.utils.item_event_focus)
+      gcompris.utils.item_focus_init(self.sound_item, None)
 
 
     self.bang_item = goocanvas.Image(

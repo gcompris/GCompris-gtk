@@ -274,7 +274,8 @@ class Gcompris_mosaic:
                 y = orig_y + y * (self.palette_item_height + gap_y))
 
               if not colored:
-                item.connect("button_press_event", self.set_focus_item_event, (i, palette))
+                item.connect("button_press_event",
+                             self.set_focus_item_event, (i, palette))
                 self.user_list.append((-1, -1))
               else:
                 self.target_list.append((color_index_x, color_index_y))
@@ -314,7 +315,7 @@ class Gcompris_mosaic:
               x = coord_x,
               y = coord_y)
 
-            item.connect("button_press_event", gcompris.utils.item_event_focus)
+            gcompris.utils.item_focus_init(item, None)
             item.connect("button_press_event",
                          self.set_color_item_event, (palette_x, palette_y,
                                                      coord_x, coord_y))
