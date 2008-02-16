@@ -526,8 +526,7 @@ static void draw_hat(GooCanvasItem *item,
 					 "button_press_event",
 					 (GtkSignalFunc) hat_event,
 					 NULL);
-	 g_signal_connect(item, "button_press_event",
-			  (GtkSignalFunc) gc_item_focus_event, NULL);
+	 gc_item_focus_init(item, NULL);
   }
 }
 

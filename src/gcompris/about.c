@@ -249,9 +249,7 @@ void gc_about_start ()
   g_signal_connect(item, "button_press_event",
 		   (GtkSignalFunc) item_event_ok,
 		   "ok");
-  g_signal_connect(item, "button_press_event",
-		   (GtkSignalFunc) gc_item_focus_event,
-		   NULL);
+  gc_item_focus_init(item, NULL);
   gdk_pixbuf_unref(pixmap);
 
 
@@ -276,9 +274,7 @@ void gc_about_start ()
   g_signal_connect(item2, "button_press_event",
 		     (GtkSignalFunc) item_event_ok,
 		     "ok");
-  g_signal_connect(item2, "button_press_event",
-		   (GtkSignalFunc) gc_item_focus_event,
-		   item);
+  gc_item_focus_init(item2, item);
 
   pixmap = gc_skin_pixmap_load("gcompris-about.png");
 

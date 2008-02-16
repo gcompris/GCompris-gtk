@@ -572,8 +572,7 @@ scale_list_add_weight(GooCanvasItem *group,
 			    new_item->y);
   gdk_pixbuf_unref(pixmap);
 
-  g_signal_connect(new_item->item, "enter_notify_event",
-		   (GtkSignalFunc)gc_item_focus_event, NULL);
+  gc_item_focus_init(new_item->item, NULL);
   g_signal_connect(new_item->item, "button_press_event",
 		   (GtkSignalFunc)gc_drag_event, new_item);
   g_signal_connect(new_item->item, "button_release_event",

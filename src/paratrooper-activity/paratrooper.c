@@ -338,9 +338,7 @@ static void paratrooper_next_level()
   g_signal_connect(planeitem, "button-press-event",
 		     (GtkSignalFunc) item_event,
 		     NULL);
-  g_signal_connect(planeitem, "enter_notify_event",
-		     (GtkSignalFunc) gc_item_focus_event,
-		     NULL);
+  gc_item_focus_init(planeitem, NULL);
   g_object_unref(svg_handle);
 
   windspeed = (3 + rand() % (100 * gcomprisBoard->level) / 100);
@@ -405,9 +403,6 @@ static void paratrooper_next_level()
 
   g_signal_connect(paratrooperItem.paratrooper, "button-press-event",
 		     (GtkSignalFunc) item_event,
-		     NULL);
-  g_signal_connect(paratrooperItem.paratrooper, "enter_notify_event",
-		     (GtkSignalFunc) gc_item_focus_event,
 		     NULL);
 
   paratrooperItem.instruct = \
@@ -591,6 +586,7 @@ void next_state()
 		      "rsvg-handle", svg_handle,
 		      NULL);
 	g_object_unref(svg_handle);
+	gc_item_focus_init(paratrooperItem.paratrooper, NULL);
 
 	goo_canvas_item_get_bounds(planeitem, &bounds);
 

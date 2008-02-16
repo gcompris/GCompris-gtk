@@ -44,8 +44,9 @@ gchar           *reactivate_newline(char *str);
 
 GdkPixbuf	*gc_pixmap_load(const gchar *filename, ...);
 RsvgHandle	*gc_rsvg_load(const gchar *format, ...);
+void		 gc_item_focus_init(GooCanvasItem *source_item,
+				    GooCanvasItem *target_item);
 void		 gc_item_focus_set(GooCanvasItem *item, gboolean focus);
-void		 gc_item_focus_free(GooCanvasItem *item, void *none);
 gint		 gc_item_focus_event(GooCanvasItem *item, GooCanvasItem *target,
 				     GdkEvent *event,
 				     GooCanvasItem *dest_item);

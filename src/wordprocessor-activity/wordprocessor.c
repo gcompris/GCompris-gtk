@@ -371,9 +371,8 @@ static GooCanvasItem *wordprocessor_create()
   gdk_pixbuf_unref(pixmap);
   g_signal_connect(item, "button_press_event",
 		   (GtkSignalFunc) save_event, buffer);
-  g_signal_connect(item, "enter_notify_event",
-		   (GtkSignalFunc) gc_item_focus_event,
-		     NULL);
+  gc_item_focus_init(item, NULL);
+
 
   /*
    * The load button
@@ -388,9 +387,8 @@ static GooCanvasItem *wordprocessor_create()
   gdk_pixbuf_unref(pixmap);
   g_signal_connect(item, "button_press_event",
 		   (GtkSignalFunc) load_event, buffer);
-  g_signal_connect(item, "enter_notify_event",
-		   (GtkSignalFunc) gc_item_focus_event,
-		   NULL);
+  gc_item_focus_init(item, NULL);
+
 
   y += 45;
   /*

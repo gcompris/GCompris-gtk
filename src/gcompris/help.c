@@ -167,6 +167,7 @@ void gc_help_start (GcomprisBoard *gcomprisBoard)
       g_signal_connect(item_prerequisite, "button_press_event",
 			 (GtkSignalFunc) item_event_help,
 			 "prerequisite");
+      gc_item_focus_init(item_prerequisite, NULL);
 
       item_prerequisite_text = \
 	goo_canvas_text_new (rootitem,
@@ -195,6 +196,7 @@ void gc_help_start (GcomprisBoard *gcomprisBoard)
       g_signal_connect(item_goal, "button_press_event",
 			 (GtkSignalFunc) item_event_help,
 			 "goal");
+      gc_item_focus_init(item_goal, NULL);
 
       item_goal_text = goo_canvas_text_new (rootitem,
 					    _("Goal"),
@@ -222,6 +224,7 @@ void gc_help_start (GcomprisBoard *gcomprisBoard)
       g_signal_connect(item_manual, "button_press_event",
 			 (GtkSignalFunc) item_event_help,
 			 "manual");
+      gc_item_focus_init(item_manual, NULL);
 
       item_manual_text = goo_canvas_text_new (rootitem,
 					      _("Manual"),
@@ -249,6 +252,7 @@ void gc_help_start (GcomprisBoard *gcomprisBoard)
       g_signal_connect(item_credit, "button_press_event",
 			 (GtkSignalFunc) item_event_help,
 			 "credit");
+      gc_item_focus_init(item_credit, NULL);
 
       item_credit_text = goo_canvas_text_new (rootitem,
 					      _("Credit"),
@@ -344,9 +348,7 @@ void gc_help_start (GcomprisBoard *gcomprisBoard)
   g_signal_connect(item, "button_press_event",
 		     (GtkSignalFunc) item_event_help,
 		     "ok");
-  g_signal_connect(item, "button_press_event",
-		     (GtkSignalFunc) gc_item_focus_event,
-		     NULL);
+  gc_item_focus_init(item, NULL);
 
   item2 = goo_canvas_text_new (rootitem,
 			       _("OK"),
@@ -360,9 +362,7 @@ void gc_help_start (GcomprisBoard *gcomprisBoard)
   g_signal_connect(item2, "button_press_event",
 		     (GtkSignalFunc) item_event_help,
 		     "ok");
-  g_signal_connect(item2, "button_press_event",
-		     (GtkSignalFunc) gc_item_focus_event,
-		     item);
+  gc_item_focus_init(item2, item);
   gdk_pixbuf_unref(pixmap);
 
   gc_bar_hide(TRUE);
@@ -405,8 +405,6 @@ static void select_item(GooCanvasItem *item, GooCanvasItem *item_text)
   if(item_selected)
     {
       pixmap = gc_skin_pixmap_load("button_up.png");
-      /* Warning changing the image needs to update pixbuf_ref for the focus usage */
-      gc_item_focus_free(item_selected, NULL);
       g_object_set(item_selected,
 		   "pixbuf", pixmap,
 		   NULL);
@@ -418,8 +416,6 @@ static void select_item(GooCanvasItem *item, GooCanvasItem *item_text)
     }
 
   pixmap = gc_skin_pixmap_load("button_up_selected.png");
-  /* Warning changing the image needs to update pixbuf_ref for the focus usage */
-  gc_item_focus_free(item, NULL);
   g_object_set(item,
 	       "pixbuf", pixmap,
 	       NULL);

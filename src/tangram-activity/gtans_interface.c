@@ -117,18 +117,13 @@ void create_mainwindow (GooCanvasItem *rootitem)
 		     (GtkSignalFunc) on_arrow_clicked,
 		     (gpointer) FALSE);
 
-  g_signal_connect(previous_figure, "enter_notify_event",
-		     (GtkSignalFunc) gc_item_focus_event,
-		     NULL);
+  gc_item_focus_init(previous_figure, NULL);
 
   g_signal_connect(next_figure, "button_press_event",
 		     (GtkSignalFunc) on_arrow_clicked,
 		     (gpointer) TRUE);
 
-  g_signal_connect(next_figure, "enter_notify_event",
-		     (GtkSignalFunc) gc_item_focus_event,
-		     NULL);
-
+  gc_item_focus_init(next_figure, NULL);
 
   pixmap_show = gc_pixmap_load("tangram/gtans_show.png");
 
@@ -154,13 +149,9 @@ void create_mainwindow (GooCanvasItem *rootitem)
 		     (GtkSignalFunc) on_show_clicked,
 		     NULL);
 
-  g_signal_connect(outline_figure, "enter_notify_event",
-		     (GtkSignalFunc) gc_item_focus_event,
-		     NULL);
+  gc_item_focus_init(outline_figure, NULL);
 
-  g_signal_connect(show_figure, "enter_notify_event",
-		     (GtkSignalFunc) gc_item_focus_event,
-		     NULL);
+  gc_item_focus_init(show_figure, NULL);
 
   pixmap_symetry = gc_pixmap_load("tangram/tool-flip.png");
 
@@ -175,9 +166,7 @@ void create_mainwindow (GooCanvasItem *rootitem)
 		     (GtkSignalFunc) on_symetry_clicked,
 		     NULL);
 
-  g_signal_connect(symetry, "enter_notify_event",
-		     (GtkSignalFunc) gc_item_focus_event,
-		     NULL);
+  gc_item_focus_init(symetry, NULL);
 
 
   /* rotation buttons */
@@ -231,34 +220,25 @@ void create_mainwindow (GooCanvasItem *rootitem)
 		     (GtkSignalFunc) on_rotation_clicked,
 		     (gpointer) 0);
 
-  g_signal_connect(r_rot_s, "enter_notify_event",
-		     (GtkSignalFunc) gc_item_focus_event,
-		     NULL);
+  gc_item_focus_init(r_rot_s, NULL);
 
   g_signal_connect(l_rot_s, "button_press_event",
 		     (GtkSignalFunc) on_rotation_clicked,
 		     (gpointer) 1);
 
-  g_signal_connect(l_rot_s, "enter_notify_event",
-		     (GtkSignalFunc) gc_item_focus_event,
-		     NULL);
+  gc_item_focus_init(l_rot_s, NULL);
 
   g_signal_connect(r_rot_b, "button_press_event",
 		     (GtkSignalFunc) on_rotation_clicked,
 		     (gpointer) 2);
 
-  g_signal_connect(r_rot_b, "enter_notify_event",
-		     (GtkSignalFunc) gc_item_focus_event,
-		     NULL);
+  gc_item_focus_init(r_rot_b, NULL);
 
   g_signal_connect(l_rot_b, "button_press_event",
 		     (GtkSignalFunc) on_rotation_clicked,
 		     (gpointer) 3);
 
-  g_signal_connect(l_rot_b, "enter_notify_event",
-		     (GtkSignalFunc) gc_item_focus_event,
-		     NULL);
-
+  gc_item_focus_init(l_rot_b, NULL);
 }
 
 

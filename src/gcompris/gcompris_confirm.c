@@ -156,7 +156,7 @@ display_confirm(gchar *title,
 		gchar *no_text,
 		ConfirmCallBack iscb) {
 
-  GooCanvasItem  *item, *item2;
+  GooCanvasItem  *item;
   GdkPixbuf	 *pixmap = NULL;
   GdkPixbuf	 *pixmap_cross = NULL;
   GdkPixbuf	 *pixmap_stick = NULL;
@@ -247,9 +247,7 @@ display_confirm(gchar *title,
 		     (GtkSignalFunc) button_event,
 		     "/no/");
 
-  g_signal_connect(no_button, "button_press_event",
-		     (GtkSignalFunc) gc_item_focus_event,
-		     NULL);
+  gc_item_focus_init(no_button, NULL);
 
   // CANCEL CROSS
   no_cross = goo_canvas_image_new (rootitem,
@@ -264,9 +262,7 @@ display_confirm(gchar *title,
   g_signal_connect(no_cross, "button_press_event",
 		     (GtkSignalFunc) button_event,
 		     "/no/");
-  g_signal_connect(no_cross, "button_press_event",
-		     (GtkSignalFunc) gc_item_focus_event,
-		     NULL);
+  gc_item_focus_init(no_cross, no_button);
 
 
   goo_canvas_text_new (rootitem,
@@ -292,9 +288,7 @@ display_confirm(gchar *title,
 		     (GtkSignalFunc) button_event,
 		     "/yes/");
 
-  g_signal_connect(yes_button, "button_press_event",
-		     (GtkSignalFunc) gc_item_focus_event,
-		     NULL);
+  gc_item_focus_init(yes_button, NULL);
 
   // OK stick
   yes_stick = goo_canvas_image_new (rootitem,
@@ -309,20 +303,17 @@ display_confirm(gchar *title,
   g_signal_connect(yes_stick, "button_press_event",
 		     (GtkSignalFunc) button_event,
 		     "/yes/");
-  g_signal_connect(yes_stick, "button_press_event",
-		     (GtkSignalFunc) gc_item_focus_event,
-		     NULL);
+  gc_item_focus_init(yes_stick, yes_button);
 
-
-  item2 = goo_canvas_text_new (rootitem,
-			       yes_text,
-			       (gdouble)  button_x + gdk_pixbuf_get_width(pixmap) + button_x_int ,
-			       (gdouble)  button_y + button_h/3 + 20,
-			       -1,
-			       GTK_ANCHOR_WEST,
-			       "font", gc_skin_font_subtitle,
-			       "fill-color-rgba", gc_skin_get_color("gcompris/helpfg"),
-			       NULL);
+  goo_canvas_text_new (rootitem,
+		       yes_text,
+		       (gdouble)  button_x + gdk_pixbuf_get_width(pixmap) + button_x_int ,
+		       (gdouble)  button_y + button_h/3 + 20,
+		       -1,
+		       GTK_ANCHOR_WEST,
+		       "font", gc_skin_font_subtitle,
+		       "fill-color-rgba", gc_skin_get_color("gcompris/helpfg"),
+		       NULL);
 
   confirm_displayed = TRUE;
 

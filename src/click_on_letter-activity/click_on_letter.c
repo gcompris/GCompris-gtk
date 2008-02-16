@@ -430,7 +430,7 @@ static GooCanvasItem *click_on_letter_create_item(GooCanvasItem *parent)
 		     (GtkSignalFunc) item_event, GINT_TO_POINTER(i));
     g_signal_connect(buttons[i], "button_press_event",
 		     (GtkSignalFunc) item_event, GINT_TO_POINTER(i));
-    //  g_signal_connect(GTK_OBJECT(buttons[i]), "enter_notify_event", (GtkSignalFunc) gc_item_focus_event, NULL);
+    gc_item_focus_init(buttons[i], NULL);
   }
 
 
@@ -516,16 +516,12 @@ static void highlight_selected(GooCanvasItem * item) {
 
   if (selected_button != NULL && selected_button != button) {
     button_pixmap = gc_pixmap_load("click_on_letter/wagon-yellow.png");
-    /* Warning changing the image needs to update pixbuf_ref for the focus usage */
-    gc_item_focus_free(selected_button, NULL);
     g_object_set(selected_button, "pixbuf", button_pixmap, NULL);
     gdk_pixbuf_unref(button_pixmap);
   }
 
   if (selected_button != button) {
     button_pixmap_selected = gc_pixmap_load("click_on_letter/wagon-green.png");
-    /* Warning changing the image needs to update pixbuf_ref for the focus usage */
-      gc_item_focus_free(button, NULL);
     g_object_set(button, "pixbuf", button_pixmap_selected, NULL);
     selected_button = button;
     gdk_pixbuf_unref(button_pixmap_selected);

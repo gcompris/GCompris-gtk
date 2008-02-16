@@ -175,48 +175,67 @@ RsvgHandle *gc_rsvg_load(const gchar *format, ...)
 }
 
 /**
- * Free the highlight image from our image_focus system
+ * Init an item so that it has a focus
+ * Optionnaly, provide a target_item that will be focused
+ * by events on source_item.
  *
- * It must be called before assigning a new image to an item that
- * already has a focus enabled with gc_item_focus_event().
  */
-void
-gc_item_focus_free(GooCanvasItem *item, void *none)
+#define GAP 4
+void gc_item_focus_init(GooCanvasItem *source_item,
+			GooCanvasItem *target_item)
 {
+  GooCanvasItem *highlight_item;
+  GooCanvasBounds bounds;
+
+  if(!target_item)
+    target_item = source_item;
+
+  goo_canvas_item_get_bounds(target_item, &bounds);
+
+  highlight_item = g_object_get_data (G_OBJECT(target_item),
+		     "highlight_item");
+
+  /* Create the highlight_item */
+  if(!highlight_item)
+    highlight_item =
+      goo_canvas_rect_new (goo_canvas_item_get_parent(target_item),
+			   bounds.x1 - GAP,
+			   bounds.y1 - GAP,
+			   bounds.x2 - bounds.x1 + GAP*2,
+			   bounds.y2 - bounds.y1 + GAP*2,
+			   "stroke_color_rgba", 0xFFFFFFFFL,
+			   "fill_color_rgba", 0xFF000090L,
+			   "line-width", (double) 2,
+			   "radius-x", (double) 10,
+			   "radius-y", (double) 10,
+			   NULL);
+
+  g_object_set_data (G_OBJECT(target_item), "highlight_item",
+		     highlight_item);
+  goo_canvas_item_lower(highlight_item, target_item);
+  g_object_set (highlight_item,
+		"visibility", GOO_CANVAS_ITEM_INVISIBLE,
+		NULL);
+
+  g_signal_connect(source_item, "enter_notify_event",
+		   (GtkSignalFunc) gc_item_focus_event,
+		   target_item);
+  g_signal_connect(source_item, "leave_notify_event",
+		   (GtkSignalFunc) gc_item_focus_event,
+		   target_item);
 }
 
 /**
  * Set the focus of the given image (highlight or not)
  *
  */
-#define GAP 4
 void gc_item_focus_set(GooCanvasItem *item, gboolean focus)
 {
   GooCanvasItem *highlight_item;
 
   highlight_item = g_object_get_data (G_OBJECT(item),
 		     "highlight_item");
-  if(!highlight_item)
-    {
-      GooCanvasBounds bounds;
-      goo_canvas_item_get_bounds(item, &bounds);
-
-      /* Create the highlight_item */
-      highlight_item = \
-	goo_canvas_rect_new (goo_canvas_item_get_parent(item),
-			     bounds.x1 - GAP,
-			     bounds.y1 - GAP,
-			     bounds.x2 - bounds.x1 + GAP*2,
-			     bounds.y2 - bounds.y1 + GAP*2,
-			     "stroke_color_rgba", 0xFFFFFFFFL,
-			     "fill_color_rgba", 0xFF000090L,
-			     "line-width", (double) 2,
-			     "radius-x", (double) 10,
-			     "radius-y", (double) 10,
-			     NULL);
-      g_object_set_data (G_OBJECT(item), "highlight_item", highlight_item);
-      goo_canvas_item_lower(highlight_item, item);
-    }
+  g_assert(highlight_item);
 
   switch (focus)
     {
@@ -244,10 +263,10 @@ void gc_item_focus_set(GooCanvasItem *item, gboolean focus)
 gint
 gc_item_focus_event(GooCanvasItem *item, GooCanvasItem *target,
 		    GdkEvent *event,
-		    GooCanvasItem *dest_item)
+		    GooCanvasItem *target_item)
 {
-  if(dest_item != NULL)
-    item = dest_item;
+  if(target_item != NULL)
+    item = target_item;
 
   switch (event->type)
     {
@@ -461,10 +480,6 @@ gc_difficulty_display(GooCanvasItem *parent,
 			       NULL);
   goo_canvas_item_translate(item, x, y);
   goo_canvas_item_scale(item, ratio, ratio);
-
-  g_signal_connect(item, "button_press_event",
-		   (GtkSignalFunc) gc_item_focus_event,
-		   NULL);
 
   gdk_pixbuf_unref(pixmap);
 

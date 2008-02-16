@@ -260,9 +260,7 @@ gc_config_start ()
   g_signal_connect(item, "button_press_event",
 		   (GtkSignalFunc) item_event_ok,
 		   "fullscreen");
-  g_signal_connect(item, "button_press_event",
-		   (GtkSignalFunc) gc_item_focus_event,
-		   NULL);
+  gc_item_focus_init(item, NULL);
 
 
   goo_canvas_text_new (rootitem,
@@ -302,9 +300,7 @@ gc_config_start ()
   g_signal_connect(item, "button_press_event",
 		   (GtkSignalFunc) item_event_ok,
 		   "music");
-  g_signal_connect(item, "button_press_event",
-		   (GtkSignalFunc) gc_item_focus_event,
-		   NULL);
+  gc_item_focus_init(item, NULL);
 
 
   goo_canvas_text_new (rootitem,
@@ -329,9 +325,7 @@ gc_config_start ()
   g_signal_connect(item, "button_press_event",
 		   (GtkSignalFunc) item_event_ok,
 		   "effect");
-  g_signal_connect(item, "button_press_event",
-		   (GtkSignalFunc) gc_item_focus_event,
-		   NULL);
+  gc_item_focus_init(item, NULL);
 
 
   goo_canvas_text_new (rootitem,
@@ -453,9 +447,7 @@ gc_config_start ()
   g_signal_connect(item, "button_press_event",
 		   (GtkSignalFunc) item_event_ok,
 		   "ok");
-  g_signal_connect(item, "button_press_event",
-		   (GtkSignalFunc) gc_item_focus_event,
-		   NULL);
+  gc_item_focus_init(item, NULL);
 
   goo_canvas_text_new (rootitem,
 		       _("OK"),
@@ -478,9 +470,7 @@ gc_config_start ()
   g_signal_connect(item2, "button_press_event",
 		   (GtkSignalFunc) item_event_ok,
 		   "ok");
-  g_signal_connect(item2, "button_press_event",
-		   (GtkSignalFunc) gc_item_focus_event,
-		   item);
+  gc_item_focus_init(item2, item);
   gdk_pixbuf_unref(pixmap);
 
 
@@ -563,9 +553,7 @@ display_previous_next(guint x_start, guint y_start,
   g_signal_connect(item, "button_press_event",
 		   (GtkSignalFunc) item_event_ok,
 		   eventname_previous);
-  g_signal_connect(item, "button_press_event",
-		   (GtkSignalFunc) gc_item_focus_event,
-		   NULL);
+  gc_item_focus_init(item, NULL);
   gdk_pixbuf_unref(pixmap);
 
 
@@ -579,9 +567,7 @@ display_previous_next(guint x_start, guint y_start,
   g_signal_connect(item, "button_press_event",
 		   (GtkSignalFunc) item_event_ok,
 		   eventname_next);
-  g_signal_connect(item, "button_press_event",
-		   (GtkSignalFunc) gc_item_focus_event,
-		   NULL);
+  gc_item_focus_init(item, NULL);
   gdk_pixbuf_unref(pixmap);
 }
 
@@ -753,8 +739,6 @@ item_event_ok(GooCanvasItem *item,
 
       gc_fullscreen_set(properties->fullscreen);
 
-      /* Warning changing the image needs to update pixbuf_ref for the focus usage */
-      gc_item_focus_free(item, NULL);
       g_object_set (item,
 		    "pixbuf", (properties->fullscreen ? pixmap_checked : pixmap_unchecked),
 		    NULL);
@@ -763,8 +747,6 @@ item_event_ok(GooCanvasItem *item,
   else if(!strcmp((char *)data, "music"))
     {
       properties->music = (properties->music ? 0 : 1);
-      /* Warning changing the image needs to update pixbuf_ref for the focus usage */
-      gc_item_focus_free(item, NULL);
       g_object_set (item,
 		    "pixbuf", (properties->music ? pixmap_checked : pixmap_unchecked),
 		    NULL);
@@ -780,8 +762,6 @@ item_event_ok(GooCanvasItem *item,
   else if(!strcmp((char *)data, "effect"))
     {
       properties->fx = (properties->fx ? 0 : 1);
-      /* Warning changing the image needs to update pixbuf_ref for the focus usage */
-      gc_item_focus_free(item, NULL);
       g_object_set (item,
 		    "pixbuf", (properties->fx ? pixmap_checked : pixmap_unchecked),
 		    NULL);

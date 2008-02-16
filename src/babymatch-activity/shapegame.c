@@ -624,14 +624,8 @@ add_shape_to_list_of_shapes(Shape *shape)
 		       "button_press_event",
 		       (GtkSignalFunc) item_event_ok,
 		       "previous_shapelist");
-      g_signal_connect(previous_shapelist_item,
-		       "enter_notify_event",
-		       (GtkSignalFunc) gc_item_focus_event,
-		       NULL);
-      g_signal_connect(previous_shapelist_item,
-		       "leave_notify_event",
-		       (GtkSignalFunc) gc_item_focus_event,
-		       NULL);
+      gc_item_focus_init(previous_shapelist_item, NULL);
+
       gdk_pixbuf_unref(pixmap);
 
       pixmap = gc_skin_pixmap_load("button_forward.png");
@@ -645,12 +639,7 @@ add_shape_to_list_of_shapes(Shape *shape)
       g_signal_connect(next_shapelist_item, "button_press_event",
 		       (GtkSignalFunc) item_event_ok,
 		       "next_shapelist");
-      g_signal_connect(next_shapelist_item, "enter_notify_event",
-		       (GtkSignalFunc) gc_item_focus_event,
-		       NULL);
-      g_signal_connect(next_shapelist_item, "leave_notify_event",
-		       (GtkSignalFunc) gc_item_focus_event,
-		       NULL);
+      gc_item_focus_init(next_shapelist_item, NULL);
       gdk_pixbuf_unref(pixmap);
       g_object_set (next_shapelist_item, "visibility",
 		    GOO_CANVAS_ITEM_INVISIBLE, NULL);
@@ -793,12 +782,7 @@ add_shape_to_list_of_shapes(Shape *shape)
 			shape->name,
 			shape->shapelistgroup_index, current_shapelistgroup_index);
 	      setup_item(item, icon_shape);
-	      g_signal_connect(item, "enter_notify_event",
-			       (GtkSignalFunc) gc_item_focus_event,
-			       NULL);
-	      g_signal_connect(item, "leave_notify_event",
-			       (GtkSignalFunc) gc_item_focus_event,
-			       NULL);
+	      gc_item_focus_init(item, NULL);
 	    }
 	}
     }
@@ -1529,12 +1513,12 @@ add_xml_shape_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child, GList **
   /* get the ZOOMY coord of the shape */
   zoomy = xmlGetProp_Double(xmlnode, BAD_CAST "zoomy", 1);
 
-  /* get the POSITION of the shape */
+  /* get the POSITION of the shape : DEPRECATED */
   /* Position in the xml means:
    * 0 = BOTTOM
    * 1 or more = TOP
    */
-  position = (guint) xmlGetProp_Double(xmlnode, BAD_CAST "position", 0);
+  position = 0;
 
   /* Back to the user locale */
   gc_locale_set(locale);
@@ -1653,7 +1637,6 @@ parse_doc(xmlDocPtr doc)
 {
   GList *shape_list_init = NULL;
   xmlNodePtr node;
-  GList *list;
   GooCanvasItem *item;
   int list_length, i;
 
@@ -1691,18 +1674,6 @@ parse_doc(xmlDocPtr doc)
       g_object_set (previous_shapelist_item, "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
       g_object_set (next_shapelist_item, "visibility", GOO_CANVAS_ITEM_VISIBLE, NULL);
       current_shapelistgroup_index = 0;
-    }
-
-  /* Loop through all the shapes and */
-  /* Arrange the order (depth) of the shapes on the canvas */
-  /* Depending on the xml given definition in the position property */
-  for(list = shape_list; list != NULL; list = list->next)
-    {
-      Shape *shape = list->data;
-
-      goo_canvas_item_lower(shape->item, NULL);
-      //FIXMEif(shape->position>=1)
-      //goo_canvas_item_raise(shape->item, ABS(shape->position));
     }
 }
 

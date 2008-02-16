@@ -307,9 +307,7 @@ gc_selector_images_start (GcomprisBoard *gcomprisBoard, gchar *dataset,
   g_signal_connect(item, "button_press_event",
 		     (GtkSignalFunc) item_event_images_selector,
 		     "/ok/");
-  g_signal_connect(item, "button_press_event",
-		     (GtkSignalFunc) gc_item_focus_event,
-		     NULL);
+  gc_item_focus_init(item, NULL);
 
   item2 = goo_canvas_text_new (rootitem,
 			       _("OK"),
@@ -323,9 +321,7 @@ gc_selector_images_start (GcomprisBoard *gcomprisBoard, gchar *dataset,
   g_signal_connect(item2, "button_press_event",
 		     (GtkSignalFunc) item_event_images_selector,
 		     "/ok/");
-  g_signal_connect(item2, "button_press_event",
-		     (GtkSignalFunc) gc_item_focus_event,
-		     item);
+  gc_item_focus_init(item2, item);
   gdk_pixbuf_unref(pixmap);
 
 }
@@ -398,9 +394,7 @@ display_image(gchar *imagename, GooCanvasItem *root_item)
   g_signal_connect(item, "button_press_event",
 		   (GtkSignalFunc) item_event_images_selector,
 		   imagename);
-  g_signal_connect(item, "button_press_event",
-		   (GtkSignalFunc) gc_item_focus_event,
-		   NULL);
+  gc_item_focus_init(item, NULL);
 
   ix += IMAGE_WIDTH + IMAGE_GAP;
   if(ix >= DRAWING_AREA_X2 - DRAWING_AREA_X1 - IMAGE_GAP)
@@ -453,9 +447,7 @@ display_image_set(gchar *imagename, GSList *imagelist)
   g_signal_connect(item, "button_press_event",
 		     (GtkSignalFunc) item_event_imageset_selector,
 		     imagename);
-  g_signal_connect(item, "button_press_event",
-		     (GtkSignalFunc) gc_item_focus_event,
-		     NULL);
+  gc_item_focus_init(item, NULL);
 
   isy += LIST_IMAGE_HEIGHT + IMAGE_GAP;
 

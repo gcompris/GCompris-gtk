@@ -261,9 +261,7 @@ display_file_selector(int the_mode,
   g_signal_connect(item, "button_press_event",
 		   (GtkSignalFunc) item_event_file_selector,
 		   "/cancel/");
-  g_signal_connect(item, "button_press_event",
-		   (GtkSignalFunc) gc_item_focus_event,
-		   NULL);
+  gc_item_focus_init(item, NULL);
 
   item = goo_canvas_text_new (rootitem,
 			      _("CANCEL"),
@@ -277,9 +275,7 @@ display_file_selector(int the_mode,
   g_signal_connect(item, "button_press_event",
 		   (GtkSignalFunc) item_event_file_selector,
 		   "/cancel/");
-  g_signal_connect(item, "button_press_event",
-		   (GtkSignalFunc) gc_item_focus_event,
-		   item);
+  gc_item_focus_init(item, NULL);
 
   // OK
   item = goo_canvas_image_new (rootitem,
@@ -291,9 +287,7 @@ display_file_selector(int the_mode,
   g_signal_connect(item, "button_press_event",
 		     (GtkSignalFunc) item_event_file_selector,
 		     "/ok/");
-  g_signal_connect(item, "button_press_event",
-		     (GtkSignalFunc) gc_item_focus_event,
-		     NULL);
+  gc_item_focus_init(item, NULL);
 
   item = goo_canvas_text_new (rootitem,
 			      (mode==MODE_LOAD ? _("LOAD") : _("SAVE")),
@@ -307,9 +301,7 @@ display_file_selector(int the_mode,
   g_signal_connect(item, "button_press_event",
 		   (GtkSignalFunc) item_event_file_selector,
 		   "/ok/");
-  g_signal_connect(item, "button_press_event",
-		   (GtkSignalFunc) gc_item_focus_event,
-		   item);
+  gc_item_focus_init(item, NULL);
   gdk_pixbuf_unref(pixmap);
 
 
@@ -507,9 +499,7 @@ display_files(GooCanvasItem *root_item, gchar *rootdir)
 			   (GtkSignalFunc) item_event_file_selector,
 			   allfilename);
 	}
-      g_signal_connect(item, "button_press_event",
-		       (GtkSignalFunc) gc_item_focus_event,
-		       NULL);
+      gc_item_focus_init(item, NULL);
 
       g_object_set_data_full (G_OBJECT (item),
 			      "allfilename", allfilename, g_free);

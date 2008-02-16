@@ -277,9 +277,8 @@ static GooCanvasItem *canal_lock_create_item(GooCanvasItem *parent)
   g_signal_connect(tuxboat_item, "button-press-event",
 		     (GtkSignalFunc) item_event,
 		     NULL);
-  g_signal_connect(tuxboat_item, "enter_notify_event",
-		     (GtkSignalFunc) gc_item_focus_event,
-		     NULL);
+  gc_item_focus_init(tuxboat_item, NULL);
+
   tuxboat_width = gdk_pixbuf_get_width(pixmap);
   gdk_pixbuf_unref(pixmap);
 

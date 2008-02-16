@@ -460,9 +460,7 @@ static GooCanvasItem *enumerate_create_item(GooCanvasItem *parent)
 
       g_signal_connect(item, "button-press-event",
 		       (GtkSignalFunc) item_event_focus, GINT_TO_POINTER(i));
-      g_signal_connect(item, "enter_notify_event",
-		       (GtkSignalFunc) gc_item_focus_event,
-		       NULL);
+      gc_item_focus_init(item, NULL);
 
 
       answer_item[i] = \

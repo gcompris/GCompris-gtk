@@ -555,9 +555,7 @@ static void draw_arrow() {
 					   NULL);
   	g_signal_connect(item_arrow, "button_press_event",
 			 (GtkSignalFunc) arrow_event, GINT_TO_POINTER(i));
-	g_signal_connect(item_arrow, "enter_notify_event",
-			 (GtkSignalFunc) gc_item_focus_event,
-			 NULL);
+	gc_item_focus_init(item_arrow, NULL);
 	gdk_pixbuf_unref( arrow[i].pixmap);
 
   }

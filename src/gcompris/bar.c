@@ -253,8 +253,6 @@ void gc_bar_set_level(GcomprisBoard *gcomprisBoard)
       pixmap = gc_skin_pixmap_load(str);
 
       g_free(str);
-      /* Warning changing the image needs to free the focus first */
-      gc_item_focus_free(level_item, NULL);
 
       g_object_set (level_item,
 		    "pixbuf", pixmap,
@@ -286,8 +284,6 @@ gc_bar_set_repeat_icon (GdkPixbuf *pixmap)
       return;
     }
 
-  /* Warning changing the image needs to update pixbuf_ref for the focus usage */
-  gc_item_focus_free(repeat_item, NULL);
   g_object_set (repeat_item,
 		"pixbuf", pixmap,
 		NULL);
@@ -628,10 +624,5 @@ setup_item_signals (GooCanvasItem *item, gchar* name)
 		   (GtkSignalFunc) item_event_bar,
 		   name);
 
-  g_signal_connect(item, "enter_notify_event",
-		   (GtkSignalFunc) gc_item_focus_event,
-		   NULL);
-  g_signal_connect(item, "leave_notify_event",
-		   (GtkSignalFunc) gc_item_focus_event,
-		   NULL);
+  gc_item_focus_init(item, NULL);
 }

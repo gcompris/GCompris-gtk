@@ -319,9 +319,7 @@ create_panel(GooCanvasItem *parent)
       g_signal_connect (item, "leave_notify_event",
 			(GtkSignalFunc) on_leave_notify, menuitems);
 
-      g_signal_connect(item, "enter_notify_event",
-		       (GtkSignalFunc) gc_item_focus_event,
-		       NULL);
+      gc_item_focus_init(item, NULL);
     }
 }
 
@@ -549,9 +547,7 @@ static void menu_create_item(GooCanvasItem *parent, MenuItems *menuitems, Gcompr
   g_signal_connect (menu_button, "leave_notify_event",
 		    (GtkSignalFunc) on_leave_notify, menuitems);
 
-  g_signal_connect(menu_button, "enter_notify_event",
-		   (GtkSignalFunc) gc_item_focus_event,
-		   NULL);
+  gc_item_focus_init(menu_button, NULL);
 
 }
 
@@ -799,11 +795,7 @@ create_top(GooCanvasItem *parent, gchar *path)
 		       (GtkSignalFunc) item_event,
 		       menuitems);
 
-      g_signal_connect(item, "enter_notify_event",
-		       (GtkSignalFunc) gc_item_focus_event,
-		       NULL);
-
-
+      gc_item_focus_init(item, NULL);
 
       i++;
     }

@@ -87,6 +87,7 @@ gc_board_conf_close (GtkDialog *dialog,
     Confcallback(NULL);
     Confcallback = NULL;
   }
+  gc_bar_hide(FALSE);
 
   g_free(label_markup);
 }
@@ -130,15 +131,21 @@ gc_board_config_window_display(gchar *label, GcomprisConfCallback callback)
   Confcallback = callback;
   hash_conf = g_hash_table_new_full(g_str_hash, g_str_equal, g_free, g_free);
 
+  gc_bar_hide(TRUE);
+
   /* Creating a config window will cause our main window to loose focus,
      this tells the main window to ignore the next focus out event (and thus
      stay in fullscreen mode if we're fullscreen). */
 
   /* main configuration window */
+  /* FIXME MODAL NO MORE WORK: ONCE THE DIALOG IS REMOVED, THE BAR
+     EVENT NO MORE WORKS
+     GTK_DIALOG_MODAL | GTK_DIALOG_DESTROY_WITH_PARENT,
+  */
   conf_window = \
     GTK_WINDOW(gtk_dialog_new_with_buttons ("GCompris",
 					    GTK_WINDOW(gtk_widget_get_toplevel (GTK_WIDGET(gc_board_get_current()->canvas))),
-					    GTK_DIALOG_MODAL | GTK_DIALOG_DESTROY_WITH_PARENT,
+					    GTK_DIALOG_DESTROY_WITH_PARENT,
 					    GTK_STOCK_CANCEL,
 					    GTK_RESPONSE_CANCEL,
 					    GTK_STOCK_APPLY,

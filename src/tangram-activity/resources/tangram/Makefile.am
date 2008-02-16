@@ -7,6 +7,7 @@ img_DATA = \
 	gtans_outline.png \
 	gtans_rotate-left.png \
 	gtans_rotate.png \
-	gtans_show.png
+	gtans_show.png \
+	tool-flip.png
 
 EXTRA_DIST = $(img_DATA)

@@ -100,8 +100,8 @@ py_gc_item_focus_set(PyObject* self, PyObject* args)
 
 
 /* gint	gc_item_focus_event(GooCanvasItem *item,
-                                  GdkEvent *event,
-                                  GooCanvasItem *dest_item);
+                            GdkEvent *event,
+                            GooCanvasItem *dest_item);
 */
 static PyObject*
 py_gc_item_focus_event(PyObject* self, PyObject* args)
