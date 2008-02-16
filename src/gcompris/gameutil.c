@@ -273,8 +273,8 @@ void gc_item_focus_init(GooCanvasItem *source_item,
 		     highlight_item);
   goo_canvas_item_lower(highlight_item, target_item);
   g_object_set (highlight_item,
-		"visibility", GOO_CANVAS_ITEM_INVISIBLE,
-		NULL);
+  		"visibility", GOO_CANVAS_ITEM_INVISIBLE,
+  		NULL);
 
   g_signal_connect(source_item, "enter_notify_event",
 		   (GtkSignalFunc) gc_item_focus_event,

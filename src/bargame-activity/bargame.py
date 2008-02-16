@@ -398,6 +398,7 @@ class Gcompris_bargame:
         pixbuf = gcompris.utils.load_pixmap("bargame/enumerate_answer.png"),
         )
       answer_bounds = self.background.get_bounds()
+      gcompris.utils.item_focus_init(self.background, None)
 
       self.itemgroup.translate(gcompris.BOARD_WIDTH - 200,
                                gcompris.BOARD_HEIGHT - answer_bounds.y2 \
@@ -407,6 +408,7 @@ class Gcompris_bargame:
         parent = self.itemgroup,
         pixbuf = gcompris.utils.load_pixmap("bargame/enumerate_answer_focus.png"),
         )
+      gcompris.utils.item_focus_init(self.background_focused, self.background)
       self.background_focused.props.visibility = goocanvas.ITEM_INVISIBLE
 
       self.icone = goocanvas.Image(
@@ -417,6 +419,7 @@ class Gcompris_bargame:
       (x, y) = root.get_canvas().convert_from_item_space(self.itemgroup, 10, 20)
       (x, y) = root.get_canvas().convert_to_item_space(self.icone, x, y)
       self.icone.translate(x, y)
+      gcompris.utils.item_focus_init(self.icone, self.background)
 
       self.value = number_balls[0]
 
@@ -429,6 +432,7 @@ class Gcompris_bargame:
         anchor=gtk.ANCHOR_CENTER,
         text = self.value
         )
+      gcompris.utils.item_focus_init(self.text, self.background)
 
       self.background.connect("button_press_event",self.answer_event)
       self.background_focused.connect("button_press_event",self.answer_event)
