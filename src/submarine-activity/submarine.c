@@ -4,7 +4,7 @@
  *
  *   This program is free software; you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
- *   the Free Software Foundation; either version 2 of the License, or
+ *   the Free Software Foundation; either version 3 of the License, or
  *   (at your option) any later version.
  *
  *   This program is distributed in the hope that it will be useful,
@@ -13,8 +13,7 @@
  *   GNU General Public License for more details.
  *
  *   You should have received a copy of the GNU General Public License
- *   along with this program; if not, write to the Free Software
- *   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+ *   along with this program; if not, see <http://www.gnu.org/licenses/>.
  */
 
 #include "gcompris/gcompris.h"
@@ -958,7 +957,7 @@ static gboolean update_timeout_slow() {
   /* resulting_weight > 0 ==> the sub goes deeper
      regleur : this is the qty of water */
   resulting_weight = weight - ballast_av_air - ballast_ar_air + regleur;
-  submarine_vertical_speed = resulting_weight/300.0 
+  submarine_vertical_speed = resulting_weight/300.0
     + submarine_horizontal_speed*sin(DEG_TO_RAD(-assiette));
 
   /* if depth rudders are in the same direction */
@@ -970,8 +969,8 @@ static gboolean update_timeout_slow() {
   }
 
   /* position & depth */
-  submarine_x += submarine_horizontal_speed 
-    * cos(DEG_TO_RAD(assiette)) 
+  submarine_x += submarine_horizontal_speed
+    * cos(DEG_TO_RAD(assiette))
     * UPDATE_DELAY_SLOW/1000.0;
 
   depth += submarine_vertical_speed * UPDATE_DELAY_SLOW/1000.0;
@@ -1072,7 +1071,7 @@ static gboolean update_timeout_slow() {
 		  depth+SURFACE_IN_BACKGROUND-whale_y);
     /* magnetic detection (dist1) or collision with the whale (dist2 & dist3) */
     if ( (dist1 < WHALE_DETECTION_RADIUS
-	  || dist2 < WHALE_DETECTION_RADIUS 
+	  || dist2 < WHALE_DETECTION_RADIUS
 	  || dist3 < WHALE_DETECTION_RADIUS)
 	 && !submarine_destroyed ) {
       g_object_set (whale, "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);

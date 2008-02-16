@@ -1,22 +1,19 @@
-/* -*- Mode: C; indent-tabs-mode: t; c-basic-offset: 8; tab-width: 8 -*- */
-/* engine.h
+/* chess_position.h
  *
  * Copyright (C) 1999  Robert Wilhelm
  *
- * This program is free software; you can redistribute it and/or
- * modify it under the terms of the GNU General Public License as
- * published by the Free Software Foundation; either version 2 of the
- * License, or (at your option) any later version.
+ *   This program is free software; you can redistribute it and/or modify
+ *   it under the terms of the GNU General Public License as published by
+ *   the Free Software Foundation; either version 3 of the License, or
+ *   (at your option) any later version.
  *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
- * General Public License for more details.
+ *   This program is distributed in the hope that it will be useful,
+ *   but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *   GNU General Public License for more details.
  *
- * You should have received a copy of the GNU General Public
- * License along with this program; if not, write to the
- * Free Software Foundation, Inc., 59 Temple Place - Suite 330,
- * Boston, MA 02111-1307, USA.
+ *   You should have received a copy of the GNU General Public License
+ *   along with this program; if not, see <http://www.gnu.org/licenses/>.
  *
  * Authors: Robert Wilhelm
  *          JP Rosevear
@@ -50,12 +47,12 @@ struct _Position {
 	GtkObject        object;
 
 	/* 10x10 board - extra for move generation */
-	Piece            square[120]; 
+	Piece            square[120];
 
 	PositionPrivate *priv;
 };
 
-GtkType    position_get_type             (void);    
+GtkType    position_get_type             (void);
 GtkObject *position_new                   (void);
 GtkObject *position_new_initial           (void);
 Position  *position_copy                 (Position *pos);

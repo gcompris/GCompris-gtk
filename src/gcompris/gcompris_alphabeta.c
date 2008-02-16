@@ -1,22 +1,19 @@
 /* gcompris - gcompris_alphabeta.c
  *
- * Time-stamp: <2006/08/21 23:28:14 bruno>
- *
  * Copyright (C) 2000 Bruno Coudoin
  *
- * This program is free software; you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation; either version 2 of the License, or
- * (at your option) any later version.
+ *   This program is free software; you can redistribute it and/or modify
+ *   it under the terms of the GNU General Public License as published by
+ *   the Free Software Foundation; either version 3 of the License, or
+ *   (at your option) any later version.
  *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
+ *   This program is distributed in the hope that it will be useful,
+ *   but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *   GNU General Public License for more details.
  *
- * You should have received a copy of the GNU General Public License
- * along with this program; if not, write to the Free Software
- * Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+ *   You should have received a copy of the GNU General Public License
+ *   along with this program; if not, see <http://www.gnu.org/licenses/>.
  */
 
 #include "gcompris.h"
@@ -46,13 +43,13 @@ gint gc_alphabeta (gboolean maximize,
   gint m, t, nextBest, index;
 
   g_assert (depth >= 0);
-  
+
   child = firstChild(treeGame);
 
   *bestChild = -1;
 
 /*   g_warning("gc_alphabeta %d %d %d", depth, alpha, beta); */
-  
+
   /* directly return value for leaf node*/
   if ((!child) || (depth == 0)){
 /*     g_warning("gc_alphabeta %d returns %d bestChild %d", depth, heuristic(treeGame), *bestChild); */
@@ -60,7 +57,7 @@ gint gc_alphabeta (gboolean maximize,
   }
 
   index = 0;
-      
+
   if (maximize) {
     m = alpha;
     while (child){

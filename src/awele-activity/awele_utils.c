@@ -1,15 +1,20 @@
 /*
- * gcompris - awele.c Copyright (C) 2005 Frederic Mazzarol This program is
- * free software; you can redistribute it and/or modify it under the terms 
- * of the GNU General Public License as published by the Free Software
- * Foundation; either version 2 of the License, or (at your option) any
- * later version.  This program is distributed in the hope that it will
- * be useful, but WITHOUT ANY WARRANTY; without even the implied warranty
- * of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
- * General Public License for more details.  You should have received a
- * copy of the GNU General Public License along with this program; if not, 
- * write to the Free Software Foundation, Inc., 59 Temple Place, Suite
- * 330, Boston, MA 02111-1307 USA 
+ * gcompris - awele.c
+ *
+ * Copyright (C) 2005 Frederic Mazzarol
+ *
+ *   This program is free software; you can redistribute it and/or modify
+ *   it under the terms of the GNU General Public License as published by
+ *   the Free Software Foundation; either version 3 of the License, or
+ *   (at your option) any later version.
+ *
+ *   This program is distributed in the hope that it will be useful,
+ *   but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *   GNU General Public License for more details.
+ *
+ *   You should have received a copy of the GNU General Public License
+ *   along with this program; if not, see <http://www.gnu.org/licenses/>.
  */
 
 #include "awele_utils.h"
@@ -59,16 +64,16 @@ AWALE *moveAwale(short int hole, AWALE * aw)
   }
 
   short int nbBeans, j, last;
-  
+
   tempAw = g_malloc(sizeof(AWALE));
-  
+
   memcpy(tempAw, aw, sizeof(AWALE));
 
   tempAw->last_play = hole;
 
   nbBeans = tempAw->board[hole];
   tempAw->board[hole] = 0;
-  
+
   // Déplacement des graines
   for (j = 1, last = (hole+1)%12 ; j <= nbBeans; j++) {
     tempAw->board[last] += 1;
@@ -109,7 +114,7 @@ AWALE *moveAwale(short int hole, AWALE * aw)
       g_free(tempAwGs);
       return NULL;
     }
-  }    
+  }
   else {
     tempAw->player = switch_player(tempAw->player);
     return tempAw;

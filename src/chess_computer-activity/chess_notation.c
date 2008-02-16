@@ -1,19 +1,18 @@
-/* 
+/*
  * Copyright (C) 1999,2001 Robert Wilhelm
  *
- * This program is free software; you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation; either version 2 of the License, or
- * (at your option) any later version.
+ *   This program is free software; you can redistribute it and/or modify
+ *   it under the terms of the GNU General Public License as published by
+ *   the Free Software Foundation; either version 3 of the License, or
+ *   (at your option) any later version.
  *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
+ *   This program is distributed in the hope that it will be useful,
+ *   but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *   GNU General Public License for more details.
  *
- * You should have received a copy of the GNU General Public License
- * along with this program; if not, write to the Free Software
- * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA
+ *   You should have received a copy of the GNU General Public License
+ *   along with this program; if not, see <http://www.gnu.org/licenses/>.
  */
 
 #include <stdlib.h>
@@ -84,7 +83,7 @@ same_file (Square square, Square square2)
 }
 
 
-static void 
+static void
 delete_x (char *str)
 {
 	char *p = strchr (str, 'x');
@@ -94,7 +93,7 @@ delete_x (char *str)
 			p++;
 }
 
-static void 
+static void
 delete_plus (char *str)
 {
 	char *p = strchr (str, '+');
@@ -104,7 +103,7 @@ delete_plus (char *str)
 			p++;
 }
 
-static void 
+static void
 delete_ep (char *str)
 {
 	char *p = strstr (str, "ep");
@@ -114,7 +113,7 @@ delete_ep (char *str)
 			p++;
 }
 
-static void 
+static void
 delete_equal (char *str)
 {
 	char *p = strstr (str, "=");
@@ -124,7 +123,7 @@ delete_equal (char *str)
 			p++;
 }
 
-static void 
+static void
 delete_hash (char *str)
 {
 	char *p = strstr (str, "#");
@@ -146,7 +145,7 @@ move_to_ascii (char *p, Square from, Square to)
                 /* promotion */
 		a = to;
 
-		if (from > E4) 
+		if (from > E4)
 			a = (a & 7) + A8; /* white */
 		else
 			a = (a & 7) + A1; /* black */
@@ -207,7 +206,7 @@ piece_to_ascii (int piece)
     return tolower(piece_to_ascii_full[i]);
 
   g_assert_not_reached ();
-  
+
   return -1;
 }
 
@@ -242,9 +241,9 @@ ascii_to_move (Position *pos, char *p, Square *from, Square *to)
 	p += 2;
 	*to = (*p - 'a' + 1) + (*(p + 1) - '1' + 2 ) * 10;
 	p += 2;
-	
+
 	if (*p == 'q' || *p == 'r' || *p == 'b' || *p =='n' ||
-	    *p =='Q' || *p =='R' || *p == 'B' || *p == 'N' ) { 
+	    *p =='Q' || *p =='R' || *p == 'B' || *p == 'N' ) {
                 /* Promotion */
 		if (*to < A2)
 			*to = 128 +  *to - A1 + (ascii_to_piece (*p) + 1) * 8;
@@ -255,7 +254,7 @@ ascii_to_move (Position *pos, char *p, Square *from, Square *to)
 	}
 }
 
-int 
+int
 san_to_move (Position *pos, char *str, Square *from, Square *to)
 {
 	Square zugliste[AB_ZUGL];
@@ -289,14 +288,14 @@ san_to_move (Position *pos, char *str, Square *from, Square *to)
 				return 0;
 			}
 
-                        /* e.g. ed5 */			
-			p[1]=p[2];  
+                        /* e.g. ed5 */
+			p[1]=p[2];
 			p[2]=p[3];
 			p[3]=p[4];
 			p[4]=p[5];
 
                         /* not e.g. bb3 */
-			if (p[0] != p[1])   
+			if (p[0] != p[1])
 				if (!strcmp(p,str)) {
 					*from = *aq;
 					*to   = *(aq+1);
@@ -324,7 +323,7 @@ san_to_move (Position *pos, char *str, Square *from, Square *to)
 
                         /* Ngf3 */
 			tmp =p[2];
-			p[2]=p[3];        
+			p[2]=p[3];
 			p[3]=p[4];
 			p[4]=p[5];
 
@@ -459,7 +458,7 @@ move_to_san (Position *pos, Square from, Square to)
 						tempdesfile = 1;
 					else if (same_file(from, checksquare))
 						desrank = 1;
-					else 
+					else
 						tempdesfile = 1;
 				} else if (pos->square[checksquare] != EMPTY && checksquare < to) {
 					tempdesfile = tempdesrank = 0;	/* A piece is in the way */
@@ -505,7 +504,7 @@ move_to_san (Position *pos, Square from, Square to)
 						tempdesfile = 1;
 					else if (same_file(from, checksquare))
 						desrank = 1;
-					else 
+					else
 						tempdesfile = 1;
 				} else if (pos->square[checksquare] != EMPTY && checksquare < to) {
 					tempdesfile = tempdesrank = 0;	/* A piece is in the way */
@@ -528,11 +527,11 @@ move_to_san (Position *pos, Square from, Square to)
 					desfile = 1;
 				else if (same_file(from, to+jump[i]))
 					desrank = 1;
-				else 
+				else
 					desfile = 1;
 			}
 		}
-		break;				
+		break;
 
 	}
 

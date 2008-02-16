@@ -1,22 +1,19 @@
 /* gcompris - gcompris_im.c
  *
- * Time-stamp: <2006/08/21 23:26:19 bruno>
- *
  * Copyright (C) 2000,2003 Bruno Coudoin
  *
- * This program is free software; you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation; either version 2 of the License, or
- * (at your option) any later version.
+ *   This program is free software; you can redistribute it and/or modify
+ *   it under the terms of the GNU General Public License as published by
+ *   the Free Software Foundation; either version 3 of the License, or
+ *   (at your option) any later version.
  *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
+ *   This program is distributed in the hope that it will be useful,
+ *   but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *   GNU General Public License for more details.
  *
- * You should have received a copy of the GNU General Public License
- * along with this program; if not, write to the Free Software
- * Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+ *   You should have received a copy of the GNU General Public License
+ *   along with this program; if not, see <http://www.gnu.org/licenses/>.
  */
 
 #include "gcompris.h"
@@ -45,8 +42,8 @@ gc_im_init(GtkWidget *window)
   if(gc_profile_get_current())
     {
       GHashTable *init_im =  g_hash_table_new_full (g_str_hash, g_str_equal, g_free, g_free);
-      init_im = gc_db_conf_with_table_get (gc_profile_get_current()->profile_id, 
-					      -1, 
+      init_im = gc_db_conf_with_table_get (gc_profile_get_current()->profile_id,
+					      -1,
 					      init_im );
 
       properties->default_context = g_hash_table_lookup ( init_im, "default_im");
@@ -71,7 +68,7 @@ gc_im_init(GtkWidget *window)
 
   g_signal_connect (GTK_WIDGET (window), "focus-out-event",
 		    G_CALLBACK(window_focus_callback), NULL);
- 
+
 }
 
 void
@@ -81,7 +78,7 @@ gc_im_reset()
   gtk_im_context_reset (properties->context);
 }
 
-    
+
 static gint
 im_context_commit_callback (GtkIMContext *imcontext,
 			    gchar *arg1,
@@ -95,7 +92,7 @@ im_context_commit_callback (GtkIMContext *imcontext,
     }
   return FALSE;
 }
-    
+
 static gint
 im_context_preedit_callback (GtkIMContext *imcontext,
 			     gpointer user_data)
@@ -129,6 +126,6 @@ window_focus_callback (GtkWidget *widget,
     gtk_im_context_focus_in (properties->context);
   else
     gtk_im_context_focus_out (properties->context);
-  
+
   return FALSE;
 }

@@ -1,22 +1,21 @@
-#  gcompris - connect4 
-# 
-# Time-stamp: 
-# 
-# Copyright (C) 2005 Laurent Lacheny 
-# 
+#  gcompris - connect4
+#
+# Time-stamp:
+#
+# Copyright (C) 2005 Laurent Lacheny
+#
 #   This program is free software; you can redistribute it and/or modify
 #   it under the terms of the GNU General Public License as published by
-#   the Free Software Foundation; either version 2 of the License, or
+#   the Free Software Foundation; either version 3 of the License, or
 #   (at your option) any later version.
-# 
+#
 #   This program is distributed in the hope that it will be useful,
 #   but WITHOUT ANY WARRANTY; without even the implied warranty of
 #   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 #   GNU General Public License for more details.
-# 
+#
 #   You should have received a copy of the GNU General Public License
-#   along with this program; if not, write to the Free Software
-#   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+#   along with this program; if not, see <http://www.gnu.org/licenses/>.
 
 #
 # This code comes from the project 4stattack
@@ -51,7 +50,7 @@ def isMoveLegal(board, selector_pos):
 def isBoardFull(board):
 	for pos in range(7):
 		if len(board.state[pos]) < 6:
-			return 0 
+			return 0
 	return 1
 
 def isWinner(board, player):
@@ -86,7 +85,7 @@ def _isHorizontalWin(board, player):
 	        return ((x -3 + i,y),( x +i,y))
 	  except IndexError:
 	     pass
-	     
+
         return None
 
 def _isDiagonalWin(board, player):
@@ -98,7 +97,7 @@ def _isDiagonalWin(board, player):
                 try:
 			if  (x+i < 0) or (y+i < 0):
 				row.append('s')  # 's' stands for sentinel
-			else: 
+			else:
 				row.append(board.state[x+i][y+i])
                 except IndexError:
                         row.append('s')  # 's' stands for sentinel
@@ -114,7 +113,7 @@ def _isDiagonalWin(board, player):
                 try:
 			if  (x+i < 0) or (y-i < 0):
 				row.append('s')  # 's' stands for sentinel
-			else: 
+			else:
 				row.append(board.state[x+i][y-i])
                 except IndexError:
                         row.append('s')  # 's' stands for sentinel
@@ -124,5 +123,5 @@ def _isDiagonalWin(board, player):
 	        return ((x -3 + i , y + 3 - i),( x +i , y - i))
 	  except IndexError:
 	     pass
-	
+
         return None

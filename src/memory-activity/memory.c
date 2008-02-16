@@ -1,12 +1,10 @@
 /* gcompris - memory.c
  *
- * Time-stamp: <2006/08/21 23:33:28 bruno>
- *
  * Copyright (C) 2000 Bruno Coudoin
  *
  *   This program is free software; you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
- *   the Free Software Foundation; either version 2 of the License, or
+ *   the Free Software Foundation; either version 3 of the License, or
  *   (at your option) any later version.
  *
  *   This program is distributed in the hope that it will be useful,
@@ -15,8 +13,7 @@
  *   GNU General Public License for more details.
  *
  *   You should have received a copy of the GNU General Public License
- *   along with this program; if not, write to the Free Software
- *   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+ *   along with this program; if not, see <http://www.gnu.org/licenses/>.
  */
 
 // FIXME: Cleanup of MemoryItem created struct is not done
@@ -1439,7 +1436,10 @@ static gint hide_card (GtkWidget *widget, gpointer data)
     GList *to_remove = NULL;
 
     for (list =  winning_pairs; list != NULL; list=list->next)
-      if ((((WINNING *) list->data)->first == firstCard) || (((WINNING *) list->data)->first == secondCard) || (((WINNING *) list->data)->second == firstCard) || (((WINNING *) list->data)->second == secondCard) ){
+      if ((((WINNING *) list->data)->first == firstCard)
+	  || (((WINNING *) list->data)->first == secondCard)
+	  || (((WINNING *) list->data)->second == firstCard)
+	  || (((WINNING *) list->data)->second == secondCard) ){
 	to_remove = g_list_append( to_remove, list->data);
       }
 

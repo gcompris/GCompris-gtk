@@ -3,11 +3,11 @@
  * Copyright (C) 2003 Bruno Coudoin
  *
  * Based on the original code from Geoff Reedy <vader21@imsa.edu>
- * Copyright (C) 2000 Geoff Reedy 
+ * Copyright (C) 2000 Geoff Reedy
  *
  *   This program is free software; you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
- *   the Free Software Foundation; either version 2 of the License, or
+ *   the Free Software Foundation; either version 3 of the License, or
  *   (at your option) any later version.
  *
  *   This program is distributed in the hope that it will be useful,
@@ -16,35 +16,34 @@
  *   GNU General Public License for more details.
  *
  *   You should have received a copy of the GNU General Public License
- *   along with this program; if not, write to the Free Software
- *   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+ *   along with this program; if not, see <http://www.gnu.org/licenses/>.
  */
 
 /* The format and the dataset for the traffic game in gcompris
  * is taken from from
  * http://www.javascript-games.org/puzzle/rushhour/
- * 
+ *
  * [LevelX]
  * CardY=string describing card 1
  * CardY=string describing card 2
  * ...
  * Where X is the Gcompris Level (in the control bar)
  * Where Y is the sublevel.
- * 
+ *
  * This is followed by a comma separated list defining the cars on the
  * grid. So the string looks as follows:
- * 
+ *
  * 'ID''X''Y'
- * 
+ *
  * - 'ID' is one char in the range A-R and X
  *   A-N Specify a different car color of size 2
  *   O-R Specify a different car color of size 3
  *   X   Always Red, the goal car of size 2
- * 
- * - 'X' xpos numbers between 
+ *
+ * - 'X' xpos numbers between
  *    1 to 6 for Vertical car
  *    A to F for Horizontal car
- * 
+ *
  * - 'Y' ypos numbers between
  *    1 to 6 for Horizontal car
  *    A to F for Vertical car

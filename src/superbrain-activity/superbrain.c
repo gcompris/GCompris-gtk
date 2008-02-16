@@ -4,7 +4,7 @@
  *
  *   This program is free software; you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
- *   the Free Software Foundation; either version 2 of the License, or
+ *   the Free Software Foundation; either version 3 of the License, or
  *   (at your option) any later version.
  *
  *   This program is distributed in the hope that it will be useful,
@@ -13,8 +13,7 @@
  *   GNU General Public License for more details.
  *
  *   You should have received a copy of the GNU General Public License
- *   along with this program; if not, write to the Free Software
- *   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+ *   along with this program; if not, see <http://www.gnu.org/licenses/>.
  */
 
 #include "gcompris/gcompris.h"
@@ -462,7 +461,7 @@ static gboolean item_event (GooCanvasItem  *item,
   if(!piece->completed)
     {
       g_object_set (item, "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
-      
+
       switch(event->button)
 	{
 	case 1:
@@ -479,7 +478,7 @@ static gboolean item_event (GooCanvasItem  *item,
 	    piece->selecteditem = g_list_length(piece->listitem)-1;
 	  break;
 	}
-      
+
       newitem = g_list_nth_data(piece->listitem,
 				piece->selecteditem);
       g_object_set (newitem, "visibility", GOO_CANVAS_ITEM_VISIBLE, NULL);

@@ -1,10 +1,10 @@
-/* gcompris - minigolf.c
+/* gcompris - billard.c
  *
  * Copyright (C) 2001 Bruno Coudoin
  *
  *   This program is free software; you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
- *   the Free Software Foundation; either version 2 of the License, or
+ *   the Free Software Foundation; either version 3 of the License, or
  *   (at your option) any later version.
  *
  *   This program is distributed in the hope that it will be useful,
@@ -13,8 +13,7 @@
  *   GNU General Public License for more details.
  *
  *   You should have received a copy of the GNU General Public License
- *   along with this program; if not, write to the Free Software
- *   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+ *   along with this program; if not, see <http://www.gnu.org/licenses/>.
  */
 
 #include "gcompris/gcompris.h"
@@ -242,7 +241,7 @@ static GooCanvasItem *minigolf_create_item(GooCanvasItem *parent)
 
 
   create_machine_item(MACH_HOLE, 750.0, 260.0);
-  create_machine_item(MACH_BASKET_BALL, 
+  create_machine_item(MACH_BASKET_BALL,
 		      (double)g_random_int_range(60, 150),
 		      (double)RAND(60, 400));
 
@@ -290,11 +289,11 @@ item_event (GooCanvasItem  *item,
 
   gc_sound_play_ogg ("sounds/scroll.wav", NULL);
   width = bounds.x2 - bounds.x1;
-  
+
   machItem->times = 0;
   machItem->yposo = machItem->ypos;
   machItem->xposo = machItem->xpos;
-  
+
   machItem->vyo = ((item_y-bounds.y1)<width/2?(width/2-(item_y-bounds.y1))*20:-1*(width/2-(bounds.y2-item_y))*20);
   machItem->vxo = ((item_x-bounds.x1)<width/2?(width/2-(item_x-bounds.x1))*20:-1*(width/2-(bounds.x2-item_x))*20);
 
@@ -611,7 +610,7 @@ static void minigolf_move(GList *item_list)
 
 	  gc_item_absolute_move(item, machItem->xpos, machItem->ypos);
 
-	  if((machItem->ypos>=MIN_Y2-machItem->height-BORDER 
+	  if((machItem->ypos>=MIN_Y2-machItem->height-BORDER
 	      && (bounds.y1 - machItem->ypos)<=0) || collision == TRUE)
 	    {
 	      machItem->vyo   = machItem->vyo * -0.5;
@@ -625,7 +624,7 @@ static void minigolf_move(GList *item_list)
 	      gc_sound_play_ogg ("sounds/line_end.wav", NULL);
 	    }
 
-	  if((bounds.y1<=MIN_Y1 && (bounds.y1 - machItem->ypos)>=0) 
+	  if((bounds.y1<=MIN_Y1 && (bounds.y1 - machItem->ypos)>=0)
 	     || collision == TRUE)
 	    {
 	      machItem->vyo   = machItem->vyo * -0.5;

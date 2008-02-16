@@ -1,15 +1,19 @@
 /*
- * gcompris - awele.c Copyright (C) 2005 Frederic Mazzarol This program is
- * free software; you can redistribute it and/or modify it under the terms 
- * of the GNU General Public License as published by the Free Software
- * Foundation; either version 2 of the License, or (at your option) any
- * later version.  This program is distributed in the hope that it will
- * be useful, but WITHOUT ANY WARRANTY; without even the implied warranty
- * of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
- * General Public License for more details.  You should have received a
- * copy of the GNU General Public License along with this program; if not, 
- * write to the Free Software Foundation, Inc., 59 Temple Place, Suite
- * 330, Boston, MA 02111-1307 USA 
+ * gcompris - awele.c
+ * Copyright (C) 2005 Frederic Mazzarol
+ *
+ *   This program is free software; you can redistribute it and/or modify
+ *   it under the terms of the GNU General Public License as published by
+ *   the Free Software Foundation; either version 3 of the License, or
+ *   (at your option) any later version.
+ *
+ *   This program is distributed in the hope that it will be useful,
+ *   but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *   GNU General Public License for more details.
+ *
+ *   You should have received a copy of the GNU General Public License
+ *   along with this program; if not, see <http://www.gnu.org/licenses/>.
  */
 
 #include "awele_utils.h"
@@ -42,7 +46,7 @@ gint eval (GNode *node){
 
 /*
  * Evaluation function for level 1-2
- * this function returns always 0. The play is random, 
+ * this function returns always 0. The play is random,
  * because tree building is randomised.
  *
  */
@@ -83,7 +87,7 @@ GNode *firstChild(GNode *node)
 	g_node_insert (node, -1, tmpnode);
       }
     }
-  
+
   return g_node_first_child(node);
 }
 
@@ -163,28 +167,28 @@ short int  think( AWALE *static_awale, short int level){
     break;
   }
 
-  value = gc_alphabeta( TRUE, 
-			t, 
-			use_eval, 
-			&best, 
-			(FirstChildGameFunction) firstChild, 
+  value = gc_alphabeta( TRUE,
+			t,
+			use_eval,
+			&best,
+			(FirstChildGameFunction) firstChild,
 			(NextSiblingGameFunction) nextSibling,
-			-INFINI , 
+			-INFINI ,
 			INFINI,
 			maxprof) ;
-  
+
   if (best < 0){
     g_warning("Leaf node, game is over");
     return -1;
   }
   GNode *tmpNode = g_node_nth_child (t, best);
-  
+
   AWALE *tmpaw = tmpNode->data;
-  
+
   g_warning("THINK best : %d, play: %d", value, tmpaw->last_play);
-  
+
   best = tmpaw->last_play;
-  
+
   /* free awales*/
   g_node_traverse (t,
 		   G_IN_ORDER,

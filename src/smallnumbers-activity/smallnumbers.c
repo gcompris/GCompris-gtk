@@ -1,12 +1,10 @@
 /* gcompris - smallnumbers.c
  *
- * Time-stamp: <2007-04-15 21:17:41 bruno>
- *
  * Copyright (C) 2000 Bruno Coudoin
  *
  *   This program is free software; you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
- *   the Free Software Foundation; either version 2 of the License, or
+ *   the Free Software Foundation; either version 3 of the License, or
  *   (at your option) any later version.
  *
  *   This program is distributed in the hope that it will be useful,
@@ -15,8 +13,7 @@
  *   GNU General Public License for more details.
  *
  *   You should have received a copy of the GNU General Public License
- *   along with this program; if not, write to the Free Software
- *   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+ *   along with this program; if not, see <http://www.gnu.org/licenses/>.
  */
 #include <string.h>
 
@@ -252,7 +249,7 @@ static gint key_press(guint keyval, gchar *commit_str, gchar *preedit_str)
   for(i=0;
       (!gotit && i< nb_item);
       i++)
-    gotit = smallnumbers_gotkey_item( goo_canvas_item_get_child(boardRootItem, i), 
+    gotit = smallnumbers_gotkey_item( goo_canvas_item_get_child(boardRootItem, i),
 				      keyval );
 
   return TRUE;
@@ -352,7 +349,7 @@ static gint smallnumbers_move_items (GtkWidget *widget, gpointer data)
 
   /* For each item we need to move */
   for(i=0; i<goo_canvas_item_get_n_children(boardRootItem); i++)
-    smallnumbers_move_item(goo_canvas_item_get_child(boardRootItem, i)); 
+    smallnumbers_move_item(goo_canvas_item_get_child(boardRootItem, i));
 
   dummy_id = gtk_timeout_add (speed,
 			      (GtkFunction) smallnumbers_move_items, NULL);
