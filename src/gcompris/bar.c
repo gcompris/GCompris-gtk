@@ -48,6 +48,8 @@ static gboolean item_event_bar (GooCanvasItem  *item,
 				gchar *data);
 static void	 bar_reset_sound_id (void);
 static void	 setup_item_signals (GooCanvasItem *item, gchar* name);
+static void	 _bar_down();
+static void	 _bar_up();
 
 static gint current_level = -1;
 static gint current_flags = -1;
@@ -60,6 +62,7 @@ static GooCanvasItem *help_item = NULL;
 static GooCanvasItem *repeat_item = NULL;
 static GooCanvasItem *config_item = NULL;
 static GooCanvasItem *about_item = NULL;
+static GooCanvasItem *rootitem = NULL;
 
 static gint sound_play_id = 0;
 
@@ -79,7 +82,6 @@ void gc_bar_start (GooCanvas *theCanvas)
 {
   GcomprisProperties *properties = gc_prop_get();
   GdkPixbuf   *pixmap = NULL;
-  GooCanvasItem *rootitem;
   gint16           width, height;
   double           zoom;
 
@@ -89,13 +91,15 @@ void gc_bar_start (GooCanvas *theCanvas)
   bar_reset_sound_id();
 
   rootitem = goo_canvas_group_new (goo_canvas_get_root_item(theCanvas), NULL);
+  goo_canvas_item_translate(rootitem, 0, BOARDHEIGHT - BARHEIGHT);
 
-  pixmap = gc_skin_pixmap_load("bar_bg.jpg");
+  pixmap = gc_skin_pixmap_load("bar_bg.png");
   bar_item = goo_canvas_image_new (rootitem,
 				   pixmap,
 				   0,
 				   0,
 				NULL);
+  setup_item_signals(bar_item, "bar");
   gdk_pixbuf_unref(pixmap);
 
   // EXIT
@@ -231,7 +235,10 @@ void gc_bar_start (GooCanvas *theCanvas)
 
   g_object_set (about_item,
 		"visibility", GOO_CANVAS_ITEM_INVISIBLE,
-		NULL);}
+		NULL);
+
+  _bar_down();
+}
 
 
 void gc_bar_set_level(GcomprisBoard *gcomprisBoard)
@@ -378,6 +385,35 @@ gc_bar_set (const GComprisBarFlags flags)
 
 }
 
+static void
+_bar_down()
+{
+      goo_canvas_item_animate(rootitem,
+			      0,
+			      BOARDHEIGHT - 20,
+			      1,
+			      0,
+			      TRUE,
+			      1000,
+			      80,
+			      GOO_CANVAS_ANIMATE_FREEZE);
+}
+
+static void
+_bar_up()
+{
+  goo_canvas_item_raise(rootitem, NULL);
+      goo_canvas_item_animate(rootitem,
+			      0,
+			      BOARDHEIGHT - BARHEIGHT,
+			      1,
+			      0,
+			      TRUE,
+			      700,
+			      80,
+			      GOO_CANVAS_ANIMATE_FREEZE);
+}
+
 /* Hide all icons in the control bar
  * or retore the icons to the previous value
  */
@@ -385,11 +421,7 @@ void
 gc_bar_hide (gboolean hide)
 {
   /* Non yet initialized : Something Wrong */
-  if(level_item==NULL)
-    {
-      g_message("in bar_set_level, level_item uninitialized : should not happen\n");
-      return;
-    }
+  g_assert(level_item);
 
   if(hide)
     {
@@ -411,12 +443,14 @@ gc_bar_hide (gboolean hide)
 		     "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
       g_object_set(about_item,
 		   "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
+
     }
   else
     {
       g_object_set(home_item,
 		   "visibility", GOO_CANVAS_ITEM_VISIBLE, NULL);
       gc_bar_set(current_flags);
+
     }
 }
 
@@ -487,6 +521,7 @@ on_enter_notify (GooCanvasItem  *item,
 {
   bar_reset_sound_id();
   sound_play_id = g_timeout_add (1000, (GtkFunction) bar_play_sound, data);
+  _bar_up();
   return FALSE;
 }
 
@@ -497,6 +532,7 @@ on_leave_notify (GooCanvasItem  *item,
 		 char *data)
 {
   bar_reset_sound_id();
+  _bar_down();
   return FALSE;
 }
 
@@ -624,5 +660,6 @@ setup_item_signals (GooCanvasItem *item, gchar* name)
 		   (GtkSignalFunc) item_event_bar,
 		   name);
 
-  gc_item_focus_init(item, NULL);
+  if(strcmp(name, "bar"))
+    gc_item_focus_init(item, NULL);
 }

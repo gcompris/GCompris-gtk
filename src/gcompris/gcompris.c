@@ -58,7 +58,6 @@ static gchar *lock_file;
 
 static GtkWidget *window;
 static GtkWidget *canvas;
-static GtkWidget *canvas_bar;
 static GtkWidget *fixed;
 static GtkWidget *drawing_area;
 gchar * exec_prefix = NULL;
@@ -280,9 +279,9 @@ _gc_configure_event_callback (GtkWidget   *widget,
 			&screen_width,
 			&screen_height);
 
-  yratio=screen_height/(float)(BOARDHEIGHT+BARHEIGHT);
+  yratio=screen_height/(float)(BOARDHEIGHT);
   xratio=screen_width/(float)BOARDWIDTH;
-  zoom_factor=MIN(xratio, yratio);
+  zoom_factor = MIN(xratio, yratio);
   g_message("The screen_width=%f screen_height=%f ratio=%f\n",
 	    (double)screen_width, (double)screen_height, zoom_factor);
 
@@ -290,15 +289,7 @@ _gc_configure_event_callback (GtkWidget   *widget,
   goo_canvas_set_scale (GOO_CANVAS(canvas), zoom_factor);
   gtk_fixed_move(GTK_FIXED(fixed), canvas,
 		 (screen_width-BOARDWIDTH*zoom_factor)/2,
-		 (screen_height-(BOARDHEIGHT+BARHEIGHT)*zoom_factor)/2);
-
-  gtk_widget_set_usize (GTK_WIDGET(canvas_bar),
-			BOARDWIDTH*zoom_factor,  BARHEIGHT*zoom_factor);
-  goo_canvas_set_scale (GOO_CANVAS(canvas_bar), zoom_factor);
-  gtk_fixed_move(GTK_FIXED(fixed), canvas_bar,
-		 (screen_width-BOARDWIDTH*zoom_factor)/2,
-		 (screen_height-(BOARDHEIGHT+BARHEIGHT)*zoom_factor)/2
-		 + BOARDHEIGHT*zoom_factor);
+		 (screen_height-BOARDHEIGHT*zoom_factor)/2);
 
   _expose_background_callback (drawing_area, NULL, NULL);
 
@@ -616,7 +607,7 @@ static void
 init_background()
 {
   drawing_area = gtk_drawing_area_new ();
-  gtk_widget_set_size_request (drawing_area, BOARDWIDTH, BOARDHEIGHT+BARHEIGHT);
+  gtk_widget_set_size_request (drawing_area, BOARDWIDTH, BOARDHEIGHT);
   g_signal_connect (G_OBJECT (drawing_area), "expose_event",
 		    G_CALLBACK (_expose_background_callback), NULL);
   /* Create a vertical box in which I put first the play board area, then the button bar */
@@ -625,11 +616,9 @@ init_background()
 
   gtk_fixed_put (GTK_FIXED(fixed), GTK_WIDGET(drawing_area), 0, 0);
   gtk_fixed_put (GTK_FIXED(fixed), GTK_WIDGET(canvas), 0, 0);
-  gtk_fixed_put (GTK_FIXED(fixed), GTK_WIDGET(canvas_bar), 0, BOARDHEIGHT);
 
   gtk_widget_show (GTK_WIDGET(fixed));
   gtk_widget_show (GTK_WIDGET(canvas));
-  gtk_widget_show (GTK_WIDGET(canvas_bar));
 
   gtk_widget_set_usize (GTK_WIDGET(canvas), BOARDWIDTH, BOARDHEIGHT);
   goo_canvas_set_bounds (GOO_CANVAS(canvas),
@@ -637,11 +626,6 @@ init_background()
 			 BOARDWIDTH,
 			 BOARDHEIGHT);
 
-  gtk_widget_set_usize (canvas_bar,  BOARDWIDTH,  BARHEIGHT);
-  goo_canvas_set_bounds (GOO_CANVAS(canvas_bar),
-			 0, 0,
-			 BOARDWIDTH,
-			 BARHEIGHT);
 }
 
 static void setup_window ()
@@ -691,8 +675,8 @@ static void setup_window ()
   hints.min_height = 144;
   hints.width_inc = 1;
   hints.height_inc = 1;
-  hints.min_aspect = (float)BOARDWIDTH/(BOARDHEIGHT+BARHEIGHT);
-  hints. max_aspect = (float)BOARDWIDTH/(BOARDHEIGHT+BARHEIGHT);
+  hints.min_aspect = (float)BOARDWIDTH/BOARDHEIGHT;
+  hints. max_aspect = (float)BOARDWIDTH/BOARDHEIGHT;
   gtk_window_set_geometry_hints (GTK_WINDOW (window),
 				 NULL,
 				 &hints,
@@ -727,9 +711,7 @@ static void setup_window ()
   // Set the cursor
   gc_cursor_set(GCOMPRIS_DEFAULT_CURSOR);
 
-  /* For non anti alias canvas */
   canvas     = goo_canvas_new();
-  canvas_bar = goo_canvas_new();
 
   g_object_set (G_OBJECT(goo_canvas_get_root_item(GOO_CANVAS(canvas))),
 		"can-focus", TRUE,
@@ -739,9 +721,6 @@ static void setup_window ()
   gtk_signal_connect_after (GTK_OBJECT (window), "key_press_event",
 			    GTK_SIGNAL_FUNC (board_widget_key_press_callback), 0);
   g_signal_connect_after (canvas,
-			  "key_press_event",
-			  GTK_SIGNAL_FUNC (board_widget_key_press_callback), 0);
-  g_signal_connect_after (canvas_bar,
 			  "key_press_event",
 			  GTK_SIGNAL_FUNC (board_widget_key_press_callback), 0);
 
@@ -799,7 +778,7 @@ static void setup_window ()
     }
 
     /* Run the bar */
-  gc_bar_start(GOO_CANVAS(canvas_bar));
+  gc_bar_start(GOO_CANVAS(canvas));
 
   init_background();
 

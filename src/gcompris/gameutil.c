@@ -250,7 +250,12 @@ void gc_item_focus_init(GooCanvasItem *source_item,
     target_item = source_item;
 
   goo_canvas_item_get_bounds(target_item, &bounds);
-
+  goo_canvas_convert_to_item_space(goo_canvas_item_get_canvas(target_item),
+				   goo_canvas_item_get_parent(target_item),
+				   &bounds.x1, &bounds.y1);
+  goo_canvas_convert_to_item_space(goo_canvas_item_get_canvas(target_item),
+				   goo_canvas_item_get_parent(target_item),
+				   &bounds.x2, &bounds.y2);
   highlight_item = g_object_get_data (G_OBJECT(target_item),
 		     "highlight_item");
 
