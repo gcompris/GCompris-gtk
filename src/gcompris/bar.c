@@ -48,7 +48,7 @@ static gboolean item_event_bar (GooCanvasItem  *item,
 				gchar *data);
 static void	 bar_reset_sound_id (void);
 static void	 setup_item_signals (GooCanvasItem *item, gchar* name);
-static void	 _bar_down();
+static gboolean	 _bar_down(void *ignore);
 static void	 _bar_up();
 
 static gint current_level = -1;
@@ -65,6 +65,7 @@ static GooCanvasItem *about_item = NULL;
 static GooCanvasItem *rootitem = NULL;
 
 static gint sound_play_id = 0;
+static gint bar_down_id = 0;
 
 static void  confirm_quit(gboolean answer);
 
@@ -237,7 +238,7 @@ void gc_bar_start (GooCanvas *theCanvas)
 		"visibility", GOO_CANVAS_ITEM_INVISIBLE,
 		NULL);
 
-  _bar_down();
+  _bar_down(NULL);
 }
 
 
@@ -385,18 +386,21 @@ gc_bar_set (const GComprisBarFlags flags)
 
 }
 
-static void
-_bar_down()
+static gboolean
+_bar_down(void *ignore)
 {
-      goo_canvas_item_animate(rootitem,
-			      0,
-			      BOARDHEIGHT - 20,
-			      1,
-			      0,
-			      TRUE,
-			      1000,
-			      80,
-			      GOO_CANVAS_ANIMATE_FREEZE);
+  bar_down_id = 0;
+  goo_canvas_item_animate(rootitem,
+			  0,
+			  BOARDHEIGHT - 20,
+			  1,
+			  0,
+			  TRUE,
+			  1000,
+			  80,
+			  GOO_CANVAS_ANIMATE_FREEZE);
+
+  return(FALSE);
 }
 
 static void
@@ -522,6 +526,12 @@ on_enter_notify (GooCanvasItem  *item,
   bar_reset_sound_id();
   sound_play_id = g_timeout_add (1000, (GtkFunction) bar_play_sound, data);
   _bar_up();
+
+  if(bar_down_id)
+    g_source_remove (bar_down_id);
+
+  bar_down_id=0;
+
   return FALSE;
 }
 
@@ -532,7 +542,10 @@ on_leave_notify (GooCanvasItem  *item,
 		 char *data)
 {
   bar_reset_sound_id();
-  _bar_down();
+
+  if(!bar_down_id)
+    bar_down_id = g_timeout_add (5000, (GtkFunction) _bar_down, NULL);
+
   return FALSE;
 }
 
