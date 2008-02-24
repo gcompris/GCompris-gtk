@@ -305,6 +305,8 @@ void
 gc_bar_set (const GComprisBarFlags flags)
 {
 
+  _hidden = FALSE;
+
   /* Non yet initialized : Something Wrong */
   if(level_item==NULL)
     {
