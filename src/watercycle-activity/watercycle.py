@@ -178,7 +178,7 @@ class Gcompris_watercycle:
       )
     self.waterpumpitem.connect("button_press_event", self.waterpump_item_event)
     # This item is clickeable and it must be seen
-    self.waterpumpitem.connect("button_press_event", gcompris.utils.item_event_focus)
+    gcompris.utils.item_focus_init(self.waterpumpitem, None)
     self.waterpump_on = 0
 
     # The pump water
@@ -200,7 +200,7 @@ class Gcompris_watercycle:
       )
     self.watercleaningitem.connect("button_press_event", self.watercleaning_item_event)
     # This item is clickeable and it must be seen
-    self.watercleaningitem.connect("button_press_event", gcompris.utils.item_event_focus)
+    gcompris.utils.item_focus_init(self.watercleaningitem, None)
     self.watercleaning_on = 0
 
     # The tuxboat
@@ -252,7 +252,7 @@ class Gcompris_watercycle:
       )
     self.showerbuttonitem_on.connect("button_press_event", self.showerbutton_item_event)
     # This item is clickeable and it must be seen
-    self.showerbuttonitem_on.connect("button_press_event", gcompris.utils.item_event_focus)
+    gcompris.utils.item_focus_init(self.showerbuttonitem_on, None)
     self.showerbuttonitem_on.props.visibility = goocanvas.ITEM_INVISIBLE
     self.showerbutton = 0
 
@@ -265,7 +265,7 @@ class Gcompris_watercycle:
       )
     self.showerbuttonitem_off.connect("button_press_event", self.showerbutton_item_event)
     # This item is clickeable and it must be seen
-    self.showerbuttonitem_off.connect("button_press_event", gcompris.utils.item_event_focus)
+    gcompris.utils.item_focus_init(self.showerbuttonitem_off, None)
 
     # The level of water in the castle
     self.waterlevel_max = 65
@@ -420,6 +420,7 @@ class Gcompris_watercycle:
       self.rainitem.props.visibility = goocanvas.ITEM_INVISIBLE
 
     self.clouditem.translate(1, 0);
+    gcompris.utils.item_focus_init(self.clouditem, None)
     self.rainitem.translate(1, 0);
     if( self.clouditem.get_bounds().x1 > 800 ) :
       self.clouditem.translate(-800, 0);
@@ -444,6 +445,7 @@ class Gcompris_watercycle:
     self.vapor_timer = gobject.timeout_add(self.timerinc, self.move_vapor)
 
   def move_sun(self):
+    gcompris.utils.item_focus_init(self.sunitem, None)
     self.sunitem.translate(0, self.sun_direction);
     if( (self.sunitem.get_bounds().y1 > 0 and
          self.sunitem.get_bounds().y1 < 70 ) ) :
