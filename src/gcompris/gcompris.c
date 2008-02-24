@@ -1,6 +1,6 @@
 /* gcompris - gcompris.c
  *
- * Copyright (C) 2000 Bruno Coudoin
+ * Copyright (C) 2000-2008 Bruno Coudoin
  *
  *   This program is free software; you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
@@ -118,7 +118,6 @@ static gint popt_cursor		   = FALSE;
 static gint popt_version	   = FALSE;
 static gint popt_difficulty_filter = FALSE;
 static gint popt_debug		   = FALSE;
-static gint popt_nobackimg	   = FALSE;
 static gint popt_nolockcheck	   = FALSE;
 static gchar *popt_root_menu       = NULL;
 static gchar *popt_package_data_dir = NULL;
@@ -233,9 +232,6 @@ static GOptionEntry options[] = {
 
   {"drag-mode", 'g', 0, G_OPTION_ARG_STRING, &popt_drag_mode,
    N_("Global drag and drop mode: normal, 2clicks, both. Default mode is normal."), NULL},
-
-  {"nobackimg", '\0', 0, G_OPTION_ARG_NONE, &popt_nobackimg,
-   N_("Do not display the background images of activities."), NULL},
 
   {"nolockcheck", '\0', 0, G_OPTION_ARG_NONE, &popt_nolockcheck,
    N_("Do not avoid the execution of multiple instances of GCompris."), NULL},
@@ -488,10 +484,7 @@ _set_svg_background(GooCanvasItem *parent, gchar *file)
 {
   RsvgHandle *rsvg_handle;
 
-  if ( popt_nobackimg && (strncmp(file, "opt/", 4) == 0) )
-    rsvg_handle = gc_skin_rsvg_load ("gcompris-bg.svgz");
-  else
-    rsvg_handle = gc_rsvg_load (file);
+  rsvg_handle = gc_rsvg_load (file);
 
   if(backgroundsvgimg)
     g_object_set(backgroundsvgimg,
@@ -511,10 +504,7 @@ _set_pixmap_background(GooCanvasItem *parent, gchar *file)
 {
   GdkPixbuf *background_pixmap;
 
-  if ( popt_nobackimg && (strncmp(file, "opt/", 4) == 0) )
-    background_pixmap = gc_skin_pixmap_load ("gcompris-bg.jpg");
-  else
-    background_pixmap = gc_pixmap_load (file);
+  background_pixmap = gc_pixmap_load (file);
 
   if(backgroundimg)
     g_object_set(backgroundimg,

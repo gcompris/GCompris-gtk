@@ -21,8 +21,6 @@
 #define BOUTON_CLIC "awele/bouton1_clic.png"	//Chemin relatif vers fichiers boutons cliqués
 #define BEAN "awele/graine1.png"	//Chemin relatif vers fichiers graines
 
-#define Y_BOUTONS 412		//Abcisse des boutons
-
 #define WIDTH 800 	// Largeur Fenetre
 #define HEIGHT 600	// Hauteur Fenetre
 /**

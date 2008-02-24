@@ -25,6 +25,13 @@
 static GcomprisBoard *gcomprisBoard = NULL;
 static gboolean board_paused = TRUE;
 
+/* This is a global Y offset that can be use to move the
+ * whole activity drawing up or down
+ */
+#define OFFSET_Y 45
+
+#define Y_BOUTONS 412-OFFSET_Y
+
 char errorMsg[30];
 AWALE *staticAwale;
 int caseCoord[12] =
@@ -343,7 +350,7 @@ awele_create_item (GooCanvasItem * parent)
   goo_canvas_image_new (boardRootItem,
 			pixmap,
 			0,
-			0,
+			OFFSET_Y,
 			NULL);
   gdk_pixbuf_unref(pixmap);
 
@@ -354,17 +361,7 @@ awele_create_item (GooCanvasItem * parent)
     int x, y;
 
     x = 35;
-    y = 190;
-    goo_canvas_text_new (boardRootItem,
-			 _("NORTH"),
-			 (double) x + 1,
-			 (double) y + 1,
-			 -1,
-			 GTK_ANCHOR_CENTER,
-			 "font", gc_skin_font_board_medium,
-			 "fill_color_rgba", gc_skin_color_shadow,
-			 NULL);
-
+    y = 190 - OFFSET_Y;
     goo_canvas_text_new (boardRootItem,
 			 _("NORTH"),
 			 (double) x,
@@ -372,21 +369,11 @@ awele_create_item (GooCanvasItem * parent)
 			 -1,
 			 GTK_ANCHOR_CENTER,
 			 "font", gc_skin_font_board_medium,
-			 "fill_color_rgba", gc_skin_color_text_button,
+			 "fill_color", "black",
 			 NULL);
 
     x = 765;
-    y = 295;
-    goo_canvas_text_new (boardRootItem,
-			 _("SOUTH"),
-			 (double) x + 1,
-			 (double) y + 1,
-			 -1,
-			 GTK_ANCHOR_CENTER,
-			 "font", gc_skin_font_board_medium,
-			 "fill_color_rgba", gc_skin_color_shadow,
-			 NULL);
-
+    y = 295 - OFFSET_Y;
     goo_canvas_text_new (boardRootItem,
 			 _("SOUTH"),
 			 (double) x,
@@ -394,7 +381,7 @@ awele_create_item (GooCanvasItem * parent)
 			 -1,
 			 GTK_ANCHOR_CENTER,
 			 "font", gc_skin_font_board_medium,
-			 "fill_color_rgba", gc_skin_color_text_button,
+			 "fill_color", "black",
 			 NULL);
 
   }
@@ -479,6 +466,7 @@ awele_create_item (GooCanvasItem * parent)
 			"button_press_event",
 			GTK_SIGNAL_FUNC (buttonClick),
 			GINT_TO_POINTER(i));
+      gc_item_focus_init(graphsElt->button[i], NULL);
 
 
     }
@@ -497,7 +485,7 @@ awele_create_item (GooCanvasItem * parent)
 	goo_canvas_text_new (boardRootItem,
 			     buffer,
 			     (caseCoord[i] + 45),
-			     ((i < 6) ? 378 : 94),
+			     ((i < 6) ? 378 : 94) - OFFSET_Y,
 			     -1,
 			     GTK_ANCHOR_CENTER,
 			     "font", "sans 20",
@@ -521,7 +509,7 @@ awele_create_item (GooCanvasItem * parent)
 	goo_canvas_text_new (boardRootItem,
 			     buffer,
 			     x1,
-			     246,
+			     246 - OFFSET_Y,
 			     -1,
 			     GTK_ANCHOR_CENTER,
 			     "font", "sans 24",
@@ -551,7 +539,7 @@ awele_create_item (GooCanvasItem * parent)
   graphsElt->msg = goo_canvas_text_new (boardRootItem,
 					_("Choose a house"),
 					(double) 400,
-					(double) 500,
+					(double) 500 - OFFSET_Y,
 					-1,
 					GTK_ANCHOR_CENTER,
 					"font", "sans 20",
@@ -632,7 +620,7 @@ initBoardGraphics (GRAPHICS_ELT * graphsElt)
 				     6) ? 260 :
 				    130) +
 				   g_random_int() %
-				   60),
+				   60) - OFFSET_Y,
 				  NULL);
 
 	  graphsElt->ptBeansHoleLink[idxTabBeans].hole = i;
@@ -820,7 +808,7 @@ updateNbBeans (int alpha)
 			g_random_int() % 50,
 			"y", (double) (((i <
 					 6) ? 260 : 130) +
-				       g_random_int() % 60),
+				       g_random_int() % 60 - OFFSET_Y),
 			NULL);
 
 	  ptBeansHoleLink[idxTabBeans].hole = i;
