@@ -590,13 +590,11 @@ item_event_bar (GooCanvasItem  *item,
 {
   GcomprisBoard *gcomprisBoard = gc_board_get_current();
 
+  if(_hidden)
+    return(FALSE);
+
   bar_reset_sound_id();
   gc_sound_play_ogg ("sounds/bleep.wav", NULL);
-
-  /* This is not perfect clean but it makes it easy to remove the help window
-     by clicking on any button in the bar */
-  if(strcmp((char *)data, "help"))
-    gc_help_stop ();
 
   if(!strcmp((char *)data, "ok"))
     {
