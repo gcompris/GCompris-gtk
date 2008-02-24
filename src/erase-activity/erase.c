@@ -401,6 +401,12 @@ static void add_one_item(int i, int j, int protect)
 			     (GCallback) item_event,
 			     (gpointer)c,
 			     (GClosureNotify) g_free, 0);
+      g_signal_connect (item, "leave_notify_event",
+			(GCallback) item_event,
+			(gpointer)c);
+      g_signal_connect (item, "button_press_event",
+			(GCallback) item_event,
+			(gpointer)c);
       number_of_items++;
       if (items_per_cell)
 	items_per_cell[item_x * number_of_item_x + item_y]++;
@@ -459,6 +465,7 @@ erase_one_item (GooCanvasItem *item)
 {
   gdouble screen_x, screen_y;
   int x,y;
+
   goo_canvas_convert_from_item_space(goo_canvas_item_get_canvas(item),
 				     item, &screen_x, &screen_y);
   x = screen_x / (BOARDWIDTH/number_of_item_x);
@@ -505,7 +512,7 @@ item_event (GooCanvasItem  *item,
       if (normal_delay_id)
 	g_source_remove (normal_delay_id);
       normal_delay_id
-	= g_timeout_add (50, (GSourceFunc) erase_one_item, item);
+	= g_timeout_add (50, (GSourceFunc) erase_one_item, target);
     } else if (event->type == GDK_LEAVE_NOTIFY) {
       if (normal_delay_id)
 	g_source_remove (normal_delay_id);
@@ -517,7 +524,7 @@ item_event (GooCanvasItem  *item,
     if (event->type != GDK_BUTTON_PRESS)
       return FALSE;
 
-  erase_one_item (item);
+  erase_one_item (target);
 
   return FALSE;
 }
