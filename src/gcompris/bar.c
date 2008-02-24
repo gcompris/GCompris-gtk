@@ -50,6 +50,7 @@ static void	 bar_reset_sound_id (void);
 static void	 setup_item_signals (GooCanvasItem *item, gchar* name);
 static gboolean	 _bar_down(void *ignore);
 static void	 _bar_up();
+static void	 _force_bar_down();
 
 static gint current_level = -1;
 static gint current_flags = -1;
@@ -66,6 +67,7 @@ static GooCanvasItem *rootitem = NULL;
 
 static gint sound_play_id = 0;
 static gint bar_down_id = 0;
+static gboolean _hidden;
 
 static void  confirm_quit(gboolean answer);
 
@@ -238,7 +240,8 @@ void gc_bar_start (GooCanvas *theCanvas)
 		"visibility", GOO_CANVAS_ITEM_INVISIBLE,
 		NULL);
 
-  _bar_down(NULL);
+  _hidden = FALSE;
+  _force_bar_down(NULL);
 }
 
 
@@ -404,6 +407,26 @@ _bar_down(void *ignore)
 }
 
 static void
+_force_bar_down()
+{
+  if(bar_down_id)
+    g_source_remove (bar_down_id);
+
+  bar_down_id=0;
+
+  /* Hide it faster than normal */
+  goo_canvas_item_animate(rootitem,
+			  0,
+			  BOARDHEIGHT - 20,
+			  1,
+			  0,
+			  TRUE,
+			  100,
+			  10,
+			  GOO_CANVAS_ANIMATE_FREEZE);
+}
+
+static void
 _bar_up()
 {
   goo_canvas_item_raise(rootitem, NULL);
@@ -426,6 +449,8 @@ gc_bar_hide (gboolean hide)
 {
   /* Non yet initialized : Something Wrong */
   g_assert(level_item);
+
+  _hidden = hide;
 
   if(hide)
     {
@@ -456,6 +481,8 @@ gc_bar_hide (gboolean hide)
       gc_bar_set(current_flags);
 
     }
+
+  _force_bar_down();
 }
 
 /*-------------------------------------------------------------------------------*/
@@ -523,6 +550,9 @@ on_enter_notify (GooCanvasItem  *item,
 		 GdkEventCrossing *event,
 		 char *data)
 {
+  if(_hidden)
+    return FALSE;
+
   bar_reset_sound_id();
   sound_play_id = g_timeout_add (1000, (GtkFunction) bar_play_sound, data);
   _bar_up();

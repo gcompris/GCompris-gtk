@@ -376,12 +376,12 @@ board_widget_key_press_callback (GtkWidget   *widget,
     {
       if (gtk_im_context_filter_keypress (properties->context, event))
 	{
-	  g_warning("%d key is handled by context", kv);
+	  g_message("%d key is handled by context", kv);
 	  return TRUE;
 	}
     }
 
-  g_warning("%d key is NOT handled by context", kv);
+  g_message("%d key is NOT handled by context", kv);
   /* If the board needs to receive key pressed */
   /* NOTE: If a board receives key press, it must bind the ENTER Keys to OK
    *       whenever possible
@@ -637,14 +637,14 @@ static void setup_window ()
   }
 
   if(!icon_file)
-      g_warning ("Couldn't find file %s !", icon_file);
+      g_message ("Couldn't find file %s !", icon_file);
   else
     {
       icon_pixbuf = gc_net_load_pixmap(icon_file);
 
       if (!icon_pixbuf)
 	{
-	  g_warning ("Failed to load pixbuf file: %s\n",
+	  g_message ("Failed to load pixbuf file: %s\n",
 		     icon_file);
 	}
       g_free(icon_file);
@@ -781,7 +781,7 @@ static void setup_window ()
     gc_dialog(tmpstr, NULL);
     g_free(tmpstr);
   } else {
-    g_warning("Fine, we got the gcomprisBoardMenu, xml boards parsing went fine");
+    g_message("Fine, we got the gcomprisBoardMenu, xml boards parsing went fine");
     gc_board_play(board_to_start);
   }
 
@@ -1047,7 +1047,7 @@ static void map_cb (GtkWidget *widget, gpointer data)
       gc_fullscreen_set(properties->fullscreen);
       is_mapped = TRUE;
     }
-  g_warning("gcompris window is now mapped");
+  g_message("gcompris window is now mapped");
 }
 
 /*
@@ -1057,7 +1057,7 @@ static void map_cb (GtkWidget *widget, gpointer data)
 void gc_terminate(int signum)
 {
 
-  g_warning("GCompris got the %d signal, starting exit procedure", signum);
+  g_message("GCompris got the %d signal, starting exit procedure", signum);
 
   gc_exit();
 
@@ -1065,55 +1065,30 @@ void gc_terminate(int signum)
 
 static void load_properties ()
 {
-  gchar *prefix_dir;
-  gchar *tmpstr;
-
   properties = gc_prop_new ();
 
   /* Initialize the binary relocation API
    *  http://autopackage.org/docs/binreloc/
    */
   if(gbr_init (NULL))
-    g_warning("Binary relocation enabled");
+    g_message("Binary relocation enabled");
   else
-    g_warning("Binary relocation disabled");
+    g_message("Binary relocation disabled");
 
-  prefix_dir = gbr_find_prefix(NULL);
-  g_warning("prefix_dir=%s\n", prefix_dir);
+  {
+    gchar *pkg_data_dir = gbr_find_data_dir(PACKAGE_DATA_DIR);
+    gchar *pkg_clib_dir = gbr_find_lib_dir(PACKAGE_CLIB_DIR);
 
-  /* Check if we are in the source code (developper usage) */
-  tmpstr = g_strconcat(prefix_dir, "/gcompris/gcompris.c", NULL);
-  if(g_file_test(tmpstr, G_FILE_TEST_EXISTS))
-    {
-      /* Set all directory to get data from the source code we are run in */
-      properties->package_data_dir = g_strconcat(prefix_dir, "/../boards", NULL);
-
-      /* In source code, locale mo files are not generated, use the installed one */
-      properties->package_locale_dir = g_strdup(PACKAGE_LOCALE_DIR);
-
-      properties->package_plugin_dir = g_strconcat(prefix_dir, "/boards/.libs", NULL);
-      properties->package_python_plugin_dir = g_strconcat(prefix_dir, "/boards/python",
-							  NULL);
-      properties->system_icon_dir = g_strconcat(prefix_dir, "/..", NULL);
-      properties->menu_dir = g_strdup(prefix_dir);
-    }
-  else
-    {
-      gchar *pkg_data_dir = gbr_find_data_dir(PACKAGE_DATA_DIR);
-      gchar *pkg_clib_dir = gbr_find_lib_dir(PACKAGE_CLIB_DIR);
-
-      properties->package_data_dir = g_strconcat(pkg_data_dir, "/gcompris/boards", NULL);
-      properties->package_locale_dir = gbr_find_locale_dir(PACKAGE_LOCALE_DIR);
-      properties->package_plugin_dir = g_strconcat(pkg_clib_dir, "/gcompris", NULL);
-      properties->package_python_plugin_dir = g_strconcat(pkg_data_dir, "/gcompris/python",
-							  NULL);
-      properties->system_icon_dir = g_strconcat(pkg_data_dir, "/pixmaps", NULL);
-      properties->menu_dir = g_strdup(properties->package_data_dir);
-      g_free(pkg_data_dir);
-      g_free(pkg_clib_dir);
-    }
-  g_free(tmpstr);
-  g_free(prefix_dir);
+    properties->package_data_dir = g_strconcat(pkg_data_dir, "/gcompris/boards", NULL);
+    properties->package_locale_dir = gbr_find_locale_dir(PACKAGE_LOCALE_DIR);
+    properties->package_plugin_dir = g_strconcat(pkg_clib_dir, "/gcompris", NULL);
+    properties->package_python_plugin_dir = g_strconcat(pkg_data_dir, "/gcompris/python",
+							NULL);
+    properties->system_icon_dir = g_strconcat(pkg_data_dir, "/pixmaps", NULL);
+    properties->menu_dir = g_strdup(properties->package_data_dir);
+    g_free(pkg_data_dir);
+    g_free(pkg_clib_dir);
+  }
 
   /* Display the directory value we have */
   printf("package_data_dir         = %s\n", properties->package_data_dir);
@@ -1199,10 +1174,10 @@ gc_locale_set(gchar *locale)
 #endif
 
   if(gc_locale!=NULL && strcmp(locale, gc_locale))
-    g_warning("Requested locale '%s' got '%s'", locale, gc_locale);
+    g_message("Requested locale '%s' got '%s'", locale, gc_locale);
 
   if(gc_locale==NULL)
-    g_warning("Failed to set requested locale %s got %s", locale, gc_locale);
+    g_message("Failed to set requested locale %s got %s", locale, gc_locale);
 
   /* Override the env locale to what the user requested */
   /* This makes gettext to give us the new locale text  */
@@ -1238,7 +1213,7 @@ void gc_log_handler (const gchar *log_domain,
 static void
 start_bg_music (gchar *file)
 {
-  g_warning ("start_bg_music %s", file);
+  g_message ("start_bg_music %s", file);
   gc_sound_bg_reopen();
 }
 
@@ -1357,7 +1332,7 @@ main (int argc, char *argv[])
 	}
       else
 	{
-	  g_warning("Using %s as config directory.", popt_config_dir);
+	  g_message("Using %s as config directory.", popt_config_dir);
 	  g_free(properties->config_dir);
 	  properties->config_dir = g_strdup(popt_config_dir);
 	}
@@ -1409,21 +1384,21 @@ main (int argc, char *argv[])
 
   if (popt_mute)
     {
-      g_warning("Sound disabled");
+      g_message("Sound disabled");
       properties->music = FALSE;
       properties->fx = FALSE;
     }
 
   if (popt_sound)
     {
-      g_warning("Sound enabled");
+      g_message("Sound enabled");
       properties->music = TRUE;
       properties->fx = TRUE;
     }
 
   if (popt_cursor)
     {
-      g_warning("Default gnome cursor enabled");
+      g_message("Default gnome cursor enabled");
       properties->defaultcursor = GDK_LEFT_PTR;
     }
 #ifdef WIN32
@@ -1432,26 +1407,26 @@ main (int argc, char *argv[])
 
   if (popt_experimental)
     {
-      g_warning("Experimental boards allowed");
+      g_message("Experimental boards allowed");
       properties->experimental  = TRUE;
     }
 
   if (popt_no_quit)
     {
-      g_warning("Disable quit button");
+      g_message("Disable quit button");
       properties->disable_quit = TRUE;
     }
 
   if (popt_no_config)
     {
-      g_warning("Disable config button");
+      g_message("Disable config button");
       properties->disable_config = TRUE;
     }
 
   if (popt_difficulty_filter>=0)
     {
       /* This option provide less capacity than the GUI since we cannot set the filter_style */
-      g_warning("Display only activities of level %d", popt_difficulty_filter);
+      g_message("Display only activities of level %d", popt_difficulty_filter);
       properties->difficulty_filter = popt_difficulty_filter;
       properties->filter_style      = GCOMPRIS_FILTER_EQUAL;
     }
@@ -1529,7 +1504,7 @@ main (int argc, char *argv[])
       exit(0);
     }
     else {
-      g_warning("Using menu %s as root.", popt_root_menu);
+      g_message("Using menu %s as root.", popt_root_menu);
       g_free(properties->root_menu);
       properties->root_menu = g_strdup(popt_root_menu);
     }
@@ -1540,13 +1515,13 @@ main (int argc, char *argv[])
       if ((!g_file_test(popt_user_dir, G_FILE_TEST_IS_DIR)) ||
 	  (g_access(popt_user_dir, popt_administration? R_OK : W_OK ) == -1))
 	{
-	  g_warning("%s does not exists or is not %s ", popt_user_dir,
+	  g_message("%s does not exists or is not %s ", popt_user_dir,
 		    popt_administration? "readable" : "writable");
 	  exit(0);
 	}
       else
 	{
-	  g_warning("Using %s as user directory.", popt_user_dir);
+	  g_message("Using %s as user directory.", popt_user_dir);
 	  g_free(properties->user_dir);
 	  properties->user_dir = g_strdup(popt_user_dir);
 	}
@@ -1577,7 +1552,7 @@ main (int argc, char *argv[])
 	 properties->config_dir,
 	 properties->user_dir);
 #ifdef USE_SQLITE
-  printf("   Database '%s'\n",properties->database);
+  printf("   Database '%s'\n", properties->database);
 #endif
 
   if (popt_create_db)
@@ -1585,35 +1560,35 @@ main (int argc, char *argv[])
       gchar *dirname = g_path_get_dirname (properties->database);
       if (g_access(dirname, W_OK)==-1)
 	{
-	  g_warning("Cannot create %s : %s is not writable !", properties->database, dirname);
+	  g_message("Cannot create %s : %s is not writable !", properties->database, dirname);
 	  exit (0);
 	}
       /* We really want to recreate it, erase the old one */
-      g_warning("Removing %s database.", properties->database);
+      g_message("Removing %s database.", properties->database);
       unlink(properties->database);
     }
 
   if (popt_administration){
     if (popt_database){
       if (g_access(popt_database,R_OK|W_OK)==-1){
-	g_warning("%s exists but is not writable", popt_database);
+	g_message("%s exists but is not writable", popt_database);
 	exit(0);
       }
     }
-    g_warning("Running in administration mode");
+    g_message("Running in administration mode");
     properties->administration = TRUE;
-    g_warning("Music disabled");
+    g_message("Music disabled");
     properties->music = FALSE;
     properties->fx = FALSE;
-    g_warning("Fullscreen and cursor is disabled");
+    g_message("Fullscreen and cursor is disabled");
     properties->fullscreen = FALSE;
     properties->defaultcursor = GDK_LEFT_PTR;
   }
 
   if (popt_reread_menu){
-    g_warning("Rebuild db from xml files");
+    g_message("Rebuild db from xml files");
     if (g_access(properties->database, W_OK)==-1)
-      g_warning("Cannot reread menu when database is read-only !");
+      g_message("Cannot reread menu when database is read-only !");
     else
       properties->reread_menu = TRUE;
   }
@@ -1648,7 +1623,7 @@ main (int argc, char *argv[])
       else {
 	if (strcmp(popt_drag_mode, "both") == 0)
 	  properties->drag_mode = GC_DRAG_MODE_BOTH;
-	else g_warning("Unknown drag mode ! Valids modes are \"normal\", \"2clicks\" and \"both\"");
+	else g_message("Unknown drag mode ! Valids modes are \"normal\", \"2clicks\" and \"both\"");
       }
     }
   }

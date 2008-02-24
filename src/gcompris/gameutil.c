@@ -238,6 +238,9 @@ gc_item_focus_event(GooCanvasItem *item, GooCanvasItem *target,
  * Optionnaly, provide a target_item that will be focused
  * by events on source_item.
  *
+ * Warning: You must call it each time the size of the focused
+ *          item size changes.
+ *
  */
 #define GAP 4
 void gc_item_focus_init(GooCanvasItem *source_item,
@@ -245,6 +248,7 @@ void gc_item_focus_init(GooCanvasItem *source_item,
 {
   GooCanvasItem *highlight_item;
   GooCanvasBounds bounds;
+  gboolean already_created = FALSE;
 
   if(!target_item)
     target_item = source_item;
@@ -259,20 +263,25 @@ void gc_item_focus_init(GooCanvasItem *source_item,
   highlight_item = g_object_get_data (G_OBJECT(target_item),
 		     "highlight_item");
 
+  if(highlight_item)
+    {
+      already_created = TRUE;
+      goo_canvas_item_remove(highlight_item);
+    }
+
   /* Create the highlight_item */
-  if(!highlight_item)
-    highlight_item =
-      goo_canvas_rect_new (goo_canvas_item_get_parent(target_item),
-			   bounds.x1 - GAP,
-			   bounds.y1 - GAP,
-			   bounds.x2 - bounds.x1 + GAP*2,
-			   bounds.y2 - bounds.y1 + GAP*2,
-			   "stroke_color_rgba", 0xFFFFFFFFL,
-			   "fill_color_rgba", 0xFF000090L,
-			   "line-width", (double) 2,
-			   "radius-x", (double) 10,
-			   "radius-y", (double) 10,
-			   NULL);
+  highlight_item =
+    goo_canvas_rect_new (goo_canvas_item_get_parent(target_item),
+			 bounds.x1 - GAP,
+			 bounds.y1 - GAP,
+			 bounds.x2 - bounds.x1 + GAP*2,
+			 bounds.y2 - bounds.y1 + GAP*2,
+			 "stroke_color_rgba", 0xFFFFFFFFL,
+			 "fill_color_rgba", 0xFF000090L,
+			 "line-width", (double) 2,
+			 "radius-x", (double) 10,
+			 "radius-y", (double) 10,
+			 NULL);
 
   g_object_set_data (G_OBJECT(target_item), "highlight_item",
 		     highlight_item);
@@ -281,12 +290,15 @@ void gc_item_focus_init(GooCanvasItem *source_item,
   		"visibility", GOO_CANVAS_ITEM_INVISIBLE,
   		NULL);
 
-  g_signal_connect(source_item, "enter_notify_event",
-		   (GtkSignalFunc) gc_item_focus_event,
-		   target_item);
-  g_signal_connect(source_item, "leave_notify_event",
-		   (GtkSignalFunc) gc_item_focus_event,
-		   target_item);
+  if(!already_created)
+    {
+      g_signal_connect(source_item, "enter_notify_event",
+		       (GtkSignalFunc) gc_item_focus_event,
+		       target_item);
+      g_signal_connect(source_item, "leave_notify_event",
+		       (GtkSignalFunc) gc_item_focus_event,
+		       target_item);
+    }
 }
 
 /*

@@ -357,7 +357,7 @@ gc_prop_load (GcomprisProperties *props, GCPropSourceConf source_conf)
 			 &length,
 			 NULL)) {
 
-    g_warning("Loading config file '%s'", config_file);
+    g_message("Loading config file '%s'", config_file);
 
     /* create a new scanner */
     scanner = g_scanner_new(NULL);
@@ -534,7 +534,6 @@ gc_prop_destroy (GcomprisProperties *props)
   g_free(props->server);
   g_free(props->root_menu);
   g_free(props);
-  g_warning("properties free");
 }
 
 void

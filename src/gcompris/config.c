@@ -743,6 +743,7 @@ item_event_ok(GooCanvasItem *item,
 		    "pixbuf", (properties->fullscreen ? pixmap_checked : pixmap_unchecked),
 		    NULL);
 
+      gc_item_focus_init(item, NULL);
     }
   else if(!strcmp((char *)data, "music"))
     {
@@ -758,6 +759,7 @@ item_event_ok(GooCanvasItem *item,
 	{
 	  gc_sound_bg_reopen();
 	}
+      gc_item_focus_init(item, NULL);
     }
   else if(!strcmp((char *)data, "effect"))
     {
@@ -765,6 +767,7 @@ item_event_ok(GooCanvasItem *item,
       g_object_set (item,
 		    "pixbuf", (properties->fx ? pixmap_checked : pixmap_unchecked),
 		    NULL);
+      gc_item_focus_init(item, NULL);
     }
   else if(!strcmp((char *)data, "locale_previous"))
     {

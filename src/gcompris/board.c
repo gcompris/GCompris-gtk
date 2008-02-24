@@ -234,7 +234,7 @@ gc_board_check_file(GcomprisBoard *gcomprisBoard)
 
 	if(bp->is_our_board(gcomprisBoard)) {
 	  /* Great, we found our plugin */
-	  g_warning("We found the correct plugin for board %s (type=%s)\n",
+	  g_message("We found the correct plugin for board %s (type=%s)\n",
 		    gcomprisBoard->name, gcomprisBoard->type);
 
 	  gcomprisBoard->plugin = bp;
@@ -252,7 +252,7 @@ gc_board_check_file(GcomprisBoard *gcomprisBoard)
 
 	if(bp->is_our_board(gcomprisBoard)) {
 	  /* Great, we found our plugin */
-	  g_warning("We found the correct plugin for board %s (type=%s)\n",
+	  g_message("We found the correct plugin for board %s (type=%s)\n",
 		  gcomprisBoard->name, gcomprisBoard->type);
 
 	  gcomprisBoard->plugin = bp;
@@ -262,7 +262,7 @@ gc_board_check_file(GcomprisBoard *gcomprisBoard)
       }
     }
 
-  g_warning("No plugin library found for board type '%s', requested by '%s'",
+  g_message("No plugin library found for board type '%s', requested by '%s'",
 	    gcomprisBoard->type,  gcomprisBoard->filename);
 
   return FALSE;
@@ -295,7 +295,7 @@ gc_board_check_file(GcomprisBoard *gcomprisBoard)
 
   gmodule = g_module_open (gmodule_file, 0);
   if(gmodule) {
-    g_warning("opened module %s with name %s\n", gmodule_file, type);
+    g_message("opened module %s with name %s\n", gmodule_file, type);
   } else {
     g_warning("Failed to open module %s with name %s (error=%s)\n", gmodule_file,
 	      type, g_module_error());
@@ -320,7 +320,7 @@ gc_board_check_file(GcomprisBoard *gcomprisBoard)
 
       if(bp->is_our_board(gcomprisBoard)) {
 	/* Great, we found our plugin */
-	g_warning("We found the correct plugin for board %s (type=%s)\n", gcomprisBoard->name, gcomprisBoard->type);
+	g_message("We found the correct plugin for board %s (type=%s)\n", gcomprisBoard->name, gcomprisBoard->type);
 
 	/* done in is_our_board gcomprisBoard->plugin = bp; */
 
@@ -330,7 +330,7 @@ gc_board_check_file(GcomprisBoard *gcomprisBoard)
 
 	return TRUE;
       } else {
-	g_warning("We found a plugin with the name %s but is_our_board() returned FALSE (type=%s)\n",
+	g_message("We found a plugin with the name %s but is_our_board() returned FALSE (type=%s)\n",
 		  gcomprisBoard->name,
 		  gcomprisBoard->type);
       }
@@ -339,7 +339,7 @@ gc_board_check_file(GcomprisBoard *gcomprisBoard)
 		gcomprisBoard->filename);
     }
   }
-  g_warning("No plugin library found for board type '%s', requested by '%s'",
+  g_message("No plugin library found for board type '%s', requested by '%s'",
 	    gcomprisBoard->type,  gcomprisBoard->filename);
 
   return FALSE;
@@ -382,7 +382,7 @@ gc_board_pause(int pause)
       if(gc_board_get_current_board_plugin()->pause_board)
 	gc_board_get_current_board_plugin()->pause_board(pause);
     }
-  else g_warning ("No boards to pause ?");
+  else g_message ("No boards to pause ?");
 }
 
 void

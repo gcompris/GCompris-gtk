@@ -111,7 +111,7 @@ static gdouble get_ratio(GdkPixbuf *pixmap, gdouble size);
 #define D_INT_Y 5
 
 #define I_X 140
-#define I_Y 400
+#define I_Y 410
 #define I_W 600
 #define I_H 125
 
@@ -208,8 +208,6 @@ static void menu_start (GcomprisBoard *agcomprisBoard)
   icon_size = ICON_SIZE;
   icon_size_panel = ICON_SIZE_PANEL;
   icon_size_top = ICON_SIZE_TOP;
-
-  g_warning ("menu2 : start  board");
 
   if(agcomprisBoard != NULL)
     {
@@ -460,9 +458,6 @@ static void menu_create_item(GooCanvasItem *parent, MenuItems *menuitems, Gcompr
 
   ratio = get_ratio (menu_pixmap, icon_size);
 
-  if (ratio < 1.0)
-    g_warning("Resize %s", board->icon_name);
-
   pixmap_w = gdk_pixbuf_get_width(menu_pixmap) * ratio;
   pixmap_h = gdk_pixbuf_get_height(menu_pixmap) * ratio;
 
@@ -493,7 +488,6 @@ static void menu_create_item(GooCanvasItem *parent, MenuItems *menuitems, Gcompr
 
       /* We search a fixed path sound file */
       soundfile = gc_file_find_absolute(board->mandatory_sound_file);
-      g_warning("Checking mandatory_sound_file %s\n", board->mandatory_sound_file);
 
       if (!soundfile || !gc_prop_get()->fx)
 	{

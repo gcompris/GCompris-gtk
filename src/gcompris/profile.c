@@ -46,7 +46,7 @@ gc_profile_set_current_user(GcomprisUser *user)
   if (user)
     properties->logged_user = user;
   else {
-    g_warning("No user, getting one from system.");
+    g_message("No user, getting one from system.");
     GcomprisUser *sys_user = g_malloc0(sizeof(GcomprisUser));
 
     const gchar *user_name = g_get_user_name ();

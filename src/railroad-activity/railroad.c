@@ -171,9 +171,9 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       gcomprisBoard->sublevel=1;
       gcomprisBoard->number_of_sublevel=NUMBER_OF_SUBLEVELS; /* Go to next level after this number of 'play' */
       gc_score_start(SCORESTYLE_NOTE,
-			   gcomprisBoard->width - 220,
-			   gcomprisBoard->height - 50,
-			   gcomprisBoard->number_of_sublevel);
+		     gcomprisBoard->width - 220,
+		     gcomprisBoard->height - 50,
+		     gcomprisBoard->number_of_sublevel);
 
 
       str = gc_skin_image_get("button_reload.png");
@@ -281,7 +281,10 @@ static void railroad_next_level()
   gc_score_set(gcomprisBoard->sublevel);
 
   /* Try the next level */
-  railroad_create_item(goo_canvas_get_root_item(gcomprisBoard->canvas));
+  boardRootItem = goo_canvas_group_new (goo_canvas_get_root_item(gcomprisBoard->canvas),
+					NULL);
+
+  railroad_create_item(boardRootItem);
 }
 /* ==================================== */
 /* Destroy all the items */
@@ -293,15 +296,12 @@ static void railroad_destroy_all_items()
   boardRootItem = NULL;
 }
 /* ==================================== */
-static GooCanvasItem *railroad_create_item(GooCanvasItem *parent)
+static GooCanvasItem *railroad_create_item(GooCanvasItem *boardRootItem)
 {
   int xOffset = 0, yOffset = 0;
   int i, r, l = 1;
   GdkPixbuf * pixmap = NULL;
   GooCanvasItem *item;
-
-  boardRootItem = goo_canvas_group_new (goo_canvas_get_root_item(gcomprisBoard->canvas),
-					NULL);
 
   /* Create a root group for the answer */
   answerRootItem = goo_canvas_group_new (boardRootItem, NULL);
@@ -399,8 +399,6 @@ static void process_ok()
 
   gamewon = TRUE;
 
-  // DEBUG
-  g_warning("l answer = %d\tl model = %d\n", g_list_length(int_answer_list), g_list_length(int_model_list));
   if (g_list_length(int_answer_list) != g_list_length(int_model_list))
     gamewon = FALSE;
   else
@@ -411,13 +409,6 @@ static void process_ok()
 	break;
       }
     }
-  // DUMP lists
-  g_warning("answer:\n");
-  for (i=0; i<g_list_length(int_answer_list); i++)
-    g_warning(" i = \t%d val = \t%d\n", i, GPOINTER_TO_INT(g_list_nth_data(int_answer_list,i)) );
-  g_warning("model:\n");
-  for (i=0; i<g_list_length(int_model_list); i++)
-    g_warning(" i = \t%d val = \t%d\n", i, GPOINTER_TO_INT(g_list_nth_data(int_model_list,i)) );
 
   gc_bonus_display(gamewon, GC_BONUS_FLOWER);
 }
@@ -449,7 +440,6 @@ static gint item_event(GooCanvasItem *item,
   switch (event->type)
     {
     case GDK_BUTTON_PRESS:
-      g_warning("GDK_BUTTON_PRESS item %d\tlength answer = %d\n",item_number,g_list_length(item_answer_list));
       gc_sound_play_ogg ("sounds/bleep.wav", NULL);
       xOffset = 0;
       for (i=0; i<g_list_length(item_answer_list); i++) {
@@ -507,7 +497,6 @@ static gint answer_event(GooCanvasItem *item,
     {
     case GDK_BUTTON_PRESS:
       gc_sound_play_ogg ("sounds/smudge.wav", NULL);
-      g_warning("Deleting %d\n",item_number);
       local_item = g_list_nth_data(item_answer_list,item_number);
       item_answer_list = g_list_remove( item_answer_list, local_item );
       goo_canvas_item_remove(local_item);
@@ -542,7 +531,6 @@ static void reposition_answer() {
   if(!gcomprisBoard)
     return;
 
-  g_warning("+++ reposition_answer\n");
   for (i=0; i<g_list_length(item_answer_list); i++) {
     GooCanvasBounds bounds;
     item = g_list_nth_data(item_answer_list,i);
@@ -560,7 +548,6 @@ static void reposition_model() {
   if(!gcomprisBoard)
     return;
 
-  g_warning("+++ reposition_model\n");
   goo_canvas_item_translate(modelRootItem, 0, 0);
   for (i=0; i<model_size; i++) {
     GooCanvasBounds bounds;

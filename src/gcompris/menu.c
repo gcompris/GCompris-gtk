@@ -209,7 +209,7 @@ _add_xml_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child,
 			credit
 			);
 
-    g_warning("db board written %d in %d  %s/%s",
+    g_message("db board written %d in %d  %s/%s",
 	      gcomprisBoard->board_id, gcomprisBoard->section_id,
 	      gcomprisBoard->section, gcomprisBoard->name);
 
@@ -270,8 +270,8 @@ _read_xml_file(GcomprisBoard *gcomprisBoard,
 
       if(!g_file_test ((filename), G_FILE_TEST_EXISTS))
 	{
-	  g_warning("Couldn't find file %s !", fname);
-	  g_warning("Couldn't find file %s !", filename);
+	  g_message("Couldn't find file %s !", fname);
+	  g_message("Couldn't find file %s !", filename);
 	  g_free(filename);
 	  g_free(gcomprisBoard);
 	  return NULL;
@@ -494,7 +494,6 @@ static GList *suppress_int_from_list(GList *list, int value)
     }
     cell = cell->next;
   }
-  g_warning("suppress_int_from_list value %d not found", value);
   return list;
 }
 
@@ -522,14 +521,14 @@ void gc_menu_load_dir(char *dirname, gboolean db){
   GList *list_old_boards_id = NULL;
 
   if (!g_file_test(dirname, G_FILE_TEST_IS_DIR)) {
-    g_warning("Failed to parse board in '%s' because it's not a directory\n", dirname);
+    g_message("Failed to parse board in '%s' because it's not a directory\n", dirname);
     return;
   }
 
   dir = g_dir_open(dirname, 0, NULL);
 
   if (!dir) {
-    g_warning("gc_menu_load : no menu found in %s", dirname);
+    g_message("gc_menu_load : no menu found in %s", dirname);
     return;
   } else {
     if (db)

@@ -79,11 +79,11 @@ fx_bus(GstBus* bus, GstMessage* msg, gpointer data)
   switch( GST_MESSAGE_TYPE( msg ) )
     {
     case GST_MESSAGE_EOS:
-      g_warning("fx_bus: EOS START");
+      g_message("fx_bus: EOS START");
       gc_sound_fx_close();
       gc_sound_callback((gchar *)data);
       fx_play();
-      g_warning("fx_bus: EOS END");
+      g_message("fx_bus: EOS END");
       break;
     default:
       break;
@@ -97,7 +97,7 @@ bg_bus(GstBus* bus, GstMessage* msg, gpointer data)
 {
   switch( GST_MESSAGE_TYPE( msg ) ) {
     case GST_MESSAGE_EOS:
-        g_warning("bg_bus: EOS");
+        g_message("bg_bus: EOS");
 	gc_sound_bg_close();
 	bg_play(NULL);
 	break;
@@ -129,7 +129,7 @@ gc_sound_bg_close()
 void
 gc_sound_fx_close()
 {
-  g_warning("gc_sound_fx_close");
+  g_message("gc_sound_fx_close");
   if (fx_pipeline)
     {
       gst_element_set_state(fx_pipeline, GST_STATE_NULL);
@@ -242,7 +242,7 @@ bg_build_music_list()
   dir = g_dir_open(music_dir, 0, NULL);
 
   if (!dir) {
-    g_warning ("Couldn't open music dir: %s", music_dir);
+    g_message ("Couldn't open music dir: %s", music_dir);
     g_free(music_dir);
     return NULL;
   }
@@ -293,7 +293,7 @@ bg_play(gpointer dummy)
 
   if(!bg_pipeline)
     {
-      g_warning("Failed to build the gstreamer pipeline (for background music)");
+      g_message("Failed to build the gstreamer pipeline (for background music)");
       gc_prop_get()->music = 0;
       return NULL;
     }
@@ -304,7 +304,7 @@ bg_play(gpointer dummy)
 
   gchar *uri = g_strconcat("file://", absolute_file, NULL);
   g_free(absolute_file);
-  g_warning("  bg_play %s", uri);
+  g_message("  bg_play %s", uri);
 
   g_object_set (G_OBJECT (bg_pipeline), "uri", uri, NULL);
 
@@ -312,7 +312,7 @@ bg_play(gpointer dummy)
 							     GST_STATE_PLAYING);
   gst_element_get_state(bg_pipeline, NULL, NULL, 1000*GST_MSECOND);
   if( statechanged == GST_STATE_CHANGE_SUCCESS) {
-    g_warning("%s : bg_playing\n",__FUNCTION__);
+    g_message("%s : bg_playing\n",__FUNCTION__);
   }
 
   g_free(uri);
@@ -338,7 +338,7 @@ fx_play()
   if(!file)
     return;
 
-  g_warning("  fx_play %s", file);
+  g_message("  fx_play %s", file);
 
   absolute_file = gc_file_find_absolute(file);
 
@@ -350,14 +350,14 @@ fx_play()
 
   if (!fx_pipeline)
     {
-      g_warning("Failed to build the gstreamer pipeline");
+      g_message("Failed to build the gstreamer pipeline");
       gc_prop_get()->fx = 0;
       return;
     }
 
   gchar *uri = g_strconcat("file://", absolute_file, NULL);
   g_free(absolute_file);
-  g_warning("   uri '%s'", uri);
+  g_message("   uri '%s'", uri);
 
   g_object_set (G_OBJECT (fx_pipeline), "uri", uri, NULL);
   gst_bus_add_watch (gst_pipeline_get_bus (GST_PIPELINE (fx_pipeline)),
@@ -367,7 +367,7 @@ fx_play()
 							     GST_STATE_PLAYING);
   gst_element_get_state(fx_pipeline, NULL, NULL, 1000*GST_MSECOND);
   if( statechanged == GST_STATE_CHANGE_SUCCESS) {
-    g_warning("%s : fx_playing\n",__FUNCTION__);
+    g_message("%s : fx_playing\n",__FUNCTION__);
   }
 
   g_free(uri);
@@ -387,7 +387,7 @@ get_next_sound_to_play( )
     {
       tmpSound = g_list_nth_data( pending_queue, 0 );
       pending_queue = g_list_remove( pending_queue, tmpSound );
-      g_warning( "... get_next_sound_to_play : %s\n", tmpSound );
+      g_message( "... get_next_sound_to_play : %s\n", tmpSound );
     }
 
   return tmpSound;
@@ -438,7 +438,7 @@ gc_sound_play_ogg(const gchar *sound, ...)
 
   list = g_list_append(list, (gpointer)sound);
 
-  g_warning("Adding %s in the play list queue\n", sound);
+  g_message("Adding %s in the play list queue\n", sound);
 
   va_start( ap, sound);
   while( (tmp = va_arg (ap, char *)))
@@ -473,7 +473,7 @@ gc_sound_play_ogg_list( GList* files )
     return;
 
   if (sound_policy == PLAY_AND_INTERRUPT ) {
-    g_warning("halt music");
+    g_message("halt music");
     while ( g_list_length(pending_queue) > 0 )
     {
       tmpSound = g_list_nth_data( pending_queue, 0 );
@@ -550,11 +550,11 @@ void gc_sound_callback(gchar *file)
 
   if (cb)
     {
-      g_warning("calling callback for %s", file);
+      g_message("calling callback for %s", file);
       cb(file);
     }
   else
-    g_warning("%s has no callback", file);
+    g_message("%s has no callback", file);
 
   g_hash_table_remove(sound_callbacks, file);
 
