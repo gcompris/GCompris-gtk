@@ -106,16 +106,6 @@ class Gcompris_searace:
 
     self.board_paused = False
 
-    pixmap = gcompris.utils.load_pixmap(gcompris.skin.image_to_skin("button_reload.png"))
-    if(pixmap):
-      gcompris.bar_set_repeat_icon(pixmap)
-      gcompris.bar_set(gcompris.BAR_OK|gcompris.BAR_LEVEL|gcompris.BAR_REPEAT_ICON)
-    else:
-      gcompris.bar_set(gcompris.BAR_OK|gcompris.BAR_LEVEL|gcompris.BAR_REPEAT);
-
-
-    gcompris.bar_set_level(self.gcomprisBoard)
-
     # Create our rootitem. We put each canvas item in it so at the end we
     # only have to kill it. The canvas deletes all the items it contains automaticaly.
     self.rootitem = goocanvas.Group(parent =  self.gcomprisBoard.canvas.get_root_item())
@@ -140,7 +130,15 @@ class Gcompris_searace:
     # And finaly the players boats
     self.init_boats()
 
-    #print("Gcompris_searace start.")
+    pixmap = gcompris.utils.load_pixmap(gcompris.skin.image_to_skin("button_reload.png"))
+    if(pixmap):
+      gcompris.bar_set_repeat_icon(pixmap)
+      gcompris.bar_set(gcompris.BAR_OK|gcompris.BAR_LEVEL|gcompris.BAR_REPEAT_ICON)
+    else:
+      gcompris.bar_set(gcompris.BAR_OK|gcompris.BAR_LEVEL|gcompris.BAR_REPEAT);
+
+
+    gcompris.bar_set_level(self.gcomprisBoard)
 
 
   def end(self):
@@ -160,11 +158,11 @@ class Gcompris_searace:
     # There is a problem with GTK widgets, they are not covered by the help
     # We hide/show them here
     if(pause):
-      self.left_boat.sw.props.hide()
-      self.right_boat.sw.props.hide()
+      self.left_boat.sw.hide()
+      self.right_boat.sw.hide()
     else:
-      self.left_boat.sw.props.visibility = goocanvas.ITEM_VISIBLE
-      self.right_boat.sw.props.visibility = goocanvas.ITEM_VISIBLE
+      self.left_boat.sw.show()
+      self.right_boat.sw.show()
       self.repeat()
 
     return
@@ -397,8 +395,8 @@ class Gcompris_searace:
     self.left_boat.sw.set_shadow_type(gtk.SHADOW_ETCHED_OUT)
 
     w = 250.0
-    h = 100.0
-    y = 400.0 # The upper limit of the text boxes
+    h = 90.0
+    y = 350.0 # The upper limit of the text boxes
     x_left  = gcompris.BOARD_WIDTH/4 - 30
     x_right = (gcompris.BOARD_WIDTH/4)*3 + 30
 
@@ -903,13 +901,13 @@ class Gcompris_searace:
         y = by + math.sin(a_pi)*step_x
 
         # Manage the wrapping
-        line_style = gtk.gdk.LINE_SOLID
-        if(y<self.sea_area[1]):
+        line_style = goocanvas.LineDash([1.0])
+        if(y < self.sea_area[1]):
           y = self.sea_area[3] - (self.sea_area[1]-y)
-          line_style = gtk.gdk.LINE_DOUBLE_DASH
+          line_style = goocanvas.LineDash([5.0, 1.0, 5.0])
         elif(y>self.sea_area[3]):
           y = self.sea_area[1] + (y - self.sea_area[3])
-          line_style = gtk.gdk.LINE_DOUBLE_DASH
+          line_style = goocanvas.LineDash([5.0, 1.0, 5.0])
 
         # Find shortest path to previous calculated point
         condition = self.get_absolute_weather_condition(x, y)
@@ -919,13 +917,13 @@ class Gcompris_searace:
           coord = (x, y, boat_angle, step_x, line_style) # x y angle distance line_style
 
       # ----------
-      self.root_weather_item.add(
-        goocanvas.Polyline,
-        points = goocanvas.Points([(bx, by), (coord[0], coord[1])]),
-        stroke_color_rgba=0x00CC00FFL,
-        line_width=2.0,
-        line_style=coord[4]
-        )
+        goocanvas.Polyline(
+          parent = self.root_weather_item,
+          points = goocanvas.Points([(bx, by), (coord[0], coord[1])]),
+          stroke_color_rgba = 0x00CC00FFL,
+          line_width = 2.0,
+          line_dash = coord[4]
+          )
       bx = coord[0]
       by = coord[1]
       ba = coord[2]

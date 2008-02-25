@@ -50,7 +50,6 @@ class Gcompris_algorithm:
   def __init__(self, gcomprisBoard):
     self.gcomprisBoard = gcomprisBoard
     self.anzahl = 8
-    print("Gcompris_algorithm __init__.")
     self.algos = [algo, algo1, algo2, algo3]
     self.rootitem = None
     self.distance = 80
@@ -87,14 +86,12 @@ class Gcompris_algorithm:
       INTERP_BILINEAR))
      del pixbuf2
     self.display_current_level()
-    print("Gcompris_algorithm start.")
 
   def end(self):
     self.cleanup()
-    print("Gcompris_algorithm end.")
 
   def ok(self):
-    print("Gcompris_algorithm ok.")
+    pass
 
   # Called by gcompris core
   def pause(self, pause):
@@ -137,6 +134,7 @@ class Gcompris_algorithm:
     for i in range(len(self.symbollist)):
      s = self.paint_image(i ,i ,390)
      s.connect ("button_press_event", self.apple_click, i)
+     gcompris.utils.item_focus_init(s, None)
 
     # Display the algorithm
     self.algo = random.choice(self.algos)
@@ -169,7 +167,8 @@ class Gcompris_algorithm:
     self.qm = goocanvas.Text(parent = self.rootitem,
                              text = "?",
                              x = self.place*self.distance+30+self.leftx,
-                             y = 185, fill_color_rgba = 0x000000ffL,
+                             y = 170,
+                             fill_color_rgba = 0x000000ffL,
                              font = gcompris.skin.get_font("gcompris/board/huge bold"))
 
   def key_press(self, keyval, commit_str, preedit_str):

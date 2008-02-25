@@ -306,6 +306,7 @@ gc_bar_set (const GComprisBarFlags flags)
 {
 
   _hidden = FALSE;
+  goo_canvas_item_raise(rootitem, NULL);
 
   /* Non yet initialized : Something Wrong */
   if(level_item==NULL)
@@ -432,15 +433,15 @@ static void
 _bar_up()
 {
   goo_canvas_item_raise(rootitem, NULL);
-      goo_canvas_item_animate(rootitem,
-			      0,
-			      BOARDHEIGHT - BARHEIGHT,
-			      1,
-			      0,
-			      TRUE,
-			      700,
-			      80,
-			      GOO_CANVAS_ANIMATE_FREEZE);
+  goo_canvas_item_animate(rootitem,
+			  0,
+			  BOARDHEIGHT - BARHEIGHT,
+			  1,
+			  0,
+			  TRUE,
+			  700,
+			  80,
+			  GOO_CANVAS_ANIMATE_FREEZE);
 }
 
 /* Hide all icons in the control bar
