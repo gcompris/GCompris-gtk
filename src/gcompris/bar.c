@@ -250,6 +250,7 @@ void gc_bar_set_level(GcomprisBoard *gcomprisBoard)
   char *str = NULL;
   GdkPixbuf *pixmap = NULL;
 
+  goo_canvas_item_raise(rootitem, NULL);
   /* Non yet initialized : Something Wrong */
   if(level_item==NULL)
     {
@@ -288,6 +289,7 @@ void gc_bar_set_level(GcomprisBoard *gcomprisBoard)
 void
 gc_bar_set_repeat_icon (GdkPixbuf *pixmap)
 {
+  goo_canvas_item_raise(rootitem, NULL);
   /* Non yet initialized : Something Wrong */
   if(level_item==NULL)
     {

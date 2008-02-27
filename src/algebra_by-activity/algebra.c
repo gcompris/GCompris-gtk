@@ -393,9 +393,6 @@ static void timer_end()
 static void algebra_next_level()
 {
 
-  gc_bar_set_level(gcomprisBoard);
-  gc_score_set(gcomprisBoard->sublevel);
-
   algebra_destroy_all_items();
 
   boardRootItem = \
@@ -409,6 +406,9 @@ static void algebra_next_level()
 
   /* Try the next level */
   algebra_create_item(boardRootItem);
+
+  gc_bar_set_level(gcomprisBoard);
+  gc_score_set(gcomprisBoard->sublevel);
 
 }
 

@@ -65,7 +65,7 @@ class Gcompris_chat:
     self.global_area_sw.set_shadow_type(gtk.SHADOW_ETCHED_OUT)
 
     w = gcompris.BOARD_WIDTH - 240.0
-    h = gcompris.BOARD_HEIGHT - 100.0
+    h = gcompris.BOARD_HEIGHT - 140.0
     y = 20.0 # The upper limit of the text boxes
     x  = 20.0
 
@@ -96,7 +96,7 @@ class Gcompris_chat:
     self.friend_area_sw.set_shadow_type(gtk.SHADOW_ETCHED_OUT)
 
     w = 160.0
-    h = gcompris.BOARD_HEIGHT - 200.0
+    h = gcompris.BOARD_HEIGHT - 240.0
     y = 20.0 # The upper limit of the text boxes
     x = gcompris.BOARD_WIDTH - w - 20.0
 
@@ -137,7 +137,7 @@ class Gcompris_chat:
     self.channel = gtk.Entry()
     w = 160.0
     h = 30.0
-    y = gcompris.BOARD_HEIGHT - 140.0
+    y = gcompris.BOARD_HEIGHT - 180.0
     x = x
 
 
@@ -171,7 +171,7 @@ class Gcompris_chat:
     x = 20.0
     w = gcompris.BOARD_WIDTH - x * 2
     h = 30.0
-    y = gcompris.BOARD_HEIGHT - 60.0
+    y = gcompris.BOARD_HEIGHT - 110.0
 
 
     goocanvas.Widget(
@@ -217,12 +217,12 @@ class Gcompris_chat:
     # There is a problem with GTK widgets, they are not covered by the help
     # We hide/show them here
     if(pause):
-      self.global_area_tv.props.hide()
-      self.global_area_sw.props.hide()
-      self.friend_area_tv.props.hide()
-      self.friend_area_sw.props.hide()
-      self.entry.props.hide()
-      self.channel.props.hide()
+      self.global_area_tv.hide()
+      self.global_area_sw.hide()
+      self.friend_area_tv.hide()
+      self.friend_area_sw.hide()
+      self.entry.hide()
+      self.channel.hide()
     else:
       self.global_area_tv.show()
       self.global_area_sw.show()

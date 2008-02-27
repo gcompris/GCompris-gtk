@@ -615,6 +615,7 @@ void next_state()
 		      "rsvg-handle", svg_handle,
 		      NULL);
 
+	gc_item_focus_init(paratrooperItem.paratrooper, NULL);
 	g_object_unref(svg_handle);
 
 	paratrooperItem.status = TUX_FLYING;
