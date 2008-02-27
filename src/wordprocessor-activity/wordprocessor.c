@@ -166,7 +166,7 @@ static void		 apply_color_style(int style_index);
 #define word_area_x1 120
 #define word_area_y1 20
 #define word_area_width 650
-#define word_area_height 480
+#define word_area_height 415
 
 #define combo_style_x1 5
 #define combo_style_width 105
