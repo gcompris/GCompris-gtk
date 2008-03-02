@@ -270,6 +270,7 @@ void gc_bar_set_level(GcomprisBoard *gcomprisBoard)
 		    "pixbuf", pixmap,
 		    NULL);
       gdk_pixbuf_unref(pixmap);
+
     }
 
   current_level=gcomprisBoard->level;
@@ -478,6 +479,7 @@ gc_bar_hide (gboolean hide)
       g_object_set(about_item,
 		   "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
 
+      _force_bar_down();
     }
   else
     {
@@ -487,7 +489,6 @@ gc_bar_hide (gboolean hide)
 
     }
 
-  _force_bar_down();
 }
 
 /*-------------------------------------------------------------------------------*/
@@ -579,7 +580,7 @@ on_leave_notify (GooCanvasItem  *item,
   bar_reset_sound_id();
 
   if(!bar_down_id)
-    bar_down_id = g_timeout_add (5000, (GtkFunction) _bar_down, NULL);
+    bar_down_id = g_timeout_add (3500, (GtkFunction) _bar_down, NULL);
 
   return FALSE;
 }

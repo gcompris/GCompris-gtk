@@ -366,6 +366,9 @@ gc_board_play(GcomprisBoard *gcomprisBoard)
       bp->start_board(gcomprisBoard);
       bp_data->playing = TRUE;
 
+      /* Force the bar to go on top of the activities canvas items */
+      gc_bar_hide (FALSE);
+
       return;
     }
 

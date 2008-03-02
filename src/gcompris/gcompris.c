@@ -535,12 +535,16 @@ gc_set_background(GooCanvasItem *parent, gchar *file)
     {
       if(backgroundimg)
 	goo_canvas_item_remove(backgroundimg);
+
+      backgroundimg = NULL;
       _set_svg_background(parent, file);
     }
   else
     {
       if(backgroundsvgimg)
 	goo_canvas_item_remove(backgroundsvgimg);
+
+      backgroundsvgimg = NULL;
       _set_pixmap_background(parent, file);
     }
 }

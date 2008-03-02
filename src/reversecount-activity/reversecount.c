@@ -343,8 +343,6 @@ static void reversecount_next_level()
   gc_set_background(goo_canvas_get_root_item(gcomprisBoard->canvas),
 		    imageList[gcomprisBoard->level-1]);
 
-  gc_bar_set_level(gcomprisBoard);
-
   reversecount_destroy_all_items();
   gamewon = FALSE;
 
@@ -408,6 +406,9 @@ static void reversecount_next_level()
 
   /* Try the next level */
   reversecount_create_item(goo_canvas_get_root_item(gcomprisBoard->canvas));
+
+  gc_bar_set_level(gcomprisBoard);
+
 }
 /* ==================================== */
 /* Destroy all the items */
@@ -529,6 +530,7 @@ static GooCanvasItem *reversecount_create_item(GooCanvasItem *parent)
       g_signal_connect(item, "button_press_event",
 		       (GtkSignalFunc) item_event,
 		       val);
+      gc_item_focus_init(item, NULL);
     }
   g_object_unref(svg_handle);
 
@@ -766,6 +768,7 @@ item_event (GooCanvasItem  *item,
   g_object_set (item,
 		"rsvg-handle", rsvg_handle,
 		NULL);
+  gc_item_focus_init(item, NULL);
   g_object_unref(rsvg_handle);
 
   g_free(str);

@@ -1,5 +1,7 @@
 imgdir = $(pkgdatadir)/@PACKAGE_DATA_DIR@/clickgame
 img_DATA = \
+	QueenAngel_0.png \
+	QueenAngel_1.png \
 	blueking2_0.png \
 	blueking2_1.png \
 	butfish_0.png \
@@ -48,8 +50,12 @@ img_DATA = \
 	manta_1.png \
 	newf1_0.png \
 	newf1_1.png \
-	QueenAngel_0.png \
-	QueenAngel_1.png \
+	sea1.jpg \
+	sea2.jpg \
+	sea3.jpg \
+	sea4.jpg \
+	sea5.jpg \
+	sea6.jpg \
 	shark1_0.png \
 	shark1_1.png \
 	six_barred_0.png \
