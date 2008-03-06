@@ -269,13 +269,14 @@ static gboolean is_our_board (GcomprisBoard *gcomprisBoard) {
 /* set initial values for the next level */
 static void magic_hat_next_level() {
 
-  gc_bar_set_level(gcomprisBoard);
-
   magic_hat_destroy_all_items();
   gamewon = FALSE;
 
   /* Try the next level */
   magic_hat_create_item();
+
+  gc_bar_set_level(gcomprisBoard);
+
 }
 
 /* ==================================== */
