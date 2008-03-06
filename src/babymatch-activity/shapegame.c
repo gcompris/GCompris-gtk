@@ -512,7 +512,7 @@ static void shapegame_init_canvas(GooCanvasItem *parent)
 
   shape_root_item = goo_canvas_group_new (parent, NULL);
   goo_canvas_item_translate(shape_root_item,
-			    gcomprisBoard->width/SHAPE_BOX_WIDTH_RATIO,
+			    BOARDWIDTH/SHAPE_BOX_WIDTH_RATIO,
 			    0);
 
   shape_list_root_item = goo_canvas_group_new (parent, NULL);
@@ -520,7 +520,7 @@ static void shapegame_init_canvas(GooCanvasItem *parent)
   /* Create the tooltip area */
   tooltip_root_item = goo_canvas_group_new (goo_canvas_get_root_item(gcomprisBoard->canvas),
 					    NULL);
-  goo_canvas_item_translate(tooltip_root_item, 10, gcomprisBoard->height-70);
+  goo_canvas_item_translate(tooltip_root_item, 10, BOARDHEIGHT-70);
 
 
   pixmap = gc_skin_pixmap_load("button_large.png");
@@ -987,7 +987,7 @@ item_event_drag(GooCanvasItem *item,
       goo_canvas_convert_from_item_space(goo_canvas_item_get_canvas(item),
 					 item, &item_x, &item_y);
 
-      found_shape = find_closest_shape(item_x - gcomprisBoard->width/SHAPE_BOX_WIDTH_RATIO,
+      found_shape = find_closest_shape(item_x - BOARDWIDTH/SHAPE_BOX_WIDTH_RATIO,
 				       item_y, SQUARE_LIMIT_DISTANCE);
       if(shadow_enable)
 	{
@@ -998,7 +998,7 @@ item_event_drag(GooCanvasItem *item,
 	      goo_canvas_item_get_bounds (shadow_item, &bounds);
 	      gc_item_absolute_move(shadow_item,
 				    found_shape->x - (bounds.x2 - bounds.x1) / 2
-				    + gcomprisBoard->width/SHAPE_BOX_WIDTH_RATIO,
+				    + BOARDWIDTH/SHAPE_BOX_WIDTH_RATIO,
 				    found_shape->y - (bounds.y2 - bounds.y1) / 2);
 	      g_object_set (shadow_item, "visibility", GOO_CANVAS_ITEM_VISIBLE, NULL);
 	    }
@@ -1023,7 +1023,7 @@ item_event_drag(GooCanvasItem *item,
 
       target_point_switch_on(NULL);
 
-      found_shape = find_closest_shape(item_x - gcomprisBoard->width/SHAPE_BOX_WIDTH_RATIO,
+      found_shape = find_closest_shape(item_x - BOARDWIDTH/SHAPE_BOX_WIDTH_RATIO,
 				       item_y,
 				       SQUARE_LIMIT_DISTANCE);
 
@@ -1044,7 +1044,7 @@ item_event_drag(GooCanvasItem *item,
 
 	  gc_item_absolute_move(target_item,
 				found_shape->x - (bounds.x2 - bounds.x1) / 2
-				+ gcomprisBoard->width/SHAPE_BOX_WIDTH_RATIO,
+				+ BOARDWIDTH/SHAPE_BOX_WIDTH_RATIO,
 				found_shape->y - (bounds.y2 - bounds.y1) / 2);
 
 	  g_object_set (target_item, "visibility",

@@ -156,7 +156,7 @@ gc_bonus_end_display(GCBoardFinishedList type) {
 
   g_assert(gcomprisBoard != NULL);
 
-  x = gcomprisBoard->width - OFFSET - gdk_pixbuf_get_width(pixmap_door1);
+  x = BOARDWIDTH - OFFSET - gdk_pixbuf_get_width(pixmap_door1);
   y = OFFSET;
   left_door_limit = x + gdk_pixbuf_get_width(pixmap_door1);
 
@@ -167,14 +167,14 @@ gc_bonus_end_display(GCBoardFinishedList type) {
 				     NULL);
 
   x = OFFSET;
-  y = (gcomprisBoard->height - gdk_pixbuf_get_height(pixmap_tuxplane)) /2;
+  y = (BOARDHEIGHT - gdk_pixbuf_get_height(pixmap_tuxplane)) /2;
   tuxplane_item = goo_canvas_image_new (goo_canvas_get_root_item(GOO_CANVAS(gcomprisBoard->canvas)),
 				      pixmap_tuxplane,
 				      x,
 				      y,
 				      NULL);
 
-  x = gcomprisBoard->width - OFFSET - gdk_pixbuf_get_width(pixmap_door2);
+  x = BOARDWIDTH - OFFSET - gdk_pixbuf_get_width(pixmap_door2);
   y = OFFSET;
   door2_item = goo_canvas_image_new (goo_canvas_get_root_item(GOO_CANVAS(gcomprisBoard->canvas)),
 				      pixmap_door2,
@@ -321,8 +321,8 @@ bonus_image(char *image, GCBonusStatusList gamewon)
   bonus_group = goo_canvas_group_new (goo_canvas_get_root_item(GOO_CANVAS(gcomprisBoard->canvas)),
 				      NULL);
 
-  x = (gcomprisBoard->width - gdk_pixbuf_get_width(pixmap))/2;
-  y = (gcomprisBoard->height - gdk_pixbuf_get_height(pixmap))/2;
+  x = (BOARDWIDTH - gdk_pixbuf_get_width(pixmap))/2;
+  y = (BOARDHEIGHT - gdk_pixbuf_get_height(pixmap))/2;
   goo_canvas_image_new (bonus_group,
 			pixmap,
 			x,

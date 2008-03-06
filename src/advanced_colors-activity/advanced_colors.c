@@ -136,8 +136,8 @@ static void start_board (GcomprisBoard *agcomprisBoard) {
 
     gc_bar_set(GC_BAR_LEVEL);
     gc_score_start(SCORESTYLE_NOTE,
-		   gcomprisBoard->width - 220,
-		   gcomprisBoard->height - 50,
+		   BOARDWIDTH - 220,
+		   BOARDHEIGHT - 50,
 		   gcomprisBoard->number_of_sublevel);
 
     gamewon = FALSE;

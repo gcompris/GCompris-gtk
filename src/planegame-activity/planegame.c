@@ -307,8 +307,8 @@ static void planegame_next_level()
   else
     {
       gc_score_start(SCORESTYLE_NOTE,
-			   gcomprisBoard->width - 220,
-			   gcomprisBoard->height - 50,
+			   BOARDWIDTH - 220,
+			   BOARDHEIGHT - 50,
 			   gcomprisBoard->number_of_sublevel);
       gc_score_set(gcomprisBoard->sublevel);
     }
@@ -373,14 +373,14 @@ static void planegame_move_plane(GooCanvasItem *item)
 
   goo_canvas_item_get_bounds(item, &bounds);
 
-  if(plane_x > gcomprisBoard->width - (bounds.x2 - bounds.x1)
+  if(plane_x > BOARDWIDTH - (bounds.x2 - bounds.x1)
      && planespeed_x > 0)
     planespeed_x=0;
 
   if(plane_x < 0 && planespeed_x < 0)
     planespeed_x = 0;
 
-  if(plane_y > gcomprisBoard->height - (bounds.y2 - bounds.y1)
+  if(plane_y > BOARDHEIGHT - (bounds.y2 - bounds.y1)
      && planespeed_y > 0)
     planespeed_y = 0;
 
@@ -457,11 +457,11 @@ static GooCanvasItem *planegame_create_item(GooCanvasItem *parent)
   svg_handle = gc_rsvg_load("planegame/cloud.svgz");
   rsvg_handle_get_dimensions(svg_handle, &dimension);
 
-  y = (g_random_int()%(gcomprisBoard->height -
+  y = (g_random_int()%(BOARDHEIGHT -
 		       (guint)(dimension.height * imageZoom)));
 
   goo_canvas_item_translate(itemgroup,
-			    gcomprisBoard->width,
+			    BOARDWIDTH,
 			    y);
 
   item = goo_svg_item_new (itemgroup,

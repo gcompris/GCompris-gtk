@@ -243,7 +243,7 @@ missing_letter_next_level()
   gc_score_end();
   gc_score_start(SCORESTYLE_NOTE,
 		 50,
-		 gcomprisBoard->height - 45,
+		 BOARDHEIGHT - 45,
 		 gcomprisBoard->number_of_sublevel);
 
 
@@ -346,7 +346,7 @@ missing_letter_create_item(GooCanvasItem *parent)
 
   vertical_separation = 10 + 20 / i;
 
-  yOffset = ( gcomprisBoard->height
+  yOffset = ( BOARDHEIGHT
 	      - i * gdk_pixbuf_get_height(button_pixmap)
 	      - 2 * vertical_separation) / 2 - 20;
   xOffset = (img_area_x - gdk_pixbuf_get_width(button_pixmap))/2;

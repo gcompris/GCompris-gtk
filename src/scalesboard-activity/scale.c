@@ -176,7 +176,7 @@ start_board (GcomprisBoard *agcomprisBoard)
 		    (GcDragFunc)scale_drag_event, drag_mode);
 
       gc_score_start(SCORESTYLE_NOTE,
-		     gcomprisBoard->width - 220,
+		     BOARDWIDTH - 220,
 		     450 ,
 		     gcomprisBoard->number_of_sublevel);
       scale_next_level();

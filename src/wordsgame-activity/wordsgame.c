@@ -426,8 +426,8 @@ static void wordsgame_next_level()
   gcomprisBoard->number_of_sublevel = 10 +
     ((gcomprisBoard->level-1) * 5);
   gc_score_start(SCORESTYLE_NOTE,
-		 gcomprisBoard->width - 220,
-		 gcomprisBoard->height - 50,
+		 BOARDWIDTH - 220,
+		 BOARDHEIGHT - 50,
 		 gcomprisBoard->number_of_sublevel);
 
   gc_bar_set_level(gcomprisBoard);
@@ -466,7 +466,7 @@ static void wordsgame_move_item(LettersItem *item)
   goo_canvas_item_get_bounds (item->rootitem,
 			      &bounds);
 
-  if(bounds.y1>gcomprisBoard->height) {
+  if(bounds.y1>BOARDHEIGHT) {
 
     if (item == item_on_focus)
       item_on_focus = NULL;
@@ -633,7 +633,7 @@ static GooCanvasItem *wordsgame_create_item(GooCanvasItem *parent)
 				 &bounds);
 
   goo_canvas_item_translate (item->rootitem,
-			     (g_random_int()%(gcomprisBoard->width-(gint)(bounds.x2))),
+			     (g_random_int()%(BOARDWIDTH-(gint)(bounds.x2))),
 			     0);
 
 

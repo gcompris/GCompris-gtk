@@ -174,8 +174,8 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       gcomprisBoard->sublevel=1;
       gcomprisBoard->number_of_sublevel=10; /* Go to next level after this number of 'play' */
       gc_score_start(SCORESTYLE_NOTE,
-			   gcomprisBoard->width - 220,
-			   gcomprisBoard->height - 50,
+			   BOARDWIDTH - 220,
+			   BOARDHEIGHT - 50,
 			   gcomprisBoard->number_of_sublevel);
       gc_bar_set(GC_BAR_LEVEL|GC_BAR_OK);
 
@@ -553,7 +553,7 @@ static GooCanvasItem *algebra_create_item(GooCanvasItem *parent)
   double y_firstline = 0;
 
   /* Some globals for this board layout */
-  y_firstline = gcomprisBoard->height/5;
+  y_firstline = BOARDHEIGHT/5;
 
   get_random_number(&first_operand, &second_operand);
 
@@ -564,7 +564,7 @@ static GooCanvasItem *algebra_create_item(GooCanvasItem *parent)
   /* Calc the longuest value */
   longuest = MAX(strlen(first_operand_str), strlen(second_operand_str));
 
-  x_align = (gcomprisBoard->width - (longuest*3*NUMBERSWIDTH))/2
+  x_align = (BOARDWIDTH - (longuest*3*NUMBERSWIDTH))/2
     + NUMBERSWIDTH*(strlen(first_operand_str)) - 200;
 
   /* First operand */

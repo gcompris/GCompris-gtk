@@ -163,8 +163,8 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       gcomprisBoard->maxlevel = 9;
       gcomprisBoard->number_of_sublevel=10;
       gc_score_start(SCORESTYLE_NOTE,
-			   gcomprisBoard->width - 220,
-			   gcomprisBoard->height - 50,
+			   BOARDWIDTH - 220,
+			   BOARDHEIGHT - 50,
 			   gcomprisBoard->number_of_sublevel);
       gc_bar_set(GC_BAR_CONFIG|GC_BAR_LEVEL);
 
@@ -333,7 +333,7 @@ static void smallnumbers_move_item(GooCanvasItem *item)
   GooCanvasBounds bounds;
   goo_canvas_item_get_bounds (item, &bounds);
 
-  if(bounds.y1>gcomprisBoard->height) {
+  if(bounds.y1>BOARDHEIGHT) {
     player_loose();
     goo_canvas_item_remove(item);
   }
@@ -434,7 +434,7 @@ static void smallnumbers_create_item(GooCanvasItem *parent)
 
     if(x==0.0)
       {
-	x = (double)(g_random_int()%(gcomprisBoard->width-
+	x = (double)(g_random_int()%(BOARDWIDTH-
 			     (guint)(gdk_pixbuf_get_width(smallnumbers_pixmap)* imageZoom)*2));
       }
     else

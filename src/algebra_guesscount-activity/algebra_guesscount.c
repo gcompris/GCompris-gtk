@@ -216,7 +216,7 @@ static void start_board (GcomprisBoard *agcomprisBoard) {
     gcomprisBoard->number_of_sublevel=NUMBER_OF_SUBLEVELS; /* Go to next level after this number of 'play' */
     gc_score_start(SCORESTYLE_NOTE,
 			 50,
-			 gcomprisBoard->height - 50,
+			 BOARDHEIGHT - 50,
 			 gcomprisBoard->number_of_sublevel);
     gc_bar_set(GC_BAR_LEVEL);
 
@@ -454,7 +454,7 @@ static GooCanvasItem *algebra_guesscount_create_item(GooCanvasItem *parent) {
 						   NULL);
   }
 
-  xOffset = (gcomprisBoard->width - 4 * BUTTON_WIDTH - 3 * HORIZONTAL_SEPARATION)/2;
+  xOffset = (BOARDWIDTH - 4 * BUTTON_WIDTH - 3 * HORIZONTAL_SEPARATION)/2;
   for (i=0; i<4; i++) {
     oper_item[i] = goo_canvas_image_new (boardRootItem,
 					 oper_pixmap[i],
@@ -491,7 +491,7 @@ static GooCanvasItem *algebra_guesscount_create_item(GooCanvasItem *parent) {
 					   "fill-color", TEXT_RESULT_COLOR_FRONT,
 					   NULL);
 
-  xOffset = (gcomprisBoard->width - (gcomprisBoard->level+1) * BUTTON_WIDTH - gcomprisBoard->level * HORIZONTAL_SEPARATION)/2;
+  xOffset = (BOARDWIDTH - (gcomprisBoard->level+1) * BUTTON_WIDTH - gcomprisBoard->level * HORIZONTAL_SEPARATION)/2;
   for (i=0; i<gcomprisBoard->level+1; i++) {
     num_item[i] = goo_canvas_image_new (boardRootItem,
 					num_pixmap[answer_num_index[i]],

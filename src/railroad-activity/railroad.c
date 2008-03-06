@@ -171,8 +171,8 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       gcomprisBoard->sublevel=1;
       gcomprisBoard->number_of_sublevel=NUMBER_OF_SUBLEVELS; /* Go to next level after this number of 'play' */
       gc_score_start(SCORESTYLE_NOTE,
-		     gcomprisBoard->width - 220,
-		     gcomprisBoard->height - 50,
+		     BOARDWIDTH - 220,
+		     BOARDHEIGHT - 50,
 		     gcomprisBoard->number_of_sublevel);
 
 
@@ -315,7 +315,7 @@ static GooCanvasItem *railroad_create_item(GooCanvasItem *boardRootItem)
     else
       pixmap = g_list_nth_data(listPixmapWagons, i-ENGINES);
 
-    if ( (xOffset + gdk_pixbuf_get_width(pixmap)) >= gcomprisBoard->width) {
+    if ( (xOffset + gdk_pixbuf_get_width(pixmap)) >= BOARDWIDTH) {
       xOffset = 0;
       l++;
     }

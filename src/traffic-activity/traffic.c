@@ -165,8 +165,8 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       gcomprisBoard->sublevel=1;
       gcomprisBoard->number_of_sublevel=5; /* Go to next level after this number of 'play' */
       gc_score_start(SCORESTYLE_NOTE,
-			   gcomprisBoard->width - 220,
-			   gcomprisBoard->height - 50,
+			   BOARDWIDTH - 220,
+			   BOARDHEIGHT - 50,
 			   gcomprisBoard->number_of_sublevel);
 
       str = gc_skin_image_get("button_reload.png");

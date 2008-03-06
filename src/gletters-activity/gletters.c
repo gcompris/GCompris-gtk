@@ -171,8 +171,8 @@ static void level_set_score() {
   gcomprisBoard->number_of_sublevel = (DEFAULT_SUBLEVEL>l?DEFAULT_SUBLEVEL:l);
 
   gc_score_start(SCORESTYLE_NOTE,
-		       gcomprisBoard->width - 220,
-		       gcomprisBoard->height - 50,
+		       BOARDWIDTH - 220,
+		       BOARDHEIGHT - 50,
 		       gcomprisBoard->number_of_sublevel);
   gc_bar_set(GC_BAR_CONFIG|GC_BAR_LEVEL);
 }
@@ -501,7 +501,7 @@ static void gletters_move_item(GooCanvasItem *item)
   goo_canvas_item_get_bounds (item,
 			      &bounds);
 
-  if(bounds.y1>gcomprisBoard->height) {
+  if(bounds.y1>BOARDHEIGHT) {
     item2del_list = g_list_append (item2del_list, item);
     player_loose();
   }
@@ -643,7 +643,7 @@ static GooCanvasItem *gletters_create_item(GooCanvasItem *parent)
 			  NULL);
   goo_canvas_item_translate(item, 0, -12);
 
-  x = g_random_int_range( 80, gcomprisBoard->width-160);
+  x = g_random_int_range( 80, BOARDWIDTH-160);
   goo_canvas_text_new (item,
 		       letter,
 		       x,

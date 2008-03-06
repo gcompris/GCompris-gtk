@@ -151,17 +151,17 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 
       /* set initial values for this level adjusted to
 	 fit the watch background */
-      cx =  gcomprisBoard->width/2;
-      cy =  gcomprisBoard->height*0.4 + 42;
-      clock_size = gcomprisBoard->height*0.3;
+      cx =  BOARDWIDTH/2;
+      cy =  BOARDHEIGHT*0.4 + 42;
+      clock_size = BOARDHEIGHT*0.3;
 
       gcomprisBoard->level=1;
       gcomprisBoard->maxlevel=6;
       gcomprisBoard->sublevel=1;
       gcomprisBoard->number_of_sublevel=3; /* Go to next level after this number of 'play' */
       gc_score_start(SCORESTYLE_NOTE,
-			   gcomprisBoard->width - 220,
-			   gcomprisBoard->height - 50,
+			   BOARDWIDTH - 220,
+			   BOARDHEIGHT - 50,
 			   gcomprisBoard->number_of_sublevel);
       gc_bar_set(GC_BAR_LEVEL);
 
@@ -543,7 +543,7 @@ clockgame_create_item(GooCanvasItem *parent)
   /* Create the text area for the time to find display */
   goo_canvas_text_new (boardRootItem,
 		       _("Set the watch to:"),
-		       (double) gcomprisBoard->width*0.17 + 1.0,
+		       (double) BOARDWIDTH*0.17 + 1.0,
 		       (double) cy + needle_size +  needle_size / 3 - 30 + 1.0,
 		       -1,
 		       GTK_ANCHOR_CENTER,
@@ -553,7 +553,7 @@ clockgame_create_item(GooCanvasItem *parent)
 
   goo_canvas_text_new (boardRootItem,
 		       _("Set the watch to:"),
-		       (double) gcomprisBoard->width*0.17,
+		       (double) BOARDWIDTH*0.17,
 		       (double) cy + needle_size +  needle_size / 3 - 30,
 		       -1,
 		       GTK_ANCHOR_CENTER,
@@ -564,7 +564,7 @@ clockgame_create_item(GooCanvasItem *parent)
   time_to_find_item_s = \
     goo_canvas_text_new (boardRootItem,
 			 "",
-			 (double) gcomprisBoard->width*0.17 + 1.0,
+			 (double) BOARDWIDTH*0.17 + 1.0,
 			 (double) cy + needle_size +  needle_size / 3 + 1.0,
 			 -1,
 			 GTK_ANCHOR_CENTER,
@@ -576,7 +576,7 @@ clockgame_create_item(GooCanvasItem *parent)
   time_to_find_item = \
     goo_canvas_text_new (boardRootItem,
 			 "",
-			 (double) gcomprisBoard->width*0.17,
+			 (double) BOARDWIDTH*0.17,
 			 (double) cy + needle_size +  needle_size / 3,
 			 -1,
 			 GTK_ANCHOR_CENTER,

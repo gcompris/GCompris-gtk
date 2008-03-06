@@ -314,10 +314,6 @@ _read_xml_file(GcomprisBoard *gcomprisBoard,
   gcomprisBoard->gmodule      = NULL;
   gcomprisBoard->gmodule_file = NULL;
 
-  /* Fixed since I use the canvas own pixel_per_unit scheme */
-  gcomprisBoard->width  = BOARDWIDTH;
-  gcomprisBoard->height = BOARDHEIGHT;
-
   return gcomprisBoard;
 }
 

@@ -98,10 +98,6 @@ pyGcomprisBoardType_getattr(pyGcomprisBoardObject *self, char *name)
     if(strcmp(name,"manual")==0) return Py_BuildValue("s", self->cdata->manual);
     if(strcmp(name,"credit")==0) return Py_BuildValue("s", self->cdata->credit);
 
-    /* Size of the window in which we have to run */
-    if(strcmp(name,"width")==0) return Py_BuildValue("i", self->cdata->width);
-    if(strcmp(name,"height")==0) return Py_BuildValue("i", self->cdata->height);
-
     /* Dynamic board information (status) */
     if(strcmp(name,"level")==0) return Py_BuildValue("i", self->cdata->level);
     if(strcmp(name,"maxlevel")==0) return Py_BuildValue("i", self->cdata->maxlevel);

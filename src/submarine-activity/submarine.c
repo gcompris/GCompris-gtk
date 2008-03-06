@@ -389,8 +389,8 @@ static GooCanvasItem *submarine_create_item(GooCanvasItem *parent) {
   w = gdk_pixbuf_get_width(pixmap);
   h = gdk_pixbuf_get_height(pixmap);
 
-  schema_x = (gcomprisBoard->width - w)/2 ;
-  schema_y = gcomprisBoard->height - h;
+  schema_x = (BOARDWIDTH - w)/2 ;
+  schema_y = BOARDHEIGHT - h;
   sub_schema_image_item = goo_canvas_image_new (boardRootItem,
 						pixmap,
 						schema_x,
@@ -708,8 +708,8 @@ static GooCanvasItem *submarine_create_item(GooCanvasItem *parent) {
 
   // whale item
   pixmap = gc_pixmap_load("submarine/whale.png");
-  whale_x = g_random_int_range((int)(gcomprisBoard->width/4),
-			       (int)(gcomprisBoard->width/2));
+  whale_x = g_random_int_range((int)(BOARDWIDTH/4),
+			       (int)(BOARDWIDTH/2));
   whale_y = g_random_int_range((int)(SURFACE_IN_BACKGROUND + gdk_pixbuf_get_height(pixmap)*2),
 			       (int)MAX_DEPTH);
   whale = goo_canvas_image_new (boardRootItem,
@@ -734,7 +734,7 @@ static GooCanvasItem *submarine_create_item(GooCanvasItem *parent) {
 
   // treasure item
   pixmap = gc_pixmap_load("submarine/crown.png");
-  treasure_x = (gcomprisBoard->width*3)/4;
+  treasure_x = (BOARDWIDTH*3)/4;
   treasure_y = MAX_DEPTH;
   treasure = goo_canvas_image_new (boardRootItem,
 				   pixmap,
@@ -1057,7 +1057,7 @@ static gboolean update_timeout_slow() {
       }
     /* wraps the destroyer if it reached the left side (and disappeared for a long time)*/
     //if (bounds.x2 < -300.0)
-    //gc_item_absolute_move( frigate_item, gcomprisBoard->width, bounds.y1 );
+    //gc_item_absolute_move( frigate_item, BOARDWIDTH, bounds.y1 );
   }
 
   /* whale detection */

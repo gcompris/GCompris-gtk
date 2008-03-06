@@ -355,7 +355,7 @@ static void paratrooper_next_level()
   svg_handle = gc_rsvg_load("paratrooper/fishingboat.svgz");
   rsvg_handle_get_dimensions (svg_handle, &rsvg_dimension);
   boat_x = (BOARDWIDTH - rsvg_dimension.width) / 2;
-  boat_y = gcomprisBoard->height - 100;
+  boat_y = BOARDHEIGHT - 100;
   boat_landarea_y = boat_y + 20;
   item = \
     goo_svg_item_new (boardRootItem,
@@ -408,7 +408,7 @@ static void paratrooper_next_level()
   paratrooperItem.instruct = \
     goo_canvas_text_new (boardRootItem,
 			 _("Control fall speed with up and down arrow keys."),
-			 (double) gcomprisBoard->width / 2.0,
+			 (double) BOARDWIDTH / 2.0,
 			 (double) 130,
 			 -1,
 			 GTK_ANCHOR_CENTER,
@@ -445,12 +445,12 @@ paratrooper_move_tux (GtkWidget *widget, gpointer data)
   /* Manage the wrapping */
   if(center < 0) {
     goo_canvas_item_translate(paratrooperItem.rootitem,
-			      gcomprisBoard->width,
+			      BOARDWIDTH,
 			      0);
   }
-  if(center > gcomprisBoard->width) {
+  if(center > BOARDWIDTH) {
     goo_canvas_item_translate(paratrooperItem.rootitem,
-			      -gcomprisBoard->width,
+			      -BOARDWIDTH,
 			      0);
   }
 
@@ -479,7 +479,7 @@ paratrooper_move_tux (GtkWidget *widget, gpointer data)
 	}
       else
 	{
-	  if(bounds.y2 < gcomprisBoard->height - 20)
+	  if(bounds.y2 < BOARDHEIGHT - 20)
 	    drop_tux_id = gtk_timeout_add (150,
 					   (GtkFunction) paratrooper_move_tux,
 					   NULL);
@@ -515,11 +515,11 @@ paratrooper_create_cloud(GooCanvasItem *parent)
   if(windspeed>0)
     {
       x = 0;
-      x_end = gcomprisBoard->width;
+      x_end = BOARDWIDTH;
     }
   else
     {
-      x = gcomprisBoard->width - rsvg_dimension.width * imageZoom;
+      x = BOARDWIDTH - rsvg_dimension.width * imageZoom;
       x_end = 0;
     }
 

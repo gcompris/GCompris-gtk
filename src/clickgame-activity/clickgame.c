@@ -364,8 +364,8 @@ static void clickgame_start (GcomprisBoard *agcomprisBoard)
   gcomprisBoard->maxlevel=6;
   gcomprisBoard->number_of_sublevel=10;
   gc_score_start(SCORESTYLE_NOTE,
-		 gcomprisBoard->width - 220,
-		 gcomprisBoard->height - 50,
+		 BOARDWIDTH - 220,
+		 BOARDHEIGHT - 50,
 		 gcomprisBoard->number_of_sublevel);
   gc_bar_set(GC_BAR_LEVEL);
 
@@ -525,7 +525,7 @@ static void clickgame_move_item(FishItem *fishitem)
 
   if(fishitem->speed>0)
     {
-      if(bounds.x1>gcomprisBoard->width)
+      if(bounds.x1>BOARDWIDTH)
 	fish_escape (fishitem);
     }
   else
@@ -696,7 +696,7 @@ clickgame_create_item()
 
   if(fishitem->speed<0)
     {
-      x = (double) gcomprisBoard->width;
+      x = (double) BOARDWIDTH;
       fishitem->speed=MIN(fishitem->speed, -1);
     }
   else
@@ -716,7 +716,7 @@ clickgame_create_item()
 
   length = g_slist_length(ilist);
 
-  y = (g_random_int()%(gcomprisBoard->height-
+  y = (g_random_int()%(BOARDHEIGHT-
 		       (guint)(gdk_pixbuf_get_height(pixmap)*
 			       imageZoom)));
 

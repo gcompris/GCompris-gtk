@@ -246,7 +246,7 @@ imageid_next_level()
   gc_score_end();
   gc_score_start(SCORESTYLE_NOTE,
 		 50,
-		 gcomprisBoard->height - 50,
+		 BOARDHEIGHT - 50,
 		 gcomprisBoard->number_of_sublevel);
 
   gc_score_set(gcomprisBoard->sublevel);
@@ -328,7 +328,7 @@ imageid_create_item(GooCanvasItem *parent)
 
   vertical_separation = 10 + 60 / i;
 
-  yp = (gcomprisBoard->height -
+  yp = (BOARDHEIGHT -
 	i * gdk_pixbuf_get_height(button_pixmap)
 	- 2 * vertical_separation)/2 - 20;
 
