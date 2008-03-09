@@ -1,3 +1,15 @@
+2007-10-03  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	Made the chess activity to search for gnuchess in usual
+	directory if it is not found in the one detected at compilation
+	time. It is done to accomodate cases were the run time and build
+	time have a different gnuchess package.
+	Commit r3284 (merged from gcomprixo branch)
+
+	* src/chess_computer-activity/chess.c: (start_board):
+	* src/gcompris/gcompris.c: (load_properties), (main):
+	* src/runit.sh:
+
 2008-02-15  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	Updated licence, now this branch is like trunk, GPL V3 and above

@@ -143,6 +143,21 @@ static void		 write_child (GIOChannel  *write_chan,
 				      char        *format,
 				      ...);
 
+/* The first choice is the one detected at compilation time
+ * In case our binary is run on other systems, we do our best
+ * to use it from usual locations
+ */
+static gchar *gnuchess_path[] =
+  {
+    GNUCHESS,
+    "/usr/bin/gnuchess",
+    "/usr/games/gnuchess",
+    "/usr/local/bin/gnuchess",
+    "bin/gnuchess",
+    "gnuchess",
+    "gnuchess.exe",
+    NULL
+  };
 
 /* Description of this plugin */
 static BoardPlugin menu_bp =
@@ -206,27 +221,42 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 {
 
   gnuchess_pid = 0;
-  gchar *gnuchess_bin = GNUCHESS;
+  gchar **gnuchess_pathptr = gnuchess_path;
+  gchar *gnuchess_bin = NULL;
 
-#ifndef WIN32
+
+  do
+    {
+      if(*gnuchess_pathptr[0] == '/')
+	{
+	  gnuchess_bin = strdup(*gnuchess_pathptr);
+	}
+      else
+	{
+	  /* Check in our exec prefix */
+	  extern gchar *exec_prefix;
+	  gnuchess_bin = g_build_filename(exec_prefix, *gnuchess_pathptr,
+					  NULL);
+	}
+
+      if (g_file_test (gnuchess_bin, G_FILE_TEST_IS_EXECUTABLE))
+	break;
+
+      gnuchess_pathptr++;
+    } while(*gnuchess_pathptr != NULL);
+
+  if(*gnuchess_pathptr == NULL)
+    {
+	  gc_dialog(_("Error: The external program gnuchess is mandatory\n"
+		      "to play chess in gcompris.\n"
+		      "First install it, and check it is in "GNUCHESS), gc_board_stop);
+      return;
+    }
+
   signal(SIGTRAP, gnuchess_died);
   signal(SIGPIPE, gnuchess_died);
-  if (!g_file_test (gnuchess_bin, G_FILE_TEST_EXISTS))
-    {
-      /* check in same bin/ as we are */
-      extern gchar *exec_prefix;
-      gnuchess_bin = g_build_filename( exec_prefix, "bin", "gnuchess", NULL);
-      if (!g_file_test (gnuchess_bin, G_FILE_TEST_EXISTS)) {
-	gc_dialog(_("Error: The external program gnuchess is required\nto play chess in GCompris.\n"
-		    "Find this program on http://www.rpmfind.net or in your\nGNU/Linux distribution\n"
-		    "And check it is located here: "GNUCHESS),
-		  gc_board_stop);
-	return;
-      }
-  }
-
   g_warning("GNUCHESS found %s", gnuchess_bin);
-#endif
+
 
   if(agcomprisBoard!=NULL)
     {
@@ -287,6 +317,8 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       pause_board(FALSE);
 
     }
+
+  g_free(gnuchess_bin);
 }
 
 /* ======================================= */
