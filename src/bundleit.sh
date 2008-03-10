@@ -108,7 +108,7 @@ fi
 # Add the plugins in the proper place
 echo "This activity has it's plugindir in $plugindir"
 cp $plugindir/*.so $activity_dir
-rm -f $activity_dir/menu.so
+rm -f $activity_dir/libmenu.so
 
 # Add the python plugins
 if [ -f $pythonplugindir/*.py ]; then
