@@ -25,6 +25,7 @@ img_DATA = \
 	n50e.svgz \
 	n5e.svgz \
 	orange.svgz \
-	pamplemousse.svgz
+	pamplemousse.svgz \
+	money-bg.png
 
 EXTRA_DIST = $(img_DATA)
