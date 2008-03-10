@@ -34,6 +34,17 @@ if test "$activitysrc" = "administration-activity" || \
   exit 0
 fi
 
+extra_bin=""
+if test "$activitysrc" = "chess_computer-activity" || \
+   test "$activitysrc" = "chess_movelearn-activity" || \
+   test "$activitysrc" = "chess_partyend-activity" ; then
+ extra_bin=`which gnuchess`
+fi
+
+if test "$activitysrc" = "electric-activity" ; then
+ extra_bin=`which gnucap`
+fi
+
 if test -f $activitysrc/init_path.sh; then
   . $activitysrc/init_path.sh
 else
@@ -61,7 +72,7 @@ fi
 cp -a $activitysrc $activity_dir
 mkdir -p $activity_dir/activity
 mkdir -p $activity_dir/bin
-cp activity-gcompris.svg $activity_dir/activity
+mv $activity_dir/*.svg $activity_dir/activity/activity-gcompris.svg
 cp activity.info $activity_dir/activity
 sed -i s/@ACTIVITY_NAME@/$activity/g $activity_dir/activity/activity.info
 cp old-gcompris-instance $activity_dir/
@@ -75,6 +86,10 @@ if [ -f $activity_dir/.libs/*.so ]; then
   mv $activity_dir/.libs/*.so $activity_dir
 fi
 rm -rf $activity_dir/.libs
+rm -rf $activity_dir/*.in
+if [ -f $extra_bin ]; then
+  cp $extra_bin $activity_dir/bin
+fi
 
 # Add the locale translation file
 dir=$activity_dir/locale/$lang/LC_MESSAGES
@@ -87,7 +102,7 @@ else
 fi
 
 # Add the mandatory sounds of this activity
-mandatory_sound_dir=`grep mandatory_sound_dir $activity_dir/*.xml.in | cut -d= -f2 | sed s/\"//g`
+mandatory_sound_dir=`grep mandatory_sound_dir $activity_dir/*.xml | cut -d= -f2 | sed s/\"//g`
 if test -n "$mandatory_sound_dir"
 then
     echo "This activity defines a mandatory_sound_dir in $mandatory_sound_dir"
@@ -126,6 +141,7 @@ tar -cjf $activity_dir.tar.bz2 -h \
     --exclude ".deps" \
     --exclude "Makefile*" \
     --exclude "*.c" \
+    --exclude "*.h" \
     --exclude "*.la" \
     --exclude "*.lo" \
     --exclude "*.o" \
