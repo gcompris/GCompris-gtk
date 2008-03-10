@@ -84,7 +84,7 @@ class Gcompris_electric:
     #
     # You can provide a gnucap binary in python_plugin_dir.
     #
-    for binary in (os.path.join(gcompris.PYTHON_PLUGIN_DIR, 'gnucap'),
+    for binary in (os.path.join(gcompris.PYTHON_PLUGIN_DIR, 'bin', 'gnucap'),
                    "/usr/bin/gnucap",
                    "/usr/local/bin/gnucap",
                    "gnucap.exe",
