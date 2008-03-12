@@ -1,4 +1,22 @@
-2007-10-03  Bruno coudoin  <bruno.coudoin@free.fr>
+2008-03-12   Bruno coudoin  <bruno.coudoin@free.fr>
+
+	Updated our build system to support automake1.10
+	You still need to copy config.rpath from the gettext
+	package manualy.
+	Merged from trunk r3296
+
+	* ABOUT-NLS:
+	* INSTALL:
+	* configure.in:
+	* docs/C/Makefile.am:
+	* docs/C/texinfo.tex:
+	* docs/eu/Makefile.am:
+	* docs/fr/Makefile.am:
+	* gnome2-macros/gnome-autogen.sh:
+	* install-sh:
+	* list_translators.sh:
+
+2008-03-01 Bruno coudoin  <bruno.coudoin@free.fr>
 
 	Made the chess activity to search for gnuchess in usual
 	directory if it is not found in the one detected at compilation

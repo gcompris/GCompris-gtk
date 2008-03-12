@@ -23,19 +23,19 @@ info_TEXINFOS = gcompris.texi
 #	$(INSTALL_DATA)  $(srcdir)/overview.jpg $(DESTDIR)$(gcompris_helpdir)
 #	$(INSTALL_DATA)  $(srcdir)/topic.dat $(DESTDIR)$(gcompris_helpdir)
 
-%.html: %.texi
+gcompris.html: gcompris.texi
 	texi2html -monolithic $<
 
-%.eps: %.dia
+overview.eps: overview.dia
 	dia $< -e $@
 
-%.ps: %.dvi
+gcompris.ps: gcompris.dvi
 	dvips -o $@ $<
 
-%.dvi: %.texi
+gcompris.dvi: gcompris.texi
 	texi2dvi $<
 
-%.pdf: %.ps
+gcompris.pdf: gcompris.ps
 	ps2pdf $<
 
 gcompris.pdf gcompris.dvi: overview.eps

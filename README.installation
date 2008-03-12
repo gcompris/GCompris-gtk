@@ -1,0 +1,70 @@
+GCompris Specific Instructions
+==============================
+
+Gcompris can be installed anywhere on your hard drive.
+
+for example, you can use:
+
+sh configure --prefix=/home/bruno/gcompris
+make
+make install
+
+Warning: You cannot use ~ in the prefix, it must be a full path.
+Warning: It has been reported that make -j 2 (or more) break the compilation
+
+This will install GCompris and all its data files under
+/home/bruno/gcompris
+
+Then, run /home/bruno/gcompris/bin/gcompris
+
+Gcompris requires gtk-libs, libxml2, gnomecanvas, sqlite, and gdk-pixbuf.
+
+gcompris also requires the gnuchess and gnucap package for the chess activity and
+electricity to run. If you have gnome-gnuchess instead of gnuchess, autoconf will
+detect it and compile with it.
+
+GCompris includes several activity written in python.
+To enable them, you need to have python installed on your system with the following packages:
+libpython
+python
+libpython2.4-devel
+python-base
+python-sqlite2 (if it's not packaged, download and install it from http://initd.org/tracker/pysqlite)
+
+For the sound managed internally, you also need gstreamer:
+libgstreamer0.10-0 libgstreamer0.10-dev
+
+On Mandriva, you will need to install their -devel counterpart package in
+order to be abble to compile it plus  intltool, tetex.
+
+In order to compile GCompris on a mandriva 2007 you must install :
+urpmi pkgconfig
+urpmi autoconf2.5
+urpmi glib-gettext
+urpmi gettext-devel
+urpmi intltool
+urpmi automake1.7
+urpmi libglib2.0_0-devel
+urpmi libgdk_pixbuf2.0_0-devel
+urpmi libgnomeui2_0-devel
+urpmi libgstreamer libgstreamer-devel (Unchecked)
+urpmi python-gtk-devel
+urpmi libpython2.4-devel
+urpmi pygtk2.0-devel
+urpmi texinfo
+urpmi texi2html
+urpmi tetex
+urpmi gnuchess
+urpmi gnucap
+urpmi libtool
+urpmi libsqlite3_0 libsqlite3_0-devel
+urpmi python-sqlite2
+urpmi libxxf86vm1-devel
+
+WARNING
+=======
+  We are using sqlite but it doesn't work on NFS mounted partitions.
+  If you home directory is on a remote server, then use run GCompris
+  with a local file for its database like:
+    gcompris --database=/tmp/gcompris.db
+
