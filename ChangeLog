@@ -1,3 +1,11 @@
+2008-03-14 Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* src/gcompris/dbus.c: (gc_dbus_init): Fixed olpc trac bug#6363
+	"GCompris won't start if settings are changed".
+	Added support for gthread initialization in dbus startup if
+	not yet done.
+	This is a merge of gcomprixo r3298.
+
 2008-03-12   Bruno coudoin  <bruno.coudoin@free.fr>
 
 	Updated our build system to support automake1.10

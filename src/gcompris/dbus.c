@@ -64,6 +64,8 @@ gc_dbus_init(gchar *sugarActivityId)
 
   g_type_init ();
 
+  if (!g_thread_supported ()) g_thread_init (NULL);
+
   dbus_g_thread_init ();
 
   error = NULL;
