@@ -21,6 +21,9 @@ fi
 
 gcompris=$1/gcompris.bin
 if [ ! -f $gcompris ]; then
+  gcompris=$1/bin/gcompris
+fi
+if [ ! -f $gcompris ]; then
   gcompris=$1/../gcompris/gcompris
 fi
 
