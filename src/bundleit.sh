@@ -3,6 +3,7 @@
 # A far from complete script that can create a binary tarball
 # for the given activity.
 #
+
 if test -z "$1"; then
     echo "Usage: bundleit.sh directory-activity [locale code]"
     echo "Example (for french locale):"
@@ -87,7 +88,7 @@ if [ -f $activity_dir/.libs/*.so ]; then
 fi
 rm -rf $activity_dir/.libs
 rm -rf $activity_dir/*.in
-if [ -f $extra_bin ]; then
+if [ -f "$extra_bin" ]; then
   cp $extra_bin $activity_dir/bin
 fi
 
@@ -128,6 +129,9 @@ rm -f $activity_dir/libmenu.so
 # Add the python plugins
 if [ -f $pythonplugindir/*.py ]; then
   cp $pythonplugindir/*.py $activity_dir
+  # Add the GCompris binding
+  rm -f $activity_dir/gcompris
+  ln -s ../boards/python/gcompris -t $activity_dir
 fi
 
 # Add the runit.sh script
