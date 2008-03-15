@@ -218,7 +218,7 @@ void gc_about_start ()
 
   // Copyright
   item = goo_canvas_text_new (rootitem,
-			      "Copyright 2000-2007 Bruno Coudoin and Others",
+			      "Copyright 2000-2008 Bruno Coudoin and Others",
 			      (gdouble)  BOARDWIDTH/2,
 			      (gdouble)  y - 95,
 			      -1,

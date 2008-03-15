@@ -1,6 +1,6 @@
 /* gcompris - gameutil.h
  *
- * Copyright (C) 2000 Bruno Coudoin
+ * Copyright (C) 2000, 2008 Bruno Coudoin
  *
  *   This program is free software; you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
@@ -62,4 +62,5 @@ GooCanvasItem *gc_difficulty_display(GooCanvasItem *parent, double x, double y,
 gchar		 *gc_file_find_absolute(const gchar *filename, ...);
 int               gc_util_create_rootdir (gchar *rootdir);
 
+void		 gc_activity_intro_play (GcomprisBoard *gcomprisBoard);
 #endif

@@ -16,14 +16,6 @@ sqlite_ldflags =
 sqlite_cflags =
 endif
 
-if USE_CAIRO
-cairo_ldflags = $(CAIRO_LIBS)
-cairo_cflags = $(CAIRO_CFLAGS)
-else
-cairo_ldflags =
-cairo_cflags =
-endif
-
 if PLATFORM_WIN32
 shared = -shared
 no_undefined = -no-undefined
@@ -52,7 +44,6 @@ INCLUDES = \
 	$(PYTHON_CFLAGS) \
 	$(PYGTK_CFLAGS) \
 	$(sqlite_cflags) \
-	$(cairo_cflags) \
 	$(dll_export)
 
 libmenu_la_LDFLAGS = $(shared) $(no_undefined) -module -avoid-version $(gc_libs)

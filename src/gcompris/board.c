@@ -369,6 +369,8 @@ gc_board_play(GcomprisBoard *gcomprisBoard)
       /* Force the bar to go on top of the activities canvas items */
       gc_bar_hide (FALSE);
 
+      gc_activity_intro_play(gcomprisBoard);
+
       return;
     }
 

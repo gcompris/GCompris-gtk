@@ -1,3 +1,27 @@
+2008-03-15  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	merge from trunk r3309
+	- It is now possible to add activity introduction voices.
+	  If provided, it will be played when the activity starts and when
+	  it's help is requested.
+	  To provide an activity intro, you must put it under:
+	  boards/voices/<locale>/activity/<activity name>-intro.ogg
+
+	* configure.in: removed reference to cairo as goocanvas detects it
+	* src/erase-activty/erase.c: (start_board), (end_board),
+	(erase_one_item): moved the audio mode PLAY_AND_INTERRUPT only on
+	the last item to avoid an intro voice to be cut.
+	* src/gcompris/about.c: (gc_about_start): copyright is 2008 now.
+	* src/gcompris/board.c: (gc_board_play): added support to play an
+	optional intro voice a the start of an activity
+	* src/gcompris/help.c: (gc_board_play): added support to play an
+	optional intro voice when the help is lanched.
+	* src/gcompris/bonus.c: (gc_bonus_display), (bonus_image):
+	cleanup, removed extra warnings.
+	* src/gcompris/gcompris.c: (cleanup), (single_instance_release),
+	(single_instance_check): fixed the release of the lock when GC is exited.
+	* src/gcompris/gameutil.c: (gc_activity_intro_play) created this function
+
 2008-03-14  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* src/runit.sh: added support for bin/gcompris case

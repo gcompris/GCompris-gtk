@@ -1,6 +1,6 @@
 /* gcompris - erase.c
  *
- * Copyright (C) 2001 Bruno Coudoin
+ * Copyright (C) 2001, 2008 Bruno Coudoin
  *
  *   This program is free software; you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
@@ -27,7 +27,6 @@ typedef struct  {gint count; gint max;} counter;
 
 static GcomprisBoard *gcomprisBoard = NULL;
 static gboolean board_paused = TRUE;
-static SoundPolicy sound_policy;
 static RsvgHandle *CoverPixmap[MAX_LAYERS];
 static gulong event_handle_id;
 
@@ -209,10 +208,6 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       gamewon = FALSE;
       pause_board(FALSE);
 
-      /* initial state to restore */
-      sound_policy = gc_sound_policy_get();
-      gc_sound_policy_set(PLAY_AND_INTERRUPT);
-
       GcomprisProperties *properties = gc_prop_get ();
       if(properties->defaultcursor == GCOMPRIS_DEFAULT_CURSOR)
 	{
@@ -250,7 +245,6 @@ static void end_board ()
       erase_destroy_all_items();
     }
   gcomprisBoard = NULL;
-  gc_sound_policy_set(sound_policy);
 }
 
 /* ======================================= */
@@ -465,6 +459,7 @@ erase_one_item (GooCanvasItem *item)
 {
   gdouble screen_x, screen_y;
   int x,y;
+  SoundPolicy sound_policy = gc_sound_policy_get();
 
   goo_canvas_convert_from_item_space(goo_canvas_item_get_canvas(item),
 				     item, &screen_x, &screen_y);
@@ -476,17 +471,26 @@ erase_one_item (GooCanvasItem *item)
 
   goo_canvas_item_remove(item);
 
-  if(number_of_items%2)
-    gc_sound_play_ogg ("sounds/eraser1.wav", NULL);
-  else
-    gc_sound_play_ogg ("sounds/eraser2.wav", NULL);
-
   if(--number_of_items == 0)
     {
       gamewon = TRUE;
       erase_destroy_all_items();
       timer_id = gtk_timeout_add (4000, (GtkFunction) bonus, NULL);
     }
+
+  /* force a cleanup of the sound queue */
+  if(number_of_items == 0)
+      gc_sound_policy_set(PLAY_AND_INTERRUPT);
+
+  if(number_of_items%2)
+    gc_sound_play_ogg ("sounds/eraser1.wav", NULL);
+  else
+    gc_sound_play_ogg ("sounds/eraser2.wav", NULL);
+
+  if(number_of_items == 0)
+    gc_sound_policy_set(sound_policy);
+
+
   normal_delay_id = 0;
   return FALSE;
 }
