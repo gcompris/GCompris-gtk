@@ -3,33 +3,41 @@ GCompris Specific Instructions
 
 Gcompris can be installed anywhere on your hard drive.
 
+Warning: Getting the voices. The voices are in a separate svn package now.
+         To get them, run 'make update-voices' before 'make dist'
+         or 'make install'.
+
 for example, you can use:
 
 sh configure --prefix=/home/bruno/gcompris
 make
 make install
 
-Warning: You cannot use ~ in the prefix, it must be a full path.
-Warning: It has been reported that make -j 2 (or more) break the compilation
-
 This will install GCompris and all its data files under
 /home/bruno/gcompris
 
+Warning: You cannot use ~ in the prefix, it must be a full path.
+Warning: It has been reported that make -j 2 (or more) break the compilation
+
+
 Then, run /home/bruno/gcompris/bin/gcompris
 
-Gcompris requires gtk-libs, libxml2, gnomecanvas, sqlite, and gdk-pixbuf.
+Gcompris requires gtk-libs, libxml2, sqlite, gdk-pixbuf and cairo.
 
-gcompris also requires the gnuchess and gnucap package for the chess activity and
-electricity to run. If you have gnome-gnuchess instead of gnuchess, autoconf will
-detect it and compile with it.
+GCompris also requires the gnuchess and gnucap package for the chess activity
+and electricity to run. If you have gnome-gnuchess instead of gnuchess,
+autoconf will detect it and compile against it. At runtime we do our best
+to detect gnuchess in the usual places of your system.
 
 GCompris includes several activity written in python.
-To enable them, you need to have python installed on your system with the following packages:
+To enable them, you need to have python installed on your system with the
+following packages:
 libpython
 python
 libpython2.4-devel
 python-base
-python-sqlite2 (if it's not packaged, download and install it from http://initd.org/tracker/pysqlite)
+python-sqlite2 (if it's not packaged, download and install it from
+                http://initd.org/tracker/pysqlite)
 
 For the sound managed internally, you also need gstreamer:
 libgstreamer0.10-0 libgstreamer0.10-dev
