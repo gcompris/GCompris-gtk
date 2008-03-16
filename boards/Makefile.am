@@ -43,7 +43,6 @@ xml_in_files = \
 	geometry.xml.in \
 	gnumchmenu.xml.in \
 	keyboard.xml.in \
-	Makefile.in \
 	math.xml.in \
 	mazeMenu.xml.in \
 	memory_group.xml.in \
