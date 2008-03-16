@@ -32,6 +32,7 @@
 
 #define BAR_GAP		15	/* Value used to fill space above and under icons in the bar */
 #define NUMBER_OF_ITEMS 10	/* Number of buttons in the bar                              */
+#define HIDE_BAR_TIMOUT 3000    /* The time before we hide the bar in ms */
 
 static void	 update_exit_button();
 static gboolean  on_enter_notify (GooCanvasItem *item,
@@ -580,7 +581,7 @@ on_leave_notify (GooCanvasItem  *item,
   bar_reset_sound_id();
 
   if(!bar_down_id)
-    bar_down_id = g_timeout_add (3500, (GtkFunction) _bar_down, NULL);
+    bar_down_id = g_timeout_add (HIDE_BAR_TIMOUT, (GtkFunction) _bar_down, NULL);
 
   return FALSE;
 }
@@ -684,6 +685,10 @@ item_event_bar (GooCanvasItem  *item,
 			(ConfirmCallBack) confirm_quit);
       else
 	confirm_quit(TRUE);
+    }
+  else if(!strcmp((char *)data, "bar"))
+    {
+      _force_bar_down();
     }
 
   return TRUE;

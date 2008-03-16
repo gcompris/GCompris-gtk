@@ -53,8 +53,13 @@ libmenu_la_SOURCES = menu2.c
 libpython_la_LDFLAGS = -export-dynamic $(shared) $(no_undefined) -module -avoid-version $(gc_libs) $(PYTHON_LIBS)
 
 libpython_la_LIBADD =
-libpython_la_CFLAGS = -fno-strict-aliasing $(PYGTK_CFLAGS)
+libpython_la_CFLAGS = -fno-strict-aliasing $(PYGTK_CFLAGS) \
+	 -DPYGOOCANVAS_MAJOR_VERSION=0 \
+	 -DPYGOOCANVAS_MINOR_VERSION=0 \
+	 -DPYGOOCANVAS_MICRO_VERSION=0
+
 libpython_la_SOURCES = python.c \
+	goocanvas.c goocanvasmodule.c \
 	py-gcompris-board.c	py-gcompris-board.h	\
 	py-gcompris-properties.c	py-gcompris-properties.h	\
 	py-gcompris-profile.c	py-gcompris-profile.h	\

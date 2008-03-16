@@ -450,7 +450,7 @@ if test x$build_python_plugin = xno; then
   AC_MSG_NOTICE([Python plugin is disabled.])
 else
   dnl Python interpreter is available so check for pygtk
-  PKG_CHECK_MODULES(PYGTK, pygtk-2.0)
+  PKG_CHECK_MODULES(PYGTK, pygtk-2.0 pycairo)
 
   AC_MSG_CHECKING([for pygtk defs])
   PYGTK_DEFSDIR=`$PKG_CONFIG --variable=defsdir pygtk-2.0`
@@ -827,10 +827,6 @@ src/mosaic-activity/resources/Makefile
 src/mosaic-activity/resources/mosaic/Makefile
 src/goocanvas/Makefile
 src/goocanvas/src/Makefile
-src/goocanvas/demo/Makefile
-src/goocanvas/docs/Makefile
-src/goocanvas/po/Makefile.in
-src/goocanvas/goocanvas.pc
 ])
 
 echo ""

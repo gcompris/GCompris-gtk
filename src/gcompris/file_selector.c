@@ -152,6 +152,7 @@ display_file_selector(int the_mode,
 		      FileSelectorCallBack iscb)
 {
   GooCanvasItem    *item;
+  GooCanvasItem    *item2;
   GdkPixbuf	   *pixmap = NULL;
   gint		    y = 0;
   gint		    y_start = 0;
@@ -263,7 +264,7 @@ display_file_selector(int the_mode,
 		   "/cancel/");
   gc_item_focus_init(item, NULL);
 
-  item = goo_canvas_text_new (rootitem,
+  item2 = goo_canvas_text_new (rootitem,
 			      _("CANCEL"),
 			      (gdouble)  BOARDWIDTH*0.33,
 			      (gdouble)  y - gdk_pixbuf_get_height(pixmap),
@@ -272,10 +273,10 @@ display_file_selector(int the_mode,
 			      "font", gc_skin_font_title,
 			      "fill-color-rgba", gc_skin_color_text_button,
 			      NULL);
-  g_signal_connect(item, "button_press_event",
+  g_signal_connect(item2, "button_press_event",
 		   (GtkSignalFunc) item_event_file_selector,
 		   "/cancel/");
-  gc_item_focus_init(item, NULL);
+  gc_item_focus_init(item2, item);
 
   // OK
   item = goo_canvas_image_new (rootitem,
@@ -289,7 +290,7 @@ display_file_selector(int the_mode,
 		     "/ok/");
   gc_item_focus_init(item, NULL);
 
-  item = goo_canvas_text_new (rootitem,
+  item2 = goo_canvas_text_new (rootitem,
 			      (mode==MODE_LOAD ? _("LOAD") : _("SAVE")),
 			      (gdouble)  BOARDWIDTH*0.66,
 			      (gdouble)  y - gdk_pixbuf_get_height(pixmap),
@@ -298,10 +299,10 @@ display_file_selector(int the_mode,
 			      "font", gc_skin_font_title,
 			      "fill-color-rgba", gc_skin_color_text_button,
 			      NULL);
-  g_signal_connect(item, "button_press_event",
+  g_signal_connect(item2, "button_press_event",
 		   (GtkSignalFunc) item_event_file_selector,
 		   "/ok/");
-  gc_item_focus_init(item, NULL);
+  gc_item_focus_init(item2, item);
   gdk_pixbuf_unref(pixmap);
 
 
@@ -338,7 +339,6 @@ display_files(GooCanvasItem *root_item, gchar *rootdir)
   GList  *dir_list  = NULL;
   GList  *file_list = NULL;
   GList  *listrunner;
-
 
   GtkAdjustment *adj;
 
@@ -381,7 +381,7 @@ display_files(GooCanvasItem *root_item, gchar *rootdir)
   bg_item = goo_canvas_rect_new (goo_canvas_get_root_item(GOO_CANVAS(canvas)),
 				 0,
 				 0,
-				 DRAWING_AREA_X2 - DRAWING_AREA_X1,
+				 DRAWING_AREA_X2 - DRAWING_AREA_X1 + 200,
 				 DRAWING_AREA_Y2 - DRAWING_AREA_Y1,
 				 "fill-color-rgba", gc_skin_get_color("gcompris/fileselectbg"),
 				 "line-width", 0.0,
@@ -390,7 +390,7 @@ display_files(GooCanvasItem *root_item, gchar *rootdir)
 
   adj = \
     GTK_ADJUSTMENT (gtk_adjustment_new (0.00, 0.00,
-					DRAWING_AREA_Y2 - DRAWING_AREA_Y1 + 30,
+					IMAGE_HEIGHT,
 					10, IMAGE_HEIGHT,
 					(DRAWING_AREA_Y2 - DRAWING_AREA_Y1)/3)
 		    );
@@ -561,7 +561,7 @@ display_files(GooCanvasItem *root_item, gchar *rootdir)
 			   "height", (double)iy + IMAGE_HEIGHT + IMAGE_GAP,
 			   NULL);
 	      g_object_set(adj,
-			   "upper", iy + IMAGE_HEIGHT + IMAGE_GAP,
+			   "upper", (double)iy - IMAGE_HEIGHT + IMAGE_GAP - 1,
 			   NULL);
 	    }
 	}
@@ -571,6 +571,8 @@ display_files(GooCanvasItem *root_item, gchar *rootdir)
   g_dir_close(dir);
   g_list_free(file_list);
 
+  /* Warning: we don't scale the internal canvas dynamicaly */
+  goo_canvas_set_scale (GOO_CANVAS(canvas), gc_zoom_factor_get());
 }
 
 /* Callback when a directory is selected */

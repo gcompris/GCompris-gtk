@@ -9,8 +9,8 @@
  * SECTION:goocanvasitemsimple
  * @Title: GooCanvasItemSimple
  * @Short_Description: the base class for the standard canvas items.
- * @Stability_Level: 
- * @See_Also: 
+ * @Stability_Level:
+ * @See_Also:
  *
  * #GooCanvasItemSimple is used as a base class for all of the standard canvas
  * items. It can also be used as the base class for new custom canvas items.
@@ -218,7 +218,7 @@ goo_canvas_item_simple_install_common_properties (GObjectClass *gobject_class)
 						      _("Stroke Color RGBA"),
 						      _("The color to use for the item's perimeter, specified as a 32-bit integer value. To disable painting set the 'stroke-pattern' property to NULL"),
 						      0, G_MAXUINT, 0,
-						      G_PARAM_WRITABLE));
+						      G_PARAM_READWRITE));
 
   g_object_class_install_property (gobject_class, PROP_STROKE_PIXBUF,
                                    g_param_spec_object ("stroke-pixbuf",
@@ -239,7 +239,7 @@ goo_canvas_item_simple_install_common_properties (GObjectClass *gobject_class)
 						      _("Fill Color RGBA"),
 						      _("The color to use to paint the interior of the item, specified as a 32-bit integer value. To disable painting set the 'fill-pattern' property to NULL"),
 						      0, G_MAXUINT, 0,
-						      G_PARAM_WRITABLE));
+						      G_PARAM_READWRITE));
 
   g_object_class_install_property (gobject_class, PROP_FILL_PIXBUF,
                                    g_param_spec_object ("fill-pixbuf",
@@ -854,7 +854,7 @@ goo_canvas_item_simple_set_parent (GooCanvasItem  *item,
  * goo_canvas_item_simple_changed:
  * @item: a #GooCanvasItemSimple.
  * @recompute_bounds: if the item's bounds need to be recomputed.
- * 
+ *
  * This function is intended to be used by subclasses of #GooCanvasItemSimple.
  *
  * It is used as a callback for the "changed" signal of the item models.
@@ -965,7 +965,7 @@ goo_canvas_item_simple_get_bounds  (GooCanvasItem   *item,
 
   if (simple->need_update)
     goo_canvas_item_ensure_updated (item);
-    
+
   *bounds = simple->bounds;
 }
 
@@ -1078,7 +1078,7 @@ goo_canvas_item_simple_is_visible  (GooCanvasItem   *item)
 /**
  * goo_canvas_item_simple_check_style:
  * @item: a #GooCanvasItemSimple.
- * 
+ *
  * This function is intended to be used by subclasses of #GooCanvasItemSimple,
  * typically in their update() or get_requested_area() methods.
  *
@@ -1418,7 +1418,7 @@ goo_canvas_item_simple_get_model    (GooCanvasItem      *item)
  * goo_canvas_item_simple_set_model:
  * @item: a #GooCanvasItemSimple.
  * @model: the model that @item will view.
- * 
+ *
  * This function should be called by subclasses of #GooCanvasItemSimple
  * in their set_model() method.
  **/
@@ -1482,7 +1482,7 @@ canvas_item_interface_init (GooCanvasItemIface *iface)
  * goo_canvas_item_simple_paint_path:
  * @item: a #GooCanvasItemSimple.
  * @cr: a cairo context.
- * 
+ *
  * This function is intended to be used by subclasses of #GooCanvasItemSimple.
  *
  * It paints the current path, using the item's style settings.
@@ -1512,7 +1512,7 @@ goo_canvas_item_simple_paint_path (GooCanvasItemSimple *item,
  * @item: a #GooCanvasItemSimple.
  * @cr: a cairo context.
  * @bounds: the #GooCanvasBounds struct to store the resulting bounding box.
- * 
+ *
  * This function is intended to be used by subclasses of #GooCanvasItemSimple,
  * typically in their update() or get_requested_area() methods.
  *
@@ -1598,7 +1598,7 @@ goo_canvas_item_simple_get_path_bounds (GooCanvasItemSimple *item,
  * @item: a #GooCanvasItemSimple.
  * @cr: a cairo context.
  * @bounds: the bounds of the item, in the item's coordinate space.
- * 
+ *
  * This function is intended to be used by subclasses of #GooCanvasItemSimple,
  * typically in their update() or get_requested_area() methods.
  *
@@ -1646,7 +1646,7 @@ goo_canvas_item_simple_user_bounds_to_device (GooCanvasItemSimple *item,
  * @item: a #GooCanvasItemSimple.
  * @cr: a cairo context.
  * @bounds: the bounds of the item, in the item's coordinate space.
- * 
+ *
  * This function is intended to be used by subclasses of #GooCanvasItemSimple,
  * typically in their get_requested_area() method.
  *
@@ -1705,12 +1705,12 @@ goo_canvas_item_simple_user_bounds_to_parent (GooCanvasItemSimple *item,
  * @y: the y coordinate of the point.
  * @cr: a cairo context.
  * @pointer_events: specifies which parts of the path to check.
- * 
+ *
  * This function is intended to be used by subclasses of #GooCanvasItemSimple.
  *
  * It checks if the given point is in the current path, using the item's
  * style settings.
- * 
+ *
  * Returns: %TRUE if the given point is in the current path.
  **/
 gboolean
@@ -1752,9 +1752,9 @@ goo_canvas_item_simple_check_in_path (GooCanvasItemSimple   *item,
 /**
  * goo_canvas_item_simple_get_line_width:
  * @item: a #GooCanvasItemSimple.
- * 
+ *
  * Gets the item's line width.
- * 
+ *
  * Returns: the item's line width.
  **/
 gdouble
@@ -1777,8 +1777,8 @@ goo_canvas_item_simple_get_line_width (GooCanvasItemSimple   *item)
  * SECTION:goocanvasitemmodelsimple
  * @Title: GooCanvasItemModelSimple
  * @Short_Description: the base class for the standard canvas item models.
- * @Stability_Level: 
- * @See_Also: 
+ * @Stability_Level:
+ * @See_Also:
  *
  * #GooCanvasItemModelSimple is used as a base class for the standard canvas
  * item models. It can also be used as the base class for new custom canvas

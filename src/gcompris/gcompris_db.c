@@ -774,8 +774,6 @@ GList *gc_db_get_board_id(GList *list)
 void gc_db_remove_board(int board_id)
 {
 #ifdef USE_SQLITE
-  g_warning("Supress board %d from db.", board_id);
-
   char *zErrMsg;
   char **result;
   int rc;

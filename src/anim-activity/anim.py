@@ -173,25 +173,25 @@ class Gcompris_anim:
                                   "y",
                                   "width",
                                   "height",
-                                  #"stroke_color_rgba",
+                                  "stroke_color_rgba",
                                   ],
                        'FILL_RECT' : [ "x",
                                        "y",
                                        "width",
                                        "height",
-                                       #"fill_color_rgba",
+                                       "fill_color_rgba",
                                        ],
                        'CIRCLE' : [ "center_x",
                                     "center_y",
                                     "radius_x",
                                     "radius_y",
-                                    #"stroke_color_rgba",
+                                    "stroke_color_rgba",
                                     ],
                        'FILL_CIRCLE' : [ "center_x",
                                          "center_y",
                                          "radius_x",
                                          "radius_y",
-                                         #"fill_color_rgba",
+                                         "fill_color_rgba",
                                          ],
                        'TEXT' : [ "x",
                                   "y",
@@ -536,6 +536,7 @@ class Gcompris_anim:
         x=theX,
         y=y
         )
+      gcompris.utils.item_focus_init(item, None)
       item.connect("button_press_event", self.tool_item_event, i)
       if i%2:
         y += stepy
@@ -626,7 +627,7 @@ class Gcompris_anim:
 
     color_pixmap_height = pixmap.get_height()
 
-    y = gcompris.BOARD_HEIGHT - color_pixmap_height - 8
+    y = gcompris.BOARD_HEIGHT - color_pixmap_height - 30
 
     c = 0
 

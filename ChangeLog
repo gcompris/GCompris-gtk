@@ -1,3 +1,112 @@
+2008-03-16  Bruno Coudoin,,,  <set EMAIL_ADDRESS environment variable>
+
+	- Major cleanup in goocanvas to keep only the minimal we need.
+	- Integrated pygoocanvas. No more needed to install it separatly.
+	- fixed the file selector background and its highlight button
+
+	* configure.in:
+	* src/anim-activity/anim.py:
+	* src/boards/Makefile.am:
+	* src/boards/py-mod-gcompris.c: (python_gcompris_module_init):
+	* src/boards/python.c: (pythonboard_init):
+	* src/connect4-2players-activity/init_path.sh:
+	* src/draw-activity/init_path.sh:
+	* src/gcompris/bar.c: (on_leave_notify), (item_event_bar):
+	* src/gcompris/file_selector.c: (display_file_selector),
+	(display_files):
+	* src/gcompris/gameutil.c: (gc_item_focus_init):
+	* src/gcompris/gcompris.c: (setup_window):
+	* src/gcompris/gcompris_db.c: (gc_db_remove_board):
+	* src/goocanvas/INSTALL:
+	* src/goocanvas/Makefile.am:
+	* src/goocanvas/aclocal.m4:
+	* src/goocanvas/autogen.sh:
+	* src/goocanvas/autom4te.cache/output.0:
+	* src/goocanvas/autom4te.cache/output.1:
+	* src/goocanvas/autom4te.cache/requests:
+	* src/goocanvas/autom4te.cache/traces.0:
+	* src/goocanvas/autom4te.cache/traces.1:
+	* src/goocanvas/config.h.in:
+	* src/goocanvas/configure:
+	* src/goocanvas/configure.in.REF:
+	* src/goocanvas/demo/.cvsignore:
+	* src/goocanvas/demo/CVS/Entries:
+	* src/goocanvas/demo/CVS/Repository:
+	* src/goocanvas/demo/CVS/Root:
+	* src/goocanvas/demo/Makefile.am:
+	* src/goocanvas/demo/demo-animation.c:
+	* src/goocanvas/demo/demo-arrowhead.c:
+	* src/goocanvas/demo/demo-clipping.c:
+	* src/goocanvas/demo/demo-events.c:
+	* src/goocanvas/demo/demo-features.c:
+	* src/goocanvas/demo/demo-fifteen.c:
+	* src/goocanvas/demo/demo-focus.c:
+	* src/goocanvas/demo/demo-grabs.c:
+	* src/goocanvas/demo/demo-item.c:
+	* src/goocanvas/demo/demo-item.h:
+	* src/goocanvas/demo/demo-large-items.c:
+	* src/goocanvas/demo/demo-large-line.c:
+	* src/goocanvas/demo/demo-large-line.h:
+	* src/goocanvas/demo/demo-large-rect.c:
+	* src/goocanvas/demo/demo-large-rect.h:
+	* src/goocanvas/demo/demo-paths.c:
+	* src/goocanvas/demo/demo-scalability.c:
+	* src/goocanvas/demo/demo-table.c:
+	* src/goocanvas/demo/demo.c:
+	* src/goocanvas/demo/mv-demo-animation.c:
+	* src/goocanvas/demo/mv-demo-arrowhead.c:
+	* src/goocanvas/demo/mv-demo-clipping.c:
+	* src/goocanvas/demo/mv-demo-events.c:
+	* src/goocanvas/demo/mv-demo-features.c:
+	* src/goocanvas/demo/mv-demo-fifteen.c:
+	* src/goocanvas/demo/mv-demo-focus.c:
+	* src/goocanvas/demo/mv-demo-grabs.c:
+	* src/goocanvas/demo/mv-demo-paths.c:
+	* src/goocanvas/demo/mv-demo-scalability.c:
+	* src/goocanvas/demo/mv-demo-table.c:
+	* src/goocanvas/demo/mv-demo.c:
+	* src/goocanvas/demo/mv-scalability-demo.c:
+	* src/goocanvas/demo/mv-simple-demo.c:
+	* src/goocanvas/demo/mv-table-demo.c:
+	* src/goocanvas/demo/scalability-demo.c:
+	* src/goocanvas/demo/simple-demo.c:
+	* src/goocanvas/demo/table-demo.c:
+	* src/goocanvas/demo/units-demo.c:
+	* src/goocanvas/demo/widgets-demo.c:
+	* src/goocanvas/docs/.cvsignore:
+	* src/goocanvas/docs/CVS/Entries:
+	* src/goocanvas/docs/CVS/Entries.Log:
+	* src/goocanvas/docs/CVS/Repository:
+	* src/goocanvas/docs/CVS/Root:
+	* src/goocanvas/docs/Makefile.am:
+	* src/goocanvas/docs/creating-items.xml:
+	* src/goocanvas/docs/goocanvas-docs.sgml:
+	* src/goocanvas/docs/goocanvas-sections.txt:
+	* src/goocanvas/docs/goocanvas.types:
+	* src/goocanvas/docs/model-view-canvas.xml:
+	* src/goocanvas/docs/overview.xml:
+	* src/goocanvas/docs/simple-canvas.xml:
+	* src/goocanvas/docs/tmpl/.cvsignore:
+	* src/goocanvas/docs/tmpl/CVS/Entries:
+	* src/goocanvas/docs/tmpl/CVS/Repository:
+	* src/goocanvas/docs/tmpl/CVS/Root:
+	* src/goocanvas/goocanvas.pc.in:
+	* src/goocanvas/gtk-doc.make:
+	* src/goocanvas/mkinstalldirs:
+	* src/goocanvas/po/.cvsignore:
+	* src/goocanvas/po/CVS/Entries:
+	* src/goocanvas/po/CVS/Repository:
+	* src/goocanvas/po/CVS/Root:
+	* src/goocanvas/po/ChangeLog:
+	* src/goocanvas/po/Makefile.in.in:
+	* src/goocanvas/po/POTFILES.in:
+	* src/goocanvas/po/en_GB.po:
+	* src/goocanvas/po/es.po:
+	* src/goocanvas/po/goocanvas.pot:
+	* src/goocanvas/po/ja.po:
+	* src/goocanvas/src/goocanvasitemsimple.c:
+	(goo_canvas_item_simple_install_common_properties):
+
 2008-03-15  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	merge from trunk r3309

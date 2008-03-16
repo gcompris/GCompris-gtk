@@ -3,6 +3,6 @@
 path=$1
 activity=draw
 plugindir=$path/../boards/.libs
-pythonplugindir=$path 
-resourcedir=$path/resources
+pythonplugindir=$path/../anim-activity
+resourcedir=$path/../anim-activity/resources
 section="/math/geometry"

@@ -625,8 +625,6 @@ init_background()
 static void setup_window ()
 {
   GcomprisBoard *board_to_start;
-  GdkPixbuf     *icon_pixbuf;
-  gchar         *icon_file;
 
   window = gtk_window_new (GTK_WINDOW_TOPLEVEL);
 
@@ -634,31 +632,26 @@ static void setup_window ()
    * Set an icon for gcompris
    * ------------------------
    */
-  icon_file = g_strconcat(properties->system_icon_dir, "/gcompris.png", NULL);
-  if (!g_file_test (icon_file, G_FILE_TEST_EXISTS)) {
-      /* Now check if this file is on the net */
-      icon_file = gc_net_get_url_from_file("gcompris.png", NULL);
+  {
+    GdkPixbuf *icon_pixbuf = NULL;
+    gchar *iconfile = gc_file_find_absolute("%s/%s",
+					    properties->system_icon_dir, "gcompris.png",
+					    NULL);
+    if(iconfile)
+      {
+	icon_pixbuf = gc_pixmap_load(iconfile);
+	g_free(iconfile);
+
+	if (icon_pixbuf)
+	  {
+	    gtk_window_set_icon (GTK_WINDOW (window), icon_pixbuf);
+	    gdk_pixbuf_unref (icon_pixbuf);
+	  }
+      }
+    else
+      g_message ("Failed to find icon file: 'gcompris.png'");
+
   }
-
-  if(!icon_file)
-      g_message ("Couldn't find file %s !", icon_file);
-  else
-    {
-      icon_pixbuf = gc_net_load_pixmap(icon_file);
-
-      if (!icon_pixbuf)
-	{
-	  g_message ("Failed to load pixbuf file: %s\n",
-		     icon_file);
-	}
-      g_free(icon_file);
-
-      if (icon_pixbuf)
-	{
-	  gtk_window_set_icon (GTK_WINDOW (window), icon_pixbuf);
-	  gdk_pixbuf_unref (icon_pixbuf);
-	}
-    }
 
   gtk_window_set_title(GTK_WINDOW (window), "GCompris");
 

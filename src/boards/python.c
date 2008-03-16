@@ -144,7 +144,6 @@ pythonboard_init (GcomprisBoard *agcomprisBoard){
 
   char* board_file_name;
   char* boardclass;
-  gchar *boarddir;
   PyObject* module_dict;
   PyObject* py_boardclass;
 
@@ -220,19 +219,12 @@ pythonboard_init (GcomprisBoard *agcomprisBoard){
 	    board_file_name = strchr(board->type, ':')+1;
 	    boardclass = g_strdup_printf("Gcompris_%s", board_file_name);
 
-	    /* Test if board come with -L option */
+	    /* Test if board come with --python_plugin_dir option */
 
-	    g_warning("board_dir: '%s' package_data_dir '%s' file_name '%s'",
+	    g_warning("board_dir: '%s' python_plugin_dir '%s' file_name '%s'",
 		      board->board_dir,
 		      properties->package_python_plugin_dir,
 		      board_file_name);
-
-	    if (strcmp(board->board_dir, properties->package_python_plugin_dir)!=0){
-	      boarddir = g_strdup_printf("sys.path.append('%s/')", board->board_dir);
-
-	      PyRun_SimpleString(boarddir);
-	      g_free(boarddir);
-	    }
 
 	    /* Insert the board module into the python's interpreter */
 	    python_board_module = PyImport_ImportModuleEx(board_file_name,
@@ -537,7 +529,8 @@ static void pythonboard_repeat (void){
  */
 
 /*
- * Normally python in already runningwhen config_start is called. If not config_stop has to stop it.
+ * Normally python in already running when config_start is called.
+ * If not config_stop has to stop it.
  */
 
 static gboolean python_run_by_config = FALSE;

@@ -175,7 +175,7 @@ RsvgHandle *gc_rsvg_load(const gchar *format, ...)
 }
 
 /**
- * Set the focus of the given image (highlight or not)
+ * Set the focus of the given item (highlight or not)
  *
  */
 static void
@@ -290,15 +290,18 @@ void gc_item_focus_init(GooCanvasItem *source_item,
   		"visibility", GOO_CANVAS_ITEM_INVISIBLE,
   		NULL);
 
-  if(!already_created)
-    {
-      g_signal_connect(source_item, "enter_notify_event",
-		       (GtkSignalFunc) gc_item_focus_event,
-		       target_item);
-      g_signal_connect(source_item, "leave_notify_event",
-		       (GtkSignalFunc) gc_item_focus_event,
-		       target_item);
-    }
+  /* Avoid double connection */
+  g_signal_handlers_disconnect_by_func(source_item,
+				       (GtkSignalFunc) gc_item_focus_event,
+				       target_item);
+
+  /* connect source to target */
+  g_signal_connect(source_item, "enter_notify_event",
+		   (GtkSignalFunc) gc_item_focus_event,
+		   target_item);
+  g_signal_connect(source_item, "leave_notify_event",
+		   (GtkSignalFunc) gc_item_focus_event,
+		   target_item);
 }
 
 /*
