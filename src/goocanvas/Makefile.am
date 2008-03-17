@@ -5,4 +5,3 @@ SUBDIRS = src
 # require automake 1.7
 AUTOMAKE_OPTIONS = 1.7
 
-EXTRA_DIST = autogen.sh
