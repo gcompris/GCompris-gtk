@@ -271,7 +271,7 @@ static GooCanvasItem *colors_create_item(GooCanvasItem *parent)
 
 
   str = g_strdup_printf("%s/%s", gcomprisBoard->boarddir,
-			"advanced_colors_highlight.png");
+			"highlight.png");
   pixmap = gc_pixmap_load(str);
 
   highlight_image_item = goo_canvas_image_new (boardRootItem,

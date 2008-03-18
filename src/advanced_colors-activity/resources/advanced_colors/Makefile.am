@@ -36,6 +36,6 @@ img_DATA = \
 	advanced_colors7.jpg \
 	advanced_colors8.jpg \
 	advanced_colors9.jpg \
-	advanced_colors_highlight.png
+	highlight.png
 
 EXTRA_DIST = $(img_DATA)
