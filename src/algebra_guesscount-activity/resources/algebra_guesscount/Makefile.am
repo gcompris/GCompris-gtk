@@ -1,5 +1,6 @@
 imgdir = $(pkgdatadir)/@PACKAGE_DATA_DIR@/algebra_guesscount
 img_DATA = \
+	README \
 	100.png \
 	10.png \
 	1.png \
@@ -19,7 +20,7 @@ img_DATA = \
 	equal.png \
 	minus.png \
 	plus.png \
-	tiger1_by_Ralf_Schmode.jpg \
+	tiger1_RS.jpg \
 	tigercub003.jpg \
 	tigerdrink001.jpg \
 	tigerplay001.jpg

@@ -59,7 +59,7 @@ static void		 destroy_board(void);
 #define HORIZONTAL_SEPARATION 20
 #define VERTICAL_SEPARATION 20
 
-static char* background_images[] = {"algebra_guesscount/tiger1_by_Ralf_Schmode",
+static char* background_images[] = {"algebra_guesscount/tiger1_RS",
 				    "algebra_guesscount/tigerdrink001.jpg",
 				    "algebra_guesscount/tigercub003.jpg",
 				    "algebra_guesscount/tigerplay001.jpg"};
@@ -209,7 +209,7 @@ static void start_board (GcomprisBoard *agcomprisBoard) {
     button_pixmap = gc_pixmap_load(str);
     g_free(str);
 
-    gc_set_background(goo_canvas_get_root_item(gcomprisBoard->canvas),"algebra_guesscount/tiger1_by_Ralf_Schmode.jpg");
+    gc_set_background(goo_canvas_get_root_item(gcomprisBoard->canvas),"algebra_guesscount/tiger1_RS.jpg");
     gcomprisBoard->level=1;
     gcomprisBoard->maxlevel=NUMBER_OF_LEVELS;
     gcomprisBoard->sublevel=1;
