@@ -31,34 +31,34 @@ img_DATA = \
 	guitar_son3.ogg \
 	guitar_son4.ogg \
 	Licence.txt \
-	LRApplauses_1_by_Lionel_Allorge_cut.ogg \
-	LRBark_1_by_Lionel_Allorge_cut.ogg \
-	LRBark_3_by_Lionel_Allorge_cut.ogg \
-	LRBuddhist_gong_05_by_Lionel_Allorge.ogg \
-	LRDoor_Open_2_by_Lionel_Allorge.ogg \
-	LRFactory_noise_01_by_Lionel_Allorge.ogg \
-	LRFactory_noise_02_by_Lionel_Allorge.ogg \
-	LRFactory_noise_03_by_Lionel_Allorge.ogg \
-	LRFactory_noise_04_by_Lionel_Allorge.ogg \
-	LRFactory_noise_05_by_Lionel_Allorge.ogg \
-	LRFactory_noise_06_by_Lionel_Allorge.ogg \
-	LRFireballs_01_by_Lionel_Allorge.ogg \
-	LRFrogsInPondDuringStormByLionelAllorgeCut.ogg \
-	LRHeart_beat_01_by_Lionel_Allorge.ogg \
-	LRHits_01_by_Lionel_Allorge.ogg \
+	LRApplauses_1_LA_cut.ogg \
+	LRBark_1_LA_cut.ogg \
+	LRBark_3_LA_cut.ogg \
+	LRBuddhist_gong_05_LA.ogg \
+	LRDoor_Open_2_LA.ogg \
+	LRFactory_noise_01_LA.ogg \
+	LRFactory_noise_02_LA.ogg \
+	LRFactory_noise_03_LA.ogg \
+	LRFactory_noise_04_LA.ogg \
+	LRFactory_noise_05_LA.ogg \
+	LRFactory_noise_06_LA.ogg \
+	LRFireballs_01_LA.ogg \
+	LRFrogsInPondDuringStormLACut.ogg \
+	LRHeart_beat_01_LA.ogg \
+	LRHits_01_LA.ogg \
 	LRLaPause_short.ogg \
-	LRObject_falling_01_by_Lionel_Allorge.ogg \
-	LRObject_falling_02_by_Lionel_Allorge.ogg \
-	LRRain_in_garden_01_by_Lionel_Allorge_cut.ogg \
-	LRRing_01_by_Lionel_Allorge.ogg \
-	LRStartAndStopCarEngine1ByLionelAllorgeCut.ogg \
-	LRTrain_slowing_down_01_by_Lionel_Allorge_cut.ogg \
-	LRWeird_1_by_Lionel_Allorge.ogg \
-	LRWeird_2_by_Lionel_Allorge.ogg \
-	LRWeird_3_by_Lionel_Allorge.ogg \
-	LRWeird_4_by_Lionel_Allorge.ogg \
-	LRWeird_5_by_Lionel_Allorge.ogg \
-	LRWeird_6_by_Lionel_Allorge.ogg \
+	LRObject_falling_01_LA.ogg \
+	LRObject_falling_02_LA.ogg \
+	LRRain_in_garden_01_LA_cut.ogg \
+	LRRing_01_LA.ogg \
+	LRStartAndStopCarEngine1LACut.ogg \
+	LRTrain_slowing_down_01_LA_cut.ogg \
+	LRWeird_1_LA.ogg \
+	LRWeird_2_LA.ogg \
+	LRWeird_3_LA.ogg \
+	LRWeird_4_LA.ogg \
+	LRWeird_5_LA.ogg \
+	LRWeird_6_LA.ogg \
 	plick.ogg \
 	README \
 	scenery_background.png \
