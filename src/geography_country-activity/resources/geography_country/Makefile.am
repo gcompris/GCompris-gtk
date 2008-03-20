@@ -1,5 +1,5 @@
-SUBDIRS = argentina france_region germany_region norway_counties \
-	poland_voivodship turkey_district
+SUBDIRS = argentina france germany norway \
+	poland turkey
 
 xmldir = $(pkgdatadir)/@PACKAGE_DATA_DIR@/geography_country
 
