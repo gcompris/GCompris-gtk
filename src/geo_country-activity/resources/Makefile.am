@@ -1,1 +1,1 @@
-SUBDIRS=geography_country
+SUBDIRS=geo_country
