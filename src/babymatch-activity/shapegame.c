@@ -1,8 +1,6 @@
 /* gcompris - shapegame.c
  *
- * Time-stamp: <2006/08/21 23:35:01 bruno>
- *
- * Copyright (C) 2000 Bruno Coudoin
+ * Copyright (C) 2000,2008 Bruno Coudoin
  *
  *   This program is free software; you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
@@ -402,9 +400,9 @@ static gboolean increment_sublevel()
     gcomprisBoard->level++;
     gcomprisBoard->sublevel=0;
 
-    if(gcomprisBoard->level>gcomprisBoard->maxlevel) { // the current board is finished : bail out
-      gc_bonus_end_display(GC_BOARD_FINISHED_RANDOM);
-      return FALSE;
+    if(gcomprisBoard->level>gcomprisBoard->maxlevel) { // the current board is finished : restart
+      gcomprisBoard->level = 1;
+      gcomprisBoard->sublevel=0;
     }
 
   }
