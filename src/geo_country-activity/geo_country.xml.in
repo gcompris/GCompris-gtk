@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GCompris>
   <Board
-	 name="geography_country"
+	 name="geo_country"
 	 type="shapegame"
 	 section="/discovery/miscelaneous"
 	 icon="france_region.svg"
@@ -9,7 +9,7 @@
 	 mandatory_sound_file="voices/$LOCALE/geography/peru.ogg"
 	 difficulty="2"
 	 author="Jean-Philippe Ayanides (jp.ayanides@free.fr)"
-	 boarddir="geography_country">
+	 boarddir="geo_country">
 	 <_title>Locate the region</_title>
 	 <_description>Drag and Drop the regions to redraw the whole country</_description>
 	<_prerequisite>Mouse manipulation: movement, drag and drop</_prerequisite>

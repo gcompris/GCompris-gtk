@@ -3,7 +3,7 @@ SUBDIRS = resources
 xmldir = $(pkgdatadir)/@PACKAGE_DATA_DIR@
 
 xml_in_files = \
-	geography_country.xml.in
+	geo_country.xml.in
 
 
 xml_DATA = $(xml_in_files:.xml.in=.xml)

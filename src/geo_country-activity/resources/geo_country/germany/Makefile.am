@@ -16,21 +16,21 @@ img_DATA = \
 	sachsen-anhalt.png \
 	sachsen.png \
 	schleswig_holstein.png \
-	target_baden-wuerttemberg.png \
+	tg_baden-wuerttemberg.png \
 	target_bayern.png \
 	target_berlin.png \
 	target_brandenburg.png \
 	target_bremen.png \
 	target_hamburg.png \
 	target_hessen.png \
-	target_mecklenburg-vorpommern.png \
+	tg_mecklenburg-vorpommern.png \
 	target_niedersachsen.png \
-	target_nordrhein-westfalen.png \
+	tg_nordrhein-westfalen.png \
 	target_rheinland-pfalz.png \
 	target_saarland.png \
 	target_sachsen-anhalt.png \
 	target_sachsen.png \
-	target_schleswig_holstein.png \
+	tg_schleswig_holstein.png \
 	target_thueringen.png \
 	thueringen.png
 

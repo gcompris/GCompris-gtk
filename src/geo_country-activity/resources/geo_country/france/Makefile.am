@@ -21,7 +21,7 @@ img_DATA = \
 	pays-de-la-loire.png \
 	picardie.png \
 	poitou-charentes.png \
-	provence-alpes-cote_d_azur.png \
+	paca.png \
 	rhone-alpes.png
 
 EXTRA_DIST = $(img_DATA)

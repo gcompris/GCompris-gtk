@@ -26,7 +26,7 @@ SUBDIRS = goocanvas gcompris boards \
 	erase_clic-activity \
 	fifteen-activity \
 	geography-activity \
-	geography_country-activity \
+	geo_country-activity \
 	gletters-activity \
 	hanoi-activity \
 	hanoi_real-activity \
