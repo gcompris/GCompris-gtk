@@ -69,4 +69,5 @@ img_DATA = \
 	renoir-moulin_de_la_galette-5.png \
 	renoir-moulin_de_la_galette-6.png
 
-EXTRA_DIST = $(img_DATA)
+EXTRA_DIST = $(img_DATA) ${xml_in_files}
+CLEANFILES = $(xml_DATA)

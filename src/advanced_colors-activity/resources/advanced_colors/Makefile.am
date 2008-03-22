@@ -23,7 +23,6 @@ $(xml_DATA): %.xml: %.xml.in
 	sed -e "s/\(<\{1\}\/*\)_/\1/g" $< > $@
 
 
-CLEANFILES = $(xml_DATA)
 
 imgdir = $(pkgdatadir)/@PACKAGE_DATA_DIR@/advanced_colors
 img_DATA = \
@@ -38,4 +37,5 @@ img_DATA = \
 	advanced_colors9.jpg \
 	highlight.png
 
-EXTRA_DIST = $(img_DATA)
+EXTRA_DIST = $(img_DATA) ${xml_in_files}
+CLEANFILES = $(xml_DATA)

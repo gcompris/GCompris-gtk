@@ -1,4 +1,4 @@
-SUBDIRS = 
+SUBDIRS =
 
 pythondir = $(PYTHON_PLUGIN_DIR)
 
@@ -25,9 +25,8 @@ $(xml_DATA): %.xml: %.xml.in
 # in the xml files directly, this is needed for the tool gcompris2spip
 #@INTLTOOL_XML_RULE@
 
-CLEANFILES = $(xml_DATA)
-
 icondir = $(pkgdatadir)/@PACKAGE_DATA_DIR@
 icon_DATA = python.svg
 
-EXTRA_DIST = $(icon_DATA)
+EXTRA_DIST = $(icon_DATA) ${xml_in_files} init_path.sh
+CLEANFILES = $(xml_DATA)

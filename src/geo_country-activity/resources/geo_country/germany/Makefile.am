@@ -23,7 +23,7 @@ img_DATA = \
 	target_bremen.png \
 	target_hamburg.png \
 	target_hessen.png \
-	tg_mecklenburg-vorpommern.png \
+	tg_mecklenburg-vorpo.png \
 	target_niedersachsen.png \
 	tg_nordrhein-westfalen.png \
 	target_rheinland-pfalz.png \

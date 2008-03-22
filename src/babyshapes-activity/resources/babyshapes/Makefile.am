@@ -44,4 +44,5 @@ img_DATA = \
 	T_suggar_box.png \
 	T_yahourt.png
 
-EXTRA_DIST = $(img_DATA)
+EXTRA_DIST = $(img_DATA) ${xml_in_files}
+CLEANFILES = $(xml_DATA)

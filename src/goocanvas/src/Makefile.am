@@ -69,6 +69,7 @@ libgoocanvas_la_SOURCES =		\
 	svg-item.c
 
 libgoocanvas_extra_sources =		\
+	$(libgoocanvas_public_headers)	\
 	goocanvasmarshal.list
 
 libgoocanvas_built_headers =		\

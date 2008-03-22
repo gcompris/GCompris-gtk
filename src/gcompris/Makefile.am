@@ -15,18 +15,6 @@ sqlite_ldadd =
 sqlite_cflags =
 endif
 
-#if USE_CAIRO
-#cairo_ldflags = $(CAIRO_LIBS)
-#cairo_cflags = $(CAIRO_CFLAGS)
-#cairo_h = gcompris-cairo.h
-#cairo_c = gcompris-cairo.c
-#else
-#cairo_ldflags =
-#cairo_cflags =
-#cairo_h =
-#cairo_c =
-#endif
-
 if PLATFORM_WIN32
 no_undefined = -no-undefined
 shared = -shared
@@ -147,7 +135,8 @@ gc-marshal.h: gc-marshal.list
 
 
 EXTRA_DIST = \
-	Makefile.mingw gcomprisrc.rc
+	Makefile.mingw gcomprisrc.rc \
+	gc-marshal.list
 
 DONT_DIST_SOURCE = $(marshal_sources)
 

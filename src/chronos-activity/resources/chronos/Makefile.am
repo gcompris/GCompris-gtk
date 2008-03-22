@@ -65,4 +65,5 @@ img_DATA = \
 	winter.png \
 	wright_flyer.png
 
-EXTRA_DIST = $(img_DATA)
+EXTRA_DIST = $(img_DATA) ${xml_in_files}
+CLEANFILES = $(xml_DATA)

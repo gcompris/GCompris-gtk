@@ -19,7 +19,6 @@ $(xml_DATA): %.xml: %.xml.in
 	sed -e "s/\(<\{1\}\/*\)_/\1/g" $< > $@
 
 
-CLEANFILES = $(xml_DATA)
 imgdir = $(pkgdatadir)/@PACKAGE_DATA_DIR@/missing_letter
 img_DATA = \
 	avion.png \
@@ -36,4 +35,5 @@ img_DATA = \
 	missingletter-bg.jpg \
 	pomme.png
 
-EXTRA_DIST = $(img_DATA)
+EXTRA_DIST = $(img_DATA) ${xml_in_files}
+CLEANFILES = $(xml_DATA)

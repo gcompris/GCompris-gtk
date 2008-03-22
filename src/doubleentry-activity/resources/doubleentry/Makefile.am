@@ -44,4 +44,5 @@ img_DATA = \
 	d-entry_pomme_3.png \
 	doubleentry-bg.png
 
-EXTRA_DIST = $(img_DATA)
+EXTRA_DIST = $(img_DATA) ${xml_in_files}
+CLEANFILES = $(xml_DATA)
