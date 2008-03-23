@@ -1,6 +1,6 @@
 #!/usr/bin/python
 #
-# Copyright (C) 2006 Miguel DE IZARRA
+# Copyright (C) 2006, 2008 Miguel DE IZARRA
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -19,9 +19,9 @@
 #######################################################################
 #
 # a Python-Fu Gimp script for GCompris Shapegame activities
-# 
+#
 # Require: gimp-python
-# 
+#
 # To install, copy this script in ~/.gimp-2.2/plug-ins/ and set it executable
 # cp gcompris_shapegame.py ~/.gimp-2.2/plug-ins/
 # chmod +x ~/.gimp-2.2/plug-ins/gcompris_shapegame.py
@@ -47,7 +47,7 @@
 #   a. Choice output directory and title (default based on image name)
 #   b. Set the border size between regions (depend on the original map)
 #   c. Choice if borders between region should be show
-# 
+#
 # We can change color of a region by opening region file in gimp,
 # and fill it by a new color.
 #
@@ -78,24 +78,24 @@ def gcompris_puzzle(img, sdrawable, x, y, dossier, title, puzzle_type):
             ptype = 0 -> normal, 1 -> rectanglular (grid)
         """
         width, height = img.width, img.height
-        layer = gimp.Layer(img, "puzzle", width, height, RGB_IMAGE, 
+        layer = gimp.Layer(img, "puzzle", width, height, RGB_IMAGE,
             100, NORMAL_MODE)
         layer.fill(WHITE_FILL)
         img.add_layer(layer)
         if ptype:
             vspace = math.ceil(width / float(x))
             hspace = math.ceil(height / float(y))
-            pdb.plug_in_grid(img, layer, 1, hspace, 0, (0, 0, 0), 255, 
-                1, vspace, 0, (0, 0, 0), 255, 
+            pdb.plug_in_grid(img, layer, 1, hspace, 0, (0, 0, 0), 255,
+                1, vspace, 0, (0, 0, 0), 255,
                 0, 0, 0, (0, 0, 0), 255)
         else:
             pdb.plug_in_jigsaw(img, layer, x, y, 1, 0, 0)
         return layer
 
     if not gcompris_init(img):
-        return 
+        return
 
-    # Init 
+    # Init
     bg_layer = img.active_layer
     pdb.gimp_selection_none(img)
     width, height = img.width, img.height
@@ -113,10 +113,10 @@ def gcompris_puzzle(img, sdrawable, x, y, dossier, title, puzzle_type):
             pdb.gimp_floating_sel_to_layer(pdb.gimp_edit_paste(bg_layer, 1))
             img.active_layer.name = chr(ord('A')+ idx) + str(idy+1)
             layerlist.append(img.active_layer)
-    
+
     pdb.gimp_selection_none(img)
     img.remove_layer(puzzle)
-    
+
     d_title = dict(x=405, y=495, justification ="GTK_JUSTIFY_CENTER",
         color_skin="gcompris/text button")
     d_title["<name>"] = title
@@ -153,7 +153,7 @@ def gcompris_geography(img, sdrawable, dossier, title, bordersize, keepLimit):
 
     save_bg = gimp.get_background()
     save_fg = gimp.get_foreground()
-    
+
     layer_map = img.layers[0]
     if not layer_map.has_alpha:
     	layer_map.add_alpha()
@@ -179,7 +179,7 @@ def gcompris_geography(img, sdrawable, dossier, title, bordersize, keepLimit):
         pdb.gimp_edit_fill(layer, BACKGROUND_FILL)
         layer.name = chan.name
         layerlist.append(layer)
-   
+
     pdb.gimp_context_set_default_colors()
     # Fill country white
     pdb.gimp_selection_load(all_channel)
@@ -188,12 +188,12 @@ def gcompris_geography(img, sdrawable, dossier, title, bordersize, keepLimit):
     pdb.gimp_selection_grow(img, bordersize)
     earth = pdb.gimp_selection_save(img)
     earth.name = "earth"
-    
+
     # Fill limit black
     pdb.gimp_selection_combine(all_channel, CHANNEL_OP_SUBTRACT)
     pdb.gimp_edit_fill(layer_map, FOREGROUND_FILL)  # Fill Black
-    
-    # Clear other 
+
+    # Clear other
     pdb.gimp_selection_load(earth)
     pdb.gimp_selection_invert(img)
     pdb.gimp_edit_clear(layer_map)
@@ -206,7 +206,7 @@ def gcompris_geography(img, sdrawable, dossier, title, bordersize, keepLimit):
     gimp.set_background(94, 146, 229)
     pdb.gimp_edit_blend(layer_map, 0, 0, 0, 50, 0, 0, False, False, 0, 0,
         True, 0, 0, img.width, img.height)
-    
+
     # Water 2
     pdb.gimp_selection_load(earth)
     pdb.gimp_selection_grow(img, 20)
@@ -215,7 +215,7 @@ def gcompris_geography(img, sdrawable, dossier, title, bordersize, keepLimit):
     gimp.set_background(137, 173, 225)
     pdb.gimp_edit_blend(layer_map, 0, 0, 0, 25, 0, 0, False, False, 0, 0,
         True, 0, 0, img.width, img.height)
-    
+
     # Remove tmp channel
     img.remove_channel(earth)
     img.remove_channel(all_channel)
@@ -223,7 +223,7 @@ def gcompris_geography(img, sdrawable, dossier, title, bordersize, keepLimit):
     gimp.set_background(save_bg)
     gimp.set_foreground(save_fg)
     pdb.gimp_selection_none(img)
-    
+
     shape = dict()
     shape["sound"] = os.path.join("sounds", "$LOCALE", "geography", dossier, "%n.ogg")
     shape["<tooltip>"] = "%n"
@@ -264,7 +264,7 @@ def gcompris_layer_to_board(layerlist, activity, subdir, title, background, shap
     def realbasename(f):
         """Return the basename without extension"""
         return os.path.splitext(os.path.basename(f))[0]
-    
+
     def dict_to_str(name, dico):
         """ Convert a dictionnary to string of a xml element
         dictionnary'keys are convert to a property of the xml element with associate value
@@ -283,7 +283,7 @@ def gcompris_layer_to_board(layerlist, activity, subdir, title, background, shap
         else:
             tmp += "/>\n"
         return tmp
-    
+
     # Init
     img = layerlist[0].image
     width, height = img.width, img.height
@@ -296,7 +296,7 @@ def gcompris_layer_to_board(layerlist, activity, subdir, title, background, shap
         if os.path.exists(out_dir):
             os.remove(out_dir)
         os.mkdir(out_dir)
-    
+
     out_xml = os.path.join(out_dir, "board.xml")
     xml = file(out_xml, "w")
     xml.write("""<?xml version="1.0" encoding="UTF-8"?>
@@ -304,14 +304,14 @@ def gcompris_layer_to_board(layerlist, activity, subdir, title, background, shap
 
     if title:
         xml.write(dict_to_str("title", title))
-        
+
     if isinstance(background, dict):
         xml.write(dict_to_str("Shape", background))
     elif isinstance(background, gimp.Layer):
         layerlist.append(background)
 
     deltax, deltay = (800-width)/2, (520-height)/2
-    
+
     for tile_layer in layerlist:
         tile_filename = tile_layer.name+".png"
         tile_filename_long = os.path.join(out_dir, tile_filename)
@@ -334,6 +334,6 @@ def gcompris_layer_to_board(layerlist, activity, subdir, title, background, shap
         xml.write(dict_to_str("shape", shape_dict))
     xml.write("</ShapeGame>\n")
     xml.close()
-    
+
 main()
 
