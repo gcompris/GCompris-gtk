@@ -92,6 +92,9 @@ if [ -f "$extra_bin" ]; then
   cp $extra_bin $activity_dir/bin
 fi
 
+# Add the skin directory
+ln -s ../../../boards/skins -t $activity_dir/resources/
+
 # Add the locale translation file
 dir=$activity_dir/locale/$lang/LC_MESSAGES
 mkdir -p $dir

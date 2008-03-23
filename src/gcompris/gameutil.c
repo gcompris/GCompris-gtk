@@ -559,6 +559,7 @@ gc_file_find_absolute(const gchar *format, ...)
    */
 
   dir_to_search[i++] = properties->package_data_dir;
+  dir_to_search[i++] = properties->package_skin_dir;
   dir_to_search[i++] = NULL;
 
   absolute_filename = g_strdup(filename);

@@ -169,6 +169,7 @@ gc_prop_new ()
   tmp->server            = NULL;
 
   tmp->package_data_dir           = NULL;
+  tmp->package_skin_dir           = NULL;
   tmp->package_locale_dir         = NULL;
   tmp->package_plugin_dir         = NULL;
   tmp->package_python_plugin_dir  = NULL;
@@ -517,6 +518,7 @@ gc_prop_destroy (GcomprisProperties *props)
   if(!props)
     return;
   g_free(props->package_data_dir);
+  g_free(props->package_skin_dir);
   g_free(props->package_locale_dir);
   g_free(props->package_plugin_dir);
   g_free(props->package_python_plugin_dir);

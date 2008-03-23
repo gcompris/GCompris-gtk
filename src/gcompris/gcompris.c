@@ -121,6 +121,7 @@ static gint popt_debug		   = FALSE;
 static gint popt_nolockcheck	   = FALSE;
 static gchar *popt_root_menu       = NULL;
 static gchar *popt_package_data_dir = NULL;
+static gchar *popt_package_skin_dir = NULL;
 static gchar *popt_plugin_dir      = NULL;
 static gchar *popt_python_plugin_dir = NULL;
 static gchar *popt_locale_dir      = NULL;
@@ -175,6 +176,9 @@ static GOptionEntry options[] = {
 
   {"package_data_dir", 'A', 0, G_OPTION_ARG_STRING, &popt_package_data_dir,
    N_("GCompris will find the data dir in this directory"), NULL},
+
+  {"package_skin_dir", 'S', 0, G_OPTION_ARG_STRING, &popt_package_skin_dir,
+   N_("GCompris will find the skins in this directory"), NULL},
 
   {"plugin_dir", 'L', 0, G_OPTION_ARG_STRING, &popt_plugin_dir,
    N_("GCompris will find the activity plugins in this directory"), NULL},
@@ -1086,6 +1090,7 @@ static void load_properties ()
     gchar *pkg_clib_dir = gbr_find_lib_dir(PACKAGE_CLIB_DIR);
 
     properties->package_data_dir = g_strconcat(pkg_data_dir, "/gcompris/boards", NULL);
+    properties->package_skin_dir = g_strconcat(pkg_data_dir, "/gcompris/boards/skins", NULL);
     properties->package_locale_dir = gbr_find_locale_dir(PACKAGE_LOCALE_DIR);
     properties->package_plugin_dir = g_strconcat(pkg_clib_dir, "/gcompris", NULL);
     properties->package_python_plugin_dir = g_strconcat(pkg_data_dir, "/gcompris/python",
@@ -1098,6 +1103,7 @@ static void load_properties ()
 
   /* Display the directory value we have */
   printf("package_data_dir         = %s\n", properties->package_data_dir);
+  printf("package_skin_dir         = %s\n", properties->package_skin_dir);
   printf("package_menu_dir         = %s\n", properties->menu_dir);
   printf("package_locale_dir       = %s\n", properties->package_locale_dir);
   printf("package_plugin_dir       = %s\n", properties->package_plugin_dir);
@@ -1441,6 +1447,12 @@ main (int argc, char *argv[])
     printf("Overloaded package_data_dir          = %s\n", popt_package_data_dir);
     g_free(properties->package_data_dir);
     properties->package_data_dir = g_strdup(popt_package_data_dir);
+  }
+
+  if (popt_package_skin_dir) {
+    printf("Overloaded package_skin_dir          = %s\n", popt_package_skin_dir);
+    g_free(properties->package_skin_dir);
+    properties->package_skin_dir = g_strdup(popt_package_skin_dir);
   }
 
   if (popt_menu_dir) {

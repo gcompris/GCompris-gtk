@@ -62,9 +62,10 @@ gc_skin_image_get(gchar *pixmapfile)
   gchar *filename;
 
   /* First, test if pixmapfile is in the current skin dir */
-  filename = g_strdup_printf("%s/skins/%s/%s",
+  filename = g_strdup_printf("%s/%s/%s",
 			     properties->package_data_dir,
-			     properties->skin, pixmapfile);
+			     properties->skin,
+			     pixmapfile);
 
   if (g_file_test ((filename), G_FILE_TEST_EXISTS)) {
     g_free(filename);

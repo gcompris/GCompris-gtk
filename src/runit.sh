@@ -30,6 +30,7 @@ fi
 $gcompris -L $plugindir \
     -P $pythonplugindir \
     -A $resourcedir \
+    -S $menudir/../../boards/skins \
     -M $menudir \
     --locale_dir=$path/locale \
     -l $section/$activity $*

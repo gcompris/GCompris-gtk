@@ -42,6 +42,7 @@ typedef struct {
   gint		display_resource;
   gchar        *root_menu;
   gchar        *package_data_dir;
+  gchar        *package_skin_dir;
   gchar        *package_locale_dir;
   gchar        *package_plugin_dir;
   gchar        *package_python_plugin_dir;
