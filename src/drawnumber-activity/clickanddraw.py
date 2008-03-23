@@ -1,7 +1,7 @@
 #  gcompris - clickanddraw
 #
 #
-# Copyright (C) 2007 Olivier Ponchaut
+# Copyright (C) 2007, 2008 Olivier Ponchaut
 #
 #   This program is free software; you can redistribute it and/or modify
 #   it under the terms of the GNU General Public License as published by

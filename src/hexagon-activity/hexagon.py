@@ -1,6 +1,6 @@
 #  gcompris - Hexagon
 #
-# Copyright (C) 2004  Christof Petig and Ingo Konrad
+# Copyright (C) 2004, 2008  Christof Petig and Ingo Konrad
 #
 #   This program is free software; you can redistribute it and/or modify
 #   it under the terms of the GNU General Public License as published by

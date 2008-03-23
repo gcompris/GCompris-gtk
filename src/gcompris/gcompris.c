@@ -1,6 +1,6 @@
 /* gcompris - gcompris.c
  *
- * Copyright (C) 2000-2008 Bruno Coudoin
+ * Copyright (C) 2000, 2008 Bruno Coudoin
  *
  *   This program is free software; you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by

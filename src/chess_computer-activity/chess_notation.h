@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 1999 Robert Wilhelm
+ * Copyright (C) 1999, 2008 Robert Wilhelm
  *
  *   This program is free software; you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by

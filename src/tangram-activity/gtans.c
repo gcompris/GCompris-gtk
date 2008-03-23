@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 1999  Philippe Banwarth
+ * Copyright (C) 1999, 2008  Philippe Banwarth
  * email: bwt@altern.org
  * smail: Philippe Banwarth, 8 sente du milieu des Gaudins, 95150 Taverny, France.
  *

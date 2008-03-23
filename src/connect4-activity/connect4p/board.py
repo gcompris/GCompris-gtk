@@ -1,6 +1,6 @@
 #  gcompris - connect4
 #
-# Copyright (C) 2005 Laurent Lacheny
+# Copyright (C) 2005, 2008 Laurent Lacheny
 #
 #   This program is free software; you can redistribute it and/or modify
 #   it under the terms of the GNU General Public License as published by

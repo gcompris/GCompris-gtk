@@ -1,6 +1,6 @@
 /* gcompris - timer.c
  *
- * Copyright (C) 2007 Bruno coudoin
+ * Copyright (C) 2007, 2008 Bruno coudoin
  *
  *   This program is free software; you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by

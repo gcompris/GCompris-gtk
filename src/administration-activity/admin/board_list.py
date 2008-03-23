@@ -1,6 +1,6 @@
 #  gcompris - board_list.py
 #
-# Copyright (C) 2005 Yves Combe
+# Copyright (C) 2005, 2008 Yves Combe
 #
 #   This program is free software; you can redistribute it and/or modify
 #   it under the terms of the GNU General Public License as published by

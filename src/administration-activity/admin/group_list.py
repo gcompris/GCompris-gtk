@@ -1,6 +1,6 @@
 #  gcompris - group_list.py
 #
-# Copyright (C) 2005 Bruno Coudoin and Yves Combe
+# Copyright (C) 2005, 2008 Bruno Coudoin and Yves Combe
 #
 #   This program is free software; you can redistribute it and/or modify
 #   it under the terms of the GNU General Public License as published by

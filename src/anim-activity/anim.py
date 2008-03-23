@@ -1,6 +1,6 @@
 #  gcompris - anim
 #
-# Copyright (C) 2003 Bruno Coudoin (redraw code), 2004 Yves Combe (anim code)
+# Copyright (C) 2003, 2008 Bruno Coudoin (redraw code), 2004 Yves Combe (anim code)
 #
 #   This program is free software; you can redistribute it and/or modify
 #   it under the terms of the GNU General Public License as published by

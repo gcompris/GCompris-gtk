@@ -1,6 +1,6 @@
 /* gcompris - anim.c
  *
- * Copyright (C) 2005 Joe Neeman
+ * Copyright (C) 2005, 2008 Joe Neeman
  *
  *   This program is free software; you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by

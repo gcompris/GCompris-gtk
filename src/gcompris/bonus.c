@@ -1,6 +1,6 @@
 /* gcompris - bonus.c
  *
- * Copyright (C) 2001 Pascal George
+ * Copyright (C) 2001, 2008 Pascal George
  *
  *   This program is free software; you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by

@@ -1,6 +1,6 @@
 #  gcompris - guessnumber
 #
-# Copyright (C) 2005 Bruno Coudoin / Clement Coudoin
+# Copyright (C) 2005, 2008 Bruno Coudoin / Clement Coudoin
 #
 #   This program is free software; you can redistribute it and/or modify
 #   it under the terms of the GNU General Public License as published by

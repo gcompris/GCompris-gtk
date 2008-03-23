@@ -1,6 +1,6 @@
 /* gcompris - traffic.h
  *
- * Copyright (C) 2003 Bruno Coudoin
+ * Copyright (C) 2003, 2008 Bruno Coudoin
  *
  * Based on the original code from Geoff Reedy <vader21@imsa.edu>
  * Copyright (C) 2000 Geoff Reedy

@@ -1,7 +1,7 @@
 /*  GCompris -- board.c : Originaly this files comes from XMMS
  *
- *  XMMS - Cross-platform multimedia player
  *  Copyright (C) 1998-2000  Peter Alm, Mikael Alm, Olle Hallnas, Thomas Nilsson and 4Front Technologies
+ *  Copyright (C) 2008 Bruno Coudoin
  *
  *   This program is free software; you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
