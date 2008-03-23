@@ -1,10 +1,13 @@
-2008-03-23  Bruno Coudoin,,,  <set EMAIL_ADDRESS environment variable>
+
+	*** RELEASE 8.5PRE1 ***
+
+2008-03-23 Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* src/boards/memory.c: (get_random_token), (create_item): Patch from
 	  Karl Ove Hufthammer to display 1 + 2 instead of 1+2 and make the text
 	  being white. (commit 3335)
 
-2008-03-16  Bruno Coudoin,,,  <set EMAIL_ADDRESS environment variable>
+2008-03-16 Bruno coudoin  <bruno.coudoin@free.fr>
 
 	- Major cleanup in goocanvas to keep only the minimal we need.
 	- Integrated pygoocanvas. No more needed to install it separatly.
