@@ -1,6 +1,6 @@
 /* gcompris - memory.c
  *
- * Copyright (C) 2000 Bruno Coudoin
+ * Copyright (C) 2000, 2008 Bruno Coudoin
  *
  *   This program is free software; you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
@@ -28,20 +28,20 @@
 #define MAX_MEMORY_HEIGHT 4
 
 //#define TEXT_FONT gc_skin_font_board_huge_bold
-#define TEXT_FONT "Serif bold 28"
+#define TEXT_FONT "sans bold 28"
 
 static gchar *op_fonts[10] =
   {
     "",
-    "Serif bold 28",
-    "Serif bold 24",
-    "Serif bold 20",
-    "Serif bold 20",
-    "Serif bold 17",
-    "Serif bold 13",
-    "Serif bold 13",
-    "Serif bold 13",
-    "Serif bold 11",
+    "sans bold 28",
+    "sans bold 24",
+    "sans bold 20",
+    "sans bold 20",
+    "sans bold 17",
+    "sans bold 13",
+    "sans bold 13",
+    "sans bold 13",
+    "sans bold 11",
   };
 
 static GcomprisBoard *gcomprisBoard = NULL;
@@ -552,7 +552,7 @@ void get_random_token(int token_type, gint *returned_type, gchar **string, gchar
 	int i, j;
 	i = k %  add_levelDescription[gcomprisBoard->level][0];
 	j = k /  add_levelDescription[gcomprisBoard->level][0];
-	result = g_strdup_printf("%d%s%d",i,op_add,j);
+	result = g_strdup_printf("%d %s %d",i,op_add,j);
 	second = g_strdup_printf("%d",i+j);;
 	break;
       }
@@ -561,7 +561,7 @@ void get_random_token(int token_type, gint *returned_type, gchar **string, gchar
 	int i, j;
 	i = k %  minus_levelDescription[gcomprisBoard->level][0];
 	j = k /  minus_levelDescription[gcomprisBoard->level][0];
-	result = g_strdup_printf("%d%s%d",i+j,op_minus,i);
+	result = g_strdup_printf("%d %s %d",i+j,op_minus,i);
 	second = g_strdup_printf("%d",j);;
 	break;
       }
@@ -570,7 +570,7 @@ void get_random_token(int token_type, gint *returned_type, gchar **string, gchar
 	int i, j;
 	i = k %  mult_levelDescription[gcomprisBoard->level][0];
 	j = k /  mult_levelDescription[gcomprisBoard->level][0];
-	result = g_strdup_printf("%d%s%d",i,op_mult,j);
+	result = g_strdup_printf("%d %s %d",i,op_mult,j);
 	second = g_strdup_printf("%d",i*j);;
 	break;
       }
@@ -580,7 +580,7 @@ void get_random_token(int token_type, gint *returned_type, gchar **string, gchar
 	i1 = k %  div_levelDescription[gcomprisBoard->level][0];
 	if (i1==0) skip=TRUE;
 	i2 = k /  div_levelDescription[gcomprisBoard->level][0];
-	result = g_strdup_printf("%d%s%d",i1*i2,op_div,i1);
+	result = g_strdup_printf("%d %s %d",i1*i2,op_div,i1);
 	second = g_strdup_printf("%d",i2);
 	break;
       }
@@ -1339,15 +1339,14 @@ static void create_item(GooCanvasItem *parent)
 	      /* It's a letter */
 	      memoryItem->frontcardItem =	 \
 		goo_canvas_text_new (memoryItem->rootItem,
-				     "",
+				     memoryItem->data,
 				     (double) (width2)/2,
 				     (double) (height2)/2,
 				     -1,
 				     GTK_ANCHOR_CENTER,
 				     "font", font,
-				     "fill_color_rgba", 0x225AFFFF,
+				     "fill_color_rgba", 0xFFFFFFFF,
 				     NULL);
-
 	    }
 	  }
 
