@@ -22,8 +22,6 @@ $(xml_DATA): %.xml: %.xml.in
 # in the xml files directly, this is needed for the tool gcompris2spip
 #@INTLTOOL_XML_RULE@
 
-CLEANFILES = $(xml_DATA)
-
 icondir = $(pkgdatadir)/@PACKAGE_DATA_DIR@
 icon_DATA = gnumch-multiples.svg
 
