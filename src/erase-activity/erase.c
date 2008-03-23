@@ -239,7 +239,7 @@ static void end_board ()
   gc_cursor_set(GCOMPRIS_DEFAULT_CURSOR);
   if(gcomprisBoard!=NULL)
     {
-      g_signal_handler_disconnect(gcomprisBoard->canvas,
+      g_signal_handler_disconnect(goo_canvas_get_root_item(gcomprisBoard->canvas),
 				  event_handle_id);
       pause_board(TRUE);
       erase_destroy_all_items();
