@@ -374,7 +374,7 @@ gc_config_start ()
       if (one_dirent[0] != '.') {
 	gchar *filename;
 	/* Only directory here are skins */
-	filename = g_strdup_printf("%s/skins/%s", properties->package_data_dir, one_dirent);
+	filename = g_strdup_printf("%s/%s", properties->package_skin_dir, one_dirent);
 
 	if (g_file_test ((filename), G_FILE_TEST_IS_DIR)) {
 	  gchar *skin_name = g_strdup_printf("%s", one_dirent);

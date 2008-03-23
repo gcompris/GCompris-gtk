@@ -70,7 +70,7 @@ gc_skin_image_get(gchar *pixmapfile)
   if (g_file_test ((filename), G_FILE_TEST_EXISTS)) {
     g_free(filename);
 
-    filename = g_strdup_printf("skins/%s/%s", properties->skin, pixmapfile);
+    filename = g_strdup_printf("%s/%s", properties->skin, pixmapfile);
 
     return(filename);
   }
@@ -82,7 +82,7 @@ gc_skin_image_get(gchar *pixmapfile)
     return(filename);
 
   /* Return the default skin dir */
-  filename = g_strdup_printf("skins/%s/%s", DEFAULT_SKIN, pixmapfile);
+  filename = g_strdup_printf("%s/%s", DEFAULT_SKIN, pixmapfile);
   return(filename);
 }
 

@@ -110,3 +110,5 @@ SUBDIRS = goocanvas gcompris boards \
 	sudoku-activity \
 	tuxpaint-activity \
 	watercycle-activity
+
+EXTRA_DIST = runit.sh
