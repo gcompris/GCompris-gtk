@@ -74,7 +74,7 @@ dist-hook:
 	fi
 
 
-CLEANFILES = core-translation-report gcompris.desktop gcompris-edit.desktop gcompris.spec config.h.mingw
+CONFIG_CLEAN_FILES = gcompris.desktop gcompris-edit.desktop config.h.mingw
 
 clean-local:
 	rm -f intltool-extract intltool-merge intltool-update
