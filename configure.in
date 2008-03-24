@@ -841,7 +841,6 @@ echo "Python plugin                            = $build_python_plugin"
 
 echo "SQLITE database (--enable-sqlite)        = $with_sqlite (profiles depend on this)"
 
-echo "GNET Networking (--enable-gnet)          = $with_gnet (networking depends on this)"
 echo "DBUS Support (OLPC XO Sugar)             = $with_dbus"
 echo "BINRELOC (--enable-binreloc)             = $br_cv_binreloc"
 echo "NSBundle (--enable-nsbundle)             = $nsbundle"
