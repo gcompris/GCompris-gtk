@@ -100,10 +100,13 @@ end_gc_bonus_end_display() {
 
   gc_bar_hide(FALSE);
 
-  // go back to previous board layout
-  if (gc_board_get_current_board_plugin()->end_board)
-    gc_board_get_current_board_plugin()->end_board();
-  gc_board_end();
+  // go back to the first level
+  GcomprisBoard *gcomprisBoard = gc_board_get_current();
+  gcomprisBoard->level = 1;
+  gcomprisBoard->sublevel = 0;
+
+  /* Re-Start the board */
+  gc_board_pause(FALSE);
 }
 /* ==================================== */
 #define OFFSET 100
