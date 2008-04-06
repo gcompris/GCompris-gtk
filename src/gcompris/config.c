@@ -113,6 +113,7 @@ static gchar *linguas[] = {
   "ta_IN.UTF-8",	N_("Tamil"),
   "th_TH.UTF-8",	N_("Thai"),
   "tr_TR.UTF-8",	N_("Turkish"),
+  "ur_PK.UTF-8",	N_("Urdu"),
   "vi_VN.UTF-8",	N_("Vietnamese"),
   "wa_BE.UTF-8",	N_("Walloon"),
   "zh_CN.UTF-8",	N_("Chinese (Simplified)"),
