@@ -1,0 +1,5372 @@
+# Persian translation for gcompris
+# This file is distributed under the same license as the gcompris package.
+# Ehsan Nouri <nouri@mobinssd.com>, 2008.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: fa\n"
+"Report-Msgid-Bugs-To: Ehsan Nouri <nouri@mobinssd.com>\n"
+"POT-Creation-Date: 2008-02-27 19:37+0000\n"
+"PO-Revision-Date: 2002-01-01 02:38+0330\n"
+"Last-Translator: \n"
+"Language-Team: Ehsan Nouri <nouri@mobinssd.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Launchpad-Export-Date: 2008-03-07 13:49+0000\n"
+"X-Generator: Launchpad (build Unknown)\n"
+
+#: ../boards/administration.xml.in.h:1
+msgid ""
+"- In the 'Boards' section you can change the list of activities. Just untoggle them in the treeview. You can change the language used for reading, for example, then the language used for saying the names of colors.\n"
+"- You can save multiple configurations, and switch between them easily. In the 'Profile' section add a profile, then in the 'Board' section select the profile in the combobox, then select the boards you want to be active. You can add multiple profiles, with different lists of boards, and different languages. You set the default profile in the 'Profile' section, by choosing the profile you want, then clicking on the 'Default' button. You can also choose a profile from the command line.\n"
+"- You can add users, classes and for each class, you can create groups of users. Note that you can import users from a comma-separated file. Assign one or more groups to a profile, after which those new logins will appear after restarting GCompris. Being able to identify individual children in GCompris means we can provide individual reports. It also recognizes the children as individuals; they can learn to type in and recognize their own usernames (login is configurable)."
+msgstr ""
+
+#: ../boards/administration.xml.in.h:4
+msgid "GCompris Administration Menu"
+msgstr "منوی مدیریت GCompris"
+
+#: ../boards/administration.xml.in.h:5
+msgid "If you want to fine tune GCompris to your needs, you can use the administration module here. The ultimate goal is to provide child-specific reporting for parents and teacher who want to monitor the progress, strengths and needs of their children."
+msgstr ""
+
+#: ../boards/administration.xml.in.h:6
+msgid "Left-Click with the mouse to select an activity"
+msgstr "برای انتخاب یک عملیات، روی آن کلیک  چپ کن"
+
+#: ../boards/advanced_colors.xml.in.h:1
+msgid "Advanced colors"
+msgstr "رنگ‌های پیشرفته"
+
+#: ../boards/advanced_colors.xml.in.h:2
+#: ../boards/read_colors.xml.in.h:1
+msgid "Can read"
+msgstr "میتونی بخونی"
+
+#: ../boards/advanced_colors.xml.in.h:3
+msgid "Click on the correct color"
+msgstr "روی رنگ صحیح کلیک کن"
+
+#: ../boards/advanced_colors.xml.in.h:4
+msgid "Click on the correct colored box."
+msgstr "روی جعبه رنگی صحیح کلیک کن"
+
+#: ../boards/advanced_colors.xml.in.h:5
+msgid "Learn to recognize unusual colors."
+msgstr "تشخیص دادن رنگهای مختلف را یاد بگیر"
+
+#: ../boards/advanced_colors/board1.xml.in.h:1
+msgid "almond"
+msgstr "صدري"
+
+#: ../boards/advanced_colors/board1.xml.in.h:2
+msgid "chestnut"
+msgstr "بلوط كم رنگ"
+
+#: ../boards/advanced_colors/board1.xml.in.h:3
+msgid "claret"
+msgstr "زرشكي"
+
+#: ../boards/advanced_colors/board1.xml.in.h:4
+msgid "cobalt"
+msgstr "طوسي روشن"
+
+#: ../boards/advanced_colors/board1.xml.in.h:5
+msgid "coral"
+msgstr "نارنجي"
+
+#: ../boards/advanced_colors/board1.xml.in.h:6
+msgid "corn"
+msgstr "زرد"
+
+#: ../boards/advanced_colors/board1.xml.in.h:7
+msgid "cyan"
+msgstr "آبی فيروزه اي"
+
+#: ../boards/advanced_colors/board1.xml.in.h:8
+msgid "sienna"
+msgstr "شكلاتي"
+
+#: ../boards/advanced_colors/board2.xml.in.h:1
+msgid "lime"
+msgstr "سبز فسفري"
+
+#: ../boards/advanced_colors/board2.xml.in.h:2
+msgid "sage"
+msgstr "سبز"
+
+#: ../boards/advanced_colors/board2.xml.in.h:3
+msgid "salmon"
+msgstr "گلبهي"
+
+#: ../boards/advanced_colors/board2.xml.in.h:4
+msgid "sapphire"
+msgstr "آبي نفتي"
+
+#: ../boards/advanced_colors/board2.xml.in.h:5
+msgid "sepia"
+msgstr "قرمز "
+
+#: ../boards/advanced_colors/board2.xml.in.h:6
+msgid "sulphur"
+msgstr "ليمويي"
+
+#: ../boards/advanced_colors/board2.xml.in.h:7
+msgid "tea"
+msgstr "صورتي"
+
+#: ../boards/advanced_colors/board2.xml.in.h:8
+msgid "turquoise"
+msgstr ""
+
+#: ../boards/advanced_colors/board3.xml.in.h:1
+msgid "absinthe"
+msgstr "سبز فسفري"
+
+#: ../boards/advanced_colors/board3.xml.in.h:2
+msgid "alabaster"
+msgstr "سفيد"
+
+#: ../boards/advanced_colors/board3.xml.in.h:3
+msgid "amber"
+msgstr "زرد سير"
+
+#: ../boards/advanced_colors/board3.xml.in.h:4
+msgid "amethyst"
+msgstr "بنفش"
+
+#: ../boards/advanced_colors/board3.xml.in.h:5
+msgid "anise"
+msgstr "سبز روشن"
+
+#: ../boards/advanced_colors/board3.xml.in.h:6
+msgid "aquamarine"
+msgstr "زرد"
+
+#: ../boards/advanced_colors/board3.xml.in.h:7
+msgid "mahogany"
+msgstr "زرشکی تیره"
+
+#: ../boards/advanced_colors/board3.xml.in.h:8
+#: ../boards/advanced_colors/board8.xml.in.h:8
+msgid "vermilion"
+msgstr "قرمز"
+
+#: ../boards/advanced_colors/board4.xml.in.h:1
+#: ../boards/advanced_colors/board5.xml.in.h:1
+msgid "aubergine"
+msgstr "بادمجاني"
+
+#: ../boards/advanced_colors/board4.xml.in.h:2
+msgid "ceruse"
+msgstr "سفيد"
+
+#: ../boards/advanced_colors/board4.xml.in.h:3
+msgid "chartreuse"
+msgstr "زرد"
+
+#: ../boards/advanced_colors/board4.xml.in.h:4
+msgid "emerald"
+msgstr "سبز زمردی"
+
+#: ../boards/advanced_colors/board4.xml.in.h:5
+msgid "fawn"
+msgstr "كرم"
+
+#: ../boards/advanced_colors/board4.xml.in.h:6
+msgid "fuchsia"
+msgstr "صورتي"
+
+#: ../boards/advanced_colors/board4.xml.in.h:7
+msgid "glaucous"
+msgstr "سبز فسفری"
+
+#: ../boards/advanced_colors/board4.xml.in.h:8
+msgid "ruby"
+msgstr "قرمز"
+
+#: ../boards/advanced_colors/board5.xml.in.h:2
+msgid "auburn"
+msgstr "طلایی"
+
+#: ../boards/advanced_colors/board5.xml.in.h:3
+msgid "azure"
+msgstr "لاجوردی"
+
+#: ../boards/advanced_colors/board5.xml.in.h:4
+msgid "bistre"
+msgstr "شكلاتي - طوسي"
+
+#: ../boards/advanced_colors/board5.xml.in.h:5
+msgid "celadon"
+msgstr "طوسي"
+
+#: ../boards/advanced_colors/board5.xml.in.h:6
+msgid "cerulean"
+msgstr "آبي آسماني"
+
+#: ../boards/advanced_colors/board5.xml.in.h:7
+msgid "crimson"
+msgstr "سرخابي"
+
+#: ../boards/advanced_colors/board5.xml.in.h:8
+msgid "greyish-brown"
+msgstr "طوسي سير"
+
+#: ../boards/advanced_colors/board6.xml.in.h:1
+msgid "dove"
+msgstr "طوسي روشن"
+
+#: ../boards/advanced_colors/board6.xml.in.h:2
+msgid "garnet"
+msgstr ""
+
+#: ../boards/advanced_colors/board6.xml.in.h:3
+msgid "indigo"
+msgstr "بنفش"
+
+#: ../boards/advanced_colors/board6.xml.in.h:4
+msgid "ivory"
+msgstr "كرم"
+
+#: ../boards/advanced_colors/board6.xml.in.h:5
+msgid "jade"
+msgstr "سبز روشن"
+
+#: ../boards/advanced_colors/board6.xml.in.h:6
+msgid "lavender"
+msgstr "بنفش روشن"
+
+#: ../boards/advanced_colors/board6.xml.in.h:7
+msgid "lichen"
+msgstr "سبز چرك"
+
+#: ../boards/advanced_colors/board6.xml.in.h:8
+msgid "wine"
+msgstr "برنده"
+
+#: ../boards/advanced_colors/board7.xml.in.h:1
+msgid "larch"
+msgstr "يشمي"
+
+#: ../boards/advanced_colors/board7.xml.in.h:2
+msgid "lilac"
+msgstr "بنفش"
+
+#: ../boards/advanced_colors/board7.xml.in.h:3
+msgid "magenta"
+msgstr "صورتي سير"
+
+#: ../boards/advanced_colors/board7.xml.in.h:4
+msgid "malachite"
+msgstr "سبز"
+
+#: ../boards/advanced_colors/board7.xml.in.h:5
+msgid "mimosa"
+msgstr "ليمويي روشن"
+
+#: ../boards/advanced_colors/board7.xml.in.h:6
+msgid "navy"
+msgstr "سرمه اي"
+
+#: ../boards/advanced_colors/board7.xml.in.h:7
+msgid "ochre"
+msgstr "زرد- نارنجي"
+
+#: ../boards/advanced_colors/board7.xml.in.h:8
+msgid "olive"
+msgstr "زیتونی"
+
+#: ../boards/advanced_colors/board8.xml.in.h:1
+msgid "greyish blue"
+msgstr "فیلی "
+
+#: ../boards/advanced_colors/board8.xml.in.h:2
+msgid "mauve"
+msgstr "بنفش"
+
+#: ../boards/advanced_colors/board8.xml.in.h:3
+msgid "opaline"
+msgstr "سفيد"
+
+#: ../boards/advanced_colors/board8.xml.in.h:4
+msgid "pistachio"
+msgstr "پسته اي"
+
+#: ../boards/advanced_colors/board8.xml.in.h:5
+msgid "platinum"
+msgstr "كرم "
+
+#: ../boards/advanced_colors/board8.xml.in.h:6
+msgid "purple"
+msgstr "ارغوانی"
+
+#: ../boards/advanced_colors/board8.xml.in.h:7
+msgid "ultramarine"
+msgstr "آبی تیره"
+
+#: ../boards/advanced_colors/board9.xml.in.h:1
+msgid "dark purple"
+msgstr "ارغوانی تیره"
+
+#: ../boards/advanced_colors/board9.xml.in.h:2
+msgid "plum"
+msgstr "بنفش سير"
+
+#: ../boards/advanced_colors/board9.xml.in.h:3
+msgid "prussian blue"
+msgstr "سرمه اي"
+
+#: ../boards/advanced_colors/board9.xml.in.h:4
+msgid "rust"
+msgstr "قهوه اي "
+
+#: ../boards/advanced_colors/board9.xml.in.h:5
+msgid "saffron"
+msgstr "زعفراني"
+
+#: ../boards/advanced_colors/board9.xml.in.h:6
+msgid "vanilla"
+msgstr "وانیلي"
+
+#: ../boards/advanced_colors/board9.xml.in.h:7
+msgid "verdigris"
+msgstr "طوسي "
+
+#: ../boards/advanced_colors/board9.xml.in.h:8
+msgid "veronese"
+msgstr ""
+
+#: ../boards/algebra_by.xml.in.h:1
+msgid "A multiplication of two numbers is displayed. At the right of the equals sign, give the answer, the product. Use the left and right arrows to modify your answer and press the Enter key to check if you've got it right. If not, just try again."
+msgstr ""
+
+#: ../boards/algebra_by.xml.in.h:2
+#: ../boards/algebra_minus.xml.in.h:2
+#: ../boards/algebra_plus.xml.in.h:2
+msgid "Answer some algebra questions"
+msgstr "بعضي سوالهاي جبري را پاسخ بده"
+
+#: ../boards/algebra_by.xml.in.h:3
+msgid "In a limited time, give the product of two numbers"
+msgstr "در يك وقت كوتاه  جواب حاصلضرب دو عدد را بده"
+
+#: ../boards/algebra_by.xml.in.h:4
+msgid "Multiplication table"
+msgstr "جدول ضرب"
+
+#: ../boards/algebra_by.xml.in.h:5
+msgid "Practice the multiplication operation"
+msgstr "تمرين  کن عمل  ضرب را"
+
+#: ../boards/algebra_group.xml.in.h:1
+msgid "Go to Algebra activities"
+msgstr "به قسمت جبر برو"
+
+#: ../boards/algebra_group.xml.in.h:2
+#: ../boards/menu.xml.in.h:18
+msgid "Left-click the mouse on an activity to select it."
+msgstr "برای فعال کردن و انتخاب آن با موس کلیک چپ کن"
+
+#: ../boards/algebra_guesscount.xml.in.h:1
+#: ../boards/erase_clic.xml.in.h:1
+msgid "Animal pictures come from the Animal Photography Page of Ralf Schmode (http://schmode.net/). Ralf has kindly permitted Gcompris to include his pictures. Thanks a lot, Ralf."
+msgstr ""
+
+#: ../boards/algebra_guesscount.xml.in.h:2
+msgid "At the top of the board area, choose the numbers and arithmetic operators that give the specified result. You can deselect a number or operator by clicking on it again."
+msgstr ""
+
+#: ../boards/algebra_guesscount.xml.in.h:3
+msgid "Deploy a strategy to arrange a set of arithmetic operations to match a given value."
+msgstr ""
+
+#: ../boards/algebra_guesscount.xml.in.h:4
+msgid "Find the series of correct operations that matches the given answer"
+msgstr "آن دسته عملکردهای درستی که جواب رو به تو میده را پیدا کن"
+
+#: ../boards/algebra_guesscount.xml.in.h:5
+msgid "The four arithmetic operations. Combine several arithmetic operations."
+msgstr ""
+
+#: ../boards/algebra_guesscount.xml.in.h:6
+msgid "Work out the right combination of numbers and operations to match the given value"
+msgstr ""
+
+#: ../boards/algebra_minus.xml.in.h:1
+msgid "A subtraction problem with two numbers is displayed. At the right of the equals sign, give the answer, the difference. Use the left and right arrows to modify your answer and press the Enter key to check if you've got it right. If not, just try again."
+msgstr ""
+
+#: ../boards/algebra_minus.xml.in.h:3
+msgid "In a limited time, find the difference between two numbers"
+msgstr "در یک زمان کوتاه، اختلاف بین دو عدد را پیدا کن"
+
+#: ../boards/algebra_minus.xml.in.h:4
+msgid "Practice the subtraction operation"
+msgstr "عمل تفریقرو تمرین کن"
+
+#: ../boards/algebra_minus.xml.in.h:5
+msgid "Simple subtraction"
+msgstr "تفریق ساده"
+
+#: ../boards/algebra_plus.xml.in.h:1
+msgid "An addition problem with two numbers is displayed. At the right of the equals sign, give the answer, the sum. Use the left and right arrows to modify your answer and press the Enter key to check if you've got it right. If not, just try again."
+msgstr ""
+
+#: ../boards/algebra_plus.xml.in.h:3
+msgid "In a limited time, find the sum of of two numbers. Introduction to simple in-line addition."
+msgstr ""
+
+#: ../boards/algebra_plus.xml.in.h:4
+msgid "Practice the addition operation"
+msgstr "تمرين  کن عملیات جمع كردن را "
+
+#: ../boards/algebra_plus.xml.in.h:5
+msgid "Simple addition. Can recognize written numbers"
+msgstr "جمع ساده.می تونی اعداد نوشته شده را بشناسی"
+
+#: ../boards/algebramenu.xml.in.h:1
+msgid "Go to calculation activities"
+msgstr "به قسمت ماشین حساب برو"
+
+#: ../boards/algebramenu.xml.in.h:2
+msgid "Various calculation activities."
+msgstr "عملیات محاسباتی مختلف "
+
+#: ../boards/algorithm.xml.in.h:1
+msgid "Complete a list of symbols"
+msgstr "لیست علامت ها را کامل کن"
+
+#: ../boards/algorithm.xml.in.h:2
+msgid "Find the next symbol in a list."
+msgstr "رمز دیگری را در لیست پیدا کنید"
+
+#: ../boards/algorithm.xml.in.h:3
+msgid "Logic training activity"
+msgstr "آموزش زبان ریاضی"
+
+#: ../boards/algorithm.xml.in.h:4
+#: ../boards/hexagon.xml.in.h:3
+#: ../boards/melody.xml.in.h:4
+msgid "Move and click the mouse"
+msgstr "موس را حركت بده و كليك كن"
+
+#: ../boards/algorithm.xml.in.h:5
+msgid "algorithm"
+msgstr "الگوریتم"
+
+#: ../boards/anim.xml.in.h:1
+msgid "Create a drawing or an animation"
+msgstr "یک نقاشی ساده یا متحرک بساز"
+
+#: ../boards/anim.xml.in.h:2
+msgid "Free drawing and animation tool."
+msgstr "نقاشي دلخواه و ابزار نقاشي"
+
+#: ../boards/anim.xml.in.h:3
+msgid "In this game, children can draw freely. The goal is to discover how to create attractive drawings based on basic shapes: rectangles, ellipses and lines. To give children a wider range of choices, a set of images can also be used."
+msgstr "در اين بازي بچه ها مي توانند به طور مختار نقاشي كنند. هدف چگونگي خلق كردن نقاشي جذاب با استفاده از شكل هاي ساده ي:  مربع ،  بيضي و خطوط . برای دادن انتخابهای بیشتر به بچه ها یک سری از تصاویر نیز می تواند استفاده شود. "
+
+#: ../boards/anim.xml.in.h:4
+#: ../boards/draw.xml.in.h:4
+msgid "Needs to be capable of moving and clicking the mouse easily"
+msgstr ""
+
+#: ../boards/anim.xml.in.h:5
+msgid "Select a drawing tool on the left, and a color down the bottom. Then click and drag in the white area to create a new shape. Once you've completed a drawing, you can take a snapshot of it with the 'camera' button. This creates a new image with the same content, a copy of your image. You can then edit it by moving objects a little bit or adding/deleting objects. When you create several drawings and then click on the 'film' button, you will see all your images in a continuous slide-show (an infinite loop pattern). You can also change the viewing speed in this mode. In viewing mode, click on the 'drawing' button to return to drawing mode. You can then edit each image in your animation, by using the image selector in the bottom-left corner of the screen. You can also save and reload your animations with the 'floppy disk' and 'folder' buttons."
+msgstr ""
+
+#: ../boards/awele.xml.in.h:1
+msgid "At the beginning of the game four seeds are placed in each house. Players take turns moving the seeds. In each turn, a player chooses one of the six houses under his or her control. The player removes all seeds from this house, and distributes them, dropping one in each house counter-clockwise from the original house, in a process called sowing. Seeds are not distributed into the end scoring houses, nor into the house drawn from. That is, the starting house is left empty; if it contained 12 seeds, it is skipped, and the twelfth seed is placed in the next house. After a turn, if the last seed was placed into an opponent's house and brought its total to two or three, all the seeds in that house are captured and placed in the player's scoring house (or set aside if the board has no scoring houses). If the previous-to-last seed also brought the total seeds in an opponent's house to two or three, these are captured as well, and so on. However, if a move would capture all an opponent's seeds, the capture is forfeited, and the seeds are instead left on the board, since this would prevent the opponent from continuing the game. The proscription against capturing all an opponent's seeds is related to a more general idea, that one ought to make a move that allows the opponent to continue playing. If an opponent's houses are all empty, the current player must make a move that gives the opponent seeds. If no such move is possible, the current player captures all seeds in his/her own territory, ending the game. (Source Wikipedia &lt;http://en.wikipedia.org/wiki/Oware&gt;)"
+msgstr ""
+
+#: ../boards/awele.xml.in.h:2
+msgid "Oware"
+msgstr ""
+
+#: ../boards/awele.xml.in.h:3
+msgid "Play the Oware strategy game against Tux"
+msgstr ""
+
+#: ../boards/awele.xml.in.h:4
+msgid "The object of the game is to capture more seeds than one's opponent. Since the game has only 48 seeds, capturing 25 is sufficient to accomplish this. Since there are an even number of seeds, it is possible for the game to end in a draw, where each player has captured 24. The game is over when one player has captured 25 or more stones, or both players have taken 24 stones each (draw). If both players agree that the game has been reduced to an endless cycle, each player captures the stones on their side of the board."
+msgstr ""
+
+#: ../boards/babymatch.xml.in.h:1
+#: ../boards/babymatch/board1_0.xml.in.h:1
+#: ../boards/babymatch/board2_0.xml.in.h:1
+#: ../boards/babymatch/board3_0.xml.in.h:1
+#: ../boards/babymatch/board4_0.xml.in.h:1
+#: ../boards/babymatch/board5_0.xml.in.h:1
+#: ../boards/babymatch/board6_0.xml.in.h:1
+#: ../boards/babymatch/board7_0.xml.in.h:1
+msgid "Drag and Drop the items to make them match"
+msgstr ""
+
+#: ../boards/babymatch.xml.in.h:2
+msgid "In the main board area, a set of objects is displayed. In the vertical box (at the left of the main board) another set of objects is shown, each object in the group on the left matching exactly one object in the main board area. This game challenges you to find the logical link between these objects. How do they fit together? Drag each object to the correct red space in the main area."
+msgstr ""
+
+#: ../boards/babymatch.xml.in.h:3
+msgid "Matching Items"
+msgstr "تكه ها ی وصل شده"
+
+#: ../boards/babymatch.xml.in.h:4
+msgid "Motor coordination. Conceptual matching."
+msgstr ""
+
+#: ../boards/babymatch.xml.in.h:5
+msgid "Mouse manipulation: movement, drag and drop. Cultural references."
+msgstr ""
+
+#: ../boards/babyshapes.xml.in.h:1
+msgid "Complete the puzzle"
+msgstr "پازل رو کامل کن"
+
+#: ../boards/babyshapes.xml.in.h:2
+msgid "Complete the puzzle by dragging each piece from the set of pieces on the left, to the matching space in the puzzle."
+msgstr ""
+
+#: ../boards/babyshapes.xml.in.h:3
+msgid "Drag and Drop the shapes on their respective targets"
+msgstr ""
+
+#: ../boards/babyshapes.xml.in.h:4
+msgid "Good mouse-control"
+msgstr "موس را خوب کنترل کن"
+
+#: ../boards/babyshapes.xml.in.h:5
+msgid "The dog is provided by Andre Connes and released under the GPL"
+msgstr ""
+
+#: ../boards/babyshapes/board5_0.xml.in.h:1
+msgid "Hello ! My name is Lock."
+msgstr "سلام! ام من لوك است."
+
+#: ../boards/babyshapes/board6_0.xml.in.h:1
+msgid "Lock on the grass."
+msgstr "لوك روي چمن است."
+
+#: ../boards/babyshapes/board7_0.xml.in.h:1
+msgid "Lock with colored shapes."
+msgstr "لوك و شكل هاي رنگي"
+
+#: ../boards/ballcatch.xml.in.h:1
+msgid "Make the ball go to Tux"
+msgstr "یک توپ درست کن و به توکس برو"
+
+#: ../boards/ballcatch.xml.in.h:2
+msgid "Press the two shift keys at the same time, to make the ball go in a straight line."
+msgstr ""
+
+#: ../boards/bargame.xml.in.h:1
+msgid "Brain"
+msgstr "هوش"
+
+#: ../boards/bargame.xml.in.h:2
+msgid "Don't use the last ball"
+msgstr "توپ قبلی را به کار نبر"
+
+#: ../boards/bargame.xml.in.h:3
+#: ../boards/hexagon.xml.in.h:2
+msgid "Logic-training activity"
+msgstr ""
+
+#: ../boards/bargame.xml.in.h:4
+msgid "Place balls in the holes. You win if the computer has to place the last ball. If you want Tux to begin, just click on him."
+msgstr ""
+
+#: ../boards/bargame.xml.in.h:5
+msgid "bar game"
+msgstr "نوار بازی"
+
+#: ../boards/billard.xml.in.h:1
+msgid "Kick the ball into the black hole on the right"
+msgstr "در حفره سیاه سمت راست به توپ لگد بزن"
+
+#: ../boards/billard.xml.in.h:2
+msgid "Kick the ball into the goal"
+msgstr "برای گل زدن به توپ لگد بزن"
+
+#: ../boards/billard.xml.in.h:3
+#: ../boards/chess_computer.xml.in.h:2
+#: ../boards/chess_movelearn.xml.in.h:3
+#: ../boards/chess_partyend.xml.in.h:2
+#: ../boards/clickgame.xml.in.h:5
+#: ../boards/connect4.xml.in.h:6
+#: ../boards/connect4-2players.xml.in.h:5
+#: ../boards/erase.xml.in.h:3
+#: ../boards/erase_clic.xml.in.h:6
+#: ../boards/fifteen.xml.in.h:2
+#: ../boards/hanoi.xml.in.h:3
+#: ../boards/memory.xml.in.h:4
+#: ../boards/tangram.xml.in.h:8
+msgid "Mouse-manipulation"
+msgstr "دستکاری موس"
+
+#: ../boards/billard.xml.in.h:4
+msgid "Point the mouse and click on the ball, to set the speed and direction of the ball. The closer you click to the centre, the slower the ball moves."
+msgstr ""
+
+#: ../boards/billard.xml.in.h:5
+msgid "The football game"
+msgstr "بازي فوتبال"
+
+#: ../boards/canal_lock.xml.in.h:1
+msgid "Operate a canal lock"
+msgstr ""
+
+#: ../boards/canal_lock.xml.in.h:2
+msgid "Tux is in trouble, and needs to take his boat through a lock. Help Tux and find out how a canal lock works."
+msgstr ""
+
+#: ../boards/canal_lock.xml.in.h:3
+msgid "You are in charge of the canal lock. Open the gates and the locks in the right order, so Tux can travel through the gates in both directions."
+msgstr ""
+
+#: ../boards/chat.xml.in.h:1
+msgid "Chat with your friends"
+msgstr "گپ زدن با دوستاننت"
+
+#: ../boards/chat.xml.in.h:2
+msgid "This chat activity only works on the local network"
+msgstr "این قسمت از گپ و گفتگو فقط در شبکه محلی کار می کنه"
+
+#: ../boards/chat.xml.in.h:3
+msgid "This chat activity will only work with other GCompris users on your local network, not on the Internet. To use it, just type in your message and hit Enter. Your message is then broadcast on the local network, and any GCompris program running the chat activity on that local network will receive and display your message."
+msgstr ""
+
+#: ../boards/chess.xml.in.h:1
+#: ../boards/chess_computer.xml.in.h:3
+msgid "Play chess against the computer in a learning mode"
+msgstr "با توجه به حالت یادگیری شطرنج رو با کامپیوتر بازی کن"
+
+#: ../boards/chess.xml.in.h:2
+msgid "Practice chess"
+msgstr "تمرین شطرنج"
+
+#: ../boards/chess_computer.xml.in.h:1
+#: ../boards/chess_movelearn.xml.in.h:2
+#: ../boards/chess_partyend.xml.in.h:1
+msgid "Learning chess"
+msgstr "یادگرفتن شطرنج"
+
+#: ../boards/chess_computer.xml.in.h:4
+#: ../boards/chess_movelearn.xml.in.h:4
+#: ../boards/chess_partyend.xml.in.h:4
+msgid "The chess engine is from gnuchess."
+msgstr ""
+
+#: ../boards/chess_movelearn.xml.in.h:1
+msgid "Chess training. Catch the computer's pawns."
+msgstr "آموزش شطرنج . مهره های سرباز کامپیوتر را بگیر"
+
+#: ../boards/chess_partyend.xml.in.h:3
+msgid "Play the end of the chess game against the computer"
+msgstr "آخرین مرحله از شطرنج رو با کامپیوتر بازی کن"
+
+#: ../boards/chronos.xml.in.h:1
+msgid "Chronos"
+msgstr "كرونوس"
+
+#: ../boards/chronos.xml.in.h:2
+msgid "Drag and Drop the items to organize the story"
+msgstr "برای درست کردن داستان ایتم ها رو بوسیله موس بکش و در جای مناسب قرار بده"
+
+#: ../boards/chronos.xml.in.h:3
+msgid "Moon photo is copyright NASA. The space sounds come from Tuxpaint and Vegastrike which are released under the GPL license. The transportation images are copyright Franck Doucet. Dates of Transportation are based on those found in &lt;http://www.wikipedia.org&gt;."
+msgstr ""
+
+#: ../boards/chronos.xml.in.h:4
+msgid "Pick from the pictures on the left and put them on the red dots"
+msgstr "از روی تصاویر سمت چپ بکن و آنها را بر روی نقطه قرمز قرار بده"
+
+#: ../boards/chronos.xml.in.h:5
+msgid "Sort the pictures into the order that tells the story"
+msgstr ""
+
+#: ../boards/chronos.xml.in.h:6
+msgid "Tell a short story"
+msgstr "داستان کوتاه بگو"
+
+#: ../boards/chronos/board1_0.xml.in.h:1
+msgid "Moonwalker"
+msgstr ""
+
+#: ../boards/chronos/board1_1.xml.in.h:1
+#: ../src/boards/wordprocessor.c:117
+msgid "Autumn"
+msgstr "پائیز"
+
+#: ../boards/chronos/board1_1.xml.in.h:2
+#: ../src/boards/wordprocessor.c:115
+msgid "Spring"
+msgstr "بهار"
+
+#: ../boards/chronos/board1_1.xml.in.h:3
+#: ../src/boards/wordprocessor.c:116
+msgid "Summer"
+msgstr "تابستان"
+
+#: ../boards/chronos/board1_1.xml.in.h:4
+msgid "The 4 Seasons"
+msgstr ""
+
+#: ../boards/chronos/board1_1.xml.in.h:5
+#: ../src/boards/wordprocessor.c:118
+msgid "Winter"
+msgstr "زمستان"
+
+#: ../boards/chronos/board1_2.xml.in.h:1
+msgid "Gardening"
+msgstr "باغبانی"
+
+#: ../boards/chronos/board2_0.xml.in.h:1
+msgid "Tux and the apple tree"
+msgstr "لباس رسمی  و درخت سیب"
+
+#: ../boards/chronos/board3_0.xml.in.h:1
+#: ../boards/chronos/board3_2.xml.in.h:1
+#: ../boards/chronos/board3_4.xml.in.h:1
+#: ../boards/chronos/board4_2.xml.in.h:1
+msgid "1769 Cugnot's fardier"
+msgstr ""
+
+#: ../boards/chronos/board3_0.xml.in.h:2
+#: ../boards/chronos/board3_3.xml.in.h:5
+#: ../boards/chronos/board3_4.xml.in.h:2
+msgid ""
+"1829 Stephenson's Rocket\n"
+"Steam locomotive"
+msgstr ""
+
+#: ../boards/chronos/board3_0.xml.in.h:4
+msgid ""
+"Place each image in the order and\n"
+"on the date it was invented.\n"
+"If not sure, research online at wikipedia:\n"
+"http://www.wikipedia.org"
+msgstr ""
+
+#: ../boards/chronos/board3_0.xml.in.h:8
+#: ../boards/chronos/board3_1.xml.in.h:6
+#: ../boards/chronos/board3_2.xml.in.h:5
+#: ../boards/chronos/board3_3.xml.in.h:7
+#: ../boards/chronos/board3_4.xml.in.h:5
+msgid "Transportation"
+msgstr "حمل و نقل"
+
+#: ../boards/chronos/board3_1.xml.in.h:1
+#: ../boards/chronos/board3_3.xml.in.h:1
+msgid ""
+"1783 Montgolfier brothers'\n"
+"hot air balloon"
+msgstr ""
+
+#: ../boards/chronos/board3_1.xml.in.h:3
+#: ../boards/chronos/board3_2.xml.in.h:4
+#: ../boards/chronos/board3_4.xml.in.h:4
+#: ../boards/chronos/board4_0.xml.in.h:1
+msgid "1880 Clement Ader's Eole"
+msgstr ""
+
+#: ../boards/chronos/board3_1.xml.in.h:4
+msgid ""
+"1906 Paul Cornu\n"
+"First helicopter flight"
+msgstr ""
+
+#: ../boards/chronos/board3_2.xml.in.h:2
+#: ../boards/chronos/board3_3.xml.in.h:3
+msgid ""
+"1791 Comte de Sivrac's\n"
+"Celerifere"
+msgstr ""
+
+#: ../boards/chronos/board4_0.xml.in.h:2
+msgid "1903 The Wright brothers' Flyer III"
+msgstr ""
+
+#: ../boards/chronos/board4_0.xml.in.h:3
+msgid ""
+"1909 Louis Bleriot crosses\n"
+"the English Channel"
+msgstr ""
+
+#: ../boards/chronos/board4_0.xml.in.h:5
+#: ../boards/chronos/board4_1.xml.in.h:7
+msgid "Aviation"
+msgstr "هواپیمایی"
+
+#: ../boards/chronos/board4_1.xml.in.h:1
+msgid ""
+"1927 Charles Lindbergh\n"
+"crosses the Atlantic Ocean"
+msgstr ""
+
+#: ../boards/chronos/board4_1.xml.in.h:3
+msgid ""
+"1934 Hélène Boucher's\n"
+"speed record of 444km/h"
+msgstr ""
+
+#: ../boards/chronos/board4_1.xml.in.h:5
+msgid ""
+"1947 Chuck Yeager\n"
+"breaks the sound-barrier"
+msgstr ""
+
+#: ../boards/chronos/board4_2.xml.in.h:2
+msgid "1878 Léon Bollé's \"La Mancelle\""
+msgstr ""
+
+#: ../boards/chronos/board4_2.xml.in.h:3
+msgid ""
+"1885 The first petrol\n"
+"car by Benz"
+msgstr ""
+
+#: ../boards/chronos/board4_2.xml.in.h:5
+msgid "The car"
+msgstr "ماشین"
+
+#: ../boards/chronos/board4_3.xml.in.h:1
+msgid "1899 Renault \"voiturette\""
+msgstr ""
+
+#: ../boards/chronos/board4_3.xml.in.h:2
+msgid "1923 Lancia Lambda"
+msgstr ""
+
+#: ../boards/chronos/board4_3.xml.in.h:3
+msgid "1955 Citroën ds 19"
+msgstr ""
+
+#: ../boards/chronos/board4_3.xml.in.h:4
+msgid "Cars"
+msgstr "ماشین ها"
+
+#: ../boards/clickanddraw.xml.in.h:1
+msgid "Click and draw"
+msgstr "کلیک کن و بعد نقاشی کن"
+
+#: ../boards/clickanddraw.xml.in.h:2
+msgid "Draw the picture by clicking on each blue point in sequence."
+msgstr " به ترتیب با کلیک کردن به روی هر نقطه آبی ، تصاویر را بکش"
+
+#: ../boards/clickanddraw.xml.in.h:3
+msgid "Draw the picture by clicking on the blue points."
+msgstr "با کلیک کردن روی نقطه های آبی ، تصاویر را بکش"
+
+#: ../boards/click_on_letter.xml.in.h:1
+msgid "A letter is spoken. Click on the matching letter in the main area. You can listen to the letter again, by clicking on the mouth icon in the bottom box."
+msgstr ""
+
+#: ../boards/click_on_letter.xml.in.h:2
+msgid "Click on a letter"
+msgstr "به روی حرف کلیک کن"
+
+#: ../boards/click_on_letter.xml.in.h:3
+msgid "Letter-name recognition"
+msgstr "حروف - شناسایی اسم"
+
+#: ../boards/click_on_letter.xml.in.h:4
+msgid "Listen to a letter and click on the right one"
+msgstr "به حرفها گوش بده و روی صحیح ترین گزینه کلیک کن."
+
+#: ../boards/click_on_letter.xml.in.h:5
+msgid "Visual letter-recognition. Can move the mouse."
+msgstr ""
+
+#: ../boards/clickgame.xml.in.h:1
+msgid "Click On Me"
+msgstr "روی من کلیک کن"
+
+#: ../boards/clickgame.xml.in.h:2
+msgid "Fish are taken from the Unix utility xfishtank. All image credits belong to Guillaume Rousse."
+msgstr ""
+
+#: ../boards/clickgame.xml.in.h:3
+msgid "Left-Click with the mouse on all the swimming fish before they leave the fishtank"
+msgstr ""
+
+#: ../boards/clickgame.xml.in.h:4
+msgid "Motor coordination: moving and clicking the mouse."
+msgstr ""
+
+#: ../boards/clickgame.xml.in.h:6
+msgid "Use the left mouse button to click on the moving fish."
+msgstr "برای حرکت دادن ماهی از کلیک چپ استفاده کن"
+
+#: ../boards/clockgame.xml.in.h:1
+msgid "Distinguish between time-units (hour, minute and second). Set and display time on a clock."
+msgstr ""
+
+#: ../boards/clockgame.xml.in.h:2
+msgid "Learn how to tell the time"
+msgstr ""
+
+#: ../boards/clockgame.xml.in.h:3
+msgid "Learning Clock"
+msgstr "یادگرفتن ساعت"
+
+#: ../boards/clockgame.xml.in.h:4
+msgid "Set the clock to the time given, in the time-units shown (hours:minutes or hours:minutes:seconds). Click on the different arrows, and move the mouse, to make the numbers go up or down."
+msgstr ""
+
+#: ../boards/clockgame.xml.in.h:5
+msgid "The concept of time. Reading the time."
+msgstr ""
+
+#: ../boards/colors.xml.in.h:1
+msgid "Can move the mouse."
+msgstr "می تونی موس را تکان بدهی"
+
+#: ../boards/colors.xml.in.h:2
+msgid "Click on the right color"
+msgstr "روی رنگهای درست کلیک کن"
+
+#: ../boards/colors.xml.in.h:3
+msgid "Colors"
+msgstr "رنگها"
+
+#: ../boards/colors.xml.in.h:4
+msgid "Listen to the color and click on the matching duck."
+msgstr ""
+
+#: ../boards/colors.xml.in.h:5
+msgid "This board teaches you to recognize different colors. When you hear the name of the color, click on the duck wearing it."
+msgstr ""
+
+#: ../boards/colors_group.xml.in.h:1
+msgid "Colors based activities."
+msgstr "قسمت های مبنی بر رنگ "
+
+#: ../boards/colors_group.xml.in.h:2
+msgid "Go to Color activities"
+msgstr "به جدول رنگها برو"
+
+#: ../boards/computer.xml.in.h:1
+msgid "Discover the Computer"
+msgstr "پيدا كردن كامپيوتر"
+
+#: ../boards/computer.xml.in.h:2
+msgid "Play with computer peripherals."
+msgstr "با لوازم جانبي بازي كن"
+
+#: ../boards/connect4.xml.in.h:1
+#: ../boards/connect4-2players.xml.in.h:1
+msgid "Arrange four coins in a row"
+msgstr "چها تا از سكه ها را روي يك ستون مرتب كن."
+
+#: ../boards/connect4.xml.in.h:2
+#: ../boards/connect4-2players.xml.in.h:2
+msgid "Click the position in the line where you want to drop a piece. You can also use the arrow keys to move the piece left or right, and the down or space key to drop a piece."
+msgstr ""
+
+#: ../boards/connect4.xml.in.h:3
+msgid "Connect 4"
+msgstr ""
+
+#: ../boards/connect4.xml.in.h:4
+msgid "Create a line of 4 pieces either horizontally (lying down), vertically (standing up) or diagonally."
+msgstr ""
+
+#: ../boards/connect4.xml.in.h:5
+msgid "Laurent Lacheny. Images and Artificial Intelligence taken from project 4stattack by Jeroen Vloothuis. The original project can be found on &lt;http://forcedattack.sourceforge.net&gt;"
+msgstr ""
+
+#: ../boards/connect4-2players.xml.in.h:3
+msgid "Connect 4 (2 Players)"
+msgstr ""
+
+#: ../boards/connect4-2players.xml.in.h:4
+msgid "Create a line of 4 pieces either horizontally (lying down) or vertically (standing up) or diagonally."
+msgstr ""
+
+#: ../boards/connect4-2players.xml.in.h:6
+msgid "The original code was written in 2005 by Laurent Lacheny. In 2006, Miguel de Izarra made the two players game. Images and Artificial Intelligence taken from project 4stattack by Jeroen Vloothuis. The original project can be found on &lt;http://forcedattack.sourceforge.net&gt;"
+msgstr ""
+
+#: ../boards/crane.xml.in.h:1
+msgid "Build the same model"
+msgstr "مانند نمونه بساز"
+
+#: ../boards/crane.xml.in.h:2
+msgid "Drive the crane and copy the model"
+msgstr "مانند نمونه با جرثقیل رانندگی کن"
+
+#: ../boards/crane.xml.in.h:3
+#: ../boards/erase.xml.in.h:2
+#: ../boards/erase_clic.xml.in.h:5
+msgid "Motor-coordination"
+msgstr ""
+
+#: ../boards/crane.xml.in.h:4
+#: ../boards/hanoi_real.xml.in.h:2
+msgid "Mouse manipulation"
+msgstr "با موس بازی کن"
+
+#: ../boards/crane.xml.in.h:5
+msgid "Move the items in the bottom left frame to copy their position in the top right model. Below the crane itself, you will find four arrows that let you move items. To select the item to move, just click on it."
+msgstr ""
+
+#: ../boards/discovery.xml.in.h:1
+msgid "Colors, sounds, memory..."
+msgstr "رنگها ، صداها ، حافظه ..."
+
+#: ../boards/discovery.xml.in.h:2
+msgid "Go to discovery activities"
+msgstr ""
+
+#: ../boards/doubleentry.xml.in.h:1
+msgid "Basic counting skills"
+msgstr "مهارتهاس ساده شمردن"
+
+#: ../boards/doubleentry.xml.in.h:2
+msgid "Double-entry table"
+msgstr ""
+
+#: ../boards/doubleentry.xml.in.h:3
+msgid "Drag and Drop each proposed item on its destination"
+msgstr ""
+
+#: ../boards/doubleentry.xml.in.h:4
+msgid "Drag and Drop the items in the double-entry table"
+msgstr ""
+
+#: ../boards/doubleentry.xml.in.h:5
+msgid "Move the items on the left to their proper position in the double-entry table."
+msgstr ""
+
+#: ../boards/doubleentry/board3_0.xml.in.h:1
+msgid "Click on an item and listen to its target position"
+msgstr ""
+
+#: ../boards/draw.xml.in.h:1
+msgid "A creative board where you can draw freely"
+msgstr ""
+
+#: ../boards/draw.xml.in.h:2
+msgid "A simple vector-drawing tool"
+msgstr ""
+
+#: ../boards/draw.xml.in.h:3
+msgid "In this game, children can draw freely. The goal is to discover how to create attractive drawings based on basic shapes: rectangles, ellipses and lines."
+msgstr ""
+
+#: ../boards/draw.xml.in.h:5
+msgid "Select a drawing tool on the left, and a color down the bottom, then click and drag in the white area to create a new shape. To save time, you can click with the middle mouse button to delete an object."
+msgstr ""
+
+#: ../boards/drawnumber.xml.in.h:1
+msgid "Can count from 1 to 50."
+msgstr ""
+
+#: ../boards/drawnumber.xml.in.h:2
+msgid "Draw Number"
+msgstr "اعداد رو بنويس"
+
+#: ../boards/drawnumber.xml.in.h:3
+msgid "Draw the picture by clicking on each numbers in the right order."
+msgstr ""
+
+#: ../boards/drawnumber.xml.in.h:4
+msgid "Draw the picture by following numbers"
+msgstr "با استفاده از اعداد زير تصاوير را بكشيد"
+
+#: ../boards/electric.xml.in.h:1
+msgid "Create and simulate an electric schema"
+msgstr ""
+
+#: ../boards/electric.xml.in.h:2
+msgid "Drag electrical components from the selector and drop them in the working area. Create wires by clicking on a connection spot, dragging the mouse to the next connection spot, and letting go. You can also move components by dragging them. You can delete wires by clicking on them. To delete a component, select the deletion tool on top of the component selector. You can click on the switch to open and close it. You can change the rheostat value by dragging its wiper. In order to simulate what happens when a bulb is blown, you can blown it by right-clicking on it. The simulation is updated in real time by any user action."
+msgstr ""
+
+#: ../boards/electric.xml.in.h:3
+msgid "Electricity"
+msgstr "برق"
+
+#: ../boards/electric.xml.in.h:4
+msgid "Freely create an electric schema with a real time simulation of it."
+msgstr ""
+
+#: ../boards/electric.xml.in.h:5
+msgid "GCompris uses the Gnucap electric simulator as a backend. You can get more information on gnucap at &lt;http://geda.seul.org/tools/gnucap/&gt;."
+msgstr ""
+
+#: ../boards/electric.xml.in.h:6
+msgid "Requires some basic understanding of the concept of electricity."
+msgstr ""
+
+#: ../boards/enumerate.xml.in.h:1
+msgid "Basic enumeration"
+msgstr "شمارش ساده"
+
+#: ../boards/enumerate.xml.in.h:2
+msgid "Count the items"
+msgstr "ایتم ها را بشمار"
+
+#: ../boards/enumerate.xml.in.h:3
+msgid "First, properly organize the items so that you can count them. Then, select the item you want to answer in the bottom right area. Enter the answer with the keyboard and press the OK button or the 'Enter' key."
+msgstr ""
+
+#: ../boards/enumerate.xml.in.h:4
+#: ../boards/planegame.xml.in.h:5
+#: ../src/boards/enumerate.c:88
+msgid "Numeration training"
+msgstr "آموزش شمارش"
+
+#: ../boards/enumerate.xml.in.h:5
+#: ../src/boards/enumerate.c:89
+msgid "Place the items in the best way to count them"
+msgstr ""
+
+#: ../boards/erase.xml.in.h:1
+msgid "Animal pictures are taken from the Animal Photography Page of Ralf Schmode (&lt;http://schmode.net/&gt;) and from LE BERRE Daniel. These people kindly gave GCompris the authorization to include their pictures. Thanks a lot, both of you."
+msgstr ""
+
+#: ../boards/erase.xml.in.h:4
+#: ../src/boards/erase.c:117
+#: ../src/boards/machpuzzle.c:87
+msgid "Move the mouse"
+msgstr "موس را حرکت بده"
+
+#: ../boards/erase.xml.in.h:5
+#: ../src/boards/erase.c:118
+msgid "Move the mouse to erase the area and discover the background"
+msgstr ""
+
+#: ../boards/erase.xml.in.h:6
+msgid "Move the mouse until all the blocks disappear."
+msgstr ""
+
+#: ../boards/erase_clic.xml.in.h:2
+msgid "Click the mouse"
+msgstr " با موس  كليك كن"
+
+#: ../boards/erase_clic.xml.in.h:3
+msgid "Click the mouse on rectangles until all the blocks disappear."
+msgstr ""
+
+#: ../boards/erase_clic.xml.in.h:4
+msgid "Click the mouse to erase the area and discover the background"
+msgstr ""
+
+#: ../boards/experience.xml.in.h:1
+msgid "Go to experiential activities"
+msgstr "به قسمت تجربی برو"
+
+#: ../boards/experience.xml.in.h:2
+msgid "Various activities based on physical movement."
+msgstr ""
+
+#: ../boards/experimental.xml.in.h:1
+msgid "Go to Experimental activities"
+msgstr ""
+
+#: ../boards/experimental.xml.in.h:2
+msgid "Run gcompris --experimental to see this menu."
+msgstr ""
+
+#: ../boards/fifteen.xml.in.h:1
+msgid "Click on any item that has a free block beside it, and it will be swapped with the empty block."
+msgstr ""
+
+#: ../boards/fifteen.xml.in.h:3
+msgid "Move each item to make an increasing series: from the smallest to the largest"
+msgstr ""
+
+#: ../boards/fifteen.xml.in.h:4
+msgid "Original code taken from the libgnomecanvas demo"
+msgstr ""
+
+#: ../boards/fifteen.xml.in.h:5
+msgid "The fifteen game"
+msgstr "بازی پانزدهم"
+
+#: ../boards/followline.xml.in.h:1
+msgid "Control the hose-pipe"
+msgstr ""
+
+#: ../boards/followline.xml.in.h:2
+msgid "Fine motor coordination"
+msgstr ""
+
+#: ../boards/followline.xml.in.h:3
+msgid "Move the mouse over the red part of the hose-pipe. This will move it, bringing it, part by part, up to the flowers. Be careful, if you move off the hose, the red part will go back down."
+msgstr ""
+
+#: ../boards/followline.xml.in.h:4
+msgid "Tux needs to water the flowers, but the hose is blocked."
+msgstr ""
+
+#: ../boards/fun.xml.in.h:1
+msgid "Go to Amusement activities"
+msgstr "به قسمت سر گرمی برو"
+
+#: ../boards/fun.xml.in.h:2
+msgid "Various fun activities."
+msgstr ""
+
+#: ../boards/gcompris/mimetypes/mime_type.xml.in.h:1
+msgid "gcompris animation"
+msgstr ""
+
+#: ../boards/gcompris/mimetypes/mime_type.xml.in.h:2
+msgid "gcompris drawing"
+msgstr ""
+
+#: ../boards/gcompris/mimetypes/mime_type.xml.in.h:3
+msgid "svg drawing"
+msgstr ""
+
+#: ../boards/gcompris/mimetypes/mime_type.xml.in.h:4
+msgid "svg mozilla animation"
+msgstr ""
+
+#: ../boards/gcompris/mimetypes/mime_type.xml.in.h:5
+msgid "wordprocessor text"
+msgstr ""
+
+#: ../boards/geography.xml.in.h:1
+msgid "Drag and Drop the items to redraw the whole map"
+msgstr ""
+
+#: ../boards/geography.xml.in.h:2
+msgid "Locate the countries"
+msgstr "مشخص کن کشورها را "
+
+#: ../boards/geography.xml.in.h:3
+#: ../boards/geography_country.xml.in.h:3
+msgid "Mouse manipulation: movement, drag and drop"
+msgstr ""
+
+#: ../boards/geography/board1_0.xml.in.h:1
+#: ../boards/geography/board4_2.xml.in.h:1
+msgid "Africa"
+msgstr "آفریقا"
+
+#: ../boards/geography/board1_0.xml.in.h:2
+msgid "America"
+msgstr "آمريكا"
+
+#: ../boards/geography/board1_0.xml.in.h:3
+msgid "Antartica"
+msgstr ""
+
+#: ../boards/geography/board1_0.xml.in.h:4
+msgid "Asia"
+msgstr "آسيا"
+
+#: ../boards/geography/board1_0.xml.in.h:5
+msgid "Continents"
+msgstr ""
+
+#: ../boards/geography/board1_0.xml.in.h:6
+msgid "Europe"
+msgstr "اروپا"
+
+#: ../boards/geography/board1_0.xml.in.h:7
+msgid "Oceania"
+msgstr "اقيانوسيه"
+
+#: ../boards/geography/board2_0.xml.in.h:1
+msgid "Alaska"
+msgstr "آلاسكا"
+
+#: ../boards/geography/board2_0.xml.in.h:2
+msgid "Bahamas"
+msgstr ""
+
+#: ../boards/geography/board2_0.xml.in.h:3
+msgid "Canada"
+msgstr "كانادا"
+
+#: ../boards/geography/board2_0.xml.in.h:4
+msgid "Cuba"
+msgstr "كوبا"
+
+#: ../boards/geography/board2_0.xml.in.h:5
+msgid "Dominican Republic"
+msgstr ""
+
+#: ../boards/geography/board2_0.xml.in.h:6
+msgid "Greenland"
+msgstr "گرينلند"
+
+#: ../boards/geography/board2_0.xml.in.h:7
+msgid "Haiti"
+msgstr "جزيره هاييتي"
+
+#: ../boards/geography/board2_0.xml.in.h:8
+#: ../boards/geography/board3_0.xml.in.h:7
+msgid "Iceland"
+msgstr "ايسلند"
+
+#: ../boards/geography/board2_0.xml.in.h:9
+msgid "Jamaica"
+msgstr ""
+
+#: ../boards/geography/board2_0.xml.in.h:10
+msgid "Mexico"
+msgstr "مكزيك"
+
+#: ../boards/geography/board2_0.xml.in.h:11
+msgid "North America"
+msgstr "آمريكاي شمالي"
+
+#: ../boards/geography/board2_0.xml.in.h:12
+msgid "United States of America"
+msgstr ""
+
+#: ../boards/geography/board2_1.xml.in.h:1
+msgid "Argentina"
+msgstr ""
+
+#: ../boards/geography/board2_1.xml.in.h:2
+msgid "Bolivia"
+msgstr ""
+
+#: ../boards/geography/board2_1.xml.in.h:3
+msgid "Brazil"
+msgstr "برزيل"
+
+#: ../boards/geography/board2_1.xml.in.h:4
+msgid "Chile"
+msgstr "خوراك لوبيا"
+
+#: ../boards/geography/board2_1.xml.in.h:5
+msgid "Colombia"
+msgstr "كولومبيا"
+
+#: ../boards/geography/board2_1.xml.in.h:6
+msgid "Ecuador"
+msgstr "اكادور"
+
+#: ../boards/geography/board2_1.xml.in.h:7
+msgid "French Guiana"
+msgstr ""
+
+#: ../boards/geography/board2_1.xml.in.h:8
+msgid "Guyana"
+msgstr ""
+
+#: ../boards/geography/board2_1.xml.in.h:9
+msgid "Panama"
+msgstr "پاناما"
+
+#: ../boards/geography/board2_1.xml.in.h:10
+msgid "Paraguay"
+msgstr ""
+
+#: ../boards/geography/board2_1.xml.in.h:11
+msgid "Peru"
+msgstr "پرو"
+
+#: ../boards/geography/board2_1.xml.in.h:12
+msgid "South America"
+msgstr "آمريكاي جنوبي"
+
+#: ../boards/geography/board2_1.xml.in.h:13
+msgid "Suriname"
+msgstr "سورينم"
+
+#: ../boards/geography/board2_1.xml.in.h:14
+msgid "Uruguay"
+msgstr ""
+
+#: ../boards/geography/board2_1.xml.in.h:15
+msgid "Venezuela"
+msgstr ""
+
+#: ../boards/geography/board3_0.xml.in.h:1
+msgid "Austria"
+msgstr "استراليا"
+
+#: ../boards/geography/board3_0.xml.in.h:2
+msgid "Belgium"
+msgstr ""
+
+#: ../boards/geography/board3_0.xml.in.h:3
+msgid "Denmark"
+msgstr "دانمارك"
+
+#: ../boards/geography/board3_0.xml.in.h:4
+msgid "Finland"
+msgstr "فينلند"
+
+#: ../boards/geography/board3_0.xml.in.h:5
+msgid "France"
+msgstr "فرانسه"
+
+#: ../boards/geography/board3_0.xml.in.h:6
+msgid "Germany"
+msgstr "آلمان"
+
+#: ../boards/geography/board3_0.xml.in.h:8
+msgid "Ireland"
+msgstr "ايرلند"
+
+#: ../boards/geography/board3_0.xml.in.h:9
+msgid "Italy"
+msgstr "ايتاليا"
+
+#: ../boards/geography/board3_0.xml.in.h:10
+msgid "Luxembourg"
+msgstr ""
+
+#: ../boards/geography/board3_0.xml.in.h:11
+msgid "Norway"
+msgstr "نروژ"
+
+#: ../boards/geography/board3_0.xml.in.h:12
+msgid "Portugal"
+msgstr "پرتقال"
+
+#: ../boards/geography/board3_0.xml.in.h:13
+msgid "Spain"
+msgstr "اسپانيا"
+
+#: ../boards/geography/board3_0.xml.in.h:14
+msgid "Sweden"
+msgstr "سوئد"
+
+#: ../boards/geography/board3_0.xml.in.h:15
+msgid "Switzerland"
+msgstr ""
+
+#: ../boards/geography/board3_0.xml.in.h:16
+msgid "The Netherlands"
+msgstr ""
+
+#: ../boards/geography/board3_0.xml.in.h:17
+msgid "United Kingdom"
+msgstr ""
+
+#: ../boards/geography/board3_0.xml.in.h:18
+msgid "Western Europe"
+msgstr ""
+
+#: ../boards/geography/board3_1.xml.in.h:1
+msgid "Albania"
+msgstr "الباني"
+
+#: ../boards/geography/board3_1.xml.in.h:2
+msgid "Belarus"
+msgstr ""
+
+#: ../boards/geography/board3_1.xml.in.h:3
+msgid "Bosnia Herzegovina"
+msgstr ""
+
+#: ../boards/geography/board3_1.xml.in.h:4
+msgid "Bulgaria"
+msgstr ""
+
+#: ../boards/geography/board3_1.xml.in.h:5
+msgid "Croatia"
+msgstr ""
+
+#: ../boards/geography/board3_1.xml.in.h:6
+msgid "Cyprus"
+msgstr ""
+
+#: ../boards/geography/board3_1.xml.in.h:7
+#: ../src/gcompris/config.c:67
+msgid "Czech Republic"
+msgstr ""
+
+#: ../boards/geography/board3_1.xml.in.h:8
+msgid "Eastern Europe"
+msgstr ""
+
+#: ../boards/geography/board3_1.xml.in.h:9
+msgid "Estonia"
+msgstr ""
+
+#: ../boards/geography/board3_1.xml.in.h:10
+msgid "Greece"
+msgstr "يونان"
+
+#: ../boards/geography/board3_1.xml.in.h:11
+msgid "Hungary"
+msgstr ""
+
+#: ../boards/geography/board3_1.xml.in.h:12
+msgid "Latvia"
+msgstr ""
+
+#: ../boards/geography/board3_1.xml.in.h:13
+msgid "Lithuania"
+msgstr ""
+
+#: ../boards/geography/board3_1.xml.in.h:14
+msgid "Macedonia"
+msgstr ""
+
+#: ../boards/geography/board3_1.xml.in.h:15
+msgid "Moldova"
+msgstr ""
+
+#: ../boards/geography/board3_1.xml.in.h:16
+msgid "Poland"
+msgstr ""
+
+#: ../boards/geography/board3_1.xml.in.h:17
+msgid "Romania"
+msgstr ""
+
+#: ../boards/geography/board3_1.xml.in.h:18
+msgid "Russia"
+msgstr "روسيه"
+
+#: ../boards/geography/board3_1.xml.in.h:19
+msgid "Serbia Montenegro"
+msgstr ""
+
+#: ../boards/geography/board3_1.xml.in.h:20
+msgid "Slovak Republic"
+msgstr ""
+
+#: ../boards/geography/board3_1.xml.in.h:21
+msgid "Slovenia"
+msgstr ""
+
+#: ../boards/geography/board3_1.xml.in.h:22
+msgid "Turkey"
+msgstr "تركيه"
+
+#: ../boards/geography/board3_1.xml.in.h:23
+msgid "Ukraine"
+msgstr ""
+
+#: ../boards/geography/board4_0.xml.in.h:1
+#: ../boards/geography/board4_2.xml.in.h:2
+msgid "Algeria"
+msgstr "الجزاير"
+
+#: ../boards/geography/board4_0.xml.in.h:2
+#: ../boards/geography/board4_2.xml.in.h:4
+msgid "Benin"
+msgstr ""
+
+#: ../boards/geography/board4_0.xml.in.h:3
+#: ../boards/geography/board4_2.xml.in.h:6
+msgid "Burkina Faso"
+msgstr ""
+
+#: ../boards/geography/board4_0.xml.in.h:4
+#: ../boards/geography/board4_2.xml.in.h:7
+msgid "Cameroon"
+msgstr ""
+
+#: ../boards/geography/board4_0.xml.in.h:5
+#: ../boards/geography/board4_2.xml.in.h:8
+msgid "Central African Republic"
+msgstr ""
+
+#: ../boards/geography/board4_0.xml.in.h:6
+#: ../boards/geography/board4_2.xml.in.h:9
+msgid "Chad"
+msgstr "چاد"
+
+#: ../boards/geography/board4_0.xml.in.h:7
+msgid "Djibouti"
+msgstr ""
+
+#: ../boards/geography/board4_0.xml.in.h:8
+#: ../boards/geography/board4_2.xml.in.h:11
+msgid "Egypt"
+msgstr "مصر"
+
+#: ../boards/geography/board4_0.xml.in.h:9
+#: ../boards/geography/board4_1.xml.in.h:5
+msgid "Equatorial Guinea"
+msgstr ""
+
+#: ../boards/geography/board4_0.xml.in.h:10
+#: ../boards/geography/board4_2.xml.in.h:12
+msgid "Eritrea"
+msgstr ""
+
+#: ../boards/geography/board4_0.xml.in.h:11
+#: ../boards/geography/board4_2.xml.in.h:13
+msgid "Ethiopia"
+msgstr ""
+
+#: ../boards/geography/board4_0.xml.in.h:12
+#: ../boards/geography/board4_1.xml.in.h:6
+#: ../boards/geography/board4_2.xml.in.h:14
+msgid "Gabon"
+msgstr "ژاپن"
+
+#: ../boards/geography/board4_0.xml.in.h:13
+msgid "Gambia"
+msgstr ""
+
+#: ../boards/geography/board4_0.xml.in.h:14
+#: ../boards/geography/board4_2.xml.in.h:15
+msgid "Ghana"
+msgstr ""
+
+#: ../boards/geography/board4_0.xml.in.h:15
+#: ../boards/geography/board4_2.xml.in.h:16
+msgid "Guinea"
+msgstr ""
+
+#: ../boards/geography/board4_0.xml.in.h:16
+msgid "Guinea Bissau"
+msgstr ""
+
+#: ../boards/geography/board4_0.xml.in.h:17
+#: ../boards/geography/board4_2.xml.in.h:17
+msgid "Ivory Coast"
+msgstr ""
+
+#: ../boards/geography/board4_0.xml.in.h:18
+#: ../boards/geography/board4_2.xml.in.h:19
+msgid "Liberia"
+msgstr "لیبریا"
+
+#: ../boards/geography/board4_0.xml.in.h:19
+#: ../boards/geography/board4_2.xml.in.h:20
+msgid "Libya"
+msgstr "لیبی"
+
+#: ../boards/geography/board4_0.xml.in.h:20
+#: ../boards/geography/board4_2.xml.in.h:23
+msgid "Mali"
+msgstr "مالي"
+
+#: ../boards/geography/board4_0.xml.in.h:21
+#: ../boards/geography/board4_2.xml.in.h:24
+msgid "Mauritania"
+msgstr ""
+
+#: ../boards/geography/board4_0.xml.in.h:22
+#: ../boards/geography/board4_2.xml.in.h:25
+msgid "Morocco"
+msgstr "مراكش"
+
+#: ../boards/geography/board4_0.xml.in.h:23
+#: ../boards/geography/board4_2.xml.in.h:28
+msgid "Niger"
+msgstr "نيجر"
+
+#: ../boards/geography/board4_0.xml.in.h:24
+#: ../boards/geography/board4_2.xml.in.h:29
+msgid "Nigeria"
+msgstr ""
+
+#: ../boards/geography/board4_0.xml.in.h:25
+msgid "Northern Africa"
+msgstr ""
+
+#: ../boards/geography/board4_0.xml.in.h:26
+#: ../boards/geography/board4_1.xml.in.h:14
+msgid "Rwanda"
+msgstr ""
+
+#: ../boards/geography/board4_0.xml.in.h:27
+#: ../boards/geography/board4_2.xml.in.h:30
+msgid "Senegal"
+msgstr ""
+
+#: ../boards/geography/board4_0.xml.in.h:28
+msgid "Sierra Leone"
+msgstr ""
+
+#: ../boards/geography/board4_0.xml.in.h:29
+#: ../boards/geography/board4_2.xml.in.h:31
+msgid "Somalia"
+msgstr "صومال"
+
+#: ../boards/geography/board4_0.xml.in.h:30
+#: ../boards/geography/board4_2.xml.in.h:33
+msgid "Sudan"
+msgstr "سودان"
+
+#: ../boards/geography/board4_0.xml.in.h:31
+#: ../boards/geography/board4_2.xml.in.h:35
+msgid "Togo"
+msgstr "توگو"
+
+#: ../boards/geography/board4_0.xml.in.h:32
+#: ../boards/geography/board4_2.xml.in.h:36
+msgid "Tunisia"
+msgstr "تونس"
+
+#: ../boards/geography/board4_0.xml.in.h:33
+#: ../boards/geography/board4_1.xml.in.h:19
+#: ../boards/geography/board4_2.xml.in.h:37
+msgid "Uganda"
+msgstr ""
+
+#: ../boards/geography/board4_0.xml.in.h:34
+msgid "Western Sahara"
+msgstr ""
+
+#: ../boards/geography/board4_1.xml.in.h:1
+#: ../boards/geography/board4_2.xml.in.h:3
+msgid "Angola"
+msgstr ""
+
+#: ../boards/geography/board4_1.xml.in.h:2
+#: ../boards/geography/board4_2.xml.in.h:5
+msgid "Botswana"
+msgstr ""
+
+#: ../boards/geography/board4_1.xml.in.h:3
+msgid "Burundi"
+msgstr ""
+
+#: ../boards/geography/board4_1.xml.in.h:4
+#: ../boards/geography/board4_2.xml.in.h:10
+msgid "Democratic Republic of Congo"
+msgstr ""
+
+#: ../boards/geography/board4_1.xml.in.h:7
+#: ../boards/geography/board4_2.xml.in.h:18
+msgid "Kenya"
+msgstr "كنيا"
+
+#: ../boards/geography/board4_1.xml.in.h:8
+msgid "Lesotho"
+msgstr ""
+
+#: ../boards/geography/board4_1.xml.in.h:9
+#: ../boards/geography/board4_2.xml.in.h:21
+msgid "Madagascar"
+msgstr "جزیره مالاگازی"
+
+#: ../boards/geography/board4_1.xml.in.h:10
+#: ../boards/geography/board4_2.xml.in.h:22
+msgid "Malawi"
+msgstr "مالاوي"
+
+#: ../boards/geography/board4_1.xml.in.h:11
+#: ../boards/geography/board4_2.xml.in.h:26
+msgid "Mozambique"
+msgstr ""
+
+#: ../boards/geography/board4_1.xml.in.h:12
+#: ../boards/geography/board4_2.xml.in.h:27
+msgid "Namibia"
+msgstr "ناميبيا"
+
+#: ../boards/geography/board4_1.xml.in.h:13
+msgid "Republic of Congo"
+msgstr ""
+
+#: ../boards/geography/board4_1.xml.in.h:15
+#: ../boards/geography/board4_2.xml.in.h:32
+msgid "South Africa"
+msgstr ""
+
+#: ../boards/geography/board4_1.xml.in.h:16
+msgid "Southern Africa"
+msgstr ""
+
+#: ../boards/geography/board4_1.xml.in.h:17
+msgid "Swaziland"
+msgstr ""
+
+#: ../boards/geography/board4_1.xml.in.h:18
+#: ../boards/geography/board4_2.xml.in.h:34
+msgid "Tanzania"
+msgstr "تانزانيا"
+
+#: ../boards/geography/board4_1.xml.in.h:20
+#: ../boards/geography/board4_2.xml.in.h:38
+msgid "Zambia"
+msgstr "زامبيا"
+
+#: ../boards/geography/board4_1.xml.in.h:21
+#: ../boards/geography/board4_2.xml.in.h:39
+msgid "Zimbabwe"
+msgstr "زيمباوه"
+
+#: ../boards/geography_country.xml.in.h:1
+msgid "Drag and Drop the regions to redraw the whole country"
+msgstr ""
+
+#: ../boards/geography_country.xml.in.h:2
+msgid "Locate the region"
+msgstr ""
+
+#: ../boards/geography_country.xml.in.h:4
+msgid "The map of Germany comes from Wikipedia and is released under the GNU Free Documentation License. Olaf Ronneberger and his children Lina and Julia Ronneberger created the German level."
+msgstr ""
+
+#: ../boards/geography_country/board1_0.xml.in.h:1
+msgid "Regions of France"
+msgstr ""
+
+#: ../boards/geography_country/board2_0.xml.in.h:1
+msgid "Deutschland Bundesländer"
+msgstr ""
+
+#: ../boards/geography_country/board3_0.xml.in.h:1
+msgid "Provincias Argentinas"
+msgstr ""
+
+#: ../boards/geography_country/board4_0.xml.in.h:1
+msgid "Polish Voivodship"
+msgstr ""
+
+#: ../boards/geography_country/board5_0.xml.in.h:1
+#: ../boards/geography_country/board5_2.xml.in.h:1
+msgid "Districts of Turkey"
+msgstr "ناحيه هاي تركيه"
+
+#: ../boards/geography_country/board5_1.xml.in.h:1
+msgid "Eastern Districts of Turkey"
+msgstr ""
+
+#: ../boards/geography_country/board6_0.xml.in.h:1
+msgid "Counties of Norway"
+msgstr ""
+
+#: ../boards/geography_country/board7_0.xml.in.h:1
+msgid "Counties of Brazil"
+msgstr ""
+
+#: ../boards/geometry.xml.in.h:1
+msgid "Geometry"
+msgstr "هندسه"
+
+#: ../boards/geometry.xml.in.h:2
+msgid "Geometry activities."
+msgstr ""
+
+#: ../boards/gletters.xml.in.h:1
+#: ../boards/wordsgame.xml.in.h:2
+msgid "Keyboard manipulation"
+msgstr "با کیبورد بازی کن"
+
+#: ../boards/gletters.xml.in.h:2
+msgid "Letter association between the screen and the keyboard"
+msgstr ""
+
+#: ../boards/gletters.xml.in.h:3
+#: ../src/boards/gletters.c:133
+msgid "Simple Letters"
+msgstr "حرفهاي ساده"
+
+#: ../boards/gletters.xml.in.h:4
+#: ../src/boards/gletters.c:134
+msgid "Type the falling letters before they reach the ground"
+msgstr ""
+
+#: ../boards/gnumch-equality.xml.in.h:1
+msgid "Equality Number Munchers"
+msgstr ""
+
+#: ../boards/gnumch-equality.xml.in.h:2
+msgid "Guide the Number Muncher to the expressions that equal the number at the top of the screen."
+msgstr ""
+
+#: ../boards/gnumch-equality.xml.in.h:3
+msgid "Practice addition, multiplication, division and subtraction."
+msgstr "تمرین جمع ، ضرب ، تقسیم و تفریق"
+
+#: ../boards/gnumch-equality.xml.in.h:4
+#: ../boards/gnumch-inequality.xml.in.h:4
+msgid "Use the arrow keys to navigate around the board and to avoid the Troggles. Press the spacebar to eat a number."
+msgstr ""
+
+#: ../boards/gnumch-factors.xml.in.h:1
+msgid "Factor Number Munchers"
+msgstr ""
+
+#: ../boards/gnumch-factors.xml.in.h:2
+msgid "Guide the Number Muncher to all the factors of the number at the top of the screen."
+msgstr ""
+
+#: ../boards/gnumch-factors.xml.in.h:3
+msgid "Learn about factors and multiples."
+msgstr ""
+
+#: ../boards/gnumch-factors.xml.in.h:4
+msgid "The factors of a number are all the numbers that divide that number evenly. For example, the factors of 6 are 1, 2, 3 and 6. 4 is not a factor of 6 because 6 cannot be divided into 4 equal pieces. If one number is a multiple of a second number, then the second number is a factor of the first number. You can think of multiples as families, and factors are the people in those families. So 1, 2, 3 and 6 all fit into the 6 family, but 4 belongs to another family. Use the arrow keys to navigate around the board and to avoid the Troggles. Press the spacebar to eat a number."
+msgstr ""
+
+#: ../boards/gnumch-inequality.xml.in.h:1
+msgid "Guide the Number Muncher to the all the expressions that do not equal the number at the top of the screen."
+msgstr ""
+
+#: ../boards/gnumch-inequality.xml.in.h:2
+msgid "Inequality Number Munchers"
+msgstr ""
+
+#: ../boards/gnumch-inequality.xml.in.h:3
+msgid "Practice addition, subtraction, multiplication and division."
+msgstr "جمع ، تفریق ، ضرب و تقسیم را تمرین کن"
+
+#: ../boards/gnumch-multiples.xml.in.h:1
+msgid "Guide the Number Muncher to all the multiples of the number at the top of the screen."
+msgstr ""
+
+#: ../boards/gnumch-multiples.xml.in.h:2
+msgid "Learn about multiples and factors."
+msgstr ""
+
+#: ../boards/gnumch-multiples.xml.in.h:3
+msgid "Multiple Number Munchers"
+msgstr ""
+
+#: ../boards/gnumch-multiples.xml.in.h:4
+msgid "The multiples of a number are all the numbers that are equal to the original number times another number. For example, 24, 36, 48 and 60 are all multiples of 12. 25 is not a multiple of 12 because there isn't any number that can be multiplied by 12 to get 25. If one number is a factor of a second number, then the second number is a multiple of the first number. Again, you can think of multiples as families, and factors are the people who belong to those families. The factor 5, has parents 10, grandparents 15, great-grandparents 20, great-great-grandparents 25, and every extra step of 5 is another great- in front! But the number 5 does not belong in the 8 or 23 families. You can't fit any number of 5s into 8 or 23 with nothing left over. So '8 isn't a multiple of 5, nor is 23. Only 5, 10, 15, 20, 25 ... are multiples (or families or steps) of 5. Use the arrow keys to navigate around the board and to avoid the Troggles. Press the spacebar to eat a number."
+msgstr ""
+
+#: ../boards/gnumch-primes.xml.in.h:1
+msgid "Guide the Number Muncher to all the prime numbers."
+msgstr ""
+
+#: ../boards/gnumch-primes.xml.in.h:2
+msgid "Learn about prime numbers"
+msgstr "درباره اعداد اول یاد بگیر"
+
+#: ../boards/gnumch-primes.xml.in.h:3
+msgid "Prime Number Munchers"
+msgstr ""
+
+#: ../boards/gnumch-primes.xml.in.h:4
+msgid "Prime numbers are numbers that are only divisible by themselves and 1. For example, 3 is a prime number, but 4 isn't (because 4 is divisible by 2). You can think of prime numbers as very small families: they only ever have two people in them! Only themselves and 1. You can't fit any other numbers into them with nothing left over. 5 is one of these lonely numbers (only 5 × 1 = 5), but you can see that 6 has 2 and 3 in its family as well (6 × 1 = 6, 2 × 3 = 6). So 6 is not a prime number. Use the arrow keys to navigate around the board and to avoid the Troggles. Press the spacebar to eat a number."
+msgstr ""
+
+#: ../boards/gnumchmenu.xml.in.h:1
+msgid "Go to Number Munchers activities"
+msgstr ""
+
+#: ../boards/gnumchmenu.xml.in.h:2
+msgid "Number Munchers are games to play with arithmetic."
+msgstr ""
+
+#: ../boards/guessnumber.xml.in.h:1
+msgid "Guess a number"
+msgstr "عدد را حدس بزن"
+
+#: ../boards/guessnumber.xml.in.h:2
+msgid "Help Tux escape the cave. Tux hides a number for you to find."
+msgstr ""
+
+#: ../boards/guessnumber.xml.in.h:3
+msgid "Numbers from 1 to 1000 for the last level."
+msgstr ""
+
+#: ../boards/guessnumber.xml.in.h:4
+msgid "Read the instructions that give you the range of the number to find. Enter a number in the top right blue entry box. Tux will tell you if your number is higher or lower. Then enter another number. The distance between Tux and the escape area on the right represents how far you are from the correct number. If Tux is over or under the escape area, it means your number is over or under the correct number."
+msgstr ""
+
+#: ../boards/hanoi.xml.in.h:1
+msgid "Concept taken from EPI games."
+msgstr "راه كار از بازي EPI گرفته شده است."
+
+#: ../boards/hanoi.xml.in.h:2
+msgid "Drag and Drop one top piece at a time, from one peg to another, to reproduce the tower on the right in the empty space on the left."
+msgstr ""
+
+#: ../boards/hanoi.xml.in.h:4
+#: ../src/boards/hanoi.c:96
+msgid "Reproduce the given tower"
+msgstr ""
+
+#: ../boards/hanoi.xml.in.h:5
+msgid "Reproduce the tower on the right in the empty space on the left"
+msgstr ""
+
+#: ../boards/hanoi.xml.in.h:6
+#: ../src/boards/hanoi.c:95
+msgid "Simplified Tower of Hanoi"
+msgstr "ساده شده برج هانو اي"
+
+#: ../boards/hanoi_real.xml.in.h:1
+msgid "Drag and Drop the top pieces only from one peg to another, to reproduce the tower on the right in the empty space on the left."
+msgstr ""
+
+#: ../boards/hanoi_real.xml.in.h:3
+msgid "Reproduce the tower on the right side"
+msgstr ""
+
+#: ../boards/hanoi_real.xml.in.h:4
+msgid "The Tower of Hanoi"
+msgstr "برج هانو اي"
+
+#: ../boards/hanoi_real.xml.in.h:5
+msgid ""
+"The object of the game is to move the entire stack to another peg, obeying the following rules:\n"
+"* only one disc may be moved at a time\n"
+"* no disc may be placed atop a smaller disc"
+msgstr ""
+
+#: ../boards/hanoi_real.xml.in.h:8
+msgid "The puzzle was invented by the French mathematician Edouard Lucas in 1883. There is a legend about a Hindu temple whose priests were constantly engaged in moving a set of 64 discs according to the rules of the Tower of Hanoi puzzle. According to the legend, the world would end when the priests finished their work. The puzzle is therefore also known as the Tower of Brahma puzzle. It is not clear whether Lucas invented this legend or was inspired by it. (source Wikipedia &lt;http://en.wikipedia.org/wiki/Tower_of_hanoi&gt;)"
+msgstr ""
+
+#: ../boards/hexagon.xml.in.h:1
+msgid "Find the strawberry by clicking on the blue fields"
+msgstr ""
+
+#: ../boards/hexagon.xml.in.h:4
+msgid "Try to find the strawberry under the blue fields. The fields become redder as you get closer."
+msgstr ""
+
+#: ../boards/hexagon.xml.in.h:5
+msgid "hexagon"
+msgstr "شش ضلعی"
+
+#: ../boards/imageid.xml.in.h:1
+msgid "Click on the word corresponding to the printed image."
+msgstr "روی کلمه ای که با تصویر مصابقت دارد کلیک کن"
+
+#: ../boards/imageid.xml.in.h:2
+msgid "Practice reading by finding the word matching an image"
+msgstr "خواندن را تمرین کن با پیدا کردن کلمات و وصل کردن آنها به تصاویر "
+
+#: ../boards/imageid.xml.in.h:3
+#: ../boards/imagename.xml.in.h:4
+#: ../boards/readingh.xml.in.h:4
+#: ../boards/readingv.xml.in.h:4
+#: ../src/boards/imageid.c:102
+#: ../src/boards/missingletter.c:100
+msgid "Reading"
+msgstr "خواندن"
+
+#: ../boards/imageid.xml.in.h:4
+msgid "Reading practice"
+msgstr "تمرین خواندن"
+
+#: ../boards/imageid/board1.xml.in.h:1
+#: ../boards/imagename/board4_0.xml.in.h:2
+msgid "apple"
+msgstr "سیب"
+
+#: ../boards/imageid/board1.xml.in.h:2
+msgid "back"
+msgstr "عقب"
+
+#: ../boards/imageid/board1.xml.in.h:3
+msgid "bag"
+msgstr "کیف"
+
+#: ../boards/imageid/board1.xml.in.h:4
+#: ../boards/imagename/board6_0.xml.in.h:2
+msgid "ball"
+msgstr "توپ"
+
+#: ../boards/imageid/board1.xml.in.h:5
+msgid "banana"
+msgstr "موز"
+
+#: ../boards/imageid/board1.xml.in.h:6
+msgid "bed"
+msgstr "رختخواب"
+
+#: ../boards/imageid/board1.xml.in.h:7
+msgid "boat"
+msgstr "قایق"
+
+#: ../boards/imageid/board1.xml.in.h:8
+msgid "book"
+msgstr "کتاب"
+
+#: ../boards/imageid/board1.xml.in.h:9
+#: ../boards/imagename/board2_0.xml.in.h:2
+msgid "bottle"
+msgstr "بطری"
+
+#: ../boards/imageid/board1.xml.in.h:10
+msgid "cake"
+msgstr "کیک"
+
+#: ../boards/imageid/board1.xml.in.h:11
+msgid "camel"
+msgstr "شتر"
+
+#: ../boards/imageid/board1.xml.in.h:12
+#: ../boards/imagename/board4_0.xml.in.h:4
+msgid "car"
+msgstr "ماشین"
+
+#: ../boards/imageid/board1.xml.in.h:13
+msgid "cat"
+msgstr "گربه"
+
+#: ../boards/imageid/board1.xml.in.h:14
+msgid "catch"
+msgstr "بدست آوردن"
+
+#: ../boards/imageid/board1.xml.in.h:15
+msgid "cheese"
+msgstr "پنیر"
+
+#: ../boards/imageid/board1.xml.in.h:16
+msgid "cow"
+msgstr "گاو"
+
+#: ../boards/imageid/board1.xml.in.h:17
+msgid "dog"
+msgstr "سگ"
+
+#: ../boards/imageid/board1.xml.in.h:18
+msgid "finish"
+msgstr "پایان"
+
+#: ../boards/imageid/board1.xml.in.h:19
+msgid "fish"
+msgstr "ماهی"
+
+#: ../boards/imageid/board1.xml.in.h:20
+#: ../boards/imagename/board3_0.xml.in.h:2
+msgid "house"
+msgstr "خانه"
+
+#: ../boards/imageid/board1.xml.in.h:21
+msgid "pear"
+msgstr "گلابی"
+
+#: ../boards/imageid/board1.xml.in.h:22
+msgid "plane"
+msgstr "هواپیما"
+
+#: ../boards/imageid/board1.xml.in.h:23
+msgid "satchel"
+msgstr "کیف مدرسه"
+
+#: ../boards/imagename.xml.in.h:1
+#: ../boards/imagename/board1_0.xml.in.h:1
+#: ../boards/imagename/board2_0.xml.in.h:1
+#: ../boards/imagename/board3_0.xml.in.h:1
+#: ../boards/imagename/board4_0.xml.in.h:1
+#: ../boards/imagename/board5_0.xml.in.h:1
+#: ../boards/imagename/board6_0.xml.in.h:1
+msgid "Drag and Drop each item onto its name"
+msgstr ""
+
+#: ../boards/imagename.xml.in.h:2
+msgid "Drag each image from the (vertical) box on the left to its (corresponding) name on the right. Click the OK button to check your answer."
+msgstr ""
+
+#: ../boards/imagename.xml.in.h:3
+msgid "Image Name"
+msgstr "اسم تصویر"
+
+#: ../boards/imagename.xml.in.h:5
+msgid "Vocabulary and reading"
+msgstr "فرهنگ لفات و خواندن"
+
+#: ../boards/imagename/board1_0.xml.in.h:2
+msgid "bulb"
+msgstr "لامپ"
+
+#: ../boards/imagename/board1_0.xml.in.h:3
+msgid "fishing boat"
+msgstr "قایق ماهیگیری"
+
+#: ../boards/imagename/board1_0.xml.in.h:4
+msgid "lamp"
+msgstr "چراغ"
+
+#: ../boards/imagename/board1_0.xml.in.h:5
+msgid "mail box"
+msgstr "صندوق پستی"
+
+#: ../boards/imagename/board1_0.xml.in.h:6
+#: ../boards/imagename/board5_0.xml.in.h:3
+msgid "postcard"
+msgstr "کارت پستال"
+
+#: ../boards/imagename/board1_0.xml.in.h:7
+#: ../boards/imagename/board3_0.xml.in.h:5
+#: ../boards/imagename/board6_0.xml.in.h:7
+msgid "sailing boat"
+msgstr "قایق کشتیرانی"
+
+#: ../boards/imagename/board2_0.xml.in.h:3
+msgid "egg"
+msgstr "تخم  مرغ"
+
+#: ../boards/imagename/board2_0.xml.in.h:4
+msgid "eggcup"
+msgstr ""
+
+#: ../boards/imagename/board2_0.xml.in.h:5
+msgid "flower"
+msgstr "گل"
+
+#: ../boards/imagename/board2_0.xml.in.h:6
+msgid "glass"
+msgstr "لیوان"
+
+#: ../boards/imagename/board2_0.xml.in.h:7
+msgid "vase"
+msgstr ""
+
+#: ../boards/imagename/board3_0.xml.in.h:3
+msgid "light house"
+msgstr "خانه نورانی "
+
+#: ../boards/imagename/board3_0.xml.in.h:4
+msgid "rocket"
+msgstr "موشک"
+
+#: ../boards/imagename/board3_0.xml.in.h:6
+msgid "sofa"
+msgstr "نیمکت"
+
+#: ../boards/imagename/board3_0.xml.in.h:7
+#: ../boards/imagename/board5_0.xml.in.h:4
+msgid "star"
+msgstr "ستاره"
+
+#: ../boards/imagename/board4_0.xml.in.h:3
+msgid "bicycle"
+msgstr "دوچرخه"
+
+#: ../boards/imagename/board4_0.xml.in.h:5
+msgid "carrot"
+msgstr "هویج"
+
+#: ../boards/imagename/board4_0.xml.in.h:6
+msgid "grater"
+msgstr "پنجره آهنی"
+
+#: ../boards/imagename/board4_0.xml.in.h:7
+#: ../boards/imagename/board5_0.xml.in.h:5
+msgid "tree"
+msgstr "درخت"
+
+#: ../boards/imagename/board5_0.xml.in.h:2
+msgid "pencil"
+msgstr "مداد"
+
+#: ../boards/imagename/board5_0.xml.in.h:6
+msgid "truck"
+msgstr "کامیون"
+
+#: ../boards/imagename/board5_0.xml.in.h:7
+msgid "van"
+msgstr "گاری"
+
+#: ../boards/imagename/board6_0.xml.in.h:3
+msgid "castle"
+msgstr "قلعه"
+
+#: ../boards/imagename/board6_0.xml.in.h:4
+msgid "crown"
+msgstr "تاج"
+
+#: ../boards/imagename/board6_0.xml.in.h:5
+msgid "flag"
+msgstr "پرچم"
+
+#: ../boards/imagename/board6_0.xml.in.h:6
+msgid "racket"
+msgstr "راکت"
+
+#: ../boards/keyboard.xml.in.h:1
+msgid "Discover the keyboard."
+msgstr ""
+
+#: ../boards/keyboard.xml.in.h:2
+msgid "Keyboard-manipulation boards"
+msgstr "با کیبورد بازی کن"
+
+#: ../boards/leftright.xml.in.h:1
+msgid "Determine if a hand is a right or a left hand"
+msgstr ""
+
+#: ../boards/leftright.xml.in.h:2
+msgid "Distinguish right and left hands from different points of view. Spatial representation"
+msgstr ""
+
+#: ../boards/leftright.xml.in.h:3
+msgid "Find your left and right hands"
+msgstr "دست راست و چپ خودت رو پیدا کن"
+
+#: ../boards/leftright.xml.in.h:4
+#: ../boards/railroad.xml.in.h:4
+msgid "None"
+msgstr "هیچکدام"
+
+#: ../boards/leftright.xml.in.h:5
+msgid "You can see a hand: is it a left hand or a right hand? Click on the red button on the left, or the green button on the right."
+msgstr ""
+
+#: ../boards/login.xml.in.h:1
+msgid "GCompris identifies each child, so we can provide child-specific reports."
+msgstr ""
+
+#: ../boards/login.xml.in.h:2
+msgid "GCompris login screen"
+msgstr ""
+
+#: ../boards/login.xml.in.h:3
+msgid ""
+"In order to activate the login screen, you must \n"
+"first add users in the administration part of GCompris. \n"
+"You access Administration by running 'gcompris -a'.\n"
+"In Administration, you can create different profiles. In each profile,\n"
+"you can have a different set of users and select which activities are available to them.\n"
+"To run GCompris for a specific profile, you use 'gcompris -p profile' where 'profile'\n"
+"is the name of a profile as you created it in Administration."
+msgstr ""
+
+#: ../boards/login.xml.in.h:10
+msgid "Select or enter your name to log in to GCompris"
+msgstr ""
+
+#: ../boards/magic_hat_plus.xml.in.h:1
+#: ../boards/memory_add.xml.in.h:1
+msgid "Addition"
+msgstr "جمع"
+
+#: ../boards/magic_hat_plus.xml.in.h:2
+msgid "Click on the hat to open or close it. Under the hat, how many stars can you see moving around? Count carefully. :) Click in the bottom-right area to input your answer."
+msgstr ""
+
+#: ../boards/magic_hat_plus.xml.in.h:3
+msgid "Count how many items are under the magic hat"
+msgstr "پیدا کن چند تا ایتم زیر کلاه جادویی وجود داره"
+
+#: ../boards/magic_hat_plus.xml.in.h:4
+msgid "Learn addition"
+msgstr "جمع کردن را یاد بگیر"
+
+#: ../boards/magic_hat_plus.xml.in.h:5
+#: ../boards/magic_hat_minus.xml.in.h:5
+msgid "The magician hat"
+msgstr "کلاه جادویی"
+
+#: ../boards/magic_hat_minus.xml.in.h:1
+msgid "Count how many items are under the magic hat after some have got away"
+msgstr ""
+
+#: ../boards/magic_hat_minus.xml.in.h:2
+msgid "Learn subtraction"
+msgstr "تفریق کردن را یاد بگیر"
+
+#: ../boards/magic_hat_minus.xml.in.h:3
+msgid "Look at the magician, he tells the number of stars that are under his magic hat. Then, click on the hat to open it. A few stars escape. Click again on the hat to close it. You have to count how many are still under the hat. Click on the bottom right area to answer."
+msgstr ""
+
+#: ../boards/magic_hat_minus.xml.in.h:4
+#: ../boards/memory_add_minus.xml.in.h:3
+#: ../boards/memory_add_minus_tux.xml.in.h:3
+#: ../boards/memory_minus.xml.in.h:2
+#: ../boards/memory_minus_tux.xml.in.h:2
+msgid "Subtraction"
+msgstr "تفریق"
+
+#: ../boards/math.xml.in.h:1
+msgid "Mathematical activities."
+msgstr "ریاضیات"
+
+#: ../boards/math.xml.in.h:2
+msgid "Mathematics"
+msgstr "ریاضیات"
+
+#: ../boards/maze.xml.in.h:1
+#: ../boards/maze2DRelative.xml.in.h:1
+#: ../boards/maze3D.xml.in.h:2
+#: ../boards/mazeInvisible.xml.in.h:1
+msgid "Can use the keyboard arrow to move an object."
+msgstr "برای حرکت دادن اشیاء از کلیدهای جهت دار کیبورد استفاده کن"
+
+#: ../boards/maze.xml.in.h:2
+#: ../src/boards/maze.c:128
+msgid "Find your way out of the maze"
+msgstr ""
+
+#: ../boards/maze.xml.in.h:3
+#: ../boards/maze2DRelative.xml.in.h:3
+#: ../boards/maze3D.xml.in.h:4
+#: ../boards/mazeInvisible.xml.in.h:3
+msgid "Help Tux get out of this maze."
+msgstr ""
+
+#: ../boards/maze.xml.in.h:4
+#: ../boards/maze2DRelative.xml.in.h:4
+#: ../boards/mazeInvisible.xml.in.h:4
+#: ../src/boards/maze.c:127
+msgid "Maze"
+msgstr "مار و پيچ"
+
+#: ../boards/maze.xml.in.h:5
+msgid "Use the keyboard arrows to move Tux up to the door."
+msgstr ""
+
+#: ../boards/maze2DRelative.xml.in.h:2
+msgid "Find your way out of the maze (Move is relative)"
+msgstr ""
+
+#: ../boards/maze2DRelative.xml.in.h:5
+msgid "Use the keyboard arrows to move Tux up to the door. In this maze, the move is relative (first person). Use the up arrow to go forward. The other arrow let you turn Tux in another direction."
+msgstr ""
+
+#: ../boards/maze3D.xml.in.h:1
+msgid "3D Maze"
+msgstr ""
+
+#: ../boards/maze3D.xml.in.h:3
+msgid "Find your way out of the 3D maze"
+msgstr "دراین مار و پیچ راه خودت را پیدا کن"
+
+#: ../boards/maze3D.xml.in.h:5
+msgid "Use the keyboard arrows to move Tux up to the door. Use the spacebar to switch between 2D and 3D modes. 2D mode just gives you an indication of your position, like a map. You cannot move Tux in 2D mode."
+msgstr ""
+
+#: ../boards/mazeInvisible.xml.in.h:2
+msgid "Find your way out of the invisible maze"
+msgstr ""
+
+#: ../boards/mazeInvisible.xml.in.h:5
+msgid "Use the keyboard arrows to move Tux up to the door. Use the spacebar to switch between invisible and visible modes. Visible mode just gives you an indication of your position, like a map. You cannot move Tux in visible mode."
+msgstr ""
+
+#: ../boards/mazeMenu.xml.in.h:1
+msgid "Find your way out of different types of mazes"
+msgstr ""
+
+#: ../boards/mazeMenu.xml.in.h:2
+msgid "Go to Maze activities"
+msgstr "به قسمت مار و پیچ برو"
+
+#: ../boards/melody.xml.in.h:1
+msgid "Ear-training activity"
+msgstr ""
+
+#: ../boards/melody.xml.in.h:2
+msgid "Listen to the sound sequence played, and repeat it by clicking on the elements. You can listen again by clicking on the repeat button."
+msgstr ""
+
+#: ../boards/melody.xml.in.h:3
+msgid "Melody"
+msgstr "موسيقي"
+
+#: ../boards/melody.xml.in.h:5
+msgid "Repeat a melody"
+msgstr "موسیقی را تکرار کن"
+
+#: ../boards/memory.xml.in.h:1
+msgid "A set of blank cards is shown. Each card has a picture on the other side, and each picture card has a twin exactly the same. Click on a card to see its hidden picture, and try to match the twins. You can only turn over two cards at once, so you need to remember where a picture is, while you look for its twin. When you turn over the twins, they both disappear."
+msgstr ""
+
+#: ../boards/memory.xml.in.h:2
+msgid "Flip the cards to find the matching pairs"
+msgstr ""
+
+#: ../boards/memory.xml.in.h:3
+msgid "Memory Game with images"
+msgstr "بازی ذهنی با تصاویر"
+
+#: ../boards/memory.xml.in.h:5
+#: ../boards/memory_tux.xml.in.h:4
+msgid "Train your memory and remove all the cards"
+msgstr ""
+
+#: ../boards/memory_add.xml.in.h:2
+msgid "Addition memory game"
+msgstr "بازی ذهنی جمع"
+
+#: ../boards/memory_add.xml.in.h:3
+#: ../boards/memory_add_tux.xml.in.h:3
+msgid "Practise adding up, until all the cards are gone."
+msgstr ""
+
+#: ../boards/memory_add.xml.in.h:4
+#: ../boards/memory_add_tux.xml.in.h:4
+msgid "Turn the cards over to find two numbers which add up the same, until all the cards are gone."
+msgstr ""
+
+#: ../boards/memory_add.xml.in.h:5
+#: ../boards/memory_add_tux.xml.in.h:5
+msgid ""
+"You can see some cards, but you can't see what's on the other side of them. Each card is hiding an adding-up sum, or the answer to the sum.\n"
+"An adding-up sum looks like this: 2 + 2 = 4\n"
+"The numbers on one side of the equals sign (=) have to be the same as the number on the other side. So 2 (1, 2) and 2 more (3, 4) makes 4. Count aloud when you work this out, and count on your fingers, because the more ways you do something, the better you remember it. You can also use blocks, or buttons, or anything you can count. If you have lots of brothers and sisters, you can count them! Or the kids in your class at school. Sing counting songs. Count lots of things, for practice, and you'll be very good at adding-up!\n"
+"\n"
+"In this game, these cards are hiding the two parts of an adding-up sum (also called an addition sum). You need to find the two parts of the sum, and bring them together again. Click on a card to see what number it's hiding, then try to find the other card that goes with it, to make a whole sum. You can only turn over two cards in one go, so you need to remember where the numbers are hiding, then you can match them when you find their other half. You're doing the job of the equals sign, and the numbers need you to put them together and make a proper sum. When you do that, both those cards disappear! When you've made them all disappear, found all the sums, you've won the game! :)"
+msgstr ""
+
+#: ../boards/memory_add_minus.xml.in.h:1
+msgid "Addition and subtraction memory game"
+msgstr ""
+
+#: ../boards/memory_add_minus.xml.in.h:2
+#: ../boards/memory_add_minus_tux.xml.in.h:2
+msgid "Practise addition, subtraction, until all the cards are gone."
+msgstr ""
+
+#: ../boards/memory_add_minus.xml.in.h:4
+#: ../boards/memory_add_minus_tux.xml.in.h:4
+msgid "Turn the cards over to find two numbers which add or subtract the same, until all the cards are gone."
+msgstr ""
+
+#: ../boards/memory_add_minus.xml.in.h:5
+#: ../boards/memory_add_minus_mult_div.xml.in.h:5
+#: ../boards/memory_add_minus_mult_div_tux.xml.in.h:5
+#: ../boards/memory_add_minus_tux.xml.in.h:5
+#: ../boards/memory_div.xml.in.h:5
+#: ../boards/memory_div_tux.xml.in.h:5
+#: ../boards/memory_mult.xml.in.h:5
+#: ../boards/memory_mult_div.xml.in.h:5
+#: ../boards/memory_mult_div_tux.xml.in.h:5
+#: ../boards/memory_mult_tux.xml.in.h:5
+msgid ""
+"You can see some cards, but you can't see what's on the other side of them. Each card is hiding an operation, or the answer to it.\n"
+"\n"
+"In this game, these cards are hiding the two parts of an operation. You need to find the two parts of the operation, and bring them together again. Click on a card to see what number it's hiding, then try to find the other card that goes with it, to make a whole operation. You can only turn over two cards in one go, so you need to remember where the numbers are hiding, then you can match them when you find their other half. You're doing the job of the equals sign, and the numbers need you to put them together and make a proper equality. When you do that, both those cards disappear! When you've made them all disappear, found all the operations, you've won the game! :)"
+msgstr ""
+
+#: ../boards/memory_add_minus_mult_div.xml.in.h:1
+#: ../boards/memory_add_minus_mult_div_tux.xml.in.h:1
+msgid "Addition, subtraction, multiplication, division"
+msgstr "جمع ، تفریق ، ضرب ، تقسیم"
+
+#: ../boards/memory_add_minus_mult_div.xml.in.h:2
+msgid "All operations memory game"
+msgstr "بازی ذهنی چهار عمل اصلی"
+
+#: ../boards/memory_add_minus_mult_div.xml.in.h:3
+#: ../boards/memory_add_minus_mult_div_tux.xml.in.h:3
+msgid "Practise addition, subtraction, multiplication, division, until all the cards are gone."
+msgstr ""
+
+#: ../boards/memory_add_minus_mult_div.xml.in.h:4
+#: ../boards/memory_add_minus_mult_div_tux.xml.in.h:4
+#: ../boards/memory_div.xml.in.h:4
+#: ../boards/memory_div_tux.xml.in.h:4
+#: ../boards/memory_mult_div.xml.in.h:4
+#: ../boards/memory_mult_div_tux.xml.in.h:4
+#: ../boards/memory_mult_tux.xml.in.h:4
+msgid "Turn the cards over to find a matching operation, until all the cards are gone."
+msgstr ""
+
+#: ../boards/memory_add_minus_mult_div_tux.xml.in.h:2
+msgid "All operations memory game against Tux"
+msgstr ""
+
+#: ../boards/memory_add_minus_tux.xml.in.h:1
+msgid "Addition and subtraction memory game against Tux"
+msgstr ""
+
+#: ../boards/memory_add_tux.xml.in.h:1
+msgid "Addition memory game against Tux"
+msgstr ""
+
+#: ../boards/memory_add_tux.xml.in.h:2
+#: ../boards/memory_mult_tux.xml.in.h:1
+msgid "Additions"
+msgstr "جمع زدن"
+
+#: ../boards/memory_div.xml.in.h:1
+#: ../boards/memory_div_tux.xml.in.h:1
+msgid "Division"
+msgstr "تقسيم"
+
+#: ../boards/memory_div.xml.in.h:2
+msgid "Division memory game"
+msgstr "بازی ذهنی تقسیم"
+
+#: ../boards/memory_div.xml.in.h:3
+#: ../boards/memory_div_tux.xml.in.h:3
+msgid "Practise division, until all the cards are gone."
+msgstr "تقسیم را تکرار کن تا جایی که تمام کارتهایت تمام شود"
+
+#: ../boards/memory_div_tux.xml.in.h:2
+msgid "Division memory game against Tux"
+msgstr ""
+
+#: ../boards/memory_group.xml.in.h:1
+msgid "Go to Memory activities"
+msgstr "به  عملیات حافظه برو"
+
+#: ../boards/memory_group.xml.in.h:2
+msgid "Various memory activities (images, letters, sounds)."
+msgstr ""
+
+#: ../boards/memory_minus.xml.in.h:1
+#: ../boards/memory_minus_tux.xml.in.h:1
+msgid "Practise subtraction, until all the cards are gone."
+msgstr "تفریق را تمرین کن تا جایی که تمام کارتهایت تمام شود"
+
+#: ../boards/memory_minus.xml.in.h:3
+msgid "Subtraction memory game"
+msgstr "بازی ذهنی تفریق"
+
+#: ../boards/memory_minus.xml.in.h:4
+#: ../boards/memory_minus_tux.xml.in.h:4
+msgid "Turn the cards over to find two numbers which subtract the same, until all the cards are gone."
+msgstr ""
+
+#: ../boards/memory_minus.xml.in.h:5
+#: ../boards/memory_minus_tux.xml.in.h:5
+msgid ""
+"You can see some cards, but you can't see what's on the other side of them. Each card is hiding a subtraction, or the answer to it.\n"
+"A subtraction looks like this: 3 - 1 = 2\n"
+"The numbers on one side of the equals sign (=) have to be the same as the number on the other side. So 3 (1, 2, 3) less 1 (1) makes 2. Count aloud when you work this out, and count on your fingers, because the more ways you do something, the better you remember it. You can also use blocks, or buttons, or anything you can count. If you have lots of brothers and sisters, you can count them! Or the kids in your class at school. Sing counting songs. Count lots of things, for practice, and you'll be very good at adding-up!\n"
+"\n"
+"In this game, these cards are hiding the two parts of a subtraction. You need to find the two parts of the subraction, and bring them together again. Click on a card to see what number it's hiding, then try to find the other card that goes with it, to make a whole sum. You can only turn over two cards in one go, so you need to remember where the numbers are hiding, then you can match them when you find their other half. You're doing the job of the equals sign, and the numbers need you to put them together and make a proper sum. When you do that, both those cards disappear! When you've made them all disappear, found all the subtracts, you've won the game! :)"
+msgstr ""
+
+#: ../boards/memory_minus_tux.xml.in.h:3
+msgid "Subtraction memory game against Tux"
+msgstr ""
+
+#: ../boards/memory_mult.xml.in.h:1
+msgid "Multiplication"
+msgstr "ضرب"
+
+#: ../boards/memory_mult.xml.in.h:2
+msgid "Multiplication memory game"
+msgstr " بازي ذهنی ضرب"
+
+#: ../boards/memory_mult.xml.in.h:3
+msgid "Practise multiplication, until all the cards are gone."
+msgstr ""
+
+#: ../boards/memory_mult.xml.in.h:4
+msgid "Turn the cards over to find two numbers which multiply the same, until all the cards are gone."
+msgstr ""
+
+#: ../boards/memory_mult_div.xml.in.h:1
+msgid "Multiplication and division memory game"
+msgstr "بازی فکری جمع و تقسیم"
+
+#: ../boards/memory_mult_div.xml.in.h:2
+#: ../boards/memory_mult_div_tux.xml.in.h:2
+msgid "Multiplication, division"
+msgstr "جمع ، تقسیم"
+
+#: ../boards/memory_mult_div.xml.in.h:3
+#: ../boards/memory_mult_div_tux.xml.in.h:3
+msgid "Practise multiplication, division, until all the cards are gone."
+msgstr "جمف ، تقسیم را تمرین کن ، تا جایی که همه کارتهایت تمام شود"
+
+#: ../boards/memory_mult_div_tux.xml.in.h:1
+msgid "Multiplication and division memory game against Tux"
+msgstr " بازی ذهنی ضرب و تقسيم  برعکس توکس"
+
+#: ../boards/memory_mult_tux.xml.in.h:2
+msgid "Multiplication memory game against Tux"
+msgstr ""
+
+#: ../boards/memory_mult_tux.xml.in.h:3
+msgid "Practise multiplication until all the cards are gone."
+msgstr "ضرب را تمرین کن تا جای که تمام کارتهایت تمام شود"
+
+#: ../boards/memory_op_group.xml.in.h:1
+msgid "Go to mathematics memory activities"
+msgstr ""
+
+#: ../boards/memory_op_group.xml.in.h:2
+#: ../boards/memory_op_group_tux.xml.in.h:2
+msgid "Memory activities based on operations"
+msgstr ""
+
+#: ../boards/memory_op_group_tux.xml.in.h:1
+msgid "Go to mathematics memory activities against Tux"
+msgstr ""
+
+#: ../boards/memory_sound.xml.in.h:1
+#: ../boards/memory_sound_tux.xml.in.h:1
+msgid "A set of violinist Tux is shown. Each Tux has an associated sound, and each sound has a twin exactly the same. Click on a Tux to see its hidden sound, and try to match the twins. You can only activate two Tux at once, so you need to remember where a sound is, while you listen to its twin. When you turn over the twins, they both disappear."
+msgstr ""
+
+#: ../boards/memory_sound.xml.in.h:2
+msgid "Audio memory game"
+msgstr "بازي  صوتي حافظه "
+
+#: ../boards/memory_sound.xml.in.h:3
+msgid "Click on Tux the violinist and listen to find the matching sounds"
+msgstr ""
+
+#: ../boards/memory_sound.xml.in.h:4
+#: ../boards/memory_sound_tux.xml.in.h:3
+#: ../boards/memory_tux.xml.in.h:3
+msgid "Mouse manipulation, Brain."
+msgstr ""
+
+#: ../boards/memory_sound.xml.in.h:5
+#: ../boards/memory_sound_tux.xml.in.h:5
+msgid "Train your audio memory and remove all the violonists Tux."
+msgstr ""
+
+#: ../boards/memory_sound_tux.xml.in.h:2
+msgid "Audio memory game against Tux"
+msgstr ""
+
+#: ../boards/memory_sound_tux.xml.in.h:4
+msgid "Play the audio memory game against Tux"
+msgstr ""
+
+#: ../boards/memory_tux.xml.in.h:1
+msgid "Have a memory competition with Tux."
+msgstr ""
+
+#: ../boards/memory_tux.xml.in.h:2
+msgid "Memory Game with images, against Tux"
+msgstr ""
+
+#: ../boards/memory_tux.xml.in.h:5
+msgid "You can see a set of cards that all look the same. Each card has a picture on the other side, and each picture has a twin somewhere in the set. You can only turn over two cards at once, so you need to remember where the pictures are until you can find the twin. When you turn over twins, they disappear! You take turns with Tux, and to win the game, you have to find more pairs of twins than he does."
+msgstr ""
+
+#: ../boards/menu.xml.in.h:1
+msgid ""
+"A simple click on an icon brings you to an activity or a menu of activities.\n"
+"At the bottom of the screen is the GCompris control bar.\n"
+"The following icons are displayed from right to left.\n"
+"(note that each icon is displayed only if available in the current activity)\n"
+"    Home - Exit an activity, go back to menu\n"
+"    Thumb - OK. Confirm your answer\n"
+"    Dice - Display the current level. Click to select another level\n"
+"    Lips - Repeat the question\n"
+"    Question Mark - Help\n"
+"    Tool - The configuration menu\n"
+"    Tux Plane - About GCompris\n"
+"    Night - Quit GCompris\n"
+"The stars show suitable age groups for each game:\n"
+"    1, 2 or 3 simple stars  - from 2 to 6 years old\n"
+"    1, 2 or 3 complex stars - 7 years and up"
+msgstr ""
+
+#: ../boards/menu.xml.in.h:16
+msgid "GCompris Main Menu"
+msgstr "منوي اصلي  جي كمپريز"
+
+#: ../boards/menu.xml.in.h:17
+#: ../src/boards/menu2.c:1006
+msgid "GCompris is a collection of educational games that provides different activities for children aged 2 and up."
+msgstr "جی کومپریز مجموعه ای از بازی های فکری برای بچه های 2 سال به بالا است"
+
+#: ../boards/menu.xml.in.h:19
+msgid "The goal of GCompris is to provide a free alternative to popular proprietary edutainment software"
+msgstr ""
+
+#: ../boards/miscelaneous.xml.in.h:1
+msgid "Miscellaneous activities"
+msgstr ""
+
+#: ../boards/miscelaneous.xml.in.h:2
+msgid "Time, Geography, ..."
+msgstr "زمان ، جغرافي ، ..."
+
+#: ../boards/missing_letter.xml.in.h:1
+msgid "An object is displayed in the main area, and an incomplete word is printed under the picture. Select the missing letter to complete the word."
+msgstr "یک شکلی روی صفحه اصلی نمایش داده میشود، اسم تصویر به صور ناقص در پایین آن نوشته می شود ، برای کامل کردن کلمه حرف مناسب را انتخاب کن"
+
+#: ../boards/missing_letter.xml.in.h:2
+msgid "Fill in the missing letter"
+msgstr "جای خالی حرف را پر کن"
+
+#: ../boards/missing_letter.xml.in.h:3
+msgid "Missing Letter"
+msgstr "وصل کردن حروف"
+
+#: ../boards/missing_letter.xml.in.h:4
+msgid "Training reading skills"
+msgstr "آموزش مهارتهای خواندن"
+
+#: ../boards/missing_letter.xml.in.h:5
+msgid "Word reading"
+msgstr "خواندن کلمه"
+
+#: ../boards/missing_letter/board1.xml.in.h:1
+msgid "apple/_pple/a/i/o"
+msgstr ""
+
+#: ../boards/missing_letter/board1.xml.in.h:2
+msgid "apple/app_e/l/h/n"
+msgstr ""
+
+#: ../boards/missing_letter/board1.xml.in.h:3
+msgid "apple/appl_/e/h/a"
+msgstr ""
+
+#: ../boards/missing_letter/board1.xml.in.h:4
+msgid "ball/_all/b/p/d"
+msgstr ""
+
+#: ../boards/missing_letter/board1.xml.in.h:5
+msgid "ball/b_ll/a/u/o"
+msgstr ""
+
+#: ../boards/missing_letter/board1.xml.in.h:6
+msgid "ball/bal_/l/h/s"
+msgstr ""
+
+#: ../boards/missing_letter/board1.xml.in.h:7
+msgid "banana/_anana/b/p/d"
+msgstr ""
+
+#: ../boards/missing_letter/board1.xml.in.h:8
+msgid "banana/b_nana/a/o/i"
+msgstr ""
+
+#: ../boards/missing_letter/board1.xml.in.h:9
+msgid "banana/ba_ana/n/m/b"
+msgstr ""
+
+#: ../boards/missing_letter/board1.xml.in.h:10
+msgid "bed/_ed/b/l/f"
+msgstr ""
+
+#: ../boards/missing_letter/board1.xml.in.h:11
+msgid "bed/b_d/e/a/i"
+msgstr ""
+
+#: ../boards/missing_letter/board1.xml.in.h:12
+msgid "bed/be_/d/p/b"
+msgstr ""
+
+#: ../boards/missing_letter/board1.xml.in.h:13
+msgid "bottle/_ottle/b/t/p"
+msgstr ""
+
+#: ../boards/missing_letter/board1.xml.in.h:14
+msgid "bottle/b_ttle/o/u/d"
+msgstr ""
+
+#: ../boards/missing_letter/board1.xml.in.h:15
+msgid "bottle/bott_e/l/y/r"
+msgstr ""
+
+#: ../boards/missing_letter/board1.xml.in.h:16
+msgid "cake/_ake/c/p/d"
+msgstr ""
+
+#: ../boards/missing_letter/board1.xml.in.h:17
+msgid "cake/c_ke/a/o/e"
+msgstr ""
+
+#: ../boards/missing_letter/board1.xml.in.h:18
+msgid "cake/ca_e/k/q/c"
+msgstr ""
+
+#: ../boards/missing_letter/board1.xml.in.h:19
+msgid "car/_ar/c/k/b"
+msgstr ""
+
+#: ../boards/missing_letter/board1.xml.in.h:20
+msgid "car/c_r/a/k/o"
+msgstr ""
+
+#: ../boards/missing_letter/board1.xml.in.h:21
+msgid "car/ca_/r/w/k"
+msgstr ""
+
+#: ../boards/missing_letter/board1.xml.in.h:22
+msgid "dog/_og/d/p/q"
+msgstr ""
+
+#: ../boards/missing_letter/board1.xml.in.h:23
+msgid "dog/d_g/o/g/a"
+msgstr ""
+
+#: ../boards/missing_letter/board1.xml.in.h:24
+msgid "dog/do_/g/p/q"
+msgstr ""
+
+#: ../boards/missing_letter/board1.xml.in.h:25
+msgid "fish/_ish/f/h/l"
+msgstr ""
+
+#: ../boards/missing_letter/board1.xml.in.h:26
+msgid "fish/f_sh/i/u/l"
+msgstr ""
+
+#: ../boards/missing_letter/board1.xml.in.h:27
+msgid "fish/fis_/h/o/i"
+msgstr ""
+
+#: ../boards/missing_letter/board1.xml.in.h:28
+msgid "house/_ouse/h/e/j"
+msgstr ""
+
+#: ../boards/missing_letter/board1.xml.in.h:29
+msgid "house/h_use/o/f/u"
+msgstr ""
+
+#: ../boards/missing_letter/board1.xml.in.h:30
+msgid "house/hous_/e/a/i"
+msgstr ""
+
+#: ../boards/missing_letter/board1.xml.in.h:31
+msgid "plane/_lane/p/g/d"
+msgstr ""
+
+#: ../boards/missing_letter/board1.xml.in.h:32
+msgid "plane/p_ane/l/j/i"
+msgstr ""
+
+#: ../boards/missing_letter/board1.xml.in.h:33
+msgid "plane/pl_ne/a/o/s"
+msgstr ""
+
+#: ../boards/missing_letter/board1.xml.in.h:34
+msgid "satchel/_atchel/s/c/l"
+msgstr ""
+
+#: ../boards/missing_letter/board1.xml.in.h:35
+msgid "satchel/s_tchel/a/o/i"
+msgstr ""
+
+#: ../boards/missing_letter/board1.xml.in.h:36
+msgid "satchel/sa_chel/t/p/c"
+msgstr ""
+
+#: ../boards/money.xml.in.h:1
+#: ../boards/money_cents.xml.in.h:1
+msgid "Can count"
+msgstr "می تونی بشماری"
+
+#: ../boards/money.xml.in.h:2
+#: ../boards/money_cents.xml.in.h:2
+msgid "Click on the coins or paper money at the bottom of the screen to pay. If you want to remove a coin or note, click on it on the upper screen area."
+msgstr ""
+
+#: ../boards/money.xml.in.h:3
+#: ../boards/money_cents.xml.in.h:3
+msgid "Money"
+msgstr "پول"
+
+#: ../boards/money.xml.in.h:4
+msgid "Practice money usage"
+msgstr "تمرين  کن بكاربردن پول را"
+
+#: ../boards/money.xml.in.h:5
+#: ../boards/money_cents.xml.in.h:5
+msgid "You must buy the different items and give the exact price. At higher levels, several items are displayed, and you must first calculate the total price."
+msgstr ""
+
+#: ../boards/money_cents.xml.in.h:4
+msgid "Practice money usage including cents"
+msgstr ""
+
+#: ../boards/mosaic.xml.in.h:1
+msgid "Rebuild the mosaic"
+msgstr "موزاییک ها را دوباره بساز"
+
+#: ../boards/mouse.xml.in.h:1
+msgid "Mouse-manipulation activities."
+msgstr ""
+
+#: ../boards/mouse.xml.in.h:2
+msgid "Various mouse-based activities (clicking, moving)"
+msgstr ""
+
+#: ../boards/numeration.xml.in.h:1
+msgid "Numeration"
+msgstr "شمارش"
+
+#: ../boards/numeration.xml.in.h:2
+msgid "Numeration activities."
+msgstr "اعمال شمارش"
+
+#: ../boards/oscar_and_friends.xml.in.h:1
+msgid "Improve reading skill and the ability to understand what is read."
+msgstr ""
+
+#: ../boards/oscar_and_friends.xml.in.h:2
+msgid "Read and play with the story"
+msgstr "بخوان و با داستان بازی کن"
+
+#: ../boards/oscar_and_friends.xml.in.h:3
+msgid "The story of Oscar and friend"
+msgstr "داستان اسکار و دوست"
+
+#: ../boards/oscar_and_friends.xml.in.h:4
+msgid "reading"
+msgstr "خواندن"
+
+#: ../boards/paintings.xml.in.h:1
+msgid "Assemble the puzzle"
+msgstr "پازل ها رو باهم جفت کن"
+
+#: ../boards/paintings.xml.in.h:2
+msgid "Drag and Drop the items to rebuild the original paintings"
+msgstr "برای درست کردن تصویر ، با موس ایتم ها را بکش و بر جای مناسب قرار بده"
+
+#: ../boards/paintings.xml.in.h:3
+msgid "Drag the image parts from the box on the left to create a painting on the main board."
+msgstr ""
+
+#: ../boards/paintings.xml.in.h:4
+msgid "Mouse-manipulation: movement, drag and drop"
+msgstr ""
+
+#: ../boards/paintings.xml.in.h:5
+msgid "Spatial representation"
+msgstr "نمايش فضايي"
+
+#: ../boards/paintings/board1_0.xml.in.h:1
+msgid "Edgar Degas, The Dancing Class - 1873-75"
+msgstr "رقص ادگار ، کلاس رقص - 75-1873"
+
+#: ../boards/paintings/board2_0.xml.in.h:1
+msgid "Pierre-Auguste Renoir, Le Moulin de la Galette - 1876"
+msgstr ""
+
+#: ../boards/paintings/board3_0.xml.in.h:1
+msgid "Pierre-Auguste Renoir, Girls At The Piano - 1892"
+msgstr ""
+
+#: ../boards/paintings/board3_1.xml.in.h:1
+msgid "Kandinsky, Wassily, Composition VIII - 1923"
+msgstr ""
+
+#: ../boards/paintings/board3_1.xml.in.h:2
+msgid "Oil on canvas, 140 x 201 cm; Solomon R. Guggenheim Museum, New York"
+msgstr ""
+
+#: ../boards/paintings/board4_0.xml.in.h:1
+msgid "Bazille, The Ramparts at Aigues-Mortes - 1867"
+msgstr ""
+
+#: ../boards/paintings/board5_0.xml.in.h:1
+msgid "Cassatt, Mary - Summertime - 1894"
+msgstr ""
+
+#: ../boards/paintings/board6_0.xml.in.h:1
+msgid "Vincent Van Gogh, Village Street in Auvers - 1890"
+msgstr ""
+
+#: ../boards/paratrooper.xml.in.h:1
+msgid "Help Tux the parachutist land safely"
+msgstr ""
+
+#: ../boards/paratrooper.xml.in.h:2
+msgid "Hit any key or click on the plane to make Tux jump. Hit another key or click on Tux to open the parachute."
+msgstr ""
+
+#: ../boards/paratrooper.xml.in.h:3
+msgid "In this game, Tux the parachutist needs help to land safely on the fishing boat. He needs to allow for the wind direction and speed."
+msgstr ""
+
+#: ../boards/paratrooper.xml.in.h:4
+msgid "Parachutist"
+msgstr "چترباز"
+
+#: ../boards/paratrooper.xml.in.h:5
+msgid "This board is game-oriented. No specific skills are needed to play."
+msgstr ""
+
+#: ../boards/planegame.xml.in.h:1
+msgid "Catch the numbers in increasing order, using the up, down, right and left arrows on the keyboard to move the helicopter."
+msgstr ""
+
+#: ../boards/planegame.xml.in.h:2
+msgid "Move the helicopter to catch the clouds in the correct order"
+msgstr ""
+
+#: ../boards/planegame.xml.in.h:3
+msgid "Number"
+msgstr "عدد"
+
+#: ../boards/planegame.xml.in.h:4
+#: ../src/boards/planegame.c:73
+msgid "Numbers in Order"
+msgstr ""
+
+#: ../boards/puzzle.xml.in.h:1
+msgid "Puzzles"
+msgstr "معماها"
+
+#: ../boards/puzzle.xml.in.h:2
+msgid "Various puzzles."
+msgstr "معماهای گوناگون"
+
+#: ../boards/pythontemplate.xml.in.h:1
+#: ../boards/pythontest.xml.in.h:1
+msgid "Add a language-binding to GCompris."
+msgstr ""
+
+#: ../boards/pythontemplate.xml.in.h:2
+#: ../boards/pythontest.xml.in.h:2
+msgid "Advanced Python Programmer :)"
+msgstr ""
+
+#: ../boards/pythontemplate.xml.in.h:3
+msgid "An empty python activity to use as a starting point"
+msgstr ""
+
+#: ../boards/pythontemplate.xml.in.h:4
+msgid "Python Template"
+msgstr ""
+
+#: ../boards/pythontemplate.xml.in.h:5
+#: ../boards/pythontest.xml.in.h:5
+msgid "Thanks to Guido van Rossum and the python team for this powerful language!"
+msgstr ""
+
+#: ../boards/pythontest.xml.in.h:3
+msgid "Python Test"
+msgstr ""
+
+#: ../boards/pythontest.xml.in.h:4
+msgid "Test board for the python plugin"
+msgstr ""
+
+#: ../boards/railroad.xml.in.h:1
+msgid "A memory game based on trains"
+msgstr ""
+
+#: ../boards/railroad.xml.in.h:2
+msgid "A train - a locomotive and carriage(s) - is displayed at the top of the main area for a few seconds. Rebuild it at the top of the screen by selecting the appropriate carriages and locomotive. Deselect an item by clicking on it again. Check your construction by clicking on the hand at the bottom."
+msgstr ""
+
+#: ../boards/railroad.xml.in.h:3
+msgid "Memory-training"
+msgstr ""
+
+#: ../boards/railroad.xml.in.h:5
+msgid "Railway"
+msgstr "راه آهن"
+
+#: ../boards/read_colors.xml.in.h:2
+msgid "Click on the correct colored object."
+msgstr "روي شی رنگي صحيح كليك كن"
+
+#: ../boards/read_colors.xml.in.h:3
+msgid "Click on the matching color"
+msgstr ""
+
+#: ../boards/read_colors.xml.in.h:4
+msgid "Read the names of colors"
+msgstr "اسم رنگها را بخوان"
+
+#: ../boards/read_colors.xml.in.h:5
+msgid "This board teaches basic colors."
+msgstr "اين بازي رنگهاي اوليه رو به تو ياد مي ده"
+
+#: ../boards/read_colors/board1.xml.in.h:1
+msgid "black"
+msgstr "سیاه"
+
+#: ../boards/read_colors/board1.xml.in.h:2
+msgid "blue"
+msgstr "آبی"
+
+#: ../boards/read_colors/board1.xml.in.h:3
+msgid "brown"
+msgstr "قهوه ای"
+
+#: ../boards/read_colors/board1.xml.in.h:4
+msgid "green"
+msgstr "سبز"
+
+#: ../boards/read_colors/board1.xml.in.h:5
+msgid "grey"
+msgstr "طوسی"
+
+#: ../boards/read_colors/board1.xml.in.h:6
+msgid "orange"
+msgstr "نارنجی"
+
+#: ../boards/read_colors/board1.xml.in.h:7
+msgid "pink"
+msgstr "صورتی"
+
+#: ../boards/read_colors/board1.xml.in.h:8
+msgid "red"
+msgstr "قرمز"
+
+#: ../boards/read_colors/board1.xml.in.h:9
+msgid "violet"
+msgstr "بنفش"
+
+#: ../boards/read_colors/board1.xml.in.h:10
+msgid "white"
+msgstr "سفید"
+
+#: ../boards/read_colors/board1.xml.in.h:11
+msgid "yellow"
+msgstr "زرد"
+
+#: ../boards/reading.xml.in.h:1
+msgid "Go to the Reading activities"
+msgstr "به قسمت خواندن برو"
+
+#: ../boards/reading.xml.in.h:2
+msgid "Reading activities."
+msgstr "قسمت های خواندنی"
+
+#: ../boards/readingh.xml.in.h:1
+#: ../boards/readingv.xml.in.h:1
+msgid "A word is shown at the top right of the board. A list of words will appear and disappear on the left. Does the given word belong to the list?"
+msgstr ""
+
+#: ../boards/readingh.xml.in.h:2
+msgid "Horizontal reading practice"
+msgstr "تمرین خواندن به شکل افقی"
+
+#: ../boards/readingh.xml.in.h:3
+msgid "Read a list of words and work out if a given word is in it"
+msgstr "لیست کلمات را بخوان و بگو که آیا کلمه خواسته شده در لیست وجود دارد."
+
+#: ../boards/readingh.xml.in.h:5
+msgid "Reading training in a limited time"
+msgstr "آموزش تند خواني"
+
+#: ../boards/readingv.xml.in.h:2
+msgid "Read a vertical list of words and work out if a given word is in it"
+msgstr "لیست عمودی کلمات را بخوان و بگو که آیا کلمه خواسته شده در لیست وجود دارد"
+
+#: ../boards/readingv.xml.in.h:3
+msgid "Read training in a limited time"
+msgstr "آموزش تند خوانی"
+
+#: ../boards/readingv.xml.in.h:5
+msgid "Vertical-reading practice"
+msgstr "تمرین خواندن به شکل عمودی"
+
+#: ../boards/redraw.xml.in.h:1
+msgid "Copy a drawing from the box on the right into the box on the left."
+msgstr ""
+
+#: ../boards/redraw.xml.in.h:2
+msgid "First, select the proper tool from the toolbar. Then drag the mouse to create objects. When you are done, click on the OK button. Errors will be marked with a little red cross. The order of objects (above/under) is not important but be careful not to end up with unwanted objects under others."
+msgstr ""
+
+#: ../boards/redraw.xml.in.h:3
+msgid "Redraw the given item"
+msgstr ""
+
+#: ../boards/redraw_symmetrical.xml.in.h:1
+msgid "Copy the mirror image of an object from the box on the right into the box on the left."
+msgstr ""
+
+#: ../boards/redraw_symmetrical.xml.in.h:2
+msgid "First, select the proper tool from the toolbar. Then drag the mouse to create objects. When you are done, click on the OK button. A little red cross will show you where something isn't right yet. The order of objects (above/under) is not important but be careful not to end up with unwanted objects under others."
+msgstr ""
+
+#: ../boards/redraw_symmetrical.xml.in.h:3
+msgid "Mirror the given item"
+msgstr ""
+
+#: ../boards/reversecount.xml.in.h:1
+msgid "Can move the mouse, can read numbers and subtract numbers up to 10 for the first level"
+msgstr ""
+
+#: ../boards/reversecount.xml.in.h:2
+msgid "Click on the dice to show how many ice spots there are between Tux and the fish. Click the dice with the right mouse button to count backwards. When done, click on the OK button or hit the Enter key."
+msgstr ""
+
+#: ../boards/reversecount.xml.in.h:3
+msgid "Practice subtraction with a fun game"
+msgstr "با یک بازی خنده دار تفریق رو تمرین کن"
+
+#: ../boards/reversecount.xml.in.h:4
+msgid "Tux is hungry. Help him find fish by counting to the correct ice spot."
+msgstr ""
+
+#: ../boards/scalesboard.xml.in.h:1
+msgid "Balance the scales properly"
+msgstr ""
+
+#: ../boards/scalesboard.xml.in.h:2
+msgid "Drag and Drop masses to balance the scales"
+msgstr ""
+
+#: ../boards/scalesboard.xml.in.h:3
+msgid "Mental calculation, arithmetic equality"
+msgstr ""
+
+#: ../boards/scalesboard.xml.in.h:4
+msgid "The painting is an original painting created by Virginie MOREAU (virginie.moreau@free.fr) in 2001. Its name is 'Spices Seller in Egypt'. It is released under the GPL licence."
+msgstr ""
+
+#: ../boards/scalesboard.xml.in.h:5
+msgid "To balance the scales, move the masses on the left or the right side. The masses can be arranged in any order."
+msgstr ""
+
+#: ../boards/searace.xml.in.h:1
+msgid "Direct your boat accurately to win the race."
+msgstr "برای برنده شدن با دقت قایقت رو کنترل کن"
+
+#: ../boards/searace.xml.in.h:2
+msgid ""
+"In the text entry, enter one command per line, to control your boat.\n"
+"Commands supported are displayed between the two entry areas. The 'left' and 'right' commands must be followed by an angle in degrees. The angle value is also called a 'parameter' to the left or right command. By default 45 degrees is used. The 'forward' command accepts a distance parameter. By default 1 is used.\n"
+"For example:\n"
+"- left 90: Make a perpendicular left turn\n"
+"- forward 10: Go forward for 10 units (as displayed on the ruler).\n"
+"The goal is to reach the right of the screen (the red line). When done, you can try to improve your program and start a new race with the same weather conditions by using the retry button. You can click and drag your mouse anywhere on the map to get a measurement in distance and angle. Going to the next level will give you more complex weather conditions."
+msgstr ""
+
+#: ../boards/searace.xml.in.h:8
+#: ../boards/searace1player.xml.in.h:7
+msgid "In this activity, you will learn how to enter commands into a computer. Even if the language is extremely basic, you learn here how to think ahead and construct a program. This activity can be used to introduce the programming concept to children."
+msgstr ""
+
+#: ../boards/searace.xml.in.h:9
+msgid "Sea race (2 Players)"
+msgstr "مسابقه موج سواری (دو نفره )"
+
+#: ../boards/searace1player.xml.in.h:1
+msgid "Give good instructions to your ship in order to be first in the race."
+msgstr ""
+
+#: ../boards/searace1player.xml.in.h:2
+msgid ""
+"In the text entry, enter one command per line, to control your boat. Commands supported are displayed between the two entry areas. The 'left' and 'right' commands must be followed by an angle in degrees. The angle value is also called a 'parameter' to the left or right command. By default 45 degrees is used. The 'forward' command accepts a distance parameter. By default 1 is used.\n"
+"For example:\n"
+"- left 90: Make a perpendicular left turn\n"
+"- forward 10: Go forward for 10 units (as displayed on the ruler).\n"
+"The goal is to reach the right of the screen (the red line). When done, you can try to improve your program and start a new race with the same weather conditions by using the retry button. You can click and drag your mouse anywhere on the map to get a measurement in distance and angle. Going to the next level will give you more complex weather conditions."
+msgstr ""
+
+#: ../boards/searace1player.xml.in.h:8
+msgid "Sea race (Single Player)"
+msgstr "مسابقه موج سواری ( یک نفره)"
+
+#: ../boards/smallnumbers.xml.in.h:1
+#: ../boards/smallnumbers2.xml.in.h:1
+msgid "Count the number of dots on dice before they reach the ground"
+msgstr ""
+
+#: ../boards/smallnumbers.xml.in.h:2
+#: ../boards/smallnumbers2.xml.in.h:2
+msgid "Counting skills"
+msgstr "مهارتهای شمارش "
+
+#: ../boards/smallnumbers.xml.in.h:3
+#: ../boards/smallnumbers2.xml.in.h:3
+msgid "In a limited time, count the number of dots"
+msgstr ""
+
+#: ../boards/smallnumbers.xml.in.h:4
+msgid "Numbers With Dice"
+msgstr "عددها با تاس "
+
+#: ../boards/smallnumbers.xml.in.h:5
+#: ../boards/smallnumbers2.xml.in.h:5
+msgid "With the keyboard, type the number of dots you see on the falling dice."
+msgstr ""
+
+#: ../boards/smallnumbers2.xml.in.h:4
+msgid "Numbers with pairs of dice"
+msgstr ""
+
+#: ../boards/sound_group.xml.in.h:1
+msgid "Go to Sound activities"
+msgstr ""
+
+#: ../boards/sound_group.xml.in.h:2
+msgid "Sound based activities."
+msgstr ""
+
+#: ../boards/strategy.xml.in.h:1
+msgid "Strategy games"
+msgstr "بازی هاس استراتژی"
+
+#: ../boards/strategy.xml.in.h:2
+msgid "Strategy games like chess, connect4, ..."
+msgstr ""
+
+#: ../boards/submarine.xml.in.h:1
+msgid "Click on different active elements : engine, rudders and air tanks, in order to navigate to the required depth. There is a close gate on the right. Catch the jewel to open it, then pass through it to reach the next level."
+msgstr ""
+
+#: ../boards/submarine.xml.in.h:2
+msgid "Learn how a submarine works"
+msgstr "یاد بگیر که چگونه یه زیر دریایی کا رمی کنه"
+
+#: ../boards/submarine.xml.in.h:3
+msgid "Physics basics"
+msgstr ""
+
+#: ../boards/submarine.xml.in.h:4
+msgid "Pilot a submarine"
+msgstr ""
+
+#: ../boards/submarine.xml.in.h:5
+msgid "Pilot a submarine using air tanks and dive rudders"
+msgstr ""
+
+#: ../boards/sudoku.xml.in.h:1
+msgid "Completing the puzzle requires patience and logical ability"
+msgstr ""
+
+#: ../boards/sudoku.xml.in.h:2
+msgid "For the first level with colored symbols, drag symbols on the left to their target position. For the higher levels, click on an empty square to give it the keyboard focus. Then enter a possible letter or number. GCompris will not let you enter invalid data."
+msgstr ""
+
+#: ../boards/sudoku.xml.in.h:3
+msgid "Sudoku, place unique symbols in a square."
+msgstr ""
+
+#: ../boards/sudoku.xml.in.h:4
+msgid "Symbols must be unique in a row, in a column, and (if defined) each region."
+msgstr ""
+
+#: ../boards/sudoku.xml.in.h:5
+msgid "The aim of the puzzle is to enter a symbol or numeral from 1 through 9 in each cell of a grid, most frequently a 9x9 grid made up of 3x3 subgrids (called 'regions'), starting with various symbols or numerals given in some cells (the 'givens'). Each row, column and region must contain only one instance of each symbol or numeral (Source &lt;http://en.wikipedia.org/wiki/Sudoku&gt;)."
+msgstr ""
+
+#: ../boards/superbrain.xml.in.h:1
+msgid "Click on the items until you find what you think is the correct answer. Then, click on the OK button in the control bar. In the lower levels, Tux gives you an indication if you found a hiding place by marking the item with a black box. You can use the right mouse button to flip the colors in the opposite order."
+msgstr ""
+
+#: ../boards/superbrain.xml.in.h:2
+#: ../src/boards/superbrain.c:105
+msgid "Super Brain"
+msgstr "هوش برتر"
+
+#: ../boards/superbrain.xml.in.h:3
+#: ../src/boards/superbrain.c:106
+msgid "Tux has hidden several items. Find them again in the correct order"
+msgstr ""
+
+#: ../boards/tangram.xml.in.h:1
+msgid ""
+"From Wikipedia, the free encyclopedia. Tangram (Chinese: literally \"seven boards of cunning\") is a Chinese puzzle. While the tangram is often said to be ancient, its existence has only been verified as far back as 1800. It consists of 7 pieces, called tans, which fit together to form a square; taking the square as the unit:\n"
+"\t* 5 right isosceles triangles\n"
+"\t\to 2 small (legs of 1)\n"
+"\t\to 1 medium size (legs of square root of 2)\n"
+"\t\to 2 large size (legs of 2)\n"
+"\t* 1 square (side of 1)\n"
+"\t* 1 parallelogram (sides of 1 and square root of 2)"
+msgstr ""
+
+#: ../boards/tangram.xml.in.h:9
+msgid "Select the tangram to form. Move a piece by dragging it. Right-click on it to create a symmetrical item. Select an item and drag around it to show the rotation you want. Once you've shown what shape you want, the computer will create it. If you need help, click on the shape button, and the border of the shape will be drawn."
+msgstr ""
+
+#: ../boards/tangram.xml.in.h:10
+msgid "The objective is to form a given shape with seven pieces"
+msgstr ""
+
+#: ../boards/tangram.xml.in.h:11
+msgid "The original code was written by Philippe Banwarth in 1999. It was ported to GCompris by Yves Combe in 2005."
+msgstr ""
+
+#: ../boards/tangram.xml.in.h:12
+msgid "The tangram puzzle game"
+msgstr ""
+
+#: ../boards/target.xml.in.h:1
+msgid "Can move the mouse, can read numbers and count up to 15 for the first level"
+msgstr ""
+
+#: ../boards/target.xml.in.h:2
+msgid "Check the wind speed and direction, and then click on the target to launch a dart. When you all your darts are thrown, a window appears asking you to count your score. Enter the score with the keyboard then press the Enter key or the OK button."
+msgstr ""
+
+#: ../boards/target.xml.in.h:3
+msgid "Hit the target and count your points"
+msgstr ""
+
+#: ../boards/target.xml.in.h:4
+msgid "Practice addition with a target game"
+msgstr ""
+
+#: ../boards/target.xml.in.h:5
+msgid "Throw darts at a target and count your score."
+msgstr ""
+
+#: ../boards/traffic.xml.in.h:1
+msgid "A sliding-block puzzle game"
+msgstr ""
+
+#: ../boards/traffic.xml.in.h:2
+msgid "Each car can only move either horizontally or vertically. You must make some room in order to let the red car move through the gate on the right."
+msgstr ""
+
+#: ../boards/traffic.xml.in.h:3
+msgid "Remove the red car from the parking lot through the gate on the right"
+msgstr ""
+
+#: ../boards/tuxpaint.xml.in.h:1
+msgid "Drawing activity (pixmap)"
+msgstr ""
+
+#: ../boards/tuxpaint.xml.in.h:2
+msgid "Launch Tuxpaint"
+msgstr ""
+
+#: ../boards/tuxpaint.xml.in.h:3
+msgid "Tuxpaint"
+msgstr ""
+
+#: ../boards/tuxpaint.xml.in.h:4
+msgid "Use Tuxpaint to draw. When Tuxpaint is finished this board will end."
+msgstr ""
+
+#: ../boards/tuxpaint.xml.in.h:5
+msgid "mouse and keyboard manipulation"
+msgstr ""
+
+#: ../boards/watercycle.xml.in.h:1
+msgid "Click on different active elements : sun, cloud, water pump station, and water cleanup station, in order to reactivate the entire water system. When the system is back up and Tux is in the shower, push the shower button for him."
+msgstr ""
+
+#: ../boards/watercycle.xml.in.h:2
+msgid "Learn about the water cycle"
+msgstr ""
+
+#: ../boards/watercycle.xml.in.h:3
+msgid "Learn the water cycle"
+msgstr "چرخش آب را یاد بگیر"
+
+#: ../boards/watercycle.xml.in.h:4
+msgid "Tux has come back from a long fishing party on his boat. Bring the water system back up so he can take a shower."
+msgstr ""
+
+#: ../boards/wordsgame.xml.in.h:1
+#: ../src/boards/wordsgame.c:109
+msgid "Falling Words"
+msgstr ""
+
+#: ../boards/wordsgame.xml.in.h:3
+msgid "Keyboard training"
+msgstr "آموزش كيبورد"
+
+#: ../boards/wordsgame.xml.in.h:4
+msgid "Type the complete word as it falls, before it reachs the ground"
+msgstr ""
+
+#: ../boards/wordsgame.xml.in.h:5
+#: ../src/boards/wordsgame.c:110
+msgid "Type the falling words before they reach the ground"
+msgstr ""
+
+#: ../boards/wordprocessor.xml.in.h:1
+msgid "A simple word processor to enter and save any text"
+msgstr ""
+
+#: ../boards/wordprocessor.xml.in.h:2
+msgid "In this wordprocessor you can type the text you want, save and get it back later. You can add some style to your text by using the buttons on the left. The first 4 buttons let you select the style of the line on which your insert cursor is. The 2 others buttons with multiple choices let you select from a predefined document and color theme."
+msgstr ""
+
+#: ../boards/wordprocessor.xml.in.h:3
+msgid "Learn how to enter text in a wordprocessor. This wordprocessor is special in that it enforces the use of styles. This way, the children will understand their benefit when moving to more feature full wordprocessor like OpenOffice.org."
+msgstr ""
+
+#: ../boards/wordprocessor.xml.in.h:4
+msgid "The children can type their own text or copy one given by the teacher."
+msgstr ""
+
+#: ../boards/wordprocessor.xml.in.h:5
+msgid "Your word processor"
+msgstr ""
+
+#: ../gcompris-edit.desktop.in.h:1
+msgid "Administration for gcompris"
+msgstr ""
+
+#: ../gcompris.desktop.in.h:1
+msgid "Educational game for ages 2 to 10"
+msgstr "بازي فكري براي بچه هاي 2 سال به بالا"
+
+#: ../gcompris.desktop.in.h:2
+msgid "Educational suite GCompris"
+msgstr "برنامه های فکری جی کومپریز"
+
+#: ../gcompris.desktop.in.h:3
+msgid "Multi-activity educational game"
+msgstr ""
+
+#. TRANSLATORS: Put here the mathematical operators '+-x/' for  your language.
+#: ../src/boards/algebra.c:181
+#: ../src/boards/memory.c:843
+msgid "+-×÷"
+msgstr ""
+
+#: ../src/boards/awele.c:356
+#: ../src/boards/awele.c:366
+msgid "NORTH"
+msgstr "شمال"
+
+#: ../src/boards/awele.c:378
+#: ../src/boards/awele.c:388
+msgid "SOUTH"
+msgstr "جنوب"
+
+#: ../src/boards/awele.c:557
+msgid "Choose a house"
+msgstr "یک خانه انتخاب کن"
+
+#: ../src/boards/awele.c:685
+msgid "Your turn to play ..."
+msgstr "نوبت تو شده برای بازی..."
+
+#: ../src/boards/awele.c:754
+msgid "Not allowed! Try again !"
+msgstr "مجاز نیست ! دوباره سعی کن !"
+
+#: ../src/boards/chess.c:178
+msgid "Error: The external program gnuchess died unexpectedly"
+msgstr ""
+
+#: ../src/boards/chess.c:198
+msgid ""
+"Error: The external program gnuchess is required\n"
+"to play chess in GCompris.\n"
+"Find this program on http://www.rpmfind.net or in your\n"
+"GNU/Linux distribution\n"
+"And check it is located here: "
+msgstr ""
+
+#: ../src/boards/chess.c:243
+msgid ""
+"Error: The external program gnuchess is mandatory\n"
+"to play chess in gcompris.\n"
+"First install it, and check it is in "
+msgstr ""
+
+#: ../src/boards/chess.c:586
+msgid "White's Turn"
+msgstr ""
+
+#: ../src/boards/chess.c:586
+msgid "Black's Turn"
+msgstr ""
+
+#: ../src/boards/chess.c:730
+msgid "White checks"
+msgstr ""
+
+#: ../src/boards/chess.c:732
+msgid "Black checks"
+msgstr ""
+
+#: ../src/boards/chess.c:1089
+msgid "Black mates"
+msgstr ""
+
+#: ../src/boards/chess.c:1094
+msgid "White mates"
+msgstr ""
+
+#: ../src/boards/chess.c:1099
+#: ../src/gcompris/bonus.c:362
+#: ../src/gcompris/bonus.c:371
+msgid "Drawn game"
+msgstr "بازی نقاشی"
+
+#: ../src/boards/chess.c:1127
+msgid "Error: The external program gnuchess died unexpectingly"
+msgstr ""
+
+#: ../src/boards/click_on_letter.c:258
+#: ../src/boards/memory.c:810
+msgid ""
+"Error: this activity cannot be played with the\n"
+"sound effects disabled.\n"
+"Go to the configuration dialog to\n"
+"enable the sound"
+msgstr "خطا: در این قسمت نمی تونی صدا دار بازی کنی.n/برای صدا دار کردن آن وارد شکل بندی گفتگو بشو"
+
+#. TRANSLATORS: Put here the alphabet in your language
+#. require by all utf8-functions
+#. TRANSLATORS: Put here the alphabet lowercase in your language
+#: ../src/boards/click_on_letter.c:263
+#: ../src/boards/gletters.c:230
+#: ../src/boards/memory.c:832
+msgid "abcdefghijklmnopqrstuvwxyz"
+msgstr ""
+
+#: ../src/boards/click_on_letter.c:285
+#, c-format
+msgid ""
+"Error: this activity requires that you first install\n"
+"the packages with GCompris voices for the locale '%s' or '%s'"
+msgstr ""
+
+#: ../src/boards/click_on_letter.c:293
+#, c-format
+msgid ""
+"Error: this activity requires that you first install\n"
+"the packages with GCompris voices for the locale '%s' ! Fallback to english, sorry!"
+msgstr ""
+
+#. Init configuration window:
+#. all the configuration functions will use it
+#. all the configuration functions returns values for their key in
+#. the dict passed to the apply_callback
+#. the returned value is the main GtkVBox of the window,
+#. we can add what you want in it.
+#: ../src/boards/click_on_letter.c:622
+#: ../src/boards/colors.c:164
+#: ../src/boards/gletters.c:856
+#: ../src/boards/imageid.c:748
+#: ../src/boards/missingletter.c:770
+#: ../src/boards/python/admin/board_list.py:640
+#: ../src/boards/python/admin/board_list.py:658
+#: ../src/boards/python/admin/wordlist.py:49
+#: ../src/boards/python/login.py:535
+#: ../src/boards/python/pythontest.py:409
+#: ../src/boards/python/tuxpaint.py:207
+#: ../src/boards/reading.c:832
+#: ../src/boards/scale.c:861
+#: ../src/boards/shapegame.c:1847
+#: ../src/boards/smallnumbers.c:589
+#, c-format, python-format
+msgid ""
+"<b>%s</b> configuration\n"
+" for profile <b>%s</b>"
+msgstr ""
+
+#. toggle box
+#: ../src/boards/click_on_letter.c:645
+#: ../src/boards/gletters.c:889
+#: ../src/boards/python/login.py:540
+msgid "Uppercase only text"
+msgstr ""
+
+#: ../src/boards/clockgame.c:549
+#: ../src/boards/clockgame.c:559
+msgid "Set the watch to:"
+msgstr "ساعت را تنظیم کن برای:"
+
+#: ../src/boards/colors.c:55
+msgid "Click on the blue duck"
+msgstr "روی اردک آبی کلیک کن"
+
+#: ../src/boards/colors.c:56
+msgid "Click on the brown duck"
+msgstr "روی اردک قهوه ای کلیک کن"
+
+#: ../src/boards/colors.c:57
+msgid "Click on the green duck"
+msgstr "روی اردک زرد کلیک کن"
+
+#: ../src/boards/colors.c:58
+msgid "Click on the grey duck"
+msgstr "روی اردک طوسی کلیک کن"
+
+#: ../src/boards/colors.c:59
+msgid "Click on the orange duck"
+msgstr "روی اردک نارنجی کلیک کن"
+
+#: ../src/boards/colors.c:60
+msgid "Click on the purple duck"
+msgstr "روی اردک زرشکی کلیک کن"
+
+#: ../src/boards/colors.c:61
+msgid "Click on the red duck"
+msgstr "روی اردک قرمز کلیک کن"
+
+#: ../src/boards/colors.c:62
+msgid "Click on the yellow duck"
+msgstr "روی اردک زرد کلیک کن"
+
+#: ../src/boards/colors.c:63
+msgid "Click on the black duck"
+msgstr "روی اردک سیاه کلیک کن"
+
+#: ../src/boards/colors.c:64
+msgid "Click on the white duck"
+msgstr "روی اردک سفید کلیک کن"
+
+#: ../src/boards/colors.c:176
+#: ../src/boards/python/admin/board_list.py:670
+#: ../src/boards/python/pythontest.py:473
+#: ../src/boards/smallnumbers.c:609
+msgid "Select sound locale"
+msgstr ""
+
+#. TRANSLATORS: Put here the numbers in your language
+#: ../src/boards/gletters.c:226
+#: ../src/boards/memory.c:828
+msgid "0123456789"
+msgstr "0123456789"
+
+#. TRANSLATORS: Put here the alphabet uppercase in your language
+#: ../src/boards/gletters.c:236
+#: ../src/boards/memory.c:838
+msgid "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+msgstr ""
+
+#: ../src/boards/gletters.c:885
+#: ../src/boards/smallnumbers.c:607
+msgid "Enable sounds"
+msgstr "بی صدا"
+
+#: ../src/boards/hanoi.c:331
+#: ../src/boards/hanoi.c:342
+msgid "Build the same tower in the empty area as the one you see on the right-hand side."
+msgstr ""
+
+#: ../src/boards/hanoi_real.c:71
+msgid "Tower of Hanoi"
+msgstr ""
+
+#: ../src/boards/hanoi_real.c:276
+#: ../src/boards/hanoi_real.c:287
+msgid "Move the entire stack to the right peg, one disc at a time"
+msgstr ""
+
+#: ../src/boards/imageid.c:103
+#: ../src/boards/missingletter.c:101
+msgid "Learn how to read"
+msgstr "چگونه خواندن را یاد بگیر"
+
+#: ../src/boards/leftright.c:276
+#: ../src/boards/leftright.c:286
+#: ../src/boards/python/searace.py:432
+#: ../src/boards/python/searace.py:457
+#: ../src/boards/python/searace.py:547
+#: ../src/boards/python/searace.py:856
+#: ../src/boards/python/searace.py:889
+#: ../src/boards/python/searace.py:980
+msgid "left"
+msgstr "چپ"
+
+#: ../src/boards/leftright.c:296
+#: ../src/boards/leftright.c:306
+#: ../src/boards/python/searace.py:432
+#: ../src/boards/python/searace.py:457
+#: ../src/boards/python/searace.py:556
+#: ../src/boards/python/searace.py:858
+#: ../src/boards/python/searace.py:891
+#: ../src/boards/python/searace.py:974
+msgid "right"
+msgstr "راست"
+
+#: ../src/boards/maze.c:491
+msgid "Look at your position, then switch back to invisible mode to continue your moves"
+msgstr ""
+
+#: ../src/boards/maze.c:493
+msgid "Look at your position, then switch back to 3D mode to continue your moves"
+msgstr "موقعیت خودت رو بسنج ، "
+
+#: ../src/boards/memory.c:263
+msgid "Memory"
+msgstr "حافظه"
+
+#: ../src/boards/memory.c:264
+msgid "Find the matching pair"
+msgstr ""
+
+#: ../src/boards/menu2.c:132
+msgid "Main Menu Second Version"
+msgstr "مدل دوم منوی اصلی"
+
+#: ../src/boards/menu2.c:133
+msgid "Select a Board"
+msgstr ""
+
+#. Set here the way to display money. Change only the money sign, and it's place, always keep %.2f, it will be replaced by 0,34 if decimal is ',' in your locale
+#: ../src/boards/money.c:487
+#, c-format
+msgid "$ %.2f"
+msgstr ""
+
+#: ../src/boards/money.c:500
+#, c-format
+msgid "$ %.0f"
+msgstr ""
+
+#: ../src/boards/paratrooper.c:436
+msgid "Control fall speed with up and down arrow keys."
+msgstr "با کلیدهای جهت دار بالا و پایین سرعت پایین آمدن را کنترک کن"
+
+#: ../src/boards/planegame.c:74
+msgid "Move the plane to catch the clouds in the correct order"
+msgstr "طبق فرمان صحیح هواپیما رو برای بدست آوردن ابرها حرکت بده"
+
+#: ../src/boards/python.c:62
+#: ../src/boards/python.c:86
+msgid "Python Board"
+msgstr ""
+
+#: ../src/boards/python.c:63
+#: ../src/boards/python.c:87
+msgid "Special board that embeds python into GCompris."
+msgstr ""
+
+#: ../src/boards/python/admin/board_list.py:88
+msgid "Select a profile:"
+msgstr "یک نمودار انتخاب کن:"
+
+#: ../src/boards/python/admin/board_list.py:144
+msgid "Filter"
+msgstr "فیلتر"
+
+#: ../src/boards/python/admin/board_list.py:149
+msgid "Select all"
+msgstr "انتخاب همه"
+
+#: ../src/boards/python/admin/board_list.py:154
+msgid "Unselect all"
+msgstr "نمي توني همه را انتخاب كني"
+
+#: ../src/boards/python/admin/board_list.py:159
+msgid "Locales"
+msgstr ""
+
+#: ../src/boards/python/admin/board_list.py:164
+msgid "Locales sound"
+msgstr ""
+
+#: ../src/boards/python/admin/board_list.py:169
+msgid "Wordlist"
+msgstr "لیست کلمات"
+
+#: ../src/boards/python/admin/board_list.py:176
+#: ../src/boards/python/admin/group_user_list.py:143
+#: ../src/boards/python/admin/user_list.py:185
+msgid "Login"
+msgstr "ورود به سیستم"
+
+#: ../src/boards/python/admin/board_list.py:234
+msgid "Main menu"
+msgstr "منوی اصلی"
+
+#. columns for Board name
+#. column_pref = gtk.TreeViewColumn(_('Conf'))
+#. image = gtk.image_new_from_stock(gtk.STOCK_PREFERENCES, gtk.ICON_SIZE_MENU)
+#. image.show()
+#. column_pref.set_widget(image)
+#: ../src/boards/python/admin/board_list.py:301
+msgid "Active"
+msgstr "فعال"
+
+#: ../src/boards/python/admin/board_list.py:302
+msgid "Board title"
+msgstr ""
+
+#: ../src/boards/python/admin/board_list.py:418
+#, python-format
+msgid "Filter Boards difficulty for profile %s"
+msgstr ""
+
+#: ../src/boards/python/admin/board_list.py:449
+#, python-format
+msgid ""
+"<span size='x-large'> Select the difficulty range \n"
+"for profile <b>%s</b></span>"
+msgstr ""
+
+#: ../src/boards/python/admin/class_edit.py:59
+msgid "Editing a Class"
+msgstr "اصلاح یک کلاس"
+
+#: ../src/boards/python/admin/class_edit.py:64
+msgid "Editing class: "
+msgstr "اصلاح کلاس:"
+
+#: ../src/boards/python/admin/class_edit.py:67
+msgid "Editing a new class"
+msgstr "تغيير گروه جديد"
+
+#: ../src/boards/python/admin/class_edit.py:89
+msgid "Class:"
+msgstr "کلاس:"
+
+#. FIXME: How to remove the default selection
+#. Label and Entry for the teacher name
+#: ../src/boards/python/admin/class_edit.py:102
+msgid "Teacher:"
+msgstr "معلم"
+
+#: ../src/boards/python/admin/class_edit.py:112
+msgid "Assign all the users belonging to this class"
+msgstr ""
+
+#: ../src/boards/python/admin/class_edit.py:252
+#: ../src/boards/python/admin/group_edit.py:264
+#: ../src/boards/python/admin/group_user_list.py:153
+#: ../src/boards/python/admin/user_list.py:195
+msgid "First Name"
+msgstr "نام"
+
+#: ../src/boards/python/admin/class_edit.py:263
+#: ../src/boards/python/admin/group_edit.py:275
+#: ../src/boards/python/admin/group_user_list.py:163
+#: ../src/boards/python/admin/user_list.py:205
+msgid "Last Name"
+msgstr "نام خانوادگی"
+
+#: ../src/boards/python/admin/class_edit.py:340
+msgid "You need to provide at least a name for your class"
+msgstr "تو بايد براي كلاس خودت در ليست يك اسم تهيه كني."
+
+#: ../src/boards/python/admin/class_edit.py:386
+msgid "There is already a class with this name"
+msgstr "پیش از قبل یک کلاس با این اسم وجو داشته"
+
+#: ../src/boards/python/admin/class_list.py:168
+#: ../src/boards/python/admin/profile_edit.py:268
+#: ../src/boards/python/admin/profile_group_list.py:143
+msgid "Class"
+msgstr "کلاس"
+
+#: ../src/boards/python/admin/class_list.py:178
+msgid "Teacher"
+msgstr "معلم"
+
+#: ../src/boards/python/admin/group_edit.py:59
+msgid "Editing a Group"
+msgstr "تغییر گروه"
+
+#: ../src/boards/python/admin/group_edit.py:65
+msgid "Editing group: "
+msgstr "تغییر گروه"
+
+#: ../src/boards/python/admin/group_edit.py:66
+msgid " for class: "
+msgstr "براي گروه:"
+
+#: ../src/boards/python/admin/group_edit.py:69
+msgid "Editing a new group"
+msgstr "اصلاح گروه جدید"
+
+#: ../src/boards/python/admin/group_edit.py:89
+msgid "Group:"
+msgstr "گروه:"
+
+#. FIXME: How to remove the selection
+#. Label and Entry for the first name
+#: ../src/boards/python/admin/group_edit.py:101
+#: ../src/boards/python/admin/profile_edit.py:97
+msgid "Description:"
+msgstr "شرح:"
+
+#. Top message gives instructions
+#: ../src/boards/python/admin/group_edit.py:112
+msgid "Assign all the users belonging to this group"
+msgstr "تمام كاربرها رو در بين اين گروه تعيين كن"
+
+#: ../src/boards/python/admin/group_edit.py:358
+msgid "You need to provide at least a name for your group"
+msgstr "تو بايد براي گروه خودت در ليست  حد اقل يك اسم تهيه كني."
+
+#: ../src/boards/python/admin/group_edit.py:372
+msgid "There is already a group with this name"
+msgstr "قبلاٌ  یک گروه با این اسم وجود داشته"
+
+#: ../src/boards/python/admin/group_list.py:85
+msgid "Select a class:"
+msgstr "یک  کلاس را انتخاب کنید"
+
+#: ../src/boards/python/admin/group_list.py:213
+#: ../src/boards/python/admin/profile_edit.py:278
+#: ../src/boards/python/admin/profile_group_list.py:153
+msgid "Group"
+msgstr "گروه"
+
+#: ../src/boards/python/admin/group_list.py:224
+#: ../src/boards/python/admin/profile_edit.py:288
+#: ../src/boards/python/admin/profile_group_list.py:163
+#: ../src/boards/python/admin/profile_list.py:197
+msgid "Description"
+msgstr "شرح"
+
+#: ../src/boards/python/admin/group_list.py:321
+msgid "You must first select a group in the list"
+msgstr "اول شما باید یک گروه در لیست انتخاب کنید"
+
+#: ../src/boards/python/admin/group_user_list.py:173
+#: ../src/boards/python/admin/user_list.py:215
+msgid "Birth Date"
+msgstr "تاریخ تولد"
+
+#: ../src/boards/python/admin/log_list.py:90
+msgid "Select a user:"
+msgstr "یک کاربر انتخاب کنید"
+
+#. Insert the ALL option (HACK, use the user_id -2 to indicate ALL)
+#: ../src/boards/python/admin/log_list.py:101
+msgid "All users"
+msgstr "همه کاربر ان"
+
+#: ../src/boards/python/admin/log_list.py:107
+#: ../src/boards/python/admin/log_list.py:286
+#: ../src/boards/python/admin/profile_list.py:120
+#: ../src/gcompris/board_config.c:667
+#: ../src/gcompris/board_config.c:925
+msgid "Default"
+msgstr ""
+
+#. Reset buttons
+#: ../src/boards/python/admin/log_list.py:161
+msgid "Reset"
+msgstr "راه اندازی مجدد"
+
+#: ../src/boards/python/admin/log_list.py:207
+msgid "Date"
+msgstr "تاریخ"
+
+#: ../src/boards/python/admin/log_list.py:217
+msgid "User"
+msgstr "کاربر"
+
+#: ../src/boards/python/admin/log_list.py:227
+msgid "Board"
+msgstr ""
+
+#: ../src/boards/python/admin/log_list.py:237
+#: ../src/boards/python/redraw.py:346
+#: ../src/boards/python/redraw.py:356
+msgid "Level"
+msgstr "مرحله"
+
+#: ../src/boards/python/admin/log_list.py:247
+msgid "Sublevel"
+msgstr ""
+
+#: ../src/boards/python/admin/log_list.py:257
+msgid "Duration"
+msgstr "مدت زمان"
+
+#: ../src/boards/python/admin/log_list.py:267
+msgid "Status"
+msgstr "وضعیت"
+
+#: ../src/boards/python/admin/module_boards.py:41
+#: ../src/boards/python/admin/module_boards.py:66
+msgid "Boards"
+msgstr ""
+
+#: ../src/boards/python/admin/module_groups.py:39
+#: ../src/boards/python/admin/module_groups.py:65
+msgid "Groups"
+msgstr "گروهها"
+
+#: ../src/boards/python/admin/module_profiles.py:39
+#: ../src/boards/python/admin/module_profiles.py:64
+msgid "Profiles"
+msgstr "نمودارها"
+
+#: ../src/boards/python/admin/module_reports.py:40
+#: ../src/boards/python/admin/module_reports.py:66
+msgid "Reports"
+msgstr "گزارش ها"
+
+#: ../src/boards/python/admin/module_reports.py:66
+#: ../src/boards/python/admin/module_users.py:40
+#: ../src/boards/python/admin/module_users.py:66
+msgid "Users"
+msgstr "كاربر ان"
+
+#: ../src/boards/python/admin/module_users.py:40
+#: ../src/boards/python/admin/module_users.py:66
+msgid "Classes"
+msgstr "كلاس ها"
+
+#: ../src/boards/python/admin/profile_edit.py:58
+msgid "Editing a Profile"
+msgstr "اصلاح یک نمودار"
+
+#: ../src/boards/python/admin/profile_edit.py:63
+msgid "Editing profile: "
+msgstr "اصلاح نمودار"
+
+#: ../src/boards/python/admin/profile_edit.py:66
+msgid "Editing a new profile"
+msgstr "اصلاح یک نمودار جدید"
+
+#: ../src/boards/python/admin/profile_edit.py:85
+msgid "Profile:"
+msgstr "نمودار:"
+
+#. Top message gives instructions
+#: ../src/boards/python/admin/profile_edit.py:108
+msgid "Assign all the groups belonging to this profile"
+msgstr "تمام گروهها را در بین این نمودار تعیین کن"
+
+#: ../src/boards/python/admin/profile_edit.py:376
+msgid "You need to provide at least a name for your profile"
+msgstr "تو باید حداقل یک اسم برای نمودارت مشخص کنی"
+
+#: ../src/boards/python/admin/profile_edit.py:398
+msgid "There is already a profile with this name"
+msgstr "اينجا قبلا نموداري با اين اسم ساخته شده"
+
+#: ../src/boards/python/admin/profile_list.py:187
+msgid "Profile"
+msgstr "نمودار"
+
+#: ../src/boards/python/admin/profile_list.py:314
+msgid "[Default]"
+msgstr ""
+
+#: ../src/boards/python/admin/user_edit.py:49
+msgid "Editing a User"
+msgstr "اصلاح کاربر"
+
+#: ../src/boards/python/admin/user_edit.py:54
+msgid "Editing a User "
+msgstr "اصلاح کاربر"
+
+#: ../src/boards/python/admin/user_edit.py:60
+msgid "Editing a new user"
+msgstr "اصلاح یک کاربر جدید"
+
+#: ../src/boards/python/admin/user_edit.py:77
+msgid "Login:"
+msgstr "ورود به سیستم:"
+
+#. FIXME: How to remove the selection
+#. Label and Entry for the first name
+#: ../src/boards/python/admin/user_edit.py:88
+msgid "First name:"
+msgstr "نام"
+
+#. Label and Entry for the last name
+#: ../src/boards/python/admin/user_edit.py:97
+msgid "Last name:"
+msgstr "نام خانوادگی"
+
+#. Label and Entry for the birth date
+#: ../src/boards/python/admin/user_edit.py:106
+msgid "Birth date:"
+msgstr "تاریخ تولد:"
+
+#: ../src/boards/python/admin/user_edit.py:158
+msgid "You need to provide at least a login, first name and last name for your users"
+msgstr ""
+
+#: ../src/boards/python/admin/user_edit.py:175
+msgid "There is already a user with this login"
+msgstr ""
+
+#: ../src/boards/python/admin/user_list.py:290
+msgid ""
+"To import a user list from a file, first select a class.\n"
+"FILE FORMAT: Your file must be formatted like this:\n"
+"login;First name;Last name;Date of birth\n"
+"The separator is autodetected and can be one of ',', ';' or ':'"
+msgstr ""
+
+#: ../src/boards/python/admin/user_list.py:369
+#, python-format
+msgid ""
+"One or more logins are not unique !\n"
+"You need to change them: %s !"
+msgstr ""
+
+#: ../src/boards/python/anim.py:2224
+msgid "SVG is disabled. Install python xml module to enable it"
+msgstr ""
+
+#: ../src/boards/python/anim.py:2380
+msgid "Warning: the following images cannot be accessed on your system.\n"
+msgstr "دوستان تو باید همین کانال را برای ارتباط با تو انتخاب کنند\n"
+
+#: ../src/boards/python/anim.py:2382
+msgid "The corresponding items have been skipped."
+msgstr "ایتم های نوشته شده پاک شده است"
+
+#: ../src/boards/python/chat.py:81
+msgid "All messages will be displayed here.\n"
+msgstr "تمامي پيام ها در اينجا نمايش داده مي شود\n"
+
+#: ../src/boards/python/chat.py:131
+msgid "Your Friends"
+msgstr "دوستان تو"
+
+#: ../src/boards/python/chat.py:163
+msgid "Your Channel"
+msgstr "کانال تو"
+
+#: ../src/boards/python/chat.py:189
+msgid "Type your message here, to send to other GCompris users on your local network."
+msgstr "پيام خود را در اينجا بنويس ، برای ارسال به کاربران دیگر جی کمپریز بر شبکه داخلی خورت."
+
+#: ../src/boards/python/chat.py:324
+msgid "You must set a channel in your channel entry box first.\n"
+msgstr "شما باید اول یک کانال را روی جعبه خالی کانالت مشخص کنی\n"
+
+#: ../src/boards/python/chat.py:325
+msgid "Your friends must set the same channel in order to communicate with you"
+msgstr "دوستان تو باید باید مثل همین کانال رو برای ارتباط با تو انتخاب کنند"
+
+#: ../src/boards/python/electric.py:94
+msgid ""
+"Cannot find the 'gnucap' electric simulator.\n"
+"You can download and install it from:\n"
+"<http://geda.seul.org/tools/gnucap/>\n"
+"To be detected, it must be installed in\n"
+"/usr/bin/gnucap or /usr/local/bin/gnucap.\n"
+"You can still use this activity to draw schematics without computer simulation."
+msgstr ""
+
+#: ../src/boards/python/gnumch.py:95
+#, python-format
+msgid ", %d"
+msgstr ""
+
+#: ../src/boards/python/gnumch.py:96
+#, python-format
+msgid " and %d"
+msgstr "و %d"
+
+#: ../src/boards/python/gnumch.py:116
+#, python-format
+msgid "%d is divisible by %s."
+msgstr ""
+
+#: ../src/boards/python/gnumch.py:120
+msgid "1 is not a prime number."
+msgstr "1 عدد اول نيست"
+
+#: ../src/boards/python/gnumch.py:130
+#, python-format
+msgid "Primes less than %d"
+msgstr "اعداد اول کوچکتر از %d"
+
+#. Translators: You can swap %(x)y elements in the string.
+#: ../src/boards/python/gnumch.py:152
+#, python-format
+msgid ""
+"Multiples of %(d1)d include %(s)s,\n"
+"but %(d2)d is not a multiple of %(d3)d."
+msgstr ""
+
+#: ../src/boards/python/gnumch.py:163
+#, python-format
+msgid "Factors of %d"
+msgstr ""
+
+#: ../src/boards/python/gnumch.py:196
+#, python-format
+msgid "%s are the factors of %d."
+msgstr ""
+
+#: ../src/boards/python/gnumch.py:208
+#, python-format
+msgid "Multiples of %d"
+msgstr ""
+
+#: ../src/boards/python/gnumch.py:242
+#, python-format
+msgid "%s = %d"
+msgstr ""
+
+#: ../src/boards/python/gnumch.py:253
+#, python-format
+msgid "%d + %d"
+msgstr ""
+
+#: ../src/boards/python/gnumch.py:258
+#, python-format
+msgid "%d − %d"
+msgstr ""
+
+#: ../src/boards/python/gnumch.py:263
+#, python-format
+msgid "%d × %d"
+msgstr ""
+
+#: ../src/boards/python/gnumch.py:267
+#, python-format
+msgid "%d ÷ %d"
+msgstr ""
+
+#: ../src/boards/python/gnumch.py:275
+#, python-format
+msgid "Equal to %d"
+msgstr "برابر است  با  %d"
+
+#: ../src/boards/python/gnumch.py:296
+#, python-format
+msgid "Not equal to %d"
+msgstr "برابر نيست با %d"
+
+#: ../src/boards/python/gnumch.py:440
+msgid ""
+"You were eaten by a Troggle.\n"
+"Press <Return> to continue."
+msgstr ""
+
+#: ../src/boards/python/gnumch.py:489
+msgid "You ate a wrong number.\n"
+msgstr ""
+
+#: ../src/boards/python/gnumch.py:490
+msgid ""
+"\n"
+"Press <Return> to continue."
+msgstr ""
+
+#: ../src/boards/python/gnumch.py:783
+msgid ""
+"T\n"
+"R\n"
+"O\n"
+"G\n"
+"G\n"
+"L\n"
+"E"
+msgstr ""
+
+#: ../src/boards/python/guessnumber.py:204
+#, python-format
+msgid "Guess a number between %d and %d"
+msgstr "بین %d و %d  یک عدد را حدس بزنید"
+
+#: ../src/boards/python/guessnumber.py:317
+#: ../src/boards/python/guessnumber.py:318
+#, python-format
+msgid "Please enter a number between %d and %d"
+msgstr "لطفا بین %d و %d یک عدد وارد کن"
+
+#: ../src/boards/python/guessnumber.py:323
+#: ../src/boards/python/guessnumber.py:324
+msgid "Out of range"
+msgstr "غیر قابل دسترسی"
+
+#: ../src/boards/python/guessnumber.py:330
+#: ../src/boards/python/guessnumber.py:331
+msgid "Too high"
+msgstr "خیلی بلند"
+
+#: ../src/boards/python/guessnumber.py:333
+#: ../src/boards/python/guessnumber.py:334
+msgid "Too low"
+msgstr "خیلی پایین"
+
+#: ../src/boards/python/login.py:114
+msgid "Profile: "
+msgstr "نمودار"
+
+#: ../src/boards/python/login.py:268
+#: ../src/boards/python/login.py:277
+msgid "Login: "
+msgstr "ورود به سیستم"
+
+#. toggle box
+#: ../src/boards/python/login.py:550
+msgid "Enter login to log in"
+msgstr ""
+
+#: ../src/boards/python/mosaic.py:193
+msgid "Rebuild the same mosaic on the right area"
+msgstr "دوباره مثل همان موزاییک سمت راست صفحه بساز"
+
+#: ../src/boards/python/melody.py:119
+msgid ""
+"Error: this activity cannot be played with the\n"
+"sound effects disabled.\n"
+"Go to the configuration dialogue to\n"
+"enable the sound"
+msgstr ""
+
+#: ../src/boards/python/oscar_and_friends.py:116
+msgid ""
+"Below the surface, Oscar the octopus and his friends sat on a rock,\n"
+"watching the bad weather above them."
+msgstr ""
+
+#: ../src/boards/python/oscar_and_friends.py:117
+msgid "They were all happy that the storms never reached all the way down to them."
+msgstr ""
+
+#: ../src/boards/python/oscar_and_friends.py:118
+msgid "No matter how bad it was up there, the bottom was always calm and quiet."
+msgstr ""
+
+#: ../src/boards/python/oscar_and_friends.py:119
+msgid "Oscar's best friends were Charlie the crab and Sandy the sea-star."
+msgstr ""
+
+#: ../src/boards/python/pythontest.py:148
+msgid ""
+"This is the first plugin in GCompris coded in the Python\n"
+"Programming language."
+msgstr ""
+
+#: ../src/boards/python/pythontest.py:157
+msgid ""
+"It is now possible to develop GCompris activities in C or in Python.\n"
+"Thanks to Olivier Samys who makes this possible."
+msgstr ""
+
+#: ../src/boards/python/pythontest.py:166
+msgid "This activity is not playable, just a test"
+msgstr ""
+
+#. toggle box
+#: ../src/boards/python/pythontest.py:414
+msgid "Disable line drawing in circle"
+msgstr ""
+
+#. combo box
+#: ../src/boards/python/pythontest.py:423
+msgid "Color of the line"
+msgstr "رنگ خط"
+
+#. spin button for int
+#: ../src/boards/python/pythontest.py:434
+msgid "Distance between circles"
+msgstr "فاصله بین دایره ها"
+
+#. radio buttons for circle or rectangle
+#: ../src/boards/python/pythontest.py:445
+msgid "Use circles"
+msgstr "از دایره ها استفاده کن"
+
+#: ../src/boards/python/pythontest.py:446
+msgid "Use rectangles"
+msgstr "از مستطیل ها استفاده کن"
+
+#: ../src/boards/python/pythontest.py:449
+msgid "Choice of pattern"
+msgstr "انتخاب نمونه"
+
+#: ../src/boards/python/redraw.py:908
+#: ../src/boards/python/redraw.py:911
+msgid "Coordinate"
+msgstr "هماهنگ"
+
+#: ../src/boards/python/searace.py:190
+msgid "The race is already being run"
+msgstr "مسابقه آماده اجرا شدن است"
+
+#. Manage default cases (no params given)
+#. Final move, add an ofset because we loose space in abs()
+#: ../src/boards/python/searace.py:432
+#: ../src/boards/python/searace.py:457
+#: ../src/boards/python/searace.py:538
+#: ../src/boards/python/searace.py:854
+#: ../src/boards/python/searace.py:883
+#: ../src/boards/python/searace.py:972
+#: ../src/boards/python/searace.py:978
+#: ../src/boards/python/searace.py:986
+msgid "forward"
+msgstr "جلو"
+
+#: ../src/boards/python/searace.py:529
+msgid "COMMANDS ARE"
+msgstr ""
+
+#. The two boat arrived in a close time frame (1s), it's a draw
+#: ../src/boards/python/searace.py:755
+msgid "This is a draw"
+msgstr "این یک نقاشی است"
+
+#: ../src/boards/python/searace.py:762
+msgid "The Red boat has won"
+msgstr "قایق قرمز برنده است"
+
+#: ../src/boards/python/searace.py:765
+msgid "The Green boat has won"
+msgstr "قایق سبز برنده است"
+
+#: ../src/boards/python/searace.py:783
+#: ../src/boards/python/searace.py:1016
+msgid "Angle:"
+msgstr "قلاب ماهی گیری"
+
+#: ../src/boards/python/searace.py:783
+msgid "Wind:"
+msgstr "باد:"
+
+#: ../src/boards/python/searace.py:861
+msgid "Syntax error at line"
+msgstr ""
+
+#: ../src/boards/python/searace.py:879
+msgid "The command"
+msgstr "فرمان"
+
+#: ../src/boards/python/searace.py:898
+msgid "Unknown command at line"
+msgstr ""
+
+#: ../src/boards/python/searace.py:1016
+msgid "Distance:"
+msgstr "مسافت"
+
+#: ../src/boards/python/tuxpaint.py:144
+msgid ""
+"Cannot find Tuxpaint.\n"
+"Install it to use this activity !"
+msgstr ""
+
+#: ../src/boards/python/tuxpaint.py:158
+msgid "Waiting for Tuxpaint to finish"
+msgstr ""
+
+#: ../src/boards/python/tuxpaint.py:211
+msgid "Inherit fullscreen setting from GCompris"
+msgstr ""
+
+#: ../src/boards/python/tuxpaint.py:216
+msgid "Inherit size setting from GCompris (800x600, 640x480)"
+msgstr ""
+
+#: ../src/boards/python/tuxpaint.py:221
+msgid "Disable shape rotation"
+msgstr " چرخش شکل ممکن نیست."
+
+#: ../src/boards/python/tuxpaint.py:226
+msgid "Show Uppercase text only"
+msgstr ""
+
+#: ../src/boards/python/tuxpaint.py:231
+msgid "Disable stamps"
+msgstr "تمبرهای باطله"
+
+#: ../src/boards/railroad.c:90
+msgid "Memory game"
+msgstr " بازی حافظه"
+
+#: ../src/boards/railroad.c:91
+msgid "Build a train according to the model"
+msgstr "مانند نمونه يك قطار بساز"
+
+#: ../src/boards/reading.c:228
+#: ../src/boards/wordsgame.c:205
+msgid ""
+"Error: We can't find\n"
+"a list of words to play this game.\n"
+msgstr ""
+
+#: ../src/boards/reading.c:380
+msgid "Please, check if the word"
+msgstr "لطفا ،بررسي كن کلمه را"
+
+#: ../src/boards/reading.c:400
+msgid "is being displayed"
+msgstr ""
+
+#: ../src/boards/reading.c:574
+msgid "I am Ready"
+msgstr "من آماده ام."
+
+#: ../src/boards/reading.c:614
+msgid "Yes, I saw it"
+msgstr "بلی، من آن را دیدم."
+
+#: ../src/boards/reading.c:644
+msgid "No, it was not there"
+msgstr "خیر، آن آنجا نیست"
+
+#. Report what was wrong in the log
+#: ../src/boards/reading.c:682
+#, c-format
+msgid "The word to find was '%s'"
+msgstr ""
+
+#: ../src/boards/reading.c:685
+#, c-format
+msgid "But it was not displayed"
+msgstr "اما آن نمایش داده نشده"
+
+#: ../src/boards/reading.c:687
+#, c-format
+msgid "And it was displayed"
+msgstr "و آن نمایش داده شده"
+
+#: ../src/boards/scale.c:264
+#, c-format
+msgid "Weight = %s"
+msgstr "وزن = %s"
+
+#: ../src/boards/scale.c:713
+msgid "Take care, you can drop masses on both sides of the scale."
+msgstr ""
+
+#: ../src/boards/target.c:280
+#: ../src/boards/target.c:545
+#, c-format
+msgid "Points = %s"
+msgstr "امتياز بازي = %s"
+
+#: ../src/boards/target.c:402
+#, c-format
+msgid ""
+"Wind speed = %d\n"
+"kilometers/hour"
+msgstr ""
+"سرعت باد= %d\n"
+" کیلومتر در ساعت"
+
+#: ../src/boards/target.c:469
+#, c-format
+msgid "Distance to target = %d meters"
+msgstr ""
+
+#: ../src/boards/wordprocessor.c:54
+msgid "Research"
+msgstr "جستجو"
+
+#: ../src/boards/wordprocessor.c:65
+msgid "Sentimental"
+msgstr "احساساتي"
+
+#: ../src/boards/wordprocessor.c:76
+msgid "Official"
+msgstr "رسمي"
+
+#: ../src/boards/wordprocessor.c:87
+#: ../src/boards/wordprocessor.c:435
+msgid "Text"
+msgstr "متن"
+
+#: ../src/boards/wordprocessor.c:98
+msgid "Flyer"
+msgstr "در حال پرواز"
+
+#: ../src/boards/wordprocessor.c:432
+msgid "Title"
+msgstr "موضوع"
+
+#: ../src/boards/wordprocessor.c:433
+msgid "Heading 1"
+msgstr "سربرگ 1"
+
+#: ../src/boards/wordprocessor.c:434
+msgid "Heading 2"
+msgstr "سربرگ 2"
+
+#: ../src/gcompris/about.c:56
+msgid ""
+"Author: Bruno Coudoin\n"
+"Contribution: Pascal Georges, Jose Jorge, Yves Combe\n"
+"Graphics: Renaud Blanchard, Franck Doucet\n"
+"Intro Music: Djilali Sebihi\n"
+"Background Music: Rico Da Halvarez\n"
+msgstr ""
+
+#. TRANSLATORS: Replace this string with your names, one name per line.
+#: ../src/gcompris/about.c:64
+msgid "translator_credits"
+msgstr ""
+
+#: ../src/gcompris/about.c:95
+#: ../src/gcompris/about.c:105
+msgid "About GCompris"
+msgstr "درباره جي كومبريز"
+
+#: ../src/gcompris/about.c:116
+msgid "Translators:"
+msgstr "مترجم ها"
+
+#: ../src/gcompris/about.c:229
+msgid ""
+"GCompris Home Page\n"
+"http://gcompris.net"
+msgstr ""
+
+#: ../src/gcompris/about.c:251
+msgid "This software is a GNU Package and is released under the GNU General Public License"
+msgstr ""
+
+#: ../src/gcompris/about.c:279
+#: ../src/gcompris/about.c:289
+#: ../src/gcompris/config.c:473
+#: ../src/gcompris/config.c:483
+#: ../src/gcompris/dialog.c:102
+#: ../src/gcompris/help.c:381
+#: ../src/gcompris/help.c:391
+#: ../src/gcompris/images_selector.c:316
+msgid "OK"
+msgstr "تایید"
+
+#: ../src/gcompris/bar.c:597
+msgid "GCompris confirmation"
+msgstr "تاييد جي كومبريز"
+
+#: ../src/gcompris/bar.c:598
+msgid "Are you sure you want to quit?"
+msgstr "آیا شما برای خروج مطمئن هستی؟"
+
+#: ../src/gcompris/bar.c:599
+msgid "Yes, I am sure!"
+msgstr "بله، من مطمئن هستم"
+
+#: ../src/gcompris/bar.c:600
+msgid "No, I want to keep going"
+msgstr "خير، من مي خواهم  ادامه بدم"
+
+#: ../src/gcompris/board.c:183
+msgid "Dynamic module loading is not supported. GCompris cannot load.\n"
+msgstr ""
+
+#: ../src/gcompris/board_config.c:699
+msgid ""
+"Select the language\n"
+" to use in the board"
+msgstr "زبان مود نظر را برای استفاده بر روی صفحه انتخاب کن"
+
+#: ../src/gcompris/board_config.c:762
+msgid "Global GCompris mode"
+msgstr ""
+
+#: ../src/gcompris/board_config.c:763
+msgid "Normal"
+msgstr "معمولی"
+
+#: ../src/gcompris/board_config.c:764
+msgid "2 clicks"
+msgstr "2 بار کلیک  "
+
+#: ../src/gcompris/board_config.c:765
+msgid "both modes"
+msgstr "هر دو نمونه "
+
+#: ../src/gcompris/board_config.c:793
+msgid ""
+"Select the drag and drop mode\n"
+" to use in the board"
+msgstr ""
+
+#: ../src/gcompris/config.c:58
+msgid "Your system default"
+msgstr ""
+
+#: ../src/gcompris/config.c:59
+msgid "Afrikaans"
+msgstr ""
+
+#: ../src/gcompris/config.c:60
+msgid "Amharic"
+msgstr ""
+
+#: ../src/gcompris/config.c:61
+msgid "Arabic"
+msgstr "عربی"
+
+#: ../src/gcompris/config.c:62
+msgid "Arabic (Tunisia)"
+msgstr "عربي (تونسي)"
+
+#: ../src/gcompris/config.c:63
+msgid "Turkish (Azerbaijan)"
+msgstr "ترکیه ای(آذربایجان"
+
+#: ../src/gcompris/config.c:64
+msgid "Bulgarian"
+msgstr ""
+
+#: ../src/gcompris/config.c:65
+msgid "Breton"
+msgstr ""
+
+#: ../src/gcompris/config.c:66
+msgid "Catalan"
+msgstr ""
+
+#: ../src/gcompris/config.c:68
+msgid "Danish"
+msgstr "دانمارکی"
+
+#: ../src/gcompris/config.c:69
+msgid "German"
+msgstr "آلمانی"
+
+#: ../src/gcompris/config.c:70
+msgid "Greek"
+msgstr "یونانی"
+
+#: ../src/gcompris/config.c:71
+msgid "English (Canada)"
+msgstr "انگلیسی(کانادا"
+
+#: ../src/gcompris/config.c:72
+msgid "English (Great Britain)"
+msgstr "انگليس ( بريتانيا ی کبیر)"
+
+#: ../src/gcompris/config.c:73
+msgid "English (United States)"
+msgstr ""
+
+#: ../src/gcompris/config.c:74
+msgid "Spanish"
+msgstr "اسپانیایی"
+
+#: ../src/gcompris/config.c:75
+msgid "Basque"
+msgstr ""
+
+#: ../src/gcompris/config.c:76
+msgid "Dzongkha"
+msgstr ""
+
+#: ../src/gcompris/config.c:77
+msgid "Finnish"
+msgstr "فنلاندی"
+
+#: ../src/gcompris/config.c:78
+msgid "French"
+msgstr "فرانسوی"
+
+#: ../src/gcompris/config.c:79
+msgid "Irish (Gaelic)"
+msgstr "ایرلندی( اسکاتلندی"
+
+#: ../src/gcompris/config.c:80
+msgid "Hebrew"
+msgstr "زبان عبری"
+
+#: ../src/gcompris/config.c:81
+msgid "Hindi"
+msgstr "هندی"
+
+#: ../src/gcompris/config.c:82
+msgid "Indonesian"
+msgstr "اندونزی"
+
+#: ../src/gcompris/config.c:83
+msgid "Japanese"
+msgstr "ژاپنی"
+
+#: ../src/gcompris/config.c:84
+msgid "Gujarati"
+msgstr "گجراتي"
+
+#: ../src/gcompris/config.c:85
+msgid "Punjabi"
+msgstr "زبان پنجابی"
+
+#: ../src/gcompris/config.c:86
+msgid "Hungarian"
+msgstr "مجارستانی"
+
+#: ../src/gcompris/config.c:87
+msgid "Croatian"
+msgstr ""
+
+#: ../src/gcompris/config.c:88
+msgid "Italian"
+msgstr "ایتالیایی"
+
+#: ../src/gcompris/config.c:89
+msgid "Georgian"
+msgstr "گرجستاني"
+
+#: ../src/gcompris/config.c:90
+msgid "Korean"
+msgstr "کره ای"
+
+#: ../src/gcompris/config.c:91
+msgid "Lithuanian"
+msgstr "ليتواني"
+
+#: ../src/gcompris/config.c:92
+msgid "Macedonian"
+msgstr "مقدوني"
+
+#: ../src/gcompris/config.c:93
+msgid "Malayalam"
+msgstr "زبان گفتگوي هند"
+
+#: ../src/gcompris/config.c:94
+msgid "Marathi"
+msgstr "بمبيي"
+
+#: ../src/gcompris/config.c:95
+msgid "Malay"
+msgstr "مالایی"
+
+#: ../src/gcompris/config.c:96
+msgid "Nepal"
+msgstr "نپالی"
+
+#: ../src/gcompris/config.c:97
+msgid "Dutch"
+msgstr "هلندی"
+
+#: ../src/gcompris/config.c:98
+msgid "Norwegian Bokmal"
+msgstr ""
+
+#: ../src/gcompris/config.c:99
+msgid "Norwegian Nynorsk"
+msgstr ""
+
+#: ../src/gcompris/config.c:100
+msgid "Occitan (languedocien)"
+msgstr ""
+
+#: ../src/gcompris/config.c:101
+msgid "Polish"
+msgstr "لهستانی"
+
+#: ../src/gcompris/config.c:102
+msgid "Portuguese"
+msgstr ""
+
+#: ../src/gcompris/config.c:103
+msgid "Portuguese (Brazil)"
+msgstr "پرتقالي (برزيل)"
+
+#: ../src/gcompris/config.c:104
+msgid "Romanian"
+msgstr "روماني "
+
+#: ../src/gcompris/config.c:105
+msgid "Russian"
+msgstr "روسي ها"
+
+#: ../src/gcompris/config.c:106
+msgid "Kinyarwanda"
+msgstr ""
+
+#: ../src/gcompris/config.c:107
+msgid "Slovak"
+msgstr "اسلواكي "
+
+#: ../src/gcompris/config.c:108
+msgid "Slovenian"
+msgstr "اسلووني"
+
+#: ../src/gcompris/config.c:109
+msgid "Somali"
+msgstr "سومالی"
+
+#: ../src/gcompris/config.c:110
+msgid "Albanian"
+msgstr "الباني"
+
+#: ../src/gcompris/config.c:111
+msgid "Serbian (Latin)"
+msgstr "صربستاني (لاتين)"
+
+#: ../src/gcompris/config.c:112
+msgid "Serbian"
+msgstr "صربستاني"
+
+#: ../src/gcompris/config.c:113
+msgid "Swedish"
+msgstr "سوئدی"
+
+#: ../src/gcompris/config.c:114
+msgid "Tamil"
+msgstr "زبان تامیل"
+
+#: ../src/gcompris/config.c:115
+msgid "Thai"
+msgstr "تایلندی"
+
+#: ../src/gcompris/config.c:116
+msgid "Turkish"
+msgstr "ترکیه ای"
+
+#: ../src/gcompris/config.c:117
+msgid "Vietnamese"
+msgstr "ویتنامی"
+
+#: ../src/gcompris/config.c:118
+msgid "Walloon"
+msgstr ""
+
+#: ../src/gcompris/config.c:119
+msgid "Chinese (Simplified)"
+msgstr ""
+
+#: ../src/gcompris/config.c:120
+msgid "Chinese (Traditional)"
+msgstr "تمدن چین"
+
+#: ../src/gcompris/config.c:125
+msgid "No time limit"
+msgstr "محدودیت زمانی نیست."
+
+#: ../src/gcompris/config.c:126
+msgid "Slow timer"
+msgstr "آهسته"
+
+#: ../src/gcompris/config.c:127
+msgid "Normal timer"
+msgstr "معمولی"
+
+#: ../src/gcompris/config.c:128
+msgid "Fast timer"
+msgstr "تند"
+
+#: ../src/gcompris/config.c:133
+msgid "800x600 (Default for GCompris)"
+msgstr ""
+
+#: ../src/gcompris/config.c:138
+msgid ""
+"<i>Use Gcompris administration module\n"
+"to filter boards</i>"
+msgstr ""
+
+#: ../src/gcompris/config.c:193
+#: ../src/gcompris/config.c:203
+msgid "GCompris Configuration"
+msgstr "شكل بندي جي كومبريز"
+
+#: ../src/gcompris/config.c:279
+msgid "Fullscreen"
+msgstr ""
+
+#: ../src/gcompris/config.c:322
+msgid "Music"
+msgstr "آهنگ"
+
+#: ../src/gcompris/config.c:350
+msgid "Effect"
+msgstr "نتیجه"
+
+#: ../src/gcompris/config.c:386
+#, c-format
+msgid "Couldn't open skin dir: %s"
+msgstr ""
+
+#: ../src/gcompris/config.c:417
+#: ../src/gcompris/config.c:867
+#: ../src/gcompris/config.c:881
+#, c-format
+msgid "Skin : %s"
+msgstr ""
+
+#: ../src/gcompris/config.c:419
+msgid "SKINS NOT FOUND"
+msgstr " پوسته ها یافت نمیشوند."
+
+#: ../src/gcompris/config.c:544
+msgid "English (United State)"
+msgstr "انگلیسی (آمریکا )"
+
+#: ../src/gcompris/file_selector.c:336
+msgid "CANCEL"
+msgstr "لغو كردن"
+
+#: ../src/gcompris/file_selector.c:367
+msgid "LOAD"
+msgstr "باز كردن( بار گداری)"
+
+#: ../src/gcompris/file_selector.c:367
+msgid "SAVE"
+msgstr "ذخیره"
+
+#: ../src/gcompris/gameutil.c:103
+msgid "Couldn't find or load the file"
+msgstr "نمی تواند فایل را بیابد یا بار گذاری کند"
+
+#: ../src/gcompris/gameutil.c:105
+msgid "This activity is incomplete."
+msgstr "اين قسمت كامل نيست"
+
+#: ../src/gcompris/gameutil.c:106
+msgid ""
+"Exit it and report\n"
+"the problem to the authors."
+msgstr ""
+
+#: ../src/gcompris/gcompris.c:136
+msgid "run GCompris in fullscreen mode."
+msgstr ""
+
+#: ../src/gcompris/gcompris.c:139
+msgid "run GCompris in window mode."
+msgstr "جی کومپریز را در پنجره نمونه اجرا کن"
+
+#: ../src/gcompris/gcompris.c:142
+msgid "run GCompris with sound enabled."
+msgstr " جي كومپریز را صدادار فعال کن."
+
+#: ../src/gcompris/gcompris.c:145
+msgid "run GCompris without sound."
+msgstr "جی كومپريز  را بدون صدا اجرا کن."
+
+#: ../src/gcompris/gcompris.c:148
+msgid "run GCompris with the default gnome cursor."
+msgstr ""
+
+#: ../src/gcompris/gcompris.c:151
+msgid "display only activities with this difficulty level."
+msgstr ""
+
+#: ../src/gcompris/gcompris.c:154
+msgid "display debug informations on the console."
+msgstr ""
+
+#: ../src/gcompris/gcompris.c:157
+msgid "Print the version of "
+msgstr "چاپ متن "
+
+#: ../src/gcompris/gcompris.c:160
+msgid "Use the antialiased canvas (slower)."
+msgstr ""
+
+#: ../src/gcompris/gcompris.c:163
+msgid "Disable XF86VidMode (No screen resolution change)."
+msgstr ""
+
+#: ../src/gcompris/gcompris.c:166
+msgid "Run GCompris with local menu (e.g -l /reading will let you play only activities in the reading directory, -l /strategy/connect4 only the connect4 activity). Use '-l list' to list all the availaible activities and their descriptions."
+msgstr ""
+
+#: ../src/gcompris/gcompris.c:171
+msgid "Run GCompris with local activity directory added to menu"
+msgstr ""
+
+#: ../src/gcompris/gcompris.c:174
+msgid "Run GCompris in administration and user-management mode"
+msgstr ""
+
+#: ../src/gcompris/gcompris.c:177
+msgid "Use alternate database for profiles [$HOME/.config/gcompris/gcompris_sqlite.db]"
+msgstr ""
+
+#: ../src/gcompris/gcompris.c:180
+msgid "Create the alternate database for profiles"
+msgstr ""
+
+#: ../src/gcompris/gcompris.c:183
+msgid "Re-read XML Menus and store them in the database"
+msgstr ""
+
+#: ../src/gcompris/gcompris.c:186
+msgid "Set the profile to use. Use 'gcompris -a' to create profiles"
+msgstr "نمودار را براي استفاده نصب كن. از جي كومبريز -a  براي ساختن نمودار ها استفاده كن "
+
+#: ../src/gcompris/gcompris.c:189
+msgid "List all available profiles. Use 'gcompris -a' to create profiles"
+msgstr ""
+
+#: ../src/gcompris/gcompris.c:192
+msgid "Config directory location: [$HOME/.config/gcompris]. Alternate is to set $XDG_CONFIG_HOME."
+msgstr ""
+
+#: ../src/gcompris/gcompris.c:195
+msgid "The location of user directories: [$HOME/My GCompris]"
+msgstr "محل راهنمایی های كاربر : { $ خانه/ جي كومپريز من}"
+
+#: ../src/gcompris/gcompris.c:198
+msgid "Run the experimental activities"
+msgstr ""
+
+#: ../src/gcompris/gcompris.c:201
+msgid "Disable the quit button"
+msgstr "كليد خروج را غير فعال  کن"
+
+#: ../src/gcompris/gcompris.c:204
+msgid "Disable the config button"
+msgstr ""
+
+#: ../src/gcompris/gcompris.c:209
+msgid "Display the resources on stdout based on the selected activities"
+msgstr ""
+
+#: ../src/gcompris/gcompris.c:213
+msgid "GCompris will get images, sounds and activity data from this server if not found locally."
+msgstr ""
+
+#: ../src/gcompris/gcompris.c:216
+msgid "Only when --server is provided, disable check for local resource first. Data are always taken from the web server."
+msgstr ""
+
+#: ../src/gcompris/gcompris.c:220
+msgid "In server mode, specify the cache directory used to avoid useless downloads."
+msgstr ""
+
+#: ../src/gcompris/gcompris.c:223
+msgid "Global drag and drop mode: normal, 2clicks, both. Default mode is normal."
+msgstr ""
+
+#: ../src/gcompris/gcompris.c:226
+msgid "Do not display the background images of activities."
+msgstr ""
+
+#: ../src/gcompris/gcompris.c:229
+msgid "Do not avoid the execution of multiple instances of GCompris."
+msgstr ""
+
+#: ../src/gcompris/gcompris.c:848
+#, c-format
+msgid ""
+"GCompris is free software released under the GPL License. In order to support its development, the Windows version provides only %d of the %d activities. You can get the full version for a small fee at\n"
+"<http://gcompris.net>\n"
+"The GNU/Linux version does not have this restriction. Note that GCompris is being developed to free schools from monopolistic software vendors. If you also believe that we should teach freedom to children, please consider using GNU/Linux. Get more information at FSF:\n"
+"<http://www.fsf.org/philosophy>"
+msgstr ""
+
+#: ../src/gcompris/gcompris.c:1446
+#, c-format
+msgid "GCompris won't start because the lock file is less than %d seconds old.\n"
+msgstr ""
+
+#: ../src/gcompris/gcompris.c:1448
+#, c-format
+msgid "The lock file is: %s\n"
+msgstr ""
+"قفل پرونده %s\n"
+"است\n"
+
+#: ../src/gcompris/gcompris.c:1576
+#, c-format
+msgid ""
+"GCompris\n"
+"Version: %s\n"
+"Licence: GPL\n"
+"More info at http://gcompris.net\n"
+msgstr ""
+
+#. check the list of possible values for -l, then exit
+#: ../src/gcompris/gcompris.c:1660
+#, c-format
+msgid "Use -l to access an activity directly.\n"
+msgstr "برای دسترسی به  یک قسمت از دکمه -1 استفاده کن\n"
+
+#: ../src/gcompris/gcompris.c:1661
+#, c-format
+msgid "The list of available activities is :\n"
+msgstr ""
+"لیست فعالیتها موجود :\n"
+" می باشد\n"
+
+#: ../src/gcompris/gcompris.c:1848
+#, c-format
+msgid "The list of available profiles is:\n"
+msgstr ""
+"لیست نمودار موجود :\n"
+" می باشد\n"
+
+#: ../src/gcompris/gcompris_db.c:264
+msgid "Unaffected"
+msgstr "ساده"
+
+#: ../src/gcompris/gcompris_db.c:265
+msgid "Users without a class"
+msgstr ""
+
+#: ../src/gcompris/help.c:196
+msgid "Prerequisite"
+msgstr "پیش نیاز"
+
+#: ../src/gcompris/help.c:224
+msgid "Goal"
+msgstr "هدف"
+
+#: ../src/gcompris/help.c:252
+msgid "Manual"
+msgstr "دستورالعمل"
+
+#: ../src/gcompris/help.c:280
+msgid "Credit"
+msgstr "اعتبار"
+
+#: ../src/gcompris/properties.c:502
+#: ../src/gcompris/properties.c:509
+msgid "readme"
+msgstr "من را بخوان"
+
+#: ../src/gcompris/properties.c:504
+msgid "This directory contains the files you create with the GCompris educational suite\n"
+msgstr ""
+
+#: ../src/gcompris/properties.c:511
+msgid ""
+"Put any number of images in this directory.\n"
+"You can include these images in your drawings and animations.\n"
+"The image formats supported are jpeg, png and svg.\n"
+msgstr "قرار بده عدد هر یک از تصاویر را این مسیر /nشما می تونی این تصاویر را در نقاشی ها و انیمیشن هایت به کار بری/nفرمت های این تصاویر jpeg T png و sng .\n"
+
+#: ../src/gcompris/timer.c:249
+msgid "Time Elapsed"
+msgstr "زمان سپری شده"
+
+#: ../src/gcompris/timer.c:338
+#, c-format
+msgid "Remaining Time = %d"
+msgstr "زمان باقی مانده=%d"
+

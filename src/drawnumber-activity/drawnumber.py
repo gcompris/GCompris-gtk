@@ -204,7 +204,7 @@ class Gcompris_drawnumber :
           self.gamewon = 1
           self.timeout = gobject.timeout_add(1500, self.lauch_bonus) # The level is complete -> Bonus display
 
-        else : #Action to execute if the selected point isn't the last one of this level
+        else : #Action to execute if the selected point isn''t the last one of this level
           #Set color in blue to next point. Too easy ???
           #self.POINT[(idpt+1)].set_properties(fill_color_rgba=0x003DF5F0)
           self.actu=self.actu+1 #self.actu update to set it at actual value of selected point

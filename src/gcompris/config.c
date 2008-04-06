@@ -72,6 +72,7 @@ static gchar *linguas[] = {
   "es_ES.UTF-8", 	N_("Spanish"),
   "eu_ES.UTF-8",	N_("Basque"),
   "dz_BT.UTF-8",	N_("Dzongkha"),
+  "fa_IR.UTF-8", 	N_("Persian"),
   "fi_FI.UTF-8", 	N_("Finnish"),
   "fr_FR.UTF-8", 	N_("French"),
   "ga_IE.UTF-8", 	N_("Irish (Gaelic)"),
