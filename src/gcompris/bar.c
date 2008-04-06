@@ -50,8 +50,8 @@ static gboolean item_event_bar (GooCanvasItem  *item,
 static void	 bar_reset_sound_id (void);
 static void	 setup_item_signals (GooCanvasItem *item, gchar* name);
 static gboolean	 _bar_down(void *ignore);
-static void	 _bar_up();
-static void	 _force_bar_down();
+static void	 _bar_up(void);
+static void	 _force_bar_down(void);
 
 static gint current_level = -1;
 static gint current_flags = -1;
@@ -242,7 +242,7 @@ void gc_bar_start (GooCanvas *theCanvas)
 		NULL);
 
   _hidden = FALSE;
-  _force_bar_down(NULL);
+  _force_bar_down();
 }
 
 
@@ -414,7 +414,7 @@ _bar_down(void *ignore)
 }
 
 static void
-_force_bar_down()
+_force_bar_down(void)
 {
   if(bar_down_id)
     g_source_remove (bar_down_id);
@@ -434,7 +434,7 @@ _force_bar_down()
 }
 
 static void
-_bar_up()
+_bar_up(void)
 {
   goo_canvas_item_raise(rootitem, NULL);
   goo_canvas_item_animate(rootitem,
