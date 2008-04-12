@@ -46,7 +46,6 @@ class Module:
 
     def init(self, index, select_area, callback):
         height = 80
-        gap = 35
         x   = select_area[0] + (select_area[2] - select_area[0]) / 2
         y1  = select_area[1] + height * index + 2
         y2  = select_area[1] + height * (index + 1) + 1
@@ -70,8 +69,8 @@ class Module:
             )
         self.select_item.connect("button_press_event", callback, self)
 
-        y1 += 30
-        item = goocanvas.Image(
+        y1 += 5
+        itemimg = goocanvas.Image(
             parent = self.root_select_item,
             pixbuf = gcompris.utils.load_pixmap(gcompris.skin.image_to_skin("config_" +
                                                                             self.module_name +
@@ -79,20 +78,27 @@ class Module:
             x = x,
             y = y1,
             )
-        item.connect("button_press_event", callback, self)
+        bounds = itemimg.get_bounds()
+        centered_x = x - (bounds.x2 - bounds.x1)/2
+        itemimg.props.x = centered_x
+        itemimg.connect("button_press_event", callback, self)
+        gcompris.utils.item_focus_init(itemimg, None)
 
-        y1 += gap
+        y1 += bounds.y2 - bounds.y1
 
         item = goocanvas.Text(
             parent = self.root_select_item,
             text=_(self.module_label),
-            font=gcompris.skin.get_font("gcompris/tiny"),
-            x = x,
+            font = "Sans 8",
+            x = centered_x,
             y = y1,
             fill_color="black"
             )
+        bounds = item.get_bounds()
+        centered_x = x - (bounds.x2 - bounds.x1)/2
+        item.props.x = centered_x
         item.connect("button_press_event", callback, self)
-
+        gcompris.utils.item_focus_init(item, itemimg)
 
     def get_module_name(self):
         return self.module_name

@@ -54,6 +54,9 @@ class Board_list:
       # Create the profiles Combo
       self.profiles_list = gcompris.admin.get_profiles_list()
 
+      if not self.profiles_list:
+        return
+
       # Get default pofile id.
       self.cur.execute('SELECT profile_id FROM informations;')
       self.con.commit()
@@ -91,7 +94,6 @@ class Board_list:
       combobox.show()
       box1.pack_start(combobox, False, False, 0)
 
-      i = 0
       for profile in self.profiles_list:
         combobox.append_text(profile.name)
         if profile.profile_id == self.default_profile_id:
