@@ -77,10 +77,19 @@ extern BoardPlugin * get_wordprocessor_bplugin_info();
 static BoardPlugin *static_boards_demo[MAX_NUMBER_OF_BOARDS];
 static BoardPlugin *static_boards[MAX_NUMBER_OF_BOARDS];
 
-#endif
+static char *board_nodemo[] = /* Some boards excluded from the demo version */
+  {
+    "python:ballcatch",
+    "python:followline",
+    "python:guessnumber",
+    "python:mosaic",
+    "python:redraw",
+    "python:searace",
+    "python:sudoku",
+    "python:watercycle",
+    NULL
+  };
 
-#ifdef STATIC_MODULE
-int gc_board_number_in_demo;
 void gc_board_init(void)
 {
   guint i=0;
@@ -104,14 +113,13 @@ void gc_board_init(void)
   static_boards_demo[i++] = get_menu_bplugin_info();
   static_boards_demo[i++] = get_money_bplugin_info();
   static_boards_demo[i++] = get_reading_bplugin_info();
+  static_boards_demo[i++] = get_python_bplugin_info();
   static_boards_demo[i++] = get_scale_bplugin_info();
   static_boards_demo[i++] = get_submarine_bplugin_info();
   static_boards_demo[i++] = get_superbrain_bplugin_info();
   static_boards_demo[i++] = get_target_bplugin_info();
   static_boards_demo[i++] = get_wordprocessor_bplugin_info();
   static_boards_demo[i++] = NULL;
-
-  gc_board_number_in_demo = i - 2;
 
   i=0;
 
@@ -222,7 +230,10 @@ gc_board_check_file(GcomprisBoard *gcomprisBoard)
     return TRUE;
   }
 
-  key_is_valid = gc_activation_check(properties->key);
+  if(properties->administration)
+    key_is_valid = 1;
+  else
+    key_is_valid = gc_activation_check(properties->key);
 
   i = 0;
   if(key_is_valid == 1)
@@ -252,7 +263,20 @@ gc_board_check_file(GcomprisBoard *gcomprisBoard)
 
 	if(bp->is_our_board(gcomprisBoard)) {
 	  /* Great, we found our plugin */
-	  g_message("We found the correct plugin for board %s (type=%s)\n",
+
+	  /* check for excluded one */
+	  char **ptr = board_nodemo;
+	  do
+	    {
+	      if(strcmp(*ptr, gcomprisBoard->type) == 0)
+		break;
+	    }
+	  while(*++ptr);
+
+	  if(*ptr)
+	    goto notfound;
+
+	  g_warning("We found the correct plugin for board %s (type=%s)\n",
 		  gcomprisBoard->name, gcomprisBoard->type);
 
 	  gcomprisBoard->plugin = bp;
@@ -262,7 +286,9 @@ gc_board_check_file(GcomprisBoard *gcomprisBoard)
       }
     }
 
-  g_message("No plugin library found for board type '%s', requested by '%s'",
+ notfound:
+  gcomprisBoard->plugin = NULL;
+  g_warning("No plugin library found for board type '%s', requested by '%s'",
 	    gcomprisBoard->type,  gcomprisBoard->filename);
 
   return FALSE;

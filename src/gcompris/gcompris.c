@@ -86,11 +86,11 @@ int gc_activation_check(char *code);
 static void activation_enter_callback(GtkWidget *widget,
 				      GtkWidget *entry );
 static void activation_done();
-static void display_activation_dialog();
+static int display_activation_dialog();
 static GooCanvasItem *activation_item;
 static GtkEntry *widget_activation_entry;
 #else
-#define display_activation_dialog()
+#define display_activation_dialog() FALSE
 #endif
 
 
@@ -626,6 +626,53 @@ init_background()
 
 }
 
+static GcomprisBoard *get_board_to_start()
+{
+  GcomprisBoard *board_to_start;
+
+  /* By default, the menu will be started */
+  board_to_start = properties->menu_board;
+
+  /* Get and Run the root menu */
+  if(properties->administration)
+    {
+      board_to_start = gc_menu_section_get("/administration/administration");
+    }
+  else
+    {
+      /* If we have a profile defined, run the login screen
+       * (the login screen is a board that uppon login completion
+       * starts the menu)
+       */
+      if(properties->profile && properties->profile->group_ids)
+	{
+	  gboolean found = FALSE;
+
+	  GList *group_id;
+
+	  for (group_id = properties->profile->group_ids; group_id != NULL; group_id = group_id->next)
+	    if (g_list_length(gc_db_users_from_group_get( *((int *) group_id->data))) > 0){
+	      found = TRUE;
+	      break;
+	    }
+
+	  /* No profile start normally */
+	  if (found)
+	    board_to_start = gc_menu_section_get("/login/login");
+	  else {
+	    board_to_start = gc_menu_section_get(properties->root_menu);
+	    /* this will set user information to system one */
+	    gc_profile_set_current_user(NULL);
+	  }
+	}
+      else
+	/* this will set user information to system one */
+	gc_profile_set_current_user(NULL);
+    }
+
+  return board_to_start;
+}
+
 static void setup_window ()
 {
   GcomprisBoard *board_to_start;
@@ -728,50 +775,12 @@ static void setup_window ()
   /* Save the root_menu */
   properties->menu_board = gc_menu_section_get(properties->root_menu);
 
-  /* By default, the menu will be started */
-  board_to_start = properties->menu_board;
-
-  /* Get and Run the root menu */
-  if(properties->administration)
-    {
-      board_to_start = gc_menu_section_get("/administration/administration");
-    }
-  else
-    {
-      /* If we have a profile defined, run the login screen
-       * (the login screen is a board that uppon login completion
-       * starts the menu)
-       */
-      if(properties->profile && properties->profile->group_ids)
-	{
-	  gboolean found = FALSE;
-
-	  GList *group_id;
-
-	  for (group_id = properties->profile->group_ids; group_id != NULL; group_id = group_id->next)
-	    if (g_list_length(gc_db_users_from_group_get( *((int *) group_id->data))) > 0){
-	      found = TRUE;
-	      break;
-	    }
-
-	  /* No profile start normally */
-	  if (found)
-	    board_to_start = gc_menu_section_get("/login/login");
-	  else {
-	    board_to_start = gc_menu_section_get(properties->root_menu);
-	    /* this will set user information to system one */
-	    gc_profile_set_current_user(NULL);
-	  }
-	}
-      else
-	/* this will set user information to system one */
-	gc_profile_set_current_user(NULL);
-    }
-
-    /* Run the bar */
+  /* Run the bar */
   gc_bar_start(GOO_CANVAS(canvas));
 
   init_background();
+
+  board_to_start = get_board_to_start();
 
   if(!board_to_start) {
     gchar *tmpstr= g_strdup_printf("Couldn't find the board menu %s, or plugin execution error", properties->root_menu);
@@ -783,38 +792,43 @@ static void setup_window ()
     g_free(tmpstr);
   } else {
     g_message("Fine, we got the gcomprisBoardMenu, xml boards parsing went fine");
-    gc_board_play(board_to_start);
+    if(!display_activation_dialog())
+      gc_board_play(board_to_start);
   }
 
-  display_activation_dialog();
 
 }
 
 #ifdef STATIC_MODULE
-extern int gc_board_number_in_demo;
 /** Display the activation dialog for the windows version
  *
+ * return TRUE is the dialog is display, FALSE instead.
  */
-void
+int
 display_activation_dialog()
 {
   int board_count = 0;
+  int gc_board_number_in_demo = 0;
   GList *list;
   guint  key_is_valid = 0;
 
   key_is_valid = gc_activation_check(properties->key);
 
   if(key_is_valid == 1)
-    return;
+    return FALSE;
 
   /* Count non menu boards */
   for (list = gc_menu_get_boards(); list != NULL; list = list->next)
     {
       GcomprisBoard *board = list->data;
       if (strcmp(board->type, "menu") != 0 &&
-	  strcmp(board->section, "/experimental") != 0 &&
-	  strcmp(board->section, "/administration") != 0)
-	board_count++;
+	  strncmp(board->section, "/experimental", 13) != 0)
+	{
+	  board_count++;
+	  gc_board_check_file(board);
+	  if(board->plugin)
+	      gc_board_number_in_demo++;
+	}
     }
 
   /* Entry area */
@@ -838,12 +852,12 @@ display_activation_dialog()
   gtk_widget_show(GTK_WIDGET(widget_activation_entry));
   gtk_entry_set_text(GTK_ENTRY(widget_activation_entry), "CODE");
 
-  gc_board_stop();
-
   char *msg = g_strdup_printf(_("GCompris is free software released under the GPL License. In order to support its development, the Windows version provides only %d of the %d activities. You can get the full version for a small fee at\n<http://gcompris.net>\nThe GNU/Linux version does not have this restriction. Note that GCompris is being developed to free schools from monopolistic software vendors. If you also believe that we should teach freedom to children, please consider using GNU/Linux. Get more information at FSF:\n<http://www.fsf.org/philosophy>"),
 			      gc_board_number_in_demo, board_count);
   gc_dialog(msg, activation_done);
   g_free(msg);
+
+  return TRUE;
 }
 
 /**
@@ -936,7 +950,7 @@ activation_done()
       activation_enter_callback(GTK_WIDGET(widget_activation_entry), NULL);
     }
 
-  gc_board_play(properties->menu_board);
+  gc_board_play( get_board_to_start());
   gtk_object_destroy (GTK_OBJECT(activation_item));
 }
 #endif

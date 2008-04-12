@@ -1,3 +1,15 @@
+2008-04-12  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	Improved the windows version so that the administration module
+	is available in the demo version.
+	Now python activities can be part of the demo version and
+	many are there now. There are now 47 activities in the demo
+	out of 107, more than twice as before. (commit trunk 3362)
+
+	* src/gcompris/board.c: (gc_board_init), (gc_board_check_file):
+	* src/gcompris/gcompris.c: (get_board_to_start), (setup_window),
+	(display_activation_dialog), (activation_done):
+
 2008-02-12  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	merged from trunk 3231, 3232
