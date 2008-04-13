@@ -188,15 +188,6 @@ gc_config_start ()
 
   goo_canvas_text_new (rootitem,
 		       _("GCompris Configuration"),
-		       (gdouble) BOARDWIDTH/2 + 1.0,
-		       (gdouble) y_start + 40 + 1.0,
-		       -1,
-		       GTK_ANCHOR_CENTER,
-		       "font", gc_skin_font_title,
-		       "fill-color-rgba", gc_skin_color_shadow,
-		       NULL);
-  goo_canvas_text_new (rootitem,
-		       _("GCompris Configuration"),
 		       (gdouble) BOARDWIDTH/2,
 		       (gdouble) y_start + 40,
 		       -1,
