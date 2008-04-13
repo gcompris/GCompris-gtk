@@ -63,7 +63,7 @@ gc_skin_image_get(gchar *pixmapfile)
 
   /* First, test if pixmapfile is in the current skin dir */
   filename = g_strdup_printf("%s/%s/%s",
-			     properties->package_data_dir,
+			     properties->package_skin_dir,
 			     properties->skin,
 			     pixmapfile);
 
@@ -75,11 +75,6 @@ gc_skin_image_get(gchar *pixmapfile)
     return(filename);
   }
   g_free(filename);
-
-  /* Check it's on the server */
-  filename = gc_net_get_url_from_file("boards/skins/%s/%s", properties->skin, pixmapfile);
-  if(filename)
-    return(filename);
 
   /* Return the default skin dir */
   filename = g_strdup_printf("%s/%s", DEFAULT_SKIN, pixmapfile);
@@ -280,9 +275,9 @@ skin_xml_load (gchar* skin)
   g_return_if_fail(skin!=NULL);
 
   xmlfilename = \
-    gc_file_find_absolute("skins/%s/skin.xml",
-				    skin,
-				    NULL);
+    gc_file_find_absolute("%s/skin.xml",
+			  skin,
+			  NULL);
 
   /* if the file doesn't exist */
   if(!xmlfilename)
