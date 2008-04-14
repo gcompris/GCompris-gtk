@@ -49,6 +49,9 @@ static double           stars_group_y;
 #define Y_GAP	45
 
 static gboolean is_displayed			= FALSE;
+static gint x_flag_start;
+static gint y_flag_start;
+
 
 #define SOUNDLISTFILE PACKAGE
 
@@ -160,7 +163,6 @@ gc_config_start ()
   gint y_start = 0;
   gint x_start = 0;
   gint x_text_start = 0;
-  gint x_flag_start = 0;
   gint y = 0;
   GooCanvasItem *item, *item2;
   RsvgHandle *svg_handle = NULL;
@@ -210,11 +212,10 @@ gc_config_start ()
 
   display_previous_next(x_start, y_start, "locale_previous", "locale_next");
 
-  item_locale_flag = goo_canvas_image_new (rootitem,
-					   NULL,
-					   (double) x_flag_start,
-					   (double) y_start - gdk_pixbuf_get_width(pixmap_checked)/2,
-					   NULL);
+  item_locale_flag = goo_svg_item_new (rootitem,
+				       rsvg_handle_new(),
+				       NULL);
+  y_flag_start = y_start - gdk_pixbuf_get_width(pixmap_checked)/2;
 
   /* Display a bad icon if this locale is not available */
   pixmap   = gc_skin_pixmap_load("mini_bad.png");
@@ -568,7 +569,6 @@ static void
 set_locale_flag(gchar *locale)
 {
   gchar *filename;
-  GdkPixbuf *pixmap = NULL;
 
   if(locale == NULL)
     return;
@@ -580,29 +580,42 @@ set_locale_flag(gchar *locale)
   }
 
   /* First try to find a flag for the long locale name */
-  filename = gc_file_find_absolute("flags/%.5s.png", locale);
+  filename = gc_file_find_absolute("flags/%.5s.svgz", locale);
 
   /* Not found, Try now with the short locale name */
   if(!filename) {
-    filename = gc_file_find_absolute("flags/%.2s.png", locale);
+    filename = gc_file_find_absolute("flags/%.2s.svgz", locale);
   }
 
   if(filename)
     {
-      pixmap = gc_net_load_pixmap(filename);
+      RsvgHandle *svg_handle;
+      RsvgDimensionData dimension;
+
+      svg_handle = gc_rsvg_load(filename);
+      rsvg_handle_get_dimensions(svg_handle, &dimension);
+
+      /* Calc the ratio to display it */
+      double xratio =  200.0  / dimension.width;
+      goo_canvas_item_set_transform(item_locale_flag, NULL);
+      goo_canvas_item_scale(item_locale_flag,
+			    xratio, xratio);
+      goo_canvas_item_translate(item_locale_flag,
+				(x_flag_start + 260) / xratio,
+				(y_flag_start + 40) / xratio);
 
       g_object_set (item_locale_flag,
-		    "pixbuf", pixmap,
+		    "rsvg-handle", svg_handle,
 		    NULL);
 
-      gdk_pixbuf_unref(pixmap);
+      g_object_unref(svg_handle);
       g_free(filename);
     }
   else
     {
       /* No flags */
       g_object_set (item_locale_flag,
-		    "pixbuf", NULL,
+		    "rsvg-handle", rsvg_handle_new(),
 		    NULL);
     }
 
