@@ -1,3 +1,13 @@
+2008-04-15  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	Removed screensize configuration as we are screen independant
+	now.
+
+	* src/gcompris/config.c: (gc_config_start), (item_event_ok):
+	* src/gcompris/properties.c: (gc_prop_new), (gc_prop_load),
+	(gc_prop_save):
+	* src/gcompris/properties.h:
+
 2008-04-12  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	Improved the windows version so that the administration module

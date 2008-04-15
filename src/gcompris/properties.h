@@ -31,7 +31,6 @@ typedef struct {
   gint		music;
   gint		fx;
   gint		fullscreen;
-  gint		screensize;
   gint		defaultcursor;
   gint		timer;
   gint		filter_style;

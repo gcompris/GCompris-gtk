@@ -31,7 +31,6 @@ static GooCanvasItem	*rootitem		= NULL;
 static GooCanvasItem	*item_locale_text	= NULL;
 static GooCanvasItem	*item_locale_flag	= NULL;
 static GooCanvasItem	*item_bad_flag		= NULL;
-static GooCanvasItem	*item_screen_text	= NULL;
 static GooCanvasItem	*item_timer_text	= NULL;
 static GooCanvasItem	*item_skin_text		= NULL;
 static GooCanvasItem	*item_filter_text	= NULL;
@@ -129,12 +128,6 @@ static gchar *timername[] = {
   N_("Slow timer"),
   N_("Normal timer"),
   N_("Fast timer")
-};
-
-static gchar *screenname[] = {
-  "640x480",
-  N_("800x600 (Default for GCompris)"),
-  "1024x768",
 };
 
 static gchar *filtername[] = {
@@ -266,21 +259,6 @@ gc_config_start ()
 		       "font", gc_skin_font_subtitle,
 		       "fill-color-rgba", gc_skin_color_content,
 		       NULL);
-
-  // Screen size
-  y_start += Y_GAP;
-
-  display_previous_next(x_start, y_start, "screen_previous", "screen_next");
-
-  item_screen_text = goo_canvas_text_new (rootitem,
-					  gettext(screenname[properties->screensize]),
-					  (gdouble) x_text_start,
-					  (gdouble) y_start,
-					  -1,
-					  GTK_ANCHOR_WEST,
-					  "font", gc_skin_font_subtitle,
-					  "fill-color-rgba", gc_skin_color_content,
-					  NULL);
 
   // Music
   y_start += Y_GAP;
@@ -791,24 +769,6 @@ item_event_ok(GooCanvasItem *item,
 		    NULL);
 
       set_locale_flag(current_locale);
-    }
-  else if(!strcmp((char *)data, "screen_previous"))
-    {
-      if(properties->screensize>0)
-	properties->screensize--;
-
-      g_object_set (G_OBJECT(item_screen_text),
-		    "text", gettext(screenname[properties->screensize]),
-		    NULL);
-    }
-  else if(!strcmp((char *)data, "screen_next"))
-    {
-      if(properties->screensize<MAX_SCREEN_VALUE)
-	properties->screensize++;
-
-      g_object_set (G_OBJECT(item_screen_text),
-		    "text", gettext(screenname[properties->screensize]),
-		    NULL);
     }
   else if(!strcmp((char *)data, "timer_previous"))
     {

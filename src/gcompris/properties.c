@@ -146,7 +146,6 @@ gc_prop_new ()
   tmp = (GcomprisProperties *) malloc (sizeof (GcomprisProperties));
   tmp->music		 = 1;
   tmp->fx		 = 1;
-  tmp->screensize	 = 1;
   tmp->fullscreen	 = 0;
   tmp->timer		 = 1;
   tmp->skin		 = g_strdup("babytoy");
@@ -384,9 +383,6 @@ gc_prop_load (GcomprisProperties *props, GCPropSourceConf source_conf)
 	} else if(!strcmp(value.v_identifier, "fx")) {
 	  if(!scan_get_int(scanner, &props->fx))
 	    g_warning("Config file parsing error on token %s", token);
-	} else if(!strcmp(value.v_identifier, "screensize")) {
-	  if(!scan_get_int(scanner, &props->screensize))
-	    g_warning("Config file parsing error on token %s", token);
 	} else if(!strcmp(value.v_identifier, "fullscreen")) {
 	  if(!scan_get_int(scanner, &props->fullscreen))
 	    g_warning("Config file parsing error on token %s", token);
@@ -554,7 +550,6 @@ gc_prop_save (GcomprisProperties *props)
 
   fprintf(filefd, "%s=%d\n", "music",			props->music);
   fprintf(filefd, "%s=%d\n", "fx",			props->fx);
-  fprintf(filefd, "%s=%d\n", "screensize",		props->screensize);
   fprintf(filefd, "%s=%d\n", "fullscreen",		props->fullscreen);
   fprintf(filefd, "%s=%d\n", "timer",			props->timer);
 
