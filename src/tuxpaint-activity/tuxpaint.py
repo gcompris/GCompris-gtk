@@ -90,16 +90,6 @@ class Gcompris_tuxpaint:
     if (Prop.fullscreen and eval(self.config_dict['fullscreen'])):
       options.append('--fullscreen')
 
-    # tuxpaint size are 800x600 and 640x480 in 9.14
-    # in cvs (future 9.15) it will be
-    # [--640x480   | --800x600   | --1024x768 |
-    #  --1280x1024 | --1400x1050 | --1600x1200]
-    if (Prop.screensize and eval(self.config_dict['size'])):
-      if (Prop.screensize >=1):
-        options.append('--800x600')
-      else:
-        options.append('--640x480')
-
     if eval(self.config_dict['disable_shape_rotation']):
       options.append('--simpleshapes')
 
