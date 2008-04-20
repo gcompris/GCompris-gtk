@@ -1,3 +1,11 @@
+2008-04-20  Bruno Coudoin  <bruno.coudoin@free.fr>
+
+	* src/billard-activity/billard.c: (minigolf_create_item): fixed random
+	offset bug in which it was possible to have the ball placed on the
+	top line which was triggering the border touch sounds endlessly.
+	* src/boards/py-gcompris-properties.c:
+	(pyGcomprisPropertiesType_getattr):  screensize property has been removed.
+
 2008-04-15  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	Removed screensize configuration as we are screen independant

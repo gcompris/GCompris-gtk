@@ -91,9 +91,6 @@ pyGcomprisPropertiesType_getattr(pyGcomprisPropertiesObject *self, char *name)
       }
     }
     /* enum */
-    if(strcmp(name,"screensize")==0) return Py_BuildValue("i", self->cdata->screensize);
-
-    /* enum */
     if(strcmp(name,"defaultcursor")==0) return Py_BuildValue("i", self->cdata->defaultcursor);
 
     if(strcmp(name,"timer")==0) return Py_BuildValue("i", self->cdata->timer);

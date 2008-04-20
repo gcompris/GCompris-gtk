@@ -243,7 +243,7 @@ static GooCanvasItem *minigolf_create_item(GooCanvasItem *parent)
   create_machine_item(MACH_HOLE, 750.0, 260.0);
   create_machine_item(MACH_BASKET_BALL,
 		      (double)g_random_int_range(60, 150),
-		      (double)RAND(60, 400));
+		      (double)RAND(70, 400));
 
 
   return NULL;
