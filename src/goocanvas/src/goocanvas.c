@@ -124,7 +124,8 @@ enum {
   PROP_RESOLUTION_Y,
   PROP_BACKGROUND_COLOR,
   PROP_BACKGROUND_COLOR_RGB,
-  PROP_INTEGER_LAYOUT
+  PROP_INTEGER_LAYOUT, 
+  PROP_CLEAR_BACKGROUND
 };
 
 enum {
@@ -385,6 +386,13 @@ goo_canvas_class_init (GooCanvasClass *klass)
 							 FALSE,
 							 G_PARAM_READWRITE));
 
+  g_object_class_install_property (gobject_class, PROP_CLEAR_BACKGROUND, 
+                                   g_param_spec_boolean ("clear-background",
+							 _("Clear Background"),
+							 _("If the background is cleared before the canvas is painted"),
+							 TRUE,
+							 G_PARAM_READWRITE));
+
   /**
    * GooCanvas::set-scroll-adjustments
    * @canvas: the canvas.
@@ -446,6 +454,7 @@ goo_canvas_init (GooCanvas *canvas)
   canvas->need_entire_subtree_update = TRUE;
   canvas->crossing_event.type = GDK_LEAVE_NOTIFY;
   canvas->anchor = GTK_ANCHOR_NORTH_WEST;
+  canvas->clear_background = TRUE;
 
   /* Set the default bounds to a reasonable size. */
   canvas->bounds.x1 = 0.0;
@@ -570,6 +579,9 @@ goo_canvas_get_default_line_width (GooCanvas *canvas)
 {
   gdouble line_width = 2.0;
 
+  if (!canvas)
+    return 2.0;
+
   /* We use the same default as cairo when using pixels, i.e. 2 pixels.
      For other units we use 2 points, or thereabouts. */
   switch (canvas->units)
@@ -609,7 +621,7 @@ goo_canvas_create_cairo_context (GooCanvas *canvas)
   /* If the canvas is realized we can use the GDK function to create a cairo
      context for the canvas window. Otherwise we create a small temporary
      image surface. */
-  if (canvas->canvas_window)
+  if (canvas && canvas->canvas_window)
     {
       cr = gdk_cairo_create (canvas->canvas_window);
     }
@@ -687,6 +699,9 @@ goo_canvas_get_property    (GObject            *object,
       break;
     case PROP_INTEGER_LAYOUT:
       g_value_set_boolean (value, canvas->integer_layout);
+      break;
+    case PROP_CLEAR_BACKGROUND:
+      g_value_set_boolean (value, canvas->clear_background);
       break;
 
     default:
@@ -787,6 +802,9 @@ goo_canvas_set_property    (GObject            *object,
       canvas->integer_layout = g_value_get_boolean (value);
       canvas->need_entire_subtree_update = TRUE;
       goo_canvas_request_update (canvas);
+      break;
+    case PROP_CLEAR_BACKGROUND:
+      canvas->clear_background = g_value_get_boolean (value);
       break;
 
     default:
@@ -2221,10 +2239,13 @@ goo_canvas_expose_event (GtkWidget      *widget,
     return FALSE;
 
   /* Clear the background. */
-  gdk_draw_rectangle (canvas->canvas_window,
-		      widget->style->base_gc[widget->state], TRUE,
-		      event->area.x, event->area.y,
-		      event->area.width, event->area.height);
+  if (canvas->clear_background)
+    {
+      gdk_draw_rectangle (canvas->canvas_window,
+			  widget->style->base_gc[widget->state], TRUE,
+			  event->area.x, event->area.y,
+			  event->area.width, event->area.height);
+    }
 
   cr = goo_canvas_create_cairo_context (canvas);
 
@@ -2297,6 +2318,9 @@ goo_canvas_render (GooCanvas             *canvas,
 		   const GooCanvasBounds *bounds,
 		   gdouble                scale)
 {
+  if (canvas->need_update)
+    goo_canvas_update (canvas);
+
   /* Set the default line width based on the current units setting. */
   cairo_set_line_width (cr, goo_canvas_get_default_line_width (canvas));
 

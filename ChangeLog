@@ -1,3 +1,89 @@
+2008-05-04  Bruno Coudoin <bruno.coudoin@free.fr>
+
+	Syncing goocanvas and pygoocanvas with upstream goocanvas 0.10
+
+	* src/boards/goocanvas.c:
+	(_wrap_GooCanvasItemSimple__proxy_do_simple_create_path),
+	(_wrap_GooCanvasItemSimple__proxy_do_simple_update),
+	(_wrap_GooCanvasItemSimple__proxy_do_simple_paint),
+	(_wrap_GooCanvasItemSimple__proxy_do_simple_is_item_at),
+	(_wrap_goo_canvas_text_get_natural_extents),
+	(_wrap_goo_canvas_item_get_child_property),
+	(_wrap_goo_canvas_item_set_child_property),
+	(_wrap_goo_canvas_item_get_simple_transform),
+	(_wrap_GooCanvasItem__proxy_do_update),
+	(_wrap_GooCanvasItem__proxy_do_paint),
+	(_wrap_GooCanvasItem__proxy_do_get_requested_area),
+	(_wrap_GooCanvasItem__proxy_do_allocate_area),
+	(_wrap_GooCanvasItem__proxy_do_get_requested_height),
+	(_wrap_goo_canvas_item_model_get_child_property),
+	(_wrap_goo_canvas_item_model_set_child_property),
+	(_wrap_goo_canvas_item_model_get_simple_transform),
+	(pygoocanvas_register_classes):
+	* src/goocanvas/src/CVS/Entries:
+	* src/goocanvas/src/CVS/Repository:
+	* src/goocanvas/src/CVS/Root:
+	* src/goocanvas/src/goocanvas.c: (goo_canvas_class_init),
+	(goo_canvas_init), (goo_canvas_get_default_line_width),
+	(goo_canvas_create_cairo_context), (goo_canvas_get_property),
+	(goo_canvas_set_property), (goo_canvas_expose_event),
+	(goo_canvas_render):
+	* src/goocanvas/src/goocanvas.h:
+	* src/goocanvas/src/goocanvasimage.c:
+	(goo_canvas_image_set_common_property):
+	* src/goocanvas/src/goocanvasitem.c: (goo_canvas_item_add_child),
+	(goo_canvas_item_get_simple_transform),
+	(goo_canvas_item_is_visible), (item_get_child_property),
+	(_goo_canvas_item_get_child_property_internal),
+	(_goo_canvas_item_get_child_properties_internal),
+	(_goo_canvas_item_set_child_property_internal),
+	(goo_canvas_item_get_child_property),
+	(goo_canvas_item_set_child_property):
+	* src/goocanvas/src/goocanvasitem.h:
+	* src/goocanvas/src/goocanvasitemmodel.c:
+	(goo_canvas_item_model_add_child),
+	(goo_canvas_item_model_get_simple_transform),
+	(goo_canvas_item_model_get_child_property),
+	(goo_canvas_item_model_set_child_property):
+	* src/goocanvas/src/goocanvasitemmodel.h:
+	* src/goocanvas/src/goocanvasitemsimple.c:
+	(goo_canvas_item_simple_class_init), (convert_color),
+	(goo_canvas_item_simple_get_common_property),
+	(goo_canvas_item_simple_set_property),
+	(goo_canvas_item_simple_get_items_at),
+	(goo_canvas_item_simple_default_is_item_at),
+	(goo_canvas_item_simple_update_internal),
+	(goo_canvas_item_simple_default_update),
+	(goo_canvas_item_simple_paint),
+	(goo_canvas_item_simple_default_paint),
+	(goo_canvas_item_simple_default_create_path),
+	(goo_canvas_item_model_simple_set_property):
+	* src/goocanvas/src/goocanvasitemsimple.h:
+	* src/goocanvas/src/goocanvasmarshal.c:
+	(goo_canvas_marshal_VOID__INT_INT),
+	(goo_canvas_marshal_VOID__OBJECT_OBJECT),
+	(goo_canvas_marshal_BOOLEAN__BOXED),
+	(goo_canvas_marshal_BOOLEAN__OBJECT_BOXED):
+	* src/goocanvas/src/goocanvastable.c:
+	(goo_canvas_table_install_common_properties),
+	(goo_canvas_table_init_data),
+	(goo_canvas_table_get_common_property),
+	(goo_canvas_table_set_common_property),
+	(goo_canvas_table_update_dimensions),
+	(goo_canvas_update_grid_line_visibility),
+	(goo_canvas_table_free_layout_data),
+	(goo_canvas_table_init_layout_data),
+	(goo_canvas_table_size_allocate_pass1),
+	(goo_canvas_table_size_allocate_pass2),
+	(goo_canvas_table_update_requested_heights),
+	(goo_canvas_table_get_requested_area), (goo_canvas_table_paint):
+	* src/goocanvas/src/goocanvastext.c:
+	(goo_canvas_text_create_layout), (goo_canvas_text_update),
+	(goo_canvas_text_is_item_at), (goo_canvas_text_paint),
+	(goo_canvas_text_get_requested_height),
+	(goo_canvas_text_get_natural_extents):
+	* src/goocanvas/src/goocanvastext.h:
+
 2008-05-03  Bruno Coudoin,,,  <bruno.coudoin@free.fr>
 
 	Merged from trunk missing geo_country levels (brazil, canada, mexico)

@@ -81,6 +81,9 @@ struct _GooCanvas
   /* This is TRUE if the automatic bounds are calculated from the origin. */
   guint bounds_from_origin : 1;
 
+  /* This is TRUE if the background is cleared before painting the canvas. */
+  guint clear_background : 1;
+
   /* This is the padding around the automatic bounds. */
   gdouble bounds_padding;
 

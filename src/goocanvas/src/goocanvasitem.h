@@ -313,6 +313,14 @@ void               goo_canvas_item_move_child     (GooCanvasItem   *item,
 void               goo_canvas_item_remove_child   (GooCanvasItem   *item,
 						   gint             child_num);
 
+void  goo_canvas_item_get_child_property	  (GooCanvasItem   *item,
+						   GooCanvasItem   *child,
+						   const gchar     *property_name,
+						   GValue          *value);
+void  goo_canvas_item_set_child_property	  (GooCanvasItem   *item,
+						   GooCanvasItem   *child,
+						   const gchar     *property_name,
+						   const GValue    *value);
 void  goo_canvas_item_get_child_properties        (GooCanvasItem   *item,
 						   GooCanvasItem   *child,
 						   ...) G_GNUC_NULL_TERMINATED;
@@ -352,6 +360,11 @@ gboolean           goo_canvas_item_get_transform  (GooCanvasItem   *item,
 						   cairo_matrix_t  *transform);
 void               goo_canvas_item_set_transform  (GooCanvasItem         *item,
 						   const cairo_matrix_t  *transform);
+gboolean	   goo_canvas_item_get_simple_transform (GooCanvasItem   *item,
+							 gdouble         *x,
+							 gdouble         *y,
+							 gdouble         *scale,
+							 gdouble         *rotation);
 void               goo_canvas_item_set_simple_transform (GooCanvasItem   *item,
 							 gdouble          x,
 							 gdouble          y,

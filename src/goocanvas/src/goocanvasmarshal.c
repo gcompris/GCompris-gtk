@@ -55,10 +55,10 @@
 /* VOID:INT,INT (./goocanvasmarshal.list:3) */
 void
 goo_canvas_marshal_VOID__INT_INT (GClosure     *closure,
-                                  GValue       *return_value,
+                                  GValue       *return_value G_GNUC_UNUSED,
                                   guint         n_param_values,
                                   const GValue *param_values,
-                                  gpointer      invocation_hint,
+                                  gpointer      invocation_hint G_GNUC_UNUSED,
                                   gpointer      marshal_data)
 {
   typedef void (*GMarshalFunc_VOID__INT_INT) (gpointer     data1,
@@ -94,10 +94,10 @@ goo_canvas_marshal_VOID__INT_INT (GClosure     *closure,
 /* VOID:OBJECT,OBJECT (./goocanvasmarshal.list:5) */
 void
 goo_canvas_marshal_VOID__OBJECT_OBJECT (GClosure     *closure,
-                                        GValue       *return_value,
+                                        GValue       *return_value G_GNUC_UNUSED,
                                         guint         n_param_values,
                                         const GValue *param_values,
-                                        gpointer      invocation_hint,
+                                        gpointer      invocation_hint G_GNUC_UNUSED,
                                         gpointer      marshal_data)
 {
   typedef void (*GMarshalFunc_VOID__OBJECT_OBJECT) (gpointer     data1,
@@ -131,10 +131,10 @@ goo_canvas_marshal_VOID__OBJECT_OBJECT (GClosure     *closure,
 /* BOOLEAN:BOXED (./goocanvasmarshal.list:6) */
 void
 goo_canvas_marshal_BOOLEAN__BOXED (GClosure     *closure,
-                                   GValue       *return_value,
+                                   GValue       *return_value G_GNUC_UNUSED,
                                    guint         n_param_values,
                                    const GValue *param_values,
-                                   gpointer      invocation_hint,
+                                   gpointer      invocation_hint G_GNUC_UNUSED,
                                    gpointer      marshal_data)
 {
   typedef gboolean (*GMarshalFunc_BOOLEAN__BOXED) (gpointer     data1,
@@ -170,10 +170,10 @@ goo_canvas_marshal_BOOLEAN__BOXED (GClosure     *closure,
 /* BOOLEAN:OBJECT,BOXED (./goocanvasmarshal.list:7) */
 void
 goo_canvas_marshal_BOOLEAN__OBJECT_BOXED (GClosure     *closure,
-                                          GValue       *return_value,
+                                          GValue       *return_value G_GNUC_UNUSED,
                                           guint         n_param_values,
                                           const GValue *param_values,
-                                          gpointer      invocation_hint,
+                                          gpointer      invocation_hint G_GNUC_UNUSED,
                                           gpointer      marshal_data)
 {
   typedef gboolean (*GMarshalFunc_BOOLEAN__OBJECT_BOXED) (gpointer     data1,

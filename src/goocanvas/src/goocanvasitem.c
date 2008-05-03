@@ -507,6 +507,7 @@ goo_canvas_item_add_child      (GooCanvasItem       *item,
   GooCanvasItemIface *iface = GOO_CANVAS_ITEM_GET_IFACE (item);
 
   g_return_if_fail (iface->add_child != NULL);
+  g_return_if_fail (item != child);
 
   iface->add_child (item, child, position);
 }
@@ -656,9 +657,14 @@ goo_canvas_item_get_parent  (GooCanvasItem *item)
  * @parent: the new parent item.
  * 
  * This function is only intended to be used when implementing new canvas
- * items, specifically container items such as #GooCanvasGroup.
- *
- * It sets the parent of the item.
+ * items (specifically container items such as #GooCanvasGroup).
+ * It sets the parent of the child item.
+ * <!--PARAMETERS-->
+ * <note><para>
+ * This function cannot be used to add an item to a group
+ * or to change the parent of an item.
+ * To do that use the #GooCanvasItem:parent property.
+ * </para></note>
  **/
 void
 goo_canvas_item_set_parent (GooCanvasItem *item,
@@ -843,6 +849,61 @@ goo_canvas_item_set_transform  (GooCanvasItem        *item,
 				const cairo_matrix_t *transform)
 {
   GOO_CANVAS_ITEM_GET_IFACE (item)->set_transform (item, transform);
+}
+
+
+/**
+ * goo_canvas_item_get_simple_transform:
+ * @item: an item.
+ * @x: returns the x coordinate of the origin of the item's coordinate space.
+ * @y: returns the y coordinate of the origin of the item's coordinate space.
+ * @scale: returns the scale of the item.
+ * @rotation: returns the clockwise rotation of the item, in degrees (0-360).
+ * 
+ * This function can be used to get the position, scale and rotation of an
+ * item, providing that the item has a simple transformation matrix
+ * (e.g. set with goo_canvas_item_set_simple_transform(), or using a
+ * combination of simple translate, scale and rotate operations). If the item
+ * has a complex transformation matrix the results will be incorrect.
+ * 
+ * Returns: %TRUE if a transform is set.
+ **/
+gboolean
+goo_canvas_item_get_simple_transform (GooCanvasItem   *item,
+				      gdouble         *x,
+				      gdouble         *y,
+				      gdouble         *scale,
+				      gdouble         *rotation)
+{
+  GooCanvasItemIface *iface = GOO_CANVAS_ITEM_GET_IFACE (item);
+  cairo_matrix_t matrix = { 1, 0, 0, 1, 0, 0 };
+  double x1 = 1.0, y1 = 0.0, radians;
+  gboolean has_transform = FALSE;
+
+  if (iface->get_transform)
+    has_transform = iface->get_transform (item, &matrix);
+
+  if (!has_transform)
+    {
+      *x = *y = *rotation = 0.0;
+      *scale = 1.0;
+      return FALSE;
+    }
+
+  *x = matrix.x0;
+  *y = matrix.y0;
+
+  matrix.x0 = 0.0;
+  matrix.y0 = 0.0;
+
+  cairo_matrix_transform_point (&matrix, &x1, &y1);
+  *scale = sqrt (x1 * x1 + y1 * y1);
+  radians = atan2 (y1, x1);
+  *rotation = radians * (180 / M_PI);
+  if (*rotation < 0)
+    *rotation += 360;
+
+  return TRUE;
 }
 
 
@@ -1393,9 +1454,18 @@ gboolean
 goo_canvas_item_is_visible  (GooCanvasItem   *item)
 {
   GooCanvasItemIface *iface = GOO_CANVAS_ITEM_GET_IFACE (item);
+  GooCanvasItem *parent;
 
-  /* If the item doesn't implement this method assume it is visible. */
-  return iface->is_visible ? iface->is_visible (item) : TRUE;
+  if (iface->is_visible)
+    return iface->is_visible (item);
+
+  /* If the item doesn't implement the is_visible method we assume it is
+     visible and check its ancestors. */
+  parent = goo_canvas_item_get_parent (item);
+  if (parent)
+    return goo_canvas_item_is_visible (parent);
+
+  return TRUE;
 }
 
 
@@ -1607,6 +1677,100 @@ goo_canvas_item_allocate_area      (GooCanvasItem         *item,
 /*
  * Child Properties.
  */
+static inline void
+item_get_child_property (GObject      *object,
+			 GObject      *child,
+			 GParamSpec   *pspec,
+			 GValue       *value,
+			 gboolean      is_model)
+{
+  GObjectClass *class;
+
+  class = g_type_class_peek (pspec->owner_type);
+
+  if (is_model)
+    {
+      GooCanvasItemModelIface *iface;
+
+      iface = g_type_interface_peek (class, GOO_TYPE_CANVAS_ITEM_MODEL);
+      iface->get_child_property ((GooCanvasItemModel*) object,
+				 (GooCanvasItemModel*) child,
+				 pspec->param_id, value, pspec);
+    }
+  else
+    {
+      GooCanvasItemIface *iface;
+
+      iface = g_type_interface_peek (class, GOO_TYPE_CANVAS_ITEM);
+      iface->get_child_property ((GooCanvasItem*) object,
+				 (GooCanvasItem*) child,
+				 pspec->param_id, value, pspec);
+    }
+}
+
+
+void
+_goo_canvas_item_get_child_property_internal (GObject              *object,
+					      GObject              *child,
+					      const gchar          *property_name,
+					      GValue               *value,
+					      GParamSpecPool       *property_pool,
+					      gboolean              is_model)
+{
+  GParamSpec *pspec;
+
+  g_object_ref (object);
+  g_object_ref (child);
+  pspec = g_param_spec_pool_lookup (property_pool, property_name,
+				    G_OBJECT_TYPE (object), TRUE);
+  if (!pspec)
+    g_warning ("%s: class `%s' has no child property named `%s'",
+	       G_STRLOC,
+	       G_OBJECT_TYPE_NAME (object),
+	       property_name);
+  else if (!(pspec->flags & G_PARAM_READABLE))
+    g_warning ("%s: child property `%s' of class `%s' is not readable",
+	       G_STRLOC,
+	       pspec->name,
+	       G_OBJECT_TYPE_NAME (object));
+  else
+    {
+      GValue *prop_value, tmp_value = { 0, };
+
+      /* auto-conversion of the callers value type
+       */
+      if (G_VALUE_TYPE (value) == G_PARAM_SPEC_VALUE_TYPE (pspec))
+	{
+	  g_value_reset (value);
+	  prop_value = value;
+	}
+      else if (!g_value_type_transformable (G_PARAM_SPEC_VALUE_TYPE (pspec), G_VALUE_TYPE (value)))
+	{
+	  g_warning ("can't retrieve child property `%s' of type `%s' as value of type `%s'",
+		     pspec->name,
+		     g_type_name (G_PARAM_SPEC_VALUE_TYPE (pspec)),
+		     G_VALUE_TYPE_NAME (value));
+	  g_object_unref (child);
+	  g_object_unref (object);
+	  return;
+	}
+      else
+	{
+	  g_value_init (&tmp_value, G_PARAM_SPEC_VALUE_TYPE (pspec));
+	  prop_value = &tmp_value;
+	}
+      item_get_child_property (object, child, pspec, prop_value, is_model);
+      if (prop_value != value)
+	{
+	  g_value_transform (prop_value, value);
+	  g_value_unset (&tmp_value);
+	}
+    }
+  g_object_unref (child);
+  g_object_unref (object);
+}
+
+
 void
 _goo_canvas_item_get_child_properties_internal (GObject              *object,
 						GObject              *child,
@@ -1620,7 +1784,6 @@ _goo_canvas_item_get_child_properties_internal (GObject              *object,
 
   for (;;)
     {
-      GObjectClass *class;
       GValue value = { 0, };
       GParamSpec *pspec;
       gchar *name, *error = NULL;
@@ -1644,28 +1807,7 @@ _goo_canvas_item_get_child_properties_internal (GObject              *object,
 	  break;
 	}
       g_value_init (&value, G_PARAM_SPEC_VALUE_TYPE (pspec));
-
-      class = g_type_class_peek (pspec->owner_type);
-
-      if (is_model)
-	{
-	  GooCanvasItemModelIface *iface;
-
-	  iface = g_type_interface_peek (class, GOO_TYPE_CANVAS_ITEM_MODEL);
-	  iface->get_child_property ((GooCanvasItemModel*) object,
-				     (GooCanvasItemModel*) child,
-				     pspec->param_id, &value, pspec);
-	}
-      else
-	{
-	  GooCanvasItemIface *iface;
-
-	  iface = g_type_interface_peek (class, GOO_TYPE_CANVAS_ITEM);
-	  iface->get_child_property ((GooCanvasItem*) object,
-				     (GooCanvasItem*) child,
-				     pspec->param_id, &value, pspec);
-	}
-
+      item_get_child_property (object, child, pspec, &value, is_model);
       G_VALUE_LCOPY (&value, var_args, 0, &error);
       if (error)
 	{
@@ -1740,6 +1882,45 @@ canvas_item_set_child_property (GObject            *object,
 
 
 void
+_goo_canvas_item_set_child_property_internal (GObject              *object,
+					      GObject              *child,
+					      const gchar          *property_name,
+					      const GValue         *value,
+					      GParamSpecPool       *property_pool,
+					      GObjectNotifyContext *notify_context,
+					      gboolean              is_model)
+{
+  GObjectNotifyQueue *nqueue;
+  GParamSpec *pspec;
+
+  g_object_ref (object);
+  g_object_ref (child);
+
+  nqueue = g_object_notify_queue_freeze (child, notify_context);
+  pspec = g_param_spec_pool_lookup (property_pool, property_name,
+				    G_OBJECT_TYPE (object), TRUE);
+  if (!pspec)
+    g_warning ("%s: class `%s' has no child property named `%s'",
+	       G_STRLOC,
+	       G_OBJECT_TYPE_NAME (object),
+	       property_name);
+  else if (!(pspec->flags & G_PARAM_WRITABLE))
+    g_warning ("%s: child property `%s' of class `%s' is not writable",
+	       G_STRLOC,
+	       pspec->name,
+	       G_OBJECT_TYPE_NAME (object));
+  else
+    {
+      canvas_item_set_child_property (object, child, pspec,
+				      value, nqueue, is_model);
+    }
+  g_object_notify_queue_thaw (child, nqueue);
+  g_object_unref (object);
+  g_object_unref (child);
+}
+
+
+void
 _goo_canvas_item_set_child_properties_internal (GObject              *object,
 						GObject              *child,
 						va_list	              var_args,
@@ -1802,16 +1983,61 @@ _goo_canvas_item_set_child_properties_internal (GObject              *object,
 
 
 /**
+ * goo_canvas_item_get_child_property:
+ * @item: a #GooCanvasItem.
+ * @child: a child #GooCanvasItem.
+ * @property_name: the name of the child property to get.
+ * @value: a location to return the value.
+ * 
+ * Gets a child property of @child.
+ **/
+void
+goo_canvas_item_get_child_property (GooCanvasItem *item,
+				    GooCanvasItem *child,
+				    const gchar   *property_name,
+				    GValue        *value)
+{
+  g_return_if_fail (GOO_IS_CANVAS_ITEM (item));
+  g_return_if_fail (GOO_IS_CANVAS_ITEM (child));
+  g_return_if_fail (property_name != NULL);
+  g_return_if_fail (G_IS_VALUE (value));
+
+  _goo_canvas_item_get_child_property_internal ((GObject*) item, (GObject*) child, property_name, value, _goo_canvas_item_child_property_pool, FALSE);
+}
+
+
+/**
+ * goo_canvas_item_set_child_property:
+ * @item: a #GooCanvasItem.
+ * @child: a child #GooCanvasItem.
+ * @property_name: the name of the child property to set.
+ * @value: the value to set the property to.
+ * 
+ * Sets a child property of @child.
+ **/
+void
+goo_canvas_item_set_child_property (GooCanvasItem   *item,
+				    GooCanvasItem   *child,
+				    const gchar     *property_name,
+				    const GValue    *value)
+{
+  g_return_if_fail (GOO_IS_CANVAS_ITEM (item));
+  g_return_if_fail (GOO_IS_CANVAS_ITEM (child));
+  g_return_if_fail (property_name != NULL);
+  g_return_if_fail (G_IS_VALUE (value));
+
+  _goo_canvas_item_set_child_property_internal ((GObject*) item, (GObject*) child, property_name, value, _goo_canvas_item_child_property_pool, _goo_canvas_item_child_property_notify_context, FALSE);
+}
+
+
+/**
  * goo_canvas_item_get_child_properties_valist:
  * @item: a #GooCanvasItem.
  * @child: a child #GooCanvasItem.
  * @var_args: pairs of property names and value pointers, and a terminating
  *  %NULL.
  * 
- * This function is only intended to be used when implementing new canvas
- * items, specifically layout container items such as #GooCanvasTable.
- *
- * It gets the values of one or more child properties of @child.
+ * Gets the values of one or more child properties of @child.
  **/
 void
 goo_canvas_item_get_child_properties_valist (GooCanvasItem   *item,
@@ -1831,10 +2057,7 @@ goo_canvas_item_get_child_properties_valist (GooCanvasItem   *item,
  * @child: a child #GooCanvasItem.
  * @var_args: pairs of property names and values, and a terminating %NULL.
  * 
- * This function is only intended to be used when implementing new canvas
- * items, specifically layout container items such as #GooCanvasTable.
- *
- * It sets the values of one or more child properties of @child.
+ * Sets the values of one or more child properties of @child.
  **/
 void
 goo_canvas_item_set_child_properties_valist (GooCanvasItem   *item,
@@ -1854,10 +2077,7 @@ goo_canvas_item_set_child_properties_valist (GooCanvasItem   *item,
  * @child: a child #GooCanvasItem.
  * @...: pairs of property names and value pointers, and a terminating %NULL.
  * 
- * This function is only intended to be used when implementing new canvas
- * items, specifically layout container items such as #GooCanvasTable.
- *
- * It gets the values of one or more child properties of @child.
+ * Gets the values of one or more child properties of @child.
  **/
 void
 goo_canvas_item_get_child_properties        (GooCanvasItem   *item,
@@ -1878,10 +2098,7 @@ goo_canvas_item_get_child_properties        (GooCanvasItem   *item,
  * @child: a child #GooCanvasItem.
  * @...: pairs of property names and values, and a terminating %NULL.
  * 
- * This function is only intended to be used when implementing new canvas
- * items, specifically layout container items such as #GooCanvasTable.
- *
- * It sets the values of one or more child properties of @child.
+ * Sets the values of one or more child properties of @child.
  **/
 void
 goo_canvas_item_set_child_properties        (GooCanvasItem   *item,

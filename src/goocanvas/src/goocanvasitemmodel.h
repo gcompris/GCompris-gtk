@@ -169,6 +169,14 @@ void                goo_canvas_item_model_remove_child   (GooCanvasItemModel *mo
 gint                goo_canvas_item_model_find_child     (GooCanvasItemModel *model,
 							  GooCanvasItemModel *child);
 
+void     goo_canvas_item_model_get_child_property	 (GooCanvasItemModel   *model,
+							  GooCanvasItemModel   *child,
+							  const gchar          *property_name,
+							  GValue               *value);
+void     goo_canvas_item_model_set_child_property	 (GooCanvasItemModel   *model,
+							  GooCanvasItemModel   *child,
+							  const gchar          *property_name,
+							  const GValue         *value);
 void     goo_canvas_item_model_get_child_properties	 (GooCanvasItemModel   *model,
 							  GooCanvasItemModel   *child,
 							  ...) G_GNUC_NULL_TERMINATED;
@@ -201,6 +209,11 @@ gboolean            goo_canvas_item_model_get_transform  (GooCanvasItemModel *mo
 							  cairo_matrix_t     *transform);
 void                goo_canvas_item_model_set_transform  (GooCanvasItemModel   *model,
 							  const cairo_matrix_t *transform);
+gboolean	    goo_canvas_item_model_get_simple_transform (GooCanvasItemModel *model,
+								gdouble            *x,
+								gdouble            *y,
+								gdouble            *scale,
+								gdouble            *rotation);
 void                goo_canvas_item_model_set_simple_transform (GooCanvasItemModel *model,
 								gdouble             x,
 								gdouble             y,

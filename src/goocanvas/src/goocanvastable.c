@@ -56,7 +56,11 @@ enum
   PROP_ROW_SPACING,
   PROP_COLUMN_SPACING,
   PROP_HOMOGENEOUS_ROWS,
-  PROP_HOMOGENEOUS_COLUMNS
+  PROP_HOMOGENEOUS_COLUMNS,
+  PROP_X_BORDER_SPACING,
+  PROP_Y_BORDER_SPACING,
+  PROP_VERT_GRID_LINE_WIDTH,
+  PROP_HORZ_GRID_LINE_WIDTH
 };
 
 enum
@@ -106,9 +110,13 @@ struct _GooCanvasTableChild
 typedef struct _GooCanvasTableDimensionLayoutData GooCanvasTableDimensionLayoutData;
 struct _GooCanvasTableDimensionLayoutData
 {
-  /* This is the actual spacing for after the row or column. It is set in
-     goo_canvas_table_init_layout_data(). */
+  /* This is the actual spacing for after the row or column, including
+     the grid line width. It is set in goo_canvas_table_init_layout_data(). */
   gdouble spacing;
+
+  /* Stores the grid line visibilty for the grid lines to the right or bottom
+     of this row/column, respectivel, for each cell in the other dimension. */
+  guint32 *grid_line_visibility;
 
   /* The requisition is calculated in goo_canvas_table_size_request_pass[123]*/
   gdouble requisition;
@@ -139,6 +147,16 @@ struct _GooCanvasTableChildLayoutData
   gdouble start_pad[2], end_pad[2];
 };
 
+/* Convenience macros to set/unset/check bit-flags. */
+#define GOO_CANVAS_TABLE_SET_GRID_LINE_VISIBILITY(dim, x, y) \
+  ((dim)[(x)].grid_line_visibility[(y)/32] |= (1 << ((y) % 32)))
+
+#define GOO_CANVAS_TABLE_UNSET_GRID_LINE_VISIBILITY(dim, x, y) \
+  ((dim)[(x)].grid_line_visibility[(y)/32] &= ~(1 << ((y) % 32)))
+
+#define GOO_CANVAS_TABLE_IS_GRID_LINE_VISIBLE(dim, x, y) \
+  ((dim)[(x)].grid_line_visibility[(y)/32] & (1 << ((y) % 32)))
+
 /* The children array is only kept around while doing the layout.
    It gets freed in goo_canvas_table_allocate_area(). */
 struct _GooCanvasTableLayoutData
@@ -151,6 +169,17 @@ struct _GooCanvasTableLayoutData
 
   /* This is the border width used, possibly rounded to an integer. */
   gdouble border_width;
+
+  /* The actual property value */
+  gdouble prop_grid_line_width[2];
+
+  /* The grid line width in both directions (rounded for integer layout). */
+  gdouble grid_line_width[2];
+
+  /* This is the actual spacing between the uppermost, bottommost, leftmost
+     and rightmost cells from the widget border. This is the border spacing
+     for that dimension. */
+  gdouble border_spacing[2];
 
   /* These are in the table's coordinate space. */
   gdouble natural_size[2];
@@ -176,6 +205,7 @@ static void goo_canvas_table_set_property (GObject            *object,
 					   const GValue       *value,
 					   GParamSpec         *pspec);
 
+static void goo_canvas_table_init_layout_data (GooCanvasTable *table);
 static void goo_canvas_table_free_layout_data (GooCanvasTableData *table_data);
 
 G_DEFINE_TYPE_WITH_CODE (GooCanvasTable, goo_canvas_table,
@@ -207,14 +237,14 @@ goo_canvas_table_install_common_properties (GObjectClass *gobject_class,
   /* FIXME: Support setting individual row/col spacing. */
   g_object_class_install_property (gobject_class, PROP_ROW_SPACING,
                                    g_param_spec_double ("row-spacing",
-							_("Row spacing"),
+							_("Row Spacing"),
 							_("The default space between rows"),
 							0.0, G_MAXDOUBLE, 0.0,
 							G_PARAM_READWRITE));
 
   g_object_class_install_property (gobject_class, PROP_COLUMN_SPACING,
                                    g_param_spec_double ("column-spacing",
-							_("Column spacing"),
+							_("Column Spacing"),
 							_("The default space between columns"),
 							0.0, G_MAXDOUBLE, 0.0,
 							G_PARAM_READWRITE));
@@ -232,6 +262,31 @@ goo_canvas_table_install_common_properties (GObjectClass *gobject_class,
 							 _("If all columns are the same width"),
 							 FALSE,
 							 G_PARAM_READWRITE));
+  g_object_class_install_property (gobject_class, PROP_X_BORDER_SPACING,
+                                   g_param_spec_double("x-border-spacing",
+                                                       _("X Border Spacing"),
+                                                       _("The amount of spacing between the lefmost and rightmost cells and the border grid line"),
+                                                       0.0, G_MAXDOUBLE, 0.0,
+                                                       G_PARAM_READWRITE));
+  g_object_class_install_property (gobject_class, PROP_Y_BORDER_SPACING,
+                                   g_param_spec_double("y-border-spacing",
+                                                       _("Y Border Spacing"),
+                                                       _("The amount of spacing between the topmost and bottommost cells and the border grid line"),
+                                                       0.0, G_MAXDOUBLE, 0.0,
+                                                       G_PARAM_READWRITE));
+  g_object_class_install_property (gobject_class, PROP_HORZ_GRID_LINE_WIDTH,
+                                   g_param_spec_double("horz-grid-line-width",
+                                                        _("Horizontal Grid Line Width"),
+                                                        _("The width of the grid line to draw between rows"),
+                                                        0.0, G_MAXDOUBLE, 0.0,
+                                                        G_PARAM_READWRITE));
+
+  g_object_class_install_property (gobject_class, PROP_VERT_GRID_LINE_WIDTH,
+                                   g_param_spec_double("vert-grid-line-width",
+                                                       _("Vertical Grid Line Width"),
+                                                       _("The width of the grid line to draw between columns"),
+                                                       0.0, G_MAXDOUBLE, 0.0,
+                                                       G_PARAM_READWRITE));
 
   /*
    * Child properties.
@@ -373,6 +428,16 @@ goo_canvas_table_init_data (GooCanvasTableData *table_data)
   table_data->border_width = 0.0;
 
   table_data->children = g_array_new (0, 0, sizeof (GooCanvasTableChild));
+
+  table_data->layout_data = g_slice_new (GooCanvasTableLayoutData);
+  table_data->layout_data->children = NULL;
+  for (d = 0; d < 2; d++)
+    {
+      table_data->layout_data->dldata[d] = NULL;
+      table_data->layout_data->prop_grid_line_width[d] = 0.0;
+      table_data->layout_data->grid_line_width[d] = 0.0;
+      table_data->layout_data->border_spacing[d] = 0.0;
+    }
 }
 
 
@@ -525,6 +590,18 @@ goo_canvas_table_get_common_property (GObject              *object,
     case PROP_HOMOGENEOUS_COLUMNS:
       g_value_set_boolean (value, table_data->dimensions[HORZ].homogeneous);
       break;
+    case PROP_X_BORDER_SPACING:
+      g_value_set_double (value, table_data->layout_data->border_spacing[HORZ]);
+      break;
+    case PROP_Y_BORDER_SPACING:
+      g_value_set_double (value, table_data->layout_data->border_spacing[VERT]);
+      break;
+    case PROP_HORZ_GRID_LINE_WIDTH:
+      g_value_set_double (value, table_data->layout_data->prop_grid_line_width[HORZ]);
+      break;
+    case PROP_VERT_GRID_LINE_WIDTH:
+      g_value_set_double (value, table_data->layout_data->prop_grid_line_width[VERT]);
+      break;
     default:
       G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
       break;
@@ -574,6 +651,18 @@ goo_canvas_table_set_common_property (GObject              *object,
     case PROP_HOMOGENEOUS_COLUMNS:
       table_data->dimensions[HORZ].homogeneous = g_value_get_boolean (value);
       break;
+    case PROP_X_BORDER_SPACING:
+      table_data->layout_data->border_spacing[HORZ] = g_value_get_double (value);
+      break;
+    case PROP_Y_BORDER_SPACING:
+      table_data->layout_data->border_spacing[VERT] = g_value_get_double (value);
+      break;
+    case PROP_HORZ_GRID_LINE_WIDTH:
+      table_data->layout_data->prop_grid_line_width[HORZ] = g_value_get_double (value);
+      break;
+    case PROP_VERT_GRID_LINE_WIDTH:
+      table_data->layout_data->prop_grid_line_width[VERT] = g_value_get_double (value);
+      break;
     default:
       G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
       break;
@@ -611,25 +700,89 @@ static void
 goo_canvas_table_update_dimensions (GooCanvasTableData    *table_data,
 				    GooCanvasTableChild   *table_child)
 {
-  gint d, size, i;
+  GooCanvasTableLayoutData *layout_data;
+  gint d, size[2], i;
+  layout_data = table_data->layout_data;
+  size[0] = table_child->start[0] + table_child->size[0];
+  size[1] = table_child->start[1] + table_child->size[1];
 
   for (d = 0; d < 2; d++)
     {
-      size = table_child->start[d] + table_child->size[d];
+      if (size[d] > table_data->dimensions[d].size)
+        {
+	  /* Resize the spacings array and the layout data array. */
+          table_data->dimensions[d].spacings = g_realloc (table_data->dimensions[d].spacings, size[d] * sizeof (gdouble));
+          layout_data->dldata[d] = g_renew (GooCanvasTableDimensionLayoutData, layout_data->dldata[d], size[d]);
 
-      if (size > table_data->dimensions[d].size)
-	{
-	  table_data->dimensions[d].spacings = g_realloc (table_data->dimensions[d].spacings, size * sizeof (gdouble));
-
-	  /* Initialize new spacings to -1.0 so the default is used. */
-	  for (i = table_data->dimensions[d].size; i < size; i++)
-	    table_data->dimensions[d].spacings[i] = -1.0;
-
-	  table_data->dimensions[d].size = size;
-	}
+          /* Initialize new spacings to -1.0 so the default is used, and
+	     set the new grid_line_visibility arrays to NULL. */
+          for (i = table_data->dimensions[d].size; i < size[d]; i++)
+	    {
+	      table_data->dimensions[d].spacings[i] = -1.0;
+	      layout_data->dldata[d][i].grid_line_visibility = NULL;
+	    }
+        }
     }
+
+  table_data->dimensions[0].size = MAX (size[0], table_data->dimensions[0].size);
+  table_data->dimensions[1].size = MAX (size[1], table_data->dimensions[1].size);
 }
 
+/* Sets or unsets grid line visibility for a given child */
+static void
+goo_canvas_update_grid_line_visibility (GooCanvasTableData *table_data)
+{
+  GooCanvasTableLayoutData *layout_data;
+  GooCanvasTableChild *table_child;
+  guint32 grid_line_size;
+  gint d, d2, child_num, i, j;
+
+  layout_data = table_data->layout_data;
+  for (d = 0; d < 2; d++)
+    {
+      /* This is the opposite dimension. */
+      d2 = 1 - d;
+
+      /* The amount of guint32s we need to store grid line visibility
+         for a particular row or column. In case of vertical grid lines
+         we store the grid lines (right to) a particular column for each row.
+         Therefore we need one bit for each row. This is also why this depends
+         on dimensions[1-d] instead of dimensions[d]. */
+      grid_line_size = ((table_data->dimensions[d2].size + 31) / 32);
+
+      /* Allocate or reallocate the grid_line_visibility arrays and initialize
+	 all grid lines to visible (by setting to the arrays to all 0xFF). */
+      for (i = 0; i + 1 < table_data->dimensions[d].size; i++)
+	{
+	  layout_data->dldata[d][i].grid_line_visibility
+	    = g_realloc (layout_data->dldata[d][i].grid_line_visibility,
+			 grid_line_size * sizeof (guint32));
+	  memset (layout_data->dldata[d][i].grid_line_visibility, 0xff,
+		  grid_line_size * sizeof (guint32));
+	}
+
+      /* Remove lines for each child spanning multiple rows/colmuns */
+      for (child_num = 0; child_num < table_data->children->len; child_num++)
+        {
+          table_child = &g_array_index (table_data->children,
+					GooCanvasTableChild, child_num);
+
+          /* Foreach cell the child is spanning */
+          for (i = table_child->start[d];
+	       i < table_child->start[d] + table_child->size[d] - 1;
+	       i++)
+            {
+              /* Iterate through occupied cells in the other dimension */
+              for (j = table_child->start[d2];
+		   j < table_child->start[d2] + table_child->size[d2];
+		   j++)
+                {
+                  GOO_CANVAS_TABLE_UNSET_GRID_LINE_VISIBILITY (layout_data->dldata[d], i, j);
+                }
+            }
+        }
+    }
+}
 
 static void
 goo_canvas_table_add_child_internal (GooCanvasTableData *table_data,
@@ -993,8 +1146,14 @@ goo_canvas_table_set_model    (GooCanvasItem      *item,
 static void
 goo_canvas_table_free_layout_data (GooCanvasTableData *table_data)
 {
+  gint i;
+
   if (table_data->layout_data)
     {
+      for (i = 0; i < table_data->dimensions[VERT].size; i++)
+        g_free (table_data->layout_data->dldata[VERT][i].grid_line_visibility);
+      for (i = 0; i < table_data->dimensions[HORZ].size; i++)
+        g_free (table_data->layout_data->dldata[HORZ][i].grid_line_visibility);
       g_free (table_data->layout_data->dldata[HORZ]);
       g_free (table_data->layout_data->dldata[VERT]);
       g_free (table_data->layout_data->children);
@@ -1011,30 +1170,41 @@ goo_canvas_table_init_layout_data (GooCanvasTable *table)
   GooCanvasItemSimple *simple = (GooCanvasItemSimple*) table;
   GooCanvasTableData *table_data = table->table_data;
   GooCanvasTableDimension *dimension;
-  GooCanvasTableLayoutData *layout_data;
+  GooCanvasTableLayoutData *layout_data = table_data->layout_data;
   GooCanvasTableDimensionLayoutData *dldata;
   gint d, i;
 
-  /* Free any previous data. */
-  goo_canvas_table_free_layout_data (table->table_data);
-
-  layout_data = g_slice_new (GooCanvasTableLayoutData);
-
-  table_data->layout_data = layout_data;
   layout_data->children = g_new (GooCanvasTableChildLayoutData,
 				 table_data->children->len);
   layout_data->last_width = -1;
-  layout_data->integer_layout = simple->canvas->integer_layout;
+
+  /* If we are not yet added to a canvas, integer layout is irrelevant anyway.
+     We still need the layout_data for private fields, such as border spacing
+     and grid line visibility. */
+  if (simple->canvas)
+    layout_data->integer_layout = simple->canvas->integer_layout;
+  else
+    layout_data->integer_layout = FALSE;
   layout_data->border_width = table_data->border_width;
   if (layout_data->integer_layout)
     layout_data->border_width = floor (layout_data->border_width + 0.5);
+
+  layout_data->grid_line_width[0] = layout_data->prop_grid_line_width[0];
+  layout_data->grid_line_width[1] = layout_data->prop_grid_line_width[1];
+  if (layout_data->integer_layout)
+    {
+      layout_data->grid_line_width[0] = floor (layout_data->grid_line_width[0] + 0.5);
+      layout_data->grid_line_width[1] = floor (layout_data->grid_line_width[1] + 0.5);
+    }
 
   for (d = 0; d < 2; d++)
     {
       dimension = &table_data->dimensions[d];
 
-      layout_data->dldata[d] = g_new (GooCanvasTableDimensionLayoutData,
-				      dimension->size);
+      /* Already allocated in goo_canvas_table_update_dimensions() */
+      /*layout_data->dldata[d] = g_renew (GooCanvasTableDimensionLayoutData,
+                                        layout_data->dldata[d],
+				        dimension->size);*/
       dldata = layout_data->dldata[d];
 
       for (i = 0; i < dimension->size; i++)
@@ -1044,6 +1214,9 @@ goo_canvas_table_init_layout_data (GooCanvasTable *table)
 	    dldata[i].spacing = dimension->spacings[i];
 	  else
 	    dldata[i].spacing = dimension->default_spacing;
+
+          /* Add grid line widths to spacing */
+          dldata[i].spacing += layout_data->prop_grid_line_width[1-d];
 
 	  /* In integer layout mode, round spacings to the nearest integer. */
 	  if (layout_data->integer_layout)
@@ -1056,6 +1229,9 @@ goo_canvas_table_init_layout_data (GooCanvasTable *table)
 	  dldata[i].empty = TRUE;
 	}
     }
+
+  /* Update grid line visibility */
+  goo_canvas_update_grid_line_visibility (table_data);
 }
 
 
@@ -1392,7 +1568,7 @@ goo_canvas_table_size_allocate_pass1 (GooCanvasTable *table,
   GooCanvasTableLayoutData *layout_data = table_data->layout_data;
   GooCanvasTableDimension *dimension;
   GooCanvasTableDimensionLayoutData *dldata;
-  gdouble total_size, size_to_allocate, natural_size, extra;
+  gdouble total_size, size_to_allocate, natural_size, extra, old_extra;
   gint i, nexpand, nshrink;
   
   /* If we were allocated more space than we requested
@@ -1401,8 +1577,6 @@ goo_canvas_table_size_allocate_pass1 (GooCanvasTable *table,
    */
   dimension = &table_data->dimensions[d];
   dldata = layout_data->dldata[d];
-
-  total_size = layout_data->allocated_size[d] - layout_data->border_width * 2.0;
 
   natural_size = 0;
   nexpand = 0;
@@ -1418,7 +1592,22 @@ goo_canvas_table_size_allocate_pass1 (GooCanvasTable *table,
     }
   for (i = 0; i + 1 < dimension->size; i++)
     natural_size += dldata[i].spacing;
-      
+
+  /* Note: natural_size does not contain without border width and
+     border spacing here. */
+
+  /* total_size is the size available for allocating widgets. We always
+     allocate space for border_width, but for right/bottom border_spacing only
+     if all children can be allocated without being shrunk. */
+  if (layout_data->allocated_size[d] < layout_data->border_width * 2.0 + layout_data->border_spacing[d] + layout_data->grid_line_width[1-d])
+    total_size = 0;
+  else if (layout_data->allocated_size[d] < layout_data->border_width * 2.0 + layout_data->border_spacing[d] + layout_data->grid_line_width[1-d] + natural_size)
+    total_size = layout_data->allocated_size[d] - layout_data->border_width * 2.0 - layout_data->border_spacing[d] - layout_data->grid_line_width[1-d];
+  else if (layout_data->allocated_size[d] < layout_data->border_width * 2.0 + (layout_data->border_spacing[d] + layout_data->grid_line_width[1-d]) * 2.0 + natural_size)
+    total_size = natural_size;
+  else
+    total_size = layout_data->allocated_size[d] - layout_data->border_width * 2.0 - (layout_data->border_spacing[d] + layout_data->grid_line_width[1-d])* 2.0;
+
   if (dimension->homogeneous)
     {
       /* If the table is homogeneous in this dimension we check if any of
@@ -1492,6 +1681,7 @@ goo_canvas_table_size_allocate_pass1 (GooCanvasTable *table,
 	  while (total_nshrink > 0 && extra > 0)
 	    {
 	      nshrink = total_nshrink;
+	      old_extra = extra;
 	      for (i = 0; i < dimension->size; i++)
 		{
 		  if (dldata[i].shrink && dldata[i].allocation > 0.0)
@@ -1511,6 +1701,8 @@ goo_canvas_table_size_allocate_pass1 (GooCanvasTable *table,
 			total_nshrink -= 1;
 		    }
 		}
+	      if (extra >= old_extra)
+		break;
 	    }
 	}
     }
@@ -1532,7 +1724,7 @@ goo_canvas_table_size_allocate_pass2 (GooCanvasTable *table,
   dimension = &table_data->dimensions[d];
   dldata = layout_data->dldata[d];
 
-  pos = layout_data->border_width;
+  pos = layout_data->border_width + layout_data->border_spacing[d] + layout_data->grid_line_width[1-d];
   for (i = 0; i < dimension->size; i++)
     {
       dldata[i].start = pos;
@@ -1721,7 +1913,7 @@ goo_canvas_table_update_requested_heights (GooCanvasItem       *item,
       if (row < end)
 	height += rows[row].spacing;
     }
-  height += layout_data->border_width * 2.0;
+  height += (layout_data->border_width + layout_data->border_spacing[VERT] + layout_data->grid_line_width[HORZ]) * 2.0;
 
   layout_data->natural_size[VERT] = height;
 }
@@ -1780,7 +1972,7 @@ goo_canvas_table_get_requested_area (GooCanvasItem        *item,
       if (column < end)
 	width += columns[column].spacing;
     }
-  width += layout_data->border_width * 2.0;
+  width += (layout_data->border_width + layout_data->border_spacing[HORZ] + layout_data->grid_line_width[VERT]) * 2.0;
   
   /* Save the natural size, so we know if we have to clip children. */
   layout_data->natural_size[HORZ] = width;
@@ -1807,7 +1999,7 @@ goo_canvas_table_get_requested_area (GooCanvasItem        *item,
       if (row < end)
 	height += rows[row].spacing;
     }
-  height += layout_data->border_width * 2.0;
+  height += (layout_data->border_width + layout_data->border_spacing[VERT] + layout_data->grid_line_width[HORZ]) * 2.0;
 
   /* Save the natural size, so we know if we have to clip children. */
   layout_data->natural_size[VERT] = height;
@@ -2007,12 +2199,18 @@ goo_canvas_table_paint (GooCanvasItem         *item,
   GooCanvasTableLayoutData *layout_data = table_data->layout_data;
   GooCanvasTableDimensionLayoutData *rows = layout_data->dldata[VERT];
   GooCanvasTableDimensionLayoutData *columns = layout_data->dldata[HORZ];
+  gdouble vert_grid_line_width = layout_data->grid_line_width[VERT];
+  gdouble horz_grid_line_width = layout_data->grid_line_width[HORZ];
   GArray *children = table_data->children;
   GooCanvasTableChild *table_child;
   GooCanvasItem *child;
   gboolean check_clip = FALSE, clip;
   gint start_column, end_column, start_row, end_row, i, j;
   gdouble x, y, end_x, end_y;
+  gdouble frame_width, frame_height;
+  gdouble line_start, line_end;
+  gdouble spacing, half_spacing_before, half_spacing_after;
+  gboolean old_grid_line_visibility = FALSE, cur_grid_line_visibility;
 
   /* Skip the item if the bounds don't intersect the expose rectangle. */
   if (simple->bounds.x1 > bounds->x2 || simple->bounds.x2 < bounds->x1
@@ -2043,6 +2241,163 @@ goo_canvas_table_paint (GooCanvasItem         *item,
   if (layout_data->allocated_size[HORZ] < layout_data->natural_size[HORZ]
       || layout_data->allocated_size[VERT] < layout_data->natural_size[VERT])
     check_clip = TRUE;
+
+  /* frame_width/frame_height is the size of the table we draw the grid lines
+     around. This normally is the allocated size, except when we are shrunk
+     in which case we use the natural size. The grid will be clipped in that
+     case. */
+  frame_width = MAX (layout_data->allocated_size[HORZ], layout_data->natural_size[HORZ]);
+  frame_height = MAX (layout_data->allocated_size[VERT], layout_data->natural_size[VERT]);
+
+  /* Save current line width, line cap etc. for drawing items after having
+     drawn grid lines */
+  cairo_save (cr);
+
+  /* Draw border and grid lines */
+  if (check_clip)
+    {
+      cairo_rectangle (cr,
+                       layout_data->border_width,
+                       layout_data->border_width,
+                       layout_data->allocated_size[HORZ] - 2*layout_data->border_width,
+                       layout_data->allocated_size[VERT] - 2*layout_data->border_width);
+      cairo_clip (cr);
+    }
+
+  cairo_set_line_cap(cr, CAIRO_LINE_CAP_BUTT);
+
+  /* Horizontal grid lines */
+  if (horz_grid_line_width > 0.0)
+    {
+      cairo_set_line_width (cr, horz_grid_line_width);
+
+      /* Outer lines */
+      line_start = layout_data->border_width;
+      line_end = frame_width - layout_data->border_width;
+
+      cairo_move_to (cr, line_start, layout_data->border_width + horz_grid_line_width/2);
+      cairo_rel_line_to (cr, line_end - line_start, 0);
+
+      cairo_move_to (cr, line_start, frame_height - layout_data->border_width - horz_grid_line_width/2);
+      cairo_rel_line_to (cr, line_end - line_start, 0);
+
+      /* Inner lines. Make sure we don't do overlapping drawing operations,
+         so we could easily draw alpha transparent borders */
+      for (i = 0; i + 1 < table_data->dimensions[VERT].size; i++)
+        {
+          for (j = 0; j < table_data->dimensions[HORZ].size; j++)
+            {
+              cur_grid_line_visibility = GOO_CANVAS_TABLE_IS_GRID_LINE_VISIBLE(layout_data->dldata[VERT], i, j);
+              if (cur_grid_line_visibility)
+                {
+                  spacing = (columns[j].spacing - vert_grid_line_width);
+		  half_spacing_before = spacing / 2.0;
+                  if (simple->canvas->integer_layout)
+		    half_spacing_before = floor (half_spacing_before);
+		  half_spacing_after = spacing - half_spacing_before;
+
+                  if (j == 0)
+                    line_start = layout_data->border_width + vert_grid_line_width;
+                  else
+                    if (old_grid_line_visibility)
+                      line_start = columns[j].start - half_spacing_after;
+                    else
+                      line_start = columns[j-1].end + half_spacing_before;
+
+                  half_spacing_after = (columns[j].spacing - vert_grid_line_width)/2.0;
+                  if (simple->canvas->integer_layout)
+                    half_spacing_after = ceil (half_spacing_after);
+
+                  if (j == table_data->dimensions[HORZ].size - 1)
+                    line_end = frame_width - layout_data->border_width - vert_grid_line_width;
+                  else
+                    line_end = columns[j + 1].start - half_spacing_after;
+
+                  cairo_move_to (cr, line_start, rows[i].end + rows[i].spacing/2.0);
+                  cairo_rel_line_to (cr, line_end - line_start, 0);
+                }
+
+              old_grid_line_visibility = cur_grid_line_visibility;
+            }
+        }
+      
+      cairo_stroke (cr);
+    }
+
+  /* Vertical grid lines */
+  if (vert_grid_line_width > 0.0)
+    {
+      cairo_set_line_width (cr, vert_grid_line_width);
+
+      /* Outer lines */
+      line_start = layout_data->border_width + horz_grid_line_width;
+      line_end = frame_height - layout_data->border_width - horz_grid_line_width;
+
+      cairo_move_to (cr, layout_data->border_width + vert_grid_line_width/2, line_start);
+      cairo_rel_line_to (cr, 0, line_end - line_start);
+
+      cairo_move_to (cr, frame_width - layout_data->border_width - vert_grid_line_width/2, line_start);
+      cairo_rel_line_to (cr, 0, line_end - line_start);
+
+      /* Inner lines. Make sure we don't do overlapping drawing operations,
+         so we could easily draw alpha transparent borders. We need to
+         take additionally care that we don't cross already drawn
+         horizontal lines. */
+      for (i = 0; i + 1 < table_data->dimensions[HORZ].size; i++)
+        {
+          for (j = 0; j < table_data->dimensions[VERT].size; j++)
+            {
+              cur_grid_line_visibility = GOO_CANVAS_TABLE_IS_GRID_LINE_VISIBLE(layout_data->dldata[HORZ], i, j);
+              if (cur_grid_line_visibility)
+                {
+                  spacing = (rows[j].spacing - horz_grid_line_width);
+		  half_spacing_before = spacing / 2.0;
+                  if (simple->canvas->integer_layout)
+		    half_spacing_before = floor (half_spacing_before);
+		  half_spacing_after = spacing - half_spacing_before;
+
+                  if (j == 0)
+                    line_start = layout_data->border_width + horz_grid_line_width;
+                  else
+                    if (old_grid_line_visibility)
+                      line_start = rows[j].start - half_spacing_after;
+                    else
+                      /* Don't draw top part if already drawn by horizontal grid line */
+                      if (GOO_CANVAS_TABLE_IS_GRID_LINE_VISIBLE(layout_data->dldata[VERT], j-1, i)
+                          || GOO_CANVAS_TABLE_IS_GRID_LINE_VISIBLE(layout_data->dldata[VERT], j-1, i+1))
+                        line_start = rows[j].start - half_spacing_after;
+                      else
+                        line_start = rows[j-1].end + half_spacing_before;
+
+                  half_spacing_before = half_spacing_after = (rows[j].spacing - horz_grid_line_width)/2.0;
+                  if (simple->canvas->integer_layout)
+                    {
+                      half_spacing_before = floor (half_spacing_before);
+                      half_spacing_after = ceil (half_spacing_after);
+                    }
+
+                  if (j == table_data->dimensions[VERT].size - 1)
+                    line_end = frame_height - layout_data->border_width - horz_grid_line_width;
+                  else
+                    /* Don't draw bottom part if already drawn by horizontal grid line */
+                    if (GOO_CANVAS_TABLE_IS_GRID_LINE_VISIBLE(layout_data->dldata[VERT], j, i)
+                        || GOO_CANVAS_TABLE_IS_GRID_LINE_VISIBLE(layout_data->dldata[VERT], j, i+1))
+                      line_end = rows[j].end + half_spacing_before;
+                    else
+                      line_end = rows[j + 1].start - half_spacing_after;
+
+                  cairo_move_to (cr, columns[i].end + columns[i].spacing/2.0, line_start);
+                  cairo_rel_line_to (cr, 0, line_end - line_start);
+                }
+
+              old_grid_line_visibility = cur_grid_line_visibility;
+            }
+        }
+
+      cairo_stroke (cr);
+    }
+
+  cairo_restore (cr);
 
   for (i = 0; i < group->items->len; i++)
     {

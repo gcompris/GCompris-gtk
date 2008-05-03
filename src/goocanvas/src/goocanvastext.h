@@ -75,6 +75,9 @@ GooCanvasItem*      goo_canvas_text_new       (GooCanvasItem      *parent,
 					       GtkAnchorType       anchor,
 					       ...);
 
+void	goo_canvas_text_get_natural_extents   (GooCanvasText  *text,
+					       PangoRectangle *ink_rect,
+					       PangoRectangle *logical_rect);
 
 
 #define GOO_TYPE_CANVAS_TEXT_MODEL            (goo_canvas_text_model_get_type ())

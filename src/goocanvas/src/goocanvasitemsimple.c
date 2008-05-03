@@ -9,8 +9,8 @@
  * SECTION:goocanvasitemsimple
  * @Title: GooCanvasItemSimple
  * @Short_Description: the base class for the standard canvas items.
- * @Stability_Level:
- * @See_Also:
+ * @Stability_Level: 
+ * @See_Also: 
  *
  * #GooCanvasItemSimple is used as a base class for all of the standard canvas
  * items. It can also be used as the base class for new custom canvas items.
@@ -22,7 +22,7 @@
  * method. (#GooCanvasEllipse, #GooCanvasRect and #GooCanvasPath do this.)
  *
  * More complicated items need to implement the update(), paint() and
- * is_item_at() methods. (#GooCanvasImage, #GooCanvasPolyline,
+ * is_item_at() methods instead. (#GooCanvasImage, #GooCanvasPolyline,
  * #GooCanvasText and #GooCanvasWidget do this.) They may also need to
  * override some of the other GooCanvasItem methods such as set_canvas(),
  * set_parent() or allocate_area() if special code is needed. (#GooCanvasWidget
@@ -95,6 +95,20 @@ static void goo_canvas_item_simple_set_property (GObject              *object,
 						 guint                 prop_id,
 						 const GValue         *value,
 						 GParamSpec           *pspec);
+
+static void     goo_canvas_item_simple_default_create_path (GooCanvasItemSimple   *simple,
+							    cairo_t               *cr);
+static void     goo_canvas_item_simple_default_update      (GooCanvasItemSimple   *simple,
+							    cairo_t               *cr);
+static void     goo_canvas_item_simple_default_paint       (GooCanvasItemSimple   *simple,
+							    cairo_t               *cr,
+							    const GooCanvasBounds *bounds);
+static gboolean goo_canvas_item_simple_default_is_item_at  (GooCanvasItemSimple   *simple,
+							    double                 x,
+							    double                 y,
+							    cairo_t               *cr,
+							    gboolean               is_pointer_event);
+
 
 G_DEFINE_TYPE_WITH_CODE (GooCanvasItemSimple, goo_canvas_item_simple,
 			 G_TYPE_OBJECT,
@@ -328,6 +342,11 @@ goo_canvas_item_simple_class_init (GooCanvasItemSimpleClass *klass)
     }
 
   goo_canvas_item_simple_install_common_properties (gobject_class);
+
+  klass->simple_create_path = goo_canvas_item_simple_default_create_path;
+  klass->simple_update      = goo_canvas_item_simple_default_update;
+  klass->simple_paint       = goo_canvas_item_simple_default_paint;
+  klass->simple_is_item_at  = goo_canvas_item_simple_default_is_item_at;
 }
 
 
@@ -413,6 +432,27 @@ goo_canvas_item_simple_finalize (GObject *object)
 }
 
 
+static guint
+convert_color (double red, double green, double blue, double alpha)
+{
+  guint red_byte, green_byte, blue_byte, alpha_byte;
+
+  red_byte = red * 256;
+  red_byte -= red_byte >> 8;
+
+  green_byte = green * 256;
+  green_byte -= green_byte >> 8;
+
+  blue_byte = blue * 256;
+  blue_byte -= blue_byte >> 8;
+
+  alpha_byte = alpha * 256;
+  alpha_byte -= alpha_byte >> 8;
+
+  return (red_byte << 24) + (green_byte << 16) + (blue_byte << 8) + alpha_byte;
+}
+
+
 static void
 goo_canvas_item_simple_get_common_property (GObject                 *object,
 					    GooCanvasItemSimpleData *simple_data,
@@ -425,6 +465,9 @@ goo_canvas_item_simple_get_common_property (GObject                 *object,
   GValue *svalue;
   gdouble line_width = 2.0;
   gchar *font = NULL;
+  cairo_pattern_t *pattern;
+  double red, green, blue, alpha;
+  guint rgba = 0;
 
   switch (prop_id)
     {
@@ -491,6 +534,34 @@ goo_canvas_item_simple_get_common_property (GObject                 *object,
     case PROP_HINT_METRICS:
       svalue = goo_canvas_style_get_property (style, goo_canvas_style_hint_metrics_id);
       g_value_set_enum (value, svalue ? svalue->data[0].v_long : CAIRO_HINT_METRICS_OFF);
+      break;
+
+      /* Convenience properties. */
+    case PROP_STROKE_COLOR_RGBA:
+      svalue = goo_canvas_style_get_property (style, goo_canvas_style_stroke_pattern_id);
+      if (svalue && svalue->data[0].v_pointer)
+	{
+	  pattern = svalue->data[0].v_pointer;
+	  if (cairo_pattern_get_type (pattern) == CAIRO_PATTERN_TYPE_SOLID)
+	    {
+	      cairo_pattern_get_rgba (pattern, &red, &green, &blue, &alpha);
+	      rgba = convert_color (red, green, blue, alpha);
+	    }
+	}
+      g_value_set_uint (value, rgba);
+      break;
+    case PROP_FILL_COLOR_RGBA:
+      svalue = goo_canvas_style_get_property (style, goo_canvas_style_fill_pattern_id);
+      if (svalue && svalue->data[0].v_pointer)
+	{
+	  pattern = svalue->data[0].v_pointer;
+	  if (cairo_pattern_get_type (pattern) == CAIRO_PATTERN_TYPE_SOLID)
+	    {
+	      cairo_pattern_get_rgba (pattern, &red, &green, &blue, &alpha);
+	      rgba = convert_color (red, green, blue, alpha);
+	    }
+	}
+      g_value_set_uint (value, rgba);
       break;
 
       /* Other properties. */
@@ -771,7 +842,6 @@ goo_canvas_item_simple_set_property (GObject              *object,
   GooCanvasItem *parent;
   AtkObject *accessible;
   gboolean recompute_bounds;
-  gint child_num;
 
   if (simple->model)
     {
@@ -783,11 +853,7 @@ goo_canvas_item_simple_set_property (GObject              *object,
     {
     case PROP_PARENT:
       parent = g_value_get_object (value);
-      if (simple->parent)
-	{
-	  child_num = goo_canvas_item_find_child (simple->parent, item);
-	  goo_canvas_item_remove_child (simple->parent, child_num);
-	}
+      goo_canvas_item_remove (item);
       goo_canvas_item_add_child (parent, item, -1);
       break;
     case PROP_TITLE:
@@ -854,7 +920,7 @@ goo_canvas_item_simple_set_parent (GooCanvasItem  *item,
  * goo_canvas_item_simple_changed:
  * @item: a #GooCanvasItemSimple.
  * @recompute_bounds: if the item's bounds need to be recomputed.
- *
+ * 
  * This function is intended to be used by subclasses of #GooCanvasItemSimple.
  *
  * It is used as a callback for the "changed" signal of the item models.
@@ -965,7 +1031,7 @@ goo_canvas_item_simple_get_bounds  (GooCanvasItem   *item,
 
   if (simple->need_update)
     goo_canvas_item_ensure_updated (item);
-
+    
   *bounds = simple->bounds;
 }
 
@@ -983,7 +1049,6 @@ goo_canvas_item_simple_get_items_at (GooCanvasItem  *item,
   GooCanvasItemSimple *simple = (GooCanvasItemSimple*) item;
   GooCanvasItemSimpleData *simple_data = simple->simple_data;
   double user_x = x, user_y = y;
-  GooCanvasPointerEvents pointer_events = GOO_CANVAS_EVENTS_ALL;
   cairo_matrix_t matrix;
   gboolean add_item = FALSE;
 
@@ -1006,8 +1071,6 @@ goo_canvas_item_simple_get_items_at (GooCanvasItem  *item,
 	      || (simple_data->visibility == GOO_CANVAS_ITEM_VISIBLE_ABOVE_THRESHOLD
 		  && simple->canvas->scale < simple_data->visibility_threshold)))
 	return found_items;
-
-      pointer_events = simple_data->pointer_events;
     }
 
   cairo_save (cr);
@@ -1033,20 +1096,8 @@ goo_canvas_item_simple_get_items_at (GooCanvasItem  *item,
 	}
     }
 
-  if (class->simple_is_item_at)
-    {
-      add_item = class->simple_is_item_at (simple, user_x, user_y, cr,
-					   is_pointer_event);
-    }
-  else
-    {
-      /* Use the virtual method subclasses define to create the path. */
-      class->simple_create_path (simple, cr);
-
-      if (goo_canvas_item_simple_check_in_path (simple, user_x, user_y, cr,
-						pointer_events))
-	add_item = TRUE;
-    }
+  add_item = class->simple_is_item_at (simple, user_x, user_y, cr,
+                                       is_pointer_event);
 
   cairo_restore (cr);
 
@@ -1054,6 +1105,31 @@ goo_canvas_item_simple_get_items_at (GooCanvasItem  *item,
     return g_list_prepend (found_items, item);
   else
     return found_items;
+}
+
+
+static gboolean
+goo_canvas_item_simple_default_is_item_at (GooCanvasItemSimple *simple,
+					   double               x,
+					   double               y,
+					   cairo_t             *cr,
+					   gboolean             is_pointer_event)
+{
+  GooCanvasItemSimpleClass *class = GOO_CANVAS_ITEM_SIMPLE_GET_CLASS (simple);
+
+  GooCanvasItemSimpleData *simple_data = simple->simple_data;
+  GooCanvasPointerEvents pointer_events = GOO_CANVAS_EVENTS_ALL;
+
+  if (is_pointer_event)
+    pointer_events = simple_data->pointer_events;
+
+  /* Use the virtual method subclasses define to create the path. */
+  class->simple_create_path (simple, cr);
+
+  if (goo_canvas_item_simple_check_in_path (simple, x, y, cr, pointer_events))
+    return TRUE;
+
+  return FALSE;
 }
 
 
@@ -1078,7 +1154,7 @@ goo_canvas_item_simple_is_visible  (GooCanvasItem   *item)
 /**
  * goo_canvas_item_simple_check_style:
  * @item: a #GooCanvasItemSimple.
- *
+ * 
  * This function is intended to be used by subclasses of #GooCanvasItemSimple,
  * typically in their update() or get_requested_area() methods.
  *
@@ -1129,17 +1205,7 @@ goo_canvas_item_simple_update_internal  (GooCanvasItemSimple *simple,
 
   cairo_get_matrix (cr, &transform);
 
-  if (class->simple_update)
-    {
-      class->simple_update (simple, cr);
-    }
-  else
-    {
-      /* Use the identity matrix to get the bounds completely in user space. */
-      cairo_identity_matrix (cr);
-      class->simple_create_path (simple, cr);
-      goo_canvas_item_simple_get_path_bounds (simple, cr, &simple->bounds);
-    }
+  class->simple_update (simple, cr);
 
   /* Modify the extents by the item's clip path. */
   if (simple_data->clip_path_commands)
@@ -1161,6 +1227,20 @@ goo_canvas_item_simple_update_internal  (GooCanvasItemSimple *simple,
     }
 
   cairo_set_matrix (cr, &transform);
+}
+
+
+static void
+goo_canvas_item_simple_default_update (GooCanvasItemSimple   *simple,
+				       cairo_t               *cr)
+{
+  GooCanvasItemSimpleClass *class = GOO_CANVAS_ITEM_SIMPLE_GET_CLASS (simple);
+
+  /* Use the identity matrix to get the bounds completely in user space. */
+  cairo_identity_matrix (cr);
+
+  class->simple_create_path (simple, cr);
+  goo_canvas_item_simple_get_path_bounds (simple, cr, &simple->bounds);
 }
 
 
@@ -1333,20 +1413,30 @@ goo_canvas_item_simple_paint (GooCanvasItem         *item,
       cairo_clip (cr);
     }
 
-  if (class->simple_paint)
-    {
-      class->simple_paint (simple, cr, bounds);
-    }
-  else
-    {
-      class->simple_create_path (simple, cr);
-
-      goo_canvas_item_simple_paint_path (simple, cr);
-    }
+  class->simple_paint (simple, cr, bounds);
 
   cairo_restore (cr);
 }
 
+
+static void
+goo_canvas_item_simple_default_paint (GooCanvasItemSimple   *simple,
+				      cairo_t               *cr,
+				      const GooCanvasBounds *bounds)
+{
+  GooCanvasItemSimpleClass *class = GOO_CANVAS_ITEM_SIMPLE_GET_CLASS (simple);
+
+  class->simple_create_path (simple, cr);
+  goo_canvas_item_simple_paint_path (simple, cr);
+}
+
+
+static void
+goo_canvas_item_simple_default_create_path (GooCanvasItemSimple   *simple,
+					    cairo_t               *cr)
+{
+  /* Do nothing. */
+}
 
 
 static void
@@ -1418,7 +1508,7 @@ goo_canvas_item_simple_get_model    (GooCanvasItem      *item)
  * goo_canvas_item_simple_set_model:
  * @item: a #GooCanvasItemSimple.
  * @model: the model that @item will view.
- *
+ * 
  * This function should be called by subclasses of #GooCanvasItemSimple
  * in their set_model() method.
  **/
@@ -1482,7 +1572,7 @@ canvas_item_interface_init (GooCanvasItemIface *iface)
  * goo_canvas_item_simple_paint_path:
  * @item: a #GooCanvasItemSimple.
  * @cr: a cairo context.
- *
+ * 
  * This function is intended to be used by subclasses of #GooCanvasItemSimple.
  *
  * It paints the current path, using the item's style settings.
@@ -1512,7 +1602,7 @@ goo_canvas_item_simple_paint_path (GooCanvasItemSimple *item,
  * @item: a #GooCanvasItemSimple.
  * @cr: a cairo context.
  * @bounds: the #GooCanvasBounds struct to store the resulting bounding box.
- *
+ * 
  * This function is intended to be used by subclasses of #GooCanvasItemSimple,
  * typically in their update() or get_requested_area() methods.
  *
@@ -1598,7 +1688,7 @@ goo_canvas_item_simple_get_path_bounds (GooCanvasItemSimple *item,
  * @item: a #GooCanvasItemSimple.
  * @cr: a cairo context.
  * @bounds: the bounds of the item, in the item's coordinate space.
- *
+ * 
  * This function is intended to be used by subclasses of #GooCanvasItemSimple,
  * typically in their update() or get_requested_area() methods.
  *
@@ -1646,7 +1736,7 @@ goo_canvas_item_simple_user_bounds_to_device (GooCanvasItemSimple *item,
  * @item: a #GooCanvasItemSimple.
  * @cr: a cairo context.
  * @bounds: the bounds of the item, in the item's coordinate space.
- *
+ * 
  * This function is intended to be used by subclasses of #GooCanvasItemSimple,
  * typically in their get_requested_area() method.
  *
@@ -1705,12 +1795,12 @@ goo_canvas_item_simple_user_bounds_to_parent (GooCanvasItemSimple *item,
  * @y: the y coordinate of the point.
  * @cr: a cairo context.
  * @pointer_events: specifies which parts of the path to check.
- *
+ * 
  * This function is intended to be used by subclasses of #GooCanvasItemSimple.
  *
  * It checks if the given point is in the current path, using the item's
  * style settings.
- *
+ * 
  * Returns: %TRUE if the given point is in the current path.
  **/
 gboolean
@@ -1752,9 +1842,9 @@ goo_canvas_item_simple_check_in_path (GooCanvasItemSimple   *item,
 /**
  * goo_canvas_item_simple_get_line_width:
  * @item: a #GooCanvasItemSimple.
- *
+ * 
  * Gets the item's line width.
- *
+ * 
  * Returns: the item's line width.
  **/
 gdouble
@@ -1777,8 +1867,8 @@ goo_canvas_item_simple_get_line_width (GooCanvasItemSimple   *item)
  * SECTION:goocanvasitemmodelsimple
  * @Title: GooCanvasItemModelSimple
  * @Short_Description: the base class for the standard canvas item models.
- * @Stability_Level:
- * @See_Also:
+ * @Stability_Level: 
+ * @See_Also: 
  *
  * #GooCanvasItemModelSimple is used as a base class for the standard canvas
  * item models. It can also be used as the base class for new custom canvas
@@ -1897,17 +1987,12 @@ goo_canvas_item_model_simple_set_property (GObject              *object,
   GooCanvasItemSimpleData *simple_data = &smodel->simple_data;
   GooCanvasItemModel *parent;
   gboolean recompute_bounds;
-  gint child_num;
 
   switch (prop_id)
     {
     case PROP_PARENT:
       parent = g_value_get_object (value);
-      if (smodel->parent)
-	{
-	  child_num = goo_canvas_item_model_find_child (smodel->parent, model);
-	  goo_canvas_item_model_remove_child (smodel->parent, child_num);
-	}
+      goo_canvas_item_model_remove (model);
       goo_canvas_item_model_add_child (parent, model, -1);
       break;
     case PROP_TITLE:

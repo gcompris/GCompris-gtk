@@ -295,9 +295,9 @@ goo_canvas_image_set_common_property (GObject              *object,
     case PROP_PIXBUF:
       cairo_pattern_destroy (image_data->pattern);
       pixbuf = g_value_get_object (value);
-      image_data->pattern = goo_canvas_cairo_pattern_from_pixbuf (pixbuf);
-      image_data->width = gdk_pixbuf_get_width (pixbuf);
-      image_data->height = gdk_pixbuf_get_height (pixbuf);
+      image_data->pattern = pixbuf ? goo_canvas_cairo_pattern_from_pixbuf (pixbuf) : NULL;
+      image_data->width = pixbuf ? gdk_pixbuf_get_width (pixbuf) : 0;
+      image_data->height = pixbuf ? gdk_pixbuf_get_height (pixbuf) : 0;
       break;
     default:
       G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);

@@ -45,6 +45,12 @@ static guint item_model_signals[LAST_SIGNAL] = { 0 };
 
 static void goo_canvas_item_model_base_init (gpointer g_class);
 extern void _goo_canvas_style_init (void);
+extern void _goo_canvas_item_get_child_property_internal (GObject              *object,
+							  GObject              *child,
+							  const gchar          *property_name,
+							  GValue               *value,
+							  GParamSpecPool       *property_pool,
+							  gboolean              is_model);
 
 
 GType
@@ -274,6 +280,7 @@ goo_canvas_item_model_add_child      (GooCanvasItemModel  *model,
   GooCanvasItemModelIface *iface = GOO_CANVAS_ITEM_MODEL_GET_IFACE (model);
 
   g_return_if_fail (iface->add_child != NULL);
+  g_return_if_fail (model != child);
 
   iface->add_child (model, child, position);
 }
@@ -420,7 +427,15 @@ goo_canvas_item_model_get_parent  (GooCanvasItemModel *model)
  * @model: an item model.
  * @parent: the new parent item model.
  * 
- * Sets the parent of the model.
+ * This function is only intended to be used when implementing new canvas
+ * item models (specifically container models such as #GooCanvasGroupModel).
+ * It sets the parent of the child model.
+ * <!--PARAMETERS-->
+ * <note><para>
+ * This function cannot be used to add a model to a group
+ * or to change the parent of a model.
+ * To do that use the #GooCanvasItemModel:parent property.
+ * </para></note>
  **/
 void
 goo_canvas_item_model_set_parent (GooCanvasItemModel *model,
@@ -575,6 +590,61 @@ goo_canvas_item_model_set_transform  (GooCanvasItemModel   *model,
 				      const cairo_matrix_t *transform)
 {
   GOO_CANVAS_ITEM_MODEL_GET_IFACE (model)->set_transform (model, transform);
+}
+
+
+/**
+ * goo_canvas_item_model_get_simple_transform:
+ * @model: an item model.
+ * @x: returns the x coordinate of the origin of the model's coordinate space.
+ * @y: returns the y coordinate of the origin of the model's coordinate space.
+ * @scale: returns the scale of the model.
+ * @rotation: returns the clockwise rotation of the model, in degrees (0-360).
+ * 
+ * This function can be used to get the position, scale and rotation of an
+ * item model, providing that the model has a simple transformation matrix
+ * (e.g. set with goo_canvas_item_model_set_simple_transform(), or using a
+ * combination of simple translate, scale and rotate operations). If the model
+ * has a complex transformation matrix the results will be incorrect.
+ * 
+ * Returns: %TRUE if a transform is set.
+ **/
+gboolean
+goo_canvas_item_model_get_simple_transform (GooCanvasItemModel *model,
+					    gdouble            *x,
+					    gdouble            *y,
+					    gdouble            *scale,
+					    gdouble            *rotation)
+{
+  GooCanvasItemModelIface *iface = GOO_CANVAS_ITEM_MODEL_GET_IFACE (model);
+  cairo_matrix_t matrix = { 1, 0, 0, 1, 0, 0 };
+  double x1 = 1.0, y1 = 0.0, radians;
+  gboolean has_transform = FALSE;
+
+  if (iface->get_transform)
+    has_transform = iface->get_transform (model, &matrix);
+
+  if (!has_transform)
+    {
+      *x = *y = *rotation = 0.0;
+      *scale = 1.0;
+      return FALSE;
+    }
+
+  *x = matrix.x0;
+  *y = matrix.y0;
+
+  matrix.x0 = 0.0;
+  matrix.y0 = 0.0;
+
+  cairo_matrix_transform_point (&matrix, &x1, &y1);
+  *scale = sqrt (x1 * x1 + y1 * y1);
+  radians = atan2 (y1, x1);
+  *rotation = radians * (180 / M_PI);
+  if (*rotation < 0)
+    *rotation += 360;
+
+  return TRUE;
 }
 
 
@@ -837,9 +907,59 @@ goo_canvas_item_model_stop_animation (GooCanvasItemModel *model)
 /*
  * Child Properties.
  */
+extern void _goo_canvas_item_set_child_property_internal (GObject *object, GObject *child, const gchar *property_name, const GValue *value, GParamSpecPool *property_pool, GObjectNotifyContext *notify_context, gboolean is_model);
+
 extern void _goo_canvas_item_get_child_properties_internal (GObject *object, GObject *child, va_list var_args, GParamSpecPool *property_pool, GObjectNotifyContext *notify_context, gboolean is_model);
 
 extern void _goo_canvas_item_set_child_properties_internal (GObject *object, GObject *child, va_list var_args, GParamSpecPool *property_pool, GObjectNotifyContext *notify_context, gboolean is_model);
+
+
+/**
+ * goo_canvas_item_model_get_child_property:
+ * @model: a #GooCanvasItemModel.
+ * @child: a child #GooCanvasItemModel.
+ * @property_name: the name of the child property to get.
+ * @value: a location to return the value.
+ * 
+ * Gets a child property of @child.
+ **/
+void
+goo_canvas_item_model_get_child_property (GooCanvasItemModel *model,
+					  GooCanvasItemModel *child,
+					  const gchar        *property_name,
+					  GValue             *value)
+{
+  g_return_if_fail (GOO_IS_CANVAS_ITEM_MODEL (model));
+  g_return_if_fail (GOO_IS_CANVAS_ITEM_MODEL (child));
+  g_return_if_fail (property_name != NULL);
+  g_return_if_fail (G_IS_VALUE (value));
+
+  _goo_canvas_item_get_child_property_internal ((GObject*) model, (GObject*) child, property_name, value, _goo_canvas_item_model_child_property_pool, TRUE);
+}
+
+
+/**
+ * goo_canvas_item_model_set_child_property:
+ * @model: a #GooCanvasItemModel.
+ * @child: a child #GooCanvasItemModel.
+ * @property_name: the name of the child property to set.
+ * @value: the value to set the property to.
+ * 
+ * Sets a child property of @child.
+ **/
+void
+goo_canvas_item_model_set_child_property (GooCanvasItemModel *model,
+					  GooCanvasItemModel *child,
+					  const gchar        *property_name,
+					  const GValue       *value)
+{
+  g_return_if_fail (GOO_IS_CANVAS_ITEM_MODEL (model));
+  g_return_if_fail (GOO_IS_CANVAS_ITEM_MODEL (child));
+  g_return_if_fail (property_name != NULL);
+  g_return_if_fail (G_IS_VALUE (value));
+
+  _goo_canvas_item_set_child_property_internal ((GObject*) model, (GObject*) child, property_name, value, _goo_canvas_item_model_child_property_pool, _goo_canvas_item_model_child_property_notify_context, TRUE);
+}
 
 
 /**
@@ -849,11 +969,7 @@ extern void _goo_canvas_item_set_child_properties_internal (GObject *object, GOb
  * @var_args: pairs of property names and value pointers, and a terminating
  *  %NULL.
  * 
- * This function is only intended to be used when implementing new canvas
- * item models, specifically layout container item models such as
- * #GooCanvasTableModel.
- *
- * It gets the values of one or more child properties of @child.
+ * Gets the values of one or more child properties of @child.
  **/
 void
 goo_canvas_item_model_get_child_properties_valist (GooCanvasItemModel *model,
@@ -873,11 +989,7 @@ goo_canvas_item_model_get_child_properties_valist (GooCanvasItemModel *model,
  * @child: a child #GooCanvasItemModel.
  * @var_args: pairs of property names and values, and a terminating %NULL.
  * 
- * This function is only intended to be used when implementing new canvas
- * item models, specifically layout container item models such as
- * #GooCanvasTableModel.
- *
- * It sets the values of one or more child properties of @child.
+ * Sets the values of one or more child properties of @child.
  **/
 void
 goo_canvas_item_model_set_child_properties_valist (GooCanvasItemModel *model,
@@ -897,11 +1009,7 @@ goo_canvas_item_model_set_child_properties_valist (GooCanvasItemModel *model,
  * @child: a child #GooCanvasItemModel.
  * @...: pairs of property names and value pointers, and a terminating %NULL.
  * 
- * This function is only intended to be used when implementing new canvas
- * item models, specifically layout container item models such as
- * #GooCanvasTableModel.
- *
- * It gets the values of one or more child properties of @child.
+ * Gets the values of one or more child properties of @child.
  **/
 void
 goo_canvas_item_model_get_child_properties  (GooCanvasItemModel   *model,
@@ -922,11 +1030,7 @@ goo_canvas_item_model_get_child_properties  (GooCanvasItemModel   *model,
  * @child: a child #GooCanvasItemModel.
  * @...: pairs of property names and values, and a terminating %NULL.
  * 
- * This function is only intended to be used when implementing new canvas
- * item models, specifically layout container item models such as
- * #GooCanvasTableModel.
- *
- * It sets the values of one or more child properties of @child.
+ * Sets the values of one or more child properties of @child.
  **/
 void
 goo_canvas_item_model_set_child_properties  (GooCanvasItemModel   *model,

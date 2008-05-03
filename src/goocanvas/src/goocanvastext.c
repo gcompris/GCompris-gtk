@@ -365,15 +365,14 @@ goo_canvas_text_set_property (GObject              *object,
 
 
 static PangoLayout*
-goo_canvas_text_create_layout (GooCanvasText     *text,
-			       cairo_t           *cr,
-			       GooCanvasBounds   *bounds,
-			       gdouble	         *origin_x_return,
-			       gdouble	         *origin_y_return)
+goo_canvas_text_create_layout (GooCanvasItemSimpleData *simple_data,
+			       GooCanvasTextData       *text_data,
+			       gdouble                  layout_width,
+			       cairo_t                 *cr,
+			       GooCanvasBounds         *bounds,
+			       gdouble	               *origin_x_return,
+			       gdouble	               *origin_y_return)
 {
-  GooCanvasItemSimple *simple = (GooCanvasItemSimple*) text;
-  GooCanvasItemSimpleData *simple_data = simple->simple_data;
-  GooCanvasTextData *text_data = text->text_data;
   GooCanvasStyle *style = simple_data->style;
   GValue *svalue;
   PangoLayout *layout;
@@ -390,8 +389,8 @@ goo_canvas_text_create_layout (GooCanvasText     *text,
   layout = pango_cairo_create_layout (cr);
   context = pango_layout_get_context (layout);
 
-  if (text->layout_width > 0)
-    pango_layout_set_width (layout, (double) text->layout_width * PANGO_SCALE);
+  if (layout_width > 0)
+    pango_layout_set_width (layout, (double) layout_width * PANGO_SCALE);
 
   if (text_data->use_markup)
     pango_layout_set_markup (layout, string, -1);
@@ -544,8 +543,9 @@ goo_canvas_text_update  (GooCanvasItemSimple *simple,
   text->layout_width = text->text_data->width;
 
   /* Compute the new bounds. */
-  layout = goo_canvas_text_create_layout (text, cr, &simple->bounds,
-					  NULL, NULL);
+  layout = goo_canvas_text_create_layout (simple->simple_data, text->text_data,
+					  text->layout_width, cr,
+					  &simple->bounds, NULL, NULL);
   g_object_unref (layout);
 }
 
@@ -592,7 +592,8 @@ goo_canvas_text_is_item_at (GooCanvasItemSimple *simple,
       && goo_canvas_text_is_unpainted (simple_data->style))
     return FALSE;
 
-  layout = goo_canvas_text_create_layout (text, cr, &bounds,
+  layout = goo_canvas_text_create_layout (simple_data, text->text_data,
+					  text->layout_width, cr, &bounds,
 					  &origin_x, &origin_y);
 
   /* Convert the coordinates into Pango units. */
@@ -654,7 +655,9 @@ goo_canvas_text_paint (GooCanvasItemSimple   *simple,
   goo_canvas_style_set_fill_options (simple->simple_data->style, cr);
 
   cairo_new_path (cr);
-  layout = goo_canvas_text_create_layout (text, cr, &layout_bounds,
+  layout = goo_canvas_text_create_layout (simple->simple_data, text->text_data,
+					  text->layout_width, cr,
+					  &layout_bounds,
 					  &origin_x, &origin_y);
   cairo_move_to (cr, origin_x, origin_y);
   pango_cairo_show_layout (cr, layout);
@@ -691,8 +694,9 @@ goo_canvas_text_get_requested_height (GooCanvasItem	*item,
     text->layout_width /= simple_data->transform->xx;
 
   /* Create layout with given width. */
-  layout = goo_canvas_text_create_layout (text, cr, &simple->bounds,
-					  NULL, NULL);
+  layout = goo_canvas_text_create_layout (simple_data, text->text_data,
+					  text->layout_width, cr,
+					  &simple->bounds, NULL, NULL);
   g_object_unref (layout);
 
   /* Convert to the parent's coordinate space. As above,  we only need to
@@ -708,6 +712,40 @@ goo_canvas_text_get_requested_height (GooCanvasItem	*item,
 
   /* Return the new requested height of the text. */
   return height;
+}
+
+
+/**
+ * goo_canvas_text_get_natural_extents:
+ * @text: a #GooCanvasText.
+ * @ink_rect: the location to return the ink rect, or %NULL.
+ * @logical_rect: the location to return the logical rect, or %NULL.
+ * 
+ * Gets the natural extents of the text, in the text item's coordinate space.
+ *
+ * The final extents of the text may be different, if the text item is placed
+ * in a layout container such as #GooCanvasTable.
+ **/
+void
+goo_canvas_text_get_natural_extents (GooCanvasText  *text,
+				     PangoRectangle *ink_rect,
+				     PangoRectangle *logical_rect)
+{
+  GooCanvasItem *item = (GooCanvasItem*) text;
+  GooCanvasItemSimple *simple = (GooCanvasItemSimple*) text;
+  PangoLayout *layout;
+  cairo_t *cr;
+
+  if (simple->need_update)
+    goo_canvas_item_ensure_updated (item);
+
+  cr = goo_canvas_create_cairo_context (simple->canvas);
+  layout = goo_canvas_text_create_layout (simple->simple_data, text->text_data,
+					  text->text_data->width, cr, NULL,
+					  NULL, NULL);
+  pango_layout_get_extents (layout, ink_rect, logical_rect);
+  g_object_unref (layout);
+  cairo_destroy (cr);
 }
 
 

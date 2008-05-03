@@ -117,6 +117,8 @@ struct _GooCanvasItemSimple
  *  All updating, painting and hit-testing is provided automatically by the
  *  #GooCanvasItemSimple class. (This method is used by the builtin
  *  #GooCanvasEllipse, #GooCanvasRect and #GooCanvasPath items.)
+ *  More complicated subclasses must override @simple_update, @simple_paint and
+ *  @simple_is_item_at instead.
  * @simple_update: subclasses should override this to calculate their new
  *  bounds, in user space.
  * @simple_paint: subclasses should override this to paint their item.
@@ -126,7 +128,7 @@ struct _GooCanvasItemSimple
  * subclasses can override.
  *
  * Simple items need only implement the create_path() method. More complex
- * items must override the update(), paint() and is_item_at() methods.
+ * items must override the update(), paint() and is_item_at() methods instead.
  */
 struct _GooCanvasItemSimpleClass
 {
