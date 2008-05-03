@@ -281,6 +281,12 @@ class Gcompris_sudoku:
     if(self.gamewon):
       return False
 
+    # At level change this may be undefined
+    try:
+      self.sudo_square[square[0]][square[1]]
+    except:
+      return False
+
     if event.type == gtk.gdk.ENTER_NOTIFY:
       if self.cursqre != square:
         self.sudo_square[square[0]][square[1]].props.fill_color_rgba = \
