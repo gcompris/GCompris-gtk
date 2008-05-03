@@ -3,7 +3,6 @@ xmldir = $(pkgdatadir)/@PACKAGE_DATA_DIR@/paintings
 
 xml_in_files = \
 	board1_0.xml.in \
-	board1_1.xml.in \
 	board2_0.xml.in \
 	board2_1.xml.in \
 	board2_2.xml.in \
