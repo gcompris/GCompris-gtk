@@ -40,7 +40,6 @@ static GooCanvasItem	*fifteen_create_item(GooCanvasItem *parent);
 static void		 fifteen_destroy_all_items(void);
 static void		 fifteen_next_level(void);
 
-static void		 free_stuff (GtkObject *obj, gpointer data);
 static gboolean		 piece_event (GooCanvasItem  *item,
 				      GooCanvasItem  *target,
 				      GdkEventButton *event,
@@ -183,8 +182,12 @@ static void fifteen_next_level()
 static void fifteen_destroy_all_items()
 {
   if(boardRootItem!=NULL)
-    goo_canvas_item_remove(boardRootItem);
-
+    {
+      GooCanvasItem **board;
+      board = g_object_get_data (G_OBJECT (boardRootItem), "board");
+      g_free(board);
+      goo_canvas_item_remove(boardRootItem);
+    }
   boardRootItem = NULL;
 }
 /* ==================================== */
@@ -217,9 +220,6 @@ static GooCanvasItem *fifteen_create_item(GooCanvasItem *parent)
 
   board = g_new (GooCanvasItem *, 16);
   g_object_set_data (G_OBJECT (boardRootItem), "board", board);
-  g_signal_connect (boardRootItem, "destroy",
-		    G_CALLBACK (free_stuff),
-		    board);
 
   for (i = 0; i < 15; i++) {
     y = i / 4;
@@ -304,13 +304,6 @@ static void game_won()
 
 /*==================================================*/
 /*   Code taken from libgnomecanvas demo fifteen    */
-
-
-static void
-free_stuff (GtkObject *obj, gpointer data)
-{
-  g_free (data);
-}
 
 static void
 test_win (GooCanvasItem **board)
