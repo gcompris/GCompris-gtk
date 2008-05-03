@@ -2294,8 +2294,8 @@ def restore_item(item, frame, missing):
 
   print "restore_item C"
   # To be backward compatible, rename some properties
-  if ( ((item.type == 'CIRCLE') or (item.type == 'FILL_CIRCLE')
-        and (modif.has_key('x2'))) ):
+  if ( ((item.type == 'CIRCLE') or (item.type == 'FILL_CIRCLE'))
+        and (modif.has_key('x2')) ):
     modif['radius_x'] = (modif['x2'] - modif['x1'])/2
     modif['radius_y'] = (modif['y2'] - modif['y1'])/2
     modif['center_x'] = modif['x1'] + modif['radius_x']
