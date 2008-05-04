@@ -1,7 +1,15 @@
-SUBDIRS = argentina france germany norway \
-	poland turkey
+SUBDIRS = \
+	argentina \
+	brazil \
+	canada \
+	france \
+	germany \
+	mexico \
+	norway \
+	poland \
+	turkey
 
-xmldir = $(pkgdatadir)/@PACKAGE_DATA_DIR@/geography_country
+xmldir = $(pkgdatadir)/@PACKAGE_DATA_DIR@/geo_country
 
 xml_in_files = \
 	board1_0.xml.in \

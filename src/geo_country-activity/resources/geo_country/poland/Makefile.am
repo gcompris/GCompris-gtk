@@ -1,4 +1,4 @@
-imgdir = $(pkgdatadir)/@PACKAGE_DATA_DIR@//geography_country/poland_voivodship
+imgdir = $(pkgdatadir)/@PACKAGE_DATA_DIR@/geo_country/poland
 img_DATA = \
 	dolnoslaskie.png \
 	kujawsko-pomorskie.png \

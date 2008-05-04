@@ -1,4 +1,4 @@
-imgdir = $(pkgdatadir)/@PACKAGE_DATA_DIR@//geography_country/norway_counties
+imgdir = $(pkgdatadir)/@PACKAGE_DATA_DIR@//geo_country/norway
 img_DATA = \
 	akershus.png \
 	aust-agder.png \

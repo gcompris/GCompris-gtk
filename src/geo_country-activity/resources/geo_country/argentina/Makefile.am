@@ -1,4 +1,4 @@
-imgdir = $(pkgdatadir)/@PACKAGE_DATA_DIR@//geography_country/argentina
+imgdir = $(pkgdatadir)/@PACKAGE_DATA_DIR@/geo_country/argentina
 img_DATA = \
 	argentina.png \
 	buenos_aires.png \

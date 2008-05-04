@@ -1152,7 +1152,7 @@ auto_process(void)
 
       if(shape->type == SHAPE_TARGET)
 	{
-	  if(shape->placed == NULL)
+	  if(shape->placed != shape)
 	    done=FALSE;
 	}
     }

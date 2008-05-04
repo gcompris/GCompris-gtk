@@ -1,4 +1,4 @@
-imgdir = $(pkgdatadir)/@PACKAGE_DATA_DIR@//geography_country/turkey_district
+imgdir = $(pkgdatadir)/@PACKAGE_DATA_DIR@/geo_country/turkey
 img_DATA = \
 	adana.png \
 	adiyaman.png \

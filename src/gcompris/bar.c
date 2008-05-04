@@ -274,7 +274,7 @@ void gc_bar_set_level(GcomprisBoard *gcomprisBoard)
 
     }
 
-  current_level=gcomprisBoard->level;
+  current_level = gcomprisBoard->level;
 }
 
 
@@ -613,7 +613,7 @@ item_event_bar (GooCanvasItem  *item,
       if(event->button == 1)
 	{
 	  current_level++;
-	  if(gcomprisBoard && current_level>gcomprisBoard->maxlevel)
+	  if(gcomprisBoard && current_level > gcomprisBoard->maxlevel)
 	    current_level=1;
 	}
       else
@@ -626,23 +626,32 @@ item_event_bar (GooCanvasItem  *item,
 
       if(tmp!=current_level)
 	{
-	  gchar *str_number;
-
-	  gchar *number_str = g_strdup_printf("%d", current_level);
-	  gchar *current_level_str = gc_sound_alphabet(number_str);
-	  g_free(number_str);
-
-	  str_number = g_strdup_printf("voices/$LOCALE/alphabet/%s", current_level_str);
-
-	  gc_sound_play_ogg("voices/$LOCALE/misc/level.ogg", str_number, NULL);
-
-	  g_free(str_number);
-	  g_free(current_level_str);
-
+	  /* Set the level first because it can set a different current_level */
 	  if(gcomprisBoard && gcomprisBoard->plugin->set_level != NULL)
 	    {
 	      gcomprisBoard->plugin->set_level(current_level);
 	    }
+
+	  {
+	    /* Play the audio level number */
+	    gchar *number_str = g_strdup_printf("%d", current_level);
+
+	    if ( current_level < 10 )
+	      {
+		/* Set the number as unicode */
+		gchar *current_level_str = gc_sound_alphabet(number_str);
+		g_free(number_str);
+		number_str = current_level_str;
+	      }
+
+	    gchar *audio_str = g_strdup_printf("voices/$LOCALE/alphabet/%s", number_str);
+
+	    gc_sound_play_ogg("voices/$LOCALE/misc/level.ogg", audio_str, NULL);
+
+	    g_free(number_str);
+	    g_free(audio_str);
+
+	  }
 	}
     }
   else if(!strcmp((char *)data, "back"))

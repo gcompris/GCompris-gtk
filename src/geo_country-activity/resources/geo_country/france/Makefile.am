@@ -1,4 +1,4 @@
-imgdir = $(pkgdatadir)/@PACKAGE_DATA_DIR@//geography_country/france_region
+imgdir = $(pkgdatadir)/@PACKAGE_DATA_DIR@/geo_country/france
 img_DATA = \
 	alsace.png \
 	aquitaine.png \
