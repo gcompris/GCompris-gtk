@@ -1,10 +1,15 @@
 2008-05-04  Bruno coudoin  <bruno.coudoin@free.fr>
 
-	reviewed by: <delete if not using a buddy>
+	2 New paintings from Marc Levivier (malev free fr):
+	Arcimboldo Spring
+	Arcimboldo Librarian
 
 	* configure.in:
-	* src/babymatch-activity/shapegame.c: (auto_process):
-	* src/gcompris/bar.c: (gc_bar_set_level), (item_event_bar):
+	* src/babymatch-activity/shapegame.c: (auto_process): fixed was winning all whatever
+	  the placememnt was.
+
+	* src/gcompris/bar.c: (gc_bar_set_level), (item_event_bar): better management of
+	  audio
 	* src/geo_country-activity/resources/geo_country/Makefile.am:
 	* src/geo_country-activity/resources/geo_country/argentina/Makefile
 	.am:
