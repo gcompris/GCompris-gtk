@@ -1,3 +1,27 @@
+2008-05-10  Bruno Coudoin,,,  <bruno.coudoin@free.fr>
+
+	Port of doubleclick activity from trunk
+	Rewrite of the anim activity (in progress)
+
+	* configure.in:
+	* src/anim-activity/AnimItem.py:
+	* src/anim-activity/Color.py:
+	* src/anim-activity/Timeline.py:
+	* src/anim-activity/anim.py:
+	* src/doubleclick-activity/Makefile.am:
+	* src/doubleclick-activity/doubleclick.py:
+	* src/doubleclick-activity/doubleclick.svg:
+	* src/doubleclick-activity/doubleclick.xml.in:
+	* src/doubleclick-activity/gcompris:
+	* src/doubleclick-activity/init_path.sh:
+	* src/doubleclick-activity/resources/Makefile.am:
+	* src/doubleclick-activity/resources/doubleclick/Makefile.am:
+	* src/doubleclick-activity/resources/doubleclick/doubleclick.svg:
+	* src/doubleclick-activity/resources/doubleclick/foot.svg:
+	* src/doubleclick-activity/resources/doubleclick/foot_shadow.svg:
+	* src/doubleclick-activity/resources/doubleclick/penalty_bg.svg:
+	* src/doubleclick-activity/resources/doubleclick/teen_tux.svg:
+
 2008-05-04  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	2 New paintings from Marc Levivier (malev free fr):
