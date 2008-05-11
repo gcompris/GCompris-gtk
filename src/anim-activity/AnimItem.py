@@ -34,6 +34,8 @@ class AnimItem:
         self.step = anim.current_step
         gcompris.sound.play_ogg("sounds/bleep.wav")
 
+        self.step = 1
+
         self.item = None
         self.events = None
         self.anchor = None
@@ -61,6 +63,18 @@ class AnimItem:
                      self.drawing_area[1])/self.step) - 1
         result.append(float(self.drawing_area[1] + tmp*self.step))
         return result
+
+    # Given two points p1 and p2, return the
+    # boundings coordinates (x1, y2, x2, y2)
+    # all snaped to the grid
+    def snap_obj_to_grid(self, p1, p2):
+        x = min(p1[0], p2[0])
+        y = min(p1[1], p2[1])
+        (x1, y1) = self.snap_to_grid(x, y)
+        w = abs(p1[0] - p2[0])
+        h = abs(p1[1] - p2[1])
+        (x2, y2) = self.snap_to_grid(x+w, y+h)
+        return (x1, y1, x2, y2)
 
     # Selecting the item creates and display its anchors
     def select(self):
@@ -109,7 +123,9 @@ class AnimItem:
         pass
 
     def resize_item_event(self, item, target, event):
-        self.resize_x2y2(event.x, event.y)
+        self.set_bounds(
+            self.get_x1y1(),
+            (event.x, event.y) )
 
   #
   # Add the anchors and callbacks on an item
@@ -177,6 +193,10 @@ class Anchor:
             anchor.connect("motion_notify_event",
                            self.resize_item_event, anchor_type)
 
+        self.refpoint = None
+        self.fixed_x = 0
+        self.fixed_y = 0
+
     def show(self):
         self.anchorgroup.props.visibility = goocanvas.ITEM_VISIBLE
         self.anchorgroup.raise_(None)
@@ -229,15 +249,49 @@ class Anchor:
 
     def resize_item_event(self, item, target, event, anchor):
 
-        if event.state & gtk.gdk.BUTTON1_MASK:
-            if anchor == self.ANCHOR_N:
-                self.animitem.resize_y1(event.y)
-            elif anchor == self.ANCHOR_NE:
-                self.animitem.resize_x2y1(event.x, event.y)
-            elif anchor == self.ANCHOR_SE:
-                self.animitem.resize_x2y2(event.x, event.y)
-            elif anchor == self.ANCHOR_S:
-                self.animitem.resize_y2(event.y)
+        if (event.type == gtk.gdk.BUTTON_RELEASE):
+            self.refpoint = None
+            self.fixed_x = 0
+            self.fixed_y = 0
+
+        elif event.state & gtk.gdk.BUTTON1_MASK:
+            if not self.refpoint:
+                if anchor == self.ANCHOR_N:
+                    self.refpoint = self.animitem.get_x2y2()
+                    self.fixed_x = self.animitem.get_x1y1()[0]
+                elif anchor == self.ANCHOR_NE:
+                    self.refpoint = self.animitem.get_x1y2()
+                elif anchor == self.ANCHOR_E:
+                    self.refpoint = self.animitem.get_x1y1()
+                    self.fixed_y = self.animitem.get_x2y2()[1]
+                elif anchor == self.ANCHOR_SE:
+                    self.refpoint = self.animitem.get_x1y1()
+                elif anchor == self.ANCHOR_S:
+                    self.refpoint = self.animitem.get_x1y1()
+                    self.fixed_x = self.animitem.get_x2y2()[0]
+                elif anchor == self.ANCHOR_SW:
+                    self.refpoint = self.animitem.get_x2y1()
+                elif anchor == self.ANCHOR_W:
+                    self.refpoint = self.animitem.get_x2y2()
+                    self.fixed_y = self.animitem.get_x1y1()[1]
+                elif anchor == self.ANCHOR_NW:
+                    self.refpoint = self.animitem.get_x2y2()
+
+            if self.fixed_x:
+                self.animitem.set_bounds(
+                    self.refpoint,
+                    (self.fixed_x,
+                     event.y) )
+            elif self.fixed_y:
+                self.animitem.set_bounds(
+                    self.refpoint,
+                    (event.x,
+                     self.fixed_y) )
+            else:
+                self.animitem.set_bounds(
+                    self.refpoint,
+                    (event.x,
+                     event.y) )
 
             self.update()
 
@@ -274,24 +328,30 @@ class AnimItemFillRect(AnimItem):
         self.item.connect("button_release_event", anim.item_event)
         self.item.connect("motion_notify_event", anim.item_event)
 
-    def resize_y1(self, y):
-        y1 = self.item.get_property("y")
-        h = self.item.get_property("height")
-        self.item.set_properties(y = y,
-                                 height = h - (y - y1))
+    def set_bounds(self, p1, p2):
+        (x1, y1, x2, y2) = self.snap_obj_to_grid(p1, p2)
+        self.item.set_properties(x = x1,
+                                 y = y1,
+                                 width = abs(x2-x1),
+                                 height = abs(y2-y1) )
 
-    def resize_y2(self, y):
-        y2 = self.item.get_property("y") \
-            + self.item.get_property("height")
-        h = self.item.get_property("height")
-        self.item.set_properties(height = h - (y2 - y))
-
-    def resize_x2y1(self, x, y):
+    def get_x1y1(self):
         x = self.item.get_property("x")
-        self.item.set_properties(y = y - x)
+        y = self.item.get_property("y")
+        return(x, y)
 
-    def resize_x2y2(self, x, y):
-        x1 = self.item.get_property("x")
-        y1 = self.item.get_property("y")
-        self.item.set_properties(width = x - x1,
-                                 height = y - y1)
+    def get_x2y1(self):
+        x = self.item.get_property("x") + self.item.get_property("width")
+        y = self.item.get_property("y")
+        return(x, y)
+
+    def get_x2y2(self):
+        x = self.item.get_property("x") + self.item.get_property("width")
+        y = self.item.get_property("y") + self.item.get_property("height")
+        return(x, y)
+
+    def get_x1y2(self):
+        x = self.item.get_property("x")
+        y = self.item.get_property("y") + self.item.get_property("height")
+        return(x, y)
+
