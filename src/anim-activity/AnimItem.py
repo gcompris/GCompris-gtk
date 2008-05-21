@@ -48,6 +48,10 @@ class AnimItem:
     # Given x,y return a new x,y snapped to the grid
     def snap_to_grid(self, x, y):
 
+        if self.item:
+            (x, y) = self.anim.gcomprisBoard.canvas.\
+                convert_from_item_space(self.item, x, y)
+
         # Check drawing boundaries
         if(x < self.drawing_area[0]):
           x = self.drawing_area[0]
@@ -66,6 +70,11 @@ class AnimItem:
         tmp = round(((y+(self.step)) -
                      self.drawing_area[1])/self.step) - 1
         result.append(float(self.drawing_area[1] + tmp*self.step))
+
+        if self.item:
+            return self.anim.gcomprisBoard.canvas.\
+                convert_to_item_space(self.item, x, y)
+
         return result
 
     # Given two points p1 and p2, return the
@@ -176,6 +185,17 @@ class AnimItem:
         elif event.type == gtk.gdk.MOTION_NOTIFY:
             dx = event.x - self.old_x
             dy = event.y - self.old_y
+
+            bounds = self.item.get_bounds()
+            # Check drawing boundaries
+            if(bounds.x1 + dx < self.drawing_area[0]):
+                dx = self.drawing_area[0] - bounds.x1
+            if(bounds.x2 + dx > self.drawing_area[2]):
+                dx = self.drawing_area[2] - bounds.x2
+            if(bounds.y1 + dy < self.drawing_area[1]):
+                dy = self.drawing_area[1]- bounds.y1
+            if(bounds.y2 + dy > self.drawing_area[3]):
+                dy = self.drawing_area[3]- bounds.y2
 
             self.item.translate(dx, dy)
 

@@ -23,7 +23,7 @@
 #ifndef GCOMPRIS_IM_H
 #define GCOMPRIS_IM_H
 
-void gc_im_init();
+void gc_im_init(GtkWidget *window);
 void gc_im_reset();
 
 #endif
