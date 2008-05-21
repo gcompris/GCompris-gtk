@@ -24,6 +24,8 @@ import gcompris.bonus
 import gcompris.sound
 import gtk
 import gtk.gdk
+import math
+import cairo
 
 class AnimItem:
 
@@ -40,6 +42,8 @@ class AnimItem:
         self.events = None
         self.anchor = None
 
+        self.old_x = 0
+        self.old_y = 0
 
     # Given x,y return a new x,y snapped to the grid
     def snap_to_grid(self, x, y):
@@ -91,10 +95,16 @@ class AnimItem:
     # Default actions, maybe overloaded by specific items
     #
     def flip(self):
-        bounds = self.item.get_bounds(self.item)
-        (cx, cy) = ( (bounds[2]+bounds[0])/2 , (bounds[3]+bounds[1])/2)
-        mat = ( -1, 0, 0, 1, 2*cx, 0)
-        self.item.set_transform(mat)
+        bounds = self.item.get_bounds()
+        (cx, cy) = ( bounds.x1 + (bounds.x2-bounds.x1)/2,
+                     bounds.y1 + (bounds.y2-bounds.y1)/2 )
+        m1 = self.item.get_transform()
+        m2 = cairo.Matrix( -1, 0, 0, 1, 2*cx, 0)
+        self.item.set_transform(m1*m2)
+
+        if self.anchor:
+            self.anchor.update()
+
 
     def fill(self, fill, stroke):
         gcompris.sound.play_ogg("sounds/paint1.wav")
@@ -114,18 +124,63 @@ class AnimItem:
                                  stroke_color_rgba = stroke)
 
     def raise_(self):
-        pass
-    def lower(self):
-        pass
-    def rotate_ccw(self):
-        pass
-    def rotate_cw(self):
-        pass
+        print "raise"
+        self.item.raise_(None)
 
-    def resize_item_event(self, item, target, event):
-        self.set_bounds(
-            self.get_x1y1(),
-            (event.x, event.y) )
+    def lower(self):
+        print "lower"
+        self.item.lower(None)
+
+
+    def rotate(self, angle):
+        bounds = self.item.get_bounds()
+        (cx, cy) = ( bounds.x1 + (bounds.x2-bounds.x1)/2,
+                     bounds.y1 + (bounds.y2-bounds.y1)/2 )
+        (cx, cy) = self.anim.gcomprisBoard.canvas.\
+            convert_to_item_space(self.item, cx, cy)
+        self.item.rotate(angle, cx, cy)
+
+        if self.anchor:
+            self.anchor.update()
+
+
+    def create_item_event(self, item, target, event):
+
+        if (event.type == gtk.gdk.BUTTON_RELEASE
+            or event.type == gtk.gdk.BUTTON_PRESS):
+            self.refpoint = None
+
+        elif (event.type == gtk.gdk.MOTION_NOTIFY
+            and event.state & gtk.gdk.BUTTON1_MASK):
+
+            if not self.refpoint:
+                self.refpoint = self.anim.gcomprisBoard.canvas.\
+                    convert_from_item_space(target,
+                                          self.get_x1y1()[0],
+                                          self.get_x1y1()[1])
+
+            (x, y) = self.anim.gcomprisBoard.canvas.\
+                convert_from_item_space(item, event.x, event.y)
+
+            self.set_bounds(
+                self.refpoint,
+                (x, y) )
+
+    def move_item_event(self, item, target, event):
+        if event.type == gtk.gdk.BUTTON_RELEASE:
+            self.old_x = 0
+            self.old_y = 0
+        elif event.type == gtk.gdk.BUTTON_PRESS:
+            self.old_x = event.x
+            self.old_y = event.y
+        elif event.type == gtk.gdk.MOTION_NOTIFY:
+            dx = event.x - self.old_x
+            dy = event.y - self.old_y
+
+            self.item.translate(dx, dy)
+
+            if self.anchor:
+                self.anchor.update()
 
   #
   # Add the anchors and callbacks on an item
@@ -249,12 +304,15 @@ class Anchor:
 
     def resize_item_event(self, item, target, event, anchor):
 
-        if (event.type == gtk.gdk.BUTTON_RELEASE):
+        if (event.type == gtk.gdk.BUTTON_RELEASE
+            or event.type == gtk.gdk.BUTTON_PRESS):
             self.refpoint = None
             self.fixed_x = 0
             self.fixed_y = 0
 
-        elif event.state & gtk.gdk.BUTTON1_MASK:
+        elif (event.type == gtk.gdk.MOTION_NOTIFY
+            and event.state & gtk.gdk.BUTTON1_MASK):
+
             if not self.refpoint:
                 if anchor == self.ANCHOR_N:
                     self.refpoint = self.animitem.get_x2y2()
@@ -277,21 +335,26 @@ class Anchor:
                 elif anchor == self.ANCHOR_NW:
                     self.refpoint = self.animitem.get_x2y2()
 
+            (x, y) = self.animitem.anim.gcomprisBoard.canvas.\
+                convert_from_item_space(item, event.x, event.y)
+            (x, y) = self.animitem.anim.gcomprisBoard.canvas.\
+                convert_to_item_space(self.animitem.item, x, y)
+
             if self.fixed_x:
                 self.animitem.set_bounds(
                     self.refpoint,
                     (self.fixed_x,
-                     event.y) )
+                     y) )
             elif self.fixed_y:
                 self.animitem.set_bounds(
                     self.refpoint,
-                    (event.x,
+                    (x,
                      self.fixed_y) )
             else:
                 self.animitem.set_bounds(
                     self.refpoint,
-                    (event.x,
-                     event.y) )
+                    (x,
+                     y) )
 
             self.update()
 
@@ -327,6 +390,16 @@ class AnimItemFillRect(AnimItem):
         self.item.connect("button_press_event", anim.item_event)
         self.item.connect("button_release_event", anim.item_event)
         self.item.connect("motion_notify_event", anim.item_event)
+
+    # Fixme, should replace set_bounds in resize cases
+    def scale_bounds(self, p1, p2):
+        (x1, y1, x2, y2) = self.snap_obj_to_grid(p1, p2)
+        bounds = self.item.get_bounds()
+        sx = (x2 - x1) / (bounds.x2 - bounds.x1)
+        sy = (y2 - y1) / (bounds.y2 - bounds.y1)
+        print "sx=%f sy=%f" %(sx, sy)
+        self.item.scale(sx, sy)
+
 
     def set_bounds(self, p1, p2):
         (x1, y1, x2, y2) = self.snap_obj_to_grid(p1, p2)

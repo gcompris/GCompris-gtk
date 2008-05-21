@@ -43,7 +43,7 @@ class Timeline:
 
     def getTime(self):
         if self.selected:
-            item.get_data("time")
+            self.selected.get_data("time")
 
     # Display the timeline selector
     def draw(self):

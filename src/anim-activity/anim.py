@@ -17,8 +17,9 @@
 
 
 #  Version 3 of anim
-# Rewrote to support a timeline
-
+# Rewrote to support a timeline. Now each object type has its own
+# python class.
+#
 #  Version 2 of anim
 # Due to performance, the animation code as been rewriten
 # For now, the animation is done keeping difference
@@ -38,7 +39,6 @@ import gtk
 import gtk.gdk
 import gtk.keysyms
 import copy
-import math
 import time
 import os
 import sys
@@ -654,91 +654,6 @@ class Gcompris_anim:
 
 
 
-
-
-  # Event when a click on any item. Perform the move
-  def move_item_event(self, item, target, event):
-
-    if event.type == gtk.gdk.BUTTON_PRESS and event.button == 1:
-      gcompris.sound.play_ogg("sounds/bleep.wav")
-      #self.anim_item_unselect()
-
-    if self.tools[self.current_tool][0] == "CCW":
-      if ((event.type == gtk.gdk.BUTTON_PRESS) and
-          (event.button == 1) and
-          (gobject.type_name(item)!="GnomeCanvasText")):
-        # this one seems broken
-        #gcompris.utils.item_rotate_relative(item.get_property("parent"),-10)
-        self.rotate_relative(item.get_property("parent"), -10)
-        return True
-      else:
-        return False
-
-    if self.tools[self.current_tool][0] == "CW":
-      if ((event.type == gtk.gdk.BUTTON_PRESS) and
-          (event.button == 1) and
-          (gobject.type_name(item)!="GnomeCanvasText")):
-        self.rotate_relative(item.get_property("parent"), 10)
-        return True
-      else:
-        return False
-
-    if self.tools[self.current_tool][0] == "FLIP":
-      if ((event.type == gtk.gdk.BUTTON_PRESS) and
-          (event.button == 1) and
-          (gobject.type_name(item)!="GnomeCanvasText")):
-        self.item_flip(item);
-        return True
-      else:
-        return False
-
-    if self.tools[self.current_tool][0] == "RAISE":
-      if event.type == gtk.gdk.BUTTON_PRESS and event.button == 1:
-        item.get_property("parent").raise_(None)
-        return True
-      else:
-        return False
-
-    if self.tools[self.current_tool][0] == "LOWER":
-      if event.type == gtk.gdk.BUTTON_PRESS and event.button == 1:
-        item.get_property("parent").lower(None)
-        return True
-      else:
-        return False
-
-    if self.tools[self.current_tool][0] == "SELECT":
-      if (event.type == gtk.gdk.BUTTON_PRESS) and (event.button == 1):
-        self.in_select_ofx = event.x
-        self.in_select_ofy = event.y
-        return False
-
-    #
-    # MOUSE DRAG STOP
-    # ---------------
-    if event.type == gtk.gdk.BUTTON_RELEASE:
-      if event.button == 1:
-        if self.created_object:
-          self.created_object = None
-          return True
-
-        # activate the anchors
-        #self.anim_item_select(item.get_property("parent"))
-
-        return True
-
-    # The move motion
-    if (self.tools[self.current_tool][0] == "SELECT"
-        and event.type == gtk.gdk.MOTION_NOTIFY
-        and event.state & gtk.gdk.BUTTON1_MASK):
-
-      dx = event.x - self.in_select_ofx
-      dy = event.y - self.in_select_ofy
-
-      item.get_property("parent").translate(dx, dy)
-      return True
-
-    return False
-
   # Main callback on item comes here first
   # And are then dispatched to the proper functions
   def item_event(self, item, target, event):
@@ -772,262 +687,58 @@ class Gcompris_anim:
               self.selected.deselect()
             animItem.select()
             self.selected = animItem
+            self.selected.move_item_event(item,
+                                          target,
+                                          event)
           elif self.tools[self.current_tool][0] == "RAISE":
             animItem.raise_()
           elif self.tools[self.current_tool][0] == "LOWER":
             animItem.lower()
           elif self.tools[self.current_tool][0] == "CCW":
-            animItem.rotate_ccw()
+            animItem.rotate(-10)
           elif self.tools[self.current_tool][0] == "CW":
-            animItem.rotate_cw()
+            animItem.rotate(10)
+          elif self.tools[self.current_tool][0] == "FLIP":
+            animItem.flip()
 
         if self.tools[self.current_tool][0] == "FILL_RECT":
           self.created_object = AnimItemFillRect(self,
                                                  event.x, event.y)
+          self.created_object.create_item_event(item,
+                                                target,
+                                                event)
 
     #
     # MOTION EVENT
     # ------------
     elif (event.type == gtk.gdk.MOTION_NOTIFY
-        and self.created_object):
-      # That's used only in item creation.
-      # In draw mode, item creation does not use drag&drop
-      if self.gcomprisBoard.mode == 'draw':
-        return False
-
-      if event.state & gtk.gdk.BUTTON1_MASK:
-        x = event.x
-        y = event.y
-
-        self.created_object.resize_item_event(item,
+          and event.state & gtk.gdk.BUTTON1_MASK
+          and self.created_object):
+        self.created_object.create_item_event(item,
                                               target,
                                               event)
+
+    elif (event.type == gtk.gdk.MOTION_NOTIFY
+          and event.state & gtk.gdk.BUTTON1_MASK
+          and self.tools[self.current_tool][0] == "SELECT"):
+        self.selected.move_item_event(item,
+                                      target,
+                                      event)
 
     #
     # MOUSE DRAG STOP
     # ---------------
     elif (event.type == gtk.gdk.BUTTON_RELEASE
           and self.created_object):
-      # That's used only in item creation.
-      # In draw mode, item creation does not use drag&drop
       if self.created_object:
-        self.created_object = False
-        return True
-
-    return False
-
-
-  # Event when an event on the drawing area happen
-  def create_item_event_OLD(self, item, target, event):
-    if(event.type == gtk.gdk.BUTTON_PRESS
-       and self.running==True):
-      self.playing_stop()
-      return False
-
-    # Right button is a shortcup to Shot
-    if (self.gcomprisBoard.mode != 'draw' and
-        event.type == gtk.gdk.BUTTON_PRESS and
-        event.button == 3):
-      self.Anim2Shot()
-      return False
-
-    if (not (self.tools[self.current_tool][0] == "RECT" or
-             self.tools[self.current_tool][0] == "CIRCLE" or
-             self.tools[self.current_tool][0] == "FILL_RECT" or
-             self.tools[self.current_tool][0] == "FILL_CIRCLE" or
-             self.tools[self.current_tool][0] == "IMAGE" or
-             self.tools[self.current_tool][0] == "TEXT" or
-             self.tools[self.current_tool][0] == "LINE")):
-      return False
-
-    if event.type == gtk.gdk.BUTTON_PRESS:
-
-      if event.button == 1:
-
-        if self.tools[self.current_tool][0] == "LINE":
-
-          x,y = self.snap_to_grid1(event.x,event.y)
-          self.pos_x = x
-          self.pos_y = y
-
-          tuple_points = goocanvas.Points([(x , y),
-                                           (self.pos_x, self.pos_y)])
-
-          if self.gcomprisBoard.mode == 'draw':
-            dist = {'x' : 'width', 'y' : 'height'}
-
-            points = {}
-            for c in ['x', 'y']:
-              points[c + '1'] = eval(c) - self.draw_defaults_size['LINE'][dist[c]]/2
-              points[c + '2'] = eval(c) + self.draw_defaults_size['LINE'][dist[c]]/2
-
-            tuple_points = goocanvas.Points([(points['x1'], points['y1']),
-                                             (points['x2'], points['y2'])])
-
-          self.newitem = \
-            goocanvas.Polyline(
-              parent = self.newitemgroup,
-            points = tuple_points,
-            fill_color_rgba = self.color.fill,
-            line_width = 8.0
-            )
-
-        elif self.tools[self.current_tool][0] == "RECT":
-
-          x,y = self.snap_to_grid1(event.x,event.y)
-          self.pos_x = x
-          self.pos_y = y
-
-          points = {}
-          for c in ['x' , 'y']:
-            points[c + '1'] = eval(c)
-            points[c + '2'] = eval( 'self.pos_' + c )
-
-
-          if self.gcomprisBoard.mode == 'draw':
-            dist = {'x' : 'width', 'y' : 'height'}
-
-            points = {}
-            for c in ['x', 'y']:
-              points[c + '1'] = eval(c) - self.draw_defaults_size['LINE'][dist[c]]/2
-              points[c + '2'] = eval(c) + self.draw_defaults_size['LINE'][dist[c]]/2
-
-          self.newitem = \
-            goocanvas.Rect(
-              parent = self.newitemgroup,
-              x = points['x1'],
-              y = points['y2'],
-              width = points['x2'] - points['x1'],
-              height = points['y2'] - points['y1'],
-              stroke_color_rgba=self.color.stroke,
-              line_width=4.0
-              )
-          #          self.newitem.set_data('empty',True)
-          gcompris.utils.canvas_set_property(self.newitem, "empty", "True")
-
-        elif self.tools[self.current_tool][0] == "FILL_RECT":
-
-          self.created_object = AnimItemFillRect(self,
-                                                 event.x, event.y)
-
-        elif self.tools[self.current_tool][0] == "CIRCLE":
-
-          x,y = self.snap_to_grid1(event.x,event.y)
-          self.pos_x = x
-          self.pos_y = y
-
-          points = {}
-          for c in ['x' , 'y']:
-            points[c + '1'] = eval(c)
-            points[c + '2'] = eval( 'self.pos_' + c )
-
-
-          if self.gcomprisBoard.mode == 'draw':
-            dist = {'x' : 'width', 'y' : 'height'}
-
-            points = {}
-            for c in ['x', 'y']:
-              points[c + '1'] = eval(c) - self.draw_defaults_size['LINE'][dist[c]]/2
-              points[c + '2'] = eval(c) + self.draw_defaults_size['LINE'][dist[c]]/2
-
-          self.newitem = \
-            goocanvas.Ellipse(
-              parent = self.newitemgroup,
-              center_x = points['x1'],
-              center_y = points['y1'],
-              radius_x = points['x2'] - points['x1'],
-              radius_y = points['y2'] - points['y1'],
-              stroke_color_rgba = self.color.stroke,
-              line_width = 5.0
-            )
-          #          self.newitem.set_data('empty',True)
-          gcompris.utils.canvas_set_property(self.newitem, "empty", "True")
-
-        elif self.tools[self.current_tool][0] == "FILL_CIRCLE":
-
-          x,y = self.snap_to_grid1(event.x,event.y)
-          self.pos_x = x
-          self.pos_y = y
-
-
-          points = {}
-          for c in ['x' , 'y']:
-            points[c + '1'] = eval(c)
-            points[c + '2'] = eval( 'self.pos_' + c )
-
-
-          if self.gcomprisBoard.mode == 'draw':
-            dist = {'x' : 'width', 'y' : 'height'}
-
-            points = {}
-            for c in ['x', 'y']:
-              points[c + '1'] = eval(c) - self.draw_defaults_size['LINE'][dist[c]]/2
-              points[c + '2'] = eval(c) + self.draw_defaults_size['LINE'][dist[c]]/2
-
-          self.newitem = \
-            goocanvas.Ellipse(
-              parent = self.newitemgroup,
-            center_x = points['x1'],
-            center_y = points['y1'],
-            radius_x = points['x2'] - points['x1'],
-            radius_y = points['y2'] - points['y1'],
-            fill_color_rgba = self.color.fill,
-            stroke_color_rgba = self.color.stroke,
-            line_width = 1.0
-            )
-
-        elif self.tools[self.current_tool][0] == "TEXT":
-
-          x,y = self.snap_to_grid1(event.x,event.y)
-          self.pos_x = x
-          self.pos_y = y
-
-          self.newitem = \
-            goocanvas.Text(
-              parent = self.newitemgroup,
-              x = self.pos_x,
-              y = self.pos_y,
-              fill_color_rgba = self.color.fill,
-              font = gcompris.FONT_BOARD_BIG_BOLD,
-              text = u'?',
-              anchor=gtk.ANCHOR_CENTER
-              )
-
-      return True
-
-    #
-    # MOTION EVENT
-    # ------------
-    if (event.type == gtk.gdk.MOTION_NOTIFY
-        and self.created_object):
-      # That's used only in item creation.
-      # In draw mode, item creation does not use drag&drop
-      if self.gcomprisBoard.mode == 'draw':
-        return False
-
-      if event.state & gtk.gdk.BUTTON1_MASK:
-        x = event.x
-        y = event.y
-
-        self.created_object.resize_item_event(item,
+        self.created_object.create_item_event(item,
                                               target,
                                               event)
-
-    #
-    # MOUSE DRAG STOP
-    # ---------------
-    if event.type == gtk.gdk.BUTTON_RELEASE:
-      # That's used only in item creation.
-      # In draw mode, item creation does not use drag&drop
-      if self.created_object:
         self.created_object = False
         return True
 
-      if ((self.tools[self.current_tool][0] == "IMAGE") or
-          (self.tools[self.current_tool][0] == "TEXT")):
-        return False
-
     return False
+
 
   def playing_start(self):
     if not self.running:
@@ -1077,269 +788,6 @@ class Gcompris_anim:
 
 
 
-  def object_set_size_and_pos(self, object, x1, y1, x2, y2):
-    if gobject.type_name(object.get_child(0)) == "GooCanvasLine":
-      object.get_child(0).set_properties(
-        points = goocanvas.Points([(x1,y1) ,(x2,y2)])
-        )
-    elif gobject.type_name(object.get_child(0)) == "GooCanvasImage":
-      item = object.get_child(0)
-      item.props.transform = None
-      sx = (x2 - x1) / item.props.width
-      sy = (y2 - y1) / item.props.height
-      item.translate(x1, y1)
-      item.scale(sx, sy)
-    elif gobject.type_name(object.get_child(0)) == "GooCanvasText":
-      object.get_child(0).set_properties(
-        x = (x1+x2)/2,
-        y = (y1+y2)/2
-        )
-    elif gobject.type_name(object.get_child(0)) == "GooCanvasRect":
-      object.get_child(0).set_properties(
-        x = x1,
-        y = y1,
-        width = x2 - x1,
-        height = y2 - y1
-        )
-    elif gobject.type_name(object.get_child(0)) == "GooCanvasEllipse":
-      object.get_child(0).set_properties(
-        center_x = x1 + (x2-x1)/2,
-        center_y = y1 + (y2-y1)/2,
-        radius_x = (x2 - x1)/2,
-        radius_y = (y2 - y1)/2
-        )
-
-    if(object.get_n_children() < 2):
-      print "Warning: Should not happens, uncomplete object"
-      return
-
-    for i in range(0, object.get_child(1).get_n_children()):
-      anchor = object.get_child(1).get_child(i)
-      anchor_type = anchor.get_data('anchor_type')
-
-      if anchor_type == self.ANCHOR_N:
-        anchor.set_properties(
-          x= (x1 + x2 - self.DEFAULT_ANCHOR_SIZE)/2,
-          y= y1 - self.DEFAULT_ANCHOR_SIZE,
-          width = self.DEFAULT_ANCHOR_SIZE,
-          height = self.DEFAULT_ANCHOR_SIZE,
-          )
-      elif anchor_type == self.ANCHOR_T:
-        anchor.set_properties(
-          x= (x1 + x2 - self.DEFAULT_ANCHOR_SIZE*3)/2,
-          y= y2,
-          width = self.DEFAULT_ANCHOR_SIZE,
-          height = self.DEFAULT_ANCHOR_SIZE,
-          )
-      elif anchor_type == self.ANCHOR_NE:
-        anchor.set_properties(
-          x= x2,
-          y= y1 - self.DEFAULT_ANCHOR_SIZE,
-          width = self.DEFAULT_ANCHOR_SIZE,
-          height = self.DEFAULT_ANCHOR_SIZE,
-          )
-      elif anchor_type == self.ANCHOR_E:
-        anchor.set_properties(
-          x= x2,
-          y= (y1 + y2 - self.DEFAULT_ANCHOR_SIZE)/2,
-          width = self.DEFAULT_ANCHOR_SIZE,
-          height = self.DEFAULT_ANCHOR_SIZE,
-          )
-      elif anchor_type == self.ANCHOR_SE:
-        anchor.set_properties(
-          x= x2,
-          y= y2,
-          width = self.DEFAULT_ANCHOR_SIZE,
-          height = self.DEFAULT_ANCHOR_SIZE,
-          )
-      elif anchor_type == self.ANCHOR_S:
-        anchor.set_properties(
-          x= (x1 + x2 - self.DEFAULT_ANCHOR_SIZE)/2,
-          y= y2,
-          width = self.DEFAULT_ANCHOR_SIZE,
-          height = self.DEFAULT_ANCHOR_SIZE,
-          )
-      elif anchor_type == self.ANCHOR_SW:
-        anchor.set_properties(
-          x= x1 - self.DEFAULT_ANCHOR_SIZE,
-          y= y2,
-          width = self.DEFAULT_ANCHOR_SIZE,
-          height = self.DEFAULT_ANCHOR_SIZE,
-          )
-      elif anchor_type == self.ANCHOR_W:
-        anchor.set_properties(
-          x= x1 - self.DEFAULT_ANCHOR_SIZE,
-          y= (y1 + y2 - self.DEFAULT_ANCHOR_SIZE)/2,
-          width = self.DEFAULT_ANCHOR_SIZE,
-          height = self.DEFAULT_ANCHOR_SIZE,
-          )
-      elif anchor_type == self.ANCHOR_NW:
-        anchor.set_properties(
-          x= x1 - self.DEFAULT_ANCHOR_SIZE,
-          y= y1 - self.DEFAULT_ANCHOR_SIZE,
-          width = self.DEFAULT_ANCHOR_SIZE,
-          height = self.DEFAULT_ANCHOR_SIZE,
-          )
-
-
-  def resize_item_event(self, item, target, event, anchor_type):
-    if self.running:
-      return
-
-    # Right button is a shortcup to Shot
-    if event.type == gtk.gdk.BUTTON_PRESS and event.button == 3:
-      self.Anim2Shot()
-      return False
-
-    if event.state & gtk.gdk.BUTTON1_MASK:
-      # warning: anchor is in a group of anchors, which is in the object group
-      parent = item.get_property("parent").get_property("parent")
-      real_item = parent.get_child(0)
-
-      x = event.x
-      y = event.y
-
-      if gobject.type_name(real_item)=="GooCanvasLine":
-        points = real_item.get_property("points")
-        x1 = points[0]
-        y1 = points[1]
-        x2 = points[2]
-        y2 = points[3]
-      elif gobject.type_name(real_item)=="GooCanvasImage":
-        bounds = real_item.get_bounds()
-        (x1, y1)= \
-            real_item.get_canvas().convert_to_item_space(parent,
-                                                         bounds.x1, bounds.y1)
-        (x2, y2)= \
-            real_item.get_canvas().convert_to_item_space(parent,
-                                                         bounds.x2, bounds.y2)
-
-        mx1 = min(x1, x2)
-        my1 = min(y1, y2)
-        x2 = max(x1, x2)
-        y2 = max(y1, y2)
-        x1 = mx1
-        y1 = my1
-#         x1 = real_item.get_property("x")
-#         y1 = real_item.get_property("y")
-#         x2 = x1 + real_item.get_property("width")
-#         y2 = y1 + real_item.get_property("height")
-      elif gobject.type_name(real_item)=="GooCanvasEllipse":
-        x1 = real_item.get_property("center_x") - real_item.get_property("radius_x")
-        y1 = real_item.get_property("center_y") - real_item.get_property("radius_y")
-        x2 = x1 + real_item.get_property("radius_x") * 2
-        y2 = y1 + real_item.get_property("radius_y") * 2
-      elif gobject.type_name(real_item)=="GooCanvasRect":
-        x1 = real_item.get_property("x")
-        y1 = real_item.get_property("y")
-        x2 = x1 + real_item.get_property("width")
-        y2 = y1 + real_item.get_property("height")
-      elif gobject.type_name(real_item)=="GooCanvasText":
-        y1 = y
-        y2 = y + 20
-        pass
-
-      if (anchor_type == self.ANCHOR_N):
-        self.object_set_size_and_pos(parent,
-                                     x1=x1,
-                                     y1=y,
-                                     x2=x2,
-                                     y2=y2
-                                     )
-      elif (anchor_type == self.ANCHOR_T):
-        self.object_set_size_and_pos(parent,
-                                     x1=x,
-                                     y1=y1,
-                                     x2=x,
-                                     y2=y2
-                                     )
-      elif (anchor_type == self.ANCHOR_NE):
-        self.object_set_size_and_pos(parent,
-                                     x1=x1,
-                                     y1=y,
-                                     x2=x,
-                                     y2=y2
-                                     )
-      elif (anchor_type == self.ANCHOR_E):
-        self.object_set_size_and_pos(parent,
-                                     x1=x1,
-                                     y1=y1,
-                                     x2=x,
-                                     y2=y2
-                                     )
-      elif (anchor_type == self.ANCHOR_SE):
-        self.object_set_size_and_pos(parent,
-                                     x1=x1,
-                                     y1=y1,
-                                     x2=x,
-                                     y2=y
-                                     )
-      elif (anchor_type == self.ANCHOR_S):
-        self.object_set_size_and_pos(parent,
-                                     x1=x1,
-                                     y1=y1,
-                                     x2=x2,
-                                     y2=y
-                                     )
-      elif (anchor_type == self.ANCHOR_SW):
-        self.object_set_size_and_pos(parent,
-                                     x1=x,
-                                     y1=y1,
-                                     x2=x2,
-                                     y2=y
-                                     )
-      elif (anchor_type == self.ANCHOR_W):
-        self.object_set_size_and_pos(parent,
-                                     x1=x,
-                                     y1=y1,
-                                     x2=x2,
-                                     y2=y2
-                                     )
-      elif (anchor_type == self.ANCHOR_NW):
-        self.object_set_size_and_pos(parent,
-                                     x1=x,
-                                     y1=y,
-                                     x2=x2,
-                                     y2=y2
-                                     )
-
-
-  def rotate_relative(self, item, angle):
-    bounds = item.get_bounds()
-    #    print "Item bounds : ", bounds
-
-    #bds = item.get_property("parent").get_bounds()
-    #    print "Item parent bounds : ", bounds
-
-    (cx, cy) = ( bounds.x1 + (bounds.x2-bounds.x1)/2,
-                 bounds.y1 + (bounds.y2-bounds.y1)/2 )
-
-
-    t = math.radians(angle)
-
-    # This matrix rotate around ( cx, cy )
-
-    #     This is the result of the product:
-
-
-    #            T_{-c}             Rot (t)                 T_c
-
-    #       1    0   cx       cos(t) -sin(t)    0        1    0  -cx
-    #       0    1   cy  by   sin(t)  cos(t)    0   by   0    1  -cy
-    #       0    0    1         0       0       1        0    0   1
-
-
-    mat = ( math.cos(t),
-            math.sin(t),
-            -math.sin(t),
-            math.cos(t),
-            (1-math.cos(t))*cx + math.sin(t)*cy,
-            -math.sin(t)*cx + (1 - math.cos(t))*cy)
-
-    #item.get_property("parent").set_transform(mat)
-    item.rotate(angle, cx, cy)
-
-    return
 
 ###############################################
 #
@@ -1355,25 +803,8 @@ def general_restore(filename, filetype):
   print "general_restore : ", filename, " type ",filetype
 
 
-
-
 def image_selected(image):
   #fles is used because self is not passed through callback
   global fles
-
+  print "image selected"
   pixmap = gcompris.utils.load_pixmap(image)
-
-  fles.newitem = None
-  fles.newitemgroup = goocanvas.Group(
-    parent = fles.root_anim
-    )
-
-  x = fles.pos_x
-  y = fles.pos_y
-
-  fles.newitem = goocanvas.Image(
-    parent = fles.newitemgroup,
-    pixbuf = pixmap,
-    )
-
-
