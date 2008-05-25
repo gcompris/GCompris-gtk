@@ -45,6 +45,11 @@ class AnimItem:
         self.old_x = 0
         self.old_y = 0
 
+        # The timeline store the state of this item in time.
+        # The key is the time (number) and the value is a tuple
+        # (properties, transformation).
+        self.timeline = {}
+
     # Given x,y return a new x,y snapped to the grid
     def snap_to_grid(self, x, y):
 
@@ -158,6 +163,7 @@ class AnimItem:
         if (event.type == gtk.gdk.BUTTON_RELEASE
             or event.type == gtk.gdk.BUTTON_PRESS):
             self.refpoint = None
+            self.save_at_time(self.anim.timeline.get_time())
 
         elif (event.type == gtk.gdk.MOTION_NOTIFY
             and event.state & gtk.gdk.BUTTON1_MASK):
@@ -175,10 +181,14 @@ class AnimItem:
                 self.refpoint,
                 (x, y) )
 
+            # We need to have a translation matrix set
+            self.item.translate(0, 0)
+
     def move_item_event(self, item, target, event):
         if event.type == gtk.gdk.BUTTON_RELEASE:
             self.old_x = 0
             self.old_y = 0
+            self.save_at_time(self.anim.timeline.get_time())
         elif event.type == gtk.gdk.BUTTON_PRESS:
             self.old_x = event.x
             self.old_y = event.y
@@ -201,6 +211,48 @@ class AnimItem:
 
             if self.anchor:
                 self.anchor.update()
+
+
+    # Save the current place of the object for the given time
+    def save_at_time(self, time):
+        self.timeline[time] = self.get()
+
+    def display_at_time(self, time):
+        # If we have a value at that time, use it.
+        if self.timeline.has_key(time):
+            self.set(self.timeline[time][0], self.timeline[time][1])
+            return
+
+        # We have to find the latest closest time for this object
+        lastval = []
+        for k, v in self.timeline.iteritems():
+            lastval = v
+            break
+        for k, v in self.timeline.iteritems():
+            if(k > time):
+                self.set(lastval[0],
+                         lastval[1])
+                break
+            lastkey = k
+            lastval = v
+
+
+    # Return the (properties, transformation) of this
+    # object.
+    def get(self):
+        result = {}
+        for prop in self.get_properties():
+            result[prop] = self.item.get_property(prop)
+        return(result, self.item.get_transform())
+
+    # Apply the given properties and transformation to this
+    # object.
+    def set(self, prop, transform):
+        self.item.set_properties(**prop)
+        self.item.set_transform(transform)
+        if self.anchor:
+            self.anchor.update()
+
 
   #
   # Add the anchors and callbacks on an item
@@ -329,6 +381,7 @@ class Anchor:
             self.refpoint = None
             self.fixed_x = 0
             self.fixed_y = 0
+            self.animitem.save_at_time(self.animitem.anim.timeline.get_time())
 
         elif (event.type == gtk.gdk.MOTION_NOTIFY
             and event.state & gtk.gdk.BUTTON1_MASK):
@@ -447,4 +500,12 @@ class AnimItemFillRect(AnimItem):
         x = self.item.get_property("x")
         y = self.item.get_property("y") + self.item.get_property("height")
         return(x, y)
+
+    # Return the list of properties that have to be saved for
+    # this object
+    def get_properties(self):
+        return('x', 'y',
+               'width', 'height',
+               'fill_color_rgba',
+               'stroke_color_rgba')
 

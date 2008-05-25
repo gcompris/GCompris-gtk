@@ -27,23 +27,21 @@ import gtk.gdk
 
 class Timeline:
 
-    def __init__(self, rootitem, drawing_area):
-        self.rootitem = goocanvas.Group(parent = rootitem)
-        self.drawing_area = drawing_area
+    def __init__(self, anim):
+        self.anim = anim
+        self.rootitem = goocanvas.Group(parent = anim.rootitem)
+        self.drawing_area = anim.drawing_area
         self.running = False
 
-        self.previous_selection = None
         self.selected = None
+        self.timelinelist = []
+        self.current_time = 0
 
     def hide(self):
         self.rootitem.props.visibility = goocanvas.ITEM_INVISIBLE
 
     def show(self):
         self.rootitem.props.visibility = goocanvas.ITEM_VISIBLE
-
-    def getTime(self):
-        if self.selected:
-            self.selected.get_data("time")
 
     # Display the timeline selector
     def draw(self):
@@ -72,25 +70,59 @@ class Timeline:
                 fill_color_rgba = self.default_color,
                 stroke_color_rgba = 0x101080FFL,
                 line_width=1.0)
-            item.set_data("time", i)
+            item.set_data("time", t)
 
             if not self.selected:
                 self.selected = item
 
+            self.timelinelist.append(item)
             item.connect("button_press_event",
-                         self.timeline_item_event,
-                         t)
+                         self.timeline_item_event)
 
             i += w + 1
             t += 1
 
-    #
-    def timeline_item_event(self, item, target, event, time):
 
-        if self.previous_selection:
-            self.previous_selection.set_properties(fill_color_rgba = self.default_color)
+        # Select the first item in the timeline
+        self.current_time = 0
+        self.select_it(self.selected)
+
+    # Return the current selected time
+    def get_time(self):
+        return self.current_time
+
+    def set_time(self, time):
+        self.select_it(item, self.timelinelist[time])
+
+    def next(self):
+        self.current_time += 1
+        if self.current_time >= len(self.timelinelist):
+            self.current_time = 0
+        self.select_it(self.timelinelist[self.current_time])
+
+
+    def previous(self):
+        self.current_time -= 1
+        if self.current_time < 0:
+            self.current_time = len(self.timelinelist) - 1
+        self.select_it(self.timelinelist[self.current_time])
+
+
+    def select_it(self, item):
+        # Disable previous selection
+        if self.selected:
+            self.selected.set_properties(fill_color_rgba = self.default_color)
 
         item.set_properties(fill_color_rgba = self.selected_color)
-        self.previous_selection = item
         self.selected = item
+        self.current_time = item.get_data("time")
+
+        # Let anim knows there is a new time set
+        self.anim.refresh(self.get_time())
+
+    #
+    def timeline_item_event(self, item, target, event):
+
+        self.select_it(item)
+
 

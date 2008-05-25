@@ -101,15 +101,6 @@ class Gcompris_anim:
     # Initialisation. Should not change in draw.
     self.running = False
 
-    # In draw objects are created without drag&drop
-    # Default size for rect, circle, line
-    self.draw_defaults_size = { 'RECT' : {'width' : 60 , 'height' : 40 },
-				'FILL_RECT' : {'width' : 60 , 'height' : 40 },
-                   		'CIRCLE' : {'width' : 60 , 'height' : 40 },
-                                'FILL_CIRCLE' : {'width' : 60 , 'height' : 40 },
-                                'LINE' : {'width' : 60 , 'height' : 40 }
-                              }
-
     # global parameter to access object structures from global fonctions
     global fles
     fles=self
@@ -176,7 +167,6 @@ class Gcompris_anim:
 
     # Part of UI
     # The root items
-    self.root_coloritem = []
     self.root_toolitem  = []
 
     # Anim2 variables
@@ -185,13 +175,8 @@ class Gcompris_anim:
     #    - frames where it's modified
     #    - all modifications for each frame
     #
-    # list of items in current frame
-    self.framelist = []
     # list of items in the full animation
     self.animlist = []
-    # rank of the current frame being processed
-    self.current_frame = 0
-    self.frames_total =  self.current_frame
     # list of z values in last shot
     self.list_z_last_shot = []
     # list of actual z values
@@ -223,7 +208,7 @@ class Gcompris_anim:
     self.draw_tools()
     self.draw_animtools()
 
-    self.timeline = Timeline(self.rootitem, self.drawing_area)
+    self.timeline = Timeline(self)
     self.timeline.draw()
 
     self.color = Color(self.rootitem, self.drawing_area)
@@ -270,6 +255,10 @@ class Gcompris_anim:
       gcompris.file_selector_load( self.gcomprisBoard,
                                    self.selector_section, self.file_type,
                                    general_restore)
+    elif (keyval == gtk.keysyms.Left):
+      self.timeline.previous()
+    elif (keyval == gtk.keysyms.Right):
+      self.timeline.next()
 
     # Printing
     # Bruno we need a print button !
@@ -436,7 +425,7 @@ class Gcompris_anim:
           return False
 
         elif (self.tools[tool][0] == "MOVIE"):
-          if self.frames_total == 0:
+          if len(self.animlist) == 0:
             print 'Mmm... Need to make shots before run anim !!'
             return False
 
@@ -581,7 +570,7 @@ class Gcompris_anim:
       x = 16,
       y = 110,
       )
-    run.connect("button_press_event", self.stop_event,True)
+    run.connect("button_press_event", self.stop_event, True)
 
 
   def stop_event(self, item, target, event, up):
@@ -590,9 +579,10 @@ class Gcompris_anim:
       self.playing_stop()
 
   def playing_stop(self):
-    self.running=False
+    self.running = False
     gobject.source_remove(self.timeout)
-    #self.run_anim2()
+    self.root_toolitem.props.visibility = goocanvas.ITEM_VISIBLE
+    self.root_playingitem.props.visibility = goocanvas.ITEM_INVISIBLE
 
   def speed_event(self, item, target, event, up):
 
@@ -610,8 +600,9 @@ class Gcompris_anim:
           self.anim_speed=self.anim_speed-1
 
       gobject.source_remove(self.timeout)
-      self.timeout=gobject.timeout_add(1000/self.anim_speed, self.run_anim2)
-      self.speed_item.set_properties(text=self.anim_speed)
+      self.timeout = gobject.timeout_add(1000/self.anim_speed,
+                                         self.refresh_loop)
+      self.speed_item.set_properties(text = self.anim_speed)
 
   # Draw the grid
   #
@@ -708,6 +699,9 @@ class Gcompris_anim:
                                                 target,
                                                 event)
 
+          # We keep all object in a unique list
+          self.animlist.append(self.created_object)
+
     #
     # MOTION EVENT
     # ------------
@@ -728,25 +722,39 @@ class Gcompris_anim:
     #
     # MOUSE DRAG STOP
     # ---------------
-    elif (event.type == gtk.gdk.BUTTON_RELEASE
-          and self.created_object):
+    elif (event.type == gtk.gdk.BUTTON_RELEASE):
       if self.created_object:
         self.created_object.create_item_event(item,
                                               target,
                                               event)
         self.created_object = False
         return True
+      else:
+        self.selected.move_item_event(item,
+                                      target,
+                                      event)
 
     return False
 
 
+  def refresh(self, time):
+    # We keep all object in a unique list
+    # Here we order them to refresh them for the given time
+    for item in self.animlist:
+      item.display_at_time(time)
+
+  def refresh_loop(self):
+    self.timeline.next()
+    return True
+
   def playing_start(self):
     if not self.running:
       self.running = True
-      self.root_coloritem.props.visibility = goocanvas.ITEM_INVISIBLE
       self.root_toolitem.props.visibility = goocanvas.ITEM_INVISIBLE
       self.root_playingitem.props.visibility = goocanvas.ITEM_VISIBLE
-      #self.Anim2Run()
+      self.timeout = gobject.timeout_add(1000/self.anim_speed,
+                                         self.refresh_loop)
+
 
   def playing_event(self, item, target, event, state):
     if event.type == gtk.gdk.BUTTON_PRESS:
@@ -780,9 +788,9 @@ class Gcompris_anim:
     self.item_frame_counter = \
         goocanvas.Text(
       parent = self.rootitem,
-      text = self.current_frame + 1,
+      text = 1,
       x = x_left + minibutton_width + 14,
-      y = y_top + 15,
+      y = y_top,
       font = gcompris.skin.get_font("gcompris/board/medium"),
       fill_color = "white")
 
