@@ -257,8 +257,10 @@ class Gcompris_anim:
                                    general_restore)
     elif (keyval == gtk.keysyms.Left):
       self.timeline.previous()
+      return True
     elif (keyval == gtk.keysyms.Right):
       self.timeline.next()
+      return True
 
     # Printing
     # Bruno we need a print button !
