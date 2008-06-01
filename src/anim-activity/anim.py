@@ -732,9 +732,10 @@ class Gcompris_anim:
         self.created_object = False
         return True
       else:
-        self.selected.move_item_event(item,
-                                      target,
-                                      event)
+        if self.selected:
+          self.selected.move_item_event(item,
+                                        target,
+                                        event)
 
     return False
 

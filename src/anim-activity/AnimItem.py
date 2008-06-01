@@ -26,6 +26,7 @@ import gtk
 import gtk.gdk
 import math
 import cairo
+import sys
 
 class AnimItem:
 
@@ -45,10 +46,85 @@ class AnimItem:
         self.old_x = 0
         self.old_y = 0
 
+        # We keep the timeline index to which we are visible
+        # This is a list of tuple (from, to)
+        self.visible = []
+
         # The timeline store the state of this item in time.
         # The key is the time (number) and the value is a tuple
         # (properties, transformation).
         self.timeline = {}
+
+    def test(self):
+        self.set_visible(0, 10)
+        self.set_visible(11, 20)
+        self.set_visible(4, 8)
+        self.set_visible(0, 10)
+        self.set_visible_to_end(1000)
+        print self.is_visible(10)
+        print self.is_visible(800)
+        print self.is_visible(1001)
+        self.delete_at_time(10)
+        self.delete_at_time(1000)
+        self.delete_at_time(20)
+        print self.visible
+
+    # Mark this object to be visible from fromtime to totime.
+    def set_visible(self, fromtime, totime):
+        self.visible.append( (fromtime, totime) )
+        self.visible.sort()
+
+        # Reduce the items in the list that overlaps
+        deleteit = []
+        for index in range(0, len(self.visible)-1):
+            # Overlap set
+            if self.visible[index][1] >= self.visible[index+1][0] - 1:
+                self.visible[index] = \
+                    (min (self.visible[index][0], self.visible[index+1][0]),
+                     max (self.visible[index][1], self.visible[index+1][1]) )
+                deleteit.append(index+1)
+
+        for i in deleteit:
+            del self.visible[i]
+
+    # Mark this object to be visible from fromtime to the end
+    # of the timeline.
+    def set_visible_to_end(self, fromtime):
+        self.set_visible(fromtime, sys.maxint)
+
+    # Mark this object to be deleted at the given time
+    def delete_at_time(self, time):
+        for index in range(0, len(self.visible)):
+            # It's the set start
+            if self.visible[index][0] == time:
+                self.visible[index] = \
+                    (self.visible[index][0] + 1,
+                     self.visible[index][1])
+                break
+            # It's the set end
+            elif self.visible[index][1] == time:
+                self.visible[index] = \
+                    (self.visible[index][0],
+                     self.visible[index][1] - 1)
+                break
+            # It's inside the set
+            elif (self.visible[index][0] <= time and
+                self.visible[index][1] >= time):
+                oldend = self.visible[index][1]
+                self.visible[index] = \
+                    (self.visible[index][0], time - 1)
+                self.visible.append((time + 1, oldend))
+                self.visible.sort()
+                break
+
+    # Given a timeline index, return True if it is visible
+    def is_visible(self, index):
+        for visset in self.visible:
+            if ( visset[0] <= index and
+                 visset[1] >= index ):
+                 return True
+
+        return False
 
     # Given x,y return a new x,y snapped to the grid
     def snap_to_grid(self, x, y):
@@ -128,14 +204,9 @@ class AnimItem:
     def delete(self):
         gcompris.sound.play_ogg("sounds/eraser1.wav",
                                 "sounds/eraser2.wav")
-        fill = self.item.get_property("fill_color_rgba")
-        stroke = self.item.get_property("stroke_color_rgba")
-        fill_alpha = (fill & 0x000000FFL) / 2
-        stroke_alpha = (stroke & 0x000000FFL) /2
-        fill &= 0xFFFFFF00L | fill_alpha
-        stroke &= 0xFFFFFF00L | stroke_alpha
-        self.item.set_properties(fill_color_rgba = fill,
-                                 stroke_color_rgba = stroke)
+        self.delete_at_time(self.anim.timeline.get_time())
+        self.show(False)
+        print self.visible
 
     def raise_(self):
         print "raise"
@@ -158,12 +229,24 @@ class AnimItem:
             self.anchor.update()
 
 
+    # Request to hide or show the object
+    def show(self, state):
+        if state:
+            self.item.props.visibility = goocanvas.ITEM_VISIBLE
+        else:
+            self.item.props.visibility = goocanvas.ITEM_INVISIBLE
+            if self.anchor:
+                self.anchor.hide()
+
+
     def create_item_event(self, item, target, event):
 
         if (event.type == gtk.gdk.BUTTON_RELEASE
             or event.type == gtk.gdk.BUTTON_PRESS):
             self.refpoint = None
             self.save_at_time(self.anim.timeline.get_time())
+            # By default, an object is displayed till the timeline end
+            self.set_visible_to_end(self.anim.timeline.get_time())
 
         elif (event.type == gtk.gdk.MOTION_NOTIFY
             and event.state & gtk.gdk.BUTTON1_MASK):
@@ -218,6 +301,9 @@ class AnimItem:
         self.timeline[time] = self.get()
 
     def display_at_time(self, time):
+
+        self.show(self.is_visible(time))
+
         # If we have a value at that time, use it.
         if self.timeline.has_key(time):
             self.set(self.timeline[time][0], self.timeline[time][1])
