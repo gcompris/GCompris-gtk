@@ -33,6 +33,7 @@ class Timeline:
         self.drawing_area = anim.drawing_area
         self.running = False
 
+        self.zoom = 1
         self.selected = None
         self.timelinelist = []
         self.current_time = 0
@@ -53,8 +54,12 @@ class Timeline:
         x1 = self.drawing_area[0]
         x2 = self.drawing_area[2]
         y  = self.drawing_area[3] + 5
-        w = 20
-        h = 30
+
+        # Our timeline repesentation respects the drawing area ratio
+        self.zoom = (( self.drawing_area[2] - self.drawing_area[0] ) /
+                     ( self.drawing_area[3] - self.drawing_area[1] ))
+        h = 27
+        w = h * self.zoom
 
 
         i = x1

@@ -302,7 +302,12 @@ class AnimItem:
 
     def display_at_time(self, time):
 
-        self.show(self.is_visible(time))
+        if self.is_visible(time):
+            self.show(True)
+        else:
+            self.show(False)
+            # No need to waste more time there
+            return
 
         # If we have a value at that time, use it.
         if self.timeline.has_key(time):

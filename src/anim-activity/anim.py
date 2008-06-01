@@ -115,7 +115,6 @@ class Gcompris_anim:
       ["SAVE",           "draw/tool-save.png",            "draw/tool-save.png",                  gcompris.CURSOR_SELECT],
       ["LOAD",           "draw/tool-load.png",            "draw/tool-load.png",                  gcompris.CURSOR_SELECT],
       ["MOVIE",          "draw/tool-movie.png",           "draw/tool-movie_on.png",              gcompris.CURSOR_SELECT],
-      ["PICTURE",        "draw/tool-camera.png",          "draw/tool-camera_on.png",             gcompris.CURSOR_SELECT],
       ["RECT",           "draw/tool-rectangle.png",       "draw/tool-rectangle_on.png",          gcompris.CURSOR_RECT],
       ["FILL_RECT",      "draw/tool-filledrectangle.png", "draw/tool-filledrectangle_on.png",    gcompris.CURSOR_FILLRECT],
       ["CIRCLE",         "draw/tool-circle.png",          "draw/tool-circle_on.png",             gcompris.CURSOR_CIRCLE],
@@ -401,7 +400,6 @@ class Gcompris_anim:
         gcompris.sound.play_ogg("sounds/bleep.wav")
         # Some button have instant effects
         if (self.tools[tool][0] == "SAVE"):
-#          self.Anim2Shot()
           gcompris.file_selector_save( self.gcomprisBoard,
                                        self.selector_section, self.file_type,
                                        general_save)
@@ -420,10 +418,6 @@ class Gcompris_anim:
           gcompris.images_selector_start(self.gcomprisBoard,
                                          "dataset",
                                          image_selected);
-          return False
-
-        elif (self.tools[tool][0] == "PICTURE"):
-          self.Anim2Shot()
           return False
 
         elif (self.tools[tool][0] == "MOVIE"):
