@@ -706,6 +706,20 @@ class Gcompris_anim:
           self.created_object.create_item_event(item,
                                                 target,
                                                 event)
+        elif self.tools[self.current_tool][0] == "FILL_CIRCLE":
+          self.created_object = AnimItemEllipse(self,
+                                                event.x, event.y,
+                                                self.color.fill, self.color.stroke, 2)
+          self.created_object.create_item_event(item,
+                                                target,
+                                                event)
+        elif self.tools[self.current_tool][0] == "CIRCLE":
+          self.created_object = AnimItemEllipse(self,
+                                                event.x, event.y,
+                                                None, self.color.stroke, 7)
+          self.created_object.create_item_event(item,
+                                                target,
+                                                event)
 
           # We keep all object in a unique list
           self.animlist.append(self.created_object)

@@ -532,7 +532,7 @@ class Anchor:
             self.update()
 
 #
-# The Filled rectangle
+# The Rectangle (filled or not)
 #
 class AnimItemRect(AnimItem):
 
@@ -610,7 +610,103 @@ class AnimItemRect(AnimItem):
         return('x', 'y',
                'width', 'height',
                'fill_color_rgba',
-               'stroke_color_rgba')
+               'stroke_color_rgba',
+               'line_width')
+
+    def fill(self, fill, stroke):
+        gcompris.sound.play_ogg("sounds/paint1.wav")
+        if self.filled:
+            self.item.set_properties(fill_color_rgba = fill,
+                                     stroke_color_rgba = stroke)
+        else:
+            self.item.set_properties(stroke_color_rgba = stroke)
+
+#
+# The elliopse (filled or not)
+#
+class AnimItemEllipse(AnimItem):
+
+    center_x = 0
+    canter_y = 0
+    radius_x = 0
+    radius_y = 0
+    filled = False
+
+    def __init__(self, anim, center_x, center_y,
+                 color_fill, color_stroke, line_width):
+        AnimItem.__init__(self, anim)
+        center_x, center_y = self.snap_to_grid(center_x, center_y)
+        self.center_x = center_x
+        self.center_y = center_y
+
+        self.item = \
+            goocanvas.Ellipse(
+                parent = self.rootitem,
+                center_x = self.center_x,
+                center_y = self.center_y,
+                radius_x = self.radius_x,
+                radius_y = self.radius_y,
+                stroke_color_rgba = color_stroke,
+                line_width = line_width)
+
+        if color_fill:
+            self.filled = True
+            self.item.set_properties(fill_color_rgba = color_fill)
+
+        self.item.set_data("AnimItem", self)
+        self.item.connect("button_press_event", anim.item_event)
+        self.item.connect("button_release_event", anim.item_event)
+        self.item.connect("motion_notify_event", anim.item_event)
+
+    # Fixme, should replace set_bounds in resize cases
+    def scale_bounds(self, p1, p2):
+        (x1, y1, x2, y2) = self.snap_obj_to_grid(p1, p2)
+        bounds = self.item.get_bounds()
+        sx = (x2 - x1) / (bounds.x2 - bounds.x1)
+        sy = (y2 - y1) / (bounds.y2 - bounds.y1)
+        print "sx=%f sy=%f" %(sx, sy)
+        self.item.scale(sx, sy)
+
+
+    def set_bounds(self, p1, p2):
+        (x1, y1, x2, y2) = self.snap_obj_to_grid(p1, p2)
+        radius_x = abs((x2 - x1) / 2)
+        radius_y = abs((y2 - y1) / 2)
+        center_x = x1 + radius_x
+        center_y = y1 + radius_y
+        self.item.set_properties(center_x = center_x,
+                                 center_y = center_y,
+                                 radius_x = radius_x,
+                                 radius_y = radius_y )
+
+    def get_x1y1(self):
+        x = self.item.get_property("center_x") - self.item.get_property("radius_x")
+        y = self.item.get_property("center_y") - self.item.get_property("radius_y")
+        return(x, y)
+
+    def get_x2y1(self):
+        x = self.item.get_property("center_x") + self.item.get_property("radius_x")
+        y = self.item.get_property("center_y") - self.item.get_property("radius_y")
+        return(x, y)
+
+    def get_x2y2(self):
+        x = self.item.get_property("center_x") + self.item.get_property("radius_x")
+        y = self.item.get_property("center_y") + self.item.get_property("radius_y")
+        return(x, y)
+
+    def get_x1y2(self):
+        x = self.item.get_property("center_x") - self.item.get_property("radius_x")
+        y = self.item.get_property("center_y") + self.item.get_property("radius_y")
+        return(x, y)
+
+    # Return the list of properties that have to be saved for
+    # this object
+    def get_properties(self):
+        return('center_x', 'center_y',
+               'radius_x', 'radius_y',
+               'fill_color_rgba',
+               'stroke_color_rgba',
+               'line_width')
 
     def fill(self, fill, stroke):
         gcompris.sound.play_ogg("sounds/paint1.wav")
