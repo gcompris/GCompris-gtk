@@ -1092,12 +1092,13 @@ static void load_properties ()
 
   /* usefull for OSX bundle app */
   /* FIXME exec_prefix should be put in properties */
+  /* usefull for OSX bundle app */
 #ifdef NSBUNDLE
   exec_prefix = gcompris_nsbundle_resource ();
 #else
-  exec_prefix = gbr_find_exe_dir("");
+  exec_prefix = gbr_find_exe_dir(NULL);
 #endif
-  g_warning("exec_prefix %s\n", exec_prefix);
+  g_warning("exec_prefix %s\n", (exec_prefix==NULL ? "NONE" : exec_prefix));
 
   {
     gchar *pkg_data_dir = gbr_find_data_dir(PACKAGE_DATA_DIR);
