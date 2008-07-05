@@ -196,11 +196,6 @@ class AnimItem:
             self.anchor.update()
 
 
-    def fill(self, fill, stroke):
-        gcompris.sound.play_ogg("sounds/paint1.wav")
-        self.item.set_properties(fill_color_rgba = fill,
-                                 stroke_color_rgba = stroke)
-
     def delete(self):
         gcompris.sound.play_ogg("sounds/eraser1.wav",
                                 "sounds/eraser2.wav")
@@ -545,6 +540,7 @@ class AnimItemRect(AnimItem):
     y = 0
     width = 0
     height = 0
+    filled = False
 
     def __init__(self, anim, x, y, color_fill, color_stroke, line_width):
         AnimItem.__init__(self, anim)
@@ -563,6 +559,7 @@ class AnimItemRect(AnimItem):
                 line_width = line_width)
 
         if color_fill:
+            self.filled = True
             self.item.set_properties(fill_color_rgba = color_fill)
 
         self.item.set_data("AnimItem", self)
@@ -614,4 +611,12 @@ class AnimItemRect(AnimItem):
                'width', 'height',
                'fill_color_rgba',
                'stroke_color_rgba')
+
+    def fill(self, fill, stroke):
+        gcompris.sound.play_ogg("sounds/paint1.wav")
+        if self.filled:
+            self.item.set_properties(fill_color_rgba = fill,
+                                     stroke_color_rgba = stroke)
+        else:
+            self.item.set_properties(stroke_color_rgba = stroke)
 

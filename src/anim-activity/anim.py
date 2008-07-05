@@ -702,7 +702,7 @@ class Gcompris_anim:
         elif self.tools[self.current_tool][0] == "RECT":
           self.created_object = AnimItemRect(self,
                                              event.x, event.y,
-                                             None, self.color.stroke, 5)
+                                             None, self.color.stroke, 7)
           self.created_object.create_item_event(item,
                                                 target,
                                                 event)
