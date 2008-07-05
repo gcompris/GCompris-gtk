@@ -25,6 +25,8 @@ import gcompris.sound
 import gtk
 import gtk.gdk
 
+# This is the color selector of the animation activity.
+
 class Color:
 
     # We keep the current color here

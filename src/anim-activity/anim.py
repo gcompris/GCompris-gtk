@@ -661,7 +661,11 @@ class Gcompris_anim:
         gcompris.sound.play_ogg("sounds/bleep.wav")
 
         animItem = item.get_data("AnimItem")
-        if animItem:
+        if not animItem:
+          if self.selected:
+              self.selected.deselect()
+              self.selected = None
+        else:
           if self.tools[self.current_tool][0] == "FILL":
             animItem.fill(self.color.fill,
                           self.color.stroke)
@@ -689,8 +693,16 @@ class Gcompris_anim:
             animItem.flip()
 
         if self.tools[self.current_tool][0] == "FILL_RECT":
-          self.created_object = AnimItemFillRect(self,
-                                                 event.x, event.y)
+          self.created_object = AnimItemRect(self,
+                                             event.x, event.y,
+                                             self.color.fill, self.color.stroke, 2)
+          self.created_object.create_item_event(item,
+                                                target,
+                                                event)
+        elif self.tools[self.current_tool][0] == "RECT":
+          self.created_object = AnimItemRect(self,
+                                             event.x, event.y,
+                                             None, self.color.stroke, 5)
           self.created_object.create_item_event(item,
                                                 target,
                                                 event)
@@ -710,7 +722,8 @@ class Gcompris_anim:
 
     elif (event.type == gtk.gdk.MOTION_NOTIFY
           and event.state & gtk.gdk.BUTTON1_MASK
-          and self.tools[self.current_tool][0] == "SELECT"):
+          and self.tools[self.current_tool][0] == "SELECT"
+          and self.selected):
         self.selected.move_item_event(item,
                                       target,
                                       event)

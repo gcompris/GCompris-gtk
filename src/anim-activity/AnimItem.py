@@ -472,68 +472,81 @@ class Anchor:
             self.refpoint = None
             self.fixed_x = 0
             self.fixed_y = 0
+            self.offset_x = 0
+            self.offset_y = 0
             self.animitem.save_at_time(self.animitem.anim.timeline.get_time())
 
         elif (event.type == gtk.gdk.MOTION_NOTIFY
             and event.state & gtk.gdk.BUTTON1_MASK):
-
-            if not self.refpoint:
-                if anchor == self.ANCHOR_N:
-                    self.refpoint = self.animitem.get_x2y2()
-                    self.fixed_x = self.animitem.get_x1y1()[0]
-                elif anchor == self.ANCHOR_NE:
-                    self.refpoint = self.animitem.get_x1y2()
-                elif anchor == self.ANCHOR_E:
-                    self.refpoint = self.animitem.get_x1y1()
-                    self.fixed_y = self.animitem.get_x2y2()[1]
-                elif anchor == self.ANCHOR_SE:
-                    self.refpoint = self.animitem.get_x1y1()
-                elif anchor == self.ANCHOR_S:
-                    self.refpoint = self.animitem.get_x1y1()
-                    self.fixed_x = self.animitem.get_x2y2()[0]
-                elif anchor == self.ANCHOR_SW:
-                    self.refpoint = self.animitem.get_x2y1()
-                elif anchor == self.ANCHOR_W:
-                    self.refpoint = self.animitem.get_x2y2()
-                    self.fixed_y = self.animitem.get_x1y1()[1]
-                elif anchor == self.ANCHOR_NW:
-                    self.refpoint = self.animitem.get_x2y2()
 
             (x, y) = self.animitem.anim.gcomprisBoard.canvas.\
                 convert_from_item_space(item, event.x, event.y)
             (x, y) = self.animitem.anim.gcomprisBoard.canvas.\
                 convert_to_item_space(self.animitem.item, x, y)
 
+            if not self.refpoint:
+                mypoint = [] # Will reference the selected anchors coord
+                if anchor == self.ANCHOR_N:
+                    self.refpoint = self.animitem.get_x2y2()
+                    self.fixed_x = self.animitem.get_x1y1()[0]
+                    mypoint = self.animitem.get_x1y1()
+                elif anchor == self.ANCHOR_NE:
+                    self.refpoint = self.animitem.get_x1y2()
+                    mypoint = self.animitem.get_x2y1()
+                elif anchor == self.ANCHOR_E:
+                    self.refpoint = self.animitem.get_x1y1()
+                    self.fixed_y = self.animitem.get_x2y2()[1]
+                    mypoint = self.animitem.get_x2y2()
+                elif anchor == self.ANCHOR_SE:
+                    self.refpoint = self.animitem.get_x1y1()
+                    mypoint = self.animitem.get_x2y2()
+                elif anchor == self.ANCHOR_S:
+                    self.refpoint = self.animitem.get_x1y1()
+                    self.fixed_x = self.animitem.get_x2y2()[0]
+                    mypoint = self.animitem.get_x2y2()
+                elif anchor == self.ANCHOR_SW:
+                    self.refpoint = self.animitem.get_x2y1()
+                    mypoint = self.animitem.get_x1y2()
+                elif anchor == self.ANCHOR_W:
+                    self.refpoint = self.animitem.get_x2y2()
+                    self.fixed_y = self.animitem.get_x1y1()[1]
+                    mypoint = self.animitem.get_x1y1()
+                elif anchor == self.ANCHOR_NW:
+                    self.refpoint = self.animitem.get_x2y2()
+                    mypoint = self.animitem.get_x1y1()
+
+                self.offset_x = mypoint[0] - x
+                self.offset_y = mypoint[1] - y
+
             if self.fixed_x:
                 self.animitem.set_bounds(
                     self.refpoint,
                     (self.fixed_x,
-                     y) )
+                     y + self.offset_y) )
             elif self.fixed_y:
                 self.animitem.set_bounds(
                     self.refpoint,
-                    (x,
+                    (x + self.offset_x,
                      self.fixed_y) )
             else:
                 self.animitem.set_bounds(
                     self.refpoint,
-                    (x,
-                     y) )
+                    (x + self.offset_x,
+                     y + self.offset_y) )
 
             self.update()
 
 #
 # The Filled rectangle
 #
-class AnimItemFillRect(AnimItem):
+class AnimItemRect(AnimItem):
 
     x = 0
     y = 0
     width = 0
     height = 0
-    line_width = 1
 
-    def __init__(self, anim, x, y):
+    def __init__(self, anim, x, y, color_fill, color_stroke, line_width):
         AnimItem.__init__(self, anim)
         x,y = self.snap_to_grid(x, y)
         self.x = x
@@ -546,9 +559,11 @@ class AnimItemFillRect(AnimItem):
                 y = self.y,
                 width = self.width,
                 height = self.height,
-                fill_color_rgba = self.anim.color.fill,
-                stroke_color_rgba = self.anim.color.stroke,
-                line_width = self.line_width)
+                stroke_color_rgba = color_stroke,
+                line_width = line_width)
+
+        if color_fill:
+            self.item.set_properties(fill_color_rgba = color_fill)
 
         self.item.set_data("AnimItem", self)
         self.item.connect("button_press_event", anim.item_event)

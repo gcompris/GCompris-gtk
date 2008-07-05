@@ -25,6 +25,8 @@ import gcompris.sound
 import gtk
 import gtk.gdk
 
+# This is the timeline of the animation activity.
+
 class Timeline:
 
     def __init__(self, anim):
@@ -56,10 +58,13 @@ class Timeline:
         y  = self.drawing_area[3] + 5
 
         # Our timeline repesentation respects the drawing area ratio
-        self.zoom = (( self.drawing_area[2] - self.drawing_area[0] ) /
-                     ( self.drawing_area[3] - self.drawing_area[1] ))
+        # If we could display a thumbnail of the current frame in each
+        # time zone, and we could scroll the time zone.
+        #self.zoom = (( self.drawing_area[2] - self.drawing_area[0] ) /
+        #             ( self.drawing_area[3] - self.drawing_area[1] ))
+        # w = h * self.zoom
+        w = 14
         h = 27
-        w = h * self.zoom
 
 
         i = x1
