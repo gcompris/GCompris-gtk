@@ -2,7 +2,7 @@ SUBDIRS = resources
 
 pythondir = $(PYTHON_PLUGIN_DIR)
 
-dist_python_DATA= 	anim.py
+dist_python_DATA= 	anim.py Color.py Timeline.py AnimItem.py
 
 
 
