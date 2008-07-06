@@ -461,16 +461,17 @@ class Gcompris_anim:
     y2 = self.drawing_area[3]
 
     item = \
-      goocanvas.Rect(
-        parent = self.rootitem,
-      x = x1,
-      y = y1,
-      width = x2 - x1,
-      height = y2 - y1,
-      fill_color_rgba=0xFFFFFFFFL,
-      line_width=2.0,
-      stroke_color_rgba=0x111199FFL
-      )
+        goocanvas.Rect(
+          parent = self.rootitem,
+          x = x1,
+          y = y1,
+          width = x2 - x1,
+          height = y2 - y1,
+          line_width=2.0,
+          fill_color_rgba=0xFFFFFFFFL,
+          stroke_color_rgba=0x111199FFL,
+          radius_x=5.0,
+          radius_y=5.0)
     item.connect("button_press_event", self.item_event)
     item.connect("button_release_event", self.item_event)
     item.connect("motion_notify_event", self.item_event)

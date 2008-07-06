@@ -79,7 +79,9 @@ class Timeline:
                 height = h,
                 fill_color_rgba = self.default_color,
                 stroke_color_rgba = 0x101080FFL,
-                line_width=1.0)
+                line_width=1.0,
+                radius_x=3.0,
+                radius_y=3.0)
             item.set_data("time", t)
 
             if not self.selected:
