@@ -326,6 +326,49 @@ _wrap_goo_canvas_points_new(PyGBoxed *self, PyObject *args, PyObject *kwargs)
 #line 327 "goocanvas.c"
 
 
+#line 1880 "goocanvas.override"
+
+static PyObject *
+_wrap_goo_canvas_points__get_coords(PyObject *self, void *closure)
+{
+    gdouble     *coords;
+    int         num_points, i;
+    PyObject    *ret = Py_None;
+    
+    num_points = pyg_boxed_get(self, GooCanvasPoints)->num_points;
+    coords = pyg_boxed_get(self, GooCanvasPoints)->coords;
+    
+    if (num_points > 0) {
+        ret = PyList_New(num_points);
+        
+        for (i = 0; i < num_points; i ++) {
+            PyObject *py_temp = Py_BuildValue("dd", coords[2*i], coords[2*i + 1]);
+            PyList_SetItem(ret, i, py_temp);
+        }
+        return ret;
+    }
+    Py_INCREF(ret);    
+    return ret;
+}
+
+#line 355 "goocanvas.c"
+
+
+static PyObject *
+_wrap_goo_canvas_points__get_num_points(PyObject *self, void *closure)
+{
+    int ret;
+
+    ret = pyg_boxed_get(self, GooCanvasPoints)->num_points;
+    return PyInt_FromLong(ret);
+}
+
+static const PyGetSetDef goo_canvas_points_getsets[] = {
+    { "coords", (getter)_wrap_goo_canvas_points__get_coords, (setter)0 },
+    { "num_points", (getter)_wrap_goo_canvas_points__get_num_points, (setter)0 },
+    { NULL, (getter)0, (setter)0 },
+};
+
 PyTypeObject G_GNUC_INTERNAL PyGooCanvasPoints_Type = {
     PyObject_HEAD_INIT(NULL)
     0,                                 /* ob_size */
@@ -358,7 +401,7 @@ PyTypeObject G_GNUC_INTERNAL PyGooCanvasPoints_Type = {
     (iternextfunc)0,     /* tp_iternext */
     (struct PyMethodDef*)NULL, /* tp_methods */
     (struct PyMemberDef*)0,              /* tp_members */
-    (struct PyGetSetDef*)0,  /* tp_getset */
+    (struct PyGetSetDef*)goo_canvas_points_getsets,  /* tp_getset */
     NULL,                              /* tp_base */
     NULL,                              /* tp_dict */
     (descrgetfunc)0,    /* tp_descr_get */
@@ -412,7 +455,7 @@ _wrap_goo_canvas_line_dash_newv(PyGBoxed *self, PyObject *args, PyObject *kwargs
     self->free_on_dealloc = TRUE;
     return 0;
 }
-#line 416 "goocanvas.c"
+#line 459 "goocanvas.c"
 
 
 PyTypeObject G_GNUC_INTERNAL PyGooCanvasLineDash_Type = {
@@ -602,7 +645,7 @@ _wrap_goo_canvas_get_items_at(PyGObject *self, PyObject *args, PyObject *kwargs)
     return ret;
 }
 
-#line 606 "goocanvas.c"
+#line 649 "goocanvas.c"
 
 
 #line 1469 "goocanvas.override"
@@ -643,7 +686,7 @@ _wrap_goo_canvas_get_items_in_area(PyGObject *self, PyObject *args, PyObject *kw
     return ret;
 }
 
-#line 647 "goocanvas.c"
+#line 690 "goocanvas.c"
 
 
 static PyObject *
@@ -683,7 +726,7 @@ _wrap_goo_canvas_get_bounds(PyGObject *self)
     return Py_BuildValue("dddd", left, right, top, bottom);
 }
 
-#line 687 "goocanvas.c"
+#line 730 "goocanvas.c"
 
 
 static PyObject *
@@ -768,7 +811,7 @@ _wrap_goo_canvas_convert_to_pixels(PyGObject *self, PyObject *args, PyObject *kw
     return Py_BuildValue("dd", x, y);
 }
 
-#line 772 "goocanvas.c"
+#line 815 "goocanvas.c"
 
 
 #line 556 "goocanvas.override"
@@ -786,7 +829,7 @@ _wrap_goo_canvas_convert_from_pixels(PyGObject *self, PyObject *args, PyObject *
     return Py_BuildValue("dd", x, y);
 }
 
-#line 790 "goocanvas.c"
+#line 833 "goocanvas.c"
 
 
 #line 572 "goocanvas.override"
@@ -805,7 +848,7 @@ _wrap_goo_canvas_convert_to_item_space(PyGObject *self, PyObject *args, PyObject
     
     return Py_BuildValue("dd", x, y);
 }
-#line 809 "goocanvas.c"
+#line 852 "goocanvas.c"
 
 
 #line 589 "goocanvas.override"
@@ -824,7 +867,7 @@ _wrap_goo_canvas_convert_from_item_space(PyGObject *self, PyObject *args, PyObje
 
     return Py_BuildValue("dd", x, y);
 }
-#line 828 "goocanvas.c"
+#line 871 "goocanvas.c"
 
 
 static PyObject *
@@ -903,17 +946,19 @@ _wrap_goo_canvas_keyboard_ungrab(PyGObject *self, PyObject *args, PyObject *kwar
     return Py_None;
 }
 
+#line 2029 "goocanvas.override"
 static PyObject *
 _wrap_goo_canvas_create_cairo_context(PyGObject *self)
 {
     cairo_t *ret;
 
-    
     ret = goo_canvas_create_cairo_context(GOO_CANVAS(self->obj));
     
     cairo_reference(ret);
-    return PycairoContext_FromContext(ret, NULL, NULL);
+    return PycairoContext_FromContext(ret, &PyGdkCairoContext_Type, NULL);
 }
+#line 961 "goocanvas.c"
+
 
 static PyObject *
 _wrap_goo_canvas_create_item(PyGObject *self, PyObject *args, PyObject *kwargs)
@@ -1698,7 +1743,7 @@ _wrap_goo_canvas_item_simple_get_path_bounds(PyGObject *self, PyObject *args, Py
     return py_bounds;    
 }
 
-#line 1702 "goocanvas.c"
+#line 1747 "goocanvas.c"
 
 
 static PyObject *
@@ -1958,7 +2003,7 @@ _wrap_goo_canvas_item_simple__set_bounds_x1(PyGObject *self, PyObject *py_value,
     return 0;
 }
 
-#line 1962 "goocanvas.c"
+#line 2007 "goocanvas.c"
 
 
 static PyObject *
@@ -1983,7 +2028,7 @@ _wrap_goo_canvas_item_simple__set_bounds_x2(PyGObject *self, PyObject *py_value,
     return 0;
 }
 
-#line 1987 "goocanvas.c"
+#line 2032 "goocanvas.c"
 
 
 static PyObject *
@@ -2008,7 +2053,7 @@ _wrap_goo_canvas_item_simple__set_bounds_y1(PyGObject *self, PyObject *py_value,
     return 0;
 }
 
-#line 2012 "goocanvas.c"
+#line 2057 "goocanvas.c"
 
 
 static PyObject *
@@ -2033,7 +2078,7 @@ _wrap_goo_canvas_item_simple__set_bounds_y2(PyGObject *self, PyObject *py_value,
     return 0;
 }
 
-#line 2037 "goocanvas.c"
+#line 2082 "goocanvas.c"
 
 
 static PyObject *
@@ -2064,7 +2109,7 @@ _wrap_goo_canvas_item_simple__get_bounds(PyGObject *self, void *closure)
     return pygoo_canvas_bounds_new(&GOO_CANVAS_ITEM_SIMPLE(pygobject_get(self))->bounds);
 }
 
-#line 2068 "goocanvas.c"
+#line 2113 "goocanvas.c"
 
 
 static const PyGetSetDef goo_canvas_item_simple_getsets[] = {
@@ -2930,7 +2975,7 @@ _wrap_goo_canvas_style_get_property(PyGObject *self, PyObject *args, PyObject *k
     return _py_canvas_style_get_property(GOO_CANVAS_STYLE(self->obj), name);
 }
 
-#line 2934 "goocanvas.c"
+#line 2979 "goocanvas.c"
 
 
 #line 730 "goocanvas.override"
@@ -2950,7 +2995,7 @@ _wrap_goo_canvas_style_set_property(PyGObject *self, PyObject *args, PyObject *k
     return Py_None;
 }
 
-#line 2954 "goocanvas.c"
+#line 2999 "goocanvas.c"
 
 
 static PyObject *
@@ -3037,7 +3082,7 @@ static PyMappingMethods _wrap_goo_canvas_style_tp_as_mapping = {
     (objobjargproc) _wrap_goo_canvas_style_ass_subscript, /* objobjargproc mp_ass_subscript; */
 };
 
-#line 3041 "goocanvas.c"
+#line 3086 "goocanvas.c"
 
 
 PyTypeObject G_GNUC_INTERNAL PyGooCanvasStyle_Type = {
@@ -3203,7 +3248,7 @@ _wrap_goo_canvas_text_get_natural_extents(PyGObject *self)
 			 logical_rect.width, logical_rect.height);
 }
 
-#line 3207 "goocanvas.c"
+#line 3252 "goocanvas.c"
 
 
 static const PyMethodDef _PyGooCanvasText_methods[] = {
@@ -3461,7 +3506,7 @@ _wrap_goo_canvas_item_remove_child(PyGObject *self, PyObject *args, PyObject *kw
     Py_INCREF(Py_None);
     return Py_None;
 }
-#line 3465 "goocanvas.c"
+#line 3510 "goocanvas.c"
 
 
 #line 1708 "goocanvas.override"
@@ -3520,7 +3565,7 @@ _wrap_goo_canvas_item_get_child_property(PyGObject *self,
     return ret;
 }
 
-#line 3524 "goocanvas.c"
+#line 3569 "goocanvas.c"
 
 
 #line 1650 "goocanvas.override"
@@ -3580,7 +3625,7 @@ _wrap_goo_canvas_item_set_child_property(PyGObject *self,
     return Py_None;
 }
 
-#line 3584 "goocanvas.c"
+#line 3629 "goocanvas.c"
 
 
 #line 921 "goocanvas.override"
@@ -3664,7 +3709,7 @@ _wrap_goo_canvas_item_get_child_properties(PyGObject *self, PyObject *args)
     return tuple;
 }
 
-#line 3668 "goocanvas.c"
+#line 3713 "goocanvas.c"
 
 
 #line 839 "goocanvas.override"
@@ -3748,27 +3793,38 @@ _wrap_goo_canvas_item_set_child_properties(PyGObject *self, PyObject *args, PyOb
     return Py_None;
 }
 
-#line 3752 "goocanvas.c"
+#line 3797 "goocanvas.c"
 
 
+#line 1950 "goocanvas.override"
 static PyObject *
-_wrap_goo_canvas_item_get_transform_for_child(PyGObject *self, PyObject *args, PyObject *kwargs)
+_wrap_goo_canvas_item_get_transform_for_child(PyGObject *self,
+                                              PyObject *args,
+                                              PyObject *kwargs)
 {
-    static char *kwlist[] = { "child", "transform", NULL };
+    static char *kwlist[] = { "child", NULL };
     PyGObject *child;
-    PyObject *py_transform;
     int ret;
-    cairo_matrix_t *transform;
+    cairo_matrix_t *transform = NULL;
 
-    if (!PyArg_ParseTupleAndKeywords(args, kwargs,"O!O:GooCanvasItem.get_transform_for_child", kwlist, &PyGooCanvasItem_Type, &child, &py_transform))
+    if (!PyArg_ParseTupleAndKeywords(args, kwargs,
+                                     "O!:GooCanvasItem.get_transform_for_child",
+                                     kwlist, &PyGooCanvasItem_Type, &child))
         return NULL;
-    transform = &((PycairoMatrix*)(py_transform))->matrix;
     
-    ret = goo_canvas_item_get_transform_for_child(GOO_CANVAS_ITEM(self->obj), GOO_CANVAS_ITEM(child->obj), transform);
+    ret = goo_canvas_item_get_transform_for_child(GOO_CANVAS_ITEM(self->obj),
+                                                  GOO_CANVAS_ITEM(child->obj),
+                                                  transform);
     
-    return PyBool_FromLong(ret);
-
+    if (ret)
+        return PycairoMatrix_FromMatrix(transform);
+    else
+        Py_INCREF(Py_None);
+        return Py_None;
 }
+
+#line 3827 "goocanvas.c"
+
 
 static PyObject *
 _wrap_goo_canvas_item_get_canvas(PyGObject *self)
@@ -3909,25 +3965,35 @@ _wrap_goo_canvas_item_get_transform(PyGObject *self)
     return matrix;
 }
 
-#line 3913 "goocanvas.c"
+#line 3969 "goocanvas.c"
 
 
+#line 1978 "goocanvas.override"
 static PyObject *
-_wrap_goo_canvas_item_set_transform(PyGObject *self, PyObject *args, PyObject *kwargs)
+_wrap_goo_canvas_item_set_transform(PyGObject *self,
+                                    PyObject *args,
+                                    PyObject *kwargs)
 {
     static char *kwlist[] = { "matrix", NULL };
     PyObject *py_matrix;
-    cairo_matrix_t *matrix;
+    cairo_matrix_t *matrix = NULL;
 
-    if (!PyArg_ParseTupleAndKeywords(args, kwargs,"O:GooCanvasItem.set_transform", kwlist, &py_matrix))
+    if (!PyArg_ParseTupleAndKeywords(args, kwargs,
+                                     "O:GooCanvasItem.set_transform",
+                                     kwlist, &py_matrix))
         return NULL;
-    matrix = &((PycairoMatrix*)(py_matrix))->matrix;
+    
+    if (py_matrix && (py_matrix != Py_None))
+        matrix = &((PycairoMatrix*)(py_matrix))->matrix;
     
     goo_canvas_item_set_transform(GOO_CANVAS_ITEM(self->obj), matrix);
     
     Py_INCREF(Py_None);
     return Py_None;
 }
+
+#line 3996 "goocanvas.c"
+
 
 #line 1624 "goocanvas.override"
 static PyObject *
@@ -3941,7 +4007,7 @@ _wrap_goo_canvas_item_get_simple_transform(PyGObject *self)
     return Py_BuildValue("dddd", x, y, scale, rotation);
 }
 
-#line 3945 "goocanvas.c"
+#line 4011 "goocanvas.c"
 
 
 static PyObject *
@@ -4105,7 +4171,7 @@ _wrap_goo_canvas_item_get_bounds(PyGObject *self)
     return py_bounds;
 }
 
-#line 4109 "goocanvas.c"
+#line 4175 "goocanvas.c"
 
 
 #line 1508 "goocanvas.override"
@@ -4145,7 +4211,7 @@ _wrap_goo_canvas_item_get_items_at(PyGObject *self, PyObject *args, PyObject *kw
     return ret;
 }
 
-#line 4149 "goocanvas.c"
+#line 4215 "goocanvas.c"
 
 
 static PyObject *
@@ -4207,22 +4273,28 @@ _wrap_goo_canvas_item_ensure_updated(PyGObject *self)
     return Py_None;
 }
 
+#line 1929 "goocanvas.override"
 static PyObject *
 _wrap_goo_canvas_item_update(PyGObject *self, PyObject *args, PyObject *kwargs)
 {
-    static char *kwlist[] = { "entire_tree", "cr", "bounds", NULL };
-    int entire_tree;
-    PyObject *py_bounds;
-    PycairoContext *cr;
+    static char *kwlist[] = { "entire_tree", "cr", NULL };
+    int             entire_tree;
+    PycairoContext  *cr;
+    GooCanvasBounds bounds;
 
-    if (!PyArg_ParseTupleAndKeywords(args, kwargs,"iO!O!:GooCanvasItem.update", kwlist, &entire_tree, &PycairoContext_Type, &cr, &PyGooCanvasBounds_Type, &py_bounds))
+    if (!PyArg_ParseTupleAndKeywords(args, kwargs,"iO!:GooCanvasItem.update",
+                                     kwlist, &entire_tree,
+                                     &PycairoContext_Type, &cr))
         return NULL;
     
-    goo_canvas_item_update(GOO_CANVAS_ITEM(self->obj), entire_tree, cr->ctx, (py_bounds == NULL)? NULL : &((PyGooCanvasBounds *) py_bounds)->bounds);
+    goo_canvas_item_update(GOO_CANVAS_ITEM(self->obj), entire_tree,
+                           cr->ctx, &bounds);
     
-    Py_INCREF(Py_None);
-    return Py_None;
+    return pygoo_canvas_bounds_new(&bounds);
 }
+
+#line 4297 "goocanvas.c"
+
 
 static PyObject *
 _wrap_goo_canvas_item_paint(PyGObject *self, PyObject *args, PyObject *kwargs)
@@ -4246,22 +4318,30 @@ _wrap_goo_canvas_item_paint(PyGObject *self, PyObject *args, PyObject *kwargs)
     return Py_None;
 }
 
+#line 1906 "goocanvas.override"
 static PyObject *
-_wrap_goo_canvas_item_get_requested_area(PyGObject *self, PyObject *args, PyObject *kwargs)
+_wrap_goo_canvas_item_get_requested_area(PyGObject *self,
+                                         PyObject *args,
+                                         PyObject *kwargs)
 {
-    static char *kwlist[] = { "cr", "requested_area", NULL };
-    PyObject *py_requested_area;
-    int ret;
-    PycairoContext *cr;
+    static char     *kwlist[] = { "cr", NULL };
+    int             ret;
+    GooCanvasBounds bounds;
+    PycairoContext  *cr;
 
-    if (!PyArg_ParseTupleAndKeywords(args, kwargs,"O!O!:GooCanvasItem.get_requested_area", kwlist, &PycairoContext_Type, &cr, &PyGooCanvasBounds_Type, &py_requested_area))
+    if (!PyArg_ParseTupleAndKeywords(args, kwargs,
+                                     "O!:GooCanvasItem.get_requested_area",
+                                     kwlist, &PycairoContext_Type, &cr))
         return NULL;
     
-    ret = goo_canvas_item_get_requested_area(GOO_CANVAS_ITEM(self->obj), cr->ctx, (py_requested_area == NULL)? NULL : &((PyGooCanvasBounds *) py_requested_area)->bounds);
+    ret = goo_canvas_item_get_requested_area(GOO_CANVAS_ITEM(self->obj),
+                                             cr->ctx, &bounds);
     
-    return PyBool_FromLong(ret);
-
+    return pygoo_canvas_bounds_new(&bounds);
 }
+
+#line 4344 "goocanvas.c"
+
 
 static PyObject *
 _wrap_goo_canvas_item_get_requested_height(PyGObject *self, PyObject *args, PyObject *kwargs)
@@ -4335,7 +4415,7 @@ _wrap_goo_canvas_item_find_child_property (PyObject *cls,
     return pyg_param_spec_new(pspec);
 }
 
-#line 4339 "goocanvas.c"
+#line 4419 "goocanvas.c"
 
 
 #line 1291 "goocanvas.override"
@@ -4379,7 +4459,7 @@ _wrap_goo_canvas_item_list_child_properties (PyObject *cls,
     return list;
 }
 
-#line 4383 "goocanvas.c"
+#line 4463 "goocanvas.c"
 
 
 #line 1385 "goocanvas.override"
@@ -4433,7 +4513,7 @@ _wrap_goo_canvas_item_install_child_property (PyObject *cls,
     return Py_None;
 }
 
-#line 4437 "goocanvas.c"
+#line 4517 "goocanvas.c"
 
 
 static PyObject *
@@ -6120,7 +6200,7 @@ _wrap_GooCanvasItem__proxy_do_get_bounds(GooCanvasItem *self, GooCanvasBounds *b
     Py_XDECREF(py_bounds);
     pyg_gil_state_release(__py_state);
 }
-#line 6124 "goocanvas.c"
+#line 6204 "goocanvas.c"
 
 
 #line 633 "goocanvas.override"
@@ -6153,7 +6233,7 @@ _wrap_GooCanvasItem__proxy_do_update(GooCanvasItem *self, gboolean entire_tree,
     pyg_gil_state_release(__py_state);
 }
 
-#line 6157 "goocanvas.c"
+#line 6237 "goocanvas.c"
 
 
 static void
@@ -7978,7 +8058,8 @@ _wrap_goo_canvas_item_model_get_child_property(PyGObject *self,
 
     return ret;
 }
-#line 7982 "goocanvas.c"
+
+#line 8063 "goocanvas.c"
 
 
 #line 1765 "goocanvas.override"
@@ -8038,7 +8119,7 @@ _wrap_goo_canvas_item_model_set_child_property(PyGObject *self,
     return Py_None;
 }
 
-#line 8042 "goocanvas.c"
+#line 8123 "goocanvas.c"
 
 
 #line 1084 "goocanvas.override"
@@ -8123,7 +8204,7 @@ _wrap_goo_canvas_item_model_get_child_properties(PyGObject *self, PyObject *args
     return tuple;
 }
 
-#line 8127 "goocanvas.c"
+#line 8208 "goocanvas.c"
 
 
 #line 1003 "goocanvas.override"
@@ -8206,7 +8287,7 @@ _wrap_goo_canvas_item_model_set_child_properties(PyGObject *self, PyObject *args
     return Py_None;
 }
 
-#line 8210 "goocanvas.c"
+#line 8291 "goocanvas.c"
 
 
 static PyObject *
@@ -8308,25 +8389,36 @@ _wrap_goo_canvas_item_model_get_transform(PyGObject *self)
     return matrix;
 }
 
-#line 8312 "goocanvas.c"
+#line 8393 "goocanvas.c"
 
 
+#line 2003 "goocanvas.override"
 static PyObject *
-_wrap_goo_canvas_item_model_set_transform(PyGObject *self, PyObject *args, PyObject *kwargs)
+_wrap_goo_canvas_item_model_set_transform(PyGObject *self,
+                                          PyObject *args,
+                                          PyObject *kwargs)
 {
     static char *kwlist[] = { "matrix", NULL };
     PyObject *py_matrix;
-    cairo_matrix_t *matrix;
+    cairo_matrix_t *matrix = NULL;
 
-    if (!PyArg_ParseTupleAndKeywords(args, kwargs,"O:GooCanvasItemModel.set_transform", kwlist, &py_matrix))
+    if (!PyArg_ParseTupleAndKeywords(args, kwargs,
+                                     "O:GooCanvasItemModel.set_transform",
+                                     kwlist, &py_matrix))
         return NULL;
-    matrix = &((PycairoMatrix*)(py_matrix))->matrix;
     
-    goo_canvas_item_model_set_transform(GOO_CANVAS_ITEM_MODEL(self->obj), matrix);
+    if (py_matrix && (py_matrix != Py_None))
+        matrix = &((PycairoMatrix*)(py_matrix))->matrix;
+    
+    goo_canvas_item_model_set_transform(GOO_CANVAS_ITEM_MODEL(self->obj),
+                                        matrix);
     
     Py_INCREF(Py_None);
     return Py_None;
 }
+
+#line 8421 "goocanvas.c"
+
 
 #line 1637 "goocanvas.override"
 static PyObject *
@@ -8340,7 +8432,7 @@ _wrap_goo_canvas_item_model_get_simple_transform(PyGObject *self)
     return Py_BuildValue("dddd", x, y, scale, rotation);
 }
 
-#line 8344 "goocanvas.c"
+#line 8436 "goocanvas.c"
 
 
 static PyObject *
@@ -8530,7 +8622,7 @@ _wrap_goo_canvas_item_model_find_child_property (PyObject *cls,
     return pyg_param_spec_new(pspec);
 }
 
-#line 8534 "goocanvas.c"
+#line 8626 "goocanvas.c"
 
 
 #line 1291 "goocanvas.override"
@@ -8574,7 +8666,7 @@ _wrap_goo_canvas_item_model_list_child_properties (PyObject *cls,
     return list;
 }
 
-#line 8578 "goocanvas.c"
+#line 8670 "goocanvas.c"
 
 
 #line 1385 "goocanvas.override"
@@ -8628,7 +8720,7 @@ _wrap_goo_canvas_item_model_install_child_property (PyObject *cls,
     return Py_None;
 }
 
-#line 8632 "goocanvas.c"
+#line 8724 "goocanvas.c"
 
 
 static PyObject *
@@ -10260,7 +10352,7 @@ _wrap_goo_canvas_polyline_new_line(PyGObject *self, PyObject *args, PyObject *kw
     
     return pygobject_new((GObject *)ret);
 }
-#line 10264 "goocanvas.c"
+#line 10356 "goocanvas.c"
 
 
 #line 376 "goocanvas.override"
@@ -10331,7 +10423,7 @@ _wrap_goo_canvas_polyline_model_new_line(PyGObject *self, PyObject *args, PyObje
     return pygobject_new((GObject *)ret);
 }
 
-#line 10335 "goocanvas.c"
+#line 10427 "goocanvas.c"
 
 
 static PyObject *
@@ -10471,7 +10563,7 @@ pygoocanvas_register_classes(PyObject *d)
 
 
 
-#line 10475 "goocanvas.c"
+#line 10567 "goocanvas.c"
     pyg_register_boxed(d, "Points", GOO_TYPE_CANVAS_POINTS, &PyGooCanvasPoints_Type);
     pyg_register_boxed(d, "LineDash", GOO_TYPE_CANVAS_LINE_DASH, &PyGooCanvasLineDash_Type);
     pyg_register_interface(d, "Item", GOO_TYPE_CANVAS_ITEM, &PyGooCanvasItem_Type);
