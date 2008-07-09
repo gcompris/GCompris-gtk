@@ -161,6 +161,7 @@ class AnimItem:
     # Given two points p1 and p2, return the
     # boundings coordinates (x1, y2, x2, y2)
     # all snaped to the grid
+    # Coord are returned so that p1 < p2
     def snap_obj_to_grid(self, p1, p2):
         x = min(p1[0], p2[0])
         y = min(p1[1], p2[1])
@@ -168,6 +169,19 @@ class AnimItem:
         w = abs(p1[0] - p2[0])
         h = abs(p1[1] - p2[1])
         (x2, y2) = self.snap_to_grid(x+w, y+h)
+        return (x1, y1, x2, y2)
+
+    # Given two points p1 and p2, return the
+    # boundings coordinates (x1, y2, x2, y2)
+    # all snaped to the grid
+    # Points are not reordered
+    def snap_point_to_grid(self, p1, p2):
+        x = p1[0]
+        y = p1[1]
+        (x1, y1) = self.snap_to_grid(x, y)
+        x = p2[0]
+        y = p2[1]
+        (x2, y2) = self.snap_to_grid(x, y)
         return (x1, y1, x2, y2)
 
     # Selecting the item creates and display its anchors
@@ -536,25 +550,19 @@ class Anchor:
 #
 class AnimItemRect(AnimItem):
 
-    x = 0
-    y = 0
-    width = 0
-    height = 0
     filled = False
 
     def __init__(self, anim, x, y, color_fill, color_stroke, line_width):
         AnimItem.__init__(self, anim)
         x,y = self.snap_to_grid(x, y)
-        self.x = x
-        self.y = y
 
         self.item = \
             goocanvas.Rect(
                 parent = self.rootitem,
-                x = self.x,
-                y = self.y,
-                width = self.width,
-                height = self.height,
+                x = x,
+                y = y,
+                width = 0,
+                height = 0,
                 stroke_color_rgba = color_stroke,
                 line_width = line_width)
 
@@ -622,30 +630,24 @@ class AnimItemRect(AnimItem):
             self.item.set_properties(stroke_color_rgba = stroke)
 
 #
-# The elliopse (filled or not)
+# The ellipse (filled or not)
 #
 class AnimItemEllipse(AnimItem):
 
-    center_x = 0
-    canter_y = 0
-    radius_x = 0
-    radius_y = 0
     filled = False
 
     def __init__(self, anim, center_x, center_y,
                  color_fill, color_stroke, line_width):
         AnimItem.__init__(self, anim)
         center_x, center_y = self.snap_to_grid(center_x, center_y)
-        self.center_x = center_x
-        self.center_y = center_y
 
         self.item = \
             goocanvas.Ellipse(
                 parent = self.rootitem,
-                center_x = self.center_x,
-                center_y = self.center_y,
-                radius_x = self.radius_x,
-                radius_y = self.radius_y,
+                center_x = center_x,
+                center_y = center_y,
+                radius_x = 0,
+                radius_y = 0,
                 stroke_color_rgba = color_stroke,
                 line_width = line_width)
 
@@ -657,16 +659,6 @@ class AnimItemEllipse(AnimItem):
         self.item.connect("button_press_event", anim.item_event)
         self.item.connect("button_release_event", anim.item_event)
         self.item.connect("motion_notify_event", anim.item_event)
-
-    # Fixme, should replace set_bounds in resize cases
-    def scale_bounds(self, p1, p2):
-        (x1, y1, x2, y2) = self.snap_obj_to_grid(p1, p2)
-        bounds = self.item.get_bounds()
-        sx = (x2 - x1) / (bounds.x2 - bounds.x1)
-        sy = (y2 - y1) / (bounds.y2 - bounds.y1)
-        print "sx=%f sy=%f" %(sx, sy)
-        self.item.scale(sx, sy)
-
 
     def set_bounds(self, p1, p2):
         (x1, y1, x2, y2) = self.snap_obj_to_grid(p1, p2)
@@ -715,4 +707,55 @@ class AnimItemEllipse(AnimItem):
                                      stroke_color_rgba = stroke)
         else:
             self.item.set_properties(stroke_color_rgba = stroke)
+
+
+#
+# The Line
+#
+class AnimItemLine(AnimItem):
+
+
+    def __init__(self, anim, x, y,
+                 color_fill, color_stroke, line_width):
+        AnimItem.__init__(self, anim)
+        x, y = self.snap_to_grid(x, y)
+
+        self.item = \
+            goocanvas.Polyline(
+                parent = self.rootitem,
+                stroke_color_rgba = color_stroke,
+                points = goocanvas.Points([(x , y), (x , y)]),
+                line_width = line_width,
+                line_cap = cairo.LINE_CAP_ROUND)
+
+        self.item.set_data("AnimItem", self)
+        self.item.connect("button_press_event", anim.item_event)
+        self.item.connect("button_release_event", anim.item_event)
+        self.item.connect("motion_notify_event", anim.item_event)
+
+    def set_bounds(self, p1, p2):
+        (x1, y1, x2, y2) = self.snap_point_to_grid(p1, p2)
+        self.item.set_properties(points = goocanvas.Points([(x1 , y1), (x2 , y2)]))
+        points = [(x1 , y1), (x2 , y2)]
+        print points
+
+    def get_x1y1(self):
+        points = self.item.get_property("points").coords
+        return(points[0][0], points[0][1])
+
+    def get_x2y2(self):
+        points = self.item.get_property("points").coords
+        return(points[1][0], points[1][1])
+
+    # Return the list of properties that have to be saved for
+    # this object
+    def get_properties(self):
+        return('points',
+               'stroke_color_rgba',
+               'line_width',
+               'line_cap')
+
+    def fill(self, fill, stroke):
+        gcompris.sound.play_ogg("sounds/paint1.wav")
+        self.item.set_properties(stroke_color_rgba = stroke)
 

@@ -125,11 +125,11 @@ class Gcompris_anim:
       ["IMAGE",          "draw/tool-image.png",           "draw/tool-image_on.png",              gcompris.CURSOR_DEFAULT],
       ["FILL",           "draw/tool-fill.png",            "draw/tool-fill_on.png",               gcompris.CURSOR_FILL],
       ["DEL",            "draw/tool-del.png",             "draw/tool-del_on.png",                gcompris.CURSOR_DEL],
+      ["FLIP",           "draw/tool-flip.png",            "draw/tool-flip_on.png",               gcompris.CURSOR_DEFAULT],
       ["RAISE",          "draw/tool-up.png",              "draw/tool-up_on.png",                 gcompris.CURSOR_DEFAULT],
       ["LOWER",          "draw/tool-down.png",            "draw/tool-down_on.png",               gcompris.CURSOR_DEFAULT],
       ["CCW",            "draw/tool-rotation-ccw.png",    "draw/tool-rotation-ccw_on.png",       gcompris.CURSOR_DEFAULT],
       ["CW",             "draw/tool-rotation-cw.png",     "draw/tool-rotation-cw_on.png",        gcompris.CURSOR_DEFAULT],
-      ["FLIP",           "draw/tool-flip.png",            "draw/tool-flip_on.png",               gcompris.CURSOR_DEFAULT],
       ]
 
     # keep the tool selected
@@ -693,31 +693,29 @@ class Gcompris_anim:
           elif self.tools[self.current_tool][0] == "FLIP":
             animItem.flip()
 
+        self.created_object = None
         if self.tools[self.current_tool][0] == "FILL_RECT":
           self.created_object = AnimItemRect(self,
                                              event.x, event.y,
                                              self.color.fill, self.color.stroke, 2)
-          self.created_object.create_item_event(item,
-                                                target,
-                                                event)
         elif self.tools[self.current_tool][0] == "RECT":
           self.created_object = AnimItemRect(self,
                                              event.x, event.y,
                                              None, self.color.stroke, 7)
-          self.created_object.create_item_event(item,
-                                                target,
-                                                event)
         elif self.tools[self.current_tool][0] == "FILL_CIRCLE":
           self.created_object = AnimItemEllipse(self,
                                                 event.x, event.y,
                                                 self.color.fill, self.color.stroke, 2)
-          self.created_object.create_item_event(item,
-                                                target,
-                                                event)
         elif self.tools[self.current_tool][0] == "CIRCLE":
           self.created_object = AnimItemEllipse(self,
                                                 event.x, event.y,
                                                 None, self.color.stroke, 7)
+        elif self.tools[self.current_tool][0] == "LINE":
+          self.created_object = AnimItemLine(self,
+                                             event.x, event.y,
+                                             None, self.color.stroke, 7)
+
+        if self.created_object:
           self.created_object.create_item_event(item,
                                                 target,
                                                 event)
@@ -751,7 +749,7 @@ class Gcompris_anim:
         self.created_object.create_item_event(item,
                                               target,
                                               event)
-        self.created_object = False
+        self.created_object = None
         return True
       else:
         if self.selected:
