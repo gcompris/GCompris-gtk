@@ -735,17 +735,37 @@ class AnimItemLine(AnimItem):
 
     def set_bounds(self, p1, p2):
         (x1, y1, x2, y2) = self.snap_point_to_grid(p1, p2)
-        self.item.set_properties(points = goocanvas.Points([(x1 , y1), (x2 , y2)]))
-        points = [(x1 , y1), (x2 , y2)]
-        print points
+        points = self.item.get_property("points").coords
+        # Create the new line based on p1 (x1, y1), the reference point
+        if points[0][0] == x1 and points[0][1] == y1:
+            self.item.set_properties(points = goocanvas.Points([(x1 , y1), (x2 , y2)]))
+        elif points[1][0] == x1 and points[1][1] == y1:
+            self.item.set_properties(points = goocanvas.Points([(x1 , y1), (x2 , y2)]))
+        elif points[0][0] == x1 and points[1][1] == y1:
+            self.item.set_properties(points = goocanvas.Points([(x1 , y2), (x2 , y1)]))
+        elif points[1][0] == x1 and points[0][1] == y1:
+            self.item.set_properties(points = goocanvas.Points([(x1 , y2), (x2 , y1)]))
+
 
     def get_x1y1(self):
         points = self.item.get_property("points").coords
-        return(points[0][0], points[0][1])
+        return(min(points[0][0], points[1][0]),
+               min(points[0][1], points[1][1]))
 
     def get_x2y2(self):
         points = self.item.get_property("points").coords
-        return(points[1][0], points[1][1])
+        return(max(points[0][0], points[1][0]),
+               max(points[0][1], points[1][1]))
+
+    def get_x1y2(self):
+        points = self.item.get_property("points").coords
+        return(min(points[0][0], points[1][0]),
+               max(points[0][1], points[1][1]))
+
+    def get_x2y1(self):
+        points = self.item.get_property("points").coords
+        return(max(points[0][0], points[1][0]),
+               min(points[0][1], points[1][1]))
 
     # Return the list of properties that have to be saved for
     # this object
