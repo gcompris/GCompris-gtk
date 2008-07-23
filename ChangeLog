@@ -1,4 +1,11 @@
-2008-05-10  Bruno Coudoin,,,  <bruno.coudoin@free.fr>
+2008-07-23  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* src/gcompris/gcompris.c: (setup_window), (gc_fullscreen_set),
+	(main): fixed fullscreen to work again correctly on gnome. I had to
+	remove gtk_widget_hide() and gdk_window_set_functions(). These had been
+	added before to have the fullscreen on KDE. Need someone to check again.
+
+2008-05-10  Bruno Coudoin  <bruno.coudoin@free.fr>
 
 	Port of doubleclick activity from trunk
 	Rewrite of the anim activity (in progress)

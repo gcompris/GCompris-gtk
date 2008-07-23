@@ -714,7 +714,7 @@ static void setup_window ()
   hints.width_inc = 1;
   hints.height_inc = 1;
   hints.min_aspect = (float)BOARDWIDTH/BOARDHEIGHT;
-  hints. max_aspect = (float)BOARDWIDTH/BOARDHEIGHT;
+  hints.max_aspect = (float)BOARDWIDTH/BOARDHEIGHT;
   gtk_window_set_geometry_hints (GTK_WINDOW (window),
 				 NULL,
 				 &hints,
@@ -728,7 +728,6 @@ static void setup_window ()
    * -------------------
    */
 
-  //  gtk_window_set_policy (GTK_WINDOW (window), FALSE, FALSE, TRUE);
   gtk_window_set_default_size(GTK_WINDOW(window), BOARDWIDTH, BOARDHEIGHT);
   gtk_window_set_wmclass(GTK_WINDOW(window), "gcompris", "GCompris");
 
@@ -975,19 +974,12 @@ void gc_fullscreen_set(gboolean state)
   if(state)
     {
       gdk_window_set_decorations (window->window, 0);
-      gdk_window_set_functions (window->window, 0);
       gtk_window_fullscreen (GTK_WINDOW(window));
       gtk_widget_set_uposition (window, 0, 0);
     }
   else
     {
-      /* The hide must be done at least for KDE */
-      if (is_mapped)
-        gtk_widget_hide (window);
       gdk_window_set_decorations (window->window, GDK_DECOR_ALL);
-      if (is_mapped)
-        gtk_widget_show (window);
-      gdk_window_set_functions (window->window, GDK_FUNC_ALL);
       gtk_window_unfullscreen (GTK_WINDOW(window));
 
       /* Mandatory or on windows we get iconified */
@@ -1723,8 +1715,8 @@ main (int argc, char *argv[])
 
   setup_window ();
 
-  if (properties->fullscreen)
-    gc_fullscreen_set(properties->fullscreen);
+  //  if (properties->fullscreen)
+  //    gc_fullscreen_set(properties->fullscreen);
 
   gtk_widget_show_all (window);
 
