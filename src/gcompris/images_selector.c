@@ -28,6 +28,7 @@
 #include <libxml/parser.h>
 
 #include "gcompris.h"
+#include "gc_core.h"
 
 #define SOUNDLISTFILE PACKAGE
 
@@ -40,7 +41,6 @@ static gint		 item_event_imageset_selector(GooCanvasItem *item,
 						      gpointer data);
 static void		 item_event_scroll(GtkAdjustment *adj,
 					   GooCanvas *canvas);
-static gboolean		 read_xml_file(gchar *fname);
 static gboolean		 read_dataset_directory(gchar *dataset_dir);
 static void		 display_image(gchar *imagename, GooCanvasItem *rootitem);
 static void		 free_stuff (GSList *data);
@@ -64,7 +64,7 @@ static gboolean		 display_in_progress;
 #define	DRAWING_AREA_X1	111.0
 #define DRAWING_AREA_Y1	14.0
 #define DRAWING_AREA_X2	774.0
-#define DRAWING_AREA_Y2	500.0
+#define DRAWING_AREA_Y2	460.0
 
 /* Represent the limits of list area */
 #define	LIST_AREA_X1	18.0
@@ -112,7 +112,7 @@ gc_selector_images_start (GcomprisBoard *gcomprisBoard, gchar *dataset,
   gint		 x_start = 0;
   gchar		*dataseturl = NULL;
 
-  GtkWidget	  *w;
+  GtkWidget	*w;
 
   if(rootitem)
     return;
@@ -163,8 +163,10 @@ gc_selector_images_start (GcomprisBoard *gcomprisBoard, gchar *dataset,
   list_bg_item = goo_canvas_rect_new (goo_canvas_get_root_item(GOO_CANVAS(canvas_list_selector)),
 				      0,
 				      0,
-				      LIST_AREA_X2 - LIST_AREA_X1,
-				      LIST_AREA_Y2 - LIST_AREA_Y1,
+				      (LIST_AREA_X2 - LIST_AREA_X1)
+				      * gc_zoom_factor_get(),
+				      (LIST_AREA_Y2 - LIST_AREA_Y1)
+				      * gc_zoom_factor_get(),
 				      "fill-color-rgba", gc_skin_get_color("gcompris/imageselectbg"),
 				      "line-width", 0.0,
 				      NULL);
@@ -173,7 +175,8 @@ gc_selector_images_start (GcomprisBoard *gcomprisBoard, gchar *dataset,
     GTK_ADJUSTMENT (gtk_adjustment_new (0.00, 0.00,
 					0.00,
 					10, IMAGE_HEIGHT,
-					LIST_AREA_Y2 - LIST_AREA_Y1)
+					(LIST_AREA_Y2 - LIST_AREA_Y1)
+					* gc_zoom_factor_get())
 		    );
 
   w = gtk_vscrollbar_new (list_adj);
@@ -203,7 +206,7 @@ gc_selector_images_start (GcomprisBoard *gcomprisBoard, gchar *dataset,
 			 DRAWING_AREA_X1,
 			 DRAWING_AREA_Y1,
 			 DRAWING_AREA_X2 - DRAWING_AREA_X1,
-			 DRAWING_AREA_Y2 - DRAWING_AREA_Y1 - 35.0,
+			 DRAWING_AREA_Y2 - DRAWING_AREA_Y1,
 			 NULL);
 
   gtk_widget_show (canvas_image_selector);
@@ -213,8 +216,10 @@ gc_selector_images_start (GcomprisBoard *gcomprisBoard, gchar *dataset,
     goo_canvas_rect_new (goo_canvas_get_root_item(GOO_CANVAS(canvas_image_selector)),
 			 0,
 			 0,
-			 DRAWING_AREA_X2 - DRAWING_AREA_X1,
-			 DRAWING_AREA_Y2 - DRAWING_AREA_Y1,
+			 (DRAWING_AREA_X2 - DRAWING_AREA_X1)
+			 * gc_zoom_factor_get(),
+			 (DRAWING_AREA_Y2 - DRAWING_AREA_Y1)
+			 * gc_zoom_factor_get(),
 			 "fill-color-rgba", gc_skin_get_color("gcompris/imageselectbg"),
 			 "line-width", 0.0,
 			 NULL);
@@ -223,7 +228,8 @@ gc_selector_images_start (GcomprisBoard *gcomprisBoard, gchar *dataset,
     GTK_ADJUSTMENT (gtk_adjustment_new (0.00, 0.00,
 					0.00,
 					10, IMAGE_HEIGHT,
-					DRAWING_AREA_Y2 - DRAWING_AREA_Y1)
+					(DRAWING_AREA_Y2 - DRAWING_AREA_Y1)
+					* gc_zoom_factor_get())
 		    );
 
   w = gtk_vscrollbar_new (image_adj);
@@ -263,34 +269,6 @@ gc_selector_images_start (GcomprisBoard *gcomprisBoard, gchar *dataset,
       g_warning("dataset %s is a directory. Trying to read xml", dataseturl);
 
       read_dataset_directory(dataseturl);
-    }
-  else if(dataseturl)
-    {
-      /* Read the given data set file, local or net */
-      read_xml_file(dataseturl);
-    }
-  else
-    {
-      /* Network code for dataset directory */
-      GSList *filelist = NULL;
-      GSList *i = NULL;
-
-      g_free(dataseturl);
-      dataseturl = g_strconcat("boards/", dataset, NULL);
-
-      filelist = gc_net_dir_read_name(dataseturl, ".xml");
-
-      for (i = filelist; i != NULL; i = g_slist_next (i))
-	{
-	  gchar *url = gc_file_find_absolute(i->data,
-					     NULL);
-	  g_warning("processing dataset=%s\n", (char *)i->data);
-	  read_xml_file(url);
-	  g_free(url);
-	}
-
-      g_slist_free(filelist);
-
     }
   g_free(dataseturl);
 
@@ -374,8 +352,8 @@ display_image(gchar *imagename, GooCanvasItem *root_item)
   if(!pixmap)
     return;
 
-  iw = IMAGE_WIDTH;
-  ih = IMAGE_HEIGHT;
+  iw = IMAGE_WIDTH * gc_zoom_factor_get();
+  ih = IMAGE_HEIGHT * gc_zoom_factor_get();
 
   /* Calc the max to resize width or height */
   xratio = (double) ((iw/(double)gdk_pixbuf_get_width(pixmap)));
@@ -396,15 +374,16 @@ display_image(gchar *imagename, GooCanvasItem *root_item)
 		   imagename);
   gc_item_focus_init(item, NULL);
 
-  ix += IMAGE_WIDTH + IMAGE_GAP;
-  if(ix >= DRAWING_AREA_X2 - DRAWING_AREA_X1 - IMAGE_GAP)
+  ix += iw + IMAGE_GAP;
+  if(ix >= (DRAWING_AREA_X2 - DRAWING_AREA_X1)
+     * gc_zoom_factor_get() - IMAGE_GAP)
     {
       ix = 0;
-      iy += IMAGE_HEIGHT + IMAGE_GAP;
+      iy += ih + IMAGE_GAP;
     }
 
   /* Cannot use GINT_TO_POINTER with a constant calculation */
-  guint iy_calc = iy + (IMAGE_HEIGHT + IMAGE_GAP)*2;
+  guint iy_calc = iy + (ih + IMAGE_GAP)*2;
   g_object_set_data (G_OBJECT (root_item), "iy", GINT_TO_POINTER (iy_calc));
 }
 
@@ -426,8 +405,8 @@ display_image_set(gchar *imagename, GSList *imagelist)
 
   pixmap = gc_pixmap_load(imagename);
 
-  iw = LIST_IMAGE_WIDTH;
-  ih = LIST_IMAGE_HEIGHT;
+  iw = LIST_IMAGE_WIDTH * gc_zoom_factor_get();
+  ih = LIST_IMAGE_HEIGHT * gc_zoom_factor_get();
 
   /* Calc the max to resize width or height */
   xratio = (double) ((iw/(double)gdk_pixbuf_get_width(pixmap)));
@@ -449,14 +428,16 @@ display_image_set(gchar *imagename, GSList *imagelist)
 		     imagename);
   gc_item_focus_init(item, NULL);
 
-  isy += LIST_IMAGE_HEIGHT + IMAGE_GAP;
+  isy += ih + IMAGE_GAP;
 
-  gdouble upper = MAX(isy + LIST_IMAGE_HEIGHT + IMAGE_GAP,
-		      LIST_AREA_Y2 - LIST_AREA_Y1);
+  gdouble upper = MAX(isy + ih + IMAGE_GAP,
+		      (LIST_AREA_Y2 - LIST_AREA_Y1)
+		      * gc_zoom_factor_get());
 
   goo_canvas_set_bounds (GOO_CANVAS(canvas_list_selector),
 			 0, 0,
-			 LIST_AREA_X2 - LIST_AREA_X1,
+			 (LIST_AREA_X2 - LIST_AREA_X1)
+			 * gc_zoom_factor_get(),
 			 upper);
 
   g_object_set(list_bg_item,
@@ -536,11 +517,13 @@ item_event_imageset_selector(GooCanvasItem *item, GdkEvent *event,
   /* Set the image scrollbar back to its max position */
   last_iy = GPOINTER_TO_INT (g_object_get_data (G_OBJECT (rootitem_set), "iy"));
   gdouble upper = MAX(last_iy,
-		      DRAWING_AREA_Y2 - DRAWING_AREA_Y1);
+		      (DRAWING_AREA_Y2 - DRAWING_AREA_Y1)
+		      * gc_zoom_factor_get());
 
   goo_canvas_set_bounds  (GOO_CANVAS(canvas_image_selector),
 			  0, 0,
-			  DRAWING_AREA_X2 - DRAWING_AREA_X1,
+			  (DRAWING_AREA_X2 - DRAWING_AREA_X1)
+			  * gc_zoom_factor_get(),
 			  upper);
 
   g_object_set(image_bg_item,
@@ -760,45 +743,6 @@ parse_doc(xmlDocPtr doc) {
   }
 
   return;
-}
-
-
-/* read an xml file into our memory structures and update our view,
- * dump any old data we have in memory if we can load a new set
- *
- * \param fname is an absolute file name
- *
- */
-static gboolean
-read_xml_file(gchar *fname)
-{
-  /* pointer to the new doc */
-  xmlDocPtr doc;
-
-  g_return_val_if_fail(fname!=NULL, FALSE);
-
-  doc = gc_net_load_xml(fname);
-
-  /* in case something went wrong */
-  if(!doc)
-    return FALSE;
-
-  if(/* if there is no root element */
-     !doc->children ||
-     /* if it doesn't have a name */
-     !doc->children->name ||
-     /* if it isn't the good node */
-     g_strcasecmp((gchar *)doc->children->name, "ImageSetRoot")!=0) {
-    xmlFreeDoc(doc);
-    return FALSE;
-  }
-
-  /* parse our document and replace old data */
-  parse_doc(doc);
-
-  xmlFreeDoc(doc);
-
-  return TRUE;
 }
 
 

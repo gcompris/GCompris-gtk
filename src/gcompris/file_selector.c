@@ -571,8 +571,6 @@ display_files(GooCanvasItem *root_item, gchar *rootdir)
   g_dir_close(dir);
   g_list_free(file_list);
 
-  /* Warning: we don't scale the internal canvas dynamicaly */
-  goo_canvas_set_scale (GOO_CANVAS(canvas), gc_zoom_factor_get());
 }
 
 /* Callback when a directory is selected */

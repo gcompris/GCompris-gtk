@@ -33,5 +33,6 @@ $gcompris -L $plugindir \
     -S $menudir/../../boards/skins \
     -M $menudir \
     --locale_dir=$path/locale \
+    --reread-menu \
     -l $section/$activity $*
 
