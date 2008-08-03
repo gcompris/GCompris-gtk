@@ -63,4 +63,10 @@ gchar		 *gc_file_find_absolute(const gchar *filename, ...);
 int               gc_util_create_rootdir (gchar *rootdir);
 
 void		 gc_activity_intro_play (GcomprisBoard *gcomprisBoard);
+void		 gc_util_button_text(GooCanvasItem *rootitem,
+				     guint x, guint y,
+				     char *button_file,
+				     char *text,
+				     GtkSignalFunc process,
+				     gpointer data);
 #endif

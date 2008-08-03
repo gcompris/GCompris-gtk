@@ -36,6 +36,7 @@ static void		 game_won(void);
 #define TEXT_COLOR		"white"
 
 static GooCanvasItem *boardRootItem = NULL;
+static GooCanvasItem *valueRootItem = NULL;
 static GooCanvasItem *speedRootItem = NULL;
 
 static double wind_speed;
@@ -132,7 +133,7 @@ static BoardPlugin menu_bp =
     end_board,
     is_our_board,
     key_press,
-    process_ok,
+    NULL,
     set_level,
     NULL,
     NULL,
@@ -288,6 +289,7 @@ static gint key_press(guint keyval, gchar *commit_str, gchar *preedit_str)
 		   "text", tmpstr,
 		   NULL);
       g_free(tmpstr);
+      process_ok();
     }
 
   return TRUE;
@@ -425,6 +427,7 @@ static GooCanvasItem *target_create_item(GooCanvasItem *parent)
   GooCanvasItem *item = NULL;
 
   boardRootItem = goo_canvas_group_new (parent, NULL);
+  valueRootItem = goo_canvas_group_new (boardRootItem, NULL);
   goo_canvas_item_translate(boardRootItem,
 			    TARGET_CENTER_X,
 			    TARGET_CENTER_Y);
@@ -450,7 +453,7 @@ static GooCanvasItem *target_create_item(GooCanvasItem *parent)
 	  /* Display the value for this target */
 	  tmpstr = g_strdup_printf("%d",
 				   targetDefinition[gcomprisBoard->level-1].target_width_value[i*2+1]);
-	  item = goo_canvas_text_new (boardRootItem,
+	  item = goo_canvas_text_new (valueRootItem,
 				      tmpstr,
 				      (double) 0,
 				      (double) targetDefinition[gcomprisBoard->level-1].target_width_value[i*2] - 10,
@@ -502,6 +505,12 @@ static void game_won()
   target_next_level();
 }
 
+static void bonus()
+{
+  gc_bonus_display(gamewon, GC_BONUS_SMILEY);
+  animate_id = 0;
+}
+
 static void process_ok()
 {
   guint answer_points = atoi(answer_string);
@@ -511,13 +520,7 @@ static void process_ok()
     if(answer_points == user_points)
       {
 	gamewon = TRUE;
-	target_destroy_all_items();
-	gc_bonus_display(gamewon, GC_BONUS_SMILEY);
-      }
-    else
-      {
-	gamewon = FALSE;
-	gc_bonus_display(gamewon, GC_BONUS_SMILEY);
+	animate_id = gtk_timeout_add (200, (GtkFunction) bonus, NULL);
       }
   }
 
@@ -534,7 +537,7 @@ static void request_score()
   double x_offset = 245;
   gchar *tmpstr;
 
-  gc_bar_set(GC_BAR_LEVEL|GC_BAR_OK);
+  gc_bar_set(GC_BAR_LEVEL);
   button_pixmap = gc_skin_pixmap_load("button_large2.png");
   goo_canvas_image_new (boardRootItem,
 			button_pixmap,
@@ -642,7 +645,8 @@ static void launch_dart(double item_x, double item_y)
 					"stroke-color", "white",
 					"line-width", (double)1,
 					NULL);
-
+  /* Make sure the target values stay on top */
+  goo_canvas_item_lower(animate_item, valueRootItem);
   animate_id = gtk_timeout_add (200, (GtkFunction) animate_items, NULL);
 
   if(--number_of_arrow == 0)

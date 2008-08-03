@@ -80,6 +80,7 @@ static void		 end_board (void);
 static gboolean		 is_our_board (GcomprisBoard *gcomprisBoard);
 static void		 set_level (guint level);
 static gint		 key_press(guint keyval, gchar *commit_str, gchar *preedit_str);
+static gboolean		 solution_found();
 static void		 process_ok(void);
 
 static GooCanvasItem	*algebra_create_item(GooCanvasItem *parent);
@@ -116,7 +117,7 @@ static BoardPlugin menu_bp =
    end_board,
    is_our_board,
    key_press,
-   process_ok,
+   NULL,
    set_level,
    NULL,
    NULL,
@@ -177,7 +178,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 			   BOARDWIDTH - 220,
 			   BOARDHEIGHT - 50,
 			   gcomprisBoard->number_of_sublevel);
-      gc_bar_set(GC_BAR_LEVEL|GC_BAR_OK);
+      gc_bar_set(GC_BAR_LEVEL);
 
       /* TRANSLATORS: Put here the mathematical operators '+-x/' for  your language. */
       operators=_("+-×÷");
@@ -352,6 +353,9 @@ static gint key_press(guint keyval, gchar *commit_str, gchar *preedit_str)
 	}
 
       set_focus_item(currentToBeFoundItem, TRUE);
+
+      if(solution_found())
+	game_won();
     }
   return TRUE;
 }
@@ -676,13 +680,36 @@ static void set_focus_item(ToBeFoundItem *toBeFoundItem, gboolean status)
     }
 }
 
+static gboolean solution_found()
+{
+  ToBeFoundItem *firstToBeFoundItem = currentToBeFoundItem;
+  ToBeFoundItem *toBeFoundItem;
+
+  /* Go to the leftmost digit */
+  while(firstToBeFoundItem->previous!=NULL)
+    firstToBeFoundItem = firstToBeFoundItem->previous;
+
+  toBeFoundItem = firstToBeFoundItem;
+
+  /* Check the numbers one by one */
+  while(firstToBeFoundItem != NULL)
+    {
+      if(firstToBeFoundItem->value != expected_result[firstToBeFoundItem->index])
+	return FALSE;
+
+      firstToBeFoundItem = firstToBeFoundItem->next;
+    }
+
+  return TRUE;
+}
+
 static void process_ok()
 {
   ToBeFoundItem *toBeFoundItem;
   ToBeFoundItem *hasfail=NULL;
 
   set_focus_item(currentToBeFoundItem, FALSE);
-  /* Go to the rightmost digit */
+  /* Go to the leftmost digit */
   while(currentToBeFoundItem->previous!=NULL)
     {
       currentToBeFoundItem=(ToBeFoundItem *)currentToBeFoundItem->previous;

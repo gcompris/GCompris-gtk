@@ -248,16 +248,15 @@ class AnimItem:
                 self.anchor.hide()
 
 
-    def create_item_event(self, item, target, event):
+    def create_item_event(self, item, target):
 
-        if (event.type == gtk.gdk.BUTTON_RELEASE
-            or event.type == gtk.gdk.BUTTON_PRESS):
-            self.refpoint = None
-            self.save_at_time(self.anim.timeline.get_time())
-            # By default, an object is displayed till the timeline end
-            self.set_visible_to_end(self.anim.timeline.get_time())
+        self.refpoint = None
+        self.save_at_time(self.anim.timeline.get_time())
+        # By default, an object is displayed till the timeline end
+        self.set_visible_to_end(self.anim.timeline.get_time())
 
-        elif (event.type == gtk.gdk.MOTION_NOTIFY
+    def create_item_drag_event(self, item, target, event):
+        if (event.type == gtk.gdk.MOTION_NOTIFY
             and event.state & gtk.gdk.BUTTON1_MASK):
 
             if not self.refpoint:
@@ -778,4 +777,73 @@ class AnimItemLine(AnimItem):
     def fill(self, fill, stroke):
         gcompris.sound.play_ogg("sounds/paint1.wav")
         self.item.set_properties(stroke_color_rgba = stroke)
+
+#
+# The Pixmap
+#
+class AnimItemPixmap(AnimItem):
+
+
+    def __init__(self, anim, x, y, pixbuf):
+        AnimItem.__init__(self, anim)
+        x, y = self.snap_to_grid(x, y)
+
+        self.item = \
+            goocanvas.Image(
+                parent = self.rootitem,
+                pixbuf = pixbuf,
+                x = x,
+                y = y)
+
+        self.item.set_data("AnimItem", self)
+        self.item.connect("button_press_event", anim.item_event)
+        self.item.connect("button_release_event", anim.item_event)
+        self.item.connect("motion_notify_event", anim.item_event)
+
+        self.sx = self.sy = 1.0
+
+    def set_bounds(self, p1, p2):
+        (x1, y1, x2, y2) = self.snap_obj_to_grid(p1, p2)
+        bounds = self.item.get_bounds()
+        self.item.set_properties(x = x1,
+                                 y = y1,
+                                 width = abs(x2-x1),
+                                 height = abs(y2-y1) )
+#        sx = (x2 - x1) / (bounds.x2 - bounds.x1)
+#        sy = (y2 - y1) / (bounds.y2 - bounds.y1)
+#        print "sx=%f sy=%f" %(self.sx * sx, self.sy * sy)
+#        self.item.scale(2.0, 2.0)
+
+
+    def get_x1y1(self):
+        x = self.item.get_property("x")
+        y = self.item.get_property("y")
+        return(x, y)
+
+    def get_x2y1(self):
+        x = self.item.get_property("x") + self.item.get_property("width")
+        y = self.item.get_property("y")
+        return(x, y)
+
+    def get_x2y2(self):
+        x = self.item.get_property("x") + self.item.get_property("width")
+        y = self.item.get_property("y") + self.item.get_property("height")
+        return(x, y)
+
+    def get_x1y2(self):
+        x = self.item.get_property("x")
+        y = self.item.get_property("y") + self.item.get_property("height")
+        return(x, y)
+
+    # Return the list of properties that have to be saved for
+    # this object
+    def get_properties(self):
+        return('x',
+               'y',
+               'width',
+               'height')
+
+    def fill(self, fill, stroke):
+        # Unsupported
+        pass
 

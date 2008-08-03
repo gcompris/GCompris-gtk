@@ -24,6 +24,9 @@
 #include <string.h>
 #include "money_widget.h"
 
+/* From money.c */
+void	 moneyactivity_process_ok(void);
+
 struct _Money_WidgetPrivate {
   GooCanvasItem	*rootItem;	/* The canvas to display our euros in             */
   double		 x1;		/* Coordinate of the widget                       */
@@ -369,6 +372,7 @@ item_event (GooCanvasItem  *item,
 	    money_widget_add(moneyItem->moneyWidget->priv->targetWidget,
 			     moneyItem->value);
 
+	  moneyactivity_process_ok();
 	  break;
 	default:
 	  break;

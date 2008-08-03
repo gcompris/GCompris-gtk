@@ -683,3 +683,56 @@ gc_activity_intro_play (GcomprisBoard *gcomprisBoard)
   gc_sound_play_ogg(str, NULL);
   g_free(str);
 }
+
+/** Display a button with the given text
+ *
+ * \param x the x coordinate of the button
+ * \param y the y coordinate of the button
+ * \param button_file the image file to use as the button
+ * \param text is the text to display in the button
+ * \param process is the callback function
+ * \param data is the user data passed to the callback function
+ *
+ * \return void
+ */
+void
+gc_util_button_text(GooCanvasItem *rootitem,
+		    guint x, guint y,
+		    char *button_file,
+		    char *text,
+		    GtkSignalFunc process,
+		    gpointer data)
+{
+  GdkPixbuf *pixmap;
+  GooCanvasItem *item;
+  GooCanvasItem *item_text;
+
+  /* The Button */
+  pixmap = gc_skin_pixmap_load(button_file);
+  item = goo_canvas_image_new (rootitem,
+			       pixmap,
+			       x,
+			       y,
+			       NULL);
+  gdk_pixbuf_unref(pixmap);
+  g_signal_connect(item,
+		   "button_press_event",
+		   (GtkSignalFunc) process, data);
+  gc_item_focus_init(item, NULL);
+
+  /* The Text */
+  item_text =
+    goo_canvas_text_new (rootitem,
+			 text,
+			 x + (double)gdk_pixbuf_get_width(pixmap)/2,
+			 y + 24,
+			 -1,
+			 GTK_ANCHOR_CENTER,
+			 "font", gc_skin_font_board_small,
+			 "fill_color_rgba", gc_skin_color_text_button,
+			 NULL);
+  g_signal_connect(item_text,
+		   "button_press_event",
+		   process, data);
+  gc_item_focus_init(item_text, item);
+}

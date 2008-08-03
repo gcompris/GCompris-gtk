@@ -117,7 +117,7 @@ static BoardPlugin menu_bp =
     end_board,
     is_our_board,
     NULL,
-    process_ok,
+    NULL,
     set_level,
     NULL,
     NULL,
@@ -162,7 +162,10 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       gcomprisBoard->maxlevel=6;
       gcomprisBoard->sublevel=1;
       gcomprisBoard->number_of_sublevel=1; /* Go to next level after this number of 'play' */
-      gc_bar_set(GC_BAR_OK|GC_BAR_LEVEL);
+      gc_bar_set(GC_BAR_LEVEL);
+
+      gc_set_background(goo_canvas_get_root_item(gcomprisBoard->canvas),
+			"superbrain/superbrain_background.jpg");
 
       superbrain_next_level();
 
@@ -225,9 +228,6 @@ static void superbrain_next_level()
   guint i;
   gboolean selected_color[MAX_COLORS];
 
-  gc_set_background(goo_canvas_get_root_item(gcomprisBoard->canvas),
-			  "superbrain/superbrain_background.jpg");
-
   gc_bar_set_level(gcomprisBoard);
 
   superbrain_destroy_all_items();
@@ -276,6 +276,13 @@ static void superbrain_next_level()
 
   boardLogoItem = goo_canvas_group_new (goo_canvas_get_root_item(gcomprisBoard->canvas),
 					NULL);
+
+  /* The OK Button */
+  gc_util_button_text(boardRootItem,
+		      270, 360,
+		      "button_large.png",
+		      _("OK"),
+		      (GtkSignalFunc) process_ok, NULL);
 
   /* The list of the pieces */
   for(i=0; i<number_of_color; i++)
@@ -413,6 +420,7 @@ static GooCanvasItem *superbrain_create_item(GooCanvasItem *parent)
 					 "stroke-color", "white",
 					 "line-width", (double)1,
 					 NULL);
+	  gc_item_focus_init(item, NULL);
 
 	  g_object_set (item, "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
 	  piece->listitem = g_list_append(piece->listitem, item);

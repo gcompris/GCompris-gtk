@@ -328,7 +328,8 @@ static void process_ok()
     }
 
   if(!animate_id) {
-    animate_id = gtk_timeout_add (animate_speed, (GtkFunction) animate_tux, NULL);
+    animate_id = gtk_timeout_add (animate_speed,
+				  (GtkFunction) animate_tux, NULL);
   }
 
 }

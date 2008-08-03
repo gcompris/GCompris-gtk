@@ -33,6 +33,7 @@ static gint	 key_press(guint keyval, gchar *commit_str, gchar *preedit_str);
 static void	 pause_board (gboolean pause);
 static void	 end_board (void);
 static void	 process_ok(void);
+static gboolean  solution_found();
 static gboolean	 is_our_board (GcomprisBoard *gcomprisBoard);
 static void	 set_level (guint level);
 static int	 gamewon;
@@ -118,7 +119,7 @@ static BoardPlugin menu_bp =
     end_board,
     is_our_board,
     key_press,
-    process_ok,
+    NULL,
     set_level,
     NULL,
     NULL,
@@ -167,7 +168,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       gcomprisBoard->maxlevel=9;
       gcomprisBoard->sublevel=1;
       gcomprisBoard->number_of_sublevel=1; /* Go to next level after this number of 'play' */
-      gc_bar_set(GC_BAR_LEVEL|GC_BAR_OK);
+      gc_bar_set(GC_BAR_LEVEL);
 
       gc_set_background(goo_canvas_get_root_item(gcomprisBoard->canvas),
 			      "enumerate/enumerate_background.png");
@@ -275,6 +276,12 @@ static gint key_press(guint keyval, gchar *commit_str, gchar *preedit_str)
 			     NULL);
 
       g_free(oldtext);
+
+      if(solution_found())
+	{
+	  gamewon = TRUE;
+	  gc_bonus_display(gamewon, GC_BONUS_SMILEY);
+	}
     }
 
   return TRUE;
@@ -523,6 +530,17 @@ item_event_focus (GooCanvasItem  *item,
     }
 
   return FALSE;
+}
+
+static gboolean solution_found()
+{
+  guint i;
+  for(i=0; i<number_of_item_type; i++)
+    {
+      if(answer[i] != answer_to_find[i])
+	return FALSE;
+    }
+  return TRUE;
 }
 
 static void process_ok()

@@ -132,7 +132,7 @@ static BoardPlugin menu_bp =
     end_board,
     is_our_board,
     NULL,
-    process_ok,
+    NULL,
     set_level,
     NULL,
     NULL,
@@ -176,7 +176,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 	gcomprisBoard->maxlevel = 9;
 	gcomprisBoard->sublevel = 1;
 	gcomprisBoard->number_of_sublevel = 1;	// Go to next level after this number of 'play'
-	gc_bar_set(GC_BAR_LEVEL|GC_BAR_OK);
+	gc_bar_set(GC_BAR_LEVEL);
 
 	if (strcmp(gcomprisBoard->mode, "minus") == 0)
 		board_mode = MODE_MINUS;
@@ -232,9 +232,8 @@ static void process_ok() {
   if (ok) {
 	gamewon = TRUE;
 	gc_sound_play_ogg ("sounds/bonus.wav", NULL);
+	gc_bonus_display(gamewon, GC_BONUS_FLOWER);
   }
-
-  gc_bonus_display(gamewon, GC_BONUS_FLOWER);
 
 }
 
@@ -664,6 +663,8 @@ static gboolean item_event (GooCanvasItem  *item,
       g_object_unref(pixmap);
     }
     gc_sound_play_ogg ("sounds/bleep.wav", NULL);
+
+    process_ok();
   }
 
   return FALSE;

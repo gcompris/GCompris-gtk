@@ -30,8 +30,8 @@
 
 #define SOUNDLISTFILE PACKAGE
 
-#define BAR_GAP		15	/* Value used to fill space above and under icons in the bar */
-#define NUMBER_OF_ITEMS 10	/* Number of buttons in the bar                              */
+#define BAR_GAP		10	/* Value used to fill space above and under icons in the bar */
+#define NUMBER_OF_ITEMS 5	/* Max Number of buttons in the bar                              */
 #define HIDE_BAR_TIMOUT 3000    /* The time before we hide the bar in ms */
 
 static void	 update_exit_button();
@@ -52,6 +52,8 @@ static void	 setup_item_signals (GooCanvasItem *item, gchar* name);
 static gboolean	 _bar_down(void *ignore);
 static void	 _bar_up(void);
 static void	 _force_bar_down(void);
+static void	 _force_bar_up(char *data);
+static gint	 bar_play_sound (gchar *sound);
 
 static gint current_level = -1;
 static gint current_flags = -1;
@@ -68,11 +70,16 @@ static GooCanvasItem *rootitem = NULL;
 
 static gint sound_play_id = 0;
 static gint bar_down_id = 0;
-static gboolean _hidden;
+static gboolean _hidden;     /* Dialog boxes request a bar hide */
+static gboolean _barup;      /* The state of the bar */
+static gboolean _click_mode; /* Need to click on the bar to
+				bring it up or just enter it */
+
 
 static void  confirm_quit(gboolean answer);
 
 /*
+
  * Main entry point
  * ----------------
  *
@@ -86,11 +93,13 @@ void gc_bar_start (GooCanvas *theCanvas)
 {
   GcomprisProperties *properties = gc_prop_get();
   GdkPixbuf   *pixmap = NULL;
-  gint16           width, height;
-  double           zoom;
+  gint16       width, height, startx;
+  gint16       buttony;
+  double       zoom;
 
-  width  = BOARDWIDTH;
+  width  = BOARDWIDTH/2;
   height = BARHEIGHT-2;
+  startx = width / 2;
 
   bar_reset_sound_id();
 
@@ -100,23 +109,24 @@ void gc_bar_start (GooCanvas *theCanvas)
   pixmap = gc_skin_pixmap_load("bar_bg.png");
   bar_item = goo_canvas_image_new (rootitem,
 				   pixmap,
-				   0,
+				   startx,
 				   0,
 				NULL);
   setup_item_signals(bar_item, "bar");
   gdk_pixbuf_unref(pixmap);
 
+  zoom = (double)(height-BAR_GAP)/(double)gdk_pixbuf_get_height(pixmap);
+  buttony = (height-gdk_pixbuf_get_height(pixmap)*zoom)/2;
+
   // EXIT
   if(properties->disable_quit == 0)
     {
       pixmap = gc_skin_pixmap_load("button_exit.png");
-      zoom = (double)(height-BAR_GAP)/(double)gdk_pixbuf_get_height(pixmap);
       exit_item = goo_canvas_image_new (rootitem,
 					pixmap,
-					(width/NUMBER_OF_ITEMS) * 1 -
-					 gdk_pixbuf_get_width(pixmap)/2,
-					(height-gdk_pixbuf_get_height(pixmap)*zoom)/2,
-					 NULL);
+					startx + (width/NUMBER_OF_ITEMS) * 0,
+					buttony,
+					NULL);
       gdk_pixbuf_unref(pixmap);
 
       setup_item_signals(exit_item, "quit");
@@ -127,9 +137,8 @@ void gc_bar_start (GooCanvas *theCanvas)
   zoom = (double)(height-BAR_GAP)/(double)gdk_pixbuf_get_height(pixmap);
   home_item = goo_canvas_image_new (rootitem,
 				    pixmap,
-				    (double) (width/NUMBER_OF_ITEMS) * 9 -
-				     gdk_pixbuf_get_width(pixmap)/2,
-				    (double) (height-gdk_pixbuf_get_height(pixmap)*zoom)/2,
+				    startx +  (width/NUMBER_OF_ITEMS) * 4,
+				    buttony,
 				     NULL);
   gdk_pixbuf_unref(pixmap);
 
@@ -141,10 +150,9 @@ void gc_bar_start (GooCanvas *theCanvas)
   zoom = (double)(height-BAR_GAP)/(double)gdk_pixbuf_get_height(pixmap);
   ok_item = goo_canvas_image_new (rootitem,
 				  pixmap,
-				  (double) (width/NUMBER_OF_ITEMS) * 7 -
-				   gdk_pixbuf_get_width(pixmap)/2,
-				  (double) (height-gdk_pixbuf_get_height(pixmap)*zoom)/2,
-				   NULL);
+				  startx + (width/NUMBER_OF_ITEMS) * 5,
+				  buttony,
+				  NULL);
   gdk_pixbuf_unref(pixmap);
 
   setup_item_signals(ok_item, "ok");
@@ -154,10 +162,9 @@ void gc_bar_start (GooCanvas *theCanvas)
   zoom = (double)(height-BAR_GAP)/(double)gdk_pixbuf_get_height(pixmap);
   level_item = goo_canvas_image_new (rootitem,
 				     pixmap,
-				     (double) (width/NUMBER_OF_ITEMS) * 5 -
-				      gdk_pixbuf_get_width(pixmap)/2,
-				     (double) (height-gdk_pixbuf_get_height(pixmap)*zoom)/2,
-				      NULL);
+				     startx + (width/NUMBER_OF_ITEMS) * 3,
+				     buttony,
+				     NULL);
   gdk_pixbuf_unref(pixmap);
 
   current_level = 1;
@@ -169,9 +176,8 @@ void gc_bar_start (GooCanvas *theCanvas)
   zoom = (double)(height-BAR_GAP)/(double)gdk_pixbuf_get_height(pixmap);
   repeat_item = goo_canvas_image_new (rootitem,
 				      pixmap,
-				      (double) (width/NUMBER_OF_ITEMS) * 6 -
-				       gdk_pixbuf_get_width(pixmap)/2,
-				      (double) (height-gdk_pixbuf_get_height(pixmap)*zoom)/2,
+				      startx + (width/NUMBER_OF_ITEMS) * 0,
+				      buttony,
 				       NULL);
   gdk_pixbuf_unref(pixmap);
 
@@ -183,10 +189,9 @@ void gc_bar_start (GooCanvas *theCanvas)
   zoom = (double)(height-BAR_GAP)/(double)gdk_pixbuf_get_height(pixmap);
   help_item = goo_canvas_image_new (rootitem,
 				    pixmap,
-				    (double) (width/NUMBER_OF_ITEMS) * 4 -
-				     gdk_pixbuf_get_width(pixmap)/2,
-				    (double) (height-gdk_pixbuf_get_height(pixmap)*zoom)/2,
-				     NULL);
+				    startx + (width/NUMBER_OF_ITEMS) * 1,
+				    buttony,
+				    NULL);
   gdk_pixbuf_unref(pixmap);
 
   setup_item_signals(help_item, "help");
@@ -198,10 +203,9 @@ void gc_bar_start (GooCanvas *theCanvas)
       zoom = (double)(height-BAR_GAP)/(double)gdk_pixbuf_get_height(pixmap);
       config_item = goo_canvas_image_new (rootitem,
 					  pixmap,
-					  (double) (width/NUMBER_OF_ITEMS) * 3 -
-					   gdk_pixbuf_get_width(pixmap)/2,
-					  (double) (height-gdk_pixbuf_get_height(pixmap)*zoom)/2,
-					   NULL);
+					  startx + (width/NUMBER_OF_ITEMS) * 2,
+					  buttony,
+					  NULL);
       gdk_pixbuf_unref(pixmap);
 
       setup_item_signals(config_item, "configuration");
@@ -212,9 +216,8 @@ void gc_bar_start (GooCanvas *theCanvas)
   zoom = (double)(height-BAR_GAP)/(double)gdk_pixbuf_get_height(pixmap);
   about_item = goo_canvas_image_new (rootitem,
 				     pixmap,
-				     (double) (width/NUMBER_OF_ITEMS) * 2 -
-				     gdk_pixbuf_get_width(pixmap)/2,
-				     (double) (height-gdk_pixbuf_get_height(pixmap)*zoom)/2,
+				     startx + (width/NUMBER_OF_ITEMS) * 3,
+				     buttony,
 				     NULL);
   gdk_pixbuf_unref(pixmap);
 
@@ -242,6 +245,8 @@ void gc_bar_start (GooCanvas *theCanvas)
 		NULL);
 
   _hidden = FALSE;
+  _click_mode = TRUE;
+  _barup = TRUE;
   _force_bar_down();
 }
 
@@ -390,15 +395,16 @@ gc_bar_set (const GComprisBarFlags flags)
   else
     g_object_set(about_item,
 		 "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
-
-  /* FIXME : Workaround for bugged canvas */
-  //  goo_canvas_update_now(gc_board_get_current()->canvas);
-
 }
 
 static gboolean
 _bar_down(void *ignore)
 {
+  if(_barup == FALSE)
+    return TRUE;
+
+  _barup = FALSE;
+
   bar_down_id = 0;
   goo_canvas_item_animate(rootitem,
 			  0,
@@ -416,6 +422,11 @@ _bar_down(void *ignore)
 static void
 _force_bar_down(void)
 {
+  if(_barup == FALSE)
+    return;
+
+  _barup = FALSE;
+
   if(bar_down_id)
     g_source_remove (bar_down_id);
 
@@ -433,9 +444,26 @@ _force_bar_down(void)
 			  GOO_CANVAS_ANIMATE_FREEZE);
 }
 
+static void _force_bar_up(char *data)
+{
+  bar_reset_sound_id();
+  sound_play_id = g_timeout_add (1000, (GtkFunction) bar_play_sound, data);
+  _bar_up();
+
+  if(bar_down_id)
+    g_source_remove (bar_down_id);
+
+  bar_down_id=0;
+}
+
 static void
 _bar_up(void)
 {
+  if(_barup == TRUE)
+    return;
+
+  _barup = TRUE;
+
   goo_canvas_item_raise(rootitem, NULL);
   goo_canvas_item_animate(rootitem,
 			  0,
@@ -449,7 +477,7 @@ _bar_up(void)
 }
 
 /* Hide all icons in the control bar
- * or retore the icons to the previous value
+ * or restore the icons to the previous value
  */
 void
 gc_bar_hide (gboolean hide)
@@ -557,17 +585,10 @@ on_enter_notify (GooCanvasItem  *item,
 		 GdkEventCrossing *event,
 		 char *data)
 {
-  if(_hidden)
+  if(_hidden || _click_mode)
     return FALSE;
 
-  bar_reset_sound_id();
-  sound_play_id = g_timeout_add (1000, (GtkFunction) bar_play_sound, data);
-  _bar_up();
-
-  if(bar_down_id)
-    g_source_remove (bar_down_id);
-
-  bar_down_id=0;
+  _force_bar_up(data);
 
   return FALSE;
 }
@@ -597,6 +618,9 @@ item_event_bar (GooCanvasItem  *item,
 
   if(_hidden)
     return(FALSE);
+
+  if(!_barup)
+    _force_bar_up(data);
 
   bar_reset_sound_id();
   gc_sound_play_ogg ("sounds/bleep.wav", NULL);
@@ -697,7 +721,7 @@ item_event_bar (GooCanvasItem  *item,
     }
   else if(!strcmp((char *)data, "bar"))
     {
-      _force_bar_down();
+      _force_bar_up(data);
     }
 
   return TRUE;

@@ -29,7 +29,6 @@ static void	 pause_board (gboolean pause);
 static void	 end_board (void);
 static gboolean	 is_our_board (GcomprisBoard *gcomprisBoard);
 static void	 set_level (guint level);
-static void	 process_ok(void);
 static int	 gamewon;
 static void	 game_won(void);
 
@@ -41,7 +40,7 @@ static void	 money_next_level(void);
 Money_Widget    *tux_money    = NULL;
 Money_Widget    *seller_money = NULL;
 
-static double	 price_target = 0;
+static float	 price_target = 0;
 
 typedef struct {
   char *image;
@@ -91,7 +90,7 @@ static BoardPlugin menu_bp =
     end_board,
     is_our_board,
     NULL,
-    process_ok,
+    NULL,
     set_level,
     NULL,
     NULL,
@@ -135,7 +134,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       gcomprisBoard->level=1;
       gcomprisBoard->sublevel=1;
       gcomprisBoard->number_of_sublevel=10; /* Go to next level after this number of 'play' */
-      gc_bar_set(GC_BAR_LEVEL|GC_BAR_OK);
+      gc_bar_set(GC_BAR_LEVEL);
 
       /* Default mode */
       if(!gcomprisBoard->mode)
@@ -562,20 +561,15 @@ static void game_won()
 }
 
 /* ==================================== */
-static void process_ok()
+void moneyactivity_process_ok()
 {
 
   if(board_paused)
     /*return FALSE*/;
 
-  /* FIXME: Why do I need this trick !! */
-  if(price_target >= money_widget_get_total(seller_money) - 0.001 &&
-     price_target <= money_widget_get_total(seller_money) + 0.001 )
+  if(price_target == money_widget_get_total(seller_money))
     {
       gamewon = TRUE;
-      money_destroy_all_items();
       gc_bonus_display(gamewon, GC_BONUS_SMILEY);
     }
-  else
-    gc_bonus_display(gamewon, GC_BONUS_SMILEY);
 }

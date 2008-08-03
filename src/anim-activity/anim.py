@@ -194,7 +194,7 @@ class Gcompris_anim:
     self.gcomprisBoard.sublevel=0
     self.gcomprisBoard.number_of_sublevel=0
 
-    gcompris.bar_set(0)
+    gcompris.bar_set(255)
     gcompris.set_background(self.gcomprisBoard.canvas.get_root_item(),
                             gcompris.skin.image_to_skin("gcompris-bg.jpg"))
 
@@ -717,8 +717,7 @@ class Gcompris_anim:
 
         if self.created_object:
           self.created_object.create_item_event(item,
-                                                target,
-                                                event)
+                                                target)
 
           # We keep all object in a unique list
           self.animlist.append(self.created_object)
@@ -729,9 +728,9 @@ class Gcompris_anim:
     elif (event.type == gtk.gdk.MOTION_NOTIFY
           and event.state & gtk.gdk.BUTTON1_MASK
           and self.created_object):
-        self.created_object.create_item_event(item,
-                                              target,
-                                              event)
+        self.created_object.create_item_drag_event(item,
+                                                   target,
+                                                   event)
 
     elif (event.type == gtk.gdk.MOTION_NOTIFY
           and event.state & gtk.gdk.BUTTON1_MASK
@@ -746,9 +745,9 @@ class Gcompris_anim:
     # ---------------
     elif (event.type == gtk.gdk.BUTTON_RELEASE):
       if self.created_object:
-        self.created_object.create_item_event(item,
-                                              target,
-                                              event)
+        self.created_object.create_item_drag_event(item,
+                                                   target,
+                                                   event)
         self.created_object = None
         return True
       else:
@@ -837,5 +836,18 @@ def general_restore(filename, filetype):
 def image_selected(image):
   #fles is used because self is not passed through callback
   global fles
-  print "image selected"
+  print "image selected %s" %(image,)
   pixmap = gcompris.utils.load_pixmap(image)
+
+  # Always display the image at the center of the drawing area
+  cx = (fles.drawing_area[2] - fles.drawing_area[0]) / 2
+  cy = (fles.drawing_area[3] - fles.drawing_area[1]) / 2
+
+  fles.created_object = AnimItemPixmap(fles, cx, cy, pixmap)
+
+  if fles.created_object:
+    fles.created_object.create_item_event(fles.root_drawingitem,
+                                          fles.root_drawingitem)
+
+  # We keep all object in a unique list
+  fles.animlist.append(fles.created_object)
