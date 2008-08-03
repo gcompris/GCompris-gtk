@@ -567,6 +567,7 @@ void moneyactivity_process_ok()
   if(board_paused)
     /*return FALSE*/;
 
+  printf("%f %f\n", price_target, money_widget_get_total(seller_money));
   if(price_target == money_widget_get_total(seller_money))
     {
       gamewon = TRUE;

@@ -36,7 +36,7 @@ struct _Money_WidgetPrivate {
   guint			 columns;	/* Number of columns				  */
   guint			 lines;		/* Number of lines				  */
   guint			 next_spot;	/* Next spot to display a money item		  */
-  double		 total;		/* The number of euro in this pocket              */
+  float			 total;		/* The number of euro in this pocket              */
   Money_Widget		*targetWidget;	/* Target money widget to add when remove here	  */
   gboolean		 display_total;	/* Display or not the total of this pocket        */
 
@@ -149,7 +149,8 @@ class_init (Money_WidgetClass *class)
 static void
 init (Money_Widget *pos)
 {
-	pos->priv = g_new0 (Money_WidgetPrivate, 1);
+  pos->priv = g_new0 (Money_WidgetPrivate, 1);
+  pos->priv->total = 0;
 
 }
 
@@ -341,7 +342,7 @@ money_widget_remove(Money_Widget *moneyWidget, MoneyEuroType value)
   money_display_total(moneyWidget);
 }
 
-double
+float
 money_widget_get_total (Money_Widget *moneyWidget)
 {
   if(moneyWidget == NULL)

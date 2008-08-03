@@ -41,7 +41,7 @@ class Gcompris_pythontemplate:
     print "template start"
 
     # Set the buttons we want in the bar
-    gcompris.bar_set(gcompris.BAR_OK|gcompris.BAR_LEVEL)
+    gcompris.bar_set(gcompris.BAR_OK)
 
     # Set a background image
     gcompris.set_background(self.gcomprisBoard.canvas.get_root_item(),

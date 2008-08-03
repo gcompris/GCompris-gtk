@@ -85,7 +85,7 @@ void           money_widget_add		        (Money_Widget *moneyWidget, MoneyEuroTy
 void           money_widget_remove	        (Money_Widget *moneyWidget, MoneyEuroType value);
 
 /* Misc. accessors */
-double         money_widget_get_total           (Money_Widget *moneyWidget);
+float          money_widget_get_total           (Money_Widget *moneyWidget);
 
 #ifdef __cplusplus
 }
