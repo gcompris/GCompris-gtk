@@ -491,33 +491,14 @@ gc_bar_hide (gboolean hide)
 
   if(hide)
     {
-      if(exit_item)
-	g_object_set(exit_item,
-		     "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
-      g_object_set(home_item,
+      g_object_set(rootitem,
 		   "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
-      g_object_set(level_item,
-		   "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
-      g_object_set(ok_item,
-		   "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
-      g_object_set(help_item,
-		   "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
-      g_object_set(repeat_item,
-		   "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
-      if(config_item)
-	g_object_set(config_item,
-		     "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
-      g_object_set(about_item,
-		   "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
-
-      _force_bar_down();
+      //      _force_bar_down();
     }
   else
     {
-      g_object_set(home_item,
+      g_object_set(rootitem,
 		   "visibility", GOO_CANVAS_ITEM_VISIBLE, NULL);
-      gc_bar_set(current_flags);
-
     }
 
 }

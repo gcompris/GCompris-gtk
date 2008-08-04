@@ -150,7 +150,7 @@ static BoardPlugin menu_bp =
     end_board,
     is_our_board,
     key_press,
-    process_ok,
+    NULL,
     set_level,
     NULL,
     NULL,
@@ -202,7 +202,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       gcomprisBoard->maxlevel=7;
       gcomprisBoard->sublevel=1;
       gcomprisBoard->number_of_sublevel=1; /* Go to next level after this number of 'play' */
-      gc_bar_set(GC_BAR_LEVEL|GC_BAR_OK);
+      gc_bar_set(GC_BAR_LEVEL);
 
       reversecount_next_level();
 
@@ -439,14 +439,14 @@ static GooCanvasItem *reversecount_create_item(GooCanvasItem *parent)
 
 
   block_width =  BOARDWIDTH/number_of_item_x;
-  block_height = BOARDHEIGHT/number_of_item_y;
+  block_height = (BOARDHEIGHT-BARHEIGHT/2)/number_of_item_y;
 
   /* Timer is not requested */
-  if(properties->timer>0)
+  if(properties->timer > 0)
     {
       errors = number_of_dices + 4 - (MIN(properties->timer, 4));
       create_clock(BOARDWIDTH - block_width - 100,
-		   BOARDHEIGHT - block_height - 100,
+		   BOARDHEIGHT - block_height - 100 - BARHEIGHT/2,
 		   errors) ;
     }
   else
@@ -454,6 +454,7 @@ static GooCanvasItem *reversecount_create_item(GooCanvasItem *parent)
       errors = -1;
     }
 
+  // Ice blocks
   svg_handle = gc_rsvg_load("reversecount/iceblock.svgz");
   RsvgDimensionData rsvg_dimension;
   rsvg_handle_get_dimensions (svg_handle, &rsvg_dimension);
@@ -468,13 +469,14 @@ static GooCanvasItem *reversecount_create_item(GooCanvasItem *parent)
       goo_canvas_item_translate(item, i, j);
       goo_canvas_item_scale(item, xratio, yratio);
 
-      j=BOARDHEIGHT-block_height;
+      j=BOARDHEIGHT-BARHEIGHT/2-block_height;
       item = goo_svg_item_new (boardRootItem, svg_handle, NULL);
       goo_canvas_item_translate(item, i, j);
       goo_canvas_item_scale(item, xratio, yratio);
     }
 
-  for(j=block_height; j<=BOARDHEIGHT-(block_height*2); j+=block_height)
+  for(j = block_height; j<=BOARDHEIGHT - (block_height*2) - BARHEIGHT/2;
+      j += block_height)
     {
       i = 0;
       item = goo_svg_item_new (boardRootItem, svg_handle, NULL);
@@ -535,6 +537,21 @@ static GooCanvasItem *reversecount_create_item(GooCanvasItem *parent)
     }
   g_object_unref(svg_handle);
 
+  // OK Button (Validation)
+  GdkPixbuf   *pixmap = NULL;
+  pixmap = gc_skin_pixmap_load("ok.png");
+  item = goo_canvas_image_new (boardRootItem,
+			       pixmap,
+			       dice_area_x -
+			       gdk_pixbuf_get_width(pixmap) - 15,
+			       block_height + 20,
+			       NULL);
+  g_signal_connect(item, "button_press_event",
+		   (GtkSignalFunc) process_ok, NULL);
+  gc_item_focus_init(item, NULL);
+  gdk_pixbuf_unref(pixmap);
+
+  // Tux
   tuxRootItem = goo_canvas_group_new (boardRootItem, NULL);
 
   svg_handle = gc_rsvg_load("reversecount/tux_top_south.svgz");
@@ -592,7 +609,7 @@ display_item_at(gchar *imagename, int block)
   int i,j;
 
   block_width  = BOARDWIDTH/number_of_item_x;
-  block_height = BOARDHEIGHT/number_of_item_y;
+  block_height = (BOARDHEIGHT-BARHEIGHT/2)/number_of_item_y;
 
   if(block < number_of_item_x)
     {
@@ -663,7 +680,7 @@ move_item_at(GooCanvasItem *item, int block, double ratio)
   GooCanvasBounds bounds;
 
   block_width  = BOARDWIDTH/number_of_item_x;
-  block_height = BOARDHEIGHT/number_of_item_y;
+  block_height = (BOARDHEIGHT-BARHEIGHT/2)/number_of_item_y;
 
   if(block < number_of_item_x)
     {
