@@ -575,7 +575,6 @@ static gint bar_play_sound (gchar *sound)
 
 static void bar_reset_sound_id ()
 {
-  printf("bar_reset_sound_id\n");
   if(sound_play_id)
     g_source_remove (sound_play_id);
 

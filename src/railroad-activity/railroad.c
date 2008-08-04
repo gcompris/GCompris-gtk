@@ -34,6 +34,7 @@ static void		 game_won(void);
 static void		 repeat(void);
 static void		 animate_model(void);
 static gboolean		 animate_step(void);
+static void		 stop_animation();
 
 #define ENGINES 9
 #define WAGONS 13
@@ -105,7 +106,7 @@ static BoardPlugin menu_bp =
     end_board,
     is_our_board,
     NULL,
-    process_ok,
+    NULL,
     set_level,
     NULL,
     repeat,
@@ -182,9 +183,9 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       if(pixmap) {
 	gc_bar_set_repeat_icon(pixmap);
 	gdk_pixbuf_unref(pixmap);
-	gc_bar_set(GC_BAR_LEVEL|GC_BAR_OK|GC_BAR_REPEAT_ICON);
+	gc_bar_set(GC_BAR_LEVEL|GC_BAR_REPEAT_ICON);
       } else {
-	gc_bar_set(GC_BAR_LEVEL|GC_BAR_OK|GC_BAR_REPEAT);
+	gc_bar_set(GC_BAR_LEVEL|GC_BAR_REPEAT);
       }
 
       railroad_next_level();
@@ -350,11 +351,14 @@ static GooCanvasItem *railroad_create_item(GooCanvasItem *boardRootItem)
     int_model_list = g_list_append(int_model_list, GINT_TO_POINTER(r+ENGINES));
     pixmap = g_list_nth_data(listPixmapWagons, r);
     g_assert(i >= 0 && i<MODEL_MAX_SIZE);
-    item_model[i] =goo_canvas_image_new (modelRootItem,
-					 pixmap,
-					 xOffset,
-					 yOffset - gdk_pixbuf_get_height(pixmap),
-					 NULL);
+    item_model[i] = goo_canvas_image_new (modelRootItem,
+					  pixmap,
+					  xOffset,
+					  yOffset - gdk_pixbuf_get_height(pixmap),
+					  NULL);
+    g_signal_connect(item_model[i],
+		     "button_press_event", (GtkSignalFunc) stop_animation,
+		     NULL);
     xOffset  += gdk_pixbuf_get_width(pixmap);
   }
 
@@ -370,6 +374,9 @@ static GooCanvasItem *railroad_create_item(GooCanvasItem *boardRootItem)
 						  yOffset  - gdk_pixbuf_get_height(pixmap),
 						  NULL);
 
+  g_signal_connect(item_model[model_size-1],
+		   "button_press_event", (GtkSignalFunc) stop_animation,
+		   NULL);
   animate_model();
 
   return NULL;
@@ -404,13 +411,14 @@ static void process_ok()
   else
     for (i=0; i<g_list_length(int_answer_list); i++) {
       if ( GPOINTER_TO_INT(g_list_nth_data(int_answer_list,i)) != GPOINTER_TO_INT(g_list_nth_data(int_model_list,i))) {
-	printf("pour i= %d --> différent\n", i);
+	//printf("pour i= %d --> différent\n", i);
 	gamewon = FALSE;
 	break;
       }
     }
 
-  gc_bonus_display(gamewon, GC_BONUS_FLOWER);
+  if(gamewon)
+    gc_bonus_display(gamewon, GC_BONUS_FLOWER);
 }
 /* ==================================== */
 static gint item_event(GooCanvasItem *item,
@@ -463,6 +471,7 @@ static gint item_event(GooCanvasItem *item,
       g_signal_connect(local_item,
 		       "button_press_event", (GtkSignalFunc) answer_event,
 		       GINT_TO_POINTER( g_list_length(item_answer_list)-1 ));
+      process_ok();
       break;
 
     default:
@@ -558,6 +567,21 @@ static void reposition_model() {
   }
 }
 
+static void stop_animation()
+{
+  if (timer_id) {
+    gtk_timeout_remove (timer_id);
+    timer_id = 0;
+  }
+  animation_pending = FALSE;
+  g_object_set (modelRootItem,
+		"visibility", GOO_CANVAS_ITEM_INVISIBLE,
+		NULL);
+
+  g_object_set (allwagonsRootItem, "visibility", GOO_CANVAS_ITEM_VISIBLE, NULL);
+  g_object_set (answerRootItem, "visibility", GOO_CANVAS_ITEM_VISIBLE, NULL);
+}
+
 /* ==================================== */
 static gboolean animate_step() {
   double step = 0;
@@ -578,17 +602,7 @@ static gboolean animate_step() {
     return TRUE;
 
   if (animation_count >= 160+MODEL_PAUSE) {
-    if (timer_id) {
-      gtk_timeout_remove (timer_id);
-      timer_id = 0;
-    }
-    animation_pending = FALSE;
-    g_object_set (modelRootItem,
-		  "visibility", GOO_CANVAS_ITEM_INVISIBLE,
-		  NULL);
-
-    g_object_set (allwagonsRootItem, "visibility", GOO_CANVAS_ITEM_VISIBLE, NULL);
-    g_object_set (answerRootItem, "visibility", GOO_CANVAS_ITEM_VISIBLE, NULL);
+    stop_animation();
     return FALSE;
   }
 
