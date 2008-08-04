@@ -50,9 +50,9 @@ static gboolean item_event_bar (GooCanvasItem  *item,
 static void	 bar_reset_sound_id (void);
 static void	 setup_item_signals (GooCanvasItem *item, gchar* name);
 static gboolean	 _bar_down(void *ignore);
-static void	 _bar_up(void);
+//static void	 _bar_up(void);
 static void	 _force_bar_down(void);
-static void	 _force_bar_up(char *data);
+//static void	 _force_bar_up(char *data);
 static gint	 bar_play_sound (gchar *sound);
 
 static gint current_level = -1;
@@ -116,7 +116,7 @@ void gc_bar_start (GooCanvas *theCanvas)
   gdk_pixbuf_unref(pixmap);
 
   zoom = (double)(height-BAR_GAP)/(double)gdk_pixbuf_get_height(pixmap);
-  buttony = (height-gdk_pixbuf_get_height(pixmap)*zoom)/2;
+  buttony = (height-gdk_pixbuf_get_height(pixmap)*zoom)/2 - 20;
 
   // EXIT
   if(properties->disable_quit == 0)
@@ -408,7 +408,7 @@ _bar_down(void *ignore)
   bar_down_id = 0;
   goo_canvas_item_animate(rootitem,
 			  0,
-			  BOARDHEIGHT - 20,
+			  BOARDHEIGHT - BARHEIGHT/2,
 			  1,
 			  0,
 			  TRUE,
@@ -435,7 +435,7 @@ _force_bar_down(void)
   /* Hide it faster than normal */
   goo_canvas_item_animate(rootitem,
 			  0,
-			  BOARDHEIGHT - 20,
+			  BOARDHEIGHT - BARHEIGHT/2,
 			  1,
 			  0,
 			  TRUE,
@@ -444,6 +444,7 @@ _force_bar_down(void)
 			  GOO_CANVAS_ANIMATE_FREEZE);
 }
 
+#if 0
 static void _force_bar_up(char *data)
 {
   bar_reset_sound_id();
@@ -475,6 +476,7 @@ _bar_up(void)
 			  80,
 			  GOO_CANVAS_ANIMATE_FREEZE);
 }
+#endif
 
 /* Hide all icons in the control bar
  * or restore the icons to the previous value
@@ -573,6 +575,7 @@ static gint bar_play_sound (gchar *sound)
 
 static void bar_reset_sound_id ()
 {
+  printf("bar_reset_sound_id\n");
   if(sound_play_id)
     g_source_remove (sound_play_id);
 
@@ -585,10 +588,12 @@ on_enter_notify (GooCanvasItem  *item,
 		 GdkEventCrossing *event,
 		 char *data)
 {
-  if(_hidden || _click_mode)
+  if(_hidden) // || _click_mode)
     return FALSE;
 
-  _force_bar_up(data);
+  sound_play_id = g_timeout_add (1000, (GtkFunction) bar_play_sound, data);
+
+  //  _force_bar_up(data);
 
   return FALSE;
 }
@@ -619,8 +624,8 @@ item_event_bar (GooCanvasItem  *item,
   if(_hidden)
     return(FALSE);
 
-  if(!_barup)
-    _force_bar_up(data);
+  //  if(!_barup)
+  //    _force_bar_up(data);
 
   bar_reset_sound_id();
   gc_sound_play_ogg ("sounds/bleep.wav", NULL);
@@ -721,7 +726,7 @@ item_event_bar (GooCanvasItem  *item,
     }
   else if(!strcmp((char *)data, "bar"))
     {
-      _force_bar_up(data);
+      //      _force_bar_up(data);
     }
 
   return TRUE;
