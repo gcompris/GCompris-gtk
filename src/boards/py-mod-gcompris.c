@@ -1556,7 +1556,6 @@ void python_gcompris_module_init(void)
 
   /* The GComprisBarFlags enum constants */
   PyModule_AddIntConstant(gcomprisModule, "BAR_LEVEL",       GC_BAR_LEVEL);
-  PyModule_AddIntConstant(gcomprisModule, "BAR_OK",          GC_BAR_OK);
   PyModule_AddIntConstant(gcomprisModule, "BAR_REPEAT",      GC_BAR_REPEAT);
   PyModule_AddIntConstant(gcomprisModule, "BAR_REPEAT_ICON", GC_BAR_REPEAT_ICON);
   PyModule_AddIntConstant(gcomprisModule, "BAR_CONFIG",      GC_BAR_CONFIG);

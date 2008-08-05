@@ -78,9 +78,9 @@ class Gcompris_bargame:
     pixmap = gcompris.utils.load_pixmap(gcompris.skin.image_to_skin("button_reload.png"))
     if(pixmap):
       gcompris.bar_set_repeat_icon(pixmap)
-      gcompris.bar_set(gcompris.BAR_LEVEL|gcompris.BAR_OK|gcompris.BAR_REPEAT_ICON)
+      gcompris.bar_set(gcompris.BAR_LEVEL|gcompris.BAR_REPEAT_ICON)
     else:
-      gcompris.bar_set(gcompris.BAR_LEVEL|gcompris.BAR_OK|gcompris.BAR_REPEAT)
+      gcompris.bar_set(gcompris.BAR_LEVEL|gcompris.BAR_REPEAT)
     gcompris.bar_set_level(self.gcomprisBoard)
 
     # Create persistent over levels root item canvas for the board
@@ -124,7 +124,6 @@ class Gcompris_bargame:
   def ok(self):
     self.answer.has_focus()
     self.play(self.answer.value,True)
-    pass
 
   def key_press(self, keyval, commit_str, preedit_str):
     return False
@@ -234,23 +233,33 @@ class Gcompris_bargame:
       self.holes.append(self.hole(self,
                                   self.rootitem,
                                   i * width_ref * scale,
-                                  gcompris.BOARD_HEIGHT - 120, i,
+                                  gcompris.BOARD_HEIGHT - 140, i,
                                   self.board_size[self.gcomprisBoard.sublevel-1],
                                   scale))
 
     for i in range(self.number_balls[self.gcomprisBoard.sublevel-1][1]):
       self.balls.append(self.ball(self.rootitem,
                                   i * width_ref * scale + 150,
-                                  gcompris.BOARD_HEIGHT - 160,
+                                  gcompris.BOARD_HEIGHT - 180,
                                   scale,
                                   self.pixmap_blue_ball))
       self.balls.append(self.ball(self.rootitem,
                                   i * width_ref * scale +150,
-                                  gcompris.BOARD_HEIGHT-70,
+                                  gcompris.BOARD_HEIGHT-90,
                                   scale,
                                   self.pixmap_green_ball))
 
     self.answer.set_number_of_balls(self.number_balls[self.gcomprisBoard.sublevel-1])
+
+    # The OK Button
+    pixmap = gcompris.utils.load_pixmap(gcompris.skin.image_to_skin("ok.png"))
+    item = goocanvas.Image(parent = self.rootitem,
+                           pixbuf = pixmap,
+                           x = gcompris.BOARD_WIDTH - pixmap.get_width() - 10,
+                           y = gcompris.BOARD_HEIGHT - 210
+                           )
+    item.connect("button_press_event", self.ok_event)
+    gcompris.utils.item_focus_init(item, None)
 
 
   def play(self, value, human):
@@ -400,9 +409,9 @@ class Gcompris_bargame:
       answer_bounds = self.background.get_bounds()
       gcompris.utils.item_focus_init(self.background, None)
 
-      self.itemgroup.translate(gcompris.BOARD_WIDTH - 200,
+      self.itemgroup.translate(gcompris.BOARD_WIDTH - 180,
                                gcompris.BOARD_HEIGHT - answer_bounds.y2 \
-                                 - answer_bounds.y1 - 5)
+                                 - answer_bounds.y1 - 10)
 
       self.background_focused = goocanvas.Image(
         parent = self.itemgroup,
@@ -477,7 +486,7 @@ class Gcompris_bargame:
 
       self.prof_item = goocanvas.Image(
         parent = root,
-        y = 230
+        y = 210
         )
 
 
@@ -502,3 +511,5 @@ class Gcompris_bargame:
 
       return False
 
+  def ok_event(self, widget, target, event=None):
+    self.ok()

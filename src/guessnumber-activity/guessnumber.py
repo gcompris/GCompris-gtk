@@ -83,7 +83,7 @@ class Gcompris_guessnumber:
     self.gcomprisBoard.sublevel=1
     self.gcomprisBoard.number_of_sublevel=1
 
-    gcompris.bar_set(gcompris.BAR_OK|gcompris.BAR_LEVEL)
+    gcompris.bar_set(gcompris.BAR_LEVEL)
 
     gcompris.bar_set_level(self.gcomprisBoard)
 
@@ -101,7 +101,7 @@ class Gcompris_guessnumber:
     self.cleanup_game()
 
   def ok(self):
-    print("Gcompris_guessnumber ok.")
+    pass
 
 
   def repeat(self):
@@ -217,7 +217,7 @@ class Gcompris_guessnumber:
         fill_color_rgba=0xff0006ffL,
         )
 
-      self.entry_text()
+      text_item = self.entry_text()
 
       #
       # Display the helico
@@ -234,6 +234,16 @@ class Gcompris_guessnumber:
         x = self.x,
         y = self.y,
         )
+
+      # The OK Button
+      pixmap = gcompris.utils.load_pixmap(gcompris.skin.image_to_skin("ok.png"))
+      item = goocanvas.Image(parent = self.rootitem,
+                             pixbuf = pixmap,
+                             x = gcompris.BOARD_WIDTH - pixmap.get_width() - 30,
+                             y = 65
+                             )
+      item.connect("button_press_event", self.ok_event, text_item)
+      gcompris.utils.item_focus_init(item, None)
 
   def entry_text(self):
     self.entry = gtk.Entry()
@@ -265,6 +275,8 @@ class Gcompris_guessnumber:
 
     #self.widget.grab_focus()
     #self.entry.grab_focus()
+
+    return self.entry
 
   def enter_char_callback(self, widget):
       text = widget.get_text()
@@ -358,3 +370,6 @@ class Gcompris_guessnumber:
 
     # it takes self.num_moveticks iterations of duration self.move_tick to move squares
     self.movestep_timer = gobject.timeout_add(self.move_tick, self.move_step)
+
+  def ok_event(self, widget, target, event, data):
+    self.enter_callback(data)

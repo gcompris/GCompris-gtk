@@ -133,10 +133,20 @@ class Gcompris_searace:
     pixmap = gcompris.utils.load_pixmap(gcompris.skin.image_to_skin("button_reload.png"))
     if(pixmap):
       gcompris.bar_set_repeat_icon(pixmap)
-      gcompris.bar_set(gcompris.BAR_OK|gcompris.BAR_LEVEL|gcompris.BAR_REPEAT_ICON)
+      gcompris.bar_set(gcompris.BAR_LEVEL|gcompris.BAR_REPEAT_ICON)
     else:
-      gcompris.bar_set(gcompris.BAR_OK|gcompris.BAR_LEVEL|gcompris.BAR_REPEAT);
+      gcompris.bar_set(gcompris.BAR_LEVEL|gcompris.BAR_REPEAT);
 
+
+    # The OK Button
+    pixmap = gcompris.utils.load_pixmap(gcompris.skin.image_to_skin("ok.png"))
+    item = goocanvas.Image(parent = self.rootitem,
+                           pixbuf = pixmap,
+                           x = gcompris.BOARD_WIDTH - pixmap.get_width() - 20,
+                           y = gcompris.BOARD_HEIGHT - pixmap.get_height() - 5
+                           )
+    item.connect("button_press_event", self.ok_event)
+    gcompris.utils.item_focus_init(item, None)
 
     gcompris.bar_set_level(self.gcomprisBoard)
 
@@ -395,7 +405,7 @@ class Gcompris_searace:
     self.left_boat.sw.set_shadow_type(gtk.SHADOW_ETCHED_OUT)
 
     w = 250.0
-    h = 90.0
+    h = 100.0
     y = 350.0 # The upper limit of the text boxes
     x_left  = gcompris.BOARD_WIDTH/4 - 30
     x_right = (gcompris.BOARD_WIDTH/4)*3 + 30
@@ -1005,3 +1015,5 @@ class Gcompris_searace:
         return True
     return False
 
+  def ok_event(self, widget, target, event=None):
+    self.ok()

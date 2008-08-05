@@ -91,12 +91,11 @@ void		 gc_bar_set_repeat_icon (GdkPixbuf *pixmap);
 typedef enum
 {
   GC_BAR_LEVEL	   = 1 << 0,
-  GC_BAR_OK	   = 1 << 1,
-  GC_BAR_REPEAT	   = 1 << 2,
-  GC_BAR_CONFIG	   = 1 << 3,
-  GC_BAR_ABOUT	   = 1 << 4,
-  GC_BAR_REPEAT_ICON = 1 << 5,
-  GC_BAR_QUIT	   = 1 << 6,
+  GC_BAR_REPEAT	   = 1 << 1,
+  GC_BAR_CONFIG	   = 1 << 2,
+  GC_BAR_ABOUT	   = 1 << 3,
+  GC_BAR_REPEAT_ICON = 1 << 4,
+  GC_BAR_QUIT	   = 1 << 5,
 } GComprisBarFlags;
 
 /* Difficulty filtering */

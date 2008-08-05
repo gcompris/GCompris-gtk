@@ -194,7 +194,7 @@ class Gcompris_anim:
     self.gcomprisBoard.sublevel=0
     self.gcomprisBoard.number_of_sublevel=0
 
-    gcompris.bar_set(255)
+    gcompris.bar_set(0)
     gcompris.set_background(self.gcomprisBoard.canvas.get_root_item(),
                             gcompris.skin.image_to_skin("gcompris-bg.jpg"))
 

@@ -61,7 +61,6 @@ static GooCanvasItem *bar_item  = NULL;
 static GooCanvasItem *exit_item = NULL;
 static GooCanvasItem *home_item = NULL;
 static GooCanvasItem *level_item = NULL;
-static GooCanvasItem *ok_item = NULL;
 static GooCanvasItem *help_item = NULL;
 static GooCanvasItem *repeat_item = NULL;
 static GooCanvasItem *config_item = NULL;
@@ -145,18 +144,6 @@ void gc_bar_start (GooCanvas *theCanvas)
   setup_item_signals(home_item, "back");
 
 
-  // OK
-  pixmap = gc_skin_pixmap_load("ok.png");
-  zoom = (double)(height-BAR_GAP)/(double)gdk_pixbuf_get_height(pixmap);
-  ok_item = goo_canvas_image_new (rootitem,
-				  pixmap,
-				  startx + (width/NUMBER_OF_ITEMS) * 5,
-				  buttony,
-				  NULL);
-  gdk_pixbuf_unref(pixmap);
-
-  setup_item_signals(ok_item, "ok");
-
   // LEVEL
   pixmap = gc_skin_pixmap_load("level1.png");
   zoom = (double)(height-BAR_GAP)/(double)gdk_pixbuf_get_height(pixmap);
@@ -226,9 +213,6 @@ void gc_bar_start (GooCanvas *theCanvas)
   // Show them all
   update_exit_button();
   g_object_set (level_item,
-		"visibility", GOO_CANVAS_ITEM_INVISIBLE,
-		NULL);
-  g_object_set (ok_item,
 		"visibility", GOO_CANVAS_ITEM_INVISIBLE,
 		NULL);
   g_object_set (repeat_item,
@@ -334,15 +318,6 @@ gc_bar_set (const GComprisBarFlags flags)
 		  NULL);
   else
     g_object_set (level_item,
-		  "visibility", GOO_CANVAS_ITEM_INVISIBLE,
-		  NULL);
-
-  if(flags&GC_BAR_OK)
-    g_object_set (ok_item,
-		  "visibility", GOO_CANVAS_ITEM_VISIBLE,
-		  NULL);
-  else
-    g_object_set (ok_item,
 		  "visibility", GOO_CANVAS_ITEM_INVISIBLE,
 		  NULL);
 

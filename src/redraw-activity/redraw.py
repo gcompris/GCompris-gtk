@@ -99,7 +99,7 @@ class Gcompris_redraw:
     self.gcomprisBoard.sublevel=1
     self.gcomprisBoard.number_of_sublevel=1
 
-    gcompris.bar_set(gcompris.BAR_OK|gcompris.BAR_LEVEL)
+    gcompris.bar_set(gcompris.BAR_LEVEL)
     gcompris.set_background(self.gcomprisBoard.canvas.get_root_item(),
                             gcompris.skin.image_to_skin("gcompris-bg.jpg"))
     gcompris.bar_set_level(self.gcomprisBoard)
@@ -376,6 +376,18 @@ class Gcompris_redraw:
     self.old_tool_item = item
     self.old_tool_item.props.pixbuf = gcompris.utils.load_pixmap(gcompris.skin.image_to_skin(self.tools[i][2]))
     gcompris.set_cursor(self.tools[i][3]);
+
+    # The OK Button
+    pixmap = gcompris.utils.load_pixmap(gcompris.skin.image_to_skin("ok.png"))
+    item = goocanvas.Image(parent = self.rootitem,
+                           pixbuf = pixmap,
+                           x = 20,
+                           y = gcompris.BOARD_HEIGHT - 100
+                           )
+    item.connect("button_press_event", self.ok_event)
+    gcompris.utils.item_focus_init(item, None)
+
+    gcompris.bar_set_level(self.gcomprisBoard)
 
 
   # Event when a tool is selected
@@ -1523,3 +1535,5 @@ class Gcompris_redraw:
     self.gcomprisBoard.number_of_sublevel=math.ceil(len(self.drawlist)/9.0)
     self.gcomprisBoard.maxlevel=min(9, math.ceil(float(len(self.drawlist))/self.gcomprisBoard.number_of_sublevel))
 
+  def ok_event(self, widget, target, event=None):
+    self.ok()
