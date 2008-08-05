@@ -364,8 +364,8 @@ static void clickgame_start (GcomprisBoard *agcomprisBoard)
   gcomprisBoard->maxlevel=6;
   gcomprisBoard->number_of_sublevel=10;
   gc_score_start(SCORESTYLE_NOTE,
-		 BOARDWIDTH - 220,
-		 BOARDHEIGHT - 50,
+		 BOARDWIDTH - 195,
+		 BOARDHEIGHT - 30,
 		 gcomprisBoard->number_of_sublevel);
   gc_bar_set(GC_BAR_LEVEL);
 

@@ -171,8 +171,8 @@ static void level_set_score() {
   gcomprisBoard->number_of_sublevel = (DEFAULT_SUBLEVEL>l?DEFAULT_SUBLEVEL:l);
 
   gc_score_start(SCORESTYLE_NOTE,
-		       BOARDWIDTH - 220,
-		       BOARDHEIGHT - 50,
+		       BOARDWIDTH - 195,
+		       BOARDHEIGHT - 30,
 		       gcomprisBoard->number_of_sublevel);
   gc_bar_set(GC_BAR_CONFIG|GC_BAR_LEVEL);
 }

@@ -426,8 +426,8 @@ static void wordsgame_next_level()
   gcomprisBoard->number_of_sublevel = 10 +
     ((gcomprisBoard->level-1) * 5);
   gc_score_start(SCORESTYLE_NOTE,
-		 BOARDWIDTH - 220,
-		 BOARDHEIGHT - 50,
+		 BOARDWIDTH - 195,
+		 BOARDHEIGHT - 30,
 		 gcomprisBoard->number_of_sublevel);
 
   gc_bar_set_level(gcomprisBoard);

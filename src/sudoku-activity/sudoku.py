@@ -520,10 +520,10 @@ class Gcompris_sudoku:
     if(self.sudo_region.has_key(self.sudo_size)):
       region = self.sudo_region[self.sudo_size]
 
-    square_width = (gcompris.BOARD_HEIGHT-50) / self.sudo_size
+    square_width = (gcompris.BOARD_HEIGHT-80) / self.sudo_size
     square_height = square_width
     x_init = (gcompris.BOARD_WIDTH - square_width*self.sudo_size)/2 - 40
-    y_init = (gcompris.BOARD_HEIGHT - square_height*self.sudo_size)/2
+    y_init = (gcompris.BOARD_HEIGHT - 45 - square_height*self.sudo_size)/2
 
     for x in range(0,self.sudo_size):
       line_square = []

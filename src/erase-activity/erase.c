@@ -353,7 +353,7 @@ static void add_one_item(int i, int j, int protect)
 {
   int current_layer = get_num_layers();
   double w = (BOARDWIDTH/number_of_item_x) ;
-  double h = (BOARDHEIGHT/number_of_item_y) ;
+  double h = ((BOARDHEIGHT-BARHEIGHT)/number_of_item_y) ;
   int item_x = i / w;
   int item_y = j / h;
   i = item_x * w;
@@ -418,7 +418,7 @@ static GooCanvasItem *erase_create_item()
   assert(number_of_items == 0);
 
   for(i=0; i<BOARDWIDTH; i+=BOARDWIDTH/number_of_item_x)
-    for(j=0; j<BOARDHEIGHT; j+=BOARDHEIGHT/number_of_item_y)
+    for(j=0; j<(BOARDHEIGHT-BARHEIGHT); j+=(BOARDHEIGHT-BARHEIGHT)/number_of_item_y)
       add_one_item(i, j, 0);
 
   return NULL;
@@ -464,7 +464,7 @@ erase_one_item (GooCanvasItem *item)
   goo_canvas_convert_from_item_space(goo_canvas_item_get_canvas(item),
 				     item, &screen_x, &screen_y);
   x = screen_x / (BOARDWIDTH/number_of_item_x);
-  y = screen_y / (BOARDHEIGHT/number_of_item_y);
+  y = screen_y / ((BOARDHEIGHT-BARHEIGHT)/number_of_item_y);
 
   if (items_per_cell)
     items_per_cell[(int) (x * number_of_item_x + y)]--;
@@ -547,7 +547,7 @@ canvas_event (GooCanvasItem  *item,
       int x = event->x;
       int y = event->y;
       int item_x = x / (BOARDWIDTH/number_of_item_x);
-      int item_y = y / (BOARDHEIGHT/number_of_item_y);
+      int item_y = y / ((BOARDHEIGHT-BARHEIGHT)/number_of_item_y);
 
       if (items_per_cell[item_x * number_of_item_x + item_y] == 0)
 	add_one_item(x, y, 1);

@@ -265,7 +265,7 @@ hanoi_create_item(GooCanvasItem *parent)
     item = goo_canvas_image_new (boardRootItem,
 				 pixmap,
 				 10,
-				 BOARDHEIGHT - 60,
+				 BOARDHEIGHT - 110,
 				 NULL);
     goo_canvas_item_scale(item,
 			  (double)(BOARDWIDTH - 20)/gdk_pixbuf_get_width(pixmap),
@@ -275,19 +275,8 @@ hanoi_create_item(GooCanvasItem *parent)
 
   goo_canvas_text_new (boardRootItem,
 		       _("Move the entire stack to the right peg, one disc at a time"),
-		       BOARDWIDTH/2 +1,
-		       BOARDHEIGHT - 50 +1,
-		       -1,
-		       GTK_ANCHOR_NORTH,
-		       "font", gc_skin_font_board_medium,
-		       "fill_color_rgba", gc_skin_color_shadow,
-		       "alignment", PANGO_ALIGN_CENTER,
-		       NULL);
-
-  goo_canvas_text_new (boardRootItem,
-		       _("Move the entire stack to the right peg, one disc at a time"),
 		       BOARDWIDTH/2,
-		       BOARDHEIGHT - 50,
+		       BOARDHEIGHT - 100,
 		       -1,
 		       GTK_ANCHOR_NORTH,
 		       "font", gc_skin_font_board_medium,

@@ -64,7 +64,7 @@
 
 #define BOARDWIDTH  800
 #define BOARDHEIGHT 520
-#define BARHEIGHT   80
+#define BARHEIGHT   40
 
 #define DEFAULT_SKIN "gartoon"
 
