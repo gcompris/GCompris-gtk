@@ -346,22 +346,12 @@ static void repeat ()
 
       goo_canvas_text_new (boardRootItem,
 			   str,
-			   (double) BOARDWIDTH/2+2,
-			   (double) BOARDHEIGHT-25+2,
-			   -1,
-			   GTK_ANCHOR_CENTER,
-			   "font", gc_skin_font_board_huge_bold,
-			   "fill-color", "black",
-			   NULL);
-
-      goo_canvas_text_new (boardRootItem,
-			   str,
 			   (double) BOARDWIDTH/2,
-			   (double) BOARDHEIGHT-25,
+			   (double) 10,
 			   -1,
 			   GTK_ANCHOR_CENTER,
-			   "font", gc_skin_font_board_huge_bold,
-			   "fill-color", "blue",
+			   "font", gc_skin_font_subtitle,
+			   "fill-color", "black",
 			   NULL);
       g_free(str);
     }

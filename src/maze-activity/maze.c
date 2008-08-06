@@ -33,7 +33,7 @@
 #define BASE_X1 50
 #define BASE_Y1 50
 #define BASE_X2 800
-#define BASE_Y2 500
+#define BASE_Y2 470
 
 #define LINE_COLOR "white"
 
@@ -357,7 +357,7 @@ static void setlevelproperties(){
     {
       breedte=13;
       hoogte=8;
-      cellsize=60;
+      cellsize=55;
       buffer=6;
       board_border_x=(int) (BASE_X2-breedte*cellsize)/2;
       board_border_y=(int) (BASE_Y2-hoogte*cellsize)/2;
@@ -512,7 +512,7 @@ maze_create_item(GooCanvasItem *parent)
   warning_item = goo_canvas_text_new (boardRootItem,
 				      message,
 				      (double) BOARDWIDTH/2,
-				      (double) BOARDHEIGHT-20,
+				      (double) BOARDHEIGHT-BARHEIGHT-25,
 				      -1,
 				      GTK_ANCHOR_CENTER,
 				      "font", gc_skin_font_board_small,

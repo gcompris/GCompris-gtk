@@ -111,9 +111,9 @@ static MemoryItem *secondCard = NULL;
 
 /* Define the page area where memory cards can be displayed for CARD MODE */
 #define BASE_CARD_X1 50
-#define BASE_CARD_Y1 50
+#define BASE_CARD_Y1 40
 #define BASE_CARD_X2 790
-#define BASE_CARD_Y2 500
+#define BASE_CARD_Y2 470
 #define BASE_CARD_X1_TUX 200
 
 /* Define the page area where memory cards can be displayed for SOUND MODE */

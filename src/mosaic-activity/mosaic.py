@@ -191,10 +191,10 @@ class Gcompris_mosaic:
       goocanvas.Text(
         parent = self.rootitem,
         x=gcompris.BOARD_WIDTH/2,
-        y=gcompris.BOARD_HEIGHT - 30,
-        font=gcompris.skin.get_font("gcompris/title"),
+        y = self.palette_y - 20,
+        font=gcompris.skin.get_font("gcompris/subtitle"),
         text=(text),
-        fill_color="white",
+        fill_color="black",
         anchor=gtk.ANCHOR_CENTER
         )
 
