@@ -65,7 +65,7 @@ class Gcompris_chat:
     self.global_area_sw.set_shadow_type(gtk.SHADOW_ETCHED_OUT)
 
     w = gcompris.BOARD_WIDTH - 240.0
-    h = gcompris.BOARD_HEIGHT - 140.0
+    h = gcompris.BOARD_HEIGHT - 120.0
     y = 20.0 # The upper limit of the text boxes
     x  = 20.0
 
@@ -171,7 +171,7 @@ class Gcompris_chat:
     x = 20.0
     w = gcompris.BOARD_WIDTH - x * 2
     h = 30.0
-    y = gcompris.BOARD_HEIGHT - 110.0
+    y = gcompris.BOARD_HEIGHT - 90.0
 
 
     goocanvas.Widget(
@@ -186,17 +186,21 @@ class Gcompris_chat:
     self.entry.show()
     self.entry.set_text(_("Type your message here, to send to other GCompris users on your local network."))
 
-    # Start the server
-    self.sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM, socket.IPPROTO_UDP)
-    self.sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
-    self.sock.bind(('', self.port))
-    mreq = struct.pack('4sl', socket.inet_aton(self.mcast_adress), socket.INADDR_ANY)
+    try:
+      # Start the server
+      self.sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM, socket.IPPROTO_UDP)
+      self.sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+      self.sock.bind(('', self.port))
+      mreq = struct.pack('4sl', socket.inet_aton(self.mcast_adress), socket.INADDR_ANY)
 
-    self.sock.setsockopt(socket.IPPROTO_IP, socket.IP_ADD_MEMBERSHIP, mreq)
-    self.sock.setblocking(0)
+      self.sock.setsockopt(socket.IPPROTO_IP, socket.IP_ADD_MEMBERSHIP, mreq)
+      self.sock.setblocking(0)
+      self.timer_interval = 500
+      self.mcast_timer = gobject.timeout_add(self.timer_interval, self.mcast_read)
+    except:
+      self.display_message("GCompris",
+                           _("ERROR: Failed to initialize the network interface. You cannot communicate."))
 
-    self.timer_interval = 500
-    self.mcast_timer = gobject.timeout_add(self.timer_interval, self.mcast_read)
 
   def end(self):
     self.cleanup()
