@@ -40,9 +40,15 @@ class Gcompris_hexagon:
 
 
   def start(self):
-    gcompris.bar_set (0)
+    self.gcomprisBoard.level=1
+    self.gcomprisBoard.maxlevel=9
+    self.gcomprisBoard.sublevel=1
+    self.gcomprisBoard.number_of_sublevel=1
+    gcompris.bar_set(gcompris.BAR_LEVEL)
     gcompris.set_background(self.gcomprisBoard.canvas.get_root_item(),
                             gcompris.skin.image_to_skin("gcompris-bg.jpg"))
+    gcompris.bar_set_level(self.gcomprisBoard)
+    self.set_level(1)
     self.game_start()
 
 
@@ -50,10 +56,9 @@ class Gcompris_hexagon:
     self.cleanup()
 
   def ok(self):
-    print("Gcompris_hexagonagon ok.")
+    pass
 
   def key_press(self, keyval, commit_str, preedit_str):
-    #print("got key %i" % keyval)
     return False
 
   # Called by gcompris core
@@ -64,10 +69,57 @@ class Gcompris_hexagon:
     # When the bonus is displayed, it call us first with pause(1) and then with pause(0)
     # the game is won
     if(pause == 0 and self.gamewon):
-      self.finished()
       self.gamewon = 0
+      self.set_level(self.gcomprisBoard.level)
+      self.game_start()
 
     return
+
+  # Called by gcompris when the user click on the level icon
+  def set_level(self, level):
+    self.gcomprisBoard.level=level
+    self.gcomprisBoard.sublevel=1
+    # Set the level in the control bar
+    gcompris.bar_set_level(self.gcomprisBoard);
+
+    if(self.gcomprisBoard.level == 1):
+      self.r = 30
+      self.nbx = 15
+      self.nby = 10
+    elif(self.gcomprisBoard.level == 2):
+      self.r = 28
+      self.nbx = 16
+      self.nby = 10
+    elif(self.gcomprisBoard.level == 3):
+      self.r = 27
+      self.nbx = 16
+      self.nby = 11
+    elif(self.gcomprisBoard.level == 4):
+      self.r = 25
+      self.nbx = 18
+      self.nby = 12
+    elif(self.gcomprisBoard.level == 5):
+      self.r = 23
+      self.nbx = 19
+      self.nby = 13
+    elif(self.gcomprisBoard.level == 6):
+      self.r = 22
+      self.nbx = 20
+      self.nby = 13
+    elif(self.gcomprisBoard.level == 7):
+      self.r = 21
+      self.nbx = 21
+      self.nby = 14
+    elif(self.gcomprisBoard.level == 8):
+      self.r = 19
+      self.nbx = 23
+      self.nby = 15
+    elif(self.gcomprisBoard.level == 9):
+      self.r = 17
+      self.nbx = 26
+      self.nby = 17
+
+    self.game_start()
 
 
   # ----------------------------------------------------------------------
@@ -75,10 +127,11 @@ class Gcompris_hexagon:
   # ----------------------------------------------------------------------
 
   def game_start(self):
+    self.cleanup()
     self.rootitem = goocanvas.Group(parent =  self.gcomprisBoard.canvas.get_root_item())
     self.paint_skin()
-    self.random_catx = random.randrange(21)
-    self.random_caty = random.randrange(15)
+    self.random_catx = random.randrange(self.nbx)
+    self.random_caty = random.randrange(self.nby)
 
   def cleanup(self):
     self.gamewon       = False;
@@ -106,15 +159,14 @@ class Gcompris_hexagon:
     return s
 
   def paint_skin(self):
-    self.r = 20
     self.cx = []
     self.cy = []
     self.sqrt3 = math.sqrt(3)
     for i in range (6):
      self.cx.append(int(self.r*math.cos(math.pi/6+i*math.pi/3)))
      self.cy.append(int(self.r*math.sin(math.pi/6+i*math.pi/3)))
-    for x in range (22):
-     for y in range (16):
+    for x in range (self.nbx):
+     for y in range (self.nby):
       s = self.paint_hex(x, y)
 
       s.connect ("button_press_event", self.on_click, x-int(y/2), y)
@@ -138,10 +190,6 @@ class Gcompris_hexagon:
     color = r*0x1000000+g*0x10000+b*0x100+0xFF
     return color
 
-  def finished(self):
-    self.cleanup()
-    self.game_start()
-
   def on_click (self, widget, target, event=None, x=0, y=0):
     if event.type == gtk.gdk.BUTTON_PRESS and event.button == 1 :
 
@@ -152,6 +200,7 @@ class Gcompris_hexagon:
         gcompris.sound.play_ogg("sounds/smudge.wav")
 
         self.paint_cat()
+        self.increment_level()
         self.gamewon = True;
         gcompris.bonus.display(gcompris.bonus.WIN, gcompris.bonus.GNU)
       else:
@@ -183,3 +232,18 @@ class Gcompris_hexagon:
      return abs(dx)+abs(dy)
     if dx*dy<0:
      return max(abs(dx),abs(dy))
+
+  # Code that increments the sublevel and level
+  # And bail out if no more levels are available
+  # return 1 if continue, 0 if bail out
+  def increment_level(self):
+    self.gcomprisBoard.sublevel += 1
+
+    if(self.gcomprisBoard.sublevel>self.gcomprisBoard.number_of_sublevel):
+      # Try the next level
+      self.gcomprisBoard.sublevel=1
+      self.gcomprisBoard.level += 1
+      if(self.gcomprisBoard.level > self.gcomprisBoard.maxlevel):
+        self.gcomprisBoard.level = self.gcomprisBoard.maxlevel
+
+    return 1
