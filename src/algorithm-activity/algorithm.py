@@ -167,7 +167,7 @@ class Gcompris_algorithm:
     self.qm = goocanvas.Text(parent = self.rootitem,
                              text = "?",
                              x = self.place*self.distance+30+self.leftx,
-                             y = 170,
+                             y = 165,
                              fill_color_rgba = 0x000000ffL,
                              font = gcompris.skin.get_font("gcompris/board/huge bold"))
 

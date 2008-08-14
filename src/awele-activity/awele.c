@@ -28,9 +28,9 @@ static gboolean board_paused = TRUE;
 /* This is a global Y offset that can be use to move the
  * whole activity drawing up or down
  */
-#define OFFSET_Y 45
+#define OFFSET_Y 35
 
-#define Y_BOUTONS 412-OFFSET_Y
+#define Y_BOUTONS 322+OFFSET_Y
 
 char errorMsg[30];
 AWALE *staticAwale;
@@ -361,7 +361,7 @@ awele_create_item (GooCanvasItem * parent)
     int x, y;
 
     x = 35;
-    y = 190 - OFFSET_Y;
+    y = 100 + OFFSET_Y;
     goo_canvas_text_new (boardRootItem,
 			 _("NORTH"),
 			 (double) x,
@@ -373,7 +373,7 @@ awele_create_item (GooCanvasItem * parent)
 			 NULL);
 
     x = 765;
-    y = 295 - OFFSET_Y;
+    y = 205 + OFFSET_Y;
     goo_canvas_text_new (boardRootItem,
 			 _("SOUTH"),
 			 (double) x,
@@ -485,7 +485,7 @@ awele_create_item (GooCanvasItem * parent)
 	goo_canvas_text_new (boardRootItem,
 			     buffer,
 			     (caseCoord[i] + 45),
-			     ((i < 6) ? 378 : 94) - OFFSET_Y,
+			     ((i < 6) ? 288 : 4) + OFFSET_Y,
 			     -1,
 			     GTK_ANCHOR_CENTER,
 			     "font", "sans 20",
@@ -509,7 +509,7 @@ awele_create_item (GooCanvasItem * parent)
 	goo_canvas_text_new (boardRootItem,
 			     buffer,
 			     x1,
-			     246 - OFFSET_Y,
+			     156 + OFFSET_Y,
 			     -1,
 			     GTK_ANCHOR_CENTER,
 			     "font", "sans 24",
@@ -539,7 +539,7 @@ awele_create_item (GooCanvasItem * parent)
   graphsElt->msg = goo_canvas_text_new (boardRootItem,
 					_("Choose a house"),
 					(double) 400,
-					(double) 500 - OFFSET_Y,
+					(double) 410 + OFFSET_Y,
 					-1,
 					GTK_ANCHOR_CENTER,
 					"font", "sans 20",
@@ -617,10 +617,10 @@ initBoardGraphics (GRAPHICS_ELT * graphsElt)
 				  graphsElt->pixbufBeans[k],
 				  caseCoord[i] + g_random_int() % 50,
 				  (((i <
-				     6) ? 260 :
-				    130) +
+				     6) ? 170 :
+				    40) +
 				   g_random_int() %
-				   60) - OFFSET_Y,
+				   60) + OFFSET_Y,
 				  NULL);
 
 	  graphsElt->ptBeansHoleLink[idxTabBeans].hole = i;
@@ -807,8 +807,8 @@ updateNbBeans (int alpha)
 			"x", (double) caseCoord[i] +
 			g_random_int() % 50,
 			"y", (double) (((i <
-					 6) ? 260 : 130) +
-				       g_random_int() % 60 - OFFSET_Y),
+					 6) ? 170 : 40) +
+				       g_random_int() % 60 + OFFSET_Y),
 			NULL);
 
 	  ptBeansHoleLink[idxTabBeans].hole = i;

@@ -52,7 +52,8 @@ class Gcompris_ballcatch:
     self.gcomprisBoard.sublevel=1
     self.gcomprisBoard.number_of_sublevel=1
     gcompris.bar_set(gcompris.BAR_LEVEL)
-    gcompris.set_background(self.gcomprisBoard.canvas.get_root_item(),"ballcatch/beach1.png")
+    gcompris.set_background(self.gcomprisBoard.canvas.get_root_item(),
+                            "ballcatch/beach1.png")
     gcompris.bar_set_level(self.gcomprisBoard)
 
 

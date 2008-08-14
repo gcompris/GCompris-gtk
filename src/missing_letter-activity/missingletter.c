@@ -242,8 +242,8 @@ missing_letter_next_level()
 
   gc_score_end();
   gc_score_start(SCORESTYLE_NOTE,
-		 50,
-		 BOARDHEIGHT - 45,
+		 BOARDWIDTH - 195,
+		 BOARDHEIGHT - 30,
 		 gcomprisBoard->number_of_sublevel);
 
 

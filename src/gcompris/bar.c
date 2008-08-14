@@ -49,9 +49,9 @@ static gboolean item_event_bar (GooCanvasItem  *item,
 				gchar *data);
 static void	 bar_reset_sound_id (void);
 static void	 setup_item_signals (GooCanvasItem *item, gchar* name);
-static gboolean	 _bar_down(void *ignore);
+//static gboolean	 _bar_down(void *ignore);
 //static void	 _bar_up(void);
-static void	 _force_bar_down(void);
+//static void	 _force_bar_down(void);
 //static void	 _force_bar_up(char *data);
 static gint	 bar_play_sound (gchar *sound);
 
@@ -68,7 +68,7 @@ static GooCanvasItem *about_item = NULL;
 static GooCanvasItem *rootitem = NULL;
 
 static gint sound_play_id = 0;
-static gint bar_down_id = 0;
+//static gint bar_down_id = 0;
 static gboolean _hidden;     /* Dialog boxes request a bar hide */
 static gboolean _barup;      /* The state of the bar */
 static gboolean _click_mode; /* Need to click on the bar to
@@ -231,7 +231,7 @@ void gc_bar_start (GooCanvas *theCanvas)
   _hidden = FALSE;
   _click_mode = TRUE;
   _barup = TRUE;
-  _force_bar_down();
+  //  _force_bar_down();
 }
 
 
@@ -372,6 +372,7 @@ gc_bar_set (const GComprisBarFlags flags)
 		 "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
 }
 
+#if 0
 static gboolean
 _bar_down(void *ignore)
 {
@@ -419,7 +420,6 @@ _force_bar_down(void)
 			  GOO_CANVAS_ANIMATE_FREEZE);
 }
 
-#if 0
 static void _force_bar_up(char *data)
 {
   bar_reset_sound_id();
@@ -561,8 +561,8 @@ on_leave_notify (GooCanvasItem  *item,
 {
   bar_reset_sound_id();
 
-  if(!bar_down_id)
-    bar_down_id = g_timeout_add (HIDE_BAR_TIMOUT, (GtkFunction) _bar_down, NULL);
+  //  if(!bar_down_id)
+  //    bar_down_id = g_timeout_add (HIDE_BAR_TIMOUT, (GtkFunction) _bar_down, NULL);
 
   return FALSE;
 }

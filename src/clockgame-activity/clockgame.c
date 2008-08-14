@@ -160,8 +160,8 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       gcomprisBoard->sublevel=1;
       gcomprisBoard->number_of_sublevel=3; /* Go to next level after this number of 'play' */
       gc_score_start(SCORESTYLE_NOTE,
-			   BOARDWIDTH - 220,
-			   BOARDHEIGHT - 70,
+			   BOARDWIDTH - 195,
+			   BOARDHEIGHT - 30,
 			   gcomprisBoard->number_of_sublevel);
       gc_bar_set(GC_BAR_LEVEL);
 
