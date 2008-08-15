@@ -127,7 +127,7 @@ static void game_won();
 /* ================================================================ */
 static GooCanvasItem *boardRootItem = NULL;
 
-static GooCanvasItem *sub_schema_image_item, *submarine_item,
+static GooCanvasItem *submarine_item,
   *ballast_av_purge_item, *ballast_ar_purge_item, *regleur_purge_item;
 static GooCanvasItem *ballast_av_chasse_item, *ballast_ar_chasse_item, *regleur_chasse_item;
 gboolean ballast_av_purge_open, ballast_ar_purge_open, regleur_purge_open;
@@ -314,8 +314,6 @@ static gboolean is_our_board (GcomprisBoard *gcomprisBoard) {
  * =====================================================================*/
 static void submarine_next_level()
 {
-  gc_bar_set_level(gcomprisBoard);
-
   ballast_av_purge_open = ballast_ar_purge_open = regleur_purge_open = FALSE;
   ballast_av_chasse_open = ballast_ar_chasse_open = regleur_chasse_open = FALSE;
   air_charging = battery_charging = FALSE;
@@ -337,6 +335,8 @@ static void submarine_next_level()
 
   /* Try the next level */
   submarine_create_item(goo_canvas_get_root_item(gcomprisBoard->canvas));
+
+  gc_bar_set_level(gcomprisBoard);
 
 }
 /* =====================================================================
@@ -384,6 +384,7 @@ static GooCanvasItem *submarine_create_item(GooCanvasItem *parent) {
 
   gdk_pixbuf_unref(pixmap);
 
+
   pixmap = gc_pixmap_load("submarine/sub_schema.png");
 
   w = gdk_pixbuf_get_width(pixmap);
@@ -391,11 +392,11 @@ static GooCanvasItem *submarine_create_item(GooCanvasItem *parent) {
 
   schema_x = (BOARDWIDTH - w)/2 ;
   schema_y = BOARDHEIGHT - h;
-  sub_schema_image_item = goo_canvas_image_new (boardRootItem,
-						pixmap,
-						schema_x,
-						schema_y,
-						NULL);
+  goo_canvas_image_new (boardRootItem,
+			pixmap,
+			schema_x,
+			schema_y,
+			NULL);
 
   gdk_pixbuf_unref(pixmap);
 

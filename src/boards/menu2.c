@@ -30,7 +30,7 @@
 #define MENU_PER_LINE 5
 
 typedef struct {
-  /* Information items (_s are shadow) */
+  GooCanvasItem *bg; /* Background */
   GooCanvasItem *boardname_item;
   GooCanvasItem *description_item;
   GooCanvasItem *author_item;
@@ -111,7 +111,7 @@ static gdouble get_ratio(GdkPixbuf *pixmap, gdouble size);
 #define D_INT_Y 5
 
 #define I_X 140
-#define I_Y 410
+#define I_Y 390
 #define I_W 600
 #define I_H 125
 
@@ -215,6 +215,12 @@ static void menu_start (GcomprisBoard *agcomprisBoard)
 
       gcomprisBoard=agcomprisBoard;
 
+      /* set initial values for this level */
+      gcomprisBoard->level = 1;
+      gcomprisBoard->maxlevel=1;
+      gc_bar_set(GC_BAR_CONFIG|GC_BAR_ABOUT);
+      gc_bar_set_level(gcomprisBoard);
+
       menuitems = g_new(MenuItems, 1);
 
       img = gc_skin_image_get("gcompris-menu2bg.png");
@@ -237,14 +243,6 @@ static void menu_start (GcomprisBoard *agcomprisBoard)
 	display_section(menu_position);
       else
 	display_welcome(menuitems);
-
-      /* set initial values for this level */
-      gcomprisBoard->level = 1;
-      gcomprisBoard->maxlevel=1;
-      gc_bar_set(GC_BAR_CONFIG|GC_BAR_ABOUT);
-
-      /* FIXME : Workaround for bugged canvas */
-      //goo_canvas_update_now(gcomprisBoard->canvas);
 
       menu_pause(FALSE);
 
@@ -555,6 +553,10 @@ on_enter_notify (GooCanvasItem  *item,
 
   board = g_object_get_data (G_OBJECT (item), "board");
 
+  if(G_IS_OBJECT(menuitems->bg))
+    g_object_set(menuitems->bg,
+		 "visibility", GOO_CANVAS_ITEM_VISIBLE, NULL);
+
   if(board->title && G_IS_OBJECT(menuitems->boardname_item))
     g_object_set (menuitems->boardname_item,
 		  "text", board->title,
@@ -580,6 +582,9 @@ on_leave_notify (GooCanvasItem  *item,
 		 GdkEventCrossing *event,
 		 MenuItems *menuitems)
 {
+  g_object_set(menuitems->bg,
+	       "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
+
   g_object_set (menuitems->boardname_item,
 		"text", "", NULL);
 
@@ -642,11 +647,27 @@ create_info_area(GooCanvasItem *parent, MenuItems *menuitems)
 
   g_assert(parent);
 
-  menuitems->boardname_item = \
+  menuitems->bg =
+    goo_canvas_rect_new (parent,
+			 info_x,
+			 info_y,
+			 info_w,
+			 info_h,
+			 "stroke_color_rgba", 0xFFFFFFFFL,
+			 "fill_color_rgba", 0x0000FF90L,
+			 "line-width", (double) 2,
+			 "radius-x", (double) 10,
+			 "radius-y", (double) 10,
+			 NULL);
+
+  g_object_set(menuitems->bg,
+	       "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
+
+  menuitems->boardname_item =			\
     goo_canvas_text_new (parent,
 			 "",
 			 x,
-			 y,
+			 y + 20,
 			 -1,
 			 GTK_ANCHOR_CENTER,
 			 "font", gc_skin_font_board_big,
@@ -658,8 +679,8 @@ create_info_area(GooCanvasItem *parent, MenuItems *menuitems)
     goo_canvas_text_new (parent,
 			 "",
 			 x,
-			 y + 34,
-			 info_w,
+			 y + 54,
+			 info_w - 10,
 			 GTK_ANCHOR_CENTER,
 			 "font", gc_skin_font_board_medium,
 			 "fill-color-rgba", gc_skin_get_color("menu/text"),
@@ -670,14 +691,13 @@ create_info_area(GooCanvasItem *parent, MenuItems *menuitems)
     goo_canvas_text_new (parent,
 			 "",
 			 x,
-			 y + 90,
+			 y + 110,
 			 -1,
 			 GTK_ANCHOR_CENTER,
 			 "font", gc_skin_font_board_tiny,
 			 "fill-color-rgba", gc_skin_get_color("menu/text"),
 			 "alignment", PANGO_ALIGN_CENTER,
 			 NULL);
-
 }
 
 static gdouble
@@ -799,29 +819,15 @@ create_top(GooCanvasItem *parent, gchar *path)
 
 }
 
-static void
-display_welcome (MenuItems *menuitems)
+static gboolean
+display_welcome_event (GooCanvasItem  *item,
+		       GooCanvasItem  *target,
+		       GdkEventCrossing *event,
+		       MenuItems *menuitems)
 {
-  GdkPixbuf *pixmap;
-
-  if (actualSectionItem)
-    g_error("actualSectionItem exists in display_section !");
-
-
-  actualSectionItem = goo_canvas_group_new(boardRootItem,
-					   NULL);
-
-  pixmap = gc_skin_pixmap_load("gcompris-about.png");
-
-  goo_canvas_image_new (actualSectionItem,
-			pixmap,
-			display_x + display_w/2.0 -
-			gdk_pixbuf_get_width(pixmap)/2,
-			display_y + display_h/2.0 -
-			gdk_pixbuf_get_height(pixmap)/2,
-			NULL);
-
-  gdk_pixbuf_unref(pixmap);
+  if(G_IS_OBJECT(menuitems->bg))
+    g_object_set(menuitems->bg,
+		 "visibility", GOO_CANVAS_ITEM_VISIBLE, NULL);
 
   if(G_IS_OBJECT(menuitems->boardname_item))
     g_object_set(menuitems->boardname_item,
@@ -837,6 +843,39 @@ display_welcome (MenuItems *menuitems)
   if(G_IS_OBJECT(menuitems->author_item))
     g_object_set(menuitems->author_item,
 		 "text", "", NULL);
+
+  return FALSE;
+}
+
+static void
+display_welcome (MenuItems *menuitems)
+{
+  GdkPixbuf *pixmap;
+  GooCanvasItem *item;
+
+  if (actualSectionItem)
+    g_error("actualSectionItem exists in display_section !");
+
+
+  actualSectionItem = goo_canvas_group_new(boardRootItem,
+					   NULL);
+
+  pixmap = gc_skin_pixmap_load("gcompris-about.png");
+
+  item = goo_canvas_image_new (actualSectionItem,
+			       pixmap,
+			       display_x + display_w/2.0 -
+			       gdk_pixbuf_get_width(pixmap)/2,
+			       display_y + display_h/2.0 -
+			       gdk_pixbuf_get_height(pixmap)/2,
+			       NULL);
+
+  gdk_pixbuf_unref(pixmap);
+
+  g_signal_connect (item, "enter_notify_event",
+		    (GtkSignalFunc) display_welcome_event, menuitems);
+  g_signal_connect (item, "leave_notify_event",
+		    (GtkSignalFunc) on_leave_notify, menuitems);
 
   menu_displayed = TRUE;
 }
