@@ -96,6 +96,7 @@ static GtkEntry *widget_activation_entry;
 
 static GcomprisProperties *properties = NULL;
 static gboolean		   is_mapped = FALSE;
+static gboolean		   fullscreen;
 
 /****************************************************************************/
 /* Some constants.  */
@@ -309,10 +310,18 @@ board_widget_key_press_callback (GtkWidget   *widget,
     goo_canvas_update(GOO_CANVAS(canvas));
     return TRUE;
   }
-
-  if(event->state & GDK_CONTROL_MASK && ((event->keyval == GDK_q)
+  else if(event->state & GDK_CONTROL_MASK && ((event->keyval == GDK_q)
 					 || (event->keyval == GDK_Q))) {
     gc_exit();
+    return TRUE;
+  }
+  else if(event->state & GDK_CONTROL_MASK && ((event->keyval == GDK_f)
+					 || (event->keyval == GDK_F))) {
+    /* Toggle fullscreen */
+    if (fullscreen)
+      gc_fullscreen_set(FALSE);
+    else
+      gc_fullscreen_set(TRUE);
     return TRUE;
   }
 
@@ -971,6 +980,7 @@ void gc_board_end()
  */
 void gc_fullscreen_set(gboolean state)
 {
+  fullscreen = state;
   if(state)
     {
       gdk_window_set_decorations (window->window, 0);
