@@ -32,7 +32,6 @@ typedef struct {
   guint		 selecteditem;
   GooCanvasItem	*good;
   GooCanvasItem	*misplaced;
-  gboolean	completed;
 } Piece;
 
 static GList * listPieces = NULL;
@@ -88,6 +87,7 @@ static gboolean		 item_event (GooCanvasItem  *item,
 				     GdkEventButton *event,
 				     Piece *piece);
 static void		 mark_pieces(void);
+static void		 listPiecesClear();
 
 static guint number_of_color    = 0;
 static guint number_of_piece    = 0;
@@ -96,6 +96,7 @@ static double current_y_position  = 0;
 #define MAX_PIECES	10
 static guint solution[MAX_PIECES];
 
+/* After this level, we provide less feedback to the user */
 #define LEVEL_MAX_FOR_HELP	4
 
 #define Y_STEP	(PIECE_HEIGHT*2+PIECE_GAP)
@@ -161,7 +162,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       gcomprisBoard->level=1;
       gcomprisBoard->maxlevel=6;
       gcomprisBoard->sublevel=1;
-      gcomprisBoard->number_of_sublevel=1; /* Go to next level after this number of 'play' */
+      gcomprisBoard->number_of_sublevel=6; /* Go to next level after this number of 'play' */
       gc_bar_set(GC_BAR_LEVEL);
 
       gc_set_background(goo_canvas_get_root_item(gcomprisBoard->canvas),
@@ -260,15 +261,13 @@ static void superbrain_next_level()
     {
       guint j;
 
-      j = (guint)g_random_int_range(1, number_of_color);
+      j = (guint)g_random_int_range(0, number_of_color);
       while(selected_color[j])
-	j = (guint)g_random_int_range(1, number_of_color);
+	j = (guint)g_random_int_range(0, number_of_color);
 
       solution[i] = j;
       selected_color[j] = TRUE;
     }
-
-
 
   boardRootItem = goo_canvas_group_new (goo_canvas_get_root_item(gcomprisBoard->canvas),
 					NULL);
@@ -278,7 +277,7 @@ static void superbrain_next_level()
 					NULL);
 
   /* The OK Button */
-  gc_util_button_text(boardRootItem,
+  gc_util_button_text(boardLogoItem,
 		      270, 360,
 		      "button_large.png",
 		      _("OK"),
@@ -305,6 +304,8 @@ static void superbrain_next_level()
 /* Destroy all the items */
 static void superbrain_destroy_all_items()
 {
+  listPiecesClear();
+
   if(boardRootItem!=NULL)
     goo_canvas_item_remove(boardRootItem);
 
@@ -323,6 +324,8 @@ static GooCanvasItem *superbrain_create_item(GooCanvasItem *parent)
   double x1, x2;
   GooCanvasItem *item = NULL;
   Piece *piece = NULL;
+
+  listPiecesClear();
 
   if(current_y_position < SCROLL_LIMIT)
     {
@@ -371,14 +374,12 @@ static GooCanvasItem *superbrain_create_item(GooCanvasItem *parent)
 			   NULL);
 
   /* Draw the pieces */
-  listPieces = g_list_alloc();
 
   for(i=0; i<number_of_piece; i++)
     {
 
       piece = g_new(Piece, 1);
-      piece->listitem = g_list_alloc();
-      piece->completed = FALSE;
+      piece->listitem = NULL;
       listPieces = g_list_append(listPieces, piece);
 
       piece->rootitem = goo_canvas_group_new (parent,
@@ -425,10 +426,11 @@ static GooCanvasItem *superbrain_create_item(GooCanvasItem *parent)
 	  g_object_set (item, "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
 	  piece->listitem = g_list_append(piece->listitem, item);
 
-	  g_signal_connect(item, "button-press-event", (GtkSignalFunc) item_event, piece);
+	  g_signal_connect(item, "button-press-event",
+			   (GtkSignalFunc) item_event, piece);
 	}
 
-      piece->selecteditem = 1;
+      piece->selecteditem = 0;
       item = g_list_nth_data(piece->listitem,
 			     piece->selecteditem);
       g_object_set (item, "visibility", GOO_CANVAS_ITEM_VISIBLE, NULL);
@@ -462,35 +464,38 @@ static gboolean item_event (GooCanvasItem  *item,
 			    Piece *piece)
 {
   GooCanvasItem *newitem;
+  guint j;
 
   if(board_paused)
     return FALSE;
 
-  if(!piece->completed)
+  switch(event->button)
     {
-      g_object_set (item, "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
-
-      switch(event->button)
-	{
-	case 1:
-	case 4:
-	  piece->selecteditem++;
-	  if(piece->selecteditem>=g_list_length(piece->listitem))
-	    piece->selecteditem = 1;
-	  break;
-	case 2:
-	case 3:
-	case 5:
-	  piece->selecteditem--;
-	  if(piece->selecteditem<=0)
-	    piece->selecteditem = g_list_length(piece->listitem)-1;
-	  break;
-	}
-
-      newitem = g_list_nth_data(piece->listitem,
-				piece->selecteditem);
-      g_object_set (newitem, "visibility", GOO_CANVAS_ITEM_VISIBLE, NULL);
+    case 1:
+    case 4:
+      piece->selecteditem++;
+      if(piece->selecteditem >= g_list_length(piece->listitem))
+	piece->selecteditem = 0;
+      break;
+    case 2:
+    case 3:
+    case 5:
+      if(piece->selecteditem == 0)
+	piece->selecteditem = g_list_length(piece->listitem)-1;
+      else
+	piece->selecteditem--;
+      break;
     }
+
+  for(j=0; j<g_list_length(piece->listitem);  j++)
+    {
+      g_object_set (g_list_nth_data(piece->listitem, j),
+		    "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
+    }
+
+	  newitem = g_list_nth_data(piece->listitem,
+			    piece->selecteditem);
+  g_object_set (newitem, "visibility", GOO_CANVAS_ITEM_VISIBLE, NULL);
 
   return FALSE;
 }
@@ -512,40 +517,39 @@ static void mark_pieces()
   gamewon = TRUE;
 
   /* Mark good placed */
-  for(i=1; i<g_list_length(listPieces);  i++)
+  for(i=0; i<g_list_length(listPieces);  i++)
     {
       piece = g_list_nth_data(listPieces, i);
-      if(piece->selecteditem == solution_tmp[i-1])
+      if(piece->selecteditem == solution_tmp[i])
 	{
 	  if(gcomprisBoard->level<LEVEL_MAX_FOR_HELP)
 	    g_object_set (piece->good, "visibility", GOO_CANVAS_ITEM_VISIBLE, NULL);
 	  nbgood++;
-	  solution_tmp[i-1] = G_MAXINT;
+	  solution_tmp[i] = G_MAXINT;
 	}
       else
 	{
 	  gamewon = FALSE;
 	}
 
-      piece->completed = TRUE;
     }
 
   /* Mark misplaced */
-  for(i=1; i<=number_of_piece;  i++)
+  for(i=0; i<g_list_length(listPieces);  i++)
     {
       gboolean done;
 
       piece = g_list_nth_data(listPieces, i);
 
       /* Search if this color is elsewhere */
-      j = 1;
+      j = 0;
       done = FALSE;
       do {
-	if(piece->selecteditem != solution[i-1] &&
-	   piece->selecteditem == solution_tmp[j-1])
+	if(piece->selecteditem != solution[i] &&
+	   piece->selecteditem == solution_tmp[j])
 	  {
 	    nbmisplaced++;
-	    solution_tmp[j-1] = G_MAXINT;
+	    solution_tmp[j] = G_MAXINT;
 	    if(gcomprisBoard->level<LEVEL_MAX_FOR_HELP)
 	      g_object_set (piece->misplaced, "visibility", GOO_CANVAS_ITEM_VISIBLE, NULL);
 	    done = TRUE;
@@ -583,8 +587,27 @@ static void mark_pieces()
 
   current_y_position -= Y_STEP;
 
-  g_list_free(listPieces);
-
   superbrain_create_item(boardRootItem);
 
 }
+
+void listPiecesClear()
+{
+  guint i, j;
+  for(i=0; i<g_list_length(listPieces);  i++)
+    {
+      Piece *piece = g_list_nth_data(listPieces, i);
+
+      for(j=0; j<g_list_length(piece->listitem);  j++)
+	{
+	  GooCanvasItem *item = g_list_nth_data(piece->listitem, j);
+	  g_signal_handlers_disconnect_by_func(item,
+					       (GtkSignalFunc) item_event, piece);
+	  gc_item_focus_remove(item, NULL);
+	}
+      g_free(piece);
+    }
+  g_list_free(listPieces);
+  listPieces = NULL;
+}
+

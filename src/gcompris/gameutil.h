@@ -46,6 +46,8 @@ GdkPixbuf	*gc_pixmap_load(const gchar *filename, ...);
 RsvgHandle	*gc_rsvg_load(const gchar *format, ...);
 void		 gc_item_focus_init(GooCanvasItem *source_item,
 				    GooCanvasItem *target_item);
+void		 gc_item_focus_remove(GooCanvasItem *source_item,
+				      GooCanvasItem *target_item);
 
 gchar		*convertUTF8Toisolat1(gchar * text);
 void		 gc_item_absolute_move(GooCanvasItem *item, int x, int y);

@@ -304,6 +304,35 @@ void gc_item_focus_init(GooCanvasItem *source_item,
 		   target_item);
 }
 
+/**
+ * gc_item_focus_remove
+ *
+ * Remove a previously set of item focus
+ *
+ * @param[in] source_item is the same as the one passed to
+ *            gc_item_focus_init()
+ * @param[in] target_itemis the same as the one passed to
+ *            gc_item_focus_init()
+ */
+ void gc_item_focus_remove(GooCanvasItem *source_item,
+			  GooCanvasItem *target_item)
+{
+  GooCanvasItem *highlight_item;
+
+  if(!target_item)
+    target_item = source_item;
+
+  g_signal_handlers_disconnect_by_func(source_item,
+				       (GtkSignalFunc) gc_item_focus_event,
+				       target_item);
+
+  highlight_item = g_object_get_data (G_OBJECT(target_item),
+		     "highlight_item");
+
+  if(highlight_item)
+      goo_canvas_item_remove(highlight_item);
+}
+
 /*
  * Return a new copy of the given string in which it has
  * changes '\''n' to '\n'.
