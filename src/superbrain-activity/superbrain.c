@@ -34,6 +34,7 @@ typedef struct {
   GooCanvasItem	*misplaced;
 } Piece;
 
+/* The active list of pieces */
 static GList * listPieces = NULL;
 
 static guint colors[] =
@@ -52,11 +53,11 @@ static guint colors[] =
 
 #define MAX_COLORS	10
 
-#define PIECE_WIDTH	10.0
-#define PIECE_HEIGHT	10.0
-#define PIECE_GAP	22.0
+#define PIECE_WIDTH	9.0
+#define PIECE_HEIGHT	9.0
+#define PIECE_GAP	20.0
 #define PIECE_GAP_GOOD	5
-#define SCROLL_LIMIT	160
+#define SCROLL_LIMIT	20
 #define PLAYING_AREA_X	190
 #define PLAYING_HELP_X	(BOARDWIDTH-80)
 
@@ -166,7 +167,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       gc_bar_set(GC_BAR_LEVEL);
 
       gc_set_background(goo_canvas_get_root_item(gcomprisBoard->canvas),
-			"superbrain/superbrain_background.jpg");
+			"superbrain/superbrain_background.svgz");
 
       superbrain_next_level();
 
@@ -278,7 +279,7 @@ static void superbrain_next_level()
 
   /* The OK Button */
   gc_util_button_text(boardLogoItem,
-		      270, 360,
+		      270, 50,
 		      "button_large.png",
 		      _("OK"),
 		      (GtkSignalFunc) process_ok, NULL);
