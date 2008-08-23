@@ -9,7 +9,7 @@ img_DATA = \
 	arrow_u.png \
 	arrow_up.png \
 	bulb.png \
-	crane-bg.png \
+	crane-bg.svgz \
 	letter-a.png \
 	letter-b.png \
 	rectangle1.png \

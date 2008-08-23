@@ -165,6 +165,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       gcomprisBoard->sublevel=1;
       gcomprisBoard->number_of_sublevel=6; /* Go to next level after this number of 'play' */
       gc_bar_set(GC_BAR_LEVEL);
+      gc_bar_location(30, -1, -1);
 
       gc_set_background(goo_canvas_get_root_item(gcomprisBoard->canvas),
 			"superbrain/superbrain_background.svgz");

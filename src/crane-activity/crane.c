@@ -102,7 +102,6 @@ static GooCanvasItem *selected_item = NULL;
 static GooCanvasItem *red_hands = NULL;
 static GooCanvasItem *crane_rope_item = NULL;
 static gint timer_id = 0;
-static gint nb_move = 0;
 static gboolean moving = FALSE;
 static move_object my_move;
 static int list_answer[CRANE_FRAME_LINE * CRANE_FRAME_COLUMN];
@@ -199,7 +198,6 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 {
 
   if (agcomprisBoard != NULL) {
-        gchar *img;
 
 	gcomprisBoard = agcomprisBoard;
 	gcomprisBoard->level = 1;
@@ -207,11 +205,10 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 	gcomprisBoard->sublevel = 1;
 	gcomprisBoard->number_of_sublevel = 1; /* Go to next level after this number of 'play' */
 	gc_bar_set(GC_BAR_LEVEL);
+	gc_bar_location (BOARDWIDTH-BARWIDTH/2, -1, 0.5);
 
-	img = gc_skin_image_get("gcompris-bg.jpg");
 	gc_set_background(goo_canvas_get_root_item(gcomprisBoard->canvas),
-				img);
-	g_free(img);
+			  "crane/crane-bg.svgz");
 
 
 	/* disable im_context */
@@ -342,19 +339,10 @@ static GooCanvasItem *crane_create_item()
 {
   int i;
   int nb_element;
-  GdkPixbuf *pixmap;
 
   boardRootItem = \
     goo_canvas_group_new (goo_canvas_get_root_item(gcomprisBoard->canvas),
 			  NULL);
-
-  pixmap = gc_pixmap_load("crane/crane-bg.png");
-  goo_canvas_image_new (boardRootItem,
-			pixmap,
-			0.0,
-			0.0,
-		       NULL);
-  gdk_pixbuf_unref(pixmap);
 
   // The four arrows on the crane
   draw_arrow();
@@ -698,10 +686,13 @@ static void place_item(int x, int y, int active) {
 
 }
 
-static guint smooth_move(move_object *move) {
+static guint smooth_move(move_object *move)
+{
+  static gint nb_move = 0;
   GooCanvasBounds bounds;
+  int speed = 4;
 
-  if (nb_move == 0) {
+  if (nb_move <= 0) {
 	moving = TRUE;
 	nb_move = move->nb;
   }
@@ -716,11 +707,13 @@ static guint smooth_move(move_object *move) {
 		"points", crane_rope,
 		NULL);
 
-  goo_canvas_item_translate(selected_item, move->x, move->y);
-  goo_canvas_item_translate(red_hands, move->x, move->y);
-  nb_move--;
+  goo_canvas_item_translate(selected_item,
+			    move->x * speed, move->y * speed);
+  goo_canvas_item_translate(red_hands,
+			    move->x * speed, move->y * speed);
+  nb_move -= speed;
 
-  if (nb_move == 0) {
+  if (nb_move <= 0) {
 	moving = FALSE;
 	return FALSE;
   }

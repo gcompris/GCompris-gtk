@@ -74,6 +74,10 @@ static gboolean _barup;      /* The state of the bar */
 static gboolean _click_mode; /* Need to click on the bar to
 				bring it up or just enter it */
 
+/* Default position for the bar */
+static int _default_x;
+static int _default_y;
+static int _default_zoom;
 
 static void  confirm_quit(gboolean answer);
 
@@ -92,23 +96,26 @@ void gc_bar_start (GooCanvas *theCanvas)
 {
   GcomprisProperties *properties = gc_prop_get();
   GdkPixbuf   *pixmap = NULL;
-  gint16       width, height, startx;
+  gint16       width, height;
   gint16       buttony;
   double       zoom;
 
-  width  = BOARDWIDTH/2;
+  width  = BARWIDTH;
   height = BARHEIGHT-2;
-  startx = width / 2;
+
+  _default_x = width / 2;
+  _default_y = BOARDHEIGHT - BARHEIGHT;
+  _default_zoom = 1.0;
 
   bar_reset_sound_id();
 
   rootitem = goo_canvas_group_new (goo_canvas_get_root_item(theCanvas), NULL);
-  goo_canvas_item_translate(rootitem, 0, BOARDHEIGHT - BARHEIGHT);
+  goo_canvas_item_translate(rootitem, _default_x, _default_y);
 
   pixmap = gc_skin_pixmap_load("bar_bg.png");
   bar_item = goo_canvas_image_new (rootitem,
 				   pixmap,
-				   startx,
+				   0,
 				   0,
 				NULL);
   setup_item_signals(bar_item, "bar");
@@ -123,7 +130,7 @@ void gc_bar_start (GooCanvas *theCanvas)
       pixmap = gc_skin_pixmap_load("button_exit.png");
       exit_item = goo_canvas_image_new (rootitem,
 					pixmap,
-					startx + (width/NUMBER_OF_ITEMS) * 0,
+					(width/NUMBER_OF_ITEMS) * 0,
 					buttony,
 					NULL);
       gdk_pixbuf_unref(pixmap);
@@ -136,7 +143,7 @@ void gc_bar_start (GooCanvas *theCanvas)
   zoom = (double)(height-BAR_GAP)/(double)gdk_pixbuf_get_height(pixmap);
   home_item = goo_canvas_image_new (rootitem,
 				    pixmap,
-				    startx +  (width/NUMBER_OF_ITEMS) * 4,
+				    (width/NUMBER_OF_ITEMS) * 4,
 				    buttony,
 				     NULL);
   gdk_pixbuf_unref(pixmap);
@@ -149,7 +156,7 @@ void gc_bar_start (GooCanvas *theCanvas)
   zoom = (double)(height-BAR_GAP)/(double)gdk_pixbuf_get_height(pixmap);
   level_item = goo_canvas_image_new (rootitem,
 				     pixmap,
-				     startx + (width/NUMBER_OF_ITEMS) * 3,
+				     (width/NUMBER_OF_ITEMS) * 3,
 				     buttony,
 				     NULL);
   gdk_pixbuf_unref(pixmap);
@@ -163,7 +170,7 @@ void gc_bar_start (GooCanvas *theCanvas)
   zoom = (double)(height-BAR_GAP)/(double)gdk_pixbuf_get_height(pixmap);
   repeat_item = goo_canvas_image_new (rootitem,
 				      pixmap,
-				      startx + (width/NUMBER_OF_ITEMS) * 0,
+				      (width/NUMBER_OF_ITEMS) * 0,
 				      buttony,
 				       NULL);
   gdk_pixbuf_unref(pixmap);
@@ -176,7 +183,7 @@ void gc_bar_start (GooCanvas *theCanvas)
   zoom = (double)(height-BAR_GAP)/(double)gdk_pixbuf_get_height(pixmap);
   help_item = goo_canvas_image_new (rootitem,
 				    pixmap,
-				    startx + (width/NUMBER_OF_ITEMS) * 1,
+				    (width/NUMBER_OF_ITEMS) * 1,
 				    buttony,
 				    NULL);
   gdk_pixbuf_unref(pixmap);
@@ -190,7 +197,7 @@ void gc_bar_start (GooCanvas *theCanvas)
       zoom = (double)(height-BAR_GAP)/(double)gdk_pixbuf_get_height(pixmap);
       config_item = goo_canvas_image_new (rootitem,
 					  pixmap,
-					  startx + (width/NUMBER_OF_ITEMS) * 2,
+					  (width/NUMBER_OF_ITEMS) * 2,
 					  buttony,
 					  NULL);
       gdk_pixbuf_unref(pixmap);
@@ -203,7 +210,7 @@ void gc_bar_start (GooCanvas *theCanvas)
   zoom = (double)(height-BAR_GAP)/(double)gdk_pixbuf_get_height(pixmap);
   about_item = goo_canvas_image_new (rootitem,
 				     pixmap,
-				     startx + (width/NUMBER_OF_ITEMS) * 3,
+				     (width/NUMBER_OF_ITEMS) * 3,
 				     buttony,
 				     NULL);
   gdk_pixbuf_unref(pixmap);
@@ -291,6 +298,24 @@ gc_bar_set_repeat_icon (GdkPixbuf *pixmap)
   g_object_set (repeat_item,
 		"pixbuf", pixmap,
 		NULL);
+}
+
+/** Setting the bar location
+ * @param[in] x the bar x coordinate, -1 to set the default
+ * @param[in] y the bar x coordinate, -1 to set the default
+ * @param[in] zoom the bar zoom factor, -1 to set the default
+ */
+void
+gc_bar_location (int x, int y, double zoom)
+{
+  goo_canvas_item_set_transform(rootitem, NULL);
+  goo_canvas_item_translate(rootitem,
+			    (x == -1 ? _default_x : x),
+			    (y == -1 ? _default_y : y));
+  goo_canvas_item_scale(rootitem,
+			(zoom == -1 ? _default_zoom : zoom),
+			(zoom == -1 ? _default_zoom : zoom));
+
 }
 
 /* Setting list of available icons in the control bar */

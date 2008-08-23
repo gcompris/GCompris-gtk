@@ -65,6 +65,7 @@
 #define BOARDWIDTH  800
 #define BOARDHEIGHT 520
 #define BARHEIGHT   40
+#define BARWIDTH    (BOARDWIDTH/2)
 
 #define DEFAULT_SKIN "gartoon"
 
@@ -108,6 +109,7 @@ typedef enum {
 
 void		 gc_bar_set (const GComprisBarFlags flags);
 void		 gc_bar_hide (gboolean hide);
+void		 gc_bar_location (int x, int y, double zoom);
 
 /* General */
 GooCanvas     *gc_get_canvas(void);
