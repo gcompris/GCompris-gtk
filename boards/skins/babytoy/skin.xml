@@ -39,14 +39,15 @@
     <font id="gcompris/board/title bold" name="Sans bold 20"/>
     <font id="gcompris/board/huge"       name="Sans 28"/>
     <font id="gcompris/board/huge bold"  name="Sans bold 28"/>
-    
+
     <color id="menu/text"             rgba="0xFFFFFFFF"/>
     <color id="menu/text_shadow"      rgba="0x000000FF"/>
+    <color id="menu/description_bg_color" rgba="0x0000FFCCL"/>
 
     <!-- Here you may define some other properties that will -->
     <!-- affect a particular game. -->
     <!-- For example, in futur, the colors of the canal lock game will be -->
-    <!-- customisable with some lines like: --> 
+    <!-- customisable with some lines like: -->
     <!-- <color id="canal_lock/canal color"        rgba="0x0010FFFF"/>-->
     <!-- <color id="canal_lock/lock color"         rgba="0x8cc679FF"/>-->
     <!-- <color id="canal_lock/lock color h"       rgba="0x71A65FFF"/>-->

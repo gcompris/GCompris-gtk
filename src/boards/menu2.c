@@ -651,6 +651,7 @@ create_info_area(GooCanvasItem *parent, MenuItems *menuitems)
 
   g_assert(parent);
 
+  /* The description background */
   menuitems->bg =
     goo_canvas_rect_new (parent,
 			 info_x,
@@ -658,7 +659,8 @@ create_info_area(GooCanvasItem *parent, MenuItems *menuitems)
 			 info_w,
 			 info_h,
 			 "stroke_color_rgba", 0xFFFFFFFFL,
-			 "fill_color_rgba", 0x0000FF90L,
+			 "fill_color_rgba",
+			 gc_skin_get_color("menu/description_bg_color"),
 			 "line-width", (double) 2,
 			 "radius-x", (double) 10,
 			 "radius-y", (double) 10,

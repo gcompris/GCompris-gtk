@@ -629,8 +629,8 @@ item_event_bar (GooCanvasItem  *item,
 	{
 	  /* Decrease the level */
 	  current_level--;
-	  if(current_level<1)
-	    current_level=1;
+	  if(current_level < 1)
+	    current_level = gcomprisBoard->maxlevel;
 	}
 
       if(tmp!=current_level)
