@@ -365,7 +365,7 @@ static void clickgame_start (GcomprisBoard *agcomprisBoard)
   gcomprisBoard->number_of_sublevel=10;
   gc_score_start(SCORESTYLE_NOTE,
 		 BOARDWIDTH - 195,
-		 BOARDHEIGHT - 30,
+		 BOARDHEIGHT - 25,
 		 gcomprisBoard->number_of_sublevel);
   gc_bar_set(GC_BAR_LEVEL);
 
@@ -459,7 +459,10 @@ static void clickgame_next_level()
   /* Try the next level */
   moveSpeed=100+(40/(gcomprisBoard->level));
   fallSpeed=5000-gcomprisBoard->level*200;
-  imageZoom = 0.75 + 0.25 * ((gcomprisBoard->maxlevel - gcomprisBoard->level + 1) / gcomprisBoard->maxlevel);
+  imageZoom =
+    0.75 + 0.25
+    * ((double)(gcomprisBoard->maxlevel - gcomprisBoard->level + 1)
+       / gcomprisBoard->maxlevel);
   gcomprisBoard->sublevel=0;
   gc_score_set(gcomprisBoard->sublevel);
 
@@ -716,7 +719,7 @@ clickgame_create_item()
 
   length = g_slist_length(ilist);
 
-  y = (g_random_int()%(BOARDHEIGHT-
+  y = (g_random_int()%(BOARDHEIGHT - BARHEIGHT -
 		       (guint)(gdk_pixbuf_get_height(pixmap)*
 			       imageZoom)));
 
@@ -731,16 +734,15 @@ clickgame_create_item()
 				  pixmap,
 				  x,
 				  y,
-				  "width", (double) gdk_pixbuf_get_width(pixmap)*imageZoom,
-				  "height", (double) gdk_pixbuf_get_height(pixmap)*imageZoom,
 				  NULL);
+      goo_canvas_item_scale(fwd, imageZoom, imageZoom);
+
       rev = goo_canvas_image_new (rootitem,
 				  pixmap2,
 				  x,
 				  y,
-				  "width", (double) gdk_pixbuf_get_width(pixmap2)*imageZoom,
-				  "height", (double) gdk_pixbuf_get_height(pixmap2)*imageZoom,
 				  NULL);
+      goo_canvas_item_scale(rev, imageZoom, imageZoom);
       gdk_pixbuf_unref(pixmap);
       gdk_pixbuf_unref(pixmap2);
 
