@@ -429,11 +429,6 @@ static void bonus() {
   timer_id = 0;
 }
 
-static void finished() {
-  gc_bonus_end_display(GC_BOARD_FINISHED_RANDOM);
-  timer_id = 0;
-}
-
 /* ==================================== */
 static void
 game_won()
@@ -444,11 +439,10 @@ game_won()
     /* Try the next level */
     gcomprisBoard->sublevel=1;
     gcomprisBoard->level++;
-    /* the current board is finished : bail out */
-    if(gcomprisBoard->level>gcomprisBoard->maxlevel) {
-      timer_id = gtk_timeout_add (2000, (GtkFunction) finished, NULL);
-      return;
-    }
+
+    if(gcomprisBoard->level>gcomprisBoard->maxlevel)
+      gcomprisBoard->level = gcomprisBoard->maxlevel;
+
     gc_sound_play_ogg ("sounds/bonus.wav", NULL);
   }
   erase_next_level();

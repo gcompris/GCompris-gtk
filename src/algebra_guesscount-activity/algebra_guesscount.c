@@ -530,10 +530,9 @@ static void game_won() {
     gcomprisBoard->sublevel=1;
     gcomprisBoard->level++;
 
-    if(gcomprisBoard->level>gcomprisBoard->maxlevel) {
-      gc_bonus_end_display(GC_BOARD_FINISHED_TUXPLANE);
-      return;
-    }
+    if(gcomprisBoard->level>gcomprisBoard->maxlevel)
+      gcomprisBoard->level = gcomprisBoard->maxlevel;
+
     gc_set_background(goo_canvas_get_root_item(gcomprisBoard->canvas),background_images[gcomprisBoard->level-1]);
   }
   algebra_guesscount_next_level();

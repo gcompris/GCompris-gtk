@@ -316,10 +316,8 @@ game_won()
       gcomprisBoard->sublevel=1;
       gcomprisBoard->level++;
       if(gcomprisBoard->level>gcomprisBoard->maxlevel)
-	{ // the current board is finished : bail out
-	  gc_bonus_end_display(GC_BOARD_FINISHED_RANDOM);
-	  return;
-	}
+	gcomprisBoard->level = gcomprisBoard->maxlevel;
+
       gc_sound_play_ogg ("sounds/bonus.wav", NULL);
     }
   traffic_next_level();

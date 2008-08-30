@@ -150,8 +150,7 @@ class Gcompris_bargame:
     if sublevel > self.gcomprisBoard.number_of_sublevel:
       if self.game_won:
         if self.gcomprisBoard.level == self.gcomprisBoard.maxlevel:
-          gcompris.bonus.board_finished(gcompris.bonus.FINISHED_RANDOM)
-          return 0
+          self.set_level(self.gcomprisBoard.level)
         else:
           self.set_level(self.gcomprisBoard.level+1)
       else:

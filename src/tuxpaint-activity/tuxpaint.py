@@ -237,9 +237,8 @@ def child_callback(fd,  cond, data):
 
   global pid
   pid = None
-  gcompris.bar_hide(0)
-  gcompris.bonus.board_finished(gcompris.bonus.FINISHED_RANDOM)
+  gcompris.end_board()
 
 def stop_board():
-  gcompris.bonus.board_finished(gcompris.bonus.FINISHED_RANDOM)
+  gcompris.end_board()
 

@@ -312,10 +312,8 @@ static void game_won() {
 
   listColors = g_list_remove(listColors, g_list_nth_data(listColors,0));
 
-  if( g_list_length(listColors) <= 0 ) { // the current board is finished : bail out
-    gc_bonus_end_display(GC_BOARD_FINISHED_TUXLOCO);
-    return;
-  }
+  if( g_list_length(listColors) <= 0 )
+    gcomprisBoard->level = gcomprisBoard->maxlevel;
 
   read_colors_next_level();
 }
@@ -331,7 +329,8 @@ static gboolean process_ok_timeout() {
   update_clock();
 
   if (errors <= 1) {
-    gc_bonus_end_display(GC_BOARD_FINISHED_TOOMANYERRORS);
+    gamewon = FALSE;
+    gc_bonus_display(gamewon, GC_BONUS_SMILEY);
   }
 
 	return FALSE;

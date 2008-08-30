@@ -20,8 +20,8 @@
 #define BONUS_H
 
 /* The time, in ms, between the click of the player, making a choice
- * and the moment the bonus appears. Only used when there is no thumb
- * in the board */
+ * and the moment the bonus appears.
+ */
 #define TIME_CLICK_TO_BONUS 800
 
 /* BONUS_LAST is equals to the last available bonus type */
@@ -39,15 +39,6 @@ typedef enum
 
 typedef enum
 {
-  GC_BOARD_FINISHED_RANDOM,
-  GC_BOARD_FINISHED_TUXPLANE,
-  GC_BOARD_FINISHED_TUXLOCO,
-  GC_BOARD_FINISHED_TOOMANYERRORS,
-  GC_BOARD_FINISHED_LAST
-} GCBoardFinishedList;
-
-typedef enum
-{
   GC_BOARD_LOOSE,
   GC_BOARD_WIN,
   GC_BOARD_DRAW,
@@ -59,6 +50,5 @@ typedef enum
  * ----------------------
  */
 void	 gc_bonus_display(GCBonusStatusList, GCBonusList);
-void	 gc_bonus_end_display(GCBoardFinishedList);
 
 #endif

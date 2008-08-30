@@ -215,8 +215,7 @@ class Gcompris_drawnumber :
   def next_level(self) :
     if self.gcomprisBoard.sublevel==self.gcomprisBoard.number_of_sublevel :
       if (self.gcomprisBoard.level+1)>self.gcomprisBoard.maxlevel :
-        self.end()
-        gcompris.bonus.board_finished(gcompris.bonus.FINISHED_RANDOM)
+        self.set_level((self.gcomprisBoard.level))
       else :
         self.set_level((self.gcomprisBoard.level+1))
     else :

@@ -162,9 +162,7 @@ class Gcompris_mosaic:
       gcompris.bar_set_level(self.gcomprisBoard)
 
       if(self.gcomprisBoard.level>self.gcomprisBoard.maxlevel):
-        # the current board is finished : bail out
-        gcompris.bonus.board_finished(gcompris.bonus.FINISHED_RANDOM)
-        return 0
+        self.gcomprisBoard.level = self.gcomprisBoard.maxlevel
 
     return 1
 

@@ -46,27 +46,8 @@ py_gc_bonus_display(PyObject* self, PyObject* args)
 }
 
 
-/* void gc_bonus_end_display(int type); */
-static PyObject*
-py_gcompris_gc_bonus_end_display(PyObject* self, PyObject* args)
-{
-  int type;
-  /* Parse arguments */
-  if(!PyArg_ParseTuple(args, "i:gc_bonus_end_display", &type))
-    return NULL;
-
-  /* Call the corresponding C function */
-  gc_bonus_end_display(type);
-
-  /* Create and return the result */
-  Py_INCREF(Py_None);
-  return Py_None;
-}
-
-
 static PyMethodDef PythonGcomprisBonusModule[] = {
   { "display",  py_gc_bonus_display, METH_VARARGS, "gc_bonus_display" },
-  { "board_finished",  py_gcompris_gc_bonus_end_display, METH_VARARGS, "gc_bonus_end_display" },
   { NULL, NULL, 0, NULL}
 };
 
@@ -85,12 +66,6 @@ void python_gcompris_bonus_module_init(void)
   PyModule_AddIntConstant(module, "TUX",    GC_BONUS_TUX );
   PyModule_AddIntConstant(module, "GNU",    GC_BONUS_GNU );
   PyModule_AddIntConstant(module, "GNU",    GC_BONUS_LION );
-
-  /* BonusFinishedList constants */
-  PyModule_AddIntConstant(module, "FINISHED_RANDOM", GC_BOARD_FINISHED_RANDOM );
-  PyModule_AddIntConstant(module, "FINISHED_TUXPLANE", GC_BOARD_FINISHED_TUXPLANE );
-  PyModule_AddIntConstant(module, "FINISHED_TUXLOCO", GC_BOARD_FINISHED_TUXLOCO );
-  PyModule_AddIntConstant(module, "FINISHED_TOOMANYERRORS", GC_BOARD_FINISHED_TOOMANYERRORS );
 
   /* GCBonusStatusList constants */
   PyModule_AddIntConstant(module, "LOOSE", GC_BOARD_LOOSE );

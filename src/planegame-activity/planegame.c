@@ -353,10 +353,9 @@ static void planegame_cloud_colision(GooCanvasItem *item)
 	    {
 	      /* Try the next level */
 	      gcomprisBoard->level++;
-	      if(gcomprisBoard->level>gcomprisBoard->maxlevel) { // the current board is finished : bail out
-		gc_bonus_end_display(GC_BOARD_FINISHED_RANDOM);
-		return;
-	      }
+	      if(gcomprisBoard->level>gcomprisBoard->maxlevel)
+		gcomprisBoard->level = gcomprisBoard->maxlevel;
+
 	      planegame_next_level();
 	      gc_sound_play_ogg ("sounds/bonus.wav", NULL);
 	    }

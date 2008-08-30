@@ -667,10 +667,8 @@ player_win()
   gc_bonus_display(gamewon, GC_BONUS_FLOWER);
   /* Try the next level */
   gcomprisBoard->level++;
-  if(gcomprisBoard->level>gcomprisBoard->maxlevel) { // the current board is finished : bail out
-    gc_bonus_end_display(GC_BOARD_FINISHED_RANDOM);
-    return;
-  }
+  if(gcomprisBoard->level>gcomprisBoard->maxlevel)
+    gcomprisBoard->level = gcomprisBoard->maxlevel;
 
   next_level_timer = g_timeout_add(3000, (GtkFunction)reading_next_level, NULL);
 }

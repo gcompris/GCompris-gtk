@@ -338,10 +338,8 @@ static void game_won() {
     /* Try the next level */
     gcomprisBoard->sublevel=1;
     gcomprisBoard->level++;
-    if(gcomprisBoard->level>gcomprisBoard->maxlevel) { // the current board is finished : bail out
-      gc_bonus_end_display(GC_BOARD_FINISHED_TUXLOCO);
-      return;
-    }
+    if(gcomprisBoard->level>gcomprisBoard->maxlevel)
+      gcomprisBoard->level = gcomprisBoard->maxlevel;
   }
   leftright_next_level();
 }

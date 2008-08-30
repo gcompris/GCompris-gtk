@@ -327,9 +327,7 @@ class Gcompris_melody:
       self.gcomprisBoard.sublevel=1
       self.gcomprisBoard.level += 1
       if(self.gcomprisBoard.level>self.gcomprisBoard.maxlevel):
-        # the current board is finished : bail out
-        gcompris.bonus.board_finished(gcompris.bonus.FINISHED_RANDOM)
-        return 0
+        self.gcomprisBoard.level = self.gcomprisBoard.maxlevel
 
     return 1
 

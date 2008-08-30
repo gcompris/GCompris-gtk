@@ -41,7 +41,6 @@ static gchar *op_div;
 #define SOUNDLISTFILE PACKAGE
 
 static gboolean	 board_paused = TRUE;
-static int	 leavenow;
 static int	 gamewon;
 static void	 game_won(void);
 
@@ -148,9 +147,6 @@ static void pause_board (gboolean pause)
   if(gamewon == TRUE && pause == FALSE) /* the game is won */
       algebra_next_level();
 
-  if(leavenow == TRUE && pause == FALSE)
-    gc_bonus_end_display(GC_BOARD_FINISHED_RANDOM);
-
   board_paused = pause;
 }
 
@@ -231,7 +227,6 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       algebra_next_level();
 
       gamewon = FALSE;
-      leavenow = FALSE;
       pause_board(FALSE);
     }
 
@@ -387,7 +382,6 @@ is_our_board (GcomprisBoard *gcomprisBoard)
 static void timer_end()
 {
   gamewon = FALSE;
-  leavenow = TRUE;
   algebra_destroy_all_items();
   gc_bonus_display(gamewon, GC_BONUS_SMILEY);
 }
@@ -877,10 +871,8 @@ static void game_won()
     /* Try the next level */
     gcomprisBoard->sublevel=1;
     gcomprisBoard->level++;
-    if(gcomprisBoard->level>gcomprisBoard->maxlevel) { // the current board is finished : bail out
-      gc_bonus_end_display(GC_BOARD_FINISHED_RANDOM);
-      return;
-    }
+    if(gcomprisBoard->level>gcomprisBoard->maxlevel)
+      gcomprisBoard->level = gcomprisBoard->maxlevel;
 
     gamewon = TRUE;
     algebra_destroy_all_items();

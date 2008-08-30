@@ -410,7 +410,8 @@ static void game_won()
 
   if( g_list_length(listColors) <= 0 )
     { // the current board is finished : restart it
-    gc_bonus_end_display(GC_BOARD_FINISHED_TUXLOCO);
+      gamewon = TRUE;
+      gc_bonus_display(gamewon, GC_BONUS_GNU);
     return;
   }
 

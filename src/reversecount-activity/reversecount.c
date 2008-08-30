@@ -23,7 +23,6 @@
 static GcomprisBoard	*gcomprisBoard = NULL;
 static gboolean	 board_paused = TRUE;
 static gint	 animate_id = 0;
-static int	 leavenow;
 
 static void	 start_board (GcomprisBoard *agcomprisBoard);
 static gint	 key_press(guint keyval, gchar *commit_str, gchar *preedit_str);
@@ -180,8 +179,6 @@ static void pause_board (gboolean pause)
       game_won();
     }
 
-  if(leavenow == TRUE && pause == FALSE)
-    gc_bonus_end_display(GC_BOARD_FINISHED_TOOMANYERRORS);
 
   board_paused = pause;
 }
@@ -207,7 +204,6 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       reversecount_next_level();
 
       gamewon = FALSE;
-      leavenow = FALSE;
 
       pause_board(FALSE);
     }
@@ -295,7 +291,6 @@ static void process_error()
   if(errors==0)
     {
       gamewon = FALSE;
-      leavenow = TRUE;
       reversecount_destroy_all_items();
       gc_bonus_display(gamewon, GC_BONUS_SMILEY);
     }
@@ -738,8 +733,8 @@ static void game_won()
     /* Try the next level */
     gcomprisBoard->sublevel=1;
     gcomprisBoard->level++;
-    if(gcomprisBoard->level>gcomprisBoard->maxlevel) { // the current board is finished : bail out
-      gc_bonus_end_display(GC_BOARD_FINISHED_RANDOM);
+    if(gcomprisBoard->level> gcomprisBoard->maxlevel) { // the current board is finished : bail out
+      gcomprisBoard->level = gcomprisBoard->maxlevel;
       return;
     }
     gc_sound_play_ogg ("sounds/bonus.wav", NULL);

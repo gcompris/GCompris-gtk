@@ -381,13 +381,6 @@ static void bonus() {
   timer_id = 0;
 }
 
-// Display a 'end of game' animation
-static void finished() {
-
-  gc_bonus_end_display(GC_BOARD_FINISHED_RANDOM);
-  timer_id = 0;
-}
-
 // One more level completed
 static void game_won() {
 
@@ -398,10 +391,8 @@ static void game_won() {
 	gcomprisBoard->sublevel = 1;
 	gcomprisBoard->level++;
 
-	if (gcomprisBoard->level>gcomprisBoard->maxlevel) { // all levels completed : the current board is finished
-	  timer_id = g_timeout_add (2000, (GtkFunction) finished, NULL);
-	  return;
-	}
+	if (gcomprisBoard->level>gcomprisBoard->maxlevel)
+	  gcomprisBoard->level = gcomprisBoard->maxlevel;
   }
   crane_next_level();
 }

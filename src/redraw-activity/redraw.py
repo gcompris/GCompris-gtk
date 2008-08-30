@@ -188,11 +188,11 @@ class Gcompris_redraw:
     if(len(target) == 0 and len(source) == 0):
       # This is a WIN
       self.erase_drawing_area()
-      if (self.increment_level() == 1):
-        self.gamewon = 1
-        gcompris.bonus.display(gcompris.bonus.WIN, gcompris.bonus.FLOWER)
-        self.display_current_level()
-        self.root_targetitem.props.visibility = goocanvas.ITEM_INVISIBLE
+      self.increment_level()
+      self.gamewon = 1
+      gcompris.bonus.display(gcompris.bonus.WIN, gcompris.bonus.FLOWER)
+      self.display_current_level()
+      self.root_targetitem.props.visibility = goocanvas.ITEM_INVISIBLE
 
     else:
       # Delete previous mark if any
@@ -308,8 +308,7 @@ class Gcompris_redraw:
     self.current_drawing = []
 
   # Code that increments the sublevel and level
-  # And bail out if no more levels are available
-  # return 1 if continue, 0 if bail out
+  # And stays at the last level
   def increment_level(self):
     self.gcomprisBoard.sublevel += 1
 
@@ -318,11 +317,8 @@ class Gcompris_redraw:
       self.gcomprisBoard.sublevel=1
       self.gcomprisBoard.level += 1
       if(self.gcomprisBoard.level>self.gcomprisBoard.maxlevel) or self.gcomprisBoard.level*self.gcomprisBoard.sublevel>=len(self.drawlist):
-        # the current board is finished : bail out
-        gcompris.bonus.board_finished(gcompris.bonus.FINISHED_RANDOM)
-        return 0
+        self.gcomprisBoard.level = self.gcomprisBoard.maxlevel
 
-    return 1
 
   # display current/sublevel number
   def display_sublevel(self):

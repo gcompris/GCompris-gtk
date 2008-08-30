@@ -134,10 +134,8 @@ static void pause_board (gboolean pause)
       if(gamewon == TRUE) /* the game is won */
 	{
 	  gcomprisBoard->level++;
-	  if(gcomprisBoard->level>gcomprisBoard->maxlevel) { // the current board is finished : bail out
-	    gc_bonus_end_display(GC_BOARD_FINISHED_RANDOM);
-	    return;
-	  }
+	  if(gcomprisBoard->level>gcomprisBoard->maxlevel)
+	    gcomprisBoard->level = gcomprisBoard->maxlevel;
 	}
 
       // Unpause code

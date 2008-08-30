@@ -22,22 +22,13 @@
 #include <ctype.h>
 #include <math.h>
 
-#define SOUNDLISTFILE PACKAGE
 #define GC_BONUS_DURATION 2000
-#define TUX_TIME_STEP 300
 
 static GooCanvasItem *bonus_group   = NULL;
-static GooCanvasItem  *door1_item    = NULL;
-static GooCanvasItem  *door2_item    = NULL;
-static GooCanvasItem  *tuxplane_item = NULL;
 
-static gboolean gc_bonus_end_display_running = FALSE;
 static gboolean bonus_display_running = FALSE;
 
-static gint end_bonus_id = 0, gc_bonus_end_display_id = 0;
-
-//static gint end_board_count = 0;
-static int left_door_limit = 0;
+static gint end_bonus_id = 0;
 
 // List of sounds to use for greetings
 static gchar *greetingsList[] =
@@ -66,132 +57,6 @@ static gchar *loosingList[] =
  */
 static void	 bonus_image(char *,GCBonusStatusList);
 static void	 end_bonus(void);
-
-
-/* ==================================== */
-static void
-end_gc_bonus_end_display() {
-  GooCanvasBounds bounds;
-  //end_board_count++;
-  goo_canvas_item_get_bounds(tuxplane_item,  &bounds);
-  // animates tuxplane
-  if (/*end_board_count*/ bounds.x2 +50.0 < (double) (left_door_limit)) {
-    goo_canvas_item_translate(tuxplane_item, 50, 0);
-    return;
-  }
-
-  if (gc_bonus_end_display_id) {
-    g_source_remove(gc_bonus_end_display_id);
-    gc_bonus_end_display_id = 0;
-  }
-
-  if(door1_item)
-    goo_canvas_item_remove(door1_item);
-  if(door2_item)
-    goo_canvas_item_remove(door2_item);
-  if(tuxplane_item)
-    goo_canvas_item_remove(tuxplane_item);
-
-  door1_item = NULL;
-  door2_item = NULL;
-  tuxplane_item = NULL;
-
-  gc_bonus_end_display_running = FALSE;
-
-  gc_bar_hide(FALSE);
-
-  // go back to the first level
-  GcomprisBoard *gcomprisBoard = gc_board_get_current();
-  gcomprisBoard->level = 1;
-  gcomprisBoard->sublevel = 0;
-
-  /* Re-Start the board */
-  gc_board_pause(FALSE);
-}
-/* ==================================== */
-#define OFFSET 100
-void
-gc_bonus_end_display(GCBoardFinishedList type) {
-  GcomprisBoard *gcomprisBoard = gc_board_get_current();
-
-  int x,y;
-  GdkPixbuf *pixmap_door1 = NULL,*pixmap_door2 = NULL,*pixmap_tuxplane = NULL;
-  char * str = NULL;
-
-  g_assert(type < GC_BOARD_FINISHED_LAST);
-
-  gc_bar_hide(TRUE);
-
-  if (gc_bonus_end_display_running)
-    return;
-  else
-    gc_bonus_end_display_running = TRUE;
-
-  /* First pause the board */
-  gc_board_pause(TRUE);
-
-  /* WARNING: I remove 1 to the GC_BOARD_FINISHED_LAST because RANDOM is for GOOD end only */
-  if(type==GC_BOARD_FINISHED_RANDOM)
-    type = RAND(1,GC_BOARD_FINISHED_LAST-2);
-
-  /* Record the end of board */
-  gc_log_end (gcomprisBoard, GC_BOARD_COMPLETED);
-
-  switch (type) {
-	case GC_BOARD_FINISHED_TUXPLANE :
-		str = g_strdup_printf("tuxplane.png");
-		break;
-	case GC_BOARD_FINISHED_TUXLOCO :
-		str = g_strdup_printf("tuxloco.png");
-		break;
-	case GC_BOARD_FINISHED_TOOMANYERRORS :
-		str = g_strdup_printf("toomanyerrors.png");
-		break;
-	default :
-		str = g_strdup_printf("tuxplane.png");
-		break;
-  }
-
-  pixmap_door1 = gc_skin_pixmap_load("door1.png");
-  pixmap_door2 = gc_skin_pixmap_load("door2.png");
-  pixmap_tuxplane = gc_skin_pixmap_load(str);
-  g_free(str);
-
-  g_assert(gcomprisBoard != NULL);
-
-  x = BOARDWIDTH - OFFSET - gdk_pixbuf_get_width(pixmap_door1);
-  y = OFFSET;
-  left_door_limit = x + gdk_pixbuf_get_width(pixmap_door1);
-
-  door1_item = goo_canvas_image_new (goo_canvas_get_root_item(GOO_CANVAS(gcomprisBoard->canvas)),
-				     pixmap_door1,
-				     x,
-				     y,
-				     NULL);
-
-  x = OFFSET;
-  y = (BOARDHEIGHT - gdk_pixbuf_get_height(pixmap_tuxplane)) /2;
-  tuxplane_item = goo_canvas_image_new (goo_canvas_get_root_item(GOO_CANVAS(gcomprisBoard->canvas)),
-				      pixmap_tuxplane,
-				      x,
-				      y,
-				      NULL);
-
-  x = BOARDWIDTH - OFFSET - gdk_pixbuf_get_width(pixmap_door2);
-  y = OFFSET;
-  door2_item = goo_canvas_image_new (goo_canvas_get_root_item(GOO_CANVAS(gcomprisBoard->canvas)),
-				      pixmap_door2,
-				      x,
-				      y,
-				      NULL);
-
-  gdk_pixbuf_unref(pixmap_door1);
-  gdk_pixbuf_unref(pixmap_door2);
-  gdk_pixbuf_unref(pixmap_tuxplane);
-
-  gc_bonus_end_display_id = g_timeout_add (TUX_TIME_STEP, (GtkFunction) end_gc_bonus_end_display, NULL);
-
-}
 
 /* ==================================== */
 void

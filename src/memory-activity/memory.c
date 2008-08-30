@@ -1367,10 +1367,9 @@ static void player_win()
   /* Try the next level */
   if (tux_pairs <= player_pairs)
     gcomprisBoard->level++;
-  if(gcomprisBoard->level>gcomprisBoard->maxlevel) { // the current board is finished : bail out
-    gc_bonus_end_display(GC_BOARD_FINISHED_RANDOM);
-    return;
-  }
+  if(gcomprisBoard->level>gcomprisBoard->maxlevel)
+    gcomprisBoard->level = gcomprisBoard->maxlevel;
+
   gc_bonus_display((tux_pairs <= player_pairs), GC_BONUS_LION);
 
 }

@@ -479,11 +479,9 @@ static void player_win(GooCanvasItem *item)
     {
       /* Try the next level */
       gcomprisBoard->level++;
-      if(gcomprisBoard->level>gcomprisBoard->maxlevel) { // the current board is finished : bail out
-	gc_score_end();
-	gc_bonus_end_display(GC_BOARD_FINISHED_RANDOM);
-	return;
-      }
+      if(gcomprisBoard->level>gcomprisBoard->maxlevel)
+	gcomprisBoard->level = gcomprisBoard->maxlevel;
+
       gamewon = TRUE;
       smallnumbers_destroy_all_items();
       gc_bonus_display(gamewon, GC_BONUS_SMILEY);
