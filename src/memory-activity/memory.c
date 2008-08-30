@@ -1175,8 +1175,8 @@ static void create_item(GooCanvasItem *parent)
 {
   MemoryItem *memoryItem;
   gint x, y;
-  gint height, width;
-  gint height2, width2;
+  double height, width;
+  double height2, width2;
   GdkPixbuf *pixmap = NULL;
 
   // Calc width and height of one card
@@ -1279,9 +1279,10 @@ static void create_item(GooCanvasItem *parent)
 				  pixmap,
 				  0,
 				  0,
-				  "width", (double) width2,
-				  "height", (double) height2,
 				  NULL);
+	  goo_canvas_item_scale(memoryItem->backcardItem,
+				width2 / gdk_pixbuf_get_width(pixmap),
+				height2 / gdk_pixbuf_get_height(pixmap));
 	  gdk_pixbuf_unref(pixmap);
 
 	  if (currentUiMode != UIMODE_SOUND){
@@ -1291,9 +1292,10 @@ static void create_item(GooCanvasItem *parent)
 				    pixmap,
 				    0,
 				    0,
-				    "width", (double) width2,
-				    "height", (double) height2,
 				    NULL);
+	    goo_canvas_item_scale(memoryItem->framecardItem,
+				  (width2 / gdk_pixbuf_get_width(pixmap)),
+				  (height2 / gdk_pixbuf_get_height(pixmap)));
 	    g_object_set (memoryItem->framecardItem, "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
 	    gdk_pixbuf_unref(pixmap);
 	  }
@@ -1309,9 +1311,10 @@ static void create_item(GooCanvasItem *parent)
 				    pixmap,
 				    0,
 				    0,
-				    "width", (double) width2,
-				    "height", (double) height2,
 				    NULL);
+	    goo_canvas_item_scale(memoryItem->frontcardItem,
+				  (width2 / gdk_pixbuf_get_width(pixmap)),
+				  (height2 / gdk_pixbuf_get_height(pixmap)));
 	    gdk_pixbuf_unref(pixmap);
 	  }
 	  else {
@@ -1325,8 +1328,6 @@ static void create_item(GooCanvasItem *parent)
 				       gdk_pixbuf_get_width(pixmap))/2,
 				      (height2-
 				       gdk_pixbuf_get_height(pixmap))/2,
-				      "width", (double) gdk_pixbuf_get_width(pixmap),
-				      "height", (double) gdk_pixbuf_get_height(pixmap),
 				       NULL);
 	      gdk_pixbuf_unref(pixmap);
 
