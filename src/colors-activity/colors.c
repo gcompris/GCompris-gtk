@@ -51,6 +51,7 @@ item_event (GooCanvasItem *item,
 	    gpointer data);
 static int highlight_width, highlight_height;
 static GList * listColors = NULL;
+static gint timer_id = 0;
 
 static SoundPolicy sound_policy;
 
@@ -202,7 +203,11 @@ static void pause_board (gboolean pause)
   if(gcomprisBoard==NULL)
     return;
 
-  gc_bar_hide(FALSE);
+  if (timer_id) {
+    gtk_timeout_remove (timer_id);
+    timer_id = 0;
+  }
+
   if(gamewon == TRUE && pause == FALSE) /* the game is won */
     game_won();
 
@@ -215,10 +220,6 @@ static void pause_board (gboolean pause)
 static void start_board (GcomprisBoard *agcomprisBoard)
 {
   GcomprisProperties	*properties = gc_prop_get();
-  GList * list = NULL;
-  int * item;
-  int i, list_length;
-
   GHashTable *config = gc_db_get_board_conf();
 
   gc_locale_set(g_hash_table_lookup(config, "locale_sound"));
@@ -246,18 +247,6 @@ static void start_board (GcomprisBoard *agcomprisBoard)
     }
 
     gamewon = FALSE;
-
-    // we generate a list of color indexes in a random order
-    for (i=0; i<LAST_COLOR; i++)
-      list = g_list_append(list, GINT_TO_POINTER(i));
-
-    while ((list_length = g_list_length(list))) {
-      i = list_length == 1 ? 0 : g_random_int_range(0,g_list_length(list)-1);
-      item = g_list_nth_data(list, i);
-      listColors = g_list_append(listColors, item);
-      list = g_list_remove(list, item);
-    }
-    g_list_free(list);
 
     g_signal_connect(goo_canvas_get_root_item(gcomprisBoard->canvas),
 		     "button_press_event", (GtkSignalFunc) item_event, NULL);
@@ -317,6 +306,25 @@ static gboolean is_our_board (GcomprisBoard *gcomprisBoard)
  * =====================================================================*/
 static void colors_next_level()
 {
+  if (g_list_length(listColors) == 0)
+    {
+      GList * list = NULL;
+      int * item;
+      int i, list_length;
+
+      // we generate a list of color indexes in a random order
+      for (i=0; i<LAST_COLOR; i++)
+	list = g_list_append(list, GINT_TO_POINTER(i));
+
+      while ((list_length = g_list_length(list))) {
+	i = list_length == 1 ? 0 : g_random_int_range(0,g_list_length(list)-1);
+	item = g_list_nth_data(list, i);
+	listColors = g_list_append(listColors, item);
+	list = g_list_remove(list, item);
+      }
+      g_list_free(list);
+    }
+
   colors_destroy_all_items();
   gamewon = FALSE;
 
@@ -361,6 +369,11 @@ static void repeat ()
  * =====================================================================*/
 static void colors_destroy_all_items()
 {
+  if (timer_id) {
+    gtk_timeout_remove (timer_id);
+    timer_id = 0;
+  }
+
   if(boardRootItem!=NULL)
     goo_canvas_item_remove(boardRootItem);
 
@@ -408,13 +421,6 @@ static void game_won()
 
   listColors = g_list_remove(listColors, g_list_nth_data(listColors,0));
 
-  if( g_list_length(listColors) <= 0 )
-    { // the current board is finished : restart it
-      gamewon = TRUE;
-      gc_bonus_display(gamewon, GC_BONUS_GNU);
-    return;
-  }
-
   colors_next_level();
 }
 /* =====================================================================
@@ -422,15 +428,16 @@ static void game_won()
  * =====================================================================*/
 static gboolean process_ok_timeout()
 {
+  timer_id = 0;
   gc_bonus_display(gamewon, GC_BONUS_GNU);
   return FALSE;
 }
 
 static void process_ok()
 {
-  gc_bar_hide(TRUE);
   // leave time to display the right answer
-  g_timeout_add(TIME_CLICK_TO_BONUS, process_ok_timeout, NULL);
+  timer_id = g_timeout_add(TIME_CLICK_TO_BONUS,
+			   process_ok_timeout, NULL);
 }
 
 /* =====================================================================
