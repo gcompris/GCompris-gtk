@@ -22,6 +22,13 @@
 #include <glib/gstdio.h>
 
 #ifdef USE_SQLITE
+static gboolean disable_database;
+#define SUPPORT_OR_RETURN(rv)   {if(disable_database) return rv;}
+#else
+#define SUPPORT_OR_RETURN(rv)   { return rv; }
+#endif
+
+#ifdef USE_SQLITE
 static char *escape_quote(const char *input);
 static sqlite3 *gcompris_db=NULL;
 #endif
@@ -116,9 +123,12 @@ static sqlite3 *gcompris_db=NULL;
      END;"
 
 
-int gc_db_init()
+gboolean gc_db_init(gboolean disable_database_)
 {
+
 #ifdef USE_SQLITE
+  disable_database = disable_database_;
+  SUPPORT_OR_RETURN(FALSE);
   gboolean creation = FALSE;
   char *zErrMsg;
   char **result;
@@ -343,21 +353,25 @@ int gc_db_init()
 #endif
 }
 
-void gc_db_exit()
+gboolean gc_db_exit()
 {
+  SUPPORT_OR_RETURN(FALSE);
+
 #ifdef USE_SQLITE
   sqlite3_close(gcompris_db);
   g_warning("Database closed");
+  return TRUE;
 #endif
 }
 
 #define BOARDS_SET_DATE(date)				\
   "UPDATE informations SET init_date=\'%s\';",date
 
-void gc_db_set_date(gchar *date)
+gboolean gc_db_set_date(gchar *date)
 {
-#ifdef USE_SQLITE
+  SUPPORT_OR_RETURN(FALSE);
 
+#ifdef USE_SQLITE
   char *zErrMsg;
   char **result;
   int rc;
@@ -380,14 +394,17 @@ void gc_db_set_date(gchar *date)
 
   sqlite3_free_table(result);
 
+  return TRUE;
 #endif
 }
 
 #define BOARDS_UPDATE_VERSION(version)				\
   "UPDATE informations SET gcompris_version=\'%s\';",version
 
-void gc_db_set_version(gchar *version)
+gboolean gc_db_set_version(gchar *version)
 {
+  SUPPORT_OR_RETURN(FALSE);
+
 #ifdef USE_SQLITE
 
   char *zErrMsg;
@@ -412,6 +429,7 @@ void gc_db_set_version(gchar *version)
 
   sqlite3_free_table(result);
 
+  return TRUE;
 #endif
 }
 
@@ -419,6 +437,7 @@ void gc_db_set_version(gchar *version)
   "SELECT gcompris_version, init_date FROM informations;"
 gboolean gc_db_check_boards()
 {
+  SUPPORT_OR_RETURN(FALSE);
 #ifdef USE_SQLITE
 
   char *zErrMsg;
@@ -444,8 +463,6 @@ gboolean gc_db_check_boards()
   sqlite3_free_table(result);
 
   return ret_value;
-#else
-  return FALSE;
 #endif
 }
 
@@ -466,7 +483,7 @@ gboolean gc_db_check_boards()
   "SELECT board_id FROM boards WHERE name=\'%s\';",n
 
 
-void
+gboolean
 gc_db_board_update(guint *board_id,
 		   guint *section_id,
 		   gchar *name,
@@ -488,6 +505,8 @@ gc_db_board_update(guint *board_id,
 		   gchar *credit
 		   )
 {
+  SUPPORT_OR_RETURN(FALSE);
+
 #ifdef USE_SQLITE
 
   char *zErrMsg;
@@ -632,6 +651,7 @@ gc_db_board_update(guint *board_id,
 
   sqlite3_free(request);
 
+  return TRUE;
 #endif
 }
 
@@ -641,6 +661,8 @@ gc_db_board_update(guint *board_id,
 
 GList *gc_menu_load_db(GList *boards_list)
 {
+  SUPPORT_OR_RETURN(NULL);
+
 #ifdef USE_SQLITE
 
   GcomprisProperties	*properties = gc_prop_get();
@@ -712,8 +734,6 @@ GList *gc_menu_load_db(GList *boards_list)
 
   return boards;
 
-#else
-  return NULL;
 #endif
 }
 
@@ -728,6 +748,8 @@ GList *gc_db_read_board_from_section(gchar *section)
 
 GList *gc_db_get_board_id(GList *list)
 {
+  SUPPORT_OR_RETURN(NULL);
+
 #ifdef USE_SQLITE
 
   GList *board_id_list = list;
@@ -763,16 +785,16 @@ GList *gc_db_get_board_id(GList *list)
 
   return  board_id_list;
 
-#else
-  return list;
 #endif
 }
 
 #define DELETE_BOARD(table, board_id)			\
   "DELETE FROM %s WHERE board_id=%d;", table, board_id
 
-void gc_db_remove_board(int board_id)
+gboolean gc_db_remove_board(int board_id)
 {
+  SUPPORT_OR_RETURN(FALSE);
+
 #ifdef USE_SQLITE
   char *zErrMsg;
   char **result;
@@ -833,6 +855,8 @@ void gc_db_remove_board(int board_id)
   }
 
   g_free(request);
+
+  return TRUE;
 #endif
 }
 
@@ -851,6 +875,8 @@ void gc_db_remove_board(int board_id)
 
 GcomprisProfile *gc_db_get_profile_from_id(gint profile_id)
 {
+  SUPPORT_OR_RETURN(FALSE);
+
 #ifdef USE_SQLITE
   GcomprisProfile *profile = NULL;
 
@@ -958,8 +984,6 @@ GcomprisProfile *gc_db_get_profile_from_id(gint profile_id)
   }
 
   return profile;
-#else
-  return NULL;
 #endif
 }
 
@@ -972,6 +996,8 @@ GcomprisProfile *gc_db_get_profile_from_id(gint profile_id)
 GcomprisProfile *
 gc_db_profile_from_name_get(gchar *profile_name)
 {
+  SUPPORT_OR_RETURN(FALSE);
+
 #ifdef USE_SQLITE
   GcomprisProfile *profile = NULL;
 
@@ -1010,8 +1036,6 @@ gc_db_profile_from_name_get(gchar *profile_name)
 
 
   return profile;
-#else
-  return NULL;
 #endif
 }
 
@@ -1022,6 +1046,8 @@ gc_db_profile_from_name_get(gchar *profile_name)
 
 GcomprisProfile *gc_db_get_profile()
 {
+  SUPPORT_OR_RETURN(NULL);
+
 #ifdef USE_SQLITE
   char *zErrMsg;
   char **result;
@@ -1048,8 +1074,6 @@ GcomprisProfile *gc_db_get_profile()
 
   return gc_db_get_profile_from_id(profile_id);
 
-#else
-  return NULL;
 #endif
 }
 
@@ -1058,6 +1082,8 @@ GcomprisProfile *gc_db_get_profile()
 
 GList *gc_db_users_from_group_get(gint group_id)
 {
+  SUPPORT_OR_RETURN(NULL);
+
 #ifdef USE_SQLITE
   char *zErrMsg;
   char **result;
@@ -1113,6 +1139,8 @@ GList *gc_db_users_from_group_get(gint group_id)
 
 GcomprisUser *gc_db_get_user_from_id(gint user_id)
 {
+  SUPPORT_OR_RETURN(NULL);
+
 #ifdef USE_SQLITE
   char *zErrMsg;
   char **result;
@@ -1155,8 +1183,6 @@ GcomprisUser *gc_db_get_user_from_id(gint user_id)
 
 
   return user ;
-#else
-  return NULL;
 #endif
 }
 
@@ -1168,6 +1194,8 @@ GcomprisUser *gc_db_get_user_from_id(gint user_id)
 
 GcomprisClass *gc_db_get_class_from_id(gint class_id)
 {
+  SUPPORT_OR_RETURN(NULL);
+
 #ifdef USE_SQLITE
   char *zErrMsg;
   char **result;
@@ -1247,8 +1275,6 @@ GcomprisClass *gc_db_get_class_from_id(gint class_id)
   }
 
   return class ;
-#else
-  return NULL;
 #endif
 }
 
@@ -1262,11 +1288,14 @@ GcomprisClass *gc_db_get_class_from_id(gint class_id)
 #define UPDATE_KEY							\
   "UPDATE board_profile_conf SET conf_value=%Q WHERE profile_id=%d AND board_id=%d AND conf_key=%Q;"
 
-void gc_db_set_board_conf(GcomprisProfile *profile,
-			  GcomprisBoard  *board,
-			  gchar *key,
-			  gchar *value)
+gboolean
+gc_db_set_board_conf(GcomprisProfile *profile,
+		     GcomprisBoard  *board,
+		     gchar *key,
+		     gchar *value)
 {
+  SUPPORT_OR_RETURN(FALSE);
+
 #ifdef USE_SQLITE
   char *zErrMsg;
   char **result;
@@ -1336,15 +1365,20 @@ void gc_db_set_board_conf(GcomprisProfile *profile,
 
     sqlite3_free(request);
   }
+
+  return TRUE;
 #endif
 }
 
 #define GET_CONF(p, b)							\
   "SELECT conf_key, conf_value FROM board_profile_conf WHERE profile_id=%d AND board_id=%d;", p, b
 
-GHashTable *gc_db_conf_with_table_get(int profile_id, int board_id, GHashTable *table )
+GHashTable *gc_db_conf_with_table_get(int profile_id, int board_id,
+				      GHashTable *table )
 {
   GHashTable *hash_conf = table;
+
+  SUPPORT_OR_RETURN(hash_conf);
 
 #ifdef USE_SQLITE
   char *zErrMsg;
@@ -1387,18 +1421,19 @@ GHashTable *gc_db_conf_with_table_get(int profile_id, int board_id, GHashTable *
   }
 
   sqlite3_free_table(result);
-#endif
+
   return hash_conf;
+#endif
 }
 
 GHashTable *gc_db_get_conf(GcomprisProfile *profile, GcomprisBoard  *board )
 {
   GHashTable *hash_result = g_hash_table_new_full(g_str_hash, g_str_equal, g_free, g_free);
 
+  SUPPORT_OR_RETURN(hash_result);
+
 #ifdef USE_SQLITE
   return gc_db_conf_with_table_get( profile->profile_id, board->board_id, hash_result) ;
-#else
-  return hash_result;
 #endif
 }
 
@@ -1434,6 +1469,8 @@ GHashTable *gc_db_get_board_conf()
 
 GList *gc_db_profiles_list_get()
 {
+  SUPPORT_OR_RETURN(NULL);
+
 #ifdef USE_SQLITE
 
 
@@ -1552,8 +1589,6 @@ GList *gc_db_profiles_list_get()
   sqlite3_free_table(result);
 
   return profiles_list;
-#else
-  return NULL;
 #endif
 }
 
@@ -1562,6 +1597,8 @@ GList *gc_db_profiles_list_get()
 
 GcomprisGroup *gc_db_get_group_from_id(int group_id)
 {
+  SUPPORT_OR_RETURN(NULL);
+
 #ifdef USE_SQLITE
 
   char *zErrMsg;
@@ -1607,8 +1644,6 @@ GcomprisGroup *gc_db_get_group_from_id(int group_id)
 
   return group ;
 
-#else
-  return NULL;
 #endif
 }
 
@@ -1617,6 +1652,8 @@ GcomprisGroup *gc_db_get_group_from_id(int group_id)
 
 GList *gc_db_get_groups_list()
 {
+  SUPPORT_OR_RETURN(NULL);
+
 #ifdef USE_SQLITE
   GList *groups_list = NULL;
 
@@ -1661,9 +1698,6 @@ GList *gc_db_get_groups_list()
   }
 
   return groups_list;
-
-#else
-  return NULL;
 #endif
 }
 
@@ -1673,6 +1707,8 @@ GList *gc_db_get_groups_list()
 
 GcomprisBoard *gc_db_get_board_from_id(int board_id)
 {
+  SUPPORT_OR_RETURN(NULL);
+
 #ifdef USE_SQLITE
 
   GcomprisProperties	*properties = gc_prop_get();
@@ -1743,8 +1779,6 @@ GcomprisBoard *gc_db_get_board_from_id(int board_id)
   sqlite3_free_table(result);
 
   return gcomprisBoard;
-#else
-  return NULL;
 #endif
 }
 
@@ -1753,6 +1787,8 @@ GcomprisBoard *gc_db_get_board_from_id(int board_id)
 
 GList *gc_db_get_users_list()
 {
+  SUPPORT_OR_RETURN(NULL);
+
 #ifdef USE_SQLITE
   GList *users_list = NULL;
 
@@ -1797,9 +1833,6 @@ GList *gc_db_get_users_list()
   }
 
   return users_list;
-
-#else
-  return NULL;
 #endif
 }
 
@@ -1808,6 +1841,8 @@ GList *gc_db_get_users_list()
 
 GList *gc_db_get_classes_list()
 {
+  SUPPORT_OR_RETURN(NULL);
+
 #ifdef USE_SQLITE
   GList *classes_list = NULL;
 
@@ -1850,9 +1885,6 @@ GList *gc_db_get_classes_list()
   }
 
   return classes_list;
-
-#else
-  return NULL;
 #endif
 }
 
@@ -1862,6 +1894,8 @@ GList *gc_db_get_classes_list()
 
 int gc_db_is_activity_in_profile(GcomprisProfile *profile, char *activity_name)
 {
+  SUPPORT_OR_RETURN(TRUE);
+
 #ifdef USE_SQLITE
   char *zErrMsg;
   char **result;
@@ -1893,20 +1927,19 @@ int gc_db_is_activity_in_profile(GcomprisProfile *profile, char *activity_name)
 
   /* IS NOT IN THE PROFILE */
   return FALSE;
-
-#else
-  return TRUE;
 #endif
 }
 
 /** \brief insert a new log in the database
  *
  */
-void gc_db_log(gchar *date, int duration,
-	       int user_id, int board_id,
-	       int level, int sublevel,
-	       int status, gchar *comment)
+gboolean gc_db_log(gchar *date, int duration,
+		   int user_id, int board_id,
+		   int level, int sublevel,
+		   int status, gchar *comment)
 {
+  SUPPORT_OR_RETURN(FALSE);
+
 #ifdef USE_SQLITE
   char *zErrMsg;
   int rc;
@@ -1924,6 +1957,8 @@ void gc_db_log(gchar *date, int duration,
 
   if(comment)
     g_free(comment_quoted);
+
+  return TRUE;
 #endif
 }
 

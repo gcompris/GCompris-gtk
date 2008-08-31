@@ -1492,7 +1492,7 @@ main (int argc, char *argv[])
       printf(_("Use -l to access an activity directly.\n"));
       printf(_("The list of available activities is :\n"));
 
-      gc_db_init();
+      gc_db_init(FALSE /* ENABLE DATABASE */);
       gc_board_init();
       gc_menu_load();
 
@@ -1521,8 +1521,7 @@ main (int argc, char *argv[])
 	  }
 	}
       }
-      /* FIXME: Need to translate */
-      printf("Number of activities: %d\n", board_count);
+      printf(_("Number of activities: %d\n"), board_count);
 
       exit(0);
     }
@@ -1637,7 +1636,10 @@ main (int argc, char *argv[])
    * And after a possible alternate database as been provided
    *
    */
-  gc_db_init();
+  if (popt_root_menu)
+      gc_db_init(TRUE /* DISABLE DATABASE */);
+    else
+      gc_db_init(FALSE /* ENABLE DATABASE */);
 
   /* An alternate profile is requested, check it does exists */
   if (popt_profile){

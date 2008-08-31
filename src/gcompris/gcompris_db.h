@@ -25,16 +25,16 @@
 #endif
 
 /* Database management */
-int gc_db_init();
-void gc_db_exit();
+int gc_db_init(gboolean disable_database);
+gboolean gc_db_exit();
 
 gboolean gc_db_check_boards();
 
-void gc_db_set_date(gchar *date);
+gboolean gc_db_set_date(gchar *date);
 
-void gc_db_set_version(gchar *version);
+gboolean gc_db_set_version(gchar *version);
 
-void gc_db_board_update(guint *board_id,
+gboolean gc_db_board_update(guint *board_id,
 			      guint *section_id,
 			      gchar *name,
 			      gchar *section,
@@ -55,7 +55,7 @@ void gc_db_board_update(guint *board_id,
 			      gchar *credit
 			      );
 
-void gc_db_save_user(int *user_id,
+gboolean gc_db_save_user(int *user_id,
 			   gchar *login,
 			   gchar *name,
 			   gchar *firstname,
@@ -68,7 +68,7 @@ GList *gc_menu_load_db(GList *boards);
 
 GList *gc_db_get_board_id(GList *list);
 
-void gc_db_remove_board(int board_id);
+gboolean gc_db_remove_board(int board_id);
 
 
 /* Profile management */
@@ -96,7 +96,7 @@ GcomprisProfile *gc_db_get_profile();
 
 GList *gc_db_users_from_group_get(gint group_id);
 
-void gc_db_set_board_conf(GcomprisProfile *profile,
+gboolean gc_db_set_board_conf(GcomprisProfile *profile,
 			     GcomprisBoard  *board,
 			     gchar *key,
 			     gchar *value);
@@ -117,7 +117,7 @@ GcomprisBoard *gc_db_get_board_from_id(int board_id);
 
 int gc_db_is_activity_in_profile(GcomprisProfile *profile, char *activity_name);
 
-void gc_db_log(gchar *date, int duration,
+gboolean gc_db_log(gchar *date, int duration,
 	       int user_id, int board_id,
 	       int level, int sublevel,
 	       int status, gchar *comment);
