@@ -168,6 +168,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       gcomprisBoard->level = 1;
       gcomprisBoard->maxlevel = 6;
       gc_bar_set(GC_BAR_LEVEL);
+      gc_bar_location(30, -1, 0.6);
 
       /* Init of paratrooper struct */
       paratrooperItem.rootitem = NULL;

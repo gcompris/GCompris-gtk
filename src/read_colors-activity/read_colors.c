@@ -39,8 +39,6 @@ static void		 game_won(void);
 static GooCanvasItem *boardRootItem = NULL;
 static GooCanvasItem *highlight_image_item = NULL;
 static GooCanvasItem *color_item = NULL;
-static GooCanvasItem *clock_image_item = NULL;
-static GdkPixbuf *clock_pixmap = NULL;
 
 static GooCanvasItem *read_colors_create_item(GooCanvasItem *parent);
 static void read_colors_destroy_all_items(void);
@@ -49,14 +47,10 @@ static gboolean	item_event (GooCanvasItem  *item,
 			    GooCanvasItem  *target,
 			    GdkEventButton *event,
 			    gpointer data);
-static void update_clock();
 
-static int highlight_width, highlight_height, errors;
+static int highlight_width, highlight_height;
 static GList * listColors = NULL;
-
-#define MAX_ERRORS 10
-#define CLOCK_X 40
-#define CLOCK_Y 420
+static gint timer_id = 0;
 
 static gchar* colors[] =
   {
@@ -123,7 +117,11 @@ static void pause_board (gboolean pause)
   if(gcomprisBoard==NULL)
     return;
 
-  gc_bar_hide(FALSE);
+  if (timer_id) {
+    gtk_timeout_remove (timer_id);
+    timer_id = 0;
+  }
+
   if(gamewon == TRUE && pause == FALSE) /* the game is won */
     game_won();
 
@@ -134,9 +132,6 @@ static void pause_board (gboolean pause)
  *
  * =====================================================================*/
 static void start_board (GcomprisBoard *agcomprisBoard) {
-  GList * list = NULL;
-  int * item;
-  int i,list_length;
 
   if(agcomprisBoard!=NULL) {
     gcomprisBoard=agcomprisBoard;
@@ -147,22 +142,6 @@ static void start_board (GcomprisBoard *agcomprisBoard) {
     gc_bar_set(0);
 
     gamewon = FALSE;
-    errors = MAX_ERRORS;
-
-    // we generate a list of color indexes in a random order
-    while (g_list_length(listColors) > 0)
-      listColors = g_list_remove(listColors, g_list_nth_data(listColors,0));
-
-    for (i=0; i<LAST_COLOR; i++)
-      list = g_list_append(list, GINT_TO_POINTER(i));
-
-    while ((list_length = g_list_length(list))) {
-      i = list_length == 1 ? 0 : g_random_int_range(0,g_list_length(list)-1);
-      item = g_list_nth_data(list, i);
-      listColors = g_list_append(listColors, item);
-      list = g_list_remove(list, item);
-    }
-    g_list_free(list);
 
     g_signal_connect(goo_canvas_get_root_item(gcomprisBoard->canvas),
 		     "button_press_event", (GtkSignalFunc) item_event,
@@ -185,7 +164,6 @@ end_board ()
 					   (GtkSignalFunc) item_event, NULL);
 
       pause_board(TRUE);
-      gc_score_end();
       read_colors_destroy_all_items();
       // free list
       while (g_list_length(listColors) > 0)
@@ -218,6 +196,27 @@ static void read_colors_next_level() {
   read_colors_destroy_all_items();
   gamewon = FALSE;
 
+  // we generate a list of color indexes in a random order
+  if (g_list_length(listColors) == 0)
+    {
+      GList * list = NULL;
+      int * item;
+      int i, list_length;
+
+      listColors = g_list_remove(listColors, g_list_nth_data(listColors,0));
+
+      for (i=0; i<LAST_COLOR; i++)
+	list = g_list_append(list, GINT_TO_POINTER(i));
+
+      while ((list_length = g_list_length(list))) {
+	i = list_length == 1 ? 0 : g_random_int_range(0,g_list_length(list)-1);
+	item = g_list_nth_data(list, i);
+	listColors = g_list_append(listColors, item);
+	list = g_list_remove(list, item);
+      }
+      g_list_free(list);
+    }
+
   /* Try the next level */
   read_colors_create_item(goo_canvas_get_root_item(gcomprisBoard->canvas));
 
@@ -237,6 +236,12 @@ static void read_colors_next_level() {
  * Destroy all the items
  * =====================================================================*/
 static void read_colors_destroy_all_items() {
+
+  if (timer_id) {
+    gtk_timeout_remove (timer_id);
+    timer_id = 0;
+  }
+
   if(boardRootItem!=NULL)
     goo_canvas_item_remove(boardRootItem);
 
@@ -271,39 +276,9 @@ static GooCanvasItem *read_colors_create_item(GooCanvasItem *parent) {
 
   gdk_pixbuf_unref(highlight_pixmap);
 
-  /* setup the clock */
-  str = g_strdup_printf("%s%d.png", "timers/clock",errors);
-  clock_pixmap = gc_skin_pixmap_load(str);
-
-  clock_image_item = goo_canvas_image_new (boardRootItem,
-					   clock_pixmap,
-					   CLOCK_X,
-					   CLOCK_Y,
-					   NULL);
-
-  g_free(str);
-
   return NULL;
 }
-/* =====================================================================
- *
- * =====================================================================*/
-static void update_clock() {
-  char *str = g_strdup_printf("%s%d.png", "timers/clock",errors);
 
-  goo_canvas_item_remove(clock_image_item);
-
-  clock_pixmap = gc_skin_pixmap_load(str);
-
-  clock_image_item = goo_canvas_image_new (boardRootItem,
-					   clock_pixmap,
-					   CLOCK_X,
-					   CLOCK_Y,
-					   NULL);
-
-  gdk_pixbuf_unref(clock_pixmap);
-  g_free(str);
-}
 /* =====================================================================
  *
  * =====================================================================*/
@@ -321,25 +296,15 @@ static void game_won() {
  *
  * =====================================================================*/
 static gboolean process_ok_timeout() {
+  timer_id = 0;
   gc_bonus_display(gamewon, GC_BONUS_SMILEY);
-  if (!gamewon)
-    errors--;
-  if (errors <1)
-    errors = 1;
-  update_clock();
-
-  if (errors <= 1) {
-    gamewon = FALSE;
-    gc_bonus_display(gamewon, GC_BONUS_SMILEY);
-  }
-
-	return FALSE;
+  return FALSE;
 }
 
 static void process_ok() {
-  gc_bar_hide(TRUE);
   // leave time to display the right answer
-  g_timeout_add(TIME_CLICK_TO_BONUS, process_ok_timeout, NULL);
+  timer_id = g_timeout_add(TIME_CLICK_TO_BONUS,
+			   process_ok_timeout, NULL);
 }
 
 /* =====================================================================

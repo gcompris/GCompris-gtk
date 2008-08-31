@@ -58,6 +58,7 @@ static gboolean item_event (GooCanvasItem  *item,
 			    gpointer data);
 static int highlight_width, highlight_height;
 static GList * listColors = NULL;
+static gint timer_id = 0;
 
 #define LAST_COLOR 8
 #define LAST_BOARD 9
@@ -116,7 +117,11 @@ static void pause_board (gboolean pause)
   if(gcomprisBoard==NULL)
     return;
 
-  gc_bar_hide(FALSE);
+  if (timer_id) {
+    gtk_timeout_remove (timer_id);
+    timer_id = 0;
+  }
+
   if(gamewon == TRUE && pause == FALSE) /* the game is won */
     game_won();
 
@@ -251,6 +256,11 @@ static void colors_next_level() {
  * =====================================================================*/
 static void colors_destroy_all_items()
 {
+  if (timer_id) {
+    gtk_timeout_remove (timer_id);
+    timer_id = 0;
+  }
+
   if(boardRootItem!=NULL)
     goo_canvas_item_remove(boardRootItem);
 
@@ -333,6 +343,7 @@ static void game_won() {
  * =====================================================================*/
 static gboolean ok_timeout()
 {
+  timer_id = 0;
   gc_bonus_display(gamewon, GC_BONUS_SMILEY);
   if (!gamewon)
     errors--;
@@ -349,9 +360,8 @@ static gboolean ok_timeout()
 }
 
 static void ok() {
-  gc_bar_hide(TRUE);
   // leave time to display the right answer
-  g_timeout_add(TIME_CLICK_TO_BONUS, ok_timeout, NULL);
+  timer_id = g_timeout_add(TIME_CLICK_TO_BONUS, ok_timeout, NULL);
 }
 
 /* =====================================================================
